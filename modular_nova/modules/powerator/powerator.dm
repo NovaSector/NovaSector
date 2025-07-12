@@ -177,18 +177,15 @@
 	attached_cable.add_delayedload(current_power)
 
 	///split it in half for chosen departments if there is more than one
-	var/money_ratio = round(current_power * divide_ratio) * 0.5
-	var/money_ratio_uncut = round(current_power * divide_ratio)
-
 	var/datum/bank_account/credit_account_1 = SSeconomy.get_dep_account(credits_account_1)
 	var/datum/bank_account/credit_account_2 = SSeconomy.get_dep_account(credits_account_2)
-	if(credits_account_2 != null)
-		credit_account_1.adjust_money(money_ratio)
-		credit_account_2.adjust_money(money_ratio)
-		credits_made += money_ratio //don't want to be misleading, but just display what half each departments get and not the total
-	else
-		credit_account_1.adjust_money(money_ratio_uncut)
-		credits_made += money_ratio_uncut //don't want to be misleading, but just display what half each departments get and not the total
+	var/money_ratio = round(current_power * divide_ratio)
+	// cut in half if we have a second account
+	if(credits_account_2)
+		money_ratio *= 0.5
+	credit_account_1.adjust_money(money_ratio)
+	credit_account_2?.adjust_money(money_ratio)
+	credits_made += money_ratio  //don't want to be misleading, but just display what half each departments get and not the total
 
 /obj/machinery/powerator/attack_hand(mob/living/user, list/modifiers)
 	. = ..()
