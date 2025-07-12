@@ -1,9 +1,9 @@
 /datum/supply_pack/security/armory/wt550/sec
 	name = "Surplus WT-550 Crate"
 	desc = "An entire crate of outdated service rifles, offered by your wonderful benefactors, Nanotrasen. \
-	Employees are reminded that rumors of face-melting are just that, and these weapons are entirely safe, if not \
-	entirely up to modern standards; all the same, Nanotrasen is not responsible for issues arising from their deployment. \
-	Ammo sold separately."
+		Employees are reminded that rumors of face-melting are just that, and these weapons are entirely safe, if not \
+		entirely up to modern standards; all the same, Nanotrasen is not responsible for issues arising from their deployment. \
+		Ammo sold separately."
 	hidden = FALSE
 	cost = CARGO_CRATE_VALUE * 8
 	access = ACCESS_ARMORY
