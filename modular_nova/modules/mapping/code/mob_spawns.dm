@@ -66,7 +66,7 @@
 	quirks_enabled = TRUE
 	random_appearance = FALSE
 	computer_area = /area/ruin/space/has_grav/nova/des_two/service/dorms
-	spawner_job_path = /datum/job/ghost_role/ds2
+	spawner_job_path = /datum/job/ds2
 
 /obj/effect/mob_spawn/ghost_role/human/ds2/prisoner
 	name = "Syndicate Prisoner"
@@ -90,7 +90,7 @@
 	important_text = "You are not an antagonist. Adminhelp before antagonizing station crew."
 	outfit = /datum/outfit/ds2/syndicate
 	computer_area = /area/ruin/space/has_grav/nova/des_two/halls
-	spawner_job_path = /datum/job/ghost_role/ds2
+	spawner_job_path = /datum/job/ds2
 	loadout_enabled = TRUE
 
 /obj/effect/mob_spawn/ghost_role/human/ds2/syndicate_command

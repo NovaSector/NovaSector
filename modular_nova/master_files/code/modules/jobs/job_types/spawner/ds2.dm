@@ -29,9 +29,3 @@
 	bounty_types = DS2_JOB_ENFORCER
 	paycheck_department = ACCOUNT_DS2
 
-/datum/job/ghost_role/ds2
-	title = ROLE_DS2
-	policy_index = ROLE_DS2
-	paycheck = PAYCHECK_CREW
-	bounty_types = DYNE_JOB_SCIENCE
-	paycheck_department = ACCOUNT_DS2
