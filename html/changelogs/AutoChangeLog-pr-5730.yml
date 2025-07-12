@@ -1,0 +1,5 @@
+author: "Vanilla1040"
+delete-after: True
+changes:
+  - image: "touched up the infiltrator and interdyne MOD"
+  - bugfix: "fixed sprite peaking trough the MOD on the interdyne MOD"
