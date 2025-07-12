@@ -19,7 +19,7 @@
 	var/sound_effect
 	//NOVA ADDITION EDIT END
 
-/datum/element/voucher_redeemer/Attach(datum/target, voucher_type = /obj/item/coin, set_type = /datum/voucher_set, drop_direction = 0, sound_effect = 'sound/machines/machine_vend.ogg') // NOVA ADDITION, old code: /datum/element/voucher_redeemer/Attach(datum/target, voucher_type = /obj/item/coin, set_type = /datum/voucher_set)
+/datum/element/voucher_redeemer/Attach(datum/target, voucher_type = /obj/item/coin, set_type = /datum/voucher_set, drop_direction = 0, sound_effect = 'sound/machines/machine_vend.ogg') // NOVA ADDITION EDIT, old code: /datum/element/voucher_redeemer/Attach(datum/target, voucher_type = /obj/item/coin, set_type = /datum/voucher_set)
 	. = ..()
 	if(!ismovable(target))
 		return ELEMENT_INCOMPATIBLE

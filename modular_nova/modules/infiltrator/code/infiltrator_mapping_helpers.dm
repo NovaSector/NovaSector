@@ -26,10 +26,10 @@
 //the note
 /obj/item/paper/fluff/midround_traitor/proc/write_note(mob/infiltrator)
 	var/first_name
-	if(is_mononym(infiltrator.name))
-		first_name = infiltrator.name
+	if(is_mononym(infiltrator.real_name))
+		first_name = infiltrator.real_name
 	else
-		first_name = "[first_name(infiltrator.name)]"
+		first_name = "[first_name(infiltrator.real_name)]"
 	//add it to the note
 	add_raw_text("[first_name],")
 	add_raw_text("Hi.")

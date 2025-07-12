@@ -83,7 +83,7 @@
 	map_name = "midround_traitor"
 
 //pet
-/mob/living/basic/carp/pet/clover
+/mob/living/basic/carp/pet/clover //carpo you're really adding another carp pet isn't that overdone? I JUST THINK THEY'RE NEAT
 	name = "Clover"
 	real_name = "Clover"
 	icon = 'modular_nova/modules/infiltrator/icons/carp.dmi'
@@ -94,6 +94,7 @@
 	gender = MALE
 	maxHealth = 300 //you said carps were stronger on nova-sector
 	health = 300
+	speak_emote = list("gruffs") //he's old
 	desc = "A bright green carp tamed by one of the operatives on rotation at bay no. 09. \n\
 	Has been here a long, long time. Petting him brings good luck, you'll need it."
 	faction = list(ROLE_SYNDICATE)
@@ -102,53 +103,22 @@
 
 /mob/living/basic/carp/pet/clover/Initialize(mapload)
 	. = ..()
+	combat_mode = FALSE //starts on for some reason, making him dense which is annoying
 	//for sentience potion
 	var/datum/language_holder/holder = get_language_holder()
 	holder.grant_language(/datum/language/codespeak, source = LANGUAGE_MIND)
 	holder.selected_language = /datum/language/codespeak
 
-//items to unlock some research for their equipment machinery
-/obj/item/disk/mecha_part_fabricator
-	var/list/nodes_to_unlock = list()
+//mech mmi
+/obj/item/mmi/posibrain/circuit/disk/syndie
+	overrides_aicore_laws = TRUE
+	req_access = list(ACCESS_SYNDICATE)
+	faction = list(ROLE_SYNDICATE)
 
-/obj/item/disk/mecha_part_fabricator/interact_with_atom(atom/interacting_with, mob/living/user, list/modifiers)
-	if(!istype(interacting_with, /obj/machinery/mecha_part_fabricator))
-		return NONE
-	if(!nodes_to_unlock.len)
-		return NONE
-	var/obj/machinery/mecha_part_fabricator/fabricator = interacting_with
-	for(var/techweb_node in nodes_to_unlock)
-		var/datum/techweb_node/modsuit_node = SSresearch.techweb_nodes[techweb_node]
-		for(var/id in modsuit_node.design_ids)
-			var/datum/design/design = SSresearch.techweb_design_by_id(id)
-			fabricator.illegal_local_designs |= design //i like the broken english on this var. we'll have it hold more than just illegal designs, because its useful like that
-
-	fabricator.update_menu_tech()
-	qdel(src)
-	return ITEM_INTERACT_SUCCESS
-
-/obj/item/disk/mecha_part_fabricator/modmodule_data
-	name = "MODsuit module data disk"
-	desc = "A disk which contains MODsuit module print-recipes, which can be downloaded by an exosuit fabricator if inserted."
-	icon_state = "datadisk5"
-	nodes_to_unlock = list(
-		TECHWEB_NODE_MOD_SUIT,
-		TECHWEB_NODE_MOD_EQUIP,
-		TECHWEB_NODE_MOD_ENGI,
-		TECHWEB_NODE_MOD_ENGI_ADV,
-		TECHWEB_NODE_MOD_SECURITY,
-	)
-
-/obj/item/disk/mecha_part_fabricator/mechaparts_data
-	name = "mecha parts module data disk"
-	desc = "A disk which contains mech tool print-recipes, which can be downloaded by an exosuit fabricator if inserted."
-	icon_state = "datadisk0"
-	layer = MOB_LAYER //a little hacky, but this is so the mech it spawns with doesn't obscure it
-	nodes_to_unlock = list(
-		TECHWEB_NODE_MECH_ASSEMBLY,
-		TECHWEB_NODE_MECH_EQUIPMENT,
-		TECHWEB_NODE_MECH_COMBAT,
-	)
+/obj/item/mmi/posibrain/circuit/disk/syndie/Initialize(mapload)
+	. = ..()
+	laws = new /datum/ai_laws/syndicate_override()
+	radio.set_on(FALSE)
 
 //stationary docking port
 /obj/docking_port/stationary/traitor

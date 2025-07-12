@@ -83,6 +83,7 @@
 /datum/job/infiltrator
 	title = ROLE_INFILTRATOR
 	plasmaman_outfit = /datum/outfit/infiltrator_plasmaman
+	akula_outfit = /datum/outfit/infiltrator_akula
 
 /datum/outfit/infiltrator_plasmaman
 	name = "Infiltrator (Plasmaman)"
@@ -91,3 +92,7 @@
 	gloves = /obj/item/clothing/gloves/color/plasmaman/black
 	belt = /obj/item/tank/internals/plasmaman/belt/full
 	internals_slot = ITEM_SLOT_BELT
+
+/datum/outfit/infiltrator_akula
+	name = "Infiltrator (Akula)"
+	head = /obj/item/clothing/head/helmet/space/akula_wetsuit
