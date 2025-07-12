@@ -362,6 +362,7 @@
 	dir = 4
 	},
 /obj/machinery/computer/order_console/mining{
+	express_cost_multiplier = 1;
 	forced_express = 1
 	},
 /turf/open/floor/iron,
