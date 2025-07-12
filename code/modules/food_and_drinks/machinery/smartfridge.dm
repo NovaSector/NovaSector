@@ -549,7 +549,6 @@
 	visible_contents = FALSE
 	base_build_path = /obj/machinery/smartfridge/drying/rack
 	use_power = NO_POWER_USE
-	idle_power_usage = 0
 
 /obj/machinery/smartfridge/drying/rack/Initialize(mapload)
 	. = ..()
