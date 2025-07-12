@@ -6874,7 +6874,6 @@
 #include "modular_nova\master_files\code\game\gamemodes\objective.dm"
 #include "modular_nova\master_files\code\game\gamemodes\dynamic\dynamic_rulesets_midround.dm"
 #include "modular_nova\master_files\code\game\gamemodes\dynamic\dynamic_rulesets_roundstart.dm"
-#include "modular_nova\master_files\code\game\machinery\civilian_bounties.dm"
 #include "modular_nova\master_files\code\game\machinery\department_balance.dm"
 #include "modular_nova\master_files\code\game\machinery\deployable.dm"
 #include "modular_nova\master_files\code\game\machinery\hologram.dm"
