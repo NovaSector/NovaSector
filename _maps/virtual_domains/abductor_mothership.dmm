@@ -212,11 +212,6 @@
 /obj/item/defibrillator/compact,
 /turf/open/floor/plating/abductor2,
 /area/virtual_domain)
-"dn" = (
-/obj/structure/table/abductor,
-/obj/structure/table/abductor,
-/turf/open/floor/plating/abductor2,
-/area/virtual_domain)
 "dw" = (
 /obj/item/kirbyplants/photosynthetic{
 	light_range = 5;
@@ -700,7 +695,6 @@
 /turf/open/floor/plating/abductor2,
 /area/virtual_domain)
 "jZ" = (
-/obj/structure/table/abductor,
 /obj/structure/table/abductor,
 /obj/item/trash/peanuts{
 	pixel_x = 9;
@@ -1729,24 +1723,17 @@
 "Cq" = (
 /obj/machinery/button/door/directional/east{
 	pixel_x = 24;
+	pixel_y = -6;
+	id = "abductorarmory";
+	name = "Armory Lock Control";
+	desc = "A remote door control which locks and unlocks the security shutters for the armory and locker room, allowing their inhabitants to shoot whatever unwelcome fellow pressed this button."
+	},
+/obj/machinery/button/door/directional/east{
+	pixel_x = 24;
 	pixel_y = 5;
 	id = "abductorcommandlock";
 	name = "Command Shutters Control";
 	desc = "A door remote controlling access to the command areas of the station. This was almost certainly hit the moment you arrived. <br><br>You get the feeling you should <b>be absolutely prepared and ensure your objective is not elsewhere</b> before assailing the command portion of the station."
-	},
-/obj/machinery/button/door/directional/east{
-	pixel_x = 24;
-	pixel_y = -6;
-	id = "abductorarmory";
-	name = "Armory Lock Control";
-	desc = "A remote door control which locks and unlocks the security shutters for the armory and locker room, allowing their inhabitants to shoot whatever unwelcome fellow pressed this button."
-	},
-/obj/machinery/button/door/directional/east{
-	pixel_x = 24;
-	pixel_y = -6;
-	id = "abductorarmory";
-	name = "Armory Lock Control";
-	desc = "A remote door control which locks and unlocks the security shutters for the armory and locker room, allowing their inhabitants to shoot whatever unwelcome fellow pressed this button."
 	},
 /turf/open/floor/plating/abductor2,
 /area/virtual_domain)
@@ -2035,7 +2022,6 @@
 /turf/open/floor/plating/abductor,
 /area/virtual_domain)
 "IN" = (
-/obj/structure/table/abductor,
 /obj/structure/table/abductor,
 /obj/item/seeds/peanut{
 	pixel_x = -4;
@@ -7367,7 +7353,7 @@ ZI
 Vh
 ZI
 bq
-dn
+Yt
 QV
 XL
 lC
