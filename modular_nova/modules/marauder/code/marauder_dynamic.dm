@@ -1,23 +1,23 @@
-/datum/dynamic_ruleset/midround/from_ghosts/infiltrator
-	name = "Midround Operative"
-	antag_datum = /datum/antagonist/traitor/infiltrator
+/datum/dynamic_ruleset/midround/from_ghosts/marauder
+	name = "Ghostroll Operative"
+	antag_datum = /datum/antagonist/traitor/marauder
 	midround_ruleset_style = MIDROUND_RULESET_STYLE_LIGHT
-	antag_flag = ROLE_INFILTRATOR
+	antag_flag = ROLE_MARAUDER
 	signup_item_path = /obj/item/clothing/mask/gas/syndicate
 	required_candidates = 1
 	weight = 4 //Slightly less common than normal midround traitors.
 	cost = 4 //But also slightly more costly.
 	minimum_players = 10
-	///Amount of infiltrators spawned in the round
-	var/infil_number = 1
+	///Amount of times we've occured in the round
+	var/marauder_no = 1
 
-/datum/dynamic_ruleset/midround/from_ghosts/infiltrator/generate_ruleset_body(mob/applicant)
+/datum/dynamic_ruleset/midround/from_ghosts/marauder/generate_ruleset_body(mob/applicant)
 	//generate body
 	var/mob/living/carbon/human/new_character = make_body(applicant)
 	new_character.Sleeping(7 SECONDS)
 	//mind
 	var/datum/mind/player_mind = new /datum/mind(applicant.key)
-	player_mind.set_assigned_role(SSjob.get_job_type(/datum/job/infiltrator))
+	player_mind.set_assigned_role(SSjob.get_job_type(/datum/job/marauder))
 	player_mind.active = TRUE
 	//outfit
 	new_character.dna.species.pre_equip_species_outfit(player_mind.assigned_role, new_character)
@@ -31,14 +31,14 @@
 	if(player_client)
 		SSquirks.AssignQuirks(new_character, new_character.client)
 	//logging
-	message_admins("[ADMIN_LOOKUPFLW(new_character)] has been made into an infiltrator by midround ruleset.")
-	log_game("[key_name(new_character)] was spawned as an infiltrator by midround ruleset.")
+	message_admins("[ADMIN_LOOKUPFLW(new_character)] has been made into a traitor by midround ruleset.")
+	log_game("[key_name(new_character)] was spawned as a traitor by midround ruleset.")
 	return new_character
 
-/datum/dynamic_ruleset/midround/from_ghosts/infiltrator/finish_setup(mob/new_character, index)
-	for(var/datum/dynamic_ruleset/midround/from_ghosts/infiltrator/ruleset in SSdynamic.executed_rules)
-		infil_number++
+/datum/dynamic_ruleset/midround/from_ghosts/marauder/finish_setup(mob/new_character, index)
+	for(var/datum/dynamic_ruleset/midround/from_ghosts/marauder/ruleset in SSdynamic.executed_rules)
+		marauder_no++
 	return ..()
 
-/datum/dynamic_ruleset/midround/from_ghosts/infiltrator/setup_role(datum/antagonist/traitor/infiltrator/role)
-	role.infil_number = infil_number
+/datum/dynamic_ruleset/midround/from_ghosts/marauder/setup_role(datum/antagonist/traitor/marauder/role)
+	role.marauder_no = marauder_no

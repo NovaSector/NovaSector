@@ -60,10 +60,9 @@
 ///
 /// VOUCHER ITEM SETS
 
-/// MODSUIT VOUCHER SET
+/// EXOSUIT VOUCHER SET
 /datum/voucher_set/traitor/mod
 
-// Syndicate modsuit
 /datum/voucher_set/traitor/mod/nukie
 	name = "Syndicate MODsuit"
 	icon = 'modular_nova/modules/moretraitoritems/icons/mod_construction.dmi'
@@ -76,7 +75,6 @@
 	icon = 'modular_nova/modules/moretraitoritems/icons/mod_construction.dmi'
 	theme = /datum/mod_theme/syndicate
 
-// Elite Modsuit
 /datum/voucher_set/traitor/mod/elite
 	name = "Elite MODsuit"
 	icon = 'modular_nova/modules/moretraitoritems/icons/mod_construction.dmi'
@@ -89,7 +87,6 @@
 	icon = 'modular_nova/modules/moretraitoritems/icons/mod_construction.dmi'
 	theme = /datum/mod_theme/elite
 
-// Infiltrator Modsuit
 /datum/voucher_set/traitor/mod/infiltrator
 	name = "Infiltrator MODsuit"
 	icon = 'modular_nova/modules/moretraitoritems/icons/mod_construction.dmi'
@@ -102,10 +99,9 @@
 	icon = 'modular_nova/modules/moretraitoritems/icons/mod_construction.dmi'
 	theme = /datum/mod_theme/infiltrator
 
-/// MECHA VOUCHER SET
+
 /datum/voucher_set/traitor/mech
 
-// Gygax
 /datum/voucher_set/traitor/mech/gygax
 	name = "Gygax"
 	icon = 'icons/mob/rideables/mecha.dmi'
@@ -118,7 +114,6 @@
 		/obj/item/mecha_parts/mecha_equipment/repair_droid
 	)
 
-// Ripley 2
 /datum/voucher_set/traitor/mech/ripleymk2
 	name = "Ripley Mk.II"
 	icon = 'icons/mob/rideables/mecha.dmi'

@@ -2,9 +2,9 @@
 
 import { Antagonist, Category } from '../base';
 
-const Infiltrator: Antagonist = {
-  key: 'infiltrator',
-  name: 'Infiltrator',
+const Marauder: Antagonist = {
+  key: 'marauder',
+  name: 'Marauder',
   description: [
     `A midround traitor who begins inside their Syndicate armoury,
     Equip your gear, board your shuttle and complete your objectives.
@@ -13,4 +13,4 @@ const Infiltrator: Antagonist = {
   category: Category.Midround,
 };
 
-export default Infiltrator;
+export default Marauder;

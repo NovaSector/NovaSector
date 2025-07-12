@@ -6,7 +6,7 @@
 
 /datum/map_template/shuttle/traitor/default
 	suffix = "default"
-	name = "infiltrator's shuttle (Default)"
+	name = "marauder's shuttle (Default)"
 	has_ceiling = TRUE
 	ceiling_turf = /turf/open/floor/plating/reinforced
 
@@ -60,7 +60,7 @@
 
 //mobile docking port
 /obj/docking_port/mobile/traitor
-	name = "infiltrator shuttle"
+	name = "marauder shuttle"
 	callTime = 10 SECONDS
 	ignitionTime = 5 SECONDS
 	rechargeTime = 30 SECONDS
@@ -72,9 +72,14 @@
 //area
 /area/shuttle/traitor
 	requires_power = TRUE
-	name = "Infiltrator Ship"
+	name = "Marauder Ship"
 	flags_1 = NONE
 
+GLOBAL_LIST_INIT(traitor_shuttle_names, world.file2list("strings/names/nova/traitor_shuttle.txt"))
+
+/area/shuttle/traitor/Initialize(mapload)
+	name = pick(GLOB.traitor_shuttle_names)
+	. = ..()
 
 //map
 /datum/lazy_template/midround_traitor
@@ -86,7 +91,7 @@
 /mob/living/basic/carp/pet/clover //carpo you're really adding another carp pet isn't that overdone? I JUST THINK THEY'RE NEAT
 	name = "Clover"
 	real_name = "Clover"
-	icon = 'modular_nova/modules/infiltrator/icons/carp.dmi'
+	icon = 'modular_nova/master_files/icons/mob/pets.dmi'
 	icon_state = "clover"
 	icon_dead = "clover_dead"
 	icon_gib = "clover_gib"
@@ -119,6 +124,11 @@
 	. = ..()
 	laws = new /datum/ai_laws/syndicate_override()
 	radio.set_on(FALSE)
+
+//just a classic martini
+/obj/item/reagent_containers/cup/glass/drinkingglass/filled/martini
+	list_reagents = list(/datum/reagent/consumable/ethanol/martini = 50)
+
 
 //stationary docking port
 /obj/docking_port/stationary/traitor
@@ -167,7 +177,7 @@
 
 /area/misc/operative_barracks/mission_briefing
 	name = "Mission Briefing no. 09"
-	sound_environment = SOUND_ENVIRONMENT_AUDITORIUM
+	sound_environment = SOUND_ENVIRONMENT_STONEROOM
 
 /area/misc/operative_barracks/dorm
 	name = "Dormroom no. 09"
