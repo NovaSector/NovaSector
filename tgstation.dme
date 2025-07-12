@@ -7540,6 +7540,7 @@
 #include "modular_nova\modules\bsa_overhaul\code\bsa_computer.dm"
 #include "modular_nova\modules\bsa_overhaul\code\station_goal.dm"
 #include "modular_nova\modules\bsrpd\code\bsrpd.dm"
+#include "modular_nova\modules\cargo\code\exports.dm"
 #include "modular_nova\modules\cargo\code\expressconsole.dm"
 #include "modular_nova\modules\cargo\code\goodies.dm"
 #include "modular_nova\modules\cargo\code\packs.dm"
