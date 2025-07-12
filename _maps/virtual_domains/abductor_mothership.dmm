@@ -1616,14 +1616,6 @@
 	},
 /turf/open/floor/plating/abductor2,
 /area/virtual_domain)
-"AI" = (
-/obj/machinery/computer/camera_advanced/abductor{
-	name = "Prisoner Observation Console";
-	desc = "You'd know a security camera console anywhere, even if you can't undersand a damn thing it says!";
-	networks = list("abdubrig")
-	},
-/turf/open/floor/plating/abductor,
-/area/virtual_domain)
 "AJ" = (
 /obj/structure/closet/abductor,
 /obj/item/storage/belt/military/abductor,
@@ -2400,15 +2392,6 @@
 	pixel_x = -38;
 	pixel_y = -6
 	},
-/turf/open/floor/plating/abductor,
-/area/virtual_domain)
-"Og" = (
-/obj/machinery/camera/autoname/directional/north{
-	network = list("xenord");
-	networks = "abdubrig";
-	name = abdubrig
-	},
-/obj/item/kirbyplants/photosynthetic,
 /turf/open/floor/plating/abductor,
 /area/virtual_domain)
 "Ou" = (
@@ -6960,7 +6943,7 @@ fZ
 fZ
 ev
 pI
-Og
+MN
 XL
 pI
 pI
@@ -7023,7 +7006,7 @@ pI
 pI
 pI
 pI
-AI
+nL
 XL
 fZ
 fZ
@@ -7245,7 +7228,7 @@ fZ
 th
 pI
 pI
-Og
+MN
 QK
 Vh
 Vh
@@ -7529,7 +7512,7 @@ LB
 pI
 hi
 pI
-Og
+MN
 XL
 XL
 fZ
