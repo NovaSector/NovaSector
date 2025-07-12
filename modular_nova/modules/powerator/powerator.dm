@@ -183,8 +183,8 @@
 	// cut in half if we have a second account
 	if(credits_account_2)
 		money_ratio *= 0.5
+		credit_account_2.adjust_money(money_ratio)
 	credit_account_1.adjust_money(money_ratio)
-	credit_account_2?.adjust_money(money_ratio)
 	credits_made += money_ratio  //don't want to be misleading, but just display what half each departments get and not the total
 
 /obj/machinery/powerator/attack_hand(mob/living/user, list/modifiers)
