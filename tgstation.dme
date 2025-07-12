@@ -6972,6 +6972,8 @@
 #include "modular_nova\master_files\code\modules\cargo\orderconsole.dm"
 #include "modular_nova\master_files\code\modules\cargo\bounties\destwo.dm"
 #include "modular_nova\master_files\code\modules\cargo\bounties\interdyne.dm"
+#include "modular_nova\master_files\code\modules\cargo\bounties\interdyne_slime.dm"
+#include "modular_nova\master_files\code\modules\cargo\bounties\interdyne_reagent.dm"
 #include "modular_nova\master_files\code\modules\cargo\bounties\medical.dm"
 #include "modular_nova\master_files\code\modules\cargo\bounties\tarkon.dm"
 #include "modular_nova\master_files\code\modules\cargo\exports\tools.dm"
