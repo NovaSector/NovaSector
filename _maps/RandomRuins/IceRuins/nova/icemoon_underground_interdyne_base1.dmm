@@ -7474,7 +7474,7 @@
 /turf/open/floor/iron/smooth_large,
 /area/ruin/interdyne_planetary_base/main/dorms)
 "Wi" = (
-/obj/machinery/power/micro_reactor,
+/obj/machinery/power/micro_reactor/bapgm,
 /obj/structure/cable,
 /turf/open/floor/iron/submarine,
 /area/ruin/interdyne_planetary_base/eng)
@@ -7500,6 +7500,9 @@
 /obj/structure/rack/gunrack,
 /obj/item/ammo_workbench_reboot,
 /obj/item/ammo_workbench_module/lethal_super/evil,
+/obj/item/circuitboard/machine/powerator/interdyne,
+/obj/item/circuitboard/machine/powerator/interdyne,
+/obj/item/circuitboard/machine/powerator/interdyne,
 /turf/open/floor/iron/dark/textured_large,
 /area/ruin/interdyne_planetary_base/main/vault)
 "WQ" = (
