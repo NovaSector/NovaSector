@@ -9,6 +9,11 @@
 	veteran_only = TRUE
 	quirk_flags = QUIRK_HUMAN_ONLY
 
+/datum/quirk/shapeshifter/is_species_appropriate(datum/species/mob_species)
+	if(ispath(mob_species, /datum/species/dullahan))
+		return FALSE
+	return ..()
+
 /datum/quirk/shapeshifter/add(client/client_source)
 	var/datum/action/innate/alter_form/quirk/shapeshift_action = new
 	shapeshift_action.Grant(quirk_holder)
