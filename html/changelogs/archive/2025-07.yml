@@ -60,3 +60,20 @@
   SomeRandomOwl:
   - bugfix: You no longer get unbuckled from the arrival shuttle mid-flight, Remember
       to buckle your seat-belts.
+2025-07-12:
+  OrionTheFox:
+  - bugfix: fixed some active turfs on SerenityStation
+  Vanilla1040:
+  - image: touched up the infiltrator and interdyne MOD
+  - bugfix: fixed sprite peaking trough the MOD on the interdyne MOD
+  Zenitheevee:
+  - balance: Hides command encryption crate from being buyable, making command/sec
+      comms harder to obtain.
+  Zergspower:
+  - balance: slightly lowers the points per boulder of the BRM
+  sergeirocks100:
+  - image: The alternate boyshorts ("Boyshorts (Alt)" in the preferences) now have
+      proper digitigrade sprites.
+  thetaro:
+  - balance: you can no longer put bulky guns into the modsuit holster module, security
+      and antag players rejoice

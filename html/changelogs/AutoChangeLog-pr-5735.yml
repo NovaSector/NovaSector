@@ -1,4 +1,0 @@
-author: "Zenitheevee"
-delete-after: True
-changes:
-  - balance: "Hides command encryption crate from being buyable, making command/sec comms harder to obtain."
