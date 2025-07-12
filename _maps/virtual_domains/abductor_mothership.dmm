@@ -312,14 +312,6 @@
 	},
 /turf/open/floor/mineral/abductor,
 /area/virtual_domain)
-"eN" = (
-/obj/machinery/camera/autoname/directional/east{
-	network = list("xenord");
-	networks = list("abdumainring");
-	name = "Abductor Camera: Center Ring"
-	},
-/turf/open/floor/glass,
-/area/virtual_domain)
 "eS" = (
 /obj/structure/table/abductor,
 /obj/item/plate/large{
@@ -569,15 +561,6 @@
 	},
 /turf/open/floor/plating/abductor,
 /area/virtual_domain)
-"il" = (
-/obj/machinery/camera/autoname/directional/east{
-	network = list("xenord");
-	networks = list("abdumainring");
-	name = "Abductor Camera: Center Ring"
-	},
-/obj/effect/landmark/bitrunning/curiosity_spawn,
-/turf/open/floor/plating/abductor2,
-/area/virtual_domain)
 "iy" = (
 /obj/structure/table/abductor,
 /obj/item/storage/medkit/advanced{
@@ -743,11 +726,6 @@
 /obj/item/clothing/mask/gas,
 /obj/item/clothing/gloves/tackler/combat/insulated,
 /obj/item/clothing/gloves/tackler/combat/insulated,
-/obj/machinery/camera/autoname/directional/north{
-	network = list("xenord");
-	networks = "abdubrig";
-	name = abdubrig
-	},
 /turf/open/floor/plating/abductor2,
 /area/virtual_domain)
 "kf" = (
@@ -995,14 +973,6 @@
 	pixel_y = 5
 	},
 /turf/open/floor/plating/abductor2,
-/area/virtual_domain)
-"oY" = (
-/obj/machinery/camera/autoname/directional/east{
-	network = list("xenord");
-	networks = list("abdumainring");
-	name = "Abductor Camera: Center Ring"
-	},
-/turf/open/floor/plating/abductor,
 /area/virtual_domain)
 "pi" = (
 /obj/structure/table/abductor,
@@ -1658,11 +1628,6 @@
 /area/virtual_domain)
 "AU" = (
 /obj/structure/sign/poster/abductor/ayy_cops/directional/south,
-/obj/machinery/camera/autoname/directional/east{
-	network = list("xenord");
-	networks = list("abdumainring");
-	name = "Abductor Camera: Center Ring"
-	},
 /turf/open/floor/plating/abductor,
 /area/virtual_domain)
 "Bh" = (
@@ -1885,11 +1850,6 @@
 /area/virtual_domain)
 "EW" = (
 /obj/structure/table/abductor,
-/obj/machinery/camera/autoname/directional/east{
-	network = list("xenord");
-	networks = list("abdumainring");
-	name = "Abductor Camera: Center Ring"
-	},
 /obj/item/toy/plush/abductor/agent{
 	pixel_x = 2;
 	pixel_y = 11
@@ -2407,15 +2367,6 @@
 /obj/item/restraints/legcuffs/beartrap/prearmed,
 /turf/open/floor/plating/abductor2,
 /area/virtual_domain)
-"OA" = (
-/mob/living/basic/trooper/abductor/nova/ranged,
-/obj/machinery/camera/autoname/directional/east{
-	network = list("xenord");
-	networks = list("abdumainring");
-	name = "Abductor Camera: Center Ring"
-	},
-/turf/open/floor/plating/abductor2,
-/area/virtual_domain)
 "OQ" = (
 /obj/machinery/door/poddoor/shutters/indestructible{
 	id = "abductorarmory";
@@ -2607,11 +2558,6 @@
 /obj/item/abductor/mind_device{
 	pixel_x = 1;
 	pixel_y = 8
-	},
-/obj/machinery/camera/autoname/directional/east{
-	network = list("xenord");
-	networks = list("abdumainring");
-	name = "Abductor Camera: Center Ring"
 	},
 /turf/open/floor/plating/abductor2,
 /area/virtual_domain)
@@ -2906,14 +2852,6 @@
 	pixel_y = 7
 	},
 /turf/open/floor/plating/abductor2,
-/area/virtual_domain)
-"WL" = (
-/obj/machinery/camera/autoname/directional/east{
-	network = list("xenord");
-	networks = list("abdumainring");
-	name = "Abductor Camera: Center Ring"
-	},
-/turf/open/floor/glass/abductor,
 /area/virtual_domain)
 "Xr" = (
 /obj/structure/rack/shelf,
@@ -5125,7 +5063,7 @@ Vh
 Vh
 Vh
 Vh
-oY
+XL
 XL
 MN
 pI
@@ -5542,7 +5480,7 @@ pI
 pI
 pI
 AJ
-OA
+Fr
 jw
 XL
 XL
@@ -5921,7 +5859,7 @@ kU
 zB
 zB
 bs
-oY
+XL
 XL
 Vh
 pI
@@ -6406,7 +6344,7 @@ zB
 zB
 pI
 ev
-il
+aN
 wU
 dP
 nS
@@ -6564,13 +6502,13 @@ XL
 Vh
 Vh
 Vh
-eN
+Vh
 XL
 XL
 XL
 Ci
 bq
-WL
+BW
 Uw
 pI
 zB
