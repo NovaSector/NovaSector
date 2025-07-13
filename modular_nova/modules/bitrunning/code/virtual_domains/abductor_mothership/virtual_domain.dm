@@ -5,8 +5,8 @@
 	(Two Caches Available)"
 	difficulty = BITRUNNER_DIFFICULTY_HIGH
 	completion_loot = list(
-		/obj/item/stack/spacecash/c200 = 3,
-		/obj/effect/spawner/random/abductor_jumpscare,
+		/obj/item/stack/spacecash/c200 = 1,
+		/obj/item/stack/spacecash/c100 = 2,
 		)
 	help_text = "An abductor mothership bordering on a space station has taken hold of 'primitive' technology for research. \
 	Turn the tables and take some of their equipment for research, instead!"
