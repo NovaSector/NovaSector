@@ -85,7 +85,7 @@
 			if(DS2_JOB_ENGINEER)
 				chosen_type = pick(subtypesof(/datum/bounty/item/ds2_engie))
 			if(DS2_JOB_SERVICE)
-				chosen_type = pick(subtypesof(/datum/bounty/item/shared_chef) + subtypesof(/datum/bounty/reagent/shared_chef) + subtypesof(/datum/bounty/reagent/shared_botany))
+				chosen_type = pick(subtypesof(/datum/bounty/item/shared_chef) + subtypesof(/datum/bounty/reagent/shared_chef) + subtypesof(/datum/bounty/item/shared_botany))
 			if(DS2_JOB_MECHANICAL)
 				chosen_type = pick(subtypesof(/datum/bounty/item/mech) + subtypesof(/datum/bounty/item/sharedxenoarch))
 			if(DS2_JOB_COMMAND)
