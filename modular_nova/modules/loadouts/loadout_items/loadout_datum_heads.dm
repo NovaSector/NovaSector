@@ -656,31 +656,35 @@
 *	JOB-LOCKED
 */
 
+//COM
 /datum/loadout_item/head/imperial_cap
 	name = "Captain's Naval Cap"
 	item_path = /obj/item/clothing/head/hats/imperial/cap
 	restricted_roles = list(JOB_CAPTAIN, JOB_NT_REP)
 	group = "Job-Locked"
 
+//SERV
 /datum/loadout_item/head/imperial_hop
 	name = "Head of Personnel's Naval Cap"
 	item_path = /obj/item/clothing/head/hats/imperial/hop
 	restricted_roles = list(JOB_HEAD_OF_PERSONNEL, JOB_NT_REP)
 	group = "Job-Locked"
 
+//MED
 /datum/loadout_item/head/imperial_cmo
 	name = "Chief Medical Officer's Naval Cap"
 	item_path = /obj/item/clothing/head/hats/imperial/cmo
 	restricted_roles = list(JOB_CHIEF_MEDICAL_OFFICER)
 	group = "Job-Locked"
 
+//ENGI
 /datum/loadout_item/head/imperial_ce
 	name = "Chief Engineer's Blast Helmet"
 	item_path = /obj/item/clothing/head/hats/imperial/ce
 	restricted_roles = list(JOB_CHIEF_ENGINEER)
 	group = "Job-Locked"
 
-//Security
+//SEC
 /datum/loadout_item/head/navybluehoscap
 	name = "Head of Security's Naval Cap"
 	item_path = /obj/item/clothing/head/hats/imperial/hos
