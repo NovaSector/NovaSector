@@ -63,13 +63,3 @@
 
 /datum/export/material/market/glass
 	cost = 0
-
-/datum/export/stack/materials
-	cost = 0
-	message = "of materials"
-	export_types = list(/obj/item/stack/sheet/mineral)
-
-/datum/export/stack/materials
-	cost = 0
-	message = "of ores"
-	export_types = list(/obj/item/stack/ore)
