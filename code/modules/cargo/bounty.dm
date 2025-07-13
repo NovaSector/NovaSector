@@ -1,5 +1,5 @@
 /// How many jobs have bounties, minus the random civ bounties. PLEASE INCREASE THIS NUMBER AS MORE DEPTS ARE ADDED TO BOUNTIES.
-#define MAXIMUM_BOUNTY_JOBS 23 //  NOVA EDIT, ORIGINAL: MAXIMUM_BOUNTY_JOBS 14
+#define MAXIMUM_BOUNTY_JOBS 23 // NOVA EDIT CHANGE - ORIGINAL: MAXIMUM_BOUNTY_JOBS 14
 
 /datum/bounty
 	var/name
@@ -79,7 +79,7 @@
 				chosen_type = pick(subtypesof(/datum/bounty/item/atmospherics))
 			if(CIV_JOB_BITRUN)
 				chosen_type = pick(subtypesof(/datum/bounty/item/bitrunning))
-			//NOVA ADDITION START - GHOST BOUNTIES #5738
+			//// NOVA EDIT ADDITION START - GHOST BOUNTIES #5738
 			if(DS2_JOB_ENFORCER)
 				chosen_type = pick(subtypesof(/datum/bounty/item/ds2))
 			if(DS2_JOB_ENGINEER)
@@ -98,7 +98,7 @@
 				chosen_type = pick(subtypesof(/datum/bounty/item/tarkon) + subtypesof(/datum/bounty/item/chef) + subtypesof(/datum/bounty/item/sharedxenoarch) + subtypesof(/datum/bounty/item/chef) + subtypesof(/datum/bounty/reagent/chef))
 			if(TARKON_JOB_COMMAND)
 				chosen_type = pick(subtypesof(/datum/bounty/item/tarkon) + subtypesof(/datum/bounty/item/sharedxenoarch))
-			//NOVA ADDITION END - GHOST BOUNTIES #5738
+			// NOVA EDIT ADDITION END #5738
 		bounty_ref = new chosen_type
 		if(bounty_ref.can_get())
 			bounty_succeeded = TRUE
