@@ -20,7 +20,7 @@
 	// set lung vars
 	target_lungs.safe_oxygen_min = 0
 	// update lung procs
-	target_lungs.breathe_always[/datum/gas/water_vapor] = TYPE_PROC_REF(/obj/item/organ/lungs, breathe_water)
+	target_lungs.add_gas_reaction(/datum/gas/water_vapor, always = TYPE_PROC_REF(/obj/item/organ/lungs, breathe_water))
 	// reflect correct lung flags
 	target_lungs.respiration_type = RESPIRATION_OXYGEN
 

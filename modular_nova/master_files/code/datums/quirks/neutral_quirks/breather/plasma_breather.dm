@@ -23,9 +23,9 @@
 	target_lungs.oxy_breath_dam_min = 6
 	target_lungs.oxy_breath_dam_max = 20
 	// update lung procs
-	target_lungs.breathe_always[/datum/gas/plasma] = TYPE_PROC_REF(/obj/item/organ/lungs, breathe_plasma)
-	target_lungs.breath_present[/datum/gas/oxygen] = TYPE_PROC_REF(/obj/item/organ/lungs, too_much_oxygen)
-	target_lungs.breath_lost[/datum/gas/oxygen] = TYPE_PROC_REF(/obj/item/organ/lungs, safe_oxygen)
+	target_lungs.add_gas_reaction(/datum/gas/plasma, always = TYPE_PROC_REF(/obj/item/organ/lungs, breathe_plasma))
+	target_lungs.add_gas_reaction(/datum/gas/oxygen, while_present = TYPE_PROC_REF(/obj/item/organ/lungs, too_much_oxygen))
+	target_lungs.add_gas_reaction(/datum/gas/oxygen, on_loss = TYPE_PROC_REF(/obj/item/organ/lungs, safe_oxygen))
 	// reflect correct lung flags
 	target_lungs.respiration_type = RESPIRATION_PLASMA
 
