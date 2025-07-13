@@ -122,14 +122,6 @@
 /obj/effect/spawner/structure/window/reinforced/plasma,
 /turf/open/space/basic,
 /area/virtual_domain)
-"bH" = (
-/obj/effect/landmark/bitrunning/curiosity_spawn{
-	pixel_x = 0;
-	pixel_y = 6
-	},
-/obj/structure/table/abductor,
-/turf/open/floor/plating/abductor,
-/area/virtual_domain)
 "bO" = (
 /mob/living/basic/trooper/abductor/nova/ranged/heavy{
 	name = "Abductor HoS";
@@ -287,10 +279,7 @@
 /area/virtual_domain)
 "ex" = (
 /obj/structure/table/abductor,
-/obj/effect/landmark/bitrunning/curiosity_spawn{
-	pixel_x = 1;
-	pixel_y = 6
-	},
+/obj/effect/landmark/bitrunning/curiosity_spawn,
 /turf/open/floor/plating/abductor,
 /area/virtual_domain)
 "eF" = (
@@ -490,6 +479,10 @@
 /obj/structure/closet/abductor,
 /obj/effect/mob_spawn/corpse/human/assistant,
 /obj/effect/mob_spawn/corpse/human/bitrunner,
+/turf/open/floor/plating/abductor2,
+/area/virtual_domain)
+"hf" = (
+/obj/structure/closet/crate/secure/bitrunning/encrypted,
 /turf/open/floor/plating/abductor2,
 /area/virtual_domain)
 "hi" = (
@@ -1733,14 +1726,6 @@
 	},
 /turf/open/floor/plating/abductor2,
 /area/virtual_domain)
-"CO" = (
-/obj/structure/table/abductor,
-/obj/effect/landmark/bitrunning/curiosity_spawn{
-	pixel_x = 2;
-	pixel_y = 8
-	},
-/turf/open/floor/plating/abductor2,
-/area/virtual_domain)
 "CQ" = (
 /obj/structure/window/plasma/spawner/directional/north,
 /turf/open/floor/plating/abductor2,
@@ -2059,14 +2044,6 @@
 /obj/structure/closet/abductor,
 /obj/item/ammo_box/advanced/s12gauge/hunter,
 /turf/open/floor/mineral/abductor,
-/area/virtual_domain)
-"JJ" = (
-/obj/structure/table/abductor,
-/obj/effect/landmark/bitrunning/curiosity_spawn{
-	pixel_x = 0;
-	pixel_y = 6
-	},
-/turf/open/floor/plating/abductor2,
 /area/virtual_domain)
 "JR" = (
 /obj/effect/spawner/structure/window/reinforced/plasma,
@@ -2646,10 +2623,6 @@
 /area/virtual_domain)
 "TK" = (
 /obj/structure/rack/shelf,
-/obj/effect/landmark/bitrunning/curiosity_spawn{
-	pixel_x = 0;
-	pixel_y = 2
-	},
 /obj/item/food/peanuts/random,
 /obj/item/food/peanuts/random,
 /obj/item/food/peanuts/random,
@@ -6148,7 +6121,7 @@ Ks
 XL
 Eg
 fZ
-JJ
+aA
 pI
 zB
 zB
@@ -7111,7 +7084,7 @@ KX
 pI
 pI
 Yt
-CO
+aA
 fZ
 pI
 Ez
@@ -7184,9 +7157,9 @@ KX
 pI
 pI
 VP
-fZ
+hf
 pI
-bH
+ex
 jJ
 QV
 pI
@@ -7623,7 +7596,7 @@ pI
 Ez
 pI
 TK
-fZ
+aN
 MR
 Wx
 fZ
