@@ -17,3 +17,18 @@
 
 /obj/item/bodypart/leg/right
 	icon_greyscale = BODYPART_ICON_HUMAN
+
+
+/obj/item/bodypart/leg/left/digitigrade/human
+	icon_greyscale = BODYPART_ICON_HUMAN
+
+/obj/item/bodypart/leg/right/digitigrade/human
+	icon_greyscale = BODYPART_ICON_HUMAN
+
+/obj/item/bodypart/leg/left/human_digi
+	icon_greyscale = BODYPART_ICON_HUMAN
+	digitigrade_type = /obj/item/bodypart/leg/left/digitigrade/human
+
+/obj/item/bodypart/leg/right/human_digi
+	icon_greyscale = BODYPART_ICON_HUMAN
+	digitigrade_type = /obj/item/bodypart/leg/right/digitigrade/human

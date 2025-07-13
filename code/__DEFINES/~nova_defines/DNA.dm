@@ -163,3 +163,4 @@
 
 // Leaving this here because it's used for bodyparts, like SPECIES_X are, but since taurs aren't a species... Named it LIMBS instead.
 #define LIMBS_TAUR "taur"
+#define LIMBS_HARPY "harpy"
