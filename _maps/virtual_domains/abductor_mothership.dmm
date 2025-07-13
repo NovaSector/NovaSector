@@ -277,11 +277,6 @@
 /obj/item/kirbyplants/photosynthetic,
 /turf/open/floor/plating/abductor2,
 /area/virtual_domain)
-"ex" = (
-/obj/structure/table/abductor,
-/obj/effect/landmark/bitrunning/curiosity_spawn,
-/turf/open/floor/plating/abductor,
-/area/virtual_domain)
 "eF" = (
 /obj/structure/table/abductor,
 /obj/item/storage/backpack/duffelbag/deforest_medkit/stocked{
@@ -1629,11 +1624,6 @@
 "Bm" = (
 /obj/machinery/monkey_recycler/fullupgrade,
 /turf/open/floor/mineral/abductor,
-/area/virtual_domain)
-"Bq" = (
-/obj/structure/bed/abductor,
-/obj/effect/landmark/bitrunning/curiosity_spawn,
-/turf/open/floor/plating/abductor2,
 /area/virtual_domain)
 "Bz" = (
 /obj/machinery/button/door/directional/east{
@@ -5822,8 +5812,8 @@ pI
 fZ
 fZ
 pI
-Bq
-XL
+BE
+NV
 ig
 pI
 XL
@@ -6912,7 +6902,7 @@ XL
 XL
 ao
 fi
-aA
+Yt
 pI
 pI
 KX
@@ -7011,7 +7001,7 @@ KX
 pI
 pI
 MN
-XL
+NV
 fZ
 fZ
 pI
@@ -7084,7 +7074,7 @@ KX
 pI
 pI
 Yt
-aA
+Yt
 fZ
 pI
 Ez
@@ -7159,7 +7149,7 @@ pI
 VP
 hf
 pI
-ex
+fj
 jJ
 QV
 pI
@@ -7199,7 +7189,7 @@ XL
 XL
 XL
 ao
-fZ
+aN
 pI
 pI
 KX
@@ -7376,7 +7366,7 @@ KX
 pI
 pI
 KA
-XL
+NV
 XL
 pI
 ev
@@ -7448,8 +7438,8 @@ KX
 KX
 pI
 pI
-ex
-XL
+fj
+NV
 pI
 Db
 fZ
