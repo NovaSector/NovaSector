@@ -7,6 +7,7 @@
 	completion_loot = list(
 		/obj/item/stack/spacecash/c200 = 1,
 		/obj/item/stack/spacecash/c100 = 2,
+		/obj/item/cardboard_cutout/abductor = 1,
 		)
 	help_text = "An abductor mothership bordering on a space station has taken hold of 'primitive' technology for research. \
 	Turn the tables and take some of their equipment for research, instead!"

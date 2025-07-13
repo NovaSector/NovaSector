@@ -17,14 +17,6 @@
 /obj/item/cardboard_cutout/abductor
 	starting_cutout = "Abductor Agent"
 
-/obj/effect/spawner/random/abductor_jumpscare
-	name = "fake abductor"
-	desc = "a totally fake abductor.. or is it?"
-	loot = list(
-		/obj/item/cardboard_cutout/abductor = 99,
-		/mob/living/basic/trooper/abductor/nova/ranged/nocorpse = 1, // you can literally punch this guy to death. however still funny
-	)
-
 /obj/item/gun/energy/laser/chameleon/energy_only
 	actions_types = list(/datum/action/item_action/chameleon/change/gun/energy)
 	default_look = /obj/item/gun/energy/shrink_ray
