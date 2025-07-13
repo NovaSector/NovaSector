@@ -105,6 +105,7 @@ export type Language = {
   description: string;
   name: string;
   icon: string;
+  speaking: boolean;
 };
 
 export type Marking = {
@@ -199,6 +200,7 @@ export type PreferencesMenuData = {
     manually_rendered_features: Record<string, string>;
 
     names: Record<string, string>;
+    vocals: Record<string, string>; // NOVA EDIT ADDITION
 
     misc: {
       gender: Gender;

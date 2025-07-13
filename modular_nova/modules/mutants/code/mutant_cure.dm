@@ -12,15 +12,15 @@
 	/// Our loaded vial.
 	var/obj/item/rna_vial/loaded_vial
 
-/obj/item/rna_extractor/attackby(obj/item/O, mob/living/user)
-	if((istype(O, /obj/item/rna_vial) && loaded_vial != null))
+/obj/item/rna_extractor/attackby(obj/item/attacking_item, mob/user, list/modifiers, list/attack_modifiers)
+	if((istype(attacking_item, /obj/item/rna_vial) && loaded_vial != null))
 		to_chat(user, span_warning("[src] can not hold more than one vial!"))
 		return FALSE
-	if(istype(O, /obj/item/rna_vial))
-		if(!user.transferItemToLoc(O, src))
+	if(istype(attacking_item, /obj/item/rna_vial))
+		if(!user.transferItemToLoc(attacking_item, src))
 			return FALSE
-		to_chat(user, span_notice("You insert [O] into [src]!"))
-		loaded_vial = O
+		to_chat(user, span_notice("You insert [attacking_item] into [src]!"))
+		loaded_vial = attacking_item
 		playsound(loc, 'sound/items/weapons/autoguninsert.ogg', 35, 1)
 		update_appearance()
 
@@ -77,10 +77,10 @@
 		. += "It has an extracted RNA sample in it."
 
 /obj/item/rna_extractor/Destroy()
-	. = ..()
 	if(loaded_vial)
 		loaded_vial.forceMove(loc)
 		loaded_vial = null
+	return ..()
 
 /obj/item/rna_vial
 	name = "raw RNA vial"
@@ -168,19 +168,19 @@
 	if(timer_id)
 		deltimer(timer_id)
 		timer_id = null
-	. = ..()
+	return ..()
 
-/obj/machinery/rnd/rna_recombinator/attackby(obj/item/weapon, mob/living/user, params)
+/obj/machinery/rnd/rna_recombinator/attackby(obj/item/attacking_item, mob/living/user, list/modifiers, list/attack_modifiers)
 	if(user.combat_mode)
 		return FALSE
 	if(!is_insertion_ready(user))
 		return FALSE
-	if(!istype(weapon, /obj/item/rna_vial))
+	if(!istype(attacking_item, /obj/item/rna_vial))
 		return FALSE
-	if(!user.transferItemToLoc(weapon, src))
+	if(!user.transferItemToLoc(attacking_item, src))
 		return FALSE
-	loaded_item = weapon
-	to_chat(user, span_notice("You insert [weapon] to into [src] reciprocal."))
+	loaded_item = attacking_item
+	to_chat(user, span_notice("You insert [attacking_item] to into [src] reciprocal."))
 	flick("h_lathe_load", src)
 	update_appearance()
 	playsound(loc, 'sound/items/weapons/autoguninsert.ogg', 35, 1)

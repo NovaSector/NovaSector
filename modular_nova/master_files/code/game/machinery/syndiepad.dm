@@ -12,6 +12,10 @@
  * Do not make this a subtype a subtype for the civilian bountypad it will break it
  */
 
+/obj/machinery/computer/piratepad_control
+	/// The market that the items are being sold to.
+	var/export_market = EXPORT_MARKET_PIRACY
+
 ///Pad for the Syndicate Bounty Control.
 /obj/item/circuitboard/machine/syndiepad
 	name = "Interdyne Sales Pad"
@@ -64,6 +68,7 @@
 	icon_keyboard = "syndie_key"
 	warmup_time = SYN_BOUNTY_PAD_WARM_TIME
 	circuit = /obj/item/circuitboard/computer/syndiepad
+	export_market = EXPORT_MARKET_STATION
 
 	/// The account to add balance
 	var/credits_account = ACCOUNT_INT
@@ -141,7 +146,7 @@
 	return TRUE
 
 /// Resets the pad's iconstate to its idle state after usage
-/obj/machinery/computer/piratepad_control/syndiepad/proc/reset_icon(var/obj/machinery/piratepad/syndiepad/pad)
+/obj/machinery/computer/piratepad_control/syndiepad/proc/reset_icon(obj/machinery/piratepad/syndiepad/pad)
 	if(!pad)
 		return
 	flick(pad.sending_state,pad)
@@ -176,3 +181,29 @@
 	circuit = /obj/item/circuitboard/computer/syndiepad/syndicate
 	credits_account = ACCOUNT_DS2
 
+// Tarkon Pad
+/obj/item/circuitboard/machine/syndiepad/tarkon
+	name = "Tarkon Deepspace Sales Pad"
+	greyscale_colors = CIRCUIT_COLOR_GENERIC
+	build_path = /obj/machinery/piratepad/syndiepad/tarkon
+
+/obj/machinery/piratepad/syndiepad/tarkon
+	name = "\improper Tarkon deepspace sales pad"
+	desc = "A standard Tarkon telepad repurposed to \
+		send any (non-living) object to an distant off-sector \
+		for processing. No returns!"
+
+	circuit = /obj/item/circuitboard/machine/syndiepad/tarkon
+
+/obj/item/circuitboard/computer/syndiepad/tarkon
+	name = "Tarkon Deepspace Sales Terminal"
+	build_path = /obj/machinery/computer/piratepad_control/syndiepad/tarkon
+
+/obj/machinery/computer/piratepad_control/syndiepad/tarkon
+	name = "\improper Tarkon deepspace sales terminal"
+	desc = "A modified civilian console with an elaborate relay to other authorized facilities for selling goods."
+	status_report = "Ready for delivery."
+	icon_screen = "civ_bounty"
+	icon_keyboard = "syndie_key"
+	circuit = /obj/item/circuitboard/computer/syndiepad/tarkon
+	credits_account = ACCOUNT_TI

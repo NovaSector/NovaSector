@@ -384,15 +384,15 @@
 	if(!.)
 		return FALSE
 	var/mob/living/basic/cortical_borer/cortical_owner = owner
-	if(owner.layer == PROJECTILE_HIT_THRESHHOLD_LAYER)
+	if(HAS_TRAIT(cortical_owner, TRAIT_PRONE))
+		SEND_SIGNAL(cortical_owner, COMSIG_MOVABLE_REMOVE_PRONE_STATE)
 		cortical_owner.upgrade_flags &= ~BORER_HIDING
 		owner.balloon_alert(owner, "stopped hiding")
-		owner.layer = BELOW_MOB_LAYER
 		StartCooldown()
 		return
 	cortical_owner.upgrade_flags |= BORER_HIDING
 	owner.balloon_alert(owner, "started hiding")
-	owner.layer = PROJECTILE_HIT_THRESHHOLD_LAYER
+	cortical_owner.AddComponent(/datum/component/prone_mob)
 	StartCooldown()
 
 //to paralyze people
@@ -674,7 +674,9 @@
 	cortical_owner.health = max(cortical_owner.health, 1, cortical_owner.health -= OUT_OF_HOST_EGG_COST)
 	produce_egg()
 	var/turf/borer_turf = get_turf(cortical_owner)
-	new/obj/effect/decal/cleanable/blood/splatter(borer_turf)
+	var/obj/effect/decal/cleanable/blood/splatter/new_splatter = new /obj/effect/decal/cleanable/blood/splatter(borer_turf)
+	new_splatter.add_mob_blood(cortical_owner)
+
 	playsound(borer_turf, 'sound/effects/splat.ogg', 50, TRUE)
 	var/logging_text = "[key_name(cortical_owner)] gave birth alone at [loc_name(borer_turf)]"
 	cortical_owner.log_message(logging_text, LOG_GAME)

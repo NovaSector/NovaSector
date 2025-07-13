@@ -23,7 +23,7 @@
 	damage = 35
 
 	wound_bonus = 5
-	bare_wound_bonus = 10
+	exposed_wound_bonus = 10
 
 
 /obj/item/ammo_box/c40sol
@@ -52,8 +52,8 @@
 
 	projectile_type = /obj/projectile/bullet/c40sol/fragmentation
 
-	advanced_print_req = TRUE
-
+	ammo_categories = AMMO_CLASS_NONE // it's. on a technicality
+	print_cost = 0
 	harmful = FALSE
 
 
@@ -66,7 +66,7 @@
 
 	sharpness = SHARP_EDGED
 	wound_bonus = 0
-	bare_wound_bonus = 10
+	exposed_wound_bonus = 10
 
 	shrapnel_type = /obj/item/shrapnel/stingball
 	embed_type = /datum/embedding/c40sol_fragmentation
@@ -104,9 +104,9 @@
 
 	projectile_type = /obj/projectile/bullet/c40sol/pierce
 
+	ammo_categories = AMMO_CLASS_PLUS
 	custom_materials = AMMO_MATS_AP
-	advanced_print_req = TRUE
-
+	print_cost = 2
 
 /obj/projectile/bullet/c40sol/pierce
 	name = ".40 Sol match bullet"
@@ -119,7 +119,7 @@
 	armour_penetration = 20
 
 	wound_bonus = -30
-	bare_wound_bonus = -10
+	exposed_wound_bonus = -10
 
 	ricochets_max = 2
 	ricochet_chance = 80
@@ -163,9 +163,9 @@
 
 	projectile_type = /obj/projectile/bullet/c40sol/incendiary
 
+	ammo_categories = AMMO_CLASS_NICHE
 	custom_materials = AMMO_MATS_TEMP
-	advanced_print_req = TRUE
-
+	print_cost = 2
 
 /obj/projectile/bullet/c40sol/incendiary
 	name = ".40 Sol Long incendiary bullet"

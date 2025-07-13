@@ -5,6 +5,7 @@
 	worn_icon_state = "armadyne_shirt"
 	icon = 'modular_nova/master_files/icons/obj/clothing/under/centcom.dmi'	//This can probably be moved to centcom.dm when the suits are sorted
 	worn_icon = 'modular_nova/master_files/icons/mob/clothing/under/centcom.dmi'
+	worn_icon_digi = 'modular_nova/master_files/icons/mob/clothing/under/centcom_digi.dmi'
 
 /obj/item/clothing/under/rank/security/armadyne/tactical
 	name = "armadyne tactical uniform"
@@ -15,10 +16,11 @@
 /obj/item/clothing/head/beret/sec/armadyne
 	name = "armadyne corporate beret"
 	desc = "A comfy yet robust beret worn by Armadyne corporate."
+	icon_state = "/obj/item/clothing/head/beret/sec/armadyne"
+	post_init_icon_state = "beret_badge_fancy_diagonal"
 	greyscale_config = /datum/greyscale_config/beret_badge_fancy
 	greyscale_config_worn = /datum/greyscale_config/beret_badge_fancy/worn
 	greyscale_colors = "#3F3C40#5B2423#491716"
-	icon_state = "beret_badge_fancy_diagonal"
 	supports_variations_flags = CLOTHING_SNOUTED_VARIATION_NO_NEW_ICON
 
 /obj/item/clothing/suit/armor/hos/trenchcoat/armadyne
@@ -58,6 +60,15 @@
 
 /obj/item/clothing/gloves/combat/armadyne
 	name = "armadyne combat gloves"
+	desc = "Tactical and sleek. Worn by Armadyne representatives."
+	icon = 'modular_nova/master_files/icons/obj/clothing/gloves.dmi'
+	worn_icon = 'modular_nova/master_files/icons/mob/clothing/hands.dmi'
+	icon_state = "armadyne_gloves"
+	worn_icon_state = "armadyne_gloves"
+	cut_type = null
+
+/obj/item/clothing/gloves/color/black/security/armadyne
+	name = "armadyne gloves"
 	desc = "Tactical and sleek. Worn by Armadyne representatives."
 	icon = 'modular_nova/master_files/icons/obj/clothing/gloves.dmi'
 	worn_icon = 'modular_nova/master_files/icons/mob/clothing/hands.dmi'

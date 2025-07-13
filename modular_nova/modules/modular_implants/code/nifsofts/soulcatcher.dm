@@ -57,19 +57,19 @@
 /datum/nifsoft/soulcatcher/proc/no_soulcatcher_component()
 	SIGNAL_HANDLER
 
+	UnregisterSignal(linked_soulcatcher, COMSIG_QDELETING)
 	linked_soulcatcher = null
 
 /datum/nifsoft/soulcatcher/Destroy()
-	if(soulcatcher_action)
-		soulcatcher_action.Remove()
-		qdel(soulcatcher_action)
+	if(!QDELETED(soulcatcher_action))
+		QDEL_NULL(soulcatcher_action)
 
 	if(linked_soulcatcher)
 		var/datum/component/soulcatcher/current_soulcatcher = linked_soulcatcher.resolve()
-		if(current_soulcatcher)
-			qdel(current_soulcatcher)
+		if(!QDELETED(current_soulcatcher))
+			QDEL_NULL(current_soulcatcher)
 
-	qdel(soul_holder)
+	QDEL_NULL(soul_holder)
 
 	return ..()
 
@@ -134,4 +134,3 @@
 /obj/item/soulcatcher_holder
 	name = "Soul Holder"
 	desc = "You probably shouldn't be seeing this..."
-

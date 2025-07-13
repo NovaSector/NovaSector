@@ -1,9 +1,11 @@
 /// Reagent Processor Repair surgery
 /datum/surgery/reagent_pump
 	name = "Reagent Processor Manual Reset"
+	desc = "A mechanical surgery procedure designed to repair an android's reagent processor."
 	surgery_flags = SURGERY_REQUIRE_RESTING | SURGERY_REQUIRE_LIMB | SURGERY_REQUIRES_REAL_LIMB
 	steps = list(
 		/datum/surgery_step/mechanic_open,
+		/datum/surgery_step/open_hatch,
 		/datum/surgery_step/mechanic_unwrench,
 		/datum/surgery_step/pry_off_plating,
 		/datum/surgery_step/prepare_electronics,
@@ -13,14 +15,25 @@
 	)
 	target_mobtypes = list(/mob/living/carbon/human)
 	possible_locs = list(BODY_ZONE_CHEST)
+	organ_to_manipulate = ORGAN_SLOT_LIVER
 	requires_bodypart_type = BODYTYPE_ROBOTIC
-	desc = "A mechanical list of actions to reset the reagent processor and purge built up minerals."
+	requires_organ_type = /obj/item/organ/liver/synth
+	requires_organ_flags = ORGAN_ROBOTIC
+	requires_organ_damage = 10
 
-/datum/surgery/reagent_pump/can_start(mob/user, mob/living/carbon/target)
-	var/obj/item/organ/liver/reagent_processor = target.get_organ_slot(ORGAN_SLOT_LIVER)
-	if(isnull(reagent_processor) || !issynthetic(target) || reagent_processor.damage < 10)
-		return FALSE
-	return ..()
+// Subtype for synthetic humanoids with organic bodyparts
+/datum/surgery/reagent_pump/hybrid
+	steps = list(
+		/datum/surgery_step/incise,
+		/datum/surgery_step/retract_skin,
+		/datum/surgery_step/saw,
+		/datum/surgery_step/clamp_bleeders,
+		/datum/surgery_step/incise,
+		/datum/surgery_step/prepare_electronics,
+		/datum/surgery_step/reagent_pump/repair,
+		/datum/surgery_step/close,
+	)
+	requires_bodypart_type = BODYTYPE_ORGANIC
 
 /datum/surgery_step/reagent_pump/repair
 	name = "perform valve adjustment (screwdriver)"

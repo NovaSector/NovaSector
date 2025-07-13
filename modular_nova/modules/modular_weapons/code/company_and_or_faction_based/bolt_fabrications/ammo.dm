@@ -9,7 +9,7 @@
 	embed_data = null
 	impact_effect_type = /obj/effect/temp_visual/impact_effect
 	wound_bonus = -30
-	bare_wound_bonus = -10
+	exposed_wound_bonus = -10
 
 /obj/item/ammo_casing/kineticball
 	name = "kinetic ball casing"
@@ -20,6 +20,7 @@
 	caliber = CALIBER_KINETICBALL
 	projectile_type = /obj/projectile/bullet/kineticball
 	harmful = FALSE
+	ammo_categories = AMMO_CLASS_NONE
 
 /obj/item/ammo_box/magazine/ammo_stack/kineticball
 	name = "kinetic ball casings"

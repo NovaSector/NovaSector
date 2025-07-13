@@ -224,6 +224,7 @@ SUBSYSTEM_DEF(ticker)
 				toggle_dooc(TRUE)
 				declare_completion(force_ending)
 				Master.SetRunLevel(RUNLEVEL_POSTGAME)
+				SEND_SIGNAL(src, COMSIG_TICKER_ROUND_ENDED) // NOVA EDIT ADDITION
 
 /// Checks if the round should be ending, called every ticker tick
 /datum/controller/subsystem/ticker/proc/check_finished()
@@ -450,12 +451,6 @@ SUBSYSTEM_DEF(ticker)
 				if (item.restricted_roles && length(item.restricted_roles) && !(player_assigned_role.title in item.restricted_roles))
 					continue
 				item.post_equip_item(new_player_mob.client?.prefs, new_player_living)
-			if(iskobold(new_player_living))
-				var/mob/living/carbon/human/new_kobold = new_player_living
-				new_kobold.dna.add_mutation(/datum/mutation/human/race, MUT_NORMAL)
-				new_kobold.dna.activate_mutation(/datum/mutation/human/race) // awful hack but adding mutations breaks char previews
-				new_kobold.dna.add_mutation(/datum/mutation/human/clever, MUT_NORMAL)
-				new_kobold.dna.activate_mutation(/datum/mutation/human/clever)
 			//NOVA EDIT ADDITION END
 		CHECK_TICK
 
@@ -500,8 +495,8 @@ SUBSYSTEM_DEF(ticker)
 			qdel(player)
 			ADD_TRAIT(living, TRAIT_NO_TRANSFORM, SS_TICKER_TRAIT)
 			if(living.client)
-				var/atom/movable/screen/splash/fade_out = new(null, living.client, TRUE)
-				fade_out.Fade(TRUE)
+				var/atom/movable/screen/splash/fade_out = new(null, null, living.client, TRUE)
+				fade_out.fade(TRUE)
 				living.client.init_verbs()
 			livings += living
 	if(livings.len)
@@ -544,11 +539,17 @@ SUBSYSTEM_DEF(ticker)
 			queued_players -= next_in_line
 			queue_delay = 0
 
+///Whether the game has started, including roundend.
 /datum/controller/subsystem/ticker/proc/HasRoundStarted()
 	return current_state >= GAME_STATE_PLAYING
 
+///Whether the game is currently in progress, excluding roundend
 /datum/controller/subsystem/ticker/proc/IsRoundInProgress()
 	return current_state == GAME_STATE_PLAYING
+
+///Whether the game is currently in progress, excluding roundend
+/datum/controller/subsystem/ticker/proc/IsPostgame()
+	return current_state == GAME_STATE_FINISHED
 
 /datum/controller/subsystem/ticker/Recover()
 	current_state = SSticker.current_state
@@ -589,7 +590,8 @@ SUBSYSTEM_DEF(ticker)
 /datum/controller/subsystem/ticker/proc/send_news_report()
 	var/news_message
 	var/news_source = "Nanotrasen News Network"
-	var/decoded_station_name = html_decode(CONFIG_GET(string/cross_comms_name)) //decode station_name to avoid minor_announce double encode // NOVA EDIT: CROSS COMMS CONFIG
+	var/decoded_station_name = html_decode(CONFIG_GET(string/cross_comms_name)) //decode station_name to avoid minor_announce double encode // NOVA EDIT: CROSS COMMS CONFIG, ORIGINAL: var/decoded_station_name = html_decode(station_name())
+	var/decoded_emergency_reason = html_decode(emergency_reason)
 
 	switch(news_report)
 		// The nuke was detonated on the syndicate recon outpost
@@ -605,7 +607,7 @@ SUBSYSTEM_DEF(ticker)
 			// Had an emergency reason supplied to pass along
 			if(emergency_reason)
 				news_message = "[decoded_station_name] has been evacuated after transmitting \
-					the following distress beacon:\n\n[html_decode(emergency_reason)]"
+					the following distress beacon:\n\n[Gibberish(decoded_emergency_reason, FALSE, 8)]"
 			else
 				news_message = "The crew of [decoded_station_name] has been \
 					evacuated amid unconfirmed reports of enemy activity."
@@ -674,7 +676,8 @@ SUBSYSTEM_DEF(ticker)
 		// The emergency escape shuttle was hijacked
 		if(SHUTTLE_HIJACK)
 			news_message = "During routine evacuation procedures, the emergency shuttle of [decoded_station_name] \
-				had its navigation protocols corrupted and went off course, but was recovered shortly after."
+				had its navigation protocols corrupted and went off course, but was recovered shortly after. \
+				The following distress beacon was sent prior to evacuation:\n\n[decoded_emergency_reason]"
 		// A supermatter cascade triggered
 		if(SUPERMATTER_CASCADE)
 			news_message = "Officials are advising nearby colonies about a newly declared exclusion zone in \

@@ -273,6 +273,10 @@
 	name = "Otusian"
 	icon_state = "otie"
 
+/datum/sprite_accessory/tails/mammal/wagging/otter
+	name = "Otter"
+	icon_state = "otter"
+
 /datum/sprite_accessory/tails/mammal/plug
 	name = "Plug"
 	icon_state = "plugtail"

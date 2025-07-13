@@ -46,7 +46,7 @@
 	deflate(TRUE)
 	return ..()
 
-/obj/structure/inflatable/attackby(obj/item/attacking_item, mob/user, params)
+/obj/structure/inflatable/attackby(obj/item/attacking_item, mob/user, list/modifiers, list/attack_modifiers)
 	if(attacking_item.sharpness)
 		visible_message(span_danger("<b>[user] pierces [src] with [attacking_item]!</b>"))
 		deflate(TRUE)
@@ -167,7 +167,7 @@
 		new structure_type(get_turf(user))
 		qdel(src)
 
-/obj/item/inflatable/attackby(obj/item/attacking_item, mob/user)
+/obj/item/inflatable/attackby(obj/item/attacking_item, mob/user, list/modifiers, list/attack_modifiers)
 	if(!istype(attacking_item, /obj/item/stack/sticky_tape))
 		return ..()
 	if(!torn)
@@ -219,6 +219,9 @@
 	max_specific_storage = WEIGHT_CLASS_SMALL
 	max_total_storage = (BOX_DOOR_AMOUNT + BOX_WALL_AMOUNT) * WEIGHT_CLASS_SMALL
 
+/datum/storage/inflatables_box/New(atom/parent, max_slots, max_specific_storage, max_total_storage)
+	. = ..()
+	set_holdable(/obj/item/inflatable)
 
 /// The box full of inflatables
 /obj/item/storage/inflatable
@@ -228,10 +231,6 @@
 	icon_state = "briefcase_inflate"
 	w_class = WEIGHT_CLASS_NORMAL
 	storage_type = /datum/storage/inflatables_box
-
-/obj/item/storage/inflatable/Initialize(mapload)
-	. = ..()
-	atom_storage.set_holdable(/obj/item/inflatable)
 
 /obj/item/storage/inflatable/PopulateContents()
 	for(var/i = 0, i < BOX_DOOR_AMOUNT, i++)

@@ -58,19 +58,14 @@
 	if(damaged_clothes)
 		. += mutable_appearance('icons/effects/item_damage.dmi', "damagedshoe")
 
-//NOVA EDIT REMOVAL BEGIN -DIGI_BLOODSOLE - (Moved to modular_nova/modules/digi_shoeblood/code/modules/clothing/shoes/_shoes.dm)
-/*
-/obj/item/clothing/shoes/separate_worn_overlays(mutable_appearance/standing, mutable_appearance/draw_target, isinhands = FALSE, icon_file)
+/obj/item/clothing/shoes/separate_worn_overlays(mutable_appearance/standing, mutable_appearance/draw_target, isinhands = FALSE, icon_file, mutant_styles = NONE) // NOVA EDIT CHANGE - ORIGINAL: /obj/item/clothing/shoes/separate_worn_overlays(mutable_appearance/standing, mutable_appearance/draw_target, isinhands = FALSE, icon_file)
 	. = ..()
-	if(isinhands)
+	if (isinhands)
 		return
-	if(GET_ATOM_BLOOD_DNA_LENGTH(src))
-		if(clothing_flags & LARGE_WORN_ICON)
-			. += mutable_appearance('icons/effects/64x64.dmi', "shoeblood_large")
-		else
-			. += mutable_appearance('icons/effects/blood.dmi', "shoeblood")
-*/
-//NOVA EDIT REMOVAL END
+	var/blood_overlay = get_blood_overlay("shoe", mutant_styles) // NOVA EDIT CHANGE - ORIGINAL: var/blood_overlay = get_blood_overlay("shoe")
+	if (blood_overlay)
+		. += blood_overlay
+
 /obj/item/clothing/shoes/examine(mob/user)
 	. = ..()
 
@@ -116,6 +111,9 @@
 	if(ismob(loc))
 		var/mob/M = loc
 		M.update_worn_shoes()
+
+/obj/item/clothing/shoes/generate_digitigrade_icons(icon/base_icon, greyscale_colors)
+	return icon(SSgreyscale.GetColoredIconByType(/datum/greyscale_config/digitigrade, greyscale_colors), "boots_worn")
 
 /**
  * adjust_laces adjusts whether our shoes (assuming they can be tied) and tied, untied, or knotted

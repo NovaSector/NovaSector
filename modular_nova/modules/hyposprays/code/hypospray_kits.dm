@@ -1,10 +1,10 @@
 /obj/item/storage/hypospraykit
 	name = "hypospray kit"
 	desc = "A hypospray kit with foam insets for hypovials and a mounting point on the bottom."
-	icon = 'modular_nova/modules/hyposprays/icons/hypokits.dmi'
-	icon_state = "firstaid-mini"
 	worn_icon_state = "healthanalyzer" // Get a better sprite later
 	inhand_icon_state = "medkit"
+	icon = 'modular_nova/modules/hyposprays/icons/hypokits.dmi'
+	icon_state = "firstaid-mini"
 	greyscale_config = /datum/greyscale_config/hypokit
 	lefthand_file = 'icons/mob/inhands/equipment/medical_lefthand.dmi'
 	righthand_file = 'icons/mob/inhands/equipment/medical_righthand.dmi'
@@ -19,6 +19,8 @@
 	var/static/list/case_designs
 	var/static/list/case_designs_xl
 	var/is_xl = FALSE
+	/// The original icon file where our overlays reside.
+	var/original_icon = 'modular_nova/modules/hyposprays/icons/hypokits.dmi'
 
 	/// Tracks if a hypospray is attached to the case or not.
 	var/obj/item/hypospray/mkii/attached_hypo
@@ -84,42 +86,42 @@
 	. = ..()
 	if(attached_hypo)
 		if(attached_hypo.greyscale_colors != null) //it's one of the GAGS variants
-			var/mutable_appearance/hypo_overlay = mutable_appearance(initial(icon), attached_hypo.icon_state)
+			var/mutable_appearance/hypo_overlay = mutable_appearance(original_icon, attached_hypo.icon_state)
 			. += hypo_overlay
 			var/list/split_colors = splittext(attached_hypo.greyscale_colors, "#")
-			var/mutable_appearance/hypo_overlay_acc1 = mutable_appearance(initial(icon), "hypo2_accent1")
+			var/mutable_appearance/hypo_overlay_acc1 = mutable_appearance(original_icon, "hypo2_accent1")
 			hypo_overlay_acc1.color = "#[split_colors[2]]"
 			. += hypo_overlay_acc1
-			var/mutable_appearance/hypo_overlay_acc2 = mutable_appearance(initial(icon), "hypo2_accent2")
+			var/mutable_appearance/hypo_overlay_acc2 = mutable_appearance(original_icon, "hypo2_accent2")
 			hypo_overlay_acc2.color = "#[split_colors[3]]"
 			. += hypo_overlay_acc2
 		else
-			var/mutable_appearance/hypo_overlay = mutable_appearance(initial(icon), attached_hypo.icon_state)
+			var/mutable_appearance/hypo_overlay = mutable_appearance(original_icon, attached_hypo.icon_state)
 			. += hypo_overlay
 
 /obj/item/storage/hypospraykit/tool_act(mob/living/user, obj/item/tool, list/modifiers)
 	if(!istype(tool, /obj/item/hypospray/mkii) || !LAZYACCESS(modifiers, RIGHT_CLICK))
 		return ..()
 	if(!isnull(attached_hypo))
-		balloon_alert(user, "Mount point full!  Remove [attached_hypo] first!")
+		balloon_alert(user, "mount point full!  Remove [attached_hypo] first!")
 		return ITEM_INTERACT_BLOCKING
 	tool.moveToNullspace()
 	attached_hypo = tool
 	RegisterSignal(tool, COMSIG_QDELETING, PROC_REF(on_attached_hypo_qdel))
-	balloon_alert(user, "Attached [attached_hypo].")
+	balloon_alert(user, "attached [attached_hypo].")
 	update_appearance()
 	return ITEM_INTERACT_SUCCESS
 
 /obj/item/storage/hypospraykit/click_alt_secondary(mob/user)
 	if(attached_hypo != null)
 		if(user.put_in_hands(attached_hypo))
-			balloon_alert(user, "Removed [attached_hypo].")
+			balloon_alert(user, "removed [attached_hypo].")
 			UnregisterSignal(attached_hypo, COMSIG_QDELETING)
 			attached_hypo = null
 			update_appearance()
 			// Ditto here.
 		else
-			balloon_alert(user, "Couldn't pull the hypo!")
+			balloon_alert(user, "couldn't pull the hypo!")
 
 /obj/item/storage/hypospraykit/proc/on_attached_hypo_qdel()
 	if(attached_hypo)
@@ -152,7 +154,7 @@
 		var/datum/greyscale_modify_menu/menu = new(src, usr, allowed_configs)
 		menu.ui_interact(usr)
 	else //restore normal icon
-		icon = initial(icon)
+		icon = original_icon
 		greyscale_colors = null
 
 /obj/item/storage/hypospraykit/proc/check_menu(mob/user)
@@ -273,6 +275,6 @@
 	. = ..()
 	var/static/list/hypokit_holdable = typecacheof(list(
 		/obj/item/hypospray/mkii,
-		/obj/item/reagent_containers/cup/vial
+		/obj/item/reagent_containers/cup/vial,
 	))
 	can_hold = hypokit_holdable

@@ -15,13 +15,13 @@ Various changes to the medical system, from adding bandage overlays, to new woun
 
 ### TG Proc/File Changes:
 
-- code/_DEFINES/wounds.dm: Added muscle/synth wound series, added them to the global list of wound series
+- `code/_DEFINES/wounds.dm`: Added muscle/synth wound series, added them to the global list of wound series
 - cat2_medicine_reagents.dm: /datum/reagent/medicine/c2/hercuri/on_mob_life, Allowed hercuri to affect synthetics, also changed hercuri process flags for this purpose
 - quirks.dm: Commented out the quadruple_amputee/frail blacklist as frail can now apply to prosthetics
 <!-- If you edited any core procs, you should list them here. You should specify the files and procs you changed.
 E.g:
 - `code/modules/mob/living.dm`: `proc/overriden_proc`, `var/overriden_var`
--->
+  -->
 
 ### Modular Overrides:
 
@@ -30,7 +30,7 @@ E.g:
 E.g:
 - `modular_nova/master_files/sound/my_cool_sound.ogg`
 - `modular_nova/master_files/code/my_modular_override.dm`: `proc/overriden_proc`, `var/overriden_var`
--->
+  -->
 
 ### Defines:
 
@@ -39,7 +39,7 @@ E.g:
 
 ### Included files that are not contained in this module:
 
-- strings/wounds/metal_scar_desc.json -- Required to be here for _string_lists.dm usage
+- strings/wounds/metal_scar_desc.json -- Required to be here for \_string_lists.dm usage
 <!-- Likewise, be it a non-modular file or a modular one that's not contained within the folder belonging to this specific module, it should be mentioned here. Good examples are icons or sounds that are used between multiple modules, or other such edge-cases. -->
 
 ### Credits:

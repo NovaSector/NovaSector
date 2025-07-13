@@ -78,12 +78,6 @@
 	name = "Space-Ruin Abandoned Clothing Facility"
 	description = "A den of bad ideas. Secborgs were made here!"
 
-/datum/map_template/ruin/space/nova/luna
-	id = "luna"
-	suffix = "luna.dmm"
-	name = "Space-Ruin Luna"
-	description = "Please note for ethical concerns all experimentation regarding writing artificial intelligence units to beleive they are A, A fictional character and B, human have been suspended. Have a pleasant shift."
-
 /datum/map_template/ruin/space/nova/blackmarket
 	id = "blackmarket"
 	suffix = "blackmarket.dmm"
@@ -178,3 +172,5 @@
 /obj/modular_map_root/port_tarkon
 	config_file = "strings/modular_maps/nova/PortTarkon.toml"
 
+/obj/modular_map_root/interlink
+	config_file = "strings/modular_maps/nova/Interlink.toml"

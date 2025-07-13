@@ -84,7 +84,7 @@
 	)
 
 	contraband_nova = list(
-		/obj/item/clothing/mask/balaclavaadjust = 5,
+		/obj/item/clothing/mask/balaclava/adjustable = 5,
 		/obj/item/clothing/mask/balaclava/threehole = 5,
 		/obj/item/clothing/mask/balaclava/threehole/green = 5,
 		/obj/item/clothing/head/hats/imperial/helmet = 5,
