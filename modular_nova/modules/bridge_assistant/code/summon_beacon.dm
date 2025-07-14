@@ -10,10 +10,13 @@
 	new /obj/item/holosign_creator/engineering(src)
 	new /obj/item/storage/bag/construction(src)
 	new /obj/item/storage/belt/utility/full/inducer(src)
-	new /obj/item/clothing/gloves/color/yellow(src)
 	new /obj/item/construction/rcd(src)
 	new /obj/item/rcd_upgrade/furnishing(src)
 	new /obj/item/rcd_upgrade/frames(src)
+
+/obj/structure/closet/secure_closet/bridge_officer/populate_contents_immediate()
+	. = ..()
+	new /obj/item/clothing/gloves/color/yellow(src)
 
 /obj/item/choice_beacon/coffee
 	name = "coffeemaker beacon"
