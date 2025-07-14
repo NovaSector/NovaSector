@@ -114,6 +114,10 @@
 	icon_state = "snowdual"
 	color_src = USE_MATRIXED_COLORS
 
+/datum/sprite_accessory/fluff/moth/insectoid
+	name = "Insectoid"
+	icon_state = "insect"
+
 /datum/sprite_accessory/fluff/moth/teshari
 	name = "Teshari Mane"
 	icon_state = "teshmane"

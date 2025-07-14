@@ -205,6 +205,19 @@
 		/obj/item/ammo_box/magazine/m38/iceblox = 3,
 	)
 
+/datum/supply_pack/security/armory/ammobench_starter
+	name = "Ammunition Workbench Starter Kit"
+	desc = "Contains a flat-packed ammunition workbench, a standard lethal and niche non-lethal module pair, and a pair of reauthenticators. \
+		Bring your own magazines. And materials. And everything else you'd need to get an ammunition workbench working."
+	cost = CARGO_CRATE_VALUE * 5
+	contains = list(
+		/obj/item/flatpack/ammo_workbench,
+		/obj/item/ammo_workbench_module/lethal,
+		/obj/item/ammo_workbench_module/gimmick,
+		/obj/item/ammo_workbench_reboot = 2,
+	)
+	crate_name = "ammunition workbench starter crate"
+
 /*
 *	ENGINEERING
 */
@@ -396,6 +409,9 @@
 		While it's a pretty cheap bootleg of the personal gravitic engines used by the Skrell, this one's been fitted with straps and a basic storage module."
 	cost = CARGO_CRATE_VALUE * 6 // 1200 credits
 	contains = list(/obj/item/gravity_harness)
+
+/datum/supply_pack/misc/commandkeys
+	hidden = TRUE
 
 /*
 *	FOOD

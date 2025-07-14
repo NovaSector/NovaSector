@@ -2,7 +2,7 @@
 	products_nova = list(
 		/obj/item/radio/headset/headset_med = 3,
 		/obj/item/clothing/gloves/latex/nitrile = 2,
-		/obj/item/clothing/suit/toggle/labcoat/nova/hospitalgown = 5,
+		/obj/item/clothing/suit/toggle/labcoat/nova/surgical_gown = 5,
 		/obj/item/storage/belt/medbandolier = 2,
 		/obj/item/clothing/under/rank/engineering/engineer/nova/hazard_chem/emt = 2,
 		/obj/item/clothing/under/rank/medical/scrubs/nova/red = 4,
@@ -58,12 +58,24 @@
 		/obj/item/clothing/head/beret/science/fancy/robo = 2,
 		/obj/item/tank/internals/anesthetic = 2,
 		/obj/item/clothing/mask/breath = 2,
+		/obj/item/disk/neuroware/reset = 2,
+		/obj/item/disk/neuroware/brain = 2, // for brain damage
+		/obj/item/disk/neuroware/morphine = 4,
+		/obj/item/disk/neuroware/lidocaine = 4,
+		/obj/item/disk/neuroware/synaptizine = 2,
+		/obj/item/disk/neuroware/psicodine = 2,
 		/obj/item/reagent_containers/cup/bottle/morphine = 2,
 		/obj/item/reagent_containers/syringe = 2,
+		/obj/item/stack/medical/synth_repair = 4,
+		/obj/item/reagent_containers/hypospray/medipen/deforest/robot_system_cleaner = 3,
+		/obj/item/reagent_containers/hypospray/medipen/deforest/robot_liquid_solder = 3,
 		/obj/item/reagent_containers/spray/hercuri/chilled = 2,
 		/obj/item/reagent_containers/spray/dinitrogen_plasmide = 2,
+		/obj/item/stack/medical/wound_recovery/robofoam = 2,
+		/obj/item/stack/medical/wound_recovery/robofoam_super = 1,
 		/obj/item/clothing/gloves/color/black = 2, // fire resistant, allows the robo to painlessly mold metal. also it's down here because it's a treatment item
 		/obj/item/bonesetter = 2, // for dislocations
+		/obj/item/cybernetic_repair_paste = 2, // for organ damage
 		/obj/item/stack/medical/gauze = 4, // for ALL wounds
 		/obj/item/healthanalyzer/no_medibot = 2, // disallows medibot use so it's not wasted immediately on medibots
 		/obj/item/healthanalyzer/simple = 2,
@@ -76,13 +88,20 @@
 
 	contraband_nova = list(
 		/obj/item/organ/tongue/lizard/robot = 2,
+		/obj/item/disk/neuroware/pumpup = 2,
+		/obj/item/disk/neuroware/maintenance = 2,
+		/obj/item/disk/neuroware/space_drugs = 2,
+		/obj/item/disk/neuroware/happiness = 2,
+		/obj/item/disk/neuroware/thc = 2,
+		/obj/item/disk/neuroware/mushroomhallucinogen = 2,
+		/obj/item/disk/neuroware/mindbreaker = 2,
 	)
 
 /obj/machinery/vending/wardrobe/science_wardrobe
 	products_nova = list(
 		/obj/item/clothing/under/rank/rnd/scientist/nova/hlscience = 3,
 		/obj/item/clothing/under/rank/rnd/scientist/nova/utility = 3,
-		/obj/item/clothing/suit/toggle/labcoat/nova/regular = 3,
+		/obj/item/clothing/suit/toggle/labcoat/nova/fancy/regular = 3,
 		/obj/item/clothing/suit/toggle/jacket/nova/sci = 3,
 		/obj/item/storage/backpack/messenger/science = 3,
 	)

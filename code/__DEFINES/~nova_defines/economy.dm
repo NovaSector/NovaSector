@@ -9,3 +9,6 @@
 #define ACCOUNT_INT "IP"
 #define ACCOUNT_INT_NAME "Interdyne Pharmaceuticals Budget"
 
+// Relevant budget for Tarkon!
+#define ACCOUNT_TI "TI"
+#define ACCOUNT_TI_NAME "Tarkon Industries Budget"

@@ -1,4 +1,0 @@
-author: "chestlet"
-delete-after: True
-changes:
-  - bugfix: "Paradox clones can actually spawn in now."

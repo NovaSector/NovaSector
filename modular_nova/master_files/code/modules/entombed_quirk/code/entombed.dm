@@ -55,7 +55,7 @@
 	var/mob/living/carbon/human/human_holder = quirk_holder
 
 	human_holder.visible_message(span_danger("[human_holder] suddenly staggers, a dire pallor overtaking [human_holder.p_their()] features as a feeble 'breep' emanates from their suit..."), span_userdanger("Terror descends as your suit's life support system breeps feebly, and then goes horrifyingly silent."))
-	human_holder.balloon_alert(human_holder, "SUIT LIFE SUPPORT FAILING!")
+	human_holder.balloon_alert(human_holder, "suit life support failing!")
 	playsound(human_holder, 'sound/effects/alert.ogg', 25, TRUE, SILENCED_SOUND_EXTRARANGE) // OH GOD THE STRESS NOISE
 	life_support_failed = TRUE
 
@@ -91,6 +91,10 @@
 		modsuit.icon = 'modular_nova/modules/kahraman_equipment/icons/modsuits/mod.dmi'
 		modsuit.worn_icon = 'modular_nova/modules/kahraman_equipment/icons/modsuits/mod_worn.dmi'
 
+	else if(modsuit.skin == "tarkon") // Another special case
+		modsuit.icon = 'modular_nova/modules/tarkon/icons/obj/clothing/mod.dmi'
+		modsuit.worn_icon = 'modular_nova/modules/tarkon/icons/mob/clothing/mod.dmi'
+
 	var/modsuit_name = client_source?.prefs.read_preference(/datum/preference/text/entombed_mod_name)
 	if (modsuit_name)
 		modsuit.name = modsuit_name
@@ -110,6 +114,10 @@
 		if(modsuit.skin == "colonist") // That special case again. If more Nova modsuit skins ever get added, we may want to refactor this quirk to use the mod_theme's variants list instead of hardcoded strings.
 			part.icon = 'modular_nova/modules/kahraman_equipment/icons/modsuits/mod.dmi'
 			part.worn_icon = 'modular_nova/modules/kahraman_equipment/icons/modsuits/mod_worn.dmi'
+
+		else if(modsuit.skin == "tarkon") // Same as above, not smart enough to do the refactoring
+			part.icon = 'modular_nova/modules/tarkon/icons/obj/clothing/mod.dmi'
+			part.worn_icon = 'modular_nova/modules/tarkon/icons/mob/clothing/mod.dmi'
 
 	install_racial_features()
 
@@ -185,6 +193,7 @@
 		"Prototype",
 		"Security",
 		"Colonist",
+		"Tarkon",
 	)
 
 /datum/preference/choiced/entombed_skin/create_default_value()

@@ -64,12 +64,7 @@
 /datum/opposing_force_equipment/ranged/shitzu
 	name = "Shitzu Shotgun"
 	description = "A modified magfed shotgun gun, designated 'Shitzu'."
-	item_type = /obj/item/storage/toolbox/guncase/nova/opfor/shitzu
-
-/obj/item/storage/toolbox/guncase/nova/opfor/shitzu/PopulateContents()
-	new /obj/item/gun/ballistic/shotgun/katyusha/shitzu(src)
-	new /obj/item/ammo_box/magazine/shitzu/milspec(src)
-	new /obj/item/ammo_box/magazine/shitzu/milspec(src)
+	item_type = /obj/item/storage/toolbox/guncase/nova/syndicate/shitzu
 
 /datum/opposing_force_equipment/ranged/hook_shotgun
 	name = "Hook Modified Sawn-off Shotgun"
@@ -179,7 +174,7 @@
 
 /datum/opposing_force_equipment/ranged_stealth/makarov
 	name = "Makarov Pistol"
-	description = "A small, easily concealable 9x25mm Mk.12 handgun. This one is packed with a suppressor."
+	description = "A small, easily concealable 9mm handgun. This one is packed with a suppressor."
 	item_type = /obj/item/storage/toolbox/guncase/nova/pistol/opfor/makarov
 
 /obj/item/storage/toolbox/guncase/nova/pistol/opfor/makarov/PopulateContents()

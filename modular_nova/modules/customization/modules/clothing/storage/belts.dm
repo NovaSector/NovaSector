@@ -8,15 +8,17 @@
 	inhand_icon_state = "utility"
 	w_class = WEIGHT_CLASS_BULKY //Cant fit a sheath in your bag
 	interaction_flags_click = NEED_DEXTERITY
+	storage_type = /datum/storage/belt/crusader
 
-/obj/item/storage/belt/crusader/Initialize(mapload)
+/datum/storage/belt/crusader
+	max_slots = 2
+	max_specific_storage = WEIGHT_CLASS_BULKY
+	allow_big_nesting = TRUE
+
+/datum/storage/belt/crusader/New(atom/parent, max_slots, max_specific_storage, max_total_storage)
 	. = ..()
-
-	create_storage(
-		max_slots = 2,
-		max_specific_storage = WEIGHT_CLASS_BULKY,	//This makes sure swords and the pouches can fit in here - the whitelist keeps the bad stuff out
-		storage_type = /datum/storage/belt/crusader,
-		canhold = list(
+	set_holdable(
+		can_hold_list = list(
 			/obj/item/storage/belt/storage_pouch,
 			/obj/item/forging/reagent_weapon/sword,
 			/obj/item/forging/reagent_weapon/katana,
@@ -29,7 +31,7 @@
 			/obj/item/melee/baton,
 			/obj/item/nullrod,	//holds any subset of nullrod in the sheath-storage - - -
 		),
-		canthold = list(	// - - - except the second list's items (no fedora in the sheath)
+		cant_hold_list = list(
 			/obj/item/nullrod/armblade,
 			/obj/item/nullrod/carp,
 			/obj/item/nullrod/chainsaw,
@@ -43,9 +45,11 @@
 			/obj/item/nullrod/godhand,
 			/obj/item/nullrod/staff,
 			/obj/item/nullrod/whip,
-		),
+		)
 	)
-	atom_storage.allow_big_nesting = TRUE // Lets the pouch work
+
+/obj/item/storage/belt/crusader/Initialize(mapload)
+	. = ..()
 	AddElement(/datum/element/update_icon_updates_onmob)
 
 //Overrides normal dumping code to instead dump from the pouch item inside
@@ -112,26 +116,29 @@
 	worn_icon_state = "storage_pouch_icon"
 	w_class = WEIGHT_CLASS_BULKY //Still cant put it in your bags, it's technically a belt
 	anchored = 1	//Dont want people taking it out with their hands
+	storage_type = /datum/storage/pouch/belt
+
+/datum/storage/pouch/belt
+	max_slots = 6
+	max_specific_storage = WEIGHT_CLASS_SMALL
 
 /obj/item/storage/belt/storage_pouch/attack_hand(mob/user, list/modifiers)	//Opens the bag on click - considering it's already anchored, this makes it function similar to how ghosts can open all nested inventories
 	. = ..()
-
 	atom_storage.show_contents(user)
 
-/obj/item/storage/belt/storage_pouch/Initialize(mapload)
-	. = ..()
-
-	atom_storage.max_slots = 6
-	atom_storage.max_specific_storage = WEIGHT_CLASS_SMALL //Rather than have a huge whitelist, the belt can simply hold anything a pocket can hold - Can easily be changed if it somehow becomes an issue
-
-/obj/item/storage/belt/holster/cowboy
-	icon = 'modular_nova/master_files/icons/obj/clothing/belts.dmi'
-	worn_icon = 'modular_nova/master_files/icons/mob/clothing/belt.dmi'
-	name = "cowboy belt"
-	desc = "Yee haw! The holster on the side of the hip is leather stamped with swirling lines, all leading back to a deer's antlers."
-	icon_state = "cowboy_belt"
+/obj/item/storage/belt/holster/thigh
+	name = "thigh holster"
+	desc = "A fine leather holster, fastened to the hip and attached to a belt. Can hold a handgun and some ammo."
+	icon = 'icons/map_icons/items/_item.dmi'
+	icon_state = "/obj/item/storage/belt/holster/thigh"
+	post_init_icon_state = "cowboy_belt"
 	worn_icon_state = "cowboy_belt"
 	inhand_icon_state = "utility"
+	worn_icon = 'modular_nova/master_files/icons/mob/clothing/belt.dmi'
+	greyscale_config = /datum/greyscale_config/thigh_holster
+	greyscale_config_worn = /datum/greyscale_config/thigh_holster/worn
+	greyscale_colors = "#7B3B20#7B3B20"
+	flags_1 = IS_PLAYER_COLORABLE_1
 
 /obj/item/storage/belt/medbandolier
 	icon = 'modular_nova/master_files/icons/obj/clothing/belts.dmi'
@@ -140,13 +147,16 @@
 	desc = "A pocketed, pine green belt slung like a sash over the shoulder. Features numerous pockets for medicines and poisons alike. Now is coward healing time."
 	icon_state = "med_bandolier"
 	worn_icon_state = "med_bandolier"
+	storage_type = /datum/storage/med_bandolier
 
-/obj/item/storage/belt/medbandolier/Initialize(mapload)
+/datum/storage/med_bandolier
+	max_specific_storage = WEIGHT_CLASS_NORMAL
+	max_slots = 14
+	max_total_storage = 35
+
+/datum/storage/med_bandolier/New(atom/parent, max_slots, max_specific_storage, max_total_storage)
 	. = ..()
-	atom_storage.max_specific_storage = WEIGHT_CLASS_NORMAL
-	atom_storage.max_slots = 14
-	atom_storage.max_total_storage = 35
-	atom_storage.set_holdable(list(
+	set_holdable(list(
 		/obj/item/dnainjector,
 		/obj/item/reagent_containers/dropper,
 		/obj/item/reagent_containers/cup/bottle,

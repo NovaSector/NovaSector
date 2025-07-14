@@ -25,6 +25,10 @@
 	worn_icon = MODULAR_EYES_WORN_ICON
 	icon_state = "glasses_alt"
 	inhand_icon_state = "glasses"
+	unique_reskin = list(
+			"Translucent" = "glasses_alt",
+			"Transparent" = "glasses_alt_t",
+	)
 
 /obj/item/clothing/glasses/trickblindfold/hamburg
 	name = "thief visor"

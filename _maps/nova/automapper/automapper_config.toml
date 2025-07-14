@@ -311,71 +311,6 @@ required_map = "birdshot.dmm"
 coordinates = [67, 207, 1]
 trait_name = "Station"
 
-# NORTHSTAR MAP EDITS
-# Northstar Cryo
-[templates.northstar_cryo]
-map_files = ["northstar_cryo.dmm"]
-directory = "_maps/nova/automapper/templates/northstar/"
-required_map = "north_star.dmm"
-coordinates = [130, 114, 3]
-trait_name = "Station"
-
-# Northstar Dorms
-[templates.northstar_dorms]
-map_files = ["northstar_dorms.dmm"]
-directory = "_maps/nova/automapper/templates/northstar/"
-required_map = "north_star.dmm"
-coordinates = [137, 132, 3]
-trait_name = "Station"
-
-# Northstar Arrivals
-[templates.northstar_arrivals]
-map_files = ["northstar_arrivals.dmm"]
-directory = "_maps/nova/automapper/templates/northstar/"
-required_map = "north_star.dmm"
-coordinates = [90, 100, 1]
-trait_name = "Station"
-
-# Northstar ERT Bay
-[templates.northstar_ert_bay]
-map_files = ["northstar_ert_bay.dmm"]
-directory = "_maps/nova/automapper/templates/northstar/"
-required_map = "north_star.dmm"
-coordinates = [54, 118, 2]
-trait_name = "Station"
-
-# Northstar Barber
-[templates.northstar_barber]
-map_files = ["northstar_barber.dmm"]
-directory = "_maps/nova/automapper/templates/northstar/"
-required_map = "north_star.dmm"
-coordinates = [105, 117, 2]
-trait_name = "Station"
-
-# Northstar Armory
-[templates.northstar_armory]
-map_files = ["northstar_armory.dmm"]
-directory = "_maps/nova/automapper/templates/northstar/"
-required_map = "north_star.dmm"
-coordinates = [121, 109, 4]
-trait_name = "Station"
-
-# Northstar NTR Office
-[templates.northstar_ntrep_office]
-map_files = ["northstar_ntrep_office.dmm"]
-directory = "_maps/nova/automapper/templates/northstar/"
-required_map = "north_star.dmm"
-coordinates = [150, 114, 3]
-trait_name = "Station"
-
-# Northstar Supermatter Chamber
-[templates.northstar_supermatter]
-map_files = ["northstar_supermatter.dmm"]
-directory = "_maps/nova/automapper/templates/northstar/"
-required_map = "north_star.dmm"
-coordinates = [171, 129, 1]
-trait_name = "Station"
-
 # Lavaland NE Ashwalker Fortress
 [templates.lavaland_ashwalker_fortress]
 map_files = ["lavaland_ashwalker_fortress.dmm"]
@@ -504,4 +439,52 @@ map_files = ["nebulastation_supermatter.dmm"]
 directory = "_maps/nova/automapper/templates/nebulastation/"
 required_map = "NebulaStation.dmm"
 coordinates = [116, 95, 1]
+trait_name = "Station"
+
+#Catwalkstation Supermatter
+[templates.catwalkstation_supermatter]
+map_files = ["catwalkstation_supermatter.dmm"]
+directory = "_maps/nova/automapper/templates/catwalkstation/"
+required_map = "CatwalkStation_2023.dmm"
+coordinates = [172, 163, 1]
+trait_name = "Station"
+
+#Catwalkstation NTRep Office
+[templates.catwalkstation_ntrep_office]
+map_files = ["catwalkstation_ntrep_office.dmm"]
+directory = "_maps/nova/automapper/templates/catwalkstation/"
+required_map = "CatwalkStation_2023.dmm"
+coordinates = [114, 150, 1]
+trait_name = "Station"
+
+#Catwalkstation Arrivals
+[templates.catwalkstation_arrivals]
+map_files = ["catwalkstation_arrivals.dmm"]
+directory = "_maps/nova/automapper/templates/catwalkstation/"
+required_map = "CatwalkStation_2023.dmm"
+coordinates = [120, 66, 1]
+trait_name = "Station"
+
+#Catwalkstation Cryo
+[templates.catwalkstation_cryo]
+map_files = ["catwalkstation_cryo.dmm"]
+directory = "_maps/nova/automapper/templates/catwalkstation/"
+required_map = "CatwalkStation_2023.dmm"
+coordinates = [132, 149, 1]
+trait_name = "Station"
+
+#Catwalkstation Armory
+[templates.catwalkstation_armory]
+map_files = ["catwalkstation_armory.dmm"]
+directory = "_maps/nova/automapper/templates/catwalkstation/"
+required_map = "CatwalkStation_2023.dmm"
+coordinates = [68, 129, 2]
+trait_name = "Station"
+
+#Catwalkstation Barber
+[templates.catwalkstation_barber]
+map_files = ["catwalkstation_barber.dmm"]
+directory = "_maps/nova/automapper/templates/catwalkstation/"
+required_map = "CatwalkStation_2023.dmm"
+coordinates = [99, 135, 1]
 trait_name = "Station"
