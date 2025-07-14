@@ -131,15 +131,6 @@
 	item_path = /obj/item/clothing/mask/gas/respirator
 
 /*
-*	JOB-LOCKED
-*/
-
-/datum/loadout_item/mask/whistlesec
-	name = "Police Whistle"
-	item_path = /obj/item/clothing/mask/whistle
-	restricted_roles = list(JOB_WARDEN, JOB_DETECTIVE, JOB_SECURITY_OFFICER, JOB_HEAD_OF_SECURITY, JOB_CORRECTIONS_OFFICER)
-
-/*
 *	COSTUME
 */
 
@@ -203,6 +194,16 @@
 	name = "Masquerade Mask - Feathered, Split"
 	item_path = /obj/item/clothing/mask/masquerade/two_colors/feathered
 	group = "Costumes"
+
+/*
+*	JOB-LOCKED
+*/
+// No group (groups should be ~5+ items)
+
+/datum/loadout_item/mask/whistlesec
+	name = "Police Whistle"
+	item_path = /obj/item/clothing/mask/whistle
+	restricted_roles = list(JOB_WARDEN, JOB_DETECTIVE, JOB_SECURITY_OFFICER, JOB_HEAD_OF_SECURITY, JOB_CORRECTIONS_OFFICER)
 
 /*
 *	DONATOR
