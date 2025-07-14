@@ -134,11 +134,17 @@
 	var/static/list/emag_blacklist = list(
 		/obj/machinery/satellite/meteor_shield,
 		/obj/machinery/computer/communications,
+		/obj/item/circuitboard/computer/communications,
 		/obj/machinery/computer/arcade,
+		/obj/item/circuitboard/computer/arcade,
 		/obj/machinery/computer/cargo,
+		/obj/item/circuitboard/computer/cargo,
 		/obj/machinery/computer/holodeck,
 		/obj/machinery/computer/emergency_shuttle,
 		/obj/machinery/recycler,
+		/obj/item/circuitboard/machine/recycler,
+		/obj/machinery/fishing_portal_generator,
+		/obj/item/circuitboard/machine/fishing_portal_generator,
 		/obj/item/organ/cyberimp/arm/toolkit/armblade,
 	)
 	/// How far away we can hack things
