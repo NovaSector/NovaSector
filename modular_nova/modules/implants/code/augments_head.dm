@@ -154,11 +154,11 @@
 	. = ..()
 
 	if(ismob(cast_on) || is_type_in_list(cast_on, emag_blacklist))
-		owner.balloon_alert(owner, "security too strong")
+		owner.balloon_alert(owner, "can't find data access point!")
 		return FALSE
 
 	if(get_dist(owner, cast_on) > hack_range)
-		owner.balloon_alert(owner, "too far away")
+		owner.balloon_alert(owner, "too far away!")
 		return FALSE
 
 	return TRUE
