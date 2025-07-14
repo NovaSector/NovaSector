@@ -40,7 +40,7 @@
 	id = TECHWEB_NODE_CYBERNETICS_ILLEGAL_NOVA
 	display_name = "Illegal Cybernetics Implants"
 	description = "So hipotetically if we didn't care about the formalities of ethics..."
-	prereq_ids = list(TECHWEB_NODE_SYNDICATE_BASIC, TECHWEB_NODE_COMBAT_IMPLANTS)
+	prereq_ids = list(TECHWEB_NODE_COMBAT_IMPLANTS)
 	design_ids = list(
 		"combat_implant_hackerman",
 	)
