@@ -75,11 +75,6 @@
 	name = "Marauder Ship"
 	flags_1 = NONE
 
-GLOBAL_LIST_INIT(traitor_shuttle_names, world.file2list("strings/names/nova/traitor_shuttle.txt"))
-
-/area/shuttle/traitor/Initialize(mapload)
-	name = pick(GLOB.traitor_shuttle_names)
-	. = ..()
 
 //map
 /datum/lazy_template/midround_traitor
@@ -125,10 +120,15 @@ GLOBAL_LIST_INIT(traitor_shuttle_names, world.file2list("strings/names/nova/trai
 	laws = new /datum/ai_laws/syndicate_override()
 	radio.set_on(FALSE)
 
-//just a classic martini
+//some drinks
 /obj/item/reagent_containers/cup/glass/drinkingglass/filled/martini
 	list_reagents = list(/datum/reagent/consumable/ethanol/martini = 50)
 
+/obj/item/reagent_containers/cup/glass/drinkingglass/filled/fringe_weaver
+	list_reagents = list(/datum/reagent/consumable/ethanol/fringe_weaver = 50)
+
+/obj/item/reagent_containers/cup/glass/drinkingglass/filled/doctor_delight
+	list_reagents = list(/datum/reagent/consumable/doctor_delight = 50)
 
 //stationary docking port
 /obj/docking_port/stationary/traitor

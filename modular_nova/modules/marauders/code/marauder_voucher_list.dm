@@ -23,36 +23,36 @@
 // Paper slips
 /obj/item/paper/paperslip/corporate/syndicate/primary
 	name = "primary weapon voucher"
-//	desc = ""
-//	default_raw_text = ""
+	desc = ""
+	default_raw_text = ""
 //	icon_state = "/obj/item/paper/paperslip/corporate/syndicate/primary"
 //	greyscale_colors = COLOR_SYNDIE_RED_HEAD
 
 /obj/item/paper/paperslip/corporate/syndicate/secondary
 	name = "secondary weapon voucher"
-//	desc = ""
-//	default_raw_text = ""
+	desc = ""
+	default_raw_text = ""
 //	icon_state = "/obj/item/paper/paperslip/corporate/syndicate/secondary"
 //	greyscale_colors = COLOR_PINK_RED
 
 /obj/item/paper/paperslip/corporate/syndicate/exosuit
-	name = "exosuit voucher"
-//	desc = ""
-//	default_raw_text = ""
+	name = "robotics exosuit voucher"
+	desc = ""
+	default_raw_text = ""
 //	icon_state = "/obj/item/paper/paperslip/corporate/syndicate/exosuit"
 //	greyscale_colors = COLOR_SCIENCE_PINK
 
 /obj/item/paper/paperslip/corporate/syndicate/implant
-	name = "implant voucher"
-//	desc = ""
-//	default_raw_text = ""
+	name = "medical implant voucher"
+	desc = ""
+	default_raw_text = ""
 //	icon_state = "/obj/item/paper/paperslip/corporate/syndicate/implant"
 //	greyscale_colors = COLOR_MEDICAL_BLUE
 
 /obj/item/paper/paperslip/corporate/syndicate/supplies
 	name = "general supplies voucher"
-//	desc = ""
-//	default_raw_text = ""
+	desc = ""
+	default_raw_text = ""
 //	icon_state = "/obj/item/paper/paperslip/corporate/syndicate/supplies"
 //	greyscale_colors = COLOR_CARGO_BROWN
 

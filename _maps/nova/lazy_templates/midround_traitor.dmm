@@ -210,6 +210,11 @@
 /obj/structure/extinguisher_cabinet/directional/west,
 /turf/open/floor/mineral/plastitanium,
 /area/misc/operative_barracks/mission_briefing)
+"ef" = (
+/obj/effect/turf_decal/siding/white,
+/obj/structure/fluff/fake_vent,
+/turf/open/floor/mineral/titanium/tiled,
+/area/misc/operative_barracks/armoury)
 "el" = (
 /obj/effect/spawner/structure/window/reinforced/plasma/plastitanium,
 /turf/open/floor/plating,
@@ -236,6 +241,10 @@
 /turf/open/floor/plating,
 /area/misc/operative_barracks/hangar)
 "eF" = (
+/obj/item/chair/stool/bar{
+	pixel_x = -16;
+	pixel_y = -2
+	},
 /turf/open/floor/iron/dark/corner,
 /area/misc/operative_barracks/armoury)
 "eG" = (
@@ -328,13 +337,21 @@
 /obj/structure/sign/eyechart/directional/north,
 /turf/open/floor/mineral/titanium/tiled/white,
 /area/misc/operative_barracks/medbay/surgery)
+"fW" = (
+/obj/effect/turf_decal/siding/dark,
+/obj/structure/railing/unbreakable,
+/obj/structure/closet/emcloset/wall{
+	pixel_y = 32
+	},
+/turf/open/floor/mineral/plastitanium/red,
+/area/misc/operative_barracks)
 "gi" = (
 /obj/machinery/door/airlock/highsecurity{
 	name = "Armoury Secure Storage"
 	},
 /obj/effect/mapping_helpers/airlock/cutaiwire,
 /obj/structure/fluff/fake_firedoor,
-/turf/open/floor/iron/dark/smooth_large,
+/turf/open/floor/iron/smooth_large,
 /area/misc/operative_barracks/armoury/secure)
 "gl" = (
 /obj/effect/turf_decal/stripes/white/line,
@@ -366,10 +383,23 @@
 	},
 /turf/open/floor/mineral/plastitanium,
 /area/misc/operative_barracks)
-"hm" = (
-/obj/structure/tank_holder/extinguisher,
-/turf/open/floor/iron/dark/small,
-/area/misc/operative_barracks/hangar)
+"ha" = (
+/obj/effect/turf_decal/siding/thinplating_new{
+	dir = 1
+	},
+/obj/machinery/light/small/directional/west,
+/turf/open/floor/mineral/titanium/tiled,
+/area/misc/operative_barracks/armoury)
+"hk" = (
+/obj/structure/sign/poster/contraband/c20r/directional/north,
+/obj/effect/turf_decal/siding/thinplating_new{
+	dir = 4
+	},
+/obj/effect/turf_decal/siding/thinplating_new{
+	dir = 8
+	},
+/turf/open/floor/mineral/titanium/tiled,
+/area/misc/operative_barracks/armoury)
 "hp" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
@@ -468,9 +498,11 @@
 /turf/open/floor/iron/dark/smooth_large,
 /area/misc/operative_barracks/dorm/bathroom)
 "jd" = (
-/obj/effect/turf_decal/siding/white/inner_corner,
-/turf/open/floor/mineral/titanium/tiled,
-/area/misc/operative_barracks/armoury)
+/obj/structure/closet/generic/wall/empty{
+	pixel_x = 32
+	},
+/turf/open/floor/iron/smooth,
+/area/misc/operative_barracks/armoury/secure)
 "jk" = (
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
@@ -622,6 +654,25 @@
 	},
 /turf/open/floor/mineral/plastitanium,
 /area/misc/operative_barracks/mission_briefing)
+"lC" = (
+/obj/structure/fluff/fake_vent,
+/turf/open/floor/iron/smooth,
+/area/misc/operative_barracks/armoury/secure)
+"lN" = (
+/obj/item/emptysandbag{
+	pixel_x = -7;
+	pixel_y = -2
+	},
+/obj/item/emptysandbag{
+	pixel_x = 5;
+	pixel_y = -2
+	},
+/obj/item/emptysandbag{
+	pixel_x = -1;
+	pixel_y = 2
+	},
+/turf/open/floor/plating,
+/area/misc/operative_barracks/hangar)
 "lQ" = (
 /obj/structure/stairs/east{
 	color = "#7F7F7F";
@@ -688,6 +739,11 @@
 /obj/structure/fluff/fake_firedoor,
 /turf/open/floor/iron/dark/smooth_large,
 /area/misc/operative_barracks/robotics)
+"mx" = (
+/obj/item/kirbyplants/organic/plant16,
+/obj/structure/sign/poster/contraband/space_cube/directional/south,
+/turf/open/floor/iron/dark,
+/area/misc/operative_barracks/armoury)
 "mz" = (
 /obj/effect/turf_decal/siding/dark{
 	dir = 1
@@ -703,6 +759,24 @@
 	},
 /turf/open/floor/plating,
 /area/misc/operative_barracks/hangar)
+"mB" = (
+/obj/structure/table/reinforced,
+/obj/structure/window/reinforced/spawner/directional/east,
+/obj/item/ammo_box/magazine/c585trappiste_pistol/spawns_empty{
+	pixel_y = 4
+	},
+/obj/item/ammo_box/magazine/c585trappiste_pistol/spawns_empty{
+	pixel_x = -7;
+	pixel_y = 3
+	},
+/turf/open/floor/circuit/red,
+/area/misc/operative_barracks/armoury)
+"mJ" = (
+/obj/effect/turf_decal/siding/thinplating_new{
+	dir = 1
+	},
+/turf/open/floor/mineral/titanium/tiled,
+/area/misc/operative_barracks/armoury)
 "mK" = (
 /obj/effect/mapping_helpers/airlock/cutaiwire,
 /obj/effect/mapping_helpers/airlock/access/all/syndicate/general,
@@ -710,6 +784,9 @@
 	name = "Armoury"
 	},
 /obj/structure/fluff/fake_firedoor,
+/obj/effect/turf_decal/siding/thinplating_new/corner{
+	dir = 1
+	},
 /turf/open/floor/iron/dark/smooth_large,
 /area/misc/operative_barracks/armoury)
 "mN" = (
@@ -786,6 +863,9 @@
 /obj/item/mecha_parts/mecha_equipment/radio,
 /obj/item/mecha_parts/mecha_equipment/air_tank/full,
 /obj/structure/sign/poster/contraband/dancing_honk/directional/south,
+/obj/effect/turf_decal/siding/thinplating_new/dark{
+	dir = 8
+	},
 /turf/open/floor/iron/dark/side{
 	dir = 8
 	},
@@ -825,12 +905,9 @@
 	pixel_y = 5;
 	pixel_x = 5
 	},
-/obj/item/stack/spacecash/c200{
-	pixel_x = -5;
-	pixel_y = -2
-	},
 /obj/item/stack/spacecash/c100{
-	pixel_x = -5
+	pixel_x = -4;
+	pixel_y = -1
 	},
 /obj/item/pen{
 	pixel_x = 3;
@@ -839,6 +916,10 @@
 /obj/item/reagent_containers/cup/glass/drinkingglass/filled/martini{
 	pixel_x = -7;
 	pixel_y = 10
+	},
+/obj/item/stack/spacecash/c200{
+	pixel_x = -4;
+	pixel_y = -1
 	},
 /turf/open/floor/mineral/plastitanium/red,
 /area/misc/operative_barracks/mission_briefing)
@@ -901,6 +982,15 @@
 /obj/effect/decal/cleanable/dirt/dust,
 /turf/open/floor/iron/dark,
 /area/misc/operative_barracks/medbay)
+"oU" = (
+/obj/effect/turf_decal/siding/thinplating_new/corner{
+	dir = 4
+	},
+/obj/effect/turf_decal/siding/thinplating_new/corner{
+	dir = 1
+	},
+/turf/open/floor/mineral/titanium/tiled,
+/area/misc/operative_barracks/armoury)
 "oZ" = (
 /obj/effect/turf_decal/siding/dark{
 	dir = 4
@@ -1201,16 +1291,31 @@
 /obj/machinery/door/window/brigdoor/right/directional/east,
 /obj/machinery/door/window/brigdoor/left/directional/west,
 /obj/structure/table/reinforced,
-/obj/machinery/dish_drive/bullet,
 /obj/structure/fluff/fake_firedoor,
-/obj/effect/turf_decal/siding/white/corner{
-	dir = 8
-	},
+/obj/machinery/dish_drive/bullet,
 /turf/open/floor/iron/dark/smooth_large,
 /area/misc/operative_barracks/armoury)
+"sW" = (
+/obj/item/shovel,
+/turf/open/floor/plating,
+/area/misc/operative_barracks/hangar)
 "tm" = (
-/obj/machinery/ammo_workbench/unlocked,
-/turf/open/floor/mineral/titanium/tiled,
+/obj/structure/table/reinforced,
+/obj/item/ammo_box/magazine/miecz/spawns_empty{
+	pixel_x = -7
+	},
+/obj/item/ammo_box/magazine/miecz/spawns_empty{
+	pixel_x = -3;
+	pixel_y = -2
+	},
+/obj/item/ammo_box/magazine/c35sol_pistol/starts_empty{
+	pixel_x = 13;
+	pixel_y = 4
+	},
+/obj/item/ammo_box/magazine/c35sol_pistol/stendo/starts_empty{
+	pixel_x = 7
+	},
+/turf/open/floor/circuit/red,
 /area/misc/operative_barracks/armoury)
 "to" = (
 /obj/effect/turf_decal/tile/dark_red,
@@ -1270,6 +1375,9 @@
 /turf/open/floor/mineral/plastitanium,
 /area/misc/operative_barracks/mission_briefing)
 "tM" = (
+/obj/effect/turf_decal/siding/thinplating_new/corner{
+	dir = 1
+	},
 /turf/open/floor/mineral/titanium/tiled,
 /area/misc/operative_barracks/armoury)
 "ub" = (
@@ -1338,6 +1446,12 @@
 /obj/machinery/light/floor,
 /turf/open/floor/mineral/plastitanium/red,
 /area/misc/operative_barracks/hangar)
+"uL" = (
+/obj/effect/turf_decal/box,
+/obj/structure/rack,
+/obj/item/storage/pouch/ammo,
+/turf/open/floor/mineral/titanium/tiled,
+/area/misc/operative_barracks/armoury)
 "uO" = (
 /obj/effect/turf_decal/siding/dark,
 /obj/effect/turf_decal/siding/dark_red/corner{
@@ -1355,8 +1469,26 @@
 /turf/open/floor/plating,
 /area/misc/operative_barracks/hangar)
 "uX" = (
-/obj/item/clothing/mask/gas/syndicate,
-/turf/open/floor/iron/dark,
+/obj/structure/table/reinforced,
+/obj/structure/window/reinforced/spawner/directional/south,
+/obj/item/ammo_box/magazine/lanca/spawns_empty{
+	pixel_x = -5;
+	pixel_y = 11
+	},
+/obj/item/ammo_box/magazine/lanca/spawns_empty{
+	pixel_x = -5;
+	pixel_y = 7
+	},
+/obj/item/ammo_box/magazine/c40sol_rifle/starts_empty{
+	pixel_x = 5;
+	pixel_y = 9
+	},
+/obj/item/ammo_box/magazine/c40sol_rifle/starts_empty{
+	pixel_x = 5;
+	pixel_y = 5
+	},
+/obj/structure/sign/poster/contraband/revolver/directional/west,
+/turf/open/floor/circuit/red,
 /area/misc/operative_barracks/armoury)
 "uZ" = (
 /obj/effect/turf_decal/siding/dark{
@@ -1382,6 +1514,9 @@
 /obj/item/mod/construction/helmet{
 	pixel_y = 2;
 	pixel_x = 7
+	},
+/obj/effect/turf_decal/siding/thinplating_new/dark/corner{
+	dir = 8
 	},
 /turf/open/floor/iron/dark/corner{
 	dir = 8
@@ -1423,6 +1558,16 @@
 "wk" = (
 /obj/effect/turf_decal/siding/thinplating_new/light{
 	dir = 4
+	},
+/turf/open/floor/mineral/titanium/tiled,
+/area/misc/operative_barracks/medbay)
+"wn" = (
+/obj/effect/turf_decal/siding/white{
+	dir = 4
+	},
+/obj/item/storage/pouch/cin_medkit{
+	pixel_x = 12;
+	pixel_y = 17
 	},
 /turf/open/floor/mineral/titanium/tiled,
 /area/misc/operative_barracks/medbay)
@@ -1484,6 +1629,9 @@
 /area/misc/operative_barracks)
 "wI" = (
 /obj/effect/turf_decal/siding/dark_red/corner,
+/obj/effect/decal/cleanable/wrapping{
+	pixel_y = 21
+	},
 /turf/open/floor/mineral/plastitanium,
 /area/misc/operative_barracks/mission_briefing)
 "wK" = (
@@ -1591,7 +1739,7 @@
 	pixel_x = -8;
 	pixel_y = 19
 	},
-/turf/open/floor/iron/dark,
+/turf/open/floor/circuit/green,
 /area/misc/operative_barracks/robotics)
 "yA" = (
 /obj/machinery/mecha_part_fabricator/maint,
@@ -1619,6 +1767,10 @@
 /obj/structure/window/reinforced/survival_pod/indestructible/spawner/directional/north,
 /turf/open/lava/fake,
 /area/misc/operative_barracks/mission_briefing)
+"yJ" = (
+/obj/structure/reagent_dispensers/wall/peppertank/directional/west,
+/turf/open/floor/iron/smooth,
+/area/misc/operative_barracks/armoury/secure)
 "yL" = (
 /obj/item/paper/crumpled,
 /obj/item/stamp/syndicate,
@@ -1627,11 +1779,15 @@
 	dir = 4
 	},
 /obj/structure/closet/crate/bin,
+/obj/structure/sign/poster/contraband/syndiemoth/directional/west,
 /turf/open/floor/mineral/plastitanium,
 /area/misc/operative_barracks/mission_briefing)
 "yU" = (
 /obj/effect/turf_decal/siding/dark,
 /obj/structure/railing/unbreakable,
+/obj/structure/closet/firecloset/wall{
+	pixel_y = 32
+	},
 /turf/open/floor/mineral/plastitanium/red,
 /area/misc/operative_barracks)
 "zf" = (
@@ -1664,6 +1820,9 @@
 /obj/effect/turf_decal/siding/dark_red,
 /turf/open/floor/mineral/plastitanium/red,
 /area/misc/operative_barracks/mission_briefing)
+"zy" = (
+/turf/open/floor/iron/dark/side,
+/area/misc/operative_barracks/armoury)
 "zB" = (
 /obj/structure/table/reinforced,
 /obj/machinery/door/window/right/directional/south,
@@ -1692,12 +1851,18 @@
 /obj/effect/turf_decal/siding/dark{
 	dir = 6
 	},
-/obj/effect/decal/cleanable/wrapping,
 /obj/structure/sign/warning/no_smoking/directional/north,
-/obj/item/toy/plush/monkey{
-	pixel_x = 5;
-	pixel_y = 4
-	},
+/obj/structure/closet/crate/wooden,
+/obj/item/food/grown/banana,
+/obj/item/food/grown/banana,
+/obj/item/food/grown/banana,
+/obj/item/food/grown/banana,
+/obj/item/food/grown/banana,
+/obj/item/food/grown/banana,
+/obj/item/food/grown/banana,
+/obj/item/food/grown/banana,
+/obj/item/food/grown/banana,
+/obj/item/food/grown/banana,
 /turf/open/floor/iron/dark/diagonal,
 /area/misc/operative_barracks/mission_briefing)
 "Au" = (
@@ -1725,6 +1890,12 @@
 	},
 /turf/open/floor/plating,
 /area/misc/operative_barracks/hangar)
+"Br" = (
+/obj/effect/turf_decal/arrows{
+	dir = 4
+	},
+/turf/open/floor/mineral/titanium/tiled,
+/area/misc/operative_barracks/armoury)
 "Bt" = (
 /obj/effect/turf_decal/tile/blue{
 	dir = 4
@@ -1811,6 +1982,7 @@
 	pixel_y = 10;
 	pixel_x = -1
 	},
+/obj/effect/turf_decal/siding/thinplating_new/dark,
 /turf/open/floor/iron/dark/side{
 	dir = 10
 	},
@@ -1841,7 +2013,8 @@
 /turf/open/floor/mineral/titanium/tiled/white,
 /area/misc/operative_barracks/medbay/surgery)
 "Du" = (
-/obj/machinery/recharger,
+/obj/structure/sign/poster/contraband/energy_swords/directional/north,
+/obj/machinery/light/directional/north,
 /turf/open/floor/iron/smooth,
 /area/misc/operative_barracks/armoury/secure)
 "Dw" = (
@@ -1935,6 +2108,7 @@
 /area/misc/operative_barracks)
 "Ev" = (
 /obj/structure/filingcabinet/employment,
+/obj/structure/sign/clock/directional/south,
 /turf/open/floor/mineral/plastitanium,
 /area/misc/operative_barracks/mission_briefing)
 "ED" = (
@@ -2013,12 +2187,31 @@
 	},
 /turf/open/floor/iron/dark/smooth_large,
 /area/misc/operative_barracks/hangar)
+"Fw" = (
+/obj/item/emptysandbag{
+	pixel_x = 5;
+	pixel_y = -2
+	},
+/obj/item/emptysandbag{
+	pixel_x = -7;
+	pixel_y = -2
+	},
+/obj/item/emptysandbag{
+	pixel_x = -1;
+	pixel_y = 2
+	},
+/turf/open/floor/plating,
+/area/misc/operative_barracks/hangar)
 "FE" = (
 /obj/effect/turf_decal/siding/thinplating_new/light/corner{
 	dir = 1
 	},
 /turf/open/floor/mineral/titanium/tiled,
 /area/misc/operative_barracks/medbay)
+"FK" = (
+/obj/item/stack/sheet/sandblock/five,
+/turf/open/floor/plating,
+/area/misc/operative_barracks/hangar)
 "FN" = (
 /obj/effect/turf_decal/vg_decals/numbers/zero,
 /turf/open/floor/mineral/plastitanium,
@@ -2043,6 +2236,10 @@
 	},
 /turf/open/floor/mineral/plastitanium/red,
 /area/misc/operative_barracks/mission_briefing)
+"FW" = (
+/obj/machinery/light/small/directional/east,
+/turf/open/floor/iron/dark,
+/area/misc/operative_barracks/armoury)
 "Gc" = (
 /obj/machinery/light/floor,
 /obj/effect/turf_decal/siding/dark/corner{
@@ -2064,6 +2261,10 @@
 /obj/structure/fluff/fake_firedoor,
 /turf/open/floor/iron/dark/smooth_large,
 /area/misc/operative_barracks/robotics)
+"Gp" = (
+/obj/structure/rack/gunrack,
+/turf/open/floor/iron/smooth,
+/area/misc/operative_barracks/armoury/secure)
 "Gq" = (
 /obj/effect/turf_decal/siding/dark{
 	dir = 1
@@ -2251,10 +2452,6 @@
 "IJ" = (
 /turf/closed/wall/r_wall/syndicate/nodiagonal,
 /area/misc/operative_barracks/hangar)
-"IL" = (
-/obj/effect/mapping_helpers/engraving,
-/turf/closed/wall/r_wall/syndicate,
-/area/misc/operative_barracks/dorm/bathroom)
 "IS" = (
 /obj/effect/turf_decal/siding/dark{
 	dir = 1
@@ -2302,7 +2499,7 @@
 /obj/machinery/mechpad{
 	id = null
 	},
-/turf/open/floor/iron/dark,
+/turf/open/floor/circuit/green/anim,
 /area/misc/operative_barracks/robotics)
 "Kf" = (
 /obj/structure/fluff/fake_vent,
@@ -2360,6 +2557,10 @@
 /obj/machinery/chem_heater/withbuffer,
 /obj/machinery/light/directional/east,
 /obj/structure/sign/poster/contraband/interdyne_gene_clinics/directional/east,
+/obj/item/reagent_containers/cup/glass/drinkingglass/filled/doctor_delight{
+	pixel_y = 18;
+	pixel_x = 3
+	},
 /turf/open/floor/iron/dark,
 /area/misc/operative_barracks/medbay)
 "KV" = (
@@ -2382,6 +2583,12 @@
 	},
 /turf/open/floor/plating,
 /area/misc/operative_barracks/hangar)
+"Ls" = (
+/obj/machinery/rnd/production/protolathe/department/security,
+/obj/effect/mapping_helpers/atom_injector/element_injector,
+/obj/machinery/light/small/directional/south,
+/turf/open/floor/iron/smooth,
+/area/misc/operative_barracks/armoury/secure)
 "LF" = (
 /obj/effect/turf_decal/siding/dark,
 /obj/effect/light_emitter/thunderdome,
@@ -2460,6 +2667,15 @@
 /obj/structure/extinguisher_cabinet/directional/west,
 /turf/open/floor/iron,
 /area/misc/operative_barracks)
+"NR" = (
+/obj/structure/railing/corner/end/flip/unbreakable{
+	dir = 8
+	},
+/obj/structure/closet/generic/wall/empty{
+	pixel_x = 32
+	},
+/turf/open/floor/iron/smooth,
+/area/misc/operative_barracks/armoury/secure)
 "NS" = (
 /obj/effect/turf_decal/siding/dark/corner{
 	dir = 8
@@ -2556,7 +2772,16 @@
 /turf/open/floor/plating,
 /area/misc/operative_barracks/hangar)
 "Pl" = (
-/obj/item/gun/ballistic/automatic/c20r,
+/obj/structure/table/reinforced/plastitaniumglass,
+/obj/structure/railing/unbreakable,
+/obj/item/reagent_containers/spray/pepper/empty{
+	pixel_x = 7;
+	pixel_y = 2
+	},
+/obj/item/storage/box/handcuffs{
+	pixel_x = -4;
+	pixel_y = 3
+	},
 /turf/open/floor/iron/smooth,
 /area/misc/operative_barracks/armoury/secure)
 "Py" = (
@@ -2565,6 +2790,22 @@
 	},
 /turf/open/floor/mineral/plastitanium,
 /area/misc/operative_barracks)
+"PB" = (
+/obj/machinery/vending/security/noaccess,
+/obj/effect/mapping_helpers/atom_injector/element_injector,
+/obj/item/toy/plush/nova/fox{
+	pixel_y = 18;
+	pixel_x = 4
+	},
+/obj/item/reagent_containers/cup/glass/drinkingglass/filled/fringe_weaver{
+	pixel_x = -7;
+	pixel_y = 18
+	},
+/obj/structure/sign/poster/contraband/fun_police/directional/east,
+/turf/open/floor/iron/dark/side{
+	dir = 6
+	},
+/area/misc/operative_barracks/armoury)
 "PF" = (
 /turf/closed/indestructible/syndicate,
 /area/misc/operative_barracks/medbay/surgery)
@@ -2640,6 +2881,11 @@
 /obj/structure/fluff/fake_vent,
 /turf/open/floor/mineral/titanium/tiled,
 /area/misc/operative_barracks/medbay)
+"QL" = (
+/obj/machinery/ammo_workbench/unlocked,
+/obj/effect/mapping_helpers/atom_injector/element_injector,
+/turf/open/floor/circuit/red/anim,
+/area/misc/operative_barracks/armoury)
 "QU" = (
 /obj/effect/turf_decal/siding/dark_red/corner{
 	dir = 8
@@ -2659,6 +2905,12 @@
 	},
 /turf/open/floor/plating,
 /area/misc/operative_barracks/hangar)
+"QZ" = (
+/obj/item/storage/pouch/cin_medipens,
+/turf/open/floor/iron/dark/side{
+	dir = 4
+	},
+/area/misc/operative_barracks/medbay)
 "Rb" = (
 /obj/effect/turf_decal/siding/thinplating_new/light{
 	dir = 8
@@ -2743,7 +2995,7 @@
 /turf/closed/wall/r_wall/syndicate,
 /area/misc/operative_barracks/medbay/surgery)
 "SD" = (
-/obj/machinery/rnd/production/protolathe/department/security,
+/obj/structure/fluff/fake_scrubber,
 /turf/open/floor/iron/smooth,
 /area/misc/operative_barracks/armoury/secure)
 "SF" = (
@@ -2777,6 +3029,10 @@
 /turf/open/space/basic,
 /area/space)
 "TT" = (
+/obj/item/storage/pouch/cin_general{
+	pixel_x = -2;
+	pixel_y = 11
+	},
 /turf/open/floor/iron/dark/side{
 	dir = 4
 	},
@@ -2797,7 +3053,10 @@
 	},
 /area/misc/operative_barracks/hangar)
 "Uc" = (
-/obj/item/ammo_box/c35sol,
+/obj/effect/turf_decal/siding/thinplating_new{
+	dir = 9
+	},
+/obj/structure/fluff/fake_scrubber,
 /turf/open/floor/mineral/titanium/tiled,
 /area/misc/operative_barracks/armoury)
 "Uf" = (
@@ -2812,13 +3071,18 @@
 /obj/machinery/computer/crew/syndie{
 	dir = 1
 	},
-/obj/structure/sign/clock/directional/south,
 /obj/item/disk/nuclear/fake{
 	pixel_x = -19;
 	pixel_y = 9
 	},
 /turf/open/floor/mineral/plastitanium,
 /area/misc/operative_barracks/mission_briefing)
+"UB" = (
+/obj/structure/railing/corner/end/unbreakable{
+	dir = 4
+	},
+/turf/open/floor/iron/smooth,
+/area/misc/operative_barracks/armoury/secure)
 "UD" = (
 /obj/effect/turf_decal/siding/white/corner{
 	dir = 4
@@ -2827,9 +3091,23 @@
 /turf/open/floor/mineral/titanium/tiled,
 /area/misc/operative_barracks/medbay)
 "UG" = (
-/turf/open/floor/iron/dark/side{
-	dir = 6
+/obj/structure/table/reinforced,
+/obj/machinery/recharger{
+	pixel_y = 7;
+	pixel_x = -5
 	},
+/obj/item/flashlight/seclite{
+	pixel_y = -3;
+	pixel_x = 8
+	},
+/obj/item/clothing/mask/gas/syndicate{
+	pixel_x = 8;
+	pixel_y = 9
+	},
+/obj/item/storage/briefcase/secure{
+	pixel_y = -16
+	},
+/turf/open/floor/iron/dark,
 /area/misc/operative_barracks/armoury)
 "UL" = (
 /obj/structure/marker_beacon/bronze{
@@ -2857,6 +3135,10 @@
 "Vg" = (
 /obj/effect/turf_decal/siding/dark_red/corner{
 	dir = 8
+	},
+/obj/item/toy/plush/monkey{
+	pixel_y = 24;
+	pixel_x = -15
 	},
 /turf/open/floor/mineral/plastitanium,
 /area/misc/operative_barracks/mission_briefing)
@@ -3198,10 +3480,12 @@
 /turf/open/floor/iron/dark/smooth_large,
 /area/misc/operative_barracks/medbay)
 "Zx" = (
-/obj/effect/turf_decal/bot_white/right,
 /obj/machinery/light/directional/west,
-/obj/item/mod/construction/shell,
+/obj/item/mod/construction/shell{
+	pixel_y = 3
+	},
 /obj/structure/sign/poster/contraband/self_ai_liberation/directional/west,
+/obj/effect/turf_decal/siding/thinplating_new/dark,
 /turf/open/floor/iron/dark,
 /area/misc/operative_barracks/robotics)
 "ZF" = (
@@ -3323,8 +3607,8 @@ TP
 WF
 ch
 nA
-kf
-kf
+sW
+lN
 Kz
 Nd
 Nd
@@ -3351,8 +3635,8 @@ TP
 WF
 uJ
 nA
-kf
-kf
+Fw
+FK
 Kz
 Nd
 OU
@@ -3662,7 +3946,7 @@ EF
 hx
 VZ
 Kz
-hm
+Nd
 Nd
 Nd
 Of
@@ -3867,8 +4151,8 @@ Zx
 JN
 xU
 tm
-tM
-tM
+uX
+ha
 PK
 wx
 VE
@@ -3894,7 +4178,7 @@ lR
 Cu
 yx
 xU
-tM
+mB
 Uc
 tM
 mN
@@ -3922,10 +4206,10 @@ vy
 vx
 nE
 xU
-tM
-tM
-mN
-jd
+hk
+oU
+uL
+pW
 eF
 UG
 PK
@@ -3950,13 +4234,13 @@ up
 No
 vB
 xU
-tM
-tM
-pW
-eF
-UG
+QL
+mJ
+Br
+ef
+zy
 AE
-uX
+AE
 PK
 wx
 mR
@@ -3982,10 +4266,10 @@ PK
 mK
 sU
 PK
+PB
+FW
 AE
-AE
-AE
-AE
+mx
 PK
 wx
 VE
@@ -3994,7 +4278,7 @@ TP
 "}
 (7,1,2) = {"
 fr
-yU
+fW
 hy
 hy
 LQ
@@ -4041,8 +4325,8 @@ wA
 yL
 Ze
 MB
-MB
-MB
+UB
+yJ
 SD
 AU
 rz
@@ -4068,10 +4352,10 @@ JJ
 hq
 cX
 Ze
-MB
-Pl
-MB
 Du
+Pl
+Gp
+MB
 Ze
 Ze
 TP
@@ -4096,11 +4380,11 @@ og
 uv
 Ux
 Ze
+lC
+NR
+jd
 MB
-MB
-MB
-MB
-MB
+Ls
 Ze
 TP
 "}
@@ -4261,7 +4545,7 @@ OI
 ln
 EP
 EP
-IL
+Kw
 eO
 ld
 iN
@@ -4309,7 +4593,7 @@ dD
 OI
 OI
 hD
-Mf
+wn
 Mf
 UD
 wv
@@ -4336,7 +4620,7 @@ yr
 Kf
 Yh
 GK
-TT
+QZ
 TT
 mT
 FO

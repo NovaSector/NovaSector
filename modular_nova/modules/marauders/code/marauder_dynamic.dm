@@ -1,5 +1,5 @@
 /datum/dynamic_ruleset/midround/from_ghosts/marauder
-	name = "Ghostroll Operative"
+	name = "Ghost Roll Traitor"
 	antag_datum = /datum/antagonist/traitor/marauder
 	midround_ruleset_style = MIDROUND_RULESET_STYLE_LIGHT
 	antag_flag = ROLE_MARAUDER
@@ -26,6 +26,8 @@
 	pyjamas.uniform = coinflip ? /obj/item/clothing/under/misc/pj/red : /obj/item/clothing/under/misc/pj/blue
 	pyjamas.head = coinflip ? /obj/item/clothing/head/costume/nightcap/red : /obj/item/clothing/head/costume/nightcap/blue
 	new_character.equipOutfit(pyjamas)
+	var/obj/item/clothing/under/uniform = new_character.w_uniform
+	uniform.has_sensor = NO_SENSORS
 	//quirks
 	var/client/player_client = new_character.client
 	if(player_client)

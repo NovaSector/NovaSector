@@ -12,22 +12,29 @@
 
 /datum/outfit/marauder_preview
 	name = "Marauder (Preview only)"
-	ears = /obj/item/radio/headset/syndicate/alt
 	glasses = /obj/item/clothing/glasses/eyepatch
-	uniform = /obj/item/clothing/under/syndicate/skirt
-	gloves = /obj/item/clothing/gloves/combat
-	back = /obj/item/mod/control/pre_equipped/empty/syndicate
+	uniform = /obj/item/clothing/under/dress/skirt/nova/lone_skirt
+	belt = /obj/item/storage/belt/military
 
 /datum/antagonist/traitor/marauder/render_preview_outfit(datum/outfit/outfit, mob/living/carbon/human/dummy)
+	//yes this is an OC, but she is canonically dead so its ok. such is the fate of a gorlex marauder
 	dummy = dummy || new /mob/living/carbon/human/dummy/consistent
 //	dummy.set_species(/datum/species/mermaid, icon_update = FALSE)
-	dummy.dna.features["mcolor"] = skintone2hex("albino")
+	var/obj/item/bodypart/lame_flesh_arm = dummy.get_bodypart(BODY_ZONE_R_ARM)
+	var/obj/item/bodypart/cool_robot_arm = new /obj/item/bodypart/arm/right/robot()
+	cool_robot_arm.set_icon_static('modular_nova/master_files/icons/mob/augmentation/sgmipc.dmi')
+	cool_robot_arm.current_style = "Shellguard Munitions Standard Series"
+	cool_robot_arm.replace_limb(dummy, TRUE)
+	qdel(lame_flesh_arm)
+	dummy.equipOutfit(outfit, visuals_only = TRUE)
+	dummy.underwear = "Striped Boxers"
+	dummy.underwear_color = "#5f534a"
 	dummy.hair_color = "#ffffff"
 	dummy.grad_color[1] = "#bcb4e7"
-	dummy.grad_style[1] = "Reflected"
+	dummy.grad_style[1] = "Fade Up"
 	dummy.hairstyle = "Sideways ponytail"
+
 	dummy.update_body(TRUE)
-	dummy.equipOutfit(outfit, visuals_only = TRUE)
 	var/icon = getFlatIcon(dummy)
 	SSatoms.prepare_deletion(dummy)
 	return icon
