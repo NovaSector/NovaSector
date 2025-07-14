@@ -48,7 +48,11 @@
 
 /datum/species/moth/randomize_features()
 	var/list/features = ..()
+<<<<<<< HEAD
 	features["moth_markings"] = pick(SSaccessories.moth_wings_list) // NOVA EDIT CHANGE - ORIGINAL: features["moth_markings"] = pick(SSaccessories.moth_markings_list)
+=======
+	features[FEATURE_MOTH_MARKINGS] = pick(SSaccessories.moth_markings_list)
+>>>>>>> b01756b97c4 (Datumizes DNA blocks, makes DNA cleaner in general (#92061))
 	return features
 
 /datum/species/moth/get_scream_sound(mob/living/carbon/human/moth)

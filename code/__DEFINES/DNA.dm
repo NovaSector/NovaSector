@@ -45,9 +45,9 @@
 #define MUTATION_SOURCE_SPECIES_INNATE "species_innate" // NOVA EDIT ADDITION
 //DNA - Because fuck you and your magic numbers being all over the codebase.
 #define DNA_BLOCK_SIZE 3
-
 #define DNA_BLOCK_SIZE_COLOR DEFAULT_HEX_COLOR_LEN
 
+<<<<<<< HEAD
 #define DNA_GENDER_BLOCK 1
 #define DNA_SKIN_TONE_BLOCK 2
 #define DNA_EYE_COLOR_LEFT_BLOCK 3
@@ -103,9 +103,39 @@
 #define DNA_FISH_TAIL_BLOCK 16
 // NOVA EDIT ADDITION END
 
+=======
+>>>>>>> b01756b97c4 (Datumizes DNA blocks, makes DNA cleaner in general (#92061))
 #define DNA_SEQUENCE_LENGTH 4
 #define DNA_MUTATION_BLOCKS 8
 #define DNA_UNIQUE_ENZYMES_LEN 32
+
+//Features - No more magic strings
+//These can't just simply use dna block paths like identities, because there's keys that aren't tied to blocks
+
+// Block tied
+#define FEATURE_MUTANT_COLOR "mcolor"
+#define FEATURE_ETHEREAL_COLOR "ethcolor"
+#define FEATURE_EARS "ears"
+#define FEATURE_TAIL "tail_cat"
+#define FEATURE_TAIL_LIZARD "tail_lizard"
+#define FEATURE_TAIL_FISH "tail_fish"
+#define FEATURE_SNOUT "snout"
+#define FEATURE_LIZARD_MARKINGS "marking_lizard"
+#define FEATURE_HORNS "horns"
+#define FEATURE_FRILLS "frills"
+#define FEATURE_SPINES "spines"
+#define FEATURE_MOTH_WINGS "moth_wings"
+#define FEATURE_MOTH_ANTENNAE "moth_antennae"
+#define FEATURE_MOTH_MARKINGS "moth_markings"
+#define FEATURE_MUSH_CAP "caps"
+#define FEATURE_POD_HAIR "pod_hair"
+
+// Other
+#define FEATURE_WINGS "wings"
+#define FEATURE_TAIL_MONKEY "tail_monkey"
+#define FEATURE_TAIL_XENO "tail_xeno"
+#define FEATURE_TAILSPINES "tailspines" // Different from regular spines, these appear on tails
+#define FEATURE_LEGS "legs"
 
 ///flag for the transfer_flag argument from dna/proc/copy_dna(). This one makes it so the SE is copied too.
 #define COPY_DNA_SE (1<<0)
