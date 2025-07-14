@@ -1,14 +1,14 @@
 /datum/job/bridge_assistant
 	title = JOB_BRIDGE_ASSISTANT
 	description = "Watch over the Bridge, command its consoles, and spend your days brewing coffee for higher-ups."
-	department_head = list(JOB_NT_REP)
+	department_head = list(JOB_CAPTAIN)
 	faction = FACTION_STATION
 	total_positions = 1
 	spawn_positions = 1
 	supervisors = "the Nanotrasen Consultant, the Captain and all the other heads of command."
 	exp_granted_type = EXP_TYPE_CREW
 	config_tag = "BRIDGE_ASSISTANT"
-	veteran_only = TRUE
+	nova_stars_only = TRUE
 
 	outfit = /datum/outfit/job/bridge_assistant
 	plasmaman_outfit = /datum/outfit/plasmaman/bridge_assistant
@@ -18,9 +18,10 @@
 	bounty_types = CIV_JOB_DRINK
 
 	display_order = JOB_DISPLAY_ORDER_BRIDGE_ASSISTANT
-	department_for_prefs = /datum/job_department/command
+	department_for_prefs = /datum/job_department/captain
 	departments_list = list(
 		/datum/job_department/command,
+		/datum/job_department/service
 	)
 	liver_traits = list(TRAIT_PRETENDER_ROYAL_METABOLISM)
 
@@ -39,17 +40,19 @@
 	name = "Bridge Officer"
 	jobtype = /datum/job/bridge_assistant
 
-	id = /obj/item/card/id/advanced/centcom/station
+	id = /obj/item/card/id/advanced/silver
 	id_trim = /datum/id_trim/job/bridge_assistant
-	backpack_contents = list(
-		/obj/item/choice_beacon/coffee = 1,
-	)
-
 	uniform = /obj/item/clothing/under/rank/civilian/lawyer/greensuit
 	neck = /obj/item/clothing/neck/bowtie/green
-	ears = /obj/item/radio/headset/headset_cent/bridge_officer
+	ears = /obj/item/radio/headset/bridge_officer
 	shoes = /obj/item/clothing/shoes/laceup
 	belt = /obj/item/modular_computer/pda/bridge_assistant
+	l_pocket = /obj/item/melee/baton/telescopic/bronze
+	r_pocket = /obj/item/gun/energy/e_gun/mini
+	backpack_contents = list(
+		/obj/item/choice_beacon/job_locker/bridge_officer = 1,
+		/obj/item/choice_beacon/coffee = 1,
+	)
 
 /datum/outfit/job/bridge_assistant/post_equip(mob/living/carbon/human/user, visuals_only = FALSE)
 	. = ..()
@@ -91,7 +94,7 @@
 //trim
 /datum/id_trim/job/bridge_assistant
 	department_color = COLOR_SERVICE_LIME
-	subdepartment_color = COLOR_SERVICE_LIME // Should be COLOR_COMMAND_BLUE, but it blends in with the CC ID's blue color
+	subdepartment_color = COLOR_COMMAND_BLUE
 
 //pda
 /obj/item/modular_computer/pda/bridge_assistant
@@ -102,14 +105,9 @@
 	)
 
 //headset radio
-/obj/item/radio/headset/headset_cent/bridge_officer
-	keyslot2 = /obj/item/encryptionkey/heads/bridge_officer
-
-/obj/item/encryptionkey/heads/bridge_officer
-	name = "\proper the bridge officer's encryption key"
-	channels = list(RADIO_CHANNEL_COMMAND = 1, RADIO_CHANNEL_SERVICE = 1)
-	icon = 'icons/map_icons/items/_item.dmi'
-	icon_state = "/obj/item/encryptionkey/heads/bridge_officer"
-	post_init_icon_state = "cypherkey_centcom"
-	greyscale_config = /datum/greyscale_config/encryptionkey_centcom
-	greyscale_colors = "#1D571E#dca01b"
+/obj/item/radio/headset/bridge_officer
+	name = "\proper the bridge officer's headset"
+	icon_state = "com_headset"
+	worn_icon_state = "com_headset"
+	keyslot = /obj/item/encryptionkey/headset_com
+	command = TRUE

@@ -1,3 +1,20 @@
+/obj/item/choice_beacon/job_locker/bridge_officer
+	locker_path = list(/obj/structure/closet/secure_closet/bridge_officer)
+
+/obj/structure/closet/secure_closet/bridge_officer
+	name = "bridge officer's locker"
+	req_access = list(ACCESS_COMMAND)
+
+/obj/structure/closet/secure_closet/bridge_officer/PopulateContents()
+	..()
+	new /obj/item/holosign_creator/engineering(src)
+	new /obj/item/storage/bag/construction(src)
+	new /obj/item/storage/belt/utility/full/inducer(src)
+	new /obj/item/clothing/gloves/color/yellow(src)
+	new /obj/item/construction/rcd(src)
+	new /obj/item/rcd_upgrade/furnishing(src)
+	new /obj/item/rcd_upgrade/frames(src)
+
 /obj/item/choice_beacon/coffee
 	name = "coffeemaker beacon"
 	desc = "Summons coffee, because who can function without it?"
