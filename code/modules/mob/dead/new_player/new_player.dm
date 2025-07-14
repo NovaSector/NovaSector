@@ -23,7 +23,7 @@
 /mob/dead/new_player/Initialize(mapload)
 	if(client && SSticker.state == GAME_STATE_STARTUP)
 		var/atom/movable/screen/splash/fade_out = new(null, null, client, TRUE)
-		fade_out.Fade(TRUE)
+		fade_out.fade(TRUE)
 
 	if(length(GLOB.newplayer_start))
 		forceMove(pick(GLOB.newplayer_start))
@@ -124,8 +124,8 @@
 		if(JOB_UNAVAILABLE_SLOTFULL)
 			return "[jobtitle] is already filled to capacity."
 		//NOVA EDIT ADDITION
-		if(JOB_NOT_VETERAN)
-			return "You need to be veteran to join as [jobtitle]."
+		if(JOB_NOT_NOVA_STAR)
+			return "You need to be Nova star to join as [jobtitle]."
 		if(JOB_UNAVAILABLE_QUIRK)
 			return "[jobtitle] is restricted due to your selected quirks."
 		if(JOB_UNAVAILABLE_LANGUAGE)
@@ -169,8 +169,8 @@
 		return JOB_UNAVAILABLE_LANGUAGE
 	if(job.has_banned_quirk(client.prefs))
 		return JOB_UNAVAILABLE_QUIRK
-	if(job.veteran_only && !SSplayer_ranks.is_veteran(client))
-		return JOB_NOT_VETERAN
+	if(job.nova_stars_only && !SSplayer_ranks.is_nova_star(client))
+		return JOB_NOT_NOVA_STAR
 	if(job.has_banned_species(client.prefs))
 		return JOB_UNAVAILABLE_SPECIES
 	//NOVA EDIT END
