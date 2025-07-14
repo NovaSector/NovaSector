@@ -194,6 +194,8 @@
 		return
 	if(!LAZYFIND(ears.actions_types, hearing_action.type))
 		return
+	if(istype(quirk_holder, /mob/living/carbon/human/consistent))
+		return //this guy is already unloaded by the time we get to the code below so itll cause harddels in CI-tests
 
 	ears.actions_types -= list(hearing_action.type)
 	ears.remove_item_action(hearing_action.type)
