@@ -60,52 +60,80 @@
 ///
 /// VOUCHER ITEM SETS
 
+/// TRADE VOUCHER SET
+/datum/voucher_set/traitor/voucher_trade
+
+/datum/voucher_set/traitor/voucher_trade/secondary_weapon
+	name = /obj/item/paper/paperslip/corporate/syndicate/secondary::name
+	description = /obj/item/paper/paperslip/corporate/syndicate/secondary::desc
+	icon = /obj/item/paper/paperslip/corporate/syndicate/secondary::icon
+	icon_state = /obj/item/paper/paperslip/corporate/syndicate/secondary::icon_state
+	set_items = list(
+		/obj/item/paper/paperslip/corporate/syndicate/secondary
+	)
+
+/datum/voucher_set/traitor/voucher_trade/implant
+	name = /obj/item/paper/paperslip/corporate/syndicate/implant::name
+	description = /obj/item/paper/paperslip/corporate/syndicate/implant::desc
+	icon = /obj/item/paper/paperslip/corporate/syndicate/implant::icon
+	icon_state = /obj/item/paper/paperslip/corporate/syndicate/implant::icon_state
+	set_items = list(
+		/obj/item/paper/paperslip/corporate/syndicate/implant
+	)
+
+/datum/voucher_set/traitor/voucher_trade/supplies
+	name = /obj/item/paper/paperslip/corporate/syndicate/supplies::name
+	description = /obj/item/paper/paperslip/corporate/syndicate/supplies::desc
+	icon = /obj/item/paper/paperslip/corporate/syndicate/supplies::icon
+	icon_state = /obj/item/paper/paperslip/corporate/syndicate/supplies::icon_state
+	set_items = list(
+		/obj/item/paper/paperslip/corporate/syndicate/supplies
+	)
+
+/// PRIMARY WEAPON VOUCHER SET
+/datum/voucher_set/traitor/primary_weapon
+
+/// SECONDARY WEAPON VOUCHER SET
+/datum/voucher_set/traitor/secondary_weapon
+
 /// EXOSUIT VOUCHER SET
 /datum/voucher_set/traitor/mod
 
 /datum/voucher_set/traitor/mod/nukie
 	name = "Syndicate MODsuit"
-	icon = 'modular_nova/modules/moretraitoritems/icons/mod_construction.dmi'
-	icon_state = "syndicate-plating"
+//	description = ""
+	icon = 'icons/obj/clothing/modsuit/mod_clothing.dmi'
+	icon_state = "syndicate-helmet-sealed"
 	set_items = list(
-		/obj/item/mod/construction/plating/syndicate,
+		/obj/item/mod/construction/plating/syndicate
 	)
-
-/obj/item/mod/construction/plating/syndicate
-	icon = 'modular_nova/modules/moretraitoritems/icons/mod_construction.dmi'
-	theme = /datum/mod_theme/syndicate
 
 /datum/voucher_set/traitor/mod/elite
 	name = "Elite MODsuit"
-	icon = 'modular_nova/modules/moretraitoritems/icons/mod_construction.dmi'
-	icon_state = "elite-plating"
+//	description = ""
+	icon = 'icons/obj/clothing/modsuit/mod_clothing.dmi'
+	icon_state = "elite-helmet-sealed"
 	set_items = list(
-		/obj/item/mod/construction/plating/syndicate_elite,
+		/obj/item/mod/construction/plating/syndicate_elite
 	)
-
-/obj/item/mod/construction/plating/syndicate_elite
-	icon = 'modular_nova/modules/moretraitoritems/icons/mod_construction.dmi'
-	theme = /datum/mod_theme/elite
 
 /datum/voucher_set/traitor/mod/infiltrator
 	name = "Infiltrator MODsuit"
-	icon = 'modular_nova/modules/moretraitoritems/icons/mod_construction.dmi'
-	icon_state = "infiltrator-plating"
+//	description = ""
+	icon = 'icons/obj/clothing/modsuit/mod_clothing.dmi'
+	icon_state = "infiltrator-helmet-sealed"
 	set_items = list(
-		/obj/item/mod/construction/plating/syndicate_infiltrator,
+		/obj/item/mod/construction/plating/syndicate_infiltrator
 	)
-
-/obj/item/mod/construction/plating/syndicate_infiltrator
-	icon = 'modular_nova/modules/moretraitoritems/icons/mod_construction.dmi'
-	theme = /datum/mod_theme/infiltrator
 
 
 /datum/voucher_set/traitor/mech
 
 /datum/voucher_set/traitor/mech/gygax
-	name = "Gygax"
-	icon = 'icons/mob/rideables/mecha.dmi'
-	icon_state = "gygax"
+	name = /obj/vehicle/sealed/mecha/gygax::name
+	description = /obj/vehicle/sealed/mecha/gygax::desc
+	icon = /obj/vehicle/sealed/mecha/gygax::icon
+	icon_state = /obj/vehicle/sealed/mecha/gygax::icon_state
 	set_items = list(
 		/obj/vehicle/sealed/mecha/gygax,
 		/obj/item/mecha_parts/mecha_equipment/armor/antiproj_armor_booster,
@@ -115,9 +143,10 @@
 	)
 
 /datum/voucher_set/traitor/mech/ripleymk2
-	name = "Ripley Mk.II"
-	icon = 'icons/mob/rideables/mecha.dmi'
-	icon_state = "ripleymkii"
+	name = /obj/vehicle/sealed/mecha/ripley/mk2::name
+	description = /obj/vehicle/sealed/mecha/ripley/mk2::desc
+	icon = /obj/vehicle/sealed/mecha/ripley/mk2::icon
+	icon_state = /obj/vehicle/sealed/mecha/ripley/mk2::icon_state
 	set_items = list(
 		/obj/vehicle/sealed/mecha/ripley/mk2,
 		/obj/item/mecha_parts/mecha_equipment/drill/diamonddrill,
@@ -126,3 +155,21 @@
 		/obj/item/stack/sheet/animalhide/goliath_hide,
 		/obj/item/stack/sheet/animalhide/goliath_hide
 	)
+
+/// IMPLANT VOUCHER SET
+/datum/voucher_set/traitor/implant
+
+/datum/voucher_set/traitor/organ
+
+/// SUPPLIES VOUCHER SET
+/datum/voucher_set/traitor/supplies/ammo
+
+/datum/voucher_set/traitor/supplies/science
+
+/datum/voucher_set/traitor/supplies/stealth
+
+/datum/voucher_set/traitor/supplies/tools
+
+/datum/voucher_set/traitor/supplies/medical
+
+/datum/voucher_set/traitor/supplies/surgery

@@ -8695,6 +8695,7 @@
 #include "modular_nova\modules\moretraitoritems\code\drinkingglass.dm"
 #include "modular_nova\modules\moretraitoritems\code\glue.dm"
 #include "modular_nova\modules\moretraitoritems\code\headset.dm"
+#include "modular_nova\modules\moretraitoritems\code\modsuits.dm"
 #include "modular_nova\modules\moretraitoritems\code\pirate.dm"
 #include "modular_nova\modules\moretraitoritems\code\smuggling_gear.dm"
 #include "modular_nova\modules\moretraitoritems\code\spawnergrenade.dm"

@@ -150,6 +150,7 @@
 /obj/effect/turf_decal/box/red/corners{
 	dir = 8
 	},
+/obj/item/stock_parts/power_store/cell/high,
 /turf/open/floor/mineral/plastitanium,
 /area/shuttle/traitor)
 
