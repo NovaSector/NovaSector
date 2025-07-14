@@ -336,8 +336,10 @@ GLOBAL_LIST_INIT(all_loadout_categories, init_loadout_categories())
 		displayed_text[FA_ICON_LOCK] = "Job Blacklist: [jointext(blacklisted_roles, ", ")]"
 	if(restricted_species)
 		displayed_text[FA_ICON_SPAGHETTI_MONSTER_FLYING] = "Species Whitelist: [capitalize(jointext(restricted_species, ", "))]"
-	if(veteran_only)
-		displayed_text[FA_ICON_HOURGLASS_HALF] = "Veteran-Only"
+	if(nova_stars_only)
+		displayed_text[FA_ICON_HOURGLASS_HALF] = "Nova Star-Only"
+	if(donator_only)
+		displayed_text[FA_ICON_COINS] = "Donator-Only"
 	// NOVA EDIT ADDITION END
 	return displayed_text
 

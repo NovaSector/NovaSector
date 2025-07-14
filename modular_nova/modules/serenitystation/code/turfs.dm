@@ -126,6 +126,10 @@
 	desc = "Sturdy exterior hull plating that separates you from the outside world."
 	initial_gas_mix = FOREST_DEFAULT_ATMOS
 
+/turf/open/water/forest_atmos
+	initial_gas_mix = FOREST_DEFAULT_ATMOS
+	baseturfs = /turf/open/water/forest_atmos
+
 /turf/open/lava/plasma/forest
 	initial_gas_mix = FOREST_DEFAULT_ATMOS
 	baseturfs = /turf/open/lava/plasma/forest
