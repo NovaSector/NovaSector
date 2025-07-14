@@ -358,12 +358,14 @@
 	path = /obj/item/bodypart/leg/right
 
 /datum/augment_item/limb/l_leg/species/human_digi
-	name = "human-skintone left leg"
+	name = "skintone mutant left leg"
 	path = /obj/item/bodypart/leg/left/human_digi
+	supports_digitigrade = TRUE
 
 /datum/augment_item/limb/r_leg/species/human_digi
-	name = "human-skintone right leg"
+	name = "skintone mutant right leg"
 	path = /obj/item/bodypart/leg/right/human_digi
+	supports_digitigrade = TRUE
 
 //Ethereals
 /datum/augment_item/limb/head/species/ethereal
@@ -506,9 +508,11 @@
 	path = /obj/item/bodypart/leg/right/mutant/harpy
 
 /datum/augment_item/limb/l_leg/species/harpy
-	name = "skintone harpy left leg"
+	name = "harpy skintone left leg"
 	path = /obj/item/bodypart/leg/left/mutant/harpy_skin
+	supports_digitigrade = TRUE
 
 /datum/augment_item/limb/r_leg/species/harpy
-	name = "skintone harpy right leg"
+	name = "harpy skintone right leg"
 	path = /obj/item/bodypart/leg/right/mutant/harpy_skin
+	supports_digitigrade = TRUE
