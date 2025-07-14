@@ -9,5 +9,9 @@
 	return assoc_to_keys_features(GLOB.caps_list)
 
 /datum/preference/choiced/mushroom_cap/apply_to_human(mob/living/carbon/human/target, value)
+<<<<<<< HEAD
 	target.dna.features["caps"] = value
 */
+=======
+	target.dna.features[FEATURE_MUSH_CAP] = value
+>>>>>>> b01756b97c4 (Datumizes DNA blocks, makes DNA cleaner in general (#92061))

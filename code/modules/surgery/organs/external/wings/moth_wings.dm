@@ -7,7 +7,7 @@
 
 	preference = "feature_moth_wings"
 
-	//dna_block = DNA_MOTH_WINGS_BLOCK // NOVA EDIT REMOVAL
+	// dna_block = /datum/dna_block/feature/moth_wing // NOVA EDIT REMOVAL - Customization
 
 	bodypart_overlay = /datum/bodypart_overlay/mutant/wings/moth
 	restyle_flags = EXTERNAL_RESTYLE_FLESH
@@ -97,7 +97,7 @@
 
 ///Moth wing bodypart overlay, including burn functionality!
 /datum/bodypart_overlay/mutant/wings/moth
-	feature_key = "wings" // NOVA EDIT CHANGE - Customization - ORIGINAL: feature_key = "moth_wings"
+	feature_key = FEATURE_WINGS // NOVA EDIT CHANGE - Customization - ORIGINAL: feature_key = "moth_wings"
 	layers = EXTERNAL_BEHIND | EXTERNAL_FRONT
 	///Accessory datum of the burn sprite
 	var/datum/sprite_accessory/burn_datum = /datum/sprite_accessory/moth_wings/burnt_off

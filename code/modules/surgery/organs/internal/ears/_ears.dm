@@ -148,7 +148,11 @@
 	preference = "feature_human_ears"
 	restyle_flags = EXTERNAL_RESTYLE_FLESH
 
+<<<<<<< HEAD
 	//dna_block = DNA_EARS_BLOCK // NOVA EDIT REMOVAL - Customization - We have our own system to handle DNA.
+=======
+	dna_block = /datum/dna_block/feature/ears
+>>>>>>> b01756b97c4 (Datumizes DNA blocks, makes DNA cleaner in general (#92061))
 
 	bodypart_overlay = /datum/bodypart_overlay/mutant/cat_ears
 
@@ -156,7 +160,7 @@
 /datum/bodypart_overlay/mutant/cat_ears
 	layers = EXTERNAL_FRONT | EXTERNAL_BEHIND
 	color_source = ORGAN_COLOR_HAIR
-	feature_key = "ears"
+	feature_key = FEATURE_EARS
 	dyable = TRUE
 
 	/// Layer upon which we add the inner ears overlay

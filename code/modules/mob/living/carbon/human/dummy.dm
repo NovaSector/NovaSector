@@ -111,6 +111,7 @@ INITIALIZE_IMMEDIATE(/mob/living/carbon/human/dummy)
 	return consistent_entry
 
 /proc/create_consistent_human_dna(mob/living/carbon/human/target)
+<<<<<<< HEAD
 	target.dna.features["mcolor"] = COLOR_VIBRANT_LIME
 	target.dna.features["ethcolor"] = COLOR_WHITE
 	/* NOVA EDIT START REMOVAL START - Customization
@@ -130,6 +131,25 @@ INITIALIZE_IMMEDIATE(/mob/living/carbon/human/dummy)
 	target.dna.features["pod_hair"] = get_consistent_feature_entry(SSaccessories.pod_hair_list)
 	target.dna.features["caps"] = get_consistent_feature_entry(SSaccessories.caps_list)
 	*/ // NOVA EDIT REMOVAL END
+=======
+	target.dna.features[FEATURE_MUTANT_COLOR] = COLOR_VIBRANT_LIME
+	target.dna.features[FEATURE_ETHEREAL_COLOR] = COLOR_WHITE
+	target.dna.features[FEATURE_LIZARD_MARKINGS] = get_consistent_feature_entry(SSaccessories.lizard_markings_list)
+	target.dna.features[FEATURE_EARS] = get_consistent_feature_entry(SSaccessories.ears_list)
+	target.dna.features[FEATURE_FRILLS] = get_consistent_feature_entry(SSaccessories.frills_list)
+	target.dna.features[FEATURE_HORNS] = get_consistent_feature_entry(SSaccessories.horns_list)
+	target.dna.features[FEATURE_MOTH_ANTENNAE] = get_consistent_feature_entry(SSaccessories.moth_antennae_list)
+	target.dna.features[FEATURE_MOTH_MARKINGS] = get_consistent_feature_entry(SSaccessories.moth_markings_list)
+	target.dna.features[FEATURE_MOTH_WINGS] = get_consistent_feature_entry(SSaccessories.moth_wings_list)
+	target.dna.features[FEATURE_SNOUT] = get_consistent_feature_entry(SSaccessories.snouts_list)
+	target.dna.features[FEATURE_SPINES] = get_consistent_feature_entry(SSaccessories.spines_list)
+	target.dna.features[FEATURE_TAIL] = get_consistent_feature_entry(SSaccessories.tails_list_felinid) // it's a lie
+	target.dna.features[FEATURE_TAIL_LIZARD] = get_consistent_feature_entry(SSaccessories.tails_list_lizard)
+	target.dna.features[FEATURE_TAIL_MONKEY] = get_consistent_feature_entry(SSaccessories.tails_list_monkey)
+	target.dna.features[FEATURE_TAIL_FISH] = get_consistent_feature_entry(SSaccessories.tails_list_fish)
+	target.dna.features[FEATURE_POD_HAIR] = get_consistent_feature_entry(SSaccessories.pod_hair_list)
+	target.dna.features[FEATURE_MUSH_CAP] = get_consistent_feature_entry(SSaccessories.caps_list)
+>>>>>>> b01756b97c4 (Datumizes DNA blocks, makes DNA cleaner in general (#92061))
 	target.dna.initialize_dna(newblood_type = get_blood_type(BLOOD_TYPE_O_MINUS), create_mutation_blocks = FALSE, randomize_features = FALSE)
 	// UF and UI are nondeterministic, even though the features are the same some blocks will randomize slightly
 	// In practice this doesn't matter, but this is for the sake of 100%(ish) consistency
