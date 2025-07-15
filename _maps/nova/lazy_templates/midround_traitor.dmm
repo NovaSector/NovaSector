@@ -539,7 +539,7 @@
 /area/misc/operative_barracks/medbay)
 "iy" = (
 /obj/structure/fluff/fake_vent,
-/obj/effect/turf_decal/siding/dark_green/corner,
+/obj/effect/turf_decal/siding/yellow/corner,
 /turf/open/floor/mineral/plastitanium,
 /area/misc/operative_barracks/mission_briefing)
 "iC" = (
@@ -1273,7 +1273,7 @@
 "qH" = (
 /obj/structure/mannequin/operative_barracks/chameleon,
 /turf/open/floor/light{
-	currentcolor = "#64C864"
+	currentcolor = "#E1E17D"
 	},
 /area/misc/operative_barracks/mission_briefing)
 "qN" = (
@@ -1572,7 +1572,7 @@
 /turf/open/floor/mineral/plastitanium,
 /area/misc/operative_barracks/mission_briefing)
 "uz" = (
-/obj/effect/turf_decal/siding/dark_green,
+/obj/effect/turf_decal/siding/yellow,
 /turf/open/floor/mineral/plastitanium,
 /area/misc/operative_barracks/mission_briefing)
 "uA" = (
@@ -1708,7 +1708,7 @@
 "vF" = (
 /obj/structure/mannequin/operative_barracks/spy,
 /turf/open/floor/light{
-	currentcolor = "#64C864"
+	currentcolor = "#E1E17D"
 	},
 /area/misc/operative_barracks/mission_briefing)
 "wc" = (
@@ -2004,7 +2004,7 @@
 /area/misc/operative_barracks/hangar)
 "zu" = (
 /obj/effect/turf_decal/siding/dark_red,
-/obj/effect/turf_decal/siding/dark_green{
+/obj/effect/turf_decal/siding/yellow{
 	dir = 1
 	},
 /turf/open/floor/mineral/plastitanium/red,
@@ -2254,7 +2254,7 @@
 /obj/machinery/vending/wallmed/directional/east{
 	onstation_override = 1
 	},
-/obj/effect/turf_decal/siding/dark_green{
+/obj/effect/turf_decal/siding/yellow{
 	dir = 8
 	},
 /turf/open/floor/mineral/plastitanium,
@@ -2616,7 +2616,7 @@
 "Ie" = (
 /obj/effect/turf_decal/nova_decals/syndicate/middle/right,
 /obj/effect/turf_decal/siding/dark_red/corner,
-/obj/effect/turf_decal/siding/dark_green/corner{
+/obj/effect/turf_decal/siding/yellow/corner{
 	dir = 4
 	},
 /turf/open/floor/mineral/plastitanium/red,
@@ -2683,7 +2683,7 @@
 /obj/effect/turf_decal/siding/dark_red/corner{
 	dir = 8
 	},
-/obj/effect/turf_decal/siding/dark_green/corner{
+/obj/effect/turf_decal/siding/yellow/corner{
 	dir = 1
 	},
 /turf/open/floor/mineral/plastitanium,
@@ -3485,7 +3485,7 @@
 	pixel_y = 24;
 	pixel_x = -10
 	},
-/obj/effect/turf_decal/siding/dark_green/corner{
+/obj/effect/turf_decal/siding/yellow/corner{
 	dir = 8
 	},
 /turf/open/floor/mineral/plastitanium,
@@ -3742,7 +3742,7 @@
 /area/misc/operative_barracks/medbay)
 "Yn" = (
 /obj/effect/turf_decal/nova_decals/syndicate/top/right,
-/obj/effect/turf_decal/siding/dark_green{
+/obj/effect/turf_decal/siding/yellow{
 	dir = 4
 	},
 /turf/open/floor/mineral/plastitanium/red,

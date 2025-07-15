@@ -13,9 +13,9 @@
 
 /obj/item/folder/syndicate/vouchers/Initialize(mapload)
 	. = ..()
-	for(var/obj/item/slip as anything in voucher_list)
-		if(ispath(slip, /obj/item/paper/paperslip/corporate/syndicate/traitor))
-			new slip(src)
+	for(var/obj/item/item as anything in voucher_list)
+		if(ispath(item, /obj/item/paper))
+			new item(src)
 	update_appearance()
 
 // Plastic slips

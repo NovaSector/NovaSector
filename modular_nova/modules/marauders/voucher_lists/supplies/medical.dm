@@ -9,6 +9,15 @@
 		/obj/item/reagent_containers/hypospray/medipen/stimulants,
 	)
 
+/datum/voucher_set/traitor/supplies/medical/sentience_potion
+	name = /obj/item/slimepotion/slime/sentience/nuclear::name
+	description = /obj/item/slimepotion/slime/sentience/nuclear::desc
+	icon = /obj/item/slimepotion/slime/sentience/nuclear::icon
+	icon_state = /obj/item/slimepotion/slime/sentience/nuclear::icon_state
+	set_items = list(
+		/obj/item/slimepotion/slime/sentience/nuclear,
+	)
+
 /datum/voucher_set/traitor/supplies/medical/twitch
 	name = /obj/item/reagent_containers/hypospray/medipen/deforest/twitch::name
 	description = /obj/item/reagent_containers/hypospray/medipen/deforest/twitch::desc

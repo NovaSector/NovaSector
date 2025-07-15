@@ -57,7 +57,7 @@
 /// Guaranteed mannequins
 /obj/structure/mannequin/operative_barracks/operative
 	name = "operative mannequin"
-	desc = ""
+	desc = "You've seen it a hundred times, but that's because it <b>works.</b>"
 	starting_items = list(
 		/obj/item/clothing/mask/neck_gaiter,
 		/obj/item/clothing/glasses/meson/night,
@@ -71,7 +71,7 @@
 
 /obj/structure/mannequin/operative_barracks/spy
 	name = "spy mannequin"
-	desc = ""
+	desc = "For a classic covert mission, when that chameleon gear is too much."
 	starting_items = list(
 		/obj/item/clothing/mask/gas/syndicate/ds,
 		/obj/item/clothing/glasses/sunglasses/robohand,
@@ -85,7 +85,7 @@
 
 /obj/structure/mannequin/operative_barracks/hacker
 	name = "hacker mannequin"
-	desc = ""
+	desc = "Don't have hard feelings after they call you a nerd."
 	starting_items = list(
 		/obj/item/clothing/mask/gas/ninja,
 		/obj/item/clothing/glasses/hud/health/night,
@@ -99,7 +99,7 @@
 
 /obj/structure/mannequin/operative_barracks/chameleon
 	name = "chameleon mannequin"
-	desc = ""
+	desc = "Completely clandestine, just don't get EMP'd."
 	starting_items = list(
 		/obj/item/clothing/head/chameleon,
 		/obj/item/clothing/mask/chameleon,
@@ -115,7 +115,7 @@
 
 /obj/structure/mannequin/operative_barracks/anarchist
 	name = "anarchist mannequin"
-	desc = ""
+	desc = "My name is not important."
 	starting_items = list(
 		/obj/item/clothing/glasses/sunglasses/robohand,
 		/obj/item/clothing/under/pants/track/robohand,
@@ -126,7 +126,7 @@
 
 /obj/structure/mannequin/operative_barracks/sol_militant
 	name = "\improper Sol militant mannequin"
-	desc = ""
+	desc = "They'll never know what hit 'em."
 	starting_items = list(
 		/obj/item/clothing/head/helmet/sf_peacekeeper,
 		/obj/item/clothing/mask/gas/hecu,

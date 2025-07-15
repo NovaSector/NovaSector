@@ -9,15 +9,6 @@
 		/obj/item/mmi/posibrain/circuit/disk/syndie,
 	)
 
-/datum/voucher_set/traitor/supplies/science/sentience_potion
-	name = /obj/item/slimepotion/slime/sentience/nuclear::name
-	description = /obj/item/slimepotion/slime/sentience/nuclear::desc
-	icon = /obj/item/slimepotion/slime/sentience/nuclear::icon
-	icon_state = /obj/item/slimepotion/slime/sentience/nuclear::icon_state
-	set_items = list(
-		/obj/item/slimepotion/slime/sentience/nuclear,
-	)
-
 /datum/voucher_set/traitor/supplies/science/concealed_bay
 	name = /obj/item/mecha_parts/mecha_equipment/concealed_weapon_bay::name
 	description = /obj/item/mecha_parts/mecha_equipment/concealed_weapon_bay::desc
