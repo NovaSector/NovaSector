@@ -98,7 +98,10 @@
 	/// Actual height of the mob. Don't touch this one, it is set via update_mob_height()
 	VAR_FINAL/mob_height = HUMAN_HEIGHT_MEDIUM
 	// NOVA EDIT START - Floating Hands quirk
+	///This are the TK effect object for the left hand for psionic holding.
 	var/obj/effect/abstract/held_tk_effect/left/held_left
+	///This are the TK effect object for the right hand for psionic holding.
 	var/obj/effect/abstract/held_tk_effect/right/held_right
+	/// This is the color of the TK effect for the hands when psionic holding is active.
 	var/held_hover_color
 	// NOVA EDIT END

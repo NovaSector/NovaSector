@@ -726,8 +726,11 @@ There are several things that need to be remembered:
 	icon_state = "holder"
 	layer = HANDS_LAYER
 	vis_flags = VIS_INHERIT_DIR | VIS_INHERIT_PLANE | VIS_INHERIT_ID
+	/// Which hand the tk effect is on.
 	var/is_right = TRUE
+	/// The X posistion of the effect.
 	var/list/base_x
+	/// The Y posistion of the effect.
 	var/list/base_y
 
 /obj/effect/abstract/held_tk_effect/proc/on_parent_dir_change(datum/source, _old_dir, new_dir)
