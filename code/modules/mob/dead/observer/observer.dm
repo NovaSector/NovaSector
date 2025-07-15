@@ -411,7 +411,7 @@ This is the proc mobs get to turn into a ghost. Forked from ghostize due to comp
 		// Update med huds
 		current_mob.med_hud_set_status()
 		current_mob.log_message("had their player ([key_name(src)]) do-not-resuscitate / DNR", LOG_GAME, color = COLOR_GREEN, log_globally = FALSE)
-		//NOVA EDIT ADDITION - DNR TRAIT (Technically this is just to fix ghost-DNR'ing not actually DNR'ing, but it pairs with the trait so)
+		//NOVA EDIT ADDITION START - DNR TRAIT (Fixes ghost-DNR'ing not actually DNR'ing)
 		if(!current_mob.has_quirk(/datum/quirk/dnr))
 			current_mob.add_quirk(/datum/quirk/dnr)
 		var/datum/job/job_to_free = SSjob.get_job(current_mob.mind.assigned_role.title)
