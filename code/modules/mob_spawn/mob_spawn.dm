@@ -196,7 +196,7 @@
 		to_chat(user, span_warning("You are banned from this role!"))
 		LAZYREMOVE(ckeys_trying_to_spawn, user_ckey)
 		return
-	// NOVA EDIT ADDITION
+	// NOVA EDIT ADDITION START
 	if(is_banned_from(user.ckey, BAN_GHOST_ROLE_SPAWNER)) // Ghost role bans
 		to_chat(user, span_warning("Error, you are banned from playing ghost roles!"))
 		LAZYREMOVE(ckeys_trying_to_spawn, user_ckey)
@@ -231,7 +231,7 @@
 	user.log_message("became a [prompt_name].", LOG_GAME)
 	uses -= 1 // Remove a use before trying to spawn to prevent strangeness like the spawner trying to spawn more mobs than it should be able to
 	if(!temp_body)
- 		//NOVA EDIT ADDITION START - DNR TRAIT
+		//NOVA EDIT ADDITION START - DNR TRAIT
 		//Makes your body ACTUALLY unrevivable (as the prompt suggests with "Warning, You can no longer be revived!")
 		if(istype(user, /mob/dead/observer))
 			var/mob/dead/observer/user_ghost = user
