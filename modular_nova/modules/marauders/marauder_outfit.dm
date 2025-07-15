@@ -220,11 +220,11 @@
 /obj/structure/mannequin/operative_barracks/wildcard/knight
 	name = "knight mannequin"
 	starting_items = list(
-		/obj/item/clothing/head/helmet/knight,
+		/obj/item/clothing/head/helmet/knight/red,
 		/obj/item/clothing/under/color/brown,
 		/obj/item/clothing/suit/armor/vest/cuirass,
-		/obj/item/clothing/gloves/plate,
-		/obj/item/clothing/shoes/plate,
+		/obj/item/clothing/gloves/plate/red,
+		/obj/item/clothing/shoes/plate/red,
 		)
 
 /obj/structure/mannequin/operative_barracks/wildcard/pizza_guy

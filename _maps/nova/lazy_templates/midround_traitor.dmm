@@ -528,6 +528,10 @@
 /obj/machinery/vending/wallmed/directional/west{
 	onstation_override = 1
 	},
+/obj/item/reagent_containers/hypospray/medipen/deforest/occuisate{
+	pixel_x = 3;
+	pixel_y = 3
+	},
 /turf/open/floor/mineral/titanium/tiled,
 /area/misc/operative_barracks/medbay)
 "iy" = (
@@ -1327,9 +1331,6 @@
 	target_type = /obj/machinery/vending;
 	element_type = /datum/element/voucher_redeemer;
 	element_args = list(/obj/item/paper/paperslip/corporate/syndicate/traitor/supplies, /datum/voucher_set/traitor/supplies/medical)
-	},
-/obj/item/implanter{
-	pixel_y = 19
 	},
 /turf/open/floor/mineral/titanium/tiled,
 /area/misc/operative_barracks/medbay)
@@ -2361,14 +2362,14 @@
 /area/misc/operative_barracks/hangar)
 "Fc" = (
 /obj/structure/table/reinforced/plastitaniumglass,
-/obj/item/skillchip/job/detectives_taste,
-/obj/item/skillchip/job/clown{
+/obj/effect/decal/cleanable/dirt/dust,
+/obj/item/skillchip/job/clown,
+/obj/item/skillchip/self_surgery{
 	pixel_y = 5
 	},
 /obj/item/skillchip/disk_verifier{
 	pixel_y = 10
 	},
-/obj/effect/decal/cleanable/dirt/dust,
 /turf/open/floor/mineral/plastitanium,
 /area/misc/operative_barracks/mission_briefing)
 "Fh" = (
@@ -2864,6 +2865,10 @@
 "Mf" = (
 /obj/effect/turf_decal/siding/white{
 	dir = 4
+	},
+/obj/item/reagent_containers/hypospray/medipen/deforest/calopine{
+	pixel_x = -12;
+	pixel_y = -12
 	},
 /turf/open/floor/mineral/titanium/tiled,
 /area/misc/operative_barracks/medbay)
@@ -3392,6 +3397,9 @@
 	dir = 4
 	},
 /obj/effect/turf_decal/siding/thinplating_new/light,
+/obj/item/reagent_containers/hypospray/medipen/deforest/krotozine{
+	pixel_y = 8
+	},
 /turf/open/floor/mineral/titanium/tiled,
 /area/misc/operative_barracks/medbay)
 "UG" = (

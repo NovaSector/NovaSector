@@ -9,6 +9,24 @@
 		/obj/item/reagent_containers/hypospray/medipen/stimulants,
 	)
 
+/datum/voucher_set/traitor/supplies/medical/twitch
+	name = /obj/item/reagent_containers/hypospray/medipen/deforest/twitch::name
+	description = /obj/item/reagent_containers/hypospray/medipen/deforest/twitch::desc
+	icon = /obj/item/reagent_containers/hypospray/medipen/deforest/twitch::icon
+	icon_state = /obj/item/reagent_containers/hypospray/medipen/deforest/twitch::icon_state
+	set_items = list(
+		/obj/item/reagent_containers/hypospray/medipen/deforest/twitch,
+	)
+
+/datum/voucher_set/traitor/supplies/medical/demoneye
+	name = /obj/item/reagent_containers/hypospray/medipen/deforest/demoneye::name
+	description = /obj/item/reagent_containers/hypospray/medipen/deforest/demoneye::desc
+	icon = /obj/item/reagent_containers/hypospray/medipen/deforest/demoneye::icon
+	icon_state = /obj/item/reagent_containers/hypospray/medipen/deforest/demoneye::icon_state
+	set_items = list(
+		/obj/item/reagent_containers/hypospray/medipen/deforest/demoneye,
+	)
+
 /datum/voucher_set/traitor/supplies/medical/syringe_gun
 	name = /obj/item/gun/syringe/syndicate::name
 	description = /obj/item/gun/syringe/syndicate::desc
@@ -18,6 +36,7 @@
 		/obj/item/gun/syringe/syndicate,
 	)
 
+// kits
 /datum/voucher_set/traitor/supplies/medical/kit_chemical
 	name = /obj/item/storage/box/syndie_kit/chemical::name
 	icon = /obj/item/storage/box/syndie_kit/chemical::icon
