@@ -20,7 +20,7 @@
  *
  * make sure you add an update to the schema_version stable in the db changelog
  */
-#define DB_MINOR_VERSION 35 // NOVA EDIT CHANGE - ORIGINAL: #define DB_MINOR_VERSION 32
+#define DB_MINOR_VERSION 36 // NOVA EDIT CHANGE - ORIGINAL: #define DB_MINOR_VERSION 32
 
 
 //! ## Timing subsystem
