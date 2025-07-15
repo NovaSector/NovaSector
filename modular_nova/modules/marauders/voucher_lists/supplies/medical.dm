@@ -54,7 +54,7 @@
 	)
 
 /datum/voucher_set/traitor/supplies/medical/kit_ez_clean
-	name = /obj/item/storage/box/syndie_kit/ez_clean::name
+	name = "acid space-cleaner grenades"
 	icon = /obj/item/storage/box/syndie_kit/ez_clean::icon
 	icon_state = /obj/item/storage/box/syndie_kit/ez_clean::icon_state
 	set_items = list(

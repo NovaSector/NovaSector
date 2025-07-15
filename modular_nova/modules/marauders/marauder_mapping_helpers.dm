@@ -1,51 +1,3 @@
-//note on airlock mapping helper for midround antag, writes antag character's name on the note
-/obj/effect/mapping_helpers/airlock_note_placer/midround_traitor
-	note_path = /obj/item/paper/fluff/midround_traitor
-	var/instance = 1
-/*
-/obj/effect/mapping_helpers/airlock_note_placer/midround_traitor/LateInitialize()
-	. = ..()
-	var/obj/machinery/door/airlock/found_airlock = locate(/obj/machinery/door/airlock) in loc
-	if(!found_airlock.note)
-		qdel(src)
-		return
-	var/obj/item/paper/fluff/midround_traitor/note = found_airlock.note
-	note.write_note(get_mob())
-	found_airlock.update_appearance()
-	qdel(src)
-*/
-/obj/effect/mapping_helpers/airlock_note_placer/midround_traitor/LateInitialize()
-	var/obj/machinery/door/airlock/found_airlock = locate(/obj/machinery/door/airlock) in loc
-	if(isnull(found_airlock))
-		var/area/target_area = get_area(src)
-		log_mapping("[src] failed to find a machine at [AREACOORD(src)] ([target_area.type]).")
-		qdel(src)
-		return
-	var/obj/item/paper/fluff/midround_traitor/note = new note_path(src)
-	note.write_note(get_mob())
-	found_airlock.note = note
-	note.forceMove(found_airlock)
-	found_airlock.update_appearance()
-	qdel(src)
-
-/obj/effect/mapping_helpers/airlock_note_placer/midround_traitor/proc/get_mob()
-	for(var/datum/antagonist/traitor/marauder/antag in GLOB.antagonists)
-		if(antag.owner.current && (antag.marauder_no == instance))
-			return antag.owner.current
-		instance++
-
-//the note
-/obj/item/paper/fluff/midround_traitor/proc/write_note(mob/marauder)
-	var/first_name
-	if(is_mononym(marauder.real_name))
-		first_name = marauder.real_name
-	else
-		first_name = "[first_name(marauder.real_name)]"
-	//add it to the note
-	add_raw_text("[first_name],")
-	add_raw_text("Hi.")
-	add_raw_text("[pick(GLOB.first_names)]")
-
 //mannequin mapping helper
 /obj/effect/mapping_helpers/mannequin
 	desc = "Abstract type, don't use!"
@@ -121,11 +73,11 @@
 	LAZYNULL(mannequin.starting_items) //dump what we couldn't add
 
 //the midround antag's mannequin mapping helper
-/obj/effect/mapping_helpers/mannequin/loadout_spawner/midround_traitor
-	var/instance = 1
-
 /obj/effect/mapping_helpers/mannequin/loadout_spawner/midround_traitor/get_client()
-	for(var/datum/antagonist/traitor/marauder/antag in GLOB.antagonists)
+	var/instance = 0
+	for(var/antag in GLOB.antagonists)
+		if(istype(antag, /datum/antagonist/traitor/marauder))
+			instance++
+	for(var/datum/antagonist/traitor/marauder/antag as anything in GLOB.antagonists)
 		if(antag.owner.current.client && (antag.marauder_no == instance))
 			return antag.owner.current.client
-		instance++

@@ -120,16 +120,6 @@
 	laws = new /datum/ai_laws/syndicate_override()
 	radio.set_on(FALSE)
 
-//some drinks
-/obj/item/reagent_containers/cup/glass/drinkingglass/filled/martini
-	list_reagents = list(/datum/reagent/consumable/ethanol/martini = 50)
-
-/obj/item/reagent_containers/cup/glass/drinkingglass/filled/fringe_weaver
-	list_reagents = list(/datum/reagent/consumable/ethanol/fringe_weaver = 50)
-
-/obj/item/reagent_containers/cup/glass/drinkingglass/filled/doctor_delight
-	list_reagents = list(/datum/reagent/consumable/doctor_delight = 50)
-
 //stationary docking port
 /obj/docking_port/stationary/traitor
 	name = "Launchpad no. 09"

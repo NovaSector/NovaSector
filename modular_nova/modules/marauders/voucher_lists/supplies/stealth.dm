@@ -55,7 +55,7 @@
 	)
 
 /datum/voucher_set/traitor/supplies/stealth/jammer
-	name = /obj/item/jammer::name
+	name = "radio jammer"
 	description = /obj/item/jammer::desc
 	icon = /obj/item/jammer::icon
 	icon_state = /obj/item/jammer::icon_state
@@ -64,7 +64,7 @@
 	)
 
 /datum/voucher_set/traitor/supplies/stealth/forensic_spoofer
-	name = /obj/item/forensics_spoofer::name
+	name = "forensic-scanner spoofer"
 	description = /obj/item/forensics_spoofer::desc
 	icon = /obj/item/forensics_spoofer::icon
 	icon_state = /obj/item/forensics_spoofer::icon_state

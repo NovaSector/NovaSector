@@ -66,7 +66,7 @@
 		/obj/item/ammo_box/magazine/shitzu/milspec, //so powercrept
 	)
 
-/datum/voucher_set/traitor/secondary_weapon/hyeseong
+/datum/voucher_set/traitor/primary_weapon/hyeseong
 	name = /obj/item/gun/energy/modular_laser_rifle::name
 	description = /obj/item/gun/energy/modular_laser_rifle::desc
 	icon = /obj/item/gun/energy/modular_laser_rifle::icon

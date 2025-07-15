@@ -38,15 +38,6 @@
 		/obj/item/organ/cyberimp/chest/reviver,
 	)
 
-/datum/voucher_set/traitor/implant/nutriment_plus
-	name = /obj/item/organ/cyberimp/chest/nutriment/plus::name
-	description = /obj/item/organ/cyberimp/chest/nutriment/plus::desc
-	icon = /obj/item/organ/cyberimp/chest/nutriment/plus::icon
-	icon_state = /obj/item/organ/cyberimp/chest/nutriment/plus::icon_state
-	set_items = list(
-		/obj/item/organ/cyberimp/chest/nutriment/plus,
-	)
-
 //brain
 /datum/voucher_set/traitor/implant/anti_drop
 	name = /obj/item/organ/cyberimp/brain/anti_drop::name
@@ -195,6 +186,44 @@
 		/obj/item/implanter/stealth,
 	)
 
+//organ replacemenet
+/datum/voucher_set/traitor/implant/nutriment_plus
+	name = /obj/item/organ/cyberimp/chest/nutriment/plus::name
+	description = /obj/item/organ/cyberimp/chest/nutriment/plus::desc
+	icon = /obj/item/organ/cyberimp/chest/nutriment/plus::icon
+	icon_state = /obj/item/organ/cyberimp/chest/nutriment/plus::icon_state
+	set_items = list(
+		/obj/item/organ/cyberimp/chest/nutriment/plus,
+	)
+
+/datum/voucher_set/traitor/implant/advanced_cyber_ears
+	name = /obj/item/organ/ears/cybernetic/upgraded::name
+	description = /obj/item/organ/ears/cybernetic/upgraded::desc
+	icon = /obj/item/organ/ears/cybernetic/upgraded::icon
+	icon_state = /obj/item/organ/ears/cybernetic/upgraded::icon_state
+	set_items = list(
+		/obj/item/organ/ears/cybernetic/upgraded,
+	)
+
+/datum/voucher_set/traitor/implant/advanced_cyber_eyes
+	name = /obj/item/organ/eyes/robotic/shield::name
+	description = /obj/item/organ/eyes/robotic/shield::desc
+	icon = /obj/item/organ/eyes/robotic/shield::icon
+	icon_state = /obj/item/organ/eyes/robotic/shield::icon_state
+	set_items = list(
+		/obj/item/organ/eyes/robotic/shield,
+	)
+
+/datum/voucher_set/traitor/implant/advanced_cyber_heart
+	name = /obj/item/organ/heart/cybernetic/tier3::name
+	description = /obj/item/organ/heart/cybernetic/tier3::desc
+	icon = /obj/item/organ/heart/cybernetic/tier3::icon
+	icon_state = /obj/item/organ/heart/cybernetic/tier3::icon_state
+	set_items = list(
+		/obj/item/organ/heart/cybernetic/tier3,
+		/obj/item/storage/pill_bottle/cordiolis_hepatico,
+	)
+
 /datum/voucher_set/traitor/organ
 
 /datum/voucher_set/traitor/organ/xeno_kit
@@ -216,6 +245,7 @@
 	set_items = list(
 		/obj/item/organ/heart/nightmare,
 		/obj/item/organ/eyes/shadow,
+		/obj/item/storage/pill_bottle/cordiolis_hepatico,
 	)
 
 // unfortunately no method of applying dna infusion yet, especially when a player is alone

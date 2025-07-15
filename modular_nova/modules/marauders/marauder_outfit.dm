@@ -94,7 +94,7 @@
 		/obj/item/clothing/gloves/combat,
 		/obj/item/storage/belt/military,
 		/obj/item/clothing/shoes/combat,
-		/obj/item/storage/toolbox/guncase/nova/green,
+		/obj/item/storage/toolbox/guncase/nova,
 		)
 
 /obj/structure/mannequin/operative_barracks/chameleon
@@ -121,6 +121,7 @@
 		/obj/item/clothing/under/pants/track/robohand,
 		/obj/item/clothing/suit/jacket/leather_trenchcoat/gunman,
 		/obj/item/clothing/shoes/combat,
+		/obj/item/storage/toolbox/guncase/nova/green,
 		)
 
 /obj/structure/mannequin/operative_barracks/sol_militant
