@@ -25,6 +25,10 @@
 /obj/effect/turf_decal/siding/white{
 	dir = 8
 	},
+/obj/item/mod/module/mouthhole{
+	pixel_y = 2;
+	pixel_x = -13
+	},
 /turf/open/floor/mineral/titanium/tiled,
 /area/misc/operative_barracks/robotics)
 "aE" = (
@@ -85,6 +89,10 @@
 	},
 /obj/structure/sign/poster/contraband/syndicate_medical/directional/east,
 /obj/machinery/light/directional/east,
+/obj/item/storage/backpack/satchel{
+	pixel_x = -11;
+	pixel_y = 8
+	},
 /turf/open/floor/mineral/titanium/tiled,
 /area/misc/operative_barracks/medbay)
 "bH" = (
@@ -141,9 +149,6 @@
 "cX" = (
 /obj/machinery/computer/camera_advanced/syndie{
 	dir = 1
-	},
-/obj/structure/fluff/fake_camera{
-	dir = 5
 	},
 /obj/effect/decal/cleanable/dirt/dust,
 /obj/structure/noticeboard/directional/south{
@@ -642,6 +647,10 @@
 	dir = 1;
 	pixel_y = -7
 	},
+/obj/item/reagent_containers/cup/glass/bottle/whiskey{
+	pixel_x = -9;
+	pixel_y = 43
+	},
 /turf/open/floor/wood/parquet,
 /area/misc/operative_barracks/dorm)
 "kf" = (
@@ -698,7 +707,7 @@
 /obj/effect/mapping_helpers/atom_injector/element_injector{
 	target_type = /obj/machinery/rnd/production/protolathe;
 	element_type = /datum/element/voucher_redeemer;
-	element_args = list(/obj/item/paper/paperslip/corporate/syndicate/implant, /datum/voucher_set/traitor/implant, sound_effect = 'sound/machines/lathe/lathe_print.ogg')
+	element_args = list(/obj/item/paper/paperslip/corporate/syndicate/traitor/implant, /datum/voucher_set/traitor/implant, sound_effect = 'sound/machines/lathe/lathe_print.ogg')
 	},
 /turf/open/floor/iron/dark/corner{
 	dir = 4
@@ -958,7 +967,7 @@
 /obj/effect/mapping_helpers/atom_injector/element_injector{
 	target_type = /obj/machinery/vending;
 	element_type = /datum/element/voucher_redeemer;
-	element_args = list(/obj/item/paper/paperslip/corporate/syndicate/supplies, /datum/voucher_set/traitor/supplies/tools)
+	element_args = list(/obj/item/paper/paperslip/corporate/syndicate/traitor/supplies, /datum/voucher_set/traitor/supplies/tools)
 	},
 /turf/open/floor/mineral/plastitanium/red,
 /area/misc/operative_barracks/mission_briefing)
@@ -1012,21 +1021,13 @@
 	pixel_y = 5;
 	pixel_x = 5
 	},
-/obj/item/stack/spacecash/c100{
-	pixel_x = -4;
-	pixel_y = -1
-	},
 /obj/item/pen{
 	pixel_x = 3;
 	pixel_y = 2
 	},
 /obj/item/reagent_containers/cup/glass/drinkingglass/filled/martini{
-	pixel_x = -7;
-	pixel_y = 10
-	},
-/obj/item/stack/spacecash/c200{
-	pixel_x = -4;
-	pixel_y = -1
+	pixel_x = -6;
+	pixel_y = 5
 	},
 /turf/open/floor/mineral/plastitanium/red,
 /area/misc/operative_barracks/mission_briefing)
@@ -1257,6 +1258,10 @@
 /obj/effect/turf_decal/siding/thinplating_new/light{
 	dir = 1
 	},
+/obj/item/storage/backpack/duffelbag/deforest_medkit{
+	pixel_x = -11;
+	pixel_y = -9
+	},
 /turf/open/floor/mineral/titanium/tiled,
 /area/misc/operative_barracks/medbay)
 "ri" = (
@@ -1321,7 +1326,10 @@
 /obj/effect/mapping_helpers/atom_injector/element_injector{
 	target_type = /obj/machinery/vending;
 	element_type = /datum/element/voucher_redeemer;
-	element_args = list(/obj/item/paper/paperslip/corporate/syndicate/supplies, /datum/voucher_set/traitor/supplies/medical)
+	element_args = list(/obj/item/paper/paperslip/corporate/syndicate/traitor/supplies, /datum/voucher_set/traitor/supplies/medical)
+	},
+/obj/item/implanter{
+	pixel_y = 19
 	},
 /turf/open/floor/mineral/titanium/tiled,
 /area/misc/operative_barracks/medbay)
@@ -1359,6 +1367,12 @@
 	},
 /turf/open/floor/mineral/plastitanium,
 /area/misc/operative_barracks/mission_briefing)
+"sp" = (
+/obj/structure/mannequin/operative_barracks/anarchist,
+/turf/open/floor/light{
+	currentcolor = "#FA8282"
+	},
+/area/misc/operative_barracks/mission_briefing)
 "ss" = (
 /obj/structure/marker_beacon/bronze{
 	pixel_x = 8;
@@ -1389,7 +1403,7 @@
 /obj/effect/mapping_helpers/atom_injector/element_injector{
 	target_type = /obj/machinery/vending;
 	element_type = /datum/element/voucher_redeemer;
-	element_args = list(/obj/item/paper/paperslip/corporate/syndicate/supplies, /datum/voucher_set/traitor/supplies/science)
+	element_args = list(/obj/item/paper/paperslip/corporate/syndicate/traitor/supplies, /datum/voucher_set/traitor/supplies/science)
 	},
 /obj/effect/decal/cleanable/dirt/dust,
 /obj/machinery/vending/robotics{
@@ -1403,6 +1417,7 @@
 /obj/structure/table/reinforced,
 /obj/structure/fluff/fake_firedoor,
 /obj/machinery/dish_drive/bullet,
+/obj/item/storage/pouch/ammo,
 /turf/open/floor/iron/dark/smooth_large,
 /area/misc/operative_barracks/armoury)
 "sW" = (
@@ -1552,6 +1567,11 @@
 	pixel_y = -6;
 	pixel_x = -3
 	},
+/obj/item/storage/backpack/messenger{
+	pixel_x = 14;
+	pixel_y = 12
+	},
+/obj/item/stack/cable_coil/five,
 /turf/open/floor/iron/dark/side{
 	dir = 8
 	},
@@ -1567,8 +1587,7 @@
 "uL" = (
 /obj/effect/turf_decal/box,
 /obj/structure/rack,
-/obj/item/storage/pouch/ammo,
-/obj/item/knife/combat/survival,
+/obj/item/gun/energy/plasmacutter,
 /turf/open/floor/mineral/titanium/tiled,
 /area/misc/operative_barracks/armoury)
 "uO" = (
@@ -1667,6 +1686,12 @@
 "vE" = (
 /turf/closed/indestructible/syndicate/nodiagonal,
 /area/misc/operative_barracks/medbay/surgery)
+"vF" = (
+/obj/structure/mannequin/operative_barracks/spy,
+/turf/open/floor/light{
+	currentcolor = "#FA8282"
+	},
+/area/misc/operative_barracks/mission_briefing)
 "wc" = (
 /obj/structure/fluff/fake_scrubber,
 /turf/open/floor/iron/dark/side{
@@ -1712,7 +1737,7 @@
 /obj/effect/mapping_helpers/atom_injector/element_injector{
 	target_type = /obj/machinery/limbgrower;
 	element_type = /datum/element/voucher_redeemer;
-	element_args = list(/obj/item/paper/paperslip/corporate/syndicate/implant, /datum/voucher_set/traitor/organ, sound_effect = 'sound/effects/cartoon_sfx/cartoon_splat.ogg')
+	element_args = list(/obj/item/paper/paperslip/corporate/syndicate/traitor/implant, /datum/voucher_set/traitor/organ, sound_effect = 'sound/effects/cartoon_sfx/cartoon_splat.ogg')
 	},
 /turf/open/floor/iron/showroomfloor,
 /area/misc/operative_barracks/medbay)
@@ -1812,9 +1837,9 @@
 	dir = 1
 	},
 /obj/structure/rack/shelf,
-/obj/item/storage/fancy/cigarettes/cigpack_syndicate{
-	pixel_x = -5;
-	pixel_y = 6
+/obj/item/storage/box/syndie_kit/space_suit{
+	pixel_x = -3;
+	pixel_y = 4
 	},
 /obj/item/storage/box/survival{
 	pixel_x = 3;
@@ -1833,6 +1858,13 @@
 /obj/structure/fluff/fake_vent,
 /turf/open/floor/mineral/plastitanium,
 /area/misc/operative_barracks/mission_briefing)
+"yf" = (
+/obj/item/storage/backpack/industrial/frontier_colonist/satchel{
+	pixel_x = 8;
+	pixel_y = -15
+	},
+/turf/open/floor/iron/dark,
+/area/misc/operative_barracks/armoury)
 "yg" = (
 /obj/structure/chair/office{
 	dir = 1
@@ -1857,7 +1889,7 @@
 /obj/effect/mapping_helpers/atom_injector/element_injector{
 	target_type = /obj/machinery/computer/mechpad;
 	element_type = /datum/element/voucher_redeemer;
-	element_args = list(/obj/item/paper/paperslip/corporate/syndicate/exosuit, /datum/voucher_set/traitor/mech, 8, 'sound/effects/portal/portal_open_1.ogg')
+	element_args = list(/obj/item/paper/paperslip/corporate/syndicate/traitor/exosuit, /datum/voucher_set/traitor/mech, 8, 'sound/effects/portal/portal_open_1.ogg')
 	},
 /obj/structure/fluff/fake_camera{
 	dir = 5
@@ -1878,7 +1910,7 @@
 /obj/effect/mapping_helpers/atom_injector/element_injector{
 	target_type = /obj/machinery/mecha_part_fabricator;
 	element_type = /datum/element/voucher_redeemer;
-	element_args = list(/obj/item/paper/paperslip/corporate/syndicate/exosuit, /datum/voucher_set/traitor/mod, 2, 'sound/machines/lathe/lathe_print.ogg')
+	element_args = list(/obj/item/paper/paperslip/corporate/syndicate/traitor/exosuit, /datum/voucher_set/traitor/mod, 2, 'sound/machines/lathe/lathe_print.ogg')
 	},
 /turf/open/floor/iron/dark,
 /area/misc/operative_barracks/robotics)
@@ -1965,7 +1997,7 @@
 /turf/open/floor/iron/dark/smooth_large,
 /area/misc/operative_barracks/medbay)
 "zJ" = (
-/obj/structure/mannequin/operative_barracks,
+/obj/structure/mannequin/operative_barracks/operative,
 /turf/open/floor/light{
 	currentcolor = "#FA8282"
 	},
@@ -2050,6 +2082,10 @@
 	},
 /obj/structure/sign/directions/science/directional/north{
 	pixel_y = 29
+	},
+/obj/item/storage/backpack{
+	pixel_x = 11;
+	pixel_y = -3
 	},
 /turf/open/floor/iron/dark/side{
 	dir = 8
@@ -2181,6 +2217,14 @@
 /obj/machinery/light/directional/west,
 /obj/structure/fluff/fake_vent,
 /obj/structure/sign/poster/contraband/borg_fancy_2/directional/west,
+/obj/item/mod/module/magboot{
+	pixel_y = 10;
+	pixel_x = 11
+	},
+/obj/item/mod/module/rad_protection{
+	pixel_x = -3;
+	pixel_y = -12
+	},
 /turf/open/floor/iron/dark,
 /area/misc/operative_barracks/robotics)
 "DG" = (
@@ -2423,6 +2467,10 @@
 	},
 /obj/item/shield/riot/tele,
 /obj/effect/turf_decal/tile/dark_red/fourcorners,
+/obj/item/storage/fancy/cigarettes/cigpack_syndicate{
+	pixel_x = -5;
+	pixel_y = 19
+	},
 /turf/open/floor/iron/smooth,
 /area/misc/operative_barracks/armoury/secure)
 "Gq" = (
@@ -2562,7 +2610,7 @@
 /obj/effect/mapping_helpers/atom_injector/element_injector{
 	target_type = /obj/machinery/computer;
 	element_type = /datum/element/voucher_redeemer;
-	element_args = list(/obj/item/paper/paperslip/corporate/syndicate/supplies, /datum/voucher_set/traitor/supplies/surgery, sound_effect = 'sound/machines/card_slide.ogg')
+	element_args = list(/obj/item/paper/paperslip/corporate/syndicate/traitor/supplies, /datum/voucher_set/traitor/supplies/surgery, sound_effect = 'sound/machines/card_slide.ogg')
 	},
 /turf/open/floor/iron/showroomfloor,
 /area/misc/operative_barracks/medbay/surgery)
@@ -2781,7 +2829,7 @@
 /obj/effect/mapping_helpers/atom_injector/element_injector{
 	target_type = /obj/machinery/rnd/production/protolathe;
 	element_type = /datum/element/voucher_redeemer;
-	element_args = list(/obj/item/paper/paperslip/corporate/syndicate/primary, /datum/voucher_set/traitor/primary_weapon, sound_effect = 'sound/machines/lathe/lathe_print.ogg')
+	element_args = list(/obj/item/paper/paperslip/corporate/syndicate/traitor/primary, /datum/voucher_set/traitor/primary_weapon, sound_effect = 'sound/machines/lathe/lathe_print.ogg')
 	},
 /turf/open/floor/iron/smooth,
 /area/misc/operative_barracks/armoury/secure)
@@ -2829,6 +2877,12 @@
 /obj/structure/extinguisher_cabinet/directional/east,
 /turf/open/floor/iron,
 /area/misc/operative_barracks)
+"Mx" = (
+/obj/structure/mannequin/operative_barracks/sol_militant,
+/turf/open/floor/light{
+	currentcolor = "#FA8282"
+	},
+/area/misc/operative_barracks/mission_briefing)
 "My" = (
 /obj/effect/turf_decal/siding/dark/inner_corner,
 /obj/structure/railing/corner/end/unbreakable{
@@ -2839,6 +2893,12 @@
 "MB" = (
 /turf/open/floor/iron/smooth,
 /area/misc/operative_barracks/armoury/secure)
+"MT" = (
+/obj/structure/mannequin/operative_barracks/chameleon,
+/turf/open/floor/light{
+	currentcolor = "#FA8282"
+	},
+/area/misc/operative_barracks/mission_briefing)
 "Nc" = (
 /obj/structure/railing/corner/end/flip/unbreakable{
 	dir = 1
@@ -2858,6 +2918,7 @@
 /obj/effect/turf_decal/siding/white{
 	dir = 8
 	},
+/obj/item/stock_parts/power_store/cell/high,
 /turf/open/floor/mineral/titanium/tiled,
 /area/misc/operative_barracks/robotics)
 "Nw" = (
@@ -2873,9 +2934,6 @@
 /turf/open/floor/iron,
 /area/misc/operative_barracks)
 "NR" = (
-/obj/structure/railing/corner/end/flip/unbreakable{
-	dir = 8
-	},
 /obj/structure/reagent_dispensers/wall/peppertank/directional/east,
 /obj/effect/turf_decal/tile/dark_red{
 	dir = 4
@@ -2988,17 +3046,19 @@
 /area/misc/operative_barracks/hangar)
 "Pl" = (
 /obj/structure/table/reinforced/plastitaniumglass,
-/obj/structure/railing/unbreakable,
-/obj/item/reagent_containers/spray/pepper/empty{
-	pixel_x = 7;
-	pixel_y = 2
-	},
 /obj/item/storage/box/handcuffs{
-	pixel_x = -4;
-	pixel_y = 3
+	pixel_y = 10
 	},
 /obj/effect/decal/cleanable/dirt/dust,
 /obj/effect/turf_decal/tile/dark_red/fourcorners,
+/obj/item/knife/combat/survival{
+	pixel_x = 6;
+	pixel_y = 4
+	},
+/obj/item/reagent_containers/spray/pepper/empty{
+	pixel_x = -8;
+	pixel_y = 4
+	},
 /turf/open/floor/iron/smooth,
 /area/misc/operative_barracks/armoury/secure)
 "Py" = (
@@ -3024,7 +3084,7 @@
 /obj/effect/mapping_helpers/atom_injector/element_injector{
 	target_type = /obj/machinery/vending;
 	element_type = /datum/element/voucher_redeemer;
-	element_args = list(/obj/item/paper/paperslip/corporate/syndicate/secondary, /datum/voucher_set/traitor/secondary_weapon)
+	element_args = list(/obj/item/paper/paperslip/corporate/syndicate/traitor/secondary, /datum/voucher_set/traitor/secondary_weapon)
 	},
 /obj/structure/fluff/fake_camera{
 	dir = 6
@@ -3099,7 +3159,7 @@
 /obj/effect/mapping_helpers/atom_injector/element_injector{
 	target_type = /obj/machinery/vending;
 	element_type = /datum/element/voucher_redeemer;
-	element_args = list(/obj/item/paper/paperslip/corporate/syndicate/supplies, /datum/voucher_set/traitor/supplies/stealth)
+	element_args = list(/obj/item/paper/paperslip/corporate/syndicate/traitor/supplies, /datum/voucher_set/traitor/supplies/stealth)
 	},
 /turf/open/floor/mineral/plastitanium/red,
 /area/misc/operative_barracks/mission_briefing)
@@ -3115,7 +3175,7 @@
 /obj/effect/mapping_helpers/atom_injector/element_injector{
 	target_type = /obj/machinery/ammo_workbench;
 	element_type = /datum/element/voucher_redeemer;
-	element_args = list(/obj/item/paper/paperslip/corporate/syndicate/supplies, /datum/voucher_set/traitor/supplies/ammo, sound_effect = 'sound/machines/piston/piston_raise.ogg')
+	element_args = list(/obj/item/paper/paperslip/corporate/syndicate/traitor/supplies, /datum/voucher_set/traitor/supplies/ammo, sound_effect = 'sound/machines/piston/piston_raise.ogg')
 	},
 /turf/open/floor/circuit/red/anim,
 /area/misc/operative_barracks/armoury)
@@ -3318,12 +3378,10 @@
 	pixel_y = 9
 	},
 /obj/effect/decal/cleanable/dirt/dust,
+/obj/structure/fluff/fake_camera,
 /turf/open/floor/mineral/plastitanium,
 /area/misc/operative_barracks/mission_briefing)
 "UB" = (
-/obj/structure/railing/corner/end/unbreakable{
-	dir = 4
-	},
 /obj/effect/turf_decal/tile/dark_red{
 	dir = 8
 	},
@@ -3371,6 +3429,12 @@
 "UP" = (
 /turf/open/floor/mineral/titanium/tiled,
 /area/misc/operative_barracks/medbay)
+"US" = (
+/obj/structure/mannequin/operative_barracks/hacker,
+/turf/open/floor/light{
+	currentcolor = "#FA8282"
+	},
+/area/misc/operative_barracks/mission_briefing)
 "UW" = (
 /obj/structure/railing/corner/end/unbreakable,
 /obj/effect/turf_decal/stripes/corner{
@@ -3472,7 +3536,7 @@
 /obj/effect/mapping_helpers/atom_injector/element_injector{
 	target_type = /obj/machinery/modular_computer;
 	element_type = /datum/element/voucher_redeemer;
-	element_args = list(/obj/item/paper/paperslip/corporate/syndicate, /datum/voucher_set/traitor/voucher_trade, sound_effect = 'sound/machines/card_slide.ogg')
+	element_args = list(/obj/item/paper/paperslip/corporate/syndicate/traitor, /datum/voucher_set/traitor/voucher_trade, sound_effect = 'sound/machines/card_slide.ogg')
 	},
 /turf/open/floor/mineral/plastitanium/red,
 /area/misc/operative_barracks/mission_briefing)
@@ -4511,7 +4575,7 @@ Br
 ef
 zy
 AE
-AE
+yf
 PK
 wx
 mR
@@ -4588,7 +4652,7 @@ Yr
 uz
 ps
 zu
-zJ
+sp
 so
 bH
 ry
@@ -4616,7 +4680,7 @@ JF
 uz
 ps
 zu
-zJ
+MT
 ls
 QD
 JJ
@@ -4726,7 +4790,7 @@ wH
 fC
 qh
 uz
-zJ
+US
 zu
 zJ
 ls
@@ -4754,9 +4818,9 @@ gt
 fC
 Zr
 uz
-zJ
+vF
 zu
-zJ
+Mx
 OH
 RX
 HH

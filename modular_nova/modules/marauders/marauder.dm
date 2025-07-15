@@ -78,8 +78,9 @@
 	//load the shuttle, we don't trust lazy_load with this
 	load_shuttle(marauder_no)
 	//move our guy
+	set_assignment(owner.current)
 	set_spawnpoint(marauder_no)
-	move_to_spawnpoint()
+	move_to_spawnpoint(owner.current)
 
 /datum/antagonist/traitor/marauder/proc/load_shuttle(marauder_no)
 	var/is_first = FALSE
@@ -105,27 +106,56 @@
 	mobile_port.mode = SHUTTLE_IGNITING
 	mobile_port.setTimer(mobile_port.ignitionTime)
 
+/datum/antagonist/traitor/marauder/proc/set_assignment(mob/living/carbon/human/marauder)
+	var/datum/bank_account/bank_account = new(marauder.name, /datum/job/marauder, marauder.dna.species.payday_modifier)
+	owner.set_assigned_role(SSjob.get_job_type(/datum/job/marauder))
+	bank_account.payday(5, TRUE) // STARTING_PAYCHECKS is way too high for us
+	bank_account.account_job = SSjob.get_job_type(/datum/job/marauder)
+	bank_account.replaceable = FALSE
+	marauder.account_id = bank_account.account_id
+	marauder.add_mob_memory(/datum/memory/key/account, remembered_id = marauder.account_id)
+
 /datum/antagonist/traitor/marauder/proc/set_spawnpoint(marauder_no)
 	spawnpoint = GLOB.traitor_start[marauder_no]
 
-/datum/antagonist/traitor/marauder/proc/move_to_spawnpoint()
-	owner.current.forceMove(spawnpoint)
+/datum/antagonist/traitor/marauder/proc/move_to_spawnpoint(mob/living/carbon/human/marauder)
+	marauder.forceMove(spawnpoint)
 	var/obj/structure/bed/bed = locate(/obj/structure/bed) in spawnpoint.contents
 	var/obj/item/bedsheet/bedsheet = locate(/obj/item/bedsheet) in spawnpoint.contents
 	if(!bed || !bedsheet)
 		return
 	//put them in bed
-	owner.current.setDir(SOUTH)
-	bed.buckle_mob(owner.current)
-	bedsheet.coverup(owner.current)
+	marauder.setDir(SOUTH)
+	bed.buckle_mob(marauder)
+	bedsheet.coverup(marauder)
 
 //antag job
 /datum/job/marauder
 	title = ROLE_MARAUDER
-	plasmaman_outfit = /datum/outfit/marauder_plasmaman
-	akula_outfit = /datum/outfit/marauder_akula
+	paycheck_department = ACCOUNT_DS2
+	exclusive_mail_goodies = TRUE
+	mail_goodies = list(/obj/item/stack/telecrystal/five)
+	outfit = /datum/outfit/marauder
+	plasmaman_outfit = /datum/outfit/marauder/plasmaman
+	akula_outfit = /datum/outfit/marauder/akula
+	vox_outfit = /datum/outfit/marauder/vox
 
-/datum/outfit/marauder_plasmaman
+/datum/outfit/marauder
+
+	name = "Marauder"
+	uniform = /obj/item/clothing/under/misc/pj/red
+	head = /obj/item/clothing/head/costume/nightcap/red
+
+/datum/outfit/marauder/post_equip(mob/living/carbon/human/user, visuals_only)
+	. = ..()
+	var/obj/item/clothing/under/uniform = user.w_uniform
+	if(!uniform)
+		return
+	if(!uniform.has_sensor)
+		return
+	uniform.sensor_mode = NO_SENSORS
+
+/datum/outfit/marauder/plasmaman
 	name = "Marauder (Plasmaman)"
 	head = /obj/item/clothing/head/helmet/space/plasmaman/syndie
 	uniform = /obj/item/clothing/under/plasmaman/syndicate
@@ -133,6 +163,13 @@
 	belt = /obj/item/tank/internals/plasmaman/belt/full
 	internals_slot = ITEM_SLOT_BELT
 
-/datum/outfit/marauder_akula
+/datum/outfit/marauder/akula
 	name = "Marauder (Akula)"
 	head = /obj/item/clothing/head/helmet/space/akula_wetsuit
+
+/datum/outfit/marauder/vox
+	name = "Marauder (Vox)"
+
+	mask = /obj/item/clothing/mask/breath/vox
+	belt = /obj/item/tank/internals/nitrogen/belt/full
+	internals_slot = ITEM_SLOT_BELT

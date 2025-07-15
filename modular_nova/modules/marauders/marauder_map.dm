@@ -109,7 +109,7 @@
 	holder.grant_language(/datum/language/codespeak, source = LANGUAGE_MIND)
 	holder.selected_language = /datum/language/codespeak
 
-//mech mmi
+//mech or cyborg mmi
 /obj/item/mmi/posibrain/circuit/disk/syndie
 	overrides_aicore_laws = TRUE
 	req_access = list(ACCESS_SYNDICATE)
