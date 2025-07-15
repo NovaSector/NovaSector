@@ -142,6 +142,7 @@
 		),"cybersun" = list(
 			MOD_ICON_OVERRIDE = 'modular_nova/master_files/icons/obj/clothing/modsuit/mod_clothing.dmi',
 			MOD_WORN_ICON_OVERRIDE = 'modular_nova/master_files/icons/mob/clothing/modsuit/mod_clothing.dmi',
+			desc = "Test",
 			/obj/item/clothing/head/mod = list(
 				UNSEALED_LAYER = NECK_LAYER,
 				UNSEALED_CLOTHING = SNUG_FIT,
@@ -372,8 +373,8 @@
 				SEALED_MESSAGE = BOOT_SEAL_MESSAGE,
 			),
 		),
-				"blue-safeguard" = list(
-					MOD_ICON_OVERRIDE = 'modular_nova/master_files/icons/obj/clothing/modsuit/mod_clothing.dmi',
+		"blue-safeguard" = list(
+				MOD_ICON_OVERRIDE = 'modular_nova/master_files/icons/obj/clothing/modsuit/mod_clothing.dmi',
 				MOD_WORN_ICON_OVERRIDE = 'modular_nova/master_files/icons/mob/clothing/modsuit/mod_clothing.dmi',
 			/obj/item/clothing/head/mod = list(
 				UNSEALED_CLOTHING = SNUG_FIT|THICKMATERIAL,
