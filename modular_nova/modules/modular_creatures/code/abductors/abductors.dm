@@ -18,6 +18,17 @@
 	corpse = null // basic abductor uses corpse as a field
 	mob_spawner = /obj/effect/mob_spawn/corpse/human/abductor/nova
 
+/mob/living/basic/trooper/abductor/nova/Initialize(mapload) // respond when shot
+	. = ..()
+	AddElement(/datum/element/relay_attackers)
+	RegisterSignal(src, COMSIG_ATOM_WAS_ATTACKED, PROC_REF(immediate_aggro))
+
+/mob/living/basic/trooper/abductor/nova/proc/immediate_aggro(datum/source, mob/attacker, flags)
+	SIGNAL_HANDLER
+	if(isnull(ai_controller) || stat || !istype(attacker) || ai_controller.blackboard_key_exists(BB_BASIC_MOB_CURRENT_TARGET))
+		return
+	ai_controller?.set_blackboard_key(BB_BASIC_MOB_CURRENT_TARGET, attacker)
+
 /mob/living/basic/trooper/abductor/nova/melee
 	r_hand = /obj/item/melee/baton/abductor
 	attack_verb_continuous = "batons"
