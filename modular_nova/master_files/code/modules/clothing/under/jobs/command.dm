@@ -100,6 +100,7 @@
 	name = "blueshield's sweatsuit"
 	desc = "An older NRI styled jumpsuit meant for military application for their soldiers, but it seemms more useful here nowadays, dyed and seamed to newer NT standards."
 	icon_state = "bs_rus"
+	can_adjust = FALSE
 
 /obj/item/clothing/under/rank/blueshield/formal
 	name = "blueshield's formals"
@@ -110,6 +111,7 @@
 	name = "blueshield's naval uniform"
 	desc = "An upper level uniform granted to shields alike, representing centcom's grand naval fleet"
 	icon_state = "bs_grandnaval"
+	can_adjust = FALSE
 
 /*
 *	NT CONSULTANT
@@ -140,7 +142,7 @@
 	name = "nanotrasen consultant's naval uniform"
 	desc = "An upper level uniform granted to consultants and representatives alike, representing centcom's grand naval fleet"
 	icon_state = "nt_grandnaval"
-
+	can_adjust = FALSE
 /*
 *	UNASSIGNED (Any head of staff)
 */
