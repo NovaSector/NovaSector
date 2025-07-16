@@ -14,6 +14,11 @@
 	new /obj/item/clothing/suit/armor/vest/blueshield(src)
 	new /obj/item/clothing/suit/armor/vest/blueshield/jacket(src)
 	new /obj/item/clothing/neck/mantle/bsmantle(src)
+	new /obj/item/clothing/under/rank/blueshield/consult(src)
+	new /obj/item/clothing/under/rank/blueshield/consult/skirt(src)
+	new /obj/item/clothing/under/rank/blueshield/formal(src)
+	new /obj/item/clothing/under/rank/blueshield/russian(src)
+	new /obj/item/clothing/under/rank/blueshield/naval(src)
 
 /obj/structure/closet/secure_closet/blueshield
 	name = "blueshield's locker"
