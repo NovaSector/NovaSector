@@ -1,0 +1,7 @@
+author: "RealWinterFrost"
+delete-after: True
+changes:
+  - rscadd: "Added new Interdyne, DS-2, and Tarkon powerators."
+  - map: "Placed the powerators in respective team locations"
+  - balance: "gave interdyne and DS-2 a brand new BAPGM, only able to produce 100 KW of power, only for bare essentials."
+  - code_imp: "changed the powerator to have variants and more interchangability"
