@@ -1,0 +1,4 @@
+author: "OrionTheFox"
+delete-after: True
+changes:
+  - bugfix: "Fixed a few things on Blueshift, such as missing cables, the elevator doors, the Detective's noticeboard, and Medbay's mouse problem. Also barricaded the interior solar panels, because those don't even work."
