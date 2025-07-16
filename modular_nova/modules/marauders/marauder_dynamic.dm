@@ -13,15 +13,7 @@
 	var/marauder_no = 1
 
 /datum/dynamic_ruleset/midround/from_ghosts/marauder/generate_ruleset_body(mob/player)
-	//generate body
 	var/mob/living/carbon/human/new_character = make_body(player)
-	var/datum/mind/player_mind = new /datum/mind(player.key)
-	var/client/player_client = new_character.client
-	new_character.dna.species.pre_equip_species_outfit(player_mind.assigned_role, new_character)
-	if(isnull(new_character.dna.species.outfit_important_for_life))
-		new_character.equipOutfit(/datum/outfit/marauder)
-	if (player_client)
-		SSquirks.AssignQuirks(new_character, new_character.client)
 	new_character.Sleeping(7 SECONDS)
 
 	message_admins("[ADMIN_LOOKUPFLW(new_character)] has been made into a traitor by midround ruleset.")

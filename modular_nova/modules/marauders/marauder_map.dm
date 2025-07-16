@@ -10,16 +10,6 @@
 	has_ceiling = TRUE
 	ceiling_turf = /turf/open/floor/plating/reinforced
 
-//nav computers
-/obj/machinery/computer/shuttle/traitor
-	icon_screen = "syndishuttle"
-	icon_keyboard = "syndie_key"
-	light_color = COLOR_SOFT_RED
-	req_access = list(ACCESS_SYNDICATE)
-	shuttleId = "traitor"
-	possible_destinations = "ferry_home;whiteship_home;whiteship_lavaland;traitor_home;traitor_custom"
-	may_be_remote_controlled = TRUE
-
 /obj/machinery/computer/shuttle/traitor/send_shuttle(dest_id, mob/user)
 	. = ..()
 	if(. != "success")
@@ -46,6 +36,22 @@
 	lock_override = CAMERA_LOCK_STATION
 	view_range = 4
 
+//nav computers
+/obj/machinery/computer/shuttle/traitor
+	icon_screen = "syndishuttle"
+	icon_keyboard = "syndie_key"
+	light_color = COLOR_SOFT_RED
+	req_access = list(ACCESS_SYNDICATE)
+	shuttleId = "traitor"
+	possible_destinations = "whiteship_home;whiteship_lavaland;traitor_home;traitor_custom"
+	may_be_remote_controlled = TRUE
+
+/obj/machinery/computer/shuttle/traitor/Initialize(mapload)
+	. = ..()
+	//planetary maps use "ferry_home" instead of "whiteship_home" for their arrivals dock
+	if(SSmapping.is_planetary())
+		possible_destinations = "ferry_home;whiteship_home;whiteship_lavaland;traitor_home;traitor_custom"
+
 //shuttle remote
 /obj/item/shuttle_remote/traitor
 	icon = 'icons/obj/devices/voice.dmi'
@@ -54,7 +60,7 @@
 
 /obj/item/shuttle_remote/traitor/Initialize(mapload)
 	. = ..()
-	//planetary maps use "ferry_home" instead of "whiteship_home" for their arrivals dock
+	//ditto
 	if(SSmapping.is_planetary())
 		shuttle_home_id = "ferry_home"
 

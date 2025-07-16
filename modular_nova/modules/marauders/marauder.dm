@@ -79,6 +79,7 @@
 	load_shuttle(marauder_no)
 	//move our guy
 	set_assignment(owner.current)
+	grant_equipment(owner.current)
 	set_spawnpoint(marauder_no)
 	move_to_spawnpoint(owner.current)
 
@@ -106,6 +107,7 @@
 	mobile_port.mode = SHUTTLE_IGNITING
 	mobile_port.setTimer(mobile_port.ignitionTime)
 
+/// this is where we add the job datum and build a bank account based on it
 /datum/antagonist/traitor/marauder/proc/set_assignment(mob/living/carbon/human/marauder)
 	var/datum/bank_account/bank_account = new(marauder.name, /datum/job/marauder, marauder.dna.species.payday_modifier)
 	owner.set_assigned_role(SSjob.get_job_type(/datum/job/marauder))
@@ -115,9 +117,18 @@
 	marauder.account_id = bank_account.account_id
 	marauder.add_mob_memory(/datum/memory/key/account, remembered_id = marauder.account_id)
 
+/// this is where we get our outfit, it runs after getting the assignment set so the pre_equip_species_outfit() proc can use it
+/datum/antagonist/traitor/marauder/proc/grant_equipment(mob/living/carbon/human/marauder)
+	if(isnull(marauder.dna.species.outfit_important_for_life))
+		marauder.equipOutfit(/datum/outfit/marauder)
+	else
+		marauder.dna.species.pre_equip_species_outfit(marauder.mind?.assigned_role, marauder)
+
+/// get our spawnpoint
 /datum/antagonist/traitor/marauder/proc/set_spawnpoint(marauder_no)
 	spawnpoint = GLOB.traitor_start[marauder_no]
 
+/// move our guy
 /datum/antagonist/traitor/marauder/proc/move_to_spawnpoint(mob/living/carbon/human/marauder)
 	marauder.forceMove(spawnpoint)
 	var/obj/structure/bed/bed = locate(/obj/structure/bed) in spawnpoint.contents
@@ -141,14 +152,18 @@
 	vox_outfit = /datum/outfit/marauder/vox
 
 /datum/outfit/marauder
-
 	name = "Marauder"
 	uniform = /obj/item/clothing/under/misc/pj/red
 	head = /obj/item/clothing/head/costume/nightcap/red
 
-/datum/outfit/marauder/post_equip(mob/living/carbon/human/user, visuals_only)
+/datum/outfit/marauder/post_equip(mob/living/carbon/human/player, visuals_only)
 	. = ..()
-	var/obj/item/clothing/under/uniform = user.w_uniform
+	turn_off_sensors(player.w_uniform)
+	var/client/player_client = player.client
+	if(player_client)
+		SSquirks.AssignQuirks(player, player.client)
+
+/datum/outfit/marauder/proc/turn_off_sensors(obj/item/clothing/under/uniform)
 	if(!uniform)
 		return
 	if(!uniform.has_sensor)
@@ -165,11 +180,10 @@
 
 /datum/outfit/marauder/akula
 	name = "Marauder (Akula)"
-	head = /obj/item/clothing/head/helmet/space/akula_wetsuit
+	r_pocket = /obj/item/clothing/accessory/vaporizer
 
 /datum/outfit/marauder/vox
 	name = "Marauder (Vox)"
-
 	mask = /obj/item/clothing/mask/breath/vox
 	belt = /obj/item/tank/internals/nitrogen/belt/full
 	internals_slot = ITEM_SLOT_BELT
