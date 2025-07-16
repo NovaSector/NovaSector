@@ -22,7 +22,7 @@
 
 /datum/ai_controller/basic_controller/trooper/calls_reinforcements/abductors/ranged
 	planning_subtrees = list(
-		/datum/ai_planning_subtree/simple_find_target, // if you can see them
+		/datum/ai_planning_subtree/simple_find_target,
 		/datum/ai_planning_subtree/call_reinforcements,
 		/datum/ai_planning_subtree/basic_ranged_attack_subtree/trooper/serious,
 		/datum/ai_planning_subtree/travel_to_point/and_clear_target/reinforce,
