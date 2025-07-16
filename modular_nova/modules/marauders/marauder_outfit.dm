@@ -49,7 +49,7 @@
 ⠀⠀⠀⠀⠀⠀⢀⣠⣶⣤⣠⣤⣤⣤⣤⣄⣀⠀⣠⣿⣿⣿⢿⡿⠀⠀⠀⠀⠀⠀⠀⠀⠀  supplied to the midround antag. There is only room for six
 ⠀⠀⠀⠀⠀⠴⠛⠋⠉⠉⠉⠉⠛⠛⣻⣿⣿⣿⣿⡿⠛⠁⠈⠁⠀⠀⠀⠀⠀⠀⠀⠀   mannequins, if you want to add an outfit instead of change,
 ⠀⠀⠀⠀⠀⠀⠀⠀⠀⣀⠀⣠⣴⣿⣿⠿⠟⠋⠁⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀please do so by moving an existing outfit onto the 'wildcard'
-⠀⠀⠀⠀⠀⠀⠀⠀⣸⣿⠟⠋⠉							 mannequins, or consider if your new outfit would be suited
+⠀⠀⠀⠀⠀⠀⠀⠀⣸⣿⠟⠋⠉                            mannequins, or consider if your new outfit would be suited
 ⠀⠀⠀⠀⠀⠀⠀⢰⠟⠁⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀  to fit on those randomly picked 'wildcard' mannequins. )
 */
 
