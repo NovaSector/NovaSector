@@ -1083,9 +1083,7 @@
 /turf/open/floor/mineral/plastitanium,
 /area/misc/operative_barracks/hangar)
 "oM" = (
-/obj/machinery/door/airlock/grunge{
-	name = "Air Control"
-	},
+/obj/machinery/door/airlock/grunge,
 /obj/effect/mapping_helpers/airlock/access/all/syndicate/general,
 /obj/effect/mapping_helpers/airlock/cutaiwire,
 /obj/structure/fluff/fake_firedoor,
@@ -2367,7 +2365,6 @@
 /area/misc/operative_barracks/hangar)
 "EP" = (
 /obj/effect/spawner/structure/window/reinforced/tinted,
-/obj/structure/fluff/fake_firedoor,
 /turf/open/floor/plating,
 /area/misc/operative_barracks/medbay/surgery)
 "EV" = (
@@ -2535,7 +2532,7 @@
 /area/misc/operative_barracks/medbay)
 "GS" = (
 /obj/machinery/door/airlock{
-	name = "Dormroom no. 09"
+	name = "Dormroom"
 	},
 /obj/effect/mapping_helpers/airlock/cutaiwire,
 /obj/structure/fluff/fake_firedoor,
@@ -3613,7 +3610,6 @@
 /area/misc/operative_barracks/robotics)
 "Wo" = (
 /obj/effect/spawner/structure/window/reinforced/plasma/plastitanium,
-/obj/structure/fluff/fake_firedoor,
 /turf/open/floor/plating,
 /area/misc/operative_barracks/mission_briefing)
 "Wq" = (

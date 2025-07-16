@@ -183,7 +183,7 @@
 		)
 
 /obj/structure/mannequin/operative_barracks/wildcard/intern
-	name = "centcomm intern mannequin"
+	name = "centcom intern mannequin"
 	starting_items = list(
 		/obj/item/clothing/glasses/sunglasses/robohand,
 		/obj/item/clothing/under/rank/centcom/officer,
