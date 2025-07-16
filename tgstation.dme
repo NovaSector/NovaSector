@@ -8329,6 +8329,7 @@
 #include "modular_nova\modules\mapping\voidraptor\code\shuttles.dm"
 #include "modular_nova\modules\marauders\marauder.dm"
 #include "modular_nova\modules\marauders\marauder_dynamic.dm"
+#include "modular_nova\modules\marauders\marauder_dynamic_new.dm"
 #include "modular_nova\modules\marauders\marauder_fluff.dm"
 #include "modular_nova\modules\marauders\marauder_map.dm"
 #include "modular_nova\modules\marauders\marauder_mapping_helpers.dm"
