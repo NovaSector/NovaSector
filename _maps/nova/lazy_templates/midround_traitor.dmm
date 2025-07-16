@@ -242,11 +242,11 @@
 /obj/effect/turf_decal/tile/dark_red,
 /obj/structure/table,
 /obj/machinery/microwave,
-/obj/item/toy/plush/nova/donator/zapp{
+/obj/structure/sign/poster/contraband/punch_shit/directional/east,
+/obj/item/toy/plush/nukeplushie{
 	pixel_x = 2;
 	pixel_y = 19
 	},
-/obj/structure/sign/poster/contraband/punch_shit/directional/east,
 /turf/open/floor/mineral/plastitanium,
 /area/misc/operative_barracks)
 "ex" = (
@@ -665,6 +665,10 @@
 	pixel_x = -9;
 	pixel_y = 43
 	},
+/obj/item/reagent_containers/cup/glass/drinkingglass/shotglass/syndicate{
+	pixel_y = 37;
+	pixel_x = 10
+	},
 /turf/open/floor/wood/parquet,
 /area/misc/operative_barracks/dorm)
 "kf" = (
@@ -930,6 +934,7 @@
 /obj/structure/railing/corner/end/unbreakable{
 	dir = 4
 	},
+/obj/item/stack/cable_coil,
 /turf/open/floor/iron/dark/corner{
 	dir = 4
 	},
@@ -1348,6 +1353,9 @@
 	element_type = /datum/element/voucher_redeemer;
 	element_args = list(/obj/item/paper/paperslip/corporate/syndicate/traitor/supplies, /datum/voucher_set/traitor/supplies/medical)
 	},
+/obj/item/screwdriver{
+	pixel_y = 13
+	},
 /turf/open/floor/mineral/titanium/tiled,
 /area/misc/operative_barracks/medbay)
 "rU" = (
@@ -1476,22 +1484,18 @@
 	pixel_y = 10;
 	pixel_x = 2
 	},
-/obj/item/reagent_containers/applicator/pill/salbutamol{
-	pixel_x = 7;
-	pixel_y = -1
-	},
-/obj/item/reagent_containers/applicator/pill/salbutamol{
-	pixel_x = 7;
-	pixel_y = 1
-	},
-/obj/item/reagent_containers/applicator/pill/salbutamol{
-	pixel_x = 7;
-	pixel_y = 3
-	},
 /obj/effect/decal/cleanable/dirt/dust,
 /obj/item/storage/pill_bottle/painkiller{
 	pixel_x = -7;
 	pixel_y = 4
+	},
+/obj/item/reagent_containers/applicator/pill/cordiolis_hepatico{
+	pixel_x = 5;
+	pixel_y = -2
+	},
+/obj/item/reagent_containers/applicator/pill/cordiolis_hepatico{
+	pixel_x = 5;
+	pixel_y = -2
 	},
 /turf/open/floor/mineral/titanium/tiled,
 /area/misc/operative_barracks/medbay)
@@ -2888,6 +2892,9 @@
 /obj/item/reagent_containers/hypospray/medipen/deforest/calopine{
 	pixel_x = -12;
 	pixel_y = -12
+	},
+/obj/item/grenade/chem_grenade{
+	pixel_y = 5
 	},
 /turf/open/floor/mineral/titanium/tiled,
 /area/misc/operative_barracks/medbay)

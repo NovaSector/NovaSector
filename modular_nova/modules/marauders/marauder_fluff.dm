@@ -46,6 +46,8 @@
 		if(istype(antag, /datum/antagonist/traitor/marauder))
 			instance++
 	for(var/datum/antagonist/traitor/marauder/antag as anything in GLOB.antagonists)
+		if(!istype(antag, /datum/antagonist/traitor/marauder))
+			continue
 		if(antag.owner.name && (antag.marauder_no == instance))
 			return antag.owner.name
 

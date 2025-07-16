@@ -221,7 +221,6 @@
 	icon_state = /obj/item/organ/heart/cybernetic/tier3::icon_state
 	set_items = list(
 		/obj/item/organ/heart/cybernetic/tier3,
-		/obj/item/storage/pill_bottle/cordiolis_hepatico,
 	)
 
 /datum/voucher_set/traitor/organ
@@ -245,7 +244,6 @@
 	set_items = list(
 		/obj/item/organ/heart/nightmare,
 		/obj/item/organ/eyes/shadow,
-		/obj/item/storage/pill_bottle/cordiolis_hepatico,
 	)
 
 // unfortunately no method of applying dna infusion yet, especially when a player is alone
