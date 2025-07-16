@@ -26,6 +26,12 @@
 	mobile_dock.port_direction = turn(random_dir, ROTATION_CLOCKWISE)
 	transit_dock.setDir(random_dir)
 
+/obj/machinery/computer/security/telescreen/traitor_shuttle
+	name = "shuttle-camera telescreen"
+	network = list("lone_infil_shuttle")
+
+MAPPING_DIRECTIONAL_HELPERS(/obj/machinery/computer/security/telescreen/traitor_shuttle, 32)
+
 /obj/machinery/computer/camera_advanced/shuttle_docker/traitor
 	icon_screen = "syndishuttle"
 	icon_keyboard = "syndie_key"
