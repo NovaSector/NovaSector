@@ -88,17 +88,41 @@
   carpotoxin:
   - code_imp: "Veteran has been renamed to Nova stars! \u2B50"
 2025-07-17:
+  Diltyrr:
+  - rscadd: Added a statue clicking puzzle.
+  - rscadd: Added two new type of chatty ghost mob, the runebound echo and small runebound
+      echo.
+  - image: Added an icon for a standing runestone with glowing and pulsating runes
+      by Diltyrr.
+  - map: added a new icemoon underground ruin, the Frozenwake.
+  FlufflesTheDog:
+  - bugfix: Fixed an exceptionally rare bug that caused traitors to go deaf
+  LordHookie:
+  - balance: Cezarowa firing NPCs and structures no longer vastly overperform compared
+      to their intended numbers.
   OrionTheFox:
   - bugfix: Fixed a few things on Blueshift, such as missing cables, the elevator
       doors, the Detective's noticeboard, and Medbay's mouse problem. Also barricaded
       the interior solar panels, because those don't even work.
+  - qol: Respawning or using a non-temporary Ghost Spawner will now TRULY abandon
+      your body, marking it DNR (So Medbay can't revive the soulless body anyways)
   RealWinterFrost:
   - rscadd: Added new Interdyne, DS-2, and Tarkon powerators.
   - map: Placed the powerators in respective team locations
   - balance: gave interdyne and DS-2 a brand new BAPGM, only able to produce 100 KW
       of power, only for bare essentials.
   - code_imp: changed the powerator to have variants and more interchangability
+  Vanilla1040:
+  - bugfix: Installed CS Source for Marked one digitgraded armor
+  - image: Added digitgraded sprite for marked one armor
+  Zenitheevee:
+  - config: Sets Tarkon/DS2 budget costs to 0 for ruin spawning
   Zergspower:
   - code_imp: Serenity cavegen has been changed to be less spam
   - code_imp: Deer on Serenity experienced a population decline, they seem to be more
       lethargic and less thirsty than before
+  carpotoxin:
+  - code_imp: Refactors sensitive hearing, updating your ears instead of replacing
+      your ears wholesale.
+  thetaro:
+  - balance: put lings chem regen back to 1 (was 0.5)

@@ -1,4 +1,0 @@
-author: "thetaro"
-delete-after: True
-changes:
-  - balance: "put lings chem regen back to 1 (was 0.5)"
