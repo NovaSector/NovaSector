@@ -1,0 +1,7 @@
+author: "Diltyrr"
+delete-after: True
+changes:
+  - rscadd: "Added a statue clicking puzzle."
+  - rscadd: "Added two new type of chatty ghost mob, the runebound echo and small runebound echo."
+  - image: "Added an icon for a standing runestone with glowing and pulsating runes by Diltyrr."
+  - map: "added a new icemoon underground ruin, the Frozenwake."
