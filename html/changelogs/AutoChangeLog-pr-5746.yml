@@ -1,0 +1,5 @@
+author: "Vanilla1040"
+delete-after: True
+changes:
+  - bugfix: "Installed CS Source for Marked one digitgraded armor"
+  - image: "Added digitgraded sprite for marked one armor"

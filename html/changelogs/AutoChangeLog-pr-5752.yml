@@ -1,0 +1,4 @@
+author: "LordHookie"
+delete-after: True
+changes:
+  - balance: "Cezarowa firing NPCs and structures no longer vastly overperform compared to their intended numbers."
