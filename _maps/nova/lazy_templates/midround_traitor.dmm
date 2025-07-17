@@ -691,11 +691,11 @@
 /turf/open/floor/plating,
 /area/misc/operative_barracks/hangar)
 "ks" = (
-/obj/machinery/portable_atmospherics/canister/air,
 /obj/structure/railing/unbreakable{
 	dir = 8
 	},
 /obj/effect/turf_decal/box/white,
+/obj/machinery/portable_atmospherics/canister/oxygen,
 /turf/open/floor/iron/dark/small,
 /area/misc/operative_barracks/hangar)
 "kw" = (
@@ -1813,12 +1813,12 @@
 /obj/machinery/light/small/directional/south,
 /obj/structure/table,
 /obj/item/food/ready_donk/donkhiladas{
-	pixel_x = 5;
+	pixel_x = 9;
 	pixel_y = 1
 	},
-/obj/item/reagent_containers/cup/soda_cans/pwr_game{
+/obj/effect/spawner/random/entertainment/coin{
 	pixel_x = -7;
-	pixel_y = 13
+	pixel_y = 6
 	},
 /turf/open/floor/mineral/plastitanium,
 /area/misc/operative_barracks)
@@ -1864,12 +1864,15 @@
 	},
 /obj/structure/rack/shelf,
 /obj/item/storage/box/syndie_kit/space_suit{
-	pixel_x = -3;
-	pixel_y = 4
+	pixel_x = 2;
+	pixel_y = 7
 	},
-/obj/item/storage/box/survival{
-	pixel_x = 3;
-	pixel_y = -4
+/obj/item/food/rationpack{
+	pixel_x = -2;
+	pixel_y = -2
+	},
+/obj/item/food/rationpack{
+	pixel_y = -2
 	},
 /turf/open/floor/iron/dark/smooth_large,
 /area/misc/operative_barracks/dorm)
@@ -1958,10 +1961,10 @@
 	pixel_x = -32;
 	name = "grenade locker"
 	},
-/obj/item/grenade/barrier,
 /obj/effect/turf_decal/tile/dark_red{
 	dir = 8
 	},
+/obj/item/food/pie/cream,
 /turf/open/floor/iron/smooth,
 /area/misc/operative_barracks/armoury/secure)
 "yL" = (
@@ -3330,11 +3333,11 @@
 	pixel_x = -32;
 	name = "ammunition locker"
 	},
-/obj/item/circuitboard/machine/recharger,
 /obj/effect/turf_decal/tile/dark_red{
 	dir = 8
 	},
-/obj/item/stock_parts/capacitor/super,
+/obj/item/grenade/barrier,
+/obj/item/grenade/barrier,
 /turf/open/floor/iron/smooth,
 /area/misc/operative_barracks/armoury/secure)
 "SF" = (

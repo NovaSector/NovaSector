@@ -141,12 +141,12 @@
 /obj/structure/closet/generic/wall/empty{
 	pixel_x = 32
 	},
-/obj/item/crowbar,
 /obj/effect/turf_decal/box/red/corners,
 /obj/effect/turf_decal/box/red/corners{
 	dir = 8
 	},
-/obj/item/stock_parts/power_store/cell/high,
+/obj/item/storage/box/survival/radio,
+/obj/item/crowbar/red,
 /turf/open/floor/mineral/plastitanium,
 /area/shuttle/traitor)
 
