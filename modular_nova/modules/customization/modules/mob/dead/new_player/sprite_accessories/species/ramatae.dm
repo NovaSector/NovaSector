@@ -4,14 +4,14 @@
 	default_color = DEFAULT_PRIMARY
 	affected_bodyparts = CHEST
 	gendered = TRUE
-	icon = 'modular_nova/modules/ramatae/ramatae_accessories.dmi'
+	icon = 'modular_nova/master_files/icons/mob/sprite_accessory/species/ramatae.dmi'
 
 /*
 *	EARS
 */
 
 /datum/sprite_accessory/ears/mutant/ramatae
-	icon = 'modular_nova/modules/ramatae/ramatae_accessories.dmi'
+	icon = 'modular_nova/master_files/icons/mob/sprite_accessory/species/ramatae.dmi'
 	name = "Ramatan"
 	icon_state = "ramatan"
 
@@ -44,7 +44,7 @@
 */
 
 /datum/sprite_accessory/frills/ramatae
-	icon = 'modular_nova/modules/ramatae/ramatae_accessories.dmi'
+	icon = 'modular_nova/master_files/icons/mob/sprite_accessory/species/ramatae.dmi'
 	name = "Ramatan"
 	icon_state = "ramatan_aquatic"
 	color_src = USE_MATRIXED_COLORS
@@ -66,7 +66,7 @@
 */
 
 /datum/sprite_accessory/snouts/mammal/ramatae
-	icon = 'modular_nova/modules/ramatae/ramatae_accessories.dmi'
+	icon = 'modular_nova/master_files/icons/mob/sprite_accessory/species/ramatae.dmi'
 	name = "Ramatan"
 	icon_state = "ramatan_standard"
 
@@ -82,7 +82,7 @@
 *	TAILS
 */
 /datum/sprite_accessory/tails/mammal/wagging/ramatae
-	icon = 'modular_nova/modules/ramatae/ramatae_accessories.dmi'
+	icon = 'modular_nova/master_files/icons/mob/sprite_accessory/species/ramatae.dmi'
 	name = "Ramatan"
 	icon_state = "ramatan"
 
