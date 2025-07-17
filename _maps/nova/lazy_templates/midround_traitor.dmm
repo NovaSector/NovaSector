@@ -2322,8 +2322,8 @@
 /turf/open/floor/mineral/plastitanium/red,
 /area/misc/operative_barracks)
 "Ev" = (
-/obj/structure/filingcabinet/employment,
 /obj/structure/sign/clock/directional/south,
+/obj/structure/filingcabinet/medical,
 /turf/open/floor/mineral/plastitanium,
 /area/misc/operative_barracks/mission_briefing)
 "ED" = (
