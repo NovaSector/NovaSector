@@ -184,21 +184,19 @@
 	var/obj/item/organ/ears/ears = quirk_holder.get_organ_slot(ORGAN_SLOT_EARS)
 
 	hearing_action = new
-	ears.actions_types += list(hearing_action.type)
-	ears.add_item_action(hearing_action.type)
+	LAZYADD(ears.actions_types, hearing_action.type)
+	ears.add_item_action(hearing_action)
 	hearing_action.Grant(quirk_holder)
 
 /datum/quirk/sensitive_hearing/remove()
+	if(QDELING(quirk_holder))
+		return
 	var/obj/item/organ/ears/ears = quirk_holder.get_organ_slot(ORGAN_SLOT_EARS)
-	if(!ears)
+	if(isnull(ears))
 		return
-	if(!LAZYFIND(ears.actions_types, hearing_action.type))
-		return
-	if(istype(quirk_holder, /mob/living/carbon/human/consistent))
-		return //this guy is already unloaded by the time we get to the code below so itll cause harddels in CI-tests
 
-	ears.actions_types -= list(hearing_action.type)
-	ears.remove_item_action(hearing_action.type)
+	LAZYREMOVE(ears.actions_types, hearing_action.type)
+	ears.remove_item_action(hearing_action)
 	hearing_action.Remove(quirk_holder)
 	//restore dmg multiplier of our current ears
 	//we could have any subtype at this point so just take that one's initial value
