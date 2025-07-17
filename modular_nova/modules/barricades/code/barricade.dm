@@ -357,8 +357,8 @@
 /datum/armor/deployable_barricade_metal
 	bio = 80
 	fire = 80
-	acid = 60
-	bomb = 40
+	acid = 40
+	bomb = 20
 
 /obj/structure/deployable_barricade/metal/click_alt(mob/user)
 	if(portable_type)
