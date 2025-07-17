@@ -8277,6 +8277,7 @@
 #include "modular_nova\modules\mapping\code\dungeon.dm"
 #include "modular_nova\modules\mapping\code\fence.dm"
 #include "modular_nova\modules\mapping\code\fluff.dm"
+#include "modular_nova\modules\mapping\code\frozenwake.dm"
 #include "modular_nova\modules\mapping\code\furniture.dm"
 #include "modular_nova\modules\mapping\code\holocall.dm"
 #include "modular_nova\modules\mapping\code\icemoon.dm"
