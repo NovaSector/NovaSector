@@ -9,6 +9,13 @@
 	breathing_tank = /obj/item/tank/internals/plasmaman/belt/full
 	breath_type = "plasma"
 
+/datum/quirk/item_quirk/breather/plasma_breather/is_species_appropriate(datum/species/mob_species)
+	// slimeppl heal their blood volume rapidly from breathing plasma, this would be op
+	if(isjellyperson(quirk_holder) || isplasmaman(quirk_holder))
+		return FALSE
+	else
+		return ..()
+
 /datum/quirk/item_quirk/breather/plasma_breather/add_adaptation()
 	// this proc is guaranteed to be called multiple times
 	var/obj/item/organ/lungs/target_lungs = quirk_holder.get_organ_slot(ORGAN_SLOT_LUNGS)

@@ -9,6 +9,12 @@
 	breathing_tank = /obj/item/tank/internals/nitrogen/belt/full
 	breath_type = "nitrogen"
 
+/datum/quirk/item_quirk/breather/nitrogen_breather/is_species_appropriate(datum/species/mob_species)
+	if(isvox(quirk_holder))
+		return FALSE
+	else
+		return ..()
+
 /datum/quirk/item_quirk/breather/nitrogen_breather/add_adaptation()
 	// this proc is guaranteed to be called multiple times
 	var/obj/item/organ/lungs/target_lungs = quirk_holder.get_organ_slot(ORGAN_SLOT_LUNGS)

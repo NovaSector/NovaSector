@@ -7,12 +7,20 @@
 	var/breath_type = "oxygen"
 	///the tank of gas that will be supplied once
 	var/obj/item/breathing_tank = /obj/item/tank/internals/emergency_oxygen/engi
+	///this stores the old lungs so we can grant them on removal of the quirk
+	var/obj/item/organ/lungs/old_lungs
 
 /datum/quirk/item_quirk/breather/add_unique(client/client_source)
-	if(!quirk_holder.get_organ_slot(ORGAN_SLOT_LUNGS))
+	var/obj/item/organ/lungs/lungs_holder = quirk_holder.get_organ_slot(ORGAN_SLOT_LUNGS)
+	if(isnull(lungs_holder))
 		to_chat(quirk_holder, span_warning("Your [name] quirk couldn't properly execute due to your species/body lacking a pair of lungs!"))
 		qdel(src)
 		return FALSE
+
+	// preserve the old lungs
+	old_lungs = SSwardrobe.provide_type(lungs_holder.type)
+	old_lungs.moveToNullspace()
+	STOP_PROCESSING(SSobj, old_lungs)
 
 	// give dogtag accessory
 	var/obj/item/clothing/accessory/breathing/target_tag = new(get_turf(quirk_holder))
@@ -44,11 +52,14 @@
 	return
 
 /datum/quirk/item_quirk/breather/remove()
+	if(QDELING(quirk_holder))
+		return
+
 	UnregisterSignal(quirk_holder, COMSIG_CARBON_GAIN_ORGAN, PROC_REF(on_gain_organ))
 	var/obj/item/organ/lungs/target_lungs = quirk_holder.get_organ_slot(ORGAN_SLOT_LUNGS)
 	if(!target_lungs)
 		return
-	var/mob/living/carbon/user = quirk_holder
-	var/obj/item/organ/lungs/new_lungs = SSwardrobe.provide_type(user.dna.species.mutantlungs)
+
+	old_lungs.Insert(quirk_holder, TRUE)
+	START_PROCESSING(SSobj, old_lungs)
 	qdel(target_lungs)
-	new_lungs.Insert(user, special = TRUE, movement_flags = DELETE_IF_REPLACED)
