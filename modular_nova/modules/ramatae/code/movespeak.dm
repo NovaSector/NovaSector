@@ -1,6 +1,6 @@
 /datum/language/ramatae
 	name = "Move-Speak"
-	desc = "A primarily nonverbal language comprised of body movements, gesticulation, and sign language, with only intermittent warbles & other vocalizations.  It's almost completely incomprehensible without its somatic components."
+	desc = "A primarily nonverbal language comprised of body movements, gesticulation, and sign language, with only intermittent warbles & other vocalizations. It's almost completely incomprehensible without its somatic components."
 	key = "M"
 	flags = TONGUELESS_SPEECH
 	space_chance = 30

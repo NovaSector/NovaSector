@@ -496,8 +496,6 @@
 	name = "ramatae right leg"
 	path = /obj/item/bodypart/leg/right/mutant/ramatae
 
-
-
 //==SPECIAL NON-SPECIES LIMBS==
 /datum/augment_item/limb/l_leg/species/mutant/harpy
 	name = "harpy left leg"
