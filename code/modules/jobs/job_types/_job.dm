@@ -117,8 +117,6 @@
 	// NOVA EDIT ADDITION START
 	/// Job title to use for spawning. Allows a job to spawn without needing map edits.
 	var/job_spawn_title
-	/// Flag for jobs that don't have a landmark and get their spawn differently
-	var/uses_spawn_landmark = TRUE
 	// NOVA EDIT ADDITION END
 	/// RPG job names, for the memes
 	var/rpg_title

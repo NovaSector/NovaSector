@@ -2,7 +2,6 @@
 	total_positions = 1
 	spawn_positions = 1
 	job_flags = STATION_JOB_FLAGS
-	uses_spawn_landmark = FALSE
 	nova_stars_only = TRUE
 
 	outfit = /datum/outfit/job/bridge_assistant
@@ -18,6 +17,9 @@
 		/obj/item/vending_refill/cigarette = 1,
 		/obj/item/vending_refill/coffee = 1,
 	)
+
+/datum/job/bridge_assistant/get_default_roundstart_spawn_point()
+    return get_latejoin_spawn_point()
 
 //outfit datum
 /datum/outfit/job/bridge_assistant
