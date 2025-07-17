@@ -6,6 +6,10 @@
 		if(job.spawn_positions <= 0)
 			// Zero spawn positions means we don't need to care if they don't have a roundstart landmark
 			continue
+		// NOVA ADDITION EDIT START
+		if(!job.uses_spawn_landmark)
+			continue
+		// NOVA ADDITION EDIT END
 		if(job.get_default_roundstart_spawn_point())
 			continue
 

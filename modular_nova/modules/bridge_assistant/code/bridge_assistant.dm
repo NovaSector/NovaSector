@@ -2,6 +2,7 @@
 	total_positions = 1
 	spawn_positions = 1
 	job_flags = STATION_JOB_FLAGS
+	uses_spawn_landmark = FALSE
 	nova_stars_only = TRUE
 
 	outfit = /datum/outfit/job/bridge_assistant
@@ -110,8 +111,3 @@
 	worn_icon_state = "com_headset"
 	keyslot = /obj/item/encryptionkey/headset_com
 	command = TRUE
-
-//spawn landmark (this is just to make CI happy, spawning is handled by get_roundstart_spawn_point())
-/obj/effect/landmark/start/bridge_assistant
-	name = JOB_BRIDGE_ASSISTANT
-	icon_state = "Head of Personnel"
