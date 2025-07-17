@@ -13,7 +13,7 @@
 	mob_trait = TRAIT_WATER_BREATHING
 
 /datum/quirk/item_quirk/breather/water_breather/is_species_appropriate(datum/species/mob_species)
-	if(isakula(quirk_holder))
+	if(istype(mob_species, /datum/species/akula))
 		return FALSE
 	else
 		return ..()
