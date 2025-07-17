@@ -3158,14 +3158,6 @@
 /obj/machinery/airalarm/directional/west,
 /turf/open/floor/iron/dark,
 /area/station/engineering/atmos)
-"aUh" = (
-/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
-/obj/structure/disposalpipe/segment{
-	dir = 4
-	},
-/obj/effect/landmark/start/bridge_assistant,
-/turf/open/floor/iron/dark/small,
-/area/station/command/bridge)
 "aUj" = (
 /obj/structure/cable,
 /obj/machinery/atmospherics/components/binary/valve/digital,
@@ -181642,7 +181634,7 @@ aDg
 aDg
 uRT
 hZq
-aUh
+psq
 wjL
 acH
 qCJ
