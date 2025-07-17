@@ -13,6 +13,8 @@
 	var/list/allowed_areas = list(
 		/area,
 	)
+	/// If we are allowed to place in custom areas. Custom area represented by having [/datum/component/custom_area].
+	var/allow_custom_areas = TRUE
 
 	/// A list of possible atoms available to spawn. Cen be either regular list or associative list.
 	/// Atoms in keys of assotiative list will be used as variants shown to user, values - actual items to spawn.
@@ -82,13 +84,22 @@
 
 	return options
 
+/obj/item/summon_beacon/proc/area_check(area/target_area, turf/target_turf)
+	if(!target_turf)
+		return FALSE
+	if(!target_area)
+		return FALSE
+	if(!(is_type_in_list(target_area, allowed_areas) || (allow_custom_areas && target_area.GetComponent(/datum/component/custom_area))))
+		return FALSE
+	return TRUE
+
 /obj/item/summon_beacon/ranged_interact_with_atom(atom/interacting_with, mob/living/user, list/modifiers)
 	if(!selected_atom)
 		balloon_alert(user, "no choice selected!")
 		return NONE
 	var/turf/target_turf = get_turf(interacting_with)
 	var/area/target_area = get_area(interacting_with)
-	if(!target_turf || !target_area || !is_type_in_list(target_area, allowed_areas))
+	if(!area_check(target_area, target_turf))
 		balloon_alert(user, "can't call here!")
 		return NONE
 
@@ -134,7 +145,6 @@
 	new /obj/item/summon_beacon/gas_miner(src)
 	new /obj/item/summon_beacon/gas_miner(src)
 
-
 // Actual beacons start here
 
 /obj/item/summon_beacon/gas_miner
@@ -144,6 +154,9 @@
 	allowed_areas = list(
 		/area/station/engineering/atmos,
 		/area/station/engineering/atmospherics_engine,
+		/area/ruin/space/has_grav/nova/des_two/engineering, //ds2
+		/area/ruin/space/has_grav/port_tarkon/atmos, //tarkon
+		/area/centcom/tdome/arena, //thunderdome
 	)
 
 	selectable_atoms = list(
@@ -152,10 +165,18 @@
 		/obj/machinery/portable_atmospherics/canister/nitrogen = /obj/machinery/atmospherics/miner/nitrogen,
 		/obj/machinery/portable_atmospherics/canister/oxygen = /obj/machinery/atmospherics/miner/oxygen,
 		/obj/machinery/portable_atmospherics/canister/plasma = /obj/machinery/atmospherics/miner/plasma,
+		/obj/machinery/portable_atmospherics/canister/water_vapor = /obj/machinery/atmospherics/miner/water_vapor,
 	)
 
 	area_string = "atmospherics"
 	supply_pod_stay = TRUE
+
+/obj/item/summon_beacon/gas_miner/ranged_interact_with_atom(atom/interacting_with, mob/living/user, list/modifiers)
+	. = ..()
+	if(. == ITEM_INTERACT_SUCCESS)
+		var/turf/location = get_turf(interacting_with)
+		location.investigate_log("was selected as target to spawn [selected_atom.name] by [user.ckey]", INVESTIGATE_ATMOS)
+		message_admins("[selected_atom.name] was spawned by [user] ([user.ckey]) [ADMIN_JMP(location)].")
 
 /obj/item/summon_beacon/vendors
 	name = "Vendors beacon"
@@ -192,3 +213,43 @@
 		selectable_atoms += /obj/machinery/vending/dorms
 	else
 		selectable_atoms -= /obj/machinery/vending/dorms
+
+/obj/item/summon_beacon/gas_miner/hacked
+	name = "hacked gas miner beacon"
+	desc = parent_type::desc + " It seems the area detector is hardcoded to TRUE. Huh."
+	area_string = "any"
+	allowed_areas = list(
+		/area,
+	)
+
+/obj/item/summon_beacon/gas_miner/expanded
+	name = "expanded gas miner beacon"
+	desc = parent_type::desc + " This one seems to have its selection expanded."
+
+/obj/item/summon_beacon/gas_miner/expanded/Initialize(mapload)
+	. = ..()
+	selectable_atoms += list(
+		/obj/machinery/portable_atmospherics/canister/water_vapor = /obj/machinery/atmospherics/miner/water_vapor,
+		/obj/machinery/portable_atmospherics/canister/freon = /obj/machinery/atmospherics/miner/freon,
+		/obj/machinery/portable_atmospherics/canister/halon = /obj/machinery/atmospherics/miner/halon,
+		/obj/machinery/portable_atmospherics/canister/healium = /obj/machinery/atmospherics/miner/healium,
+		/obj/machinery/portable_atmospherics/canister/hydrogen = /obj/machinery/atmospherics/miner/hydrogen,
+		/obj/machinery/portable_atmospherics/canister/nob = /obj/machinery/atmospherics/miner/hypernoblium,
+		/obj/machinery/portable_atmospherics/canister/miasma = /obj/machinery/atmospherics/miner/miasma,
+		/obj/machinery/portable_atmospherics/canister/nitrium = /obj/machinery/atmospherics/miner/nitrium,
+		/obj/machinery/portable_atmospherics/canister/pluoxium = /obj/machinery/atmospherics/miner/pluoxium,
+		/obj/machinery/portable_atmospherics/canister/proto_nitrate = /obj/machinery/atmospherics/miner/proto_nitrate,
+		/obj/machinery/portable_atmospherics/canister/tritium = /obj/machinery/atmospherics/miner/tritium,
+		/obj/machinery/portable_atmospherics/canister/zauker = /obj/machinery/atmospherics/miner/zauker,
+		/obj/machinery/portable_atmospherics/canister/helium = /obj/machinery/atmospherics/miner/helium,
+		/obj/machinery/portable_atmospherics/canister/antinoblium = /obj/machinery/atmospherics/miner/antinoblium,
+	)
+
+/obj/item/summon_beacon/gas_miner/expanded/debug
+	name = "debug gas miner beacon"
+	desc = "You better know what you are doing with this."
+	area_string = "any"
+	uses = 99
+	allowed_areas = list(
+		/area,
+	)

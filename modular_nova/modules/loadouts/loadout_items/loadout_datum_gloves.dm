@@ -1,6 +1,4 @@
-/*
-*	LOADOUT ITEM DATUMS FOR THE HAND SLOT
-*/
+// LOADOUT ITEM DATUMS FOR THE HANDS SLOT
 
 /datum/loadout_category/hands
 	category_name = "Hands"
@@ -24,110 +22,113 @@
 	else
 		outfit.gloves = item_path
 
-/datum/loadout_item/gloves/fingerless
-	name = "Fingerless Gloves"
-	item_path = /obj/item/clothing/gloves/fingerless
+/*
+*	ITEMS BELOW HERE
+*/
 
-/datum/loadout_item/gloves/lalune_long
-	name = "Designer Gloves"
-	item_path = /obj/item/clothing/gloves/designer
+/datum/loadout_item/gloves/armwraps
+	name = "Arm Wraps (Colorable)"
+	item_path = /obj/item/clothing/gloves/bracer/wraps
 
 /datum/loadout_item/gloves/black
-	name = "Black Gloves"
+	name = "Gloves (Black)"
 	item_path = /obj/item/clothing/gloves/color/black
 
-/datum/loadout_item/gloves/blue
-	name = "Blue Gloves"
-	item_path = /obj/item/clothing/gloves/color/blue
-
 /datum/loadout_item/gloves/brown
-	name = "Brown Gloves"
+	name = "Gloves (Brown)"
 	item_path = /obj/item/clothing/gloves/color/brown
 
+/datum/loadout_item/gloves/blue
+	name = "Gloves (Blue)"
+	item_path = /obj/item/clothing/gloves/color/blue
+
 /datum/loadout_item/gloves/green
-	name = "Green Gloves"
+	name = "Gloves (Green)"
 	item_path = /obj/item/clothing/gloves/color/green
 
 /datum/loadout_item/gloves/grey
-	name = "Grey Gloves"
+	name = "Gloves (Grey)"
 	item_path = /obj/item/clothing/gloves/color/grey
 
 /datum/loadout_item/gloves/light_brown
-	name = "Light Brown Gloves"
+	name = "Gloves (Light Brown)"
 	item_path = /obj/item/clothing/gloves/color/light_brown
 
 /datum/loadout_item/gloves/orange
-	name = "Orange Gloves"
+	name = "Gloves (Orange)"
 	item_path = /obj/item/clothing/gloves/color/orange
 
 /datum/loadout_item/gloves/purple
-	name = "Purple Gloves"
+	name = "Gloves (Purple)"
 	item_path = /obj/item/clothing/gloves/color/purple
 
 /datum/loadout_item/gloves/red
-	name = "Red Gloves"
+	name = "Gloves (Red)"
 	item_path = /obj/item/clothing/gloves/color/red
 
+/datum/loadout_item/gloves/white
+	name = "Gloves (White)"
+	item_path = /obj/item/clothing/gloves/color/white
+
 /datum/loadout_item/gloves/yellow
-	name = "Yellow Gloves"
+	name = "Gloves (Yellow)"
 	item_path = /obj/item/clothing/gloves/color/ffyellow
 
 /datum/loadout_item/gloves/yellow/get_item_information()
 	. = ..()
 	.[FA_ICON_BOLT] = "Non-Insulating"
 
-/datum/loadout_item/gloves/white
-	name = "White Gloves"
-	item_path = /obj/item/clothing/gloves/color/white
+/datum/loadout_item/gloves/kim
+	name = "Gloves - Aerostatic"
+	item_path = /obj/item/clothing/gloves/kim
 
-/datum/loadout_item/gloves/rainbow
-	name = "Rainbow Gloves"
-	item_path = /obj/item/clothing/gloves/color/rainbow
+/datum/loadout_item/gloves/lalune_long
+	name = "Gloves - Designer"
+	item_path = /obj/item/clothing/gloves/designer
 
 /datum/loadout_item/gloves/evening
-	name = "Evening Gloves"
+	name = "Gloves - Evening"
 	item_path = /obj/item/clothing/gloves/evening
 
-/datum/loadout_item/gloves/kim
-	name = "Aerostatic Gloves"
-	item_path = /obj/item/clothing/gloves/kim
+/datum/loadout_item/gloves/fingerless
+	name = "Gloves - Fingerless"
+	item_path = /obj/item/clothing/gloves/fingerless
+
+/datum/loadout_item/gloves/rainbow
+	name = "Gloves - Rainbow"
+	item_path = /obj/item/clothing/gloves/color/rainbow
+
+/datum/loadout_item/gloves/latex
+	name = "Latex Gloves"
+	item_path = /obj/item/clothing/gloves/long_gloves
+	erp_item = TRUE
 
 /datum/loadout_item/gloves/maid
 	name = "Maid Arm Covers"
 	item_path = /obj/item/clothing/gloves/maid
 
 /datum/loadout_item/gloves/maid_arm_covers
-	name = "Colourable Maid Arm Covers"
+	name = "Maid Arm Covers (Colorable)"
 	item_path = /obj/item/clothing/gloves/maid_arm_covers
 
 /datum/loadout_item/gloves/tactical_maid_sleeves
-	name = "tactical maid sleeves"
+	name = "Maid Arm Covers - Tactical"
 	item_path = /obj/item/clothing/gloves/tactical_maid
-
-/datum/loadout_item/gloves/armwraps
-	name = "Colourable Arm Wraps"
-	item_path = /obj/item/clothing/gloves/bracer/wraps
-
-/datum/loadout_item/gloves/latex
-	name = "Long Gloves"
-	item_path = /obj/item/clothing/gloves/long_gloves
-	erp_item = TRUE
-
 /*
 *	RINGS
 */
 
-/datum/loadout_item/gloves/silverring
-	name = "Silver Ring"
-	item_path = /obj/item/clothing/gloves/ring/silver
+/datum/loadout_item/gloves/diamondring
+	name = "Ring - Diamond"
+	item_path = /obj/item/clothing/gloves/ring/diamond
 
 /datum/loadout_item/gloves/goldring
-	name = "Gold Ring"
+	name = "Ring - Gold"
 	item_path = /obj/item/clothing/gloves/ring
 
-/datum/loadout_item/gloves/diamondring
-	name = "Diamond Ring"
-	item_path = /obj/item/clothing/gloves/ring/diamond
+/datum/loadout_item/gloves/silverring
+	name = "Ring - Silver"
+	item_path = /obj/item/clothing/gloves/ring/silver
 
 /*
 *	DONATOR

@@ -30,3 +30,7 @@
 #define SECHUD_TELECOMMS_SPECIALIST "hudtelecommsspecialist"
 // Nova Medical
 #define SECHUD_VIROLOGIST "hudvirologist"
+// Nova Interdyne
+#define SECHUD_INTERDYNE_CREW "hud_interdyne"
+#define SECHUD_INTERDYNE_DECKOFFICER "hud_interdynecommand"
+#define SECHUD_INTERDYNE_SHAFTMINER "hud_interdyneshaft"

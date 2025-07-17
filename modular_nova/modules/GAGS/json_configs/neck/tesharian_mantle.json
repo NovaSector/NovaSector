@@ -4,13 +4,13 @@
 			"type": "icon_state",
 			"icon_state": "tesharian_mantle_obj",
 			"blend_mode": "overlay",
-			"color_ids": [ 1 ]
+			"color_ids": [1]
 		},
 		{
 			"type": "icon_state",
 			"icon_state": "tesharian_mantle_neck_obj",
 			"blend_mode": "overlay",
-			"color_ids": [ 2 ]
+			"color_ids": [2]
 		}
 	]
 }

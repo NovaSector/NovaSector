@@ -45,7 +45,7 @@
 	force = 0
 	throwforce = 0
 	wound_bonus = 0
-	bare_wound_bonus = 0
+	exposed_wound_bonus = 0
 
 /obj/item/kitchen/rollingpin/nanite
 	desc = "Used to chastise the bartender. The handles are glorious Caeruleam folded over 1000 times, and the body exudes a cane-do attitude from the mass of two Hestian folding canes."

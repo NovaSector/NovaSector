@@ -6,7 +6,7 @@
 		mobjs = jointext(typesof(/mob), ";")
 		create_mob_html = file2text('html/create_object.html')
 		create_mob_html = replacetext(create_mob_html, "Create Object", "Create Mob")
-		create_mob_html = replacetext(create_mob_html, "null /* object types */", "\"[mobjs]\"")
+		create_mob_html = replacetext(create_mob_html, "null; /* object types */", "\"[mobjs]\";")
 
 	user << browse(create_panel_helper(create_mob_html), "window=create_mob;size=425x475")
 
@@ -30,6 +30,10 @@
 	// NOVA EDIT ADDITION BEGIN - CUSTOMIZATION
 	human.dna.species.mutant_bodyparts = human.dna.mutant_bodyparts.Copy()
 	human.dna.species.body_markings = human.dna.body_markings.Copy()
+	human.set_blooper(pick(GLOB.blooper_list))
+	human.blooper_pitch = BLOOPER_PITCH_RAND(human.gender)
+	human.blooper_pitch_range = BLOOPER_VARIANCE_RAND
+	human.blooper_speed = rand(BLOOPER_DEFAULT_MINSPEED, BLOOPER_DEFAULT_MAXSPEED)
 	// NOVA EDIT ADDITION END
 	// Snowflake for Ethereals
 	human.updatehealth()

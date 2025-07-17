@@ -1,6 +1,13 @@
+/// Base handler for variant switch feedback
+/obj/item/kinetic_crusher/proc/on_variant_switch(mob/living/user)
+	to_chat(user, "You have converted your kit into the [initial(name)].")
+	playsound(get_turf(user), 'sound/items/tools/rped.ogg', 50)
+
 /obj/item/kinetic_crusher
 	/// This var is used to imitate being weilded if it's one handed
 	var/acts_as_if_wielded
+	/// This var is used by retool kits when changing the crusher's projectile appearance
+	var/projectile_icon_file = 'icons/obj/weapons/guns/projectiles.dmi'
 
 /obj/item/kinetic_crusher/machete
 	icon = 'modular_nova/modules/mining_crushers/icons/items_and_weapons.dmi'

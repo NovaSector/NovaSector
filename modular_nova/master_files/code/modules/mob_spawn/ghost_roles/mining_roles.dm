@@ -146,7 +146,7 @@
 	uniform = /obj/item/clothing/under/syndicate/nova/interdyne
 	suit = /obj/item/clothing/suit/toggle/labcoat/nova/interdyne_labcoat/white
 	head = /obj/item/clothing/head/beret/medical/nova/interdyne
-	back = /obj/item/storage/backpack/virology
+	back = /obj/item/storage/backpack/interdyne
 	backpack_contents = list(
 		/obj/item/storage/box/survival/interdyne=1,
 		/obj/item/storage/box/nif_ghost_box/ghost_role=1,

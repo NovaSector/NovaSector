@@ -149,6 +149,8 @@
 	fragile = TRUE
 	turret_frame = /obj/item/turret_assembly/twin_fang
 	quick_retract = TRUE
+	turret_damage_multiplier = 0.5
+	turret_wound_bonus = -30
 	shot_delay = 0.1 SECONDS
 	burst_fire = TRUE
 	burst_delay = 1.5 SECONDS

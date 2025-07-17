@@ -39,11 +39,11 @@
 	name = "\improper Jäger Magazine"
 	desc = "A magazine of shotgun shells, suitable for the 'Jäger' combat shotgun."
 	icon = 'modular_nova/modules/modular_weapons/icons/obj/company_and_or_faction_based/nanotrasen_armories/magazines.dmi'
-	icon_state = "marauder_mag"
-	base_icon_state = "marauder_mag"
+	icon_state = "jager_mag"
+	base_icon_state = "jager_mag"
 	ammo_type = /obj/item/ammo_casing/shotgun
 	caliber = CALIBER_SHOTGUN
-	max_ammo = 7
+	max_ammo = 4
 
 /obj/item/ammo_box/magazine/jager/rubbershot
 	ammo_type = /obj/item/ammo_casing/shotgun/rubbershot
@@ -51,9 +51,9 @@
 /obj/item/ammo_box/magazine/jager/large
 	name = "large Jäger Magazine"
 	desc = "A magazine of shotgun shells, suitable for the 'Jager' combat shotgun."
-	icon_state = "marauder_mag_large"
-	base_icon_state = "marauder_mag_large"
-	max_ammo = 9
+	icon_state = "jager_mag_large"
+	base_icon_state = "jager_mag_large"
+	max_ammo = 7
 
 /obj/item/ammo_box/magazine/jager/large/empty
 	start_empty = TRUE
@@ -75,3 +75,6 @@
 
 /obj/item/ammo_box/magazine/shitzu/milspec
 	ammo_type = /obj/item/ammo_casing/shotgun/milspec
+
+/obj/item/ammo_box/magazine/shitzu/milspec_buckshot
+	ammo_type = /obj/item/ammo_casing/shotgun/buckshot/milspec

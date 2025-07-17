@@ -24,6 +24,6 @@ Adds improvised weapons and new firearms to the game as well as new ammo and mob
 
 - N/A
 
-
 ### Credits:
+
 Floof Ball#0798 / Kathrin Morrison

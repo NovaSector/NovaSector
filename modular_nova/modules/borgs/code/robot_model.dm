@@ -389,7 +389,7 @@
 		/obj/item/crowbar/cyborg/power,
 		/obj/item/screwdriver/cyborg/power,
 		/obj/item/construction/rcd/borg/syndicate,
-		/obj/item/lightreplacer/cyborg,
+		/obj/item/lightreplacer,
 		/obj/item/stack/sheet/iron,
 		/obj/item/stack/sheet/glass,
 		/obj/item/borg/apparatus/sheet_manipulator,
@@ -446,10 +446,10 @@
 	var/mob/living/silicon/robot/syndicatejack = loc
 	syndicatejack.scrambledcodes = TRUE // We're rouge now
 
-/obj/item/robot_model/syndicatejack/remove_module(obj/item/I, delete_after)
-	. = ..()
+/obj/item/robot_model/syndicatejack/remove_module(obj/item/removed_module)
 	var/mob/living/silicon/robot/syndicatejack = loc
 	syndicatejack.scrambledcodes = FALSE // Friends with the AI again
+	return ..()
 
 //NINJA
 /obj/item/robot_model/ninja
@@ -490,13 +490,13 @@
 
 /obj/item/robot_model/ninja/rebuild_modules()
 	. = ..()
-	var/mob/living/silicon/robot/Ninja = loc
-	Ninja.faction  -= "silicon" //ai turrets hostile against assault and medical
+	var/mob/living/silicon/robot/ninja = loc
+	ninja.faction  -= "silicon" //ai turrets hostile against assault and medical
 
-/obj/item/robot_model/ninja/remove_module(obj/item/I, delete_after)
-	var/mob/living/silicon/robot/Ninja = loc
-	Ninja.faction += "silicon"
-	. = ..()
+/obj/item/robot_model/ninja/remove_module(obj/item/removed_module)
+	var/mob/living/silicon/robot/ninja = loc
+	ninja.faction += "silicon"
+	return ..()
 
 /obj/item/robot_model/ninja/ninja_medical
 	name = "Spider Clan Medical"

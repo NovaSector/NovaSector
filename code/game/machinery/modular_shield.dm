@@ -67,6 +67,9 @@
 	///This is the lazy list of perimeter turfs that we grab when making large shields of 10 or more radius
 	var/list/list_of_turfs
 
+	///The name modular shield console tgui's see us as
+	var/display_name = "Shield Generator"
+
 /obj/machinery/modular_shield_generator/power_change()
 	. = ..()
 	if(!(machine_stat & NOPOWER))
@@ -143,13 +146,18 @@
 	if(default_deconstruction_crowbar(tool))
 		return TRUE
 
-/obj/machinery/modular_shield_generator/attackby(obj/item/W, mob/user, list/modifiers)
+/obj/machinery/modular_shield_generator/attackby(obj/item/W, mob/user, list/modifiers, list/attack_modifiers)
 
 	if(is_wire_tool(W) && panel_open)
 		wires.interact(user)
 		return TRUE
 
 	return ..()
+
+/obj/machinery/modular_shield_generator/multitool_act(mob/living/user, obj/item/multitool/multi)
+	multi.set_buffer(src)
+	balloon_alert(user, "saved to buffer")
+	return ITEM_INTERACT_SUCCESS
 
 ///toggles the forcefield on and off
 /obj/machinery/modular_shield_generator/proc/toggle_shields()

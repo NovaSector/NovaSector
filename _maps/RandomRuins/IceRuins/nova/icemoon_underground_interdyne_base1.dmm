@@ -2291,12 +2291,8 @@
 /obj/effect/turf_decal/siding/thinplating/dark/corner{
 	dir = 8
 	},
-/obj/machinery/fax{
-	dir = 1;
-	fax_name = "Interdyne Pharmaceuticals";
-	name = "Interdyne Fax Machine";
-	req_access = list("syndicate");
-	syndicate_network = 1
+/obj/machinery/fax/interdyne{
+	dir = 1
 	},
 /turf/open/floor/iron/white/textured_large,
 /area/ruin/interdyne_planetary_base/med)
@@ -4615,7 +4611,7 @@
 /area/ruin/interdyne_planetary_base/eng/disp)
 "mc" = (
 /obj/effect/decal/cleanable/dirt,
-/obj/effect/decal/cleanable/oil,
+/obj/effect/decal/cleanable/blood/oil,
 /turf/open/floor/plating/reinforced,
 /area/ruin/interdyne_planetary_base/eng/disp)
 "md" = (
@@ -7478,7 +7474,7 @@
 /turf/open/floor/iron/smooth_large,
 /area/ruin/interdyne_planetary_base/main/dorms)
 "Wi" = (
-/obj/machinery/power/micro_reactor,
+/obj/machinery/power/micro_reactor/bapgm,
 /obj/structure/cable,
 /turf/open/floor/iron/submarine,
 /area/ruin/interdyne_planetary_base/eng)
@@ -7504,6 +7500,9 @@
 /obj/structure/rack/gunrack,
 /obj/item/ammo_workbench_reboot,
 /obj/item/ammo_workbench_module/lethal_super/evil,
+/obj/item/circuitboard/machine/powerator/interdyne,
+/obj/item/circuitboard/machine/powerator/interdyne,
+/obj/item/circuitboard/machine/powerator/interdyne,
 /turf/open/floor/iron/dark/textured_large,
 /area/ruin/interdyne_planetary_base/main/vault)
 "WQ" = (

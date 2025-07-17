@@ -148,7 +148,7 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/machinery/computer/cryopod, 32)
 	density = TRUE
 	anchored = TRUE
 	state_open = TRUE
-	interaction_flags_mouse_drop = NEED_DEXTERITY
+	interaction_flags_mouse_drop = FORBID_TELEKINESIS_REACH
 
 	var/open_icon_state = "cryopod-open"
 	/// Whether the cryopod respects the minimum time someone has to be disconnected before they can be put into cryo by another player
@@ -414,6 +414,14 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/machinery/computer/cryopod, 32)
 		else
 			mob_occupant.transferItemToLoc(item_content, drop_location(), force = TRUE, silent = TRUE)
 
+	// Borgs will splash the ground with their beaker reagents on qdel, let's make sure this does not happen
+	if(iscyborg(occupant))
+		var/mob/living/silicon/robot/cyborg_occupant = occupant
+		var/obj/item/borg/apparatus/beaker/borg_beaker = (locate() in cyborg_occupant.model.modules) || (locate() in cyborg_occupant.held_items)
+		if(borg_beaker && borg_beaker.stored)
+			var/obj/item/reagent_containers/reagent_container = borg_beaker.stored
+			reagent_container.reagents?.clear_reagents()
+
 	GLOB.joined_player_list -= occupant_ckey
 
 	handle_objectives()
@@ -534,16 +542,16 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/machinery/computer/cryopod, 32)
 /obj/machinery/cryopod/blob_act()
 	return // Sorta gamey, but we don't really want these to be destroyed.
 
-/obj/machinery/cryopod/attackby(obj/item/weapon, mob/living/carbon/human/user, params)
+/obj/machinery/cryopod/attackby(obj/item/attacking_item, mob/living/user, list/modifiers, list/attack_modifiers)
 	. = ..()
-	if(istype(weapon, /obj/item/bedsheet))
+	if(istype(attacking_item, /obj/item/bedsheet))
 		if(!occupant || !istype(occupant, /mob/living))
 			return
 		if(tucked)
 			to_chat(user, span_warning("[occupant.name] already looks pretty comfortable!"))
 			return
 		to_chat(user, span_notice("You tuck [occupant.name] into their pod!"))
-		qdel(weapon)
+		qdel(attacking_item)
 		user.add_mood_event("tucked", /datum/mood_event/tucked_in, occupant)
 		tucked = TRUE
 

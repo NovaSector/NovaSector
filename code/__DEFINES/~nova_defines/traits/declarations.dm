@@ -80,6 +80,9 @@
 /// The trait that determines if someone has the oversized quirk.
 #define TRAIT_OVERSIZED "trait_oversized"
 
+/// The trait that allows taurs to lay down (loaf)
+#define TRAIT_TAUR_LOAF "taur-laydown"
+
 /// The trait accompanying the "Heavyset" quirk.
 #define TRAIT_HEAVYSET "trait_heavyset"
 
@@ -170,5 +173,8 @@
 
 //For the hemophage quirk that allows hemophages to eat/drink normal food/drink.
 #define TRAIT_MASQUERADE_FOOD "masquerade_food"
+
+/// Trait given while using /datum/action/cooldown/mob_cooldown/abdoment_pound
+#define TRAIT_ABDOMEN_POUND "abdoment_pound"
 
 // END TRAIT DEFINES
