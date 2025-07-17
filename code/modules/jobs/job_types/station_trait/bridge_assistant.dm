@@ -1,4 +1,3 @@
-/* NOVA EDIT REMOVAL - Moved to modular_nova/modules/bridge_assistant
 /datum/job/bridge_assistant
 	title = JOB_BRIDGE_ASSISTANT
 	description = "Watch over the Bridge, command its consoles, and spend your days brewing coffee for higher-ups."
@@ -38,9 +37,9 @@
 
 /datum/job/bridge_assistant/after_spawn(mob/living/spawned, client/player_client)
 	. = ..()
-	var/mob/living/carbon/bridgie = spawned
+/*	var/mob/living/carbon/bridgie = spawned
 	if(istype(bridgie))
-		bridgie.gain_trauma(/datum/brain_trauma/special/axedoration)
+		bridgie.gain_trauma(/datum/brain_trauma/special/axedoration) DOPPLER EDIT REMOVAL */
 
 /datum/job/bridge_assistant/get_roundstart_spawn_point()
 	var/list/chair_turfs = list()
@@ -81,4 +80,3 @@
 	shoes = /obj/item/clothing/shoes/laceup
 	l_pocket = /obj/item/gun/energy/e_gun/mini
 	r_pocket = /obj/item/assembly/flash/handheld
-*/

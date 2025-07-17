@@ -1,51 +1,31 @@
 /datum/job/bridge_assistant
-	title = JOB_BRIDGE_ASSISTANT
-	description = "Watch over the Bridge, command its consoles, and spend your days brewing coffee for higher-ups."
-	department_head = list(JOB_CAPTAIN)
-	faction = FACTION_STATION
 	total_positions = 1
 	spawn_positions = 1
-	supervisors = "the Nanotrasen Consultant, the Captain and all the other heads of command."
-	exp_granted_type = EXP_TYPE_CREW
-	config_tag = "BRIDGE_ASSISTANT"
+	job_flags = STATION_JOB_FLAGS
 	nova_stars_only = TRUE
 
 	outfit = /datum/outfit/job/bridge_assistant
-	plasmaman_outfit = /datum/outfit/plasmaman/bridge_assistant
+	plasmaman_outfit = /datum/outfit/job/bridge_assistant/plasmaman
 
-	paycheck = PAYCHECK_CREW
-	paycheck_department = ACCOUNT_SRV
-	bounty_types = CIV_JOB_DRINK
-
-	display_order = JOB_DISPLAY_ORDER_BRIDGE_ASSISTANT
 	department_for_prefs = /datum/job_department/captain
 	departments_list = list(
 		/datum/job_department/command,
-		/datum/job_department/service
+		/datum/job_department/service,
 	)
-	liver_traits = list(TRAIT_PRETENDER_ROYAL_METABOLISM)
-
-	family_heirlooms = list(/obj/item/soap/nanotrasen)
-
 	mail_goodies = list(
 		/obj/item/storage/bag/tray = 1,
 		/obj/item/vending_refill/cigarette = 1,
 		/obj/item/vending_refill/coffee = 1,
 	)
-	job_flags = STATION_JOB_FLAGS
-	rpg_title = "Royal Page"
 
 //outfit datum
 /datum/outfit/job/bridge_assistant
 	name = "Bridge Officer"
-	jobtype = /datum/job/bridge_assistant
 
 	id = /obj/item/card/id/advanced/silver
-	id_trim = /datum/id_trim/job/bridge_assistant
 	uniform = /obj/item/clothing/under/rank/civilian/lawyer/greensuit
 	neck = /obj/item/clothing/neck/bowtie/green
 	ears = /obj/item/radio/headset/bridge_officer
-	shoes = /obj/item/clothing/shoes/laceup
 	belt = /obj/item/modular_computer/pda/bridge_assistant
 	l_pocket = /obj/item/melee/baton/telescopic/bronze
 	r_pocket = /obj/item/gun/energy/e_gun/mini
@@ -53,12 +33,31 @@
 		/obj/item/choice_beacon/job_locker/bridge_officer = 1,
 		/obj/item/choice_beacon/coffee = 1,
 	)
+	// removes some of the outfit on tg code
+	glasses = null
+	gloves = null
+	head = null
 
 /datum/outfit/job/bridge_assistant/post_equip(mob/living/carbon/human/user, visuals_only = FALSE)
 	. = ..()
 	//give em a waistcoat
 	var/obj/item/clothing/under/undersuit = user.w_uniform
 	undersuit.attach_accessory(new /obj/item/clothing/accessory/waistcoat(user))
+
+/datum/outfit/job/bridge_assistant/plasmaman
+	name = "Bridge Officer (Plasmaman)"
+	uniform = /obj/item/clothing/under/plasmaman
+	gloves = /obj/item/clothing/gloves/color/plasmaman/black
+	head = /obj/item/clothing/head/helmet/space/plasmaman
+	neck = /obj/item/clothing/neck/bowtie/green
+	ears = /obj/item/radio/headset/bridge_officer
+	belt = /obj/item/modular_computer/pda/bridge_assistant
+	l_pocket = /obj/item/melee/baton/telescopic/bronze
+	r_pocket = /obj/item/gun/energy/e_gun/mini
+	backpack_contents = list(
+		/obj/item/choice_beacon/job_locker/bridge_officer = 1,
+		/obj/item/choice_beacon/coffee = 1,
+	)
 
 //undersuit and skirt
 /obj/item/clothing/under/rank/civilian/lawyer/greensuit

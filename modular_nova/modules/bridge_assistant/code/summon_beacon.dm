@@ -85,4 +85,9 @@
 	new /obj/item/storage/box/coffee_tray (src)
 
 /obj/item/reagent_containers/cup/glass/mug/nanotrasen
-	desc = "Look at this shit. A cobalt monument to mid-level managerial despair, slathered in NT's signature 'corporate pacification blue' guaranteed to drain the soul 12% faster. Note the ergonomic handle designed by someone who's definitely never held hands with another sapient being. The rim's perfectly calibrated to burn your lips while you choke down overpriced synthcaf, because even your breaks belong to Nanotrasen. The bottom of the cup's got that subtle 'ethical violations' stain pattern that never quite scrubs out. Freedom of choice sold separately."
+	desc = "Look at this shit. A cobalt monument to mid-level managerial despair, slathered in NT's signature \
+			'corporate pacification blue' guaranteed to drain the soul 12% faster. Note the ergonomic handle designed \
+			by someone who's definitely never held hands with another sapient being. The rim's perfectly calibrated to \
+			burn your lips while you choke down overpriced synthcaf, because even your breaks belong to Nanotrasen. \
+			The bottom of the cup's got that subtle 'ethical violations' stain pattern that never quite scrubs out. \
+			Freedom of choice sold separately."
