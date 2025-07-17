@@ -1,0 +1,4 @@
+author: "OrionTheFox"
+delete-after: True
+changes:
+  - qol: "Respawning or using a non-temporary Ghost Spawner will now TRULY abandon your body, marking it DNR (So Medbay can't revive the soulless body anyways)"
