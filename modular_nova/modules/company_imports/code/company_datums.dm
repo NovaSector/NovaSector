@@ -91,3 +91,11 @@
 	cost_change_lower = -1000
 	cost_change_upper = 2000
 	can_roundstart_pick = FALSE
+
+// Interdyne sells medical supplies and other unique medical supplies, only through internal personnel (GHOST ROLE ONLY)
+/datum/cargo_company/interdyne
+	name = INTERDYNE_PHARMACEUTICALS_NAME
+	cost = 3000
+	cost_change_lower = -1000
+	cost_change_upper = 2000
+	can_roundstart_pick = FALSE

@@ -28,6 +28,15 @@
 
 	pod_type = /obj/structure/closet/supplypod/bluespacepod
 
+
+/obj/machinery/computer/cargo/express/interdyne/Initialize(mapload)
+	var/static/list/categories = list(
+		INTERDYNE_PHARMACEUTICALS_NAME,
+	)
+
+	allowed_categories += categories
+	return ..()
+
 /obj/machinery/computer/cargo/express/interdyne/emag_act(mob/user, obj/item/card/emag/emag_card)
 	if(user)
 		to_chat(user, span_notice("You try to change the routing protocols, but the machine displays a runtime error and reboots!"))

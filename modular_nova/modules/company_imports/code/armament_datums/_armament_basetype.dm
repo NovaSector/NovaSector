@@ -4,3 +4,5 @@
 	cost = CARGO_CRATE_VALUE
 	/// If this requires a multitooled console to be visible
 	var/contraband = FALSE
+	/// If this requires a multitooled console to be visible
+	var/offstation = FALSE
