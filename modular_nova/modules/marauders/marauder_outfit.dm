@@ -45,12 +45,12 @@
 ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠈⠛⠻⠶⠶⢿⠿⣛⠿⣫⢟⠃⡜⣿⣿⣿⣿⠃
 ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⡠⢒⠡⡮⡪⢋⢂⠎⣤⠁⣿⣿⣿⠃⠀⠀⠀⠀⠀\
 ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠐⠣⠥⡜⡠⠑⡙⢋⣠⣧⣾⣿⣿⡇⠀⠀⠀⠀⠀⠀⠀\⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
-⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢸⣔⡠⠔⠓⣹⣿⣿⣿⣿⣿⠃⠀⠀⠀⠀⠀⠀⠀⠀ ( This is a dress-up game now, the following atoms are outfits
-⠀⠀⠀⠀⠀⠀⢀⣠⣶⣤⣠⣤⣤⣤⣤⣄⣀⠀⣠⣿⣿⣿⢿⡿⠀⠀⠀⠀⠀⠀⠀⠀⠀  supplied to the midround antag. There is only room for six
-⠀⠀⠀⠀⠀⠴⠛⠋⠉⠉⠉⠉⠛⠛⣻⣿⣿⣿⣿⡿⠛⠁⠈⠁⠀⠀⠀⠀⠀⠀⠀⠀   mannequins, if you want to add an outfit instead of change,
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢸⣔⡠⠔⠓⣹⣿⣿⣿⣿⣿⠃⠀⠀⠀⠀⠀⠀⠀⠀⠀( This is a dress-up game now, the following atoms are outfits
+⠀⠀⠀⠀⠀⠀⢀⣠⣶⣤⣠⣤⣤⣤⣤⣄⣀⠀⣠⣿⣿⣿⢿⡿⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀supplied to the midround antag. There is only room for six
+⠀⠀⠀⠀⠀⠴⠛⠋⠉⠉⠉⠉⠛⠛⣻⣿⣿⣿⣿⡿⠛⠁⠈⠁⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀mannequins, if you want to add an outfit instead of change,
 ⠀⠀⠀⠀⠀⠀⠀⠀⠀⣀⠀⣠⣴⣿⣿⠿⠟⠋⠁⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀please do so by moving an existing outfit onto the 'wildcard'
-⠀⠀⠀⠀⠀⠀⠀⠀⣸⣿⠟⠋⠉                            mannequins, or consider if your new outfit would be suited
-⠀⠀⠀⠀⠀⠀⠀⢰⠟⠁⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀  to fit on those randomly picked 'wildcard' mannequins. )
+⠀⠀⠀⠀⠀⠀⠀⠀⣸⣿⠟⠋⠉⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀mannequins, or consider if your new outfit would be suited
+⠀⠀⠀⠀⠀⠀⠀⢰⠟⠁⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀to fit on those randomly picked 'wildcard' mannequins. )
 */
 
 ///
@@ -61,7 +61,7 @@
 	starting_items = list(
 		/obj/item/clothing/mask/neck_gaiter,
 		/obj/item/clothing/glasses/meson/night,
-		/obj/item/clothing/gloves/combat,
+		/obj/item/clothing/gloves/tackler/combat,
 		/obj/item/clothing/under/syndicate/combat,
 		/obj/item/clothing/suit/armor/bulletproof,
 		/obj/item/storage/belt/military/assault,
