@@ -158,8 +158,10 @@
 		if(i > 1 && i <= 5)
 			medalicon.pixel_w += ((i-1)*3)
 		else if(i > 5)
-			medalicon.pixel_z -= 7
-			medalicon.pixel_w -= 2
+			/// NOVA EDIT BEGIN - MEDALS BOX PR
+			medalicon.pixel_z -= 4
+			medalicon.pixel_w -= 0
+			/// NOVA EDIT END
 			medalicon.pixel_w += ((i-6)*3)
 		. += medalicon
 

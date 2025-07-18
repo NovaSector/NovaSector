@@ -27,7 +27,7 @@
 	new /obj/item/storage/bag/garment/station_admiral(src)
 	new /obj/item/radio/headset/interdyne/command(src)
 	new /obj/item/card/id/departmental_budget/ds2(src)
-	new /obj/item/storage/lockbox/medal/nova/synd(src)
+	new /obj/item/storage/lockbox/medal/synd(src)
 
 /obj/structure/closet/secure_closet/des_two/maa_locker
 	icon_door = "warden"
@@ -126,3 +126,4 @@
 	new /obj/item/clothing/suit/toggle/labcoat/nova/fancy/rd/deckofficer(src)
 	new /obj/item/modular_computer/pda/chameleon(src)
 	new /obj/item/card/id/departmental_budget/interdyne(src)
+	new /obj/item/storage/lockbox/medal/interdyne(src)
