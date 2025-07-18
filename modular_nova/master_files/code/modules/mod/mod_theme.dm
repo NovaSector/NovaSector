@@ -271,6 +271,8 @@
 /datum/mod_theme/security
 	variants = list(
 		"security" = list(
+				MOD_ICON_OVERRIDE = 'icons/obj/clothing/modsuit/mod_clothing.dmi',
+				MOD_WORN_ICON_OVERRIDE = 'icons/mob/clothing/modsuit/mod_clothing.dmi',
 			/obj/item/clothing/head/mod = list(
 				UNSEALED_CLOTHING = SNUG_FIT|THICKMATERIAL,
 				SEALED_CLOTHING = STOPSPRESSUREDAMAGE|HEADINTERNALS,
@@ -343,6 +345,8 @@
 /datum/mod_theme/safeguard
 	variants = list(
 		"safeguard" = list(
+				MOD_ICON_OVERRIDE = 'icons/obj/clothing/modsuit/mod_clothing.dmi',
+				MOD_WORN_ICON_OVERRIDE = 'icons/mob/clothing/modsuit/mod_clothing.dmi',
 			/obj/item/clothing/head/mod = list(
 				UNSEALED_CLOTHING = SNUG_FIT|THICKMATERIAL,
 				SEALED_CLOTHING = STOPSPRESSUREDAMAGE|HEADINTERNALS,
@@ -867,6 +871,8 @@
 /datum/mod_theme/interdyne
 	variants = list(
 		"interdyne" = list(
+				MOD_ICON_OVERRIDE = 'icons/obj/clothing/modsuit/mod_clothing.dmi',
+				MOD_WORN_ICON_OVERRIDE = 'icons/mob/clothing/modsuit/mod_clothing.dmi',
 			/obj/item/clothing/head/mod = list(
 				UNSEALED_LAYER = null,
 				UNSEALED_CLOTHING = SNUG_FIT|THICKMATERIAL,
