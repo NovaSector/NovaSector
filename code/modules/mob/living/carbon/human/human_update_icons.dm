@@ -780,14 +780,14 @@ There are several things that need to be remembered:
 // NOVA EDIT ADDITION END
 /mob/living/carbon/human/get_held_overlays()
 	var/list/hands = list()
-	// NOVA EDIT START
+	// NOVA EDIT ADDITION START
 	if(held_left)
 		held_left.overlays.Cut()
 		held_left.underlays.Cut()
 	if(held_right)
 		held_right.overlays.Cut()
 		held_right.underlays.Cut()
-	// NOVA EDIT END
+	// NOVA EDIT ADDITION END
 	for(var/obj/item/worn_item in held_items)
 		var/held_index = get_held_index_of_item(worn_item)
 		if(client && hud_used && hud_used.hud_version != HUD_STYLE_NOHUD)
@@ -812,7 +812,12 @@ There are several things that need to be remembered:
 		var/icon_file = IS_RIGHT_INDEX(held_index) ? worn_item.righthand_file : worn_item.lefthand_file
 		hand_overlay = worn_item.build_worn_icon(default_layer = HANDS_LAYER, default_icon_file = icon_file, isinhands = TRUE)
 		var/obj/item/bodypart/arm/held_in_hand = hand_bodyparts[held_index]
-		// NOVA EDIT START
+		// NOVA EDIT REMOVAL START - Moved down below psionic holding, after an else block
+		held_in_hand?.held_hand_offset?.apply_offset(hand_overlay)
+
+		hands += hand_overlay
+		// NOVA EDIT REMOVAL END
+		// NOVA EDIT ADDITION START - Psionic holding
 		if(HAS_TRAIT(src, TRAIT_FLOATING_HELD))
 			if(!held_left)
 				held_left = new(src)
@@ -873,7 +878,7 @@ There are several things that need to be remembered:
 		else
 			held_in_hand?.held_hand_offset?.apply_offset(hand_overlay)
 			hands += hand_overlay
-		// NOVA EDIT END
+		// NOVA EDIT ADDITION END
 	return hands
 
 /// Modifies a sprite slightly to conform to female body shapes
