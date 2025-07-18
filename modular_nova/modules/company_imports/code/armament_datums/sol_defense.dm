@@ -37,7 +37,7 @@
 	item_type = /obj/item/clothing/suit/armor/sf_peacekeeper
 
 /datum/armament_entry/company_import/sol_defense/armor/flak_jacket
-	item_type = /obj/item/clothing/suit/armor/vest/det_suit/sol
+	item_type = /obj/item/clothing/suit/armor/vest/sol
 
 /datum/armament_entry/company_import/sol_defense/armor/slim_vest
 	name = "type I vest"

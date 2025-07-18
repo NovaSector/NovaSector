@@ -132,7 +132,7 @@
 	greyscale_colors = "#ffe81d"
 
 // SolFed flak jacket, for marshals
-/obj/item/clothing/suit/armor/vest/det_suit/sol
+/obj/item/clothing/suit/armor/vest/sol
 	name = "'Gordyn' flak vest"
 	desc = "A light armored jacket common on SolFed personnel who need armor, but find a full vest \
 		too impractical or unneeded."
@@ -140,9 +140,10 @@
 	icon_state = "flak"
 	worn_icon = 'modular_nova/modules/goofsec/icons/mob/uniforms.dmi'
 	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION_NO_NEW_ICON
+	dog_fashion = null
 
 // SolFed Heavy Armor for Marines
-/obj/item/clothing/suit/armor/vest/det_suit/sol/marine
+/obj/item/clothing/suit/armor/vest/sol/marine
 	name = "\improper 'Hercules' heavy armor"
 	desc = "Through space, snow, oceans, painful hills and terrain, the 'Hercules' heavy armor is the Sol Federation's most versatile and robust heavily armored vest and padding, \
 		to protect its marines from the most dangerous of threats in the most alien of environments."
@@ -169,16 +170,16 @@
 	acid = 50
 	wound = 45
 
-/obj/item/clothing/suit/armor/vest/det_suit/sol/marine/desert
+/obj/item/clothing/suit/armor/vest/sol/marine/desert
 	greyscale_colors = "#e0dab7"
 
-/obj/item/clothing/suit/armor/vest/det_suit/sol/marine/winter
+/obj/item/clothing/suit/armor/vest/sol/marine/winter
 	greyscale_colors = "#eaeaea"
 
-/obj/item/clothing/suit/armor/vest/det_suit/sol/marine/ocean
+/obj/item/clothing/suit/armor/vest/sol/marine/ocean
 	greyscale_colors = "#53638f"
 
-/obj/item/clothing/suit/armor/vest/det_suit/sol/marine/forest
+/obj/item/clothing/suit/armor/vest/sol/marine/forest
 	greyscale_colors = "#008000"
 
 /obj/item/clothing/neck/mantle/solfed

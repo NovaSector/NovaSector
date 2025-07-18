@@ -328,7 +328,7 @@ GLOBAL_LIST_INIT(call911_do_and_do_not, list(
 	name = "911 Response: Marshal"
 	back = /obj/item/storage/backpack/satchel
 	uniform = /obj/item/clothing/under/solfed
-	suit = /obj/item/clothing/suit/armor/vest/det_suit/sol
+	suit = /obj/item/clothing/suit/armor/vest/sol
 	shoes = /obj/item/clothing/shoes/jackboots
 	glasses = /obj/item/clothing/glasses/sunglasses
 	ears = /obj/item/radio/headset/headset_sec/alt
@@ -539,7 +539,7 @@ GLOBAL_LIST_INIT(call911_do_and_do_not, list(
 	head = /obj/item/clothing/head/helmet/solfed
 	mask = /obj/item/clothing/mask/gas/alt
 	gloves = /obj/item/clothing/gloves/combat
-	suit = /obj/item/clothing/suit/armor/vest/det_suit/sol/marine
+	suit = /obj/item/clothing/suit/armor/vest/sol/marine
 	shoes = /obj/item/clothing/shoes/jackboots
 	belt = /obj/item/storage/belt/military
 	neck = /obj/item/clothing/neck/mantle/solfed

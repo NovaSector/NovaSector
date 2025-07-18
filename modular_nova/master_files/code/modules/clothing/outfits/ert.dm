@@ -51,7 +51,7 @@
 	head = /obj/item/clothing/head/helmet/solfed
 	mask = /obj/item/clothing/mask/gas/alt
 	gloves = /obj/item/clothing/gloves/combat
-	suit = /obj/item/clothing/suit/armor/vest/det_suit/sol/marine
+	suit = /obj/item/clothing/suit/armor/vest/sol/marine
 	shoes = /obj/item/clothing/shoes/jackboots
 	belt = /obj/item/storage/belt/military/solfed
 	neck = /obj/item/clothing/neck/mantle/solfed
