@@ -83,12 +83,12 @@
 	gets_cropped_on_taurs = FALSE
 
 /obj/item/clothing/under/rank/blueshield/consult
-	name = "blueshield's alternative suit"
-	desc = "A uniform with a rather wholesome feeling, its not your first choice but it makes you feel closer to your consultant buddies, supposedly."
+	name = "blueshield's consulting suit"
+	desc = "A not so tactical uniform, held up to a greater standard of care by the comppany, tailored to be fancy with its golden trims matching that of the nanotrasen consulant, a symbol of unity, cohesion, and an annoyingly massive amounts of paperwork."
 	icon_state = "bs_consult"
 
 /obj/item/clothing/under/rank/blueshield/consult/skirt
-	name = "blueshield's alternative skirt"
+	name = "blueshield's consulting skirt"
 	icon_state = "bs_consult_skirt"
 	body_parts_covered = CHEST|GROIN|ARMS
 	dying_key = DYE_REGISTRY_JUMPSKIRT
