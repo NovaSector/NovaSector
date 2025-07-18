@@ -502,6 +502,8 @@
 	return ..()
 
 /datum/outfit/proc/handlebank(mob/living/carbon/human/owner)
+	if(!owner.mind)
+		return
 	var/datum/bank_account/offstation_bank_account = new(owner.real_name, owner.mind.assigned_role)
 	owner.account_id = offstation_bank_account.account_id
 	offstation_bank_account.replaceable = FALSE
