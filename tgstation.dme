@@ -8119,6 +8119,7 @@
 #include "modular_nova\modules\goofsec\code\lockers.dm"
 #include "modular_nova\modules\goofsec\code\outfits.dm"
 #include "modular_nova\modules\goofsec\code\sol_fed.dm"
+#include "modular_nova\modules\goofsec\code\solfed_bloat.dm"
 #include "modular_nova\modules\goofsec\code\solfed_clothing.dm"
 #include "modular_nova\modules\gun_safety\code\keybinding.dm"
 #include "modular_nova\modules\gun_safety\code\safety_additions.dm"
