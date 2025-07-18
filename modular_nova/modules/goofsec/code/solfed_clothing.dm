@@ -386,3 +386,53 @@
 		/obj/item/storage/box/handcuffs = 4,
 		/obj/item/storage/box/nri_flares = 16,
 	)
+
+/obj/item/radio/headset/headset_solfed/officials
+	name = "\improper SolFed Officials Headset"
+	icon_state = "com_headset"
+	worn_icon_state = "com_headset"
+	keyslot = /obj/item/encryptionkey/headset_solfed/squadleader
+
+/obj/item/radio/headset/headset_solfed/espatier
+	name = "\improper SolFed Espatier headset"
+	desc = "A headset used by the Solar Federation espatiers."
+	icon_state = "com_headset_alt"
+	worn_icon_state = "com_headset_alt"
+	keyslot = /obj/item/encryptionkey/headset_solfed/sec
+	radio_talk_sound = 'modular_nova/modules/radiosound/sound/radio/security.ogg'
+
+/obj/item/radio/headset/headset_solfed/espatier/Initialize(mapload)
+	. = ..()
+	AddComponent(/datum/component/wearertargeting/earprotection, list(ITEM_SLOT_EARS))
+
+/obj/item/radio/headset/headset_solfed/espatier/corpsman
+	keyslot = /obj/item/encryptionkey/headset_solfed/med
+
+/obj/item/radio/headset/headset_solfed/espatier/engineer
+	keyslot = /obj/item/encryptionkey/headset_solfed/atmos
+
+/obj/item/radio/headset/headset_solfed/espatier/squadleader
+	keyslot = /obj/item/encryptionkey/headset_solfed/squadleader
+
+/obj/item/encryptionkey/headset_solfed/squadleader
+	name = "\improper SolFed grand encryption key"
+	channels = list(RADIO_CHANNEL_SOLFED = 1, RADIO_CHANNEL_ENGINEERING = 1, RADIO_CHANNEL_MEDICAL = 1, RADIO_CHANNEL_SECURITY = 1, RADIO_CHANNEL_COMMAND = 1)
+	icon_state = "/obj/item/encryptionkey/headset_solfed/squadleader"
+	post_init_icon_state = "cypherkey_syndicate"
+	greyscale_config = /datum/greyscale_config/encryptionkey_syndicate
+	greyscale_colors = "#ebebeb#2b2793"
+
+/obj/item/storage/belt/military/solfed
+	name = "solfed chest rig"
+	desc = "A set of tactical webbing worn by federal marines."
+	storage_type = /datum/storage/military_belt
+
+/datum/storage/military_belt/solfed
+	max_specific_storage = WEIGHT_CLASS_NORMAL
+
+/obj/item/storage/belt/military/solfed/PopulateContents()
+	new /obj/item/ammo_box/magazine/c40sol_rifle/standard(src)
+	new /obj/item/ammo_box/magazine/c40sol_rifle/standard(src)
+	new /obj/item/ammo_box/magazine/c40sol_rifle/standard(src)
+	new /obj/item/ammo_box/magazine/c40sol_rifle/standard(src)
+	new /obj/item/melee/baton/security/loaded(src)

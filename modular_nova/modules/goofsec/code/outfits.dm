@@ -18,6 +18,18 @@
 	)
 	id_trim = /datum/id_trim/solfed/official
 
+/datum/outfit/solfed/post_equip(mob/living/carbon/human/person, visualsOnly = FALSE)
+	if(visualsOnly)
+		return
+
+	var/obj/item/radio/Radio = person.ears
+	Radio.set_frequency(FREQ_SOLFED)
+	Radio.freqlock = TRUE
+	var/obj/item/card/id/ID = person.wear_id
+	ID.registered_name = person.real_name
+	ID.update_label()
+	..()
+
 /datum/outfit/solfed/lowrank
 	name = "SolFed Official (Low Rank)"
 	uniform = /obj/item/clothing/under/solfed/officer_lowrnk
