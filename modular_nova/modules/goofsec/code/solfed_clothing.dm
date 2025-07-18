@@ -77,28 +77,73 @@
 	desc = "A uniform worn by officials of the Sol Federation's Social Services Division."
 	icon_state = "solfed_social"
 
+/*
+
+SOLFED ARMOR VALUES!
+
+*/
+
+// Regular armor resistances (NT Security ERT Protection Grade But Sidegrade [Boosted armor, no eva])
+/datum/armor/clothing_under/solfed_response_standard
+	melee = 80
+	bullet = 80
+	laser = 70
+	energy = 60
+	bomb = 80
+	bio = 20
+	fire = 50
+	acid = 50
+	wound = 45
+
+// Grand Response armor resistances (NT Asset Protection Grade But Sidegrade [Boosted armor, no eva])
+/datum/armor/clothing_under/solfed_response_grand
+	melee = 80
+	bullet = 80
+	laser = 70
+	energy = 60
+	bomb = 80
+	bio = 20
+	fire = 50
+	acid = 50
+	wound = 45
+
 // Sol Federation Combat Helmet
 /obj/item/clothing/head/helmet/solfed
-	name = "\improper SolFed Combat helmet"
+	name = "\improper SolFed MK I Combat helmet"
 	desc = "A robust Sol Federation helmet designed with an integrated light to provide vision to the brave marines on the front line."
 	icon_state = "icons/map_icons/clothing/head/_head"
 	post_init_icon_state = "federal_helmet"
 	worn_icon_state = "federal_helmet"
 	actions_types = list(/datum/action/item_action/toggle_helmet_light)
+	armor_type = /datum/armor/clothing_under/solfed_response_standard
+
 	light_system = OVERLAY_LIGHT_DIRECTIONAL
 	light_range = 4
 	light_power = 1
 	light_color = "#fff9f3"
 	light_on = FALSE
-	armor_type = /datum/armor/clothing_under/code_federal_armor
+
 	greyscale_config = /datum/greyscale_config/solfed_goggles
 	greyscale_config_worn = /datum/greyscale_config/solfed_goggles/worn
 	greyscale_colors = "#808080"
 	unique_reskin = null
 	clothing_traits = list(TRAIT_HEAD_INJURY_BLOCKED)
 	clothing_flags = SNUG_FIT
+
 	/// Default state for the light
 	var/on = FALSE
+	/// Just to spite Ian (Also because I cannot be bothered to make a doggo version)
+	dog_fashion = null
+
+/obj/item/clothing/head/helmet/solfed/mk2
+	name = "\improper SolFed MK II Combat helmet"
+	desc = "A much more robust Sol Federation helmet than the MK I, coming with its signature integrated light from its older counterpart but also with more heavier protection."
+	icon_state = "icons/map_icons/clothing/head/_head"
+	post_init_icon_state = "federal_helmet"
+	worn_icon_state = "federal_helmet"
+	armor_type = /datum/armor/clothing_under/solfed_response_grand
+	greyscale_config = /datum/greyscale_config/solfed_goggles
+	greyscale_config_worn = /datum/greyscale_config/solfed_goggles/worn
 
 // Toggle state for the helmet light
 /obj/item/clothing/head/helmet/solfed/proc/toggle_helmet_light(mob/living/user)
@@ -119,18 +164,6 @@
 /obj/item/clothing/head/helmet/solfed/attack_self(mob/living/user)
 	toggle_helmet_light(user)
 
-/obj/item/clothing/head/helmet/solfed/corpsman
-	name = "\improper SolFed Corpsman Combat Helmet"
-	greyscale_colors = "#1dd2ff"
-
-/obj/item/clothing/head/helmet/solfed/engineer
-	name = "\improper SolFed Engineer Combat Helmet"
-	greyscale_colors = "#ff1d1d"
-
-/obj/item/clothing/head/helmet/solfed/squadlead
-	name = "\improper SolFed Squad Leader Combat Helmet"
-	greyscale_colors = "#ffe81d"
-
 // SolFed flak jacket, for marshals
 /obj/item/clothing/suit/armor/vest/sol
 	name = "'Gordyn' flak vest"
@@ -144,43 +177,40 @@
 
 // SolFed Heavy Armor for Marines
 /obj/item/clothing/suit/armor/vest/sol/marine
-	name = "\improper 'Hercules' heavy armor"
-	desc = "Through space, snow, oceans, painful hills and terrain, the 'Hercules' heavy armor is the Sol Federation's most versatile and robust heavily armored vest and padding, \
-		to protect its marines from the most dangerous of threats in the most alien of environments."
+	name = "\improper 'Hephaestus' light armor"
+	desc = "Through space, snow, oceans, painful hills and terrain, the 'Hephaestus' light armor is one of the Sol Federation's most unique combat vests, \
+	used in the older days during the war of the rimworlds, its proven useful but outdated."
 	icon_state = "icons/map_icons/clothing/suit/_suit"
-	post_init_icon_state = "fedvest"
-	worn_icon_state = "fedvest"
-	worn_icon_digi = "fedvest"
-	armor_type = /datum/armor/clothing_under/code_federal_armor
+	post_init_icon_state = "hephaestus"
+	worn_icon_state = "hephaestus"
+	worn_icon_digi = "hephaestus"
+	armor_type = /datum/armor/clothing_under/solfed_response_standard
 	greyscale_config = /datum/greyscale_config/vestcam
 	greyscale_config_worn = /datum/greyscale_config/vestcam/worn
 	greyscale_config_worn_digi = /datum/greyscale_config/vestcam/worn/digi
 	greyscale_colors = "#4d4d4d"
 	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION
 
-// Marine armor resistances (NT Asset Protection Grade But Sidegrade)
-/datum/armor/clothing_under/code_federal_armor
-	melee = 80
-	bullet = 80
-	laser = 70
-	energy = 60
-	bomb = 80
-	bio = 20
-	fire = 50
-	acid = 50
-	wound = 45
+/obj/item/clothing/suit/armor/vest/sol/marine/mk2
+	name = "\improper 'Hercules' heavy armor"
+	desc = "Through space, snow, oceans, painful hills and terrain, the 'Hercules' heavy armor is the Sol Federation's most versatile and robust heavily armored vest and padding, \
+		to protect its marines from the most dangerous of threats in the most alien of environments."
+	icon_state = "icons/map_icons/clothing/suit/_suit"
+	post_init_icon_state = "hercules"
+	worn_icon_state = "hercules"
+	worn_icon_digi = "hercules"
+	armor_type = /datum/armor/clothing_under/solfed_response_standard
+	greyscale_config = /datum/greyscale_config/vestcam
+	greyscale_config_worn = /datum/greyscale_config/vestcam/worn
+	greyscale_config_worn_digi = /datum/greyscale_config/vestcam/worn/digi
+	greyscale_colors = "#4d4d4d"
+	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION
 
-/obj/item/clothing/suit/armor/vest/sol/marine/desert
-	greyscale_colors = "#e0dab7"
 
-/obj/item/clothing/suit/armor/vest/sol/marine/winter
-	greyscale_colors = "#eaeaea"
 
-/obj/item/clothing/suit/armor/vest/sol/marine/ocean
-	greyscale_colors = "#53638f"
 
-/obj/item/clothing/suit/armor/vest/sol/marine/forest
-	greyscale_colors = "#008000"
+
+
 
 /obj/item/clothing/neck/mantle/solfed
 	name = "\improper Sol Federation mantle"
@@ -207,18 +237,6 @@
 	greyscale_colors = "#4d4d4d"
 	glass_colour_type = /datum/client_colour/glass_colour/gray
 
-/obj/item/clothing/glasses/sunglasses/solfed/winter
-	greyscale_colors = "#eaeaea"
-
-/obj/item/clothing/glasses/sunglasses/solfed/forest
-	greyscale_colors = "#008000"
-
-/obj/item/clothing/glasses/sunglasses/solfed/ocean
-	greyscale_colors = "#53638f"
-
-/obj/item/clothing/glasses/sunglasses/solfed/desert
-	greyscale_colors = "#e8dd9b"
-
 // SolFed Marines Standard
 /obj/item/clothing/under/solfed/marines
 	name = "\improper SolFed marine uniform"
@@ -232,18 +250,6 @@
 	greyscale_config_worn_digi = /datum/greyscale_config/solfedcamo/worn/digi
 	greyscale_colors = "#4d4d4d#333333#292929"
 	can_adjust = FALSE
-
-/obj/item/clothing/under/solfed/marines/winter
-	greyscale_colors = "#eaeaea#5f5f5f#969696"
-
-/obj/item/clothing/under/solfed/marines/forest
-	greyscale_colors = "#008000#663300#333333"
-
-/obj/item/clothing/under/solfed/marines/ocean
-	greyscale_colors = "#53638f#374c75#145779"
-
-/obj/item/clothing/under/solfed/marines/desert
-	greyscale_colors = "#e8dd9b#d6c76d#afa984"
 
 // SolFed Espatier
 /obj/item/clothing/under/solfed/espatier
@@ -263,18 +269,6 @@
 	has_sensor = HAS_SENSORS
 	random_sensor = FALSE
 	can_adjust = FALSE
-
-/obj/item/clothing/under/solfed/espatier/winter
-	greyscale_colors = "#ffffff#c0c0c0"
-
-/obj/item/clothing/under/solfed/espatier/forest
-	greyscale_colors = "#7fc57f#008000"
-
-/obj/item/clothing/under/solfed/espatier/desert
-	greyscale_colors = "#e8dd9b#888157"
-
-/obj/item/clothing/under/solfed/espatier/ocean
-	greyscale_colors = "#92a2d2#53638f"
 
 /// SolFed Accessories
 /obj/item/clothing/accessory/nova/solfedribbon

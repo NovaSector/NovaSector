@@ -1,5 +1,13 @@
 {
-	"fedvest": [
+	"hephaestus": [
+		{
+			"type": "icon_state",
+			"icon_state": "hephaestus",
+			"blend_mode": "overlay",
+			"color_ids": [1]
+		}
+	],
+	"hercules": [
 		{
 			"type": "icon_state",
 			"icon_state": "vestcam",
