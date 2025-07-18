@@ -7175,6 +7175,7 @@
 #include "modular_nova\master_files\code\modules\mob\living\carbon\human_helpers.dm"
 #include "modular_nova\master_files\code\modules\mob\living\carbon\human\death.dm"
 #include "modular_nova\master_files\code\modules\mob\living\carbon\human\human.dm"
+#include "modular_nova\master_files\code\modules\mob\living\carbon\human\human_update_icons.dm"
 #include "modular_nova\master_files\code\modules\mob\living\carbon\human\species.dm"
 #include "modular_nova\master_files\code\modules\mob\living\carbon\human\species_type\abductor.dm"
 #include "modular_nova\master_files\code\modules\mob\living\carbon\human\species_type\ethereal.dm"
