@@ -5,15 +5,23 @@
 
 /obj/machinery/computer/cargo/express/interdyne
 	name = "\improper Interdyne express supply console"
-	desc = "A standard NT express console, hacked by Gorlex Industries to use \
-	their own experimental \"1100mm Rail Cannon\", made to be extra robust to prevent \
-	being emagged by the Syndicate cadets of the SSV Dauntless."
+	desc = "A rather standard galactic express imports console calibrated \
+	interdyne's own experimental \"1100mm Rail Cannon\", made to be extra robust to prevent \
+	being damaged or jailbroken by electromagnets."
 	circuit = /obj/item/circuitboard/computer/cargo/express/interdyne
 	req_access = list(ACCESS_SYNDICATE)
 	cargo_account = ACCOUNT_INT
 	contraband = TRUE
 
-	var/static/list/allowed_categories = list(
+	var/list/allowed_categories = list(
+		INTERDYNE_PHARMACEUTICALS_NAME,
+	)
+
+	pod_type = /obj/structure/closet/supplypod/bluespacepod
+
+/// Loads a seccondary list with ALL imports making this the global imports list
+/obj/machinery/computer/cargo/express/interdyne/Initialize(mapload)
+	var/static/list/categories = list(
 		NAKAMURA_ENGINEERING_MODSUITS_NAME,
 		BLACKSTEEL_FOUNDATION_NAME,
 		NRI_SURPLUS_COMPANY_NAME,
@@ -25,18 +33,8 @@
 		MICROSTAR_ENERGY_NAME,
 		VITEZSTVI_AMMO_NAME,
 	)
-
-	pod_type = /obj/structure/closet/supplypod/bluespacepod
-
-
-/obj/machinery/computer/cargo/express/interdyne/Initialize(mapload)
-	var/static/list/categories = list(
-		INTERDYNE_PHARMACEUTICALS_NAME,
-	)
-
 	allowed_categories += categories
 	return ..()
-
 /obj/machinery/computer/cargo/express/interdyne/emag_act(mob/user, obj/item/card/emag/emag_card)
 	if(user)
 		to_chat(user, span_notice("You try to change the routing protocols, but the machine displays a runtime error and reboots!"))
@@ -95,8 +93,11 @@
 	name = "\improper Syndicate express supply console"
 	desc = "A standard Syndicate console."
 	circuit = /obj/item/circuitboard/computer/cargo/express/interdyne/syndicate
+	icon_screen = "tcboss"
 	req_access = list(ACCESS_SYNDICATE)
 	cargo_account = ACCOUNT_DS2
+	/// Because list is empty it wont show any interdyne pharmaceuticals stuff
+	allowed_categories = list()
 
 // Tarkon Industries console
 /obj/item/circuitboard/computer/cargo/express/interdyne/tarkon
@@ -110,3 +111,4 @@
 	circuit = /obj/item/circuitboard/computer/cargo/express/interdyne/tarkon
 	req_access = list(ACCESS_TARKON)
 	cargo_account = ACCOUNT_TI
+	allowed_categories = list()

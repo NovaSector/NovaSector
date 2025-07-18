@@ -22,15 +22,16 @@
 
 /datum/armament_entry/company_import/interdyne/solo/nvgs
 	item_type = /obj/item/clothing/glasses/hud/health/night/science
-	cost = PAYCHECK_COMMAND * 1
 
 /datum/armament_entry/company_import/interdyne/solo/computer
+	name = "Preloaded Surgical processor"
 	item_type = /obj/item/mod/module/surgical_processor/preloaded
 	cost = PAYCHECK_COMMAND * 4
-
+/* Figure out price or to keep
 /datum/armament_entry/company_import/interdyne/solo/emagsurgerey
 	item_type = /obj/item/autosurgeon/syndicate/emaggedsurgerytoolset
 	cost = PAYCHECK_COMMAND * 8
+*/
 /datum/armament_entry/company_import/interdyne/solo/analyzer
 	item_type = /obj/item/healthanalyzer/advanced
 	cost = PAYCHECK_COMMAND / 4
