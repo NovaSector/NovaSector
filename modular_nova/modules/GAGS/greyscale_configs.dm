@@ -2282,19 +2282,6 @@ TREK
 	name = "SolFed Camo (Worn, Digi)"
 	icon_file = 'modular_nova/modules/goofsec/icons/mob/uniforms_digi.dmi'
 
-/datum/greyscale_config/solfedsimplecamo
-	name = "SolFed Simple Camo"
-	icon_file = 'modular_nova/modules/goofsec/icons/obj/uniforms.dmi'
-	json_config = 'modular_nova/modules/GAGS/json_configs/solfed/simplecamo.json'
-
-/datum/greyscale_config/solfedsimplecamo/worn
-	name = "SolFed Simple Camo (Worn)"
-	icon_file = 'modular_nova/modules/goofsec/icons/mob/uniforms.dmi'
-
-/datum/greyscale_config/solfedsimplecamo/worn/digi
-	name = "SolFed Simple Camo (Worn, Digi)"
-	icon_file = 'modular_nova/modules/goofsec/icons/mob/uniforms_digi.dmi'
-
 /datum/greyscale_config/vestcam
 	name = "SolFed Vest Camo"
 	icon_file = 'modular_nova/modules/goofsec/icons/obj/uniforms.dmi'

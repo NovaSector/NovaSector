@@ -225,9 +225,11 @@ SOLFED ARMOR VALUES!
 	greyscale_colors = "#4d4d4d"
 	glass_colour_type = /datum/client_colour/glass_colour/gray
 
-// SolFed Marines Standard
+// SolFed Espatier Standard
 /obj/item/clothing/under/solfed/marines
-	name = "\improper SolFed marine uniform"
+	name = "\improper SolFed Espatier uniform"
+	desc = "A camouflage uniform for members of the SolFed Espatier Corps, typically serving as Starfleet (SFSF) and Space Guard (SFSG) shipboard security. \
+		They additionally fill the role of simple space-borne infantry, earning the nickname of \"Space Marines\" from many spacers."
 	icon = 'icons/map_icons/clothing/under/_under.dmi'
 	icon_state = "/obj/item/clothing/under/solfed/marines"
 	post_init_icon_state = "solfed_camo"
@@ -237,25 +239,6 @@ SOLFED ARMOR VALUES!
 	greyscale_config_worn = /datum/greyscale_config/solfedcamo/worn
 	greyscale_config_worn_digi = /datum/greyscale_config/solfedcamo/worn/digi
 	greyscale_colors = "#4d4d4d#333333#292929"
-	can_adjust = FALSE
-
-// SolFed Espatier
-/obj/item/clothing/under/solfed/espatier
-	name = "\improper SolFed Espatier uniform"
-	desc = "A camouflage uniform for members of the SolFed Espatier Corps, typically serving as Starfleet (SFSF) and Space Guard (SFSG) shipboard security. \
-		They additionally fill the role of simple space-borne infantry, earning the nickname of \"Space Marines\" from many spacers."
-	icon = 'icons/map_icons/clothing/under/_under.dmi'
-	icon_state = "/obj/item/clothing/under/solfed/espatier"
-	post_init_icon_state = "solfed_camo"
-	worn_icon_state = "solfed_camo"
-	worn_icon_digi = "solfed_camo"
-	greyscale_config = /datum/greyscale_config/solfedsimplecamo
-	greyscale_config_worn = /datum/greyscale_config/solfedsimplecamo/worn
-	greyscale_config_worn_digi = /datum/greyscale_config/solfedsimplecamo/worn/digi
-	greyscale_colors = "#808080#333333"
-	inhand_icon_state = null
-	has_sensor = HAS_SENSORS
-	random_sensor = FALSE
 	can_adjust = FALSE
 
 /// SolFed Accessories
