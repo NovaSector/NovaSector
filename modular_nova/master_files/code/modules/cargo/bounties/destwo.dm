@@ -7,7 +7,7 @@
 	name = "Interrogation Blacksite"
 	description = "Upper members of MI13 wants more handcuffs to be disbatched out. Send some our way."
 	required_count = 5
-	reward = CARGO_CRATE_VALUE * 8
+	reward = CARGO_CRATE_VALUE * 4
 	wanted_types = list(
 		/obj/item/restraints/handcuffs = TRUE,
 	)
@@ -15,7 +15,7 @@
 /datum/bounty/item/ds2/eyes
 	name = "Eye-Spy"
 	description = "Asssault teams in the Gorlex Marauders want some, thermal cybereyes. Send some their way and they'll pay nicely"
-	reward = CARGO_CRATE_VALUE * 10
+	reward = CARGO_CRATE_VALUE * 8
 	required_count = 3
 	wanted_types = list(
 		/obj/item/organ/eyes/robotic/thermals = TRUE,
@@ -25,7 +25,7 @@
 	name = "Cyberdeck"
 	description = "Cybersun wants some CNS skillchip connector implants, for a couple of tests. You know what the drill is."
 	required_count = 4
-	reward = CARGO_CRATE_VALUE * 8
+	reward = CARGO_CRATE_VALUE * 6
 	wanted_types = list(
 		/obj/item/organ/cyberimp/brain/connector = TRUE,
 	)
@@ -69,7 +69,7 @@
 /datum/bounty/item/ds2/randomgods
 	name = "Prokect Spiteful Gods"
 	description = "We need you to send a gunkit... a special one called the Event Horizon anti-existential beam rifle part kit, its a mouth filler, but... best you dont ask why."
-	reward = CARGO_CRATE_VALUE * 20
+	reward = CARGO_CRATE_VALUE * 10
 	wanted_types = list(
 		/obj/item/firing_pin/clown = TRUE,
 	)
@@ -78,7 +78,7 @@
 	name = "Clandestine Operations"
 	description = "MI13 wants a couple of suppressors for our more clandestine frontline agents. Send em and they'll pay nicely."
 	required_count = 3
-	reward = CARGO_CRATE_VALUE * 10
+	reward = CARGO_CRATE_VALUE * 8
 	wanted_types = list(
 		/obj/item/suppressor = TRUE,
 	)
@@ -87,7 +87,7 @@
 	name = "Project Mindcrack"
 	description = "Gorlex wants a few mindshield firing pins for modification, they wont take any other pin. Mainly because they think they can rewire them to work for us."
 	required_count = 3
-	reward = CARGO_CRATE_VALUE * 10
+	reward = CARGO_CRATE_VALUE * 8
 	wanted_types = list(
 		/obj/item/firing_pin/implant/mindshield = TRUE,
 	)
@@ -142,7 +142,7 @@
 	name = "Telecrystals"
 	description = "Our crystal synthesizers seem to malfunctioning, send us a couple bluespace crystals and we'll secure you a paycheck."
 	required_count = 5
-	reward = CARGO_CRATE_VALUE * 20
+	reward = CARGO_CRATE_VALUE * 10
 	wanted_types = list(
 		/obj/item/stack/ore/bluespace_crystal = TRUE,
 	)

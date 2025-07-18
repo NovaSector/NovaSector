@@ -1,7 +1,7 @@
 /datum/bounty/item/interdyne_med/heart
 	name = "Heart"
 	description = "Corporate needs a few new hearts for scientific study, They will allow cybernetic ones to be submitted, but wont accept any basic cybernetics."
-	reward = CARGO_CRATE_VALUE * 5
+	reward = CARGO_CRATE_VALUE * 10
 	wanted_types = list(
 		/obj/item/organ/heart = TRUE,
 		/obj/item/organ/heart/synth = FALSE,
@@ -46,7 +46,7 @@
 /datum/bounty/item/interdyne_med/liver
 	name = "Livers"
 	description = "Many patients came into one of our facilities recently with liver failure, we since ran out of livers, send some organic ones prefferably, but cybernetic ones will do, just not the basic kind."
-	reward = CARGO_CRATE_VALUE * 10
+	reward = CARGO_CRATE_VALUE * 5
 	required_count = 3
 	wanted_types = list(
 		/obj/item/organ/liver = TRUE,
