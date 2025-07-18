@@ -1,4 +1,3 @@
-
 // Goals for all of DS-2
 
 /datum/bounty/item/ds2/
@@ -94,7 +93,7 @@
 	)
 
 /datum/bounty/item/ds2/battleship
-	name = "Battleship Blitz"
+	name = "Battleship Troubles"
 	description = "A recent 'project' perse has taken a fair chunk of our attention, send us a few communications boards so we may wire them into our vessels"
 	required_count = 3
 	reward = CARGO_CRATE_VALUE * 10
@@ -106,7 +105,62 @@
 	name = "Coffee meltdown"
 	description = "A recent incident left all the coffee makers broken back on DS-5, D-6 and, DS-7... We're not sure how, but just send them a few boards and they'll get it done."
 	required_count = 3
-	reward = CARGO_CRATE_VALUE * 10
+	reward = CARGO_CRATE_VALUE * 5
 	wanted_types = list(
 		/obj/item/circuitboard/machine/coffeemaker = TRUE,
+	)
+
+/datum/bounty/item/ds2/flashes
+	name = "Hypnoflashes"
+	description = "A few of our frontliners and friends at the IRN lost a few hypnoflashes, send em about [required_count] and they'll send you a fair day's payment."
+	required_count = 10
+	reward = CARGO_CRATE_VALUE * 5
+	wanted_types = list(
+		/obj/item/assembly/flash/handheld = TRUE,
+	)
+
+/datum/bounty/item/ds2/cyberpens
+	name = "Legal Efforts"
+	description = "Cybersun ran out of materials for their... 'Specialty' pens and its now you're problem, get them [required_count] pens so they can make more"
+	required_count = 10
+	reward = CARGO_CRATE_VALUE * 5
+	wanted_types = list(
+		/obj/item/pen = TRUE,
+	)
+
+/datum/bounty/item/ds2/pizzabombs
+	name = "Pizza Bombs"
+	description = "We had a situation with a recent raid from an unfavorable corporation, they blew up our pizza line so we need you to send some. Give us [required_count] and we'll send a payment to you. \
+	And send a whole pie, if we get a slice, someone is getting fired."
+	required_count = 3
+	reward = CARGO_CRATE_VALUE * 10
+	wanted_types = list(
+		/obj/item/food/pizza = TRUE,
+	)
+
+/datum/bounty/item/ds2/telecrystals
+	name = "Telecrystals"
+	description = "Our crystal synthesizers seem to malfunctioning, send us [required_count] bluespace crystals and we'll secure you a paycheck."
+	required_count = 5
+	reward = CARGO_CRATE_VALUE * 20
+	wanted_types = list(
+		/obj/item/stack/ore/bluespace_crystal = TRUE,
+	)
+
+/datum/bounty/item/ds2/toolboxes
+	name = "Toolboxes"
+	description = "We've ran out of suspicious toolboxes, send us [required_count] and you will be paid."
+	required_count = 5
+	reward = CARGO_CRATE_VALUE * 5
+	wanted_types = list(
+		/obj/item/storage/toolbox = TRUE,
+	)
+
+/datum/bounty/item/ds2/dafuckindisk
+	name = "DA FUCKIN DISK"
+	description = "Gorlex ran out of data disks for their nuclear tunes, send them [required_count] and you will be paid. Make sure its a Data Disk as well"
+	required_count = 5
+	reward = CARGO_CRATE_VALUE * 5
+	wanted_types = list(
+		/obj/item/computer_disk = TRUE,
 	)
