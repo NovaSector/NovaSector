@@ -407,7 +407,7 @@ SOLFED ARMOR VALUES!
 /obj/item/storage/belt/military/solfed
 	name = "solfed chest rig"
 	desc = "A set of tactical webbing worn by federal military personnel."
-	storage_type = /datum/storage/military_belt
+	storage_type = /datum/storage/military_belt/solfed
 
 /datum/storage/military_belt/solfed
 	max_specific_storage = WEIGHT_CLASS_NORMAL
