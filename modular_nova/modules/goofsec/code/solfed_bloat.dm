@@ -74,16 +74,3 @@
 
 /obj/item/clothing/under/solfed/marines/desert
 	greyscale_colors = "#e8dd9b#d6c76d#afa984"
-
-/// Simple-cam pattern
-/obj/item/clothing/under/solfed/espatier/winter
-	greyscale_colors = "#ffffff#c0c0c0"
-
-/obj/item/clothing/under/solfed/espatier/forest
-	greyscale_colors = "#7fc57f#008000"
-
-/obj/item/clothing/under/solfed/espatier/desert
-	greyscale_colors = "#e8dd9b#888157"
-
-/obj/item/clothing/under/solfed/espatier/ocean
-	greyscale_colors = "#92a2d2#53638f"
