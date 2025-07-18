@@ -110,7 +110,15 @@
 		"Captain",
 		"Commanding Officer",
 		"Site Manager",
+		"Site Overseer",
+		"Site Director",
+		"Site Administrator",
 		"Station Commander",
+		"Station Director",
+		"Station Overseer",
+		"Station Manager",
+		"Station Administrator",
+		"Facility Director",
 	)
 
 /datum/job/cargo_technician
@@ -168,6 +176,7 @@
 		"Head of Medical",
 		"Head Physician",
 		"Medical Director",
+		"Medical Administrator",
 	)
 
 /datum/job/clown
@@ -262,6 +271,8 @@
 		"Chief Constable",
 		"Chief of Security",
 		"Security Commander",
+		"Security Administrator",
+		"Security Director",
 		"Sheriff",
 	)
 
@@ -354,6 +365,7 @@
 		"Lead Researcher",
 		"Research Supervisor",
 		"Silicon Administrator",
+		"Research Administrator",
 		"Director of Science",
 	)
 
