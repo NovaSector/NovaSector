@@ -47,13 +47,13 @@
 
 /// HIGH ALERT SOLFED RERSPONSE
 /datum/outfit/solfed/grand_espatier
-	name = "SolFed Espatier Rifleman"
+	name = "SolFed Espatier Rifleman (GRAND RESPONSE)"
 
 	uniform = /obj/item/clothing/under/solfed/marines
-	head = /obj/item/clothing/head/helmet/solfed
+	head = /obj/item/clothing/head/helmet/solfed/mk2
 	mask = /obj/item/clothing/mask/gas/alt
 	gloves = /obj/item/clothing/gloves/combat
-	suit = /obj/item/clothing/suit/armor/vest/sol/marine
+	suit = /obj/item/clothing/suit/armor/vest/sol/marine/mk2
 	shoes = /obj/item/clothing/shoes/jackboots
 	belt = /obj/item/storage/belt/military/solfed
 	neck = /obj/item/clothing/neck/mantle/solfed
@@ -77,8 +77,8 @@
 	id_trim = /datum/id_trim/solfed/espatier
 
 /datum/outfit/solfed/grand_espatier/engineer
-	name = "SolFed Espatier Engineer"
-	head = /obj/item/clothing/head/helmet/solfed/engineer
+	name = "SolFed Espatier Engineer (GRAND RESPONSE)"
+	head = /obj/item/clothing/head/helmet/solfed/mk2/engineer
 	belt = /obj/item/storage/belt/utility/full/powertools
 	mask = /obj/item/clothing/mask/gas/welding/up
 	ears = /obj/item/radio/headset/headset_solfed/espatier/engineer
@@ -100,8 +100,8 @@
 	..()
 
 /datum/outfit/solfed/grand_espatier/corpsman
-	name = "SolFed Espatier Corpsman"
-	head = /obj/item/clothing/head/helmet/solfed/corpsman
+	name = "SolFed Espatier Corpsman (GRAND RESPONSE)"
+	head = /obj/item/clothing/head/helmet/solfed/mk2/corpsman
 	ears = /obj/item/radio/headset/headset_solfed/espatier/corpsman
 	backpack_contents = list(
 		/obj/item/storage/medkit/surgery = 1,
@@ -119,8 +119,8 @@
 	..()
 
 /datum/outfit/solfed/grand_espatier/squadleader
-	name = "SolFed Espatier Squad Leader"
-	head = /obj/item/clothing/head/helmet/solfed/squadlead
+	name = "SolFed Espatier Squad Leader (GRAND RESPONSE)"
+	head = /obj/item/clothing/head/helmet/solfed/mk2/squadlead
 	ears = /obj/item/radio/headset/headset_solfed/espatier/squadleader
 
 	backpack_contents = list(

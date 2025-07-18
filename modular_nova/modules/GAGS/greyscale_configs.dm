@@ -2303,12 +2303,10 @@ TREK
 /datum/greyscale_config/vestcam/worn
 	name = "SolFed Vest Camo (Worn)"
 	icon_file = 'modular_nova/modules/goofsec/icons/mob/uniforms.dmi'
-	json_config = 'modular_nova/modules/GAGS/json_configs/solfed/milvest.json'
 
 /datum/greyscale_config/vestcam/worn/digi
 	name = "SolFed Vest Camo (Worn, Digi)"
 	icon_file = 'modular_nova/modules/goofsec/icons/mob/uniforms_digi.dmi'
-	json_config = 'modular_nova/modules/GAGS/json_configs/solfed/milvest.json'
 
 // Solfed Accessories
 /datum/greyscale_config/solfedribbons
@@ -2319,7 +2317,6 @@ TREK
 /datum/greyscale_config/solfedribbons/worn
 	name = "SolFed Ribbons (Worn)"
 	icon_file = 'modular_nova/master_files/icons/mob/clothing/accessories.dmi'
-	json_config = 'modular_nova/modules/GAGS/json_configs/solfed/sfranks.json'
 
 // Solfed Goggles Code
 /datum/greyscale_config/solfed_goggles
@@ -2330,4 +2327,3 @@ TREK
 /datum/greyscale_config/solfed_goggles/worn
 	name = "SolFed Goggles (Worn)"
 	icon_file = 'modular_nova/modules/goofsec/icons/mob/uniforms.dmi'
-	json_config = 'modular_nova/modules/GAGS/json_configs/solfed/gogglefed.json'

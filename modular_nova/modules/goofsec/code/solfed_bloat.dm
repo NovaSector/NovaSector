@@ -11,6 +11,19 @@
 /obj/item/clothing/suit/armor/vest/sol/marine/forest
 	greyscale_colors = "#008000"
 
+/// Marine vest
+/obj/item/clothing/suit/armor/vest/sol/marine/mk2/desert
+	greyscale_colors = "#e0dab7"
+
+/obj/item/clothing/suit/armor/vest/sol/marine/mk2/winter
+	greyscale_colors = "#eaeaea"
+
+/obj/item/clothing/suit/armor/vest/sol/marine/mk2/ocean
+	greyscale_colors = "#53638f"
+
+/obj/item/clothing/suit/armor/vest/sol/marine/mk2/forest
+	greyscale_colors = "#008000"
+
 /// Goggles
 /obj/item/clothing/glasses/sunglasses/solfed/winter
 	greyscale_colors = "#eaeaea"

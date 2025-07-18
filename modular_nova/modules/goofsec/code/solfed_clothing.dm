@@ -85,15 +85,15 @@ SOLFED ARMOR VALUES!
 
 // Regular armor resistances (NT Security ERT Protection Grade But Sidegrade [Boosted armor, no eva])
 /datum/armor/clothing_under/solfed_response_standard
-	melee = 80
-	bullet = 80
-	laser = 70
-	energy = 60
-	bomb = 80
-	bio = 20
-	fire = 50
-	acid = 50
-	wound = 45
+	melee = 50
+	bullet = 50
+	laser = 50
+	energy = 50
+	bomb = 50
+	bio = 25
+	fire = 25
+	acid = 25
+	wound = 30
 
 // Grand Response armor resistances (NT Asset Protection Grade But Sidegrade [Boosted armor, no eva])
 /datum/armor/clothing_under/solfed_response_grand
@@ -110,10 +110,11 @@ SOLFED ARMOR VALUES!
 // Sol Federation Combat Helmet
 /obj/item/clothing/head/helmet/solfed
 	name = "\improper SolFed MK I Combat helmet"
-	desc = "A robust Sol Federation helmet designed with an integrated light to provide vision to the brave marines on the front line."
+	desc = "A robust Sol Federation helmet designed with an integrated light to provide vision to the brave marines on the front line, and annoyingly no strap. It feels cheep \
+	it feels mass produced, its perfect for missions that are of lower grade threats."
 	icon_state = "icons/map_icons/clothing/head/_head"
-	post_init_icon_state = "federal_helmet"
-	worn_icon_state = "federal_helmet"
+	post_init_icon_state = "mark_one_helmet"
+	worn_icon_state = "mark_one_helmet"
 	actions_types = list(/datum/action/item_action/toggle_helmet_light)
 	armor_type = /datum/armor/clothing_under/solfed_response_standard
 
@@ -137,13 +138,12 @@ SOLFED ARMOR VALUES!
 
 /obj/item/clothing/head/helmet/solfed/mk2
 	name = "\improper SolFed MK II Combat helmet"
-	desc = "A much more robust Sol Federation helmet than the MK I, coming with its signature integrated light from its older counterpart but also with more heavier protection."
+	desc = "A much more robust Sol Federation helmet than the MK I, coming with its signature integrated light from its older counterpart but also with more heavier protection. \
+	this time with a strap!"
 	icon_state = "icons/map_icons/clothing/head/_head"
-	post_init_icon_state = "federal_helmet"
-	worn_icon_state = "federal_helmet"
+	post_init_icon_state = "mark_two_helmet"
+	worn_icon_state = "mark_two_helmet"
 	armor_type = /datum/armor/clothing_under/solfed_response_grand
-	greyscale_config = /datum/greyscale_config/solfed_goggles
-	greyscale_config_worn = /datum/greyscale_config/solfed_goggles/worn
 
 // Toggle state for the helmet light
 /obj/item/clothing/head/helmet/solfed/proc/toggle_helmet_light(mob/living/user)
@@ -183,13 +183,11 @@ SOLFED ARMOR VALUES!
 	icon_state = "icons/map_icons/clothing/suit/_suit"
 	post_init_icon_state = "hephaestus"
 	worn_icon_state = "hephaestus"
-	worn_icon_digi = "hephaestus"
 	armor_type = /datum/armor/clothing_under/solfed_response_standard
 	greyscale_config = /datum/greyscale_config/vestcam
 	greyscale_config_worn = /datum/greyscale_config/vestcam/worn
-	greyscale_config_worn_digi = /datum/greyscale_config/vestcam/worn/digi
 	greyscale_colors = "#4d4d4d"
-	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION
+	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION_NO_NEW_ICON
 
 /obj/item/clothing/suit/armor/vest/sol/marine/mk2
 	name = "\improper 'Hercules' heavy armor"
@@ -199,18 +197,8 @@ SOLFED ARMOR VALUES!
 	post_init_icon_state = "hercules"
 	worn_icon_state = "hercules"
 	worn_icon_digi = "hercules"
-	armor_type = /datum/armor/clothing_under/solfed_response_standard
-	greyscale_config = /datum/greyscale_config/vestcam
-	greyscale_config_worn = /datum/greyscale_config/vestcam/worn
-	greyscale_config_worn_digi = /datum/greyscale_config/vestcam/worn/digi
-	greyscale_colors = "#4d4d4d"
+	armor_type = /datum/armor/clothing_under/solfed_response_grand
 	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION
-
-
-
-
-
-
 
 /obj/item/clothing/neck/mantle/solfed
 	name = "\improper Sol Federation mantle"
@@ -418,7 +406,7 @@ SOLFED ARMOR VALUES!
 
 /obj/item/storage/belt/military/solfed
 	name = "solfed chest rig"
-	desc = "A set of tactical webbing worn by federal marines."
+	desc = "A set of tactical webbing worn by federal military personnel."
 	storage_type = /datum/storage/military_belt
 
 /datum/storage/military_belt/solfed

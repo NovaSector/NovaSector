@@ -10,7 +10,7 @@
 	"hercules": [
 		{
 			"type": "icon_state",
-			"icon_state": "vestcam",
+			"icon_state": "hercules",
 			"blend_mode": "overlay",
 			"color_ids": [1]
 		},

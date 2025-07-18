@@ -85,3 +85,63 @@
 /// Solfed Officals shuttle, but more fancy.
 /datum/ert/solfed/fancy
 	ert_template = /datum/map_template/shuttle/ert/solfed/fancy
+/*
+
+GRAND RESPONSE VARIANTS OF ESPATIERS, USE ONLY IF SOMEONE ROYALLY FUCKED UP
+
+*/
+/datum/ert/solfed/grand_espatier
+	roles = list(/datum/antagonist/ert/solfed/grand_espatier, /datum/antagonist/ert/solfed/grand_espatier/corpsman, /datum/antagonist/ert/solfed/grand_espatier/engineer)
+	leader_role = /datum/antagonist/ert/solfed/grand_espatier/leader
+
+	ert_template = /datum/map_template/shuttle/ert/solfed
+
+	notify_players = TRUE
+	rename_team = "SolFed Espatier Detachment"
+	teamsize = 6
+	code = "FEDERAL"
+	mission = "Rescue survivors, and bring order to chaos. Glory to the Federation."
+	polldesc = "a Sol Federation Grand Response Espatier"
+
+
+/// A variant of spawning, they spawn with a smaller more assaultlike ship, with no compartments (no medical compartment, engineering, atmos, just what they have on their back)
+/datum/ert/solfed/grand_espatier/assault
+	ert_template = /datum/map_template/shuttle/ert/solfed/assault
+
+/// Corpsman only spawn
+/datum/ert/solfed/grand_espatier/assault/corpsman_only
+	roles = list(/datum/antagonist/ert/solfed/grand_espatier)
+	polldesc = "a Sol Federation Truama Team"
+
+/// Rifleman only spawn
+/datum/ert/solfed/grand_espatier/assault/rifleman_only
+	roles = list(/datum/antagonist/ert/solfed/grand_espatier/corpsman)
+	polldesc = "a Sol Federation Rifleman"
+
+/// Engineering only spawn
+/datum/ert/solfed/grand_espatier/assault/engineering_only
+	roles = list(/datum/antagonist/ert/solfed/grand_espatier/engineer)
+
+/// A variant of spawning, they basically spawn with the mobile garrison/armory.
+/datum/ert/solfed/grand_espatier/armory
+	ert_template = /datum/map_template/shuttle/ert/solfed/armory
+
+/// Forces the true helljumpers (basically all infantry, no medics)
+/datum/ert/solfed/grand_espatier/armory/rifleman_only
+	roles = list(/datum/antagonist/ert/solfed/grand_espatier)
+
+/// A variant of spawning, they basically spawn with the mobile Hospital.
+/datum/ert/solfed/grand_espatier/medical
+	ert_template = /datum/map_template/shuttle/ert/solfed/medical
+
+/// A variant of spawning, they basically spawn with the mobile Engineering Bay.
+/datum/ert/solfed/grand_espatier/engineer
+	ert_template = /datum/map_template/shuttle/ert/solfed/engineer
+
+/// Forces this shuttle type to be engineering only
+/datum/ert/solfed/grand_espatier/engineer/engineering_only
+	roles = list(/datum/antagonist/ert/solfed/grand_espatier/engineer)
+
+/// Forces the crew to be oops all corpsmans! (medics/doctors)
+/datum/ert/solfed/grand_espatier/medical/corpsman_only
+	roles = list(/datum/antagonist/ert/solfed/grand_espatier/corpsman)
