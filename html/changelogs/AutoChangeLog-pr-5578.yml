@@ -1,0 +1,10 @@
+author: "carpotoxin"
+delete-after: True
+changes:
+  - qol: "Stardress hydro-vaporizer now functions on anyone, not just akula"
+  - bugfix: "Stardress hydro-vaporizer can now be EMP'd again"
+  - rscdel: "Deleted adapted lungs selection in the mutations+ category"
+  - rscadd: "Added adapted lungs quirk which will be applied to any lungs a player installs"
+  - refactor: "Refactored the nitrogen breather quirk into a standardized breather quirk"
+  - rscadd: "Added plasma breather quirk"
+  - rscadd: "Added water breather quirk"
