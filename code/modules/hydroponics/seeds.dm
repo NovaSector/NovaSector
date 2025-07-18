@@ -567,6 +567,7 @@
 	snip.weed_chance = weed_chance
 	snip.yield = yield
 
+	snip.reagents_add = reagents_add.Copy() // NOVA EDIT ADDITION
 	return snip
 
 /**

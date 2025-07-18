@@ -424,8 +424,6 @@
 	. = ..()
 	. += span_notice("Alt-click [src] to adjust it.")
 
-/obj/item/clothing/mask/gas/nightlight/alldono //different itempath so regular donators can have it, too
-
 // Donation reward for Farsighted Nightlight
 /obj/item/clothing/mask/gas/nightlight/fir22
 	name = "\improper FIR-22 full-face rebreather"
@@ -2252,6 +2250,7 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/structure/sign/poster/contraband/korpstech, 32)
 	worn_icon_digi = 'modular_nova/master_files/icons/donator/mob/clothing/suit_digi.dmi'
 	icon_state = "seva_melon"
 	hoodtype = /obj/item/clothing/head/hooded/seva/melon
+	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION
 	hood_up_affix = ""
 
 /obj/item/clothing/head/hooded/seva/melon
@@ -2373,6 +2372,7 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/structure/sign/poster/contraband/korpstech, 32)
 	worn_icon_digi = 'modular_nova/master_files/icons/donator/mob/clothing/suit_digi.dmi'
 	icon_state = "explorer_melon"
 	hoodtype = /obj/item/clothing/head/hooded/explorer/melon
+	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION
 	hood_up_affix = ""
 
 /obj/item/clothing/head/hooded/explorer/melon

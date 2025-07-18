@@ -57,7 +57,6 @@
 /client/verb/reportissue()
 	set name = "report-issue"
 	set desc = "Report an issue"
-	set hidden = TRUE
 
 	var/githuburl = CONFIG_GET(string/githuburl)
 	if(!githuburl)
@@ -67,6 +66,15 @@
 	var/testmerge_data = GLOB.revdata.testmerge
 	var/has_testmerge_data = (length(testmerge_data) != 0)
 
+	// NOVA EDIT ADDITION START
+	var/issue_source_message = "Are you reporting a TG issue, or a Nova issue?\
+		<br>If you are unsure whether the problem comes from upstream or not, choose 'Nova Issue'."
+	var/issue_source = tg_alert(src, issue_source_message, "Report Issue", "Nova Issue", "TG Upstream Issue")
+	if(isnull(issue_source))
+		return
+	if(issue_source == "TG Upstream Issue")
+		githuburl = "https://www.github.com/tgstation/tgstation"
+	// NOVA EDIT ADDITION END
 	var/message = "This will open the Github issue reporter in your browser. Are you sure?"
 	if(has_testmerge_data)
 		message += "<br>The following experimental changes are active and are probably the cause of any new or sudden issues you may experience. If possible, please try to find a specific thread for your issue instead of posting to the general issue tracker:<br>"
@@ -84,11 +92,11 @@
 	concatable += ("&reporting-version=" + client_version)
 
 	// the way it works is that we use the ID's that are baked into the template YML and replace them with values that we can collect in game.
-	if(GLOB.round_id)
+	if(GLOB.round_id && issue_source != "TG Upstream Issue") // NOVA EDIT CHANGE - ORIGINAL: if(GLOB.round_id)
 		concatable += ("&round-id=" + GLOB.round_id)
 
 	// Insert testmerges
-	if(has_testmerge_data)
+	if(has_testmerge_data && issue_source != "TG Upstream Issue") // NOVA EDIT CHANGE - ORIGINAL: if(has_testmerge_data)
 		var/list/all_tms = list()
 		for(var/entry in testmerge_data)
 			var/datum/tgs_revision_information/test_merge/tm = entry

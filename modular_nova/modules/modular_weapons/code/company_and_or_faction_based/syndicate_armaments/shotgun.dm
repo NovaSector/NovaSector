@@ -22,3 +22,9 @@
 
 /obj/item/gun/ballistic/shotgun/katyusha/shitzu/give_manufacturer_examine()
 	AddElement(/datum/element/manufacturer_examine, COMPANY_GORLEX)
+
+/obj/item/storage/toolbox/guncase/nova/syndicate/shitzu
+	name = "Shitzu Magfed Shotgun Guncase"
+	desc = "Man's best friend.... may be in this case!"
+	weapon_to_spawn = /obj/item/gun/ballistic/shotgun/katyusha/shitzu
+	extra_to_spawn = /obj/item/ammo_box/magazine/shitzu/milspec
