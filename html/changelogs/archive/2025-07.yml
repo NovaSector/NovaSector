@@ -126,3 +126,49 @@
       your ears wholesale.
   thetaro:
   - balance: put lings chem regen back to 1 (was 0.5)
+2025-07-19:
+  CliffracerX:
+  - rscadd: '"ramatae" body parts in Augs+ - slugcat-inspired & slim-bodied'
+  - rscadd: harpy legs in Augs+ - silhouette/clothing compatible for digitigrade,
+      sans optional dewclaw, can be scrunched as needed
+  - rscadd: 3 new snouts, 7 new ears, 3 new frills, 2 waggable tails, and a light-belly
+      option for Augments+.
+  - rscadd: Move-Speak language for primarily nonverbal critters - no new mechanics,
+      just flavor
+  - qol: Humans and human-based species have digitigrade leg support, allowing for
+      proper skintone harpies & the likes
+  RealWinterFrost:
+  - rscadd: Adds a new naga taur option (naga, fat).
+  - balance: due to recent situations and tensions with the frontier, Sol Federation
+      Armed Forces has been approved for 'Intergalactic safety and securities act'
+      authorizing them to have heavier gear to protect them from hostile threats and
+      environments.
+  - image: solfed personnel have now been officially supplied brand new uniforms.
+      (marshals/swat, ems, atmos)
+  - image: Changed the 'reinforcement beacon' sprite.
+  - image: solar federation officials now have a presentable uniform for their duties
+  - rscadd: Solfed marines and personnel now have special attire to increase their
+      odds of being rescued or survival.
+  - map: added new Solfed ERT Shuttles
+  - admin: 'Added new officals loadouts, and modifies ''911 Response: Military'' to
+      have newest gear.'
+  - admin: Added new ERT options (Officials, Espatiers, and so on)
+  - admin: 'New ERT Espatiers and its subtypes have different goals than 911 Response:
+      Military variant, instead of treason destruction its protection and evacuations,
+      please see PR for more info.'
+  - bugfix: gives the solfed adv. security headset their proper radio key instead
+      of stealing from the adv. atmos headset
+  Zergspower:
+  - balance: C.U.C.K.S. and co barriers are slightly better against bombs and acid,
+      guardrails no longer are better than them and are balanced down to match the
+      material resistances.
+  carpotoxin:
+  - qol: Stardress hydro-vaporizer now functions on anyone, not just akula
+  - bugfix: Stardress hydro-vaporizer can now be EMP'd again
+  - rscdel: Deleted adapted lungs selection in the mutations+ category
+  - rscadd: Added adapted lungs quirk which will be applied to any lungs a player
+      installs
+  - refactor: Refactored the nitrogen breather quirk into a standardized breather
+      quirk
+  - rscadd: Added plasma breather quirk
+  - rscadd: Added water breather quirk
