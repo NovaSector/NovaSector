@@ -526,7 +526,7 @@
 
 /datum/loadout_item/suit/discojacket
 	name = "Disco Ass Blazer"
-	item_path = /obj/item/clothing/suit/discoblazer
+	item_path = /obj/item/clothing/suit/jacket/discoblazer
 
 /datum/loadout_item/suit/kimjacket
 	name = "Aerostatic Bomber Jacket"
