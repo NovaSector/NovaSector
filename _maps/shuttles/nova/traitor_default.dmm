@@ -1,0 +1,207 @@
+//MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
+"cM" = (
+/obj/item/tether_anchor{
+	anchored = 1;
+	pixel_x = -16
+	},
+/turf/closed/wall/mineral/plastitanium,
+/area/shuttle/traitor)
+"cZ" = (
+/obj/machinery/camera/xray/directional/south{
+	pixel_y = 32;
+	c_tag = "External View Port-Side";
+	network = list("lone_infil_shuttle");
+	use_power = 0
+	},
+/turf/closed/wall/mineral/plastitanium/nodiagonal,
+/area/shuttle/traitor)
+"dc" = (
+/obj/structure/cable,
+/obj/structure/chair/comfy/shuttle/tactical{
+	dir = 4
+	},
+/turf/open/floor/circuit/red,
+/area/shuttle/traitor)
+"ie" = (
+/turf/closed/wall/mineral/plastitanium,
+/area/shuttle/traitor)
+"qe" = (
+/obj/structure/cable,
+/obj/effect/turf_decal/delivery/red,
+/obj/machinery/computer/shuttle/traitor{
+	dir = 8
+	},
+/obj/item/shuttle_remote/traitor,
+/turf/open/floor/mineral/plastitanium,
+/area/shuttle/traitor)
+"qu" = (
+/turf/closed/wall/mineral/plastitanium/nodiagonal,
+/area/shuttle/traitor)
+"qQ" = (
+/obj/effect/turf_decal/delivery/red,
+/obj/structure/sign/poster/contraband/icebox_moment/directional/north,
+/obj/structure/extinguisher_cabinet/directional/east,
+/obj/machinery/computer/camera_advanced/shuttle_docker/traitor,
+/turf/open/floor/mineral/plastitanium,
+/area/shuttle/traitor)
+"tO" = (
+/obj/structure/cable,
+/obj/machinery/power/apc/auto_name/directional/west,
+/obj/effect/mapping_helpers/apc/full_charge,
+/obj/effect/mapping_helpers/apc/cell_10k,
+/obj/effect/mapping_helpers/apc/syndicate_access,
+/obj/effect/mapping_helpers/apc/cut_AI_wire,
+/obj/effect/turf_decal/box/red/corners{
+	dir = 1
+	},
+/obj/effect/turf_decal/box/red/corners{
+	dir = 4
+	},
+/obj/machinery/computer/security/telescreen/traitor_shuttle/directional/east,
+/turf/open/floor/mineral/plastitanium,
+/area/shuttle/traitor)
+"vf" = (
+/obj/structure/sign/warning/directional/west{
+	pixel_y = -32
+	},
+/turf/closed/wall/mineral/plastitanium,
+/area/shuttle/traitor)
+"Jv" = (
+/turf/template_noop,
+/area/template_noop)
+"Nn" = (
+/obj/structure/cable,
+/obj/machinery/recharger,
+/obj/structure/sign/flag/syndicate/directional/south,
+/obj/structure/table/reinforced,
+/turf/open/floor/mineral/plastitanium,
+/area/shuttle/traitor)
+"UZ" = (
+/obj/machinery/power/shuttle_engine/propulsion/burst{
+	dir = 8
+	},
+/turf/closed/wall/mineral/plastitanium,
+/area/shuttle/traitor)
+"Ve" = (
+/obj/effect/spawner/structure/window/reinforced/plasma/plastitanium,
+/obj/structure/cable,
+/obj/machinery/door/poddoor/shutters/preopen{
+	dir = 4;
+	id = "lone_infil_shutter"
+	},
+/turf/open/floor/plating,
+/area/shuttle/traitor)
+"Yi" = (
+/obj/machinery/door/airlock/hatch{
+	id_tag = "lone_infil_bolt";
+	name = "External Airlock";
+	external = 1
+	},
+/obj/effect/mapping_helpers/airlock/access/all/syndicate/general,
+/obj/structure/cable,
+/obj/structure/fans/tiny,
+/obj/docking_port/stationary{
+	dir = 4;
+	name = "Deep Space";
+	shuttle_id = "traitor_home";
+	dwidth = 4;
+	width = 9;
+	height = 5
+	},
+/obj/docking_port/mobile/traitor{
+	dir = 4
+	},
+/turf/open/floor/catwalk_floor/iron_dark,
+/area/shuttle/traitor)
+"YB" = (
+/obj/machinery/camera/xray/directional/north{
+	pixel_y = -32;
+	network = list("lone_infil_shuttle");
+	c_tag = "External View Starboard-Side";
+	use_power = 0
+	},
+/turf/closed/wall/mineral/plastitanium/nodiagonal,
+/area/shuttle/traitor)
+"YY" = (
+/obj/structure/cable,
+/obj/machinery/button/door/directional/west{
+	id = "lone_infil_bolt";
+	name = "External Bolt Control";
+	normaldoorcontrol = 1;
+	req_access = list("syndicate");
+	specialfunctions = 4;
+	pixel_y = 8
+	},
+/obj/machinery/button/door/directional/west{
+	id = "lone_infil_shutter";
+	name = "External Shutter Control";
+	req_access = list("syndicate");
+	pixel_y = -10
+	},
+/obj/structure/closet/generic/wall/empty{
+	pixel_x = 32
+	},
+/obj/effect/turf_decal/box/red/corners,
+/obj/effect/turf_decal/box/red/corners{
+	dir = 8
+	},
+/obj/item/storage/box/survival/radio,
+/obj/item/crowbar/red,
+/turf/open/floor/mineral/plastitanium,
+/area/shuttle/traitor)
+
+(1,1,1) = {"
+Jv
+ie
+UZ
+ie
+Yi
+ie
+UZ
+ie
+Jv
+"}
+(2,1,1) = {"
+UZ
+ie
+qQ
+tO
+dc
+YY
+Nn
+ie
+UZ
+"}
+(3,1,1) = {"
+ie
+ie
+ie
+qu
+qe
+qu
+Ve
+ie
+ie
+"}
+(4,1,1) = {"
+cM
+vf
+Jv
+ie
+Ve
+ie
+Jv
+ie
+cM
+"}
+(5,1,1) = {"
+cZ
+Jv
+Jv
+Jv
+Jv
+Jv
+Jv
+Jv
+YB
+"}

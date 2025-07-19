@@ -57,8 +57,7 @@
 			continue
 
 		for(var/obj/machinery/door/airlock/airlock_door in checked_turf)
-			// Do not unbolt button controlled exits
-			if(airlock_door.external && !airlock_door.id_tag)
+			if(airlock_door.external)
 				airlock_door.unbolt()
 
 /obj/docking_port/mobile/proc/play_engine_sound(atom/distant_source, takeoff)

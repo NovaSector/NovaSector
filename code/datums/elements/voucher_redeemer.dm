@@ -12,8 +12,14 @@
 	var/list/cached_options
 	/// Cached set of voucher sets
 	var/list/set_instances
+	//NOVA ADDITION EDIT START
+	/// Which direction to drop the items (if any)
+	var/drop_direction
+	/// Which sound effect plays on redeem
+	var/sound_effect
+	//NOVA ADDITION EDIT END
 
-/datum/element/voucher_redeemer/Attach(datum/target, voucher_type = /obj/item/coin, set_type = /datum/voucher_set)
+/datum/element/voucher_redeemer/Attach(datum/target, voucher_type = /obj/item/coin, set_type = /datum/voucher_set, drop_direction = 0, sound_effect = 'sound/machines/machine_vend.ogg') // NOVA ADDITION EDIT, old code: /datum/element/voucher_redeemer/Attach(datum/target, voucher_type = /obj/item/coin, set_type = /datum/voucher_set)
 	. = ..()
 	if(!ismovable(target))
 		return ELEMENT_INCOMPATIBLE
@@ -26,6 +32,10 @@
 
 	src.voucher_type = voucher_type
 	src.set_type = set_type
+	//NOVA ADDITION EDIT START
+	src.drop_direction = drop_direction
+	src.sound_effect = sound_effect
+	//NOVA ADDITION EDIT END
 	RegisterSignal(target, COMSIG_ATOM_ITEM_INTERACTION, PROC_REF(redeem_voucher))
 
 /datum/element/voucher_redeemer/Detach(datum/target)
@@ -65,7 +75,13 @@
 		return
 
 	var/datum/voucher_set/chosen_set = set_instances[selection]
-	chosen_set.spawn_set(source.drop_location())
+	//NOVA ADDITION EDIT START - old code: chosen_set.spawn_set(source.drop_location())
+	if(drop_direction)
+		chosen_set.spawn_set(get_step(source, drop_direction))
+	else
+		chosen_set.spawn_set(source.drop_location())
+	playsound(source, sound_effect, 100)
+	//NOVA ADDITION EDIT END
 	if(chosen_set.blackbox_key)
 		SSblackbox.record_feedback("tally", chosen_set.blackbox_key, 1, selection)
 	source.balloon_alert(redeemer, "redeemed [LOWER_TEXT(selection)]")
