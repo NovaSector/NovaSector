@@ -83,10 +83,6 @@
 	name = "White Formal Suit Jacket"
 	item_path = /obj/item/clothing/suit/toggle/lawyer/white
 
-/datum/loadout_item/suit/suitblackbetter
-	name = "Light Black Formal Suit Jacket"
-	item_path = /obj/item/clothing/suit/toggle/lawyer/black/better
-
 /datum/loadout_item/suit/suitwhite
 	name = "Texan Suit Jacket"
 	item_path = /obj/item/clothing/suit/texas
