@@ -2,7 +2,6 @@
 	name = "Abductor Mob Basic"
 	uniform = /obj/item/clothing/under/abductor
 	shoes = /obj/item/clothing/shoes/combat
-	ears = /obj/item/radio/headset/abductor
 	belt = /obj/item/storage/belt/military/abductor
 
 /datum/outfit/abductor_nova/combat
