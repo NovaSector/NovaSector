@@ -1,13 +1,3 @@
-/obj/item/clothing/suit/wornshirt
-	name = "worn shirt"
-	desc = "A worn out (or perhaps just baggy), curiously comfortable t-shirt."
-	icon = 'modular_nova/master_files/icons/obj/clothing/suits.dmi'
-	worn_icon = 'modular_nova/master_files/icons/mob/clothing/suit.dmi'
-	icon_state = "wornshirt"
-	inhand_icon_state = "labcoat"
-	body_parts_covered = CHEST|GROIN
-	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION_NO_NEW_ICON
-
 /obj/item/clothing/suit/dutchjacketsr
 	name = "western jacket"
 	desc = "Botanists screaming of mangos have been rumored to wear this."

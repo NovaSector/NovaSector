@@ -383,10 +383,6 @@
 	name = "Messy Ian Shirt"
 	item_path = /obj/item/clothing/suit/costume/wellworn_shirt/messy/graphic/ian
 
-/datum/loadout_item/suit/wornshirt
-	name = "Worn Shirt"
-	item_path = /obj/item/clothing/suit/wornshirt
-
 /datum/loadout_item/suit/duster
 	name = "Colorable Duster"
 	item_path = /obj/item/clothing/suit/duster
