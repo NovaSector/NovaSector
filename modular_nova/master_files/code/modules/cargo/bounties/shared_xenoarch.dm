@@ -9,7 +9,7 @@
 
 /datum/bounty/item/sharedxenoarch/fossil_1
 	name = "Relic of the Past"
-	description = "Surprisingly, members of corporate want some fancy relics of the past, even though they're worthless... best to not ask..."
+	description = "Members of corporate want some useless relics of the past to serve as office decoration, mostly in the form of paperweights."
 	reward = CARGO_CRATE_VALUE * 2
 	required_count = 5
 	wanted_types = list(
@@ -17,8 +17,8 @@
 	)
 
 /datum/bounty/item/sharedxenoarch/fossil_2
-	name = "Object of redemption"
-	description = "Corporate wants some broken stuff from xeno-archeology, not sure why... but just send anything thats broken."
+	name = "Object of Redemption"
+	description = "Corporate wants some broken items from xeno-archeology, not sure why... but just send anything that's broken."
 	reward = CARGO_CRATE_VALUE * 4
 	required_count = 5
 	wanted_types = list(
@@ -26,7 +26,7 @@
 	)
 
 /datum/bounty/item/sharedxenoarch/fossil_tech
-	name = "Technology of the yesteryear"
+	name = "Technology of the Yesteryear"
 	description = "Corporate wants some broken ancient technology, not sure why, but its good to keep the investors happy."
 	reward = CARGO_CRATE_VALUE * 6
 	required_count = 5
@@ -45,7 +45,7 @@
 
 /datum/bounty/item/sharedxenoarch/fossil_unknown
 	name = "Oddities of the Past"
-	description = "Corporate wants... broken ancient things that cannot be identified, dont ask its likely above YOUR paygrade."
+	description = "Corporate wants unidentifiable broken ancient objects, for REDACTED."
 	reward = CARGO_CRATE_VALUE * 10
 	required_count = 5
 	wanted_types = list(

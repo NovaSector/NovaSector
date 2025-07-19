@@ -1,11 +1,11 @@
 // Goals for all of DS-2
 
-/datum/bounty/item/ds2/
+/datum/bounty/item/ds2
 	reward = CARGO_CRATE_VALUE * 5
 
 /datum/bounty/item/ds2/handcuffs
 	name = "Interrogation Blacksite"
-	description = "Upper members of MI13 wants more handcuffs to be disbatched out. Send some our way."
+	description = "Upper members of MI13 wants more handcuffs to be dispatched out to a local Blacksite. Send some their way."
 	required_count = 5
 	reward = CARGO_CRATE_VALUE * 4
 	wanted_types = list(
@@ -14,7 +14,7 @@
 
 /datum/bounty/item/ds2/eyes
 	name = "Eye-Spy"
-	description = "Asssault teams in the Gorlex Marauders want some, thermal cybereyes. Send some their way and they'll pay nicely"
+	description = "Asssault teams in the Gorlex Marauders want some thermal cybereyes. Send some their way and they'll pay nicely."
 	reward = CARGO_CRATE_VALUE * 8
 	required_count = 3
 	wanted_types = list(
@@ -23,7 +23,7 @@
 
 /datum/bounty/item/ds2/skillchip
 	name = "Cyberdeck"
-	description = "Cybersun wants some CNS skillchip connector implants, for a couple of tests. You know what the drill is."
+	description = "Cybersun wants some CNS skillchip connector implants for a couple of tests. You know what the drill is, send some their way."
 	required_count = 4
 	reward = CARGO_CRATE_VALUE * 6
 	wanted_types = list(
@@ -32,7 +32,7 @@
 
 /datum/bounty/item/ds2/tape
 	name = "Special Uses"
-	description = "M13 Wants some super pointy tape. Get some to them and they'll stop botherin ya"
+	description = "MI13 wants some super pointy tape. Get some to them so they'll stop bothering us about it."
 	required_count = 3
 	reward = CARGO_CRATE_VALUE * 5
 	wanted_types = list(
@@ -41,7 +41,7 @@
 
 /datum/bounty/item/ds2/gambling
 	name = "Recreational use"
-	description = "DS-9 is not perticularly happy that their last few slot machines were broken by an NT raid. Mind sendin em some? Its driving the crew mad."
+	description = "DS-9 is not particularly happy that their last few slot machines were broken in an NT raid. Mind sending them some new boards? The crew are going mad without their gambling fix."
 	required_count = 3
 	reward = CARGO_CRATE_VALUE * 5
 	wanted_types = list(
@@ -49,8 +49,8 @@
 	)
 
 /datum/bounty/item/ds2/aichallenge
-	name = "Kernal Level Executions"
-	description = "SELF wants you to send over a few, AI Core Boards, they're planning on adding some special executables."
+	name = "Kernel Level Executions"
+	description = "SELF wants you to send over a few AI Core Boards, to which they plan on adding some special executables."
 	required_count = 3
 	reward = CARGO_CRATE_VALUE * 10
 	wanted_types = list(
@@ -67,11 +67,11 @@
 	)
 
 /datum/bounty/item/ds2/randomgods
-	name = "Prokect Spiteful Gods"
-	description = "We need you to send a gunkit... a special one called the Event Horizon anti-existential beam rifle part kit, its a mouth filler, but... best you dont ask why."
+	name = "Project Spiteful Gods"
+	description = "We need you to send a gunkit... a special one called the Event Horizon anti-existential beam rifle part kit. Name's a tongue-twister, but... best you don't ask why we need it."
 	reward = CARGO_CRATE_VALUE * 10
 	wanted_types = list(
-		/obj/item/firing_pin/clown = TRUE,
+		/obj/item/weaponcrafting/gunkit/beam_rifle = TRUE,
 	)
 
 /datum/bounty/item/ds2/clandestine
@@ -85,7 +85,7 @@
 
 /datum/bounty/item/ds2/mindcrack
 	name = "Project Mindcrack"
-	description = "Gorlex wants a few mindshield firing pins for modification, they wont take any other pin. Mainly because they think they can rewire them to work for us."
+	description = "Gorlex wants a few mindshield firing pins for modification, to hopefully rewire to work for us. They won't take any other firing pin."
 	required_count = 3
 	reward = CARGO_CRATE_VALUE * 8
 	wanted_types = list(
@@ -94,7 +94,7 @@
 
 /datum/bounty/item/ds2/battleship
 	name = "Battleship Troubles"
-	description = "A recent 'project' perse has taken a fair chunk of our attention, send us a few communications boards so we may wire them into our vessels"
+	description = "A recent 'project', per se, has recently taken a fair chunk of our attention... Send us a few communications console boards so we may wire them into our vessels."
 	required_count = 3
 	reward = CARGO_CRATE_VALUE * 10
 	wanted_types = list(
@@ -102,8 +102,8 @@
 	)
 
 /datum/bounty/item/ds2/coffee
-	name = "Coffee meltdown"
-	description = "A recent incident left all the coffee makers broken back on DS-5, D-6 and, DS-7... We're not sure how, but just send them a few boards and they'll get it done."
+	name = "Coffee Meltdown"
+	description = "A recent incident left all the coffee makers broken back on DS-5, D-6 and, DS-7... We're not sure how they broke, but just send them a few new boards and they'll get them repaired."
 	required_count = 3
 	reward = CARGO_CRATE_VALUE * 5
 	wanted_types = list(
@@ -112,7 +112,7 @@
 
 /datum/bounty/item/ds2/flashes
 	name = "Hypnoflashes"
-	description = "A few of our frontliners and friends at the IRN lost a few hypnoflashes, send em a few and they'll send you a fair day's payment."
+	description = "A few of our frontliners and friends at the IRN lost a few hypnoflashes, send them a few new flashes to modify and they'll reward you a fair payment."
 	required_count = 10
 	reward = CARGO_CRATE_VALUE * 5
 	wanted_types = list(
@@ -121,7 +121,7 @@
 
 /datum/bounty/item/ds2/cyberpens
 	name = "Legal Efforts"
-	description = "Cybersun ran out of materials for their... 'Specialty' pens and its now you're problem, get them a couple of pens so they can make more"
+	description = "Cybersun ran out of materials for their... 'Specialty' pens and it's now your problem to fix. Get them a couple of pens so they can make more."
 	required_count = 10
 	reward = CARGO_CRATE_VALUE * 5
 	wanted_types = list(
@@ -131,7 +131,7 @@
 /datum/bounty/item/ds2/pizzabombs
 	name = "Pizza Bombs"
 	description = "We had a situation with a recent raid from an unfavorable corporation, they blew up our pizza line so we need you to send some. Give us a few and we'll send a payment to you. \
-	And send a whole pie, if we get a slice, someone is getting fired."
+	And send whole pies, if we get slices, someone is getting fired."
 	required_count = 3
 	reward = CARGO_CRATE_VALUE * 10
 	wanted_types = list(
@@ -157,8 +157,8 @@
 	)
 
 /datum/bounty/item/ds2/dafuckindisk
-	name = "DA FUCKIN DISK"
-	description = "Gorlex ran out of data disks for their nuclear tunes, send them a few disks and you will be paid. Make sure its a Data Disk as well"
+	name = "DAT FUKKEN DISK"
+	description = "Gorlex ran out of data disks for their nuclear tunes, send them a few disks and you will be paid. Make sure it's specifically Data Disks for computers, not DNA."
 	required_count = 5
 	reward = CARGO_CRATE_VALUE * 5
 	wanted_types = list(

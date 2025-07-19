@@ -1,18 +1,18 @@
 /datum/bounty/item/ds2_engie/emitter
 	name = "Emitter"
-	description = "Cybersun wants an emitter so they can make an anti-ship gun out of it. Its cooler than it sounds."
+	description = "Cybersun wants an emitter so they can make an anti-ship gun out of it. They swear it'll be cooler than it sounds."
 	reward = CARGO_CRATE_VALUE * 5
 	wanted_types = list(/obj/machinery/power/emitter = TRUE)
 
 /datum/bounty/item/ds2_engie/hydro_tray
 	name = "Hydroponics Tray"
-	description = "DS-11 had an incident with hydrotray, mind sendin a new one?"
+	description = "DS-11 had an incident with a hydroponics tray. Mind sending a new one?"
 	reward = CARGO_CRATE_VALUE * 4
 	wanted_types = list(/obj/machinery/hydroponics/constructable = TRUE)
 
 /datum/bounty/item/ds2_engie/cyborg_charger
 	name = "Recharging Station"
-	description = "Staging area 9, had an incident with one of the rechargers and we need a new one sent."
+	description = "Staging Area 9 had an incident with one of the recharging stations, and they need a new one sent."
 	reward = CARGO_CRATE_VALUE * 5
 	wanted_types = list(/obj/machinery/recharge_station = TRUE)
 
@@ -24,13 +24,13 @@
 
 /datum/bounty/item/ds2_engie/pacman
 	name = "P.A.C.M.A.N. Generator"
-	description = "Our backup generator blew a fuse, we need a new one ASAP."
+	description = "Our backup generator blew a fuse, we need a new P.A.C.M.A.N. ASAP."
 	reward = CARGO_CRATE_VALUE * 5
 	wanted_types = list(/obj/machinery/power/port_gen/pacman = TRUE)
 
 /datum/bounty/item/ds2_engie/field_gen
 	name = "Field Generator"
-	description = "One of our protective generator's warranties has expired, we need a new one to replace it."
+	description = "One of our protective field generator's warranties has expired, we need a new one to replace it."
 	reward = CARGO_CRATE_VALUE * 6
 	wanted_types = list(/obj/machinery/field/generator = TRUE)
 
@@ -47,8 +47,8 @@
 	wanted_types = list(/obj/structure/reflector = TRUE)
 
 /datum/bounty/item/ds2_engie/communications
-	name = "Reflector"
-	description = "We lost our communications array here, send us a new one"
+	name = "Communication Console"
+	description = "We lost our communications array here, send us a new pre-constructed communications console."
 	reward = CARGO_CRATE_VALUE * 10
 	wanted_types = list(/obj/machinery/computer/communications = TRUE)
 

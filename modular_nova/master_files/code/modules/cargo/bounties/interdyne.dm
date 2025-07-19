@@ -1,6 +1,6 @@
 /datum/bounty/item/interdyne_med/heart
 	name = "Heart"
-	description = "Corporate needs a few new hearts for scientific study, They will allow cybernetic ones to be submitted, but wont accept any basic cybernetics."
+	description = "Corporate needs a few new hearts for scientific study. They will allow cybernetic ones to be submitted, but won't accept any basic cybernetics."
 	reward = CARGO_CRATE_VALUE * 10
 	wanted_types = list(
 		/obj/item/organ/heart = TRUE,
@@ -12,7 +12,7 @@
 
 /datum/bounty/item/interdyne_med/lung
 	name = "Lungs"
-	description = "Corporate needs a few new lungs after, an unfavorable event. The details of the event do not matter, we need lungs, organic is preferred, but cybernetic is acceptable, basic cybernetics wont be accepted."
+	description = "Corporate needs a few new lungs after an unfavorable event, the details of which do not matter. Organic lungs are preferred, but cybernetic is acceptable. Basic cybernetics won't be accepted."
 	reward = CARGO_CRATE_VALUE * 10
 	required_count = 3
 	wanted_types = list(
@@ -31,7 +31,7 @@
 
 /datum/bounty/item/interdyne_med/ears
 	name = "Ears"
-	description = "After a chemical incident at Interdyne Vessel 29 left them deaf, new ears are needed to be provided, cybernetic ones are fine but they cant be basic ones."
+	description = "After a chemical incident at Interdyne Vessel 29 left them deaf, new ears need to be provided. Cybernetic ones are fine, but basic cybernetics will not be accepted."
 	reward = CARGO_CRATE_VALUE * 10
 	required_count = 3
 	wanted_types = list(
@@ -45,7 +45,7 @@
 
 /datum/bounty/item/interdyne_med/liver
 	name = "Livers"
-	description = "Many patients came into one of our facilities recently with liver failure, we since ran out of livers, send some organic ones prefferably, but cybernetic ones will do, just not the basic kind."
+	description = "One of our facilities has recently been overwhelmed by many patients with liver failure. Send some organic ones preferably, but cybernetic ones will do. Basic cybernetics will not be accepted.."
 	reward = CARGO_CRATE_VALUE * 5
 	required_count = 3
 	wanted_types = list(
@@ -58,7 +58,7 @@
 
 /datum/bounty/item/interdyne_med/eye
 	name = "Organic Eyes"
-	description = "A leading researcher upon IPMV-113 ran out of corpses with, organic eyes... Just get them, I'll spare you from the details."
+	description = "A leading researcher upon IPMV-113 ran out of corpses with organic eyes... Just supply them more, I'll spare you from the details. Cybernetics will not be accepted."
 	reward = CARGO_CRATE_VALUE * 10
 	required_count = 3
 	wanted_types = list(
@@ -69,7 +69,7 @@
 
 /datum/bounty/item/interdyne_med/tongue
 	name = "Tongues"
-	description = "IPMV-25 recently played a dare based game and decided to be stupid with sulfuric acid, new tongues are needed so send some if you got some."
+	description = "IPMV-25 recently played a dare based game and decided to be stupid with sulfuric acid. They need some new tongues, so send some if you can. Synthetic tongues will not be accepted."
 	reward = CARGO_CRATE_VALUE * 10
 	required_count = 3
 	wanted_types = list(
@@ -79,19 +79,19 @@
 
 /datum/bounty/item/interdyne_med/lizard_tail
 	name = "Lizard Tail"
-	description = "A recent near fatal accident happened in a partner company, the patient needes a lizard tail, get it done and we'll make it worth your while."
+	description = "A recent near fatal accident happened in a partner company, the patient needs a lizard tail. Supply it and we'll make it worth your while."
 	reward = CARGO_CRATE_VALUE * 6
 	wanted_types = list(/obj/item/organ/tail/lizard = TRUE)
 
 /datum/bounty/item/interdyne_med/cat_tail
 	name = "Cat Tail"
-	description = "Due to a mixture of alcohol, unethical thoughts and questioning if felenids are just humans with cat ears. one of our staff has lost their tail, send one asap."
+	description = "Due to a mixture of alcohol, unethical thoughts, and questioning if felinids are just humans with cat ears, one of our staff has lost their tail. Send a new cat tail ASAP."
 	reward = CARGO_CRATE_VALUE * 6
 	wanted_types = list(/obj/item/organ/tail/cat = TRUE)
 
 /datum/bounty/item/interdyne_med/chainsaw
 	name = "Chainsaw"
-	description = "Doctor Izazel on IPMV-2201, wants a chainsaw for more... nevermind, just send one and we'll pay up."
+	description = "Doctor Izazel on IPMV-2201 wants a chainsaw for... nevermind, just send one and they'll pay handsomely."
 	reward = CARGO_CRATE_VALUE * 5
 	wanted_types = list(/obj/item/chainsaw = TRUE)
 

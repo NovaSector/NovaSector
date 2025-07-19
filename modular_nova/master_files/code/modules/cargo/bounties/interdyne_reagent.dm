@@ -112,7 +112,7 @@
 	var/reagent_type = pick(possible_reagents)
 	wanted_reagent = new reagent_type
 	name = wanted_reagent.name
-	description = "Upper level staff want some drinks, Dont ask why, just do it. Ship a container of [name] to claim the prize."
+	description = "Upper level staff want some more complex drinks, and this request must be fulfilled. Ship a container of [name] and you will be rewarded."
 	reward += rand(0, 4) * 500
 
 /datum/bounty/interdyne_reagent/chemical_simple
@@ -180,21 +180,21 @@
 	var/reagent_type = pick(possible_reagents)
 	wanted_reagent = new reagent_type
 	name = wanted_reagent.name
-	description = "A hospital is in need, they need some [name]. Ship a container of it to be rewarded."
+	description = "A hospital is in need of a rare chemical, [name]. Ship a container of it to be rewarded."
 	reward += rand(0, 5) * 750 //6000 to 9750 credits
 
 /datum/bounty/interdyne_pill
 	/// quantity of the pills needed, this value acts as minimum, gets randomized on new()
-	var/required_ammount = 80
+	var/required_amount = 80
 	/// counter for pills sent
-	var/shipped_ammount = 0
+	var/shipped_amount = 0
 	/// reagent requested
 	var/datum/reagent/wanted_reagent
 	/// minimum volume of chemical needed, gets randomized on new()
 	var/wanted_vol = 30
 
 /datum/bounty/interdyne_pill/can_claim()
-	return ..() && shipped_ammount >= required_ammount
+	return ..() && shipped_amount >= required_amount
 
 /datum/bounty/interdyne_pill/applies_to(obj/shipped)
 	if(!istype(shipped, /obj/item/reagent_containers/applicator/pill))
@@ -206,9 +206,9 @@
 /datum/bounty/interdyne_pill/ship(obj/shipped)
 	if(!applies_to(shipped))
 		return FALSE
-	shipped_ammount += 1
-	if(shipped_ammount > required_ammount)
-		shipped_ammount = required_ammount
+	shipped_amount += 1
+	if(shipped_amount > required_amount)
+		shipped_amount = required_amount
 	return TRUE
 
 /datum/bounty/interdyne_pill/simple_pill
@@ -237,7 +237,7 @@
 	var/datum/reagent/reagent_type = pick(possible_reagents)
 	wanted_reagent = new reagent_type
 	name = "[wanted_reagent.name] pills"
-	required_ammount += rand(1,60)
+	required_amount += rand(1,60)
 	wanted_vol += rand(1,20)
-	description = "Special Request from someone out of your paygrade, they need [required_ammount] of [name] containing at least [wanted_vol] each. Ship a container of it to be rewarded."
+	description = "Special Request from someone out of your paygrade, they need [required_amount] of [name] containing at least [wanted_vol] each. Ship a container of it to be rewarded."
 	reward += rand(1, 5) * (CARGO_CRATE_VALUE * 6)
