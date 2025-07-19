@@ -84,7 +84,7 @@
 
 /obj/item/clothing/under/rank/blueshield/consult
 	name = "blueshield's consulting suit"
-	desc = "A not so tactical uniform, held up to a greater standard of care by the comppany, tailored to be fancy with its golden trims matching that of the nanotrasen consulant, a symbol of unity, cohesion, and an annoyingly massive amounts of paperwork."
+	desc = "A not so tactical uniform, held up to a greater standard of care by the company, tailored to be fancy with its golden trims matching that of the Nanotrasen Consultant. A symbol of unity, cohesion, and an annoyingly massive amount of paperwork."
 	icon_state = "bs_consult"
 
 /obj/item/clothing/under/rank/blueshield/consult/skirt
@@ -98,13 +98,13 @@
 
 /obj/item/clothing/under/rank/blueshield/russian
 	name = "blueshield's sweatsuit"
-	desc = "An older NRI styled jumpsuit meant for military application for their soldiers, but it seemms more useful here nowadays, dyed and seamed to newer NT standards."
+	desc = "An older styled jumpsuit meant for military application by soldiers, still plenty useful nowadays, dyed and seamed to newer NT standards."
 	icon_state = "bs_rus"
 	can_adjust = FALSE
 
 /obj/item/clothing/under/rank/blueshield/formal
-	name = "blueshield's formals"
-	desc = "A Budget efficient uniform, making yourself standout from others but not too specially."
+	name = "blueshield's formal uniform"
+	desc = "A budget efficient uniform, making yourself stand out from others yet not drawing too much attention."
 	icon_state = "bs_formal"
 
 /obj/item/clothing/under/rank/blueshield/naval
@@ -140,7 +140,7 @@
 
 /obj/item/clothing/under/rank/nanotrasen_consultant/naval
 	name = "nanotrasen consultant's naval uniform"
-	desc = "An upper level uniform granted to consultants and representatives alike, representing centcom's grand naval fleet"
+	desc = "An upper level uniform granted to consultants and representatives alike, representing CentCom's grand naval fleet."
 	icon_state = "nt_grandnaval"
 	can_adjust = FALSE
 /*
