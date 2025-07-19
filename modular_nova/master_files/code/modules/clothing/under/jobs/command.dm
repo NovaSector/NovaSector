@@ -109,7 +109,7 @@
 
 /obj/item/clothing/under/rank/blueshield/naval
 	name = "blueshield's naval uniform"
-	desc = "An upper level uniform granted to shields alike, representing centcom's grand naval fleet"
+	desc = "An upper level uniform granted to shields alike, representing CentCom's grand naval fleet."
 	icon_state = "bs_grandnaval"
 	can_adjust = FALSE
 
