@@ -112,3 +112,7 @@
 		/area/station/engineering/break_room,
 	)
 	desired_atom = /obj/effect/landmark/start/telecomms_specialist
+
+/datum/area_spawn/bridge_officer_landmark
+	target_areas = list(/area/station/command/bridge)
+	desired_atom = /obj/effect/landmark/start/bridge_officer

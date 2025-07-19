@@ -37,9 +37,9 @@
 
 /datum/job/bridge_assistant/after_spawn(mob/living/spawned, client/player_client)
 	. = ..()
-	var/mob/living/carbon/bridgie = spawned
+/*	var/mob/living/carbon/bridgie = spawned
 	if(istype(bridgie))
-		bridgie.gain_trauma(/datum/brain_trauma/special/axedoration)
+		bridgie.gain_trauma(/datum/brain_trauma/special/axedoration) NOVA EDIT REMOVAL */
 
 /datum/job/bridge_assistant/get_roundstart_spawn_point()
 	var/list/chair_turfs = list()
