@@ -113,6 +113,7 @@
 		"Site Overseer",
 		"Site Director",
 		"Site Administrator",
+		"Station Commander",
 	)
 
 /datum/job/cargo_technician
