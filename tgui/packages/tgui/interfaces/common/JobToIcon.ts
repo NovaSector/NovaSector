@@ -119,7 +119,7 @@ const ALTTITLES = {
   // Captain - crown
   'Station Commander': BASEICONS['Captain'],
   'Commanding Officer': BASEICONS['Captain'],
-  'site Administrator': BASEICONS['Captain'],
+  'Site Administrator': BASEICONS['Captain'],
   'Site Manager': BASEICONS['Captain'],
   'Site Overseer': BASEICONS['Captain'],
   'Site Director': BASEICONS['Captain'],
