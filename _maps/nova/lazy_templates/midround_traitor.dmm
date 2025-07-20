@@ -2543,9 +2543,6 @@
 	},
 /obj/effect/mapping_helpers/airlock/cutaiwire,
 /obj/structure/fluff/fake_firedoor,
-/obj/effect/mapping_helpers/airlock_note_placer{
-	note_path = /obj/item/paper/fluff/midround_traitor/greeting
-	},
 /turf/open/floor/iron/dark/smooth_large,
 /area/misc/operative_barracks/dorm)
 "GY" = (
@@ -3014,8 +3011,7 @@
 /area/misc/operative_barracks/mission_briefing)
 "Os" = (
 /obj/machinery/light/small/directional/east,
-/obj/effect/mapping_helpers/mannequin/loadout_spawner/midround_traitor,
-/obj/structure/mannequin/operative_barracks{
+/obj/structure/mannequin/operative_barracks/loadout{
 	dir = 8
 	},
 /turf/open/floor/iron/dark/smooth_large,

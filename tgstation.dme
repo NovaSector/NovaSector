@@ -8345,7 +8345,6 @@
 #include "modular_nova\modules\marauders\marauder_dynamic_new.dm"
 #include "modular_nova\modules\marauders\marauder_fluff.dm"
 #include "modular_nova\modules\marauders\marauder_map.dm"
-#include "modular_nova\modules\marauders\marauder_mapping_helpers.dm"
 #include "modular_nova\modules\marauders\marauder_outfit.dm"
 #include "modular_nova\modules\marauders\marauder_voucher.dm"
 #include "modular_nova\modules\marauders\voucher_lists\exosuit.dm"

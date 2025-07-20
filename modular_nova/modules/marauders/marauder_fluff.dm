@@ -32,27 +32,6 @@
 /obj/item/paper/fluff/midround_traitor/greeting
 	can_become_message_in_bottle = FALSE
 
-/obj/item/paper/fluff/midround_traitor/greeting/Initialize(mapload)
-	. = ..()
-	return INITIALIZE_HINT_LATELOAD
-
-/obj/item/paper/fluff/midround_traitor/greeting/LateInitialize()
-	write_note(get_name())
-	update_appearance()
-
-/obj/item/paper/fluff/midround_traitor/greeting/proc/get_name()
-	var/instance = 0
-	for(var/antag in GLOB.antagonists)
-		if(istype(antag, /datum/antagonist/traitor/marauder))
-			instance++
-	for(var/datum/antagonist/traitor/marauder/antag as anything in GLOB.antagonists)
-		if(!istype(antag, /datum/antagonist/traitor/marauder))
-			continue
-		if(!antag.owner) // somehow wasnt initialized yet, try again
-			return get_name()
-		if(antag.owner.name && (antag.marauder_no == instance))
-			return antag.owner.name
-
 /obj/item/paper/fluff/midround_traitor/greeting/proc/write_note(name)
 	var/addressed_to
 	if(is_mononym(name))

@@ -34,6 +34,50 @@
 	new picked_mannequin(loc)
 	return INITIALIZE_HINT_QDEL
 
+/obj/structure/mannequin/operative_barracks/loadout
+
+/obj/structure/mannequin/operative_barracks/loadout/proc/load_items(client/client_to_read)
+	if(!client_to_read)
+		return
+	//compile the loadout data
+	var/list/loadout_entries = client_to_read.prefs.read_preference(/datum/preference/loadout)
+	var/list/selected_loadout = loadout_entries[client_to_read.prefs.read_preference(/datum/preference/loadout_index)]
+	var/list/loadout_datums = client_to_read.get_loadout_datums()
+	if(!loadout_datums.len)
+		return
+	//create our list of items
+	for(var/datum/loadout_item/datum as anything in loadout_datums)
+		if(datum.restricted_roles)
+			continue
+		LAZYADD(starting_items, datum.item_path)
+	//spawn our items and put it on our mannequin's slots
+	for(var/slot_flag in slot_flags)
+		worn_items["[slot_flag]"] = null
+	//check per loadout-item if they fit in the slot we're trying to fill
+		for(var/obj/item/clothing/item as anything in starting_items)
+			var/list/item_details = selected_loadout[item]
+			if(initial(item.slot_flags) & slot_flag)
+				//found a match lets spawn it
+				var/obj/item/clothing/item_to_give = new item(src)
+				worn_items["[slot_flag]"] = item_to_give
+				//apply the custom details
+				if(item_details[INFO_GREYSCALE])
+					item_to_give.set_greyscale(item_details[INFO_GREYSCALE])
+				if(item_details[INFO_NAMED])
+					item_to_give.name = trim(item_details[INFO_NAMED], PREVENT_CHARACTER_TRIM_LOSS(MAX_NAME_LEN))
+					ADD_TRAIT(item_to_give, TRAIT_WAS_RENAMED, "Loadout")
+					item_to_give.on_loadout_custom_named()
+				if(item_details[INFO_DESCRIBED])
+					item_to_give.desc = item_details[INFO_DESCRIBED]
+					ADD_TRAIT(item_to_give, TRAIT_WAS_RENAMED, "Loadout")
+					item_to_give.on_loadout_custom_described()
+				starting_items -= item
+				break
+	//display the physique our player has
+	var/mob/living/carbon/human/user = client_to_read.mob
+	body_type = user.physique
+	icon_state = "mannequin_[material]_[body_type == FEMALE ? "female" : "male"]"
+	LAZYNULL(starting_items) //dump what we couldn't add
 
 /*⠀⠀⠀⠀⠀⠀⠀⠀⠀⢠⡤⠤⣀⠀⠀⠀⠀⠀⠀⠀⠀⠀⡄⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
 ⠀⠀⠀⠀⠀⠀⠀⠀⠀⢸⠈⠂⢀⠉⠢⢄⠀⠀⢠⣾⡶⡾⠁⢀⣠⣠⡀

@@ -77,11 +77,12 @@
 		SSmapping.lazy_load_template(LAZY_TEMPLATE_KEY_MIDROUND_TRAITOR, TRUE)
 	//load the shuttle, we don't trust lazy_load with this
 	load_shuttle(marauder_no)
-	//move our guy
+	//set up our guy
 	set_assignment(owner.current)
 	grant_equipment(owner.current)
-	set_spawnpoint(marauder_no)
-	move_to_spawnpoint(owner.current)
+	//load personalized items
+	load_personal_items(owner.current)
+	move_to_spawnpoint(owner.current, marauder_no)
 
 /datum/antagonist/traitor/marauder/proc/load_shuttle(marauder_no)
 	var/is_first = FALSE
@@ -107,6 +108,32 @@
 	mobile_port.mode = SHUTTLE_IGNITING
 	mobile_port.setTimer(mobile_port.ignitionTime)
 
+/// this is where we load the personalized note and loadout equipped mannequin
+/datum/antagonist/traitor/marauder/proc/load_personal_items(mob/living/carbon/human/marauder)
+	for(var/area/misc/operative_barracks/dorm/spawn_area in GLOB.areas)
+		if(!marauder || !marauder.client)
+			return
+		for(var/turf/area_turf as anything in spawn_area.get_turfs_from_all_zlevels())
+			var/obj/structure/mannequin/operative_barracks/loadout/mannequin = locate() in area_turf
+			if(!mannequin)
+				continue
+			if(mannequin.contents.len) //already loaded
+				continue
+			mannequin.load_items(marauder.client)
+			mannequin.update_appearance()
+		for(var/turf/area_turf as anything in spawn_area.get_turfs_from_all_zlevels())
+			var/obj/machinery/door/airlock/airlock = locate() in area_turf
+			if(!airlock)
+				continue
+			if(airlock.note) //already loaded
+				continue
+			var/obj/item/paper/fluff/midround_traitor/greeting/note = new(airlock)
+			airlock.note = note
+			note.write_note(marauder.real_name)
+			note.update_appearance()
+			note.forceMove(airlock)
+			airlock.update_appearance()
+
 /// this is where we add the job datum and build a bank account based on it
 /datum/antagonist/traitor/marauder/proc/set_assignment(mob/living/carbon/human/marauder)
 	var/datum/bank_account/bank_account = new(marauder.name, /datum/job/marauder, marauder.dna.species.payday_modifier)
@@ -129,7 +156,8 @@
 	spawnpoint = GLOB.traitor_start[marauder_no]
 
 /// move our guy
-/datum/antagonist/traitor/marauder/proc/move_to_spawnpoint(mob/living/carbon/human/marauder)
+/datum/antagonist/traitor/marauder/proc/move_to_spawnpoint(mob/living/carbon/human/marauder, marauder_no)
+	set_spawnpoint(marauder_no)
 	marauder.forceMove(spawnpoint)
 	var/obj/structure/bed/bed = locate(/obj/structure/bed) in spawnpoint.contents
 	var/obj/item/bedsheet/bedsheet = locate(/obj/item/bedsheet) in spawnpoint.contents
