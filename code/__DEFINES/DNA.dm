@@ -42,6 +42,7 @@
 #define MUTATION_SOURCE_BURDENED_TRAUMA "burdened_trauma"
 #define MUTATION_SOURCE_GENE_SYMPTOM "gene_symptom"
 
+#define MUTATION_SOURCE_SPECIES_INNATE "species_innate" // NOVA EDIT ADDITION
 //DNA - Because fuck you and your magic numbers being all over the codebase.
 #define DNA_BLOCK_SIZE 3
 

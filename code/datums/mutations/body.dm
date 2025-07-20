@@ -290,7 +290,10 @@
 		return
 	if(QDELETED(owner))
 		return
-
+	// NOVA EDIT ADDITION START
+	if(isnull(owner.loc)) //fix monkey mutation messing with character previews
+		return
+	// NOVA EDIT ADDITION END
 	owner.fully_replace_character_name(null, original_name)
 	owner.humanize(original_species)
 

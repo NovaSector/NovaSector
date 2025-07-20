@@ -58,9 +58,11 @@ GLOBAL_LIST_INIT(features_block_lengths, list(
  * Commonly used by the datum/dna/set_uni_identity_block and datum/dna/get_uni_identity_block procs.
  */
 GLOBAL_LIST_INIT(total_ui_len_by_block, populate_total_ui_len_by_block())
+*/ // NOVA EDIT REMOVAL END
 
 GLOBAL_LIST_INIT(standard_mutation_sources, list(MUTATION_SOURCE_ACTIVATED, MUTATION_SOURCE_MUTATOR, MUTATION_SOURCE_TIMED_INJECTOR))
 
+/* // NOVA EDIT REMOVAL START
 /proc/populate_total_ui_len_by_block()
 	. = list()
 	var/total_block_len = 1
@@ -156,7 +158,12 @@ GLOBAL_LIST_INIT(total_uf_len_by_block, populate_total_uf_len_by_block())
 		if (iscarbon(new_dna.holder))
 			var/mob/living/carbon/as_carbon = new_dna.holder
 			as_carbon.set_blood_type(blood_type)
-		new_dna.holder.set_species(species.type, icon_update = TRUE, pref_load = FALSE, override_features = features.Copy(), override_mutantparts = mutant_bodyparts.Copy(), override_markings = body_markings.Copy()) // NOVA EDIT CHANGE - ORIGINAL: new_dna.holder.set_species(species.type, icon_update = 0)
+		// new_dna.holder.set_species(species.type, icon_update = 0) // NOVA EDIT REMOVAL
+			// NOVA EDIT ADDITION START
+			as_carbon.set_species(species.type, icon_update = TRUE, pref_load = FALSE, override_features = features.Copy(), override_mutantparts = mutant_bodyparts.Copy(), override_markings = body_markings.Copy())
+		else
+			new_dna.holder.set_species(species.type, icon_update = 0)
+			// NOVA EDIT ADDITION END
 	else
 		new_dna.blood_type = blood_type
 		if(transfer_flags & COPY_DNA_SPECIES)
@@ -641,7 +648,7 @@ GLOBAL_LIST_INIT(total_uf_len_by_block, populate_total_uf_len_by_block())
 	dna.species.on_species_gain(src, old_species, pref_load, regenerate_icons = icon_update)
 	log_mob_tag("TAG: [tag] SPECIES: [key_name(src)] \[[mrace]\]")
 
-/mob/living/carbon/human/set_species(datum/species/mrace, icon_update = TRUE, pref_load = FALSE)
+/mob/living/carbon/human/set_species(datum/species/mrace, icon_update = TRUE, pref_load = FALSE, override_features, override_markings, override_mutantparts)
 	..()
 	if(icon_update)
 		update_body(is_creating = TRUE)

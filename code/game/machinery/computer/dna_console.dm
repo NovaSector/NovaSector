@@ -728,7 +728,7 @@
 				//Go through all sequences for matching gene, and set the mutation
 				for (var/M in subtypesof(/datum/mutation))
 					// NOVA EDIT ADDITION START
-					var/datum/mutation/human/iterating_mutation = M
+					var/datum/mutation/iterating_mutation = M
 					if(initial(iterating_mutation.disabled))
 						continue
 					// NOVA EDIT ADDITION END
