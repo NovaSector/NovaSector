@@ -271,7 +271,6 @@
 		"Chief Constable",
 		"Chief of Security",
 		"Security Commander",
-		"Security Administrator",
 		"Security Director",
 		"Sheriff",
 	)
