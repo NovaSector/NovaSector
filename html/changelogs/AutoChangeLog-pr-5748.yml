@@ -1,4 +1,0 @@
-author: "Zenitheevee"
-delete-after: True
-changes:
-  - config: "Sets Tarkon/DS2 budget costs to 0 for ruin spawning"

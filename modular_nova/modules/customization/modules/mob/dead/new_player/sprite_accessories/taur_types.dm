@@ -140,6 +140,11 @@
 	taur_mode = STYLE_TAUR_SNAKE
 	organ_type = /obj/item/organ/taur_body/serpentine
 
+/datum/sprite_accessory/taur/naga/fat
+	name = "Naga, Fat"
+	icon_state = "nagafat"
+	taur_mode = STYLE_TAUR_SNAKE
+
 /datum/sprite_accessory/taur/naga/striped
 	name = "Naga, Striped"
 	icon_state = "nagastriped"

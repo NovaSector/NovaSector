@@ -266,13 +266,11 @@
 	can_wire = FALSE
 
 /datum/armor/deployable_barricade_guardrail
+	melee = 35
 	bullet = 50
 	laser = 50
-	energy = 50
-	bomb = 15
-	bio = 100
-	fire = 100
-	acid = 10
+	energy = 100
+	bomb = 10
 
 /obj/structure/deployable_barricade/guardrail/update_icon()
 	. = ..()
@@ -357,9 +355,10 @@
 	var/can_upgrade = TRUE
 
 /datum/armor/deployable_barricade_metal
-	bio = 100
+	bio = 80
 	fire = 80
 	acid = 40
+	bomb = 20
 
 /obj/structure/deployable_barricade/metal/click_alt(mob/user)
 	if(portable_type)

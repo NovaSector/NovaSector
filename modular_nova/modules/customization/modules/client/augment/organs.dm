@@ -36,23 +36,6 @@
 	name = "Organic lungs"
 	path = /obj/item/organ/lungs
 
-/datum/augment_item/organ/lungs/hot
-	name = "Lungs Adapted to Heat"
-	path = /obj/item/organ/lungs/hot
-	cost = 1
-
-/datum/augment_item/organ/lungs/cold
-	name = "Cold-Adapted Lungs"
-	path = /obj/item/organ/lungs/cold
-	cost = 1
-/datum/augment_item/organ/lungs/toxin
-	name = "Lungs Adapted to Toxins"
-	path = /obj/item/organ/lungs/toxin
-	cost = 1
-/datum/augment_item/organ/lungs/oxy
-	name = "Low-Pressure Adapted Lungs"
-	path = /obj/item/organ/lungs/oxy
-	cost = 1
 /datum/augment_item/organ/lungs/cybernetic
 	name = "Cybernetic lungs"
 	path = /obj/item/organ/lungs/cybernetic
