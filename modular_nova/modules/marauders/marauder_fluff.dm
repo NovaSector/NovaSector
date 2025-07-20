@@ -48,6 +48,8 @@
 	for(var/datum/antagonist/traitor/marauder/antag as anything in GLOB.antagonists)
 		if(!istype(antag, /datum/antagonist/traitor/marauder))
 			continue
+		if(!antag.owner) // somehow wasnt initialized yet, try again
+			return get_name()
 		if(antag.owner.name && (antag.marauder_no == instance))
 			return antag.owner.name
 

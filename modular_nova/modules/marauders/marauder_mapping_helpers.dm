@@ -81,5 +81,7 @@
 	for(var/datum/antagonist/traitor/marauder/antag as anything in GLOB.antagonists)
 		if(!istype(antag, /datum/antagonist/traitor/marauder))
 			continue
+		if(!antag.owner) // somehow wasnt initialized yet, try again
+			return get_client()
 		if(antag.owner.current.client && (antag.marauder_no == instance))
 			return antag.owner.current.client
