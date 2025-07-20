@@ -190,7 +190,6 @@ const ALTTITLES = {
   'Security Commander': BASEICONS['Head of Security'],
   'Chief Constable': BASEICONS['Head of Security'],
   'Chief of Security': BASEICONS['Head of Security'],
-  'Security Administrator': BASEICONS['Head of Security'],
   'Security Director': BASEICONS['Head of Security'],
   Sheriff: BASEICONS['Head of Security'],
   // Janitor - soap
