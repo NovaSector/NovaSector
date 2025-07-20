@@ -120,6 +120,7 @@
 			if(mannequin.loaded) //already loaded
 				continue
 			mannequin.load_items(marauder.client)
+			mannequin.loaded = TRUE
 			mannequin.update_appearance()
 		for(var/turf/area_turf as anything in spawn_area.get_turfs_from_all_zlevels())
 			var/obj/machinery/door/airlock/airlock = locate() in area_turf

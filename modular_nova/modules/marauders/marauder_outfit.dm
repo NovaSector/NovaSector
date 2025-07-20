@@ -79,7 +79,6 @@
 	var/mob/living/carbon/human/user = client_to_read.mob
 	body_type = user.physique
 	icon_state = "mannequin_[material]_[body_type == FEMALE ? "female" : "male"]"
-	loaded = TRUE
 	LAZYNULL(starting_items) //dump what we couldn't add
 
 /*⠀⠀⠀⠀⠀⠀⠀⠀⠀⢠⡤⠤⣀⠀⠀⠀⠀⠀⠀⠀⠀⠀⡄⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
