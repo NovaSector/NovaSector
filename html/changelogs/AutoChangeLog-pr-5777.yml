@@ -1,0 +1,4 @@
+author: "OrbisAnima"
+delete-after: True
+changes:
+  - rscdel: "Removed 'His Grace' from the Traitor uplink. It was a chaplain traitor only item that required you to consume 25 player corpses to ascend, making you inmune to stuns, regen life and putting you in a timer to kill as many people possible."
