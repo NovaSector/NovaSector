@@ -43,7 +43,7 @@
 	var/list/loadout_entries = client_to_read.prefs.read_preference(/datum/preference/loadout)
 	var/list/selected_loadout = loadout_entries[client_to_read.prefs.read_preference(/datum/preference/loadout_index)]
 	var/list/loadout_datums = client_to_read.get_loadout_datums()
-	if(!loadout_datums.len)
+	if(!length(loadout_datums))
 		return
 	//create our list of items
 	for(var/datum/loadout_item/datum as anything in loadout_datums)
