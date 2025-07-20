@@ -123,11 +123,6 @@ const ALTTITLES = {
   'Site Manager': BASEICONS['Captain'],
   'Site Overseer': BASEICONS['Captain'],
   'Site Director': BASEICONS['Captain'],
-  'Station Director': BASEICONS['Captain'],
-  'Station Overseer': BASEICONS['Captain'],
-  'Station Manager': BASEICONS['Captain'],
-  'Station Administrator': BASEICONS['Captain'],
-  'Facility Director': BASEICONS['Captain'],
   // Cargo Technician - box
   'Warehouse Technician': BASEICONS['Cargo Technician'],
   'Deck Worker': BASEICONS['Cargo Technician'],
