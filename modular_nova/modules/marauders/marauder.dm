@@ -117,7 +117,7 @@
 			var/obj/structure/mannequin/operative_barracks/loadout/mannequin = locate() in area_turf
 			if(!mannequin)
 				continue
-			if(length(mannequin.contents)) //already loaded
+			if(mannequin.loaded) //already loaded
 				continue
 			mannequin.load_items(marauder.client)
 			mannequin.update_appearance()

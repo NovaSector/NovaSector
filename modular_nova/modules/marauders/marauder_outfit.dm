@@ -35,6 +35,8 @@
 	return INITIALIZE_HINT_QDEL
 
 /obj/structure/mannequin/operative_barracks/loadout
+	/// Variable which tells if this mannequin should still load its items
+	var/loaded = FALSE
 
 /obj/structure/mannequin/operative_barracks/loadout/proc/load_items(client/client_to_read)
 	if(!client_to_read)
@@ -77,6 +79,7 @@
 	var/mob/living/carbon/human/user = client_to_read.mob
 	body_type = user.physique
 	icon_state = "mannequin_[material]_[body_type == FEMALE ? "female" : "male"]"
+	loaded = TRUE
 	LAZYNULL(starting_items) //dump what we couldn't add
 
 /*⠀⠀⠀⠀⠀⠀⠀⠀⠀⢠⡤⠤⣀⠀⠀⠀⠀⠀⠀⠀⠀⠀⡄⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
