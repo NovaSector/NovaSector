@@ -113,12 +113,6 @@
 		"Site Overseer",
 		"Site Director",
 		"Site Administrator",
-		"Station Commander",
-		"Station Director",
-		"Station Overseer",
-		"Station Manager",
-		"Station Administrator",
-		"Facility Director",
 	)
 
 /datum/job/cargo_technician
