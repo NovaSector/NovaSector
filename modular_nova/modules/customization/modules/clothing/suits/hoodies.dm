@@ -23,6 +23,7 @@
 	post_init_icon_state = "hoodie_trim"
 	greyscale_config = /datum/greyscale_config/hoodie_trim
 	greyscale_config_worn = /datum/greyscale_config/hoodie_trim/worn
+	greyscale_colors = "#ffffff#313131"
 
 /obj/item/clothing/suit/toggle/jacket/nova/hoodie/trim/alt
 	icon_state = "/obj/item/clothing/suit/toggle/jacket/nova/hoodie/trim/alt"
