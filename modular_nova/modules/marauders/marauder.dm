@@ -89,14 +89,15 @@
 	if(marauder_no == 1)
 		is_first = TRUE
 	var/datum/map_template/shuttle/marauder_shuttle = SSmapping.shuttle_templates["traitor_default"]
-	var/x = rand(TRANSITIONEDGE,world.maxx - TRANSITIONEDGE - marauder_shuttle.width)
-	var/y = rand(TRANSITIONEDGE,world.maxy - TRANSITIONEDGE - marauder_shuttle.height)
+	var/x = (world.maxx - TRANSITIONEDGE - marauder_shuttle.width - (marauder_no * 10))
+	var/y = (world.maxy - TRANSITIONEDGE - marauder_shuttle.height)
 	var/z
 	if(SSmapping.empty_space)
 		z = SSmapping.empty_space.z_value
 	else
 	//no space level, lets go for the safest next option
-		z = 1
+	//this is interlink z, we will claim the top right corner
+		z = 5
 	var/turf/turf = locate(x,y,z)
 	if(!turf)
 		CRASH("[src] found no turf to load its shuttle in")
