@@ -72,6 +72,10 @@
 	. = ..()
 	build_type |= COLONY_FABRICATOR
 
+/datum/design/xlarge_beaker/New()
+	. = ..()
+	build_type |= COLONY_FABRICATOR
+
 /datum/design/bioelec_gen/New()
 	. = ..()
 	build_type |= COLONY_FABRICATOR
