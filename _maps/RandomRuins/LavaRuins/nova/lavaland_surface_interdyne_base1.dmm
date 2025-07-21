@@ -3421,7 +3421,7 @@
 /area/ruin/interdyne_planetary_base/cargo)
 "CH" = (
 /obj/structure/window/reinforced/survival_pod/spawner/directional/south,
-/obj/machinery/computer/scan_consolenew{
+/obj/machinery/computer/dna_console{
 	dir = 1
 	},
 /obj/effect/turf_decal/tile/dark_green/half,

@@ -55,8 +55,7 @@
 
 /datum/species/monkey/kobold/on_species_gain(mob/living/carbon/human/human_who_gained_species, datum/species/old_species, pref_load, regenerate_icons)
 	. = ..()
-	human_who_gained_species.dna.add_mutation(/datum/mutation/human/clever, MUT_NORMAL)
-	human_who_gained_species.dna.activate_mutation(/datum/mutation/human/clever)
+	human_who_gained_species.dna.add_mutation(/datum/mutation/clever, MUTATION_SOURCE_SPECIES_INNATE)
 
 /datum/species/monkey/kobold/get_scream_sound(mob/living/carbon/human/kobold)
 	return pick(
