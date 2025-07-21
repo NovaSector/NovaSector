@@ -1,7 +1,7 @@
 #define MATERIAL_EXPORT_MODIFIER 0.25
 #define PREMIUM_MATERIAL_EXPORT_MODIFIER 0.5
 #define SATURATED_MATERIAL_EXPORT_MODIFIER 0.1
-#define SATURATED_ALLOY_EXPORT_MODIFIER 0.2
+#define SATURATED_ALLOY_EXPORT_MODIFIER 0.13
 
 /datum/export/material/market
 	k_recovery_elasticity = 1/45 //roughly 30 minutes of recovery
