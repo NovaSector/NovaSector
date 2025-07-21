@@ -1,5 +1,0 @@
-author: "RealWinterFrost"
-delete-after: True
-changes:
-  - qol: "Made the \"company imports\" tab for the ghost role consoles able to actually see what is being purchased."
-  - qol: "Made the \"company imports\" for the ghost role console have proper descriptions to which order is which so players don't have to guess by name alone."
