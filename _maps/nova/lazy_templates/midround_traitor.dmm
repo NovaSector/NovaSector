@@ -271,9 +271,7 @@
 	dir = 1
 	},
 /obj/effect/turf_decal/loading_area/white,
-/obj/item/tank/internals/oxygen{
-	pixel_y = 4
-	},
+/obj/item/tank/internals/oxygen/empty,
 /turf/open/floor/iron/dark/small,
 /area/misc/operative_barracks/hangar)
 "eF" = (
@@ -1241,6 +1239,9 @@
 "ql" = (
 /obj/structure/table,
 /obj/effect/spawner/surgery_tray/full,
+/obj/structure/fluff/fake_camera{
+	dir = 5
+	},
 /turf/open/floor/iron/showroomfloor,
 /area/misc/operative_barracks/medbay/surgery)
 "qn" = (
@@ -1768,8 +1769,9 @@
 /turf/open/floor/iron/showroomfloor,
 /area/misc/operative_barracks/medbay)
 "ww" = (
-/obj/structure/tank_holder/extinguisher,
-/turf/open/floor/iron/dark/small,
+/obj/effect/mapping_helpers/broken_floor,
+/obj/structure/fluff/broken_canister_frame,
+/turf/open/floor/plating,
 /area/misc/operative_barracks/hangar)
 "wx" = (
 /turf/closed/wall/r_wall/syndicate/nodiagonal,
@@ -2002,11 +2004,6 @@
 	dir = 1
 	},
 /area/misc/operative_barracks/hangar)
-"zo" = (
-/obj/structure/fluff/broken_canister_frame,
-/obj/effect/decal/cleanable/dirt/dust,
-/turf/open/floor/plating,
-/area/misc/operative_barracks/hangar)
 "zu" = (
 /obj/effect/turf_decal/siding/dark_red,
 /obj/effect/turf_decal/siding/yellow{
@@ -2156,6 +2153,9 @@
 /obj/machinery/chem_mass_spec,
 /obj/effect/decal/cleanable/dirt/dust,
 /obj/structure/railing/unbreakable,
+/obj/structure/fluff/fake_camera{
+	dir = 4
+	},
 /turf/open/floor/iron/dark/side{
 	dir = 5
 	},
@@ -2776,9 +2776,7 @@
 	dir = 1
 	},
 /obj/effect/turf_decal/loading_area/white,
-/obj/item/tank/internals/plasmaman/full{
-	pixel_y = 4
-	},
+/obj/item/tank/internals/plasmaman,
 /turf/open/floor/iron/dark/small,
 /area/misc/operative_barracks/hangar)
 "KI" = (
@@ -3042,9 +3040,7 @@
 /area/misc/operative_barracks/medbay)
 "OU" = (
 /obj/effect/turf_decal/loading_area/white,
-/obj/item/tank/internals/nitrogen/full{
-	pixel_y = 4
-	},
+/obj/item/tank/internals/nitrogen,
 /turf/open/floor/iron/dark/small,
 /area/misc/operative_barracks/hangar)
 "OZ" = (
@@ -3569,6 +3565,7 @@
 /obj/structure/fluff/fake_camera{
 	dir = 6
 	},
+/obj/effect/decal/cleanable/dirt/dust,
 /turf/open/floor/plating,
 /area/misc/operative_barracks/hangar)
 "VW" = (
@@ -3760,11 +3757,8 @@
 /turf/open/floor/iron/dark/diagonal,
 /area/misc/operative_barracks/mission_briefing)
 "Ys" = (
-/obj/structure/rack/shelf,
-/obj/item/tank/internals/emergency_oxygen/engi/empty,
-/obj/item/tank/internals/emergency_oxygen/engi/empty,
-/obj/item/tank/internals/emergency_oxygen/engi/empty,
 /obj/effect/decal/cleanable/dirt/dust,
+/obj/structure/tank_holder/extinguisher,
 /turf/open/floor/plating,
 /area/misc/operative_barracks/hangar)
 "Yv" = (
@@ -4374,11 +4368,11 @@ WF
 kf
 kF
 kf
-Hd
+ww
 em
 ks
 eE
-ww
+Nd
 Io
 Yv
 Pa
@@ -4399,7 +4393,7 @@ TP
 "}
 (19,1,1) = {"
 WF
-zo
+kf
 kF
 kf
 kf
