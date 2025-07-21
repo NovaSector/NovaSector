@@ -25,7 +25,7 @@
 /tools/maplint/lints @sqnztb
 /tools/UpdatePaths @sqnztb
 /_maps/ @Zergspower @sqnztb
-/modular_nova/modules/mapping @Jolly-66 @Zergspower @sqnztb
+/modular_nova/modules/mapping @Zergspower @sqnztb
 
 # Expensive files that touching basically always cause performance problems
 ## Init times
