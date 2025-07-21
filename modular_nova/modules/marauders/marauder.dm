@@ -5,6 +5,7 @@
 	roundend_category = "Marauders"
 	preview_outfit = /datum/outfit/marauder_preview
 	give_uplink = FALSE
+	should_give_codewords = FALSE
 	/// Identifying number of the traitor
 	var/marauder_no
 	/// The turf inside the lazy_template marked as this antag's spawn
@@ -54,8 +55,9 @@
 		owner_mob.faction &= ROLE_SYNDICATE
 		owner_mob.faction |= FACTION_NEUTRAL
 
+/// Removes NT from being the possible employer, because that would be weird
 /datum/antagonist/traitor/marauder/pick_employer()
-	//removes NT from being the possible employer, because that would be weird
+
 	if(!employer)
 		var/list/possible_employers = list()
 		possible_employers.Add(GLOB.syndicate_employers)
@@ -67,6 +69,12 @@
 
 		employer = pick(possible_employers)
 	traitor_flavor = strings(TRAITOR_FLAVOR_FILE, employer)
+
+/// Changes the 'escape' ending objective to a generic 'survive' requirement
+/datum/antagonist/traitor/marauder/forge_ending_objective()
+	ending_objective = new /datum/objective/survive
+	ending_objective.owner = owner
+	objectives += ending_objective
 
 /datum/antagonist/traitor/marauder/on_gain()
 	. = ..()
@@ -88,6 +96,7 @@
 	var/is_first = FALSE
 	if(marauder_no == 1)
 		is_first = TRUE
+
 	var/datum/map_template/shuttle/marauder_shuttle = SSmapping.shuttle_templates["traitor_default"]
 	var/x = (world.maxx - TRANSITIONEDGE - marauder_shuttle.width - (marauder_no * 10))
 	var/y = (world.maxy - TRANSITIONEDGE - marauder_shuttle.height)
@@ -95,9 +104,13 @@
 	if(SSmapping.empty_space)
 		z = SSmapping.empty_space.z_value
 	else
-	//no space level, lets go for the safest next option
-	//this is interlink z, we will claim the top right corner
-		z = 5
+		//no space level, lets go for the safest next option
+		//lets find a transit z, we will claim the top right corner
+		for(var/datum/space_level/z_level as anything in SSmapping.z_list)
+			if(z_level.traits.Find(ZTRAIT_RESERVED))
+				z = z_level.z_value
+				break
+
 	var/turf/turf = locate(x,y,z)
 	if(!turf)
 		CRASH("[src] found no turf to load its shuttle in")
