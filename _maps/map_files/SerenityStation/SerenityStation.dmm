@@ -9809,7 +9809,7 @@
 /turf/open/floor/iron/dark,
 /area/station/security/brig)
 "cOB" = (
-/obj/machinery/computer/scan_consolenew,
+/obj/machinery/computer/dna_console,
 /obj/effect/turf_decal/bot_red,
 /turf/open/floor/iron/dark,
 /area/station/science/genetics)
@@ -35465,7 +35465,7 @@
 /area/station/hallway/secondary/exit/departure_lounge)
 "kdW" = (
 /obj/effect/turf_decal/bot_red,
-/obj/machinery/computer/scan_consolenew{
+/obj/machinery/computer/dna_console{
 	dir = 8
 	},
 /obj/structure/window/spawner/directional/east,
@@ -75853,7 +75853,7 @@
 /turf/open/floor/plating,
 /area/station/maintenance/department/security/upper)
 "vZp" = (
-/obj/machinery/computer/scan_consolenew{
+/obj/machinery/computer/dna_console{
 	dir = 8
 	},
 /obj/effect/turf_decal/bot_red,

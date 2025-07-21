@@ -172,3 +172,18 @@
       quirk
   - rscadd: Added plasma breather quirk
   - rscadd: Added water breather quirk
+2025-07-21:
+  Iajret:
+  - bugfix: cyber lungs can be selected once again
+  OrbisAnima:
+  - rscdel: Removed 'His Grace' from the Traitor uplink. It was a chaplain traitor
+      only item that required you to consume 25 player corpses to ascend, making you
+      inmune to stuns, regen life and putting you in a timer to kill as many people
+      possible.
+  RealWinterFrost:
+  - qol: Made the "company imports" tab for the ghost role consoles able to actually
+      see what is being purchased.
+  - qol: Made the "company imports" for the ghost role console have proper descriptions
+      to which order is which so players don't have to guess by name alone.
+  - image: added 5 new blueshield uniforms
+  - image: added 1 new nanotrasen consultant uniform
