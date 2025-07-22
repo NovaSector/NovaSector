@@ -26,7 +26,7 @@
 
 /datum/bounty/item/tarkon/defense
 	name = "Project Shutdown"
-	description = "A big spender wants one of our proprietary turrets, either model works. Send it out as soon as possible."
+	description = "A big spender wants one of our proprietary turrets, either model works. Send it out as soon as possible." 
 	reward = CARGO_CRATE_VALUE * 8
 	required_count = 1
 	wanted_types = list(
