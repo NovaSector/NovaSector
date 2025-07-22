@@ -1,8 +1,30 @@
 // .38
 
+/obj/projectile/bullet/c38
+	damage = 30
+
+/obj/projectile/bullet/c38/match/bouncy
+	damage = 15
+	stamina = 35
+
+/obj/projectile/bullet/c38/match/true
+	damage = 25
+
+/obj/projectile/bullet/c38/dumdum
+	damage = 25
+
+/datum/embedding/bullet/c38/dumdum
+	embed_chance = 85
+
+/obj/projectile/bullet/c38/hotshot
+	damage = 25
+
+/obj/projectile/bullet/c38/iceblox
+	damage = 25
+
 /obj/projectile/bullet/c38/haywire
 	name = ".38 haywire bullet"
-	damage = 10
+	damage = 25
 	ricochets_max = 0
 	embed_type = null
 	/// EMP radius when this bullet hits a target.
