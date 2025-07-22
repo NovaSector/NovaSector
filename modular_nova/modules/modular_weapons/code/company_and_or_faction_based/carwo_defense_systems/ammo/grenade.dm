@@ -51,7 +51,7 @@
 
 	range = 14
 
-	speed = 0.5
+	speed = 1
 
 	sharpness = NONE
 
@@ -134,6 +134,7 @@
 
 	custom_materials = AMMO_MATS_GRENADE_SHRAPNEL
 	ammo_categories = AMMO_CLASS_LETHAL
+	print_cost = 2
 
 	harmful = TRUE
 
@@ -162,7 +163,7 @@
 
 
 /obj/item/grenade/c980payload
-	shrapnel_type = /obj/projectile/bullet/shrapnel/short_range
+	shrapnel_type = /obj/projectile/bullet/shrapnel/shorter_range
 	shrapnel_radius = 3
 	ex_dev = 0
 	ex_heavy = 0
@@ -170,9 +171,40 @@
 	ex_flame = 0
 
 
-/obj/projectile/bullet/shrapnel/short_range
+/obj/projectile/bullet/shrapnel/shorter_range
 	range = 2
 
+// .980 stingball grenade (be very careful)
+/obj/item/ammo_casing/c980grenade/shrapnel/stingball
+	name = ".980 Tydhouer stingball grenade"
+	desc = "A large grenade shell that will detonate at a range given to it by the gun that fires it. Explodes into stingballs on detonation."
+	icon_state = "980_stingball"
+
+	projectile_type = /obj/projectile/bullet/c980grenade/shrapnel/stingball
+
+	custom_materials = AMMO_MATS_GRENADE
+	ammo_categories = AMMO_CLASS_NICHE_LTL
+	print_cost = 1
+
+/obj/item/ammo_box/c980grenade/shrapnel/stingball
+	name = "ammo box (.980 Tydhouer stingball)"
+	desc = "A box of four .980 Tydhouer stingball grenades. Instructions on the box indicate these are stingball rounds. It's also covered in hazard signs, odd."
+
+	icon_state = "980box_stingball"
+
+	ammo_type = /obj/item/ammo_casing/c980grenade/shrapnel/stingball
+
+/obj/projectile/bullet/c980grenade/shrapnel/stingball
+	name = ".980 Tydhouer stingball grenade"
+
+	casing_to_spawn = /obj/item/grenade/c980payload/stingball
+
+/obj/item/grenade/c980payload/stingball
+	shrapnel_type = /obj/projectile/bullet/pellet/stingball/shorter_range
+	shrapnel_radius = 3
+
+/obj/projectile/bullet/pellet/stingball/shorter_range
+	range = 10
 
 // .980 phosphor grenade
 
@@ -185,6 +217,7 @@
 	projectile_type = /obj/projectile/bullet/c980grenade/shrapnel/phosphor
 	ammo_categories = AMMO_CLASS_NICHE
 	custom_materials = AMMO_MATS_GRENADE_INCENDIARY
+	print_cost = 3
 
 
 /obj/projectile/bullet/c980grenade/shrapnel/phosphor
@@ -228,6 +261,7 @@
 	icon_state = "980_gas"
 	ammo_categories = AMMO_CLASS_NICHE_LTL
 	projectile_type = /obj/projectile/bullet/c980grenade/riot
+	print_cost = 1
 
 
 /obj/projectile/bullet/c980grenade/riot
