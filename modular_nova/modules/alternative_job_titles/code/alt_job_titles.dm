@@ -110,6 +110,9 @@
 		"Captain",
 		"Commanding Officer",
 		"Site Manager",
+		"Site Overseer",
+		"Site Director",
+		"Site Administrator",
 		"Station Commander",
 	)
 
@@ -168,6 +171,7 @@
 		"Head of Medical",
 		"Head Physician",
 		"Medical Director",
+		"Medical Administrator",
 	)
 
 /datum/job/clown
@@ -262,6 +266,7 @@
 		"Chief Constable",
 		"Chief of Security",
 		"Security Commander",
+		"Security Director",
 		"Sheriff",
 	)
 
@@ -354,6 +359,7 @@
 		"Lead Researcher",
 		"Research Supervisor",
 		"Silicon Administrator",
+		"Research Administrator",
 		"Director of Science",
 	)
 
