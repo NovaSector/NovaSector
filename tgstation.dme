@@ -9032,6 +9032,7 @@
 #include "modular_nova\modules\stone\code\ore_veins.dm"
 #include "modular_nova\modules\stone\code\stone.dm"
 #include "modular_nova\modules\stormtrooper\code\stormtrooper_clothes.dm"
+#include "modular_nova\modules\stunsword\stunsword.dm"
 #include "modular_nova\modules\subsystems\code\ticket_ping\adminhelp.dm"
 #include "modular_nova\modules\subsystems\code\ticket_ping\preference.dm"
 #include "modular_nova\modules\subsystems\code\ticket_ping\ticket_ss.dm"
