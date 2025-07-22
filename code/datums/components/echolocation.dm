@@ -59,7 +59,7 @@
 		src.images_are_static = images_are_static
 	if(!isnull(blocking_trait))
 		src.blocking_trait = blocking_trait
-	// NOVA ADDITION START: echolocation
+	// NOVA EDIT ADDITION START: echolocation
 	if(!isnull(show_own_outline))
 		src.show_own_outline = show_own_outline
 	// NOVA EDIT ADDITION END
@@ -141,7 +141,7 @@
 	if(images_are_static)
 		final_image.pixel_x = input.pixel_x
 		final_image.pixel_y = input.pixel_y
-	// NOVA ADDITION START: echolocation (show outlines on self)
+	// NOVA EDIT ADDITION START: echolocation (show outlines on self)
 	var/mob/living/echolocator = parent
 	if(HAS_TRAIT_FROM(input, TRAIT_ECHOLOCATION_RECEIVER, echo_group) && input != echolocator) //mark other echolocation with full white, except ourselves
 	// NOVA EDIT ADDITION END

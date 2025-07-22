@@ -36,10 +36,10 @@ GLOBAL_DATUM_INIT(manifest, /datum/manifest, new)
 		var/name = target.name
 		var/rank = target.rank // user-visible job
 		var/trim = target.trim // internal jobs by trim type
-		// NOVA ADDITION START - bare minimum data the station records need to possess to show up on the crew manifest
+		// NOVA EDIT ADDITION START - bare minimum data the station records need to possess to show up on the crew manifest
 		if((name == "Unknown") || (rank == "Unassigned" || rank == "Unknown")) // records are unassigned by default, but if edited without input becomes unknown
 			continue
-		// NOVA ADDITION END
+		// NOVA EDIT ADDITION END
 		var/datum/job/job = SSjob.get_job(trim)
 		if(!job || !(job.job_flags & JOB_CREW_MANIFEST) || !LAZYLEN(job.departments_list)) // In case an unlawful custom rank is added.
 			var/list/misc_list = manifest_out[DEPARTMENT_UNASSIGNED]
