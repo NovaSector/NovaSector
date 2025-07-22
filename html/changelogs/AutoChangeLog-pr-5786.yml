@@ -1,0 +1,4 @@
+author: "OrbisAnima"
+delete-after: True
+changes:
+  - balance: "Riot and Drake armor, and its childs (like the knight armor), cannot be used with the ctrl shift click toggle to make them non functional and wear on the neck, as they were applying some of their effects regardless."
