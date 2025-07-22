@@ -24,6 +24,7 @@
 	• Limb grower
 	<br><b>General supplies voucher:</b>
 	• Ammunition workbench
+	• Operating computer console
 	• Robotech vending machine
 	• Syndichem vending machine
 	• Silicate selections vending machine
