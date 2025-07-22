@@ -1,5 +1,5 @@
 /obj/item/melee/baton/security/stunsword
-	name = "\improper NT-20 'Excalibur' stun sword"
+	name = "\improper 'Volta' stun sword"
 	desc = "A special modification reserved only for the most important of security personnel aboard Nanotrasen stations. It's a sword. It stuns. What more could you want?"
 	icon = 'modular_nova/modules/stunsword/stunsword_item.dmi'
 	icon_state = "stunsword"
