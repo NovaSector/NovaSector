@@ -24,6 +24,10 @@
 *	ITEMS BELOW HERE
 */
 
+/datum/loadout_item/belts/candle_box
+	name = "Candle Box"
+	item_path = /obj/item/storage/fancy/candle_box
+
 /datum/loadout_item/belts/fanny_pack_black
 	name = "Fannypack (Black)"
 	item_path = /obj/item/storage/belt/fannypack/black
@@ -68,17 +72,13 @@
 	name = "Fannypack (Yellow)"
 	item_path = /obj/item/storage/belt/fannypack/yellow
 
-/datum/loadout_item/belts/thigh_satchel
-	name = "Thigh Satchel"
-	item_path = /obj/item/storage/belt/thigh_satchel
-
 /datum/loadout_item/belts/lantern
 	name = "Lantern"
 	item_path = /obj/item/flashlight/lantern
 
-/datum/loadout_item/belts/candle_box
-	name = "Candle Box"
-	item_path = /obj/item/storage/fancy/candle_box
+/datum/loadout_item/belts/thigh_satchel
+	name = "Thigh Satchel"
+	item_path = /obj/item/storage/belt/thigh_satchel
 
 // HOLSTERS
 
@@ -119,3 +119,25 @@
 	name = "Chest Rig - Frontier"
 	item_path = /obj/item/storage/belt/utility/frontier_colonist
 
+/datum/loadout_item/belts/webbing
+	name = "Webbing - Basic"
+	item_path = /obj/item/storage/belt/webbing
+
+/datum/loadout_item/belts/webbing_colonial
+	name = "Webbing - Colonial"
+	item_path = /obj/item/storage/belt/webbing/colonial
+
+/datum/loadout_item/belts/webbing_pouch
+	name = "Webbing - Drop Pouches"
+	item_path = /obj/item/storage/belt/webbing/pouch
+	can_be_reskinned = TRUE
+
+/datum/loadout_item/belts/webbing_pilot
+	name = "Webbing - Rigging"
+	item_path = /obj/item/storage/belt/webbing/pilot
+	can_be_reskinned = TRUE
+
+/datum/loadout_item/belts/webbing_vest
+	name = "Webbing - Vest"
+	item_path = /obj/item/storage/belt/webbing/vest
+	can_be_reskinned = TRUE
