@@ -45859,6 +45859,14 @@
 /obj/effect/turf_decal/box,
 /turf/open/floor/plating/airless,
 /area/space/nearstation)
+"mUj" = (
+/obj/structure/cable,
+/obj/effect/turf_decal/siding/wood{
+	dir = 1
+	},
+/obj/effect/landmark/start/bridge_officer,
+/turf/open/floor/carpet/blue,
+/area/station/command/bridge)
 "mUp" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/spawner/random/trash/mess,
@@ -120413,7 +120421,7 @@ lyY
 wsm
 gIo
 lVi
-pMp
+mUj
 wZR
 qLI
 nIK

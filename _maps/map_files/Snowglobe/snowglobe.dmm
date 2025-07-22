@@ -41992,6 +41992,7 @@
 /obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer2{
 	dir = 4
 	},
+/obj/effect/landmark/start/bridge_officer,
 /turf/open/floor/iron/dark/diagonal,
 /area/station/command/bridge)
 "lfb" = (
