@@ -196,3 +196,27 @@
   - bugfix: Mutations with applied chromosomes won't display "no chromosome applied"
       when saved or have zero instability among other things.
   - bugfix: fixed gene disks and chromosomes.
+  Hatterhat:
+  - rscadd: Heads of Security are now being issued the NT-20 "Excalibur" stun sword
+      (not to be confused with the NT-20 personal defense weapon, issued to Blueshields).
+  Nerev4r, junkgle01, carpotoxin:
+  - rscadd: Job locker beacon, debug version given to bluespace techs
+  - rscadd: Bridge Officer (assistant) is now a permanent role, they answer to the
+      Captain
+  - image: Coffee trays, sprited by junkgle
+  NomNumNomYum:
+  - bugfix: A recent discovery has been made that WT-550 Rifles were heavier than
+      other standard SMG weapons, so we drilled holes in it to make it lighter, enjoy!
+  OrbisAnima:
+  - rscadd: 'Added the following items to the RCF: Large and Extra Large Beakers,
+      Basic and Super Megacells, Shuttle Rods, Advanced fishing rod, Aquarium Kit,
+      Fish Analyzer, Fishing Line Auto Reel, Stasis Fish Case, Fishing Portal Generator
+      Board, Aquarium Bioelectricity Kit.'
+  - balance: Riot and Drake armor, and its childs (like the knight armor), cannot
+      be used with the ctrl shift click toggle to make them non functional and wear
+      on the neck, as they were applying some of their effects regardless.
+  RealWinterFrost:
+  - qol: Adds 7 new alt titles for captain
+  - qol: Adds 2 new alt titles for Head of security
+  - qol: Adds 1 new alt title for Chief Medical Officer
+  - qol: Adds 1 new alt title for Research Director
