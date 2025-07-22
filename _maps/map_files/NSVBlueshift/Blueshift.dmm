@@ -100006,6 +100006,7 @@
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/effect/landmark/start/bridge_officer,
 /turf/open/floor/iron/stairs{
 	dir = 8
 	},
