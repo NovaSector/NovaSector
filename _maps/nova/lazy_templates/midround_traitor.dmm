@@ -4,7 +4,7 @@
 	baseturf = /turf/open/floor/plating
 	},
 /turf/closed/wall/r_wall/syndicate/nodiagonal,
-/area/misc/operative_barracks/armoury/secure)
+/area/misc/operative_barracks/armoury)
 "ah" = (
 /obj/effect/spawner/structure/window/reinforced/plasma/plastitanium,
 /turf/open/floor/plating,
@@ -12,7 +12,7 @@
 "ar" = (
 /obj/effect/turf_decal/siding/thinplating_new/light,
 /turf/open/floor/mineral/titanium/tiled/white,
-/area/misc/operative_barracks/medbay/surgery)
+/area/misc/operative_barracks/surgery)
 "aC" = (
 /obj/item/mod/module/hat_stabilizer/syndicate{
 	pixel_x = -1;
@@ -296,7 +296,7 @@
 /obj/item/soap/syndie,
 /obj/machinery/light/small/directional/south,
 /turf/open/floor/iron/showroomfloor,
-/area/misc/operative_barracks/dorm/bathroom)
+/area/misc/operative_barracks/bathroom)
 "eP" = (
 /obj/effect/turf_decal/siding/dark{
 	dir = 10
@@ -390,13 +390,13 @@
 /obj/structure/fluff/fake_vent,
 /obj/structure/sign/eyechart/directional/north,
 /turf/open/floor/mineral/titanium/tiled/white,
-/area/misc/operative_barracks/medbay/surgery)
+/area/misc/operative_barracks/surgery)
 "fW" = (
 /obj/effect/turf_decal/tile/dark_red{
 	dir = 4
 	},
 /turf/open/floor/iron/smooth,
-/area/misc/operative_barracks/armoury/secure)
+/area/misc/operative_barracks/armoury)
 "gi" = (
 /obj/machinery/door/airlock/highsecurity{
 	name = "Armoury Secure Storage"
@@ -404,7 +404,7 @@
 /obj/effect/mapping_helpers/airlock/cutaiwire,
 /obj/structure/fluff/fake_firedoor,
 /turf/open/floor/iron/smooth_large,
-/area/misc/operative_barracks/armoury/secure)
+/area/misc/operative_barracks/armoury)
 "gl" = (
 /obj/effect/turf_decal/stripes/white/line,
 /turf/open/floor/iron/dark/smooth_large,
@@ -576,7 +576,7 @@
 	dir = 8
 	},
 /turf/open/floor/iron/dark/smooth_large,
-/area/misc/operative_barracks/dorm/bathroom)
+/area/misc/operative_barracks/bathroom)
 "iP" = (
 /obj/effect/turf_decal/siding/dark_blue,
 /obj/effect/turf_decal/siding/purple{
@@ -593,7 +593,7 @@
 	},
 /obj/structure/sign/poster/contraband/d_day_promo/directional/east,
 /turf/open/floor/iron/smooth,
-/area/misc/operative_barracks/armoury/secure)
+/area/misc/operative_barracks/armoury)
 "jk" = (
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
@@ -744,7 +744,7 @@
 /area/misc/operative_barracks)
 "ld" = (
 /turf/closed/wall/r_wall/syndicate/nodiagonal,
-/area/misc/operative_barracks/dorm/bathroom)
+/area/misc/operative_barracks/bathroom)
 "ll" = (
 /obj/effect/turf_decal/siding/white{
 	dir = 4
@@ -756,7 +756,7 @@
 	baseturf = /turf/open/floor/plating
 	},
 /turf/closed/wall/r_wall/syndicate/nodiagonal,
-/area/misc/operative_barracks/medbay/surgery)
+/area/misc/operative_barracks/surgery)
 "ls" = (
 /obj/effect/turf_decal/siding/dark,
 /obj/effect/turf_decal/siding/dark_red{
@@ -770,7 +770,7 @@
 	dir = 4
 	},
 /turf/open/floor/iron/smooth,
-/area/misc/operative_barracks/armoury/secure)
+/area/misc/operative_barracks/armoury)
 "lN" = (
 /obj/item/emptysandbag{
 	pixel_x = -7;
@@ -1075,7 +1075,7 @@
 	baseturf = /turf/open/floor/plating
 	},
 /turf/closed/wall/r_wall/syndicate,
-/area/misc/operative_barracks/dorm/bathroom)
+/area/misc/operative_barracks/surgery)
 "oK" = (
 /obj/effect/mapping_helpers/airlock/cutaiwire,
 /obj/machinery/door/airlock/grunge{
@@ -1243,7 +1243,7 @@
 	dir = 5
 	},
 /turf/open/floor/iron/showroomfloor,
-/area/misc/operative_barracks/medbay/surgery)
+/area/misc/operative_barracks/surgery)
 "qn" = (
 /obj/effect/turf_decal/stripes/line{
 	dir = 4
@@ -1543,7 +1543,7 @@
 	pixel_x = 7
 	},
 /turf/open/floor/iron/white/small,
-/area/misc/operative_barracks/dorm/bathroom)
+/area/misc/operative_barracks/bathroom)
 "ul" = (
 /obj/effect/turf_decal/siding/dark,
 /turf/open/floor/mineral/plastitanium,
@@ -1664,7 +1664,7 @@
 "vl" = (
 /obj/effect/spawner/structure/window/reinforced/plasma/plastitanium,
 /turf/open/floor/plating,
-/area/misc/operative_barracks/dorm/bathroom)
+/area/misc/operative_barracks/bathroom)
 "vn" = (
 /mob/living/basic/carp/pet/clover,
 /turf/open/floor/mineral/plastitanium,
@@ -1707,7 +1707,7 @@
 /area/misc/operative_barracks/mission_briefing)
 "vE" = (
 /turf/closed/indestructible/syndicate/nodiagonal,
-/area/misc/operative_barracks/medbay/surgery)
+/area/misc/operative_barracks/surgery)
 "vF" = (
 /obj/structure/mannequin/operative_barracks/spy,
 /turf/open/floor/light{
@@ -1832,7 +1832,7 @@
 	},
 /obj/effect/decal/cleanable/dirt/dust,
 /turf/open/floor/iron/white/small,
-/area/misc/operative_barracks/dorm/bathroom)
+/area/misc/operative_barracks/bathroom)
 "wP" = (
 /obj/structure/fake_stairs/directional/east{
 	color = "#7F7F7F";
@@ -1840,9 +1840,6 @@
 	},
 /turf/open/floor/iron/dark/smooth_large,
 /area/misc/operative_barracks)
-"xg" = (
-/turf/closed/wall/r_wall/syndicate/nodiagonal,
-/area/misc/operative_barracks/armoury/secure)
 "xt" = (
 /obj/effect/turf_decal/siding/dark/corner,
 /obj/effect/turf_decal/vg_decals/numbers/nine,
@@ -1968,7 +1965,7 @@
 	},
 /obj/item/food/pie/cream,
 /turf/open/floor/iron/smooth,
-/area/misc/operative_barracks/armoury/secure)
+/area/misc/operative_barracks/armoury)
 "yL" = (
 /obj/item/paper/crumpled,
 /obj/machinery/light/small/directional/west,
@@ -2079,10 +2076,6 @@
 "AO" = (
 /turf/open/floor/iron/grimy,
 /area/misc/operative_barracks/dorm)
-"AU" = (
-/obj/effect/spawner/structure/window/reinforced/plasma/plastitanium,
-/turf/open/floor/plating,
-/area/misc/operative_barracks/armoury/secure)
 "Be" = (
 /obj/structure/fake_stairs/directional/east{
 	color = "#7F7F7F";
@@ -2220,7 +2213,7 @@
 /obj/structure/fluff/fake_scrubber,
 /obj/structure/sign/poster/official/cleanliness/directional/north,
 /turf/open/floor/mineral/titanium/tiled/white,
-/area/misc/operative_barracks/medbay/surgery)
+/area/misc/operative_barracks/surgery)
 "Du" = (
 /obj/structure/sign/poster/contraband/energy_swords/directional/north,
 /obj/machinery/light/directional/north,
@@ -2228,7 +2221,7 @@
 	dir = 4
 	},
 /turf/open/floor/iron/smooth,
-/area/misc/operative_barracks/armoury/secure)
+/area/misc/operative_barracks/armoury)
 "Dw" = (
 /obj/structure/railing/unbreakable{
 	dir = 4
@@ -2307,7 +2300,7 @@
 	},
 /obj/machinery/defibrillator_mount/directional/south,
 /turf/open/floor/iron/showroomfloor,
-/area/misc/operative_barracks/medbay/surgery)
+/area/misc/operative_barracks/surgery)
 "Er" = (
 /obj/effect/turf_decal/siding/dark{
 	dir = 4
@@ -2373,7 +2366,7 @@
 "EP" = (
 /obj/effect/spawner/structure/window/reinforced/tinted,
 /turf/open/floor/plating,
-/area/misc/operative_barracks/medbay/surgery)
+/area/misc/operative_barracks/surgery)
 "EV" = (
 /obj/effect/mapping_helpers/airlock/cutaiwire,
 /obj/effect/mapping_helpers/airlock/locked,
@@ -2496,7 +2489,7 @@
 	pixel_y = 19
 	},
 /turf/open/floor/iron/smooth,
-/area/misc/operative_barracks/armoury/secure)
+/area/misc/operative_barracks/armoury)
 "Gq" = (
 /obj/effect/turf_decal/siding/dark{
 	dir = 1
@@ -2637,7 +2630,7 @@
 	element_args = list(/obj/item/paper/paperslip/corporate/syndicate/traitor/supplies, /datum/voucher_set/traitor/supplies/surgery, sound_effect = 'sound/machines/card_slide.ogg')
 	},
 /turf/open/floor/iron/showroomfloor,
-/area/misc/operative_barracks/medbay/surgery)
+/area/misc/operative_barracks/surgery)
 "Ih" = (
 /obj/effect/turf_decal/siding/dark{
 	dir = 4
@@ -2766,7 +2759,7 @@
 /area/misc/operative_barracks/hangar)
 "Kw" = (
 /turf/closed/wall/r_wall/syndicate,
-/area/misc/operative_barracks/dorm/bathroom)
+/area/misc/operative_barracks/bathroom)
 "Kz" = (
 /obj/effect/turf_decal/siding/dark,
 /turf/open/floor/plating,
@@ -2854,7 +2847,7 @@
 	element_args = list(/obj/item/paper/paperslip/corporate/syndicate/traitor/primary, /datum/voucher_set/traitor/primary_weapon, sound_effect = 'sound/machines/lathe/lathe_print.ogg')
 	},
 /turf/open/floor/iron/smooth,
-/area/misc/operative_barracks/armoury/secure)
+/area/misc/operative_barracks/armoury)
 "LF" = (
 /obj/effect/turf_decal/siding/dark,
 /obj/effect/light_emitter/thunderdome,
@@ -2919,7 +2912,7 @@
 /area/misc/operative_barracks/hangar)
 "MB" = (
 /turf/open/floor/iron/smooth,
-/area/misc/operative_barracks/armoury/secure)
+/area/misc/operative_barracks/armoury)
 "MT" = (
 /obj/structure/mannequin/operative_barracks/sol_militant,
 /turf/open/floor/light{
@@ -2966,7 +2959,7 @@
 	dir = 4
 	},
 /turf/open/floor/iron/smooth,
-/area/misc/operative_barracks/armoury/secure)
+/area/misc/operative_barracks/armoury)
 "NS" = (
 /obj/effect/turf_decal/siding/dark/corner{
 	dir = 8
@@ -3084,7 +3077,7 @@
 	pixel_y = 4
 	},
 /turf/open/floor/iron/smooth,
-/area/misc/operative_barracks/armoury/secure)
+/area/misc/operative_barracks/armoury)
 "Py" = (
 /obj/effect/turf_decal/siding/dark/corner{
 	dir = 1
@@ -3119,7 +3112,7 @@
 /area/misc/operative_barracks/armoury)
 "PF" = (
 /turf/closed/indestructible/syndicate,
-/area/misc/operative_barracks/medbay/surgery)
+/area/misc/operative_barracks/surgery)
 "PK" = (
 /turf/closed/wall/r_wall/syndicate,
 /area/misc/operative_barracks/armoury)
@@ -3156,7 +3149,7 @@
 	pixel_x = 4
 	},
 /turf/open/floor/iron/showroomfloor,
-/area/misc/operative_barracks/medbay/surgery)
+/area/misc/operative_barracks/surgery)
 "Qk" = (
 /turf/closed/indestructible/fakedoor/blast_door{
 	name = "Launchpad no. 10"
@@ -3244,7 +3237,7 @@
 /obj/structure/sign/poster/contraband/little_fruits/directional/east,
 /obj/machinery/digital_clock/directional/south,
 /turf/open/floor/mineral/titanium/tiled/white,
-/area/misc/operative_barracks/medbay/surgery)
+/area/misc/operative_barracks/surgery)
 "RA" = (
 /obj/structure/railing/unbreakable{
 	dir = 1
@@ -3318,7 +3311,7 @@
 /area/misc/operative_barracks/hangar)
 "SA" = (
 /turf/closed/wall/r_wall/syndicate,
-/area/misc/operative_barracks/medbay/surgery)
+/area/misc/operative_barracks/surgery)
 "SD" = (
 /obj/structure/fluff/fake_scrubber,
 /obj/structure/closet/generic/wall/empty{
@@ -3331,7 +3324,7 @@
 /obj/item/grenade/barrier,
 /obj/item/grenade/barrier,
 /turf/open/floor/iron/smooth,
-/area/misc/operative_barracks/armoury/secure)
+/area/misc/operative_barracks/armoury)
 "SF" = (
 /obj/structure/cable/multilayer/multiz,
 /obj/machinery/door/window/brigdoor/right/directional/south,
@@ -3418,7 +3411,7 @@
 	dir = 8
 	},
 /turf/open/floor/iron/smooth,
-/area/misc/operative_barracks/armoury/secure)
+/area/misc/operative_barracks/armoury)
 "UD" = (
 /obj/effect/turf_decal/siding/white/corner{
 	dir = 4
@@ -3552,7 +3545,7 @@
 	name = "plastic flaps"
 	},
 /turf/open/floor/iron/showroomfloor,
-/area/misc/operative_barracks/medbay/surgery)
+/area/misc/operative_barracks/surgery)
 "VU" = (
 /obj/structure/sign/warning/fire/directional/east,
 /obj/effect/turf_decal/box/white/corners{
@@ -3604,7 +3597,7 @@
 /obj/structure/sign/poster/contraband/crocin_pool/directional/south,
 /obj/structure/fluff/fake_scrubber,
 /turf/open/floor/iron/white/small,
-/area/misc/operative_barracks/dorm/bathroom)
+/area/misc/operative_barracks/bathroom)
 "Wl" = (
 /obj/structure/reagent_dispensers/fueltank,
 /obj/item/clothing/head/utility/welding,
@@ -3631,7 +3624,7 @@
 	pixel_y = 2
 	},
 /turf/open/floor/iron/white/small,
-/area/misc/operative_barracks/dorm/bathroom)
+/area/misc/operative_barracks/bathroom)
 "WF" = (
 /turf/closed/indestructible/syndicate,
 /area/misc/operative_barracks/hangar)
@@ -3788,9 +3781,6 @@
 	},
 /turf/open/floor/iron/dark,
 /area/misc/operative_barracks/hangar)
-"Ze" = (
-/turf/closed/wall/r_wall/syndicate,
-/area/misc/operative_barracks/armoury/secure)
 "Zf" = (
 /obj/effect/turf_decal/siding/corner{
 	dir = 1
@@ -3798,7 +3788,7 @@
 /obj/structure/sink/directional/east,
 /obj/structure/mirror/directional/west,
 /turf/open/floor/iron/white/small,
-/area/misc/operative_barracks/dorm/bathroom)
+/area/misc/operative_barracks/bathroom)
 "Zk" = (
 /obj/machinery/light/floor,
 /obj/effect/turf_decal/siding/dark/corner{
@@ -4665,10 +4655,10 @@ fC
 PK
 af
 gi
-Ze
-xg
-Ze
-xg
+PK
+wx
+PK
+wx
 rz
 TP
 "}
@@ -4691,12 +4681,12 @@ bH
 ry
 wA
 yL
-Ze
+PK
 fW
 UB
 yJ
 SD
-AU
+rl
 rz
 TP
 "}
@@ -4719,13 +4709,13 @@ QD
 JJ
 hq
 cX
-Ze
+PK
 Du
 Pl
 Gp
 MB
-Ze
-Ze
+PK
+PK
 TP
 "}
 (10,1,2) = {"
@@ -4747,13 +4737,13 @@ Bv
 og
 uv
 Ux
-Ze
+PK
 lC
 NR
 jd
 fW
 Ls
-Ze
+PK
 TP
 "}
 (11,1,2) = {"
@@ -4775,13 +4765,13 @@ yF
 VW
 tC
 Ev
-Ze
-Ze
-Ze
-Ze
-Ze
-Ze
-Ze
+PK
+PK
+PK
+PK
+PK
+PK
+PK
 TP
 "}
 (12,1,2) = {"
@@ -4941,7 +4931,7 @@ QE
 SA
 fQ
 ql
-Kw
+SA
 ub
 Zf
 Wg
@@ -4969,7 +4959,7 @@ re
 Qj
 ar
 Ee
-Kw
+SA
 wL
 Wu
 Kw
@@ -4997,7 +4987,7 @@ FE
 VQ
 ar
 Ig
-Kw
+SA
 ld
 vl
 Kw

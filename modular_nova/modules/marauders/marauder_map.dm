@@ -161,7 +161,7 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/machinery/computer/security/telescreen/traitor_
 	name = "Armoury no. 09"
 	sound_environment = SOUND_ENVIRONMENT_LIVINGROOM
 
-/area/misc/operative_barracks/armoury/secure
+/area/misc/operative_barracks/secure
 	name = "Armoury Secure Storage"
 	sound_environment = SOUND_ENVIRONMENT_PADDED_CELL
 
@@ -173,7 +173,7 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/machinery/computer/security/telescreen/traitor_
 	name = "Implant Laboratorium no. 09"
 	sound_environment = SOUND_ENVIRONMENT_BATHROOM
 
-/area/misc/operative_barracks/medbay/surgery
+/area/misc/operative_barracks/surgery
 	name = "Surgery Room"
 	sound_environment = SOUND_ENVIRONMENT_PADDED_CELL
 
@@ -185,7 +185,7 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/machinery/computer/security/telescreen/traitor_
 	name = "Dormroom no. 09"
 	sound_environment = SOUND_ENVIRONMENT_ROOM
 
-/area/misc/operative_barracks/dorm/bathroom
+/area/misc/operative_barracks/bathroom
 	name = "Bathroom"
 	sound_environment = SOUND_ENVIRONMENT_BATHROOM
 

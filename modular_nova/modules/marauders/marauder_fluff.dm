@@ -18,6 +18,7 @@
 	• SecTech vending machine
 	<br><b>Robotics exosuit voucher:</b>
 	• Exosuit fabricator
+	• Orbital mech pad console
 	<br><b>Medical implant voucher:</b>
 	• Medical protolathe
 	• Limb grower
