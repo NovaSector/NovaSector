@@ -1,0 +1,6 @@
+author: "Nerev4r, junkgle01, carpotoxin"
+delete-after: True
+changes:
+  - rscadd: "Job locker beacon, debug version given to bluespace techs"
+  - rscadd: "Bridge Officer (assistant) is now a permanent role, they answer to the Captain"
+  - image: "Coffee trays, sprited by junkgle"
