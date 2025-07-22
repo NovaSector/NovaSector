@@ -753,11 +753,11 @@ There are several things that need to be remembered:
 		var/icon_file = IS_RIGHT_INDEX(held_index) ? worn_item.righthand_file : worn_item.lefthand_file
 		hand_overlay = worn_item.build_worn_icon(default_layer = HANDS_LAYER, default_icon_file = icon_file, isinhands = TRUE)
 		var/obj/item/bodypart/arm/held_in_hand = hand_bodyparts[held_index]
-		// NOVA EDIT REMOVAL START - Moved down below psionic holding, after an else block
+		/* // NOVA EDIT REMOVAL START - Moved down below psionic holding, after an else block
 		held_in_hand?.held_hand_offset?.apply_offset(hand_overlay)
 
 		hands += hand_overlay
-		// NOVA EDIT REMOVAL END
+		*/ // NOVA EDIT REMOVAL END
 		// NOVA EDIT ADDITION START - Psionic holding
 		if(HAS_TRAIT(src, TRAIT_FLOATING_HELD))
 			if(!held_left)
