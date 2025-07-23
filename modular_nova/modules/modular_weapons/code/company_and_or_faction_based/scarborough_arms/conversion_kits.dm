@@ -5,7 +5,7 @@
 	icon = 'modular_nova/modules/modular_weapons/icons/obj/company_and_or_faction_based/scarborough_arms/parts_kits.dmi'
 	icon_state = "rc20_kit"
 
-	lore_blurb = "The Scarborough Arms 'Reclaimer' parts kit, part of the 'Durandal 23-E' series of conversion kits, \
+	lore_blurb = "The Scarborough Arms 'Reclaimer' parts kit, part of the 'DURANDAL 23-E' series of conversion kits, \
 	is, in essence, a disassembled C-20r missing just enough parts to legally classify it as \"not really a firearm\", \
 	allowing for looser regulations to apply to its transport. \
 	However, the parts that are included are very much of Scarborough Arms quality, \
@@ -44,16 +44,16 @@
 	return ..()
 
 /obj/item/storage/toolbox/guncase/traitor/durandal_parts
-	name = "\improper DURANDAL 23-E-series parts case"
+	name = "\improper DURANDAL 23-E-series 'Reclaimer' parts case"
 	desc = "A large case for weapon parts and magazines, with an odd, blood-red symbol stamped on the front. \
 	There seems to be a strange switch along the side inside a plastic flap."
 	icon = 'modular_nova/modules/modular_weapons/icons/obj/company_and_or_faction_based/scarborough_arms/parts_kits.dmi'
 	base_icon_state = "reclaimer_case"
 	icon_state = "reclaimer_case"
-	weapon_to_spawn = null // spawns 1x
-	extra_to_spawn = null // spawns 3x
-	ammo_box_to_spawn = null // spawns 1x
-	var/lore_blurb = "This case appears unmarked."
+	weapon_to_spawn = /obj/item/crafting_conversion_kit/reclaimer_c20r
+	extra_to_spawn = /obj/item/ammo_box/magazine/smgm45
+	ammo_box_to_spawn = /obj/item/ammo_box/c45/large
+	var/lore_blurb = "This case is designed to fit a parts kit for a 'Reclaimer' rC-20, with accompanying magazines and large ammunition box."
 
 /obj/item/storage/toolbox/guncase/traitor/durandal_parts/Initialize(mapload)
 	. = ..()
@@ -73,10 +73,3 @@
 	if(lore_blurb)
 		. += "<br><i>[lore_blurb]</i>"
 
-/obj/item/storage/toolbox/guncase/traitor/durandal_parts/reclaimer
-	name = "\improper Durandal 23-E 'Reclaimer' parts case"
-	weapon_to_spawn = /obj/item/crafting_conversion_kit/reclaimer_c20r
-	extra_to_spawn = /obj/item/ammo_box/magazine/smgm45
-	ammo_box_to_spawn = /obj/item/ammo_box/c45/large
-
-	lore_blurb = "This case is designed to fit a parts kit for a 'Reclaimer' rC-20, with accompanying magazines and large ammunition box."
