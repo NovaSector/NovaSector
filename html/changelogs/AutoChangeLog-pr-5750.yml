@@ -1,0 +1,4 @@
+author: "SomeRandomOwl"
+delete-after: True
+changes:
+  - rscadd: "Added new Psionic Holding quirk, Lets your character float items using their hands rather than physically touching them."
