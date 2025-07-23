@@ -147,6 +147,10 @@
 	harmful = FALSE
 	print_cost = 0
 
+/obj/item/ammo_box/c45/large
+	name = "deluxe ammo box (.45)"
+	max_ammo = 60
+
 /*
 *	9mm
 */
