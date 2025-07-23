@@ -271,7 +271,7 @@
 	dir = 1
 	},
 /obj/effect/turf_decal/loading_area/white,
-/obj/item/tank/internals/oxygen/empty,
+/obj/item/tank/internals/oxygen/yellow,
 /turf/open/floor/iron/dark/small,
 /area/misc/operative_barracks/hangar)
 "eF" = (
@@ -410,8 +410,8 @@
 /turf/open/floor/iron/dark/smooth_large,
 /area/misc/operative_barracks/hangar)
 "go" = (
-/obj/machinery/portable_atmospherics/canister/nitrous_oxide,
 /obj/effect/turf_decal/box/white,
+/obj/machinery/portable_atmospherics/canister/nitrogen,
 /turf/open/floor/iron/dark/small,
 /area/misc/operative_barracks/hangar)
 "gr" = (
@@ -547,11 +547,15 @@
 /turf/open/floor/iron/grimy,
 /area/misc/operative_barracks/dorm)
 "iG" = (
-/obj/machinery/portable_atmospherics/canister,
 /obj/structure/railing/unbreakable{
 	dir = 4
 	},
 /obj/effect/turf_decal/box/white,
+/obj/machinery/portable_atmospherics/canister/plasma{
+	anchored = 1;
+	name = "bashful Plasma canister";
+	desc = "A canister for the storage of gas. This one doesn't seem to wanna move."
+	},
 /turf/open/floor/iron/dark/small,
 /area/misc/operative_barracks/hangar)
 "iM" = (
