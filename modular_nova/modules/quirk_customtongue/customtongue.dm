@@ -16,6 +16,9 @@
 	maximum_value_length = 64 // We may want to lower this for sanity.
 
 /datum/preference/text/custom_tongue/serialize(input)
+	var/regex/unwanted_characters = regex(@"[^\w]") // Prevent people from inputting slop into my text fields. No, you CAN'T have an eggplant emoji for when you whisper.
+	if(unwanted_characters.Find(input))
+		return null // No fun allowed.
 	return htmlrendertext(input)
 
 /datum/preference/text/custom_tongue/is_accessible(datum/preferences/preferences)
