@@ -1,4 +1,4 @@
-/datum/mutation/human/telepathy
+/datum/mutation/telepathy
 	power_path = /datum/action/cooldown/spell/pointed/telepathy
 
 /datum/action/cooldown/spell/pointed/telepathy
@@ -98,7 +98,7 @@
 		//different messaging if the target has the telepathy mutation themselves themselves
 		if (ishuman(target))
 			var/mob/living/carbon/human/human_target = target
-			var/datum/mutation/human/telepathy/tele_mut = human_target.dna.get_mutation(/datum/mutation/human/telepathy)
+			var/datum/mutation/telepathy/tele_mut = human_target.dna.get_mutation(/datum/mutation/telepathy)
 
 			if (tele_mut)
 				to_chat(target, span_boldnotice("[caster]'s psychic presence resounds in your mind: \"[span_purple(message)]\""))
