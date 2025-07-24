@@ -50,7 +50,7 @@
 
 	sharpness = SHARP_EDGED
 	actions_types = list(/datum/action/item_action/toggle_light)
-	obj_flags = NONE
+	obj_flags = UNIQUE_RENAME
 	light_system = OVERLAY_LIGHT_DIRECTIONAL
 	light_range = 5
 	light_on = FALSE
