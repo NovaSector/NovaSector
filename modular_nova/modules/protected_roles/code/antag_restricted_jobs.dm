@@ -44,3 +44,6 @@
 
 /datum/job/science_guard
 	antagonist_restricted = TRUE
+
+/datum/job/bridge_officer
+	antagonist_restricted = TRUE

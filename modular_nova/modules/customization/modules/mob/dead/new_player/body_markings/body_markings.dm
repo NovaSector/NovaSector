@@ -215,6 +215,31 @@
 	affected_bodyparts = HAND_LEFT | HAND_RIGHT | LEG_RIGHT | LEG_LEFT
 	gendered = FALSE
 
+/datum/body_marking/other/harpy_upper
+	name = "Harpy Upper Legs"
+	icon_state = "harpy_upper"
+	affected_bodyparts = LEG_RIGHT | LEG_LEFT
+	gendered = FALSE
+
+/datum/body_marking/other/harpy_lower
+	name = "Harpy Lower Legs"
+	icon_state = "harpy_lower"
+	affected_bodyparts = LEG_RIGHT | LEG_LEFT
+	gendered = FALSE
+
+/datum/body_marking/other/harpy_claws
+	name = "Harpy Claws"
+	icon_state = "harpy_claws"
+	affected_bodyparts = LEG_RIGHT | LEG_LEFT
+	gendered = FALSE
+
+/datum/body_marking/other/critter_legs
+	name = "Critter Legs"
+	icon_state = "critterleg"
+	affected_bodyparts = LEG_RIGHT | LEG_LEFT
+	gendered = FALSE
+
+
 /datum/body_marking/other/splotches
 	name = "Splotches"
 	icon_state = "splotches"

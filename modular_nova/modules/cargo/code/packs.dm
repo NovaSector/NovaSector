@@ -410,6 +410,9 @@
 	cost = CARGO_CRATE_VALUE * 6 // 1200 credits
 	contains = list(/obj/item/gravity_harness)
 
+/datum/supply_pack/misc/commandkeys
+	hidden = TRUE
+
 /*
 *	FOOD
 */
@@ -782,3 +785,20 @@
 
 /datum/supply_pack/imports/error
 	cost = CARGO_CRATE_VALUE * 400 // 20k is a lot on TG, it's not as much here. Upped to 80k
+
+/datum/supply_pack/misc/ancient_paperwork
+	name = "Unfiled Paperwork"
+	desc = "Hey, we've apparently got a backlog of paperwork here. It's pretty bad. \
+		If you guys could help get this processed so we can file this stuff away, \
+		it'll look a lot nicer on our quarterly reports, which means we can justify putting a few extra credits in your budget. \
+		Thanks."
+	cost = CARGO_CRATE_VALUE * 6
+	/*
+	one properly stamped paperwork is CARGO_CRATE_VALUE * 3.
+	however, because getting stamps capital S Sucks, requiring IC interaction (or stamp theft),
+	it's probably fine for it to be decently profitable?
+	5 paperworks for 15 crates, initial cost of 6 crates
+	*/
+	contains = list(
+		/obj/item/folder/ancient_paperwork = 5
+	)
