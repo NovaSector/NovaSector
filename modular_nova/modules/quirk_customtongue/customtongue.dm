@@ -13,7 +13,7 @@
 	savefile_key = "custom_tongue"
 	savefile_identifier = PREFERENCE_CHARACTER
 	can_randomize = FALSE
-	maximum_value_length = 64
+	maximum_value_length = 64 // We may want to lower this for sanity.
 
 /datum/preference/text/custom_tongue/serialize(input)
 	return htmlrendertext(input)
