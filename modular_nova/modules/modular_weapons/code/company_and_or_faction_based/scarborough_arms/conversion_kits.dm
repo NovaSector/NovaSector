@@ -6,14 +6,14 @@
 	icon_state = "rc20_kit"
 
 	lore_blurb = "The Scarborough Arms 'Reclaimer' parts kit, part of the 'DURANDAL 23-E' series of conversion kits, \
-	is, in essence, a disassembled C-20r missing just enough parts to legally classify it as \"not really a firearm\", \
-	allowing for looser regulations to apply to its transport. \
-	However, the parts that are included are very much of Scarborough Arms quality, \
-	which make the resulting firearm much more performant compared to its main in-sector \
-	competitor, the NT20.<br><br>\
-	Unfortunately, utilizing this parts kit requires cannibalizing an NT20, which no regulation-abiding crew member \
-	should have gotten their hands on barring extenuating circumstances, \
-	nor should consider breaking down, again barring extenuating circumstances."
+		is, in essence, a disassembled C-20r missing just enough parts to legally classify it as \"not really a firearm\", \
+		allowing for looser regulations to apply to its transport. \
+		However, the parts that are included are very much of Scarborough Arms quality, \
+		which make the resulting firearm much more performant compared to its main in-sector \
+		competitor, the NT20.<br><br>\
+		Unfortunately, utilizing this parts kit requires cannibalizing an NT20, which no regulation-abiding crew member \
+		should have gotten their hands on barring extenuating circumstances, \
+		nor should consider breaking down, again barring extenuating circumstances."
 
 /obj/item/crafting_conversion_kit/reclaimer_c20r/Initialize(mapload)
 	. = ..()
@@ -46,7 +46,7 @@
 /obj/item/storage/toolbox/guncase/traitor/durandal_parts
 	name = "\improper DURANDAL 23-E-series 'Reclaimer' parts case"
 	desc = "A large case for weapon parts and magazines, with an odd, blood-red symbol stamped on the front. \
-	There seems to be a strange switch along the side inside a plastic flap."
+		There seems to be a strange switch along the side inside a plastic flap."
 	icon = 'modular_nova/modules/modular_weapons/icons/obj/company_and_or_faction_based/scarborough_arms/parts_kits.dmi'
 	base_icon_state = "reclaimer_case"
 	icon_state = "reclaimer_case"
@@ -62,14 +62,14 @@
 /obj/item/storage/toolbox/guncase/traitor/durandal_parts/examine_more(mob/user)
 	. = ..()
 	. += "<i>Scarborough Arms's 'DURANDAL' line of parts kits are designed for the discerning customer who needs \
-	every ounce of performance they can get out of their tools of rampant violence. The rumors that the kits are \
-	designed with the assistance of an AI that's either missing ethical limiters or has independently subverted them \
-	are probably unfounded.<br><br>\
-	\"When the count sees it never will be broke, <br>\
-	Then to himself right softly he makes moan; <br>\
-	'Ah, Durandal, fair, hallowed, and devote, <br>\
-	What store of relics lies in thy hilt of gold!\"<br>\
-	- The Song of Roland, translated by Dorothy Sayers</i>"
+		every ounce of performance they can get out of their tools of rampant violence. The rumors that the kits are \
+		designed with the assistance of an AI that's either missing ethical limiters or has independently subverted them \
+		are probably unfounded.<br><br>\
+		\"When the count sees it never will be broke, <br>\
+		Then to himself right softly he makes moan; <br>\
+		'Ah, Durandal, fair, hallowed, and devote, <br>\
+		What store of relics lies in thy hilt of gold!\"<br>\
+		- The Song of Roland, translated by Dorothy Sayers</i>"
 	if(lore_blurb)
 		. += "<br><i>[lore_blurb]</i>"
 

@@ -76,7 +76,7 @@
 /datum/uplink_item/device_tools/durandal_reclaimer
 	name = "Scarborough 'Reclaimer' Parts Kit"
 	desc = "A Scarborough Arms parts kit for converting the Blueshield's NT20 into an rC-20, functionally identical to the venerable C-20r. \
-	The only problem is actually getting your mitts on the Blueshield's NT20 without dying in the process."
+		The only problem is actually getting your mitts on the Blueshield's NT20 without dying in the process."
 	surplus = 10
 	item = /obj/item/storage/toolbox/guncase/traitor/durandal_parts
 	cost = 1
