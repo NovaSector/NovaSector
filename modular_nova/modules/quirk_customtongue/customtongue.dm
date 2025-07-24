@@ -55,24 +55,24 @@
 /datum/quirk/custom_tongue/add(client/client_source)
 	var/new_ask = client_source?.prefs.read_preference(/datum/preference/text/custom_tongue/ask)
 	if (new_ask)
-		quirk_holder.verb_ask = new_ask
+		quirk_holder.verb_ask = LOWER_TEXT(new_ask)
 
 	var/new_exclaim = client_source?.prefs.read_preference(/datum/preference/text/custom_tongue/exclaim)
 	if (new_exclaim)
-		quirk_holder.verb_exclaim = new_exclaim
+		quirk_holder.verb_exclaim = LOWER_TEXT(new_exclaim)
 
 	var/new_whisper = client_source?.prefs.read_preference(/datum/preference/text/custom_tongue/whisper)
 	if (new_whisper)
-		quirk_holder.verb_whisper = new_whisper
+		quirk_holder.verb_whisper = LOWER_TEXT(new_whisper)
 
 	var/new_yell = client_source?.prefs.read_preference(/datum/preference/text/custom_tongue/yell)
 	if (new_yell)
-		quirk_holder.verb_yell = new_yell
+		quirk_holder.verb_yell = LOWER_TEXT(new_yell)
 
 	var/new_say = client_source?.prefs.read_preference(/datum/preference/text/custom_tongue/say)
 	if (new_say)
 		var/obj/item/organ/tongue/tongue = quirk_holder.get_organ_slot(ORGAN_SLOT_TONGUE)
-		tongue.say_mod = new_say
+		tongue.say_mod = LOWER_TEXT(new_say)
 
 /datum/quirk/custom_tongue/remove(client/client_source)
 	var/obj/item/organ/tongue/tongue = quirk_holder.get_organ_slot(ORGAN_SLOT_TONGUE)
