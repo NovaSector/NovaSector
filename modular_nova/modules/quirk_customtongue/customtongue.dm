@@ -60,7 +60,7 @@
 
 	var/client/client_source = quirk_holder.client
 
-	var/new_ask = client_source.prefs.read_preference(/datum/preference/text/custom_tongue/ask)
+	var/new_ask = client_source?.prefs.read_preference(/datum/preference/text/custom_tongue/ask)
 	if (new_ask)
 		quirk_holder.verb_ask = LOWER_TEXT(new_ask)
 
