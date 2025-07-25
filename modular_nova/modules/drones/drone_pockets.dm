@@ -121,10 +121,22 @@
 
 	return COMPONENT_CANCEL_MOUSEDROP_ONTO
 
-/mob/living/basic/drone/proc/on_click (datum/source, atom/clicked_atom, location, control, params)
+/mob/living/basic/drone/proc/handle_click(datum/source, atom/clicked_atom, location, control, params)
 	SIGNAL_HANDLER
+	// First check for drone-to-drone interaction restrictions
 	if(isdrone(clicked_atom) && usr != src && !isAdminGhostAI(usr) && (!mind || mind.key != usr.key))
 		return FALSE
+
+	// Then handle pocket interactions if applicable
+	if(client && hud_used)
+		var/list/modifiers = params2list(params)
+		if(!LAZYACCESS(modifiers, SHIFT_CLICK)) // Skip if it's a shift-click
+			var/atom/movable/screen/inventory/inv = locate() in hud_used.static_inventory
+			if(inv && (clicked_atom == inv || (istype(clicked_atom, /atom/movable/screen) && clicked_atom:name == inv.name)))
+				if(handle_pocket_click(inv.slot_id))
+					return TRUE
+
+	return NONE
 
 /mob/living/basic/drone/proc/handle_alt_click(datum/source, atom/clicked_atom, location, control, params)
 	SIGNAL_HANDLER
