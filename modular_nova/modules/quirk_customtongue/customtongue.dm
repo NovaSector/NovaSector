@@ -55,8 +55,12 @@
 		/datum/preference/text/custom_tongue/say
 	)
 
-/datum/quirk/custom_tongue/add(client/client_source)
-	var/new_ask = client_source?.prefs.read_preference(/datum/preference/text/custom_tongue/ask)
+/datum/quirk/custom_tongue/proc/tongue_setup() //Signal handler for when we gain a tongue that overwrites this quirks say modifiers.
+	SIGNAL_HANDLER
+
+	var/client/client_source = quirk_holder.client
+
+	var/new_ask = client_source.prefs.read_preference(/datum/preference/text/custom_tongue/ask)
 	if (new_ask)
 		quirk_holder.verb_ask = LOWER_TEXT(new_ask)
 
@@ -76,6 +80,10 @@
 	if (new_say)
 		var/obj/item/organ/tongue/tongue = quirk_holder.get_organ_slot(ORGAN_SLOT_TONGUE)
 		tongue.say_mod = LOWER_TEXT(new_say)
+
+/datum/quirk/custom_tongue/add(client/client_source)
+	RegisterSignal(quirk_holder, COMSIG_CARBON_GAIN_ORGAN, PROC_REF(tongue_setup)) // Compatibility between custom tongue and the animal traits quirks
+	tongue_setup() // Reuse the proc to avoid code duplication
 
 /datum/quirk/custom_tongue/remove(client/client_source)
 	var/obj/item/organ/tongue/tongue = quirk_holder.get_organ_slot(ORGAN_SLOT_TONGUE)
