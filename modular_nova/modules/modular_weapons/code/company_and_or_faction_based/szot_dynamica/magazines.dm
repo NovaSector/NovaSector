@@ -58,7 +58,7 @@
 /obj/item/ammo_box/magazine/recharge/plasma_battery
 	name = "plasma power pack"
 	desc = "A rechargeable, detachable battery that serves as a power source for plasma projectors. \
-	The casing reads \"Heating advised when battery is low. Do not confuse for a food can.\" "
+	The casing reads \"Heating advised when battery is low. Do not microwave.\" "
 	icon = 'modular_nova/modules/modular_weapons/icons/obj/company_and_or_faction_based/szot_dynamica/ammo.dmi'
 	base_icon_state = "plasma_battery"
 	icon_state = "plasma_battery"
