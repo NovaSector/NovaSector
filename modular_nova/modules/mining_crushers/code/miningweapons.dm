@@ -22,7 +22,7 @@
 	desc = "Recent breakthroughs with proto-kinetic technology have led to improved designs for the early proto-kinetic crusher, namely the ability to pack all \
 		the same technology into a smaller more portable package. The machete design was chosen as to make a much easier to handle and less cumbersome frame. Of course \
 		the smaller package means that the power is not as high as the original crusher design, but the different shell makes it capable of blocking basic attacks."
-	force = 10
+	force_wielded = 10
 	block_chance = 15
 	slot_flags = ITEM_SLOT_BELT
 	custom_materials = list(
@@ -53,16 +53,11 @@
 
 /obj/item/kinetic_crusher/machete/Initialize(mapload)
 	. = ..()
-	// Special behaviour for the kinetic machete to reflect the effectiveness of one-handed vs two-handed.
-	AddComponent(/datum/component/two_handed, \
-		force_unwielded = 10, \
-		force_wielded = 15, \
-	)
+	upate_wielding()
 	AddComponent(/datum/component/butchering, \
 		speed = 4 SECONDS, \
 		effectiveness = 150, \
 	)
-
 /obj/item/kinetic_crusher/machete/update_icon_state()
 	. = ..()
 	if(current_inhand_icon_state == initial(current_inhand_icon_state)) // don't alter retool kit appearance
