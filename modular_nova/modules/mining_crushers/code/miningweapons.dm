@@ -72,7 +72,6 @@
 		paranoid miners, now able to enjoy the (slightly lower) power of a crusher, while maintaining a (barely) minimum safe distance."
 	force_wielded = 15
 	w_class = WEIGHT_CLASS_HUGE
-	slot_flags = ITEM_SLOT_BACK
 	armour_penetration = 15
 	hitsound = 'sound/items/weapons/bladeslice.ogg'
 	attack_verb_continuous = list(
@@ -122,7 +121,6 @@
 		results in backstabs being impossible."
 	force_wielded = 20
 	w_class = WEIGHT_CLASS_HUGE
-	slot_flags = ITEM_SLOT_BACK
 	armour_penetration = 0
 	hitsound = 'sound/items/weapons/sonic_jackhammer.ogg'
 	attack_verb_continuous = list(
