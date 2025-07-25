@@ -33,7 +33,7 @@
 	damage = 30
 
 /obj/projectile/bullet/c38/iceblox
-	damage = 30
+	damage = 30 // originally 20 on TG
 
 /obj/projectile/bullet/c38/haywire
 	name = ".38 haywire bullet"
