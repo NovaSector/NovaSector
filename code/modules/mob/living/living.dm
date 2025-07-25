@@ -591,6 +591,7 @@
 			to_chat(src, span_warning("You are unable to succumb to death! This life continues."), type=MESSAGE_TYPE_INFO)
 			return
 	log_message("Has [whispered ? "whispered his final words" : "succumbed to death"] with [round(health, 0.1)] points of health!", LOG_ATTACK)
+	message_admins("[ADMIN_LOOKUPFLW(usr)] Has [whispered ? "whispered his final words" : "succumbed to death"] with [round(health, 0.1)] points of health, at [AREACOORD(usr)]") // NOVA EDIT ADDITION
 	adjustOxyLoss(health - HEALTH_THRESHOLD_DEAD)
 	updatehealth()
 	if(!whispered)
