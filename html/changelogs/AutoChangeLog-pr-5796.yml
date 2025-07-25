@@ -1,0 +1,5 @@
+author: "Hatterhat"
+delete-after: True
+changes:
+  - rscadd: ".980 Tydhouer stingball grenades are now in circulation! Users are advised to be very careful about where they're aiming and/or be ready to duck and cover."
+  - balance: ".980 Tydhouer grenades now properly cost points in the ammo bench."
