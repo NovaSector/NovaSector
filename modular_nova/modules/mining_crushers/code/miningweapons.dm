@@ -22,7 +22,7 @@
 	desc = "Recent breakthroughs with proto-kinetic technology have led to improved designs for the early proto-kinetic crusher, namely the ability to pack all \
 		the same technology into a smaller more portable package. The machete design was chosen as to make a much easier to handle and less cumbersome frame. Of course \
 		the smaller package means that the power is not as high as the original crusher design, but the different shell makes it capable of blocking basic attacks."
-	force_wielded = 10
+	force_wielded = 15
 	block_chance = 15
 	slot_flags = ITEM_SLOT_BELT
 	custom_materials = list(
@@ -53,7 +53,7 @@
 
 /obj/item/kinetic_crusher/machete/Initialize(mapload)
 	. = ..()
-	upate_wielding()
+	update_wielding()
 	AddComponent(/datum/component/butchering, \
 		speed = 4 SECONDS, \
 		effectiveness = 150, \
@@ -77,7 +77,6 @@
 		paranoid miners, now able to enjoy the (slightly lower) power of a crusher, while maintaining a (barely) minimum safe distance."
 	force_wielded = 15
 	w_class = WEIGHT_CLASS_HUGE
-	slot_flags = ITEM_SLOT_BACK
 	armour_penetration = 15
 	custom_materials = list(
 		/datum/material/iron=HALF_SHEET_MATERIAL_AMOUNT*1.15,
@@ -132,7 +131,6 @@
 		results in backstabs being impossible."
 	force_wielded = 20
 	w_class = WEIGHT_CLASS_HUGE
-	slot_flags = ITEM_SLOT_BACK
 	armour_penetration = 0
 	custom_materials = list(
 		/datum/material/iron=HALF_SHEET_MATERIAL_AMOUNT*1.15,
