@@ -233,3 +233,22 @@
   SomeRandomOwl:
   - rscadd: Added new Psionic Holding quirk, Lets your character float items using
       their hands rather than physically touching them.
+2025-07-25:
+  Hatterhat:
+  - rscadd: Citing the reason "Why not" and/or "because we can", Scarborough Arms
+      has started to export the DURANDAL 23-E parts/conversion kit, for cannibalizing
+      an NT20 into the rC-20 submachine gun. For obvious reasons, this is very much
+      against corporate regs, as to do so would imply one would have robbed and/or
+      murdered the local Shield unit.
+  - rscadd: With the rumors of Scarborough Arms releasing parts kits that require
+      cannibalizing NT20s to complete a new gun, Nanotrasen has chosen to release
+      spare parts kits for NT20s in the slim chance that a Shield unit has their service
+      weapon cannibalized for nefarious deeds.
+  - rscadd: .980 Tydhouer stingball grenades are now in circulation! Users are advised
+      to be very careful about where they're aiming and/or be ready to duck and cover.
+  - balance: .980 Tydhouer grenades now properly cost points in the ammo bench.
+  - balance: Nanotrasen has realized that there's nothing stopping them from shaving
+      off a bit more material while manufacturing and reissuing .38 revolvers, allowing
+      them to be considered "small" (e.g. fitting in pockets/boxes).
+  - balance: New specs for .38 ammunition allows for more propellant to be loaded,
+      increasing damage dealt for most ammunition types.
