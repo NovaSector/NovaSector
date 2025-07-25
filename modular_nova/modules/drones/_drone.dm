@@ -13,8 +13,10 @@
 	"<span class='warning'>Please keep these rules in mind, failing to do so can lead to a ban.</span>\n"+\
 	"<span class='warning'><u>If you do not have the regular drone laws, follow your laws to the best of your ability.</u></span>\n"+\
 	"<span class='notice'>Prefix your message with :b to speak in Drone Chat.</span>\n"
-	var/l_store // Reference to left pocket item
-	var/r_store // Reference to right pocket item
+	/// Left pocket item reference
+	var/obj/item/l_store
+	/// Right pocket item reference
+	var/obj/item/r_store
 
 /datum/hud/dextrous/drone/New(mob/owner)
 	. = ..()
