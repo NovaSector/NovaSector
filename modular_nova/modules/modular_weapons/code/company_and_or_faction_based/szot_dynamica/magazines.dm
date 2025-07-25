@@ -58,7 +58,7 @@
 /obj/item/ammo_box/magazine/recharge/plasma_battery
 	name = "plasma power pack"
 	desc = "A rechargeable, detachable battery that serves as a power source for plasma projectors. \
-	The casing reads \"Heating advised when battery is low. Do not confuse for a food can.\""
+	The casing reads \"Heating advised when battery is low. Do not confuse for a food can.\" "
 	icon = 'modular_nova/modules/modular_weapons/icons/obj/company_and_or_faction_based/szot_dynamica/ammo.dmi'
 	base_icon_state = "plasma_battery"
 	icon_state = "plasma_battery"
@@ -70,6 +70,10 @@
 /obj/item/ammo_box/magazine/recharge/plasma_battery/update_icon_state() // FUCK YOU /OBJ/ITEM/AMMO_BOX/MAGAZINE/RECHARGE
 	. = ..()
 	icon_state = base_icon_state
+
+/obj/item/ammo_box/magazine/recharge/plasma_battery/update_desc() //No, It does not have 0 shots left.
+	. = ..()
+	desc = initial(desc) // FUCK YOU /OBJ/ITEM/AMMO_BOX/MAGAZINE/RECHARGE WE HAVE EXAMINE TEXT THAT ACTUALLY DOES AMMO COUNTING
 
 /obj/item/ammo_box/magazine/recharge/plasma_battery/examine_more(mob/user)
 	. = ..()
@@ -87,8 +91,9 @@
 		if(stored_ammo.len >= max_ammo)
 			return
 		stored_ammo += new ammo_type(src)
+		playsound(src, 'sound/effects/sparks/sparks2.ogg', 30, TRUE)
 		if(stored_ammo.len == max_ammo)
-			playsound(src, 'sound/effects/sparks/sparks2.ogg', 30, TRUE)
+			playsound(src, 'sound/effects/sparks/sparks2.ogg', 80, TRUE) //full charge should be noticable
 			balloon_alert_to_viewers("[src] crackles with energy!")
 		return
 
