@@ -1,6 +1,6 @@
 /obj/item/wallframe/fireplace
 	name = "fireplace frame"
-	desc = "A do it yourself Fireplace Instalation kit. What do you mean it looks like a tattoo kit? its totally different!"
+	desc = "A do it yourself fireplace installation kit. What do you mean it looks like a tattoo kit? its totally different!"
 	// Using the tattoo kit sprite as a placeholder, otherwise this will never be coded.
 	icon_state = "tattoo_kit"
 	icon = 'icons/obj/maintenance_loot.dmi'
