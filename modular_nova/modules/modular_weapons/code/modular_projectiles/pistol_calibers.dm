@@ -139,6 +139,7 @@
 	print_cost = 2
 
 /obj/item/ammo_casing/c45/rubber
+	name = ".45 rubber bullet casing"
 	desc = "A .45 rubber bullet casing.\
 		<br><br>\
 		<i>RUBBER: Less than lethal ammo. Deals both stamina damage and regular damage.</i>"
