@@ -5,7 +5,7 @@
 	icon_state = "tattoo_kit"
 	icon = 'icons/obj/maintenance_loot.dmi'
 	custom_materials = list(/datum/material/stone= SHEET_MATERIAL_AMOUNT * 7)
-	result_path = /obj/structure/fireplace
+	result_path = /obj/structure/fireplace/nova
 	pixel_shift = 0
 
 //We overwrite this one to make it use the reverse direction. 
@@ -22,3 +22,6 @@
 			if(WEST)
 				object.pixel_x = -pixel_shift
 	return ..()
+
+/obj/structure/fireplace/nova
+	icon = 'modular_nova/modules/aesthetics/furniture/icons/fireplace.dmi'
