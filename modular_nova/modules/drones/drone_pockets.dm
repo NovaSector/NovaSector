@@ -18,10 +18,6 @@
 	right_pocket.set_real_location(src, FALSE)
 	right_pocket.silent = TRUE
 
-	// Register signals for interaction control
-	RegisterSignal(src, COMSIG_CLICK, PROC_REF(handle_click))
-	RegisterSignal(src, COMSIG_CLICK_ALT, PROC_REF(handle_alt_click))
-
 /mob/living/basic/drone/can_equip(obj/item/I, slot, disable_warning = FALSE, bypass_equip_delay_self = FALSE, ignore_equipped = FALSE, indirect_action = FALSE)
 	switch(slot)
 		if(ITEM_SLOT_LPOCKET)
@@ -130,11 +126,11 @@
 	// Then handle pocket interactions if applicable
 	if(client && hud_used)
 		var/list/modifiers = params2list(params)
-		if(!LAZYACCESS(modifiers, SHIFT_CLICK)) // Skip if it's a shift-click
+		if(!LAZYACCESS(modifiers, SHIFT_CLICK))
 			var/atom/movable/screen/inventory/inv = locate() in hud_used.static_inventory
-			if(inv && (clicked_atom == inv || (istype(clicked_atom, /atom/movable/screen) && clicked_atom:name == inv.name)))
-				if(handle_pocket_click(inv.slot_id))
-					return TRUE
+			if(inv && (clicked_atom == inv || (istype(clicked_atom, /atom/movable/screen) && clicked_atom.name == inv.name)))
+				INVOKE_ASYNC(src, PROC_REF(async_handle_pocket_click), inv.slot_id)
+				return TRUE
 
 	return NONE
 
@@ -161,3 +157,15 @@
 		if(ITEM_SLOT_RPOCKET)
 			return r_store
 	return null
+
+/mob/living/basic/drone/proc/async_handle_pocket_click(slot_id)
+	var/obj/item/item_in_pocket
+	if(slot_id == ITEM_SLOT_LPOCKET)
+		item_in_pocket = l_store
+	else if(slot_id == ITEM_SLOT_RPOCKET)
+		item_in_pocket = r_store
+
+	if(item_in_pocket)
+		item_in_pocket.attack_hand(src)
+		return TRUE
+	return FALSE

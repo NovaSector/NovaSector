@@ -32,18 +32,13 @@
 		return TRUE
 	return FALSE
 
-// Register signals for pocket interaction
-/mob/living/basic/drone/Initialize(mapload)
-	. = ..()
-	RegisterSignal(src, COMSIG_CLICK, PROC_REF(handle_click), override = TRUE)
-	RegisterSignal(src, COMSIG_CLICK_CTRL, PROC_REF(on_ctrl_click))
-
 /mob/living/basic/drone/proc/on_ctrl_click(datum/source, atom/clicked_atom, location, control, params)
 	SIGNAL_HANDLER
 	if(!client || !hud_used)
 		return
 
 	var/atom/movable/screen/inventory/inv = locate() in hud_used.static_inventory
-	if(inv && (clicked_atom == inv || (istype(clicked_atom, /atom/movable/screen) && clicked_atom:name == inv.name)))
-		if(handle_pocket_click(inv.slot_id))
-			return
+	if(inv && (clicked_atom == inv || (istype(clicked_atom, /atom/movable/screen) && clicked_atom.name == inv.name)))
+		INVOKE_ASYNC(src, PROC_REF(async_handle_pocket_click), inv.slot_id)
+		return TRUE
+	return NONE

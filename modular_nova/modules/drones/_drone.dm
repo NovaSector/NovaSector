@@ -18,6 +18,14 @@
 	/// Right pocket item reference
 	var/obj/item/r_store
 
+/mob/living/basic/drone/Initialize(mapload)
+	. = ..()
+	// Register signals for interaction control
+	RegisterSignal(src, COMSIG_CLICK, PROC_REF(handle_click), override = TRUE)
+	RegisterSignal(src, COMSIG_CLICK_CTRL, PROC_REF(on_ctrl_click))
+	RegisterSignal(src, COMSIG_CLICK_ALT, PROC_REF(handle_alt_click))
+	RegisterSignal(src, COMSIG_MOUSEDROP_ONTO, PROC_REF(on_mousedrop))
+
 /datum/hud/dextrous/drone/New(mob/owner)
 	. = ..()
 	var/atom/movable/screen/inventory/inv_box

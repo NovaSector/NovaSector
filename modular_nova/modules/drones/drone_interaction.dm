@@ -1,7 +1,3 @@
-/mob/living/basic/drone/Initialize(mapload)
-	. = ..()
-	RegisterSignal(src, COMSIG_MOUSEDROP_ONTO, PROC_REF(on_mousedrop))
-
 /mob/living/basic/drone/attack_hand(mob/user, list/modifiers)
 	if(isdrone(user))
 		attack_drone(user)
