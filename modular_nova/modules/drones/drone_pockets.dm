@@ -18,30 +18,30 @@
 	right_pocket.set_real_location(src, FALSE)
 	right_pocket.silent = TRUE
 
-/mob/living/basic/drone/can_equip(obj/item/I, slot, disable_warning = FALSE, bypass_equip_delay_self = FALSE, ignore_equipped = FALSE, indirect_action = FALSE)
+/mob/living/basic/drone/can_equip(obj/item/target_item, slot, disable_warning = FALSE, bypass_equip_delay_self = FALSE, ignore_equipped = FALSE, indirect_action = FALSE)
 	switch(slot)
 		if(ITEM_SLOT_LPOCKET)
 			if(l_store)
 				return FALSE
-			if(I.w_class > WEIGHT_CLASS_SMALL && !(I.slot_flags & ITEM_SLOT_POCKETS))
+			if(target_item.w_class > WEIGHT_CLASS_SMALL && !(target_item.slot_flags & ITEM_SLOT_POCKETS))
 				return FALSE
 			return TRUE
 		if(ITEM_SLOT_RPOCKET)
 			if(r_store)
 				return FALSE
-			if(I.w_class > WEIGHT_CLASS_SMALL && !(I.slot_flags & ITEM_SLOT_POCKETS))
+			if(target_item.w_class > WEIGHT_CLASS_SMALL && !(target_item.slot_flags & ITEM_SLOT_POCKETS))
 				return FALSE
 			return TRUE
 	return ..()
 
-/mob/living/basic/drone/get_slot_by_item(obj/item/I)
-	if(I == internal_storage)
+/mob/living/basic/drone/get_slot_by_item(obj/item/target_item)
+	if(target_item == internal_storage)
 		return ITEM_SLOT_DEX_STORAGE
-	if(I == head)
+	if(target_item == head)
 		return ITEM_SLOT_HEAD
-	if(I == l_store)
+	if(target_item == l_store)
 		return ITEM_SLOT_LPOCKET
-	if(I == r_store)
+	if(target_item == r_store)
 		return ITEM_SLOT_RPOCKET
 	return ..()
 

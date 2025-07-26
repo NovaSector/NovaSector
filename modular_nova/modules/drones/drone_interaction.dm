@@ -19,8 +19,8 @@
 /mob/living/basic/drone/proc/on_mousedrop(atom/over, src_location, over_location, src_control, over_control, params)
 	// Allow pickup by dragging to any mob that can hold us
 	if(ismob(over) && over != src && over.CanReach(src) && over.MouseDrop(src))
-		var/mob/M = over
-		if(can_be_held && M.can_hold_items())
+		var/mob/over_mob = over
+		if(can_be_held && over_mob.can_hold_items())
 			return TRUE // Allow normal pickup handling
 
 	// Allow self and admin interactions

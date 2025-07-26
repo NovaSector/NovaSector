@@ -1,13 +1,13 @@
-/mob/living/basic/drone/ClickOn(atom/A, params)
+/mob/living/basic/drone/ClickOn(atom/clicked_atom, params)
 	var/list/modifiers = params2list(params)
-	if(modifiers[SHIFT_CLICK] && ismob(A))
-		examine(A)
+	if(modifiers[SHIFT_CLICK] && ismob(clicked_atom))
+		examine(clicked_atom)
 		return
 
 	// Handle pocket slot clicks
 	if(ismob(usr) && usr == src && client && hud_used)
 		var/atom/movable/screen/inventory/inv = locate() in hud_used.static_inventory
-		if(inv && (A == inv || (istype(A, /atom/movable/screen) && A:name == inv.name)))
+		if(inv && (clicked_atom == inv || (istype(clicked_atom, /atom/movable/screen) && clicked_atom:name == inv.name)))
 			var/obj/item/item_in_pocket
 			if(inv.slot_id == ITEM_SLOT_LPOCKET)
 				item_in_pocket = l_store
