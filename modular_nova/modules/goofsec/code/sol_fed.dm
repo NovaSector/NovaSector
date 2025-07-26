@@ -327,8 +327,8 @@ GLOBAL_LIST_INIT(call911_do_and_do_not, list(
 /datum/outfit/request_911/police
 	name = "911 Response: Marshal"
 	back = /obj/item/storage/backpack/satchel
-	uniform = /obj/item/clothing/under/sol_peacekeeper
-	suit = /obj/item/clothing/suit/armor/vest/det_suit/sol
+	uniform = /obj/item/clothing/under/solfed
+	suit = /obj/item/clothing/suit/armor/vest/sol
 	shoes = /obj/item/clothing/shoes/jackboots
 	glasses = /obj/item/clothing/glasses/sunglasses
 	ears = /obj/item/radio/headset/headset_sec/alt
@@ -362,7 +362,7 @@ GLOBAL_LIST_INIT(call911_do_and_do_not, list(
 /datum/outfit/request_911/atmos
 	name = "811 Response: Advanced Atmospherics"
 	back = /obj/item/mod/control/pre_equipped/advanced/atmos
-	uniform = /obj/item/clothing/under/rank/engineering/atmospheric_technician/nova/utility/advanced
+	uniform = /obj/item/clothing/under/solfed/emergencyfire
 	shoes = /obj/item/clothing/shoes/jackboots
 	ears = /obj/item/radio/headset/headset_solfed/atmos
 	mask = /obj/item/clothing/mask/gas/atmos/glass
@@ -403,7 +403,7 @@ GLOBAL_LIST_INIT(call911_do_and_do_not, list(
 	name = "\improper SolFed adv. Security headset"
 	desc = "A headset used by the Solar Federation response teams."
 	icon_state = "med_headset"
-	keyslot = /obj/item/encryptionkey/headset_solfed/atmos
+	keyslot = /obj/item/encryptionkey/headset_solfed/sec
 	radio_talk_sound = 'modular_nova/modules/radiosound/sound/radio/security.ogg'
 
 /obj/item/encryptionkey/headset_solfed/sec
@@ -444,7 +444,7 @@ GLOBAL_LIST_INIT(call911_do_and_do_not, list(
 /datum/outfit/request_911/emt
 	name = "911 Response: EMT"
 	back = /obj/item/storage/backpack/medic
-	uniform = /obj/item/clothing/under/sol_emt
+	uniform = /obj/item/clothing/under/solfed/emergencymed
 	shoes = /obj/item/clothing/shoes/jackboots
 	ears = /obj/item/radio/headset/headset_solfed/med
 	mask = /obj/item/clothing/mask/gas/alt
@@ -490,7 +490,7 @@ GLOBAL_LIST_INIT(call911_do_and_do_not, list(
 /datum/outfit/request_911/condom_destroyer
 	name = "911 Response: Armed S.W.A.T. Officer"
 	back = /obj/item/storage/backpack
-	uniform = /obj/item/clothing/under/sol_peacekeeper
+	uniform = /obj/item/clothing/under/solfed
 	shoes = /obj/item/clothing/shoes/jackboots
 	glasses = /obj/item/clothing/glasses/sunglasses
 	ears = /obj/item/radio/headset/headset_solfed/sec
@@ -535,15 +535,17 @@ GLOBAL_LIST_INIT(call911_do_and_do_not, list(
 /datum/outfit/request_911/treason_destroyer
 	name = "911 Response: SolFed Military"
 
-	uniform = /obj/item/clothing/under/sol_peacekeeper
-	head = /obj/item/clothing/head/helmet/sf_sacrificial
+	uniform = /obj/item/clothing/under/solfed/marines
+	head = /obj/item/clothing/head/helmet/solfed
 	mask = /obj/item/clothing/mask/gas/alt
 	gloves = /obj/item/clothing/gloves/combat
-	suit = /obj/item/clothing/suit/armor/sf_sacrificial
+	suit = /obj/item/clothing/suit/armor/vest/sol/marine
 	shoes = /obj/item/clothing/shoes/jackboots
+	belt = /obj/item/storage/belt/military
+	neck = /obj/item/clothing/neck/mantle/solfed
 
 	back = /obj/item/storage/backpack
-	glasses = /obj/item/clothing/glasses/sunglasses
+	glasses = /obj/item/clothing/glasses/sunglasses/solfed
 	ears = /obj/item/radio/headset/headset_solfed/sec
 	l_pocket = /obj/item/restraints/handcuffs
 	r_pocket = /obj/item/flashlight/seclite
@@ -551,7 +553,6 @@ GLOBAL_LIST_INIT(call911_do_and_do_not, list(
 	r_hand = /obj/item/gun/ballistic/automatic/sol_rifle
 	backpack_contents = list(
 		/obj/item/storage/box/handcuffs = 1,
-		/obj/item/sacrificial_face_shield = 1,
 		/obj/item/melee/baton/security/loaded = 1,
 		/obj/item/ammo_box/magazine/c40sol_rifle/standard = 4,
 	)

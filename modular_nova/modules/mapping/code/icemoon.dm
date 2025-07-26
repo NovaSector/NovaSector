@@ -95,6 +95,15 @@
 
 	. = ..()
 
+//declaration for the Frozenwake ruin, the rest can be found in modular_nova\modules\mapping\code\frozenwake.dm
+/datum/map_template/ruin/icemoon/underground/nova/frozenwake
+	name = "frozenwake"
+	id = "frozenwake"
+	description = "A forgotten Hearthkin shrine buried in ice and silence, where ancient runes whisper of a fallen light and a long-awaited return."
+	prefix = "_maps/RandomRuins/IceRuins/nova/"
+	suffix = "icemoon_underground_frozenwake.dmm"
+	allow_duplicates = FALSE
+
 /*----- Above Ground -----*/
 ////// Yes, I know the "Above Ground" Is very limited in space. This is a... ~17x17? ruin.
 /datum/map_template/ruin/icemoon/nova/turret_bunker

@@ -23005,7 +23005,7 @@
 	dir = 8
 	},
 /obj/effect/turf_decal/box,
-/obj/machinery/computer/scan_consolenew{
+/obj/machinery/computer/dna_console{
 	dir = 8
 	},
 /obj/machinery/airalarm/directional/south,
@@ -50189,6 +50189,13 @@
 /obj/effect/spawner/surgery_tray/full/morgue,
 /turf/open/floor/iron/dark,
 /area/station/medical/morgue)
+"ouQ" = (
+/obj/effect/turf_decal/siding/dark_blue{
+	dir = 8
+	},
+/obj/effect/landmark/start/bridge_officer,
+/turf/open/floor/iron/dark,
+/area/station/command/bridge)
 "ouR" = (
 /obj/machinery/camera/directional/north{
 	c_tag = "MiniSat External Upper South-West";
@@ -60210,7 +60217,7 @@
 /turf/open/floor/iron,
 /area/station/commons/dorms/room5)
 "rya" = (
-/obj/machinery/computer/scan_consolenew{
+/obj/machinery/computer/dna_console{
 	dir = 8
 	},
 /turf/open/floor/glass/reinforced,
@@ -81955,7 +81962,7 @@
 /turf/open/floor/iron/edge,
 /area/station/service/janitor)
 "xIP" = (
-/obj/machinery/computer/scan_consolenew{
+/obj/machinery/computer/dna_console{
 	dir = 4
 	},
 /obj/effect/turf_decal/stripes/line{
@@ -182766,7 +182773,7 @@ ewL
 jnK
 lmy
 lmy
-lmy
+ouQ
 jnr
 wKA
 veQ
