@@ -27,7 +27,7 @@
 
 /datum/bounty/item/sharedxenoarch/fossil_tech
 	name = "Technology of the Yesteryear"
-	description = "Corporate wants some broken ancient technology, not sure why, but its good to keep the investors happy."
+	description = "Corporate wants some broken ancient technology, not sure why, but it's good to keep the investors happy."
 	reward = CARGO_CRATE_VALUE * 6
 	required_count = 5
 	wanted_types = list(
@@ -36,7 +36,7 @@
 
 /datum/bounty/item/sharedxenoarch/fossil_weapon
 	name = "Weapons Through Time"
-	description = "Corporate wants some broken ancient weaponry, not sure why, but its good to keep the investors happy."
+	description = "Corporate wants some broken ancient weaponry, not sure why, but it's good to keep the investors happy."
 	reward = CARGO_CRATE_VALUE * 8
 	required_count = 5
 	wanted_types = list(

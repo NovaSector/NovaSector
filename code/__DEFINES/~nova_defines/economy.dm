@@ -13,7 +13,6 @@
 #define ACCOUNT_TI "TI"
 #define ACCOUNT_TI_NAME "Tarkon Industries Budget"
 
-
 #define DS2_JOB_ENFORCER 15
 #define DS2_JOB_ENGINEER 16
 #define DS2_JOB_SERVICE 17

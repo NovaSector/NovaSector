@@ -40,7 +40,7 @@
 	)
 
 /datum/bounty/item/ds2/gambling
-	name = "Recreational use"
+	name = "Recreational Use"
 	description = "DS-9 is not particularly happy that their last few slot machines were broken in an NT raid. Mind sending them some new boards? The crew are going mad without their gambling fix."
 	required_count = 3
 	reward = CARGO_CRATE_VALUE * 5
@@ -131,7 +131,7 @@
 /datum/bounty/item/ds2/pizzabombs
 	name = "Pizza Bombs"
 	description = "We had a situation with a recent raid from an unfavorable corporation, they blew up our pizza line so we need you to send some. Give us a few and we'll send a payment to you. \
-	And send whole pies, if we get slices, someone is getting fired."
+		And send whole pies. If we get slices, someone is getting fired."
 	required_count = 3
 	reward = CARGO_CRATE_VALUE * 10
 	wanted_types = list(

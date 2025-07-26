@@ -79,7 +79,7 @@
 				chosen_type = pick(subtypesof(/datum/bounty/item/atmospherics))
 			if(CIV_JOB_BITRUN)
 				chosen_type = pick(subtypesof(/datum/bounty/item/bitrunning))
-			//// NOVA EDIT ADDITION START - GHOST BOUNTIES #5738
+			// NOVA EDIT ADDITION START - GHOST BOUNTIES #5738
 			if(DS2_JOB_ENFORCER)
 				chosen_type = pick(subtypesof(/datum/bounty/item/ds2))
 			if(DS2_JOB_ENGINEER)

@@ -219,8 +219,8 @@
 /datum/bounty/item/shared_botany/bonfire/applies_to(obj/O)
 	if(!..())
 		return FALSE
-	var/obj/structure/bonfire/B = O
-	return !!B.burning
+	var/obj/structure/bonfire/bonfire = O
+	return bonfire.burning
 
 /datum/bounty/item/shared_botany/cucumber
 	name = "Cucumbers"

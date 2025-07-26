@@ -12,7 +12,7 @@
 
 /datum/bounty/item/interdyne_med/lung
 	name = "Lungs"
-	description = "Corporate needs a few new lungs after an unfavorable event, the details of which do not matter. Organic lungs are preferred, but cybernetic is acceptable. Basic cybernetics won't be accepted."
+	description = "Corporate needs a few new lungs after an unfavorable event, the details of which do not matter. Organic lungs are preferred, but cybernetic are acceptable. Basic cybernetics won't be accepted."
 	reward = CARGO_CRATE_VALUE * 10
 	required_count = 3
 	wanted_types = list(
@@ -45,7 +45,7 @@
 
 /datum/bounty/item/interdyne_med/liver
 	name = "Livers"
-	description = "One of our facilities has recently been overwhelmed by many patients with liver failure. Send some organic ones preferably, but cybernetic ones will do. Basic cybernetics will not be accepted.."
+	description = "One of our facilities has recently been overwhelmed by many patients with liver failure. Send some organic ones preferably, but cybernetic ones will do. Basic cybernetics will not be accepted."
 	reward = CARGO_CRATE_VALUE * 5
 	required_count = 3
 	wanted_types = list(
