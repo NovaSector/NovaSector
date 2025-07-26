@@ -527,6 +527,9 @@
 	},
 /turf/open/floor/plating/abductor,
 /area/virtual_domain)
+"ii" = (
+/turf/closed/indestructible/alien/nodiagonal,
+/area/virtual_domain)
 "iy" = (
 /obj/structure/table/abductor,
 /obj/item/storage/medkit/advanced{
@@ -718,7 +721,7 @@
 /area/virtual_domain)
 "kU" = (
 /turf/template_noop,
-/area/virtual_domain)
+/area/space/virtual_domain)
 "le" = (
 /mob/living/basic/slime/pinkpurple,
 /turf/open/floor/plating/abductor,
@@ -4274,7 +4277,7 @@ VQ
 XL
 XL
 hA
-pI
+ii
 pI
 pI
 pI
@@ -4418,7 +4421,7 @@ JR
 JR
 JR
 pI
-pI
+ii
 XL
 XL
 lC
@@ -4493,7 +4496,7 @@ Ib
 pI
 XL
 bq
-pI
+ii
 pI
 pI
 pI
@@ -6032,7 +6035,7 @@ pI
 pI
 pI
 hi
-pI
+ii
 pI
 JR
 JR
@@ -6797,7 +6800,7 @@ ev
 pI
 MN
 XL
-pI
+ii
 pI
 pI
 pI
@@ -7229,7 +7232,7 @@ fZ
 fZ
 pI
 Ab
-pI
+ii
 pI
 pI
 KX
