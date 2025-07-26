@@ -220,7 +220,7 @@
 /area/shuttle/escape)
 "uy" = (
 /obj/structure/table/wood,
-/obj/item/toy/plush/goatplushie,
+/obj/item/toy/plush/beeplushie,
 /turf/open/floor/carpet/royalblue,
 /area/shuttle/escape)
 "vi" = (
