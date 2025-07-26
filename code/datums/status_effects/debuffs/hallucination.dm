@@ -28,10 +28,11 @@
 	return ..()
 
 /datum/status_effect/hallucination/on_apply()
-	if(owner.mob_biotypes & barred_biotypes)
-		return FALSE
-	if(HAS_TRAIT(owner, TRAIT_HALLUCINATION_IMMUNE))
-		return FALSE
+	if(!HAS_MIND_TRAIT(owner, TRAIT_INSANITY)) //NOVA ADDITION: Lets synths have hallucinations if they have the RDS quirk.
+		if(owner.mob_biotypes & barred_biotypes)
+			return FALSE
+		if(HAS_TRAIT(owner, TRAIT_HALLUCINATION_IMMUNE))
+			return FALSE
 
 	RegisterSignal(owner, COMSIG_LIVING_HEALTHSCAN,  PROC_REF(on_health_scan))
 	RegisterSignal(owner, SIGNAL_ADDTRAIT(TRAIT_HALLUCINATION_IMMUNE), PROC_REF(delete_self))
