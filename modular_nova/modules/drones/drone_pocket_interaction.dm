@@ -20,6 +20,7 @@
 
 	return ..()
 
+/// Handles clicking on pocket UI elements to interact with pocket items.
 /mob/living/basic/drone/proc/handle_pocket_click(slot_id)
 	var/obj/item/item_in_pocket
 	if(slot_id == ITEM_SLOT_LPOCKET)
@@ -32,6 +33,7 @@
 		return TRUE
 	return FALSE
 
+/// Handles Ctrl+Click events for pocket interactions.
 /mob/living/basic/drone/proc/on_ctrl_click(datum/source, atom/clicked_atom, location, control, params)
 	SIGNAL_HANDLER
 	if(!client || !hud_used)

@@ -105,6 +105,7 @@
 		return TRUE
 	return FALSE
 
+/// Handles mouse drop interactions, allowing pickup by valid mobs.
 /mob/living/basic/drone/proc/on_mouse_drop(datum/source, atom/over, mob/user)
 	SIGNAL_HANDLER
 	// Always allow pickup attempts
@@ -117,6 +118,7 @@
 
 	return COMPONENT_CANCEL_MOUSEDROP_ONTO
 
+/// Handles general click interactions, including pocket access and drone restrictions.
 /mob/living/basic/drone/proc/handle_click(datum/source, atom/clicked_atom, location, control, params)
 	SIGNAL_HANDLER
 	// First check for drone-to-drone interaction restrictions
@@ -134,6 +136,7 @@
 
 	return NONE
 
+/// Handles Alt+Click interactions with drone restrictions.
 /mob/living/basic/drone/proc/handle_alt_click(datum/source, atom/clicked_atom, location, control, params)
 	SIGNAL_HANDLER
 	if(isdrone(clicked_atom) && usr != src && !isAdminGhostAI(usr) && (!mind || mind.key != usr.key))
@@ -150,6 +153,7 @@
 		return ..()
 	return FALSE
 
+/// Returns the item in the specified pocket slot.
 /mob/living/basic/drone/proc/get_pocket_item(slot_id)
 	switch(slot_id)
 		if(ITEM_SLOT_LPOCKET)
@@ -158,6 +162,7 @@
 			return r_store
 	return null
 
+/// Asynchronously handles pocket item interactions when triggered by UI clicks.
 /mob/living/basic/drone/proc/async_handle_pocket_click(slot_id)
 	var/obj/item/item_in_pocket
 	if(slot_id == ITEM_SLOT_LPOCKET)
