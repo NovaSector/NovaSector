@@ -1,4 +1,0 @@
-author: "vinylspiders"
-delete-after: True
-changes:
-  - bugfix: "fixed being able to alt-click to change transfer amounts for reagent containers that are not supposed to have that feature (like epi-pens for example)\n/:cl"

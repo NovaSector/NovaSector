@@ -252,3 +252,15 @@
       them to be considered "small" (e.g. fitting in pockets/boxes).
   - balance: New specs for .38 ammunition allows for more propellant to be loaded,
       increasing damage dealt for most ammunition types.
+2025-07-26:
+  Hatterhat:
+  - bugfix: .45 rubber bullet casings are now appropriately labeled as rubber bullet
+      casings.
+  OrbisAnima:
+  - admin: Adds an alert to admins when succumb is used to make situations a bit more
+      clear without having to log dive or use the investigate verb
+  vinylspiders:
+  - bugfix: 'fixed being able to alt-click to change transfer amounts for reagent
+      containers that are not supposed to have that feature (like epi-pens for example)
+
+      /:cl'

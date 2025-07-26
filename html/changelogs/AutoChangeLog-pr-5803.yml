@@ -1,4 +1,0 @@
-author: "OrbisAnima"
-delete-after: True
-changes:
-  - admin: "Adds an alert to admins when succumb is used to make situations a bit more clear without having to log dive or use the investigate verb"
