@@ -55,7 +55,9 @@
 		/datum/preference/text/custom_tongue/say
 	)
 
-/datum/quirk/custom_tongue/proc/tongue_setup(obj/item/organ/tongue/old_organ, obj/item/organ/tongue/new_organ) // This proc will run at most three times depending on the client prefs.
+/datum/quirk/custom_tongue/proc/tongue_setup() // This proc will run at most three times depending on the client prefs.
+	SIGNAL_HANDLER
+
 	var/client/client_source = quirk_holder.client
 
 	var/new_ask = client_source?.prefs.read_preference(/datum/preference/text/custom_tongue/ask)
@@ -79,7 +81,10 @@
 		var/obj/item/organ/tongue/tongue = quirk_holder.get_organ_slot(ORGAN_SLOT_TONGUE)
 		tongue.say_mod = LOWER_TEXT(new_say)
 
+	return TRUE
+
 /datum/quirk/custom_tongue/add(client/client_source)
+	RegisterSignal(quirk_holder, COMSIG_SET_SAY_MODIFIERS, PROC_REF(tongue_setup))
 	tongue_setup()
 
 /datum/quirk/custom_tongue/remove(client/client_source)
