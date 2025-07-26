@@ -141,7 +141,7 @@
 	banned_augments = list(HEAD_RESTRICTED_AUGMENTS)
 	required_languages = list(/datum/language/common = LANGUAGE_SPOKEN)
 
-/datum/job/bridge_officer
+/datum/job/bridge_assistant
 	required_languages = list(/datum/language/common = LANGUAGE_SPOKEN)
 
 //Silicon
