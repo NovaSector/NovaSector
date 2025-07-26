@@ -5195,6 +5195,9 @@
 	pixel_y = 4;
 	pixel_x = 4
 	},
+/obj/item/circuitboard/machine/powerator/syndicate,
+/obj/item/circuitboard/machine/powerator/syndicate,
+/obj/item/circuitboard/machine/powerator/syndicate,
 /turf/open/floor/iron/dark,
 /area/ruin/space/has_grav/nova/des_two/bridge/vault)
 "xr" = (
@@ -6943,7 +6946,7 @@
 /area/ruin/space/has_grav/nova/des_two/research)
 "FC" = (
 /obj/structure/cable,
-/obj/machinery/power/micro_reactor,
+/obj/machinery/power/micro_reactor/bapgm,
 /turf/open/floor/iron/submarine,
 /area/ruin/space/has_grav/nova/des_two/engineering)
 "FD" = (

@@ -46,6 +46,7 @@
 		/obj/item/storage/box/stabilized = 1,
 		/obj/item/storage/hypospraykit/cmo/combat = 1,
 		/obj/item/summon_beacon/gas_miner/expanded/debug = 1,
+		/obj/item/choice_beacon/job_locker/debug = 1,
 	)
 
 /datum/outfit/admin/bst //Debug objs plus modsuit
@@ -65,6 +66,7 @@
 		/obj/item/storage/box/stabilized = 1,
 		/obj/item/storage/hypospraykit/cmo/combat = 1,
 		/obj/item/summon_beacon/gas_miner/expanded/debug = 1,
+		/obj/item/choice_beacon/job_locker/debug = 1,
 	)
 
 /obj/item/storage/part_replacer/bluespace/tier4/bst
