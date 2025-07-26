@@ -17,7 +17,7 @@
 /area/space/nearstation)
 "aaf" = (
 /obj/structure/sign/directions/engineering{
-	desc = "A sign that shows there are doors here. There are doors everywhere!";
+	desc = "WehA sign that shows there are doors here. There are doors everywhere!";
 	icon_state = "doors";
 	name = "WARNING: EXTERNAL AIRLOCK"
 	},

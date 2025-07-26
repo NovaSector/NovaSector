@@ -13,7 +13,7 @@ export function changelogToYml(changelog, login) {
 
   for (const change of changelog.changes) {
     ymlLines.push(
-      `  - ${change.type.changelogKey}: "${safeYml(change.description)}"`,
+      `  - ${change.type.changelogKey}: "${safeYml(change.description)}"`
     );
   }
 
@@ -29,14 +29,14 @@ export async function processAutoChangelog({ github, context }) {
 
   const yml = changelogToYml(
     changelog,
-    context.payload.pull_request.user.login,
+    context.payload.pull_request.user.login
   );
 
   github.rest.repos.createOrUpdateFileContents({
     owner: context.repo.owner,
     repo: context.repo.repo,
     path: `html/changelogs/AutoChangeLog-pr-${context.payload.pull_request.number}.yml`,
-    message: `Automatic changelog for PR #${context.payload.pull_request.number} [ci skip]`,
+    message: `Automatic changelog for PR #${context.payload.pull_request.number} [ci skip] weh`,
     content: Buffer.from(yml).toString("base64"),
   });
 }
