@@ -44,7 +44,6 @@
 		/obj/item/gun/ballistic/automatic/pistol/clandestine/fisher,
 		/obj/item/ammo_box/magazine/m10mm,
 		/obj/item/ammo_box/magazine/m10mm,
-		/obj/item/suppressor,
 	)
 
 /datum/voucher_set/traitor/primary_weapon/ebow
