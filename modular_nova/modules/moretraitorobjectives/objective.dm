@@ -10,7 +10,7 @@
 
 /datum/objective/heist/update_explanation_text()
 	. = ..()
-	explanation_text = "Liberate [target_amount] Cr or more from the station's bank accounts or vault, stored within a holochip or on your own bank account."
+	explanation_text = "Liberate [target_amount] Cr or more from the station's bank accounts or bank consoles, stored within a holochip or on your own bank account."
 
 /datum/objective/heist/check_completion()
 	var/list/datum/mind/owners = get_owners()
@@ -18,7 +18,7 @@
 		if(!isliving(mind.current))
 			continue
 
-		var/list/all_items = M.current.get_all_contents()
+		var/list/all_items = mind.current.get_all_contents()
 		for(var/obj/item in all_items)
 			if(HAS_TRAIT(item, TRAIT_ITEM_OBJECTIVE_BLOCKED))
 				continue

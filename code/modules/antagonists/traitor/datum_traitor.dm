@@ -188,6 +188,7 @@
 		kill_objective.owner = owner
 		kill_objective.find_target()
 		return kill_objective
+
 	// NOVA EDIT ADDITION START More traitor objectives
 	if(prob(HEIST_PROB))
 		var/datum/objective/heist/heist_objective = new()
