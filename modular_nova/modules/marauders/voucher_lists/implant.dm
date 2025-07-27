@@ -223,6 +223,16 @@
 		/obj/item/organ/heart/cybernetic/tier3,
 	)
 
+/datum/voucher_set/traitor/implant/voltaic_combat_cyberheart
+	name = /obj/item/organ/heart/cybernetic/anomalock::name
+	description = /obj/item/organ/heart/cybernetic/anomalock::desc
+	icon = /obj/item/organ/heart/cybernetic/anomalock::icon
+	icon_state = /obj/item/organ/heart/cybernetic/anomalock::icon_state
+	set_items = list(
+		/obj/item/organ/heart/cybernetic/anomalock,
+		/obj/item/assembly/signaler/anomaly/flux,
+	)
+
 /datum/voucher_set/traitor/organ
 
 /datum/voucher_set/traitor/organ/xeno_kit

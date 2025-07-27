@@ -170,3 +170,13 @@
 	set_items = list(
 		/obj/item/mod/module/visor/thermal,
 	)
+
+/datum/voucher_set/traitor/supplies/science/mod_module_kinesis
+	name = /obj/item/mod/module/anomaly_locked/kinesis::name
+	description = /obj/item/mod/module/anomaly_locked/kinesis::desc
+	icon = /obj/item/mod/module/anomaly_locked/kinesis::icon
+	icon_state = /obj/item/mod/module/anomaly_locked/kinesis::icon_state
+	set_items = list(
+		/obj/item/mod/module/anomaly_locked/kinesis,
+		/obj/item/assembly/signaler/anomaly/grav,
+	)
