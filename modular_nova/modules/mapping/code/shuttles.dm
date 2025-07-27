@@ -243,7 +243,6 @@
 	prefix = "_maps/shuttles/nova/"
 	suffix = "solfed_general_shuttle"
 	name = "EAS(I)-6224 Transport Shuttle"
-
 /obj/machinery/computer/shuttle/solfed
 	name = "\improper EAS(I)-6224 control console"
 	desc = "Used to control the EAS(I)-6224."
@@ -260,7 +259,8 @@
 	shuttlePortId = "solfed_general_custom"
 	jump_to_ports = list( "whiteship_home" = 1, "syndicate_nw" = 1, )
 	view_range = 12
-
+	move_up_action = /datum/action/innate/camera_multiz_up
+	move_down_action = /datum/action/innate/camera_multiz_down
 /obj/item/circuitboard/computer/solfed
 	name = "EAS(I)-6224 Control Console (Computer Board)"
 	build_path = /obj/machinery/computer/shuttle/solfed
