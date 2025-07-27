@@ -19,6 +19,10 @@
 /// Population requirement for bomb objectives (ninja c4, locate weakpoint, etc.) objectives to appear
 #define BOMB_POP_REQUIREMENT 80
 
+/// nova traitor objectives probabilities
+#define HEIST_PROB 15
+
+
 // Borer evolution defines
 // The three primary paths that eventually diverge
 #define BORER_EVOLUTION_SYMBIOTE "Symbiote"

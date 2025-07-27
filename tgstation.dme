@@ -8722,6 +8722,7 @@
 #include "modular_nova\modules\moretraitoritems\code\traitor_announcer.dm"
 #include "modular_nova\modules\moretraitoritems\code\uplink_kits.dm"
 #include "modular_nova\modules\moretraitoritems\code\weapons.dm"
+#include "modular_nova\modules\moretraitorobjectives\objective.dm"
 #include "modular_nova\modules\morewizardstuffs\spellbook.dm"
 #include "modular_nova\modules\morewizardstuffs\spells\bloodcrawl_potion.dm"
 #include "modular_nova\modules\morewizardstuffs\spells\magical_stimpack.dm"
