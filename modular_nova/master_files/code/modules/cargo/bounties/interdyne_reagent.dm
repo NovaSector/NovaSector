@@ -2,8 +2,11 @@
 /// You may be asking why we need copies of /datum/bounty/reagent, its because the main system is looking for SUBTYPES of reagent, and I want to avoid the system accidentally giving NT, Interdyne bounties.
 
 /datum/bounty/interdyne_reagent
+	/// How much of a reagent is needed complete the bounty.
 	var/required_volume = 10
+	/// How much the player has shipped in the bounty.
 	var/shipped_volume = 0
+	/// Which reagent is required for the bounty's completion.
 	var/datum/reagent/wanted_reagent
 
 /datum/bounty/interdyne_reagent/can_claim()
