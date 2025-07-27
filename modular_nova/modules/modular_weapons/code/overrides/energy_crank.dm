@@ -13,19 +13,6 @@
 		charge_move = IGNORE_USER_LOC_CHANGE, \
 	)
 
-// Allstar sc2 energy carbine
-/obj/item/gun/energy/e_gun/Initialize(mapload)
-	. = ..()
-	AddComponent( \
-		/datum/component/crank_recharge, \
-		charging_cell = get_cell(), \
-		charge_amount = LASER_SHOTS(4, STANDARD_CELL_CHARGE), \
-		cooldown_time = 6 SECONDS, \
-		charge_sound = 'sound/items/weapons/laser_crank.ogg', \
-		charge_sound_cooldown_time = 3 SECONDS, \
-		charge_move = IGNORE_USER_LOC_CHANGE, \
-	)
-
 // Hellfire laser gun
 /obj/item/gun/energy/laser/hellgun/Initialize(mapload)
 	. = ..()

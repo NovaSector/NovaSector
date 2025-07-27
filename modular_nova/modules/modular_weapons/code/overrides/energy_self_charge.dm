@@ -19,3 +19,8 @@
 /obj/item/gun/energy/e_gun/mini
 	selfcharge = TRUE
 	charge_delay = 15
+
+// Allstar sc2 energy carbine - Special, is not a sidearm but too many weapons are child of fthis thing, and they change modes too, so using a crank is tricky.
+/obj/item/gun/energy/e_gun
+	selfcharge = TRUE
+	charge_delay = 15
