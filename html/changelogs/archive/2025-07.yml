@@ -220,3 +220,47 @@
   - qol: Adds 2 new alt titles for Head of security
   - qol: Adds 1 new alt title for Chief Medical Officer
   - qol: Adds 1 new alt title for Research Director
+2025-07-24:
+  Hatterhat:
+  - bugfix: Nanotrasen apologizes for issuing its Heads of Security faulty "Volta"
+      stunswords that somehow turned invisible when their energy variant was turned
+      on. Nanotrasen also would like to remind employees that the new stunswords are
+      "Volta" stunswords and not "NT-20 Excalibur" variant stunswords; someone forgot
+      to update the memo before initial rollouts occurred.
+  - rscadd: Central Command, in tandem with the Free Trade Union, has discovered a
+      concerningly large cache of old paperwork that... really, really needs to be
+      filed. For a small deposit, you, too, can dig away at this in return for budget!
+  SomeRandomOwl:
+  - rscadd: Added new Psionic Holding quirk, Lets your character float items using
+      their hands rather than physically touching them.
+2025-07-25:
+  Hatterhat:
+  - rscadd: Citing the reason "Why not" and/or "because we can", Scarborough Arms
+      has started to export the DURANDAL 23-E parts/conversion kit, for cannibalizing
+      an NT20 into the rC-20 submachine gun. For obvious reasons, this is very much
+      against corporate regs, as to do so would imply one would have robbed and/or
+      murdered the local Shield unit.
+  - rscadd: With the rumors of Scarborough Arms releasing parts kits that require
+      cannibalizing NT20s to complete a new gun, Nanotrasen has chosen to release
+      spare parts kits for NT20s in the slim chance that a Shield unit has their service
+      weapon cannibalized for nefarious deeds.
+  - rscadd: .980 Tydhouer stingball grenades are now in circulation! Users are advised
+      to be very careful about where they're aiming and/or be ready to duck and cover.
+  - balance: .980 Tydhouer grenades now properly cost points in the ammo bench.
+  - balance: Nanotrasen has realized that there's nothing stopping them from shaving
+      off a bit more material while manufacturing and reissuing .38 revolvers, allowing
+      them to be considered "small" (e.g. fitting in pockets/boxes).
+  - balance: New specs for .38 ammunition allows for more propellant to be loaded,
+      increasing damage dealt for most ammunition types.
+2025-07-26:
+  Hatterhat:
+  - bugfix: .45 rubber bullet casings are now appropriately labeled as rubber bullet
+      casings.
+  OrbisAnima:
+  - admin: Adds an alert to admins when succumb is used to make situations a bit more
+      clear without having to log dive or use the investigate verb
+  vinylspiders:
+  - bugfix: 'fixed being able to alt-click to change transfer amounts for reagent
+      containers that are not supposed to have that feature (like epi-pens for example)
+
+      /:cl'

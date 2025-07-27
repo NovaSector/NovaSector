@@ -139,6 +139,7 @@
 	print_cost = 2
 
 /obj/item/ammo_casing/c45/rubber
+	name = ".45 rubber bullet casing"
 	desc = "A .45 rubber bullet casing.\
 		<br><br>\
 		<i>RUBBER: Less than lethal ammo. Deals both stamina damage and regular damage.</i>"
@@ -146,6 +147,10 @@
 	ammo_categories = AMMO_CLASS_NONE
 	harmful = FALSE
 	print_cost = 0
+
+/obj/item/ammo_box/c45/large
+	name = "deluxe ammo box (.45)"
+	max_ammo = 60
 
 /*
 *	9mm
