@@ -150,6 +150,9 @@
 /obj/structure/noticeboard/directional/south{
 	pixel_y = -24
 	},
+/obj/effect/turf_decal/tile/dark_red{
+	dir = 8
+	},
 /turf/open/floor/mineral/plastitanium,
 /area/misc/operative_barracks/mission_briefing)
 "dl" = (
@@ -222,6 +225,9 @@
 /obj/effect/turf_decal/siding/dark_blue{
 	dir = 4
 	},
+/obj/effect/turf_decal/tile/dark_red{
+	dir = 1
+	},
 /turf/open/floor/mineral/plastitanium,
 /area/misc/operative_barracks/mission_briefing)
 "ef" = (
@@ -283,6 +289,7 @@
 "eG" = (
 /obj/machinery/light/small/directional/east,
 /obj/effect/turf_decal/vg_decals/numbers/nine,
+/obj/effect/turf_decal/tile/dark_red,
 /turf/open/floor/mineral/plastitanium,
 /area/misc/operative_barracks/mission_briefing)
 "eJ" = (
@@ -836,6 +843,12 @@
 	},
 /turf/open/floor/plating,
 /area/misc/operative_barracks/hangar)
+"mo" = (
+/obj/effect/turf_decal/tile/dark_red{
+	dir = 1
+	},
+/turf/open/floor/mineral/plastitanium,
+/area/misc/operative_barracks/mission_briefing)
 "mr" = (
 /obj/structure/marker_beacon/burgundy{
 	pixel_x = 8;
@@ -951,6 +964,9 @@
 /area/misc/operative_barracks/hangar)
 "mY" = (
 /obj/machinery/skill_station/plasmaglass,
+/obj/effect/turf_decal/tile/dark_red{
+	dir = 4
+	},
 /turf/open/floor/mineral/plastitanium,
 /area/misc/operative_barracks/mission_briefing)
 "mZ" = (
@@ -1213,6 +1229,9 @@
 	dir = 2
 	},
 /obj/item/kirbyplants/organic/plant21,
+/obj/effect/turf_decal/tile/dark_red{
+	dir = 4
+	},
 /turf/open/floor/mineral/plastitanium,
 /area/misc/operative_barracks/mission_briefing)
 "qi" = (
@@ -1367,6 +1386,9 @@
 /obj/effect/turf_decal/siding/dark_blue/corner,
 /obj/effect/turf_decal/siding/purple/corner{
 	dir = 4
+	},
+/obj/effect/turf_decal/tile/dark_red{
+	dir = 1
 	},
 /turf/open/floor/mineral/plastitanium,
 /area/misc/operative_barracks/mission_briefing)
@@ -1580,6 +1602,9 @@
 /area/misc/operative_barracks/mission_briefing)
 "uz" = (
 /obj/effect/turf_decal/siding/yellow,
+/obj/effect/turf_decal/tile/dark_red{
+	dir = 4
+	},
 /turf/open/floor/mineral/plastitanium,
 /area/misc/operative_barracks/mission_briefing)
 "uA" = (
@@ -1812,6 +1837,9 @@
 	pixel_y = 21
 	},
 /obj/effect/turf_decal/siding/purple/corner,
+/obj/effect/turf_decal/tile/dark_red{
+	dir = 1
+	},
 /turf/open/floor/mineral/plastitanium,
 /area/misc/operative_barracks/mission_briefing)
 "wK" = (
@@ -1979,6 +2007,9 @@
 /obj/structure/closet/crate/bin,
 /obj/structure/sign/poster/contraband/syndiemoth/directional/west,
 /obj/item/stamp/chameleon,
+/obj/effect/turf_decal/tile/dark_red{
+	dir = 8
+	},
 /turf/open/floor/mineral/plastitanium,
 /area/misc/operative_barracks/mission_briefing)
 "yU" = (
@@ -2259,6 +2290,9 @@
 /obj/effect/turf_decal/siding/yellow{
 	dir = 8
 	},
+/obj/effect/turf_decal/tile/dark_red{
+	dir = 4
+	},
 /turf/open/floor/mineral/plastitanium,
 /area/misc/operative_barracks/mission_briefing)
 "DI" = (
@@ -2324,6 +2358,9 @@
 "Ev" = (
 /obj/structure/sign/clock/directional/south,
 /obj/structure/filingcabinet/medical,
+/obj/effect/turf_decal/tile/dark_red{
+	dir = 8
+	},
 /turf/open/floor/mineral/plastitanium,
 /area/misc/operative_barracks/mission_briefing)
 "ED" = (
@@ -2392,6 +2429,9 @@
 	},
 /obj/item/skillchip/disk_verifier{
 	pixel_y = 10
+	},
+/obj/effect/turf_decal/tile/dark_red{
+	dir = 4
 	},
 /turf/open/floor/mineral/plastitanium,
 /area/misc/operative_barracks/mission_briefing)
@@ -2516,6 +2556,9 @@
 /obj/structure/fluff/fake_camera{
 	dir = 4
 	},
+/obj/effect/turf_decal/tile/dark_red{
+	dir = 4
+	},
 /turf/open/floor/mineral/plastitanium,
 /area/misc/operative_barracks/mission_briefing)
 "GH" = (
@@ -2621,6 +2664,9 @@
 /area/misc/operative_barracks/mission_briefing)
 "If" = (
 /obj/structure/fluff/paper/stack,
+/obj/effect/turf_decal/tile/dark_red{
+	dir = 8
+	},
 /turf/open/floor/mineral/plastitanium,
 /area/misc/operative_barracks/mission_briefing)
 "Ig" = (
@@ -2684,6 +2730,9 @@
 /obj/effect/turf_decal/siding/yellow/corner{
 	dir = 1
 	},
+/obj/effect/turf_decal/tile/dark_red{
+	dir = 4
+	},
 /turf/open/floor/mineral/plastitanium,
 /area/misc/operative_barracks/mission_briefing)
 "IJ" = (
@@ -2728,6 +2777,9 @@
 	dir = 5
 	},
 /obj/item/kirbyplants/organic/plant10,
+/obj/effect/turf_decal/tile/dark_red{
+	dir = 1
+	},
 /turf/open/floor/mineral/plastitanium,
 /area/misc/operative_barracks/mission_briefing)
 "JJ" = (
@@ -2905,6 +2957,9 @@
 /area/misc/operative_barracks)
 "Mx" = (
 /obj/effect/turf_decal/siding/purple,
+/obj/effect/turf_decal/tile/dark_red{
+	dir = 1
+	},
 /turf/open/floor/mineral/plastitanium,
 /area/misc/operative_barracks/mission_briefing)
 "My" = (
@@ -3001,6 +3056,9 @@
 "Om" = (
 /obj/effect/turf_decal/siding/dark_blue/corner{
 	dir = 4
+	},
+/obj/effect/turf_decal/tile/dark_red{
+	dir = 1
 	},
 /turf/open/floor/mineral/plastitanium,
 /area/misc/operative_barracks/mission_briefing)
@@ -3408,6 +3466,9 @@
 	},
 /obj/effect/decal/cleanable/dirt/dust,
 /obj/structure/fluff/fake_camera,
+/obj/effect/turf_decal/tile/dark_red{
+	dir = 8
+	},
 /turf/open/floor/mineral/plastitanium,
 /area/misc/operative_barracks/mission_briefing)
 "UB" = (
@@ -3483,6 +3544,9 @@
 	},
 /obj/effect/turf_decal/siding/yellow/corner{
 	dir = 8
+	},
+/obj/effect/turf_decal/tile/dark_red{
+	dir = 4
 	},
 /turf/open/floor/mineral/plastitanium,
 /area/misc/operative_barracks/mission_briefing)
@@ -3615,6 +3679,9 @@
 "Wq" = (
 /obj/effect/turf_decal/siding/dark_red{
 	dir = 8
+	},
+/obj/effect/turf_decal/tile/dark_red{
+	dir = 4
 	},
 /turf/open/floor/mineral/plastitanium,
 /area/misc/operative_barracks/mission_briefing)
@@ -3769,6 +3836,9 @@
 "YB" = (
 /obj/effect/turf_decal/siding/purple{
 	dir = 4
+	},
+/obj/effect/turf_decal/tile/dark_red{
+	dir = 1
 	},
 /turf/open/floor/mineral/plastitanium,
 /area/misc/operative_barracks/mission_briefing)
@@ -4653,8 +4723,8 @@ YB
 rU
 dI
 Om
-wA
-wA
+mo
+mo
 fC
 PK
 af
