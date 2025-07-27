@@ -13,7 +13,7 @@
 		/obj/item/mod/module/quick_carry,
 		/obj/item/mod/module/quick_cuff,
 		/obj/item/mod/module/noslip,
-		/obj/item/mod/module/holster,
+		/obj/item/mod/module/shove_blocker,
 		/obj/item/mod/construction/plating/syndicate,
 	)
 
