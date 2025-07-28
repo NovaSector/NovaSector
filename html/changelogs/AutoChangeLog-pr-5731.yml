@@ -1,0 +1,4 @@
+author: "LordHookie"
+delete-after: True
+changes:
+  - rscadd: "Added a new hard difficulty bitrunning domain, \"Abductor Mothership\", with its own loot pool and associated enemy types."
