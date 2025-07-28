@@ -1,0 +1,4 @@
+author: "Chestlet"
+delete-after: True
+changes:
+  - rscadd: "Added Custom Tongue quirk. Custom say modifiers that overwrite the ones added by the Animal Traits quirk series. Works with augments+ tongues! Lowercase a-z only, no symbols, numbers, or spaces!"
