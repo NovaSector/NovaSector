@@ -119,3 +119,26 @@
 	name = "Chest Rig - Frontier"
 	item_path = /obj/item/storage/belt/utility/frontier_colonist
 
+/datum/loadout_item/belts/webbing
+	name = "Webbing - Basic"
+	item_path = /obj/item/storage/belt/webbing
+
+/datum/loadout_item/belts/colonial_webbing
+	name = "Webbing - Colonial"
+	item_path = /obj/item/storage/belt/webbing/colonial
+
+/datum/loadout_item/belts/webbing_pouch
+	name = "Webbing - Drop Pouches"
+	item_path = /obj/item/storage/belt/webbing/pouch
+	can_be_reskinned = TRUE
+
+/datum/loadout_item/belts/webbing_pilot
+	name = "Webbing - Rigging"
+	item_path = /obj/item/storage/belt/webbing/pilot
+	can_be_reskinned = TRUE
+
+/datum/loadout_item/belts/webbing_vest
+	name = "Webbing - Vest"
+	item_path = /obj/item/storage/belt/webbing/vest
+	can_be_reskinned = TRUE
+
