@@ -16,6 +16,9 @@ jobs:
       - name: Run Auto Labeler
         uses: actions/github-script@v7
         with:
+          # NOVA EDIT ADDITION START
+          github_token: ${{ steps.app-token-generation.outputs.token || secrets.GITHUB_TOKEN }}
+          # NOVA EDIT ADDITION END
           script: |
             const { get_updated_label_set } = await import('${{ github.workspace }}/tools/pull_request_hooks/autoLabel.js');
             const new_labels = await get_updated_label_set({ github, context });
@@ -26,10 +29,6 @@ jobs:
               labels: new_labels,
             });
             console.log(`Labels updated: ${new_labels}`);
-          # NOVA EDIT ADDITION START
-          env:
-            GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          # NOVA EDIT ADDITION END
   gbp:
     runs-on: ubuntu-latest
     if: github.event.action == 'opened' || github.event.action == 'closed'
