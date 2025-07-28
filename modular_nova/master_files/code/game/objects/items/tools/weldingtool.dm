@@ -1,4 +1,6 @@
 /obj/item/weldingtool
+	wound_bonus = parent_type::wound_bonus // Originally 10
+	exposed_wound_bonus = parent_type::exposed_wound_bonus // Originally 15
 	/// How long it takes to weld your own robotic limbs.
 	var/self_delay = 5 SECONDS
 	/// How long it takes to weld someone else's robotic limbs.

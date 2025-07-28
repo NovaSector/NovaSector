@@ -508,6 +508,12 @@
 			set_glide_size(var_value)
 			. = TRUE
 
+		// NOVA EDIT ADDITION BEGIN - BLOOPER
+		if(NAMEOF(src, blooper))
+			if(isfile(var_value))
+				blooper = sound(var_value) //bark() expects vocal_bark to already be a sound datum, for performance reasons. adminbus QoL!
+			. = TRUE
+		// NOVA EDIT ADDITION END
 	if(!isnull(.))
 		datum_flags |= DF_VAR_EDITED
 		return
@@ -1772,6 +1778,11 @@
 */
 /atom/movable/proc/keybind_face_direction(direction)
 	setDir(direction)
+
+///This handles special behavior that happens when the movable is used in crafting (slapcrafting and UI, not sheets or lathes or processing with a tool)
+/atom/movable/proc/used_in_craft(atom/result, datum/crafting_recipe/current_recipe)
+	SHOULD_CALL_PARENT(TRUE)
+	SEND_SIGNAL(src, COMSIG_ATOM_USED_IN_CRAFT, result)
 
 /**
  * Check if the other atom/movable has any factions the same as us. Defined at the atom/movable level so it can be defined for just about anything.

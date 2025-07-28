@@ -765,7 +765,7 @@
 /turf/open/floor/iron/half,
 /area/station/service/hydroponics)
 "akq" = (
-/obj/machinery/computer/scan_consolenew{
+/obj/machinery/computer/dna_console{
 	dir = 4
 	},
 /obj/effect/turf_decal/trimline/purple/filled/line,
@@ -4946,6 +4946,8 @@
 /obj/item/hand_labeler{
 	pixel_y = 9
 	},
+/obj/item/storage/photo_album/bar,
+/obj/item/storage/dice,
 /turf/open/floor/wood,
 /area/station/service/bar)
 "bvt" = (
@@ -7070,7 +7072,7 @@
 /turf/open/floor/engine,
 /area/station/science/ordnance/storage)
 "cfa" = (
-/obj/effect/decal/cleanable/blood/xtracks,
+/obj/effect/decal/cleanable/blood/tracks/xeno,
 /obj/machinery/door/window/brigdoor/left/directional/south{
 	name = "Secure Creature Pen";
 	req_access = list("xenobiology")
@@ -13922,7 +13924,7 @@
 	pixel_x = -1;
 	pixel_y = 4
 	},
-/obj/item/reagent_containers/cup/rag{
+/obj/item/rag{
 	pixel_y = 3
 	},
 /obj/machinery/door/firedoor,
@@ -14053,7 +14055,7 @@
 /obj/structure/sign/poster/random/directional/east,
 /obj/effect/spawner/random/trash/hobo_squat,
 /obj/effect/decal/cleanable/plastic,
-/obj/effect/decal/cleanable/oil,
+/obj/effect/decal/cleanable/blood/oil,
 /obj/effect/decal/cleanable/cobweb/cobweb2,
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/iron/smooth,
@@ -15207,15 +15209,13 @@
 /turf/open/floor/iron/small,
 /area/station/hallway/secondary/exit/departure_lounge)
 "esi" = (
-/obj/structure/table/wood,
 /obj/effect/turf_decal/siding/wood{
 	dir = 6
 	},
 /obj/machinery/power/apc/auto_name/directional/east,
 /obj/structure/cable,
-/obj/item/storage/photo_album/bar,
-/obj/item/storage/dice,
 /obj/machinery/airalarm/directional/south,
+/obj/structure/closet/secure_closet/security/service,
 /turf/open/floor/wood/tile,
 /area/station/service/bar)
 "esu" = (
@@ -20241,10 +20241,6 @@
 /obj/effect/turf_decal/tile/green/diagonal_centre,
 /turf/open/floor/iron/dark/diagonal,
 /area/station/hallway/primary/fore)
-"fUk" = (
-/obj/effect/spawner/structure/window/reinforced,
-/turf/closed/wall,
-/area/station/maintenance/department/medical/central)
 "fUo" = (
 /obj/structure/chair/office{
 	dir = 8
@@ -23029,7 +23025,7 @@
 /obj/effect/turf_decal/trimline/purple/filled/line{
 	dir = 8
 	},
-/obj/machinery/computer/scan_consolenew{
+/obj/machinery/computer/dna_console{
 	dir = 4
 	},
 /obj/effect/turf_decal/bot,
@@ -30276,7 +30272,7 @@
 /turf/open/floor/iron/white,
 /area/station/medical/virology)
 "iHX" = (
-/obj/effect/decal/cleanable/oil,
+/obj/effect/decal/cleanable/blood/oil,
 /obj/effect/turf_decal/stripes/corner{
 	dir = 4
 	},
@@ -32348,7 +32344,7 @@
 	pixel_x = -3;
 	pixel_y = 9
 	},
-/obj/item/reagent_containers/cup/rag,
+/obj/item/rag,
 /turf/open/floor/wood,
 /area/station/hallway/secondary/entry)
 "jmT" = (
@@ -34075,7 +34071,7 @@
 /area/station/hallway/secondary/command)
 "jIc" = (
 /obj/structure/cable,
-/obj/effect/decal/cleanable/oil,
+/obj/effect/decal/cleanable/blood/oil,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/effect/landmark/blobstart,
@@ -35616,7 +35612,7 @@
 "kgN" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/blood/gibs/limb,
-/obj/effect/decal/cleanable/oil,
+/obj/effect/decal/cleanable/blood/oil,
 /turf/open/floor/iron/smooth,
 /area/station/maintenance/department/electrical)
 "kgR" = (
@@ -45012,7 +45008,7 @@
 /turf/open/floor/wood/large,
 /area/station/security/courtroom)
 "mIH" = (
-/obj/effect/decal/cleanable/blood/xtracks,
+/obj/effect/decal/cleanable/blood/tracks/xeno,
 /turf/open/floor/engine/xenobio,
 /area/station/science/xenobiology)
 "mII" = (
@@ -45863,6 +45859,14 @@
 /obj/effect/turf_decal/box,
 /turf/open/floor/plating/airless,
 /area/space/nearstation)
+"mUj" = (
+/obj/structure/cable,
+/obj/effect/turf_decal/siding/wood{
+	dir = 1
+	},
+/obj/effect/landmark/start/bridge_officer,
+/turf/open/floor/carpet/blue,
+/area/station/command/bridge)
 "mUp" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/spawner/random/trash/mess,
@@ -47093,7 +47097,7 @@
 	},
 /area/station/security/prison/work)
 "nlj" = (
-/obj/effect/decal/cleanable/xenoblood,
+/obj/effect/decal/cleanable/blood/xeno,
 /turf/open/floor/engine/xenobio,
 /area/station/science/xenobiology)
 "nll" = (
@@ -60404,7 +60408,7 @@
 /obj/item/kitchen/rollingpin{
 	pixel_y = 4
 	},
-/obj/item/reagent_containers/cup/rag{
+/obj/item/rag{
 	pixel_y = 4
 	},
 /obj/machinery/requests_console/directional/south{
@@ -62979,7 +62983,7 @@
 	id = "Xtestlab";
 	name = "Test Chamber Blast Door"
 	},
-/obj/effect/decal/cleanable/blood/xtracks,
+/obj/effect/decal/cleanable/blood/tracks/xeno,
 /obj/item/toy/toy_xeno,
 /obj/effect/turf_decal/stripes/line{
 	dir = 1
@@ -65763,7 +65767,7 @@
 /obj/structure/desk_bell{
 	pixel_x = 7
 	},
-/obj/item/reagent_containers/cup/rag,
+/obj/item/rag,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /turf/open/floor/wood,
 /area/station/hallway/secondary/entry)
@@ -68619,7 +68623,7 @@
 /area/station/commons/fitness/recreation/entertainment)
 "tcA" = (
 /obj/item/book/bible,
-/obj/structure/altar_of_gods,
+/obj/structure/altar/of_gods,
 /turf/open/floor/carpet/stellar,
 /area/station/service/chapel)
 "tcQ" = (
@@ -71385,7 +71389,7 @@
 	},
 /area/station/medical/medbay/lobby)
 "tOS" = (
-/obj/effect/decal/cleanable/oil,
+/obj/effect/decal/cleanable/blood/oil,
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/turf_decal/stripes/line{
 	dir = 8
@@ -75009,7 +75013,7 @@
 /turf/open/floor/iron/dark,
 /area/station/security/holding_cell)
 "uNE" = (
-/obj/machinery/computer/scan_consolenew{
+/obj/machinery/computer/dna_console{
 	dir = 4
 	},
 /obj/effect/turf_decal/trimline/purple/filled/line,
@@ -79717,7 +79721,7 @@
 /obj/effect/decal/cleanable/dirt,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/machinery/light_switch/directional/south,
-/obj/effect/decal/cleanable/oil,
+/obj/effect/decal/cleanable/blood/oil,
 /obj/structure/spider/stickyweb,
 /obj/structure/cable,
 /turf/open/floor/iron/smooth,
@@ -108701,7 +108705,7 @@ jqH
 vIY
 xrG
 oQo
-fUk
+hxT
 ttw
 ttw
 cgZ
@@ -120417,7 +120421,7 @@ lyY
 wsm
 gIo
 lVi
-pMp
+mUj
 wZR
 qLI
 nIK

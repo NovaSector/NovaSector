@@ -254,7 +254,7 @@ function QuirkPopper(props: QuirkPopperProps) {
                     serverData,
                     randomBodyEnabled,
                   )}
-                  maxHeight="160px" // NOVA EDIT CHANGE - ORIGINAL: 100px
+                  maxHeight="250px" // NOVA EDIT CHANGE - ORIGINAL: 100px
                 />
               </Stack.Item>
             </Stack>
@@ -355,9 +355,9 @@ export function QuirksPage(props) {
         return 'You need a negative quirk to balance this out!';
       }
     }
-    // NOVA EDIT START - Veteran quirks
-    if (quirk.veteran_only && !data.is_veteran) {
-      return 'You need to be a veteran to select this quirk, apply today!';
+    // NOVA EDIT START - Nova star quirks
+    if (quirk.nova_stars_only && !data.is_nova_star) {
+      return 'You need to be a Nova star to select this quirk, apply today!';
     }
     // NOVA EDIT END
     const selectedQuirkNames = selectedQuirks.map((quirkKey) => {
@@ -427,7 +427,6 @@ export function QuirksPage(props) {
               width="200px"
               value={searchQuery}
               onChange={setSearchQuery}
-              expensive
             />
           </Stack.Item>
           <Stack.Item grow className="PreferencesMenu__Quirks__QuirkList">

@@ -96,7 +96,7 @@ GLOBAL_VAR_INIT(DNR_trait_overlay, generate_DNR_trait_overlay())
 	icon = FA_ICON_GRIN_TEARS
 
 /datum/quirk/item_quirk/joker/add_unique(client/client_source)
-	give_item_to_holder(/obj/item/paper/joker, list(LOCATION_BACKPACK = ITEM_SLOT_BACKPACK, LOCATION_HANDS = ITEM_SLOT_HANDS))
+	give_item_to_holder(/obj/item/paper/joker, list(LOCATION_BACKPACK, LOCATION_HANDS))
 
 /datum/quirk/item_quirk/joker/process()
 	if(pcooldown > world.time)
@@ -235,7 +235,7 @@ GLOBAL_VAR_INIT(DNR_trait_overlay, generate_DNR_trait_overlay())
 
 	ADD_TRAIT(human_holder, TRAIT_WATER_HATER, QUIRK_TRAIT)
 
-	new_tongue.copy_traits_from(human_holder.get_organ_slot(ORGAN_SLOT_TONGUE))
+	new_tongue.copy_traits_from(human_holder.get_organ_slot(ORGAN_SLOT_TONGUE), human_holder)
 	new_tongue.Insert(human_holder, special = TRUE, movement_flags = DELETE_IF_REPLACED)
 
 /datum/quirk/feline_aspect/remove()
@@ -244,7 +244,7 @@ GLOBAL_VAR_INIT(DNR_trait_overlay, generate_DNR_trait_overlay())
 
 	REMOVE_TRAIT(human_holder, TRAIT_WATER_HATER, QUIRK_TRAIT)
 
-	new_tongue.copy_traits_from(human_holder.get_organ_slot(ORGAN_SLOT_TONGUE))
+	new_tongue.copy_traits_from(human_holder.get_organ_slot(ORGAN_SLOT_TONGUE), human_holder)
 	new_tongue.Insert(human_holder, special = TRUE, movement_flags = DELETE_IF_REPLACED)
 
 /datum/quirk/canine_aspect
@@ -261,14 +261,14 @@ GLOBAL_VAR_INIT(DNR_trait_overlay, generate_DNR_trait_overlay())
 	var/mob/living/carbon/human/human_holder = quirk_holder
 	var/obj/item/organ/tongue/dog/new_tongue = new(get_turf(human_holder))
 
-	new_tongue.copy_traits_from(human_holder.get_organ_slot(ORGAN_SLOT_TONGUE))
+	new_tongue.copy_traits_from(human_holder.get_organ_slot(ORGAN_SLOT_TONGUE), human_holder)
 	new_tongue.Insert(human_holder, special = TRUE, movement_flags = DELETE_IF_REPLACED)
 
 /datum/quirk/canine_aspect/remove()
 	var/mob/living/carbon/human/human_holder = quirk_holder
 	var/obj/item/organ/tongue/new_tongue = new human_holder.dna.species.mutanttongue
 
-	new_tongue.copy_traits_from(human_holder.get_organ_slot(ORGAN_SLOT_TONGUE))
+	new_tongue.copy_traits_from(human_holder.get_organ_slot(ORGAN_SLOT_TONGUE), human_holder)
 	new_tongue.Insert(human_holder, special = TRUE, movement_flags = DELETE_IF_REPLACED)
 
 /datum/quirk/avian_aspect
@@ -285,14 +285,14 @@ GLOBAL_VAR_INIT(DNR_trait_overlay, generate_DNR_trait_overlay())
 	var/mob/living/carbon/human/human_holder = quirk_holder
 	var/obj/item/organ/tongue/avian/new_tongue = new(get_turf(human_holder))
 
-	new_tongue.copy_traits_from(human_holder.get_organ_slot(ORGAN_SLOT_TONGUE))
+	new_tongue.copy_traits_from(human_holder.get_organ_slot(ORGAN_SLOT_TONGUE), human_holder)
 	new_tongue.Insert(human_holder, special = TRUE, movement_flags = DELETE_IF_REPLACED)
 
 /datum/quirk/avian_aspect/remove()
 	var/mob/living/carbon/human/human_holder = quirk_holder
 	var/obj/item/organ/tongue/new_tongue = new human_holder.dna.species.mutanttongue
 
-	new_tongue.copy_traits_from(human_holder.get_organ_slot(ORGAN_SLOT_TONGUE))
+	new_tongue.copy_traits_from(human_holder.get_organ_slot(ORGAN_SLOT_TONGUE), human_holder)
 	new_tongue.Insert(human_holder, special = TRUE, movement_flags = DELETE_IF_REPLACED)
 
 #define SEVERITY_STUN 1

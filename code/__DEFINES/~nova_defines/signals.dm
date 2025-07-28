@@ -63,6 +63,9 @@
 /// From /obj/item/organ/stomach/after_eat(atom/edible)
 #define COMSIG_STOMACH_AFTER_EAT "stomach_after_eat"
 
+/// Used to trigger a signal to custom tongue quirk's proc.
+#define COMSIG_SET_SAY_MODIFIERS "set_say_modifiers"
+
 /// For when a Hemophage's pulsating tumor gets added to their body.
 #define COMSIG_PULSATING_TUMOR_ADDED "pulsating_tumor_added"
 /// For when a Hemophage's pulsating tumor gets removed from their body.
@@ -95,3 +98,11 @@
 /// Signal sent when a mob tries to de-prone
 #define COMSIG_MOVABLE_REMOVE_PRONE_STATE "living_remove_prone_state"
 
+/// Whenever the round ends
+#define COMSIG_TICKER_ROUND_ENDED "ticker_round_ended"
+
+///from base of atom/fire_act(): (exposed_temperature, exposed_volume)
+#define COMSIG_ATOM_PRE_FIRE_ACT "atom_fire_act"
+
+///from base of /datum/preference_middleware/jobs/proc/set_job_title() and /datum/preference_middleware/jobs/proc/set_job_preference: ()
+#define COMSIG_JOB_PREF_UPDATED "job_pref_updated"
