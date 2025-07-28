@@ -1,0 +1,4 @@
+author: "SynthTwo"
+delete-after: True
+changes:
+  - code_imp: "Fixes a small oversight where bridge officer was using the wrong datum in code."
