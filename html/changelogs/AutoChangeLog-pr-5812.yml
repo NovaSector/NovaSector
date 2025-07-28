@@ -1,7 +1,0 @@
-author: "OrionTheFox"
-delete-after: True
-changes:
-  - qol: "Sorted the following Loadout groups: Shoes, Suits."
-  - bugfix: "fixed an incorrect loadout entry for one of the recolorable Hoodies"
-  - rscdel: "Renamed \"Worn Shirt\" to \"Wrinkled Shirt\" (in loadout, \"Oversized Shirt - Wrinkled\")"
-  - rscdel: "Removed \"white suit jacket\" and '/obj/item/clothing/suit/toggle/lawyer/black/better', old resprites of the white/black suit jackets which have since been improved drastically. (search: 'Suit Jacket' in loadout)"
