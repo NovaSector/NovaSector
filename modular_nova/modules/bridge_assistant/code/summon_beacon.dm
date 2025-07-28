@@ -23,7 +23,7 @@
 
 /obj/item/storage/bag/garment/bridge_officer
 	name = "bridge officer's garment bag"
-	desc = "A bag for storing extra clothes and shoes. This one belongs to the bridge_officer."
+	desc = "A bag for storing extra clothes and shoes. This one belongs to the Bridge Officer."
 
 /obj/item/storage/bag/garment/bridge_officer/PopulateContents()
 	new /obj/item/clothing/suit/toggle/jacket/nova/bridge_officer(src)
