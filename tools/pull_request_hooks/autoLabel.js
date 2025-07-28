@@ -74,14 +74,14 @@ function check_diff_line_for_element(diff, element) {
 }
 
 // Checks the file diff for labels to add or remove
-async function check_diff_for_labels(diff_url) {
+async function check_diff_for_labels(diff_url, github) {
   const labels_to_add = [];
   const labels_to_remove = [];
   try {
     // NOVA EDIT CHANGE START - ORIGINAL: const diff = await fetch(diff_url);
     const diff = await fetch(diff_url, {
       headers: {
-        Authorization: `Bearer ${process.env.GITHUB_TOKEN}`,
+        Authorization: `Bearer ${github.token}`,
         Accept: "application/vnd.github.v3.diff",
         "User-Agent": "tgstation/1.0-auto-label-script",
       },
@@ -130,7 +130,7 @@ export async function get_updated_label_set({ github, context }) {
 
   // diff is always checked
   if (diff_url) {
-    const diff_tags = await check_diff_for_labels(diff_url);
+    const diff_tags = await check_diff_for_labels(diff_url, github);
     for (let label of diff_tags.labels_to_add) {
       updated_labels.add(label);
     }
@@ -167,7 +167,7 @@ export async function get_updated_label_set({ github, context }) {
         pull_number: pull_request.number,
         // NOVA EDIT ADDITION START
         headers: {
-          Authorization: `Bearer ${process.env.GITHUB_TOKEN}`,
+          Authorization: `Bearer ${github.token}`,
           Accept: "application/vnd.github.v3.diff",
           "User-Agent": "tgstation/1.0-auto-label-script",
         },
@@ -183,7 +183,7 @@ export async function get_updated_label_set({ github, context }) {
           pull_number: pull_request.number,
           // NOVA EDIT ADDITION START
           headers: {
-            Authorization: `Bearer ${process.env.GITHUB_TOKEN}`,
+            Authorization: `Bearer ${github.token}`,
             Accept: "application/vnd.github.v3.diff",
             "User-Agent": "tgstation/1.0-auto-label-script",
           },
