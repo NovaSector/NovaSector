@@ -55,6 +55,7 @@
 		/datum/preference/text/custom_tongue/say
 	)
 
+/// Used to set the quirk holder's say modifiers based on the client preferences. Runs on quirk add and on COMSIG_SET_SAY_MODIFIERS signal (sent in /obj/item/organ/tongue/proc/set_say_modifiers())
 /datum/quirk/custom_tongue/proc/tongue_setup() // This proc will run at most three times depending on the client prefs.
 	SIGNAL_HANDLER
 
