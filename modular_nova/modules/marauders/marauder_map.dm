@@ -108,7 +108,7 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/machinery/computer/security/telescreen/traitor_
 	health = 300
 	speak_emote = list("gruffs") //he's old
 	desc = "A bright green carp tamed by one of the operatives on rotation at bay no. 09. \n\
-	Has been here a long, long time. Petting him brings good luck, you'll need it."
+		Has been here a long, long time. Petting him brings good luck, you'll need it."
 	faction = list(ROLE_SYNDICATE)
 	regenerate_colour = COLOR_HEALING_CYAN
 	greyscale_config = NONE

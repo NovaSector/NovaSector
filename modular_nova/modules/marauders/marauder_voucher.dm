@@ -2,20 +2,15 @@
 /obj/item/folder/syndicate/vouchers
 	name = "equipment voucher folder"
 	icon_state = "folder_sblue"
-	var/list/voucher_list = list(
-		/obj/item/paper/fluff/midround_traitor/voucher_instruction,
-		/obj/item/paper/paperslip/corporate/syndicate/traitor/primary,
-		/obj/item/paper/paperslip/corporate/syndicate/traitor/secondary,
-		/obj/item/paper/paperslip/corporate/syndicate/traitor/exosuit,
-		/obj/item/paper/paperslip/corporate/syndicate/traitor/implant,
-		/obj/item/paper/paperslip/corporate/syndicate/traitor/supplies,
-	)
 
 /obj/item/folder/syndicate/vouchers/Initialize(mapload)
 	. = ..()
-	for(var/obj/item/item as anything in voucher_list)
-		if(ispath(item, /obj/item/paper))
-			new item(src)
+	new /obj/item/paper/fluff/midround_traitor/voucher_instruction(src)
+	new /obj/item/paper/paperslip/corporate/syndicate/traitor/primary(src)
+	new /obj/item/paper/paperslip/corporate/syndicate/traitor/secondary(src)
+	new /obj/item/paper/paperslip/corporate/syndicate/traitor/exosuit(src)
+	new /obj/item/paper/paperslip/corporate/syndicate/traitor/implant(src)
+	new /obj/item/paper/paperslip/corporate/syndicate/traitor/supplies(src)
 	update_appearance()
 
 // Plastic slips

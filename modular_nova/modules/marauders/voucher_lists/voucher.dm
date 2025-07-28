@@ -6,7 +6,7 @@
 	icon = /obj/item/paper/paperslip/corporate/syndicate/traitor/secondary::icon
 	icon_state = /obj/item/paper/paperslip/corporate/syndicate/traitor/secondary::icon_state
 	set_items = list(
-		/obj/item/paper/paperslip/corporate/syndicate/traitor/secondary
+		/obj/item/paper/paperslip/corporate/syndicate/traitor/secondary,
 	)
 
 /datum/voucher_set/traitor/voucher_trade/implant
@@ -15,7 +15,7 @@
 	icon = /obj/item/paper/paperslip/corporate/syndicate/traitor/implant::icon
 	icon_state = /obj/item/paper/paperslip/corporate/syndicate/traitor/implant::icon_state
 	set_items = list(
-		/obj/item/paper/paperslip/corporate/syndicate/traitor/implant
+		/obj/item/paper/paperslip/corporate/syndicate/traitor/implant,
 	)
 
 /datum/voucher_set/traitor/voucher_trade/supplies
@@ -24,5 +24,5 @@
 	icon = /obj/item/paper/paperslip/corporate/syndicate/traitor/supplies::icon
 	icon_state = /obj/item/paper/paperslip/corporate/syndicate/traitor/supplies::icon_state
 	set_items = list(
-		/obj/item/paper/paperslip/corporate/syndicate/traitor/supplies
+		/obj/item/paper/paperslip/corporate/syndicate/traitor/supplies,
 	)

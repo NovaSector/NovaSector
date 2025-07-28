@@ -113,7 +113,7 @@
 		/obj/item/storage/belt/military/assault,
 		/obj/item/clothing/shoes/combat,
 		/obj/item/storage/toolbox/guncase/nova/syndicate,
-		)
+	)
 
 /obj/structure/mannequin/operative_barracks/spy
 	name = "spy mannequin"
@@ -127,7 +127,7 @@
 		/obj/item/storage/belt/holster/detective/dark,
 		/obj/item/clothing/shoes/laceup,
 		/obj/item/storage/backpack/satchel/leather,
-		)
+	)
 
 /obj/structure/mannequin/operative_barracks/hacker
 	name = "hacker mannequin"
@@ -141,7 +141,7 @@
 		/obj/item/storage/belt/military,
 		/obj/item/clothing/shoes/combat,
 		/obj/item/storage/toolbox/guncase/nova,
-		)
+	)
 
 /obj/structure/mannequin/operative_barracks/chameleon
 	name = "chameleon mannequin"
@@ -157,7 +157,7 @@
 		/obj/item/clothing/gloves/chameleon,
 		/obj/item/clothing/shoes/chameleon,
 		/obj/item/storage/backpack/chameleon,
-		)
+	)
 
 /obj/structure/mannequin/operative_barracks/anarchist
 	name = "anarchist mannequin"
@@ -168,7 +168,7 @@
 		/obj/item/clothing/suit/jacket/leather_trenchcoat/gunman,
 		/obj/item/clothing/shoes/combat,
 		/obj/item/storage/toolbox/guncase/nova/green,
-		)
+	)
 
 /obj/structure/mannequin/operative_barracks/sol_militant
 	name = "\improper Sol militant mannequin"
@@ -182,7 +182,7 @@
 		/obj/item/clothing/gloves/frontier_colonist,
 		/obj/item/clothing/shoes/jackboots/frontier_colonist,
 		/obj/item/storage/toolbox/guncase/nova/solfed,
-		)
+	)
 
 ///
 /// Wildcard mannequins
@@ -194,7 +194,7 @@
 		/obj/item/clothing/under/syndicate/nova/maid,
 		/obj/item/clothing/gloves/combat/maid,
 		/obj/item/clothing/shoes/laceup,
-		)
+	)
 
 /obj/structure/mannequin/operative_barracks/wildcard/clown
 	name = "clown mannequin"
@@ -203,7 +203,7 @@
 		/obj/item/clothing/under/rank/civilian/clown,
 		/obj/item/clothing/shoes/clown_shoes,
 		/obj/item/storage/backpack/clown,
-		)
+	)
 
 /obj/structure/mannequin/operative_barracks/wildcard/mime
 	name = "mime mannequin"
@@ -214,7 +214,7 @@
 		/obj/item/clothing/gloves/color/white,
 		/obj/item/clothing/shoes/laceup,
 		/obj/item/storage/backpack/mime,
-		)
+	)
 
 /obj/structure/mannequin/operative_barracks/wildcard/miner
 	name = "miner mannequin"
@@ -226,7 +226,7 @@
 		/obj/item/clothing/gloves/bracer,
 		/obj/item/clothing/shoes/workboots/mining,
 		/obj/item/storage/backpack/explorer,
-		)
+	)
 
 /obj/structure/mannequin/operative_barracks/wildcard/intern
 	name = "centcom intern mannequin"
@@ -235,7 +235,7 @@
 		/obj/item/clothing/under/rank/centcom/officer,
 		/obj/item/clothing/suit/armor/bulletproof,
 		/obj/item/clothing/shoes/sneakers/green,
-		)
+	)
 
 /obj/structure/mannequin/operative_barracks/wildcard/wizard
 	name = "wizard mannequin"
@@ -244,7 +244,7 @@
 		/obj/item/clothing/under/color/lightpurple,
 		/obj/item/clothing/suit/wizrobe,
 		/obj/item/clothing/shoes/sandal,
-		)
+	)
 
 /obj/structure/mannequin/operative_barracks/wildcard/cultie
 	name = "cultist mannequin"
@@ -252,7 +252,7 @@
 		/obj/item/clothing/under/rank/civilian/chaplain,
 		/obj/item/clothing/suit/hooded/cultrobes,
 		/obj/item/clothing/shoes/cult,
-		)
+	)
 
 /obj/structure/mannequin/operative_barracks/wildcard/pirate
 	name = "pirate mannequin"
@@ -262,7 +262,7 @@
 		/obj/item/clothing/under/costume/pirate,
 		/obj/item/clothing/suit/space/pirate,
 		/obj/item/clothing/shoes/pirate/armored,
-		)
+	)
 
 /obj/structure/mannequin/operative_barracks/wildcard/knight
 	name = "knight mannequin"
@@ -272,7 +272,7 @@
 		/obj/item/clothing/suit/armor/vest/cuirass,
 		/obj/item/clothing/gloves/plate/red,
 		/obj/item/clothing/shoes/plate/red,
-		)
+	)
 
 /obj/structure/mannequin/operative_barracks/wildcard/pizza_guy
 	name = "pizza delivery mannequin"
@@ -282,4 +282,4 @@
 		/obj/item/clothing/under/pizza,
 		/obj/item/clothing/suit/toggle/jacket/nova/hoodie/pizza,
 		/obj/item/clothing/shoes/sneakers/red,
-		)
+	)
