@@ -74,46 +74,43 @@ function check_diff_line_for_element(diff, element) {
 }
 
 // Checks the file diff for labels to add or remove
-async function check_diff_for_labels({ github, context }) {
+async function check_diff_for_labels(diff_url) {
   const labels_to_add = [];
   const labels_to_remove = [];
-
-  const pr = context.payload.pull_request;
-  if (!pr) return { labels_to_add, labels_to_remove };
-
-  let diff_txt = "";
   try {
-    const response = await github.rest.pulls.get({
-      owner: context.repo.owner,
-      repo: context.repo.repo,
-      pull_number: pr.number,
-      mediaType: { format: "diff" },
-      headers: { Accept: "application/vnd.github.v3.diff" },
+    // NOVA EDIT CHANGE START - ORIGINAL: const diff = await fetch(diff_url);
+    const diff = await fetch(diff_url, {
+      headers: {
+        Authorization: `Bearer ${process.env.GITHUB_TOKEN}`,
+        Accept: "application/vnd.github.v3.diff",
+        "User-Agent": "tgstation/1.0-auto-label-script",
+      },
     });
-    diff_txt = response.data || "";
-  } catch (err) {
-    // Octokit throws HttpError with status property on failure
-    console.error(`Failed to fetch diff: status=${err.status}`, err);
-    return { labels_to_add, labels_to_remove };
-  }
-
-  if (!diff_txt) {
-    console.error("PR diff was empty.");
-    return { labels_to_add, labels_to_remove };
-  }
-
-  for (const label in autoLabelConfig.file_labels) {
-    const { filepaths, add_only } = autoLabelConfig.file_labels[label] || {};
-    const found = filepaths.some((filepath) =>
-      check_diff_line_for_element(diff_txt, filepath)
-    );
-    if (found) {
-      labels_to_add.push(label);
-    } else if (!add_only) {
-      labels_to_remove.push(label);
+    console.log("Diff URL:", diff_url);
+    // NOVA EDIT CHANGE END
+    if (diff.ok) {
+      const diff_txt = await diff.text();
+      for (let label in autoLabelConfig.file_labels) {
+        let found = false;
+        const { filepaths, add_only } = autoLabelConfig.file_labels[label];
+        for (let filepath of filepaths) {
+          if (check_diff_line_for_element(diff_txt, filepath)) {
+            found = true;
+            break;
+          }
+        }
+        if (found) {
+          labels_to_add.push(label);
+        } else if (!add_only) {
+          labels_to_remove.push(label);
+        }
+      }
+    } else {
+      console.error(`Failed to fetch diff: ${diff.status} ${diff.statusText}`);
     }
+  } catch (e) {
+    console.error(e);
   }
-
   return { labels_to_add, labels_to_remove };
 }
 
@@ -134,7 +131,7 @@ export async function get_updated_label_set({ github, context }) {
 
   // diff is always checked
   if (diff_url) {
-    const diff_tags = await check_diff_for_labels(github, context);
+    const diff_tags = await check_diff_for_labels(diff_url);
     for (let label of diff_tags.labels_to_add) {
       updated_labels.add(label);
     }
