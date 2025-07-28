@@ -1,0 +1,5 @@
+author: "RealWinterFrost"
+delete-after: True
+changes:
+  - qol: "Solfed shuttle now has multi-z functionality"
+  - bugfix: "Solfed squadleader and officials now have access to solfed comms"
