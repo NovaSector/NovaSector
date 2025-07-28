@@ -69,7 +69,7 @@ function check_title_for_labels(title) {
 }
 
 function check_diff_line_for_element(diff, element) {
-  const tag_re = new RegExp(`diff --git a/${element}/`); // NOVA EDIT CHANGE - ORIGINAL: const tag_re = new RegExp(`^diff --git a/${element}/`);
+  const tag_re = new RegExp(`^diff --git a/${element}/`);
   return tag_re.test(diff);
 }
 
@@ -78,15 +78,7 @@ async function check_diff_for_labels(diff_url) {
   const labels_to_add = [];
   const labels_to_remove = [];
   try {
-    // NOVA EDIT CHANGE START - ORIGINAL: const diff = await fetch(diff_url);
-    const diff = await fetch(diff_url, {
-      headers: {
-        Authorization: `Bearer ${github.token}`,
-        Accept: "application/vnd.github.v3.diff",
-        "User-Agent": "tgstation/1.0-auto-label-script",
-      },
-    });
-    // NOVA EDIT CHANGE END
+    const diff = await fetch(diff_url);
     if (diff.ok) {
       const diff_txt = await diff.text();
       for (let label in autoLabelConfig.file_labels) {
@@ -165,13 +157,7 @@ export async function get_updated_label_set({ github, context }) {
         owner: context.repo.owner,
         repo: context.repo.repo,
         pull_number: pull_request.number,
-        // NOVA EDIT ADDITION START
-        headers: {
-          Authorization: `Bearer ${github.token}`,
-          Accept: "application/vnd.github.v3.diff",
-          "User-Agent": "tgstation/1.0-auto-label-script",
-        },
-        // NOVA EDIT ADDITION END
+        headers: { Accept: "application/vnd.github.v3.diff" }, // NOVA EDIT ADDITION
       });
       // failed to find? still processing? try again in a few seconds
       if (response.data.mergeable === null) {
@@ -181,13 +167,7 @@ export async function get_updated_label_set({ github, context }) {
           owner: context.repo.owner,
           repo: context.repo.repo,
           pull_number: pull_request.number,
-          // NOVA EDIT ADDITION START
-          headers: {
-            Authorization: `Bearer ${github.token}`,
-            Accept: "application/vnd.github.v3.diff",
-            "User-Agent": "tgstation/1.0-auto-label-script",
-          },
-          // NOVA EDIT ADDITION END
+          headers: { Accept: "application/vnd.github.v3.diff" }, // NOVA EDIT ADDITION
         });
         if (response.data.mergeable === null) {
           throw new Error("Merge status not available");
