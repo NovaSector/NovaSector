@@ -260,7 +260,10 @@
 	shuttlePortId = "solfed_general_custom"
 	jump_to_ports = list( "whiteship_home" = 1, "syndicate_nw" = 1, )
 	view_range = 12
-
+	zlink_range = 1
+	move_up_action = /datum/action/innate/camera_multiz_up
+	move_down_action = /datum/action/innate/camera_multiz_down
+	
 /obj/item/circuitboard/computer/solfed
 	name = "EAS(I)-6224 Control Console (Computer Board)"
 	build_path = /obj/machinery/computer/shuttle/solfed
