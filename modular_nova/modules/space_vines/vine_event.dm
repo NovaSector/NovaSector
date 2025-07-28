@@ -31,8 +31,8 @@
 				/datum/spacevine_mutation/flowering,
 				/datum/spacevine_mutation/light,
 				/datum/spacevine_mutation/cold_proof,
-				),
+			),
 			MAX_SEVERITY_LINEAR_COEFF,
 			MAX_POSSIBLE_PRODUCTIVITY_VALUE,
 			src,
-			)
+		)
