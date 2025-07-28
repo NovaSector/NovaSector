@@ -290,7 +290,7 @@
 
 	if(prob(THORN_MUTATION_CUT_PROB) && istype(crosser) && !isvineimmune(crosser))
 		var/mob/living/victim = crosser
-		victim.adjustBruteLoss(5) // NOVA EDIT CHANGE - Original: 15
+		victim.adjustBruteLoss(15)
 		to_chat(victim, span_danger("You cut yourself on the thorny vines."))
 
 /datum/spacevine_mutation/thorns/on_hit(obj/structure/spacevine/holder, mob/living/hitter, obj/item/item, expected_damage)
@@ -305,7 +305,7 @@
 
 	if(prob(THORN_MUTATION_CUT_PROB) && istype(hitter) && !isvineimmune(hitter))
 		var/mob/living/victim = hitter
-		victim.adjustBruteLoss(5) // NOVA EDIT CHANGE - Original: 15
+		victim.adjustBruteLoss(15)
 		to_chat(victim, span_danger("You cut yourself on the thorny vines."))
 
 	return expected_damage

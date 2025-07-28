@@ -525,6 +525,10 @@
 	max_occurrences = 2
 	weight = MED_EVENT_FREQ
 
+/datum/round_event_control/spacevine/difficult
+	max_occurrences = 1
+	weight = LOW_EVENT_FREQ
+
 /**
  * Spiders
  *
