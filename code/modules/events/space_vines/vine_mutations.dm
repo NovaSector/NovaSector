@@ -72,11 +72,11 @@
 		return
 	if(prob(TOXICITY_MUTATION_PROB) && istype(crosser) && !isvineimmune(crosser))
 		to_chat(crosser, span_alert("You accidentally touch the vine and feel a strange sensation."))
-		crosser.adjustToxLoss(5) // NOVA EDIT CHANGE - Original: 20
+		crosser.adjustToxLoss(20)
 
 /datum/spacevine_mutation/toxicity/on_eat(obj/structure/spacevine/holder, mob/living/eater)
 	if(!isvineimmune(eater))
-		eater.adjustToxLoss(5) // NOVA EDIT CHANGE - Original: 20
+		eater.adjustToxLoss(20)
 
 /datum/spacevine_mutation/explosive  // JC IT'S A BOMB
 	name = "Explosive"
