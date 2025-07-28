@@ -18,5 +18,5 @@
 	default_radio_channel = RADIO_CHANNEL_COMMAND
 /datum/job/nanotrasen_consultant
 	default_radio_channel = RADIO_CHANNEL_COMMAND
-/datum/job/bridge_officer
+/datum/job/bridge_assistant
 	default_radio_channel = RADIO_CHANNEL_COMMAND
