@@ -12,8 +12,13 @@
 
 /datum/round_event/spacevine/difficult/proc/validate_turfs(area/possible_area, list/turfs, obj/structure/spacevine/vine)
 	for(var/turf/open/floor in possible_area.get_turfs_from_all_zlevels())
-		if(floor.Enter(vine) && floor.get_lumcount() > LIGHTING_TILE_IS_DARK) //we don't like to spawn in the dark
-			turfs += floor
+		if(!floor.Enter(vine)) //can we enter the tile
+			continue
+		if(!is_station_level(floor.z)) //is the tile station z
+			continue
+		if(floor.get_lumcount() <= LIGHTING_TILE_IS_DARK) //we don't like to spawn in the dark
+			continue
+		turfs += floor
 	return turfs
 
 /datum/round_event/spacevine/difficult/start()
