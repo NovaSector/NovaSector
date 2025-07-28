@@ -1,6 +1,6 @@
 /datum/storage/loadout_belt
 	max_specific_storage = WEIGHT_CLASS_SMALL
-	max_slots = 6
+	max_slots = 7
 
 /datum/storage/loadout_belt/New(atom/parent, max_slots, max_specific_storage, max_total_storage)
 	. = ..()
