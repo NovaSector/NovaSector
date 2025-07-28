@@ -149,7 +149,7 @@
 
 /obj/item/clothing/under/rank/bridge_officer
 	name = "bridge officer's jumpsuit"
-	desc = "It's a green jumpsuit with some gold markings denoting the rank of \"Bridge Officer\"."
+	desc = "It's a blue jumpsuit with silver markings denoting the rank of \"Bridge Officer\"."
 	icon_state = "bo_uniform"
 	icon = 'modular_nova/master_files/icons/obj/clothing/under/command.dmi'
 	worn_icon = 'modular_nova/master_files/icons/mob/clothing/under/command.dmi'
@@ -158,18 +158,18 @@
 	random_sensor = FALSE
 
 /obj/item/clothing/under/rank/bridge_officer/skirt
-	name = "bridge officer's jumpsuit"
-	desc = "It's a green jumpsuit with some gold markings denoting the rank of \"Bridge Officer\"."
+	name = "bridge officer's jumpskirt"
+	desc = "It's a blue jumpskirt with silver markings denoting the rank of \"Bridge Officer\"."
 	icon_state = "bo_skirt"
 
 /obj/item/clothing/under/rank/bridge_officer/turtle
-	name = "bridge officer's jumpsuit"
-	desc = "It's a green jumpsuit with some gold markings denoting the rank of \"Bridge Officer\"."
+	name = "bridge officer's turtleneck"
+	desc = "It's a blue turtleneck with silver markings denoting the rank of \"Bridge Officer\"."
 	icon_state = "bo_turtleneck"
 
 /obj/item/clothing/under/rank/bridge_officer/turtle/skirt
-	name = "bridge officer's jumpsuit"
-	desc = "It's a green jumpsuit with some gold markings denoting the rank of \"Bridge Officer\"."
+	name = "bridge officer's skirtleneck"
+	desc = "It's a blue skirtleneck with silver markings denoting the rank of \"Bridge Officer\"."
 	icon_state = "bo_skirtleneck"
 
 /*
