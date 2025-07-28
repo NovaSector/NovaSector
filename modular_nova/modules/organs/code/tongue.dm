@@ -8,7 +8,7 @@
 		return
 	set_say_modifiers(organ_receiver)
 
-///	Used to set the say modifiers on organ_receiver (ideally a player.) Early returns if the target has a signal listening (runs /datum/quirk/custom_tongue/proc/tongue_setup())
+/// Used to set the say modifiers on organ_receiver (ideally a player.) Early returns if the target has a signal listening (runs /datum/quirk/custom_tongue/proc/tongue_setup())
 /obj/item/organ/tongue/proc/set_say_modifiers(mob/living/carbon/organ_receiver, ask, exclaim, whisper, yell, say)
 	var/obj/item/organ/tongue/tongue = organ_receiver.get_organ_slot(ORGAN_SLOT_TONGUE)
 	if(SEND_SIGNAL(organ_receiver, COMSIG_SET_SAY_MODIFIERS))
