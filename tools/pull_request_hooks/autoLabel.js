@@ -78,7 +78,14 @@ async function check_diff_for_labels(diff_url) {
   const labels_to_add = [];
   const labels_to_remove = [];
   try {
-    const diff = await fetch(diff_url);
+    // NOVA EDIT CHANGE START - ORIGINAL: const diff = await fetch(diff_url);
+    const diff = await fetch(diff_url, {
+      headers: {
+        Authorization: `Bearer ${process.env.GITHUB_TOKEN}`,
+        Accept: "application/vnd.github.v3.diff",
+      },
+    });
+    // NOVA EDIT CHANGE END
     if (diff.ok) {
       const diff_txt = await diff.text();
       for (let label in autoLabelConfig.file_labels) {

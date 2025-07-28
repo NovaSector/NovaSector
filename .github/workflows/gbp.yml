@@ -26,6 +26,10 @@ jobs:
               labels: new_labels,
             });
             console.log(`Labels updated: ${new_labels}`);
+          # NOVA EDIT ADDITION START
+          env:
+            GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          # NOVA EDIT ADDITION END
   gbp:
     runs-on: ubuntu-latest
     if: github.event.action == 'opened' || github.event.action == 'closed'
