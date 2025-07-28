@@ -164,7 +164,7 @@
 	if(!istype(stepturf))
 		return
 
-	if(!stepturf.Enter(src)) // NOVA EDIT lets spacevines into space, old code: if(is_space_or_openspace(stepturf) || !stepturf.Enter(src))
+	if(!stepturf.Enter(src) || (is_space_or_openspace(stepturf) && !is_station_level(stepturf.z))) // NOVA EDIT CHANGE, lets spacevines spread into space, but only station space - old code: if(is_space_or_openspace(stepturf) || !stepturf.Enter(src))
 		return
 	if(ischasm(stepturf) && !HAS_TRAIT(stepturf, TRAIT_CHASM_STOPPED))
 		return
