@@ -81,7 +81,7 @@ async function check_diff_for_labels(diff_url) {
     // NOVA EDIT CHANGE START - ORIGINAL: const diff = await fetch(diff_url);
     const diff = await fetch(diff_url, {
       headers: {
-        Authorization: `Bearer ${github.token}`,
+        Authorization: `Bearer ${process.env.GITHUB_TOKEN}`,
         Accept: "application/vnd.github.v3.diff",
         "User-Agent": "tgstation/1.0-auto-label-script",
       },
@@ -167,7 +167,7 @@ export async function get_updated_label_set({ github, context }) {
         pull_number: pull_request.number,
         // NOVA EDIT ADDITION START
         headers: {
-          Authorization: `Bearer ${github.token}`,
+          Authorization: `Bearer ${process.env.GITHUB_TOKEN}`,
           Accept: "application/vnd.github.v3.diff",
           "User-Agent": "tgstation/1.0-auto-label-script",
         },
@@ -183,7 +183,7 @@ export async function get_updated_label_set({ github, context }) {
           pull_number: pull_request.number,
           // NOVA EDIT ADDITION START
           headers: {
-            Authorization: `Bearer ${github.token}`,
+            Authorization: `Bearer ${process.env.GITHUB_TOKEN}`,
             Accept: "application/vnd.github.v3.diff",
             "User-Agent": "tgstation/1.0-auto-label-script",
           },
