@@ -2323,3 +2323,20 @@ TREK
 /datum/greyscale_config/solfed_goggles/worn
 	name = "SolFed Goggles (Worn)"
 	icon_file = 'modular_nova/modules/goofsec/icons/mob/uniforms.dmi'
+
+/// Content of PR #5835
+
+/// Turtlenecks
+/datum/greyscale_config/turtlenecks
+	name = "Turtlenecks"
+	icon_file = 'modular_nova/master_files/icons/obj/clothing/under/civilian.dmi'
+	json_config = 'modular_nova/modules/GAGS/json_configs/mass_greyscales/turtlenecks.json'
+
+/datum/greyscale_config/turtlenecks/worn
+	name = "Turtlenecks (Worn)"
+	icon_file = 'modular_nova/master_files/icons/mob/clothing/under/civilian.dmi'
+	json_config = 'modular_nova/modules/GAGS/json_configs/mass_greyscales/turtlenecks_worn.json'
+
+/datum/greyscale_config/turtlenecks/worn/digi
+	name = "Turtlenecks (Worn, Digi)"
+	icon_file = 'modular_nova/master_files/icons/mob/clothing/under/civilian_digi.dmi'
