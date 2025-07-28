@@ -1,120 +1,119 @@
 import * as autoLabelConfig from "./autoLabelConfig.js";
 
-// Maps changelog keywords to labels
-function keywordToClLabel() {
-  const keywordToClLabel = {};
+function keyword_to_cl_label() {
+  const keyword_to_cl_label = {};
   for (let label in autoLabelConfig.changelog_labels) {
     for (let keyword of autoLabelConfig.changelog_labels[label].keywords) {
-      keywordToClLabel[keyword] = label;
+      keyword_to_cl_label[keyword] = label;
     }
   }
-  return keywordToClLabel;
+  return keyword_to_cl_label;
 }
 
 // Checks the body (primarily the changelog) for labels to add
-function checkBodyForLabels(body) {
-  const labelsToAdd = [];
+function check_body_for_labels(body) {
+  const labels_to_add = [];
 
   // if the body contains a github "fixes #1234" line, add the Fix tag
-  const fixRegex = new RegExp(`(fix[des]*|resolve[sd]*)\\s*#\\d+`, "gmi");
-  if (fixRegex.test(body)) {
-    labelsToAdd.push("Fix");
+  const fix_regex = new RegExp(`(fix[des]*|resolve[sd]*)\s*#\d+`, "gmi");
+  if (fix_regex.test(body)) {
+    labels_to_add.push("Fix");
   }
 
-  const keywords = keywordToClLabel();
+  const keywords = keyword_to_cl_label();
 
-  let foundCl = false;
+  let found_cl = false;
   for (let line of body.split("\n")) {
     if (line.startsWith(":cl:")) {
-      foundCl = true;
+      found_cl = true;
       continue;
     } else if (line.startsWith("/:cl:")) {
       break;
-    } else if (!foundCl) {
+    } else if (!found_cl) {
       continue;
     }
     // see if the first segment of the line is one of the keywords
-    const foundLabel = keywords[line.split(":")[0]?.toLowerCase()];
-    if (foundLabel) {
+    const found_label = keywords[line.split(":")[0]?.toLowerCase()];
+    if (found_label) {
       // don't add a billion tags if they forgot to clear all the default ones
-      const lineText = line.split(":")[1].trim();
-      const clLabel = autoLabelConfig.changelog_labels[foundLabel];
+      const line_text = line.split(":")[1].trim();
+      const cl_label = autoLabelConfig.changelog_labels[found_label];
       if (
-        lineText !== clLabel.default_text &&
-        lineText !== clLabel.alt_default_text
+        line_text !== cl_label.default_text &&
+        line_text !== cl_label.alt_default_text
       ) {
-        labelsToAdd.push(foundLabel);
+        labels_to_add.push(found_label);
       }
     }
   }
-  return labelsToAdd;
+  return labels_to_add;
 }
 
 // Checks the title for labels to add
-function checkTitleForLabels(title) {
-  const labelsToAdd = [];
-  const titleLower = title.toLowerCase();
+function check_title_for_labels(title) {
+  const labels_to_add = [];
+  const title_lower = title.toLowerCase();
   for (let label in autoLabelConfig.title_labels) {
     let found = false;
     for (let keyword of autoLabelConfig.title_labels[label].keywords) {
-      if (titleLower.includes(keyword)) {
+      if (title_lower.includes(keyword)) {
         found = true;
         break;
       }
     }
     if (found) {
-      labelsToAdd.push(label);
+      labels_to_add.push(label);
     }
   }
-  return labelsToAdd;
+  return labels_to_add;
+}
+
+function check_diff_line_for_element(diff, element) {
+  const tag_re = new RegExp(`diff --git a/${element}/`); // NOVA EDIT CHANGE - ORIGINAL: const tag_re = new RegExp(`^diff --git a/${element}/`);
+  return tag_re.test(diff);
 }
 
 // Checks the file diff for labels to add or remove
-async function checkDiffForLabels(github, context, pullRequest) {
-  const labelsToAdd = [];
-  const labelsToRemove = [];
-
+async function check_diff_for_labels(diff_url) {
+  const labels_to_add = [];
+  const labels_to_remove = [];
   try {
-    const response = await github.rest.pulls.get({
-      owner: context.repo.owner,
-      repo: context.repo.repo,
-      pull_number: pullRequest.number,
+    // NOVA EDIT CHANGE START - ORIGINAL: const diff = await fetch(diff_url);
+    const diff = await fetch(diff_url, {
       headers: {
+        Authorization: `Bearer ${github.token}`,
         Accept: "application/vnd.github.v3.diff",
+        "User-Agent": "tgstation/1.0-auto-label-script",
       },
     });
-
-    if (response.status === 200) {
-      const diffTxt = response.data;
+    // NOVA EDIT CHANGE END
+    if (diff.ok) {
+      const diff_txt = await diff.text();
       for (let label in autoLabelConfig.file_labels) {
         let found = false;
         const { filepaths, add_only } = autoLabelConfig.file_labels[label];
         for (let filepath of filepaths) {
-          if (diffTxt.includes(filepath)) {
+          if (check_diff_line_for_element(diff_txt, filepath)) {
             found = true;
             break;
           }
         }
         if (found) {
-          labelsToAdd.push(label);
+          labels_to_add.push(label);
         } else if (!add_only) {
-          labelsToRemove.push(label);
+          labels_to_remove.push(label);
         }
       }
     } else {
-      console.error(
-        `Failed to fetch diff: ${response.status} ${response.statusText}`
-      );
+      console.error(`Failed to fetch diff: ${diff.status} ${diff.statusText}`);
     }
   } catch (e) {
     console.error(e);
   }
-
-  return { labelsToAdd, labelsToRemove };
+  return { labels_to_add, labels_to_remove };
 }
 
-// Main function to get the updated label set
-export async function getUpdatedLabelSet({ github, context }) {
+export async function get_updated_label_set({ github, context }) {
   const { action, pull_request } = context.payload;
   const {
     body = "",
@@ -124,41 +123,40 @@ export async function getUpdatedLabelSet({ github, context }) {
     title = "",
   } = pull_request;
 
-  let updatedLabels = new Set();
+  let updated_labels = new Set();
   for (let label of labels) {
-    updatedLabels.add(label.name);
+    updated_labels.add(label.name);
   }
 
   // diff is always checked
   if (diff_url) {
-    const diffTags = await checkDiffForLabels(github, context, pull_request);
-    for (let label of diffTags.labelsToAdd) {
-      updatedLabels.add(label);
+    const diff_tags = await check_diff_for_labels(diff_url);
+    for (let label of diff_tags.labels_to_add) {
+      updated_labels.add(label);
     }
-    for (let label of diffTags.labelsToRemove) {
-      updatedLabels.delete(label);
+    for (let label of diff_tags.labels_to_remove) {
+      updated_labels.delete(label);
     }
   }
-
   // body and title are only checked on open, not on sync
   if (action === "opened") {
     if (title) {
-      for (let label of checkTitleForLabels(title)) {
-        updatedLabels.add(label);
+      for (let label of check_title_for_labels(title)) {
+        updated_labels.add(label);
       }
     }
     if (body) {
-      for (let label of checkBodyForLabels(body)) {
-        updatedLabels.add(label);
+      for (let label of check_body_for_labels(body)) {
+        updated_labels.add(label);
       }
     }
   }
 
   // this is always removed on updates
-  updatedLabels.delete("Test Merge Candidate");
+  updated_labels.delete("Test Merge Candidate");
 
   // update merge conflict label
-  let mergeConflict = mergeable === false;
+  let merge_conflict = mergeable === false;
   // null means it was not reported yet
   // it is not normally included in the payload - a "get" is needed
   if (mergeable === null) {
@@ -167,9 +165,13 @@ export async function getUpdatedLabelSet({ github, context }) {
         owner: context.repo.owner,
         repo: context.repo.repo,
         pull_number: pull_request.number,
+        // NOVA EDIT ADDITION START
         headers: {
+          Authorization: `Bearer ${github.token}`,
           Accept: "application/vnd.github.v3.diff",
+          "User-Agent": "tgstation/1.0-auto-label-script",
         },
+        // NOVA EDIT ADDITION END
       });
       // failed to find? still processing? try again in a few seconds
       if (response.data.mergeable === null) {
@@ -179,26 +181,30 @@ export async function getUpdatedLabelSet({ github, context }) {
           owner: context.repo.owner,
           repo: context.repo.repo,
           pull_number: pull_request.number,
+          // NOVA EDIT ADDITION START
           headers: {
+            Authorization: `Bearer ${github.token}`,
             Accept: "application/vnd.github.v3.diff",
+            "User-Agent": "tgstation/1.0-auto-label-script",
           },
+          // NOVA EDIT ADDITION END
         });
         if (response.data.mergeable === null) {
           throw new Error("Merge status not available");
         }
       }
 
-      mergeConflict = response.data.mergeable === false;
+      merge_conflict = response.data.mergeable === false;
     } catch (e) {
       console.error(e);
     }
   }
-  if (mergeConflict) {
-    updatedLabels.add("Merge Conflict");
+  if (merge_conflict) {
+    updated_labels.add("Merge Conflict");
   } else {
-    updatedLabels.delete("Merge Conflict");
+    updated_labels.delete("Merge Conflict");
   }
 
   // return the labels to the action, which will apply it
-  return [...updatedLabels];
+  return [...updated_labels];
 }
