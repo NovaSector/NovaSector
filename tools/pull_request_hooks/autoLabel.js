@@ -69,7 +69,7 @@ function check_title_for_labels(title) {
 }
 
 function check_diff_line_for_element(diff, element) {
-  const tag_re = new RegExp(`^diff --git a/${element}/`);
+  const tag_re = new RegExp(`diff --git a/${element}/`); // NOVA EDIT CHANGE - ORIGINAL: const tag_re = new RegExp(`^diff --git a/${element}/`);
   return tag_re.test(diff);
 }
 
@@ -85,6 +85,7 @@ async function check_diff_for_labels(diff_url) {
         Accept: "application/vnd.github.v3.diff",
       },
     });
+    console.log("Diff URL:", diff_url);
     // NOVA EDIT CHANGE END
     if (diff.ok) {
       const diff_txt = await diff.text();
