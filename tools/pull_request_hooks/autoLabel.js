@@ -86,7 +86,6 @@ async function check_diff_for_labels(diff_url) {
         "User-Agent": "tgstation/1.0-auto-label-script",
       },
     });
-    console.log("Diff URL:", diff_url);
     // NOVA EDIT CHANGE END
     if (diff.ok) {
       const diff_txt = await diff.text();
@@ -166,7 +165,13 @@ export async function get_updated_label_set({ github, context }) {
         owner: context.repo.owner,
         repo: context.repo.repo,
         pull_number: pull_request.number,
-        headers: { Accept: "application/vnd.github.v3.diff" }, // NOVA EDIT ADDITION
+        // NOVA EDIT ADDITION START
+        headers: {
+          Authorization: `Bearer ${github.token}`,
+          Accept: "application/vnd.github.v3.diff",
+          "User-Agent": "tgstation/1.0-auto-label-script",
+        },
+        // NOVA EDIT ADDITION END
       });
       // failed to find? still processing? try again in a few seconds
       if (response.data.mergeable === null) {
@@ -176,7 +181,13 @@ export async function get_updated_label_set({ github, context }) {
           owner: context.repo.owner,
           repo: context.repo.repo,
           pull_number: pull_request.number,
-          headers: { Accept: "application/vnd.github.v3.diff" }, // NOVA EDIT ADDITION
+          // NOVA EDIT ADDITION START
+          headers: {
+            Authorization: `Bearer ${github.token}`,
+            Accept: "application/vnd.github.v3.diff",
+            "User-Agent": "tgstation/1.0-auto-label-script",
+          },
+          // NOVA EDIT ADDITION END
         });
         if (response.data.mergeable === null) {
           throw new Error("Merge status not available");
