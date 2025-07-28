@@ -7,7 +7,14 @@
 		/datum/event_admin_setup/set_location/spacevine,
 	)
 
+/// puts the space in spacevine. this one can spawn in space
 /datum/round_event/spacevine/difficult
+
+/datum/round_event/spacevine/difficult/proc/validate_turfs(area/possible_area, list/turfs, obj/structure/spacevine/vine)
+	for(var/turf/open/floor in possible_area.get_turfs_from_all_zlevels())
+		if(floor.Enter(vine) && floor.get_lumcount() > LIGHTING_TILE_IS_DARK) //we don't like to spawn in the dark
+			turfs += floor
+	return turfs
 
 /datum/round_event/spacevine/difficult/start()
 	var/list/turfs = list()
@@ -15,12 +22,13 @@
 		turfs += override_turf
 	else
 		var/obj/structure/spacevine/vine = new()
-		for(var/area/area in GLOB.areas)
-			if(istype(area, /area/station/hallway) || istype(area, /area/station/maintenance) || (istype(area, /area/station/solars) && !SSmapping.is_planetary()))
-				for(var/turf/open/floor in area.get_turfs_from_all_zlevels())
-					if(!isopenspaceturf(floor) && floor.Enter(vine) && (floor.get_lumcount() > LIGHTING_TILE_IS_DARK))
-						//yea ok we can spawn in maintenance now but there has to be light on the tile
-						turfs += floor
+		for(var/area/possible_area in GLOB.areas)
+			if(SSmapping.is_planetary())
+				if(istype(possible_area, /area/station/hallway))
+					turfs += validate_turfs(possible_area, turfs, vine)
+			else
+				if(istype(possible_area, /area/space/nearstation) || istype(possible_area, /area/station/solars))
+					turfs += validate_turfs(possible_area, turfs, vine)
 		qdel(vine)
 
 	if(length(turfs))
