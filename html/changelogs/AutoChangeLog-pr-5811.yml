@@ -1,0 +1,6 @@
+author: "BasilTamaya"
+delete-after: True
+changes:
+  - rscadd: "The proto-kinetic crusher now uses OVERLAY_LIGHT_DIRECTIONAL, to be consistent with the crusher variants."
+  - qol: "The machete can now be renamed."
+  - bugfix: "Refactor of the mining weapons, now calls to parent proto-kinetic crusher like it should, save for damage buffs/nerfs"
