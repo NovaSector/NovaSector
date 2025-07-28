@@ -591,6 +591,7 @@
 			to_chat(src, span_warning("You are unable to succumb to death! This life continues."), type=MESSAGE_TYPE_INFO)
 			return
 	log_message("Has [whispered ? "whispered his final words" : "succumbed to death"] with [round(health, 0.1)] points of health!", LOG_ATTACK)
+	message_admins("[ADMIN_LOOKUPFLW(usr)] Has [whispered ? "whispered his final words" : "succumbed to death"] with [round(health, 0.1)] points of health, at [AREACOORD(usr)]") // NOVA EDIT ADDITION
 	adjustOxyLoss(health - HEALTH_THRESHOLD_DEAD)
 	updatehealth()
 	if(!whispered)
@@ -1483,7 +1484,7 @@ NOVA EDIT REMOVAL END */
 				return FALSE
 
 			var/datum/dna/mob_DNA = has_dna()
-			if(!mob_DNA || !mob_DNA.check_mutation(/datum/mutation/human/telekinesis) || !tkMaxRangeCheck(src, target))
+			if(!mob_DNA || !mob_DNA.check_mutation(/datum/mutation/telekinesis) || !tkMaxRangeCheck(src, target))
 				if(!(action_bitflags & SILENT_ADJACENCY))
 					to_chat(src, span_warning("You are too far away!"))
 				return FALSE

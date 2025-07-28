@@ -18,6 +18,13 @@
 
 /mob/living/carbon/human/Destroy()
 	QDEL_NULL(mob_examine_panel)
+
+	if(held_left)
+		held_left.UnregisterSignal(src, COMSIG_ATOM_DIR_CHANGE)
+		QDEL_NULL(held_left)
+	if(held_right)
+		held_right.UnregisterSignal(src, COMSIG_ATOM_DIR_CHANGE)
+		QDEL_NULL(held_right)
 	return ..()
 
 

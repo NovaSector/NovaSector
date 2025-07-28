@@ -14559,7 +14559,7 @@
 /turf/open/floor/wood,
 /area/station/service/lawoffice)
 "dSQ" = (
-/obj/machinery/computer/scan_consolenew{
+/obj/machinery/computer/dna_console{
 	dir = 1
 	},
 /obj/effect/turf_decal/trimline/purple/filled/line,
@@ -15675,7 +15675,7 @@
 /turf/open/floor/plating,
 /area/station/maintenance/department/science/central)
 "ejw" = (
-/obj/machinery/computer/scan_consolenew{
+/obj/machinery/computer/dna_console{
 	dir = 1
 	},
 /obj/effect/turf_decal/trimline/purple/filled/line,
@@ -41992,6 +41992,7 @@
 /obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer2{
 	dir = 4
 	},
+/obj/effect/landmark/start/bridge_officer,
 /turf/open/floor/iron/dark/diagonal,
 /area/station/command/bridge)
 "lfb" = (
@@ -87273,7 +87274,7 @@
 	},
 /area/station/engineering/main)
 "xoJ" = (
-/obj/machinery/computer/scan_consolenew{
+/obj/machinery/computer/dna_console{
 	dir = 8
 	},
 /obj/structure/window/spawner/directional/east,

@@ -529,7 +529,7 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/machinery/computer/cryopod, 32)
 	else
 		visible_message(span_infoplain("[user] starts putting [target] into the cryo pod."))
 
-	to_chat(target, span_warning("<b>If you remain in the pod for [time_till_despawn /10] seconds, your character will be permanently removed from the round.</b>"))
+	to_chat(target, span_warning("<b>If you remain in the pod for [time_till_despawn /10] seconds or ghost, your character will be permanently removed from the round.</b>"))
 
 	log_admin("[key_name(target)] entered a stasis pod.")
 	message_admins("[key_name_admin(target)] entered a stasis pod. [ADMIN_JMP(src)]")
