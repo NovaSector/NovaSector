@@ -2329,14 +2329,14 @@ TREK
 /// Turtlenecks
 /datum/greyscale_config/turtlenecks
 	name = "Turtlenecks"
-	icon_file = 'modular_nova/master_files/icons/obj/clothing/under/civilian.dmi'
+	icon_file = 'modular_nova/master_files/icons/obj/clothing/under/shorts_pants_shirts.dmi'
 	json_config = 'modular_nova/modules/GAGS/json_configs/mass_greyscales/turtlenecks.json'
 
 /datum/greyscale_config/turtlenecks/worn
 	name = "Turtlenecks (Worn)"
-	icon_file = 'modular_nova/master_files/icons/mob/clothing/under/civilian.dmi'
+	icon_file = 'modular_nova/master_files/icons/mob/clothing/under/shorts_pants_shirts.dmi'
 	json_config = 'modular_nova/modules/GAGS/json_configs/mass_greyscales/turtlenecks_worn.json'
 
 /datum/greyscale_config/turtlenecks/worn/digi
 	name = "Turtlenecks (Worn, Digi)"
-	icon_file = 'modular_nova/master_files/icons/mob/clothing/under/civilian_digi.dmi'
+	icon_file = 'modular_nova/master_files/icons/mob/clothing/under/shorts_pants_shirts_digi.dmi'
