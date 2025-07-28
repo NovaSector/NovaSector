@@ -13,7 +13,7 @@
 		else
 			return pick(selected_scream.male_screamsounds)
 	if(ismonkey(user))
-		return 'modular_nova/modules/emotes/sound/voice/scream_monkey.ogg'
+		return SFX_SCREECH
 	if(istype(user, /mob/living/basic/gorilla))
 		return 'sound/mobs/non-humanoids/gorilla/gorilla.ogg'
 	if(isalien(user))

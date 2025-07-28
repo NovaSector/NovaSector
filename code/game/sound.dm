@@ -569,6 +569,7 @@
 				'sound/mobs/non-humanoids/monkey/monkey_screech_5.ogg',
 				'sound/mobs/non-humanoids/monkey/monkey_screech_6.ogg',
 				'sound/mobs/non-humanoids/monkey/monkey_screech_7.ogg',
+				'modular_nova/modules/emotes/sound/voice/scream_monkey.ogg', // NOVA ADDITION
 			)
 		if(SFX_TOOL_SWITCH)
 			soundin = 'sound/items/tools/tool_switch.ogg'
