@@ -52,8 +52,18 @@
 	. = ..()
 	AddElement(/datum/element/caseless)
 
+/obj/item/ammo_casing/p60strela/explosive
+	name = ".60 Strela explosive incendiary cartridge"
+	desc = "A massive block of plasma-purple propellant with an equally massive round sticking out the top of it. \
+		This one has markings indicating that it is a hybrid explosive-incendiary cartridge. That's... deeply concerning."
+	icon_state = "amr_bullet_boom"
+	ammo_categories = AMMO_CLASS_SUPER // christ
+	projectile_type = /obj/projectile/bullet/p60strela/explosive
+	custom_materials = AMMO_MATS_HEAVY_TEMP
+	print_cost = 12
+
 /obj/projectile/bullet/p60strela // The funny thing is, these are wild but you only get three of them a magazine
-	name =".60 Strela bullet"
+	name = ".60 Strela bullet"
 	icon_state = "gaussphase"
 	speed = 2.5
 	damage = 70
@@ -73,3 +83,18 @@
 	if(target_mob.mob_biotypes & biotype_we_look_for)
 		damage += anti_materiel_damage_addition
 	return ..()
+
+/obj/projectile/bullet/p60strela/explosive
+	name = ".60 Strela explosive incendiary bullet"
+	icon_state = "redtrac"
+
+/obj/projectile/bullet/p60strela/explosive/on_hit(atom/target, blocked = 0, pierce_hit)
+	. = ..()
+	if(iscarbon(target))
+		var/mob/living/carbon/poor_burning_dork = target
+		poor_burning_dork.adjust_fire_stacks(20)
+		poor_burning_dork.ignite_mob()
+	for(var/turf/nearby_turf as anything in RANGE_TURFS(2, target))
+		new /obj/effect/hotspot(nearby_turf)
+	explosion(target, devastation_range = -1, heavy_impact_range = 1, light_impact_range = 2, flame_range = 2, flash_range = 1, adminlog = FALSE)
+
