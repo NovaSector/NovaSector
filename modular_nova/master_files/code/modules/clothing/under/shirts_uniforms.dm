@@ -39,3 +39,21 @@
 	greyscale_config_worn_digi = /datum/greyscale_config/gorkas/worn/digi
 	greyscale_colors = "#787878#252525"
 	flags_1 = IS_PLAYER_COLORABLE_1
+
+/obj/item/clothing/under/nova/overalls
+	name = "overalls"
+	desc = "Padding typically worn over one's trousers to better protect the outside of their legs from hazards."
+	icon_state = "/obj/item/clothing/under/nova/overalls"
+	post_init_icon_state = "overalls"
+	greyscale_config = /datum/greyscale_config/sus_overalls
+	greyscale_config_worn = /datum/greyscale_config/sus_overalls/worn
+	greyscale_config_worn_digi = /datum/greyscale_config/sus_overalls/worn/digi
+	greyscale_colors = "#787878#252525#CCCED1"
+	flags_1 = IS_PLAYER_COLORABLE_1
+	can_adjust = TRUE
+
+/obj/item/clothing/under/nova/overalls/skirt
+	name = "overalls"
+	desc = "Padding typically worn over one's trousers to better protect the outside of their legs from hazards."
+	icon_state = "/obj/item/clothing/under/nova/overalls"
+	post_init_icon_state = "overalls_skirt"

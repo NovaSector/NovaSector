@@ -2353,3 +2353,18 @@ TREK
 /datum/greyscale_config/gorkas/worn/digi
 	name = "Gorkas (Worn, Digi)"
 	icon_file = 'modular_nova/master_files/icons/mob/clothing/under/shorts_pants_shirts_digi.dmi'
+
+/// Has to be named this to avoid problems
+/datum/greyscale_config/sus_overalls
+	name = "Gorkas"
+	icon_file = 'modular_nova/master_files/icons/obj/clothing/under/shorts_pants_shirts.dmi'
+	json_config = 'modular_nova/modules/GAGS/json_configs/mass_greyscales/overalls.json'
+
+/datum/greyscale_config/sus_overalls/worn
+	name = "Gorkas (Worn)"
+	icon_file = 'modular_nova/master_files/icons/mob/clothing/under/shorts_pants_shirts.dmi'
+	json_config = 'modular_nova/modules/GAGS/json_configs/mass_greyscales/overalls_worn.json'
+
+/datum/greyscale_config/sus_overalls/worn/digi
+	name = "Gorkas (Worn, Digi)"
+	icon_file = 'modular_nova/master_files/icons/mob/clothing/under/shorts_pants_shirts_digi.dmi'
