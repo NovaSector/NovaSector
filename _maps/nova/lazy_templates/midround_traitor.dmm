@@ -1,0 +1,5130 @@
+//MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
+"af" = (
+/obj/effect/baseturf_helper{
+	baseturf = /turf/open/floor/plating
+	},
+/turf/closed/wall/r_wall/syndicate/nodiagonal,
+/area/misc/operative_barracks/armoury)
+"ah" = (
+/obj/effect/spawner/structure/window/reinforced/plasma/plastitanium,
+/turf/open/floor/plating,
+/area/misc/operative_barracks/robotics)
+"ar" = (
+/obj/effect/turf_decal/siding/thinplating_new/light,
+/turf/open/floor/mineral/titanium/tiled/white,
+/area/misc/operative_barracks/surgery)
+"aC" = (
+/obj/item/mod/module/hat_stabilizer/syndicate{
+	pixel_x = -1;
+	pixel_y = -11
+	},
+/obj/item/mod/module/dna_lock{
+	pixel_x = 6;
+	pixel_y = 11
+	},
+/obj/effect/turf_decal/siding/white{
+	dir = 8
+	},
+/obj/item/mod/module/mouthhole{
+	pixel_y = 2;
+	pixel_x = -13
+	},
+/turf/open/floor/mineral/titanium/tiled,
+/area/misc/operative_barracks/robotics)
+"aE" = (
+/obj/structure/railing/unbreakable{
+	dir = 8
+	},
+/obj/effect/turf_decal/stripes/line{
+	dir = 8
+	},
+/obj/effect/turf_decal/caution{
+	dir = 8
+	},
+/turf/open/floor/plating,
+/area/misc/operative_barracks/hangar)
+"aH" = (
+/obj/effect/turf_decal/nova_decals/syndicate/bottom/right,
+/obj/effect/turf_decal/siding/dark_red{
+	dir = 4
+	},
+/turf/open/floor/mineral/plastitanium/red,
+/area/misc/operative_barracks/mission_briefing)
+"aL" = (
+/obj/effect/turf_decal/siding/dark/corner{
+	dir = 4
+	},
+/turf/open/floor/plating,
+/area/misc/operative_barracks/hangar)
+"bg" = (
+/turf/closed/indestructible/syndicate,
+/area/misc/operative_barracks/armoury)
+"bj" = (
+/obj/effect/turf_decal/siding/dark{
+	dir = 8
+	},
+/turf/open/floor/plating,
+/area/misc/operative_barracks/hangar)
+"bs" = (
+/obj/effect/turf_decal/stripes/corner{
+	dir = 4
+	},
+/obj/structure/railing/corner/end/flip/unbreakable{
+	dir = 4
+	},
+/obj/structure/railing/corner/end/unbreakable{
+	dir = 1
+	},
+/obj/effect/turf_decal/siding/dark{
+	dir = 8
+	},
+/turf/open/floor/plating,
+/area/misc/operative_barracks/hangar)
+"bD" = (
+/turf/open/openspace,
+/area/misc/operative_barracks/hangar)
+"bG" = (
+/obj/effect/turf_decal/siding/white{
+	dir = 1
+	},
+/obj/structure/sign/poster/contraband/syndicate_medical/directional/east,
+/obj/machinery/light/directional/east,
+/turf/open/floor/mineral/titanium/tiled,
+/area/misc/operative_barracks/medbay)
+"bH" = (
+/obj/effect/turf_decal/siding/dark{
+	dir = 4
+	},
+/turf/open/floor/mineral/plastitanium,
+/area/misc/operative_barracks/mission_briefing)
+"bJ" = (
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/structure/cable,
+/turf/open/floor/catwalk_floor/iron_dark,
+/area/misc/operative_barracks/hangar)
+"bV" = (
+/obj/effect/turf_decal/siding/white{
+	dir = 8
+	},
+/turf/closed/wall/r_wall/syndicate,
+/area/misc/operative_barracks/robotics)
+"cb" = (
+/obj/effect/turf_decal/nova_decals/syndicate/bottom/left,
+/obj/effect/turf_decal/siding/dark_blue{
+	dir = 8
+	},
+/turf/open/floor/mineral/plastitanium/red,
+/area/misc/operative_barracks/mission_briefing)
+"ce" = (
+/obj/effect/turf_decal/siding/dark{
+	dir = 6
+	},
+/turf/open/floor/plating,
+/area/misc/operative_barracks/hangar)
+"ch" = (
+/obj/structure/rack,
+/obj/item/analyzer,
+/turf/open/floor/plating,
+/area/misc/operative_barracks/hangar)
+"cv" = (
+/turf/closed/indestructible/syndicate,
+/area/misc/operative_barracks/medbay)
+"cD" = (
+/obj/structure/marker_beacon/burgundy{
+	pixel_x = -8;
+	pixel_y = -8
+	},
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/structure/cable,
+/turf/open/floor/iron/dark/textured_corner{
+	dir = 8
+	},
+/area/misc/operative_barracks/hangar)
+"cX" = (
+/obj/machinery/computer/camera_advanced/syndie{
+	dir = 1
+	},
+/obj/effect/decal/cleanable/dirt/dust,
+/obj/structure/noticeboard/directional/south{
+	pixel_y = -24
+	},
+/obj/effect/turf_decal/tile/dark_red{
+	dir = 8
+	},
+/turf/open/floor/mineral/plastitanium,
+/area/misc/operative_barracks/mission_briefing)
+"dl" = (
+/obj/effect/turf_decal/stripes/corner,
+/obj/structure/railing/corner/end/flip/unbreakable,
+/obj/effect/turf_decal/siding/dark/corner{
+	dir = 8
+	},
+/obj/structure/railing/corner/unbreakable{
+	dir = 8
+	},
+/turf/open/floor/plating,
+/area/misc/operative_barracks/hangar)
+"dp" = (
+/obj/effect/turf_decal/siding/dark{
+	dir = 9
+	},
+/obj/machinery/light/floor,
+/obj/structure/fluff/paper/stack{
+	dir = 1
+	},
+/turf/open/floor/mineral/plastitanium,
+/area/misc/operative_barracks/mission_briefing)
+"du" = (
+/turf/closed/wall/r_wall/syndicate/nodiagonal,
+/area/misc/operative_barracks/robotics)
+"dv" = (
+/obj/structure/railing/corner/end/flip/unbreakable{
+	dir = 1
+	},
+/obj/effect/turf_decal/stripes/corner{
+	dir = 1
+	},
+/obj/effect/turf_decal/siding/dark{
+	dir = 4
+	},
+/turf/open/floor/plating,
+/area/misc/operative_barracks/hangar)
+"dz" = (
+/obj/structure/railing/corner/end/unbreakable{
+	dir = 8
+	},
+/obj/structure/cable,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/effect/turf_decal/trimline/dark_red/line{
+	dir = 4
+	},
+/turf/open/floor/iron/dark,
+/area/misc/operative_barracks/hangar)
+"dD" = (
+/obj/effect/turf_decal/tile/blue{
+	dir = 4
+	},
+/obj/effect/turf_decal/siding/dark{
+	dir = 8
+	},
+/obj/machinery/digital_clock/directional/south{
+	pixel_y = -32
+	},
+/turf/open/floor/iron/dark/side{
+	dir = 8
+	},
+/area/misc/operative_barracks)
+"dI" = (
+/obj/structure/fluff/fake_camera{
+	dir = 8
+	},
+/obj/structure/extinguisher_cabinet/directional/west,
+/obj/effect/turf_decal/siding/dark_blue{
+	dir = 4
+	},
+/obj/effect/turf_decal/tile/dark_red{
+	dir = 1
+	},
+/turf/open/floor/mineral/plastitanium,
+/area/misc/operative_barracks/mission_briefing)
+"ef" = (
+/obj/effect/turf_decal/siding/white,
+/obj/structure/fluff/fake_vent,
+/turf/open/floor/mineral/titanium/tiled,
+/area/misc/operative_barracks/armoury)
+"el" = (
+/obj/effect/spawner/structure/window/reinforced/plasma/plastitanium,
+/turf/open/floor/plating,
+/area/misc/operative_barracks/hangar)
+"em" = (
+/obj/effect/turf_decal/siding/dark,
+/obj/structure/railing/unbreakable,
+/turf/open/floor/plating,
+/area/misc/operative_barracks/hangar)
+"eu" = (
+/obj/effect/turf_decal/tile/dark_red,
+/obj/structure/table,
+/obj/machinery/microwave,
+/obj/structure/sign/poster/contraband/punch_shit/directional/east,
+/obj/item/toy/plush/nukeplushie{
+	pixel_x = 2;
+	pixel_y = 19
+	},
+/turf/open/floor/mineral/plastitanium,
+/area/misc/operative_barracks)
+"ex" = (
+/obj/effect/turf_decal/stripes/corner{
+	dir = 8
+	},
+/obj/structure/railing/corner/end/unbreakable,
+/obj/effect/turf_decal/siding/dark{
+	dir = 4
+	},
+/turf/open/floor/plating,
+/area/misc/operative_barracks/hangar)
+"eA" = (
+/obj/effect/turf_decal/siding/dark,
+/obj/effect/turf_decal/siding/dark_blue{
+	dir = 1
+	},
+/turf/open/floor/mineral/plastitanium,
+/area/misc/operative_barracks/mission_briefing)
+"eE" = (
+/obj/structure/railing/corner/end/flip/unbreakable{
+	dir = 1
+	},
+/obj/effect/turf_decal/loading_area/white,
+/obj/item/tank/internals/oxygen/yellow,
+/turf/open/floor/iron/dark/small,
+/area/misc/operative_barracks/hangar)
+"eF" = (
+/obj/item/chair/stool/bar{
+	pixel_x = -16
+	},
+/turf/open/floor/iron/dark/corner,
+/area/misc/operative_barracks/armoury)
+"eG" = (
+/obj/machinery/light/small/directional/east,
+/obj/effect/turf_decal/vg_decals/numbers/nine,
+/obj/effect/turf_decal/tile/dark_red,
+/turf/open/floor/mineral/plastitanium,
+/area/misc/operative_barracks/mission_briefing)
+"eJ" = (
+/obj/effect/turf_decal/vg_decals/numbers/nine,
+/turf/open/floor/plating,
+/area/misc/operative_barracks/hangar)
+"eO" = (
+/obj/machinery/door/window/left/directional/east,
+/obj/structure/drain,
+/obj/machinery/shower/directional/east,
+/obj/item/soap/syndie,
+/obj/machinery/light/small/directional/south,
+/turf/open/floor/iron/showroomfloor,
+/area/misc/operative_barracks/bathroom)
+"eP" = (
+/obj/effect/turf_decal/siding/dark{
+	dir = 10
+	},
+/obj/effect/mapping_helpers/broken_floor,
+/turf/open/floor/plating,
+/area/misc/operative_barracks/hangar)
+"eR" = (
+/obj/structure/marker_beacon/burgundy{
+	pixel_x = 8;
+	pixel_y = -8
+	},
+/obj/structure/cable,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/turf/open/floor/iron/dark/textured_corner,
+/area/misc/operative_barracks/hangar)
+"eW" = (
+/obj/effect/turf_decal/siding/dark,
+/obj/structure/railing/unbreakable,
+/obj/machinery/light/small/directional/north,
+/turf/open/floor/mineral/plastitanium/red,
+/area/misc/operative_barracks/hangar)
+"eZ" = (
+/obj/machinery/door/airlock/medical{
+	name = "Medical Bay"
+	},
+/obj/effect/mapping_helpers/airlock/cutaiwire,
+/obj/effect/mapping_helpers/airlock/access/all/syndicate/leader,
+/obj/structure/fluff/fake_firedoor,
+/turf/open/floor/iron,
+/area/misc/operative_barracks)
+"fd" = (
+/obj/effect/turf_decal/siding/dark{
+	dir = 4
+	},
+/obj/effect/turf_decal/tile/yellow{
+	dir = 1
+	},
+/turf/open/floor/iron/dark/side{
+	dir = 4
+	},
+/area/misc/operative_barracks)
+"fe" = (
+/obj/effect/baseturf_helper{
+	baseturf = /turf/open/floor/plating
+	},
+/turf/closed/wall/r_wall/syndicate,
+/area/misc/operative_barracks/medbay)
+"fp" = (
+/obj/effect/turf_decal/siding/dark/corner,
+/turf/open/floor/plating,
+/area/misc/operative_barracks/hangar)
+"fr" = (
+/turf/closed/indestructible/syndicate,
+/area/misc/operative_barracks)
+"fu" = (
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/visible/layer2,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/visible/layer4,
+/turf/open/floor/plating,
+/area/misc/operative_barracks/hangar)
+"fx" = (
+/obj/effect/turf_decal/stripes/line{
+	dir = 4
+	},
+/obj/structure/railing/unbreakable{
+	dir = 4
+	},
+/obj/effect/turf_decal/siding/dark{
+	dir = 8
+	},
+/obj/structure/railing/unbreakable{
+	dir = 8
+	},
+/turf/open/floor/plating,
+/area/misc/operative_barracks/hangar)
+"fC" = (
+/turf/closed/wall/r_wall/syndicate,
+/area/misc/operative_barracks/mission_briefing)
+"fP" = (
+/obj/effect/turf_decal/stripes/line{
+	dir = 4
+	},
+/obj/structure/railing/unbreakable{
+	dir = 4
+	},
+/turf/open/floor/plating,
+/area/misc/operative_barracks/hangar)
+"fQ" = (
+/obj/effect/turf_decal/siding/thinplating_new/light,
+/obj/structure/fluff/fake_vent,
+/obj/structure/sign/eyechart/directional/north,
+/turf/open/floor/mineral/titanium/tiled/white,
+/area/misc/operative_barracks/surgery)
+"fW" = (
+/obj/effect/turf_decal/tile/dark_red{
+	dir = 4
+	},
+/turf/open/floor/iron/smooth,
+/area/misc/operative_barracks/armoury)
+"gi" = (
+/obj/machinery/door/airlock/highsecurity{
+	name = "Armoury Secure Storage"
+	},
+/obj/effect/mapping_helpers/airlock/cutaiwire,
+/obj/structure/fluff/fake_firedoor,
+/turf/open/floor/iron/smooth_large,
+/area/misc/operative_barracks/armoury)
+"gl" = (
+/obj/effect/turf_decal/stripes/white/line,
+/turf/open/floor/iron/dark/smooth_large,
+/area/misc/operative_barracks/hangar)
+"go" = (
+/obj/effect/turf_decal/box/white,
+/obj/machinery/portable_atmospherics/canister/nitrogen,
+/turf/open/floor/iron/dark/small,
+/area/misc/operative_barracks/hangar)
+"gr" = (
+/obj/effect/turf_decal/tile/dark_red{
+	dir = 8
+	},
+/obj/structure/sign/directions/engineering/directional/south{
+	pixel_y = -28;
+	dir = 1
+	},
+/obj/structure/sign/directions/medical/directional/south{
+	pixel_y = -35;
+	dir = 1
+	},
+/obj/structure/fluff/fake_camera,
+/turf/open/floor/mineral/plastitanium,
+/area/misc/operative_barracks)
+"gt" = (
+/obj/effect/turf_decal/tile/dark_red,
+/obj/machinery/vending/donksnack{
+	onstation_override = 1
+	},
+/obj/item/trash/ready_donk{
+	pixel_x = 6;
+	pixel_y = 17
+	},
+/turf/open/floor/mineral/plastitanium,
+/area/misc/operative_barracks)
+"ha" = (
+/obj/effect/turf_decal/siding/thinplating_new{
+	dir = 1
+	},
+/obj/machinery/light/small/directional/west,
+/obj/structure/sign/poster/contraband/revolver/directional/west,
+/obj/item/food/energybar{
+	pixel_x = 12;
+	pixel_y = -14
+	},
+/turf/open/floor/mineral/titanium/tiled,
+/area/misc/operative_barracks/armoury)
+"hk" = (
+/obj/structure/sign/poster/contraband/c20r/directional/north,
+/obj/effect/turf_decal/siding/thinplating_new{
+	dir = 4
+	},
+/obj/effect/turf_decal/siding/thinplating_new{
+	dir = 8
+	},
+/turf/open/floor/mineral/titanium/tiled,
+/area/misc/operative_barracks/armoury)
+"hp" = (
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/structure/cable,
+/turf/open/floor/catwalk_floor/iron_dark,
+/area/misc/operative_barracks/hangar)
+"hq" = (
+/obj/effect/turf_decal/siding/dark/corner{
+	dir = 4
+	},
+/obj/structure/fluff/paper/stack,
+/turf/open/floor/mineral/plastitanium,
+/area/misc/operative_barracks/mission_briefing)
+"ht" = (
+/obj/structure/fluff/fake_scrubber,
+/turf/open/floor/iron,
+/area/misc/operative_barracks)
+"hv" = (
+/obj/effect/mapping_helpers/airlock/cutaiwire,
+/obj/machinery/door/airlock/engineering{
+	name = "Engineering"
+	},
+/obj/effect/mapping_helpers/airlock/access/all/syndicate/leader,
+/obj/structure/fluff/fake_firedoor,
+/turf/open/floor/iron,
+/area/misc/operative_barracks)
+"hw" = (
+/obj/structure/floodlight_frame/completed,
+/obj/structure/cable,
+/turf/open/floor/plating,
+/area/misc/operative_barracks/hangar)
+"hx" = (
+/obj/structure/railing/unbreakable{
+	dir = 8
+	},
+/obj/effect/turf_decal/siding/dark{
+	dir = 8
+	},
+/obj/effect/turf_decal/siding/dark_red{
+	dir = 4
+	},
+/turf/open/floor/mineral/plastitanium/red,
+/area/misc/operative_barracks/hangar)
+"hy" = (
+/obj/structure/fake_stairs/directional/west{
+	color = "#7F7F7F";
+	dir = 4
+	},
+/turf/open/floor/iron/dark/smooth_large,
+/area/misc/operative_barracks)
+"hD" = (
+/obj/effect/turf_decal/siding/white{
+	dir = 4
+	},
+/turf/closed/wall/r_wall/syndicate,
+/area/misc/operative_barracks/medbay)
+"hI" = (
+/obj/item/stack/ore/glass{
+	amount = 30
+	},
+/turf/open/floor/plating,
+/area/misc/operative_barracks/hangar)
+"ia" = (
+/obj/effect/turf_decal/siding/thinplating_new/light/corner,
+/obj/machinery/vending/wallmed/directional/west{
+	onstation_override = 1
+	},
+/obj/item/reagent_containers/hypospray/medipen/deforest/occuisate{
+	pixel_x = 3;
+	pixel_y = 3
+	},
+/turf/open/floor/mineral/titanium/tiled,
+/area/misc/operative_barracks/medbay)
+"iy" = (
+/obj/structure/fluff/fake_vent,
+/obj/effect/turf_decal/siding/yellow/corner,
+/turf/open/floor/mineral/plastitanium,
+/area/misc/operative_barracks/mission_briefing)
+"iC" = (
+/obj/structure/closet/crate/bin,
+/obj/item/grown/bananapeel,
+/obj/effect/decal/cleanable/dirt,
+/turf/open/floor/iron/grimy,
+/area/misc/operative_barracks/dorm)
+"iG" = (
+/obj/structure/railing/unbreakable{
+	dir = 4
+	},
+/obj/effect/turf_decal/box/white,
+/obj/machinery/portable_atmospherics/canister/plasma{
+	anchored = 1;
+	name = "bashful Plasma canister";
+	desc = "A canister for the storage of gas. This one doesn't seem to wanna move."
+	},
+/turf/open/floor/iron/dark/small,
+/area/misc/operative_barracks/hangar)
+"iM" = (
+/obj/item/card/id/advanced/chameleon/black{
+	pixel_y = 4
+	},
+/obj/structure/table/reinforced,
+/obj/item/radio/headset/chameleon/advanced{
+	pixel_x = -5;
+	pixel_y = -3
+	},
+/obj/item/encryptionkey/syndicate{
+	pixel_x = 7;
+	pixel_y = 3
+	},
+/turf/open/floor/mineral/plastitanium/red,
+/area/misc/operative_barracks/mission_briefing)
+"iN" = (
+/obj/machinery/door/airlock/bathroom,
+/obj/effect/mapping_helpers/airlock/cutaiwire,
+/obj/structure/railing/corner/unbreakable{
+	dir = 8
+	},
+/turf/open/floor/iron/dark/smooth_large,
+/area/misc/operative_barracks/bathroom)
+"iP" = (
+/obj/effect/turf_decal/siding/dark_blue,
+/obj/effect/turf_decal/siding/purple{
+	dir = 1
+	},
+/turf/open/floor/mineral/plastitanium/red,
+/area/misc/operative_barracks/mission_briefing)
+"jd" = (
+/obj/structure/fluff/fake_camera{
+	dir = 4
+	},
+/obj/effect/turf_decal/tile/dark_red{
+	dir = 4
+	},
+/obj/structure/sign/poster/contraband/d_day_promo/directional/east,
+/turf/open/floor/iron/smooth,
+/area/misc/operative_barracks/armoury)
+"jk" = (
+/obj/structure/cable,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/turf/open/floor/catwalk_floor/iron_dark,
+/area/misc/operative_barracks/hangar)
+"jm" = (
+/obj/effect/turf_decal/siding/dark{
+	dir = 1
+	},
+/turf/open/floor/plating,
+/area/misc/operative_barracks/hangar)
+"jt" = (
+/obj/effect/mapping_helpers/airlock/cutaiwire,
+/obj/effect/mapping_helpers/airlock/locked,
+/obj/machinery/door/airlock/maintenance{
+	name = "Maintenance"
+	},
+/obj/structure/cable,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/visible/layer4,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/visible/layer2,
+/obj/structure/fluff/fake_firedoor,
+/turf/open/floor/plating,
+/area/misc/operative_barracks/hangar)
+"ju" = (
+/obj/structure/fluff/fake_firedoor,
+/obj/machinery/door/airlock/public{
+	name = "Aft Hallway"
+	},
+/obj/effect/mapping_helpers/airlock/access/all/syndicate/leader,
+/obj/effect/mapping_helpers/airlock/cutaiwire,
+/turf/open/floor/mineral/plastitanium,
+/area/misc/operative_barracks)
+"jF" = (
+/obj/effect/turf_decal/stripes/corner{
+	dir = 8
+	},
+/obj/structure/railing/corner/end/unbreakable,
+/turf/open/floor/plating,
+/area/misc/operative_barracks/hangar)
+"jV" = (
+/obj/structure/lattice,
+/obj/structure/marker_beacon/burgundy,
+/turf/open/space/basic,
+/area/space/nearstation)
+"kc" = (
+/obj/item/flashlight/lamp{
+	pixel_y = 2;
+	pixel_x = -5;
+	start_on = 0
+	},
+/obj/structure/table,
+/obj/item/reagent_containers/cup/glass/drinkingglass/filled/half_full{
+	pixel_x = 9;
+	pixel_y = 2
+	},
+/turf/open/floor/iron/grimy,
+/area/misc/operative_barracks/dorm)
+"kd" = (
+/obj/effect/decal/cleanable/dirt/dust,
+/obj/structure/fireplace,
+/obj/structure/railing/unbreakable{
+	dir = 1;
+	pixel_y = -7
+	},
+/obj/item/reagent_containers/cup/glass/bottle/whiskey{
+	pixel_x = -9;
+	pixel_y = 43
+	},
+/obj/item/reagent_containers/cup/glass/drinkingglass/shotglass/syndicate{
+	pixel_y = 37;
+	pixel_x = 10
+	},
+/turf/open/floor/wood/parquet,
+/area/misc/operative_barracks/dorm)
+"kf" = (
+/turf/open/floor/plating,
+/area/misc/operative_barracks/hangar)
+"kl" = (
+/obj/structure/railing/unbreakable{
+	dir = 8
+	},
+/obj/effect/turf_decal/stripes/line{
+	dir = 8
+	},
+/turf/open/floor/plating,
+/area/misc/operative_barracks/hangar)
+"kq" = (
+/obj/effect/turf_decal/siding/dark/corner{
+	dir = 4
+	},
+/obj/effect/turf_decal/vg_decals/numbers/nine,
+/turf/open/floor/plating,
+/area/misc/operative_barracks/hangar)
+"ks" = (
+/obj/structure/railing/unbreakable{
+	dir = 8
+	},
+/obj/effect/turf_decal/box/white,
+/obj/machinery/portable_atmospherics/canister/oxygen,
+/turf/open/floor/iron/dark/small,
+/area/misc/operative_barracks/hangar)
+"kw" = (
+/obj/structure/railing/unbreakable{
+	dir = 1
+	},
+/obj/effect/turf_decal/siding/dark_red,
+/obj/effect/turf_decal/siding/dark{
+	dir = 9
+	},
+/obj/effect/turf_decal/vg_decals/numbers/zero,
+/turf/open/floor/mineral/plastitanium/red,
+/area/misc/operative_barracks/hangar)
+"kx" = (
+/obj/effect/turf_decal/vg_decals/numbers/zero,
+/turf/open/floor/plating,
+/area/misc/operative_barracks/hangar)
+"kF" = (
+/obj/structure/cable,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/visible/layer4,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/visible/layer2,
+/turf/open/floor/plating,
+/area/misc/operative_barracks/hangar)
+"kK" = (
+/obj/machinery/rnd/production/protolathe/department/medical,
+/obj/effect/mapping_helpers/atom_injector/element_injector{
+	target_type = /obj/machinery/rnd/production/protolathe;
+	element_type = /datum/element/voucher_redeemer;
+	element_args = list(/obj/item/paper/paperslip/corporate/syndicate/traitor/implant, /datum/voucher_set/traitor/implant, sound_effect = 'sound/machines/lathe/lathe_print.ogg')
+	},
+/turf/open/floor/iron/dark/corner{
+	dir = 4
+	},
+/area/misc/operative_barracks/medbay)
+"lc" = (
+/obj/effect/turf_decal/tile/yellow{
+	dir = 1
+	},
+/obj/effect/turf_decal/siding/dark{
+	dir = 4
+	},
+/obj/machinery/digital_clock/directional/south{
+	pixel_y = -32
+	},
+/turf/open/floor/iron/dark/side{
+	dir = 4
+	},
+/area/misc/operative_barracks)
+"ld" = (
+/turf/closed/wall/r_wall/syndicate/nodiagonal,
+/area/misc/operative_barracks/bathroom)
+"ll" = (
+/obj/effect/turf_decal/siding/white{
+	dir = 4
+	},
+/turf/closed/wall/r_wall/syndicate,
+/area/misc/operative_barracks/armoury)
+"ln" = (
+/obj/effect/baseturf_helper{
+	baseturf = /turf/open/floor/plating
+	},
+/turf/closed/wall/r_wall/syndicate/nodiagonal,
+/area/misc/operative_barracks/surgery)
+"ls" = (
+/obj/effect/turf_decal/siding/dark,
+/obj/effect/turf_decal/siding/dark_red{
+	dir = 1
+	},
+/turf/open/floor/mineral/plastitanium,
+/area/misc/operative_barracks/mission_briefing)
+"lC" = (
+/obj/structure/fluff/fake_vent,
+/obj/effect/turf_decal/tile/dark_red{
+	dir = 4
+	},
+/turf/open/floor/iron/smooth,
+/area/misc/operative_barracks/armoury)
+"lN" = (
+/obj/item/emptysandbag{
+	pixel_x = -7;
+	pixel_y = -2
+	},
+/obj/item/emptysandbag{
+	pixel_x = 5;
+	pixel_y = -2
+	},
+/obj/item/emptysandbag{
+	pixel_x = -1;
+	pixel_y = 2
+	},
+/turf/open/floor/plating,
+/area/misc/operative_barracks/hangar)
+"lQ" = (
+/obj/structure/stairs/east{
+	color = "#7F7F7F";
+	dir = 8
+	},
+/turf/open/floor/iron/dark/smooth_large,
+/area/misc/operative_barracks)
+"lR" = (
+/obj/item/mod/construction/chestplate{
+	pixel_y = 2;
+	pixel_x = -2
+	},
+/turf/open/floor/iron/dark/side{
+	dir = 8
+	},
+/area/misc/operative_barracks/robotics)
+"lU" = (
+/obj/effect/turf_decal/siding/dark/corner,
+/obj/effect/turf_decal/siding/dark/corner,
+/obj/structure/railing/corner/end/unbreakable{
+	dir = 4
+	},
+/turf/open/floor/mineral/plastitanium/red,
+/area/misc/operative_barracks)
+"lZ" = (
+/obj/effect/turf_decal/trimline/dark_red/line{
+	dir = 4
+	},
+/turf/open/floor/iron/dark,
+/area/misc/operative_barracks/hangar)
+"mf" = (
+/obj/effect/decal/cleanable/dirt/dust,
+/turf/open/floor/plating,
+/area/misc/operative_barracks/hangar)
+"mh" = (
+/turf/closed/indestructible/syndicate/nodiagonal,
+/area/misc/operative_barracks)
+"ml" = (
+/obj/effect/turf_decal/siding/dark/corner{
+	dir = 4
+	},
+/obj/structure/fluff/fake_camera{
+	dir = 10
+	},
+/turf/open/floor/plating,
+/area/misc/operative_barracks/hangar)
+"mo" = (
+/obj/effect/turf_decal/tile/dark_red{
+	dir = 1
+	},
+/turf/open/floor/mineral/plastitanium,
+/area/misc/operative_barracks/mission_briefing)
+"mr" = (
+/obj/structure/marker_beacon/burgundy{
+	pixel_x = 8;
+	pixel_y = 8
+	},
+/obj/effect/turf_decal/stripes/white/corner{
+	dir = 8
+	},
+/obj/structure/cable,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/turf/open/floor/iron/dark/textured_corner{
+	dir = 4
+	},
+/area/misc/operative_barracks/hangar)
+"mw" = (
+/obj/structure/table/reinforced,
+/obj/machinery/door/window/right/directional/south,
+/obj/machinery/door/window/right/directional/north,
+/obj/item/folder,
+/obj/item/pen,
+/obj/structure/fluff/fake_firedoor,
+/turf/open/floor/iron/dark/smooth_large,
+/area/misc/operative_barracks/robotics)
+"mx" = (
+/obj/item/kirbyplants/organic/plant16,
+/obj/structure/sign/poster/contraband/space_cube/directional/south,
+/turf/open/floor/iron/dark,
+/area/misc/operative_barracks/armoury)
+"mz" = (
+/obj/effect/turf_decal/siding/dark{
+	dir = 1
+	},
+/obj/docking_port/stationary/traitor{
+	dir = 2
+	},
+/turf/open/floor/plating,
+/area/misc/operative_barracks/hangar)
+"mA" = (
+/obj/machinery/light/small/directional/west,
+/turf/open/floor/plating,
+/area/misc/operative_barracks/hangar)
+"mB" = (
+/obj/structure/table/reinforced,
+/obj/structure/window/reinforced/spawner/directional/east,
+/obj/item/ammo_box/magazine/c585trappiste_pistol/spawns_empty{
+	pixel_y = 4;
+	pixel_x = -11
+	},
+/obj/item/ammo_box/magazine/c585trappiste_pistol/spawns_empty{
+	pixel_x = -14;
+	pixel_y = 3
+	},
+/obj/item/grenade/smokebomb{
+	pixel_y = 5;
+	pixel_x = 2
+	},
+/obj/item/grenade/smokebomb{
+	pixel_y = 4;
+	pixel_x = -2
+	},
+/turf/open/floor/circuit/red,
+/area/misc/operative_barracks/armoury)
+"mJ" = (
+/obj/effect/turf_decal/siding/thinplating_new{
+	dir = 1
+	},
+/turf/open/floor/mineral/titanium/tiled,
+/area/misc/operative_barracks/armoury)
+"mK" = (
+/obj/effect/mapping_helpers/airlock/cutaiwire,
+/obj/effect/mapping_helpers/airlock/access/all/syndicate/general,
+/obj/machinery/door/airlock/grunge{
+	name = "Armoury"
+	},
+/obj/structure/fluff/fake_firedoor,
+/obj/effect/turf_decal/siding/thinplating_new/corner{
+	dir = 1
+	},
+/turf/open/floor/iron/dark/smooth_large,
+/area/misc/operative_barracks/armoury)
+"mN" = (
+/obj/effect/turf_decal/siding/white/corner,
+/obj/item/food/vendor_snacks/rice_crackers{
+	pixel_x = 8
+	},
+/turf/open/floor/mineral/titanium/tiled,
+/area/misc/operative_barracks/armoury)
+"mR" = (
+/obj/structure/lattice,
+/turf/open/space,
+/area/space/nearstation)
+"mT" = (
+/obj/item/reagent_containers/cup/beaker/bluespace{
+	pixel_x = 12;
+	pixel_y = 11
+	},
+/obj/structure/railing/corner/end/unbreakable{
+	dir = 4
+	},
+/obj/item/stack/cable_coil,
+/turf/open/floor/iron/dark/corner{
+	dir = 4
+	},
+/area/misc/operative_barracks/medbay)
+"mW" = (
+/obj/structure/railing/corner/unbreakable,
+/obj/effect/turf_decal/siding/dark/corner,
+/obj/effect/turf_decal/siding/dark_red/corner{
+	dir = 8
+	},
+/turf/open/floor/mineral/plastitanium/red,
+/area/misc/operative_barracks/hangar)
+"mY" = (
+/obj/machinery/skill_station/plasmaglass,
+/obj/effect/turf_decal/tile/dark_red{
+	dir = 4
+	},
+/turf/open/floor/mineral/plastitanium,
+/area/misc/operative_barracks/mission_briefing)
+"mZ" = (
+/obj/effect/turf_decal/siding/dark/corner,
+/obj/structure/railing/corner/unbreakable,
+/turf/open/floor/plating,
+/area/misc/operative_barracks/hangar)
+"ng" = (
+/obj/effect/turf_decal/siding/dark{
+	dir = 10
+	},
+/obj/structure/closet/crate/preopen{
+	pixel_y = 1
+	},
+/obj/structure/sign/warning/fire/directional/north,
+/obj/item/stack/sheet/glass/fifty,
+/obj/item/stack/sheet/iron/fifty,
+/turf/open/floor/iron/dark/diagonal,
+/area/misc/operative_barracks/mission_briefing)
+"ni" = (
+/obj/structure/fluff/fake_camera{
+	dir = 5
+	},
+/obj/effect/decal/cleanable/dirt/dust,
+/turf/open/floor/plating,
+/area/misc/operative_barracks/hangar)
+"nv" = (
+/obj/effect/decal/cleanable/dirt,
+/turf/open/floor/wood/parquet,
+/area/misc/operative_barracks/dorm)
+"nA" = (
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/visible/layer4,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/visible/layer2,
+/obj/structure/cable,
+/turf/open/floor/plating,
+/area/misc/operative_barracks/hangar)
+"nB" = (
+/obj/machinery/vending/assist{
+	onstation_override = 1
+	},
+/obj/effect/mapping_helpers/atom_injector/element_injector{
+	target_type = /obj/machinery/vending;
+	element_type = /datum/element/voucher_redeemer;
+	element_args = list(/obj/item/paper/paperslip/corporate/syndicate/traitor/supplies, /datum/voucher_set/traitor/supplies/tools)
+	},
+/turf/open/floor/mineral/plastitanium/red,
+/area/misc/operative_barracks/mission_briefing)
+"nE" = (
+/obj/structure/mecha_wreckage/phazon,
+/obj/effect/decal/cleanable/glass/plastitanium/screws,
+/obj/item/mecha_parts/mecha_equipment/thrusters/ion,
+/obj/effect/decal/cleanable/glass,
+/obj/item/mecha_parts/mecha_equipment/radio,
+/obj/item/mecha_parts/mecha_equipment/air_tank/full,
+/obj/structure/sign/poster/contraband/dancing_honk/directional/south,
+/obj/effect/turf_decal/siding/thinplating_new/dark{
+	dir = 8
+	},
+/turf/open/floor/iron/dark/side{
+	dir = 8
+	},
+/area/misc/operative_barracks/robotics)
+"nG" = (
+/obj/effect/turf_decal/siding/dark/end{
+	dir = 4
+	},
+/turf/open/floor/plating,
+/area/misc/operative_barracks/hangar)
+"nI" = (
+/obj/structure/railing/corner/end/unbreakable,
+/obj/structure/railing/corner/end/flip/unbreakable,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/structure/cable,
+/obj/machinery/light/floor,
+/turf/open/floor/iron/dark,
+/area/misc/operative_barracks/hangar)
+"nN" = (
+/obj/effect/turf_decal/trimline/dark_red/line,
+/turf/open/floor/iron/dark,
+/area/misc/operative_barracks/hangar)
+"nT" = (
+/obj/structure/sign/warning/docking/directional/south,
+/turf/open/floor/plating,
+/area/misc/operative_barracks/hangar)
+"od" = (
+/obj/effect/turf_decal/siding/dark{
+	dir = 9
+	},
+/turf/open/floor/plating,
+/area/misc/operative_barracks/hangar)
+"og" = (
+/obj/structure/table/reinforced,
+/obj/item/folder/syndicate/vouchers{
+	pixel_y = 5;
+	pixel_x = 5
+	},
+/obj/item/pen{
+	pixel_x = 3;
+	pixel_y = 2
+	},
+/obj/item/reagent_containers/cup/glass/drinkingglass/filled/martini{
+	pixel_x = -6;
+	pixel_y = 5
+	},
+/turf/open/floor/mineral/plastitanium/red,
+/area/misc/operative_barracks/mission_briefing)
+"op" = (
+/obj/machinery/light/directional/north,
+/obj/structure/window/reinforced/survival_pod/spawner/directional/south,
+/obj/structure/flora/ash/cacti,
+/turf/open/floor/fakebasalt,
+/area/misc/operative_barracks)
+"oq" = (
+/turf/closed/wall/r_wall/syndicate,
+/area/misc/operative_barracks/hangar)
+"ow" = (
+/obj/effect/turf_decal/siding/dark,
+/obj/structure/railing/unbreakable,
+/obj/effect/decal/cleanable/dirt/dust,
+/obj/item/kirbyplants/organic/plant1,
+/turf/open/floor/mineral/plastitanium/red,
+/area/misc/operative_barracks)
+"oB" = (
+/obj/effect/baseturf_helper{
+	baseturf = /turf/open/floor/plating
+	},
+/turf/closed/wall/r_wall/syndicate,
+/area/misc/operative_barracks/surgery)
+"oK" = (
+/obj/effect/mapping_helpers/airlock/cutaiwire,
+/obj/machinery/door/airlock/grunge{
+	name = "Air Control"
+	},
+/obj/effect/mapping_helpers/airlock/access/all/syndicate/leader,
+/obj/structure/fluff/fake_firedoor,
+/turf/open/floor/mineral/plastitanium,
+/area/misc/operative_barracks/hangar)
+"oM" = (
+/obj/machinery/door/airlock/grunge,
+/obj/effect/mapping_helpers/airlock/access/all/syndicate/general,
+/obj/effect/mapping_helpers/airlock/cutaiwire,
+/obj/structure/fluff/fake_firedoor,
+/turf/open/floor/mineral/plastitanium,
+/area/misc/operative_barracks/mission_briefing)
+"oP" = (
+/obj/structure/lattice,
+/obj/structure/marker_beacon/burgundy,
+/turf/open/space,
+/area/space/nearstation)
+"oS" = (
+/obj/structure/railing/unbreakable{
+	dir = 1
+	},
+/obj/effect/turf_decal/siding/dark_red,
+/obj/effect/turf_decal/siding/dark{
+	dir = 5
+	},
+/obj/effect/turf_decal/vg_decals/numbers/nine,
+/turf/open/floor/mineral/plastitanium/red,
+/area/misc/operative_barracks/hangar)
+"oT" = (
+/obj/machinery/chem_master,
+/obj/item/toy/plush/nova/cat/tux{
+	pixel_y = 16;
+	pixel_x = 3
+	},
+/turf/open/floor/iron/dark,
+/area/misc/operative_barracks/medbay)
+"oU" = (
+/obj/effect/turf_decal/siding/thinplating_new/corner{
+	dir = 4
+	},
+/obj/effect/turf_decal/siding/thinplating_new/corner{
+	dir = 1
+	},
+/turf/open/floor/mineral/titanium/tiled,
+/area/misc/operative_barracks/armoury)
+"oZ" = (
+/obj/effect/turf_decal/siding/dark{
+	dir = 4
+	},
+/obj/effect/mapping_helpers/broken_floor,
+/turf/open/floor/plating,
+/area/misc/operative_barracks/hangar)
+"pc" = (
+/obj/structure/railing/corner/unbreakable{
+	dir = 4
+	},
+/obj/structure/window/reinforced/survival_pod/spawner/directional/south,
+/obj/structure/window/reinforced/survival_pod/spawner/directional/east,
+/obj/structure/flora/ash/cap_shroom,
+/obj/structure/sign/directions/evac/directional/north{
+	dir = 9
+	},
+/turf/open/floor/fakebasalt,
+/area/misc/operative_barracks)
+"pi" = (
+/obj/effect/turf_decal/tile/blue{
+	dir = 4
+	},
+/obj/effect/turf_decal/siding/dark{
+	dir = 8
+	},
+/turf/open/floor/iron/dark/side{
+	dir = 8
+	},
+/area/misc/operative_barracks)
+"ps" = (
+/obj/structure/mannequin/operative_barracks/wildcard,
+/turf/open/floor/light{
+	currentcolor = "#9B51FF"
+	},
+/area/misc/operative_barracks/mission_briefing)
+"pt" = (
+/obj/structure/fluff/fake_camera,
+/obj/effect/decal/cleanable/dirt/dust,
+/turf/open/floor/plating,
+/area/misc/operative_barracks/hangar)
+"pv" = (
+/obj/effect/turf_decal/siding/dark{
+	dir = 5
+	},
+/turf/open/floor/plating,
+/area/misc/operative_barracks/hangar)
+"pw" = (
+/obj/effect/turf_decal/siding/dark/corner{
+	dir = 8
+	},
+/obj/structure/railing/corner/unbreakable{
+	dir = 8
+	},
+/obj/effect/turf_decal/siding/dark_red/corner,
+/turf/open/floor/mineral/plastitanium/red,
+/area/misc/operative_barracks/hangar)
+"pG" = (
+/obj/effect/turf_decal/siding/dark{
+	dir = 8
+	},
+/turf/open/floor/mineral/plastitanium/red,
+/area/misc/operative_barracks)
+"pH" = (
+/obj/structure/cable/multilayer/multiz,
+/obj/effect/decal/cleanable/dirt/dust,
+/turf/open/floor/plating{
+	baseturf = /turf/open/floor/plating
+	},
+/area/misc/operative_barracks/hangar)
+"pW" = (
+/obj/effect/turf_decal/siding/white,
+/turf/open/floor/mineral/titanium/tiled,
+/area/misc/operative_barracks/armoury)
+"qh" = (
+/obj/structure/window/reinforced/survival_pod/indestructible/spawner/directional/east,
+/obj/structure/sign/directions/evac/directional/north{
+	pixel_y = 36
+	},
+/obj/structure/sign/directions/dorms/directional/north{
+	pixel_y = 29;
+	dir = 2
+	},
+/obj/item/kirbyplants/organic/plant21,
+/obj/effect/turf_decal/tile/dark_red{
+	dir = 4
+	},
+/turf/open/floor/mineral/plastitanium,
+/area/misc/operative_barracks/mission_briefing)
+"qi" = (
+/obj/structure/railing/unbreakable{
+	dir = 8
+	},
+/obj/structure/railing/unbreakable{
+	dir = 4
+	},
+/obj/structure/fake_stairs/directional/south{
+	color = "#7F7F7F";
+	name = "airstair"
+	},
+/obj/structure/cable,
+/turf/open/floor/plating,
+/area/misc/operative_barracks/hangar)
+"qj" = (
+/obj/effect/turf_decal/nova_decals/syndicate/bottom/middle,
+/turf/open/floor/mineral/plastitanium/red,
+/area/misc/operative_barracks/mission_briefing)
+"qk" = (
+/obj/structure/fluff/fake_camera{
+	dir = 1
+	},
+/obj/effect/turf_decal/siding/dark,
+/turf/open/floor/mineral/plastitanium,
+/area/misc/operative_barracks/hangar)
+"ql" = (
+/obj/structure/table,
+/obj/effect/spawner/surgery_tray/full,
+/obj/structure/fluff/fake_camera{
+	dir = 5
+	},
+/turf/open/floor/iron/showroomfloor,
+/area/misc/operative_barracks/surgery)
+"qn" = (
+/obj/effect/turf_decal/stripes/line{
+	dir = 4
+	},
+/obj/structure/railing/unbreakable{
+	dir = 4
+	},
+/obj/effect/turf_decal/siding/dark{
+	dir = 8
+	},
+/obj/effect/turf_decal/caution/stand_clear{
+	dir = 8
+	},
+/turf/open/floor/plating,
+/area/misc/operative_barracks/hangar)
+"qr" = (
+/obj/structure/railing/unbreakable{
+	dir = 4
+	},
+/obj/effect/turf_decal/siding/dark{
+	dir = 4
+	},
+/obj/effect/turf_decal/siding/dark_red{
+	dir = 8
+	},
+/obj/structure/cable,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/turf/open/floor/mineral/plastitanium/red,
+/area/misc/operative_barracks/hangar)
+"qH" = (
+/obj/structure/mannequin/operative_barracks/chameleon,
+/turf/open/floor/light{
+	currentcolor = "#E1E17D"
+	},
+/area/misc/operative_barracks/mission_briefing)
+"qN" = (
+/turf/closed/indestructible/syndicate,
+/area/misc/operative_barracks/robotics)
+"re" = (
+/obj/effect/turf_decal/siding/thinplating_new/light{
+	dir = 1
+	},
+/obj/effect/decal/cleanable/blood/trail,
+/turf/open/floor/mineral/titanium/tiled,
+/area/misc/operative_barracks/medbay)
+"ri" = (
+/obj/effect/mapping_helpers/broken_floor,
+/obj/structure/floodlight_frame,
+/obj/item/light/tube/broken,
+/obj/structure/cable,
+/turf/open/floor/plating,
+/area/misc/operative_barracks/hangar)
+"rj" = (
+/obj/effect/turf_decal/tile/dark_red{
+	dir = 8
+	},
+/obj/structure/table,
+/obj/item/storage/fancy/coffee_cart_rack{
+	pixel_x = 8
+	},
+/obj/item/reagent_containers/cup/glass/coffee_cup{
+	pixel_x = -4;
+	pixel_y = 13
+	},
+/obj/machinery/light/small/directional/south,
+/obj/item/coffee_cartridge/decaf{
+	pixel_x = -10
+	},
+/turf/open/floor/mineral/plastitanium,
+/area/misc/operative_barracks)
+"rl" = (
+/obj/effect/spawner/structure/window/reinforced/plasma/plastitanium,
+/turf/open/floor/plating,
+/area/misc/operative_barracks/armoury)
+"rs" = (
+/obj/structure/railing/unbreakable,
+/obj/effect/turf_decal/siding/dark,
+/obj/item/kirbyplants/organic/plant20,
+/turf/open/floor/mineral/plastitanium/red,
+/area/misc/operative_barracks/hangar)
+"ru" = (
+/obj/machinery/light/floor,
+/obj/structure/cable,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/turf/open/floor/iron/dark,
+/area/misc/operative_barracks/hangar)
+"ry" = (
+/obj/effect/turf_decal/siding/dark/corner{
+	dir = 4
+	},
+/obj/structure/fluff/paper/stack{
+	dir = 8
+	},
+/turf/open/floor/mineral/plastitanium,
+/area/misc/operative_barracks/mission_briefing)
+"rz" = (
+/turf/open/space,
+/area/space)
+"rS" = (
+/obj/machinery/vending/syndichem{
+	onstation_override = 1
+	},
+/obj/effect/decal/cleanable/dirt/dust,
+/obj/effect/mapping_helpers/atom_injector/element_injector{
+	target_type = /obj/machinery/vending;
+	element_type = /datum/element/voucher_redeemer;
+	element_args = list(/obj/item/paper/paperslip/corporate/syndicate/traitor/supplies, /datum/voucher_set/traitor/supplies/medical)
+	},
+/obj/item/screwdriver{
+	pixel_y = 13
+	},
+/turf/open/floor/mineral/titanium/tiled,
+/area/misc/operative_barracks/medbay)
+"rU" = (
+/obj/effect/turf_decal/siding/dark_blue/corner,
+/obj/effect/turf_decal/siding/purple/corner{
+	dir = 4
+	},
+/obj/effect/turf_decal/tile/dark_red{
+	dir = 1
+	},
+/turf/open/floor/mineral/plastitanium,
+/area/misc/operative_barracks/mission_briefing)
+"sc" = (
+/obj/effect/turf_decal/siding/dark{
+	dir = 4
+	},
+/turf/open/floor/plating,
+/area/misc/operative_barracks/hangar)
+"se" = (
+/obj/effect/turf_decal/siding/dark{
+	dir = 1
+	},
+/turf/open/floor/mineral/plastitanium,
+/area/misc/operative_barracks/mission_briefing)
+"sl" = (
+/obj/structure/railing/corner/end/unbreakable{
+	dir = 4
+	},
+/obj/machinery/light_switch/directional/north,
+/obj/effect/mapping_helpers/turn_off_lights_with_lightswitch,
+/turf/open/floor/wood/parquet,
+/area/misc/operative_barracks/dorm)
+"so" = (
+/obj/effect/turf_decal/siding/dark/corner,
+/obj/effect/turf_decal/siding/dark_blue{
+	dir = 1
+	},
+/turf/open/floor/mineral/plastitanium,
+/area/misc/operative_barracks/mission_briefing)
+"sp" = (
+/obj/structure/mannequin/operative_barracks/anarchist,
+/turf/open/floor/light{
+	currentcolor = "#6496FA"
+	},
+/area/misc/operative_barracks/mission_briefing)
+"ss" = (
+/obj/structure/marker_beacon/bronze{
+	pixel_x = 8;
+	pixel_y = -8
+	},
+/obj/structure/cable,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/turf/open/floor/iron/dark/textured_corner,
+/area/misc/operative_barracks/hangar)
+"su" = (
+/obj/effect/turf_decal/stripes/line{
+	dir = 4
+	},
+/obj/structure/railing/unbreakable{
+	dir = 4
+	},
+/obj/effect/turf_decal/caution{
+	dir = 4
+	},
+/turf/open/floor/plating,
+/area/misc/operative_barracks/hangar)
+"sz" = (
+/turf/closed/indestructible/syndicate/nodiagonal,
+/area/misc/operative_barracks/armoury)
+"sG" = (
+/obj/effect/decal/cleanable/dirt/dust,
+/obj/effect/mapping_helpers/atom_injector/element_injector{
+	target_type = /obj/machinery/vending;
+	element_type = /datum/element/voucher_redeemer;
+	element_args = list(/obj/item/paper/paperslip/corporate/syndicate/traitor/supplies, /datum/voucher_set/traitor/supplies/science)
+	},
+/obj/effect/decal/cleanable/dirt/dust,
+/obj/machinery/vending/robotics{
+	onstation_override = 1
+	},
+/turf/open/floor/mineral/titanium/tiled,
+/area/misc/operative_barracks/robotics)
+"sU" = (
+/obj/machinery/door/window/brigdoor/right/directional/east,
+/obj/machinery/door/window/brigdoor/left/directional/west,
+/obj/structure/table/reinforced,
+/obj/structure/fluff/fake_firedoor,
+/obj/machinery/dish_drive/bullet,
+/obj/item/storage/pouch/ammo,
+/turf/open/floor/iron/dark/smooth_large,
+/area/misc/operative_barracks/armoury)
+"sW" = (
+/obj/item/shovel,
+/turf/open/floor/plating,
+/area/misc/operative_barracks/hangar)
+"tm" = (
+/obj/structure/table/reinforced,
+/obj/item/ammo_box/magazine/miecz/spawns_empty{
+	pixel_x = -7
+	},
+/obj/item/ammo_box/magazine/miecz/spawns_empty{
+	pixel_x = -3;
+	pixel_y = -2
+	},
+/obj/item/ammo_box/magazine/c35sol_pistol/starts_empty{
+	pixel_x = 10;
+	pixel_y = 4
+	},
+/obj/item/ammo_box/magazine/c35sol_pistol/stendo/starts_empty{
+	pixel_x = 7
+	},
+/obj/structure/fluff/fake_camera{
+	dir = 10
+	},
+/turf/open/floor/circuit/red,
+/area/misc/operative_barracks/armoury)
+"to" = (
+/obj/effect/turf_decal/tile/dark_red,
+/turf/open/floor/mineral/plastitanium,
+/area/misc/operative_barracks)
+"ts" = (
+/obj/effect/spawner/structure/window/reinforced/plasma/plastitanium,
+/turf/open/floor/plating,
+/area/misc/operative_barracks/medbay)
+"tu" = (
+/obj/structure/table,
+/obj/item/storage/medkit/tactical_lite{
+	pixel_y = 10;
+	pixel_x = 2
+	},
+/obj/effect/decal/cleanable/dirt/dust,
+/obj/item/storage/pill_bottle/painkiller{
+	pixel_x = -7;
+	pixel_y = 4
+	},
+/obj/item/reagent_containers/applicator/pill/cordiolis_hepatico{
+	pixel_x = 5;
+	pixel_y = -2
+	},
+/obj/item/reagent_containers/applicator/pill/cordiolis_hepatico{
+	pixel_x = 5;
+	pixel_y = -2
+	},
+/turf/open/floor/mineral/titanium/tiled,
+/area/misc/operative_barracks/medbay)
+"ty" = (
+/obj/effect/turf_decal/tile/yellow{
+	dir = 1
+	},
+/obj/effect/turf_decal/siding/dark{
+	dir = 4
+	},
+/turf/open/floor/iron/dark/side{
+	dir = 4
+	},
+/area/misc/operative_barracks)
+"tC" = (
+/obj/effect/turf_decal/siding/dark{
+	dir = 1
+	},
+/obj/item/toy/figure/syndie{
+	pixel_y = -16;
+	pixel_x = -1
+	},
+/obj/structure/fluff/paper/stack{
+	dir = 4
+	},
+/turf/open/floor/mineral/plastitanium,
+/area/misc/operative_barracks/mission_briefing)
+"tM" = (
+/obj/effect/turf_decal/siding/thinplating_new/corner{
+	dir = 1
+	},
+/obj/item/food/peanuts/salted{
+	pixel_y = -2;
+	pixel_x = 3
+	},
+/turf/open/floor/mineral/titanium/tiled,
+/area/misc/operative_barracks/armoury)
+"ub" = (
+/obj/effect/turf_decal/siding{
+	dir = 8
+	},
+/obj/machinery/dryer{
+	pixel_y = 18;
+	pixel_x = 7
+	},
+/turf/open/floor/iron/white/small,
+/area/misc/operative_barracks/bathroom)
+"ul" = (
+/obj/effect/turf_decal/siding/dark,
+/turf/open/floor/mineral/plastitanium,
+/area/misc/operative_barracks/mission_briefing)
+"un" = (
+/turf/closed/indestructible/fakedoor/blast_door{
+	name = "Launchpad no. 08"
+	},
+/area/misc/operative_barracks/hangar)
+"up" = (
+/obj/effect/turf_decal/siding/white/corner{
+	dir = 8
+	},
+/turf/open/floor/mineral/titanium/tiled,
+/area/misc/operative_barracks/robotics)
+"ur" = (
+/obj/effect/baseturf_helper{
+	baseturf = /turf/open/floor/plating
+	},
+/turf/closed/indestructible/syndicate/nodiagonal,
+/area/misc/operative_barracks/hangar)
+"uv" = (
+/obj/effect/turf_decal/siding/dark{
+	dir = 1
+	},
+/obj/structure/chair/office/light{
+	dir = 4
+	},
+/turf/open/floor/mineral/plastitanium,
+/area/misc/operative_barracks/mission_briefing)
+"uz" = (
+/obj/effect/turf_decal/siding/yellow,
+/obj/effect/turf_decal/tile/dark_red{
+	dir = 4
+	},
+/turf/open/floor/mineral/plastitanium,
+/area/misc/operative_barracks/mission_briefing)
+"uA" = (
+/obj/structure/fans/tiny/shield,
+/obj/machinery/door/poddoor/preopen,
+/obj/effect/turf_decal/delivery,
+/turf/open/floor/plating,
+/area/misc/operative_barracks/hangar)
+"uE" = (
+/obj/item/storage/toolbox/mechanical{
+	pixel_y = -6;
+	pixel_x = -3
+	},
+/obj/item/storage/backpack/messenger{
+	pixel_x = 14;
+	pixel_y = 12
+	},
+/obj/item/stack/cable_coil/five,
+/turf/open/floor/iron/dark/side{
+	dir = 8
+	},
+/area/misc/operative_barracks/robotics)
+"uJ" = (
+/obj/effect/turf_decal/siding/dark_red{
+	dir = 10
+	},
+/obj/machinery/light/floor,
+/obj/effect/decal/cleanable/dirt/dust,
+/turf/open/floor/mineral/plastitanium/red,
+/area/misc/operative_barracks/hangar)
+"uL" = (
+/obj/effect/turf_decal/box,
+/obj/structure/rack,
+/obj/item/gun/energy/plasmacutter,
+/turf/open/floor/mineral/titanium/tiled,
+/area/misc/operative_barracks/armoury)
+"uO" = (
+/obj/effect/turf_decal/siding/dark,
+/obj/effect/turf_decal/siding/dark_red/corner{
+	dir = 4
+	},
+/obj/structure/fluff/fake_scrubber,
+/turf/open/floor/mineral/plastitanium,
+/area/misc/operative_barracks/mission_briefing)
+"uU" = (
+/obj/item/reagent_containers/spray/cleaner,
+/obj/item/rag{
+	pixel_x = -7;
+	pixel_y = -4
+	},
+/turf/open/floor/plating,
+/area/misc/operative_barracks/hangar)
+"uX" = (
+/obj/structure/table/reinforced,
+/obj/structure/window/reinforced/spawner/directional/south,
+/obj/item/ammo_box/magazine/lanca/spawns_empty{
+	pixel_x = -5;
+	pixel_y = 11
+	},
+/obj/item/ammo_box/magazine/lanca/spawns_empty{
+	pixel_x = -5;
+	pixel_y = 7
+	},
+/obj/item/ammo_box/magazine/c40sol_rifle/starts_empty{
+	pixel_x = 5;
+	pixel_y = 9
+	},
+/obj/item/ammo_box/magazine/c40sol_rifle/starts_empty{
+	pixel_x = 5;
+	pixel_y = 5
+	},
+/turf/open/floor/circuit/red,
+/area/misc/operative_barracks/armoury)
+"uZ" = (
+/obj/effect/turf_decal/siding/dark{
+	dir = 8
+	},
+/obj/structure/cable,
+/turf/open/floor/plating,
+/area/misc/operative_barracks/hangar)
+"vg" = (
+/obj/effect/turf_decal/siding/dark,
+/obj/structure/railing/unbreakable,
+/turf/open/floor/mineral/plastitanium/red,
+/area/misc/operative_barracks/hangar)
+"vl" = (
+/obj/effect/spawner/structure/window/reinforced/plasma/plastitanium,
+/turf/open/floor/plating,
+/area/misc/operative_barracks/bathroom)
+"vn" = (
+/mob/living/basic/carp/pet/clover,
+/turf/open/floor/mineral/plastitanium,
+/area/misc/operative_barracks/mission_briefing)
+"vx" = (
+/obj/item/mod/construction/helmet{
+	pixel_y = 2;
+	pixel_x = 7
+	},
+/obj/effect/turf_decal/siding/thinplating_new/dark/corner{
+	dir = 8
+	},
+/turf/open/floor/iron/dark/corner{
+	dir = 8
+	},
+/area/misc/operative_barracks/robotics)
+"vy" = (
+/obj/item/stock_parts/power_store/cell/hyper,
+/obj/effect/turf_decal/siding/white/inner_corner{
+	dir = 8
+	},
+/turf/open/floor/mineral/titanium/tiled,
+/area/misc/operative_barracks/robotics)
+"vB" = (
+/obj/structure/rack,
+/obj/item/mod/module/plasma_stabilizer,
+/obj/item/mod/module/signlang_radio,
+/obj/item/mod/module/thermal_regulator,
+/obj/effect/turf_decal/siding/white{
+	dir = 8
+	},
+/obj/effect/decal/cleanable/dirt/dust,
+/turf/open/floor/mineral/titanium/tiled,
+/area/misc/operative_barracks/robotics)
+"vD" = (
+/obj/structure/window/reinforced/survival_pod/indestructible/spawner/directional/south,
+/obj/structure/window/reinforced/survival_pod/indestructible/spawner/directional/north,
+/obj/structure/window/reinforced/survival_pod/indestructible/spawner/directional/east,
+/turf/open/lava/fake,
+/area/misc/operative_barracks/mission_briefing)
+"vE" = (
+/turf/closed/indestructible/syndicate/nodiagonal,
+/area/misc/operative_barracks/surgery)
+"vF" = (
+/obj/structure/mannequin/operative_barracks/spy,
+/turf/open/floor/light{
+	currentcolor = "#E1E17D"
+	},
+/area/misc/operative_barracks/mission_briefing)
+"wc" = (
+/obj/structure/fluff/fake_scrubber,
+/turf/open/floor/iron/dark/side{
+	dir = 8
+	},
+/area/misc/operative_barracks/robotics)
+"wk" = (
+/obj/effect/turf_decal/siding/thinplating_new/light{
+	dir = 4
+	},
+/turf/open/floor/mineral/titanium/tiled,
+/area/misc/operative_barracks/medbay)
+"wn" = (
+/obj/effect/turf_decal/siding/white{
+	dir = 4
+	},
+/obj/item/storage/pouch/cin_medkit{
+	pixel_x = 12;
+	pixel_y = 17
+	},
+/obj/item/storage/backpack/duffelbag/deforest_medkit{
+	pixel_x = -8;
+	pixel_y = -3
+	},
+/turf/open/floor/mineral/titanium/tiled,
+/area/misc/operative_barracks/medbay)
+"wu" = (
+/obj/item/mod/core/plasma{
+	pixel_x = -8;
+	pixel_y = 1
+	},
+/obj/item/mod/core/ethereal{
+	pixel_x = 3
+	},
+/obj/item/mod/core/standard{
+	pixel_y = 4;
+	pixel_x = -3
+	},
+/obj/structure/closet/crate{
+	name = "\improper MOD core crate"
+	},
+/obj/effect/decal/cleanable/dirt/dust,
+/turf/open/floor/iron/dark,
+/area/misc/operative_barracks/robotics)
+"wv" = (
+/obj/machinery/limbgrower,
+/obj/effect/mapping_helpers/atom_injector/element_injector{
+	target_type = /obj/machinery/limbgrower;
+	element_type = /datum/element/voucher_redeemer;
+	element_args = list(/obj/item/paper/paperslip/corporate/syndicate/traitor/implant, /datum/voucher_set/traitor/organ, sound_effect = 'sound/effects/cartoon_sfx/cartoon_splat.ogg')
+	},
+/obj/effect/decal/cleanable/blood,
+/turf/open/floor/iron/showroomfloor,
+/area/misc/operative_barracks/medbay)
+"ww" = (
+/obj/effect/mapping_helpers/broken_floor,
+/obj/structure/fluff/broken_canister_frame,
+/turf/open/floor/plating,
+/area/misc/operative_barracks/hangar)
+"wx" = (
+/turf/closed/wall/r_wall/syndicate/nodiagonal,
+/area/misc/operative_barracks/armoury)
+"wA" = (
+/turf/open/floor/mineral/plastitanium,
+/area/misc/operative_barracks/mission_briefing)
+"wC" = (
+/obj/structure/sign/warning/electric_shock/directional/west,
+/obj/effect/decal/cleanable/dirt/dust,
+/obj/structure/closet/crate/preopen,
+/obj/item/stack/cable_coil,
+/obj/structure/fluff/fake_camera{
+	dir = 10
+	},
+/turf/open/floor/iron,
+/area/misc/operative_barracks)
+"wH" = (
+/obj/effect/turf_decal/tile/dark_red,
+/obj/structure/sign/directions/evac/directional/south{
+	pixel_y = -28;
+	dir = 1
+	},
+/obj/structure/sign/directions/dorms/directional/south{
+	pixel_y = -35
+	},
+/obj/structure/fluff/fake_camera{
+	dir = 5
+	},
+/turf/open/floor/mineral/plastitanium,
+/area/misc/operative_barracks)
+"wI" = (
+/obj/effect/decal/cleanable/wrapping{
+	pixel_y = 21
+	},
+/obj/effect/turf_decal/siding/purple/corner,
+/obj/effect/turf_decal/tile/dark_red{
+	dir = 1
+	},
+/turf/open/floor/mineral/plastitanium,
+/area/misc/operative_barracks/mission_briefing)
+"wK" = (
+/obj/effect/turf_decal/tile/dark_red,
+/obj/machinery/light/small/directional/south,
+/obj/structure/table,
+/obj/item/food/ready_donk/donkhiladas{
+	pixel_x = 9;
+	pixel_y = 1
+	},
+/obj/effect/spawner/random/entertainment/coin{
+	pixel_x = -7;
+	pixel_y = 6
+	},
+/turf/open/floor/mineral/plastitanium,
+/area/misc/operative_barracks)
+"wL" = (
+/obj/machinery/digital_clock/directional/east,
+/obj/machinery/washing_machine,
+/obj/structure/towel_bin{
+	pixel_y = 13
+	},
+/obj/effect/decal/cleanable/dirt/dust,
+/turf/open/floor/iron/white/small,
+/area/misc/operative_barracks/bathroom)
+"wP" = (
+/obj/structure/fake_stairs/directional/east{
+	color = "#7F7F7F";
+	dir = 8
+	},
+/turf/open/floor/iron/dark/smooth_large,
+/area/misc/operative_barracks)
+"xt" = (
+/obj/effect/turf_decal/siding/dark/corner,
+/obj/effect/turf_decal/vg_decals/numbers/nine,
+/turf/open/floor/plating,
+/area/misc/operative_barracks/hangar)
+"xw" = (
+/obj/effect/turf_decal/siding/dark/corner{
+	dir = 1
+	},
+/turf/open/floor/plating,
+/area/misc/operative_barracks/hangar)
+"xA" = (
+/obj/effect/turf_decal/siding/dark{
+	dir = 10
+	},
+/turf/open/floor/plating,
+/area/misc/operative_barracks/hangar)
+"xB" = (
+/obj/effect/turf_decal/siding/wood{
+	dir = 1
+	},
+/obj/structure/rack/shelf,
+/obj/item/storage/box/syndie_kit/space_suit{
+	pixel_x = 2;
+	pixel_y = 7
+	},
+/obj/item/food/rationpack{
+	pixel_x = -2;
+	pixel_y = -2
+	},
+/obj/item/food/rationpack{
+	pixel_y = -2
+	},
+/turf/open/floor/iron/dark/smooth_large,
+/area/misc/operative_barracks/dorm)
+"xU" = (
+/turf/closed/wall/r_wall/syndicate,
+/area/misc/operative_barracks/robotics)
+"xZ" = (
+/obj/effect/turf_decal/siding/dark,
+/obj/structure/fluff/fake_vent,
+/obj/effect/turf_decal/siding/dark_blue/corner{
+	dir = 1
+	},
+/turf/open/floor/mineral/plastitanium,
+/area/misc/operative_barracks/mission_briefing)
+"yf" = (
+/obj/item/storage/backpack/industrial/frontier_colonist/satchel{
+	pixel_x = 8;
+	pixel_y = -15
+	},
+/turf/open/floor/iron/dark,
+/area/misc/operative_barracks/armoury)
+"yg" = (
+/obj/structure/chair/office{
+	dir = 1
+	},
+/obj/structure/sign/poster/contraband/free_key/directional/east,
+/turf/open/floor/iron/dark/side{
+	dir = 9
+	},
+/area/misc/operative_barracks/robotics)
+"yk" = (
+/obj/machinery/mech_bay_recharge_port,
+/turf/open/floor/iron/dark/small,
+/area/misc/operative_barracks/hangar)
+"yr" = (
+/turf/open/floor/iron,
+/area/misc/operative_barracks)
+"yx" = (
+/obj/machinery/computer/mechpad{
+	dir = 1;
+	id = null
+	},
+/obj/effect/mapping_helpers/atom_injector/element_injector{
+	target_type = /obj/machinery/computer/mechpad;
+	element_type = /datum/element/voucher_redeemer;
+	element_args = list(/obj/item/paper/paperslip/corporate/syndicate/traitor/exosuit, /datum/voucher_set/traitor/mech, 8, 'sound/effects/portal/portal_open_1.ogg')
+	},
+/obj/structure/fluff/fake_camera{
+	dir = 5
+	},
+/obj/item/toy/crayon/spraycan/roboticist{
+	pixel_x = -8;
+	pixel_y = 19
+	},
+/turf/open/floor/circuit/green,
+/area/misc/operative_barracks/robotics)
+"yA" = (
+/obj/machinery/mecha_part_fabricator/maint,
+/obj/effect/decal/cleanable/dirt/dust,
+/obj/item/toy/plush/pkplush{
+	pixel_x = 2;
+	pixel_y = 15
+	},
+/obj/effect/mapping_helpers/atom_injector/element_injector{
+	target_type = /obj/machinery/mecha_part_fabricator;
+	element_type = /datum/element/voucher_redeemer;
+	element_args = list(/obj/item/paper/paperslip/corporate/syndicate/traitor/exosuit, /datum/voucher_set/traitor/mod, 2, 'sound/machines/lathe/lathe_print.ogg')
+	},
+/turf/open/floor/iron/dark,
+/area/misc/operative_barracks/robotics)
+"yC" = (
+/obj/effect/turf_decal/siding/dark_red{
+	dir = 6
+	},
+/obj/machinery/light/floor,
+/obj/effect/decal/cleanable/dirt/dust,
+/turf/open/floor/mineral/plastitanium/red,
+/area/misc/operative_barracks/hangar)
+"yF" = (
+/obj/structure/window/reinforced/survival_pod/indestructible/spawner/directional/south,
+/obj/structure/window/reinforced/survival_pod/indestructible/spawner/directional/north,
+/turf/open/lava/fake,
+/area/misc/operative_barracks/mission_briefing)
+"yJ" = (
+/obj/structure/closet/generic/wall/empty{
+	pixel_x = -32;
+	name = "grenade locker"
+	},
+/obj/effect/turf_decal/tile/dark_red{
+	dir = 8
+	},
+/obj/item/food/pie/cream,
+/turf/open/floor/iron/smooth,
+/area/misc/operative_barracks/armoury)
+"yL" = (
+/obj/item/paper/crumpled,
+/obj/machinery/light/small/directional/west,
+/obj/structure/fluff/paper/stack{
+	dir = 4
+	},
+/obj/structure/closet/crate/bin,
+/obj/structure/sign/poster/contraband/syndiemoth/directional/west,
+/obj/item/stamp/chameleon,
+/obj/effect/turf_decal/tile/dark_red{
+	dir = 8
+	},
+/turf/open/floor/mineral/plastitanium,
+/area/misc/operative_barracks/mission_briefing)
+"yU" = (
+/obj/effect/turf_decal/siding/dark,
+/obj/structure/railing/unbreakable,
+/turf/open/floor/mineral/plastitanium/red,
+/area/misc/operative_barracks)
+"zf" = (
+/obj/effect/turf_decal/stripes/white/line{
+	dir = 9
+	},
+/turf/open/floor/iron/dark/smooth_large,
+/area/misc/operative_barracks/hangar)
+"zl" = (
+/obj/structure/marker_beacon/burgundy{
+	pixel_x = -8;
+	pixel_y = 8
+	},
+/obj/effect/turf_decal/stripes/white/corner,
+/obj/structure/cable,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/turf/open/floor/iron/dark/textured_corner{
+	dir = 1
+	},
+/area/misc/operative_barracks/hangar)
+"zu" = (
+/obj/effect/turf_decal/siding/dark_red,
+/obj/effect/turf_decal/siding/yellow{
+	dir = 1
+	},
+/turf/open/floor/mineral/plastitanium/red,
+/area/misc/operative_barracks/mission_briefing)
+"zy" = (
+/turf/open/floor/iron/dark/side,
+/area/misc/operative_barracks/armoury)
+"zB" = (
+/obj/structure/table/reinforced,
+/obj/machinery/door/window/right/directional/south,
+/obj/machinery/door/window/right/directional/north,
+/obj/structure/fluff/fake_firedoor,
+/obj/item/storage/test_tube_rack/full,
+/turf/open/floor/iron/dark/smooth_large,
+/area/misc/operative_barracks/medbay)
+"zJ" = (
+/obj/structure/mannequin/operative_barracks/operative,
+/turf/open/floor/light{
+	currentcolor = "#FA8282"
+	},
+/area/misc/operative_barracks/mission_briefing)
+"zP" = (
+/obj/structure/rack,
+/obj/item/weldingtool,
+/turf/open/floor/iron/dark/small,
+/area/misc/operative_barracks/hangar)
+"zT" = (
+/obj/effect/mapping_helpers/airlock/access/all/syndicate/general,
+/obj/effect/mapping_helpers/airlock/cutaiwire,
+/obj/structure/fluff/fake_firedoor,
+/obj/machinery/door/airlock/multi_tile/metal{
+	dir = 4;
+	name = "Robotics"
+	},
+/turf/open/floor/iron/dark/smooth_large,
+/area/misc/operative_barracks/robotics)
+"Ad" = (
+/obj/effect/turf_decal/siding/dark{
+	dir = 6
+	},
+/obj/structure/sign/warning/no_smoking/directional/north,
+/obj/structure/closet/crate/wooden,
+/obj/item/food/grown/banana,
+/obj/item/food/grown/banana,
+/obj/item/food/grown/banana,
+/obj/item/food/grown/banana,
+/obj/item/food/grown/banana,
+/obj/item/food/grown/banana,
+/obj/item/food/grown/banana,
+/obj/item/food/grown/banana,
+/obj/item/food/grown/banana,
+/obj/item/food/grown/banana,
+/turf/open/floor/iron/dark/diagonal,
+/area/misc/operative_barracks/mission_briefing)
+"Ar" = (
+/obj/effect/turf_decal/recharge,
+/turf/open/floor/iron/dark/small,
+/area/misc/operative_barracks/hangar)
+"Au" = (
+/obj/item/trash/chips{
+	pixel_y = -9;
+	pixel_x = 14
+	},
+/obj/structure/fluff/fake_vent,
+/turf/open/floor/iron/grimy,
+/area/misc/operative_barracks/dorm)
+"AE" = (
+/turf/open/floor/iron/dark,
+/area/misc/operative_barracks/armoury)
+"AO" = (
+/turf/open/floor/iron/grimy,
+/area/misc/operative_barracks/dorm)
+"Be" = (
+/obj/structure/fake_stairs/directional/east{
+	color = "#7F7F7F";
+	dir = 8
+	},
+/turf/open/floor/plating,
+/area/misc/operative_barracks/hangar)
+"Br" = (
+/obj/effect/turf_decal/arrows{
+	dir = 4
+	},
+/turf/open/floor/mineral/titanium/tiled,
+/area/misc/operative_barracks/armoury)
+"Bt" = (
+/obj/effect/turf_decal/tile/blue{
+	dir = 4
+	},
+/obj/effect/turf_decal/siding/dark{
+	dir = 8
+	},
+/obj/structure/sign/directions/arrival/directional/north{
+	pixel_y = 36
+	},
+/obj/structure/sign/directions/science/directional/north{
+	pixel_y = 29
+	},
+/obj/item/storage/backpack{
+	pixel_x = 11;
+	pixel_y = -3
+	},
+/turf/open/floor/iron/dark/side{
+	dir = 8
+	},
+/area/misc/operative_barracks)
+"Bv" = (
+/obj/structure/window/reinforced/survival_pod/indestructible/spawner/directional/south,
+/obj/structure/window/reinforced/survival_pod/indestructible/spawner/directional/north,
+/obj/structure/window/reinforced/survival_pod/indestructible/spawner/directional/west,
+/turf/open/lava/fake,
+/area/misc/operative_barracks/mission_briefing)
+"By" = (
+/obj/effect/turf_decal/nova_decals/syndicate/middle/left,
+/obj/effect/turf_decal/siding/dark_blue/corner{
+	dir = 8
+	},
+/obj/effect/turf_decal/siding/purple/corner{
+	dir = 1
+	},
+/turf/open/floor/mineral/plastitanium/red,
+/area/misc/operative_barracks/mission_briefing)
+"BL" = (
+/obj/effect/turf_decal/trimline/dark_red/corner{
+	dir = 8
+	},
+/turf/open/floor/iron/dark,
+/area/misc/operative_barracks/hangar)
+"BO" = (
+/obj/effect/turf_decal/siding/dark{
+	dir = 1
+	},
+/obj/structure/railing/unbreakable{
+	dir = 1
+	},
+/obj/effect/turf_decal/vg_decals/numbers/nine,
+/turf/open/floor/mineral/plastitanium/red,
+/area/misc/operative_barracks)
+"BR" = (
+/obj/machinery/chem_mass_spec,
+/obj/effect/decal/cleanable/dirt/dust,
+/obj/structure/railing/unbreakable,
+/obj/structure/fluff/fake_camera{
+	dir = 4
+	},
+/turf/open/floor/iron/dark/side{
+	dir = 5
+	},
+/area/misc/operative_barracks/medbay)
+"BU" = (
+/obj/effect/turf_decal/siding/white/corner{
+	dir = 4
+	},
+/obj/effect/turf_decal/siding/thinplating_new/light{
+	dir = 8
+	},
+/turf/open/floor/mineral/titanium/tiled,
+/area/misc/operative_barracks/medbay)
+"BV" = (
+/obj/structure/sign/departments/medbay/alt/directional/east,
+/obj/structure/fluff/fake_camera{
+	dir = 6
+	},
+/turf/open/floor/iron,
+/area/misc/operative_barracks)
+"Cs" = (
+/turf/closed/wall/r_wall/syndicate/nodiagonal,
+/area/misc/operative_barracks/dorm)
+"Cu" = (
+/obj/item/mod/construction/boots{
+	pixel_x = 15;
+	pixel_y = -6
+	},
+/obj/item/mod/construction/gauntlets{
+	pixel_y = 10;
+	pixel_x = -1
+	},
+/obj/effect/turf_decal/siding/thinplating_new/dark,
+/turf/open/floor/iron/dark/side{
+	dir = 10
+	},
+/area/misc/operative_barracks/robotics)
+"CW" = (
+/obj/effect/turf_decal/stripes/line{
+	dir = 4
+	},
+/obj/structure/railing/unbreakable{
+	dir = 4
+	},
+/obj/effect/turf_decal/caution/stand_clear{
+	dir = 8
+	},
+/obj/effect/turf_decal/siding/dark{
+	dir = 8
+	},
+/obj/structure/railing/corner/end/flip/unbreakable{
+	dir = 1
+	},
+/turf/open/floor/plating,
+/area/misc/operative_barracks/hangar)
+"Dp" = (
+/obj/effect/turf_decal/siding/thinplating_new/light/corner{
+	dir = 8
+	},
+/obj/structure/sink/directional/west,
+/obj/structure/mirror/directional/east,
+/obj/structure/fluff/fake_scrubber,
+/obj/structure/sign/poster/official/cleanliness/directional/north,
+/turf/open/floor/mineral/titanium/tiled/white,
+/area/misc/operative_barracks/surgery)
+"Du" = (
+/obj/structure/sign/poster/contraband/energy_swords/directional/north,
+/obj/machinery/light/directional/north,
+/obj/effect/turf_decal/tile/dark_red{
+	dir = 4
+	},
+/turf/open/floor/iron/smooth,
+/area/misc/operative_barracks/armoury)
+"Dw" = (
+/obj/structure/railing/unbreakable{
+	dir = 4
+	},
+/obj/effect/turf_decal/siding/dark{
+	dir = 4
+	},
+/obj/effect/turf_decal/siding/dark_red{
+	dir = 8
+	},
+/turf/open/floor/mineral/plastitanium/red,
+/area/misc/operative_barracks/hangar)
+"DC" = (
+/obj/machinery/light/directional/west,
+/obj/structure/fluff/fake_vent,
+/obj/structure/sign/poster/contraband/borg_fancy_2/directional/west,
+/obj/item/mod/module/magboot{
+	pixel_y = 10;
+	pixel_x = 11
+	},
+/obj/item/mod/module/rad_protection{
+	pixel_x = -3;
+	pixel_y = -12
+	},
+/turf/open/floor/iron/dark,
+/area/misc/operative_barracks/robotics)
+"DG" = (
+/obj/machinery/vending/wallmed/directional/east{
+	onstation_override = 1
+	},
+/obj/effect/turf_decal/siding/yellow{
+	dir = 8
+	},
+/obj/effect/turf_decal/tile/dark_red{
+	dir = 4
+	},
+/turf/open/floor/mineral/plastitanium,
+/area/misc/operative_barracks/mission_briefing)
+"DI" = (
+/obj/effect/turf_decal/siding/dark/corner{
+	dir = 4
+	},
+/turf/open/floor/mineral/plastitanium,
+/area/misc/operative_barracks)
+"DL" = (
+/obj/effect/spawner/structure/window/reinforced/plasma/plastitanium,
+/turf/open/floor/plating,
+/area/misc/operative_barracks/dorm)
+"DO" = (
+/obj/effect/turf_decal/nova_decals/syndicate/middle/middle,
+/turf/open/floor/mineral/plastitanium/red,
+/area/misc/operative_barracks/mission_briefing)
+"DP" = (
+/obj/structure/railing/corner/unbreakable{
+	dir = 1
+	},
+/obj/structure/window/reinforced/survival_pod/spawner/directional/south,
+/obj/structure/window/reinforced/survival_pod/spawner/directional/west,
+/obj/structure/flora/ash/leaf_shroom,
+/obj/structure/sign/directions/evac/directional/north{
+	dir = 5
+	},
+/turf/open/floor/fakebasalt,
+/area/misc/operative_barracks)
+"Eb" = (
+/obj/effect/turf_decal/tile/dark_red{
+	dir = 8
+	},
+/obj/structure/closet/crate/bin,
+/obj/structure/sign/warning/yes_smoking/circle/directional/south,
+/obj/item/cigbutt/cigarbutt,
+/turf/open/floor/mineral/plastitanium,
+/area/misc/operative_barracks)
+"Ee" = (
+/obj/structure/table/optable,
+/obj/item/autosurgeon/syndicate{
+	pixel_x = -3;
+	pixel_y = 9
+	},
+/obj/machinery/defibrillator_mount/directional/south,
+/turf/open/floor/iron/showroomfloor,
+/area/misc/operative_barracks/surgery)
+"Er" = (
+/obj/effect/turf_decal/siding/dark{
+	dir = 4
+	},
+/turf/open/floor/mineral/plastitanium/red,
+/area/misc/operative_barracks)
+"Et" = (
+/obj/structure/railing/unbreakable{
+	dir = 1
+	},
+/obj/effect/turf_decal/siding/dark{
+	dir = 9
+	},
+/obj/effect/turf_decal/vg_decals/numbers/zero,
+/turf/open/floor/mineral/plastitanium/red,
+/area/misc/operative_barracks)
+"Ev" = (
+/obj/structure/sign/clock/directional/south,
+/obj/structure/filingcabinet/medical,
+/obj/effect/turf_decal/tile/dark_red{
+	dir = 8
+	},
+/turf/open/floor/mineral/plastitanium,
+/area/misc/operative_barracks/mission_briefing)
+"ED" = (
+/obj/structure/bed{
+	dir = 1
+	},
+/obj/item/bedsheet/syndie{
+	dir = 4
+	},
+/obj/effect/spawner/random/entertainment/plushie_delux{
+	pixel_y = 6;
+	pixel_x = -7
+	},
+/obj/effect/landmark/start/midround_traitor,
+/obj/structure/sign/poster/contraband/cybersun_six_hundred/directional/west,
+/obj/effect/turf_decal/siding/wood{
+	dir = 1
+	},
+/turf/open/floor/iron/grimy,
+/area/misc/operative_barracks/dorm)
+"EF" = (
+/obj/structure/railing/unbreakable{
+	dir = 8
+	},
+/obj/effect/turf_decal/siding/dark{
+	dir = 8
+	},
+/obj/effect/turf_decal/siding/dark_red{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/structure/cable,
+/turf/open/floor/mineral/plastitanium/red,
+/area/misc/operative_barracks/hangar)
+"EI" = (
+/obj/effect/turf_decal/stripes/white/line{
+	dir = 4
+	},
+/obj/structure/fluff/fake_scrubber,
+/obj/structure/cable,
+/turf/open/floor/iron/dark/smooth_large,
+/area/misc/operative_barracks/hangar)
+"EP" = (
+/obj/effect/spawner/structure/window/reinforced/tinted,
+/turf/open/floor/plating,
+/area/misc/operative_barracks/surgery)
+"EV" = (
+/obj/effect/mapping_helpers/airlock/cutaiwire,
+/obj/effect/mapping_helpers/airlock/locked,
+/obj/machinery/door/airlock/maintenance{
+	name = "Maintenance"
+	},
+/obj/structure/cable,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/visible/layer2,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/visible/layer4,
+/obj/structure/fluff/fake_firedoor,
+/turf/open/floor/plating,
+/area/misc/operative_barracks/hangar)
+"Fc" = (
+/obj/structure/table/reinforced/plastitaniumglass,
+/obj/effect/decal/cleanable/dirt/dust,
+/obj/item/skillchip/job/clown,
+/obj/item/skillchip/self_surgery{
+	pixel_y = 5
+	},
+/obj/item/skillchip/disk_verifier{
+	pixel_y = 10
+	},
+/obj/effect/turf_decal/tile/dark_red{
+	dir = 4
+	},
+/turf/open/floor/mineral/plastitanium,
+/area/misc/operative_barracks/mission_briefing)
+"Fh" = (
+/obj/effect/turf_decal/stripes/white/line{
+	dir = 8
+	},
+/turf/open/floor/iron/dark/smooth_large,
+/area/misc/operative_barracks/hangar)
+"Fu" = (
+/obj/structure/railing/corner/end/unbreakable{
+	dir = 1
+	},
+/turf/open/floor/iron/dark/smooth_large,
+/area/misc/operative_barracks/hangar)
+"Fw" = (
+/obj/item/emptysandbag{
+	pixel_x = 5;
+	pixel_y = -2
+	},
+/obj/item/emptysandbag{
+	pixel_x = -7;
+	pixel_y = -2
+	},
+/obj/item/emptysandbag{
+	pixel_x = -1;
+	pixel_y = 2
+	},
+/turf/open/floor/plating,
+/area/misc/operative_barracks/hangar)
+"FE" = (
+/obj/effect/turf_decal/siding/thinplating_new/light/corner{
+	dir = 1
+	},
+/turf/open/floor/mineral/titanium/tiled,
+/area/misc/operative_barracks/medbay)
+"FK" = (
+/obj/effect/baseturf_helper{
+	baseturf = /turf/open/floor/plating
+	},
+/turf/closed/indestructible/syndicate,
+/area/misc/operative_barracks/robotics)
+"FN" = (
+/obj/effect/turf_decal/vg_decals/numbers/zero,
+/turf/open/floor/mineral/plastitanium,
+/area/misc/operative_barracks/mission_briefing)
+"FO" = (
+/obj/effect/turf_decal/siding/thinplating_new/light/corner{
+	dir = 8
+	},
+/obj/structure/fluff/fake_scrubber,
+/obj/effect/turf_decal/siding/white/inner_corner{
+	dir = 4
+	},
+/turf/open/floor/mineral/titanium/tiled,
+/area/misc/operative_barracks/medbay)
+"FP" = (
+/obj/effect/turf_decal/nova_decals/syndicate/top/left,
+/obj/effect/turf_decal/siding/purple{
+	dir = 8
+	},
+/turf/open/floor/mineral/plastitanium/red,
+/area/misc/operative_barracks/mission_briefing)
+"FW" = (
+/obj/machinery/light/small/directional/east,
+/turf/open/floor/iron/dark,
+/area/misc/operative_barracks/armoury)
+"Gc" = (
+/obj/machinery/light/floor,
+/obj/effect/turf_decal/siding/dark/corner{
+	dir = 4
+	},
+/obj/structure/railing/corner/end/flip/unbreakable{
+	dir = 4
+	},
+/turf/open/floor/mineral/plastitanium/red,
+/area/misc/operative_barracks)
+"Ge" = (
+/obj/effect/turf_decal/siding/dark/corner{
+	dir = 1
+	},
+/obj/effect/turf_decal/vg_decals/numbers/zero,
+/turf/open/floor/plating,
+/area/misc/operative_barracks/hangar)
+"Gn" = (
+/obj/structure/fluff/fake_firedoor,
+/turf/open/floor/iron/dark/smooth_large,
+/area/misc/operative_barracks/robotics)
+"Gp" = (
+/obj/structure/rack/gunrack,
+/obj/item/melee/baton/telescopic{
+	pixel_x = 5;
+	pixel_y = 4
+	},
+/obj/item/shield/riot/tele,
+/obj/effect/turf_decal/tile/dark_red/fourcorners,
+/obj/item/storage/fancy/cigarettes/cigpack_syndicate{
+	pixel_x = -5;
+	pixel_y = 19
+	},
+/turf/open/floor/iron/smooth,
+/area/misc/operative_barracks/armoury)
+"Gq" = (
+/obj/effect/turf_decal/siding/dark{
+	dir = 1
+	},
+/obj/structure/railing/unbreakable{
+	dir = 1
+	},
+/obj/effect/turf_decal/vg_decals/numbers/zero,
+/turf/open/floor/mineral/plastitanium/red,
+/area/misc/operative_barracks)
+"GB" = (
+/obj/machinery/chem_dispenser,
+/obj/effect/decal/cleanable/greenglow,
+/turf/open/floor/iron/dark,
+/area/misc/operative_barracks/medbay)
+"GF" = (
+/obj/effect/turf_decal/siding/dark_red/corner{
+	dir = 1
+	},
+/obj/structure/fluff/fake_camera{
+	dir = 4
+	},
+/obj/effect/turf_decal/tile/dark_red{
+	dir = 4
+	},
+/turf/open/floor/mineral/plastitanium,
+/area/misc/operative_barracks/mission_briefing)
+"GH" = (
+/obj/machinery/computer/mech_bay_power_console{
+	dir = 4
+	},
+/obj/effect/decal/cleanable/dirt/dust,
+/turf/open/floor/iron/dark/small,
+/area/misc/operative_barracks/hangar)
+"GK" = (
+/obj/structure/chair/office/light{
+	dir = 1
+	},
+/obj/structure/sign/poster/contraband/korpstech/directional/west,
+/turf/open/floor/iron/dark/side{
+	dir = 5
+	},
+/area/misc/operative_barracks/medbay)
+"GS" = (
+/obj/machinery/door/airlock{
+	name = "Dormroom"
+	},
+/obj/effect/mapping_helpers/airlock/cutaiwire,
+/obj/structure/fluff/fake_firedoor,
+/turf/open/floor/iron/dark/smooth_large,
+/area/misc/operative_barracks/dorm)
+"GY" = (
+/obj/effect/turf_decal/stripes/corner{
+	dir = 4
+	},
+/obj/structure/railing/corner/end/flip/unbreakable{
+	dir = 4
+	},
+/obj/structure/railing/corner/end/unbreakable{
+	dir = 1
+	},
+/turf/open/floor/plating,
+/area/misc/operative_barracks/hangar)
+"Hd" = (
+/obj/effect/mapping_helpers/broken_floor,
+/turf/open/floor/plating,
+/area/misc/operative_barracks/hangar)
+"Hh" = (
+/obj/effect/turf_decal/trimline/dark_red/corner{
+	dir = 1
+	},
+/turf/open/floor/iron/dark,
+/area/misc/operative_barracks/hangar)
+"Hp" = (
+/obj/structure/sign/directions/medical/directional/east,
+/obj/structure/table,
+/obj/item/storage/box/bandages,
+/obj/machinery/light/small/directional/east,
+/obj/effect/decal/cleanable/dirt/dust,
+/turf/open/floor/iron,
+/area/misc/operative_barracks)
+"HC" = (
+/obj/effect/turf_decal/siding/dark{
+	dir = 1
+	},
+/turf/open/floor/mineral/plastitanium,
+/area/misc/operative_barracks)
+"HH" = (
+/obj/effect/turf_decal/siding/dark/corner{
+	dir = 1
+	},
+/turf/open/floor/mineral/plastitanium,
+/area/misc/operative_barracks/mission_briefing)
+"HN" = (
+/obj/machinery/atmospherics/pipe/multiz/scrubbers/visible/layer2,
+/obj/machinery/atmospherics/pipe/multiz/supply/visible/layer4,
+/obj/machinery/door/window/brigdoor/left/directional/south,
+/obj/machinery/light/small/directional/west,
+/obj/structure/sign/directions/engineering/directional/west,
+/turf/open/floor/catwalk_floor/iron,
+/area/misc/operative_barracks)
+"HS" = (
+/obj/structure/railing/unbreakable{
+	dir = 8
+	},
+/obj/effect/turf_decal/stripes/line{
+	dir = 8
+	},
+/obj/effect/turf_decal/siding/dark{
+	dir = 4
+	},
+/turf/open/floor/plating,
+/area/misc/operative_barracks/hangar)
+"HX" = (
+/obj/structure/cable,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/machinery/light/floor,
+/turf/open/floor/iron/dark,
+/area/misc/operative_barracks/hangar)
+"Ie" = (
+/obj/effect/turf_decal/nova_decals/syndicate/middle/right,
+/obj/effect/turf_decal/siding/dark_red/corner,
+/obj/effect/turf_decal/siding/yellow/corner{
+	dir = 4
+	},
+/turf/open/floor/mineral/plastitanium/red,
+/area/misc/operative_barracks/mission_briefing)
+"If" = (
+/obj/structure/fluff/paper/stack,
+/obj/effect/turf_decal/tile/dark_red{
+	dir = 8
+	},
+/turf/open/floor/mineral/plastitanium,
+/area/misc/operative_barracks/mission_briefing)
+"Ig" = (
+/obj/machinery/computer/operating{
+	dir = 1
+	},
+/obj/machinery/light/small/directional/south,
+/obj/effect/mapping_helpers/atom_injector/element_injector{
+	target_type = /obj/machinery/computer;
+	element_type = /datum/element/voucher_redeemer;
+	element_args = list(/obj/item/paper/paperslip/corporate/syndicate/traitor/supplies, /datum/voucher_set/traitor/supplies/surgery, sound_effect = 'sound/machines/card_slide.ogg')
+	},
+/turf/open/floor/iron/showroomfloor,
+/area/misc/operative_barracks/surgery)
+"Ih" = (
+/obj/effect/turf_decal/siding/dark{
+	dir = 4
+	},
+/obj/structure/cable,
+/turf/open/floor/plating,
+/area/misc/operative_barracks/hangar)
+"Io" = (
+/obj/effect/turf_decal/siding/dark/corner{
+	dir = 8
+	},
+/obj/effect/turf_decal/siding/dark{
+	dir = 1
+	},
+/turf/open/floor/plating,
+/area/misc/operative_barracks/hangar)
+"It" = (
+/obj/effect/turf_decal/siding/dark{
+	dir = 1
+	},
+/obj/structure/railing/unbreakable{
+	dir = 1
+	},
+/obj/effect/turf_decal/siding/dark_red,
+/obj/effect/turf_decal/vg_decals/numbers/nine,
+/turf/open/floor/mineral/plastitanium/red,
+/area/misc/operative_barracks/hangar)
+"Iz" = (
+/obj/structure/railing/unbreakable{
+	dir = 8
+	},
+/obj/effect/turf_decal/stripes/line{
+	dir = 8
+	},
+/obj/effect/turf_decal/siding/dark{
+	dir = 4
+	},
+/obj/effect/turf_decal/caution/stand_clear{
+	dir = 4
+	},
+/turf/open/floor/plating,
+/area/misc/operative_barracks/hangar)
+"IE" = (
+/obj/effect/turf_decal/siding/dark_red/corner{
+	dir = 8
+	},
+/obj/effect/turf_decal/siding/yellow/corner{
+	dir = 1
+	},
+/obj/effect/turf_decal/tile/dark_red{
+	dir = 4
+	},
+/turf/open/floor/mineral/plastitanium,
+/area/misc/operative_barracks/mission_briefing)
+"IJ" = (
+/turf/closed/wall/r_wall/syndicate/nodiagonal,
+/area/misc/operative_barracks/hangar)
+"IS" = (
+/obj/effect/turf_decal/siding/dark{
+	dir = 1
+	},
+/obj/structure/railing/unbreakable{
+	dir = 1
+	},
+/obj/effect/turf_decal/siding/dark_red,
+/obj/effect/turf_decal/vg_decals/numbers/zero,
+/turf/open/floor/mineral/plastitanium/red,
+/area/misc/operative_barracks/hangar)
+"IW" = (
+/obj/machinery/atmospherics/pipe/multiz/scrubbers/visible/layer2,
+/obj/machinery/atmospherics/pipe/multiz/supply/visible/layer4,
+/obj/effect/decal/cleanable/dirt/dust,
+/turf/open/floor/plating,
+/area/misc/operative_barracks/hangar)
+"Jh" = (
+/obj/effect/turf_decal/stripes/white/line{
+	dir = 8
+	},
+/obj/structure/fluff/fake_scrubber,
+/turf/open/floor/iron/dark/smooth_large,
+/area/misc/operative_barracks/hangar)
+"JB" = (
+/obj/effect/decal/cleanable/dirt/dust,
+/obj/machinery/light/small/directional/east,
+/turf/open/floor/plating,
+/area/misc/operative_barracks/hangar)
+"JF" = (
+/obj/structure/window/reinforced/survival_pod/spawner/directional/west,
+/obj/structure/sign/directions/engineering/directional/north{
+	pixel_y = 36
+	},
+/obj/structure/sign/directions/medical/directional/north{
+	pixel_y = 29;
+	dir = 5
+	},
+/obj/item/kirbyplants/organic/plant10,
+/obj/effect/turf_decal/tile/dark_red{
+	dir = 1
+	},
+/turf/open/floor/mineral/plastitanium,
+/area/misc/operative_barracks/mission_briefing)
+"JJ" = (
+/obj/effect/turf_decal/siding/dark{
+	dir = 5
+	},
+/obj/machinery/light/floor,
+/turf/open/floor/mineral/plastitanium,
+/area/misc/operative_barracks/mission_briefing)
+"JN" = (
+/obj/machinery/mechpad{
+	id = null
+	},
+/turf/open/floor/circuit/green/anim,
+/area/misc/operative_barracks/robotics)
+"Ka" = (
+/obj/structure/reagent_dispensers/plumbed/fuel,
+/obj/item/clothing/head/utility/welding,
+/obj/effect/decal/cleanable/dirt/dust,
+/obj/effect/turf_decal/bot_white/right,
+/turf/open/floor/iron/dark/small,
+/area/misc/operative_barracks/hangar)
+"Kf" = (
+/obj/structure/fluff/fake_vent,
+/turf/open/floor/iron,
+/area/misc/operative_barracks)
+"Kq" = (
+/obj/structure/sign/warning/electric_shock/directional/west,
+/obj/structure/fluff/fake_camera{
+	dir = 10
+	},
+/turf/open/floor/plating,
+/area/misc/operative_barracks/hangar)
+"Kw" = (
+/turf/closed/wall/r_wall/syndicate,
+/area/misc/operative_barracks/bathroom)
+"Kz" = (
+/obj/effect/turf_decal/siding/dark,
+/turf/open/floor/plating,
+/area/misc/operative_barracks/hangar)
+"KE" = (
+/obj/structure/railing/corner/end/unbreakable{
+	dir = 1
+	},
+/obj/effect/turf_decal/loading_area/white,
+/obj/item/tank/internals/plasmaman,
+/turf/open/floor/iron/dark/small,
+/area/misc/operative_barracks/hangar)
+"KI" = (
+/obj/effect/turf_decal/box/white/corners,
+/obj/effect/turf_decal/box/white/corners{
+	dir = 8
+	},
+/obj/machinery/portable_atmospherics/pump,
+/obj/machinery/light/small/directional/east,
+/turf/open/floor/plating,
+/area/misc/operative_barracks/hangar)
+"KK" = (
+/turf/open/floor/mineral/plastitanium,
+/area/misc/operative_barracks)
+"KO" = (
+/obj/effect/turf_decal/stripes/corner{
+	dir = 4
+	},
+/obj/structure/railing/corner/end/flip/unbreakable{
+	dir = 4
+	},
+/obj/structure/railing/corner/end/unbreakable{
+	dir = 1
+	},
+/obj/effect/turf_decal/siding/dark/corner{
+	dir = 1
+	},
+/turf/open/floor/plating,
+/area/misc/operative_barracks/hangar)
+"KS" = (
+/obj/structure/table/reinforced,
+/obj/machinery/door/window/left/directional/south,
+/obj/machinery/door/window/left/directional/north,
+/obj/structure/fluff/fake_firedoor,
+/obj/item/mod/paint,
+/turf/open/floor/iron/dark/smooth_large,
+/area/misc/operative_barracks/robotics)
+"KU" = (
+/obj/machinery/chem_heater/withbuffer,
+/obj/machinery/light/directional/east,
+/obj/structure/sign/poster/contraband/interdyne_gene_clinics/directional/east,
+/obj/item/reagent_containers/cup/glass/drinkingglass/filled/doctor_delight{
+	pixel_y = 18;
+	pixel_x = 3
+	},
+/turf/open/floor/iron/dark,
+/area/misc/operative_barracks/medbay)
+"KV" = (
+/obj/effect/turf_decal/stripes/corner,
+/obj/structure/railing/corner/end/flip/unbreakable,
+/turf/open/floor/plating,
+/area/misc/operative_barracks/hangar)
+"KY" = (
+/obj/structure/railing/unbreakable{
+	dir = 8
+	},
+/obj/effect/turf_decal/stripes/line{
+	dir = 8
+	},
+/obj/effect/turf_decal/caution/stand_clear{
+	dir = 4
+	},
+/obj/effect/turf_decal/siding/dark{
+	dir = 4
+	},
+/turf/open/floor/plating,
+/area/misc/operative_barracks/hangar)
+"Ls" = (
+/obj/machinery/rnd/production/protolathe/department/security,
+/obj/machinery/light/small/directional/south,
+/obj/effect/decal/cleanable/dirt/dust,
+/obj/effect/mapping_helpers/atom_injector/element_injector{
+	target_type = /obj/machinery/rnd/production/protolathe;
+	element_type = /datum/element/voucher_redeemer;
+	element_args = list(/obj/item/paper/paperslip/corporate/syndicate/traitor/primary, /datum/voucher_set/traitor/primary_weapon, sound_effect = 'sound/machines/lathe/lathe_print.ogg')
+	},
+/turf/open/floor/iron/smooth,
+/area/misc/operative_barracks/armoury)
+"LF" = (
+/obj/effect/turf_decal/siding/dark,
+/obj/effect/light_emitter/thunderdome,
+/turf/open/floor/plating,
+/area/misc/operative_barracks/hangar)
+"LK" = (
+/obj/effect/turf_decal/siding/dark{
+	dir = 6
+	},
+/obj/structure/railing/unbreakable{
+	dir = 4
+	},
+/turf/open/floor/plating,
+/area/misc/operative_barracks/hangar)
+"LQ" = (
+/obj/effect/turf_decal/siding/dark{
+	dir = 1
+	},
+/obj/structure/railing/unbreakable{
+	dir = 1
+	},
+/turf/open/floor/mineral/plastitanium/red,
+/area/misc/operative_barracks)
+"LW" = (
+/obj/structure/railing/unbreakable,
+/obj/machinery/digital_clock/directional/north,
+/turf/open/floor/wood/parquet,
+/area/misc/operative_barracks/dorm)
+"Mf" = (
+/obj/effect/turf_decal/siding/white{
+	dir = 4
+	},
+/obj/item/reagent_containers/hypospray/medipen/deforest/calopine{
+	pixel_x = -12;
+	pixel_y = -12
+	},
+/obj/item/grenade/chem_grenade{
+	pixel_y = 5
+	},
+/turf/open/floor/mineral/titanium/tiled,
+/area/misc/operative_barracks/medbay)
+"Mk" = (
+/obj/effect/turf_decal/stripes/white/line{
+	dir = 5
+	},
+/turf/open/floor/iron/dark/smooth_large,
+/area/misc/operative_barracks/hangar)
+"Ms" = (
+/obj/structure/extinguisher_cabinet/directional/east,
+/turf/open/floor/iron,
+/area/misc/operative_barracks)
+"Mx" = (
+/obj/effect/turf_decal/siding/purple,
+/obj/effect/turf_decal/tile/dark_red{
+	dir = 1
+	},
+/turf/open/floor/mineral/plastitanium,
+/area/misc/operative_barracks/mission_briefing)
+"My" = (
+/obj/effect/turf_decal/siding/dark/inner_corner,
+/obj/structure/railing/corner/end/unbreakable{
+	dir = 4
+	},
+/turf/open/floor/mineral/plastitanium,
+/area/misc/operative_barracks/hangar)
+"MB" = (
+/turf/open/floor/iron/smooth,
+/area/misc/operative_barracks/armoury)
+"MT" = (
+/obj/structure/mannequin/operative_barracks/sol_militant,
+/turf/open/floor/light{
+	currentcolor = "#6496FA"
+	},
+/area/misc/operative_barracks/mission_briefing)
+"Nc" = (
+/obj/structure/railing/corner/end/flip/unbreakable{
+	dir = 1
+	},
+/obj/effect/turf_decal/stripes/corner{
+	dir = 1
+	},
+/turf/open/floor/plating,
+/area/misc/operative_barracks/hangar)
+"Nd" = (
+/turf/open/floor/iron/dark/small,
+/area/misc/operative_barracks/hangar)
+"Ne" = (
+/turf/closed/wall/r_wall/syndicate,
+/area/misc/operative_barracks/dorm)
+"No" = (
+/obj/effect/turf_decal/siding/white{
+	dir = 8
+	},
+/obj/item/stock_parts/power_store/cell/high,
+/turf/open/floor/mineral/titanium/tiled,
+/area/misc/operative_barracks/robotics)
+"Nw" = (
+/obj/effect/light_emitter/thunderdome,
+/turf/open/floor/plating,
+/area/misc/operative_barracks/hangar)
+"Nz" = (
+/turf/cordon,
+/area/misc/operative_barracks)
+"NN" = (
+/obj/machinery/recharge_station,
+/obj/structure/extinguisher_cabinet/directional/west,
+/turf/open/floor/iron,
+/area/misc/operative_barracks)
+"NR" = (
+/obj/structure/reagent_dispensers/wall/peppertank/directional/east,
+/obj/effect/turf_decal/tile/dark_red{
+	dir = 4
+	},
+/turf/open/floor/iron/smooth,
+/area/misc/operative_barracks/armoury)
+"NS" = (
+/obj/effect/turf_decal/siding/dark/corner{
+	dir = 8
+	},
+/turf/open/floor/plating,
+/area/misc/operative_barracks/hangar)
+"Od" = (
+/obj/effect/turf_decal/stripes/white/line{
+	dir = 4
+	},
+/obj/structure/fluff/fake_vent,
+/turf/open/floor/iron/dark/smooth_large,
+/area/misc/operative_barracks/hangar)
+"Of" = (
+/turf/open/floor/iron/dark/smooth_large,
+/area/misc/operative_barracks/hangar)
+"Og" = (
+/obj/effect/turf_decal/stripes/corner{
+	dir = 1
+	},
+/obj/structure/railing/corner/end/flip/unbreakable{
+	dir = 1
+	},
+/obj/effect/turf_decal/siding/dark/corner{
+	dir = 4
+	},
+/turf/open/floor/plating,
+/area/misc/operative_barracks/hangar)
+"Oi" = (
+/obj/effect/turf_decal/stripes/white/line{
+	dir = 4
+	},
+/turf/open/floor/iron/dark/smooth_large,
+/area/misc/operative_barracks/hangar)
+"Om" = (
+/obj/effect/turf_decal/siding/dark_blue/corner{
+	dir = 4
+	},
+/obj/effect/turf_decal/tile/dark_red{
+	dir = 1
+	},
+/turf/open/floor/mineral/plastitanium,
+/area/misc/operative_barracks/mission_briefing)
+"Os" = (
+/obj/machinery/light/small/directional/east,
+/obj/structure/mannequin/operative_barracks/loadout{
+	dir = 8
+	},
+/turf/open/floor/iron/dark/smooth_large,
+/area/misc/operative_barracks/dorm)
+"Oz" = (
+/obj/effect/turf_decal/trimline/dark_red/line{
+	dir = 8
+	},
+/turf/open/floor/iron/dark,
+/area/misc/operative_barracks/hangar)
+"OB" = (
+/obj/effect/baseturf_helper{
+	baseturf = /turf/open/floor/plating
+	},
+/turf/closed/indestructible/syndicate,
+/area/misc/operative_barracks/armoury)
+"OH" = (
+/obj/effect/turf_decal/siding/dark/corner{
+	dir = 8
+	},
+/obj/effect/turf_decal/siding/dark_red{
+	dir = 1
+	},
+/turf/open/floor/mineral/plastitanium,
+/area/misc/operative_barracks/mission_briefing)
+"OI" = (
+/turf/closed/wall/r_wall/syndicate,
+/area/misc/operative_barracks/medbay)
+"OU" = (
+/obj/effect/turf_decal/loading_area/white,
+/obj/item/tank/internals/nitrogen,
+/turf/open/floor/iron/dark/small,
+/area/misc/operative_barracks/hangar)
+"OZ" = (
+/obj/effect/turf_decal/siding/wood{
+	dir = 1
+	},
+/turf/open/floor/iron/grimy,
+/area/misc/operative_barracks/dorm)
+"Pa" = (
+/obj/effect/turf_decal/stripes/line{
+	dir = 4
+	},
+/obj/structure/railing/unbreakable{
+	dir = 4
+	},
+/obj/effect/turf_decal/siding/dark{
+	dir = 8
+	},
+/turf/open/floor/plating,
+/area/misc/operative_barracks/hangar)
+"Pe" = (
+/obj/effect/turf_decal/siding/dark/corner,
+/obj/effect/turf_decal/siding/dark{
+	dir = 1
+	},
+/turf/open/floor/plating,
+/area/misc/operative_barracks/hangar)
+"Pl" = (
+/obj/structure/table/reinforced/plastitaniumglass,
+/obj/item/storage/box/handcuffs{
+	pixel_y = 10
+	},
+/obj/effect/decal/cleanable/dirt/dust,
+/obj/effect/turf_decal/tile/dark_red/fourcorners,
+/obj/item/knife/combat/survival{
+	pixel_x = 6;
+	pixel_y = 4
+	},
+/obj/item/reagent_containers/spray/pepper/empty{
+	pixel_x = -8;
+	pixel_y = 4
+	},
+/turf/open/floor/iron/smooth,
+/area/misc/operative_barracks/armoury)
+"Py" = (
+/obj/effect/turf_decal/siding/dark/corner{
+	dir = 1
+	},
+/turf/open/floor/mineral/plastitanium,
+/area/misc/operative_barracks)
+"PB" = (
+/obj/machinery/vending/security/noaccess{
+	onstation_override = 1
+	},
+/obj/item/toy/plush/nova/fox{
+	pixel_y = 18;
+	pixel_x = 7
+	},
+/obj/item/reagent_containers/cup/glass/drinkingglass/filled/fringe_weaver{
+	pixel_x = -7;
+	pixel_y = 18
+	},
+/obj/structure/sign/poster/contraband/fun_police/directional/east,
+/obj/effect/decal/cleanable/dirt/dust,
+/obj/effect/mapping_helpers/atom_injector/element_injector{
+	target_type = /obj/machinery/vending;
+	element_type = /datum/element/voucher_redeemer;
+	element_args = list(/obj/item/paper/paperslip/corporate/syndicate/traitor/secondary, /datum/voucher_set/traitor/secondary_weapon)
+	},
+/obj/structure/fluff/fake_camera{
+	dir = 6
+	},
+/turf/open/floor/iron/dark/side{
+	dir = 6
+	},
+/area/misc/operative_barracks/armoury)
+"PF" = (
+/turf/closed/indestructible/syndicate,
+/area/misc/operative_barracks/surgery)
+"PK" = (
+/turf/closed/wall/r_wall/syndicate,
+/area/misc/operative_barracks/armoury)
+"PQ" = (
+/obj/effect/turf_decal/nova_decals/syndicate/top/middle,
+/turf/open/floor/mineral/plastitanium/red,
+/area/misc/operative_barracks/mission_briefing)
+"PR" = (
+/obj/effect/turf_decal/tile/dark_red{
+	dir = 8
+	},
+/obj/machinery/digital_clock/directional/west{
+	pixel_x = -32
+	},
+/obj/item/storage/backpack/satchel{
+	pixel_x = -11;
+	pixel_y = 8
+	},
+/turf/open/floor/mineral/plastitanium,
+/area/misc/operative_barracks)
+"Qf" = (
+/obj/effect/turf_decal/tile/dark_red{
+	dir = 8
+	},
+/obj/structure/table,
+/obj/machinery/coffeemaker,
+/obj/structure/sign/poster/contraband/donk_co/directional/west,
+/turf/open/floor/mineral/plastitanium,
+/area/misc/operative_barracks)
+"Qj" = (
+/obj/machinery/smartfridge/organ,
+/obj/item/storage/organbox{
+	pixel_y = 15;
+	pixel_x = 4
+	},
+/turf/open/floor/iron/showroomfloor,
+/area/misc/operative_barracks/surgery)
+"Qk" = (
+/turf/closed/indestructible/fakedoor/blast_door{
+	name = "Launchpad no. 10"
+	},
+/area/misc/operative_barracks/hangar)
+"Qx" = (
+/obj/effect/turf_decal/siding/dark/corner{
+	dir = 1
+	},
+/obj/structure/fluff/fake_camera{
+	dir = 6
+	},
+/turf/open/floor/plating,
+/area/misc/operative_barracks/hangar)
+"Qy" = (
+/obj/effect/turf_decal/tile/dark_red{
+	dir = 8
+	},
+/obj/machinery/vending/cigarette/syndicate{
+	onstation_override = 1
+	},
+/obj/item/lighter/greyscale{
+	pixel_x = -4;
+	pixel_y = 17
+	},
+/turf/open/floor/mineral/plastitanium,
+/area/misc/operative_barracks)
+"QD" = (
+/obj/machinery/vending/modularpc{
+	onstation_override = 1
+	},
+/obj/effect/mapping_helpers/atom_injector/element_injector{
+	target_type = /obj/machinery/vending;
+	element_type = /datum/element/voucher_redeemer;
+	element_args = list(/obj/item/paper/paperslip/corporate/syndicate/traitor/supplies, /datum/voucher_set/traitor/supplies/stealth)
+	},
+/turf/open/floor/mineral/plastitanium/red,
+/area/misc/operative_barracks/mission_briefing)
+"QE" = (
+/obj/effect/turf_decal/siding/thinplating_new/light/corner{
+	dir = 4
+	},
+/obj/structure/fluff/fake_vent,
+/turf/open/floor/mineral/titanium/tiled,
+/area/misc/operative_barracks/medbay)
+"QL" = (
+/obj/machinery/ammo_workbench/unlocked,
+/obj/effect/mapping_helpers/atom_injector/element_injector{
+	target_type = /obj/machinery/ammo_workbench;
+	element_type = /datum/element/voucher_redeemer;
+	element_args = list(/obj/item/paper/paperslip/corporate/syndicate/traitor/supplies, /datum/voucher_set/traitor/supplies/ammo, sound_effect = 'sound/machines/piston/piston_raise.ogg')
+	},
+/turf/open/floor/circuit/red/anim,
+/area/misc/operative_barracks/armoury)
+"QU" = (
+/obj/structure/fluff/fake_scrubber,
+/obj/effect/turf_decal/siding/purple/corner{
+	dir = 8
+	},
+/turf/open/floor/mineral/plastitanium,
+/area/misc/operative_barracks/mission_briefing)
+"QX" = (
+/obj/effect/turf_decal/caution{
+	dir = 8
+	},
+/obj/structure/railing/unbreakable{
+	dir = 8
+	},
+/obj/effect/turf_decal/stripes/line{
+	dir = 8
+	},
+/turf/open/floor/plating,
+/area/misc/operative_barracks/hangar)
+"QZ" = (
+/obj/item/storage/pouch/cin_medipens,
+/turf/open/floor/iron/dark/side{
+	dir = 4
+	},
+/area/misc/operative_barracks/medbay)
+"Rb" = (
+/obj/effect/turf_decal/siding/thinplating_new/light{
+	dir = 8
+	},
+/obj/machinery/iv_drip,
+/obj/structure/sign/poster/contraband/little_fruits/directional/east,
+/obj/machinery/digital_clock/directional/south,
+/turf/open/floor/mineral/titanium/tiled/white,
+/area/misc/operative_barracks/surgery)
+"RA" = (
+/obj/structure/railing/unbreakable{
+	dir = 1
+	},
+/obj/effect/turf_decal/siding/dark{
+	dir = 5
+	},
+/obj/effect/turf_decal/vg_decals/numbers/nine,
+/turf/open/floor/mineral/plastitanium/red,
+/area/misc/operative_barracks)
+"RH" = (
+/obj/structure/railing/corner/unbreakable{
+	dir = 4
+	},
+/obj/effect/turf_decal/siding/dark/corner{
+	dir = 4
+	},
+/obj/effect/turf_decal/siding/dark_red{
+	dir = 10
+	},
+/obj/machinery/light/floor,
+/turf/open/floor/mineral/plastitanium/red,
+/area/misc/operative_barracks/hangar)
+"RJ" = (
+/obj/effect/turf_decal/siding/dark{
+	dir = 8
+	},
+/obj/effect/turf_decal/vg_decals/numbers/zero,
+/obj/effect/light_emitter/thunderdome,
+/turf/open/floor/plating,
+/area/misc/operative_barracks/hangar)
+"RR" = (
+/obj/structure/sign/warning/docking/directional/west,
+/turf/open/floor/plating,
+/area/misc/operative_barracks/hangar)
+"RV" = (
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/visible/layer2,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/visible/layer4,
+/obj/structure/cable,
+/turf/open/floor/plating,
+/area/misc/operative_barracks/hangar)
+"RX" = (
+/obj/effect/turf_decal/siding/dark{
+	dir = 8
+	},
+/turf/open/floor/mineral/plastitanium,
+/area/misc/operative_barracks/mission_briefing)
+"Sg" = (
+/obj/structure/railing/unbreakable,
+/obj/effect/turf_decal/siding/dark,
+/obj/item/kirbyplants/organic/plant1,
+/turf/open/floor/mineral/plastitanium/red,
+/area/misc/operative_barracks/hangar)
+"Sm" = (
+/obj/effect/turf_decal/siding/dark/corner{
+	dir = 8
+	},
+/obj/effect/turf_decal/vg_decals/numbers/zero,
+/turf/open/floor/plating,
+/area/misc/operative_barracks/hangar)
+"Su" = (
+/obj/structure/sign/warning/docking/directional/east,
+/turf/open/floor/plating,
+/area/misc/operative_barracks/hangar)
+"Sw" = (
+/obj/machinery/light/floor,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/structure/cable,
+/turf/open/floor/iron/dark,
+/area/misc/operative_barracks/hangar)
+"SA" = (
+/turf/closed/wall/r_wall/syndicate,
+/area/misc/operative_barracks/surgery)
+"SD" = (
+/obj/structure/fluff/fake_scrubber,
+/obj/structure/closet/generic/wall/empty{
+	pixel_x = -32;
+	name = "ammunition locker"
+	},
+/obj/effect/turf_decal/tile/dark_red{
+	dir = 8
+	},
+/obj/item/grenade/barrier,
+/obj/item/grenade/barrier,
+/turf/open/floor/iron/smooth,
+/area/misc/operative_barracks/armoury)
+"SF" = (
+/obj/structure/cable/multilayer/multiz,
+/obj/machinery/door/window/brigdoor/right/directional/south,
+/turf/open/floor/catwalk_floor/iron,
+/area/misc/operative_barracks)
+"Th" = (
+/obj/effect/turf_decal/stripes/white/corner,
+/obj/structure/marker_beacon/bronze{
+	pixel_x = -8;
+	pixel_y = 8
+	},
+/obj/structure/cable,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/turf/open/floor/iron/dark/textured_corner{
+	dir = 1
+	},
+/area/misc/operative_barracks/hangar)
+"Tp" = (
+/obj/effect/turf_decal/siding/dark/corner{
+	dir = 8
+	},
+/obj/structure/railing/corner/end/flip/unbreakable{
+	dir = 8
+	},
+/turf/open/floor/mineral/plastitanium/red,
+/area/misc/operative_barracks)
+"TP" = (
+/turf/open/space/basic,
+/area/space)
+"TT" = (
+/obj/item/storage/pouch/cin_general{
+	pixel_x = -2;
+	pixel_y = 5
+	},
+/turf/open/floor/iron/dark/side{
+	dir = 4
+	},
+/area/misc/operative_barracks/medbay)
+"Ub" = (
+/obj/effect/turf_decal/stripes/white/corner{
+	dir = 8
+	},
+/obj/structure/marker_beacon/bronze{
+	pixel_x = 8;
+	pixel_y = 8
+	},
+/obj/structure/cable,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/turf/open/floor/iron/dark/textured_corner{
+	dir = 4
+	},
+/area/misc/operative_barracks/hangar)
+"Uc" = (
+/obj/effect/turf_decal/siding/thinplating_new{
+	dir = 9
+	},
+/obj/structure/fluff/fake_scrubber,
+/turf/open/floor/mineral/titanium/tiled,
+/area/misc/operative_barracks/armoury)
+"Uf" = (
+/obj/effect/turf_decal/siding/dark{
+	dir = 4
+	},
+/obj/effect/turf_decal/vg_decals/numbers/nine,
+/obj/effect/light_emitter/thunderdome,
+/turf/open/floor/plating,
+/area/misc/operative_barracks/hangar)
+"Ux" = (
+/obj/machinery/computer/crew/syndie{
+	dir = 1
+	},
+/obj/item/disk/nuclear/fake{
+	pixel_x = -19;
+	pixel_y = 9
+	},
+/obj/effect/decal/cleanable/dirt/dust,
+/obj/structure/fluff/fake_camera,
+/obj/effect/turf_decal/tile/dark_red{
+	dir = 8
+	},
+/turf/open/floor/mineral/plastitanium,
+/area/misc/operative_barracks/mission_briefing)
+"UB" = (
+/obj/effect/turf_decal/tile/dark_red{
+	dir = 8
+	},
+/turf/open/floor/iron/smooth,
+/area/misc/operative_barracks/armoury)
+"UD" = (
+/obj/effect/turf_decal/siding/white/corner{
+	dir = 4
+	},
+/obj/effect/turf_decal/siding/thinplating_new/light,
+/obj/item/reagent_containers/hypospray/medipen/deforest/krotozine{
+	pixel_y = 8;
+	pixel_x = -1
+	},
+/turf/open/floor/mineral/titanium/tiled,
+/area/misc/operative_barracks/medbay)
+"UG" = (
+/obj/structure/table/reinforced,
+/obj/machinery/recharger{
+	pixel_y = 7;
+	pixel_x = -5
+	},
+/obj/item/flashlight/seclite{
+	pixel_y = -3;
+	pixel_x = 8
+	},
+/obj/item/clothing/mask/gas/syndicate{
+	pixel_x = 8;
+	pixel_y = 9
+	},
+/obj/item/storage/briefcase/secure{
+	pixel_y = -16
+	},
+/obj/effect/decal/cleanable/dirt/dust,
+/turf/open/floor/iron/dark,
+/area/misc/operative_barracks/armoury)
+"UL" = (
+/obj/structure/marker_beacon/bronze{
+	pixel_x = -8;
+	pixel_y = -8
+	},
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/structure/cable,
+/turf/open/floor/iron/dark/textured_corner{
+	dir = 8
+	},
+/area/misc/operative_barracks/hangar)
+"UP" = (
+/turf/open/floor/mineral/titanium/tiled,
+/area/misc/operative_barracks/medbay)
+"US" = (
+/obj/structure/mannequin/operative_barracks/hacker,
+/turf/open/floor/light{
+	currentcolor = "#FA8282"
+	},
+/area/misc/operative_barracks/mission_briefing)
+"UW" = (
+/obj/structure/railing/corner/end/unbreakable,
+/obj/effect/turf_decal/stripes/corner{
+	dir = 8
+	},
+/obj/effect/turf_decal/siding/dark/corner,
+/turf/open/floor/plating,
+/area/misc/operative_barracks/hangar)
+"Vg" = (
+/obj/item/toy/plush/monkey{
+	pixel_y = 24;
+	pixel_x = -10
+	},
+/obj/effect/turf_decal/siding/yellow/corner{
+	dir = 8
+	},
+/obj/effect/turf_decal/tile/dark_red{
+	dir = 4
+	},
+/turf/open/floor/mineral/plastitanium,
+/area/misc/operative_barracks/mission_briefing)
+"Vn" = (
+/obj/effect/turf_decal/siding/dark/end{
+	dir = 8
+	},
+/turf/open/floor/plating,
+/area/misc/operative_barracks/hangar)
+"VB" = (
+/obj/effect/turf_decal/siding/dark{
+	dir = 4
+	},
+/obj/structure/window/reinforced/spawner/directional/west,
+/obj/effect/turf_decal/tile/yellow{
+	dir = 1
+	},
+/obj/structure/sign/directions/arrival/directional/north{
+	pixel_y = 36
+	},
+/obj/structure/sign/directions/security/directional/north{
+	pixel_y = 29
+	},
+/turf/open/floor/iron/dark/side{
+	dir = 4
+	},
+/area/misc/operative_barracks)
+"VC" = (
+/obj/effect/turf_decal/tile/dark_red{
+	dir = 8
+	},
+/turf/open/floor/mineral/plastitanium,
+/area/misc/operative_barracks)
+"VE" = (
+/obj/structure/lattice,
+/turf/open/space/basic,
+/area/space/nearstation)
+"VI" = (
+/obj/effect/turf_decal/tile/dark_red,
+/obj/machinery/digital_clock/directional/east{
+	pixel_x = 32
+	},
+/turf/open/floor/mineral/plastitanium,
+/area/misc/operative_barracks)
+"VL" = (
+/obj/effect/baseturf_helper{
+	baseturf = /turf/open/floor/plating
+	},
+/turf/closed/wall/r_wall/syndicate,
+/area/misc/operative_barracks/mission_briefing)
+"VM" = (
+/obj/effect/turf_decal/siding/wood/corner{
+	dir = 1
+	},
+/turf/open/floor/iron/grimy,
+/area/misc/operative_barracks/dorm)
+"VQ" = (
+/obj/machinery/door/airlock/medical/glass{
+	name = "Surgery Room"
+	},
+/obj/effect/mapping_helpers/airlock/cutaiwire,
+/obj/structure/fans/tiny,
+/obj/structure/plasticflaps/kitchen{
+	name = "plastic flaps"
+	},
+/turf/open/floor/iron/showroomfloor,
+/area/misc/operative_barracks/surgery)
+"VU" = (
+/obj/structure/sign/warning/fire/directional/east,
+/obj/effect/turf_decal/box/white/corners{
+	dir = 4
+	},
+/obj/effect/turf_decal/box/white/corners{
+	dir = 1
+	},
+/obj/machinery/portable_atmospherics/scrubber,
+/obj/structure/fluff/fake_camera{
+	dir = 6
+	},
+/obj/effect/decal/cleanable/dirt/dust,
+/turf/open/floor/plating,
+/area/misc/operative_barracks/hangar)
+"VW" = (
+/obj/machinery/modular_computer/preset/civilian,
+/obj/effect/mapping_helpers/atom_injector/element_injector{
+	target_type = /obj/machinery/modular_computer;
+	element_type = /datum/element/voucher_redeemer;
+	element_args = list(/obj/item/paper/paperslip/corporate/syndicate/traitor, /datum/voucher_set/traitor/voucher_trade, sound_effect = 'sound/machines/card_slide.ogg')
+	},
+/turf/open/floor/mineral/plastitanium/red,
+/area/misc/operative_barracks/mission_briefing)
+"VZ" = (
+/obj/effect/turf_decal/siding/dark/corner{
+	dir = 1
+	},
+/obj/structure/railing/corner/unbreakable{
+	dir = 1
+	},
+/obj/effect/turf_decal/siding/dark_red{
+	dir = 6
+	},
+/obj/machinery/light/floor,
+/turf/open/floor/mineral/plastitanium/red,
+/area/misc/operative_barracks/hangar)
+"Wb" = (
+/obj/effect/turf_decal/siding/dark{
+	dir = 1
+	},
+/obj/structure/railing/unbreakable{
+	dir = 1
+	},
+/obj/effect/turf_decal/siding/dark_red,
+/turf/open/floor/mineral/plastitanium/red,
+/area/misc/operative_barracks/hangar)
+"Wg" = (
+/obj/structure/sign/poster/contraband/crocin_pool/directional/south,
+/obj/structure/fluff/fake_scrubber,
+/turf/open/floor/iron/white/small,
+/area/misc/operative_barracks/bathroom)
+"Wl" = (
+/obj/structure/reagent_dispensers/fueltank,
+/obj/item/clothing/head/utility/welding,
+/obj/effect/decal/cleanable/dirt/dust,
+/turf/open/floor/iron/dark,
+/area/misc/operative_barracks/robotics)
+"Wo" = (
+/obj/effect/spawner/structure/window/reinforced/plasma/plastitanium,
+/turf/open/floor/plating,
+/area/misc/operative_barracks/mission_briefing)
+"Wq" = (
+/obj/effect/turf_decal/siding/dark_red{
+	dir = 8
+	},
+/obj/effect/turf_decal/tile/dark_red{
+	dir = 4
+	},
+/turf/open/floor/mineral/plastitanium,
+/area/misc/operative_barracks/mission_briefing)
+"Wu" = (
+/obj/structure/toilet{
+	dir = 8;
+	pixel_x = 2
+	},
+/obj/item/bikehorn/rubberducky{
+	pixel_x = 4;
+	pixel_y = 2
+	},
+/turf/open/floor/iron/white/small,
+/area/misc/operative_barracks/bathroom)
+"WF" = (
+/turf/closed/indestructible/syndicate,
+/area/misc/operative_barracks/hangar)
+"WH" = (
+/obj/machinery/light/small/directional/west,
+/obj/structure/dresser,
+/obj/item/storage/backpack/duffelbag/syndie{
+	pixel_y = -12;
+	pixel_x = 12;
+	zipped_up = 0
+	},
+/obj/structure/bedsheetbin/basket{
+	pixel_y = 18
+	},
+/turf/open/floor/wood/parquet,
+/area/misc/operative_barracks/dorm)
+"WO" = (
+/obj/structure/fake_stairs/directional/west{
+	color = "#7F7F7F";
+	dir = 4
+	},
+/turf/open/floor/plating,
+/area/misc/operative_barracks/hangar)
+"WR" = (
+/obj/structure/fluff/fake_scrubber,
+/obj/effect/turf_decal/siding/wood{
+	dir = 9
+	},
+/turf/open/floor/iron/grimy,
+/area/misc/operative_barracks/dorm)
+"Xd" = (
+/obj/item/kirbyplants/organic/plant19,
+/obj/structure/sign/poster/contraband/blood_geometer/directional/south,
+/obj/effect/decal/cleanable/dirt/dust,
+/turf/open/floor/iron/grimy,
+/area/misc/operative_barracks/dorm)
+"Xi" = (
+/obj/effect/turf_decal/tile/dark_red,
+/obj/structure/closet/crate/bin,
+/obj/item/food/donkpocket/dank,
+/obj/structure/sign/warning/yes_smoking/circle/directional/south,
+/turf/open/floor/mineral/plastitanium,
+/area/misc/operative_barracks)
+"Xj" = (
+/obj/structure/railing/corner/end/flip/unbreakable{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/structure/cable,
+/obj/effect/turf_decal/trimline/dark_red/line{
+	dir = 8
+	},
+/turf/open/floor/iron/dark,
+/area/misc/operative_barracks/hangar)
+"Xt" = (
+/obj/structure/cable,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/turf/open/floor/catwalk_floor/iron_dark,
+/area/misc/operative_barracks/hangar)
+"XC" = (
+/obj/effect/turf_decal/siding/dark,
+/obj/structure/railing/unbreakable,
+/obj/effect/decal/cleanable/dirt/dust,
+/obj/item/kirbyplants/organic/plant20,
+/turf/open/floor/mineral/plastitanium/red,
+/area/misc/operative_barracks)
+"XH" = (
+/obj/effect/turf_decal/trimline/dark_red/corner{
+	dir = 4
+	},
+/turf/open/floor/iron/dark,
+/area/misc/operative_barracks/hangar)
+"XX" = (
+/obj/structure/fluff/fake_firedoor,
+/obj/machinery/door/airlock/public{
+	name = "Aft Hallway"
+	},
+/obj/effect/mapping_helpers/airlock/access/all/syndicate/leader,
+/obj/effect/mapping_helpers/airlock/cutaiwire,
+/turf/open/floor/mineral/plastitanium/red,
+/area/misc/operative_barracks)
+"XY" = (
+/turf/open/floor/catwalk_floor/iron_dark,
+/area/misc/operative_barracks/hangar)
+"Yb" = (
+/obj/effect/turf_decal/siding/dark,
+/obj/structure/railing/unbreakable,
+/obj/machinery/light/small/directional/north,
+/turf/open/floor/mineral/plastitanium/red,
+/area/misc/operative_barracks)
+"Yc" = (
+/obj/effect/baseturf_helper{
+	baseturf = /turf/open/floor/plating
+	},
+/turf/closed/indestructible/syndicate/nodiagonal,
+/area/misc/operative_barracks)
+"Yh" = (
+/obj/structure/table/reinforced,
+/obj/machinery/door/window/left/directional/south,
+/obj/machinery/door/window/left/directional/north,
+/obj/structure/fluff/fake_firedoor,
+/obj/item/folder/white,
+/obj/item/pen,
+/turf/open/floor/iron/dark/smooth_large,
+/area/misc/operative_barracks/medbay)
+"Yn" = (
+/obj/effect/turf_decal/nova_decals/syndicate/top/right,
+/obj/effect/turf_decal/siding/yellow{
+	dir = 4
+	},
+/turf/open/floor/mineral/plastitanium/red,
+/area/misc/operative_barracks/mission_briefing)
+"Yr" = (
+/obj/effect/turf_decal/siding/dark{
+	dir = 6
+	},
+/obj/structure/disposaloutlet{
+	dir = 8;
+	name = "Cargo Deliveries"
+	},
+/turf/open/floor/iron/dark/diagonal,
+/area/misc/operative_barracks/mission_briefing)
+"Ys" = (
+/obj/effect/decal/cleanable/dirt/dust,
+/obj/structure/tank_holder/extinguisher,
+/turf/open/floor/plating,
+/area/misc/operative_barracks/hangar)
+"Yv" = (
+/obj/effect/turf_decal/stripes/corner,
+/obj/structure/railing/corner/end/flip/unbreakable,
+/obj/effect/turf_decal/siding/dark{
+	dir = 8
+	},
+/turf/open/floor/plating,
+/area/misc/operative_barracks/hangar)
+"YB" = (
+/obj/effect/turf_decal/siding/purple{
+	dir = 4
+	},
+/obj/effect/turf_decal/tile/dark_red{
+	dir = 1
+	},
+/turf/open/floor/mineral/plastitanium,
+/area/misc/operative_barracks/mission_briefing)
+"YC" = (
+/obj/structure/chair,
+/turf/open/floor/iron,
+/area/misc/operative_barracks)
+"YW" = (
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/structure/cable,
+/obj/effect/turf_decal/trimline/dark_red/line{
+	dir = 1
+	},
+/turf/open/floor/iron/dark,
+/area/misc/operative_barracks/hangar)
+"Zf" = (
+/obj/effect/turf_decal/siding/corner{
+	dir = 1
+	},
+/obj/structure/sink/directional/east,
+/obj/structure/mirror/directional/west,
+/turf/open/floor/iron/white/small,
+/area/misc/operative_barracks/bathroom)
+"Zk" = (
+/obj/machinery/light/floor,
+/obj/effect/turf_decal/siding/dark/corner{
+	dir = 1
+	},
+/obj/structure/railing/corner/end/unbreakable{
+	dir = 8
+	},
+/turf/open/floor/mineral/plastitanium/red,
+/area/misc/operative_barracks)
+"Zq" = (
+/obj/effect/turf_decal/stripes/white/line{
+	dir = 8
+	},
+/obj/structure/fluff/fake_vent,
+/obj/structure/cable,
+/turf/open/floor/iron/dark/smooth_large,
+/area/misc/operative_barracks/hangar)
+"Zr" = (
+/obj/effect/turf_decal/siding/dark{
+	dir = 10
+	},
+/obj/structure/disposaloutlet{
+	dir = 4;
+	name = "Cargo Deliveries"
+	},
+/turf/open/floor/iron/dark/diagonal,
+/area/misc/operative_barracks/mission_briefing)
+"Zw" = (
+/obj/effect/mapping_helpers/airlock/access/all/syndicate/general,
+/obj/effect/mapping_helpers/airlock/cutaiwire,
+/obj/machinery/door/airlock/medical/glass{
+	name = "Implant Laboratorium"
+	},
+/obj/structure/fluff/fake_firedoor,
+/turf/open/floor/iron/dark/smooth_large,
+/area/misc/operative_barracks/medbay)
+"Zx" = (
+/obj/machinery/light/directional/west,
+/obj/item/mod/construction/shell{
+	pixel_y = 3
+	},
+/obj/structure/sign/poster/contraband/self_ai_liberation/directional/west,
+/obj/effect/turf_decal/siding/thinplating_new/dark,
+/turf/open/floor/iron/dark,
+/area/misc/operative_barracks/robotics)
+"ZD" = (
+/obj/effect/decal/cleanable/dirt/dust,
+/obj/machinery/light/small/directional/west,
+/turf/open/floor/plating,
+/area/misc/operative_barracks/hangar)
+"ZF" = (
+/obj/effect/turf_decal/trimline/dark_red/corner,
+/turf/open/floor/iron/dark,
+/area/misc/operative_barracks/hangar)
+"ZG" = (
+/obj/effect/baseturf_helper{
+	baseturf = /turf/open/floor/plating
+	},
+/turf/closed/wall/r_wall/syndicate,
+/area/misc/operative_barracks/dorm)
+"ZI" = (
+/obj/effect/turf_decal/siding/dark/inner_corner{
+	dir = 8
+	},
+/obj/structure/railing/corner/end/flip/unbreakable{
+	dir = 8
+	},
+/turf/open/floor/mineral/plastitanium,
+/area/misc/operative_barracks/hangar)
+"ZL" = (
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/structure/cable,
+/obj/machinery/light/floor,
+/turf/open/floor/iron/dark/smooth_large,
+/area/misc/operative_barracks/hangar)
+"ZT" = (
+/turf/closed/indestructible/syndicate/nodiagonal,
+/area/misc/operative_barracks/hangar)
+"ZV" = (
+/obj/structure/stairs/west{
+	color = "#7F7F7F";
+	dir = 4
+	},
+/turf/open/floor/iron/dark/smooth_large,
+/area/misc/operative_barracks)
+
+(1,1,1) = {"
+ur
+WF
+EV
+WF
+WF
+un
+un
+un
+un
+un
+un
+un
+un
+un
+un
+oq
+IJ
+VE
+jV
+TP
+TP
+TP
+TP
+TP
+TP
+TP
+"}
+(2,1,1) = {"
+WF
+IW
+fu
+Kq
+mA
+KV
+fP
+su
+fP
+GY
+kf
+kf
+kf
+mf
+mf
+ZD
+oq
+IJ
+VE
+TP
+TP
+TP
+TP
+TP
+rz
+TP
+"}
+(3,1,1) = {"
+WF
+pH
+RV
+Hd
+kf
+UW
+HS
+Iz
+HS
+Og
+KV
+fP
+su
+fP
+GY
+ri
+ni
+IJ
+el
+oq
+TP
+TP
+rz
+rz
+rz
+TP
+"}
+(4,1,1) = {"
+WF
+ch
+nA
+hI
+lN
+Kz
+yk
+GH
+zP
+Pe
+ex
+HS
+KY
+HS
+dv
+Ih
+sc
+ml
+mf
+oq
+oq
+TP
+TP
+rz
+rz
+TP
+"}
+(5,1,1) = {"
+WF
+uJ
+nA
+Fw
+sW
+Kz
+Ar
+Nd
+Nd
+nG
+Fh
+Jh
+Fh
+Fh
+Fh
+Zq
+Mk
+pv
+aL
+nT
+IJ
+oq
+mR
+oP
+rz
+TP
+"}
+(6,1,1) = {"
+WF
+mW
+qr
+Dw
+RH
+Kz
+Ka
+Nd
+Nd
+Of
+eR
+jk
+jk
+ru
+jk
+jk
+mr
+Mk
+pv
+aL
+RR
+uA
+XY
+mR
+rz
+TP
+"}
+(7,1,1) = {"
+WF
+vg
+kf
+kf
+Wb
+NS
+xA
+Of
+Of
+ss
+jk
+od
+bj
+bj
+bj
+xA
+jk
+Ub
+Mk
+pv
+aL
+uA
+XY
+XY
+rz
+TP
+"}
+(8,1,1) = {"
+WF
+eW
+bD
+bD
+IS
+kf
+Kz
+Of
+eR
+jk
+od
+xw
+kf
+kf
+kf
+NS
+xA
+jk
+mr
+Mk
+jm
+kf
+uA
+XY
+rz
+TP
+"}
+(9,1,1) = {"
+WF
+Sg
+WO
+WO
+oS
+sc
+ce
+Of
+jk
+od
+Ge
+kf
+kf
+kf
+uU
+Nw
+Sm
+eP
+jk
+gl
+jm
+kf
+uA
+XY
+XY
+TP
+"}
+(10,1,1) = {"
+oK
+ZI
+ZF
+lZ
+dz
+lZ
+lZ
+XH
+jk
+pv
+Uf
+aL
+kf
+kf
+kf
+kf
+eJ
+Kz
+jk
+gl
+jm
+kf
+kf
+uA
+XY
+TP
+"}
+(11,1,1) = {"
+WF
+qk
+nN
+Of
+Xt
+ZL
+bJ
+YW
+nI
+qi
+qi
+mz
+kf
+kf
+kf
+kf
+kf
+LF
+HX
+gl
+jm
+kf
+kf
+uA
+XY
+TP
+"}
+(12,1,1) = {"
+oK
+My
+BL
+Oz
+Xj
+Oz
+Oz
+Hh
+hp
+od
+RJ
+xw
+kf
+kf
+kf
+kf
+kx
+Kz
+jk
+gl
+jm
+kf
+kf
+uA
+XY
+TP
+"}
+(13,1,1) = {"
+WF
+rs
+Be
+Be
+kw
+bj
+xA
+Of
+hp
+pv
+kq
+kf
+kf
+kf
+kf
+Nw
+xt
+ce
+jk
+gl
+jm
+Hd
+uA
+XY
+XY
+TP
+"}
+(14,1,1) = {"
+WF
+eW
+bD
+bD
+It
+kf
+Kz
+Of
+cD
+hp
+pv
+aL
+kf
+kf
+kf
+fp
+ce
+jk
+zl
+zf
+jm
+kf
+uA
+XY
+rz
+TP
+"}
+(15,1,1) = {"
+WF
+vg
+kf
+kf
+Wb
+mZ
+LK
+Fu
+Of
+UL
+hp
+pv
+sc
+sc
+oZ
+ce
+jk
+Th
+zf
+od
+xw
+uA
+XY
+XY
+TP
+TP
+"}
+(16,1,1) = {"
+WF
+pw
+EF
+hx
+VZ
+em
+iG
+KE
+Nd
+Of
+cD
+hp
+bJ
+Sw
+jk
+jk
+zl
+zf
+od
+xw
+Su
+uA
+XY
+mR
+TP
+TP
+"}
+(17,1,1) = {"
+WF
+yC
+kF
+kf
+kf
+em
+go
+OU
+Nd
+Vn
+Oi
+Od
+Oi
+Oi
+Oi
+EI
+zf
+od
+xw
+nT
+IJ
+oq
+VE
+jV
+TP
+TP
+"}
+(18,1,1) = {"
+WF
+kf
+kF
+kf
+ww
+em
+ks
+eE
+Nd
+Io
+Yv
+Pa
+qn
+Pa
+bs
+uZ
+bj
+Qx
+kf
+oq
+oq
+rz
+rz
+TP
+TP
+TP
+"}
+(19,1,1) = {"
+WF
+kf
+kF
+kf
+kf
+dl
+fx
+CW
+Pa
+KO
+jF
+kl
+QX
+kl
+Nc
+hw
+pt
+IJ
+el
+oq
+TP
+rz
+rz
+TP
+TP
+TP
+"}
+(20,1,1) = {"
+WF
+Ys
+kF
+VU
+KI
+jF
+kl
+aE
+kl
+Nc
+kf
+kf
+mf
+mf
+Hd
+JB
+oq
+IJ
+VE
+TP
+TP
+TP
+TP
+TP
+TP
+TP
+"}
+(21,1,1) = {"
+ZT
+WF
+jt
+WF
+WF
+Qk
+Qk
+Qk
+Qk
+Qk
+Qk
+Qk
+Qk
+Qk
+Qk
+oq
+IJ
+VE
+jV
+TP
+TP
+TP
+TP
+TP
+TP
+TP
+"}
+
+(1,1,2) = {"
+Yc
+fr
+hv
+fr
+fr
+FK
+qN
+qN
+qN
+qN
+qN
+qN
+qN
+OB
+bg
+bg
+sz
+VE
+jV
+TP
+TP
+TP
+TP
+TP
+TP
+TP
+"}
+(2,1,2) = {"
+fr
+HN
+yr
+wC
+NN
+KS
+Wl
+DC
+wu
+yA
+Zx
+JN
+xU
+tm
+uX
+ha
+PK
+wx
+VE
+TP
+TP
+TP
+TP
+TP
+rz
+TP
+"}
+(3,1,2) = {"
+fr
+SF
+Kf
+yr
+ht
+mw
+yg
+uE
+wc
+lR
+Cu
+yx
+xU
+mB
+Uc
+tM
+mN
+ll
+rl
+PK
+TP
+TP
+rz
+rz
+rz
+TP
+"}
+(4,1,2) = {"
+fr
+VB
+ty
+fd
+lc
+du
+xU
+bV
+aC
+vy
+vx
+nE
+xU
+hk
+oU
+uL
+pW
+eF
+UG
+PK
+PK
+TP
+TP
+rz
+rz
+TP
+"}
+(5,1,2) = {"
+ju
+VC
+VC
+VC
+VC
+PR
+Qf
+ah
+sG
+up
+No
+vB
+xU
+QL
+mJ
+Br
+ef
+zy
+AE
+yf
+PK
+wx
+mR
+jV
+rz
+TP
+"}
+(6,1,2) = {"
+XX
+lU
+Er
+Er
+Gc
+KK
+rj
+xU
+xU
+Gn
+zT
+xU
+xU
+PK
+mK
+sU
+PK
+PB
+FW
+AE
+mx
+PK
+wx
+VE
+rz
+TP
+"}
+(7,1,2) = {"
+fr
+yU
+hy
+hy
+LQ
+KK
+Eb
+VL
+ng
+wI
+YB
+rU
+dI
+Om
+mo
+mo
+fC
+PK
+af
+gi
+PK
+wx
+PK
+wx
+rz
+TP
+"}
+(8,1,2) = {"
+fr
+Yb
+ZV
+ZV
+Gq
+KK
+Qy
+fC
+Yr
+Mx
+ps
+iP
+sp
+so
+bH
+ry
+wA
+yL
+PK
+fW
+UB
+yJ
+SD
+rl
+rz
+TP
+"}
+(9,1,2) = {"
+fr
+ow
+hy
+hy
+RA
+DI
+gr
+fC
+JF
+Mx
+ps
+iP
+MT
+eA
+QD
+JJ
+hq
+cX
+PK
+Du
+Pl
+Gp
+MB
+PK
+PK
+TP
+"}
+(10,1,2) = {"
+fr
+fr
+mh
+mh
+DP
+HC
+KK
+oM
+wA
+QU
+FP
+By
+cb
+xZ
+Bv
+og
+uv
+Ux
+PK
+lC
+NR
+jd
+fW
+Ls
+PK
+TP
+"}
+(11,1,2) = {"
+Nz
+Nz
+Nz
+mh
+op
+HC
+KK
+Wo
+wA
+vn
+PQ
+DO
+qj
+ul
+yF
+VW
+tC
+Ev
+PK
+PK
+PK
+PK
+PK
+PK
+PK
+TP
+"}
+(12,1,2) = {"
+fr
+fr
+mh
+mh
+pc
+HC
+KK
+oM
+wA
+iy
+Yn
+Ie
+aH
+uO
+vD
+iM
+se
+If
+ZG
+kd
+WH
+ED
+kc
+Xd
+Ne
+TP
+"}
+(13,1,2) = {"
+fr
+XC
+wP
+wP
+Et
+Py
+wH
+fC
+qh
+uz
+qH
+zu
+zJ
+ls
+nB
+dp
+HH
+wA
+GS
+nv
+WR
+VM
+Au
+Ne
+Ne
+TP
+"}
+(14,1,2) = {"
+fr
+Yb
+lQ
+lQ
+BO
+KK
+gt
+fC
+Zr
+uz
+vF
+zu
+US
+OH
+RX
+HH
+FN
+eG
+Ne
+sl
+OZ
+AO
+iC
+DL
+rz
+TP
+"}
+(15,1,2) = {"
+fr
+yU
+wP
+wP
+LQ
+KK
+Xi
+fC
+Ad
+Vg
+DG
+IE
+Wq
+GF
+mY
+Fc
+fC
+Kw
+Ne
+LW
+xB
+Os
+Ne
+Cs
+TP
+TP
+"}
+(16,1,2) = {"
+XX
+Tp
+pG
+pG
+Zk
+KK
+wK
+fe
+OI
+Zw
+OI
+Zw
+OI
+ln
+EP
+EP
+oB
+eO
+ld
+iN
+Kw
+Ne
+Cs
+VE
+TP
+TP
+"}
+(17,1,2) = {"
+ju
+to
+to
+to
+to
+VI
+eu
+ts
+rS
+UP
+ia
+wk
+QE
+SA
+fQ
+ql
+SA
+ub
+Zf
+Wg
+Kw
+Cs
+VE
+jV
+TP
+TP
+"}
+(18,1,2) = {"
+fr
+Bt
+pi
+pi
+dD
+OI
+OI
+hD
+wn
+Mf
+UD
+wv
+re
+Qj
+ar
+Ee
+SA
+wL
+Wu
+Kw
+Kw
+rz
+rz
+TP
+TP
+TP
+"}
+(19,1,2) = {"
+fr
+YC
+ht
+yr
+Kf
+Yh
+GK
+QZ
+TT
+mT
+FO
+BU
+FE
+VQ
+ar
+Ig
+SA
+ld
+vl
+Kw
+TP
+rz
+rz
+TP
+TP
+TP
+"}
+(20,1,2) = {"
+fr
+Hp
+yr
+BV
+Ms
+zB
+GB
+KU
+oT
+BR
+kK
+bG
+tu
+SA
+Dp
+Rb
+SA
+ld
+VE
+TP
+TP
+TP
+TP
+TP
+TP
+TP
+"}
+(21,1,2) = {"
+mh
+fr
+eZ
+fr
+fr
+cv
+cv
+cv
+cv
+cv
+cv
+cv
+cv
+PF
+PF
+PF
+vE
+VE
+jV
+TP
+TP
+TP
+TP
+TP
+TP
+TP
+"}
