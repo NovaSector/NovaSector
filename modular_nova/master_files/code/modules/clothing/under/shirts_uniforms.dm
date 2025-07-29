@@ -12,7 +12,7 @@
 
 /obj/item/clothing/under/nova/turtleneck
 	name = "turtleneck"
-	desc = "Padding typically worn over one's trousers to better protect the outside of their legs from hazards."
+	desc = "A rather comfortable Turtleneck, keeping you comfortable through its robust threads."
 	icon = 'icons/map_icons/clothing/under/_under.dmi'
 	icon_state = "/obj/item/clothing/under/nova/turtleneck"
 	post_init_icon_state = "turtleneck"
@@ -25,13 +25,13 @@
 
 /obj/item/clothing/under/nova/turtleneck/skirt
 	name = "Skirtleneck"
-	desc = "Padding typically worn over one's trousers to better protect the outside of their legs from hazards."
+	desc = "A rather comfortable Skirtleneck, keeping you comfortable through its robust threads"
 	icon_state = "/obj/item/clothing/under/nova/turtleneck/skirt"
 	post_init_icon_state = "skirtleneck"
 
 /obj/item/clothing/under/nova/gorkas
 	name = "gorka"
-	desc = "Padding typically worn over one's trousers to better protect the outside of their legs from hazards."
+	desc = "A somewhat comfortable gorka, just as comfortable as a regular jumpsuit but having a unique design."
 	icon = 'icons/map_icons/clothing/under/_under.dmi'
 	icon_state = "/obj/item/clothing/under/nova/gorkas"
 	post_init_icon_state = "gags_gorka"
@@ -43,7 +43,7 @@
 
 /obj/item/clothing/under/nova/overalls
 	name = "overalls"
-	desc = "Padding typically worn over one's trousers to better protect the outside of their legs from hazards."
+	desc = "Overalls designed to be comfortable, and keep you from getting wet, while only one of those is true, its still nice to have."
 	icon = 'icons/map_icons/clothing/under/_under.dmi'
 	icon_state = "/obj/item/clothing/under/nova/overalls"
 	post_init_icon_state = "overalls"
@@ -55,7 +55,7 @@
 	can_adjust = TRUE
 
 /obj/item/clothing/under/nova/overalls/skirt
-	name = "overalls"
-	desc = "Padding typically worn over one's trousers to better protect the outside of their legs from hazards."
+	name = "skirt overalls"
+	desc = "Overalls designed to be comfortable, and keep you from getting wet, while only one of those is true, its still nice to have."
 	icon_state = "/obj/item/clothing/under/nova/overalls/skirt"
 	post_init_icon_state = "overalls_skirt"
