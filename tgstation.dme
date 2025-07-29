@@ -8393,6 +8393,7 @@
 #include "modular_nova\modules\medical\code\cargo\packs.dm"
 #include "modular_nova\modules\medical\code\wounds\_wounds.dm"
 #include "modular_nova\modules\medical\code\wounds\bleed.dm"
+#include "modular_nova\modules\medical\code\wounds\burns.dm"
 #include "modular_nova\modules\medical\code\wounds\medical.dm"
 #include "modular_nova\modules\medical\code\wounds\medicine_reagents.dm"
 #include "modular_nova\modules\medical\code\wounds\muscle.dm"
