@@ -20,8 +20,8 @@
 #define BOMB_POP_REQUIREMENT 80
 
 /// nova traitor objectives probabilities
-#define HEIST_PROB 15
-
+#define HEIST_PROB 10
+#define ALEXANDRIA_PROB 15
 
 // Borer evolution defines
 // The three primary paths that eventually diverge

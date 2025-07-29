@@ -194,6 +194,10 @@
 		var/datum/objective/heist/heist_objective = new()
 		heist_objective.owner = owner
 		return heist_objective
+	else if(prob(ALEXANDRIA_PROB))
+		var/datum/objective/alexandria/alexandria_objective = new()
+		alexandria_objective.owner = owner
+		return alexandria_objective
 	// NOVA EDIT ADDITION END
 
 	var/datum/objective/steal/steal_objective = new()
