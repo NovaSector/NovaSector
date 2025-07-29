@@ -7806,7 +7806,6 @@
 #include "modular_nova\modules\customization\game\objects\items\staff_reward_plushies.dm"
 #include "modular_nova\modules\customization\game\objects\items\devices\crutch.dm"
 #include "modular_nova\modules\customization\game\objects\items\devices\ttsdevice.dm"
-#include "modular_nova\modules\customization\game\objects\items\storage\belt.dm"
 #include "modular_nova\modules\customization\game\objects\items\storage\rings.dm"
 #include "modular_nova\modules\customization\game\objects\items\tanks\n2_tanks.dm"
 #include "modular_nova\modules\customization\modules\client\preferences.dm"
