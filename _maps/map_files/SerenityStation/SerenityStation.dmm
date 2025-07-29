@@ -61252,6 +61252,7 @@
 /obj/structure/secure_safe/directional/north{
 	name = "evidence safe"
 	},
+/obj/machinery/light/small/directional/north,
 /turf/open/floor/iron/dark,
 /area/station/security/evidence)
 "rRI" = (
@@ -79285,7 +79286,7 @@
 /area/station/command/meeting_room)
 "wYu" = (
 /obj/item/radio/intercom/directional/south,
-/obj/machinery/light/dim/directional/south,
+/obj/machinery/light/small/directional/south,
 /turf/open/floor/iron/dark,
 /area/station/security/evidence)
 "wYE" = (
