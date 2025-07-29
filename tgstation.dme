@@ -7070,6 +7070,7 @@
 #include "modular_nova\master_files\code\modules\clothing\under\color.dm"
 #include "modular_nova\master_files\code\modules\clothing\under\costume.dm"
 #include "modular_nova\master_files\code\modules\clothing\under\misc.dm"
+#include "modular_nova\master_files\code\modules\clothing\under\shirts_uniforms.dm"
 #include "modular_nova\master_files\code\modules\clothing\under\shorts_pants.dm"
 #include "modular_nova\master_files\code\modules\clothing\under\skirts_dresses.dm"
 #include "modular_nova\master_files\code\modules\clothing\under\syndicate.dm"

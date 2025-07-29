@@ -181,19 +181,3 @@
 	greyscale_config_worn_digi = /datum/greyscale_config/camo_pants/worn/digi
 	greyscale_colors = "#69704C#6E5B4C#343741"
 	flags_1 = IS_PLAYER_COLORABLE_1
-
-/*
-*	Attire that is unssorted
-*/
-/obj/item/clothing/under/pants/nova/turtleneck
-	name = "turtleneck"
-	desc = "Padding typically worn over one's trousers to better protect the outside of their legs from hazards."
-	icon = 'icons/map_icons/clothing/under/_under.dmi'
-	icon_state = "/obj/item/clothing/under/pants/nova/turtleneck"
-	post_init_icon_state = "turtleneck"
-	greyscale_config = /datum/greyscale_config/turtlenecks
-	greyscale_config_worn = /datum/greyscale_config/turtlenecks/worn
-	greyscale_config_worn_digi = /datum/greyscale_config/turtlenecks/worn/digi
-	greyscale_colors = "#787878#252525"
-	can_adjust = TRUE
-	flags_1 = IS_PLAYER_COLORABLE_1
