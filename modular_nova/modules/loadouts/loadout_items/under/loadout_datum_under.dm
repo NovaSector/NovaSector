@@ -332,6 +332,26 @@
 	name = "Medical Doctor's jumpskirt"
 	item_path = /obj/item/clothing/under/rank/medical/doctor/skirt
 
+/datum/loadout_item/under/jumpsuit/turtleneck
+	name = "Recolorable Turtleneck"
+	item_path = /obj/item/clothing/under/nova/turtleneck
+
+/datum/loadout_item/under/jumpsuit/skirtleneck
+	name = "Recolorable Skirtleneck"
+	item_path = /obj/item/clothing/under/nova/turtleneck/skirt
+
+/datum/loadout_item/under/jumpsuit/gorkas
+	name = "Recolorable Gorka"
+	item_path = /obj/item/clothing/under/nova/gorkas
+
+/datum/loadout_item/under/jumpsuit/overalls
+	name = "Recolorable Turtleneck Overalls"
+	item_path = /obj/item/clothing/under/nova/overalls
+
+/datum/loadout_item/under/jumpsuit/overalls_skirt
+	name = "Recolorable Turtleneck Overalls Skirt"
+	item_path = /obj/item/clothing/under/nova/overalls/skirt
+
 /*
  *	MISC UNDERSUITS
  */

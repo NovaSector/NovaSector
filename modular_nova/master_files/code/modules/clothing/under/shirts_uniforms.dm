@@ -14,7 +14,7 @@
 	name = "turtleneck"
 	desc = "Padding typically worn over one's trousers to better protect the outside of their legs from hazards."
 	icon = 'icons/map_icons/clothing/under/_under.dmi'
-	icon_state = "/obj/item/clothing/under/pants/nova/turtleneck"
+	icon_state = "/obj/item/clothing/under/nova/turtleneck"
 	post_init_icon_state = "turtleneck"
 	greyscale_config = /datum/greyscale_config/turtlenecks
 	greyscale_config_worn = /datum/greyscale_config/turtlenecks/worn
@@ -26,13 +26,14 @@
 /obj/item/clothing/under/nova/turtleneck/skirt
 	name = "Skirtleneck"
 	desc = "Padding typically worn over one's trousers to better protect the outside of their legs from hazards."
-	icon_state = "/obj/item/clothing/under/pants/nova/turtleneck/skirt"
+	icon_state = "/obj/item/clothing/under/nova/turtleneck/skirt"
 	post_init_icon_state = "skirtleneck"
 
 /obj/item/clothing/under/nova/gorkas
 	name = "gorka"
 	desc = "Padding typically worn over one's trousers to better protect the outside of their legs from hazards."
-	icon_state = "/obj/item/clothing/under/pants/nova/gorkas"
+	icon = 'icons/map_icons/clothing/under/_under.dmi'
+	icon_state = "/obj/item/clothing/under/nova/gorkas"
 	post_init_icon_state = "gags_gorka"
 	greyscale_config = /datum/greyscale_config/gorkas
 	greyscale_config_worn = /datum/greyscale_config/gorkas/worn
@@ -43,6 +44,7 @@
 /obj/item/clothing/under/nova/overalls
 	name = "overalls"
 	desc = "Padding typically worn over one's trousers to better protect the outside of their legs from hazards."
+	icon = 'icons/map_icons/clothing/under/_under.dmi'
 	icon_state = "/obj/item/clothing/under/nova/overalls"
 	post_init_icon_state = "overalls"
 	greyscale_config = /datum/greyscale_config/sus_overalls
@@ -55,5 +57,5 @@
 /obj/item/clothing/under/nova/overalls/skirt
 	name = "overalls"
 	desc = "Padding typically worn over one's trousers to better protect the outside of their legs from hazards."
-	icon_state = "/obj/item/clothing/under/nova/overalls"
+	icon_state = "/obj/item/clothing/under/nova/overalls/skirt"
 	post_init_icon_state = "overalls_skirt"
