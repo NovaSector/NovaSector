@@ -292,3 +292,24 @@
   SynthTwo:
   - code_imp: Fixes a small oversight where bridge officer was using the wrong datum
       in code.
+  carpotoxin:
+  - rscadd: Adds the Marauder midround traitor, rolling for ghost observers!
+  - rscdel: Removes lone infiltrator, farewell space cowboy.
+  - map: Adds bay 9, a small barracks attached to a large Syndicate compound.
+  - map: 'Adds traitor shuttle(s), there is just one for now...
+
+      _Less important stuff:_'
+  - qol: The voucher element has gotten support for sound effects and drop direction
+      in its argument list
+  - rscadd: Adds MODsuit construction plating for nukie, elite and infiltrator themes.
+      (not broadly available)
+  - rscadd: Adds a cordiolis hepatico pillbottle for replacing a heart or liver with
+      self-surgery. (not broadly available)
+  - image: A syndicate corporate plastic slip.
+2025-07-29:
+  RealWinterFrost:
+  - rscadd: Added Civilian Bounties to ghost roles (Dyne, DS-2, Tarkon)
+  - qol: All relevant ghost roles now get paid over time by their respective faction
+      (Applies to only DS2, Interdyne, and Tarkon)
+  - qol: Ghost roles such as DS-2, Interdyne, and Tarkon now have bank accounts relevant
+      to their owner!
