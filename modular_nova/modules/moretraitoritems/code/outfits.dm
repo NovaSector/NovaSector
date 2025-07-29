@@ -16,7 +16,7 @@
 	)
 	skillchips = null
 	uplink_type = /obj/item/uplink
-	tc = 20 //idk what's balanced you tell me
+	tc = 0
 
 /datum/outfit/syndicate/stealth/pre_equip(mob/living/carbon/human/stealth_op, visuals_only)
 	stealth_op.faction |= ROLE_SYNDICATE
