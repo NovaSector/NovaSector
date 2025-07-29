@@ -346,7 +346,6 @@
 /obj/machinery/computer/shuttle/caravan/blackmarket_burst{
 	dir = 4
 	},
-/obj/item/shuttle_remote/bmd,
 /turf/open/floor/iron/shuttle/ferry,
 /area/shuttle/blackmarket_burst)
 "RP" = (
