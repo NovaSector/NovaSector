@@ -19,7 +19,7 @@
 	can_be_sawn_off = FALSE
 	weapon_weight = WEAPON_HEAVY
 
-	lore_blurb = "<i>The Xhihao 'Rengo' rifle is a conversion of the venerable Sakhno Precision Rifle, \
+	lore_blurb = "The Xhihao 'Rengo' rifle is a conversion of the venerable Sakhno Precision Rifle, \
 		with \"modern\" features such as an accessory rail and detachable magazines.<br><br>\
 		Initially a set of chassis parts sold in a single kit by Xhihao Light Arms, \
 		the 'Rengo' kit is designed to replace much of the furniture on a typical Sakhno \
@@ -30,7 +30,7 @@
 		The weapon is also overall a bit shorter, making it easier to handle for smaller shooters and/or \
 		in uncomfortably close quarters for a precision weapon. \
 		Due to the reduced space between components, the Rengo cannot be sawn off; \
-		cutting... any part of this weapon off, really, would make it either hazardous to fire or non-functional.</i>"
+		cutting... any part of this weapon off, really, would make it either hazardous to fire or non-functional."
 
 /obj/item/gun/ballistic/rifle/sporterized/Initialize(mapload)
 	. = ..()
