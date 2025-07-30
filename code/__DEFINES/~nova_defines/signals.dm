@@ -63,6 +63,9 @@
 /// From /obj/item/organ/stomach/after_eat(atom/edible)
 #define COMSIG_STOMACH_AFTER_EAT "stomach_after_eat"
 
+/// Used to trigger a signal to custom tongue quirk's proc.
+#define COMSIG_SET_SAY_MODIFIERS "set_say_modifiers"
+
 /// For when a Hemophage's pulsating tumor gets added to their body.
 #define COMSIG_PULSATING_TUMOR_ADDED "pulsating_tumor_added"
 /// For when a Hemophage's pulsating tumor gets removed from their body.

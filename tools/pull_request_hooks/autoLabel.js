@@ -69,18 +69,38 @@ function check_title_for_labels(title) {
 }
 
 function check_diff_line_for_element(diff, element) {
-  const tag_re = new RegExp(`^diff --git a/${element}/`);
+  const tag_re = new RegExp(`diff --git a/${element}/`); // NOVA EDIT CHANGE - original: const tag_re = new RegExp(`^diff --git a/${element}/`);
   return tag_re.test(diff);
 }
 
+// NOVA SECTOR EDIT ADDITION START
+async function get_pull_request_diff(github, context) {
+  const diff = await github.rest.pulls.get({
+    owner: context.repo.owner,
+    repo: context.repo.repo,
+    pull_number: context.payload.pull_request.number,
+    mediaType: {
+      format: "diff",
+    },
+  });
+  return diff;
+}
+// NOVA SECTOR EDIT ADDITION END
+
 // Checks the file diff for labels to add or remove
-async function check_diff_for_labels(diff_url) {
+// NOVA SECTOR EDIT - original: async function check_diff_for_labels(diff_url) {
+async function check_diff_for_labels(github, context) {
   const labels_to_add = [];
   const labels_to_remove = [];
   try {
+    /* NOVA SECTOR EDIT START
     const diff = await fetch(diff_url);
     if (diff.ok) {
       const diff_txt = await diff.text();
+    */ // NOVA SECTOR EDIT END
+    const diff = await get_pull_request_diff(github, context);
+    if (diff.status === 200) {
+      const { data: diff_txt } = diff;
       for (let label in autoLabelConfig.file_labels) {
         let found = false;
         const { filepaths, add_only } = autoLabelConfig.file_labels[label];
@@ -97,7 +117,7 @@ async function check_diff_for_labels(diff_url) {
         }
       }
     } else {
-      console.error(`Failed to fetch diff: ${diff.status} ${diff.statusText}`);
+      console.error(`Failed to fetch diff: ${diff.status}`); // NOVA SECTOR EDIT - original: console.error(`Failed to fetch diff: ${diff.status} ${diff.statusText}`);
     }
   } catch (e) {
     console.error(e);
@@ -122,7 +142,7 @@ export async function get_updated_label_set({ github, context }) {
 
   // diff is always checked
   if (diff_url) {
-    const diff_tags = await check_diff_for_labels(diff_url);
+    const diff_tags = await check_diff_for_labels(github, context); // NOVA SECTOR EDIT - o original: const diff_tags = await check_diff_for_labels(github, context);
     for (let label of diff_tags.labels_to_add) {
       updated_labels.add(label);
     }
