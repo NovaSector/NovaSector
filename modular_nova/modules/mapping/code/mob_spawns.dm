@@ -42,7 +42,7 @@
 
 	. = ..()
 
-	var/obj/item/shuttle_remote/bmd/remote =  shady.get_item_by_slot(ITEM_SLOT_LPOCKET)
+	var/obj/item/shuttle_remote/bmd/remote = shady.get_item_by_slot(ITEM_SLOT_LPOCKET)
 	if(!remote)
 		return
 	// we boldly assume only one Burst was spawned. Checking by Z-level defeats the purpose of this remote being used by latejoining BMD to retrieve stolen shuttle.
