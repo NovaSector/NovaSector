@@ -334,23 +334,23 @@
 
 /datum/loadout_item/under/jumpsuit/turtleneck
 	name = "Recolorable Turtleneck"
-	item_path = /obj/item/clothing/under/nova/turtleneck
+	item_path = /obj/item/clothing/under/greyscale/turtleneck
 
 /datum/loadout_item/under/jumpsuit/skirtleneck
 	name = "Recolorable Skirtleneck"
-	item_path = /obj/item/clothing/under/nova/turtleneck/skirt
+	item_path = /obj/item/clothing/under/greyscale/turtleneck/skirt
 
 /datum/loadout_item/under/jumpsuit/gorkas
 	name = "Recolorable Gorka"
-	item_path = /obj/item/clothing/under/nova/gorkas
+	item_path = /obj/item/clothing/under/greyscale/gorkas
 
 /datum/loadout_item/under/jumpsuit/overalls
 	name = "Recolorable Turtleneck Overalls"
-	item_path = /obj/item/clothing/under/nova/overalls
+	item_path = /obj/item/clothing/under/greyscale/overalls
 
 /datum/loadout_item/under/jumpsuit/overalls_skirt
 	name = "Recolorable Turtleneck Overalls Skirt"
-	item_path = /obj/item/clothing/under/nova/overalls/skirt
+	item_path = /obj/item/clothing/under/greyscale/overalls/skirt
 
 /*
  *	MISC UNDERSUITS
