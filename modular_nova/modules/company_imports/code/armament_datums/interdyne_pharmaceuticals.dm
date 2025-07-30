@@ -27,6 +27,12 @@
 	name = "Preloaded Surgical processor"
 	item_type = /obj/item/mod/module/surgical_processor/preloaded
 	cost = PAYCHECK_COMMAND * 4
+
+/datum/armament_entry/company_import/interdyne/solo/powerator
+	item_type = /obj/item/circuitboard/machine/powerator/interdyne
+	cost = PAYCHECK_COMMAND * 50
+
+
 /* Figure out price or to keep
 /datum/armament_entry/company_import/interdyne/solo/emagsurgerey
 	item_type = /obj/item/autosurgeon/syndicate/emaggedsurgerytoolset
@@ -53,7 +59,7 @@
 	cost = PAYCHECK_COMMAND / 2
 
 /*
-*** Kits
+*** Large Kits
 */
 
 /datum/armament_entry/company_import/interdyne/largekit
@@ -76,7 +82,7 @@
 	item_type = /obj/item/storage/medkit/tactical/premium/interdyne/medium
 
 /*
-*** Kits
+*** Small Kits
 */
 
 /datum/armament_entry/company_import/interdyne/smallkit
