@@ -383,7 +383,7 @@ GLOBAL_LIST_EMPTY(soulcatchers)
 
 /atom/movable/screen/ghost/join_soulcatcher/New()
 	. = ..()
-	RegisterSignal(hud.mymob, COMSIG_SOULCATCHER_UPDATE_JOINABILITY, PROC_REF(refresh_tally))
+	RegisterSignal(hud?.mymob, COMSIG_SOULCATCHER_UPDATE_JOINABILITY, PROC_REF(refresh_tally))
 	num_overlay = new()
 	num_overlay.layer = layer+1
 	num_overlay.screen_loc = ui_ghost_soulcatcher
@@ -392,7 +392,7 @@ GLOBAL_LIST_EMPTY(soulcatchers)
 	vis_contents += num_overlay
 
 /atom/movable/screen/ghost/join_soulcatcher/Destroy()
-	UnregisterSignal(hud.mymob, COMSIG_SOULCATCHER_UPDATE_JOINABILITY)
+	UnregisterSignal(hud?.mymob, COMSIG_SOULCATCHER_UPDATE_JOINABILITY)
 	vis_contents -= num_overlay
 	QDEL_NULL(num_overlay)
 	return ..()
