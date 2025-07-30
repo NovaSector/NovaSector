@@ -12,34 +12,37 @@
 /// puts the space in spacevine. this one can spawn in space
 /datum/round_event/spacevine/difficult
 
-/datum/round_event/spacevine/difficult/proc/validate_turfs(area/possible_area, list/turfs, obj/structure/spacevine/vine)
+/// for each turf that can be a possible spawn point, run a series of checks to see if its appropriate to pick
+/datum/round_event/spacevine/difficult/proc/validate_turfs(area/possible_area, list/possible_spawn_turfs, obj/structure/spacevine/test_vine)
 	for(var/turf/open/floor in possible_area.get_turfs_from_all_zlevels())
-		if(!floor.Enter(vine)) //can we enter the tile
-			continue
 		if(!is_station_level(floor.z)) //is the tile station z
+			continue
+		if(isopenspaceturf(floor)) // don't spawn in openspace turfs
 			continue
 		if(floor.get_lumcount() <= LIGHTING_TILE_IS_DARK) //we don't like to spawn in the dark
 			continue
-		turfs += floor
-	return turfs
+		if(!floor.Enter(test_vine)) //can we enter the tile
+			continue
+		possible_spawn_turfs += floor
+	return possible_spawn_turfs
 
 /datum/round_event/spacevine/difficult/start()
-	var/list/turfs = list()
+	var/list/possible_spawn_turfs = list()
 	if(override_turf)
-		turfs += override_turf
+		possible_spawn_turfs += override_turf
 	else
-		var/obj/structure/spacevine/vine = new()
+		var/obj/structure/spacevine/test_vine = new()
 		for(var/area/possible_area in GLOB.areas)
 			if(SSmapping.is_planetary())
 				if(istype(possible_area, /area/station/hallway))
-					turfs += validate_turfs(possible_area, turfs, vine)
+					possible_spawn_turfs += validate_turfs(possible_area, possible_spawn_turfs, test_vine)
 			else
 				if(istype(possible_area, /area/space/nearstation) || istype(possible_area, /area/station/solars))
-					turfs += validate_turfs(possible_area, turfs, vine)
-		qdel(vine)
+					possible_spawn_turfs += validate_turfs(possible_area, possible_spawn_turfs, test_vine)
+		qdel(test_vine)
 
-	if(length(turfs))
-		var/turf/floor = pick(turfs)
+	if(length(possible_spawn_turfs))
+		var/turf/floor = pick(possible_spawn_turfs)
 		new /datum/spacevine_controller(
 			floor,
 			list(
