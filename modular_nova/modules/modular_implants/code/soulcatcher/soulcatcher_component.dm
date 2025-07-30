@@ -389,13 +389,13 @@ GLOBAL_LIST_EMPTY(soulcatchers)
 	num_overlay.maptext = MAPTEXT("<span style='text-align: right; color: aqua'>[get_soulcatcher_count()]</span>")
 	num_overlay.transform = num_overlay.transform.Translate(-4, 2)
 	vis_contents += num_overlay
-	if(hud.mymob)
+	if(hud && hud?.mymob)
 		RegisterSignal(hud.mymob, COMSIG_SOULCATCHER_UPDATE_JOINABILITY, PROC_REF(refresh_tally))
 
 /atom/movable/screen/ghost/join_soulcatcher/Destroy()
 	vis_contents -= num_overlay
 	QDEL_NULL(num_overlay)
-	if(hud.mymob)
+	if(hud && hud?.mymob)
 		UnregisterSignal(hud.mymob, COMSIG_SOULCATCHER_UPDATE_JOINABILITY)
 	return ..()
 
