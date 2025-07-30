@@ -103,6 +103,7 @@
 
 /datum/armament_entry/company_import/interdyne/smallkit/oxygenkit
 	item_type = /obj/item/storage/medkit/tactical/premium/interdyne/small/oxygen
+
 // Modsuit mods that CAN be found in the uplinks
 /datum/armament_entry/company_import/interdyne/mods
 	subcategory = "Modsuits & Modules"
@@ -110,7 +111,7 @@
 
 /datum/armament_entry/company_import/interdyne/mods/modsuit
 	description = "Test Description"
-	item_type = /obj/item/mod/control/pre_equipped/interdyne
+	item_type = /obj/item/mod/control/pre_equipped/interdyne/nerfed
 	cost = PAYCHECK_COMMAND * 25
 
 /datum/armament_entry/company_import/interdyne/ai
