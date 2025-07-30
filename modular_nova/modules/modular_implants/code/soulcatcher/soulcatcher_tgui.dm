@@ -119,6 +119,7 @@
 
 		if("toggle_joinable")
 			ghost_joinable = !ghost_joinable
+			send_joinability_signal()
 			return TRUE
 
 		if("toggle_approval")
@@ -245,6 +246,11 @@
 
 			remove_self()
 			return TRUE
+
+/datum/component/soulcatcher/proc/send_joinability_signal()
+	var/list/all_observers = GLOB.dead_player_list + GLOB.current_observers_list
+	for(var/mob/observer as anything in all_observers)
+		SEND_SIGNAL(observer, COMSIG_SOULCATCHER_UPDATE_JOINABILITY)
 
 /datum/component/soulcatcher_user/New()
 	. = ..()

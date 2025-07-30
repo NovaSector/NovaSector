@@ -40,6 +40,8 @@ GLOBAL_LIST_EMPTY(soulcatchers)
 	create_room()
 	targeted_soulcatcher_room = soulcatcher_rooms[1]
 	GLOB.soulcatchers += src
+	if(ghost_joinable)
+		send_joinability_signal()
 
 	var/obj/item/soulcatcher_holder/soul_holder = parent
 	if(istype(soul_holder) && ismob(soul_holder.loc))
@@ -51,6 +53,8 @@ GLOBAL_LIST_EMPTY(soulcatchers)
 
 /datum/component/soulcatcher/Destroy(force)
 	GLOB.soulcatchers -= src
+	if(ghost_joinable)
+		send_joinability_signal()
 
 	targeted_soulcatcher_room = null
 	for(var/datum/soulcatcher_room as anything in soulcatcher_rooms)
@@ -374,6 +378,41 @@ GLOBAL_LIST_EMPTY(soulcatchers)
 	name = "Enter Soulcatcher"
 	icon = 'modular_nova/master_files/icons/hud/screen_ghost.dmi'
 	icon_state = "soulcatcher"
+	/// MA for maptext overlay showing how many soulcatchers there are
+	var/atom/movable/screen/num_overlay
+
+/atom/movable/screen/ghost/join_soulcatcher/New()
+	. = ..()
+	RegisterSignal(hud.mymob, COMSIG_SOULCATCHER_UPDATE_JOINABILITY, PROC_REF(refresh_tally))
+	num_overlay = new()
+	num_overlay.layer = layer+1
+	num_overlay.screen_loc = ui_ghost_soulcatcher
+	num_overlay.maptext = MAPTEXT("<span style='text-align: right; color: aqua'>[get_soulcatcher_count()]</span>")
+	num_overlay.transform = num_overlay.transform.Translate(-4, 2)
+	vis_contents += num_overlay
+
+/atom/movable/screen/ghost/join_soulcatcher/Destroy()
+	UnregisterSignal(hud.mymob, COMSIG_SOULCATCHER_UPDATE_JOINABILITY)
+	vis_contents -= num_overlay
+	QDEL_NULL(num_overlay)
+	return ..()
+
+/atom/movable/screen/ghost/join_soulcatcher/proc/get_soulcatcher_count()
+	var/amount = 0
+	for(var/datum/component/soulcatcher/soulcatcher as anything in GLOB.soulcatchers)
+		if(!soulcatcher.ghost_joinable || !isobj(soulcatcher.parent) || !soulcatcher.check_for_vacancy())
+			continue
+		amount++
+	return amount
+
+/atom/movable/screen/ghost/join_soulcatcher/proc/refresh_tally()
+	SIGNAL_HANDLER
+	if(!num_overlay)
+		return
+	var/original_transform = num_overlay.transform
+	animate(num_overlay, transform = num_overlay.transform.Translate(0, 4), time = 0.1 SECONDS, flags = ANIMATION_PARALLEL)
+	animate(transform = original_transform, time = 0.1 SECONDS)
+	num_overlay.maptext = MAPTEXT("<span style='text-align: right; color: aqua'>[get_soulcatcher_count()]</span>")
 
 /atom/movable/screen/ghost/join_soulcatcher/Click()
 	var/mob/dead/observer/observer = usr
