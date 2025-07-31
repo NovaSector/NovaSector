@@ -205,7 +205,6 @@
 
 /mob/living/silicon/robot/model/interdyne
 	faction = list(ROLE_INTERDYNE_PLANETARY_BASE)
-	bubble_icon = "syndibot"
 	req_access = list(ACCESS_SYNDICATE)
 	lawupdate = FALSE
 	scrambledcodes = TRUE
