@@ -6834,6 +6834,7 @@
 	},
 /obj/effect/turf_decal/siding/dark_blue,
 /obj/effect/turf_decal/tile/blue/half,
+/obj/machinery/light/small/directional/south,
 /turf/open/floor/iron/dark/smooth_edge,
 /area/station/command/bridge)
 "cbB" = (
@@ -8031,11 +8032,9 @@
 	},
 /area/station/science/robotics/lab)
 "cut" = (
-/obj/effect/turf_decal/siding/wood{
-	dir = 9
-	},
-/turf/open/floor/carpet,
-/area/station/commons/dorms)
+/obj/structure/cable,
+/turf/open/floor/iron/smooth,
+/area/station/maintenance/department/science/xenobiology)
 "cuA" = (
 /obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer2{
 	dir = 4
@@ -25374,13 +25373,6 @@
 /obj/machinery/newscaster/directional/north,
 /turf/open/floor/iron,
 /area/station/commons/storage/art)
-"hoR" = (
-/obj/machinery/atmospherics/components/unary/passive_vent{
-	dir = 4;
-	name = "killroom vent"
-	},
-/turf/open/floor/circuit/telecomms,
-/area/station/science/xenobiology)
 "hpe" = (
 /turf/open/floor/iron/smooth_large,
 /area/station/security/checkpoint/engineering)
@@ -27527,6 +27519,9 @@
 	pixel_y = -32
 	},
 /obj/effect/turf_decal/trimline/white/end{
+	dir = 1
+	},
+/obj/effect/turf_decal/trimline/white/mid_joiner{
 	dir = 1
 	},
 /turf/open/floor/iron/smooth_edge{
@@ -46147,7 +46142,7 @@
 "mWD" = (
 /obj/machinery/griddle,
 /obj/structure/extinguisher_cabinet/directional/east,
-/turf/open/floor/carpet,
+/turf/open/floor/iron/small,
 /area/station/commons/dorms)
 "mWF" = (
 /obj/machinery/suit_storage_unit/engine,
@@ -48667,6 +48662,13 @@
 /obj/effect/turf_decal/bot,
 /turf/open/floor/iron/smooth,
 /area/station/science/ordnance)
+"nIE" = (
+/obj/machinery/atmospherics/components/unary/passive_vent{
+	dir = 4;
+	name = "killroom vent"
+	},
+/turf/open/floor/circuit/telecomms,
+/area/station/science/xenobiology)
 "nIJ" = (
 /obj/effect/turf_decal/trimline/yellow/filled/line,
 /obj/effect/turf_decal/trimline/yellow/filled/mid_joiner,
@@ -53963,9 +53965,11 @@
 	},
 /area/station/hallway/secondary/command)
 "pdg" = (
-/obj/structure/cable,
-/turf/open/floor/iron/smooth,
-/area/station/maintenance/department/science/xenobiology)
+/obj/machinery/atmospherics/pipe/smart/manifold/cyan/visible{
+	dir = 1
+	},
+/turf/open/floor/circuit/telecomms,
+/area/station/science/xenobiology)
 "pdh" = (
 /obj/effect/turf_decal/trimline/yellow/filled/line{
 	dir = 1
@@ -77919,12 +77923,11 @@
 /turf/open/floor/iron/dark/smooth_corner,
 /area/station/security/lockers)
 "vEz" = (
-/obj/machinery/atmospherics/components/unary/passive_vent{
-	dir = 8;
-	name = "killroom vent"
+/obj/effect/turf_decal/siding/wood{
+	dir = 9
 	},
-/turf/open/floor/circuit/telecomms,
-/area/station/science/xenobiology)
+/turf/open/floor/carpet,
+/area/station/commons/dorms)
 "vEH" = (
 /obj/machinery/vending/tool,
 /obj/effect/turf_decal/bot,
@@ -84588,8 +84591,9 @@
 /turf/open/floor/iron/white/diagonal,
 /area/station/medical/medbay/central)
 "xvR" = (
-/obj/machinery/atmospherics/pipe/smart/manifold/cyan/visible{
-	dir = 1
+/obj/machinery/atmospherics/components/unary/passive_vent{
+	dir = 8;
+	name = "killroom vent"
 	},
 /turf/open/floor/circuit/telecomms,
 /area/station/science/xenobiology)
@@ -107203,7 +107207,7 @@ ttw
 dWX
 mIm
 mIm
-pdg
+cut
 woJ
 kVR
 raP
@@ -107717,7 +107721,7 @@ ttw
 dWX
 bMr
 oRY
-hoR
+nIE
 bie
 seE
 tvP
@@ -107974,7 +107978,7 @@ ttw
 dWX
 ttO
 oRY
-xvR
+pdg
 mxQ
 dkU
 kxA
@@ -108231,7 +108235,7 @@ ttw
 dWX
 bMr
 oRY
-vEz
+xvR
 bie
 seE
 uyE
@@ -108745,7 +108749,7 @@ ttw
 dWX
 mIm
 mIm
-pdg
+cut
 woJ
 kVR
 lXQ
@@ -113925,7 +113929,7 @@ wjI
 nqC
 jDw
 rhF
-cut
+vEz
 sNj
 bsn
 jBX
