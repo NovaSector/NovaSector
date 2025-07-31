@@ -42,9 +42,9 @@
 		qdel(test_vine)
 
 	if(length(possible_spawn_turfs))
-		var/turf/floor = pick(possible_spawn_turfs)
+		var/turf/chosen_spawn_turf = pick(possible_spawn_turfs)
 		new /datum/spacevine_controller(
-			floor,
+			chosen_spawn_turf,
 			list(
 				/datum/spacevine_mutation/flowering,
 				/datum/spacevine_mutation/light,
