@@ -3739,7 +3739,9 @@
 /obj/effect/turf_decal/tile/blue/anticorner{
 	dir = 8
 	},
-/turf/open/floor/iron/dark/smooth_large,
+/turf/open/floor/iron/dark/smooth_corner{
+	dir = 4
+	},
 /area/station/command/bridge)
 "bbm" = (
 /obj/effect/turf_decal/trimline/dark_red/arrow_ccw,
@@ -5695,7 +5697,9 @@
 	dir = 6
 	},
 /obj/effect/turf_decal/tile/blue/anticorner,
-/turf/open/floor/iron/dark/smooth_large,
+/turf/open/floor/iron/dark/smooth_corner{
+	dir = 1
+	},
 /area/station/command/bridge)
 "bIW" = (
 /obj/structure/dresser,
@@ -6830,7 +6834,7 @@
 	},
 /obj/effect/turf_decal/siding/dark_blue,
 /obj/effect/turf_decal/tile/blue/half,
-/turf/open/floor/iron/dark/smooth_large,
+/turf/open/floor/iron/dark/smooth_edge,
 /area/station/command/bridge)
 "cbB" = (
 /obj/effect/turf_decal/trimline/green/filled/line{
@@ -8027,10 +8031,11 @@
 	},
 /area/station/science/robotics/lab)
 "cut" = (
-/obj/effect/decal/cleanable/dirt,
-/obj/machinery/photocopier/prebuilt,
-/turf/open/floor/iron/smooth,
-/area/station/maintenance/port/central)
+/obj/effect/turf_decal/siding/wood{
+	dir = 9
+	},
+/turf/open/floor/carpet,
+/area/station/commons/dorms)
 "cuA" = (
 /obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer2{
 	dir = 4
@@ -9310,11 +9315,19 @@
 	},
 /area/station/hallway/secondary/command)
 "cOf" = (
-/obj/effect/turf_decal/siding/wood{
-	dir = 9
+/obj/item/reagent_containers/cup/bottle/epinephrine,
+/obj/item/reagent_containers/cup/bottle/multiver{
+	pixel_x = 6
 	},
-/turf/open/floor/carpet,
-/area/station/commons/dorms)
+/obj/item/reagent_containers/syringe,
+/obj/machinery/door/firedoor,
+/obj/structure/table/reinforced,
+/obj/machinery/door/window/left/directional/north{
+	name = "Medbay Front Desk";
+	req_access = list("medical")
+	},
+/turf/open/floor/iron/white/smooth_large,
+/area/station/medical/medbay/lobby)
 "cOi" = (
 /obj/structure/sign/gym/right{
 	pixel_y = 32
@@ -11237,14 +11250,12 @@
 /turf/open/floor/circuit,
 /area/station/ai_monitored/turret_protected/ai)
 "dqZ" = (
-/obj/structure/flora/ocean/longseaweed,
-/obj/effect/spawner/liquids_spawner{
-	reagent_list = list(/datum/reagent/water=600)
-	},
 /obj/structure/window/reinforced/spawner/directional/west,
 /obj/structure/window/reinforced/spawner/directional/south,
 /obj/structure/window/reinforced/spawner/directional/east,
-/turf/open/misc/asteroid,
+/obj/structure/flora/bush/flowers_br/style_random,
+/obj/structure/flora/bush/lavendergrass,
+/turf/open/floor/grass,
 /area/station/medical/medbay/lobby)
 "dri" = (
 /obj/structure/table,
@@ -14330,9 +14341,10 @@
 /turf/open/floor/iron/half,
 /area/station/hallway/primary/central)
 "efz" = (
-/obj/structure/cable,
+/obj/effect/decal/cleanable/dirt,
+/obj/machinery/photocopier/prebuilt,
 /turf/open/floor/iron/smooth,
-/area/station/maintenance/department/science/xenobiology)
+/area/station/maintenance/port/central)
 "efH" = (
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
@@ -16996,7 +17008,7 @@
 /obj/effect/turf_decal/tile/blue/anticorner{
 	dir = 1
 	},
-/turf/open/floor/iron/dark/smooth_large,
+/turf/open/floor/iron/dark/smooth_corner,
 /area/station/command/bridge)
 "eSD" = (
 /obj/effect/spawner/random/structure/crate,
@@ -20083,13 +20095,6 @@
 	},
 /turf/open/floor/wood/large,
 /area/station/commons/dorms)
-"fQX" = (
-/obj/machinery/atmospherics/components/unary/passive_vent{
-	dir = 8;
-	name = "killroom vent"
-	},
-/turf/open/floor/circuit/telecomms,
-/area/station/science/xenobiology)
 "fRf" = (
 /turf/open/floor/carpet/blue,
 /area/station/command/bridge)
@@ -25369,6 +25374,13 @@
 /obj/machinery/newscaster/directional/north,
 /turf/open/floor/iron,
 /area/station/commons/storage/art)
+"hoR" = (
+/obj/machinery/atmospherics/components/unary/passive_vent{
+	dir = 4;
+	name = "killroom vent"
+	},
+/turf/open/floor/circuit/telecomms,
+/area/station/science/xenobiology)
 "hpe" = (
 /turf/open/floor/iron/smooth_large,
 /area/station/security/checkpoint/engineering)
@@ -32916,14 +32928,15 @@
 /turf/open/floor/iron/smooth_large,
 /area/station/hallway/secondary/construction)
 "jtG" = (
-/obj/structure/flora/ocean/glowweed,
-/obj/effect/spawner/liquids_spawner{
-	reagent_list = list(/datum/reagent/water=600)
-	},
 /obj/structure/window/reinforced/spawner/directional/north,
 /obj/structure/window/reinforced/spawner/directional/west,
 /obj/structure/window/reinforced/spawner/directional/east,
-/turf/open/misc/asteroid,
+/obj/structure/flora/bush/lavendergrass,
+/obj/structure/flora/bush/flowers_br/style_random,
+/obj/structure/flora/bush/pointy{
+	pixel_y = -8
+	},
+/turf/open/floor/grass,
 /area/station/medical/medbay/lobby)
 "jtH" = (
 /obj/machinery/door/airlock/maintenance{
@@ -46636,7 +46649,9 @@
 /obj/effect/turf_decal/tile/blue/half{
 	dir = 1
 	},
-/turf/open/floor/iron/dark/smooth_large,
+/turf/open/floor/iron/dark/smooth_edge{
+	dir = 1
+	},
 /area/station/command/bridge)
 "ndE" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
@@ -53948,19 +53963,9 @@
 	},
 /area/station/hallway/secondary/command)
 "pdg" = (
-/obj/item/reagent_containers/cup/bottle/epinephrine,
-/obj/item/reagent_containers/cup/bottle/multiver{
-	pixel_x = 6
-	},
-/obj/item/reagent_containers/syringe,
-/obj/machinery/door/firedoor,
-/obj/structure/table/reinforced,
-/obj/machinery/door/window/left/directional/north{
-	name = "Medbay Front Desk";
-	req_access = list("medical")
-	},
-/turf/open/floor/iron/white/smooth_large,
-/area/station/medical/medbay/lobby)
+/obj/structure/cable,
+/turf/open/floor/iron/smooth,
+/area/station/maintenance/department/science/xenobiology)
 "pdh" = (
 /obj/effect/turf_decal/trimline/yellow/filled/line{
 	dir = 1
@@ -77914,8 +77919,9 @@
 /turf/open/floor/iron/dark/smooth_corner,
 /area/station/security/lockers)
 "vEz" = (
-/obj/machinery/atmospherics/pipe/smart/manifold/cyan/visible{
-	dir = 1
+/obj/machinery/atmospherics/components/unary/passive_vent{
+	dir = 8;
+	name = "killroom vent"
 	},
 /turf/open/floor/circuit/telecomms,
 /area/station/science/xenobiology)
@@ -82224,7 +82230,9 @@
 /obj/effect/turf_decal/tile/blue/anticorner{
 	dir = 4
 	},
-/turf/open/floor/iron/dark/smooth_large,
+/turf/open/floor/iron/dark/smooth_corner{
+	dir = 8
+	},
 /area/station/command/bridge)
 "wLl" = (
 /obj/item/storage/medkit/regular{
@@ -84580,9 +84588,8 @@
 /turf/open/floor/iron/white/diagonal,
 /area/station/medical/medbay/central)
 "xvR" = (
-/obj/machinery/atmospherics/components/unary/passive_vent{
-	dir = 4;
-	name = "killroom vent"
+/obj/machinery/atmospherics/pipe/smart/manifold/cyan/visible{
+	dir = 1
 	},
 /turf/open/floor/circuit/telecomms,
 /area/station/science/xenobiology)
@@ -107196,7 +107203,7 @@ ttw
 dWX
 mIm
 mIm
-efz
+pdg
 woJ
 kVR
 raP
@@ -107710,7 +107717,7 @@ ttw
 dWX
 bMr
 oRY
-xvR
+hoR
 bie
 seE
 tvP
@@ -107967,7 +107974,7 @@ ttw
 dWX
 ttO
 oRY
-vEz
+xvR
 mxQ
 dkU
 kxA
@@ -108224,7 +108231,7 @@ ttw
 dWX
 bMr
 oRY
-fQX
+vEz
 bie
 seE
 uyE
@@ -108738,7 +108745,7 @@ ttw
 dWX
 mIm
 mIm
-efz
+pdg
 woJ
 kVR
 lXQ
@@ -113918,7 +113925,7 @@ wjI
 nqC
 jDw
 rhF
-cOf
+cut
 sNj
 bsn
 jBX
@@ -117027,7 +117034,7 @@ sKu
 nBH
 nBH
 kaN
-cut
+efz
 xES
 cnC
 cnC
@@ -117548,7 +117555,7 @@ jML
 aDx
 vAX
 fkX
-pdg
+cOf
 fyY
 oob
 qtB
