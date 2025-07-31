@@ -9,6 +9,13 @@
 	righthand_file = 'icons/mob/inhands/equipment/medical_righthand.dmi'
 	drop_sound = 'sound/items/handling/component_drop.ogg'
 	pickup_sound = 'sound/items/handling/component_pickup.ogg'
+	/// Optional lore blurb. If it exists, is passed along on examine.
+	var/lore_blurb
+
+/obj/item/crafting_conversion_kit/examine_more(mob/user)
+	. = ..()
+	if(lore_blurb)
+		. += "<i>[lore_blurb]</i>"
 
 /obj/item/crafting_conversion_kit/mosin_pro
 	name = "\improper Xhihao 'Rengo' rifle conversion kit"
@@ -16,6 +23,11 @@
 		It looks like this stuff could fit on an old Sakhno rifle, if only you had one of those around."
 	icon = 'modular_nova/modules/modular_weapons/icons/obj/company_and_or_faction_based/cases.dmi'
 	icon_state = "xhihao_conversion_kit"
+
+	lore_blurb = "The Xhihao 'Rengo' rifle conversion kit is designed to take the receiver and barrel of the venerable \
+		Sakhno Precision Rifle, featuring detachable magazine support and an accessory rail, which typically mounts the same scope as the \
+		Lanca designated marksman rifle. However, the rearrangement of the rifle's geometry makes it unable to be sawed down, as to do so would \
+		make using the weapon prone to failure and hazardous to the user."
 
 /datum/crafting_recipe/mosin_pro
 	name = "Sakhno to Xhihao 'Rengo' Conversion"

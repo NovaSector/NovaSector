@@ -126,3 +126,190 @@
       your ears wholesale.
   thetaro:
   - balance: put lings chem regen back to 1 (was 0.5)
+2025-07-19:
+  CliffracerX:
+  - rscadd: '"ramatae" body parts in Augs+ - slugcat-inspired & slim-bodied'
+  - rscadd: harpy legs in Augs+ - silhouette/clothing compatible for digitigrade,
+      sans optional dewclaw, can be scrunched as needed
+  - rscadd: 3 new snouts, 7 new ears, 3 new frills, 2 waggable tails, and a light-belly
+      option for Augments+.
+  - rscadd: Move-Speak language for primarily nonverbal critters - no new mechanics,
+      just flavor
+  - qol: Humans and human-based species have digitigrade leg support, allowing for
+      proper skintone harpies & the likes
+  RealWinterFrost:
+  - rscadd: Adds a new naga taur option (naga, fat).
+  - balance: due to recent situations and tensions with the frontier, Sol Federation
+      Armed Forces has been approved for 'Intergalactic safety and securities act'
+      authorizing them to have heavier gear to protect them from hostile threats and
+      environments.
+  - image: solfed personnel have now been officially supplied brand new uniforms.
+      (marshals/swat, ems, atmos)
+  - image: Changed the 'reinforcement beacon' sprite.
+  - image: solar federation officials now have a presentable uniform for their duties
+  - rscadd: Solfed marines and personnel now have special attire to increase their
+      odds of being rescued or survival.
+  - map: added new Solfed ERT Shuttles
+  - admin: 'Added new officals loadouts, and modifies ''911 Response: Military'' to
+      have newest gear.'
+  - admin: Added new ERT options (Officials, Espatiers, and so on)
+  - admin: 'New ERT Espatiers and its subtypes have different goals than 911 Response:
+      Military variant, instead of treason destruction its protection and evacuations,
+      please see PR for more info.'
+  - bugfix: gives the solfed adv. security headset their proper radio key instead
+      of stealing from the adv. atmos headset
+  Zergspower:
+  - balance: C.U.C.K.S. and co barriers are slightly better against bombs and acid,
+      guardrails no longer are better than them and are balanced down to match the
+      material resistances.
+  carpotoxin:
+  - qol: Stardress hydro-vaporizer now functions on anyone, not just akula
+  - bugfix: Stardress hydro-vaporizer can now be EMP'd again
+  - rscdel: Deleted adapted lungs selection in the mutations+ category
+  - rscadd: Added adapted lungs quirk which will be applied to any lungs a player
+      installs
+  - refactor: Refactored the nitrogen breather quirk into a standardized breather
+      quirk
+  - rscadd: Added plasma breather quirk
+  - rscadd: Added water breather quirk
+2025-07-21:
+  Iajret:
+  - bugfix: cyber lungs can be selected once again
+  OrbisAnima:
+  - rscdel: Removed 'His Grace' from the Traitor uplink. It was a chaplain traitor
+      only item that required you to consume 25 player corpses to ascend, making you
+      inmune to stuns, regen life and putting you in a timer to kill as many people
+      possible.
+  RealWinterFrost:
+  - qol: Made the "company imports" tab for the ghost role consoles able to actually
+      see what is being purchased.
+  - qol: Made the "company imports" for the ghost role console have proper descriptions
+      to which order is which so players don't have to guess by name alone.
+  - image: added 5 new blueshield uniforms
+  - image: added 1 new nanotrasen consultant uniform
+2025-07-22:
+  Ghommie:
+  - bugfix: Fixed mutation injectors.
+  - bugfix: Fixed mutadone turning actual monkeys into humonkeys.
+  - bugfix: You can nullify mutations that are either scrambled (mutagen etc.) or
+      from a mutator (not activator) again.
+  - bugfix: Mutations with applied chromosomes won't display "no chromosome applied"
+      when saved or have zero instability among other things.
+  - bugfix: fixed gene disks and chromosomes.
+  Hatterhat:
+  - rscadd: Heads of Security are now being issued the NT-20 "Excalibur" stun sword
+      (not to be confused with the NT-20 personal defense weapon, issued to Blueshields).
+  Nerev4r, junkgle01, carpotoxin:
+  - rscadd: Job locker beacon, debug version given to bluespace techs
+  - rscadd: Bridge Officer (assistant) is now a permanent role, they answer to the
+      Captain
+  - image: Coffee trays, sprited by junkgle
+  NomNumNomYum:
+  - bugfix: A recent discovery has been made that WT-550 Rifles were heavier than
+      other standard SMG weapons, so we drilled holes in it to make it lighter, enjoy!
+  OrbisAnima:
+  - rscadd: 'Added the following items to the RCF: Large and Extra Large Beakers,
+      Basic and Super Megacells, Shuttle Rods, Advanced fishing rod, Aquarium Kit,
+      Fish Analyzer, Fishing Line Auto Reel, Stasis Fish Case, Fishing Portal Generator
+      Board, Aquarium Bioelectricity Kit.'
+  - balance: Riot and Drake armor, and its childs (like the knight armor), cannot
+      be used with the ctrl shift click toggle to make them non functional and wear
+      on the neck, as they were applying some of their effects regardless.
+  RealWinterFrost:
+  - qol: Adds 7 new alt titles for captain
+  - qol: Adds 2 new alt titles for Head of security
+  - qol: Adds 1 new alt title for Chief Medical Officer
+  - qol: Adds 1 new alt title for Research Director
+2025-07-24:
+  Hatterhat:
+  - bugfix: Nanotrasen apologizes for issuing its Heads of Security faulty "Volta"
+      stunswords that somehow turned invisible when their energy variant was turned
+      on. Nanotrasen also would like to remind employees that the new stunswords are
+      "Volta" stunswords and not "NT-20 Excalibur" variant stunswords; someone forgot
+      to update the memo before initial rollouts occurred.
+  - rscadd: Central Command, in tandem with the Free Trade Union, has discovered a
+      concerningly large cache of old paperwork that... really, really needs to be
+      filed. For a small deposit, you, too, can dig away at this in return for budget!
+  SomeRandomOwl:
+  - rscadd: Added new Psionic Holding quirk, Lets your character float items using
+      their hands rather than physically touching them.
+2025-07-25:
+  Hatterhat:
+  - rscadd: Citing the reason "Why not" and/or "because we can", Scarborough Arms
+      has started to export the DURANDAL 23-E parts/conversion kit, for cannibalizing
+      an NT20 into the rC-20 submachine gun. For obvious reasons, this is very much
+      against corporate regs, as to do so would imply one would have robbed and/or
+      murdered the local Shield unit.
+  - rscadd: With the rumors of Scarborough Arms releasing parts kits that require
+      cannibalizing NT20s to complete a new gun, Nanotrasen has chosen to release
+      spare parts kits for NT20s in the slim chance that a Shield unit has their service
+      weapon cannibalized for nefarious deeds.
+  - rscadd: .980 Tydhouer stingball grenades are now in circulation! Users are advised
+      to be very careful about where they're aiming and/or be ready to duck and cover.
+  - balance: .980 Tydhouer grenades now properly cost points in the ammo bench.
+  - balance: Nanotrasen has realized that there's nothing stopping them from shaving
+      off a bit more material while manufacturing and reissuing .38 revolvers, allowing
+      them to be considered "small" (e.g. fitting in pockets/boxes).
+  - balance: New specs for .38 ammunition allows for more propellant to be loaded,
+      increasing damage dealt for most ammunition types.
+2025-07-26:
+  Hatterhat:
+  - bugfix: .45 rubber bullet casings are now appropriately labeled as rubber bullet
+      casings.
+  OrbisAnima:
+  - admin: Adds an alert to admins when succumb is used to make situations a bit more
+      clear without having to log dive or use the investigate verb
+  vinylspiders:
+  - bugfix: 'fixed being able to alt-click to change transfer amounts for reagent
+      containers that are not supposed to have that feature (like epi-pens for example)
+
+      /:cl'
+2025-07-28:
+  BasilTamaya:
+  - rscadd: The proto-kinetic crusher now uses OVERLAY_LIGHT_DIRECTIONAL, to be consistent
+      with the crusher variants.
+  - qol: The machete can now be renamed.
+  - bugfix: Refactor of the mining weapons, now calls to parent proto-kinetic crusher
+      like it should, save for damage buffs/nerfs
+  Chestlet:
+  - rscadd: Added Custom Tongue quirk. Custom say modifiers that overwrite the ones
+      added by the Animal Traits quirk series. Works with augments+ tongues! Lowercase
+      a-z only, no symbols, numbers, or spaces!
+  LordHookie:
+  - rscadd: Added a new hard difficulty bitrunning domain, "Abductor Mothership",
+      with its own loot pool and associated enemy types.
+  OrionTheFox:
+  - qol: 'Sorted the following Loadout groups: Shoes, Suits.'
+  - bugfix: fixed an incorrect loadout entry for one of the recolorable Hoodies
+  - rscdel: Renamed "Worn Shirt" to "Wrinkled Shirt" (in loadout, "Oversized Shirt
+      - Wrinkled")
+  - rscdel: 'Removed "white suit jacket" and ''/obj/item/clothing/suit/toggle/lawyer/black/better'',
+      old resprites of the white/black suit jackets which have since been improved
+      drastically. (search: ''Suit Jacket'' in loadout)'
+  RealWinterFrost:
+  - qol: Solfed shuttle now has multi-z functionality
+  - bugfix: Solfed squadleader and officials now have access to solfed comms
+  SynthTwo:
+  - code_imp: Fixes a small oversight where bridge officer was using the wrong datum
+      in code.
+  carpotoxin:
+  - rscadd: Adds the Marauder midround traitor, rolling for ghost observers!
+  - rscdel: Removes lone infiltrator, farewell space cowboy.
+  - map: Adds bay 9, a small barracks attached to a large Syndicate compound.
+  - map: 'Adds traitor shuttle(s), there is just one for now...
+
+      _Less important stuff:_'
+  - qol: The voucher element has gotten support for sound effects and drop direction
+      in its argument list
+  - rscadd: Adds MODsuit construction plating for nukie, elite and infiltrator themes.
+      (not broadly available)
+  - rscadd: Adds a cordiolis hepatico pillbottle for replacing a heart or liver with
+      self-surgery. (not broadly available)
+  - image: A syndicate corporate plastic slip.
+2025-07-29:
+  RealWinterFrost:
+  - rscadd: Added Civilian Bounties to ghost roles (Dyne, DS-2, Tarkon)
+  - qol: All relevant ghost roles now get paid over time by their respective faction
+      (Applies to only DS2, Interdyne, and Tarkon)
+  - qol: Ghost roles such as DS-2, Interdyne, and Tarkon now have bank accounts relevant
+      to their owner!

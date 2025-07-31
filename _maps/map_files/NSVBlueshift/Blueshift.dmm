@@ -16743,7 +16743,7 @@
 /obj/effect/turf_decal/stripes/white/line{
 	dir = 6
 	},
-/obj/machinery/computer/scan_consolenew{
+/obj/machinery/computer/dna_console{
 	dir = 8
 	},
 /turf/open/floor/iron/dark,
@@ -35420,7 +35420,7 @@
 /turf/open/floor/wood,
 /area/station/command/heads_quarters/rd)
 "gOb" = (
-/obj/machinery/computer/scan_consolenew{
+/obj/machinery/computer/dna_console{
 	dir = 4
 	},
 /obj/structure/window/spawner/directional/west{
@@ -82263,7 +82263,7 @@
 /turf/open/floor/plating,
 /area/station/maintenance/aft/upper)
 "pOU" = (
-/obj/machinery/computer/scan_consolenew{
+/obj/machinery/computer/dna_console{
 	dir = 4
 	},
 /obj/effect/turf_decal/stripes{
@@ -100006,6 +100006,7 @@
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/effect/landmark/start/bridge_officer,
 /turf/open/floor/iron/stairs{
 	dir = 8
 	},
