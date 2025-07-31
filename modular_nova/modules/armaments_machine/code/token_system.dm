@@ -38,13 +38,6 @@
 	/// The sound when a coin is slotted in successfully
 	var/token_sound = 'sound/machines/coindrop2.ogg'
 
-/obj/machinery/equipment_vendor/ui_interact(mob/user, datum/tgui/ui)
-	. = ..()
-	ui = SStgui.try_update_ui(user, src, ui)
-	if(!ui)
-		ui = new(user, src, "ArmamentVendor", src.name)
-		ui.open()
-
 /obj/item/circuitboard/machine/equipment_vendor
 	name = "Equipment Vendor (Machine Board)"
 	icon_state = "circuit_map"
@@ -78,46 +71,52 @@
 	SSblackbox.record_feedback("tally", "equipment_token_used", 1)
 	qdel(token)
 
-/obj/machinery/equipment_vendor/proc/vend_selected(mob/redeemer)
-
-
 /// This machine cannot be emagged no matter what
 /obj/machinery/equipment_vendor/emag_act(mob/user, obj/item/card/emag/emag_card)
 	if(user)
 		to_chat(user, span_notice("You try to change the internal protocols, but the machine displays a runtime error and reboots!"))
 	return FALSE
 
+/obj/machinery/equipment_vendor/ui_interact(mob/user, datum/tgui/ui)
+	. = ..()
+	ui = SStgui.try_update_ui(user, src, ui)
+	if(!ui)
+		ui = new(user, src, "ArmamentVendor", src.name)
+		ui.open()
+
+/obj/machinery/equipment_vendor/ui_static_data(mob/user)
+	var/list/armsdata = list()
+	armsdata = list("stock" = list())
 
 
+	for (var/datum/vendor_equipment/purchasable as anything in equipment_stock)
+		armsdata["stock"] += list(list(
+			"ref" = "\ref[purchasable]",
+			"name" = purchasable.name,
+			"description" = purchasable.description,
+			"cost" = purchasable.cost,
+			"category" = purchasable.category,
+			"item_path" = purchasable.equipment_path,
+			"icon" = purchasable.equipment_path?icon_state,
+			"buy_limit" = purchasable.vend_limit,
+			"permit_req" = purchasable.permit_required,
+			"access" = purchasable.access_required,
+		))
 
+/obj/machinery/equipment_vendor/ui_data(mob/user)
 
-
-
+	/// Figure out how to have var/list/points useed
+	/*
+	armsdata = list(
+		"credits" = src.credits,
+	)
+	*/
+/obj/machinery/equipment_vendor/ui_act(action, list/params, datum/tgui/ui, datum/ui_state/state)
+	switch(action)
+		if ("equip_item")
+			to_chat(redeemer, "Thank you for redeeming your token. Remember. Use eye protection to not shoot your eye out!")
 
 /*
-	ui_interact(mob/user, datum/tgui/ui)
-		ui = tgui_process.try_update_ui(user, src, ui)
-		if(!ui)
-			ui = new(user, src, "WeaponVendor", src.name)
-			ui.open()
-
-	ui_static_data(mob/user)
-		. = list("stock" = list())
-
-		for (var/datum/vendor_equipment/purchasable as anything in equipment_stock)
-			.["stock"] += list(list(
-				"ref" = "\ref[purchasable]",
-				"name" = purchasable.name,
-				"description" = purchasable.description,
-				"cost" = purchasable.cost,
-				"category" = purchasable.category,
-			))
-
-	ui_data(mob/user)
-		. = list(
-			"credits" = src.credits,
-		)
-
 	ui_act(action, list/params, datum/tgui/ui, datum/ui_state/state)
 		. = ..()
 		if (. || GET_COOLDOWN(src, "anti-spam"))
@@ -135,72 +134,6 @@
 					src.vended(Antispam)
 					usr.put_in_hand_or_eject(Antispam)
 					return TRUE
-*/
-
-
-
-
-/*
-	if(build_inv) //non-constructable vending machine
-		///Non-constructible vending machines do not have a refill canister to populate its products list from,
-		///Which apparently is still needed in the case we use product categories instead.
-		if(product_categories)
-			for(var/list/category as anything in product_categories)
-				products |= category["products"]
-		build_inventories()
-*/
-
-/*
-/obj/machinery/vending/proc/build_inventory(list/productlist, list/recordlist, list/categories, start_empty = FALSE, premium = FALSE)
-	var/inflation_value = HAS_TRAIT(SSeconomy, TRAIT_MARKET_CRASHING) ? SSeconomy.inflation_value() : 1
-	default_price = round(initial(default_price) * inflation_value)
-	extra_price = round(initial(extra_price) * inflation_value)
-
-	var/list/product_to_category = list()
-	for (var/list/category as anything in categories)
-		var/list/products = category["products"]
-		for (var/product_key in products)
-			product_to_category[product_key] = category
-
-	for(var/typepath in productlist)
-		var/amount = productlist[typepath]
-		if(isnull(amount))
-			amount = 0
-
-		var/obj/item/temp = typepath
-		var/datum/data/vending_product/new_record = new /datum/data/vending_product()
-		new_record.name = initial(temp.name)
-		new_record.product_path = typepath
-		if(!start_empty)
-			new_record.amount = amount
-		new_record.max_amount = amount
-
-		///Prices of vending machines are all increased uniformly.
-		var/custom_price = round(initial(temp.custom_price) * inflation_value)
-		if(!premium)
-			new_record.price = custom_price || default_price
-		else
-			var/premium_custom_price = round(initial(temp.custom_premium_price) * inflation_value)
-			if(!premium_custom_price && custom_price) //For some ungodly reason, some premium only items only have a custom_price
-				new_record.price = extra_price + custom_price
-			else
-				new_record.price = premium_custom_price || extra_price
-
-		new_record.age_restricted = initial(temp.age_restricted)
-		new_record.colorable = !!(initial(temp.greyscale_config) && initial(temp.greyscale_colors) && (initial(temp.flags_1) & IS_PLAYER_COLORABLE_1))
-		new_record.category = product_to_category[typepath]
-		recordlist += new_record
-*/
-
-
-
-
-/*
-
-/obj/machinery/vending/proc/build_inventories(start_empty)
-	build_inventory(products, product_records, product_categories, start_empty)
-	build_inventory(contraband, hidden_records, create_categories_from("Contraband", "mask", contraband), start_empty, premium = TRUE)
-	build_inventory(premium, coin_records, create_categories_from("Premium", "coins", premium), start_empty, premium = TRUE)
 */
 
 
