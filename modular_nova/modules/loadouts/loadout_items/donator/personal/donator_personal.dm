@@ -1013,3 +1013,7 @@
 	item_path = /obj/item/clothing/under/rank/civilian/curator/treasure_hunter/noble_enforcer
 	ckeywhitelist = list("courierasy")
 
+/datum/loadout_item/toys/ak105_kit
+	name = "AK-105 SBR Conversion Kit"
+	item_path = /obj/item/device/custom_kit/ak105
+	ckeywhitelist = list("latinfishy", "hollandaisesauce", "orbisa")
