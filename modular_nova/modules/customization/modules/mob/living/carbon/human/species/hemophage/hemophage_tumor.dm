@@ -7,6 +7,8 @@
 #define DORMANT_BLOODLOSS_MULTIPLIER 10
 /// How much blood do Hemophages normally lose per second (visible effect is every two seconds, so twice this value).
 #define NORMAL_BLOOD_DRAIN 0.05
+/// The bleed mod for how much bloodloss will occur from all instances
+#define HEMOPHAGE_BLEED_MOD 1.2
 
 /// Just a conversion factor that ensures there's no weird floating point errors when blood is draining.
 #define FLOATING_POINT_ERROR_AVOIDING_FACTOR 1000
@@ -36,6 +38,12 @@
 	tumorful.AddElement(/datum/element/tumor_corruption)
 	RegisterSignal(tumorful, COMSIG_MOB_GET_STATUS_TAB_ITEMS, PROC_REF(get_status_tab_item))
 
+	if(!ishuman(tumorful))
+		return
+
+	var/mob/living/carbon/human/tumorless_human = tumorful
+	tumorful.physiology.bleed_mod *= HEMOPHAGE_BLEED_MOD
+
 
 /obj/item/organ/heart/hemophage/on_mob_remove(mob/living/carbon/tumorless, special = FALSE)
 	. = ..()
@@ -49,6 +57,7 @@
 		return
 
 	var/mob/living/carbon/human/tumorless_human = tumorless
+	tumorless.physiology.bleed_mod /= HEMOPHAGE_BLEED_MOD
 
 	// We make sure to account for dormant tumor vulnerabilities, so that we don't achieve states that shouldn't be possible.
 	if(is_dormant)
@@ -82,10 +91,12 @@
 		owner.investigate_log("starved to death from lack of blood caused by [src].", INVESTIGATE_DEATHS)
 		owner.death() // Owch! Ran out of blood.
 
+
 /obj/item/organ/heart/hemophage/get_status_text(advanced, add_tooltips)
 	if(organ_flags & ORGAN_FAILING)
 		return conditional_tooltip("<font color='#cc3333'>Non-Functional</font>", "Repair surgically. Do not remove under any circumstances.", add_tooltips)
 	return ..()
+
 
 /// Simple helper proc that toggles the dormant state of the tumor, which also switches its appearance to reflect said change.
 /obj/item/organ/heart/hemophage/proc/toggle_dormant_state()
