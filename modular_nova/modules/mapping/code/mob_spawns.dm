@@ -145,7 +145,7 @@
 	outfit = /datum/outfit/ds2/syndicate_command/admiral
 
 /obj/effect/mob_spawn/ghost_role/robot/ds2
-	name = "Syndicate Robotic Storage"
+	name = "\improper Syndicate Robotic Storage"
 	desc = "A suspiciously specialized storage container marked on its sides for 'cyborgs'"
 	prompt_name = "a syndicate deepspace robot"
 	deletes_on_zero_uses_left = TRUE
@@ -156,13 +156,13 @@
 	uses = 1
 	you_are_text = "You are a DS-2 Cyborg!"
 	flavour_text = "You are a cyborg on a ship in deep space... what kind of hell is this?"
+	important_text = "Keep yourself to the same standards as Silicon Policy. You are not an antagonist. Adminhelp before antagonizing station crew."
 	loadout_enabled = TRUE
 	random_appearance = FALSE
 	spawner_job_path = /datum/job/ds2
 	mob_type = /mob/living/silicon/robot/model/ds2
 
 /mob/living/silicon/robot/model/ds2
-	icon_state = "synd_sec"
 	faction = list(ROLE_DS2)
 	bubble_icon = "syndibot"
 	req_access = list(ACCESS_SYNDICATE)
@@ -186,7 +186,7 @@
 	laws.associate(src)
 
 /obj/effect/mob_spawn/ghost_role/robot/interdyne
-	name = "Interdyne Robotic Storage"
+	name = "\improper Interdyne Robotic Storage"
 	desc = "A specialized storage container marked on its sides for 'cyborgs' with the Interdyne Pharmaceuticals logo located on its front"
 	prompt_name = "an Interdyne Pharmaceuticals robot"
 	deletes_on_zero_uses_left = TRUE
@@ -197,13 +197,13 @@
 	uses = 1
 	you_are_text = "You are an Interdyne Pharmaceuticals Cyborg!"
 	flavour_text = "You are a cyborg produced and utilized by the Interdyne Pharmaceuticals company."
+	important_text = "Keep yourself to the same standards as Silicon Policy. You are not an antagonist. Adminhelp before antagonizing station crew."
 	loadout_enabled = TRUE
 	random_appearance = FALSE
 	spawner_job_path = /datum/job/ds2
 	mob_type = /mob/living/silicon/robot/model/interdyne
 
 /mob/living/silicon/robot/model/interdyne
-	icon_state = "synd_sec"
 	faction = list(ROLE_INTERDYNE_PLANETARY_BASE)
 	bubble_icon = "syndibot"
 	req_access = list(ACCESS_SYNDICATE)
