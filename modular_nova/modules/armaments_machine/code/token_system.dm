@@ -97,7 +97,7 @@
 			"cost" = purchasable.cost,
 			"category" = purchasable.category,
 			"item_path" = purchasable.equipment_path,
-			"icon" = purchasable.equipment_path?icon_state,
+			"icon" = purchasable.equipment_path?.icon_state,
 			"buy_limit" = purchasable.vend_limit,
 			"permit_req" = purchasable.permit_required,
 			"access" = purchasable.access_required,
@@ -111,7 +111,7 @@
 		"credits" = src.credits,
 	)
 	*/
-/obj/machinery/equipment_vendor/ui_act(action, list/params, datum/tgui/ui, datum/ui_state/state)
+/obj/machinery/equipment_vendor/ui_act(action, list/params, datum/tgui/ui, datum/ui_state/state, mob/redeemer)
 	switch(action)
 		if ("equip_item")
 			to_chat(redeemer, "Thank you for redeeming your token. Remember. Use eye protection to not shoot your eye out!")
@@ -236,7 +236,7 @@
 	/// How many points should it cost. (uses var/category to charge points to relevant category)
 	var/cost = 0
 	/// What path does it uses to spawn?
-	var/equipment_path = null
+	var/obj/equipment_path
 	/// In case admemes want to make specific requisitions require permits
 	var/permit_required = FALSE
 	/// In case admemes want specific jobs or accesses required
