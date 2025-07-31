@@ -1,6 +1,7 @@
 /// Some starter text sent to the Hemophage initially, because Hemophages have shit to do to stay alive.
 #define HEMOPHAGE_SPAWN_TEXT "You are an [span_danger("Hemophage")]. You will slowly but constantly lose blood if outside of a closet-like object. If inside a closet-like object, or in pure darkness, you will slowly heal, at the cost of blood. You may gain more blood by grabbing a live victim and using your drain ability."
-
+/// Hemophages spawn with 80% blood capacity
+#define BLOOD_VOLUME_NEW_HEMOPHAGE BLOOD_VOLUME_NORMAL * (1 - 0.20)
 
 /datum/species/hemophage
 	name = "Hemophage"
@@ -27,13 +28,16 @@
 	skinned_type = /obj/item/stack/sheet/animalhide/human
 	nova_stars_only = TRUE
 
+
 /datum/species/hemophage/allows_food_preferences()
 	return FALSE
+
 
 /datum/species/hemophage/get_default_mutant_bodyparts()
 	return list(
 		"legs" = list("Normal Legs", FALSE),
 	)
+
 
 /datum/species/hemophage/check_roundstart_eligible()
 	if(check_holidays(HALLOWEEN))
@@ -41,9 +45,11 @@
 
 	return ..()
 
+
 /datum/species/hemophage/on_species_gain(mob/living/carbon/human/new_hemophage, datum/species/old_species, pref_load, regenerate_icons)
 	. = ..()
 	to_chat(new_hemophage, HEMOPHAGE_SPAWN_TEXT)
+	new_hemophage.blood_volume = min(blood_volume, BLOOD_VOLUME_NEW_HEMOPHAGE)
 	new_hemophage.update_body()
 
 
@@ -181,3 +187,4 @@
 
 
 #undef HEMOPHAGE_SPAWN_TEXT
+#undef BLOOD_VOLUME_NEW_HEMOPHAGE
