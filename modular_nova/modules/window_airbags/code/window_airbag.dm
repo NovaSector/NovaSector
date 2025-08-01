@@ -1,8 +1,21 @@
 #define DISARM_TIME (3 SECONDS)
 
+/obj/structure/window
+	/// Is there currently an airbag installed in the window?
+	var/airbag_installed = FALSE
+
+/obj/structure/window/Initialize(mapload, direct)
+	. = ..()
+	register_context()
+
+/obj/structure/window/add_context(atom/source, list/context, obj/item/held_item, mob/user)
+	. = ..()
+	if(airbag_installed)
+		context[SCREENTIP_CONTEXT_CTRL_SHIFT_LMB] = "Disarm airbag"
+	return CONTEXTUAL_SCREENTIP_SET
+
 /obj/structure/window/reinforced/fulltile/Initialize(mapload, direct)
 	. = ..()
-	qdel(GetComponent(/datum/component/simple_rotation))
 	AddElement(/datum/element/airbag)
 
 /**
@@ -18,39 +31,42 @@
 
 /datum/element/airbag/Attach(datum/target)
 	. = ..()
-	if(!ismovable(target))
+	var/obj/structure/window/window = target
+	if(!window)
 		return ELEMENT_INCOMPATIBLE
 
-	RegisterSignal(target, COMSIG_ATOM_DESTRUCTION, PROC_REF(deploy_airbag))
-	RegisterSignal(target, COMSIG_ATOM_EXAMINE, PROC_REF(on_examine))
-	RegisterSignal(target, COMSIG_CLICK_ALT, PROC_REF(on_altclick))
+	RegisterSignal(window, COMSIG_ATOM_DESTRUCTION, PROC_REF(deploy_airbag))
+	RegisterSignal(window, COMSIG_CLICK_CTRL_SHIFT, PROC_REF(on_interact))
+	window.airbag_installed = TRUE
 
 /datum/element/airbag/Detach(datum/target)
 	. = ..()
-	UnregisterSignal(target, list(COMSIG_ATOM_DESTRUCTION, COMSIG_ATOM_EXAMINE, COMSIG_CLICK_ALT))
+	var/obj/structure/window/window = target
+	if(!window)
+		return
+
+	UnregisterSignal(window, list(COMSIG_ATOM_DESTRUCTION, COMSIG_CLICK_CTRL_SHIFT))
+	window.airbag_installed = FALSE
 
 /datum/element/airbag/proc/deploy_airbag(atom/movable/destroying_atom, damage_flag)
 	SIGNAL_HANDLER
-
 	new airbag_type(get_turf(destroying_atom))
 
-/datum/element/airbag/proc/on_examine(datum/source, mob/user, list/examine_text)
+/datum/element/airbag/proc/on_interact(atom/movable/clicked_atom, mob/living/clicker)
 	SIGNAL_HANDLER
-
-	examine_text += span_warning("It has a blinking red light indicating an airbag is installed. <b>Alt+click</b> to disarm.")
-
-/datum/element/airbag/proc/on_altclick(atom/movable/clicked_atom, mob/living/clicker)
-	SIGNAL_HANDLER
-
 	if(!clicker.can_interact_with(clicked_atom) || !clicker.can_perform_action(clicked_atom, ALLOW_RESTING))
 		return
 	INVOKE_ASYNC(src, PROC_REF(disarm_airbag), clicked_atom, clicker)
 
 /datum/element/airbag/proc/disarm_airbag(atom/movable/clicked_atom, mob/living/clicker)
-	clicked_atom.balloon_alert(clicker, "disarming airbag...")
+	var/empty_hand = LAZYACCESS(clicker.get_empty_held_indexes(), 1)
+	if(!empty_hand)
+		clicked_atom.balloon_alert(clicker, "no empty hand!")
+		return
+	clicked_atom.balloon_alert_to_viewers("disarming airbag...")
 	if(do_after(clicker, DISARM_TIME, clicked_atom))
-		clicked_atom.balloon_alert(clicker, "airbag disarmed!")
-		new disarmed_type(get_turf(clicked_atom))
+		playsound(clicked_atom, 'sound/machines/click.ogg', 75, TRUE, -3)
+		clicker.put_in_hands(new disarmed_type(clicker))
 		Detach(clicked_atom)
 
 // A fun little gadget!
