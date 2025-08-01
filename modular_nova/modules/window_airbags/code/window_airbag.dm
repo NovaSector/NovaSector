@@ -1,6 +1,14 @@
 #define DISARM_TIME (1 SECONDS)
 #define TRAIT_AIRBAGGED "airbagged"
 
+/obj/structure/window/wrench_act(mob/living/user, obj/item/tool)
+	. = ..()
+	if(!. || !HAS_TRAIT(src, TRAIT_AIRBAGGED))
+		return
+	var/obj/item/airbag = new /obj/item/airbag(user.loc)
+	if(!QDELETED(airbag))
+		airbag.add_fingerprint(user)
+
 /obj/structure/window/reinforced/fulltile/Initialize(mapload)
 	. = ..()
 	if(mapload)
