@@ -177,17 +177,21 @@
 	if(((owner.bruteloss + carbon_owner.fireloss) >= 50))
 		to_chat(carbon_owner, span_warning("Your body is too damaged to be healed with hemokinesis!"))
 
-	carbon_owner.balloon_alert("hemokinesis regen activated!")
+	carbon_owner.balloon_alert(carbon_owner, "hemokinesis regen activated!")
 	return ..()
 
 /datum/status_effect/hemokinesis_regen/on_remove()
-	owner?.balloon_alert("hemokinesis regen deactivated!")
+	owner?.balloon_alert(carbon_owner, "hemokinesis regen deactivated!")
 
 
 /datum/status_effect/hemokinesis_regen/tick(seconds_between_ticks)
 	var/mob/living/carbon/carbon_owner = owner
 	if(!istype(carbon_owner))
 		return
+
+	if((carbon_owner.bruteloss + carbon_owner.fireloss) >= 50)
+		to_chat(carbon_owner, span_warning("Your body is too damaged to be healed with hemokinesis!"))
+		qdel(src)
 
 	var/amount_healed = 0
 	amount_healed += carbon_owner.adjustBruteLoss(-1.8 * seconds_between_ticks, updating_health = FALSE)
@@ -227,7 +231,7 @@
 	carbon_owner.max_stamina /= 0.5 // stamina is halved while this is active.
 	carbon_owner.remove_movespeed_modifier(/datum/movespeed_modifier/master_of_the_house)
 	if(carbon_owner.oxyloss) // if they have oxyloss, don't just heal it instantly
-		carbon_owner.apply_status_effect(/atom/movable/screen/alert/status_effect/slave_to_the_tumor)
+		carbon_owner.apply_status_effect(/datum/status_effect/slave_to_the_tumor)
 	else
 		ADD_TRAIT(carbon_owner, TRAIT_NOBREATH, SPECIES_TRAIT)
 		ADD_TRAIT(carbon_owner, TRAIT_OXYIMMUNE, SPECIES_TRAIT)
@@ -255,7 +259,7 @@
 
 /datum/status_effect/slave_to_the_tumor
 	id = "slave_to_the_tumor"
-	alert_type = /atom/movable/screen/alert/status_effect/master_of_the_house
+	alert_type = /atom/movable/screen/alert/status_effect/slave_to_the_tumor
 	duration = 8 SECONDS
 	processing_speed = STATUS_EFFECT_NORMAL_PROCESS
 	/// Snapshot of the mob's oxyloss at the time of getting the status, so we know how much to heal

@@ -143,7 +143,7 @@
 		chosen_wound.pre_hemokinesis_blood_flow = chosen_wound.blood_flow
 		chosen_wound.adjust_blood_flow(-WOUND_MAX_BLOODFLOW)
 		chosen_wound.RegisterSignals(carbon_owner, COMSIG_LIVING_ADJUST_STANDARD_DAMAGE_TYPES, TYPE_PROC_REF(/datum/wound, on_health_changed))
-		to_chat(carbon_owner, "You use hemokinesis to clot the [chosen_wound].")
+		to_chat(carbon_owner, span_good("You use hemokinesis to clot the [chosen_wound]."))
 		carbon_owner.blood_volume -= 50
 		return
 
