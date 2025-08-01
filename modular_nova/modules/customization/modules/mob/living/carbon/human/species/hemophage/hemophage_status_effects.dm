@@ -167,7 +167,7 @@
 /datum/status_effect/slave_to_the_tumor
 	id = "slave_to_the_tumor"
 	alert_type = /atom/movable/screen/alert/status_effect/slave_to_the_tumor
-	duration = 8 SECONDS
+	duration = 1 MINUTES
 	processing_speed = STATUS_EFFECT_NORMAL_PROCESS
 	/// Snapshot of the mob's oxyloss at the time of getting the status, so we know how much to heal
 	var/oxyloss_to_heal
@@ -198,13 +198,14 @@
 	if(!istype(carbon_owner))
 		return
 
-	var/amount_healed = carbon_owner.adjustOxyLoss(-oxyloss_to_heal/initial(duration / SECONDS) * seconds_between_ticks, forced = TRUE)
-	carbon_owner.blood_volume -= (HEMOKINETIC_REGEN_BLOOD_CONSUMPTION * amount_healed)
+	var/amount_healed = carbon_owner.adjustOxyLoss(round(-oxyloss_to_heal/(initial(duration) / 10) * seconds_between_ticks, 0.01), forced = TRUE)
+	if(amount_healed)
+		carbon_owner.blood_volume -= (HEMOKINETIC_REGEN_BLOOD_CONSUMPTION * amount_healed)
 
 
 /atom/movable/screen/alert/status_effect/slave_to_the_tumor
 	name = "Slave to the Tumor"
-	desc = "You've given control of your lungs back to the tumor..."
+	desc = "You've given control of your lungs back to the tumor...it is going to take some time to repair the damage."
 	icon = 'modular_nova/modules/customization/modules/mob/living/carbon/human/species/hemophage/icons/screen_alert.dmi'
 	icon_state = "slave_to_the_tumor"
 

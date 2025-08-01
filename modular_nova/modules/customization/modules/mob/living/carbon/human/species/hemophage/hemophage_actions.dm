@@ -99,6 +99,8 @@
 	else
 		living_owner.apply_status_effect(/datum/status_effect/hemokinetic_regen)
 
+	return ..()
+
 
 /datum/action/cooldown/hemophage/hemokinetic_regen/go_dormant()
 	. = ..()
@@ -145,7 +147,7 @@
 		chosen_wound.adjust_blood_flow(-WOUND_MAX_BLOODFLOW)
 		to_chat(carbon_owner, span_good("You use hemokinesis to clot the [chosen_wound]."))
 		carbon_owner.blood_volume -= 50
-		return
+		return ..()
 
 	carbon_owner.balloon_alert(carbon_owner, "no clottable wounds!")
 
@@ -181,7 +183,7 @@
 	name = "Master of the House"
 	desc = "While active, wrest control of your lungs from the tumor. Breathing once more requires air, but your enriched blood soothes and satiates the hunger within. \
 		Stamina is reduced to 50% and movespeed is slowed, but you will slowly regenerate blood."
-	cooldown_time = 10 SECONDS
+	cooldown_time = 2 SECONDS
 	background_icon = 'modular_nova/modules/customization/modules/mob/living/carbon/human/species/hemophage/icons/actions_hemophage.dmi'
 	background_icon_state = "bg_hemophage"
 	button_icon = 'modular_nova/modules/customization/modules/mob/living/carbon/human/species/hemophage/icons/actions_hemophage.dmi'
@@ -193,12 +195,18 @@
 	if(!istype(living_owner))
 		return
 
+	if(living_owner.has_status_effect(/datum/status_effect/slave_to_the_tumor))
+		to_chat(living_owner, "You are still recovering...")
+		return
+
 	if(living_owner.has_status_effect(/datum/status_effect/master_of_the_house))
 		living_owner.remove_status_effect(/datum/status_effect/master_of_the_house)
 		to_chat(living_owner, "You release control of your lungs back to the tumor...")
 	else
 		living_owner.apply_status_effect(/datum/status_effect/master_of_the_house)
 		to_chat(living_owner, "You begin to wrest control of your lungs from the tumor. You can't keep this up forever, can you?")
+
+	return ..()
 
 
 /datum/action/cooldown/hemophage/master_of_the_house/go_dormant()
