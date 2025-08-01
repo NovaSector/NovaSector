@@ -106,3 +106,29 @@
 
 /obj/item/ammo_box/magazine/zashch/spawns_empty
 	start_empty = TRUE
+
+/obj/item/ammo_box/magazine/pulse
+	name = "pulse rifle energy magazine"
+	desc = "A magazine containing pulse energy cells for pulse weapons. Each cell provides multiple shots before needing replacement."
+	icon_state = "pulse-mag"
+	ammo_type = /obj/item/ammo_casing/pulse
+	caliber = "pulse"
+	max_ammo = 5
+	multiple_sprites = AMMO_BOX_FULL_EMPTY
+
+/obj/item/ammo_box/magazine/pulse/examine(mob/user)
+	. = ..()
+	if(length(stored_ammo))
+		var/obj/item/ammo_casing/pulse/top_cell = get_round()
+		if(istype(top_cell))
+			. += span_notice("The topmost loaded cell has [top_cell.remaining_uses] out of [top_cell.max_uses] shots remaining.")
+
+/obj/item/ammo_box/magazine/pulse/ammo_count(countempties = TRUE)
+	if(countempties) // If we're counting empty casings too (like for chambering)
+		return length(stored_ammo)
+	// Otherwise use the original behavior
+	var/boolets = 0
+	for(var/obj/item/ammo_casing/pulse/bullet in stored_ammo)
+		if(bullet.remaining_uses > 0)
+			boolets++
+	return boolets
