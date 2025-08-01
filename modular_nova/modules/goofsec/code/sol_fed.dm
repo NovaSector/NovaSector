@@ -244,7 +244,7 @@ GLOBAL_LIST_INIT(call911_do_and_do_not, list(
 			playsound(src, 'sound/machines/terminal/terminal_prompt_deny.ogg', 50, FALSE)
 			return FALSE
 	else
-		to_chat(user, "The console refuses to let you to message the federation as an AI or Cyborg!")
+		to_chat(user, "The console refuses to let you to message the Federation as an AI or Cyborg!")
 		return FALSE
 	return TRUE
 
@@ -254,16 +254,16 @@ GLOBAL_LIST_INIT(call911_do_and_do_not, list(
 	/// Notifies admins in case player is considering messaging solfed.
 	message_admins("[ADMIN_LOOKUPFLW(user)] is considering contacting the Sol Federation Regional Command.")
 	/// First Question
-	var/call_solfed_check1 = "Are you sure you want to message the Sol Federation. Un-necessary communications may result in a \
+	var/call_solfed_check1 = "Are you sure you want to message the Sol Federation? Un-necessary communications may result in a \
 	large fine or 25 years in federal prison."
 	/// Boolean for Solfed message
 	if(tgui_input_list(user, call_solfed_check1, "Call 911", list("Yes", "No")) != "Yes")
 		return
-	message_admins("[ADMIN_LOOKUPFLW(user)] has acknowledged the faulty Solfed call consequences.")
+	message_admins("[ADMIN_LOOKUPFLW(user)] has acknowledged the faulty SolFed call consequences.")
 	/// Variable for reason in calling the feeds
-	var/reason_to_call_da_feds = stripped_input(user, "What do you wish to call the federation for?", "Call the Federation", null, MAX_MESSAGE_LEN)
+	var/reason_to_call_da_feds = stripped_input(user, "What do you wish to call the Federation for?", "Call the Federation", null, MAX_MESSAGE_LEN)
 	if(!reason_to_call_da_feds)
-		to_chat(user, "You decide not to call the federation.")
+		to_chat(user, "You decide not to call the Federation.")
 		return
 
 	GLOB.fedmessage = reason_to_call_da_feds
@@ -277,7 +277,7 @@ GLOBAL_LIST_INIT(call911_do_and_do_not, list(
 	log_game("[key_name(user)] has called the Sol Federation for the following reason:\n[GLOB.fedmessage]")
 	deadchat_broadcast(" has called the Sol Federation for the following reason:\n[GLOB.fedmessage]", span_name("[user.real_name]"), user, message_type = DEADCHAT_ANNOUNCEMENT)
 
-	to_chat(user, span_notice("Authorization confirmed. Solfed Intervention request sent, Standby for official instructions."))
+	to_chat(user, span_notice("Authorization confirmed. SolFed Intervention request sent, standby for official instructions."))
 	playsound(src, 'sound/machines/terminal/terminal_prompt_confirm.ogg', 50, FALSE)
 
 /obj/machinery/computer/communications/proc/calling_911(mob/user, called_group_pretty = "EMTs", called_group = EMERGENCY_RESPONSE_EMT)
