@@ -7,6 +7,8 @@
 /datum/action/cooldown/hemophage
 	cooldown_time = 3 SECONDS
 	button_icon_state = null
+	background_icon = 'modular_nova/modules/customization/modules/mob/living/carbon/human/species/hemophage/icons/actions_hemophage.dmi'
+	background_icon_state = "bg_hemophage"
 	/// Whether the hemophage action is useable when dormant, by default they are not.
 	var/useable_dormant
 
@@ -75,9 +77,12 @@
 
 /datum/action/cooldown/hemophage/hemokinetic_regen
 	name = "Hemokinetic Regeneration"
-	desc = "While active, you will use hemokinesis to heal minor wounds as they occur. Costs blood"
+	desc = "While active, you will use hemokinesis and blood from your reserves to heal minor wounds as they occur."
 	cooldown_time = 2 SECONDS
-
+	background_icon = 'modular_nova/modules/customization/modules/mob/living/carbon/human/species/hemophage/icons/actions_hemophage.dmi'
+	background_icon_state = "bg_hemophage"
+	button_icon = 'modular_nova/modules/customization/modules/mob/living/carbon/human/species/hemophage/icons/actions_hemophage.dmi'
+	button_icon_state = "hemokinetic_regen"
 
 /datum/action/cooldown/hemophage/hemokinetic_regen/Activate(atom/action_target)
 	var/mob/living/living_owner = owner
@@ -107,8 +112,12 @@
 // Fully clots one wound per use at the cost of 50u of blood
 /datum/action/cooldown/hemophage/hemokinetic_clot
 	name = "Hemokinetic Clot"
-	desc = "Clot an active wound temporarily for 50 blood units at a time. This is a temporary measure, as the wound will return upon next instance of damage to that affected limb."
+	desc = "Clot an active wound for 50 blood units at a time. This is a temporary fix, as the wound will return upon the next instance of damage to that affected limb."
 	cooldown_time = 10 SECONDS
+	background_icon = 'modular_nova/modules/customization/modules/mob/living/carbon/human/species/hemophage/icons/actions_hemophage.dmi'
+	background_icon_state = "bg_hemophage"
+	button_icon = 'modular_nova/modules/customization/modules/mob/living/carbon/human/species/hemophage/icons/actions_hemophage.dmi'
+	button_icon_state = "hemokinetic_clot"
 	/// List of wounds that we can readd if the mob takes damage
 	var/list/previous_wounds = list()
 
@@ -171,8 +180,12 @@
 /datum/action/cooldown/hemophage/master_of_the_house
 	name = "Master of the House"
 	desc = "While active, wrest control of your lungs from the tumor. Breathing once more requires air, but your enriched blood soothes and satiates the hunger within. \
-		Stamina is reduced to 50% and movespeed gains heavy slowdown, but you will regen blood at 0.02u per second."
+		Stamina is reduced to 50% and movespeed is slowed, but you will slowly regenerate blood."
 	cooldown_time = 10 SECONDS
+	background_icon = 'modular_nova/modules/customization/modules/mob/living/carbon/human/species/hemophage/icons/actions_hemophage.dmi'
+	background_icon_state = "bg_hemophage"
+	button_icon = 'modular_nova/modules/customization/modules/mob/living/carbon/human/species/hemophage/icons/actions_hemophage.dmi'
+	button_icon_state = "master_of_the_house"
 
 
 /datum/action/cooldown/hemophage/master_of_the_house/Activate(atom/action_target)

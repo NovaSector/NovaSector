@@ -69,6 +69,7 @@
 	alert_type = /atom/movable/screen/alert/status_effect/hemokinetic_regen
 	processing_speed = STATUS_EFFECT_NORMAL_PROCESS
 
+
 /datum/status_effect/hemokinetic_regen/on_apply()
 
 	var/mob/living/carbon/carbon_owner = owner
@@ -104,7 +105,8 @@
 /atom/movable/screen/alert/status_effect/hemokinetic_regen
 	name = "Hemokinetic Regen"
 	desc = "Our wounds are healing at the expense of blood."
-	icon_state = "fleshmend"
+	icon = 'modular_nova/modules/customization/modules/mob/living/carbon/human/species/hemophage/icons/screen_alert.dmi'
+	icon_state = "hemokinetic_regen"
 
 
 /// Stamina is reduced to 50% and movespeed gains heavy slowdown, but you will regen blood at 0.02u per second. Temporarily re-enables having to breathe.
@@ -158,7 +160,8 @@
 	name = "Master of the House"
 	desc = "You are taking back control of your lungs. Breathing once more requires air, but your enriched blood soothes and satiates the hunger within. \
 		You are more sluggish than usual as you maintain this state."
-	icon_state = "regenerative_core"
+	icon = 'modular_nova/modules/customization/modules/mob/living/carbon/human/species/hemophage/icons/screen_alert.dmi'
+	icon_state = "master_of_the_house"
 
 
 /datum/status_effect/slave_to_the_tumor
@@ -195,19 +198,19 @@
 	if(!istype(carbon_owner))
 		return
 
-	var/amount_healed = carbon_owner.adjustOxyLoss(-oxyloss_to_heal/duration * seconds_between_ticks, forced = TRUE)
+	var/amount_healed = carbon_owner.adjustOxyLoss(-oxyloss_to_heal/initial(duration / SECONDS) * seconds_between_ticks, forced = TRUE)
 	carbon_owner.blood_volume -= (HEMOKINETIC_REGEN_BLOOD_CONSUMPTION * amount_healed)
 
 
 /atom/movable/screen/alert/status_effect/slave_to_the_tumor
 	name = "Slave to the Tumor"
 	desc = "You've given control of your lungs back to the tumor..."
-	icon_state = "regenerative_core"
+	icon = 'modular_nova/modules/customization/modules/mob/living/carbon/human/species/hemophage/icons/screen_alert.dmi'
+	icon_state = "slave_to_the_tumor"
 
 
 #undef BLOOD_REGEN_BRUTE_AMOUNT
 #undef BLOOD_REGEN_BURN_AMOUNT
-#undef BLOOD_REGEN_TOXIN_AMOUNT
 #undef BLOOD_REGEN_CELLULAR_AMOUNT
 #undef BLOOD_REGEN_MASTER_OF_THE_HOUSE
 #undef DAMAGE_LIMIT_HEMOKINETIC_REGEN
