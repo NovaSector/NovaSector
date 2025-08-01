@@ -176,7 +176,7 @@
 		return
 
 	var/mob/living/carbon/carbon_owner = owner
-	oxyloss_to_heal = carbon_owner.oxyloss
+	oxyloss_to_heal = carbon_owner.getOxyLoss()
 	to_chat(carbon_owner, "You feel a sense of relief as you embrace the tumor once more...")
 
 
@@ -195,7 +195,7 @@
 	if(!istype(carbon_owner))
 		return
 
-	var/amount_healed = carbon_owner.adjustOxyLoss(oxyloss_to_heal/duration, forced = TRUE)
+	var/amount_healed = carbon_owner.adjustOxyLoss(-oxyloss_to_heal/duration * seconds_between_ticks, forced = TRUE)
 	carbon_owner.blood_volume -= (HEMOKINETIC_REGEN_BLOOD_CONSUMPTION * amount_healed)
 
 
