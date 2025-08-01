@@ -138,7 +138,7 @@
 		carbon_owner.blood_volume -= 50
 		return
 
-	carbon_owner.balloon_alert(carbon_owner, "no wounds to clot!")
+	carbon_owner.balloon_alert(carbon_owner, "no clottable wounds!")
 
 
 /// Called when the limb takes damage, the previous wounds return as they were before they got clotted.
