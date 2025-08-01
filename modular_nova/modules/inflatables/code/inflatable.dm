@@ -7,13 +7,19 @@
 
 /obj/structure/inflatable
 	name = "inflatable wall"
-	desc = "An inflated membrane. Do not puncture."
+	desc = "An inflated plastic membrane. Do not puncture."
+	layer = CLOSED_TURF_LAYER
 	can_atmos_pass = ATMOS_PASS_DENSITY
+	opacity = TRUE
 	density = TRUE
 	anchored = TRUE
 	max_integrity = 40
 	icon = 'modular_nova/modules/inflatables/icons/inflatable.dmi'
 	icon_state = "wall"
+	flags_1 = PREVENT_CLICK_UNDER_1
+	bullet_impact_sound = NONE
+	flags_ricochet = NONE
+	armor_type = /datum/armor/none
 	/// The type we drop when damaged.
 	var/torn_type = /obj/item/inflatable/torn
 	/// The type we drop when deflated.
@@ -66,22 +72,21 @@
 				deflate()
 				return
 
-/obj/structure/inflatable/atom_break(damage_flag)
-	if(damage_flag == FIRE)
-		visible_message(span_warning("[src] start\s to melt from the heat!"))
-	return ..()
+/obj/structure/inflatable/take_damage(damage_amount, damage_type, damage_flag, sound_effect, attack_dir)
+	. = ..()
+	if((damage_flag == BULLET || damage_flag == LASER) && damage_amount >= 5)
+		atom_destruction(damage_flag)
 
 /obj/structure/inflatable/atom_destruction(damage_flag)
-	if(damage_flag == FIRE)
-		visible_message(span_warning("[src] pop\s!"))
+	visible_message(span_warning("[src] pop\s!"))
 	deflate()
 	return ..()
 
-/obj/structure/inflatable/attackby(obj/item/attacking_item, mob/user, list/modifiers, list/attack_modifiers)
-	if(attacking_item.sharpness)
-		visible_message(span_danger("<b>[user] pierces [src] with [attacking_item]!</b>"))
+/obj/structure/inflatable/attacked_by(obj/item/item, mob/living/user, list/modifiers, list/attack_modifiers)
+	if(item.get_sharpness())
+		LAZYSET(attack_modifiers, SILENCE_DEFAULT_MESSAGES, TRUE)
+		visible_message(span_danger("<b>[user] pierces [src] with [item]!</b>"))
 		deflate()
-		return
 	return ..()
 
 /obj/structure/inflatable/click_ctrl_shift(mob/user)
@@ -103,6 +108,8 @@
 		return
 	if(torn_type)
 		new torn_type(get_turf(src))
+	else
+		new /obj/effect/decal/cleanable/plastic(get_turf(src))
 	playsound(src, 'sound/items/balloon_pop.ogg', 100)
 	qdel(src)
 

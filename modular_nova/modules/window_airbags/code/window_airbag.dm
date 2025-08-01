@@ -144,7 +144,14 @@
 /obj/item/airbag/proc/bang()
 	var/obj/created_object = new drop_type(get_turf(src))
 	playsound(src, bang_sound, 50, pressure_affected = FALSE)
-	do_smoke(1, 1, created_object, get_turf(src))
+	do_smoke(
+		range = 1,
+		amount = 1,
+		holder = created_object,
+		location = get_turf(created_object),
+		smoke_type = /obj/effect/particle_effect/fluid/smoke/quick,
+		log = FALSE
+	)
 	qdel(src)
 
 /obj/item/airbag/immediate_arm
@@ -167,7 +174,7 @@
 	desc = "A quick deploying airbag that seals holes when a window is broken!"
 	icon_state = "airbag_wall"
 	torn_type = null // No debris left behind!
-	deflated_type = null
+	deflated_type = /obj/item/airbag
 
 #undef DISARM_TIME
 #undef TRAIT_AIRBAGGED
