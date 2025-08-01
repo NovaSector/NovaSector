@@ -1,5 +1,4 @@
-#define ARM_TIME (1 SECONDS)
-#define DISARM_TIME (3 SECONDS)
+#define DISARM_TIME (1 SECONDS)
 #define TRAIT_AIRBAGGED "airbagged"
 
 /obj/structure/window/reinforced/fulltile/Initialize(mapload, direct)
@@ -99,11 +98,12 @@
 	. = ..()
 	arm()
 
-/obj/item/airbag/attack_atom(atom/attacked_atom, mob/living/user, list/modifiers, list/attack_modifiers)
+/obj/item/airbag/afterattack(atom/attacked_atom, mob/user, list/modifiers, list/attack_modifiers)
 	if(attempt_attach(attacked_atom, user))
-		return TRUE
-	else
-		return ..()
+		playsound(attacked_atom, 'sound/machines/click.ogg', 75, TRUE, -3)
+		attacked_atom.AddElement(/datum/element/airbag)
+		qdel(src)
+		return
 
 /obj/item/airbag/proc/attempt_attach(atom/target, mob/user)
 	if(!loc.Adjacent(target) || !istype(target, /obj/structure/window))
@@ -111,10 +111,6 @@
 	if(HAS_TRAIT(target, TRAIT_AIRBAGGED))
 		user.balloon_alert(user, "already airbagged!")
 		return FALSE
-	if(!do_after(user, ARM_TIME, target))
-		return FALSE
-	target.AddElement(/datum/element/airbag)
-	qdel(src)
 	return TRUE
 
 /obj/item/airbag/proc/arm()
@@ -150,6 +146,5 @@
 	torn_type = null // No debris left behind!
 	deflated_type = null
 
-#undef ARM_TIME
 #undef DISARM_TIME
 #undef TRAIT_AIRBAGGED
