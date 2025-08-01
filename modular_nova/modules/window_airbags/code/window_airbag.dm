@@ -1,10 +1,12 @@
+#define ARM_TIME (1 SECONDS)
 #define DISARM_TIME (3 SECONDS)
+#define TRAIT_AIRBAGGED "airbagged"
 
 /obj/structure/window/reinforced/fulltile/Initialize(mapload, direct)
 	. = ..()
 	AddElement(/datum/element/airbag)
 
-/obj/structure/window/plasma/fulltile/Initialize(mapload, direct)
+/obj/structure/window/reinforced/plasma/fulltile/Initialize(mapload, direct)
 	. = ..()
 	AddElement(/datum/element/airbag)
 
@@ -27,10 +29,13 @@
 	RegisterSignal(target, COMSIG_ATOM_DESTRUCTION, PROC_REF(deploy_airbag))
 	RegisterSignal(target, COMSIG_CLICK_CTRL_SHIFT, PROC_REF(on_interact))
 	RegisterSignal(target, COMSIG_ATOM_REQUESTING_CONTEXT_FROM_ITEM, PROC_REF(on_requesting_context_from_item))
+	ADD_TRAIT(target, TRAIT_AIRBAGGED, TRAIT_GENERIC)
 
 /datum/element/airbag/Detach(datum/target)
 	. = ..()
+
 	UnregisterSignal(target, list(COMSIG_ATOM_DESTRUCTION, COMSIG_CLICK_CTRL_SHIFT, COMSIG_ATOM_REQUESTING_CONTEXT_FROM_ITEM))
+	REMOVE_TRAIT(target, TRAIT_AIRBAGGED, TRAIT_GENERIC)
 
 /datum/element/airbag/proc/deploy_airbag(atom/movable/destroying_atom, damage_flag)
 	SIGNAL_HANDLER
@@ -61,7 +66,8 @@
 // A fun little gadget!
 /obj/item/airbag
 	name = "airbag"
-	desc = "A small package with an explosive attached. Stand clear!"
+	desc = "A small package with an explosive attached. Stand clear! \n\
+		Can be attached to any window."
 	icon = 'modular_nova/modules/inflatables/icons/inflatable.dmi'
 	icon_state = "airbag_safe"
 	base_icon_state = "airbag"
@@ -92,6 +98,24 @@
 /obj/item/airbag/attack_self(mob/user, modifiers)
 	. = ..()
 	arm()
+
+/obj/item/airbag/attack_atom(atom/attacked_atom, mob/living/user, list/modifiers, list/attack_modifiers)
+	if(attempt_attach(attacked_atom, user))
+		return TRUE
+	else
+		return ..()
+
+/obj/item/airbag/proc/attempt_attach(atom/target, mob/user)
+	if(!loc.Adjacent(target) || !istype(target, /obj/structure/window))
+		return FALSE
+	if(HAS_TRAIT(target, TRAIT_AIRBAGGED))
+		user.balloon_alert(user, "already airbagged!")
+		return FALSE
+	if(!do_after(user, ARM_TIME, target))
+		return FALSE
+	target.AddElement(/datum/element/airbag)
+	qdel(src)
+	return TRUE
 
 /obj/item/airbag/proc/arm()
 	if(armed)
@@ -126,4 +150,6 @@
 	torn_type = null // No debris left behind!
 	deflated_type = null
 
+#undef ARM_TIME
 #undef DISARM_TIME
+#undef TRAIT_AIRBAGGED
