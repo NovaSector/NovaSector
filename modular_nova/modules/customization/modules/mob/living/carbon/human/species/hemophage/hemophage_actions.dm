@@ -73,34 +73,35 @@
 	build_all_button_icons(UPDATE_BUTTON_NAME)
 
 
-/datum/action/cooldown/hemophage/hemokinesis_regen
-	name = "Hemokinesis Regeneration"
+/datum/action/cooldown/hemophage/hemokinetic_regen
+	name = "Hemokinetic Regeneration"
 	desc = "While active, you will use hemokinesis to heal minor wounds as they occur. Costs blood"
 	cooldown_time = 2 SECONDS
 
 
-/datum/action/cooldown/hemophage/hemokinesis_regen/Activate(atom/action_target)
+/datum/action/cooldown/hemophage/hemokinetic_regen/Activate(atom/action_target)
 	var/mob/living/living_owner = owner
 	if(!istype(living_owner))
 		return
 
-	if(living_owner.has_status_effect(/datum/status_effect/hemokinesis_regen))
-		living_owner.remove_status_effect(/datum/status_effect/hemokinesis_regen)
+	if(living_owner.has_status_effect(/datum/status_effect/hemokinetic_regen))
+		living_owner.remove_status_effect(/datum/status_effect/hemokinetic_regen)
+		living_owner.balloon_alert(living_owner, "hemokinetic regen deactivated!")
 	else
-		living_owner.apply_status_effect(/datum/status_effect/hemokinesis_regen)
+		living_owner.apply_status_effect(/datum/status_effect/hemokinetic_regen)
 
 
-/datum/action/cooldown/hemophage/hemokinesis_regen/go_dormant()
+/datum/action/cooldown/hemophage/hemokinetic_regen/go_dormant()
 	. = ..()
 	var/mob/living/living_owner = owner
 	if(!istype(living_owner))
 		return
 
-	living_owner.remove_status_effect(/datum/status_effect/hemokinesis_regen)
+	living_owner.remove_status_effect(/datum/status_effect/hemokinetic_regen)
 
 
 /// Called when the limb takes damage, the previous wounds return as they were before they got clotted.
-/datum/action/cooldown/hemophage/hemokinesis_clot/proc/on_limb_damaged(mob/living/our_mob, limb, brute, burn)
+/datum/action/cooldown/hemophage/hemokinetic_clot/proc/on_limb_damaged(mob/living/our_mob, limb, brute, burn)
 	SIGNAL_HANDLER
 
 	if(!(brute + burn) || ((brute + burn) < 0)) // nothing to do
@@ -127,15 +128,15 @@
 
 
 // Fully clots one wound per use at the cost of 50u of blood
-/datum/action/cooldown/hemophage/hemokinesis_clot
-	name = "Hemokinesis Clot"
+/datum/action/cooldown/hemophage/hemokinetic_clot
+	name = "Hemokinetic Clot"
 	desc = "Clot an active wound temporarily for 50 blood units at a time. This is a temporary measure, as the wound will return upon next instance of damage to that affected limb."
 	cooldown_time = 5 SECONDS
 	/// List of wounds that we can readd if the mob takes damage
 	var/list/previous_wounds = list()
 
 
-/datum/action/cooldown/hemophage/hemokinesis_clot/Activate(atom/action_target)
+/datum/action/cooldown/hemophage/hemokinetic_clot/Activate(atom/action_target)
 	var/mob/living/carbon/carbon_owner = owner
 	if(!istype(carbon_owner))
 		return
@@ -170,8 +171,10 @@
 
 	if(living_owner.has_status_effect(/datum/status_effect/master_of_the_house))
 		living_owner.remove_status_effect(/datum/status_effect/master_of_the_house)
+		to_chat(living_owner, "You release control of your lungs back to the tumor...")
 	else
 		living_owner.apply_status_effect(/datum/status_effect/master_of_the_house)
+		to_chat(living_owner, "You begin to wrest control of your lungs from the tumor. You can't keep this up forever, can you?")
 
 /datum/action/cooldown/hemophage/master_of_the_house/go_dormant()
 	. = ..()

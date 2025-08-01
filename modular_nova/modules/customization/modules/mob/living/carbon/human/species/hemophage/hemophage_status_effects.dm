@@ -162,12 +162,12 @@
 
 
 /// Heals 1.8 brute + burn per second as long as damage value is 50 or below, consuming 0.2 units of blood per point of damage healed.
-/datum/status_effect/hemokinesis_regen
-	id = "hemokinesis_regen"
-	alert_type = /atom/movable/screen/alert/status_effect/hemokinesis_regen
+/datum/status_effect/hemokinetic_regen
+	id = "hemokinetic_regen"
+	alert_type = /atom/movable/screen/alert/status_effect/hemokinetic_regen
 	processing_speed = STATUS_EFFECT_NORMAL_PROCESS
 
-/datum/status_effect/hemokinesis_regen/on_apply()
+/datum/status_effect/hemokinetic_regen/on_apply()
 
 	var/mob/living/carbon/carbon_owner = owner
 	if(!istype(carbon_owner))
@@ -176,15 +176,13 @@
 		return
 	if(((owner.getBruteLoss() + carbon_owner.getFireLoss()) >= 50))
 		to_chat(carbon_owner, span_warning("Your body is too damaged to be healed with hemokinesis!"))
+		return
 
-	carbon_owner.balloon_alert(carbon_owner, "hemokinesis regen activated!")
+	carbon_owner.balloon_alert(carbon_owner, "hemokinetic regen activated!")
 	return ..()
 
-/datum/status_effect/hemokinesis_regen/on_remove()
-	owner?.balloon_alert(owner, "hemokinesis regen deactivated!")
 
-
-/datum/status_effect/hemokinesis_regen/tick(seconds_between_ticks)
+/datum/status_effect/hemokinetic_regen/tick(seconds_between_ticks)
 	var/mob/living/carbon/carbon_owner = owner
 	if(!istype(carbon_owner))
 		return
@@ -200,8 +198,8 @@
 		carbon_owner.blood_volume -= (0.2 * amount_healed)
 		carbon_owner.updatehealth()
 
-/atom/movable/screen/alert/status_effect/hemokinesis_regen
-	name = "Hemokinesis Regen"
+/atom/movable/screen/alert/status_effect/hemokinetic_regen
+	name = "Hemokinetic Regen"
 	desc = "Our wounds are healing at the expense of blood."
 	icon_state = "fleshmend"
 
@@ -221,7 +219,6 @@
 		REMOVE_TRAIT(carbon_owner, TRAIT_NOBREATH, SPECIES_TRAIT)
 		REMOVE_TRAIT(carbon_owner, TRAIT_OXYIMMUNE, SPECIES_TRAIT)
 		carbon_owner.add_movespeed_modifier(/datum/movespeed_modifier/master_of_the_house)
-		to_chat(carbon_owner, "You begin to wrest control of your lungs from the tumor. You can't keep this up forever, can you?")
 
 
 /datum/status_effect/master_of_the_house/on_remove()
@@ -235,7 +232,6 @@
 	else
 		ADD_TRAIT(carbon_owner, TRAIT_NOBREATH, SPECIES_TRAIT)
 		ADD_TRAIT(carbon_owner, TRAIT_OXYIMMUNE, SPECIES_TRAIT)
-	to_chat(carbon_owner, "You release control of your lungs back to the tumor...")
 
 
 /datum/status_effect/master_of_the_house/tick(seconds_between_ticks)

@@ -21,8 +21,8 @@
 	desc = "This pulsating organ nearly resembles a normal heart, but it's been twisted beyond any human appearance, having turned to the color of coal. The way it barely fits where the original organ was sends shivers down your spine... <i>The fact that it's what keeps them alive makes it all the more terrifying.</i>"
 	actions_types = list(
 		/datum/action/cooldown/hemophage/toggle_dormant_state,
-		/datum/action/cooldown/hemophage/hemokinesis_regen,
-		/datum/action/cooldown/hemophage/hemokinesis_clot,
+		/datum/action/cooldown/hemophage/hemokinetic_regen,
+		/datum/action/cooldown/hemophage/hemokinetic_clot,
 		/datum/action/cooldown/hemophage/master_of_the_house,
 	)
 	organ_flags = ORGAN_ORGANIC | ORGAN_UNREMOVABLE | ORGAN_TUMOR_CORRUPTED
