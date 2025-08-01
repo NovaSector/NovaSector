@@ -1,20 +1,10 @@
 #define DISARM_TIME (3 SECONDS)
 
-/obj/structure/window
-	/// Is there currently an airbag installed in the window?
-	var/airbag_installed = FALSE
-
-/obj/structure/window/Initialize(mapload, direct)
-	. = ..()
-	register_context()
-
-/obj/structure/window/add_context(atom/source, list/context, obj/item/held_item, mob/user)
-	. = ..()
-	if(airbag_installed)
-		context[SCREENTIP_CONTEXT_CTRL_SHIFT_LMB] = "Disarm airbag"
-	return CONTEXTUAL_SCREENTIP_SET
-
 /obj/structure/window/reinforced/fulltile/Initialize(mapload, direct)
+	. = ..()
+	AddElement(/datum/element/airbag)
+
+/obj/structure/window/plasma/fulltile/Initialize(mapload, direct)
 	. = ..()
 	AddElement(/datum/element/airbag)
 
@@ -31,22 +21,16 @@
 
 /datum/element/airbag/Attach(datum/target)
 	. = ..()
-	var/obj/structure/window/window = target
-	if(!window)
+	if(!ismovable(target))
 		return ELEMENT_INCOMPATIBLE
 
-	RegisterSignal(window, COMSIG_ATOM_DESTRUCTION, PROC_REF(deploy_airbag))
-	RegisterSignal(window, COMSIG_CLICK_CTRL_SHIFT, PROC_REF(on_interact))
-	window.airbag_installed = TRUE
+	RegisterSignal(target, COMSIG_ATOM_DESTRUCTION, PROC_REF(deploy_airbag))
+	RegisterSignal(target, COMSIG_CLICK_CTRL_SHIFT, PROC_REF(on_interact))
+	RegisterSignal(target, COMSIG_ATOM_REQUESTING_CONTEXT_FROM_ITEM, PROC_REF(on_requesting_context_from_item))
 
 /datum/element/airbag/Detach(datum/target)
 	. = ..()
-	var/obj/structure/window/window = target
-	if(!window)
-		return
-
-	UnregisterSignal(window, list(COMSIG_ATOM_DESTRUCTION, COMSIG_CLICK_CTRL_SHIFT))
-	window.airbag_installed = FALSE
+	UnregisterSignal(target, list(COMSIG_ATOM_DESTRUCTION, COMSIG_CLICK_CTRL_SHIFT, COMSIG_ATOM_REQUESTING_CONTEXT_FROM_ITEM))
 
 /datum/element/airbag/proc/deploy_airbag(atom/movable/destroying_atom, damage_flag)
 	SIGNAL_HANDLER
@@ -68,6 +52,11 @@
 		playsound(clicked_atom, 'sound/machines/click.ogg', 75, TRUE, -3)
 		clicker.put_in_hands(new disarmed_type(clicker))
 		Detach(clicked_atom)
+
+/datum/element/airbag/proc/on_requesting_context_from_item(atom/source, list/context, obj/item/held_item, mob/user)
+	SIGNAL_HANDLER
+	context[SCREENTIP_CONTEXT_CTRL_SHIFT_LMB] = "Disarm airbag"
+	return CONTEXTUAL_SCREENTIP_SET
 
 // A fun little gadget!
 /obj/item/airbag
@@ -107,7 +96,6 @@
 /obj/item/airbag/proc/arm()
 	if(armed)
 		return
-	balloon_alert_to_viewers("armed!")
 	if(!anchored)
 		addtimer(CALLBACK(src, PROC_REF(deploy_anchor)), 1 SECONDS)
 	addtimer(CALLBACK(src, PROC_REF(bang)), detonate_time)
@@ -119,7 +107,6 @@
 /obj/item/airbag/proc/deploy_anchor()
 	if(!isturf(loc) || anchored)
 		return
-	balloon_alert_to_viewers("anchor deployed!")
 	anchored = TRUE
 
 // Detonates the airbag, dropping the item and playing the sound.
