@@ -1642,12 +1642,12 @@
 	name = "Maid Costume (Worn)"
 	icon_file = 'modular_nova/modules/GAGS/icons/maid_costume_worn.dmi'
 
-/datum/greyscale_config/maid_headband
+/datum/greyscale_config/maid_costume_headband
 	name = "Maid Headband"
 	icon_file = 'modular_nova/modules/GAGS/icons/maid_costume.dmi'
 	json_config = 'modular_nova/modules/GAGS/json_configs/costumes/maid_headband.json'
 
-/datum/greyscale_config/maid_headband/worn
+/datum/greyscale_config/maid_costume_headband/worn
 	name = "Maid Headband (Worn)"
 	icon_file = 'modular_nova/modules/GAGS/icons/maid_costume_worn.dmi'
 
