@@ -6,6 +6,8 @@
 #define BLOOD_REGEN_TOXIN_AMOUNT 1.5
 /// How much cellular damage their body regenerates per second while using blood regeneration.
 #define BLOOD_REGEN_CELLULAR_AMOUNT 1.50
+/// How much blood to regen while master of the house is active - net positive of 0.02 after factoring the blood drain which occurs every Life() tick.
+#define BLOOD_REGEN_MASTER_OF_THE_HOUSE (NORMAL_HEMOPHAGE_BLOOD_DRAIN * 2) + 0.02
 
 /datum/status_effect/blood_thirst_satiated
 	id = "blood_thirst_satiated"
@@ -157,6 +159,141 @@
 	desc = "Being in a sufficiently dark location allows your tumor to allocate more energy to enhancing your body's natural regeneration, at the cost of blood volume proportional to the damage healed."
 	icon = 'icons/hud/screen_alert.dmi'
 	icon_state = "template"
+
+
+/// Heals 1.8 brute + burn per second as long as damage value is 50 or below, consuming 0.2 units of blood per point of damage healed.
+/datum/status_effect/hemokinesis_regen
+	id = "hemokinesis_regen"
+	alert_type = /atom/movable/screen/alert/status_effect/hemokinesis_regen
+	processing_speed = STATUS_EFFECT_NORMAL_PROCESS
+
+/datum/status_effect/hemokinesis_regen/on_apply()
+
+	var/mob/living/carbon/carbon_owner = owner
+	if(!istype(carbon_owner))
+		return
+	if(!istype(carbon_owner))
+		return
+	if(((owner.bruteloss + carbon_owner.fireloss) >= 50))
+		to_chat(carbon_owner, span_warning("Your body is too damaged to be healed with hemokinesis!"))
+
+	carbon_owner.balloon_alert("hemokinesis regen activated!")
+	return ..()
+
+/datum/status_effect/hemokinesis_regen/on_remove()
+	owner?.balloon_alert("hemokinesis regen deactivated!")
+
+
+/datum/status_effect/hemokinesis_regen/tick(seconds_between_ticks)
+	var/mob/living/carbon/carbon_owner = owner
+	if(!istype(carbon_owner))
+		return
+
+	var/amount_healed = 0
+	amount_healed += carbon_owner.adjustBruteLoss(-1.8 * seconds_between_ticks, updating_health = FALSE)
+	amount_healed += carbon_owner.adjustFireLoss(-1.8 * seconds_between_ticks, updating_health = FALSE)
+	if(amount_healed)
+		carbon_owner.blood_volume -= (0.2 * amount_healed)
+		carbon_owner.updatehealth()
+
+/atom/movable/screen/alert/status_effect/hemokinesis_regen
+	name = "Hemokinesis Regen"
+	desc = "Our wounds are healing at the expense of blood."
+	icon_state = "fleshmend"
+
+
+/// Stamina is reduced to 50% and movespeed gains heavy slowdown, but you will regen blood at 0.02u per second. Temporarily re-enables having to breathe.
+/datum/status_effect/master_of_the_house
+	id = "master_of_the_house"
+	alert_type = /atom/movable/screen/alert/status_effect/master_of_the_house
+	processing_speed = STATUS_EFFECT_NORMAL_PROCESS
+
+
+/datum/status_effect/master_of_the_house/on_apply()
+	. = ..()
+	if(iscarbon(owner))
+		var/mob/living/carbon/carbon_owner = owner
+		carbon_owner.max_stamina *= 0.5
+		REMOVE_TRAIT(carbon_owner, TRAIT_NOBREATH, SPECIES_TRAIT)
+		REMOVE_TRAIT(carbon_owner, TRAIT_OXYIMMUNE, SPECIES_TRAIT)
+		carbon_owner.add_movespeed_modifier(/datum/movespeed_modifier/master_of_the_house)
+		to_chat(carbon_owner, "You begin to wrest control of your lungs from the tumor. You can't keep this up forever, can you?")
+
+
+/datum/status_effect/master_of_the_house/on_remove()
+	var/mob/living/carbon/carbon_owner = owner
+	if(!istype(carbon_owner))
+		return
+	carbon_owner.max_stamina /= 0.5 // stamina is halved while this is active.
+	carbon_owner.remove_movespeed_modifier(/datum/movespeed_modifier/master_of_the_house)
+	if(carbon_owner.oxyloss) // if they have oxyloss, don't just heal it instantly
+		carbon_owner.apply_status_effect(/atom/movable/screen/alert/status_effect/slave_to_the_tumor)
+	else
+		ADD_TRAIT(carbon_owner, TRAIT_NOBREATH, SPECIES_TRAIT)
+		ADD_TRAIT(carbon_owner, TRAIT_OXYIMMUNE, SPECIES_TRAIT)
+	to_chat(carbon_owner, "You release control of your lungs back to the tumor...")
+
+
+/datum/status_effect/master_of_the_house/tick(seconds_between_ticks)
+	var/mob/living/carbon/carbon_owner = owner
+	if(!istype(carbon_owner))
+		return
+
+	carbon_owner.blood_volume += BLOOD_REGEN_MASTER_OF_THE_HOUSE
+
+
+/datum/movespeed_modifier/master_of_the_house
+	blacklisted_movetypes = (FLYING|FLOATING)
+	multiplicative_slowdown = 0.25
+
+/atom/movable/screen/alert/status_effect/master_of_the_house
+	name = "Master of the House"
+	desc = "You are taking back control of your lungs. Breathing once more requires air, but your enriched blood soothes and satiates the hunger within. \
+		You are more sluggish than usual as you maintain this state."
+	icon_state = "regenerative_core"
+
+
+/datum/status_effect/slave_to_the_tumor
+	id = "slave_to_the_tumor"
+	alert_type = /atom/movable/screen/alert/status_effect/master_of_the_house
+	duration = 8 SECONDS
+	processing_speed = STATUS_EFFECT_NORMAL_PROCESS
+	/// Snapshot of the mob's oxyloss at the time of getting the status, so we know how much to heal
+	var/oxyloss_to_heal
+
+
+/datum/status_effect/slave_to_the_tumor/on_apply()
+	. = ..()
+	if(!iscarbon(owner))
+		return
+
+	var/mob/living/carbon/carbon_owner = owner
+	oxyloss_to_heal = carbon_owner.oxyloss
+	to_chat(carbon_owner, "You feel a sense of relief as you embrace the tumor once more...")
+
+
+/datum/status_effect/slave_to_the_tumor/on_remove()
+	if(!iscarbon(owner))
+		return
+
+	var/mob/living/carbon/carbon_owner = owner
+	ADD_TRAIT(carbon_owner, TRAIT_NOBREATH, SPECIES_TRAIT)
+	ADD_TRAIT(carbon_owner, TRAIT_OXYIMMUNE, SPECIES_TRAIT)
+
+
+// With the tumor back in control, any accrued oxyloss is healed over the course of this status
+/datum/status_effect/slave_to_the_tumor/tick(seconds_between_ticks)
+	var/mob/living/carbon/carbon_owner = owner
+	if(!istype(carbon_owner))
+		return
+
+	carbon_owner.adjustOxyLoss(oxyloss_to_heal/duration, forced = TRUE)
+
+
+/atom/movable/screen/alert/status_effect/slave_to_the_tumor
+	name = "Slave to the Tumor"
+	desc = "You've given control of your lungs back to the tumor..."
+	icon_state = "regenerative_core"
 
 
 #undef BLOOD_REGEN_BRUTE_AMOUNT

@@ -13,3 +13,5 @@
 #define HEMOPHAGE_VOMIT_PURGE_RATIO 0.95
 /// How much disgust we're at after eating/drinking something the tumor doesn't like.
 #define TUMOR_DISLIKED_FOOD_DISGUST DISGUST_LEVEL_GROSS + 15
+/// How much blood do Hemophages normally lose per second (visible effect is every two seconds, so twice this value).
+#define NORMAL_HEMOPHAGE_BLOOD_DRAIN 0.05

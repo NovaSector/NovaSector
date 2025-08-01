@@ -6,7 +6,7 @@
 /// By how much the blood drain will be divided when the tumor is in a dormant state.
 #define DORMANT_BLOODLOSS_MULTIPLIER 10
 /// How much blood do Hemophages normally lose per second (visible effect is every two seconds, so twice this value).
-#define NORMAL_BLOOD_DRAIN 0.05
+#define NORMAL_HEMOPHAGE_BLOOD_DRAIN 0.05
 /// The bleed mod for how much bloodloss will occur from all instances
 #define HEMOPHAGE_BLEED_MOD 1.2
 
@@ -23,12 +23,17 @@
 	icon_state = "tumor-on"
 	base_icon_state = "tumor"
 	desc = "This pulsating organ nearly resembles a normal heart, but it's been twisted beyond any human appearance, having turned to the color of coal. The way it barely fits where the original organ was sends shivers down your spine... <i>The fact that it's what keeps them alive makes it all the more terrifying.</i>"
-	actions_types = list(/datum/action/cooldown/hemophage/toggle_dormant_state)
+	actions_types = list(
+		/datum/action/cooldown/hemophage/toggle_dormant_state,
+		/datum/action/cooldown/hemophage/hemokinesis_regen,
+		/datum/action/cooldown/hemophage/hemokinesis_clot,
+		/datum/action/cooldown/hemophage/master_of_the_house,
+	)
 	organ_flags = ORGAN_ORGANIC | ORGAN_UNREMOVABLE | ORGAN_TUMOR_CORRUPTED
 	/// Are we currently dormant? Defaults to PULSATING_TUMOR_ACTIVE (so FALSE).
 	var/is_dormant = PULSATING_TUMOR_ACTIVE
 	/// What is the current rate (per second) at which the tumor is consuming blood?
-	var/bloodloss_rate = NORMAL_BLOOD_DRAIN
+	var/bloodloss_rate = NORMAL_HEMOPHAGE_BLOOD_DRAIN
 
 
 /obj/item/organ/heart/hemophage/on_mob_insert(mob/living/carbon/tumorful, special, movement_flags)
@@ -42,7 +47,7 @@
 		return
 
 	var/mob/living/carbon/human/tumorless_human = tumorful
-	tumorful.physiology.bleed_mod *= HEMOPHAGE_BLEED_MOD
+	tumorless_human.physiology.bleed_mod *= HEMOPHAGE_BLEED_MOD
 
 
 /obj/item/organ/heart/hemophage/on_mob_remove(mob/living/carbon/tumorless, special = FALSE)
@@ -57,7 +62,7 @@
 		return
 
 	var/mob/living/carbon/human/tumorless_human = tumorless
-	tumorless.physiology.bleed_mod /= HEMOPHAGE_BLEED_MOD
+	tumorless_human.physiology.bleed_mod /= HEMOPHAGE_BLEED_MOD
 
 	// We make sure to account for dormant tumor vulnerabilities, so that we don't achieve states that shouldn't be possible.
 	if(is_dormant)
@@ -100,8 +105,17 @@
 
 /// Simple helper proc that toggles the dormant state of the tumor, which also switches its appearance to reflect said change.
 /obj/item/organ/heart/hemophage/proc/toggle_dormant_state()
+
+
 	is_dormant = !is_dormant
 	base_icon_state = is_dormant ? "[base_icon_state]-dormant" : initial(base_icon_state)
+
+	// Most hemophage actions will not work while in the dormant state
+	for(var/datum/action/cooldown/hemophage/hemophage_action in owner.actions)
+		if(is_dormant)
+			hemophage_action.go_dormant()
+		else
+			hemophage_action.wake_up()
 
 	bloodloss_rate *= is_dormant ? 1 / DORMANT_BLOODLOSS_MULTIPLIER : DORMANT_BLOODLOSS_MULTIPLIER
 
@@ -167,7 +181,6 @@
 
 #undef DORMANT_DAMAGE_MULTIPLIER
 #undef DORMANT_BLOODLOSS_MULTIPLIER
-#undef NORMAL_BLOOD_DRAIN
 #undef HEMOPHAGE_BLEED_MOD
 
 #undef TRAIT_TUMOR
