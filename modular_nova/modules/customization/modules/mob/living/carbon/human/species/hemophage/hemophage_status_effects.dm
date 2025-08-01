@@ -180,7 +180,7 @@
 		return
 	if(!istype(carbon_owner))
 		return
-	if(((owner.getBruteLoss() + carbon_owner.getFireLoss()) >= DAMAGE_LIMIT_HEMOKINETIC_REGEN)
+	if((owner.getBruteLoss() + carbon_owner.getFireLoss()) >= DAMAGE_LIMIT_HEMOKINETIC_REGEN)
 		to_chat(carbon_owner, span_warning("Your body is too damaged to be healed with hemokinesis!"))
 		return
 
@@ -255,7 +255,7 @@
 
 /datum/movespeed_modifier/master_of_the_house
 	blacklisted_movetypes = (FLYING|FLOATING)
-	multiplicative_slowdown = 0.25
+	multiplicative_slowdown = 0.35
 
 /atom/movable/screen/alert/status_effect/master_of_the_house
 	name = "Master of the House"
@@ -298,8 +298,8 @@
 	if(!istype(carbon_owner))
 		return
 
-	amount_healed = carbon_owner.adjustOxyLoss(oxyloss_to_heal/duration, forced = TRUE)
-	carbon_owner.blood_volume -= HEMOKINETIC_REGEN_BLOOD_CONSUMPTION * amount_healed
+	var/amount_healed = carbon_owner.adjustOxyLoss(oxyloss_to_heal/duration, forced = TRUE)
+	carbon_owner.blood_volume -= (HEMOKINETIC_REGEN_BLOOD_CONSUMPTION * amount_healed)
 
 
 /atom/movable/screen/alert/status_effect/slave_to_the_tumor

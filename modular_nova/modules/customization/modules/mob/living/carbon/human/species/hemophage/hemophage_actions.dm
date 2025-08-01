@@ -84,6 +84,10 @@
 	if(!istype(living_owner))
 		return
 
+	if(living_owner.blood_volume <= MINIMUM_VOLUME_FOR_REGEN)
+		living_owner.balloon_alert(living_owner, "blood level too low!")
+		return
+
 	if(living_owner.has_status_effect(/datum/status_effect/hemokinetic_regen))
 		living_owner.remove_status_effect(/datum/status_effect/hemokinetic_regen)
 		living_owner.balloon_alert(living_owner, "hemokinetic regen deactivated!")
@@ -112,6 +116,10 @@
 /datum/action/cooldown/hemophage/hemokinetic_clot/Activate(atom/action_target)
 	var/mob/living/carbon/carbon_owner = owner
 	if(!istype(carbon_owner))
+		return
+
+	if(carbon_owner.blood_volume <= MINIMUM_VOLUME_FOR_REGEN)
+		carbon_owner.balloon_alert(carbon_owner, "blood level too low!")
 		return
 
 	// Fully clot one wound per use, priotizing the most oozy one.
