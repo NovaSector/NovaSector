@@ -72,12 +72,6 @@
 	// It's intended that you can't print a tumor, because why would you?
 	operated = FALSE
 
-	if(can_heal_owner_damage())
-		owner.apply_status_effect(/datum/status_effect/blood_regen_active)
-
-	else
-		owner.remove_status_effect(/datum/status_effect/blood_regen_active)
-
 	if(in_closet(owner)) // No regular bloodloss if you're in a closet
 		return
 
@@ -129,24 +123,6 @@
 /// Simple helper proc that returns whether or not the given hemophage is in a closet subtype (but not in any bodybag subtype).
 /obj/item/organ/heart/hemophage/proc/in_closet(mob/living/carbon/human/hemophage)
 	return istype(hemophage.loc, /obj/structure/closet) && !istype(hemophage.loc, /obj/structure/closet/body_bag)
-
-
-/// Simple helper proc that returns whether or not the given hemophage is in total darkness.
-/obj/item/organ/heart/hemophage/proc/in_total_darkness(mob/living/carbon/human/hemophage)
-	var/turf/current_turf = get_turf(hemophage)
-	if(!istype(current_turf))
-		return FALSE
-
-	return current_turf.get_lumcount() <= MINIMUM_LIGHT_THRESHOLD_FOR_REGEN
-
-
-/// Whether or not we should be applying the healing status effect for the owner.
-/obj/item/organ/heart/hemophage/proc/can_heal_owner_damage()
-	// We handle the least expensive checks first.
-	if(owner.health >= owner.maxHealth || is_dormant || owner.blood_volume <= MINIMUM_VOLUME_FOR_REGEN || (!in_closet(owner) && !in_total_darkness(owner)))
-		return FALSE
-
-	return owner.getBruteLoss() || owner.getFireLoss() || owner.getToxLoss()
 
 
 /// Simple helper to toggle the hemophage's vulnerability (or lack thereof) based on the status of their tumor.

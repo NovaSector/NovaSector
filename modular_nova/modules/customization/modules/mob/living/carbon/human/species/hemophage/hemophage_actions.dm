@@ -125,6 +125,8 @@
 	// Fully clot one wound per use, priotizing the most oozy one.
 	var/datum/wound/chosen_wound
 	for(var/datum/wound/iter_wound as anything in carbon_owner.all_wounds)
+		if(!(iter_wound.limb.bodytype & BODYTYPE_ORGANIC)) // no healing for robotic limbs
+			continue
 		if(iter_wound.blood_flow && (iter_wound.blood_flow > chosen_wound?.blood_flow))
 			chosen_wound = iter_wound
 
@@ -143,7 +145,7 @@
 /datum/action/cooldown/hemophage/hemokinetic_clot/proc/on_limb_damaged(mob/living/our_mob, limb, brute, burn)
 	SIGNAL_HANDLER
 
-	if(!(brute + burn) || ((brute + burn) < 0)) // nothing to do
+	if((brute + burn) <= 0) // nothing to do
 		return
 
 	// Wounds are really complicated in that they are constantly 'downgrading' or 'upgrading' themselves, which involves copying aspects of the old wound into a new datum, deleting the old one
