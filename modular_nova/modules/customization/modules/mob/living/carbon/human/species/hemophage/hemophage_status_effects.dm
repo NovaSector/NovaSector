@@ -181,7 +181,7 @@
 	return ..()
 
 /datum/status_effect/hemokinesis_regen/on_remove()
-	owner?.balloon_alert(carbon_owner, "hemokinesis regen deactivated!")
+	owner?.balloon_alert(owner, "hemokinesis regen deactivated!")
 
 
 /datum/status_effect/hemokinesis_regen/tick(seconds_between_ticks)
