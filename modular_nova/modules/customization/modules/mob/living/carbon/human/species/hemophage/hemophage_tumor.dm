@@ -46,9 +46,6 @@
 	if(!ishuman(tumorful))
 		return
 
-	var/mob/living/carbon/human/tumorless_human = tumorful
-	tumorless_human.physiology.bleed_mod *= HEMOPHAGE_BLEED_MOD
-
 
 /obj/item/organ/heart/hemophage/on_mob_remove(mob/living/carbon/tumorless, special = FALSE)
 	. = ..()
@@ -62,7 +59,6 @@
 		return
 
 	var/mob/living/carbon/human/tumorless_human = tumorless
-	tumorless_human.physiology.bleed_mod /= HEMOPHAGE_BLEED_MOD
 
 	// We make sure to account for dormant tumor vulnerabilities, so that we don't achieve states that shouldn't be possible.
 	if(is_dormant)
