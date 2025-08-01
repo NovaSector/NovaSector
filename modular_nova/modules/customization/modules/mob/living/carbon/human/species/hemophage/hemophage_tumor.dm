@@ -7,8 +7,6 @@
 #define DORMANT_BLOODLOSS_MULTIPLIER 10
 /// How much blood do Hemophages normally lose per second (visible effect is every two seconds, so twice this value).
 #define NORMAL_HEMOPHAGE_BLOOD_DRAIN 0.05
-/// The bleed mod for how much bloodloss will occur from all instances
-#define HEMOPHAGE_BLEED_MOD 1.2
 
 /// Just a conversion factor that ensures there's no weird floating point errors when blood is draining.
 #define FLOATING_POINT_ERROR_AVOIDING_FACTOR 1000
@@ -177,6 +175,5 @@
 
 #undef DORMANT_DAMAGE_MULTIPLIER
 #undef DORMANT_BLOODLOSS_MULTIPLIER
-#undef HEMOPHAGE_BLEED_MOD
 
 #undef TRAIT_TUMOR

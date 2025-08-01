@@ -107,7 +107,19 @@
 /datum/wound/try_treating(obj/item/I, mob/user)
 	. = ..()
 	if(.)
-	UnregisterSignal(owner, COMSIG_LIVING_ADJUST_STANDARD_DAMAGE_TYPES)
+		UnregisterSignal(victim, COMSIG_LIVING_ADJUST_STANDARD_DAMAGE_TYPES)
+
+
+/// Called when the mob takes damage, to either stabilize the wound or revert back to our previous blood flow
+/datum/wound/proc/on_health_changed(mob/living/owner, type, amount, forced)
+	SIGNAL_HANDLER
+
+	if(!amount || amount < 0) // nothing to do
+		return
+
+	blood_flow = pre_hemokinesis_blood_flow
+	UnregisterSignal(victim, COMSIG_LIVING_ADJUST_STANDARD_DAMAGE_TYPES)
+
 
 // Fully clots one wound per use at the cost of 50u of blood
 /datum/action/cooldown/hemophage/hemokinesis_clot
@@ -130,23 +142,12 @@
 	if(chosen_wound) // This one has the greatest blood flow, so heal it.
 		chosen_wound.pre_hemokinesis_blood_flow = chosen_wound.blood_flow
 		chosen_wound.adjust_blood_flow(-WOUND_MAX_BLOODFLOW)
-		RegisterSignals(carbon_owner, COMSIG_LIVING_ADJUST_STANDARD_DAMAGE_TYPES, PROC_REF(on_health_changed))
+		chosen_wound.RegisterSignals(carbon_owner, COMSIG_LIVING_ADJUST_STANDARD_DAMAGE_TYPES, TYPE_PROC_REF(/datum/wound, on_health_changed))
 		to_chat(carbon_owner, "You use hemokinesis to clot the [chosen_wound].")
 		carbon_owner.blood_volume -= 50
 		return
 
 	carbon_owner.balloon_alert(carbon_owner, "no wounds to clot!")
-
-
-/// Called when the mob takes damage, to either stabilize the wound or revert back to our previous blood flow
-/datum/wound/proc/on_health_changed(mob/living/owner, type, amount, forced)
-	SIGNAL_HANDLER
-
-	if(!amount || amount < 0) // nothing to do
-		return
-
-	blood_flow = pre_hemokinesis_blood_flow
-	UnregisterSignal(owner, COMSIG_LIVING_ADJUST_STANDARD_DAMAGE_TYPES)
 
 
 /datum/action/cooldown/hemophage/master_of_the_house
