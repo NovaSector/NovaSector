@@ -1,13 +1,15 @@
 #define DISARM_TIME (1 SECONDS)
 #define TRAIT_AIRBAGGED "airbagged"
 
-/obj/structure/window/reinforced/fulltile/Initialize(mapload, direct)
+/obj/structure/window/reinforced/fulltile/Initialize(mapload)
 	. = ..()
-	AddElement(/datum/element/airbag)
+	if(mapload)
+		AddElement(/datum/element/airbag)
 
-/obj/structure/window/reinforced/plasma/fulltile/Initialize(mapload, direct)
+/obj/structure/window/reinforced/plasma/fulltile/Initialize(mapload)
 	. = ..()
-	AddElement(/datum/element/airbag)
+	if(mapload)
+		AddElement(/datum/element/airbag)
 
 /**
  * Airbag Element
@@ -138,6 +140,18 @@
 
 /obj/item/airbag/immediate_arm
 	immediate_arm = TRUE
+
+/datum/design/airbag
+	name = "Airbag"
+	desc = "Keep that vacuum of space from sucking!"
+	id = "airbag"
+	build_type = PROTOLATHE | AWAY_LATHE | AUTOLATHE | COLONY_FABRICATOR
+	materials = list(/datum/material/plastic = SMALL_MATERIAL_AMOUNT * 5)
+	build_path = /obj/item/airbag
+	category = list(
+		RND_CATEGORY_EQUIPMENT + RND_SUBCATEGORY_EQUIPMENT_ENGINEERING
+	)
+	departmental_flags = DEPARTMENT_BITFLAG_ENGINEERING
 
 /obj/structure/inflatable/window_airbag
 	name = "window airbag"
