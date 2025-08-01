@@ -81,7 +81,8 @@
 	if(in_closet(owner)) // No regular bloodloss if you're in a closet
 		return
 
-	owner.blood_volume = (owner.blood_volume * FLOATING_POINT_ERROR_AVOIDING_FACTOR - bloodloss_rate * seconds_per_tick * FLOATING_POINT_ERROR_AVOIDING_FACTOR) / FLOATING_POINT_ERROR_AVOIDING_FACTOR
+	if(!owner.has_status_effect(/datum/status_effect/master_of_the_house))
+		owner.blood_volume = (owner.blood_volume * FLOATING_POINT_ERROR_AVOIDING_FACTOR - bloodloss_rate * seconds_per_tick * FLOATING_POINT_ERROR_AVOIDING_FACTOR) / FLOATING_POINT_ERROR_AVOIDING_FACTOR
 
 	if(owner.blood_volume <= BLOOD_VOLUME_SURVIVE)
 		to_chat(owner, span_danger("You ran out of blood!"))

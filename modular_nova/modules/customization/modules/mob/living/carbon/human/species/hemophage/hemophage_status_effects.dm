@@ -6,8 +6,8 @@
 #define BLOOD_REGEN_TOXIN_AMOUNT 1.5
 /// How much cellular damage their body regenerates per second while using blood regeneration.
 #define BLOOD_REGEN_CELLULAR_AMOUNT 1.50
-/// How much blood to regen while master of the house is active - net positive of 0.02 after factoring the blood drain which occurs every Life() tick.
-#define BLOOD_REGEN_MASTER_OF_THE_HOUSE (NORMAL_HEMOPHAGE_BLOOD_DRAIN * 2) + 0.02
+/// How much blood to regen while master of the house is active - net positive of 0.02
+#define BLOOD_REGEN_MASTER_OF_THE_HOUSE 0.02
 
 /datum/status_effect/blood_thirst_satiated
 	id = "blood_thirst_satiated"
