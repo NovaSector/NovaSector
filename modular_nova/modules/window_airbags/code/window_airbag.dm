@@ -5,6 +5,7 @@
 	. = ..()
 	if(!. || !HAS_TRAIT(src, TRAIT_AIRBAGGED))
 		return
+	REMOVE_TRAIT(src, TRAIT_AIRBAGGED, TRAIT_GENERIC)
 	var/obj/item/airbag = new /obj/item/airbag(user.loc)
 	if(!QDELETED(airbag))
 		airbag.add_fingerprint(user)
