@@ -142,6 +142,11 @@
 
 // Detonates the airbag, dropping the item and playing the sound.
 /obj/item/airbag/proc/bang()
+	if(ishuman(loc))
+		blow_up_arm(loc)
+	else if(isturf(loc))
+		for(var/mob/living/mob in loc.contents)
+			mob.throw_at(get_edge_target_turf(src, mob.dir), rand(7, 10), 5) // it said 'stand clear'
 	var/obj/created_object = new drop_type(get_turf(src))
 	playsound(src, bang_sound, 50, pressure_affected = FALSE)
 	do_smoke(
@@ -153,6 +158,18 @@
 		log = FALSE
 	)
 	qdel(src)
+
+/obj/item/airbag/proc/blow_up_arm(mob/living/carbon/human/victim)
+	var/datum/wound_pregen_data/pregen_data = GLOB.all_wound_pregen_data[/datum/wound/blunt/bone/moderate]
+	var/obj/item/bodypart/arm/limb = victim.get_bodypart(pick(GLOB.arm_zones))
+	if(victim.held_items[LEFT_HANDS] == src)
+		limb = victim.get_bodypart(BODY_ZONE_L_ARM)
+	else if(victim.held_items[RIGHT_HANDS] == src)
+		limb = victim.get_bodypart(BODY_ZONE_R_ARM)
+	if(pregen_data.can_be_applied_to(limb, random_roll = FALSE) && (limb.biological_state & BIO_JOINTED))
+		limb.force_wound_upwards(/datum/wound/blunt/bone/moderate)
+	victim.apply_damage(20, BRUTE, limb.body_zone, wound_bonus = 10)
+	victim.throw_at(get_edge_target_turf(src, pick(GLOB.cardinals)), rand(7, 10), 5)
 
 /obj/item/airbag/immediate_arm
 	immediate_arm = TRUE
