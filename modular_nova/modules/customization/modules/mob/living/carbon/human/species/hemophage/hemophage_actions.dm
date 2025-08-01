@@ -99,33 +99,40 @@
 	living_owner.remove_status_effect(/datum/status_effect/hemokinesis_regen)
 
 
-/datum/wound/
-	/// The blood_flow value from before we used hemokinesis on it. So we can reverse it if we take damage.
-	var/pre_hemokinesis_blood_flow
-
-// If someone successfully treats the wound, we can stop with the undoing the clotting thing.
-/datum/wound/try_treating(obj/item/I, mob/user)
-	. = ..()
-	if(.)
-		UnregisterSignal(victim, COMSIG_LIVING_ADJUST_STANDARD_DAMAGE_TYPES)
-
-
-/// Called when the mob takes damage, to either stabilize the wound or revert back to our previous blood flow
-/datum/wound/proc/on_health_changed(mob/living/owner, type, amount, forced)
+/// Called when the limb takes damage, the previous wounds return as they were before they got clotted.
+/datum/action/cooldown/hemophage/hemokinesis_clot/proc/on_limb_damaged(mob/living/our_mob, limb, brute, burn)
 	SIGNAL_HANDLER
 
-	if(!amount || amount < 0) // nothing to do
+	if(!(brute + burn) || ((brute + burn) < 0)) // nothing to do
 		return
 
-	blood_flow = pre_hemokinesis_blood_flow
-	UnregisterSignal(victim, COMSIG_LIVING_ADJUST_STANDARD_DAMAGE_TYPES)
+	// Wounds are really complicated in that they are constantly 'downgrading' or 'upgrading' themselves, which involves copying aspects of the old wound into a new datum, deleting the old one
+	// We are going to just keep the old wound around in a list and reapply it, adjusting the blood flow to what it was before. To accomplish this we can just use a simple triplet list.
+	// In the triplet we have the wound datum, a weakref to the limb (so we don't cause hard dels), and the previous blood flow value. That's all we need to put the wound back..
+	// Pray that TG doesn't severely refactor things there.
+	for (var/limb_name in previous_wounds)
+		var/list_entry = previous_wounds[limb_name]
+		for(var/triplet in list_entry)
+			var/datum/wound/iter_wound = triplet[1]
+			var/datum/weakref/limb_ref = triplet[2]
+			var/obj/item/bodypart/iter_limb = limb_ref?.resolve()
+			if (iter_limb == limb)
+				var/previous_blood_flow = triplet[3]
+				iter_wound.apply_wound(iter_limb, replacing = TRUE)
+				iter_wound.adjust_blood_flow(previous_blood_flow)
+				previous_wounds -= limb_name
+				to_chat(our_mob, span_warning("The [iter_wound] comes unclotted upon taking damage!"))
+
+	UnregisterSignal(our_mob, COMSIG_CARBON_LIMB_DAMAGED)
 
 
 // Fully clots one wound per use at the cost of 50u of blood
 /datum/action/cooldown/hemophage/hemokinesis_clot
 	name = "Hemokinesis Clot"
-	desc = "Clot an active wound temporarily for 50 blood units at a time. Will break upon next instance of damage."
-	cooldown_time = 0.5 SECONDS
+	desc = "Clot an active wound temporarily for 50 blood units at a time. This is a temporary measure, as the wound will return upon next instance of damage to that affected limb."
+	cooldown_time = 5 SECONDS
+	/// List of wounds that we can readd if the mob takes damage
+	var/list/previous_wounds = list()
 
 
 /datum/action/cooldown/hemophage/hemokinesis_clot/Activate(atom/action_target)
@@ -139,10 +146,10 @@
 		if(iter_wound.blood_flow && (iter_wound.blood_flow > chosen_wound?.blood_flow))
 			chosen_wound = iter_wound
 
-	if(chosen_wound) // This one has the greatest blood flow, so heal it.
-		chosen_wound.pre_hemokinesis_blood_flow = chosen_wound.blood_flow
+	if(chosen_wound) // This one has the greatest blood flow, so heal it--first taking a snapshot of it so we can restore it later if the limb takes damage.
+		previous_wounds[chosen_wound.limb.name] = list(list(chosen_wound, WEAKREF(chosen_wound.limb), chosen_wound.blood_flow))
+		RegisterSignal(carbon_owner, COMSIG_CARBON_LIMB_DAMAGED, PROC_REF(on_limb_damaged), override = TRUE)
 		chosen_wound.adjust_blood_flow(-WOUND_MAX_BLOODFLOW)
-		chosen_wound.RegisterSignals(carbon_owner, COMSIG_LIVING_ADJUST_STANDARD_DAMAGE_TYPES, TYPE_PROC_REF(/datum/wound, on_health_changed))
 		to_chat(carbon_owner, span_good("You use hemokinesis to clot the [chosen_wound]."))
 		carbon_owner.blood_volume -= 50
 		return

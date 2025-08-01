@@ -174,7 +174,7 @@
 		return
 	if(!istype(carbon_owner))
 		return
-	if(((owner.bruteloss + carbon_owner.fireloss) >= 50))
+	if(((owner.getBruteLoss() + carbon_owner.getFireLoss()) >= 50))
 		to_chat(carbon_owner, span_warning("Your body is too damaged to be healed with hemokinesis!"))
 
 	carbon_owner.balloon_alert(carbon_owner, "hemokinesis regen activated!")
@@ -189,7 +189,7 @@
 	if(!istype(carbon_owner))
 		return
 
-	if((carbon_owner.bruteloss + carbon_owner.fireloss) >= 50)
+	if((carbon_owner.getBruteLoss() + carbon_owner.getFireLoss()) >= 50)
 		to_chat(carbon_owner, span_warning("Your body is too damaged to be healed with hemokinesis!"))
 		qdel(src)
 
