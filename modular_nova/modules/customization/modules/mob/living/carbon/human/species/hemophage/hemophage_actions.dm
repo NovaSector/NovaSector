@@ -168,7 +168,8 @@
 
 /datum/action/cooldown/hemophage/master_of_the_house
 	name = "Master of the House"
-	desc = "While active, wrest control of your lungs from the tumor. Breathing once more requires air, but your enriched blood soothes and satiates the hunger within. Stamina is reduced to 50% and movespeed gains heavy slowdown, but you will regen blood at 0.02u per second."
+	desc = "While active, wrest control of your lungs from the tumor. Breathing once more requires air, but your enriched blood soothes and satiates the hunger within. \
+		Stamina is reduced to 50% and movespeed gains heavy slowdown, but you will regen blood at 0.02u per second."
 	cooldown_time = 10 SECONDS
 
 
