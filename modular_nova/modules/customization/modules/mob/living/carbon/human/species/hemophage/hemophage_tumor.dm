@@ -5,8 +5,6 @@
 #define DORMANT_DAMAGE_MULTIPLIER 3
 /// By how much the blood drain will be divided when the tumor is in a dormant state.
 #define DORMANT_BLOODLOSS_MULTIPLIER 10
-/// How much blood do Hemophages normally lose per second (visible effect is every two seconds, so twice this value).
-#define NORMAL_HEMOPHAGE_BLOOD_DRAIN 0.05
 
 /// Just a conversion factor that ensures there's no weird floating point errors when blood is draining.
 #define FLOATING_POINT_ERROR_AVOIDING_FACTOR 1000
