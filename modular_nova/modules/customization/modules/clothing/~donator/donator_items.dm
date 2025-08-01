@@ -535,6 +535,8 @@
 	lefthand_file = 'modular_nova/master_files/icons/donator/mob/inhands/donator_left.dmi'
 	righthand_file = 'modular_nova/master_files/icons/donator/mob/inhands/donator_right.dmi'
 	inhand_icon_state = "ak105sbr"
+	suppressor_x_offset = 7
+	suppressor_y_offset = 0
 
 /obj/item/gun/ballistic/automatic/miecz/ak105/no_mag 
 	//Made this one for completion, the thing is, the kit doesnt affect no_mag, so, the day we change the paradigm of the miecz to spawn with no_mag, likely we want this one. (alternatively we do somethiing better thhan to use subtypes.)
