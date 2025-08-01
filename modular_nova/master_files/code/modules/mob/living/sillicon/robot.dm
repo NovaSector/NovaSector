@@ -46,6 +46,7 @@
 	. = ..()
 	UnregisterSignal(SSdcs, COMSIG_GLOB_CREWMEMBER_JOINED)
 
+/// Signal handler for [COMSIG_GLOB_CREWMEMBER_JOINED]. Changes [/datum/alarm_listener]'s [var/list/allowed_z_levels] to our borg's Z level (which is station's Z level, as this signal only called for station crewmember)
 /datum/station_alert/proc/change_listener_level(datum/source, mob/living/new_crewmember, rank)
 	SIGNAL_HANDLER
 
