@@ -26,6 +26,8 @@
 		return FALSE
 	if(!loaded_projectile)
 		loaded_projectile = new projectile_type(src)
+		name = initial(name)
+		desc = initial(desc)
 		remaining_uses--
 	return TRUE
 
