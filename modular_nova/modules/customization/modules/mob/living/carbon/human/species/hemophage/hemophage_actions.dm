@@ -100,6 +100,37 @@
 	living_owner.remove_status_effect(/datum/status_effect/hemokinetic_regen)
 
 
+// Fully clots one wound per use at the cost of 50u of blood
+/datum/action/cooldown/hemophage/hemokinetic_clot
+	name = "Hemokinetic Clot"
+	desc = "Clot an active wound temporarily for 50 blood units at a time. This is a temporary measure, as the wound will return upon next instance of damage to that affected limb."
+	cooldown_time = 10 SECONDS
+	/// List of wounds that we can readd if the mob takes damage
+	var/list/previous_wounds = list()
+
+
+/datum/action/cooldown/hemophage/hemokinetic_clot/Activate(atom/action_target)
+	var/mob/living/carbon/carbon_owner = owner
+	if(!istype(carbon_owner))
+		return
+
+	// Fully clot one wound per use, priotizing the most oozy one.
+	var/datum/wound/chosen_wound
+	for(var/datum/wound/iter_wound as anything in carbon_owner.all_wounds)
+		if(iter_wound.blood_flow && (iter_wound.blood_flow > chosen_wound?.blood_flow))
+			chosen_wound = iter_wound
+
+	if(chosen_wound) // This one has the greatest blood flow, so heal it--first taking a snapshot of it so we can restore it later if the limb takes damage.
+		previous_wounds[chosen_wound.limb.name] = list(list(chosen_wound, WEAKREF(chosen_wound.limb), chosen_wound.blood_flow))
+		RegisterSignal(carbon_owner, COMSIG_CARBON_LIMB_DAMAGED, PROC_REF(on_limb_damaged), override = TRUE)
+		chosen_wound.adjust_blood_flow(-WOUND_MAX_BLOODFLOW)
+		to_chat(carbon_owner, span_good("You use hemokinesis to clot the [chosen_wound]."))
+		carbon_owner.blood_volume -= 50
+		return
+
+	carbon_owner.balloon_alert(carbon_owner, "no wounds to clot!")
+
+
 /// Called when the limb takes damage, the previous wounds return as they were before they got clotted.
 /datum/action/cooldown/hemophage/hemokinetic_clot/proc/on_limb_damaged(mob/living/our_mob, limb, brute, burn)
 	SIGNAL_HANDLER
@@ -127,37 +158,6 @@
 	UnregisterSignal(our_mob, COMSIG_CARBON_LIMB_DAMAGED)
 
 
-// Fully clots one wound per use at the cost of 50u of blood
-/datum/action/cooldown/hemophage/hemokinetic_clot
-	name = "Hemokinetic Clot"
-	desc = "Clot an active wound temporarily for 50 blood units at a time. This is a temporary measure, as the wound will return upon next instance of damage to that affected limb."
-	cooldown_time = 5 SECONDS
-	/// List of wounds that we can readd if the mob takes damage
-	var/list/previous_wounds = list()
-
-
-/datum/action/cooldown/hemophage/hemokinetic_clot/Activate(atom/action_target)
-	var/mob/living/carbon/carbon_owner = owner
-	if(!istype(carbon_owner))
-		return
-
-	// Fully clot one wound per use, priotizing the most oozy one.
-	var/datum/wound/chosen_wound
-	for(var/datum/wound/iter_wound as anything in carbon_owner.all_wounds)
-		if(iter_wound.blood_flow && (iter_wound.blood_flow > chosen_wound?.blood_flow))
-			chosen_wound = iter_wound
-
-	if(chosen_wound) // This one has the greatest blood flow, so heal it--first taking a snapshot of it so we can restore it later if the limb takes damage.
-		previous_wounds[chosen_wound.limb.name] = list(list(chosen_wound, WEAKREF(chosen_wound.limb), chosen_wound.blood_flow))
-		RegisterSignal(carbon_owner, COMSIG_CARBON_LIMB_DAMAGED, PROC_REF(on_limb_damaged), override = TRUE)
-		chosen_wound.adjust_blood_flow(-WOUND_MAX_BLOODFLOW)
-		to_chat(carbon_owner, span_good("You use hemokinesis to clot the [chosen_wound]."))
-		carbon_owner.blood_volume -= 50
-		return
-
-	carbon_owner.balloon_alert(carbon_owner, "no wounds to clot!")
-
-
 /datum/action/cooldown/hemophage/master_of_the_house
 	name = "Master of the House"
 	desc = "While active, wrest control of your lungs from the tumor. Breathing once more requires air, but your enriched blood soothes and satiates the hunger within. Stamina is reduced to 50% and movespeed gains heavy slowdown, but you will regen blood at 0.02u per second."
@@ -175,6 +175,7 @@
 	else
 		living_owner.apply_status_effect(/datum/status_effect/master_of_the_house)
 		to_chat(living_owner, "You begin to wrest control of your lungs from the tumor. You can't keep this up forever, can you?")
+
 
 /datum/action/cooldown/hemophage/master_of_the_house/go_dormant()
 	. = ..()
