@@ -527,7 +527,9 @@
 /obj/item/gun/ballistic/automatic/miecz/ak105
 	name = "AK-105 SBR"
 	desc = "A light-weight assault rifle modernized to be chambered in .27-54 Cesarzowa with a high rate of fire."
-	lore_blurb = "An ancient design that has routes in the old sol nation of the Russian Federation, this rifle has been heavily modified with a modified barrel for extended firefights alongside a modified grip allowing it to be used most form of combat gloves alongside being able to have a good grip with wet hands, the stock has been swapped for a completely polymer design giving it a good form."
+	lore_blurb = "An ancient design that has routes in the old sol nation of the Russian Federation, this rifle has been heavily modified with a modified barrel for extended firefights \
+		alongside a modified grip allowing it to be used most form of combat gloves alongside being able to have a good grip with wet hands, the stock has been swapped for a completely \
+		polymer design giving it a good form."
 	icon = 'modular_nova/master_files/icons/donator/obj/guns48x.dmi'
 	icon_state = "ak105sbr"
 	worn_icon = 'modular_nova/master_files/icons/donator/mob/worn/weapons.dmi'
