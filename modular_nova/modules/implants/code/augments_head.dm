@@ -134,10 +134,17 @@
 	var/static/list/emag_blacklist = list(
 		/obj/machinery/satellite/meteor_shield,
 		/obj/machinery/computer/communications,
+		/obj/item/circuitboard/computer/communications,
 		/obj/machinery/computer/arcade,
+		/obj/item/circuitboard/computer/arcade,
+		/obj/machinery/computer/cargo,
+		/obj/item/circuitboard/computer/cargo,
 		/obj/machinery/computer/holodeck,
 		/obj/machinery/computer/emergency_shuttle,
 		/obj/machinery/recycler,
+		/obj/item/circuitboard/machine/recycler,
+		/obj/machinery/fishing_portal_generator,
+		/obj/item/circuitboard/machine/fishing_portal_generator,
 		/obj/item/organ/cyberimp/arm/toolkit/armblade,
 	)
 	/// How far away we can hack things
@@ -147,11 +154,11 @@
 	. = ..()
 
 	if(ismob(cast_on) || is_type_in_list(cast_on, emag_blacklist))
-		owner.balloon_alert(owner, "security too strong")
+		owner.balloon_alert(owner, "can't find data access point!")
 		return FALSE
 
 	if(get_dist(owner, cast_on) > hack_range)
-		owner.balloon_alert(owner, "too far away")
+		owner.balloon_alert(owner, "too far away!")
 		return FALSE
 
 	return TRUE
