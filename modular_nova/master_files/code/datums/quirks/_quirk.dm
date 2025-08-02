@@ -16,7 +16,7 @@
 	var/list/species_quirks
 
 ///An implementation of [/datum/quirk/item_quirk/proc/give_item_to_holder] usable on any quirk.
-/datum/quirk/proc/give_item_to_holder_nova(obj/item/quirk_item, list/valid_slots, flavour_text = null, default_location = "at your feet", notify_player = TRUE)
+/datum/quirk/proc/give_item_to_holder_nova(obj/item/quirk_item, list/valid_slots, flavour_text = null, default_location = "at your feet", notify_player = FALSE)
 	if(ispath(quirk_item))
 		quirk_item = new quirk_item(get_turf(quirk_holder))
 	var/mob/living/carbon/human/human_holder = quirk_holder
