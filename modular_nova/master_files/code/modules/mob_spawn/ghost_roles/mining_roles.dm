@@ -97,23 +97,25 @@
 	prompt_name = "an Interdyne shaft miner"
 	you_are_text = "You are a shaft miner, employed in an Interdyne research facility developing biological weapons."
 	outfit = /datum/outfit/interdyne_planetary_base/shaftminer
+	spawner_job_path = /datum/job/interdyne_planetary_base/mining
 
 /obj/effect/mob_spawn/ghost_role/human/interdyne_planetary_base/shaftminer/ice
 	outfit = /datum/outfit/interdyne_planetary_base/shaftminer/ice
 	computer_area = /area/ruin/interdyne_planetary_base/main/dorms
 	flavour_text = "Interdyne middle management has relayed that Nanotrasen is actively mining in this sector. A deal with the Syndicate remains, but their starship has left the system, leaving our quantum pad without a purpose. Continue your research as best you can, and try to keep out of trouble."
-	spawner_job_path = /datum/job/interdyne_planetary_base_icebox
+	spawner_job_path = /datum/job/interdyne_planetary_base_icebox/mining
 
 /obj/effect/mob_spawn/ghost_role/human/interdyne_planetary_base/deck_officer
 	name = "Interdyne Deck Officer"
 	prompt_name = "an Interdyne deck officer"
 	you_are_text = "You are a Deck Officer, employed in an Interdyne research facility developing biological weapons."
 	outfit = /datum/outfit/interdyne_planetary_base/shaftminer/deckofficer
+	spawner_job_path = /datum/job/interdyne_planetary_base/command
 
 /obj/effect/mob_spawn/ghost_role/human/interdyne_planetary_base/deck_officer/ice
 	computer_area = /area/ruin/interdyne_planetary_base/main/dorms
 	flavour_text = "Interdyne middle management has relayed that Nanotrasen is actively mining in this sector. A deal with the Syndicate remains, but their starship has left the system, leaving our quantum pad without a purpose. Continue your research as best you can, and try to keep out of trouble."
-	spawner_job_path = /datum/job/interdyne_planetary_base_icebox
+	spawner_job_path = /datum/job/interdyne_planetary_base_icebox/command
 
 
 
@@ -146,7 +148,7 @@
 	uniform = /obj/item/clothing/under/syndicate/nova/interdyne
 	suit = /obj/item/clothing/suit/toggle/labcoat/nova/interdyne_labcoat/white
 	head = /obj/item/clothing/head/beret/medical/nova/interdyne
-	back = /obj/item/storage/backpack/virology
+	back = /obj/item/storage/backpack/interdyne
 	backpack_contents = list(
 		/obj/item/storage/box/survival/interdyne=1,
 		/obj/item/storage/box/nif_ghost_box/ghost_role=1,

@@ -1,0 +1,23 @@
+{
+	"hephaestus": [
+		{
+			"type": "icon_state",
+			"icon_state": "hephaestus",
+			"blend_mode": "overlay",
+			"color_ids": [1]
+		}
+	],
+	"hercules": [
+		{
+			"type": "icon_state",
+			"icon_state": "hercules",
+			"blend_mode": "overlay",
+			"color_ids": [1]
+		},
+		{
+			"type": "icon_state",
+			"icon_state": "vestcam_shoulder",
+			"blend_mode": "overlay"
+		}
+	]
+}

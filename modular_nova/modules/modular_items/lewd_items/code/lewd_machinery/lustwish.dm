@@ -144,6 +144,12 @@
 				/obj/item/reagent_containers/cup/bottle/camphor = 3,
 				/obj/item/reagent_containers/cup/bottle/succubus_milk = 6, //Those are legal 'cause you can just turn off prefs in round in "CLOWN SMOKE MACHINE+PENIS ENLARGEMENT CHEMICAL CASE". Yes, i have special code-phrase for this. I've seen some shit.
 				/obj/item/reagent_containers/cup/bottle/incubus_draft = 6,
+
+				//neurowares
+				/obj/item/disk/neuroware/crocin = 30,
+				/obj/item/disk/neuroware/camphor = 20,
+				/obj/item/storage/box/flat/neuroware/crocin = 15,
+				/obj/item/storage/box/flat/neuroware/camphor = 10,
 			),
 		),
 		list(
@@ -166,18 +172,23 @@
 		/obj/item/clothing/neck/collar/thick/holocollar = 3,
 		/obj/item/clothing/neck/collar/leather/holocollar = 3,
 		/obj/item/clothing/neck/size_collar = 8,//It only works in the Interlink anyways
-		)
+	)
 
 	contraband = list(
-					/obj/item/electropack/shockcollar = 4,
-					/obj/item/clothing/neck/mind_collar = 2,
-					/obj/item/clothing/under/costume/jabroni = 4,
-					/obj/item/clothing/suit/straight_jacket/kinky_sleepbag = 2, //my favorite thing, spent 1 month on it. Don't remove please.
-					/obj/item/disk/nifsoft_uploader/dorms/contract = 5,
-					/obj/item/reagent_containers/applicator/pill/hexacrocin = 10,
-					/obj/item/reagent_containers/applicator/pill/pentacamphor = 5,
-					/obj/item/reagent_containers/cup/bottle/hexacrocin = 4,
-					/obj/item/reagent_containers/cup/bottle/pentacamphor = 2)
+		/obj/item/electropack/shockcollar = 4,
+		/obj/item/clothing/neck/mind_collar = 2,
+		/obj/item/clothing/under/costume/jabroni = 4,
+		/obj/item/clothing/suit/straight_jacket/kinky_sleepbag = 2, //my favorite thing, spent 1 month on it. Don't remove please.
+		/obj/item/disk/nifsoft_uploader/dorms/contract = 5,
+		/obj/item/reagent_containers/applicator/pill/hexacrocin = 10,
+		/obj/item/reagent_containers/applicator/pill/pentacamphor = 5,
+		/obj/item/reagent_containers/cup/bottle/hexacrocin = 4,
+		/obj/item/reagent_containers/cup/bottle/pentacamphor = 2,
+		/obj/item/disk/neuroware/hexacrocin = 15,
+		/obj/item/disk/neuroware/pentacamphor = 10,
+		/obj/item/storage/box/flat/neuroware/hexacrocin = 4,
+		/obj/item/storage/box/flat/neuroware/pentacamphor = 2,
+	)
 
 	refill_canister = /obj/item/vending_refill/lustwish
 	payment_department = ACCOUNT_SRV

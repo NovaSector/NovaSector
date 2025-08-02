@@ -223,8 +223,8 @@
 	safe_oxygen_max = /obj/item/organ/lungs::safe_oxygen_max
 
 /obj/item/organ/lungs/carp/akula/Initialize(mapload)
+	organ_traits -= TRAIT_NO_BREATHLESS_DAMAGE
 	. = ..()
-	REMOVE_TRAIT(src, TRAIT_SPACEBREATHING, REF(src))
 	RemoveElement(/datum/element/organ_set_bonus, /datum/status_effect/organ_set_bonus/carp)
 	AddElement(/datum/element/organ_set_bonus, /datum/status_effect/organ_set_bonus/carp/akula)
 

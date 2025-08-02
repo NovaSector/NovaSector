@@ -68,16 +68,6 @@
 		right_arm.unarmed_miss_sound = initial(right_arm.unarmed_miss_sound)
 		right_arm.unarmed_sharpness = initial(right_arm.unarmed_sharpness)
 
-/datum/quirk/water_breathing
-	name = "Water breathing"
-	desc = "You are able to breathe underwater!"
-	value = 2
-	mob_trait = TRAIT_WATER_BREATHING
-	gain_text = span_notice("You become acutely aware of the moisture in your lungs and in the air. It feels nice.")
-	lose_text = span_danger("You suddenly realize the moisture in your lungs feels <i>really weird</i>, and you almost choke on it!")
-	medical_record_text = "Patient possesses biology compatible with aquatic respiration."
-	icon = FA_ICON_FISH
-
 // AdditionalEmotes *turf quirks
 /datum/quirk/water_aspect
 	name = "Water aspect (Emotes)"
@@ -173,35 +163,32 @@
 	desc = "You can hear even the quietest of sounds, but you're more vulnerable to hearing damage as a result. NOTE: This is a direct downgrade for Teshari!"
 	icon = FA_ICON_HEADPHONES_SIMPLE
 	value = 6
+	mob_trait = TRAIT_SENSITIVE_HEARING
 	gain_text = span_notice("You could hear a pin drop from 10 feet away.")
 	lose_text = span_danger("Your hearing feels less sensitive.")
 	medical_record_text = "Patient scored very highly in hearing tests."
+	/// Teshari hearing is an action, so here is its holder
+	var/datum/action/cooldown/spell/teshari_hearing/hearing_action
 
-	var/obj/item/organ/ears/old_ears // The mob's original ears, just in case.
-	var/obj/item/organ/ears/sensitive/sensitive_ears = new /obj/item/organ/ears/sensitive // The replacement ears.
+/datum/quirk/sensitive_hearing/add_unique()
+	var/obj/item/organ/ears/ears = quirk_holder.get_organ_slot(ORGAN_SLOT_EARS)
 
-/datum/quirk/sensitive_hearing/post_add()
-	var/mob/living/carbon/carbon_quirk_holder = quirk_holder
-	old_ears = carbon_quirk_holder.get_organ_slot(ORGAN_SLOT_EARS)
-
-	if(!isnull(old_ears))
-		old_ears.Remove(carbon_quirk_holder, special = TRUE)
-		old_ears.moveToNullspace()
-		STOP_PROCESSING(SSobj, old_ears)
-
-	sensitive_ears.Insert(carbon_quirk_holder, special = TRUE)
+	hearing_action = new
+	LAZYADD(ears.actions_types, hearing_action.type)
+	ears.add_item_action(hearing_action)
+	hearing_action.Grant(quirk_holder)
 
 /datum/quirk/sensitive_hearing/remove()
-	var/mob/living/carbon/carbon_quirk_holder = quirk_holder
-	var/obj/item/organ/ears/current_ears = carbon_quirk_holder.get_organ_slot(ORGAN_SLOT_EARS)
+	if(QDELING(quirk_holder))
+		return
+	var/obj/item/organ/ears/ears = quirk_holder.get_organ_slot(ORGAN_SLOT_EARS)
+	if(isnull(ears))
+		return
 
-	if(isnull(old_ears)) // Make new generic ears if the original ones are missing
-		old_ears = new /obj/item/organ/ears
-
-	// Return the original ears.
-	if(!isnull(current_ears))
-		current_ears.Remove(carbon_quirk_holder, special = TRUE)
-		qdel(current_ears)
-
-	old_ears.Insert(carbon_quirk_holder, special = TRUE)
-	old_ears = null
+	LAZYREMOVE(ears.actions_types, hearing_action.type)
+	ears.remove_item_action(hearing_action)
+	hearing_action.Remove(quirk_holder)
+	//restore dmg multiplier of our current ears
+	//we could have any subtype at this point so just take that one's initial value
+	//as opposed to making a copy at the start of the player's round (what if they transplant it, etc)
+	ears.damage_multiplier = initial(ears.damage_multiplier)

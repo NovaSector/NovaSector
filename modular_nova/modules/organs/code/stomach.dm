@@ -12,8 +12,8 @@
 	is_oversized = TRUE
 
 /obj/item/organ/stomach/synth/oversized
-	name = "huge synthetic bio-reactor"
-	desc = "Typically found in huge synthetics, this monstrous engine has been developed to be highly efficient, made to provide an enormous amount of power to an enormous machine."
+	name = "huge synthetic fuel cell"
+	desc = "Typically found in huge synthetics, this monstrous fuel cell has been developed to be highly efficient, made to provide an enormous amount of power to an enormous machine."
 	icon = 'modular_nova/modules/organs/icons/stomach.dmi'
 	icon_state = "stomach_big_synth" //ugly placeholder sorry im not an artist hehe
 	maxHealth = 1.5 * STANDARD_ORGAN_THRESHOLD

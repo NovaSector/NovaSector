@@ -247,7 +247,7 @@
 			continue
 
 		if (preference.is_randomizable())
-			preference.apply_to_human(src, preference.create_random_value(preferences))
+			preference.apply_to_human(src, preference.create_random_value(preferences), preferences) // NOVA EDIT CHANGE - ORIGINAL: preference.apply_to_human(src, preference.create_random_value(preferences))
 
 	fully_replace_character_name(real_name, generate_random_mob_name())
 
@@ -293,17 +293,14 @@
 	clone.age = age
 	clone.voice = voice
 	clone.pitch = pitch
-	dna.transfer_identity(clone, transfer_SE = TRUE, transfer_species = TRUE)
+	dna.copy_dna(clone.dna, COPY_DNA_SE|COPY_DNA_SPECIES|COPY_DNA_MUTATIONS)
 
 	clone.dress_up_as_job(SSjob.get_job(job))
 
 	for(var/datum/quirk/original_quircks as anything in quirks)
 		clone.add_quirk(original_quircks.type, override_client = client)
-	for(var/datum/mutation/human/mutations in dna.mutations)
-		clone.dna.add_mutation(mutations, MUT_NORMAL)
 
 	clone.updateappearance(mutcolor_update = TRUE, mutations_overlay_update = TRUE)
-	clone.domutcheck()
 
 	return clone
 

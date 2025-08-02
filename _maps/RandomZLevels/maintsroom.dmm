@@ -1733,7 +1733,7 @@
 "gB" = (
 /mob/living/basic/heretic_summon/raw_prophet/ruins{
 	name = "You shouldnt be here";
-	bare_wound_bonus = 100;
+	exposed_wound_bonus = 100;
 	wound_bonus = 100;
 	melee_damage_upper = 50;
 	health = 2000
@@ -5479,7 +5479,7 @@
 	},
 /area/awaymission/caves/maintsroom)
 "uX" = (
-/obj/item/robot_model/security,
+/obj/item/gun/medbeam,
 /obj/structure/closet/crate/engineering/electrical,
 /turf/open/floor/mineral/plastitanium,
 /area/awaymission/caves/maintsroom)
@@ -9283,7 +9283,7 @@
 /obj/item/clothing/under/rank/security/nova/turtleneck/blue,
 /obj/item/clothing/shoes/jackboots,
 /obj/item/clothing/gloves/plate/blue,
-/obj/item/clothing/suit/armor/vest/det_suit/sol,
+/obj/item/clothing/suit/armor/vest/sol,
 /obj/item/clothing/mask/gas/sechailer/swat/spacepol,
 /obj/item/clothing/head/helmet/swat/nanotrasen,
 /obj/item/storage/backpack/security/blue,
@@ -9814,7 +9814,7 @@
 	pixel_x = 10;
 	anchored = 1
 	},
-/obj/item/storage/backpack/duffelbag/syndie/ammo/mech{
+/obj/item/storage/backpack/duffelbag/syndie/ammo/darkgygax{
 	anchored = 1
 	},
 /turf/open/floor/iron/diagonal,

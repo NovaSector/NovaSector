@@ -1,0 +1,5 @@
+author: "BasilTamaya"
+delete-after: True
+changes:
+  - rscadd: "The gun rack + gun locker can now be crafted with iron."
+  - qol: "Shelves and racks now function differently; left click to place an item precisely, right click to place into the center (default behaviour). Tooltips have been added to avoid confusion."
