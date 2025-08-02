@@ -257,7 +257,7 @@ GLOBAL_LIST_INIT(call911_do_and_do_not, list(
 	message_admins("[ADMIN_LOOKUPFLW(user)] is considering contacting the Sol Federation Regional Command.")
 	/// First Question
 	var/call_solfed_check1 = "Are you sure you want to message the Sol Federation? Un-necessary communications may result in a \
-	large fine or 25 years in federal prison."
+		large fine or 25 years in federal prison."
 	/// Boolean for Solfed message
 	if(tgui_input_list(user, call_solfed_check1, "Call 911", list("Yes", "No")) != "Yes")
 		return
