@@ -4,6 +4,7 @@
 	job_rank = ROLE_MARAUDER
 	roundend_category = "Marauders"
 	preview_outfit = /datum/outfit/marauder_preview
+	show_to_ghosts = TRUE
 	give_uplink = FALSE
 	should_give_codewords = FALSE
 	/// Identifying number of the traitor
