@@ -7,27 +7,58 @@
 
 /obj/structure/inflatable
 	name = "inflatable wall"
-	desc = "An inflated membrane. Do not puncture. Alt+Click to deflate."
+	desc = "An inflated plastic membrane. Do not puncture."
+	layer = CLOSED_TURF_LAYER
 	can_atmos_pass = ATMOS_PASS_DENSITY
+	opacity = TRUE
 	density = TRUE
 	anchored = TRUE
 	max_integrity = 40
 	icon = 'modular_nova/modules/inflatables/icons/inflatable.dmi'
 	icon_state = "wall"
+	flags_1 = PREVENT_CLICK_UNDER_1
+	bullet_impact_sound = NONE
+	flags_ricochet = NONE
+	armor_type = /datum/armor/none
 	/// The type we drop when damaged.
 	var/torn_type = /obj/item/inflatable/torn
 	/// The type we drop when deflated.
 	var/deflated_type = /obj/item/inflatable
 	/// The hitsound made when we're... hit...
-	var/hit_sound = 'sound/effects/glass/Glasshit.ogg'
+	var/hit_sound = 'sound/items/basketball_bounce.ogg'
 	/// How quickly we deflate when manually deflated.
 	var/manual_deflation_time = 3 SECONDS
 	/// Whether or not the inflatable has been deflated
 	var/has_been_deflated = FALSE
+	/// Limits how much damage from environmental fire we can take per second
+	COOLDOWN_DECLARE(burn_damage_cd)
 
 /obj/structure/inflatable/Initialize(mapload)
 	. = ..()
+	register_context()
 	air_update_turf(TRUE, !density)
+	var/static/list/adjacent_loc_connections = list(
+		COMSIG_TURF_EXPOSE = PROC_REF(check_melt),
+	)
+	AddComponent(/datum/component/connect_range, tracked = src, connections = adjacent_loc_connections, range = 1, works_in_containers = FALSE)
+
+/obj/structure/inflatable/add_context(atom/source, list/context, obj/item/held_item, mob/user)
+	. = ..()
+	context[SCREENTIP_CONTEXT_CTRL_SHIFT_LMB] = "Deflate"
+	return CONTEXTUAL_SCREENTIP_SET
+
+/// Do damage ticks to structure's integrity if the air is warmer than the minimum of fire, we only care about heat
+/obj/structure/inflatable/proc/check_melt(turf/source, datum/gas_mixture/air, temperature)
+	SIGNAL_HANDLER
+	if(temperature < FIRE_MINIMUM_TEMPERATURE_TO_EXIST)
+		return
+	if(!COOLDOWN_FINISHED(src, burn_damage_cd))
+		return
+
+	COOLDOWN_START(src, burn_damage_cd, 1 SECONDS)
+
+	var/percent_damage_taken = clamp(0.2 * (temperature / (FIRE_MINIMUM_TEMPERATURE_TO_EXIST * 2.5)), 0.05, 0.25)
+	take_damage(max_integrity * percent_damage_taken, BURN, FIRE, sound_effect = FALSE)
 
 /obj/structure/inflatable/ex_act(severity)
 	switch(severity)
@@ -35,48 +66,52 @@
 			qdel(src)
 			return
 		if(EXPLODE_HEAVY)
-			deflate(TRUE)
+			deflate()
 			return
 		if(EXPLODE_LIGHT)
 			if(prob(50))
-				deflate(TRUE)
+				deflate()
 				return
 
+/obj/structure/inflatable/take_damage(damage_amount, damage_type, damage_flag, sound_effect, attack_dir)
+	. = ..()
+	if((damage_flag == BULLET || damage_flag == LASER) && damage_amount >= 5)
+		atom_destruction(damage_flag)
+
 /obj/structure/inflatable/atom_destruction(damage_flag)
+	visible_message(span_warning("[src] pop\s!"))
+	deflate()
+	return ..()
+
+/obj/structure/inflatable/attacked_by(obj/item/item, mob/living/user, list/modifiers, list/attack_modifiers)
+	if(item.get_sharpness())
+		LAZYSET(attack_modifiers, SILENCE_DEFAULT_MESSAGES, TRUE)
+		visible_message(span_danger("<b>[user] pierces [src] with [item]!</b>"))
+		deflate()
+	return ..()
+
+/obj/structure/inflatable/click_ctrl_shift(mob/user)
 	deflate(TRUE)
-	return ..()
-
-/obj/structure/inflatable/attackby(obj/item/attacking_item, mob/user, list/modifiers, list/attack_modifiers)
-	if(attacking_item.sharpness)
-		visible_message(span_danger("<b>[user] pierces [src] with [attacking_item]!</b>"))
-		deflate(TRUE)
-		return
-	return ..()
-
-/obj/structure/inflatable/click_alt(mob/user)
-	deflate(FALSE)
 	return CLICK_ACTION_SUCCESS
 
 /obj/structure/inflatable/play_attack_sound(damage_amount, damage_type, damage_flag)
 	playsound(src, hit_sound, 75, TRUE)
 
 // Deflates the airbag and drops a deflated airbag item. If violent, drops a broken item instantly.
-/obj/structure/inflatable/proc/deflate(violent)
+/obj/structure/inflatable/proc/deflate(manually = FALSE)
 	if(has_been_deflated) // We do not ever want to deflate more than once.
 		return
-
 	has_been_deflated = TRUE
-
-	playsound(src, 'sound/machines/hiss.ogg', 75, 1)
-	if(!violent)
+	if(manually)
+		playsound(src, 'sound/machines/hiss.ogg', 50)
 		balloon_alert_to_viewers("slowly deflates!")
 		addtimer(CALLBACK(src, PROC_REF(slow_deflate_finish)), manual_deflation_time)
 		return
-
-	var/turf/inflatable_loc = get_turf(src)
-	inflatable_loc.balloon_alert_to_viewers("[src] rapidly deflates!") // just so we don't balloon alert from the qdeleted inflatable object
 	if(torn_type)
 		new torn_type(get_turf(src))
+	else
+		new /obj/effect/decal/cleanable/plastic(get_turf(src))
+	playsound(src, 'sound/items/balloon_pop.ogg', 100)
 	qdel(src)
 
 // Called when the airbag is calmly deflated, drops a non-broken item.
@@ -84,16 +119,6 @@
 	if(deflated_type)
 		new deflated_type(get_turf(src))
 	qdel(src)
-
-/obj/structure/inflatable/verb/hand_deflate()
-	set name = "Deflate"
-	set category = "Object"
-	set src in oview(1)
-
-	if(usr.stat || usr.can_interact())
-		return
-	deflate(FALSE)
-
 
 /obj/structure/inflatable/door
 	name = "inflatable door"
@@ -161,7 +186,7 @@
 	if(locate(structure_type) in get_turf(user))
 		to_chat(user, span_warning("There is already a wall here!"))
 		return
-	playsound(loc, 'sound/items/zip/zip.ogg', 75, 1)
+	playsound(loc, 'sound/items/zip/zip.ogg', 75, TRUE)
 	to_chat(user, span_notice("You inflate [src]."))
 	if(do_after(user, 1 SECONDS, src))
 		new structure_type(get_turf(user))
@@ -179,7 +204,7 @@
 		return
 	if(!do_after(user, 2 SECONDS, src))
 		return
-	playsound(user, 'modular_nova/modules/inflatables/sound/ducttape1.ogg', 50, 1)
+	playsound(user, 'modular_nova/modules/inflatables/sound/ducttape1.ogg', 50, TRUE)
 	to_chat(user, span_notice("You fix [src] using [attacking_tape]!"))
 	attacking_tape.use(TAPE_REQUIRED_TO_FIX)
 	torn = FALSE
@@ -196,7 +221,7 @@
 
 /obj/item/inflatable/suicide_act(mob/living/user)
 	visible_message(user, span_danger("[user] starts shoving the [src] up [user.p_their()] ass! It looks like [user.p_their()] going to pull the cord, oh shit!"))
-	playsound(user.loc, 'sound/machines/hiss.ogg', 75, 1)
+	playsound(user.loc, 'sound/machines/hiss.ogg', 75, TRUE)
 	new structure_type(user.loc)
 	user.gib()
 	return BRUTELOSS
