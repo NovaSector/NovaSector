@@ -90,25 +90,29 @@
 	cost = PAYCHECK_COMMAND * 10
 
 /datum/armament_entry/company_import/interdyne/smallkit/generalkit
-	item_type = /obj/item/storage/medkit/tactical/premium/interdyne/small
-
+	item_type = /obj/item/storage/pouch/medical/firstaid/interdyne
 
 /datum/armament_entry/company_import/interdyne/smallkit/spraykit
 	description = "A small first aid kit loaded with a interdyne hypospray and various chemicals for usage /Trained doctor not included/"
-	item_type = /obj/item/storage/medkit/tactical/premium/interdyne/small/spray
+	item_type = /obj/item/storage/pouch/medical/firstaid/interdyne/spray
 	cost = PAYCHECK_COMMAND * 25
 
 /datum/armament_entry/company_import/interdyne/smallkit/burnkit
-	item_type = /obj/item/storage/medkit/tactical/premium/interdyne/small/burn
+	item_type = /obj/item/storage/pouch/medical/firstaid/interdyne/burn
 
 /datum/armament_entry/company_import/interdyne/smallkit/brutekit
-	item_type = /obj/item/storage/medkit/tactical/premium/interdyne/small/brute
+	item_type = /obj/item/storage/pouch/medical/firstaid/interdyne/brute
 
 /datum/armament_entry/company_import/interdyne/smallkit/toxinkit
-	item_type = /obj/item/storage/medkit/tactical/premium/interdyne/small/toxin
+	item_type = /obj/item/storage/pouch/medical/firstaid/interdyne/toxin
 
 /datum/armament_entry/company_import/interdyne/smallkit/oxygenkit
-	item_type = /obj/item/storage/medkit/tactical/premium/interdyne/small/oxygen
+	item_type = /obj/item/storage/pouch/medical/firstaid/interdyne/oxygen
+
+/datum/armament_entry/company_import/interdyne/smallkit/corpsekit
+	item_type = /obj/item/storage/pouch/medical/firstaid/interdyne/corpse
+	cost = PAYCHECK_COMMAND * 15
+
 
 // Modsuit mods that CAN be found in the uplinks
 /datum/armament_entry/company_import/interdyne/mods
@@ -144,7 +148,7 @@
 
 /datum/armament_entry/company_import/interdyne/crates/smallkit
 	item_type = /obj/structure/closet/crate/secure/syndicate/interdyne/smallkits
-	cost = PAYCHECK_COMMAND * 35
+	cost = PAYCHECK_COMMAND * 40
 
 /datum/armament_entry/company_import/interdyne/crates/traumakit
 	item_type = /obj/structure/closet/crate/secure/syndicate/interdyne/premium

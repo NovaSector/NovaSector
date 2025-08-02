@@ -22,12 +22,13 @@
 	desc = "Carries one of every interdyne mini medkit for variety purposes"
 
 /obj/structure/closet/crate/secure/syndicate/interdyne/smallkits/PopulateContents()
-	new /obj/item/storage/medkit/tactical/premium/interdyne/small(src)
-	new /obj/item/storage/medkit/tactical/premium/interdyne/small/brute(src)
-	new /obj/item/storage/medkit/tactical/premium/interdyne/small/burn(src)
-	new /obj/item/storage/medkit/tactical/premium/interdyne/small/toxin(src)
-	new /obj/item/storage/medkit/tactical/premium/interdyne/small/oxygen(src)
-	new /obj/item/storage/medkit/tactical/premium/interdyne/small/spray(src)
+	new /obj/item/storage/pouch/medical/firstaid/interdyne(src)
+	new /obj/item/storage/pouch/medical/firstaid/interdyne/corpse(src)
+	new /obj/item/storage/pouch/medical/firstaid/interdyne/brute(src)
+	new /obj/item/storage/pouch/medical/firstaid/interdyne/burn(src)
+	new /obj/item/storage/pouch/medical/firstaid/interdyne/toxin(src)
+	new /obj/item/storage/pouch/medical/firstaid/interdyne/oxygen(src)
+	new /obj/item/storage/pouch/medical/firstaid/interdyne/spray(src)
 
 /obj/structure/closet/crate/secure/syndicate/interdyne/maid
 	name = "\improper Interdyne maid outfit crate"

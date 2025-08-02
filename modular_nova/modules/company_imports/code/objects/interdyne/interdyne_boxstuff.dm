@@ -46,6 +46,10 @@ they get called in files like interdyne_crates.dm and interdyne_kits.dm
 /obj/item/reagent_containers/cup/beaker/rezadone/less
 	list_reagents = list(/datum/reagent/medicine/rezadone = 30)
 
+/*
+* Patches
+*/
+
 /obj/item/reagent_containers/applicator/patch/pen_acid
 	name = "\improper Pentetic Acid Patch"
 	icon_state = "bandaid_toxin"
@@ -70,14 +74,19 @@ they get called in files like interdyne_crates.dm and interdyne_kits.dm
 	list_reagents = list(/datum/reagent/medicine/sal_acid = 20)
 	list_reagents_purity = 1
 
-
-
+/*
+* Fluff
+*/
 
 /obj/item/paper/fluff/interdyne/medicines
 	name = "Note From Corporate"
 	default_raw_text = {"Please rememember to heat up your siever oxy/tox mix for maximum effectiveness elsewise we may have a lawsuit.
 
 	Interdyne leadership is not to be held responsible for the malpractice of the individual doctor."}
+
+/*
+* Bandages
+*/
 
 /obj/item/storage/box/bandages/interdyne
 	name = "\improper interdyne brute bandage box"
