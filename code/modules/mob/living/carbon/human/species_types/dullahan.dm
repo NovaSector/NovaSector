@@ -275,7 +275,7 @@
 	detached_head.copy_appearance_from(headless)
 	detached_head.update_icon_dropped()
 
-/obj/item/dullahan_relay/Hear(message, atom/movable/speaker, message_language, raw_message, radio_freq, list/spans, list/message_mods = list(), message_range)
+/obj/item/dullahan_relay/Hear(message, atom/movable/speaker, message_language, raw_message, radio_freq, radio_freq_name, radio_freq_color, list/spans, list/message_mods = list(), message_range)
 	. = ..()
 	var/dist = get_dist(speaker, src) - message_range
 	if(dist > 0 && dist <= EAVESDROP_EXTRA_RANGE)
@@ -284,7 +284,7 @@
 		return FALSE
 	if(!owner)
 		return FALSE
-	return owner.Hear(message, speaker, message_language, raw_message, radio_freq, spans, message_mods, message_range = INFINITY)
+	return owner.Hear(message, speaker, message_language, raw_message, radio_freq, radio_freq_name, radio_freq_color, spans, message_mods, message_range = INFINITY)
 
 ///Stops dullahans from gibbing when regenerating limbs
 /obj/item/dullahan_relay/proc/unlist_head(datum/source, list/excluded_zones)

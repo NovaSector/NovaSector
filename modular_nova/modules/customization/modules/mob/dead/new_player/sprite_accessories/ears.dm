@@ -301,6 +301,21 @@
 	name = "Fuzzball antenna (coloring 3+1)"
 	icon_state = "antenna_fuzzballv2"
 
+/datum/sprite_accessory/ears/external/royal_antenna
+	name = "Royal Antenna"
+	icon_state = "royal_antenna"
+	color_src = USE_ONE_COLOR
+
+/datum/sprite_accessory/ears/external/basic_antenna
+	name = "Basic Antenna"
+	icon_state = "basic_antenna"
+	color_src = USE_ONE_COLOR
+
+/datum/sprite_accessory/ears/external/straight_antenna
+	name = "Straight Antenna"
+	icon_state = "straight_antenna"
+	color_src = USE_ONE_COLOR
+
 /datum/sprite_accessory/ears/external/setaceous
 	name = "Setaceous Antenna"
 	icon_state = "setaceous"
