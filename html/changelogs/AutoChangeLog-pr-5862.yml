@@ -1,0 +1,4 @@
+author: "BasilTamaya"
+delete-after: True
+changes:
+  - bugfix: "Rack refactor not originally working! It does now. You can now place things on the shelf like intended."
