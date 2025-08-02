@@ -84,6 +84,7 @@
 	button_icon = 'modular_nova/modules/customization/modules/mob/living/carbon/human/species/hemophage/icons/actions_hemophage.dmi'
 	button_icon_state = "hemokinetic_regen"
 
+
 /datum/action/cooldown/hemophage/hemokinetic_regen/Activate(atom/action_target)
 	var/mob/living/living_owner = owner
 	if(!istype(living_owner))
