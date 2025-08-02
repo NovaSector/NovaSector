@@ -1,6 +1,6 @@
 
 /obj/machinery/computer
-	/// The time the next clicksound is allowed to be played at
+	/// The time the next keyboard clicksound is allowed to be played at
 	var/next_clicksound
 
 /obj/machinery/computer/interact(mob/user, special_state)
