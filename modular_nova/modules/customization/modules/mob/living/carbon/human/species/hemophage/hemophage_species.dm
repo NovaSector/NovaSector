@@ -134,11 +134,9 @@
 			SPECIES_PERK_TYPE = SPECIES_POSITIVE_PERK,
 			SPECIES_PERK_ICON = "moon",
 			SPECIES_PERK_NAME = "Darkness Affinity",
-			SPECIES_PERK_DESC = "A Hemophage is only at home in the darkness, the infection \
-								within a Hemophage seeking to return them to a healthy state \
-								whenever it can be in the shadow. However, light artificial or \
-								otherwise irritates their bodies and the cancer keeping them alive, \
-								not harming them but keeping them from regenerating. Modern \
+			SPECIES_PERK_DESC = "A Hemophage is most at home in the darkness, as light artificial or \
+								otherwise irritates their bodies and the cancer keeping them alive. \
+								Modern \
 								Hemophages have been known to use lockers as a convenient \
 								source of darkness, while the extra protection they provide \
 								against background radiations allows their tumor to avoid \
