@@ -41,7 +41,7 @@ GLOBAL_LIST_EMPTY(soulcatchers)
 	targeted_soulcatcher_room = soulcatcher_rooms[1]
 	GLOB.soulcatchers += src
 	if(ghost_joinable)
-		send_joinability_signal()
+		update_joinability()
 
 	var/obj/item/soulcatcher_holder/soul_holder = parent
 	if(istype(soul_holder) && ismob(soul_holder.loc))
@@ -54,7 +54,7 @@ GLOBAL_LIST_EMPTY(soulcatchers)
 /datum/component/soulcatcher/Destroy(force)
 	GLOB.soulcatchers -= src
 	if(ghost_joinable)
-		send_joinability_signal()
+		update_joinability()
 
 	targeted_soulcatcher_room = null
 	for(var/datum/soulcatcher_room as anything in soulcatcher_rooms)
@@ -217,7 +217,7 @@ GLOBAL_LIST_EMPTY(soulcatchers)
 	if(!mind_to_add)
 		return FALSE
 
-	var/datum/component/soulcatcher/parent_soulcatcher = master_soulcatcher.resolve()
+	var/datum/component/soulcatcher/parent_soulcatcher = master_soulcatcher?.resolve()
 	var/datum/parent_object = parent_soulcatcher.parent
 	if(!parent_object)
 		return FALSE
@@ -240,7 +240,7 @@ GLOBAL_LIST_EMPTY(soulcatchers)
 	current_souls += new_soul
 	new_soul.current_room = WEAKREF(src)
 	if(current_souls >= parent_soulcatcher.max_souls) //only send update if we become full
-		parent_soulcatcher.send_joinability_signal()
+		parent_soulcatcher.update_joinability()
 
 	var/datum/preferences/preferences = new_soul.client?.prefs
 	if(preferences)
@@ -267,9 +267,9 @@ GLOBAL_LIST_EMPTY(soulcatchers)
 /datum/soulcatcher_room/proc/remove_soul(mob/living/soulcatcher_soul/soul_to_remove)
 	if(!soul_to_remove || !(soul_to_remove in current_souls))
 		return FALSE
-	var/datum/component/soulcatcher/parent_soulcatcher = master_soulcatcher.resolve()
+	var/datum/component/soulcatcher/parent_soulcatcher = master_soulcatcher?.resolve()
 	if(current_souls >= parent_soulcatcher.max_souls) //only send update if we were full
-		parent_soulcatcher.send_joinability_signal()
+		parent_soulcatcher.update_joinability()
 
 	current_souls -= soul_to_remove
 	soul_to_remove.current_room = null
@@ -383,27 +383,26 @@ GLOBAL_LIST_EMPTY(soulcatchers)
 	name = "Enter Soulcatcher"
 	icon = 'modular_nova/master_files/icons/hud/screen_ghost.dmi'
 	icon_state = "soulcatcher"
-	/// MA for maptext overlay showing how many soulcatchers there are
+	/// Holder for maptext overlay showing how many soulcatchers there are
 	var/atom/movable/screen/num_overlay
 
 /atom/movable/screen/ghost/join_soulcatcher/New()
 	. = ..()
-	num_overlay = new()
+	num_overlay = new
 	num_overlay.layer = layer+1
 	num_overlay.screen_loc = ui_ghost_soulcatcher
 	num_overlay.maptext = MAPTEXT("<span style='text-align: right; color: aqua'>[get_soulcatcher_count()]</span>")
 	num_overlay.transform = num_overlay.transform.Translate(-4, 2)
 	vis_contents += num_overlay
-	if(hud && hud?.mymob)
-		RegisterSignal(hud.mymob, COMSIG_SOULCATCHER_UPDATE_JOINABILITY, PROC_REF(refresh_tally))
+	RegisterSignal(SSdcs, COMSIG_SOULCATCHER_UPDATE_JOINABILITY, PROC_REF(refresh_tally))
 
 /atom/movable/screen/ghost/join_soulcatcher/Destroy()
 	vis_contents -= num_overlay
 	QDEL_NULL(num_overlay)
-	if(hud && hud?.mymob)
-		UnregisterSignal(hud.mymob, COMSIG_SOULCATCHER_UPDATE_JOINABILITY)
+	UnregisterSignal(SSdcs, COMSIG_SOULCATCHER_UPDATE_JOINABILITY)
 	return ..()
 
+/// returns the number of soulcatcher components that are joinable by ghosts
 /atom/movable/screen/ghost/join_soulcatcher/proc/get_soulcatcher_count()
 	var/amount = 0
 	for(var/datum/component/soulcatcher/soulcatcher as anything in GLOB.soulcatchers)
@@ -412,6 +411,7 @@ GLOBAL_LIST_EMPTY(soulcatchers)
 		amount++
 	return amount
 
+/// refreshes the maptext number overlay on the ghost's soulcatcher button according to what get_soulcatcher_count() returns
 /atom/movable/screen/ghost/join_soulcatcher/proc/refresh_tally()
 	SIGNAL_HANDLER
 	if(!num_overlay)
