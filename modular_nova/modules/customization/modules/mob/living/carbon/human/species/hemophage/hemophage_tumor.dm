@@ -92,8 +92,6 @@
 
 /// Simple helper proc that toggles the dormant state of the tumor, which also switches its appearance to reflect said change.
 /obj/item/organ/heart/hemophage/proc/toggle_dormant_state()
-
-
 	is_dormant = !is_dormant
 	base_icon_state = is_dormant ? "[base_icon_state]-dormant" : initial(base_icon_state)
 
