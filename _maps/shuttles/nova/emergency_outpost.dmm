@@ -269,11 +269,6 @@
 	},
 /turf/open/floor/mineral/titanium/blue,
 /area/shuttle/escape)
-"Bl" = (
-/obj/structure/table/wood,
-/obj/item/toy/plush/beeplushie,
-/turf/open/floor/carpet/royalblue,
-/area/shuttle/escape)
 "BD" = (
 /obj/machinery/computer/emergency_shuttle{
 	dir = 8
@@ -801,7 +796,7 @@ vi
 (28,1,1) = {"
 vi
 vi
-Bl
+uy
 HP
 vi
 fH
