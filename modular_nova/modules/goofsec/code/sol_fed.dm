@@ -251,8 +251,6 @@ GLOBAL_LIST_INIT(call911_do_and_do_not, list(
 
 /// Does the final checks if a player is messaging solfed, providing final considerations and what consequences may come.
 /obj/machinery/computer/communications/proc/finalizing_solfedmessage(mob/user)
-	if (!COOLDOWN_FINISHED(src, important_action_cooldown))
-		return
 	/// Notifies admins in case player is considering messaging solfed.
 	message_admins("[ADMIN_LOOKUPFLW(user)] is considering contacting the Sol Federation Regional Command.")
 	/// First Question

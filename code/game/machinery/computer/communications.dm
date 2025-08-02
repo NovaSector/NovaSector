@@ -466,8 +466,8 @@ GLOBAL_VAR_INIT(cops_arrived, FALSE)
 		// NOVA EDIT ADDITION START
 		if ("messagethefeds")
 			if(!message_federation(usr))
-				if (!COOLDOWN_FINISHED(src, important_action_cooldown))
-					return
+				return
+			if(!COOLDOWN_FINISHED(src, important_action_cooldown))
 				return
 			finalizing_solfedmessage(usr)
 			COOLDOWN_START(src, important_action_cooldown, IMPORTANT_ACTION_COOLDOWN)
