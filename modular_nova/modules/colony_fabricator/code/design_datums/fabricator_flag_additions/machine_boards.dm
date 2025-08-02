@@ -18,6 +18,10 @@
 	. = ..()
 	build_type |= COLONY_FABRICATOR
 
+/datum/design/board/fishing_portal_generator/New()
+	. = ..()
+	build_type |= COLONY_FABRICATOR
+
 // Turbine Stuff
 
 /datum/design/board/turbine_computer/New()

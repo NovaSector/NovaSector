@@ -90,13 +90,14 @@
 /// Blueshield's Custom Hellfire
 /obj/item/ammo_casing/energy/laser/hellfire/blueshield
 	projectile_type = /obj/projectile/beam/laser/hellfire
-	e_cost = LASER_SHOTS(13, STANDARD_CELL_CHARGE)
+	e_cost = LASER_SHOTS(25, STANDARD_CELL_CHARGE)
 	select_name = "maim"
 
 /obj/item/gun/energy/laser/hellgun/blueshield
-	name ="modified hellfire laser gun"
-	desc = "A lightly overtuned version of NT's Hellfire Laser rifle, scratches showing its age and the fact it has definitely been owned before. This one is more energy efficient without sacrificing damage."
-	icon_state = "hellgun"
+	name = "streamlined hellfire laser carbine"
+	icon = 'modular_nova/modules/modular_weapons/icons/obj/energy.dmi'
+	icon_state = "bshg"
+	desc = parent_type::desc + " This one has been tinkered with by Central Command technicians to add blue-tinted furniture and squeeze out a few extra shots before running dry."
 	ammo_type = list(/obj/item/ammo_casing/energy/laser/hellfire/blueshield)
 
 /obj/item/choice_beacon/blueshield

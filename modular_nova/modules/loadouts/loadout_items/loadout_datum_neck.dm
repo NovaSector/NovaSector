@@ -124,7 +124,6 @@
 /datum/loadout_item/neck/spikecollar
 	name = "Collar (Spiked)"
 	item_path = /obj/item/clothing/neck/collar/spike
-	erp_item = TRUE
 
 /*
 *	SCARVES
