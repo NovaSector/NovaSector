@@ -1,0 +1,4 @@
+author: "BasilTamaya"
+delete-after: True
+changes:
+  - bugfix: "Gun racks work properly, now rotating weapons like they're hanging from a rack."
