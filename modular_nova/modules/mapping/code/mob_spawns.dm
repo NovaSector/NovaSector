@@ -657,7 +657,6 @@
 	assignment = "Hotel Security"
 	access = list(ACCESS_TWIN_NEXUS_STAFF, ACCESS_TWIN_NEXUS_MANAGER)
 
-
 //CRYO CONSOLES
 /obj/machinery/computer/cryopod/interdyne
 	radio = /obj/item/radio/headset/interdyne
@@ -665,4 +664,3 @@
 	req_one_access = list("syndicate_leader")
 
 MAPPING_DIRECTIONAL_HELPERS(/obj/machinery/computer/cryopod/interdyne, 32)
-
