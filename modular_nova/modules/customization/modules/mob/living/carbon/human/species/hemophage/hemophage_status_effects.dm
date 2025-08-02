@@ -198,7 +198,11 @@
 	if(!istype(carbon_owner))
 		return
 
+<<<<<<< HEAD
 	var/amount_healed = carbon_owner.adjustOxyLoss(round(-oxyloss_to_heal/(initial(duration) / 10) * seconds_between_ticks, 0.01), forced = TRUE)
+=======
+	var/amount_healed = carbon_owner.adjustOxyLoss(round(-oxyloss_to_heal/(initial(duration) / 10) * seconds_between_ticks, forced = TRUE), 0.01)
+>>>>>>> 8daaf8c154e2d3ae94aa645d7ee8129b106139d8
 	if(amount_healed)
 		carbon_owner.blood_volume -= (HEMOKINETIC_REGEN_BLOOD_CONSUMPTION * amount_healed)
 
