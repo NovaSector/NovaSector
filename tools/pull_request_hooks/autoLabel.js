@@ -140,7 +140,7 @@ async function check_diff_files_for_labels(github, context) {
         }
       }
     } else {
-      console.error(`Failed to fetch diff files: ${diff.status}`);
+      console.error(`Failed to get file list: ${diff.status}`);
     }
   } catch (e) {
     console.error(e);
