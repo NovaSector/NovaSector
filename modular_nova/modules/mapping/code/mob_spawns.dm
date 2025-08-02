@@ -226,29 +226,6 @@
 	laws.associate(src)
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 /obj/effect/mob_spawn/ghost_role/human/hotel_staff
 	random_appearance = FALSE
 	quirks_enabled = TRUE
