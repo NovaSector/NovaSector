@@ -1,0 +1,4 @@
+author: "OrbisAnima"
+delete-after: True
+changes:
+  - qol: "Subtler was upgraded to filter out non client entities of it, and its possible range for 1v1 emotes to be on the visibility range. Port from StrangeWeirdKitten and their work on Bubberstation."
