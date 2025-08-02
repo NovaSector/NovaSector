@@ -1,0 +1,4 @@
+author: "1393F"
+delete-after: True
+changes:
+  - balance: "The refitted wetsuit no longer gives wetstacks, use the stardress hydro-vaporizer suit accessory if you want wetstacks."
