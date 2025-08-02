@@ -519,7 +519,7 @@
 
 // Latinfishy & HollandaiseSauce Donor Item
 /obj/item/device/custom_kit/ak105
-	name = "AK-105 modernization kit"
+	name = "\improper AK-105 modernization kit"
 	desc = "Old gun parts to convert the Miezc into an AK-105"
 	from_obj = /obj/item/gun/ballistic/automatic/miecz
 	to_obj = /obj/item/gun/ballistic/automatic/miecz/ak105
