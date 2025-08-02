@@ -228,6 +228,7 @@ GLOBAL_LIST_INIT(call911_do_and_do_not, list(
 		return FALSE
 	return TRUE
 
+/// Message button interaction if the players want to use this button, It only allows organics and not AI or Cyborgs. As this is a big 'im screwed' button
 /obj/machinery/computer/communications/proc/message_federation(mob/user)
 	if (!authenticated_as_silicon_or_captain(user))
 		return FALSE
@@ -248,6 +249,7 @@ GLOBAL_LIST_INIT(call911_do_and_do_not, list(
 		return FALSE
 	return TRUE
 
+/// Does the final checks if a player is messaging solfed, providing final considerations and what consequences may come.
 /obj/machinery/computer/communications/proc/finalizing_solfedmessage(mob/user)
 	if (!COOLDOWN_FINISHED(src, important_action_cooldown))
 		return
