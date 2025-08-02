@@ -8753,6 +8753,7 @@
 #include "modular_nova\modules\moretraitoritems\code\mechs.dm"
 #include "modular_nova\modules\moretraitoritems\code\medicine.dm"
 #include "modular_nova\modules\moretraitoritems\code\modsuits.dm"
+#include "modular_nova\modules\moretraitoritems\code\outfits.dm"
 #include "modular_nova\modules\moretraitoritems\code\pirate.dm"
 #include "modular_nova\modules\moretraitoritems\code\smuggling_gear.dm"
 #include "modular_nova\modules\moretraitoritems\code\spawnergrenade.dm"
