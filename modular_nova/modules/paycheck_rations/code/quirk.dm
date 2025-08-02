@@ -24,10 +24,11 @@
 			LOCATION_BACKPACK,
 			LOCATION_HANDS,
 		),
+		flavour_text = "You remember to keep close hold of your ticket book, it can't be replaced if lost and all of your ration tickets are placed there!",
+		notify_player = TRUE,
 	)
 	account.tracked_ticket_book = WEAKREF(new_ticket_book)
 	account.payday_modifier = 0.5
-	to_chat(client_source.mob, span_notice("You remember to keep close hold of your ticket book, it can't be replaced if lost and all of your ration tickets are placed there!"))
 
 // Edits to bank accounts to make the above possible
 
