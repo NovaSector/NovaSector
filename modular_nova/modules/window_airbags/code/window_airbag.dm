@@ -124,6 +124,7 @@
 		return FALSE
 	return TRUE
 
+/// the airbag item is preparing itself, anchoring itself and then finally deploying the airbag structure
 /obj/item/airbag/proc/arm()
 	if(armed)
 		return
@@ -134,13 +135,13 @@
 	playsound(src, armed_sound, 50)
 	update_appearance()
 
-// Anchors the airbag to the ground, namely to prevent air movement.
+/// Anchors the airbag to the ground, namely to prevent air movement.
 /obj/item/airbag/proc/deploy_anchor()
 	if(!isturf(loc) || anchored)
 		return
 	anchored = TRUE
 
-// Detonates the airbag, dropping the item and playing the sound.
+/// Detonates the airbag, dropping the item, and harming humans who weren't cautious
 /obj/item/airbag/proc/bang()
 	if(ishuman(loc))
 		blow_up_arm(loc)
@@ -159,6 +160,7 @@
 	)
 	qdel(src)
 
+/// dislocate the arm holding the item, and then fling them too. ouch!
 /obj/item/airbag/proc/blow_up_arm(mob/living/carbon/human/victim)
 	var/datum/wound_pregen_data/pregen_data = GLOB.all_wound_pregen_data[/datum/wound/blunt/bone/moderate]
 	var/obj/item/bodypart/arm/limb = victim.get_bodypart(pick(GLOB.arm_zones))

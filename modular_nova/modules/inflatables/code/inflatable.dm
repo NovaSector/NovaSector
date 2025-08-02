@@ -47,6 +47,7 @@
 	context[SCREENTIP_CONTEXT_CTRL_SHIFT_LMB] = "Deflate"
 	return CONTEXTUAL_SCREENTIP_SET
 
+/// Do damage ticks to structure's integrity if the air is warmer than the minimum of fire, we only care about heat
 /obj/structure/inflatable/proc/check_melt(turf/source, datum/gas_mixture/air, temperature)
 	SIGNAL_HANDLER
 	if(temperature < FIRE_MINIMUM_TEMPERATURE_TO_EXIST)
