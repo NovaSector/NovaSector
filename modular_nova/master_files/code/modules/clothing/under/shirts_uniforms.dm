@@ -12,7 +12,7 @@
 
 /obj/item/clothing/under/greyscale/turtleneck
 	name = "turtleneck"
-	desc = "A rather comfortable Turtleneck, keeping you comfortable through its robust threads."
+	desc = "A rather comfortable turtleneck, keeping you comfortable through its robust threads."
 	icon = 'icons/map_icons/clothing/under/_under.dmi'
 	icon_state = "/obj/item/clothing/under/greyscale/turtleneck"
 	post_init_icon_state = "turtleneck"
@@ -25,7 +25,7 @@
 
 /obj/item/clothing/under/greyscale/turtleneck/skirt
 	name = "Skirtleneck"
-	desc = "A rather comfortable Skirtleneck, keeping you comfortable through its robust threads"
+	desc = "A rather comfortable skirtleneck, keeping you comfortable through its robust threads"
 	icon_state = "/obj/item/clothing/under/greyscale/turtleneck/skirt"
 	post_init_icon_state = "skirtleneck"
 
