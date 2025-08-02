@@ -96,3 +96,6 @@ endmap
 map snowglobe
 	votable
 endmap
+
+map boxstation
+endmap
