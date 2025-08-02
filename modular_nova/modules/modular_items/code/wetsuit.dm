@@ -7,6 +7,10 @@
 	worn_icon = 'modular_nova/modules/modular_items/icons/akulasuit.dmi'
 	female_sprite_flags = FEMALE_UNIFORM_FULL
 
+/obj/item/clothing/under/akula_wetsuit/refit/Initialize(mapload)
+	. = ..()
+	qdel(GetComponent(/datum/component/wetsuit))
+
 /obj/item/clothing/under/akula_wetsuit/refit/examine(mob/user)
 	. = ..()
 	. += span_notice("You can <b>examine closer</b> to learn a little more about this item.")
