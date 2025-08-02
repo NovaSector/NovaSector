@@ -12,7 +12,9 @@
 // Context for tooltips
 	register_context()
 
-/obj/structure/rack/add_context(atom/source, list/context, obj/item/held_item, mob/living/user)
+/obj/structure/rack/add_context
+	override = TRUE
+(atom/source, list/context, obj/item/held_item, mob/living/user)
 	if(isnull(held_item))
 		return
 
