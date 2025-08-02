@@ -71,7 +71,8 @@
 				UNSEALED_MESSAGE = BOOT_UNSEAL_MESSAGE,
 				SEALED_MESSAGE = BOOT_SEAL_MESSAGE,
 			),
-		), "synditech" = list(
+		),
+		"synditech" = list(
 			MOD_ICON_OVERRIDE = 'modular_nova/master_files/icons/obj/clothing/modsuit/mod_clothing.dmi',
 			MOD_WORN_ICON_OVERRIDE = 'modular_nova/master_files/icons/mob/clothing/modsuit/mod_clothing.dmi',
 			/obj/item/clothing/head/mod = list(
@@ -105,7 +106,8 @@
 				UNSEALED_MESSAGE = BOOT_UNSEAL_MESSAGE,
 				SEALED_MESSAGE = BOOT_SEAL_MESSAGE,
 			),
-		), "enforcer" = list(
+		),
+		"enforcer" = list(
 			MOD_ICON_OVERRIDE = 'modular_nova/master_files/icons/obj/clothing/modsuit/mod_clothing.dmi',
 			MOD_WORN_ICON_OVERRIDE = 'modular_nova/master_files/icons/mob/clothing/modsuit/mod_clothing.dmi',
 			/obj/item/clothing/head/mod = list(
@@ -139,7 +141,8 @@
 				UNSEALED_MESSAGE = BOOT_UNSEAL_MESSAGE,
 				SEALED_MESSAGE = BOOT_SEAL_MESSAGE,
 			),
-		),"cybersun" = list(
+		),
+		"cybersun" = list(
 			MOD_ICON_OVERRIDE = 'modular_nova/master_files/icons/obj/clothing/modsuit/mod_clothing.dmi',
 			MOD_WORN_ICON_OVERRIDE = 'modular_nova/master_files/icons/mob/clothing/modsuit/mod_clothing.dmi',
 			desc = "Test",
