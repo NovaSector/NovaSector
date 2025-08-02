@@ -35,12 +35,12 @@
 	suppressor_y_offset = 1
 
 	burst_size = 1
-	fire_delay = 0.2 SECONDS
+	fire_delay = 0.25 SECONDS
 	actions_types = list()
 
 	spread = 2
-	projectile_wound_bonus = 10
-	projectile_damage_multiplier = 0.75
+	projectile_wound_bonus = 0
+	projectile_damage_multiplier = 0.5
 
 	lore_blurb = "The MMR-2543 is the current standard service rifle for all branches of the Sol Federation Armed Forces.<br><br>\
 		Initially created for use by the Sagittarian Triumvirate’s military, its adoption by SolFed came a few years later. \
@@ -89,7 +89,7 @@
 
 	spawn_magazine_type = /obj/item/ammo_box/magazine/c40sol_rifle
 
-	fire_delay = 1.6 SECONDS
+	fire_delay = 0.85 SECONDS
 	burst_delay = 0.1 SECONDS
 
 	actions_types = list(/datum/action/item_action/toggle_firemode)
@@ -99,8 +99,8 @@
 
 	burst_size = 3
 	spread = 5.5
-	projectile_damage_multiplier = 1
-	projectile_wound_bonus = 3
+	projectile_damage_multiplier = 0.5
+	projectile_wound_bonus = -10
 
 	model_specific_lore = "This variant is the Infantry model, and is the primary rifle \
 		for both the SolFed Hydro Corps and Atmospheric Corps. It features excellent accuracy and durability, \
