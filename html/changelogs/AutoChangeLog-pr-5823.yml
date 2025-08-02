@@ -1,0 +1,6 @@
+author: "carpotoxin, halcyon, sheets"
+delete-after: True
+changes:
+  - rscadd: "Adds the insectoid species from Doppler station"
+  - image: "Adds the centipede taur from Doppler station"
+  - image: "Adds insectoid wings, tail, markings, ears"
