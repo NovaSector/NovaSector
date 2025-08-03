@@ -9,7 +9,6 @@
 	attack_sound = 'sound/items/weapons/blade1.ogg'
 	attack_vis_effect = ATTACK_EFFECT_SLASH
 	faction = list(ROLE_SYNDICATE)
-	loot = list()
 	corpse = /obj/effect/mob_spawn/corpse/human/cin_soldier
 	mob_spawner = /obj/effect/mob_spawn/corpse/human/cin_soldier
 
