@@ -111,7 +111,7 @@
 				var/datum/armament_entry/company_import/gun_entry = armament_entry
 
 				/// Checks if the company "Offstation" is set to false. Will return otherwise
-				if(!gun_entry.offstation)
+				if(gun_entry.offstation == TRUE)
 					continue
 
 				/// Checks if company/objects are set to "Contraband" Requires multi tool to set board to broad.
