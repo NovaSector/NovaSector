@@ -4,8 +4,8 @@
 	icon_state = "pulse-casing"
 	caliber = "pulse"
 	projectile_type = /obj/projectile/bullet/pulse
-	var/max_uses = 30
-	var/remaining_uses = 30
+	var/max_uses = 15
+	var/remaining_uses = 15
 	harmful = FALSE
 
 /obj/item/ammo_casing/pulse/Initialize(mapload)
