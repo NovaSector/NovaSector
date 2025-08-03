@@ -113,7 +113,7 @@
 	icon_state = "pulse-mag"
 	ammo_type = /obj/item/ammo_casing/pulse
 	caliber = "pulse"
-	max_ammo = 5
+	max_ammo = 3
 	multiple_sprites = AMMO_BOX_FULL_EMPTY
 
 /obj/item/ammo_box/magazine/pulse/examine(mob/user)
