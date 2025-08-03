@@ -35,10 +35,23 @@
 	uniform = /obj/item/clothing/under/rank/cargo/tech
 	shoes = /obj/item/clothing/shoes/laceup
 	id = /obj/item/card/id/advanced/chameleon/black/blackmarket
+	l_pocket = /obj/item/shuttle_remote/bmd
 
 /datum/outfit/black_market/post_equip(mob/living/carbon/human/shady, visualsOnly)
 	handlebank(shady)
-	return ..()
+
+	. = ..()
+
+	var/obj/item/shuttle_remote/bmd/remote = shady.get_item_by_slot(ITEM_SLOT_LPOCKET)
+	if(!remote)
+		return
+	// we boldly assume only one Burst was spawned. Checking by Z-level defeats the purpose of this remote being used by latejoining BMD to retrieve stolen shuttle.
+	var/list/consoles = SSmachines.get_machines_by_type(/obj/machinery/computer/shuttle/caravan/blackmarket_burst)
+	var/obj/machinery/computer/shuttle/caravan/blackmarket_burst/console = pick(consoles)
+	if(!console || console?.remote_ref)
+		return
+	console.remote_ref = WEAKREF(remote)
+	remote.computer_ref = WEAKREF(console)
 
 /obj/item/gun/energy/laser/carbine/cybersun/black_market_trader
 	desc = "A laser gun primarily used by syndicate security guards. It fires a rapid spray of low-power plasma beams. This one seems to have had its firing pin replaced."
@@ -78,7 +91,7 @@
 	icon_state = "sleeper_s"
 	computer_area = /area/ruin/space/has_grav/nova/des_two/security/prison
 	outfit = /datum/outfit/ds2/prisoner
-	spawner_job_path = /datum/job/ds2
+	spawner_job_path = /datum/job/ds2/prisoner
 
 /obj/effect/mob_spawn/ghost_role/human/ds2/syndicate
 	name = "Syndicate Operative"
@@ -103,7 +116,7 @@
 	important_text = "Keep yourself to the same standards as Command Policy. You are not an antagonist and must Adminhelp before antagonizing station crew."
 	outfit = /datum/outfit/ds2/syndicate_command
 	computer_area = /area/ruin/space/has_grav/nova/des_two/halls
-	spawner_job_path = /datum/job/ds2
+	spawner_job_path = /datum/job/ds2/command
 	loadout_enabled = TRUE
 
 /obj/effect/mob_spawn/ghost_role/human/ds2/syndicate/special(mob/living/new_spawn)
@@ -122,15 +135,18 @@
 
 /obj/effect/mob_spawn/ghost_role/human/ds2/syndicate/enginetech
 	outfit = /datum/outfit/ds2/syndicate/enginetech
+	spawner_job_path = /datum/job/ds2/engineer
 
 /obj/effect/mob_spawn/ghost_role/human/ds2/syndicate/researcher
 	outfit = /datum/outfit/ds2/syndicate/researcher
+	spawner_job_path = /datum/job/ds2/science
 
 /obj/effect/mob_spawn/ghost_role/human/ds2/syndicate/stationmed
 	outfit = /datum/outfit/ds2/syndicate/stationmed
 
 /obj/effect/mob_spawn/ghost_role/human/ds2/syndicate/brigoff
 	outfit = /datum/outfit/ds2/syndicate/brigoff
+	spawner_job_path = /datum/job/ds2/enforce
 
 /obj/effect/mob_spawn/ghost_role/human/ds2/syndicate_command/masteratarms
 	outfit = /datum/outfit/ds2/syndicate_command/masteratarms
@@ -499,10 +515,11 @@
 	return ..()
 
 /datum/outfit/proc/handlebank(mob/living/carbon/human/owner)
-	var/datum/bank_account/offstation_bank_account = new(owner.real_name)
+	if(!owner.mind)
+		return
+	var/datum/bank_account/offstation_bank_account = new(owner.real_name, owner.mind.assigned_role)
 	owner.account_id = offstation_bank_account.account_id
 	offstation_bank_account.replaceable = FALSE
-	offstation_bank_account.account_job = new /datum/job/ghost_role //note to self: Replace later
 	owner.add_mob_memory(/datum/memory/key/account, remembered_id = owner.account_id)
 	if(owner.wear_id)
 		var/obj/item/card/id/id_card = owner.wear_id

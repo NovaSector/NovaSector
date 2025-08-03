@@ -105,6 +105,50 @@ async function check_diff_for_labels(diff_url) {
   return { labels_to_add, labels_to_remove };
 }
 
+// NOVA EDIT ADDITION START
+async function check_diff_files_for_labels(github, context) {
+  const labels_to_add = [];
+  const labels_to_remove = [];
+  try {
+    const response = await github.rest.pulls.listFiles({
+      owner: context.repo.owner,
+      repo: context.repo.repo,
+      pull_number: context.payload.pull_request.number,
+    });
+    if (response.status === 200) {
+      if (!response.data) {
+        throw new Error("Response does not contain any data!");
+      }
+      const changed_files = response.data.map(
+        (data_entry) => data_entry.filename
+      );
+      for (let label in autoLabelConfig.file_labels) {
+        let found = false;
+        const { filepaths, add_only } = autoLabelConfig.file_labels[label];
+        for (let filepath of filepaths) {
+          for (let filename of changed_files) {
+            if (filename.includes(filepath)) {
+              found = true;
+              break;
+            }
+          }
+        }
+        if (found) {
+          labels_to_add.push(label);
+        } else if (!add_only) {
+          labels_to_remove.push(label);
+        }
+      }
+    } else {
+      console.error(`Failed to get file list: ${diff.status}`);
+    }
+  } catch (e) {
+    console.error(e);
+  }
+  return { labels_to_add, labels_to_remove };
+}
+// NOVA EDIT ADDITION END
+
 export async function get_updated_label_set({ github, context }) {
   const { action, pull_request } = context.payload;
   const {
@@ -122,7 +166,7 @@ export async function get_updated_label_set({ github, context }) {
 
   // diff is always checked
   if (diff_url) {
-    const diff_tags = await check_diff_for_labels(diff_url);
+    const diff_tags = await check_diff_files_for_labels(github, context); // NOVA EDIT CHANGE - ORIGINAL: const diff_tags = await check_diff_for_labels(diff_url);
     for (let label of diff_tags.labels_to_add) {
       updated_labels.add(label);
     }
