@@ -18,7 +18,6 @@
 /datum/mod_theme/deepspace
 	name = "deepspace"
 	desc = "A deep-space modsuit suit made by the Syndicate Conglomerate, offering bulkier armor and versatility than the sttandard deep-space modsuit."
-	extended_desc = "Better Description Needed"
 	default_skin = "deepspace"
 	armor_type = /datum/armor/mod_theme_syndicate
 	atom_flags = PREVENT_CONTENTS_EXPLOSION_1
@@ -182,7 +181,6 @@
 /datum/mod_theme/deepspace_admiral
 	name = "admiral"
 	desc = "An elite deep-space modsuit suit upgraded by Syndicate Conglomerate, offering bulkier armor and versatility than the sttandard deep-space modsuit."
-	extended_desc = "Better Description Needed"
 	default_skin = "admiral"
 	armor_type = /datum/armor/mod_theme_elite
 	resistance_flags = FIRE_PROOF|ACID_PROOF
