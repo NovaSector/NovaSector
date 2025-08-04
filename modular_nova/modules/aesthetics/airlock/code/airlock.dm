@@ -79,8 +79,6 @@
 			frame_state = AIRLOCK_FRAME_CLOSED
 			light_state = AIRLOCK_LIGHT_DENIED
 			pre_light_color = AIRLOCK_DENY_LIGHT_COLOR
-		if(AIRLOCK_EMAG)
-			frame_state = AIRLOCK_FRAME_CLOSED
 		if(AIRLOCK_CLOSING)
 			frame_state = AIRLOCK_FRAME_CLOSING
 			light_state = AIRLOCK_LIGHT_CLOSING
@@ -132,9 +130,8 @@
 	if(frame_state == AIRLOCK_FRAME_CLOSED && welded)
 		. += get_airlock_overlay("welded", overlays_file, src, em_block = TRUE)
 
-	if(airlock_state == AIRLOCK_EMAG)
+	if(machine_stat & MAINT) // in the process of being emagged // copy paste modular code *cry
 		. += get_airlock_overlay("sparks", overlays_file, src, em_block = FALSE)
-
 	if(hasPower())
 		if(frame_state == AIRLOCK_FRAME_CLOSED)
 			if(atom_integrity < integrity_failure * max_integrity)

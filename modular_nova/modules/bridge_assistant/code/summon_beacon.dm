@@ -3,6 +3,8 @@
 
 /obj/structure/closet/secure_closet/bridge_officer
 	name = "bridge officer's locker"
+	icon_state = "bo"
+	icon = 'modular_nova/master_files/icons/obj/closet.dmi'
 	req_access = list(ACCESS_COMMAND)
 
 /obj/structure/closet/secure_closet/bridge_officer/PopulateContents()
@@ -13,10 +15,23 @@
 	new /obj/item/construction/rcd(src)
 	new /obj/item/rcd_upgrade/furnishing(src)
 	new /obj/item/rcd_upgrade/frames(src)
+	new /obj/item/storage/bag/garment/bridge_officer(src)
 
 /obj/structure/closet/secure_closet/bridge_officer/populate_contents_immediate()
 	. = ..()
 	new /obj/item/clothing/gloves/color/yellow(src)
+
+/obj/item/storage/bag/garment/bridge_officer
+	name = "bridge officer's garment bag"
+	desc = "A bag for storing extra clothes and shoes. This one belongs to the Bridge Officer."
+
+/obj/item/storage/bag/garment/bridge_officer/PopulateContents()
+	new /obj/item/clothing/suit/toggle/jacket/nova/bridge_officer(src)
+	new /obj/item/clothing/suit/nova/bridge_officer/goth(src)
+	new /obj/item/clothing/under/rank/bridge_officer(src)
+	new /obj/item/clothing/under/rank/bridge_officer/skirt(src)
+	new /obj/item/clothing/under/rank/bridge_officer/turtle(src)
+	new /obj/item/clothing/under/rank/bridge_officer/turtle/skirt(src)
 
 /obj/item/choice_beacon/coffee
 	name = "coffeemaker beacon"
