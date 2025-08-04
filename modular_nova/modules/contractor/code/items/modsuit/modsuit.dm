@@ -12,7 +12,6 @@
 		/obj/item/mod/module/shock_absorber,
 		/obj/item/mod/module/quick_cuff,
 		/obj/item/mod/module/flashlight,
-		/obj/item/mod/module/magnetic_harness,
 		/obj/item/mod/module/storage/syndicate,
 		/obj/item/mod/module/tether,
 	)
@@ -30,7 +29,6 @@
 		/obj/item/mod/module/shock_absorber,
 		/obj/item/mod/module/quick_cuff,
 		/obj/item/mod/module/jetpack,
-		/obj/item/mod/module/magnetic_harness,
 		/obj/item/mod/module/storage/syndicate,
 		/obj/item/mod/module/flamethrower,
 	)
