@@ -195,3 +195,6 @@
       as it should. Report any issues.
   timothymtorres:
   - bugfix: Fix martial arts gloves runtiming when destroyed while equip
+2025-08-04:
+  FlufflesTheDog:
+  - bugfix: Fix some cases where subtler messages broadcast too far
