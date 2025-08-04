@@ -32,11 +32,13 @@
 		/obj/item/mod/module/jetpack,
 		/obj/item/mod/module/magnetic_harness,
 		/obj/item/mod/module/storage/syndicate,
+		/obj/item/mod/module/flamethrower,
 	)
 	default_pins = list(
 		/obj/item/mod/module/armor_booster/contractor,
 		/obj/item/mod/module/jetpack,
 		/obj/item/mod/module/baton_holster/preloaded,
+		/obj/item/mod/module/flamethrower,
 	)
 
 /obj/item/mod/control/pre_equipped/contractor/upgraded/adminbus
