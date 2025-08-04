@@ -16,7 +16,7 @@
 	var/list/species_quirks
 
 ///An implementation of [/datum/quirk/item_quirk/proc/give_item_to_holder] usable on any quirk.
-/datum/quirk/proc/give_item_to_holder_nova(obj/item/quirk_item, list/valid_slots, flavour_text = null, default_location = "at your feet", notify_player = TRUE)
+/datum/quirk/proc/give_item_to_holder_nova(obj/item/quirk_item, list/valid_slots, flavour_text = null, default_location = "at your feet", notify_player = FALSE)
 	if(ispath(quirk_item))
 		quirk_item = new quirk_item(get_turf(quirk_holder))
 	var/mob/living/carbon/human/human_holder = quirk_holder
@@ -33,7 +33,7 @@
  * * new_holder - The mob to add this quirk to.
  * * quirk_transfer - If this is being added to the holder as part of a quirk transfer. Quirks can use this to decide not to spawn new items or apply any other one-time effects.
  */
-/datum/quirk/add_to_holder(mob/living/new_holder, quirk_transfer = FALSE, client/client_source, unique = TRUE)
+/datum/quirk/add_to_holder(mob/living/new_holder, quirk_transfer = FALSE, client/client_source, unique = TRUE, announce = TRUE)
 	var/mob/living/carbon/human/human_holder = new_holder
 	if(isnull(species_quirks) || !ishuman(new_holder) || isnull(human_holder.dna))
 		// No species quirks, or if mob isn't human (lacks Species Datum), add quirk as-is.

@@ -29,7 +29,7 @@ GLOBAL_LIST_EMPTY(gangster_cell_phones)
 		activated = FALSE
 	return ..()
 
-/obj/item/gangster_cellphone/Hear(message, atom/movable/speaker, message_language, raw_message, radio_freq, list/spans, list/message_mods, message_range)
+/obj/item/gangster_cellphone/Hear(message, atom/movable/speaker, message_language, raw_message, radio_freq, radio_freq_name, radio_freq_color, list/spans, list/message_mods, message_range)
 	. = ..()
 	if(!activated)
 		return
