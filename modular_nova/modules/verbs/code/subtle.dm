@@ -129,7 +129,7 @@
 				target = SUBTLE_SAME_TILE_DISTANCE
 		subtler_message = subtler_emote
 	else
-		target = SUBTLE_DEFAULT_DISTANCE
+		target = SUBTLE_ONE_TILE
 		subtler_message = subtler_emote
 		if(type_override)
 			emote_type = type_override
