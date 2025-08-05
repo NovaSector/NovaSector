@@ -69,3 +69,7 @@
 	weapon_to_spawn = /obj/item/gun/ballistic/automatic/pistol/enforcer
 	extra_to_spawn = /obj/item/ammo_box/magazine/enforcer
 	ammo_box_to_spawn = /obj/item/ammo_box/c10mm/large
+
+/obj/item/storage/toolbox/guncase/traitor/enforcer/ammunition
+	name = "enforcer magazine case"
+	weapon_to_spawn = /obj/item/ammo_box/magazine/enforcer
