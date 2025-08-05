@@ -1,6 +1,0 @@
-author: "Hatterhat"
-delete-after: True
-changes:
-  - balance: "Laser and disabler cell costs have been equalized for energy guns and mini energy guns, meaning they both fire the same amount of lasers or disablers."
-  - balance: "Laser guns now get 25 shots per charge. Energy guns get 20 shots per charge of either laser or disabler. Hellfires get 20 shots per charge. Mini energy guns get 15 shots per charge. Blueshield's hellfire gets 25 shots per charge."
-  - image: "Blueshields who choose to use their hellfire gun get a blue one. Congratulations, blueshields."
