@@ -110,7 +110,7 @@
 // Magazine for the legally distinct AR2
 
 /obj/item/ammo_box/magazine/pulse
-	name = "pulse rifle energy magazine"
+	name = "\improper Žaibas rifle pulse magazine"
 	desc = "A restricted-capacity magazine containing pulse energy cells for the Žaibas rifle. Holds three crystalline plasma plugs, each good for fifteen shots. \
 			The casing bears a stamped 'SD-3C' mark (Szot Dynamica 3-Plug Civilian) alongside SolFed compliance certifications."
 	icon = 'modular_nova/modules/modular_weapons/icons/obj/company_and_or_faction_based/szot_dynamica/ammo.dmi'

@@ -25,8 +25,8 @@
 
 /obj/item/ammo_casing/pulse/add_notes_ammo()
 	var/list/readout = list()
-	var/initial_brute = 20
-	var/initial_burn = 10
+	var/initial_brute = 10
+	var/initial_burn = 20
 
 	// Get damage multiplier if in a gun
 	var/proj_damage_mult = 1
