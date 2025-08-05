@@ -165,5 +165,28 @@
 			boolets++
 	return boolets
 
+/obj/item/ammo_box/magazine/pulse/top_off(load_type, starting=FALSE)
+	if(!load_type)
+		load_type = ammo_type
+
+	var/obj/item/ammo_casing/round_check = load_type
+	if(!starting && !(caliber ? (caliber == initial(round_check.caliber)) : (ammo_type == load_type)))
+		stack_trace("Tried loading unsupported ammocasing type [load_type] into ammo box [type].")
+		return
+
+	for(var/i in max(1, stored_ammo.len + 1) to max_ammo)
+		stored_ammo += new round_check(src) // Always create new instances rather than storing paths
+	update_appearance()
+
+/obj/item/ammo_box/magazine/pulse/get_round()
+	var/ammo_len = length(stored_ammo)
+	if(!ammo_len)
+		return null
+	var/obj/item/ammo_casing/casing = stored_ammo[ammo_len]
+	if(ispath(casing)) // Shouldn't happen with our changes, but good to have as a fallback
+		casing = new casing(src)
+		stored_ammo[ammo_len] = casing
+	return casing
+
 /obj/item/ammo_box/magazine/pulse/spawns_empty
 	start_empty = TRUE

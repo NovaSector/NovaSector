@@ -13,12 +13,14 @@
 	inhand_icon_state = "zaibas"
 
 	SET_BASE_PIXEL(-8, 0)
-
 	slot_flags = ITEM_SLOT_BACK
 	bolt_type = BOLT_TYPE_LOCKING
 	accepted_magazine_type = /obj/item/ammo_box/magazine/pulse
 	semi_auto = FALSE
-	fire_sound = 'modular_nova/modules/modular_weapons/sounds/laser_firing/vaporize.ogg'
+	fire_sound = 'modular_nova/modules/modular_weapons/sounds/plasma_shot.ogg'
+	fire_sound_volume = 25
+	lock_back_sound = 'modular_nova/modules/modular_weapons/sounds/plasma_pull.ogg'
+	bolt_drop_sound = 'modular_nova/modules/modular_weapons/sounds/plasma_push.ogg'
 
 	burst_size = 3
 	fire_delay = 2
@@ -90,6 +92,10 @@
 	if(istype(casing))
 		return casing.remaining_uses > 0 && casing.loaded_projectile
 	return ..() // Fall back to normal behavior for non-pulse casings
+
+/obj/item/gun/ballistic/automatic/pulse_rifle/shoot_live_shot(mob/living/user, pointblank, atom/pbtarget, message)
+	. = ..()
+	SEND_SIGNAL(src, COMSIG_UPDATE_AMMO_HUD)
 
 /obj/item/gun/ballistic/automatic/pulse_rifle/postfire_empty_checks(last_shot_succeeded)
 	var/obj/item/ammo_casing/pulse/casing = chambered

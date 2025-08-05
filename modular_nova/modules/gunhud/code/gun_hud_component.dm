@@ -66,12 +66,14 @@
 		// Count shots in magazine
 		if(pulse_gun.magazine)
 			for(var/obj/item/ammo_casing/pulse/casing in pulse_gun.magazine.stored_ammo)
-				total_shots += casing.remaining_uses
+				if(casing.remaining_uses > 0) // Only count casings with remaining uses
+					total_shots += casing.remaining_uses
 
-		// Add shots from chambered round if present
+		// Add shots from chambered round if present and has remaining uses
 		if(pulse_gun.chambered && istype(pulse_gun.chambered, /obj/item/ammo_casing/pulse))
 			var/obj/item/ammo_casing/pulse/casing = pulse_gun.chambered
-			total_shots += casing.remaining_uses
+			if(casing.remaining_uses > 0) // Only count if the casing has remaining uses
+				total_shots += casing.remaining_uses
 
 		return total_shots
 

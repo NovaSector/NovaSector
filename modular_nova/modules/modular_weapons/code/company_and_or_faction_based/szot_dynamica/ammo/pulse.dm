@@ -45,21 +45,22 @@
 	if(total_damage <= 0)
 		return "Our legal team has determined these [span_warning(caliber)] plasma pulses to be non-lethal."
 
-	readout += "These [span_warning(caliber)] plasma pulses deliver a combined [span_warning("[total_damage] damage")] per shot ([span_warning("[initial_brute * proj_damage_mult] brute")] + [span_warning("[initial_burn * proj_damage_mult] burn")])."
+	readout += "These [span_warning(caliber)] pulses deliver a combined [span_warning("[total_damage] damage")] per shot ([span_warning("[initial_brute * proj_damage_mult] brute")] + [span_warning("[initial_burn * proj_damage_mult] burn")])."
 	readout += "Most test subjects succumbed to their wounds after [span_warning("[HITS_TO_CRIT(total_damage)] pulse\s")] at point-blank range."
 
 	return readout.Join("\n")
 
 /obj/item/ammo_casing/pulse/newshot()
 	if(remaining_uses <= 0)
+		loaded_projectile = null
+		qdel(contents)
 		return FALSE
 	if(!loaded_projectile)
-		loaded_projectile = new projectile_type(src)
+		loaded_projectile = new projectile_type(src, src)
 		name = initial(name)
 		desc = initial(desc)
 		icon_state = initial(icon_state)
 		remaining_uses--
-		SEND_SIGNAL(src, COMSIG_UPDATE_AMMO_HUD)
 	return TRUE
 
 /obj/item/ammo_casing/pulse/update_overlays()
