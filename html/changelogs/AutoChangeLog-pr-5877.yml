@@ -1,0 +1,4 @@
+author: "Hatterhat"
+delete-after: True
+changes:
+  - bugfix: "Bullet hitsounds on surfaces now properly play and don't cause a runtime."
