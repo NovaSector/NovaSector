@@ -58,7 +58,7 @@
 /obj/item/ammo_box/magazine/recharge/plasma_battery
 	name = "plasma power pack"
 	desc = "A rechargeable, detachable battery that serves as a power source for plasma projectors. \
-	The casing reads \"Heating advised when battery is low. Do not microwave.\" "
+		The casing reads \"Heating advised when battery is low. Do not microwave.\" "
 	icon = 'modular_nova/modules/modular_weapons/icons/obj/company_and_or_faction_based/szot_dynamica/ammo.dmi'
 	base_icon_state = "plasma_battery"
 	icon_state = "plasma_battery"
@@ -80,22 +80,24 @@
 
 	. += "The Mark-2 Energy Cells for plasma-based weaponry are a unique combination of neccessity and ingenuity. \
 	Using an inner sleeve of quartz and cupronickel, these cells are capable of absorbing thermal energy and converting it \
-	into electric potential through thermal expansion and piezo-electricity. While the capacity of shots are quite low, \
-	this is due to plasma guns requirement to burn small amounts of material inside a compressed medium. \
-	The results are often viscious burns on contacted skin, though travel often cools it too much for punching through armor."
+		into electric potential through thermal expansion and piezo-electricity. While the capacity of shots are quite low, \
+		this is due to plasma guns requirement to burn small amounts of material inside a compressed medium. \
+		The results are often viscious burns on contacted skin, though travel often cools it too much for punching through armor."
 
 	return .
 
 /obj/item/ammo_box/magazine/recharge/plasma_battery/fire_act(exposed_temperature, exposed_volume) //if exposed to heat hot enough to burn, recharge. gives innate fire/lavaproofing
-	if(exposed_temperature >= FIRE_MINIMUM_TEMPERATURE_TO_EXIST)
-		if(stored_ammo.len >= max_ammo)
-			return
-		stored_ammo += new ammo_type(src)
-		playsound(src, 'sound/effects/sparks/sparks2.ogg', 30, TRUE)
-		if(stored_ammo.len == max_ammo)
-			playsound(src, 'sound/effects/sparks/sparks2.ogg', 80, TRUE) //full charge should be noticable
-			balloon_alert_to_viewers("[src] crackles with energy!")
+	if(exposed_temperature < FIRE_MINIMUM_TEMPERATURE_TO_EXIST)
 		return
+	if(!COOLDOWN_FINISHED(src, recharge_cooldown))
+		return
+	COOLDOWN_START(src, recharge_cooldown, 4 SECONDS)
+	stored_ammo += new ammo_type(src)
+	var/sparks_volume = 30
+	if(length(stored_ammo) == max_ammo)
+		sparks_volume = 80 //full charge should be noticeable
+		balloon_alert_to_viewers("[src] crackles with energy!")
+	playsound(src, 'sound/effects/sparks/sparks2.ogg', sparks_volume, TRUE)
 
 // Shotgun revolver's cylinder
 
