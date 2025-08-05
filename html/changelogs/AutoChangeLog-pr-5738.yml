@@ -1,6 +1,0 @@
-author: "RealWinterFrost"
-delete-after: True
-changes:
-  - rscadd: "Added Civilian Bounties to ghost roles (Dyne, DS-2, Tarkon)"
-  - qol: "All relevant ghost roles now get paid over time by their respective faction (Applies to only DS2, Interdyne, and Tarkon)"
-  - qol: "Ghost roles such as DS-2, Interdyne, and Tarkon now have bank accounts relevant to their owner!"

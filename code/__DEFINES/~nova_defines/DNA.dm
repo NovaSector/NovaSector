@@ -155,6 +155,7 @@
 #define SPECIES_ABDUCTORWEAK "abductorweak"
 #define SPECIES_KOBOLD "kobold"
 #define SPECIES_RAMATAE "ramatan"
+#define SPECIES_INSECTOID "insectoid"
 
 #define SPECIES_MUTANT "mutant"
 #define SPECIES_MUTANT_INFECTIOUS "infectious_mutant"

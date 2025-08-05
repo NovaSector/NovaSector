@@ -123,7 +123,7 @@
 	abstract_type = /datum/loadout_item/inhand/pet
 
 /datum/loadout_item/inhand/pet/post_equip_item(datum/preferences/preference_source, mob/living/carbon/human/equipper)
-	var/obj/item/clothing/head/mob_holder/pet/equipped_pet = locate(item_path) in equipper.get_all_gear()
+	var/obj/item/mob_holder/pet/pet/equipped_pet = locate(item_path) in equipper.get_all_gear()
 	equipped_pet.held_mob.befriend(equipper)
 
 /*
