@@ -56,7 +56,7 @@
 	///Used by some bots for tracking failures to reach their target.
 	var/frustration = 0
 	///The speed at which the bot moves, or the number of times it moves per process() tick.
-	var/base_speed = 2
+	var/base_speed = 5
 	///The end point of a bot's path, or the target location.
 	var/turf/ai_waypoint
 	///The bot is on a custom set path.
