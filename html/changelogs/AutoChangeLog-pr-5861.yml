@@ -1,0 +1,4 @@
+author: "RealWinterFrost"
+delete-after: True
+changes:
+  - rscadd: "[DEV SUGGEST] Added the Cargo Apparatus, an object manipulator that only picks up paper."
