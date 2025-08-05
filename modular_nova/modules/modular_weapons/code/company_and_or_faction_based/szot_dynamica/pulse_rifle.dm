@@ -1,16 +1,44 @@
 /obj/item/gun/ballistic/automatic/pulse_rifle
-	name = "\improper Pulse Rifle"
-	desc = "An advanced energy weapon that uses rechargeable pulse cells. Fires in 3-round bursts."
-	icon_state = "pulse-rifle"
+	name = "\improper Žaibas plasma pulse projector"
+	desc = "An advanced energy weapon that uses high-capacity plasma pulse cells. Fires in 3-round bursts."
+
+	icon = 'modular_nova/modules/modular_weapons/icons/obj/company_and_or_faction_based/szot_dynamica/guns_48.dmi'
+	icon_state = "zaibas"
+
+	worn_icon = 'modular_nova/modules/modular_weapons/icons/mob/company_and_or_faction_based/szot_dynamica/guns_worn.dmi'
+	worn_icon_state = "zaibas"
+
+	lefthand_file = 'modular_nova/modules/modular_weapons/icons/mob/company_and_or_faction_based/szot_dynamica/guns_lefthand.dmi'
+	righthand_file = 'modular_nova/modules/modular_weapons/icons/mob/company_and_or_faction_based/szot_dynamica/guns_righthand.dmi'
+	inhand_icon_state = "zaibas"
+
+	SET_BASE_PIXEL(-8, 0)
+
 	slot_flags = ITEM_SLOT_BACK
 	bolt_type = BOLT_TYPE_LOCKING
 	accepted_magazine_type = /obj/item/ammo_box/magazine/pulse
 	semi_auto = FALSE
-	fire_sound = 'sound/items/weapons/gun/l6/shot.ogg'
+	fire_sound = 'modular_nova/modules/modular_weapons/sounds/laser_firing/vaporize.ogg'
+
 	burst_size = 3
 	fire_delay = 2
-	spread = 5
+
+	spread = 1
+	recoil = 0.5
+
 	weapon_weight = WEAPON_HEAVY
+	lore_blurb = "Žaibas represents the Heliostatic Coalition's pinnacle of plasma weapon miniaturization - at a cost.<br><br>\
+		Where conventional plasma weapons use bulky rechargeable cells, Žaibas employs revolutionary crystalline compression \"plugs\" that store plasma \
+		in a metastable state. When discharged, these plugs unleash their energy content in controlled pulses before shattering, providing unmatched \
+		armor penetration at the expense of sustainability. Each military-grade magazine contains enough for approximately one hundred discharges.<br>\
+		Early prototypes lacked simulated recoil, causing seasoned marksmen to overcompensate and miss shots. The solution? \
+		A kinetic feedback system that mimics the kick of a .27-54 rifle, ensuring soldiers used to ballistic weapons could transition seamlessly. \
+		This 'illusion of recoil' remains a signature feature.<br><br>\
+		Developed during the Coalition's formative years, the weapon's origins are reflected in both its name and its operating principle - \
+		delivering overwhelming force in brief, devastating strikes. While standard plasma weapons remain more practical for \
+		most users, the Žaibas has found particular favor among Coalition shock troops and anti-materiel teams who value its ability to punch through \
+		fortifications and powered armor with equal ease.<br><br>\
+		A warning etched near the ejection port reminds users: 'NEPONOVLJATI NAPAJANJE - Kristalna matrika može srušiti se'."
 
 /obj/item/gun/ballistic/automatic/pulse_rifle/examine(mob/user)
 	. = ..()
@@ -23,32 +51,37 @@
 	if(istype(casing))
 		if(casing.remaining_uses <= 0)
 			casing.forceMove(drop_location())
+			SEND_SIGNAL(src, COMSIG_UPDATE_AMMO_HUD)
 			chambered = null
 		else if(!casing.loaded_projectile && !casing.newshot())
 			casing.forceMove(drop_location())
+			SEND_SIGNAL(src, COMSIG_UPDATE_AMMO_HUD)
 			chambered = null
 		return
 
+	SEND_SIGNAL(src, COMSIG_UPDATE_AMMO_HUD)
 	..() // Handle normal ballistic casing behavior
 
 /obj/item/gun/ballistic/automatic/pulse_rifle/handle_chamber(empty_chamber = TRUE, from_firing = TRUE, chamber_next_round = TRUE)
-    if(!semi_auto && from_firing)
-        return
+	if(!semi_auto && from_firing)
+		return
 
-    var/obj/item/ammo_casing/pulse/casing = chambered
-    if(istype(casing))
-        // Only eject pulse casings when fully depleted
-        if(casing.remaining_uses <= 0 && (casing_ejector || !from_firing))
-            casing.forceMove(drop_location())
-            if(!QDELETED(casing))
-                SEND_SIGNAL(casing, COMSIG_CASING_EJECTED)
-                casing.bounce_away(TRUE)
+	var/obj/item/ammo_casing/pulse/casing = chambered
+	if(istype(casing))
+		// Only eject pulse casings when fully depleted
+		if(casing.remaining_uses <= 0 && (casing_ejector || !from_firing))
+			casing.forceMove(drop_location())
+			if(!QDELETED(casing))
+				SEND_SIGNAL(casing, COMSIG_CASING_EJECTED)
+				SEND_SIGNAL(src, COMSIG_UPDATE_AMMO_HUD)
+				casing.bounce_away(TRUE)
 
-        if(empty_chamber)
-            clear_chambered()
+		if(empty_chamber)
+			clear_chambered()
 
-    if(chamber_next_round && magazine?.max_ammo > 1)
-        chamber_round()
+	if(chamber_next_round && magazine?.max_ammo >= 1)
+		chamber_round()
+	SEND_SIGNAL(src, COMSIG_UPDATE_AMMO_HUD)
 
 /obj/item/gun/ballistic/automatic/pulse_rifle/can_shoot()
 	if(!chambered)

@@ -58,6 +58,23 @@
 
 /// Returns get_ammo() with the appropriate args passed to it - some guns like the revolver and bow are special cases
 /datum/component/ammo_hud/proc/get_accurate_ammo_count(obj/item/gun/ballistic/the_gun)
+	// Handle pulse rifle's unique ammo system
+	if(istype(the_gun, /obj/item/gun/ballistic/automatic/pulse_rifle))
+		var/obj/item/gun/ballistic/automatic/pulse_rifle/pulse_gun = the_gun
+		var/total_shots = 0
+
+		// Count shots in magazine
+		if(pulse_gun.magazine)
+			for(var/obj/item/ammo_casing/pulse/casing in pulse_gun.magazine.stored_ammo)
+				total_shots += casing.remaining_uses
+
+		// Add shots from chambered round if present
+		if(pulse_gun.chambered && istype(pulse_gun.chambered, /obj/item/ammo_casing/pulse))
+			var/obj/item/ammo_casing/pulse/casing = pulse_gun.chambered
+			total_shots += casing.remaining_uses
+
+		return total_shots
+
 	// fucking revolvers indeed - do not count empty or chambered rounds for the display HUD
 	if(istype(the_gun, /obj/item/gun/ballistic/revolver))
 		var/obj/item/gun/ballistic/revolver/the_revolver = the_gun
