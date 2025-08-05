@@ -57,7 +57,7 @@
 	)
 /obj/item/kinetic_crusher/machete/update_wielding()
 	// Component that handles special behaviour for force differences between wielding and unwielding
-	AddComponent(/datum/component/two_handed, force_unwielded = 10, force_wielded = 15)
+	AddComponent(/datum/component/two_handed, force_unwielded = 10, force_wielded = 15) // If you happen to sharpen the machete, you will increase its sharpness but until you wield it, you will not get the force values applied (consequence of one-handed use).
 
 /obj/item/kinetic_crusher/machete/update_icon_state()
 	. = ..()
