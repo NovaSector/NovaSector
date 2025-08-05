@@ -239,7 +239,7 @@ GLOBAL_LIST_EMPTY(soulcatchers)
 	mind_to_add.transfer_to(new_soul, TRUE)
 	current_souls += new_soul
 	new_soul.current_room = WEAKREF(src)
-	if(current_souls >= parent_soulcatcher.max_souls) //only send update if we become full
+	if(length(current_souls) >= parent_soulcatcher.max_souls) //only send update if we become full
 		parent_soulcatcher.update_joinability()
 
 	var/datum/preferences/preferences = new_soul.client?.prefs
@@ -268,7 +268,7 @@ GLOBAL_LIST_EMPTY(soulcatchers)
 	if(!soul_to_remove || !(soul_to_remove in current_souls))
 		return FALSE
 	var/datum/component/soulcatcher/parent_soulcatcher = master_soulcatcher?.resolve()
-	if(current_souls >= parent_soulcatcher.max_souls) //only send update if we were full
+	if(length(current_souls) >= parent_soulcatcher.max_souls) //only send update if we were full
 		parent_soulcatcher.update_joinability()
 
 	current_souls -= soul_to_remove
