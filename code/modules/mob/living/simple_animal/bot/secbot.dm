@@ -8,8 +8,8 @@
 	gender = MALE
 	density = FALSE
 	anchored = FALSE
-	health = 25
-	maxHealth = 25
+	health = 40 // NOVA EDIT - original: health = 25
+	maxHealth = 40 // NOVA EDIT - original: maxHealth = 25
 	damage_coeff = list(BRUTE = 0.5, BURN = 0.7, TOX = 0, STAMINA = 0, OXY = 0)
 	pass_flags = PASSMOB | PASSFLAPS
 	combat_mode = TRUE
@@ -76,7 +76,7 @@
 /mob/living/simple_animal/bot/secbot/beepsky/officer
 	name = "Officer Beepsky"
 	desc = "It's Officer Beepsky! Powered by a potato and a shot of whiskey, and with a sturdier reinforced chassis, too."
-	health = 45
+	health = 65  // NOVA EDIT - original: health = 45
 
 /mob/living/simple_animal/bot/secbot/beepsky/officer/Initialize(mapload)
 	. = ..()
@@ -91,7 +91,7 @@
 /mob/living/simple_animal/bot/secbot/beepsky/armsky
 	name = "Sergeant-At-Armsky"
 	desc = "It's Sergeant-At-Armsky! He's a disgruntled assistant to the warden that would probably shoot you if he had hands."
-	health = 45
+	health = 80  // NOVA EDIT - original: health = 45
 	bot_mode_flags = ~(BOT_MODE_CAN_BE_SAPIENT|BOT_MODE_AUTOPATROL)
 	security_mode_flags = SECBOT_DECLARE_ARRESTS | SECBOT_CHECK_IDS | SECBOT_CHECK_RECORDS
 
@@ -115,7 +115,7 @@
 /mob/living/simple_animal/bot/secbot/genesky
 	name = "Officer Genesky"
 	desc = "A beefy variant of the standard securitron model."
-	health = 50
+	health = 110  // NOVA EDIT - original: health = 50
 	faction = list(FACTION_NANOTRASEN_PRIVATE)
 	bot_mode_flags = BOT_MODE_ON
 	bot_cover_flags = BOT_COVER_LOCKED | BOT_COVER_EMAGGED
@@ -601,3 +601,7 @@
 /// Does nothing
 /mob/living/simple_animal/bot/secbot/proc/nap_violation(mob/violator)
 	return
+
+
+/// nova change, increases beepsky speed
+	var/speed = -5
