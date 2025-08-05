@@ -1,5 +1,0 @@
-author: "LordHookie"
-delete-after: True
-changes:
-  - bugfix: "The virtual CIN no longer undergo mitosis upon death."
-  - bugfix: "Ancient Military Simulator no longer attempts to spawn a webbing type which does not exist, and spawns the bitrunner's webbing properly."

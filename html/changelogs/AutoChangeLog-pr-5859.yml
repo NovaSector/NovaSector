@@ -1,9 +1,0 @@
-author: "carpotoxin"
-delete-after: True
-changes:
-  - bugfix: "Inflatable walls, doors and airbags can now take damage from fire and hot atmos"
-  - bugfix: "Airbags can now be re-inserted into windows"
-  - balance: "Airbags are now only installed automatically on maploaded windows, print them to attach them to newly constructed windows!"
-  - qol: "Removing airbags from windows, and deflating inflatable structures is now ctrl+shift+click instead of alt+click, a context tooltip will help memorizing this change"
-  - qol: "Inflatable structures and airbags will now only hiss when deflated, and pop when popped"
-  - qol: "Deflating an airbag will put the airbag in your hand instead of beneath the window it came from"

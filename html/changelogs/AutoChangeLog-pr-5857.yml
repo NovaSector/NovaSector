@@ -1,6 +1,0 @@
-author: "RealWinterFrost"
-delete-after: True
-changes:
-  - rscadd: "Added new Message Solfed Button"
-  - code_imp: "Added relevant code to make the solfed button count as a major activity in the comms console so captain cannot spam cc or solfed."
-  - admin: "Admins will recieve 'message sol federation regional command' button in prayer format such as normal 'message centcom/syndicate' button."
