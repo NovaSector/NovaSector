@@ -1,4 +1,4 @@
-import { filter } from 'common/collections';
+import { filter } from 'es-toolkit/compat';
 import {
   Box,
   Button,

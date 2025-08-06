@@ -39,6 +39,12 @@
 /obj/item/circuitboard/computer/blackmarket_burst
 	name = "Burst Control Console (Computer Board)"
 	build_path = /obj/machinery/computer/shuttle/caravan/blackmarket_burst
+
+/obj/item/shuttle_remote/bmd
+	name = "Burst Remote"
+	shuttle_away_id = "whiteship_home"
+	shuttle_home_id = "blackmarket_burst_home"
+
 /*----- End of Black Market Shuttle Code -----*/
 
 /*Interdyne Cargo Shuttle*/
@@ -59,6 +65,12 @@
 /obj/item/circuitboard/computer/interdyne_cargo
 	name = "Interdyne Shuttle Control (Computer Board)"
 	build_path = /obj/machinery/computer/shuttle/interdyne_cargo
+
+/obj/item/shuttle_remote/interdyne
+	name = "Interdyne Cargo Shuttle Remote"
+	shuttle_away_id = "interdyne_cargo_away"
+	shuttle_home_id = "interdyne_cargo_home"
+
 /*Interdyne Cargo Shuttle End*/
 
 /datum/map_template/shuttle/prison_transport
@@ -213,6 +225,11 @@
 	name = "Tarkon Driver Control Console (Computer Board)"
 	build_path = /obj/machinery/computer/shuttle/tarkon_driver
 
+/obj/item/shuttle_remote/tarkon
+	name = "Tarkon Driver Remote"
+	shuttle_away_id = "whiteship_home"
+	shuttle_home_id = "port_tarkon"
+
 /*----- End of Tarkon Shuttle Code -----*/
 
 /*----- SerenityStation Shuttle Code -----*/
@@ -263,7 +280,7 @@
 	zlink_range = 1
 	move_up_action = /datum/action/innate/camera_multiz_up
 	move_down_action = /datum/action/innate/camera_multiz_down
-	
+
 /obj/item/circuitboard/computer/solfed
 	name = "EAS(I)-6224 Control Console (Computer Board)"
 	build_path = /obj/machinery/computer/shuttle/solfed
