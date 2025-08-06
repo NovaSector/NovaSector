@@ -35,7 +35,7 @@
 		/obj/item/mod/module/jetpack/advanced,
 		/obj/item/mod/module/jump_jet,
 	)
-	theme = /datum/mod_theme/deepspace
+	theme = /datum/mod_theme/syndicate/deepspace
 
 /obj/item/mod/control/pre_equipped/deepspace_admiral
 	applied_cell = /obj/item/stock_parts/power_store/cell/hyper
@@ -56,7 +56,7 @@
 		/obj/item/mod/module/jetpack/advanced,
 		/obj/item/mod/module/jump_jet,
 	)
-	theme = /datum/mod_theme/deepspace/admiral
+	theme = /datum/mod_theme/elite/admiral
 
 /obj/item/mod/control/pre_equipped/frontier_colonist
 	theme = /datum/mod_theme/frontier_colonist
