@@ -167,7 +167,7 @@
 /datum/status_effect/slave_to_the_tumor
 	id = "slave_to_the_tumor"
 	alert_type = /atom/movable/screen/alert/status_effect/slave_to_the_tumor
-	duration = 1 MINUTES
+	duration = 40 SECONDS
 	processing_speed = STATUS_EFFECT_NORMAL_PROCESS
 	/// Snapshot of the mob's oxyloss at the time of getting the status, so we know how much to heal
 	var/oxyloss_to_heal
