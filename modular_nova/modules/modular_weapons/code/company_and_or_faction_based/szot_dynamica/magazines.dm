@@ -66,6 +66,8 @@
 	ammo_type = /obj/item/ammo_casing/energy/laser/plasma_glob
 	caliber = CALIBER_LASER
 	max_ammo = 15
+	/// anti-cheese cooldown
+	COOLDOWN_DECLARE(recharge_cooldown)
 
 /obj/item/ammo_box/magazine/recharge/plasma_battery/update_icon_state() // FUCK YOU /OBJ/ITEM/AMMO_BOX/MAGAZINE/RECHARGE
 	. = ..()
@@ -88,6 +90,8 @@
 
 /obj/item/ammo_box/magazine/recharge/plasma_battery/fire_act(exposed_temperature, exposed_volume) //if exposed to heat hot enough to burn, recharge. gives innate fire/lavaproofing
 	if(exposed_temperature < FIRE_MINIMUM_TEMPERATURE_TO_EXIST)
+		return
+	if(length(stored_ammo) == max_ammo)
 		return
 	if(!COOLDOWN_FINISHED(src, recharge_cooldown))
 		return
