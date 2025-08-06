@@ -82,6 +82,7 @@
 /datum/techweb_node/construction/New()
 	design_ids += list(
 		"polarizer",
+		"airbag",
 	)
 	return ..()
 
@@ -327,6 +328,7 @@
 		"borg_upgrade_clamp",
 		"borg_upgrade_brush",
 		"borg_upgrade_shrink",
+		"borg_upgrade_cargo_apparatus"
 	)
 	return ..()
 
