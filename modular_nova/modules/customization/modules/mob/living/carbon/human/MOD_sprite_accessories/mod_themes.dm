@@ -105,7 +105,7 @@
 /datum/mod_theme/deepspace
 	hardlight_theme = EVIL_GREEN
 
-/datum/mod_theme/deepspace
+/datum/mod_theme/deepspace/admiral
 	hardlight_theme = ALERT_AMBER
 
 // Debug
