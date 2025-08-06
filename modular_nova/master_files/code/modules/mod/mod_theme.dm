@@ -17,7 +17,7 @@
 
 /datum/mod_theme/deepspace
 	name = "deepspace"
-	desc = "A deep-space modsuit suit made by the Syndicate Conglomerate, offering bulkier armor and versatility than the sttandard deep-space modsuit."
+	desc = "A deep-space modsuit suit made by the Syndicate Conglomerate, offering bulkier armor and versatility than the standard deep-space modsuit."
 	default_skin = "deepspace"
 	armor_type = /datum/armor/mod_theme_syndicate
 	atom_flags = PREVENT_CONTENTS_EXPLOSION_1
@@ -180,7 +180,7 @@
 
 /datum/mod_theme/deepspace_admiral
 	name = "admiral"
-	desc = "An elite deep-space modsuit suit upgraded by Syndicate Conglomerate, offering bulkier armor and versatility than the sttandard deep-space modsuit."
+	desc = "An elite deep-space modsuit suit upgraded by Syndicate Conglomerate, offering bulkier armor and versatility than the standard deep-space modsuit."
 	default_skin = "admiral"
 	armor_type = /datum/armor/mod_theme_elite
 	resistance_flags = FIRE_PROOF|ACID_PROOF
@@ -414,13 +414,13 @@
 
 /datum/mod_theme/frontier_colonist
 	name = "frontier hazard protective"
-	desc = "An unusual design of suit, in reality being no more than a slim underlayer with a built in coat and sealed helmet."
-	extended_desc = "The pinnacle of frontier cheap technology. Suits like this are usually not unified in design \
+	desc = "An unusual design of suit, in reality being no more than a slim underlayer with a built-in coat and sealed helmet."
+	extended_desc = "The pinnacle of cheap frontier technology. Suits like this are usually not unified in design \
 		though are common in frontier settlements with less than optimal infrastructure. As with most unofficial \
 		designs, there are flaws and no single one is perfect, but they achieve a singular goal and that is the \
 		important part. Suits such as these are made specifically for the rare emergency that creates a hazard \
 		environment that other equipment just can't quite handle. Often, these suits are able to protect their users \
-		from not only electricity, but also temperature differences, and especially pressure ones, it will not \
+		from not only electricity, but also temperature differences, and especially pressure ones. It will not, \
 		however, protect you from yourself."
 
 	default_skin = "colonist"
@@ -495,13 +495,13 @@
 	name = "refitted voskhod"
 	desc = "A Heliostatic Coalition standard-issue heavy duty suit, designed for fortified positions operation and humanitarian aid."
 	extended_desc = "A more expensive, yet more versatile replacement of the dated Voskhod powered armor, designed by the Magellanic Economic Corporate Union researchers \
-	in collaboration with and for the needs of the Heliostatic Coalition. An efficient implementation of mixed exoskeletons in between and underneath its armor plating \
-	allowed for an unprecedented level of protection through an overly abundant use of durathread-backed plasteel plating; and the remnant materials of its predecessor allow for \
-	a dubiously efficient dissipation of any stray photon ray or a concentrated laser, were one to get hit by them. The suit's infamous autoparamedical systems \
-	are also fully present - or their chemical synthesizing part, consisting of a thin web of subdermal autoinjectors, reaction cameras and tubes lined through the \
-	insulation material - leading into its control unit where the relevant synthesis proceeds, mainly out of raw materials of the pharmaceutical industry; \
-	omnizine's older brother, protozine. The sight of a white-and-green juggernaut is the one that instills many fears into numerous pirates; earning it the reputation of a peacekeeper \
-	and a niche amongst the rimworld population."
+		in collaboration with and for the needs of the Heliostatic Coalition. An efficient implementation of mixed exoskeletons in between and underneath its armor plating \
+		allows for an unprecedented level of protection through an overly abundant use of durathread-backed plasteel plating; and the remnant materials of its predecessor allow for \
+		a dubiously efficient dissipation of any stray photon ray or a concentrated laser, were one to get hit by them. The suit's infamous autoparamedical systems \
+		are also fully present - or their chemical synthesizing part, consisting of a thin web of subdermal autoinjectors, reaction cameras and tubes lined through the \
+		insulation material - leading into its control unit where the relevant synthesis proceeds, mainly out of raw materials of the pharmaceutical industry; \
+		omnizine's older brother, protozine. The sight of a white-and-green juggernaut is the one that instills many fears into numerous pirates; earning it the reputation of a peacekeeper \
+		and a niche amongst the rimworld population."
 	default_skin = "voskhod"
 	armor_type = /datum/armor/mod_theme_voskhod
 	complexity_max = DEFAULT_MAX_COMPLEXITY //Five of which is occupied by the in-builts, thus it's closer to 10
@@ -573,7 +573,10 @@
 /datum/mod_theme/tarkon
 	name = "tarkon"
 	desc = "A Tarkon Industries general protection suit, designed for port security and general EVA situations."
-	extended_desc = "A fourth-generational modular protection suit outfitted by Tarkon Industries, This suit is a safety standard for employees undertaking atmos-sensitive protection on jobs. Offering enough protection from impacts to combat most damage from cave-ins, its design has already been debted for saving dozens of employees from hazardous and unpredictable situations in both organic and inorganic forms."
+	extended_desc = "A fourth-generation modular protection suit outfitted by Tarkon Industries, This suit is a safety \
+		standard for employees undertaking atmos-sensitive tasks. Offering enough protection against impacts to mitigate \
+		most damage from cave-ins, its design has already been credited with saving dozens of employees from hazardous and unpredictable \
+		situations in both organic and inorganic forms."
 	default_skin = "tarkon"
 	armor_type = /datum/armor/mod_theme_tarkon
 	complexity_max = DEFAULT_MAX_COMPLEXITY + 5
@@ -644,7 +647,9 @@
 /////////// Prototype Hauler Suit
 /datum/mod_theme/prototype/hauler
 	name = "Prototype: Hauler"
-	desc = "Bulky and quite heavy, This prototype modular suit has seemed to be modified quite a bit with additional supports to distribute its weight. The servos there within have been modified to handle the additional stress, but the loose wiring required an internal lining of rubberized insulation"
+	desc = "Bulky and quite heavy, this prototype modular suit has seemingly been modified quite a bit with additional supports \
+		to distribute its weight. The servos there within have been modified to handle the additional stress, though the looseness \
+		of the wiring necessitated a rubber-lined internal insulation layer."
 	inbuilt_modules = list()
 	charge_drain = DEFAULT_CHARGE_DRAIN * 3
 	siemens_coefficient = 0
