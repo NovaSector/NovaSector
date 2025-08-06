@@ -198,3 +198,42 @@
 2025-08-04:
   FlufflesTheDog:
   - bugfix: Fix some cases where subtler messages broadcast too far
+2025-08-05:
+  Hatterhat:
+  - bugfix: Bullet hitsounds on surfaces now properly play and don't cause a runtime.
+  Iajret:
+  - bugfix: fixed adapted lungs quirk not working
+  - bugfix: blueshiels monitor will now work
+  LordHookie:
+  - balance: The MMRs have had their statistics heavily throttled to be in line with
+      all other station-sided weapons.
+  - bugfix: The virtual CIN no longer undergo mitosis upon death.
+  - bugfix: Ancient Military Simulator no longer attempts to spawn a webbing type
+      which does not exist, and spawns the bitrunner's webbing properly.
+  RealWinterFrost:
+  - rscadd: Added new Message Solfed Button
+  - code_imp: Added relevant code to make the solfed button count as a major activity
+      in the comms console so captain cannot spam cc or solfed.
+  - admin: Admins will recieve 'message sol federation regional command' button in
+      prayer format such as normal 'message centcom/syndicate' button.
+  - rscadd: '[DEV SUGGEST] Added the Cargo Apparatus, an object manipulator that only
+      picks up paper.'
+  carpotoxin:
+  - bugfix: Inflatable walls, doors and airbags can now take damage from fire and
+      hot atmos
+  - bugfix: Airbags can now be re-inserted into windows
+  - balance: Airbags are now only installed automatically on maploaded windows, print
+      them to attach them to newly constructed windows!
+  - qol: Removing airbags from windows, and deflating inflatable structures is now
+      ctrl+shift+click instead of alt+click, a context tooltip will help memorizing
+      this change
+  - qol: Inflatable structures and airbags will now only hiss when deflated, and pop
+      when popped
+  - qol: Deflating an airbag will put the airbag in your hand instead of beneath the
+      window it came from
+2025-08-06:
+  Zenitheevee:
+  - balance: Plasma Batteries (For plasma guns) can now charge via heat transfer.
+      Do not microwave.
+  carpotoxin:
+  - balance: The ammunition workbench can no longer print breacher shells
