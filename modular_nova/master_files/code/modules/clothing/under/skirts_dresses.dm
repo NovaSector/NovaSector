@@ -217,7 +217,7 @@
 	flags_1 = IS_PLAYER_COLORABLE_1
 
 /obj/item/clothing/under/dress/nova/jute
-	name = "Jacarta Dress"
+	name = "jacarta dress"
 	desc = "A thick dress with a strong rough exterior layer; lined with a soft breathable thin layer. It's loose-fitting, and has a tag inside that says 'Made in Jacarta'."
 	icon_state = "jute"
 	body_parts_covered = CHEST|GROIN|LEGS
