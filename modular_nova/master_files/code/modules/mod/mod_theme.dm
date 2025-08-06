@@ -15,26 +15,9 @@
 /// FOR MODSUIT DIGI SKINS GO TO THIS FILE!
 // modular_nova/master_files/icons/mob/clothing/modsuit/mod_clothing_mutant.dmi
 
-/datum/mod_theme/deepspace
+/datum/mod_theme/syndicate/deepspace
 	name = "deepspace"
-	desc = "A deep-space modsuit suit made by the Syndicate Conglomerate, offering bulkier armor and versatility than the standard deep-space modsuit."
 	default_skin = "deepspace"
-	atom_flags = PREVENT_CONTENTS_EXPLOSION_1
-	complexity_max = DEFAULT_MAX_COMPLEXITY + 3
-	max_heat_protection_temperature = FIRE_SUIT_MAX_TEMP_PROTECT
-	resistance_flags = FIRE_PROOF
-	armor_type = /datum/armor/mod_theme_syndicate
-	siemens_coefficient = 0
-	slowdown_deployed = 0
-	ui_theme = "syndicate"
-	inbuilt_modules = list(/obj/item/mod/module/armor_booster)
-	allowed_suit_storage = list(
-		/obj/item/restraints/handcuffs,
-		/obj/item/assembly/flash,
-		/obj/item/melee/baton,
-		/obj/item/melee/energy/sword,
-		/obj/item/shield/energy,
-	)
 	variants = list(
 		"deepspace" = list(
 			MOD_ICON_OVERRIDE = 'modular_nova/master_files/icons/obj/clothing/modsuit/mod_clothing.dmi',
@@ -178,12 +161,9 @@
 		),
 	)
 
-/datum/mod_theme/deepspace/admiral
+/datum/mod_theme/elite/admiral
 	name = "admiral"
-	desc = "An elite deep-space modsuit suit upgraded by Syndicate Conglomerate, offering bulkier armor and versatility than the standard deep-space modsuit."
 	default_skin = "admiral"
-	resistance_flags = FIRE_PROOF|ACID_PROOF
-	armor_type = /datum/armor/mod_theme_elite
 	variants = list(
 		"admiral" = list(
 			MOD_ICON_OVERRIDE = 'modular_nova/master_files/icons/obj/clothing/modsuit/mod_clothing.dmi',
