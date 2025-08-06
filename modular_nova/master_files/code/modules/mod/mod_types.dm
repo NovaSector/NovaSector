@@ -56,7 +56,7 @@
 		/obj/item/mod/module/jetpack/advanced,
 		/obj/item/mod/module/jump_jet,
 	)
-	theme = /datum/mod_theme/deepspace_admiral
+	theme = /datum/mod_theme/deepspace/admiral
 
 /obj/item/mod/control/pre_equipped/frontier_colonist
 	theme = /datum/mod_theme/frontier_colonist

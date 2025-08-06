@@ -105,6 +105,9 @@
 /datum/mod_theme/deepspace
 	hardlight_theme = EVIL_GREEN
 
+/datum/mod_theme/deepspace
+	hardlight_theme = ALERT_AMBER
+
 // Debug
 /datum/mod_theme/debug
 	hardlight_theme = COSMIC_BLUE
