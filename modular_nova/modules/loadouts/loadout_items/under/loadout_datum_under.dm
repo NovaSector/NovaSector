@@ -1246,13 +1246,3 @@
 /datum/loadout_item/under/formal/azulea_upstart/skirt
 	name = "Upstart's Noble Getup (Skirt)"
 	item_path = /obj/item/clothing/under/rank/azulean/upstart/skirt
-
-/// DONATOR
-/datum/loadout_item/under/donator
-	abstract_type = /datum/loadout_item/under/donator
-	donator_only = TRUE
-
-/datum/loadout_item/under/donator/captain_black
-	name  = "Captains Black Uniform"
-	item_path = /obj/item/clothing/under/rank/captain/nova/black
-	restricted_roles = list(JOB_CAPTAIN)
