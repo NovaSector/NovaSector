@@ -146,7 +146,7 @@
 
 /obj/effect/mob_spawn/ghost_role/robot/ds2
 	name = "\improper Syndicate Robotic Storage"
-	desc = "A suspiciously specialized storage container marked on its sides for 'cyborgs'"
+	desc = "A suspicious specialized container marked 'cyborg storage'."
 	prompt_name = "a syndicate deepspace robot"
 	deletes_on_zero_uses_left = TRUE
 	icon = 'modular_nova/modules/ghostcafe/icons/robot_storage.dmi'
@@ -187,7 +187,7 @@
 
 /obj/effect/mob_spawn/ghost_role/robot/interdyne
 	name = "\improper Interdyne Robotic Storage"
-	desc = "A specialized storage container marked on its sides for 'cyborgs' with the Interdyne Pharmaceuticals logo located on its front"
+	desc = "A specialized container marked 'cyborg storage', stamped with the Interdyne Pharmaceuticals logo."
 	prompt_name = "an Interdyne Pharmaceuticals robot"
 	deletes_on_zero_uses_left = TRUE
 	icon = 'modular_nova/modules/ghostcafe/icons/robot_storage.dmi'
