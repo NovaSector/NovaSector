@@ -120,7 +120,6 @@
 	cost = PAYCHECK_COMMAND * 15
 
 /datum/armament_entry/company_import/interdyne/mods/modsuit
-	description = "Test Description"
 	item_type = /obj/item/mod/control/pre_equipped/interdyne/nerfed
 	cost = PAYCHECK_COMMAND * 25
 
