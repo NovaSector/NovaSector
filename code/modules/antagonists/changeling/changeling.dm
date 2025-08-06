@@ -235,10 +235,15 @@
  * Any Changeling action with dna_cost = CHANGELING_POWER_INNATE will be added here automatically
  */
 /datum/antagonist/changeling/proc/create_innate_actions()
+	var/is_quirk_changeling = istype(src, /datum/antagonist/changeling/quirk) // NOVA EDIT ADDITION - Changeling quirk
 	for(var/datum/action/changeling/path as anything in all_powers)
 		if(initial(path.dna_cost) != CHANGELING_POWER_INNATE)
 			continue
 
+		// NOVA EDIT ADDITION BEGIN - Changeling quirk
+		if(is_quirk_changeling && initial(path.hide_from_quirk_changeling))
+			continue
+		// NOVA EDIT ADDITION END
 		var/datum/action/changeling/innate_ability = new path()
 		innate_powers += innate_ability
 		innate_ability.on_purchase(owner.current, TRUE)
