@@ -48,7 +48,7 @@
 			list(
 				/datum/spacevine_mutation/flowering,
 				/datum/spacevine_mutation/light,
-				/datum/spacevine_mutation/cold_proof,
+				SSmapping.is_planetary() ? /datum/spacevine_mutation/thorns : /datum/spacevine_mutation/cold_proof
 			),
 			MAX_SEVERITY_LINEAR_COEFF,
 			MAX_POSSIBLE_PRODUCTIVITY_VALUE,
