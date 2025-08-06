@@ -183,7 +183,7 @@
 	desc = "An elite deep-space modsuit suit upgraded by Syndicate Conglomerate, offering bulkier armor and versatility than the standard deep-space modsuit."
 	default_skin = "admiral"
 	resistance_flags = FIRE_PROOF|ACID_PROOF
-	armor_type = /datum/armor/mod_theme_elites
+	armor_type = /datum/armor/mod_theme_elite
 	variants = list(
 		"admiral" = list(
 			MOD_ICON_OVERRIDE = 'modular_nova/master_files/icons/obj/clothing/modsuit/mod_clothing.dmi',
