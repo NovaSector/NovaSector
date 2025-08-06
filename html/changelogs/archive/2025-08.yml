@@ -231,3 +231,9 @@
       when popped
   - qol: Deflating an airbag will put the airbag in your hand instead of beneath the
       window it came from
+2025-08-06:
+  Zenitheevee:
+  - balance: Plasma Batteries (For plasma guns) can now charge via heat transfer.
+      Do not microwave.
+  carpotoxin:
+  - balance: The ammunition workbench can no longer print breacher shells
