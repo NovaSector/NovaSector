@@ -7,10 +7,13 @@
 #define EMERGENCY_RESPONSE_ATMOS "DISCO INFERNO"
 #define EMERGENCY_RESPONSE_EMT "AAAAAUGH, I'M DYING, I NEEEEEEEEEED A MEDIC BAG"
 #define EMERGENCY_RESPONSE_EMAG "AYO THE PIZZA HERE"
+#define MESSAGE_SOLFED "Sol Federation"
 
 GLOBAL_VAR(caller_of_911)
 GLOBAL_VAR(call_911_msg)
 GLOBAL_VAR(pizza_order)
+GLOBAL_VAR(fedmessage)
+
 GLOBAL_VAR_INIT(solfed_tech_charge, -15000)
 GLOBAL_LIST_INIT(pizza_names, list(
 	"Dixon Buttes",
@@ -224,6 +227,58 @@ GLOBAL_LIST_INIT(call911_do_and_do_not, list(
 		to_chat(user, "The console refuses to let you dial 911 as an AI or Cyborg!")
 		return FALSE
 	return TRUE
+
+/// Message button interaction if the players want to use this button, It only allows organics and not AI or Cyborgs. As this is a big 'im screwed' button
+/obj/machinery/computer/communications/proc/message_federation(mob/user)
+	if (!authenticated_as_silicon_or_captain(user))
+		return FALSE
+
+	if (!issilicon(user))
+		var/obj/item/held_item = user.get_active_held_item()
+		var/obj/item/card/id/id_card = held_item?.GetID()
+		if (!istype(id_card))
+			to_chat(user, span_warning("You need to swipe your ID!"))
+			playsound(src, 'sound/machines/terminal/terminal_prompt_deny.ogg', 50, FALSE)
+			return FALSE
+		if (!(ACCESS_CAPTAIN in id_card.access))
+			to_chat(user, span_warning("You are not authorized to do this!"))
+			playsound(src, 'sound/machines/terminal/terminal_prompt_deny.ogg', 50, FALSE)
+			return FALSE
+	else
+		to_chat(user, "The console refuses to let you to message the Federation as an AI or Cyborg!")
+		return FALSE
+	return TRUE
+
+/// Does the final checks if a player is messaging solfed, providing final considerations and what consequences may come.
+/obj/machinery/computer/communications/proc/finalizing_solfedmessage(mob/user)
+	/// Notifies admins in case player is considering messaging solfed.
+	message_admins("[ADMIN_LOOKUPFLW(user)] is considering contacting the Sol Federation Regional Command.")
+	/// First Question
+	var/call_solfed_check1 = "Are you sure you want to message the Sol Federation? Un-necessary communications may result in a \
+		large fine or 25 years in federal prison."
+	/// Boolean for Solfed message
+	if(tgui_input_list(user, call_solfed_check1, "Call 911", list("Yes", "No")) != "Yes")
+		return
+	message_admins("[ADMIN_LOOKUPFLW(user)] has acknowledged the faulty SolFed call consequences.")
+	/// Variable for reason in calling the feeds
+	var/reason_to_call_da_feds = stripped_input(user, "What do you wish to call the Federation for?", "Call the Federation", null, MAX_MESSAGE_LEN)
+	if(!reason_to_call_da_feds)
+		to_chat(user, "You decide not to call the Federation.")
+		return
+
+	GLOB.fedmessage = reason_to_call_da_feds
+
+	reason_to_call_da_feds = span_adminnotice("<b><font color=yellow>SOLFED:</font>[ADMIN_FULLMONTY(user)] [ADMIN_CENTCOM_REPLY(user)]:</b> [reason_to_call_da_feds]")
+	for(var/client/staff as anything in GLOB.admins)
+		if(staff?.prefs.read_preference(/datum/preference/toggle/comms_notification))
+			SEND_SOUND(staff, sound('sound/misc/server-ready.ogg'))
+	to_chat(GLOB.admins, reason_to_call_da_feds, type = MESSAGE_TYPE_PRAYER, confidential = TRUE)
+
+	log_game("[key_name(user)] has called the Sol Federation for the following reason:\n[GLOB.fedmessage]")
+	deadchat_broadcast(" has called the Sol Federation for the following reason:\n[GLOB.fedmessage]", span_name("[user.real_name]"), user, message_type = DEADCHAT_ANNOUNCEMENT)
+
+	to_chat(user, span_notice("Authorization confirmed. SolFed Intervention request sent, standby for official instructions."))
+	playsound(src, 'sound/machines/terminal/terminal_prompt_confirm.ogg', 50, FALSE)
 
 /obj/machinery/computer/communications/proc/calling_911(mob/user, called_group_pretty = "EMTs", called_group = EMERGENCY_RESPONSE_EMT)
 	message_admins("[ADMIN_LOOKUPFLW(user)] is considering calling the Sol Federation [called_group_pretty].")
@@ -839,3 +894,4 @@ GLOBAL_LIST_INIT(call911_do_and_do_not, list(
 #undef EMERGENCY_RESPONSE_ATMOS
 #undef EMERGENCY_RESPONSE_EMT
 #undef EMERGENCY_RESPONSE_EMAG
+#undef MESSAGE_SOLFED
