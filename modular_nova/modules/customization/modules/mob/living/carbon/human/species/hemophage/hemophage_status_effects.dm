@@ -154,7 +154,7 @@
 
 /datum/movespeed_modifier/master_of_the_house
 	blacklisted_movetypes = (FLYING|FLOATING)
-	multiplicative_slowdown = 0.35
+	multiplicative_slowdown = 0.75
 
 /atom/movable/screen/alert/status_effect/master_of_the_house
 	name = "Master of the House"
