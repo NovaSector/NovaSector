@@ -72,7 +72,6 @@
 				/obj/item/clothing/head/costume/nova/maid = 5,
 				/obj/item/clothing/under/costume/maid = 5,
 				/obj/item/clothing/under/rank/civilian/janitor/maid = 5,
-				/obj/item/clothing/under/costume/lewdmaid = 5,
 				/obj/item/clothing/suit/corset = 5,
 
 				/obj/item/clothing/under/tearaway_garments = 5,
