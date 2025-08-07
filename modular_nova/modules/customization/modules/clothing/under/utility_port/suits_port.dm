@@ -226,3 +226,20 @@
 	greyscale_config_worn = /datum/greyscale_config/flannelgags/worn
 	greyscale_colors = "#a61e1f"
 	flags_1 = IS_PLAYER_COLORABLE_1
+
+/// Placed in here for now until a better solution is found.
+
+/obj/item/clothing/suit/nova/trenchcoat
+	name = "Ushinkov Trenchcoat"
+	desc = "A trenchcoat, made for the cold, dark, and desperate winter nights."
+	icon = 'icons/map_icons/clothing/suit/_suit.dmi'
+	icon_state = "/obj/item/clothing/suit/nova/trenchcoat"
+	post_init_icon_state = "coat"
+	body_parts_covered = CHEST|GROIN|ARMS
+	cold_protection = CHEST|GROIN|ARMS
+	min_cold_protection_temperature = FIRE_SUIT_MIN_TEMP_PROTECT
+	greyscale_config = /datum/greyscale_config/fluffywintercoat
+	greyscale_config_worn = /datum/greyscale_config/fluffywintercoat/worn
+	greyscale_colors = "#FCFCFD#CCCED1#8A8B9D#68697D"
+	flags_1 = IS_PLAYER_COLORABLE_1
+	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION_NO_NEW_ICON

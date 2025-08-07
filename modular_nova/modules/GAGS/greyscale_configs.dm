@@ -2380,3 +2380,12 @@ TREK
 	name = "Department Jacket (Worn)"
 	icon_file = 'modular_nova/master_files/icons/mob/clothing/suit.dmi'
 	json_config = 'modular_nova/modules/GAGS/json_configs/department_jackets/jacket_worn.json'
+
+/datum/greyscale_config/fluffywintercoat
+	name = "Fluffy Coat"
+	icon_file = 'modular_nova/master_files/icons/obj/clothing/suits.dmi'
+	json_config = 'modular_nova/modules/GAGS/json_configs/fluffywintercoat/coat.json'
+
+/datum/greyscale_config/fluffywintercoat/worn
+	name = "Fluffy Coat (Worn)"
+	icon_file = 'modular_nova/master_files/icons/mob/clothing/suit.dmi'
