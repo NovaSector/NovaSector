@@ -22,7 +22,7 @@
 	slowdown = 2
 
 /obj/item/ammo_box/magazine/lahtimagazine
-	name = "lahti sniper rounds (20x138mm)"
+	name = "\improper Lahti sniper rounds (20x138mm)"
 	desc = "A 20x138mm magazine suitable ammo for anti kaiju-rifles."
 	icon_state = ".50mag"
 	base_icon_state = ".50mag"
