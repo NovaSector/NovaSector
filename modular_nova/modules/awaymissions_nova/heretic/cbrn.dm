@@ -15,7 +15,7 @@
 	wound = 25
 
 /obj/item/clothing/suit/utility/radiation/cbrnsuit
-	name = "CBRN suit"
+	name = "\improper CBRN suit"
 	desc = "A hood with radiation protective properties along with acidic and biological protective properties. The label reads, 'Made with thin lead sheets, please do not consume.'"
 	allowed = null
 	slowdown = 0
