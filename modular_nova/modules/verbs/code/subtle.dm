@@ -1,6 +1,6 @@
-#define SUBTLE_DEFAULT_DISTANCE 1
+#define SUBTLE_DEFAULT_DISTANCE world.view
+#define SUBTLE_ONE_TILE 1
 #define SUBTLE_SAME_TILE_DISTANCE 0
-#define SUBTLER_TELEKINESIS_DISTANCE 7
 
 #define SUBTLE_ONE_TILE_TEXT "1-Tile Range"
 #define SUBTLE_SAME_TILE_TEXT "Same Tile"
@@ -52,11 +52,11 @@
 
 	subtle_message = span_emote("<b>[user]</b>[space]<i>[user.apply_message_emphasis(subtle_message)]</i>")
 
-	var/list/viewers = get_hearers_in_view(SUBTLE_DEFAULT_DISTANCE, user)
+	var/list/viewers = get_hearers_in_view(SUBTLE_ONE_TILE, user)
 
 	var/obj/effect/overlay/holo_pad_hologram/hologram = GLOB.hologram_impersonators[user]
 	if(hologram)
-		viewers |= get_hearers_in_view(SUBTLE_DEFAULT_DISTANCE, hologram)
+		viewers |= get_hearers_in_view(SUBTLE_ONE_TILE, hologram)
 
 	for(var/obj/effect/overlay/holo_pad_hologram/iterating_hologram in viewers)
 		if(iterating_hologram?.Impersonation?.client)
@@ -90,10 +90,6 @@
 	var/target
 	var/subtler_range = SUBTLE_DEFAULT_DISTANCE
 
-	var/datum/dna/dna = user.has_dna()
-	if(dna && dna?.check_mutation(/datum/mutation/human/telekinesis))
-		subtler_range = SUBTLER_TELEKINESIS_DISTANCE
-
 	if(SSdbcore.IsConnected() && is_banned_from(user, "emote"))
 		to_chat(user, span_warning("You cannot send subtle emotes (banned)."))
 		return FALSE
@@ -109,13 +105,17 @@
 
 		var/obj/effect/overlay/holo_pad_hologram/hologram = GLOB.hologram_impersonators[user]
 		if(hologram)
-			in_view |= get_hearers_in_view(1, hologram)
+			in_view |= get_hearers_in_view(subtler_range, hologram)
 
 		in_view -= GLOB.dead_mob_list
 		in_view.Remove(user)
 
-		for(var/mob/eye/camera/ai/ai_eye in in_view)
-			in_view.Remove(ai_eye)
+		for(var/mob/mob in in_view) // Filters out the AI eye and clientless mobs.
+			if(!istype(mob, /mob/eye/camera/ai))
+				continue
+			if(mob.client)
+				continue
+			in_view.Remove(mob)
 
 		var/list/targets = list(SUBTLE_ONE_TILE_TEXT, SUBTLE_SAME_TILE_TEXT) + in_view
 		target = tgui_input_list(user, "Pick a target", "Target Selection", targets)
@@ -124,12 +124,12 @@
 
 		switch(target)
 			if(SUBTLE_ONE_TILE_TEXT)
-				target = SUBTLE_DEFAULT_DISTANCE
+				target = SUBTLE_ONE_TILE
 			if(SUBTLE_SAME_TILE_TEXT)
 				target = SUBTLE_SAME_TILE_DISTANCE
 		subtler_message = subtler_emote
 	else
-		target = SUBTLE_DEFAULT_DISTANCE
+		target = SUBTLE_ONE_TILE
 		subtler_message = subtler_emote
 		if(type_override)
 			emote_type = type_override
@@ -212,8 +212,8 @@
 	usr.emote("subtler")
 
 #undef SUBTLE_DEFAULT_DISTANCE
+#undef SUBTLE_ONE_TILE
 #undef SUBTLE_SAME_TILE_DISTANCE
-#undef SUBTLER_TELEKINESIS_DISTANCE
 
 #undef SUBTLE_ONE_TILE_TEXT
 #undef SUBTLE_SAME_TILE_TEXT

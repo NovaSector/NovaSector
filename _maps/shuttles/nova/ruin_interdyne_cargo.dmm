@@ -141,6 +141,7 @@
 	icon_keyboard = "syndie_key";
 	dir = 8
 	},
+/obj/item/shuttle_remote/interdyne,
 /turf/open/floor/iron/dark/textured_large,
 /area/shuttle/interdyne_cargo)
 "N" = (
