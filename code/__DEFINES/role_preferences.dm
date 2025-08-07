@@ -44,11 +44,12 @@
 //NOVA EDIT ADDITION START
 #define ROLE_BORER "Borer"
 #define ROLE_DRIFTING_CONTRACTOR "Drifting Contractor"
-#define ROLE_LONE_INFILTRATOR "Lone Infiltrator"
+#define ROLE_MARAUDER "Marauder"
 #define ROLE_MUTANT "Mutated Abomination"
 #define ROLE_CLOCK_CULTIST "Clock Cultist"
 // NOVA EDIT ADDITION END
 #define ROLE_VOIDWALKER "Voidwalker"
+#define ROLE_SUNWALKER "Sunwalker"
 
 // Latejoin roles
 #define ROLE_HERETIC_SMUGGLER "Heretic Smuggler"
@@ -80,6 +81,7 @@
 #define ROLE_SOULTRAPPED_HERETIC "Soultrapped Heretic"
 #define ROLE_SYNDICATE "Syndicate"
 #define ROLE_EXPERIMENTAL_CLONER "Experimental Cloner"
+#define ROLE_FREE_BLOB "Free Blob"
 
 #define ROLE_CLOWN_OPERATIVE "Clown Operative"
 #define ROLE_FREE_GOLEM "Free Golem"
@@ -181,7 +183,7 @@ GLOBAL_LIST_INIT(special_roles, list(
 	ROLE_SPIDER = 0,
 	ROLE_WIZARD_MIDROUND = 14,
 	// NOVA EDIT ADDITION START
-	ROLE_LONE_INFILTRATOR = 0,
+	ROLE_MARAUDER = 0,
 	ROLE_BORER = 0,
 	ROLE_DRIFTING_CONTRACTOR = 14,
 	ROLE_MUTANT = 0,

@@ -224,6 +224,16 @@ export function PageMain(props) {
             </Button>
           )}
           {/* NOVA EDIT ADDITION START */}
+          {!!canMessageAssociates && (
+            <Button
+              icon="bullhorn"
+              color="gold"
+              disabled={!importantActionReady}
+              onClick={() => act('messagethefeds')}
+            >
+              Send message to the Sol Federation Regional Command
+            </Button>
+          )}
           {!!canMakeAnnouncement && (
             <Button icon="bullhorn" onClick={() => act('callThePolice')}>
               Call Sol Federation 911: Marshals Response

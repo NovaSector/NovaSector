@@ -48,6 +48,7 @@
 			LOCATION_HANDS,
 		),
 		flavour_text = "Looks tightly packed - you might not be able to put the pet back in once they're out.",
+		notify_player = TRUE,
 	)
 	//Nanotrasen
 	give_item_to_holder(
