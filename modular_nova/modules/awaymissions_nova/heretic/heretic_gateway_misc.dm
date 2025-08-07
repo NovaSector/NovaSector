@@ -19,7 +19,7 @@
 	puzzle_id = "heretic_gateway1"
 
 /obj/item/keycard/hereticgateway2
-	name = "Secure storage keycard"
+	name = "secure storage keycard"
 	desc = "A keycard that simply states, 'only under exteme circumstances'."
 	color = "#c41b1b"
 	puzzle_id = "heretic_gateway2"
