@@ -16,7 +16,16 @@
 /obj/item/clothing/suit/toggle/jacket/nova/engi
 	name = "engineering jacket"
 	desc = "A comfortable jacket in engineering yellow."
-	icon_state = "engi_dep_jacket"
+	icon = 'icons/map_icons/clothing/suit/_suit.dmi'
+	icon_state = "/obj/item/clothing/suit/toggle/jacket/nova/engi"
+	post_init_icon_state = "jacket"
+	greyscale_config = /datum/greyscale_config/dept_jacket
+	greyscale_config_worn = /datum/greyscale_config/dept_jacket/worn
+	greyscale_colors = "#f8d860#eae3ce#17161f#f8d860"
+	flags_1 = IS_PLAYER_COLORABLE_1
+	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION_NO_NEW_ICON
+	gets_cropped_on_taurs = FALSE
+
 	armor_type = /datum/armor/jacket_engi
 	allowed = list(/obj/item/flashlight, /obj/item/tank/internals/emergency_oxygen, /obj/item/tank/internals/plasmaman, /obj/item/t_scanner, /obj/item/construction/rcd, /obj/item/pipe_dispenser, /obj/item/toy, /obj/item/storage/fancy/cigarettes, /obj/item/lighter)
 
@@ -44,7 +53,16 @@
 /obj/item/clothing/suit/toggle/jacket/nova/sci
 	name = "science jacket"
 	desc = "A comfortable jacket in science purple."
-	icon_state = "sci_dep_jacket"
+	icon = 'icons/map_icons/clothing/suit/_suit.dmi'
+	icon_state = "/obj/item/clothing/suit/toggle/jacket/nova/sci"
+	post_init_icon_state = "jacket"
+	greyscale_config = /datum/greyscale_config/dept_jacket
+	greyscale_config_worn = /datum/greyscale_config/dept_jacket/worn
+	greyscale_colors = "#7e1980#eae3ce#17161f#7e1980"
+	flags_1 = IS_PLAYER_COLORABLE_1
+	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION_NO_NEW_ICON
+	gets_cropped_on_taurs = FALSE
+
 	armor_type = /datum/armor/jacket_sci
 
 /datum/armor/jacket_sci
@@ -53,7 +71,15 @@
 /obj/item/clothing/suit/toggle/jacket/nova/med
 	name = "medbay jacket"
 	desc = "A comfortable jacket in medical blue."
-	icon_state = "med_dep_jacket"
+	icon = 'icons/map_icons/clothing/suit/_suit.dmi'
+	icon_state = "/obj/item/clothing/suit/toggle/jacket/nova/med"
+	post_init_icon_state = "jacket"
+	greyscale_config = /datum/greyscale_config/dept_jacket
+	greyscale_config_worn = /datum/greyscale_config/dept_jacket/worn
+	greyscale_colors = "#becace#eae3ce#17161f#becace"
+	flags_1 = IS_PLAYER_COLORABLE_1
+	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION_NO_NEW_ICON
+	gets_cropped_on_taurs = FALSE
 	armor_type = /datum/armor/jacket_med
 
 /datum/armor/jacket_med
@@ -63,22 +89,50 @@
 /obj/item/clothing/suit/toggle/jacket/nova/supply
 	name = "cargo jacket"
 	desc = "A comfortable jacket in supply brown."
-	icon_state = "supply_dep_jacket"
+	icon = 'icons/map_icons/clothing/suit/_suit.dmi'
+	icon_state = "/obj/item/clothing/suit/toggle/jacket/nova/supply"
+	post_init_icon_state = "jacket"
+	greyscale_config = /datum/greyscale_config/dept_jacket
+	greyscale_config_worn = /datum/greyscale_config/dept_jacket/worn
+	greyscale_colors = "#b7793d#eae3ce#17161f#b7793d"
+	flags_1 = IS_PLAYER_COLORABLE_1
+	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION_NO_NEW_ICON
+	gets_cropped_on_taurs = FALSE
 
 /obj/item/clothing/suit/toggle/jacket/nova/assistant
 	name = "non-departmental jacket"
 	desc = "A comfortable jacket in a neutral black"
-	icon_state = "off_dep_jacket"
+	icon = 'icons/map_icons/clothing/suit/_suit.dmi'
+	icon_state = "/obj/item/clothing/suit/toggle/jacket/nova/assistant"
+	post_init_icon_state = "jacket"
+	greyscale_config = /datum/greyscale_config/dept_jacket
+	greyscale_config_worn = /datum/greyscale_config/dept_jacket/worn
+	greyscale_colors = "#39393f#eae3ce#17161f#39393f"
+	flags_1 = IS_PLAYER_COLORABLE_1
+	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION_NO_NEW_ICON
+	gets_cropped_on_taurs = FALSE
 
 /obj/item/clothing/suit/toggle/jacket/nova/supply/head
 	name = "quartermaster's jacket"
 	desc = "Even if people refuse to recognize you as a head, they can recognize you as a badass."
-	icon_state = "qmjacket"
+	icon_state = "/obj/item/clothing/suit/toggle/jacket/nova/assistant"
+	greyscale_colors = "#292929#eae3ce#b7793d#b7793d"
+	post_init_icon_state = "jacket_armband"
+
 
 /obj/item/clothing/suit/toggle/jacket/nova/sec
 	name = "security jacket"
 	desc = "A comfortable jacket in security red. Probably against uniform regulations."
-	icon_state = "sec_dep_jacket"
+	icon = 'icons/map_icons/clothing/suit/_suit.dmi'
+	icon_state = "/obj/item/clothing/suit/toggle/jacket/nova/sec"
+	post_init_icon_state = "jacket"
+	greyscale_config = /datum/greyscale_config/dept_jacket
+	greyscale_config_worn = /datum/greyscale_config/dept_jacket/worn
+	greyscale_colors = "#a52f29#eae3ce#17161f#a52f29"
+	flags_1 = IS_PLAYER_COLORABLE_1
+	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION_NO_NEW_ICON
+	gets_cropped_on_taurs = FALSE
+
 	armor_type = /datum/armor/sec_dep_jacket
 
 /obj/item/clothing/suit/toggle/jacket/nova/sec/Initialize(mapload)
@@ -96,7 +150,8 @@
 
 /obj/item/clothing/suit/toggle/jacket/nova/sec/blue
 	desc = "An outdated jacket in blue. Probably against uniform regulations."
-	icon_state = "sec_dep_jacket_blue"
+	icon_state = "/obj/item/clothing/suit/toggle/jacket/nova/sec/blue"
+	greyscale_colors = "#3f6e9e#eae3ce#17161f#3f6e9e"
 
 /obj/item/clothing/suit/toggle/jacket/nova/bridge_officer
 	name = "bridge officer's jacket"
@@ -119,7 +174,7 @@
 	post_init_icon_state = "jacket"
 	greyscale_config = /datum/greyscale_config/dept_jacket
 	greyscale_config_worn = /datum/greyscale_config/dept_jacket/worn
-	greyscale_colors = "#FCFCFD#CCCED1#8A8B9D#68697D"
+	greyscale_colors = "#333333#eae3ce#33cc33#33cc33"
 	flags_1 = IS_PLAYER_COLORABLE_1
 	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION_NO_NEW_ICON
 	gets_cropped_on_taurs = FALSE
@@ -129,10 +184,10 @@
 	desc = "It's a blue and silver jacket indicating that of a \"Bridge Officer\"."
 	icon = 'icons/map_icons/clothing/suit/_suit.dmi'
 	icon_state = "/obj/item/clothing/suit/toggle/jacket/nova/syndicate"
-	post_init_icon_state = "jacket"
+	post_init_icon_state = "jacket_armband"
 	greyscale_config = /datum/greyscale_config/dept_jacket
 	greyscale_config_worn = /datum/greyscale_config/dept_jacket/worn
-	greyscale_colors = "#FCFCFD#CCCED1#8A8B9D#68697D"
+	greyscale_colors = "#333333#eae3ce#ff0000#ff0000"
 	flags_1 = IS_PLAYER_COLORABLE_1
 	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION_NO_NEW_ICON
 	gets_cropped_on_taurs = FALSE
