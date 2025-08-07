@@ -273,6 +273,12 @@
 /obj/effect/blessing,
 /turf/open/floor/iron/small,
 /area/awaymission/caves/heretic_laboratory)
+"bQ" = (
+/obj/structure/toilet{
+	dir = 1
+	},
+/turf/open/floor/iron/white/textured_large,
+/area/awaymission/caves/heretic_laboratory_clean)
 "bR" = (
 /obj/effect/turf_decal/tile/blue/half/contrasted,
 /turf/open/floor/iron/dark,
@@ -427,8 +433,10 @@
 /turf/open/floor/mineral/plastitanium,
 /area/awaymission/caves/heretic_laboratory)
 "dh" = (
-/turf/closed/indestructible/rock,
-/area/awaymission/caves/heretic_laboratory)
+/obj/item/bedsheet/black,
+/obj/structure/bed,
+/turf/open/floor/carpet,
+/area/awaymission/caves/heretic_laboratory_clean)
 "dj" = (
 /mob/living/basic/construct/proteon,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
@@ -1838,6 +1846,19 @@
 	},
 /turf/open/floor/iron/dark,
 /area/awaymission/caves/heretic_laboratory)
+"mr" = (
+/obj/item/implanter/explosive,
+/obj/item/implanter/explosive{
+	pixel_y = 7
+	},
+/obj/structure/closet/crate/secure/syndicate/mi13,
+/obj/item/gun/ballistic/automatic/pistol/m1911,
+/obj/machinery/light/small/directional/west,
+/obj/item/gun/ballistic/automatic/pistol/m1911,
+/obj/item/reagent_containers/applicator/pill/cyanide,
+/obj/item/reagent_containers/applicator/pill/cyanide,
+/turf/open/floor/carpet,
+/area/awaymission/caves/heretic_laboratory_clean)
 "mt" = (
 /obj/structure/closet/secure_closet/personal/cabinet,
 /turf/open/floor/carpet,
@@ -2074,6 +2095,10 @@
 /obj/structure/window/reinforced/plasma/spawner/directional/north,
 /obj/structure/window/reinforced/plasma/spawner/directional/west,
 /turf/open/floor/plating/airless,
+/area/awaymission/caves/heretic_laboratory_clean)
+"nX" = (
+/obj/machinery/vending/sustenance,
+/turf/open/floor/carpet,
 /area/awaymission/caves/heretic_laboratory_clean)
 "nZ" = (
 /obj/machinery/conveyor/auto/hardened{
@@ -2742,6 +2767,10 @@
 	},
 /turf/open/floor/iron/white,
 /area/awaymission/caves/heretic_laboratory)
+"sm" = (
+/obj/machinery/door/airlock/highsecurity,
+/turf/open/floor/iron/white/textured_large,
+/area/awaymission/caves/heretic_laboratory_clean)
 "sp" = (
 /obj/machinery/light/small/directional/south,
 /turf/open/floor/carpet,
@@ -2870,6 +2899,12 @@
 /obj/machinery/light/small/directional/east,
 /turf/open/floor/iron/white,
 /area/awaymission/beach/heretic)
+"tu" = (
+/obj/effect/mob_spawn/ghost_role/human/heretic{
+	dir = 8
+	},
+/turf/open/floor/carpet,
+/area/awaymission/caves/heretic_laboratory_clean)
 "ty" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/visible{
 	dir = 4
@@ -2949,6 +2984,13 @@
 /obj/machinery/light/small/directional/west,
 /turf/open/floor/plating,
 /area/awaymission/caves/heretic_laboratory)
+"ub" = (
+/obj/effect/mob_spawn/ghost_role/human/heretic{
+	dir = 8
+	},
+/obj/machinery/light/small/directional/east,
+/turf/open/floor/carpet,
+/area/awaymission/caves/heretic_laboratory_clean)
 "ue" = (
 /obj/structure/flora/coconuts,
 /turf/open/misc/beach/sand,
@@ -3608,8 +3650,8 @@
 /turf/open/floor/iron/small,
 /area/awaymission/caves/heretic_laboratory_clean)
 "yk" = (
-/obj/machinery/door/airlock/titanium,
 /obj/structure/curtain/cloth/fancy/mechanical/start_closed,
+/obj/effect/spawner/structure/window/reinforced/shuttle,
 /turf/open/floor/pod/light,
 /area/awaymission/beach/heretic)
 "yo" = (
@@ -4779,6 +4821,13 @@
 	},
 /turf/open/floor/carpet/royalblack,
 /area/awaymission/beach/heretic)
+"GK" = (
+/obj/structure/curtain,
+/obj/machinery/shower{
+	pixel_y = 15
+	},
+/turf/open/floor/iron/white/textured_large,
+/area/awaymission/caves/heretic_laboratory_clean)
 "GM" = (
 /obj/machinery/door/airlock/virology,
 /obj/machinery/door/puzzle/keycard/hereticgateway2,
@@ -5212,6 +5261,9 @@
 /obj/structure/bed/maint,
 /turf/open/misc/beach/sand,
 /area/awaymission/beach/heretic)
+"Jz" = (
+/turf/open/floor/iron/white/textured_large,
+/area/awaymission/caves/heretic_laboratory_clean)
 "JA" = (
 /obj/machinery/atmospherics/components/unary/outlet_injector/on{
 	dir = 8
@@ -6262,6 +6314,10 @@
 	},
 /turf/open/misc/grass/jungle/planet,
 /area/awaymission/beach/heretic)
+"QD" = (
+/obj/structure/table/wood,
+/turf/open/floor/carpet,
+/area/awaymission/caves/heretic_laboratory_clean)
 "QF" = (
 /obj/structure/fluff/tram_rail/end,
 /turf/open/floor/mineral/plastitanium,
@@ -7077,6 +7133,16 @@
 /obj/effect/mapping_helpers/airlock/access/all/service,
 /turf/open/floor/iron/small,
 /area/awaymission/caves/heretic_laboratory)
+"WB" = (
+/obj/structure/sink{
+	pixel_y = 15
+	},
+/obj/structure/mirror{
+	pixel_y = 28
+	},
+/obj/machinery/light/small/directional/east,
+/turf/open/floor/iron/white/textured_large,
+/area/awaymission/caves/heretic_laboratory_clean)
 "WD" = (
 /obj/effect/decal/cleanable/blood/tracks{
 	dir = 4
@@ -7266,6 +7332,10 @@
 	},
 /turf/open/floor/iron/white,
 /area/awaymission/caves/heretic_laboratory)
+"XO" = (
+/obj/structure/chair/wood,
+/turf/open/floor/carpet,
+/area/awaymission/caves/heretic_laboratory_clean)
 "XQ" = (
 /obj/structure/railing{
 	dir = 10
@@ -7561,6 +7631,20 @@
 	},
 /turf/open/floor/plating,
 /area/awaymission/caves/heretic_laboratory)
+"ZK" = (
+/obj/structure/closet/secure_closet/personal/cabinet,
+/obj/item/clothing/under/suit/charcoal,
+/obj/item/clothing/under/suit/black,
+/obj/item/clothing/shoes/laceup,
+/obj/item/clothing/shoes/laceup,
+/obj/item/clothing/head/fedora,
+/obj/item/clothing/head/fedora,
+/obj/item/clothing/glasses/sunglasses/big,
+/obj/item/clothing/glasses/sunglasses/big,
+/obj/item/assembly/flash/memorizer,
+/obj/item/assembly/flash/memorizer,
+/turf/open/floor/carpet,
+/area/awaymission/caves/heretic_laboratory_clean)
 "ZM" = (
 /obj/machinery/computer/telecomms/monitor{
 	dir = 1
@@ -35838,7 +35922,7 @@ tZ
 ay
 ay
 KB
-dh
+Lh
 Lh
 ZZ
 nT
@@ -36095,7 +36179,7 @@ ay
 ay
 ay
 KB
-dh
+Lh
 Lh
 ZZ
 HM
@@ -36352,7 +36436,7 @@ vN
 ay
 IL
 KB
-dh
+Lh
 Lh
 ZZ
 nT
@@ -36609,7 +36693,7 @@ KB
 ay
 ay
 KB
-dh
+Lh
 Lh
 ZZ
 nT
@@ -36866,7 +36950,7 @@ KB
 ay
 ay
 KB
-dh
+Lh
 Lh
 ZZ
 nT
@@ -37123,7 +37207,7 @@ KB
 RM
 RM
 KB
-LZ
+bZ
 ZZ
 ZZ
 nT
@@ -46894,10 +46978,10 @@ Lh
 XE
 LX
 LX
-LX
-LX
-LX
-LX
+QD
+mr
+ZK
+nX
 XE
 ZZ
 ZZ
@@ -47143,8 +47227,8 @@ bZ
 bZ
 bZ
 bZ
-bZ
-bZ
+Lh
+Lh
 Lh
 Lh
 Lh
@@ -47400,18 +47484,18 @@ bZ
 bZ
 bZ
 bZ
-bZ
-bZ
-bZ
-bZ
-bZ
+Lh
+Lh
+Lh
+Lh
+Lh
 XE
 LX
 LX
 LX
 LX
-LX
-LX
+XO
+QD
 XE
 Lh
 Lh
@@ -47657,21 +47741,21 @@ bZ
 bZ
 bZ
 bZ
-bZ
-bZ
-bZ
-bZ
-bZ
+Lh
+Lh
+XE
+XE
+XE
 XE
 LX
 LX
 LX
 LX
-LX
-LX
+XO
+QD
 XE
-bZ
-bZ
+Lh
+Lh
 bZ
 bZ
 bZ
@@ -47914,12 +47998,12 @@ bZ
 bZ
 bZ
 bZ
-bZ
-bZ
-bZ
-bZ
-bZ
+Lh
+Lh
 XE
+GK
+Jz
+sm
 LX
 LX
 LX
@@ -47927,8 +48011,8 @@ LX
 LX
 LX
 XE
-bZ
-bZ
+Lh
+Lh
 bZ
 bZ
 bZ
@@ -48171,21 +48255,21 @@ bZ
 bZ
 bZ
 bZ
-bZ
-bZ
-bZ
-bZ
-bZ
+Lh
+Lh
+XE
+WB
+bQ
 XE
 SH
 LX
-LX
-LX
-LX
-LX
+ub
+tu
+dh
+dh
 XE
-bZ
-bZ
+Lh
+Lh
 bZ
 bZ
 bZ
@@ -48428,11 +48512,8 @@ bZ
 bZ
 bZ
 bZ
-bZ
-bZ
-bZ
-bZ
-bZ
+Lh
+Lh
 XE
 XE
 XE
@@ -48441,8 +48522,11 @@ XE
 XE
 XE
 XE
-bZ
-bZ
+XE
+XE
+XE
+Lh
+Lh
 bZ
 bZ
 bZ
@@ -48685,21 +48769,21 @@ bZ
 bZ
 bZ
 bZ
-bZ
-bZ
-bZ
-bZ
-bZ
-bZ
-bZ
-bZ
-bZ
-bZ
-bZ
-bZ
-bZ
-bZ
-bZ
+Lh
+Lh
+Lh
+Lh
+Lh
+Lh
+Lh
+Lh
+Lh
+Lh
+Lh
+Lh
+Lh
+Lh
+Lh
 bZ
 bZ
 bZ
@@ -48942,21 +49026,21 @@ bZ
 bZ
 bZ
 bZ
-bZ
-bZ
-bZ
-bZ
-bZ
-bZ
-bZ
-bZ
-bZ
-bZ
-bZ
-bZ
-bZ
-bZ
-bZ
+Lh
+Lh
+Lh
+Lh
+Lh
+Lh
+Lh
+Lh
+Lh
+Lh
+Lh
+Lh
+Lh
+Lh
+Lh
 bZ
 bZ
 bZ
