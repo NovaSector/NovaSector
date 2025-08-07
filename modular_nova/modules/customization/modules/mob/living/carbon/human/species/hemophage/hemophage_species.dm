@@ -1,7 +1,7 @@
 /// Some starter text sent to the Hemophage initially, because Hemophages have shit to do to stay alive.
 #define HEMOPHAGE_SPAWN_TEXT "You are an [span_danger("Hemophage")]. You will slowly but constantly lose blood if outside of a closet-like object. If inside a closet-like object, or in pure darkness, you will slowly heal, at the cost of blood. You may gain more blood by grabbing a live victim and using your drain ability."
-/// Hemophages spawn with 80% of the maximum blood capacity
-#define BLOOD_VOLUME_NEW_HEMOPHAGE BLOOD_VOLUME_MAXIMUM * (1 - 0.20)
+/// Hemophages spawn with 60% of the maximum blood capacity
+#define BLOOD_VOLUME_ROUNDSTART_HEMOPHAGE BLOOD_VOLUME_MAXIMUM * (1 - 0.40)
 
 /datum/species/hemophage
 	name = "Hemophage"
@@ -49,7 +49,7 @@
 /datum/species/hemophage/on_species_gain(mob/living/carbon/human/new_hemophage, datum/species/old_species, pref_load, regenerate_icons)
 	. = ..()
 	to_chat(new_hemophage, HEMOPHAGE_SPAWN_TEXT)
-	new_hemophage.blood_volume = BLOOD_VOLUME_NEW_HEMOPHAGE
+	new_hemophage.blood_volume = BLOOD_VOLUME_ROUNDSTART_HEMOPHAGE
 	new_hemophage.physiology.bleed_mod *= HEMOPHAGE_BLEED_MOD
 	new_hemophage.update_body()
 
@@ -193,4 +193,4 @@
 
 
 #undef HEMOPHAGE_SPAWN_TEXT
-#undef BLOOD_VOLUME_NEW_HEMOPHAGE
+#undef BLOOD_VOLUME_ROUNDSTART_HEMOPHAGE

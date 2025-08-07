@@ -75,8 +75,6 @@
 	var/mob/living/carbon/carbon_owner = owner
 	if(!istype(carbon_owner))
 		return
-	if(!istype(carbon_owner))
-		return
 	if((owner.getBruteLoss() + carbon_owner.getFireLoss()) >= DAMAGE_LIMIT_HEMOKINETIC_REGEN)
 		to_chat(carbon_owner, span_warning("Your body is too damaged to be healed with hemokinesis!"))
 		return
@@ -147,6 +145,10 @@
 /datum/status_effect/master_of_the_house/tick(seconds_between_ticks)
 	var/mob/living/carbon/carbon_owner = owner
 	if(!istype(carbon_owner))
+		return
+
+	// Can't regen blood to over the roundstart blood volume
+	if(carbon_owner.blood_volume >= BLOOD_VOLUME_ROUNDSTART_HEMOPHAGE)
 		return
 
 	carbon_owner.blood_volume += BLOOD_REGEN_MASTER_OF_THE_HOUSE
