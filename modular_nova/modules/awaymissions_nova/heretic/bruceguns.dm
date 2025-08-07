@@ -8,7 +8,8 @@
 
 /obj/item/gun/ballistic/automatic/sniper_rifle/lahti
 	name = "\improper Lahti L-39"
-	desc = "The lahiti L-39, now manufactured in space with better materials making it more portable and reliable- still loaded in the same massive cartridge, this thing was made to go through a tank and come out the other end- imagine what it could do to an exosuit, theres also a completely useless sight which is totally obstructed by the magazine."
+	desc = "The Lahti L-39, now manufactured in space with better materials making it more portable and reliable- still loaded in the same massive cartridge, \
+		this thing was made to go through a tank and come out the other end- imagine what it could do to an exosuit, there's also a completely useless sight which is totally obstructed by the magazine."
 	icon = 'modular_nova/modules/awaymissions_nova/heretic/lahtil39.dmi'
 	icon_state = "lahtil"
 	inhand_icon_state = "sniper"
