@@ -18,7 +18,7 @@
 	name = "Bruce's Modsuit"
 	desc = "A blueshields blueshield modsuit."
 	extended_desc = "A prototype of a prototype made to fit a person who has no right to be wearing a modsuit in the first place. \
-	This modsuit has been reinforced many times over and would be a burden to most."
+		This modsuit has been reinforced many times over and would be a burden to most."
 
 	default_skin = "praetorian"
 	armor_type = /datum/armor/mod_theme_apocryphal
