@@ -98,6 +98,47 @@
 	desc = "An outdated jacket in blue. Probably against uniform regulations."
 	icon_state = "sec_dep_jacket_blue"
 
+/obj/item/clothing/suit/toggle/jacket/nova/bridge_officer
+	name = "bridge officer's jacket"
+	desc = "It's a blue and silver jacket indicating that of a \"Bridge Officer\"."
+	icon = 'icons/map_icons/clothing/suit/_suit.dmi'
+	icon_state = "/obj/item/clothing/suit/toggle/jacket/nova/bridge_officer"
+	post_init_icon_state = "jacket"
+	greyscale_config = /datum/greyscale_config/dept_jacket
+	greyscale_config_worn = /datum/greyscale_config/dept_jacket/worn
+	greyscale_colors = "#FCFCFD#CCCED1#8A8B9D#68697D"
+	flags_1 = IS_PLAYER_COLORABLE_1
+	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION_NO_NEW_ICON
+	gets_cropped_on_taurs = FALSE
+
+/obj/item/clothing/suit/toggle/jacket/nova/interdyne
+	name = "bridge officer's jacket"
+	desc = "It's a blue and silver jacket indicating that of a \"Bridge Officer\"."
+	icon = 'icons/map_icons/clothing/suit/_suit.dmi'
+	icon_state = "/obj/item/clothing/suit/toggle/jacket/nova/interdyne"
+	post_init_icon_state = "jacket"
+	greyscale_config = /datum/greyscale_config/dept_jacket
+	greyscale_config_worn = /datum/greyscale_config/dept_jacket/worn
+	greyscale_colors = "#FCFCFD#CCCED1#8A8B9D#68697D"
+	flags_1 = IS_PLAYER_COLORABLE_1
+	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION_NO_NEW_ICON
+	gets_cropped_on_taurs = FALSE
+
+/obj/item/clothing/suit/toggle/jacket/nova/syndicate
+	name = "bridge officer's jacket"
+	desc = "It's a blue and silver jacket indicating that of a \"Bridge Officer\"."
+	icon = 'icons/map_icons/clothing/suit/_suit.dmi'
+	icon_state = "/obj/item/clothing/suit/toggle/jacket/nova/syndicate"
+	post_init_icon_state = "jacket"
+	greyscale_config = /datum/greyscale_config/dept_jacket
+	greyscale_config_worn = /datum/greyscale_config/dept_jacket/worn
+	greyscale_colors = "#FCFCFD#CCCED1#8A8B9D#68697D"
+	flags_1 = IS_PLAYER_COLORABLE_1
+	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION_NO_NEW_ICON
+	gets_cropped_on_taurs = FALSE
+
+
+
 //Flannels
 /obj/item/clothing/suit/toggle/jacket/nova/flannel
 	icon = 'modular_nova/master_files/icons/obj/clothing/suits.dmi'
