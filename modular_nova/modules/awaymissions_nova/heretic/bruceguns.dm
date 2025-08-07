@@ -1,5 +1,5 @@
 /obj/item/gun/ballistic/automatic/l6_saw/unrestricted/m60
-	name = "M60 Machine Gun"
+	name = "\improper M60 Machine Gun"
 	desc = "A heavily modified gun based off of an already insanely heavily modified gun- this m60, pey say, is not a real m60 machine gun but instead it appears to be a heavily modified l6 saw modified to accept the insane ammo type of .50"
 	accepted_magazine_type = /obj/item/ammo_box/magazine/mmg_box
 	projectile_damage_multiplier = 2.5
