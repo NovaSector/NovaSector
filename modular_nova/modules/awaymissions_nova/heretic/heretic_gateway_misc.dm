@@ -44,6 +44,9 @@
 	<li>X  X  X  X  X  X  X  X  X  X</li> \
 	<li>X  X  X  X  X  X  X  X  X  X</li>"
 
+/obj/item/paper/fluff/awaymissions/heretic/blackroomhint
+	default_raw_text = "Hey, one of the high sec guards came through and closed things off and told us to evacuate, they hid the keycard to the facility in this room in its proper spot. If you can read this it should be fine and remember to look into the walls to find the keycard."
+
 /turf/open/misc/ashplanet/wateryrock/safeair
 	initial_gas_mix = "o2=22;n2=82;TEMP=293.15"
 
