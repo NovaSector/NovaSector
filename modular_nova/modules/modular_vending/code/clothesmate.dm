@@ -87,8 +87,6 @@
 				/obj/item/clothing/under/suit/nova/pencil/green = 3,
 				/obj/item/clothing/under/suit/nova/inferno = 3,
 				/obj/item/clothing/under/suit/nova/inferno/skirt = 3,
-				/obj/item/clothing/under/suit/nova/helltaker = 3,
-				/obj/item/clothing/under/suit/nova/helltaker/skirt = 3,
 				/obj/item/clothing/under/dress/skirt/nova/medium = 5,
 				/obj/item/clothing/under/dress/skirt/nova/long = 5,
 				/obj/item/clothing/under/dress/skirt/nova/mini_skirt = 5,
