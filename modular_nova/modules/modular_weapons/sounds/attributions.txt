@@ -2,10 +2,12 @@ ak_shoot is from freesounds.org made by ninebilly
 ak 47 - single shot.mp3
 https://freesound.org/people/ninebilly/sounds/520934/
 
-pulse_fire is from gamebanana.com by XannovGaming
-fire1.wav
-https://gamebanana.com/sounds/73479
+pulse_shoot is made from
+scifi-futuristic-rail-gun-shot.wav
+https://freesound.org/people/Sabacky/sounds/767161/
+by Sabacky
 
-plasma_pull and plasma_push are from gamebanana.com by JarAxe
-ar2_reload_rotate.wav and ar2_reload_push.wav
-https://gamebanana.com/sounds/13703
+pulse_pull and pulse_push are made from
+lazer-rifle-zoom-in-out-effect.wav
+https://freesound.org/people/Hybrid_V/sounds/321216/
+by Hybrid_V

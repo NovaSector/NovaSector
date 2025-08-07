@@ -17,10 +17,10 @@
 	bolt_type = BOLT_TYPE_LOCKING
 	accepted_magazine_type = /obj/item/ammo_box/magazine/pulse
 	semi_auto = FALSE
-	fire_sound = 'modular_nova/modules/modular_weapons/sounds/plasma_shot.ogg'
-	fire_sound_volume = 25
-	lock_back_sound = 'modular_nova/modules/modular_weapons/sounds/plasma_pull.ogg'
-	bolt_drop_sound = 'modular_nova/modules/modular_weapons/sounds/plasma_push.ogg'
+	fire_sound = 'modular_nova/modules/modular_weapons/sounds/pulse_shoot.ogg'
+	fire_sound_volume = 50
+	lock_back_sound = 'modular_nova/modules/modular_weapons/sounds/pulse_pull.ogg'
+	bolt_drop_sound = 'modular_nova/modules/modular_weapons/sounds/pulse_push.ogg'
 
 	burst_size = 3
 	fire_delay = 2
