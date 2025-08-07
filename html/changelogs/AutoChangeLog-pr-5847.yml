@@ -1,4 +1,0 @@
-author: "carpotoxin"
-delete-after: True
-changes:
-  - qol: "The 'Enter Soulcatcher' button on the ghost hud now has a live tally of joinable soulcatchers"
