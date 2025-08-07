@@ -1,3 +1,5 @@
+#define MECHANICAL_CATEGORY "Mechanical"
+#define VORE_ACT "Vore"
 
 /datum/component/interactable
 	/// A hard reference to the parent
@@ -93,6 +95,17 @@
 			categories[interaction.category] = sorted_category
 		descriptions[interaction.name] = interaction.description
 		colors[interaction.name] = interaction.color
+	var/pred_mode = user.client?.prefs?.read_preference(/datum/preference/choiced/erp_bellyquirk_pred_pref)
+	var/prey_mode = self.client?.prefs?.read_preference(/datum/preference/choiced/erp_vore_prey_pref)
+	if((TRAIT_PREDATORY in user._status_traits) && pred_mode != "Never" && prey_mode != "Never")
+		if(categories[MECHANICAL_CATEGORY] != null)
+			categories[MECHANICAL_CATEGORY] += VORE_ACT
+			var/list/sorted_category = sort_list(categories[MECHANICAL_CATEGORY])
+			categories[MECHANICAL_CATEGORY] = sorted_category
+		else
+			categories[MECHANICAL_CATEGORY] = list(VORE_ACT)
+		descriptions[VORE_ACT] += "Put someone in your belly- if they're cool with it."
+		colors[VORE_ACT] = "red"
 	data["descriptions"] = descriptions
 	data["colors"] = colors
 	for(var/category in categories)
@@ -146,7 +159,26 @@
 
 	if(params["interaction"])
 		var/interaction_id = params["interaction"]
-		if(GLOB.interaction_instances[interaction_id])
+		if(interaction_id == VORE_ACT)
+			var/mob/living/carbon/human/source = locate(params["userref"])
+			var/mob/living/carbon/human/target = locate(params["selfref"])
+			var/datum/quirk/belly/bellyquirk
+			var/obj/item/belly_function/a_belly
+			for(var/datum/quirk/some_quirk in source.quirks)
+				bellyquirk = some_quirk
+				if(istype(bellyquirk))
+					break
+				else
+					bellyquirk = null
+			if(bellyquirk != null)
+				a_belly = bellyquirk.the_bwelly
+			if(a_belly != null)
+				a_belly.try_nom(target, source)
+				return TRUE
+			else
+				source.show_message(span_warning("Couldn't find the belly helper to try to do vore with- yell at an admin!"))
+				return
+		else if(GLOB.interaction_instances[interaction_id])
 			var/mob/living/carbon/human/user = locate(params["userref"])
 			if(!can_interact(GLOB.interaction_instances[interaction_id], user))
 				return FALSE
@@ -162,6 +194,7 @@
 		var/item_index = params["item_slot"]
 		var/mob/living/carbon/human/source = locate(params["userref"])
 		var/mob/living/carbon/human/target = locate(params["selfref"])
+
 		var/obj/item/clothing/sextoy/new_item = source.get_active_held_item()
 		var/obj/item/clothing/sextoy/existing_item = target.vars[item_index]
 
@@ -251,3 +284,6 @@
 			return item.lewd_slot_flags & LEWD_SLOT_NIPPLES
 		else
 			return FALSE
+
+#undef MECHANICAL_CATEGORY
+#undef VORE_ACT
