@@ -221,5 +221,6 @@
 
 /obj/item/disk/nifsoft_uploader/job
 	desc = "Enterprise-grade secure digital drive that can be used to upload a loaded NIFSoft to the user's NIF."
+	icon_state = "job_disk"
 
 #undef DEFAULT_NIFSOFT_COOLDOWN
