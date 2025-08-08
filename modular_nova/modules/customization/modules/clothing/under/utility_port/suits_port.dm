@@ -133,15 +133,15 @@
 	flags_1 = null
 
 /obj/item/clothing/suit/toggle/jacket/nova/colorable_bomber/interdyne
-	name = "bridge officer's jacket"
-	desc = "It's a blue and silver jacket indicating that of a \"Bridge Officer\"."
+	name = "Interdyne Bomber Jacket"
+	desc = "Its a black and green bomber jacket, looking to be the colors of Interdyne Pharmaceuticals"
 	icon_state = "/obj/item/clothing/suit/toggle/jacket/nova/colorable_bomber/interdyne"
 	greyscale_colors = "#333333#eae3ce#33cc33#33cc33"
 	flags_1 = null
 
 /obj/item/clothing/suit/toggle/jacket/nova/colorable_bomber/syndicate
-	name = "bridge officer's jacket"
-	desc = "It's a blue and silver jacket indicating that of a \"Bridge Officer\"."
+	name = "syndicate auxillary jacket"
+	desc = "A rather suspicious looking jacket, its colors being black and red."
 	icon_state = "/obj/item/clothing/suit/toggle/jacket/nova/colorable_bomber/syndicate"
 	post_init_icon_state = "jacket_armband"
 	greyscale_colors = "#333333#eae3ce#ff0000#ff0000"
