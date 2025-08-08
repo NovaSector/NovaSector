@@ -130,7 +130,7 @@
 	item_path = /obj/item/clothing/suit/hooded/wintercoat/custom
 
 /datum/loadout_item/suit/winter_coat_fancy
-	name = "Winter Coat - Fancy (Colorable)"
+	name = "Winter Coat - Trenchcoat (Colorable)"
 	item_path = /obj/item/clothing/suit/nova/trenchcoat
 
 //Job Winter Coats (Don't want to alphabetize these mixed with the other wintercoats)
