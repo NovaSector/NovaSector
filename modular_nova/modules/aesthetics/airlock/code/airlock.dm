@@ -58,7 +58,9 @@
 	var/frame_state
 	var/light_state = AIRLOCK_LIGHT_POWERON
 	var/pre_light_color
-	switch(airlock_state)
+	if(machine_stat & MAINT) // in the process of being emagged
+		frame_state = AIRLOCK_FRAME_CLOSED
+	else switch(airlock_state)
 		if(AIRLOCK_CLOSED)
 			frame_state = AIRLOCK_FRAME_CLOSED
 			if(locked)
