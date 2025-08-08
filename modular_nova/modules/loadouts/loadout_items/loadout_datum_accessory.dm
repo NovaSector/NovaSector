@@ -207,6 +207,10 @@
 	name = "Glowcrystal necklace"
 	item_path = /obj/item/clothing/accessory/nova/acc_medal/glowcrystal
 
+/datum/loadout_item/accessory/medal/dogtags
+	name = "Dogtags"
+	item_path = /obj/item/clothing/accessory/nova/acc_medal/dogtags
+
 /datum/loadout_item/accessory/medal/rankpin_star
 	name = "Rankpin (Star)"
 	item_path = /obj/item/clothing/accessory/nova/acc_medal/rankpin

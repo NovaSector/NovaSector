@@ -2398,3 +2398,13 @@ TREK
 /datum/greyscale_config/overcoat/worn
 	name = "Fluffy Coat (Worn)"
 	icon_file = 'modular_nova/master_files/icons/mob/clothing/suit.dmi'
+
+/datum/greyscale_config/dogtags
+	name = "Dogtags"
+	icon_file = 'modular_nova/master_files/icons/obj/clothing/accessories.dmi'
+	json_config = 'modular_nova/modules/GAGS/json_configs/accessories/other/dogtags.json'
+
+/datum/greyscale_config/dogtags/worn
+	name = "Dogtags (Worn)"
+	icon_file = 'modular_nova/master_files/icons/mob/clothing/accessories.dmi'
+	json_config = 'modular_nova/modules/GAGS/json_configs/accessories/other/dogtags_worn.json'

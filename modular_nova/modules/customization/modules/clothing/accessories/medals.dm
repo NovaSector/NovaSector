@@ -217,6 +217,16 @@ Potential future ideas:
 	greyscale_config_worn = /datum/greyscale_config/medals/glow/worn
 	greyscale_colors = "#ff99ff"
 
+/obj/item/clothing/accessory/nova/acc_medal/dogtags
+	name = "Dogtags"
+	desc = "A pair of standard issue dogtags, its seems to have survived through time."
+	icon = 'icons/map_icons/clothing/accessory.dmi'
+	icon_state = "/obj/item/clothing/accessory/nova/acc_medal/dogtags"
+	post_init_icon_state = "dogtags"
+	greyscale_config = /datum/greyscale_config/dogtags
+	greyscale_config_worn = /datum/greyscale_config/dogtags/worn
+	greyscale_colors = "#FCFCFD#CCCED1#8A8B9D#68697D"
+
 /*
 // Rank pins
 */
