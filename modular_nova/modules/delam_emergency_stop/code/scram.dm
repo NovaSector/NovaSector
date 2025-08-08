@@ -250,7 +250,7 @@
 	for(var/obj/machinery/power/energy_accumulator/tesla_coil/zappy_boi in range(3, src))
 		zappy_boi.stored_energy = MISTAKES_WERE_MADE
 
-/obj/machinery/atmospherics/components/unary/delam_scram/New()
+/obj/machinery/atmospherics/components/unary/delam_scram/Initialize(mapload)
 	. = ..()
 	var/datum/gas_mixture/delam_juice = new
 	delam_juice.add_gases(/datum/gas/freon)
