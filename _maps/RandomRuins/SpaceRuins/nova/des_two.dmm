@@ -5198,6 +5198,8 @@
 /obj/item/circuitboard/machine/powerator/syndicate,
 /obj/item/circuitboard/machine/powerator/syndicate,
 /obj/item/circuitboard/machine/powerator/syndicate,
+/obj/item/circuitboard/machine/bountypad,
+/obj/item/circuitboard/computer/bountypad,
 /turf/open/floor/iron/dark,
 /area/ruin/space/has_grav/nova/des_two/bridge/vault)
 "xr" = (
