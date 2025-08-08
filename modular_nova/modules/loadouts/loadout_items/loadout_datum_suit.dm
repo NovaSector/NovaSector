@@ -89,6 +89,10 @@
 	name = "Suspenders (Colorable)"
 	item_path = /obj/item/clothing/suit/toggle/suspenders
 
+/datum/loadout_item/suit/overcoat
+	name = "Overcoat (Colorable)"
+	item_path = /obj/item/clothing/suit/nova/overcoat
+
 /*
 *	WINTER COATS
 */
@@ -124,6 +128,10 @@
 /datum/loadout_item/suit/winter_coat_greyscale
 	name = "Winter Coat - Tailored (Colorable)"
 	item_path = /obj/item/clothing/suit/hooded/wintercoat/custom
+
+/datum/loadout_item/suit/winter_coat_fancy
+	name = "Winter Coat - Fancy (Colorable)"
+	item_path = /obj/item/clothing/suit/nova/trenchcoat
 
 //Job Winter Coats (Don't want to alphabetize these mixed with the other wintercoats)
 /datum/loadout_item/suit/coat_atmos
