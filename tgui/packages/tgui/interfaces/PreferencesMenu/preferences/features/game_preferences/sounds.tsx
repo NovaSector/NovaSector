@@ -1,9 +1,9 @@
 import {
   CheckboxInput,
-  Feature,
-  FeatureChoiced,
+  type Feature,
+  type FeatureChoiced,
   FeatureSliderInput,
-  FeatureToggle,
+  type FeatureToggle,
 } from '../base';
 import { FeatureDropdownInput } from '../dropdowns';
 
@@ -108,13 +108,6 @@ export const sound_achievement: FeatureChoiced = {
     If disabled, no sound will be played.
   `,
   component: FeatureDropdownInput,
-};
-
-export const sound_radio_noise: Feature<number> = {
-  name: 'Radio noise volume',
-  category: 'SOUND',
-  description: `Volume of talking and hearing radio chatter sounds.`,
-  component: FeatureSliderInput,
 };
 
 export const sound_ai_vox: Feature<number> = {

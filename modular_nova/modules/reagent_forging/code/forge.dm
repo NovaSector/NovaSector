@@ -189,7 +189,7 @@
 	QDEL_NULL(particles)
 	if(used_tray)
 		QDEL_NULL(used_tray)
-	. = ..()
+	return ..()
 
 /obj/structure/reagent_forge/update_appearance(updates)
 	. = ..()
@@ -423,7 +423,7 @@
 
 	playsound(src, 'sound/items/weapons/parry.ogg', 50, TRUE) // Play a feedback sound to really let players know we just did an upgrade
 
-/obj/structure/reagent_forge/attackby(obj/item/attacking_item, mob/living/user, params)
+/obj/structure/reagent_forge/attackby(obj/item/attacking_item, mob/user, list/modifiers, list/attack_modifiers)
 	if(!used_tray && istype(attacking_item, /obj/item/plate/oven_tray))
 		add_tray_to_forge(user, attacking_item)
 		return TRUE

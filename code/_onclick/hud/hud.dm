@@ -50,21 +50,16 @@ GLOBAL_LIST_INIT(available_erp_ui_styles, list(
 	var/hotkey_ui_hidden = FALSE //This is to hide the buttons that can be used via hotkeys. (hotkeybuttons list of buttons)
 
 	var/atom/movable/screen/ammo_counter //NOVA EDIT ADDITION
-
-	var/atom/movable/screen/blobpwrdisplay
-
 	var/atom/movable/screen/alien_plasma_display
 	var/atom/movable/screen/alien_queen_finder
-
-	var/atom/movable/screen/combo/combo_display
 
 	var/atom/movable/screen/action_intent
 	var/atom/movable/screen/zone_select
 	var/atom/movable/screen/pull_icon
 	var/atom/movable/screen/rest_icon
+	var/atom/movable/screen/sleep_icon
 	var/atom/movable/screen/throw_icon
 	var/atom/movable/screen/resist_icon
-	var/atom/movable/screen/module_store_icon
 	var/atom/movable/screen/floor_change
 
 	var/list/static_inventory = list() //the screen objects which are static
@@ -121,13 +116,14 @@ GLOBAL_LIST_INIT(available_erp_ui_styles, list(
 	var/atom/movable/screen/healthdoll/healthdoll
 	var/atom/movable/screen/spacesuit
 	var/atom/movable/screen/hunger/hunger
-	// subtypes can override this to force a specific UI style
+
+	/// Subtypes can override this to force a specific UI style
 	var/ui_style
 	var/erp_ui_style //NOVA EDIT - ADDITION - ERP ICONS FIX
 
-	// List of weakrefs to objects that we add to our screen that we don't expect to DO anything
-	// They typically use * in their render target. They exist solely so we can reuse them,
-	// and avoid needing to make changes to all idk 300 consumers if we want to change the appearance
+	/// List of weakrefs to objects that we add to our screen that we don't expect to DO anything
+	/// They typically use * in their render target. They exist solely so we can reuse them,
+	/// and avoid needing to make changes to all idk 300 consumers if we want to change the appearance
 	var/list/asset_refs_for_reuse = list()
 
 /datum/hud/New(mob/owner)
@@ -250,7 +246,6 @@ GLOBAL_LIST_INIT(available_erp_ui_styles, list(
 	QDEL_NULL(listed_actions)
 	QDEL_LIST(floating_actions)
 
-	QDEL_NULL(module_store_icon)
 	QDEL_LIST(static_inventory)
 
 	// all already deleted by static inventory clear
@@ -265,6 +260,7 @@ GLOBAL_LIST_INIT(available_erp_ui_styles, list(
 	QDEL_LIST(toggleable_inventory)
 	QDEL_LIST(hotkeybuttons)
 	throw_icon = null
+	resist_icon = null
 	QDEL_LIST(infodisplay)
 
 	healths = null
@@ -272,10 +268,8 @@ GLOBAL_LIST_INIT(available_erp_ui_styles, list(
 	healthdoll = null
 	spacesuit = null
 	hunger = null
-	blobpwrdisplay = null
 	alien_plasma_display = null
 	alien_queen_finder = null
-	combo_display = null
 	//NOVA EDIT ADDITION START - NOVA HUD
 	ammo_counter = null
 	wanted_lvl = null
@@ -324,12 +318,14 @@ GLOBAL_LIST_INIT(available_erp_ui_styles, list(
 /datum/hud/proc/get_plane_group(key)
 	return master_groups[key]
 
+///Creates the mob's visible HUD, returns FALSE if it can't, TRUE if it did.
 /mob/proc/create_mob_hud()
 	if(!client || hud_used)
-		return
+		return FALSE
 	set_hud_used(new hud_type(src))
 	update_sight()
 	SEND_SIGNAL(src, COMSIG_MOB_HUD_CREATED)
+	return TRUE
 
 /mob/proc/set_hud_used(datum/hud/new_hud)
 	hud_used = new_hud
@@ -454,12 +450,6 @@ GLOBAL_LIST_INIT(available_erp_ui_styles, list(
 	var/mob/screenmob = viewmob || mymob
 	hidden_inventory_update(screenmob)
 
-/datum/hud/robot/show_hud(version = 0, mob/viewmob)
-	. = ..()
-	if(!.)
-		return
-	update_robot_modules_display()
-
 /datum/hud/new_player/show_hud(version = 0, mob/viewmob)
 	. = ..()
 	if(.)
@@ -542,6 +532,13 @@ GLOBAL_LIST_INIT(available_erp_ui_styles, list(
 		var/hand_ind = RIGHT_HANDS
 		if (num_of_swaps > 1)
 			hand_ind = IS_RIGHT_INDEX(hand_num) ? LEFT_HANDS : RIGHT_HANDS
+		swap_hands.screen_loc = ui_swaphand_position(mymob, hand_ind)
+		hand_num += 1
+	hand_num = 1
+	for(var/atom/movable/screen/drop/swap_hands in static_inventory)
+		var/hand_ind = LEFT_HANDS
+		if (num_of_swaps > 1)
+			hand_ind = IS_LEFT_INDEX(hand_num) ? LEFT_HANDS : RIGHT_HANDS
 		swap_hands.screen_loc = ui_swaphand_position(mymob, hand_ind)
 		hand_num += 1
 

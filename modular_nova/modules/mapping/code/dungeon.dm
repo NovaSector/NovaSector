@@ -86,7 +86,7 @@
 	anchored = TRUE
 	climbable = TRUE
 
-/obj/structure/railing/stone/attackby(obj/item/wrench, mob/living/user, params)
+/obj/structure/railing/stone/attackby(obj/item/attacking_item, mob/user, list/modifiers, list/attack_modifiers)
 	to_chat(user, span_notice("You frown as you realise this wall is in fact made of stone, and cannot be uprooted from the ground and dragged along with a mere wrench."))
 	return
 
@@ -121,8 +121,8 @@
 	idle_power_usage = 0
 	resistance_flags = INDESTRUCTIBLE | LAVA_PROOF | FIRE_PROOF | UNACIDABLE | ACID_PROOF
 
-/obj/machinery/button/dungeon/attackby(obj/item/W, mob/user, params)
-	if(W.tool_behaviour == TOOL_SCREWDRIVER)
+/obj/machinery/button/dungeon/attackby(obj/item/attacking_item, mob/user, list/modifiers, list/attack_modifiers)
+	if(attacking_item.tool_behaviour == TOOL_SCREWDRIVER)
 		to_chat(user, span_notice("You prod around the rim of the bricks and try and jam it in. Looks like it isn't coming out this way."))
 		return
 // Let's not open the maintenance panel of a stone brick.

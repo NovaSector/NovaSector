@@ -193,6 +193,14 @@
 		/obj/item/stack/sheet/plasteel = 2,
 	)
 
+/obj/item/circuitboard/machine/modular_shield_cable
+	name = "Modular Shield Cable"
+	greyscale_colors = CIRCUIT_COLOR_ENGINEERING
+	build_path = /obj/machinery/modular_shield/module/node/cable
+	req_components = list(
+		/obj/item/stack/sheet/plasteel = 1,
+	)
+
 /obj/item/circuitboard/machine/modular_shield_well
 	name = "Modular Shield Well"
 	greyscale_colors = CIRCUIT_COLOR_ENGINEERING
@@ -780,6 +788,16 @@
 		/datum/stock_part/scanning_module = 1,
 	)
 
+/obj/item/circuitboard/machine/photocopier
+	name = "Photocopier"
+	greyscale_colors = CIRCUIT_COLOR_GENERIC
+	build_path = /obj/machinery/photocopier
+	req_components = list(
+		/datum/stock_part/scanning_module = 1,
+		/datum/stock_part/micro_laser = 1,
+		/datum/stock_part/matter_bin = 1
+	)
+
 //Medical
 
 /obj/item/circuitboard/machine/chem_dispenser
@@ -1144,6 +1162,28 @@
 		/datum/stock_part/matter_bin = 1,
 		/datum/stock_part/micro_laser = 1,
 		/obj/item/stack/cable_coil = 2,
+	)
+
+/obj/item/circuitboard/machine/experimental_cloner_scanner
+	name = "Experimental Cloning Scanner"
+	greyscale_colors = CIRCUIT_COLOR_MEDICAL
+	build_path = /obj/machinery/experimental_cloner_scanner
+	req_components = list(
+		/datum/stock_part/scanning_module = 1,
+		/datum/stock_part/matter_bin = 1,
+		/datum/stock_part/micro_laser = 1,
+		/obj/item/stack/sheet/glass = 1,
+		/obj/item/stack/cable_coil = 2
+	)
+
+/obj/item/circuitboard/machine/experimental_cloner
+	name = "Experimental Cloning Pod"
+	greyscale_colors = CIRCUIT_COLOR_MEDICAL
+	build_path = /obj/machinery/experimental_cloner
+	req_components = list(
+		/datum/stock_part/matter_bin = 1,
+		/obj/item/stack/cable_coil = 1,
+		/obj/item/stack/sheet/glass = 4
 	)
 
 /obj/item/circuitboard/machine/mechpad
@@ -1849,3 +1889,30 @@
 	req_components = list(
 		/obj/item/stack/sheet/iron = 5,
 	)
+
+/obj/item/circuitboard/machine/atmos_shield_gen
+	name = /obj/machinery/atmos_shield_gen::name
+	greyscale_colors = CIRCUIT_COLOR_ENGINEERING
+	build_path = /obj/machinery/atmos_shield_gen
+	req_components = list(
+		/datum/stock_part/micro_laser = 1,
+		/datum/stock_part/capacitor = 1,
+	)
+
+/obj/item/circuitboard/machine/engine
+	name = "Shuttle Engine"
+	greyscale_colors = CIRCUIT_COLOR_ENGINEERING
+	build_path = /obj/machinery/power/shuttle_engine
+	needs_anchored = FALSE
+	req_components = list(
+		/datum/stock_part/capacitor = 2,
+		/datum/stock_part/micro_laser = 2,
+	)
+
+/obj/item/circuitboard/machine/engine/heater
+	name = "Shuttle Engine Heater"
+	build_path = /obj/machinery/power/shuttle_engine/heater
+
+/obj/item/circuitboard/machine/engine/propulsion
+	name = "Shuttle Engine Propulsion"
+	build_path = /obj/machinery/power/shuttle_engine/propulsion

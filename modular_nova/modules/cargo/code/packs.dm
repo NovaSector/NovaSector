@@ -205,6 +205,19 @@
 		/obj/item/ammo_box/magazine/m38/iceblox = 3,
 	)
 
+/datum/supply_pack/security/armory/ammobench_starter
+	name = "Ammunition Workbench Starter Kit"
+	desc = "Contains a flat-packed ammunition workbench, a standard lethal and niche non-lethal module pair, and a pair of reauthenticators. \
+		Bring your own magazines. And materials. And everything else you'd need to get an ammunition workbench working."
+	cost = CARGO_CRATE_VALUE * 5
+	contains = list(
+		/obj/item/flatpack/ammo_workbench,
+		/obj/item/ammo_workbench_module/lethal,
+		/obj/item/ammo_workbench_module/gimmick,
+		/obj/item/ammo_workbench_reboot = 2,
+	)
+	crate_name = "ammunition workbench starter crate"
+
 /*
 *	ENGINEERING
 */
@@ -306,6 +319,25 @@
 	crate_name = "RBMK2 reactor rod"
 	crate_type = /obj/structure/closet/crate/secure/engineering
 
+/datum/supply_pack/engine/rbmk2_engine
+	name = "RBMK2 circuit boards and rods"
+	desc = "Contains four RBMK2 circuit boards for construction and fuel rods. Does not come with the required materials to construct them. Comes with a printed guide."
+	access = ACCESS_ENGINE_EQUIP
+	cost = CARGO_CRATE_VALUE * 55
+	contains = list(
+		/obj/item/circuitboard/machine/rbmk2,
+		/obj/item/circuitboard/machine/rbmk2,
+		/obj/item/circuitboard/machine/rbmk2,
+		/obj/item/circuitboard/machine/rbmk2,
+		/obj/item/tank/rbmk2_rod/random_tritium,
+		/obj/item/tank/rbmk2_rod/random_tritium,
+		/obj/item/tank/rbmk2_rod/random_tritium,
+		/obj/item/tank/rbmk2_rod/random_tritium,
+		/obj/item/paper/guides/jobs/engi/rbmk2,
+	)
+	crate_name = "RBMK2 circuit boards"
+	crate_type = /obj/structure/closet/crate/secure/engineering
+
 /*
 *	MISC
 */
@@ -377,6 +409,9 @@
 		While it's a pretty cheap bootleg of the personal gravitic engines used by the Skrell, this one's been fitted with straps and a basic storage module."
 	cost = CARGO_CRATE_VALUE * 6 // 1200 credits
 	contains = list(/obj/item/gravity_harness)
+
+/datum/supply_pack/misc/commandkeys
+	hidden = TRUE
 
 /*
 *	FOOD
@@ -750,3 +785,20 @@
 
 /datum/supply_pack/imports/error
 	cost = CARGO_CRATE_VALUE * 400 // 20k is a lot on TG, it's not as much here. Upped to 80k
+
+/datum/supply_pack/misc/ancient_paperwork
+	name = "Unfiled Paperwork"
+	desc = "Hey, we've apparently got a backlog of paperwork here. It's pretty bad. \
+		If you guys could help get this processed so we can file this stuff away, \
+		it'll look a lot nicer on our quarterly reports, which means we can justify putting a few extra credits in your budget. \
+		Thanks."
+	cost = CARGO_CRATE_VALUE * 6
+	/*
+	one properly stamped paperwork is CARGO_CRATE_VALUE * 3.
+	however, because getting stamps capital S Sucks, requiring IC interaction (or stamp theft),
+	it's probably fine for it to be decently profitable?
+	5 paperworks for 15 crates, initial cost of 6 crates
+	*/
+	contains = list(
+		/obj/item/folder/ancient_paperwork = 5
+	)

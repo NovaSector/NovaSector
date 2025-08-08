@@ -1,3 +1,14 @@
+/// Examine Panel headshot
+#define EXAMINE_DNA_HEADSHOT "headshot"
+/// Examine Panel flavor text
+#define EXAMINE_DNA_FLAVOR_TEXT "flavor_text"
+/// Examine Panel NSFW flavor text—requires you to click a tab to see
+#define EXAMINE_DNA_FLAVOR_TEXT_NSFW "flavor_text_nsfw"
+/// Examine Panel OOC notes
+#define EXAMINE_DNA_OOC_NOTES "ooc_notes"
+/// Examine Panel NSFW ooc notes—requires you to click a tab to see
+#define EXAMINE_DNA_OOC_NOTES_NSFW "ooc_notes_nsfw"
+
 //We start from 30 to not interfere with TG species defines, should they add more
 /// We're using all three mutcolor features for our skin coloration
 #define MUTCOLOR_MATRIXED	30
@@ -95,7 +106,7 @@
 	"mcolor3" = "#FFFFBB",\
 	"ethcolor" = "#FFCCCC",\
 	"skin_color" = "#FFEEDD",\
-	"flavor_text" = "",\
+	EXAMINE_DNA_FLAVOR_TEXT = "",\
 	"breasts_size" = 1,\
 	"breasts_lactation" = FALSE,\
 	"penis_size" = 13,\
@@ -142,6 +153,9 @@
 #define SPECIES_HEMOPHAGE "hemophage"
 #define SPECIES_FELINE_PRIMITIVE "primitive_felinid"
 #define SPECIES_ABDUCTORWEAK "abductorweak"
+#define SPECIES_KOBOLD "kobold"
+#define SPECIES_RAMATAE "ramatan"
+#define SPECIES_INSECTOID "insectoid"
 
 #define SPECIES_MUTANT "mutant"
 #define SPECIES_MUTANT_INFECTIOUS "infectious_mutant"
@@ -150,3 +164,4 @@
 
 // Leaving this here because it's used for bodyparts, like SPECIES_X are, but since taurs aren't a species... Named it LIMBS instead.
 #define LIMBS_TAUR "taur"
+#define LIMBS_HARPY "harpy"

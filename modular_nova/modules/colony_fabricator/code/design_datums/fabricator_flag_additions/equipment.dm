@@ -68,36 +68,38 @@
 	. = ..()
 	build_type |= COLONY_FABRICATOR
 
-// Stock parts are going here too because there's not many of them
-
-/datum/design/water_recycler/New()
+/datum/design/large_beaker/New()
 	. = ..()
 	build_type |= COLONY_FABRICATOR
 
-/datum/design/super_cell/New()
+/datum/design/xlarge_beaker/New()
 	. = ..()
 	build_type |= COLONY_FABRICATOR
 
-/datum/design/adv_capacitor/New()
+/datum/design/bioelec_gen/New()
 	. = ..()
 	build_type |= COLONY_FABRICATOR
 
-/datum/design/adv_scanning/New()
+/datum/design/aquarium_kit/New()
 	. = ..()
 	build_type |= COLONY_FABRICATOR
 
-/datum/design/nano_servo/New()
+/datum/design/auto_reel/New()
 	. = ..()
 	build_type |= COLONY_FABRICATOR
 
-/datum/design/high_micro_laser/New()
+/datum/design/fishing_rod_tech/New()
 	. = ..()
 	build_type |= COLONY_FABRICATOR
 
-/datum/design/adv_matter_bin/New()
+/datum/design/fish_analyzer/New()
 	. = ..()
 	build_type |= COLONY_FABRICATOR
 
-/datum/design/rped/New()
+/datum/design/fish_case/New()
+	. = ..()
+	build_type |= COLONY_FABRICATOR
+
+/datum/design/shuttle_rods/New()
 	. = ..()
 	build_type |= COLONY_FABRICATOR

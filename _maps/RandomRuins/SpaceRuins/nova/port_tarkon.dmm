@@ -33,6 +33,17 @@
 /obj/structure/table/reinforced,
 /obj/item/clothing/gloves/color/yellow,
 /obj/structure/cable,
+/obj/item/circuitboard/machine/syndiepad/tarkon,
+/obj/item/circuitboard/computer/syndiepad/tarkon{
+	pixel_y = 2;
+	pixel_x = 2
+	},
+/obj/item/circuitboard/computer/cargo/express/interdyne/tarkon{
+	pixel_x = 4;
+	pixel_y = 4
+	},
+/obj/item/circuitboard/machine/bountypad,
+/obj/item/circuitboard/computer/bountypad,
 /turf/open/floor/plating,
 /area/ruin/space/has_grav/port_tarkon/power1)
 "am" = (
@@ -1362,6 +1373,10 @@
 /obj/effect/turf_decal/tile/yellow/half{
 	dir = 1
 	},
+/obj/machinery/status_display/department_balance{
+	credits_account = "TI";
+	pixel_y = 32
+	},
 /turf/open/floor/plating,
 /area/ruin/space/has_grav/port_tarkon/atmos)
 "jQ" = (
@@ -1796,6 +1811,9 @@
 /obj/item/circuitboard/machine/circulator,
 /obj/item/circuitboard/machine/circulator,
 /obj/item/circuitboard/machine/thermoelectric_generator,
+/obj/item/circuitboard/machine/powerator/tarkon,
+/obj/item/circuitboard/machine/powerator/tarkon,
+/obj/item/circuitboard/machine/powerator/tarkon,
 /turf/open/floor/iron,
 /area/ruin/space/has_grav/port_tarkon/atmos)
 "mn" = (
@@ -2069,7 +2087,7 @@
 	dir = 4
 	},
 /obj/structure/table/reinforced,
-/obj/item/reagent_containers/cup/glass/flask/gold,
+/obj/machinery/fax/tarkon,
 /turf/open/floor/iron/dark,
 /area/ruin/space/has_grav/port_tarkon/comms)
 "os" = (
@@ -2380,12 +2398,12 @@
 /area/ruin/space/has_grav/port_tarkon/centerhall)
 "pN" = (
 /obj/structure/closet,
-/obj/item/clothing/under/tarkon/cargo,
-/obj/item/clothing/under/tarkon/cargo,
-/obj/item/clothing/under/tarkon/cargo,
-/obj/item/clothing/under/tarkon/cargo,
-/obj/item/clothing/under/tarkon/cargo,
-/obj/item/clothing/under/tarkon/cargo,
+/obj/item/clothing/under/tarkon,
+/obj/item/clothing/under/tarkon,
+/obj/item/clothing/under/tarkon,
+/obj/item/clothing/under/tarkon,
+/obj/item/clothing/under/tarkon,
+/obj/item/clothing/under/tarkon,
 /obj/item/storage/backpack/duffelbag/explorer,
 /obj/item/storage/backpack/messenger/explorer,
 /obj/item/storage/backpack/satchel/explorer,
@@ -2738,6 +2756,9 @@
 /obj/item/coin,
 /obj/item/coin,
 /obj/machinery/light/directional/north,
+/obj/item/card/id/departmental_budget/tarkon{
+	pixel_x = -15
+	},
 /turf/open/floor/iron/dark,
 /area/ruin/space/has_grav/port_tarkon/comms)
 "rL" = (
@@ -3069,9 +3090,7 @@
 /obj/machinery/atmospherics/components/binary/pump/off/general{
 	dir = 4
 	},
-/obj/effect/turf_decal/tile/red/fourcorners{
-	color = "#DE3A3A"
-	},
+/obj/effect/turf_decal/tile/red/fourcorners,
 /turf/open/floor/iron,
 /area/ruin/space/has_grav/port_tarkon/atmos)
 "uC" = (
@@ -3193,6 +3212,10 @@
 /obj/item/wrench,
 /obj/effect/turf_decal/tile/yellow/half{
 	dir = 1
+	},
+/obj/machinery/status_display/department_balance{
+	credits_account = "TI";
+	pixel_y = 32
 	},
 /turf/open/floor/iron,
 /area/ruin/space/has_grav/port_tarkon/toolstorage)
@@ -4239,6 +4262,10 @@
 /obj/effect/turf_decal/tile/yellow/half{
 	dir = 1
 	},
+/obj/machinery/status_display/department_balance{
+	credits_account = "TI";
+	pixel_y = 32
+	},
 /turf/open/floor/iron,
 /area/ruin/space/has_grav/port_tarkon/power1)
 "CS" = (
@@ -4623,7 +4650,12 @@
 "FF" = (
 /obj/structure/table/reinforced,
 /obj/item/stamp/denied,
-/obj/item/stamp/granted,
+/obj/item/stamp/granted{
+	pixel_x = 8
+	},
+/obj/item/reagent_containers/cup/glass/flask/gold{
+	pixel_x = -7
+	},
 /turf/open/floor/iron/dark,
 /area/ruin/space/has_grav/port_tarkon/comms)
 "FG" = (
@@ -5468,6 +5500,10 @@
 /obj/item/stack/cable_coil,
 /obj/structure/noticeboard/directional/west,
 /obj/item/paper/fluff/ruins/tarkon/cargosafe,
+/obj/machinery/status_display/department_balance{
+	credits_account = "TI";
+	pixel_y = 32
+	},
 /turf/open/floor/iron,
 /area/ruin/space/has_grav/port_tarkon/cargo)
 "KQ" = (
@@ -5984,6 +6020,10 @@
 	req_access = list("tarkon")
 	},
 /obj/machinery/camera/autoname/tarkon/directional/north,
+/obj/machinery/status_display/department_balance{
+	credits_account = "TI";
+	pixel_y = 32
+	},
 /turf/open/floor/iron,
 /area/ruin/space/has_grav/port_tarkon/mining)
 "Om" = (
@@ -6069,9 +6109,7 @@
 /obj/machinery/atmospherics/components/unary/portables_connector/visible{
 	dir = 8
 	},
-/obj/effect/turf_decal/tile/red/fourcorners{
-	color = "#DE3A3A"
-	},
+/obj/effect/turf_decal/tile/red/fourcorners,
 /obj/machinery/portable_atmospherics/canister/nitrogen,
 /turf/open/floor/iron,
 /area/ruin/space/has_grav/port_tarkon/atmos)
@@ -6730,12 +6768,12 @@
 /area/ruin/space/has_grav/port_tarkon/atmos)
 "Tm" = (
 /obj/structure/closet,
-/obj/item/clothing/under/tarkon,
-/obj/item/clothing/under/tarkon,
-/obj/item/clothing/under/tarkon,
-/obj/item/clothing/under/tarkon,
-/obj/item/clothing/under/tarkon,
-/obj/item/clothing/under/tarkon,
+/obj/item/clothing/under/tarkon/general,
+/obj/item/clothing/under/tarkon/general,
+/obj/item/clothing/under/tarkon/general,
+/obj/item/clothing/under/tarkon/general,
+/obj/item/clothing/under/tarkon/general,
+/obj/item/clothing/under/tarkon/general,
 /obj/item/storage/backpack/messenger/hyd,
 /obj/item/storage/backpack/duffelbag/hydroponics,
 /obj/item/storage/backpack/satchel,
@@ -6840,6 +6878,10 @@
 /area/ruin/space/has_grav/port_tarkon/storage)
 "TV" = (
 /obj/machinery/light/warm/directional/north,
+/obj/machinery/status_display/department_balance{
+	credits_account = "TI";
+	pixel_y = 32
+	},
 /turf/open/floor/iron,
 /area/ruin/space/has_grav/port_tarkon)
 "TX" = (
@@ -7253,6 +7295,10 @@
 /obj/effect/turf_decal/tile/red/half{
 	dir = 1
 	},
+/obj/machinery/status_display/department_balance{
+	credits_account = "TI";
+	pixel_y = 32
+	},
 /turf/open/floor/iron,
 /area/ruin/space/has_grav/port_tarkon/secoff)
 "WS" = (
@@ -7288,7 +7334,7 @@
 	pixel_y = 8
 	},
 /obj/effect/spawner/random/entertainment/cigarette_pack,
-/obj/item/reagent_containers/cup/rag,
+/obj/item/rag,
 /turf/open/floor/iron/white,
 /area/ruin/space/has_grav/port_tarkon/centerhall)
 "Xo" = (
@@ -7399,6 +7445,10 @@
 /area/ruin/space/has_grav/port_tarkon/atmos)
 "Ye" = (
 /obj/machinery/griddle,
+/obj/machinery/status_display/department_balance{
+	credits_account = "TI";
+	pixel_y = -32
+	},
 /turf/open/floor/iron/cafeteria,
 /area/ruin/space/has_grav/port_tarkon/kitchen)
 "Yj" = (
@@ -7521,9 +7571,7 @@
 /area/ruin/space/has_grav/port_tarkon/storage)
 "YY" = (
 /obj/structure/window/reinforced/spawner/directional/north,
-/obj/effect/turf_decal/tile/red/fourcorners{
-	color = "#DE3A3A"
-	},
+/obj/effect/turf_decal/tile/red/fourcorners,
 /obj/machinery/computer/atmos_control/tarkon/nitrogen_tank{
 	dir = 4
 	},

@@ -1,23 +1,19 @@
-/obj/item/clothing/shoes/worn_overlays(isinhands = FALSE,icon_file, mutant_styles = NONE)
-	. = ..()
-	if(isinhands)
-		return
-	if(damaged_clothes)
-		. += mutable_appearance('icons/effects/item_damage.dmi', "damagedshoe")
+/obj/item/clothing/shoes/get_blood_overlay(blood_state, mutant_styles)
+	if (!(mutant_styles & CLOTHING_DIGITIGRADE_VARIATION))
+		return ..()
 
-/obj/item/clothing/shoes/separate_worn_overlays(mutable_appearance/standing, mutable_appearance/draw_target, isinhands = FALSE, icon_file, mutant_styles = NONE)
-	. = ..()
-	if(isinhands)
+	if (!GET_ATOM_BLOOD_DECAL_LENGTH(src))
 		return
 
-	if(GET_ATOM_BLOOD_DNA(src))
-		if (mutant_styles & CLOTHING_DIGITIGRADE_VARIATION)
-			if(clothing_flags & LARGE_WORN_ICON)
-				. += mutable_appearance('modular_nova/modules/digi_bloodsole/icons/64x64.dmi', "shoeblood_large_digi")
-			else
-				. += mutable_appearance('modular_nova/modules/digi_bloodsole/icons/blood.dmi', "shoeblood_digi")
-		else
-			if(clothing_flags & LARGE_WORN_ICON)
-				. += mutable_appearance('icons/effects/64x64.dmi', "shoeblood_large")
-			else
-				. += mutable_appearance('icons/effects/blood.dmi', "shoeblood")
+	var/mutable_appearance/blood_overlay = null
+	if(clothing_flags & LARGE_WORN_ICON)
+		blood_overlay = mutable_appearance('modular_nova/modules/digi_bloodsole/icons/64x64.dmi', "shoeblood_large_digi")
+	else
+		blood_overlay = mutable_appearance('modular_nova/modules/digi_bloodsole/icons/blood.dmi', "shoeblood_digi")
+
+	var/emissive_alpha = get_blood_emissive_alpha(is_worn = TRUE)
+	if (emissive_alpha)
+		var/mutable_appearance/emissive_overlay = emissive_appearance(blood_overlay.icon, blood_overlay.icon_state, src, alpha = emissive_alpha)
+		blood_overlay.overlays += emissive_overlay
+
+	return blood_overlay

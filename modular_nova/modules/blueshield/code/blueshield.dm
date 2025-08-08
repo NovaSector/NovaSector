@@ -39,7 +39,7 @@
 		/obj/item/clothing/head/collectable/captain = 4,
 	)
 
-	veteran_only = TRUE
+	nova_stars_only = TRUE
 	job_flags = STATION_JOB_FLAGS | JOB_CANNOT_OPEN_SLOTS
 
 /datum/outfit/job/blueshield
@@ -51,7 +51,7 @@
 	id = /obj/item/card/id/advanced/centcom/station
 	shoes = /obj/item/clothing/shoes/jackboots
 	ears = /obj/item/radio/headset/headset_bs/alt
-	glasses = /obj/item/clothing/glasses/hud/security/sunglasses
+	glasses = /obj/item/clothing/glasses/hud/security/sunglasses/blue
 	implants = list(/obj/item/implant/mindshield)
 	backpack_contents = list(
 		/obj/item/choice_beacon/blueshield = 1,
@@ -90,13 +90,14 @@
 /// Blueshield's Custom Hellfire
 /obj/item/ammo_casing/energy/laser/hellfire/blueshield
 	projectile_type = /obj/projectile/beam/laser/hellfire
-	e_cost = LASER_SHOTS(13, STANDARD_CELL_CHARGE)
+	e_cost = LASER_SHOTS(25, STANDARD_CELL_CHARGE)
 	select_name = "maim"
 
 /obj/item/gun/energy/laser/hellgun/blueshield
-	name ="modified hellfire laser gun"
-	desc = "A lightly overtuned version of NT's Hellfire Laser rifle, scratches showing its age and the fact it has definitely been owned before. This one is more energy efficient without sacrificing damage."
-	icon_state = "hellgun"
+	name = "streamlined hellfire laser carbine"
+	icon = 'modular_nova/modules/modular_weapons/icons/obj/energy.dmi'
+	icon_state = "bshg"
+	desc = parent_type::desc + " This one has been tinkered with by Central Command technicians to add blue-tinted furniture and squeeze out a few extra shots before running dry."
 	ammo_type = list(/obj/item/ammo_casing/energy/laser/hellfire/blueshield)
 
 /obj/item/choice_beacon/blueshield
@@ -114,7 +115,7 @@
 	var/static/list/selectable_gun_types = list(
 		"Takbok Revolver Set" = /obj/item/storage/toolbox/guncase/nova/pistol/trappiste_small_case/takbok,
 		"Custom Hellfire Laser Rifle" = /obj/item/gun/energy/laser/hellgun/blueshield,
-		"NT20 Submachinegun Gunset" = /obj/item/storage/toolbox/guncase/nova/nt20,
+		"NT20 Submachinegun Gunset" = /obj/item/storage/toolbox/guncase/nova/ntspecial/nt20,
 		"Katyusha Shotgun Gunset" = /obj/item/storage/toolbox/guncase/nova/katyusha,
 	)
 

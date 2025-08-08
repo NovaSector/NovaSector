@@ -2,7 +2,10 @@
 	// A cloning mistake, crossing human and xenomorph DNA
 	name = "Xenomorph Hybrid"
 	id = SPECIES_XENO
-	family_heirlooms = list(/obj/item/toy/plush/rouny, /obj/item/clothing/mask/facehugger/toy)
+	family_heirlooms = list(
+		/obj/item/toy/plush/rouny,
+		/obj/item/clothing/mask/facehugger/toy
+		)
 	inherent_traits = list(
 		TRAIT_ADVANCEDTOOLUSER,
 		TRAIT_CAN_STRIP,
@@ -19,8 +22,7 @@
 		/obj/item/organ/alien/resinspinner/roundstart,
 		/obj/item/organ/alien/hivenode,
 		)
-	exotic_blood = /datum/reagent/toxin/acid
-	exotic_bloodtype = "X*"
+	exotic_bloodtype = BLOOD_TYPE_XENO
 	heatmod = 2.5
 	mutant_bodyparts = list()
 	payday_modifier = 1.0
@@ -84,51 +86,6 @@
 	regenerate_organs(xeno, src, visual_only = TRUE)
 	xeno.update_body(TRUE)
 
-/datum/species/xeno/on_species_gain(mob/living/carbon/human/human_who_gained_species, datum/species/old_species, pref_load, regenerate_icons)
-	. = ..()
-	human_who_gained_species.gib_type = /obj/effect/decal/cleanable/xenoblood/xgibs
-
-/datum/species/xeno/on_species_loss(mob/living/carbon/human/human_who_lost_species, datum/species/new_species, pref_load)
-	. = ..()
-	human_who_lost_species.gib_type = initial(human_who_lost_species.gib_type)
-
-//Xenohybrid blood trails
-/mob/living/carbon/human/getTrail()
-	if(get_blood_id() != /datum/reagent/toxin/acid)
-		return ..()
-	if(getBruteLoss() < 300)
-		return pick (list("xltrails_1", "xltrails2"))
-	else
-		return pick (list("xttrails_1", "xttrails2"))
-
-///Xenohybrid additional blood color decals
-/obj/effect/decal/cleanable/blood/hitsplatter/xenoblood
-	icon = 'modular_nova/master_files/icons/effects/x_blood.dmi'
-	icon_state = "xhitsplatter1"
-	random_icon_states = list("xhitsplatter1", "xhitsplatter2", "xhitsplatter3")
-	blood_state = BLOOD_STATE_XENO
-	blood_dna_info = list("UNKNOWN DNA" = "X*")
-
-/obj/effect/decal/cleanable/xenoblood/xsplatter/over_window // special layer/plane set to appear on windows
-	layer = ABOVE_WINDOW_LAYER
-	plane = GAME_PLANE
-	vis_flags = VIS_INHERIT_PLANE
-	alpha = 180
-
-/obj/effect/decal/cleanable/blood/drip/xenoblood
-	name = "drips of blood"
-	desc = "It's green."
-	icon = 'modular_nova/master_files/icons/effects/x_blood.dmi'
-	icon_state = "xdrip5"
-	random_icon_states = list("xdrip1","xdrip2","xdrip3","xdrip4","xdrip5")
-	should_dry = FALSE //human only thing
-	blood_state = BLOOD_STATE_XENO
-	beauty = -150
-
-/obj/effect/decal/cleanable/blood/drip/xenoblood/Initialize(mapload)
-	. = ..()
-	add_blood_DNA(list("UNKNOWN DNA" = "X*"))
-
 ///Xenomorph organs modified to suit roundstart styling
 #define BUILD_DURATION 0.5 SECONDS
 
@@ -170,6 +127,10 @@
 /obj/item/organ/brain/xeno_hybrid
 	icon_state = "brain-x" //rebranding
 
+/obj/item/organ/brain/xeno_hybrid/Initialize(mapload)
+	. = ..()
+	AddComponent(/datum/component/bubble_icon_override, "alien", BUBBLE_ICON_PRIORITY_ORGAN)
+
 /obj/item/organ/stomach/xeno_hybrid
 	icon_state = "stomach-x"
 
@@ -179,7 +140,7 @@
 //Liver modification (xenohybrids can process plasma!)
 /obj/item/organ/liver/xeno_hybrid/handle_chemical(mob/living/carbon/owner, datum/reagent/toxin/chem, seconds_per_tick, times_fired)
 	. = ..()
-	if(. & COMSIG_MOB_STOP_REAGENT_CHECK)
+	if(. & COMSIG_MOB_STOP_REAGENT_TICK)
 		return
 	if(chem.type == /datum/reagent/toxin/plasma)
 		chem.toxpwr = 0

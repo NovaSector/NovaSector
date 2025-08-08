@@ -29,6 +29,16 @@
 	if(!mold_type)
 		mold_type = mold_controller?.mold_type || passed_type
 
+	return INITIALIZE_HINT_LATELOAD
+
+/obj/structure/mold/LateInitialize()
+	if(isnull(mold_type))
+		mold_type = mold_controller?.mold_type
+
+	if(isnull(mold_type)) // still no mold type? pick a random one (mold code is in dire need of a total refactor it's baaad)
+		mold_type = pick(subtypesof(/datum/mold_type))
+		mold_type = new mold_type
+
 	color = mold_type.mold_color
 	resistance_flags = mold_type.resistance_flags
 	name = "[mold_type.name] [name]"
@@ -39,13 +49,24 @@
 	/// Does the structure emit light?
 	var/emits_light = FALSE
 
-/obj/structure/mold/structure/Initialize(mapload, passed_type)
-	. = ..()
+/obj/structure/mold/structure/LateInitialize()
+	if(isnull(mold_type))
+		mold_type = mold_controller?.mold_type
+
+	if(isnull(mold_type)) // still no mold type? pick a random one (mold code is in dire need of a total refactor it's baaad)
+		mold_type = pick(subtypesof(/datum/mold_type))
+		mold_type = new mold_type
+
+	color = mold_type.mold_color
+	resistance_flags = mold_type.resistance_flags
+	name = "[mold_type.name] [name]"
+
 	if(emits_light)
 		light_range = 2
 		light_power = 1
 		if(mold_type.structure_light_color)
 			light_color = mold_type.structure_light_color
+	update_appearance()
 
 /datum/looping_sound/core_heartbeat
 	mid_length = 3 SECONDS
@@ -60,7 +81,7 @@
 	icon = 'modular_nova/modules/mold/icons/blob_core.dmi'
 	icon_state = "blob_core"
 	layer = TABLE_LAYER
-	max_integrity = 1200
+	max_integrity = 450
 
 	/// The soundloop played by the core
 	var/datum/looping_sound/core_heartbeat/soundloop
@@ -70,6 +91,7 @@
 /obj/structure/mold/structure/core/Initialize(mapload, passed_type)
 	if(mold_type)
 		passed_type = new mold_type
+
 	new /datum/mold_controller(src, passed_type)
 	. = ..()
 	soundloop = new(src, TRUE)

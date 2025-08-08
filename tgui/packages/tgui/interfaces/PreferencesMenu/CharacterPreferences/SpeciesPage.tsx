@@ -16,10 +16,10 @@ import { LoadingScreen } from '../../common/LoadingScreen';
 import {
   createSetPreference,
   Food,
-  Perk,
-  PreferencesMenuData,
-  ServerData,
-  Species,
+  type Perk,
+  type PreferencesMenuData,
+  type ServerData,
+  type Species,
 } from '../types';
 import { useServerPrefs } from '../useServerPrefs';
 
@@ -261,7 +261,7 @@ function SpeciesPageInner(props: SpeciesPageInnerProps) {
   const { act, data } = useBackend<PreferencesMenuData>();
   const setSpecies = createSetPreference(act, 'species');
 
-  let species: [string, Species][] = Object.entries(props.species).map(
+  const species: [string, Species][] = Object.entries(props.species).map(
     ([species, data]) => {
       return [species, data];
     },
@@ -290,12 +290,12 @@ function SpeciesPageInner(props: SpeciesPageInnerProps) {
           <Stack.Item>
             <Box height="calc(100vh - 170px)" overflowY="auto" pr={3}>
               {species.map(([speciesKey, species]) => {
-                // NOVA EDIT START - Veteran-only species
+                // NOVA EDIT START - Nova star-only species
                 let speciesPage = (
                   <Button
                     key={speciesKey}
                     onClick={() => {
-                      if (species.veteran_only && !data.is_veteran) {
+                      if (species.nova_stars_only && !data.is_nova_star) {
                         return;
                       }
                       setSpecies(speciesKey);
@@ -316,10 +316,10 @@ function SpeciesPageInner(props: SpeciesPageInnerProps) {
                     />
                   </Button>
                 );
-                if (species.veteran_only && !data.is_veteran) {
+                if (species.nova_stars_only && !data.is_nova_star) {
                   let tooltipContent =
                     species.name +
-                    ' - You need to be a veteran to select this race, apply today!';
+                    ' - You need to be a Nova star to select this race, apply today!';
                   speciesPage = (
                     <Tooltip content={tooltipContent}>{speciesPage}</Tooltip>
                   );

@@ -138,6 +138,7 @@
 #include "confusion.dm"
 #include "connect_loc.dm"
 #include "container_sanity.dm"
+#include "crafting.dm"
 #include "crayons.dm"
 #include "create_and_destroy.dm"
 #include "damp_rag.dm"
@@ -257,8 +258,10 @@
 #include "required_map_items.dm"
 #include "resist.dm"
 #include "say.dm"
+#include "screenshot_airlocks.dm"
 #include "screenshot_antag_icons.dm"
 #include "screenshot_basic.dm"
+#include "screenshot_digi.dm"
 #include "screenshot_dynamic_human_icons.dm"
 #include "screenshot_high_luminosity_eyes.dm"
 #include "screenshot_humanoids.dm"
@@ -301,6 +304,7 @@
 #include "syringe_gun.dm"
 #include "tail_wag.dm"
 #include "teleporters.dm"
+#include "text.dm"
 #include "tgui_create_message.dm"
 #include "timer_sanity.dm"
 #include "trait_addition_and_removal.dm"
@@ -318,6 +322,7 @@
 #include "worn_icons.dm"
 // NOVA EDIT START
 #include "~nova\automapper.dm"
+#include "~nova\liver.dm"
 #include "~nova\opposing_force.dm"
 // NOVA EDIT END
 // END_INCLUDE

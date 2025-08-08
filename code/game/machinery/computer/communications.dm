@@ -117,13 +117,7 @@ GLOBAL_VAR_INIT(cops_arrived, FALSE)
 		return TRUE
 	return authenticated
 
-/// NOVA EDIT Start - Are we the AI?
-/obj/machinery/computer/communications/proc/authenticated_as_ai_or_captain(mob/user)
-	if (isAI(user))
-		return TRUE
-	return ACCESS_CAPTAIN in authorize_access //NOVA EDIT End
-
-/obj/machinery/computer/communications/attackby(obj/I, mob/user, params)
+/obj/machinery/computer/communications/attackby(obj/I, mob/user, list/modifiers, list/attack_modifiers)
 	if(isidcard(I))
 		attack_hand(user)
 	else
@@ -470,6 +464,13 @@ GLOBAL_VAR_INIT(cops_arrived, FALSE)
 			SSjob.safe_code_timer_id = addtimer(CALLBACK(SSjob, TYPE_PROC_REF(/datum/controller/subsystem/job, send_spare_id_safe_code), pod_location), 120 SECONDS, TIMER_UNIQUE | TIMER_STOPPABLE)
 			minor_announce("Due to staff shortages, your station has been approved for delivery of access codes to secure the Captain's Spare ID. Delivery via drop pod at [get_area(pod_location)]. ETA 120 seconds.")
 		// NOVA EDIT ADDITION START
+		if ("messagethefeds")
+			if(!message_federation(usr))
+				return
+			if(!COOLDOWN_FINISHED(src, important_action_cooldown))
+				return
+			finalizing_solfedmessage(usr)
+			COOLDOWN_START(src, important_action_cooldown, IMPORTANT_ACTION_COOLDOWN)
 		if ("callThePolice")
 			if(!pre_911_check(usr))
 				return

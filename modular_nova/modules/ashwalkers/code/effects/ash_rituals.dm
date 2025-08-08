@@ -260,34 +260,35 @@
 /// Summon specific lavaland critter
 /datum/ash_ritual/summon_lavaland_creature
 	name = "Summon Lavaland Creature"
-	desc = "Summons a random, wild monster from another region in space."
+	desc = "Summons two random, wild monsters from another region in space."
 	required_components = list(
 		"north" = /obj/item/organ/monster_core/regenerative_core,
-		"south" = /mob/living/basic/mining/ice_whelp,
+		"south" = /obj/item/stack/sheet/animalhide/ashdrake,
 		"east" = /obj/item/stack/ore/bluespace_crystal,
 		"west" = /obj/item/stack/ore/bluespace_crystal,
 	)
 	consumed_components = list(
 		/obj/item/organ/monster_core/regenerative_core,
-		/mob/living/basic/mining/ice_whelp,
-		/obj/item/stack/ore/bluespace_crystal,
+		/obj/item/stack/sheet/animalhide/ashdrake,
 	)
 
 /datum/ash_ritual/summon_lavaland_creature/ritual_success(obj/effect/ash_rune/success_rune)
 	. = ..()
-	var/mob_type = pick(
-		/mob/living/basic/mining/goliath,
-		/mob/living/basic/mining/legion,
-		/mob/living/basic/mining/brimdemon,
-		/mob/living/basic/mining/watcher,
-		/mob/living/basic/mining/lobstrosity/lava,
-	)
-	new mob_type(success_rune.loc)
+	for(var/iterate in 1 to 2)
+		var/mob_type = pick(
+			/mob/living/basic/mining/goliath,
+			/mob/living/basic/mining/legion,
+			/mob/living/basic/mining/brimdemon,
+			/mob/living/basic/mining/watcher,
+			/mob/living/basic/mining/lobstrosity/lava,
+			/mob/living/basic/mining/bileworm,
+		)
+		new mob_type(success_rune.drop_location())
 
 /// Colder versions of critters to summon
 /datum/ash_ritual/summon_icemoon_creature
 	name = "Summon Icemoon Creature"
-	desc = "Summons a random, wild monster from another region in space."
+	desc = "Summons two random, wild monsters from another region in space."
 	required_components = list(
 		"north" = /obj/item/organ/monster_core/regenerative_core,
 		"south" = /obj/item/food/grown/surik,
@@ -297,19 +298,19 @@
 	consumed_components = list(
 		/obj/item/organ/monster_core/regenerative_core,
 		/obj/item/food/grown/surik,
-		/obj/item/stack/ore/bluespace_crystal,
 	)
 
 /datum/ash_ritual/summon_icemoon_creature/ritual_success(obj/effect/ash_rune/success_rune)
 	. = ..()
-	var/mob_type = pick(
-		/mob/living/basic/mining/ice_demon,
-		/mob/living/basic/mining/ice_whelp,
-		/mob/living/basic/mining/lobstrosity,
-		/mob/living/simple_animal/hostile/asteroid/polarbear,
-		/mob/living/basic/mining/wolf,
-	)
-	new mob_type(success_rune.loc)
+	for(var/iterate in 1 to 2)
+		var/mob_type = pick(
+			/mob/living/basic/mining/ice_demon,
+			/mob/living/basic/mining/ice_whelp,
+			/mob/living/basic/mining/lobstrosity,
+			/mob/living/simple_animal/hostile/asteroid/polarbear,
+			/mob/living/basic/mining/wolf,
+		)
+		new mob_type(success_rune.drop_location())
 
 /// Xenobio Ritual
 /datum/ash_ritual/uncover_rocks
@@ -322,7 +323,6 @@
 		"west" = /obj/item/xenoarch/useless_relic,
 	)
 	consumed_components = list(
-		/obj/item/stack/ore/bluespace_crystal,
 		/obj/item/stack/sheet/animalhide/goliath_hide,
 		/obj/item/xenoarch/useless_relic,
 	)
@@ -407,7 +407,7 @@
 
 	var/list/yes_voters = SSpolling.poll_candidates("Do you wish to banish [find_banished]?", poll_time = 10 SECONDS, group = asked_voters)
 
-	if(length(yes_voters) < length(asked_voters))
+	if(length(yes_voters) < max(1, ceil(length(asked_voters) / 2 + 0.01))) // you need a simple majority (ex: 10 people vote, need 6)
 		find_banished.balloon_alert_to_viewers("banishment failed!")
 		return
 
@@ -524,4 +524,22 @@
 	)
 	ritual_success_items = list(
 		/obj/item/ash_seed/vent,
+	)
+
+/// Summon Tunneling Worm
+/datum/ash_ritual/summon_tunneling_worm
+	name = "Summon Tunneling Worm"
+	desc = "Summons a worm that has the ability to create deep tunnels that connect to one another."
+	required_components = list(
+		"north" = /obj/item/crusher_trophy/bileworm_spewlet,
+		"south" = /obj/item/organ/monster_core/regenerative_core,
+		"east" = /obj/item/stack/ore/bluespace_crystal,
+		"west" = /obj/item/stack/ore/bluespace_crystal,
+	)
+	consumed_components = list(
+		/obj/item/crusher_trophy/bileworm_spewlet,
+		/obj/item/organ/monster_core/regenerative_core,
+	)
+	ritual_success_items = list(
+		/obj/item/tunneling_worm,
 	)

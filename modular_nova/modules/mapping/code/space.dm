@@ -23,6 +23,7 @@
 	name = "Space-Ruin DS-2"
 	description = "If DS-1 was so good..."
 	always_place = TRUE
+	cost = 0 //since always place is true, Putting cost to 0 frees up a point for other ruins
 
 /datum/map_template/ruin/space/nova/derelictferry
 	id = "derelictferry"
@@ -77,12 +78,6 @@
 	suffix = "clothing_facility.dmm"
 	name = "Space-Ruin Abandoned Clothing Facility"
 	description = "A den of bad ideas. Secborgs were made here!"
-
-/datum/map_template/ruin/space/nova/luna
-	id = "luna"
-	suffix = "luna.dmm"
-	name = "Space-Ruin Luna"
-	description = "Please note for ethical concerns all experimentation regarding writing artificial intelligence units to beleive they are A, A fictional character and B, human have been suspended. Have a pleasant shift."
 
 /datum/map_template/ruin/space/nova/blackmarket
 	id = "blackmarket"
@@ -174,7 +169,10 @@
 	name = "Space-Ruin Port Tarkon"
 	description = "An ambitious goal, A step forward, A trial run for the Tarkon drill, ment to implant mining stations within meteors. Decades of disaster have, however, left this one... Unattended for far too long."
 	always_place = TRUE
+	cost = 0 //See DS2 cost explanation. Also for a plan when i expand on tarkon and alternative maps
 
 /obj/modular_map_root/port_tarkon
 	config_file = "strings/modular_maps/nova/PortTarkon.toml"
 
+/obj/modular_map_root/interlink
+	config_file = "strings/modular_maps/nova/Interlink.toml"

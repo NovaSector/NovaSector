@@ -152,6 +152,17 @@
 	card = null
 	return ..()
 
+// Need to override parent here because the message we dispatch is turf-based, not based on the location of the object because that could be fuckin anywhere
+/mob/living/silicon/pai/send_applicable_messages()
+	var/turf/location = get_turf(src)
+	location.visible_message(span_danger(get_visible_suicide_message()), null, span_hear(get_blind_suicide_message())) // null in the second arg here because we're sending from the turf
+
+/mob/living/silicon/pai/get_visible_suicide_message()
+	return "[src] flashes a message across its screen, \"Wiping core files. Please acquire a new personality to continue using pAI device functions.\""
+
+/mob/living/silicon/pai/get_blind_suicide_message()
+	return "[src] bleeps electronically."
+
 /mob/living/silicon/pai/emag_act(mob/user)
 	return handle_emag(user)
 
@@ -159,11 +170,11 @@
 	. = ..()
 	. += "Its master ID string seems to be [(!master_name || emagged) ? "empty" : master_name]."
 	//NOVA EDIT ADDITION BEGIN - CUSTOMIZATION
-	. += get_silicon_flavortext()
+	. += get_silicon_flavortext(user)
 	//NOVA EDIT ADDITION END
 
 /mob/living/silicon/pai/get_status_tab_items()
-	. += ..()
+	. = ..()
 	if(!stat)
 		. += "Emitter Integrity: [holochassis_health * (100 / HOLOCHASSIS_MAX_HEALTH)]."
 	else
@@ -195,6 +206,7 @@
 
 /mob/living/silicon/pai/Initialize(mapload)
 	. = ..()
+	AddComponent(/datum/component/holographic_nature)
 	if(istype(loc, /obj/item/modular_computer))
 		give_messenger_ability()
 	START_PROCESSING(SSfastprocess, src)

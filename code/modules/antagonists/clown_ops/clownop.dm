@@ -24,7 +24,6 @@
 /datum/antagonist/nukeop/clownop/remove_innate_effects(mob/living/mob_override)
 	var/mob/living/L = owner.current || mob_override
 	REMOVE_TRAIT(L.mind, TRAIT_NAIVE, CLOWNOP_TRAIT)
-	return ..()
 
 /datum/antagonist/nukeop/clownop/equip_op()
 	. = ..()
@@ -56,7 +55,6 @@
 /datum/antagonist/nukeop/leader/clownop/remove_innate_effects(mob/living/mob_override)
 	var/mob/living/L = owner.current || mob_override
 	REMOVE_TRAIT(L.mind, TRAIT_NAIVE, CLOWNOP_TRAIT)
-	return ..()
 
 /datum/antagonist/nukeop/leader/clownop/equip_op()
 	. = ..()
@@ -78,8 +76,7 @@
 
 /datum/outfit/clown_operative/post_equip(mob/living/carbon/human/H, visuals_only)
 	var/obj/item/mod/module/armor_booster/booster = locate() in H.back
-	booster.active = TRUE
-	H.update_worn_back()
+	booster.activate()
 
 /datum/outfit/clown_operative_elite
 	name = "Clown Operative (Elite, Preview only)"
@@ -89,5 +86,4 @@
 
 /datum/outfit/clown_operative_elite/post_equip(mob/living/carbon/human/H, visuals_only)
 	var/obj/item/mod/module/armor_booster/booster = locate() in H.back
-	booster.active = TRUE
-	H.update_worn_back()
+	booster.activate()

@@ -14,7 +14,7 @@ import {
 
 import { PageSelect } from '../components/PageSelect';
 import { ScrollableSection } from '../components/ScrollableSection';
-import { LibraryConsoleData } from '../types';
+import type { LibraryConsoleData } from '../types';
 import { useLibraryContext } from '../useLibraryContext';
 
 export function Checkout(props) {
@@ -102,7 +102,7 @@ function CheckoutModal(props) {
               <Input
                 width="160px"
                 value={checkoutee}
-                onChange={(e, value) => setCheckoutee(value)}
+                onChange={setCheckoutee}
               />
             </LabeledList.Item>
             <LabeledList.Item label="Loan Period">

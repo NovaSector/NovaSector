@@ -23,7 +23,7 @@
 		to_chat(src, span_notice("Unable to access airlock."))
 		return
 	if(door.obj_flags & EMAGGED)
-		to_chat("Airlock is unresponsive.")
+		to_chat(src, "Airlock is unresponsive.")
 		return
 
 	COOLDOWN_START(door, answer_cd, 10 SECONDS)

@@ -11,17 +11,19 @@
 /obj/item/clothing/head/deprivation_helmet
 	name = "deprivation helmet"
 	desc = "When configured, completely cuts off the wearer from the outside world. Three switches rest on the back."
-	icon_state = "dephelmet"
 	base_icon_state = "dephelmet"
-	icon = 'modular_nova/modules/modular_items/lewd_items/icons/obj/lewd_clothing/lewd_hats.dmi'
 	worn_icon = 'modular_nova/modules/modular_items/lewd_items/icons/mob/lewd_clothing/lewd_hats.dmi'
 	greyscale_colors = "#383840#dc7ef4#383840#dc7ef4"
+	icon = 'icons/map_icons/clothing/head/_head.dmi'
+	icon_state = "/obj/item/clothing/head/deprivation_helmet"
+	post_init_icon_state = "dephelmet"
 	greyscale_config = /datum/greyscale_config/dephelmet
 	greyscale_config_worn = /datum/greyscale_config/dephelmet/worn
 	flags_1 = IS_PLAYER_COLORABLE_1
 	flags_inv = HIDEMASK|HIDEEARS|HIDEEYES|HIDEFACE|HIDEHAIR|HIDESNOUT|HIDEFACIALHAIR
 	flags_cover = HEADCOVERSEYES | HEADCOVERSMOUTH
 	clothing_flags = SNUG_FIT
+	action_slots = ALL
 	unique_reskin = list(
 		"Earred" = "dephelmet",
 		"Earless" = "dephelmet_earless"

@@ -51,8 +51,6 @@
 				/obj/item/clothing/suit/apron/overalls = 1,
 				/obj/item/clothing/head/costume/maidheadband = 1,
 				/obj/item/clothing/under/costume/maid = 1,
-				/obj/item/clothing/gloves/maid = 1,
-				/obj/item/clothing/neck/maid = 1,
 				/obj/item/clothing/under/rank/civilian/janitor/maid = 1,
 				/obj/item/clothing/accessory/maidapron = 1,
 				/obj/item/clothing/gloves/maid_arm_covers = 1,
@@ -84,7 +82,7 @@
 	)
 
 	contraband_nova = list(
-		/obj/item/clothing/mask/balaclavaadjust = 5,
+		/obj/item/clothing/mask/balaclava/adjustable = 5,
 		/obj/item/clothing/mask/balaclava/threehole = 5,
 		/obj/item/clothing/mask/balaclava/threehole/green = 5,
 		/obj/item/clothing/head/hats/imperial/helmet = 5,

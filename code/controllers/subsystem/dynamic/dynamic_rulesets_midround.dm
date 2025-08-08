@@ -877,7 +877,7 @@
 	message_admins("[ADMIN_LOOKUPFLW(obsessed)] has been made Obsessed by the midround ruleset.")
 	log_game("[key_name(obsessed)] was made Obsessed by the midround ruleset.")
 	notify_ghosts(
-		"[obsessed] has developed an obsession with someone!",
+		"[obsessed.real_name] has developed an obsession with someone!",
 		source = obsessed,
 		header = "Love Can Bloom",
 	)
@@ -975,6 +975,7 @@
 		if (!opt_in_disabled && player.mind?.get_effective_opt_in_level() < OPT_IN_YES_ROUND_REMOVE)
 			continue
 		// NOVA EDIT ADDITION END
+		possible_targets += player
 
 	if(possible_targets.len)
 		return pick(possible_targets)
@@ -1013,7 +1014,7 @@
 	var/datum/mind/player_mind = new /datum/mind(applicant.key)
 	player_mind.active = TRUE
 
-	var/mob/living/carbon/human/voidwalker = new (space_turf)
+	var/mob/living/basic/voidwalker/voidwalker = new (space_turf)
 	player_mind.transfer_to(voidwalker)
 	player_mind.set_assigned_role(SSjob.get_job_type(/datum/job/voidwalker))
 	player_mind.special_role = antag_flag

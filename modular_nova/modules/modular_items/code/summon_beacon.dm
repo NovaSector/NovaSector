@@ -13,8 +13,11 @@
 	var/list/allowed_areas = list(
 		/area,
 	)
+	/// If we are allowed to place in custom areas. Custom area represented by having [/datum/component/custom_area].
+	var/allow_custom_areas = TRUE
 
-	/// A list of possible atoms available to spawn
+	/// A list of possible atoms available to spawn. Cen be either regular list or associative list.
+	/// Atoms in keys of assotiative list will be used as variants shown to user, values - actual items to spawn.
 	var/list/selectable_atoms = list(
 		/obj/item/summon_beacon,
 	)
@@ -61,19 +64,34 @@
 
 	selected_atom = show_radial_menu(user, src, radial_build, radius = 40, tooltips = TRUE)
 
+	if(selectable_atoms[selected_atom])
+		selected_atom = selectable_atoms[selected_atom]
+
 /obj/item/summon_beacon/proc/get_available_options()
 	var/list/options = list()
 	for(var/iterating_choice in selectable_atoms)
-		var/obj/our_object = iterating_choice
+		var/obj/icon_object = iterating_choice
+		var/choice_icon = icon_object.greyscale_config ? SSgreyscale.GetColoredIconByType(icon_object.greyscale_config, icon_object.greyscale_colors) : icon_object::icon
 		var/datum/radial_menu_choice/option = new
-		option.image = image(icon = initial(our_object.icon), icon_state = initial(our_object.icon_state))
-		option.info = span_boldnotice("[initial(our_object.desc)]")
+		var/obj/our_object = selectable_atoms[iterating_choice]
+		option.image = image(icon = choice_icon, icon_state = icon_object::post_init_icon_state || icon_object::icon_state)
+		option.name = our_object ? our_object::name : icon_object::name
+		option.info = span_boldnotice("[selectable_atoms[iterating_choice] ? our_object::desc : icon_object::desc]")
 
-		options[our_object] = option
+		options[icon_object] = option
 
 	sort_list(options)
 
 	return options
+
+/obj/item/summon_beacon/proc/area_check(area/target_area, turf/target_turf)
+	if(!target_turf)
+		return FALSE
+	if(!target_area)
+		return FALSE
+	if(!(is_type_in_list(target_area, allowed_areas) || (allow_custom_areas && target_area.GetComponent(/datum/component/custom_area))))
+		return FALSE
+	return TRUE
 
 /obj/item/summon_beacon/ranged_interact_with_atom(atom/interacting_with, mob/living/user, list/modifiers)
 	if(!selected_atom)
@@ -81,7 +99,7 @@
 		return NONE
 	var/turf/target_turf = get_turf(interacting_with)
 	var/area/target_area = get_area(interacting_with)
-	if(!target_turf || !target_area || !is_type_in_list(target_area, allowed_areas))
+	if(!area_check(target_area, target_turf))
 		balloon_alert(user, "can't call here!")
 		return NONE
 
@@ -127,7 +145,6 @@
 	new /obj/item/summon_beacon/gas_miner(src)
 	new /obj/item/summon_beacon/gas_miner(src)
 
-
 // Actual beacons start here
 
 /obj/item/summon_beacon/gas_miner
@@ -137,15 +154,102 @@
 	allowed_areas = list(
 		/area/station/engineering/atmos,
 		/area/station/engineering/atmospherics_engine,
+		/area/ruin/space/has_grav/nova/des_two/engineering, //ds2
+		/area/ruin/space/has_grav/port_tarkon/atmos, //tarkon
+		/area/centcom/tdome/arena, //thunderdome
 	)
 
 	selectable_atoms = list(
-		/obj/machinery/atmospherics/miner/carbon_dioxide,
-		/obj/machinery/atmospherics/miner/n2o,
-		/obj/machinery/atmospherics/miner/nitrogen,
-		/obj/machinery/atmospherics/miner/oxygen,
-		/obj/machinery/atmospherics/miner/plasma,
+		/obj/machinery/portable_atmospherics/canister/carbon_dioxide = /obj/machinery/atmospherics/miner/carbon_dioxide,
+		/obj/machinery/portable_atmospherics/canister/nitrous_oxide = /obj/machinery/atmospherics/miner/n2o,
+		/obj/machinery/portable_atmospherics/canister/nitrogen = /obj/machinery/atmospherics/miner/nitrogen,
+		/obj/machinery/portable_atmospherics/canister/oxygen = /obj/machinery/atmospherics/miner/oxygen,
+		/obj/machinery/portable_atmospherics/canister/plasma = /obj/machinery/atmospherics/miner/plasma,
+		/obj/machinery/portable_atmospherics/canister/water_vapor = /obj/machinery/atmospherics/miner/water_vapor,
 	)
 
 	area_string = "atmospherics"
 	supply_pod_stay = TRUE
+
+/obj/item/summon_beacon/gas_miner/ranged_interact_with_atom(atom/interacting_with, mob/living/user, list/modifiers)
+	. = ..()
+	if(. == ITEM_INTERACT_SUCCESS)
+		var/turf/location = get_turf(interacting_with)
+		location.investigate_log("was selected as target to spawn [selected_atom.name] by [user.ckey]", INVESTIGATE_ATMOS)
+		message_admins("[selected_atom.name] was spawned by [user] ([user.ckey]) [ADMIN_JMP(location)].")
+
+/obj/item/summon_beacon/vendors
+	name = "Vendors beacon"
+	desc = "Delivers a Vendor via orbital drop with patented Donk Co. SafeTec Technology!"
+	uses = 2
+
+	selectable_atoms = list(
+		/obj/machinery/vending/assist, // "Part-Mart"
+		/obj/machinery/vending/autodrobe, // "AutoDrobe"
+		/obj/machinery/vending/boozeomat, // "Booze-O-Mat"
+		/obj/machinery/vending/cigarette, // "ShadyCigs Deluxe"
+		/obj/machinery/vending/clothing, // "ClothesMate"
+		/obj/machinery/vending/coffee, // "Solar's Best Hot Drinks"
+		/obj/machinery/vending/cola, // "Robust Softdrinks"
+		/obj/machinery/vending/custom, // "Custom Vendor"
+		/obj/machinery/vending/dinnerware, // "Plasteel Chef's Dinnerware Vendor"
+		/obj/machinery/vending/games, // "Good Clean Fun"
+		/obj/machinery/vending/hydronutrients, // "NutriMax"
+		/obj/machinery/vending/hydroseeds, // "MegaSeed Servitor"
+		/obj/machinery/vending/modularpc, // "Deluxe Silicate Selections"
+		/obj/machinery/vending/snack, // "Getmore Chocolate Corp"
+		/obj/machinery/vending/tool, // "YouTool"
+		/obj/machinery/vending/barbervend, // "Fab-O-Vend"
+		/obj/machinery/vending/imported/nt, // "NT Sustenance Supplier"
+		/obj/machinery/vending/imported/mothic, // "Nomad Fleet Ration Chit Exchange"
+		/obj/machinery/vending/imported/tiziran, // "Tiziran Imported Delicacies"
+		/obj/machinery/vending/imported/yangyu, // "Fudobenda"
+		/obj/machinery/vending/deforest_medvend, // "DeForest Med-Vend"
+	)
+
+/obj/item/summon_beacon/vendors/equipped(mob/user, slot, initial)
+	. = ..()
+	if (!CONFIG_GET(flag/disable_erp_preferences) && user?.client?.prefs.read_preference(/datum/preference/toggle/master_erp_preferences))
+		selectable_atoms += /obj/machinery/vending/dorms
+	else
+		selectable_atoms -= /obj/machinery/vending/dorms
+
+/obj/item/summon_beacon/gas_miner/hacked
+	name = "hacked gas miner beacon"
+	desc = parent_type::desc + " It seems the area detector is hardcoded to TRUE. Huh."
+	area_string = "any"
+	allowed_areas = list(
+		/area,
+	)
+
+/obj/item/summon_beacon/gas_miner/expanded
+	name = "expanded gas miner beacon"
+	desc = parent_type::desc + " This one seems to have its selection expanded."
+
+/obj/item/summon_beacon/gas_miner/expanded/Initialize(mapload)
+	. = ..()
+	selectable_atoms += list(
+		/obj/machinery/portable_atmospherics/canister/water_vapor = /obj/machinery/atmospherics/miner/water_vapor,
+		/obj/machinery/portable_atmospherics/canister/freon = /obj/machinery/atmospherics/miner/freon,
+		/obj/machinery/portable_atmospherics/canister/halon = /obj/machinery/atmospherics/miner/halon,
+		/obj/machinery/portable_atmospherics/canister/healium = /obj/machinery/atmospherics/miner/healium,
+		/obj/machinery/portable_atmospherics/canister/hydrogen = /obj/machinery/atmospherics/miner/hydrogen,
+		/obj/machinery/portable_atmospherics/canister/nob = /obj/machinery/atmospherics/miner/hypernoblium,
+		/obj/machinery/portable_atmospherics/canister/miasma = /obj/machinery/atmospherics/miner/miasma,
+		/obj/machinery/portable_atmospherics/canister/nitrium = /obj/machinery/atmospherics/miner/nitrium,
+		/obj/machinery/portable_atmospherics/canister/pluoxium = /obj/machinery/atmospherics/miner/pluoxium,
+		/obj/machinery/portable_atmospherics/canister/proto_nitrate = /obj/machinery/atmospherics/miner/proto_nitrate,
+		/obj/machinery/portable_atmospherics/canister/tritium = /obj/machinery/atmospherics/miner/tritium,
+		/obj/machinery/portable_atmospherics/canister/zauker = /obj/machinery/atmospherics/miner/zauker,
+		/obj/machinery/portable_atmospherics/canister/helium = /obj/machinery/atmospherics/miner/helium,
+		/obj/machinery/portable_atmospherics/canister/antinoblium = /obj/machinery/atmospherics/miner/antinoblium,
+	)
+
+/obj/item/summon_beacon/gas_miner/expanded/debug
+	name = "debug gas miner beacon"
+	desc = "You better know what you are doing with this."
+	area_string = "any"
+	uses = 99
+	allowed_areas = list(
+		/area,
+	)

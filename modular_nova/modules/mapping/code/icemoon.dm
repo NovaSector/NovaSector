@@ -89,11 +89,20 @@
 	default_raw_text = "<i>I refuse to believe we're reduced to this- to sacrifice our own in hopes of our gods taking pity and rescuing us. We've lost too many already... I regret not joining with the rest. But I won't sit here and wait for my turn to be sacrificed, moping about like some sort of useless bastard. Me, my husband, and my sibling Halko will soon make our move, once the grand priest goes to sleep.</i>"
 
 /obj/item/paper/crumpled/bloody/fluff/stations/lavaland/sacred_temple/ui_status(mob/user, datum/ui_state/state)
-    if(!user.has_language(/datum/language/primitive_catgirl))
-        to_chat(user, span_warning("This seems to be in a language you do not understand!"))
-        return UI_CLOSE
+	if(!user.has_language(/datum/language/primitive_catgirl))
+		to_chat(user, span_warning("This seems to be in a language you do not understand!"))
+		return UI_CLOSE
 
-    . = ..()
+	. = ..()
+
+//declaration for the Frozenwake ruin, the rest can be found in modular_nova\modules\mapping\code\frozenwake.dm
+/datum/map_template/ruin/icemoon/underground/nova/frozenwake
+	name = "frozenwake"
+	id = "frozenwake"
+	description = "A forgotten Hearthkin shrine buried in ice and silence, where ancient runes whisper of a fallen light and a long-awaited return."
+	prefix = "_maps/RandomRuins/IceRuins/nova/"
+	suffix = "icemoon_underground_frozenwake.dmm"
+	allow_duplicates = FALSE
 
 /*----- Above Ground -----*/
 ////// Yes, I know the "Above Ground" Is very limited in space. This is a... ~17x17? ruin.

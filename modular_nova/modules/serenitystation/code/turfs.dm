@@ -126,6 +126,10 @@
 	desc = "Sturdy exterior hull plating that separates you from the outside world."
 	initial_gas_mix = FOREST_DEFAULT_ATMOS
 
+/turf/open/water/forest_atmos
+	initial_gas_mix = FOREST_DEFAULT_ATMOS
+	baseturfs = /turf/open/water/forest_atmos
+
 /turf/open/lava/plasma/forest
 	initial_gas_mix = FOREST_DEFAULT_ATMOS
 	baseturfs = /turf/open/lava/plasma/forest
@@ -142,5 +146,10 @@
 	underfloor_accessibility = 2 //This avoids strangeness when routing pipes / wires along catwalks over lava
 
 /turf/open/floor/plating/forest
-	icon_state = "plating"
+	initial_gas_mix = FOREST_DEFAULT_ATMOS
+
+/turf/open/floor/pod/forest
+	initial_gas_mix = FOREST_DEFAULT_ATMOS
+
+/turf/open/floor/stone/forest
 	initial_gas_mix = FOREST_DEFAULT_ATMOS
