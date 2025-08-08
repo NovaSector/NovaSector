@@ -203,6 +203,7 @@
 	icon = 'icons/map_icons/clothing/suit/_suit.dmi'
 	icon_state = "/obj/item/clothing/suit/nova/overcoat"
 	post_init_icon_state = "overcoat"
+	body_parts_covered = CHEST|ARMS
 	greyscale_config = /datum/greyscale_config/overcoat
 	greyscale_config_worn = /datum/greyscale_config/overcoat/worn
 	greyscale_colors = "#2d3a46#ffcc66#eaeaea"
