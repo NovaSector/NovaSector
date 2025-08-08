@@ -131,7 +131,7 @@
 
 /datum/loadout_item/suit/winter_coat_fancy
 	name = "Winter Coat - Trenchcoat (Colorable)"
-	item_path = /obj/item/clothing/suit/nova/trenchcoat
+	item_path = /obj/item/clothing/suit/nova/furred_trenchcoat
 
 //Job Winter Coats (Don't want to alphabetize these mixed with the other wintercoats)
 /datum/loadout_item/suit/coat_atmos
@@ -407,23 +407,23 @@
 
 /datum/loadout_item/suit/offdep_jacket
 	name = "Work Jacket - Off-Department"
-	item_path = /obj/item/clothing/suit/toggle/jacket/nova/assistant
+	item_path = /obj/item/clothing/suit/toggle/jacket/nova/colorable_bomber
 
 /datum/loadout_item/suit/engi_jacket
 	name = "Work Jacket - Engineering"
-	item_path = /obj/item/clothing/suit/toggle/jacket/nova/engi
+	item_path = /obj/item/clothing/suit/toggle/jacket/nova/colorable_bomber/engi
 
 /datum/loadout_item/suit/sci_jacket
 	name = "Work Jacket - Science"
-	item_path = /obj/item/clothing/suit/toggle/jacket/nova/sci
+	item_path = /obj/item/clothing/suit/toggle/jacket/nova/colorable_bomber/sci
 
 /datum/loadout_item/suit/med_jacket
 	name = "Work Jacket - Medbay"
-	item_path = /obj/item/clothing/suit/toggle/jacket/nova/med
+	item_path = /obj/item/clothing/suit/toggle/jacket/nova/colorable_bomber/med
 
 /datum/loadout_item/suit/supply_jacket
 	name = "Work Jacket - Supply"
-	item_path = /obj/item/clothing/suit/toggle/jacket/nova/supply
+	item_path = /obj/item/clothing/suit/toggle/jacket/nova/colorable_bomber/supply
 
 /*
 *	HOODIES
