@@ -193,7 +193,7 @@
 	min_cold_protection_temperature = FIRE_SUIT_MIN_TEMP_PROTECT
 	greyscale_config = /datum/greyscale_config/fluffywintercoat
 	greyscale_config_worn = /datum/greyscale_config/fluffywintercoat/worn
-	greyscale_colors = "#FCFCFD#CCCED1#8A8B9D#68697D"
+	greyscale_colors = "#eaeaea#969696#4d4d4d#ccffff"
 	flags_1 = IS_PLAYER_COLORABLE_1
 	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION_NO_NEW_ICON
 
@@ -205,6 +205,6 @@
 	post_init_icon_state = "overcoat"
 	greyscale_config = /datum/greyscale_config/overcoat
 	greyscale_config_worn = /datum/greyscale_config/overcoat/worn
-	greyscale_colors = "#FCFCFD#CCCED1#8A8B9D"
+	greyscale_colors = "#2d3a46#ffcc66#eaeaea"
 	flags_1 = IS_PLAYER_COLORABLE_1
 	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION_NO_NEW_ICON
