@@ -229,9 +229,9 @@
 
 /// Placed in here for now until a better solution is found.
 
-/obj/item/clothing/suit/nova/trenchcoat
-	name = "Ushinkov Trenchcoat"
-	desc = "A trenchcoat, made for the cold, dark, and desperate winter nights."
+/obj/item/clothing/suit/nova/furred_trenchcoat
+	name = "furred trenchcoat"
+	desc = "A warm trenchcoat lined with fur, made for the cold, dark, and desperate winter nights."
 	icon = 'icons/map_icons/clothing/suit/_suit.dmi'
 	icon_state = "/obj/item/clothing/suit/nova/trenchcoat"
 	post_init_icon_state = "coat"
@@ -245,7 +245,7 @@
 	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION_NO_NEW_ICON
 
 /obj/item/clothing/suit/nova/overcoat
-	name = "Regal Overcoat"
+	name = "regal overcoat"
 	desc = "An overcoat of regalness, it looks quite fancy."
 	icon = 'icons/map_icons/clothing/suit/_suit.dmi'
 	icon_state = "/obj/item/clothing/suit/nova/overcoat"

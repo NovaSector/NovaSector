@@ -218,8 +218,8 @@ Potential future ideas:
 	greyscale_colors = "#ff99ff"
 
 /obj/item/clothing/accessory/nova/acc_medal/dogtags
-	name = "Dogtags"
-	desc = "A pair of standard issue dogtags, its seems to have survived through time."
+	name = "dogtags"
+	desc = "A pair of standard issue dogtags. Rather outdated concept, but still do their job."
 	icon = 'icons/map_icons/clothing/accessory.dmi'
 	icon_state = "/obj/item/clothing/accessory/nova/acc_medal/dogtags"
 	post_init_icon_state = "dogtags"
