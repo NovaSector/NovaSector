@@ -3593,8 +3593,8 @@
 /area/awaymission/caves/heretic_laboratory)
 "xO" = (
 /obj/machinery/light/floor,
-/obj/item/organ/heart/gland/access,
 /obj/structure/closet/crate/freezer,
+/obj/item/organ/heart/gland/electric,
 /turf/open/floor/iron/small,
 /area/awaymission/caves/heretic_laboratory_clean)
 "xQ" = (
