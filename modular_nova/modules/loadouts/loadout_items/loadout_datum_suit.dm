@@ -45,6 +45,10 @@
 	name = "Hawaiian Shirt"
 	item_path = /obj/item/clothing/suit/costume/hawaiian
 
+/datum/loadout_item/suit/overcoat
+	name = "Overcoat (Colorable)"
+	item_path = /obj/item/clothing/suit/nova/overcoat
+
 /datum/loadout_item/suit/wellwornshirt
 	name = "Oversized Shirt"
 	item_path = /obj/item/clothing/suit/costume/wellworn_shirt
@@ -88,10 +92,6 @@
 /datum/loadout_item/suit/suspenders
 	name = "Suspenders (Colorable)"
 	item_path = /obj/item/clothing/suit/toggle/suspenders
-
-/datum/loadout_item/suit/overcoat
-	name = "Overcoat (Colorable)"
-	item_path = /obj/item/clothing/suit/nova/overcoat
 
 /*
 *	WINTER COATS

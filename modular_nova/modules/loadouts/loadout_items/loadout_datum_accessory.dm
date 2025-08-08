@@ -122,6 +122,10 @@
 	abstract_type = /datum/loadout_item/accessory/medal
 	group = "Medals"
 
+/datum/loadout_item/accessory/medal/dogtags
+	name = "Dogtags"
+	item_path = /obj/item/clothing/accessory/nova/acc_medal/dogtags
+
 /datum/loadout_item/accessory/medal/shield
 	name = "Medal - Shield"
 	item_path = /obj/item/clothing/accessory/nova/acc_medal/shield
@@ -206,10 +210,6 @@
 /datum/loadout_item/accessory/medal/glow_crystal
 	name = "Glowcrystal necklace"
 	item_path = /obj/item/clothing/accessory/nova/acc_medal/glowcrystal
-
-/datum/loadout_item/accessory/medal/dogtags
-	name = "Dogtags"
-	item_path = /obj/item/clothing/accessory/nova/acc_medal/dogtags
 
 /datum/loadout_item/accessory/medal/rankpin_star
 	name = "Rankpin (Star)"
