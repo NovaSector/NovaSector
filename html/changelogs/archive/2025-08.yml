@@ -390,9 +390,19 @@
   zxaber:
   - bugfix: Borg modules no longer fail to break if they were holding an item.
 2025-08-09:
+  BasilTamaya:
+  - rscadd: The machete now has unique unwielded and wielded damage values.
+  - qol: Machete now works properly and as intended.
+  - balance: 'The machete now has a special use case that makes it unique from the
+      rest of the crushers, compared to everything else that needs to be wielded in
+      order to use them. Now properly fits its description: A compact crusher.'
+  - sound: Added block sounds for the crushers. Whether it's the Marked One trophy,
+      or the machete, players now receive proper audio feedback when blocking.
   RealWinterFrost:
   - rscadd: Added new cyborg ghost role spawners to DS-2 and Interdyne
   - image: changed the borg spawner sprites.
   - map: added the new borg spawners to DS-2, Interdyne, and snowdyne (some things
       may be moved haphazardly).
   - qol: Added Civilian bountypads to ghost roles
+  WhereAmO:
+  - bugfix: IPCs with the RDS quirk can now hallucinate again.
