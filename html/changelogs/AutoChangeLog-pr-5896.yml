@@ -1,0 +1,4 @@
+author: "WhereAmO"
+delete-after: True
+changes:
+  - bugfix: "IPCs with the RDS quirk can now hallucinate again."
