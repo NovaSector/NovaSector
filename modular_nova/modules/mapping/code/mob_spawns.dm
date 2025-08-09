@@ -34,7 +34,7 @@
 	name = "Black Market Trader"
 	uniform = /obj/item/clothing/under/rank/cargo/tech
 	shoes = /obj/item/clothing/shoes/laceup
-	id = /obj/item/card/id/advanced/chameleon/black/blackmarket
+	id = /obj/item/card/id/advanced/chameleon/elite/black/blackmarket
 	l_pocket = /obj/item/shuttle_remote/bmd
 
 /datum/outfit/black_market/post_equip(mob/living/carbon/human/shady, visualsOnly)
@@ -630,7 +630,7 @@
 	desc = "A perfectly generic identification card. Looks like it could use some flavor. This one looks like it belonged to someone important."
 	wildcard_slots = WILDCARD_LIMIT_SILVER
 
-/obj/item/card/id/advanced/chameleon/black/blackmarket
+/obj/item/card/id/advanced/chameleon/elite/black/blackmarket
 	name = "scuffed ID card"
 	desc = "A faded, scuffed, plastic ID card. You can make out the rank \"Deck Crewman\"."
 	trim = /datum/id_trim/away/blackmarket

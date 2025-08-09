@@ -5,10 +5,10 @@
 		<b>higher maximum output</b> than some larger units. Most commonly seen being used not for their ability to store \
 		power, but rather for use in regulating power input and output."
 	icon = 'modular_nova/modules/colony_fabricator/icons/power_storage_unit/small_battery.dmi'
-	capacity = 10 * STANDARD_BATTERY_CHARGE // Same as 1 whole high-capac megacell
 	input_level_max = 400 KILO WATTS
 	output_level_max = 400 KILO WATTS
-	circuit = null
+	total_capacity = 10 * STANDARD_BATTERY_CHARGE // Same as 1 whole high-capac megacell
+	circuit = /obj/item/circuitboard/machine/battery_pack
 	/// The item we turn into when repacked
 	var/repacked_type = /obj/item/flatpacked_machine/station_battery
 
@@ -16,6 +16,10 @@
 	. = ..()
 	AddElement(/datum/element/repackable, repacked_type, 5 SECONDS)
 	AddElement(/datum/element/manufacturer_examine, COMPANY_FRONTIER)
+	// we dont use parts, but we need at least one cell to hold charge for us
+	var/obj/item/stock_parts/power_store/battery/megacell = locate() in component_parts
+	megacell.maxcharge = total_capacity
+
 	if(!mapload)
 		flick("smes_deploy", src)
 
@@ -44,6 +48,9 @@
 /obj/machinery/power/smes/battery_pack/RefreshParts()
 	return
 
+/obj/machinery/power/smes/battery_pack/exchange_parts(mob/user, obj/item/storage/part_replacer/replacer_tool)
+	return FALSE
+
 // We also don't need to bother with fuddling with charging power cells, there are none to remove
 /obj/machinery/power/smes/battery_pack/on_deconstruction()
 	return
@@ -54,7 +61,7 @@
 
 /obj/machinery/power/smes/battery_pack/precharged/Initialize(mapload)
 	. = ..()
-	charge = capacity
+	charge = total_capacity
 
 // Item for creating the small battery and carrying it around
 
@@ -78,9 +85,10 @@
 		<b>low maximum output</b> compared to smaller units. Most commonly seen as large backup batteries, or simply \
 		for large power storage where throughput is not a concern."
 	icon = 'modular_nova/modules/colony_fabricator/icons/power_storage_unit/large_battery.dmi'
-	capacity = 100 * STANDARD_BATTERY_CHARGE
 	input_level_max = 50 KILO WATTS
 	output_level_max = 50 KILO WATTS
+	total_capacity = 100 * STANDARD_BATTERY_CHARGE
+	circuit = /obj/item/circuitboard/machine/battery_pack/large
 	repacked_type = /obj/item/flatpacked_machine/large_station_battery
 
 // Automatically set themselves to be completely charged on init
@@ -89,7 +97,7 @@
 
 /obj/machinery/power/smes/battery_pack/large/precharged/Initialize(mapload)
 	. = ..()
-	charge = capacity
+	charge = total_capacity
 
 /obj/item/flatpacked_machine/large_station_battery
 	name = "flat-packed large stationary battery"
@@ -101,3 +109,17 @@
 		/datum/material/glass = SHEET_MATERIAL_AMOUNT * 4,
 		/datum/material/gold = SHEET_MATERIAL_AMOUNT,
 	)
+
+// Those circuits exist only in our imagination, needed to add a cell in to our smeses, otherwise they can't hold any charge
+/obj/item/circuitboard/machine/battery_pack
+	name = "stationary battery"
+	greyscale_colors = CIRCUIT_COLOR_ENGINEERING
+	build_path = /obj/machinery/power/smes/battery_pack
+	req_components = list(
+		/obj/item/stock_parts/power_store/battery = 1,
+		)
+	def_components = list(/obj/item/stock_parts/power_store/battery = /obj/item/stock_parts/power_store/battery/high/empty)
+
+/obj/item/circuitboard/machine/battery_pack/large
+	name = "large stationary battery"
+	build_path = /obj/machinery/power/smes/battery_pack/large
