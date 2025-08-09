@@ -14,7 +14,7 @@ export const erp_belly_vore_prey: FeatureChoiced = {
   name: 'Vore Prey Preference',
   category: 'BELLY',
   description:
-    'Determines whether or not you partake in the belly system to engage in vore as a prey.  Never means you can never be a prey, query means you always get queried before someome tries to take you, query-online always queries BUT automatically consents when SSD, always means you always consent.',
+    'Determines whether or not you partake in the belly system to engage in vore as a prey.  Never means you can never be a prey, query means you always get queried before someome tries to take you, always means you always consent.',
   component: FeatureDropdownInput,
 };
 
@@ -27,7 +27,7 @@ export const erp_bellyquirk_color: Feature<string> = {
 };
 
 export const erp_bellyquirk_skintone: FeatureToggle = {
-  name: 'Use Skintone',
+  name: 'Belly Uses Skintone',
   category: 'BELLY',
   description:
     'Use skintone spritesheets for better matching coloration on human-esque characters.',
@@ -42,38 +42,37 @@ export const erp_bellyquirk_sizemod: Feature<number> = {
 };
 
 export const erp_bellyquirk_sizemod_autostuffed: Feature<number> = {
-  name: 'Belly Nutrition Sizemod',
+  name: 'Belly Sizemod - Nutrition',
   component: FeatureSliderInput,
   description:
     'Size multiplier - applies to the contribution of your nutrition & stomach reagents to autocalculated stuffed size.',
 };
 
 export const erp_bellyquirk_sizemod_audio: Feature<number> = {
-  name: 'Belly Audio Sizemod',
+  name: 'Belly Sizemod - Audio',
   component: FeatureSliderInput,
   description:
     'Size multiplier for audio - all belly size sources are multiplied by this for determining audio intensity.',
 };
 
 export const erp_bellyquirk_size_base: Feature<number> = {
-  name: 'Base Cosmetic Size',
+  name: 'Base Size - Cosmetic',
   component: FeatureNumberInput,
-  description:
-    'Provides a baseline cosmetic belly size with no noise on spawn-in.  Good for Mom Critters expecting, or chubby bellies.',
+  description: 'Provides a baseline cosmetic belly size with no noises.',
 };
 
-export const erp_bellyquirk_size_endo: Feature<number> = {
-  name: 'Base Endosoma Size',
+export const erp_bellyquirk_size_full: Feature<number> = {
+  name: 'Base Size - Fullness',
   component: FeatureNumberInput,
   description:
-    'Provides a baseline endo-intended belly size with gentle fullness creaks & groans.  For bellypets or snoozing/AFK guests.',
+    'Provides a baseline cosmetic belly size with gentle fullness creaks & groans.',
 };
 
 export const erp_bellyquirk_size_stuffed: Feature<number> = {
-  name: 'Base Stuffed Size',
+  name: 'Base Size - Stuffed',
   component: FeatureNumberInput,
   description:
-    'Provides a baseline stuffing-intended belly size with gurgles, churns & sloshes from stuffed fullness.  For having stuffed your face last shift.',
+    'Provides a baseline cosmetic belly size with gurgles, churns & sloshes from stuffed fullness.',
 };
 
 export const erp_bellyquirk_sound_groans: FeatureToggle = {

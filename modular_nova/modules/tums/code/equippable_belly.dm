@@ -45,7 +45,7 @@
 	var/maxsize = 16
 	/// Baseline sizes that apply purely-cosmetic bellysize (e.g, preg/egg), a baseline endosoma size (causes creaks and such), and a baseline actively-gwurgly size for being stuffed without actually being stuffed.
 	var/base_size_cosmetic = 0
-	var/base_size_endo = 0
+	var/base_size_full = 0
 	var/base_size_stuffed = 0
 	/// Sound preferences.
 	var/allow_sound_groans = TRUE
@@ -168,7 +168,7 @@
 	var/opt_list = list("Change Color", "Toggle Skintone",
 	"Set Size Modifier", "Set Nutrition Size Modifier", "Set Size Modifier for Audio",
 	"Toggle Belly Groans", "Toggle Belly Gurgles", "Toggle Belly Movement Creaks", "Toggle Belly Movement Sloshes",
-	"Set Baseline Cosmetic Size", "Set Baseline Endo Size", "Set Baseline Stuffed Size",
+	"Set Baseline Cosmetic Size", "Set Baseline Full Size", "Set Baseline Stuffed Size",
 	"Adjust Pred Mode", "Set Guest Size")
 	var/list/mob/living/carbon/human/extra_size_list = list()
 
@@ -226,17 +226,17 @@
 				return
 			allow_sound_move_sloshes = (mode_select == "Yes") ? TRUE : FALSE
 		else if(adjustment_mode == "Set Baseline Cosmetic Size")
-			var/temp_size = tgui_input_number(user, "What purely cosmetic baseline belly size do you want?", "Base Size")
+			var/temp_size = tgui_input_number(user, "What silent, purely cosmetic baseline belly size do you want?", "Base Size")
 			if(isnull(temp_size) || QDELETED(user) || QDELETED(src))
 				return
 			base_size_cosmetic = temp_size
-		else if(adjustment_mode == "Set Baseline Endo Size")
-			var/temp_size = tgui_input_number(user, "What gently-noisy, cosmetic endosoma-induced belly size do you want?", "Base Endo Size")
+		else if(adjustment_mode == "Set Baseline Full Size")
+			var/temp_size = tgui_input_number(user, "What gently-creaking, cosmetic belly size do you want?", "Base Full Size")
 			if(isnull(temp_size) || QDELETED(user) || QDELETED(src))
 				return
-			base_size_endo = temp_size
+			base_size_full = temp_size
 		else if(adjustment_mode == "Set Baseline Stuffed Size")
-			var/temp_size = tgui_input_number(user, "What gurgly, cosmetic stuffing-induced belly size do you want?", "Base Stuffed Size")
+			var/temp_size = tgui_input_number(user, "What gurgly, cosmetic belly size do you want?", "Base Stuffed Size")
 			if(isnull(temp_size) || QDELETED(user) || QDELETED(src))
 				return
 			base_size_stuffed = temp_size
@@ -404,7 +404,7 @@
 	/// Fullness calculation formula.  This is based off sphere volume to produce a nice exponential curve.
 	/// pow(pow(size, 1.5) / (4/3) / PI, 1/3)
 
-	var/guest_temp = base_size_endo + total_endo_size
+	var/guest_temp = base_size_full + total_endo_size
 
 	/// Baseline @ 1x: 1250 nutrition.
 	/// Size 16 @ 1x: 17890 nutrition.

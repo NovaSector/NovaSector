@@ -235,8 +235,8 @@
 	icon = FA_ICON_PERSON_PREGNANT
 	value = 0
 	mob_trait = TRAIT_PREDATORY
-	gain_text = span_notice("You feel like you could eat a horse!")
-	lose_text = span_danger("You feel uncomfortable about the sensation of fullness again.")
+	gain_text = span_notice("You feel like your suit doesn't quite fit.")
+	lose_text = span_notice("You feel like your suit fits again.")
 	medical_record_text = "Patient's midriff is well defined." //Why does QUIRK_HIDE_FROM_SCAN not cut this from medical records too?
 	quirk_flags = QUIRK_PROCESSES | QUIRK_CHANGES_APPEARANCE | QUIRK_HIDE_FROM_SCAN
 	maximum_process_stat = null
@@ -290,11 +290,11 @@
 	if(size_base == null)
 		size_base = 0
 	the_bwelly.base_size_cosmetic = size_base
-	/// Base endosoma size - permanent and not dependent on actually having someone nommed.
-	var/size_endo = client_source.prefs.read_preference(/datum/preference/numeric/erp_bellyquirk_size_endo)
-	if(size_endo == null)
-		size_endo = 0
-	the_bwelly.base_size_endo = size_endo;
+	/// Base fullness size - permanent and not dependent on actually having someone nommed.
+	var/size_full = client_source.prefs.read_preference(/datum/preference/numeric/erp_bellyquirk_size_full)
+	if(size_full == null)
+		size_full = 0
+	the_bwelly.base_size_full = size_full;
 	/// Base stuffed size - permanent and not dependent on actually having high nutrition or a bunch of stomach regaents.
 	var/size_stuffed = client_source.prefs.read_preference(/datum/preference/numeric/erp_bellyquirk_size_stuffed)
 	if(size_stuffed == null)
@@ -474,18 +474,18 @@
 
 /// Per-character pref, a base cosmetic size that provides sounds of fullness.  All sizes stack.
 /// Implied endosoma, but doesn't require actually having someone in your belly.
-/datum/preference/numeric/erp_bellyquirk_size_endo
+/datum/preference/numeric/erp_bellyquirk_size_full
 	category = PREFERENCE_CATEGORY_MANUALLY_RENDERED
 	savefile_identifier = PREFERENCE_CHARACTER
-	savefile_key = "erp_bellyquirk_size_endo"
+	savefile_key = "erp_bellyquirk_size_full"
 	step = 1
 	minimum = 0
 	maximum = 10000
 
-/datum/preference/numeric/erp_bellyquirk_size_endo/apply_to_human(mob/living/carbon/human/target, value, datum/preferences/preferences)
+/datum/preference/numeric/erp_bellyquirk_size_full/apply_to_human(mob/living/carbon/human/target, value, datum/preferences/preferences)
 	return FALSE
 
-/datum/preference/numeric/erp_bellyquirk_size_endo/create_default_value()
+/datum/preference/numeric/erp_bellyquirk_size_full/create_default_value()
 	return 0
 
 /// Per-character pref, a base cosmetic size that provides sounds of fullness & churns.  All sizes stack.
@@ -600,7 +600,7 @@
 /datum/quirk_constant_data/stuffable/New()
 	customization_options = list(/datum/preference/color/erp_bellyquirk_color, /datum/preference/toggle/erp_bellyquirk_skintone,
 	/datum/preference/numeric/erp_bellyquirk_sizemod, /datum/preference/numeric/erp_bellyquirk_sizemod_autostuffed, /datum/preference/numeric/erp_bellyquirk_sizemod_audio, /datum/preference/numeric/erp_bellyquirk_maxsize,
-	/datum/preference/numeric/erp_bellyquirk_size_base, /datum/preference/numeric/erp_bellyquirk_size_endo, /datum/preference/numeric/erp_bellyquirk_size_stuffed,
+	/datum/preference/numeric/erp_bellyquirk_size_base, /datum/preference/numeric/erp_bellyquirk_size_full, /datum/preference/numeric/erp_bellyquirk_size_stuffed,
 	/datum/preference/toggle/erp_bellyquirk_groans, /datum/preference/toggle/erp_bellyquirk_gurgles, /datum/preference/toggle/erp_bellyquirk_move_creaks, /datum/preference/toggle/erp_bellyquirk_move_sloshes,
 	/datum/preference/choiced/erp_bellyquirk_pred_pref)
 
