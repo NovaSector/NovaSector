@@ -1,3 +1,8 @@
 ak_shoot is from freesounds.org made by ninebilly
 ak 47 - single shot.mp3
 https://freesound.org/people/ninebilly/sounds/520934/
+
+Bay Magnum sprites/sounds taken from Baystation12/Baystation12
+bay_magnum_in
+bay_magnum_out
+bay_gunshot_magnum
