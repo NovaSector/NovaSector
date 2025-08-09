@@ -105,12 +105,6 @@
 	},
 /turf/open/floor/iron,
 /area/awaymission/caves/heretic_laboratory)
-"aJ" = (
-/obj/machinery/light/floor,
-/obj/item/organ/heart/gland/quantum,
-/obj/structure/closet/crate/freezer,
-/turf/open/floor/iron/small,
-/area/awaymission/caves/heretic_laboratory_clean)
 "aK" = (
 /obj/structure/chair/comfy/shuttle,
 /turf/open/floor/pod/dark,
@@ -640,12 +634,6 @@
 /obj/effect/turf_decal/vg_decals/no,
 /turf/open/floor/engine,
 /area/awaymission/caves/heretic_laboratory)
-"eY" = (
-/obj/machinery/light/floor,
-/obj/item/organ/heart/gland/blood,
-/obj/structure/closet/crate/freezer,
-/turf/open/floor/iron/small,
-/area/awaymission/caves/heretic_laboratory_clean)
 "fb" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
@@ -1622,12 +1610,6 @@
 /obj/structure/closet/crate/freezer,
 /turf/open/floor/iron/small,
 /area/awaymission/caves/heretic_laboratory_clean)
-"kL" = (
-/obj/machinery/light/floor,
-/obj/item/organ/heart/gland/trauma,
-/obj/structure/closet/crate/freezer,
-/turf/open/floor/iron/small,
-/area/awaymission/caves/heretic_laboratory_clean)
 "kM" = (
 /turf/open/floor/iron/pool/cobble,
 /area/awaymission/caves/heretic_laboratory_clean)
@@ -1798,8 +1780,8 @@
 /area/awaymission/beach/heretic)
 "me" = (
 /obj/machinery/light/floor,
-/obj/item/organ/heart/gland/heal,
 /obj/structure/closet/crate/freezer,
+/obj/item/organ/heart/gland,
 /turf/open/floor/iron/small,
 /area/awaymission/caves/heretic_laboratory_clean)
 "mg" = (
@@ -3591,12 +3573,6 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /turf/open/floor/iron/small,
 /area/awaymission/caves/heretic_laboratory)
-"xO" = (
-/obj/machinery/light/floor,
-/obj/structure/closet/crate/freezer,
-/obj/item/organ/heart/gland/electric,
-/turf/open/floor/iron/small,
-/area/awaymission/caves/heretic_laboratory_clean)
 "xQ" = (
 /turf/open/floor/iron/dark,
 /area/awaymission/caves/heretic_laboratory)
@@ -6052,12 +6028,6 @@
 /obj/effect/landmark/awaystart/heretic,
 /turf/open/floor/pod/light,
 /area/awaymission/beach/heretic)
-"Po" = (
-/obj/machinery/light/floor,
-/obj/item/organ/heart/gland/transform,
-/obj/structure/closet/crate/freezer,
-/turf/open/floor/iron/small,
-/area/awaymission/caves/heretic_laboratory_clean)
 "Pp" = (
 /obj/structure/disposalpipe/segment{
 	dir = 10
@@ -32256,7 +32226,7 @@ GT
 hs
 KB
 hs
-aJ
+me
 hs
 KB
 hs
@@ -32264,7 +32234,7 @@ me
 hs
 KB
 hs
-xO
+me
 hs
 KB
 dD
@@ -34312,15 +34282,15 @@ GT
 hs
 KB
 hs
-eY
+me
 hs
 KB
 hs
-Po
+me
 hs
 KB
 hs
-kL
+me
 hs
 KB
 bZ

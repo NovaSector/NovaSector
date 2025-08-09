@@ -1,32 +1,62 @@
-/obj/item/keycard/hereticgateway0
+/obj/item/keycard/heretic_entrance
 	name = "secure storage keycard"
-	desc = "A keycard that simply states, 'only under exteme circumstances'."
+	desc = "A keycard that simply states, basic access."
 	color = "#000000"
 	puzzle_id = "heretic_gateway0"
 
-/obj/machinery/door/puzzle/keycard/hereticgateway0
+/obj/machinery/door/puzzle/keycard/heretic_entrance
 	name = "secure airlock"
 	puzzle_id = "heretic_gateway0"
 
-/obj/item/keycard/hereticgateway1
+/obj/item/keycard/highsec_access
 	name = "secure storage keycard"
 	desc = "A keycard that simply states, 'only under exteme circumstances'."
-	color = "#000000"
+	color = "#440000"
 	puzzle_id = "heretic_gateway1"
 
-/obj/machinery/door/puzzle/keycard/hereticgateway1
+/obj/machinery/door/puzzle/keycard/highsec_access
 	name = "secure airlock"
 	puzzle_id = "heretic_gateway1"
 
-/obj/item/keycard/hereticgateway2
-	name = "secure storage keycard"
-	desc = "A keycard that simply states, 'only under exteme circumstances'."
-	color = "#c41b1b"
+/obj/item/keycard/cbrn_area
+	name = "CBRN storage keycard"
+	desc = "A keycard that has a few weird logos and stickers on it all related to biohazards or radiation."
+	color = "#80e71f"
 	puzzle_id = "heretic_gateway2"
 
-/obj/machinery/door/puzzle/keycard/hereticgateway2
+/obj/machinery/door/puzzle/keycard/cbrn_area
 	name = "secure airlock"
 	puzzle_id = "heretic_gateway2"
+
+/obj/item/keycard/biological_anomalies
+	name = "Bio storage keycard"
+	desc = "A keycard that looks like the basic access card however it has a biological hazard warning on it."
+	color = "#357735"
+	puzzle_id = "heretic_gateway3"
+
+/obj/machinery/door/puzzle/keycard/biological_anomalies
+	name = "secure airlock"
+	puzzle_id = "heretic_gateway3"
+
+/obj/item/keycard/weapon_anomalies
+	name = "Weapon storage keycard"
+	desc = "A keycard that looks like the basic access card however it has a simple recognizable handgun on it."
+	color = "#4b4b4b"
+	puzzle_id = "heretic_gateway4"
+
+/obj/machinery/door/puzzle/keycard/weapon_anomalies
+	name = "secure airlock"
+	puzzle_id = "heretic_gateway4"
+
+/obj/item/keycard/misc_anomalies
+	name = "Misc storage keycard"
+	desc = "A keycard that looks like the basic access card however it has a staff on it."
+	color = "#df2190"
+	puzzle_id = "heretic_gateway5"
+
+/obj/machinery/door/puzzle/keycard/misc_anomalies
+	name = "secure airlock"
+	puzzle_id = "heretic_gateway5"
 
 /obj/item/paper/fluff/awaymissions/heretic
 	name = "a hint"
