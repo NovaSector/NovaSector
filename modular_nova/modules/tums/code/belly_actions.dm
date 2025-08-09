@@ -1,3 +1,4 @@
+/// Basetype for belly actions.
 /datum/action/item_action/belly_menu
 	name = "Belly Action Core"
 	desc = "You shouldn't see this! Yell at an admin!"
@@ -20,6 +21,7 @@
 		my_belly.belly_acts -= src
 
 
+/// Access helper for the belly-haver.  This lets them configure it & interact with guests.
 /datum/action/item_action/belly_menu/access
 	name = "Belly Access Helper"
 	desc = "LMB: Activate the belly-config menu without needing to alt-click. RMB: Access the config menu for your guests."
@@ -33,6 +35,7 @@
 
 
 
+/// Escape helper for belly-dwellers.  This lets them jostle around to make noise or immediately leave.
 /datum/action/item_action/belly_menu/escape
 	name = "Belly Escape Helper"
 	desc = "LMB: Squirm around and make your host's belly noisy. RMB: Escape immediately."
