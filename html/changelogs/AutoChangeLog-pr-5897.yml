@@ -1,0 +1,4 @@
+author: "KnigTheThrasher"
+delete-after: True
+changes:
+  - bugfix: "nif users can use neuroware"
