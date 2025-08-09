@@ -254,63 +254,6 @@ required_map = "tramstation.dmm"
 coordinates = [118, 75, 1]
 trait_name = "Station"
 
-# BIRDSHOT MAP EDITS
-# Birdshot Arrivals
-[templates.birdshot_arrivals]
-map_files = ["birdshot_arrivals.dmm"]
-directory = "_maps/nova/automapper/templates/birdshot/"
-required_map = "birdshot.dmm"
-coordinates = [136, 61, 1]
-trait_name = "Station"
-
-# Birdshot Armory
-[templates.birdshot_armory]
-map_files = ["birdshot_armory.dmm"]
-directory = "_maps/nova/automapper/templates/birdshot/"
-required_map = "birdshot.dmm"
-coordinates = [51, 106, 1]
-trait_name = "Station"
-
-# Birdshot Cryo
-[templates.birdshot_cryo]
-map_files = ["birdshot_cryo.dmm"]
-directory = "_maps/nova/automapper/templates/birdshot/"
-required_map = "birdshot.dmm"
-coordinates = [142, 84, 1]
-trait_name = "Station"
-
-# Birdshot Barber
-[templates.birdshot_barber]
-map_files = ["birdshot_barber.dmm"]
-directory = "_maps/nova/automapper/templates/birdshot/"
-required_map = "birdshot.dmm"
-coordinates = [118, 145, 1]
-trait_name = "Station"
-
-# Birdshot NTC Office
-[templates.birdshot_ntrep_office]
-map_files = ["birdshot_ntrep_office.dmm"]
-directory = "_maps/nova/automapper/templates/birdshot/"
-required_map = "birdshot.dmm"
-coordinates = [91, 143, 1]
-trait_name = "Station"
-
-# Birdshot ERT Bay
-[templates.birdshot_ert_bay]
-map_files = ["birdshot_ert_bay.dmm"]
-directory = "_maps/nova/automapper/templates/birdshot/"
-required_map = "birdshot.dmm"
-coordinates = [188, 72, 1]
-trait_name = "Station"
-
-# Birdshot Supermatter Chamber
-[templates.birdshot_supermatter]
-map_files = ["birdshot_supermatter.dmm"]
-directory = "_maps/nova/automapper/templates/birdshot/"
-required_map = "birdshot.dmm"
-coordinates = [67, 207, 1]
-trait_name = "Station"
-
 # Lavaland NE Ashwalker Fortress
 [templates.lavaland_ashwalker_fortress]
 map_files = ["lavaland_ashwalker_fortress.dmm"]

@@ -157,6 +157,88 @@
 /obj/effect/mob_spawn/ghost_role/human/ds2/syndicate_command/admiral
 	outfit = /datum/outfit/ds2/syndicate_command/admiral
 
+/obj/effect/mob_spawn/ghost_role/robot/ds2
+	name = "\improper Syndicate Robotic Storage"
+	desc = "A suspicious specialized container marked 'cyborg storage'."
+	prompt_name = "a syndicate deepspace robot"
+	deletes_on_zero_uses_left = TRUE
+	icon = 'modular_nova/modules/ghostcafe/icons/robot_storage.dmi'
+	icon_state = "syndi_robostor"
+	anchored = TRUE
+	density = TRUE
+	uses = 1
+	you_are_text = "You are a DS-2 Cyborg!"
+	flavour_text = "You are a cyborg on a ship in deep space... what kind of hell is this?"
+	important_text = "Keep yourself to the same standards as Silicon Policy. You are not an antagonist. Adminhelp before antagonizing station crew."
+	loadout_enabled = TRUE
+	random_appearance = FALSE
+	spawner_job_path = /datum/job/ds2
+	mob_type = /mob/living/silicon/robot/model/ds2
+
+/mob/living/silicon/robot/model/ds2
+	faction = list(ROLE_DS2)
+	bubble_icon = "syndibot"
+	req_access = list(ACCESS_SYNDICATE)
+	lawupdate = FALSE
+	scrambledcodes = TRUE
+	radio = /obj/item/radio/borg/syndicate/ghost_role
+
+/obj/item/radio/borg/syndicate/Initialize(mapload)
+	. = ..()
+	set_frequency(FREQ_SYNDICATE)
+
+/mob/living/silicon/robot/model/ds2/Initialize(mapload)
+	. = ..()
+	cell = new /obj/item/stock_parts/power_store/cell/hyper(src, 30000)
+	//This part is because the camera stays in the list, so we'll just do a check
+	if(!QDELETED(builtInCamera))
+		QDEL_NULL(builtInCamera)
+
+/mob/living/silicon/robot/model/ds2/make_laws()
+	laws = new /datum/ai_laws/syndicate_override_ds2()
+	laws.associate(src)
+
+/obj/effect/mob_spawn/ghost_role/robot/interdyne
+	name = "\improper Interdyne Robotic Storage"
+	desc = "A specialized container marked 'cyborg storage', stamped with the Interdyne Pharmaceuticals logo."
+	prompt_name = "an Interdyne Pharmaceuticals robot"
+	deletes_on_zero_uses_left = TRUE
+	icon = 'modular_nova/modules/ghostcafe/icons/robot_storage.dmi'
+	icon_state = "dyne_robostorage"
+	anchored = TRUE
+	density = TRUE
+	uses = 1
+	you_are_text = "You are an Interdyne Pharmaceuticals Cyborg!"
+	flavour_text = "You are a cyborg produced and utilized by the Interdyne Pharmaceuticals company."
+	important_text = "Keep yourself to the same standards as Silicon Policy. You are not an antagonist. Adminhelp before antagonizing station crew."
+	loadout_enabled = TRUE
+	random_appearance = FALSE
+	spawner_job_path = /datum/job/ds2
+	mob_type = /mob/living/silicon/robot/model/interdyne
+
+/mob/living/silicon/robot/model/interdyne
+	faction = list(ROLE_INTERDYNE_PLANETARY_BASE)
+	req_access = list(ACCESS_SYNDICATE)
+	lawupdate = FALSE
+	scrambledcodes = TRUE
+	radio = /obj/item/radio/borg/syndicate/ghost_role
+
+/obj/item/radio/borg/syndicate/Initialize(mapload)
+	. = ..()
+	set_frequency(FREQ_SYNDICATE)
+
+/mob/living/silicon/robot/model/interdyne/Initialize(mapload)
+	. = ..()
+	cell = new /obj/item/stock_parts/power_store/cell/hyper(src, 30000)
+	//This part is because the camera stays in the list, so we'll just do a check
+	if(!QDELETED(builtInCamera))
+		QDEL_NULL(builtInCamera)
+
+/mob/living/silicon/robot/model/interdyne/make_laws()
+	laws = new /datum/ai_laws/syndicate_override_interdyne()
+	laws.associate(src)
+
+
 /obj/effect/mob_spawn/ghost_role/human/hotel_staff
 	random_appearance = FALSE
 	quirks_enabled = TRUE
@@ -588,7 +670,6 @@
 	assignment = "Hotel Security"
 	access = list(ACCESS_TWIN_NEXUS_STAFF, ACCESS_TWIN_NEXUS_MANAGER)
 
-
 //CRYO CONSOLES
 /obj/machinery/computer/cryopod/interdyne
 	radio = /obj/item/radio/headset/interdyne
@@ -596,4 +677,3 @@
 	req_one_access = list("syndicate_leader")
 
 MAPPING_DIRECTIONAL_HELPERS(/obj/machinery/computer/cryopod/interdyne, 32)
-

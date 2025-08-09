@@ -1,9 +1,0 @@
-# Changes to anything in the _map subfolder
-Map Edit:
-  - changed-files:
-      - any-glob-to-any-file: "_maps/*.dmm"
-
-# Changes to a .dmi
-Sprites:
-  - changed-files:
-      - any-glob-to-any-file: "**/*.dmi"
