@@ -7462,6 +7462,7 @@
 #include "modular_nova\modules\awaymissions_nova\heretic\cbrn.dm"
 #include "modular_nova\modules\awaymissions_nova\heretic\heretic.dm"
 #include "modular_nova\modules\awaymissions_nova\heretic\heretic_gateway_misc.dm"
+#include "modular_nova\modules\awaymissions_nova\heretic\heretic_gateway_spawners.dm"
 #include "modular_nova\modules\awaymissions_nova\heretic\heretic_gateway_tram.dm"
 #include "modular_nova\modules\awaymissions_nova\Maintsroom\black_floor_helper.dm"
 #include "modular_nova\modules\awaymissions_nova\Maintsroom\hardened_conveyer.dm"
