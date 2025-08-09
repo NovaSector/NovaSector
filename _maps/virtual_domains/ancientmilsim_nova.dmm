@@ -79,7 +79,7 @@
 /obj/structure/sign/poster/random/directional/west,
 /obj/structure/rack/gunrack,
 /obj/item/gun/ballistic/automatic/wylom,
-/obj/item/gun/ballistic/automatic/miecz,
+/obj/item/gun/ballistic/automatic/pulse_rifle,
 /obj/item/gun/ballistic/rifle/sporterized,
 /turf/open/floor/iron,
 /area/virtual_domain/ancient_milsim/snpc_hallway)
@@ -882,16 +882,17 @@
 	pixel_y = 4;
 	pixel_x = 4
 	},
-/obj/item/ammo_box/magazine/miecz{
-	pixel_x = -5;
-	pixel_y = -9
+/obj/item/ammo_box/magazine/pulse{
+	pixel_x = -3;
+	pixel_y = 0
 	},
-/obj/item/ammo_box/magazine/miecz{
-	pixel_y = -9
+/obj/item/ammo_box/magazine/pulse{
+	pixel_x = 3;
+	pixel_y = 0
 	},
-/obj/item/ammo_box/magazine/miecz{
-	pixel_x = 5;
-	pixel_y = -9
+/obj/item/ammo_box/magazine/pulse{
+	pixel_x = -9;
+	pixel_y = 0
 	},
 /obj/item/storage/toolbox/ammobox/full/lanca,
 /turf/open/floor/iron,

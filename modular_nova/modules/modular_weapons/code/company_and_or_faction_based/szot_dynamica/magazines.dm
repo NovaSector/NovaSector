@@ -139,3 +139,87 @@
 
 /obj/item/ammo_box/magazine/zashch/spawns_empty
 	start_empty = TRUE
+
+// Magazine for the legally distinct AR2
+
+/obj/item/ammo_box/magazine/pulse
+	name = "\improper Žaibas rifle pulse magazine"
+	desc = "A restricted-capacity magazine containing pulse energy cells for the Žaibas rifle. Holds three crystalline plasma plugs, each good for fifteen shots. \
+			The casing bears a stamped 'SD-3C' mark (Szot Dynamica 3-Plug Civilian) alongside SolFed compliance certifications."
+	icon = 'modular_nova/modules/modular_weapons/icons/obj/company_and_or_faction_based/szot_dynamica/ammo.dmi'
+	icon_state = "zaibas_mag"
+	ammo_type = /obj/item/ammo_casing/pulse
+	caliber = "pulse"
+	max_ammo = 3
+	multiple_sprites = AMMO_BOX_FULL_EMPTY
+	var/magazine_designation = "'SD-3C'"
+	var/lore_blurb = "The 'SD-3C' magazine exists solely because of Carwo Defense Systems' lobbying. While Coalition-designed Žaibas rifles typically use eight-plug military mags (120 pulses total), \
+		Carwo pushed SolFed legislators to restrict plug counts — not realizing Szot Dynamica's plasma plugs each hold fifteen pulses. The result? This 'compliant' 3-plug magazine still delivers \
+		45 pulses — still outclassing Carwo's own ballistic rifles in sheer volume of fire.<br><br>\
+		Coalition armorers mocked the legislation as 'counting fuel cans instead of measuring gas,' while Sakhno Concern quietly released a 'civilian maintenance manual' suggesting users \
+		'store plugs in thermally shielded containers' (read: military-grade magazines with the capacity indicators filed off). The included compliance certificate even lists pulse counts as \
+		'auxiliary discharge cycles' — a technicality that forced Carwo to admit they'd misunderstood the technology they were trying to ban.<br><br>\
+		A tiny etching inside the housing reads: <i>'For optimal performance, consult Xhihao Light Arms catalog page 47.'</i>—\
+		a reference to their unmodified eight-plug magazines, conveniently classified as 'industrial capacitors.'"
+
+/obj/item/ammo_box/magazine/pulse/examine_more(mob/user)
+	. = ..()
+	. += "[lore_blurb]"
+
+/obj/item/ammo_box/magazine/pulse/examine(mob/user)
+	. = ..()
+	if(length(stored_ammo))
+		var/obj/item/ammo_casing/pulse/top_cell = get_round()
+		if(istype(top_cell))
+			. += span_notice("The topmost loaded cell has <b>[top_cell.remaining_uses]</b> out of <b>[top_cell.max_uses]</b> shots remaining.")
+
+/obj/item/ammo_box/magazine/pulse/add_notes_box()
+	var/list/readout = list()
+	var/obj/item/ammo_casing/pulse/sample_casing = ammo_type
+
+	// Display magazine capacity info
+	readout += "This [span_warning(magazine_designation)] magazine holds up to [span_warning("[max_ammo] plasma plugs")], with each plug capable of [span_warning("[initial(sample_casing.max_uses)] pulses")]."
+	readout += "Total capacity: [span_warning("[max_ammo * initial(sample_casing.max_uses)] pulses")] when fully loaded."
+
+	// Get actual round info if available
+	var/obj/item/ammo_casing/mag_ammo = get_and_shuffle_round()
+	if(istype(mag_ammo))
+		readout += "\n[mag_ammo.add_notes_ammo()]"
+
+	return readout.Join("\n")
+
+/obj/item/ammo_box/magazine/pulse/ammo_count(countempties = TRUE)
+	if(countempties) // If we're counting empty casings too (like for chambering)
+		return length(stored_ammo)
+	// Otherwise use the original behavior
+	var/boolets = 0
+	for(var/obj/item/ammo_casing/pulse/bullet in stored_ammo)
+		if(bullet.remaining_uses > 0)
+			boolets++
+	return boolets
+
+/obj/item/ammo_box/magazine/pulse/top_off(load_type, starting=FALSE)
+	if(!load_type)
+		load_type = ammo_type
+
+	var/obj/item/ammo_casing/round_check = load_type
+	if(!starting && !(caliber ? (caliber == initial(round_check.caliber)) : (ammo_type == load_type)))
+		stack_trace("Tried loading unsupported ammocasing type [load_type] into ammo box [type].")
+		return
+
+	for(var/i in max(1, stored_ammo.len + 1) to max_ammo)
+		stored_ammo += new round_check(src) // Always create new instances rather than storing paths
+	update_appearance()
+
+/obj/item/ammo_box/magazine/pulse/get_round()
+	var/ammo_len = length(stored_ammo)
+	if(!ammo_len)
+		return null
+	var/obj/item/ammo_casing/casing = stored_ammo[ammo_len]
+	if(ispath(casing)) // Shouldn't happen with our changes, but good to have as a fallback
+		casing = new casing(src)
+		stored_ammo[ammo_len] = casing
+	return casing
+
+/obj/item/ammo_box/magazine/pulse/spawns_empty
+	start_empty = TRUE
