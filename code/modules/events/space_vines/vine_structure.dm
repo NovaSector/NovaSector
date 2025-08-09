@@ -164,7 +164,7 @@
 	if(!istype(stepturf))
 		return
 
-	if(is_space_or_openspace(stepturf) || !stepturf.Enter(src))
+	if((isspaceturf(stepturf) && !is_station_level(stepturf.z) || isopenspaceturf(stepturf) || !stepturf.Enter(src))) // NOVA EDIT CHANGE, lets spacevines spread into space, but only station space - ORIGINAL: if(is_space_or_openspace(stepturf) || !stepturf.Enter(src))
 		return
 	if(ischasm(stepturf) && !HAS_TRAIT(stepturf, TRAIT_CHASM_STOPPED))
 		return
