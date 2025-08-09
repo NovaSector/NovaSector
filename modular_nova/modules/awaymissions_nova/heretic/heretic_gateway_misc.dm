@@ -77,6 +77,9 @@
 /obj/item/paper/fluff/awaymissions/heretic/blackroomhint
 	default_raw_text = "Hey, one of the high sec guards came through and closed things off and told us to evacuate, they hid the keycard to the facility in this room in its proper spot. If you can read this it should be fine and remember to look into the walls to find the keycard."
 
+/obj/item/paper/fluff/awaymissions/heretic/gravehint
+	default_raw_text = "there are rumors around the office that there are a few fake graves in the graveyard down the way that are empty and instead have, insurance- in them whatever that means, Yours truly, Jeramy."
+
 /turf/open/misc/ashplanet/wateryrock/safeair
 	initial_gas_mix = "o2=22;n2=82;TEMP=293.15"
 
