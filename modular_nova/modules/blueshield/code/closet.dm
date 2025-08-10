@@ -37,4 +37,5 @@
 	new /obj/item/storage/medkit/frontier/stocked(src)
 	new /obj/item/storage/bag/garment/blueshield(src)
 	new /obj/item/mod/control/pre_equipped/blueshield(src)
+	new /obj/item/mod/paint(src)
 	new /obj/item/sensor_device/blueshield(src)

@@ -65634,8 +65634,7 @@
 /area/station/security/execution/education)
 "tfv" = (
 /obj/machinery/power/smes{
-	capacity = 9e+006;
-	charge = 10000
+	charge = 2e+005
 	},
 /obj/structure/cable,
 /turf/open/floor/iron,

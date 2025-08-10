@@ -13,7 +13,7 @@
 	gloves = /obj/item/clothing/gloves/combat
 	ears = /obj/item/radio/headset/syndicate/alt
 	l_pocket = /obj/item/modular_computer/pda/contractor
-	id = /obj/item/card/id/advanced/chameleon
+	id = /obj/item/card/id/advanced/chameleon/elite
 	backpack_contents = list(
 		/obj/item/storage/box/survival/syndie,
 		/obj/item/storage/box/syndicate/contract_kit/midround,

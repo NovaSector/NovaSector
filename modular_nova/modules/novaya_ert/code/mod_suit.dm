@@ -1,109 +1,3 @@
-/datum/mod_theme/voskhod
-	name = "refitted voskhod"
-	desc = "A Heliostatic Coalition standard-issue heavy duty suit, designed for fortified positions operation and humanitarian aid."
-	extended_desc = "A more expensive, yet more versatile replacement of the dated Voskhod powered armor, designed by the Magellanic Economic Corporate Union researchers \
-	in collaboration with and for the needs of the Heliostatic Coalition. An efficient implementation of mixed exoskeletons in between and underneath its armor plating \
-	allowed for an unprecedented level of protection through an overly abundant use of durathread-backed plasteel plating; and the remnant materials of its predecessor allow for \
-	a dubiously efficient dissipation of any stray photon ray or a concentrated laser, were one to get hit by them. The suit's infamous autoparamedical systems \
-	are also fully present - or their chemical synthesizing part, consisting of a thin web of subdermal autoinjectors, reaction cameras and tubes lined through the \
-	insulation material - leading into its control unit where the relevant synthesis proceeds, mainly out of raw materials of the pharmaceutical industry; \
-	omnizine's older brother, protozine. The sight of a white-and-green juggernaut is the one that instills many fears into numerous pirates; earning it the reputation of a peacekeeper \
-	and a niche amongst the rimworld population."
-	default_skin = "voskhod"
-	armor_type = /datum/armor/mod_theme_voskhod
-	complexity_max = DEFAULT_MAX_COMPLEXITY //Five of which is occupied by the in-builts, thus it's closer to 10
-	charge_drain = DEFAULT_CHARGE_DRAIN * 1.5
-	inbuilt_modules = list(
-		/obj/item/mod/module/status_readout/operational/voskhod,
-		/obj/item/mod/module/auto_doc,
-	)
-	allowed_suit_storage = list(
-		/obj/item/flashlight,
-		/obj/item/tank/internals,
-		/obj/item/ammo_box,
-		/obj/item/ammo_casing,
-		/obj/item/restraints/handcuffs,
-		/obj/item/assembly/flash,
-		/obj/item/melee/baton,
-		/obj/item/knife/combat,
-		/obj/item/shield/riot,
-		/obj/item/gun,
-	)
-	variants = list(
-		"voskhod" = list(
-			MOD_ICON_OVERRIDE = 'modular_nova/modules/novaya_ert/icons/mod.dmi',
-			MOD_WORN_ICON_OVERRIDE = 'modular_nova/modules/novaya_ert/icons/wornmod.dmi',
-			/obj/item/clothing/head/mod = list(
-				UNSEALED_LAYER = HEAD_LAYER,
-				UNSEALED_CLOTHING = SNUG_FIT,
-				SEALED_CLOTHING = THICKMATERIAL|STOPSPRESSUREDAMAGE,
-				SEALED_INVISIBILITY =  HIDEFACIALHAIR|HIDEMASK|HIDEEARS|HIDEEYES|HIDEFACE|HIDEHAIR|HIDESNOUT,
-				SEALED_COVER = HEADCOVERSMOUTH|HEADCOVERSEYES|PEPPERPROOF,
-				UNSEALED_MESSAGE = HELMET_UNSEAL_MESSAGE,
-				SEALED_MESSAGE = HELMET_SEAL_MESSAGE,
-			),
-			/obj/item/clothing/suit/mod = list(
-				UNSEALED_CLOTHING = THICKMATERIAL,
-				SEALED_CLOTHING = STOPSPRESSUREDAMAGE,
-				SEALED_INVISIBILITY = HIDEJUMPSUIT|HIDETAIL,
-				UNSEALED_MESSAGE = CHESTPLATE_UNSEAL_MESSAGE,
-				SEALED_MESSAGE = CHESTPLATE_SEAL_MESSAGE,
-			),
-			/obj/item/clothing/gloves/mod = list(
-				UNSEALED_CLOTHING = THICKMATERIAL,
-				SEALED_CLOTHING = STOPSPRESSUREDAMAGE,
-				CAN_OVERSLOT = TRUE,
-				UNSEALED_MESSAGE = GAUNTLET_UNSEAL_MESSAGE,
-				SEALED_MESSAGE = GAUNTLET_SEAL_MESSAGE,
-			),
-			/obj/item/clothing/shoes/mod = list(
-				UNSEALED_CLOTHING = THICKMATERIAL,
-				SEALED_CLOTHING = STOPSPRESSUREDAMAGE,
-				CAN_OVERSLOT = TRUE,
-				UNSEALED_MESSAGE = BOOT_UNSEAL_MESSAGE,
-				SEALED_MESSAGE = BOOT_SEAL_MESSAGE,
-			),
-		),
-	)
-
-/datum/armor/mod_theme_voskhod
-	melee = 30
-	bullet = 40
-	laser = 20
-	energy = 30
-	bomb = 30
-	bio = 30
-	fire = 80
-	acid = 85
-	wound = 20
-
-/obj/item/mod/control/pre_equipped/voskhod
-	applied_cell = /obj/item/stock_parts/power_store/cell/high
-	theme = /datum/mod_theme/voskhod
-	applied_modules = list(
-		/obj/item/mod/module/storage,
-		/obj/item/mod/module/flashlight,
-	)
-	default_pins = list(
-		/obj/item/mod/module/flashlight,
-		/obj/item/mod/module/auto_doc,
-	)
-
-/obj/item/mod/control/pre_equipped/voskhod/ancient_milsim
-	applied_cell = /obj/item/stock_parts/power_store/cell/super
-	applied_modules = list(
-		/obj/item/mod/module/storage/syndicate,
-		/obj/item/mod/module/thermal_regulator,
-		/obj/item/mod/module/magnetic_harness,
-		/obj/item/mod/module/flashlight,
-		/obj/item/mod/module/mouthhole,
-	)
-	default_pins = list(
-		/obj/item/mod/module/flashlight,
-		/obj/item/mod/module/auto_doc,
-		/obj/item/mod/module/thermal_regulator,
-	)
-
 /datum/mod_theme/policing
 	name = "policing"
 	desc = "A Novaya Rossiyskaya Imperiya Internal Affairs Collegia general purpose protective suit, designed for coreworld patrols."
@@ -409,7 +303,7 @@
 
 /obj/effect/spawner/random/voskhod_refit
 	name = "converted MODskhod spaner"
-	icon = 'modular_nova/modules/novaya_ert/icons/mod.dmi'
+	icon = 'modular_nova/master_files/icons/obj/clothing/modsuit/mod_clothing.dmi'
 	icon_state = "voskhod-chestplate-sealed"
 	spawn_all_loot = TRUE
 	spawn_loot_count = 1
