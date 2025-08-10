@@ -69,7 +69,7 @@ function check_body_for_labels(body) {
     const found_label = keywordToClLabel[keyword];
     if (!found_label) continue;
 
-    // don't add a billion tags if they forgot to clear all the default ones
+    // don't add a billion tags if they forgot to clear alll the default ones
     const line_text = line.split(":")[1]?.trim();
     const { default_text, alt_default_text } =
       autoLabelConfig.changelog_labels[found_label];
