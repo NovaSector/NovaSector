@@ -111,11 +111,7 @@ Unlike normal organs, we're actually inside a persons limbs at all times
 	slot = ORGAN_SLOT_EXTERNAL_HORNS
 
 	preference = "feature_lizard_horns"
-<<<<<<< HEAD
-	//dna_block = DNA_HORNS_BLOCK // NOVA EDIT REMOVAL - Customization - We have our own system to handle DNA.
-=======
-	dna_block = /datum/dna_block/feature/horn
->>>>>>> b01756b97c4 (Datumizes DNA blocks, makes DNA cleaner in general (#92061))
+	//dna_block = /datum/dna_block/feature/horn // NOVA EDIT REMOVAL - Customization - We have our own system to handle DNA.
 	restyle_flags = EXTERNAL_RESTYLE_ENAMEL
 
 	bodypart_overlay = /datum/bodypart_overlay/mutant/horns
@@ -143,11 +139,7 @@ Unlike normal organs, we're actually inside a persons limbs at all times
 	slot = ORGAN_SLOT_EXTERNAL_FRILLS
 
 	preference = "feature_lizard_frills"
-<<<<<<< HEAD
-	//dna_block = DNA_FRILLS_BLOCK // NOVA EDIT REMOVAL - Customization - We have our own system to handle DNA.
-=======
-	dna_block = /datum/dna_block/feature/frill
->>>>>>> b01756b97c4 (Datumizes DNA blocks, makes DNA cleaner in general (#92061))
+	//dna_block = /datum/dna_block/feature/frill // NOVA EDIT REMOVAL - Customization - We have our own system to handle DNA.
 	restyle_flags = EXTERNAL_RESTYLE_FLESH
 
 	bodypart_overlay = /datum/bodypart_overlay/mutant/frills
@@ -176,11 +168,7 @@ Unlike normal organs, we're actually inside a persons limbs at all times
 	preference = "feature_lizard_snout"
 	external_bodyshapes = BODYSHAPE_SNOUTED
 
-<<<<<<< HEAD
-	//dna_block = DNA_SNOUT_BLOCK // NOVA EDIT REMOVAL - Customization - We have our own system to handle DNA.
-=======
-	dna_block = /datum/dna_block/feature/snout
->>>>>>> b01756b97c4 (Datumizes DNA blocks, makes DNA cleaner in general (#92061))
+	//dna_block = /datum/dna_block/feature/snout // NOVA EDIT REMOVAL - Customization - We have our own system to handle DNA.
 	restyle_flags = EXTERNAL_RESTYLE_FLESH
 
 	bodypart_overlay = /datum/bodypart_overlay/mutant/snout
@@ -207,11 +195,7 @@ Unlike normal organs, we're actually inside a persons limbs at all times
 	slot = ORGAN_SLOT_EXTERNAL_ANTENNAE
 
 	preference = "feature_moth_antennae"
-<<<<<<< HEAD
-	//dna_block = DNA_MOTH_ANTENNAE_BLOCK // NOVA EDIT REMOVAL - Customization - We have our own system to handle DNA.
-=======
-	dna_block = /datum/dna_block/feature/moth_antenna
->>>>>>> b01756b97c4 (Datumizes DNA blocks, makes DNA cleaner in general (#92061))
+	//dna_block = /datum/dna_block/feature/moth_antenna // NOVA EDIT REMOVAL - Customization - We have our own system to handle DNA.
 	restyle_flags = EXTERNAL_RESTYLE_FLESH
 
 	bodypart_overlay = /datum/bodypart_overlay/mutant/antennae

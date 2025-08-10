@@ -9,11 +9,7 @@
 
 	preference = "feature_lizard_spines"
 
-<<<<<<< HEAD
-	//dna_block = DNA_SPINES_BLOCK // NOVA EDIT REMOVAL - Customization - We have our own system to handle DNA.
-=======
-	dna_block = /datum/dna_block/feature/spine
->>>>>>> b01756b97c4 (Datumizes DNA blocks, makes DNA cleaner in general (#92061))
+	//dna_block = /datum/dna_block/feature/spine // NOVA EDIT REMOVAL - Customization - We have our own system to handle DNA.
 	restyle_flags = EXTERNAL_RESTYLE_FLESH
 
 	bodypart_overlay = /datum/bodypart_overlay/mutant/spines

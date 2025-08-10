@@ -97,7 +97,7 @@
 
 ///Moth wing bodypart overlay, including burn functionality!
 /datum/bodypart_overlay/mutant/wings/moth
-	feature_key = FEATURE_WINGS // NOVA EDIT CHANGE - Customization - ORIGINAL: feature_key = "moth_wings"
+	feature_key = FEATURE_WINGS // NOVA EDIT CHANGE - Customization - ORIGINAL: feature_key = FEATURE_MOTH_WINGS
 	layers = EXTERNAL_BEHIND | EXTERNAL_FRONT
 	///Accessory datum of the burn sprite
 	var/datum/sprite_accessory/burn_datum = /datum/sprite_accessory/moth_wings/burnt_off

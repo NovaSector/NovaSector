@@ -7,11 +7,7 @@
 	zone = BODY_ZONE_PRECISE_GROIN
 	slot = ORGAN_SLOT_EXTERNAL_TAIL
 
-<<<<<<< HEAD
-	//dna_block = DNA_TAIL_BLOCK // NOVA EDIT REMOVAL - Customization - We have our own system to handle DNA.
-=======
-	dna_block = /datum/dna_block/feature/tail
->>>>>>> b01756b97c4 (Datumizes DNA blocks, makes DNA cleaner in general (#92061))
+	//dna_block = /datum/dna_block/feature/tail // NOVA EDIT REMOVAL - Customization - We have our own system to handle DNA.
 	restyle_flags = EXTERNAL_RESTYLE_FLESH
 
 	// defaults to cat, but the parent type shouldn't be created regardless
@@ -69,17 +65,12 @@
 
 	tail_spines_overlay = new
 	tail_spines_overlay.tail_spine_key = tail_spine_key
-<<<<<<< HEAD
 	// NOVA EDIT ADDITION START
-	if(!bodypart.owner.dna.mutant_bodyparts["spines"])
-		bodypart.owner.dna.mutant_bodyparts["spines"] = list(MUTANT_INDEX_NAME = "None", MUTANT_INDEX_COLOR_LIST = list("#886600", "#886600", "#886600"))
+	if(!bodypart.owner.dna.mutant_bodyparts[FEATURE_SPINES])
+		bodypart.owner.dna.mutant_bodyparts[FEATURE_SPINES] = list(MUTANT_INDEX_NAME = "None", MUTANT_INDEX_COLOR_LIST = list("#886600", "#886600", "#886600"))
 	// NOVA EDIT ADDITION END
-	var/feature_name = bodypart.owner.dna.mutant_bodyparts["spines"][MUTANT_INDEX_NAME] // NOVA EDIT CHANGE - ORIGINAL: var/feature_name = bodypart.owner.dna.features["spines"] //tail spines don't live in DNA, but share feature names with regular spines
-	tail_spines_overlay.set_appearance_from_dna(bodypart.owner.dna, feature_name, feature_key = "spines") // NOVA EDIT CHANGE - ORIGINAL: tail_spines_overlay.set_appearance_from_name(feature_name)
-=======
-	var/feature_name = bodypart.owner.dna.features[FEATURE_SPINES] //tail spines don't live in DNA, but share feature names with regular spines
-	tail_spines_overlay.set_appearance_from_name(feature_name)
->>>>>>> b01756b97c4 (Datumizes DNA blocks, makes DNA cleaner in general (#92061))
+	var/feature_name = bodypart.owner.dna.mutant_bodyparts[FEATURE_SPINES][MUTANT_INDEX_NAME] // NOVA EDIT CHANGE - ORIGINAL: var/feature_name = bodypart.owner.dna.features[FEATURE_SPINES] //tail spines don't live in DNA, but share feature names with regular spines
+	tail_spines_overlay.set_appearance_from_dna(bodypart.owner.dna, feature_name, feature_key = FEATURE_SPINES) // NOVA EDIT CHANGE - ORIGINAL: tail_spines_overlay.set_appearance_from_name(feature_name)
 	bodypart.add_bodypart_overlay(tail_spines_overlay)
 
 /// If we have a tail spines overlay, delete it
@@ -181,13 +172,8 @@
 
 ///Cat tail bodypart overlay
 /datum/bodypart_overlay/mutant/tail/cat
-<<<<<<< HEAD
 	feature_key = "tail" // NOVA EDIT - Customization - ORIGINAL: feature_key = "tail_cat"
 	// color_source = ORGAN_COLOR_HAIR // NOVA EDIT REMOVAL
-=======
-	feature_key = FEATURE_TAIL
-	color_source = ORGAN_COLOR_HAIR
->>>>>>> b01756b97c4 (Datumizes DNA blocks, makes DNA cleaner in general (#92061))
 
 /datum/bodypart_overlay/mutant/tail/cat/get_global_feature_list()
 	return SSaccessories.sprite_accessories["tail"] // NOVA EDIT CHANGE - ORIGINAL: return SSaccessories.tails_list_felinid
@@ -202,11 +188,7 @@
 ///Monkey tail bodypart overlay
 /datum/bodypart_overlay/mutant/tail/monkey
 	color_source = NONE
-<<<<<<< HEAD
 	feature_key = "tail" // NOVA EDIT - Customization - ORIGINAL: feature_key = "tail_monkey"
-=======
-	feature_key = FEATURE_TAIL_MONKEY
->>>>>>> b01756b97c4 (Datumizes DNA blocks, makes DNA cleaner in general (#92061))
 
 /datum/bodypart_overlay/mutant/tail/monkey/get_global_feature_list()
 	return SSaccessories.tails_list_monkey
@@ -275,19 +257,11 @@
 	bodypart_overlay = /datum/bodypart_overlay/mutant/tail/lizard
 
 	wag_flags = WAG_ABLE
-<<<<<<< HEAD
-	//dna_block = DNA_LIZARD_TAIL_BLOCK // NOVA EDIT REMOVAL - Customization - We have our own system to handle DNA.
+	//dna_block = /datum/dna_block/feature/tail_lizard // NOVA EDIT REMOVAL - Customization - We have our own system to handle DNA.
 
 ///Lizard tail bodypart overlay datum
 /datum/bodypart_overlay/mutant/tail/lizard
-	feature_key = "tail" // NOVA EDIT - Customization - ORIGINAL: feature_key = "tail_lizard"
-=======
-	dna_block = /datum/dna_block/feature/tail_lizard
-
-///Lizard tail bodypart overlay datum
-/datum/bodypart_overlay/mutant/tail/lizard
-	feature_key = FEATURE_TAIL_LIZARD
->>>>>>> b01756b97c4 (Datumizes DNA blocks, makes DNA cleaner in general (#92061))
+	feature_key = "tail" // NOVA EDIT - Customization - ORIGINAL: feature_key = FEATURE_TAIL_LIZARD
 
 /datum/bodypart_overlay/mutant/tail/lizard/get_global_feature_list()
 	return SSaccessories.sprite_accessories["tail"] // NOVA EDIT - Customization - ORIGINAL: return SSaccessories.tails_list_lizard

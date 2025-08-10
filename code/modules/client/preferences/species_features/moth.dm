@@ -96,10 +96,6 @@
 	return uni_icon(moth_wings.icon, "m_moth_wings_[moth_wings.icon_state]_BEHIND")
 
 /datum/preference/choiced/moth_wings/apply_to_human(mob/living/carbon/human/target, value)
-<<<<<<< HEAD
-	target.dna.features["moth_wings"] = value
+	target.dna.features[FEATURE_MOTH_WINGS] = value
 
 */
-=======
-	target.dna.features[FEATURE_MOTH_WINGS] = value
->>>>>>> b01756b97c4 (Datumizes DNA blocks, makes DNA cleaner in general (#92061))
