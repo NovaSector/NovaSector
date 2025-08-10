@@ -12,6 +12,8 @@
 	block_length = DNA_BLOCK_SIZE_COLOR
 	feature_key = FEATURE_ETHEREAL_COLOR
 
+// NOVA EDIT REMOVAL START - Customization
+/*
 /datum/dna_block/feature/ethereal_color/create_unique_block(mob/living/carbon/human/target)
 	return sanitize_hexcolor(target.dna.features[FEATURE_ETHEREAL_COLOR], include_crunch = FALSE)
 
@@ -30,7 +32,7 @@
 // One day, someone should consider merging all tails into one, this is stupid
 // No I don't care that it will "Create situations where a felinid grows a lizard tail" that makes it more fun
 /datum/dna_block/feature/tail
-	feature_key = FEATURE_TAIL
+	feature_key = FEATURE_TAIL_CAT
 
 /datum/dna_block/feature/tail/create_unique_block(mob/living/carbon/human/target)
 	return construct_block(SSaccessories.tails_list_felinid.Find(target.dna.features[feature_key]), length(SSaccessories.tails_list_felinid))
@@ -46,7 +48,8 @@
 
 /datum/dna_block/feature/tail_lizard/apply_to_mob(mob/living/carbon/human/target, dna_hash)
 	target.dna.features[feature_key] = SSaccessories.tails_list_lizard[deconstruct_block(get_block(dna_hash), length(SSaccessories.tails_list_lizard))]
-
+*/
+// NOVA EDIT REMOVAL END
 /datum/dna_block/feature/tail_fish
 	feature_key = FEATURE_TAIL_FISH
 
@@ -56,6 +59,8 @@
 /datum/dna_block/feature/tail_fish/apply_to_mob(mob/living/carbon/human/target, dna_hash)
 	target.dna.features[feature_key] = SSaccessories.tails_list_fish[deconstruct_block(get_block(dna_hash), length(SSaccessories.tails_list_fish))]
 
+// NOVA EDIT REMOVAL START - Customization
+/*
 /datum/dna_block/feature/snout
 	feature_key = FEATURE_SNOUT
 
@@ -149,3 +154,5 @@
 
 /datum/dna_block/feature/pod_hair/apply_to_mob(mob/living/carbon/human/target, dna_hash)
 	target.dna.features[feature_key] = SSaccessories.pod_hair_list[deconstruct_block(get_block(dna_hash), length(SSaccessories.pod_hair_list))]
+ */
+// NOVA EDIT REMOVAL END

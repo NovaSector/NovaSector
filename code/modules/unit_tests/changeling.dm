@@ -83,25 +83,14 @@
 	// Because we use two consistent humans, we need to change some of the features to know they're actually updating to new values.
 	// The more DNA features and random things we change, the more likely we are to catch something not updating correctly.
 	// Yeah guess who/what this is, I dare you.
-<<<<<<< HEAD
-	ling.dna.features["mcolor"] = "#886600"
-	ling.dna.mutant_bodyparts["tail"] = list(MUTANT_INDEX_NAME = "Smooth", MUTANT_INDEX_COLOR_LIST = list("#886600", "#886600", "#886600")) // NOVA EDIT CHANGE - ORIGINAL: ling.dna.features["tail_lizard"] = "Smooth"
-	ling.dna.mutant_bodyparts["snout"] = list(MUTANT_INDEX_NAME = "Sharp + Light", MUTANT_INDEX_COLOR_LIST = list("#886600", "#886600", "#886600")) // NOVA EDIT CHANGE - ORIGINAL: ling.dna.features["snout"] = "Sharp + Light"
-	ling.dna.mutant_bodyparts["horns"] = list(MUTANT_INDEX_NAME = "Curled", MUTANT_INDEX_COLOR_LIST = list("#292826", "#292826", "#8292826")) // NOVA EDIT CHANGE - ORIGINAL: ling.dna.features["horns"] = "Curved"
-	ling.dna.mutant_bodyparts["frills"] = list(MUTANT_INDEX_NAME = "Short", MUTANT_INDEX_COLOR_LIST = list("#886600", "#886600", "#886600")) // NOVA EDIT CHANGE - ORIGINAL: ling.dna.features["frills"] = "Sort"
-	ling.dna.mutant_bodyparts["spines"] = list(MUTANT_INDEX_NAME = "Long + Membrane", MUTANT_INDEX_COLOR_LIST = list("#886600", "#886600", "#886600")) // NOVA EDIT CHANGE - ORIGINAL: ling.dna.features["spines"] = "Long + Membrane"
-	ling.dna.body_markings["chest"] = list("Light Belly" = list("#886600", 0)) // NOVA EDIT CHANGE - ORIGINAL : ling.dna.features["lizard_markings"] = "Light Belly"
-	ling.dna.features["legs"] = DIGITIGRADE_LEGS
-=======
 	ling.dna.features[FEATURE_MUTANT_COLOR] = "#886600"
-	ling.dna.features[FEATURE_TAIL_LIZARD] = "Smooth"
-	ling.dna.features[FEATURE_SNOUT] = "Sharp + Light"
-	ling.dna.features[FEATURE_HORNS] = "Curled"
-	ling.dna.features[FEATURE_FRILLS] = "Short"
-	ling.dna.features[FEATURE_SPINES] = "Long + Membrane"
-	ling.dna.features[FEATURE_LIZARD_MARKINGS] = "Light Belly"
+	ling.dna.mutant_bodyparts[FEATURE_TAIL] = list(MUTANT_INDEX_NAME = "Smooth", MUTANT_INDEX_COLOR_LIST = list("#886600", "#886600", "#886600")) // NOVA EDIT CHANGE - ORIGINAL: ling.dna.features[FEATURE_TAIL_LIZARD] = "Smooth"
+	ling.dna.mutant_bodyparts[FEATURE_SNOUT] = list(MUTANT_INDEX_NAME = "Sharp + Light", MUTANT_INDEX_COLOR_LIST = list("#886600", "#886600", "#886600")) // NOVA EDIT CHANGE - ORIGINAL: ling.dna.features[FEATURE_SNOUT] = "Sharp + Light"
+	ling.dna.mutant_bodyparts[FEATURE_HORNS] = list(MUTANT_INDEX_NAME = "Curled", MUTANT_INDEX_COLOR_LIST = list("#292826", "#292826", "#8292826")) // NOVA EDIT CHANGE - ORIGINAL: ling.dna.features[FEATURE_HORNS] = "Curved"
+	ling.dna.mutant_bodyparts[FEATURE_FRILLS] = list(MUTANT_INDEX_NAME = "Short", MUTANT_INDEX_COLOR_LIST = list("#886600", "#886600", "#886600")) // NOVA EDIT CHANGE - ORIGINAL: ling.dna.features[FEATURE_FRILLS] = "Sort"
+	ling.dna.mutant_bodyparts[FEATURE_SPINES] = list(MUTANT_INDEX_NAME = "Long + Membrane", MUTANT_INDEX_COLOR_LIST = list("#886600", "#886600", "#886600")) // NOVA EDIT CHANGE - ORIGINAL: ling.dna.features[FEATURE_SPINES] = "Long + Membrane"
+	ling.dna.body_markings[BODY_ZONE_CHEST] = list("Light Belly" = list("#886600", 0)) // NOVA EDIT CHANGE - ORIGINAL : ling.dna.features[FEATURE_LIZARD_MARKINGS] = "Light Belly"
 	ling.dna.features[FEATURE_LEGS] = DIGITIGRADE_LEGS
->>>>>>> b01756b97c4 (Datumizes DNA blocks, makes DNA cleaner in general (#92061))
 	ling.set_eye_color(COLOR_WHITE)
 	ling.dna.update_ui_block(/datum/dna_block/identity/eye_colors)
 	ling.set_species(/datum/species/lizard)

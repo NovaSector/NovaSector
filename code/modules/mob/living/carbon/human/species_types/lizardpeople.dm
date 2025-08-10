@@ -12,7 +12,7 @@
 		/datum/bodypart_overlay/simple/body_marking/lizard = SPRITE_ACCESSORY_NONE,
 	)
 	*/ // NOVA EDIT REMOVAL END
-	mutant_bodyparts = list("body_markings" = "None", "legs" = "Normal Legs") // NOVA EDIT ADDITION - Customization
+	mutant_bodyparts = list(FEATURE_MARKING_GENERIC = "None", FEATURE_LEGS = "Normal Legs") // NOVA EDIT ADDITION - Customization
 	mutant_organs = list(
 		/obj/item/organ/horns = SPRITE_ACCESSORY_NONE,
 		/obj/item/organ/frills = SPRITE_ACCESSORY_NONE,

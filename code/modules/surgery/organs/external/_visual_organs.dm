@@ -33,7 +33,6 @@ Unlike normal organs, we're actually inside a persons limbs at all times
 */
 /obj/item/organ/proc/setup_bodypart_overlay(accessory_type)
 	bodypart_overlay = new bodypart_overlay(src)
-	dna_block = SSaccessories.dna_mutant_bodypart_blocks[preference] // NOVA EDIT ADDITION - we have like 145+ fucking dna blocks lmao
 
 	accessory_type = accessory_type ? accessory_type : sprite_accessory_override
 	var/update_overlays = TRUE
@@ -111,11 +110,7 @@ Unlike normal organs, we're actually inside a persons limbs at all times
 	slot = ORGAN_SLOT_EXTERNAL_HORNS
 
 	preference = "feature_lizard_horns"
-<<<<<<< HEAD
-	//dna_block = DNA_HORNS_BLOCK // NOVA EDIT REMOVAL - Customization - We have our own system to handle DNA.
-=======
-	dna_block = /datum/dna_block/feature/horn
->>>>>>> b01756b97c4 (Datumizes DNA blocks, makes DNA cleaner in general (#92061))
+	//dna_block = /datum/dna_block/feature/horn // NOVA EDIT REMOVAL - Customization - We have our own system to handle DNA.
 	restyle_flags = EXTERNAL_RESTYLE_ENAMEL
 
 	bodypart_overlay = /datum/bodypart_overlay/mutant/horns
@@ -131,7 +126,7 @@ Unlike normal organs, we're actually inside a persons limbs at all times
 	return !(bodypart_owner.owner?.obscured_slots & HIDEHAIR)
 
 /datum/bodypart_overlay/mutant/horns/get_global_feature_list()
-	return SSaccessories.sprite_accessories["horns"] // NOVA EDIT - Customization - ORIGINAL: return SSaccessories.horns_list
+	return SSaccessories.sprite_accessories[FEATURE_HORNS] // NOVA EDIT - Customization - ORIGINAL: return SSaccessories.horns_list
 
 ///The frills of a lizard (like weird fin ears)
 /obj/item/organ/frills
@@ -143,11 +138,7 @@ Unlike normal organs, we're actually inside a persons limbs at all times
 	slot = ORGAN_SLOT_EXTERNAL_FRILLS
 
 	preference = "feature_lizard_frills"
-<<<<<<< HEAD
-	//dna_block = DNA_FRILLS_BLOCK // NOVA EDIT REMOVAL - Customization - We have our own system to handle DNA.
-=======
-	dna_block = /datum/dna_block/feature/frill
->>>>>>> b01756b97c4 (Datumizes DNA blocks, makes DNA cleaner in general (#92061))
+	//dna_block = /datum/dna_block/feature/frill // NOVA EDIT REMOVAL - Customization - We have our own system to handle DNA.
 	restyle_flags = EXTERNAL_RESTYLE_FLESH
 
 	bodypart_overlay = /datum/bodypart_overlay/mutant/frills
@@ -162,7 +153,7 @@ Unlike normal organs, we're actually inside a persons limbs at all times
 	return !(bodypart_owner.owner?.obscured_slots & HIDEEARS)
 
 /datum/bodypart_overlay/mutant/frills/get_global_feature_list()
-	return SSaccessories.sprite_accessories["frills"] // NOVA EDIT - Customization - ORIGINAL: return SSaccessories.frills_list
+	return SSaccessories.sprite_accessories[FEATURE_FRILLS] // NOVA EDIT - Customization - ORIGINAL: return SSaccessories.frills_list
 
 ///Guess what part of the lizard this is?
 /obj/item/organ/snout
@@ -176,11 +167,7 @@ Unlike normal organs, we're actually inside a persons limbs at all times
 	preference = "feature_lizard_snout"
 	external_bodyshapes = BODYSHAPE_SNOUTED
 
-<<<<<<< HEAD
-	//dna_block = DNA_SNOUT_BLOCK // NOVA EDIT REMOVAL - Customization - We have our own system to handle DNA.
-=======
-	dna_block = /datum/dna_block/feature/snout
->>>>>>> b01756b97c4 (Datumizes DNA blocks, makes DNA cleaner in general (#92061))
+	//dna_block = /datum/dna_block/feature/snout // NOVA EDIT REMOVAL - Customization - We have our own system to handle DNA.
 	restyle_flags = EXTERNAL_RESTYLE_FLESH
 
 	bodypart_overlay = /datum/bodypart_overlay/mutant/snout
@@ -195,7 +182,7 @@ Unlike normal organs, we're actually inside a persons limbs at all times
 	return !(bodypart_owner.owner?.obscured_slots & HIDESNOUT)
 
 /datum/bodypart_overlay/mutant/snout/get_global_feature_list()
-	return SSaccessories.sprite_accessories["snout"] // NOVA EDIT - Customization - ORIGINAL : return SSaccessories.snouts_list
+	return SSaccessories.sprite_accessories[FEATURE_SNOUT] // NOVA EDIT - Customization - ORIGINAL : return SSaccessories.snouts_list
 
 ///A moth's antennae
 /obj/item/organ/antennae
@@ -207,11 +194,7 @@ Unlike normal organs, we're actually inside a persons limbs at all times
 	slot = ORGAN_SLOT_EXTERNAL_ANTENNAE
 
 	preference = "feature_moth_antennae"
-<<<<<<< HEAD
-	//dna_block = DNA_MOTH_ANTENNAE_BLOCK // NOVA EDIT REMOVAL - Customization - We have our own system to handle DNA.
-=======
-	dna_block = /datum/dna_block/feature/moth_antenna
->>>>>>> b01756b97c4 (Datumizes DNA blocks, makes DNA cleaner in general (#92061))
+	//dna_block = /datum/dna_block/feature/moth_antenna // NOVA EDIT REMOVAL - Customization - We have our own system to handle DNA.
 	restyle_flags = EXTERNAL_RESTYLE_FLESH
 
 	bodypart_overlay = /datum/bodypart_overlay/mutant/antennae
@@ -278,7 +261,7 @@ Unlike normal organs, we're actually inside a persons limbs at all times
 	burn_datum = fetch_sprite_datum(burn_datum) //turn the path into the singleton instance
 
 /datum/bodypart_overlay/mutant/antennae/get_global_feature_list()
-	return SSaccessories.sprite_accessories["moth_antennae"] // NOVA EDIT - Customization - ORIGINAL: return SSaccessories.moth_antennae_list
+	return SSaccessories.sprite_accessories[FEATURE_MOTH_ANTENNAE] // NOVA EDIT - Customization - ORIGINAL: return SSaccessories.moth_antennae_list
 
 /datum/bodypart_overlay/mutant/antennae/get_base_icon_state()
 	return burnt ? burn_datum.icon_state : sprite_datum.icon_state
@@ -297,7 +280,7 @@ Unlike normal organs, we're actually inside a persons limbs at all times
 	preference = "feature_pod_hair"
 	use_mob_sprite_as_obj_sprite = TRUE
 
-	dna_block = /datum/dna_block/feature/pod_hair
+	// dna_block = /datum/dna_block/feature/pod_hair //NOVA CHANGE REMOVAL - Customization
 	restyle_flags = EXTERNAL_RESTYLE_PLANT
 
 	bodypart_overlay = /datum/bodypart_overlay/mutant/pod_hair

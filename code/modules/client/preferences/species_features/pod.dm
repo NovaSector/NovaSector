@@ -30,9 +30,5 @@
 	return pick(assoc_to_keys_features(SSaccessories.pod_hair_list))
 
 /datum/preference/choiced/pod_hair/apply_to_human(mob/living/carbon/human/target, value)
-<<<<<<< HEAD
-	target.dna.features["pod_hair"] = value
-*/ // NOVA EDIT END
-=======
 	target.dna.features[FEATURE_POD_HAIR] = value
->>>>>>> b01756b97c4 (Datumizes DNA blocks, makes DNA cleaner in general (#92061))
+*/ // NOVA EDIT END

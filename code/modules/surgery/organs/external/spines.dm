@@ -9,11 +9,7 @@
 
 	preference = "feature_lizard_spines"
 
-<<<<<<< HEAD
-	//dna_block = DNA_SPINES_BLOCK // NOVA EDIT REMOVAL - Customization - We have our own system to handle DNA.
-=======
-	dna_block = /datum/dna_block/feature/spine
->>>>>>> b01756b97c4 (Datumizes DNA blocks, makes DNA cleaner in general (#92061))
+	//dna_block = /datum/dna_block/feature/spine // NOVA EDIT REMOVAL - Customization - We have our own system to handle DNA.
 	restyle_flags = EXTERNAL_RESTYLE_FLESH
 
 	bodypart_overlay = /datum/bodypart_overlay/mutant/spines
@@ -39,7 +35,7 @@
 	dyable = TRUE
 
 /datum/bodypart_overlay/mutant/spines/get_global_feature_list()
-	return SSaccessories.sprite_accessories["spines"] // NOVA EDIT - Customization - ORIGINAL: return SSaccessories.spines_list
+	return SSaccessories.sprite_accessories[FEATURE_SPINES] // NOVA EDIT - Customization - ORIGINAL: return SSaccessories.spines_list
 
 /datum/bodypart_overlay/mutant/spines/can_draw_on_bodypart(obj/item/bodypart/bodypart_owner)
 	return !(bodypart_owner.owner?.obscured_slots & HIDEJUMPSUIT)

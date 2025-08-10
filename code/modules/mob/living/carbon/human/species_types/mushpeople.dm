@@ -61,11 +61,7 @@
 
 	preference = "feature_mushperson_cap"
 
-<<<<<<< HEAD
-	//dna_block = DNA_MUSHROOM_CAPS_BLOCK // NOVA EDIT REMOVAL - Customization - We have our own system to handle DNA.
-=======
-	dna_block = /datum/dna_block/feature/mush_cap
->>>>>>> b01756b97c4 (Datumizes DNA blocks, makes DNA cleaner in general (#92061))
+	//dna_block = /datum/dna_block/feature/mush_cap // NOVA EDIT REMOVAL - Customization - We have our own system to handle DNA.
 	restyle_flags = EXTERNAL_RESTYLE_PLANT
 
 	bodypart_overlay = /datum/bodypart_overlay/mutant/mushroom_cap

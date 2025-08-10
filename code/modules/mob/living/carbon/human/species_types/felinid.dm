@@ -31,24 +31,17 @@
 	if(ishuman(carbon_being))
 		var/mob/living/carbon/human/target_human = carbon_being
 		if(!pref_load) //Hah! They got forcefully purrbation'd. Force default felinid parts on them if they have no mutant parts in those areas!
-<<<<<<< HEAD
-			target_human.dna.features["tail_cat"] = "Cat"
-			if(target_human.dna.features["ears"] == "None")
-				target_human.dna.features["ears"] = "Cat"
-		/* NOVA EDIT CHANGE START - ORIGINAL
-		if(target_human.dna.features["ears"] == "None")
-=======
-			target_human.dna.features[FEATURE_TAIL] = "Cat"
+			target_human.dna.features[FEATURE_TAIL_CAT] = "Cat"
 			if(target_human.dna.features[FEATURE_EARS] == "None")
 				target_human.dna.features[FEATURE_EARS] = "Cat"
+		/* NOVA EDIT CHANGE START - ORIGINAL
 		if(target_human.dna.features[FEATURE_EARS] == "None")
->>>>>>> b01756b97c4 (Datumizes DNA blocks, makes DNA cleaner in general (#92061))
 			mutantears = /obj/item/organ/ears
 		else
 			var/obj/item/organ/ears/cat/ears = new(FALSE, target_human.dna.features[FEATURE_EARS])
 			ears.Insert(target_human, movement_flags = DELETE_IF_REPLACED)
 		*/
-		if(target_human.dna.features["ears"] == "Cat")
+		if(target_human.dna.features[FEATURE_EARS] == "Cat")
 			var/obj/item/organ/ears/cat/ears = new
 			ears.Insert(target_human, movement_flags = DELETE_IF_REPLACED)
 		else
@@ -217,8 +210,8 @@
 		cat_ears.color = human_for_preview.hair_color
 		human_for_preview.update_body()
 	*/ // START
-	human_for_preview.dna.mutant_bodyparts["tail"] = list(MUTANT_INDEX_NAME = "Cat", MUTANT_INDEX_COLOR_LIST = list(human_for_preview.hair_color))
-	human_for_preview.dna.mutant_bodyparts["ears"] = list(MUTANT_INDEX_NAME = "Cat", MUTANT_INDEX_COLOR_LIST = list(human_for_preview.hair_color))
+	human_for_preview.dna.mutant_bodyparts[FEATURE_TAIL] = list(MUTANT_INDEX_NAME = "Cat", MUTANT_INDEX_COLOR_LIST = list(human_for_preview.hair_color))
+	human_for_preview.dna.mutant_bodyparts[FEATURE_EARS] = list(MUTANT_INDEX_NAME = "Cat", MUTANT_INDEX_COLOR_LIST = list(human_for_preview.hair_color))
 	regenerate_organs(human_for_preview, src, visual_only = TRUE)
 	human_for_preview.update_body(TRUE)
 	// NOVA EDIT END

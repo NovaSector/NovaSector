@@ -2013,12 +2013,8 @@ GLOBAL_LIST_EMPTY(features_by_species)
 	// NOVA EDIT END
 
 	var/list/final_bodypart_overrides = new_species.bodypart_overrides.Copy()
-<<<<<<< HEAD
-	if(!ignore_digi && ((new_species.digitigrade_customization == DIGITIGRADE_OPTIONAL && target.dna.features["legs"] == DIGITIGRADE_LEGS) || new_species.digitigrade_customization == DIGITIGRADE_FORCED)) //if((new_species.digitigrade_customization == DIGITIGRADE_OPTIONAL && target.dna.features["legs"] == DIGITIGRADE_LEGS) || new_species.digitigrade_customization == DIGITIGRADE_FORCED) // NOVA EDIT - Digitigrade customization - ORIGINAL
+	if(!ignore_digi && ((new_species.digitigrade_customization == DIGITIGRADE_OPTIONAL && target.dna.features[FEATURE_LEGS] == DIGITIGRADE_LEGS) || new_species.digitigrade_customization == DIGITIGRADE_FORCED)) //if((new_species.digitigrade_customization == DIGITIGRADE_OPTIONAL && target.dna.features[FEATURE_LEGS] == DIGITIGRADE_LEGS) || new_species.digitigrade_customization == DIGITIGRADE_FORCED) // NOVA EDIT - Digitigrade customization - ORIGINAL
 		/* NOVA EDIT - Digitigrade customization - ORIGINAL:
-=======
-	if((new_species.digitigrade_customization == DIGITIGRADE_OPTIONAL && target.dna.features[FEATURE_LEGS] == DIGITIGRADE_LEGS) || new_species.digitigrade_customization == DIGITIGRADE_FORCED)
->>>>>>> b01756b97c4 (Datumizes DNA blocks, makes DNA cleaner in general (#92061))
 		final_bodypart_overrides[BODY_ZONE_R_LEG] = /obj/item/bodypart/leg/right/digitigrade
 		final_bodypart_overrides[BODY_ZONE_L_LEG] = /obj/item/bodypart/leg/left/digitigrade
 		*/ // ORIGINAL END - NOVA EDIT START:

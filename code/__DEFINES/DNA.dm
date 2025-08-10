@@ -47,64 +47,6 @@
 #define DNA_BLOCK_SIZE 3
 #define DNA_BLOCK_SIZE_COLOR DEFAULT_HEX_COLOR_LEN
 
-<<<<<<< HEAD
-#define DNA_GENDER_BLOCK 1
-#define DNA_SKIN_TONE_BLOCK 2
-#define DNA_EYE_COLOR_LEFT_BLOCK 3
-#define DNA_EYE_COLOR_RIGHT_BLOCK 4
-#define DNA_HAIRSTYLE_BLOCK 5
-#define DNA_HAIR_COLOR_BLOCK 6
-#define DNA_FACIAL_HAIRSTYLE_BLOCK 7
-#define DNA_FACIAL_HAIR_COLOR_BLOCK 8
-#define DNA_HAIRSTYLE_GRADIENT_BLOCK 9
-#define DNA_HAIR_COLOR_GRADIENT_BLOCK 10
-#define DNA_FACIAL_HAIRSTYLE_GRADIENT_BLOCK 11
-#define DNA_FACIAL_HAIR_COLOR_GRADIENT_BLOCK 12
-
-#define DNA_UNI_IDENTITY_BLOCKS 12
-
-//NOVA EDIT REMOVAL BEGIN - CUSTOMIZATION (moved to modular_nova/modules/customization/_DEFINES/DNA.dm)
-/*
-/// This number needs to equal the total number of DNA blocks
-#define DNA_MUTANT_COLOR_BLOCK 1
-#define DNA_ETHEREAL_COLOR_BLOCK 2
-#define DNA_LIZARD_MARKINGS_BLOCK 3
-#define DNA_TAIL_BLOCK 4
-#define DNA_LIZARD_TAIL_BLOCK 5
-#define DNA_SNOUT_BLOCK 6
-#define DNA_HORNS_BLOCK 7
-#define DNA_FRILLS_BLOCK 8
-#define DNA_SPINES_BLOCK 9
-#define DNA_EARS_BLOCK 10
-#define DNA_MOTH_WINGS_BLOCK 11
-#define DNA_MOTH_ANTENNAE_BLOCK 12
-#define DNA_MOTH_MARKINGS_BLOCK 13
-#define DNA_MUSHROOM_CAPS_BLOCK 14
-#define DNA_POD_HAIR_BLOCK 15
-#define DNA_FISH_TAIL_BLOCK 16
-*/ //NOVA EDIT REMOVAL END
-
-// Hey! Listen up if you're here because you're adding a species feature!
-//
-// You don't need to add a DNA block for EVERY species feature!
-// You ONLY need DNA blocks if you intend to allow players to change it via GENETICS!
-// (Which means having a DNA block for a feature tied to a mob without DNA is entirely pointless.)
-
-/// Total amount of DNA blocks, must be equal to the highest DNA block number
-#define DNA_FEATURE_BLOCKS SSaccessories.dna_total_feature_blocks // NOVA EDIT CHANGE - ORIGINAL: #define DNA_FEATURE_BLOCKS 16
-// NOVA EDIT ADDITION START
-#define DNA_MANDATORY_COLOR_BLOCKS 5
-#define DNA_MUTANT_COLOR_BLOCK 1
-#define DNA_MUTANT_COLOR_2_BLOCK 2
-#define DNA_MUTANT_COLOR_3_BLOCK 3
-#define DNA_ETHEREAL_COLOR_BLOCK 4
-#define DNA_SKIN_COLOR_BLOCK 5
-#define DNA_POD_HAIR_BLOCK 15
-#define DNA_FISH_TAIL_BLOCK 16
-// NOVA EDIT ADDITION END
-
-=======
->>>>>>> b01756b97c4 (Datumizes DNA blocks, makes DNA cleaner in general (#92061))
 #define DNA_SEQUENCE_LENGTH 4
 #define DNA_MUTATION_BLOCKS 8
 #define DNA_UNIQUE_ENZYMES_LEN 32
@@ -116,7 +58,7 @@
 #define FEATURE_MUTANT_COLOR "mcolor"
 #define FEATURE_ETHEREAL_COLOR "ethcolor"
 #define FEATURE_EARS "ears"
-#define FEATURE_TAIL "tail_cat"
+#define FEATURE_TAIL_CAT "tail_cat"
 #define FEATURE_TAIL_LIZARD "tail_lizard"
 #define FEATURE_TAIL_FISH "fish_tail"
 #define FEATURE_SNOUT "snout"

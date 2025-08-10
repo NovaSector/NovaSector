@@ -6,21 +6,12 @@
 
 	// Test lizards as their own thing so we can get more coverage on their features
 	var/mob/living/carbon/human/lizard = allocate(/mob/living/carbon/human/dummy/consistent)
-<<<<<<< HEAD
-	lizard.dna.features["mcolor"] = "#099"
-	lizard.dna.mutant_bodyparts["tail"] = list(MUTANT_INDEX_NAME = "Light Tiger", MUTANT_INDEX_COLOR_LIST = list("#009999", "#009999", "#009999")) // NOVA EDIT - Customization - ORIGINAL: lizard.dna.features["tail_lizard"] = "Light Tiger"
-	lizard.dna.mutant_bodyparts["snout"] = list(MUTANT_INDEX_NAME = "Sharp + Light", MUTANT_INDEX_COLOR_LIST = list("#009999", "#009999", "#009999")) // NOVA EDIT - Customization - ORIGINAL: lizard.dna.features["snout"] = "Sharp + Light"
-	lizard.dna.mutant_bodyparts["horns"] = list(MUTANT_INDEX_NAME = "Simple", MUTANT_INDEX_COLOR_LIST = list("#009999", "#009999", "#009999")) // NOVA EDIT - Customization - ORIGINAL: lizard.dna.features["horns"] = "Simple"
-	lizard.dna.mutant_bodyparts["frills"] = list(MUTANT_INDEX_NAME = "Aquatic", MUTANT_INDEX_COLOR_LIST = list("#009999", "#009999", "#009999")) // NOVA EDIT - Customization - ORIGINAL: lizard.dna.features["frills"] = "Aquatic"
-	lizard.dna.features["legs"] = "Normal Legs"
-=======
 	lizard.dna.features[FEATURE_MUTANT_COLOR] = "#099"
-	lizard.dna.features[FEATURE_TAIL_LIZARD] = "Light Tiger"
-	lizard.dna.features[FEATURE_SNOUT] = "Sharp + Light"
-	lizard.dna.features[FEATURE_HORNS] = "Simple"
-	lizard.dna.features[FEATURE_FRILLS] = "Aquatic"
+	lizard.dna.mutant_bodyparts[FEATURE_TAIL] = list(MUTANT_INDEX_NAME = "Light Tiger", MUTANT_INDEX_COLOR_LIST = list("#009999", "#009999", "#009999")) // NOVA EDIT - Customization - ORIGINAL: lizard.dna.features[FEATURE_TAIL_LIZARD] = "Light Tiger"
+	lizard.dna.mutant_bodyparts[FEATURE_SNOUT] = list(MUTANT_INDEX_NAME = "Sharp + Light", MUTANT_INDEX_COLOR_LIST = list("#009999", "#009999", "#009999")) // NOVA EDIT - Customization - ORIGINAL: lizard.dna.features[FEATURE_SNOUT] = "Sharp + Light"
+	lizard.dna.mutant_bodyparts[FEATURE_HORNS] = list(MUTANT_INDEX_NAME = "Simple", MUTANT_INDEX_COLOR_LIST = list("#009999", "#009999", "#009999")) // NOVA EDIT - Customization - ORIGINAL: lizard.dna.features[FEATURE_HORNS] = "Simple"
+	lizard.dna.mutant_bodyparts[FEATURE_FRILLS] = list(MUTANT_INDEX_NAME = "Aquatic", MUTANT_INDEX_COLOR_LIST = list("#009999", "#009999", "#009999")) // NOVA EDIT - Customization - ORIGINAL: lizard.dna.features[FEATURE_FRILLS] = "Aquatic"
 	lizard.dna.features[FEATURE_LEGS] = "Normal Legs"
->>>>>>> b01756b97c4 (Datumizes DNA blocks, makes DNA cleaner in general (#92061))
 	lizard.set_species(/datum/species/lizard)
 	lizard.equipOutfit(/datum/outfit/job/engineer)
 	test_screenshot("[/datum/species/lizard]", get_flat_icon_for_all_directions(lizard))
@@ -33,16 +24,10 @@
 
 	// let me have this
 	var/mob/living/carbon/human/moth = allocate(/mob/living/carbon/human/dummy/consistent)
-<<<<<<< HEAD
-	moth.dna.features["mcolor"] = "#E5CD99" // NOVA EDIT ADDITION - Customization
-	moth.dna.mutant_bodyparts["moth_antennae"] = list(MUTANT_INDEX_NAME = "Firewatch", MUTANT_INDEX_COLOR_LIST = list("#FFFFFF", "#FFFFFF", "#FFFFFF")) // NOVA EDIT - Customization - ORIGINAL: moth.dna.features["moth_antennae"] = "Firewatch"
-	moth.dna.mutant_bodyparts["moth_markings"] = list(MUTANT_INDEX_NAME = "None", MUTANT_INDEX_COLOR_LIST = list("#FFFFFF", "#FFFFFF", "#FFFFFF")) // NOVA EDIT - Customization - ORIGINAL: moth.dna.features["moth_markings"] = "None"
-	moth.dna.mutant_bodyparts["wings"] = list(MUTANT_INDEX_NAME = "Moth (Firewatch)", MUTANT_INDEX_COLOR_LIST = list("#FFFFFF", "#FFFFFF", "#FFFFFF")) // NOVA EDIT - Customization - ORIGINAL: moth.dna.features["moth_wings"] = "Firewatch"
-=======
-	moth.dna.features[FEATURE_MOTH_ANTENNAE] = "Firewatch"
-	moth.dna.features[FEATURE_MOTH_MARKINGS] = "None"
-	moth.dna.features[FEATURE_MOTH_WINGS] = "Firewatch"
->>>>>>> b01756b97c4 (Datumizes DNA blocks, makes DNA cleaner in general (#92061))
+	moth.dna.features[FEATURE_MUTANT_COLOR] = "#E5CD99" // NOVA EDIT ADDITION - Customization
+	moth.dna.mutant_bodyparts[FEATURE_MOTH_ANTENNAE] = list(MUTANT_INDEX_NAME = "Firewatch", MUTANT_INDEX_COLOR_LIST = list("#FFFFFF", "#FFFFFF", "#FFFFFF")) // NOVA EDIT - Customization - ORIGINAL: moth.dna.features[FEATURE_MOTH_ANTENNAE] = "Firewatch"
+	moth.dna.mutant_bodyparts[FEATURE_MOTH_MARKINGS] = list(MUTANT_INDEX_NAME = "None", MUTANT_INDEX_COLOR_LIST = list("#FFFFFF", "#FFFFFF", "#FFFFFF")) // NOVA EDIT - Customization - ORIGINAL: moth.dna.features[FEATURE_MOTH_MARKINGS] = "None"
+	moth.dna.mutant_bodyparts[FEATURE_WINGS] = list(MUTANT_INDEX_NAME = "Moth (Firewatch)", MUTANT_INDEX_COLOR_LIST = list("#FFFFFF", "#FFFFFF", "#FFFFFF")) // NOVA EDIT - Customization - ORIGINAL: moth.dna.features[FEATURE_MOTH_WINGS] = "Firewatch"
 	moth.set_species(/datum/species/moth)
 	moth.equipOutfit(/datum/outfit/job/cmo, visuals_only = TRUE)
 	test_screenshot("[/datum/species/moth]", get_flat_icon_for_all_directions(moth))
