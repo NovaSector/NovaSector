@@ -118,10 +118,10 @@
 	if(CONFIG_GET(flag/usewhitelist))
 		load_whitelist()
 
-	// NOVA EDIT ADDITION START
+	// bobaEDIT ADDITION START
 	populate_interaction_instances()
 	remove_erp_things()
-	// NOVA EDIT ADDITION END
+	// bobaEDIT ADDITION END
 
 	loaded = TRUE
 

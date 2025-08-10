@@ -36,7 +36,7 @@
 	var/blacklist_file
 
 	var/allow_custom_shuttles = TRUE
-// NOVA EDIT REMOVAL BEGIN - CUSTOM SHUTTLE LIST OVERRIDE
+// bobaEDIT REMOVAL BEGIN - CUSTOM SHUTTLE LIST OVERRIDE
 	/*
 	// TG original
 	var/shuttles = list(
@@ -52,7 +52,7 @@
 		"whiteship" = "whiteship_meta",
 		"emergency" = "emergency_nova",
 	)
-// NOVA EDIT END
+// bobaEDIT END
 
 	/// Dictionary of job sub-typepath to template changes dictionary
 	var/job_changes = list()
@@ -173,9 +173,9 @@
 		log_world("map_config shuttles is not a list!")
 		return
 
-	// NOVA ADD BEGIN - EMERGENCY SHUTTLE OVERRIDE
+	// bobaADD BEGIN - EMERGENCY SHUTTLE OVERRIDE
 	shuttles["emergency"] = "emergency_nova"
-	// NOVA ADD END
+	// bobaADD END
 
 	traits = json["traits"]
 	// "traits": [{"Linkage": "Cross"}, {"Space Ruins": true}]
@@ -210,10 +210,10 @@
 	if ("planetary" in json)
 		planetary = json["planetary"]
 
-	// NOVA EDIT ADDITION START - Planetary maps with space access.
+	// bobaEDIT ADDITION START - Planetary maps with space access.
 	if ("allow_space_when_planetary" in json)
 		allow_space_when_planetary = json["allow_space_when_planetary"]
-	// NOVA EDIT END
+	// bobaEDIT END
 
 	if ("blacklist_file" in json)
 		blacklist_file = json["blacklist_file"]

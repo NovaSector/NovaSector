@@ -1,6 +1,6 @@
 /obj/item/dyespray
 	name = "hair dye spray"
-	desc = "A spray to dye hair as well as giving it any gradient you'd like." // NOVA EDIT - Making the dyespray change hair color
+	desc = "A spray to dye hair as well as giving it any gradient you'd like." // bobaEDIT - Making the dyespray change hair color
 	w_class = WEIGHT_CLASS_TINY
 	icon = 'icons/obj/cosmetic.dmi'
 	icon_state = "dyespray"

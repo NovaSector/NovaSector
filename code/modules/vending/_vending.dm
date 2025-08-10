@@ -856,7 +856,7 @@ GLOBAL_LIST_EMPTY(vending_machines_to_restock)
 					crit_case = pick_weight(get_crit_crush_chances())
 			var/crit_rebate_mult = 1 // lessen the normal damage we deal for some of the crits
 
-			/* // NOVA EDIT REMOVAL START
+			/* // bobaEDIT REMOVAL START
 			if (!isnull(crit_case))
 				crit_rebate_mult = fall_and_crush_crit_rebate_table(crit_case)
 				apply_crit_crush(crit_case, atom_target)
@@ -878,7 +878,7 @@ GLOBAL_LIST_EMPTY(vending_machines_to_restock)
 						var/burn = (damage_type == BURN ? damage : 0) * 0.5
 						carbon_target.take_bodypart_damage(brute, burn, check_armor = TRUE, wound_bonus = 5) // otherwise, deal it to 2 random limbs (or the same one) which will likely shatter something
 						carbon_target.take_bodypart_damage(brute, burn, check_armor = TRUE, wound_bonus = 5)
-					//carbon_target.AddElement(/datum/element/squish, 80 SECONDS) // NOVA EDIT REMOVAL
+					//carbon_target.AddElement(/datum/element/squish, 80 SECONDS) // bobaEDIT REMOVAL
 				else
 					living_target.apply_damage(adjusted_damage, damage_type, blocked = blocked, forced = TRUE, attack_direction = crush_dir)
 
@@ -986,8 +986,8 @@ GLOBAL_LIST_EMPTY(vending_machines_to_restock)
 
 	weighted_crits[CRUSH_CRIT_SHATTER_LEGS] = 100
 	weighted_crits[CRUSH_CRIT_PARAPLEGIC] = 80
-	//weighted_crits[CRUSH_CRIT_HEADGIB] = 20 // NOVA EDIT REMOVAL
-	weighted_crits[CRUSH_CRIT_SQUISH_LIMB] = 80 // NOVA EDIT CHANGE - ORIGINAL: weighted_crits[CRUSH_CRIT_SQUISH_LIMB] = 100
+	//weighted_crits[CRUSH_CRIT_HEADGIB] = 20 // bobaEDIT REMOVAL
+	weighted_crits[CRUSH_CRIT_SQUISH_LIMB] = 80 // bobaEDIT CHANGE - ORIGINAL: weighted_crits[CRUSH_CRIT_SQUISH_LIMB] = 100
 
 	return weighted_crits
 
@@ -1912,7 +1912,7 @@ GLOBAL_LIST_EMPTY(vending_machines_to_restock)
 /datum/aas_config_entry/vendomat_age_control
 	name = "Security Alert: Underaged Substance Abuse"
 	announcement_lines_map = list(
-		"Message" = "SECURITY ALERT: %PERSON recorded attempting to purchase %PRODUCT in %LOCATION. Please watch for substance abuse." // NOVA EDIT CHANGE - Original: "Message" = "SECURITY ALERT: Underaged crewmember %PERSON recorded attempting to purchase %PRODUCT in %LOCATION by %VENDOR. Please watch for substance abuse."
+		"Message" = "SECURITY ALERT: %PERSON recorded attempting to purchase %PRODUCT in %LOCATION. Please watch for substance abuse." // bobaEDIT CHANGE - Original: "Message" = "SECURITY ALERT: Underaged crewmember %PERSON recorded attempting to purchase %PRODUCT in %LOCATION by %VENDOR. Please watch for substance abuse."
 	)
 	vars_and_tooltips_map = list(
 		"PERSON" = "will be replaced with the name of the crewmember",

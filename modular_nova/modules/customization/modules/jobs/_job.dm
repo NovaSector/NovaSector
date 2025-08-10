@@ -198,7 +198,7 @@
 
 	for(var/datum/language/lang as anything in required_languages)
 		//Doesnt have language, or the required "level" is too low (understood, while needing spoken)
-		if((!pref.languages[lang] || pref.languages[lang] < required_languages[lang]) && bilingual_pref != lang.name) // NOVA EDIT - check the bilingual quirk
+		if((!pref.languages[lang] || pref.languages[lang] < required_languages[lang]) && bilingual_pref != lang.name) // bobaEDIT - check the bilingual quirk
 			return FALSE
 	return TRUE
 

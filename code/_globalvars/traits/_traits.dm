@@ -143,11 +143,11 @@ GLOBAL_LIST_INIT(traits_by_type, list(
 	/datum/wound = list(
 		"TRAIT_WOUND_SCANNED" = TRAIT_WOUND_SCANNED,
 	),
-	// NOVA EDIT ADDITION BEGIN - Synthetic wounds
+	// bobaEDIT ADDITION BEGIN - Synthetic wounds
 	/datum/wound/electrical_damage = list(
 		"TRAIT_ELECTRICAL_DAMAGE_REPAIRING" = TRAIT_ELECTRICAL_DAMAGE_REPAIRING,
 	),
-	// NOVA EDIT ADDITION END - Synthetic wounds
+	// bobaEDIT ADDITION END - Synthetic wounds
 	/obj = list(
 		"TRAIT_CONTRABAND" = TRAIT_CONTRABAND,
 		"TRAIT_SPEED_POTIONED" = TRAIT_SPEED_POTIONED,
@@ -792,7 +792,7 @@ GLOBAL_LIST_INIT(traits_by_type, list(
 		"TRAIT_TURF_IGNORE_SLOWDOWN" = TRAIT_TURF_IGNORE_SLOWDOWN,
 		"TRAIT_UNCOVERED_TURF" = TRAIT_UNCOVERED_TURF,
 	),
-	// NOVA EDIT ADDITION START - NOVA TRAITS
+	// bobaEDIT ADDITION START - NOVA TRAITS
 	/obj/item/toy/plush/nova = list(
 		"TRAIT_ABDOMEN_POUND" = TRAIT_ABDOMEN_POUND,
 		"TRAIT_AFFECTION_AVERSION" = TRAIT_AFFECTION_AVERSION,
@@ -875,7 +875,7 @@ GLOBAL_LIST_INIT(traits_by_type, list(
 		"TRAIT_FLOATING_HELD" = TRAIT_FLOATING_HELD,
 		"TRAIT_INSANITY" = TRAIT_INSANITY,
 	),
-	// NOVA EDIT ADDITION END
+	// bobaEDIT ADDITION END
 ))
 
 /// value -> trait name, list of ALL traits that exist in the game, used for any type of accessing.

@@ -208,7 +208,7 @@
 /obj/item/melee/baton/proc/finalize_baton_attack(mob/living/target, mob/living/user, list/modifiers)
 	PROTECTED_PROC(TRUE)
 	COOLDOWN_START(src, cooldown_check, cooldown)
-	SEND_SIGNAL(src, COMSIG_PRE_BATON_FINALIZE_ATTACK, target, user, modifiers) // NOVA EDIT ADDITION
+	SEND_SIGNAL(src, COMSIG_PRE_BATON_FINALIZE_ATTACK, target, user, modifiers) // bobaEDIT ADDITION
 	if(on_stun_sound)
 		playsound(src, on_stun_sound, on_stun_volume, TRUE, -1)
 	if(baton_effect(target, user, modifiers) && user)
@@ -748,7 +748,7 @@
  */
 /obj/item/melee/baton/security/additional_effects_non_cyborg(mob/living/target, mob/living/user)
 	target.set_jitter_if_lower(40 SECONDS)
-	// target.set_confusion_if_lower(10 SECONDS) // NOVA EDIT REMOVAL
+	// target.set_confusion_if_lower(10 SECONDS) // bobaEDIT REMOVAL
 	target.set_stutter_if_lower(16 SECONDS)
 
 	SEND_SIGNAL(target, COMSIG_LIVING_MINOR_SHOCK)

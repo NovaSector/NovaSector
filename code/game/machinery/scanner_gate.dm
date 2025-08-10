@@ -5,7 +5,7 @@
 #define SCANGATE_WANTED "Wanted"
 #define SCANGATE_SPECIES "Species"
 #define SCANGATE_NUTRITION "Nutrition"
-#define SCANGATE_GENDER "Gender" // NOVA EDIT ADDITION
+#define SCANGATE_GENDER "Gender" // bobaEDIT ADDITION
 
 /obj/machinery/scanner_gate
 	name = "scanner gate"
@@ -61,7 +61,7 @@
 		SCANGATE_WANTED,
 		SCANGATE_SPECIES,
 		SCANGATE_NUTRITION,
-		SCANGATE_GENDER, // NOVA EDIT ADDITION
+		SCANGATE_GENDER, // bobaEDIT ADDITION
 	)
 	/// All disease severity thresholds available to the scanner
 	var/static/list/all_disease_thresholds = list(
@@ -396,4 +396,4 @@
 #undef SCANGATE_WANTED
 #undef SCANGATE_SPECIES
 #undef SCANGATE_NUTRITION
-#undef SCANGATE_GENDER // NOVA EDIT ADDITION
+#undef SCANGATE_GENDER // bobaEDIT ADDITION

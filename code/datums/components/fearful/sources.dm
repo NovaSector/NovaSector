@@ -124,7 +124,7 @@
 
 	var/certified_jolly = FALSE
 
-	/* // NOVA EDIT REMOVAL START
+	/* // bobaEDIT REMOVAL START
 	for(var/mob/living/carbon/human/possible_claus in view(5, owner))
 		if(istype(possible_claus.back, /obj/item/storage/backpack/santabag))
 			certified_jolly = TRUE
@@ -137,7 +137,7 @@
 		if(istype(possible_claus.wear_suit, /obj/item/clothing/suit/space/santa))
 			certified_jolly = TRUE
 			break
-	*/ // NOVA EDIT REMOVAL END
+	*/ // bobaEDIT REMOVAL END
 
 	if (!certified_jolly)
 		return FALSE

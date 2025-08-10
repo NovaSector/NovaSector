@@ -32,11 +32,11 @@
 			silenced = TRUE
 			continue
 		if(!emote.can_run_emote(src, TRUE, intentional, param))
-			src.nextsoundemote = world.time // NOVA EDIT ADDITION - Since the cooldown is global and not specific to each emote, we need to reset it on an unsuccessful emote
+			src.nextsoundemote = world.time // bobaEDIT ADDITION - Since the cooldown is global and not specific to each emote, we need to reset it on an unsuccessful emote
 			continue
 		if(SEND_SIGNAL(src, COMSIG_MOB_PRE_EMOTED, emote.key, param, m_type, intentional, emote) & COMPONENT_CANT_EMOTE)
 			silenced = TRUE
-			src.nextsoundemote = world.time // NOVA EDIT ADDITION
+			src.nextsoundemote = world.time // bobaEDIT ADDITION
 			continue
 		emote.run_emote(src, param, m_type, intentional)
 		SEND_SIGNAL(src, COMSIG_MOB_EMOTE, emote, act, m_type, message, intentional)
@@ -85,10 +85,10 @@
 
 /datum/emote/flip/run_emote(mob/user, params , type_override, intentional)
 	. = ..()
-	// NOVA EDIT ADDITION START - flips for everyone, but freerunners do it faster
+	// bobaEDIT ADDITION START - flips for everyone, but freerunners do it faster
 	if(intentional && !HAS_TRAIT(user, TRAIT_FREERUNNING) && !HAS_TRAIT(user, TRAIT_STYLISH) && !do_after(user, 0.5 SECONDS, target = user, hidden = TRUE))
 		return
-	// NOVA EDIT ADDITION END
+	// bobaEDIT ADDITION END
 	user.SpinAnimation(FLIP_EMOTE_DURATION, 1)
 
 /datum/emote/flip/check_cooldown(mob/user, intentional)

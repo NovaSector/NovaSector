@@ -19,7 +19,7 @@
 	actions_types = list(
 		/datum/action/item_action/mod/deploy,
 		/datum/action/item_action/mod/activate,
-		/datum/action/item_action/mod/sprite_accessories, // NOVA EDIT - Hide mutant parts action
+		/datum/action/item_action/mod/sprite_accessories, // bobaEDIT - Hide mutant parts action
 		/datum/action/item_action/mod/panel,
 		/datum/action/item_action/mod/module,
 		/datum/action/item_action/mod/deploy/ai,
@@ -158,7 +158,7 @@
 		else
 			. += span_notice("You could use a <b>MOD core</b> on it to install one.")
 		if(isnull(ai_assistant))
-			. += span_notice("You could install a pAI with a <b>pAI card</b>.") // NOVA EDIT CHANGE - ORIGINAL: . += span_notice("You could install an AI or pAI using their <b>storage card</b>.")
+			. += span_notice("You could install a pAI with a <b>pAI card</b>.") // bobaEDIT CHANGE - ORIGINAL: . += span_notice("You could install an AI or pAI using their <b>storage card</b>.")
 		else if(isAI(ai_assistant))
 			. += span_notice("You could remove [ai_assistant] with an <b>intellicard</b>.")
 	. += span_notice("You could copy/set link frequency with a <b>multitool</b>.")

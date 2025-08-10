@@ -47,7 +47,7 @@ const fileLabelFilepathSets = (() => {
 function check_body_for_labels(body) {
   const labels_to_add = [];
 
-  // detect "fixes #1234" or "resolves #1234" in body
+  // detect "fixes #1234" or "resolves #1234" in bodya
   const fix_regex = /\b(?:fix(?:es|ed)?|resolve[sd]?)\s*#\d+\b/gim;
   if (fix_regex.test(body)) {
     labels_to_add.push("Fix");

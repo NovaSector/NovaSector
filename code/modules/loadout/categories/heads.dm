@@ -28,7 +28,7 @@
 /datum/loadout_item/head/red_beret
 	name = "Red Beret (Colorable)"
 	item_path = /obj/item/clothing/head/beret
-*/ // NOVA REMOVAL END
+*/ // bobaREMOVAL END
 
 /datum/loadout_item/head/black_cap
 	name = "Cap (Black)"
@@ -130,7 +130,7 @@
 /datum/loadout_item/head/plague_doctor
 	name = "Cap (Plague Doctor)"
 	item_path = /obj/item/clothing/head/bio_hood/plague
-*/ // NOVA REMOVAL END
+*/ // bobaREMOVAL END
 
 /datum/loadout_item/head/rose
 	name = "Rose"

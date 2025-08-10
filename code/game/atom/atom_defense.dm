@@ -108,7 +108,7 @@
 	switch(damage_type)
 		if(BRUTE)
 			if(damage_amount)
-				//playsound(src, 'sound/items/weapons/smash.ogg', 50, TRUE) // NOVA EDIT REMOVAL
+				//playsound(src, 'sound/items/weapons/smash.ogg', 50, TRUE) // bobaEDIT REMOVAL
 				//NOVA EDIT ADDITION START - CREDITS TO WHITEDREAM(valtos)
 				playsound(src, pick('modular_nova/master_files/sound/effects/metalblock1.wav', 'modular_nova/master_files/sound/effects/metalblock2.wav', \
 									'modular_nova/master_files/sound/effects/metalblock3.wav', 'modular_nova/master_files/sound/effects/metalblock4.wav', \

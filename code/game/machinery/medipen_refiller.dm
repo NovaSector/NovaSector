@@ -19,7 +19,7 @@
 		/obj/item/reagent_containers/hypospray/medipen/survival = /datum/reagent/medicine/c2/libital,
 		/obj/item/reagent_containers/hypospray/medipen/survival/luxury = /datum/reagent/medicine/c2/penthrite,
 		/obj/item/reagent_containers/hypospray/medipen/invisibility = /datum/reagent/drug/saturnx,
-		// NOVA EDIT ADDITION BEGIN - Universal medipens and lathe medipens
+		// bobaEDIT ADDITION BEGIN - Universal medipens and lathe medipens
 		/obj/item/reagent_containers/hypospray/medipen/universal = null,
 		/obj/item/reagent_containers/hypospray/medipen/universal/lowpressure = null,
 		/obj/item/reagent_containers/hypospray/medipen/empty = /datum/reagent/medicine/epinephrine,
@@ -28,9 +28,9 @@
 		/obj/item/reagent_containers/hypospray/medipen/oxandrolone/empty = /datum/reagent/medicine/oxandrolone,
 		/obj/item/reagent_containers/hypospray/medipen/salacid/empty = /datum/reagent/medicine/sal_acid,
 		/obj/item/reagent_containers/hypospray/medipen/penacid/empty = /datum/reagent/medicine/pen_acid,
-		// NOVA EDIT ADDITION END
+		// bobaEDIT ADDITION END
 	)
-	// NOVA EDIT ADDITION BEGIN - Universal medipens
+	// bobaEDIT ADDITION BEGIN - Universal medipens
 	///Whitelist typecache of reagent types which are allowed to refill universal medipens.
 	var/static/list/medipen_reagent_whitelist = typecacheof(list(
 		/datum/reagent/medicine,
@@ -40,7 +40,7 @@
 	var/static/list/medipen_reagent_blacklist = typecacheof(list(
 		/datum/reagent/medicine/morphine,
 	))
-	// NOVA EDIT ADDITION END
+	// bobaEDIT ADDITION END
 
 /obj/machinery/medipen_refiller/Initialize(mapload)
 	. = ..()
@@ -65,7 +65,7 @@
 	else if(is_reagent_container(held_item) && held_item.is_open_container())
 		context[SCREENTIP_CONTEXT_LMB] = "Refill machine"
 		. = CONTEXTUAL_SCREENTIP_SET
-	else if(istype(held_item, /obj/item/reagent_containers/hypospray/medipen/universal) || istype(held_item, /obj/item/reagent_containers/hypospray/medipen) && reagents.has_reagent(allowed_pens[held_item.type])) // NOVA EDIT CHANGE - ORIGINAL: else if(istype(held_item, /obj/item/reagent_containers/hypospray/medipen) && reagents.has_reagent(allowed_pens[held_item.type]))
+	else if(istype(held_item, /obj/item/reagent_containers/hypospray/medipen/universal) || istype(held_item, /obj/item/reagent_containers/hypospray/medipen) && reagents.has_reagent(allowed_pens[held_item.type])) // bobaEDIT CHANGE - ORIGINAL: else if(istype(held_item, /obj/item/reagent_containers/hypospray/medipen) && reagents.has_reagent(allowed_pens[held_item.type]))
 		context[SCREENTIP_CONTEXT_LMB] = "Refill medipen"
 		. = CONTEXTUAL_SCREENTIP_SET
 	else if(istype(held_item, /obj/item/plunger))
@@ -115,8 +115,8 @@
 			balloon_alert(user, "medipen full!")
 			return ITEM_INTERACT_BLOCKING
 
-		//if(!reagents.has_reagent(allowed_pens[medipen.type], 10)) // NOVA EDIT REMOVAL
-		// NOVA EDIT ADDITION BEGIN - Universal medipen and lathe medipens
+		//if(!reagents.has_reagent(allowed_pens[medipen.type], 10)) // bobaEDIT REMOVAL
+		// bobaEDIT ADDITION BEGIN - Universal medipen and lathe medipens
 		var/list/datum/reagent/compatible_universal_reagents
 		if(istype(medipen, /obj/item/reagent_containers/hypospray/medipen/universal))
 			if(!reagents.total_volume)
@@ -129,13 +129,13 @@
 				balloon_alert(user, "reagents incompatible!")
 				return
 		else if(!reagents.has_reagent(allowed_pens[medipen.type], medipen.volume))
-		// NOVA EDIT ADDITION END
+		// bobaEDIT ADDITION END
 			balloon_alert(user, "not enough reagents!")
 			return ITEM_INTERACT_BLOCKING
 
 		add_overlay("active")
 		if(do_after(user, 2 SECONDS, src))
-			// NOVA EDIT ADDITION BEGIN - Universal medipen and lathe medipens
+			// bobaEDIT ADDITION BEGIN - Universal medipen and lathe medipens
 			if(istype(medipen, /obj/item/reagent_containers/hypospray/medipen/universal))
 				// Create list of transferable reagent typepaths
 				var/list/target_reagent_types = list()
@@ -146,10 +146,10 @@
 			else
 				medipen.add_initial_reagents()
 				reagents.remove_reagent(allowed_pens[medipen.type], medipen.volume)
-			// NOVA EDIT ADDITION END
+			// bobaEDIT ADDITION END
 			medipen.used_up = FALSE
-			//medipen.add_initial_reagents() // NOVA EDIT REMOVAL - Handled above
-			//reagents.remove_reagent(allowed_pens[medipen.type], 10) // NOVA EDIT REMOVAL - Handled above
+			//medipen.add_initial_reagents() // bobaEDIT REMOVAL - Handled above
+			//reagents.remove_reagent(allowed_pens[medipen.type], 10) // bobaEDIT REMOVAL - Handled above
 			balloon_alert(user, "refilled")
 			use_energy(active_power_usage)
 		cut_overlays()

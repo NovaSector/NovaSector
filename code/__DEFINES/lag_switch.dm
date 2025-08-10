@@ -16,8 +16,8 @@
 #define DISABLE_PARALLAX 7
 /// Disables footsteps, TRAIT_BYPASS_MEASURES exempted
 #define DISABLE_FOOTSTEPS 8
-// NOVA EDIT ADDITION
+// bobaEDIT ADDITION
 /// Stops people from changing things in the character creator. Entirely.
 #define DISABLE_CREATOR 9
-// NOVA EDIT END
-#define MEASURES_AMOUNT 9 // The total number of switches defined above // NOVA EDIT ADDITION
+// bobaEDIT END
+#define MEASURES_AMOUNT 9 // The total number of switches defined above // bobaEDIT ADDITION

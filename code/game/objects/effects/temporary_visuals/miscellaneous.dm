@@ -288,8 +288,8 @@
 
 /obj/effect/temp_visual/telekinesis
 	name = "telekinetic force"
-	icon_state = "telekinesis_throw" // NOVA EDIT CHANGE - ORIGINAL: icon_state = "empdisable"
-	icon = 'modular_nova/master_files/icons/effects/tele_effects.dmi' // NOVA EDIT ADDITION
+	icon_state = "telekinesis_throw" // bobaEDIT CHANGE - ORIGINAL: icon_state = "empdisable"
+	icon = 'modular_nova/master_files/icons/effects/tele_effects.dmi' // bobaEDIT ADDITION
 	duration = 5
 
 /obj/effect/temp_visual/emp

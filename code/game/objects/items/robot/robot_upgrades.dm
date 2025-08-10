@@ -598,13 +598,13 @@
 		to_chat(usr, span_warning("This unit already has an expand module installed!"))
 		return FALSE
 
-	// NOVA EDIT ADDITION BEGIN
+	// bobaEDIT ADDITION BEGIN
 	var/resize_amount = 1.25
 	if(TRAIT_R_WIDE in borg.model.model_features)
 		resize_amount = 1.25
 	if(TRAIT_R_TALL in borg.model.model_features)
 		resize_amount = 1.05
-	// NOVA EDIT ADDITION END
+	// bobaEDIT ADDITION END
 	ADD_TRAIT(borg, TRAIT_NO_TRANSFORM, REF(src))
 	var/prev_lockcharge = borg.lockcharge
 	borg.SetLockdown(TRUE)
@@ -627,7 +627,7 @@
 	borg.set_anchored(FALSE)
 	REMOVE_TRAIT(borg, TRAIT_NO_TRANSFORM, REF(src))
 	borg.hasExpanded = TRUE
-	borg.update_transform(resize_amount) // NOVA EDIT CHANGE - ORIGINAL: borg.update_transform(2)
+	borg.update_transform(resize_amount) // bobaEDIT CHANGE - ORIGINAL: borg.update_transform(2)
 
 /obj/item/borg/upgrade/expand/deactivate(mob/living/silicon/robot/borg, mob/living/user = usr)
 	. = ..()
@@ -635,7 +635,7 @@
 		return .
 	if (borg.hasExpanded)
 		borg.hasExpanded = FALSE
-		borg.update_transform(0.8) // NOVA EDIT CHANGE - ORIGINAL: borg.update_transform(0.5)
+		borg.update_transform(0.8) // bobaEDIT CHANGE - ORIGINAL: borg.update_transform(0.5)
 
 /obj/item/borg/upgrade/rped
 	name = "engineering cyborg RPED"

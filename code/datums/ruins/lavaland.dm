@@ -53,7 +53,7 @@
 	cost = 10
 	allow_duplicates = FALSE
 
-// NOVA EDIT REMOVAL BEGIN - MAPPING
+// bobaEDIT REMOVAL BEGIN - MAPPING
 /*
 /datum/map_template/ruin/lavaland/ash_walker
 	name = "Lava-Ruin Ash Walker Nest"

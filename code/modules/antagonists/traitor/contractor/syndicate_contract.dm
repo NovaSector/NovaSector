@@ -1,8 +1,8 @@
-// NOVA EDIT ADDITION START
+// bobaEDIT ADDITION START
 #define RANSOM_LOWER 75 // TG: 18
 #define RANSOM_UPPER 150 // TG: 45
 #define CONTRACTOR_RANSOM_CUT 0.35
-// NOVA EDIT ADDITION END
+// bobaEDIT ADDITION END
 
 /datum/syndicate_contract
 	///The 'id' of this particular contract. Used to keep track of statuses from TGUI.
@@ -53,7 +53,7 @@
 	contract.payout = rand(0, 2)
 	contract.generate_dropoff()
 
-	ransom = 100 * rand(RANSOM_LOWER, RANSOM_UPPER) // NOVA EDIT CHANGE - ORIGINAL: ransom = 100 * rand(18, 45)
+	ransom = 100 * rand(RANSOM_LOWER, RANSOM_UPPER) // bobaEDIT CHANGE - ORIGINAL: ransom = 100 * rand(18, 45)
 
 	var/base = pick_list(WANTED_FILE, "basemessage")
 	var/verb_string = pick_list(WANTED_FILE, "verb")
@@ -94,20 +94,20 @@
 	if(!isliving(sent_mob))
 		return
 	var/mob/living/person_sent = sent_mob
-	var/datum/opposing_force/opfor_data = contract.owner.opposing_force // NOVA EDIT CHANGE - ORIGINAL: var/datum/antagonist/traitor/traitor_data = contract.owner.has_antag_datum(/datum/antagonist/traitor)
+	var/datum/opposing_force/opfor_data = contract.owner.opposing_force // bobaEDIT CHANGE - ORIGINAL: var/datum/antagonist/traitor/traitor_data = contract.owner.has_antag_datum(/datum/antagonist/traitor)
 	if(person_sent == contract.target.current)
-		opfor_data.contractor_hub.contract_TC_to_redeem += contract.payout // NOVA EDIT CHANGE - ORIGINAL: traitor_data.uplink_handler.contractor_hub.contract_TC_to_redeem += contract.payout
-		opfor_data.contractor_hub.contracts_completed++ // NOVA EDIT CHANGE - ORIGINAL: traitor_data.uplink_handler.contractor_hub.contracts_completed++
+		opfor_data.contractor_hub.contract_TC_to_redeem += contract.payout // bobaEDIT CHANGE - ORIGINAL: traitor_data.uplink_handler.contractor_hub.contract_TC_to_redeem += contract.payout
+		opfor_data.contractor_hub.contracts_completed++ // bobaEDIT CHANGE - ORIGINAL: traitor_data.uplink_handler.contractor_hub.contracts_completed++
 		if(person_sent.stat != DEAD)
-			opfor_data.contractor_hub.contract_TC_to_redeem += contract.payout_bonus // NOVA EDIT CHANGE - ORIGINAL: traitor_data.uplink_handler.contractor_hub.contract_TC_to_redeem += contract.payout_bonus
+			opfor_data.contractor_hub.contract_TC_to_redeem += contract.payout_bonus // bobaEDIT CHANGE - ORIGINAL: traitor_data.uplink_handler.contractor_hub.contract_TC_to_redeem += contract.payout_bonus
 		status = CONTRACT_STATUS_COMPLETE
-		if(opfor_data.contractor_hub.current_contract == src) // NOVA EDIT CHANGE - ORIGINAL: if(traitor_data.uplink_handler.contractor_hub.current_contract == src)
-			opfor_data.contractor_hub.current_contract = null // NOVA EDIT CHANGE - ORIGINAL: traitor_data.uplink_handler.contractor_hub.current_contract = null
-		opfor_data.contractor_hub.contract_rep += 2 // NOVA EDIT ADDITION
+		if(opfor_data.contractor_hub.current_contract == src) // bobaEDIT CHANGE - ORIGINAL: if(traitor_data.uplink_handler.contractor_hub.current_contract == src)
+			opfor_data.contractor_hub.current_contract = null // bobaEDIT CHANGE - ORIGINAL: traitor_data.uplink_handler.contractor_hub.current_contract = null
+		opfor_data.contractor_hub.contract_rep += 2 // bobaEDIT ADDITION
 	else
 		status = CONTRACT_STATUS_ABORTED // Sending a target that wasn't even yours is as good as just aborting it
-		if(opfor_data.contractor_hub.current_contract == src) // NOVA EDIT CHANGE - ORIGINAL: if(traitor_data.uplink_handler.contractor_hub.current_contract == src)
-			opfor_data.contractor_hub.current_contract = null // NOVA EDIT CHANGE - ORIGINAL: traitor_data.uplink_handler.contractor_hub.current_contract = null
+		if(opfor_data.contractor_hub.current_contract == src) // bobaEDIT CHANGE - ORIGINAL: if(traitor_data.uplink_handler.contractor_hub.current_contract == src)
+			opfor_data.contractor_hub.current_contract = null // bobaEDIT CHANGE - ORIGINAL: traitor_data.uplink_handler.contractor_hub.current_contract = null
 
 	for(var/obj/item/person_contents as anything in person_sent.gather_belongings(FALSE, FALSE))
 		if(ishuman(person_sent))
@@ -144,12 +144,12 @@
 	if(status != CONTRACT_STATUS_COMPLETE)
 		return
 	var/obj/item/card/id/contractor_id = contract.owner.current?.get_idcard(TRUE)
-	if(!contractor_id?.registered_account.account_id) // NOVA EDIT CHANGE - ORIGINAL: if(!contractor_id || !contractor_id.registered_account)
-		to_chat(contract.owner.current, span_notice("A briefcase appears at your feet!")) // NOVA EDIT ADDITION
-		var/obj/item/storage/briefcase/secure/case = new(get_turf(contract.owner.current)) // NOVA EDIT ADDITION
-		for(var/i in 1 to (round((ransom * CONTRACTOR_RANSOM_CUT) / 1000))) // NOVA EDIT ADDITION - Gets slightly less/more but whatever
-			new /obj/item/stack/spacecash/c1000(case) // NOVA EDIT ADDITION
-	// NOVA EDIT CHANGE - END
+	if(!contractor_id?.registered_account.account_id) // bobaEDIT CHANGE - ORIGINAL: if(!contractor_id || !contractor_id.registered_account)
+		to_chat(contract.owner.current, span_notice("A briefcase appears at your feet!")) // bobaEDIT ADDITION
+		var/obj/item/storage/briefcase/secure/case = new(get_turf(contract.owner.current)) // bobaEDIT ADDITION
+		for(var/i in 1 to (round((ransom * CONTRACTOR_RANSOM_CUT) / 1000))) // bobaEDIT ADDITION - Gets slightly less/more but whatever
+			new /obj/item/stack/spacecash/c1000(case) // bobaEDIT ADDITION
+	// bobaEDIT CHANGE - END
 		return
 	contractor_id.registered_account.adjust_money(ransom * 0.35)
 	contractor_id.registered_account.bank_card_talk("We've processed the ransom, agent. \
@@ -266,8 +266,8 @@
 	victim.adjust_eye_blur(3 SECONDS)
 	victim.adjust_dizzy(3.5 SECONDS)
 	victim.adjust_confusion(2 SECONDS)
-// NOVA EDIT ADDITION START
+// bobaEDIT ADDITION START
 #undef RANSOM_LOWER
 #undef RANSOM_UPPER
 #undef CONTRACTOR_RANSOM_CUT
-// NOVA EDIT ADDITION END
+// bobaEDIT ADDITION END

@@ -13,20 +13,20 @@
 	. = ..()
 	if(!.)
 		return
-	/// NOVA EDIT ADDITION  BEGIN
+	/// bobaEDIT ADDITION  BEGIN
 	if(HAS_TRAIT(owner, TRAIT_CHAMELEON_SKIN))
 		return
 	ADD_TRAIT(owner, TRAIT_CHAMELEON_SKIN, GENETIC_MUTATION)
-	/// NOVA EDIT ADDITION END
+	/// bobaEDIT ADDITION END
 	owner.alpha = CHAMELEON_MUTATION_DEFAULT_TRANSPARENCY
 	RegisterSignal(owner, COMSIG_MOVABLE_MOVED, PROC_REF(on_move))
 	RegisterSignal(owner, COMSIG_LIVING_UNARMED_ATTACK, PROC_REF(on_attack_hand))
 
 /datum/mutation/chameleon/on_life(seconds_per_tick, times_fired)
-	/// NOVA EDIT ADDITION BEGIN
+	/// bobaEDIT ADDITION BEGIN
 	if(!HAS_TRAIT(owner, TRAIT_CHAMELEON_SKIN))
 		return
-	/// NOVA EDIT ADDITION END
+	/// bobaEDIT ADDITION END
 	owner.alpha = max(owner.alpha - (12.5 * (GET_MUTATION_POWER(src)) * seconds_per_tick), 0)
 
 //Upgraded mutation of the base variant, used for changelings. No instability and better power_coeff
@@ -48,12 +48,12 @@
 /datum/mutation/chameleon/proc/on_move(atom/movable/source, atom/old_loc, move_dir, forced, list/atom/old_locs)
 	SIGNAL_HANDLER
 
-	/// NOVA EDIT BEGIN
+	/// bobaEDIT BEGIN
 	if(HAS_TRAIT(owner, TRAIT_CHAMELEON_SKIN))
 		owner.alpha = CHAMELEON_MUTATION_DEFAULT_TRANSPARENCY
 	else
 		owner.alpha = 255
-		/// NOVA EDIT END
+		/// bobaEDIT END
 
 /**
  * Resets the alpha of the host if they click on something nearby.
@@ -70,18 +70,18 @@
 	if(!proximity) //stops tk from breaking chameleon
 		return
 
-	/// NOVA EDIT BEGIN
+	/// bobaEDIT BEGIN
 	if(HAS_TRAIT(owner, TRAIT_CHAMELEON_SKIN))
 		owner.alpha = CHAMELEON_MUTATION_DEFAULT_TRANSPARENCY
 	else
 		owner.alpha = 255
-	/// NOVA EDIT END
+	/// bobaEDIT END
 
 /datum/mutation/chameleon/on_losing(mob/living/carbon/human/owner)
 	if(..())
 		return
 	owner.alpha = 255
 	UnregisterSignal(owner, list(COMSIG_MOVABLE_MOVED, COMSIG_LIVING_UNARMED_ATTACK))
-	/// NOVA EDIT BEGIN
+	/// bobaEDIT BEGIN
 	REMOVE_TRAIT(owner, TRAIT_CHAMELEON_SKIN, GENETIC_MUTATION)
-	/// NOVA EDIT END
+	/// bobaEDIT END

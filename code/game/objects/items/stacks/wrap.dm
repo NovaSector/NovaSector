@@ -103,7 +103,7 @@
 		parcel.base_icon_state = "deliverypackage5"
 		parcel.update_icon()
 		user.forceMove(parcel)
-		parcel.contains_mobs = TRUE // NOVA EDIT - CARGO BORGS
+		parcel.contains_mobs = TRUE // bobaEDIT - CARGO BORGS
 		parcel.add_fingerprint(user)
 		return OXYLOSS
 	else
@@ -127,10 +127,10 @@
 		return NONE
 	if(interacting_with.anchored)
 		return NONE
-	// NOVA EDIT ADDITION START - Cargo borgs
+	// bobaEDIT ADDITION START - Cargo borgs
 	if(!amount)
 		return NONE
-	// NOVA EDIT ADDITION END
+	// bobaEDIT ADDITION END
 
 	if(isitem(interacting_with))
 		var/obj/item/item = interacting_with
@@ -176,12 +176,12 @@
 			closet.forceMove(parcel)
 			parcel.add_fingerprint(user)
 			closet.add_fingerprint(user)
-			// NOVA EDIT START - CARGO BORGS
+			// bobaEDIT START - CARGO BORGS
 			for(var/item in closet.get_all_contents())
 				if(istype(item, /mob))
 					parcel.contains_mobs = TRUE
 					break
-			// NOVA EDIT END
+			// bobaEDIT END
 		else
 			balloon_alert(user, "not enough paper!")
 			return ITEM_INTERACT_BLOCKING

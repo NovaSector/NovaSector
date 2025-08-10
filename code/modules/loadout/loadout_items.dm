@@ -45,7 +45,7 @@ GLOBAL_LIST_INIT(all_loadout_categories, init_loadout_categories())
 	var/can_be_greyscale = FALSE
 	/// Whether this item can be renamed.
 	/// I recommend you apply this sparingly becuase it certainly can go wrong (or get reset / overridden easily)
-	var/can_be_named = TRUE // NOVA EDIT - Everything can be renamed in the loadout - ORIGINAL: var/can_be_named = FALSE
+	var/can_be_named = TRUE // bobaEDIT - Everything can be renamed in the loadout - ORIGINAL: var/can_be_named = FALSE
 	/// Whether this item can be reskinned.
 	/// Only works if the item has a "unique reskin" list set.
 	var/can_be_reskinned = FALSE
@@ -123,7 +123,7 @@ GLOBAL_LIST_INIT(all_loadout_categories, init_loadout_categories())
 	if(manager.menu)
 		return FALSE
 
-	var/list/loadout = manager.get_current_loadout()// NOVA EDIT CHANGE - Multiple loadout presets - ORIGINAL: var/list/loadout = manager.preferences.read_preference(/datum/preference/loadout)
+	var/list/loadout = manager.get_current_loadout()// bobaEDIT CHANGE - Multiple loadout presets - ORIGINAL: var/list/loadout = manager.preferences.read_preference(/datum/preference/loadout)
 	var/list/allowed_configs = list()
 	if(initial(item_path.greyscale_config))
 		allowed_configs += "[initial(item_path.greyscale_config)]"
@@ -153,7 +153,7 @@ GLOBAL_LIST_INIT(all_loadout_categories, init_loadout_categories())
 	if(!istype(open_menu))
 		CRASH("set_slot_greyscale called without a greyscale menu!")
 
-	var/list/loadout = manager.get_current_loadout()// NOVA EDIT CHANGE - Multiple loadout presets - ORIGINAL: var/list/loadout = manager.preferences.read_preference(/datum/preference/loadout)
+	var/list/loadout = manager.get_current_loadout()// bobaEDIT CHANGE - Multiple loadout presets - ORIGINAL: var/list/loadout = manager.preferences.read_preference(/datum/preference/loadout)
 	if(!loadout?[item_path])
 		return FALSE
 
@@ -162,12 +162,12 @@ GLOBAL_LIST_INIT(all_loadout_categories, init_loadout_categories())
 		return FALSE
 
 	loadout[item_path][INFO_GREYSCALE] = colors.Join("")
-	manager.save_current_loadout(loadout)// NOVA EDIT CHANGE - Multiple loadout presets - ORIGINAL: manager.preferences.update_preference(GLOB.preference_entries[/datum/preference/loadout], loadout)
+	manager.save_current_loadout(loadout)// bobaEDIT CHANGE - Multiple loadout presets - ORIGINAL: manager.preferences.update_preference(GLOB.preference_entries[/datum/preference/loadout], loadout)
 	return TRUE // update UI
 
 /// Sets the name of the item.
 /datum/loadout_item/proc/set_name(datum/preference_middleware/loadout/manager, mob/user)
-	var/list/loadout = manager.get_current_loadout()// NOVA EDIT CHANGE - Multiple loadout presets - ORIGINAL: var/list/loadout = manager.preferences.read_preference(/datum/preference/loadout)
+	var/list/loadout = manager.get_current_loadout()// bobaEDIT CHANGE - Multiple loadout presets - ORIGINAL: var/list/loadout = manager.preferences.read_preference(/datum/preference/loadout)
 	var/input_name = tgui_input_text(
 		user = user,
 		message = "What name do you want to give the [name]? Leave blank to clear.",
@@ -178,7 +178,7 @@ GLOBAL_LIST_INIT(all_loadout_categories, init_loadout_categories())
 	if(QDELETED(src) || QDELETED(user) || QDELETED(manager) || QDELETED(manager.preferences))
 		return FALSE
 
-	loadout = manager.get_current_loadout()// NOVA EDIT CHANGE - Multiple loadout presets - ORIGINAL: loadout = manager.preferences.read_preference(/datum/preference/loadout) // Make sure no shenanigans happened
+	loadout = manager.get_current_loadout()// bobaEDIT CHANGE - Multiple loadout presets - ORIGINAL: loadout = manager.preferences.read_preference(/datum/preference/loadout) // Make sure no shenanigans happened
 	if(!loadout?[item_path])
 		return FALSE
 
@@ -187,8 +187,8 @@ GLOBAL_LIST_INIT(all_loadout_categories, init_loadout_categories())
 	else if(input_name == "")
 		loadout[item_path] -= INFO_NAMED
 
-	manager.save_current_loadout(loadout)// NOVA EDIT CHANGE - Multiple loadout presets - ORIGINAL: manager.preferences.update_preference(GLOB.preference_entries[/datum/preference/loadout], loadout)
-	return TRUE // NOVA EDIT - Temp fix to loadout UI issue while waiting on upstream fix - ORIGINAL: return FALSE // no update needed
+	manager.save_current_loadout(loadout)// bobaEDIT CHANGE - Multiple loadout presets - ORIGINAL: manager.preferences.update_preference(GLOB.preference_entries[/datum/preference/loadout], loadout)
+	return TRUE // bobaEDIT - Temp fix to loadout UI issue while waiting on upstream fix - ORIGINAL: return FALSE // no update needed
 
 /// Used for reskinning an item to an alt skin.
 /datum/loadout_item/proc/set_skin(datum/preference_middleware/loadout/manager, mob/user, params)
@@ -199,12 +199,12 @@ GLOBAL_LIST_INIT(all_loadout_categories, init_loadout_categories())
 	if(!cached_reskin_options[reskin_to])
 		return FALSE
 
-	var/list/loadout = manager.get_current_loadout()// NOVA EDIT CHANGE - Multiple loadout presets - ORIGINAL: var/list/loadout = manager.preferences.read_preference(/datum/preference/loadout)
+	var/list/loadout = manager.get_current_loadout()// bobaEDIT CHANGE - Multiple loadout presets - ORIGINAL: var/list/loadout = manager.preferences.read_preference(/datum/preference/loadout)
 	if(!loadout?[item_path])
 		return FALSE
 
 	loadout[item_path][INFO_RESKIN] = reskin_to
-	manager.save_current_loadout(loadout)// NOVA EDIT CHANGE - Multiple loadout presets - ORIGINAL: manager.preferences.update_preference(GLOB.preference_entries[/datum/preference/loadout], loadout)
+	manager.save_current_loadout(loadout)// bobaEDIT CHANGE - Multiple loadout presets - ORIGINAL: manager.preferences.update_preference(GLOB.preference_entries[/datum/preference/loadout], loadout)
 	return TRUE // always update UI
 
 /**
@@ -257,14 +257,14 @@ GLOBAL_LIST_INIT(all_loadout_categories, init_loadout_categories())
 	if(can_be_named && item_details?[INFO_NAMED] && !visuals_only)
 		equipped_item.name = trim(item_details[INFO_NAMED], PREVENT_CHARACTER_TRIM_LOSS(MAX_NAME_LEN))
 		ADD_TRAIT(equipped_item, TRAIT_WAS_RENAMED, "Loadout")
-		equipped_item.on_loadout_custom_named() // NOVA EDIT ADDITION - Loadout item names
+		equipped_item.on_loadout_custom_named() // bobaEDIT ADDITION - Loadout item names
 
-	// NOVA EDIT ADDITION START - Loadout item descriptions
+	// bobaEDIT ADDITION START - Loadout item descriptions
 	if(can_be_named && item_details?[INFO_DESCRIBED] && !visuals_only)
 		equipped_item.desc = item_details[INFO_DESCRIBED]
 		ADD_TRAIT(equipped_item, TRAIT_WAS_RENAMED, "Loadout")
 		equipped_item.on_loadout_custom_described()
-	// NOVA EDIT ADDITION END
+	// bobaEDIT ADDITION END
 
 	if(can_be_reskinned && item_details?[INFO_RESKIN])
 		var/skin_chosen = item_details[INFO_RESKIN]
@@ -327,7 +327,7 @@ GLOBAL_LIST_INIT(all_loadout_categories, init_loadout_categories())
 	if(can_be_reskinned)
 		displayed_text[FA_ICON_SWATCHBOOK] = "Reskinnable"
 
-	// NOVA EDIT ADDITION START
+	// bobaEDIT ADDITION START
 	if(ckeywhitelist)
 		displayed_text[FA_ICON_HEART] = "CKEY Whitelist: [jointext(ckeywhitelist, ", ")]"
 	if(restricted_roles)
@@ -340,7 +340,7 @@ GLOBAL_LIST_INIT(all_loadout_categories, init_loadout_categories())
 		displayed_text[FA_ICON_HOURGLASS_HALF] = "Nova Star-Only"
 	if(donator_only)
 		displayed_text[FA_ICON_COINS] = "Donator-Only"
-	// NOVA EDIT ADDITION END
+	// bobaEDIT ADDITION END
 	return displayed_text
 
 /**

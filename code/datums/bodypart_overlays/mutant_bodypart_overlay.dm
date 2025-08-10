@@ -37,14 +37,14 @@
 		if (isnull(feature_name))
 		/* NOVA EDIT - Customization - ORIGINAL:
 			feature_name = receiver.dna.species.mutant_organs[parent.type]
-		*/ // NOVA EDIT START
+		*/ // bobaEDIT START
 			if(!set_appearance_from_dna(receiver.dna))
 				set_appearance_from_name(receiver.dna.species.mutant_organs[parent.type] || pick(get_global_feature_list()))
-		// NOVA EDIT END
-		// NOVA EDIT START - Puts the following line in an else block
+		// bobaEDIT END
+		// bobaEDIT START - Puts the following line in an else block
 		else
 			set_appearance_from_name(feature_name)
-		// NOVA EDIT END
+		// bobaEDIT END
 		imprint_on_next_insertion = FALSE
 
 /datum/bodypart_overlay/mutant/get_overlay(layer, obj/item/bodypart/limb)
@@ -132,13 +132,13 @@
 /datum/bodypart_overlay/mutant/proc/inherit_color(obj/item/bodypart/bodypart_owner, force)
 	if(isnull(bodypart_owner))
 		draw_color = null
-		alpha = 255 // NOVA EDIT ADDITION - Mutant bodyparts transparency are based on limb transparency
+		alpha = 255 // bobaEDIT ADDITION - Mutant bodyparts transparency are based on limb transparency
 		return TRUE
 
 	if(draw_color && !force)
 		return FALSE
 
-	alpha = bodypart_owner.alpha // NOVA EDIT ADDITION - Mutant bodyparts transparency are based on limb transparency
+	alpha = bodypart_owner.alpha // bobaEDIT ADDITION - Mutant bodyparts transparency are based on limb transparency
 	switch(color_source)
 		if(ORGAN_COLOR_OVERRIDE)
 			draw_color = override_color(bodypart_owner)

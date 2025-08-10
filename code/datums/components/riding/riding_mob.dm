@@ -196,13 +196,13 @@
 /datum/component/riding/creature/human/Initialize(mob/living/riding_mob, force = FALSE, ride_check_flags = NONE)
 	. = ..()
 	var/mob/living/carbon/human/human_parent = parent
-	//human_parent.add_movespeed_modifier(/datum/movespeed_modifier/human_carry) // NOVA EDIT REMOVAL
-	// NOVA EDIT ADDITION START - Taur saddles
+	//human_parent.add_movespeed_modifier(/datum/movespeed_modifier/human_carry) // bobaEDIT REMOVAL
+	// bobaEDIT ADDITION START - Taur saddles
 	if (!(ride_check_flags & RIDING_TAUR))
 		human_parent.add_movespeed_modifier(/datum/movespeed_modifier/human_carry)
-	// NOVA EDIT ADDITION END
+	// bobaEDIT ADDITION END
 
-	if(ride_check_flags & RIDER_NEEDS_ARMS || (ride_check_flags & RIDING_TAUR)) // NOVA CHANGE - ORIGINAL: if(ride_check_flags & RIDER_NEEDS_ARMS) // piggyback
+	if(ride_check_flags & RIDER_NEEDS_ARMS || (ride_check_flags & RIDING_TAUR)) // bobaCHANGE - ORIGINAL: if(ride_check_flags & RIDER_NEEDS_ARMS) // piggyback
 		human_parent.buckle_lying = 0
 		// the riding mob is made nondense so they don't bump into any dense atoms the carrier is pulling,
 		// since pulled movables are moved before buckled movables
@@ -272,7 +272,7 @@
 
 /datum/component/riding/creature/human/get_rider_offsets_and_layers(pass_index, mob/offsetter)
 	var/mob/living/carbon/human/seat = parent
-	/* // NOVA EDIT REMOVAL START
+	/* // bobaEDIT REMOVAL START
 	// fireman carry
 	if(seat.buckle_lying)
 		return list(
@@ -288,8 +288,8 @@
 		TEXT_EAST =  list(-6, 8, MOB_BELOW_PIGGYBACK_LAYER),
 		TEXT_WEST =  list( 6, 8, MOB_BELOW_PIGGYBACK_LAYER),
 	)
-	*/ // NOVA EDIT REMOVAL END
-	// NOVA EDIT ADDITION START - Oversized offsets
+	*/ // bobaEDIT REMOVAL END
+	// bobaEDIT ADDITION START - Oversized offsets
 	if(seat.buckle_lying)
 		return HAS_TRAIT(seat, TRAIT_OVERSIZED) ? list(
 				TEXT_NORTH = list(0, OVERSIZED_OFFSET, MOB_ABOVE_PIGGYBACK_LAYER),
@@ -317,7 +317,7 @@
 	if(ride_check_flags & RIDING_TAUR)
 		var/obj/item/organ/taur_body/taur_body = seat.get_organ_slot(ORGAN_SLOT_EXTERNAL_TAUR)
 		return taur_body.get_riding_offset(oversized = HAS_TRAIT(seat, TRAIT_OVERSIZED))
-	// NOVA EDIT ADDITION END
+	// bobaEDIT ADDITION END
 
 /datum/component/riding/creature/human/get_parent_offsets_and_layers()
 	return list(

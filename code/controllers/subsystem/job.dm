@@ -593,17 +593,17 @@ SUBSYSTEM_DEF(job)
 
 //Gives the player the stuff he should have with his rank
 /datum/controller/subsystem/job/proc/equip_rank(mob/living/equipping, datum/job/job, client/player_client)
-	// NOVA EDIT ADDITION BEGIN - ALTERNATIVE_JOB_TITLES
+	// bobaEDIT ADDITION BEGIN - ALTERNATIVE_JOB_TITLES
 	// The alt job title, if user picked one, or the default
 	var/alt_title = player_client?.prefs.alt_job_titles?[job.title] || job.title
-	// NOVA EDIT ADDITION END
+	// bobaEDIT ADDITION END
 	equipping.job = job.title
 
 	SEND_SIGNAL(equipping, COMSIG_JOB_RECEIVED, job)
 
-	equipping.mind?.set_assigned_role_with_greeting(job, player_client, alt_title) // NOVA EDIT CHANGE - ALTERNATIVE_JOB_TITLES - ORIGINAL: equipping.mind?.set_assigned_role_with_greeting(job, player_client)
+	equipping.mind?.set_assigned_role_with_greeting(job, player_client, alt_title) // bobaEDIT CHANGE - ALTERNATIVE_JOB_TITLES - ORIGINAL: equipping.mind?.set_assigned_role_with_greeting(job, player_client)
 	equipping.on_job_equipping(job, player_client)
-	job.announce_job(equipping, alt_title) // NOVA EDIT CHANGE - ALTERNATIVE_JOB_TITLES - ORIGINAL: job.announce_job(equipping)
+	job.announce_job(equipping, alt_title) // bobaEDIT CHANGE - ALTERNATIVE_JOB_TITLES - ORIGINAL: job.announce_job(equipping)
 
 	if(player_client?.holder)
 		if(CONFIG_GET(flag/auto_deadmin_always) || (player_client.prefs?.toggles & DEADMIN_ALWAYS))
@@ -611,7 +611,7 @@ SUBSYSTEM_DEF(job)
 		else
 			handle_auto_deadmin_roles(player_client, job.title)
 
-	setup_alt_job_items(equipping, job, player_client) // NOVA EDIT ADDITION - ALTERNATIVE_JOB_TITLES
+	setup_alt_job_items(equipping, job, player_client) // bobaEDIT ADDITION - ALTERNATIVE_JOB_TITLES
 	job.after_spawn(equipping, player_client)
 
 /datum/controller/subsystem/job/proc/handle_auto_deadmin_roles(client/C, rank)
@@ -642,7 +642,7 @@ SUBSYSTEM_DEF(job)
 	var/ssc = CONFIG_GET(number/security_scaling_coeff)
 	if(ssc > 0)
 		if(J.spawn_positions > 0)
-			var/officer_positions = min(7, max(J.spawn_positions, round(unassigned.len / ssc))) //Scale between configured minimum and 12 officers // NOVA EDIT CHANGE - Reduced from 12 max sec to 7 max sec due to departmental security being deactivated and replaced. - ORIGINAL: var/officer_positions = min(12, max(J.spawn_positions, round(unassigned.len / ssc)))
+			var/officer_positions = min(7, max(J.spawn_positions, round(unassigned.len / ssc))) //Scale between configured minimum and 12 officers // bobaEDIT CHANGE - Reduced from 12 max sec to 7 max sec due to departmental security being deactivated and replaced. - ORIGINAL: var/officer_positions = min(12, max(J.spawn_positions, round(unassigned.len / ssc)))
 			job_debug("SOP: Setting open security officer positions to [officer_positions]")
 			J.total_positions = officer_positions
 			J.spawn_positions = officer_positions

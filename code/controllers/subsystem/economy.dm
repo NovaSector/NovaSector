@@ -12,12 +12,12 @@ SUBSYSTEM_DEF(economy)
 										ACCOUNT_MED = ACCOUNT_MED_NAME,
 										ACCOUNT_SRV = ACCOUNT_SRV_NAME,
 										ACCOUNT_CAR = ACCOUNT_CAR_NAME,
-										// NOVA EDIT ADDITION START
+										// bobaEDIT ADDITION START
 										ACCOUNT_CMD = ACCOUNT_CMD_NAME,
 										ACCOUNT_DS2 = ACCOUNT_DS2_NAME,
 										ACCOUNT_INT = ACCOUNT_INT_NAME,
 										ACCOUNT_TI = ACCOUNT_TI_NAME,
-										// NOVA EDIT ADDITION END
+										// bobaEDIT ADDITION END
 										ACCOUNT_SEC = ACCOUNT_SEC_NAME)
 	var/list/departmental_accounts = list()
 	/**

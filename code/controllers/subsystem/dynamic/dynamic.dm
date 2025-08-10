@@ -908,7 +908,7 @@ SUBSYSTEM_DEF(dynamic)
 		ruleset.restricted_roles |= JOB_ASSISTANT
 	if(!(ruleset.ruleset_category & GLOB.dynamic_ruleset_categories))
 		ruleset.requirements = list(101,101,101,101,101,101,101,101,101,101)
-	// NOVA EDIT ADDITION START
+	// bobaEDIT ADDITION START
 	for(var/datum/job/iterating_job as anything in subtypesof(/datum/job))
 		if(!initial(iterating_job.antagonist_restricted))
 			continue
@@ -919,7 +919,7 @@ SUBSYSTEM_DEF(dynamic)
 			ruleset.restricted_roles |= initial(iterating_job.title)
 		else
 			ruleset.restricted_roles |= initial(iterating_job.title)
-	// NOVA EDIT ADDITION END
+	// bobaEDIT ADDITION END
 
 /// Get station traits and call for their config
 /datum/controller/subsystem/dynamic/proc/configure_station_trait_costs()

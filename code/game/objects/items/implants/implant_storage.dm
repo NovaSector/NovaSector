@@ -40,7 +40,7 @@
 	return ..()
 
 /obj/item/implanter/storage
-	name = "implanter" // NOVA EDIT , original was implanter (storage)
+	name = "implanter" // bobaEDIT , original was implanter (storage)
 	imp_type = /obj/item/implant/storage
-	special_desc_requirement = EXAMINE_CHECK_SYNDICATE // NOVA EDIT
-	special_desc = "A Syndicate implanter used for a storage implant" // NOVA EDIT
+	special_desc_requirement = EXAMINE_CHECK_SYNDICATE // bobaEDIT
+	special_desc = "A Syndicate implanter used for a storage implant" // bobaEDIT

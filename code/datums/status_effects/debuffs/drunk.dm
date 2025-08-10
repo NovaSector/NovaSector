@@ -1,4 +1,4 @@
-// NOVA EDIT CHANGE BEGIN - ALCOHOL_PROCESSING
+// bobaEDIT CHANGE BEGIN - ALCOHOL_PROCESSING
 // Defines for the ballmer peak.
 #define BALLMER_PEAK_LOW_END 25.8 // Original 12.9
 #define BALLMER_PEAK_HIGH_END 27.6 // Original 13.8
@@ -6,7 +6,7 @@
 
 /// The threshld which determine if someone is tipsy vs drunk
 #define TIPSY_THRESHOLD 23.4 // Original 6
-// NOVA EDIT CHANGE END - ALCOHOL_PROCESSING
+// bobaEDIT CHANGE END - ALCOHOL_PROCESSING
 
 /**
  * The drunk status effect.
@@ -20,13 +20,13 @@
 	alert_type = null
 	/// The level of drunkness we are currently at.
 	var/drunk_value = 0
-	/// If TRUE, drunk_value will be capped at 51, preventing serious damage 
-	var/iron_liver = FALSE 
+	/// If TRUE, drunk_value will be capped at 51, preventing serious damage
+	var/iron_liver = FALSE
 
 /datum/status_effect/inebriated/on_creation(mob/living/new_owner, drunk_value = 0)
 	. = ..()
 	set_drunk_value(drunk_value)
-	
+
 /datum/status_effect/inebriated/get_examine_text()
 	// Dead people don't look drunk
 	if(owner.stat == DEAD || HAS_TRAIT(owner, TRAIT_FAKEDEATH))
@@ -75,7 +75,7 @@
 	// Every tick, the drunk value decrases by
 	// 4% the current drunk_value + 0.01
 	// (until it reaches 0 and terminates)
-	set_drunk_value(drunk_value - (drunk_value * 0.0015)) // NOVA EDIT CHANGE - ALCOHOL_PROCESSING - Original: set_drunk_value(drunk_value - (0.01 + drunk_value * 0.04)
+	set_drunk_value(drunk_value - (drunk_value * 0.0015)) // bobaEDIT CHANGE - ALCOHOL_PROCESSING - Original: set_drunk_value(drunk_value - (0.01 + drunk_value * 0.04)
 	if(QDELETED(src))
 		return
 
@@ -169,7 +169,7 @@
 		if(drunk_value > BALLMER_PEAK_WINDOWS_ME) // by this point you're into windows ME territory
 			owner.say(pick_list_replacements(VISTA_FILE, "ballmer_windows_me_msg"), forced = "ballmer")
 
-	// NOVA EDIT CHANGE BEGIN - ALCOHOL_PROCESSING
+	// bobaEDIT CHANGE BEGIN - ALCOHOL_PROCESSING
 	/* ORIGINAL
 	// Drunk slurring scales in intensity based on how drunk we are -at 16 you will likely not even notice it,
 	// but when we start to scale up you definitely will
@@ -244,7 +244,7 @@
 	// And finally, over 100 - let's be honest, you shouldn't be alive by now.
 	if(drunk_value >= 103.4)
 		owner.adjustToxLoss(2)
-	// NOVA EDIT CHANGE END - ALCOHOL_PROCESSING
+	// bobaEDIT CHANGE END - ALCOHOL_PROCESSING
 
 /datum/status_effect/inebriated/drunk/proc/attempt_to_blackout()
 	/* NOVA EDIT REMOVAL - Blackout drunk begone
@@ -257,7 +257,7 @@
 	if(drunkard.gain_trauma(/datum/brain_trauma/severe/split_personality/blackout, TRAUMA_LIMIT_ABSOLUTE))
 		drunk_value -= 70 //So that the drunk personality can spice things up without being killed by liver failure
 		return
-	*/ // NOVA EDIT REMOVAL END
+	*/ // bobaEDIT REMOVAL END
 	if(SSshuttle.emergency.mode == SHUTTLE_DOCKED && is_station_level(owner.z))// Don't put us in a deep sleep if the shuttle's here. QoL, mainly.
 		to_chat(owner, span_warning("You're so tired... but you can't miss that shuttle..."))
 	else

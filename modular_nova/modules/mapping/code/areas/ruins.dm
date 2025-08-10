@@ -1,4 +1,4 @@
-// Nova Sector area ruins
+// bobaSector area ruins
 
 /area/ruin/powered/miningfacility
 	name = "Abandoned Nanotrasen Mining Facility"

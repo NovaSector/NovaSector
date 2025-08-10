@@ -300,10 +300,10 @@
 	new_machine.balloon_alert(user, "monitor connected")
 	new_machine.setDir(dir)
 	transfer_fingerprints_to(new_machine)
-	// NOVA EDIT ADDITION BEGIN - Connecting Computers
+	// bobaEDIT ADDITION BEGIN - Connecting Computers
 	for(var/obj/machinery/computer/selected in range(1,src))
 		selected.update_overlays()
-	// NOVA EDIT ADDITION END - Connecting Computers
+	// bobaEDIT ADDITION END - Connecting Computers
 
 	if(istype(new_machine, /obj/machinery/computer))
 		var/obj/machinery/computer/new_computer = new_machine

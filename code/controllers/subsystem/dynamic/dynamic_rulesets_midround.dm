@@ -279,7 +279,7 @@
 		//NOVA EDIT END
 
 /datum/dynamic_ruleset/midround/from_living/autotraitor/execute()
-	var/mob/M = pick(poll_candidates_for_one(candidates)) // NOVA EDIT CHANGE - ORIGINAL: var/mob/M = pick(candidates)
+	var/mob/M = pick(poll_candidates_for_one(candidates)) // bobaEDIT CHANGE - ORIGINAL: var/mob/M = pick(candidates)
 	assigned += M
 	candidates -= M
 	var/datum/antagonist/traitor/newTraitor = new
@@ -965,16 +965,16 @@
 /datum/dynamic_ruleset/midround/from_ghosts/paradox_clone/proc/find_original()
 	var/list/possible_targets = list()
 
-	var/opt_in_disabled = CONFIG_GET(flag/disable_antag_opt_in_preferences) // NOVA EDIT ADDITION - ANTAG OPT-IN
+	var/opt_in_disabled = CONFIG_GET(flag/disable_antag_opt_in_preferences) // bobaEDIT ADDITION - ANTAG OPT-IN
 	for(var/mob/living/carbon/human/player in GLOB.player_list)
 		if(!player.client || !player.mind || player.stat)
 			continue
 		if(!(player.mind.assigned_role.job_flags & JOB_CREW_MEMBER))
 			continue
-		// NOVA EDIT ADDITION START - Players in the interlink can't be obsession targets + Antag Optin
+		// bobaEDIT ADDITION START - Players in the interlink can't be obsession targets + Antag Optin
 		if (!opt_in_disabled && player.mind?.get_effective_opt_in_level() < OPT_IN_YES_ROUND_REMOVE)
 			continue
-		// NOVA EDIT ADDITION END
+		// bobaEDIT ADDITION END
 		possible_targets += player
 
 	if(possible_targets.len)

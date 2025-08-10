@@ -50,7 +50,7 @@
 		"s" = "z",
 		"S" = "Z",
 	)
-	// NOVA EDIT ADDITION START - Russian version - yes copy pasted from above because static lists are great.
+	// bobaEDIT ADDITION START - Russian version - yes copy pasted from above because static lists are great.
 	var/static/list/russian_speech_replacements = list(
 		new /regex("z+", "g") = "zzz",
 		new /regex("Z+", "g") = "ZZZ",
@@ -61,12 +61,12 @@
 		"с" = "з",
 		"С" = "З",
 	)
-	// NOVA EDIT ADDITION END
+	// bobaEDIT ADDITION END
 
 
 /obj/item/organ/tongue/fly/Initialize(mapload)
 	. = ..()
-	AddComponent(/datum/component/speechmod, replacements = CONFIG_GET(flag/russian_text_formation) ? russian_speech_replacements : speech_replacements, should_modify_speech = CALLBACK(src, PROC_REF(should_modify_speech))) // NOVA EDIT CHANGE - ORIGINAL:AddComponent(/datum/component/speechmod, replacements = speech_replacements, should_modify_speech = CALLBACK(src, PROC_REF(should_modify_speech)))
+	AddComponent(/datum/component/speechmod, replacements = CONFIG_GET(flag/russian_text_formation) ? russian_speech_replacements : speech_replacements, should_modify_speech = CALLBACK(src, PROC_REF(should_modify_speech))) // bobaEDIT CHANGE - ORIGINAL:AddComponent(/datum/component/speechmod, replacements = speech_replacements, should_modify_speech = CALLBACK(src, PROC_REF(should_modify_speech)))
 	AddElement(/datum/element/organ_set_bonus, /datum/status_effect/organ_set_bonus/fly)
 
 /obj/item/organ/tongue/fly/get_possible_languages()

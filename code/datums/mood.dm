@@ -373,7 +373,7 @@
 
 	msg += span_notice("My current sanity: ") //Long term
 
-	// NOVA EDIT CHANGE BEGIN - ALEXITHYMIA
+	// bobaEDIT CHANGE BEGIN - ALEXITHYMIA
 	// ORIGINAL
 	/*
 	switch(sanity)
@@ -406,10 +406,10 @@
 				msg += "[span_boldwarning("AHAHAHAHAHAHAHAHAHAH!!")]\n"
 	else
 		msg += "[span_notice("I don't really know.")]\n"
-	// NOVA EDIT CHANGE END
+	// bobaEDIT CHANGE END
 
 	msg += span_notice("My current mood: ") //Short term
-	// NOVA EDIT CHANGE BEGIN - ALEXITHYMIA / ALCOHOL_PROCESSING
+	// bobaEDIT CHANGE BEGIN - ALEXITHYMIA / ALCOHOL_PROCESSING
 	// ORIGINAL
 	/*
 	switch(mood_level)
@@ -432,7 +432,7 @@
 		if(MOOD_LEVEL_HAPPY4)
 			msg += "[span_boldnicegreen("I love life!")]\n"
 	*/
-	// NOVA EDIT CHANGE BEGIN - ALEXITHYMIA / ALCOHOL_PROCESSING
+	// bobaEDIT CHANGE BEGIN - ALEXITHYMIA / ALCOHOL_PROCESSING
 	if(!HAS_TRAIT(user, TRAIT_MOOD_NOEXAMINE))
 		switch(mood_level)
 			if(MOOD_LEVEL_SAD4)
@@ -455,7 +455,7 @@
 				msg += "[span_boldnicegreen("I love life!")]\n"
 	else
 		msg += "[span_notice("No clue.")]\n"
-	// NOVA EDIT CHANGE END
+	// bobaEDIT CHANGE END
 
 	var/list/additional_lines = list()
 	SEND_SIGNAL(user, COMSIG_CARBON_MOOD_CHECK, additional_lines)
@@ -463,9 +463,9 @@
 		msg += "[additional_lines.Join("<br>")]<br>"
 
 	msg += "[span_notice("Moodlets:")]<br>"//All moodlets
-	msg += get_alcohol_processing(user) // NOVA EDIT ADDITION
-	msg += get_drunk_mood(user) // NOVA EDIT ADDITION
-	if(mood_events.len && !HAS_TRAIT(user, TRAIT_MOOD_NOEXAMINE)) // NOVA EDIT CHANGE - ORIGINAL: if(mood_events.len)
+	msg += get_alcohol_processing(user) // bobaEDIT ADDITION
+	msg += get_drunk_mood(user) // bobaEDIT ADDITION
+	if(mood_events.len && !HAS_TRAIT(user, TRAIT_MOOD_NOEXAMINE)) // bobaEDIT CHANGE - ORIGINAL: if(mood_events.len)
 		for(var/category in mood_events)
 			var/datum/mood_event/event = mood_events[category]
 			msg += "&bull; "
@@ -611,13 +611,13 @@
 			mob_parent.add_actionspeed_modifier(/datum/actionspeed_modifier/high_sanity)
 			sanity_level = SANITY_LEVEL_GREAT
 
-	/* // NOVA EDIT REMOVAL START - Removes low-sanity hallucinations for now. TODO: Rebalance them to be less annoying.
+	/* // bobaEDIT REMOVAL START - Removes low-sanity hallucinations for now. TODO: Rebalance them to be less annoying.
 	// Crazy or insane = add some uncommon hallucinations
 	if(sanity_level >= SANITY_LEVEL_CRAZY)
 		mob_parent.apply_status_effect(/datum/status_effect/hallucination/sanity)
 	else
 		mob_parent.remove_status_effect(/datum/status_effect/hallucination/sanity)
-	*/ // NOVA EDIT REMOVAL END
+	*/ // bobaEDIT REMOVAL END
 
 	update_mood_icon()
 

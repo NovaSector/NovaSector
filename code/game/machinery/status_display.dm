@@ -617,8 +617,8 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/machinery/status_display/ai, 32)
 	command = add_option_port("Command", command_options)
 	command_map = command_options
 
-	picture = add_option_port("Picture", picture_options + GLOB.alert_picture_options_nova) // NOVA EDIT CHANGE - ORIGINAL: picture = add_option_port("Picture", picture_options)
-	picture_map = picture_options + GLOB.alert_picture_options_nova // NOVA EDIT CHANGE - ORIGINAL: picture_map = picture_options
+	picture = add_option_port("Picture", picture_options + GLOB.alert_picture_options_nova) // bobaEDIT CHANGE - ORIGINAL: picture = add_option_port("Picture", picture_options)
+	picture_map = picture_options + GLOB.alert_picture_options_nova // bobaEDIT CHANGE - ORIGINAL: picture_map = picture_options
 
 /obj/item/circuit_component/status_display/register_usb_parent(atom/movable/shell)
 	. = ..()

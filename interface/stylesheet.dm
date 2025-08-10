@@ -145,7 +145,7 @@ h1.alert, h2.alert		{color: #000000;}
 		75%		{color: #410194;}
 		100%	{color: #3bb5d3;}
 }
-// NOVA EDIT ADDITION BEGIN
+// bobaEDIT ADDITION BEGIN
 
 .velvet					{color: #660015; 	font-weight: bold; animation: velvet 5000ms infinite;}
 	@keyframes velvet {
@@ -244,7 +244,7 @@ h1.alert, h2.alert		{color: #000000;}
 .cyan {
 	color: #0ea1e6;
 }
-// NOVA EDIT ADDITION END
+// bobaEDIT ADDITION END
 
 .phobia			{color: #dd0000;	font-weight: bold;	animation: phobia 750ms infinite;}
 	@keyframes phobia {

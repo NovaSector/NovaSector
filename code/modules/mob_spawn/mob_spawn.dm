@@ -66,11 +66,11 @@
 		spawned_human.undershirt = "Nude"
 		spawned_human.socks = "Nude"
 		spawned_human.bra = "Nude" //NOVA EDIT ADDITION
-		//randomize_human_normie(spawned_human) // NOVA EDIT REMOVAL - Puts this behind if(random_appearance) - see below
+		//randomize_human_normie(spawned_human) // bobaEDIT REMOVAL - Puts this behind if(random_appearance) - see below
 		//NOVA EDIT ADDITION START
 		if(random_appearance)
 			randomize_human_normie(spawned_human)
-		// NOVA EDIT ADDITION END
+		// bobaEDIT ADDITION END
 		if(hairstyle)
 			spawned_human.set_hairstyle(hairstyle, update = FALSE)
 		if(facial_hairstyle)
@@ -166,13 +166,13 @@
 
 	var/user_ckey = user.ckey // Just in case shenanigans happen, we always want to remove it from the list.
 	LAZYADD(ckeys_trying_to_spawn, user_ckey)
-	// NOVA EDIT ADDITION START
+	// bobaEDIT ADDITION START
 	if(restricted_species && !(user.client?.prefs?.read_preference(/datum/preference/choiced/species) in restricted_species))
 		var/incorrect_species = tgui_alert(user, "Current species preference incompatible, proceed with random appearance?", "Incompatible Species", list("Yes", "No"))
 		if(incorrect_species != "Yes")
 			LAZYREMOVE(ckeys_trying_to_spawn, user_ckey)
 			return
-	// NOVA EDIT ADDITION END
+	// bobaEDIT ADDITION END
 
 	if(prompt_ghost)
 		var/prompt = "Become [prompt_name]?"
@@ -196,12 +196,12 @@
 		to_chat(user, span_warning("You are banned from this role!"))
 		LAZYREMOVE(ckeys_trying_to_spawn, user_ckey)
 		return
-	// NOVA EDIT ADDITION START
+	// bobaEDIT ADDITION START
 	if(is_banned_from(user.ckey, BAN_GHOST_ROLE_SPAWNER)) // Ghost role bans
 		to_chat(user, span_warning("Error, you are banned from playing ghost roles!"))
 		LAZYREMOVE(ckeys_trying_to_spawn, user_ckey)
 		return
-	// NOVA EDIT ADDITION END
+	// bobaEDIT ADDITION END
 	if(!allow_spawn(user, silent = FALSE))
 		LAZYREMOVE(ckeys_trying_to_spawn, user_ckey)
 		return
@@ -224,7 +224,7 @@
  * If you are manually forcing a player into this mob spawn,
  * you should be using this and not directly calling [proc/create].
  */
-/obj/effect/mob_spawn/ghost_role/proc/create_from_ghost(mob/dead/user, use_loadout = FALSE) // NOVA EDIT CHANGE - ORIGINAL: /obj/effect/mob_spawn/ghost_role/proc/create_from_ghost(mob/dead/user)
+/obj/effect/mob_spawn/ghost_role/proc/create_from_ghost(mob/dead/user, use_loadout = FALSE) // bobaEDIT CHANGE - ORIGINAL: /obj/effect/mob_spawn/ghost_role/proc/create_from_ghost(mob/dead/user)
 	ASSERT(istype(user))
 	var/user_ckey = user.ckey // We need to do it before everything else, because after the create() the ckey will already have been transferred.
 
@@ -239,7 +239,7 @@
 		//NOVA EDIT ADDITION END
 		user.mind = null // dissassociate mind, don't let it follow us to the next life
 
-	var/created = create(user, /* newname */, use_loadout) // NOVA EDIT CHANGE - ORIGINAL: var/created = create(user)
+	var/created = create(user, /* newname */, use_loadout) // bobaEDIT CHANGE - ORIGINAL: var/created = create(user)
 	LAZYREMOVE(ckeys_trying_to_spawn, user_ckey) // We do this AFTER the create() so that we're basically sure that the user won't be in their ghost body anymore, so they can't click on the spawner again.
 
 	if(!created)

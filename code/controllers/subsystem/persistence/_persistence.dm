@@ -89,7 +89,7 @@ SUBSYSTEM_DEF(persistence)
 	save_randomized_recipes()
 	save_scars()
 	save_custom_outfits()
-	save_modular_persistence() // NOVA EDIT ADDITION - MODULAR_PERSISTENCE
+	save_modular_persistence() // bobaEDIT ADDITION - MODULAR_PERSISTENCE
 	save_delamination_counter()
 	save_queued_message_bottles()
 	if(SStransport.can_fire)

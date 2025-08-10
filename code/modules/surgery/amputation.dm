@@ -16,7 +16,7 @@
 		/datum/surgery_step/clamp_bleeders,
 		/datum/surgery_step/sever_limb,
 	)
-	removes_target_bodypart = TRUE // NOVA EDIT ADDITION - Surgically unremovable limbs
+	removes_target_bodypart = TRUE // bobaEDIT ADDITION - Surgically unremovable limbs
 
 /datum/surgery/amputation/mechanic
 	name = "Disassemble"

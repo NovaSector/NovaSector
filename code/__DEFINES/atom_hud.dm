@@ -47,7 +47,7 @@
 /// Steady Hacked APC effect, visible only to Malf AIs
 #define MALF_APC_HUD "22"
 
-// NOVA EDIT ADDITION BEGIN - gun permits and DNR
+// bobaEDIT ADDITION BEGIN - gun permits and DNR
 /// ammo of guns
 #define AMMO_HUD "25"
 /// if they have a gun permit
@@ -55,7 +55,7 @@
 
 /// If they have the DNR trait
 #define DNR_HUD "27"
-// NOVA EDIT ADDITION END
+// bobaEDIT ADDITION END
 
 //by default everything in the hud_list of an atom is an image
 //a value in hud_list with one of these will change that behavior

@@ -9,11 +9,11 @@
 	var/mob/living/carbon/human/ling = setup_ling()
 	var/mob/living/carbon/human/victim = setup_victim()
 	var/datum/antagonist/changeling/ling_datum = IS_CHANGELING(ling)
-	RegisterSignal(ling, COMSIG_ATOM_DIR_CHANGE, PROC_REF(catch_that_lizard)) // NOVA EDIT ADDITION
-	RegisterSignal(victim, COMSIG_ATOM_DIR_CHANGE, PROC_REF(catch_that_lizard)) // NOVA EDIT ADDITION
+	RegisterSignal(ling, COMSIG_ATOM_DIR_CHANGE, PROC_REF(catch_that_lizard)) // bobaEDIT ADDITION
+	RegisterSignal(victim, COMSIG_ATOM_DIR_CHANGE, PROC_REF(catch_that_lizard)) // bobaEDIT ADDITION
 
 	// Get the ability we're testing
-	ling_datum.give_power(/datum/action/changeling/sting/transformation) // NOVA EDIT CHANGE - Transformation sting not purchasable here - ORIGINAL : ling_datum.purchase_power(/datum/action/changeling/sting/transformation)
+	ling_datum.give_power(/datum/action/changeling/sting/transformation) // bobaEDIT CHANGE - Transformation sting not purchasable here - ORIGINAL : ling_datum.purchase_power(/datum/action/changeling/sting/transformation)
 	var/datum/action/changeling/sting/transformation/sting_action = locate() in ling.actions
 	sting_action.selected_dna = ling_datum.current_profile
 	sting_action.sting_duration = 0.5 SECONDS // just makes sure everything settles.
@@ -44,13 +44,13 @@
 	add_to_screenshot(ling, victim, both_species = TRUE)
 
 	test_screenshot("appearances", final_icon)
-// NOVA EDIT ADDITION START - Sets a trap to catch that sneaky dir- changing lizard
+// bobaEDIT ADDITION START - Sets a trap to catch that sneaky dir- changing lizard
 /datum/unit_test/transformation_sting/proc/catch_that_lizard(datum/source)
 	SIGNAL_HANDLER
 	UnregisterSignal(source, COMSIG_ATOM_DIR_CHANGE)
 	stack_trace("[source] tried to change dir during the transformation sting unit test!")
 	TEST_FAIL("The lizard did a sneak! Please send this CI run to a maintainer immediately!")
-// NOVA EDIT ADDITION END
+// bobaEDIT ADDITION END
 
 /// Adds both mobs to the screenshot test, if both_species is TRUE, it also adds the victim in lizard form
 /datum/unit_test/transformation_sting/proc/add_to_screenshot(mob/living/carbon/human/ling, mob/living/carbon/human/victim, both_species = FALSE)
@@ -84,12 +84,12 @@
 	// The more DNA features and random things we change, the more likely we are to catch something not updating correctly.
 	// Yeah guess who/what this is, I dare you.
 	ling.dna.features["mcolor"] = "#886600"
-	ling.dna.mutant_bodyparts["tail"] = list(MUTANT_INDEX_NAME = "Smooth", MUTANT_INDEX_COLOR_LIST = list("#886600", "#886600", "#886600")) // NOVA EDIT CHANGE - ORIGINAL: ling.dna.features["tail_lizard"] = "Smooth"
-	ling.dna.mutant_bodyparts["snout"] = list(MUTANT_INDEX_NAME = "Sharp + Light", MUTANT_INDEX_COLOR_LIST = list("#886600", "#886600", "#886600")) // NOVA EDIT CHANGE - ORIGINAL: ling.dna.features["snout"] = "Sharp + Light"
-	ling.dna.mutant_bodyparts["horns"] = list(MUTANT_INDEX_NAME = "Curled", MUTANT_INDEX_COLOR_LIST = list("#292826", "#292826", "#8292826")) // NOVA EDIT CHANGE - ORIGINAL: ling.dna.features["horns"] = "Curved"
-	ling.dna.mutant_bodyparts["frills"] = list(MUTANT_INDEX_NAME = "Short", MUTANT_INDEX_COLOR_LIST = list("#886600", "#886600", "#886600")) // NOVA EDIT CHANGE - ORIGINAL: ling.dna.features["frills"] = "Sort"
-	ling.dna.mutant_bodyparts["spines"] = list(MUTANT_INDEX_NAME = "Long + Membrane", MUTANT_INDEX_COLOR_LIST = list("#886600", "#886600", "#886600")) // NOVA EDIT CHANGE - ORIGINAL: ling.dna.features["spines"] = "Long + Membrane"
-	ling.dna.body_markings["chest"] = list("Light Belly" = list("#886600", 0)) // NOVA EDIT CHANGE - ORIGINAL : ling.dna.features["lizard_markings"] = "Light Belly"
+	ling.dna.mutant_bodyparts["tail"] = list(MUTANT_INDEX_NAME = "Smooth", MUTANT_INDEX_COLOR_LIST = list("#886600", "#886600", "#886600")) // bobaEDIT CHANGE - ORIGINAL: ling.dna.features["tail_lizard"] = "Smooth"
+	ling.dna.mutant_bodyparts["snout"] = list(MUTANT_INDEX_NAME = "Sharp + Light", MUTANT_INDEX_COLOR_LIST = list("#886600", "#886600", "#886600")) // bobaEDIT CHANGE - ORIGINAL: ling.dna.features["snout"] = "Sharp + Light"
+	ling.dna.mutant_bodyparts["horns"] = list(MUTANT_INDEX_NAME = "Curled", MUTANT_INDEX_COLOR_LIST = list("#292826", "#292826", "#8292826")) // bobaEDIT CHANGE - ORIGINAL: ling.dna.features["horns"] = "Curved"
+	ling.dna.mutant_bodyparts["frills"] = list(MUTANT_INDEX_NAME = "Short", MUTANT_INDEX_COLOR_LIST = list("#886600", "#886600", "#886600")) // bobaEDIT CHANGE - ORIGINAL: ling.dna.features["frills"] = "Sort"
+	ling.dna.mutant_bodyparts["spines"] = list(MUTANT_INDEX_NAME = "Long + Membrane", MUTANT_INDEX_COLOR_LIST = list("#886600", "#886600", "#886600")) // bobaEDIT CHANGE - ORIGINAL: ling.dna.features["spines"] = "Long + Membrane"
+	ling.dna.body_markings["chest"] = list("Light Belly" = list("#886600", 0)) // bobaEDIT CHANGE - ORIGINAL : ling.dna.features["lizard_markings"] = "Light Belly"
 	ling.dna.features["legs"] = DIGITIGRADE_LEGS
 	ling.set_eye_color(COLOR_WHITE)
 	ling.dna.update_ui_block(DNA_EYE_COLOR_LEFT_BLOCK)

@@ -1,6 +1,6 @@
 /// Makes sure turf icons actually exist. :)
 /datum/unit_test/turf_icons
-	var/modular_mineral_turf_file = 'modular_nova/modules/xenoarch/icons/mining.dmi' //= 'icons/turf/mining.dmi' //MODULARITY SUPPORT - insert your snowflake MAP_SWITCH icon file here if you use that define. // NOVA EDIT - Added our modular file here (thanks)
+	var/modular_mineral_turf_file = 'modular_nova/modules/xenoarch/icons/mining.dmi' //= 'icons/turf/mining.dmi' //MODULARITY SUPPORT - insert your snowflake MAP_SWITCH icon file here if you use that define. // bobaEDIT - Added our modular file here (thanks)
 
 /datum/unit_test/turf_icons/Run()
 	for(var/turf/turf_path as anything in (subtypesof(/turf) - typesof(/turf/closed/mineral)))
@@ -31,7 +31,7 @@
 	//NOVA EDIT START
 	ignored_types += typesof(/turf/open/openspace/ocean)
 	ignored_types += typesof(/turf/open/misc/ocean)
-	// NOVA EDIT END
+	// bobaEDIT END
 
 
 	for(var/turf/open/open_turf_path as anything in (subtypesof(/turf/open) - ignored_types))

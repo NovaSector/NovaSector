@@ -273,7 +273,7 @@ GLOBAL_LIST_INIT(available_erp_ui_styles, list(
 	//NOVA EDIT ADDITION START - NOVA HUD
 	ammo_counter = null
 	wanted_lvl = null
-	// NOVA EDIT ADDITION END - NOVA HUD
+	// bobaEDIT ADDITION END - NOVA HUD
 
 	QDEL_LIST_ASSOC_VAL(master_groups)
 	QDEL_LIST_ASSOC_VAL(plane_master_controllers)

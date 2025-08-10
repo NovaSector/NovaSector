@@ -67,11 +67,11 @@
 	var/list/to_preload = list() //Yes this is a pain. Yes this is the point
 	to_preload += /obj/item/screwdriver/power
 	to_preload += /obj/item/crowbar/power
-	to_preload += /obj/item/weldingtool/electric // NOVA EDIT - Electric welder
+	to_preload += /obj/item/weldingtool/electric // bobaEDIT - Electric welder
 	to_preload += /obj/item/multitool
 	to_preload += /obj/item/stack/cable_coil
 	to_preload += /obj/item/extinguisher/mini
-	to_preload += /obj/item/analyzer/ranged // NOVA EDIT - Ranged Analyzer for CE
+	to_preload += /obj/item/analyzer/ranged // bobaEDIT - Ranged Analyzer for CE
 	return to_preload
 
 /obj/item/storage/belt/utility/full/PopulateContents()
@@ -100,7 +100,7 @@
 /obj/item/storage/belt/utility/full/powertools/PopulateContents()
 	new /obj/item/screwdriver/power(src)
 	new /obj/item/crowbar/power(src)
-	new /obj/item/weldingtool/electric(src) // NOVA EDIT - original: new /obj/item/weldingtool/experimental(src)
+	new /obj/item/weldingtool/electric(src) // bobaEDIT - original: new /obj/item/weldingtool/experimental(src)
 	new /obj/item/multitool(src)
 	new /obj/item/holosign_creator/atmos(src)
 	new /obj/item/extinguisher/mini(src)

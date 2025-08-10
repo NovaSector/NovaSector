@@ -150,7 +150,7 @@
 		ui_select_sound.frequency = get_rand_frequency_low_range()
 		SEND_SOUND(hud.mymob, ui_select_sound)
 	update_appearance(UPDATE_ICON)
-	SEND_SOUND(hud.mymob, sound('modular_nova/master_files/sound/effects/save.ogg')) // NOVA EDIT ADDITION
+	SEND_SOUND(hud.mymob, sound('modular_nova/master_files/sound/effects/save.ogg')) // bobaEDIT ADDITION
 	return TRUE
 
 /atom/movable/screen/lobby/button/MouseEntered(location,control,params)

@@ -1421,7 +1421,7 @@ GLOBAL_LIST_EMPTY(blended_hair_icons_cache)
 	icon_state = "female_kinky"
 	gender = FEMALE
 	use_static = TRUE
-*/ // NOVA EDIT END
+*/ // bobaEDIT END
 
 ////////////////////////////
 // Undershirt Definitions //
@@ -1628,7 +1628,7 @@ GLOBAL_LIST_EMPTY(blended_hair_icons_cache)
 	name = "Sports Bra (Alt)"
 	icon_state = "sports_bra_alt"
 	gender = NEUTER
-*/ // NOVA EDIT END
+*/ // bobaEDIT END
 
 /datum/sprite_accessory/undershirt/blueshirtsport
 	name = "Sports Shirt (Blue)"

@@ -727,11 +727,11 @@
 				var/datum/mutation/matched_mutation = null
 				//Go through all sequences for matching gene, and set the mutation
 				for (var/M in subtypesof(/datum/mutation))
-					// NOVA EDIT ADDITION START
+					// bobaEDIT ADDITION START
 					var/datum/mutation/iterating_mutation = M
 					if(initial(iterating_mutation.disabled))
 						continue
-					// NOVA EDIT ADDITION END
+					// bobaEDIT ADDITION END
 					var/true_sequence = GET_SEQUENCE(M)
 					if (new_sequence == true_sequence)
 						matched_mutation = M

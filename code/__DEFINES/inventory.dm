@@ -167,10 +167,10 @@ DEFINE_BITFIELD(no_equip_flags, list(
 #define FEMALE_UNIFORM_TOP_ONLY (1<<1)
 /// For when you don't want the "breast" effect to be applied (the one that cuts two pixels in the middle of the front of the uniform when facing east or west).
 #define FEMALE_UNIFORM_NO_BREASTS (1<<2)
-// NOVA EDIT ADDITION START
+// bobaEDIT ADDITION START
 /// For when you -don't- want to apply FEMALE_UNIFORM_TOP_ONLY to the digi version (which happens by default).
 #define FEMALE_UNIFORM_DIGI_FULL (1<<3)
-// NOVA EDIT ADDITION END
+// bobaEDIT ADDITION END
 
 //flags for alternate styles: These are hard sprited so don't set this if you didn't put the effort in
 #define NORMAL_STYLE 0
@@ -186,7 +186,7 @@ DEFINE_BITFIELD(no_equip_flags, list(
 #define CLOTHING_DIGITIGRADE_VARIATION_NO_NEW_ICON (1<<2)
 /// Auto-generates the leg portion of the sprite with GAGS
 #define CLOTHING_DIGITIGRADE_MASK (1<<3)
-// NOVA EDIT ADDITION START
+// bobaEDIT ADDITION START
 /// The sprite works fine for snouts.
 #define CLOTHING_SNOUTED_VARIATION (1<<4)
 /// The sprite works fine for snouts as-is.
@@ -199,7 +199,7 @@ DEFINE_BITFIELD(no_equip_flags, list(
 #define CLOTHING_SNOUTED_BETTER_VOX_VARIATION (1<<8)
 /// The sprite works fine for vox snouts as is.
 #define CLOTHING_SNOUTED_BETTER_VOX_VARIATION_NO_NEW_ICON (1<<9)
-// NOVA EDIT ADDITION END
+// bobaEDIT ADDITION END
 
 /// All variation flags which render "correctly" on a digitigrade leg setup
 #define DIGITIGRADE_VARIATIONS (CLOTHING_DIGITIGRADE_VARIATION|CLOTHING_DIGITIGRADE_VARIATION_NO_NEW_ICON|CLOTHING_DIGITIGRADE_MASK)
@@ -264,7 +264,7 @@ GLOBAL_LIST_INIT(security_vest_allowed, list(
 	/obj/item/storage/belt/holster/energy,
 	/obj/item/gun/ballistic/shotgun/automatic/combat/compact,
 	/obj/item/pen/red/security,
-	/obj/item/storage/belt/machete, // NOVA EDIT ADDITION
+	/obj/item/storage/belt/machete, // bobaEDIT ADDITION
 ))
 
 GLOBAL_LIST_INIT(security_wintercoat_allowed, list(
@@ -277,7 +277,7 @@ GLOBAL_LIST_INIT(security_wintercoat_allowed, list(
 	/obj/item/storage/belt/holster/nukie,
 	/obj/item/storage/belt/holster/energy,
 	/obj/item/gun/ballistic/shotgun/automatic/combat/compact,
-	/obj/item/storage/belt/machete, // NOVA EDIT ADDITION
+	/obj/item/storage/belt/machete, // bobaEDIT ADDITION
 ))
 
 //Allowed list for all chaplain suits (except the honkmother robe)
@@ -312,9 +312,9 @@ GLOBAL_LIST_INIT(mining_suit_allowed, list(
 	/obj/item/pickaxe,
 	/obj/item/resonator,
 	/obj/item/spear,
-	/obj/item/forging/reagent_weapon, // NOVA EDIT ADDITION
-	/obj/item/gun/ballistic/bow, // NOVA EDIT ADDITION
-	/obj/item/storage/belt/machete, // NOVA EDIT ADDITION
+	/obj/item/forging/reagent_weapon, // bobaEDIT ADDITION
+	/obj/item/gun/ballistic/bow, // bobaEDIT ADDITION
+	/obj/item/storage/belt/machete, // bobaEDIT ADDITION
 ))
 
 /// List of all "tools" that can fit into belts or work from toolboxes

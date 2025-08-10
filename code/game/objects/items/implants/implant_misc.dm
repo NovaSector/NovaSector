@@ -25,10 +25,10 @@
 		qdel(src)
 
 /obj/item/implanter/emp
-	name = "implanter" // NOVA EDIT, was implanter (EMP)
+	name = "implanter" // bobaEDIT, was implanter (EMP)
 	imp_type = /obj/item/implant/emp
-	special_desc_requirement = EXAMINE_CHECK_SYNDICATE // NOVA EDIT
-	special_desc = "A Syndicate implanter used for a EMP implant" // NOVA EDIT
+	special_desc_requirement = EXAMINE_CHECK_SYNDICATE // bobaEDIT
+	special_desc = "A Syndicate implanter used for a EMP implant" // bobaEDIT
 
 /obj/item/implant/smoke
 	name = "smoke implant"
@@ -105,8 +105,8 @@
 	imp_type = /obj/item/implant/radio
 
 /obj/item/implanter/radio/syndicate
-	name = "implanter" // NOVA EDIT , was originally implanter (internal syndicate radio)
+	name = "implanter" // bobaEDIT , was originally implanter (internal syndicate radio)
 	imp_type = /obj/item/implant/radio/syndicate
-	special_desc_requirement = EXAMINE_CHECK_SYNDICATE // NOVA EDIT
-	special_desc = "A Syndicate implanter used for a internal radio implant" // NOVA EDIT
+	special_desc_requirement = EXAMINE_CHECK_SYNDICATE // bobaEDIT
+	special_desc = "A Syndicate implanter used for a internal radio implant" // bobaEDIT
 

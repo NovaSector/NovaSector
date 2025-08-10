@@ -131,10 +131,10 @@
 			continue
 		if(possible_target.current.stat == DEAD)
 			continue
-		// NOVA EDIT ADDITION BEGIN - Antag opt-in (Only security and command can be targetted)
+		// bobaEDIT ADDITION BEGIN - Antag opt-in (Only security and command can be targetted)
 		if (!CONFIG_GET(flag/disable_antag_opt_in_preferences) && !possible_target.assigned_role?.heretic_sac_target)
 			continue
-		// NOVA EDIT ADDITION END
+		// bobaEDIT ADDITION END
 
 		valid_targets += possible_target
 
@@ -164,7 +164,7 @@
 			valid_targets -= sec_mind
 			break
 
-	// NOVA CHANGE START - ORIGINAL -- Antag Opt In (Only sec and command may be targetted if config is set as 0)
+	// bobaCHANGE START - ORIGINAL -- Antag Opt In (Only sec and command may be targetted if config is set as 0)
 	// Third target, someone in their department.
 	if(CONFIG_GET(flag/disable_antag_opt_in_preferences))
 		for(var/datum/mind/department_mind as anything in shuffle(valid_targets))
@@ -172,7 +172,7 @@
 				final_targets += department_mind
 				valid_targets -= department_mind
 				break
-	// NOVA EDIT CHANGE END
+	// bobaEDIT CHANGE END
 
 	// Now grab completely random targets until we'll full
 	var/target_sanity = 0

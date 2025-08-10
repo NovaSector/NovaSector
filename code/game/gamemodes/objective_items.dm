@@ -440,9 +440,9 @@ GLOBAL_DATUM_INIT(steal_item_handler, /datum/objective_item_handler, new())
 
 /datum/objective_item/steal/hypo
 	//name = "the hypospray" // ORIGINAL
-	name = "the Chief Medical Officer's hypospray" // NOVA EDIT CHANGE
+	name = "the Chief Medical Officer's hypospray" // bobaEDIT CHANGE
 	//targetitem = /obj/item/reagent_containers/hypospray/cmo // ORIGINAL
-	targetitem = /obj/item/hypospray/mkii/deluxe/cmo // NOVA EDIT CHANGE
+	targetitem = /obj/item/hypospray/mkii/deluxe/cmo // bobaEDIT CHANGE
 	excludefromjob = list(JOB_CHIEF_MEDICAL_OFFICER)
 	item_owner = list(JOB_CHIEF_MEDICAL_OFFICER)
 	exists_on_map = TRUE
@@ -450,8 +450,8 @@ GLOBAL_DATUM_INIT(steal_item_handler, /datum/objective_item_handler, new())
 	steal_hint = "The Chief Medical Officer's personal medical injector. \
 		Usually found amongst their medical supplies on their person, in their belt, or otherwise in their locker."
 
-/obj/item/hypospray/mkii/deluxe/cmo/add_stealing_item_objective() // NOVA EDIT CHANGE
-	return add_item_to_steal(src, /obj/item/hypospray/mkii/deluxe/cmo) // NOVA EDIT CHANGE
+/obj/item/hypospray/mkii/deluxe/cmo/add_stealing_item_objective() // bobaEDIT CHANGE
+	return add_item_to_steal(src, /obj/item/hypospray/mkii/deluxe/cmo) // bobaEDIT CHANGE
 
 /datum/objective_item/steal/nukedisc
 	name = "the nuclear authentication disk"
@@ -569,12 +569,12 @@ GLOBAL_DATUM_INIT(steal_item_handler, /datum/objective_item_handler, new())
 	if(istype(potential_storage, /obj/item/aicard))
 		var/obj/item/aicard/card = potential_storage
 		being = card.AI // why is this one capitalized and the other one not? i wish i knew.
-	// NOVA EDIT REMOVAL START - MOD PAI
+	// bobaEDIT REMOVAL START - MOD PAI
 	/*else if(istype(potential_storage, /obj/item/mod/control))
 		var/obj/item/mod/control/suit = potential_storage
 		if(isAI(suit.ai_assistant))
 			being = suit.ai_assistant
-	*/ // NOVA EDIT REMOVAL END
+	*/ // bobaEDIT REMOVAL END
 	else
 		stack_trace("check_special_completion() called on [src] with [potential_storage] ([potential_storage.type])! That's not supposed to happen!")
 		return FALSE
@@ -636,7 +636,7 @@ GLOBAL_DATUM_INIT(steal_item_handler, /datum/objective_item_handler, new())
 /datum/objective_item/steal/traitor/moth_plush
 	name = "a cute moth plush toy"
 	targetitem = /obj/item/toy/plush/moth
-	excludefromjob = list(JOB_PSYCHOLOGIST, JOB_PARAMEDIC, JOB_CHEMIST, JOB_MEDICAL_DOCTOR, JOB_VIROLOGIST, JOB_CHIEF_MEDICAL_OFFICER, JOB_CORONER) // Nova Edit Addition: Virologist
+	excludefromjob = list(JOB_PSYCHOLOGIST, JOB_PARAMEDIC, JOB_CHEMIST, JOB_MEDICAL_DOCTOR, JOB_VIROLOGIST, JOB_CHIEF_MEDICAL_OFFICER, JOB_CORONER) // bobaEdit Addition: Virologist
 	exists_on_map = TRUE
 	difficulty = 1
 	steal_hint = "A moth plush toy. The Psychologist has one to help console patients."

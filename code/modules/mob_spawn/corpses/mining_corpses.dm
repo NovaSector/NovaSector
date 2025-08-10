@@ -42,17 +42,17 @@
 /// Returns the outfit worn by our corpse
 /obj/effect/mob_spawn/corpse/human/legioninfested/proc/select_outfit()
 	var/corpse_theme = pick_weight(list(
-		"Miner" = 53, // NOVA EDIT CHANGE - ORIGINAL: "Miner" = 64,
+		"Miner" = 53, // bobaEDIT CHANGE - ORIGINAL: "Miner" = 64,
 		"Clown" = 5,
 		"Ashwalker" = 13, //NOVA EDIT CHANGE - ORIGINAL: "Ashwalker" = 15,
-		"Golem" = 8, // NOVA EDIT CHANGE - ORIGINAL: "Golem" = 10,
+		"Golem" = 8, // bobaEDIT CHANGE - ORIGINAL: "Golem" = 10,
 		pick(list(
 			"Cultist",
 			"Dame",
 			"Operative",
 			// "Shadow", - NOVA EDIT REMOVAL - NEW_LEGION_CORPSES
 		)) = 4,
-		// NOVA ADDITION START - NEW_LEGION_CORPSES
+		// bobaADDITION START - NEW_LEGION_CORPSES
 		pick(list(
 			"Engineer",
 			"Scientist",
@@ -61,7 +61,7 @@
 			"Cook",
 			"Doctor",
 		)) = 15,
-		// NOVA ADDITION END - NEW_LEGION_CORPSES
+		// bobaADDITION END - NEW_LEGION_CORPSES
 	))
 
 	switch(corpse_theme)
@@ -79,10 +79,10 @@
 			return /datum/outfit/consumed_dame
 		if("Operative")
 			return /datum/outfit/syndicatecommandocorpse/lessenedgear
-		/* // NOVA EDIT REMOVAL START - NEW_LEGION_CORPSES
+		/* // bobaEDIT REMOVAL START - NEW_LEGION_CORPSES
 		if("Shadow")
 			return /datum/outfit/consumed_shadowperson
-		*/ // NOVA EDIT REMOVAL END - NEW_LEGION_CORPSES
+		*/ // bobaEDIT REMOVAL END - NEW_LEGION_CORPSES
 		if("Engineer")
 			return /datum/outfit/consumed_engineer
 		if("Scientist")
@@ -93,7 +93,7 @@
 			return /datum/outfit/consumed_cook
 		if("Doctor")
 			return /datum/outfit/consumed_doctor
-		// NOVA ADDITION END - NEW_LEGION_CORPSES
+		// bobaADDITION END - NEW_LEGION_CORPSES
 
 
 /// Corpse spawner used by dwarf legions to make small corpses
@@ -108,17 +108,17 @@
 
 /obj/effect/mob_spawn/corpse/human/legioninfested/snow/select_outfit()
 	var/corpse_theme = pick_weight(list(
-		"Miner" = 59, // NOVA EDIT CHANGE - ORIGINAL: "Miner" = 64,
+		"Miner" = 59, // bobaEDIT CHANGE - ORIGINAL: "Miner" = 64,
 		"Clown" = 5,
-		"Golem" = 7, // NOVA EDIT CHANGE - ORIGINAL: "Golem" = 15,
-		"Settler" = 7, // NOVA EDIT CHANGE - ORIGINAL: "Settler" = 10,
+		"Golem" = 7, // bobaEDIT CHANGE - ORIGINAL: "Golem" = 15,
+		"Settler" = 7, // bobaEDIT CHANGE - ORIGINAL: "Settler" = 10,
 		pick(list(
 			"Cultist",
 			"Heremoth",
 			"Operative",
-			//"Shadow", // NOVA EDIT REMOVAL - NEW_LEGION_CORPSES
+			//"Shadow", // bobaEDIT REMOVAL - NEW_LEGION_CORPSES
 		)) = 4,
-		// NOVA ADDITION START - NEW_LEGION_CORPSES
+		// bobaADDITION START - NEW_LEGION_CORPSES
 		pick(list(
 			"Engineer",
 			"Scientist",
@@ -127,7 +127,7 @@
 			"Cook",
 			"Doctor",
 		)) = 16,
-		// NOVA ADDITION END - NEW_LEGION_CORPSES
+		// bobaADDITION END - NEW_LEGION_CORPSES
 	))
 
 	switch(corpse_theme)
@@ -145,11 +145,11 @@
 			return /datum/outfit/consumed_golem
 		if("Operative")
 			return /datum/outfit/syndicatecommandocorpse/lessenedgear
-		/* // NOVA EDIT REMOVAL START - NEW_LEGION_CORPSES
+		/* // bobaEDIT REMOVAL START - NEW_LEGION_CORPSES
 		if("Shadow")
 			return /datum/outfit/consumed_shadowperson
 		*/ //NOVA EDIT REMOVAL END - NEW_LEGION_CORPSES
-		// NOVA ADDITION START - NEW_LEGION_CORPSES
+		// bobaADDITION START - NEW_LEGION_CORPSES
 		if("Engineer")
 			return /datum/outfit/consumed_engineer
 		if("Scientist")
@@ -160,7 +160,7 @@
 			return /datum/outfit/consumed_cook
 		if("Doctor")
 			return /datum/outfit/consumed_doctor
-		// NOVA ADDITION END - NEW_LEGION_CORPSES
+		// bobaADDITION END - NEW_LEGION_CORPSES
 
 /// Creates a dead legion-infested skeleton
 /obj/effect/mob_spawn/corpse/human/legioninfested/skeleton

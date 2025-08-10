@@ -217,13 +217,13 @@
 
 	//If we're a mob we'll try a do_after; non mobs will instead instantly construct the item
 	if(!(ignored_flags & CRAFT_IGNORE_DO_AFTER))
-		// NOVA EDIT ADDITION START: Construction Skill
+		// bobaEDIT ADDITION START: Construction Skill
 		var/skill_modifier = 1
 		if(ismob(crafter))
 			var/mob/crafting_mob = crafter
 			skill_modifier = crafting_mob.mind?.get_skill_modifier(/datum/skill/construction, SKILL_SPEED_MODIFIER)
-		// NOVA EDIT ADDITION END
-		if(!do_after(crafter, recipe.time * skill_modifier, target = crafter)) // NOVA EDIT CHANGE - ORIGINAL: if(!do_after(crafter, recipe.time, target = crafter))
+		// bobaEDIT ADDITION END
+		if(!do_after(crafter, recipe.time * skill_modifier, target = crafter)) // bobaEDIT CHANGE - ORIGINAL: if(!do_after(crafter, recipe.time, target = crafter))
 			return "."
 		contents = get_surroundings(crafter, recipe.blacklist)
 		fail_message = perform_all_checks(crafter, recipe, contents, check_tools_last = TRUE)

@@ -503,11 +503,11 @@ GLOBAL_LIST_INIT(malf_modules, subtypesof(/datum/ai_module/malf))
 
 /datum/action/innate/ai/destroy_rcds/Activate()
 	for(var/I in GLOB.rcd_list)
-		// NOVA EDIT ADDITION START - Don't detonate RCDs in the protected areas
+		// bobaEDIT ADDITION START - Don't detonate RCDs in the protected areas
 		var/rcd_area = get_area(I)
 		if(is_type_in_typecache(rcd_area, protected_areas))
 			continue
-		// NOVA EDIT ADDITION END
+		// bobaEDIT ADDITION END
 		if(!istype(I, /obj/item/construction/rcd/borg)) //Ensures that cyborg RCDs are spared.
 			var/obj/item/construction/rcd/RCD = I
 			RCD.detonate_pulse()
@@ -597,10 +597,10 @@ GLOBAL_LIST_INIT(malf_modules, subtypesof(/datum/ai_module/malf))
 
 /datum/action/innate/ai/blackout/Activate()
 	for(var/obj/machinery/power/apc/apc as anything in SSmachines.get_machines_by_type_and_subtypes(/obj/machinery/power/apc))
-		// NOVA EDIT ADDITION START - Don't blackout Tarkon or Ghost cafe
+		// bobaEDIT ADDITION START - Don't blackout Tarkon or Ghost cafe
 		if(is_type_in_typecache(apc.area, protected_areas))
 			continue
-		// NOVA EDIT ADDITION END
+		// bobaEDIT ADDITION END
 		if(prob(30 * apc.overload))
 			apc.overload_lighting()
 		else
@@ -634,11 +634,11 @@ GLOBAL_LIST_INIT(malf_modules, subtypesof(/datum/ai_module/malf))
 	for(var/obj/item/radio/intercom/found_intercom as anything in GLOB.intercoms_list)
 		if(!found_intercom.is_on() || !found_intercom.get_listening() || found_intercom.wires.is_cut(WIRE_RX)) //Only operating intercoms play the honk
 			continue
-		// NOVA EDIT ADDITION START - Don't honk off-station intercoms (e.g. Tarkon, Ghost Cafe)
+		// bobaEDIT ADDITION START - Don't honk off-station intercoms (e.g. Tarkon, Ghost Cafe)
 		var/intercom_area = get_area(found_intercom)
 		if(is_type_in_typecache(intercom_area, protected_areas))
 			continue
-		// NOVA EDIT ADDITION END
+		// bobaEDIT ADDITION END
 		found_intercom.audible_message(message = "[found_intercom] crackles for a split second.", hearing_distance = 3)
 		playsound(found_intercom, 'sound/items/airhorn/airhorn.ogg', 100, TRUE)
 		for(var/mob/living/carbon/honk_victim in ohearers(6, found_intercom))
@@ -652,7 +652,7 @@ GLOBAL_LIST_INIT(malf_modules, subtypesof(/datum/ai_module/malf))
 /// Robotic Factory: Places a large machine that converts humans that go through it into cyborgs. Unlocking this ability removes shunting.
 /datum/ai_module/malf/utility/place_cyborg_transformer
 	name = "Robotic Factory (Removes Shunting)"
-	description = "Build a machine anywhere, using expensive nanomachines, that will slowly create loyal cyborgs for you." // NOVA EDIT CHANGE - ORIGINAL: description = "Build a machine anywhere, using expensive nanomachines, that can convert a living human into a loyal cyborg slave when placed inside."
+	description = "Build a machine anywhere, using expensive nanomachines, that will slowly create loyal cyborgs for you." // bobaEDIT CHANGE - ORIGINAL: description = "Build a machine anywhere, using expensive nanomachines, that can convert a living human into a loyal cyborg slave when placed inside."
 	cost = 100
 	minimum_apcs = 10 // So you can't speedrun this
 	power_type = /datum/action/innate/ai/place_transformer
@@ -661,7 +661,7 @@ GLOBAL_LIST_INIT(malf_modules, subtypesof(/datum/ai_module/malf))
 
 /datum/action/innate/ai/place_transformer
 	name = "Place Robotics Factory"
-	desc = "Places a machine that creates cyborgs efficiently. Conveyor belts included!" // NOVA EDIT CHANGE - ORIGINAL: desc = "Places a machine that converts humans into cyborgs. Conveyor belts included!"
+	desc = "Places a machine that creates cyborgs efficiently. Conveyor belts included!" // bobaEDIT CHANGE - ORIGINAL: desc = "Places a machine that converts humans into cyborgs. Conveyor belts included!"
 	button_icon_state = "robotic_factory"
 	uses = 1
 	auto_use_uses = FALSE //So we can attempt multiple times
@@ -684,7 +684,7 @@ GLOBAL_LIST_INIT(malf_modules, subtypesof(/datum/ai_module/malf))
 		active = FALSE
 		return
 	var/turf/T = get_turf(owner_AI.eyeobj)
-	var/obj/machinery/transformer_rp/conveyor = new(T) // NOVA EDIT CHANGE - SILLICONQOL - ORIGINAL: var/obj/machinery/transformer/conveyor = new(T)
+	var/obj/machinery/transformer_rp/conveyor = new(T) // bobaEDIT CHANGE - SILLICONQOL - ORIGINAL: var/obj/machinery/transformer/conveyor = new(T)
 	conveyor.master_ai = owner
 	playsound(T, 'sound/effects/phasein.ogg', 100, TRUE)
 	if(owner_AI.can_shunt) //prevent repeated messages

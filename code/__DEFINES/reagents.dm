@@ -156,11 +156,11 @@
 #define MAX_ADDICTION_POINTS 1000
 
 ///Addiction start/ends
-#define WITHDRAWAL_STAGE1_START_CYCLE 121 // NOVA EDIT CHANGE - Original 61
-#define WITHDRAWAL_STAGE1_END_CYCLE 240 // NOVA EDIT CHANGE - Original 120
-#define WITHDRAWAL_STAGE2_START_CYCLE 241 // NOVA EDIT CHANGE - Original 121
-#define WITHDRAWAL_STAGE2_END_CYCLE 360 // NOVA EDIT CHANGE - Original 180
-#define WITHDRAWAL_STAGE3_START_CYCLE 361 // NOVA EDIT CHANGE - Original 181
+#define WITHDRAWAL_STAGE1_START_CYCLE 121 // bobaEDIT CHANGE - Original 61
+#define WITHDRAWAL_STAGE1_END_CYCLE 240 // bobaEDIT CHANGE - Original 120
+#define WITHDRAWAL_STAGE2_START_CYCLE 241 // bobaEDIT CHANGE - Original 121
+#define WITHDRAWAL_STAGE2_END_CYCLE 360 // bobaEDIT CHANGE - Original 180
+#define WITHDRAWAL_STAGE3_START_CYCLE 361 // bobaEDIT CHANGE - Original 181
 
 ///reagent tags - used to look up reagents for specific effects. Feel free to add to but comment it
 /// This reagent does brute effects (BOTH damaging and healing)
@@ -229,7 +229,7 @@
 #define GOLDSCHLAGER_GOLD_RATIO (GOLDSCHLAGER_GOLD/(GOLDSCHLAGER_VODKA+GOLDSCHLAGER_GOLD))
 
 /// The rate at which alcohol affects the drinker
-#define ALCOHOL_RATE 0.0025 // NOVA EDIT CHANGE - ALCOHOL_PROCESSING - Original: 0.005
+#define ALCOHOL_RATE 0.0025 // bobaEDIT CHANGE - ALCOHOL_PROCESSING - Original: 0.005
 
 #define BLASTOFF_DANCE_MOVE_CHANCE_PER_UNIT 3
 #define BLASTOFF_DANCE_MOVES_PER_SUPER_MOVE 3

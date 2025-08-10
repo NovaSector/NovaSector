@@ -11,7 +11,7 @@
 	pass_flags = PASSTABLE
 	interaction_flags_click = ALLOW_SILICON_REACH
 	/// List of dishes the drive can hold
-	var/list/collectable_items = list( // NOVA EDIT CHANGE - non-static list - ORIGINAL: var/static/list/collectable_items = list(
+	var/list/collectable_items = list( // bobaEDIT CHANGE - non-static list - ORIGINAL: var/static/list/collectable_items = list(
 		/obj/item/broken_bottle,
 		/obj/item/kitchen/fork,
 		/obj/item/plate,

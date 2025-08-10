@@ -4,7 +4,7 @@
 
 /turf/closed/mineral //wall piece
 	name = "rock"
-	icon = MAP_SWITCH('modular_nova/modules/liquids/icons/turf/smoothrocks.dmi', 'icons/turf/mining.dmi') // NOVA EDIT CHANGE
+	icon = MAP_SWITCH('modular_nova/modules/liquids/icons/turf/smoothrocks.dmi', 'icons/turf/mining.dmi') // bobaEDIT CHANGE
 	icon_state = "rock"
 	smoothing_groups = SMOOTH_GROUP_CLOSED_TURFS + SMOOTH_GROUP_MINERAL_WALLS
 	canSmoothWith = SMOOTH_GROUP_MINERAL_WALLS
@@ -404,8 +404,8 @@
 	baseturfs = /turf/open/misc/asteroid/basalt/lava_land_surface
 	initial_gas_mix = LAVALAND_DEFAULT_ATMOS
 	defer_change = TRUE
-	proximity_based = FALSE // Nova Edit: Original TRUE
-	mineralChance = 7 // Nova Edit: Original 5 (13)
+	proximity_based = FALSE // bobaEdit: Original TRUE
+	mineralChance = 7 // bobaEdit: Original 5 (13)
 
 /turf/closed/mineral/random/volcanic/mineral_chances()
 	return list(
@@ -432,8 +432,8 @@
 	baseturfs = /turf/open/misc/asteroid/snow/icemoon
 	initial_gas_mix = ICEMOON_DEFAULT_ATMOS
 	weak_turf = TRUE
-	proximity_based = FALSE // Nova Edit: Originally TRUE
-	mineralChance = 8 // Nova Edit: Originally Not defined - lowers from 13
+	proximity_based = FALSE // bobaEdit: Originally TRUE
+	mineralChance = 8 // bobaEdit: Originally Not defined - lowers from 13
 
 /turf/closed/mineral/random/snow/Change_Ore(ore_type, random = 0)
 	. = ..()

@@ -23,7 +23,7 @@
 	dmg_overlay_type = null
 	brute_modifier = 1.25 //ethereal are weak to brute damages
 	wing_types = null
-	//bodypart_traits = list(TRAIT_NO_UNDERWEAR) // NOVA EDIT REMOVAL - LET THEM WEAR PANTIES
+	//bodypart_traits = list(TRAIT_NO_UNDERWEAR) // bobaEDIT REMOVAL - LET THEM WEAR PANTIES
 
 /obj/item/bodypart/chest/ethereal/update_limb(dropping_limb, is_creating)
 	. = ..()

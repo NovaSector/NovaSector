@@ -86,7 +86,7 @@
 #define SURGERY_SPEED_MORBID_CURIOSITY 0.7
 ///Modifier given to patients with TRAIT_ANALGESIA
 #define SURGERY_SPEED_TRAIT_ANALGESIA 0.8
-#define SURGERY_SPEED_CALM_ENVIRONMENT 0.8 // NOVA EDIT ADDITION - Modifier given to surgery when done in calm areas (no other humans around)
+#define SURGERY_SPEED_CALM_ENVIRONMENT 0.8 // bobaEDIT ADDITION - Modifier given to surgery when done in calm areas (no other humans around)
 
 /datum/surgery_step/proc/initiate(mob/living/user, mob/living/target, target_zone, obj/item/tool, datum/surgery/surgery, try_to_fail = FALSE)
 	// Only followers of Asclepius have the ability to use Healing Touch and perform miracle feats of surgery.
@@ -122,7 +122,7 @@
 
 	if(HAS_TRAIT(target, TRAIT_ANALGESIA))
 		speed_mod *= SURGERY_SPEED_TRAIT_ANALGESIA
-		to_chat(user, span_notice("You are able to work faster due to the patient's calm attitude!")) // NOVA EDIT ADDITION - Better feedback for the use of analgesia
+		to_chat(user, span_notice("You are able to work faster due to the patient's calm attitude!")) // bobaEDIT ADDITION - Better feedback for the use of analgesia
 
 	var/implement_speed_mod = 1
 	if(implement_type) //this means it isn't a require hand or any item step.
@@ -150,14 +150,14 @@
 	fail_prob = min(max(0, fail_prob),99) // clamp fail_prob between 0 and 99
 	modded_time = min(modded_time, time * SURGERY_SLOWDOWN_CAP_MULTIPLIER)// cap modded_time at time*modifier
 
-	// NOVA EDIT REMOVAL START - Cyborgs are no longer immune to surgery speedups.
+	// bobaEDIT REMOVAL START - Cyborgs are no longer immune to surgery speedups.
 	if(iscyborg(user))//any immunities to surgery slowdown should go in this check.
 		modded_time = time * tool.toolspeed
-	// NOVA EDIT REMOVAL END
+	// bobaEDIT REMOVAL END
 
 	var/was_sleeping = (target.stat != DEAD && target.IsSleeping())
 
-	// NOVA EDIT ADDITION START - reward for doing surgery on a calm environment (no other humans around)
+	// bobaEDIT ADDITION START - reward for doing surgery on a calm environment (no other humans around)
 	var/quiet_environment = TRUE
 	for(var/mob/living/carbon/human/loud_people in view(3, target))
 		if(loud_people != user && loud_people != target)
@@ -166,7 +166,7 @@
 	if(quiet_environment)
 		modded_time *= SURGERY_SPEED_CALM_ENVIRONMENT
 		to_chat(user, span_notice("You are able to work faster due to the quiet environment!"))
-	// NOVA EDIT ADDITION END
+	// bobaEDIT ADDITION END
 	if(do_after(user, modded_time, target = target, interaction_key = user.has_status_effect(/datum/status_effect/hippocratic_oath) ? target : DOAFTER_SOURCE_SURGERY)) //If we have the hippocratic oath, we can perform one surgery on each target, otherwise we can only do one surgery in total.
 
 		if((prob(100-fail_prob) || (iscyborg(user) && !silicons_obey_prob)) && !try_to_fail)
@@ -195,7 +195,7 @@
 
 	surgery.step_in_progress = FALSE
 	return advance
-#undef SURGERY_SPEED_CALM_ENVIRONMENT // NOVA EDIT ADDITION
+#undef SURGERY_SPEED_CALM_ENVIRONMENT // bobaEDIT ADDITION
 
 /**
  * Handles updating the mob's mood depending on the surgery states.
@@ -214,13 +214,13 @@
 
 	if(HAS_TRAIT(target, TRAIT_ANALGESIA) || drunken_patient && prob(drunken_ignorance_probability))
 		target.clear_mood_event(SURGERY_MOOD_CATEGORY) //incase they gained the trait mid-surgery (or became drunk). has the added side effect that if someone has a bad surgical memory/mood and gets drunk & goes back to surgery, they'll forget they hated it, which is kinda funny imo.
-		target.add_mood_event("mild_surgery", /datum/mood_event/mild_surgery) // NOVA EDIT ADDITION - Adds additional mood effects to surgeries
+		target.add_mood_event("mild_surgery", /datum/mood_event/mild_surgery) // bobaEDIT ADDITION - Adds additional mood effects to surgeries
 		return
 	if(target.stat >= UNCONSCIOUS)
 		var/datum/mood_event/surgery/target_mood_event = target.mob_mood?.mood_events[SURGERY_MOOD_CATEGORY]
 		if(!target_mood_event || target_mood_event.surgery_completed) //don't give sleeping mobs trauma. that said, if they fell asleep mid-surgery after already getting the bad mood, lets make sure they wake up to a (hopefully) happy memory.
 			return
-	target.add_mood_event("severe_surgery", /datum/mood_event/severe_surgery) // NOVA EDIT ADDITION - Adds additional mood effects to surgeries
+	target.add_mood_event("severe_surgery", /datum/mood_event/severe_surgery) // bobaEDIT ADDITION - Adds additional mood effects to surgeries
 	switch(surgery_state)
 		if(SURGERY_STATE_STARTED)
 			target.add_mood_event(SURGERY_MOOD_CATEGORY, surgery_started_mood_event)
@@ -372,10 +372,10 @@
 			if(!pain_message)
 				return
 			to_chat(target, span_notice("You feel a dull, numb sensation as your body is surgically operated on."))
-		// NOVA EDIT ADDITION START
+		// bobaEDIT ADDITION START
 		else if(mechanical_surgery == TRUE) //robots can't benefit from numbing agents like most but have no reason not to sleep - their debuff falls in-between
 			target.add_mood_event("robot_surgery", /datum/mood_event/robot_surgery)
-		// NOVA EDIT ADDITION END
+		// bobaEDIT ADDITION END
 		else
 			if(!pain_message)
 				return

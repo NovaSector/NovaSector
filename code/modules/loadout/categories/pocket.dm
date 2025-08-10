@@ -5,7 +5,7 @@
 	type_to_generate = /datum/loadout_item/pocket_items
 	tab_order = /datum/loadout_category/head::tab_order + 5
 	/// How many pocket items are allowed
-	VAR_PRIVATE/max_allowed = 3 // NOVA EDIT - Expanded loadout framework - ORIGINAL: VAR_PRIVATE/max_allowed = 2
+	VAR_PRIVATE/max_allowed = 3 // bobaEDIT - Expanded loadout framework - ORIGINAL: VAR_PRIVATE/max_allowed = 2
 
 /datum/loadout_category/pocket/New()
 	. = ..()
@@ -43,7 +43,7 @@
 
 	return ..()
 
-/* // NOVA EDIT REMOVAL START - We have these under 'toys' not 'pocket items'
+/* // bobaEDIT REMOVAL START - We have these under 'toys' not 'pocket items'
 /datum/loadout_item/pocket_items/plush
 	group = "Plushies"
 	abstract_type = /datum/loadout_item/pocket_items/plush
@@ -169,7 +169,7 @@
 /datum/loadout_item/pocket_items/wizoff_deck
 	name = "Wizoff Deck"
 	item_path = /obj/item/toy/cards/deck/wizoff
-// NOVA EDIT REMOVAL END
+// bobaEDIT REMOVAL END
 */
 
 /datum/loadout_item/pocket_items/lipstick
@@ -224,23 +224,23 @@
 /datum/loadout_item/pocket_items/lipstick/handle_loadout_action(datum/preference_middleware/loadout/manager, mob/user, action, params)
 	switch(action)
 		if("select_lipstick_style")
-			var/list/their_loadout = manager.get_current_loadout()// NOVA EDIT CHANGE - Multiple loadout presets - ORIGINAL: var/list/their_loadout = manager.preferences.read_preference(/datum/preference/loadout)
+			var/list/their_loadout = manager.get_current_loadout()// bobaEDIT CHANGE - Multiple loadout presets - ORIGINAL: var/list/their_loadout = manager.preferences.read_preference(/datum/preference/loadout)
 			var/old_style = their_loadout?[item_path]?[INFO_LAYER] || MIDDLE_LIP
 			var/chosen = tgui_input_list(user, "Pick a lipstick style. (This determines where it sits on your sprite.)", "Pick a style", list(UPPER_LIP, MIDDLE_LIP, LOWER_LIP), old_style)
-			their_loadout =  manager.get_current_loadout()// NOVA EDIT CHANGE - Multiple loadout presets - ORIGINAL: their_loadout = manager.preferences.read_preference(/datum/preference/loadout) // after sleep: sanity check
+			their_loadout =  manager.get_current_loadout()// bobaEDIT CHANGE - Multiple loadout presets - ORIGINAL: their_loadout = manager.preferences.read_preference(/datum/preference/loadout) // after sleep: sanity check
 			if(their_loadout?[item_path]) // Validate they still have it equipped
 				their_loadout[item_path][INFO_LAYER] = chosen
-				manager.save_current_loadout(their_loadout) // NOVA EDIT CHANGE - Multiple loadout presets - ORIGINAL: preferences.update_preference(GLOB.preference_entries[/datum/preference/loadout], their_loadout)
+				manager.save_current_loadout(their_loadout) // bobaEDIT CHANGE - Multiple loadout presets - ORIGINAL: preferences.update_preference(GLOB.preference_entries[/datum/preference/loadout], their_loadout)
 			return TRUE // Update UI
 
 		if("select_lipstick_color")
-			var/list/their_loadout = manager.get_current_loadout()// NOVA EDIT CHANGE - Multiple loadout presets - ORIGINAL: var/list/their_loadout = manager.preferences.read_preference(/datum/preference/loadout) // after sleep: sanity check
+			var/list/their_loadout = manager.get_current_loadout()// bobaEDIT CHANGE - Multiple loadout presets - ORIGINAL: var/list/their_loadout = manager.preferences.read_preference(/datum/preference/loadout) // after sleep: sanity check
 			var/old_color = their_loadout?[item_path]?[INFO_GREYSCALE] || /obj/item/lipstick::lipstick_color
 			var/chosen = input(user, "Pick a lipstick color.", "Pick a color", old_color) as color|null
-			their_loadout = manager.get_current_loadout()// NOVA EDIT CHANGE - Multiple loadout presets - ORIGINAL: their_loadout = manager.preferences.read_preference(/datum/preference/loadout) // after sleep: sanity check
+			their_loadout = manager.get_current_loadout()// bobaEDIT CHANGE - Multiple loadout presets - ORIGINAL: their_loadout = manager.preferences.read_preference(/datum/preference/loadout) // after sleep: sanity check
 			if(their_loadout?[item_path]) // Validate they still have it equipped
 				their_loadout[item_path][INFO_GREYSCALE] = chosen
-				manager.save_current_loadout(their_loadout) // NOVA EDIT CHANGE - Multiple loadout presets - ORIGINAL: preferences.update_preference(GLOB.preference_entries[/datum/preference/loadout], their_loadout)
+				manager.save_current_loadout(their_loadout) // bobaEDIT CHANGE - Multiple loadout presets - ORIGINAL: preferences.update_preference(GLOB.preference_entries[/datum/preference/loadout], their_loadout)
 			return TRUE // Update UI
 
 	return ..()

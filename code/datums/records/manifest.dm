@@ -18,7 +18,7 @@ GLOBAL_DATUM_INIT(manifest, /datum/manifest, new)
 			log_manifest(readied_player.ckey, readied_player.new_character.mind, readied_player.new_character)
 			players_to_log[readied_player.ckey] = readied_player.new_character
 		if(ishuman(readied_player.new_character))
-			inject(readied_player.new_character, person_client = readied_player.client) // NOVA EDIT - RP Records - ORIGINAL: inject(readied_player.new_character)
+			inject(readied_player.new_character, person_client = readied_player.client) // bobaEDIT - RP Records - ORIGINAL: inject(readied_player.new_character)
 		CHECK_TICK
 	if(length(players_to_log))
 		SSblackbox.ReportRoundstartManifest(players_to_log)
@@ -36,10 +36,10 @@ GLOBAL_DATUM_INIT(manifest, /datum/manifest, new)
 		var/name = target.name
 		var/rank = target.rank // user-visible job
 		var/trim = target.trim // internal jobs by trim type
-		// NOVA EDIT ADDITION START - bare minimum data the station records need to possess to show up on the crew manifest
+		// bobaEDIT ADDITION START - bare minimum data the station records need to possess to show up on the crew manifest
 		if((name == "Unknown") || (rank == "Unassigned" || rank == "Unknown")) // records are unassigned by default, but if edited without input becomes unknown
 			continue
-		// NOVA EDIT ADDITION END
+		// bobaEDIT ADDITION END
 		var/datum/job/job = SSjob.get_job(trim)
 		if(!job || !(job.job_flags & JOB_CREW_MANIFEST) || !LAZYLEN(job.departments_list)) // In case an unlawful custom rank is added.
 			var/list/misc_list = manifest_out[DEPARTMENT_UNASSIGNED]
@@ -107,7 +107,7 @@ GLOBAL_DATUM_INIT(manifest, /datum/manifest, new)
 
 
 /// Injects a record into the manifest.
-/datum/manifest/proc/inject(mob/living/carbon/human/person, atom/appearance_proxy, client/person_client) // NOVA EDIT CHANGE - RP Records - ORIGINAL: /datum/manifest/proc/inject(mob/living/carbon/human/person, atom/appearance_proxy)
+/datum/manifest/proc/inject(mob/living/carbon/human/person, atom/appearance_proxy, client/person_client) // bobaEDIT CHANGE - RP Records - ORIGINAL: /datum/manifest/proc/inject(mob/living/carbon/human/person, atom/appearance_proxy)
 	set waitfor = FALSE
 	if(!(person.mind?.assigned_role.job_flags & JOB_CREW_MANIFEST))
 		return
@@ -125,14 +125,14 @@ GLOBAL_DATUM_INIT(manifest, /datum/manifest, new)
 	var/datum/dna/stored/record_dna = new()
 	person.dna.copy_dna(record_dna)
 
-	// NOVA EDIT ADDITION BEGIN - ALTERNATIVE_JOB_TITLES
+	// bobaEDIT ADDITION BEGIN - ALTERNATIVE_JOB_TITLES
 	// The alt job title, if user picked one, or the default
 	var/chosen_assignment = person_client?.prefs.alt_job_titles[assignment] || assignment
-	// NOVA EDIT ADDITION END - ALTERNATIVE_JOB_TITLES
+	// bobaEDIT ADDITION END - ALTERNATIVE_JOB_TITLES
 
 	var/datum/record/locked/lockfile = new(
 		age = person.age,
-		chrono_age = person.chrono_age, // NOVA EDIT ADDITION - Chronological age
+		chrono_age = person.chrono_age, // bobaEDIT ADDITION - Chronological age
 		blood_type = person.get_bloodtype()?.name || "UNKNOWN",
 		character_appearance = character_appearance,
 		dna_string = record_dna.unique_enzymes,
@@ -140,7 +140,7 @@ GLOBAL_DATUM_INIT(manifest, /datum/manifest, new)
 		gender = person_gender,
 		initial_rank = assignment,
 		name = person.real_name,
-		rank = chosen_assignment, // NOVA EDIT - Alt job titles - ORIGINAL: rank = assignment,
+		rank = chosen_assignment, // bobaEDIT - Alt job titles - ORIGINAL: rank = assignment,
 		species = record_dna.species.name,
 		trim = assignment,
 		// Locked specifics
@@ -150,7 +150,7 @@ GLOBAL_DATUM_INIT(manifest, /datum/manifest, new)
 
 	new /datum/record/crew(
 		age = person.age,
-		chrono_age = person.chrono_age, // NOVA EDIT ADDITION - Chronological age
+		chrono_age = person.chrono_age, // bobaEDIT ADDITION - Chronological age
 		blood_type = person.get_bloodtype()?.name || "UNKNOWN",
 		character_appearance = character_appearance,
 		dna_string = record_dna.unique_enzymes,
@@ -158,7 +158,7 @@ GLOBAL_DATUM_INIT(manifest, /datum/manifest, new)
 		gender = person_gender,
 		initial_rank = assignment,
 		name = person.real_name,
-		rank = chosen_assignment, // NOVA EDIT CHANGE - Alt job titles - ORIGINAL: rank = assignment,
+		rank = chosen_assignment, // bobaEDIT CHANGE - Alt job titles - ORIGINAL: rank = assignment,
 		species = record_dna.species.name,
 		trim = assignment,
 		// Crew specific
@@ -168,13 +168,13 @@ GLOBAL_DATUM_INIT(manifest, /datum/manifest, new)
 		minor_disabilities = person.get_quirk_string(FALSE, CAT_QUIRK_MINOR_DISABILITY, from_scan = TRUE),
 		minor_disabilities_desc = person.get_quirk_string(TRUE, CAT_QUIRK_MINOR_DISABILITY),
 		quirk_notes = person.get_quirk_string(TRUE, CAT_QUIRK_NOTES),
-		// NOVA EDIT START - RP Records
+		// bobaEDIT START - RP Records
 		background_information = person_client?.prefs.read_preference(/datum/preference/text/background) || "",
 		exploitable_information = person_client?.prefs.read_preference(/datum/preference/text/exploitable) || "",
 		past_general_records = person_client?.prefs.read_preference(/datum/preference/text/general) || "",
 		past_medical_records = person_client?.prefs.read_preference(/datum/preference/text/medical) || "",
 		past_security_records = person_client?.prefs.read_preference(/datum/preference/text/security) || "",
-		// NOVA EDIT END
+		// bobaEDIT END
 	)
 
 /// Edits the rank and trim of the found record.

@@ -23,7 +23,7 @@
 /datum/loadout_item/neck/greyscale_larger
 	name = "Scarf (Larger, Colorable)"
 	item_path = /obj/item/clothing/neck/infinity_scarf
-*/ // NOVA REMOVAL END
+*/ // bobaREMOVAL END
 
 /datum/loadout_item/neck/necktie
 	name = "Necktie (Colorable)"
@@ -37,8 +37,8 @@
 	name = "Necktie (Loose)"
 	item_path = /obj/item/clothing/neck/tie/detective
 
-/* // NOVA EDIT REMOVAL START - Already exists in our loadout (/datum/loadout_item/neck/bowtie_black)
+/* // bobaEDIT REMOVAL START - Already exists in our loadout (/datum/loadout_item/neck/bowtie_black)
 /datum/loadout_item/neck/bowtie
 	name = "Bowtie"
 	item_path = /obj/item/clothing/neck/bowtie
-*/ // NOVA EDIT REMOVAL END
+*/ // bobaEDIT REMOVAL END

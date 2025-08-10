@@ -370,14 +370,14 @@
 
 	if(isturf(target) && hitsound_wall)
 		playsound(src, hitsound_wall, clamp(vol_by_damage() + (suppressed ? 0 : 20), 0, 100), TRUE, -1)
-	// NOVA EDIT ADDITION START - IMPACT SOUNDS - Use target's bullet_impact_sound if projectile allows it
+	// bobaEDIT ADDITION START - IMPACT SOUNDS - Use target's bullet_impact_sound if projectile allows it
 	var/impact_sound
 	if(use_bullet_impact_sound)
 		impact_sound = target.bullet_impact_sound
 	if(impact_sound)
 		hitsound = null // don't play the hitsound
 		playsound(src, impact_sound, vol_by_damage(), TRUE, -1)
-	// NOVA EDIT ADDITION END
+	// bobaEDIT ADDITION END
 
 	if(damage > 0 && (damage_type == BRUTE || damage_type == BURN) && iswallturf(target_turf) && prob(75))
 		var/turf/closed/wall/target_wall = target_turf
@@ -649,7 +649,7 @@
 			var/mob/firer_mob = firer
 			if (firer_mob.buckled == target)
 				return FALSE
-	if(ignored_factions?.len && ismob(target) && (!direct_target || ignore_direct_target)) // NOVA EDIT CHANGE - ORIGINAL: if(ignored_factions?.len && ismob(target) && !direct_target)
+	if(ignored_factions?.len && ismob(target) && (!direct_target || ignore_direct_target)) // bobaEDIT CHANGE - ORIGINAL: if(ignored_factions?.len && ismob(target) && !direct_target)
 		var/mob/target_mob = target
 		if(faction_check(target_mob.faction, ignored_factions))
 			return FALSE

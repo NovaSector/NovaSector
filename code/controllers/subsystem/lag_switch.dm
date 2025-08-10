@@ -124,13 +124,13 @@ SUBSYSTEM_DEF(lag_switch)
 				to_chat(world, span_boldannounce("Footstep sounds have been disabled for performance concerns."))
 			else
 				to_chat(world, span_boldannounce("Footstep sounds have been re-enabled."))
-		// NOVA EDIT ADDITION
+		// bobaEDIT ADDITION
 		if (DISABLE_CREATOR)
 			if (state)
 				to_chat(world, span_boldannounce("The character creator and preferences menu has been disabled for performance metrics."))
 			else
 				to_chat(world, span_boldannounce("The character creator has been re-enabled."))
-		// NOVA EDIT END
+		// bobaEDIT END
 
 	return TRUE
 

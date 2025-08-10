@@ -124,14 +124,14 @@
 		if(do_after(user, boulder_size * 1 SECONDS, src))
 			user.apply_damage(20, STAMINA)
 			playsound(src, 'sound/items/weapons/genhit.ogg', 50, TRUE)
-		*/ 
+		*/
 		if(!do_after(user, boulder_size * 1 SECONDS, src))
 			user.balloon_alert(user, "stay still!")
 			return
 		user.balloon_alert(user, i > 2 ? "got one!" : "digging around...")
 		user.apply_damage(20, STAMINA)
 		playsound(src, 'sound/items/weapons/genhit.ogg', 50, TRUE)
-		// NOVA EDIT CHANGE END
+		// bobaEDIT CHANGE END
 	produce_boulder(TRUE)
 	visible_message(span_notice("You've successfully produced a boulder! Boy are your arms tired."))
 

@@ -410,12 +410,12 @@
 
 	if(ishuman(victim))
 		var/mob/living/carbon/human/human_victim = victim
-		if(HAS_TRAIT(victim, TRAIT_LIMBATTACHMENT) || HAS_TRAIT(src, TRAIT_EASY_ATTACH) || HAS_TRAIT(victim, TRAIT_ROBOTIC_LIMBATTACHMENT)) // NOVA EDIT CHANGE - ORIGINAL: if(HAS_TRAIT(victim, TRAIT_LIMBATTACHMENT) || HAS_TRAIT(src, TRAIT_EASY_ATTACH))
-			// NOVA EDIT ADDITION START - robot_limb_detach_quirk - but first let peg limbs through, and also let androids through
+		if(HAS_TRAIT(victim, TRAIT_LIMBATTACHMENT) || HAS_TRAIT(src, TRAIT_EASY_ATTACH) || HAS_TRAIT(victim, TRAIT_ROBOTIC_LIMBATTACHMENT)) // bobaEDIT CHANGE - ORIGINAL: if(HAS_TRAIT(victim, TRAIT_LIMBATTACHMENT) || HAS_TRAIT(src, TRAIT_EASY_ATTACH))
+			// bobaEDIT ADDITION START - robot_limb_detach_quirk - but first let peg limbs through, and also let androids through
 			if (!(HAS_TRAIT(src, TRAIT_EASY_ATTACH)) && !HAS_TRAIT(victim, TRAIT_LIMBATTACHMENT) && HAS_TRAIT(victim, TRAIT_ROBOTIC_LIMBATTACHMENT) && !(bodytype & BODYTYPE_ROBOTIC)) //if we're trying to attach something that's not robotic, end out - but ONLY if we have this quirk
 				to_chat(user, span_warning("[human_victim]'s body rejects [src]! It can only accept robotic limbs."))
 				return
-			// NOVA EDIT ADDITION END
+			// bobaEDIT ADDITION END
 			if(!human_victim.get_bodypart(body_zone))
 				user.temporarilyRemoveItemFromInventory(src, TRUE)
 				if(!try_attach_limb(victim))
@@ -1017,7 +1017,7 @@
 
 	update_draw_color()
 
-	// NOVA EDIT ADDITION
+	// bobaEDIT ADDITION
 	var/datum/species/owner_species = human_owner.dna.species
 
 	if(owner_species && owner_species.specific_alpha != 255)
@@ -1030,7 +1030,7 @@
 		markings_alpha = owner_species.markings_alpha
 	else
 		markings = list()
-	// NOVA EDIT END
+	// bobaEDIT END
 	// Recolors mutant overlays to match new mutant colors
 	for(var/datum/bodypart_overlay/mutant/overlay in bodypart_overlays)
 		overlay.inherit_color(src, force = TRUE)
@@ -1170,10 +1170,10 @@
 		update_draw_color()
 
 	if(draw_color)
-		var/limb_color = alpha != 255 ? "[draw_color][num2hex(alpha, 2)]" : "[draw_color]" // NOVA EDIT ADDITION - Alpha values on limbs. We check if the limb is attached and if the owner has an alpha value to append
-		limb.color = limb_color // NOVA EDIT CHANGE - ORIGINAL: limb.color = "[draw_color]"
+		var/limb_color = alpha != 255 ? "[draw_color][num2hex(alpha, 2)]" : "[draw_color]" // bobaEDIT ADDITION - Alpha values on limbs. We check if the limb is attached and if the owner has an alpha value to append
+		limb.color = limb_color // bobaEDIT CHANGE - ORIGINAL: limb.color = "[draw_color]"
 		if(aux_zone)
-			aux.color = limb_color // NOVA EDIT CHANGE - ORIGINAL: aux.color = "[draw_color]"
+			aux.color = limb_color // bobaEDIT CHANGE - ORIGINAL: aux.color = "[draw_color]"
 
 	//EMISSIVE CODE START
 	// For some reason this was applied as an overlay on the aux image and limb image before.
@@ -1208,7 +1208,7 @@
 			//add two masked images based on the old one
 			. += leg_source.generate_masked_leg(limb_image)
 
-	// NOVA EDIT ADDITION BEGIN - MARKINGS CODE
+	// bobaEDIT ADDITION BEGIN - MARKINGS CODE
 	var/override_color
 	var/atom/offset_spokesman = owner || src
 	// First, check to see if this bodypart is husked. If so, we don't want to apply our sparkledog colors to the limb.
@@ -1263,7 +1263,7 @@
 				. += accessory_overlay
 				if (emissive)
 					. += emissive
-	// NOVA EDIT ADDITION END - MARKINGS CODE END
+	// bobaEDIT ADDITION END - MARKINGS CODE END
 	// And finally put bodypart_overlays on if not husked
 	if(is_husked)
 		return .
@@ -1554,8 +1554,8 @@
 	var/burn_damage = AUGGED_LIMB_EMP_BURN_DAMAGE
 	if(severity == EMP_HEAVY)
 		time_needed *= 2
-		brute_damage *= 1.3 // NOVA EDIT : Balance - Lowers total damage from ~125 Brute to ~30
-		burn_damage *= 1.3 // NOVA EDIT : Balance - Lowers total damage from ~104 Burn to ~24
+		brute_damage *= 1.3 // bobaEDIT : Balance - Lowers total damage from ~125 Brute to ~30
+		burn_damage *= 1.3 // bobaEDIT : Balance - Lowers total damage from ~104 Burn to ~24
 
 	receive_damage(brute_damage, burn_damage)
 	do_sparks(number = 1, cardinal_only = FALSE, source = owner || src)

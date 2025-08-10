@@ -638,13 +638,13 @@
 /datum/wound/proc/get_self_check_description(self_aware)
 	switch(severity)
 		if(WOUND_SEVERITY_TRIVIAL)
-			return span_danger("It's suffering [a_or_from] [LOWER_TEXT(get_topic_name(victim))].") // NOVA EDIT CHANGE - ORIGINAL: return span_danger("It's suffering [a_or_from] [LOWER_TEXT(undiagnosed_name || name)].")
+			return span_danger("It's suffering [a_or_from] [LOWER_TEXT(get_topic_name(victim))].") // bobaEDIT CHANGE - ORIGINAL: return span_danger("It's suffering [a_or_from] [LOWER_TEXT(undiagnosed_name || name)].")
 		if(WOUND_SEVERITY_MODERATE)
-			return span_warning("It's suffering [a_or_from] [LOWER_TEXT(get_topic_name(victim))].") // NOVA EDIT CHANGE - ORIGINAL: return span_warning("It's suffering [a_or_from] [LOWER_TEXT(undiagnosed_name || name)].")
+			return span_warning("It's suffering [a_or_from] [LOWER_TEXT(get_topic_name(victim))].") // bobaEDIT CHANGE - ORIGINAL: return span_warning("It's suffering [a_or_from] [LOWER_TEXT(undiagnosed_name || name)].")
 		if(WOUND_SEVERITY_SEVERE)
-			return span_boldwarning("It's suffering [a_or_from] [LOWER_TEXT(get_topic_name(victim))]!") // NOVA EDIT CHANGE - ORIGINAL: return span_boldwarning("It's suffering [a_or_from] [LOWER_TEXT(undiagnosed_name || name)]!")
+			return span_boldwarning("It's suffering [a_or_from] [LOWER_TEXT(get_topic_name(victim))]!") // bobaEDIT CHANGE - ORIGINAL: return span_boldwarning("It's suffering [a_or_from] [LOWER_TEXT(undiagnosed_name || name)]!")
 		if(WOUND_SEVERITY_CRITICAL)
-			return span_boldwarning("It's suffering [a_or_from] [LOWER_TEXT(get_topic_name(victim))]!!") // NOVA EDIT CHANGE - ORIGINAL: return span_boldwarning("It's suffering [a_or_from] [LOWER_TEXT(undiagnosed_name || name)]!!")
+			return span_boldwarning("It's suffering [a_or_from] [LOWER_TEXT(get_topic_name(victim))]!!") // bobaEDIT CHANGE - ORIGINAL: return span_boldwarning("It's suffering [a_or_from] [LOWER_TEXT(undiagnosed_name || name)]!!")
 
 /// A hook proc used to modify desc before it is spanned via [get_desc_intensity]. Useful for inserting spans yourself.
 /datum/wound/proc/modify_desc_before_span(desc, mob/user)

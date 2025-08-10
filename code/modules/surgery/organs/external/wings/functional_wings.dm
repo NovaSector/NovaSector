@@ -175,13 +175,13 @@
 		return SSaccessories.wings_open_list
 	else
 		return SSaccessories.wings_list
-	*/ // NOVA EDIT REMOVAL END
-	// NOVA EDIT ADDITION START
+	*/ // bobaEDIT REMOVAL END
+	// bobaEDIT ADDITION START
 	if(wings_open)
 		return SSaccessories.sprite_accessories["wings_open"]
 
 	return SSaccessories.sprite_accessories["wings"]
-	// NOVA EDIT ADDITION END
+	// bobaEDIT ADDITION END
 ///Update our wingsprite to the open wings variant
 /datum/bodypart_overlay/mutant/wings/functional/proc/open_wings()
 	wings_open = TRUE

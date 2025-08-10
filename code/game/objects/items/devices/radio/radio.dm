@@ -343,7 +343,7 @@
 	var/datum/signal/subspace/vocal/signal = new(src, freq, speaker, language, radio_message, spans, message_mods)
 
 	// Independent radios, on the CentCom frequency, reach all independent radios
-	if ((special_channels & RADIO_SPECIAL_CENTCOM) && (freq == FREQ_CENTCOM || freq == FREQ_STATUS_DISPLAYS || freq == FREQ_FACTION || freq == FREQ_CYBERSUN || freq == FREQ_INTERDYNE || freq == FREQ_GUILD || freq == FREQ_TARKON || freq == FREQ_SOLFED)) // NOVA EDIT CHANGE - Original: if ((special_channels & RADIO_SPECIAL_CENTCOM) && (freq == FREQ_CENTCOM || freq == FREQ_STATUS_DISPLAYS))
+	if ((special_channels & RADIO_SPECIAL_CENTCOM) && (freq == FREQ_CENTCOM || freq == FREQ_STATUS_DISPLAYS || freq == FREQ_FACTION || freq == FREQ_CYBERSUN || freq == FREQ_INTERDYNE || freq == FREQ_GUILD || freq == FREQ_TARKON || freq == FREQ_SOLFED)) // bobaEDIT CHANGE - Original: if ((special_channels & RADIO_SPECIAL_CENTCOM) && (freq == FREQ_CENTCOM || freq == FREQ_STATUS_DISPLAYS))
 		signal.data["compression"] = 0
 		signal.transmission_method = TRANSMISSION_SUPERSPACE
 		signal.levels = list(0)
@@ -360,11 +360,11 @@
 			radio_noise.frequency = get_rand_frequency_low_range()
 			SEND_SOUND(talking_living, radio_noise)
 		NOVA EDIT REMOVAL END */
-		// NOVA EDIT ADDITION START - We play our radio sound for all mobs nearby to hear instead of just sending it to the person talking
+		// bobaEDIT ADDITION START - We play our radio sound for all mobs nearby to hear instead of just sending it to the person talking
 		if(radio_noise && COOLDOWN_FINISHED(src, audio_cooldown))
 			COOLDOWN_START(src, audio_cooldown, 0.5 SECONDS)
 			playsound_if_pref(src, radio_talk_sound, radio_sound_volume, radio_sound_has_vary, radio_sound_range, SOUND_FALLOFF_EXPONENT, frequency = get_rand_frequency_low_range(), pref_to_check = /datum/preference/numeric/volume/sound_radio_noise)
-		// NOVA EDIT ADDITION END
+		// bobaEDIT ADDITION END
 
 	// All radios make an attempt to use the subspace system first
 	signal.send_to_receivers()

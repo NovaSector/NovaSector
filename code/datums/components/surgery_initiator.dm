@@ -229,9 +229,9 @@
 
 			if (surgery_needs_exposure(surgery, surgery_target))
 				surgery_info["blocked"] = TRUE
-				surgery_info["blocked_reason"] = "Their body is covered!" // NOVA EDIT ADDITION - Surgically unremovable bodyparts
+				surgery_info["blocked_reason"] = "Their body is covered!" // bobaEDIT ADDITION - Surgically unremovable bodyparts
 
-			// NOVA EDIT START - Surgically unremovable bodyparts
+			// bobaEDIT START - Surgically unremovable bodyparts
 			if (surgery.removes_target_bodypart)
 				if (iscarbon(surgery_target))
 					var/mob/living/carbon/carbon_target = surgery_target
@@ -239,7 +239,7 @@
 					if(!affecting_limb.can_be_surgically_removed)
 						surgery_info["blocked"] = TRUE
 						surgery_info["blocked_reason"] = "That limb cannot be surgically removed!"
-			// NOVA EDIT END
+			// bobaEDIT END
 
 			surgeries += list(surgery_info)
 
@@ -302,11 +302,11 @@
 		if(surgery.targetable_wound && !affecting_limb.get_wound_type(surgery.targetable_wound))
 			target.balloon_alert(user, "no wound to operate on!")
 			return
-	// NOVA EDIT ADDITION START - Limbs that can't be surgically removed
+	// bobaEDIT ADDITION START - Limbs that can't be surgically removed
 	if (surgery.removes_target_bodypart && !isnull(affecting_limb) && !affecting_limb.can_be_surgically_removed)
 		target.balloon_alert(user, "limb can't be surgically removed!")
 		return
-	// NOVA EDIT ADDITION END
+	// bobaEDIT ADDITION END
 
 	if (IS_IN_INVALID_SURGICAL_POSITION(target, surgery))
 		target.balloon_alert(user, "patient is not lying down!")
@@ -330,10 +330,10 @@
 		span_notice("[user] drapes [parent] over [target]'s [target.parse_zone_with_bodypart(selected_zone)] to prepare for surgery."),
 		span_notice("You drape [parent] over [target]'s [target.parse_zone_with_bodypart(selected_zone)] to prepare for \an [procedure.name]."),
 	)
-	// NOVA EDIT ADDITION START - warning for unanesthetized surgery
+	// bobaEDIT ADDITION START - warning for unanesthetized surgery
 	if(!(HAS_TRAIT(target, TRAIT_ANALGESIA) || target.stat >= UNCONSCIOUS))
 		target.balloon_alert(user, "not numbed!")
-	// NOVA EDIT ADDITION END
+	// bobaEDIT ADDITION END
 
 	log_combat(user, target, "operated on", null, "(OPERATION TYPE: [procedure.name]) (TARGET AREA: [selected_zone])")
 

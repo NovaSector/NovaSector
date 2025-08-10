@@ -139,8 +139,8 @@
 // Syndicate device disguised as a multitool; it will turn red when an AI camera is nearby.
 
 /obj/item/multitool/ai_detect
-	special_desc_requirement = EXAMINE_CHECK_SYNDICATE // NOVA EDIT ADDITION - Role-locked descriptions
-	special_desc = "A special sensor embedded stealthily into this device can detect and warn of nearby silicon activity and camera vision range." // NOVA EDIT ADDITION - Role-locked descriptions
+	special_desc_requirement = EXAMINE_CHECK_SYNDICATE // bobaEDIT ADDITION - Role-locked descriptions
+	special_desc = "A special sensor embedded stealthily into this device can detect and warn of nearby silicon activity and camera vision range." // bobaEDIT ADDITION - Role-locked descriptions
 	apc_scanner = FALSE
 	/// How close the AI is to us
 	var/detect_state = PROXIMITY_NONE

@@ -248,8 +248,8 @@
 	throwforce = 22
 	armour_penetration = 15 //Enhanced armor piercing
 	custom_materials = list(/datum/material/bone = HALF_SHEET_MATERIAL_AMOUNT * 7)
-	force_unwielded = 8 // NOVA EDIT CHANGE - ORIGINAL: 12
-	force_wielded = 16 // NOVA EDIT CHANGE - ORIGINAL: 20
+	force_unwielded = 8 // bobaEDIT CHANGE - ORIGINAL: 12
+	force_wielded = 16 // bobaEDIT CHANGE - ORIGINAL: 20
 
 	//NOVA EDIT ADDITION BEGIN - increases bone spear range to 2
 	reach = 2

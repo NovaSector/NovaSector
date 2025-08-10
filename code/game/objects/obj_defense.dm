@@ -126,7 +126,7 @@
 /obj/fire_act(exposed_temperature, exposed_volume)
 	if(HAS_TRAIT(src, TRAIT_UNDERFLOOR))
 		return
-	SEND_SIGNAL(src, COMSIG_ATOM_PRE_FIRE_ACT, exposed_temperature, exposed_volume) // NOVA EDIT ADDITION
+	SEND_SIGNAL(src, COMSIG_ATOM_PRE_FIRE_ACT, exposed_temperature, exposed_volume) // bobaEDIT ADDITION
 	if(exposed_temperature && !(resistance_flags & FIRE_PROOF))
 		take_damage(clamp(0.02 * exposed_temperature, 0, 20), BURN, FIRE, 0)
 	if(QDELETED(src)) // take_damage() can send our obj to an early grave, let's stop here if that happens

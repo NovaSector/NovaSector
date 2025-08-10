@@ -257,15 +257,15 @@
  * * from_scan- If the source of this call is like a health analyzer or HUD, in which case QUIRK_HIDE_FROM_MEDICAL hides the quirk.
  */
 /mob/living/proc/get_quirk_string(medical = FALSE, category = CAT_QUIRK_ALL, from_scan = FALSE)
-	// NOVA EDIT ADDITION START
+	// bobaEDIT ADDITION START
 	// The health analyzer will first check if the target is a changeling, and if they are, load the quirks of the person they're disguising as.
 	var/target_quirks = quirks
 	var/datum/antagonist/changeling/target_changeling = mind?.has_antag_datum(/datum/antagonist/changeling)
 	if(target_changeling)
 		target_quirks = target_changeling.current_profile.quirks
-	// NOVA EDIT ADDITION END
+	// bobaEDIT ADDITION END
 	var/list/dat = list()
-	for(var/datum/quirk/candidate as anything in target_quirks) // NOVA EDIT CHANGE - ORIGINAL : for(var/datum/quirk/candidate as anything in quirks)
+	for(var/datum/quirk/candidate as anything in target_quirks) // bobaEDIT CHANGE - ORIGINAL : for(var/datum/quirk/candidate as anything in quirks)
 		if(from_scan && (candidate.quirk_flags & QUIRK_HIDE_FROM_SCAN))
 			continue
 		switch(category)

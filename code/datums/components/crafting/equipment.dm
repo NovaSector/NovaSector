@@ -270,7 +270,7 @@
 	category = CAT_EQUIPMENT
 	tool_behaviors = list(TOOL_WELDER, TOOL_WIRECUTTER)
 
-// NOVA EDIT REMOVAL START
+// bobaEDIT REMOVAL START
 /*
 /datum/crafting_recipe/arrow_quiver
 	name = "Archery Quiver"
@@ -283,7 +283,7 @@
 	category = CAT_EQUIPMENT
 	tool_behaviors = list(TOOL_WELDER, TOOL_WIRECUTTER)
 */
-// NOVA EDIT REMOVAL END
+// bobaEDIT REMOVAL END
 
 /datum/crafting_recipe/tether_anchor
 	name = "Tether Anchor"

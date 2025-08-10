@@ -64,4 +64,4 @@
 	icon_static = 'icons/mob/human/species/moth/bodyparts.dmi'
 	limb_id = SPECIES_MOTH
 	should_draw_greyscale = FALSE
-*/ // NOVA EDIT END
+*/ // bobaEDIT END

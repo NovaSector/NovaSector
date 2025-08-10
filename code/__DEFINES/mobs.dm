@@ -15,7 +15,7 @@
 //Blood levels
 #define BLOOD_VOLUME_MAX_LETHAL 2150
 #define BLOOD_VOLUME_EXCESS 2100
-#define BLOOD_VOLUME_MAXIMUM 1000 // NOVA EDIT - Blood volume balancing (mainly for Hemophages as nobody else really goes much above regular blood volume) - ORIGINAL VALUE: 2000
+#define BLOOD_VOLUME_MAXIMUM 1000 // bobaEDIT - Blood volume balancing (mainly for Hemophages as nobody else really goes much above regular blood volume) - ORIGINAL VALUE: 2000
 #define BLOOD_VOLUME_SLIME_SPLIT 1120
 #define BLOOD_VOLUME_NORMAL 560
 #define BLOOD_VOLUME_SAFE (BLOOD_VOLUME_NORMAL * (1 - 0.15)) // Latter number is percentage of blood lost, for readability!
@@ -150,7 +150,7 @@
 #define BODYTYPE_SHADOW (1<<7)
 //This limb is a ghost limb and can phase through walls.
 #define BODYTYPE_GHOST (1<<8)
-// NOVA EDIT ADDITION START
+// bobaEDIT ADDITION START
 ///The limb fits a modular custom shape
 #define BODYSHAPE_CUSTOM (1<<9)
 ///The limb fits a taur body
@@ -159,7 +159,7 @@
 #define BODYSHAPE_HIDE_SHOES (1<<11)
 ///The limb causes glasses and hats to be drawn on layers 5 and 4 respectively. Currently used for snouts with the (Top) suffix, which are drawn on layer 6 and would normally cover facewear
 #define BODYSHAPE_ALT_FACEWEAR_LAYER (1<<12)
-// NOVA EDIT ADDITION END
+// bobaEDIT ADDITION END
 
 // Bodyshape defines for how things can be worn, i.e., what "shape" the mob sprite is
 ///The limb fits the human mold. This is not meant to be literal, if the sprite "fits" on a human, it is "humanoid", regardless of origin.
@@ -466,8 +466,8 @@
 #define OFFSET_SUIT "suit"
 #define OFFSET_NECK "neck"
 #define OFFSET_HELD "held"
-#define OFFSET_ACCESSORY "accessory" // NOVA EDIT - addition
-#define OFFSET_HAIR "hair" // NOVA EDIT - addition - Akulas
+#define OFFSET_ACCESSORY "accessory" // bobaEDIT - addition
+#define OFFSET_HAIR "hair" // bobaEDIT - addition - Akulas
 
 //MINOR TWEAKS/MISC
 #define AGE_MIN 18 //youngest a character can be
@@ -720,32 +720,32 @@ GLOBAL_LIST_INIT(human_heights_to_offsets, list(
 /// Total number of layers for mob overlays
 /// KEEP THIS UP-TO-DATE OR SHIT WILL BREAK
 /// Also consider updating layers_to_offset
-#define TOTAL_LAYERS 44 // NOVA EDIT CHANGE - ORIGINAL: #define TOTAL_LAYERS 38
+#define TOTAL_LAYERS 44 // bobaEDIT CHANGE - ORIGINAL: #define TOTAL_LAYERS 38
 /// Mutations layer - Tk headglows, cold resistance glow, etc
-#define MUTATIONS_LAYER 43 // NOVA EDIT CHANGE - ORIGINAL: #define MUTATIONS_LAYER 37
+#define MUTATIONS_LAYER 43 // bobaEDIT CHANGE - ORIGINAL: #define MUTATIONS_LAYER 37
 /// Mutantrace features (tail when looking south) that must appear behind the body parts
-#define BODY_BEHIND_LAYER 42 // NOVA EDIT CHANGE - ORIGINAL: #define BODY_BEHIND_LAYER 36
+#define BODY_BEHIND_LAYER 42 // bobaEDIT CHANGE - ORIGINAL: #define BODY_BEHIND_LAYER 36
 /// Layer for bodyparts that should appear behind every other bodypart - Mostly, legs when facing WEST or EAST
-#define BODYPARTS_LOW_LAYER 41 // NOVA EDIT CHANGE - ORIGINAL: #define BODYPARTS_LOW_LAYER 35
+#define BODYPARTS_LOW_LAYER 41 // bobaEDIT CHANGE - ORIGINAL: #define BODYPARTS_LOW_LAYER 35
 /// Layer for most bodyparts, appears above BODYPARTS_LOW_LAYER and below BODYPARTS_HIGH_LAYER
-#define BODYPARTS_LAYER 40 // NOVA EDIT CHANGE - ORIGINAL: #define BODYPARTS_LAYER 34
+#define BODYPARTS_LAYER 40 // bobaEDIT CHANGE - ORIGINAL: #define BODYPARTS_LAYER 34
 /// Mutantrace features (snout, body markings) that must appear above the body parts
-#define BODY_ADJ_LAYER 39 // NOVA EDIT CHANGE - ORIGINAL: #define BODY_ADJ_LAYER 33
+#define BODY_ADJ_LAYER 39 // bobaEDIT CHANGE - ORIGINAL: #define BODY_ADJ_LAYER 33
 /// Underwear, undershirts, socks
-#define BODY_LAYER 38 // NOVA EDIT CHANGE - ORIGINAL: #define BODY_LAYER 32
+#define BODY_LAYER 38 // bobaEDIT CHANGE - ORIGINAL: #define BODY_LAYER 32
 /// Eyes and eyelids
-#define EYES_LAYER 37 // NOVA EDIT CHANGE - ORIGINAL: #define EYES_LAYER 31
+#define EYES_LAYER 37 // bobaEDIT CHANGE - ORIGINAL: #define EYES_LAYER 31
 /// Mutations that should appear above body, body_adj and bodyparts layer (e.g. laser eyes)
-#define FRONT_MUTATIONS_LAYER 36 // NOVA EDIT CHANGE - ORIGINAL: #define FRONT_MUTATIONS_LAYER 30
+#define FRONT_MUTATIONS_LAYER 36 // bobaEDIT CHANGE - ORIGINAL: #define FRONT_MUTATIONS_LAYER 30
 /// Damage indicators (cuts and burns)
-#define DAMAGE_LAYER 35 // NOVA EDIT CHANGE - ORIGINAL: #define DAMAGE_LAYER 29
-// NOVA EDIT ADDITION START
+#define DAMAGE_LAYER 35 // bobaEDIT CHANGE - ORIGINAL: #define DAMAGE_LAYER 29
+// bobaEDIT ADDITION START
 /// This layer is used for things that shouldn't be over clothes, but should be over mutations
 #define BODY_FRONT_UNDER_CLOTHES 34
-// NOVA EDIT ADDITION END
+// bobaEDIT ADDITION END
 /// Jumpsuit clothing layer
-#define UNIFORM_LAYER 33 // NOVA EDIT CHANGE - ORIGINAL: 27
-// NOVA EDIT ADDITION BEGIN - cursed layers under clothing
+#define UNIFORM_LAYER 33 // bobaEDIT CHANGE - ORIGINAL: 27
+// bobaEDIT ADDITION BEGIN - cursed layers under clothing
 #define ANUS_LAYER 32
 #define VAGINA_LAYER 31
 #define PENIS_LAYER 30
@@ -862,14 +862,14 @@ GLOBAL_LIST_INIT(layers_to_offset, list(
 #define EXTERNAL_ADJACENT (1 << 2)
 /// Draws organ on the BODY_BEHIND_LAYER
 #define EXTERNAL_BEHIND (1 << 3)
-// NOVA EDIT ADDITION - Customization
+// bobaEDIT ADDITION - Customization
 /// Draws organ on the BODY_FRONT_UNDER_CLOTHES
 #define EXTERNAL_FRONT_UNDER_CLOTHES (1 << 4)
 /// Draws organ on the ABOVE_BODY_FRONT_HEAD_LAYER
 #define EXTERNAL_FRONT_OVER (1 << 5)
 /// Draws organ on the HEAD_LAYER, for things that need to be above hair but below hats.
 #define EXTERNAL_FRONT_ABOVE_HAIR (1 << 6)
-// NOVA EDIT END (not touching what comes next because we don't actually have to (nor want to))
+// bobaEDIT END (not touching what comes next because we don't actually have to (nor want to))
 /// Draws organ on all EXTERNAL layers
 #define ALL_EXTERNAL_OVERLAYS EXTERNAL_FRONT | EXTERNAL_ADJACENT | EXTERNAL_BEHIND
 

@@ -54,7 +54,7 @@
 #define JOB_RESEARCH_DIRECTOR "Research Director"
 #define JOB_CHIEF_ENGINEER "Chief Engineer"
 #define JOB_CHIEF_MEDICAL_OFFICER "Chief Medical Officer"
-#define JOB_BRIDGE_ASSISTANT "Bridge Officer" // NOVA EDIT CHANGE - ORIGINAL: #define JOB_BRIDGE_ASSISTANT "Bridge Assistant"
+#define JOB_BRIDGE_ASSISTANT "Bridge Officer" // bobaEDIT CHANGE - ORIGINAL: #define JOB_BRIDGE_ASSISTANT "Bridge Assistant"
 #define JOB_VETERAN_ADVISOR "Veteran Security Advisor"
 //Silicon
 #define JOB_AI "AI"
@@ -69,31 +69,31 @@
 #define JOB_SECURITY_OFFICER_ENGINEERING "Security Officer (Engineering)"
 #define JOB_SECURITY_OFFICER_SCIENCE "Security Officer (Science)"
 #define JOB_SECURITY_OFFICER_SUPPLY "Security Officer (Cargo)"
-#define JOB_CORRECTIONS_OFFICER "Corrections Officer" // NOVA EDIT ADDITION
+#define JOB_CORRECTIONS_OFFICER "Corrections Officer" // bobaEDIT ADDITION
 //Engineering
 #define JOB_STATION_ENGINEER "Station Engineer"
 #define JOB_ATMOSPHERIC_TECHNICIAN "Atmospheric Technician"
-#define JOB_TELECOMMS_SPECIALIST "Telecomms Specialist" // NOVA EDIT ADDITION
-#define JOB_ENGINEERING_GUARD "Engineering Guard" // NOVA EDIT ADDITION
+#define JOB_TELECOMMS_SPECIALIST "Telecomms Specialist" // bobaEDIT ADDITION
+#define JOB_ENGINEERING_GUARD "Engineering Guard" // bobaEDIT ADDITION
 //Medical
 #define JOB_CORONER "Coroner"
 #define JOB_MEDICAL_DOCTOR "Medical Doctor"
 #define JOB_PARAMEDIC "Paramedic"
 #define JOB_CHEMIST "Chemist"
-#define JOB_VIROLOGIST "Virologist" // NOVA EDIT ADDITION
-#define JOB_ORDERLY "Orderly" // NOVA EDIT ADDITION
+#define JOB_VIROLOGIST "Virologist" // bobaEDIT ADDITION
+#define JOB_ORDERLY "Orderly" // bobaEDIT ADDITION
 //Science
 #define JOB_SCIENTIST "Scientist"
 #define JOB_ROBOTICIST "Roboticist"
 #define JOB_GENETICIST "Geneticist"
-#define JOB_SCIENCE_GUARD "Science Guard" // NOVA EDIT ADDITION
+#define JOB_SCIENCE_GUARD "Science Guard" // bobaEDIT ADDITION
 //Supply
 #define JOB_QUARTERMASTER "Quartermaster"
 #define JOB_CARGO_TECHNICIAN "Cargo Technician"
 #define JOB_CARGO_GORILLA "Cargo Gorilla"
 #define JOB_SHAFT_MINER "Shaft Miner"
 #define JOB_BITRUNNER "Bitrunner"
-#define JOB_CUSTOMS_AGENT "Customs Agent" // NOVA EDIT ADDITION
+#define JOB_CUSTOMS_AGENT "Customs Agent" // bobaEDIT ADDITION
 //Service
 #define JOB_BARTENDER "Bartender"
 #define JOB_BOTANIST "Botanist"
@@ -107,8 +107,8 @@
 #define JOB_CHAPLAIN "Chaplain"
 #define JOB_PSYCHOLOGIST "Psychologist"
 #define JOB_PUN_PUN "Pun Pun"
-#define JOB_BARBER "Barber" // NOVA EDIT ADDITION
-#define JOB_BOUNCER "Service Guard" // NOVA EDIT ADDITION
+#define JOB_BARBER "Barber" // bobaEDIT ADDITION
+#define JOB_BOUNCER "Service Guard" // bobaEDIT ADDITION
 //ERTs
 #define JOB_ERT_DEATHSQUAD "Death Commando"
 #define JOB_ERT_COMMANDER "Emergency Response Team Commander"
@@ -131,7 +131,7 @@
 #define JOB_CENTCOM_RESEARCH_OFFICER "Research Officer"
 #define JOB_CENTCOM_SPECIAL_OFFICER "Special Ops Officer"
 #define JOB_CENTCOM_PRIVATE_SECURITY "Private Security Force"
-// NOVA EDIT ADDITION START
+// bobaEDIT ADDITION START
 #define JOB_BLUESHIELD "Blueshield"
 #define JOB_NT_REP "Nanotrasen Consultant"
 // Nanotrasen Naval Command jobs
@@ -147,7 +147,7 @@
 #define JOB_SPACE_POLICE "Space Police"
 #define JOB_SOLFED "SolFed"
 #define JOB_SOLFED_LIASON "SolFed Liason"
-// NOVA EDIT ADDITION END
+// bobaEDIT ADDITION END
 
 //Lost crew
 #define JOB_LOSTCREW_ENGINEER "Visiting Engineer"

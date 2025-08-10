@@ -1,4 +1,4 @@
-// NOVA GOOD TRAITS
+// bobaGOOD TRAITS
 
 /datum/quirk/hard_soles
 	name = "Hardened Soles"

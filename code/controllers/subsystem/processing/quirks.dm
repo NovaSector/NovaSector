@@ -19,7 +19,7 @@ GLOBAL_LIST_INIT_TYPED(quirk_blacklist, /list/datum/quirk, list(
 	list(/datum/quirk/transhumanist, /datum/quirk/body_purist),
 	list(/datum/quirk/prosthetic_organ, /datum/quirk/tin_man, /datum/quirk/body_purist),
 	list(/datum/quirk/quadruple_amputee, /datum/quirk/paraplegic, /datum/quirk/hemiplegic),
-	//list(/datum/quirk/quadruple_amputee, /datum/quirk/frail), // NOVA EDIT REMOVAL- Since we have synth wounds now, frail has a large downside for prosthetics and such
+	//list(/datum/quirk/quadruple_amputee, /datum/quirk/frail), // bobaEDIT REMOVAL- Since we have synth wounds now, frail has a large downside for prosthetics and such
 	list(/datum/quirk/social_anxiety, /datum/quirk/mute),
 	list(/datum/quirk/mute, /datum/quirk/softspoken),
 	list(/datum/quirk/poor_aim, /datum/quirk/bighands),
@@ -96,13 +96,13 @@ PROCESSING_SUBSYSTEM_DEF(quirks)
 		if(initial(quirk_type.abstract_parent_type) == type)
 			continue
 
-		// NOVA EDIT ADDITION START
+		// bobaEDIT ADDITION START
 		if(initial(quirk_type.erp_quirk) && CONFIG_GET(flag/disable_erp_preferences))
 			continue
 		// Hidden quirks aren't visible to TGUI or the player
 		if (initial(quirk_type.hidden_quirk))
 			continue
-		// NOVA EDIT ADDITION END
+		// bobaEDIT ADDITION END
 
 		quirk_prototypes[type] = new type
 		quirks[initial(quirk_type.name)] = quirk_type
@@ -201,7 +201,7 @@ PROCESSING_SUBSYSTEM_DEF(quirks)
 /// be valid.
 /// If no changes need to be made, will return the same list.
 /// Expects all quirk names to be unique, but makes no other expectations.
-/datum/controller/subsystem/processing/quirks/proc/filter_invalid_quirks(list/quirks, list/augments) // NOVA EDIT - AUGMENTS+
+/datum/controller/subsystem/processing/quirks/proc/filter_invalid_quirks(list/quirks, list/augments) // bobaEDIT - AUGMENTS+
 	var/list/new_quirks = list()
 	var/list/positive_quirks = list()
 	var/points_enabled = !CONFIG_GET(flag/disable_quirk_points)
@@ -210,11 +210,11 @@ PROCESSING_SUBSYSTEM_DEF(quirks)
 
 	var/list/all_quirks = get_quirks()
 
-	// NOVA EDIT BEGIN - AUGMENTS+
+	// bobaEDIT BEGIN - AUGMENTS+
 	for(var/key in augments)
 		var/datum/augment_item/aug = GLOB.augment_items[augments[key]]
 		balance += aug.cost
-	// NOVA EDIT END
+	// bobaEDIT END
 	for (var/quirk_name in quirks)
 		var/datum/quirk/quirk = all_quirks[quirk_name]
 		if (isnull(quirk))

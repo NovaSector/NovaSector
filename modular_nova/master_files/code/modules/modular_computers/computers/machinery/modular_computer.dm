@@ -1,6 +1,6 @@
 //////
 //
-// NOVA Override - prevents people from using modular computers while they're in the ghost cafe
+// bobaOverride - prevents people from using modular computers while they're in the ghost cafe
 // Relies checking for the trait that's given by the spawner. If this ever changes, we'll need to update this.
 //
 //////

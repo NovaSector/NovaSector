@@ -14,7 +14,7 @@
 	reqs = list(/obj/item/grown/log = 5)
 	parts = list(/obj/item/grown/log = 5) //Will be returned if the bonfire is dismantled
 	blacklist = list(/obj/item/grown/log/steel)
-	result = /obj/structure/bonfire/player_made // NOVA EDIT - Pollution - ORIGINAL: result = /obj/structure/bonfire
+	result = /obj/structure/bonfire/player_made // bobaEDIT - Pollution - ORIGINAL: result = /obj/structure/bonfire
 	category = CAT_TOOLS
 
 /datum/crafting_recipe/boneshovel

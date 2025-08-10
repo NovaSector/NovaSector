@@ -5,7 +5,7 @@
 	var/mob/living/carbon/human/consistent/attacker = EASY_ALLOCATE()
 	var/mob/living/carbon/human/consistent/victim = EASY_ALLOCATE()
 	var/obj/item/gun/ballistic/automatic/pistol/gun = EASY_ALLOCATE()
-	qdel(gun.GetComponent(/datum/component/gun_safety)) // NOVA EDIT - Safeties on guns make them impossible to shoot :)
+	qdel(gun.GetComponent(/datum/component/gun_safety)) // bobaEDIT - Safeties on guns make them impossible to shoot :)
 
 	attacker.put_in_active_hand(gun, forced = TRUE)
 	victim.forceMove(locate(attacker.x + 1, attacker.y, attacker.z))

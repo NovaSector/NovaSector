@@ -92,8 +92,8 @@
 	. = ..()
 	set_holdable(
 		can_hold_list = list(
-			/obj/item/forging/reagent_weapon/dagger, // NOVA EDIT ADDITION
-			/obj/item/melee/baton/security/stun_gun/stun_knife, // NOVA EDIT ADDITION
+			/obj/item/forging/reagent_weapon/dagger, // bobaEDIT ADDITION
+			/obj/item/melee/baton/security/stun_gun/stun_knife, // bobaEDIT ADDITION
 			/obj/item/knife,
 			/obj/item/spess_knife,
 			/obj/item/switchblade,
@@ -153,7 +153,7 @@
 			/obj/item/holochip,
 			/obj/item/implanter,
 			/obj/item/knife,
-			/obj/item/forging/reagent_weapon/dagger, // NOVA EDIT ADDITION
+			/obj/item/forging/reagent_weapon/dagger, // bobaEDIT ADDITION
 			/obj/item/lighter,
 			/obj/item/lipstick,
 			/obj/item/match,

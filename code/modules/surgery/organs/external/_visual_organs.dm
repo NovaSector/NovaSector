@@ -33,7 +33,7 @@ Unlike normal organs, we're actually inside a persons limbs at all times
 */
 /obj/item/organ/proc/setup_bodypart_overlay(accessory_type)
 	bodypart_overlay = new bodypart_overlay(src)
-	dna_block = SSaccessories.dna_mutant_bodypart_blocks[preference] // NOVA EDIT ADDITION - we have like 145+ fucking dna blocks lmao
+	dna_block = SSaccessories.dna_mutant_bodypart_blocks[preference] // bobaEDIT ADDITION - we have like 145+ fucking dna blocks lmao
 
 	accessory_type = accessory_type ? accessory_type : sprite_accessory_override
 	var/update_overlays = TRUE
@@ -110,7 +110,7 @@ Unlike normal organs, we're actually inside a persons limbs at all times
 	slot = ORGAN_SLOT_EXTERNAL_HORNS
 
 	preference = "feature_lizard_horns"
-	//dna_block = DNA_HORNS_BLOCK // NOVA EDIT REMOVAL - Customization - We have our own system to handle DNA.
+	//dna_block = DNA_HORNS_BLOCK // bobaEDIT REMOVAL - Customization - We have our own system to handle DNA.
 	restyle_flags = EXTERNAL_RESTYLE_ENAMEL
 
 	bodypart_overlay = /datum/bodypart_overlay/mutant/horns
@@ -131,7 +131,7 @@ Unlike normal organs, we're actually inside a persons limbs at all times
 	return TRUE
 
 /datum/bodypart_overlay/mutant/horns/get_global_feature_list()
-	return SSaccessories.sprite_accessories["horns"] // NOVA EDIT - Customization - ORIGINAL: return SSaccessories.horns_list
+	return SSaccessories.sprite_accessories["horns"] // bobaEDIT - Customization - ORIGINAL: return SSaccessories.horns_list
 
 ///The frills of a lizard (like weird fin ears)
 /obj/item/organ/frills
@@ -143,7 +143,7 @@ Unlike normal organs, we're actually inside a persons limbs at all times
 	slot = ORGAN_SLOT_EXTERNAL_FRILLS
 
 	preference = "feature_lizard_frills"
-	//dna_block = DNA_FRILLS_BLOCK // NOVA EDIT REMOVAL - Customization - We have our own system to handle DNA.
+	//dna_block = DNA_FRILLS_BLOCK // bobaEDIT REMOVAL - Customization - We have our own system to handle DNA.
 	restyle_flags = EXTERNAL_RESTYLE_FLESH
 
 	bodypart_overlay = /datum/bodypart_overlay/mutant/frills
@@ -163,11 +163,11 @@ Unlike normal organs, we're actually inside a persons limbs at all times
 	return FALSE
 
 /datum/bodypart_overlay/mutant/frills/get_global_feature_list()
-	return SSaccessories.sprite_accessories["frills"] // NOVA EDIT - Customization - ORIGINAL: return SSaccessories.frills_list
+	return SSaccessories.sprite_accessories["frills"] // bobaEDIT - Customization - ORIGINAL: return SSaccessories.frills_list
 
 ///Guess what part of the lizard this is?
 /obj/item/organ/snout
-	name = "snout" // NOVA EDIT - ORIGINAL: name = "lizard snout"
+	name = "snout" // bobaEDIT - ORIGINAL: name = "lizard snout"
 	desc = "Take a closer look at that snout!"
 	icon_state = "snout"
 
@@ -177,7 +177,7 @@ Unlike normal organs, we're actually inside a persons limbs at all times
 	preference = "feature_lizard_snout"
 	external_bodyshapes = BODYSHAPE_SNOUTED
 
-	//dna_block = DNA_SNOUT_BLOCK // NOVA EDIT REMOVAL - Customization - We have our own system to handle DNA.
+	//dna_block = DNA_SNOUT_BLOCK // bobaEDIT REMOVAL - Customization - We have our own system to handle DNA.
 	restyle_flags = EXTERNAL_RESTYLE_FLESH
 
 	bodypart_overlay = /datum/bodypart_overlay/mutant/snout
@@ -197,7 +197,7 @@ Unlike normal organs, we're actually inside a persons limbs at all times
 	return TRUE
 
 /datum/bodypart_overlay/mutant/snout/get_global_feature_list()
-	return SSaccessories.sprite_accessories["snout"] // NOVA EDIT - Customization - ORIGINAL : return SSaccessories.snouts_list
+	return SSaccessories.sprite_accessories["snout"] // bobaEDIT - Customization - ORIGINAL : return SSaccessories.snouts_list
 
 ///A moth's antennae
 /obj/item/organ/antennae
@@ -209,7 +209,7 @@ Unlike normal organs, we're actually inside a persons limbs at all times
 	slot = ORGAN_SLOT_EXTERNAL_ANTENNAE
 
 	preference = "feature_moth_antennae"
-	//dna_block = DNA_MOTH_ANTENNAE_BLOCK // NOVA EDIT REMOVAL - Customization - We have our own system to handle DNA.
+	//dna_block = DNA_MOTH_ANTENNAE_BLOCK // bobaEDIT REMOVAL - Customization - We have our own system to handle DNA.
 	restyle_flags = EXTERNAL_RESTYLE_FLESH
 
 	bodypart_overlay = /datum/bodypart_overlay/mutant/antennae
@@ -276,7 +276,7 @@ Unlike normal organs, we're actually inside a persons limbs at all times
 	burn_datum = fetch_sprite_datum(burn_datum) //turn the path into the singleton instance
 
 /datum/bodypart_overlay/mutant/antennae/get_global_feature_list()
-	return SSaccessories.sprite_accessories["moth_antennae"] // NOVA EDIT - Customization - ORIGINAL: return SSaccessories.moth_antennae_list
+	return SSaccessories.sprite_accessories["moth_antennae"] // bobaEDIT - Customization - ORIGINAL: return SSaccessories.moth_antennae_list
 
 /datum/bodypart_overlay/mutant/antennae/get_base_icon_state()
 	return burnt ? burn_datum.icon_state : sprite_datum.icon_state

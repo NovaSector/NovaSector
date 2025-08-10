@@ -70,7 +70,7 @@ SUBSYSTEM_DEF(statpanels)
 			"Round Timer: [ROUND_TIME()]",
 			"Actual Round Timer: [time2text(real_round_time, "hh:mm:ss", 0)]"
 		)
-		// NOVA EDIT CHANGE END
+		// bobaEDIT CHANGE END
 
 		if(SSshuttle.emergency)
 			var/ETA = SSshuttle.emergency.getModeStr()

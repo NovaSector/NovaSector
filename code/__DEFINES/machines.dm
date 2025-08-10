@@ -74,10 +74,10 @@
 /// For wiremod/integrated circuits. Uses various minerals.
 #define COMPONENT_PRINTER (1<<10)
 //Note: More than one of these can be added to a design but imprinter and lathe designs are incompatable.
-// NOVA EDIT ADDITION
+// bobaEDIT ADDITION
 /// Can be made by the orderable colony fabricator
 #define COLONY_FABRICATOR (1<<11)
-// NOVA EDIT END
+// bobaEDIT END
 
 #define HYPERTORUS_INACTIVE 0 // No or minimal energy
 #define HYPERTORUS_NOMINAL 1 // Normal operation
@@ -137,7 +137,7 @@
 #define ORION_GAMER_REPORT_THRESHOLD 2
 
 /// What's the minimum duration of a syndie bomb (in seconds)
-#define SYNDIEBOMB_MIN_TIMER_SECONDS 600 // NOVA EDIT CHANGE - ORIGINAL: #define SYNDIEBOMB_MIN_TIMER_SECONDS 90
+#define SYNDIEBOMB_MIN_TIMER_SECONDS 600 // bobaEDIT CHANGE - ORIGINAL: #define SYNDIEBOMB_MIN_TIMER_SECONDS 90
 
 // Camera upgrade bitflags.
 #define CAMERA_UPGRADE_XRAY (1<<0)

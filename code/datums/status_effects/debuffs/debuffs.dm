@@ -281,7 +281,7 @@
 	. = ..()
 	if(!.)
 		return
-	owner.add_traits(list(TRAIT_IMMOBILIZED, TRAIT_HANDS_BLOCKED, TRAIT_STASIS, TRAIT_ANALGESIA), TRAIT_STATUS_EFFECT(id)) // NOVA EDIT CHANGE - ORIGINAL: owner.add_traits(list(TRAIT_IMMOBILIZED, TRAIT_HANDS_BLOCKED, TRAIT_STASIS), TRAIT_STATUS_EFFECT(id))
+	owner.add_traits(list(TRAIT_IMMOBILIZED, TRAIT_HANDS_BLOCKED, TRAIT_STASIS, TRAIT_ANALGESIA), TRAIT_STATUS_EFFECT(id)) // bobaEDIT CHANGE - ORIGINAL: owner.add_traits(list(TRAIT_IMMOBILIZED, TRAIT_HANDS_BLOCKED, TRAIT_STASIS), TRAIT_STATUS_EFFECT(id))
 	owner.add_filter("stasis_status_ripple", 2, list("type" = "ripple", "flags" = WAVE_BOUNDED, "radius" = 0, "size" = 2))
 	var/filter = owner.get_filter("stasis_status_ripple")
 	animate(filter, radius = 0, time = 0.2 SECONDS, size = 2, easing = JUMP_EASING, loop = -1, flags = ANIMATION_PARALLEL)
@@ -292,13 +292,13 @@
 
 /datum/status_effect/grouped/stasis/tick(seconds_between_ticks)
 	update_time_of_death()
-	// NOVA EDIT ADDITION START - STASIS KEEPS SLEEP GOING
+	// bobaEDIT ADDITION START - STASIS KEEPS SLEEP GOING
 	if(owner.stat >= UNCONSCIOUS)
 		owner.Sleeping(15 SECONDS)
 	//NOVA EDIT ADDITION END
 
 /datum/status_effect/grouped/stasis/on_remove()
-	owner.remove_traits(list(TRAIT_IMMOBILIZED, TRAIT_HANDS_BLOCKED, TRAIT_STASIS, TRAIT_ANALGESIA), TRAIT_STATUS_EFFECT(id)) // NOVA EDIT CHANGE - ORIGINAL: owner.remove_traits(list(TRAIT_IMMOBILIZED, TRAIT_HANDS_BLOCKED, TRAIT_STASIS), TRAIT_STATUS_EFFECT(id))
+	owner.remove_traits(list(TRAIT_IMMOBILIZED, TRAIT_HANDS_BLOCKED, TRAIT_STASIS, TRAIT_ANALGESIA), TRAIT_STATUS_EFFECT(id)) // bobaEDIT CHANGE - ORIGINAL: owner.remove_traits(list(TRAIT_IMMOBILIZED, TRAIT_HANDS_BLOCKED, TRAIT_STASIS), TRAIT_STATUS_EFFECT(id))
 	owner.remove_filter("stasis_status_ripple")
 	update_time_of_death()
 	if(iscarbon(owner))
@@ -363,7 +363,7 @@
 	boosted = was_boosted
 
 /datum/status_effect/crusher_mark/on_apply()
-	if(owner.mob_size < MOB_SIZE_LARGE || HAS_TRAIT(owner, TRAIT_OVERSIZED)) // NOVA EDIT CHANGE - Original: if(owner.mob_size < MOB_SIZE_LARGE)
+	if(owner.mob_size < MOB_SIZE_LARGE || HAS_TRAIT(owner, TRAIT_OVERSIZED)) // bobaEDIT CHANGE - Original: if(owner.mob_size < MOB_SIZE_LARGE)
 		return FALSE
 
 	marked_underlay = new()

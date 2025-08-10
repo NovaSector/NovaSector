@@ -10,11 +10,11 @@
 
 /datum/loadout_item/shoes/insert_path_into_outfit(datum/outfit/outfit, mob/living/carbon/human/equipper, visuals_only = FALSE)
 	outfit.shoes = item_path
-/* // NOVA EDIT REMOVAL START
+/* // bobaEDIT REMOVAL START
 /datum/loadout_item/shoes/sneakers
 	name = "Sneakers (Colourable)"
 	item_path = /obj/item/clothing/shoes/sneakers
-*/ // NOVA EDIT REMOVAL END
+*/ // bobaEDIT REMOVAL END
 /datum/loadout_item/shoes/sandals_laced
 	name = "Sandals (Velcro)"
 	item_path = /obj/item/clothing/shoes/sandal/velcro

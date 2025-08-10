@@ -17,10 +17,10 @@
 #define ROLE_TRAITOR "Traitor"
 #define ROLE_WIZARD "Wizard"
 #define ROLE_SPY "Spy"
-// NOVA EDIT ADDITION START
+// bobaEDIT ADDITION START
 #define ROLE_ASSAULT_OPERATIVE "Assault Operative"
 #define ROLE_OPFOR_CANDIDATE "OPFOR Candidate"
-// NOVA EDIT ADDITION END
+// bobaEDIT ADDITION END
 
 // Midround roles
 #define ROLE_ABDUCTOR "Abductor"
@@ -47,7 +47,7 @@
 #define ROLE_MARAUDER "Marauder"
 #define ROLE_MUTANT "Mutated Abomination"
 #define ROLE_CLOCK_CULTIST "Clock Cultist"
-// NOVA EDIT ADDITION END
+// bobaEDIT ADDITION END
 #define ROLE_VOIDWALKER "Voidwalker"
 #define ROLE_SUNWALKER "Sunwalker"
 
@@ -115,7 +115,7 @@
 #define ROLE_GHOST_ROLE "Ghost Role"
 #define ROLE_HERMIT "Hermit"
 #define ROLE_HOTEL_STAFF "Hotel Staff"
-#define ROLE_LAVALAND_SYNDICATE "Syndicate Lavaland Personnel" // NOVA EDIT CHANGE - Original: #define ROLE_LAVALAND_SYNDICATE "Lavaland Syndicate"
+#define ROLE_LAVALAND_SYNDICATE "Syndicate Lavaland Personnel" // bobaEDIT CHANGE - Original: #define ROLE_LAVALAND_SYNDICATE "Lavaland Syndicate"
 //NOVA EDIT START - Nova Sector Spawner roles
 #define ROLE_INTERDYNE_PLANETARY_BASE "Interdyne Lavaland Personnel"
 #define ROLE_INTERDYNE_PLANETARY_BASE_ICEBOX "Interdyne Icemoon Personnel"
@@ -124,7 +124,7 @@
 #define ROLE_BLACK_MARKET_DEALER "Black Market Dealer"
 #define ROLE_FREIGHTER_CREW "Freighter Crew"
 #define ROLE_PORT_TARKON "Port Tarkon Survivor"
-// NOVA EDIT ADDITION END
+// bobaEDIT ADDITION END
 #define ROLE_LIFEBRINGER "Lifebringer"
 #define ROLE_MAINTENANCE_DRONE "Maintenance Drone"
 #define ROLE_SKELETON "Skeleton"
@@ -132,9 +132,9 @@
 #define ROLE_SPACE_BARTENDER "Space Bartender"
 #define ROLE_SPACE_DOCTOR "Space Doctor"
 #define ROLE_SPACE_PIRATE "Space Pirate"
-#define ROLE_SPACE_SYNDICATE "Syndicate Space Personnel" // NOVA EDIT CHANGE - Original: "Space Syndicate"
-#define ROLE_SYNDICATE_CYBERSUN "Syndicate Cybersun Crew" //Ghost role syndi from Forgottenship ruin // NOVA EDIT CHANGE - Original: "Cybersun Space Syndicate"
-#define ROLE_SYNDICATE_CYBERSUN_CAPTAIN "Syndicate Cybersun Captain" //Forgottenship captain syndie // NOVA EDIT CHANGE - Original: "Cybersun Space Syndicate Captain"
+#define ROLE_SPACE_SYNDICATE "Syndicate Space Personnel" // bobaEDIT CHANGE - Original: "Space Syndicate"
+#define ROLE_SYNDICATE_CYBERSUN "Syndicate Cybersun Crew" //Ghost role syndi from Forgottenship ruin // bobaEDIT CHANGE - Original: "Cybersun Space Syndicate"
+#define ROLE_SYNDICATE_CYBERSUN_CAPTAIN "Syndicate Cybersun Captain" //Forgottenship captain syndie // bobaEDIT CHANGE - Original: "Cybersun Space Syndicate Captain"
 #define ROLE_SYNDICATE_DRONE "Syndicate Drone"
 #define ROLE_VENUSHUMANTRAP "Venus Human Trap"
 #define ROLE_ZOMBIE "Zombie"
@@ -161,7 +161,7 @@ GLOBAL_LIST_INIT(special_roles, list(
 	ROLE_TRAITOR = 0,
 	ROLE_WIZARD = 14,
 	ROLE_SPY = 0,
-	ROLE_ASSAULT_OPERATIVE = 14, // NOVA EDIT ADDITION
+	ROLE_ASSAULT_OPERATIVE = 14, // bobaEDIT ADDITION
 
 	// Midround
 	ROLE_ABDUCTOR = 0,
@@ -182,12 +182,12 @@ GLOBAL_LIST_INIT(special_roles, list(
 	ROLE_SPACE_DRAGON = 0,
 	ROLE_SPIDER = 0,
 	ROLE_WIZARD_MIDROUND = 14,
-	// NOVA EDIT ADDITION START
+	// bobaEDIT ADDITION START
 	ROLE_MARAUDER = 0,
 	ROLE_BORER = 0,
 	ROLE_DRIFTING_CONTRACTOR = 14,
 	ROLE_MUTANT = 0,
-	// NOVA EDIT ADDITION END
+	// bobaEDIT ADDITION END
 	ROLE_VOIDWALKER = 0,
 
 	// Latejoin

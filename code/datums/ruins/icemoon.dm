@@ -96,7 +96,7 @@
 	suffix = "icemoon_underground_mining_site.dmm"
 	has_ceiling = FALSE
 	unpickable = TRUE
-*/ // NOVA EDIT REMOVAL End
+*/ // bobaEDIT REMOVAL End
 // below ground only
 
 /datum/map_template/ruin/icemoon/underground

@@ -7,9 +7,9 @@
 #define MUTE_ADMINHELP (1<<3)
 #define MUTE_DEADCHAT (1<<4)
 #define MUTE_INTERNET_REQUEST (1<<5)
-// NOVA EDIT Addition - Mute LOOC
+// bobaEDIT Addition - Mute LOOC
 #define MUTE_LOOC (1<<6)
-// NOVA EDIT End
+// bobaEDIT End
 #define MUTE_ALL ALL
 
 //Some constants for DB_Ban
@@ -128,7 +128,7 @@
 #define RANK_SOURCE_TEMPORARY "rank_temp"
 
 /// Amount of time after the round starts that the player disconnect report is issued.
-#define ROUNDSTART_LOGOUT_REPORT_TIME (21 MINUTES) // NOVA EDIT CHANGE - ORIGINAL: 10 MINUTES
+#define ROUNDSTART_LOGOUT_REPORT_TIME (21 MINUTES) // bobaEDIT CHANGE - ORIGINAL: 10 MINUTES
 
 /// Threshold in minutes for counting a player as AFK on the roundstart report.
 #define ROUNDSTART_LOGOUT_AFK_THRESHOLD (ROUNDSTART_LOGOUT_REPORT_TIME * 0.7)

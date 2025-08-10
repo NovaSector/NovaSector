@@ -18,7 +18,7 @@
 	new /obj/item/radio/headset/heads/captain(src)
 	new /obj/item/door_remote/captain(src)
 	new /obj/item/storage/photo_album/captain(src)
-	new /obj/item/card/id/departmental_budget(src) // NOVA EDIT ADDITION
+	new /obj/item/card/id/departmental_budget(src) // bobaEDIT ADDITION
 
 /obj/structure/closet/secure_closet/captains/populate_contents_immediate()
 	new /obj/item/gun/energy/e_gun(src)
@@ -46,8 +46,8 @@
 	new /obj/item/circuitboard/machine/techfab/department/service(src)
 	new /obj/item/storage/photo_album/hop(src)
 	new /obj/item/storage/lockbox/medal/hop(src)
-	new /obj/item/card/id/departmental_budget/srv(src) // NOVA EDIT ADDITION
-	new /obj/item/storage/box/visitor_ids(src) // NOVA EDIT ADDITION
+	new /obj/item/card/id/departmental_budget/srv(src) // bobaEDIT ADDITION
+	new /obj/item/storage/box/visitor_ids(src) // bobaEDIT ADDITION
 
 /obj/structure/closet/secure_closet/hop/populate_contents_immediate()
 	new /obj/item/gun/energy/e_gun(src)
@@ -64,7 +64,7 @@
 	new /obj/item/radio/headset/heads/hos(src)
 	new /obj/item/radio/headset/heads/hos/alt(src)
 	new /obj/item/storage/bag/garment/hos(src)
-	new /obj/item/storage/bag/garment/hos/blue(src) // NOVA EDIT ADDITION - Bluesec alternative
+	new /obj/item/storage/bag/garment/hos/blue(src) // bobaEDIT ADDITION - Bluesec alternative
 	new /obj/item/storage/lockbox/medal/sec(src)
 	new /obj/item/megaphone/sec(src)
 	new /obj/item/holosign_creator/security(src)
@@ -74,7 +74,7 @@
 	new /obj/item/storage/belt/security/full(src)
 	new /obj/item/circuitboard/machine/techfab/department/security(src)
 	new /obj/item/storage/photo_album/hos(src)
-	new /obj/item/card/id/departmental_budget/sec(src) // NOVA EDIT ADDITION
+	new /obj/item/card/id/departmental_budget/sec(src) // bobaEDIT ADDITION
 
 /obj/structure/closet/secure_closet/hos/populate_contents_immediate()
 	. = ..()
@@ -94,7 +94,7 @@
 	new /obj/item/radio/headset/headset_sec(src)
 	new /obj/item/holosign_creator/security(src)
 	new /obj/item/storage/bag/garment/warden(src)
-	new /obj/item/storage/bag/garment/warden/blue(src) // NOVA EDIT ADDITION - Bluesec alternative
+	new /obj/item/storage/bag/garment/warden/blue(src) // bobaEDIT ADDITION - Bluesec alternative
 	new /obj/item/storage/box/zipties(src)
 	new /obj/item/storage/box/flashbangs(src)
 	new /obj/item/storage/belt/security/full(src)
@@ -143,13 +143,13 @@
 	..()
 	new /obj/item/storage/box/evidence(src)
 	new /obj/item/radio/headset/headset_sec(src)
-	// new /obj/item/detective_scanner(src) // NOVA EDIT REMOVAL
+	// new /obj/item/detective_scanner(src) // bobaEDIT REMOVAL
 	new /obj/item/flashlight/seclite(src)
 	new /obj/item/holosign_creator/security(src)
 	new /obj/item/reagent_containers/spray/pepper(src)
 	new /obj/item/clothing/suit/armor/vest/det_suit(src)
-	new /obj/item/toy/crayon/white(src) // NOVA EDIT CHANGE - ORIGINAL: /obj/item/storage/belt/holster/detective/full(src)
-	//new /obj/item/pinpointer/crew(src) // NOVA EDIT REMOVAL - Added to detective outfit backpack instead
+	new /obj/item/toy/crayon/white(src) // bobaEDIT CHANGE - ORIGINAL: /obj/item/storage/belt/holster/detective/full(src)
+	//new /obj/item/pinpointer/crew(src) // bobaEDIT REMOVAL - Added to detective outfit backpack instead
 	new /obj/item/binoculars(src)
 	new /obj/item/storage/box/rxglasses/spyglasskit(src)
 	new /obj/item/clothing/head/fedora/inspector_hat(src)

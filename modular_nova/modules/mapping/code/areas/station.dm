@@ -1,4 +1,4 @@
-// Nova Sector specific station areas
+// bobaSector specific station areas
 
 /*
  * Station bound areas

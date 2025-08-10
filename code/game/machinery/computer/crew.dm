@@ -109,7 +109,7 @@ GLOBAL_DATUM_INIT(crewmonitor, /datum/crewmonitor, new)
 		JOB_SECURITY_OFFICER_SCIENCE = 15,
 		JOB_SECURITY_OFFICER_SUPPLY = 16,
 		*/
-		JOB_CORRECTIONS_OFFICER = 13, // NOVA EDIT ADDITION
+		JOB_CORRECTIONS_OFFICER = 13, // bobaEDIT ADDITION
 		JOB_DETECTIVE = 14,
 		// 20-29: Medbay
 		JOB_CHIEF_MEDICAL_OFFICER = 20,
@@ -117,27 +117,27 @@ GLOBAL_DATUM_INIT(crewmonitor, /datum/crewmonitor, new)
 		JOB_MEDICAL_DOCTOR = 22,
 		JOB_PARAMEDIC = 23,
 		JOB_CORONER = 24,
-		JOB_VIROLOGIST = 25, // NOVA EDIT ADDITION: Returns Virologist
-		JOB_ORDERLY = 26, // NOVA EDIT ADDITION
-		JOB_PSYCHOLOGIST = 27, // NOVA EDIT - ORIGINAL: JOB_PSYCHOLOGIST = 71,
+		JOB_VIROLOGIST = 25, // bobaEDIT ADDITION: Returns Virologist
+		JOB_ORDERLY = 26, // bobaEDIT ADDITION
+		JOB_PSYCHOLOGIST = 27, // bobaEDIT - ORIGINAL: JOB_PSYCHOLOGIST = 71,
 		// 30-39: Science
 		JOB_RESEARCH_DIRECTOR = 30,
 		JOB_SCIENTIST = 31,
 		JOB_ROBOTICIST = 32,
 		JOB_GENETICIST = 33,
-		JOB_SCIENCE_GUARD = 34, // NOVA EDIT ADDITION
+		JOB_SCIENCE_GUARD = 34, // bobaEDIT ADDITION
 		// 40-49: Engineering
 		JOB_CHIEF_ENGINEER = 40,
 		JOB_STATION_ENGINEER = 41,
 		JOB_ATMOSPHERIC_TECHNICIAN = 42,
-		JOB_ENGINEERING_GUARD = 43, // NOVA EDIT ADDITION
-		JOB_TELECOMMS_SPECIALIST = 44, // NOVA EDIT ADDITION
+		JOB_ENGINEERING_GUARD = 43, // bobaEDIT ADDITION
+		JOB_TELECOMMS_SPECIALIST = 44, // bobaEDIT ADDITION
 		// 50-59: Cargo
 		JOB_QUARTERMASTER = 50,
 		JOB_SHAFT_MINER = 51,
 		JOB_CARGO_TECHNICIAN = 52,
 		JOB_BITRUNNER = 53,
-		JOB_CUSTOMS_AGENT = 54, // NOVA EDIT ADDITION
+		JOB_CUSTOMS_AGENT = 54, // bobaEDIT ADDITION
 		// 60+: Service
 		JOB_HEAD_OF_PERSONNEL = 60,
 		JOB_BARTENDER = 61,
@@ -150,8 +150,8 @@ GLOBAL_DATUM_INIT(crewmonitor, /datum/crewmonitor, new)
 		JOB_MIME = 68,
 		JOB_JANITOR = 69,
 		JOB_LAWYER = 70,
-		JOB_BARBER = 71, // NOVA EDIT ADDITION
-		JOB_BOUNCER = 72, // NOVA EDIT ADDITION
+		JOB_BARBER = 71, // bobaEDIT ADDITION
+		JOB_BOUNCER = 72, // bobaEDIT ADDITION
 		// 200-239: Centcom
 		JOB_CENTCOM_ADMIRAL = 200,
 		JOB_CENTCOM = 201,
@@ -169,8 +169,8 @@ GLOBAL_DATUM_INIT(crewmonitor, /datum/crewmonitor, new)
 		JOB_ERT_CHAPLAIN = 225,
 		JOB_ERT_JANITOR = 226,
 		JOB_ERT_DEATHSQUAD = 227,
-		JOB_NT_REP = 230, // NOVA EDIT ADDITION
-		JOB_BLUESHIELD = 231, // NOVA EDIT ADDITION
+		JOB_NT_REP = 230, // bobaEDIT ADDITION
+		JOB_BLUESHIELD = 231, // bobaEDIT ADDITION
 
 		// ANYTHING ELSE = UNKNOWN_JOB_ID, Unknowns/custom jobs will appear after civilians, and before assistants
 		JOB_ASSISTANT = 999,
@@ -180,7 +180,7 @@ GLOBAL_DATUM_INIT(crewmonitor, /datum/crewmonitor, new)
 /datum/crewmonitor/ui_interact(mob/user, datum/tgui/ui)
 	ui = SStgui.try_update_ui(user, src, ui)
 	if (!ui)
-		ui = new(user, src, "CrewConsoleNova") // NOVA EDIT CHANGE - ORIGINAL: ui = new(user, src, "CrewConsole")
+		ui = new(user, src, "CrewConsoleNova") // bobaEDIT CHANGE - ORIGINAL: ui = new(user, src, "CrewConsole")
 		ui.open()
 
 /datum/crewmonitor/proc/show(mob/M, source)
@@ -261,10 +261,10 @@ GLOBAL_DATUM_INIT(crewmonitor, /datum/crewmonitor, new)
 			if (jobs[trim_assignment] != null)
 				entry["ijob"] = jobs[trim_assignment]
 
-		// NOVA EDIT ADDITION START - Checking for robotic race
+		// bobaEDIT ADDITION START - Checking for robotic race
 		if (issynthetic(tracked_human))
 			entry["is_robot"] = TRUE
-		// NOVA EDIT ADDITION END
+		// bobaEDIT ADDITION END
 
 		// Broken sensors show garbage data
 		if (uniform.has_sensor == BROKEN_SENSORS)

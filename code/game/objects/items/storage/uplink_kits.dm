@@ -44,7 +44,7 @@
 		)))
 		if(KIT_RECON)
 			new /obj/item/clothing/glasses/thermal/xray(src) // ~8 tc?
-			//new /obj/item/storage/briefcase/launchpad(src) //6 tc // NOVA EDIT REMOVAL
+			//new /obj/item/storage/briefcase/launchpad(src) //6 tc // bobaEDIT REMOVAL
 			new /obj/item/binoculars(src) // 2 tc?
 			new /obj/item/encryptionkey/syndicate(src) // 2 tc
 			new /obj/item/storage/box/syndie_kit/space(src) //4 tc
@@ -70,7 +70,7 @@
 		if(KIT_STEALTHY)
 			new /obj/item/gun/energy/recharge/ebow(src) // 10 tc
 			new /obj/item/pen/sleepy(src) // 4 tc
-			new /obj/item/disk/neuroware/sleepy(src) // NOVA EDIT ADDITION - Neuroware
+			new /obj/item/disk/neuroware/sleepy(src) // bobaEDIT ADDITION - Neuroware
 			new /obj/item/healthanalyzer/rad_laser(src) // 3 tc
 			new /obj/item/chameleon(src) // 7 tc
 			new /obj/item/soap/syndie(src) // 1 tc
@@ -176,7 +176,7 @@
 			new /obj/item/assembly/flash/hypnotic(src) // 7 TC
 			new /obj/item/storage/pill_bottle/lsd(src) // ~1 TC
 			new /obj/item/pen/sleepy(src) // 4 TC
-			new /obj/item/disk/neuroware/sleepy(src) // NOVA EDIT ADDITION - Neuroware
+			new /obj/item/disk/neuroware/sleepy(src) // bobaEDIT ADDITION - Neuroware
 			new /obj/item/gun/ballistic/revolver/nagant(src) // 13 TC comparable to 357. revolvers
 			new /obj/item/megaphone(src)
 			new /obj/item/bedsheet/rev(src)
@@ -320,7 +320,7 @@
 	new /obj/item/card/emag(src) // 4 tc
 	new /obj/item/card/emag/doorjack(src) //emag used to do both. 3 tc
 	new /obj/item/pen/sleepy(src) // 4 tc
-	new /obj/item/disk/neuroware/sleepy(src) // NOVA EDIT ADDITION - Neuroware
+	new /obj/item/disk/neuroware/sleepy(src) // bobaEDIT ADDITION - Neuroware
 	new /obj/item/reagent_containers/applicator/pill/cyanide(src)
 	new /obj/item/chameleon(src) //its not the original cloaking device, but it will do. 8 tc
 	new /obj/item/gun/ballistic/revolver(src) // 13 tc old one stays in the old box
@@ -866,7 +866,7 @@
 	illustration = "writing_syndie"
 
 /obj/item/storage/box/syndicate/contract_kit/PopulateContents()
-	new /obj/item/modular_computer/pda/contractor(src) // NOVA EDIT CHANGE - ORIGINAL : /obj/item/modular_computer/pda/syndicate_contract_uplink(src)
+	new /obj/item/modular_computer/pda/contractor(src) // bobaEDIT CHANGE - ORIGINAL : /obj/item/modular_computer/pda/syndicate_contract_uplink(src)
 	new /obj/item/storage/box/syndicate/contractor_loadout(src)
 	new /obj/item/melee/baton/telescopic/contractor_baton(src)
 	// Paper guide is always last.

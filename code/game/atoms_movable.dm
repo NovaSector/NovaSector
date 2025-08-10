@@ -508,12 +508,12 @@
 			set_glide_size(var_value)
 			. = TRUE
 
-		// NOVA EDIT ADDITION BEGIN - BLOOPER
+		// bobaEDIT ADDITION BEGIN - BLOOPER
 		if(NAMEOF(src, blooper))
 			if(isfile(var_value))
 				blooper = sound(var_value) //bark() expects vocal_bark to already be a sound datum, for performance reasons. adminbus QoL!
 			. = TRUE
-		// NOVA EDIT ADDITION END
+		// bobaEDIT ADDITION END
 	if(!isnull(.))
 		datum_flags |= DF_VAR_EDITED
 		return
@@ -654,7 +654,7 @@
 	if(!direction)
 		direction = get_dir(src, newloc)
 
-	if(set_dir_on_move && dir != direction && update_dir && !face_mouse) // NOVA EDIT - && !face_mouse
+	if(set_dir_on_move && dir != direction && update_dir && !face_mouse) // bobaEDIT - && !face_mouse
 		setDir(direction)
 
 	var/is_multi_tile_object = is_multi_tile_object(src)
@@ -780,7 +780,7 @@
 						moving_diagonally = SECOND_DIAG_STEP
 						. = step(src, SOUTH)
 			if(moving_diagonally == SECOND_DIAG_STEP)
-				if(!. && set_dir_on_move && update_dir && !face_mouse) // NOVA EDIT CHANGE - && !face_mouse
+				if(!. && set_dir_on_move && update_dir && !face_mouse) // bobaEDIT CHANGE - && !face_mouse
 					setDir(first_step_dir)
 				else if(!inertia_moving)
 					newtonian_move(dir2angle(direct))
@@ -827,7 +827,7 @@
 
 	last_move = direct
 
-	if(set_dir_on_move && dir != direct && update_dir && !face_mouse) // NOVA EDIT CHANGE - && !face_mouse)
+	if(set_dir_on_move && dir != direct && update_dir && !face_mouse) // bobaEDIT CHANGE - && !face_mouse)
 		setDir(direct)
 	if(. && has_buckled_mobs() && !handle_buckled_mob_movement(loc, direct, glide_size_override)) //movement failed due to buckled mob(s)
 		. = FALSE

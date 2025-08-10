@@ -139,7 +139,7 @@ DEFINE_BITFIELD(smoothing_junction, list(
 #define SMOOTH_GROUP_TURF_OPEN_CLIFF S_TURF(60) ///turf/open/cliff
 #define SMOOTH_GROUP_HIEROPHANT S_TURF(61) ///turf/closed/indestructible/riveted/hierophant
 
-// NOVA EDIT ADDITION
+// bobaEDIT ADDITION
 #define SMOOTH_GROUP_ELEVATED_PLASTEEL S_TURF(62)
 #define SMOOTH_GROUP_LOWERED_PLASTEEL S_TURF(63)
 
@@ -147,7 +147,7 @@ DEFINE_BITFIELD(smoothing_junction, list(
 
 #define SMOOTH_GROUP_MUSHROOM S_TURF(65)
 //NOVA EDIT ADDITION END
-#define MAX_S_TURF 65 //Always match this value with the one above it. // NOVA EDIT CHANGE - Original: #define MAX_S_TURF 61
+#define MAX_S_TURF 65 //Always match this value with the one above it. // bobaEDIT CHANGE - Original: #define MAX_S_TURF 61
 
 #define S_OBJ(num) ("-" + #num + ",")
 /* /obj included */

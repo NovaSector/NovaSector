@@ -161,15 +161,15 @@ SUBSYSTEM_DEF(ticker)
 			for(var/client/C in GLOB.clients)
 				window_flash(C, ignorepref = TRUE) //let them know lobby has opened up.
 			to_chat(world, span_notice("<b>Welcome to [station_name()]!</b>"))
-			if(!discord_alerted) // NOVA EDIT ADDITION - DISCORD SPAM PREVENTION
-				discord_alerted = TRUE // NOVA EDIT ADDITION - DISCORD SPAM PREVENTION
-				for(var/channel_tag in CONFIG_GET(str_list/channel_announce_new_game)) // NOVA EDIT CHANGE - Indented the loop
-					send2chat(new /datum/tgs_message_content("<@&[CONFIG_GET(string/game_alert_role_id)]> Round **[GLOB.round_id]** starting on [SSmapping.current_map.map_name], [CONFIG_GET(string/servername)]! \nIf you wish to be pinged for game related stuff, go to <#[CONFIG_GET(string/role_assign_channel_id)]> and assign yourself the roles."), channel_tag) // NOVA EDIT ADDITION - Role ping and round ID in game-alert
-				//send2chat(new /datum/tgs_message_content("New round starting on [SSmapping.current_map.map_name]!"), channel_tag) // NOVA EDIT REMOVAL
+			if(!discord_alerted) // bobaEDIT ADDITION - DISCORD SPAM PREVENTION
+				discord_alerted = TRUE // bobaEDIT ADDITION - DISCORD SPAM PREVENTION
+				for(var/channel_tag in CONFIG_GET(str_list/channel_announce_new_game)) // bobaEDIT CHANGE - Indented the loop
+					send2chat(new /datum/tgs_message_content("<@&[CONFIG_GET(string/game_alert_role_id)]> Round **[GLOB.round_id]** starting on [SSmapping.current_map.map_name], [CONFIG_GET(string/servername)]! \nIf you wish to be pinged for game related stuff, go to <#[CONFIG_GET(string/role_assign_channel_id)]> and assign yourself the roles."), channel_tag) // bobaEDIT ADDITION - Role ping and round ID in game-alert
+				//send2chat(new /datum/tgs_message_content("New round starting on [SSmapping.current_map.map_name]!"), channel_tag) // bobaEDIT REMOVAL
 
 			current_state = GAME_STATE_PREGAME
-			SStitle.change_title_screen() // NOVA EDIT ADDITION - Title screen
-			addtimer(CALLBACK(SStitle, TYPE_PROC_REF(/datum/controller/subsystem/title, change_title_screen)), 1 SECONDS) // NOVA EDIT ADDITION - Title screen
+			SStitle.change_title_screen() // bobaEDIT ADDITION - Title screen
+			addtimer(CALLBACK(SStitle, TYPE_PROC_REF(/datum/controller/subsystem/title, change_title_screen)), 1 SECONDS) // bobaEDIT ADDITION - Title screen
 			//Everyone who wants to be an observer is now spawned
 			SEND_SIGNAL(src, COMSIG_TICKER_ENTER_PREGAME)
 			fire()
@@ -202,7 +202,7 @@ SUBSYSTEM_DEF(ticker)
 				SEND_SIGNAL(src, COMSIG_TICKER_ENTER_SETTING_UP)
 				current_state = GAME_STATE_SETTING_UP
 				Master.SetRunLevel(RUNLEVEL_SETUP)
-				SSevents.reschedule() // NOVA EDIT ADDITION
+				SSevents.reschedule() // bobaEDIT ADDITION
 				if(start_immediately)
 					fire()
 
@@ -224,7 +224,7 @@ SUBSYSTEM_DEF(ticker)
 				toggle_dooc(TRUE)
 				declare_completion(force_ending)
 				Master.SetRunLevel(RUNLEVEL_POSTGAME)
-				SEND_SIGNAL(src, COMSIG_TICKER_ROUND_ENDED) // NOVA EDIT ADDITION
+				SEND_SIGNAL(src, COMSIG_TICKER_ROUND_ENDED) // bobaEDIT ADDITION
 
 /// Checks if the round should be ending, called every ticker tick
 /datum/controller/subsystem/ticker/proc/check_finished()
@@ -289,14 +289,14 @@ SUBSYSTEM_DEF(ticker)
 
 	round_start_time = world.time //otherwise round_start_time would be 0 for the signals
 	SEND_SIGNAL(src, COMSIG_TICKER_ROUND_STARTING, world.time)
-	real_round_start_time = REALTIMEOFDAY // NOVA EDIT ADDITION
-	SSautotransfer.new_shift(real_round_start_time) // NOVA EDIT ADDITION
+	real_round_start_time = REALTIMEOFDAY // bobaEDIT ADDITION
+	SSautotransfer.new_shift(real_round_start_time) // bobaEDIT ADDITION
 
 	log_world("Game start took [(world.timeofday - init_start)/10]s")
 	INVOKE_ASYNC(SSdbcore, TYPE_PROC_REF(/datum/controller/subsystem/dbcore,SetRoundStart))
 
 	to_chat(world, span_notice(span_bold("Welcome to [station_name()], enjoy your stay!")))
-	alert_sound_to_playing(sound(SSstation.announcer.get_rand_welcome_sound())) // NOVA EDIT CHANGE - ORIGINAL: SEND_SOUND(world, sound(SSstation.announcer.get_rand_welcome_sound()))
+	alert_sound_to_playing(sound(SSstation.announcer.get_rand_welcome_sound())) // bobaEDIT CHANGE - ORIGINAL: SEND_SOUND(world, sound(SSstation.announcer.get_rand_welcome_sound()))
 
 	current_state = GAME_STATE_PLAYING
 	Master.SetRunLevel(RUNLEVEL_GAME)
@@ -337,7 +337,7 @@ SUBSYSTEM_DEF(ticker)
 
 		iter_human.increment_scar_slot()
 		iter_human.load_persistent_scars()
-		SSpersistence.load_modular_persistence(iter_human.get_organ_slot(ORGAN_SLOT_BRAIN)) // NOVA EDIT ADDITION - MODULAR_PERSISTENCE
+		SSpersistence.load_modular_persistence(iter_human.get_organ_slot(ORGAN_SLOT_BRAIN)) // bobaEDIT ADDITION - MODULAR_PERSISTENCE
 
 		if(!iter_human.hardcore_survival_score)
 			continue
@@ -590,7 +590,7 @@ SUBSYSTEM_DEF(ticker)
 /datum/controller/subsystem/ticker/proc/send_news_report()
 	var/news_message
 	var/news_source = "Nanotrasen News Network"
-	var/decoded_station_name = html_decode(CONFIG_GET(string/cross_comms_name)) //decode station_name to avoid minor_announce double encode // NOVA EDIT: CROSS COMMS CONFIG, ORIGINAL: var/decoded_station_name = html_decode(station_name())
+	var/decoded_station_name = html_decode(CONFIG_GET(string/cross_comms_name)) //decode station_name to avoid minor_announce double encode // bobaEDIT: CROSS COMMS CONFIG, ORIGINAL: var/decoded_station_name = html_decode(station_name())
 	var/decoded_emergency_reason = html_decode(emergency_reason)
 
 	switch(news_report)

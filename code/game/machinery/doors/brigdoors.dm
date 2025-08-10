@@ -75,7 +75,7 @@
 	if(!timing)
 		return PROCESS_KILL
 
-	if(REALTIMEOFDAY - activation_time >= timer_duration) // NOVA EDIT CHANGE: original was world.time
+	if(REALTIMEOFDAY - activation_time >= timer_duration) // bobaEDIT CHANGE: original was world.time
 		timer_end() // open doors, reset timer, clear status screen
 	update_content()
 
@@ -101,7 +101,7 @@
 	if(machine_stat & (NOPOWER|BROKEN))
 		return 0
 
-	activation_time = REALTIMEOFDAY // NOVA EDIT CHANGE: original was world.time
+	activation_time = REALTIMEOFDAY // bobaEDIT CHANGE: original was world.time
 	timing = TRUE
 	begin_processing()
 
@@ -173,7 +173,7 @@
  * * seconds - Return the time in seconds if TRUE, else deciseconds.
  */
 /obj/machinery/status_display/door_timer/proc/time_left(seconds = FALSE)
-	. = max(0, timer_duration + (activation_time ? activation_time - REALTIMEOFDAY : 0)) // NOVA EDIT CHANGE, Original:	. = max(0, timer_duration + (activation_time ? activation_time - world.time : 0))
+	. = max(0, timer_duration + (activation_time ? activation_time - REALTIMEOFDAY : 0)) // bobaEDIT CHANGE, Original:	. = max(0, timer_duration + (activation_time ? activation_time - world.time : 0))
 	if(seconds)
 		. /= (1 SECONDS)
 
@@ -265,7 +265,7 @@
 			user.investigate_log("set cell [id]'s timer to [preset_time/10] seconds", INVESTIGATE_RECORDS)
 			user.log_message("set cell [id]'s timer to [preset_time/10] seconds", LOG_ATTACK)
 			if(timing)
-				activation_time = REALTIMEOFDAY // NOVA EDIT CHANGE: original was world.time
+				activation_time = REALTIMEOFDAY // bobaEDIT CHANGE: original was world.time
 		else
 			. = FALSE
 

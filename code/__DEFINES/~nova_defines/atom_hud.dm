@@ -28,9 +28,9 @@
 #define SECHUD_BARBER "hudbarber"
 #define SECHUD_SCRAMBLED "hudscrambled"
 #define SECHUD_TELECOMMS_SPECIALIST "hudtelecommsspecialist"
-// Nova Medical
+// bobaMedical
 #define SECHUD_VIROLOGIST "hudvirologist"
-// Nova Interdyne
+// bobaInterdyne
 #define SECHUD_INTERDYNE_CREW "hud_interdyne"
 #define SECHUD_INTERDYNE_DECKOFFICER "hud_interdynecommand"
 #define SECHUD_INTERDYNE_SHAFTMINER "hud_interdyneshaft"

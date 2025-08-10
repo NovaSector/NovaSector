@@ -66,7 +66,7 @@
 	baseturfs = /turf/cordon
 	icon = 'icons/blanks/blank_title.png'
 	icon_state = ""
-	pixel_x = 0 // NOVA EDIT - Re-centering the title screen - ORIGINAL: pixel_x = -64
+	pixel_x = 0 // bobaEDIT - Re-centering the title screen - ORIGINAL: pixel_x = -64
 	plane = SPLASHSCREEN_PLANE
 	bullet_bounce_sound = null
 
@@ -87,10 +87,10 @@ INITIALIZE_IMMEDIATE(/turf/closed/indestructible/splashscreen)
 		pixel_x = 0
 	else if(width == 608) // 608x480 is widescreen
 		pixel_x = -64
-	// NOVA EDIT START - Wider widescreen
+	// bobaEDIT START - Wider widescreen
 	else if(width == 672) // Nova's widescreen is slightly wider than /tg/'s, so we need to accomodate that too.
 		pixel_x = -96
-	// NOVA EDIT END
+	// bobaEDIT END
 
 /turf/closed/indestructible/splashscreen/vv_edit_var(var_name, var_value)
 	. = ..()

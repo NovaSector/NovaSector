@@ -240,7 +240,7 @@ GLOBAL_VAR_INIT(cops_arrived, FALSE)
 				return
 			make_announcement(user)
 		if ("messageAssociates")
-			if (!authenticated_as_ai_or_captain(user)) // NOVA EDIT CHANGE - Allows AI and Captain to send messages - ORIGINAL: if (!authenticated_as_non_silicon_captain(user))
+			if (!authenticated_as_ai_or_captain(user)) // bobaEDIT CHANGE - Allows AI and Captain to send messages - ORIGINAL: if (!authenticated_as_non_silicon_captain(user))
 				return
 			if (!COOLDOWN_FINISHED(src, important_action_cooldown))
 				return
@@ -463,7 +463,7 @@ GLOBAL_VAR_INIT(cops_arrived, FALSE)
 			SSjob.safe_code_requested = TRUE
 			SSjob.safe_code_timer_id = addtimer(CALLBACK(SSjob, TYPE_PROC_REF(/datum/controller/subsystem/job, send_spare_id_safe_code), pod_location), 120 SECONDS, TIMER_UNIQUE | TIMER_STOPPABLE)
 			minor_announce("Due to staff shortages, your station has been approved for delivery of access codes to secure the Captain's Spare ID. Delivery via drop pod at [get_area(pod_location)]. ETA 120 seconds.")
-		// NOVA EDIT ADDITION START
+		// bobaEDIT ADDITION START
 		if ("messagethefeds")
 			if(!message_federation(usr))
 				return
@@ -509,7 +509,7 @@ GLOBAL_VAR_INIT(cops_arrived, FALSE)
 				toggle_eng_override()
 				usr.log_message("enabled airlock engineering override.", LOG_GAME)
 				deadchat_broadcast(" enabled airlock engineering override at [span_name("[get_area_name(usr, TRUE)]")].", span_name("[usr.real_name]"), usr, message_type = DEADCHAT_ANNOUNCEMENT)
-		// NOVA EDIT ADDITION END
+		// bobaEDIT ADDITION END
 /obj/machinery/computer/communications/proc/emergency_access_cooldown(mob/user)
 	if(toggle_uses == toggle_max_uses) //you have used up free uses already, do it one more time and start a cooldown
 		to_chat(user, span_warning("This was your last free use without cooldown, you will not be able to use this again for [DisplayTimeText(EMERGENCY_ACCESS_COOLDOWN)]."))
@@ -591,7 +591,7 @@ GLOBAL_VAR_INIT(cops_arrived, FALSE)
 				data["canSendToSectors"] = FALSE
 				data["canSetAlertLevel"] = FALSE
 				data["canToggleEmergencyAccess"] = FALSE
-				data["canToggleEngineeringOverride"] = FALSE // NOVA EDIT ADDITION - Engineering Override
+				data["canToggleEngineeringOverride"] = FALSE // bobaEDIT ADDITION - Engineering Override
 				data["importantActionReady"] = COOLDOWN_FINISHED(src, important_action_cooldown)
 				data["shuttleCalled"] = FALSE
 				data["shuttleLastCalled"] = FALSE
@@ -623,15 +623,15 @@ GLOBAL_VAR_INIT(cops_arrived, FALSE)
 				if (authenticated_as_silicon_or_captain(user))
 					data["canToggleEmergencyAccess"] = TRUE
 					data["emergencyAccess"] = GLOB.emergency_access
-					data["canToggleEngineeringOverride"] = TRUE // NOVA EDIT ADDITION - Engineering Override Toggle
-					data["engineeringOverride"] = GLOB.force_eng_override // NOVA EDIT ADDITION - Engineering Override Toggle
+					data["canToggleEngineeringOverride"] = TRUE // bobaEDIT ADDITION - Engineering Override Toggle
+					data["engineeringOverride"] = GLOB.force_eng_override // bobaEDIT ADDITION - Engineering Override Toggle
 					data["alertLevelTick"] = alert_level_tick
 					data["canMakeAnnouncement"] = TRUE
 					data["canSetAlertLevel"] = HAS_SILICON_ACCESS(user) ? "NO_SWIPE_NEEDED" : "SWIPE_NEEDED"
 				else if(syndicate)
 					data["canMakeAnnouncement"] = TRUE
 
-				if (authenticated_as_ai_or_captain(user)) // NOVA EDIT CHANGE - Allows AI to report to CC in the event of there being no command alive/to begin with - ORIGINAL: if (authenticated_as_non_silicon_captain(user))
+				if (authenticated_as_ai_or_captain(user)) // bobaEDIT CHANGE - Allows AI to report to CC in the event of there being no command alive/to begin with - ORIGINAL: if (authenticated_as_non_silicon_captain(user))
 					data["canMessageAssociates"] = TRUE
 
 				if (SSshuttle.emergency.mode != SHUTTLE_IDLE && SSshuttle.emergency.mode != SHUTTLE_RECALL)

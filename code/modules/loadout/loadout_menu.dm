@@ -68,7 +68,7 @@
 
 /// Select [path] item to [category_slot] slot.
 /datum/preference_middleware/loadout/proc/select_item(datum/loadout_item/selected_item)
-	var/list/loadout = get_current_loadout() // NOVA EDIT CHANGE - Multiple loadout presets - ORIGINAL: var/list/loadout = preferences.read_preference(/datum/preference/loadout)
+	var/list/loadout = get_current_loadout() // bobaEDIT CHANGE - Multiple loadout presets - ORIGINAL: var/list/loadout = preferences.read_preference(/datum/preference/loadout)
 	var/list/datum/loadout_item/loadout_datums = loadout_list_to_datums(loadout)
 	for(var/datum/loadout_item/item as anything in loadout_datums)
 		if(item.category != selected_item.category)
@@ -77,13 +77,13 @@
 			return
 
 	LAZYSET(loadout, selected_item.item_path, list())
-	save_current_loadout(loadout)// NOVA EDIT CHANGE - Multiple loadout presets - ORIGINAL: preferences.update_preference(GLOB.preference_entries[/datum/preference/loadout], loadout)
+	save_current_loadout(loadout)// bobaEDIT CHANGE - Multiple loadout presets - ORIGINAL: preferences.update_preference(GLOB.preference_entries[/datum/preference/loadout], loadout)
 
 /// Deselect [deselected_item].
 /datum/preference_middleware/loadout/proc/deselect_item(datum/loadout_item/deselected_item)
-	var/list/loadout = get_current_loadout()// NOVA EDIT CHANGE - Multiple loadout presets - ORIGINAL: var/list/loadout = preferences.read_preference(/datum/preference/loadout)
+	var/list/loadout = get_current_loadout()// bobaEDIT CHANGE - Multiple loadout presets - ORIGINAL: var/list/loadout = preferences.read_preference(/datum/preference/loadout)
 	LAZYREMOVE(loadout, deselected_item.item_path)
-	save_current_loadout(loadout)// NOVA EDIT CHANGE - Multiple loadout presets - ORIGINAL: preferences.update_preference(GLOB.preference_entries[/datum/preference/loadout], loadout)
+	save_current_loadout(loadout)// bobaEDIT CHANGE - Multiple loadout presets - ORIGINAL: preferences.update_preference(GLOB.preference_entries[/datum/preference/loadout], loadout)
 
 /datum/preference_middleware/loadout/proc/register_greyscale_menu(datum/greyscale_modify_menu/open_menu)
 	src.menu = open_menu
@@ -104,11 +104,11 @@
 /datum/preference_middleware/loadout/get_ui_static_data(mob/user)
 	var/list/data = list()
 	data["loadout_preview_view"] = preferences.character_preview_view.assigned_map
-	// NOVA EDIT ADDITION START - Expanded loadout framework
+	// bobaEDIT ADDITION START - Expanded loadout framework
 	data["ckey"] = user.ckey
 	if(SSplayer_ranks.is_donator(user.client))
 		data["is_donator"] = TRUE
-	// NOVA EDIT END
+	// bobaEDIT END
 	return data
 
 /datum/preference_middleware/loadout/get_constant_data()
@@ -120,9 +120,9 @@
 			"category_icon" = category.category_ui_icon,
 			"category_info" = category.category_info,
 			"contents" = category.items_to_ui_data(),
-			// NOVA EDIT ADDITION START
+			// bobaEDIT ADDITION START
 			"erp_category" = category.erp_category,
-			// NOVA EDIT END
+			// bobaEDIT END
 		)
 		UNTYPED_LIST_ADD(loadout_tabs, cat_data)
 

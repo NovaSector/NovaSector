@@ -1,4 +1,4 @@
-// Nova Sector space area defines - Mostly for ruins
+// bobaSector space area defines - Mostly for ruins
 
 ///Generic Nova Sector Ruins
 
@@ -270,7 +270,7 @@
 /area/ruin/space/has_grav/cargodise_freighter/exterior
 	name = "Freighter Exterior"
 
-// Nova Sector's Space Hotel
+// bobaSector's Space Hotel
 
 /area/ruin/space/has_grav/hotel/sauna
 	name = "Hotel Sauna Room"

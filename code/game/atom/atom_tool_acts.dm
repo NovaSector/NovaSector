@@ -117,7 +117,7 @@
 			act_result = is_left_clicking ? welder_act(user, tool) : welder_act_secondary(user, tool)
 		if(TOOL_ANALYZER)
 			act_result = is_left_clicking ? analyzer_act(user, tool) : analyzer_act_secondary(user, tool)
-		// NOVA EDIT ADDITION START - NOVA TOOLS
+		// bobaEDIT ADDITION START - NOVA TOOLS
 		if(TOOL_SHOVEL)
 			act_result = is_left_clicking ? shovel_act(user, tool) : shovel_act_secondary(user, tool)
 		if(TOOL_BILLOW)
@@ -128,7 +128,7 @@
 			act_result = is_left_clicking ? hammer_act(user, tool) : hammer_act_secondary(user, tool)
 		if(TOOL_BLOWROD)
 			act_result = is_left_clicking ? blowrod_act(user, tool) : blowrod_act_secondary(user, tool)
-		// NOVA EDIT ADDITION END
+		// bobaEDIT ADDITION END
 
 	if(!act_result)
 		return NONE

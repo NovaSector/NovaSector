@@ -2,10 +2,10 @@
 	. = ..()
 	if(!.)
 		return
-	// NOVA EDIT ADDITION START - No AIs in MODsuits
+	// bobaEDIT ADDITION START - No AIs in MODsuits
 	if(!allow_ai)
 		return
-	// NOVA EDIT END
+	// bobaEDIT END
 	if(!open) //mod must be open
 		balloon_alert(user, "panel closed!")
 		return
@@ -89,13 +89,13 @@
 	var/mob/living/silicon/pai/pai_assistant = card.pai
 	pai_assistant.can_transmit = TRUE
 	pai_assistant.can_receive = TRUE
-	//pai_assistant.can_holo = FALSE // NOVA EDIT REMOVAL - pAI in modsuits can Holoform
+	//pai_assistant.can_holo = FALSE // bobaEDIT REMOVAL - pAI in modsuits can Holoform
 	if (pai_assistant.holoform)
 		pai_assistant.fold_in()
-	// NOVA EDIT ADDITION START - pAIs in MODsuits
+	// bobaEDIT ADDITION START - pAIs in MODsuits
 	if(can_pai_move_suit)
 		pai_assistant.remote_control = src
-	// NOVA EDIT END
+	// bobaEDIT END
 	SStgui.close_uis(card)
 	on_gained_assistant(card.pai)
 	return TRUE
@@ -147,10 +147,10 @@
 	var/datum/mod_part/legs_to_move = get_part_datum_from_slot(ITEM_SLOT_FEET)
 	if(wearer && (!legs_to_move || !legs_to_move.sealed))
 		return FALSE
-	// NOVA EDIT START - pAIs in MODsuits with a bit more functionalities
+	// bobaEDIT START - pAIs in MODsuits with a bit more functionalities
 	if(active && !can_pai_move_suit && ispAI(ai_assistant))
 		return FALSE
-	// NOVA EDIT END
+	// bobaEDIT END
 	var/timemodifier = MOVE_DELAY * (ISDIAGONALDIR(direction) ? sqrt(2) : 1) * (wearer ? WEARER_DELAY : LONE_DELAY)
 	if(wearer && !wearer.Process_Spacemove(direction))
 		return FALSE

@@ -33,7 +33,7 @@
 /datum/loadout_item/glasses/black_blindfold
 	name = "Black Blindfold"
 	item_path = /obj/item/clothing/glasses/blindfold
-*/ // NOVA REMOVAL END
+*/ // bobaREMOVAL END
 
 /datum/loadout_item/glasses/cold_glasses
 	name = "Cold Glasses"
@@ -59,7 +59,7 @@
 /datum/loadout_item/glasses/eyepatch/medical
 	name = "Medical Eyepatch"
 	item_path = /obj/item/clothing/glasses/eyepatch/medical
-*/ // NOVA EDIT REMOVAL END
+*/ // bobaEDIT REMOVAL END
 
 /datum/loadout_item/glasses/kim
 	name = "Thin Glasses"

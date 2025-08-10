@@ -900,7 +900,7 @@ INITIALIZE_IMMEDIATE(/atom/movable/screen/splash)
 		icon = SStitle.previous_icon
 
 	holder.screen += src
-*/ // NOVA EDIT END
+*/ // bobaEDIT END
 
 /atom/movable/screen/splash/proc/fade(out, qdel_after = TRUE)
 	if(QDELETED(src))

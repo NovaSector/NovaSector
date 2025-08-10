@@ -124,8 +124,8 @@ SUBSYSTEM_DEF(map_vote)
 		var/datum/map_config/possible_config = config.maplist[map]
 		if(!possible_config.votable || (possible_config.map_name in SSpersistence.blocked_maps))
 			continue
-		if(possible_config.map_name == SSmapping.current_map?.map_name) // NOVA EDIT ADDITION - Can't vote for the current map
-			continue // NOVA EDIT ADDITION
+		if(possible_config.map_name == SSmapping.current_map?.map_name) // bobaEDIT ADDITION - Can't vote for the current map
+			continue // bobaEDIT ADDITION
 		if(possible_config.config_min_users > 0 && filter_threshold < possible_config.config_min_users)
 			continue
 		if(possible_config.config_max_users > 0 && filter_threshold > possible_config.config_max_users)

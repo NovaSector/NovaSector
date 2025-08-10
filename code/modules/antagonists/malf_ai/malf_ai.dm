@@ -86,7 +86,7 @@
 
 /// Generates a special objective and adds it to the objective list.
 /datum/antagonist/malf_ai/proc/forge_special_objective()
-	var/special_pick = rand(3,4) // NOVA EDIT - REMOVING PURGE/BLOCK
+	var/special_pick = rand(3,4) // bobaEDIT - REMOVING PURGE/BLOCK
 	switch(special_pick)
 		if(1)
 			var/datum/objective/block/block_objective = new
@@ -239,7 +239,7 @@
 /datum/antagonist/malf_ai/roundend_report()
 	var/list/result = list()
 
-	//var/malf_ai_won = TRUE // NOVA EDIT REMOVAL
+	//var/malf_ai_won = TRUE // bobaEDIT REMOVAL
 
 	result += printplayer(owner)
 
@@ -247,19 +247,19 @@
 	if(objectives.len) //If the traitor had no objectives, don't need to process this.
 		var/count = 1
 		for(var/datum/objective/objective in objectives)
-			// NOVA EDIT START - No greentext
+			// bobaEDIT START - No greentext
 			/*
 			if(!objective.check_completion())
 				malf_ai_won = FALSE
 			objectives_text += "<br><B>Objective #[count]</B>: [objective.explanation_text] [objective.get_roundend_success_suffix()]"
 			*/
 			objectives_text += "<br><B>Objective #[count]</B>: [objective.explanation_text]"
-			// NOVA EDIT END - No greentext
+			// bobaEDIT END - No greentext
 			count++
 
 	result += objectives_text
 
-	// NOVA EDIT REMOVAL START
+	// bobaEDIT REMOVAL START
 	/*
 	var/special_role_text = LOWER_TEXT(name)
 

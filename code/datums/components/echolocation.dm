@@ -34,7 +34,7 @@
 	/// Cooldown for the echolocation.
 	COOLDOWN_DECLARE(cooldown_last)
 
-/datum/component/echolocation/Initialize(echo_range, cooldown_time, image_expiry_time, fade_in_time, fade_out_time, images_are_static, blocking_trait, echo_group, echo_icon, color_path, blinding, use_echo = TRUE, show_own_outline = FALSE) // NOVA EDIT CHANGE - ORIGINAL: /datum/component/echolocation/Initialize(echo_range, cooldown_time, image_expiry_time, fade_in_time, fade_out_time, images_are_static, blocking_trait, echo_group, echo_icon, color_path, blinding)
+/datum/component/echolocation/Initialize(echo_range, cooldown_time, image_expiry_time, fade_in_time, fade_out_time, images_are_static, blocking_trait, echo_group, echo_icon, color_path, blinding, use_echo = TRUE, show_own_outline = FALSE) // bobaEDIT CHANGE - ORIGINAL: /datum/component/echolocation/Initialize(echo_range, cooldown_time, image_expiry_time, fade_in_time, fade_out_time, images_are_static, blocking_trait, echo_group, echo_icon, color_path, blinding)
 	. = ..()
 	var/mob/living/echolocator = parent
 	if(!istype(echolocator))
@@ -59,18 +59,18 @@
 		src.images_are_static = images_are_static
 	if(!isnull(blocking_trait))
 		src.blocking_trait = blocking_trait
-	// NOVA EDIT ADDITION START: echolocation
+	// bobaEDIT ADDITION START: echolocation
 	if(!isnull(show_own_outline))
 		src.show_own_outline = show_own_outline
-	// NOVA EDIT ADDITION END
+	// bobaEDIT ADDITION END
 	src.echo_group = echo_group || REF(src)
 	if(ispath(color_path))
 		client_colour = echolocator.add_client_colour(color_path, src.echo_group)
 	echolocator.add_traits(list(TRAIT_ECHOLOCATION_RECEIVER, TRAIT_TRUE_NIGHT_VISION), src.echo_group) //so they see all the tiles they echolocated, even if they are in the dark
 	if(blinding)
 		echolocator.become_blind(ECHOLOCATION_TRAIT)
-		if (use_echo) // NOVA EDIT ADDITION - add constructor toggle to not use the eye overlay
-			echolocator.overlay_fullscreen("echo", /atom/movable/screen/fullscreen/echo, echo_icon) // NOVA EDIT CHANGE - No change except indented one tab
+		if (use_echo) // bobaEDIT ADDITION - add constructor toggle to not use the eye overlay
+			echolocator.overlay_fullscreen("echo", /atom/movable/screen/fullscreen/echo, echo_icon) // bobaEDIT CHANGE - No change except indented one tab
 		echolocator.overlay_fullscreen("echo", /atom/movable/screen/fullscreen/echo, echo_icon)
 	START_PROCESSING(SSfastprocess, src)
 
@@ -97,7 +97,7 @@
 	echolocate()
 
 /datum/component/echolocation/proc/echolocate()
-	if(!COOLDOWN_FINISHED(src, cooldown_last) || stall) // NOVA EDIT CHANGE - ORIGINAL: if(!COOLDOWN_FINISHED(src, cooldown_last))
+	if(!COOLDOWN_FINISHED(src, cooldown_last) || stall) // bobaEDIT CHANGE - ORIGINAL: if(!COOLDOWN_FINISHED(src, cooldown_last))
 		return
 	COOLDOWN_START(src, cooldown_last, cooldown_time)
 	var/mob/living/echolocator = parent
@@ -141,14 +141,14 @@
 	if(images_are_static)
 		final_image.pixel_x = input.pixel_x
 		final_image.pixel_y = input.pixel_y
-	// NOVA EDIT ADDITION START: echolocation (show outlines on self)
+	// bobaEDIT ADDITION START: echolocation (show outlines on self)
 	var/mob/living/echolocator = parent
 	if(HAS_TRAIT_FROM(input, TRAIT_ECHOLOCATION_RECEIVER, echo_group) && input != echolocator) //mark other echolocation with full white, except ourselves
-	// NOVA EDIT ADDITION END
+	// bobaEDIT ADDITION END
 		final_image.color = white_matrix
 	var/list/fade_ins = list(final_image)
 	for(var/mob/living/echolocate_receiver as anything in receivers)
-		if(!show_own_outline && echolocate_receiver == input) // NOVA EDIT CHANGE - ORIGINAL: if(echolocate_receiver == input)
+		if(!show_own_outline && echolocate_receiver == input) // bobaEDIT CHANGE - ORIGINAL: if(echolocate_receiver == input)
 			continue
 		if(receivers[echolocate_receiver][input])
 			var/previous_image = receivers[echolocate_receiver][input]["image"]

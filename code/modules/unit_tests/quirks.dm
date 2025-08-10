@@ -91,10 +91,10 @@
 	for (var/datum/quirk/quirk_type as anything in subtypesof(/datum/quirk))
 		if (initial(quirk_type.abstract_parent_type) == quirk_type)
 			continue
-		// NOVA EDIT ADDITION START
+		// bobaEDIT ADDITION START
 		if(quirk_type::hidden_quirk)
 			continue
-		// NOVA EDIT ADDITION END
+		// bobaEDIT ADDITION END
 
 		var/mob/dead/new_player/abstract_player = allocate(/mob/dead/new_player)
 		var/datum/client_interface/roundstart_mock_client = new()

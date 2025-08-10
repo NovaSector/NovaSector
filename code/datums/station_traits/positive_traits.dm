@@ -293,7 +293,7 @@
 		/datum/job/shaft_miner = /obj/item/organ/monster_core/rush_gland,
 		/datum/job/station_engineer = /obj/item/organ/cyberimp/arm/toolkit/toolset,
 		/datum/job/warden = /obj/item/organ/cyberimp/eyes/hud/security,
-		// NOVA EDIT ADDITION START - MODULAR JOBS
+		// bobaEDIT ADDITION START - MODULAR JOBS
 		/datum/job/virologist = /obj/item/organ/lungs/cybernetic/tier2,
 		/datum/job/blueshield = /obj/item/organ/cyberimp/brain/anti_stun,
 		/datum/job/nanotrasen_consultant = /obj/item/organ/heart/cybernetic/tier3,
@@ -306,7 +306,7 @@
 		/datum/job/engineering_guard = /obj/item/organ/cyberimp/arm/toolkit/flash,
 		/datum/job/telecomms_specialist = /obj/item/organ/ears/cybernetic/xray,
 		/datum/job/bridge_assistant = /obj/item/organ/cyberimp/arm/toolkit/paperwork,
-		// NOVA EDIT ADDITION END
+		// bobaEDIT ADDITION END
 	)
 
 /datum/station_trait/cybernetic_revolution/New()

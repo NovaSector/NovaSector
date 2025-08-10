@@ -35,9 +35,9 @@
 	SIGNAL_HANDLER
 
 	var/datum/status_effect/crusher_damage/damage = target.has_status_effect(/datum/status_effect/crusher_damage)
-	var/datum/status_effect/ashwalker_damage/ashie_damage = target.has_status_effect(/datum/status_effect/ashwalker_damage) // NOVA EDIT ADDITION - Ashwalker trophies
-	var/final_damage_total = damage?.total_damage + ashie_damage?.total_damage // NOVA EDIT ADDITION - Ashwalker trophies
-	if(final_damage_total && prob((final_damage_total/target.maxHealth) * drop_mod)) // NOVA EDIT CHANGE - Ashwalker trophies - ORIGINAL: if(damage && prob((damage.total_damage/target.maxHealth) * drop_mod)) //on average, you'll need to kill 4 creatures before getting the item. by default.
+	var/datum/status_effect/ashwalker_damage/ashie_damage = target.has_status_effect(/datum/status_effect/ashwalker_damage) // bobaEDIT ADDITION - Ashwalker trophies
+	var/final_damage_total = damage?.total_damage + ashie_damage?.total_damage // bobaEDIT ADDITION - Ashwalker trophies
+	if(final_damage_total && prob((final_damage_total/target.maxHealth) * drop_mod)) // bobaEDIT CHANGE - Ashwalker trophies - ORIGINAL: if(damage && prob((damage.total_damage/target.maxHealth) * drop_mod)) //on average, you'll need to kill 4 creatures before getting the item. by default.
 		if(islist(trophy_type))
 			for(var/trophypath in trophy_type)
 				make_path(target, trophypath)

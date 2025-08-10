@@ -554,7 +554,7 @@
 	. = ..()
 	if(!.)
 		return
-	//AddComponent(/datum/component/rot, 0, 5 MINUTES, 0.7) // NOVA EDIT REMOVAL
+	//AddComponent(/datum/component/rot, 0, 5 MINUTES, 0.7) // bobaEDIT REMOVAL
 	update_appearance(UPDATE_OVERLAYS)
 
 /obj/effect/decal/cleanable/blood/gibs/ex_act(severity, target)

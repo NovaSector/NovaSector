@@ -11,4 +11,4 @@
 
 /// Tail spine defines
 #define SPINE_KEY_LIZARD "lizard"
-#define SPINE_KEY_VOX "vox" // NOVA EDIT ADDITION
+#define SPINE_KEY_VOX "vox" // bobaEDIT ADDITION

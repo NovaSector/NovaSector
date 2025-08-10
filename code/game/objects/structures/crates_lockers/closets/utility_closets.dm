@@ -33,13 +33,13 @@
 /obj/structure/closet/emcloset/PopulateContents()
 	..()
 
-	new /obj/item/storage/box/emergency_spacesuit(src) // NOVA EDIT ADD
+	new /obj/item/storage/box/emergency_spacesuit(src) // bobaEDIT ADD
 
 	if (prob(40))
 		new /obj/item/storage/toolbox/emergency(src)
 
 	//switch (pick_weight(list("small" = 35, "aid" = 30, "tank" = 20, "both" = 10, "nothing" = 4))) // ORIGINAL
-	switch (pick_weight(list("small" = 35, "aid" = 30, "tank" = 20, "both" = 10))) // NOVA EDIT CHANGE
+	switch (pick_weight(list("small" = 35, "aid" = 30, "tank" = 20, "both" = 10))) // bobaEDIT CHANGE
 		if ("small")
 			new /obj/item/tank/internals/emergency_oxygen(src)
 			new /obj/item/tank/internals/emergency_oxygen(src)
@@ -59,13 +59,13 @@
 			new /obj/item/tank/internals/emergency_oxygen(src)
 			new /obj/item/clothing/mask/breath(src)
 
-		// NOVA EDIT REMOVAL START
+		// bobaEDIT REMOVAL START
 		/*
 		if ("nothing")
 			// doot
 			pass()
 		*/
-		// NOVA EDIT REMOVAL END
+		// bobaEDIT REMOVAL END
 
 /*
  * Fire Closet

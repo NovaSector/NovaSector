@@ -43,7 +43,7 @@ SUBSYSTEM_DEF(blackbox)
 		return
 	var/playercount = LAZYLEN(GLOB.player_list)
 	var/admincount = GLOB.admins.len
-	/* // NOVA EDIT CHANGE - MULTISERVER - ORIGINAL:
+	/* // bobaEDIT CHANGE - MULTISERVER - ORIGINAL:
 	var/datum/db_query/query_record_playercount = SSdbcore.NewQuery({"
 		INSERT INTO [format_table_name("legacy_population")] (playercount, admincount, time, server_ip, server_port, round_id)
 		VALUES (:playercount, :admincount, NOW(), INET_ATON(:server_ip), :server_port, :round_id)
@@ -54,7 +54,7 @@ SUBSYSTEM_DEF(blackbox)
 	"}, list(
 		"playercount" = playercount,
 		"admincount" = admincount,
-		"server_name" = CONFIG_GET(string/serversqlname), // NOVA EDIT ADDITION - MULTISERVER
+		"server_name" = CONFIG_GET(string/serversqlname), // bobaEDIT ADDITION - MULTISERVER
 		"server_ip" = world.internet_address || "0",
 		"server_port" = "[world.port]",
 		"round_id" = GLOB.round_id,
@@ -367,7 +367,7 @@ Versioning
 		"last_words" = L.last_words,
 		"suicide" = did_they_suicide,
 		"map" = SSmapping.current_map.map_name,
-		"server_name" = CONFIG_GET(string/serversqlname),  // NOVA EDIT ADDITION - MULTISERVER
+		"server_name" = CONFIG_GET(string/serversqlname),  // bobaEDIT ADDITION - MULTISERVER
 		"internet_address" = world.internet_address || "0",
 		"port" = "[world.port]",
 		"round_id" = GLOB.round_id,

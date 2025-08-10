@@ -84,7 +84,7 @@
 /proc/random_backpack()
 	return pick(GLOB.backpacklist)
 
-// NOVA EDIT REMOVAL - CUSTOMIZATION (moved to modular)
+// bobaEDIT REMOVAL - CUSTOMIZATION (moved to modular)
 /*
 /proc/random_features()
 	if(!GLOB.tails_list.len)
@@ -652,10 +652,10 @@ GLOBAL_LIST_INIT(skin_tone_names, list(
 		// We've already added slimes.
 		if(isslime(mob_to_sort))
 			continue
-	// NOVA EDIT START - SOULCATCHERS
+	// bobaEDIT START - SOULCATCHERS
 	for(var/mob/living/soulcatcher_soul/mob_to_sort in sortmob)
 		moblist += mob_to_sort
-	// NOVA EDIT END - SOULCATCHERS
+	// bobaEDIT END - SOULCATCHERS
 	return moblist
 ///returns a mob type controlled by a specified ckey
 /proc/get_mob_by_ckey(key)

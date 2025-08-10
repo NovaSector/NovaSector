@@ -19,7 +19,7 @@
 #define BUGS (1<<18)
 #define GORE (1<<19)
 #define STONE (1<<20)
-#define BLOODY (1<<21) // NOVA EDIT - Hemophage Food
+#define BLOODY (1<<21) // bobaEDIT - Hemophage Food
 
 DEFINE_BITFIELD(foodtypes, list(
 	"MEAT" = MEAT,
@@ -43,7 +43,7 @@ DEFINE_BITFIELD(foodtypes, list(
 	"BUGS" = BUGS,
 	"GORE" = GORE,
 	"STONE" = STONE,
-	"BLOODY" = BLOODY, // NOVA EDIT - Hemophage Food
+	"BLOODY" = BLOODY, // bobaEDIT - Hemophage Food
 ))
 
 /// A list of food type names, in order of their flags
@@ -108,7 +108,7 @@ DEFINE_BITFIELD(foodtypes, list(
 #define DRINK_FANTASTIC 5
 
 #define FOOD_AMAZING 6
-#define RACE_DRINK 7 // NOVA EDIT ADDITION
+#define RACE_DRINK 7 // bobaEDIT ADDITION
 
 #define FOOD_QUALITY_NORMAL 1
 #define FOOD_QUALITY_NICE 2
@@ -193,7 +193,7 @@ DEFINE_BITFIELD(food_flags, list(
 ///Define for return value of the after_eat callback that will call OnConsume if it hasn't already.
 #define FOOD_AFTER_EAT_CONSUME_ANYWAY 2
 
-#define STOP_SERVING_BREAKFAST (35 MINUTES) // NOVA EDIT CHANGE - ORIGINAL: #define STOP_SERVING_BREAKFAST (15 MINUTES)
+#define STOP_SERVING_BREAKFAST (35 MINUTES) // bobaEDIT CHANGE - ORIGINAL: #define STOP_SERVING_BREAKFAST (15 MINUTES)
 
 #define FOOD_MEAT_HUMAN 50
 #define FOOD_MEAT_MUTANT 100

@@ -22,20 +22,20 @@
 /// Someone, for the love of god, profile this.  Is there a reason to cache mutable_appearance
 /// if so, why are we JUST doing the airlocks when we can put this in mutable_appearance.dm for
 /// everything
-/proc/get_airlock_overlay(icon_state, icon_file, atom/offset_spokesman, em_block, state_color = null) // NOVA EDIT - Airlock accent greyscale color support - Added `state_color = null`
+/proc/get_airlock_overlay(icon_state, icon_file, atom/offset_spokesman, em_block, state_color = null) // bobaEDIT - Airlock accent greyscale color support - Added `state_color = null`
 	var/static/list/airlock_overlays = list()
 
-	var/base_icon_key = "[icon_state][REF(icon_file)][state_color]" // NOVA EDIT - Airlock accent greyscale color support - ORIGINAL: var/base_icon_key = "[icon_state][REF(icon_file)]"
+	var/base_icon_key = "[icon_state][REF(icon_file)][state_color]" // bobaEDIT - Airlock accent greyscale color support - ORIGINAL: var/base_icon_key = "[icon_state][REF(icon_file)]"
 	if(!(. = airlock_overlays[base_icon_key]))
 		/* NOVA EDIT - Airlock accent greyscale color support - ORIGINAL:
 		. = airlock_overlays[base_icon_key] = mutable_appearance(icon_file, icon_state)
-		*/ // NOVA EDIT START
+		*/ // bobaEDIT START
 		var/mutable_appearance/airlock_overlay = mutable_appearance(icon_file, icon_state)
 		if(state_color)
 			airlock_overlay.color = state_color
 
 		. = airlock_overlays[base_icon_key] = airlock_overlay
-		// NOVA EDIT END
+		// bobaEDIT END
 
 	if(isnull(em_block))
 		return
@@ -54,7 +54,7 @@
 // "Would this be better with a global var"
 
 // Wires for the airlock are located in the datum folder, inside the wires datum folder.
-// NOVA EDIT REMOVAL START - moved to code/__DEFINES/~nova_defines/airlock.dm
+// bobaEDIT REMOVAL START - moved to code/__DEFINES/~nova_defines/airlock.dm
 /*
 #define AIRLOCK_FRAME_CLOSED "closed"
 #define AIRLOCK_FRAME_CLOSING "closing"
@@ -82,7 +82,7 @@
 
 #define DOOR_VISION_DISTANCE 11 ///The maximum distance a door will see out to
 */
-// NOVA EDIT REMOVAL END - moved to code/__DEFINES/~nova_defines/airlock.dm
+// bobaEDIT REMOVAL END - moved to code/__DEFINES/~nova_defines/airlock.dm
 
 /obj/machinery/door/airlock
 	name = "Airlock"
@@ -2583,7 +2583,7 @@
 	opacity = FALSE
 	glass = TRUE
 
-// NOVA EDIT REMOVAL START - moved to code/__DEFINES/~nova_defines/airlock.dm
+// bobaEDIT REMOVAL START - moved to code/__DEFINES/~nova_defines/airlock.dm
 /*
 #undef AIRLOCK_SECURITY_NONE
 #undef AIRLOCK_SECURITY_IRON
@@ -2610,4 +2610,4 @@
 #undef AIRLOCK_FRAME_OPEN
 #undef AIRLOCK_FRAME_OPENING
 */
-// NOVA EDIT REMOVAL END - moved to code/__DEFINES/~nova_defines/airlock.dm
+// bobaEDIT REMOVAL END - moved to code/__DEFINES/~nova_defines/airlock.dm

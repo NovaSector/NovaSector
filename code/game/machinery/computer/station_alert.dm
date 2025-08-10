@@ -39,7 +39,7 @@
 	. = ..()
 	if(machine_stat & (NOPOWER|BROKEN))
 		return
-	if(length(alert_control?.listener.alarms)) /// NOVA EDIT - Fixing master - Original: if(length(alert_control.listener.alarms))
+	if(length(alert_control?.listener.alarms)) /// bobaEDIT - Fixing master - Original: if(length(alert_control.listener.alarms))
 		. += "alert:2"
 
 /**

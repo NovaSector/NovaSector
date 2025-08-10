@@ -17,7 +17,7 @@
 /obj/structure/showcase/machinery/microwave
 	icon = 'modular_nova/modules/aesthetics/kitchen/icons/microwave.dmi'
 
-// Nova Coffee Cartridge Icons
+// bobaCoffee Cartridge Icons
 /obj/item/coffee_cartridge
 	icon = 'modular_nova/modules/aesthetics/kitchen/icons/coffeemaker.dmi'
 

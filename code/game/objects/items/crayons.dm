@@ -1000,13 +1000,13 @@
 		return FALSE
 
 	var/list/skins = list()
-	/* var/static/list/style_list_icons = list( // NOVA EDIT REMOVAL START
+	/* var/static/list/style_list_icons = list( // bobaEDIT REMOVAL START
 		"standard" = 'icons/mob/augmentation/augments.dmi',
 		"engineer" = 'icons/mob/augmentation/augments_engineer.dmi',
 		"security" = 'icons/mob/augmentation/augments_security.dmi',
 		"mining" = 'icons/mob/augmentation/augments_mining.dmi',
 		)
-	*/ // NOVA EDIT REMOVAL END
+	*/ // bobaEDIT REMOVAL END
 	var/static/list/style_list_icons = GLOB.robotic_styles_list //NOVA EDIT ADDITION
 
 	for(var/skin_option in style_list_icons)

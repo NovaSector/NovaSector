@@ -849,7 +849,7 @@ GLOBAL_LIST_INIT(bronze_recipes, list ( \
 		/datum/crafting_recipe/bonespear,
 		/datum/crafting_recipe/bracers,
 		/datum/crafting_recipe/skullhelm,
-		/datum/crafting_recipe/ash_recipe/bone_greaves, // NOVA EDIT ADDITION
+		/datum/crafting_recipe/ash_recipe/bone_greaves, // bobaEDIT ADDITION
 	)
 
 	AddElement(

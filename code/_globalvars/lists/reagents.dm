@@ -35,7 +35,7 @@ GLOBAL_LIST_INIT(reagent_containers, list(
 	CAT_PATCHES = typecacheof(list(
 		/obj/item/reagent_containers/applicator/patch/style
 	)),
-	// NOVA EDIT ADDITION START
+	// bobaEDIT ADDITION START
 	CAT_HYPOS = typecacheof(list(
 		/obj/item/reagent_containers/cup/vial/small/style,
 		/obj/item/reagent_containers/cup/vial/large/style,
@@ -43,7 +43,7 @@ GLOBAL_LIST_INIT(reagent_containers, list(
 	CAT_DARTS = typecacheof(list(
 		/obj/item/reagent_containers/syringe/smartdart
 	)),
-	// NOVA EDIT ADDITION END
+	// bobaEDIT ADDITION END
 ))
 
 /// list of all /datum/chemical_reaction datums indexed by their typepath. Use this for general lookup stuff
@@ -191,10 +191,10 @@ GLOBAL_LIST_INIT(plant_traits, init_plant_traits())
 	var/list/name_to_reagent = list()
 	var/list/only_names = list()
 	for (var/datum/reagent/reagent as anything in GLOB.chemical_reagents_list)
-		// NOVA EDIT ADDITION BEGIN
+		// bobaEDIT ADDITION BEGIN
 		if(initial(reagent.chemical_flags) & REAGENT_NEUROWARE)
 			continue
-		// NOVA EDIT ADDITION END
+		// bobaEDIT ADDITION END
 		var/name = initial(reagent.name)
 		if (length(name))
 			name_to_reagent[name] = reagent

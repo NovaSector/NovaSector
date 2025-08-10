@@ -1,4 +1,4 @@
-// Nova Sector CC area defines
+// bobaSector CC area defines
 
 /*
  * Ghost Cafe

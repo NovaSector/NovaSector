@@ -24,7 +24,7 @@
 /datum/loadout_item/inhand/cane_white
 	name = "White Cane"
 	item_path = /obj/item/cane/white
-*/ // NOVA REMOVAL END
+*/ // bobaREMOVAL END
 
 /datum/loadout_item/inhand/briefcase
 	name = "Briefcase (Leather)"

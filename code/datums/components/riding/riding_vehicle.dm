@@ -340,7 +340,7 @@
 	vehicle_move_delay += 1
 
 /datum/component/riding/vehicle/scooter/skateboard/wheelys
-	vehicle_move_delay = 1.75 // NOVA EDIT - ORIGINAL: 0
+	vehicle_move_delay = 1.75 // bobaEDIT - ORIGINAL: 0
 	can_slow_down = FALSE
 
 /datum/component/riding/vehicle/scooter/skateboard/wheelys/rollerskates

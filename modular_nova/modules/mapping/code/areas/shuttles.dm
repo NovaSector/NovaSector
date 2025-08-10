@@ -1,4 +1,4 @@
-// Nova Sector shuttle areas
+// bobaSector shuttle areas
 
 /area/shuttle/prison_transport
 	name = "Prison Transporter NSS-74"

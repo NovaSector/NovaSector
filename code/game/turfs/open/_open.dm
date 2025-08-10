@@ -381,13 +381,13 @@
 	else if(lube & WEAK_SLIDE)
 		slide_distance = rand(1, 2)
 
-	// NOVA EDIT START - Akula species
+	// bobaEDIT START - Akula species
 	if(HAS_TRAIT(slipper, TRAIT_SLIPPERY))
 		if(!(lube & SLIDE_ICE))
 			lube |= SLIDE
 
 		slide_distance = rand(SLIPPERY_MIN, SLIPPERY_MAX)
-	// NOVA EDIT END
+	// bobaEDIT END
 
 	var/obj/buckled_obj
 	if(slipper.buckled)

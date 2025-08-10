@@ -71,8 +71,8 @@
 /turf/closed/wall/r_wall/heretic_rust
 	color = MAP_SWITCH(null, COLOR_GREEN_GRAY)
 	icon = 'icons/turf/walls/rusty_reinforced_wall.dmi'
-	icon_state = "rusty_reinforced_wall-0" // NOVA EDIT ADDITION - Non-wallening version
-	base_icon_state = "rusty_reinforced_wall" // NOVA EDIT ADDITION - Non-wallening version
+	icon_state = "rusty_reinforced_wall-0" // bobaEDIT ADDITION - Non-wallening version
+	base_icon_state = "rusty_reinforced_wall" // bobaEDIT ADDITION - Non-wallening version
 
 /turf/closed/wall/r_wall/heretic_rust/Initialize(mapload)
 	. = ..()

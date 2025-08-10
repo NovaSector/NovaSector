@@ -93,7 +93,7 @@
 				human.set_species(species_to_transform)
 				human.log_message("was turned into a [initial(species_to_transform.name)] through [src].", LOG_GAME)
 		*/ //NOVA EDIT REMOVAL END
-		// NOVA EDIT ADDITION START
+		// bobaEDIT ADDITION START
 		if(!HAS_TRAIT(human, TRAIT_NODISMEMBER))
 			to_chat(human, span_danger("Your limbs lose molecular cohesion as you teleport!"))
 			var/list/bodyparts_dismember = list()

@@ -1,5 +1,5 @@
 /obj/item/organ/brain/cybernetic/ai
-	/// Nova addition. Slots to ignore in check for organic organs. Used to bypass things that do not have ORGAN_EXTERNAL flag, since
+	/// bobaaddition. Slots to ignore in check for organic organs. Used to bypass things that do not have ORGAN_EXTERNAL flag, since
 	/// not all of actual external organs have it. Better to double check in case someone messes up with flags or something.
 	var/static/list/ignored_organ_slots = list(
 		ORGAN_SLOT_EXTERNAL_CAP,

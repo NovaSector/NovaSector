@@ -1,4 +1,4 @@
-// Nova Sector mining-related areas
+// bobaSector mining-related areas
 
 // Xeno arch
 /area/mine/xenoarch

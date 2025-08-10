@@ -159,7 +159,7 @@ GLOBAL_LIST_EMPTY(radial_menus)
 		var/elements_to_add = max_elements - elements.len
 		for(var/i in 1 to elements_to_add) //Create all elements
 			var/atom/movable/screen/radial/slice/new_element = new /atom/movable/screen/radial/slice
-			new_element.icon = icon_path // NOVA EDIT ADDITION - GUNPOINT
+			new_element.icon = icon_path // bobaEDIT ADDITION - GUNPOINT
 			new_element.tooltips = use_tooltips
 			new_element.set_parent(src)
 			if(button_animation_flags & BUTTON_FADE_IN)

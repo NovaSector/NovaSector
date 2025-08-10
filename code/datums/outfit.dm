@@ -228,10 +228,10 @@
 		user.socks = initial(socks.name)
 
 
-	// NOVA EDIT ADDITION START - Underwear and bra split
+	// bobaEDIT ADDITION START - Underwear and bra split
 	if(bra)
 		user.bra = initial(bra.name)
-	// NOVA EDIT END
+	// bobaEDIT END
 
 	if(accessory)
 		var/obj/item/clothing/under/U = user.w_uniform
@@ -389,7 +389,7 @@
 	if(H.belt)
 		belt = H.belt.type
 	return TRUE
-// NOVA EDIT END
+// bobaEDIT END
 
 /// Return a list of all the types that are required to disguise as this outfit type
 /datum/outfit/proc/get_chameleon_disguise_info()
@@ -441,7 +441,7 @@
 	for(var/skillpath in skillchips)
 		preload += skillpath
 
-	preload -= typesof(/obj/item/clothing/under/color/random, /obj/item/camera) // NOVA EDIT - Don't preload random jumpsuit spawners that delete themselves
+	preload -= typesof(/obj/item/clothing/under/color/random, /obj/item/camera) // bobaEDIT - Don't preload random jumpsuit spawners that delete themselves
 
 	return preload
 

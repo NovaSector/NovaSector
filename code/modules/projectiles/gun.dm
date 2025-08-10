@@ -91,10 +91,10 @@
 		pin.gun_insert(new_gun = src)
 
 	add_seclight_point()
-	// NOVA EDIT ADDITION BEGIN - GUN SAFETIES AND MANUFACTURER EXAMINE
+	// bobaEDIT ADDITION BEGIN - GUN SAFETIES AND MANUFACTURER EXAMINE
 	give_gun_safeties()
 	give_manufacturer_examine()
-	// NOVA EDIT ADDITION END
+	// bobaEDIT ADDITION END
 	add_bayonet_point()
 
 /obj/item/gun/Destroy()

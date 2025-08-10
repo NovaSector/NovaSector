@@ -112,18 +112,18 @@
 			frequency = rand(MIN_EMOTE_PITCH, MAX_EMOTE_PITCH) * (1 + sqrt(abs(user.pitch)) * SIGN(user.pitch) * EMOTE_TTS_PITCH_MULTIPLIER)
 		else if(vary)
 			frequency = rand(MIN_EMOTE_PITCH, MAX_EMOTE_PITCH)
-		//playsound(source = user,soundin = tmp_sound,vol = 50, vary = FALSE, ignore_walls = sound_wall_ignore, frequency = frequency) // NOVA EDIT REMOVAL
-		// NOVA EDIT ADDITION START - Lewd emote prefs
+		//playsound(source = user,soundin = tmp_sound,vol = 50, vary = FALSE, ignore_walls = sound_wall_ignore, frequency = frequency) // bobaEDIT REMOVAL
+		// bobaEDIT ADDITION START - Lewd emote prefs
 		if(istype(src, /datum/emote/living/lewd))
 			playsound_if_pref(source = user, soundin = tmp_sound, vol = sound_volume, vary = FALSE, frequency = frequency, pref_to_check = /datum/preference/toggle/erp/sounds)
 		else
 			playsound(source = user, soundin = tmp_sound, vol = sound_volume, vary = FALSE, ignore_walls = sound_wall_ignore, frequency = frequency)
-		// NOVA EDIT ADDITION END
+		// bobaEDIT ADDITION END
 
 	var/is_important = emote_type & EMOTE_IMPORTANT
 	var/is_visual = emote_type & EMOTE_VISIBLE
 	var/is_audible = emote_type & EMOTE_AUDIBLE
-	var/space = should_have_space_before_emote(html_decode(msg)[1]) ? " " : "" // NOVA EDIT ADDITION
+	var/space = should_have_space_before_emote(html_decode(msg)[1]) ? " " : "" // bobaEDIT ADDITION
 	var/additional_message_flags = get_message_flags(intentional)
 
 	// Emote doesn't get printed to chat, runechat only
@@ -136,10 +136,10 @@
 					continue
 				if(is_visual && viewer.is_blind())
 					continue
-				// NOVA EDIT ADDITION START - Pref checked emotes
+				// bobaEDIT ADDITION START - Pref checked emotes
 				if(!pref_check_emote(viewer))
 					continue
-				// NOVA EDIT ADDITION END
+				// bobaEDIT ADDITION END
 			if(user.runechat_prefs_check(viewer, EMOTE_MESSAGE))
 				viewer.create_chat_message(
 					speaker = user,
@@ -177,8 +177,8 @@
 			deaf_message = span_emote("You see how <b>[user]</b> [msg]"),
 			self_message = msg,
 			audible_message_flags = EMOTE_MESSAGE|ALWAYS_SHOW_SELF_MESSAGE|additional_message_flags,
-			separation = space, // NOVA EDIT ADDITION
-			pref_to_check = pref_to_check, // NOVA EDIT ADDITION
+			separation = space, // bobaEDIT ADDITION
+			pref_to_check = pref_to_check, // bobaEDIT ADDITION
 		)
 	// Emote is entirely audible, no visible component
 	else if(is_audible)
@@ -186,8 +186,8 @@
 			message = msg,
 			self_message = msg,
 			audible_message_flags = EMOTE_MESSAGE|additional_message_flags,
-			separation = space, // NOVA EDIT ADDITION
-			pref_to_check = pref_to_check, // NOVA EDIT ADDITION
+			separation = space, // bobaEDIT ADDITION
+			pref_to_check = pref_to_check, // bobaEDIT ADDITION
 		)
 	// Emote is entirely visible, no audible component
 	else if(is_visual)
@@ -195,13 +195,13 @@
 			message = msg,
 			self_message = msg,
 			visible_message_flags = EMOTE_MESSAGE|ALWAYS_SHOW_SELF_MESSAGE|additional_message_flags,
-			separation = space, // NOVA EDIT ADDITION
-			pref_to_check = pref_to_check, // NOVA EDIT ADDITION
+			separation = space, // bobaEDIT ADDITION
+			pref_to_check = pref_to_check, // bobaEDIT ADDITION
 		)
 	else
 		CRASH("Emote [type] has no valid emote type set!")
 
-	// NOVA EDIT ADDITION START - AI QOL - RELAY EMOTES OVER HOLOPADS
+	// bobaEDIT ADDITION START - AI QOL - RELAY EMOTES OVER HOLOPADS
 	var/obj/effect/overlay/holo_pad_hologram/hologram = GLOB.hologram_impersonators[user]
 	if(hologram)
 		if(is_important)
@@ -234,18 +234,18 @@
 				separation = space,
 				pref_to_check = pref_to_check,
 			)
-	// NOVA EDIT ADDITION END
+	// bobaEDIT ADDITION END
 	if(!isnull(user.client))
-		var/dchatmsg = "<b>[user]</b>[space][msg]" // NOVA EDIT CHANGE - ORIGINAL: var/dchatmsg = "<b>[user]</b> [msg]"
+		var/dchatmsg = "<b>[user]</b>[space][msg]" // bobaEDIT CHANGE - ORIGINAL: var/dchatmsg = "<b>[user]</b> [msg]"
 		for(var/mob/ghost as anything in GLOB.dead_mob_list - viewers(get_turf(user)))
 			if(isnull(ghost.client) || isnewplayer(ghost))
 				continue
 			if(!(get_chat_toggles(ghost.client) & CHAT_GHOSTSIGHT))
 				continue
-			// NOVA EDIT ADDITION START - Pref checked emotes
+			// bobaEDIT ADDITION START - Pref checked emotes
 			if(!pref_check_emote(ghost))
 				continue
-			// NOVA EDIT ADDITION END
+			// bobaEDIT ADDITION END
 			to_chat(ghost, span_emote("[FOLLOW_LINK(ghost, user)] [dchatmsg]"))
 
 	return
@@ -269,7 +269,7 @@
 	if(!intentional)
 		return TRUE
 
-	if(user.nextsoundemote > world.time) // NOVA EDIT CHANGE - ORIGINAL: if(user.emotes_used && user.emotes_used[src] + cooldown > world.time)
+	if(user.nextsoundemote > world.time) // bobaEDIT CHANGE - ORIGINAL: if(user.emotes_used && user.emotes_used[src] + cooldown > world.time)
 		var/datum/emote/default_emote = /datum/emote
 		if(cooldown > initial(default_emote.cooldown)) // only worry about longer-than-normal emotes
 			to_chat(user, span_danger("You must wait another [DisplayTimeText(user.nextsoundemote - world.time)] before using that emote."))

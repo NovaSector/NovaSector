@@ -11,7 +11,7 @@
 	hijack_speed = 0.5
 	ui_name = "AntagInfoChangeling"
 	suicide_cry = "FOR THE HIVE!!"
-	can_assign_self_objectives = FALSE // NOVA EDIT CHANGE - Too loose of a cannon, and doesn't have staff sign off - ORIGINAL: can_assign_self_objectives = TRUE
+	can_assign_self_objectives = FALSE // bobaEDIT CHANGE - Too loose of a cannon, and doesn't have staff sign off - ORIGINAL: can_assign_self_objectives = TRUE
 	default_custom_objective = "Consume the station's most valuable genomes."
 	hardcore_random_bonus = TRUE
 	stinger_sound = 'sound/music/antag/ling_alert.ogg'
@@ -545,7 +545,7 @@
 	new_profile.underwear_color = target.underwear_color
 	new_profile.undershirt = target.undershirt
 	new_profile.socks = target.socks
-	// NOVA EDIT ADDITION START
+	// bobaEDIT ADDITION START
 	new_profile.bra = target.bra
 	new_profile.undershirt_color = target.undershirt_color
 	new_profile.socks_color = target.socks_color
@@ -591,13 +591,13 @@
 		new_profile.worn_icon_list[slot] = clothing_item.worn_icon
 		new_profile.worn_icon_state_list[slot] = clothing_item.worn_icon_state
 		new_profile.exists_list[slot] = 1
-		// NOVA EDIT ADDITION START
+		// bobaEDIT ADDITION START
 		new_profile.worn_icon_digi_list[slot] = clothing_item.worn_icon_digi
 		new_profile.worn_icon_monkey_list[slot] = clothing_item.worn_icon_monkey
 		new_profile.worn_icon_teshari_list[slot] = clothing_item.worn_icon_teshari
 		new_profile.worn_icon_vox_list[slot] = clothing_item.worn_icon_vox
 		new_profile.supports_variations_flags_list[slot] = clothing_item.supports_variations_flags
-		// NOVA EDIT ADDITION END
+		// bobaEDIT ADDITION END
 
 	new_profile.voice = target.voice
 	new_profile.voice_filter = target.voice_filter
@@ -792,7 +792,7 @@
 	user.mind?.set_level(/datum/skill/athletics, chosen_profile.athletics_level, silent = TRUE)
 	user.voice = chosen_profile.voice
 	user.voice_filter = chosen_profile.voice_filter
-	// NOVA EDIT ADDITION START
+	// bobaEDIT ADDITION START
 	user.bra = chosen_profile.bra
 	user.undershirt_color = chosen_profile.undershirt_color
 	user.socks_color = chosen_profile.socks_color
@@ -821,14 +821,14 @@
 			if(target_quirk.name == mimicable_quirk)
 				user.add_quirk(target_quirk.type)
 				break
-	// NOVA EDIT ADDITION END
+	// bobaEDIT ADDITION END
 
 	chosen_dna.copy_dna(user.dna, COPY_DNA_SE|COPY_DNA_SPECIES)
 
 	for(var/obj/item/bodypart/limb as anything in user.bodyparts)
 		limb.update_limb(is_creating = TRUE)
 
-	user.updateappearance(mutcolor_update = TRUE, eyeorgancolor_update = TRUE) // NOVA EDIT CHANGE - ORIGINAL: user.updateappearance(mutcolor_update = TRUE)
+	user.updateappearance(mutcolor_update = TRUE, eyeorgancolor_update = TRUE) // bobaEDIT CHANGE - ORIGINAL: user.updateappearance(mutcolor_update = TRUE)
 	user.domutcheck()
 
 	// Get rid of any scars from previous Changeling-ing
@@ -900,13 +900,13 @@
 		new_flesh_item.inhand_icon_state = chosen_profile.inhand_icon_state_list[slot]
 		new_flesh_item.worn_icon = chosen_profile.worn_icon_list[slot]
 		new_flesh_item.worn_icon_state = chosen_profile.worn_icon_state_list[slot]
-		// NOVA EDIT ADDITION START
+		// bobaEDIT ADDITION START
 		new_flesh_item.worn_icon_digi = chosen_profile.worn_icon_digi_list[slot]
 		new_flesh_item.worn_icon_monkey = chosen_profile.worn_icon_monkey_list[slot]
 		new_flesh_item.worn_icon_teshari = chosen_profile.worn_icon_teshari_list[slot]
 		new_flesh_item.worn_icon_vox = chosen_profile.worn_icon_vox_list[slot]
 		new_flesh_item.supports_variations_flags = chosen_profile.supports_variations_flags_list[slot]
-		// NOVA EDIT ADDITION END
+		// bobaEDIT ADDITION END
 
 		if(istype(new_flesh_item, /obj/item/changeling/id) && chosen_profile.id_icon)
 			var/obj/item/changeling/id/flesh_id = new_flesh_item
@@ -925,7 +925,7 @@
 	user.regenerate_icons()
 	user.name = user.get_visible_name()
 	current_profile = chosen_profile
-	// NOVA EDIT START
+	// bobaEDIT START
 	user.updateappearance(mutcolor_update = TRUE, eyeorgancolor_update = TRUE)
 	user.regenerate_icons()
 	user.name = user.get_visible_name()
@@ -934,7 +934,7 @@
 	user.blooper_pitch = chosen_profile.blooper_pitch
 	user.blooper_speed = chosen_profile.blooper_speed
 	user.blooper_pitch_range = chosen_profile.blooper_pitch_range
-	// NOVA ADDITION END
+	// bobaADDITION END
 
 // Changeling profile themselves. Store a data to store what every DNA instance looked like.
 /datum/changeling_profile
@@ -1029,7 +1029,7 @@
 	new_profile.quirks = quirks.Copy()
 	new_profile.voice = voice
 	new_profile.voice_filter = voice_filter
-	// NOVA EDIT ADDITION START
+	// bobaEDIT ADDITION START
 	new_profile.undershirt_color = undershirt_color
 	new_profile.socks_color = socks_color
 	new_profile.bra = bra
@@ -1043,18 +1043,18 @@
 	new_profile.supports_variations_flags_list = supports_variations_flags_list.Copy()
 	new_profile.scream_type = scream_type
 	new_profile.laugh_type = laugh_type
-	// NOVA EDIT ADDITION END
+	// bobaEDIT ADDITION END
 
 /datum/antagonist/changeling/roundend_report()
 	var/list/parts = list()
 
-	// NOVA EDIT REMOVAL START
+	// bobaEDIT REMOVAL START
 	/*
 	var/changeling_win = TRUE
 	if(!owner.current)
 		changeling_win = FALSE
 	*/
-	// NOVA EDIT REMOVAL END
+	// bobaEDIT REMOVAL END
 
 	parts += printplayer(owner)
 	parts += "<b>Genomes Extracted:</b> [absorbed_count]<br>"
@@ -1062,24 +1062,24 @@
 	if(objectives.len)
 		var/count = 1
 		for(var/datum/objective/objective in objectives)
-			// NOVA EDIT START - No greentext
+			// bobaEDIT START - No greentext
 			/*
 			if(!objective.check_completion())
 				changeling_win = FALSE
 			parts += "<b>Objective #[count]</b>: [objective.explanation_text] [objective.get_roundend_success_suffix()]"
 			*/
 			parts += "<b>Objective #[count]</b>: [objective.explanation_text]"
-			// NOVA EDIT END - No greentext
+			// bobaEDIT END - No greentext
 			count++
 
-	// NOVA EDIT REMOVAL START - No greentext
+	// bobaEDIT REMOVAL START - No greentext
 	/*
 	if(changeling_win)
 		parts += span_greentext("The changeling was successful!")
 	else
 		parts += span_redtext("The changeling has failed.")
 	*/
-	// NOVA EDIT REMOVAL END - No greentext
+	// bobaEDIT REMOVAL END - No greentext
 
 	return parts.Join("<br>")
 

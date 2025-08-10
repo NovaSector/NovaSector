@@ -22,7 +22,7 @@
 		if(ispath(path, /datum/crafting_recipe/stack))
 			continue
 		var/datum/crafting_recipe/recipe = new path()
-		var/is_cooking = ((recipe.category in GLOB.crafting_category_food) || (recipe.category in GLOB.crafting_category_food_nova)) // NOVA EDIT CHANGE - ORIGINAL: var/is_cooking = (recipe.category in GLOB.crafting_category_food)
+		var/is_cooking = ((recipe.category in GLOB.crafting_category_food) || (recipe.category in GLOB.crafting_category_food_nova)) // bobaEDIT CHANGE - ORIGINAL: var/is_cooking = (recipe.category in GLOB.crafting_category_food)
 		recipe.reqs = sort_list(recipe.reqs, GLOBAL_PROC_REF(cmp_crafting_req_priority))
 		if(recipe.name != "" && recipe.result)
 			if(is_cooking)
@@ -184,8 +184,8 @@ GLOBAL_LIST_INIT(WALLITEMS_INTERIOR, typecacheof(list(
 	/obj/machinery/status_display,
 	/obj/machinery/ticket_machine,
 	/obj/machinery/turretid,
-	/obj/machinery/modular_computer/preset/time_clock, // NOVA EDIT ADDITION - TIME CLOCK
-	/obj/structure/wall_torch, // NOVA EDIT ADDITION - Wall-mounted torches
+	/obj/machinery/modular_computer/preset/time_clock, // bobaEDIT ADDITION - TIME CLOCK
+	/obj/structure/wall_torch, // bobaEDIT ADDITION - Wall-mounted torches
 	/obj/machinery/barsign,
 	/obj/structure/extinguisher_cabinet,
 	/obj/structure/fish_mount,

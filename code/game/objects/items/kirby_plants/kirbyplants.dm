@@ -47,12 +47,12 @@
 /obj/item/kirbyplants/update_icon_state()
 	. = ..()
 	icon_state = dead ? "plant-25" : base_icon_state
-	// NOVA EDIT ADDITION START - AESTHETICS
+	// bobaEDIT ADDITION START - AESTHETICS
 	if(icon_state in modular_states)
 		icon = 'modular_nova/modules/aesthetics/plants/icons/plants.dmi'
 	else
 		icon = 'icons/obj/fluff/flora/plants.dmi'
-	// NOVA EDIT ADDITION END
+	// bobaEDIT ADDITION END
 
 /obj/item/kirbyplants/attackby(obj/item/I, mob/living/user, list/modifiers, list/attack_modifiers)
 	. = ..()
@@ -87,7 +87,7 @@
 			number = "[i]"
 		plant_states += "plant-[number]"
 	plant_states += "applebush"
-	plant_states += modular_states // NOVA EDIT ADDITION - AESTHETICS - SEE modular_nova\modules\aesthetics\plants\plants.dm
+	plant_states += modular_states // bobaEDIT ADDITION - AESTHETICS - SEE modular_nova\modules\aesthetics\plants\plants.dm
 
 	return plant_states
 

@@ -106,12 +106,12 @@ GLOBAL_LIST_INIT(security_depts_prefs, sort_list(list(
 #define GSATCHEL "Grey Satchel"
 #define GMESSENGER "Grey Messenger Bag"
 #define LSATCHEL "Leather Satchel"
-/// NOVA EDIT ADDITION START - Adds tpacks, tiny backpacks
+/// bobaEDIT ADDITION START - Adds tpacks, tiny backpacks
 #define TPACKB "Beltpack"
 #define TPACKA "Waistpack"
 #define TPACKC "Chest pack"
 #define GUNCASE "Guncase"
-// NOVA EDIT ADDITION END
+// bobaEDIT ADDITION END
 GLOBAL_LIST_INIT(backpacklist, list(
 	DBACKPACK,
 	DDUFFELBAG,
@@ -122,12 +122,12 @@ GLOBAL_LIST_INIT(backpacklist, list(
 	GSATCHEL,
 	GMESSENGER,
 	LSATCHEL,
-	// NOVA EDIT ADDITION START
+	// bobaEDIT ADDITION START
 	TPACKB,
 	TPACKA,
 	TPACKC,
 	GUNCASE,
-	// NOVA EDIT ADDITION END
+	// bobaEDIT ADDITION END
 ))
 
 	//Suit/Skirt
@@ -266,14 +266,14 @@ GLOBAL_LIST_INIT(status_display_approved_pictures, list(
 	"lockdown",
 	"greenalert",
 	"bluealert",
-	"violetalert", // NOVA EDIT ADDITION - Alert Levels
-	"orangealert", // NOVA EDIT ADDITION - Alert Levels
-	"amberalert", // NOVA EDIT ADDITION - Alert Levels
+	"violetalert", // bobaEDIT ADDITION - Alert Levels
+	"orangealert", // bobaEDIT ADDITION - Alert Levels
+	"amberalert", // bobaEDIT ADDITION - Alert Levels
 	"redalert",
 	"deltaalert",
-	"gammaalert", // NOVA EDIT ADDITION - Alert Levels
-	"epsilonalert", // NOVA EDIT ADDITION - Alert Levels
-	"federalalert", // NOVA EDIT ADDITION - Alert Levels
+	"gammaalert", // bobaEDIT ADDITION - Alert Levels
+	"epsilonalert", // bobaEDIT ADDITION - Alert Levels
+	"federalalert", // bobaEDIT ADDITION - Alert Levels
 	"radiation",
 	"currentalert", //For automatic set of status display on current level
 ))

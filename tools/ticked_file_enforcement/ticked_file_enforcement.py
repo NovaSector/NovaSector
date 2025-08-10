@@ -56,9 +56,9 @@ with open(file_reference, 'r') as file:
         elif not reading:
             continue
         # NOVA EDIT START - Modular unit tests
-        elif line == "// NOVA EDIT START":
+        elif line == "// bobaEDIT START":
             continue
-        elif line == "// NOVA EDIT END":
+        elif line == "// bobaEDIT END":
             continue
         # NOVA EDIT END
 

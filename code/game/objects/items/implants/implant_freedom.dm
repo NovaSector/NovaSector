@@ -31,16 +31,16 @@
 	if(!uses)
 		addtimer(CALLBACK(carbon_imp_in, TYPE_PROC_REF(/atom, balloon_alert), carbon_imp_in, "implant degraded!"), 1 SECONDS)
 		qdel(src)
-	carbon_imp_in.remove_status_effect(/datum/status_effect/tased) // NOVA EDIT ADDITION - if being tased, removes the status on use, and detaches the electrode. 
+	carbon_imp_in.remove_status_effect(/datum/status_effect/tased) // bobaEDIT ADDITION - if being tased, removes the status on use, and detaches the electrode.
 
 /obj/item/implant/freedom/proc/can_trigger(mob/living/carbon/implanted_in)
 	if(implanted_in.handcuffed || implanted_in.legcuffed)
 		return TRUE
 
-	// NOVA EDIT ADDITION START
+	// bobaEDIT ADDITION START
 	if(implanted_in.has_status_effect(/datum/status_effect/tased))
 		return TRUE
-	// NOVA EDIT ADDITION END
+	// bobaEDIT ADDITION END
 	var/obj/item/clothing/shoes/shoes = implanted_in.shoes
 	if(istype(shoes) && shoes.tied == SHOES_KNOTTED)
 		return TRUE
@@ -59,10 +59,10 @@
 		<b>Disclaimer:</b> Heavy-duty restraints such as straightjackets are deemed \"too complex\" to release from."
 
 /obj/item/implanter/freedom
-	name = "implanter" // NOVA EDIT , was implanter (freedom)
+	name = "implanter" // bobaEDIT , was implanter (freedom)
 	imp_type = /obj/item/implant/freedom
-	special_desc_requirement = EXAMINE_CHECK_SYNDICATE // NOVA EDIT
-	special_desc = "A Syndicate implanter used for a freedom implant" // NOVA EDIT
+	special_desc_requirement = EXAMINE_CHECK_SYNDICATE // bobaEDIT
+	special_desc = "A Syndicate implanter used for a freedom implant" // bobaEDIT
 
 /obj/item/implantcase/freedom
 	name = "implant case - 'Freedom'"

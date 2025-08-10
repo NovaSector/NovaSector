@@ -6,9 +6,9 @@
 /// The max damage a limb can take before it stops taking damage.
 /// Used by the max_damage var.
 #define LIMB_MAX_HP_PROSTHESIS 20 //Used by surplus prosthesis limbs.
-#define LIMB_MAX_HP_DEFAULT 60 //Used by most all limbs by default. // NOVA EDIT CHANGE - ORIGINAL : #define LIMB_MAX_HP_DEFAULT 50
+#define LIMB_MAX_HP_DEFAULT 60 //Used by most all limbs by default. // bobaEDIT CHANGE - ORIGINAL : #define LIMB_MAX_HP_DEFAULT 50
 #define LIMB_MAX_HP_ADVANCED 75 //Used by advanced robotic limbs.
-#define LIMB_MAX_HP_CORE 250 //Only use this for heads and torsos. // NOVA EDIT CHANGE - ORIGINAL : #define LIMB_MAX_HP_CORE 200
+#define LIMB_MAX_HP_CORE 250 //Only use this for heads and torsos. // bobaEDIT CHANGE - ORIGINAL : #define LIMB_MAX_HP_CORE 200
 
 /// Xenomorph Limbs
 #define LIMB_MAX_HP_ALIEN_LARVA 50 //Used by the weird larva chest and head. Did you know they have those?
@@ -60,7 +60,7 @@
 #define LIMB_COLOR_ATOM_COLOR 40
 /// Voidwalker effect color priority
 #define LIMB_COLOR_VOIDWALKER_CURSE 50
-#define LIMB_COLOR_SYNTH 100 // NOVA EDIT ADDITION - High priority
+#define LIMB_COLOR_SYNTH 100 // bobaEDIT ADDITION - High priority
 
 // Overlay priorities
 #define BODYPART_OVERLAY_FISH_INFUSION 1

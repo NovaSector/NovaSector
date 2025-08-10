@@ -164,11 +164,11 @@
 		span_notice("You start fixing some of the dents on [attacked_humanoid == user ? "your" : "[attacked_humanoid]'s"] [affecting.name]."))
 	var/use_delay = repeating ? 1 SECONDS : 0
 	if(user == attacked_humanoid)
-		use_delay = self_delay // NOVA EDIT CHANGE - ORIGINAL: use_delay = 5 SECONDS
-	// NOVA EDIT ADDITION START
+		use_delay = self_delay // bobaEDIT CHANGE - ORIGINAL: use_delay = 5 SECONDS
+	// bobaEDIT ADDITION START
 	else
 		use_delay = other_delay
-	// NOVA EDIT ADDITION END
+	// bobaEDIT ADDITION END
 
 	if(!use_tool(attacked_humanoid, user, use_delay, volume=50, amount=1))
 		return ITEM_INTERACT_BLOCKING

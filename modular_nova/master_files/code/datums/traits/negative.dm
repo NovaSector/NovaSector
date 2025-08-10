@@ -1,4 +1,4 @@
-// NOVA NEGATIVE TRAITS
+// bobaNEGATIVE TRAITS
 
 /datum/quirk/alexithymia
 	name = "Alexithymia"

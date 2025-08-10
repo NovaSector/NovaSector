@@ -71,10 +71,10 @@
 	playsound(get_turf(chest_owner), 'sound/misc/splort.ogg', 80, TRUE)
 
 	for(var/obj/item/organ/organ in contents)
-		// NOVA EDIT START - Non-spillable organs
+		// bobaEDIT START - Non-spillable organs
 		if(!organ.drop_when_organ_spilling)
 			continue
-		// NOVA EDIT END
+		// bobaEDIT END
 		var/org_zone = check_zone(organ.zone)
 		if(org_zone != BODY_ZONE_CHEST)
 			continue

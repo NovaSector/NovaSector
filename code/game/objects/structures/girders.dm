@@ -87,7 +87,7 @@
 					balloon_alert(user, "need [amount] rods!")
 					return
 				balloon_alert(user, "concealing entrance...")
-				if(do_after(user, 2 SECONDS * skill_modifier, target = src)) // NOVA EDIT CHANGE - ORIGINAL: if(do_after(user, 2 SECONDS, target = src))
+				if(do_after(user, 2 SECONDS * skill_modifier, target = src)) // bobaEDIT CHANGE - ORIGINAL: if(do_after(user, 2 SECONDS, target = src))
 					if(rod.get_amount() < amount)
 						return
 					rod.use(amount)
@@ -101,7 +101,7 @@
 					balloon_alert(user, "need [amount] rods!")
 					return
 				balloon_alert(user, "adding plating...")
-				if(do_after(user, 4 SECONDS * skill_modifier, target = src)) // NOVA EDIT CHANGE - ORIGINAL: if(do_after(user, 4 SECONDS, target = src))
+				if(do_after(user, 4 SECONDS * skill_modifier, target = src)) // bobaEDIT CHANGE - ORIGINAL: if(do_after(user, 4 SECONDS, target = src))
 					if(rod.get_amount() < amount)
 						return
 					rod.use(amount)
@@ -123,7 +123,7 @@
 					balloon_alert(user, "need [amount] sheets!")
 					return
 				balloon_alert(user, "concealing entrance...")
-				if(do_after(user, 20 * platingmodifier * skill_modifier, target = src)) // NOVA EDIT CHANGE - ORIGINAL: if(do_after(user, 20*platingmodifier, target = src))
+				if(do_after(user, 20 * platingmodifier * skill_modifier, target = src)) // bobaEDIT CHANGE - ORIGINAL: if(do_after(user, 20*platingmodifier, target = src))
 					if(sheets.get_amount() < amount)
 						return
 					sheets.use(amount)
@@ -140,7 +140,7 @@
 					balloon_alert(user, "need [amount] sheets!")
 					return
 				balloon_alert(user, "adding plating...")
-				if (do_after(user, 4 SECONDS * skill_modifier, target = src)) // NOVA EDIT CHANGE - ORIGINAL: if(do_after(user, 4 SECONDS, target = src))
+				if (do_after(user, 4 SECONDS * skill_modifier, target = src)) // bobaEDIT CHANGE - ORIGINAL: if(do_after(user, 4 SECONDS, target = src))
 					if(sheets.get_amount() < amount)
 						return
 					sheets.use(amount)
@@ -154,7 +154,7 @@
 					balloon_alert(user, "need [amount] sheets!")
 					return
 				balloon_alert(user, "adding plating...")
-				if (do_after(user, 40 * platingmodifier * skill_modifier, target = src)) // NOVA EDIT CHANGE - ORIGINAL: if(do_after(user, 40*platingmodifier, target = src))
+				if (do_after(user, 40 * platingmodifier * skill_modifier, target = src)) // bobaEDIT CHANGE - ORIGINAL: if(do_after(user, 40*platingmodifier, target = src))
 					if(sheets.get_amount() < amount)
 						return
 					sheets.use(amount)
@@ -171,7 +171,7 @@
 				balloon_alert(user, "need [amount] sheets!")
 				return
 			balloon_alert(user, "adding panel...")
-			if (do_after(user, 2 SECONDS * skill_modifier, target = src)) // NOVA EDIT CHANGE - ORIGINAL: if(do_after(user, 2 SECONDS, target = src))
+			if (do_after(user, 2 SECONDS * skill_modifier, target = src)) // bobaEDIT CHANGE - ORIGINAL: if(do_after(user, 2 SECONDS, target = src))
 				if(sheets.get_amount() < amount)
 					return
 				sheets.use(amount)
@@ -188,7 +188,7 @@
 					balloon_alert(user, "need [amount] sheets!")
 					return
 				balloon_alert(user, "concealing entrance...")
-				if(do_after(user, 2 SECONDS * skill_modifier, target = src)) // NOVA EDIT CHANGE - ORIGINAL: if(do_after(user, 2 SECONDS, target = src))
+				if(do_after(user, 2 SECONDS * skill_modifier, target = src)) // bobaEDIT CHANGE - ORIGINAL: if(do_after(user, 2 SECONDS, target = src))
 					if(sheets.get_amount() < amount)
 						return
 					sheets.use(amount)
@@ -202,7 +202,7 @@
 				if(sheets.get_amount() < amount)
 					return
 				balloon_alert(user, "adding plating...")
-				if(do_after(user, 50 * platingmodifier * skill_modifier, target = src)) // NOVA EDIT CHANGE - ORIGINAL: if(do_after(user, 50*platingmodifier, target = src))
+				if(do_after(user, 50 * platingmodifier * skill_modifier, target = src)) // bobaEDIT CHANGE - ORIGINAL: if(do_after(user, 50*platingmodifier, target = src))
 					if(sheets.get_amount() < amount)
 						return
 					sheets.use(amount)
@@ -217,7 +217,7 @@
 				if(sheets.get_amount() < amount)
 					return
 				balloon_alert(user, "reinforcing frame...")
-				if(do_after(user, 60 * platingmodifier * skill_modifier, target = src)) // NOVA EDIT CHANGE - ORIGINAL: if(do_after(user, 60*platingmodifier, target = src))
+				if(do_after(user, 60 * platingmodifier * skill_modifier, target = src)) // bobaEDIT CHANGE - ORIGINAL: if(do_after(user, 60*platingmodifier, target = src))
 					if(sheets.get_amount() < amount)
 						return
 					sheets.use(amount)
@@ -242,7 +242,7 @@
 					balloon_alert(user, "need titanium glass or mineral!")
 					return
 				balloon_alert(user, "adding plating...")
-				if (do_after(user, 4 SECONDS * skill_modifier, target = src)) // NOVA EDIT CHANGE - ORIGINAL: if(do_after(user, 4 SECONDS, target = src))
+				if (do_after(user, 4 SECONDS * skill_modifier, target = src)) // bobaEDIT CHANGE - ORIGINAL: if(do_after(user, 4 SECONDS, target = src))
 					if(sheets.get_amount() < amount)
 						return
 					var/obj/structure/tram/tram_wall
@@ -258,7 +258,7 @@
 					balloon_alert(user, "need [amount] sheets!")
 					return
 				balloon_alert(user, "concealing entrance...")
-				if(do_after(user, 2 SECONDS * skill_modifier, target = src)) // NOVA EDIT CHANGE - ORIGINAL: if(do_after(user, 2 SECONDS, target = src))
+				if(do_after(user, 2 SECONDS * skill_modifier, target = src)) // bobaEDIT CHANGE - ORIGINAL: if(do_after(user, 2 SECONDS, target = src))
 					if(sheets.get_amount() < amount)
 						return
 					sheets.use(amount)
@@ -281,7 +281,7 @@
 					balloon_alert(user, "need [amount] sheets!")
 					return
 				balloon_alert(user, "adding plating...")
-				if (do_after(user, 4 SECONDS * skill_modifier, target = src)) // NOVA EDIT CHANGE - ORIGINAL: if(do_after(user, 4 SECONDS, target = src))
+				if (do_after(user, 4 SECONDS * skill_modifier, target = src)) // bobaEDIT CHANGE - ORIGINAL: if(do_after(user, 4 SECONDS, target = src))
 					if(sheets.get_amount() < amount)
 						return
 					sheets.use(amount)

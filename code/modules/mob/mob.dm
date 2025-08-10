@@ -279,7 +279,7 @@
  * * ignored_mobs (optional) doesn't show any message to any mob in this list.
  * * visible_message_flags (optional) is the type of message being sent.
  */
-/atom/proc/visible_message(message, self_message, blind_message, vision_distance = DEFAULT_MESSAGE_RANGE, list/ignored_mobs, visible_message_flags = NONE, separation = " ", pref_to_check) // NOVA EDIT ADDITION - separation, pref checks
+/atom/proc/visible_message(message, self_message, blind_message, vision_distance = DEFAULT_MESSAGE_RANGE, list/ignored_mobs, visible_message_flags = NONE, separation = " ", pref_to_check) // bobaEDIT ADDITION - separation, pref checks
 	var/turf/T = get_turf(src)
 	if(!T)
 		return
@@ -307,15 +307,15 @@
 	if(visible_message_flags & WITH_EMPHASIS_MESSAGE)
 		message = apply_message_emphasis(message)
 	if(visible_message_flags & EMOTE_MESSAGE)
-		message = span_emote("<b>[src]</b>[separation][message]") // NOVA EDIT - Better emotes - ORIGINAL: message = span_emote("<b>[src]</b> [message]")
+		message = span_emote("<b>[src]</b>[separation][message]") // bobaEDIT - Better emotes - ORIGINAL: message = span_emote("<b>[src]</b> [message]")
 
 	for(var/mob/M in hearers)
 		if(!M.client)
 			continue
-		// NOVA EDIT ADDITION - Emote pref checks
+		// bobaEDIT ADDITION - Emote pref checks
 		if(pref_to_check && !M.client?.prefs.read_preference(pref_to_check))
 			continue
-		// NOVA EDIT END
+		// bobaEDIT END
 
 		//This entire if/else chain could be in two lines but isn't for readibilties sake.
 		var/msg = message
@@ -341,7 +341,7 @@
 
 
 ///Adds the functionality to self_message.
-/mob/visible_message(message, self_message, blind_message, vision_distance = DEFAULT_MESSAGE_RANGE, list/ignored_mobs, visible_message_flags = NONE, separation = " ", pref_to_check)  // NOVA EDIT ADDITION - Better emotes, pref checks
+/mob/visible_message(message, self_message, blind_message, vision_distance = DEFAULT_MESSAGE_RANGE, list/ignored_mobs, visible_message_flags = NONE, separation = " ", pref_to_check)  // bobaEDIT ADDITION - Better emotes, pref checks
 	. = ..()
 	if(!self_message)
 		return
@@ -374,7 +374,7 @@
  * * self_message (optional) is what the src mob hears.
  * * audible_message_flags (optional) is the type of message being sent.
  */
-/atom/proc/audible_message(message, deaf_message, hearing_distance = DEFAULT_MESSAGE_RANGE, self_message, audible_message_flags = NONE, separation = " ", pref_to_check) // NOVA EDIT ADDITION - Better emotes, pref checks
+/atom/proc/audible_message(message, deaf_message, hearing_distance = DEFAULT_MESSAGE_RANGE, self_message, audible_message_flags = NONE, separation = " ", pref_to_check) // bobaEDIT ADDITION - Better emotes, pref checks
 	var/list/hearers = get_hearers_in_view(hearing_distance, src)
 
 	//NOVA EDIT ADDITION BEGIN - AI QoL
@@ -394,12 +394,12 @@
 	if(audible_message_flags & WITH_EMPHASIS_MESSAGE)
 		message = apply_message_emphasis(message)
 	if(audible_message_flags & EMOTE_MESSAGE)
-		message = span_emote("<b>[src]</b>[separation][message]") // NOVA EDIT CHANGE - Better emotes - ORIGINAL: message = span_emote("<b>[src]</b> [message]")
+		message = span_emote("<b>[src]</b>[separation][message]") // bobaEDIT CHANGE - Better emotes - ORIGINAL: message = span_emote("<b>[src]</b> [message]")
 	for(var/mob/M in hearers)
-	// NOVA EDIT ADDITION - Emote pref checks
+	// bobaEDIT ADDITION - Emote pref checks
 		if(pref_to_check && !M.client?.prefs.read_preference(pref_to_check))
 			continue
-	// NOVA EDIT END
+	// bobaEDIT END
 		if(audible_message_flags & EMOTE_MESSAGE && runechat_prefs_check(M, audible_message_flags) && M.can_hear())
 			M.create_chat_message(src, raw_message = raw_msg, runechat_flags = audible_message_flags)
 		M.show_message(message, MSG_AUDIBLE, deaf_message, MSG_VISUAL)
@@ -415,7 +415,7 @@
  * * deaf_message (optional) is what deaf people will see.
  * * hearing_distance (optional) is the range, how many tiles away the message can be heard.
  */
-/mob/audible_message(message, deaf_message, hearing_distance = DEFAULT_MESSAGE_RANGE, self_message, audible_message_flags = NONE, separation = " ", pref_to_check) // NOVA EDIT ADDITION - Better emotes, pref checks
+/mob/audible_message(message, deaf_message, hearing_distance = DEFAULT_MESSAGE_RANGE, self_message, audible_message_flags = NONE, separation = " ", pref_to_check) // bobaEDIT ADDITION - Better emotes, pref checks
 	. = ..()
 	if(!self_message)
 		return
@@ -588,7 +588,7 @@
 			if(!length(result))
 				result += span_notice("<i>You examine [examinify] closer, but find nothing of interest...</i>")
 			result_combined = boxed_message(jointext(result, "<br>"))
-			result_combined = replacetext(result_combined, "<hr><br>", "<hr>") // NOVA EDIT ADDITION - bit of a hack here to make sure we don't get linebreaks coming after headers
+			result_combined = replacetext(result_combined, "<hr><br>", "<hr>") // bobaEDIT ADDITION - bit of a hack here to make sure we don't get linebreaks coming after headers
 
 		else
 			client.recent_examines[ref_to_atom] = world.time // set to when we last normal examine'd them
@@ -601,8 +601,8 @@
 		SEND_SIGNAL(src, COMSIG_MOB_EXAMINING, examinify, result)
 		if(removes_double_click)
 			result += span_notice("<i>You can <a href=byond://?src=[REF(src)];run_examinate=[REF(examinify)]>examine</a> [examinify] closer...</i>")
-		result_combined = (atom_title ? fieldset_block("[atom_title][ismob(examinify) ? "!" :"."]", jointext(result, "<br>"), "boxed_message") : boxed_message(jointext(result, "<br>"))) // NOVA EDIT CHANGE - ORIGINAL: result_combined = (atom_title ? fieldset_block("[atom_title]", jointext(result, "<br>"), "boxed_message") : boxed_message(jointext(result, "<br>")))
-		result_combined = replacetext(result_combined, "<hr><br>", "<hr>") // NOVA EDIT ADDITION - bit of a hack here to make sure we don't get linebreaks coming after headers
+		result_combined = (atom_title ? fieldset_block("[atom_title][ismob(examinify) ? "!" :"."]", jointext(result, "<br>"), "boxed_message") : boxed_message(jointext(result, "<br>"))) // bobaEDIT CHANGE - ORIGINAL: result_combined = (atom_title ? fieldset_block("[atom_title]", jointext(result, "<br>"), "boxed_message") : boxed_message(jointext(result, "<br>")))
+		result_combined = replacetext(result_combined, "<hr><br>", "<hr>") // bobaEDIT ADDITION - bit of a hack here to make sure we don't get linebreaks coming after headers
 
 	to_chat(src, span_infoplain(result_combined))
 	SEND_SIGNAL(src, COMSIG_MOB_EXAMINATE, examinify)
@@ -1244,11 +1244,11 @@
 				// Only update if this player is a target
 				if(obj.target && obj.target.current && obj.target.current.real_name == name)
 					obj.update_explanation_text()
-		if(client) // NOVA EDIT ADDITION - Update the mob chat color list, removing the old name
-			GLOB.chat_colors_by_mob_name -= oldname // NOVA EDIT ADDITION
+		if(client) // bobaEDIT ADDITION - Update the mob chat color list, removing the old name
+			GLOB.chat_colors_by_mob_name -= oldname // bobaEDIT ADDITION
 
-	if(client) // NOVA EDIT ADDITION - Update the mob chat color list, adding the new name
-		GLOB.chat_colors_by_mob_name[name] = list(chat_color, chat_color_darkened) // NOVA EDIT ADDITION
+	if(client) // bobaEDIT ADDITION - Update the mob chat color list, adding the new name
+		GLOB.chat_colors_by_mob_name[name] = list(chat_color, chat_color_darkened) // bobaEDIT ADDITION
 	log_mob_tag("TAG: [tag] RENAMED: [key_name(src)]")
 
 	return TRUE

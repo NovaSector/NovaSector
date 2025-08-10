@@ -572,10 +572,10 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 		extinguish()
 		return
 
-	// NOVA EDIT ADDITION START - Pollution
+	// bobaEDIT ADDITION START - Pollution
 	var/turf/location = get_turf(src)
 	location.pollute_turf(pollution_type, 5, POLLUTION_PASSIVE_EMITTER_CAP)
-	// NOVA EDIT END
+	// bobaEDIT END
 
 	smoketime -= seconds_per_tick * (1 SECONDS)
 	if(smoketime <= 0)

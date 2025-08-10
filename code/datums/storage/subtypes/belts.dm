@@ -9,7 +9,7 @@
 		/obj/item/radio,
 		/obj/item/melee/sickly_blade/lock,
 		/obj/item/reagent_containers/cup/soda_cans,
-		/obj/item/construction/plumbing, // NOVA EDIT ADDITION
+		/obj/item/construction/plumbing, // bobaEDIT ADDITION
 	))
 
 ///Medical belt
@@ -75,14 +75,14 @@
 		/obj/item/flesh_shears,
 		/obj/item/blood_scanner,
 		/obj/item/reflexhammer,
-		// NOVA EDIT ADDITION START
+		// bobaEDIT ADDITION START
 		/obj/item/clothing/suit/toggle/labcoat/nova/surgical_gown,
 		/obj/item/hypospray/mkii,
 		/obj/item/storage/hypospraykit/,
 		/obj/item/reagent_containers/cup/vial,
 		/obj/item/weaponcell/medical,
 		/obj/item/handheld_soulcatcher,
-		// NOVA EDIT ADDITION END
+		// bobaEDIT ADDITION END
 	))
 
 ///Security belt
@@ -110,7 +110,7 @@
 		/obj/item/reagent_containers/spray/pepper,
 		/obj/item/restraints/handcuffs,
 		/obj/item/restraints/legcuffs/bola,
-		/obj/item/gun, // NOVA EDIT - ADDITION
+		/obj/item/gun, // bobaEDIT - ADDITION
 	))
 
 ///Webbing security belt
@@ -256,11 +256,11 @@
 		/obj/item/reagent_containers/spray,
 		/obj/item/soap,
 		/obj/item/wirebrush,
-		// NOVA EDIT ADDITION START
+		// bobaEDIT ADDITION START
 		/obj/item/mop,
 		/obj/item/mop/advanced,
 		/obj/item/reagent_containers/cup/bucket,
-		// NOVA EDIT ADDITION END
+		// bobaEDIT ADDITION END
 	))
 
 ///Bandolier belt

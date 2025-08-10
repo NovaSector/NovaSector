@@ -664,7 +664,7 @@ NOVA EDIT END */
 
 /datum/greyscale_config/digitigrade
 	name = "Digitigrade Clothes"
-	icon_file = 'modular_nova/master_files/icons/mob/clothing/digi_template.dmi' // NOVA EDIT CHANGE - ORIGINAL: icon_file = 'icons/mob/clothing/digi_template.dmi'
+	icon_file = 'modular_nova/master_files/icons/mob/clothing/digi_template.dmi' // bobaEDIT CHANGE - ORIGINAL: icon_file = 'icons/mob/clothing/digi_template.dmi'
 	json_config = 'code/datums/greyscale/json_configs/digitigrade.json'
 
 
