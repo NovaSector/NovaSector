@@ -8205,11 +8205,6 @@
 /obj/item/reagent_containers/cup/glass/bottle/vodka/badminka,
 /turf/open/floor/mineral/plastitanium/red,
 /area/awaymission/caves/maintsroom)
-"Bw" = (
-/obj/machinery/light/directional/east,
-/obj/structure/reagent_dispensers/water_cooler/directional/east,
-/turf/open/floor/iron/white,
-/area/awaymission/caves/maintsroom)
 "Bx" = (
 /obj/machinery/teleport/hub,
 /turf/open/floor/plating,
@@ -18632,8 +18627,8 @@ cc
 lE
 PD
 MX
-Cu
-Bw
+MX
+PD
 Cu
 jf
 jR
