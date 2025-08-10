@@ -28,6 +28,7 @@
 	spread = 1
 	recoil = 0.5
 
+	w_class = WEIGHT_CLASS_BULKY
 	weapon_weight = WEAPON_HEAVY
 	lore_blurb = "Žaibas represents the Heliostatic Coalition's pinnacle of plasma weapon miniaturization - at a cost.<br><br>\
 		Where conventional plasma weapons use bulky rechargeable cells, Žaibas employs revolutionary crystalline compression \"plugs\" that store plasma \
