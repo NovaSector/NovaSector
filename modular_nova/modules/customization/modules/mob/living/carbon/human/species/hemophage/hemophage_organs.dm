@@ -11,7 +11,7 @@
 	name = "liver" // Name change is handled by /datum/component/organ_corruption/corrupt_organ()
 	desc = GENERIC_CORRUPTED_ORGAN_DESC
 	icon = 'modular_nova/modules/organs/icons/hemophage_organs.dmi'
-	organ_flags = ORGAN_EDIBLE | ORGAN_TUMOR_CORRUPTED
+	organ_flags = ORGAN_ORGANIC | ORGAN_EDIBLE | ORGAN_TUMOR_CORRUPTED
 
 
 /obj/item/organ/liver/hemophage/Initialize(mapload)
@@ -71,7 +71,7 @@
 	name = "stomach" // Name change is handled by /datum/component/organ_corruption/corrupt_organ()
 	desc = GENERIC_CORRUPTED_ORGAN_DESC
 	icon = 'modular_nova/modules/organs/icons/hemophage_organs.dmi'
-	organ_flags = ORGAN_EDIBLE | ORGAN_TUMOR_CORRUPTED
+	organ_flags = ORGAN_ORGANIC | ORGAN_EDIBLE | ORGAN_TUMOR_CORRUPTED
 
 
 /obj/item/organ/stomach/hemophage/Initialize(mapload)
@@ -93,7 +93,7 @@
 	name = "tongue" // Name change is handled by /datum/component/organ_corruption/corrupt_organ()
 	desc = GENERIC_CORRUPTED_ORGAN_DESC
 	icon = 'modular_nova/modules/organs/icons/hemophage_organs.dmi'
-	organ_flags = ORGAN_EDIBLE | ORGAN_TUMOR_CORRUPTED
+	organ_flags = ORGAN_ORGANIC | ORGAN_EDIBLE | ORGAN_TUMOR_CORRUPTED
 	liked_foodtypes = BLOODY
 	disliked_foodtypes = NONE
 

@@ -1,5 +1,5 @@
 /obj/item/clothing/suit/wornshirt
-	name = "worn shirt"
+	name = "wrinkled shirt"
 	desc = "A worn out (or perhaps just baggy), curiously comfortable t-shirt."
 	icon = 'modular_nova/master_files/icons/obj/clothing/suits.dmi'
 	worn_icon = 'modular_nova/master_files/icons/mob/clothing/suit.dmi'
@@ -78,13 +78,10 @@
 	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION_NO_NEW_ICON
 	toggle_noun = "button"
 
-/obj/item/clothing/suit/discoblazer
-	icon = 'modular_nova/master_files/icons/obj/clothing/suits.dmi'
-	worn_icon = 'modular_nova/master_files/icons/mob/clothing/suit.dmi'
+/obj/item/clothing/suit/jacket/discoblazer //armorless version of /obj/item/clothing/suit/jacket/det_suit/disco
 	name = "disco ass blazer"
 	desc = "Looks like someone skinned this blazer off some long extinct disco-animal. It has an enigmatic white rectangle on the back and the right sleeve."
 	icon_state = "jamrock_blazer"
-	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION_NO_NEW_ICON
 
 /obj/item/clothing/suit/kimjacket
 	icon = 'modular_nova/master_files/icons/obj/clothing/suits.dmi'
@@ -374,3 +371,25 @@
 	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION_NO_NEW_ICON
 	gets_cropped_on_taurs = FALSE
 	slot_flags = ITEM_SLOT_OCLOTHING|ITEM_SLOT_NECK
+
+/// I have nowhere ellse to put tthis so
+
+/obj/item/clothing/suit/toggle/jacket/nova/bridge_officer
+	name = "bridge officer's jacket"
+	desc = "It's a blue and silver jacket indicating that of a \"Bridge Officer\"."
+	icon_state = "bo_dept_jacket"
+	icon = 'modular_nova/master_files/icons/obj/clothing/suits.dmi'
+	worn_icon = 'modular_nova/master_files/icons/mob/clothing/suit.dmi'
+	worn_icon_digi = 'modular_nova/master_files/icons/mob/clothing/suit_digi.dmi'
+	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION_NO_NEW_ICON
+
+/obj/item/clothing/suit/nova
+	icon = 'modular_nova/master_files/icons/obj/clothing/suits.dmi'
+	worn_icon = 'modular_nova/master_files/icons/mob/clothing/suit.dmi'
+	worn_icon_digi = 'modular_nova/master_files/icons/mob/clothing/suit_digi.dmi'
+
+/obj/item/clothing/suit/nova/bridge_officer/goth
+	name = "bridge officer's gothic coat"
+	desc = "It's an elaborate coat, with a scarf, seeming rather gothic in nature but its style and colors show its for a \"Bridge Officer\"."
+	icon_state = "bo_writer"
+	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION

@@ -29,3 +29,9 @@
 	var/bra_color = "#FFFFFF"
 	/// Chronological age.
 	var/chrono_age = 30
+	///This are the TK effect object for the left hand for psionic holding.
+	var/obj/effect/abstract/held_tk_effect/left/held_left
+	///This are the TK effect object for the right hand for psionic holding.
+	var/obj/effect/abstract/held_tk_effect/right/held_right
+	/// This is the color of the TK effect for the hands when psionic holding is active.
+	var/held_hover_color

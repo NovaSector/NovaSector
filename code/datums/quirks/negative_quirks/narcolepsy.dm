@@ -16,7 +16,7 @@
 	carbon_user.gain_trauma(/datum/brain_trauma/severe/narcolepsy/permanent, TRAUMA_RESILIENCE_ABSOLUTE)
 
 	give_item_to_holder(
-		/obj/item/storage/pill_bottle/prescription_stimulant,
+		stim_medication, // NOVA EDIT CHANGE - Original: /obj/item/storage/pill_bottle/prescription_stimulant,
 		list(
 			LOCATION_BACKPACK,
 			LOCATION_LPOCKET,
@@ -24,6 +24,7 @@
 			LOCATION_HANDS,
 		),
 		flavour_text = "Given to you to aid in staying awake this shift...",
+		notify_player = TRUE,
 	)
 
 /datum/quirk/item_quirk/narcolepsy/remove()

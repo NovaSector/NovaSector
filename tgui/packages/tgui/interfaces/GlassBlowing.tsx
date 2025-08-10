@@ -246,7 +246,7 @@ export const GlassBlowing = (props) => {
                 value={glass.timeLeft}
                 format={(value) => toFixed(value, 1)}
               />
-              {'/' + glass.totalTime.toFixed(1)}
+              {`/${glass.totalTime.toFixed(1)}`}
             </ProgressBar>
           </Section>
         )}

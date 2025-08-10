@@ -155,7 +155,7 @@ SIZE_COLLAR_MINIMUM 15
 ## These flags are automatically enabled if SQL_ENABLED isn't.
 DONATOR_LEGACY_SYSTEM
 MENTOR_LEGACY_SYSTEM
-VETERAN_LEGACY_SYSTEM
+NOVA_STAR_LEGACY_SYSTEM
 
 ## How much time arrivals shuttle should stay at station after its engines recharged before returning to interlink. In deciseconds. 150 - 15 seconds. 0 - disables autoreturn.
 ARRIVALS_WAIT 150
@@ -180,3 +180,15 @@ JUNGLE_CAVE_BUDGET 2
 
 ## Comment this out if you do not want to show job estimations in the statpanel before roundstart
 SHOW_JOB_ESTIMATION
+
+## Defines whether or not the whitelist (if configured using USEWHITELIST) uses the SQL system.
+## Highly recommended, as it allows the whitelist to be modified using the "whitelist <ckey>" command
+## through the TGS bot, as well as the "Add Whitelist" verb in-game, rather than requiring the manual
+## modification of the "whitelist.txt" configuration file.
+## NOTE: This does not replace USEWHITELIST in config.txt. Both flags must be enabled if you want to use this feature.
+#SQL_WHITELIST
+
+## Message that gets displayed to non-whitelisted players when they try to join the server
+## while it has an active whitelist. The \n allows the message to be displayed on a separate line,
+## to make it more readable in the BYOND window.
+MISSING_WHITELIST_MESSAGE "\nThis server requires you to be whitelisted in order to be allowed to play. Apply on our Discord by simply filling the Access Request form from the #application-instructions channel under the 'Landing Zone' category. Here's the invite link: https://discord.gg/novasector"

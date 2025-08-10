@@ -16,8 +16,8 @@
 	/// Which languages does the job require, associative to LANGUAGE_UNDERSTOOD or LANGUAGE_SPOKEN
 	var/list/required_languages = list(/datum/language/common = LANGUAGE_UNDERSTOOD)
 
-	///Is this job veteran only? If so, then this job requires the player to be in the veteran_players.txt
-	var/veteran_only = FALSE
+	///Is this job just for nova stars? If so, then this job requires the player to be in the nova_star_players.txt
+	var/nova_stars_only = FALSE
 
 
 /datum/job/proc/has_banned_quirk(datum/preferences/pref)
@@ -139,6 +139,9 @@
 /datum/job/quartermaster
 	banned_quirks = list(HEAD_RESTRICTED_QUIRKS_QM)
 	banned_augments = list(HEAD_RESTRICTED_AUGMENTS)
+	required_languages = list(/datum/language/common = LANGUAGE_SPOKEN)
+
+/datum/job/bridge_assistant
 	required_languages = list(/datum/language/common = LANGUAGE_SPOKEN)
 
 //Silicon

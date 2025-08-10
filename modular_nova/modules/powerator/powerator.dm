@@ -78,6 +78,12 @@
 	/// how many credits this machine has actually made so far
 	var/credits_made = 0
 
+	/// What account is assigned to this?
+	var/credits_account_1 = ACCOUNT_CAR
+
+	/// What second account is assigned (IF THERE IS ONE, otherwise use null)
+	var/credits_account_2 = ACCOUNT_ENG
+
 /obj/machinery/powerator/Initialize(mapload)
 	. = ..()
 	attached_cable = locate() in get_turf(src)
@@ -170,12 +176,16 @@
 
 	attached_cable.add_delayedload(current_power)
 
-	var/money_ratio = round(current_power * divide_ratio) * 0.5 //split it in half for cargo and engi
-	var/datum/bank_account/synced_cargo_account = SSeconomy.get_dep_account(ACCOUNT_CAR)
-	var/datum/bank_account/synced_engi_account = SSeconomy.get_dep_account(ACCOUNT_ENG)
-	synced_cargo_account.adjust_money(money_ratio)
-	synced_engi_account.adjust_money(money_ratio)
-	credits_made += money_ratio //don't want to be misleading, but just display what half each departments get and not the total
+	///split it in half for chosen departments if there is more than one
+	var/datum/bank_account/primary_account = SSeconomy.get_dep_account(credits_account_1)
+	var/money_ratio = round(current_power * divide_ratio)
+	// cut in half if we have a second account
+	if(credits_account_2)
+		money_ratio *= 0.5
+		var/datum/bank_account/secondary_account = SSeconomy.get_dep_account(credits_account_2)
+		secondary_account.adjust_money(money_ratio)
+	primary_account.adjust_money(money_ratio)
+	credits_made += money_ratio  //don't want to be misleading, but just display what half each departments get and not the total
 
 /obj/machinery/powerator/attack_hand(mob/living/user, list/modifiers)
 	. = ..()
@@ -231,3 +241,37 @@
 
 	UnregisterSignal(attached_cable, COMSIG_QDELETING)
 	attached_cable = null
+
+/obj/item/circuitboard/machine/powerator/syndicate
+	name = "\improper Syndicate Powerator"
+	build_path = /obj/machinery/powerator/syndicate
+
+/obj/item/circuitboard/machine/powerator/interdyne
+	name = "\improper Interdyne Powerator"
+	build_path = /obj/machinery/powerator/interdyne
+
+/obj/item/circuitboard/machine/powerator/tarkon
+	name = "\improper Tarkon Powerator"
+	build_path = /obj/machinery/powerator/tarkon
+
+/obj/machinery/powerator/syndicate
+	name = "\improper Syndicate Powerator"
+	credits_account_1 = ACCOUNT_DS2
+	credits_account_2 = null
+	icon_state = "powerator_syndi"
+	circuit = /obj/item/circuitboard/machine/powerator/syndicate
+
+/obj/machinery/powerator/interdyne
+	name = "\improper Interdyne Powerator"
+	credits_account_1 = ACCOUNT_INT
+	credits_account_2 = null
+	icon_state = "powerator_dyne"
+	circuit = /obj/item/circuitboard/machine/powerator/interdyne
+
+/obj/machinery/powerator/tarkon
+	name = "\improper Tarkon Powerator"
+	credits_account_1 = ACCOUNT_TI
+	credits_account_2 = null
+	icon_state = "powerator_tarkon"
+	circuit = /obj/item/circuitboard/machine/powerator/tarkon
+

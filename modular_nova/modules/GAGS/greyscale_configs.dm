@@ -1426,6 +1426,15 @@
 	name = "Giant Scarf (Heart, Worn)"
 	icon_file = 'modular_nova/master_files/icons/mob/clothing/under/skirts_dresses.dmi'
 
+/datum/greyscale_config/mini_skirt
+	name = "Mini Skirt"
+	icon_file = 'modular_nova/master_files/icons/obj/clothing/under/skirts_dresses.dmi'
+	json_config = 'modular_nova/modules/GAGS/json_configs/pants_shorts_skirts_dresses/mini_skirt.json'
+
+/datum/greyscale_config/mini_skirt/worn
+	name = "Mini Skirt (Worn)"
+	icon_file = 'modular_nova/master_files/icons/mob/clothing/under/skirts_dresses.dmi'
+
 // KILT
 // COSTUMES
 
@@ -1633,12 +1642,12 @@
 	name = "Maid Costume (Worn)"
 	icon_file = 'modular_nova/modules/GAGS/icons/maid_costume_worn.dmi'
 
-/datum/greyscale_config/maid_headband
+/datum/greyscale_config/maid_costume_headband
 	name = "Maid Headband"
 	icon_file = 'modular_nova/modules/GAGS/icons/maid_costume.dmi'
 	json_config = 'modular_nova/modules/GAGS/json_configs/costumes/maid_headband.json'
 
-/datum/greyscale_config/maid_headband/worn
+/datum/greyscale_config/maid_costume_headband/worn
 	name = "Maid Headband (Worn)"
 	icon_file = 'modular_nova/modules/GAGS/icons/maid_costume_worn.dmi'
 
@@ -2266,3 +2275,96 @@ TREK
 	name = "Tarkon Uniform (Worn, Digi)"
 	icon_file = 'modular_nova/modules/tarkon/icons/mob/clothing/uniform_digi.dmi'
 	json_config = 'modular_nova/modules/GAGS/json_configs/tarkon/tarkonuniform_worn.json'
+
+// Solfed Uniform
+
+/datum/greyscale_config/solfedcamo
+	name = "SolFed Camo"
+	icon_file = 'modular_nova/modules/goofsec/icons/obj/uniforms.dmi'
+	json_config = 'modular_nova/modules/GAGS/json_configs/solfed/maincamo.json'
+
+/datum/greyscale_config/solfedcamo/worn
+	name = "SolFed Camo (Worn)"
+	icon_file = 'modular_nova/modules/goofsec/icons/mob/uniforms.dmi'
+
+/datum/greyscale_config/solfedcamo/worn/digi
+	name = "SolFed Camo (Worn, Digi)"
+	icon_file = 'modular_nova/modules/goofsec/icons/mob/uniforms_digi.dmi'
+
+/datum/greyscale_config/vestcam
+	name = "SolFed Vest Camo"
+	icon_file = 'modular_nova/modules/goofsec/icons/obj/uniforms.dmi'
+	json_config = 'modular_nova/modules/GAGS/json_configs/solfed/milvest.json'
+
+/datum/greyscale_config/vestcam/worn
+	name = "SolFed Vest Camo (Worn)"
+	icon_file = 'modular_nova/modules/goofsec/icons/mob/uniforms.dmi'
+
+/datum/greyscale_config/vestcam/worn/digi
+	name = "SolFed Vest Camo (Worn, Digi)"
+	icon_file = 'modular_nova/modules/goofsec/icons/mob/uniforms_digi.dmi'
+
+// Solfed Accessories
+/datum/greyscale_config/solfedribbons
+	name = "SolFed Ribbons"
+	icon_file = 'modular_nova/master_files/icons/obj/clothing/accessories.dmi'
+	json_config = 'modular_nova/modules/GAGS/json_configs/solfed/sfranks.json'
+
+/datum/greyscale_config/solfedribbons/worn
+	name = "SolFed Ribbons (Worn)"
+	icon_file = 'modular_nova/master_files/icons/mob/clothing/accessories.dmi'
+
+// Solfed Goggles Code
+/datum/greyscale_config/solfed_goggles
+	name = "SolFed Goggles"
+	icon_file = 'modular_nova/modules/goofsec/icons/obj/uniforms.dmi'
+	json_config = 'modular_nova/modules/GAGS/json_configs/solfed/gogglefed.json'
+
+/datum/greyscale_config/solfed_goggles/worn
+	name = "SolFed Goggles (Worn)"
+	icon_file = 'modular_nova/modules/goofsec/icons/mob/uniforms.dmi'
+
+/// Content of PR #5835
+
+/// Turtlenecks
+/datum/greyscale_config/turtlenecks
+	name = "Turtlenecks"
+	icon_file = 'modular_nova/master_files/icons/obj/clothing/under/shorts_pants_shirts.dmi'
+	json_config = 'modular_nova/modules/GAGS/json_configs/mass_greyscales/turtlenecks.json'
+
+/datum/greyscale_config/turtlenecks/worn
+	name = "Turtlenecks (Worn)"
+	icon_file = 'modular_nova/master_files/icons/mob/clothing/under/shorts_pants_shirts.dmi'
+	json_config = 'modular_nova/modules/GAGS/json_configs/mass_greyscales/turtlenecks_worn.json'
+
+/datum/greyscale_config/turtlenecks/worn/digi
+	name = "Turtlenecks (Worn, Digi)"
+	icon_file = 'modular_nova/master_files/icons/mob/clothing/under/shorts_pants_shirts_digi.dmi'
+
+/datum/greyscale_config/gorkas
+	name = "Gorkas"
+	icon_file = 'modular_nova/master_files/icons/obj/clothing/under/shorts_pants_shirts.dmi'
+	json_config = 'modular_nova/modules/GAGS/json_configs/mass_greyscales/gorkas.json'
+
+/datum/greyscale_config/gorkas/worn
+	name = "Gorkas (Worn)"
+	icon_file = 'modular_nova/master_files/icons/mob/clothing/under/shorts_pants_shirts.dmi'
+
+/datum/greyscale_config/gorkas/worn/digi
+	name = "Gorkas (Worn, Digi)"
+	icon_file = 'modular_nova/master_files/icons/mob/clothing/under/shorts_pants_shirts_digi.dmi'
+
+/// Has to be named this to avoid problems
+/datum/greyscale_config/sus_overalls
+	name = "Gorkas"
+	icon_file = 'modular_nova/master_files/icons/obj/clothing/under/shorts_pants_shirts.dmi'
+	json_config = 'modular_nova/modules/GAGS/json_configs/mass_greyscales/overalls.json'
+
+/datum/greyscale_config/sus_overalls/worn
+	name = "Gorkas (Worn)"
+	icon_file = 'modular_nova/master_files/icons/mob/clothing/under/shorts_pants_shirts.dmi'
+	json_config = 'modular_nova/modules/GAGS/json_configs/mass_greyscales/overalls_worn.json'
+
+/datum/greyscale_config/sus_overalls/worn/digi
+	name = "Gorkas (Worn, Digi)"
+	icon_file = 'modular_nova/master_files/icons/mob/clothing/under/shorts_pants_shirts_digi.dmi'

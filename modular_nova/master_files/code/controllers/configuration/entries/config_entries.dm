@@ -71,8 +71,8 @@
 /datum/config_entry/flag/mentor_legacy_system
 	protection = CONFIG_ENTRY_LOCKED
 
-/// Defines whether the server uses the legacy veteran system with veteran_players.txt or the SQL system.
-/datum/config_entry/flag/veteran_legacy_system
+/// Defines whether the server uses the legacy star system with nova_star_players.txt or the SQL system.
+/datum/config_entry/flag/nova_star_legacy_system
 	protection = CONFIG_ENTRY_LOCKED
 
 /// RUIN BUDGETS ///
@@ -85,3 +85,13 @@
 	default = 2
 	integer = FALSE
 	min_val = 0
+
+/// Defines whether or not the whitelist (if configured using USEWHITELIST) uses the SQL system.
+/datum/config_entry/flag/sql_whitelist
+	protection = CONFIG_ENTRY_LOCKED
+
+/// Message that gets displayed to non-whitelisted players when they try to join the server
+/// while it has an active whitelist. The \n allows the message to be displayed on a separate line,
+/// to make it more readable in the BYOND window.
+/datum/config_entry/string/missing_whitelist_message
+	default = "\nThis server requires you to be whitelisted in order to be allowed to play. Apply on our Discord by simply filling the Access Request form from the #application-instructions channel under the 'Landing Zone' category. Here's the invite link: https://discord.gg/novasector"

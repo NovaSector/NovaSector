@@ -215,6 +215,31 @@
 	affected_bodyparts = HAND_LEFT | HAND_RIGHT | LEG_RIGHT | LEG_LEFT
 	gendered = FALSE
 
+/datum/body_marking/other/harpy_upper
+	name = "Harpy Upper Legs"
+	icon_state = "harpy_upper"
+	affected_bodyparts = LEG_RIGHT | LEG_LEFT
+	gendered = FALSE
+
+/datum/body_marking/other/harpy_lower
+	name = "Harpy Lower Legs"
+	icon_state = "harpy_lower"
+	affected_bodyparts = LEG_RIGHT | LEG_LEFT
+	gendered = FALSE
+
+/datum/body_marking/other/harpy_claws
+	name = "Harpy Claws"
+	icon_state = "harpy_claws"
+	affected_bodyparts = LEG_RIGHT | LEG_LEFT
+	gendered = FALSE
+
+/datum/body_marking/other/critter_legs
+	name = "Critter Legs"
+	icon_state = "critterleg"
+	affected_bodyparts = LEG_RIGHT | LEG_LEFT
+	gendered = FALSE
+
+
 /datum/body_marking/other/splotches
 	name = "Splotches"
 	icon_state = "splotches"
@@ -580,6 +605,11 @@
 	icon_state = "lower_limb"
 	affected_bodyparts = ARM_LEFT | ARM_RIGHT | LEG_RIGHT | LEG_LEFT
 
+/datum/body_marking/secondary/insectoid
+	name = "Insectoid"
+	icon_state = "insect"
+	affected_bodyparts = CHEST
+
 /datum/body_marking/tertiary
 	icon = 'modular_nova/master_files/icons/mob/body_markings/tertiary_markings.dmi'
 	default_color = DEFAULT_TERTIARY
@@ -715,6 +745,10 @@
 	icon_state = "lbelly"
 	affected_bodyparts = CHEST
 
+/datum/body_marking/tertiary/insectoid
+	name = "Insectoid Trim"
+	icon_state = "insect_trim"
+	affected_bodyparts = CHEST | ARM_LEFT | ARM_RIGHT | LEG_LEFT | LEG_RIGHT
 
 /datum/body_marking/tattoo
 	icon = 'modular_nova/master_files/icons/mob/body_markings/tattoo_markings.dmi'

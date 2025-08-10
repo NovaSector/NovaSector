@@ -508,6 +508,12 @@
 			set_glide_size(var_value)
 			. = TRUE
 
+		// NOVA EDIT ADDITION BEGIN - BLOOPER
+		if(NAMEOF(src, blooper))
+			if(isfile(var_value))
+				blooper = sound(var_value) //bark() expects vocal_bark to already be a sound datum, for performance reasons. adminbus QoL!
+			. = TRUE
+		// NOVA EDIT ADDITION END
 	if(!isnull(.))
 		datum_flags |= DF_VAR_EDITED
 		return
@@ -1579,12 +1585,12 @@
 	return get_language_holder().remove_all_partial_languages(source)
 
 /// Adds a language to the blocked language list. Use this over remove_language in cases where you will give languages back later.
-/atom/movable/proc/add_blocked_language(language, source = LANGUAGE_ATOM)
-	return get_language_holder().add_blocked_language(language, source)
+/atom/movable/proc/add_blocked_language(language, language_flags = ALL, source = LANGUAGE_ATOM)
+	return get_language_holder().add_blocked_language(language, language_flags, source)
 
 /// Removes a language from the blocked language list.
-/atom/movable/proc/remove_blocked_language(language, source = LANGUAGE_ATOM)
-	return get_language_holder().remove_blocked_language(language, source)
+/atom/movable/proc/remove_blocked_language(language, language_flags = ALL, source = LANGUAGE_ATOM)
+	return get_language_holder().remove_blocked_language(language, language_flags, source)
 
 /// Checks if atom has the language. If spoken is true, only checks if atom can speak the language.
 /atom/movable/proc/has_language(language, flags_to_check)

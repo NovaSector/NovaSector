@@ -23,11 +23,6 @@
 	max_total_storage = 14 // Technically means you could fit multiple large guns in here but it's a case you cant backpack anyways so what it do
 	max_slots = 6 // We store some extra items in these so lets make a little extra room
 
-/datum/storage/toolbox/guncase/nova/New(atom/parent, max_slots, max_specific_storage, max_total_storage)
-	. = ..()
-	//No small-cases-in-large-cases shenanigans
-	set_holdable(cant_hold_list = /obj/item/storage/toolbox/guncase)
-
 /obj/item/storage/toolbox/guncase/nova/update_icon()
 	. = ..()
 	if(opened)

@@ -53,6 +53,7 @@
 		/obj/item/reagent_containers/syringe = 1,
 		/obj/effect/spawner/random/entertainment/cigar = 1,
 		/obj/item/stack/ore/gold = 1,
+		/obj/item/disk/neuroware/maintenance = 1, // NOVA EDIT ADDITION - Neuroware
 	)
 /obj/effect/spawner/random/trash/deluxe_garbage/Initialize(mapload)
 	if(mapload)

@@ -21,7 +21,7 @@
 	damage = 30
 	armour_penetration = 30
 	wound_bonus = 5
-	bare_wound_bonus = 10
+	exposed_wound_bonus = 10
 
 /obj/item/ammo_box/c27_54cesarzowa
 	name = "ammo box (.27-54 Cesarzowa piercing)"
@@ -56,7 +56,7 @@
 	damage = 10
 	weak_against_armour = TRUE
 	wound_bonus = -30
-	bare_wound_bonus = -10
+	exposed_wound_bonus = -10
 	sharpness = NONE
 
 /obj/item/ammo_box/c27_54cesarzowa/rubber
