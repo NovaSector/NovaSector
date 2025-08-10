@@ -396,12 +396,12 @@
 		/datum/computer_file/program/newscaster,
 	)
 
-/* // NOVA EDIT REMOVAL BEGIN - Mutes the Curator's ringer on spawn
+/* // bobaEDIT REMOVAL BEGIN - Mutes the Curator's ringer on spawn
 /obj/item/modular_computer/pda/curator/Initialize(mapload)
 	. = ..()
 	for(var/datum/computer_file/program/messenger/msg in stored_files)
 		msg.alert_silenced = TRUE
-*/ // NOVA EDIT REMOVAL END
+*/ // bobaEDIT REMOVAL END
 
 /obj/item/modular_computer/pda/psychologist
 	name = "psychologist PDA"

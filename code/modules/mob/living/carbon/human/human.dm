@@ -25,7 +25,7 @@
 
 	RegisterSignal(src, COMSIG_COMPONENT_CLEAN_FACE_ACT, PROC_REF(clean_face))
 	AddComponent(/datum/component/personal_crafting, ui_human_crafting)
-	AddElement(/datum/element/footstep, FOOTSTEP_MOB_HUMAN, 0.6, -6) // NOVA EDIT CHANGE - AESTHETICS - ORIGINAL: AddElement(/datum/element/footstep, FOOTSTEP_MOB_HUMAN, 1, -6)
+	AddElement(/datum/element/footstep, FOOTSTEP_MOB_HUMAN, 0.6, -6) // bobaEDIT CHANGE - AESTHETICS - ORIGINAL: AddElement(/datum/element/footstep, FOOTSTEP_MOB_HUMAN, 1, -6)
 	AddComponent(/datum/component/bloodysoles/feet)
 	AddElement(/datum/element/ridable, /datum/component/riding/creature/human)
 	AddElement(/datum/element/strippable, GLOB.strippable_human_items, TYPE_PROC_REF(/mob/living/carbon/human/, should_strip))
@@ -332,7 +332,7 @@
 						sec_record_message += "\nAdded by [crime.author] at [crime.time]"
 				to_chat(human_or_ghost_user, boxed_message(sec_record_message))
 				return
-			// NOVA EDIT ADDITION START- EXAMINE RECORDS
+			// bobaEDIT ADDITION START- EXAMINE RECORDS
 			if(href_list["genrecords"])
 				if(ishuman(usr))
 					var/mob/living/carbon/human/human_user = usr
@@ -353,7 +353,7 @@
 				else if(!isobserver(usr))
 					return
 				to_chat(usr, "<b>Security Record:</b> [target_record.past_security_records]")
-			// NOVA EDIT ADDITION END - EXAMINE RECORDS
+			// bobaEDIT ADDITION END - EXAMINE RECORDS
 			if(ishuman(human_or_ghost_user))
 				var/mob/living/carbon/human/human_user = human_or_ghost_user
 				if(href_list["add_citation"])
@@ -585,7 +585,7 @@
 		if(human_lungs.organ_flags & ORGAN_FAILING)
 			balloon_alert(src, "your lungs are too damaged!")
 			return FALSE
-		*/// NOVA EDIT REMOVAL END
+		*/// bobaEDIT REMOVAL END
 
 		visible_message(span_notice("[src] is trying to perform CPR on [target.name]!"), \
 						span_notice("You try to perform CPR on [target.name]... Hold still!"))
@@ -609,8 +609,8 @@
 			to_chat(target, span_unconscious("You feel a breath of fresh air... which is a sensation you don't recognise..."))
 		else if (!target.get_organ_slot(ORGAN_SLOT_LUNGS))
 			to_chat(target, span_unconscious("You feel a breath of fresh air... but you don't feel any better..."))
-		*/// NOVA EDIT REMOVAL END
-		// NOVA EDIT ADDTION BEGIN - Allow CPR without lungs
+		*/// bobaEDIT REMOVAL END
+		// bobaEDIT ADDTION BEGIN - Allow CPR without lungs
 		var/can_breathe = TRUE // If FALSE, then chest compressions are the only option
 		if(isnull(human_lungs) || istype(human_lungs, /obj/item/organ/lungs/synth) || (human_lungs.organ_flags & ORGAN_FAILING))
 			can_breathe = FALSE
@@ -619,10 +619,10 @@
 		else if(!can_breathe || (HAS_TRAIT(target, TRAIT_NOBREATH) || !target.get_organ_slot(ORGAN_SLOT_LUNGS)))
 			to_chat(target, span_unconscious("You feel someone pushing down onto your chest..."))
 			target.adjustOxyLoss(-min(target.getOxyLoss(), 5))
-		// NOVA EDIT ADDITION END
+		// bobaEDIT ADDITION END
 		else
 			target.adjustOxyLoss(-min(target.getOxyLoss(), 7))
-			to_chat(target, span_unconscious("You feel someone pushing on your chest, and fresh air inside your lungs... It feels good...")) // NOVA EDIT CHANGE - Original: to_chat(target, span_unconscious("You feel a breath of fresh air enter your lungs... It feels good..."))
+			to_chat(target, span_unconscious("You feel someone pushing on your chest, and fresh air inside your lungs... It feels good...")) // bobaEDIT CHANGE - Original: to_chat(target, span_unconscious("You feel a breath of fresh air enter your lungs... It feels good..."))
 
 		if (target.health <= target.crit_threshold)
 			if (!panicking)
@@ -736,12 +736,12 @@
 		visible_message(span_danger("[src] manages to [cuff_break ? "break" : "remove"] [I]!"))
 		to_chat(src, span_notice("You successfully [cuff_break ? "break" : "remove"] [I]."))
 		return TRUE
-	// NOVA EDIT ADDITION: NOW GLOVES CAN RESTRAIN PLAYERS
+	// bobaEDIT ADDITION: NOW GLOVES CAN RESTRAIN PLAYERS
 	if(I == gloves)
 		visible_message(span_danger("[src] manages to [cuff_break ? "break" : "remove"] [I]!"))
 		to_chat(src, span_notice("You successfully [cuff_break ? "break" : "remove"] [I]."))
 		return TRUE
-	// NOVA EDIT ADDITION END
+	// bobaEDIT ADDITION END
 
 /mob/living/carbon/human/replace_records_name(oldname, newname) // Only humans have records right now, move this up if changed.
 	var/datum/record/crew/crew_record = find_record(oldname)
@@ -850,10 +850,10 @@
 			var/datum/quirk/quirk_type = type
 			if(initial(quirk_type.abstract_parent_type) == type)
 				continue
-			// NOVA EDIT ADDITION START
+			// bobaEDIT ADDITION START
 			if(initial(quirk_type.erp_quirk) && CONFIG_GET(flag/disable_erp_preferences))
 				continue
-			// NOVA EDIT ADDITION END
+			// bobaEDIT ADDITION END
 			var/qname = initial(quirk_type.name)
 			options[has_quirk(quirk_type) ? "[qname] (Remove)" : "[qname] (Add)"] = quirk_type
 		var/result = input(usr, "Choose quirk to add/remove","Quirk Mod") as null|anything in sort_list(options)
@@ -992,7 +992,7 @@
 		skills_space = " very quickly"
 	else if(carrydelay <= 4 SECONDS)
 		skills_space = " quickly"
-	// NOVA EDIT ADDITION START
+	// bobaEDIT ADDITION START
 	if(HAS_TRAIT(target, TRAIT_OVERSIZED) && !HAS_TRAIT(src, TRAIT_OVERSIZED))
 		visible_message(span_warning("[src] tries to carry [target], but they are too heavy!"))
 		return
@@ -1002,7 +1002,7 @@
 			return
 		carrydelay = 5 SECONDS
 		skills_space = " strenuously"
-	// NOVA EDIT ADDITION END
+	// bobaEDIT ADDITION END
 	visible_message(span_notice("[src] starts[skills_space] lifting [target] onto [p_their()] back..."),
 		span_notice("You[skills_space] start to lift [target] onto your back..."))
 	if(!do_after(src, carrydelay, target))
@@ -1148,7 +1148,7 @@
 	if (!isnull(race))
 		dna.species = new race
 
-/mob/living/carbon/human/species/set_species(datum/species/mrace, icon_update = TRUE, pref_load = FALSE, replace_missing = TRUE, list/override_features, list/override_mutantparts, list/override_markings, retain_features = FALSE, retain_mutantparts = FALSE) // NOVA EDIT CHANGE - Customization. ORIGINAL: /mob/living/carbon/human/species/set_species(datum/species/mrace, icon_update, pref_load, replace_missing)
+/mob/living/carbon/human/species/set_species(datum/species/mrace, icon_update = TRUE, pref_load = FALSE, replace_missing = TRUE, list/override_features, list/override_mutantparts, list/override_markings, retain_features = FALSE, retain_mutantparts = FALSE) // bobaEDIT CHANGE - Customization. ORIGINAL: /mob/living/carbon/human/species/set_species(datum/species/mrace, icon_update, pref_load, replace_missing)
 	. = ..()
 	if(use_random_name)
 		fully_replace_character_name(real_name, generate_random_mob_name())

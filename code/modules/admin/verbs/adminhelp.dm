@@ -678,10 +678,10 @@ GLOBAL_DATUM_INIT(ahelp_tickets, /datum/admin_help_tickets, new)
 		if("reject")
 			Reject()
 		if("reply")
-			// NOVA EDIT START - ADMIN HANDLE
+			// bobaEDIT START - ADMIN HANDLE
 			if(handle_issue())
 				usr?.client.cmd_ahelp_reply(initiator)
-			// NOVA EDIT END
+			// bobaEDIT END
 		if("icissue")
 			ICIssue()
 		if("close")
@@ -690,7 +690,7 @@ GLOBAL_DATUM_INIT(ahelp_tickets, /datum/admin_help_tickets, new)
 			Resolve()
 		if("reopen")
 			Reopen()
-		// NOVA EDIT ADDITION
+		// bobaEDIT ADDITION
 		if("handle_issue")
 			handle_issue()
 		if("pingmute")
@@ -701,7 +701,7 @@ GLOBAL_DATUM_INIT(ahelp_tickets, /datum/admin_help_tickets, new)
 			log_admin_private(msg)
 		if("convert")
 			convert_to_mentorhelp()
-		// NOVA EDIT ADDITION END
+		// bobaEDIT ADDITION END
 
 /datum/admin_help/proc/player_ticket_panel()
 	var/list/dat = list("<html><head><meta http-equiv='Content-Type' content='text/html; charset=UTF-8'><title>Player Ticket</title></head>")
@@ -840,7 +840,7 @@ GLOBAL_DATUM_INIT(admin_help_ui_handler, /datum/admin_help_ui_handler, new)
 		user_client.current_ticket.MessageNoRecipient(message, urgent)
 		return
 
-	new /datum/admin_help(message, user_client, FALSE, null, urgent) // NOVA EDIT - Handling tickets - ORIGINAL: new /datum/admin_help(message, user_client, FALSE, urgent)
+	new /datum/admin_help(message, user_client, FALSE, null, urgent) // bobaEDIT - Handling tickets - ORIGINAL: new /datum/admin_help(message, user_client, FALSE, urgent)
 
 /client/verb/no_tgui_adminhelp(message as message)
 	set name = "NoTguiAdminhelp"

@@ -351,7 +351,7 @@
 		. += how_cool_are_your_threads.Join()
 
 	if(get_armor().has_any_armor() || (flags_cover & (HEADCOVERSMOUTH|PEPPERPROOF)) || (clothing_flags & STOPSPRESSUREDAMAGE) || (visor_flags & STOPSPRESSUREDAMAGE))
-		. += span_notice("OOC: Click <a href='byond://?src=[REF(src)];list_armor=1'>here</a> to see its protection classes.") // NOVA EDIT CHANGE - ORIGINAL: += span_notice("It has a <a href='byond://?src=[REF(src)];list_armor=1'>tag</a> listing its protection classes.")
+		. += span_notice("OOC: Click <a href='byond://?src=[REF(src)];list_armor=1'>here</a> to see its protection classes.") // bobaEDIT CHANGE - ORIGINAL: += span_notice("It has a <a href='byond://?src=[REF(src)];list_armor=1'>tag</a> listing its protection classes.")
 
 /obj/item/clothing/examine_tags(mob/user)
 	. = ..()

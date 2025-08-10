@@ -183,11 +183,11 @@ ADMIN_VERB(drop_everything, R_ADMIN, "Drop Everything", ADMIN_VERB_NO_DESCRIPTIO
 		if(MUTE_DEADCHAT)
 			mute_string = "deadchat and DSAY"
 			feedback_string = "Deadchat"
-		// NOVA EDIT ADDITION START - LOOC muting again.
+		// bobaEDIT ADDITION START - LOOC muting again.
 		if(MUTE_LOOC)
 			mute_string = "LOOC"
 			feedback_string = "LOOC"
-		// NOVA EDIT ADDITION END - LOOC muting again.
+		// bobaEDIT ADDITION END - LOOC muting again.
 		if(MUTE_INTERNET_REQUEST)
 			mute_string = "internet sound requests"
 			feedback_string = "Internet Sound Requests"

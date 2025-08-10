@@ -527,12 +527,12 @@
 			reagents.add_reagent(/datum/reagent/toxin, reac_volume * 0.5)
 			return COMPONENT_NO_EXPOSE_REAGENTS
 
-	// NOVA EDIT REMOVAL blood_volume = min(blood_volume + round(reac_volume, 0.1), BLOOD_VOLUME_MAXIMUM)
-	// NOVA EDIT ADDITION START
+	// bobaEDIT REMOVAL blood_volume = min(blood_volume + round(reac_volume, 0.1), BLOOD_VOLUME_MAXIMUM)
+	// bobaEDIT ADDITION START
 	// We do a max() here so that being injected with monkey blood when you're past 560u doesn't reset you back to 560
 	var/max_blood_volume = chem.data["monkey_origins"] ? max(blood_volume, BLOOD_VOLUME_NORMAL) : BLOOD_VOLUME_MAXIMUM
 	blood_volume = min(blood_volume + round(reac_volume, 0.1), max_blood_volume)
-	// NOVA EDIT ADDITION END
+	// bobaEDIT ADDITION END
 	return COMPONENT_NO_EXPOSE_REAGENTS
 
 /mob/living/carbon/proc/handle_bodyparts(seconds_per_tick, times_fired)

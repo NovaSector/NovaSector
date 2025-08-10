@@ -365,7 +365,7 @@ GLOBAL_LIST_INIT(blacklisted_builds, list(
 	if(!check_population(connecting_admin))
 		qdel(src)
 		return
-	// NOVA EDIT ADDITION END
+	// bobaEDIT ADDITION END
 	if(CONFIG_GET(flag/autoadmin))
 		if(!GLOB.admin_datums[ckey])
 			var/list/autoadmin_ranks = ranks_from_rank_name(CONFIG_GET(string/autoadmin_rank))

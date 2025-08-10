@@ -73,7 +73,7 @@
 	description = "Delving into sophisticated AI directives, with hopes that they won't lead to humanity's extinction."
 	prereq_ids = list(TECHWEB_NODE_AI)
 	design_ids = list(
-		"ai_uplink_brain", // NOVA EDIT ADDITION
+		"ai_uplink_brain", // bobaEDIT ADDITION
 		"ai_power_upgrade",
 		"antimov_module",
 		"asimovpp_module",

@@ -58,8 +58,8 @@
 	else if(right_click)
 		if(isobj(object))
 			log_admin("Build Mode: [key_name(c)] deleted [object] at [AREACOORD(object)]")
-			// NOVA EDIT ADDITION START -- optional bluespace sparks on delete
+			// bobaEDIT ADDITION START -- optional bluespace sparks on delete
 			if(c.prefs.read_preference(/datum/preference/toggle/admin/delete_sparks))
 				do_admin_sparks(10, TRUE, object) // non-interactive sparks
-			// NOVA EDIT ADDITION END
+			// bobaEDIT ADDITION END
 			qdel(object)

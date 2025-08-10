@@ -175,7 +175,7 @@
 
 	var/power_coefficient = 0
 	for(var/datum/stock_part/capacitor/capacitor in component_parts)
-		power_coefficient += 2 ** (capacitor.tier - 1) // NOVA EDIT CHANGE - Original: power_coefficient += capacitor.tier
+		power_coefficient += 2 ** (capacitor.tier - 1) // bobaEDIT CHANGE - Original: power_coefficient += capacitor.tier
 	input_level_max = initial(input_level_max) * power_coefficient
 	output_level_max = initial(output_level_max) * power_coefficient
 

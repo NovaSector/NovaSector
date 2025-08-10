@@ -1,4 +1,4 @@
-#define RANDOM_EVENT_ADMIN_INTERVENTION_TIME (3 MINUTES) // NOVA EDIT CHANGE - ORIGINAL: #define RANDOM_EVENT_ADMIN_INTERVENTION_TIME (10 SECONDS)
+#define RANDOM_EVENT_ADMIN_INTERVENTION_TIME (3 MINUTES) // bobaEDIT CHANGE - ORIGINAL: #define RANDOM_EVENT_ADMIN_INTERVENTION_TIME (10 SECONDS)
 
 //this singleton datum is used by the events controller to dictate how it selects events
 /datum/round_event_control
@@ -99,14 +99,14 @@
 	triggering = TRUE
 
 	// We sleep HERE, in pre-event setup (because there's no sense doing it in run_event() since the event is already running!) for the given amount of time to make an admin has enough time to cancel an event un-fitting of the present round or at least reroll it.
-	//message_admins("Random Event triggering in [DisplayTimeText(RANDOM_EVENT_ADMIN_INTERVENTION_TIME)]: [name]. (<a href='byond://?src=[REF(src)];cancel=1'>CANCEL</a>) (<a href='byond://?src=[REF(src)];different_event=1'>SOMETHING ELSE</a>)") // NOVA EDIT REMOVAL
-	//sleep(RANDOM_EVENT_ADMIN_INTERVENTION_TIME) // NOVA EDIT REMOVAL
+	//message_admins("Random Event triggering in [DisplayTimeText(RANDOM_EVENT_ADMIN_INTERVENTION_TIME)]: [name]. (<a href='byond://?src=[REF(src)];cancel=1'>CANCEL</a>) (<a href='byond://?src=[REF(src)];different_event=1'>SOMETHING ELSE</a>)") // bobaEDIT REMOVAL
+	//sleep(RANDOM_EVENT_ADMIN_INTERVENTION_TIME) // bobaEDIT REMOVAL
 	var/players_amt = get_active_player_count(alive_check = TRUE, afk_check = TRUE, human_check = TRUE)
 	if(!can_spawn_event(players_amt))
 		message_admins("Second pre-condition check for [name] failed, rerolling...")
 		SSevents.spawnEvent(excluded_event = src)
 		return EVENT_INTERRUPTED
-	// NOVA EDIT ADDITION BEGIN - Event notification - Makes an attention-grabbing sound, gives admins two notifications spread over RANDOM_EVENT_ADMIN_INTERVENTION_TIME instead of just the one.
+	// bobaEDIT ADDITION BEGIN - Event notification - Makes an attention-grabbing sound, gives admins two notifications spread over RANDOM_EVENT_ADMIN_INTERVENTION_TIME instead of just the one.
 	message_admins("<font color='[COLOR_ADMIN_PINK]'>Random Event triggering in [DisplayTimeText(RANDOM_EVENT_ADMIN_INTERVENTION_TIME)]: [name]. (\
 		<a href='byond://?src=[REF(src)];cancel=1'>CANCEL</a> | \
 		<a href='byond://?src=[REF(src)];different_event=1'>SOMETHING ELSE</a>)</font>")
@@ -120,7 +120,7 @@
 		<a href='byond://?src=[REF(src)];cancel=1'>CANCEL</a> | \
 		<a href='byond://?src=[REF(src)];different_event=1'>SOMETHING ELSE</a>)</font>")
 		sleep(RANDOM_EVENT_ADMIN_INTERVENTION_TIME * 0.5)
-	// NOVA EDIT ADDITION END - Event notification
+	// bobaEDIT ADDITION END - Event notification
 
 	if(!triggering)
 		return EVENT_CANCELLED //admin cancelled
@@ -170,7 +170,7 @@ Runs the event
 	round_event.setup()
 	round_event.current_players = get_active_player_count(alive_check = 1, afk_check = 1, human_check = 1)
 	occurrences++
-	SSevents.previously_run += src // NOVA EDIT ADDITION
+	SSevents.previously_run += src // bobaEDIT ADDITION
 
 	if(announce_chance_override != null)
 		round_event.announce_chance = announce_chance_override

@@ -1,6 +1,6 @@
 #define LIVER_DEFAULT_TOX_TOLERANCE 3 //amount of toxins the liver can filter out
 #define LIVER_DEFAULT_TOX_RESISTANCE 1 //lower values lower how harmful toxins are to the liver
-#define LIVER_FAILURE_STAGE_SECONDS 180 //amount of seconds before liver failure reaches a new stage // NOVA EDIT CHANGE - Original: 60
+#define LIVER_FAILURE_STAGE_SECONDS 180 //amount of seconds before liver failure reaches a new stage // bobaEDIT CHANGE - Original: 60
 
 /obj/item/organ/liver
 	name = "liver"
@@ -329,5 +329,5 @@
 		return COMSIG_MOB_STOP_REAGENT_TICK
 
 #undef LIVER_DEFAULT_TOX_TOLERANCE
-//#undef LIVER_DEFAULT_TOX_RESISTANCE // NOVA EDIT REMOVAL - Needed in modular
+//#undef LIVER_DEFAULT_TOX_RESISTANCE // bobaEDIT REMOVAL - Needed in modular
 #undef LIVER_FAILURE_STAGE_SECONDS

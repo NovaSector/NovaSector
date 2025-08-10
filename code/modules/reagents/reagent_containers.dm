@@ -241,7 +241,7 @@
 			log_combat(thrown_by, M, "splashed", R)
 		reagents.expose(target, TOUCH, splash_multiplier)
 		reagents.expose(target_turf, TOUCH, (1 - splash_multiplier)) // 1 - splash_multiplier because it's what didn't hit the target
-		target_turf.add_liquid_from_reagents(reagents, reagent_multiplier = (1 - splash_multiplier)) // NOVA EDIT ADDITION - liquid spills (molotov buff) (huge)
+		target_turf.add_liquid_from_reagents(reagents, reagent_multiplier = (1 - splash_multiplier)) // bobaEDIT ADDITION - liquid spills (molotov buff) (huge)
 
 	else if(throwingdatum && bartender_check(target, thrown_by))
 		visible_message(span_notice("[src] lands onto \the [target] without spilling a single drop."))

@@ -124,7 +124,7 @@
 		if(!(config_flags & EXPERIMENT_CONFIG_SILENT_FAIL))
 			to_chat(user, span_notice("You do not have an experiment selected!"))
 		return
-	var/skill_modifier = user.mind?.get_skill_modifier(/datum/skill/research, SKILL_SPEED_MODIFIER) // NOVA EDIT CHANGE - ORIGINAL: if(!(config_flags & EXPERIMENT_CONFIG_IMMEDIATE_ACTION) && !do_after(user, 1 SECONDS, target = target))
+	var/skill_modifier = user.mind?.get_skill_modifier(/datum/skill/research, SKILL_SPEED_MODIFIER) // bobaEDIT CHANGE - ORIGINAL: if(!(config_flags & EXPERIMENT_CONFIG_IMMEDIATE_ACTION) && !do_after(user, 1 SECONDS, target = target))
 	if(!(config_flags & EXPERIMENT_CONFIG_IMMEDIATE_ACTION) && !do_after(user, 1 SECONDS * skill_modifier, target = target)) //NOVA EDIT: Research Skill
 		return
 	if(action_experiment(source, target))

@@ -21,4 +21,4 @@ GLOBAL_LIST(whitelist)
 	. = (ckey in GLOB.whitelist)
 
 #undef WHITELISTFILE
-*/ // NOVA EDIT END
+*/ // bobaEDIT END

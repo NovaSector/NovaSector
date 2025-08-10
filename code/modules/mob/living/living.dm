@@ -102,7 +102,7 @@
 	if(HAS_TRAIT(src, TRAIT_CATLIKE_GRACE) && (small_surface_area || usable_legs >= 2) && body_position == STANDING_UP && can_help_themselves)
 		. |= ZIMPACT_NO_MESSAGE|ZIMPACT_NO_SPIN
 		skip_knockdown = TRUE
-		if(small_surface_area || (isfelinid(src) || istajaran(src))) // NOVA EDIT CHANGE - ORIGINAL: if(small_surface_area)
+		if(small_surface_area || (isfelinid(src) || istajaran(src))) // bobaEDIT CHANGE - ORIGINAL: if(small_surface_area)
 			visible_message(
 				span_notice("[src] makes a hard landing on [impacted_turf], but lands safely on [p_their()] feet!"),
 				span_notice("You make a hard landing on [impacted_turf], but land safely on your feet!"),
@@ -444,15 +444,15 @@
 		log_combat(src, M, "grabbed", addition="passive grab")
 		if(!supress_message && !(iscarbon(AM) && HAS_TRAIT(src, TRAIT_STRONG_GRABBER)))
 			if(ishuman(M))
-				/* // NOVA EDIT REMOVAL START - Tail coiling - Original code
+				/* // bobaEDIT REMOVAL START - Tail coiling - Original code
 				var/mob/living/carbon/human/grabbed_human = M
 				var/grabbed_by_hands = (zone_selected == "l_arm" || zone_selected == "r_arm") && grabbed_human.usable_hands > 0
 				M.visible_message(span_warning("[src] grabs [M] [grabbed_by_hands ? "by their hands":"passively"]!"), \
 								span_warning("[src] grabs you [grabbed_by_hands ? "by your hands":"passively"]!"), null, null, src)
 				to_chat(src, span_notice("You grab [M] [grabbed_by_hands ? "by their hands":"passively"]!"))
 				grabbed_human.share_blood_on_touch(src, grabbed_by_hands ? ITEM_SLOT_GLOVES : ITEM_SLOT_ICLOTHING|ITEM_SLOT_OCLOTHING)
-				*/ // NOVA EDIT REMOVAL END - Tail coiling
-				// NOVA EDIT ADDITION START - Tail coiling
+				*/ // bobaEDIT REMOVAL END - Tail coiling
+				// bobaEDIT ADDITION START - Tail coiling
 				if(zone_selected == BODY_ZONE_PRECISE_GROIN && M.get_organ_slot(ORGAN_SLOT_EXTERNAL_TAIL) && src.get_organ_slot(ORGAN_SLOT_EXTERNAL_TAIL))
 					M.visible_message(span_warning("[src] coils their tail with [AM], wow is that okay in public?!"), "[src] has entwined their tail with yours!")
 					to_chat(src, "You entwine your tail with [AM]")
@@ -463,7 +463,7 @@
 									span_warning("[src] grabs you [grabbed_by_hands ? "by your hands":"passively"]!"), null, null, src)
 					to_chat(src, span_notice("You grab [M] [grabbed_by_hands ? "by their hands":"passively"]!"))
 					grabbed_human.share_blood_on_touch(src, grabbed_by_hands ? ITEM_SLOT_GLOVES : ITEM_SLOT_ICLOTHING|ITEM_SLOT_OCLOTHING)
-				// NOVA EDIT ADDITION END
+				// bobaEDIT ADDITION END
 			else
 				M.visible_message(span_warning("[src] grabs [M] passively!"), \
 								span_warning("[src] grabs you passively!"), null, null, src)
@@ -591,7 +591,7 @@
 			to_chat(src, span_warning("You are unable to succumb to death! This life continues."), type=MESSAGE_TYPE_INFO)
 			return
 	log_message("Has [whispered ? "whispered his final words" : "succumbed to death"] with [round(health, 0.1)] points of health!", LOG_ATTACK)
-	message_admins("[ADMIN_LOOKUPFLW(usr)] Has [whispered ? "whispered his final words" : "succumbed to death"] with [round(health, 0.1)] points of health, at [AREACOORD(usr)]") // NOVA EDIT ADDITION
+	message_admins("[ADMIN_LOOKUPFLW(usr)] Has [whispered ? "whispered his final words" : "succumbed to death"] with [round(health, 0.1)] points of health, at [AREACOORD(usr)]") // bobaEDIT ADDITION
 	adjustOxyLoss(health - HEALTH_THRESHOLD_DEAD)
 	updatehealth()
 	if(!whispered)
@@ -758,8 +758,8 @@ NOVA EDIT REMOVAL END */
 	if(istype(potential_spine))
 		get_up_time *= potential_spine.athletics_boost_multiplier
 
-	// if(!instant && !do_after(src, get_up_time, src, timed_action_flags = (IGNORE_USER_LOC_CHANGE|IGNORE_TARGET_LOC_CHANGE|IGNORE_HELD_ITEM), extra_checks = CALLBACK(src, TYPE_PROC_REF(/mob/living, rest_checks_callback)), interaction_key = DOAFTER_SOURCE_GETTING_UP, hidden = TRUE)) // NOVA EDIT REMOVAL
-	// NOVA EDIT ADDITION START
+	// if(!instant && !do_after(src, get_up_time, src, timed_action_flags = (IGNORE_USER_LOC_CHANGE|IGNORE_TARGET_LOC_CHANGE|IGNORE_HELD_ITEM), extra_checks = CALLBACK(src, TYPE_PROC_REF(/mob/living, rest_checks_callback)), interaction_key = DOAFTER_SOURCE_GETTING_UP, hidden = TRUE)) // bobaEDIT REMOVAL
+	// bobaEDIT ADDITION START
 	var/stam = getStaminaLoss()
 	switch(FLOOR(stam,1))
 		if(0 to STAMINA_THRESHOLD_MEDIUM_GET_UP)
@@ -780,11 +780,11 @@ NOVA EDIT REMOVAL END */
 				return
 	if(pulledby && pulledby.grab_state)
 		to_chat(src, span_warning("You fail to stand up, you're restrained!"))
-	// NOVA EDIT ADDITION END
+	// bobaEDIT ADDITION END
 		return
 	if(resting || body_position == STANDING_UP || HAS_TRAIT(src, TRAIT_FLOORED))
 		return
-	to_chat(src, span_notice("You stand up.")) // NOVA EDIT ADDITION
+	to_chat(src, span_notice("You stand up.")) // bobaEDIT ADDITION
 	set_body_position(STANDING_UP)
 	set_lying_angle(0)
 
@@ -1186,12 +1186,12 @@ NOVA EDIT REMOVAL END */
 	if(next_move > world.time)
 		return FALSE
 	if(HAS_TRAIT(src, TRAIT_INCAPACITATED))
-		// NOVA EDIT ADDITION BEGIN - Enhanced sleep
+		// bobaEDIT ADDITION BEGIN - Enhanced sleep
 		// Allows resisting if the sleep verb was used
 		var/datum/status_effect/incapacitating/sleeping/sleep_effect = IsSleeping()
 		if(!isnull(sleep_effect) && sleep_effect.voluntary)
 			return TRUE
-		// NOVA EDIT ADDITION END
+		// bobaEDIT ADDITION END
 		return FALSE
 	return TRUE
 
@@ -1208,12 +1208,12 @@ NOVA EDIT REMOVAL END */
 	changeNext_move(CLICK_CD_RESIST)
 
 	SEND_SIGNAL(src, COMSIG_LIVING_RESIST, src)
-	// NOVA EDIT ADDITION BEGIN - Enhanced sleep
+	// bobaEDIT ADDITION BEGIN - Enhanced sleep
 	// Allows resisting if the sleep verb was used
 	if(IsSleeping())
 		SetSleeping(0)
 		return
-	// NOVA EDIT ADDITION END
+	// bobaEDIT ADDITION END
 	//resisting grabs (as if it helps anyone...)
 	if(!HAS_TRAIT(src, TRAIT_RESTRAINED) && pulledby)
 		log_combat(src, pulledby, "resisted grab")
@@ -1256,14 +1256,14 @@ NOVA EDIT REMOVAL END */
 
 	if(HAS_TRAIT(src, TRAIT_GRABRESISTANCE)) //If we have grab resistance from some source, treat the grab state as one lower.
 		effective_grab_state--
-	// NOVA EDIT ADDITION START
+	// bobaEDIT ADDITION START
 	if(staminaloss > STAMINA_THRESHOLD_HARD_RESIST)
 		effective_grab_state++
 
 	var/mob/living/living_mob = pulledby
 	if(istype(living_mob) && living_mob.staminaloss > STAMINA_THRESHOLD_HARD_RESIST)
 		effective_grab_state--
-	// NOVA EDIT ADDITION END
+	// bobaEDIT ADDITION END
 
 	//If our puller is a human, and they have an active hand they're grabbing with (please don't ask how people grab without hands), then apply their unarmed values to the grab values
 	if(pulledby && ishuman(pulledby))
@@ -1283,7 +1283,7 @@ NOVA EDIT REMOVAL END */
 		// see defines/combat.dm, this should be baseline 60%
 		// Resist chance divided by the value imparted by your grab state. It isn't until you reach neckgrab that you gain a penalty to escaping a grab.
 		var/resist_chance = clamp(BASE_GRAB_RESIST_CHANCE / effective_grab_state, 0, 100)
-		// NOVA EDIT ADDITION START
+		// bobaEDIT ADDITION START
 		// Akula grab resist
 		if(HAS_TRAIT(src, TRAIT_SLIPPERY))
 			resist_chance += AKULA_GRAB_RESIST_BONUS

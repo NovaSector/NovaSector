@@ -1738,7 +1738,7 @@
 	. = ..()
 	if(SPT_PROB(tox_prob, seconds_per_tick))
 		var/flipped_number = (affected_mob.mob_biotypes & MOB_PLANT) ? -1 : 1 //NOVA EDIT ADDITION: Plant mobs will be healed instead
-		if(affected_mob.adjustToxLoss(flipped_number, updating_health = FALSE, required_biotype = affected_biotype)) // NOVA EDIT CHANGE - ORIGINAL: if(affected_mob.adjustToxLoss(1, updating_health = FALSE, required_biotype = affected_biotype))
+		if(affected_mob.adjustToxLoss(flipped_number, updating_health = FALSE, required_biotype = affected_biotype)) // bobaEDIT CHANGE - ORIGINAL: if(affected_mob.adjustToxLoss(1, updating_health = FALSE, required_biotype = affected_biotype))
 			return UPDATE_MOB_HEALTH
 
 /datum/reagent/plantnutriment/eznutriment
@@ -2600,7 +2600,7 @@
 	. = ..()
 	target.adjust_hallucinations(5 SECONDS * REM * seconds_per_tick)
 	var/datum/antagonist/changeling/changeling = IS_CHANGELING(target)
-	changeling?.adjust_chemicals(-4 * REM * seconds_per_tick) // NOVA EDIT CHANGE - BZ-BUFF-VS-LING - ORIGINAL: changeling?.adjust_chemicals(-2 * REM * seconds_per_tick)
+	changeling?.adjust_chemicals(-4 * REM * seconds_per_tick) // bobaEDIT CHANGE - BZ-BUFF-VS-LING - ORIGINAL: changeling?.adjust_chemicals(-2 * REM * seconds_per_tick)
 
 /datum/reagent/pax/peaceborg
 	name = "Synthpax"

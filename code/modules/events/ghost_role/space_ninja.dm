@@ -27,7 +27,7 @@
 	ninja.PossessByPlayer(chosen_one.key)
 	ninja.mind.add_antag_datum(/datum/antagonist/ninja)
 	spawned_mobs += ninja
-// NOVA EDIT ADDITION BEGIN: Preference Ninjas
+// bobaEDIT ADDITION BEGIN: Preference Ninjas
 	var/loadme = tgui_input_list(ninja, "Do you wish to load your character slot?", "Load Character?", list("Yes!", "No, I want to be random!"), default = "No, I want to be random!", timeout = 60 SECONDS)
 	var/codename
 	if(loadme == "Yes!")
@@ -41,7 +41,7 @@
 		ninja.randomize_human_appearance(~(RANDOMIZE_NAME|RANDOMIZE_SPECIES))
 		ninja.dna.update_dna_identity()
 
-// NOVA EDIT ADDITION END: Preference Ninjas
+// bobaEDIT ADDITION END: Preference Ninjas
 	message_admins("[ADMIN_LOOKUPFLW(ninja)] has been made into a space ninja by an event.")
 	ninja.log_message("was spawned as a ninja by an event.", LOG_GAME)
 

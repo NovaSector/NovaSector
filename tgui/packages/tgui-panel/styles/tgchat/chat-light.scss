@@ -1073,7 +1073,7 @@ h2.alert {
   flex-grow: 1;
 }
 
-// NOVA EDIT CHANGE BEGIN - Remove neon colors, replaced with less saturated
+// bobaEDIT CHANGE BEGIN - Remove neon colors, replaced with less saturated
 /*
 $alert-stripe-colors: (
   'default': hsl(230.5, 100%, 85.1%),
@@ -1171,7 +1171,7 @@ $alert-subheader-header-colors: (
   'purple': #991200,
   'grey': #002c85,
 );
-// NOVA EDIT CHANGE END
+// bobaEDIT CHANGE END
 
 $border-width: 4;
 
@@ -1404,4 +1404,4 @@ $border-width-px: $border-width * 1px;
     color: #9b6000;
   }
 }
-// NOVA EDIT ADDITION END
+// bobaEDIT ADDITION END

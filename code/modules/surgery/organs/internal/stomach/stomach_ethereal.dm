@@ -87,11 +87,11 @@
 			carbon.apply_damage(0.325 * seconds_per_tick, TOX, null, null, carbon)
 			if(SPT_PROB(5, seconds_per_tick)) // 5% each seacond for ethereals to explosively release excess energy if it reaches dangerous levels
 				discharge_process(carbon)
-			// NOVA EDIT ADDITION BEGIN
+			// bobaEDIT ADDITION BEGIN
 			if (SPT_PROB(10, seconds_per_tick))
 				do_sparks(5, TRUE, carbon)
 				carbon.visible_message(span_danger("[carbon] sparks, [carbon.p_their()] body aglow with excess energy!"), span_warning("Your body ejects voltage as sparks, you should discharge some electricity!"))
-			// NOVA EDIT ADDITION END
+			// bobaEDIT ADDITION END
 		else
 			owner.clear_mood_event("charge")
 			carbon.clear_alert(ALERT_ETHEREAL_CHARGE)

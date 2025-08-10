@@ -101,9 +101,9 @@
 	if(damaged_clothes)
 		. += mutable_appearance('icons/effects/item_damage.dmi', "damageduniform")
 	if(accessory_overlay)
-		. += modify_accessory_overlay() // NOVA EDIT CHANGE - ORIGINAL: . += accessory_overlay
+		. += modify_accessory_overlay() // bobaEDIT CHANGE - ORIGINAL: . += accessory_overlay
 
-/obj/item/clothing/under/separate_worn_overlays(mutable_appearance/standing, mutable_appearance/draw_target, isinhands = FALSE, icon_file, mutant_styles = NONE) // NOVA EDIT CHANGE - ORIGINAL: separate_worn_overlays(mutable_appearance/standing, mutable_appearance/draw_target, isinhands = FALSE, icon_file)
+/obj/item/clothing/under/separate_worn_overlays(mutable_appearance/standing, mutable_appearance/draw_target, isinhands = FALSE, icon_file, mutant_styles = NONE) // bobaEDIT CHANGE - ORIGINAL: separate_worn_overlays(mutable_appearance/standing, mutable_appearance/draw_target, isinhands = FALSE, icon_file)
 	. = ..()
 	if (isinhands)
 		return
@@ -155,7 +155,7 @@
 		if(wearer.bodyshape & BODYSHAPE_DIGITIGRADE)
 			adjusted = DIGITIGRADE_STYLE
 			update_appearance()
-		*/ // NOVA EDIT END
+		*/ // bobaEDIT END
 
 /obj/item/clothing/under/generate_digitigrade_icons(icon/base_icon, greyscale_colors)
 	var/icon/legs = icon(SSgreyscale.GetColoredIconByType(/datum/greyscale_config/digitigrade, greyscale_colors), "jumpsuit_worn")
@@ -176,7 +176,7 @@
 
 	visible_message(span_warning("[src]'s medical sensors short out!"), blind_message = span_warning("The [src] makes an electronic sizzling sound!"), vision_distance = COMBAT_MESSAGE_RANGE)
 	has_sensor = BROKEN_SENSORS
-	sensor_mode = SENSOR_LIVING // NOVA EDIT ADDITION
+	sensor_mode = SENSOR_LIVING // bobaEDIT ADDITION
 	sensor_malfunction()
 	update_wearer_status()
 
@@ -229,7 +229,7 @@
 /// Adds or removes a mob from the global suit sensors list based on sensor status and mode
 /mob/living/carbon/human/proc/update_sensor_list()
 	var/obj/item/clothing/under/uniform = w_uniform
-	if(istype(uniform) && uniform.has_sensor != NO_SENSORS && uniform.sensor_mode) // NOVA EDIT CHANGE - ORIGINAL: if(istype(uniform) && uniform.has_sensor > NO_SENSORS && uniform.sensor_mode)
+	if(istype(uniform) && uniform.has_sensor != NO_SENSORS && uniform.sensor_mode) // bobaEDIT CHANGE - ORIGINAL: if(istype(uniform) && uniform.has_sensor > NO_SENSORS && uniform.sensor_mode)
 		GLOB.suit_sensors_list |= src
 	else
 		GLOB.suit_sensors_list -= src
@@ -248,7 +248,7 @@
 		break_sensors()
 
 	else
-		sensor_mode = clamp(sensor_mode + pick(-1,1), SENSOR_OFF, SENSOR_COORDS) // NOVA EDIT CHANGE - ORIGINAL: sensor_mode = pick(SENSOR_OFF, SENSOR_OFF, SENSOR_OFF, SENSOR_LIVING, SENSOR_LIVING, SENSOR_VITALS, SENSOR_VITALS, SENSOR_COORDS)
+		sensor_mode = clamp(sensor_mode + pick(-1,1), SENSOR_OFF, SENSOR_COORDS) // bobaEDIT CHANGE - ORIGINAL: sensor_mode = pick(SENSOR_OFF, SENSOR_OFF, SENSOR_OFF, SENSOR_LIVING, SENSOR_LIVING, SENSOR_VITALS, SENSOR_VITALS, SENSOR_COORDS)
 		playsound(source = src, soundin = 'sound/effects/sparks/sparks3.ogg', vol = 75, vary = TRUE, extrarange = SHORT_RANGE_SOUND_EXTRARANGE, ignore_walls = FALSE)
 		visible_message(span_warning("The [src]'s medical sensors flash and change rapidly!"), blind_message = span_warning("The [src] makes an electronic sizzling sound!"), vision_distance = COMBAT_MESSAGE_RANGE)
 
@@ -431,7 +431,7 @@
 
 	sensor_mode = SENSOR_COORDS
 	balloon_alert(user, "set to tracking")
-	to_chat(user, span_notice("Your suit will now report your exact vital lifesigns as well as your coordinate position.")) // NOVA EDIT ADDITION
+	to_chat(user, span_notice("Your suit will now report your exact vital lifesigns as well as your coordinate position.")) // bobaEDIT ADDITION
 	update_wearer_status()
 	return CLICK_ACTION_SUCCESS
 

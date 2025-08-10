@@ -1,15 +1,15 @@
 /obj/item/disk/surgery/brainwashing
-	name = "Surgery Disk" // NOVA EDIT CHANGE - ORIGINAL: name = "Brainwashing Surgery Disk" - Finally I can upload the funny surgery disk without letting everyone in the room know about it!
+	name = "Surgery Disk" // bobaEDIT CHANGE - ORIGINAL: name = "Brainwashing Surgery Disk" - Finally I can upload the funny surgery disk without letting everyone in the room know about it!
 	desc = "The disk provides instructions on some kind of surgery, but the label has been scratched off..." //NOVA EDIT: Moved to Special Desc.
 	surgeries = list(
 		/datum/surgery/advanced/brainwashing,
 		/datum/surgery/advanced/brainwashing/mechanic,
 	)
-	// NOVA EDIT ADDITION START - Job specific descriptions
+	// bobaEDIT ADDITION START - Job specific descriptions
 	special_desc_requirement = EXAMINE_CHECK_JOB
 	special_desc_jobs = list("Medical Doctor, Chief Medical Officer, Roboticist")
 	special_desc = "The disk provides instructions on how to impress an order on a brain, making it the primary objective of the patient."
-	// NOVA EDIT ADDITION END
+	// bobaEDIT ADDITION END
 
 /datum/surgery/advanced/brainwashing
 	name = "Brainwashing"

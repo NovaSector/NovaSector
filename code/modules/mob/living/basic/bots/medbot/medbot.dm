@@ -323,12 +323,12 @@
 		return
 	if(!iscarbon(target))
 		return
-	// NOVA EDIT ADDITION START - Skip trying to heal synths
+	// bobaEDIT ADDITION START - Skip trying to heal synths
 	if(ishuman(target))
 		var/mob/living/carbon/human/human_target = target
 		if(human_target.mob_biotypes & MOB_ROBOTIC)
 			return
-	// NOVA EDIT ADDITION END
+	// bobaEDIT ADDITION END
 	INVOKE_ASYNC(src, PROC_REF(medicate_patient), target)
 	return COMPONENT_HOSTILE_NO_ATTACK
 

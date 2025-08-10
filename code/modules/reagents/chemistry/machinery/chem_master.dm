@@ -165,8 +165,8 @@
 			CAT_TUBES = GLOB.reagent_containers[CAT_TUBES],
 			CAT_PILLS = GLOB.reagent_containers[CAT_PILLS],
 			CAT_PATCHES = GLOB.reagent_containers[CAT_PATCHES],
-			CAT_HYPOS = GLOB.reagent_containers[CAT_HYPOS], // NOVA EDIT ADDITION
-			CAT_DARTS = GLOB.reagent_containers[CAT_DARTS], // NOVA EDIT ADDITION
+			CAT_HYPOS = GLOB.reagent_containers[CAT_HYPOS], // bobaEDIT ADDITION
+			CAT_DARTS = GLOB.reagent_containers[CAT_DARTS], // bobaEDIT ADDITION
 		)
 	return containers
 
@@ -511,10 +511,10 @@
 				item_name_default = "[master_reagent.name] [item_name_default]"
 			if(!(initial(selected_container.reagent_flags) & OPENCONTAINER)) // Closed containers get both reagent name and units in the name
 				item_name_default = "[master_reagent.name] [item_name_default] ([volume_in_each]u)"
-			// NOVA EDIT ADDITION START - Autonamed hyposprays/smartdarts
+			// bobaEDIT ADDITION START - Autonamed hyposprays/smartdarts
 			if(ispath(selected_container, /obj/item/reagent_containers/cup/vial) || ispath(selected_container, /obj/item/reagent_containers/syringe/smartdart))
 				item_name_default = "[master_reagent.name] [item_name_default]"
-			// NOVA EDIT ADDITION END
+			// bobaEDIT ADDITION END
 			var/item_name = tgui_input_text(
 				usr,
 				"Container name",

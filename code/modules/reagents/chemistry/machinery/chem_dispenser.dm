@@ -34,14 +34,14 @@
 	var/obj/item/reagent_containers/beaker = null
 	/// Dispensable_reagents is copypasted in plumbing synthesizers. Please update accordingly. (I didn't make it global because that would limit custom chem dispensers)
 	var/list/dispensable_reagents = list()
-	/// These become available once the manipulator has been upgraded to tier 2 (nano) // NOVA EDIT CHANGE - ORIGINAL: /// These become available once the manipulator has been upgraded to tier 4 (femto)
+	/// These become available once the manipulator has been upgraded to tier 2 (nano) // bobaEDIT CHANGE - ORIGINAL: /// These become available once the manipulator has been upgraded to tier 4 (femto)
 	var/list/upgrade_reagents = list()
-	// NOVA EDIT ADDITION BEGIN
+	// bobaEDIT ADDITION BEGIN
 	/// These become available once the manipulator has been upgraded to tier 3 (pico)
 	var/list/upgrade2_reagents = list()
 	/// These become available once the manipulator has been upgraded to tier 4 (femto)
 	var/list/upgrade3_reagents = list()
-	// NOVA EDIT ADDITION END
+	// bobaEDIT ADDITION END
 	/// These become available once the machine has been emaged
 	var/list/emagged_reagents = list()
 	/// Starting purity of the created reagents
@@ -50,12 +50,12 @@
 	var/list/recording_recipe
 	/// Saves all the recipes recorded by the machine
 	var/list/saved_recipes = list()
-	// NOVA EDIT ADDITION BEGIN
+	// bobaEDIT ADDITION BEGIN
 	/// Used for custom transfer amounts
 	var/list/transferAmounts = list()
 	/// The custom transfer amount
 	var/customTransferAmount
-	// NOVA EDIT ADDITION END
+	// bobaEDIT ADDITION END
 
 	/// The default list of dispensable_reagents
 	var/static/list/default_dispensable_reagents = list(
@@ -85,11 +85,11 @@
 		/datum/reagent/water,
 		/datum/reagent/fuel,
 	)
-	// NOVA EDIT ADDITION START - Unusual biochemistry quirk
+	// bobaEDIT ADDITION START - Unusual biochemistry quirk
 	var/static/list/default_dispensable_reagents_nova = list(
 		/datum/reagent/manganese,
 	)
-	// NOVA EDIT ADDITION END
+	// bobaEDIT ADDITION END
 
 	//NOVA EDIT CHANGE BEGIN - ORIGINAL
 	/*
@@ -735,7 +735,7 @@
 		/datum/reagent/consumable/ethanol/rice_beer,
 		/datum/reagent/consumable/ethanol/rum,
 		/datum/reagent/consumable/ethanol/sake,
-		/datum/reagent/consumable/ethanol/synthanol, // NOVA EDIT
+		/datum/reagent/consumable/ethanol/synthanol, // bobaEDIT
 		/datum/reagent/consumable/ethanol/tequila,
 		/datum/reagent/consumable/ethanol/triple_sec,
 		/datum/reagent/consumable/ethanol/vermouth,
@@ -874,13 +874,13 @@
 		/datum/reagent/consumable/liquidelectricity/enriched,
 		/datum/reagent/medicine/c2/synthflesh,
 	)
-	// NOVA EDIT ADDITION START
+	// bobaEDIT ADDITION START
 	var/static/list/abductor_dispensable_reagents_nova = list(
 		/datum/reagent/manganese,
 	)
-	// NOVA EDIT ADDITION END
+	// bobaEDIT ADDITION END
 
 /obj/machinery/chem_dispenser/abductor/Initialize(mapload)
 	dispensable_reagents = abductor_dispensable_reagents
 	. = ..()
-	dispensable_reagents += abductor_dispensable_reagents_nova // NOVA EDIT ADDITION - After the parent call so it does not get sorted
+	dispensable_reagents += abductor_dispensable_reagents_nova // bobaEDIT ADDITION - After the parent call so it does not get sorted

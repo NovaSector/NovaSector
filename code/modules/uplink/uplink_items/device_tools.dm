@@ -51,7 +51,7 @@
 	item = /obj/item/book/bible/syndicate
 	cost = 5
 
-/* // NOVA EDIT REMOVAL START
+/* // bobaEDIT REMOVAL START
 /datum/uplink_item/device_tools/tram_remote
 	name = "Tram Remote Control"
 	desc = "When linked to a tram's on board computer systems, this device allows the user to manipulate the controls remotely. \
@@ -59,7 +59,7 @@
 		Perfect for running someone over in the name of a tram malfunction!"
 	item = /obj/item/assembly/control/transport/remote
 	cost = 2
-*/ // NOVA EDIT REMOVAL END
+*/ // bobaEDIT REMOVAL END
 
 /datum/uplink_item/device_tools/thermal
 	name = "Thermal Imaging Glasses"
@@ -78,7 +78,7 @@
 	cost = 1
 	surplus = 20
 
-/* // NOVA EDIT REMOVAL
+/* // bobaEDIT REMOVAL
 /datum/uplink_item/device_tools/briefcase_launchpad
 	name = "Briefcase Launchpad"
 	desc = "A briefcase containing a launchpad, a device able to teleport items and people to and from targets up to eight tiles away from the briefcase. \
@@ -86,7 +86,7 @@
 	surplus = 0
 	item = /obj/item/storage/briefcase/launchpad
 	cost = 6
-*/ // NOVA EDIT REMOVAL END
+*/ // bobaEDIT REMOVAL END
 
 /datum/uplink_item/device_tools/syndicate_teleporter
 	name = "Experimental Syndicate Teleporter"
@@ -198,7 +198,7 @@
 	restricted = TRUE
 	cost = 7
 	limited_stock = 1
-*/ // NOVA EDIT REMOVAL END
+*/ // bobaEDIT REMOVAL END
 
 /datum/uplink_item/device_tools/binary
 	name = "Binary Translator Key"

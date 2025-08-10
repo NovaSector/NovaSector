@@ -8,9 +8,9 @@
 ///Cap for how fast cells charge, as a percentage per second (.01 means cellcharge is capped to 1% per second)
 #define CHARGELEVEL 0.01
 ///Charge percentage at which the lights channel stops working
-#define APC_CHANNEL_LIGHT_TRESHOLD 10 // NOVA EDIT CHANGE - orig: 15
+#define APC_CHANNEL_LIGHT_TRESHOLD 10 // bobaEDIT CHANGE - orig: 15
 ///Charge percentage at which the equipment channel stops working
-#define APC_CHANNEL_EQUIP_TRESHOLD 20 // NOVA EDIT CHANGE - orig: 30
+#define APC_CHANNEL_EQUIP_TRESHOLD 20 // bobaEDIT CHANGE - orig: 30
 ///Charge percentage at which the APC icon indicates discharging
 #define APC_CHANNEL_ALARM_TRESHOLD 75
 
@@ -645,9 +645,9 @@
 			if(!nightshift_lights || (nightshift_lights && !low_power_nightshift_lights))
 				low_power_nightshift_lights = TRUE
 				INVOKE_ASYNC(src, PROC_REF(set_nightshift), TRUE)
-		else if(cell.percent() < APC_CHANNEL_EQUIP_TRESHOLD) // turn off equipment // NOVA EDIT COMMENT - Changed to turn off lighting instead
-			equipment = autoset(equipment, AUTOSET_ON) // NOVA EDIT CHANGE - Original: equipment = autoset(equipment, AUTOSET_OFF)
-			lighting = autoset(lighting, AUTOSET_OFF) // NOVA EDIT CHANGE - Original: lighting = autoset(lighting, AUTOSET_ON)
+		else if(cell.percent() < APC_CHANNEL_EQUIP_TRESHOLD) // turn off equipment // bobaEDIT COMMENT - Changed to turn off lighting instead
+			equipment = autoset(equipment, AUTOSET_ON) // bobaEDIT CHANGE - Original: equipment = autoset(equipment, AUTOSET_OFF)
+			lighting = autoset(lighting, AUTOSET_OFF) // bobaEDIT CHANGE - Original: lighting = autoset(lighting, AUTOSET_ON)
 			environ = autoset(environ, AUTOSET_ON)
 			alarm_manager.send_alarm(ALARM_POWER)
 			if(!nightshift_lights || (nightshift_lights && !low_power_nightshift_lights))
@@ -664,7 +664,7 @@
 			if(cell.percent() > APC_CHANNEL_ALARM_TRESHOLD)
 				alarm_manager.clear_alarm(ALARM_POWER)
 
-		// NOVA EDIT ADDITION START - CLOCK CULT
+		// bobaEDIT ADDITION START - CLOCK CULT
 		if(integration_cog)
 			var/power_delta = clamp(cell.charge - 50, 0, 50)
 			GLOB.clock_power = min(round(GLOB.clock_power + (power_delta / 2.5)) , GLOB.max_clock_power) // Will continue to siphon even if full just so the APCs aren't completely silent about having an issue (since power will regularly be full)
@@ -673,7 +673,7 @@
 			charging = APC_NOT_CHARGING
 			if(cell.charge <= 50)
 				cell.charge = 0
-		// NOVA EDIT ADDITION END
+		// bobaEDIT ADDITION END
 	else // no cell, switch everything off
 		charging = APC_NOT_CHARGING
 		equipment = autoset(equipment, AUTOSET_FORCE_OFF)

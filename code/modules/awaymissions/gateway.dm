@@ -35,7 +35,7 @@ GLOBAL_LIST_EMPTY(gateway_destinations)
 		return !iscyborg(AM)
 	else
 		return TRUE
-// NOVA EDIT - END
+// bobaEDIT - END
 /* Get the actual turf we'll arrive at */
 /datum/gateway_destination/proc/get_target_turf()
 	CRASH("get target turf not implemented for this destination type")

@@ -85,8 +85,8 @@
 			"value" = initial(quirk.value),
 			"customizable" = constant_data?.is_customizable(),
 			"customization_options" = customization_options,
-			"nova_stars_only" = initial(quirk.nova_stars_only), // NOVA EDIT ADDITION - Veteran quirks
-			"erp_quirk" = initial(quirk.erp_quirk), // NOVA EDIT ADDITION - Purple ERP quirks
+			"nova_stars_only" = initial(quirk.nova_stars_only), // bobaEDIT ADDITION - Veteran quirks
+			"erp_quirk" = initial(quirk.erp_quirk), // bobaEDIT ADDITION - Purple ERP quirks
 		)
 
 	return list(
@@ -111,7 +111,7 @@
 
 	preferences.validate_quirks()
 	var/list/new_quirks = preferences.all_quirks | quirk_name
-	if (SSquirks.filter_invalid_quirks(new_quirks, preferences.augments) != new_quirks)// NOVA EDIT - AUGMENTS+
+	if (SSquirks.filter_invalid_quirks(new_quirks, preferences.augments) != new_quirks)// bobaEDIT - AUGMENTS+
 		// If the client is sending an invalid give_quirk, that means that
 		// something went wrong with the client prediction, so we should
 		// catch it back up to speed.
@@ -127,7 +127,7 @@
 	var/quirk_name = params["quirk"]
 
 	var/list/new_quirks = preferences.all_quirks - quirk_name
-	if (!(quirk_name in preferences.all_quirks) || SSquirks.filter_invalid_quirks(new_quirks, preferences.augments) != new_quirks)// NOVA EDIT - AUGMENTS+
+	if (!(quirk_name in preferences.all_quirks) || SSquirks.filter_invalid_quirks(new_quirks, preferences.augments) != new_quirks)// bobaEDIT - AUGMENTS+
 		// If the client is sending an invalid remove_quirk, that means that
 		// something went wrong with the client prediction, so we should
 		// catch it back up to speed.

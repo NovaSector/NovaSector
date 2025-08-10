@@ -25,7 +25,7 @@
     text-align: right;
     float: right;
   }
-  // NOVA EDIT ADDITION START
+  // bobaEDIT ADDITION START
   &_subtle_outgoing {
     @extend .NtosChatMessage;
     background-color: hsl(281, 39%, 59%);
@@ -37,7 +37,7 @@
     @extend .NtosChatMessage;
     background-color: hsl(281, 15%, 59%);
   }
-  // NOVA EDIT ADDITION END
+  // bobaEDIT ADDITION END
 
   &__timestamp {
     height: 0.9rem;

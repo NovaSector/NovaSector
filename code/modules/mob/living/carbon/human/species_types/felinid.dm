@@ -10,7 +10,7 @@
 	mutant_organs = list(
 		/obj/item/organ/tail/cat = "Cat",
 	)
-	*/ // NOVA EDIT REMOVAL END
+	*/ // bobaEDIT REMOVAL END
 	inherent_traits = list(
 		TRAIT_CATLIKE_GRACE,
 		TRAIT_HATED_BY_DOGS,
@@ -45,7 +45,7 @@
 			ears.Insert(target_human, movement_flags = DELETE_IF_REPLACED)
 		else
 			mutantears = /obj/item/organ/ears
-		// NOVA EDIT CHANGE END
+		// bobaEDIT CHANGE END
 	return ..()
 
 /datum/species/human/felinid/randomize_features(mob/living/carbon/human/human_mob)
@@ -213,7 +213,7 @@
 	human_for_preview.dna.mutant_bodyparts["ears"] = list(MUTANT_INDEX_NAME = "Cat", MUTANT_INDEX_COLOR_LIST = list(human_for_preview.hair_color))
 	regenerate_organs(human_for_preview, src, visual_only = TRUE)
 	human_for_preview.update_body(TRUE)
-	// NOVA EDIT END
+	// bobaEDIT END
 
 /datum/species/human/felinid/get_physical_attributes()
 	return "Felinids are very similar to humans in almost all respects, with their biggest differences being the ability to lick their wounds, \

@@ -201,14 +201,14 @@
 /obj/projectile/colossus/on_hit(atom/target, blocked = 0, pierce_hit)
 	. = ..()
 	if(isliving(target))
-		/* // NOVA EDIT REMOVAL START - Replaced with calling devour, below this commented code
+		/* // bobaEDIT REMOVAL START - Replaced with calling devour, below this commented code
 		var/mob/living/dust_mob = target
 		if(dust_mob.stat == DEAD)
 			dust_mob.investigate_log("has been dusted by a death bolt (colossus).", INVESTIGATE_DEATHS)
 			dust_mob.dust()
 		return
-		*/ // NOVA EDIT REMOVAL END
-		// NOVA EDIT ADDITION START - Colossus and icemoon megafauna devour instead of dusting
+		*/ // bobaEDIT REMOVAL END
+		// bobaEDIT ADDITION START - Colossus and icemoon megafauna devour instead of dusting
 		var/mob/living/dead_mob = target
 		if(dead_mob.stat != DEAD)
 			return
@@ -219,7 +219,7 @@
 			megafauna.devour(target)
 			return
 		return
-		// NOVA EDIT ADDITION END
+		// bobaEDIT ADDITION END
 	if(!explode_hit_objects || istype(target, /obj/vehicle/sealed))
 		return
 	if(isturf(target) || isobj(target))

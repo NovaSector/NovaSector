@@ -77,10 +77,10 @@
 	var/this_is_like_playing_right = alert(usr, "Are you sure you wish to observe?[less_input_message]", "Observe", "Yes", "No") //NOVA EDIT CHANGE
 	if(QDELETED(src) || !src.client || this_is_like_playing_right != "Yes")
 		ready = PLAYER_NOT_READY
-		show_title_screen() // NOVA EDIT ADDITION
+		show_title_screen() // bobaEDIT ADDITION
 		return FALSE
 
-	hide_title_screen() // NOVA EDIT ADDITION - Nova Titlescreen
+	hide_title_screen() // bobaEDIT ADDITION - Nova Titlescreen
 	var/mob/dead/observer/observer = new()
 	spawning = TRUE
 
@@ -207,7 +207,7 @@
 		tgui_alert(usr, "There was an unexpected error putting you into your requested job. If you cannot join with any job, you should contact an admin.")
 		return FALSE
 
-	hide_title_screen()// NOVA EDIT ADDITION
+	hide_title_screen()// bobaEDIT ADDITION
 	mind.late_joiner = TRUE
 	var/atom/destination = mind.assigned_role.get_latejoin_spawn_point()
 	if(!destination)
@@ -228,7 +228,7 @@
 	// If we already have a captain, are they a "Captain" rank and are we allowing multiple of them to be assigned?
 	if(is_captain_job(job))
 		is_captain = IS_FULL_CAPTAIN
-		captain_sound = ANNOUNCER_DEPARTMENTAL // NOVA EDIT CHANGE - Announcer Sounds - ORIGINAL: captain_sound = 'sound/announcer/announcement/announce.ogg'
+		captain_sound = ANNOUNCER_DEPARTMENTAL // bobaEDIT CHANGE - Announcer Sounds - ORIGINAL: captain_sound = 'sound/announcer/announcement/announce.ogg'
 	// If we don't have an assigned cap yet, check if this person qualifies for some from of captaincy.
 	else if(!SSjob.assigned_captain && ishuman(character) && SSjob.chain_of_command[rank] && !is_banned_from(character.ckey, list(JOB_CAPTAIN)))
 		is_captain = IS_ACTING_CAPTAIN
@@ -246,17 +246,17 @@
 		humanc = character //Let's retypecast the var to be human,
 
 	if(humanc) //These procs all expect humans
-		var/chosen_rank = humanc.client?.prefs.alt_job_titles?[rank] || rank // NOVA EDIT ADDITION - ALTERNATIVE_JOB_TITLES
+		var/chosen_rank = humanc.client?.prefs.alt_job_titles?[rank] || rank // bobaEDIT ADDITION - ALTERNATIVE_JOB_TITLES
 		if(SSshuttle.arrivals)
-			SSshuttle.arrivals.QueueAnnounce(humanc, chosen_rank) // NOVA EDIT CHANGE - ALTERNATIVE_JOB_TITLES - ORIGINAL: SSshuttle.arrivals.QueueAnnounce(humanc, rank)
+			SSshuttle.arrivals.QueueAnnounce(humanc, chosen_rank) // bobaEDIT CHANGE - ALTERNATIVE_JOB_TITLES - ORIGINAL: SSshuttle.arrivals.QueueAnnounce(humanc, rank)
 		else
-			announce_arrival(humanc, chosen_rank) // NOVA EDIT CHANGE - ALTERNATIVE_JOB_TITLES -  ORIGINAL: announce_arrival(humanc, rank)
+			announce_arrival(humanc, chosen_rank) // bobaEDIT CHANGE - ALTERNATIVE_JOB_TITLES -  ORIGINAL: announce_arrival(humanc, rank)
 		// END NOVA EDIT CHANGE - customization
 		AddEmploymentContract(humanc)
 
 		humanc.increment_scar_slot()
 		humanc.load_persistent_scars()
-		SSpersistence.load_modular_persistence(humanc.get_organ_slot(ORGAN_SLOT_BRAIN)) // NOVA EDIT ADDITION - MODULAR_PERSISTENCE
+		SSpersistence.load_modular_persistence(humanc.get_organ_slot(ORGAN_SLOT_BRAIN)) // bobaEDIT ADDITION - MODULAR_PERSISTENCE
 
 		if(GLOB.curse_of_madness_triggered)
 			give_madness(humanc, GLOB.curse_of_madness_triggered)
@@ -276,21 +276,21 @@
 		SSquirks.AssignQuirks(humanc, humanc.client)
 
 	if(humanc) // Quirks may change manifest datapoints, so inject only after assigning quirks
-		GLOB.manifest.inject(humanc, person_client = humanc.client) // NOVA EDIT - RP Records - ORIGINAL: GLOB.manifest.inject(humanc)
+		GLOB.manifest.inject(humanc, person_client = humanc.client) // bobaEDIT - RP Records - ORIGINAL: GLOB.manifest.inject(humanc)
 		SEND_SIGNAL(humanc, COMSIG_HUMAN_CHARACTER_SETUP_FINISHED)
 	var/area/station/arrivals = GLOB.areas_by_type[/area/station/hallway/secondary/entry]
 	if(humanc && arrivals && !arrivals.power_environ) //arrivals depowered
 		humanc.put_in_hands(new /obj/item/crowbar/large/emergency(get_turf(humanc))) //if hands full then just drops on the floor
 	log_manifest(character.mind.key, character.mind, character, latejoin = TRUE)
 
-	// NOVA EDIT ADDITION START
+	// bobaEDIT ADDITION START
 	if(humanc)
 		var/list/loadout = humanc.client?.get_loadout_datums()
 		for(var/datum/loadout_item/item as anything in loadout)
 			if (item.restricted_roles && length(item.restricted_roles) && !(job.title in item.restricted_roles))
 				continue
 			item.post_equip_item(humanc.client?.prefs, humanc)
-	// NOVA EDIT ADDITION END
+	// bobaEDIT ADDITION END
 
 /mob/dead/new_player/proc/AddEmploymentContract(mob/living/carbon/human/employee)
 	//TODO:  figure out a way to exclude wizards/nukeops/demons from this.
@@ -303,7 +303,7 @@
 /mob/dead/new_player/proc/create_character(atom/destination)
 	spawning = TRUE
 
-	hide_title_screen() // NOVA EDIT ADDITION - titlescreen
+	hide_title_screen() // bobaEDIT ADDITION - titlescreen
 
 	mind.active = FALSE //we wish to transfer the key manually
 	var/mob/living/spawning_mob = mind.assigned_role.get_spawn_mob(client, destination)

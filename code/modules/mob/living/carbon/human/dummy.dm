@@ -22,7 +22,7 @@ INITIALIZE_IMMEDIATE(/mob/living/carbon/human/dummy)
 /mob/living/carbon/human/dummy/attach_rot(mapload)
 	return
 
-/mob/living/carbon/human/dummy/set_species(datum/species/mrace, icon_update = TRUE, pref_load = FALSE, replace_missing = TRUE, list/override_features, list/override_mutantparts, list/override_markings, retain_features = FALSE, retain_mutantparts = FALSE) // NOVA EDIT CHANGE - Customization. ORIGINAL: /mob/living/carbon/human/dummy/set_species(datum/species/mrace, icon_update = TRUE, pref_load = FALSE, replace_missing = TRUE)
+/mob/living/carbon/human/dummy/set_species(datum/species/mrace, icon_update = TRUE, pref_load = FALSE, replace_missing = TRUE, list/override_features, list/override_mutantparts, list/override_markings, retain_features = FALSE, retain_mutantparts = FALSE) // bobaEDIT CHANGE - Customization. ORIGINAL: /mob/living/carbon/human/dummy/set_species(datum/species/mrace, icon_update = TRUE, pref_load = FALSE, replace_missing = TRUE)
 	harvest_organs()
 	return ..()
 
@@ -123,7 +123,7 @@ INITIALIZE_IMMEDIATE(/mob/living/carbon/human/dummy)
 	target.dna.features["fish_tail"] = get_consistent_feature_entry(SSaccessories.tails_list_fish)
 	target.dna.features["pod_hair"] = get_consistent_feature_entry(SSaccessories.pod_hair_list)
 	target.dna.features["caps"] = get_consistent_feature_entry(SSaccessories.caps_list)
-	*/ // NOVA EDIT REMOVAL END
+	*/ // bobaEDIT REMOVAL END
 	target.dna.initialize_dna(newblood_type = get_blood_type(BLOOD_TYPE_O_MINUS), create_mutation_blocks = FALSE, randomize_features = FALSE)
 	// UF and UI are nondeterministic, even though the features are the same some blocks will randomize slightly
 	// In practice this doesn't matter, but this is for the sake of 100%(ish) consistency
@@ -186,9 +186,9 @@ GLOBAL_LIST_EMPTY(dummy_mob_list)
 		if(ishuman(target))
 			var/mob/living/carbon/human/human_target = target
 			human_target.copy_clothing_prefs(copycat)
-			// NOVA EDIT
+			// bobaEDIT
 			target?.client?.prefs?.apply_prefs_to(copycat, TRUE)
-			// NOVA EDIT END
+			// bobaEDIT END
 
 		copycat.updateappearance(icon_update=TRUE, mutcolor_update=TRUE, mutations_overlay_update=TRUE)
 	else

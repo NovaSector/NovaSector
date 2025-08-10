@@ -197,7 +197,7 @@
 	combat_mode = new_mode
 	if(hud_used?.action_intent)
 		hud_used.action_intent.update_appearance()
-	face_mouse = (client?.prefs?.read_preference(/datum/preference/toggle/face_cursor_combat_mode) && combat_mode) ? TRUE : FALSE // NOVA EDIT ADDITION
+	face_mouse = (client?.prefs?.read_preference(/datum/preference/toggle/face_cursor_combat_mode) && combat_mode) ? TRUE : FALSE // bobaEDIT ADDITION
 	if(silent || !client?.prefs.read_preference(/datum/preference/toggle/sound_combatmode))
 		return
 	if(combat_mode)
@@ -313,7 +313,7 @@
 /**
  * Called when this mob is grabbed by another mob.
  */
-/mob/living/proc/grabbedby(mob/living/user, supress_message = FALSE, grabbed_part) // NOVA EDIT CHANGE - ORIGINAL: /mob/living/proc/grabbedby(mob/living/user, supress_message = FALSE)
+/mob/living/proc/grabbedby(mob/living/user, supress_message = FALSE, grabbed_part) // bobaEDIT CHANGE - ORIGINAL: /mob/living/proc/grabbedby(mob/living/user, supress_message = FALSE)
 	if(user == src || anchored || !isturf(user.loc))
 		return FALSE
 

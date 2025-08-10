@@ -102,7 +102,7 @@
 	pickup_sound = null
 	equip_sound = null
 
-// NOVA EDIT ADDITION - CLARIFICATION - Roundstart Snails - These armor values don't actually do any protection of the wearer, this is for checking direct damage to the backpack. Damage resistance stuff is in their heart file.
+// bobaEDIT ADDITION - CLARIFICATION - Roundstart Snails - These armor values don't actually do any protection of the wearer, this is for checking direct damage to the backpack. Damage resistance stuff is in their heart file.
 /datum/armor/backpack_snail
 	melee = 40
 	bullet = 30

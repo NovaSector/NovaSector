@@ -123,11 +123,11 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 	var/loaded_preferences_successfully = load_preferences()
 	if(loaded_preferences_successfully)
 		if(load_character())
-			// NOVA EDIT ADDITION START - Sanitizing preferences
+			// bobaEDIT ADDITION START - Sanitizing preferences
 			sanitize_languages()
 			sanitize_quirks()
-			// NOVA EDIT ADDITION END - Sanitizing preferences
-			return // Don't remove this. Just don't. Nothing is worth forced random characters. // NOVA EDIT CHANGE - Just adds comment - Original: return
+			// bobaEDIT ADDITION END - Sanitizing preferences
+			return // Don't remove this. Just don't. Nothing is worth forced random characters. // bobaEDIT CHANGE - Just adds comment - Original: return
 	//we couldn't load character data so just randomize the character appearance + name
 	randomise_appearance_prefs() //let's create a random character then - rather than a fat, bald and naked man.
 	if(parent)
@@ -189,12 +189,12 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 /datum/preferences/ui_static_data(mob/user)
 	var/list/data = list()
 
-	// NOVA EDIT ADDITION START
+	// bobaEDIT ADDITION START
 	if(CONFIG_GET(flag/disable_erp_preferences))
 		data["preview_options"] = list(PREVIEW_PREF_JOB, PREVIEW_PREF_LOADOUT, PREVIEW_PREF_UNDERWEAR, PREVIEW_PREF_NAKED)
 	else
 		data["preview_options"] = list(PREVIEW_PREF_JOB, PREVIEW_PREF_LOADOUT, PREVIEW_PREF_UNDERWEAR, PREVIEW_PREF_NAKED, PREVIEW_PREF_NAKED_AROUSED)
-	// NOVA EDIT ADDITION END
+	// bobaEDIT ADDITION END
 
 	data["character_profiles"] = create_character_profiles()
 
@@ -247,7 +247,7 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 			*/ // ORIGINAL END - NOVA EDIT START:
 			var/backwards = params["backwards"]
 			character_preview_view.setDir(turn(character_preview_view.dir, backwards ? 90 : -90))
-			// NOVA EDIT END
+			// bobaEDIT END
 			return TRUE
 		if ("set_preference")
 			var/requested_preference_key = params["preference"]
@@ -298,7 +298,7 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 				return FALSE
 
 			return TRUE
-		// NOVA EDIT ADDITION START
+		// bobaEDIT ADDITION START
 		if("update_preview")
 			preview_pref = params["updated_preview"]
 			character_preview_view.update_body()
@@ -585,19 +585,19 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 	apply_prefs_to(character, icon_updates)
 
 /// Applies the given preferences to a human mob.
-/datum/preferences/proc/apply_prefs_to(mob/living/carbon/human/character, icon_updates = TRUE, visuals_only = FALSE)  // NOVA EDIT - Customization - ORIGINAL: /datum/preferences/proc/apply_prefs_to(mob/living/carbon/human/character, icon_updates = TRUE)
+/datum/preferences/proc/apply_prefs_to(mob/living/carbon/human/character, icon_updates = TRUE, visuals_only = FALSE)  // bobaEDIT - Customization - ORIGINAL: /datum/preferences/proc/apply_prefs_to(mob/living/carbon/human/character, icon_updates = TRUE)
 	character.dna.features = MANDATORY_FEATURE_LIST //NOVA EDIT CHANGE - We need to instansiate the list with the basic features.
 
 	for (var/datum/preference/preference as anything in get_preferences_in_priority_order())
 		if (preference.savefile_identifier != PREFERENCE_CHARACTER)
 			continue
 
-		preference.apply_to_human(character, read_preference(preference.type), src) // NOVA EDIT CHANGE - ORIGINAL: preference.apply_to_human(character, read_preference(preference.type))
+		preference.apply_to_human(character, read_preference(preference.type), src) // bobaEDIT CHANGE - ORIGINAL: preference.apply_to_human(character, read_preference(preference.type))
 
-	// NOVA EDIT ADDITION START - middleware apply human prefs
+	// bobaEDIT ADDITION START - middleware apply human prefs
 	for (var/datum/preference_middleware/preference_middleware as anything in middleware)
 		preference_middleware.apply_to_human(character, src, visuals_only = visuals_only)
-	// NOVA EDIT ADDITION END
+	// bobaEDIT ADDITION END
 
 	character.dna.real_name = character.real_name
 
@@ -656,6 +656,6 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 		to_chat(parent, span_warning("There's been a connection failure while trying to check the status of your BYOND membership. Reconnecting may fix the issue, or BYOND could be experiencing downtime."))
 
 	unlock_content = !!byond_member
-	donator_status = !!GLOB.donator_list[parent.ckey] // NOVA EDIT ADDITION - DONATOR CHECK
-	if(unlock_content || donator_status) // NOVA EDIT CHANGE - ORIGINAL: if(unlock_content)
+	donator_status = !!GLOB.donator_list[parent.ckey] // bobaEDIT ADDITION - DONATOR CHECK
+	if(unlock_content || donator_status) // bobaEDIT CHANGE - ORIGINAL: if(unlock_content)
 		max_save_slots = 50 //NOVA EDIT - ORIGINAL: max_save_slots = 8

@@ -247,12 +247,12 @@
 			if(belt && !can_equip(belt, ITEM_SLOT_BELT, TRUE, ignore_equipped = TRUE))
 				dropItemToGround(belt)
 	else if(item_dropping == gloves)
-		// NOVA EDIT ADDITION - ERP UPDATE
+		// bobaEDIT ADDITION - ERP UPDATE
 		if(gloves.breakouttime) //when unequipping a straightjacket
 			REMOVE_TRAIT(src, TRAIT_RESTRAINED, TRAIT_GLOVES)
 			drop_all_held_items() //suit is restraining
 			update_mob_action_buttons() //certain action buttons may be usable again.
-		// NOVA EDIT ADDITION END
+		// bobaEDIT ADDITION END
 		gloves = null
 		if(!QDELETED(src))
 			update_worn_gloves()

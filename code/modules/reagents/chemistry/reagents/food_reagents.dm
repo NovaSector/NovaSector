@@ -28,10 +28,10 @@
 	if(!ishuman(affected_mob) || HAS_TRAIT(affected_mob, TRAIT_NOHUNGER))
 		return
 
-	// NOVA EDIT ADDITION BEGIN - Disable consumable digestion for synth stomach
+	// bobaEDIT ADDITION BEGIN - Disable consumable digestion for synth stomach
 	if(istype(affected_mob.get_organ_slot(ORGAN_SLOT_STOMACH), /obj/item/organ/stomach/synth))
 		return
-	// NOVA EDIT ADDITION END
+	// bobaEDIT ADDITION END
 	var/mob/living/carbon/human/affected_human = affected_mob
 	affected_human.adjust_nutrition(get_nutriment_factor(affected_mob) * REM * seconds_per_tick)
 
@@ -57,10 +57,10 @@
 			var/obj/item/the_real_food = holder.my_atom
 			if(isitem(the_real_food) && !is_reagent_container(the_real_food))
 				exposed_mob.add_mob_memory(/datum/memory/good_food, food = the_real_food)
-		// NOVA EDIT ADDITION BEGIN - Racial Drinks
+		// bobaEDIT ADDITION BEGIN - Racial Drinks
 		if (RACE_DRINK)
 			exposed_mob.add_mood_event("quality_drink", /datum/mood_event/race_drink)
-		// NOVA EDIT ADDITION END
+		// bobaEDIT ADDITION END
 
 /// Gets just how much nutrition this reagent supplies per server tick to the eater
 /datum/reagent/consumable/proc/get_nutriment_factor(mob/living/carbon/eater)
@@ -994,10 +994,10 @@
 	. = ..()
 	if(isethereal(affected_mob))
 		affected_mob.blood_volume += 1 * seconds_per_tick
-	// NOVA EDIT ADDITION BEGIN - Allow enriched liquid electricity to safely recharge synths
+	// bobaEDIT ADDITION BEGIN - Allow enriched liquid electricity to safely recharge synths
 	else if(can_fuel_synth(affected_mob))
 		return
-	// NOVA EDIT ADDITION END
+	// bobaEDIT ADDITION END
 	else if(SPT_PROB(10, seconds_per_tick)) //lmao at the newbs who eat energy bars
 		affected_mob.electrocute_act(rand(5,10), "Liquid Electricity in their body", 1, SHOCK_NOGLOVES) //the shock is coming from inside the house
 		playsound(affected_mob, SFX_SPARKS, 50, TRUE, SHORT_RANGE_SOUND_EXTRARANGE)

@@ -652,7 +652,7 @@ Basically, we fill the time between now and 2s from now with hands based off the
 			/datum/brain_trauma/special/honorbound, // Designed to be chaplain exclusive
 			/datum/brain_trauma/voided, // Voidwalker exclusive and more of a magical status effect than a trauma
 		)
-		forbiddentraumas += typesof(/datum/brain_trauma/very_special) // NOVA EDIT ADDITION - No very special (lewd) quirks gained by inverse neurine
+		forbiddentraumas += typesof(/datum/brain_trauma/very_special) // bobaEDIT ADDITION - No very special (lewd) quirks gained by inverse neurine
 
 		// Do give out these traumas but not any of their subtypes, usually because the trauma replaces itself with a subtype
 		var/list/forbiddensubtypes = list(

@@ -180,11 +180,11 @@
 			if(!gun.chambered)
 				. = TRUE
 				gun.recharge_newshot() //try to reload a new shot.
-		/// NOVA EDIT START - Cargo borgs
+		/// bobaEDIT START - Cargo borgs
 		else if(istype(module, /obj/item/hand_labeler/cyborg))
 			var/obj/item/hand_labeler/cyborg/labeler = module
 			labeler.labels_left = 30
-		/// NOVA EDIT END
+		/// bobaEDIT END
 
 	if(cyborg.toner < cyborg.tonermax)
 		. = TRUE
@@ -294,7 +294,7 @@
 			cyborg_base_icon = details[SKIN_ICON_STATE]
 		if(!isnull(details[SKIN_ICON]))
 			cyborg.icon = details[SKIN_ICON]
-			cyborg_icon_override = details[SKIN_ICON] // NOVA EDIT ADDITION
+			cyborg_icon_override = details[SKIN_ICON] // bobaEDIT ADDITION
 		if(!isnull(details[SKIN_PIXEL_X]))
 			cyborg.base_pixel_x = details[SKIN_PIXEL_X]
 		if(!isnull(details[SKIN_PIXEL_Y]))
@@ -417,12 +417,12 @@
 		/obj/item/extinguisher,
 		/obj/item/weldingtool/largetank/cyborg,
 		/obj/item/borg/cyborg_omnitool/engineering,
-		/obj/item/multitool/cyborg, // NOVA EDIT CHANGE - Keep multiool here for quicker access - ORIGINAL: obj/item/borg/cyborg_omnitool/engineering,
-		/obj/item/crowbar/cyborg/power, // NOVA EDIT ADDITION
-		/obj/item/screwdriver/cyborg/power, // NOVA EDIT ADDITION
+		/obj/item/multitool/cyborg, // bobaEDIT CHANGE - Keep multiool here for quicker access - ORIGINAL: obj/item/borg/cyborg_omnitool/engineering,
+		/obj/item/crowbar/cyborg/power, // bobaEDIT ADDITION
+		/obj/item/screwdriver/cyborg/power, // bobaEDIT ADDITION
 		/obj/item/t_scanner,
 		/obj/item/analyzer,
-		/obj/item/holosign_creator/atmos, // NOVA EDIT ADDITION - Adds Holofans to engineering borgos
+		/obj/item/holosign_creator/atmos, // bobaEDIT ADDITION - Adds Holofans to engineering borgos
 		/obj/item/assembly/signaler/cyborg,
 		/obj/item/blueprints/cyborg,
 		/obj/item/electroadaptive_pseudocircuit,
@@ -430,7 +430,7 @@
 		/obj/item/stack/sheet/glass,
 		/obj/item/borg/apparatus/sheet_manipulator,
 		/obj/item/stack/rods/cyborg,
-		/obj/item/lightreplacer, // NOVA EDIT ADDITION - Surprised Engie borgs don't get these
+		/obj/item/lightreplacer, // bobaEDIT ADDITION - Surprised Engie borgs don't get these
 		/obj/item/construction/rtd/borg,
 		/obj/item/stack/cable_coil,
 	)
@@ -796,7 +796,7 @@
 /obj/item/robot_model/peacekeeper/do_transform_animation()
 	..()
 	to_chat(loc, span_userdanger("Under Safeguard, you are an enforcer of the PEACE and preventer of HARM. \
-		You are not a security member and you are expected to follow orders and prevent harm above all else. Space law means nothing to you.")) // NOVA EDIT CHANGE - Changes 1st sentence verbiage off ASIMOV/HUMAN Focus - ORIGINAL: "Under ASIMOV, you are an enforcer of the PEACE and preventer of HUMAN HARM."
+		You are not a security member and you are expected to follow orders and prevent harm above all else. Space law means nothing to you.")) // bobaEDIT CHANGE - Changes 1st sentence verbiage off ASIMOV/HUMAN Focus - ORIGINAL: "Under ASIMOV, you are an enforcer of the PEACE and preventer of HUMAN HARM."
 
 /obj/item/robot_model/security
 	name = "Security"
@@ -838,7 +838,7 @@
 	name = "Service"
 	basic_modules = list(
 		/obj/item/assembly/flash/cyborg,
-		//obj/item/reagent_containers/borghypo/borgshaker, // NOVA EDIT REMOVAL - SPECIFIC SHAKERS
+		//obj/item/reagent_containers/borghypo/borgshaker, // bobaEDIT REMOVAL - SPECIFIC SHAKERS
 		//NOVA EDIT ADDITION START
 		/obj/item/reagent_containers/borghypo/borgshaker/specific/alcohol,
 		/obj/item/reagent_containers/borghypo/borgshaker/specific/soda,
@@ -846,14 +846,14 @@
 		/obj/item/reagent_containers/borghypo/borgshaker/specific/misc,
 		//NOVA EDIT ADDITION END
 		/obj/item/borg/apparatus/beaker/service,
-		/obj/item/borg/apparatus/beaker, // NOVA EDIT ADDITION - Allows the pickup of different beakers for easier drink mixing
+		/obj/item/borg/apparatus/beaker, // bobaEDIT ADDITION - Allows the pickup of different beakers for easier drink mixing
 		/obj/item/reagent_containers/cup/beaker/large, //I know a shaker is more appropiate but this is for ease of identification
-		//obj/item/reagent_containers/condiment/enzyme, // NOVA EDIT REMOVAL - Borg shaker has it
+		//obj/item/reagent_containers/condiment/enzyme, // bobaEDIT REMOVAL - Borg shaker has it
 		/obj/item/reagent_containers/dropper,
 		/obj/item/reagent_containers/syringe, //NOVA EDIT ADDITION
 		/obj/item/rsf,
 		/obj/item/storage/bag/tray,
-		/obj/item/storage/bag/tray, // NOVA EDIT ADDITION: Adds second tray
+		/obj/item/storage/bag/tray, // bobaEDIT ADDITION: Adds second tray
 		/obj/item/cooking/cyborg/power, //NOVA EDIT ADDITION
 		/obj/item/pen,
 		/obj/item/toy/crayon/spraycan/borg,

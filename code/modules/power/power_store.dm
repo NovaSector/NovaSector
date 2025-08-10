@@ -311,7 +311,7 @@
 
 	var/obj/item/stock_parts/power_store/stomach_cell = used_stomach.cell
 	used_stomach.drain_time = world.time + ETHEREAL_CELL_DRAIN_TIME
-	user.visible_message(span_notice("[user] hovers their fingers above [src], arcs forming from its surface!")) // NOVA EDIT CHANGE - Ethereal Rework 2024 - ORIGINAL: to_chat(user, span_notice("You begin clumsily channeling power from [src] into your body."))
+	user.visible_message(span_notice("[user] hovers their fingers above [src], arcs forming from its surface!")) // bobaEDIT CHANGE - Ethereal Rework 2024 - ORIGINAL: to_chat(user, span_notice("You begin clumsily channeling power from [src] into your body."))
 
 	while(do_after(user, ETHEREAL_CELL_DRAIN_TIME, target = src))
 		if(isnull(used_stomach) || (used_stomach != user.get_organ_slot(ORGAN_SLOT_STOMACH)))

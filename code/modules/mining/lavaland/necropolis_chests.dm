@@ -151,7 +151,7 @@
 	return ..()
 
 /obj/structure/closet/crate/necropolis/colossus/PopulateContents()
-	var/list/choices = subtypesof(/obj/machinery/anomalous_crystal) - /obj/machinery/anomalous_crystal/theme_warp // NOVA EDIT CHANGE - Less griefing - ORIGINAL: var/list/choices = subtypesof(/obj/machinery/anomalous_crystal)
+	var/list/choices = subtypesof(/obj/machinery/anomalous_crystal) - /obj/machinery/anomalous_crystal/theme_warp // bobaEDIT CHANGE - Less griefing - ORIGINAL: var/list/choices = subtypesof(/obj/machinery/anomalous_crystal)
 	var/random_crystal = pick(choices)
 	new random_crystal(src)
 	new /obj/item/organ/vocal_cords/colossus(src)

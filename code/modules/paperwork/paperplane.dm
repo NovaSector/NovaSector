@@ -16,7 +16,7 @@
 	///Reference to the paper that's folded up in this paperplane, which we return when unfolded.
 	var/obj/item/paper/internal_paper
 
-	// NOVA EDIT START - Better paper planes
+	// bobaEDIT START - Better paper planes
 	/// How long does getting shot in the eyes knock you down for?
 	var/knockdown_duration = 4 SECONDS
 	/// How much eye damage does it deal at minimum on eye impact?
@@ -25,7 +25,7 @@
 	var/impact_eye_damage_higher = 8
 	/// Does it get deleted when hitting anything or landing?
 	var/delete_on_impact = FALSE
-	// NOVA EDIT END
+	// bobaEDIT END
 
 /obj/item/paperplane/syndicate
 	desc = "Paper, masterfully folded in the shape of a plane."
@@ -70,7 +70,7 @@
 	user.visible_message(span_suicide("[user] jams [src] in [user.p_their()] nose. It looks like [user.p_theyre()] trying to commit suicide!"))
 	user.adjust_eye_blur(12 SECONDS)
 	if(eyes)
-		eyes.apply_organ_damage(rand(impact_eye_damage_lower, impact_eye_damage_higher)) // NOVA EDIT START - Better paper planes
+		eyes.apply_organ_damage(rand(impact_eye_damage_lower, impact_eye_damage_higher)) // bobaEDIT START - Better paper planes
 	sleep(1 SECONDS)
 	return BRUTELOSS
 

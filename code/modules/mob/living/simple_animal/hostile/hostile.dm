@@ -422,7 +422,7 @@
 	in_melee = FALSE
 	GLOB.move_manager.stop_looping(src)
 	LoseAggro()
-	SEND_SIGNAL(src, COMSIG_HOSTILE_MOB_LOST_TARGET) // NOVA EDIT ADDITION
+	SEND_SIGNAL(src, COMSIG_HOSTILE_MOB_LOST_TARGET) // bobaEDIT ADDITION
 
 //////////////END HOSTILE MOB TARGETING AND AGGRESSION////////////
 

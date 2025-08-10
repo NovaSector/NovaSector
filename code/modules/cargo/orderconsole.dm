@@ -294,7 +294,7 @@
 			reason = reason,
 			paying_account = account,
 			coupon = applied_coupon,
-			charge_on_purchase = TRUE, // NOVA EDIT ADDITION
+			charge_on_purchase = TRUE, // bobaEDIT ADDITION
 		)
 		working_list += order
 

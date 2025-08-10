@@ -263,10 +263,10 @@
 
 	message_admins("[key_name_admin(owner)] created a CentCom response team.")
 	message_admins("[capitalize(ertemplate.polldesc)] has spawned with the mission: [ertemplate.mission]")
-	// NOVA EDIT ADDITION BEGIN
+	// bobaEDIT ADDITION BEGIN
 	if(ertemplate.notify_players)
 		priority_announce("Central command has responded to your request for a CODE [uppertext(ertemplate.code)] Emergency Response Team and have confirmed one to be enroute.", "ERT Request", ANNOUNCER_ERTYES)
-	// NOVA EDIT END
+	// bobaEDIT END
 	return TRUE
 
 ADMIN_VERB(summon_ert, R_FUN, "Summon ERT", "Summons an emergency response team.", ADMIN_CATEGORY_FUN)

@@ -250,7 +250,7 @@
 			else if(!key)
 				npc_message = "[t_He] [t_is] totally catatonic. The stresses of life in deep-space must have been too much for [t_him]. Any recovery is unlikely."
 			else if(!client)
-				npc_message = "[t_He] [t_has] a blank, absent-minded stare and [t_has] been completely unresponsive to anything for [round(((world.time - lastclienttime) / (1 MINUTES)),1)] minutes. [t_He] may snap out of it soon." // NOVA EDIT CHANGE - SSD_INDICATOR - ORIGINAL: npc_message ="[t_He] [t_has] a blank, absent-minded stare and appears completely unresponsive to anything. [t_He] may snap out of it soon."
+				npc_message = "[t_He] [t_has] a blank, absent-minded stare and [t_has] been completely unresponsive to anything for [round(((world.time - lastclienttime) / (1 MINUTES)),1)] minutes. [t_He] may snap out of it soon." // bobaEDIT CHANGE - SSD_INDICATOR - ORIGINAL: npc_message ="[t_He] [t_has] a blank, absent-minded stare and appears completely unresponsive to anything. [t_He] may snap out of it soon."
 			if(npc_message)
 				// give some space since this is usually near the end
 				ADD_NEWLINE_IF_NECESSARY(.)
@@ -289,7 +289,7 @@
 		. += hud_info
 	if(isobserver(user))
 		. += "<b>Quirks:</b> [get_quirk_string(FALSE, CAT_QUIRK_ALL)]"
-	// NOVA EDIT ADDITION START
+	// bobaEDIT ADDITION START
 	if(isobserver(user) || user.mind?.can_see_exploitables || user.mind?.has_exploitables_override)
 		var/datum/record/crew/target_records = find_record(get_face_name(get_id_name("")))
 		if(target_records)
@@ -351,7 +351,7 @@
 		if (!isnull(opt_in_status))
 			var/stringified_optin = GLOB.antag_opt_in_strings["[opt_in_status]"]
 			. += span_info("Antag Opt-in Status: <b><font color='[GLOB.antag_opt_in_colors[stringified_optin]]'>[stringified_optin]</font></b>")
-	// NOVA EDIT ADDITION END
+	// bobaEDIT ADDITION END
 
 	SEND_SIGNAL(src, COMSIG_ATOM_EXAMINE, user, .)
 	if(length(.))
@@ -593,10 +593,10 @@
 		else if(HAS_TRAIT(user, TRAIT_SECURITY_HUD))
 			title = separator_hr("Security Analysis")
 			. += get_sechud_examine_info(user, target_record)
-		// NOVA EDIT ADDITION START - EXAMINE RECORDS
+		// bobaEDIT ADDITION START - EXAMINE RECORDS
 		if(target_record && length(target_record.past_general_records) > RECORDS_INVISIBLE_THRESHOLD)
 			. += "<a href='byond://?src=[REF(src)];hud=[HAS_TRAIT(user, TRAIT_SECURITY_HUD) ? "s" : "m"];genrecords=1;examine_time=[world.time]'>\[View general records\]</a>"
-		// NOVA EDIT ADDITION END - EXAMINE RECORDS
+		// bobaEDIT ADDITION END - EXAMINE RECORDS
 
 	// applies the separator correctly without an extra line break
 	if(title && length(.))
@@ -648,10 +648,10 @@
 		. += "<a href='byond://?src=[REF(src)];hud=s;add_citation=1;examine_time=[world.time]'>\[Add citation\]</a>\
 			<a href='byond://?src=[REF(src)];hud=s;add_crime=1;examine_time=[world.time]'>\[Add crime\]</a>\
 			<a href='byond://?src=[REF(src)];hud=s;add_note=1;examine_time=[world.time]'>\[Add note\]</a>"
-		// NOVA EDIT ADDITION BEGIN - EXAMINE RECORDS
+		// bobaEDIT ADDITION BEGIN - EXAMINE RECORDS
 		if(target_record && length(target_record.past_security_records) > RECORDS_INVISIBLE_THRESHOLD)
 			. += "<a href='byond://?src=[REF(src)];hud=s;secrecords=1;examine_time=[world.time]'>\[View past security records\]</a>"
-		// NOVA EDIT ADDITION END - EXAMINE RECORDS
+		// bobaEDIT ADDITION END - EXAMINE RECORDS
 
 /mob/living/carbon/human/examine_more(mob/user)
 	. = ..()
@@ -703,12 +703,12 @@
 		if(-INFINITY to 25)
 			age_text = "very young"
 		NOVA EDIT REMOVAL END */
-		// NOVA EDIT ADDITION START - AGE EXAMINE
+		// bobaEDIT ADDITION START - AGE EXAMINE
 		if(-INFINITY to 17)
 			age_text = "too young to be here"
 		if(18 to 25)
 			age_text = "a young adult"
-		// NOVA EDIT ADDITION END - AGE EXAMINE
+		// bobaEDIT ADDITION END - AGE EXAMINE
 		if(26 to 35)
 			age_text = "of adult age"
 		if(36 to 55)

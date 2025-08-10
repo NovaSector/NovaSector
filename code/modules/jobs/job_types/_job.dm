@@ -114,10 +114,10 @@
 	/// String. If set to a non-empty one, it will be the key for the policy text value to show this role on spawn.
 	var/policy_index = ""
 
-	// NOVA EDIT ADDITION START
+	// bobaEDIT ADDITION START
 	/// Job title to use for spawning. Allows a job to spawn without needing map edits.
 	var/job_spawn_title
-	// NOVA EDIT ADDITION END
+	// bobaEDIT ADDITION END
 	/// RPG job names, for the memes
 	var/rpg_title
 
@@ -141,10 +141,10 @@
 
 /datum/job/New()
 	. = ..()
-	// NOVA EDIT START
+	// bobaEDIT START
 	if(!job_spawn_title)
 		job_spawn_title = title
-	// NOVA EDIT END
+	// bobaEDIT END
 	var/new_spawn_positions = CHECK_MAP_JOB_CHANGE(title, "spawn_positions")
 	if(isnum(new_spawn_positions))
 		spawn_positions = new_spawn_positions
@@ -193,9 +193,9 @@
 
 /// Announce that this job as joined the round to all crew members.
 /// Note the joining mob has no client at this point.
-/datum/job/proc/announce_job(mob/living/joining_mob, job_title) // NOVA EDIT CHANGE - ALTERNATIVE_JOB_TITLES - Original: /datum/job/proc/announce_job(mob/living/joining_mob)
+/datum/job/proc/announce_job(mob/living/joining_mob, job_title) // bobaEDIT CHANGE - ALTERNATIVE_JOB_TITLES - Original: /datum/job/proc/announce_job(mob/living/joining_mob)
 	if(head_announce)
-		announce_head(joining_mob, head_announce, job_title) // NOVA EDIT CHANGE - ALTERNATIVE_JOB_TITLES - Original: announce_head(joining_mob, head_announce)
+		announce_head(joining_mob, head_announce, job_title) // bobaEDIT CHANGE - ALTERNATIVE_JOB_TITLES - Original: announce_head(joining_mob, head_announce)
 
 
 //Used for a special check of whether to allow a client to latejoin as this job.
@@ -224,13 +224,13 @@
 	)
 
 	if(EMERGENCY_PAST_POINT_OF_NO_RETURN && prob(VERY_LATE_ARRIVAL_TOAST_PROB))
-		//equipping.equip_to_slot_or_del(new /obj/item/food/griddle_toast(equipping), ITEM_SLOT_MASK) // NOVA EDIT REMOVAL - See below
-		// NOVA EDIT ADDITION - Lizards
+		//equipping.equip_to_slot_or_del(new /obj/item/food/griddle_toast(equipping), ITEM_SLOT_MASK) // bobaEDIT REMOVAL - See below
+		// bobaEDIT ADDITION - Lizards
 		if(islizard(equipping))
 			equip_to_slot_or_del(new /obj/item/food/breadslice/root(equipping), ITEM_SLOT_MASK)
 		else
 			equip_to_slot_or_del(new /obj/item/food/griddle_toast(equipping), ITEM_SLOT_MASK)
-		// NOVA EDIT ADDITION END - Lizards
+		// bobaEDIT ADDITION END - Lizards
 
 #undef VERY_LATE_ARRIVAL_TOAST_PROB
 
@@ -239,12 +239,12 @@
 
 /mob/living/carbon/human/dress_up_as_job(datum/job/equipping, visual_only = FALSE, client/player_client, consistent = FALSE)
 	dna.species.pre_equip_species_outfit(equipping, src, visual_only)
-	equip_outfit_and_loadout(equipping.get_outfit(consistent), player_client?.prefs, visual_only, equipping) // NOVA EDIT - Loadout stuff - ORIGINAL: equip_outfit_and_loadout(equipping.get_outfit(consistent), player_client?.prefs, visual_only)
+	equip_outfit_and_loadout(equipping.get_outfit(consistent), player_client?.prefs, visual_only, equipping) // bobaEDIT - Loadout stuff - ORIGINAL: equip_outfit_and_loadout(equipping.get_outfit(consistent), player_client?.prefs, visual_only)
 
 /datum/job/proc/announce_head(mob/living/carbon/human/human, channels) //tells the given channel that the given mob is the new department head. See communications.dm for valid channels.
 	if(human)
 		//timer because these should come after the captain announcement
-		SSticker.OnRoundstart(CALLBACK(GLOBAL_PROC, GLOBAL_PROC_REF(_addtimer), CALLBACK(GLOBAL_PROC, GLOBAL_PROC_REF(aas_config_announce), /datum/aas_config_entry/newhead, list("PERSON" = human.real_name, "RANK" = human.job), null, channels, null, TRUE), 1)) // NOVA EDIT CHANGE - Alternative job titles, change human.job to job_title - Original: SSticker.OnRoundstart(CALLBACK(GLOBAL_PROC, GLOBAL_PROC_REF(_addtimer), CALLBACK(GLOBAL_PROC, GLOBAL_PROC_REF(aas_config_announce), /datum/aas_config_entry/newhead, list("PERSON" = human.real_name, "RANK" = human.job), null, channels, null, TRUE), 1))
+		SSticker.OnRoundstart(CALLBACK(GLOBAL_PROC, GLOBAL_PROC_REF(_addtimer), CALLBACK(GLOBAL_PROC, GLOBAL_PROC_REF(aas_config_announce), /datum/aas_config_entry/newhead, list("PERSON" = human.real_name, "RANK" = human.job), null, channels, null, TRUE), 1)) // bobaEDIT CHANGE - Alternative job titles, change human.job to job_title - Original: SSticker.OnRoundstart(CALLBACK(GLOBAL_PROC, GLOBAL_PROC_REF(_addtimer), CALLBACK(GLOBAL_PROC, GLOBAL_PROC_REF(aas_config_announce), /datum/aas_config_entry/newhead, list("PERSON" = human.real_name, "RANK" = human.job), null, channels, null, TRUE), 1))
 
 //If the configuration option is set to require players to be logged as old enough to play certain jobs, then this proc checks that they are, otherwise it just returns 1
 /datum/job/proc/player_old_enough(client/player)
@@ -307,21 +307,21 @@
 	return TRUE
 
 /// Gets the message that shows up when spawning as this job
-/datum/job/proc/get_spawn_message(alt_title) // NOVA EDIT CHANGE - ALTERNATIVE_JOB_TITLES - ORIGINAL: /datum/job/proc/get_spawn_message()
+/datum/job/proc/get_spawn_message(alt_title) // bobaEDIT CHANGE - ALTERNATIVE_JOB_TITLES - ORIGINAL: /datum/job/proc/get_spawn_message()
 	SHOULD_NOT_OVERRIDE(TRUE)
-	return boxed_message(span_infoplain(jointext(get_spawn_message_information(alt_title), "\n&bull; "))) // NOVA EDIT CHANGE - ALTERNATIVE_JOB_TITLED - ORIGINAL: return boxed_message(span_infoplain(jointext(get_spawn_message_information(), "\n&bull; ")))
+	return boxed_message(span_infoplain(jointext(get_spawn_message_information(alt_title), "\n&bull; "))) // bobaEDIT CHANGE - ALTERNATIVE_JOB_TITLED - ORIGINAL: return boxed_message(span_infoplain(jointext(get_spawn_message_information(), "\n&bull; ")))
 
 /// Returns a list of strings that correspond to chat messages sent to this mob when they join the round.
-/datum/job/proc/get_spawn_message_information(alt_title = title) // NOVA EDIT CHANGE - ALTERNATIVE_JOB_TITLES - ORIGINAL: /datum/job/proc/get_spawn_message_information()
+/datum/job/proc/get_spawn_message_information(alt_title = title) // bobaEDIT CHANGE - ALTERNATIVE_JOB_TITLES - ORIGINAL: /datum/job/proc/get_spawn_message_information()
 	SHOULD_CALL_PARENT(TRUE)
 	var/list/info = list()
-	info += "<b>You are the [alt_title].</b>\n" // NOVA EDIT CHANGE - ALTERNATIVE_JOB_TITLES - ORIGINAL: info += "<b>You are the [title].</b>\n"
+	info += "<b>You are the [alt_title].</b>\n" // bobaEDIT CHANGE - ALTERNATIVE_JOB_TITLES - ORIGINAL: info += "<b>You are the [title].</b>\n"
 	var/related_policy = get_policy(policy_override || title)
 	var/radio_info = get_radio_information()
 	if(related_policy)
 		info += related_policy
 	if(supervisors)
-		info += "As the [alt_title == title ? alt_title : "[alt_title] ([title])"] you answer directly to [supervisors]. Special circumstances may change this." // NOVA EDIT CHANGE - ALTERNATIVE_JOB_TITLES - ORIGINAL: info += "As the [title] you answer directly to [supervisors]. Special circumstances may change this."
+		info += "As the [alt_title == title ? alt_title : "[alt_title] ([title])"] you answer directly to [supervisors]. Special circumstances may change this." // bobaEDIT CHANGE - ALTERNATIVE_JOB_TITLES - ORIGINAL: info += "As the [title] you answer directly to [supervisors]. Special circumstances may change this."
 	if(radio_info)
 		info += radio_info
 	if(req_admin_notify)
@@ -394,7 +394,7 @@
 				back = duffelbag //Department duffel bag
 			if(DMESSENGER)
 				back = messenger //Department messenger bag
-			// NOVA EDIT ADDITION START - Tinypaks
+			// bobaEDIT ADDITION START - Tinypaks
 			if(TPACKB)
 				back = /obj/item/storage/backpack/tinypakb
 			if(TPACKA)
@@ -403,7 +403,7 @@
 				back = /obj/item/storage/backpack/tinypakc
 			if(GUNCASE)
 				back = /obj/item/storage/toolbox/guncase/nova
-			// NOVA EDIT ADDITION START
+			// bobaEDIT ADDITION START
 			else
 				back = backpack //Department backpack
 
@@ -513,10 +513,10 @@
 			return hangover_spawn_point || get_latejoin_spawn_point()
 	/* if(length(GLOB.jobspawn_overrides[title]))
 		return pick(GLOB.jobspawn_overrides[title]) */ // ORIGINAL CODE
-	// NOVA EDIT START - Alt job titles
+	// bobaEDIT START - Alt job titles
 	if(length(GLOB.jobspawn_overrides[job_spawn_title]))
 		return pick(GLOB.jobspawn_overrides[job_spawn_title])
-	// NOVA EDIT END
+	// bobaEDIT END
 	var/obj/effect/landmark/start/spawn_point = get_default_roundstart_spawn_point()
 	if(!spawn_point) //if there isn't a spawnpoint send them to latejoin, if there's no latejoin go yell at your mapper
 		return get_latejoin_spawn_point()
@@ -526,7 +526,7 @@
 /// Handles finding and picking a valid roundstart effect landmark spawn point, in case no uncommon different spawning events occur.
 /datum/job/proc/get_default_roundstart_spawn_point()
 	for(var/obj/effect/landmark/start/spawn_point as anything in GLOB.start_landmarks_list)
-		if(spawn_point.name != job_spawn_title) // NOVA EDIT - Alt job titles - ORIGINAL: if(spawn_point.name != title)
+		if(spawn_point.name != job_spawn_title) // bobaEDIT - Alt job titles - ORIGINAL: if(spawn_point.name != title)
 			continue
 		. = spawn_point
 		if(spawn_point.used) //so we can revert to spawning them on top of eachother if something goes wrong
@@ -540,10 +540,10 @@
 /datum/job/proc/get_latejoin_spawn_point()
 	/* if(length(GLOB.jobspawn_overrides[title]))
 		return pick(GLOB.jobspawn_overrides[title]) */ // ORIGINAL CODE
-	// NOVA EDIT START - Alt job titles
+	// bobaEDIT START - Alt job titles
 	if(length(GLOB.jobspawn_overrides[job_spawn_title])) //We're doing something special today.
 		return pick(GLOB.jobspawn_overrides[job_spawn_title])
-	// NOVA EDIT END
+	// bobaEDIT END
 	if(length(SSjob.latejoin_trackers))
 		return pick(SSjob.latejoin_trackers)
 	return SSjob.get_last_resort_spawn_points()

@@ -126,7 +126,7 @@ ADMIN_VERB(start_now, R_SERVER, "Start Now", "Start the round RIGHT NOW.", ADMIN
 		message_admins("The server is still setting up, but the round will be started as soon as possible.")
 	BLACKBOX_LOG_ADMIN_VERB("Start Now")
 
-ADMIN_VERB(delay_round_end, R_ADMIN, "Delay Round End", "Prevent the server from restarting.", ADMIN_CATEGORY_SERVER) // NOVA EDIT CHANGE - Admins can delay the round end - ORIGINAL: ADMIN_VERB(delay_round_end, R_SERVER, "Delay Round End", "Prevent the server from restarting.", ADMIN_CATEGORY_SERVER)
+ADMIN_VERB(delay_round_end, R_ADMIN, "Delay Round End", "Prevent the server from restarting.", ADMIN_CATEGORY_SERVER) // bobaEDIT CHANGE - Admins can delay the round end - ORIGINAL: ADMIN_VERB(delay_round_end, R_SERVER, "Delay Round End", "Prevent the server from restarting.", ADMIN_CATEGORY_SERVER)
 	if(SSticker.delay_end)
 		tgui_alert(user, "The round end is already delayed. The reason for the current delay is: \"[SSticker.admin_delay_notice]\"", "Alert", list("Ok"))
 		return

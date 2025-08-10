@@ -11,8 +11,8 @@
 	body_markings = list(
 		/datum/bodypart_overlay/simple/body_marking/lizard = SPRITE_ACCESSORY_NONE,
 	)
-	*/ // NOVA EDIT REMOVAL END
-	mutant_bodyparts = list("body_markings" = "None", "legs" = "Normal Legs") // NOVA EDIT ADDITION - Customization
+	*/ // bobaEDIT REMOVAL END
+	mutant_bodyparts = list("body_markings" = "None", "legs" = "Normal Legs") // bobaEDIT ADDITION - Customization
 	mutant_organs = list(
 		/obj/item/organ/horns = SPRITE_ACCESSORY_NONE,
 		/obj/item/organ/frills = SPRITE_ACCESSORY_NONE,
@@ -184,7 +184,7 @@ Lizard subspecies: ASHWALKERS
 		TRAIT_MUTANT_COLORS,
 		TRAIT_VIRUSIMMUNE,
 	)
-	// inherent_factions = list(FACTION_ASHWALKER) // NOVA EDIT REMOVAL: Moving to Ritual
+	// inherent_factions = list(FACTION_ASHWALKER) // bobaEDIT REMOVAL: Moving to Ritual
 	species_language_holder = /datum/language_holder/lizard/ash
 	digitigrade_customization = DIGITIGRADE_FORCED
 	examine_limb_id = SPECIES_LIZARD

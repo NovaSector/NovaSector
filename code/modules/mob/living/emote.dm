@@ -197,7 +197,7 @@
 		return
 
 	var/mob/living/carbon/human/human_user = user
-	if(human_user.gender == FEMALE) // NOVA EDIT CHANGE - ORIGINAL: if(human_user.physique == FEMALE)
+	if(human_user.gender == FEMALE) // bobaEDIT CHANGE - ORIGINAL: if(human_user.physique == FEMALE)
 		return pick(
 			'sound/mobs/humanoids/human/gasp/gasp_female1.ogg',
 			'sound/mobs/humanoids/human/gasp/gasp_female2.ogg',
@@ -607,7 +607,7 @@
 	message = "smiles weakly."
 
 /// The base chance for your yawn to propagate to someone else if they're on the same tile as you
-#define YAWN_PROPAGATE_CHANCE_BASE 0 // NOVA EDIT - Group yawn no more - ORIGINAL: #define YAWN_PROPAGATE_CHANCE_BASE 20
+#define YAWN_PROPAGATE_CHANCE_BASE 0 // bobaEDIT - Group yawn no more - ORIGINAL: #define YAWN_PROPAGATE_CHANCE_BASE 20
 /// The amount the base chance to propagate yawns falls for each tile of distance
 #define YAWN_PROPAGATE_CHANCE_DECAY 4
 
@@ -734,7 +734,7 @@
 	return .|WITH_EMPHASIS_MESSAGE
 
 /datum/emote/living/custom/proc/get_custom_emote_from_user()
-	return stripped_multiline_input(usr, "Choose an emote to display.", "Me" , null, MAX_MESSAGE_LEN) // NOVA EDIT CHANGE - ORIGINAL : return copytext(sanitize(input("Choose an emote to display.") as text|null), 1, MAX_MESSAGE_LEN)
+	return stripped_multiline_input(usr, "Choose an emote to display.", "Me" , null, MAX_MESSAGE_LEN) // bobaEDIT CHANGE - ORIGINAL : return copytext(sanitize(input("Choose an emote to display.") as text|null), 1, MAX_MESSAGE_LEN)
 
 /datum/emote/living/custom/proc/get_custom_emote_type_from_user()
 	var/type = input("Is this a visible or hearable emote?") as null|anything in list("Visible", "Hearable", "Both")

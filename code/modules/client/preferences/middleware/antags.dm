@@ -4,7 +4,7 @@ GLOBAL_LIST_INIT(non_ruleset_antagonists, list(
 		ROLE_FUGITIVE = /datum/antagonist/fugitive,
 		ROLE_LONE_OPERATIVE = /datum/antagonist/nukeop/lone,
 		ROLE_SENTIENCE = /datum/antagonist/sentient_creature,
-		ROLE_DRIFTING_CONTRACTOR = /datum/antagonist/contractor, // NOVA EDIT ADDITION
+		ROLE_DRIFTING_CONTRACTOR = /datum/antagonist/contractor, // bobaEDIT ADDITION
 	))
 
 /datum/preference_middleware/antags

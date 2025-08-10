@@ -256,11 +256,11 @@
 
 			environment.garbage_collect()
 
-			// NOVA EDIT ADDITION
+			// bobaEDIT ADDITION
 			if(isopenturf(tile))
 				var/turf/open/floor_turf = tile
 				floor_turf.pollution?.scrub_amount(1)
-			// NOVA EDIT END
+			// bobaEDIT END
 
 			//Remix the resulting gases
 			air_contents.merge(filtered_out)

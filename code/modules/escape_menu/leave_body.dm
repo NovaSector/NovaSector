@@ -26,7 +26,7 @@
 		"Suicide",
 		"Perform a dramatic suicide in game",
 		/* pixel_offset = */ list(-55, -1),
-		,//.CALLBACK(src, PROC_REF(leave_suicide)), // NOVA EDIT REMOVAL
+		,//.CALLBACK(src, PROC_REF(leave_suicide)), // bobaEDIT REMOVAL
 		/* button_overlay = */ dead_clown,
 	))
 

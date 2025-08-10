@@ -189,7 +189,7 @@
 	. += mutable_appearance(overlay_icon, base_state)
 
 
-// NOVA EDIT ADDITION BEGIN - AESTHETICS
+// bobaEDIT ADDITION BEGIN - AESTHETICS
 #define LIGHT_ON_DELAY_UPPER (2 SECONDS)
 #define LIGHT_ON_DELAY_LOWER (0.25 SECONDS)
 /// Dynamically calculate nightshift brightness
@@ -220,7 +220,7 @@
 	update(instant = TRUE, play_sound = FALSE) //NOVA EDIT CHANGE - ORIGINAL: update()
 
 // update the icon_state and luminosity of the light depending on its state
-/obj/machinery/light/proc/update(trigger = TRUE, instant = FALSE, play_sound = TRUE) // NOVA EDIT CHANGE - ORIGINAL: /obj/machinery/light/proc/update(trigger = TRUE)
+/obj/machinery/light/proc/update(trigger = TRUE, instant = FALSE, play_sound = TRUE) // bobaEDIT CHANGE - ORIGINAL: /obj/machinery/light/proc/update(trigger = TRUE)
 	switch(status)
 		if(LIGHT_BROKEN,LIGHT_BURNED,LIGHT_EMPTY)
 			on = FALSE
@@ -242,11 +242,11 @@
 			color_set = bulb_emergency_colour
 			brightness_set = brightness * bulb_major_emergency_brightness_mul
 		else if (nightshift_enabled)
-			brightness_set -= brightness_set * NIGHTSHIFT_LIGHT_MODIFIER // NOVA EDIT CHANGE - ORIGINAL: brightness_set = nightshift_brightness
-			power_set -= power_set * NIGHTSHIFT_LIGHT_MODIFIER // NOVA EDIT CHANGE - ORIGINAL: power_set = nightshift_light_power
+			brightness_set -= brightness_set * NIGHTSHIFT_LIGHT_MODIFIER // bobaEDIT CHANGE - ORIGINAL: brightness_set = nightshift_brightness
+			power_set -= power_set * NIGHTSHIFT_LIGHT_MODIFIER // bobaEDIT CHANGE - ORIGINAL: power_set = nightshift_light_power
 			if(!color)
 				color_set = nightshift_light_color
-				// NOVA EDIT ADDITION START - Dynamic nightshift color
+				// bobaEDIT ADDITION START - Dynamic nightshift color
 				if(!color_set)
 					// Adjust light values to be warmer. I doubt caching would speed this up by any worthwhile amount, as it's all very fast number and string operations.
 					// Convert to numbers for easier manipulation.
@@ -261,11 +261,11 @@
 					green = clamp(green, 0, 255)
 					blue = clamp(blue, 0, 255)
 					color_set = rgb(red, green, blue) // Splice the numbers together and turn them back to hex.
-				// NOVA EDIT ADDITION END
+				// bobaEDIT ADDITION END
 		if (cached_color_filter)
 			color_set = apply_matrix_to_color(color_set, cached_color_filter["color"], cached_color_filter["space"] || COLORSPACE_RGB)
 		var/matching = light && brightness_set == light.light_range && power_set == light.light_power && color_set == light.light_color
-		if(!matching && (maploaded || instant)) // NOVA EDIT CHANGE - ORIGINAL: if(!matching)
+		if(!matching && (maploaded || instant)) // bobaEDIT CHANGE - ORIGINAL: if(!matching)
 			switchcount++
 			if( prob( min(60, (switchcount**2)*0.01) ) )
 				if(trigger)
@@ -277,7 +277,7 @@
 					l_power = power_set,
 					l_color = color_set
 					)
-		// NOVA EDIT ADDITION START
+		// bobaEDIT ADDITION START
 				maploaded = FALSE
 				if(play_sound)
 					playsound(src.loc, 'modular_nova/modules/aesthetics/lights/sound/light_on.ogg', 65, 1)
@@ -285,7 +285,7 @@
 			switchcount++
 			turning_on = TRUE
 			addtimer(CALLBACK(src, PROC_REF(delayed_turn_on), trigger, play_sound, color_set, power_set, brightness_set), rand(LIGHT_ON_DELAY_LOWER, LIGHT_ON_DELAY_UPPER))
-		// NOVA EDIT ADDITION END
+		// bobaEDIT ADDITION END
 	else if(has_emergency_power(LIGHT_EMERGENCY_POWER_USE) && !turned_off())
 		use_power = IDLE_POWER_USE
 		low_power_mode = TRUE
@@ -303,7 +303,7 @@
 #undef LIGHT_ON_DELAY_LOWER
 #undef NIGHTSHIFT_LIGHT_MODIFIER
 #undef NIGHTSHIFT_COLOR_MODIFIER
-// NOVA EDIT ADDITION END
+// bobaEDIT ADDITION END
 
 /obj/machinery/light/update_current_power_usage()
 	if(!on && static_power_used > 0) //Light is off but still powered
@@ -567,7 +567,7 @@
 			on = (status == LIGHT_OK)
 		else
 			on = FALSE
-		update(FALSE, instant = TRUE) // NOVA EDIT CHANGE - ORIGINAL: update(FALSE)
+		update(FALSE, instant = TRUE) // bobaEDIT CHANGE - ORIGINAL: update(FALSE)
 	flickering = FALSE
 
 // ai attack - make lights flicker, because why not
@@ -608,12 +608,12 @@
 			if(stomach.drain_time > world.time)
 				return
 			user.visible_message(span_notice("[user] clamps their hand around the [fitting], electricity jumping around inside!")) //NOVA EDIT CHANGE - Ethereal Rework 2024 - ORIGINALl: to_chat(user, span_notice("You start channeling some power through the [fitting] into your body."))
-			to_chat(user, span_purple("You try to receive some charge from the [fitting]...")) // NOVA EDIT ADDITION - Ethereal Rework 2024
+			to_chat(user, span_purple("You try to receive some charge from the [fitting]...")) // bobaEDIT ADDITION - Ethereal Rework 2024
 			stomach.drain_time = world.time + LIGHT_DRAIN_TIME
 			while(do_after(user, LIGHT_DRAIN_TIME, target = src))
 				stomach.drain_time = world.time + LIGHT_DRAIN_TIME
 				if(istype(stomach))
-					do_sparks(number = 2, cardinal_only = FALSE, source = src) // NOVA EDIT CHANGE - Ethereal Rework 2024 - ORIGINAL: to_chat(user, span_notice("You receive some charge from the [fitting]."))
+					do_sparks(number = 2, cardinal_only = FALSE, source = src) // bobaEDIT CHANGE - Ethereal Rework 2024 - ORIGINAL: to_chat(user, span_notice("You receive some charge from the [fitting]."))
 					stomach.adjust_charge(LIGHT_POWER_GAIN)
 				else
 					to_chat(user, span_warning("You can't receive charge from the [fitting]!"))

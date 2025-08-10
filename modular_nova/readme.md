@@ -33,7 +33,7 @@ in the core code, that we decide to change from 1 to 2 on our end,
 
 ```diff
 - var/something = 1
-+ var/something = 2 // NOVA EDIT CHANGE - ORIGINAL: var/something = 1
++ var/something = 2 // bobaEDIT CHANGE - ORIGINAL: var/something = 1
 ```
 
 but then our upstream introduces a change in their codebase, changing it from 1 to 4
@@ -46,7 +46,7 @@ but then our upstream introduces a change in their codebase, changing it from 1 
 As easy of an example as it is, it results in a relatively simple conflict, in the form of
 
 ```byond
-var/something = 2 // NOVA EDIT CHANGE - ORIGINAL: var/something = 4
+var/something = 2 // bobaEDIT CHANGE - ORIGINAL: var/something = 4
 ```
 
 where we pick the preferable option manually.
@@ -199,22 +199,22 @@ In those cases, we've decided to apply the following convention, with examples:
 - **Addition:**
 
   ```byond
-  // NOVA EDIT ADDITION START - SHUTTLE_TOGGLE - (Optional Reason/comment)
+  // bobaEDIT ADDITION START - SHUTTLE_TOGGLE - (Optional Reason/comment)
   var/adminEmergencyNoRecall = FALSE
   var/lastMode = SHUTTLE_IDLE
   var/lastCallTime = 6000
-  // NOVA EDIT ADDITION END
+  // bobaEDIT ADDITION END
   ```
 
 - **Removal:**
 
   ```byond
 
-  /* // NOVA EDIT REMOVAL START - SHUTTLE_TOGGLE - (Optional Reason/comment)
+  /* // bobaEDIT REMOVAL START - SHUTTLE_TOGGLE - (Optional Reason/comment)
   for(var/obj/docking_port/stationary/S in stationary)
     if(S.id = id)
       return S
-  */ // NOVA EDIT REMOVAL END
+  */ // bobaEDIT REMOVAL END
   WARNING("couldn't find dock with id: [id]")
   ```
 
@@ -222,7 +222,7 @@ In those cases, we've decided to apply the following convention, with examples:
   *Please avoid this however, only to be done if there is no other option.
 
   ```byond
-  /* // NOVA EDIT REMOVAL START - SHUTTLE_TOGGLE - (Moved to modular_nova/shuttle_toggle/randomverbs.dm)
+  /* // bobaEDIT REMOVAL START - SHUTTLE_TOGGLE - (Moved to modular_nova/shuttle_toggle/randomverbs.dm)
   /client/proc/admin_call_shuttle()
   set category = "Admin - Events"
   set name = "Call Shuttle"
@@ -248,7 +248,7 @@ In those cases, we've decided to apply the following convention, with examples:
 - **Change:**
 
   ```byond
-  if(SHUTTLE_STRANDED, SHUTTLE_ESCAPE, SHUTTLE_DISABLED) // NOVA EDIT CHANGE - ORIGINAL: if(SHUTTLE_STRANDED, SHUTTLE_ESCAPE)
+  if(SHUTTLE_STRANDED, SHUTTLE_ESCAPE, SHUTTLE_DISABLED) // bobaEDIT CHANGE - ORIGINAL: if(SHUTTLE_STRANDED, SHUTTLE_ESCAPE)
   ```
 
   Always put the original code (the full line!) and use the same formatting as above.
@@ -260,13 +260,13 @@ In those cases, we've decided to apply the following convention, with examples:
   indentation levels.
 
   ```byond
-  /* // NOVA EDIT REMOVAL START - Adds conditional
+  /* // bobaEDIT REMOVAL START - Adds conditional
   	return 1
-  */ // NOVA EDIT REMOVAL
-  // NOVA EDIT ADDITION START - Adds conditional
+  */ // bobaEDIT REMOVAL
+  // bobaEDIT ADDITION START - Adds conditional
   	if(!isnull(src))
   		return 1
-  // NOVA EDIT ADDITION END
+  // bobaEDIT ADDITION END
 
   It makes resolving diffs during merge conflicts far easier this way for us because it makes the
   diffs very clear and straightforward.
@@ -333,24 +333,24 @@ ALL of the tgui files are located in `/tgui/packages/tgui/interfaces` and its su
 
 When modifying upstream TGUI files the same rules apply as modifying upstream DM code, however the grammar for comments may be slightly different.
 
-You can do both `// NOVA EDIT` and `/* NOVA EDIT */`, though in some cases you may have to use one over the other.
+You can do both `// bobaEDIT` and `/* NOVA EDIT */`, though in some cases you may have to use one over the other.
 
 In general try to keep your edit comments on the same line as the change. Preferably inside the JSX tag. e.g:
 
 ```js
 <Button
 	onClick={() => act('spin', { high_quality: true })}
-	icon="rat" // NOVA EDIT ADDITION
+	icon="rat" // bobaEDIT ADDITION
 </Button>
 ```
 
 ```js
 <Button
 	onClick={() => act('spin', { high_quality: true })}
-	// NOVA EDIT ADDITION START - another example, multiline changes
+	// bobaEDIT ADDITION START - another example, multiline changes
 	icon="rat"
 	tooltip="spin the rat."
-	// NOVA EDIT ADDITION END
+	// bobaEDIT ADDITION END
 </Button>
 ```
 

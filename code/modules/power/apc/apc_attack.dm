@@ -43,7 +43,7 @@
 	// Ethereals can't drain APCs under half charge, so that they are forced to look to alternative power sources if the station is running low
 	if(cell.charge() < half_max_charge)
 		addtimer(CALLBACK(src, TYPE_PROC_REF(/atom, balloon_alert), user, "safeties prevent draining!"), ETHEREAL_APC_ALERT_DELAY)
-		user.visible_message(span_notice("[src] displays a red X, sealing ports as 'safeties enabled' flashes across the screen!")) // NOVA EDIT ADDITION
+		user.visible_message(span_notice("[src] displays a red X, sealing ports as 'safeties enabled' flashes across the screen!")) // bobaEDIT ADDITION
 		return
 
 	var/obj/item/stock_parts/power_store/stomach_cell = used_stomach.cell
@@ -73,7 +73,7 @@
 
 		if(stomach_cell.used_charge() <= 0)
 			balloon_alert(user, "your charge is full!")
-			user.visible_message(span_notice("[user] drops [user.p_their()] hand from [src], glowing at [user.p_their()] zenith!")) // NOVA EDIT ADDITION
+			user.visible_message(span_notice("[user] drops [user.p_their()] hand from [src], glowing at [user.p_their()] zenith!")) // bobaEDIT ADDITION
 			return
 		if(cell.charge() <= 0)
 			balloon_alert(user, "apc is empty!")
@@ -91,10 +91,10 @@
 
 	used_stomach.drain_time = world.time + ETHEREAL_APC_DRAIN_TIME
 	addtimer(CALLBACK(src, TYPE_PROC_REF(/atom, balloon_alert), user, "transferring power..."), ETHEREAL_APC_ALERT_DELAY)
-	// NOVA EDIT ADDITION BEGIN - Ethereal Rework 2024
+	// bobaEDIT ADDITION BEGIN - Ethereal Rework 2024
 	user.visible_message(span_notice("[user] presses [user.p_their()] fingers into [src]'s screen, [user.p_their()] arm alight with static as [user.p_they()] charge it!"))
 	to_chat(user, span_purple("You try to shunt some of your energy into [src]..."))
-	// NOVA EDIT ADDITION END - Ethereal Rework 2024
+	// bobaEDIT ADDITION END - Ethereal Rework 2024
 	if(!do_after(user, ETHEREAL_APC_DRAIN_TIME, target = src))
 		return
 	if(isnull(used_stomach) || (used_stomach != user.get_organ_slot(ORGAN_SLOT_STOMACH)))
@@ -113,7 +113,7 @@
 
 	if(cell.used_charge() <= 0)
 		balloon_alert(user, "apc is full!")
-		user.visible_message(span_notice("[src] displays a red X across the screen, sealing ports and rejecting [user]'s charge!")) // NOVA EDIT ADDITION - Ethereal Rework 2024
+		user.visible_message(span_notice("[src] displays a red X across the screen, sealing ports and rejecting [user]'s charge!")) // bobaEDIT ADDITION - Ethereal Rework 2024
 		return
 	if(stomach_cell.charge() <= 0)
 		balloon_alert(user, "out of charge!")

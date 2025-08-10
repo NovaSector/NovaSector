@@ -52,7 +52,7 @@
 			return list("reason"="panicbunker", "desc" = "Sorry but the server is currently not accepting connections from never before seen players")
 
 		qdel(query_client_in_db)
-	*/ // NOVA EDIT REMOVAL END
+	*/ // bobaEDIT REMOVAL END
 
 	//Whitelist
 	if(!real_bans_only && !C && CONFIG_GET(flag/usewhitelist))
@@ -64,7 +64,7 @@
 					addclientmessage(ckey,span_adminnotice("You have been allowed to bypass the whitelist"))
 			else
 				log_access("Failed Login: [ckey] - Not on whitelist")
-				return list("reason"="whitelist", "desc" = CONFIG_GET(string/missing_whitelist_message)) // NOVA EDIT - SQL-based whitelist. ORIGINAL: return list("reason"="whitelist", "desc" = "\nReason: You are not on the white list for this server")
+				return list("reason"="whitelist", "desc" = CONFIG_GET(string/missing_whitelist_message)) // bobaEDIT - SQL-based whitelist. ORIGINAL: return list("reason"="whitelist", "desc" = "\nReason: You are not on the white list for this server")
 
 	//Guest Checking
 	if(!real_bans_only && !C && is_guest_key(key))

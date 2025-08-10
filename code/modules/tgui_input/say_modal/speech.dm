@@ -10,7 +10,7 @@
 /datum/tgui_say/proc/alter_entry(payload)
 	var/entry = payload["entry"]
 	/// No OOC leaks
-	if(!entry || payload["channel"] == OOC_CHANNEL || payload["channel"] == ME_CHANNEL || payload["channel"] == LOOC_CHANNEL) // NOVA EDIT CHANGE - CUSTOMIZATION
+	if(!entry || payload["channel"] == OOC_CHANNEL || payload["channel"] == ME_CHANNEL || payload["channel"] == LOOC_CHANNEL) // bobaEDIT CHANGE - CUSTOMIZATION
 		return pick(hurt_phrases)
 	/// Random trimming for larger sentences
 	if(length(entry) > 50)
@@ -47,7 +47,7 @@
 		if(ADMIN_CHANNEL)
 			SSadmin_verbs.dynamic_invoke_verb(client, /datum/admin_verb/cmd_admin_say, entry)
 			return TRUE
-		// NOVA EDIT ADDITION START - CUSTOMIZATION
+		// bobaEDIT ADDITION START - CUSTOMIZATION
 		if(LOOC_CHANNEL)
 			client.looc(entry)
 			return TRUE
@@ -56,7 +56,7 @@
 			return TRUE
 		if(DO_CHANNEL)
 			client.mob.do_verb(entry)
-		// NOVA EDIT ADDITION END
+		// bobaEDIT ADDITION END
 	return FALSE
 
 /**

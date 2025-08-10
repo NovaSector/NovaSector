@@ -14,7 +14,7 @@ export const file_labels = {
   },
   "Map Edit": {
     filepaths: ["_maps"],
-    add_only: true, // NOVA EDIT ADDITION
+    add_only: true, // bobaEDIT ADDITION
   },
   Tools: {
     filepaths: ["tools"],

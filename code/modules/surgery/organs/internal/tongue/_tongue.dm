@@ -81,7 +81,7 @@
 		/datum/language/draconic,
 		/datum/language/codespeak,
 		/datum/language/monkey,
-		/datum/language/kobold, // Nova Edit Addition: KOBORS
+		/datum/language/kobold, // bobaEdit Addition: KOBORS
 		/datum/language/narsie,
 		/datum/language/beachbum,
 		/datum/language/aphasia,
@@ -198,11 +198,11 @@
 		new /regex("s+", "g") = "sss",
 		new /regex("S+", "g") = "SSS",
 		new /regex(@"(\w)x", "g") = "$1kss",
-		//new /regex(@"(\w)X", "g") = "$1KSSS", // NOVA EDIT REMOVAL
+		//new /regex(@"(\w)X", "g") = "$1KSSS", // bobaEDIT REMOVAL
 		new /regex(@"\bx([\-|r|R]|\b)", "g") = "ecks$1",
 		new /regex(@"\bX([\-|r|R]|\b)", "g") = "ECKS$1",
 	)
-	// NOVA EDIT ADDITION START - Russian version - yes copy pasted from above because static lists are great.
+	// bobaEDIT ADDITION START - Russian version - yes copy pasted from above because static lists are great.
 	var/static/list/russian_speech_replacements = list(
 		new /regex("s+", "g") = "sss",
 		new /regex("S+", "g") = "SSS",
@@ -216,11 +216,11 @@
 		"ж" = "ш",
 		"Ж" = "Ш",
 	)
-	// NOVA EDIT ADDITION END
+	// bobaEDIT ADDITION END
 
 /obj/item/organ/tongue/lizard/Initialize(mapload)
 	. = ..()
-	AddComponent(/datum/component/speechmod, replacements = CONFIG_GET(flag/russian_text_formation) ? russian_speech_replacements : speech_replacements, should_modify_speech = CALLBACK(src, PROC_REF(should_modify_speech))) // NOVA EDIT CHANGE - ORIGINAL: AddComponent(/datum/component/speechmod, replacements = speech_replacements, should_modify_speech = CALLBACK(src, PROC_REF(should_modify_speech)))
+	AddComponent(/datum/component/speechmod, replacements = CONFIG_GET(flag/russian_text_formation) ? russian_speech_replacements : speech_replacements, should_modify_speech = CALLBACK(src, PROC_REF(should_modify_speech))) // bobaEDIT CHANGE - ORIGINAL: AddComponent(/datum/component/speechmod, replacements = speech_replacements, should_modify_speech = CALLBACK(src, PROC_REF(should_modify_speech)))
 
 /obj/item/organ/tongue/lizard/silver
 	name = "silver tongue"
@@ -617,7 +617,7 @@
 		else
 			new_message += message[i]
 	speech_args[SPEECH_MESSAGE] = new_message
-*/ // NOVA EDIT END
+*/ // bobaEDIT END
 
 /obj/item/organ/tongue/ethereal
 	name = "electric discharger"

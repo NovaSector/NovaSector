@@ -14,4 +14,4 @@
 
 /datum/preference/choiced/monkey_tail/create_default_value()
 	return /datum/sprite_accessory/tails/monkey/default::name
-*/ // NOVA EDIT REMOVAL END
+*/ // bobaEDIT REMOVAL END

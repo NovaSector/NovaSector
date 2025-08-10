@@ -112,8 +112,8 @@ SAVEFILE UPDATING/VERSIONING - 'Simplified', or rather, more coder-friendly ~Car
 		migrate_character_to_tgui_prefs_menu()
 
 	if (current_version < 42)
-		// migrate_body_types(save_data) // NOVA EDIT - This'll fuck up savefiles
-		migrate_mentor() // NOVA EDIT - Make mentors alive again
+		// migrate_body_types(save_data) // bobaEDIT - This'll fuck up savefiles
+		migrate_mentor() // bobaEDIT - Make mentors alive again
 
 	if (current_version < 43)
 		migrate_legacy_sound_toggles(savefile)
@@ -335,7 +335,7 @@ SAVEFILE UPDATING/VERSIONING - 'Simplified', or rather, more coder-friendly ~Car
 
 	//Quirks
 	all_quirks = save_data?["all_quirks"]
-	load_character_nova(save_data) // NOVA EDIT ADDITION
+	load_character_nova(save_data) // bobaEDIT ADDITION
 
 	//try to fix any outdated data if necessary
 	//preference updating will handle saving the updated data for us.
@@ -346,17 +346,17 @@ SAVEFILE UPDATING/VERSIONING - 'Simplified', or rather, more coder-friendly ~Car
 	randomise = SANITIZE_LIST(randomise)
 	job_preferences = SANITIZE_LIST(job_preferences)
 	all_quirks = SANITIZE_LIST(all_quirks)
-	languages = SANITIZE_LIST(languages) // NOVA EDIT ADDITION
-	augments = SANITIZE_LIST(augments) // NOVA EDIT ADDITION
+	languages = SANITIZE_LIST(languages) // bobaEDIT ADDITION
+	augments = SANITIZE_LIST(augments) // bobaEDIT ADDITION
 
 	//Validate job prefs
 	for(var/j in job_preferences)
 		if(job_preferences[j] != JP_LOW && job_preferences[j] != JP_MEDIUM && job_preferences[j] != JP_HIGH)
 			job_preferences -= j
 
-	all_quirks = SSquirks.filter_invalid_quirks(SANITIZE_LIST(all_quirks), SANITIZE_LIST(augments)) // NOVA EDIT CHANGE - AUGMENTS+ - ORIGINAL: all_quirks = SSquirks.filter_invalid_quirks(SANITIZE_LIST(all_quirks))
+	all_quirks = SSquirks.filter_invalid_quirks(SANITIZE_LIST(all_quirks), SANITIZE_LIST(augments)) // bobaEDIT CHANGE - AUGMENTS+ - ORIGINAL: all_quirks = SSquirks.filter_invalid_quirks(SANITIZE_LIST(all_quirks))
 	validate_quirks()
-	sanitize_languages() // NOVA EDIT ADDITION
+	sanitize_languages() // bobaEDIT ADDITION
 
 	return TRUE
 
@@ -397,7 +397,7 @@ SAVEFILE UPDATING/VERSIONING - 'Simplified', or rather, more coder-friendly ~Car
 
 	//Quirks
 	save_data["all_quirks"] = all_quirks
-	save_character_nova(save_data) // NOVA EDIT ADDITION
+	save_character_nova(save_data) // bobaEDIT ADDITION
 
 	return TRUE
 

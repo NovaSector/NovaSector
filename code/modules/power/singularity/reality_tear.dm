@@ -21,14 +21,14 @@
 	/// Range that our singularity component consumes objects
 	var/singularity_consume_range = 1
 	/// Ranges that the singularity pulls objects
-	var/singularity_grav_pull // NOVA EDIT CHANGE - Use config instead - ORIGINAL: var/singularity_grav_pull = 21
+	var/singularity_grav_pull // bobaEDIT CHANGE - Use config instead - ORIGINAL: var/singularity_grav_pull = 21
 	/// Time before we begin our bagulo spawn
 	var/collapse_spawn_time = 9 SECONDS
 
 /obj/reality_tear/proc/start_disaster()
 	apply_wibbly_filters(src)
 	playsound(loc, 'sound/effects/clockcult_gateway_disrupted.ogg', vary = 200, extrarange = 3, falloff_exponent = 1, frequency = 0.33, pressure_affected = FALSE, ignore_walls = TRUE, falloff_distance = 7)
-	// NOVA EDIT CHANGE START - Locks the singularity behind config options
+	// bobaEDIT CHANGE START - Locks the singularity behind config options
 	if(!CONFIG_GET(flag/disable_stationary_boh_singularity))
 		AddComponent(
 			/datum/component/singularity, \
@@ -37,7 +37,7 @@
 			roaming = FALSE, \
 			singularity_size = STAGE_SIX, \
 		)
-	// NOVA EDIT CHANGE END
+	// bobaEDIT CHANGE END
 	addtimer(CALLBACK(src, PROC_REF(reality_collapse)), 9 SECONDS, TIMER_DELETE_ME)
 	animate(src, time = 7.5 SECONDS, transform = transform.Scale(2), flags = ANIMATION_PARALLEL)
 	animate(time = 2 SECONDS, transform = transform.Scale(0.25), easing = ELASTIC_EASING)
@@ -45,12 +45,12 @@
 
 /obj/reality_tear/proc/reality_collapse()
 	playsound(loc, 'sound/effects/supermatter.ogg', 200, vary = TRUE, extrarange = 3, falloff_exponent = 1, frequency = 0.5, pressure_affected = FALSE, ignore_walls = TRUE, falloff_distance = 7)
-	// NOVA EDIT CHANGE START - Locks the singularity behind config options
+	// bobaEDIT CHANGE START - Locks the singularity behind config options
 	if(!CONFIG_GET(flag/disable_roaming_boh_singularity))
 		var/obj/singularity/bagulo = new(loc)
 		bagulo.expand(STAGE_TWO)
 		bagulo.energy = 400
-	// NOVA EDIT CHANGE END
+	// bobaEDIT CHANGE END
 	qdel(src)
 
 /obj/reality_tear/attack_tk(mob/user)

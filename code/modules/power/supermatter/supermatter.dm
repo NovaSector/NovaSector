@@ -241,7 +241,7 @@ GLOBAL_DATUM(main_supermatter_engine, /obj/machinery/power/supermatter_crystal)
 	QDEL_NULL(radio)
 	QDEL_NULL(countdown)
 	if(is_main_engine && GLOB.main_supermatter_engine == src)
-		SSpersistence.reset_delam_counter() // NOVA EDIT ADDITION BEGIN - DELAM SCRAM
+		SSpersistence.reset_delam_counter() // bobaEDIT ADDITION BEGIN - DELAM SCRAM
 		GLOB.main_supermatter_engine = null
 	QDEL_NULL(soundloop)
 	return ..()
@@ -566,8 +566,8 @@ GLOBAL_DATUM(main_supermatter_engine, /obj/machinery/power/supermatter_crystal)
 
 	final_countdown = TRUE
 
-	if(is_main_engine) // NOVA EDIT ADDITION - DELAM_SCRAM
-		SEND_GLOBAL_SIGNAL(COMSIG_MAIN_SM_DELAMINATING, final_countdown) // NOVA EDIT ADDITION - DELAM_SCRAM
+	if(is_main_engine) // bobaEDIT ADDITION - DELAM_SCRAM
+		SEND_GLOBAL_SIGNAL(COMSIG_MAIN_SM_DELAMINATING, final_countdown) // bobaEDIT ADDITION - DELAM_SCRAM
 	notify_ghosts(
 		"[src] has begun the delamination process!",
 		source = src,
@@ -1087,7 +1087,7 @@ GLOBAL_DATUM(main_supermatter_engine, /obj/machinery/power/supermatter_crystal)
 /// Consume the santa hat and add it as an overlay
 /obj/machinery/power/supermatter_crystal/proc/holiday_item_interaction(source, mob/living/user, obj/item/item, list/modifiers)
 	SIGNAL_HANDLER
-	if(istype(item, /obj/item/clothing/head/costume/santa) || istype(item, /obj/item/clothing/head/costume/nova/christmas)) // NOVA EDIT CHANGE - Loadouts
+	if(istype(item, /obj/item/clothing/head/costume/santa) || istype(item, /obj/item/clothing/head/costume/nova/christmas)) // bobaEDIT CHANGE - Loadouts
 		QDEL_NULL(item)
 		RegisterSignal(src, COMSIG_ATOM_EXAMINE, PROC_REF(holiday_hat_examine))
 		if(istype(src, /obj/machinery/power/supermatter_crystal/shard))

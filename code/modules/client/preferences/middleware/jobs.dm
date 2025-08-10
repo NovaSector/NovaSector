@@ -1,9 +1,9 @@
 /datum/preference_middleware/jobs
 	action_delegations = list(
 		"set_job_preference" = PROC_REF(set_job_preference),
-		// NOVA EDIT
+		// bobaEDIT
 		"set_job_title" = PROC_REF(set_job_title),
-		// NOVA EDIT END
+		// bobaEDIT END
 	)
 
 /datum/preference_middleware/jobs/proc/set_job_preference(list/params, mob/user)
@@ -25,14 +25,14 @@
 		return FALSE
 
 	preferences.character_preview_view?.update_body()
-	// NOVA EDIT ADDITION START
+	// bobaEDIT ADDITION START
 	if(!SSticker.HasRoundStarted())
 		SEND_SIGNAL(user, COMSIG_JOB_PREF_UPDATED)
-	// NOVA EDIT ADDITION END
+	// bobaEDIT ADDITION END
 
 	return TRUE
 
-// NOVA EDIT ADDITION START
+// bobaEDIT ADDITION START
 /datum/preference_middleware/jobs/proc/set_job_title(list/params, mob/user)
 	var/job_title = params["job"]
 	var/new_job_title = params["new_title"]
@@ -50,7 +50,7 @@
 		SEND_SIGNAL(user, COMSIG_JOB_PREF_UPDATED)
 
 	return TRUE
-// NOVA EDIT ADDITION END
+// bobaEDIT ADDITION END
 
 /datum/preference_middleware/jobs/get_constant_data()
 	var/list/data = list()
@@ -81,8 +81,8 @@
 		jobs[job.title] = list(
 			"description" = job.description,
 			"department" = department_name,
-			"nova_star" = job.nova_stars_only, // NOVA EDIT
-			"alt_titles" = job.alt_titles, // NOVA EDIT
+			"nova_star" = job.nova_stars_only, // bobaEDIT
+			"alt_titles" = job.alt_titles, // bobaEDIT
 		)
 
 	data["departments"] = departments
@@ -92,24 +92,24 @@
 
 /datum/preference_middleware/jobs/get_ui_data(mob/user)
 	var/list/data = list()
-	// NOVA EDIT
+	// bobaEDIT
 	if(isnull(preferences.alt_job_titles))
 		preferences.alt_job_titles = list()
-	// NOVA EDIT END
+	// bobaEDIT END
 	data["job_preferences"] = preferences.job_preferences
-	// NOVA EDIT
+	// bobaEDIT
 	data["job_alt_titles"] = preferences.alt_job_titles
 	data["species_restricted_jobs"] = get_unavailable_jobs_for_species()
-	// NOVA EDIT END
+	// bobaEDIT END
 
 	return data
 
 /datum/preference_middleware/jobs/get_ui_static_data(mob/user)
 	var/list/data = list()
-	// NOVA EDIT
+	// bobaEDIT
 	if(SSplayer_ranks.is_nova_star(user.client))
 		data["is_nova_star"] = TRUE
-	// NOVA EDIT END
+	// bobaEDIT END
 	var/list/required_job_playtime = get_required_job_playtime(user)
 	if (!isnull(required_job_playtime))
 		data += required_job_playtime

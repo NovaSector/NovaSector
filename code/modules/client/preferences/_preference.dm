@@ -217,7 +217,7 @@ GLOBAL_LIST_INIT(preference_entries_by_key, init_preference_entries_by_key())
 /// Apply this preference onto the given human.
 /// Must be overriden by subtypes.
 /// Called when the savefile_identifier == PREFERENCE_CHARACTER.
-/datum/preference/proc/apply_to_human(mob/living/carbon/human/target, value, datum/preferences/preferences) // NOVA EDIT CHANGE - ORIGINAL: apply_to_human(mob/living/carbon/human/target, value)
+/datum/preference/proc/apply_to_human(mob/living/carbon/human/target, value, datum/preferences/preferences) // bobaEDIT CHANGE - ORIGINAL: apply_to_human(mob/living/carbon/human/target, value)
 	SHOULD_NOT_SLEEP(TRUE)
 	SHOULD_CALL_PARENT(FALSE)
 	CRASH("`apply_to_human()` was not implemented for [type]!")
@@ -330,7 +330,7 @@ GLOBAL_LIST_INIT(preference_entries_by_key, init_preference_entries_by_key())
 
 /// Checks if this preference is relevant and thus visible to the passed preferences object.
 /datum/preference/proc/has_relevant_feature(datum/preferences/preferences)
-	if(isnull(relevant_inherent_trait) && isnull(relevant_external_organ) && isnull(relevant_head_flag) && isnull(relevant_body_markings) && isnull(relevant_mutant_bodypart)) // NOVA EDIT CHANGE - Add check for relevant_mutant_bodypart - Original: if(isnull(relevant_inherent_trait) && isnull(relevant_external_organ) && isnull(relevant_head_flag) && isnull(relevant_body_markings))
+	if(isnull(relevant_inherent_trait) && isnull(relevant_external_organ) && isnull(relevant_head_flag) && isnull(relevant_body_markings) && isnull(relevant_mutant_bodypart)) // bobaEDIT CHANGE - Add check for relevant_mutant_bodypart - Original: if(isnull(relevant_inherent_trait) && isnull(relevant_external_organ) && isnull(relevant_head_flag) && isnull(relevant_body_markings))
 		return TRUE
 
 	return current_species_has_savekey(preferences)

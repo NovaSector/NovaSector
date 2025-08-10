@@ -26,7 +26,7 @@
 	response_harm_simple = "splat"
 	density = FALSE
 	faction = list(FACTION_HOSTILE, FACTION_MAINT_CREATURES)
-	attack_sound = null // NOVA EDIT - No more frog ear-rape - ORIGINAL: attack_sound = 'sound/mobs/non-humanoids/frog/reee.ogg'
+	attack_sound = null // bobaEDIT - No more frog ear-rape - ORIGINAL: attack_sound = 'sound/mobs/non-humanoids/frog/reee.ogg'
 	butcher_results = list(/obj/item/food/nugget = 1)
 	pass_flags = PASSTABLE | PASSGRILLE | PASSMOB
 	mob_size = MOB_SIZE_TINY
@@ -40,7 +40,7 @@
 
 	ai_controller = /datum/ai_controller/basic_controller/frog
 
-	var/stepped_sound = null // NOVA EDIT - No more frog ear-rape - ORIGINA: var/stepped_sound = 'sound/mobs/non-humanoids/frog/huuu.ogg'
+	var/stepped_sound = null // bobaEDIT - No more frog ear-rape - ORIGINA: var/stepped_sound = 'sound/mobs/non-humanoids/frog/huuu.ogg'
 	///How much of a reagent the mob injects on attack
 	var/poison_per_bite = 3
 	///What reagent the mob injects targets with
@@ -53,12 +53,12 @@
 
 	add_traits(list(TRAIT_NODROWN, TRAIT_SWIMMER, TRAIT_VENTCRAWLER_ALWAYS), INNATE_TRAIT)
 
-	/* // NOVA EDIT REMOVAL START
+	/* // bobaEDIT REMOVAL START
 	var/static/list/loc_connections = list(
 		COMSIG_ATOM_ENTERED = PROC_REF(on_entered),
 	)
 	AddElement(/datum/element/connect_loc, loc_connections)
-	*/ // NOVA EDIT REMOVAL END
+	*/ // bobaEDIT REMOVAL END
 	AddElement(/datum/element/venomous, poison_type, poison_per_bite)
 	AddElement(/datum/element/ai_retaliate)
 	AddElement(/datum/element/swabable, CELL_LINE_TABLE_FROG, CELL_VIRUS_TABLE_GENERIC_MOB, 1, 5)

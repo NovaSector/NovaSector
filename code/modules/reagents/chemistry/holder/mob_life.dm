@@ -32,7 +32,7 @@
 
 	for(var/datum/reagent/reagent as anything in cached_reagents)
 		var/datum/reagent/toxin/toxin
-		if(istype(reagent, /datum/reagent/toxin)) // NOVA EDIT CHANGE - Early mirror of a fix, just remove this when it is merged
+		if(istype(reagent, /datum/reagent/toxin)) // bobaEDIT CHANGE - Early mirror of a fix, just remove this when it is merged
 			toxin = reagent
 		// skip metabolizing effects for small units of toxins
 		if(toxin && liver && !dead)

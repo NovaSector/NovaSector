@@ -77,11 +77,11 @@
 		to_chat(user, span_danger("You punch [src], but don't leave a dent!"))
 		return TRUE
 	else
-		// NOVA EDIT ADDITION START
+		// bobaEDIT ADDITION START
 		if(HAS_TRAIT(src, TRAIT_QUICKREFLEXES) && (src.stat != UNCONSCIOUS) && !INCAPACITATED_IGNORING(src, INCAPABLE_RESTRAINTS))
 			visible_message(span_warning("[user] tries to pet [src], but it moves out of the way."))
 			return TRUE
-		// NOVA EDIT ADDITION END
+		// bobaEDIT ADDITION END
 		visible_message(span_notice("[user] pets [src]."), span_notice("[user] pets you."), null, null, user)
 		to_chat(user, span_notice("You pet [src]."))
 		SEND_SIGNAL(user, COMSIG_MOB_PAT_BORG)

@@ -36,7 +36,7 @@
 	/* NOVA EDIT REMOVAL START - This removal allows Abductors to have typing indicators
 	if(isabductor(mob))
 		return FALSE
-	*/ // NOVA EDIT REMOVAL END
+	*/ // bobaEDIT REMOVAL END
 	ADD_TRAIT(mob, TRAIT_THINKING_IN_CHARACTER, CURRENTLY_TYPING_TRAIT)
 	mob.create_thinking_indicator()
 

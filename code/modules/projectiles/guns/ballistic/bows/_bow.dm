@@ -33,7 +33,7 @@
 	. = ..()
 	if(chambered)
 		// . += "[chambered.base_icon_state][drawn ? "_drawn" : ""]" NOVA EDIT REMOVAL
-		// NOVA EDIT START
+		// bobaEDIT START
 		var/icon_state = icon_exists(/obj/item/gun/ballistic/bow::icon, chambered.base_icon_state) ? chambered.base_icon_state : "arrow"
 		if(drawn)
 			icon_state += "_drawn"

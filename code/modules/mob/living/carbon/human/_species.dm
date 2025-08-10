@@ -1,8 +1,8 @@
-// NOVA EDIT ADDITION START
+// bobaEDIT ADDITION START
 // Local defines for now, TODO: put these in their own file with the rest of the offset defines
 #define NOVA_UNDERWEAR_UNDERSHIRT_LAYER (UNIFORM_LAYER + 0.01)
 #define NOVA_BRA_SOCKS_LAYER (UNIFORM_LAYER + 0.02)
-// NOVA EDIT ADDITION END
+// bobaEDIT ADDITION END
 /// List of roundstart races' their species_id's
 GLOBAL_LIST_EMPTY(roundstart_races)
 ///List of all roundstart languages by path except common
@@ -69,7 +69,7 @@ GLOBAL_LIST_EMPTY(features_by_species)
 	/// Use a [language holder datum][/datum/language_holder] typepath in this var.
 	/// Should never be null.
 	var/datum/language_holder/species_language_holder = /datum/language_holder/human_basic
-	var/list/list/mutant_bodyparts = list() // NOVA EDIT ADDITION - CUSTOMIZATION (typed list)
+	var/list/list/mutant_bodyparts = list() // bobaEDIT ADDITION - CUSTOMIZATION (typed list)
 	///The bodyparts this species uses. assoc of bodypart string - bodypart type. Make sure all the fucking entries are in or I'll skin you alive.
 	var/list/bodypart_overrides = list(
 		BODY_ZONE_L_ARM = /obj/item/bodypart/arm/left,
@@ -103,7 +103,7 @@ GLOBAL_LIST_EMPTY(features_by_species)
 	var/obj/item/organ/appendix/mutantappendix = /obj/item/organ/appendix
 
 	/// Store body marking defines. See mobs.dm for bitflags
-	//var/list/body_markings = list() // NOVA EDIT REMOVAL - We already have this defined as an assoc list
+	//var/list/body_markings = list() // bobaEDIT REMOVAL - We already have this defined as an assoc list
 
 	/// Flat modifier on all damage taken via [apply_damage][/mob/living/proc/apply_damage] (so being punched, shot, etc.)
 	/// IE: 10 = 10% less damage taken.
@@ -189,7 +189,7 @@ GLOBAL_LIST_EMPTY(features_by_species)
 	///A list containing outfits that will be overridden in the species_equip_outfit proc. [Key = Typepath passed in] [Value = Typepath of outfit you want to equip for this specific species instead].
 	var/list/outfit_override_registry = list()
 
-	var/monkey_species = /datum/species/monkey // NOVA EDIT ADDITION: Kobors
+	var/monkey_species = /datum/species/monkey // bobaEDIT ADDITION: Kobors
 ///////////
 // PROCS //
 ///////////
@@ -312,7 +312,7 @@ GLOBAL_LIST_EMPTY(features_by_species)
 				qdel(existing_organ)
 			continue
 
-		if(existing_organ && !disallow_customizable_dna_features) // NOVA EDIT CHANGE - Though sometimes we might want to do that. - ORIGINAL: if(existing_organ)
+		if(existing_organ && !disallow_customizable_dna_features) // bobaEDIT CHANGE - Though sometimes we might want to do that. - ORIGINAL: if(existing_organ)
 			// we dont want to remove organs that were not from the old species (such as from freak surgery or prosthetics)
 			if(existing_organ.type != old_organ_type && !replace_current)
 				continue
@@ -404,7 +404,7 @@ GLOBAL_LIST_EMPTY(features_by_species)
 		else if(old_species.exotic_bloodtype && isnull(exotic_bloodtype))
 			human_who_gained_species.set_blood_type(random_human_blood_type())
 
-	regenerate_organs(human_who_gained_species, old_species, replace_current = human_who_gained_species.visual_only_organs, visual_only = human_who_gained_species.visual_only_organs, replace_missing = replace_missing) // NOVA EDIT CHANGE - Allows existing organs to be properly removed when regenerating organs - ORIGINAL: regenerate_organs(human_who_gained_species, old_species, replace_current = FALSE, visual_only = human_who_gained_species.visual_only_organs, replace_missing = replace_missing)
+	regenerate_organs(human_who_gained_species, old_species, replace_current = human_who_gained_species.visual_only_organs, visual_only = human_who_gained_species.visual_only_organs, replace_missing = replace_missing) // bobaEDIT CHANGE - Allows existing organs to be properly removed when regenerating organs - ORIGINAL: regenerate_organs(human_who_gained_species, old_species, replace_current = FALSE, visual_only = human_who_gained_species.visual_only_organs, replace_missing = replace_missing)
 	// Update locked slots AFTER all organ and body stuff is handled
 	human_who_gained_species.hud_used?.update_locked_slots()
 	// Drop the items the new species can't wear
@@ -413,7 +413,7 @@ GLOBAL_LIST_EMPTY(features_by_species)
 	//Resets blood if it is excessively high so they don't gib
 	normalize_blood(human_who_gained_species)
 
-	//add_body_markings(human_who_gained_species) // NOVA EDIT REMOVAL - We do this differently
+	//add_body_markings(human_who_gained_species) // bobaEDIT REMOVAL - We do this differently
 
 	if(length(inherent_traits))
 		human_who_gained_species.add_traits(inherent_traits, SPECIES_TRAIT)
@@ -525,26 +525,26 @@ GLOBAL_LIST_EMPTY(features_by_species)
 
 	// Underwear, Undershirts & Socks
 	var/list/standing = list()
-	if(species_human.underwear && !(species_human.underwear_visibility & UNDERWEAR_HIDE_UNDIES)) // NOVA EDIT CHANGE - ORIGINAL: if(species_human.underwear)
+	if(species_human.underwear && !(species_human.underwear_visibility & UNDERWEAR_HIDE_UNDIES)) // bobaEDIT CHANGE - ORIGINAL: if(species_human.underwear)
 		var/datum/sprite_accessory/underwear/underwear = SSaccessories.underwear_list[species_human.underwear]
 		var/mutable_appearance/underwear_overlay
 		var/female_sprite_flags = FEMALE_UNIFORM_FULL // the default gender shaping
 		if(underwear)
-			// NOVA EDIT ADDITION START
+			// bobaEDIT ADDITION START
 			var/icon_state = underwear.icon_state
 			if(underwear.has_digitigrade && (species_human.bodyshape & BODYSHAPE_DIGITIGRADE))
 				icon_state += "_d"
 				female_sprite_flags = FEMALE_UNIFORM_TOP_ONLY // for digi gender shaping
-			// NOVA EDIT ADDITION END
+			// bobaEDIT ADDITION END
 			if(species_human.dna.species.sexes && species_human.physique == FEMALE && (underwear.gender == MALE))
-				underwear_overlay = mutable_appearance(wear_female_version(icon_state, underwear.icon, female_sprite_flags), layer = -NOVA_UNDERWEAR_UNDERSHIRT_LAYER) // NOVA EDIT CHANGE - ORIGINAL: underwear_overlay = mutable_appearance(wear_female_version(underwear.icon_state, underwear.icon, FEMALE_UNIFORM_FULL), layer = -BODY_LAYER)
+				underwear_overlay = mutable_appearance(wear_female_version(icon_state, underwear.icon, female_sprite_flags), layer = -NOVA_UNDERWEAR_UNDERSHIRT_LAYER) // bobaEDIT CHANGE - ORIGINAL: underwear_overlay = mutable_appearance(wear_female_version(underwear.icon_state, underwear.icon, FEMALE_UNIFORM_FULL), layer = -BODY_LAYER)
 			else
-				underwear_overlay = mutable_appearance(underwear.icon, icon_state, -NOVA_UNDERWEAR_UNDERSHIRT_LAYER) // NOVA EDIT CHANGE - ORIGINAL: underwear_overlay = mutable_appearance(underwear.icon, underwear.icon_state, -BODY_LAYER)
+				underwear_overlay = mutable_appearance(underwear.icon, icon_state, -NOVA_UNDERWEAR_UNDERSHIRT_LAYER) // bobaEDIT CHANGE - ORIGINAL: underwear_overlay = mutable_appearance(underwear.icon, underwear.icon_state, -BODY_LAYER)
 			if(!underwear.use_static)
 				underwear_overlay.color = species_human.underwear_color
 			standing += underwear_overlay
 
-	// NOVA EDIT ADDITION START
+	// bobaEDIT ADDITION START
 	if(species_human.bra && !(species_human.underwear_visibility & UNDERWEAR_HIDE_BRA))
 		var/datum/sprite_accessory/bra/bra = SSaccessories.bra_list[species_human.bra]
 
@@ -556,28 +556,28 @@ GLOBAL_LIST_EMPTY(features_by_species)
 				bra_overlay.color = species_human.bra_color
 			standing += bra_overlay
 
-	// NOVA EDIT ADDITION END
-	if(species_human.undershirt && !(species_human.underwear_visibility & UNDERWEAR_HIDE_SHIRT)) // NOVA EDIT CHANGE - ORIGINAL: if(species_human.undershirt)
+	// bobaEDIT ADDITION END
+	if(species_human.undershirt && !(species_human.underwear_visibility & UNDERWEAR_HIDE_SHIRT)) // bobaEDIT CHANGE - ORIGINAL: if(species_human.undershirt)
 		var/datum/sprite_accessory/undershirt/undershirt = SSaccessories.undershirt_list[species_human.undershirt]
 		if(undershirt)
 			var/mutable_appearance/working_shirt
 			if(species_human.dna.species.sexes && species_human.physique == FEMALE)
-				working_shirt = mutable_appearance(wear_female_version(undershirt.icon_state, undershirt.icon), layer = -NOVA_UNDERWEAR_UNDERSHIRT_LAYER) // NOVA EDIT CHANGE - ORIGINAL: working_shirt = mutable_appearance(wear_female_version(undershirt.icon_state, undershirt.icon), layer = -BODY_LAYER)
+				working_shirt = mutable_appearance(wear_female_version(undershirt.icon_state, undershirt.icon), layer = -NOVA_UNDERWEAR_UNDERSHIRT_LAYER) // bobaEDIT CHANGE - ORIGINAL: working_shirt = mutable_appearance(wear_female_version(undershirt.icon_state, undershirt.icon), layer = -BODY_LAYER)
 			else
-				working_shirt = mutable_appearance(undershirt.icon, undershirt.icon_state, layer = -NOVA_UNDERWEAR_UNDERSHIRT_LAYER) // NOVA EDIT CHANGE: - ORIGINAL: working_shirt = mutable_appearance(undershirt.icon, undershirt.icon_state, layer = -BODY_LAYER)
-			// NOVA EDIT ADDITION START
+				working_shirt = mutable_appearance(undershirt.icon, undershirt.icon_state, layer = -NOVA_UNDERWEAR_UNDERSHIRT_LAYER) // bobaEDIT CHANGE: - ORIGINAL: working_shirt = mutable_appearance(undershirt.icon, undershirt.icon_state, layer = -BODY_LAYER)
+			// bobaEDIT ADDITION START
 			if(!undershirt.use_static)
 				working_shirt.color = species_human.undershirt_color
-			// NOVA EDIT ADDITION END
+			// bobaEDIT ADDITION END
 			standing += working_shirt
 
-	/* // NOVA EDIT REMOVAL START - Original TG sock handling
+	/* // bobaEDIT REMOVAL START - Original TG sock handling
 	if(species_human.socks && species_human.num_legs >= 2 && !(species_human.bodyshape & BODYSHAPE_DIGITIGRADE))
 		var/datum/sprite_accessory/socks/socks = SSaccessories.socks_list[species_human.socks]
 		if(socks)
 			standing += mutable_appearance(socks.icon, socks.icon_state, -BODY_LAYER)
-	*/ // NOVA EDIT REMOVAL END
-	// NOVA EDIT ADDITION START - Nova socks
+	*/ // bobaEDIT REMOVAL END
+	// bobaEDIT ADDITION START - Nova socks
 	if(species_human.socks && species_human.num_legs >= 2 && !(species_human.underwear_visibility & UNDERWEAR_HIDE_SOCKS))
 		if(!("taur" in mutant_bodyparts) || mutant_bodyparts["taur"][MUTANT_INDEX_NAME] == SPRITE_ACCESSORY_NONE)
 			var/datum/sprite_accessory/socks/socks = SSaccessories.socks_list[species_human.socks]
@@ -591,7 +591,7 @@ GLOBAL_LIST_EMPTY(features_by_species)
 					socks_overlay.color = species_human.socks_color
 				standing += socks_overlay
 
-	// NOVA EDIT ADDITION END
+	// bobaEDIT ADDITION END
 	if(standing.len)
 		species_human.overlays_standing[BODY_LAYER] = standing
 
@@ -683,7 +683,7 @@ GLOBAL_LIST_EMPTY(features_by_species)
 		H.adjustBruteLoss(0.5 * seconds_per_tick)
 
 /datum/species/proc/can_equip(obj/item/I, slot, disable_warning, mob/living/carbon/human/H, bypass_equip_delay_self = FALSE, ignore_equipped = FALSE, indirect_action = FALSE)
-	if(no_equip_flags & slot && !(I.is_mod_shell_component() && (modsuit_slot_exceptions & slot))) // NOVA EDIT ADDITION - ORIGINAL: if(no_equip_flags & slot)
+	if(no_equip_flags & slot && !(I.is_mod_shell_component() && (modsuit_slot_exceptions & slot))) // bobaEDIT ADDITION - ORIGINAL: if(no_equip_flags & slot)
 		if(!I.species_exception || !is_type_in_list(src, I.species_exception))
 			return FALSE
 
@@ -1048,17 +1048,17 @@ GLOBAL_LIST_EMPTY(features_by_species)
 		log_combat(user, target, grappled ? "grapple punched" : "kicked")
 		final_armor_block -= limb_accuracy
 		target.apply_damage(damage, attack_type, affecting, final_armor_block, attack_direction = attack_direction, sharpness = limb_sharpness)
-		target.apply_damage(damage*1.2, STAMINA, affecting, armor_block - limb_accuracy) // NOVA EDIT ADDITION - Adds back some of the stamina damage
+		target.apply_damage(damage*1.2, STAMINA, affecting, armor_block - limb_accuracy) // bobaEDIT ADDITION - Adds back some of the stamina damage
 	else // Normal attacks do not gain the benefit of armor penetration.
 		target.apply_damage(damage, attack_type, affecting, armor_block, attack_direction = attack_direction, sharpness = limb_sharpness)
-		target.apply_damage(damage*1.2, STAMINA, affecting, armor_block) // NOVA EDIT ADDITION - Adds back some of the stamina damage
+		target.apply_damage(damage*1.2, STAMINA, affecting, armor_block) // bobaEDIT ADDITION - Adds back some of the stamina damage
 		if(damage >= 9)
 			target.force_say()
 		log_combat(user, target, "punched")
-	// NOVA EDIT ADDITION START
+	// bobaEDIT ADDITION START
 	if(target.try_nut_shot(user, limb_accuracy, staggered))
 		return
-	// NOVA EDIT ADDITION END
+	// bobaEDIT ADDITION END
 
 	if(user != target && biting && (target.mob_biotypes & MOB_ORGANIC)) //Good for you. You probably just ate someone alive.
 		var/datum/reagents/tasty_meal = new()
@@ -2092,7 +2092,7 @@ GLOBAL_LIST_EMPTY(features_by_species)
 			SPECIES_PERK_DESC = "Alongside [initial(common_language.name)], [plural_form] gain the ability to speak [english_list(bonus_languages)].",
 			*/ // ORIGINAL END - NOVA EDIT START:
 			SPECIES_PERK_DESC = "Alongside [initial(common_language.name)], [plural_form] commonly speak [english_list(bonus_languages)].",
-			// NOVA EDIT END
+			// bobaEDIT END
 		))
 
 	else
@@ -2110,7 +2110,7 @@ GLOBAL_LIST_EMPTY(features_by_species)
 	new_species ||= target.dna.species //If no new species is provided, assume its src.
 	//Note for future: Potentionally add a new C.dna.species() to build a template species for more accurate limb replacement
 
-	// NOVA EDIT ADDITION START - Synth digitigrade sanitization
+	// bobaEDIT ADDITION START - Synth digitigrade sanitization
 	var/ignore_digi = FALSE // You can jack into this var with other checks, if you want.
 	if(issynthetic(target))
 		var/list/chassis = target.dna.mutant_bodyparts[MUTANT_SYNTH_CHASSIS]
@@ -2121,10 +2121,10 @@ GLOBAL_LIST_EMPTY(features_by_species)
 				body_choice = chassis_accessory[chassis[MUTANT_INDEX_NAME]]
 			if(body_choice && !body_choice.is_digi_compatible)
 				ignore_digi = TRUE
-	// NOVA EDIT END
+	// bobaEDIT END
 
 	var/list/final_bodypart_overrides = new_species.bodypart_overrides.Copy()
-	if(!ignore_digi && ((new_species.digitigrade_customization == DIGITIGRADE_OPTIONAL && target.dna.features["legs"] == DIGITIGRADE_LEGS) || new_species.digitigrade_customization == DIGITIGRADE_FORCED)) //if((new_species.digitigrade_customization == DIGITIGRADE_OPTIONAL && target.dna.features["legs"] == DIGITIGRADE_LEGS) || new_species.digitigrade_customization == DIGITIGRADE_FORCED) // NOVA EDIT - Digitigrade customization - ORIGINAL
+	if(!ignore_digi && ((new_species.digitigrade_customization == DIGITIGRADE_OPTIONAL && target.dna.features["legs"] == DIGITIGRADE_LEGS) || new_species.digitigrade_customization == DIGITIGRADE_FORCED)) //if((new_species.digitigrade_customization == DIGITIGRADE_OPTIONAL && target.dna.features["legs"] == DIGITIGRADE_LEGS) || new_species.digitigrade_customization == DIGITIGRADE_FORCED) // bobaEDIT - Digitigrade customization - ORIGINAL
 		/* NOVA EDIT - Digitigrade customization - ORIGINAL:
 		final_bodypart_overrides[BODY_ZONE_R_LEG] = /obj/item/bodypart/leg/right/digitigrade
 		final_bodypart_overrides[BODY_ZONE_L_LEG] = /obj/item/bodypart/leg/left/digitigrade
@@ -2135,7 +2135,7 @@ GLOBAL_LIST_EMPTY(features_by_species)
 		var/obj/item/bodypart/leg/left/l_leg = new_species.bodypart_overrides[BODY_ZONE_L_LEG]
 		if(l_leg)
 			final_bodypart_overrides[BODY_ZONE_L_LEG] = initial(l_leg.digitigrade_type)
-		// NOVA EDIT END
+		// bobaEDIT END
 
 	for(var/obj/item/bodypart/old_part as anything in target.bodyparts)
 		if((old_part.change_exempt_flags & BP_BLOCK_CHANGE_SPECIES) || (old_part.bodypart_flags & BODYPART_IMPLANTED))

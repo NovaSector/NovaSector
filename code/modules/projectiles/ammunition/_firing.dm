@@ -18,7 +18,7 @@
 		AddComponent(/datum/component/pellet_cloud, projectile_type, pellets)
 
 	//var/next_delay = click_cooldown_override || CLICK_CD_RANGE // ORIGINAL
-	var/next_delay = click_cooldown_override || ((user.staminaloss <= STAMINA_THRESHOLD_TIRED_CLICK_CD) ? CLICK_CD_RANGE : CLICK_CD_RANGE_TIRED) // NOVA EDIT CHANGE
+	var/next_delay = click_cooldown_override || ((user.staminaloss <= STAMINA_THRESHOLD_TIRED_CLICK_CD) ? CLICK_CD_RANGE : CLICK_CD_RANGE_TIRED) // bobaEDIT CHANGE
 	if(HAS_TRAIT(user, TRAIT_DOUBLE_TAP))
 		next_delay = round(next_delay * 0.5)
 	user.changeNext_move(next_delay)
@@ -27,7 +27,7 @@
 		user.newtonian_move(get_angle(target, user), drift_force = newtonian_force)
 	else if(ismovable(fired_from))
 		var/atom/movable/firer = fired_from
-		if(!firer.anchored && !firer.newtonian_move(get_angle(target, fired_from), instant = TRUE, drift_force = newtonian_force)) // NOVA EDIT CHANGE - ORIGINAL: if(!firer.newtonian_move(get_angle(target, fired_from), instant = TRUE, drift_force = newtonian_force))
+		if(!firer.anchored && !firer.newtonian_move(get_angle(target, fired_from), instant = TRUE, drift_force = newtonian_force)) // bobaEDIT CHANGE - ORIGINAL: if(!firer.newtonian_move(get_angle(target, fired_from), instant = TRUE, drift_force = newtonian_force))
 			var/throwtarget = get_step(fired_from, get_dir(target, fired_from))
 			firer.safe_throw_at(throwtarget, 1, 2)
 	update_appearance()

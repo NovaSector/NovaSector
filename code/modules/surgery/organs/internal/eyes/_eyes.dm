@@ -113,21 +113,21 @@
 		affected_human.add_eye_color_right(eye_color_right, EYE_COLOR_ORGAN_PRIORITY, update_body = FALSE)
 	refresh_atom_color_overrides()
 
-	if(HAS_TRAIT(affected_human, TRAIT_NIGHT_VISION)) // NOVA EDIT CHANGE - ORIGINAL: if(HAS_TRAIT(affected_human, TRAIT_NIGHT_VISION) && !lighting_cutoff)
-		//lighting_cutoff = LIGHTING_CUTOFF_REAL_LOW // NOVA EDIT REMOVAL
-		// NOVA EDIT ADDITION START - NIGHT VISION ADJUSTMENT - adjusts color cutoffs based on chosen quirk color, or left eye colour if not available
+	if(HAS_TRAIT(affected_human, TRAIT_NIGHT_VISION)) // bobaEDIT CHANGE - ORIGINAL: if(HAS_TRAIT(affected_human, TRAIT_NIGHT_VISION) && !lighting_cutoff)
+		//lighting_cutoff = LIGHTING_CUTOFF_REAL_LOW // bobaEDIT REMOVAL
+		// bobaEDIT ADDITION START - NIGHT VISION ADJUSTMENT - adjusts color cutoffs based on chosen quirk color, or left eye colour if not available
 		var/datum/quirk/night_vision/nv_quirk = affected_human.get_quirk(/datum/quirk/night_vision)
 		if(nv_quirk)
 			nv_quirk.nv_color_cutoffs = nv_quirk.calculate_color_cutoffs(nv_quirk.nv_color)
 			color_cutoffs = nv_quirk.nv_color_cutoffs
-		// NOVA EDIT ADDITION END
+		// bobaEDIT ADDITION END
 	if(CONFIG_GET(flag/native_fov) && native_fov)
 		affected_human.add_fov_trait(type, native_fov)
 
-	// NOVA EDIT ADDITION - EMISSIVES
+	// bobaEDIT ADDITION - EMISSIVES
 	if (affected_human.emissive_eyes)
 		is_emissive = TRUE
-	// NOVA EDIT END
+	// bobaEDIT END
 
 	if(call_update)
 		affected_human.update_body()
@@ -157,7 +157,7 @@
 
 	organ_owner.update_tint()
 	organ_owner.update_sight()
-	is_emissive = FALSE // NOVA EDIT ADDITION
+	is_emissive = FALSE // bobaEDIT ADDITION
 	UnregisterSignal(organ_owner, list(COMSIG_ATOM_BULLET_ACT, COMSIG_COMPONENT_CLEAN_FACE_ACT))
 
 /obj/item/organ/eyes/update_atom_colour()
@@ -275,18 +275,18 @@
 	if(isnull(eye_icon_state))
 		return list()
 
-	var/obj/item/bodypart/head/my_head = parent.get_bodypart(BODY_ZONE_HEAD) // NOVA EDIT ADDITION
-	var/eye_icon = my_head?.eyes_icon || 'icons/mob/human/human_face.dmi' // NOVA EDIT ADDITION
-	var/mutable_appearance/eye_left = mutable_appearance(eye_icon, "[eye_icon_state]_l", -eyes_layer, parent) // NOVA EDIT CHANGE - Customization - ORIGINAL: var/mutable_appearance/eye_left = mutable_appearance('icons/mob/human/human_face.dmi', "[eye_icon_state]_l", -BODY_LAYER, parent)
-	var/mutable_appearance/eye_right = mutable_appearance(eye_icon, "[eye_icon_state]_r", -eyes_layer, parent) // NOVA EDIT CHANGE - Customization - ORIGINAL: var/mutable_appearance/eye_right = mutable_appearance('icons/mob/human/human_face.dmi', "[eye_icon_state]_r", -BODY_LAYER, parent)
+	var/obj/item/bodypart/head/my_head = parent.get_bodypart(BODY_ZONE_HEAD) // bobaEDIT ADDITION
+	var/eye_icon = my_head?.eyes_icon || 'icons/mob/human/human_face.dmi' // bobaEDIT ADDITION
+	var/mutable_appearance/eye_left = mutable_appearance(eye_icon, "[eye_icon_state]_l", -eyes_layer, parent) // bobaEDIT CHANGE - Customization - ORIGINAL: var/mutable_appearance/eye_left = mutable_appearance('icons/mob/human/human_face.dmi', "[eye_icon_state]_l", -BODY_LAYER, parent)
+	var/mutable_appearance/eye_right = mutable_appearance(eye_icon, "[eye_icon_state]_r", -eyes_layer, parent) // bobaEDIT CHANGE - Customization - ORIGINAL: var/mutable_appearance/eye_right = mutable_appearance('icons/mob/human/human_face.dmi', "[eye_icon_state]_r", -BODY_LAYER, parent)
 	var/list/overlays = list(eye_left, eye_right)
 
 	var/obscured = parent.check_obscured_slots()
 	if(overlay_ignore_lighting && !(obscured & ITEM_SLOT_EYES))
-		overlays += emissive_appearance(eye_left.icon, eye_left.icon_state, parent, -eyes_layer, alpha = eye_left.alpha) // NOVA EDIT CHANGE - ORIGINAL: overlays += emissive_appearance(eye_left.icon, eye_left.icon_state, parent, -BODY_LAYER, alpha = eye_left.alpha)
-		overlays += emissive_appearance(eye_right.icon, eye_right.icon_state, parent, -eyes_layer, alpha = eye_right.alpha) // NOVA EDIT CHANGE - ORIGINAL: overlays += emissive_appearance(eye_left.icon, eye_left.icon_state, parent, -BODY_LAYER, alpha = eye_left.alpha)
+		overlays += emissive_appearance(eye_left.icon, eye_left.icon_state, parent, -eyes_layer, alpha = eye_left.alpha) // bobaEDIT CHANGE - ORIGINAL: overlays += emissive_appearance(eye_left.icon, eye_left.icon_state, parent, -BODY_LAYER, alpha = eye_left.alpha)
+		overlays += emissive_appearance(eye_right.icon, eye_right.icon_state, parent, -eyes_layer, alpha = eye_right.alpha) // bobaEDIT CHANGE - ORIGINAL: overlays += emissive_appearance(eye_left.icon, eye_left.icon_state, parent, -BODY_LAYER, alpha = eye_left.alpha)
 
-	//var/obj/item/bodypart/head/my_head = parent.get_bodypart(BODY_ZONE_HEAD) // NOVA EDIT REMOVAL -  moved up a few lines
+	//var/obj/item/bodypart/head/my_head = parent.get_bodypart(BODY_ZONE_HEAD) // bobaEDIT REMOVAL -  moved up a few lines
 
 	if(!my_head)
 		return overlays
@@ -312,7 +312,7 @@
 		for (var/mutable_appearance/overlay as anything in overlays)
 			my_head.worn_face_offset.apply_offset(overlay)
 
-	// NOVA EDIT START - Customization (Synths + Emissives)
+	// bobaEDIT START - Customization (Synths + Emissives)
 	if(eye_icon_state == "None")
 		eye_left.alpha = 0
 		eye_right.alpha = 0
@@ -328,7 +328,7 @@
 		overlays += emissive_left
 		overlays += emissive_right
 
-	// NOVA EDIT END
+	// bobaEDIT END
 
 	return overlays
 

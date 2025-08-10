@@ -59,7 +59,7 @@
 		)
 	)
 	*/
-	// NOVA EDIT REMOVAL END
+	// bobaEDIT REMOVAL END
 
 	//Bottom right buttons, from right to left, starting with the button to open the list.
 	page_holder.give_screen_object(new /atom/movable/screen/escape_menu/lobby_button/small(

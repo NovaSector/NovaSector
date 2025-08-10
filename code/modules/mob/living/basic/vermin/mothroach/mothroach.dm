@@ -39,11 +39,11 @@
 		/datum/pet_command/free,
 		/datum/pet_command/follow/start_active,
 		/datum/pet_command/perform_trick_sequence,
-		// NOVA EDIT ADDITION START
+		// bobaEDIT ADDITION START
 		/datum/pet_command/good_boy,
 		/datum/pet_command/fetch,
 		/datum/pet_command/play_dead,
-		// NOVA EDIT ADDITION END
+		// bobaEDIT ADDITION END
 	)
 
 /datum/emote/mothroach

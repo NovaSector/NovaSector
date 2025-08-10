@@ -93,11 +93,11 @@
 		to_chat(user, span_notice("You swallow a gulp of [src]."))
 
 	SEND_SIGNAL(src, COMSIG_GLASS_DRANK, target_mob, user)
-	SEND_SIGNAL(target_mob, COMSIG_GLASS_DRANK, src, user) // NOVA EDIT ADDITION - Hemophages can't casually drink what's not going to regenerate their blood
+	SEND_SIGNAL(target_mob, COMSIG_GLASS_DRANK, src, user) // bobaEDIT ADDITION - Hemophages can't casually drink what's not going to regenerate their blood
 	var/fraction = min(gulp_size/reagents.total_volume, 1)
 	reagents.trans_to(target_mob, gulp_size, transferred_by = user, methods = reagent_consumption_method)
 	checkLiked(fraction, target_mob)
-	playsound_if_pref(target_mob.loc, consumption_sound, rand(10,50), TRUE, pref_to_check = /datum/preference/toggle/sound_eating) // NOVA EDIT CHANGE - Original: playsound(target_mob.loc, consumption_sound, rand(10,50), TRUE)
+	playsound_if_pref(target_mob.loc, consumption_sound, rand(10,50), TRUE, pref_to_check = /datum/preference/toggle/sound_eating) // bobaEDIT CHANGE - Original: playsound(target_mob.loc, consumption_sound, rand(10,50), TRUE)
 	if(!iscarbon(target_mob))
 		return
 	var/mob/living/carbon/carbon_drinker = target_mob
@@ -414,7 +414,7 @@
 	melee = 10
 	acid = 50
 
-// NOVA EDIT CHANGE START - LIQUIDS
+// bobaEDIT CHANGE START - LIQUIDS
 /* Original
 /obj/item/reagent_containers/cup/bucket/attackby(obj/O, mob/user, list/modifiers, list/attack_modifiers)
 	if(istype(O, /obj/item/mop))
@@ -453,7 +453,7 @@
 		var/obj/item/bot_assembly/cleanbot/new_cleanbot_ass = new(null, src)
 		user.put_in_hands(new_cleanbot_ass)
 		return
-// NOVA EDIT CHANGE END - LIQUIDS
+// bobaEDIT CHANGE END - LIQUIDS
 
 /obj/item/reagent_containers/cup/bucket/equipped(mob/user, slot)
 	. = ..()

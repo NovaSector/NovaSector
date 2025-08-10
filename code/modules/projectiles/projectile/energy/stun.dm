@@ -9,7 +9,7 @@
 	muzzle_type = /obj/effect/projectile/muzzle/stun
 	impact_type = /obj/effect/projectile/impact/stun
 	/// How much stamina damage will the tase deal in 1 second
-	VAR_PROTECTED/tase_stamina = 10 // NOVA EDIT CHANGE - Original: VAR_PROTECTED/tase_stamina = 60
+	VAR_PROTECTED/tase_stamina = 10 // bobaEDIT CHANGE - Original: VAR_PROTECTED/tase_stamina = 60
 	/// Electrodes that follow the projectile
 	VAR_PRIVATE/datum/weakref/beam_weakref
 	/// We need to track who was the ORIGINAL firer of the projectile specifically to ensure deflects work correctly
@@ -65,7 +65,7 @@
 	return ..()
 
 /obj/projectile/energy/electrode/ai_turrets
-	tase_stamina = 35 // NOVA EDIT CHANGE - Original: tase_stamina = 120
+	tase_stamina = 35 // bobaEDIT CHANGE - Original: tase_stamina = 120
 
 /// Status effect tracking being tased by someone!
 /datum/status_effect/tased
@@ -81,7 +81,7 @@
 	/// The beam datum representing the taser electrodes
 	VAR_PRIVATE/datum/beam/tase_line
 	/// How much stamina damage does it aim to cause in a second?
-	VAR_FINAL/stamina_per_second = 20 // NOVA EDIT - Original: 80
+	VAR_FINAL/stamina_per_second = 20 // bobaEDIT - Original: 80
 	/// How much energy does the taser use per tick?
 	VAR_FINAL/energy_drain = STANDARD_CELL_CHARGE * 0.05
 	/// What do we name the electrodes?
@@ -93,7 +93,7 @@
 	mob/living/new_owner,
 	datum/fired_from,
 	atom/movable/firer,
-	tase_stamina = 20, // NOVA EDIT CHANGE - Original: tase_stamina = 80,
+	tase_stamina = 20, // bobaEDIT CHANGE - Original: tase_stamina = 80,
 	energy_drain = STANDARD_CELL_CHARGE * 0.05,
 	electrode_name = "the electrodes",
 	tase_range = 6,
@@ -184,16 +184,16 @@
 				"NNNNNNNNGGGGGGGGHH!",
 				";AAAAAAARRRGH!",
 			), forced = "hulk")
-		// NOVA EDIT ADDITION START - addition of ability to remove taser electrode
+		// bobaEDIT ADDITION START - addition of ability to remove taser electrode
 		if(HAS_TRAIT(owner, TRAIT_BATON_RESISTANCE)) // If you have baton resistance while being tased, significantly decreases the stamina damage.
 			to_chat(owner, span_notice("You feel a slight shock, and attempt to shrug it off."))
-			stamina_per_second /= 4																 
-			owner.remove_movespeed_modifier(/datum/movespeed_modifier/being_tased)										 
-		if(HAS_TRAIT(owner, TRAIT_SHOCKIMMUNE)) // genetics mutation insulated protects from taser shock, as well as voltaic heart				 
-			to_chat(owner, span_notice("The electrode hits you, but it only tickles."))									 
-			stamina_per_second = 0																 
+			stamina_per_second /= 4
 			owner.remove_movespeed_modifier(/datum/movespeed_modifier/being_tased)
-		// NOVA EDIT ADDITION END
+		if(HAS_TRAIT(owner, TRAIT_SHOCKIMMUNE)) // genetics mutation insulated protects from taser shock, as well as voltaic heart
+			to_chat(owner, span_notice("The electrode hits you, but it only tickles."))
+			stamina_per_second = 0
+			owner.remove_movespeed_modifier(/datum/movespeed_modifier/being_tased)
+		// bobaEDIT ADDITION END
 	if(ishuman(owner))
 		var/mob/living/carbon/human/human_owner = owner
 		human_owner.force_say()
@@ -291,7 +291,7 @@
 		beam_type = /obj/effect/ebeam/reacting/electrodes,
 	)
 	RegisterSignal(tase_line, COMSIG_BEAM_ENTERED, PROC_REF(disrupt_tase))
-	// RegisterSignal(tase_line, COMSIG_QDELETING, PROC_REF(end_tase)) // NOVA EDIT REMOVAL - redraw deletes the beam, ending the tase, making the redraw useless and causing flaky CI
+	// RegisterSignal(tase_line, COMSIG_QDELETING, PROC_REF(end_tase)) // bobaEDIT REMOVAL - redraw deletes the beam, ending the tase, making the redraw useless and causing flaky CI
 	// moves the tase beam up or down if the target moves up or down
 	tase_line.RegisterSignal(owner, COMSIG_LIVING_SET_BODY_POSITION, TYPE_PROC_REF(/datum/beam, redrawing))
 
@@ -338,7 +338,7 @@
 		span_notice("You try to remove [electrode_name][remover == owner ? "" : " from [owner]"]!"),
 	)
 	// If embedding was less... difficult to work with, I would make tasers rely on an embedded object to handle this
-	if(!do_after(remover, 2 SECONDS, owner, extra_checks = CALLBACK(src, PROC_REF(try_remove_taser_checks)), interaction_key = id)) // NOVA EDIT CHANGE - Original: if(!do_after(remover, 5 SECONDS, owner, extra_checks = CALLBACK(src, PROC_REF(try_remove_taser_checks)), interaction_key = id))
+	if(!do_after(remover, 2 SECONDS, owner, extra_checks = CALLBACK(src, PROC_REF(try_remove_taser_checks)), interaction_key = id)) // bobaEDIT CHANGE - Original: if(!do_after(remover, 5 SECONDS, owner, extra_checks = CALLBACK(src, PROC_REF(try_remove_taser_checks)), interaction_key = id))
 		return
 	remover.visible_message(
 		span_warning("[owner] removes [electrode_name] from [remover == owner ? "[owner.p_their()]" : "[owner]'s"] body!"),
@@ -408,4 +408,4 @@
 	multiplicative_slowdown = 2
 
 /datum/movespeed_modifier/being_tased
-	multiplicative_slowdown = 2 // NOVA EDIT CHANGE - Original: multiplicative_slowdown = 4
+	multiplicative_slowdown = 2 // bobaEDIT CHANGE - Original: multiplicative_slowdown = 4

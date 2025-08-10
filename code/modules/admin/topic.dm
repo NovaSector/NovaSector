@@ -48,7 +48,7 @@
 			return
 		cmd_show_exp_panel(M.client)
 
-// NOVA EDIT BEGIN -- ONE CLICK ANTAG
+// bobaEDIT BEGIN -- ONE CLICK ANTAG
 	else if(href_list["makeAntag"])
 
 		message_admins("[key_name_admin(usr)] is attempting to make [href_list["makeAntag"]]")
@@ -83,7 +83,7 @@
 		if(src.make_antag(href_list["makeAntag"], opt))
 			message_admins("[key_name_admin(usr)] created '[href_list["makeAntag"]]' with a parameter of '[opt]'.")
 		else message_admins("[key_name_admin(usr)] FAILED to create '[href_list["makeAntag"]]' with a parameter of '[opt]'.")
-// NOVA EDIT END -- ONE CLICK ANTAG
+// bobaEDIT END -- ONE CLICK ANTAG
 
 	else if(href_list["editrightsbrowser"])
 		edit_admin_permissions(PERMISSIONS_PAGE_PERMISSIONS)
@@ -595,13 +595,13 @@
 		if(tgui_alert(usr, "Send [key_name(M)] to Prison?", "Message", list("Yes", "No")) != "Yes")
 			return
 
-		/// NOVA EDIT START - Immersion-friendly Admin Prison
+		/// bobaEDIT START - Immersion-friendly Admin Prison
 		var/datum/effect_system/spark_spread/quantum/sparks = new
 		sparks.set_up(10, 1, M)
 		sparks.attach(M.loc)
 		sparks.start()
 		M.forceMove(pick(GLOB.prisonwarp))
-		/// NOVA EDIT END
+		/// bobaEDIT END
 
 		to_chat(M, span_adminnotice("You have been sent to Prison!"), confidential = TRUE)
 
@@ -1719,7 +1719,7 @@
 		if(!paper_to_show)
 			return
 		paper_to_show.ui_interact(usr)
-	// NOVA EDIT ADDITION START
+	// bobaEDIT ADDITION START
 	else if(href_list["pass_opfor_candidate"])
 		if(!check_rights(R_ADMIN))
 			return
@@ -1727,7 +1727,7 @@
 		if(!SSdynamic.picking_specific_rule(/datum/dynamic_ruleset/midround/from_living/opfor_candidate, forced = TRUE, ignore_cost = TRUE))
 			message_admins("An OPFOR candidate could not be selected.")
 
-	// NOVA EDIT ADDITION END
+	// bobaEDIT ADDITION END
 	else if (href_list["print_fax"])
 		if(!check_rights(R_ADMIN))
 			return

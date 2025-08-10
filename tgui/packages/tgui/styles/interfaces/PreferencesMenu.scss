@@ -142,10 +142,10 @@ $department_map: (
 
           > * {
             height: calc(100% + 0.2em);
-            //padding-bottom: 0.2em; // NOVA EDIT REMOVAL
+            //padding-bottom: 0.2em; // bobaEDIT REMOVAL
           }
 
-          // NOVA EDIT ADDITION START
+          // bobaEDIT ADDITION START
           .jobRow {
             align-items: center;
             justify-content: center;
@@ -161,16 +161,16 @@ $department_map: (
             margin-right: 0.2em;
             margin-top: 0.2em;
           }
-          // NOVA EDIT ADDITION END
+          // bobaEDIT ADDITION END
           .options {
             margin-right: var(--space-xxs);
             background: hsla(0, 0%, 0%, 0.2);
             height: 100%;
-            // NOVA EDIT START
+            // bobaEDIT START
             text-align: right;
             align-items: center;
             justify-content: center;
-            // NOVA EDIT END
+            // bobaEDIT END
           }
         }
 
@@ -178,23 +178,23 @@ $department_map: (
           border: var(--border-thickness-medium)
             outset
             hsla(60, 100%, 39.2%, 1);
-          border-bottom: 0; // NOVA EDIT ADDITION
+          border-bottom: 0; // bobaEDIT ADDITION
 
           &:first-child {
             border-top: var(--border-thickness-medium)
               outset
               hsla(60, 100%, 39.2%, 1);
           }
-          // NOVA EDIT ADDITION START
+          // bobaEDIT ADDITION START
           &:nth-last-child(1) {
             border-bottom: 3px solid rgba(200, 200, 0, 1);
           }
-          // NOVA EDIT ADDITION END
-          /* // NOVA EDIT REMOVAL START
+          // bobaEDIT ADDITION END
+          /* // bobaEDIT REMOVAL START
           .job-name {
             font-size: 17px;
           }
-            */ // NOVA EDIT REMOVAL END
+            */ // bobaEDIT REMOVAL END
         }
       }
 
@@ -243,7 +243,7 @@ $department_map: (
           'positive': var(--color-green),
           'neutral': var(--color-white),
           'negative': var(--color-red),
-          'erp_quirk': var(--color-purple), // NOVA EDIT ADDITION - Purple ERP quirks
+          'erp_quirk': var(--color-purple), // bobaEDIT ADDITION - Purple ERP quirks
         );
 
         @each $quality, $color-value in $quality_map {

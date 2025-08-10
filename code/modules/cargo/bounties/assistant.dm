@@ -4,7 +4,7 @@
 	description = "Nanotrasen has taken an interest in strange objects. Find one in maintenance, and ship it off to CentCom right away."
 	reward = CARGO_CRATE_VALUE * 2.4
 	wanted_types = list(/obj/item/relic = TRUE)
-*/ // NOVA EDIT REMOVAL END
+*/ // bobaEDIT REMOVAL END
 
 /* NOVA EDIT REMOVAL START - Removes bounties, these are just boring.
 /datum/bounty/item/assistant/scooter
@@ -22,7 +22,7 @@
 		/obj/vehicle/ridden/scooter/skateboard = TRUE,
 		/obj/item/melee/skateboard = TRUE,
 	)
-*/ // NOVA EDIT REMOVAL END
+*/ // bobaEDIT REMOVAL END
 
 /datum/bounty/item/assistant/stunprod
 	name = "Stunprod"
@@ -37,7 +37,7 @@
 	reward = CARGO_CRATE_VALUE * 4
 	required_count = 3
 	wanted_types = list(/obj/item/soap = TRUE)
-*/ // NOVA EDIT REMOVAL END
+*/ // bobaEDIT REMOVAL END
 
 /datum/bounty/item/assistant/spear
 	name = "Spears"
@@ -97,7 +97,7 @@
 	reward = CARGO_CRATE_VALUE * 2.4
 	required_count = 3
 	wanted_types = list(/obj/item/food/cheesiehonkers = TRUE)
-*/ // NOVA EDIT REMOVAL END
+*/ // bobaEDIT REMOVAL END
 
 /datum/bounty/item/assistant/baseball_bat
 	name = "Baseball Bat"
@@ -139,7 +139,7 @@
 	reward = CARGO_CRATE_VALUE * 10
 	required_count = 5
 	wanted_types = list(/obj/item/food/deadmouse = TRUE)
-*/ // NOVA EDIT REMOVAL END
+*/ // bobaEDIT REMOVAL END
 
 /datum/bounty/item/assistant/comfy_chair
 	name = "Comfy Chairs"
@@ -215,7 +215,7 @@
 	reward = CARGO_CRATE_VALUE * 4
 	required_count = 8
 	wanted_types = list(/obj/item/toy/crayon = TRUE)
-*/ // NOVA EDIT REMOVAL END
+*/ // bobaEDIT REMOVAL END
 
 /datum/bounty/item/assistant/water_tank
 	name = "Water Tank"

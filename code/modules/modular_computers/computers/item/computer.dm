@@ -322,7 +322,7 @@
 		computer_id_slot.forceMove(drop_location())
 
 	computer_id_slot = null
-	SEND_SIGNAL(src, COMSIG_MODULAR_COMPUTER_REMOVED_ID, computer_id_slot, user) // NOVA EDIT ADDITION - Signal on ID removal
+	SEND_SIGNAL(src, COMSIG_MODULAR_COMPUTER_REMOVED_ID, computer_id_slot, user) // bobaEDIT ADDITION - Signal on ID removal
 
 	if(!silent && !isnull(user))
 		to_chat(user, span_notice("You remove the card from the card slot."))
@@ -1006,7 +1006,7 @@
 		if(SEC_LEVEL_GREEN) // no threats, no concerns
 			return ALERT_RELEVANCY_SAFE
 
-		// NOVA EDIT START. ADDITION - ALERTS
+		// bobaEDIT START. ADDITION - ALERTS
 		if(SEC_LEVEL_EPSILON, SEC_LEVEL_GAMMA)
 			return ALERT_RELEVANCY_PERTINENT
 		if(SEC_LEVEL_AMBER, SEC_LEVEL_FEDERAL)
@@ -1024,7 +1024,7 @@
 				return ALERT_RELEVANCY_PERTINENT
 			else
 				return ALERT_RELEVANCY_WARN
-		// NOVA EDIT END
+		// bobaEDIT END
 	return 0
 
 #undef ALERT_RELEVANCY_SAFE

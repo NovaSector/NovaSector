@@ -167,9 +167,9 @@
 	desc = "A Deagle brand Deagle for operators operating operationally. Uses .50 AE ammo."
 	icon_state = "deaglecamo"
 	inhand_icon_state = "deagleg"
-	// NOVA EDIT - We don't actually have the right icons for this. When you add the icons you can remove this line!
+	// bobaEDIT - We don't actually have the right icons for this. When you add the icons you can remove this line!
 	show_bolt_icon = FALSE
-	// NOVA EDIT END
+	// bobaEDIT END
 
 /obj/item/gun/ballistic/automatic/pistol/deagle/regal
 	name = "\improper Regal Condor"

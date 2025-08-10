@@ -31,12 +31,12 @@
 		for(var/mob/living/silicon/robot/R in GLOB.silicon_mobs)
 			if(!R.connected_ai)
 				R.TryConnectToAI()
-	*/ // NOVA EDIT REMOVAL END
+	*/ // bobaEDIT REMOVAL END
 	var/mob/living/silicon/ai/ai_spawn = spawned
 	if(player_client)
 		ai_spawn.set_gender(player_client)
 	ai_spawn.log_current_laws()
-	// NOVA EDIT ADDITION START
+	// bobaEDIT ADDITION START
 	for(var/mob/living/silicon/robot/sync_target in GLOB.silicon_mobs)
 		if(!(sync_target.z in SSmapping.levels_by_trait(ZTRAIT_STATION)) || (sync_target.z in SSmapping.levels_by_trait(ZTRAIT_ICE_RUINS_UNDERGROUND))) // Skip ghost cafe, interlink, and other cyborgs.
 			continue
@@ -57,7 +57,7 @@
 		sync_target.lawsync()
 		sync_target.lawupdate = TRUE
 		sync_target.show_laws()
-	// NOVA EDIT ADDITION END
+	// bobaEDIT ADDITION END
 
 
 /datum/job/ai/get_roundstart_spawn_point()

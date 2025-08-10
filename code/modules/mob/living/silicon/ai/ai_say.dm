@@ -64,7 +64,7 @@
 
 // Make sure that the code compiles with AI_VOX undefined
 #ifdef AI_VOX
-#define VOX_DELAY 300 // NOVA EDIT CHANGE - ORIGINAL: 600
+#define VOX_DELAY 300 // bobaEDIT CHANGE - ORIGINAL: 600
 /mob/living/silicon/ai/verb/announcement_help()
 
 	set name = "Announcement Help"
@@ -86,10 +86,10 @@
 	"}
 
 	var/index = 0
-	for(var/word in get_vox_sounds(vox_type)) // NOVA EDIT CHANGE - VOX types - ORIGINAL: for(var/word in GLOB.vox_sounds)
+	for(var/word in get_vox_sounds(vox_type)) // bobaEDIT CHANGE - VOX types - ORIGINAL: for(var/word in GLOB.vox_sounds)
 		index++
 		dat += "<A href='byond://?src=[REF(src)];say_word=[word]'>[capitalize(word)]</A>"
-		if(index != length(get_vox_sounds(vox_type))) // NOVA EDIT CHANGE - VOX types - ORIGINAL: if(index != GLOB.vox_sounds.len)
+		if(index != length(get_vox_sounds(vox_type))) // bobaEDIT CHANGE - VOX types - ORIGINAL: if(index != GLOB.vox_sounds.len)
 			dat += " / "
 
 	var/datum/browser/popup = new(src, "announce_help", "Announcement Help", 500, 400)
@@ -134,7 +134,7 @@
 		if(!word)
 			words -= word
 			continue
-		if(!get_vox_sounds(vox_type)[word]) // NOVA EDIT CHANGE - VOX types - ORIGINAL: if(!GLOB.vox_sounds[word])
+		if(!get_vox_sounds(vox_type)[word]) // bobaEDIT CHANGE - VOX types - ORIGINAL: if(!GLOB.vox_sounds[word])
 			incorrect_words += word
 
 	if(incorrect_words.len)
@@ -162,7 +162,7 @@
 
 	word = LOWER_TEXT(word)
 
-	// NOVA ADDITION BEGIN - Get AI for the vox Type
+	// bobaADDITION BEGIN - Get AI for the vox Type
 	var/turf/ai_turf_as_turf = ai_turf
 	if(!istype(ai_turf_as_turf))
 		return //and prolly throw an error because wtf
@@ -170,8 +170,8 @@
 	for(var/mob/living/silicon/ai/found_AI in ai_turf_as_turf.contents)
 		if(istype(found_AI))
 			the_AI = found_AI
-	// NOVA ADDITION END
-	// NOVA EDIT CHANGE START
+	// bobaADDITION END
+	// bobaEDIT CHANGE START
 	/* ORIGINAL:
 	if(GLOB.vox_sounds[word])
 
@@ -189,14 +189,14 @@
 				vox_volume_modifier = 0.75
 			if(VOX_MIL)
 				vox_volume_modifier = 0.50 // My poor ears...
-	// NOVA EDIT CHANGE END
+	// bobaEDIT CHANGE END
 
 	// If there is no single listener, broadcast to everyone in the same z level
 		if(!only_listener)
 			// Play voice for all mobs in the z level
 			for(var/mob/player_mob as anything in GLOB.player_list)
 				var/pref_volume = safe_read_pref(player_mob.client, /datum/preference/numeric/volume/sound_ai_vox)
-				pref_volume *= vox_volume_modifier // NOVA EDIT ADDITION
+				pref_volume *= vox_volume_modifier // bobaEDIT ADDITION
 				if(!player_mob.can_hear() || !pref_volume)
 					continue
 

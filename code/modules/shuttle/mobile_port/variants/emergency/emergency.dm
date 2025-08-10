@@ -27,7 +27,7 @@
 
 	. = ..()
 
-/obj/docking_port/mobile/emergency/request(obj/docking_port/stationary/S, area/signal_origin, reason, red_alert, set_coefficient=null, silent = FALSE) // NOVA EDIT CHANGE - AUTOTRANSFER - adds silent arg
+/obj/docking_port/mobile/emergency/request(obj/docking_port/stationary/S, area/signal_origin, reason, red_alert, set_coefficient=null, silent = FALSE) // bobaEDIT CHANGE - AUTOTRANSFER - adds silent arg
 	if(!isnum(set_coefficient))
 		set_coefficient = SSsecurity_level.current_security_level.shuttle_call_time_mod
 	alert_coeff = set_coefficient
@@ -48,10 +48,10 @@
 	else
 		SSshuttle.emergency_last_call_loc = null
 
-	// NOVA EDIT ADDITION START
+	// bobaEDIT ADDITION START
 	if(silent)
 		return
-	// NOVA EDIT ADDITION END
+	// bobaEDIT ADDITION END
 	priority_announce(
 		text = "The emergency shuttle has been called. [red_alert ? "Red Alert state confirmed: Dispatching priority shuttle. " : "" ]It will arrive in [(timeLeft(60 SECONDS))] minutes.[reason][SSshuttle.emergency_last_call_loc ? "\n\nCall signal traced. Results can be viewed on any communications console." : "" ][SSshuttle.admin_emergency_no_recall ? "\n\nWarning: Shuttle recall subroutines disabled; Recall not possible." : ""]",
 		title = "Emergency Shuttle Dispatched",
@@ -230,7 +230,7 @@
 
 				mode = SHUTTLE_ESCAPE
 				launch_status = ENDGAME_LAUNCHED
-				bolt_all_doors() // NOVA EDIT ADDITION
+				bolt_all_doors() // bobaEDIT ADDITION
 				setTimer(SSshuttle.emergency_escape_time * engine_coeff)
 				priority_announce(
 					text = "The emergency shuttle has left the station. Estimate [timeLeft(60 SECONDS)] minutes until the shuttle docks at [command_name()].",
@@ -288,8 +288,8 @@
 						supervisor.", "SYSTEM ERROR:", sound_override = 'sound/announcer/announcement/announce_syndi.ogg')
 
 				dock_id(destination_dock)
-				unbolt_all_doors() // NOVA EDIT ADDITION
-				INVOKE_ASYNC(GLOBAL_PROC, GLOBAL_PROC_REF(process_eorg_bans)) // NOVA EDIT ADDITION
+				unbolt_all_doors() // bobaEDIT ADDITION
+				INVOKE_ASYNC(GLOBAL_PROC, GLOBAL_PROC_REF(process_eorg_bans)) // bobaEDIT ADDITION
 				mode = SHUTTLE_ENDGAME
 				timer = 0
 

@@ -11,7 +11,7 @@
 	/* NOVA EDIT REMOVAL START - Did you just assume my gender???
 	if(!target.dna.species.sexes)
 		value = PLURAL //disregard gender preferences on this species
-	*/ // NOVA EDIT REMOVAL END
+	*/ // bobaEDIT REMOVAL END
 	target.gender = value
 
 /datum/preference/choiced/gender/create_informed_default_value(datum/preferences/preferences)

@@ -256,10 +256,10 @@
 
 /obj/item/gun/energy/update_overlays()
 	. = ..()
-	// NOVA EDIT START
+	// bobaEDIT START
 	if(!automatic_charge_overlays || !cell)
 		return
-	// NOVA EDIT END
+	// bobaEDIT END
 
 	var/overlay_icon_state = "[icon_state]_charge"
 	var/obj/item/ammo_casing/energy/shot = ammo_type[select]

@@ -271,7 +271,7 @@
 	var/immediately_stun = should_stun && !(flags & SHOCK_DELAY_STUN)
 	if (immediately_stun)
 		if (paralyze)
-			StaminaKnockdown(stun_duration / 4) // NOVA EDIT CHANGE - ORIGINAL: Paralyze(40)
+			StaminaKnockdown(stun_duration / 4) // bobaEDIT CHANGE - ORIGINAL: Paralyze(40)
 		else
 			Knockdown(stun_duration)
 	//Jitter and other fluff.
@@ -285,7 +285,7 @@
 ///Called slightly after electrocute act to apply a secondary stun.
 /mob/living/carbon/proc/secondary_shock(paralyze, stun_duration)
 	if (paralyze)
-		StaminaKnockdown(stun_duration / 6) // NOVA EDIT CHANGE - ORIGINAL: Paralyze(60)
+		StaminaKnockdown(stun_duration / 6) // bobaEDIT CHANGE - ORIGINAL: Paralyze(60)
 	else
 		Knockdown(stun_duration)
 
@@ -393,11 +393,11 @@
 			to_chat(helper, span_notice("You wrap [src] into a tight bear hug!"))
 			to_chat(src, span_notice("[helper] squeezes you super tightly in a firm bear hug!"))
 		else
-			// NOVA EDIT ADDITION START
+			// bobaEDIT ADDITION START
 			if (HAS_TRAIT(src, TRAIT_QUICKREFLEXES) && (src.stat != UNCONSCIOUS) && !INCAPACITATED_IGNORING(src, INCAPABLE_RESTRAINTS))
 				visible_message(span_warning("[helper] tries to hug [src], but [p_they()] move[p_s()] out of the way."))
 				return
-			// NOVA EDIT ADDITION END
+			// bobaEDIT ADDITION END
 			helper.visible_message(span_notice("[helper] hugs [src] to make [p_them()] feel better!"), \
 						null, span_hear("You hear the rustling of clothes."), DEFAULT_MESSAGE_RANGE, list(helper, src))
 			to_chat(helper, span_notice("You hug [src] to make [p_them()] feel better!"))
@@ -451,8 +451,8 @@
 	if(body_position != STANDING_UP && !resting && !buckled && !HAS_TRAIT(src, TRAIT_FLOORED))
 		get_up(TRUE)
 
-	if(!nosound) // NOVA EDIT ADDITION - EMOTES
-		playsound(loc, 'sound/items/weapons/thudswoosh.ogg', 50, TRUE, -1) // NOVA EDIT CHANGE - EMOTES - Original was unindented but otherwise the same
+	if(!nosound) // bobaEDIT ADDITION - EMOTES
+		playsound(loc, 'sound/items/weapons/thudswoosh.ogg', 50, TRUE, -1) // bobaEDIT CHANGE - EMOTES - Original was unindented but otherwise the same
 
 	// Shake animation
 	if (incapacitated)
@@ -621,11 +621,11 @@
 		if (!IS_ORGANIC_LIMB(limb))
 			. += (limb.brute_dam * limb.body_damage_coeff) + (limb.burn_dam * limb.body_damage_coeff)
 
-/mob/living/carbon/grabbedby(mob/living/user, supress_message = FALSE, grabbed_part) // NOVA EDIT CHANGE - ORIGINAL: /mob/living/carbon/grabbedby(mob/living/user, supress_message = FALSE)
+/mob/living/carbon/grabbedby(mob/living/user, supress_message = FALSE, grabbed_part) // bobaEDIT CHANGE - ORIGINAL: /mob/living/carbon/grabbedby(mob/living/user, supress_message = FALSE)
 	if(user != src)
 		return ..()
 
-	var/obj/item/bodypart/grasped_part = grabbed_part ? grabbed_part : get_bodypart(zone_selected) // NOVA EDIT CHANGE - ORIGINAL: var/obj/item/bodypart/grasped_part = get_bodypart(zone_selected)
+	var/obj/item/bodypart/grasped_part = grabbed_part ? grabbed_part : get_bodypart(zone_selected) // bobaEDIT CHANGE - ORIGINAL: var/obj/item/bodypart/grasped_part = get_bodypart(zone_selected)
 	if(!grasped_part?.can_be_grasped())
 		return
 	var/starting_hand_index = active_hand_index

@@ -79,7 +79,7 @@
 		"target_ckey" = target_ckey,
 		"admin_ckey" = admin_ckey,
 		"text" = text,
-		"server_name" = CONFIG_GET(string/serversqlname), // NOVA EDIT ADDITION - MULTISERVER
+		"server_name" = CONFIG_GET(string/serversqlname), // bobaEDIT ADDITION - MULTISERVER
 		"server" = server,
 		"internet_address" = world.internet_address || "0",
 		"port" = "[world.port]",
@@ -433,10 +433,10 @@
 			var/text = query_get_type_messages.item[5]
 			var/timestamp = query_get_type_messages.item[6]
 			var/server = query_get_type_messages.item[7]
-			var/editor_key = query_get_type_messages.item[9] // NOVA EDIT CHANGE BEGIN - MULTISERVER
+			var/editor_key = query_get_type_messages.item[9] // bobaEDIT CHANGE BEGIN - MULTISERVER
 			var/expire_timestamp = query_get_type_messages.item[10]
 			var/playtime = query_get_type_messages.item[11]
-			var/round_id = query_get_type_messages.item[12] // NOVA EDIT CHANGE END - MULTISERVER
+			var/round_id = query_get_type_messages.item[12] // bobaEDIT CHANGE END - MULTISERVER
 			output += "<b>"
 			if(type == "watchlist entry")
 				output += "[t_key] | "
@@ -497,13 +497,13 @@
 			var/text = query_get_messages.item[5]
 			var/timestamp = query_get_messages.item[6]
 			var/server = query_get_messages.item[7]
-			var/editor_key = query_get_messages.item[9] // NOVA EDIT CHANGE BEGIN - MULTISERVER
+			var/editor_key = query_get_messages.item[9] // bobaEDIT CHANGE BEGIN - MULTISERVER
 			var/age = text2num(query_get_messages.item[10])
 			target_key = query_get_messages.item[11]
 			var/expire_timestamp = query_get_messages.item[12]
 			var/severity = query_get_messages.item[13]
 			var/playtime = query_get_messages.item[14]
-			var/round_id = query_get_messages.item[15] // NOVA EDIT CHANGE END - MULTISERVER
+			var/round_id = query_get_messages.item[15] // bobaEDIT CHANGE END - MULTISERVER
 			var/alphatext = ""
 			var/nsd = CONFIG_GET(number/note_stale_days)
 			var/nfd = CONFIG_GET(number/note_fresh_days)

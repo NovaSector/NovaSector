@@ -311,11 +311,11 @@ This is the proc mobs get to turn into a ghost. Forked from ghostize due to comp
 		if(!HAS_TRAIT(src, TRAIT_CORPSELOCKED)) //corpse-locked have to confirm with the alert below
 			ghostize(TRUE)
 			return TRUE
-	// NOVA EDIT ADDITION -- Free Ghost Cafe Ghosting
+	// bobaEDIT ADDITION -- Free Ghost Cafe Ghosting
 	if(HAS_TRAIT(src, TRAIT_FREE_GHOST))
 		ghostize(TRUE) // Can return with TRUE
 		return TRUE
-	// NOVA EDIT ADDITION END
+	// bobaEDIT ADDITION END
 	var/response = tgui_alert(usr, "Are you sure you want to ghost? If you ghost whilst still alive you cannot re-enter your body!", "Confirm Ghost Observe", list("Ghost", "Stay in Body"))
 	if(response != "Ghost")
 		return FALSE//didn't want to ghost after-all

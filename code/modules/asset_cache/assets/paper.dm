@@ -2,7 +2,7 @@
 	name = "paper"
 	assets = list(
 
-		// NOVA EDIT ADDITION: START - Donator stamp icons
+		// bobaEDIT ADDITION: START - Donator stamp icons
 		"stamp-cat_blue" = 'modular_nova/master_files/icons/stamp_icons/cat_blue.png',
 		"stamp-paw_blue" = 'modular_nova/master_files/icons/stamp_icons/paw_blue.png',
 		"stamp-cat_red" = 'modular_nova/master_files/icons/stamp_icons/cat_red.png',
@@ -14,7 +14,7 @@
 		// Other stamp icons
 		"stamp-nri" = 'modular_nova/master_files/icons/stamp_icons/large_stamp-nri.png',
 		"stamp-solfed" = 'modular_nova/master_files/icons/stamp_icons/large_stamp-solfed.png',
-		// NOVA EDIT ADDITION: END
+		// bobaEDIT ADDITION: END
 		"stamp-clown" = 'icons/stamp_icons/large_stamp-clown.png',
 		"stamp-deny" = 'icons/stamp_icons/large_stamp-deny.png',
 		"stamp-ok" = 'icons/stamp_icons/large_stamp-ok.png',

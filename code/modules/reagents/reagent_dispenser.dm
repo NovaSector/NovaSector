@@ -297,7 +297,7 @@
 /obj/structure/reagent_dispensers/fueltank/bullet_act(obj/projectile/hitting_projectile)
 	if(hitting_projectile.damage > 0 && ((hitting_projectile.damage_type == BURN) || (hitting_projectile.damage_type == BRUTE)))
 		log_bomber(hitting_projectile.firer, "detonated a", src, "via projectile")
-		boom(guaranteed_violent = TRUE) // NOVA EDIT CHANGE
+		boom(guaranteed_violent = TRUE) // bobaEDIT CHANGE
 		return hitting_projectile.on_hit(src, 0)
 
 	// we override parent like this because otherwise we won't actually properly log the fact that a projectile caused this welding tank to explode.

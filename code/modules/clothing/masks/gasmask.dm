@@ -55,7 +55,7 @@ GLOBAL_LIST_INIT(clown_mask_options, list(
 		LAZYADD(gas_filters, inserted_filter)
 	has_filter = TRUE
 
-/obj/item/clothing/mask/gas/separate_worn_overlays(mutable_appearance/standing, mutable_appearance/draw_target, isinhands, icon_file, mutant_styles) // NOVA EDIT CHANGE - ORIGINAL: /obj/item/clothing/gloves/separate_worn_overlays(mutable_appearance/standing, mutable_appearance/draw_target, isinhands, icon_file)
+/obj/item/clothing/mask/gas/separate_worn_overlays(mutable_appearance/standing, mutable_appearance/draw_target, isinhands, icon_file, mutant_styles) // bobaEDIT CHANGE - ORIGINAL: /obj/item/clothing/gloves/separate_worn_overlays(mutable_appearance/standing, mutable_appearance/draw_target, isinhands, icon_file)
 	. = ..()
 	if(!isinhands && cig)
 		. += cig.build_worn_icon(default_layer = FACEMASK_LAYER, default_icon_file = 'icons/mob/clothing/mask.dmi')
@@ -391,7 +391,7 @@ GLOBAL_LIST_INIT(clown_mask_options, list(
 		return FALSE
 
 	if(src && choice && !user.incapacitated && in_range(user,src))
-		// NOVA EDIT ADDITION START - More mask variations
+		// bobaEDIT ADDITION START - More mask variations
 		var/mob/living/carbon/human/human_user = user
 		if(human_user.dna.species.mutant_bodyparts["snout"])
 			icon = 'modular_nova/master_files/icons/obj/clothing/masks.dmi'

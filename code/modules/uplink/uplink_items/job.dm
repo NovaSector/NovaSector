@@ -28,7 +28,7 @@
 	uplink_item_flags = SYNDIE_TRIPS_CONTRABAND
 	restricted_roles = list(JOB_CARGO_TECHNICIAN, JOB_QUARTERMASTER)
 	surplus = 5
-*/ // NOVA EDIT REMOVAL END
+*/ // bobaEDIT REMOVAL END
 
 /datum/uplink_item/role_restricted/bureaucratic_error
 	name = "Organic Capital Disturbance Virus"
@@ -314,7 +314,7 @@
 	surplus = 0
 	restricted_roles = list(JOB_CHAPLAIN)
 	purchasable_from = ~UPLINK_SPY
-*/ // NOVA EDIT REMOVAL END
+*/ // bobaEDIT REMOVAL END
 
 /datum/uplink_item/role_restricted/concealed_weapon_bay
 	name = "Concealed Weapon Bay"
@@ -327,7 +327,7 @@
 	restricted_roles = list(JOB_ROBOTICIST, JOB_RESEARCH_DIRECTOR)
 	surplus = 15
 
-/* // NOVA EDIT REMOVAL START
+/* // bobaEDIT REMOVAL START
 /datum/uplink_item/role_restricted/spider_injector
 	name = "Australicus Slime Mutator"
 	desc = "Crikey mate, it's been a wild travel from the Australicus sector but we've managed to get \
@@ -353,7 +353,7 @@
 	restricted_roles = list(JOB_RESEARCH_DIRECTOR, JOB_SCIENTIST)
 	surplus = 5
 */
-// NOVA EDIT REMOVAL END
+// bobaEDIT REMOVAL END
 
 /datum/uplink_item/role_restricted/evil_seedling
 	name = "Evil Seedling"
