@@ -1,0 +1,4 @@
+author: "vinylspiders"
+delete-after: True
+changes:
+  - config: "added server config for disabling blinking"
