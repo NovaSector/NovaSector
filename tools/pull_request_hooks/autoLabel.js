@@ -64,10 +64,12 @@ function check_body_for_labels(body) {
     if (line.startsWith("/:cl:")) break;
     if (!inChangelog) continue;
 
+    // see if the first segment of the line is one of the keywords
     const keyword = line.split(":")[0]?.toLowerCase();
     const found_label = keywordToClLabel[keyword];
     if (!found_label) continue;
 
+    // don't add a billion tags if they forgot to clear all the default ones
     const line_text = line.split(":")[1]?.trim();
     const { default_text, alt_default_text } =
       autoLabelConfig.changelog_labels[found_label];
@@ -170,7 +172,7 @@ export async function get_updated_label_set({ github, context }) {
     labels_to_remove.forEach((label) => updated_labels.delete(label));
   }
 
-  // Check body/title only when PR is opened
+  // Check body/title only when PR is opened, not on sync
   if (action === "opened") {
     if (title)
       check_title_for_labels(title).forEach((label) =>
@@ -185,6 +187,8 @@ export async function get_updated_label_set({ github, context }) {
 
   // Handle merge conflict label
   let merge_conflict = mergeable === false;
+  // null means it was not reported yet
+  // it is not normally included in the payload - a "get" is needed
   if (mergeable === null) {
     try {
       let response = await github.rest.pulls.get({
@@ -192,6 +196,7 @@ export async function get_updated_label_set({ github, context }) {
         repo: context.repo.repo,
         pull_number: pull_request.number,
       });
+      // failed to find? still processing? try again in a few seconds
 
       if (response.data.mergeable === null) {
         console.log("Awaiting GitHub response for merge status...");
@@ -218,5 +223,6 @@ export async function get_updated_label_set({ github, context }) {
     updated_labels.delete("Merge Conflict");
   }
 
+  // return the labels to the action, which will apply it
   return [...updated_labels];
 }
