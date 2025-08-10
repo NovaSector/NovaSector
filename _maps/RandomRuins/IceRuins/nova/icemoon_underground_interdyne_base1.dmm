@@ -808,6 +808,8 @@
 /area/ruin/interdyne_planetary_base/cargo)
 "cl" = (
 /obj/structure/railing,
+/obj/structure/ore_box,
+/obj/item/toy/figure/prisoner,
 /turf/open/floor/iron/diagonal,
 /area/ruin/interdyne_planetary_base/cargo)
 "cm" = (
@@ -1192,13 +1194,12 @@
 /area/ruin/interdyne_planetary_base/cargo/ware)
 "dl" = (
 /obj/machinery/light/small/directional/east,
-/obj/effect/turf_decal/box/white,
-/obj/structure/ore_box,
 /obj/machinery/button/door/directional/north{
 	id = "interdynewarehosue";
 	name = "window security button";
 	req_access = list("syndicate")
 	},
+/obj/effect/mob_spawn/ghost_role/robot/interdyne,
 /turf/open/floor/iron/smooth_large,
 /area/ruin/interdyne_planetary_base/cargo/ware)
 "dm" = (
@@ -1430,8 +1431,7 @@
 	},
 /area/ruin/interdyne_planetary_base/cargo/ware)
 "dT" = (
-/obj/structure/ore_box,
-/obj/effect/turf_decal/box/white,
+/obj/effect/mob_spawn/ghost_role/robot/interdyne,
 /turf/open/floor/iron/smooth_edge{
 	dir = 8
 	},
@@ -1532,13 +1532,9 @@
 /turf/closed/wall/r_wall/syndicate,
 /area/ruin/interdyne_planetary_base)
 "ek" = (
-/obj/effect/turf_decal/box/white,
-/obj/item/toy/figure/prisoner,
 /obj/structure/ore_box,
-/turf/open/floor/iron/smooth_edge{
-	dir = 8
-	},
-/area/ruin/interdyne_planetary_base/cargo/ware)
+/turf/open/floor/iron/diagonal,
+/area/ruin/interdyne_planetary_base/cargo)
 "el" = (
 /obj/effect/spawner/structure/window/reinforced/plasma/plastitanium,
 /obj/machinery/door/poddoor{
@@ -2649,6 +2645,8 @@
 	pixel_x = 6;
 	pixel_y = 6
 	},
+/obj/item/circuitboard/computer/bountypad,
+/obj/item/circuitboard/machine/bountypad,
 /turf/open/floor/iron/dark/textured_large,
 /area/ruin/interdyne_planetary_base/main/vault)
 "hi" = (
@@ -2816,7 +2814,7 @@
 /area/ruin/interdyne_planetary_base/main)
 "hI" = (
 /obj/machinery/light/small/directional/east,
-/obj/machinery/suit_storage_unit/syndicate/chameleon,
+/obj/machinery/suit_storage_unit/interdyne,
 /turf/open/floor/iron/dark/textured_large,
 /area/ruin/interdyne_planetary_base/main/vault)
 "hJ" = (
@@ -8846,8 +8844,8 @@ aR
 aG
 bh
 by
-bN
-bN
+ek
+ek
 cl
 cE
 cz
@@ -8913,7 +8911,7 @@ cy
 cR
 dl
 dT
-ek
+dT
 ev
 BZ
 eU

@@ -4,7 +4,7 @@ import { Dropdown, Flex, Stack } from 'tgui-core/components'; // NOVA EDIT CHANG
 import { exhaustiveCheck } from 'tgui-core/exhaustive';
 
 import { PageButton } from '../components/PageButton';
-import { PreferencesMenuData } from '../types';
+import type { PreferencesMenuData } from '../types';
 import { AntagsPage } from './AntagsPage';
 import { JobsPage } from './JobsPage';
 // NOVA EDIT ADDITION START

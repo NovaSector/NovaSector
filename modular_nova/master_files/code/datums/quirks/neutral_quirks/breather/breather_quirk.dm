@@ -33,7 +33,9 @@
 			LOCATION_RPOCKET,
 			LOCATION_BACKPACK,
 			LOCATION_HANDS,
-		), alert_text
+		),
+		alert_text,
+		notify_player = TRUE,
 	)
 
 	// always update lungs to respect the quirk, even if the organ isn't from roundstart

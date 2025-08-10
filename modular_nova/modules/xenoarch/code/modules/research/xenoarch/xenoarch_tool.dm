@@ -277,7 +277,7 @@
 					spam_protection = TRUE
 					continue
 	if(show_message)
-		playsound(user, SFX_RUSTLE, 50, TRUE)
+		playsound(user, storage_type.rustle_sound, 50, TRUE)
 		user.visible_message(span_notice("[user] scoops up the rocks beneath [user.p_them()]."), \
 			span_notice("You scoop up the rocks beneath you with your [name]."))
 	spam_protection = FALSE
