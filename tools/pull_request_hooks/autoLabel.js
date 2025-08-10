@@ -101,54 +101,60 @@ function check_title_for_labels(title) {
 }
 
 /**
- * Checks changed files for labels to add/remove (O(1) filepath lookup)
+ * Checks changed files for labels to add/remove with pagination support
  */
 async function check_diff_files_for_labels(github, context) {
   const labels_to_add = [];
   const labels_to_remove = [];
+  const per_page = 100; // Maximum per page
+  let page = 1;
+  let has_more_files = true;
 
   try {
-    // Use github.paginate to fetch all files (up to ~3000 max)
-    const { status, data } = await github.paginate(
-      github.rest.pulls.listFiles,
-      {
+    while (has_more_files) {
+      const { status, data, headers } = await github.rest.pulls.listFiles({
         owner: context.repo.owner,
         repo: context.repo.repo,
         pull_number: context.payload.pull_request.number,
-        per_page: 100, // max per request
+        per_page,
+        page,
+      });
+
+      if (status !== 200) {
+        console.error(`Failed to get file list: ${status}`);
+        return { labels_to_add, labels_to_remove };
       }
-    );
+      if (!data) throw new Error("Response does not contain any data!");
 
-    // Check if the response status is 200 OK and if data is present
-    if (status !== 200) {
-      console.error(`Failed to get file list: ${status}`);
-      return { labels_to_add, labels_to_remove };
-    }
-    if (!data) {
-      console.error("Response does not contain any data!");
-      return { labels_to_add, labels_to_remove };
-    }
+      // Store changed filenames in a Set for O(1) lookup
+      const changed_files = new Set(data.map((f) => f.filename));
 
-    // Changed filenames for quick lookup
-    const changed_files = new Set(data.map((f) => f.filename));
-
-    for (const [label, { filepaths, add_only }] of Object.entries(
-      fileLabelFilepathSets
-    )) {
-      let found = false;
-      for (const filepath of filepaths) {
-        for (const filename of changed_files) {
-          if (filename.includes(filepath)) {
-            found = true;
-            break;
+      for (const [label, { filepaths, add_only }] of Object.entries(
+        fileLabelFilepathSets
+      )) {
+        let found = false;
+        for (const filepath of filepaths) {
+          for (const filename of changed_files) {
+            if (filename.includes(filepath)) {
+              found = true;
+              break;
+            }
           }
+          if (found) break;
         }
-        if (found) break;
+        if (found) {
+          labels_to_add.push(label);
+        } else if (!add_only) {
+          labels_to_remove.push(label);
+        }
       }
-      if (found) {
-        labels_to_add.push(label);
-      } else if (!add_only) {
-        labels_to_remove.push(label);
+
+      // Check if there's another page
+      const linkHeader = headers.link;
+      if (linkHeader && linkHeader.includes('rel="next"')) {
+        page++;
+      } else {
+        has_more_files = false;
       }
     }
   } catch (e) {
