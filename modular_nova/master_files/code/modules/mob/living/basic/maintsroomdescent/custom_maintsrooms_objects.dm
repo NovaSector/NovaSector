@@ -21,7 +21,7 @@
 	desc = "He stands looking out at the water of this fake domed beach, he stands completely still- that is until he hears you to which he imeediatly takes up a combative stance and starts opening fire."
 	health = 2000
 	maxHealth = 2000
-	loot = list(/obj/item/keycard/blue)
+	loot = list(/obj/item/keycard/crowlie)
 
 /obj/machinery/door/poddoor/shutters/window/indestructible/maints_armory
 	name = "Armory"
