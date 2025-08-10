@@ -53,17 +53,24 @@
 	var/obj/item/ammo_casing/pulse/casing = chambered
 	if(istype(casing))
 		if(casing.remaining_uses <= 0)
+			// Lock the bolt back when the pulse cell is depleted
+			bolt_locked = TRUE
+			update_icon()
 			casing.forceMove(drop_location())
-			SEND_SIGNAL(src, COMSIG_UPDATE_AMMO_HUD)
 			chambered = null
 		else if(!casing.loaded_projectile && !casing.newshot())
+			// Lock the bolt back when the pulse cell fails to create a new shot
+			bolt_locked = TRUE
+			update_icon()
 			casing.forceMove(drop_location())
-			SEND_SIGNAL(src, COMSIG_UPDATE_AMMO_HUD)
 			chambered = null
+		// Update HUD after processing pulse casing
+		SEND_SIGNAL(src, COMSIG_UPDATE_AMMO_HUD)
 		return
 
-	SEND_SIGNAL(src, COMSIG_UPDATE_AMMO_HUD)
 	..() // Handle normal ballistic casing behavior
+	// Update HUD after processing normal casing
+	SEND_SIGNAL(src, COMSIG_UPDATE_AMMO_HUD)
 
 /obj/item/gun/ballistic/automatic/pulse_rifle/handle_chamber(empty_chamber = TRUE, from_firing = TRUE, chamber_next_round = TRUE)
 	if(!semi_auto && from_firing)
@@ -76,14 +83,18 @@
 			casing.forceMove(drop_location())
 			if(!QDELETED(casing))
 				SEND_SIGNAL(casing, COMSIG_CASING_EJECTED)
-				SEND_SIGNAL(src, COMSIG_UPDATE_AMMO_HUD)
 				casing.bounce_away(TRUE)
 
 		if(empty_chamber)
 			clear_chambered()
 
+	// Don't automatically chamber a new round if the bolt is locked
+	if(bolt_locked)
+		return
+
 	if(chamber_next_round && magazine?.max_ammo >= 1)
 		chamber_round()
+	// Update HUD after all chamber operations are complete
 	SEND_SIGNAL(src, COMSIG_UPDATE_AMMO_HUD)
 
 /obj/item/gun/ballistic/automatic/pulse_rifle/can_shoot()
@@ -96,6 +107,7 @@
 
 /obj/item/gun/ballistic/automatic/pulse_rifle/shoot_live_shot(mob/living/user, pointblank, atom/pbtarget, message)
 	. = ..()
+	// Update HUD after firing to show accurate ammo count
 	SEND_SIGNAL(src, COMSIG_UPDATE_AMMO_HUD)
 
 /obj/item/gun/ballistic/automatic/pulse_rifle/postfire_empty_checks(last_shot_succeeded)
