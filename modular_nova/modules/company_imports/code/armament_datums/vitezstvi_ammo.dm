@@ -16,12 +16,6 @@
 	item_type = /obj/item/ammo_workbench_module/lethal
 	cost = PAYCHECK_COMMAND * 3
 
-// not a disk. adds print points
-/datum/armament_entry/company_import/vitezstvi/ammo_bench/reboot
-	name = "reusable module reauthenticator"
-	item_type = /obj/item/ammo_workbench_reboot
-	cost = PAYCHECK_CREW
-
 // disk but with the bits needed for EMP/fire bullets
 /datum/armament_entry/company_import/vitezstvi/ammo_bench/ammo_disk/lethal_gimmick
 	item_type = /obj/item/ammo_workbench_module/lethal_gimmick
