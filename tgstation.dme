@@ -8950,6 +8950,7 @@
 #include "modular_nova\modules\random_ship_event\random_ship_event.dm"
 #include "modular_nova\modules\random_ship_event\ship_antagonist.dm"
 #include "modular_nova\modules\random_ship_event\ship_equipment.dm"
+#include "modular_nova\modules\random_ship_event\ship_job.dm"
 #include "modular_nova\modules\random_ship_event\ship_outfits.dm"
 #include "modular_nova\modules\random_ship_event\ship_roles.dm"
 #include "modular_nova\modules\RBMK2\code\reactor.dm"

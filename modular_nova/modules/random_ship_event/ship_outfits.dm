@@ -33,9 +33,9 @@
 
 	id_trim = /datum/id_trim/ship/captain
 	head = /obj/item/clothing/head/hats/caphat/parade
-	suit = /obj/item/clothing/suit/armor/vest/capcararmored
+	suit = /obj/item/clothing/suit/armor/vest/capcarapace/syndicate
 	glasses = /obj/item/clothing/glasses/sunglasses
-	l_pocket = /obj/item/melee/transforming/energy/sword/saber
+	l_pocket = /obj/item/melee/energy/sword/saber/purple
 
 /datum/outfit/ship_crew/rogue_trader
 	name = "Rogue Trader"
@@ -58,16 +58,8 @@
 		outfit_radio.set_frequency(FREQ_SYNDICATE)
 		outfit_radio.freqlock = RADIO_FREQENCY_LOCKED
 
-/datum/outfit/ship_crew/space
-	name = "Ship Crew (EVA)"
+/datum/id_trim/ship
 
-	suit = /obj/item/clothing/suit/space
-	suit_store = /obj/item/tank/internals/oxygen
-	head = /obj/item/clothing/head/helmet/space
-	mask = /obj/item/clothing/mask/breath
+/datum/id_trim/ship/captain
 
-/datum/outfit/ship_crew/space/captain
-	name = "Ship Captain (EVA)"
-
-	head = /obj/item/clothing/head/helmet/space/capspace
-	id_trim = /datum/id_trim/ship/captain
+/datum/id_trim/ship/rogue

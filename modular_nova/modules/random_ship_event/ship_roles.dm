@@ -6,7 +6,7 @@
 	icon = 'icons/obj/machines/sleeper.dmi'
 	icon_state = "sleeper"
 	prompt_name = "a ship crew member"
-	outfit = /datum/outfit/ship_crew/space
+	outfit = /datum/outfit/ship_crew
 	anchored = TRUE
 	density = FALSE
 	show_flavor = FALSE //Flavour only exists for spawners menu
@@ -41,11 +41,11 @@
 
 /obj/effect/mob_spawn/ghost_role/human/ship_crew/captain
 	rank = "Captain"
-	outfit = /datum/outfit/ship_crew/space/captain
+	outfit = /datum/outfit/ship_crew/captain
 
 /obj/effect/mob_spawn/ghost_role/human/ship_crew/engineer
 	rank = "Engineer"
-	outfit = /datum/outfit/ship_crew/space
+	outfit = /datum/outfit/ship_crew
 
 /obj/effect/mob_spawn/ghost_role/human/ship_crew/gunner
 	rank = "Gunner"
