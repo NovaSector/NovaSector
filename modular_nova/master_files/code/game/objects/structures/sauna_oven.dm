@@ -114,7 +114,7 @@
 		qdel(interacting_item)
 		playsound(src, 'sound/items/handling/paper_drop.ogg', 75, TRUE)
 		return ITEM_INTERACT_SUCCESS
-	return NONE
+	return ..()
 
 /obj/structure/sauna_oven/process()
 	if(reagents.total_volume)
