@@ -175,6 +175,7 @@
 
 /datum/armament_entry/company_import/nri_surplus/firearm_ammo/zaibas
 	item_type = /obj/item/ammo_box/magazine/pulse
+	cost = PAYCHECK_CREW * 3
 
 /datum/armament_entry/company_import/nri_surplus/firearm_ammo/napad
 	item_type = /obj/item/ammo_box/magazine/napad/spawns_empty
