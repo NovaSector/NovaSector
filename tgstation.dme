@@ -9068,7 +9068,7 @@
 #include "modular_nova\modules\soulstone_changes\code\soulstone.dm"
 #include "modular_nova\modules\soulstone_changes\code\components\return_on_death.dm"
 #include "modular_nova\modules\space_vines\scythes.dm"
-#include "modular_nova\modules\space_vines\venus.dm"
+#include "modular_nova\modules\space_vines\vine_event.dm"
 #include "modular_nova\modules\space_vines\vine_mutations.dm"
 #include "modular_nova\modules\space_vines\vine_structure.dm"
 #include "modular_nova\modules\specialist_armor\code\cargo_packs.dm"
