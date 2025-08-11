@@ -100,9 +100,30 @@
 	if(water_amount)
 		water_amount--
 		update_steam_particles()
-		var/turf/open/pos = get_turf(src)
-		if(istype(pos) && pos.air.return_pressure() < 2*ONE_ATMOSPHERE)
-			pos.atmos_spawn_air("water_vapor=10;TEMP=[SAUNA_H2O_TEMP]")
+		var/list/turfs_affected = list(get_turf(src))
+		var/list/turfs_to_spread = list(get_turf(src))
+		var/spread_stage = water_amount
+		for(var/i in 1 to water_amount)
+			if(!turfs_to_spread.len)
+				break
+			var/list/new_spread_list = list()
+			for(var/turf/open/turf_to_spread as anything in turfs_to_spread)
+				if(isspaceturf(turf_to_spread))
+					continue
+				var/obj/effect/abstract/fake_steam/fake_steam = locate() in turf_to_spread
+				var/at_edge = FALSE
+				if(!fake_steam)
+					at_edge = TRUE
+					fake_steam = new(turf_to_spread)
+				fake_steam.stage_up(spread_stage)
+				if(!at_edge)
+					for(var/turf/open/open_turf as anything in turf_to_spread.atmos_adjacent_turfs)
+						if(!(open_turf in turfs_affected))
+							new_spread_list += open_turf
+							turfs_affected += open_turf
+			turfs_to_spread = new_spread_list
+			spread_stage--
+
 	fuel_amount--
 	if(fuel_amount <= 0)
 		lit = FALSE
