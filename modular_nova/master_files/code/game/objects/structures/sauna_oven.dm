@@ -3,8 +3,8 @@
 #define SAUNA_PAPER_FUEL 5
 #define SAUNA_MAXIMUM_FUEL 3000
 #define SAUNA_WATER_PER_WATER_UNIT 5
-/// Max amount of turfs to spread vapour to
-#define SAUNA_SPREAD_CAP 60
+/// Max amount of turfs to be affected by vapor, counts tiles adjacent to vapor
+#define SAUNA_SPREAD_CAP 120
 
 /obj/structure/sauna_oven
 	name = "sauna oven"
@@ -117,12 +117,13 @@
 		update_steam_particles()
 		var/list/turfs_affected = list(get_turf(src))
 		var/list/turfs_to_spread = list(get_turf(src))
-		var/spread_stage = water_amount
 		for(var/i in 1 to water_amount)
 			if(!length(turfs_to_spread))
 				break
 			var/list/new_spread_list = list()
 			for(var/turf/open/turf_to_spread as anything in turfs_to_spread)
+				if(length(turfs_affected) >= SAUNA_SPREAD_CAP)
+					break
 				if(is_space_or_openspace(turf_to_spread))
 					continue
 				var/obj/effect/abstract/fake_steam/fake_steam = locate() in turf_to_spread
@@ -130,16 +131,13 @@
 				if(!fake_steam)
 					at_edge = TRUE
 					fake_steam = new(turf_to_spread)
-				fake_steam.stage_up(spread_stage)
+				fake_steam.stage_up()
 				if(!at_edge)
 					for(var/turf/open/open_turf as anything in turf_to_spread.atmos_adjacent_turfs)
-						if(length(new_spread_list) >= SAUNA_SPREAD_CAP)
-							break
 						if(!(open_turf in turfs_affected))
 							new_spread_list += open_turf
 							turfs_affected += open_turf
 			turfs_to_spread = new_spread_list
-			spread_stage--
 
 	fuel_amount--
 	if(fuel_amount <= 0)
