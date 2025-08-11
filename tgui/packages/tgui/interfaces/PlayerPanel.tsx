@@ -833,12 +833,7 @@ const PunishmentActions = () => {
           </Flex>
         }
       >
-        <Collapsible
-          width="100%"
-          color="orange"
-          title="Details"
-          disabled={!client_ckey}
-        >
+        <Collapsible width="100%" color="orange" title="Details">
           <LabeledList>
             <LabeledList.Item label="NOW" color="label">
               {current_time}
