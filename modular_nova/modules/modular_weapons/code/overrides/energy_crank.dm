@@ -52,15 +52,3 @@
 		charge_move = IGNORE_USER_LOC_CHANGE, \
 	)
 
-// Tesla cannon
-/obj/item/gun/energy/tesla_cannon/Initialize(mapload)
-	. = ..()
-	AddComponent( \
-		/datum/component/crank_recharge, \
-		charging_cell = get_cell(), \
-		charge_amount = LASER_SHOTS(4, STANDARD_CELL_CHARGE), \
-		cooldown_time = 6 SECONDS, \
-		charge_sound = 'sound/items/weapons/laser_crank.ogg', \
-		charge_sound_cooldown_time = 3 SECONDS, \
-		charge_move = IGNORE_USER_LOC_CHANGE, \
-	)

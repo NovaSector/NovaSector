@@ -24,3 +24,8 @@
 /obj/item/gun/energy/e_gun
 	selfcharge = TRUE
 	charge_delay = 15
+
+// Tesla Cannon a tad crazy with crank, plus its supposed to be fed by the anomaly
+/obj/item/gun/energy/tesla_cannon
+	selfcharge = TRUE
+	charge_delay = 15
