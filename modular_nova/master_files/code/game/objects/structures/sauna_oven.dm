@@ -72,7 +72,7 @@
 			return ITEM_INTERACT_BLOCKING
 		if(reagents.total_volume >= SAUNA_REAGENT_MAX)
 			return ITEM_INTERACT_BLOCKING
-		var/datum/reagent/master_reagent = container.reagents.get_master_reagent()
+		var/datum/reagent/master_reagent = reagent_container.reagents.get_master_reagent()
 		if(istype(master_reagent, /datum/reagent/water))
 			reagent_container.reagents.trans_to(src, reagent_container.amount_per_transfer_from_this)
 			user.visible_message(span_notice("[user] pours some \
