@@ -73,7 +73,7 @@
 		if(reagents.total_volume >= SAUNA_REAGENT_MAX)
 			return ITEM_INTERACT_BLOCKING
 		if(reagent_container.reagents.has_reagent(/datum/reagent/water))
-			reagent_container.reagents.trans_to(src, reagent_container.reagents.total_volume)
+			reagent_container.reagents.trans_to(src, reagent_container.amount_per_transfer_from_this)
 			user.visible_message(span_notice("[user] pours some \
 			water into [src]."), span_notice("You pour \
 			some water to [src]."))

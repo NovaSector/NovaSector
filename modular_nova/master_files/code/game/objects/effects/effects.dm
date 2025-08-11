@@ -72,13 +72,6 @@
 	if(carbon_mob.has_status_effect(/datum/status_effect/washing_regen/hot_spring/sauna))
 		carbon_mob.remove_status_effect(/datum/status_effect/washing_regen/hot_spring/sauna)
 
-/obj/effect/abstract/fake_steam/sauna/process(seconds_per_tick)
-	. = ..()
-	for(var/mob/living/carbon/carbon_mob as anything in get_turf(src))
-		if(iscarbon(carbon_mob))
-			carbon_mob.adjust_bodytemperature(10 * seconds_per_tick, min_temp = BODYTEMP_HEATING_MAX, max_temp = BODYTEMP_HEAT_DAMAGE_LIMIT)
-			carbon_mob.set_wet_stacks(stacks = SAUNA_WET_STACKS, remove_fire_stacks = FALSE)
-
 /obj/effect/abstract/fake_steam/sauna/stage_up()
 	. = ..()
 	for(var/mob/living/carbon/carbon_mob as anything in get_turf(src))
@@ -97,11 +90,14 @@
 	return ..()
 
 /datum/status_effect/washing_regen/hot_spring/sauna
+
+/datum/status_effect/washing_regen/hot_spring/sauna/on_apply()
+	. = ..()
 	alert_type = /atom/movable/screen/alert/status_effect/washing_regen/hotspring/sauna
 
 /atom/movable/screen/alert/status_effect/washing_regen/hotspring/sauna
 	name = "Sauna"
-	desc = "A warm sauna is so relaxing..."
+	desc = "A steaming hot sauna is so relaxing..."
 
 #undef MAX_FAKE_STEAM_STAGES
 #undef STAGE_DOWN_TIME
