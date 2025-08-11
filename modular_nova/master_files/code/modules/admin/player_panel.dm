@@ -446,8 +446,8 @@ GLOBAL_LIST_INIT(pp_limbs, list(
 				log_admin("GlobalNarrate: [key_name(adminClient)] : [params["message"]]")
 				message_admins(span_adminnotice("[key_name_admin(adminClient)] Sent a global narrate"))
 			else
-				for(var/mob/M in view(params["range"], adminMob))
-					to_chat(M, "<span style='[styles]'>[params["message"]]</span>")
+				for(var/mob/Mob_individual in view(params["range"], adminMob))
+					to_chat(Mob_individual, "<span style='[styles]'>[params["message"]]</span>")
 
 				log_admin("LocalNarrate: [key_name(adminClient)] at [AREACOORD(adminMob)]: [params["message"]]")
 				message_admins(span_adminnotice("<b> LocalNarrate: [key_name_admin(adminClient)] at [ADMIN_VERBOSEJMP(adminMob)]:</b> [params["message"]]<BR>"))

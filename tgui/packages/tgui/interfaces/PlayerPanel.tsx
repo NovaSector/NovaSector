@@ -129,7 +129,7 @@ export const PlayerPanel = () => {
               <Input
                 width="100%"
                 value={mob_name}
-                onChange={(e, value) => act('set_name', { name: value })}
+                onEnter={(value) => act('set_name', { name: value })}
               />
             </Flex.Item>
             {!!client_ckey && (
@@ -580,7 +580,7 @@ const PhysicalActions = () => {
           <Flex.Item grow={1}>
             <Input
               width="100%"
-              onEnter={(e, value) => act('force_say', { to_say: value })}
+              onEnter={(value) => act('force_say', { to_say: value })}
             />
           </Flex.Item>
         </Flex>
@@ -591,7 +591,7 @@ const PhysicalActions = () => {
           <Flex.Item grow={1}>
             <Input
               width="100%"
-              onEnter={(e, value) => act('force_emote', { to_emote: value })}
+              onEnter={(value) => act('force_emote', { to_emote: value })}
             />
           </Flex.Item>
         </Flex>
@@ -1060,7 +1060,7 @@ const FunActions = () => {
             <Input
               width="100%"
               my=".5rem"
-              onInput={(e, value) => setNarrateMessage(value)}
+              onEnter={(value) => setNarrateMessage(value)}
             />
           </Flex.Item>
 
