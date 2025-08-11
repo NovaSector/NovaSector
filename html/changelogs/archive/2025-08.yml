@@ -629,3 +629,6 @@
       keep files organized, and prevent overabundance of files.
   sqnztb:
   - bugfix: photo albums maybe don't get messed up any more?
+2025-08-11:
+  vinylspiders:
+  - config: added server config for disabling blinking
