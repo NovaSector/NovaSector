@@ -1,6 +1,4 @@
 import { useState } from 'react';
-
-import { useBackend } from '../backend';
 import {
   Box,
   Button,
@@ -15,7 +13,9 @@ import {
   Slider,
   Tabs,
   Tooltip,
-} from '../components';
+} from 'tgui-core/components';
+
+import { useBackend } from '../backend';
 import { Window } from '../layouts';
 
 type Data = {
@@ -1112,16 +1112,6 @@ const OtherActions = () => {
           onClick={() => act('traitor_panel')}
         >
           Traitor Panel
-        </Button>
-        <Button
-          width="100%"
-          p=".5rem"
-          mb=".5rem"
-          textAlign="center"
-          disabled={!client_ckey}
-          onClick={() => act('job_exemption_panel')}
-        >
-          Job Exemption Panel
         </Button>
         <Button
           width="100%"

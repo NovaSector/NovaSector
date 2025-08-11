@@ -7,6 +7,13 @@ GLOBAL_LIST_INIT(mute_bits, list(
 	list(name = "Deadchat", bitflag = MUTE_DEADCHAT)
 ))
 
+GLOBAL_DATUM_INIT(admin_state, /datum/ui_state/admin_state, new)
+
+/datum/ui_state/admin_state/can_use_topic(src_object, mob/user)
+	if(check_rights_for(user.client, R_ADMIN))
+		return UI_INTERACTIVE
+	return UI_CLOSE
+
 GLOBAL_LIST_INIT(pp_limbs, list(
 	"Head" 		= BODY_ZONE_HEAD,
 	"Left leg" 	= BODY_ZONE_L_LEG,
@@ -47,7 +54,7 @@ GLOBAL_LIST_INIT(pp_limbs, list(
 	.["mob_name"] = targetMob.real_name
 	.["mob_type"] = targetMob.type
 	.["admin_mob_type"] = user.client?.mob.type
-	.["godmode"] = targetMob.status_flags & GODMODE
+	.["godmode"] = HAS_TRAIT(user, TRAIT_GODMODE)
 
 	var/mob/living/L = targetMob
 	if (istype(L))
@@ -84,19 +91,17 @@ GLOBAL_LIST_INIT(pp_limbs, list(
 		.["data_account_join_date"] = targetClient.account_join_date
 		.["data_related_cid"] = targetClient.related_accounts_cid
 		.["data_related_ip"] = targetClient.related_accounts_ip
-
+		/* // Find relevant PR maybe?
 		var/datum/player_details/deets = GLOB.player_details[targetClient.ckey]
 		.["data_old_names"] = deets.get_played_names() || null
-
+		*/
 		var/list/player_ranks = list()
 		if(SSplayer_ranks.is_donator(targetClient, admin_bypass = FALSE))
 			player_ranks += "Donator"
 		if(SSplayer_ranks.is_mentor(targetClient, admin_bypass = FALSE))
 			player_ranks += "Mentor"
-		if(SSplayer_ranks.is_veteran(targetClient, admin_bypass = FALSE))
-			player_ranks += "Veteran"
-		if(SSplayer_ranks.is_vetted(targetClient, admin_bypass = FALSE))
-			player_ranks |= "Vetted"
+		if(SSplayer_ranks.is_nova_star(targetClient, admin_bypass = FALSE))
+			player_ranks += "Nova Star"
 		.["ranks"] = length(player_ranks) ? player_ranks.Join(", ") : null
 
 		if(CONFIG_GET(flag/use_exp_tracking))
@@ -406,7 +411,7 @@ GLOBAL_LIST_INIT(pp_limbs, list(
 					if (!L)
 						continue
 					L.dismember()
-					playsound(H, 'sound/effects/cartoon_pop.ogg', 70)
+					playsound(H, 'sound/effects/bamf.ogg', 70)
 				else
 					H.regenerate_limb(limb)
 
@@ -453,9 +458,6 @@ GLOBAL_LIST_INIT(pp_limbs, list(
 
 		if ("traitor_panel")
 			SSadmin_verbs.dynamic_invoke_verb(adminClient, /datum/admin_verb/show_traitor_panel, targetMob)
-
-		if ("job_exemption_panel")
-			show_job_exempt_menu(adminMob, targetMob.ckey)
 
 		if ("skill_panel")
 			SSadmin_verbs.dynamic_invoke_verb(adminClient, /datum/admin_verb/show_skill_panel, targetMob)
