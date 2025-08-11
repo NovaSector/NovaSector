@@ -174,7 +174,7 @@
 	item_type = /obj/item/ammo_box/magazine/miecz/spawns_empty
 
 /datum/armament_entry/company_import/nri_surplus/firearm_ammo/zaibas
-	item_type = /obj/item/ammo_box/magazine/pulse/spawns_empty
+	item_type = /obj/item/ammo_box/magazine/pulse
 
 /datum/armament_entry/company_import/nri_surplus/firearm_ammo/napad
 	item_type = /obj/item/ammo_box/magazine/napad/spawns_empty
