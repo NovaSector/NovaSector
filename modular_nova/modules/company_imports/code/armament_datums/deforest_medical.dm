@@ -287,8 +287,3 @@
 	name = "Qani-Laaca Sensory Computer Implant"
 	item_type = /obj/item/organ/cyberimp/sensory_enhancer
 	cost = PAYCHECK_COMMAND * 5
-
-/datum/armament_entry/company_import/deforest/cyber_implants/hackerman
-	name = "Binyat Wireless Hacking System Implant"
-	item_type = /obj/item/organ/cyberimp/hackerman_deck
-	cost = PAYCHECK_COMMAND * 10
