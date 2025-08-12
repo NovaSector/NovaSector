@@ -376,7 +376,7 @@
 		impact_sound = target.bullet_impact_sound
 	if(impact_sound)
 		hitsound = null // don't play the hitsound
-		playsound(src, GLOB.sfx_datum_by_key[impact_sound], vol_by_damage(), TRUE, -1)
+		playsound(src, impact_sound, vol_by_damage(), TRUE, -1)
 	// NOVA EDIT ADDITION END
 
 	if(damage > 0 && (damage_type == BRUTE || damage_type == BURN) && iswallturf(target_turf) && prob(75))
@@ -504,8 +504,12 @@
 		return
 
 	last_impact_turf = get_turf(target)
+
+	// If our target has TRAIT_DESIGNATED_TARGET, treat accuracy_falloff as 0
+	var/effective_accuracy = HAS_TRAIT(target, TRAIT_DESIGNATED_TARGET) ? 0 : accuracy_falloff
+
 	// Lower accurancy/longer range tradeoff. 7 is a balanced number to use.
-	def_zone = ran_zone(def_zone, clamp(accurate_range - (accuracy_falloff * get_dist(last_impact_turf, starting)), 5, 100))
+	def_zone = ran_zone(def_zone, clamp(accurate_range - (effective_accuracy * get_dist(last_impact_turf, starting)), 5, 100))
 	var/impact_result = process_hit_loop(select_target(last_impact_turf, target))
 	if (impact_result == PROJECTILE_IMPACT_PASSED)
 		return

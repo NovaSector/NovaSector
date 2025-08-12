@@ -180,6 +180,7 @@
 
 /obj/item/ammo_casing/shotgun/breacher
 	ammo_categories = AMMO_CLASS_NICHE_LTL
+	can_be_printed = FALSE
 	// on one hand, 1k damage against airlocks. and mechs. and borgs.
 	// on the other hand like 5 damage against everyone else lmao
 

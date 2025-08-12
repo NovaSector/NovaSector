@@ -42,6 +42,8 @@
 	pixel_x = 4;
 	pixel_y = 4
 	},
+/obj/item/circuitboard/machine/bountypad,
+/obj/item/circuitboard/computer/bountypad,
 /turf/open/floor/plating,
 /area/ruin/space/has_grav/port_tarkon/power1)
 "am" = (

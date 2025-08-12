@@ -323,17 +323,21 @@ GLOBAL_LIST_INIT(total_uf_len_by_block, populate_total_uf_len_by_block())
 
 	for(var/blocknum in 1 to DNA_FEATURE_BLOCKS)
 		. += L[blocknum] || random_string(GET_UI_BLOCK_LEN(blocknum), GLOB.hex_characters)
-
-	return data.Join()
 */
 //NOVA EDIT REMOVAL END
 
-/datum/dna/proc/generate_dna_blocks()
-	var/bonus
+/**
+ * Picks what mutations this DNA has innate and generates DNA blocks for them
+ *
+ * * mutation_blacklist - Optional list of mutation typepaths to exclude from generation.
+ */
+/datum/dna/proc/generate_dna_blocks(list/mutation_blacklist)
+	var/list/mutations_temp = list() + GLOB.good_mutations + GLOB.bad_mutations + GLOB.not_good_mutations
 	if(species?.inert_mutation)
-		bonus = GET_INITIALIZED_MUTATION(species.inert_mutation)
-	var/list/mutations_temp = GLOB.good_mutations + GLOB.bad_mutations + GLOB.not_good_mutations + bonus
-	if(!LAZYLEN(mutations_temp))
+		mutations_temp |= GET_INITIALIZED_MUTATION(species.inert_mutation)
+	for(var/mutation_type in mutation_blacklist)
+		mutations_temp -= GET_INITIALIZED_MUTATION(mutation_type)
+	if(!length(mutations_temp))
 		return
 	mutation_index.Cut()
 	default_mutation_genes.Cut()
@@ -538,7 +542,7 @@ GLOBAL_LIST_INIT(total_uf_len_by_block, populate_total_uf_len_by_block())
 	if(newblood_type)
 		blood_type = newblood_type
 	if(create_mutation_blocks) //I hate this
-		generate_dna_blocks()
+		generate_dna_blocks(mutation_blacklist = list(/datum/mutation/headless))
 	if(randomize_features)
 		/* NOVA EDIT REMOVAL - We don't really want this. We instead let get_mutant_bodyparts() handle the bodypart randomization on our end, to prevent getting any crazy cross-species features.
 		var/static/list/all_species_protoypes
@@ -590,7 +594,7 @@ GLOBAL_LIST_INIT(total_uf_len_by_block, populate_total_uf_len_by_block())
 			stored_dna.species = mrace //not calling any species update procs since we're a brain, not a monkey/human
 
 
-/mob/living/carbon/set_species(datum/species/mrace, icon_update = TRUE, pref_load = FALSE, list/override_features, list/override_mutantparts, list/override_markings) // NOVA EDIT CHANGE - ORIGINAL: /mob/living/carbon/set_species(datum/species/mrace, icon_update = TRUE, pref_load = FALSE)
+/mob/living/carbon/set_species(datum/species/mrace, icon_update = TRUE, pref_load = FALSE, replace_missing = TRUE, list/override_features, list/override_mutantparts, list/override_markings) // NOVA EDIT CHANGE - ORIGINAL: /mob/living/carbon/set_species(datum/species/mrace, icon_update = TRUE, pref_load = FALSE, replace_missing = TRUE)
 	if(QDELETED(src))
 		CRASH("You're trying to change your species post deletion, this is a recipe for madness")
 	if(isnull(mrace))
@@ -645,10 +649,10 @@ GLOBAL_LIST_INIT(total_uf_len_by_block, populate_total_uf_len_by_block())
 
 	dna.update_body_size()
 	// NOVA EDIT ADDITION END
-	dna.species.on_species_gain(src, old_species, pref_load, regenerate_icons = icon_update)
+	dna.species.on_species_gain(src, old_species, pref_load, icon_update, replace_missing)
 	log_mob_tag("TAG: [tag] SPECIES: [key_name(src)] \[[mrace]\]")
 
-/mob/living/carbon/human/set_species(datum/species/mrace, icon_update = TRUE, pref_load = FALSE, override_features, override_markings, override_mutantparts)
+/mob/living/carbon/human/set_species(datum/species/mrace, icon_update = TRUE, pref_load = FALSE, replace_missing = TRUE, override_features, override_markings, override_mutantparts) // NOVA EDIT CHANGE. ORIGINAL - /mob/living/carbon/human/set_species(datum/species/mrace, icon_update = TRUE, pref_load = FALSE, replace_missing = TRUE)
 	..()
 	if(icon_update)
 		update_body(is_creating = TRUE)

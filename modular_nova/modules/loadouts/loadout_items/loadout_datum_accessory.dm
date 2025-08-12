@@ -122,6 +122,10 @@
 	abstract_type = /datum/loadout_item/accessory/medal
 	group = "Medals"
 
+/datum/loadout_item/accessory/medal/dogtags
+	name = "Dogtags"
+	item_path = /obj/item/clothing/accessory/nova/acc_medal/dogtags
+
 /datum/loadout_item/accessory/medal/shield
 	name = "Medal - Shield"
 	item_path = /obj/item/clothing/accessory/nova/acc_medal/shield
