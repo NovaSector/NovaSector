@@ -209,7 +209,8 @@
 /datum/antagonist/traitor/marauder/proc/prompt_namechange(mob/living/player, client/player_client)
 	var/old_name = player.real_name
 	player.playsound_local(player, 'sound/machines/terminal/terminal_prompt.ogg', 50, FALSE)
-	window_flash(player_client)
+	if(player_client)
+		window_flash(player_client)
 	switch(tgui_alert(
 			player,
 			"Do you wish to take on an alias?",
@@ -247,14 +248,12 @@
 /datum/outfit/marauder/post_equip(mob/living/carbon/human/player, visuals_only)
 	. = ..()
 	turn_off_sensors(player.w_uniform)
-	if(isdummy(player))
-		return //early return for /datum/unit_test/dummy_spawn_outfit
 	var/client/player_client = player.client
 	if(player_client)
 		SSquirks.AssignQuirks(player, player.client)
-	player.increment_scar_slot()
-	player.load_persistent_scars()
-	SSpersistence.load_modular_persistence(player.get_organ_slot(ORGAN_SLOT_BRAIN))
+		player.increment_scar_slot()
+		player.load_persistent_scars()
+		SSpersistence.load_modular_persistence(player.get_organ_slot(ORGAN_SLOT_BRAIN))
 
 /datum/outfit/marauder/proc/turn_off_sensors(obj/item/clothing/under/uniform)
 	if(!uniform)
