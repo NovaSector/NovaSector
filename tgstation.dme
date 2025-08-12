@@ -8691,6 +8691,7 @@
 #include "modular_nova\modules\modular_weapons\code\company_and_or_faction_based\szot_dynamica\magazines.dm"
 #include "modular_nova\modules\modular_weapons\code\company_and_or_faction_based\szot_dynamica\pistol.dm"
 #include "modular_nova\modules\modular_weapons\code\company_and_or_faction_based\szot_dynamica\pulse_rifle.dm"
+#include "modular_nova\modules\modular_weapons\code\company_and_or_faction_based\szot_dynamica\pulse_sniper.dm"
 #include "modular_nova\modules\modular_weapons\code\company_and_or_faction_based\szot_dynamica\rifle.dm"
 #include "modular_nova\modules\modular_weapons\code\company_and_or_faction_based\szot_dynamica\submachinegun.dm"
 #include "modular_nova\modules\modular_weapons\code\company_and_or_faction_based\szot_dynamica\ammo\pistol.dm"

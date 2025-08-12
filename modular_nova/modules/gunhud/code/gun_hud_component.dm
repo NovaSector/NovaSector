@@ -77,6 +77,25 @@
 
 		return total_shots
 
+	// Handle pulse sniper's unique ammo system (shows number of shots, not charges)
+	if(istype(the_gun, /obj/item/gun/ballistic/rifle/pulse_sniper))
+		var/obj/item/gun/ballistic/rifle/pulse_sniper/sniper = the_gun
+		var/total_shots = 0
+
+		// Count shots in magazine (each shot consumes multiple charges)
+		if(sniper.magazine)
+			for(var/obj/item/ammo_casing/pulse/casing in sniper.magazine.stored_ammo)
+				if(casing.remaining_uses >= sniper.shots_per_fire) // Only count casings with enough charges for a shot
+					total_shots += floor(casing.remaining_uses / sniper.shots_per_fire)
+
+		// Add shots from chambered round if present and has enough charges
+		if(sniper.chambered && istype(sniper.chambered, /obj/item/ammo_casing/pulse))
+			var/obj/item/ammo_casing/pulse/casing = sniper.chambered
+			if(casing.remaining_uses >= sniper.shots_per_fire) // Only count if the casing has enough charges
+				total_shots += floor(casing.remaining_uses / sniper.shots_per_fire)
+
+		return total_shots
+
 	// fucking revolvers indeed - do not count empty or chambered rounds for the display HUD
 	if(istype(the_gun, /obj/item/gun/ballistic/revolver))
 		var/obj/item/gun/ballistic/revolver/the_revolver = the_gun

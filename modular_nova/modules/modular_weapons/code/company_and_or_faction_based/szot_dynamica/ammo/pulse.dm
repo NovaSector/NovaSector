@@ -8,6 +8,7 @@
 	projectile_type = /obj/projectile/beam/laser/plasma_glob/pulse
 	var/max_uses = 15
 	var/remaining_uses = 15
+	var/suppress_use_consumption = FALSE
 	harmful = FALSE
 	print_cost = 14 //Assume bulk order discount
 
@@ -23,6 +24,11 @@
 		if(!quiet)
 			to_chat(user, span_warning("[src] is depleted!"))
 		return FALSE
+	// Reset suppress_use_consumption flag when used in a different weapon
+	if(fired_from && istype(fired_from, /obj/item/gun))
+		var/obj/item/gun/weapon = fired_from
+		if(!istype(weapon, /obj/item/gun/ballistic/rifle/pulse_sniper))
+			suppress_use_consumption = FALSE
 	return ..()
 
 /obj/item/ammo_casing/pulse/add_notes_ammo()
@@ -62,11 +68,16 @@
 		name = initial(name)
 		desc = initial(desc)
 		icon_state = initial(icon_state)
-		remaining_uses--
+		// Only decrement uses if not suppressed (for special weapons like pulse sniper)
+		if(!suppress_use_consumption)
+			remaining_uses--
 	return TRUE
 
 /obj/item/ammo_casing/pulse/update_overlays()
 	. = ..()
+	if(remaining_uses <= 0)
+		. += "zaibas_bullet_0"
+		return
 	var/use_percent = remaining_uses / max_uses
 	switch(use_percent)
 		if(0.7 to 1)
@@ -75,8 +86,6 @@
 			. += "zaibas_bullet_2"
 		if(0.1 to 0.3)
 			. += "zaibas_bullet_1"
-		if(0)
-			. += "zaibas_bullet_0"
 
 /obj/projectile/beam/laser/plasma_glob/pulse
 	name = "pulse energy"
@@ -97,4 +106,15 @@
 		var/mob/living/victim = target
 		hit_limb_zone = victim.check_hit_limb_zone_name(def_zone)
 		var/armour_block = victim.run_armor_check(hit_limb_zone, BULLET, armour_penetration = 20)
-		victim.apply_damage(10, BRUTE, hit_limb_zone, blocked = armour_block, wound_bonus = 5, exposed_wound_bonus = 10, sharpness = SHARP_POINTY)
+
+		// Get the projectile damage multiplier from the gun that fired this projectile
+		var/proj_damage_mult = 1
+		if(fired_from && istype(fired_from, /obj/item/gun))
+			var/obj/item/gun/gun = fired_from
+			proj_damage_mult = gun.projectile_damage_multiplier
+
+		// Modify brute damage with the multiplier
+		var/brute_damage = 10 * proj_damage_mult
+
+		// Apply brute damage
+		victim.apply_damage(brute_damage, BRUTE, hit_limb_zone, blocked = armour_block, wound_bonus = 5, exposed_wound_bonus = 10, sharpness = SHARP_POINTY)
