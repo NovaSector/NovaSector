@@ -37,7 +37,7 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/machinery/computer/security/telescreen/traitor_
 	icon_keyboard = "syndie_key"
 	shuttleId = "traitor"
 	shuttlePortId = "traitor_custom"
-	jump_to_ports = list("ferry_home" = 1, "whiteship_home" = 1, "whiteship_lavaland" = 1, "traitor_home" = 1, "traitor_custom" = 1)
+	jump_to_ports = list("ferry_home" = 1, "whiteship_home" = 1, "whiteship_lavaland" = 1, "anchor_buoy" = 1, "traitor_custom" = 1)
 	see_hidden = FALSE
 	lock_override = CAMERA_LOCK_STATION
 	view_range = 4
@@ -49,20 +49,20 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/machinery/computer/security/telescreen/traitor_
 	light_color = COLOR_SOFT_RED
 	req_access = list(ACCESS_SYNDICATE)
 	shuttleId = "traitor"
-	possible_destinations = "whiteship_home;whiteship_lavaland;traitor_home;traitor_custom"
+	possible_destinations = "whiteship_home;whiteship_lavaland;anchor_buoy;traitor_custom"
 	may_be_remote_controlled = TRUE
 
 /obj/machinery/computer/shuttle/traitor/Initialize(mapload)
 	. = ..()
 	//planetary maps use "ferry_home" instead of "whiteship_home" for their arrivals dock
 	if(SSmapping.is_planetary())
-		possible_destinations = "ferry_home;whiteship_home;whiteship_lavaland;traitor_home;traitor_custom"
+		possible_destinations = "ferry_home;whiteship_home;whiteship_lavaland;anchor_buoy;traitor_custom"
 
 //shuttle remote
 /obj/item/shuttle_remote/traitor
 	icon = 'icons/obj/devices/voice.dmi'
 	icon_state = "nukietalkie"
-	shuttle_away_id = "traitor_home"
+	shuttle_away_id = "anchor_buoy"
 
 /obj/item/shuttle_remote/traitor/Initialize(mapload)
 	. = ..()
