@@ -214,7 +214,8 @@
 			player,
 			"Do you wish to take on an alias?",
 			"Change Name?",
-			list("Operative alias", "Random alias", "Keep current name")
+			list("Operative alias", "Random alias", "Keep current name"),
+			1 MINUTES,
 		))
 		if("Operative alias")
 			player.fully_replace_character_name(player.real_name, "[player_client?.prefs?.read_preference(/datum/preference/name/operative_alias)]")
@@ -226,7 +227,6 @@
 			message_admins("[ADMIN_LOOKUPFLW(player)] has taken on a random name, [player.p_their()] previous name was [old_name].")
 		else
 			player.playsound_local(player, 'sound/machines/terminal/terminal_prompt_deny.ogg', 50, FALSE)
-			return
 
 //antag job
 /datum/job/marauder
