@@ -190,11 +190,7 @@
 	SIGNAL_HANDLER
 	//unload the map
 	if(reservation && map)
-		for(var/turf/victimized_turf as anything in reservation.reserved_turfs)
-			victimized_turf.empty()
-		map.reservations -= reservation
-		map = null
-		QDEL_NULL(reservation)
+		unload_map()
 	//prompt namechange
 	if(!owner.current)
 		return
@@ -202,6 +198,13 @@
 		return
 	UnregisterSignal(owner.current, COMSIG_MOVABLE_Z_CHANGED) //clean up, too
 	INVOKE_ASYNC(src, PROC_REF(prompt_namechange), owner.current, owner.current.client)
+
+/datum/antagonist/traitor/marauder/proc/unload_map()
+	for(var/turf/victimized_turf as anything in reservation.reserved_turfs)
+		victimized_turf.empty()
+	map.reservations -= reservation
+	map = null
+	QDEL_NULL(reservation)
 
 /datum/antagonist/traitor/marauder/proc/prompt_namechange(mob/living/player, client/player_client)
 	var/old_name = player.real_name
