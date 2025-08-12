@@ -24,7 +24,7 @@
 
 	bolt_type = BOLT_TYPE_STANDARD
 
-	w_class = WEIGHT_CLASS_BULKY
+	w_class = WEIGHT_CLASS_NORMAL
 	weapon_weight = WEAPON_MEDIUM
 	slot_flags = ITEM_SLOT_BELT
 
@@ -52,7 +52,7 @@
 		bullpup chassis for the Lanca battle rifle; while the bullpup Lancas never quite caught on, the Miecz showed enough potential \
 		that it warranted a development of a new pistol cartridge in tandem with further Miecz development, \
 		leading to the creation of .27-54 Cesarzowa.<br><br>\
-		While much larger than its SolFed contemporary, the Sindano, the additional weight makes it easier to control and keep on-target, \
+		While more cumbersome than its SolFed contemporary, the Sindano, the additional weight makes it easier to control and keep on-target, \
 		and .27-54 Cesarzowa's hard-tip ammo lends itself well towards defeating lighter personal armor."
 
 /obj/item/gun/ballistic/automatic/miecz/Initialize(mapload)
