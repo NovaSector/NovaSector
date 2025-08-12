@@ -8,9 +8,6 @@
 	light_color = COLOR_FRENCH_BLUE
 	possible_destinations = "random_ship_away;random_ship_home;random_ship_custom"
 
-/obj/machinery/computer/shuttle/random_ship/drop_pod
-	possible_destinations = "null"
-
 /obj/machinery/computer/camera_advanced/shuttle_docker/syndicate/random_ship
 	name = "ship navigation computer"
 	desc = "Used to designate a precise transit location for the ship."

@@ -36,7 +36,7 @@
 "bE" = (
 /obj/effect/turf_decal/stripes/line,
 /obj/structure/sign/flag/nri/directional/north,
-/obj/effect/mob_spawn/ghost_role/human/nri_raider/officer,
+/obj/effect/mob_spawn/ghost_role/human/nri_officer,
 /turf/open/floor/pod/dark,
 /area/shuttle/pirate/nri)
 "bG" = (
@@ -223,9 +223,7 @@
 	req_access = list("syndicate")
 	},
 /obj/effect/mapping_helpers/airlock/autoname,
-/obj/docking_port/mobile/pirate/nri_raider{
-	launch_status = 0
-	},
+/obj/docking_port/mobile/pirate/nri_police,
 /turf/open/floor/plating,
 /area/shuttle/pirate/nri)
 "iq" = (
@@ -457,6 +455,18 @@
 /obj/effect/turf_decal/stripes/line,
 /obj/machinery/light/small/red/directional/north,
 /obj/machinery/recharger,
+/obj/item/gun/energy/taser/crank{
+	pixel_x = 0;
+	pixel_y = 2
+	},
+/obj/item/gun/energy/taser/crank{
+	pixel_x = 0;
+	pixel_y = -3
+	},
+/obj/item/gun/energy/taser/crank{
+	pixel_x = 0;
+	pixel_y = -8
+	},
 /turf/open/floor/pod/light,
 /area/shuttle/pirate/nri)
 "rp" = (
@@ -507,12 +517,15 @@
 /obj/item/storage/box/zipties{
 	pixel_x = 2
 	},
-/obj/item/melee/baton,
-/obj/item/melee/baton,
-/obj/item/melee/baton,
-/obj/item/gun/energy/e_gun/advtaser/normal,
-/obj/item/gun/energy/e_gun/advtaser/normal,
-/obj/item/gun/energy/e_gun/advtaser/normal,
+/obj/item/melee/baton/security/stun_gun/loaded,
+/obj/item/melee/baton/security/stun_gun/loaded{
+	pixel_x = -6;
+	pixel_y = 6
+	},
+/obj/item/melee/baton/security/stun_gun/loaded{
+	pixel_x = 6;
+	pixel_y = -5
+	},
 /turf/open/floor/pod,
 /area/shuttle/pirate/nri)
 "ty" = (
@@ -559,7 +572,7 @@
 "uw" = (
 /obj/machinery/light/very_dim/directional/north,
 /obj/structure/sign/flag/nri/directional/north,
-/obj/machinery/computer/centcom_announcement/nri_raider,
+/obj/machinery/computer/centcom_announcement/nri_police,
 /turf/open/floor/pod/dark,
 /area/shuttle/pirate/nri)
 "uU" = (
@@ -774,7 +787,7 @@
 	dir = 10
 	},
 /obj/machinery/light/small/red/directional/north,
-/obj/effect/mob_spawn/ghost_role/human/nri_raider/officer,
+/obj/effect/mob_spawn/ghost_role/human/nri_officer,
 /turf/open/floor/pod,
 /area/shuttle/pirate/nri)
 "Bz" = (
@@ -1236,14 +1249,14 @@
 /turf/open/floor/plating,
 /area/shuttle/pirate/nri)
 "Tj" = (
-/obj/structure/plaque/static_plaque/golden/commission/ks13/nri_raider,
 /obj/structure/cable,
+/obj/structure/plaque/static_plaque/golden/commission/ks13/nri_police,
 /turf/open/floor/pod/light,
 /area/shuttle/pirate/nri)
 "TF" = (
 /obj/structure/sign/flag/mars/directional/north,
-/obj/effect/mob_spawn/ghost_role/human/nri_raider/officer,
 /obj/effect/turf_decal/stripes/line,
+/obj/effect/mob_spawn/ghost_role/human/nri_officer,
 /turf/open/floor/pod/dark,
 /area/shuttle/pirate/nri)
 "TR" = (
