@@ -2,7 +2,7 @@
 	category = PREFERENCE_CATEGORY_GAME_PREFERENCES
 	savefile_key = "use_tgui_player_panel"
 	savefile_identifier = PREFERENCE_PLAYER
-	default_value = TRUE
+	default_value = FALSE
 
 /datum/preference/toggle/use_tgui_player_panel/is_accessible(datum/preferences/preferences)
 	if (!..(preferences))

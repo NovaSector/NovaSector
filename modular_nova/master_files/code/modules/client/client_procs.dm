@@ -37,7 +37,9 @@
 	for(var/i in artpaths)
 		var/datum/martial_art/M = i
 		artnames[initial(M.name)] = M
-	var/result = tgui_input_list(usr, "Choose the martial art to teach", "JUDO CHOP", artnames) // input(usr, "Choose the martial art to teach","JUDO CHOP") as null|anything in artnames
+	var/result = tgui_input_list(usr, "Choose the martial art to teach", "JUDO CHOP", artnames)
+	if(isnull(result))
+		return
 
 	if(QDELETED(C))
 		to_chat(usr, "Mob doesn't exist anymore")
