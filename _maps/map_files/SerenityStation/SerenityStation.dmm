@@ -24709,10 +24709,9 @@
 	name = "nanotrasen radio navigation gigabeacon"
 	},
 /obj/item/gps/computer/beacon{
-	pixel_y = 22;
-	pixel_x = 7;
-	gpstag = "NT-STATION";
-	layer = 2.9
+	pixel_y = 27;
+	pixel_x = 8;
+	gpstag = "NT-STATION"
 	},
 /obj/structure/fluff{
 	icon = 'icons/mob/simple/hivebot.dmi';
@@ -45056,7 +45055,7 @@
 "mUb" = (
 /obj/structure/lattice/catwalk,
 /obj/structure/marker_beacon/cerulean,
-/turf/open/misc/asteroid/forest,
+/turf/open/misc/sandy_dirt/forest,
 /area/forestplanet/outdoors/nospawn)
 "mUn" = (
 /obj/structure/cable,
@@ -79685,7 +79684,7 @@
 "xcE" = (
 /obj/structure/lattice/catwalk,
 /obj/structure/marker_beacon/indigo,
-/turf/open/misc/asteroid/forest,
+/turf/open/misc/sandy_dirt/forest,
 /area/forestplanet/outdoors/nospawn)
 "xcJ" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,

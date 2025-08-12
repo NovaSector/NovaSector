@@ -10,10 +10,9 @@
 	pixel_x = -7
 	},
 /obj/item/gps/computer/beacon{
-	pixel_y = 22;
-	pixel_x = 7;
-	gpstag = "ANCHOR-BUOY";
-	layer = 2.85
+	pixel_y = 27;
+	pixel_x = 8;
+	gpstag = "ANCHOR-BUOY"
 	},
 /obj/structure/fluff{
 	icon = 'icons/mob/simple/hivebot.dmi';
@@ -39,7 +38,7 @@
 	pixel_y = -12;
 	pixel_x = 5
 	},
-/turf/open/floor/plating/airless,
+/turf/open/floor/catwalk_floor/iron_dark/airless,
 /area/template_noop)
 "n" = (
 /obj/structure/lattice/catwalk,
