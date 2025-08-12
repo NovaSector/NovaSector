@@ -1,3 +1,36 @@
+/obj/item/ammo_box/pulse_cargo_box
+	name = "ammo canister (pulse energy cell)"
+	desc = "A stabilizing canister of plasma pulse energy cells, holds eight cells."
+
+	icon = 'modular_nova/modules/modular_weapons/icons/obj/company_and_or_faction_based/szot_dynamica/ammo.dmi'
+	icon_state = "plasma_pulse_box"
+
+	multiple_sprites = AMMO_BOX_PER_BULLET
+
+	w_class = WEIGHT_CLASS_NORMAL
+
+	caliber = "pulse"
+	casing_phrasing = "plug"
+	ammo_type = /obj/item/ammo_casing/pulse
+	max_ammo = 8
+
+/obj/item/ammo_box/pulse_cargo_box/Initialize(mapload)
+	. = ..()
+	AddElement(/datum/element/manufacturer_examine, COMPANY_SZOT)
+
+/obj/item/ammo_box/pulse_cargo_box/top_off(load_type, starting=FALSE)
+	if(!load_type)
+		load_type = ammo_type
+
+	var/obj/item/ammo_casing/round_check = load_type
+	if(!starting && !(caliber ? (caliber == initial(round_check.caliber)) : (ammo_type == load_type)))
+		stack_trace("Tried loading unsupported ammocasing type [load_type] into ammo box [type].")
+		return
+
+	for(var/i in max(1, stored_ammo.len + 1) to max_ammo)
+		stored_ammo += new round_check(src) // Always create new instances rather than storing paths
+	update_appearance()
+
 /obj/item/ammo_casing/pulse
 	name = "pulse energy cell"
 	desc = "A reusable energy cell for pulse weapons."
@@ -46,6 +79,12 @@
 	else if(isgun(loc))
 		var/obj/item/gun/our_gun = loc
 		proj_damage_mult = our_gun.projectile_damage_multiplier
+	else if(istype(loc, /obj/item/ammo_box/magazine/internal))
+		// Handle internal magazines like in the pulse sniper
+		var/obj/item/ammo_box/magazine/internal/internal_mag = loc
+		if(isgun(internal_mag.loc))
+			var/obj/item/gun/our_gun = internal_mag.loc
+			proj_damage_mult = our_gun.projectile_damage_multiplier
 
 	// Calculate total damage per shot (brute + burn)
 	var/total_damage = (initial_brute + initial_burn) * proj_damage_mult

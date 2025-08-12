@@ -95,6 +95,10 @@
 /datum/armament_entry/company_import/vitezstvi/ammo_boxes/auto10mm_rubber
 	item_type = /obj/item/ammo_box/c10mm/rubber
 
+/datum/armament_entry/company_import/vitezstvi/ammo_boxes/zaibas_ammo
+	item_type = /obj/item/ammo_box/pulse_cargo_box
+	cost = PAYCHECK_COMMAND
+
 /datum/armament_entry/company_import/vitezstvi/ammo_boxes/strilka_lethal
 	item_type = /obj/item/ammo_box/c310_cargo_box
 

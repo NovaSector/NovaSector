@@ -155,6 +155,11 @@
 	cost = PAYCHECK_COMMAND * 14
 	restricted = TRUE
 
+/datum/armament_entry/company_import/nri_surplus/firearm/zaibas_a
+	item_type = /obj/item/gun/ballistic/rifle/pulse_sniper
+	cost = PAYCHECK_COMMAND * 14
+	restricted = TRUE
+
 /datum/armament_entry/company_import/nri_surplus/firearm/anti_materiel_rifle
 	item_type = /obj/item/gun/ballistic/automatic/wylom
 	cost = PAYCHECK_COMMAND * 16

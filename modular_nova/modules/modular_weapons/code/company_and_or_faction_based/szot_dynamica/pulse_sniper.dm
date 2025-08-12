@@ -1,6 +1,6 @@
 /obj/item/gun/ballistic/rifle/pulse_sniper
 	name = "\improper Žaibas-A sniper rifle"
-	desc = "A bolt-action variant of the Žaibas plasma pulse projector, modified for precision long-range engagements. \
+	desc = "A sniper variant of the Žaibas plasma pulse projector, modified for precision long-range engagements. \
 	Uses a specialized chamber-loading system that consumes three charges per shot."
 
 	icon = 'modular_nova/modules/modular_weapons/icons/obj/company_and_or_faction_based/szot_dynamica/guns_48.dmi'
@@ -23,11 +23,10 @@
 	rack_sound = 'modular_nova/modules/modular_weapons/sounds/pulse_pull.ogg'
 	bolt_drop_sound = 'modular_nova/modules/modular_weapons/sounds/pulse_push.ogg'
 
-	spread = 0
+	spread = 2.5
 	recoil = 1
 	projectile_damage_multiplier = 2
 
-	w_class = WEIGHT_CLASS_BULKY
 	weapon_weight = WEAPON_HEAVY
 	internal_magazine = TRUE
 	need_bolt_lock_to_interact = TRUE
@@ -35,15 +34,18 @@
 	/// Number of charges consumed per shot
 	var/shots_per_fire = 3
 
-	lore_blurb = "Žaibas-A represents a specialized adaptation of the Heliostatic Coalition's plasma technology for precision applications.<br><br> \
+	lore_blurb = "Žaibas-A represents a specialized adaptation of the Heliostatic Coalition's plasma pulse technology for precision applications.<br><br> \
 	Where the standard Žaibas focuses on delivering rapid bursts of plasma energy, the 'A' variant (for 'Aštrus', or 'Sharp') sacrifices rate of fire \
 	for unparalleled accuracy and armor penetration. Each shot draws three times the normal plasma charge, creating a hyper-concentrated beam that \
 	can punch through even the most advanced fortifications.<br><br> \
-	The bolt-action mechanism was a controversial addition, as it eliminates the weapon's signature burst-fire capability. \
+	The single cell mechanism was a controversial addition, as it eliminates the weapon's signature high longevity. \
 	However, Coalition marksmen report that the manual cycling process allows for better shot placement and thermal management during extended engagements.<br><br> \
 	Developed in response to reports of Coalition forces facing heavily armored targets at extreme ranges, the Žaibas-A has become the weapon of choice	\
 	for designated marksmen and anti-materiel specialists. A small production run means these rifles are typically issued only to elite units.<br><br> \
 	The warning label has been updated to read: 'NEPONOVLJATI NAPAJANJE - Tri kasetes per šūvį. Per didelis karščio kaupimas gali sugadinti gnybtą.'."
+
+/obj/item/gun/ballistic/rifle/pulse_sniper/give_manufacturer_examine()
+	AddElement(/datum/element/manufacturer_examine, COMPANY_SZOT)
 
 /obj/item/gun/ballistic/rifle/pulse_sniper/Initialize(mapload)
 	. = ..()
@@ -55,6 +57,19 @@
 	if(mag && istype(mag))
 		for(var/obj/item/ammo_casing/pulse/casing in mag.stored_ammo)
 			casing.suppress_use_consumption = TRUE
+
+/obj/item/gun/ballistic/rifle/pulse_sniper/add_notes_ballistic()
+	// Only show information about the chambered cell
+	if(chambered && istype(chambered, /obj/item/ammo_casing/pulse))
+		var/obj/item/ammo_casing/pulse/casing = chambered
+		// Set the loc to the gun temporarily so the add_notes_ammo method can access the projectile_damage_multiplier
+		var/obj/item/original_loc = casing.loc
+		casing.loc = src
+		var/notes = casing.add_notes_ammo()
+		casing.loc = original_loc
+		return notes
+	else
+		return "No pulse cell is chambered."
 
 /obj/item/gun/ballistic/rifle/pulse_sniper/examine(mob/user)
 	. = ..()

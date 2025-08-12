@@ -43,6 +43,9 @@
 		fortifications and powered armor with equal ease.<br><br>\
 		A warning etched near the ejection port reminds users: 'NEPONOVLJATI NAPAJANJE - Kristalna matrika može srušiti se'."
 
+/obj/item/gun/ballistic/automatic/pulse_rifle/give_manufacturer_examine()
+	AddElement(/datum/element/manufacturer_examine, COMPANY_SZOT)
+
 /obj/item/gun/ballistic/automatic/pulse_rifle/examine(mob/user)
 	. = ..()
 	var/obj/item/ammo_casing/pulse/casing = chambered
