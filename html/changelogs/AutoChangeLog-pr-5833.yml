@@ -1,9 +1,0 @@
-author: "carpotoxin"
-delete-after: True
-changes:
-  - balance: "Spacevine's thorns mutation does 15 brute when procced instead of 5"
-  - balance: "Spacevine's toxic mutation does 20 toxins when procced instead of 5"
-  - balance: "Spacevine's mutativeness factor and coefficient have gone up"
-  - balance: "Spacevine can now into space"
-  - balance: "Man-eaters can now pull living beings again"
-  - rscadd: "Difficult spacevines event, always spawns man-eaters and can appear in more places than just hallways"
