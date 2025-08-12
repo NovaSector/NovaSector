@@ -629,3 +629,39 @@
       keep files organized, and prevent overabundance of files.
   sqnztb:
   - bugfix: photo albums maybe don't get messed up any more?
+2025-08-11:
+  vinylspiders:
+  - config: added server config for disabling blinking
+2025-08-12:
+  OrbisAnima:
+  - balance: Cargo Materials export value has been reduced. Gold and silver were reduced
+      to 50%. Uranium, Plasma, Titanium, Plastitanium, Alien alloys and Plasteel were
+      reduced to 25%. Bluespace crystals were reduced to 13%, Diamonds were reduced
+      to 10%.
+  - balance: Materials Elascitity was prolonged, they recover after 30 minutes ish.
+      Plasma now has elasticity like the rest of the materials.
+  - balance: Cargo Consoles no longer let you bypass the Weapon Permit requirement
+      for guns that have it, unless emagged. Broadbanding it or using internal cargo
+      consoles no longer bypass this.
+  - balance: Departamental accounts no longer can buy weapons that need a permit from
+      imports. (They can still buy things that dont need a permit though!) This is
+      of course bypassed with an emagged console.
+  - balance: The Binyat can no longer be obtained from Cargo.
+  - balance: The Binyat now requires a tech based on combat implants to be produced.
+  - balance: The Binyat no longer affects the cargo consoles.
+  - balance: Miner vendors money get you half the money for the same amount of points!
+  - bugfix: Exploit with the binyat allowing to dissasemble blacklisted consoles,
+      emag them, and reassembling them was removed.
+  RealWinterFrost:
+  - rscadd: Adds new recolorables, in the loadouts menu (Dogtags, Department Jacket,
+      Winter Coat - Fancy)
+  carpotoxin:
+  - qol: Mobs entangled within spacevines are layered above the spacevines for as
+      long as they stay buckled
+  - balance: Spacevine's thorns mutation does 15 brute when procced instead of 5
+  - balance: Spacevine's toxic mutation does 20 toxins when procced instead of 5
+  - balance: Spacevine's mutativeness factor and coefficient have gone up
+  - balance: Spacevine can now into space
+  - balance: Man-eaters can now pull living beings again
+  - rscadd: Difficult spacevines event, always spawns man-eaters and can appear in
+      more places than just hallways

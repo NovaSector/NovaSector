@@ -11,6 +11,7 @@
 #define TECHWEB_NODE_CONVEYOR_SORTER_IMPROVED "conveyor_sorter_improved"
 #define TECHWEB_NODE_CYBERNETICS_DIGITIGRADE "digitigrade_cyber"
 #define TECHWEB_NODE_CYBERNETICS_DIGITIGRADE_ADVANCED "adv_digitigrade_cyber"
+#define TECHWEB_NODE_CYBERNETICS_ILLEGAL_NOVA "illegal_cybernetics_nova"
 #define TECHWEB_NODE_CYBERNETICS_TESHARI "teshari_cyber"
 #define TECHWEB_NODE_CYBERNETICS_TESHARI_ADVANCED "adv_teshari_cyber"
 #define TECHWEB_NODE_MISC_CARGO "misc_cargo"

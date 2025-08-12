@@ -26,7 +26,7 @@
 	desc = "A bag for storing extra clothes and shoes. This one belongs to the Bridge Officer."
 
 /obj/item/storage/bag/garment/bridge_officer/PopulateContents()
-	new /obj/item/clothing/suit/toggle/jacket/nova/bridge_officer(src)
+	new /obj/item/clothing/suit/toggle/jacket/nova/colorable_bomber/bridge_officer(src)
 	new /obj/item/clothing/suit/nova/bridge_officer/goth(src)
 	new /obj/item/clothing/under/rank/bridge_officer(src)
 	new /obj/item/clothing/under/rank/bridge_officer/skirt(src)
