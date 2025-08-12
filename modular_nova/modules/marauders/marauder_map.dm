@@ -144,6 +144,14 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/machinery/computer/security/telescreen/traitor_
 	dwidth = 4
 	dheight = 0
 
+//nav beacon for shuttles that doesnt generate a name
+/obj/machinery/spaceship_navigation_beacon/nt
+	name = "\improper Nanotrasen radio navigation gigabeacon"
+
+/obj/machinery/spaceship_navigation_beacon/nt/Initialize(mapload)
+	. = ..()
+	name = /obj/machinery/spaceship_navigation_beacon/nt::name
+
 //map spawn landmark
 /obj/effect/landmark/start/midround_traitor/Initialize(mapload)
 	..()

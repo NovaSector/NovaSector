@@ -19,21 +19,24 @@
 /turf/open/misc/asteroid/snow/icemoon,
 /area/forestplanet/outdoors/nospawn)
 "k" = (
-/obj/machinery/spaceship_navigation_beacon{
-	pixel_y = 23;
-	pixel_x = -7;
-	name = "nanotrasen radio navigation gigabeacon"
-	},
 /obj/item/gps/computer/beacon{
 	pixel_y = 27;
 	pixel_x = 8;
 	gpstag = "NT-STATION"
+	},
+/obj/machinery/spaceship_navigation_beacon/nt{
+	pixel_x = -7;
+	pixel_y = 23
 	},
 /obj/structure/fluff{
 	icon = 'icons/mob/simple/hivebot.dmi';
 	icon_state = "def_radar-off";
 	name = "radio dish component";
 	desc = "Remarkable Nanotrasen technology. This does... something to make the radio dish work."
+	},
+/obj/structure/fluff/sat_dish{
+	pixel_y = 6;
+	pixel_x = -11
 	},
 /obj/structure/fluff/sat_dish{
 	dir = 1;
@@ -44,10 +47,6 @@
 	dir = 4;
 	pixel_y = 1;
 	pixel_x = 17
-	},
-/obj/structure/fluff/sat_dish{
-	pixel_y = 6;
-	pixel_x = -11
 	},
 /obj/machinery/power/rtg/portable{
 	pixel_y = -12;
