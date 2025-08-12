@@ -11,6 +11,10 @@
 	var/marauder_no
 	/// The turf inside the lazy_template marked as this antag's spawn
 	var/turf/spawnpoint
+	/// The reservation datum, aka where is our map
+	var/datum/turf_reservation/reservation
+	/// The datum which actually holds the map
+	var/datum/lazy_template/midround_traitor/map
 
 /datum/outfit/marauder_preview
 	name = "Marauder (Preview only)"
@@ -58,7 +62,6 @@
 
 /// Removes NT from being the possible employer, because that would be weird
 /datum/antagonist/traitor/marauder/pick_employer()
-
 	if(!employer)
 		var/list/possible_employers = list()
 		possible_employers.Add(GLOB.syndicate_employers)
@@ -79,11 +82,8 @@
 
 /datum/antagonist/traitor/marauder/on_gain()
 	. = ..()
-	//load the map, if its the first time running don't force
-	if(marauder_no == 1)
-		SSmapping.lazy_load_template(LAZY_TEMPLATE_KEY_MIDROUND_TRAITOR)
-	else
-		SSmapping.lazy_load_template(LAZY_TEMPLATE_KEY_MIDROUND_TRAITOR, TRUE)
+	map = new
+	reservation = map.lazy_load()
 	//load the shuttle, we don't trust lazy_load with this
 	load_shuttle(marauder_no)
 	//set up our guy
@@ -92,6 +92,7 @@
 	//load personalized items
 	load_personal_items(owner.current)
 	move_to_spawnpoint(owner.current, marauder_no)
+	RegisterSignal(owner.current, COMSIG_MOVABLE_Z_CHANGED, PROC_REF(on_departure))
 
 /datum/antagonist/traitor/marauder/proc/load_shuttle(marauder_no)
 	var/is_first = FALSE
@@ -184,6 +185,46 @@
 	bed.buckle_mob(marauder)
 	bedsheet.coverup(marauder)
 
+/// when the marauder flies away from the base, actually procs when landed due to the base starting in transit Z
+/datum/antagonist/traitor/marauder/proc/on_departure(datum/source)
+	SIGNAL_HANDLER
+	//unload the map
+	if(reservation && map)
+		for(var/turf/victimized_turf as anything in reservation.reserved_turfs)
+			victimized_turf.empty()
+		map.reservations -= reservation
+		map = null
+		QDEL_NULL(reservation)
+	//prompt namechange
+	if(!owner.current)
+		return
+	if(!owner.current.client)
+		return
+	UnregisterSignal(owner.current, COMSIG_MOVABLE_Z_CHANGED) //clean up, too
+	INVOKE_ASYNC(src, PROC_REF(prompt_namechange), owner.current, owner.current.client)
+
+/datum/antagonist/traitor/marauder/proc/prompt_namechange(mob/living/player, client/player_client)
+	var/old_name = player.real_name
+	player.playsound_local(player, 'sound/machines/terminal/terminal_prompt.ogg', 50, FALSE)
+	window_flash(player_client)
+	switch(tgui_alert(
+			player,
+			"Do you wish to take on an alias?",
+			"Change Name?",
+			list("Operative alias", "Random alias", "Keep current name")
+		))
+		if("Operative alias")
+			player.fully_replace_character_name(player.real_name, "[player_client?.prefs?.read_preference(/datum/preference/name/operative_alias)]")
+			player.playsound_local(player, 'sound/machines/terminal/terminal_prompt_confirm.ogg', 50, FALSE)
+			message_admins("[ADMIN_LOOKUPFLW(player)] has taken on [player.p_their()] operative alias, [player.p_their()] previous name was [old_name].")
+		if("Random alias")
+			player.fully_replace_character_name(player.real_name, "[pick(GLOB.operative_aliases)] [syndicate_name()]")
+			player.playsound_local(player, 'sound/machines/terminal/terminal_prompt_confirm.ogg', 50, FALSE)
+			message_admins("[ADMIN_LOOKUPFLW(player)] has taken on a random name, [player.p_their()] previous name was [old_name].")
+		else
+			player.playsound_local(player, 'sound/machines/terminal/terminal_prompt_deny.ogg', 50, FALSE)
+			return
+
 //antag job
 /datum/job/marauder
 	title = ROLE_MARAUDER
@@ -206,6 +247,7 @@
 	var/client/player_client = player.client
 	if(player_client)
 		SSquirks.AssignQuirks(player, player.client)
+	SSpersistence.load_modular_persistence(player.get_organ_slot(ORGAN_SLOT_BRAIN))
 
 /datum/outfit/marauder/proc/turn_off_sensors(obj/item/clothing/under/uniform)
 	if(!uniform)
