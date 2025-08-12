@@ -56,7 +56,7 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/machinery/computer/security/telescreen/traitor_
 	. = ..()
 	//planetary maps use "ferry_home" instead of "whiteship_home" for their arrivals dock
 	if(SSmapping.is_planetary())
-		possible_destinations = "ferry_home;whiteship_home;whiteship_lavaland;anchor_buoy;traitor_custom"
+		possible_destinations = "ferry_home;whiteship_home;whiteship_lavaland;nt_nav;traitor_custom"
 
 //shuttle remote
 /obj/item/shuttle_remote/traitor
@@ -69,6 +69,7 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/machinery/computer/security/telescreen/traitor_
 	//ditto
 	if(SSmapping.is_planetary())
 		shuttle_home_id = "ferry_home"
+		shuttle_away_id = "nt_nav"
 
 //mobile docking port
 /obj/docking_port/mobile/traitor

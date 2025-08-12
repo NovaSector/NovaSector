@@ -1,0 +1,375 @@
+//MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
+"a" = (
+/turf/open/misc/asteroid/forest,
+/area/forestplanet/outdoors/nospawn)
+"k" = (
+/obj/structure/flora/bush/fullgrass/style_random,
+/turf/open/misc/asteroid/forest,
+/area/forestplanet/outdoors/nospawn)
+"n" = (
+/obj/structure/lattice/catwalk,
+/obj/structure/marker_beacon/indigo,
+/turf/open/misc/sandy_dirt/forest,
+/area/forestplanet/outdoors/nospawn)
+"p" = (
+/obj/structure/lattice,
+/turf/open/misc/asteroid/forest,
+/area/forestplanet/outdoors/nospawn)
+"q" = (
+/obj/structure/flora/bush/large/style_random,
+/turf/open/misc/asteroid/forest,
+/area/forestplanet/outdoors/nospawn)
+"s" = (
+/obj/docking_port/stationary{
+	dir = 2;
+	dwidth = 8;
+	height = 24;
+	name = "NT Nav. beacon";
+	shuttle_id = "nt_nav";
+	width = 35
+	},
+/turf/open/misc/asteroid/forest,
+/area/forestplanet/outdoors/nospawn)
+"u" = (
+/obj/structure/flora/bush/sparsegrass/style_random,
+/turf/open/misc/asteroid/forest,
+/area/forestplanet/outdoors/nospawn)
+"x" = (
+/obj/structure/lattice/catwalk,
+/obj/structure/marker_beacon/cerulean,
+/turf/open/misc/sandy_dirt/forest,
+/area/forestplanet/outdoors/nospawn)
+"C" = (
+/obj/structure/flora/bush/grassy/style_random,
+/turf/open/misc/asteroid/forest,
+/area/forestplanet/outdoors/nospawn)
+"R" = (
+/obj/structure/flora/bush/ferny/style_random,
+/turf/open/misc/asteroid/forest,
+/area/forestplanet/outdoors/nospawn)
+"Z" = (
+/obj/machinery/spaceship_navigation_beacon{
+	pixel_y = 23;
+	pixel_x = -7;
+	name = "nanotrasen radio navigation gigabeacon"
+	},
+/obj/item/gps/computer/beacon{
+	pixel_y = 27;
+	pixel_x = 8;
+	gpstag = "NT-STATION"
+	},
+/obj/structure/fluff{
+	icon = 'icons/mob/simple/hivebot.dmi';
+	icon_state = "def_radar-off";
+	name = "radio dish component";
+	desc = "Remarkable Nanotrasen technology. This does... something to make the radio dish work."
+	},
+/obj/structure/fluff/sat_dish{
+	dir = 1;
+	pixel_x = -11;
+	pixel_y = -14
+	},
+/obj/structure/fluff/sat_dish{
+	dir = 4;
+	pixel_y = 1;
+	pixel_x = 17
+	},
+/obj/structure/fluff/sat_dish{
+	pixel_y = 6;
+	pixel_x = -11
+	},
+/obj/machinery/power/rtg/portable{
+	pixel_y = -12;
+	pixel_x = 5
+	},
+/turf/open/misc/sandy_dirt/forest,
+/area/forestplanet/outdoors/nospawn)
+
+(1,1,1) = {"
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+u
+a
+"}
+(2,1,1) = {"
+a
+a
+a
+u
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+"}
+(3,1,1) = {"
+a
+a
+a
+a
+a
+a
+a
+a
+q
+a
+a
+a
+a
+a
+"}
+(4,1,1) = {"
+a
+a
+a
+a
+a
+a
+a
+R
+a
+a
+a
+a
+a
+a
+"}
+(5,1,1) = {"
+a
+a
+a
+C
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+"}
+(6,1,1) = {"
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+k
+a
+a
+"}
+(7,1,1) = {"
+k
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+"}
+(8,1,1) = {"
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+"}
+(9,1,1) = {"
+a
+a
+p
+n
+p
+a
+a
+a
+a
+a
+a
+a
+a
+a
+"}
+(10,1,1) = {"
+a
+a
+x
+Z
+x
+s
+a
+a
+a
+a
+a
+a
+a
+a
+"}
+(11,1,1) = {"
+a
+a
+p
+n
+p
+a
+a
+a
+a
+u
+a
+a
+a
+a
+"}
+(12,1,1) = {"
+a
+a
+a
+a
+a
+a
+a
+C
+a
+a
+a
+a
+u
+a
+"}
+(13,1,1) = {"
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+"}
+(14,1,1) = {"
+a
+a
+C
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+"}
+(15,1,1) = {"
+a
+a
+a
+a
+a
+u
+a
+a
+a
+a
+C
+a
+a
+a
+"}
+(16,1,1) = {"
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+"}
+(17,1,1) = {"
+q
+a
+a
+a
+a
+a
+a
+k
+a
+a
+a
+a
+R
+a
+"}
+(18,1,1) = {"
+a
+a
+a
+R
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+"}

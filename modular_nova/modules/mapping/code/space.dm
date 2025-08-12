@@ -175,9 +175,10 @@
 	name = "Space-Ruin Anchor Buoy"
 	id = "nova-anchor-buoy-space-1"
 	description = "A little one-way-launch navigation beacon for the charting of unexplored space."
-	suffix = "beacon_space.dmm"
+	suffix = "beacon.dmm"
 	cost = 0
 	always_place = TRUE
+	allow_duplicates = FALSE
 
 /obj/modular_map_root/port_tarkon
 	config_file = "strings/modular_maps/nova/PortTarkon.toml"
