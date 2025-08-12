@@ -179,8 +179,8 @@
 	item_type = /obj/item/ammo_box/magazine/miecz/spawns_empty
 
 /datum/armament_entry/company_import/nri_surplus/firearm_ammo/zaibas
-	item_type = /obj/item/ammo_box/magazine/pulse
-	cost = PAYCHECK_CREW * 3
+	item_type = /obj/item/ammo_box/magazine/pulse/spawns_empty
+	cost = PAYCHECK_CREW * 2
 
 /datum/armament_entry/company_import/nri_surplus/firearm_ammo/napad
 	item_type = /obj/item/ammo_box/magazine/napad/spawns_empty

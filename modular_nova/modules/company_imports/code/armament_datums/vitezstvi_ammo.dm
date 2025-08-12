@@ -97,7 +97,8 @@
 
 /datum/armament_entry/company_import/vitezstvi/ammo_boxes/zaibas_ammo
 	item_type = /obj/item/ammo_box/pulse_cargo_box
-	cost = PAYCHECK_COMMAND
+	//It's like, a lot of ammo compared to other packages; high-capacity universal ammo for all pulse plasma guns.
+	cost = PAYCHECK_COMMAND * 2
 
 /datum/armament_entry/company_import/vitezstvi/ammo_boxes/strilka_lethal
 	item_type = /obj/item/ammo_box/c310_cargo_box
