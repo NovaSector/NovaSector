@@ -1,0 +1,5 @@
+author: "OrbisAnima"
+delete-after: True
+changes:
+  - balance: "Cargo Materials export value has been reduced. Gold and silver were reduced to 50%. Uranium, Plasma, Titanium, Plastitanium, Alien alloys and Plasteel were reduced to 25%. Bluespace crystals were reduced to 13%, Diamonds were reduced to 10%."
+  - balance: "Materials Elascitity was prolonged, they recover after 30 minutes ish. Plasma now has elasticity like the rest of the materials."
