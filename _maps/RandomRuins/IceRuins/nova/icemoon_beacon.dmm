@@ -2,7 +2,7 @@
 "a" = (
 /obj/structure/lattice,
 /turf/open/misc/asteroid/snow/icemoon,
-/area/forestplanet/outdoors/nospawn)
+/area/icemoon/surface/outdoors/nospawn)
 "f" = (
 /obj/docking_port/stationary{
 	dir = 2;
@@ -13,11 +13,11 @@
 	width = 35
 	},
 /turf/open/misc/asteroid/snow/icemoon,
-/area/forestplanet/outdoors/nospawn)
+/area/icemoon/surface/outdoors/nospawn)
 "h" = (
 /obj/structure/flora/tree/pine/style_random,
 /turf/open/misc/asteroid/snow/icemoon,
-/area/forestplanet/outdoors/nospawn)
+/area/icemoon/surface/outdoors/nospawn)
 "k" = (
 /obj/item/gps/computer/beacon{
 	pixel_y = 27;
@@ -53,28 +53,28 @@
 	pixel_x = 5
 	},
 /turf/open/misc/sandy_dirt/forest,
-/area/forestplanet/outdoors/nospawn)
+/area/icemoon/surface/outdoors/nospawn)
 "n" = (
 /turf/open/misc/asteroid/snow/icemoon,
-/area/forestplanet/outdoors/nospawn)
+/area/icemoon/surface/outdoors/nospawn)
 "p" = (
 /obj/structure/flora/grass/both/style_random,
 /turf/open/misc/asteroid/snow/icemoon,
-/area/forestplanet/outdoors/nospawn)
+/area/icemoon/surface/outdoors/nospawn)
 "u" = (
 /obj/structure/lattice/catwalk,
 /obj/structure/marker_beacon/cerulean,
 /turf/open/misc/sandy_dirt/forest,
-/area/forestplanet/outdoors/nospawn)
+/area/icemoon/surface/outdoors/nospawn)
 "K" = (
 /obj/structure/statue/snow/snowman,
 /turf/open/misc/asteroid/snow/icemoon,
-/area/forestplanet/outdoors/nospawn)
+/area/icemoon/surface/outdoors/nospawn)
 "Z" = (
 /obj/structure/lattice/catwalk,
 /obj/structure/marker_beacon/indigo,
 /turf/open/misc/sandy_dirt/forest,
-/area/forestplanet/outdoors/nospawn)
+/area/icemoon/surface/outdoors/nospawn)
 
 (1,1,1) = {"
 n
