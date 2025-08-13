@@ -12,7 +12,7 @@
 	assigned_icon_state = null
 
 // Interdyne (Deck Officer's)
-/obj/item/card/id/advanced/chameleon/black/silver
+/obj/item/card/id/advanced/chameleon/elite/black/silver
 	name = "silver identification card"
 	desc = "A silver card which shows honour and dedication."
 	icon_state = "card_silver"

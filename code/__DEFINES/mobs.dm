@@ -720,23 +720,25 @@ GLOBAL_LIST_INIT(human_heights_to_offsets, list(
 /// Total number of layers for mob overlays
 /// KEEP THIS UP-TO-DATE OR SHIT WILL BREAK
 /// Also consider updating layers_to_offset
-#define TOTAL_LAYERS 42 // NOVA EDIT CHANGE - ORIGINAL: 36
+#define TOTAL_LAYERS 44 // NOVA EDIT CHANGE - ORIGINAL: #define TOTAL_LAYERS 38
 /// Mutations layer - Tk headglows, cold resistance glow, etc
-#define MUTATIONS_LAYER 42 // NOVA EDIT CHANGE - ORIGINAL: 36
+#define MUTATIONS_LAYER 43 // NOVA EDIT CHANGE - ORIGINAL: #define MUTATIONS_LAYER 37
 /// Mutantrace features (tail when looking south) that must appear behind the body parts
-#define BODY_BEHIND_LAYER 41 // NOVA EDIT CHANGE - ORIGINAL: 35
+#define BODY_BEHIND_LAYER 42 // NOVA EDIT CHANGE - ORIGINAL: #define BODY_BEHIND_LAYER 36
 /// Layer for bodyparts that should appear behind every other bodypart - Mostly, legs when facing WEST or EAST
-#define BODYPARTS_LOW_LAYER 40 // NOVA EDIT CHANGE - ORIGINAL: 34
+#define BODYPARTS_LOW_LAYER 41 // NOVA EDIT CHANGE - ORIGINAL: #define BODYPARTS_LOW_LAYER 35
 /// Layer for most bodyparts, appears above BODYPARTS_LOW_LAYER and below BODYPARTS_HIGH_LAYER
-#define BODYPARTS_LAYER 39 // NOVA EDIT CHANGE - ORIGINAL: 33
+#define BODYPARTS_LAYER 40 // NOVA EDIT CHANGE - ORIGINAL: #define BODYPARTS_LAYER 34
 /// Mutantrace features (snout, body markings) that must appear above the body parts
-#define BODY_ADJ_LAYER 38 // NOVA EDIT CHANGE - ORIGINAL: 32
-/// Underwear, undershirts, socks, eyes, lips(makeup)
-#define BODY_LAYER 37 // NOVA EDIT CHANGE - ORIGINAL: 31
+#define BODY_ADJ_LAYER 39 // NOVA EDIT CHANGE - ORIGINAL: #define BODY_ADJ_LAYER 33
+/// Underwear, undershirts, socks
+#define BODY_LAYER 38 // NOVA EDIT CHANGE - ORIGINAL: #define BODY_LAYER 32
+/// Eyes and eyelids
+#define EYES_LAYER 37 // NOVA EDIT CHANGE - ORIGINAL: #define EYES_LAYER 31
 /// Mutations that should appear above body, body_adj and bodyparts layer (e.g. laser eyes)
-#define FRONT_MUTATIONS_LAYER 36 // NOVA EDIT CHANGE - ORIGINAL: 30
+#define FRONT_MUTATIONS_LAYER 36 // NOVA EDIT CHANGE - ORIGINAL: #define FRONT_MUTATIONS_LAYER 30
 /// Damage indicators (cuts and burns)
-#define DAMAGE_LAYER 35 // NOVA EDIT CHANGE - ORIGINAL: 29
+#define DAMAGE_LAYER 35 // NOVA EDIT CHANGE - ORIGINAL: #define DAMAGE_LAYER 29
 // NOVA EDIT ADDITION START
 /// This layer is used for things that shouldn't be over clothes, but should be over mutations
 #define BODY_FRONT_UNDER_CLOTHES 34
@@ -842,7 +844,8 @@ GLOBAL_LIST_INIT(layers_to_offset, list(
 	// to show how many filters are added at a glance
 	// BACK_LAYER (backpacks are big)
 	// BODYPARTS_HIGH_LAYER (arms)
-	// BODY_LAYER (body markings (full body), underwear (full body), eyes)
+	// BODY_LAYER (body markings (full body), underwear (full body))
+	// EYES_LAYER,
 	// BODY_ADJ_LAYER (external organs like wings)
 	// BODY_BEHIND_LAYER (external organs like wings)
 	// BODY_FRONT_LAYER (external organs like wings)

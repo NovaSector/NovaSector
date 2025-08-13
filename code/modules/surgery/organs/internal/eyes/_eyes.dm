@@ -277,7 +277,6 @@
 
 	var/obj/item/bodypart/head/my_head = parent.get_bodypart(BODY_ZONE_HEAD) // NOVA EDIT ADDITION
 	var/eye_icon = my_head?.eyes_icon || 'icons/mob/human/human_face.dmi' // NOVA EDIT ADDITION
-
 	var/mutable_appearance/eye_left = mutable_appearance(eye_icon, "[eye_icon_state]_l", -eyes_layer, parent) // NOVA EDIT CHANGE - Customization - ORIGINAL: var/mutable_appearance/eye_left = mutable_appearance('icons/mob/human/human_face.dmi', "[eye_icon_state]_l", -BODY_LAYER, parent)
 	var/mutable_appearance/eye_right = mutable_appearance(eye_icon, "[eye_icon_state]_r", -eyes_layer, parent) // NOVA EDIT CHANGE - Customization - ORIGINAL: var/mutable_appearance/eye_right = mutable_appearance('icons/mob/human/human_face.dmi', "[eye_icon_state]_r", -BODY_LAYER, parent)
 	var/list/overlays = list(eye_left, eye_right)
@@ -300,12 +299,12 @@
 			overlays += eyelids
 
 	if (scarring & RIGHT_EYE_SCAR)
-		var/mutable_appearance/right_scar = mutable_appearance('icons/mob/human/human_face.dmi', "eye_scar_right", -BODY_LAYER, parent)
+		var/mutable_appearance/right_scar = mutable_appearance('icons/mob/human/human_face.dmi', "eye_scar_right", -EYES_LAYER, parent)
 		right_scar.color = my_head.draw_color
 		overlays += right_scar
 
 	if (scarring & LEFT_EYE_SCAR)
-		var/mutable_appearance/left_scar = mutable_appearance('icons/mob/human/human_face.dmi', "eye_scar_left", -BODY_LAYER, parent)
+		var/mutable_appearance/left_scar = mutable_appearance('icons/mob/human/human_face.dmi', "eye_scar_left", -EYES_LAYER, parent)
 		left_scar.color = my_head.draw_color
 		overlays += left_scar
 
@@ -478,8 +477,8 @@
 	parent.vis_contents += eyelid_left
 	parent.vis_contents += eyelid_right
 	animate_eyelids(parent)
-	var/mutable_appearance/left_eyelid_overlay = mutable_appearance(layer = -BODY_LAYER, offset_spokesman = parent)
-	var/mutable_appearance/right_eyelid_overlay = mutable_appearance(layer = -BODY_LAYER, offset_spokesman = parent)
+	var/mutable_appearance/left_eyelid_overlay = mutable_appearance(layer = -EYES_LAYER, offset_spokesman = parent)
+	var/mutable_appearance/right_eyelid_overlay = mutable_appearance(layer = -EYES_LAYER, offset_spokesman = parent)
 	left_eyelid_overlay.render_source = "*[REF(parent)]_eyelid_left"
 	right_eyelid_overlay.render_source = "*[REF(parent)]_eyelid_right"
 	return list(left_eyelid_overlay, right_eyelid_overlay)
@@ -542,6 +541,7 @@
 		addtimer(CALLBACK(src, PROC_REF(animate_eyelids), owner), blink_delay + duration)
 
 /obj/item/organ/eyes/proc/animate_eyelids(mob/living/carbon/human/parent)
+	if(CONFIG_GET(flag/disable_blinking)) return // NOVA EDIT ADDITION - CONFIG BLINKING
 	var/sync_blinking = synchronized_blinking && (parent.get_organ_loss(ORGAN_SLOT_BRAIN) < ASYNC_BLINKING_BRAIN_DAMAGE)
 	// Randomize order for unsynched animations
 	if (sync_blinking || prob(50))
@@ -554,7 +554,7 @@
 /obj/effect/abstract/eyelid_effect
 	name = "eyelid"
 	icon = 'icons/mob/human/human_face.dmi'
-	layer = -BODY_LAYER
+	layer = -EYES_LAYER
 	vis_flags = VIS_INHERIT_DIR | VIS_INHERIT_PLANE | VIS_INHERIT_ID
 
 /obj/effect/abstract/eyelid_effect/Initialize(mapload, new_state)

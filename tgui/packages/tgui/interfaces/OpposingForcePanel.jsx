@@ -25,7 +25,7 @@ export const OpposingForcePanel = (props) => {
   const { admin_mode, creator_ckey, owner_antag, opt_in_enabled } = data;
   return (
     <Window
-      title={'Opposing Force: ' + creator_ckey}
+      title={`Opposing Force: ${creator_ckey}`}
       width={585}
       height={840}
       theme={owner_antag ? 'syndicate' : 'admin'}
@@ -128,7 +128,7 @@ export const OpposingForceTab = (props) => {
         <Section
           title={
             handling_admin
-              ? 'Control - Handling Admin: ' + handling_admin
+              ? `Control - Handling Admin:  ${handling_admin}`
               : 'Control'
           }
         >
@@ -815,7 +815,7 @@ export const AdminTab = (props) => {
           ) : (
             objectives.map((objective, index) => (
               <Section
-                title={index + 1 + '. ' + objective.title}
+                title={`${index + 1}. ${objective.title}`}
                 key={objective.id}
               >
                 <Stack vertical>

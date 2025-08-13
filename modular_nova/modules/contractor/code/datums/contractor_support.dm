@@ -33,7 +33,7 @@
 	mask = /obj/item/cigarette/syndicate
 	shoes = /obj/item/clothing/shoes/chameleon/noslip
 	ears = /obj/item/radio/headset/chameleon
-	id = /obj/item/card/id/advanced/chameleon
+	id = /obj/item/card/id/advanced/chameleon/elite
 	r_hand = /obj/item/storage/toolbox/syndicate
 	id_trim = /datum/id_trim/chameleon/operative
 

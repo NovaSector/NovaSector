@@ -211,7 +211,7 @@ export const NtosRobotactContent = (props) => {
                     </LabeledList.Item>
                     {/* NOVA EDIT ADDITION END */}
                     <LabeledList.Item
-                      label={'Stored Photos (' + printerPictures + ')'}
+                      label={`Stored Photos (${printerPictures})`}
                     >
                       <Button
                         content="View"
@@ -432,7 +432,7 @@ export const NtosRobotactContent = (props) => {
                               }
                             >
                               {typeof cyborg.charge === 'number'
-                                ? cyborg.charge + '%'
+                                ? `${cyborg.charge}%`
                                 : 'No Cell'}
                             </Box>
                           </LabeledList.Item>

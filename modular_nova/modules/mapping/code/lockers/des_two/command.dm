@@ -99,9 +99,9 @@
 /obj/structure/closet/secure_closet/des_two/cl_locker/PopulateContents()
 	..()
 
-	new /obj/item/card/id/advanced/chameleon/black(src)
-	new /obj/item/card/id/advanced/chameleon/black(src)
-	new /obj/item/card/id/advanced/chameleon/black(src)
+	new /obj/item/card/id/advanced/chameleon/elite/black(src)
+	new /obj/item/card/id/advanced/chameleon/elite/black(src)
+	new /obj/item/card/id/advanced/chameleon/elite/black(src)
 	new /obj/item/encryptionkey/headset_syndicate/interdyne(src)
 	new /obj/item/encryptionkey/headset_syndicate/interdyne(src)
 	new /obj/item/encryptionkey/headset_syndicate/interdyne(src)

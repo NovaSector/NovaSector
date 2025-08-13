@@ -2814,7 +2814,7 @@
 /area/ruin/interdyne_planetary_base/main)
 "hI" = (
 /obj/machinery/light/small/directional/east,
-/obj/machinery/suit_storage_unit/syndicate/chameleon,
+/obj/machinery/suit_storage_unit/interdyne,
 /turf/open/floor/iron/dark/textured_large,
 /area/ruin/interdyne_planetary_base/main/vault)
 "hJ" = (
