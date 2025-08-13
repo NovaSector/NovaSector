@@ -16,3 +16,36 @@
 
 /obj/structure/fireplace/nova
 	icon = 'modular_nova/modules/aesthetics/furniture/icons/fireplace.dmi'
+
+/obj/structure/fireplace/nova/ignite()
+	START_PROCESSING(SSobj, src)
+	burning_loop.start()
+	lit = TRUE
+	desc = "A large stone brick fireplace, warm and cozy."
+	flame_expiry_timer = world.time + fuel_added
+	fuel_added = 0
+	update_appearance()
+	adjust_light()
+	var/obj/effect/abstract/shared_particle_holder/smoke_particles
+	var/particles_type = /particles/smoke/burning
+	var/pixelw
+	var/pixelz
+
+	switch(dir)
+		if(NORTH)
+			particles_type = /particles/smoke/burning/small
+			pixelw = 16
+			pixelz = -8
+		if(SOUTH)
+			pixelw = 16
+			pixelz = 45
+		if(EAST)
+			pixelw = -4
+			pixelz = 25
+		if(WEST)
+			pixelw = 36
+			pixelz = 25
+
+	smoke_particles = add_shared_particles(particles_type, "fireplace_[dir]")
+	smoke_particles.pixel_w = pixelw
+	smoke_particles.pixel_z = pixelz
