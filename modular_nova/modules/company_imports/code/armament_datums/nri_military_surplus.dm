@@ -102,7 +102,7 @@
 	cost = CARGO_CRATE_VALUE
 
 /datum/armament_entry/company_import/nri_surplus/misc/nri_flag
-	item_type = /obj/item/sign/flag/nri
+	item_type = /obj/item/sign/flag/hc
 	cost = PAYCHECK_CREW * 0.5
 
 /datum/armament_entry/company_import/nri_surplus/firearm

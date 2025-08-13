@@ -62,13 +62,13 @@
 	icon_state = "flag_solfed"
 	item_flag = /obj/item/sign/flag/terragov
 
-/obj/structure/sign/flag/nri
-	name = "flag of the Novaya Rossiyskaya Imperiya"
-	desc = "The flag of the Novaya Rossiyskaya Imperiya. The yellow, black and white colours represent its sovereignity, spirituality and pureness."
-	icon_state = "flag_nri"
-	item_flag = /obj/item/sign/flag/nri
+/obj/structure/sign/flag/hc
+	name = "flag of the Heliostatic Coalition"
+	desc = "The flag of the Heliostatic Coalition. The yellow, black and white colours represent its sovereignity, spirituality and pureness."
+	icon_state = "flag_hc"
+	item_flag = /obj/item/sign/flag/hc
 
-MAPPING_DIRECTIONAL_HELPERS(/obj/structure/sign/flag/nri, 32)
+MAPPING_DIRECTIONAL_HELPERS(/obj/structure/sign/flag/hc, 32)
 
 /obj/structure/sign/flag/azulea
 	name = "flag of the Azulean Nation"
@@ -152,11 +152,11 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/structure/sign/flag/interdyne, 32)
 	icon_state = "folded_mars"
 	sign_path = /obj/structure/sign/flag/mars
 
-/obj/item/sign/flag/nri
-	name = "folded flag of the Novaya Rossiyskaya Imperiya"
-	desc = "The folded flag of the Novaya Rossiyskaya Imperiya."
-	icon_state = "folded_nri"
-	sign_path = /obj/structure/sign/flag/nri
+/obj/item/sign/flag/hc
+	name = "folded flag of the Heliostatic Coalition"
+	desc = "The folded flag of the Heliostatic Coalition."
+	icon_state = "folded_hc"
+	sign_path = /obj/structure/sign/flag/hc
 
 /obj/item/sign/flag/azulea
 	name = "folded flag of Azulea"
