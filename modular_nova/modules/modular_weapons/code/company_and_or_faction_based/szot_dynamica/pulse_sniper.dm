@@ -26,6 +26,7 @@
 	spread = 2.5
 	recoil = 1
 	projectile_damage_multiplier = 2
+	projectile_speed_multiplier = 2.5
 
 	weapon_weight = WEAPON_HEAVY
 	internal_magazine = TRUE
