@@ -213,7 +213,7 @@ export async function get_updated_label_set({ github, context }) {
   for (const eventData of events.data) {
     if (
       eventData.event === "labeled" &&
-      eventData.actor?.login !== context.actor
+      eventData.actor?.login !== "github-actions"
     ) {
       updated_labels.add(eventData.label.name);
     }
