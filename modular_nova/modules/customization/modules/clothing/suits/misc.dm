@@ -372,16 +372,6 @@
 	gets_cropped_on_taurs = FALSE
 	slot_flags = ITEM_SLOT_OCLOTHING|ITEM_SLOT_NECK
 
-/// I have nowhere ellse to put tthis so
-
-/obj/item/clothing/suit/toggle/jacket/nova/bridge_officer
-	name = "bridge officer's jacket"
-	desc = "It's a blue and silver jacket indicating that of a \"Bridge Officer\"."
-	icon_state = "bo_dept_jacket"
-	icon = 'modular_nova/master_files/icons/obj/clothing/suits.dmi'
-	worn_icon = 'modular_nova/master_files/icons/mob/clothing/suit.dmi'
-	worn_icon_digi = 'modular_nova/master_files/icons/mob/clothing/suit_digi.dmi'
-	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION_NO_NEW_ICON
 
 /obj/item/clothing/suit/nova
 	icon = 'modular_nova/master_files/icons/obj/clothing/suits.dmi'
