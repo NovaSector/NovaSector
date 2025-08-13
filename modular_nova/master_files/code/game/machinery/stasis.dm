@@ -7,7 +7,8 @@
 	. = ..()
 	var/obj/item/circuitboard/machine/stasis/board = circuit
 	if (board.fresh)
-		if (is_station_level(z))
+		var/area/my_area = get_area(src)
+		if(my_area.type in GLOB.the_station_areas)
 			announce = TRUE
 			board.announce = TRUE
 		board.fresh = FALSE
