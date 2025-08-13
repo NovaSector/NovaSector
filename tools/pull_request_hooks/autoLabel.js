@@ -196,14 +196,10 @@ export async function get_updated_label_set({ github, context }) {
   }
 
   // Check body/title only when PR is opened, not on sync
-  if (action === "opened") {
-    if (title)
-      check_title_for_labels(title).forEach((label) =>
-        updated_labels.add(label)
-      );
-    if (body)
-      check_body_for_labels(body).forEach((label) => updated_labels.add(label));
-  }
+  if (title)
+    check_title_for_labels(title).forEach((label) => updated_labels.add(label));
+  if (body)
+    check_body_for_labels(body).forEach((label) => updated_labels.add(label));
 
   // Always remove Test Merge Candidate
   updated_labels.delete("Test Merge Candidate");
@@ -212,7 +208,7 @@ export async function get_updated_label_set({ github, context }) {
   const events = await github.rest.issues.listEventsForTimeline({
     owner: context.repo.owner,
     repo: context.repo.repo,
-    pull_number: context.payload.pull_request.number,
+    issue_number: context.payload.pull_request.number,
     per_page: 100,
   });
   for (const eventData of events.data) {
