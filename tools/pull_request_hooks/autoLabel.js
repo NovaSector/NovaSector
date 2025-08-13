@@ -172,9 +172,6 @@ async function check_diff_files_for_labels(github, context) {
   return { labels_to_add, labels_to_remove };
 }
 
-/**
- * Main function to get the updated label set
- */
 export async function get_updated_label_set({ github, context }) {
   const { action, pull_request } = context.payload;
   const {
