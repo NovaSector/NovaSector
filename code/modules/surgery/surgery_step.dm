@@ -101,7 +101,7 @@
 	if(target.buckled)
 		var/obj/machinery/stasis/stasis_bed = target.buckled
 		if(istype(stasis_bed) && stasis_bed.stasis_enabled)
-			to_chat(user, span_warning("[target] cannot be operated in the [target.buckled], as the machine interferes with the surgery!"))
+			to_chat(user, span_warning("[target] cannot be operated in the [target.buckled] while it is turned on!"))
 			surgery.step_in_progress = FALSE
 			return FALSE
 	// NOVA EDIT ADDITION END -
