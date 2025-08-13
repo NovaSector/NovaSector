@@ -43,6 +43,7 @@
 	var/remaining_uses = 15
 	var/suppress_use_consumption = FALSE
 	harmful = FALSE
+	print_cost = 14 //Assume bulk order discount
 
 /obj/item/ammo_casing/pulse/Initialize(mapload)
 	. = ..()
