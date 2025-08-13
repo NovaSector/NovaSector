@@ -230,7 +230,7 @@ export async function get_updated_label_set({ github, context }) {
     console.error("Error fetching paginated events:", error);
   }
 
-  // Handle merge conflict label
+  // Handle merge conflict l
   let merge_conflict = mergeable === false;
   // null means it was not reported yet
   // it is not normally included in the payload - a "get" is needed
