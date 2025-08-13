@@ -176,7 +176,7 @@ async function check_diff_files_for_labels(github, context) {
  * Main function to get the updated label set
  */
 export async function get_updated_label_set({ github, context }) {
-  const { action, pull_request } = context.payload;
+  const { pull_request } = context.payload;
   const {
     body = "",
     diff_url,
@@ -195,7 +195,7 @@ export async function get_updated_label_set({ github, context }) {
     labels_to_remove.forEach((label) => updated_labels.delete(label));
   }
 
-  // Check body/title only when PR is opened, not on sync
+  // Always check body/title (otherwise we can lose the changelog labels)
   if (title)
     check_title_for_labels(title).forEach((label) => updated_labels.add(label));
   if (body)
@@ -204,20 +204,30 @@ export async function get_updated_label_set({ github, context }) {
   // Always remove Test Merge Candidate
   updated_labels.delete("Test Merge Candidate");
 
-  // Keep track of labels that were manually added by maintainers
-  const events = await github.rest.issues.listEventsForTimeline({
-    owner: context.repo.owner,
-    repo: context.repo.repo,
-    issue_number: context.payload.pull_request.number,
-    per_page: 100,
-  });
-  for (const eventData of events.data) {
-    if (
-      eventData.event === "labeled" &&
-      eventData.actor?.login !== context.actor
-    ) {
-      updated_labels.add(eventData.label.name);
-    }
+  // Keep track of labels that were manually added by maintainers in the events.
+  // And make sure they -stay- added.
+  try {
+    await github.paginate(
+      github.rest.issues.listEventsForTimeline,
+      {
+        owner: context.repo.owner,
+        repo: context.repo.repo,
+        issue_number: context.payload.pull_request.number,
+        per_page: 100,
+      },
+      (response) => {
+        for (const eventData of response.data) {
+          if (
+            eventData.event === "labeled" &&
+            eventData.actor?.login !== "github-actions"
+          ) {
+            updated_labels.add(eventData.label.name);
+          }
+        }
+      }
+    );
+  } catch (error) {
+    console.error("Error fetching paginated events:", error);
   }
 
   // Handle merge conflict label
