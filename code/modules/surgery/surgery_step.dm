@@ -100,7 +100,7 @@
 	// NOVA EDIT ADDITION START - Makes it so you cannot operate on people in turned on Stasis Beds, unless we are doing a blood filter surgery
 	if(target.buckled)
 		var/obj/machinery/stasis/stasis_bed = target.buckled
-		if(istype(stasis_bed) && stasis_bed.stasis_enabled && !istype(surgery, /datum/surgery/blood_filter))
+		if(istype(stasis_bed) && stasis_bed.stasis_enabled)
 			to_chat(user, span_warning("[target] cannot be operated in the [target.buckled], as the machine interferes with the surgery!"))
 			surgery.step_in_progress = FALSE
 			return FALSE
