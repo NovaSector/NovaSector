@@ -97,7 +97,7 @@
 	var/fail_prob = 0//100 - fail_prob = success_prob
 	var/advance = FALSE
 
-	// NOVA EDIT ADDITION START - Makes it so you cannot operate on people in turned on Stasis Beds, unless we are doing a blood filter surgery
+	// NOVA EDIT ADDITION START - Makes it so you cannot operate on people in turned on Stasis Beds
 	if(target.buckled)
 		var/obj/machinery/stasis/stasis_bed = target.buckled
 		if(istype(stasis_bed) && stasis_bed.stasis_enabled)
