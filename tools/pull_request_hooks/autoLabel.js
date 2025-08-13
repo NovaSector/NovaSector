@@ -16,7 +16,7 @@ const keywordToClLabel = (() => {
 })();
 
 /**
- * Precompute title keyword Sets per label for O(1) lookup
+ * Precompute title keyword Sets per label for O(1) looku
  */
 const titleKeywordSets = (() => {
   const map = {};
