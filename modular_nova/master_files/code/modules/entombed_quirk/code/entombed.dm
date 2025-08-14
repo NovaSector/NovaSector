@@ -224,6 +224,15 @@
 	savefile_identifier = PREFERENCE_CHARACTER
 	can_randomize = FALSE
 
+/datum/preference/choiced/entombed_hardlight_theme/apply_to_human(mob/living/carbon/human/target, value)
+	return
+
+/datum/preference/choiced/entombed_hardlight_theme/is_accessible(datum/preferences/preferences)
+	if (!..())
+		return FALSE
+
+	return "Entombed" in preferences.all_quirks
+
 /datum/preference/choiced/entombed_hardlight_theme/init_possible_values()
     return list(
         "Standard Blue",
