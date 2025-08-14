@@ -29,8 +29,11 @@
 	custom_materials = list(/datum/material/iron = SHEET_MATERIAL_AMOUNT*0.25, /datum/material/plasma = SHEET_MATERIAL_AMOUNT*2, /datum/material/gold = SHEET_MATERIAL_AMOUNT*0.75)
 	caliber = "pulse"
 	projectile_type = /obj/projectile/beam/laser/plasma_glob/pulse
+	///Maximum amount of times this casing can be used.
 	var/max_uses = 15
+	///Current amount of times this casing can be used.
 	var/remaining_uses = 15
+	///If TRUE, this casing will not consume uses when fired; relying on the gun to do that instead.
 	var/suppress_use_consumption = FALSE
 	harmful = FALSE
 	print_cost = 14 //Assume bulk order discount

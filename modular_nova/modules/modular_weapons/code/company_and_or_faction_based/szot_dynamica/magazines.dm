@@ -152,7 +152,9 @@
 	caliber = "pulse"
 	max_ammo = 3
 	multiple_sprites = AMMO_BOX_FULL_EMPTY
+	///Purely flavor short designation that appears in the magazines' notes.
 	var/magazine_designation = "'SD-3C'"
+	///Lore blurb that appears on examining twice.
 	var/lore_blurb = "The 'SD-3C' magazine exists solely because of Carwo Defense Systems' lobbying. While Coalition-designed Žaibas rifles typically use eight-plug military mags (120 pulses total), \
 		Carwo pushed SolFed legislators to restrict plug counts — not realizing Szot Dynamica's plasma plugs each hold fifteen pulses. The result? This 'compliant' 3-plug magazine still delivers \
 		45 pulses — still outclassing Carwo's own ballistic rifles in sheer volume of fire.<br><br>\
@@ -200,16 +202,6 @@
 
 /obj/item/ammo_box/magazine/pulse/top_off(load_type, starting=FALSE)
 	. = ..(load_type, starting = FALSE)
-
-/obj/item/ammo_box/magazine/pulse/get_round()
-	var/ammo_len = length(stored_ammo)
-	if(!ammo_len)
-		return null
-	var/obj/item/ammo_casing/casing = stored_ammo[ammo_len]
-	if(ispath(casing)) // Shouldn't happen with our changes, but good to have as a fallback
-		casing = new casing(src)
-		stored_ammo[ammo_len] = casing
-	return casing
 
 /obj/item/ammo_box/magazine/pulse/spawns_empty
 	start_empty = TRUE
