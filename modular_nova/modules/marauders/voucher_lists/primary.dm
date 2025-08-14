@@ -86,6 +86,16 @@
 		/obj/item/ammo_box/magazine/pulse,
 	)
 
+/datum/voucher_set/traitor/primary_weapon/pulse_sniper
+	name = /obj/item/gun/ballistic/rifle/pulse_sniper::name
+	description = "A high-power, hybrid sniper rifle running on fifteen shot 'plugs' instead of conventional bullets; pulling three shots per use."
+	icon = /obj/item/gun/ballistic/rifle/pulse_sniper::icon
+	icon_state = /obj/item/gun/ballistic/rifle/pulse_sniper::icon_state
+	set_items = list(
+		/obj/item/gun/ballistic/rifle/pulse_sniper,
+		/obj/item/ammo_box/pulse_cargo_box,
+	)
+
 /datum/voucher_set/traitor/primary_weapon/lanca
 	name = /obj/item/gun/ballistic/automatic/lanca::name
 	description = /obj/item/gun/ballistic/automatic/lanca::desc
