@@ -57,6 +57,9 @@
 	var/obj/effect/overlay/holo_pad_hologram/hologram = GLOB.hologram_impersonators[user]
 	if(hologram)
 		viewers |= get_hearers_in_view(SUBTLE_ONE_TILE, hologram)
+	for(var/obj/item/dullahan_relay/dullahan in viewers)
+		viewers -= dullahan
+		viewers += dullahan.owner
 
 	for(var/obj/effect/overlay/holo_pad_hologram/iterating_hologram in viewers)
 		if(iterating_hologram?.Impersonation?.client)
@@ -110,6 +113,10 @@
 		in_view -= GLOB.dead_mob_list
 		in_view.Remove(user)
 
+		for(var/obj/item/dullahan_relay/dullahan in in_view)
+			in_view -= dullahan
+			if(user != dullahan.owner)
+				in_view += dullahan.owner
 		for(var/mob/mob in in_view) // Filters out the AI eye and clientless mobs.
 			if(!istype(mob, /mob/eye/camera/ai))
 				continue
@@ -172,6 +179,9 @@
 		for(var/obj/effect/overlay/holo_pad_hologram/holo in ghostless)
 			if(holo?.Impersonation?.client)
 				ghostless |= holo.Impersonation
+		for(var/obj/item/dullahan_relay/dullahan in ghostless)
+			ghostless -= dullahan
+			ghostless += dullahan.owner
 
 		for(var/mob/receiver in ghostless)
 			receiver.show_message(subtler_message, alt_msg = subtler_message)
