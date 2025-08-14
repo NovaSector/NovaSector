@@ -234,26 +234,26 @@
 	return "Entombed" in preferences.all_quirks
 
 /datum/preference/choiced/entombed_hardlight_theme/init_possible_values()
-    return list(
-        "Standard Blue",
-        "Alert Amber",
-        "Contractor Red",
-        "Extrashield Green",
-        "Evil Green",
-        "Royal Purple",
-        "Hazard Orange",
-        "Cosmic Blue",
-    )
+	return list(
+		"Standard Blue",
+		"Alert Amber",
+		"Contractor Red",
+		"Extrashield Green",
+		"Evil Green",
+		"Royal Purple",
+		"Hazard Orange",
+		"Cosmic Blue",
+	)
 
 var/list/hardlight_display_names = list(
-    "Standard Blue" = "standard_blue",
-    "Alert Amber" = "alert_amber",
-    "Contractor Red" = "contractor_red",
-    "Extrashield Green" = "extrashield_green",
-    "Evil Green" = "evil_green",
-    "Royal Purple" = "royal_purple",
-    "Hazard Orange" = "hazard_orange",
-    "Cosmic Blue" = "cosmic_blue"
+	"Standard Blue" = "standard_blue",
+	"Alert Amber" = "alert_amber",
+	"Contractor Red" = "contractor_red",
+	"Extrashield Green" = "extrashield_green",
+	"Evil Green" = "evil_green",
+	"Royal Purple" = "royal_purple",
+	"Hazard Orange" = "hazard_orange",
+	"Cosmic Blue" = "cosmic_blue"
 )
 
 /datum/preference/choiced/entombed_skin/create_default_value()
