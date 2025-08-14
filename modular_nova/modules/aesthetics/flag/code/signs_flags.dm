@@ -52,7 +52,8 @@
 
 /obj/structure/sign/flag/mars
 	name = "flag of the Teshari League for Self-Determination"
-	desc = "The flag of the Teshari League for Self-Determination. Originally a revolutionary flag during the time of the Republic of the Golden Feather, it has since been adopted as the official flag of the planet, as a reminder of how Teshari fought for representation and independence."
+	desc = "The flag of the Teshari League for Self-Determination. Originally a revolutionary flag during the time of the Republic of the Golden Feather, \
+	it has since been adopted as the official flag of the planet, as a reminder of how Teshari fought for representation and independence."
 	icon_state = "flag_mars"
 	item_flag = /obj/item/sign/flag/mars
 
@@ -64,7 +65,8 @@
 
 /obj/structure/sign/flag/hc
 	name = "flag of the Heliostatic Coalition"
-	desc = "The flag of the Heliostatic Coalition. The yellow, black and white colours represent its sovereignity, spirituality and pureness."
+	desc = "The flag of the Heliostatic Coalition. The yellow, black and white colours represent its sovereignity, spirituality and pureness. \
+	The thing is, there's none of those colors LMAO."
 	icon_state = "flag_hc"
 	item_flag = /obj/item/sign/flag/hc
 
@@ -83,7 +85,8 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/structure/sign/flag/azulea, 32)
 
 /obj/structure/sign/flag/syndicate
 	name = "flag of the Syndicate"
-	desc = "The flag of the Sothran Syndicate. Previously used by the Sothran people as a way of declaring opposition against the Nanotrasen, now it became an intergalactic symbol of the same, yet way more skewed purpose, as more groups of interest have joined the rebellion's side for their own gain."
+	desc = "The flag of the Sothran Syndicate. Previously used by the Sothran people as a way of declaring opposition against the Nanotrasen, \
+	now it became an intergalactic symbol of the same, yet way more skewed purpose, as more groups of interest have joined the rebellion's side for their own gain."
 	icon_state = "flag_syndi"
 	item_flag = /obj/item/sign/flag/syndicate
 

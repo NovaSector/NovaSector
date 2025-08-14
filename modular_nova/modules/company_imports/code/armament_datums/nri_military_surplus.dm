@@ -101,7 +101,7 @@
 	item_type = /obj/item/reagent_containers/cup/glass/waterbottle/large/protozine
 	cost = CARGO_CRATE_VALUE
 
-/datum/armament_entry/company_import/nri_surplus/misc/nri_flag
+/datum/armament_entry/company_import/nri_surplus/misc/hc_flag
 	item_type = /obj/item/sign/flag/hc
 	cost = PAYCHECK_CREW * 0.5
 
