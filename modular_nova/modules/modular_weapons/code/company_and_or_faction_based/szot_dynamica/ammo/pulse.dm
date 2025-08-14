@@ -19,7 +19,8 @@
 	AddElement(/datum/element/manufacturer_examine, COMPANY_SZOT)
 
 /obj/item/ammo_box/pulse_cargo_box/top_off(load_type, starting=FALSE)
-	. = ..(load_type, starting = FALSE) // Always create new instances rather than storing paths
+// Always create new instances rather than storing paths. Due to the nature of the pulse cartridges, this is important to properly track remaining ammo.
+	. = ..(load_type, starting = FALSE)
 
 /obj/item/ammo_casing/pulse
 	name = "pulse energy cell"
