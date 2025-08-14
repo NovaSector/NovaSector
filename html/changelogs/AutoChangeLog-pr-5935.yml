@@ -1,0 +1,4 @@
+author: "carpotoxin"
+delete-after: True
+changes:
+  - bugfix: "Nitrogen breather quirk and plasma breather quirk provide a gas mask now"
