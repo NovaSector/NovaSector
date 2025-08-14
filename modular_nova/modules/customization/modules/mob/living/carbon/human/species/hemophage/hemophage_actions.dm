@@ -143,7 +143,7 @@
 			chosen_wound = iter_wound
 
 	if(chosen_wound) // This one has the greatest blood flow, so heal it--first taking a snapshot of it so we can restore it later if the limb takes damage.
-		previous_wounds[chosen_wound.limb.name] = list(list(chosen_wound, WEAKREF(chosen_wound.limb), chosen_wound.blood_flow))
+		previous_wounds[chosen_wound.limb.name] = list(list(chosen_wound.type, chosen_wound.wound_source, WEAKREF(chosen_wound.limb), chosen_wound.blood_flow))
 		RegisterSignal(carbon_owner, COMSIG_CARBON_LIMB_DAMAGED, PROC_REF(on_limb_damaged), override = TRUE)
 		chosen_wound.adjust_blood_flow(-WOUND_MAX_BLOODFLOW)
 		to_chat(carbon_owner, span_good("You use hemokinesis to clot the [chosen_wound]."))
@@ -162,16 +162,22 @@
 
 	// Wounds are really complicated in that they are constantly 'downgrading' or 'upgrading' themselves, which involves copying aspects of the old wound into a new datum, deleting the old one
 	// We are going to just keep the old wound around in a list and reapply it, adjusting the blood flow to what it was before. To accomplish this we can just use a simple triplet list.
-	// In the triplet we have the wound datum, a weakref to the limb (so we don't cause hard dels), and the previous blood flow value. That's all we need to put the wound back..
+	// In the quadruplet we have the wound datum, a weakref to the limb (so we don't cause hard dels), and the previous blood flow value. That's all we need to put the wound back..
 	// Pray that TG doesn't severely refactor things there.
 	for (var/limb_name in previous_wounds)
 		var/list_entry = previous_wounds[limb_name]
-		for(var/triplet in list_entry)
-			var/datum/wound/iter_wound = triplet[1]
-			var/datum/weakref/limb_ref = triplet[2]
+		for(var/quadruplet in list_entry)
+			// the datum typepath of the wound so we know which type to recreate
+			var/wound_type = quadruplet[1]
+			// the the wound source string so we can retain that as well
+			var/wound_source = quadruplet[2]
+			// which limb was the wound on? put it back there if we can
+			var/datum/weakref/limb_ref = quadruplet[3]
 			var/obj/item/bodypart/iter_limb = limb_ref?.resolve()
 			if (iter_limb == limb)
-				var/previous_blood_flow = triplet[3]
+				var/previous_blood_flow = quadruplet[4]
+				var/datum/wound/iter_wound = new wound_type
+				iter_wound.wound_source = wound_source
 				iter_wound.apply_wound(iter_limb, replacing = TRUE)
 				iter_wound.adjust_blood_flow(previous_blood_flow)
 				previous_wounds -= limb_name
