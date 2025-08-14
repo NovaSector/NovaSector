@@ -207,6 +207,7 @@
 		"Research",
 		"Rescue",
 		"Safeguard",
+		"Voskhod",
 	)
 
 /datum/preference/choiced/entombed_hardlight_theme
