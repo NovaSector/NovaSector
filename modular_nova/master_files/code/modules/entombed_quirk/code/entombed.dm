@@ -81,11 +81,19 @@
 
 	// set all of our customization stuff from prefs, if we have it
 	var/modsuit_skin = client_source?.prefs.read_preference(/datum/preference/choiced/entombed_skin)
+	var/modsuit_hardlight = client_source?.prefs.read_preference(/datum/preference/choiced/entombed_hardlight_theme)
 
 	if (modsuit_skin == NONE)
 		modsuit_skin = "civilian"
 
 	modsuit.skin = LOWER_TEXT(modsuit_skin)
+
+	if (modsuit_hardlight == NONE)
+		modsuit_hardlight = "standard_blue"
+	else
+		modsuit_hardlight = hardlight_display_names[modsuit_hardlight]
+
+	modsuit.theme.hardlight_theme = modsuit_hardlight
 
 	if(modsuit.skin == "colonist") // special case here, because the icon files for the colonist module are different from the tg ones.
 		modsuit.icon = 'modular_nova/master_files/icons/obj/clothing/modsuit/mod_clothing.dmi'
@@ -164,6 +172,7 @@
 	associated_typepath = /datum/quirk/equipping/entombed
 	customization_options = list(
 		/datum/preference/choiced/entombed_skin,
+		/datum/preference/choiced/entombed_hardlight_theme,
 		/datum/preference/text/entombed_mod_desc,
 		/datum/preference/text/entombed_mod_name,
 		/datum/preference/text/entombed_mod_prefix,
@@ -194,7 +203,40 @@
 		"Security",
 		"Colonist",
 		"Tarkon",
+		"Asteroid",
+		"Research",
+		"Rescue",
+		"Safeguard",
 	)
+
+/datum/preference/choiced/entombed_hardlight_theme
+	category = PREFERENCE_CATEGORY_MANUALLY_RENDERED
+	savefile_key = "entombed_hardlight_theme"
+	savefile_identifier = PREFERENCE_CHARACTER
+	can_randomize = FALSE
+
+/datum/preference/choiced/entombed_hardlight_theme/init_possible_values()
+    return list(
+        "Standard Blue",
+        "Alert Amber",
+        "Contractor Red",
+        "Extrashield Green",
+        "Evil Green",
+        "Royal Purple",
+        "Hazard Orange",
+        "Cosmic Blue",
+    )
+
+var/list/hardlight_display_names = list(
+    "Standard Blue" = "standard_blue",
+    "Alert Amber" = "alert_amber",
+    "Contractor Red" = "contractor_red",
+    "Extrashield Green" = "extrashield_green",
+    "Evil Green" = "evil_green",
+    "Royal Purple" = "royal_purple",
+    "Hazard Orange" = "hazard_orange",
+    "Cosmic Blue" = "cosmic_blue"
+)
 
 /datum/preference/choiced/entombed_skin/create_default_value()
 	return "Civilian"
