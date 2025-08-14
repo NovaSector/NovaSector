@@ -18,15 +18,6 @@
 		/obj/item/healthanalyzer/rad_laser,
 	)
 
-/datum/voucher_set/traitor/supplies/tools/tape
-	name = /obj/item/stack/sticky_tape/pointy/super::name
-	description = /obj/item/stack/sticky_tape/pointy/super::desc
-	icon = /obj/item/stack/sticky_tape/pointy/super::icon
-	icon_state = /obj/item/stack/sticky_tape/pointy/super::icon_state
-	set_items = list(
-		/obj/item/stack/sticky_tape/pointy/super,
-	)
-
 /datum/voucher_set/traitor/supplies/tools/emp_light
 	name = "EMP flashlight"
 	description = "Seemingly just a flashlight, yet can cause EMPs in a nearby radius."
