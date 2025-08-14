@@ -1,0 +1,4 @@
+author: "OrbisAnima"
+delete-after: True
+changes:
+  - rscadd: "Adds the fireplace frame recipe for 7 stone, which allows players to place fireplaces.  South works and had to redo the effects, south fireplace sprite was made by MaoDetector and I gave it a lesser smoke effect so it doesnt cover the whole thing."
