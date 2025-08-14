@@ -41,3 +41,40 @@
 	if(the_piece.magazine)
 		return FALSE
 	return ..()
+
+/obj/item/crafting_conversion_kit/c38_super
+	name = "\improper Nanotrasen NT/E Laevateinn conversion kit"
+	desc = "All the parts you need to convert a .38 revolver (including the Colt Detective Special) into a magnetically-accelerated beast of a revolver. \
+		This comes at the cost of concealability, but frankly, if you needed this, whatever situation you were getting into wasn't staying quiet anyway."
+	icon = 'modular_nova/modules/modular_weapons/icons/obj/company_and_or_faction_based/nanotrasen_armories/ballistic.dmi'
+	icon_state = "c38rail_kit"
+
+	lore_blurb = "The NT/E Laevateinn is Nanotrasen's take on a charged-shot revolver, designed shortly after the BR-38. While much less \"gun\" than the BR-38, \
+		you still get comparable stopping power and a faster projectile - but you pay for it in a lacking refire rate and more than a little felt recoil. This \
+		parts kit features a replacement hammer, a bottom-cylinder firing system, a dual-sided barrel weight assembly, \
+		a magnetic barrel charger insert, an ergonomic grip, and the end-user's choice of a sight post, front-mounted reflex, or rear-mounted scope."
+
+/obj/item/crafting_conversion_kit/c38_super/Initialize(mapload)
+	. = ..()
+	AddElement(/datum/element/manufacturer_examine, COMPANY_NANOTRASEN)
+
+/datum/crafting_recipe/c38_super
+	name = ".38 Revolver to NT/E Laevateinn Conversion"
+	desc = "Under what circumstances would you need to carry around a .38 revolver converted into a railgun? Whatever circumstances you're in, apparently."
+	result = /obj/item/gun/ballistic/revolver/c38/super/empty
+	reqs = list(
+		/obj/item/gun/ballistic/revolver/c38 = 1,
+		/obj/item/crafting_conversion_kit/c38_super = 1
+	)
+	steps = list(
+		"Clear your revolver's cylinder",
+	)
+	tool_behaviors = list(TOOL_SCREWDRIVER)
+	time = 15 SECONDS
+	category = CAT_WEAPON_RANGED
+
+/datum/crafting_recipe/c38_super/check_requirements(mob/user, list/collected_requirements)
+	var/obj/item/gun/ballistic/revolver/c38/the_piece = collected_requirements[/obj/item/gun/ballistic/revolver/c38][1]
+	if(the_piece.get_ammo())
+		return FALSE
+	return ..()
