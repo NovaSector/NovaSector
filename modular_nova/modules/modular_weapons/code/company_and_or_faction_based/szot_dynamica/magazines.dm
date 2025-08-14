@@ -199,17 +199,7 @@
 	return boolets
 
 /obj/item/ammo_box/magazine/pulse/top_off(load_type, starting=FALSE)
-	if(!load_type)
-		load_type = ammo_type
-
-	var/obj/item/ammo_casing/round_check = load_type
-	if(!starting && !(caliber ? (caliber == initial(round_check.caliber)) : (ammo_type == load_type)))
-		stack_trace("Tried loading unsupported ammocasing type [load_type] into ammo box [type].")
-		return
-
-	for(var/i in max(1, stored_ammo.len + 1) to max_ammo)
-		stored_ammo += new round_check(src) // Always create new instances rather than storing paths
-	update_appearance()
+	. = ..(load_type, starting = FALSE)
 
 /obj/item/ammo_box/magazine/pulse/get_round()
 	var/ammo_len = length(stored_ammo)

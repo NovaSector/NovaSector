@@ -61,7 +61,7 @@
 			update_icon()
 			casing.forceMove(drop_location())
 			chambered = null
-		else if(!casing.loaded_projectile && !casing.newshot())
+		else if(isnull(casing.loaded_projectile) && !casing.newshot())
 			// Lock the bolt back when the pulse cell fails to create a new shot
 			bolt_locked = TRUE
 			update_icon()

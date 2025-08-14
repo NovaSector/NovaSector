@@ -19,17 +19,7 @@
 	AddElement(/datum/element/manufacturer_examine, COMPANY_SZOT)
 
 /obj/item/ammo_box/pulse_cargo_box/top_off(load_type, starting=FALSE)
-	if(!load_type)
-		load_type = ammo_type
-
-	var/obj/item/ammo_casing/round_check = load_type
-	if(!starting && !(caliber ? (caliber == initial(round_check.caliber)) : (ammo_type == load_type)))
-		stack_trace("Tried loading unsupported ammocasing type [load_type] into ammo box [type].")
-		return
-
-	for(var/i in max(1, stored_ammo.len + 1) to max_ammo)
-		stored_ammo += new round_check(src) // Always create new instances rather than storing paths
-	update_appearance()
+	. = ..(load_type, starting = FALSE) // Always create new instances rather than storing paths
 
 /obj/item/ammo_casing/pulse
 	name = "pulse energy cell"
@@ -99,8 +89,7 @@
 
 /obj/item/ammo_casing/pulse/newshot()
 	if(remaining_uses <= 0)
-		loaded_projectile = null
-		qdel(contents)
+		QDEL_NULL(loaded_projectile)
 		return FALSE
 	if(!loaded_projectile)
 		loaded_projectile = new projectile_type(src, src)

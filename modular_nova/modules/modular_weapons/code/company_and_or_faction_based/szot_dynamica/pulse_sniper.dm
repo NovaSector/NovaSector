@@ -36,14 +36,14 @@
 	var/shots_per_fire = 3
 
 	lore_blurb = "Žaibas-A represents a specialized adaptation of the Heliostatic Coalition's plasma pulse technology for precision applications.<br><br> \
-	Where the standard Žaibas focuses on delivering rapid bursts of plasma energy, the 'A' variant (for 'Aštrus', or 'Sharp') sacrifices rate of fire \
-	for unparalleled accuracy and armor penetration. Each shot draws three times the normal plasma charge, creating a hyper-concentrated beam that \
-	can punch through even the most advanced fortifications.<br><br> \
-	The single cell mechanism was a controversial addition, as it eliminates the weapon's signature high longevity. \
-	However, Coalition marksmen report that the manual cycling process allows for better shot placement and thermal management during extended engagements.<br><br> \
-	Developed in response to reports of Coalition forces facing heavily armored targets at extreme ranges, the Žaibas-A has become the weapon of choice	\
-	for designated marksmen and anti-materiel specialists. A small production run means these rifles are typically issued only to elite units.<br><br> \
-	The warning label has been updated to read: 'NEPONOVLJATI NAPAJANJE - Tri kasetes per šūvį. Per didelis karščio kaupimas gali sugadinti gnybtą.'."
+		Where the standard Žaibas focuses on delivering rapid bursts of plasma energy, the 'A' variant (for 'Aštrus', or 'Sharp') sacrifices rate of fire \
+		for unparalleled accuracy and armor penetration. Each shot draws three times the normal plasma charge, creating a hyper-concentrated beam that \
+		can punch through even the most advanced fortifications.<br><br> \
+		The single cell mechanism was a controversial addition, as it eliminates the weapon's signature high longevity. \
+		However, Coalition marksmen report that the manual cycling process allows for better shot placement and thermal management during extended engagements.<br><br> \
+		Developed in response to reports of Coalition forces facing heavily armored targets at extreme ranges, the Žaibas-A has become the weapon of choice	\
+		for designated marksmen and anti-materiel specialists. A small production run means these rifles are typically issued only to elite units.<br><br> \
+		The warning label has been updated to read: 'NEPONOVLJATI NAPAJANJE - Tri kasetes per šūvį. Per didelis karščio kaupimas gali sugadinti gnybtą.'."
 
 /obj/item/gun/ballistic/rifle/pulse_sniper/give_manufacturer_examine()
 	AddElement(/datum/element/manufacturer_examine, COMPANY_SZOT)
