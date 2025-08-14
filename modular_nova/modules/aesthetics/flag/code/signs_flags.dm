@@ -65,7 +65,7 @@
 
 /obj/structure/sign/flag/hc
 	name = "flag of the Heliostatic Coalition"
-	desc = "The flag of the Heliostatic Coalition. The designe of the 'True SolFed', as is evident by what seems to be very much not Sol."
+	desc = "The flag of the Heliostatic Coalition. The design of the 'True SolFed', as is evident by what seems to be very much not Sol."
 	icon_state = "flag_hc"
 	item_flag = /obj/item/sign/flag/hc
 
