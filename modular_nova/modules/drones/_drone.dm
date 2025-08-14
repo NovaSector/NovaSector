@@ -13,3 +13,39 @@
 	"<span class='warning'>Please keep these rules in mind, failing to do so can lead to a ban.</span>\n"+\
 	"<span class='warning'><u>If you do not have the regular drone laws, follow your laws to the best of your ability.</u></span>\n"+\
 	"<span class='notice'>Prefix your message with :b to speak in Drone Chat.</span>\n"
+	/// Left pocket item reference
+	var/obj/item/l_store
+	/// Right pocket item reference
+	var/obj/item/r_store
+
+/mob/living/basic/drone/Initialize(mapload)
+	. = ..()
+	// Register signals for interaction control
+	RegisterSignal(src, COMSIG_CLICK, PROC_REF(handle_click), override = TRUE)
+	RegisterSignal(src, COMSIG_CLICK_CTRL, PROC_REF(on_ctrl_click))
+	RegisterSignal(src, COMSIG_CLICK_ALT, PROC_REF(handle_alt_click))
+	RegisterSignal(src, COMSIG_MOUSEDROP_ONTO, PROC_REF(on_mousedrop))
+
+/datum/hud/dextrous/drone/New(mob/owner)
+	. = ..()
+	var/atom/movable/screen/inventory/inv_box
+
+	// Left pocket UI element
+	inv_box = new /atom/movable/screen/inventory(null, src)
+	inv_box.name = "left pocket"
+	inv_box.icon = ui_style
+	inv_box.icon_state = "pocket"
+	inv_box.icon_full = "template_small"
+	inv_box.screen_loc = ui_storage1
+	inv_box.slot_id = ITEM_SLOT_LPOCKET
+	static_inventory += inv_box
+
+	// Right pocket UI element
+	inv_box = new /atom/movable/screen/inventory(null, src)
+	inv_box.name = "right pocket"
+	inv_box.icon = ui_style
+	inv_box.icon_state = "pocket"
+	inv_box.icon_full = "template_small"
+	inv_box.screen_loc = ui_storage2
+	inv_box.slot_id = ITEM_SLOT_RPOCKET
+	static_inventory += inv_box
