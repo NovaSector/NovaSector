@@ -52,7 +52,7 @@
 	lore_blurb = "The NT/E Laevateinn is Nanotrasen's take on a charged-shot revolver, designed shortly after the BR-38. While much less \"gun\" than the BR-38, \
 		you still get comparable stopping power and a faster projectile - but you pay for it in a lacking refire rate and more than a little felt recoil. This \
 		parts kit features a replacement hammer, a bottom-cylinder firing system, a dual-sided barrel weight assembly, \
-		a magnetic barrel charger insert, an ergonomic grip, and the end-user's choice of a sight post, front-mounted reflex, or rear-mounted scope."
+		a magnetic barrel charger insert, an ergonomic grip, and the end-user's choice of an illuminated sight post, front-mounted reflex sight, or rear-mounted scope."
 
 /obj/item/crafting_conversion_kit/c38_super/Initialize(mapload)
 	. = ..()
