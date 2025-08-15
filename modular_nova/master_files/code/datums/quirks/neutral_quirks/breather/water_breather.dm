@@ -34,3 +34,17 @@
 /datum/quirk/item_quirk/breather/water_breather/remove()
 	. = ..()
 	quirk_holder.clear_alert(ALERT_NOT_ENOUGH_WATER)
+
+/datum/quirk/item_quirk/breather/water_breather/add_unique(client/client_source)
+	. = ..()
+	// The button/action may be granted after quirks run, so defer and purge it
+	spawn(0)
+		remove_hydrophobia_action(quirk_holder)
+
+/// Find and remove the slime hydrophobia spell/action if present
+/proc/remove_hydrophobia_action(mob/living/L)
+	if (!L || QDELETED(L) || !islist(L.actions))
+		return
+	for (var/datum/action/cooldown/spell/slime_hydrophobia/A in L.actions)
+		A.Remove(L)   // ungrants from owner
+		qdel(A)       // delete the action datum
