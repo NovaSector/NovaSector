@@ -19,7 +19,6 @@
 #define HILBERT_LINE_1 "hilb_1"
 #define BIRDSHOT_LINE_1 "bird_1"
 #define BIRDSHOT_LINE_2 "bird_2"
-#define HERETIC_LINE_1 "heretic_1" // NOVA EDIT CHANGE - MAP CHANGE | Original: N/A aka simply nothing was here before
 
 // Destinations/platforms
 #define TRAMSTATION_WEST 1
@@ -35,10 +34,6 @@
 
 #define BIRDSHOT_MAINTENANCE_LEFT 1
 #define BRIDSHOT_MAINTENANCE_RIGHT 2
-
-#define HERETIC_PORT 1 // NOVA EDIT CHANGE - MAP CHANGE | Original: N/A aka simply nothing was here before
-#define HERETIC_CENTRAL 2 // NOVA EDIT CHANGE - MAP CHANGE | Original: N/A aka simply nothing was here before
-#define HERETIC_STARBOARD 3 // NOVA EDIT CHANGE - MAP CHANGE | Original: N/A aka simply nothing was here before
 
 // Tram Navigation aids
 #define TRAM_NAV_BEACONS "tram_nav"
