@@ -517,3 +517,29 @@
 	worn_icon = 'modular_nova/master_files/icons/donator/mob/clothing/back.dmi'
 	inhand_icon_state = "backpack"
 
+// Latinfishy & HollandaiseSauce Donor Item
+/obj/item/device/custom_kit/ak105
+	name = "\improper AK-105 modernization kit"
+	desc = "Old gun parts to convert the Miezc into an AK-105."
+	from_obj = /obj/item/gun/ballistic/automatic/miecz
+	to_obj = /obj/item/gun/ballistic/automatic/miecz/ak105
+
+/obj/item/gun/ballistic/automatic/miecz/ak105
+	name = "\improper AK-105 SBR"
+	desc = "A light-weight assault rifle modernized to be chambered in .27-54 Cesarzowa with a high rate of fire."
+	lore_blurb = "An ancient design that has routes in the old sol nation of the Russian Federation, this rifle has been heavily modified with a modified barrel for extended firefights \
+		alongside a modified grip allowing it to be used most form of combat gloves alongside being able to have a good grip with wet hands, the stock has been swapped for a completely \
+		polymer design giving it a good form."
+	icon = 'modular_nova/master_files/icons/donator/obj/guns48x.dmi'
+	icon_state = "ak105sbr"
+	worn_icon = 'modular_nova/master_files/icons/donator/mob/worn/weapons.dmi'
+	worn_icon_state = "ak105sbr"
+	lefthand_file = 'modular_nova/master_files/icons/donator/mob/inhands/donator_left.dmi'
+	righthand_file = 'modular_nova/master_files/icons/donator/mob/inhands/donator_right.dmi'
+	inhand_icon_state = "ak105sbr"
+	suppressor_x_offset = 7
+	suppressor_y_offset = 0
+
+/obj/item/gun/ballistic/automatic/miecz/ak105/no_mag 
+	//Made this one for completion, the thing is, the kit doesnt affect no_mag, so, the day we change the paradigm of the miecz to spawn with no_mag, likely we want this one. (alternatively we do somethiing better thhan to use subtypes.)
+	spawnwithmagazine = FALSE

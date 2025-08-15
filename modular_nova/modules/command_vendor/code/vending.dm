@@ -157,7 +157,7 @@
 		/obj/item/clothing/under/rank/cargo/qm/nova/turtleneck/skirt = 1,
 		/obj/item/clothing/suit/brownfurrich = 1,
 		/obj/item/clothing/under/rank/cargo/qm/nova/casual = 1,
-		/obj/item/clothing/suit/toggle/jacket/nova/supply/head = 1,
+		/obj/item/clothing/suit/toggle/jacket/nova/colorable_bomber/supply/head = 1,
 		/obj/item/clothing/under/rank/cargo/qm/nova/formal = 1,
 		/obj/item/clothing/under/rank/cargo/qm/nova/formal/skirt = 1,
 		/obj/item/clothing/shoes/sneakers/brown = 1,
@@ -172,6 +172,8 @@
 		/obj/item/clothing/head/hats/centhat = 1,
 		/obj/item/clothing/suit/armor/centcom_formal/nt_consultant = 1,
 		/obj/item/clothing/gloves/combat/naval/nanotrasen_consultant = 1,
+		/obj/item/clothing/under/rank/centcom/officer = 1,
+		/obj/item/clothing/under/rank/centcom/officer_skirt = 1,
 	)
 
 	access_lists["[ACCESS_COMMAND]"] = list(

@@ -232,6 +232,11 @@
 	icon_state = "insect"
 	color_src = USE_ONE_COLOR
 
+/datum/sprite_accessory/wings/mammal/insectoid
+	name = "Insectoid II"
+	icon_state = "insectoid"
+	color_src = USE_ONE_COLOR
+
 /datum/sprite_accessory/wings/mammal/mini
 	color_src = USE_ONE_COLOR
 

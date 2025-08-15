@@ -11,16 +11,16 @@ import { CharacterPreferenceWindow } from './CharacterPreferences';
 import { GamePreferenceWindow } from './GamePreferences';
 import {
   GamePreferencesSelectedPage,
-  PreferencesMenuData,
+  type PreferencesMenuData,
   PrefsWindow,
-  ServerData,
+  type ServerData,
 } from './types';
 import { RandomToggleState } from './useRandomToggleState';
 import { ServerPrefs } from './useServerPrefs';
 
 export function PreferencesMenu(props) {
   return (
-    <Window width={920} height={770}>
+    <Window width={920} height={780} /* NOVA EDIT - height 770 to 780 */>
       <Window.Content>
         <Suspense fallback={<LoadingScreen />}>
           <PrefsWindowInner />

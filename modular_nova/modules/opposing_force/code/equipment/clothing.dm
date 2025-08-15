@@ -168,7 +168,7 @@
 	new /obj/item/radio/headset/headset_cent/impostorsr(src)
 	new /obj/item/clothing/glasses/sunglasses(src)
 	new /obj/item/clipboard(src)
-	new /obj/item/card/id/advanced/chameleon/impostorsr(src) //this thing has bridge access, and no one knows about that
+	new /obj/item/card/id/advanced/chameleon/elite/impostorsr(src) //this thing has bridge access, and no one knows about that
 	new /obj/item/stamp/centcom(src)
 	new /obj/item/clothing/gloves/combat(src)
 

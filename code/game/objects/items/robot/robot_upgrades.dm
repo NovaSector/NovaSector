@@ -56,17 +56,7 @@
 
 // Handles adding items with the module
 /obj/item/borg/upgrade/proc/install_items(mob/living/silicon/robot/borg, mob/living/user = usr, list/items)
-	if(QDELETED(src))
-		stack_trace("Tried to add module to qdeleted upgrade")
-		return
-	if(QDELETED(borg))
-		stack_trace("Tried to add module to qdeleted borg")
-		return
-	for(var/obj/item/item_to_add in items)
-		if(!ispath(item_to_add))
-			if(QDELETED(item_to_add))
-				stack_trace("Tried to add qdeleting module")
-				continue
+	for(var/item_to_add in items)
 		var/obj/item/module_item = new item_to_add(borg.model)
 		borg.model.basic_modules += module_item
 		borg.model.add_module(module_item, FALSE, TRUE)
