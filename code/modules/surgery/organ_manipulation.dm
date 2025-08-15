@@ -227,7 +227,6 @@
 				organ.on_find(user)
 				organs -= organ
 //				organs[organ.name] = organ // NOVA EDIT OLD
-//				organs[organ] = image(icon = organ.icon, icon_state = organ.icon_state) // NOVA EDIT NEW
 				organs[organ] = organ // NOVA EDIT NEW
 
 //			var/chosen_organ = tgui_input_list(user, "Remove which organ?", "Surgery", sort_list(organs)) NOVA EDIT OLD
