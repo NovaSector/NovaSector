@@ -665,3 +665,11 @@
   - balance: Man-eaters can now pull living beings again
   - rscadd: Difficult spacevines event, always spawns man-eaters and can appear in
       more places than just hallways
+2025-08-15:
+  OrbisAnima:
+  - rscadd: Adds the fireplace frame recipe for 7 stone, which allows players to place
+      fireplaces.  South works and had to redo the effects, south fireplace sprite
+      was made by MaoDetector and I gave it a lesser smoke effect so it doesnt cover
+      the whole thing.
+  carpotoxin:
+  - bugfix: Nitrogen breather quirk and plasma breather quirk provide a gas mask now
