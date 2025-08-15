@@ -10,7 +10,7 @@
 	desc = "A new spin on a classic. Uses .38 Special rounds, and features both a magnified sight and a non-adjustable charge-shot assembly built into the barrel for precision fire."
 	desc_controls = "Use the action button to toggle charged shots, increasing projectile speed and damage in return for firerate."
 	lore_blurb = "The NT/E Laevateinn is Nanotrasen's take on a charged-shot revolver, designed shortly after the BR-38.<br><br>\
-		With the middling success of the BR-38, a small group of technicians experienced with the carbine's workings \
+		With the success of the BR-38 (as a project), a small group of technicians experienced with the carbine's workings \
 		proposed downscaling its magnetic acceleration system for use within a revolver's form-factor. Interestingly enough, \
 		their proprosal was accepted, and work began on the new project... with a surprising amount of success. \
 		The smaller package necessitated some tradeoffs, though, to prevent catastrophic failures.<br><br>\
@@ -22,9 +22,15 @@
 		"Baseline" = "c38rail",
 		"Reflex" = "c38rail_sight",
 		"Hunter" = "c38rail_scope",
+		"Shadow Baseline" = "c38rail_dark",
+		"Shadow Reflex" = "c38rail_dark_sight",
+		"Shadow Hunter" = "c38rail_dark_scope",
+		"Midnight Baseline" = "c38rail_midnight",
+		"Midnight Reflex" = "c38rail_midnight_sight",
+		"Midnight Hunter" = "c38rail_midnight_scope",
 	)
 
-	/// Is this revolver amped? Used instead of toggling a fire selector. Amped Kolbens switch from semi-auto to manual action, gain increased accuracy, and improved damage.
+	/// Is this revolver amped? Used instead of toggling a fire selector. Amped Laevateinns gain increased damage and projectile velocity in return for firerate and recoil.
 	var/amped = FALSE
 	/// Base damage multiplier of the revolver.
 	var/base_damage_mult = 1
