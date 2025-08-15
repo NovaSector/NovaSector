@@ -1,0 +1,4 @@
+author: "LordHookie"
+delete-after: True
+changes:
+  - bugfix: "Removed the last remaining Abductor Headset from Abductor Mothership. No more allcomms for bitrunners."
