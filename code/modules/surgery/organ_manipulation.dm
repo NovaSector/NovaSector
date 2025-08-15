@@ -226,9 +226,22 @@
 			for(var/obj/item/organ/organ in organs)
 				organ.on_find(user)
 				organs -= organ
-				organs[organ.name] = organ
+//				organs[organ.name] = organ // NOVA EDIT OLD
+//				organs[organ] = image(icon = organ.icon, icon_state = organ.icon_state) // NOVA EDIT NEW
+				organs[organ] = organ // NOVA EDIT NEW
 
-			var/chosen_organ = tgui_input_list(user, "Remove which organ?", "Surgery", sort_list(organs))
+//			var/chosen_organ = tgui_input_list(user, "Remove which organ?", "Surgery", sort_list(organs)) NOVA EDIT OLD
+			// NOVA EDIT NEW START
+			var/obj/item/organ/chosen_organ = show_radial_menu(
+				user,
+				target,
+				organs,
+				radius = 30,
+				require_near = TRUE,
+				tooltips = TRUE,
+				autopick_single_option = FALSE,
+			)
+			// NOVA EDIT NEW END
 			if(isnull(chosen_organ))
 				return SURGERY_STEP_FAIL
 			target_organ = chosen_organ
