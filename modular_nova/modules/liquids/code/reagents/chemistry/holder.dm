@@ -22,9 +22,10 @@
 			// SYNTHETIC-oriented neuroware can't affect organic brains, unless they have a nif
 			if(reagent.chemical_flags & REAGENT_NEUROWARE)
 				var/obj/item/organ/brain/owner_brain = human_processor.get_organ_slot(ORGAN_SLOT_BRAIN)
-				var/obj/item/organ/cyberimp/brain/nif/is_nif_user = human_processor.get_organ_by_type(/obj/item/organ/cyberimp/brain/nif)
-				// Neuroware always metabolizes in synthetic brains regardless of liver, but never metabolizes in organic brains
-				if(owner_brain.organ_flags & ORGAN_ROBOTIC || is_nif_user)
+				var/obj/item/organ/cyberimp/brain/nif/nif_implant = human_processor.get_organ_slot(ORGAN_SLOT_BRAIN_NIF)
+				// Neuroware always metabolizes in synthetic brains regardless of liver.
+				// Neuroware only metabolizes in organic brains if they have a functional NIF implant.
+				if((owner_brain.organ_flags & ORGAN_ROBOTIC) || (!isnull(nif_implant) && !nif_implant.broken))
 					return TRUE
 				else
 					return FALSE
