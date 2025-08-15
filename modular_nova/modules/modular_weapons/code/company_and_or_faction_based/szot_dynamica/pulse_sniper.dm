@@ -177,7 +177,7 @@
 
 // Custom load_gun function to ensure HUD updates when loading ammo
 /obj/item/gun/ballistic/rifle/pulse_sniper/load_gun(obj/item/ammo, mob/living/user)
-	. = ..(ammo, user)
+	. = ..()
 	// Set suppress_use_consumption flag on any pulse casings
 	var/obj/item/ammo_box/magazine/internal/pulse_sniper/mag = magazine
 	if(mag && istype(mag))
