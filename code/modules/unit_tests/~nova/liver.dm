@@ -5,6 +5,10 @@
 /// 2. SYNTHETIC-oriented neuroware can't process in non-synthetics.
 /// 3. ORGANIC-oriented reagents require PROCESS_ORGANIC or a non-synth liver to process.
 /// 4. ORGANIC-oriented drugs can't process in synthetic humanoids.
+///Expectations for Neuroware:
+/// 1. Neuroware reagents require a brain to metabolize.
+/// 1. Neuroware reagents always metabolize in ORGAN_ROBOTIC brains.
+/// 2. Neuroware reagents never metabolize ORGAN_ORGANIC brains without a functional NIF implant.
 
 // Default synthetic humanoid
 /datum/unit_test/liver/synthetic/Run()
@@ -174,5 +178,25 @@
 	TEST_ASSERT(robot_arm.get_damage() < 5, "Human with robotic liver not healed by nanite slurry reagent.")
 
 /datum/unit_test/liver/hybrid_human/Destroy()
+	SSmobs.ignite()
+	return ..()
+
+// Default human with NIF implant
+/datum/unit_test/liver/human_nif/Run()
+	// Pause natural mob life so it can be handled entirely by the test
+	SSmobs.pause()
+
+	// Setup the human with a NIF implant
+	var/mob/living/carbon/human/consistent/lab_rat = EASY_ALLOCATE()
+	var/obj/item/organ/cyberimp/brain/nif/standard/nif_implant = EASY_ALLOCATE()
+	nif_implant.Insert(lab_rat, special = TRUE)
+
+	// Human with NIF should always be affected by neuroware reagents
+	var/datum/reagent/toxin/mutetoxin/synth/neuroware_mute_toxin = /datum/reagent/toxin/mutetoxin/synth
+	lab_rat.reagents.add_reagent(neuroware_mute_toxin, 15)
+	lab_rat.Life(SSMOBS_DT)
+	TEST_ASSERT(lab_rat.has_status_effect(/datum/status_effect/silenced), "Human with NIF implant not affected by neuroware reagents.")
+
+/datum/unit_test/liver/human_nif/Destroy()
 	SSmobs.ignite()
 	return ..()
