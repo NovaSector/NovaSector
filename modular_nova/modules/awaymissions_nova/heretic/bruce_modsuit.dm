@@ -1,8 +1,4 @@
 /obj/item/mod/control/pre_equipped/blueshield/bruce
-	worn_icon = 'modular_nova/modules/blueshield/icons/worn_praetorian.dmi' ///admin only modsuit I decided to make
-	icon = 'modular_nova/modules/blueshield/icons/praetorian.dmi'
-	icon_state = "praetorian-control"
-	theme = /datum/mod_theme/blueshield/bruce
 	applied_cell = /obj/item/stock_parts/power_store/cell/high/slime_hypercharged
 	applied_modules = list(
 		/obj/item/mod/module/storage/bluespace,
