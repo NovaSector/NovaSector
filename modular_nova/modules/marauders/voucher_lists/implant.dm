@@ -10,6 +10,42 @@
 		/obj/item/organ/cyberimp/eyes/hud/security/syndicate,
 	)
 
+/datum/voucher_set/traitor/implant/nifsoft_blood_steal
+	name = /obj/item/disk/nifsoft_uploader/mil_grade/blood_steal::name
+	description = /obj/item/disk/nifsoft_uploader/mil_grade/blood_steal::desc
+	icon = /obj/item/disk/nifsoft_uploader/mil_grade/blood_steal::icon
+	icon_state = /obj/item/disk/nifsoft_uploader/mil_grade/blood_steal::icon_state
+	set_items = list(
+		/obj/item/disk/nifsoft_uploader/mil_grade/blood_steal,
+	)
+
+/datum/voucher_set/traitor/implant/nifsoft_thermal
+	name = /obj/item/disk/nifsoft_uploader/mil_grade/thermal::name
+	description = /obj/item/disk/nifsoft_uploader/mil_grade/thermal::desc
+	icon = /obj/item/disk/nifsoft_uploader/mil_grade/thermal::icon
+	icon_state = /obj/item/disk/nifsoft_uploader/mil_grade/thermal::icon_state
+	set_items = list(
+		/obj/item/disk/nifsoft_uploader/mil_grade/thermal,
+	)
+
+/datum/voucher_set/traitor/implant/nifsoft_surgery
+	name = /obj/item/disk/nifsoft_uploader/job/summoner/surgery::name
+	description = /obj/item/disk/nifsoft_uploader/job/summoner/surgery::desc
+	icon = /obj/item/disk/nifsoft_uploader/job/summoner/surgery::icon
+	icon_state = /obj/item/disk/nifsoft_uploader/job/summoner/surgery::icon_state
+	set_items = list(
+		/obj/item/disk/nifsoft_uploader/job/summoner/surgery,
+	)
+
+/datum/voucher_set/traitor/implant/nifsoft_tools
+	name = /obj/item/disk/nifsoft_uploader/summoner/tools::name
+	description = /obj/item/disk/nifsoft_uploader/summoner/tools::desc
+	icon = /obj/item/disk/nifsoft_uploader/summoner/tools::icon
+	icon_state = /obj/item/disk/nifsoft_uploader/summoner/tools::icon_state
+	set_items = list(
+		/obj/item/disk/nifsoft_uploader/summoner/tools,
+	)
+
 //chest
 /datum/voucher_set/traitor/implant/chest_thrusters
 	name = /obj/item/organ/cyberimp/chest/thrusters::name
