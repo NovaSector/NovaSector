@@ -28,6 +28,26 @@
 	harmful = FALSE
 	print_cost = 0
 
+/obj/projectile/bullet/c46x30mm
+	// 20*1.35=27
+	// not rounding up to 30 this time. wonder why
+	damage = 27
+	wound_bonus = 0
+	exposed_wound_bonus = 5
+	embed_falloff_tile = -2
+
+/obj/projectile/bullet/c46x30mm/ap
+	// 15*1.35 = 20.25
+	// round up because it's funnier that way
+	damage = 21
+
+/obj/projectile/bullet/incendiary/c46x30mm
+	// 10 * 1.35 = 13.5
+	// round up because it's funnier that way
+	damage = 15
+	fire_stacks = 1
+
+
 /*
 *	.223
 */
