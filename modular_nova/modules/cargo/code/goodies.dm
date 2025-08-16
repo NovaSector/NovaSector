@@ -86,6 +86,12 @@
 	contains = list(/obj/item/scratching_stone)
 	contraband = TRUE
 
+/datum/supply_pack/goody/c38_super_kit
+	name = "NT/E \"Laevateinn\" Revolver Conversion Kit"
+	desc = "A small case of parts for converting a .38 revolver into Nanotrasen's latest foray into magnetically-accelerated sidearms."
+	cost = PAYCHECK_CREW * 6 // 300 cr at time of writing
+	contains = list(/obj/item/crafting_conversion_kit/c38_super)
+
 /*
 *	CARPET PACKS
 */
