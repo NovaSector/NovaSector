@@ -121,3 +121,12 @@
 	prefix = "_maps/RandomRuins/IceRuins/nova/"
 	suffix = "icemoon_surface_geosite.dmm"
 	allow_duplicates = FALSE
+
+/datum/map_template/ruin/icemoon/nova/anchor_buoy
+	name = "Ice-Ruin Surface Anchor Buoy"
+	id = "nova-anchor-buoy-icemoon-1"
+	description = "A little one-way-launch navigation beacon for the charting of unexplored tundra."
+	suffix = "icemoon_beacon.dmm"
+	cost = 0
+	always_place = TRUE
+	allow_duplicates = FALSE

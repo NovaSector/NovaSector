@@ -171,6 +171,15 @@
 	always_place = TRUE
 	cost = 0 //See DS2 cost explanation. Also for a plan when i expand on tarkon and alternative maps
 
+/datum/map_template/ruin/space/nova/anchor_buoy
+	name = "Space-Ruin Anchor Buoy"
+	id = "nova-anchor-buoy-space-1"
+	description = "A little one-way-launch navigation beacon for the charting of unexplored space."
+	suffix = "beacon.dmm"
+	cost = 0
+	always_place = TRUE
+	allow_duplicates = FALSE
+
 /obj/modular_map_root/port_tarkon
 	config_file = "strings/modular_maps/nova/PortTarkon.toml"
 
