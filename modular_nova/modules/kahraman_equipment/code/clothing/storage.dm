@@ -43,54 +43,8 @@
 	worn_icon_state = "harness"
 	inhand_icon_state = null
 	resistance_flags = FIRE_PROOF
-	storage_type = /datum/storage/frontier_belt
+	storage_type = /datum/storage/loadout_belt
 
 /obj/item/storage/belt/utility/frontier_colonist/Initialize(mapload)
 	. = ..()
 	AddElement(/datum/element/manufacturer_examine, COMPANY_KAHRAMAN)
-
-/datum/storage/frontier_belt
-	max_slots = 6
-	max_specific_storage = WEIGHT_CLASS_NORMAL
-
-/datum/storage/frontier_belt/New(atom/parent, max_slots, max_specific_storage, max_total_storage)
-	. = ..()
-	// Can hold whatever a toolbelt can + some mining equipment for convenience
-	set_holdable(list(
-		/obj/item/airlock_painter,
-		/obj/item/analyzer,
-		/obj/item/assembly/signaler,
-		/obj/item/clothing/gloves,
-		/obj/item/construction,
-		/obj/item/crowbar,
-		/obj/item/extinguisher/mini,
-		/obj/item/flashlight,
-		/obj/item/forcefield_projector,
-		/obj/item/geiger_counter,
-		/obj/item/holosign_creator,
-		/obj/item/inducer,
-		/obj/item/lightreplacer,
-		/obj/item/multitool,
-		/obj/item/pipe_dispenser,
-		/obj/item/pipe_painter,
-		/obj/item/plunger,
-		/obj/item/radio,
-		/obj/item/screwdriver,
-		/obj/item/stack/cable_coil,
-		/obj/item/t_scanner,
-		/obj/item/weldingtool,
-		/obj/item/wirecutters,
-		/obj/item/wrench,
-		/obj/item/spess_knife,
-		/obj/item/gps,
-		/obj/item/knife,
-		/obj/item/mining_scanner,
-		/obj/item/pickaxe,
-		/obj/item/reagent_containers/hypospray,
-		/obj/item/shovel,
-		/obj/item/survivalcapsule,
-		/obj/item/storage/bag/ore,
-		/obj/item/storage/fancy/cigarettes,
-		/obj/item/wormhole_jaunter,
-		/obj/item/resonator,
-	))
