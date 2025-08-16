@@ -7457,7 +7457,6 @@
 #include "modular_nova\modules\autotransfer\code\shuttle.dm"
 #include "modular_nova\modules\autotransfer\code\transfer_vote.dm"
 #include "modular_nova\modules\awaymissions_nova\code\gateway_key.dm"
-#include "modular_nova\modules\awaymissions_nova\heretic\bruce_modsuit.dm"
 #include "modular_nova\modules\awaymissions_nova\heretic\bruceguns.dm"
 #include "modular_nova\modules\awaymissions_nova\heretic\cbrn.dm"
 #include "modular_nova\modules\awaymissions_nova\heretic\heretic.dm"

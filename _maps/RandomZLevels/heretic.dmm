@@ -1014,10 +1014,10 @@
 /area/awaymission/caves/heretic_laboratory_clean)
 "he" = (
 /obj/structure/table,
-/obj/item/gun/ballistic/automatic/l6_saw/unrestricted/m60{
+/obj/effect/blessing,
+/obj/item/mounted_machine_gun_folded{
 	anchored = 1
 	},
-/obj/effect/blessing,
 /turf/open/floor/iron/small,
 /area/awaymission/caves/heretic_laboratory_clean)
 "hf" = (
@@ -1340,10 +1340,7 @@
 /obj/structure/thermoplastic/light,
 /obj/structure/window/reinforced/survival_pod/spawner/directional/west,
 /obj/structure/window/reinforced/survival_pod/spawner/directional/north,
-/obj/structure/rack/gunrack{
-	desc = "A tall rack for storing guns, this one appears to have a high power sniper rifle in it, a M60 machinegun, and a PLM-9 rocket launcher, on top of the gun rack there is a label that says, Bruce's, dont touch";
-	name = "Bruce's gun rack"
-	},
+/obj/structure/rack/gunrack,
 /turf/open/misc/asteroid,
 /area/awaymission/caves/heretic_laboratory)
 "iO" = (
@@ -2595,10 +2592,10 @@
 /area/awaymission/beach/heretic)
 "qD" = (
 /obj/machinery/suit_storage_unit/open,
-/obj/item/mod/control/pre_equipped/blueshield/bruce{
+/obj/effect/blessing,
+/obj/item/mod/control/pre_equipped/blueshield{
 	anchored = 1
 	},
-/obj/effect/blessing,
 /turf/open/floor/iron/small,
 /area/awaymission/caves/heretic_laboratory_clean)
 "qE" = (
@@ -4563,17 +4560,8 @@
 /obj/structure/window/reinforced/survival_pod/spawner/directional/west,
 /obj/structure/window/reinforced/survival_pod/spawner/directional/south,
 /obj/effect/decal/remains/human,
-/obj/effect/mapping_helpers/mob_buckler,
 /obj/structure/chair/comfy/beige{
 	dir = 4
-	},
-/mob/living/basic/trooper/nanotrasen/ranged/elite{
-	faction = list("neutral");
-	name = "Bruce";
-	current_size = 1.5;
-	initial_size = 1.5;
-	mob_size = 3;
-	desc = "Before you slumped in a chair stands an absolute giant of a man, wearing state of the art Nanotrasen equipment- besides his gun, a well, WELL, used laser gun in his hand- despite the far better armaments besides him he chose this weapon to be the last one he held- or, is still holding, the laser gun blinks- its out of juice but still flickering  with light to indicate that fact- this is in spite of the fact of the thick layer of dust on it so thick that the light from the laser gun is almost muffled as if being viewed through a piece of paper, normally one of these guns can only maintain to flicker like this for a day- but this one has been flickering for significantly longer, The man himself sitting in the chair is easily two men in size, his armor is custom modified to fit his bulky frame but also- with an immense amount of extra padding, one might mistake that modsuit he's wearing for just an entire mech. This man, this bulk of a man, seems to be in some kind of induced coma from his suit, there are no obvious massive wounds- but there are dozens through the weak points of his modsuit, it seems like he bled out from all of these small cuts around him despite his struggle and his suit is now barely keeping him alive long enough for him to recover- now all he needs, is to be woken up, or maybe he needs more time to heal, either way you think being the first thing this giant sees when they wake up might be a bad idea."
 	},
 /turf/open/misc/asteroid,
 /area/awaymission/caves/heretic_laboratory)
