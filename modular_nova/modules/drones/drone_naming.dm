@@ -10,10 +10,9 @@
 	return ("[pick(GLOB.posibrain_names)]-[rand(100, 999)]")
 
 /datum/preference_middleware/names/get_constant_data()
-	var/list/data = ..()  // call upstream
+	var/list/data = ..()
 	var/list/types = data["types"]
 
-	// Call modular procs on each preference
 	for (var/preference_type in GLOB.preference_entries)
 		var/datum/preference/name/name_pref = GLOB.preference_entries[preference_type]
 		if (!istype(name_pref))
@@ -24,15 +23,15 @@
 
 	return data
 
+/// Used to add the allowed drone prefixes ("strings/names/posibrain.txt") to the data sent by the middleware to TGUI.
 /datum/preference/name/proc/get_extra_constant_data()
 	if (savefile_key == "drone_name")
 		return list("prefixes" = GLOB.posibrain_names)
 	return
 
 /obj/effect/mob_spawn/ghost_role/special(mob/living/spawned_mob, mob/mob_possessor)
-	. = ..() // call upstream version first
+	. = ..()
 
-	// Only modify drones, don't touch other logic
 	var/datum/mind/spawned_mind = spawned_mob?.mind
 	var/client/C = spawned_mob?.client
 	if(istype(spawned_mob, /mob/living/basic/drone) && spawned_mind && C)
