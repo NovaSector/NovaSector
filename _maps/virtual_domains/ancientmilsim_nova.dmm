@@ -79,8 +79,8 @@
 /obj/structure/sign/poster/random/directional/west,
 /obj/structure/rack/gunrack,
 /obj/item/gun/ballistic/automatic/wylom,
-/obj/item/gun/ballistic/automatic/miecz,
-/obj/item/gun/ballistic/rifle/sporterized,
+/obj/item/gun/ballistic/automatic/pulse_rifle,
+/obj/item/gun/ballistic/rifle/pulse_sniper,
 /turf/open/floor/iron,
 /area/virtual_domain/ancient_milsim/snpc_hallway)
 "cV" = (
@@ -706,12 +706,13 @@
 "td" = (
 /obj/item/storage/box/utensils,
 /obj/structure/table/wood,
-/obj/item/ammo_box/c310_cargo_box/piercing{
-	pixel_x = 6;
-	pixel_y = 9
+/obj/item/ammo_box/pulse_cargo_box{
+	pixel_x = -10;
+	pixel_y = 13
 	},
-/obj/item/ammo_box/c27_54cesarzowa/rubber{
-	pixel_x = 12
+/obj/item/ammo_box/pulse_cargo_box{
+	pixel_x = 9;
+	pixel_y = 6
 	},
 /turf/open/floor/carpet/red,
 /area/virtual_domain/ancient_milsim/snpc_bar)
@@ -882,18 +883,19 @@
 	pixel_y = 4;
 	pixel_x = 4
 	},
-/obj/item/ammo_box/magazine/miecz{
-	pixel_x = -5;
-	pixel_y = -9
+/obj/item/ammo_box/magazine/pulse{
+	pixel_x = -3;
+	pixel_y = 0
 	},
-/obj/item/ammo_box/magazine/miecz{
-	pixel_y = -9
+/obj/item/ammo_box/magazine/pulse{
+	pixel_x = 3;
+	pixel_y = 0
 	},
-/obj/item/ammo_box/magazine/miecz{
-	pixel_x = 5;
-	pixel_y = -9
+/obj/item/ammo_box/magazine/pulse{
+	pixel_x = -9;
+	pixel_y = 0
 	},
-/obj/item/storage/toolbox/ammobox/full/lanca,
+/obj/item/ammo_box/pulse_cargo_box,
 /turf/open/floor/iron,
 /area/virtual_domain/ancient_milsim/snpc_hallway)
 "ws" = (
@@ -911,9 +913,9 @@
 /area/virtual_domain/ancient_milsim/atrium)
 "wy" = (
 /obj/structure/table/wood,
-/obj/item/gun/ballistic/automatic/lanca{
-	pixel_y = 6;
-	pixel_x = 7
+/obj/item/gun/ballistic/rifle/pulse_sniper{
+	pixel_x = -3;
+	pixel_y = 9
 	},
 /turf/open/floor/carpet/red,
 /area/virtual_domain/ancient_milsim/snpc_bar)
@@ -1563,7 +1565,7 @@
 /area/virtual_domain/ancient_milsim/snpc_cafe)
 "MW" = (
 /obj/structure/table/wood,
-/obj/item/storage/toolbox/ammobox/full/lanca,
+/obj/item/ammo_box/pulse_cargo_box,
 /turf/open/floor/carpet/red,
 /area/virtual_domain/ancient_milsim/snpc_bar)
 "MY" = (
