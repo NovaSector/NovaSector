@@ -673,3 +673,9 @@
       the whole thing.
   carpotoxin:
   - bugfix: Nitrogen breather quirk and plasma breather quirk provide a gas mask now
+2025-08-16:
+  LordHookie:
+  - bugfix: Removed the last remaining Abductor Headset from Abductor Mothership.
+      No more allcomms for bitrunners.
+  OrbisAnima:
+  - rscdel: Removes Yiff in hell / Furry Pride / Lizard Power / Fuck Lizards graffitis
