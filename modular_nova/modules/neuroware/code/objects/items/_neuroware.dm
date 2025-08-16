@@ -134,8 +134,8 @@
 
 	// Check for robotic brain or presence of NIF implant
 	var/obj/item/organ/brain/owner_brain = target.get_organ_slot(ORGAN_SLOT_BRAIN)
-	var/obj/item/organ/cyberimp/brain/nif/nif_implant = target.get_organ_slot(ORGAN_SLOT_BRAIN_NIF)
 	if(isnull(owner_brain) || !(owner_brain.organ_flags & ORGAN_ROBOTIC))
+		var/obj/item/organ/cyberimp/brain/nif/nif_implant = target.get_organ_slot(ORGAN_SLOT_BRAIN_NIF)
 		if(isnull(nif_implant) || nif_implant.broken)
 			balloon_alert(user, "synthetic brain or NIF required!")
 			return
