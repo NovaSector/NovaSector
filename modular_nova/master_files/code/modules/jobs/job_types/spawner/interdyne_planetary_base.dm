@@ -5,6 +5,8 @@
 	bounty_types = DYNE_JOB_SCIENCE
 	paycheck_department = ACCOUNT_INT
 
+	liver_traits = list(TRAIT_MEDICAL_METABOLISM)
+
 /datum/job/interdyne_planetary_base/mining
 	bounty_types = DYNE_JOB_MINING
 
