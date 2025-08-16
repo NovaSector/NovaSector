@@ -42,6 +42,7 @@ export type Name = {
   can_randomize: BooleanLike;
   explanation: string;
   group: string;
+  prefixes?: string[]; // NOVA EDIT ADDITION - Drone Prefixes
 };
 
 export type Species = {

@@ -74,16 +74,79 @@ export function MultiNameInput(props: MultiNameProps) {
               ([_, names], index, collection) => (
                 <>
                   {names.map(({ key, name }) => {
+                    // Get prefixes from backend if available
+                    const allPrefixes = name.prefixes || [];
+
+                    // Current value stored in props.names[key], default if empty
+                    const currentValue =
+                      props.names[key] || `${allPrefixes[0] || ''}-001`;
+                    const [prefix, suffix] = currentValue.split('-');
+
                     return (
                       <LabeledList.Item key={key} label={name.explanation}>
                         <Stack fill>
-                          <Stack.Item grow>
-                            <Button.Input
-                              fluid
-                              onCommit={(value) => handleUpdateName(key, value)}
-                              value={props.names[key]}
-                            />
-                          </Stack.Item>
+                          {/* Special UI for drone_name */}
+                          {key === 'drone_name' ? (
+                            <>
+                              {/* Prefix dropdown */}
+                              <Stack.Item>
+                                <select
+                                  style={{
+                                    background: 'rgba(0, 0, 0, 0.3)',
+                                    color: 'white',
+                                    padding: '2px 4px',
+                                    border:
+                                      '1px solid rgba(255, 255, 255, 0.2)',
+                                    borderRadius: '4px',
+                                  }}
+                                  value={prefix || ''}
+                                  onChange={(e) => {
+                                    props.handleUpdateName(
+                                      key,
+                                      `${e.target.value}-${suffix || ''}`,
+                                    );
+                                  }}
+                                >
+                                  {allPrefixes.map((pref) => (
+                                    <option key={pref} value={pref}>
+                                      {pref}
+                                    </option>
+                                  ))}
+                                </select>
+                              </Stack.Item>
+
+                              {/* Suffix input with commit behavior */}
+                              <Stack.Item grow>
+                                <Button.Input
+                                  fluid
+                                  maxLength={3}
+                                  onCommit={(value) => {
+                                    if (/^\d{0,3}$/.test(value)) {
+                                      const padded = value.padStart(3, '0');
+                                      props.handleUpdateName(
+                                        key,
+                                        `${prefix}-${padded}`,
+                                      );
+                                    }
+                                  }}
+                                  value={suffix || ''}
+                                />
+                              </Stack.Item>
+                            </>
+                          ) : (
+                            /* Default case for other names */
+                            <Stack.Item grow>
+                              <Button.Input
+                                fluid
+                                onCommit={(value) =>
+                                  handleUpdateName(key, value)
+                                }
+                                value={props.names[key]}
+                              />
+                            </Stack.Item>
+                          )}
+
+                          {/* Randomize button — works for drone_name too */}
                           {!!name.can_randomize && (
                             <Stack.Item>
                               <Button
