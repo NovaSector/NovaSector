@@ -246,7 +246,7 @@ GLOBAL_LIST_EMPTY(objectives) //NOVA EDIT ADDITION
 /datum/objective/assassinate/update_explanation_text()
 	..()
 	if(target?.current)
-		explanation_text = "Assassinate [target.name], the [!target_role_type ? target.assigned_role.title : target.special_role] ONCE." //NOVA EDIT CHANGE
+		explanation_text = "Assassinate [target.name], the [!target_role_type ? target.assigned_role.title : english_list(target.get_special_roles())] ONCE." // NOVA EDIT CHANGE - add "ONCE" - Original: explanation_text = "Assassinate [target.name], the [!target_role_type ? target.assigned_role.title : english_list(target.get_special_roles())]."
 	else
 		explanation_text = "Free objective."
 
@@ -296,7 +296,7 @@ GLOBAL_LIST_EMPTY(objectives) //NOVA EDIT ADDITION
 /datum/objective/mutiny/update_explanation_text()
 	..()
 	if(target?.current)
-		explanation_text = "Assassinate or exile [target.name], the [!target_role_type ? target.assigned_role.title : target.special_role]."
+		explanation_text = "Assassinate or exile [target.name], the [!target_role_type ? target.assigned_role.title : english_list(target.get_special_roles())]."
 	else
 		explanation_text = "Free objective."
 
@@ -318,7 +318,7 @@ GLOBAL_LIST_EMPTY(objectives) //NOVA EDIT ADDITION
 
 /datum/objective/maroon/update_explanation_text()
 	if(target?.current)
-		explanation_text = "Prevent [target.name], the [!target_role_type ? target.assigned_role.title : target.special_role], from escaping alive."
+		explanation_text = "Prevent [target.name], the [!target_role_type ? target.assigned_role.title : english_list(target.get_special_roles())], from escaping alive."
 	else
 		explanation_text = "Free objective."
 
@@ -349,7 +349,7 @@ GLOBAL_LIST_EMPTY(objectives) //NOVA EDIT ADDITION
 /datum/objective/debrain/update_explanation_text()
 	..()
 	if(target?.current)
-		explanation_text = "Steal the brain of [target.name], the [!target_role_type ? target.assigned_role.title : target.special_role]."
+		explanation_text = "Steal the brain of [target.name], the [!target_role_type ? target.assigned_role.title : english_list(target.get_special_roles())]."
 	else
 		explanation_text = "Free objective."
 
@@ -375,7 +375,7 @@ GLOBAL_LIST_EMPTY(objectives) //NOVA EDIT ADDITION
 /datum/objective/protect/update_explanation_text()
 	..()
 	if(target?.current)
-		explanation_text = "Protect [target.name], the [!target_role_type ? target.assigned_role.title : target.special_role]."
+		explanation_text = "Protect [target.name], the [!target_role_type ? target.assigned_role.title : english_list(target.get_special_roles())]."
 	else
 		explanation_text = "Free objective."
 
@@ -400,7 +400,7 @@ GLOBAL_LIST_EMPTY(objectives) //NOVA EDIT ADDITION
 /datum/objective/jailbreak/update_explanation_text()
 	..()
 	if(target?.current)
-		explanation_text = "Ensure that [target.name], the [!target_role_type ? target.assigned_role.title : target.special_role] escapes alive and out of custody."
+		explanation_text = "Ensure that [target.name], the [!target_role_type ? target.assigned_role.title : english_list(target.get_special_roles())] escapes alive and out of custody."
 	else
 		explanation_text = "Free objective."
 
@@ -416,7 +416,7 @@ GLOBAL_LIST_EMPTY(objectives) //NOVA EDIT ADDITION
 /datum/objective/jailbreak/detain/update_explanation_text()
 	..()
 	if(target?.current)
-		explanation_text = "Ensure that [target.name], the [!target_role_type ? target.assigned_role.title : target.special_role] is delivered to Nanotrasen alive and in custody."
+		explanation_text = "Ensure that [target.name], the [!target_role_type ? target.assigned_role.title : english_list(target.get_special_roles())] is delivered to Nanotrasen alive and in custody."
 	else
 		explanation_text = "Free objective."
 

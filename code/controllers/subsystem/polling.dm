@@ -294,11 +294,10 @@ SUBSYSTEM_DEF(polling)
 		to_chat(potential_candidate, "There was a ghost prompt for: [role], unfortunately you are banned from ghost takeovers.")
 		return FALSE
 	// NOVA EDIT ADDITION END
-	if(role)
+	if(role && potential_candidate.client)
 		if(!(role in potential_candidate.client.prefs.be_special))
 			return FALSE
-		var/required_time = GLOB.special_roles[role] || 0
-		if(potential_candidate.client && potential_candidate.client.get_remaining_days(required_time) > 0)
+		if(potential_candidate.client.get_days_to_play_antag(role) > 0)
 			return FALSE
 
 	if(check_jobban)
