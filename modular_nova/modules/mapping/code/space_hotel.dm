@@ -142,7 +142,7 @@
 
 //Space Hotel Keycards and Room Doors
 /obj/item/key_card/hotel_room
-	name = "\improper Twin Nexus keycard"
+	name = "\improper Twin Nexus Guest Access Card"
 	desc = "A keycard, to open a keycard-locked hotel room."
 	access_id = "guest_room_"
 	/// The number of the room, so that it gets automatically handled by the code everywhere
