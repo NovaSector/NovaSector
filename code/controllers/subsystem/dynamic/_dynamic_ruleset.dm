@@ -316,6 +316,12 @@
  */
 /datum/dynamic_ruleset/proc/is_valid_candidate(mob/candidate, client/candidate_client)
 	SHOULD_CALL_PARENT(TRUE)
+	// NOVA EDIT ADDITION START
+	if(!candidate_client.prefs.read_preference(/datum/preference/toggle/be_antag))
+		return FALSE
+	else if(is_banned_from(candidate_client.ckey, BAN_ANTAGONIST))
+		return FALSE
+	// NOVA EDIT ADDITION END
 	return TRUE
 
 /**

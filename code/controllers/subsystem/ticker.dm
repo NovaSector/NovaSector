@@ -320,8 +320,12 @@ SUBSYSTEM_DEF(ticker)
 		SSdynamic.queued_rulesets -= ruleset
 		SSdynamic.executed_rulesets += ruleset
 	// Queue roundstart intercept report
+	/* // NOVA EDIT REMOVAL START
 	if(!CONFIG_GET(flag/no_intercept_report))
 		GLOB.communications_controller.queue_roundstart_report()
+	*/ // NOVA EDIT REMOVAL END
+	GLOB.communications_controller.queue_roundstart_report() // NOVA EDIT ADDITION: Config option handled inside
+
 	// Queue admin logout report
 	addtimer(CALLBACK(src, PROC_REF(display_roundstart_logout_report)), ROUNDSTART_LOGOUT_REPORT_TIME)
 	// Queue suicide slot handling

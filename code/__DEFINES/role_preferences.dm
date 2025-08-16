@@ -19,7 +19,6 @@
 #define ROLE_SPY "Spy"
 // NOVA EDIT ADDITION START
 #define ROLE_ASSAULT_OPERATIVE "Assault Operative"
-#define ROLE_OPFOR_CANDIDATE "OPFOR Candidate"
 // NOVA EDIT ADDITION END
 
 // Midround roles

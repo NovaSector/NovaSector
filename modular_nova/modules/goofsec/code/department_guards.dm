@@ -259,7 +259,7 @@
 		/obj/item/clothing/mask/whistle = 5,
 		/obj/item/melee/baton/security/boomerang/loaded = 1
 	)
-	job_flags = JOB_ANNOUNCE_ARRIVAL | JOB_CREW_MANIFEST | JOB_EQUIP_RANK | JOB_CREW_MEMBER | JOB_NEW_PLAYER_JOINABLE | JOB_REOPEN_ON_ROUNDSTART_LOSS | JOB_ASSIGN_QUIRKS | JOB_CAN_BE_INTERN
+	job_flags = STATION_JOB_FLAGS | JOB_ANTAG_PROTECTED
 
 /datum/outfit/job/science_guard
 	name = "Science Guard"
@@ -360,7 +360,7 @@
 		/obj/item/melee/baton/security/boomerang/loaded = 1
 	)
 
-	job_flags = JOB_ANNOUNCE_ARRIVAL | JOB_CREW_MANIFEST | JOB_EQUIP_RANK | JOB_CREW_MEMBER | JOB_NEW_PLAYER_JOINABLE | JOB_REOPEN_ON_ROUNDSTART_LOSS | JOB_ASSIGN_QUIRKS | JOB_CAN_BE_INTERN
+	job_flags = STATION_JOB_FLAGS | JOB_ANTAG_PROTECTED
 
 /datum/outfit/job/orderly
 	name = "Orderly"
@@ -455,7 +455,7 @@
 		/obj/item/clothing/mask/whistle = 5,
 		/obj/item/melee/baton/security/boomerang/loaded = 1
 	)
-	job_flags = JOB_ANNOUNCE_ARRIVAL | JOB_CREW_MANIFEST | JOB_EQUIP_RANK | JOB_CREW_MEMBER | JOB_NEW_PLAYER_JOINABLE | JOB_REOPEN_ON_ROUNDSTART_LOSS | JOB_ASSIGN_QUIRKS | JOB_CAN_BE_INTERN
+	job_flags = STATION_JOB_FLAGS | JOB_ANTAG_PROTECTED
 
 /datum/outfit/job/engineering_guard
 	name = "Engineering Guard"
@@ -556,7 +556,7 @@
 		/obj/item/clothing/mask/whistle = 5,
 		/obj/item/melee/baton/security/boomerang/loaded = 1
 	)
-	job_flags = JOB_ANNOUNCE_ARRIVAL | JOB_CREW_MANIFEST | JOB_EQUIP_RANK | JOB_CREW_MEMBER | JOB_NEW_PLAYER_JOINABLE | JOB_REOPEN_ON_ROUNDSTART_LOSS | JOB_ASSIGN_QUIRKS | JOB_CAN_BE_INTERN
+	job_flags = STATION_JOB_FLAGS | JOB_ANTAG_PROTECTED
 
 /datum/outfit/job/customs_agent
 	name = "Customs Agent"
@@ -651,7 +651,7 @@
 		/obj/item/clothing/mask/whistle = 5,
 		/obj/item/melee/baton/security/boomerang/loaded = 1
 	)
-	job_flags = JOB_ANNOUNCE_ARRIVAL | JOB_CREW_MANIFEST | JOB_EQUIP_RANK | JOB_CREW_MEMBER | JOB_NEW_PLAYER_JOINABLE | JOB_REOPEN_ON_ROUNDSTART_LOSS | JOB_ASSIGN_QUIRKS | JOB_CAN_BE_INTERN
+	job_flags = STATION_JOB_FLAGS | JOB_ANTAG_PROTECTED
 
 /datum/outfit/job/bouncer
 	name = "Bouncer"

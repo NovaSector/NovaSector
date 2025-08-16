@@ -35,7 +35,7 @@
 	rpg_title = "Bailiff"
 	family_heirlooms = list(/obj/item/book/manual/wiki/security_space_law, /obj/item/clothing/head/security_cap, /obj/item/clothing/mask/whistle)
 
-	job_flags = JOB_ANNOUNCE_ARRIVAL | JOB_CREW_MANIFEST | JOB_EQUIP_RANK | JOB_CREW_MEMBER | JOB_NEW_PLAYER_JOINABLE | JOB_REOPEN_ON_ROUNDSTART_LOSS | JOB_ASSIGN_QUIRKS | JOB_CAN_BE_INTERN
+	job_flags = STATION_JOB_FLAGS | JOB_ANTAG_PROTECTED
 
 // OUTFIT
 /datum/outfit/job/corrections_officer
