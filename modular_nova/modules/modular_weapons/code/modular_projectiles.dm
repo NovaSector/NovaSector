@@ -3,8 +3,6 @@
 	var/can_be_printed = TRUE
 	/// What ammo categories does this casing fulfill? Used in tandem with the ammo workbench.
 	var/ammo_categories = AMMO_CLASS_LETHAL
-	/// How many arbitrary printing points does this casing require to print? Used in tandem with the ammo workbench.
-	var/print_cost = 1
 
 /*
 Future guncoder, turn back before you are overwhelmed by the horrifically scattered nature of ammunition in this codebase.

@@ -46,7 +46,6 @@
 	caliber = CALIBER_60STRELA
 	projectile_type = /obj/projectile/bullet/p60strela
 	custom_materials = AMMO_MATS_HEAVY
-	print_cost = 2
 
 /obj/item/ammo_casing/p60strela/Initialize(mapload)
 	. = ..()

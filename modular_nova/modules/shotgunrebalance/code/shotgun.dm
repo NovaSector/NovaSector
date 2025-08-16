@@ -26,7 +26,7 @@
 	desc = "A hot-loaded 12 gauge milspec slug shell, used by various paramilitaries and mercenary forces. Probably not legal to use under corporate regulations."
 	icon_state = "mblshell"
 	ammo_categories = AMMO_CLASS_SUPER
-	print_cost = 4
+	custom_materials = AMMO_MATS_HEAVY_FAST
 
 /obj/projectile/bullet/shotgun_slug/milspec
 	damage = 60 // the fine art of physically removing chunks of flesh from your fellow spaceman
@@ -45,7 +45,6 @@
 
 /obj/item/ammo_casing/shotgun/beanbag
 	harmful = FALSE
-	print_cost = 0
 	ammo_categories = AMMO_CLASS_NONE
 
 /obj/item/ammo_casing/shotgun/incendiary
@@ -106,7 +105,7 @@
 	icon_state = "mgshell"
 	variance = 15
 	ammo_categories = AMMO_CLASS_SUPER
-	print_cost = 4
+	custom_materials = AMMO_MATS_HEAVY_FAST
 
 /obj/projectile/bullet/pellet/shotgun_buckshot/milspec
 	damage = 6 // 6 * 12 = 72
@@ -125,7 +124,6 @@
 	variance = 27
 	ammo_categories = AMMO_CLASS_NONE
 	harmful = FALSE
-	print_cost = 0
 
 /obj/projectile/bullet/pellet/shotgun_rubbershot
 	stamina = 10
@@ -147,9 +145,9 @@
 	name = "shredder flechette shell"
 	desc = "A 12 gauge flechette shell that specializes in cutting through armor and embedding like hell."
 	ammo_categories = AMMO_CLASS_SUPER // i mean with exotic tech you get to print this for free anyway
-	// but if you want early access you pay up
-	// pellets remaining unchanged but getting a damage buff
-	print_cost = 4
+	// Points-cost is gone, this may need additional balance.
+	// Why didn't these already use flechette materials though??
+	custom_materials = AMMO_MATS_SHOTGUN_FLECH
 
 /obj/projectile/bullet/pellet/flechette
 	name = "shredder flechette"
@@ -160,7 +158,6 @@
 
 /obj/item/ammo_casing/shotgun/flechette/donk
 	ammo_categories = AMMO_CLASS_NONE
-	print_cost = 0 // lmao
 
 /obj/item/ammo_casing/shotgun/ion
 	can_be_printed = FALSE // techshell. assumed intended balance being a pain to assemble
@@ -194,7 +191,6 @@
 	pellets = 6 // Half as many pellets for twice the damage each pellet, same overall damage as buckshot
 	variance = 20
 	ammo_categories = AMMO_CLASS_SUPER
-	print_cost = 2
 
 /obj/projectile/bullet/pellet/shotgun_buckshot/magnum
 	name = "magnum blockshot"
@@ -213,7 +209,6 @@
 	icon_state = "expshell"
 	projectile_type = /obj/projectile/bullet/pellet/shotgun_buckshot/express
 	ammo_categories = AMMO_CLASS_SUPER
-	print_cost = 2
 	pellets = 15 // 4 * 15 for 60 damage, with less spread then buckshot.
 	variance = 12 // Slightly less spread then buckshot
 
@@ -335,7 +330,6 @@
 	variance = 35
 	fire_sound = 'sound/items/bikehorn.ogg'
 	harmful = FALSE
-	print_cost = 0
 	ammo_categories = AMMO_CLASS_NONE
 
 /obj/projectile/bullet/honkshot
