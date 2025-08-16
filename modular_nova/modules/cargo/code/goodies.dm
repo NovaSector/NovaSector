@@ -86,6 +86,11 @@
 	contains = list(/obj/item/scratching_stone)
 	contraband = TRUE
 
+/datum/supply_pack/goody/shuttle_construction_kit/New() //Modular addition
+	. = ..()
+	access_view = NONE
+	contains += /obj/item/stack/rods/shuttle/fifty
+
 /*
 *	CARPET PACKS
 */
