@@ -109,3 +109,6 @@
 
 ///from base of /datum/preference_middleware/jobs/proc/set_job_title() and /datum/preference_middleware/jobs/proc/set_job_preference: ()
 #define COMSIG_JOB_PREF_UPDATED "job_pref_updated"
+
+/// When a gun's safety is toggled.
+#define COMSIG_GUN_SAFETY_TOGGLED "gun_safety_toggled"
