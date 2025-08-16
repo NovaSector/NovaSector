@@ -2,6 +2,7 @@
 	name = "HNZ-1 Pathogen Outbreak"
 	config_tag = "Mutant Infestation"
 	preview_antag_datum = /datum/antagonist/mutant
+	midround_type = HEAVY_MIDROUND
 	pref_flag = ROLE_MUTANT
 	weight = 0
 	min_pop = 30
