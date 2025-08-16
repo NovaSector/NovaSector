@@ -34,7 +34,11 @@
 
 /obj/item/antag_spawner/bitrunning_help/attack_self(mob/user)
 	// Check usability and if already in use
-	if(!check_usability(user) || polling)
+	if(!check_usability(user))
+		return
+
+	if(polling)
+		balloon_alert(user, "already in use!")
 		return
 
 	balloon_alert(user, "[src] activated!")
@@ -129,36 +133,34 @@
 		subcontractor.forceMove(locate(1,1,1))
 
 /obj/item/antag_spawner/bitrunning_help/proc/equip_subcontractor(mob/living/carbon/human/subcontractor, obj/machinery/quantum_server/server)
-	// Apply outfit and armor
+	// Create and customize outfit before applying
 	var/outfit_path = server.generated_domain.forced_outfit || subcontractor_outfit
 	var/datum/outfit/to_wear = new outfit_path()
-	subcontractor.equipOutfit(to_wear, visuals_only = TRUE)
 
-	// Set armor for uniform and headwear
-	var/obj/item/clothing/under/jumpsuit = subcontractor.w_uniform
-	if(istype(jumpsuit))
-		jumpsuit.set_armor(/datum/armor/clothing_under)
+	// Set armor values for clothing in the outfit
+	if(istype(to_wear.uniform, /obj/item/clothing/under))
+		var/obj/item/clothing/under/uniform = to_wear.uniform
+		uniform.set_armor(/datum/armor/clothing_under)
 
-	var/obj/item/clothing/head/hat = locate() in subcontractor.get_equipped_items()
-	if(istype(hat))
-		hat.set_armor(/datum/armor/none)
+	if(istype(to_wear.head, /obj/item/clothing/head))
+		var/obj/item/clothing/head/headwear = to_wear.head
+		headwear.set_armor(/datum/armor/none)
 
-	// Clear inventory if not using forced outfit
+	// If not using forced outfit, customize the backpack contents
 	if(!server.generated_domain.forced_outfit)
-		for(var/obj/thing in subcontractor.held_items)
-			qdel(thing)
+		// Clear existing backpack contents and add our custom items
+		if(istype(to_wear.back, /obj/item/storage/backpack))
+			LAZYNULL(to_wear.backpack_contents)
+			to_wear.backpack_contents = list(
+				/obj/item/storage/box/survival = 1,
+				/obj/item/storage/medkit/regular = 1,
+				/obj/item/flashlight = 1,
+				/obj/item/storage/box/nif_ghost_box = 1,
+				/obj/item/storage/box/syndie_kit/chameleon/ghostcafe = 1,
+			)
 
-	// Add backpack contents
-	var/obj/item/storage/backpack/bag = subcontractor.back
-	if(istype(bag))
-		QDEL_LIST(bag.contents)
-		bag.contents += list(
-			new /obj/item/storage/box/survival,
-			new /obj/item/storage/medkit/regular,
-			new /obj/item/flashlight,
-			new /obj/item/storage/box/nif_ghost_box,
-			new /obj/item/storage/box/syndie_kit/chameleon/ghostcafe,
-		)
+	// Apply the customized outfit
+	subcontractor.equipOutfit(to_wear, visuals_only = TRUE)
 
 /obj/item/antag_spawner/bitrunning_help/proc/setup_id_card(mob/living/carbon/human/subcontractor)
 	var/obj/item/card/id/id_card = subcontractor.wear_id
