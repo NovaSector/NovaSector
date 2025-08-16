@@ -596,6 +596,18 @@
 	new_ninja.real_name = new_name
 	new_ninja.dna.update_dna_identity() // ninja antag datum needs dna to be set first
 	candidate.add_antag_datum(/datum/antagonist/ninja)
+	// NOVA EDIT ADDITION BEGIN: Preference Ninjas
+	var/loadme = tgui_input_list(new_ninja, "Do you wish to load your character slot?", "Load Character?", list("Yes!", "No, I want to be random!"), default = "No, I want to be random!", timeout = 60 SECONDS)
+	var/codename
+	if(loadme != "Yes!")
+		return
+	new_ninja.client?.prefs?.safe_transfer_prefs_to(new_ninja)
+	codename = tgui_input_text(new_ninja.client, "What should your codename be?", "Agent Name", "[pick("Master", "Legendary", "Agent", "Shinobi", "Ninja")] [new_ninja.dna.species.name]", 42, FALSE, TRUE, 300 SECONDS)
+	codename ? codename : (codename = "[pick("Master", "Legendary", "Agent", "Shinobi", "Ninja")] [new_ninja.dna.species.name]")
+	new_ninja.name = codename
+	new_ninja.real_name = codename
+	new_ninja.dna.update_dna_identity()
+	// NOVA EDIT ADDITION END: Preference Ninjas
 
 /datum/dynamic_ruleset/midround/from_ghosts/revenant
 	name = "Revenant"

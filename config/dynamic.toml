@@ -404,6 +404,39 @@ repeatable_weight_decrease = 2
 repeatable = 1
 minimum_required_age = 0
 
+["Drifting Contractors"]
+weight = 6
+min_pop = 25
+blacklisted_roles = []
+min_antag_cap = 2
+max_antag_cap = 1
+repeatable_weight_decrease = 2
+repeatable = 1
+minimum_required_age = 14
+
+["Cortical Borers"]
+weight = 3
+min_pop = 20
+blacklisted_roles = []
+min_antag_cap = 1
+# max_antag_cap = min_antag_cap
+repeatable_weight_decrease = 2
+repeatable = 1
+minimum_required_age = 0
+
+["Marauders"]
+weight.1 = 4
+weight.2 = 4
+weight.3 = 6
+weight.4 = 8
+min_pop = 20
+blacklisted_roles = []
+min_antag_cap = 1
+# max_antag_cap = min_antag_cap
+repeatable_weight_decrease = 2
+repeatable = 1
+minimum_required_age = 0
+
 ["Midround Traitor"]
 weight = 10
 min_pop = 3
@@ -443,6 +476,16 @@ weight.3 = 3
 weight.4 = 1
 min_pop = 5
 blacklisted_roles = []
+repeatable_weight_decrease = 2
+repeatable = 1
+minimum_required_age = 0
+
+["Mutant Infestation"]
+weight = 0
+min_pop = 30
+blacklisted_roles = []
+min_antag_cap = 2
+max_antag_cap = 1
 repeatable_weight_decrease = 2
 repeatable = 1
 minimum_required_age = 0

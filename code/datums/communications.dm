@@ -65,7 +65,14 @@ GLOBAL_DATUM_INIT(communications_controller, /datum/communciations_controller, n
 
 // Called AFTER everyone is equipped with their job
 /datum/communciations_controller/proc/queue_roundstart_report()
-	addtimer(CALLBACK(src, PROC_REF(send_roundstart_report)), rand(waittime_l, waittime_h))
+	// addtimer(CALLBACK(src, PROC_REF(send_roundstart_report)), rand(waittime_l, waittime_h)) // NOVA EDIT REMOVAL
+	// NOVA EDIT ADDITION START
+	var/wait_time = rand(waittime_l, waittime_h)
+	if(!CONFIG_GET(flag/no_intercept_report))
+		addtimer(CALLBACK(src, PROC_REF(send_roundstart_report)), wait_time)
+	else
+		addtimer(CALLBACK(src, PROC_REF(send_trait_report)), wait_time)
+	// NOVA EDIT ADDITION END
 
 /datum/communciations_controller/proc/send_roundstart_report(greenshift)
 	if(block_command_report) //If we don't want the report to be printed just yet, we put it off until it's ready
