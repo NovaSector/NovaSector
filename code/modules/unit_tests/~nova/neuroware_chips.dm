@@ -39,7 +39,7 @@
 
 		// Installation should fail on an incompatible default human
 		test_chip = ALLOCATE(chip_type)
-		var/install_status = test_neuroware.try_install(lab_rat lab_rat)
+		var/install_status = test_neuroware.try_install(lab_rat, lab_rat)
 		TEST_ASSERT_EQUAL(install_status, null, "\"[test_chip.type]/proc/try_install()\" should return null when used on default human.")
 
 		// Ensure the reagents weren't added
