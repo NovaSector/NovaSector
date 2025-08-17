@@ -29,18 +29,6 @@
 	prefix = "_maps/RandomRuins/AnywhereRuins/"
 	suffix = "fountain_hall.dmm"
 
-/datum/map_template/ruin/jungle/nova
-	prefix = "_maps/RandomRuins/JungleRuins/nova/"
-
-/datum/map_template/ruin/jungle/nova/anchor_buoy
-	name = "JungleSurface-Ruin Anchor Buoy"
-	id = "nova-anchor-buoy-jungle-1"
-	description = "A little one-way-launch navigation beacon for the charting of unexplored jungle."
-	suffix = "jungle_beacon.dmm"
-	cost = 0
-	always_place = TRUE
-	allow_duplicates = FALSE
-
 /// Caves ///
 /datum/map_template/ruin/jungle_cave
 	ruin_type = ZTRAIT_JUNGLE_CAVE_RUINS
