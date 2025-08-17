@@ -53,7 +53,7 @@
 		nif_implant.Insert(lab_rat, special = TRUE)
 
 		// Installation should succeed on a compatible human with a NIF implant
-		test_chip = ALLOCATE(chip_type)
+		test_chip = allocate(chip_type)
 		var/install_status = test_chip.try_install(lab_rat, lab_rat)
 		TEST_ASSERT_EQUAL(install_status, TRUE, "\"[test_chip.type]/proc/try_install()\" should return TRUE when used on human with NIF implant.")
 
