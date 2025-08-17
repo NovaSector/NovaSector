@@ -86,7 +86,8 @@
 	contains = list(/obj/item/scratching_stone)
 	contraband = TRUE
 
-/datum/supply_pack/goody/shuttle_construction_kit/New() //Modular addition
+// Makes this available to anyone, not just those with ACCESS_AUX_BASE
+/datum/supply_pack/goody/shuttle_construction_kit/New()
 	. = ..()
 	access_view = NONE
 	contains += /obj/item/stack/rods/shuttle/fifty
