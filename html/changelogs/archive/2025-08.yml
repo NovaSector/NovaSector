@@ -679,3 +679,7 @@
       No more allcomms for bitrunners.
   OrbisAnima:
   - rscdel: Removes Yiff in hell / Furry Pride / Lizard Power / Fuck Lizards graffitis
+2025-08-17:
+  BasilTamaya:
+  - qol: Psionic Holding now tells you if you're holding something telekinetically
+      or not.
