@@ -1,4 +1,4 @@
-/**
+/*
 * Checks that synthetic humanoids, humans, and synth-human-hybrids process reagents as expected.
 * Includes tests for neuroware chip reagents.
 *
@@ -156,7 +156,7 @@
 	SSmobs.ignite()
 	return ..()
 
-// Test neuroware with synthetic humanoid species
+// Test neuroware reagents with synthetic humanoid species
 /datum/unit_test/liver/neuroware_synth/Run()
 	// Pause natural mob life so it can be handled entirely by the test
 	SSmobs.pause()
@@ -170,6 +170,8 @@
 	// Synthetic humanoid should always be affected by neuroware reagents
 	test_robot.reagents.add_reagent(neuroware_mute_toxin, 15)
 	test_robot.Life(SSMOBS_DT)
+	// Neuroware status effect should be present after neuroware starts metabolizing
+	TEST_ASSERT(test_robot.has_status_effect(/datum/status_effect/neuroware), "Neuroware status effect is missing in synthetic humanoid.")
 	TEST_ASSERT(test_robot.has_status_effect(/datum/status_effect/silenced), "Synthetic humanoid not affected by neuroware reagents.")
 
 	// Setup synthetic humanoid with cybernetic liver
@@ -180,17 +182,24 @@
 	// Cyber liver should not block synthetic humanoids from processing neuroware reagents
 	test_robot.reagents.add_reagent(neuroware_mute_toxin, 15)
 	test_robot.Life(SSMOBS_DT)
+	TEST_ASSERT(test_robot.has_status_effect(/datum/status_effect/neuroware), "Neuroware status effect is missing in synthetic humanoid with cybernetic liver.")
 	TEST_ASSERT(test_robot.has_status_effect(/datum/status_effect/silenced), "Synthetic humanoid with cybernetic liver not affected by neuroware reagents.")
 
-	// Setup synthetic humanoid without liver
+	// Setup synthetic humanoid without a liver
 	test_robot = EASY_ALLOCATE()
-	test_robot.get_organ_slot(ORGAN_SLOT_LIVER)
+	var/obj/item/organ/liver/synth/synth_liver = test_robot.get_organ_slot(ORGAN_SLOT_LIVER)
+	synth_liver.Remove(test_robot, special = TRUE)
+	// Lacking a liver should not block neuroware reagents from metabolizing
+	test_robot.reagents.add_reagent(neuroware_mute_toxin, 15)
+	test_robot.Life(SSMOBS_DT)
+	TEST_ASSERT(test_robot.has_status_effect(/datum/status_effect/neuroware), "Neuroware status effect is missing in synthetic humanoid without a liver.")
+	TEST_ASSERT(test_robot.has_status_effect(/datum/status_effect/silenced), "Synthetic humanoid without a liver not affected by neuroware reagents.")
 
 /datum/unit_test/liver/neuroware_synth/Destroy()
 	SSmobs.ignite()
 	return ..()
 
-// Test neuroware with human species
+// Test neuroware reagents with human species
 /datum/unit_test/liver/neuroware_human/Run()
 	// Pause natural mob life so it can be handled entirely by the test
 	SSmobs.pause()
@@ -204,7 +213,8 @@
 	// Human species without NIF implant should not be affected by neuroware reagents
 	lab_rat.reagents.add_reagent(neuroware_mute_toxin, 15)
 	lab_rat.Life(SSMOBS_DT)
-	TEST_ASSERT(!lab_rat.has_status_effect(/datum/status_effect/silenced), "Human without NIF implant affected by neuroware reagents.")
+	TEST_ASSERT(!lab_rat.has_status_effect(/datum/status_effect/neuroware), "Neuroware status effect is present in default human.")
+	TEST_ASSERT(!lab_rat.has_status_effect(/datum/status_effect/silenced), "Default human affected by neuroware reagents.")
 
 	// Setup the human with a NIF implant
 	lab_rat = EASY_ALLOCATE()
@@ -214,6 +224,7 @@
 	// Human with NIF should always be affected by neuroware reagents
 	lab_rat.reagents.add_reagent(neuroware_mute_toxin, 15)
 	lab_rat.Life(SSMOBS_DT)
+	TEST_ASSERT(lab_rat.has_status_effect(/datum/status_effect/neuroware), "Neuroware status effect is missing in human with NIF implant.")
 	TEST_ASSERT(lab_rat.has_status_effect(/datum/status_effect/silenced), "Human with NIF implant not affected by neuroware reagents.")
 
 	// Setup the human with a synth liver
@@ -224,7 +235,8 @@
 	// Synth liver should not allow human species to process neuroware reagents
 	lab_rat.reagents.add_reagent(neuroware_mute_toxin, 15)
 	lab_rat.Life(SSMOBS_DT)
-	TEST_ASSERT(!lab_rat.has_status_effect(/datum/status_effect/silenced), "Human without NIF implant, with synth liver, affected by neuroware reagents.")
+	TEST_ASSERT(!lab_rat.has_status_effect(/datum/status_effect/neuroware), "Neuroware status effect is present in human with synth liver.")
+	TEST_ASSERT(!lab_rat.has_status_effect(/datum/status_effect/silenced), "Human with synth liver affected by neuroware reagents.")
 
 /datum/unit_test/liver/neuroware_human/Destroy()
 	SSmobs.ignite()
