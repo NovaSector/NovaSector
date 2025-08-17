@@ -1,0 +1,5 @@
+author: "OrbisAnima"
+delete-after: True
+changes:
+  - qol: "Stasis Beds now report in the medical channel if someone is buckled to them. This can be changed with a multitool on their boards, come on by default if the bed is created on an NT space, or off if its not the case."
+  - balance: "Stasis Beds no longer let you do surgeries while its on. (You can turn it off with alt click)"
