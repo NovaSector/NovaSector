@@ -45,7 +45,7 @@
 		// Ensure the reagents weren't added
 		test_robot.Life(SSMOBS_DT)
 		for(var/reagent_type as anything in test_chip.list_reagents)
-			TEST_ASSERT(lab_rat.has_reagent(reagent_type), "\"[reagent_type]\" is present when it's expected to be missing after using \"[test_chip.type]\" on default human.")
+			TEST_ASSERT(!lab_rat.has_reagent(reagent_type), "\"[reagent_type]\" is present when it's expected to be missing after using \"[test_chip.type]\" on default human.")
 
 		// Setup human with NIF implant
 		lab_rat = EASY_ALLOCATE()
