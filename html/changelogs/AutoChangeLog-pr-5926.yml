@@ -1,5 +1,0 @@
-author: "Hatterhat"
-delete-after: True
-changes:
-  - rscadd: "Interdyne scientists can now drink Doctor's Delight for healing without losing nutriment, as their livers have gained medically-inclined metabolism."
-  - bugfix: "Ghost roles with jobs now properly apply their jobs' liver traits."

@@ -1,4 +1,0 @@
-author: "DirectCause"
-delete-after: True
-changes:
-  - bugfix: "Razorwire and Shell launcher cyberimps are no longer displayed as if they are on the opposite hand"
