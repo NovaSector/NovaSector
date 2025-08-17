@@ -72,7 +72,7 @@
 		// Installation should fail on a human with a broken NIF implant
 		test_chip = allocate(chip_type)
 		install_status = test_chip.try_install(lab_rat, lab_rat)
-		TEST_ASSERT_EQUAL(install_status, TRUE, "\"[test_chip.type]/proc/try_install()\" should return FALSE when used on human with a broken NIF implant.")
+		TEST_ASSERT_EQUAL(install_status, null, "\"[test_chip.type]/proc/try_install()\" should return null when used on human with a broken NIF implant.")
 
 		// Ensure the reagents weren't added
 		lab_rat.Life(SSMOBS_DT)
