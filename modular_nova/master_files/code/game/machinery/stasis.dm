@@ -28,4 +28,4 @@
 	. = ..()
 	announce = !announce
 	modified_by_multitool = FALSE
-	to_chat(user, span_notice("Medbay announcement set to [announce ? "Enabled" : "Disabled"]."))
+	to_chat(user, span_notice("Medbay announcement set to [announce_when_buckled ? "Enabled" : "Disabled"]."))
