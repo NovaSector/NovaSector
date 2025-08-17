@@ -4,7 +4,7 @@
 /obj/machinery/stasis/Initialize(mapload)
 	. = ..()
 	var/obj/item/circuitboard/machine/stasis/board = circuit
-	if(board && board.fresh)
+	if(board && board.modified_by_multitool)
 		var/area/my_area = get_area(src)
 		if(my_area.type in GLOB.the_station_areas)
 			board.announce_when_buckled = TRUE
