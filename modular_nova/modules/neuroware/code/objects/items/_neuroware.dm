@@ -111,7 +111,7 @@
 /obj/item/disk/neuroware/proc/after_install(mob/living/carbon/human/target, mob/living/carbon/human/user)
 	return
 
-///Returns TRUE if overdose would occur upon install(), overwise returns FALSE.
+///Returns TRUE if overdose would occur upon install(), otherwise returns FALSE.
 /obj/item/disk/neuroware/proc/check_overdose(mob/living/carbon/human/target, list/reagent_list)
 	for(var/reagent_type as anything in reagent_list)
 		var/datum/reagent/existing_reagent = target.has_reagent(reagent_type)
@@ -122,7 +122,7 @@
 			return TRUE
 	return FALSE
 
-///Installs only if the mob has a synthetic brain, unless they have a NIF implant
+///Installs only if the mob has a synthetic brain, unless they have a NIF implant. Returns TRUE on success.
 /obj/item/disk/neuroware/proc/try_install(mob/living/carbon/human/target, mob/living/carbon/human/user)
 	if(!ishuman(target))
 		return
