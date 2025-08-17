@@ -16,11 +16,11 @@
 	var/list/neuroware_chip_types = subtypesof(/obj/item/disk/neuroware)
 	for(var/chip_type as anything in neuroware_chip_types)
 		// Only tests neuroware chips which install reagents
-		if(isnull(initial(test_chip.list_reagents)))
+		if(isnull(initial(chip_type.list_reagents)))
 			continue
 
 		// Allocate the test neuroware chip
-		var/obj/item/disk/neuroware/test_chip = ALLOCATE(chip_type)
+		var/obj/item/disk/neuroware/test_chip = allocate(chip_type)
 
 		// Setup default synthetic humanoid
 		var/mob/living/carbon/human/species/synth/test_robot = EASY_ALLOCATE()
@@ -32,20 +32,20 @@
 		// Ensure the reagents were added successfully
 		test_robot.Life(SSMOBS_DT)
 		for(var/reagent_type as anything in test_chip.list_reagents)
-			TEST_ASERT(test_robot.has_reagent(reagent_type), "\"[reagent_type]\" is missing when its presence is expected after using \"[test_chip.type]\" on synthetic humanoid.")
+			TEST_ASSERT(test_robot.has_reagent(reagent_type), "\"[reagent_type]\" is missing when its presence is expected after using \"[test_chip.type]\" on synthetic humanoid.")
 
 		// Setup default human
 		var/mob/living/carbon/human/consistent/lab_rat = EASY_ALLOCATE()
 
 		// Installation should fail on an incompatible default human
-		test_chip = ALLOCATE(chip_type)
-		var/install_status = test_neuroware.try_install(lab_rat, lab_rat)
+		test_chip = allocate(chip_type)
+		var/install_status = test_chip.try_install(lab_rat, lab_rat)
 		TEST_ASSERT_EQUAL(install_status, null, "\"[test_chip.type]/proc/try_install()\" should return null when used on default human.")
 
 		// Ensure the reagents weren't added
 		test_robot.Life(SSMOBS_DT)
 		for(var/reagent_type as anything in test_chip.list_reagents)
-			TEST_ASERT(lab_rat.has_reagent(reagent_type), "\"[reagent_type]\" is present when it's expected to be missing after using \"[test_chip.type]\" on default human.")
+			TEST_ASSERT(lab_rat.has_reagent(reagent_type), "\"[reagent_type]\" is present when it's expected to be missing after using \"[test_chip.type]\" on default human.")
 
 		// Setup human with NIF implant
 		lab_rat = EASY_ALLOCATE()
@@ -60,7 +60,7 @@
 		// Ensure the reagents were added
 		test_robot.Life(SSMOBS_DT)
 		for(var/reagent_type as anything in test_chip.list_reagents)
-			TEST_ASERT(lab_rat.has_reagent(reagent_type), "\"[reagent_type]\" is missing when its presence is expected after using \"[test_chip.type]\" on human with NIF implant.")
+			TEST_ASSERT(lab_rat.has_reagent(reagent_type), "\"[reagent_type]\" is missing when its presence is expected after using \"[test_chip.type]\" on human with NIF implant.")
 
 		// Setup human with a broken NIF implant
 		lab_rat = EASY_ALLOCATE()
@@ -70,14 +70,14 @@
 		nif_implant.broken = TRUE
 
 		// Installation should fail on a human with a broken NIF implant
-		test_chip = ALLOCATE(chip_type)
+		test_chip = allocate(chip_type)
 		var/install_status = test_chip.try_install(lab_rat, lab_rat)
 		TEST_ASSERT_EQUAL(install_status, TRUE, "\"[test_chip.type]/proc/try_install()\" should return FALSE when used on human with a broken NIF implant.")
 
 		// Ensure the reagents weren't added
 		test_robot.Life(SSMOBS_DT)
 		for(var/reagent_type as anything in test_chip.list_reagents)
-			TEST_ASERT(!lab_rat.has_reagent(reagent_type), "\"[reagent_type]\" is present when it's expected to be missing after using \"[test_chip.type]\" on human with broken NIF implant.")
+			TEST_ASSERT(!lab_rat.has_reagent(reagent_type), "\"[reagent_type]\" is present when it's expected to be missing after using \"[test_chip.type]\" on human with broken NIF implant.")
 
 /datum/unit_test/neuroware_chips/Destroy()
 	SSmobs.ignite()
