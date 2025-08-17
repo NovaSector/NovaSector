@@ -215,8 +215,7 @@
 	return ..()
 
 /// this is the area you use for stuff to not spawn, but if you still want weather.
-/area/icemoon/surface/outdoors/less_spawns
-	icon_state = "less_spawns"
+/area/icemoon/surface/outdoors/nospawn
 
 /area/icemoon/surface/outdoors/less_spawns
 	icon_state = "less_spawns"
