@@ -20,7 +20,7 @@
 
 /obj/item/circuitboard/machine/stasis
 	/// Controls wherever the stasis bed gives an announcement when someone is buckled to it or not.
-	var/announce = FALSE
+	var/announce_when_buckled = FALSE
 	/// Flag that tells wherever this is a freshly created board, in which case it will go with the z level logic, or if it was modified and thus needs to read the new logic.
 	var/fresh = TRUE
 
