@@ -15,12 +15,12 @@
 	// Fetch all neuroware chip subtypes
 	var/list/neuroware_chip_types = subtypesof(/obj/item/disk/neuroware)
 	for(var/chip_type as anything in neuroware_chip_types)
-		// Only tests neuroware chips which install reagents
-		if(isnull(initial(chip_type.list_reagents)))
-			continue
-
 		// Allocate the test neuroware chip
 		var/obj/item/disk/neuroware/test_chip = allocate(chip_type)
+
+		// Skip neuroware chips which don't install reagents
+		if(isnull(test_chip.list_reagents))
+			continue
 
 		// Setup default synthetic humanoid
 		var/mob/living/carbon/human/species/synth/test_robot = EASY_ALLOCATE()
