@@ -51,7 +51,7 @@
 		/datum/material/plasma = HALF_SHEET_MATERIAL_AMOUNT,
 	)
 	research_icon_state = "tarkon-plating"
-	research_icon = 'modular_nova/modules/tarkon/icons/obj/mod_construct.dmi'
+	research_icon = 'modular_nova/master_files/icons/obj/clothing/modsuit/mod_construction.dmi'
 
 /datum/design/arcs
 	name = "A.R.C.S Resonator"
