@@ -323,6 +323,7 @@
 // NOVA EDIT START
 #include "~nova\automapper.dm"
 #include "~nova\liver.dm"
+#include "~nova\neuroware_chips.dm"
 #include "~nova\opposing_force.dm"
 // NOVA EDIT END
 // END_INCLUDE
