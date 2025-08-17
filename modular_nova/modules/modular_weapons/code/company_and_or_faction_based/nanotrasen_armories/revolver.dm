@@ -12,7 +12,7 @@
 	lore_blurb = "The NT/E Laevateinn is Nanotrasen's take on a charged-shot revolver, designed shortly after the BR-38.<br><br>\
 		With the success of the BR-38 (as a project), a small group of technicians experienced with the carbine's workings \
 		proposed downscaling its magnetic acceleration system for use within a revolver's form-factor. Interestingly enough, \
-		their proprosal was accepted, and work began on the new project... with a surprising amount of success. \
+		their proposal was accepted, and work began on the new project... with a surprising amount of success. \
 		The smaller package necessitated some tradeoffs, though, to prevent catastrophic failures.<br><br>\
 		The Laevateinn's performance is comparable to a regular .38 revolver by default. Enabling the charge assembly \
 		increases projectile velocity and performance, but engages a tamper-proof limiter system that prevents successive trigger pulls \
