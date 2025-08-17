@@ -161,11 +161,13 @@
 	// Pause natural mob life so it can be handled entirely by the test
 	SSmobs.pause()
 
+	// Mute toxin neuroware which adds a status effect
+	var/datum/reagent/toxin/mutetoxin/synth/neuroware_mute_toxin = /datum/reagent/toxin/mutetoxin/synth
+
 	// Setup default synthetic humanoid
 	var/mob/living/carbon/human/species/synth/test_robot = EASY_ALLOCATE()
 
 	// Synthetic humanoid should always be affected by neuroware reagents
-	var/datum/reagent/toxin/mutetoxin/synth/neuroware_mute_toxin = /datum/reagent/toxin/mutetoxin/synth
 	test_robot.reagents.add_reagent(neuroware_mute_toxin, 15)
 	test_robot.Life(SSMOBS_DT)
 	TEST_ASSERT(test_robot.has_status_effect(/datum/status_effect/silenced), "Synthetic humanoid not affected by neuroware reagents.")
@@ -176,7 +178,6 @@
 	cyber_liver.Insert(test_robot, special = TRUE, movement_flags = DELETE_IF_REPLACED)
 
 	// Cyber liver should not block synthetic humanoids from processing neuroware reagents
-	var/datum/reagent/toxin/mutetoxin/synth/neuroware_mute_toxin = /datum/reagent/toxin/mutetoxin/synth
 	test_robot.reagents.add_reagent(neuroware_mute_toxin, 15)
 	test_robot.Life(SSMOBS_DT)
 	TEST_ASSERT(test_robot.has_status_effect(/datum/status_effect/silenced), "Synthetic humanoid with cybernetic liver not affected by neuroware reagents.")
@@ -194,11 +195,13 @@
 	// Pause natural mob life so it can be handled entirely by the test
 	SSmobs.pause()
 
+	// Mute toxin neuroware which adds a status effect
+	var/datum/reagent/toxin/mutetoxin/synth/neuroware_mute_toxin = /datum/reagent/toxin/mutetoxin/synth
+
 	// Setup default human
 	var/mob/living/carbon/human/consistent/lab_rat = EASY_ALLOCATE()
 
 	// Human species without NIF implant should not be affected by neuroware reagents
-	var/datum/reagent/toxin/mutetoxin/synth/neuroware_mute_toxin = /datum/reagent/toxin/mutetoxin/synth
 	lab_rat.reagents.add_reagent(neuroware_mute_toxin, 15)
 	lab_rat.Life(SSMOBS_DT)
 	TEST_ASSERT(!lab_rat.has_status_effect(/datum/status_effect/silenced), "Human without NIF implant affected by neuroware reagents.")
@@ -209,7 +212,6 @@
 	nif_implant.Insert(lab_rat, special = TRUE)
 
 	// Human with NIF should always be affected by neuroware reagents
-	var/datum/reagent/toxin/mutetoxin/synth/neuroware_mute_toxin = /datum/reagent/toxin/mutetoxin/synth
 	lab_rat.reagents.add_reagent(neuroware_mute_toxin, 15)
 	lab_rat.Life(SSMOBS_DT)
 	TEST_ASSERT(lab_rat.has_status_effect(/datum/status_effect/silenced), "Human with NIF implant not affected by neuroware reagents.")
@@ -220,7 +222,6 @@
 	synth_liver.Insert(lab_rat, special = TRUE, movement_flags = DELETE_IF_REPLACED)
 
 	// Synth liver should not allow human species to process neuroware reagents
-	var/datum/reagent/toxin/mutetoxin/synth/neuroware_mute_toxin = /datum/reagent/toxin/mutetoxin/synth
 	lab_rat.reagents.add_reagent(neuroware_mute_toxin, 15)
 	lab_rat.Life(SSMOBS_DT)
 	TEST_ASSERT(!lab_rat.has_status_effect(/datum/status_effect/silenced), "Human without NIF implant, with synth liver, affected by neuroware reagents.")
