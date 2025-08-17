@@ -8,7 +8,7 @@
 		var/area/my_area = get_area(src)
 		if(my_area.type in GLOB.the_station_areas)
 			board.announce = TRUE
-		board.fresh = FALSE
+		board.modified_by_multitool = FALSE
 
 /obj/machinery/stasis/post_buckle_mob(mob/living/buckled_mob)
 	. = ..()
