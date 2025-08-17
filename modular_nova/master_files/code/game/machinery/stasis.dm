@@ -27,5 +27,5 @@
 /obj/item/circuitboard/machine/stasis/multitool_act(mob/living/user)
 	. = ..()
 	announce = !announce
-	fresh = FALSE
+	modified_by_multitool = FALSE
 	to_chat(user, span_notice("Medbay announcement set to [announce ? "Enabled" : "Disabled"]."))
