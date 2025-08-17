@@ -39,7 +39,7 @@
 
 		// Installation should fail on an incompatible default human
 		test_chip = allocate(chip_type)
-		var/install_status = test_chip.try_install(lab_rat, lab_rat)
+		install_status = test_chip.try_install(lab_rat, lab_rat)
 		TEST_ASSERT_EQUAL(install_status, null, "\"[test_chip.type]/proc/try_install()\" should return null when used on default human.")
 
 		// Ensure the reagents weren't added
@@ -54,7 +54,7 @@
 
 		// Installation should succeed on a compatible human with a NIF implant
 		test_chip = allocate(chip_type)
-		var/install_status = test_chip.try_install(lab_rat, lab_rat)
+		install_status = test_chip.try_install(lab_rat, lab_rat)
 		TEST_ASSERT_EQUAL(install_status, TRUE, "\"[test_chip.type]/proc/try_install()\" should return TRUE when used on human with NIF implant.")
 
 		// Ensure the reagents were added
@@ -64,14 +64,14 @@
 
 		// Setup human with a broken NIF implant
 		lab_rat = EASY_ALLOCATE()
-		var/obj/item/organ/cyberimp/brain/nif/standard/nif_implant = EASY_ALLOCATE()
+		nif_implant = EASY_ALLOCATE()
 		nif_implant.Insert(lab_rat, special = TRUE)
 		nif_implant.durability = 0
 		nif_implant.broken = TRUE
 
 		// Installation should fail on a human with a broken NIF implant
 		test_chip = allocate(chip_type)
-		var/install_status = test_chip.try_install(lab_rat, lab_rat)
+		install_status = test_chip.try_install(lab_rat, lab_rat)
 		TEST_ASSERT_EQUAL(install_status, TRUE, "\"[test_chip.type]/proc/try_install()\" should return FALSE when used on human with a broken NIF implant.")
 
 		// Ensure the reagents weren't added
