@@ -218,6 +218,9 @@
 /area/icemoon/surface/outdoors/less_spawns
 	icon_state = "less_spawns"
 
+/area/icemoon/surface/outdoors/less_spawns
+	icon_state = "less_spawns"
+
 /area/icemoon/surface/outdoors/less_spawns/New()
 	. = ..()
 	// this area SOMETIMES does map generation. Often it doesn't at all

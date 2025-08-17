@@ -162,7 +162,6 @@
 		var/turf/target_turf = get_step(current_pull.pulledby.loc, REVERSE_DIR(current_pull.pulledby.dir)) || current_pull.pulledby.loc
 		current_pull.zMove(null, target_turf, ZMOVE_ALLOW_BUCKLED)
 		current_pull = current_pull.pulling
-
 /**
  * Replace an open turf with another open turf while avoiding the pitfall of replacing plating with a floor tile, leaving a hole underneath.
  * This replaces the current turf if it is plating and is passed plating, is tile and is passed tile.
