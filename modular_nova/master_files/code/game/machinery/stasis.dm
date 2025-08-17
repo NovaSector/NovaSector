@@ -26,6 +26,6 @@
 
 /obj/item/circuitboard/machine/stasis/multitool_act(mob/living/user)
 	. = ..()
-	announce = !announce
+	announce_when_buckled = !announce_when_buckled
 	modified_by_multitool = FALSE
 	to_chat(user, span_notice("Medbay announcement set to [announce_when_buckled ? "Enabled" : "Disabled"]."))
