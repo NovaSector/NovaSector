@@ -1,3 +1,4 @@
+/// Player Panel Proc calling for new player panel creation
 /mob/proc/create_player_panel()
 	QDEL_NULL(mob_panel)
 
