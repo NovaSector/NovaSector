@@ -22,6 +22,16 @@
 /obj/item/reagent_containers/hypospray/combat/interdyne/empty
 	list_reagents = list()
 
+/obj/item/reagent_containers/hypospray/combat/interdyne/deckofficer
+	name = "\improper Delux Interdyne Rapid Stimulant Injector"
+	desc = "A Delux Interdyne Pharmaceuticals Air needle injector, designed with more capacity than its standard variant, and given to those whom are more experienced in the company, however doesn't have \
+	more injection capacity due to legal issues."
+	icon_state = "interdyne_hypo_deckoff"
+	volume = 120
+
+/obj/item/reagent_containers/hypospray/combat/interdyne/deckofficer/empty
+	list_reagents = list()
+
 /obj/item/storage/medkit/tactical/premium/interdyne
 	name = "\improper Interdyne Premium Doctor's Kit"
 	desc = "a kit specially made by the interdyne corporation to utilize the most essential tools."
