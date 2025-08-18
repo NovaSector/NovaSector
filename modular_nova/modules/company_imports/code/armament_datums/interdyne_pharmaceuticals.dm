@@ -13,7 +13,7 @@
 	cost = PAYCHECK_COMMAND * 4
 
 /datum/armament_entry/company_import/interdyne/solo/hypospray
-	item_type = /obj/item/reagent_containers/hypospray/combat/empty
+	item_type = /obj/item/reagent_containers/hypospray/combat/interdyne/empty
 	cost = PAYCHECK_COMMAND * 8
 
 /datum/armament_entry/company_import/interdyne/solo/evilchems

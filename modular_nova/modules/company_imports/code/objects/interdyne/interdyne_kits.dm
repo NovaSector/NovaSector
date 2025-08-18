@@ -11,7 +11,7 @@
 
 /obj/item/reagent_containers/hypospray/combat/interdyne
 	name = "\improper Interdyne Rapid Stimulant Injector"
-	desc = "An Interdyne Pharmaceuticals Air needle injector, designed for specialized usage, in fields, hospital, remote locations. A true pinacle of medical technology"
+	desc = "An Interdyne Pharmaceuticals Air needle injector, designed for specialized usage, in fields, hospital, remote locations. A true pinacle of medical technology."
 	icon = 'modular_nova/master_files/icons/obj/medical/syringe.dmi'
 	inhand_icon_state = "interdyne_hypo"
 	lefthand_file = 'modular_nova/master_files/icons/mob/inhands/equipment/medical_lefthand.dmi'
