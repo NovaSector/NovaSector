@@ -12,6 +12,97 @@
 			"color_ids": [1]
 		}
 	],
+	"bar_hollow": [
+		{
+			"type": "icon_state",
+			"icon_state": "necklace",
+			"blend_mode": "overlay"
+		},
+		{
+			"type": "icon_state",
+			"icon_state": "glowbar_hlw",
+			"blend_mode": "overlay",
+			"color_ids": [1]
+		}
+	],
+	"diamond": [
+		{
+			"type": "icon_state",
+			"icon_state": "necklace",
+			"blend_mode": "overlay"
+		},
+		{
+			"type": "icon_state",
+			"icon_state": "glowdiamond",
+			"blend_mode": "overlay",
+			"color_ids": [1]
+		}
+	],
+	"diamond_hollow": [
+		{
+			"type": "icon_state",
+			"icon_state": "necklace",
+			"blend_mode": "overlay"
+		},
+		{
+			"type": "icon_state",
+			"icon_state": "glowdiamond_hlw",
+			"blend_mode": "overlay",
+			"color_ids": [1]
+		}
+	],
+	"shard": [
+		{
+			"type": "icon_state",
+			"icon_state": "necklace",
+			"blend_mode": "overlay"
+		},
+		{
+			"type": "icon_state",
+			"icon_state": "glowshard",
+			"blend_mode": "overlay",
+			"color_ids": [1]
+		}
+	],
+	"shard_hollow": [
+		{
+			"type": "icon_state",
+			"icon_state": "necklace",
+			"blend_mode": "overlay"
+		},
+		{
+			"type": "icon_state",
+			"icon_state": "glowshard_hlw",
+			"blend_mode": "overlay",
+			"color_ids": [1]
+		}
+	],
+	"triangle": [
+		{
+			"type": "icon_state",
+			"icon_state": "necklace",
+			"blend_mode": "overlay"
+		},
+		{
+			"type": "icon_state",
+			"icon_state": "glowtri",
+			"blend_mode": "overlay",
+			"color_ids": [1]
+		}
+	],
+	"triangle_hollow": [
+		{
+			"type": "icon_state",
+			"icon_state": "necklace",
+			"blend_mode": "overlay"
+		},
+		{
+			"type": "icon_state",
+			"icon_state": "glowtri_hlw",
+			"blend_mode": "overlay",
+			"color_ids": [1]
+		}
+	],
 	"crystal": [
 		{
 			"type": "icon_state",

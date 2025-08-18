@@ -197,16 +197,6 @@ Potential future ideas:
 /*
 // Special Medals
 */
-/obj/item/clothing/accessory/nova/acc_medal/glowbar
-	name = "glowbar necklace"
-	desc = "A glowing rock strung from a necklace, a token of gratitude similar to a medal."
-	icon = 'icons/map_icons/clothing/accessory.dmi'
-	icon_state = "/obj/item/clothing/accessory/nova/acc_medal/glowbar"
-	post_init_icon_state = "bar"
-	greyscale_config = /datum/greyscale_config/medals/glow
-	greyscale_config_worn = /datum/greyscale_config/medals/glow/worn
-	greyscale_colors = "#ff99ff"
-
 /obj/item/clothing/accessory/nova/acc_medal/glowcrystal
 	name = "glowcrystal necklace"
 	desc = "A glowing rock strung from a necklace, a token of gratitude similar to a medal."
@@ -215,7 +205,18 @@ Potential future ideas:
 	post_init_icon_state = "crystal"
 	greyscale_config = /datum/greyscale_config/medals/glow
 	greyscale_config_worn = /datum/greyscale_config/medals/glow/worn
-	greyscale_colors = "#ff99ff"
+	greyscale_colors = "#7effff"
+	unique_reskin = list(
+		"Crystal" = "crystal",
+		"Bar" = "bar",
+		"Hollow Bar" = "bar_hollow",
+		"Diamond" = "diamond",
+		"Hollow Diamond" = "diamond_hollow",
+		"Shard" = "shard",
+		"Hollow Shard" = "shard_hollow",
+		"Triangle" = "triangle",
+		"Hollow Triangle" = "triangle_hollow",
+	)
 
 /obj/item/clothing/accessory/nova/acc_medal/dogtags
 	name = "dogtags"
