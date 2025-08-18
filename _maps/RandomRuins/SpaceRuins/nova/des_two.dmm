@@ -254,9 +254,8 @@
 /area/ruin/space/has_grav/nova/des_two/engineering)
 "bf" = (
 /obj/effect/turf_decal/trimline/dark_red/filled/line,
-/obj/structure/table,
-/obj/item/reagent_containers/cup/glass/coffee,
 /obj/machinery/light/cold/directional/north,
+/obj/effect/mob_spawn/ghost_role/robot/ds2,
 /turf/open/floor/iron/dark,
 /area/ruin/space/has_grav/nova/des_two/cargo)
 "bn" = (
@@ -3824,13 +3823,10 @@
 /turf/open/floor/iron/dark/textured_large,
 /area/ruin/space/has_grav/nova/des_two/halls)
 "qw" = (
-/obj/machinery/suit_storage_unit/syndicate/chameleon{
-	name = "suit storage unit";
-	req_access = list("syndicate_leader")
-	},
 /obj/effect/turf_decal/siding/dark{
 	dir = 8
 	},
+/obj/machinery/suit_storage_unit/syndicate/deepspace,
 /turf/open/floor/mineral/plastitanium/red,
 /area/ruin/space/has_grav/nova/des_two/security/armory)
 "qz" = (
@@ -4770,9 +4766,7 @@
 /area/ruin/space/has_grav/nova/des_two/halls)
 "vj" = (
 /obj/effect/turf_decal/trimline/dark_red/filled/line,
-/obj/structure/chair/plastic{
-	dir = 8
-	},
+/obj/effect/mob_spawn/ghost_role/robot/ds2,
 /turf/open/floor/iron/dark,
 /area/ruin/space/has_grav/nova/des_two/cargo)
 "vk" = (
@@ -5198,6 +5192,8 @@
 /obj/item/circuitboard/machine/powerator/syndicate,
 /obj/item/circuitboard/machine/powerator/syndicate,
 /obj/item/circuitboard/machine/powerator/syndicate,
+/obj/item/circuitboard/machine/bountypad,
+/obj/item/circuitboard/computer/bountypad,
 /turf/open/floor/iron/dark,
 /area/ruin/space/has_grav/nova/des_two/bridge/vault)
 "xr" = (
@@ -6045,16 +6041,13 @@
 /turf/template_noop,
 /area/template_noop)
 "Bu" = (
-/obj/machinery/suit_storage_unit/syndicate/chameleon{
-	name = "suit storage unit";
-	req_access = list("syndicate_leader")
-	},
 /obj/machinery/power/apc/auto_name/directional/east,
 /obj/effect/mapping_helpers/apc/syndicate_access,
 /obj/structure/cable,
 /obj/effect/turf_decal/siding/dark{
 	dir = 8
 	},
+/obj/machinery/suit_storage_unit/syndicate/deepspace,
 /turf/open/floor/mineral/plastitanium/red,
 /area/ruin/space/has_grav/nova/des_two/security/armory)
 "Bw" = (
@@ -7484,9 +7477,6 @@
 /turf/open/floor/iron/dark,
 /area/ruin/space/has_grav/nova/des_two/halls)
 "HF" = (
-/obj/machinery/suit_storage_unit/syndicate/chameleon{
-	name = "suit storage unit"
-	},
 /obj/effect/turf_decal/siding/yellow{
 	dir = 8
 	},
@@ -7499,6 +7489,7 @@
 /obj/effect/turf_decal/trimline/yellow/line{
 	dir = 4
 	},
+/obj/machinery/suit_storage_unit/syndicate/deepspace,
 /turf/open/floor/iron/dark/side{
 	dir = 8
 	},
@@ -7782,11 +7773,7 @@
 /obj/structure/window/reinforced/survival_pod{
 	dir = 10
 	},
-/obj/machinery/suit_storage_unit{
-	mask_type = /obj/item/clothing/mask/gas/syndicate;
-	mod_type = /obj/item/mod/control/pre_equipped/traitor_elite;
-	storage_type = /obj/item/tank/jetpack/oxygen/harness
-	},
+/obj/machinery/suit_storage_unit/syndicate/deepspace_admiral,
 /turf/open/floor/iron/dark/smooth_large,
 /area/ruin/space/has_grav/nova/des_two/bridge/admiral)
 "Ja" = (
@@ -9078,8 +9065,8 @@
 	desc = "An armband, worn by the FOB's operatives to display which department they're assigned to.";
 	name = "researcher armband"
 	},
-/obj/item/clothing/suit/toggle/jacket/nova/sci,
-/obj/item/clothing/suit/toggle/jacket/nova/sci,
+/obj/item/clothing/suit/toggle/jacket/nova/colorable_bomber/sci,
+/obj/item/clothing/suit/toggle/jacket/nova/colorable_bomber/sci,
 /obj/item/clothing/suit/hooded/wintercoat/science,
 /turf/open/floor/iron/dark/side{
 	dir = 1
@@ -9929,8 +9916,8 @@
 /obj/item/holosign_creator/atmos{
 	pixel_y = -8
 	},
-/obj/item/clothing/suit/toggle/jacket/nova/engi,
-/obj/item/clothing/suit/toggle/jacket/nova/engi,
+/obj/item/clothing/suit/toggle/jacket/nova/colorable_bomber/engi,
+/obj/item/clothing/suit/toggle/jacket/nova/colorable_bomber/engi,
 /obj/item/clothing/suit/hooded/wintercoat/engineering,
 /obj/machinery/light_switch/directional/west,
 /turf/open/floor/iron/dark/side{
@@ -10767,13 +10754,6 @@
 /obj/structure/cable,
 /turf/open/floor/iron/dark,
 /area/ruin/space/has_grav/nova/des_two/halls)
-"WV" = (
-/obj/effect/turf_decal/trimline/dark_red/filled/line,
-/obj/structure/chair/plastic{
-	dir = 4
-	},
-/turf/open/floor/iron/dark,
-/area/ruin/space/has_grav/nova/des_two/cargo)
 "WW" = (
 /obj/machinery/seed_extractor,
 /turf/open/floor/iron/white/diagonal,
@@ -12968,7 +12948,7 @@ HH
 HH
 HH
 HH
-WV
+vj
 mD
 fQ
 LR

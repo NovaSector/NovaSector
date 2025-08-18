@@ -74,15 +74,14 @@
 	if(id_card?.registered_account && (ACCESS_WEAPONS in id_card.access))
 		cant_buy_restricted = FALSE
 
+	if(id_card?.registered_account)
+		if((buyer == SSeconomy.get_dep_account(id_card.registered_account.account_job.paycheck_department)) && !self_paid)
+			cant_buy_restricted = TRUE
+
 	if(console_state == CARGO_CONSOLE)
 		var/obj/machinery/computer/cargo/console = parent
-		if(!console.requestonly || console.contraband)
+		if(console.obj_flags & EMAGGED)
 			cant_buy_restricted = FALSE
-
-	else if((console_state == IRN_CONSOLE) && id_card?.registered_account)
-		if((ACCESS_COMMAND in id_card.access) || (ACCESS_QM in id_card.access))
-			if((buyer == SSeconomy.get_dep_account(id_card.registered_account.account_job.paycheck_department)) && !self_paid)
-				cant_buy_restricted = FALSE
 
 	data["cant_buy_restricted"] = !!cant_buy_restricted
 	data["budget_points"] = self_paid ? id_card?.registered_account?.account_balance : buyer?.account_balance

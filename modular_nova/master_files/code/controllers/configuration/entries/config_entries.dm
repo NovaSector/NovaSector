@@ -95,3 +95,19 @@
 /// to make it more readable in the BYOND window.
 /datum/config_entry/string/missing_whitelist_message
 	default = "\nThis server requires you to be whitelisted in order to be allowed to play. Apply on our Discord by simply filling the Access Request form from the #application-instructions channel under the 'Landing Zone' category. Here's the invite link: https://discord.gg/novasector"
+
+/datum/config_entry/flag/disable_blinking
+	default = FALSE
+
+// blinking won't update without re-running the animate
+/datum/config_entry/flag/disable_blinking/vv_edit_var(var_name, var_value)
+	. = ..()
+	if(var_name == NAMEOF(src, config_entry_value))
+		INVOKE_ASYNC(src, PROC_REF(update_blinkers))
+
+
+/datum/config_entry/flag/disable_blinking/proc/update_blinkers()
+	for(var/mob/living/carbon/human/blinker in GLOB.alive_mob_list)
+		var/obj/item/organ/eyes/eyes = blinker.get_organ_slot(ORGAN_SLOT_EYES)
+		eyes?.blink()
+		CHECK_TICK
