@@ -15,6 +15,15 @@
 	icon_state = "interdyne_premium_surgical"
 	icon = 'modular_nova/master_files/icons/obj/storage/medkit.dmi'
 	storage_type = /datum/storage/duffel/deforest_big_surgery
+	unique_reskin = list(
+		"Default" = "interdyne_premium_surgical",
+		"Corpse" = "interdyne_premium_corpse",
+		"Burn" = "interdyne_premium_burn",
+		"Brute" = "interdyne_premium_brute",
+		"Toxin" = "interdyne_premium_toxin",
+		"Oxy" = "interdyne_premium_oxy",
+		"Tactical" = "interdyne_premium",
+	)
 
 /obj/item/storage/medkit/tactical/premium/interdyne/PopulateContents()
 	if(empty)
@@ -60,6 +69,15 @@
 	desc = "a kit specially made by the interdyne corporation to utilize the most essential tools."
 	icon_state = "interdyne_surgical"
 	storage_type = /datum/storage/duffel/deforest_paramedic
+	unique_reskin = list(
+		"Default" = "interdyne_surgical",
+		"Corpse" = "interdyne_coroner",
+		"Burn" = "interdyne_burn",
+		"Brute" = "interdyne_brute",
+		"Toxin" = "interdyne_toxin",
+		"Oxy" = "interdyne_oxy",
+		"Tactical" = "interdyne_tactical",
+	)
 
 /obj/item/storage/medkit/tactical/premium/interdyne/medium/PopulateContents()
 	var/static/list/items_inside = list(
@@ -132,6 +150,15 @@
 	icon = 'modular_nova/master_files/icons/obj/storage/medkit.dmi'
 	icon_state = "interdyne_lite"
 	storage_type = /datum/storage/pouch/medical/small
+	unique_reskin = list(
+		"Default" = "interdyne_lite",
+		"Corpse" = "interdyne_lite_corpse",
+		"Burn" = "interdyne_lite_burn",
+		"Brute" = "interdyne_lite_brute",
+		"Toxin" = "interdyne_lite_toxin",
+		"Oxy" = "interdyne_lite_oxy",
+		"Surgical" = "interdyne_lite_surgical",
+	)
 
 /obj/item/storage/pouch/medical/firstaid/interdyne/PopulateContents()
 	var/static/list/items_inside = list(
