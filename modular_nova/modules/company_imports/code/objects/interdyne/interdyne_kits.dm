@@ -9,6 +9,19 @@
 	inhand_icon_state = null
 	worn_icon_state = "defibcompact"
 
+/obj/item/reagent_containers/hypospray/combat/interdyne
+	name = "\improper Interdyne Rapid Stimulant Injector"
+	desc = "An Interdyne Pharmaceuticals Air needle injector, designed for specialized usage, in fields, hospital, remote locations. A true pinacle of medical technology"
+	icon = 'modular_nova/master_files/icons/obj/medical/syringe.dmi'
+	inhand_icon_state = "interdyne_hypo"
+	lefthand_file = 'modular_nova/master_files/icons/mob/inhands/equipment/medical_lefthand.dmi'
+	righthand_file = 'modular_nova/master_files/icons/mob/inhands/equipment/medical_righthand.dmi'
+	icon_state = "interdyne_hypo"
+	possible_transfer_amounts = list(1,5,10,15,20)
+
+/obj/item/reagent_containers/hypospray/combat/interdyne/empty
+	list_reagents = list()
+
 /obj/item/storage/medkit/tactical/premium/interdyne
 	name = "\improper Interdyne Premium Doctor's Kit"
 	desc = "a kit specially made by the interdyne corporation to utilize the most essential tools."
@@ -36,7 +49,7 @@
 		/obj/item/scalpel/advanced = 1,
 		/obj/item/retractor/advanced = 1,
 		/obj/item/cautery/advanced = 1,
-		/obj/item/reagent_containers/hypospray/combat/empty = 1,
+		/obj/item/reagent_containers/hypospray/combat/interdyne/empty = 1,
 		/obj/item/storage/box/evilmeds/interdyne = 1,
 		/obj/item/defibrillator/compact/combat/loaded/interdyne = 1,
 	)
@@ -89,7 +102,7 @@
 		/obj/item/storage/box/bandages/interdyne/burn = 1,
 		/obj/item/reagent_containers/hypospray/medipen/morphine = 2,
 		/obj/item/reagent_containers/hypospray/medipen = 2,
-		/obj/item/reagent_containers/hypospray/combat/empty = 1,
+		/obj/item/reagent_containers/hypospray/combat/interdyne/empty = 1,
 		/obj/item/reagent_containers/cup/beaker/dyne_brutemix = 2,
 		/obj/item/reagent_containers/cup/beaker/dyne_burnmix= 2,
 		/obj/item/reagent_containers/spray/hercuri = 1,
@@ -113,7 +126,7 @@
 		/obj/item/storage/box/bandages/interdyne/burn = 1,
 		/obj/item/reagent_containers/hypospray/medipen/morphine = 2,
 		/obj/item/reagent_containers/hypospray/medipen = 2,
-		/obj/item/reagent_containers/hypospray/combat/empty = 1,
+		/obj/item/reagent_containers/hypospray/combat/interdyne/empty = 1,
 		/obj/item/reagent_containers/cup/beaker/dyne_brutemix = 2,
 		/obj/item/reagent_containers/cup/beaker/dyne_burnmix= 2,
 		/obj/item/reagent_containers/spray/hercuri = 1,
@@ -140,19 +153,6 @@
 		/obj/item/stack/medical/gauze/sterilized = 3,
 	)
 	generate_items_inside(items_inside,src)
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 /*
 /// Small Medkits
@@ -204,7 +204,7 @@
 
 /obj/item/storage/pouch/medical/firstaid/interdyne/corpse/PopulateContents()
 	var/static/list/items_inside = list(
-		/obj/item/reagent_containers/hypospray/combat/empty = 1,
+		/obj/item/reagent_containers/hypospray/combat/interdyne/empty = 1,
 		/obj/item/reagent_containers/cup/beaker/rezadone/less = 1,
 		/obj/item/reagent_containers/cup/bottle/formaldehyde = 1,
 		/obj/item/reagent_containers/medigel/sterilizine = 1,
@@ -261,7 +261,7 @@
 
 /obj/item/storage/pouch/medical/firstaid/interdyne/spray/PopulateContents()
 	var/static/list/items_inside = list(
-		/obj/item/reagent_containers/hypospray/combat/empty = 1,
+		/obj/item/reagent_containers/hypospray/combat/interdyne/empty = 1,
 		/obj/item/reagent_containers/cup/beaker/dyne_brutemix = 1,
 		/obj/item/reagent_containers/cup/beaker/dyne_oxytox = 1,
 		/obj/item/reagent_containers/cup/beaker/dyne_burnmix = 1,
