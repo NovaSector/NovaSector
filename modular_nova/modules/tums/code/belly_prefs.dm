@@ -88,7 +88,7 @@
 /datum/atom_hud/alternate_appearance/erp/add_atom_to_hud(atom/target_atom)
 	LAZYINITLIST(target_atom.hud_list)
 	target_atom.hud_list[appearance_key] = image
-	. = ..()
+	return ..()
 
 /datum/atom_hud/alternate_appearance/erp/remove_atom_from_hud(atom/target_atom)
 	. = ..()
@@ -114,9 +114,7 @@
 				image.overlays += new_overlay
 		image.overlays += original_image
 
-
-
-/// ==ACTUAL ALTERNATE APPEARANCE FOR BELLIES==
+// ==ACTUAL ALTERNATE APPEARANCE FOR BELLIES==
 /datum/atom_hud/alternate_appearance/erp/belly/get_max_size(mob/viewer)
 	return viewer.client?.prefs?.read_preference(/datum/preference/numeric/erp_belly_maxsize)
 
@@ -124,8 +122,6 @@
 	if((viewer.client?.prefs?.read_preference(/datum/preference/toggle/erp/belly) == TRUE))
 		return ..()
 	return FALSE
-
-
 
 /// ==BREAKER FOR MAIN PREFERENCES==
 /// Master visibility preference.  If this is off, everything else is.
@@ -224,7 +220,6 @@
 
 	return preferences.read_preference(/datum/preference/toggle/erp/belly)
 
-
 /// ==BREAKER FOR QUIRK PREFERENCES==
 /// This is the master quirk that allows one to have a belly.
 /// Quirks are a somewhat suboptimal system for bringing this in, but...
@@ -246,87 +241,39 @@
 
 /datum/quirk/belly/add_unique(client/client_source)
 	the_bwelly = new /obj/item/belly_function(quirk_holder)
-	if(client_source == null)
-		/// What the fuck?
-		return
-	if(client_source.prefs == null)
-		/// Damn you, CI suite.
-		return
 
 	/// Main sprite color.
-	var/the_color = client_source.prefs.read_preference(/datum/preference/color/erp_bellyquirk_color) //this makes the (potentially dangerous) assumption this is valid
-	if(the_color == null)
-		the_color = "#FFFFFF"
-	the_bwelly.color = the_color
+	the_bwelly.color = client_source?.prefs.read_preference(/datum/preference/toggle/erp_bellyquirk_skintone) || FALSE
 	/// Skintone toggle - this adjusts the sprite files.
-	var/use_skintone = client_source.prefs.read_preference(/datum/preference/toggle/erp_bellyquirk_skintone)
-	if(use_skintone == null)
-		use_skintone = FALSE
-	the_bwelly.use_skintone = use_skintone
+	the_bwelly.use_skintone = client_source?.prefs.read_preference(/datum/preference/toggle/erp_bellyquirk_skintone) || FALSE
 
 	/// Size modifier - overall.
-	var/sizemod = client_source.prefs.read_preference(/datum/preference/numeric/erp_bellyquirk_sizemod)
-	if(sizemod == null)
-		sizemod = 1
-	the_bwelly.sizemod = sizemod
+	the_bwelly.sizemod = client_source?.prefs.read_preference(/datum/preference/numeric/erp_bellyquirk_sizemod) || 1
 	/// Size modifier - auto-calculated stuffed size.
-	var/sizemod_autostuffed = client_source.prefs.read_preference(/datum/preference/numeric/erp_bellyquirk_sizemod_autostuffed)
-	if(sizemod_autostuffed == null)
-		sizemod_autostuffed = 1
-	the_bwelly.sizemod_autostuffed = sizemod_autostuffed
+	the_bwelly.sizemod_autostuffed = client_source.prefs.read_preference(/datum/preference/numeric/erp_bellyquirk_sizemod_autostuffed) || 1
 	/// Size modifier - audio size.
-	var/sizemod_audio = client_source.prefs.read_preference(/datum/preference/numeric/erp_bellyquirk_sizemod_audio)
-	if(sizemod_audio == null)
-		sizemod_audio = 1
-	the_bwelly.sizemod_audio = sizemod_audio
+	the_bwelly.sizemod_audio = client_source?.prefs.read_preference(/datum/preference/numeric/erp_bellyquirk_sizemod_audio) || 1
 	/// Maximum display size for this belly.
-	var/sizemod_max = client_source.prefs.read_preference(/datum/preference/numeric/erp_bellyquirk_maxsize)
-	if(sizemod_max == null)
-		sizemod_max = 16
-	the_bwelly.maxsize = sizemod_max
+	the_bwelly.maxsize = client_source?.prefs.read_preference(/datum/preference/numeric/erp_bellyquirk_maxsize) || 16
 
 	/// Base cosmetic size.
-	var/size_base = client_source.prefs.read_preference(/datum/preference/numeric/erp_bellyquirk_size_base)
-	if(size_base == null)
-		size_base = 0
-	the_bwelly.base_size_cosmetic = size_base
+	the_bwelly.base_size_cosmetic = client_source?.prefs.read_preference(/datum/preference/numeric/erp_bellyquirk_size_base) || 0
 	/// Base fullness size - permanent and not dependent on actually having someone nommed.
-	var/size_full = client_source.prefs.read_preference(/datum/preference/numeric/erp_bellyquirk_size_full)
-	if(size_full == null)
-		size_full = 0
-	the_bwelly.base_size_full = size_full;
+	the_bwelly.base_size_full = client_source?.prefs.read_preference(/datum/preference/numeric/erp_bellyquirk_size_full) || 0
 	/// Base stuffed size - permanent and not dependent on actually having high nutrition or a bunch of stomach regaents.
-	var/size_stuffed = client_source.prefs.read_preference(/datum/preference/numeric/erp_bellyquirk_size_stuffed)
-	if(size_stuffed == null)
-		size_stuffed = 0
-	the_bwelly.base_size_stuffed = size_stuffed
+	the_bwelly.base_size_stuffed = client_source?.prefs.read_preference(/datum/preference/numeric/erp_bellyquirk_size_stuffed) || 0
 
 	/// Sound toggle: full groans.  All but cosmetic size adds to these.
-	var/allow_groans = client_source.prefs.read_preference(/datum/preference/toggle/erp_bellyquirk_groans)
-	if(allow_groans == null)
-		allow_groans = FALSE
-	the_bwelly.allow_sound_groans = allow_groans
+	the_bwelly.allow_sound_groans =client_source?.prefs.read_preference(/datum/preference/toggle/erp_bellyquirk_groans) || FALSE
 	/// Sound toggle: stuffed gurgles.  Only stuffed sizes add to these.
-	var/allow_gurgles = client_source.prefs.read_preference(/datum/preference/toggle/erp_bellyquirk_gurgles)
-	if(allow_gurgles == null)
-		allow_gurgles = FALSE
-	the_bwelly.allow_sound_gurgles = allow_gurgles
+	the_bwelly.allow_sound_gurgles = client_source?.prefs.read_preference(/datum/preference/toggle/erp_bellyquirk_gurgles) || FALSE
 	/// Sound toggle: Full creaks when moving.  All but cosmetic size adds to these.
-	var/allow_move_creaks = client_source.prefs.read_preference(/datum/preference/toggle/erp_bellyquirk_move_creaks)
-	if(allow_move_creaks == null)
-		allow_move_creaks = FALSE
-	the_bwelly.allow_sound_move_creaks = allow_move_creaks
+	the_bwelly.allow_sound_move_creaks = client_source?.prefs.read_preference(/datum/preference/toggle/erp_bellyquirk_move_creaks) || FALSE
 	/// Sound toggle: stuffed sloshes when moving.  Only stuffed sizes add to these.
-	var/allow_move_sloshes = client_source.prefs.read_preference(/datum/preference/toggle/erp_bellyquirk_move_sloshes)
-	if(allow_move_sloshes == null)
-		allow_move_sloshes = FALSE
-	the_bwelly.allow_sound_move_sloshes = allow_move_sloshes
+	the_bwelly.allow_sound_move_sloshes = client_source?.prefs.read_preference(/datum/preference/toggle/erp_bellyquirk_move_sloshes)|| FALSE
 
 	/// Pred prefs mode
-	var/pred_prefs = client_source.prefs.read_preference(/datum/preference/choiced/erp_bellyquirk_pred_pref)
-	if(pred_prefs == null)
-		pred_prefs = "Query"
-	the_bwelly.pred_mode = pred_prefs
+	the_bwelly.pred_mode = client_source?.prefs.read_preference(/datum/preference/choiced/erp_bellyquirk_pred_pref) || "Query"
 
 	/// Manually run add() for dummies so we get preview on the character screen.
 	if(isdummy(quirk_holder))

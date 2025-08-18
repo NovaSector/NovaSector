@@ -15,10 +15,11 @@
 		my_belly = Target
 		my_belly.belly_acts += src
 
-/datum/action/item_action/belly_menu/Destroy()
+/datum/action/item_action/belly_menu/Destroy(force)
 	. = ..()
 	if(src in my_belly.belly_acts)
 		my_belly.belly_acts -= src
+	my_belly = null
 
 
 /// Access helper for the belly-haver.  This lets them configure it & interact with guests.
@@ -32,8 +33,6 @@
 	else
 		my_belly.config_menu(usr)
 	return TRUE
-
-
 
 /// Escape helper for belly-dwellers.  This lets them jostle around to make noise or immediately leave.
 /datum/action/item_action/belly_menu/escape
@@ -70,14 +69,14 @@
 			to_chat(usr, span_notice(replacetext(squirm_messages_usr[message_index], "%USER%", my_belly.lastuser.name)))
 			to_chat(my_belly.lastuser, span_notice(replacetext(squirm_messages_host[message_index], "%USER%", usr.name)))
 			if(my_belly.allow_sound_move_creaks)
-				playsound_if_pref(my_belly.lastuser, pick(my_belly.move_creaks), min(10 + round(my_belly.total_fullness/40, 1), 30), TRUE, frequency=rand(40000, 50000))
+				playsound_if_pref(my_belly.lastuser, pick(my_belly.move_creaks), min(10 + round(my_belly.total_fullness/40, 1), 30), TRUE, frequency=rand(40000, 50000), pref_to_check = /datum/preference/toggle/erp/belly/sound_move_creaks)
 			if(my_belly.stuffed_temp > 1 && prob(100) <= my_belly.stuffed_temp * 100 && my_belly.allow_sound_move_sloshes)
-				playsound_if_pref(my_belly.lastuser, pick(my_belly.slosh_sounds), min(20 + round(my_belly.total_fullness/32, 1), 50), TRUE, frequency=rand(40000, 50000))
+				playsound_if_pref(my_belly.lastuser, pick(my_belly.slosh_sounds), min(20 + round(my_belly.total_fullness/32, 1), 50), TRUE, frequency=rand(40000, 50000), pref_to_check = /datum/preference/toggle/erp/belly/sound_move_sloshes)
 		else
 			if(my_belly.allow_sound_move_creaks)
-				playsound_if_pref(my_belly, pick(my_belly.move_creaks), min(10 + round(my_belly.total_fullness/40, 1), 30), TRUE, frequency=rand(40000, 50000))
+				playsound_if_pref(my_belly, pick(my_belly.move_creaks), min(10 + round(my_belly.total_fullness/40, 1), 30), TRUE, frequency=rand(40000, 50000), pref_to_check = /datum/preference/toggle/erp/belly/sound_move_creaks)
 			if(my_belly.stuffed_temp > 1 && prob(100) <= my_belly.stuffed_temp * 100 && my_belly.allow_sound_move_sloshes)
-				playsound_if_pref(my_belly, pick(my_belly.slosh_sounds), min(20 + round(my_belly.total_fullness/32, 1), 50), TRUE, frequency=rand(40000, 50000))
+				playsound_if_pref(my_belly, pick(my_belly.slosh_sounds), min(20 + round(my_belly.total_fullness/32, 1), 50), TRUE, frequency=rand(40000, 50000), pref_to_check = /datum/preference/toggle/erp/belly/sound_move_sloshes)
 	return TRUE
 
 /datum/action/item_action/belly_menu/escape/Destroy()

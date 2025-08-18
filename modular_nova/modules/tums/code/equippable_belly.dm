@@ -120,10 +120,7 @@
 	. = ..()
 	for(var/mob/living/carbon/human/nommed in nommeds)
 		free_target(nommed)
-	for(var/datum/action/item_action/belly_menu/belly_act in belly_acts)
-		belly_acts -= belly_act
-		belly_act.Destroy()
-		belly_act.my_belly = null
+	QDEL_LIST(belly_acts)
 	belly_acts = null
 
 /// Signal handler that allows for the various movement/jostling sounds to play.
@@ -242,7 +239,12 @@
 			base_size_stuffed = temp_size
 		else if(adjustment_mode == "Adjust Pred Mode")
 			var/list/pred_options = list("Never", "Query", "Always")
-			var/mode_select = tgui_input_list(user, "Determines whether or not you can vore people as a pred with the belly.  Never means you can never be a pred, query means you always get queried before trying, always means you always try.", "Pred Prefs", pred_options)
+			var/mode_select = tgui_input_list(
+				user, 
+				"Determines whether or not you can vore people as a pred with the belly. \
+				Never means you can never be a pred, query means you always get queried before trying, always means you always try.", "Pred Prefs", 
+				pred_options,
+				)
 			if(isnull(mode_select) || QDELETED(user) || QDELETED(src))
 				return
 			pred_mode = mode_select
