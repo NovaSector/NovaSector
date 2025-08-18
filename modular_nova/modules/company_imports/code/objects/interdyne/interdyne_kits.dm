@@ -37,6 +37,9 @@
 	desc = "a kit specially made by the interdyne corporation to utilize the most essential tools."
 	icon_state = "interdyne_premium_surgical"
 	icon = 'modular_nova/master_files/icons/obj/storage/medkit.dmi'
+	inhand_icon_state = "medkit-tactical-premium"
+	lefthand_file = 'modular_nova/master_files/icons/mob/inhands/equipment/medical_lefthand.dmi'
+	righthand_file = 'modular_nova/master_files/icons/mob/inhands/equipment/medical_righthand.dmi'
 	storage_type = /datum/storage/duffel/deforest_big_surgery
 	unique_reskin = list(
 		"Default" = "interdyne_premium_surgical",
@@ -91,6 +94,9 @@
 	name = "\improper Interdyne Trauma Kit"
 	desc = "a kit specially made by the interdyne corporation to utilize the most essential tools."
 	icon_state = "interdyne_surgical"
+	inhand_icon_state = "medkit-tactical"
+	lefthand_file = 'modular_nova/master_files/icons/mob/inhands/equipment/medical_lefthand.dmi'
+	righthand_file = 'modular_nova/master_files/icons/mob/inhands/equipment/medical_righthand.dmi'
 	storage_type = /datum/storage/duffel/deforest_paramedic
 	unique_reskin = list(
 		"Default" = "interdyne_surgical",
@@ -173,6 +179,9 @@
 	desc = "An Interdyne Pharmaceuticals Trauma kit, for immediate first aid in situations where more complex aid may not be available."
 	icon = 'modular_nova/master_files/icons/obj/storage/medkit.dmi'
 	icon_state = "interdyne_lite"
+	inhand_icon_state = "medkit-tactical-lite"
+	lefthand_file = 'modular_nova/master_files/icons/mob/inhands/equipment/medical_lefthand.dmi'
+	righthand_file = 'modular_nova/master_files/icons/mob/inhands/equipment/medical_righthand.dmi'
 	storage_type = /datum/storage/pouch/medical/small
 	unique_reskin = list(
 		"Default" = "interdyne_lite",
