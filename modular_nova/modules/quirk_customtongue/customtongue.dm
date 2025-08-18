@@ -59,6 +59,11 @@
 /datum/quirk/custom_tongue/proc/tongue_setup() // This proc will run at most three times depending on the client prefs.
 	SIGNAL_HANDLER
 
+		// Ensures custom tongue prefs apply at roundstart
+	if(!quirk_holder?.client || !quirk_holder.get_organ_slot(ORGAN_SLOT_TONGUE))
+		addtimer(CALLBACK(src, PROC_REF(tongue_setup)), 1 SECONDS)
+		return FALSE
+
 	var/client/client_source = quirk_holder.client
 
 	var/new_ask = client_source?.prefs.read_preference(/datum/preference/text/custom_tongue/ask)
