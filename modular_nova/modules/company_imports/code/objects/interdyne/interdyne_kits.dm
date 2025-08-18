@@ -85,25 +85,38 @@
 		/obj/item/stack/medical/mesh/advanced = 2,
 		/obj/item/healthanalyzer/advanced = 1,
 		/obj/item/stack/medical/gauze = 2,
+		/obj/item/storage/box/bandages/interdyne = 1,
+		/obj/item/storage/box/bandages/interdyne/burn = 1,
+		/obj/item/reagent_containers/hypospray/medipen/morphine = 2,
+		/obj/item/reagent_containers/hypospray/medipen = 2,
+		/obj/item/reagent_containers/hypospray/combat/empty = 1,
+		/obj/item/reagent_containers/cup/beaker/dyne_brutemix = 2,
+		/obj/item/reagent_containers/cup/beaker/dyne_burnmix= 2,
+		/obj/item/reagent_containers/spray/hercuri = 1,
 	)
 	generate_items_inside(items_inside,src)
 
-/obj/item/storage/medkit/tactical/premium/interdyne/medium/burn
-	name = "\improper Interdyne Critical Burn Kit"
-	desc = "a kit specially made by the interdyne corporation to utilize the most essential tools. Meant for treating critical burns"
-	icon_state = "interdyne_burn"
+/// Medium sized medkit
 
-/obj/item/storage/medkit/tactical/premium/interdyne/medium/burn/PopulateContents()
+/obj/item/storage/medkit/tactical/premium/interdyne/medium/Tox_Oxy
+	name = "\improper Interdyne Critical Burn-Brute Kit"
+	desc = "a kit specially made by the interdyne corporation to utilize the most essential tools. Meant for treating critical bruises"
+	icon_state = "interdyne_brute"
+
+/obj/item/storage/medkit/tactical/premium/interdyne/medium/Tox_Oxy/PopulateContents()
 	var/static/list/items_inside = list(
+		/obj/item/stack/medical/suture/medicated = 2,
 		/obj/item/stack/medical/mesh/advanced = 2,
 		/obj/item/healthanalyzer/advanced = 1,
 		/obj/item/stack/medical/gauze = 2,
-		/obj/item/storage/box/bandages/interdyne/burn = 2,
-		/obj/item/reagent_containers/hypospray/medipen/oxandrolone = 2,
+		/obj/item/storage/box/bandages/interdyne = 1,
+		/obj/item/storage/box/bandages/interdyne/burn = 1,
+		/obj/item/reagent_containers/hypospray/medipen/morphine = 2,
 		/obj/item/reagent_containers/hypospray/medipen = 2,
-		/obj/item/reagent_containers/spray/hercuri = 1,
 		/obj/item/reagent_containers/hypospray/combat/empty = 1,
-		/obj/item/reagent_containers/cup/beaker/dyne_burnmix = 2,
+		/obj/item/reagent_containers/cup/beaker/dyne_brutemix = 2,
+		/obj/item/reagent_containers/cup/beaker/dyne_burnmix= 2,
+		/obj/item/reagent_containers/spray/hercuri = 1,
 	)
 	generate_items_inside(items_inside,src)
 
@@ -119,11 +132,12 @@
 		/obj/item/cautery/advanced = 1,
 		/obj/item/bonesetter = 1,
 		/obj/item/surgical_drapes = 1,
-		/obj/item/stack/sticky_tape/surgical = 5,
-		/obj/item/stack/medical/bone_gel = 5,
+		/obj/item/reagent_containers/hypospray/medipen/morphine = 2,
+		/obj/item/stack/sticky_tape/surgical = 3,
+		/obj/item/stack/medical/bone_gel = 3,
 		/obj/item/storage/pill_bottle/painkiller = 2,
 		/obj/item/reagent_containers/medigel/sterilizine = 2,
-		/obj/item/stack/medical/gauze/sterilized = 6,
+		/obj/item/stack/medical/gauze/sterilized = 3,
 	)
 	generate_items_inside(items_inside,src)
 

@@ -16,7 +16,7 @@ they get called in files like interdyne_crates.dm and interdyne_kits.dm
 	list_reagents = list(/datum/reagent/medicine/sal_acid = 30, /datum/reagent/medicine/c2/libital = 30)
 
 /obj/item/reagent_containers/cup/beaker/dyne_burnmix
-	name = "Lent/Oxan Beaker (BRUTE)"
+	name = "Lent/Oxan Beaker (BURN)"
 	list_reagents = list(/datum/reagent/medicine/c2/lenturi = 30, /datum/reagent/medicine/oxandrolone = 30)
 
 /obj/item/reagent_containers/cup/beaker/dyne_oxytox
