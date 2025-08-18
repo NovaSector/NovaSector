@@ -4,6 +4,7 @@
 	desc = "You shouldn't see this! Yell at an admin!"
 	button_icon = 'modular_nova/modules/tums/icons/items.dmi'
 	button_icon_state = "bwelly"
+	/// Local reference to our connected belly helper object.
 	var/obj/item/belly_function/my_belly
 
 /datum/action/item_action/belly_menu/New(Target)
@@ -39,6 +40,7 @@
 	name = "Belly Escape Helper"
 	desc = "LMB: Squirm around and make your host's belly noisy. RMB: Escape immediately."
 	button_icon_state = "escape_icon"
+	/// Squirm interact messages, displayed to the guest.
 	var/list/squirm_messages_usr = list(
 		"You press into %USER%'s bellywalls!",
 		"You knead into %USER%'s bellywalls!",
@@ -47,6 +49,7 @@
 		"You shift about in %USER%'s belly!",
 		"You jostle %USER%'s belly from within!"
 	)
+	/// Squirm interact messages, displayed to the host.
 	var/list/squirm_messages_host = list(
 		"You feel %USER% pressing into your bellywalls!",
 		"You feel %USER% kneading into your bellywalls!",

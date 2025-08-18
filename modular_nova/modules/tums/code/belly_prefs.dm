@@ -1,13 +1,14 @@
 //==MIRROR OF ALT_APPEARANCE/BASIC==
 /datum/atom_hud/alternate_appearance/erp
+	/// Target atom that this alt_appearance is applied to.
 	var/atom/target
-	/// The final mixdown image including layered overlays via BLEND_INSET_OVERLAY.
+	/// The final mixdown image actually displayed in client.images, including layered overlays via BLEND_INSET_OVERLAY.
 	var/image/image
-	/// The original image that was provided for this, before edits for BLEND_INSET_OVERLAY support.
+	/// The original image that was provided for this overlay, before edits for BLEND_INSET_OVERLAY support.
 	var/image/original_image
-	/// The base key for this ERP part's series of appearances.
+	/// The base key for this ERP part's series of appearances.  Used for finding other related alt_appearances.
 	var/base_key = ""
-	/// The size of this ERP part.  Bellies, et al.
+	/// The size of this ERP part.  Used for bellies, et al, so people can disable hyper stuff.
 	var/size
 
 	uses_global_hud_category = FALSE
@@ -69,7 +70,8 @@
 		/// This is the top layer and nothing else says no: go ahead and render.
 		return TRUE
 
-/// REMEMBER TO OVERRIDE THIS IN YOUR IMPLEMENTATIONS!
+/// Helper function for getting a viewer's maximum size pref.
+/// Base form: return viewer.client?.prefs?.read_preference(some_numeric_preference)
 /datum/atom_hud/alternate_appearance/erp/proc/get_max_size(mob/viewer)
 	return 0
 
@@ -128,12 +130,24 @@
 /datum/preference/toggle/erp/belly_master
 	savefile_key = "erp_enable_belly"
 
+/datum/preference/toggle/erp/belly_master/is_accessible(datum/preferences/preferences)
+	if (!..(preferences))
+		return FALSE
+
+	if(CONFIG_GET(flag/disable_tums_preferences))
+		return FALSE
+
+	return TRUE
+
 /// Belly sprite visibility pref, used for blocking out the alt_appearance.
 /datum/preference/toggle/erp/belly
 	savefile_key = "erp_belly_base"
 
 /datum/preference/toggle/erp/belly/is_accessible(datum/preferences/preferences)
 	if (!..(preferences))
+		return FALSE
+
+	if(CONFIG_GET(flag/disable_tums_preferences))
 		return FALSE
 
 	return preferences.read_preference(/datum/preference/toggle/erp/belly_master)
@@ -189,6 +203,9 @@
 	if(CONFIG_GET(flag/disable_erp_preferences))
 		return FALSE
 
+	if(CONFIG_GET(flag/disable_tums_preferences))
+		return FALSE
+
 	return preferences.read_preference(/datum/preference/toggle/erp/belly_master)
 
 /datum/preference/choiced/erp_vore_prey_pref/apply_to_human(mob/living/carbon/human/target, value, datum/preferences/preferences)
@@ -218,6 +235,9 @@
 	if(CONFIG_GET(flag/disable_erp_preferences))
 		return FALSE
 
+	if(CONFIG_GET(flag/disable_tums_preferences))
+		return FALSE
+
 	return preferences.read_preference(/datum/preference/toggle/erp/belly)
 
 /// ==BREAKER FOR QUIRK PREFERENCES==
@@ -236,14 +256,15 @@
 	quirk_flags = QUIRK_PROCESSES | QUIRK_CHANGES_APPEARANCE | QUIRK_HIDE_FROM_SCAN
 	maximum_process_stat = null
 	erp_quirk = TRUE
-	//We need this to handle processing.
+	tum_quirk = TRUE
+	/// Local reference to our connected belly helper object.
 	var/obj/item/belly_function/the_bwelly
 
 /datum/quirk/belly/add_unique(client/client_source)
 	the_bwelly = new /obj/item/belly_function(quirk_holder)
 
 	/// Main sprite color.
-	the_bwelly.color = client_source?.prefs.read_preference(/datum/preference/toggle/erp_bellyquirk_skintone) || FALSE
+	the_bwelly.color = client_source?.prefs.read_preference(/datum/preference/color/erp_bellyquirk_color) || "#FFFFFF"
 	/// Skintone toggle - this adjusts the sprite files.
 	the_bwelly.use_skintone = client_source?.prefs.read_preference(/datum/preference/toggle/erp_bellyquirk_skintone) || FALSE
 
@@ -514,6 +535,9 @@
 		return FALSE
 
 	if(CONFIG_GET(flag/disable_erp_preferences))
+		return FALSE
+
+	if(CONFIG_GET(flag/disable_tums_preferences))
 		return FALSE
 
 	return preferences.read_preference(/datum/preference/toggle/erp/belly_master)
