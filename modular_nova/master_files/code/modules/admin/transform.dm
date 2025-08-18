@@ -103,25 +103,25 @@ GLOBAL_LIST_INIT(pp_transformables, list(
 	)
 ))
 
-// M: Mob to change
+// selected_mob: Mob to change
 // newType: Path of new type e.g: /mob/living/carbon/alien/humanoid/drone
 // newTypeName (optional): Name of the new type (used in logging): e.g: "Drone"
-/datum/admins/proc/transformMob(mob/M, mob/adminMob, newType, newTypeName)
+/datum/admins/proc/transformMob(mob/selected_mob, mob/adminMob, newType, newTypeName)
 	if(!check_rights(R_SPAWN))
 		return
 
-	if(!ismob(M))
+	if(!ismob(selected_mob))
 		to_chat(usr, "This can only be used on instances of type /mob.")
 		return
 
 	if (!newTypeName)
 		newTypeName = newType
 
-	log_admin("[key_name(usr)] transformed [key_name(M)] into a [newTypeName].")
-	message_admins(span_adminnotice("[key_name_admin(usr)] transformed [key_name_admin(M)] into a [newTypeName]."))
+	log_admin("[key_name(usr)] transformed [key_name(selected_mob)] into a [newTypeName].")
+	message_admins(span_adminnotice("[key_name_admin(usr)] transformed [key_name_admin(selected_mob)] into a [newTypeName]."))
 
-	var/mob/newMob = M.change_mob_type(newType, delete_old_mob = TRUE)
+	var/mob/newMob = selected_mob.change_mob_type(newType, delete_old_mob = TRUE)
 
-	if (M == adminMob)
+	if (selected_mob == adminMob)
 		adminMob = newMob
 	addtimer(CALLBACK(newMob.mob_panel, PROC_REF(ui_interact), adminMob), 0.1 SECONDS)
