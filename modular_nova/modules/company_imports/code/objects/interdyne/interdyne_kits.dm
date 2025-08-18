@@ -41,6 +41,7 @@
 	lefthand_file = 'modular_nova/master_files/icons/mob/inhands/equipment/medical_lefthand.dmi'
 	righthand_file = 'modular_nova/master_files/icons/mob/inhands/equipment/medical_righthand.dmi'
 	storage_type = /datum/storage/duffel/deforest_big_surgery
+	obj_flags = UNIQUE_RENAME
 	unique_reskin = list(
 		"Default" = "interdyne_premium_surgical",
 		"Corpse" = "interdyne_premium_corpse",
@@ -66,6 +67,13 @@
 		/obj/item/storage/box/evilmeds/interdyne = 1,
 		/obj/item/defibrillator/compact/combat/loaded/interdyne = 1,
 	)
+	generate_items_inside(items_inside,src)
+
+/obj/item/storage/medkit/tactical/premium/interdyne/empty
+	name = "\improper Interdyne Trauma Kit"
+
+/obj/item/storage/medkit/tactical/premium/interdyne/empty/PopulateContents()
+	var/static/list/items_inside = list()
 	generate_items_inside(items_inside,src)
 
 /obj/item/storage/medkit/tactical/premium/interdyne/trauma
@@ -98,6 +106,7 @@
 	lefthand_file = 'modular_nova/master_files/icons/mob/inhands/equipment/medical_lefthand.dmi'
 	righthand_file = 'modular_nova/master_files/icons/mob/inhands/equipment/medical_righthand.dmi'
 	storage_type = /datum/storage/duffel/deforest_paramedic
+	obj_flags = UNIQUE_RENAME
 	unique_reskin = list(
 		"Default" = "interdyne_surgical",
 		"Corpse" = "interdyne_coroner",
@@ -125,7 +134,13 @@
 	)
 	generate_items_inside(items_inside,src)
 
-/// Medium sized medkit
+/obj/item/storage/medkit/tactical/premium/interdyne/medium/empty
+	name = "\improper Interdyne Trauma Kit"
+
+/obj/item/storage/medkit/tactical/premium/interdyne/medium/empty/PopulateContents()
+	var/static/list/items_inside = list()
+	generate_items_inside(items_inside,src)
+
 
 /obj/item/storage/medkit/tactical/premium/interdyne/medium/Tox_Oxy
 	name = "\improper Interdyne Critical Burn-Brute Kit"
@@ -183,6 +198,7 @@
 	lefthand_file = 'modular_nova/master_files/icons/mob/inhands/equipment/medical_lefthand.dmi'
 	righthand_file = 'modular_nova/master_files/icons/mob/inhands/equipment/medical_righthand.dmi'
 	storage_type = /datum/storage/pouch/medical/small
+	obj_flags = UNIQUE_RENAME
 	unique_reskin = list(
 		"Default" = "interdyne_lite",
 		"Corpse" = "interdyne_lite_corpse",
@@ -201,6 +217,13 @@
 		/obj/item/reagent_containers/hypospray/medipen = 1,
 		/obj/item/reagent_containers/hypospray/medipen/salbutamol = 1,
 	)
+	generate_items_inside(items_inside,src)
+
+/obj/item/storage/pouch/medical/firstaid/interdyne/empty
+	name = "\improper Interdyne Trauma Kit"
+
+/obj/item/storage/pouch/medical/firstaid/interdyne/empty/PopulateContents()
+	var/static/list/items_inside = list()
 	generate_items_inside(items_inside,src)
 
 /obj/item/storage/pouch/medical/firstaid/interdyne/brute

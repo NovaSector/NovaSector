@@ -32,6 +32,20 @@
 	item_type = /obj/item/circuitboard/machine/powerator/interdyne
 	cost = PAYCHECK_COMMAND * 50
 
+/datum/armament_entry/company_import/interdyne/solo/emptysmallkit
+	name = "Empty Small Interdyne Kit"
+	item_type = /obj/item/storage/medkit/tactical/premium/interdyne/empty
+	cost = PAYCHECK_COMMAND * 0.5
+
+/datum/armament_entry/company_import/interdyne/solo/emptymedium
+	name = "Empty Medium Interdyne Kit"
+	item_type = /obj/item/storage/medkit/tactical/premium/interdyne/medium/empty
+	cost = PAYCHECK_COMMAND * 0.5
+
+/datum/armament_entry/company_import/interdyne/solo/emptylarge
+	name = "Empty Large Interdyne Kit"
+	item_type = /obj/item/circuitboard/machine/powerator/interdyne
+	cost = PAYCHECK_COMMAND * 0.5
 
 /* Figure out price or to keep
 /datum/armament_entry/company_import/interdyne/solo/emagsurgerey
@@ -64,7 +78,7 @@
 
 /datum/armament_entry/company_import/interdyne/largekit
 	subcategory = "kits"
-	cost = PAYCHECK_COMMAND * 10
+	cost = PAYCHECK_COMMAND * 40
 
 /datum/armament_entry/company_import/interdyne/largekit/doctorkit
 	item_type = /obj/item/storage/medkit/tactical/premium/interdyne
@@ -78,8 +92,22 @@
 	item_type = /obj/item/storage/backpack/duffelbag/syndie/interdyne/maidkit_sing
 	cost = PAYCHECK_COMMAND * 5
 
-/datum/armament_entry/company_import/interdyne/largekit/standard
+/*
+*** Medium Kits
+*/
+
+/datum/armament_entry/company_import/interdyne/mediumkits
+	subcategory = "Medium Kits"
+	cost = PAYCHECK_COMMAND * 20
+
+/datum/armament_entry/company_import/interdyne/mediumkits/standard
 	item_type = /obj/item/storage/medkit/tactical/premium/interdyne/medium
+
+/datum/armament_entry/company_import/interdyne/mediumkits/surgery
+	item_type = /obj/item/storage/medkit/tactical/premium/interdyne/medium/surgical
+
+/datum/armament_entry/company_import/interdyne/mediumkits/oxytox
+	item_type = /obj/item/storage/medkit/tactical/premium/interdyne/medium/Tox_Oxy
 
 /*
 *** Small Kits
