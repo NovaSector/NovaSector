@@ -1,3 +1,28 @@
+/obj/machinery/equipment_vendor/destwo
+	name = "Deepspace Equipment Vendor"
+	desc = "This accepts armament tokens in exchange for weapons, please present your token for redemption. If you see this report it to admins"
+	icon_state = "equipment_vendor_destwo"
+	accepted_token = /obj/item/equipment_token/security
+	equipment_stock = list(
+		/datum/vendor_equipment/primary/debug1,
+		/datum/vendor_equipment/primary/debug2,
+		/datum/vendor_equipment/primary/debug3,
+		/datum/vendor_equipment/primary/debug4,
+		/datum/vendor_equipment/primary/debug5,
+		/datum/vendor_equipment/primary/debug6,
+		/datum/vendor_equipment/primary/debug7,
+	)
+
+/obj/item/equipment_token/destwo
+	name = "DS-2 Crew Equipment Token"
+	desc = "A token with a rather suspicious snake with 3 heads on it."
+	icon_state = "token_primary"
+	points = list(
+		EQUIPMENT_VENDOR_CATEGORY_PRIMARY = 3,
+		EQUIPMENT_VENDOR_CATEGORY_SECONDARY = 2,
+	)
+
+
 /datum/vendor_equipment/primary/debug1
 	name = "ITEM ONE!"
 	equipment_path = /obj/item/storage/box

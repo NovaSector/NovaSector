@@ -22,7 +22,7 @@
 		EQUIPMENT_VENDOR_CATEGORY_EQUIPMENT = 0,
 		EQUIPMENT_VENDOR_CATEGORY_UTILITIES = 0,
 	)
-	/// The stock of this active vending machine
+	/// The stock of this active vending machine, look at /datum/vendor_equipment, make sure to fill this with vendor equipment)
 	var/list/datum/equipment_stock = list()
 
 	/// Remove maybe?
@@ -33,6 +33,7 @@
 
 	/// The sound when a purchase is successfully made.
 	var/purchase_sound = 'sound/machines/machine_vend.ogg'
+
 	/// The sound when a purchase is denied
 	var/denial_sound = 'sound/machines/cryo_warning.ogg'
 	/// The sound when a coin is slotted in successfully
@@ -104,17 +105,23 @@
 		))
 
 /obj/machinery/equipment_vendor/ui_data(mob/user)
+	var/list/data = list()
+	data["credits"]= src.points
 
-	/// Figure out how to have var/list/points useed
-	/*
-	armsdata = list(
-		"credits" = src.credits,
-	)
-	*/
 /obj/machinery/equipment_vendor/ui_act(action, list/params, datum/tgui/ui, datum/ui_state/state, mob/redeemer)
+	. = ..()
+	if(.)
+		return
 	switch(action)
-		if ("equip_item")
-			to_chat(redeemer, "Thank you for redeeming your token. Remember. Use eye protection to not shoot your eye out!")
+		if("Dispense")
+			. = dispense(params)
+
+/obj/machinery/equipment_vendor/proc/dispense(list/params)
+	priority_announce("TEST RECIEVED","VENDING_DEBUG")
+
+
+
+
 
 /*
 	ui_act(action, list/params, datum/tgui/ui, datum/ui_state/state)
@@ -136,65 +143,6 @@
 					return TRUE
 */
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-/obj/machinery/equipment_vendor/security
-	name = "Security Equipment Vendor"
-	desc = "This accepts armament tokens in exchange for weapons, please present your token for redemption. If you see this report it to admins"
-	icon_state = "equipment_vendor_security"
-	accepted_token = /obj/item/equipment_token/security
-	equipment_stock = list()
-
-
-
-
-/obj/machinery/equipment_vendor/solfed
-	name = "Sol Federation Equipment Vendor"
-	desc = "This accepts armament tokens in exchange for weapons, please present your token for redemption. If you see this report it to admins"
-	icon_state = "equipment_vendor_solfed"
-	accepted_token = /obj/item/equipment_token/security
-
-/obj/machinery/equipment_vendor/syndicate
-	name = "Syndicate Equipment Vendor"
-	desc = "This accepts armament tokens in exchange for weapons, please present your token for redemption. If you see this report it to admins"
-	icon_state = "equipment_vendor_syndicate"
-	accepted_token = /obj/item/equipment_token/security
-
-/obj/machinery/equipment_vendor/destwo
-	name = "Deepspace Equipment Vendor"
-	desc = "This accepts armament tokens in exchange for weapons, please present your token for redemption. If you see this report it to admins"
-	icon_state = "equipment_vendor_destwo"
-	accepted_token = /obj/item/equipment_token/security
-
-/obj/machinery/equipment_vendor/nukie
-	name = "Nuclear Operations Equipment Vendor"
-	desc = "This accepts armament tokens in exchange for weapons, please present your token for redemption. If you see this report it to admins"
-	icon_state = "equipment_vendor_nukie"
-	accepted_token = /obj/item/equipment_token/security
-
-/obj/machinery/equipment_vendor/interdyne
-	name = "Interdyne Equipment Vendor"
-	desc = "This accepts armament tokens in exchange for weapons, please present your token for redemption. If you see this report it to admins"
-	icon_state = "equipment_vendor_interdyne"
-	accepted_token = /obj/item/equipment_token/security
-
-/obj/machinery/equipment_vendor/interdyne
-	name = "Interdyne Equipment Vendor"
-	desc = "This accepts armament tokens in exchange for weapons, please present your token for redemption. If you see this report it to admins"
-	icon_state = "equipment_vendor_tarkon"
-	accepted_token = /obj/item/equipment_token/security
-
 /obj/item/equipment_token
 	name = "ERROR TOKEN"
 	desc = "If you have this or see this, let the admins know!"
@@ -202,6 +150,7 @@
 	icon_state = "token_error"
 	w_class = WEIGHT_CLASS_TINY
 
+	/// Points for tokens should always be reasonable, such as no more than 3 for any category
 	var/list/points = list(
 		EQUIPMENT_VENDOR_CATEGORY_PRIMARY = 0,
 		EQUIPMENT_VENDOR_CATEGORY_SECONDARY = 0,
@@ -210,22 +159,7 @@
 		EQUIPMENT_VENDOR_CATEGORY_UTILITIES = 0,
 	)
 
-/obj/item/equipment_token/security
-	name = "Standard Security Token"
-	desc = "Valued worth one point!"
-	icon_state = "token_primary"
-	points = list(
-		EQUIPMENT_VENDOR_CATEGORY_PRIMARY = 1,
-	)
-
-/obj/item/equipment_token/security/warden
-	name = "Warden Security Token"
-	desc = "A special security pre-loaded for the warden!"
-	icon_state = "token_primary"
-	points = list(
-		EQUIPMENT_VENDOR_CATEGORY_PRIMARY = 3,
-	)
-
+/// Base Datam, Use it!
 /datum/vendor_equipment
 	/// Name of the object in view
 	var/name = "intimidating military object"
@@ -233,7 +167,7 @@
 	var/description = "Report me if you see me, you really fuckin shouldn't be able to see me"
 	/// What Category should this belong to? (Use defines to place them in the proper categories)
 	var/category = null
-	/// How many points should it cost. (uses var/category to charge points to relevant category)
+	/// How many points should it cost. (uses var/category to charge points to relevant category) (Think of these as weaker telecrystals kinda, points should be)
 	var/cost = 0
 	/// What path does it uses to spawn?
 	var/obj/equipment_path
@@ -246,3 +180,15 @@
 
 /datum/vendor_equipment/primary
 	category = EQUIPMENT_VENDOR_CATEGORY_PRIMARY
+
+/datum/vendor_equipment/secondary
+	category = EQUIPMENT_VENDOR_CATEGORY_SECONDARY
+
+/datum/vendor_equipment/uniforms
+	category = EQUIPMENT_VENDOR_CATEGORY_UNIFORM
+
+/datum/vendor_equipment/equipment
+	category = EQUIPMENT_VENDOR_CATEGORY_EQUIPMENT
+
+/datum/vendor_equipment/utilities
+	category = EQUIPMENT_VENDOR_CATEGORY_UTILITIES
