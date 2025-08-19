@@ -520,7 +520,7 @@ GLOBAL_LIST_INIT(call911_do_and_do_not, list(
 		/obj/item/beamout_tool = 1,
 	)
 
-	id_trim = /datum/id_trim/solfed
+	id_trim = /datum/id_trim/solfed/med
 
 /datum/antagonist/ert/request_911/condom_destroyer
 	name = "Armed S.W.A.T. Officer"
