@@ -10,8 +10,8 @@
 	. = ..()
 	spawned_human.grant_language(/datum/language/common, source = LANGUAGE_SPAWNER)
 
-#define BM_TRADER_MIN_CASH 3000
-#define BM_TRADER_MAX_CASH 5000
+#define BM_TRADER_MIN_CASH 500
+#define BM_TRADER_MAX_CASH 2000
 
 /obj/effect/mob_spawn/ghost_role/human/blackmarket
 	name = "Black Market Trader"
