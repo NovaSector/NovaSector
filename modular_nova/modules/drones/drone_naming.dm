@@ -29,16 +29,15 @@
 		return list("prefixes" = GLOB.posibrain_names)
 	return
 
-/obj/effect/mob_spawn/ghost_role/special(mob/living/spawned_mob, mob/mob_possessor)
+/obj/effect/mob_spawn/ghost_role/drone/special(mob/living/spawned_mob, mob/mob_possessor)
 	. = ..()
 
 	var/datum/mind/spawned_mind = spawned_mob?.mind
-	var/client/C = spawned_mob?.client
-	if(istype(spawned_mob, /mob/living/basic/drone) && spawned_mind && C)
-		var/saved_name = C.prefs.read_preference(/datum/preference/name/drone)
-		if(saved_name)
-			spawned_mob.real_name = saved_name
-			spawned_mob.name = saved_name
-			spawned_mind.name = saved_name
+	var/client/mind_client = spawned_mob?.client
+	var/saved_name = mind_client.prefs.read_preference(/datum/preference/name/drone)
+	if(saved_name)
+		spawned_mob.real_name = saved_name
+		spawned_mob.name = saved_name
+		spawned_mind.name = saved_name
 
 	return .

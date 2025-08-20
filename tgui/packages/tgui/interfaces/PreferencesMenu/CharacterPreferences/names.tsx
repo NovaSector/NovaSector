@@ -74,6 +74,7 @@ export function MultiNameInput(props: MultiNameProps) {
               ([_, names], index, collection) => (
                 <>
                   {names.map(({ key, name }) => {
+                    // NOVA EDIT ADDITION START - DRONE PREFIXES
                     // Get prefixes from backend if available
                     const allPrefixes = name.prefixes || [];
 
@@ -81,11 +82,20 @@ export function MultiNameInput(props: MultiNameProps) {
                     const currentValue =
                       props.names[key] || `${allPrefixes[0] || ''}-001`;
                     const [prefix, suffix] = currentValue.split('-');
-
+                    // NOVA EDIT ADDITION END
                     return (
                       <LabeledList.Item key={key} label={name.explanation}>
                         <Stack fill>
-                          {/* Special UI for drone_name */}
+                          {/* NOVA EDIT REMOVAL START - DRONE NAMING (the removed part is integrated in the added block below)
+                          <Stack.Item grow>
+                            <Button.Input
+                              fluid
+                              onCommit={(value) => handleUpdateName(key, value)}
+                              value={props.names[key]}
+                            />
+                          </Stack.Item>
+                          NOVA EDIT REMOVAL END*/}
+                          {/* NOVA EDIT ADDITION START - DRONE NAMING */}
                           {key === 'drone_name' ? (
                             <>
                               {/* Prefix dropdown */}
@@ -147,6 +157,7 @@ export function MultiNameInput(props: MultiNameProps) {
                           )}
 
                           {/* Randomize button — works for drone_name too */}
+                          {/* NOVA EDIT ADDITION END*/}
                           {!!name.can_randomize && (
                             <Stack.Item>
                               <Button
