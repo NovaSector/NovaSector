@@ -672,14 +672,14 @@
 
 //film studio space ruins, actors and such.
 /obj/effect/mob_spawn/ghost_role/human/actor /// Overrides the /TG/ actor pod
-	name = "cryogenics pod"
+	name = "Actor's cryogenics pod"
 	mob_species = null
 	quirks_enabled = TRUE
 	random_appearance = FALSE
 	loadout_enabled = TRUE
 
 /obj/effect/mob_spawn/ghost_role/human/director
-	name = "cryogenics pod"
+	name = "Director's cryogenics pod"
 	mob_species = null
 	quirks_enabled = TRUE
 	random_appearance = FALSE
