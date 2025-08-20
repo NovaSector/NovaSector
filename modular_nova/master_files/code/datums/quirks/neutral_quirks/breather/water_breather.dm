@@ -7,6 +7,7 @@
 	gain_text = span_notice("You suddenly have a hard time breathing through thin air.")
 	lose_text = span_danger("You suddenly feel like you aren't bound to breathing through liquid anymore.")
 	value = 0
+	breathing_mask = NONE
 	breathing_tank = /obj/item/clothing/accessory/vaporizer
 	breath_type = "water"
 	// bonus trait
