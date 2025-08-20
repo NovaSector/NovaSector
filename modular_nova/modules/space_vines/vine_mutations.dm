@@ -70,6 +70,7 @@
 		to_chat(user, span_notice("You cull [src]."))
 		playsound(src, 'sound/items/weapons/bladeslice.ogg', 75, TRUE)
 		ScrapeAway(flags = CHANGETURF_INHERIT_AIR)
+		return TRUE
 	return ..()
 
 // Turns CO2 into oxygen
