@@ -670,6 +670,21 @@
 	assignment = "Hotel Security"
 	access = list(ACCESS_TWIN_NEXUS_STAFF, ACCESS_TWIN_NEXUS_MANAGER)
 
+//film studio space ruins, actors and such.
+/obj/effect/mob_spawn/ghost_role/human/actor /// Overrides the /TG/ actor pod
+	name = "cryogenics pod"
+	mob_species = null
+	quirks_enabled = TRUE
+	random_appearance = FALSE
+	loadout_enabled = TRUE
+
+/obj/effect/mob_spawn/ghost_role/human/director
+	name = "cryogenics pod"
+	mob_species = null
+	quirks_enabled = TRUE
+	random_appearance = FALSE
+	loadout_enabled = TRUE
+
 //CRYO CONSOLES
 /obj/machinery/computer/cryopod/interdyne
 	radio = /obj/item/radio/headset/interdyne
