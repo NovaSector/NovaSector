@@ -65,6 +65,7 @@
 	name_mob(spawned_mob, newname)
 	special(spawned_mob, mob_possessor)
 	equip(spawned_mob)
+	spawned_mob_ref = WEAKREF(spawned_mob)
 	return spawned_mob
 
 // Anything that can potentially be overwritten by transferring prefs must go in this proc
@@ -72,12 +73,12 @@
 // In those cases, please override this proc as well as special()
 // TODO: refactor create() and special() so that this is no longer necessary
 /obj/effect/mob_spawn/ghost_role/proc/post_transfer_prefs(mob/living/new_spawn)
+	new_spawn.mind?.assigned_role?.after_spawn(new_spawn, new_spawn?.mind) // for things in after_spawn e.g. liver traits
 	return
 
 /obj/effect/mob_spawn/ghost_role/human/special(mob/living/spawned_mob, mob/mob_possessor)
 	. = ..()
 	var/mob/living/carbon/human/spawned_human = spawned_mob
 	var/datum/job/spawned_job = SSjob.get_job_type(spawner_job_path)
-
 	spawned_human.job = spawned_job.title
 

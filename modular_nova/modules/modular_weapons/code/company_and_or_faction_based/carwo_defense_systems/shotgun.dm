@@ -135,10 +135,10 @@
 	else
 		..()
 
-/obj/item/gun/ballistic/shotgun/riot/sol/super/fire_sounds()
+/obj/item/gun/ballistic/shotgun/riot/sol/super/rack(mob/user)
 	. = ..()
 	if(amped)
-		playsound(src, 'sound/effects/magic/charge.ogg', 50, TRUE)
+		playsound(src, 'sound/items/weapons/kinetic_reload.ogg', 50, TRUE)
 
 /obj/item/gun/ballistic/shotgun/riot/sol/super/proc/toggle_amp(mob/user)
 	amped = !amped
@@ -159,11 +159,6 @@
 	playsound(user, 'sound/items/weapons/empty.ogg', 100, TRUE)
 	update_appearance()
 	update_item_action_buttons()
-
-/obj/item/gun/ballistic/shotgun/riot/sol/super/process_fire(atom/target, mob/living/user, message = TRUE, params = null, zone_override = "", bonus_spread = 0)
-	if(amped)
-		bonus_spread -= 25
-	return ..()
 
 /obj/item/gun/ballistic/shotgun/riot/sol/super/before_firing(atom/target, mob/user)
 	if(amped && chambered && chambered.variance > 0)
