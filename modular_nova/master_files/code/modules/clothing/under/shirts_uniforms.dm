@@ -59,3 +59,21 @@
 	desc = "Overalls designed to be comfortable, and keep you from getting wet, while only one of those is true, its still nice to have."
 	icon_state = "/obj/item/clothing/under/greyscale/overalls/skirt"
 	post_init_icon_state = "overalls_skirt"
+
+/obj/item/clothing/under/costume/dutch
+	icon = 'icons/map_icons/clothing/under/_under.dmi'
+	icon_state = "/obj/item/clothing/under/costume/dutch"
+	post_init_icon_state = "dutchsuit"
+	greyscale_config = /datum/greyscale_config/dutch_outfit
+	greyscale_config_worn = /datum/greyscale_config/dutch_outfit/worn
+	greyscale_config_worn_digi = /datum/greyscale_config/dutch_outfit/worn/digi
+	greyscale_colors = "#333333#f8f8f8#ff0000#ffcc00"
+
+/obj/item/clothing/suit/costume/pg
+	icon = 'icons/map_icons/clothing/under/_under.dmi'
+	icon_state = "/obj/item/clothing/under/costume/dutch"
+	post_init_icon_state = "dutchsuit"
+	greyscale_config = /datum/greyscale_config/dutch_outfit
+	greyscale_config_worn = /datum/greyscale_config/dutch_outfit/worn
+	greyscale_config_worn_digi = /datum/greyscale_config/dutch_outfit/worn/digi
+	greyscale_colors = "#333333#f8f8f8#ff0000#ffcc00"
