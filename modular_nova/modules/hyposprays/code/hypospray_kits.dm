@@ -205,7 +205,7 @@
 		return
 	new /obj/item/hypospray/mkii/interdyne(src)
 	for(var/ticker in 1 to 7)
-		new /obj/item/reagent_containers/cup/vial/small/style/buff(src)
+		new /obj/item/reagent_containers/cup/vial/interdyne_medium/style/buff(src)
 
 /obj/item/storage/hypospraykit/interdyne/empty
 	empty = TRUE
@@ -274,7 +274,7 @@
 		return
 	new /obj/item/hypospray/mkii/interdyne/deckoff(src)
 	for(var/ticker in 1 to 21)
-		new /obj/item/reagent_containers/cup/vial/small/style/buff(src)
+		new /obj/item/reagent_containers/cup/vial/interdyne_medium/style/buff(src)
 
 /obj/item/storage/hypospraykit/cmo/interdyne/empty
 	empty = TRUE
