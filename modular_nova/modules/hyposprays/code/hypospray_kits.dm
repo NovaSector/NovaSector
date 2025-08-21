@@ -40,14 +40,6 @@
 		populate_case_designs()
 	update_icon_state()
 	update_icon()
-	for(var/something in contents)
-		var/obj/item/hypospray/mkii/found_hypo = something
-		if(istype(found_hypo))
-			found_hypo.moveToNullspace()
-			attached_hypo = found_hypo
-			RegisterSignal(found_hypo, COMSIG_QDELETING, PROC_REF(on_attached_hypo_qdel))
-			update_appearance()
-
 
 /obj/item/storage/hypospraykit/Destroy()
 	// a large block to stop the CI Gods smiting us & taking extra steps to try and force the CMO hypo to drop smartly

@@ -128,7 +128,7 @@
 	penetrates = INJECT_CHECK_PENETRATE_THICK
 
 /obj/item/hypospray/mkii/interdyne/deckoff
-	name = "hypospray Mk.II-Y: officer edition"
+	name = "hypospray Mk.II-Y advanced"
 	icon_state = "interdynedeck2"
 	gags_bodystate = "hypo2_interdynedeck"
 	desc = "An even more upgraded version of Interdyne's specialist hypospray model, using improved and overclocked Mk. II internals and a robust body frame fit for external, high-capacity vials."
