@@ -6,14 +6,14 @@
 		application."
 	icon = 'modular_nova/modules/colony_fabricator/icons/machines.dmi'
 	circuit = null
-	power_gen = 14 KILO WATTS // It's pretty expensive.
+	power_gen = 15 KILO WATTS
 	/// What we turn into when we are repacked
 	var/repacked_type = /obj/item/flatpacked_machine/rtg
 
 /obj/machinery/power/rtg/portable/Initialize(mapload)
 	. = ..()
 	AddElement(/datum/element/repackable, repacked_type, 2 SECONDS)
-	AddElement(/datum/element/radioactive)
+	AddElement(/datum/element/radioactive, 2, RAD_LIGHT_INSULATION, URANIUM_IRRADIATION_CHANCE, URANIUM_RADIATION_MINIMUM_EXPOSURE_TIME * 5)
 	AddElement(/datum/element/manufacturer_examine, COMPANY_FRONTIER)
 	if(!mapload)
 		flick("rtg_deploy", src)
