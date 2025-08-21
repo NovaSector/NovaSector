@@ -709,3 +709,9 @@
       \ under the postfix \"A\" (thus, \"\u017Daibas-A\"), has been released to the\
       \ civilian markets."
   - rscadd: And a plasma-pulse ammo box that's actually an ammo canister uh-huh.
+2025-08-21:
+  OrbisAnima:
+  - qol: The Shuttle Construction Starter Kit now brings 50 shuttle rods with it,
+      and requires no special access to order it.
+  vinylspiders:
+  - bugfix: venus human traps cannot drag bodies into their nests (once again)
