@@ -227,7 +227,7 @@ export async function get_updated_label_set({ github, context }) {
       }
     );
   } catch (error) {
-    console.error("Error fetching paginated events:", error);
+    console.error("Error fetching paginated eventss:", error);
   }
 
   // Handle merge conflict label
