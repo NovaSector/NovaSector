@@ -104,6 +104,16 @@
 
 	accepted_magazine_type = /obj/item/ammo_box/magazine/internal/pump_launcher/c980
 
+
+/obj/item/gun/ballistic/pump_launcher/c980/prefold
+	folded = BOARDER_FOLD_FOLDED
+	recoil = 1.5
+	w_class = WEIGHT_CLASS_NORMAL
+
+/obj/item/gun/ballistic/pump_launcher/c980/prefold/Initialize(mapload)
+	. = ..()
+	update_icon()
+
 // proc defines
 
 /obj/item/gun/ballistic/pump_launcher/Initialize(mapload)
@@ -126,7 +136,7 @@
 	if(folded != BOARDER_FOLD_NOPE)
 		toggle_stock(user)
 
-/obj/item/gun/ballistic/pump_launcher/proc/toggle_stock(user)
+/obj/item/gun/ballistic/pump_launcher/proc/toggle_stock(mob/user)
 	// Drop of a hat, these guys will rock and roll.
 	if(folded)
 		// Spring-loaded stocks snap into place. Things are about to get out of hand.
@@ -139,8 +149,9 @@
 		w_class = WEIGHT_CLASS_NORMAL
 		recoil = 1.5 // ow ouch ouchie oof
 	folded = !folded
-	balloon_alert(user, "stock [folded ? "collapsed" : "extended"]")
-	playsound(src.loc, 'sound/items/weapons/batonextend.ogg', 30, 1)
+	if(user)
+		balloon_alert(user, "stock [folded ? "collapsed" : "extended"]")
+		playsound(src.loc, 'sound/items/weapons/batonextend.ogg', 30, 1)
 	update_icon()
 
 /obj/item/gun/ballistic/pump_launcher/update_icon_state()
@@ -162,3 +173,14 @@
 	ammo_type = /obj/item/ammo_casing/c980grenade/shrapnel
 	max_ammo = 5
 	caliber = CALIBER_980TYDHOUER
+
+// cases
+/obj/item/storage/toolbox/guncase/traitor/boarder
+	name = "boarder grenade launcher case"
+	weapon_to_spawn = /obj/item/gun/ballistic/pump_launcher/c980/prefold
+	extra_to_spawn = /obj/item/ammo_box/c980grenade/shrapnel
+	ammo_box_to_spawn = /obj/item/ammo_box/c980grenade/shrapnel/phosphor
+
+/obj/item/storage/toolbox/guncase/nova/boarder
+	weapon_to_spawn = /obj/item/gun/ballistic/pump_launcher
+	extra_to_spawn = /obj/item/ammo_box/a40mm
