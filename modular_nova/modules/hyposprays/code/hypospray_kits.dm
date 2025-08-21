@@ -89,7 +89,7 @@
 		"interdyne-oxy" = image(icon = src.icon, icon_state = "interdyne-oxy-mini"),
 		"interdyne-advanced" = image(icon = src.icon, icon_state = "interdyne-advanced-mini"),
 		"interdyne-buffs" = image(icon = src.icon, icon_state = "interdyne-buffs-mini"),
-		"interdyne-custom" = image(icon = src.icon, icon_state = "interdyne-standard-gags-mini"))
+		"interdyne-custom" = image(icon = src.icon, icon_state = "interdyne-gags-mini"))
 	case_designs_xl = list(
 		"cmo" = image(icon = src.icon, icon_state = "cmo-mini"),
 		"emt" = image(icon = src.icon, icon_state = "emt-mini"),
