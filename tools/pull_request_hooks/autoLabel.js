@@ -211,14 +211,16 @@ export async function get_updated_label_set({ github, context }) {
         repo: context.repo.repo,
         issue_number: context.payload.pull_request.number,
         per_page: 100,
-      }
+      },
+      // The REST api returns timeline events in reverse chronological order
+      // So let's reverse them to have it go from oldest -> newest.
+      // That way, if a maintainer removes and then re-adds the same label it
+      // remains true to their final intent.
+      // important note: has to be reversed per-page since we are using pagination
+      (response) => response.data.reverse()
     );
 
-    // The REST api returns timeline events in reverse chronological order
-    // So let's reverse them to have it go from oldest -> newest.
-    // That way, if a maintainer removes and then re-adds the same label it
-    // remains true to their final intent.
-    for (const eventData of events.reverse()) {
+    for (const eventData of events) {
       // Skip all bot actions
       console.log(
         eventData.event,
@@ -226,7 +228,7 @@ export async function get_updated_label_set({ github, context }) {
         eventData.label?.name,
         eventData.created_at
       );
-      if (eventData.actor?.login === "github-actions") {
+      if (eventData.actor?.login === "github-actions[bot]") {
         continue;
       }
       if (eventData.event === "labeled") {
