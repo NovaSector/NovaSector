@@ -115,6 +115,30 @@
 	inject_self = COMBAT_SELF_SPRAY
 	penetrates = INJECT_CHECK_PENETRATE_THICK
 
+/obj/item/hypospray/mkii/interdyne
+	name = "hypospray Mk.II-Y"
+	allowed_containers = list(/obj/item/reagent_containers/cup/vial/interdyne_medium)
+	icon_state = "interdyne2"
+	gags_bodystate = "hypo2_interdyne"
+	desc = "Interdyne's specialist hypospray model, using improved Mk. II internals and a robust body frame fit for external, high-capacity vials."
+	inject_wait = DELUXE_WAIT_INJECT
+	spray_wait = DELUXE_WAIT_SPRAY
+	spray_self = DELUXE_SELF_SPRAY
+	inject_self = DELUXE_SELF_INJECT
+	penetrates = INJECT_CHECK_PENETRATE_THICK
+
+/obj/item/hypospray/mkii/interdyne/deckoff
+	name = "hypospray Mk.II-Y: officer edition"
+	icon_state = "interdynedeck2"
+	gags_bodystate = "hypo2_interdynedeck"
+	desc = "An even more upgraded version of Interdyne's specialist hypospray model, using improved and overclocked Mk. II internals and a robust body frame fit for external, high-capacity vials."
+	resistance_flags = LAVA_PROOF | FIRE_PROOF | ACID_PROOF
+	inject_wait = COMBAT_WAIT_INJECT
+	spray_wait = COMBAT_WAIT_SPRAY
+	spray_self = COMBAT_SELF_INJECT
+	inject_self = COMBAT_SELF_SPRAY
+	possible_transfer_amounts = list(0.1,1,3,5,15,30)
+
 /obj/item/hypospray/mkii/Initialize(mapload)
 	. = ..()
 	AddElement(/datum/element/update_icon_updates_onmob)
