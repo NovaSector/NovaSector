@@ -100,7 +100,7 @@
 	spray_self = DELUXE_SELF_SPRAY
 	inject_self = DELUXE_SELF_INJECT
 	penetrates = INJECT_CHECK_PENETRATE_THICK
-	possible_transfer_amounts = list(0.1,1,3,5,15,30)
+	possible_transfer_amounts = list(0.1,1,3,5,15,20,30)
 
 /obj/item/hypospray/mkii/deluxe/cmo/combat
 	name = "hypospray Mk.II deluxe: combat edition"
@@ -137,7 +137,7 @@
 	spray_wait = COMBAT_WAIT_SPRAY
 	spray_self = COMBAT_SELF_INJECT
 	inject_self = COMBAT_SELF_SPRAY
-	possible_transfer_amounts = list(0.1,1,3,5,15,30)
+	possible_transfer_amounts = list(0.1,1,3,5,15,20,30)
 
 /obj/item/hypospray/mkii/Initialize(mapload)
 	. = ..()
