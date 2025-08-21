@@ -220,7 +220,12 @@ export async function get_updated_label_set({ github, context }) {
     // remains true to their final intent.
     for (const eventData of events.reverse()) {
       // Skip all bot actions
-      console.log(e.event, e.actor?.login, e.label?.name, e.created_at);
+      console.log(
+        eventData.event,
+        eventData.actor?.login,
+        eventData.label?.name,
+        eventData.created_at
+      );
       if (eventData.actor?.login === "github-actions") {
         continue;
       }
