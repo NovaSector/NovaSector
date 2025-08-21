@@ -75,15 +75,25 @@
 		/obj/item/storage/box/syndie_kit/recharger,
 	)
 
-/datum/voucher_set/traitor/primary_weapon/miecz
-	name = /obj/item/gun/ballistic/automatic/miecz::name
-	description = /obj/item/gun/ballistic/automatic/miecz::desc
-	icon = /obj/item/gun/ballistic/automatic/miecz::icon
-	icon_state = /obj/item/gun/ballistic/automatic/miecz::icon_state
+/datum/voucher_set/traitor/primary_weapon/pulse_rifle
+	name = /obj/item/gun/ballistic/automatic/pulse_rifle::name
+	description = "A high-capacity, hybrid assault rifle running on fifteen shot 'plugs' instead of conventional bullets; with three available per magazine."
+	icon = /obj/item/gun/ballistic/automatic/pulse_rifle::icon
+	icon_state = /obj/item/gun/ballistic/automatic/pulse_rifle::icon_state
 	set_items = list(
-		/obj/item/gun/ballistic/automatic/miecz,
-		/obj/item/ammo_box/magazine/miecz,
-		/obj/item/ammo_box/magazine/miecz,
+		/obj/item/gun/ballistic/automatic/pulse_rifle,
+		/obj/item/ammo_box/magazine/pulse,
+		/obj/item/ammo_box/magazine/pulse,
+	)
+
+/datum/voucher_set/traitor/primary_weapon/pulse_sniper
+	name = /obj/item/gun/ballistic/rifle/pulse_sniper::name
+	description = "A high-power, hybrid sniper rifle running on fifteen shot 'plugs' instead of conventional bullets; pulling three shots per use."
+	icon = /obj/item/gun/ballistic/rifle/pulse_sniper::icon
+	icon_state = /obj/item/gun/ballistic/rifle/pulse_sniper::icon_state
+	set_items = list(
+		/obj/item/gun/ballistic/rifle/pulse_sniper,
+		/obj/item/ammo_box/pulse_cargo_box,
 	)
 
 /datum/voucher_set/traitor/primary_weapon/lanca
