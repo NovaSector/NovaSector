@@ -13,4 +13,4 @@
 #define MARTIALART_JUNGLEARTS "jungle arts"
 
 /// The number of hits required to crit a target
-#define HITS_TO_CRIT(damage) round(HUMAN_MAXHEALTH / damage, 0.1) // NOVA EDIT - changes the magic health number of 100 to HUMAN_MAXHEALTH.
+#define HITS_TO_CRIT(damage) round(HUMAN_MAXHEALTH / (damage), 0.1) // NOVA EDIT CHANGE - ORIGINAL: #define HITS_TO_CRIT(damage) round(100 / (damage), 0.1)
