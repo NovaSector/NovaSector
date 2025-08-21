@@ -196,6 +196,7 @@
 	greyscale_config_worn = /datum/greyscale_config/countess_dress/worn
 	body_parts_covered = CHEST|GROIN|LEGS|ARMS
 	flags_inv = HIDESHOES
+	flags_1 = IS_PLAYER_COLORABLE_1
 
 /obj/item/clothing/under/dress/wedding_dress/ribbon
 	name = "wedding dress with ribbon"
