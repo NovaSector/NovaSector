@@ -84,7 +84,6 @@
 		EQUIPMENT_VENDOR_CATEGORY_UTILITIES = 1,
 	)
 
-
 /datum/vendor_equipment/primary/debug1
 	name = "ITEM ONE!"
 	equipment_path = /obj/item/storage/box

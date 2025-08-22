@@ -1,8 +1,9 @@
-#define EQUIPMENT_VENDOR_CATEGORY_PRIMARY "primary"
-#define EQUIPMENT_VENDOR_CATEGORY_SECONDARY "secondary"
-#define EQUIPMENT_VENDOR_CATEGORY_UNIFORM "uniform"
-#define EQUIPMENT_VENDOR_CATEGORY_EQUIPMENT "equipment"
-#define EQUIPMENT_VENDOR_CATEGORY_UTILITIES "utilities"
+#define EQUIPMENT_VENDOR_CATEGORY_PRIMARY "primary" // Weapons that are considered a main arm
+#define EQUIPMENT_VENDOR_CATEGORY_SECONDARY "secondary" // Weaponsn that are coonsidered a sidearm
+#define EQUIPMENT_VENDOR_CATEGORY_UNIFORM "uniform" // might remove
+#define EQUIPMENT_VENDOR_CATEGORY_EQUIPMENT "equipment" // equipment for the specific department
+#define EQUIPMENT_VENDOR_CATEGORY_UTILITIES "utilities" // non-essential equipment (ex: flares, oxycandles, etc) (mightt remove)
+#define EQUIPMENT_VENDOR_CATEGORY_SPECIAL "special" // Special equipment that requires multiple people/extremely limited stock (Smartgun, Juggernaut Gear, Elite Modsuits, Etc) [USED FOR ERTS ONLY]
 
 /obj/machinery/equipment_vendor
 	name = "Debug Equipment Vendor"
@@ -116,7 +117,15 @@
 		if("Dispense")
 			. = dispense(params)
 
-/obj/machinery/equipment_vendor/proc/dispense(list/params)
+/obj/machinery/equipment_vendor/proc/dispense(list/params) // Maybe this works?
+	var/datum/vendor_equipment/purchased = locate(params["ref"]) in equipment_stock
+	if (src.credits[purchased.category] >= purchased.cost)
+		src.credits[purchased.category] -= purchased.cost
+		playsound(src.loc, purchase_sound, 80, 1)
+		usr.put_in_active_hand
+		return TRUE
+	else
+		playsound(src.loc, denial_sound, 80, 1)
 	priority_announce("TEST RECIEVED","VENDING_DEBUG")
 
 
@@ -161,14 +170,17 @@
 
 /// Base Datam, Use it!
 /datum/vendor_equipment
-	/// Name of the object in view
+	/// Name override of the object in view (make code use item's default name if undefined)
 	var/name = "intimidating military object"
-	/// Description of the object or set
+	/// Description override of the object or set (make code use item's default name if undefined)
 	var/description = "Report me if you see me, you really fuckin shouldn't be able to see me"
 	/// What Category should this belong to? (Use defines to place them in the proper categories)
 	var/category = null
 	/// How many points should it cost. (uses var/category to charge points to relevant category) (Think of these as weaker telecrystals kinda, points should be)
 	var/cost = 0
+	/// If this has an object defined, it will use that image (Great for when equipment_path is a guncase or something that is a container).
+	/// If image_object is not defined or is null then it will just use equipment_path
+	var/obj/image_object
 	/// What path does it uses to spawn?
 	var/obj/equipment_path
 	/// In case admemes want to make specific requisitions require permits
@@ -192,3 +204,6 @@
 
 /datum/vendor_equipment/utilities
 	category = EQUIPMENT_VENDOR_CATEGORY_UTILITIES
+
+/datum/vendor_equipment/special
+	category = EQUIPMENT_VENDOR_CATEGORY_SPECIAL
