@@ -1,6 +1,0 @@
-author: "Balls2zawall"
-delete-after: True
-changes:
-  - bugfix: "Changes the Encryption key for the SolFed EMT's headset to be the proper one"
-  - rscadd: "Changes the SolFed EMT's loadout to have a health HUD and more tools, as well as giving them a box of epi-pens"
-  - rscadd: "Creates a SolFed Medical ID trim, to give EMT's access around the station"

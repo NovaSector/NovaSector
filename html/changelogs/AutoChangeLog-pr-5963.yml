@@ -1,5 +1,0 @@
-author: "Iajret"
-delete-after: True
-changes:
-  - bugfix: "Random characters created from Cargodise Lost spawners should now have proper random names and not 'Freighter Crew'"
-  - bugfix: "Same holds true for BMD. No longer will you have 'a black market dealer' as random char name"

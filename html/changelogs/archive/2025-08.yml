@@ -715,3 +715,23 @@
       and requires no special access to order it.
   vinylspiders:
   - bugfix: venus human traps cannot drag bodies into their nests (once again)
+2025-08-22:
+  Absolucy:
+  - spellcheck: 'PR announcements should now say "X merged by Y: ..." instead of "X
+      merged Y: ..."'
+  Balls2zawall:
+  - bugfix: Changes the Encryption key for the SolFed EMT's headset to be the proper
+      one
+  - rscadd: Changes the SolFed EMT's loadout to have a health HUD and more tools,
+      as well as giving them a box of epi-pens
+  - rscadd: Creates a SolFed Medical ID trim, to give EMT's access around the station
+  Iajret:
+  - bugfix: Random characters created from Cargodise Lost spawners should now have
+      proper random names and not 'Freighter Crew'
+  - bugfix: Same holds true for BMD. No longer will you have 'a black market dealer'
+      as random char name
+  carpotoxin:
+  - qol: Spacevines that grow on open or space turfs now have odds to create a vine
+      floortile
+  - balance: Tier 3 and tier 4 scythes can now be researched, and security can print
+      them

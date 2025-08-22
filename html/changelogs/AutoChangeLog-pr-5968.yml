@@ -1,5 +1,0 @@
-author: "carpotoxin"
-delete-after: True
-changes:
-  - qol: "Spacevines that grow on open or space turfs now have odds to create a vine floortile"
-  - balance: "Tier 3 and tier 4 scythes can now be researched, and security can print them"
