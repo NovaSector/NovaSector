@@ -1,5 +1,0 @@
-author: "RealWinterFrost"
-delete-after: True
-changes:
-  - admin: "Player panel has a preference for admins for those who wish to use the legacy panel."
-  - admin: "Splurt-tg station player panel has been ported for admins"

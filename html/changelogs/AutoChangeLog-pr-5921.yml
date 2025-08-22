@@ -1,5 +1,0 @@
-author: "CliffracerX"
-delete-after: True
-changes:
-  - rscdel: "Points system from ammo benches & reload disks"
-  - balance: "increased material costs for milspec & flechettes"
