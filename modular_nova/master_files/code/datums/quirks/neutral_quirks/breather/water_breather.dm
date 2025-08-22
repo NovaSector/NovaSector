@@ -51,5 +51,6 @@
 		qdel(action)
 		UnregisterSignal(quirk_holder, COMSIG_MOB_GRANTED_ACTION)
 
+/// Remove the hydrophobia action immediately if it gets granted
 /datum/quirk/item_quirk/breather/water_breather/proc/on_hydrophobia_action_granted(datum/source, datum/action/action)
 	remove_hydrophobia_action(action)
