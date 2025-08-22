@@ -580,7 +580,7 @@
 /area/station/service/lawoffice)
 "aiS" = (
 /obj/structure/chair/sofa/right/brown,
-/obj/structure/sign/flag/nri/directional/north,
+/obj/structure/sign/flag/hc/directional/north,
 /turf/open/floor/wood,
 /area/station/maintenance/port/fore)
 "aiT" = (

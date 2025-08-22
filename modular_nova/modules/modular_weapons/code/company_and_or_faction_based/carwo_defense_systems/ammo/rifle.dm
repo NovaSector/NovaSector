@@ -53,7 +53,6 @@
 	projectile_type = /obj/projectile/bullet/c40sol/fragmentation
 
 	ammo_categories = AMMO_CLASS_NONE // it's. on a technicality
-	print_cost = 0
 	harmful = FALSE
 
 
@@ -106,7 +105,6 @@
 
 	ammo_categories = AMMO_CLASS_PLUS
 	custom_materials = AMMO_MATS_AP
-	print_cost = 2
 
 /obj/projectile/bullet/c40sol/pierce
 	name = ".40 Sol match bullet"
@@ -165,7 +163,6 @@
 
 	ammo_categories = AMMO_CLASS_NICHE
 	custom_materials = AMMO_MATS_TEMP
-	print_cost = 2
 
 /obj/projectile/bullet/c40sol/incendiary
 	name = ".40 Sol Long incendiary bullet"

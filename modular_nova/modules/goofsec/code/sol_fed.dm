@@ -474,7 +474,7 @@ GLOBAL_LIST_INIT(call911_do_and_do_not, list(
 	name = "\improper SolFed adv. Medical headset"
 	desc = "A headset used by the Solar Federation response teams."
 	icon_state = "med_headset"
-	keyslot = /obj/item/encryptionkey/headset_solfed/atmos
+	keyslot = /obj/item/encryptionkey/headset_solfed/med
 	radio_talk_sound = 'modular_nova/modules/radiosound/sound/radio/security.ogg'
 
 /obj/item/encryptionkey/headset_solfed/med
@@ -503,22 +503,24 @@ GLOBAL_LIST_INIT(call911_do_and_do_not, list(
 	shoes = /obj/item/clothing/shoes/jackboots
 	ears = /obj/item/radio/headset/headset_solfed/med
 	mask = /obj/item/clothing/mask/gas/alt
+	glasses = /obj/item/clothing/glasses/hud/health
 	head = /obj/item/clothing/head/helmet/toggleable/sf_hardened/emt
 	id = /obj/item/card/id/advanced/solfed
 	suit = /obj/item/clothing/suit/armor/sf_hardened/emt
 	gloves = /obj/item/clothing/gloves/latex/nitrile
-	belt = /obj/item/storage/backpack/duffelbag/deforest_medkit/stocked
+	belt = /obj/item/storage/backpack/duffelbag/deforest_paramedic/stocked
 	suit_store = /obj/item/tank/internals/emergency_oxygen/engi
 	r_pocket = /obj/item/flashlight/seclite
 	l_pocket = /obj/item/storage/medkit/civil_defense
 	backpack_contents = list(
 		/obj/item/storage/box/survival = 1,
 		/obj/item/emergency_bed = 1,
+		/obj/item/storage/box/medipens = 1,
 		/obj/item/solfed_reporter/swat_caller = 1,
 		/obj/item/beamout_tool = 1,
 	)
 
-	id_trim = /datum/id_trim/solfed
+	id_trim = /datum/id_trim/solfed/med
 
 /datum/antagonist/ert/request_911/condom_destroyer
 	name = "Armed S.W.A.T. Officer"

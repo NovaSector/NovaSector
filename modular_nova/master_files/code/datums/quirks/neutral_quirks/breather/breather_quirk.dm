@@ -5,6 +5,8 @@
 	var/alert_text = "Be sure to equip your breathing apparatus, or you may end up choking!"
 	///the type of gas the dogtag accessory will be showing
 	var/breath_type = "oxygen"
+	///the mask that will be supplied once, can be none
+	var/obj/item/clothing/mask/breathing_mask = /obj/item/clothing/mask/gas/glass
 	///the tank of gas that will be supplied once
 	var/obj/item/breathing_tank = /obj/item/tank/internals/emergency_oxygen/engi
 	///this stores the old lungs so we can grant them on removal of the quirk
@@ -26,6 +28,8 @@
 	var/obj/item/clothing/accessory/breathing/target_tag = new(get_turf(quirk_holder))
 	target_tag.breath_type = breath_type
 
+	if(breathing_mask)
+		give_item_to_holder(breathing_mask, list(LOCATION_MASK, LOCATION_LPOCKET, LOCATION_RPOCKET, LOCATION_BACKPACK, LOCATION_HANDS))
 	give_item_to_holder(target_tag, list(LOCATION_LPOCKET, LOCATION_RPOCKET, LOCATION_BACKPACK, LOCATION_HANDS))
 	give_item_to_holder(breathing_tank,
 		list(

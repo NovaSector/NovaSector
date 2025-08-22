@@ -31,7 +31,6 @@
 
 	harmful = FALSE //Erm, technically
 	ammo_categories = AMMO_CLASS_NONE
-	print_cost = 0
 
 
 /obj/item/ammo_casing/c980grenade/fire_casing(atom/target, mob/living/user, params, distro, quiet, zone_override, spread, atom/fired_from)
@@ -98,7 +97,6 @@
 	icon_state = "980_smoke"
 
 	projectile_type = /obj/projectile/bullet/c980grenade/smoke
-	print_cost = 0
 
 
 /obj/projectile/bullet/c980grenade/smoke
@@ -134,7 +132,6 @@
 
 	custom_materials = AMMO_MATS_GRENADE_SHRAPNEL
 	ammo_categories = AMMO_CLASS_LETHAL
-	print_cost = 2
 
 	harmful = TRUE
 
@@ -184,7 +181,6 @@
 
 	custom_materials = AMMO_MATS_GRENADE
 	ammo_categories = AMMO_CLASS_NICHE_LTL
-	print_cost = 1
 
 /obj/item/ammo_box/c980grenade/shrapnel/stingball
 	name = "ammo box (.980 Tydhouer stingball)"
@@ -217,7 +213,6 @@
 	projectile_type = /obj/projectile/bullet/c980grenade/shrapnel/phosphor
 	ammo_categories = AMMO_CLASS_NICHE
 	custom_materials = AMMO_MATS_GRENADE_INCENDIARY
-	print_cost = 3
 
 
 /obj/projectile/bullet/c980grenade/shrapnel/phosphor
@@ -261,7 +256,6 @@
 	icon_state = "980_gas"
 	ammo_categories = AMMO_CLASS_NICHE_LTL
 	projectile_type = /obj/projectile/bullet/c980grenade/riot
-	print_cost = 1
 
 
 /obj/projectile/bullet/c980grenade/riot

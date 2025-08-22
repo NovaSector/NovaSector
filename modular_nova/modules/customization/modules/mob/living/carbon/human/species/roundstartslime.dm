@@ -150,7 +150,7 @@
 			to_chat(organ_owner, span_purple("Your body's thirst for plasma is quenched, your inner and outer membrane using it to regenerate."))
 
 	if(chem.type == /datum/reagent/water)
-		if(HAS_TRAIT(organ_owner, TRAIT_SLIME_HYDROPHOBIA))
+		if (HAS_TRAIT(organ_owner, TRAIT_SLIME_HYDROPHOBIA) || HAS_TRAIT(organ_owner, TRAIT_WATER_BREATHING))
 			return
 
 		organ_owner.blood_volume -= 3 * seconds_per_tick
@@ -353,31 +353,60 @@
 	return TRUE
 
 // HEALING SECTION
-// Handles passive healing and water damage.
+// Handles passive healing and water damage for slimes and water-breathing variants.
 /datum/species/jelly/spec_life(mob/living/carbon/human/slime, seconds_per_tick, times_fired)
 	. = ..()
+
+	// Skip if unconscious
 	if(slime.stat != CONSCIOUS)
 		return
 
 	var/healing = TRUE
 
+	// Get wetness effect if it exists
 	var/datum/status_effect/fire_handler/wet_stacks/wetness = locate() in slime.status_effects
+	var/wetness_amount = 0
+	if(istype(wetness))
+		wetness_amount = wetness.stacks
+
+	// Skip if hydrophobic
 	if(HAS_TRAIT(slime, TRAIT_SLIME_HYDROPHOBIA))
 		return
-	if(istype(wetness) && wetness.stacks > (DAMAGE_WATER_STACKS))
-		slime.blood_volume -= 2 * seconds_per_tick
-		if(SPT_PROB(25, seconds_per_tick))
-			slime.visible_message(span_danger("[slime]'s form begins to lose cohesion, seemingly diluting with the water!"), span_warning("The water starts to dilute your body, dry it off!"))
 
-	if(istype(wetness) && wetness.stacks > (REGEN_WATER_STACKS))
-		healing = FALSE
-		if(SPT_PROB(1, seconds_per_tick))
-			to_chat(slime, span_warning("You can't pull your body together and regenerate with water inside it!"))
-			slime.blood_volume -= 1 * seconds_per_tick
+	// Determine if water-breathing logic should be inverted
+	var/inverted = HAS_TRAIT(slime, TRAIT_WATER_BREATHING)
+	var/blood_units_to_lose = 0
+	
+	if(inverted)
+		// Water-breathing slimes: damaged when dry, heal only when wet
+		if(wetness_amount <= REGEN_WATER_STACKS) 
+			blood_units_to_lose = 2 * seconds_per_tick
+			healing = FALSE
+			if(SPT_PROB(25, seconds_per_tick))
+				slime.visible_message(
+					span_danger("[slime]'s form begins to lose cohesion, seemingly drying out!"),
+					span_warning("Your body loses cohesion as it dries, only immersion can restore it!"),
+				)
+		
+	else 
+		// Normal slimes: damaged when too wet, cannot heal if too wet
+		if(wetness_amount > DAMAGE_WATER_STACKS)
+			blood_units_to_lose += 2 * seconds_per_tick
+			if(SPT_PROB(25, seconds_per_tick))
+				slime.visible_message(
+					span_danger("[slime]'s form begins to lose cohesion, seemingly diluting with the water!"),
+					span_warning("The water starts to dilute your body, dry it off!"),
+				)
+		if(wetness_amount > REGEN_WATER_STACKS) 
+			healing = FALSE
+			blood_units_to_lose += 1 * seconds_per_tick
+			if(SPT_PROB(1, seconds_per_tick))
+				to_chat(slime, span_warning("You can't pull your body together and regenerate with water inside it!"))
 
+	slime.blood_volume -= blood_units_to_lose
+
+	// PASSIVE HEALING
 	if(slime.blood_volume >= BLOOD_VOLUME_NORMAL && healing)
-		if(HAS_TRAIT(slime, TRAIT_SLIME_HYDROPHOBIA))
-			return
 		if(slime.stat != CONSCIOUS)
 			return
 		slime.heal_overall_damage(brute = 1.5 * seconds_per_tick, burn = 1.5 * seconds_per_tick, required_bodytype = BODYTYPE_ORGANIC)

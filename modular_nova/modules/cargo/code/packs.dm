@@ -214,7 +214,6 @@
 		/obj/item/flatpack/ammo_workbench,
 		/obj/item/ammo_workbench_module/lethal,
 		/obj/item/ammo_workbench_module/gimmick,
-		/obj/item/ammo_workbench_reboot = 2,
 	)
 	crate_name = "ammunition workbench starter crate"
 
