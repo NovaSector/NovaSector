@@ -42,9 +42,7 @@
 		remove_hydrophobia_action(quirk_holder)
 
 /// Find and remove the slime hydrophobia spell/action if present
-/proc/remove_hydrophobia_action(mob/living/living_subject)
-	if (!living_subject || QDELETED(living_subject) || !islist(living_subject.actions))
+/datum/quirk/item_quirk/breather/water_breather/proc/remove_hydrophobia_action(datum/action/cooldown/spell/slime_hydrophobia/subject_action)
+	if (QDELETED(quirk_holder) || !istype(subject_action))
 		return
-	for (var/datum/action/cooldown/spell/slime_hydrophobia/subject_action in living_subject.actions)
-		subject_action.Remove(living_subject)   // ungrants from owner
-		qdel(subject_action)       // delete the action datum
+	qdel(subject_action)
