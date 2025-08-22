@@ -1,5 +1,5 @@
 /obj/machinery/power/rtg/portable
-	name = "radioisotope thermoelectric generator"
+	name = "High-Temperature Self-Contained Reaction Generator"
 	desc = "The ultimate in 'middle of nowhere' power generation. Unlike standard RTGs, this particular \
 		design of generator uses a volatile compound to achieve its shielding, making it ligther. \
 		The gold shielding is not particularly resistant to impact though."
