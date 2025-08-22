@@ -10,4 +10,4 @@
 
 /mob/Destroy()
 	QDEL_NULL(mob_panel)
-	. = ..()
+	return ..()
