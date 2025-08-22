@@ -18,8 +18,70 @@
 	desc = "A token with a rather suspicious snake with 3 heads on it."
 	icon_state = "token_primary"
 	points = list(
-		EQUIPMENT_VENDOR_CATEGORY_PRIMARY = 3,
 		EQUIPMENT_VENDOR_CATEGORY_SECONDARY = 2,
+		EQUIPMENT_VENDOR_CATEGORY_UTILITIES = 1,
+	)
+
+/obj/item/equipment_token/destwo/security
+	name = "DS-2 Crew Equipment Token"
+	desc = "A token with a rather suspicious snake with 3 heads on it. It seems to feel like it could bite."
+	icon_state = "token_primary"
+	points = list(
+		EQUIPMENT_VENDOR_CATEGORY_PRIMARY = 1,
+		EQUIPMENT_VENDOR_CATEGORY_SECONDARY = 2,
+		EQUIPMENT_VENDOR_CATEGORY_EQUIPMENT = 2,
+	)
+
+/obj/item/equipment_token/destwo/command
+	name = "DS-2 Command Equipment Token"
+	desc = "A token with a rather suspicious snake with 3 heads on it. It seems to have a special glimmer to it."
+	icon_state = "token_primary"
+	points = list(
+		EQUIPMENT_VENDOR_CATEGORY_PRIMARY = 1,
+		EQUIPMENT_VENDOR_CATEGORY_SECONDARY = 2,
+		EQUIPMENT_VENDOR_CATEGORY_EQUIPMENT = 2,
+		EQUIPMENT_VENDOR_CATEGORY_UNIFORM = 1,
+		EQUIPMENT_VENDOR_CATEGORY_UTILITIES = 2,
+	)
+
+/obj/item/equipment_token/destwo/primary
+	name = "DS-2 Primary Weapon Token"
+	desc = "A token with a rather suspicious snake with 3 heads on it. It seems to be preloaded with only 1 point"
+	icon_state = "token_primary"
+	points = list(
+		EQUIPMENT_VENDOR_CATEGORY_PRIMARY = 1,
+	)
+
+/obj/item/equipment_token/destwo/secondary
+	name = "DS-2 Secondary Weapon Token"
+	desc = "A token with a rather suspicious snake with 3 heads on it. It seems to be preloaded with only 1 point"
+	icon_state = "token_primary"
+	points = list(
+		EQUIPMENT_VENDOR_CATEGORY_SECONDARY = 1,
+	)
+
+/obj/item/equipment_token/destwo/uniform
+	name = "DS-2 Uniform Token"
+	desc = "A token with a rather suspicious snake with 3 heads on it. It seems to be preloaded with only 1 point"
+	icon_state = "token_primary"
+	points = list(
+		EQUIPMENT_VENDOR_CATEGORY_UNIFORM = 1,
+	)
+
+/obj/item/equipment_token/destwo/equipment
+	name = "DS-2 Equipment Token"
+	desc = "A token with a rather suspicious snake with 3 heads on it. It seems to be preloaded with only 1 point"
+	icon_state = "token_primary"
+	points = list(
+		EQUIPMENT_VENDOR_CATEGORY_EQUIPMENT = 1,
+	)
+
+/obj/item/equipment_token/destwo/utilities
+	name = "DS-2 Utilities Token"
+	desc = "A token with a rather suspicious snake with 3 heads on it. It seems to be preloaded with only 1 point"
+	icon_state = "token_primary"
+	points = list(
+		EQUIPMENT_VENDOR_CATEGORY_UTILITIES = 1,
 	)
 
 
