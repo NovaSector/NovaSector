@@ -720,7 +720,7 @@
 /obj/structure/chair{
 	dir = 1
 	},
-/obj/structure/sign/flag/nri/directional/east,
+/obj/structure/sign/flag/hc/directional/east,
 /turf/open/floor/carpet/red,
 /area/virtual_domain/ancient_milsim/snpc_bar)
 "tg" = (
@@ -779,7 +779,7 @@
 /area/virtual_domain/ancient_milsim/loot_camp)
 "uy" = (
 /obj/structure/sign/departments/science/alt/directional/north,
-/obj/structure/sign/flag/nri/directional/north,
+/obj/structure/sign/flag/hc/directional/north,
 /turf/open/misc/grass/planet/ancient_milsim,
 /area/virtual_domain/ancient_milsim/entrance)
 "uz" = (
@@ -2022,8 +2022,8 @@
 /area/virtual_domain/protected_space/ancient_milsim)
 "Yx" = (
 /obj/structure/sign/departments/science/directional/north,
-/obj/structure/sign/flag/nri/directional/north,
 /obj/effect/baseturf_helper/virtual_domain/ancient_milsim,
+/obj/structure/sign/flag/hc/directional/north,
 /turf/open/misc/grass/planet/ancient_milsim,
 /area/virtual_domain/ancient_milsim/entrance)
 "YE" = (
@@ -2053,7 +2053,7 @@
 /turf/open/misc/dirt/planet,
 /area/virtual_domain/ancient_milsim/loot_camp)
 "ZQ" = (
-/obj/structure/sign/flag/nri/directional/east,
+/obj/structure/sign/flag/hc/directional/east,
 /turf/open/floor/carpet/red,
 /area/virtual_domain/ancient_milsim/snpc_bar)
 "ZY" = (
