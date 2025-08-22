@@ -6,14 +6,14 @@
 		application."
 	icon = 'modular_nova/modules/colony_fabricator/icons/machines.dmi'
 	circuit = null
-	power_gen = 15 KILO WATTS
+	power_gen = 10 KILO WATTS //same as a upgraded solar
+	max_integrity = 40
 	/// What we turn into when we are repacked
 	var/repacked_type = /obj/item/flatpacked_machine/rtg
 
 /obj/machinery/power/rtg/portable/Initialize(mapload)
 	. = ..()
 	AddElement(/datum/element/repackable, repacked_type, 2 SECONDS)
-	AddElement(/datum/element/radioactive, 2, RAD_LIGHT_INSULATION, URANIUM_IRRADIATION_CHANCE, URANIUM_RADIATION_MINIMUM_EXPOSURE_TIME * 5)
 	AddElement(/datum/element/manufacturer_examine, COMPANY_FRONTIER)
 	if(!mapload)
 		flick("rtg_deploy", src)
@@ -30,14 +30,26 @@
 /obj/machinery/power/rtg/portable/default_pry_open(obj/item/crowbar, close_after_pry, open_density, closed_density)
 	return NONE
 
+/obj/machinery/power/rtg/portable/atom_destruction(damage_flag)
+	if (damage_flag)
+		var/turf/this_turf = get_turf(src)
+		explosion(src, heavy_impact_range = 1, light_impact_range = 3, flash_range = 4, adminlog = FALSE)
+		var/datum/effect_system/explosion/explosiooon
+		explosiooon = new /datum/effect_system/explosion/smoke
+		explosiooon.set_up(this_turf)
+		playsound(this_turf, 'sound/effects/chemistry/shockwave_explosion.ogg', 80, TRUE)
+		explosiooon.start()
+		log_message("[src] exploded due to destruction", LOG_ATTACK)
+	return ..()
+
 /obj/item/flatpacked_machine/rtg
 	name = "flat-packed radioisotope thermoelectric generator"
 	desc = /obj/machinery/power/rtg/portable::desc
 	icon_state = "rtg_packed"
 	type_to_deploy = /obj/machinery/power/rtg/portable
 	custom_materials = list(
-		/datum/material/iron = SHEET_MATERIAL_AMOUNT * 15,
+		/datum/material/iron = SHEET_MATERIAL_AMOUNT * 5,
 		/datum/material/uranium = SHEET_MATERIAL_AMOUNT * 5,
-		/datum/material/plasma = HALF_SHEET_MATERIAL_AMOUNT,
-		/datum/material/gold = HALF_SHEET_MATERIAL_AMOUNT,
+		/datum/material/plasma = SHEET_MATERIAL_AMOUNT,
+		/datum/material/gold = SHEET_MATERIAL_AMOUNT,
 	)
