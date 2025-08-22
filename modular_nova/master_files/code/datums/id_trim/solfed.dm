@@ -69,7 +69,7 @@
 		ACCESS_PLUMBING,
 		ACCESS_COMMAND,
 		ACCESS_EVA,
-		)
+	)
 
 /datum/id_trim/solgov/New()
 	. = ..()
