@@ -104,7 +104,9 @@
  * Shows the titlescreen to a new player.
  */
 /mob/dead/new_player/proc/show_title_screen()
-	if (client?.interviewee)
+	if(isnull(client))
+		return
+	if (client.interviewee)
 		return
 
 	winset(src, "title_browser", "is-disabled=false;is-visible=true")
