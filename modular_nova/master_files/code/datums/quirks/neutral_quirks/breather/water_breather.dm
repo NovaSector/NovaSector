@@ -34,15 +34,22 @@
 /datum/quirk/item_quirk/breather/water_breather/remove()
 	. = ..()
 	quirk_holder.clear_alert(ALERT_NOT_ENOUGH_WATER)
+	UnregisterSignal(quirk_holder, COMSIG_MOB_GRANTED_ACTION)
 
 /datum/quirk/item_quirk/breather/water_breather/add_unique(client/client_source)
 	. = ..()
-	// The button/action may be granted after quirks run, so defer and purge it
-	spawn(0)
-		remove_hydrophobia_action(quirk_holder)
+	RegisterSignal(quirk_holder, COMSIG_MOB_GRANTED_ACTION, PROC_REF(on_hydrophobia_action_granted))
+	// Clean up any action that might already exist
+	for (var/datum/action/cooldown/spell/slime_hydrophobia/hydrophobia_action in quirk_holder.actions)
+		qdel(hydrophobia_action)
 
-/// Find and remove the slime hydrophobia spell/action if present
-/datum/quirk/item_quirk/breather/water_breather/proc/remove_hydrophobia_action(datum/action/cooldown/spell/slime_hydrophobia/subject_action)
-	if (QDELETED(quirk_holder) || !istype(subject_action))
+/// Remove hydrophobia action when granted to a slime with water breathing.
+/datum/quirk/item_quirk/breather/water_breather/proc/remove_hydrophobia_action(datum/action/action)
+	if(QDELETED(quirk_holder))
 		return
-	qdel(subject_action)
+	if(istype(action, /datum/action/cooldown/spell/slime_hydrophobia))
+		qdel(action)
+		UnregisterSignal(quirk_holder, COMSIG_MOB_GRANTED_ACTION)
+
+/datum/quirk/item_quirk/breather/water_breather/proc/on_hydrophobia_action_granted(datum/source, datum/action/action)
+	remove_hydrophobia_action(action)
