@@ -1594,7 +1594,6 @@
 "NY" = (
 /obj/structure/table,
 /obj/item/ammo_workbench_module/lethal_variant,
-/obj/item/ammo_workbench_reboot,
 /turf/open/floor/iron/white,
 /area/virtual_domain/ancient_milsim/medbay)
 "On" = (
