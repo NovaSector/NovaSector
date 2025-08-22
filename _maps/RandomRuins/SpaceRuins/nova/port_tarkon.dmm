@@ -1,6 +1,5 @@
 //MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
 "aa" = (
-/obj/machinery/camera/directional/north,
 /obj/machinery/light/cold/dim/directional/north,
 /turf/open/floor/iron/white,
 /area/ruin/space/has_grav/port_tarkon/trauma)
@@ -297,6 +296,13 @@
 	},
 /obj/structure/sign/warning/secure_area/directional/north,
 /obj/machinery/light/directional/north,
+/turf/open/floor/engine,
+/area/ruin/space/has_grav/port_tarkon/sciencexp)
+"aU" = (
+/obj/effect/turf_decal/stripes/line,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/machinery/airalarm/directional/south,
+/obj/effect/mapping_helpers/airalarm/all_access,
 /turf/open/floor/engine,
 /area/ruin/space/has_grav/port_tarkon/sciencexp)
 "aV" = (
@@ -1108,6 +1114,15 @@
 /obj/machinery/space_heater,
 /turf/open/floor/plating,
 /area/ruin/space/has_grav/port_tarkon/porthall)
+"em" = (
+/obj/effect/turf_decal/trimline/dark/end{
+	dir = 8;
+	pixel_y = -6
+	},
+/obj/machinery/airalarm/directional/west,
+/obj/effect/mapping_helpers/airalarm/all_access,
+/turf/open/floor/iron/white,
+/area/ruin/space/has_grav/port_tarkon/trauma)
 "eo" = (
 /obj/structure/sign/warning/explosives,
 /turf/closed/wall/r_wall,
@@ -3978,6 +3993,14 @@
 /obj/machinery/light/directional/south,
 /turf/open/floor/iron/dark,
 /area/ruin/space/has_grav/port_tarkon/sciencexp)
+"oN" = (
+/obj/effect/turf_decal/tile/neutral/half/contrasted{
+	dir = 4
+	},
+/obj/machinery/airalarm/directional/east,
+/obj/effect/mapping_helpers/airalarm/all_access,
+/turf/open/floor/iron,
+/area/ruin/space/has_grav/port_tarkon/centerhall)
 "oO" = (
 /turf/open/floor/plating,
 /area/ruin/space/has_grav/port_tarkon/porthall)
@@ -4294,6 +4317,13 @@
 /obj/item/paper/fluff/ruins/tarkon/detain,
 /turf/open/floor/iron,
 /area/ruin/space/has_grav/port_tarkon/secoff)
+"pV" = (
+/obj/structure/bodycontainer/morgue{
+	dir = 8
+	},
+/obj/machinery/camera/directional/south,
+/turf/open/floor/iron/white,
+/area/ruin/space/has_grav/port_tarkon/trauma)
 "pZ" = (
 /obj/machinery/atmospherics/pipe/layer_manifold/scrubbers/visible,
 /turf/closed/wall/r_wall,
@@ -5975,6 +6005,11 @@
 /obj/effect/decal/cleanable/glass,
 /turf/open/floor/plating,
 /area/ruin/space/has_grav/port_tarkon/developement)
+"wu" = (
+/obj/machinery/airalarm/directional/west,
+/obj/effect/mapping_helpers/airalarm/all_access,
+/turf/open/floor/plating,
+/area/ruin/space/has_grav/port_tarkon/engineering)
 "wv" = (
 /obj/structure/closet/secure_closet/medical1,
 /obj/item/gun/medbeam/afad,
@@ -6336,6 +6371,15 @@
 "xN" = (
 /turf/closed/wall/r_wall,
 /area/ruin/space/has_grav/port_tarkon/power1)
+"xO" = (
+/obj/effect/turf_decal/tile/blue/half{
+	dir = 8
+	},
+/obj/structure/disposalpipe/segment,
+/obj/machinery/airalarm/directional/west,
+/obj/effect/mapping_helpers/airalarm/all_access,
+/turf/open/floor/iron/white,
+/area/ruin/space/has_grav/port_tarkon/porthall)
 "xP" = (
 /obj/modular_map_root/port_tarkon{
 	key = "maint"
@@ -7050,6 +7094,8 @@
 	dir = 8
 	},
 /obj/structure/alien/egg/burst,
+/obj/machinery/airalarm/directional/west,
+/obj/effect/mapping_helpers/airalarm/all_access,
 /turf/open/floor/iron/dark,
 /area/ruin/space/has_grav/port_tarkon/sciencexp)
 "Az" = (
@@ -7652,6 +7698,8 @@
 /turf/open/floor/iron/dark,
 /area/ruin/space/has_grav/port_tarkon/sciencexp)
 "CP" = (
+/obj/machinery/airalarm/directional/south,
+/obj/effect/mapping_helpers/airalarm/all_access,
 /turf/open/floor/iron,
 /area/ruin/space/has_grav/port_tarkon/sciencexp)
 "CQ" = (
@@ -8466,6 +8514,8 @@
 /obj/effect/turf_decal/tile/yellow/half{
 	dir = 4
 	},
+/obj/machinery/airalarm/directional/east,
+/obj/effect/mapping_helpers/airalarm/all_access,
 /turf/open/floor/iron,
 /area/ruin/space/has_grav/port_tarkon/toolstorage)
 "FQ" = (
@@ -9227,6 +9277,11 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /turf/open/floor/grass,
 /area/ruin/space/has_grav/port_tarkon/garden)
+"II" = (
+/obj/machinery/airalarm/directional/east,
+/obj/effect/mapping_helpers/airalarm/all_access,
+/turf/open/floor/plating,
+/area/ruin/space/has_grav/port_tarkon/engineering)
 "IJ" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/visible/layer2,
 /turf/open/misc/asteroid/airless,
@@ -9633,6 +9688,8 @@
 /area/ruin/space/has_grav/port_tarkon/sauna)
 "Kp" = (
 /obj/effect/mapping_helpers/broken_floor,
+/obj/machinery/airalarm/directional/north,
+/obj/effect/mapping_helpers/airalarm/all_access,
 /turf/open/floor/plating,
 /area/ruin/space/has_grav/port_tarkon/sciencexp)
 "Kq" = (
@@ -11396,6 +11453,14 @@
 	},
 /turf/open/floor/wood/parquet,
 /area/ruin/space/has_grav/port_tarkon/lounge)
+"QS" = (
+/obj/effect/turf_decal/tile/purple/half{
+	dir = 1
+	},
+/obj/machinery/airalarm/directional/north,
+/obj/effect/mapping_helpers/airalarm/all_access,
+/turf/open/floor/iron/dark,
+/area/ruin/space/has_grav/port_tarkon/sciencehall)
 "QT" = (
 /obj/machinery/conveyor{
 	id = "tarkonrecycle";
@@ -12324,6 +12389,7 @@
 	dir = 4
 	},
 /obj/machinery/airalarm/directional/north,
+/obj/effect/mapping_helpers/airalarm/all_access,
 /turf/open/floor/iron/dark,
 /area/ruin/space/has_grav/port_tarkon/viro)
 "Ul" = (
@@ -12524,6 +12590,8 @@
 	amount = 15
 	},
 /obj/structure/cable/multilayer/connected,
+/obj/effect/mapping_helpers/airalarm/all_access,
+/obj/machinery/airalarm/directional/west,
 /turf/open/floor/plating,
 /area/ruin/space/has_grav/port_tarkon/power1)
 "Vb" = (
@@ -13069,6 +13137,14 @@
 	},
 /turf/open/floor/iron/dark,
 /area/ruin/space/has_grav/port_tarkon/sciencehall)
+"Xg" = (
+/obj/effect/turf_decal/tile/purple/half{
+	dir = 4
+	},
+/obj/machinery/airalarm/directional/east,
+/obj/effect/mapping_helpers/airalarm/all_access,
+/turf/open/floor/iron/dark,
+/area/ruin/space/has_grav/port_tarkon/sciencexp)
 "Xi" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /turf/open/floor/wood/parquet,
@@ -15426,7 +15502,7 @@ NB
 TX
 Pf
 YO
-Bi
+aU
 TX
 Xb
 Nf
@@ -15786,7 +15862,7 @@ OW
 ij
 ij
 ij
-ij
+Xg
 ij
 ij
 ij
@@ -16440,7 +16516,7 @@ vk
 KK
 VI
 Fx
-wJ
+QS
 OK
 kP
 Fx
@@ -17901,7 +17977,7 @@ sh
 RL
 mE
 LS
-mE
+xO
 NR
 mE
 yQ
@@ -18211,7 +18287,7 @@ QP
 QP
 Kg
 Ig
-QP
+wu
 QP
 GV
 BX
@@ -18355,7 +18431,7 @@ Sl
 eQ
 nt
 eR
-Re
+em
 Re
 VN
 Lo
@@ -18448,7 +18524,7 @@ eQ
 rC
 JB
 ev
-ev
+pV
 VN
 vN
 dL
@@ -19136,7 +19212,7 @@ Ux
 QP
 it
 Yf
-QP
+II
 QP
 go
 kN
@@ -20282,7 +20358,7 @@ iq
 Gc
 Ba
 hN
-hN
+oN
 jG
 hN
 Qv
