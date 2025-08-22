@@ -2,7 +2,7 @@
 	name = "High-Temperature Self-Contained Reaction Generator"
 	desc = "The ultimate in 'middle of nowhere' power generation. Unlike standard RTGs, this particular \
 		design of generator uses a volatile compound reacting with unstable elements to create a constant trickle of power \
-		There's a label on the side reminding operators that the contents are under heavy pressure, and that impacts should be avoided at all costs.
+		There's a label on the side reminding operators that the contents are under heavy pressure, and that impacts should be avoided at all costs."
 	icon = 'modular_nova/modules/colony_fabricator/icons/machines.dmi'
 	circuit = null
 	power_gen = 15 KILO WATTS // 50% more efficient as a Plastitanium Solar
