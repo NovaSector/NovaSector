@@ -15,6 +15,7 @@
 		/obj/item/stack/tile/iron/small,
 		/obj/item/stack/tile/iron/diagonal,
 		/obj/item/stack/tile/iron/herringbone,
+		/obj/item/stack/tile/iron/brick,
 		/obj/item/stack/tile/iron/dark,
 		/obj/item/stack/tile/iron/dark/smooth_edge,
 		/obj/item/stack/tile/iron/dark/smooth_half,
@@ -85,3 +86,95 @@
 
 /turf/open/floor/iron/white/textured_large/airless
 	initial_gas_mix = AIRLESS_ATMOS
+
+/*
+* Standard Tiles
+*/
+
+/turf/open/floor/iron/brick
+	icon_state = "brick"
+	base_icon_state = "brick"
+	floor_tile = /obj/item/stack/tile/iron/brick
+
+/obj/item/stack/tile/iron/brick
+	name = "brick floor tile"
+	singular_name = "brick floor tile"
+	icon_state = "tile_edge"
+	turf_type = /turf/open/floor/iron/brick
+	merge_type = /obj/item/stack/tile/iron/brick
+	tile_rotate_dirs = list(SOUTH, NORTH)
+
+/turf/open/floor/iron/brick_half
+	icon_state = "brick_half"
+	base_icon_state = "brick_half"
+	floor_tile = /obj/item/stack/tile/iron/brick_half
+
+/obj/item/stack/tile/iron/brick_half
+	name = "half brick floor tile"
+	singular_name = "brick floor tile"
+	icon_state = "brick_half"
+	turf_type = /turf/open/floor/iron/brick_half
+	merge_type = /obj/item/stack/tile/iron/brick_half
+	tile_rotate_dirs = list(SOUTH, NORTH, EAST, WEST)
+
+/turf/open/floor/iron/brick_corner
+	icon_state = "brick_corner"
+	base_icon_state = "brick_corner"
+	floor_tile = /obj/item/stack/tile/iron/brick_corner
+
+/obj/item/stack/tile/iron/brick_corner
+	name = "brick corner floor tile"
+	singular_name = "brick floor tile"
+	icon_state = "brick_corner"
+	turf_type = /turf/open/floor/iron/brick_corner
+	merge_type = /obj/item/stack/tile/iron/brick_corner
+	tile_rotate_dirs = list(SOUTH, NORTH, EAST, WEST)
+
+/turf/open/floor/iron/brick_corner_inverse
+	icon_state = "brick_corner_inverse"
+	base_icon_state = "brick_corner_inverse"
+	floor_tile = /obj/item/stack/tile/iron/brick_corner_inverse
+
+/obj/item/stack/tile/iron/brick_corner_inverse
+	name = "brick inverse floor tile"
+	singular_name = "brick floor tile"
+	icon_state = "brick_corner_inverse"
+	turf_type = /turf/open/floor/iron/brick_corner_inverse
+	merge_type = /obj/item/stack/tile/iron/brick_corner_inverse
+	tile_rotate_dirs = list(SOUTH, NORTH, EAST, WEST)
+
+/turf/open/floor/iron/brick_corner_vertical
+	icon_state = "brick_corner_vertical"
+	base_icon_state = "brick_corner_vertical"
+	floor_tile = /obj/item/stack/tile/iron/brick_corner_vertical
+
+/obj/item/stack/tile/iron/brick_corner_vertical
+	name = "brick corner floor tile"
+	singular_name = "brick floor tile"
+	icon_state = "brick_corner_vertical"
+	turf_type = /turf/open/floor/iron/brick_corner_vertical
+	merge_type = /obj/item/stack/tile/iron/brick_corner_vertical
+	tile_rotate_dirs = list(SOUTH, NORTH, EAST, WEST)
+
+/turf/open/floor/iron/brick_corner_vertical_inverse
+	icon_state = "brick_corner_vertical_inverse"
+	base_icon_state = "brick_corner_vertical_inverse"
+	floor_tile = /obj/item/stack/tile/iron/brick_corner_vertical_inverse
+
+/obj/item/stack/tile/iron/brick_corner_vertical_inverse
+	name = "brick inverse floor tile"
+	singular_name = "brick floor tile"
+	icon_state = "brick_corner_vertical_inverse"
+	turf_type = /turf/open/floor/iron/brick_corner_vertical_inverse
+	merge_type = /obj/item/stack/tile/iron/brick_corner_vertical_inverse
+	tile_rotate_dirs = list(SOUTH, NORTH, EAST, WEST)
+
+
+
+/*
+* DARK TILES
+*/
+
+/*
+* WHITE TILES
+*/
