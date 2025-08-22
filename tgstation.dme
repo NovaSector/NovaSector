@@ -8097,6 +8097,7 @@
 #include "modular_nova\modules\drone_adjustments\drone.dm"
 #include "modular_nova\modules\drone_adjustments\slide_component.dm"
 #include "modular_nova\modules\drones\_drone.dm"
+#include "modular_nova\modules\drones\drone_naming.dm"
 #include "modular_nova\modules\drones_derelict\code\areas.dm"
 #include "modular_nova\modules\drones_derelict\code\space.dm"
 #include "modular_nova\modules\echolocation_quirk\code\echolocation.dm"
