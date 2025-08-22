@@ -20,10 +20,12 @@
 	greyscale_colors = "#222222"
 	cold_protection = HEAD
 	min_cold_protection_temperature = FIRE_HELM_MIN_TEMP_PROTECT
+	flags_1 = IS_PLAYER_COLORABLE_1
 
 /obj/item/clothing/head/costume/nova/papakha/white
 	icon_state = "papakha_white"
 	greyscale_colors = "#ffffff"
+	flags_1 = null
 
 /obj/item/clothing/head/costume/nova/flowerpin
 	name = "flower pin"
@@ -61,15 +63,18 @@
 	greyscale_colors = "#C7B08B#5A4E44"
 	upsprite = "ushanka_gagup"
 	downsprite = "ushanka_gagdown"
+	flags_1 = IS_PLAYER_COLORABLE_1
 
 /obj/item/clothing/head/costume/ushanka/polar
 	icon_state = "/obj/item/clothing/head/costume/ushanka/polar"
 	greyscale_colors = "#FCFCFD#CCCED1"
+	flags_1 = null
 
 /obj/item/clothing/head/costume/ushanka/sec
 	icon_state = "/obj/item/clothing/head/costume/ushanka/sec"
 	greyscale_colors = "#C7B08B#A52F29"
 	armor_type = /datum/armor/head_helmet
+	flags_1 = null
 
 /obj/item/clothing/head/costume/ushanka/sec/blue
 	icon_state = "/obj/item/clothing/head/costume/ushanka/sec/blue"
