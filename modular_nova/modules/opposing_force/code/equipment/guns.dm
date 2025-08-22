@@ -31,6 +31,25 @@
 	new /obj/item/ammo_box/magazine/miecz(src)
 	new /obj/item/ammo_box/magazine/miecz(src)
 
+/datum/opposing_force_equipment/ranged/pulse_rifle
+	name = "'Žaibas' Plasma Pulse Projector"
+	description = "A high-capacity, hybrid assault rifle running on fifteen shot 'plugs' instead of conventional bullets; with three available per magazine."
+	item_type = /obj/item/storage/toolbox/guncase/nova/opfor/pulse_rifle
+
+/obj/item/storage/toolbox/guncase/nova/opfor/pulse_rifle/PopulateContents()
+	new /obj/item/gun/ballistic/automatic/pulse_rifle(src)
+	new /obj/item/ammo_box/magazine/pulse(src)
+	new /obj/item/ammo_box/magazine/pulse(src)
+
+/datum/opposing_force_equipment/ranged/pulse_sniper
+	name = "'Žaibas-A' Sniper Rifle"
+	description = "A high-power, hybrid sniper rifle running on fifteen shot 'plugs' instead of conventional bullets; pulling three shots per use."
+	item_type = /obj/item/storage/toolbox/guncase/nova/opfor/pulse_sniper
+
+/obj/item/storage/toolbox/guncase/nova/opfor/pulse_sniper/PopulateContents()
+	new /obj/item/gun/ballistic/rifle/pulse_sniper(src)
+	new /obj/item/ammo_box/pulse_cargo_box(src)
+
 /datum/opposing_force_equipment/ranged/kiboko
 	name = "Kiboko Grenade Launcher"
 	description = "A unique grenade launcher firing .980 grenades. A laser sight system allows its user to specify a range for the grenades it fires to detonate at"

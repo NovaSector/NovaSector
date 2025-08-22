@@ -665,3 +665,53 @@
   - balance: Man-eaters can now pull living beings again
   - rscadd: Difficult spacevines event, always spawns man-eaters and can appear in
       more places than just hallways
+2025-08-15:
+  OrbisAnima:
+  - rscadd: Adds the fireplace frame recipe for 7 stone, which allows players to place
+      fireplaces.  South works and had to redo the effects, south fireplace sprite
+      was made by MaoDetector and I gave it a lesser smoke effect so it doesnt cover
+      the whole thing.
+  carpotoxin:
+  - bugfix: Nitrogen breather quirk and plasma breather quirk provide a gas mask now
+2025-08-16:
+  LordHookie:
+  - bugfix: Removed the last remaining Abductor Headset from Abductor Mothership.
+      No more allcomms for bitrunners.
+  OrbisAnima:
+  - rscdel: Removes Yiff in hell / Furry Pride / Lizard Power / Fuck Lizards graffitis
+2025-08-17:
+  BasilTamaya:
+  - qol: Psionic Holding now tells you if you're holding something telekinetically
+      or not.
+  DirectCause:
+  - bugfix: Razorwire and Shell launcher cyberimps are no longer displayed as if they
+      are on the opposite hand
+  Hatterhat:
+  - rscadd: Interdyne scientists can now drink Doctor's Delight for healing without
+      losing nutriment, as their livers have gained medically-inclined metabolism.
+  - bugfix: Ghost roles with jobs now properly apply their jobs' liver traits.
+  - rscadd: Following the release of the BR-38, Nanotrasen has begun to roll out the
+      even more experimental NT/E "Laevateinn" parts kit, for augmenting .38 revolvers
+      (including the Colt Detective Special). Consult your local cargo console's goodies
+      tab for details.
+  OrbisAnima:
+  - qol: Stasis Beds now report in the medical channel if someone is buckled to them.
+      This can be changed with a multitool on their boards, come on by default if
+      the bed is created on an NT space, or off if its not the case.
+  - balance: Stasis Beds no longer let you do surgeries while its on. (You can turn
+      it off with alt click)
+  Stalkeros for the code, Hollandaise for the sprites:
+  - rscadd: "After many months of arguing semantics and finding loopholes to increase\
+      \ revenue, \u017Daibas plasma pulse projector, a unique high-capacity hybrid\
+      \ assault rifle has been released to the open markets; with a limited, civilian\
+      \ market-oriented magazine capacity."
+  - rscadd: "Furthermore, a modification of the rifle for long range engagements,\
+      \ under the postfix \"A\" (thus, \"\u017Daibas-A\"), has been released to the\
+      \ civilian markets."
+  - rscadd: And a plasma-pulse ammo box that's actually an ammo canister uh-huh.
+2025-08-21:
+  OrbisAnima:
+  - qol: The Shuttle Construction Starter Kit now brings 50 shuttle rods with it,
+      and requires no special access to order it.
+  vinylspiders:
+  - bugfix: venus human traps cannot drag bodies into their nests (once again)
