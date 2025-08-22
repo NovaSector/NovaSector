@@ -1,7 +1,7 @@
 /obj/machinery/power/rtg/portable
 	name = "High-Temperature Self-Contained Reaction Generator"
 	desc = "The ultimate in 'middle of nowhere' power generation. Unlike standard RTGs, this particular \
-		design of generator uses a volatile compound to achieve its shielding, making it ligther. \
+		design of generator uses a volatile compound reacting with unstable elements to create a constant trickle of power \
 		The gold shielding is not particularly resistant to impact though."
 	icon = 'modular_nova/modules/colony_fabricator/icons/machines.dmi'
 	circuit = null
