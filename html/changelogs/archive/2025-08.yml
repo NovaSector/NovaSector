@@ -753,3 +753,12 @@
       floortile
   - balance: Tier 3 and tier 4 scythes can now be researched, and security can print
       them
+2025-08-23:
+  Diltyrr:
+  - rscadd: Inverses the regen algorithm for slime people with the water breathing
+      quirk.
+  - rscadd: Disable the damage from ingesting water for slime people with the water
+      breathing quirk.
+  - rscadd: Removes the Hydrophobia toggle for slime people with the water breathing
+      quirk.
+  - rscadd: Added a way to pick a drone name.
