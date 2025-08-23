@@ -91,6 +91,7 @@
 	can_be_sawn_off = FALSE
 	accepted_magazine_type = /obj/item/ammo_box/magazine/internal/shot/sol_super
 	icon_state = "renoster_super"
+	inhand_icon_state = "renoster_super"
 	bolt_wording = "bolt"
 	lore_blurb = "The Kolben is an overhaul of the robust M64 shotgun of SolFed fame, improving on an already lethal design.<br><br>\
 		More precisely, the Archon Combat Systems \"KOLBEN-KASUAR\" suite (as it's officially known) is an upgrade and accessory set for the M64, \
