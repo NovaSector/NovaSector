@@ -59,17 +59,19 @@
 
 		space_turf.ChangeTurf(/turf/open/floor/plating/kudzu)
 		space_turf.color = hue
+
 /turf/open/floor/plating/kudzu
 	name = "vine flooring"
 	icon = 'modular_nova/modules/aesthetics/floors/icons/floors.dmi'
 	icon_state = "vinefloor"
 
-/turf/open/floor/plating/kudzu/attacked_by(obj/item/attacking_item, mob/living/user)
-	if(!istype(attacking_item, /obj/item/wirecutters))
-		return ..()
-
-	ChangeTurf(/turf/open/space)
-
+/turf/open/floor/plating/kudzu/attackby(obj/item/attacking_item, mob/user, list/modifiers)
+	if(istype(attacking_item, /obj/item/scythe) || istype(attacking_item, /obj/item/wirecutters))
+		to_chat(user, span_notice("You cull [src]."))
+		playsound(src, 'sound/items/weapons/bladeslice.ogg', 75, TRUE)
+		ScrapeAway(flags = CHANGETURF_INHERIT_AIR)
+		return TRUE
+	return ..()
 
 // Turns CO2 into oxygen
 /datum/spacevine_mutation/carbon_recycling

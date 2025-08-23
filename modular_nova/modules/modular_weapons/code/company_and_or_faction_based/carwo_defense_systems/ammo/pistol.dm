@@ -52,7 +52,6 @@
 
 	projectile_type = /obj/projectile/bullet/c35sol/incapacitator
 	harmful = FALSE
-	print_cost = 0
 	ammo_categories = AMMO_CLASS_NONE
 
 
@@ -100,7 +99,6 @@
 
 	custom_materials = AMMO_MATS_RIPPER
 	ammo_categories = AMMO_CLASS_PLUS
-	print_cost = 2
 
 /obj/projectile/bullet/c35sol/ripper
 	name = ".35 Sol ripper bullet"
@@ -145,7 +143,6 @@
 
 	projectile_type = /obj/projectile/bullet/c35sol/flash
 	harmful = FALSE
-	print_cost = 0
 	ammo_categories = AMMO_CLASS_NONE
 
 /obj/projectile/bullet/c35sol/flash
