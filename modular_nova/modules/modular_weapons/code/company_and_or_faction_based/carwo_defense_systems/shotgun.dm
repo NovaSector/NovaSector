@@ -102,68 +102,61 @@
 	projectile_speed_multiplier = 1
 	rack_delay = 0.5 SECONDS
 	fire_delay = 0.4 SECONDS
-	/// Is this shotgun amped? Used instead of toggling a fire selector. Amped Kolbens switch from semi-auto to manual action, gain increased accuracy, and improved damage.
-	var/amped = FALSE
-	// Base damage multiplier of the shotgun.
-	var/base_damage_mult = 1.35
-	/// Base projectile speed multiplier of the shotgun.
-	var/base_speed_mult = 1
-	/// Base fire delay of the shotgun.
-	var/base_fire_delay = 0.4 SECONDS
-	/// Amped damage multiplier of the shotgun.
-	var/amped_damage_mult = 1.5
-	/// Amped projectile speed multiplier of the shotgun.
-	var/amped_speed_mult = 1.5
-	/// Amped fire delay of the shotgun.
-	var/amped_fire_delay = 2 SECONDS
-	actions_types = list(/datum/action/item_action/toggle_shotgun_barrel)
+	semi_auto = TRUE
+	casing_ejector = TRUE
 
 /obj/item/gun/ballistic/shotgun/riot/sol/super/give_manufacturer_examine()
 	AddElement(/datum/element/manufacturer_examine, COMPANY_ARCHON)
 
 /obj/item/gun/ballistic/shotgun/riot/sol/super/empty
-	accepted_magazine_type = /obj/item/ammo_box/magazine/internal/shot/sol_super
+	accepted_magazine_type = /obj/item/ammo_box/magazine/internal/shot/sol_super/empty
+
+/obj/item/gun/ballistic/shotgun/riot/sol/super/Initialize(mapload)
+	. = ..()
+	AddComponent(\
+		/datum/component/gun_booster, \
+		booster_action = /datum/action/item_action/booster/sol_super, \
+		base_damage_mult = 1.35, \
+		base_speed_mult = 1, \
+		base_fire_delay = 0.4 SECONDS, \
+		amped_damage_mult = 1.75, \
+		amped_speed_mult = 1.5, \
+		amped_fire_delay = 1 SECONDS, \
+	)
+	RegisterSignal(src, COMSIG_GUN_BOOSTER_TOGGLED, PROC_REF(on_booster_toggle))
 
 /obj/item/gun/ballistic/shotgun/riot/sol/super/update_overlays()
 	. = ..()
-	if(amped)
+	var/datum/component/gun_booster/booster_component = GetComponent(/datum/component/gun_booster)
+	if(booster_component?.amped)
 		. += "[initial(icon_state)]_charge"
-
-/obj/item/gun/ballistic/shotgun/riot/sol/super/ui_action_click(mob/user, actiontype)
-	if(istype(actiontype, /datum/action/item_action/toggle_shotgun_barrel))
-		toggle_amp(user)
-	else
-		..()
 
 /obj/item/gun/ballistic/shotgun/riot/sol/super/rack(mob/user)
 	. = ..()
-	if(amped)
+	var/datum/component/gun_booster/booster_component = GetComponent(/datum/component/gun_booster)
+	if(booster_component?.amped)
 		playsound(src, 'sound/items/weapons/kinetic_reload.ogg', 50, TRUE)
 
-/obj/item/gun/ballistic/shotgun/riot/sol/super/proc/toggle_amp(mob/user)
-	amped = !amped
+/obj/item/gun/ballistic/shotgun/riot/sol/super/proc/on_booster_toggle(datum/component/source, mob/user, amped)
 	if(amped)
 		semi_auto = FALSE
 		casing_ejector = FALSE
-		projectile_damage_multiplier = amped_damage_mult
-		projectile_speed_multiplier = amped_speed_mult
-		fire_delay = amped_fire_delay
 		balloon_alert(user, "barrel amped, set to manual")
 	else
 		semi_auto = TRUE
 		casing_ejector = TRUE
-		projectile_damage_multiplier = base_damage_mult
-		projectile_speed_multiplier = base_speed_mult
-		fire_delay = base_fire_delay
 		balloon_alert(user, "barrel de-amped, set to semi")
-	playsound(user, 'sound/items/weapons/empty.ogg', 100, TRUE)
-	update_appearance()
-	update_item_action_buttons()
 
 /obj/item/gun/ballistic/shotgun/riot/sol/super/before_firing(atom/target, mob/user)
-	if(amped && chambered && chambered.variance > 0)
+	var/datum/component/gun_booster/booster_component = GetComponent(/datum/component/gun_booster)
+	if(booster_component?.amped && chambered && chambered.variance > 0)
 		chambered.variance = initial(chambered.variance) / 2.5
 	return ..()
+
+/datum/action/item_action/booster/sol_super
+	button_icon = 'modular_nova/modules/modular_weapons/icons/obj/company_and_or_faction_based/carwo_defense_systems/guns32x.dmi'
+	button_icon_state = "hbarrel"
+	name = "Overclock Kolben Barrel"
 
 /obj/item/ammo_box/magazine/internal/shot/sol_super
 	ammo_type = /obj/item/ammo_casing/shotgun/flechette
