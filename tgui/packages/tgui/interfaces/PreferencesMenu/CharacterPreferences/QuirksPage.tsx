@@ -1,4 +1,4 @@
-import { filter } from 'common/collections';
+import { filter } from 'es-toolkit/compat';
 import { useState } from 'react';
 import { useBackend } from 'tgui/backend';
 import {
@@ -13,10 +13,10 @@ import {
 import { createSearch } from 'tgui-core/string';
 
 import {
-  PreferencesMenuData,
-  Quirk,
+  type PreferencesMenuData,
+  type Quirk,
   RandomSetting,
-  ServerData,
+  type ServerData,
 } from '../types';
 import { useRandomToggleState } from '../useRandomToggleState';
 import { useServerPrefs } from '../useServerPrefs';
@@ -238,7 +238,7 @@ function QuirkPopper(props: QuirkPopperProps) {
               boxShadow: '0px 4px 8px 3px rgba(0, 0, 0, 0.7)',
             }}
           >
-            {/* NOVA EDIT CHANGE - Original: 300px - Prevents Quirks like Death Degradation from being cut off */}
+            {/* NOVA EDIT CHANGE - ORIGINAL: <Stack maxWidth="325px" backgroundColor="black" px="5px" py="3px"> */}
             <Stack maxWidth="400px" backgroundColor="black" px="5px" py="3px">
               <Stack.Item>
                 <PreferenceList
@@ -254,7 +254,7 @@ function QuirkPopper(props: QuirkPopperProps) {
                     serverData,
                     randomBodyEnabled,
                   )}
-                  maxHeight="100px"
+                  maxHeight="250px" // NOVA EDIT CHANGE - ORIGINAL: 100px
                 />
               </Stack.Item>
             </Stack>
@@ -355,9 +355,9 @@ export function QuirksPage(props) {
         return 'You need a negative quirk to balance this out!';
       }
     }
-    // NOVA EDIT START - Veteran quirks
-    if (quirk.veteran_only && !data.is_veteran) {
-      return 'You need to be a veteran to select this quirk, apply today!';
+    // NOVA EDIT START - Nova star quirks
+    if (quirk.nova_stars_only && !data.is_nova_star) {
+      return 'You need to be a Nova star to select this quirk, apply today!';
     }
     // NOVA EDIT END
     const selectedQuirkNames = selectedQuirks.map((quirkKey) => {
@@ -426,7 +426,7 @@ export function QuirksPage(props) {
               placeholder="Search quirks..."
               width="200px"
               value={searchQuery}
-              onInput={(text, value) => setSearchQuery(value)}
+              onChange={setSearchQuery}
             />
           </Stack.Item>
           <Stack.Item grow className="PreferencesMenu__Quirks__QuirkList">

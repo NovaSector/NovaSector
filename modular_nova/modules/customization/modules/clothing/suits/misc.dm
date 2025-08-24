@@ -1,5 +1,5 @@
 /obj/item/clothing/suit/wornshirt
-	name = "worn shirt"
+	name = "wrinkled shirt"
 	desc = "A worn out (or perhaps just baggy), curiously comfortable t-shirt."
 	icon = 'modular_nova/master_files/icons/obj/clothing/suits.dmi'
 	worn_icon = 'modular_nova/master_files/icons/mob/clothing/suit.dmi'
@@ -68,24 +68,20 @@
 /obj/item/clothing/suit/toggle/jacket/nova/cardigan
 	name = "cardigan"
 	desc = "It's like, half a jacket."
-	icon_state = "cardigan"
+	icon = 'icons/map_icons/clothing/suit/_suit.dmi'
+	icon_state = "/obj/item/clothing/suit/toggle/jacket/nova/cardigan"
+	post_init_icon_state = "cardigan"
 	greyscale_config = /datum/greyscale_config/cardigan
 	greyscale_config_worn = /datum/greyscale_config/cardigan/worn
 	greyscale_colors = "#FFFFFF"
 	flags_1 = IS_PLAYER_COLORABLE_1
 	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION_NO_NEW_ICON
+	toggle_noun = "button"
 
-/obj/item/clothing/suit/toggle/jacket/nova/cardigan/Initialize(mapload)
-	. = ..()
-	AddComponent(/datum/component/toggle_clothes, "cardigan_t")
-
-/obj/item/clothing/suit/discoblazer
-	icon = 'modular_nova/master_files/icons/obj/clothing/suits.dmi'
-	worn_icon = 'modular_nova/master_files/icons/mob/clothing/suit.dmi'
+/obj/item/clothing/suit/jacket/discoblazer //armorless version of /obj/item/clothing/suit/jacket/det_suit/disco
 	name = "disco ass blazer"
 	desc = "Looks like someone skinned this blazer off some long extinct disco-animal. It has an enigmatic white rectangle on the back and the right sleeve."
 	icon_state = "jamrock_blazer"
-	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION_NO_NEW_ICON
 
 /obj/item/clothing/suit/kimjacket
 	icon = 'modular_nova/master_files/icons/obj/clothing/suits.dmi'
@@ -291,13 +287,14 @@
 /obj/item/clothing/suit/apron/chef/colorable_apron
 	name = "apron"
 	desc = "A basic apron."
-	icon = 'modular_nova/modules/GAGS/icons/suit/suit.dmi'
 	worn_icon = 'modular_nova/modules/GAGS/icons/suit/suit.dmi'
 	worn_icon_teshari = 'modular_nova/modules/GAGS/icons/suit/suit_teshari.dmi'
-	icon_state = "apron"
 	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION_NO_NEW_ICON
 	gets_cropped_on_taurs = FALSE
 	greyscale_colors = "#ffffff"
+	icon = 'icons/map_icons/clothing/suit/_suit.dmi'
+	icon_state = "/obj/item/clothing/suit/apron/chef/colorable_apron"
+	post_init_icon_state = "apron"
 	greyscale_config = /datum/greyscale_config/apron
 	greyscale_config_worn = /datum/greyscale_config/apron/worn
 	greyscale_config_worn_teshari = /datum/greyscale_config/apron/worn/teshari
@@ -333,8 +330,10 @@
 /obj/item/clothing/suit/warm_sweater
 	name = "warm sweater"
 	desc = "A comfortable warm-looking sweater."
-	icon_state = "warm_sweater"
 	body_parts_covered = CHEST|ARMS
+	icon = 'icons/map_icons/clothing/suit/_suit.dmi'
+	icon_state = "/obj/item/clothing/suit/warm_sweater"
+	post_init_icon_state = "warm_sweater"
 	greyscale_config = /datum/greyscale_config/warm_sweater
 	greyscale_config_worn = /datum/greyscale_config/warm_sweater/worn
 	greyscale_colors = "#867361"
@@ -345,8 +344,10 @@
 /obj/item/clothing/suit/heart_sweater
 	name = "heart sweater"
 	desc = "A comfortable warm-looking sweater. It even has a heart pattern on it, how cute."
-	icon_state = "heart_sweater"
 	body_parts_covered = CHEST|ARMS
+	icon = 'icons/map_icons/clothing/suit/_suit.dmi'
+	icon_state = "/obj/item/clothing/suit/heart_sweater"
+	post_init_icon_state = "heart_sweater"
 	greyscale_config = /datum/greyscale_config/heart_sweater
 	greyscale_config_worn = /datum/greyscale_config/heart_sweater/worn
 	greyscale_colors = "#867361#8f3a3a"
@@ -360,7 +361,9 @@
 		'seem to spring into existence without human intervention.' Made from a single piece of fabric with a seam \
 		and closure in the back, this mantle is almost austere enough to disguise its origin in a Marsian garment \
 		factory."
-	icon_state = "dagger_mantle"
+	icon = 'icons/map_icons/clothing/suit/_suit.dmi'
+	icon_state = "/obj/item/clothing/suit/dagger_mantle"
+	post_init_icon_state = "dagger_mantle"
 	greyscale_config = /datum/greyscale_config/dagger_mantle
 	greyscale_config_worn = /datum/greyscale_config/dagger_mantle/worn
 	greyscale_colors = "#d6f7ff"
@@ -368,3 +371,15 @@
 	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION_NO_NEW_ICON
 	gets_cropped_on_taurs = FALSE
 	slot_flags = ITEM_SLOT_OCLOTHING|ITEM_SLOT_NECK
+
+
+/obj/item/clothing/suit/nova
+	icon = 'modular_nova/master_files/icons/obj/clothing/suits.dmi'
+	worn_icon = 'modular_nova/master_files/icons/mob/clothing/suit.dmi'
+	worn_icon_digi = 'modular_nova/master_files/icons/mob/clothing/suit_digi.dmi'
+
+/obj/item/clothing/suit/nova/bridge_officer/goth
+	name = "bridge officer's gothic coat"
+	desc = "It's an elaborate coat, with a scarf, seeming rather gothic in nature but its style and colors show its for a \"Bridge Officer\"."
+	icon_state = "bo_writer"
+	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION

@@ -50,6 +50,7 @@
  * https://secure.byond.com/docs/ref/index.html#/world/proc/Topic
 */
 
+// If you modify the protocol for this, update tools/Tgstation.PRAnnouncer
 /datum/world_topic/ping
 	keyword = "ping"
 	log = FALSE
@@ -68,6 +69,7 @@
 /datum/world_topic/playing/Run(list/input)
 	return GLOB.player_list.len
 
+// If you modify the protocol for this, update tools/Tgstation.PRAnnouncer
 /datum/world_topic/pr_announce
 	keyword = "announce"
 	var/static/list/PRcounts = list() //PR id -> number of times announced this round
@@ -253,7 +255,7 @@
 	var/list/timers
 
 /datum/world_topic/create_news_channel/Run(list/input)
-	var/message_delay = input["delay"]
+	var/message_delay = text2num(input["delay"])
 	var/timer_id = addtimer(CALLBACK(src, PROC_REF(create_channel), input), message_delay)
 	input["timer_id"] = timer_id
 	LAZYADD(timers, timer_id)

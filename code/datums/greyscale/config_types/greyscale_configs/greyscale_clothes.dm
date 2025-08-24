@@ -276,11 +276,6 @@ NOVA EDIT END */
 	icon_file = 'icons/mob/inhands/clothing/suits_righthand.dmi'
 	json_config = 'code/datums/greyscale/json_configs/jumpsuit_prison_inhand.json'
 
-/datum/greyscale_config/jumpsuit/worn_digi
-	name = "Jumpsuit Worn (Digitigrate)"
-	icon_file = 'icons/mob/clothing/under/digi_template.dmi'
-	json_config = 'code/datums/greyscale/json_configs/jumpsuit_worn_digilegs.json'
-
 /datum/greyscale_config/eth_tunic
 	name = "Ethereal Tunic"
 	icon_file = 'icons/obj/clothing/under/ethereal.dmi'
@@ -373,6 +368,26 @@ NOVA EDIT END */
 /datum/greyscale_config/sailor_dress/worn
 	name = "Sailor Dress(Worn)"
 	icon_file = 'icons/mob/clothing/under/dress.dmi'
+
+/datum/greyscale_config/seifuku
+	name = "Seifuku"
+	icon_file = 'icons/obj/clothing/under/costume.dmi'
+	json_config = 'code/datums/greyscale/json_configs/seifuku.json'
+
+/datum/greyscale_config/seifuku/worn
+	name = "Seifuku (Worn)"
+	icon_file = 'icons/mob/clothing/under/costume.dmi'
+	json_config = 'code/datums/greyscale/json_configs/seifuku_worn.json'
+
+/datum/greyscale_config/seifuku_inhands_left
+	name = "Seifuku Inhands Left"
+	icon_file = 'icons/mob/inhands/clothing/suits_lefthand.dmi'
+	json_config = 'code/datums/greyscale/json_configs/seifuku_inhands.json'
+
+/datum/greyscale_config/seifuku_inhands_right
+	name = "Seifuku Inhands Right"
+	icon_file = 'icons/mob/inhands/clothing/suits_righthand.dmi'
+	json_config = 'code/datums/greyscale/json_configs/seifuku_inhands.json'
 
 // SHIRTS, PANTS AND SHORTS
 /datum/greyscale_config/slacks
@@ -645,6 +660,14 @@ NOVA EDIT END */
 	name = "Waistcoat (Worn)"
 	icon_file = 'icons/mob/clothing/accessories.dmi'
 
+// Digi Stuff
+
+/datum/greyscale_config/digitigrade
+	name = "Digitigrade Clothes"
+	icon_file = 'modular_nova/master_files/icons/mob/clothing/digi_template.dmi' // NOVA EDIT CHANGE - ORIGINAL: icon_file = 'icons/mob/clothing/digi_template.dmi'
+	json_config = 'code/datums/greyscale/json_configs/digitigrade.json'
+
+
 //
 // SUIT + HEAD
 // (Specifically for toggleable suits with hats, i.e. winter coats)
@@ -856,3 +879,41 @@ NOVA EDIT END */
 /datum/greyscale_config/fedora/worn
 	name = "Fedora (Worn)"
 	icon_file = 'icons/mob/clothing/head/hats.dmi'
+
+/datum/greyscale_config/maid
+	name = "Maid Uniform"
+	icon_file = 'icons/obj/clothing/under/costume.dmi'
+	json_config = 'code/datums/greyscale/json_configs/maid.json'
+
+/datum/greyscale_config/maid/worn
+	name = "Maid Uniform(Worn)"
+	icon_file = 'icons/mob/clothing/under/costume.dmi'
+
+/datum/greyscale_config/maid_inhands_left
+	name = "Maid Uniform Inhands Left"
+	icon_file = 'icons/mob/inhands/clothing/suits_lefthand.dmi'
+	json_config = 'code/datums/greyscale/json_configs/maid.json'
+
+/datum/greyscale_config/maid_inhands_right
+	name = "Maid Uniform Inhands Right"
+	icon_file = 'icons/mob/inhands/clothing/suits_righthand.dmi'
+	json_config = 'code/datums/greyscale/json_configs/maid.json'
+
+/datum/greyscale_config/maid_headband
+	name = "Maid Headband"
+	icon_file = 'icons/obj/clothing/head/costume.dmi'
+	json_config = 'code/datums/greyscale/json_configs/maid.json'
+
+/datum/greyscale_config/maid_headband/worn
+	name = "Maid Headband(Worn)"
+	icon_file = 'icons/mob/clothing/head/costume.dmi'
+
+/datum/greyscale_config/maid_headband_inhands_left
+	name = "Maid Headband Inhands Left"
+	icon_file = 'icons/mob/inhands/clothing/hats_lefthand.dmi'
+	json_config = 'code/datums/greyscale/json_configs/maid.json'
+
+/datum/greyscale_config/maid_headband_inhands_right
+	name = "Maid Headband Inhands Right"
+	icon_file = 'icons/mob/inhands/clothing/hats_righthand.dmi'
+	json_config = 'code/datums/greyscale/json_configs/maid.json'

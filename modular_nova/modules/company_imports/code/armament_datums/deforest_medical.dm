@@ -154,6 +154,31 @@
 /datum/armament_entry/company_import/deforest/medpens/pentibinin
 	item_type = /obj/item/reagent_containers/hypospray/medipen/deforest/pentibinin
 
+/datum/armament_entry/company_import/deforest/neuroware
+	subcategory = "Medical Neuroware Chips"
+	cost = PAYCHECK_LOWER * 3
+
+/datum/armament_entry/company_import/deforest/neuroware/reset
+	item_type = /obj/item/disk/neuroware/reset
+
+/datum/armament_entry/company_import/deforest/neuroware/brain
+	item_type = /obj/item/disk/neuroware/brain
+
+/datum/armament_entry/company_import/deforest/neuroware/morphine
+	item_type = /obj/item/disk/neuroware/morphine
+
+/datum/armament_entry/company_import/deforest/neuroware/lidocaine
+	item_type = /obj/item/disk/neuroware/lidocaine
+
+/datum/armament_entry/company_import/deforest/neuroware/neuroware/happiness
+	item_type = /obj/item/disk/neuroware/happiness
+
+/datum/armament_entry/company_import/deforest/neuroware/synaptizine
+	item_type = /obj/item/disk/neuroware/synaptizine
+
+/datum/armament_entry/company_import/deforest/neuroware/psicodine
+	item_type = /obj/item/disk/neuroware/psicodine
+
 // Autoinjectors for fighting
 
 /datum/armament_entry/company_import/deforest/medpens_stim
@@ -240,6 +265,10 @@
 	item_type = /obj/item/wallframe/frontier_medstation
 	cost = PAYCHECK_COMMAND * 5
 
+/datum/armament_entry/company_import/deforest/equipment/cyber_repair_paste
+	item_type = /obj/item/cybernetic_repair_paste
+	cost = PAYCHECK_COMMAND * 2
+
 // Advanced implants, some of these can be printed but this is a way to get them before tech if you REALLY wanted
 
 /datum/armament_entry/company_import/deforest/cyber_implants
@@ -248,18 +277,13 @@
 
 /datum/armament_entry/company_import/deforest/cyber_implants/razorwire
 	name = "Razorwire Spool Implant"
-	item_type = /obj/item/organ/cyberimp/arm/razorwire
+	item_type = /obj/item/organ/cyberimp/arm/toolkit/razorwire
 
 /datum/armament_entry/company_import/deforest/cyber_implants/shell_launcher
 	name = "Shell Launch System Implant"
-	item_type = /obj/item/organ/cyberimp/arm/shell_launcher
+	item_type = /obj/item/organ/cyberimp/arm/toolkit/shell_launcher
 
 /datum/armament_entry/company_import/deforest/cyber_implants/sandy
 	name = "Qani-Laaca Sensory Computer Implant"
 	item_type = /obj/item/organ/cyberimp/sensory_enhancer
 	cost = PAYCHECK_COMMAND * 5
-
-/datum/armament_entry/company_import/deforest/cyber_implants/hackerman
-	name = "Binyat Wireless Hacking System Implant"
-	item_type = /obj/item/organ/cyberimp/hackerman_deck
-	cost = PAYCHECK_COMMAND * 10

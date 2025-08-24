@@ -18,10 +18,10 @@
 	SIGNAL_HANDLER
 
 	if(ishuman(user))
-		var/mob/living/carbon/human/H = user
-		if(H.is_holding(parent))
-			if(H.hud_used)
-				hud = H.hud_used.ammo_counter
+		var/mob/living/carbon/human/human_user = user
+		if(human_user.is_holding(parent))
+			if(human_user.hud_used)
+				hud = human_user.hud_used.ammo_counter
 				if(!hud.on) // make sure we're not already turned on
 					current_hud_owner = WEAKREF(user)
 					RegisterSignal(user, COMSIG_QDELETING, PROC_REF(turn_off))
@@ -58,6 +58,44 @@
 
 /// Returns get_ammo() with the appropriate args passed to it - some guns like the revolver and bow are special cases
 /datum/component/ammo_hud/proc/get_accurate_ammo_count(obj/item/gun/ballistic/the_gun)
+	// Handle pulse rifle's unique ammo system
+	if(istype(the_gun, /obj/item/gun/ballistic/automatic/pulse_rifle))
+		var/obj/item/gun/ballistic/automatic/pulse_rifle/pulse_gun = the_gun
+		var/total_shots = 0
+
+		// Count shots in magazine
+		if(pulse_gun.magazine)
+			for(var/obj/item/ammo_casing/pulse/casing in pulse_gun.magazine.stored_ammo)
+				if(casing.remaining_uses > 0) // Only count casings with remaining uses
+					total_shots += casing.remaining_uses
+
+		// Add shots from chambered round if present and has remaining uses
+		if(pulse_gun.chambered && istype(pulse_gun.chambered, /obj/item/ammo_casing/pulse))
+			var/obj/item/ammo_casing/pulse/casing = pulse_gun.chambered
+			if(casing.remaining_uses > 0) // Only count if the casing has remaining uses
+				total_shots += casing.remaining_uses
+
+		return total_shots
+
+	// Handle pulse sniper's unique ammo system (shows number of shots, not charges)
+	if(istype(the_gun, /obj/item/gun/ballistic/rifle/pulse_sniper))
+		var/obj/item/gun/ballistic/rifle/pulse_sniper/sniper = the_gun
+		var/total_shots = 0
+
+		// Count shots in magazine (each shot consumes multiple charges)
+		if(sniper.magazine)
+			for(var/obj/item/ammo_casing/pulse/casing in sniper.magazine.stored_ammo)
+				if(casing.remaining_uses >= sniper.shots_per_fire) // Only count casings with enough charges for a shot
+					total_shots += floor(casing.remaining_uses / sniper.shots_per_fire)
+
+		// Add shots from chambered round if present and has enough charges
+		if(sniper.chambered && istype(sniper.chambered, /obj/item/ammo_casing/pulse))
+			var/obj/item/ammo_casing/pulse/casing = sniper.chambered
+			if(casing.remaining_uses >= sniper.shots_per_fire) // Only count if the casing has enough charges
+				total_shots += floor(casing.remaining_uses / sniper.shots_per_fire)
+
+		return total_shots
+
 	// fucking revolvers indeed - do not count empty or chambered rounds for the display HUD
 	if(istype(the_gun, /obj/item/gun/ballistic/revolver))
 		var/obj/item/gun/ballistic/revolver/the_revolver = the_gun

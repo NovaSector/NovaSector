@@ -220,7 +220,7 @@
 	update(instant = TRUE, play_sound = FALSE) //NOVA EDIT CHANGE - ORIGINAL: update()
 
 // update the icon_state and luminosity of the light depending on its state
-/obj/machinery/light/proc/update(trigger = TRUE, instant = FALSE, play_sound = TRUE) // NOVA EDIT CHANGE
+/obj/machinery/light/proc/update(trigger = TRUE, instant = FALSE, play_sound = TRUE) // NOVA EDIT CHANGE - ORIGINAL: /obj/machinery/light/proc/update(trigger = TRUE)
 	switch(status)
 		if(LIGHT_BROKEN,LIGHT_BURNED,LIGHT_EMPTY)
 			on = FALSE
@@ -393,7 +393,7 @@
 
 // attack with item - insert light (if right type), otherwise try to break the light
 
-/obj/machinery/light/attackby(obj/item/tool, mob/living/user, params)
+/obj/machinery/light/attackby(obj/item/tool, mob/living/user, list/modifiers, list/attack_modifiers)
 	// attempt to insert light
 	if(istype(tool, /obj/item/light))
 		if(status == LIGHT_OK)
@@ -475,14 +475,17 @@
 		real_cell.forceMove(new_light)
 		cell = null
 
-/obj/machinery/light/attacked_by(obj/item/attacking_object, mob/living/user)
-	..()
+/obj/machinery/light/attacked_by(obj/item/attacking_object, mob/living/user, list/modifiers, list/attack_modifiers)
+	. = ..()
+	if(!.)
+		return
 	if(status != LIGHT_BROKEN && status != LIGHT_EMPTY)
 		return
 	if(!on || !(attacking_object.obj_flags & CONDUCTS_ELECTRICITY))
 		return
-	if(prob(12))
-		electrocute_mob(user, get_area(src), src, 0.3, TRUE)
+	if(!prob(12))
+		return
+	electrocute_mob(user, get_area(src), src, 0.3, TRUE)
 
 /obj/machinery/light/take_damage(damage_amount, damage_type = BRUTE, damage_flag = "", sound_effect = TRUE, attack_dir, armour_penetration = 0)
 	. = ..()
@@ -547,25 +550,24 @@
 		)
 	return TRUE
 
-
 /obj/machinery/light/proc/flicker(amount = rand(10, 20))
 	set waitfor = FALSE
 	if(flickering)
 		return
 	flickering = TRUE
 	if(on && status == LIGHT_OK)
+		. = TRUE //did we actually flicker? Send this now because we expect immediate response, before sleeping.
 		for(var/i in 1 to amount)
 			if(status != LIGHT_OK || !has_power())
 				break
 			on = !on
-			update(FALSE, TRUE) //NOVA EDIT CHANGE
+			update(FALSE, instant = TRUE) //NOVA EDIT CHANGE - ORIGINAL: update(FALSE)
 			sleep(rand(5, 15))
 		if(has_power())
 			on = (status == LIGHT_OK)
 		else
 			on = FALSE
-		update(FALSE, TRUE) // NOVA EDIT CHANGE
-		. = TRUE //did we actually flicker?
+		update(FALSE, instant = TRUE) // NOVA EDIT CHANGE - ORIGINAL: update(FALSE)
 	flickering = FALSE
 
 // ai attack - make lights flicker, because why not
@@ -627,7 +629,7 @@
 
 	if(protected || HAS_TRAIT(user, TRAIT_RESISTHEAT) || HAS_TRAIT(user, TRAIT_RESISTHEATHANDS))
 		to_chat(user, span_notice("You remove the light [fitting]."))
-	else if(istype(user) && user.dna.check_mutation(/datum/mutation/human/telekinesis))
+	else if(istype(user) && user.dna.check_mutation(/datum/mutation/telekinesis))
 		to_chat(user, span_notice("You telekinetically remove the light [fitting]."))
 	else
 		var/obj/item/bodypart/affecting = user.get_active_hand()

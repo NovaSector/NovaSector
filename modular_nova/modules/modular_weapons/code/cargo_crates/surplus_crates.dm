@@ -34,7 +34,7 @@
 		/obj/item/clothing/neck/cloak/colonial/nri_police = ITEM_WEIGHT_CLOTHING,
 		/obj/item/clothing/head/hats/colonial/nri_police = ITEM_WEIGHT_CLOTHING,
 		/obj/item/clothing/mask/gas/nri_police = ITEM_WEIGHT_CLOTHING,
-		/obj/item/clothing/mask/balaclavaadjust = ITEM_WEIGHT_CLOTHING,
+		/obj/item/clothing/mask/balaclava/adjustable = ITEM_WEIGHT_CLOTHING,
 		/obj/item/clothing/gloves/tackler/combat = ITEM_WEIGHT_CLOTHING,
 		/obj/item/clothing/shoes/jackboots = ITEM_WEIGHT_CLOTHING,
 		// Armors
@@ -64,7 +64,7 @@
 		/obj/item/ammo_box/magazine/lanca/spawns_empty = ITEM_WEIGHT_AMMO_SINGLE,
 		/obj/item/ammo_box/magazine/wylom = ITEM_WEIGHT_AMMO_SINGLE,
 		// Other items
-		/obj/item/sign/flag/nri = ITEM_WEIGHT_MISC,
+		/obj/item/sign/flag/hc = ITEM_WEIGHT_MISC,
 		/obj/item/trench_tool = ITEM_WEIGHT_MISC,
 		/obj/item/binoculars = ITEM_WEIGHT_MISC,
 		/obj/item/storage/box/nri_flares = ITEM_WEIGHT_MISC,

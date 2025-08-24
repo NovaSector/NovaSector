@@ -46,7 +46,7 @@
 	icon_state = "bloodtomato"
 	bite_consumption_mod = 3
 	splat_type = /obj/effect/gibspawner/generic
-	foodtypes = VEGETABLES | GORE
+	foodtypes = VEGETABLES | GORE | BLOODY
 	grind_results = list(/datum/reagent/consumable/ketchup = 0, /datum/reagent/blood = 0)
 	distill_reagent = /datum/reagent/consumable/ethanol/bloody_mary
 
@@ -72,7 +72,7 @@
 	desc = "I say blue-mah-to, you say blue-mae-to."
 	icon_state = "bluetomato"
 	bite_consumption_mod = 2
-	splat_type = /obj/effect/decal/cleanable/oil
+	splat_type = /obj/effect/decal/cleanable/blood/oil
 	distill_reagent = /datum/reagent/consumable/laughter
 
 // Bluespace Tomato

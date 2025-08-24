@@ -17,16 +17,15 @@
 		TRAIT_USES_SKINTONES,
 	)
 	inherent_biotypes = MOB_HUMANOID | MOB_ORGANIC
-	exotic_bloodtype = "U"
+	exotic_bloodtype = BLOOD_TYPE_UNIVERSAL
 	mutantheart = /obj/item/organ/heart/hemophage
 	mutantliver = /obj/item/organ/liver/hemophage
 	mutantstomach = /obj/item/organ/stomach/hemophage
 	mutanttongue = /obj/item/organ/tongue/hemophage
-	mutantlungs = null
 	changesource_flags = MIRROR_BADMIN | WABBAJACK | MIRROR_MAGIC | MIRROR_PRIDE | ERT_SPAWN | RACE_SWAP | SLIME_EXTRACT
 	examine_limb_id = SPECIES_HUMAN
 	skinned_type = /obj/item/stack/sheet/animalhide/human
-	veteran_only = TRUE
+	nova_stars_only = TRUE
 
 /datum/species/hemophage/allows_food_preferences()
 	return FALSE

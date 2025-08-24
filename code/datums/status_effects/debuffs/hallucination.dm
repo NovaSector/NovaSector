@@ -28,10 +28,19 @@
 	return ..()
 
 /datum/status_effect/hallucination/on_apply()
+	/* // NOVA EDIT REMOVAL START
 	if(owner.mob_biotypes & barred_biotypes)
 		return FALSE
 	if(HAS_TRAIT(owner, TRAIT_HALLUCINATION_IMMUNE))
 		return FALSE
+	*/ // NOVA EDIT REMOVAL END
+	// NOVA EDIT ADDITION START - Lets synths have hallucinations if they have the RDS quirk.
+	if(!HAS_MIND_TRAIT(owner, TRAIT_INSANITY))
+		if(owner.mob_biotypes & barred_biotypes)
+			return FALSE
+		if(HAS_TRAIT(owner, TRAIT_HALLUCINATION_IMMUNE))
+			return FALSE
+	// NOVA EDIT ADDITION END
 
 	RegisterSignal(owner, COMSIG_LIVING_HEALTHSCAN,  PROC_REF(on_health_scan))
 	RegisterSignal(owner, SIGNAL_ADDTRAIT(TRAIT_HALLUCINATION_IMMUNE), PROC_REF(delete_self))
@@ -59,8 +68,9 @@
 
 	if(!advanced)
 		return
-	render_list += conditional_tooltip("<span class='info ml-1'>Subject is hallucinating.</span>", "Supply antipsychotic medication, such as [/datum/reagent/medicine/haloperidol::name] or [/datum/reagent/medicine/synaptizine::name].", tochat)
-	render_list += "<br>"
+	render_list += "<span class='info ml-1'>"
+	render_list += conditional_tooltip("Subject is hallucinating.", "Supply antipsychotic medication, such as [/datum/reagent/medicine/haloperidol::name] or [/datum/reagent/medicine/synaptizine::name].", tochat)
+	render_list += "</span><br>"
 
 /// Signal proc for [COMSIG_CARBON_CHECKING_BODYPART],
 /// checking bodyparts while hallucinating can cause them to appear more damaged than they are

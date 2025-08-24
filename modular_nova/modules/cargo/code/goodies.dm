@@ -1,11 +1,17 @@
 /obj/item/storage/lockbox/Initialize(mapload)
 	. = ..()
-	atom_storage.max_specific_storage = WEIGHT_CLASS_BULKY
-	atom_storage.max_total_storage = WEIGHT_CLASS_BULKY*16 //Assuming full case+manifest
-	atom_storage.max_slots = 16 //See above
-	atom_storage.can_hold = typecacheof(list(
+	atom_storage.max_specific_storage = WEIGHT_CLASS_TINY //This is to stop people from using the storage inside the lockboxes.
+	atom_storage.max_total_storage = WEIGHT_CLASS_BULKY*35 //Assuming full case+manifest
+	atom_storage.max_slots = 35 //This is to avoid some instances of lost in shipment. In theory before hitting the limit you get a crate.
+	atom_storage.set_holdable(list(
 		/obj/item/paper,
 	))
+
+// Makes this available to anyone, not just those with ACCESS_AUX_BASE
+/datum/supply_pack/goody/shuttle_construction_kit/New()
+	. = ..()
+	access_view = FALSE
+	contains += /obj/item/stack/rods/shuttle/fifty
 
 /*
 *	EMERGENCY RACIAL EQUIPMENT
@@ -85,6 +91,12 @@
 	cost = CARGO_CRATE_VALUE * 4 //800 credits
 	contains = list(/obj/item/scratching_stone)
 	contraband = TRUE
+
+/datum/supply_pack/goody/c38_super_kit
+	name = "NT/E \"Laevateinn\" Revolver Conversion Kit"
+	desc = "A small case of parts for converting a .38 revolver into Nanotrasen's latest foray into magnetically-accelerated sidearms."
+	cost = PAYCHECK_CREW * 6 // 300 cr at time of writing
+	contains = list(/obj/item/crafting_conversion_kit/c38_super)
 
 /*
 *	CARPET PACKS
@@ -218,3 +230,30 @@
 	contains = list(
 		/obj/item/clothing/accessory/vaporizer,
 	)
+
+/*
+* NEUROWARE CHIPS
+*/
+/datum/supply_pack/goody/brass_neuroware
+	name = "Brass/Wind Instruments Neuroware Chip"
+	desc = "Contains a single neuroware chip with wind and brass synthesizer instruments, for synthetic persons with persocom units."
+	cost = PAYCHECK_CREW * 2
+	contains = list(/obj/item/disk/neuroware/synthesizer/brass)
+
+/datum/supply_pack/goody/guitar_neuroware
+	name = "Guitar/Strings Instruments Neuroware Chip"
+	desc = "Contains a single neuroware chip with guitar and string synthesizer instruments, for synthetic persons with persocom units."
+	cost = PAYCHECK_CREW * 2
+	contains = list(/obj/item/disk/neuroware/synthesizer/guitar)
+
+/datum/supply_pack/goody/percussion_neuroware
+	name = "Percussion Instruments Neuroware Chip"
+	desc = "Contains a single neuroware chip with percussion synthesizer instruments, for synthetic persons with persocom units."
+	cost = PAYCHECK_CREW * 2
+	contains = list(/obj/item/disk/neuroware/synthesizer/percussion)
+
+/datum/supply_pack/goody/piano_neuroware
+	name = "Piano Instruments Neuroware Chip"
+	desc = "Contains a single neuroware chip with piano synthesizer instruments, for synthetic persons with persocom units."
+	cost = PAYCHECK_CREW * 2
+	contains = list(/obj/item/disk/neuroware/synthesizer/piano)

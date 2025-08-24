@@ -18,7 +18,7 @@
 /turf/closed/indestructible/singularity_act()
 	return
 
-/turf/closed/indestructible/attackby(obj/item/attacking_item, mob/user, params)
+/turf/closed/indestructible/attackby(obj/item/attacking_item, mob/user, list/modifiers)
 	if(istype(attacking_item, /obj/item/poster) && Adjacent(user))
 		return place_poster(attacking_item, user)
 
@@ -221,8 +221,8 @@ NOVA EDIT REMOVAL END */
 
 /turf/closed/indestructible/fakeglass/Initialize(mapload)
 	. = ..()
-	underlays += mutable_appearance('icons/obj/structures.dmi', "grille", layer - 0.01) //add a grille underlay
-	underlays += mutable_appearance('icons/turf/floors.dmi', "plating", layer - 0.02) //add the plating underlay, below the grille
+	underlays += mutable_appearance('icons/obj/structures.dmi', "grille", layer - 0.01, src) //add a grille underlay
+	underlays += mutable_appearance('icons/turf/floors.dmi', "plating", layer - 0.02, src) //add the plating underlay, below the grille
 
 /turf/closed/indestructible/opsglass
 	name = "window"
@@ -236,9 +236,8 @@ NOVA EDIT REMOVAL END */
 
 /turf/closed/indestructible/opsglass/Initialize(mapload)
 	. = ..()
-	icon_state = null
-	underlays += mutable_appearance('icons/obj/structures.dmi', "grille", layer - 0.01)
-	underlays += mutable_appearance('icons/turf/floors.dmi', "plating", layer - 0.02)
+	underlays += mutable_appearance('icons/obj/structures.dmi', "grille", layer - 0.01, src)
+	underlays += mutable_appearance('icons/turf/floors.dmi', "plating", layer - 0.02, src)
 
 /turf/closed/indestructible/fakedoor
 	name = "airlock"
@@ -375,7 +374,7 @@ NOVA EDIT REMOVAL END */
 
 /turf/closed/indestructible/resin/membrane/Initialize(mapload)
 	. = ..()
-	underlays += mutable_appearance('icons/turf/floors.dmi', "engine") // add the reinforced floor underneath
+	underlays += mutable_appearance('icons/turf/floors.dmi', "engine", layer - 0.01, src) // add the reinforced floor underneath
 
 /turf/closed/indestructible/grille
 	name = "grille"
@@ -385,7 +384,7 @@ NOVA EDIT REMOVAL END */
 
 /turf/closed/indestructible/grille/Initialize(mapload)
 	. = ..()
-	underlays += mutable_appearance('icons/turf/floors.dmi', "plating")
+	underlays += mutable_appearance('icons/turf/floors.dmi', "plating", layer - 0.01, src)
 
 /turf/closed/indestructible/meat
 	name = "dense meat wall"

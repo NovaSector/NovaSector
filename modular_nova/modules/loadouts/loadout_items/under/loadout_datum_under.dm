@@ -291,7 +291,7 @@
 
 /datum/loadout_item/under/jumpsuit/tarkon
 	name = "Tarkon Deck Jumpsuit"
-	item_path = /obj/item/clothing/under/tarkon
+	item_path = /obj/item/clothing/under/tarkon/general
 	blacklisted_roles = list(JOB_CAPTAIN, JOB_HEAD_OF_PERSONNEL, JOB_BLUESHIELD, JOB_HEAD_OF_SECURITY, JOB_RESEARCH_DIRECTOR, JOB_QUARTERMASTER, JOB_CHIEF_MEDICAL_OFFICER, JOB_CHIEF_ENGINEER, JOB_SECURITY_OFFICER, JOB_DETECTIVE, JOB_WARDEN, JOB_BLUESHIELD, JOB_CORRECTIONS_OFFICER)
 
 /datum/loadout_item/under/jumpsuit/tarkon/sci
@@ -311,7 +311,7 @@
 
 /datum/loadout_item/under/jumpsuit/tarkon/cargo
 	name = "Tarkon Cargo Jumpsuit"
-	item_path = /obj/item/clothing/under/tarkon/cargo
+	item_path = /obj/item/clothing/under/tarkon
 	blacklisted_roles = list(JOB_CAPTAIN, JOB_HEAD_OF_PERSONNEL, JOB_BLUESHIELD, JOB_HEAD_OF_SECURITY, JOB_RESEARCH_DIRECTOR, JOB_QUARTERMASTER, JOB_CHIEF_MEDICAL_OFFICER, JOB_CHIEF_ENGINEER, JOB_SECURITY_OFFICER, JOB_DETECTIVE, JOB_WARDEN, JOB_BLUESHIELD, JOB_CORRECTIONS_OFFICER)
 
 /datum/loadout_item/under/jumpsuit/tarkon/sec
@@ -331,6 +331,26 @@
 /datum/loadout_item/under/jumpsuit/medical_uniform_skirt
 	name = "Medical Doctor's jumpskirt"
 	item_path = /obj/item/clothing/under/rank/medical/doctor/skirt
+
+/datum/loadout_item/under/jumpsuit/turtleneck
+	name = "Recolorable Turtleneck"
+	item_path = /obj/item/clothing/under/greyscale/turtleneck
+
+/datum/loadout_item/under/jumpsuit/skirtleneck
+	name = "Recolorable Skirtleneck"
+	item_path = /obj/item/clothing/under/greyscale/turtleneck/skirt
+
+/datum/loadout_item/under/jumpsuit/gorkas
+	name = "Recolorable Gorka"
+	item_path = /obj/item/clothing/under/greyscale/gorkas
+
+/datum/loadout_item/under/jumpsuit/overalls
+	name = "Recolorable Turtleneck Overalls"
+	item_path = /obj/item/clothing/under/greyscale/overalls
+
+/datum/loadout_item/under/jumpsuit/overalls_skirt
+	name = "Recolorable Turtleneck Overalls Skirt"
+	item_path = /obj/item/clothing/under/greyscale/overalls/skirt
 
 /*
  *	MISC UNDERSUITS
@@ -581,6 +601,10 @@
 	name = "Long Colourable Skirt"
 	item_path = /obj/item/clothing/under/dress/skirt/nova/long
 
+/datum/loadout_item/under/miscellaneous/mini_skirt
+	name = "Colourable Mini Skirt"
+	item_path = /obj/item/clothing/under/dress/skirt/nova/mini_skirt
+
 /datum/loadout_item/under/miscellaneous/loincloth
 	name = "Loincloth"
 	item_path = /obj/item/clothing/under/dress/skirt/nova/loincloth
@@ -705,10 +729,6 @@
 /datum/loadout_item/under/miscellaneous/shihakusho
 	name = "Shihakusho"
 	item_path = /obj/item/clothing/under/costume/nova/shihakusho
-
-/datum/loadout_item/under/miscellaneous/chaps
-	name = "Black Chaps"
-	item_path = /obj/item/clothing/under/pants/nova/chaps
 
 /datum/loadout_item/under/miscellaneous/tracky
 	name = "Blue Tracksuit"
@@ -1180,8 +1200,8 @@
 	item_path = /obj/item/clothing/under/suit/nova/pencil/navy
 
 /datum/loadout_item/under/formal/pencil/burgandy
-	name = "Burgandy Pencilskirt"
-	item_path = /obj/item/clothing/under/suit/nova/pencil/burgandy
+	name = "Burgundy Pencilskirt"
+	item_path = /obj/item/clothing/under/suit/nova/pencil/burgundy
 
 /datum/loadout_item/under/formal/pencil/checkered
 	name = "Checkered Pencilskirt with Shirt"

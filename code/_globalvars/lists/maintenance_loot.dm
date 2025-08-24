@@ -51,8 +51,7 @@ GLOBAL_LIST_INIT(trash_loot, list(//junk: useless, very easy to get, or ghetto c
 		/obj/item/reagent_containers/cup/glass/drinkingglass = 1,
 
 		/obj/item/airlock_painter = 1,
-		/obj/item/airlock_painter/decal = 1,
-		/obj/item/airlock_painter/decal/tile = 1,
+		/obj/item/airlock_painter/decal = 2,
 		/obj/item/clothing/mask/breath = 1,
 		/obj/item/rack_parts = 1,
 		/obj/item/shard = 1,
@@ -107,8 +106,8 @@ GLOBAL_LIST_INIT(common_loot, list( //common: basic items
 		/obj/item/storage/belt/fannypack = 1,
 		/obj/item/storage/wallet/random = 1,
 		/obj/item/clothing/mask/gas/atmos/frontier_colonist = 1, // NOVA EDIT ADDITION
-		/obj/item/radio/headset/headset_frontier_colonist = 1, // NOVA EDIT ADDITION 
-		/obj/item/clothing/suit/frontier_colonist_flak = 1, // NOVA EDIT ADDITION 
+		/obj/item/radio/headset/headset_frontier_colonist = 1, // NOVA EDIT ADDITION
+		/obj/item/clothing/suit/frontier_colonist_flak = 1, // NOVA EDIT ADDITION
 		/obj/item/clothing/head/frontier_colonist_helmet = 1, // NOVA EDIT ADDITION
 		/obj/item/storage/pouch/cin_general = 1, // NOVA EDIT ADDITION
 		) = 1,
@@ -138,19 +137,20 @@ GLOBAL_LIST_INIT(common_loot, list( //common: basic items
 		/obj/item/lead_pipe = 1,
 		/obj/item/reagent_containers/cup/beaker = 1,
 		/obj/item/reagent_containers/cup/bottle/random_buffer = 2,
-		/obj/item/reagent_containers/cup/rag = 1,
+		/obj/item/rag = 1,
 		/obj/item/reagent_containers/hypospray/medipen/pumpup = 2,
 		/obj/item/reagent_containers/syringe = 1,
 		/obj/item/stock_parts/power_store/cell/lead = 1,
 		/obj/item/storage/box/matches = 1,
-		/obj/item/storage/fancy/cigarettes/dromedaryco = 1, 
+		/obj/item/storage/fancy/cigarettes/dromedaryco = 1,
+		/obj/item/disk/neuroware/pumpup = 1, // NOVA EDIT ADDITION
 		/obj/item/storage/medkit/civil_defense/stocked = 1, // NOVA EDIT ADDITION
 		/obj/item/storage/medkit/frontier/stocked = 1, // NOVA EDIT ADDITION
 		/obj/item/storage/medkit/combat_surgeon/stocked = 1, // NOVA EDIT ADDITION
 		/obj/item/stack/medical/suture = 1, // NOVA EDIT ADDITION
 		/obj/item/stack/medical/ointment/red_sun = 1, // NOVA EDIT ADDITION
 		/obj/item/reagent_containers/hypospray/medipen/deforest/morpital = 1, // NOVA EDIT ADDITION
-		/obj/item/reagent_containers/hypospray/medipen/deforest/aranepaine =1, // NOVA EDIT ADDITION
+		/obj/item/reagent_containers/hypospray/medipen/deforest/aranepaine = 1, // NOVA EDIT ADDITION
 		) = 1,
 
 	list(//food
@@ -239,22 +239,28 @@ GLOBAL_LIST_INIT(uncommon_loot, list(//uncommon: useful items
 			/obj/item/stack/medical/mesh = 1,
 			/obj/item/stack/medical/suture = 1,
 			/obj/item/stack/medical/bandage = 1,
-			) = 1,
+			) = 4,
 		list(//medical chems
 			/obj/item/reagent_containers/cup/bottle/multiver = 1,
 			/obj/item/reagent_containers/hypospray/medipen = 1,
 			/obj/item/reagent_containers/syringe/convermol = 1,
-			) = 1,
+			) = 4,
 		list(//drinks
 			/obj/item/reagent_containers/cup/glass/bottle/vodka = 1,
 			/obj/item/reagent_containers/cup/glass/drinkingglass/filled/nuka_cola = 1,
 			/obj/item/reagent_containers/cup/soda_cans/grey_bull = 1,
-			) = 1,
+			) = 4,
 		list(//sprayers
 			/obj/item/reagent_containers/spray = 1,
 			/obj/item/watertank = 1,
 			/obj/item/watertank/janitor = 1,
-			) = 1,
+			) = 4,
+		list(//other chems
+			/obj/item/reagent_containers/cup/jerrycan/oil = 2, //Not the most exciting reagent, but a staple. And you get a cool can for your pyrotechnics.
+			/obj/item/reagent_containers/cup/jerrycan/space_cleaner = 2, //If you can't find the janitor, the medbay might also appreciate some readymade cleaner.
+			/obj/item/reagent_containers/cup/jerrycan/sus = 1, //what assitant wouldn't like a vibrant jug o' phlog?
+			/obj/item/reagent_containers/cup/jerrycan/diethylamine = 1, //Im sure the botanist would appreciate it, but it is also really cool for maintenance science projects.
+			) = 2,
 		) = 8,
 
 	list(//food

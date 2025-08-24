@@ -21,8 +21,8 @@ SUBSYSTEM_DEF(player_ranks)
 	var/datum/player_rank_controller/donator/donator_controller
 	/// The mentor player rank controller.
 	var/datum/player_rank_controller/mentor/mentor_controller
-	/// The veteran player rank controller.
-	var/datum/player_rank_controller/veteran/veteran_controller
+	/// The Nova star player rank controller.
+	var/datum/player_rank_controller/nova_star/nova_star_controller
 
 
 /datum/controller/subsystem/player_ranks/Initialize()
@@ -31,17 +31,16 @@ SUBSYSTEM_DEF(player_ranks)
 
 	load_donators()
 	load_mentors()
-	load_veterans()
+	load_nova_stars()
 
 	return SS_INIT_SUCCESS
 
 
 /datum/controller/subsystem/player_ranks/Destroy()
-	. = ..()
-
 	QDEL_NULL(donator_controller)
 	QDEL_NULL(mentor_controller)
-	QDEL_NULL(veteran_controller)
+	QDEL_NULL(nova_star_controller)
+	return ..()
 
 
 /**
@@ -82,18 +81,18 @@ SUBSYSTEM_DEF(player_ranks)
 
 
 /**
- * Returns whether or not the user is qualified as a veteran.
+ * Returns whether or not the user is qualified as a Nova star.
  *
  * Arguments:
- * * user - The client to verify the veteran status of.
+ * * user - The client to verify the star status of.
  * * admin_bypass - Whether or not admins can succeed this check, even if they
  * do not actually possess the role. Defaults to `TRUE`.
  */
-/datum/controller/subsystem/player_ranks/proc/is_veteran(client/user, admin_bypass = TRUE)
+/datum/controller/subsystem/player_ranks/proc/is_nova_star(client/user, admin_bypass = TRUE)
 	if(!istype(user))
-		CRASH("Invalid user type provided to is_veteran(), expected 'client' and obtained '[user ? user.type : "null"]'.")
+		CRASH("Invalid user type provided to is_nova_star(), expected 'client' and obtained '[user ? user.type : "null"]'.")
 
-	if(GLOB.veteran_list[user.ckey])
+	if(GLOB.nova_star_list[user.ckey])
 		return TRUE
 
 	if(admin_bypass && is_admin(user))
@@ -181,30 +180,30 @@ SUBSYSTEM_DEF(player_ranks)
 	load_player_rank_sql(mentor_controller)
 
 
-/// Handles loading veteran players either via SQL or using the legacy system,
+/// Handles loading star players either via SQL or using the legacy system,
 /// based on configs.
-/datum/controller/subsystem/player_ranks/proc/load_veterans()
+/datum/controller/subsystem/player_ranks/proc/load_nova_stars()
 	PROTECTED_PROC(TRUE)
 
 	if(IsAdminAdvancedProcCall())
 		return
 
-	veteran_controller = new
+	nova_star_controller = new
 
-	if(CONFIG_GET(flag/veteran_legacy_system))
-		veteran_controller.load_legacy()
+	if(CONFIG_GET(flag/nova_star_legacy_system))
+		nova_star_controller.load_legacy()
 		return
 
 	if(!SSdbcore.Connect())
-		var/message = "Failed to connect to database in load_veterans(). Reverting to legacy system."
+		var/message = "Failed to connect to database in load_nova_stars(). Reverting to legacy system."
 		log_config(message)
 		log_game(message)
 		message_admins(message)
-		CONFIG_SET(flag/veteran_legacy_system, TRUE)
-		veteran_controller.load_legacy()
+		CONFIG_SET(flag/nova_star_legacy_system, TRUE)
+		nova_star_controller.load_legacy()
 		return
 
-	load_player_rank_sql(veteran_controller)
+	load_player_rank_sql(nova_star_controller)
 
 
 /**
@@ -240,7 +239,7 @@ SUBSYSTEM_DEF(player_ranks)
 	if(IsAdminAdvancedProcCall())
 		return null
 
-	rank_title = LOWER_TEXT(rank_title)
+	rank_title = LOWER_TEXT(replacetext(rank_title, " ", "_"))
 
 	// Can't make switch() statements with non-constant values.
 	if(rank_title == donator_controller.rank_title)
@@ -249,8 +248,8 @@ SUBSYSTEM_DEF(player_ranks)
 	if(rank_title == mentor_controller.rank_title)
 		return mentor_controller
 
-	if(rank_title == veteran_controller.rank_title)
-		return veteran_controller
+	if(rank_title == nova_star_controller.rank_title)
+		return nova_star_controller
 
 	CRASH("Invalid player_rank_controller \"[rank_title || "*null*"]\" used in get_controller_for_group()!")
 
@@ -291,7 +290,7 @@ SUBSYSTEM_DEF(player_ranks)
 		return FALSE
 
 
-	rank_title = LOWER_TEXT(rank_title)
+	rank_title = LOWER_TEXT(replacetext(rank_title, " ", "_"))
 
 	var/datum/player_rank_controller/controller = get_controller_for_group(rank_title)
 
@@ -333,7 +332,7 @@ SUBSYSTEM_DEF(player_ranks)
 
 	var/datum/db_query/query_add_player_rank = SSdbcore.NewQuery(
 		"INSERT INTO [format_table_name(PLAYER_RANK_TABLE_NAME)] (ckey, rank, admin_ckey) VALUES(:ckey, :rank, :admin_ckey) \
-		 ON DUPLICATE KEY UPDATE deleted = 0, admin_ckey = :admin_ckey",
+		ON DUPLICATE KEY UPDATE deleted = 0, admin_ckey = :admin_ckey",
 		list("ckey" = ckey, "rank" = controller.rank_title, "admin_ckey" = admin_ckey),
 	)
 
@@ -381,7 +380,7 @@ SUBSYSTEM_DEF(player_ranks)
 
 		return FALSE
 
-	rank_title = LOWER_TEXT(rank_title)
+	rank_title = LOWER_TEXT(replacetext(rank_title, " ", "_"))
 
 	var/datum/player_rank_controller/controller = get_controller_for_group(rank_title)
 

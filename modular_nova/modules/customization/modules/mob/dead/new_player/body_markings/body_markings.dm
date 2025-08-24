@@ -212,8 +212,33 @@
 /datum/body_marking/other/claws
 	name = "Claw Tips"
 	icon_state = "claws"
-	affected_bodyparts = HAND_LEFT | HAND_RIGHT
+	affected_bodyparts = HAND_LEFT | HAND_RIGHT | LEG_RIGHT | LEG_LEFT
 	gendered = FALSE
+
+/datum/body_marking/other/harpy_upper
+	name = "Harpy Upper Legs"
+	icon_state = "harpy_upper"
+	affected_bodyparts = LEG_RIGHT | LEG_LEFT
+	gendered = FALSE
+
+/datum/body_marking/other/harpy_lower
+	name = "Harpy Lower Legs"
+	icon_state = "harpy_lower"
+	affected_bodyparts = LEG_RIGHT | LEG_LEFT
+	gendered = FALSE
+
+/datum/body_marking/other/harpy_claws
+	name = "Harpy Claws"
+	icon_state = "harpy_claws"
+	affected_bodyparts = LEG_RIGHT | LEG_LEFT
+	gendered = FALSE
+
+/datum/body_marking/other/critter_legs
+	name = "Critter Legs"
+	icon_state = "critterleg"
+	affected_bodyparts = LEG_RIGHT | LEG_LEFT
+	gendered = FALSE
+
 
 /datum/body_marking/other/splotches
 	name = "Splotches"
@@ -275,6 +300,12 @@
 	name = "Jackal Back Fur Accents"
 	icon_state = "jackalback"
 	affected_bodyparts = CHEST | ARM_RIGHT | ARM_LEFT
+	gendered = FALSE
+
+/datum/body_marking/other/sixnips
+	name = "Six Nips"
+	icon_state = "nips"
+	affected_bodyparts = CHEST
 	gendered = FALSE
 
 /datum/body_marking/secondary
@@ -564,6 +595,21 @@
 	icon_state = "plain"
 	affected_bodyparts = HEAD | CHEST | ARM_LEFT | ARM_RIGHT | HAND_LEFT | HAND_RIGHT | LEG_RIGHT | LEG_LEFT
 
+/datum/body_marking/secondary/upper_limb
+	name = "Upper Limb"
+	icon_state = "upper_limb"
+	affected_bodyparts = ARM_LEFT | ARM_RIGHT | LEG_RIGHT | LEG_LEFT
+
+/datum/body_marking/secondary/lower_limb
+	name = "Lower Limb"
+	icon_state = "lower_limb"
+	affected_bodyparts = ARM_LEFT | ARM_RIGHT | LEG_RIGHT | LEG_LEFT
+
+/datum/body_marking/secondary/insectoid
+	name = "Insectoid"
+	icon_state = "insect"
+	affected_bodyparts = CHEST
+
 /datum/body_marking/tertiary
 	icon = 'modular_nova/master_files/icons/mob/body_markings/tertiary_markings.dmi'
 	default_color = DEFAULT_TERTIARY
@@ -699,6 +745,10 @@
 	icon_state = "lbelly"
 	affected_bodyparts = CHEST
 
+/datum/body_marking/tertiary/insectoid
+	name = "Insectoid Trim"
+	icon_state = "insect_trim"
+	affected_bodyparts = CHEST | ARM_LEFT | ARM_RIGHT | LEG_LEFT | LEG_RIGHT
 
 /datum/body_marking/tattoo
 	icon = 'modular_nova/master_files/icons/mob/body_markings/tattoo_markings.dmi'

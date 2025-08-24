@@ -1,27 +1,22 @@
 /obj/machinery/ammo_workbench
-	name = "ammunitions workbench"
-	desc = "A machine, somewhat akin to a lathe, made specifically for manufacturing ammunition. It has a slot for magazines, ammo boxes, clips... anything that holds ammo."
+	name = "ammunition workbench"
+	desc = "A machine specifically made for manufacturing ammunition. Fits anything ammo-related, from magazines and stripper clips to boxes."
 	icon = 'modular_nova/modules/ammo_workbench/icons/ammo_workbench.dmi'
 	icon_state = "ammobench"
 	density = TRUE
 	use_power = IDLE_POWER_USE
+	// active power usage taken from autolathes
+	active_power_usage = 0.025 * STANDARD_CELL_RATE
 	circuit = /obj/item/circuitboard/machine/ammo_workbench
 	var/busy = FALSE
-	/// if it's hacked it's gonna be able to print lethals. it'll be mad at you for doing so but it'll print basic lethals.
-	var/hacked = FALSE
-	var/disabled = FALSE
-	var/shocked = FALSE
-	var/hack_wire
-	var/disable_wire
 	var/error_message = ""
 	var/error_type = ""
 	var/disk_error = ""
 	var/disk_error_type = ""
-	var/shock_wire
 	var/timer_id
 	var/turbo_boost = FALSE
 	var/obj/item/ammo_box/loaded_magazine = null
-	var/obj/item/disk/ammo_workbench/loaded_datadisk = null
+	var/obj/item/ammo_workbench_module/loaded_module = null
 	/// A list of all possible ammo types.
 	var/list/possible_ammo_types = list()
 	// hello future codediver. open to suggestions on how to do the following without it sucking so badly
@@ -29,19 +24,15 @@
 	var/list/valid_casings = list()
 	/// the material requirement strings for these casings (for the tooltip)
 	var/list/casing_mat_strings = list()
-	/// can it print ammunition flagged as harmful (e.g. most ammo)?
-	var/allowed_harmful = FALSE
-	/// can it print advanced ammunition types (e.g. armor-piercing)? see modular_nova\modules\modular_weapons\code\modular_projectiles.dm
-	var/allowed_advanced = FALSE
-	/// what datadisks have been loaded. uh... honestly this doesn't really do much either
-	var/list/loaded_datadisks = list()
+	/// bitflags for allowed ammo types (see modular_nova/modules/ammo_workbench/code/ammo_bench_defines.dm)
+	var/ammo_categories = NONE
 	/// current multiplier for material cost per round
 	var/creation_efficiency = 1.4
 	/// current amount of time in deciseconds it takes to assemble a round
 	var/time_per_round = 1.8 SECONDS
 	/// multiplier for material cost per round (when turbo isn't enabled)
 	var/base_efficiency = 1.4
-	// deciseconds per round (when turbo isn't enabled)
+	/// deciseconds per round (when turbo isn't enabled)
 	var/base_time_per_round = 1.8 SECONDS
 	/// deciseconds per round (when turbo is enabled)
 	var/turbo_time_per_round = 0.225 SECONDS
@@ -52,11 +43,10 @@
 	var/adminbus = FALSE
 
 /obj/machinery/ammo_workbench/unlocked
-	allowed_harmful = TRUE
-	allowed_advanced = TRUE
+	ammo_categories = AMMO_ALL_TYPES
 
 /obj/item/circuitboard/machine/ammo_workbench
-	name = "Ammunition Workbench (Machine Board)"
+	name = "Ammunition Workbench"
 	icon_state = "circuit_map"
 	build_path = /obj/machinery/ammo_workbench
 	req_components = list(
@@ -74,22 +64,19 @@
 		allowed_items = /obj/item/stack, \
 	)
 	. = ..()
-	set_wires(new /datum/wires/ammo_workbench(src))
 
 /obj/machinery/ammo_workbench/examine(mob/user)
 	. += ..()
 	var/datum/component/material_container/materials = GetComponent(/datum/component/material_container)
 	if(in_range(user, src) || isobserver(user))
-		. += span_notice("The status display reads: Storing up to <b>[materials.max_amount]</b> material units.<br>Material consumption at <b>[creation_efficiency*100]%</b>.")
+		. += span_notice("The status display reads: Storing up to <b>[materials.max_amount]</b> material units.<br>\
+			Material consumption at <b>[creation_efficiency*100]%</b>.")
 
 /obj/machinery/ammo_workbench/ui_interact(mob/user, datum/tgui/ui)
 	ui = SStgui.try_update_ui(user, src, ui)
 	if(!ui)
 		ui = new(user, src, "AmmoWorkbench")
 		ui.open()
-
-	if(shocked)
-		shock(user, 80)
 
 /obj/machinery/ammo_workbench/proc/update_ammotypes()
 	LAZYCLEARLIST(valid_casings)
@@ -100,21 +87,16 @@
 	var/ammo_caliber = initial(ammo_type.caliber)
 	var/obj/item/ammo_casing/ammo_parent_type = type2parent(ammo_type)
 
-	if(loaded_magazine.multitype)
-		if(ammo_caliber == initial(ammo_parent_type.caliber) && ammo_caliber != null)
-			ammo_type = ammo_parent_type
-		possible_ammo_types = typesof(ammo_type)
-	else
-		possible_ammo_types = list(ammo_type) // literally just for the niche edgecase of shotgun slug boxes
+	if(ammo_caliber == initial(ammo_parent_type.caliber) && ammo_caliber != null)
+		ammo_type = ammo_parent_type
+	possible_ammo_types = typesof(ammo_type)
 
 	for(var/obj/item/ammo_casing/our_casing as anything in possible_ammo_types) // this is a list of TYPES, not INSTANCES
 		if(!adminbus)
 			if(!(initial(our_casing.can_be_printed))) // if we're not supposed to be printed (looking at you, smartgun rails)
 				continue // go home
-			if(initial(our_casing.harmful) && (!allowed_harmful && !hacked)) // if you hack it that's on you.
-				continue
-			if(initial(our_casing.advanced_print_req) && !allowed_advanced) // if its got a funny function (hello, AP!) and we're not good for it yet,
-				continue // no
+			if(!((initial(our_casing.ammo_categories) & ammo_categories) == our_casing.ammo_categories)) // categorical mismatch?
+				continue // nuh uh
 		if(initial(our_casing.projectile_type) == null) // spent casing subtypes >:(
 			continue
 		// i'm very sorry for this, but literally every other thing i tried to get the material composition didn't copy at all
@@ -140,10 +122,8 @@
 		// we pray to god these indexes stay consistent.
 
 /obj/machinery/ammo_workbench/ui_data(mob/user)
-	// i kinda hate how all of this is done on every tgui process tick
 	var/list/data = list()
 
-	data["loaded_datadisks"] = list()
 	data["datadisk_loaded"] = FALSE
 	data["datadisk_name"] = null
 	data["datadisk_desc"] = null
@@ -151,14 +131,10 @@
 	data["disk_error"] = disk_error
 	data["disk_error_type"] = disk_error_type
 
-	if(loaded_datadisk)
+	if(loaded_module)
 		data["datadisk_loaded"] = TRUE
-		data["datadisk_name"] = initial(loaded_datadisk.name)
-		data["datadisk_desc"] = initial(loaded_datadisk.desc)
-
-	for(var/type in loaded_datadisks)
-		var/obj/item/disk/ammo_workbench/disk = type
-		data["loaded_datadisks"] += list(list("loaded_disk_name" = initial(disk.name), "loaded_disk_desc" = initial(disk.desc)))
+		data["datadisk_name"] = loaded_module.name
+		data["datadisk_desc"] = loaded_module.desc
 
 	data["mag_loaded"] = FALSE
 	data["error"] = null
@@ -167,28 +143,27 @@
 
 	data["efficiency"] = creation_efficiency
 	data["time"] = time_per_round / 10
-	data["hacked"] = hacked
 	data["turboBoost"] = turbo_boost
 
 	data["materials"] = list()
 	var/datum/component/material_container/mat_container = GetComponent(/datum/component/material_container)
 	if (mat_container)
 		for(var/mat in mat_container.materials)
-			var/datum/material/M = mat
-			var/amount = mat_container.materials[M]
+			var/datum/material/material = mat
+			var/amount = mat_container.materials[material]
 			var/sheet_amount = amount / SHEET_MATERIAL_AMOUNT
-			var/ref = REF(M)
-			data["materials"] += list(list("name" = M.name, "id" = ref, "amount" = sheet_amount))
+			var/ref = REF(material)
+			data["materials"] += list(list("name" = material.name, "id" = ref, "amount" = sheet_amount))
 
 	if(error_message)
 		data["error"] = error_message
 		data["error_type"] = error_type
 	else if(busy)
-		data["error"] = "SYSTEM IS BUSY"
+		data["error"] = "System is busy."
 		data["error_type"] = ""
 
 	if(!loaded_magazine)
-		data["error"] = "NO MAGAZINE IS INSERTED"
+		data["error"] = "No ammunition container detected."
 		data["error_type"] = ""
 		return data
 	else
@@ -214,9 +189,11 @@
 	. = ..()
 	if(.)
 		return
+	if(!isliving(usr))
+		return
 	switch(action)
 		if("EjectMag")
-			ejectItem()
+			eject_ammobox(usr)
 			. = TRUE
 
 		if("FillMagazine")
@@ -254,12 +231,17 @@
 			loadDisk()
 
 		if("EjectDisk")
-			ejectDisk()
+			eject_disk(usr)
 
 		if("turboBoost")
 			toggle_turbo_boost()
 
-/// Toggles this ammo bench's turbo setting. If it's on, uses the turbo time-per-round/efficiency; if off, resets to base time-per-round/efficiency. forced_off forces turbo off.
+/**
+ * Toggles this ammo bench's turbo setting.
+ * If it's on, uses the turbo time-per-round/efficiency;
+ * if off, resets to base time-per-round/efficiency.
+ * `forced_off` forces turbo off.
+ */
 /obj/machinery/ammo_workbench/proc/toggle_turbo_boost(forced_off = FALSE)
 	if(forced_off)
 		turbo_boost = FALSE
@@ -274,7 +256,7 @@
 		creation_efficiency = base_efficiency
 	update_ammotypes()
 
-/obj/machinery/ammo_workbench/proc/ejectItem(mob/living/user)
+/obj/machinery/ammo_workbench/proc/eject_ammobox(mob/living/user)
 	if(loaded_magazine)
 		loaded_magazine.forceMove(drop_location())
 
@@ -291,7 +273,7 @@
 	update_ammotypes()
 	update_appearance()
 
-/obj/machinery/ammo_workbench/proc/fill_magazine_start(casing_type)
+/obj/machinery/ammo_workbench/proc/fill_magazine_start(obj/item/ammo_casing/casing_type)
 	if(machine_stat & (NOPOWER|BROKEN))
 		busy = FALSE
 		if(timer_id)
@@ -304,26 +286,15 @@
 		error_type = ""
 
 	if(!(casing_type in possible_ammo_types))
-		error_message = "AMMUNITION MISMATCH"
+		error_message = "Ammunition type mismatch!"
 		error_type = "bad"
-		return
-
-	var/obj/item/ammo_casing/our_casing = casing_type
-
-	if(initial(our_casing.harmful) && !allowed_harmful)
-		error_message = "SYSTEM CORRUPTION DETECTED, PLEASE EJECT CONTAINER AND SUBMIT SUPPORT TICKET"
-		error_type = "bad"
-		if(!hacked)
-			return
-
-	if(!loaded_magazine)
-		error_message = "NO MAGAZINE INSERTED"
-		error_type = ""
+		ammo_fill_finish(FALSE)
 		return
 
 	if(loaded_magazine.stored_ammo.len >= loaded_magazine.max_ammo)
-		error_message = "MAGAZINE IS FULL"
+		error_message = "Ammunition container full."
 		error_type = "good"
+		ammo_fill_finish(TRUE)
 		return
 
 	if(busy)
@@ -333,7 +304,7 @@
 
 	timer_id = addtimer(CALLBACK(src, PROC_REF(fill_round), casing_type), time_per_round, TIMER_STOPPABLE)
 
-/obj/machinery/ammo_workbench/proc/fill_round(casing_type)
+/obj/machinery/ammo_workbench/proc/fill_round(obj/item/ammo_casing/casing_type)
 	if(machine_stat & (NOPOWER|BROKEN))
 		busy = FALSE
 		if(timer_id)
@@ -355,7 +326,7 @@
 		efficient_materials[material] = required_materials[material] * creation_efficiency
 
 	if(!materials.has_materials(efficient_materials))
-		error_message = "INSUFFICIENT MATERIALS"
+		error_message = "Materials insufficient!"
 		error_type = "bad"
 		ammo_fill_finish(FALSE)
 		qdel(new_casing)
@@ -363,7 +334,7 @@
 
 	if(new_casing.type in possible_ammo_types)
 		if(!loaded_magazine.give_round(new_casing))
-			error_message = "AMMUNITION MISMATCH"
+			error_message = "Unable to insert ammunition...?"
 			error_type = "bad"
 			ammo_fill_finish(FALSE)
 			qdel(new_casing)
@@ -380,8 +351,8 @@
 		return
 
 	if(loaded_magazine.stored_ammo.len >= loaded_magazine.max_ammo)
-		ammo_fill_finish()
-		error_message = "CONTAINER IS FULL"
+		ammo_fill_finish(TRUE)
+		error_message = "Ammunition container full."
 		error_type = "good"
 		return
 
@@ -404,33 +375,31 @@
 /obj/machinery/ammo_workbench/proc/loadDisk()
 	disk_error = ""
 	disk_error_type = ""
-	if(!loaded_datadisk)
-		return FALSE
-	if(loaded_datadisk.type in loaded_datadisks)
-		disk_error = "ERROR: DISK DATA ALREADY IN SYSTEM MEMEORY"
+	if(!loaded_module)
+		disk_error = "No disk detected!"
+		disk_error_type = "bad"
 		return FALSE
 
-	disk_error = "DISK LOADED SUCCESSFULLY"
+	disk_error = "Disk loaded successfully."
 	disk_error_type = "good"
-	loaded_datadisk.on_bench_install(src)
-	loaded_datadisks += loaded_datadisk.type // upon further reflection this. doesn't cause a hard del. still not a fan since the disks don't do anything by themselves
 	return TRUE
 
-/obj/machinery/ammo_workbench/proc/ejectDisk()
-	if(loaded_datadisk)
-		loaded_datadisk.forceMove(drop_location())
-		loaded_datadisk = null
+/obj/machinery/ammo_workbench/proc/eject_disk(mob/user)
+	if(loaded_module)
+		try_put_in_hand(loaded_module, user)
+		loaded_module = null
+		ammo_categories = initial(ammo_categories)
+		update_ammotypes()
 		disk_error = ""
 		disk_error_type = ""
 
 /datum/design/board/ammo_workbench
-	name = "Machine Design (Ammunitions Workbench)"
-	desc = "A machine, somewhat akin to a lathe, made specifically for manufacturing ammunition. It has a slot for ammunition containers, like magazines or stripper clips."
+	name = "Ammunition Workbench"
+	desc = "A machine made specifically for manufacturing ammunition."
 	id = "ammo_workbench"
 	build_path = /obj/item/circuitboard/machine/ammo_workbench
 	category = list(RND_CATEGORY_MACHINE + RND_SUBCATEGORY_MACHINE_FAB)
 	departmental_flags = DEPARTMENT_BITFLAG_SECURITY
-
 
 //MISC MACHINE PROCS
 
@@ -476,28 +445,12 @@
 
 	return ..()
 
-/obj/machinery/ammo_workbench/proc/shock(mob/user, prb)
-	if(machine_stat & (BROKEN|NOPOWER)) // unpowered, no shock
-		return FALSE
-	if(!prob(prb))
-		return FALSE
-	do_sparks(5, TRUE, src)
-	if (electrocute_mob(user, get_area(src), src, 0.7, TRUE))
-		return TRUE
-	else
-		return FALSE
-
-/obj/machinery/ammo_workbench/attackby(obj/item/O, mob/user, params)
-	if (default_deconstruction_screwdriver(user, "[initial(icon_state)]_t", initial(icon_state), O))
+/obj/machinery/ammo_workbench/attackby(obj/item/attacking_item, mob/user, list/modifiers, list/attack_modifiers)
+	if(default_deconstruction_screwdriver(user, "[initial(icon_state)]_t", initial(icon_state), attacking_item))
 		return
-	if(default_deconstruction_crowbar(O))
+	if(default_deconstruction_crowbar(attacking_item))
 		return
-	if(panel_open && is_wire_tool(O))
-		wires.interact(user)
-		return TRUE
-	if(is_refillable() && O.is_drainable())
-		return FALSE //inserting reagents into the machine
-	if(Insert_Item(O, user))
+	if(Insert_Item(attacking_item, user))
 		return TRUE
 	else
 		return ..()
@@ -511,7 +464,7 @@
 	if(!can_interact(user) || !user.can_perform_action(src, ALLOW_SILICON_REACH | FORBID_TELEKINESIS_REACH))
 		return
 
-	ejectItem(user)
+	eject_ammobox(user)
 	return SECONDARY_ATTACK_CANCEL_ATTACK_CHAIN
 
 /obj/machinery/ammo_workbench/attack_robot_secondary(mob/user, list/modifiers)
@@ -520,16 +473,15 @@
 /obj/machinery/ammo_workbench/attack_ai_secondary(mob/user, list/modifiers)
 	return attack_hand_secondary(user, modifiers)
 
-/obj/machinery/ammo_workbench/proc/Insert_Item(obj/item/O, mob/living/user)
+/obj/machinery/ammo_workbench/proc/Insert_Item(obj/item/inserted, mob/living/user)
 	if(user.combat_mode)
 		return FALSE
-	if(!is_insertion_ready(user))
+	if(!is_insertion_ready(user, inserted))
 		return FALSE
-	if(istype(O, /obj/item/ammo_box))
-		if(!user.transferItemToLoc(O, src))
+	if(istype(inserted, /obj/item/ammo_box))
+		if(!user.transferItemToLoc(inserted, src))
 			return FALSE
 		if(loaded_magazine)
-			to_chat(user, span_notice("You quickly swap [loaded_magazine] for [O]."))
 			loaded_magazine.forceMove(drop_location())
 			user.put_in_hands(loaded_magazine)
 			loaded_magazine = null
@@ -539,30 +491,39 @@
 			if(timer_id)
 				deltimer(timer_id)
 				timer_id = null
-		loaded_magazine = O
-		to_chat(user, span_notice("You insert [O] to into [src]'s reciprocal."))
+		loaded_magazine = inserted
+		to_chat(user, span_notice("You insert [inserted] into [src]'s reciprocal."))
 		flick("h_lathe_load", src)
 		update_appearance()
 		update_ammotypes()
 		playsound(loc, 'sound/items/weapons/autoguninsert.ogg', 35, 1)
 		return TRUE
-	if(istype(O, /obj/item/disk/ammo_workbench))
-		if(!user.transferItemToLoc(O, src))
+	if(istype(inserted, /obj/item/ammo_workbench_module))
+		if(!user.transferItemToLoc(inserted, src))
 			return FALSE
-		loaded_datadisk = O
-		to_chat(user, span_notice("You insert [O] to into [src]'s floppydisk port."))
+		if(loaded_module)
+			loaded_module.forceMove(drop_location())
+			user.put_in_hands(loaded_module)
+			loaded_module = null
+			busy = FALSE
+			error_message = ""
+			error_type = ""
+			if(timer_id)
+				deltimer(timer_id)
+				timer_id = null
+		loaded_module = inserted
+		ammo_categories = loaded_module.ammo_categories
+		to_chat(user, span_notice("You insert [inserted] into [src]'s module port."))
 		flick("h_lathe_load", src)
 		update_appearance()
+		update_ammotypes()
 		playsound(loc, 'sound/machines/terminal/terminal_insert_disc.ogg', 35, 1)
 		return TRUE
 	return FALSE
 
-/obj/machinery/ammo_workbench/proc/is_insertion_ready(mob/user, obj/item/O)
+/obj/machinery/ammo_workbench/proc/is_insertion_ready(mob/user, obj/item/inserted)
 	if(panel_open)
 		to_chat(user, span_warning("You can't load [src] while it's opened!"))
-		return FALSE
-	if(disabled)
-		to_chat(user, span_warning("The insertion belts of [src] won't engage!"))
 		return FALSE
 	if(machine_stat & BROKEN)
 		to_chat(user, span_warning("[src] is broken."))
@@ -570,75 +531,8 @@
 	if(machine_stat & NOPOWER)
 		to_chat(user, span_warning("[src] has no power."))
 		return FALSE
-	if(istype(O, /obj/item/disk/ammo_workbench) && loaded_datadisk)
-		to_chat(user, span_warning("[src] already has a disk inserted."))
-		return FALSE
 	return TRUE
 
-/obj/machinery/ammo_workbench/proc/reset(wire)
-	switch(wire)
-		if(WIRE_HACK)
-			if(!wires.is_cut(wire))
-				adjust_hacked(FALSE)
-		if(WIRE_SHOCK)
-			if(!wires.is_cut(wire))
-				shocked = FALSE
-		if(WIRE_DISABLE)
-			if(!wires.is_cut(wire))
-				disabled = FALSE
-
-/obj/machinery/ammo_workbench/proc/adjust_hacked(state)
-	hacked = state
-
-
-// WIRE DATUM
-/datum/wires/ammo_workbench
-	holder_type = /obj/machinery/ammo_workbench
-	proper_name = "Ammunition Workbench"
-
-/datum/wires/ammo_workbench/New(atom/holder)
-	wires = list(
-		WIRE_HACK, WIRE_DISABLE,
-		WIRE_SHOCK, WIRE_ZAP
-	)
-	add_duds(6)
-	..()
-
-/datum/wires/ammo_workbench/interactable(mob/user)
-	if(!..())
-		return FALSE
-	var/obj/machinery/ammo_workbench/A = holder
-	if(A.panel_open)
-		return TRUE
-
-/datum/wires/ammo_workbench/get_status()
-	var/obj/machinery/ammo_workbench/A = holder
-	var/list/status = list()
-	status += "The red light is [A.disabled ? "on" : "off"]."
-	status += "The blue light is [A.hacked ? "on" : "off"]."
-	return status
-
-/datum/wires/ammo_workbench/on_pulse(wire)
-	var/obj/machinery/ammo_workbench/A = holder
-	switch(wire)
-		if(WIRE_HACK)
-			A.adjust_hacked(!A.hacked)
-			addtimer(CALLBACK(A, TYPE_PROC_REF(/obj/machinery/ammo_workbench, reset), wire), 60)
-		if(WIRE_SHOCK)
-			A.shocked = !A.shocked
-			addtimer(CALLBACK(A, TYPE_PROC_REF(/obj/machinery/ammo_workbench, reset), wire), 60)
-		if(WIRE_DISABLE)
-			A.disabled = !A.disabled
-			addtimer(CALLBACK(A, TYPE_PROC_REF(/obj/machinery/ammo_workbench, reset), wire), 60)
-
-/datum/wires/ammo_workbench/on_cut(wire, mend, source)
-	var/obj/machinery/ammo_workbench/A = holder
-	switch(wire)
-		if(WIRE_HACK)
-			A.adjust_hacked(!mend)
-		if(WIRE_HACK)
-			A.shocked = !mend
-		if(WIRE_DISABLE)
-			A.disabled = !mend
-		if(WIRE_ZAP)
-			A.shock(usr, 50)
+/obj/item/flatpack/ammo_workbench
+	name = "flatpacked ammunition workbench"
+	board = /obj/item/circuitboard/machine/ammo_workbench

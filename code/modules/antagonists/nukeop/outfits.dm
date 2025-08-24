@@ -8,7 +8,7 @@
 	ears = /obj/item/radio/headset/syndicate/alt
 	l_pocket = /obj/item/modular_computer/pda/nukeops
 	r_pocket = /obj/item/pen/edagger
-	id = /obj/item/card/id/advanced/chameleon
+	id = /obj/item/card/id/advanced/chameleon/elite
 	belt = /obj/item/gun/ballistic/automatic/pistol/clandestine
 
 	skillchips = list(/obj/item/skillchip/disk_verifier)
@@ -54,7 +54,7 @@
 		radio.use_command = TRUE
 	if(ispath(uplink_type, /obj/item/uplink) || tc) // /obj/item/uplink understands 0 tc
 		var/obj/item/uplink = new uplink_type(nukie, nukie.key, tc)
-		nukie.equip_to_slot_or_del(uplink, ITEM_SLOT_BACKPACK, indirect_action = TRUE)
+		nukie.equip_to_storage(uplink, ITEM_SLOT_BACK, indirect_action = TRUE, del_on_fail = TRUE)
 
 	var/obj/item/implant/weapons_auth/weapons_implant = new/obj/item/implant/weapons_auth(nukie)
 	weapons_implant.implant(nukie)

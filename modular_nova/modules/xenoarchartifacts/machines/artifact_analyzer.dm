@@ -24,7 +24,7 @@
 	/// How long have we been scanning
 	var/scan_completion_time = 0
 	/// How long do we need to scan
-	var/scan_duration = 100
+	var/scan_duration = 10 SECONDS
 	/// What do we scan
 	var/obj/scanned_object
 	/// We can count scan nums to insert them into report
@@ -34,13 +34,13 @@
 	. = ..()
 	return INITIALIZE_HINT_LATELOAD
 
-/obj/machinery/artifact_analyser/attackby(obj/item/used, mob/user, params)
-	if(default_deconstruction_screwdriver(user, icon_state, icon_state, used))
+/obj/machinery/artifact_analyser/attackby(obj/item/attacking_item, mob/user, list/modifiers, list/attack_modifiers)
+	if(default_deconstruction_screwdriver(user, icon_state, icon_state, attacking_item))
 		update_appearance()
 		return
-	if(default_pry_open(used))
+	if(default_pry_open(attacking_item))
 		return
-	if(default_deconstruction_crowbar(used))
+	if(default_deconstruction_crowbar(attacking_item))
 		return
 	return ..()
 
@@ -73,7 +73,7 @@
 	dat += "<br>"
 	dat += "<hr>"
 
-	var/datum/browser/popup = new(user, "artanalyser", name, 450, 500, nref = src)
+	var/datum/browser/popup = new(user, "artanalyser", name, 450, 500, source = src)
 	popup.set_content(dat)
 	popup.open()
 
@@ -97,7 +97,7 @@
 		if(!owned_scanner)
 			results = "Error communicating with scanner."
 			playsound(src, 'sound/machines/buzz/buzz-sigh.ogg', 25, FALSE)
-		else if(!scanned_object || get_turf(scanned_object) != get_turf(owned_scanner))
+		else if(QDELETED(scanned_object) || get_turf(scanned_object) != get_turf(owned_scanner))
 			results = "Unable to locate scanned object. Ensure it was not moved in the process."
 			playsound(src, 'sound/machines/buzz/buzz-two.ogg', 25, FALSE)
 		else
@@ -108,7 +108,7 @@
 		artifact_report.name = "[src] report #[++report_num]"
 		artifact_report.add_raw_text("<b>[src] analysis report #[report_num]</b><br>")
 		artifact_report.add_raw_text("<br>")
-		artifact_report.add_raw_text("[scanned_object] [results]")
+		artifact_report.add_raw_text("[scanned_object] -- [results]")
 		artifact_report.update_icon()
 
 		var/obj/item/stamp/our_stamp = new
@@ -138,33 +138,42 @@
 		playsound(src, SFX_TERMINAL_TYPE, 25, FALSE)
 		if(!owned_scanner)
 			reconnect_scanner()
-		if(owned_scanner)
-			var/artifact_in_use = 0
-			for(var/obj/being_scanned in owned_scanner.loc)
+		if(!owned_scanner)
+			say("Error communicating with scanner!")
+			return
+
+		var/turf/scanner_turf = get_turf(owned_scanner)
+		scanned_object = locate(/obj/machinery/artifact) in scanner_turf // if we detect an artifact, just skip everything else.
+		if(!scanned_object)
+			for(var/obj/being_scanned in scanner_turf)
 				if(being_scanned == owned_scanner)
 					continue
 				if(being_scanned.invisibility)
 					continue
-				if(istype(scanned_object, /obj/machinery/artifact))
-					var/obj/machinery/artifact/scanned_artifact = scanned_object
-					if(scanned_artifact.being_used)
-						artifact_in_use = 1
-					else
-						scanned_artifact.being_used = 1
+				if(HAS_TRAIT(being_scanned, TRAIT_UNDERFLOOR))
+					continue
 
-				if(artifact_in_use)
-					say("Cannot scan. Too much interference.")
-					playsound(src, 'sound/machines/buzz/buzz-two.ogg', 25, FALSE)
-				else
-					scanned_object = being_scanned
-					scan_in_progress = 1
-					scan_completion_time = world.time + scan_duration
-					say("Scanning begun.")
-					owned_scanner.icon_state = "xenoarch_scanner_scanning"
-					flick("xenoarch_console_working", src)
+				scanned_object = being_scanned
 				break
-			if(!scanned_object)
-				say("Unable to isolate scan target.")
+
+		var/obj/machinery/artifact/possible_artifact = scanned_object
+		if(istype(possible_artifact))
+			if(possible_artifact.being_used)
+				say("Cannot scan. Too much interference.")
+				playsound(src, 'sound/machines/buzz/buzz-two.ogg', 25, FALSE)
+				return
+			else
+				possible_artifact.being_used = 1
+
+		if(scanned_object)
+			scan_in_progress = 1
+			scan_completion_time = world.time + scan_duration
+			say("Scanning begun.")
+			owned_scanner.icon_state = "xenoarch_scanner_scanning"
+			flick("xenoarch_console_working", src)
+		else
+			say("Unable to isolate scan target.")
+
 	if(href_list["halt_scan"])
 		playsound(src, SFX_TERMINAL_TYPE, 25, FALSE)
 		owned_scanner.icon_state = "xenoarch_scanner"
@@ -182,41 +191,41 @@
 /obj/machinery/artifact_analyser/proc/get_scan_info(obj/scanned_obj)
 	switch(scanned_obj.type)
 		if(/obj/machinery/auto_cloner)
-			return "Automated cloning pod - appears to rely on organic nanomachines with a self perpetuating \
+			return "Automated cloning pod -- appears to rely on organic nanomachines with a self perpetuating \
 			ecosystem involving self cannibalism and a symbiotic relationship with the contained liquid.<br><br>\
 			Structure is composed of a carbo-titanium alloy with interlaced reinforcing energy fields, and the contained liquid \
 			resembles proto-plasmic residue supportive of single cellular developmental conditions."
 		if(/obj/structure/constructshell)
-			return "Tribal idol - Item resembles statues/emblems built by superstitious pre-warp civilisations to honour their gods. Material appears to be a \
+			return "Tribal idol -- Item resembles statues/emblems built by superstitious pre-warp civilisations to honour their gods. Material appears to be a \
 			rock/plastcrete composite."
 		if(/obj/machinery/replicator)
-			return "Automated construction unit - Item appears to be able to synthesize synthetic items, some with simple internal circuitry. Method unknown, \
+			return "Automated construction unit -- Item appears to be able to synthesize synthetic items, some with simple internal circuitry. Method unknown, \
 			phasing suggested?"
 		if(/obj/machinery/power/crystal)
-			return "Crystal formation - Pseudo organic crystalline matrix, unlikely to have formed naturally. No known technology exists to synthesize this exact composition. \
+			return "Crystal formation -- Pseudo organic crystalline matrix, unlikely to have formed naturally. No known technology exists to synthesize this exact composition. \
 			Attention: energetic excitement is noticed. The appearance of current is possible. Connect the crystal to the network, using wrench and wires on it. Make sure there is a cable underneath."
 		if(/obj/machinery/artifact/bluespace_crystal)
-			return "Crystal formation - An extraordinary big example of bluespace crystal. Deep scan indicates presence of anomalous fluctuations inside. Secondary scan indicates unusual \
+			return "Crystal formation -- An extraordinary big example of bluespace crystal. Deep scan indicates presence of anomalous fluctuations inside. Secondary scan indicates unusual \
 			activity around moving objects."
-		if (/obj/vehicle/sealed/mecha/reticence/artifact)
-			return "Mechanical exosuit - Age scan reveals data incompatibility. Object seems to be very old, yet modernly fitted with weapons and unknown constant cloaking field generator. \
+		if(/obj/vehicle/sealed/mecha/reticence/artifact)
+			return "Mechanical exosuit -- Age scan reveals data incompatibility. Object seems to be very old, yet modernly fitted with weapons and unknown constant cloaking field generator. \
 			Also, sensors detect traces of ectoplasm inside the cockpit. The only possible way this exosuit got here is a timewarp or a sensor malfunction."
-		if (/obj/vehicle/sealed/mecha/odysseus/artifact)
-			return "Mechanical exosuit - Age scan reveals data incompatibility. Object seems to be very old, but design is almost identitcal to odysseus mech. \
+		if(/obj/vehicle/sealed/mecha/odysseus/artifact)
+			return "Mechanical exosuit -- Age scan reveals data incompatibility. Object seems to be very old, but design is almost identitcal to odysseus mech. \
 			The only possible way this exosuit got here is a timewarp or a sensor malfunction."
-		if (/obj/vehicle/sealed/mecha/savannah_ivanov/artifact)
-			return "Mechanical exosuit - Age scan reveals data incompatibility. Object seems to be very old, but yet belongs to the Third Sovient Union era, which is \
+		if(/obj/vehicle/sealed/mecha/savannah_ivanov/artifact)
+			return "Mechanical exosuit -- Age scan reveals data incompatibility. Object seems to be very old, but yet belongs to the Third Sovient Union era, which is \
 			not that old in global terms. Mechanical drives of this example are hopelessly rusted and repair in unlikely. Internal structure is almost identical to \
 			Savannah Ivanov exosuit, which implies this is a prototype. Designers seem to be focused on making the mech tough, since the deep scan indicates heavy armor layers both \
 			in the outer shell and internal components. Comparing to the standard Savannah Ivanov, this example is 25% tougher, but twice as slow. \
 			The only possible way this exosuit got here is a timewarp or a sensor malfunction."
-		if (/obj/vehicle/sealed/mecha/durand/artifact)
-			return "Mechanical exosuit - Age scan reveals data incompatibility. Object seems to be very old, but it is a Durand-like exosuit with 93% of internal components \
+		if(/obj/vehicle/sealed/mecha/durand/artifact)
+			return "Mechanical exosuit -- Age scan reveals data incompatibility. Object seems to be very old, but it is a Durand-like exosuit with 93% of internal components \
 			being identical to the Nanotrasen Durand exosuit. The only real difference is slightly better placement of servomotors. Deep scan indicates, that due to the time it \
 			spent in the rock, its armor layers deteriorated. The only possible way this exosuit got here is a timewarp or a sensor malfunction."
 		if(/obj/machinery/artifact) // a fun one
 			var/obj/machinery/artifact/scanned_artifact = scanned_obj
-			var/out = "Anomalous alien device - composed of an unknown alloy.<br><br>"
+			var/out = "composed of an unknown alloy.<br><br>"
 
 			if(scanned_artifact.first_effect)
 				out += scanned_artifact.first_effect.get_description()
@@ -228,4 +237,4 @@
 			return out
 		else
 			// it was an ordinary item
-			return "[scanned_obj.name] - Mundane application."
+			return "Mundane application."

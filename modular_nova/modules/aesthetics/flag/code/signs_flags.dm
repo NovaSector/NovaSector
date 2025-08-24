@@ -39,8 +39,8 @@
 	item_flag = /obj/item/sign/flag/nanotrasen
 
 /obj/structure/sign/flag/tizira
-	name = "flag of the Republic of Northern Moghes"
-	desc = "The flag of the Great Republic of Northern Moghes. Depending on who you ask, it represents strength or being an ant in the hive."
+	name = "flag of the Talunan Imperium"
+	desc = "The flag of the Talunan Imperium. Born in the ashes of the Terran War, it represents resilience and bitter ancestral hatred in equal measure."
 	icon_state = "flag_tizira"
 	item_flag = /obj/item/sign/flag/tizira
 
@@ -52,7 +52,8 @@
 
 /obj/structure/sign/flag/mars
 	name = "flag of the Teshari League for Self-Determination"
-	desc = "The flag of the Teshari League for Self-Determination. Originally a revolutionary flag during the time of the Republic of the Golden Feather, it has since been adopted as the official flag of the planet, as a reminder of how Teshari fought for representation and independence."
+	desc = "The flag of the Teshari League for Self-Determination. Originally a revolutionary flag during the time of the Republic of the Golden Feather, \
+	it has since been adopted as the official flag of the planet, as a reminder of how Teshari fought for representation and independence."
 	icon_state = "flag_mars"
 	item_flag = /obj/item/sign/flag/mars
 
@@ -62,13 +63,13 @@
 	icon_state = "flag_solfed"
 	item_flag = /obj/item/sign/flag/terragov
 
-/obj/structure/sign/flag/nri
-	name = "flag of the Novaya Rossiyskaya Imperiya"
-	desc = "The flag of the Novaya Rossiyskaya Imperiya. The yellow, black and white colours represent its sovereignity, spirituality and pureness."
-	icon_state = "flag_nri"
-	item_flag = /obj/item/sign/flag/nri
+/obj/structure/sign/flag/hc
+	name = "flag of the Heliostatic Coalition"
+	desc = "The flag of the Heliostatic Coalition. The design of the 'True SolFed', as is evident by what seems to be very much not Sol."
+	icon_state = "flag_hc"
+	item_flag = /obj/item/sign/flag/hc
 
-MAPPING_DIRECTIONAL_HELPERS(/obj/structure/sign/flag/nri, 32)
+MAPPING_DIRECTIONAL_HELPERS(/obj/structure/sign/flag/hc, 32)
 
 /obj/structure/sign/flag/azulea
 	name = "flag of the Azulean Nation"
@@ -83,7 +84,8 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/structure/sign/flag/azulea, 32)
 
 /obj/structure/sign/flag/syndicate
 	name = "flag of the Syndicate"
-	desc = "The flag of the Sothran Syndicate. Previously used by the Sothran people as a way of declaring opposition against the Nanotrasen, now it became an intergalactic symbol of the same, yet way more skewed purpose, as more groups of interest have joined the rebellion's side for their own gain."
+	desc = "The flag of the Sothran Syndicate. Previously used by the Sothran people as a way of declaring opposition against the Nanotrasen, \
+	now it became an intergalactic symbol of the same, yet way more skewed purpose, as more groups of interest have joined the rebellion's side for their own gain."
 	icon_state = "flag_syndi"
 	item_flag = /obj/item/sign/flag/syndicate
 
@@ -135,8 +137,8 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/structure/sign/flag/interdyne, 32)
 	sign_path = /obj/structure/sign/flag/terragov
 
 /obj/item/sign/flag/tizira
-	name = "folded flag of the Republic of Northern Moghes"
-	desc = "The folded flag of the Republic of Northern Moghes."
+	name = "folded flag of the Talunan Imperium"
+	desc = "The folded flag of the Talunan Imperium."
 	icon_state = "folded_tizira"
 	sign_path = /obj/structure/sign/flag/tizira
 
@@ -152,11 +154,11 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/structure/sign/flag/interdyne, 32)
 	icon_state = "folded_mars"
 	sign_path = /obj/structure/sign/flag/mars
 
-/obj/item/sign/flag/nri
-	name = "folded flag of the Novaya Rossiyskaya Imperiya"
-	desc = "The folded flag of the Novaya Rossiyskaya Imperiya."
-	icon_state = "folded_nri"
-	sign_path = /obj/structure/sign/flag/nri
+/obj/item/sign/flag/hc
+	name = "folded flag of the Heliostatic Coalition"
+	desc = "The folded flag of the Heliostatic Coalition."
+	icon_state = "folded_hc"
+	sign_path = /obj/structure/sign/flag/hc
 
 /obj/item/sign/flag/azulea
 	name = "folded flag of Azulea"

@@ -17,7 +17,7 @@
 			if(do_after(drone, 6 SECONDS, 0, target = src))
 				drone.visible_message(span_notice("[drone] repairs itself using [src]'s remains!"), span_notice("You repair yourself using [src]'s remains."))
 				drone.adjustBruteLoss(-src.maxHealth)
-				new /obj/effect/decal/cleanable/oil/streak(get_turf(src))
+				new /obj/effect/decal/cleanable/blood/splatter/oil(get_turf(src))
 				ghostize(can_reenter_corpse = FALSE)
 				qdel(src)
 			else
@@ -112,9 +112,6 @@
 			)
 		update_drone_hack(FALSE)
 	return ITEM_INTERACT_SUCCESS
-
-/mob/living/basic/drone/transferItemToLoc(obj/item/item, newloc, force, silent)
-	return !(item.type in drone_item_whitelist_flat) && ..()
 
 /mob/living/basic/drone/getarmor(def_zone, type)
 	var/armorval = 0

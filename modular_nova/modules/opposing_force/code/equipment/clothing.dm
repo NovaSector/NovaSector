@@ -47,7 +47,7 @@
 	new /obj/item/clothing/under/suit/black/skirt/armoured(src)
 	new /obj/item/clothing/suit/jacket/det_suit/noir/armoured(src)
 	new /obj/item/storage/belt/holster/detective/dark(src)
-	new /obj/item/clothing/head/frenchberet/armoured(src)
+	new /obj/item/clothing/head/beret/frenchberet/armoured(src)
 	new /obj/item/clothing/shoes/laceup(src)
 	new /obj/item/clothing/neck/tie/red/hitman(src)
 	new /obj/item/clothing/mask/gas/syndicate/ds(src) //a red spy is in the base
@@ -130,7 +130,7 @@
 	new /obj/item/clothing/suit/armor/sf_peacekeeper(src)
 	new /obj/item/clothing/head/helmet/sf_peacekeeper(src)
 	new /obj/item/storage/belt/military/assault(src)
-	new /obj/item/clothing/mask/gas/hecu2(src)
+	new /obj/item/clothing/mask/gas/hecu(src)
 	new /obj/item/clothing/shoes/combat(src)
 	new /obj/item/clothing/gloves/combat(src)
 	new /obj/item/clothing/glasses/night(src)
@@ -168,7 +168,7 @@
 	new /obj/item/radio/headset/headset_cent/impostorsr(src)
 	new /obj/item/clothing/glasses/sunglasses(src)
 	new /obj/item/clipboard(src)
-	new /obj/item/card/id/advanced/chameleon/impostorsr(src) //this thing has bridge access, and no one knows about that
+	new /obj/item/card/id/advanced/chameleon/elite/impostorsr(src) //this thing has bridge access, and no one knows about that
 	new /obj/item/stamp/centcom(src)
 	new /obj/item/clothing/gloves/combat(src)
 
@@ -216,7 +216,7 @@
 	new /obj/item/clothing/under/syndicate/rus_army(src)
 	new /obj/item/clothing/shoes/combat(src)
 	new /obj/item/clothing/gloves/tackler/combat(src)
-	new /obj/item/clothing/mask/gas/hecu2(src)
+	new /obj/item/clothing/mask/gas/hecu(src)
 	new /obj/item/clothing/suit/armor/vest/marine(src)
 	new /obj/item/clothing/head/beret/sec/nri(src)
 	new /obj/item/storage/belt/military/nri/plus_mre(src)

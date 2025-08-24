@@ -33,7 +33,7 @@
 		BODY_ZONE_R_LEG = /obj/item/bodypart/leg/right/kobold,
 		BODY_ZONE_CHEST = /obj/item/bodypart/chest/kobold,
 	)
-	exotic_bloodtype = "L"
+	exotic_bloodtype = BLOOD_TYPE_LIZARD
 	payday_modifier = 1.35
 
 /datum/species/monkey/kobold/get_default_mutant_bodyparts()
@@ -52,6 +52,10 @@
 	features["mcolor3"] = main_color
 	features -= "tail"
 	return features
+
+/datum/species/monkey/kobold/on_species_gain(mob/living/carbon/human/human_who_gained_species, datum/species/old_species, pref_load, regenerate_icons)
+	. = ..()
+	human_who_gained_species.dna.add_mutation(/datum/mutation/clever, MUTATION_SOURCE_SPECIES_INNATE)
 
 /datum/species/monkey/kobold/get_scream_sound(mob/living/carbon/human/kobold)
 	return pick(

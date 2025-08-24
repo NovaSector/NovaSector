@@ -626,7 +626,7 @@
 
 /obj/effect/mapping_helpers/turn_off_lights_with_lightswitch/LateInitialize()
 	var/area/needed_area = get_area(src)
-	if(!needed_area.lightswitch)
+	if(!needed_area.lightswitch && !needed_area.light_turned_off_at_spawn) // NOVA EDIT CHANGE - Stops this when RNG turned the light off at roundstart - ORIGINAL: if(!needed_area.lightswitch)
 		stack_trace("[src] at [AREACOORD(src)] [(needed_area.type)] tried to turn lights off but they are already off!")
 	var/obj/machinery/light_switch/light_switch = locate(/obj/machinery/light_switch) in needed_area
 	if(!light_switch)
@@ -1094,7 +1094,9 @@ INITIALIZE_IMMEDIATE(/obj/effect/mapping_helpers/no_atoms_ontop)
 	if(locate(/obj/machinery/door/airlock) in turf)
 		var/obj/machinery/door/airlock/found_airlock = locate(/obj/machinery/door/airlock) in turf
 		if(note_path)
-			found_airlock.note = note_path
+			var/obj/item/paper/paper = new note_path(src)
+			found_airlock.note = paper
+			paper.forceMove(found_airlock)
 			found_airlock.update_appearance()
 			qdel(src)
 			return
@@ -1496,3 +1498,29 @@ INITIALIZE_IMMEDIATE(/obj/effect/mapping_helpers/no_atoms_ontop)
 	name = "Basic mob immune to getting wet flag helper"
 	icon_state = "basic_mob_immune_to_getting_wet"
 	flag_to_give = IMMUNE_TO_GETTING_WET
+
+/obj/effect/mapping_helpers/wall_dent
+	name = "bullet impact dent"
+	icon = 'icons/effects/effects.dmi'
+	icon_state = "bullet_hole"
+	/// Dent type to spawn
+	var/dent_type = WALL_DENT_SHOT
+
+/obj/effect/mapping_helpers/wall_dent/Initialize(mapload)
+	. = ..()
+	if(!mapload)
+		log_mapping("[src] spawned outside of mapload!")
+		return
+
+	var/turf/closed/wall/our_turf = get_turf(src) // In case a locker ate us or something
+	if (!istype(our_turf))
+		log_mapping("[src] placed on a non-wall turf!")
+		return
+
+	our_turf.add_dent(dent_type, pixel_x + pixel_w - ICON_SIZE_X / 2, pixel_y + pixel_z - ICON_SIZE_Y / 2)
+	return INITIALIZE_HINT_QDEL
+
+/obj/effect/mapping_helpers/wall_dent/impact
+	name = "blunt impact dent"
+	icon_state = "impact1"
+	dent_type = WALL_DENT_HIT

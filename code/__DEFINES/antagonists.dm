@@ -224,6 +224,7 @@ GLOBAL_LIST_INIT(ai_employers, list(
 	"Spam Virus",
 	"SyndOS",
 	"Unshackled",
+	"Ratvarian Remnant",
 ))
 
 #define UPLINK_THEME_SYNDICATE "syndicate"
@@ -444,3 +445,5 @@ GLOBAL_LIST_INIT(human_invader_antagonists, list(
 
 /// Camera net used by battle royale objective
 #define BATTLE_ROYALE_CAMERA_NET "battle_royale_camera_net"
+
+#define MALF_MAX_PP 400

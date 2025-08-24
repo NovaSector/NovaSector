@@ -8,15 +8,26 @@
 	subcategory = "Ammunition Manufacturing Equipment"
 
 /datum/armament_entry/company_import/vitezstvi/ammo_bench/bench_itself
-	item_type = /obj/item/circuitboard/machine/ammo_workbench
+	item_type = /obj/item/flatpack/ammo_workbench
+	cost = PAYCHECK_COMMAND * 2
+
+// basic disk
+/datum/armament_entry/company_import/vitezstvi/ammo_bench/ammo_disk
+	item_type = /obj/item/ammo_workbench_module/lethal
+	cost = PAYCHECK_COMMAND * 3
+
+// disk but with the bits needed for EMP/fire bullets
+/datum/armament_entry/company_import/vitezstvi/ammo_bench/ammo_disk/lethal_gimmick
+	item_type = /obj/item/ammo_workbench_module/lethal_gimmick
 	cost = PAYCHECK_COMMAND * 5
 
-/datum/armament_entry/company_import/vitezstvi/ammo_bench/ammo_disk
-	item_type = /obj/item/disk/ammo_workbench/advanced
-	cost = PAYCHECK_COMMAND * 5
+// disk but it's got HP/AP
+/datum/armament_entry/company_import/vitezstvi/ammo_bench/ammo_disk/variant
+	item_type = /obj/item/ammo_workbench_module/lethal_variant
+	cost = PAYCHECK_COMMAND * 8
 
 /datum/armament_entry/company_import/vitezstvi/ammo_bench/bullet_drive
-	item_type = /obj/item/circuitboard/machine/dish_drive/bullet
+	item_type = /obj/item/flatpack/bullet_drive
 	cost = PAYCHECK_COMMAND * 2
 
 // Weapon accessories
@@ -32,10 +43,10 @@
 	item_type = /obj/item/flashlight/seclite
 
 /datum/armament_entry/company_import/vitezstvi/accessory/small_case
-	item_type = /obj/item/storage/toolbox/guncase/nova/pistol/empty
+	item_type = /obj/item/storage/toolbox/guncase/nova/pistol
 
 /datum/armament_entry/company_import/vitezstvi/accessory/large_case
-	item_type = /obj/item/storage/toolbox/guncase/nova/empty
+	item_type = /obj/item/storage/toolbox/guncase/nova
 	cost = PAYCHECK_COMMAND * 2
 
 /datum/armament_entry/company_import/vitezstvi/accessory/bandolier
@@ -77,6 +88,11 @@
 
 /datum/armament_entry/company_import/vitezstvi/ammo_boxes/auto10mm_rubber
 	item_type = /obj/item/ammo_box/c10mm/rubber
+
+/datum/armament_entry/company_import/vitezstvi/ammo_boxes/zaibas_ammo
+	item_type = /obj/item/ammo_box/pulse_cargo_box
+	//It's like, a lot of ammo compared to other packages; high-capacity universal ammo for all pulse plasma guns.
+	cost = PAYCHECK_COMMAND * 2
 
 /datum/armament_entry/company_import/vitezstvi/ammo_boxes/strilka_lethal
 	item_type = /obj/item/ammo_box/c310_cargo_box

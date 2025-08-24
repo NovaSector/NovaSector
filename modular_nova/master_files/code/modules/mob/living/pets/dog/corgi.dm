@@ -32,7 +32,7 @@
 	/// Has E-N been emagged already?
 	var/emagged = FALSE
 	/// A list of the things dropped when it dies
-	var/static/list/borgi_drops = list(/obj/effect/decal/cleanable/oil/slippery)
+	var/static/list/borgi_drops = list(/obj/effect/decal/cleanable/blood/oil/slippery)
 	/// The threshold of HP before the borgi attacks non-friends
 	var/rage_hp = 30
 	/// The chance to spark (on life)
@@ -95,13 +95,13 @@
 
 	harass_target(target, always_shoot = TRUE)
 
-/mob/living/basic/pet/dog/corgi/borgi/proc/on_hitby(datum/source, obj/item/used_item)
+/mob/living/basic/pet/dog/corgi/borgi/proc/on_hitby(datum/source, atom/movable/thrown_movable, skipcatch = FALSE, hitpush = TRUE, blocked = FALSE, datum/thrownthing/throwingdatum)
 	SIGNAL_HANDLER
 
-	if(!istype(used_item) || used_item.throwforce < 5 || health <= 0)
+	if(!istype(thrown_movable) || thrown_movable.throwforce < 5 || health <= 0)
 		return
 
-	var/mob/living/carbon/human/thrown_by = used_item.thrownby?.resolve()
+	var/mob/living/carbon/human/thrown_by = throwingdatum.get_thrower()
 	if(!ishuman(thrown_by))
 		return
 
@@ -192,7 +192,7 @@
 	investigate_log("has been gibbed due to being emagged by [user].", INVESTIGATE_DEATHS)
 	visible_message(span_boldwarning("[user] swipes a card through [target]!"), span_notice("You overload [target]s internal reactor..."))
 
-	notify_ghosts("[user] has shortcircuited [target] to explode in 60 seconds!",
+	notify_ghosts("[user.real_name] has shortcircuited [target] to explode in 60 seconds!",
 		source = target,
 		notify_flags = NOTIFY_CATEGORY_NOFLASH,
 		header = "Borgi Emagged",

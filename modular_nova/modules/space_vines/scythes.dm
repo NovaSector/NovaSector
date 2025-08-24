@@ -71,7 +71,7 @@
 	category = list(
 		RND_CATEGORY_TOOLS + RND_SUBCATEGORY_TOOLS_BOTANY,
 	)
-	departmental_flags = DEPARTMENT_BITFLAG_SERVICE
+	departmental_flags = DEPARTMENT_BITFLAG_SERVICE | DEPARTMENT_BITFLAG_SECURITY
 
 /datum/design/scythe/tier2
 	name = "Scythe (Tier 2)"
@@ -81,6 +81,24 @@
 		/datum/material/glass = HALF_SHEET_MATERIAL_AMOUNT,
 	)
 	build_path = /obj/item/scythe/tier2
+
+/datum/design/scythe/tier3
+	name = "Scythe (Tier 3)"
+	id = "scythet3"
+	materials = list(
+		/datum/material/iron = HALF_SHEET_MATERIAL_AMOUNT,
+		/datum/material/glass = HALF_SHEET_MATERIAL_AMOUNT,
+	)
+	build_path = /obj/item/scythe/tier3
+
+/datum/design/scythe/tier4
+	name = "Scythe (Tier 4)"
+	id = "scythet4"
+	materials = list(
+		/datum/material/iron = HALF_SHEET_MATERIAL_AMOUNT,
+		/datum/material/glass = HALF_SHEET_MATERIAL_AMOUNT,
+	)
+	build_path = /obj/item/scythe/tier4
 
 /datum/techweb_node/scythe_t1
 	id = TECHWEB_NODE_SCYTHE_1
@@ -92,6 +110,7 @@
 	)
 	research_costs = list(TECHWEB_POINT_TYPE_GENERIC = TECHWEB_TIER_1_POINTS)
 	discount_experiments = list(/datum/experiment/scanning/random/plants/wild = TECHWEB_TIER_1_POINTS)
+	announce_channels = list(RADIO_CHANNEL_SERVICE, RADIO_CHANNEL_SECURITY)
 
 /datum/techweb_node/scythe_t2
 	id = TECHWEB_NODE_SCYTHE_2
@@ -103,6 +122,31 @@
 	)
 	research_costs = list(TECHWEB_POINT_TYPE_GENERIC = TECHWEB_TIER_2_POINTS)
 	discount_experiments = list(/datum/experiment/scanning/random/plants/wild = TECHWEB_TIER_2_POINTS)
+	announce_channels = list(RADIO_CHANNEL_SERVICE, RADIO_CHANNEL_SECURITY)
+
+/datum/techweb_node/scythe_t3
+	id = TECHWEB_NODE_SCYTHE_3
+	display_name = "Scythe (Tier 3)"
+	description = "Culling tools"
+	prereq_ids = list(TECHWEB_NODE_EXP_TOOLS, TECHWEB_NODE_CHEM_SYNTHESIS, TECHWEB_NODE_BOTANY_EQUIP)
+	design_ids = list(
+		"scythet3",
+	)
+	research_costs = list(TECHWEB_POINT_TYPE_GENERIC = TECHWEB_TIER_3_POINTS)
+	discount_experiments = list(/datum/experiment/scanning/random/plants/wild = TECHWEB_TIER_3_POINTS)
+	announce_channels = list(RADIO_CHANNEL_SERVICE, RADIO_CHANNEL_SECURITY)
+
+/datum/techweb_node/scythe_t4
+	id = TECHWEB_NODE_SCYTHE_4
+	display_name = "Scythe (Tier 4)"
+	description = "Culling tools"
+	prereq_ids = list(TECHWEB_NODE_SCYTHE_4)
+	design_ids = list(
+		"scythet4",
+	)
+	research_costs = list(TECHWEB_POINT_TYPE_GENERIC = TECHWEB_TIER_4_POINTS)
+	discount_experiments = list(/datum/experiment/scanning/random/plants/wild = TECHWEB_TIER_4_POINTS)
+	announce_channels = list(RADIO_CHANNEL_SERVICE, RADIO_CHANNEL_SECURITY)
 
 /datum/supply_pack/organic/tier3_scythe
 	name = "Tier 3 Scythe"

@@ -23,8 +23,8 @@ GLOBAL_DATUM_INIT(language_holder_adjustor, /datum/language_holder_adjustor, new
 	language_holder.adjust_languages_to_prefs(new_crewmember.client?.prefs)
 
 /datum/language_holder_adjustor/Destroy()
-	..()
 	UnregisterSignal(SSdcs, COMSIG_GLOB_CREWMEMBER_JOINED)
+	return ..()
 
 /datum/language_holder/proc/adjust_languages_to_prefs(datum/preferences/preferences)
 	// no prefs? then don't remove any languages
@@ -33,10 +33,11 @@ GLOBAL_DATUM_INIT(language_holder_adjustor, /datum/language_holder_adjustor, new
 
 	// remove the innate languages (like common, and other species languages) and instead use the language prefs
 	// do not remove any languages granted by spawners, which are denoted by source = LANGUAGE_SPAWNER
-	remove_languages_by_source(list(LANGUAGE_MIND, LANGUAGE_ATOM, LANGUAGE_SPECIES))
+	remove_languages_by_source(list(LANGUAGE_MIND, LANGUAGE_ATOM, LANGUAGE_SPECIES, LANGUAGE_TONGUE))
+	selected_language = null // reset it to recalculate after applying our prefs
 
 	for(var/lang_path in preferences.languages)
-		grant_language(lang_path)
+		grant_language(lang_path, (preferences.languages[lang_path] == LANGUAGE_SPOKEN ? ALL : UNDERSTOOD_LANGUAGE))
 
 	get_selected_language()
 
