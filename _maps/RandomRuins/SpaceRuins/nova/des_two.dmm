@@ -4828,7 +4828,6 @@
 	pixel_y = -4
 	},
 /obj/item/ammo_workbench_module/lethal_super/evil,
-/obj/item/ammo_workbench_reboot,
 /turf/open/floor/mineral/plastitanium/red,
 /area/ruin/space/has_grav/nova/des_two/security/armory)
 "vu" = (

@@ -1,7 +1,7 @@
 //antag
 /datum/antagonist/traitor/marauder
 	name = "Marauder"
-	job_rank = ROLE_MARAUDER
+	pref_flag = ROLE_MARAUDER
 	roundend_category = "Marauders"
 	preview_outfit = /datum/outfit/marauder_preview
 	show_to_ghosts = TRUE
