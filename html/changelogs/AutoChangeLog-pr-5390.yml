@@ -1,5 +1,0 @@
-author: "TheSS13Melon"
-delete-after: True
-changes:
-  - config: "Changes weights in ICES, opening up for a wider variety of events."
-  - bugfix: "Scrubber clog was incorrectly"
