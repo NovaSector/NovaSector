@@ -98,7 +98,7 @@
 	inhand_icon_state = "renoster_super"
 	bolt_wording = "bolt"
 	lore_blurb = "The Kolben is an overhaul of the robust M64 shotgun of SolFed fame, improving on an already lethal design.<br><br>\
-		More precisely, the Archon Combat Systems \"KOLBEN-KASUAR\" suite (as it's officially known) is an upgrade and accessory set for the M64, \
+		More precisely, the Archon Combat Systems \"KOLBEN/KASUAR\" suite (as it's officially known) is an upgrade and accessory set for the M64, \
 		consisting of a hardened receiver parts kit, extended magazine tube, smartlink sight, hybridized handguard-smartlink aiming module, \
 		and an integrated barrel charger providing improved ballistic performance, with an optional overclock mode tied to manual bolt actuation. \
 		None of this, however, comes cheap, especially to the civilian market, which means that examples of the Kolben only typically appear in the collections \
