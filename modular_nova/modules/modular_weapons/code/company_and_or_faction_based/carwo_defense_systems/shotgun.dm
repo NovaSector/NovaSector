@@ -90,6 +90,10 @@
 	can_suppress = FALSE
 	can_be_sawn_off = FALSE
 	accepted_magazine_type = /obj/item/ammo_box/magazine/internal/shot/sol_super
+	unique_reskin = list(
+		"Standard" = "renoster_super",
+		"Shadowed" = "renoster_super_dark",
+	)
 	icon_state = "renoster_super"
 	inhand_icon_state = "renoster_super"
 	bolt_wording = "bolt"
