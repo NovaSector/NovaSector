@@ -155,7 +155,7 @@
 		exposed_obj.add_blood_DNA(list("[source.data?["blood_DNA"] || blood_type.dna_string]" = blood_type))
 
 	if (!(blood_type.blood_flags & BLOOD_TRANSFER_VIRAL_DATA) || !source.data?["viruses"])
-		returns
+		return
 
 	var/list/viruses_to_add = list()
 	for (var/datum/disease/virus in source.data["viruses"])
