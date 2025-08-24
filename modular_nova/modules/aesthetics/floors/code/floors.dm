@@ -17,10 +17,35 @@
 		/obj/item/stack/tile/iron/herringbone,
 		/obj/item/stack/tile/iron/brick,
 		/obj/item/stack/tile/iron/brick_half,
+		/obj/item/stack/tile/iron/brick_half_vertical,
 		/obj/item/stack/tile/iron/brick_corner,
 		/obj/item/stack/tile/iron/brick_corner_inverse,
 		/obj/item/stack/tile/iron/brick_corner_vertical,
 		/obj/item/stack/tile/iron/brick_corner_vertical_inverse,
+		/obj/item/stack/tile/iron/brick_aligned,
+		/obj/item/stack/tile/iron/brick_aligned_half,
+		/obj/item/stack/tile/iron/brick_aligned_half_vertical,
+		/obj/item/stack/tile/iron/brick_aligned_corner,
+		/obj/item/stack/tile/iron/brick_aligned_corner_inverse,
+		/obj/item/stack/tile/iron/brick_aligned_corner_vertical,
+		/obj/item/stack/tile/iron/brick_aligned_corner_vertical_inverse,
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 		/obj/item/stack/tile/iron/dark,
 		/obj/item/stack/tile/iron/dark/smooth_edge,
 		/obj/item/stack/tile/iron/dark/smooth_half,
@@ -29,12 +54,6 @@
 		/obj/item/stack/tile/iron/dark/small,
 		/obj/item/stack/tile/iron/dark/diagonal,
 		/obj/item/stack/tile/iron/dark/herringbone,
-		/obj/item/stack/tile/iron/dark/brick,
-		/obj/item/stack/tile/iron/dark/brick_half,
-		/obj/item/stack/tile/iron/dark/brick_corner,
-		/obj/item/stack/tile/iron/dark/brick_corner_inverse,
-		/obj/item/stack/tile/iron/dark/brick_corner_vertical,
-		/obj/item/stack/tile/iron/dark/brick_corner_vertical_inverse,
 		/obj/item/stack/tile/iron/dark_side,
 		/obj/item/stack/tile/iron/dark_corner,
 		/obj/item/stack/tile/iron/checker,
@@ -46,12 +65,32 @@
 		/obj/item/stack/tile/iron/white/small,
 		/obj/item/stack/tile/iron/white/diagonal,
 		/obj/item/stack/tile/iron/white/herringbone,
-		/obj/item/stack/tile/iron/white/brick,
-		/obj/item/stack/tile/iron/white/brick_half,
-		/obj/item/stack/tile/iron/white/brick_corner,
-		/obj/item/stack/tile/iron/white/brick_corner_inverse,
-		/obj/item/stack/tile/iron/white/brick_corner_vertical,
-		/obj/item/stack/tile/iron/white/brick_corner_vertical_inverse,
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 		/obj/item/stack/tile/iron/white_side,
 		/obj/item/stack/tile/iron/white_corner,
 		/obj/item/stack/tile/iron/cafeteria,
@@ -108,6 +147,8 @@
 * Standard Tiles
 */
 
+/// Granted this could go elsewhere, but it works here just fine for now.
+
 /turf/open/floor/iron/brick
 	icon_state = "brick"
 	base_icon_state = "brick"
@@ -136,14 +177,28 @@
 	merge_type = /obj/item/stack/tile/iron/brick_half
 	tile_rotate_dirs = list(SOUTH, NORTH, EAST, WEST)
 
+/turf/open/floor/iron/brick_half_vertical
+	icon_state = "brick_half_vertical"
+	base_icon_state = "brick_half_vertical"
+	floor_tile = /obj/item/stack/tile/iron/brick_half_vertical
+
+/obj/item/stack/tile/iron/brick_half_vertical
+	name = "half brick floor tile"
+	singular_name = "brick floor tile"
+	icon = 'modular_nova/modules/aesthetics/floors/icons/tiles.dmi'
+	icon_state = "brick_half_vertical"
+	turf_type = /turf/open/floor/iron/brick_half_vertical
+	merge_type = /obj/item/stack/tile/iron/brick_half_vertical
+	tile_rotate_dirs = list(SOUTH, NORTH, EAST, WEST)
+
 /turf/open/floor/iron/brick_corner
 	icon_state = "brick_corner"
 	base_icon_state = "brick_corner"
 	floor_tile = /obj/item/stack/tile/iron/brick_corner
 
 /obj/item/stack/tile/iron/brick_corner
-	name = "brick corner floor tile"
-	singular_name = "brick corner floor tile"
+	name = "half brick floor tile"
+	singular_name = "brick floor tile"
 	icon = 'modular_nova/modules/aesthetics/floors/icons/tiles.dmi'
 	icon_state = "brick_corner"
 	turf_type = /turf/open/floor/iron/brick_corner
@@ -156,7 +211,7 @@
 	floor_tile = /obj/item/stack/tile/iron/brick_corner_inverse
 
 /obj/item/stack/tile/iron/brick_corner_inverse
-	name = "brick inverse floor tile"
+	name = "half brick floor tile"
 	singular_name = "brick floor tile"
 	icon = 'modular_nova/modules/aesthetics/floors/icons/tiles.dmi'
 	icon_state = "brick_corner_inverse"
@@ -170,7 +225,7 @@
 	floor_tile = /obj/item/stack/tile/iron/brick_corner_vertical
 
 /obj/item/stack/tile/iron/brick_corner_vertical
-	name = "brick corner vertical floor tile"
+	name = "half brick floor tile"
 	singular_name = "brick floor tile"
 	icon = 'modular_nova/modules/aesthetics/floors/icons/tiles.dmi'
 	icon_state = "brick_corner_vertical"
@@ -184,13 +239,112 @@
 	floor_tile = /obj/item/stack/tile/iron/brick_corner_vertical_inverse
 
 /obj/item/stack/tile/iron/brick_corner_vertical_inverse
-	name = "brick corner vertical inverse floor tile"
+	name = "half brick floor tile"
 	singular_name = "brick floor tile"
 	icon = 'modular_nova/modules/aesthetics/floors/icons/tiles.dmi'
 	icon_state = "brick_corner_vertical_inverse"
 	turf_type = /turf/open/floor/iron/brick_corner_vertical_inverse
 	merge_type = /obj/item/stack/tile/iron/brick_corner_vertical_inverse
 	tile_rotate_dirs = list(SOUTH, NORTH, EAST, WEST)
+
+/turf/open/floor/iron/brick_aligned
+	icon_state = "brick_aligned"
+	base_icon_state = "brick_aligned"
+	floor_tile = /obj/item/stack/tile/iron/brick_aligned
+
+/obj/item/stack/tile/iron/brick_aligned
+	name = "half brick floor tile"
+	singular_name = "brick floor tile"
+	icon = 'modular_nova/modules/aesthetics/floors/icons/tiles.dmi'
+	icon_state = "brick_aligned"
+	turf_type = /turf/open/floor/iron/brick_aligned
+	merge_type = /obj/item/stack/tile/iron/brick_aligned
+	tile_rotate_dirs = list(SOUTH, NORTH, EAST, WEST)
+
+/turf/open/floor/iron/brick_aligned_half
+	icon_state = "brick_aligned_half"
+	base_icon_state = "brick_aligned_half"
+	floor_tile = /obj/item/stack/tile/iron/brick_aligned_half
+
+/obj/item/stack/tile/iron/brick_aligned_half
+	name = "half brick floor tile"
+	singular_name = "brick floor tile"
+	icon = 'modular_nova/modules/aesthetics/floors/icons/tiles.dmi'
+	icon_state = "brick_aligned_half"
+	turf_type = /turf/open/floor/iron/brick_aligned_half
+	merge_type = /obj/item/stack/tile/iron/brick_aligned_half
+	tile_rotate_dirs = list(SOUTH, NORTH, EAST, WEST)
+
+/turf/open/floor/iron/brick_aligned_half_vertical
+	icon_state = "brick_aligned_half_vertical"
+	base_icon_state = "brick_aligned_half_vertical"
+	floor_tile = /obj/item/stack/tile/iron/brick_aligned_half_vertical
+
+/obj/item/stack/tile/iron/brick_aligned_half_vertical
+	name = "half brick floor tile"
+	singular_name = "brick floor tile"
+	icon = 'modular_nova/modules/aesthetics/floors/icons/tiles.dmi'
+	icon_state = "brick_aligned_half_vertical"
+	turf_type = /turf/open/floor/iron/brick_aligned_half_vertical
+	merge_type = /obj/item/stack/tile/iron/brick_aligned_half_vertical
+	tile_rotate_dirs = list(SOUTH, NORTH, EAST, WEST)
+
+/turf/open/floor/iron/brick_aligned_corner
+	icon_state = "brick_aligned_corner"
+	base_icon_state = "brick_aligned_corner"
+	floor_tile = /obj/item/stack/tile/iron/brick_aligned_corner
+
+/obj/item/stack/tile/iron/brick_aligned_corner
+	name = "half brick floor tile"
+	singular_name = "brick floor tile"
+	icon = 'modular_nova/modules/aesthetics/floors/icons/tiles.dmi'
+	icon_state = "brick_aligned_corner"
+	turf_type = /turf/open/floor/iron/brick_aligned_corner
+	merge_type = /obj/item/stack/tile/iron/brick_aligned_corner
+	tile_rotate_dirs = list(SOUTH, NORTH, EAST, WEST)
+
+/turf/open/floor/iron/brick_aligned_corner_inverse
+	icon_state = "brick_aligned_corner_inverse"
+	base_icon_state = "brick_aligned_corner_inverse"
+	floor_tile = /obj/item/stack/tile/iron/brick_aligned_corner_inverse
+
+/obj/item/stack/tile/iron/brick_aligned_corner_inverse
+	name = "half brick floor tile"
+	singular_name = "brick floor tile"
+	icon = 'modular_nova/modules/aesthetics/floors/icons/tiles.dmi'
+	icon_state = "brick_aligned_corner_inverse"
+	turf_type = /turf/open/floor/iron/brick_aligned_corner_inverse
+	merge_type = /obj/item/stack/tile/iron/brick_aligned_corner_inverse
+	tile_rotate_dirs = list(SOUTH, NORTH, EAST, WEST)
+
+/turf/open/floor/iron/brick_aligned_corner_vertical
+	icon_state = "brick_aligned_corner_vertical"
+	base_icon_state = "brick_aligned_corner_vertical"
+	floor_tile = /obj/item/stack/tile/iron/brick_aligned_corner_vertical
+
+/obj/item/stack/tile/iron/brick_aligned_corner_vertical
+	name = "half brick floor tile"
+	singular_name = "brick floor tile"
+	icon = 'modular_nova/modules/aesthetics/floors/icons/tiles.dmi'
+	icon_state = "brick_aligned_corner_vertical"
+	turf_type = /turf/open/floor/iron/brick_aligned_corner_vertical
+	merge_type = /obj/item/stack/tile/iron/brick_aligned_corner_vertical
+	tile_rotate_dirs = list(SOUTH, NORTH, EAST, WEST)
+
+/turf/open/floor/iron/brick_aligned_corner_vertical_inverse
+	icon_state = "brick_aligned_corner_vertical_inverse"
+	base_icon_state = "brick_aligned_corner_vertical_inverse"
+	floor_tile = /obj/item/stack/tile/iron/brick_aligned_corner_vertical_inverse
+
+/obj/item/stack/tile/iron/brick_aligned_corner_vertical_inverse
+	name = "half brick floor tile"
+	singular_name = "brick floor tile"
+	icon = 'modular_nova/modules/aesthetics/floors/icons/tiles.dmi'
+	icon_state = "brick_aligned_corner_vertical_inverse"
+	turf_type = /turf/open/floor/iron/brick_aligned_corner_vertical_inverse
+	merge_type = /obj/item/stack/tile/iron/brick_aligned_corner_vertical_inverse
+	tile_rotate_dirs = list(SOUTH, NORTH, EAST, WEST)
+
 
 /*
 * DARK TILES
@@ -224,61 +378,44 @@
 	merge_type = /obj/item/stack/tile/iron/dark/brick_half
 	tile_rotate_dirs = list(SOUTH, NORTH, EAST, WEST)
 
-/turf/open/floor/iron/dark/brick_corner
-	icon_state = "dark_brick_corner"
-	base_icon_state = "dark_brick_corner"
-	floor_tile = /obj/item/stack/tile/iron/dark/brick_corner
 
-/obj/item/stack/tile/iron/dark/brick_corner
-	name = "dark brick corner floor tile"
-	singular_name = "dark brick corner floor tile"
-	icon = 'modular_nova/modules/aesthetics/floors/icons/tiles.dmi'
-	icon_state = "dark_brick_corner"
-	turf_type = /turf/open/floor/iron/dark/brick_corner
-	merge_type = /obj/item/stack/tile/iron/dark/brick_corner
-	tile_rotate_dirs = list(SOUTH, NORTH, EAST, WEST)
 
-/turf/open/floor/iron/dark/brick_corner_inverse
-	icon_state = "dark_brick_corner_inverse"
-	base_icon_state = "dark_brick_corner_inverse"
-	floor_tile = /obj/item/stack/tile/iron/dark/brick_corner_inverse
 
-/obj/item/stack/tile/iron/dark/brick_corner_inverse
-	name = "dark brick inverse corner floor tile"
-	singular_name = "dark brick inverse corner floor tile"
-	icon = 'modular_nova/modules/aesthetics/floors/icons/tiles.dmi'
-	icon_state = "dark_brick_corner_inverse"
-	turf_type = /turf/open/floor/iron/dark/brick_corner_inverse
-	merge_type = /obj/item/stack/tile/iron/dark/brick_corner_inverse
-	tile_rotate_dirs = list(SOUTH, NORTH, EAST, WEST)
 
-/turf/open/floor/iron/dark/brick_corner_vertical
-	icon_state = "dark_brick_corner_vertical"
-	base_icon_state = "dark_brick_corner_vertical"
-	floor_tile = /obj/item/stack/tile/iron/dark/brick_corner_vertical
 
-/obj/item/stack/tile/iron/dark/brick_corner_vertical
-	name = "dark brick corner vertical floor tile"
-	singular_name = "dark brick corner vertical floor tile"
-	icon = 'modular_nova/modules/aesthetics/floors/icons/tiles.dmi'
-	icon_state = "dark_brick_corner_vertical"
-	turf_type = /turf/open/floor/iron/dark/brick_corner_vertical
-	merge_type = /obj/item/stack/tile/iron/dark/brick_corner_vertical
-	tile_rotate_dirs = list(SOUTH, NORTH, EAST, WEST)
 
-/turf/open/floor/iron/dark/brick_corner_vertical_inverse
-	icon_state = "dark_brick_corner_vertical_inverse"
-	base_icon_state = "dark_brick_corner_vertical_inverse"
-	floor_tile = /obj/item/stack/tile/iron/dark/brick_corner_vertical_inverse
 
-/obj/item/stack/tile/iron/dark/brick_corner_vertical_inverse
-	name = "dark brick corner vertical inverse floor tile"
-	singular_name = "dark brick corner vertical inverse floor tile"
-	icon = 'modular_nova/modules/aesthetics/floors/icons/tiles.dmi'
-	icon_state = "dark_brick_corner_vertical_inverse"
-	turf_type = /turf/open/floor/iron/dark/brick_corner_vertical_inverse
-	merge_type = /obj/item/stack/tile/iron/dark/brick_corner_vertical_inverse
-	tile_rotate_dirs = list(SOUTH, NORTH, EAST, WEST)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 /*
 * WHITE TILES
@@ -310,60 +447,4 @@
 	icon_state = "white_brick_half"
 	turf_type = /turf/open/floor/iron/white/brick_half
 	merge_type = /obj/item/stack/tile/iron/white/brick_half
-	tile_rotate_dirs = list(SOUTH, NORTH, EAST, WEST)
-
-/turf/open/floor/iron/white/brick_corner
-	icon_state = "white_brick_corner"
-	base_icon_state = "white_brick_corner"
-	floor_tile = /obj/item/stack/tile/iron/white/brick_corner
-
-/obj/item/stack/tile/iron/white/brick_corner
-	name = "white brick corner floor tile"
-	singular_name = "white brick corner floor tile"
-	icon = 'modular_nova/modules/aesthetics/floors/icons/tiles.dmi'
-	icon_state = "white_brick_corner"
-	turf_type = /turf/open/floor/iron/white/brick_corner
-	merge_type = /obj/item/stack/tile/iron/white/brick_corner
-	tile_rotate_dirs = list(SOUTH, NORTH, EAST, WEST)
-
-/turf/open/floor/iron/white/brick_corner_inverse
-	icon_state = "white_brick_corner_inverse"
-	base_icon_state = "white_brick_corner_inverse"
-	floor_tile = /obj/item/stack/tile/iron/white/brick_corner_inverse
-
-/obj/item/stack/tile/iron/white/brick_corner_inverse
-	name = "white brick inverse corner floor tile"
-	singular_name = "white brick inverse corner floor tile"
-	icon = 'modular_nova/modules/aesthetics/floors/icons/tiles.dmi'
-	icon_state = "white_brick_corner_inverse"
-	turf_type = /turf/open/floor/iron/white/brick_corner_inverse
-	merge_type = /obj/item/stack/tile/iron/white/brick_corner_inverse
-	tile_rotate_dirs = list(SOUTH, NORTH, EAST, WEST)
-
-/turf/open/floor/iron/white/brick_corner_vertical
-	icon_state = "white_brick_corner_vertical"
-	base_icon_state = "white_brick_corner_vertical"
-	floor_tile = /obj/item/stack/tile/iron/white/brick_corner_vertical
-
-/obj/item/stack/tile/iron/white/brick_corner_vertical
-	name = "white brick corner vertical floor tile"
-	singular_name = "white brick corner vertical floor tile"
-	icon = 'modular_nova/modules/aesthetics/floors/icons/tiles.dmi'
-	icon_state = "white_brick_corner_vertical"
-	turf_type = /turf/open/floor/iron/white/brick_corner_vertical
-	merge_type = /obj/item/stack/tile/iron/white/brick_corner_vertical
-	tile_rotate_dirs = list(SOUTH, NORTH, EAST, WEST)
-
-/turf/open/floor/iron/white/brick_corner_vertical_inverse
-	icon_state = "white_brick_corner_vertical_inverse"
-	base_icon_state = "white_brick_corner_vertical_inverse"
-	floor_tile = /obj/item/stack/tile/iron/white/brick_corner_vertical_inverse
-
-/obj/item/stack/tile/iron/white/brick_corner_vertical_inverse
-	name = "white brick corner vertical inverse floor tile"
-	singular_name = "white brick corner vertical inverse floor tile"
-	icon = 'modular_nova/modules/aesthetics/floors/icons/tiles.dmi'
-	icon_state = "white_brick_corner_vertical_inverse"
-	turf_type = /turf/open/floor/iron/white/brick_corner_vertical_inverse
-	merge_type = /obj/item/stack/tile/iron/white/brick_corner_vertical_inverse
 	tile_rotate_dirs = list(SOUTH, NORTH, EAST, WEST)
