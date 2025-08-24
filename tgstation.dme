@@ -8673,6 +8673,7 @@
 #include "modular_nova\modules\modular_weapons\code\company_and_or_faction_based\bolt_fabrications\magazine.dm"
 #include "modular_nova\modules\modular_weapons\code\company_and_or_faction_based\bolt_fabrications\pistol.dm"
 #include "modular_nova\modules\modular_weapons\code\company_and_or_faction_based\carwo_defense_systems\advert.dm"
+#include "modular_nova\modules\modular_weapons\code\company_and_or_faction_based\carwo_defense_systems\conversion_kits.dm"
 #include "modular_nova\modules\modular_weapons\code\company_and_or_faction_based\carwo_defense_systems\grenade_launcher.dm"
 #include "modular_nova\modules\modular_weapons\code\company_and_or_faction_based\carwo_defense_systems\gunsets.dm"
 #include "modular_nova\modules\modular_weapons\code\company_and_or_faction_based\carwo_defense_systems\magazines.dm"

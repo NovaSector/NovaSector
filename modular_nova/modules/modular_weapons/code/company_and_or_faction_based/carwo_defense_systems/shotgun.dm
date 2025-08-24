@@ -71,7 +71,7 @@
 // Shotgun but EVIL!
 
 /obj/item/gun/ballistic/shotgun/riot/sol/evil
-	desc = parent_type::desc + "This one is painted in a tacticool black."
+	desc = parent_type::desc + " This one is painted in a tacticool black."
 
 	icon_state = "renoster_evil"
 	worn_icon_state = "renoster_evil"
@@ -84,9 +84,10 @@
 	ammo_type = /obj/item/ammo_casing/shotgun/flechette_nova
 
 /obj/item/gun/ballistic/shotgun/riot/sol/super
-	name = "\improper Kolben enhanced combat shotgun"
+	name = "\improper Nachtreiher combat shotgun"
 	desc = "A robust twelve-gauge shotgun with an extended ten-shell top-mounted magazine tube and integrated barrel charger. \
-	A specialist's shotgun for very specific purposes; typically, the reunion of men with their ancestors."
+		A fine choice for those who swore to bring order to chaos."
+	desc_controls = "Use the action button to toggle the barrel charger, increasing projectile speed and damage but reducing firerate and requiring manual bolt racking."
 	can_suppress = FALSE
 	can_be_sawn_off = FALSE
 	accepted_magazine_type = /obj/item/ammo_box/magazine/internal/shot/sol_super
@@ -97,14 +98,12 @@
 	icon_state = "renoster_super"
 	inhand_icon_state = "renoster_super"
 	bolt_wording = "bolt"
-	lore_blurb = "The Kolben is an overhaul of the robust M64 shotgun of SolFed fame, improving on an already lethal design.<br><br>\
-		More precisely, the Archon Combat Systems \"KOLBEN/KASUAR\" suite (as it's officially known) is an upgrade and accessory set for the M64, \
-		consisting of a hardened receiver parts kit, extended magazine tube, smartlink sight, hybridized handguard-smartlink aiming module, \
-		and an integrated barrel charger providing improved ballistic performance, with an optional overclock mode tied to manual bolt actuation. \
-		None of this, however, comes cheap, especially to the civilian market, which means that examples of the Kolben only typically appear in the collections \
-		of wealthy trend-chasers or paramilitary groups with more funding than regard for sapient life."
-	projectile_damage_multiplier = 1.35
-	projectile_speed_multiplier = 1
+	lore_blurb = "The Nachtreiher is an overhaul of the robust M64 shotgun of SolFed fame, improving on an already lethal design.<br><br>\
+		More precisely, the Archon Combat Systems \"KOLBEN/NACHTREIHER\" suite (as it's officially known) is an upgrade and accessory set for the M64, \
+		featuring a semi-automatic conversion kit, extended magazine tube, smartlink sight, and smartsight handguard. \
+		An auxiliary barrel charger provides improved ballistic performance, but, when activated, \
+		disables semi-automatic function and limits firerate in order to prevent catastrophic failure. \
+		None of this, however, comes cheap, which means that examples of Nachtreiher overhauls are an uncommon sight."
 	rack_delay = 0.5 SECONDS
 	fire_delay = 0.4 SECONDS
 	semi_auto = TRUE
@@ -121,11 +120,11 @@
 	AddComponent(\
 		/datum/component/gun_booster, \
 		booster_action = /datum/action/item_action/booster/sol_super, \
-		base_damage_mult = 1.35, \
+		base_damage_mult = 1, \
 		base_speed_mult = 1, \
 		base_fire_delay = 0.4 SECONDS, \
-		amped_damage_mult = 1.75, \
-		amped_speed_mult = 1.5, \
+		amped_damage_mult = 1.35, \
+		amped_speed_mult = 1.25, \
 		amped_fire_delay = 1 SECONDS, \
 	)
 	RegisterSignal(src, COMSIG_GUN_BOOSTER_TOGGLED, PROC_REF(on_booster_toggle))
@@ -161,7 +160,7 @@
 /datum/action/item_action/booster/sol_super
 	button_icon = 'modular_nova/modules/modular_weapons/icons/obj/company_and_or_faction_based/carwo_defense_systems/guns32x.dmi'
 	button_icon_state = "hbarrel"
-	name = "Overclock Shotgun Barrel Charger"
+	name = "Toggle Shotgun Barrel Charger"
 
 /obj/item/ammo_box/magazine/internal/shot/sol_super
 	ammo_type = /obj/item/ammo_casing/shotgun/flechette
@@ -169,3 +168,38 @@
 
 /obj/item/ammo_box/magazine/internal/shot/sol_super/empty
 	start_empty = TRUE
+
+/obj/item/gun/ballistic/shotgun/riot/sol/super/plus
+	name = "\improper Kasuar enhanced assault shotgun"
+	desc = "A concerningly robust twelve-gauge shotgun with an extended ten-shell top-mounted magazine tube and integrated barrel charger. \
+		A specialist's shotgun for very specific purposes, such as the reunion of men with their ancestors."
+	icon_state = "renoster_super2"
+	unique_reskin = list(
+		"Standard" = "renoster_super2",
+		"Shadowed" = "renoster_super2_dark",
+	)
+	lore_blurb = "The Kasuar is an extensive overhaul of the robust M64 shotgun of SolFed fame, improving on an already lethal design.<br><br>\
+		More precisely, the Archon Combat Systems \"KOLBEN/KASUAR\" suite (as it's officially known) is an upgrade and accessory set for the M64, \
+		consisting of a hardened semi-automatic overhaul suite, extended magazine tube, smartlink sight, hybridized handguard-smartlink aiming module, \
+		and an integrated duplex barrel charger providing innately improved ballistic performance, \
+		with an optional overclock mode tied to manual bolt actuation. \
+		None of this, however, comes cheap, especially to the civilian market, \
+		which means that examples of the Kolben only typically appear in the collections \
+		of wealthy trend-chasers or paramilitary groups with more funding than regard for sapient life."
+	projectile_damage_multiplier = 1.35
+
+/datum/action/item_action/booster/sol_super/plus
+	name = "Overclock Shotgun Barrel Charger"
+
+/obj/item/gun/ballistic/shotgun/riot/sol/super/plus/Initialize(mapload)
+	. = ..()
+	AddComponent(\
+		/datum/component/gun_booster, \
+		booster_action = /datum/action/item_action/booster/sol_super/plus, \
+		base_damage_mult = 1.35, \
+		base_speed_mult = 1, \
+		base_fire_delay = 0.4 SECONDS, \
+		amped_damage_mult = 1.75, \
+		amped_speed_mult = 1.5, \
+		amped_fire_delay = 1 SECONDS, \
+	)
