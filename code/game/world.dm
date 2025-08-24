@@ -355,6 +355,7 @@ GLOBAL_VAR(restart_counter)
 	QDEL_NULL(Tracy)
 	QDEL_NULL(Debugger)
 
+	rustg_iconforge_cleanup() // NOVA EDIT ADDITION
 	TgsReboot() // TGS can decide to kill us right here, so it's important to do it last
 
 	..()
