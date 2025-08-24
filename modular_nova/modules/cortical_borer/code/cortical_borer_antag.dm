@@ -95,7 +95,7 @@
 	midround_type = LIGHT_MIDROUND
 	pref_flag = ROLE_BORER
 	weight = 3
-	min_pop = 20
+	min_pop = 50
 	repeatable = TRUE
 	/// List of on-station vents
 	var/list/vents = list()
