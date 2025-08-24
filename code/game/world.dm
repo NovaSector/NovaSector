@@ -127,7 +127,6 @@ GLOBAL_VAR(restart_counter)
  */
 /world/New()
 	log_world("World loaded at [time_stamp()]!")
-	rustg_iconforge_cleanup() // NOVA EDIT ADDITION
 
 	// From a really fucking old commit (91d7150)
 	// I wanted to move it but I think this needs to be after /world/New is called but before any sleeps?
@@ -144,6 +143,7 @@ GLOBAL_VAR(restart_counter)
 	if(NO_INIT_PARAMETER in params)
 		return
 
+	rustg_iconforge_cleanup() // NOVA EDIT ADDITION
 	Master.Initialize(10, FALSE, TRUE)
 
 	RunUnattendedFunctions()
