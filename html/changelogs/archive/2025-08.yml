@@ -683,3 +683,82 @@
   BasilTamaya:
   - qol: Psionic Holding now tells you if you're holding something telekinetically
       or not.
+  DirectCause:
+  - bugfix: Razorwire and Shell launcher cyberimps are no longer displayed as if they
+      are on the opposite hand
+  Hatterhat:
+  - rscadd: Interdyne scientists can now drink Doctor's Delight for healing without
+      losing nutriment, as their livers have gained medically-inclined metabolism.
+  - bugfix: Ghost roles with jobs now properly apply their jobs' liver traits.
+  - rscadd: Following the release of the BR-38, Nanotrasen has begun to roll out the
+      even more experimental NT/E "Laevateinn" parts kit, for augmenting .38 revolvers
+      (including the Colt Detective Special). Consult your local cargo console's goodies
+      tab for details.
+  OrbisAnima:
+  - qol: Stasis Beds now report in the medical channel if someone is buckled to them.
+      This can be changed with a multitool on their boards, come on by default if
+      the bed is created on an NT space, or off if its not the case.
+  - balance: Stasis Beds no longer let you do surgeries while its on. (You can turn
+      it off with alt click)
+  Stalkeros for the code, Hollandaise for the sprites:
+  - rscadd: "After many months of arguing semantics and finding loopholes to increase\
+      \ revenue, \u017Daibas plasma pulse projector, a unique high-capacity hybrid\
+      \ assault rifle has been released to the open markets; with a limited, civilian\
+      \ market-oriented magazine capacity."
+  - rscadd: "Furthermore, a modification of the rifle for long range engagements,\
+      \ under the postfix \"A\" (thus, \"\u017Daibas-A\"), has been released to the\
+      \ civilian markets."
+  - rscadd: And a plasma-pulse ammo box that's actually an ammo canister uh-huh.
+2025-08-21:
+  OrbisAnima:
+  - qol: The Shuttle Construction Starter Kit now brings 50 shuttle rods with it,
+      and requires no special access to order it.
+  vinylspiders:
+  - bugfix: venus human traps cannot drag bodies into their nests (once again)
+2025-08-22:
+  Absolucy:
+  - spellcheck: 'PR announcements should now say "X merged by Y: ..." instead of "X
+      merged Y: ..."'
+  Balls2zawall:
+  - bugfix: Changes the Encryption key for the SolFed EMT's headset to be the proper
+      one
+  - rscadd: Changes the SolFed EMT's loadout to have a health HUD and more tools,
+      as well as giving them a box of epi-pens
+  - rscadd: Creates a SolFed Medical ID trim, to give EMT's access around the station
+  CliffracerX:
+  - rscdel: Points system from ammo benches & reload disks
+  - balance: increased material costs for milspec & flechettes
+  Hatterhat:
+  - image: The Miecz has been restored back to its classic bullpup stick-mag form.
+      Those who suggest that the Miecz was, actually, yet another iteration of a 618-year-old
+      rifle design are clearly from people who need to get their brains checked by
+      Medbay for plasma exposure and poisoning.
+  - balance: .27-54 Cesarzowa is back to being more in-line with a pistol-caliber
+      round. Except, you know, still keeping its 30 AP. (That's gotta be worth something.)
+  Iajret:
+  - bugfix: Random characters created from Cargodise Lost spawners should now have
+      proper random names and not 'Freighter Crew'
+  - bugfix: Same holds true for BMD. No longer will you have 'a black market dealer'
+      as random char name
+  RealWinterFrost:
+  - admin: Player panel has a preference for admins for those who wish to use the
+      legacy panel.
+  - admin: Splurt-tg station player panel has been ported for admins
+  Stalkeros for the code, Hollandaise for the sprites, Golden Freddy for the flag design:
+  - rscadd: Heliostatic Coalition flag, replacing all the NRI flags. But what is so-called
+      "NRI"? Have you heard of it? I have no idea! Must have been the wind?
+  - rscdel: Certain fictional country that doesn't exist's flag.
+  carpotoxin:
+  - qol: Spacevines that grow on open or space turfs now have odds to create a vine
+      floortile
+  - balance: Tier 3 and tier 4 scythes can now be researched, and security can print
+      them
+2025-08-23:
+  Diltyrr:
+  - rscadd: Inverses the regen algorithm for slime people with the water breathing
+      quirk.
+  - rscadd: Disable the damage from ingesting water for slime people with the water
+      breathing quirk.
+  - rscadd: Removes the Hydrophobia toggle for slime people with the water breathing
+      quirk.
+  - rscadd: Added a way to pick a drone name.
