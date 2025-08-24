@@ -9,12 +9,6 @@
 	should_give_codewords = FALSE
 	/// Identifying number of the traitor
 	var/marauder_no
-	/// The turf inside the lazy_template marked as this antag's spawn
-	var/turf/spawnpoint
-	/// The reservation datum, aka where is our map
-	var/datum/turf_reservation/reservation
-	/// The datum which actually holds the map
-	var/datum/lazy_template/midround_traitor/map
 
 /datum/outfit/marauder_preview
 	name = "Marauder (Preview only)"
@@ -82,47 +76,11 @@
 
 /datum/antagonist/traitor/marauder/on_gain()
 	. = ..()
-	map = new
-	reservation = map.lazy_load()
-	//load the shuttle, we don't trust lazy_load with this
-	load_shuttle(marauder_no)
 	//set up our guy
 	set_assignment(owner.current)
 	grant_equipment(owner.current)
 	//load personalized items
 	load_personal_items(owner.current)
-	move_to_spawnpoint(owner.current, marauder_no)
-	RegisterSignal(owner.current, COMSIG_MOVABLE_Z_CHANGED, PROC_REF(on_departure))
-
-/datum/antagonist/traitor/marauder/proc/load_shuttle(marauder_no)
-	var/is_first = FALSE
-	if(marauder_no == 1)
-		is_first = TRUE
-
-	var/datum/map_template/shuttle/marauder_shuttle = SSmapping.shuttle_templates["traitor_default"]
-	var/x = (world.maxx - TRANSITIONEDGE - marauder_shuttle.width - (marauder_no * 10))
-	var/y = (world.maxy - TRANSITIONEDGE - marauder_shuttle.height)
-	var/z
-	if(SSmapping.empty_space)
-		z = SSmapping.empty_space.z_value
-	else
-		//no space level, lets go for the safest next option
-		//lets find a transit z, we will claim the top right corner
-		for(var/datum/space_level/z_level as anything in SSmapping.z_list)
-			if(z_level.traits.Find(ZTRAIT_RESERVED))
-				z = z_level.z_value
-				break
-
-	var/turf/turf = locate(x,y,z)
-	if(!turf)
-		CRASH("[src] found no turf to load its shuttle in")
-	if(!marauder_shuttle.load(turf))
-		CRASH("Loading [marauder_shuttle] failed!")
-	//dock at our port
-	var/obj/docking_port/mobile/mobile_port = is_first ? SSshuttle.getShuttle("traitor") : SSshuttle.getShuttle("traitor_[marauder_no]")
-	mobile_port.destination = is_first ? SSshuttle.getDock("traitor") : SSshuttle.getDock("traitor_[marauder_no]")
-	mobile_port.mode = SHUTTLE_IGNITING
-	mobile_port.setTimer(mobile_port.ignitionTime)
 
 /// this is where we load the personalized note and loadout equipped mannequin
 /datum/antagonist/traitor/marauder/proc/load_personal_items(mob/living/carbon/human/marauder)
@@ -167,67 +125,6 @@
 		marauder.equipOutfit(/datum/outfit/marauder)
 	else
 		marauder.dna.species.pre_equip_species_outfit(marauder.mind?.assigned_role, marauder)
-
-/// get our spawnpoint
-/datum/antagonist/traitor/marauder/proc/set_spawnpoint(marauder_no)
-	spawnpoint = GLOB.traitor_start[marauder_no]
-
-/// move our guy
-/datum/antagonist/traitor/marauder/proc/move_to_spawnpoint(mob/living/carbon/human/marauder, marauder_no)
-	set_spawnpoint(marauder_no)
-	marauder.forceMove(spawnpoint)
-	var/obj/structure/bed/bed = locate(/obj/structure/bed) in spawnpoint.contents
-	var/obj/item/bedsheet/bedsheet = locate(/obj/item/bedsheet) in spawnpoint.contents
-	if(!bed || !bedsheet)
-		return
-	//put them in bed
-	marauder.setDir(SOUTH)
-	bed.buckle_mob(marauder)
-	bedsheet.coverup(marauder)
-
-/// when the marauder flies away from the base, actually procs when landed due to the base starting in transit Z
-/datum/antagonist/traitor/marauder/proc/on_departure(datum/source)
-	SIGNAL_HANDLER
-	//unload the map
-	if(reservation && map)
-		unload_map()
-	//prompt namechange
-	if(!owner.current)
-		return
-	if(!owner.current.client)
-		return
-	UnregisterSignal(owner.current, COMSIG_MOVABLE_Z_CHANGED) //clean up, too
-	INVOKE_ASYNC(src, PROC_REF(prompt_namechange), owner.current, owner.current.client)
-
-/datum/antagonist/traitor/marauder/proc/unload_map()
-	for(var/turf/victimized_turf as anything in reservation.reserved_turfs)
-		victimized_turf.empty()
-	map.reservations -= reservation
-	map = null
-	QDEL_NULL(reservation)
-
-/datum/antagonist/traitor/marauder/proc/prompt_namechange(mob/living/player, client/player_client)
-	var/old_name = player.real_name
-	player.playsound_local(player, 'sound/machines/terminal/terminal_prompt.ogg', 50, FALSE)
-	if(player_client)
-		window_flash(player_client)
-	switch(tgui_alert(
-			player,
-			"Do you wish to take on an alias?",
-			"Change Name?",
-			list("Operative alias", "Random alias", "Keep current name"),
-			1 MINUTES,
-		))
-		if("Operative alias")
-			player.fully_replace_character_name(player.real_name, "[player_client?.prefs?.read_preference(/datum/preference/name/operative_alias)]")
-			player.playsound_local(player, 'sound/machines/terminal/terminal_prompt_confirm.ogg', 50, FALSE)
-			message_admins("[ADMIN_LOOKUPFLW(player)] has taken on [player.p_their()] operative alias, [player.p_their()] previous name was [old_name].")
-		if("Random alias")
-			player.fully_replace_character_name(player.real_name, "[pick(GLOB.operative_aliases)] [syndicate_name()]")
-			player.playsound_local(player, 'sound/machines/terminal/terminal_prompt_confirm.ogg', 50, FALSE)
-			message_admins("[ADMIN_LOOKUPFLW(player)] has taken on a random name, [player.p_their()] previous name was [old_name].")
-		else
-			player.playsound_local(player, 'sound/machines/terminal/terminal_prompt_deny.ogg', 50, FALSE)
 
 //antag job
 /datum/job/marauder
