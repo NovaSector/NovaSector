@@ -1,4 +1,0 @@
-author: "Neocloudy"
-delete-after: True
-changes:
-  - bugfix: "[NOVA] Fixed errors in carbon human breast sprites. See PR #5993 for specific fixes."
