@@ -84,6 +84,11 @@
 	item_path = /obj/item/clothing/under/dress/wedding_dress/ribbon
 	group = "Casualwear"
 
+/datum/loadout_item/under/jumpsuit/gorkas
+	name = "Gorka"
+	item_path = /obj/item/clothing/under/greyscale/gorkas
+	group = "Casualwear"
+
 /datum/loadout_item/under/miscellaneous/camo
 	name = "Pants - Camo (Colorable)"
 	item_path = /obj/item/clothing/under/pants/camo
@@ -230,12 +235,42 @@
 	item_path = /obj/item/clothing/under/dress/nova/pinktutu
 	group = "Casualwear"
 
+/datum/loadout_item/under/miscellaneous/sweater
+	name = "Turtleneck (Cableknit)" //Different than the Suit item ("Sweater")!!
+	item_path = /obj/item/clothing/under/sweater
+	group = "Casualwear"
+
+/datum/loadout_item/under/miscellaneous/keyhole
+	name = "Turtleneck (Keyhole)"
+	item_path = /obj/item/clothing/under/sweater/keyhole
+	group = "Casualwear"
+
+/datum/loadout_item/under/jumpsuit/turtleneck
+	name = "Turtleneck w/ Pants"
+	item_path = /obj/item/clothing/under/greyscale/turtleneck
+	group = "Casualwear"
+
+/datum/loadout_item/under/jumpsuit/skirtleneck
+	name = "Turtleneck w/ Skirt"
+	item_path = /obj/item/clothing/under/greyscale/turtleneck/skirt
+	group = "Casualwear"
+
+/datum/loadout_item/under/miscellaneous/skirt_cableknit //TODO: KILL (Dupe of above)
+	name = "Turtleneck w/ Skirt (Cableknit)"
+	item_path = /obj/item/clothing/under/dress/skirt/nova/turtleskirt_knit
+	group = "Casualwear"
+
 /datum/loadout_item/under/miscellaneous/skirt_turtleneck
-	name = "Turtleneck Skirt"
+	name = "Turtleneck w/ Skirt (Plain)"
 	item_path = /obj/item/clothing/under/dress/skirt/turtleskirt
 	group = "Casualwear"
 
-/datum/loadout_item/under/miscellaneous/skirt_cableknit
-	name = "Turtleneck Skirt - Cableknit"
-	item_path = /obj/item/clothing/under/dress/skirt/nova/turtleskirt_knit
+/datum/loadout_item/under/jumpsuit/overalls
+	name = "Turtleneck w/ Overalls"
+	item_path = /obj/item/clothing/under/greyscale/overalls
+	group = "Casualwear"
+
+/datum/loadout_item/under/jumpsuit/overalls_skirt
+	name = "Turtleneck w/ Overalls Skirt"
+	item_path = /obj/item/clothing/under/greyscale/overalls/skirt
 	group = "Casualwear"
