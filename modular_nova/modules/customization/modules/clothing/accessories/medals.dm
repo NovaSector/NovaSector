@@ -202,7 +202,7 @@ Potential future ideas:
 	desc = "A glowing rock strung from a necklace, a token of gratitude similar to a medal."
 	icon = 'icons/map_icons/clothing/accessory.dmi'
 	icon_state = "/obj/item/clothing/accessory/nova/acc_medal/glowcrystal"
-	post_init_icon_state = "crystal"
+	post_init_icon_state = "necklace_crystal"
 	greyscale_config = /datum/greyscale_config/medals/glow
 	greyscale_config_worn = /datum/greyscale_config/medals/glow/worn
 	greyscale_colors = "#7effff"
