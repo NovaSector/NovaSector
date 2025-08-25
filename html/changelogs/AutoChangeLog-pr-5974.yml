@@ -1,0 +1,6 @@
+author: "RealWinterFrost"
+delete-after: True
+changes:
+  - map: "Added a micro reactor to the film studio ghost role."
+  - map: "added air scrubbers to the film studio."
+  - bugfix: "Film-Studio space ruin is now able to accept custom characters"
