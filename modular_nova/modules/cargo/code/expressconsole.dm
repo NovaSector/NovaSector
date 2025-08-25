@@ -30,8 +30,6 @@
 
 /obj/machinery/computer/cargo/express/interdyne/on_construction(mob/user)
 	. = ..()
-	packin_up()
-
 	/// Should report the player that built the console to the admins, in case anything fucky happens.
 	message_admins("[ADMIN_LOOKUPFLW(usr)] Has built a ghost role imports console ([src.name]) at [AREACOORD(src)].")
 
