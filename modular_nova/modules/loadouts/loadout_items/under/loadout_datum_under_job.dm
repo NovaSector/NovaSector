@@ -2,6 +2,7 @@
 *	WORKWEAR
 *	For job gear or otherwise work-related attire. PPE, Department Equipment, or Job-Locked.
 */
+
 /datum/loadout_item/under/miscellaneous/cargo_skirtle
 	name = "Cargo Skirtleneck"
 	item_path = /obj/item/clothing/under/rank/cargo/tech/nova/turtleneck/skirt
@@ -175,6 +176,7 @@
 *	JOB-BLACKLISTED
 *	No unique group for this because it's fairly niche
 */
+
 /datum/loadout_item/under/jumpsuit/tarkon //Not alphabetical because this is a base-entry for Tarkon blacklisted_roles
 	name = "Tarkon Deck Jumpsuit"
 	item_path = /obj/item/clothing/under/tarkon/general
