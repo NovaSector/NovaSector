@@ -207,15 +207,16 @@ Potential future ideas:
 	greyscale_config_worn = /datum/greyscale_config/medals/glow/worn
 	greyscale_colors = "#7effff"
 	unique_reskin = list(
-		"Crystal" = "crystal",
-		"Bar" = "bar",
-		"Hollow Bar" = "bar_hollow",
-		"Diamond" = "diamond",
-		"Hollow Diamond" = "diamond_hollow",
-		"Shard" = "shard",
-		"Hollow Shard" = "shard_hollow",
-		"Triangle" = "triangle",
-		"Hollow Triangle" = "triangle_hollow",
+		"Crystal" = "necklace_crystal",
+		"Bar" = "necklace_bar",
+		"Hollow Bar" = "necklace_bar_hollow",
+		"Diamond" = "necklace_diamond",
+		"Hollow Diamond" = "necklace_diamond_hollow",
+		"Shard" = "necklace_shard",
+		"Hollow Shard" = "necklace_shard_hollow",
+		"Triangle" = "necklace_triangle",
+		"Hollow Triangle" = "necklace_triangle_hollow",
+		"Circle" = "necklace_circle",
 	)
 
 /obj/item/clothing/accessory/nova/acc_medal/dogtags
