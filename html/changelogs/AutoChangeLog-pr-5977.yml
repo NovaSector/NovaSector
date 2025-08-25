@@ -1,0 +1,9 @@
+author: "CliffracerX"
+delete-after: True
+changes:
+  - rscadd: "Interdyne hyposprays with bespoke 90u vials"
+  - balance: "standardized Mk. II hypospray speeds (1.5-2s standard, 0.5-1s deluxe)"
+  - balance: "nerfed emag interacts for Mk. II hypos (no free AP, only one speed category up)"
+  - balance: "limited hypospray application amounts per model (1,3,5,10,15 standard, 0.1,1,3,5,10,15,20,30 CMO)"
+  - balance: "advanced (piercing) Mk. II hypos from technician kit now use standard speed"
+  - image: "resprited Mk. II hyposprays & associated gear again"
