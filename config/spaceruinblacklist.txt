@@ -117,3 +117,4 @@ _maps/RandomRuins/SpaceRuins/spacehotel.dmm
 #_maps/RandomRuins/SpaceRuins/nova/whiteshipruin_box.dmm
 #_maps/RandomRuins/SpaceRuins/nova/wreckedfriendship.dmm
 #_maps/RandomRuins/SpaceRuins/nova/wreckedhomestead.dmm
+#_maps/RandomRuins/SpaceRuins/nova/film_studio.dmm
