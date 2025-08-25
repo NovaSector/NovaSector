@@ -19,6 +19,7 @@
 	donator_only = TRUE
 
 /datum/loadout_item/under/donator/captain_black
-	name  = "Captains Black Uniform"
+	name = "Captain's Black Uniform"
 	item_path = /obj/item/clothing/under/rank/captain/nova/black
 	restricted_roles = list(JOB_CAPTAIN)
+	group = "Job-Locked"

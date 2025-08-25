@@ -8285,6 +8285,7 @@
 #include "modular_nova\modules\loadouts\loadout_items\donator\personal\donator_personal.dm"
 #include "modular_nova\modules\loadouts\loadout_items\under\donator.dm"
 #include "modular_nova\modules\loadouts\loadout_items\under\loadout_datum_under.dm"
+#include "modular_nova\modules\loadouts\loadout_items\under\loadout_datum_under_job.dm"
 #include "modular_nova\modules\loadouts\loadout_ui\loadout_outfit_helpers.dm"
 #include "modular_nova\modules\lorecaster\code\archive_viewer.dm"
 #include "modular_nova\modules\lorecaster\code\config.dm"
