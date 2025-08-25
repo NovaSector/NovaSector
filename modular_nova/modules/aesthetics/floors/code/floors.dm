@@ -685,7 +685,7 @@
 	icon_state = "white_brick_aligned"
 	turf_type = /turf/open/floor/iron/white/brick_aligned
 	merge_type = /obj/item/stack/tile/iron/white/brick_aligned
-	tile_rotate_dirs = list(SOUTH, NORTH, EAST, WEST)
+	tile_rotate_dirs = list(SOUTH, NORTH)
 
 /turf/open/floor/iron/white/brick_aligned_half
 	icon_state = "white_brick_aligned_half"
