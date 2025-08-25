@@ -17,7 +17,7 @@
 	cost = PAYCHECK_COMMAND * 8
 
 /datum/armament_entry/company_import/interdyne/solo/evilchems
-	item_type = /obj/item/storage/box/evilmeds
+	item_type = /obj/item/storage/box/evilmeds/interdyne
 	cost = PAYCHECK_COMMAND * 12
 
 /datum/armament_entry/company_import/interdyne/solo/nvgs
@@ -44,7 +44,7 @@
 
 /datum/armament_entry/company_import/interdyne/solo/emptylarge
 	name = "Empty Large Interdyne Kit"
-	item_type = /obj/item/circuitboard/machine/powerator/interdyne
+	item_type = /obj/item/storage/medkit/tactical/premium/interdyne/empty
 	cost = PAYCHECK_COMMAND * 0.5
 
 /* Figure out price or to keep
@@ -52,25 +52,22 @@
 	item_type = /obj/item/autosurgeon/syndicate/emaggedsurgerytoolset
 	cost = PAYCHECK_COMMAND * 8
 */
-/datum/armament_entry/company_import/interdyne/solo/analyzer
-	item_type = /obj/item/healthanalyzer/advanced
-	cost = PAYCHECK_COMMAND / 4
 
 /datum/armament_entry/company_import/interdyne/solo/guncasebig
 	item_type = /obj/item/storage/toolbox/guncase/nova/interdyne
-	cost = PAYCHECK_COMMAND / 2
+	cost = PAYCHECK_COMMAND
 
 /datum/armament_entry/company_import/interdyne/solo/guncasesmall
 	item_type = /obj/item/storage/toolbox/guncase/nova/interdyne/pistol
-	cost = PAYCHECK_COMMAND / 2
+	cost = PAYCHECK_COMMAND * 0.5
 
 /datum/armament_entry/company_import/interdyne/solo/guncasebigspec
 	item_type = /obj/item/storage/toolbox/guncase/nova/interdynespec
-	cost = PAYCHECK_COMMAND / 2
+	cost = PAYCHECK_COMMAND
 
 /datum/armament_entry/company_import/interdyne/solo/guncasesmallspec
 	item_type = /obj/item/storage/toolbox/guncase/nova/interdynespec/pistol
-	cost = PAYCHECK_COMMAND / 2
+	cost = PAYCHECK_COMMAND * 0.5
 
 /*
 *** Large Kits
