@@ -1435,7 +1435,6 @@
 	name = "Mini Skirt (Worn)"
 	icon_file = 'modular_nova/master_files/icons/mob/clothing/under/skirts_dresses.dmi'
 
-// KILT
 // COSTUMES
 
 /datum/greyscale_config/jester_suit/worn/digi
@@ -1518,6 +1517,7 @@
 	name = "Yukata (Worn, Digi)"
 	icon_file = 'modular_nova/master_files/icons/mob/clothing/under/costume_digi.dmi'
 
+// KILT
 /datum/greyscale_config/kilt
 	name = "Kilt"
 	icon_file = 'modular_nova/master_files/icons/obj/clothing/under/shorts_pants_shirts.dmi'
