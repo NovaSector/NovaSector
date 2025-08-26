@@ -78,9 +78,9 @@
 	name = "Flag - Nanotrasen"
 	item_path = /obj/item/sign/flag/nanotrasen
 
-/datum/loadout_item/inhand/flag_nri
-	name = "Flag - Novaya Rossiyskaya Imperiya"
-	item_path = /obj/item/sign/flag/nri
+/datum/loadout_item/inhand/flag_hc
+	name = "Flag - Heliostatic Coalition"
+	item_path = /obj/item/sign/flag/hc
 
 /datum/loadout_item/inhand/flag_moghes
 	name = "Flag - Republic Of Northern Moghes"
