@@ -2,7 +2,7 @@
 /datum/antagonist/sunwalker
 	name = "\improper Sunwalker"
 	antagpanel_category = ANTAG_GROUP_ABOMINATIONS
-	job_rank = ROLE_SUNWALKER
+	pref_flag = ROLE_SUNWALKER
 
 	show_in_antagpanel = TRUE
 	antagpanel_category = "Voidwalker"

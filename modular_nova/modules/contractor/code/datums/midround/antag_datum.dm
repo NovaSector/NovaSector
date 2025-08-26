@@ -3,7 +3,7 @@
 	name = "Drifting Contractor"
 	antagpanel_category = "DriftingContractor"
 	preview_outfit = /datum/outfit/contractor_preview
-	job_rank = ROLE_DRIFTING_CONTRACTOR
+	pref_flag = ROLE_DRIFTING_CONTRACTOR
 	hud_icon = 'modular_nova/modules/contractor/icons/hud_icon.dmi'
 	antag_hud_name = "contractor"
 	antagpanel_category = ANTAG_GROUP_SYNDICATE

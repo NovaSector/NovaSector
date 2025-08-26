@@ -7,6 +7,12 @@
 		/obj/item/paper,
 	))
 
+// Makes this available to anyone, not just those with ACCESS_AUX_BASE
+/datum/supply_pack/goody/shuttle_construction_kit/New()
+	. = ..()
+	access_view = FALSE
+	contains += /obj/item/stack/rods/shuttle/fifty
+
 /*
 *	EMERGENCY RACIAL EQUIPMENT
 */
