@@ -1044,6 +1044,11 @@
 		ACCESS_ROBOTICS,
 		ACCESS_SCIENCE,
 		ACCESS_TECH_STORAGE,
+		// NOVA EDIT REMOVAL BEGIN - Axing roboticist access to ord
+		/*
+		ACCESS_ORDINANCE,
+		ACCESS_ORDINANCE_STORAGE,
+		*/ // NOVA EDIT END
 		)
 	extra_access = list(
 		ACCESS_GENETICS,
