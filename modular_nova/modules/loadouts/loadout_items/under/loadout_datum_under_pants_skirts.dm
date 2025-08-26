@@ -85,7 +85,7 @@
 	group = "Casualwear"
 
 /datum/loadout_item/under/jumpsuit/gorkas
-	name = "Gorka"
+	name = "Gorka Jumpsuit"
 	item_path = /obj/item/clothing/under/greyscale/gorkas
 	group = "Casualwear"
 
