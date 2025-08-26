@@ -315,7 +315,7 @@
 	group = "Costumes"
 
 /datum/loadout_item/under/formal/trek_voy_medsci
-	name = "Trekkie  Medsci Uniform - VOY"
+	name = "Trekkie Medsci Uniform - VOY"
 	item_path = /obj/item/clothing/under/trek/medsci/voy
 	group = "Costumes"
 
