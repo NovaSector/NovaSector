@@ -1217,15 +1217,6 @@
 	name = "Skirt (Worn)"
 	icon_file = 'modular_nova/master_files/icons/mob/clothing/under/skirts_dresses.dmi'
 
-/datum/greyscale_config/turtleskirt_knit
-	name = "Cableknit Skirtleneck"
-	icon_file = 'modular_nova/master_files/icons/obj/clothing/under/skirts_dresses.dmi'
-	json_config = 'modular_nova/modules/GAGS/json_configs/pants_shorts_skirts_dresses/turtleskirt_knit.json'
-
-/datum/greyscale_config/turtleskirt_knit/worn
-	name = "Cableknit Skirtleneck (Worn)"
-	icon_file = 'modular_nova/master_files/icons/mob/clothing/under/skirts_dresses.dmi'
-
 /datum/greyscale_config/jean_skirt
 	name = "Jean Skirt"
 	icon_file = 'modular_nova/master_files/icons/obj/clothing/under/skirts_dresses.dmi'

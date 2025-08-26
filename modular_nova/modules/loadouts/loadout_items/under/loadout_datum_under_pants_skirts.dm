@@ -250,14 +250,9 @@
 	item_path = /obj/item/clothing/under/greyscale/turtleneck/skirt
 	group = "Casualwear"
 
-/datum/loadout_item/under/miscellaneous/skirt_cableknit //TODO: KILL (Dupe of above)
-	name = "Turtleneck w/ Skirt (Cableknit)"
-	item_path = /obj/item/clothing/under/dress/skirt/nova/turtleskirt_knit
-	group = "Casualwear"
-
 /datum/loadout_item/under/miscellaneous/skirt_turtleneck
 	name = "Turtleneck w/ Skirt (Plain)"
-	item_path = /obj/item/clothing/under/dress/skirt/turtleskirt
+	item_path = /obj/item/clothing/under/dress/skirt/turtleskirt //TODO: turn above item into reskin on this item (w/ above being the default)
 	group = "Casualwear"
 
 /datum/loadout_item/under/jumpsuit/overalls

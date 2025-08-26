@@ -107,7 +107,6 @@
 			"icon" = "vest",
 			"products" = list(
 				/obj/item/clothing/under/dress/skirt/nova/lone_skirt = 5,
-				/obj/item/clothing/under/dress/skirt/nova/turtleskirt_knit = 5,
 				/obj/item/clothing/under/dress/nova/short_dress = 5,
 				/obj/item/clothing/under/dress/nova/pinktutu = 5,
 				/obj/item/clothing/under/dress/skirt/nova/jean = 5,
