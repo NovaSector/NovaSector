@@ -52,6 +52,8 @@
 	var/matrix/before_flipped_matrix
 	/// Do we place people onto the table rather than slamming them?
 	var/slam_gently = FALSE
+	/// Nova Addition - What is the flipped table?
+	var/flipped_table_icon = 'icons/obj/flipped_tables.dmi'
 
 /obj/structure/table/Initialize(mapload, obj/structure/table_frame/frame_used, obj/item/stack/stack_used)
 	. = ..()
@@ -170,7 +172,7 @@
 			transform_matrix.Turn(270)
 		animate(src, transform = transform_matrix, time = 0)
 	else
-		icon = 'icons/obj/flipped_tables.dmi'
+		icon = flipped_table_icon
 		icon_state = base_icon_state
 
 	update_appearance()
