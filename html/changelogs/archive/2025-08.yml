@@ -879,3 +879,21 @@
       on reinforced girders.
   kuricityy:
   - qol: Makes seclights attachable to almost every security firearm.
+2025-08-26:
+  CliffracerX:
+  - rscadd: Interdyne hyposprays with bespoke 90u vials
+  - balance: standardized Mk. II hypospray speeds (1.5-2s standard, 0.5-1s deluxe)
+  - balance: nerfed emag interacts for Mk. II hypos (no free AP, only one speed category
+      up)
+  - balance: limited hypospray application amounts per model (1,3,5,10,15 standard,
+      0.1,1,3,5,10,15,20,30 CMO)
+  - balance: advanced (piercing) Mk. II hypos from technician kit now use standard
+      speed
+  - image: resprited Mk. II hyposprays & associated gear again
+  RealWinterFrost:
+  - map: Added a micro reactor to the film studio ghost role.
+  - map: added air scrubbers to the film studio.
+  - bugfix: Film-Studio space ruin is now able to accept custom characters
+  - image: Glowing Necklace made reskinnable and into one object.
+  carpotoxin:
+  - balance: Black market trader now gets some starting funds on their ID
