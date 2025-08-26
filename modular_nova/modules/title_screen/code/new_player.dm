@@ -81,12 +81,12 @@
 		handle_player_polling()
 		return
 
-	if (href_list["viewpoll"])
+	if(href_list["viewpoll"])
 		var/datum/poll_question/poll = locate(href_list["viewpoll"]) in GLOB.polls
 		poll_player(poll)
 		return
 
-	if (href_list["votepollref"])
+	if(href_list["votepollref"])
 		var/datum/poll_question/poll = locate(href_list["votepollref"]) in GLOB.polls
 		vote_on_poll_handler(poll, href_list)
 		return
@@ -104,7 +104,9 @@
  * Shows the titlescreen to a new player.
  */
 /mob/dead/new_player/proc/show_title_screen()
-	if (client?.interviewee)
+	if(isnull(client))
+		return
+	if(client.interviewee)
 		return
 
 	winset(src, "title_browser", "is-disabled=false;is-visible=true")
