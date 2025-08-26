@@ -14,6 +14,10 @@
 	 *	)
 	*/
 	var/list/species_quirks
+	/// What is the variable icon for the quirk?
+	var/icon = 'modular_nova/master_files/icons/hud/quirk_icons.dmi'
+	/// What is the variable icon file for the quirks?
+	var/icon_state = "placeholder_neutral"
 
 ///An implementation of [/datum/quirk/item_quirk/proc/give_item_to_holder] usable on any quirk.
 /datum/quirk/proc/give_item_to_holder_nova(obj/item/quirk_item, list/valid_slots, flavour_text = null, default_location = "at your feet", notify_player = TRUE)

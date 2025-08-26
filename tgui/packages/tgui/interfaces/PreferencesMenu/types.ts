@@ -92,6 +92,9 @@ export type Job = {
 export type Quirk = {
   description: string;
   icon: string;
+  // NOVA EDIT START
+  icon_state: string;
+  // NOVA EDIT END
   name: string;
   value: number;
   customizable: boolean;

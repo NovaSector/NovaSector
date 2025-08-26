@@ -6,6 +6,7 @@ import {
   Button,
   Floating,
   Icon,
+  ImageButton,
   Input,
   Stack,
   Tooltip,
@@ -95,46 +96,39 @@ type QuirkDisplayProps = {
   quirkKey: string;
 } & QuirkProps;
 
+// Figure out to have icon state appear as icon.
 function QuirkDisplay(props: QuirkDisplayProps) {
   const { quirk, quirkKey, onClick, selected } = props;
-  const { icon, value, name, description, customizable, failTooltip } = quirk;
+  const {
+    icon,
+    icon_state,
+    value,
+    name,
+    description,
+    customizable,
+    failTooltip,
+  } = quirk;
 
   const [customizationExpanded, setCustomizationExpanded] = useState(false);
 
   const className = 'PreferencesMenu__Quirks__QuirkList__quirk';
 
   const child = (
-    <Box
-      className={className}
+    <ImageButton
+      fluid
+      title={name + ' ' + value}
+      dmIcon={icon}
+      dmIconState={icon_state}
       onClick={(event) => {
         event.stopPropagation();
         if (selected) {
           setCustomizationExpanded(false);
         }
-
         onClick(quirkKey, quirk);
       }}
     >
+      {description}
       <Stack fill g={0}>
-        <Stack.Item
-          align="center"
-          style={{
-            minWidth: '15%',
-            maxWidth: '15%',
-            textAlign: 'center',
-          }}
-        >
-          <Icon color="#333" fontSize={3} name={icon} />
-        </Stack.Item>
-
-        <Stack.Item
-          align="stretch"
-          ml={0}
-          style={{
-            borderRight: '1px solid black',
-          }}
-        />
-
         <Stack.Item
           grow
           ml={0}
@@ -145,29 +139,6 @@ function QuirkDisplay(props: QuirkDisplayProps) {
         >
           <Stack vertical fill>
             <Stack.Item
-              className={`${className}--${getColorValueClass(quirk)}`}
-              style={{
-                borderBottom: '1px solid black',
-                padding: '2px',
-              }}
-            >
-              <Stack
-                fill
-                style={{
-                  fontSize: '1.2em',
-                }}
-              >
-                <Stack.Item grow basis="content">
-                  <b>{name}</b>
-                </Stack.Item>
-
-                <Stack.Item>
-                  <b>{value}</b>
-                </Stack.Item>
-              </Stack>
-            </Stack.Item>
-
-            <Stack.Item
               grow
               basis="content"
               mt={0}
@@ -175,7 +146,6 @@ function QuirkDisplay(props: QuirkDisplayProps) {
                 padding: '3px',
               }}
             >
-              {description}
               {!!customizable && (
                 <QuirkPopper
                   {...props}
@@ -187,7 +157,7 @@ function QuirkDisplay(props: QuirkDisplayProps) {
           </Stack>
         </Stack.Item>
       </Stack>
-    </Box>
+    </ImageButton>
   );
 
   if (failTooltip) {
@@ -283,7 +253,7 @@ function StatDisplay(props) {
 
   return (
     <Box
-      backgroundColor="#eee"
+      backgroundColor="#ffffffff"
       bold
       color="black"
       fontSize="1.2em"
