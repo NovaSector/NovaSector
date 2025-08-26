@@ -635,14 +635,6 @@
 	icon_file = 'modular_nova/modules/GAGS/icons/suit/suit_oldvox.dmi'
 
 // FANCY SUITS
-/datum/greyscale_config/fancy_suit
-	name = "Fancy Suit"
-	icon_file = 'modular_nova/modules/GAGS/icons/fancy_suits.dmi'
-	json_config = 'modular_nova/modules/GAGS/json_configs/fancy_suits/fancy_suit.json'
-
-/datum/greyscale_config/fancy_suit/worn
-	name = "Fancy Suit (Worn)"
-	json_config = 'modular_nova/modules/GAGS/json_configs/fancy_suits/fancy_suit_worn.json'
 
 /datum/greyscale_config/recolorable_suit
 	name = "Formal Suit"
