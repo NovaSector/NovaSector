@@ -1086,9 +1086,6 @@
 	name = "White Suit"
 	item_path = /obj/item/clothing/under/suit/white
 
-/datum/loadout_item/under/formal/fancy_suit
-	name = "Fancy Suit"
-	item_path = /obj/item/clothing/under/suit/fancy
 
 /datum/loadout_item/under/formal/recolorable_suit
 	name = "Recolorable Formal Suit"

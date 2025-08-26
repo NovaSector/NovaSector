@@ -67,7 +67,6 @@
 				/obj/item/clothing/under/suit/nova/recolorable = 5,
 				/obj/item/clothing/under/suit/nova/recolorable/skirt = 5,
 				/obj/item/clothing/under/pants/nova/kilt = 5,
-				/obj/item/clothing/under/suit/fancy = 5,
 				/obj/item/clothing/under/texas = 5,
 				/obj/item/clothing/under/sweater = 5,
 				/obj/item/clothing/under/sweater/keyhole = 5,
