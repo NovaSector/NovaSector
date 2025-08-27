@@ -897,3 +897,9 @@
   - image: Glowing Necklace made reskinnable and into one object.
   carpotoxin:
   - balance: Black market trader now gets some starting funds on their ID
+2025-08-27:
+  RealWinterFrost:
+  - bugfix: Deepspace modsuit and admiral variant now use the correct frequency
+  - image: Deepspace modsuitt backpack now has consistency and no longer has a floating
+      pixel
+  - admin: Ghost role cargo consoles now report when they are built to administrators.
