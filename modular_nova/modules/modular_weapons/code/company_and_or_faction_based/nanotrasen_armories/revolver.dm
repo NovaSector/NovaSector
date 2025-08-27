@@ -54,16 +54,15 @@
 	)
 	RegisterSignal(src, COMSIG_GUN_BOOSTER_TOGGLED, PROC_REF(on_booster_toggle))
 
+/obj/item/gun/ballistic/revolver/c38/super/Destroy()
+	UnregisterSignal(src, COMSIG_GUN_BOOSTER_TOGGLED)
+	return ..()
+
 /obj/item/gun/ballistic/revolver/c38/super/give_manufacturer_examine()
 	AddElement(/datum/element/manufacturer_examine, COMPANY_NANOTRASEN)
 
-/obj/item/gun/ballistic/revolver/c38/super/update_overlays()
-	. = ..()
-	var/datum/component/gun_booster/booster_component = GetComponent(/datum/component/gun_booster)
-	if(booster_component?.amped)
-		. += "[initial(icon_state)]_charge"
-
 /obj/item/gun/ballistic/revolver/c38/super/proc/on_booster_toggle(datum/component/source, mob/user, amped)
+	SIGNAL_HANDLER
 	if(amped)
 		fire_sound = amped_fire_sound
 		recoil = amped_recoil

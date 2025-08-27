@@ -129,19 +129,12 @@
 	)
 	RegisterSignal(src, COMSIG_GUN_BOOSTER_TOGGLED, PROC_REF(on_booster_toggle))
 
-/obj/item/gun/ballistic/shotgun/riot/sol/super/update_overlays()
-	. = ..()
-	var/datum/component/gun_booster/booster_component = GetComponent(/datum/component/gun_booster)
-	if(booster_component?.amped)
-		. += "[initial(icon_state)]_charge"
-
-/obj/item/gun/ballistic/shotgun/riot/sol/super/rack(mob/user)
-	. = ..()
-	var/datum/component/gun_booster/booster_component = GetComponent(/datum/component/gun_booster)
-	if(booster_component?.amped)
-		playsound(src, 'sound/items/weapons/kinetic_reload.ogg', 50, TRUE)
+/obj/item/gun/ballistic/shotgun/riot/sol/super/Destroy()
+	UnregisterSignal(src, COMSIG_GUN_BOOSTER_TOGGLED)
+	return ..()
 
 /obj/item/gun/ballistic/shotgun/riot/sol/super/proc/on_booster_toggle(datum/component/source, mob/user, amped)
+	SIGNAL_HANDLER
 	if(amped)
 		semi_auto = FALSE
 		casing_ejector = FALSE
@@ -150,6 +143,13 @@
 		semi_auto = TRUE
 		casing_ejector = TRUE
 		balloon_alert(user, "barrel de-amped, set to semi")
+
+// todo send COMSIG_GUN_RACK and COMSIG_GUN_BEFORE_FIRING signals to upstream if they'll take it
+/obj/item/gun/ballistic/shotgun/riot/sol/super/rack(mob/user)
+	. = ..()
+	var/datum/component/gun_booster/booster_component = GetComponent(/datum/component/gun_booster)
+	if(booster_component?.amped)
+		playsound(src, 'sound/items/weapons/kinetic_reload.ogg', 50, TRUE)
 
 /obj/item/gun/ballistic/shotgun/riot/sol/super/before_firing(atom/target, mob/user)
 	var/datum/component/gun_booster/booster_component = GetComponent(/datum/component/gun_booster)

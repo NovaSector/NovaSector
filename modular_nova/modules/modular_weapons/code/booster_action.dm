@@ -48,16 +48,21 @@
 
 	update_action_button_state()
 
-/datum/component/gun_booster/Destroy()
+/datum/component/gun_booster/Destroy(force)
 	if(booster_action)
 		QDEL_NULL(booster_action)
 	return ..()
 
 /datum/component/gun_booster/RegisterWithParent()
-	RegisterSignal(parent, COMSIG_ITEM_UI_ACTION_CLICK, PROC_REF(are_we_boost_toggling))
+	RegisterSignal(parent, COMSIG_ITEM_UI_ACTION_CLICK, PROC_REF(on_action_click))
+	RegisterSignal(parent, COMSIG_ATOM_UPDATE_OVERLAYS, PROC_REF(on_update_overlays))
+
+/datum/component/gun_booster/UnregisterFromParent()
+	UnregisterSignal(parent, COMSIG_ITEM_UI_ACTION_CLICK)
+	UnregisterSignal(parent, COMSIG_ATOM_UPDATE_OVERLAYS)
 
 /// Calls toggle_booster if the action type for doing so is used
-/datum/component/gun_booster/proc/are_we_boost_toggling(source, user, datum/actiontype)
+/datum/component/gun_booster/proc/on_action_click(source, user, datum/actiontype)
 	SIGNAL_HANDLER
 
 	if(istype(actiontype, booster_action))
@@ -79,10 +84,16 @@
 		source.projectile_speed_multiplier = base_speed_mult
 		source.fire_delay = base_fire_delay
 
-	// User feedback is typically individual to the gun itself.
+	// Guns typically also have some unique features tied to boosting, itself, so we also send a signal to the gun to handle
+	// individual things, e.g. custom messages, fire sounds, recoil, etc.
 	SEND_SIGNAL(source, COMSIG_GUN_BOOSTER_TOGGLED, user, amped)
 	source.update_appearance()
 	update_action_button_state()
+
+/datum/component/gun_booster/proc/on_update_overlays(obj/item/gun/our_gun, list/overlays)
+	SIGNAL_HANDLER
+	if(amped)
+		overlays += mutable_appearance(our_gun.icon, "[initial(our_gun.icon_state)]_charge")
 
 /datum/component/gun_booster/proc/update_action_button_state()
 	if(!booster_action)
