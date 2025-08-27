@@ -123,10 +123,6 @@
 	item_path = /obj/item/clothing/under/rank/medical/paramedic/nova/light
 	group = "Workwear"
 
-/datum/loadout_item/under/jumpsuit/hlscientist //TODO: Kill?
-	name = "Science Team Formal Suit"
-	item_path = /obj/item/clothing/under/rank/rnd/scientist/nova/hlscience
-
 /datum/loadout_item/under/jumpsuit/utility_sci
 	name = "Science Utility Uniform"
 	item_path = /obj/item/clothing/under/rank/rnd/scientist/nova/utility
