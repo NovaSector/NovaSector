@@ -586,8 +586,8 @@
 	var/static/list/containers
 	if(!length(containers))
 		containers = list(
-			CAT_CONDIMENTS = GLOB.reagent_containers[CAT_CONDIMENTS],
 			CAT_TUBES = GLOB.reagent_containers[CAT_TUBES], //NOVA EDIT ADDITION
+			CAT_CONDIMENTS = GLOB.reagent_containers[CAT_CONDIMENTS],
 		)
 	return containers
 
