@@ -2368,3 +2368,43 @@ TREK
 /datum/greyscale_config/sus_overalls/worn/digi
 	name = "Gorkas (Worn, Digi)"
 	icon_file = 'modular_nova/master_files/icons/mob/clothing/under/shorts_pants_shirts_digi.dmi'
+
+/// Content of PR # ?????
+
+/datum/greyscale_config/dept_jacket
+	name = "Department Jacket"
+	icon_file = 'modular_nova/master_files/icons/obj/clothing/suits.dmi'
+	json_config = 'modular_nova/modules/GAGS/json_configs/department_jackets/jacket.json'
+
+/datum/greyscale_config/dept_jacket/worn
+	name = "Department Jacket (Worn)"
+	icon_file = 'modular_nova/master_files/icons/mob/clothing/suit.dmi'
+	json_config = 'modular_nova/modules/GAGS/json_configs/department_jackets/jacket_worn.json'
+
+/datum/greyscale_config/fluffywintercoat
+	name = "Fluffy Coat"
+	icon_file = 'modular_nova/master_files/icons/obj/clothing/suits.dmi'
+	json_config = 'modular_nova/modules/GAGS/json_configs/fluffywintercoat/coat.json'
+
+/datum/greyscale_config/fluffywintercoat/worn
+	name = "Fluffy Coat (Worn)"
+	icon_file = 'modular_nova/master_files/icons/mob/clothing/suit.dmi'
+
+/datum/greyscale_config/overcoat
+	name = "Fluffy Coat"
+	icon_file = 'modular_nova/master_files/icons/obj/clothing/suits.dmi'
+	json_config = 'modular_nova/modules/GAGS/json_configs/overcoat/overcoat.json'
+
+/datum/greyscale_config/overcoat/worn
+	name = "Fluffy Coat (Worn)"
+	icon_file = 'modular_nova/master_files/icons/mob/clothing/suit.dmi'
+
+/datum/greyscale_config/dogtags
+	name = "Dogtags"
+	icon_file = 'modular_nova/master_files/icons/obj/clothing/accessories.dmi'
+	json_config = 'modular_nova/modules/GAGS/json_configs/accessories/other/dogtags.json'
+
+/datum/greyscale_config/dogtags/worn
+	name = "Dogtags (Worn)"
+	icon_file = 'modular_nova/master_files/icons/mob/clothing/accessories.dmi'
+	json_config = 'modular_nova/modules/GAGS/json_configs/accessories/other/dogtags_worn.json'
