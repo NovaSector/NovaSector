@@ -58,7 +58,6 @@
 		/datum/material/gold = HALF_SHEET_MATERIAL_AMOUNT,
 	)
 /obj/machinery/power/port_gen/pacman/solid_fuel/Initialize(mapload)
-    . = ..()
-
-    QDEL_NULL(soundloop)
-    soundloop = new	/datum/looping_sound/solid_fuel_generator(src, active)
+	. = ..()
+	QDEL_NULL(soundloop)
+	soundloop = new /datum/looping_sound/solid_fuel_generator(src, active)
