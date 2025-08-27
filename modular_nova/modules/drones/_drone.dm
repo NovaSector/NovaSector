@@ -113,10 +113,12 @@
 
 // Station Drone mob changes
 /mob/living/basic/drone
-	/// Left pocket item reference
+// Left pocket item reference
 	var/obj/item/l_store
-	/// Right pocket item reference
+// Right pocket item reference
 	var/obj/item/r_store
+// Poke adjustment
+	response_help_simple = "pet"
 
 // Drone Laws and Chain of Command
 	laws = \
