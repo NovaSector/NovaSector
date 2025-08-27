@@ -61,4 +61,4 @@
     . = ..()
 
     QDEL_NULL(soundloop)
-    soundloop = new /datum/looping_sound/solid_fuel_generator(src, active)
+    soundloop = new	/datum/looping_sound/solid_fuel_generator(src, active)
