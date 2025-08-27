@@ -679,3 +679,227 @@
       No more allcomms for bitrunners.
   OrbisAnima:
   - rscdel: Removes Yiff in hell / Furry Pride / Lizard Power / Fuck Lizards graffitis
+2025-08-17:
+  BasilTamaya:
+  - qol: Psionic Holding now tells you if you're holding something telekinetically
+      or not.
+  DirectCause:
+  - bugfix: Razorwire and Shell launcher cyberimps are no longer displayed as if they
+      are on the opposite hand
+  Hatterhat:
+  - rscadd: Interdyne scientists can now drink Doctor's Delight for healing without
+      losing nutriment, as their livers have gained medically-inclined metabolism.
+  - bugfix: Ghost roles with jobs now properly apply their jobs' liver traits.
+  - rscadd: Following the release of the BR-38, Nanotrasen has begun to roll out the
+      even more experimental NT/E "Laevateinn" parts kit, for augmenting .38 revolvers
+      (including the Colt Detective Special). Consult your local cargo console's goodies
+      tab for details.
+  OrbisAnima:
+  - qol: Stasis Beds now report in the medical channel if someone is buckled to them.
+      This can be changed with a multitool on their boards, come on by default if
+      the bed is created on an NT space, or off if its not the case.
+  - balance: Stasis Beds no longer let you do surgeries while its on. (You can turn
+      it off with alt click)
+  Stalkeros for the code, Hollandaise for the sprites:
+  - rscadd: "After many months of arguing semantics and finding loopholes to increase\
+      \ revenue, \u017Daibas plasma pulse projector, a unique high-capacity hybrid\
+      \ assault rifle has been released to the open markets; with a limited, civilian\
+      \ market-oriented magazine capacity."
+  - rscadd: "Furthermore, a modification of the rifle for long range engagements,\
+      \ under the postfix \"A\" (thus, \"\u017Daibas-A\"), has been released to the\
+      \ civilian markets."
+  - rscadd: And a plasma-pulse ammo box that's actually an ammo canister uh-huh.
+2025-08-21:
+  OrbisAnima:
+  - qol: The Shuttle Construction Starter Kit now brings 50 shuttle rods with it,
+      and requires no special access to order it.
+  vinylspiders:
+  - bugfix: venus human traps cannot drag bodies into their nests (once again)
+2025-08-22:
+  Absolucy:
+  - spellcheck: 'PR announcements should now say "X merged by Y: ..." instead of "X
+      merged Y: ..."'
+  Balls2zawall:
+  - bugfix: Changes the Encryption key for the SolFed EMT's headset to be the proper
+      one
+  - rscadd: Changes the SolFed EMT's loadout to have a health HUD and more tools,
+      as well as giving them a box of epi-pens
+  - rscadd: Creates a SolFed Medical ID trim, to give EMT's access around the station
+  CliffracerX:
+  - rscdel: Points system from ammo benches & reload disks
+  - balance: increased material costs for milspec & flechettes
+  Hatterhat:
+  - image: The Miecz has been restored back to its classic bullpup stick-mag form.
+      Those who suggest that the Miecz was, actually, yet another iteration of a 618-year-old
+      rifle design are clearly from people who need to get their brains checked by
+      Medbay for plasma exposure and poisoning.
+  - balance: .27-54 Cesarzowa is back to being more in-line with a pistol-caliber
+      round. Except, you know, still keeping its 30 AP. (That's gotta be worth something.)
+  Iajret:
+  - bugfix: Random characters created from Cargodise Lost spawners should now have
+      proper random names and not 'Freighter Crew'
+  - bugfix: Same holds true for BMD. No longer will you have 'a black market dealer'
+      as random char name
+  RealWinterFrost:
+  - admin: Player panel has a preference for admins for those who wish to use the
+      legacy panel.
+  - admin: Splurt-tg station player panel has been ported for admins
+  Stalkeros for the code, Hollandaise for the sprites, Golden Freddy for the flag design:
+  - rscadd: Heliostatic Coalition flag, replacing all the NRI flags. But what is so-called
+      "NRI"? Have you heard of it? I have no idea! Must have been the wind?
+  - rscdel: Certain fictional country that doesn't exist's flag.
+  carpotoxin:
+  - qol: Spacevines that grow on open or space turfs now have odds to create a vine
+      floortile
+  - balance: Tier 3 and tier 4 scythes can now be researched, and security can print
+      them
+2025-08-23:
+  Diltyrr:
+  - rscadd: Inverses the regen algorithm for slime people with the water breathing
+      quirk.
+  - rscadd: Disable the damage from ingesting water for slime people with the water
+      breathing quirk.
+  - rscadd: Removes the Hydrophobia toggle for slime people with the water breathing
+      quirk.
+  - rscadd: Added a way to pick a drone name.
+2025-08-24:
+  00-Steven:
+  - bugfix: The notice board UI actually fits the full 8 paper entries.
+  Absolucy:
+  - qol: You can now click on the song URL in the music player widget in chat.
+  Aliceee2ch:
+  - bugfix: Removed unused wooden decals from MetaStation theater
+  ArcaneMusic:
+  - qol: The GMM Stock market now shows material elasticity, AKA the sale price reduction
+      caused by selling a material, which will steadily recover after a sale.
+  Ben10Omintrix:
+  - bugfix: fixes tamed pets sometimes attacking one another
+  EnterTheJake:
+  - balance: Jetpack module energy drain has been massively reduced.
+  - balance: armor on the Magnate,Safegaurd and sec modsuits has been considerably
+      increased.
+  - balance: 'Sec MOD plates have been transferred from RnD to Cargo.
+
+      balance The Infiltrator MOD now comes with the shock absorption module pre-installed.'
+  - balance: Nukie MODsuits hav a bit more complexity.
+  - bugfix: Nukie MODs now have the same flash protection as the other suits with
+      welding protection.
+  - balance: night visor module comes pre-installed in the syndie mods, no longer
+      consumes complexity,drains less power and doesn't conflict with the other visor
+      MODules.
+  - balance: Combat MODs and RDs now grant earing protection when the suit is active.
+  Ezel:
+  - balance: Removes some public medkits on every map
+  - balance: Changes the contents of wall med vendors to just have emergency stuff
+  - balance: Drugs vendor now includes 3 sterilizine medigels instead of 1
+  - balance: 'Tactical lite medkit added to traitor uplink for 4 tc, this includes
+      medicated suture/mesh, atropine pen, gauze, advanced health analyzer
+
+      map:Adds more wall med vendors to the map atleast 1 every department.'
+  FalloutFalcon:
+  - bugfix: fixed bamboo and plastinum wall types tiling with red and royal black
+      carpets
+  Glu:
+  - bugfix: Certain food items that required bowl now drop a bowl post-consumption
+  LemonInTheDark:
+  - server: Infinite recursion errors should log properly now
+  MX0739:
+  - bugfix: mops don't need to have 1 unit of water to be used with other reagents
+  Melbert:
+  - bugfix: Fixes some places where dynamic configs were not being read correctly
+  - refactor: Dynamic rewritten entirely, report any strange rounds
+  - config: Dynamic config reworked, it's now a TOML file
+  - refactor: Refactored antag roles somewhat, report any oddities
+  - refactor: Refactored Revolution entirely, report any oddities
+  - rscdel: Deleted most midround events that spawn antags - they use dynamic rulesets
+      now
+  - rscadd: Dynamic rulesets can now be false alarms
+  - rscadd: Adds a random event that gives dynamic the ability to run another ruleset
+      later
+  - admin: Adds a panel for messing around with dynamic
+  - admin: Adds a panel for chance for every dynamic ruleset to be selected
+  - admin: You can spawn revs without using dynamic now
+  - bugfix: Nuke team leaders get their fun title back
+  - rscdel: If buckled during a violent shuttle launch, you'll no longer be knocked
+      down + immobilized, instead just immobilized. Unbuckled effects are unchanged.
+  - rscdel: Removes the Void Torch from Cult
+  - qol: Tweaked size of runechat shadow outline.
+  - config: Adds "roundstart_blue_alert", allowing you to disable roundstart blue
+      alert. Defaults to "on".
+  - bugfix: Fix backwards default buckle feedback
+  - qol: Replaces one of the two elevators on the Nebula bridge with stairs
+  - rscdel: Removes the Flagellant's Robes from Cult
+  - bugfix: Multiple high impact rulesets will no longer roll simultaneously unless
+      dynamic picks "high chaos"
+  Neocloudy:
+  - bugfix: '[NOVA] Fixed errors in carbon human breast sprites. See PR #5993 for
+      specific fixes.'
+  OrionTheFox:
+  - qol: made the Beach Bar bitdomain ghostrole spawners keep your old body revivable
+      (as other bitdomain spawners do)
+  Rex9001:
+  - rscadd: Fire extinguishers now have an alternate attack, usable with right click
+  - balance: 'Fire extinguishers force: 10 -> 13'
+  - balance: 'Fire extinguishers weight: Normal -> Bulky'
+  Rhials:
+  - bugfix: Evac broadcast messages are no longer scrambled unless the shuttle was
+      hijacked.
+  SmArtKar:
+  - bugfix: Fixed flashlight eyes trying to add nonexistent irises to themselves
+  - bugfix: Fixes seclights attached to objects runtiming when their parent object
+      gets deleted
+  - bugfix: Fixed dropdel embeds runtiming upon removal
+  - bugfix: Fixes facial hair gradient DNA runtiming and sometimes not adding proper
+      gradients
+  - bugfix: Fixes the fake detective's trenchcoat in Delta's maints having a broken
+      sprite
+  - bugfix: Fixed projectiles inheriting gun's pixel offsets when fired
+  - bugfix: Fixed HUD sleep buttons harddeleting
+  - bugfix: Fixed admin's ckey search in orbit sometimes failing
+  - bugfix: Fixed foam slipping people standing on tables and racks
+  SyncIt21:
+  - bugfix: You cannot win an ore vent wave defence by throwing a blue space crystal
+      on the drone or by moving it in any other way
+  - bugfix: You cannot complete re-enforced girders with iron rods
+  TheEmber:
+  - bugfix: Fixed building wall out of wooden barricade
+  TheSS13Melon:
+  - config: Changes weights in ICES, opening up for a wider variety of events.
+  - bugfix: Scrubber clog was incorrectly
+  Xackii:
+  - rscadd: 'Justice mech: New block and charge system! Build and try it now!'
+  - qol: 'Justice mech: charge attack is now much more pleasant and convenient to
+      use!'
+  - balance: 'Justice mech: Increased HP and armor.'
+  - balance: 'Justice mech: Invisibility is now infinite.'
+  - balance: 'Justice mech: stealth aoe attack is now 2x faster.'
+  - refactor: 'Justice mech: Some code clenup and mechanic improvements.'
+  Y0SH1M4S73R:
+  - rscadd: You can construct reinforced plastitanium walls by using plastitanium
+      on reinforced girders.
+  kuricityy:
+  - qol: Makes seclights attachable to almost every security firearm.
+2025-08-26:
+  CliffracerX:
+  - rscadd: Interdyne hyposprays with bespoke 90u vials
+  - balance: standardized Mk. II hypospray speeds (1.5-2s standard, 0.5-1s deluxe)
+  - balance: nerfed emag interacts for Mk. II hypos (no free AP, only one speed category
+      up)
+  - balance: limited hypospray application amounts per model (1,3,5,10,15 standard,
+      0.1,1,3,5,10,15,20,30 CMO)
+  - balance: advanced (piercing) Mk. II hypos from technician kit now use standard
+      speed
+  - image: resprited Mk. II hyposprays & associated gear again
+  RealWinterFrost:
+  - map: Added a micro reactor to the film studio ghost role.
+  - map: added air scrubbers to the film studio.
+  - bugfix: Film-Studio space ruin is now able to accept custom characters
+  - image: Glowing Necklace made reskinnable and into one object.
+  carpotoxin:
+  - balance: Black market trader now gets some starting funds on their ID
+2025-08-27:
+  RealWinterFrost:
+  - bugfix: Deepspace modsuit and admiral variant now use the correct frequency
+  - image: Deepspace modsuitt backpack now has consistency and no longer has a floating
+      pixel
+  - admin: Ghost role cargo consoles now report when they are built to administrators.

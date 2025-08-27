@@ -75,6 +75,11 @@ GLOBAL_LIST_INIT(vine_mutations_list, init_vine_mutation_list())
 	growth_queue += vine
 	vines += vine
 	vine.master = src
+	// NOVA ADDITION START - Vine floor
+	if(rand(1, 3) <= 1 && is_space_or_openspace(location))
+		if(!locate(/obj/structure/lattice) in location)
+			location.ChangeTurf(/turf/open/floor/plating/kudzu, flags = CHANGETURF_INHERIT_AIR)
+	// NOVA ADDITION END
 	for(var/mutation_type in muts)
 		for(var/datum/spacevine_mutation/mutation in GLOB.vine_mutations_list)
 			if(istype(mutation, mutation_type))

@@ -171,6 +171,13 @@
 	always_place = TRUE
 	cost = 0 //See DS2 cost explanation. Also for a plan when i expand on tarkon and alternative maps
 
+/datum/map_template/ruin/space/film_studio /// Filmy bois
+	id = "film_studio"
+	prefix = "_maps/RandomRuins/SpaceRuins/nova/"
+	suffix = "film_studio.dmm"
+	name = "Space-Ruin Space Sector 13 Local Channel"
+	description = "A local TV station serving areas surrounding Space Sector 13, shows including but not limited to: talk shows, operas, stage plays and more!"
+
 /obj/modular_map_root/port_tarkon
 	config_file = "strings/modular_maps/nova/PortTarkon.toml"
 
