@@ -19,16 +19,9 @@
 
 		// SYNTHETIC-oriented reagents require PROCESS_SYNTHETIC or a synth liver
 		if((reagent.process_flags & REAGENT_SYNTHETIC))
-			// SYNTHETIC-oriented neuroware can only affect organic brains if they have a NIF
+			// SYNTHETIC-oriented neuroware can only affect robotic brains, or organic brains with a NIF implant
 			if(reagent.chemical_flags & REAGENT_NEUROWARE)
-				var/obj/item/organ/brain/owner_brain = human_processor.get_organ_slot(ORGAN_SLOT_BRAIN)
-				// Neuroware requires a robotic brain or NIF
-				if(!isnull(owner_brain) && (owner_brain.organ_flags & ORGAN_ROBOTIC))
-					return TRUE
-				var/obj/item/organ/cyberimp/brain/nif/nif_implant = human_processor.get_organ_slot(ORGAN_SLOT_BRAIN_NIF)
-				if(!isnull(nif_implant) && !nif_implant.broken)
-					return TRUE
-				return FALSE
+				return is_neuroware_compatible(human_processor)
 			if(processor_flags & PROCESS_SYNTHETIC)
 				return TRUE
 			// Human isn't synthetic species, requires synth liver to process synth reagents
