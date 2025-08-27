@@ -7193,6 +7193,7 @@
 #include "modular_nova\master_files\code\modules\mob\living\basic\maintsroomdescent\maintsrooms_flags.dm"
 #include "modular_nova\master_files\code\modules\mob\living\basic\maintsroomdescent\shaggoth.dm"
 #include "modular_nova\master_files\code\modules\mob\living\basic\trooper\syndicate.dm"
+#include "modular_nova\master_files\code\modules\mob\living\brain\brain_item.dm"
 #include "modular_nova\master_files\code\modules\mob\living\brain\MMI.dm"
 #include "modular_nova\master_files\code\modules\mob\living\carbon\carbon_defense.dm"
 #include "modular_nova\master_files\code\modules\mob\living\carbon\carbon_defines.dm"
