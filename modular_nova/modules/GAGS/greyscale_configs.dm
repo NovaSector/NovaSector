@@ -2408,3 +2408,31 @@ TREK
 	name = "Dogtags (Worn)"
 	icon_file = 'modular_nova/master_files/icons/mob/clothing/accessories.dmi'
 	json_config = 'modular_nova/modules/GAGS/json_configs/accessories/other/dogtags_worn.json'
+
+/datum/greyscale_config/ushanka
+	name = "Ushanka"
+	icon_file = 'modular_nova/master_files/icons/obj/clothing/head/costume.dmi'
+	json_config = 'modular_nova/modules/GAGS/json_configs/head/ushanka.json'
+
+/datum/greyscale_config/ushanka/worn
+	name = "Ushanka (Worn)"
+	icon_file = 'modular_nova/master_files/icons/mob/clothing/head/costume.dmi'
+
+// Named TG bomberjacket in case of future nameconflict
+/datum/greyscale_config/tg_bomberjacket
+	name = "Bomberjacket"
+	icon_file = 'modular_nova/master_files/icons/obj/clothing/suits/jacket.dmi'
+	json_config = 'modular_nova/modules/GAGS/json_configs/suits/jacket/bomberjacket.json'
+
+/datum/greyscale_config/tg_bomberjacket/worn
+	name = "Bomberjacket (Worn)"
+	icon_file = 'modular_nova/master_files/icons/mob/clothing/suits/jacket.dmi'
+
+/datum/greyscale_config/papakha
+	name = "Papakha"
+	icon_file = 'modular_nova/master_files/icons/obj/clothing/head/costume.dmi'
+	json_config = 'modular_nova/modules/GAGS/json_configs/head/papakha.json'
+
+/datum/greyscale_config/papakha/worn
+	name = "Papakha (Worn)"
+	icon_file = 'modular_nova/master_files/icons/mob/clothing/head/costume.dmi'
