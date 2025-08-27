@@ -585,7 +585,10 @@
 /obj/machinery/chem_master/condimaster/load_printable_containers()
 	var/static/list/containers
 	if(!length(containers))
-		containers = list(CAT_CONDIMENTS = GLOB.reagent_containers[CAT_CONDIMENTS])
+		containers = list(
+			CAT_CONDIMENTS = GLOB.reagent_containers[CAT_CONDIMENTS],
+			CAT_TUBES = GLOB.reagent_containers[CAT_TUBES], //NOVA EDIT ADDITION
+		)
 	return containers
 
 #undef MAX_CONTAINER_PRINT_AMOUNT
