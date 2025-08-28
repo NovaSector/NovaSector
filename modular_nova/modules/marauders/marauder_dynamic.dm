@@ -26,33 +26,31 @@
 	var/marauder_no = 1
 
 /datum/dynamic_ruleset/midround/from_ghosts/marauder/prepare_for_role(datum/mind/player_mind)
+	map = new
+	reservation = map.lazy_load()
+	. = ..()
+	var/mob/living/carbon/human/new_character = player_mind.current
+	new_character.Sleeping(7 SECONDS)
+	//assign our number
 	for(var/datum/dynamic_ruleset/midround/from_ghosts/marauder/ruleset in SSdynamic.executed_rulesets)
 		marauder_no++
-	return ..()
+	move_to_spawn(new_character)
+	load_personal_items(new_character)
+	//report to mins
+	message_admins("[ADMIN_LOOKUPFLW(new_character)] has been made into a traitor by midround ruleset.")
+	log_game("[key_name(new_character)] was spawned as a traitor by midround ruleset.")
 
 /datum/dynamic_ruleset/midround/from_ghosts/marauder/assign_role(datum/mind/player_mind)
 	var/datum/antagonist/traitor/marauder/antag_datum = new /datum/antagonist/traitor/marauder
 	player_mind.add_antag_datum(antag_datum)
-	//load map
-	map = new
-	reservation = map.lazy_load()
-	//load player
-	var/mob/living/carbon/human/new_character = player_mind.current
-	new_character.Sleeping(7 SECONDS)
-	move_to_spawn(new_character)
-	//late load
-	load_personal_items(new_character)
 	load_shuttle()
-	//report to mins
-	message_admins("[ADMIN_LOOKUPFLW(new_character)] has been made into a traitor by midround ruleset.")
-	log_game("[key_name(new_character)] was spawned as a traitor by midround ruleset.")
 
 /// move our guy
 /datum/dynamic_ruleset/midround/from_ghosts/marauder/proc/move_to_spawn(mob/living/carbon/human/marauder)
 	spawnpoint = GLOB.traitor_start[marauder_no]
 	marauder.forceMove(spawnpoint)
-	var/obj/structure/bed/bed = locate(/obj/structure/bed) in spawnpoint.contents
-	var/obj/item/bedsheet/bedsheet = locate(/obj/item/bedsheet) in spawnpoint.contents
+	var/obj/structure/bed/bed = locate() in spawnpoint
+	var/obj/item/bedsheet/bedsheet = locate() in spawnpoint
 	if(!bed || !bedsheet)
 		return
 	//put them in bed
@@ -66,6 +64,8 @@
 	if(!marauder || !marauder.client)
 		return
 	for(var/turf/open/floor/iron/relevant_turf in reservation.reserved_turfs)
+		if(!istype(get_area(relevant_turf), /area/misc/operative_barracks/dorm))
+			continue
 		var/obj/structure/mannequin/operative_barracks/loadout/mannequin = locate() in relevant_turf
 		var/obj/machinery/door/airlock/airlock = locate() in relevant_turf
 		if(mannequin && !mannequin.loaded)

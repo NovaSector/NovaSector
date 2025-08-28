@@ -21,6 +21,8 @@
 		if(stationary_dock.owner == mobile_dock)
 			transit_dock = stationary_dock
 			break
+	if(!mobile_dock || !transit_dock)
+		return
 	var/random_dir = pick(GLOB.cardinals)
 	mobile_dock.preferred_direction = random_dir
 	mobile_dock.port_direction = turn(random_dir, ROTATION_CLOCKWISE)
