@@ -22,6 +22,7 @@
 	)
 
 /obj/item/mod/control/pre_equipped/deepspace
+	starting_frequency = MODLINK_FREQ_SYNDICATE
 	applied_cell = /obj/item/stock_parts/power_store/cell/hyper
 	applied_modules = list(
 		/obj/item/mod/module/storage/syndicate,
@@ -37,6 +38,7 @@
 	theme = /datum/mod_theme/syndicate/deepspace
 
 /obj/item/mod/control/pre_equipped/deepspace_admiral
+	starting_frequency = MODLINK_FREQ_SYNDICATE
 	applied_cell = /obj/item/stock_parts/power_store/cell/hyper
 	applied_modules = list(
 		/obj/item/mod/module/storage/syndicate,

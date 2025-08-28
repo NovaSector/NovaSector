@@ -205,7 +205,7 @@
 		icon = 'modular_nova/modules/aesthetics/walls/icons/reinforced_wall.dmi' // NOVA EDIT CHANGE - AESTHETICS - ORIGINAL: icon = 'icons/turf/walls/reinforced_states.dmi'
 		icon_state = "[base_decon_state]-[d_state]"
 	else
-		icon = 'modular_nova/modules/aesthetics/walls/icons/reinforced_wall.dmi' // NOVA EDIT CHANGE - AESTHETICS -  ORIGINAL: icon = 'icons/turf/walls/reinforced_wall.dmi'
+		icon = initial(icon)
 		icon_state = "[base_icon_state]-[smoothing_junction]"
 	return ..()
 

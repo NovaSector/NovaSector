@@ -140,7 +140,7 @@
 	id = TECHWEB_NODE_SCYTHE_4
 	display_name = "Scythe (Tier 4)"
 	description = "Culling tools"
-	prereq_ids = list(TECHWEB_NODE_SCYTHE_4)
+	prereq_ids = list(TECHWEB_NODE_SCYTHE_3)
 	design_ids = list(
 		"scythet4",
 	)
