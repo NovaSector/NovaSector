@@ -8680,6 +8680,8 @@
 #include "modular_nova\modules\modular_weapons\code\company_and_or_faction_based\saibasan\mode_datums.dm"
 #include "modular_nova\modules\modular_weapons\code\company_and_or_faction_based\saibasan\projectiles.dm"
 #include "modular_nova\modules\modular_weapons\code\company_and_or_faction_based\scarborough_arms\conversion_kits.dm"
+#include "modular_nova\modules\modular_weapons\code\company_and_or_faction_based\scarborough_arms\magazines.dm"
+#include "modular_nova\modules\modular_weapons\code\company_and_or_faction_based\scarborough_arms\pistol.dm"
 #include "modular_nova\modules\modular_weapons\code\company_and_or_faction_based\scarborough_arms\submachinegun.dm"
 #include "modular_nova\modules\modular_weapons\code\company_and_or_faction_based\syndicate_armaments\shotgun.dm"
 #include "modular_nova\modules\modular_weapons\code\company_and_or_faction_based\szot_dynamica\magazines.dm"
