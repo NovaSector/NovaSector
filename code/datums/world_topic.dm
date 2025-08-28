@@ -50,6 +50,7 @@
  * https://secure.byond.com/docs/ref/index.html#/world/proc/Topic
 */
 
+// If you modify the protocol for this, update tools/Tgstation.PRAnnouncer
 /datum/world_topic/ping
 	keyword = "ping"
 	log = FALSE
@@ -68,6 +69,7 @@
 /datum/world_topic/playing/Run(list/input)
 	return GLOB.player_list.len
 
+// If you modify the protocol for this, update tools/Tgstation.PRAnnouncer
 /datum/world_topic/pr_announce
 	keyword = "announce"
 	var/static/list/PRcounts = list() //PR id -> number of times announced this round

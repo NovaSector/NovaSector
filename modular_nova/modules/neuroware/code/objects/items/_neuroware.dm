@@ -122,7 +122,7 @@
 			return TRUE
 	return FALSE
 
-///Installs only if the mob has a synthetic brain
+///Installs only if the mob has a synthetic brain, unless they got a nif
 /obj/item/disk/neuroware/proc/try_install(mob/living/carbon/human/target, mob/living/carbon/human/user)
 	if(!ishuman(target))
 		return
@@ -130,8 +130,9 @@
 		balloon_alert(user, "it's been used up!")
 		return
 	var/obj/item/organ/brain/owner_brain = target.get_organ_slot(ORGAN_SLOT_BRAIN)
-	if(isnull(owner_brain) || !(owner_brain.organ_flags & ORGAN_ROBOTIC))
-		balloon_alert(user, "synthetic brain required!")
+	var/obj/item/organ/cyberimp/brain/nif/is_nif_user = target.get_organ_by_type(/obj/item/organ/cyberimp/brain/nif)
+	if(isnull(owner_brain) || !(owner_brain.organ_flags & ORGAN_ROBOTIC) || !is_nif_user)
+		balloon_alert(user, "synthetic brain or NIF required!")
 		return
 	if(is_lewd && !(target.client?.prefs.read_preference(/datum/preference/toggle/erp/aphro)))
 		balloon_alert(user, "installation failed!")

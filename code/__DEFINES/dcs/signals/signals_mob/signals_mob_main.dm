@@ -77,7 +77,7 @@
 /// From /mob/proc/ghostize() Called when a mob successfully ghosts
 #define COMSIG_MOB_GHOSTIZED "mob_ghostized"
 /// can_roll_midround(datum/antagonist/antag_type) from certain midround rulesets, (mob/living/source, datum/mind/mind, datum/antagonist/antagonist)
-#define COMSIG_MOB_MIND_BEFORE_MIDROUND_ROLL "mob_mind_transferred_out_of"
+#define COMSIG_MOB_MIND_BEFORE_MIDROUND_ROLL "mob_mind_before_midround_roll"
 	#define CANCEL_ROLL (1<<1)
 
 ///signal sent when a mob has their holy role set. Sent to the mob having their role changed.
@@ -227,6 +227,10 @@
 
 ///from living/flash_act(), when a mob is successfully flashed.
 #define COMSIG_MOB_FLASHED "mob_flashed"
+/// from /obj/item/assembly/flash/flash_carbon, to the mob being flashed
+#define COMSIG_MOB_FLASH_OVERRIDE_CHECK "mob_flash_override_check"
+	/// Has the flash effect been overridden?
+	#define FLASH_OVERRIDDEN (1<<0)
 /// from /obj/item/assembly/flash/flash_carbon, to the mob flashing another carbon
 #define COMSIG_MOB_PRE_FLASHED_CARBON "mob_pre_flashed_carbon"
 	/// Return to override deviation to be full deviation (fail the flash, usually)
