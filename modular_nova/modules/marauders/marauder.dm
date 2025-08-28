@@ -6,9 +6,6 @@
 	preview_outfit = /datum/outfit/marauder_preview
 	show_to_ghosts = TRUE
 	give_uplink = FALSE
-	should_give_codewords = FALSE
-	/// Identifying number of the traitor
-	var/marauder_no
 
 /datum/outfit/marauder_preview
 	name = "Marauder (Preview only)"
@@ -79,35 +76,6 @@
 	//set up our guy
 	set_assignment(owner.current)
 	grant_equipment(owner.current)
-	//load personalized items
-	load_personal_items(owner.current)
-
-/// this is where we load the personalized note and loadout equipped mannequin
-/datum/antagonist/traitor/marauder/proc/load_personal_items(mob/living/carbon/human/marauder)
-	for(var/area/misc/operative_barracks/dorm/spawn_area in GLOB.areas)
-		if(!marauder || !marauder.client)
-			return
-		for(var/turf/area_turf as anything in spawn_area.get_turfs_from_all_zlevels())
-			var/obj/structure/mannequin/operative_barracks/loadout/mannequin = locate() in area_turf
-			if(!mannequin)
-				continue
-			if(mannequin.loaded) //already loaded
-				continue
-			mannequin.load_items(marauder.client)
-			mannequin.loaded = TRUE
-			mannequin.update_appearance()
-		for(var/turf/area_turf as anything in spawn_area.get_turfs_from_all_zlevels())
-			var/obj/machinery/door/airlock/airlock = locate() in area_turf
-			if(!airlock)
-				continue
-			if(airlock.note) //already loaded
-				continue
-			var/obj/item/paper/fluff/midround_traitor/greeting/note = new(airlock)
-			airlock.note = note
-			note.write_note(marauder.real_name)
-			note.update_appearance()
-			note.forceMove(airlock)
-			airlock.update_appearance()
 
 /// this is where we add the job datum and build a bank account based on it
 /datum/antagonist/traitor/marauder/proc/set_assignment(mob/living/carbon/human/marauder)

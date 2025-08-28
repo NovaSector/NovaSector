@@ -28,19 +28,22 @@
 /datum/dynamic_ruleset/midround/from_ghosts/marauder/prepare_for_role(datum/mind/player_mind)
 	for(var/datum/dynamic_ruleset/midround/from_ghosts/marauder/ruleset in SSdynamic.executed_rulesets)
 		marauder_no++
-	map = new
-	reservation = map.lazy_load()
-	load_shuttle()
 	return ..()
 
 /datum/dynamic_ruleset/midround/from_ghosts/marauder/assign_role(datum/mind/player_mind)
 	var/datum/antagonist/traitor/marauder/antag_datum = new /datum/antagonist/traitor/marauder
-	antag_datum.marauder_no = marauder_no
 	player_mind.add_antag_datum(antag_datum)
-
+	//load map
+	map = new
+	reservation = map.lazy_load()
+	//load player
 	var/mob/living/carbon/human/new_character = player_mind.current
 	new_character.Sleeping(7 SECONDS)
 	move_to_spawn(new_character)
+	//late load
+	load_personal_items(new_character)
+	load_shuttle()
+	//report to mins
 	message_admins("[ADMIN_LOOKUPFLW(new_character)] has been made into a traitor by midround ruleset.")
 	log_game("[key_name(new_character)] was spawned as a traitor by midround ruleset.")
 
@@ -57,6 +60,25 @@
 	bed.buckle_mob(marauder)
 	bedsheet.coverup(marauder)
 	RegisterSignal(marauder, COMSIG_MOVABLE_Z_CHANGED, PROC_REF(on_departure))
+
+/// this is where we load the personalized note and loadout equipped mannequin
+/datum/dynamic_ruleset/midround/from_ghosts/marauder/proc/load_personal_items(mob/living/carbon/human/marauder)
+	if(!marauder || !marauder.client)
+		return
+	for(var/turf/open/floor/iron/relevant_turf in reservation.reserved_turfs)
+		var/obj/structure/mannequin/operative_barracks/loadout/mannequin = locate() in relevant_turf
+		var/obj/machinery/door/airlock/airlock = locate() in relevant_turf
+		if(mannequin && !mannequin.loaded)
+			mannequin.load_items(marauder.client)
+			mannequin.loaded = TRUE
+			mannequin.update_appearance()
+		if(airlock && !airlock.note)
+			var/obj/item/paper/fluff/midround_traitor/greeting/note = new(airlock)
+			airlock.note = note
+			note.write_note(marauder.real_name)
+			note.update_appearance()
+			note.forceMove(airlock)
+			airlock.update_appearance()
 
 /// when the marauder flies away from the base, actually procs when landed due to the base starting in transit Z
 /datum/dynamic_ruleset/midround/from_ghosts/marauder/proc/on_departure(datum/source)
@@ -78,6 +100,7 @@
 		victimized_turf.empty()
 	map.reservations -= reservation
 	map = null
+	spawnpoint = null
 	QDEL_NULL(reservation)
 
 /datum/dynamic_ruleset/midround/from_ghosts/marauder/proc/prompt_namechange(mob/living/player, client/player_client)
