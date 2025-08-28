@@ -1,6 +1,7 @@
 GLOBAL_LIST_INIT(nova_special_firearms, list(
 	/obj/item/storage/toolbox/guncase/nova/carwo_large_case/thunderdome_kiboko,
 	/obj/item/storage/toolbox/guncase/nova/carwo_large_case/thunderdome_kiboko/evil,
+	/obj/item/storage/toolbox/guncase/nova/boarder,
 	/obj/item/gun/ballistic/automatic/sol_rifle,
 	/obj/item/gun/ballistic/automatic/sol_rifle/evil,
 	/obj/item/gun/ballistic/automatic/sol_rifle/marksman,
