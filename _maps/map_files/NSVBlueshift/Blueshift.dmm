@@ -85689,7 +85689,7 @@
 /obj/item/clothing/gloves/latex/nitrile,
 /obj/item/clothing/gloves/latex/nitrile,
 /obj/item/clothing/neck/stethoscope,
-/obj/item/xenoarch/hammer/cm1{
+/obj/item/xenoarch/hammer{
 	desc = "A small hammer to test reflexes.. you can't seem to swing this thing right.";
 	name = "Reflex Hammer"
 	},
