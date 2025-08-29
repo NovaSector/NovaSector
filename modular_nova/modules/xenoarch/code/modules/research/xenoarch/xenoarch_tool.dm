@@ -129,7 +129,7 @@
 /obj/item/xenoarch/handheld_recoverer/interact_with_atom(atom/interacting_with, mob/living/user, list/modifiers)
 	var/turf/target_turf = get_turf(interacting_with)
 	. = ITEM_INTERACT_SUCCESS
-	if(istype(interacting_with, /obj/item/xenoarch/broken_item/tech))
+	if(interacting_with.type == /obj/item/xenoarch/broken_item)
 		var/spawn_item = pick_weight(GLOB.tech_reward)
 		new spawn_item(target_turf)
 		user.mind?.adjust_experience(/datum/skill/research, 5)
