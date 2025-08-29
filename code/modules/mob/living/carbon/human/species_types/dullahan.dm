@@ -269,6 +269,8 @@
 	detached_head.real_name = headless.real_name
 	detached_head.name = headless.real_name
 	name = headless.real_name
+	detached_head.voice = headless.voice
+	detached_head.pitch = pitch
 	var/obj/item/organ/brain/brain = locate(/obj/item/organ/brain) in detached_head
 	brain.name = "[headless.name]'s brain"
 
