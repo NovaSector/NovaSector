@@ -64,7 +64,7 @@
 	name = "Xenoarch Tape Measure"
 	desc = "A tape measure used to measure the dug depth of strange rocks."
 	id = "xenoarch_tapemeasure"
-	build_path = /obj/item/xenoarch/tape_measure
+	build_path = /obj/item/xenoarch
 
 /datum/design/xenoarch/tool/scanner
 	name = "Xenoarch Handheld Scanner"

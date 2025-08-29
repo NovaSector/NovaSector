@@ -201,7 +201,7 @@
 	set_holdable(list(
 		/obj/item/xenoarch/hammer,
 		/obj/item/xenoarch/brush,
-		/obj/item/xenoarch/tape_measure,
+		/obj/item/xenoarch,
 		/obj/item/xenoarch/core_sampler,
 		/obj/item/xenoarch/handheld_scanner,
 		/obj/item/xenoarch/handheld_recoverer,
@@ -298,7 +298,7 @@
 	new /obj/item/xenoarch/hammer/cm6(src)
 	new /obj/item/xenoarch/hammer/cm10(src)
 	new /obj/item/xenoarch/brush(src)
-	new /obj/item/xenoarch/tape_measure(src)
+	new /obj/item/xenoarch(src)
 	new /obj/item/xenoarch/handheld_scanner(src)
 	new /obj/item/storage/bag/xenoarch(src)
 	new /obj/item/storage/belt/utility/xenoarch(src)
