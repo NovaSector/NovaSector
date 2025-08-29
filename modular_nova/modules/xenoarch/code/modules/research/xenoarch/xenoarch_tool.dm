@@ -1,15 +1,19 @@
 /obj/item/xenoarch
-	name = "parent dev item"
+	name = "measuring tape"
+	desc = "A measuring tape specifically produced to measure the depth that has been dug into strange rocks."
 	icon = 'modular_nova/modules/xenoarch/icons/xenoarch_items.dmi'
+	icon_state = "tape"
 
 // HAMMERS
 
 /obj/item/xenoarch/hammer
-	name = "parent dev item"
+	name = "hammer (1cm)"
+	icon_state = "hammer1"
+	dig_amount = 1
 	desc = "A hammer that can be used to remove dirt from strange rocks."
 	tool_behaviour = TOOL_HAMMER
 	var/dig_amount = 1
-	var/dig_speed = 1 SECONDS
+	var/dig_speed = 0.5 SECONDS
 	var/advanced = FALSE
 
 /obj/item/xenoarch/hammer/examine(mob/user)
@@ -45,12 +49,6 @@
 	dig_amount = round_dig
 	dig_speed = round_dig * 0.5
 	to_chat(user, span_notice("You change the hammer's digging depth to [round_dig]cm."))
-
-/obj/item/xenoarch/hammer/cm1
-	name = "hammer (1cm)"
-	icon_state = "hammer1"
-	dig_amount = 1
-	dig_speed = 0.5 SECONDS
 
 /obj/item/xenoarch/hammer/cm2
 	name = "hammer (2cm)"
@@ -109,11 +107,6 @@
 	icon_state = "adv_brush"
 
 // MISC.
-
-/obj/item/xenoarch/tape_measure
-	name = "measuring tape"
-	desc = "A measuring tape specifically produced to measure the depth that has been dug into strange rocks."
-	icon_state = "tape"
 
 /obj/item/xenoarch/handheld_scanner
 	name = "handheld scanner"
