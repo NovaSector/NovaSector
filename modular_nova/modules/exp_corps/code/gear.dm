@@ -43,7 +43,7 @@
 	toolspeed = 2
 	throw_range = 3
 	attack_verb_continuous = list("saws", "slashes")
-	attack_verb_simple = list("saws", "slashes")
+	attack_verb_simple = list("saw", "slashe")
 	w_class = WEIGHT_CLASS_SMALL
 
 /obj/item/circular_saw/field_medic/lowforce
