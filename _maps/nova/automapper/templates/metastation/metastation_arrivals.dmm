@@ -1902,7 +1902,7 @@
 /area/station/hallway/secondary/entry)
 "Ty" = (
 /obj/effect/landmark/carpspawn,
-/turf/open/space,
+/turf/open/space/basic,
 /area/space)
 "TS" = (
 /obj/machinery/camera/directional/north{

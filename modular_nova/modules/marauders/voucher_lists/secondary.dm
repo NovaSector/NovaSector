@@ -36,6 +36,17 @@
 		/obj/item/suppressor,
 	)
 
+/datum/voucher_set/traitor/secondary_weapon/enforcer
+	name = /obj/item/gun/ballistic/automatic/pistol/enforcer::name
+	description = /obj/item/gun/ballistic/automatic/pistol/enforcer::desc
+	icon = /obj/item/gun/ballistic/automatic/pistol/enforcer::icon
+	icon_state = /obj/item/gun/ballistic/automatic/pistol/enforcer::icon_state
+	set_items = list(
+		/obj/item/gun/ballistic/automatic/pistol/enforcer,
+		/obj/item/ammo_box/magazine/enforcer,
+		/obj/item/ammo_box/magazine/enforcer,
+	)
+
 /datum/voucher_set/traitor/secondary_weapon/hoshi
 	name = /obj/item/gun/energy/modular_laser_rifle/carbine::name
 	description = /obj/item/gun/energy/modular_laser_rifle/carbine::desc

@@ -51830,10 +51830,6 @@
 	pixel_x = -3;
 	pixel_y = 4
 	},
-/obj/item/paper/fluff/ids_for_dummies{
-	pixel_x = 11;
-	pixel_y = 4
-	},
 /obj/machinery/recharger{
 	pixel_x = 2;
 	pixel_y = 3
