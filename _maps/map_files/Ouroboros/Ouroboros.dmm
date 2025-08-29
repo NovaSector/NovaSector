@@ -44763,7 +44763,6 @@
 	pixel_x = 4;
 	pixel_y = 4
 	},
-/obj/item/paper/fluff/ids_for_dummies,
 /obj/item/stamp/centcom{
 	pixel_x = 4;
 	pixel_y = 4
