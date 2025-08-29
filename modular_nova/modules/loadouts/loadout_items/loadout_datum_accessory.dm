@@ -203,13 +203,10 @@
 	name = "Medal - Crown (Hollow, Bar-Ribbon)"
 	item_path = /obj/item/clothing/accessory/nova/acc_medal/crown/hollow/bar_ribbon
 
-/datum/loadout_item/accessory/medal/glow_bar
-	name = "Glowbar necklace"
-	item_path = /obj/item/clothing/accessory/nova/acc_medal/glowbar
-
 /datum/loadout_item/accessory/medal/glow_crystal
 	name = "Glowcrystal necklace"
 	item_path = /obj/item/clothing/accessory/nova/acc_medal/glowcrystal
+	can_be_reskinned = TRUE
 
 /datum/loadout_item/accessory/medal/rankpin_star
 	name = "Rankpin (Star)"

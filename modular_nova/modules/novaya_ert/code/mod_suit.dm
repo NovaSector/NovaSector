@@ -129,7 +129,6 @@
 		/obj/item/mod/module/thread_ripper,
 		/obj/item/mod/module/surgical_processor,
 		/obj/item/mod/module/quick_cuff,
-		/obj/item/mod/module/armor_booster,
 		/obj/item/mod/module/ash_accretion,
 	)
 	complexity = 4

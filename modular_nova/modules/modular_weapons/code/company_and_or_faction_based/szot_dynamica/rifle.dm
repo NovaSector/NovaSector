@@ -2,9 +2,8 @@
 
 /obj/item/gun/ballistic/automatic/miecz
 	name = "\improper Miecz Support Weapon"
-	desc = "A short barrel weapon riding the line between submachine gun and a rifle. \
-		Features plasticized furniture and a maintenance manual in the stock... \
-		Which just doesn't seem to come out no matter how hard you pull."
+	desc = "A short-barrel weapon riding the line between submachine gun and a rifle, chambered for .27-54 Cesarzowa. \
+		To disincentivize use outside of the suggested short range, it only has basic, but very readable, glow-sights."
 
 	icon = 'modular_nova/modules/modular_weapons/icons/obj/company_and_or_faction_based/szot_dynamica/guns_48.dmi'
 	icon_state = "miecz"
@@ -25,9 +24,9 @@
 
 	bolt_type = BOLT_TYPE_STANDARD
 
-	w_class = WEIGHT_CLASS_BULKY
+	w_class = WEIGHT_CLASS_NORMAL
 	weapon_weight = WEAPON_MEDIUM
-	slot_flags = ITEM_SLOT_BELT // we keeping this for the VIBE
+	slot_flags = ITEM_SLOT_BELT
 
 	accepted_magazine_type = /obj/item/ammo_box/magazine/miecz
 
@@ -37,18 +36,24 @@
 	suppressor_y_offset = 3
 
 	burst_size = 1
-	fire_delay = 3.5
+	fire_delay = 0.35 SECONDS
 	actions_types = list()
+	spread = 5
+	// assuming base ammo,
+	// sindano:	0.3s fire delay, 7.5 spread, normal	|	20 damage, 0 AP
+	// miecz:	0.35s fire delay, 5 spread, bulky	|	20 damage, 30 AP
+	// followup pr suggestion: higher firerate for the sindano/miecz to 0.2s/0.25s, respectively
+	// and/or damage buffs for the sindano? i think the old "miecz spews less-damaging but innate AP bullets,
+	// while the sindano has higher base damage or something" dichotomy could've been explored more.
 
-	spread = 1
-	recoil = 0.5
-
-	lore_blurb = "The Miecz is one of the staple weapons of the frontier; simple, effective, and based on \
-		a figuratively 'tested' design, though you couldn't be sure which one.<br><br>\
-		It fires the .27-54 'intermediary' caliber round, if only to dodge classification as a rifle. \
-		Overall, it's decently accurate, lightweight, reeks of gun-grease, \
-		and might feel a little more homely then the next gun over... allegedly, anyway.<br><br>\
-		The wood-substitute material is known to have various side-effects. Contact your local health department before use."
+	lore_blurb = "The Miecz is one of the staple weapons of the frontier; simple, effective, and not terribly uncomfortable to use.<br><br>\
+		The unusual shape of the so-called \"support weapon\" is, interestingly, due to its storied development history. \
+		The original Miecz prototypes were built off an experimental downscaling of an equally experimental \
+		bullpup chassis for the Lanca battle rifle; while the bullpup Lancas never quite caught on, the Miecz showed enough potential \
+		that it warranted a development of a new pistol cartridge in tandem with further Miecz development, \
+		leading to the creation of .27-54 Cesarzowa.<br><br>\
+		While more cumbersome than its SolFed contemporary, the Sindano, the additional weight makes it easier to control and keep on-target, \
+		and .27-54 Cesarzowa's hard-tip ammo lends itself well towards defeating lighter personal armor."
 
 /obj/item/gun/ballistic/automatic/miecz/Initialize(mapload)
 	. = ..()
