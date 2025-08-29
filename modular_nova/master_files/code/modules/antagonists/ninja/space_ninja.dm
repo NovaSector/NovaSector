@@ -61,6 +61,8 @@
 /datum/objective/assassinate/headhunter/is_valid_target(datum/mind/possible_target)
 	if(!(/datum/job_department/command in possible_target.assigned_role.departments_list))
 		return FALSE
+	else if((/datum/job_department/central_command in possible_target.assigned_role.departments_list))
+		return FALSE
 	return ..()
 
 /// changes the cyborg hijack objective into an optional one to aid with the primary
@@ -71,6 +73,8 @@
 /datum/antagonist/ninja/addObjectives()
 	var/list/commandies = list()
 	for(var/datum/mind/mind as anything in get_crewmember_minds())
+		if(/datum/job_department/central_command in mind.assigned_role.departments_list)
+			continue
 		if(/datum/job_department/command in mind.assigned_role.departments_list)
 			commandies |= mind
 
