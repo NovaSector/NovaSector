@@ -272,7 +272,7 @@
 	var/obj/item/organ/brain/brain = locate(/obj/item/organ/brain) in detached_head
 	brain.name = "[headless.name]'s brain"
 
-	detached_head.copy_appearance_from(headless)
+	detached_head.copy_appearance_from(headless, overwrite_eyes = TRUE)
 	detached_head.update_icon_dropped()
 
 /obj/item/dullahan_relay/Hear(message, atom/movable/speaker, message_language, raw_message, radio_freq, radio_freq_name, radio_freq_color, list/spans, list/message_mods = list(), message_range)

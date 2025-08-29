@@ -51,7 +51,7 @@
 		return
 	copy_appearance_from(human_head_owner)
 
-/obj/item/bodypart/head/proc/copy_appearance_from(mob/living/carbon/human/target)
+/obj/item/bodypart/head/proc/copy_appearance_from(mob/living/carbon/human/target, overwrite_eyes = FALSE)
 	var/datum/species/target_species = target.dna.species
 
 	lip_style = target.lip_style
@@ -67,8 +67,10 @@
 	gradient_colors = target.grad_color.Copy()
 	var/obj/item/organ/eyes/peepers = locate() in src
 	if(peepers)
-		peepers.eye_color_left = target.eye_color_left
-		peepers.eye_color_right = target.eye_color_right
+		if(overwrite_eyes || isnull(initial(peepers.eye_color_left)))
+			peepers.eye_color_left = target.eye_color_left
+		if(overwrite_eyes || isnull(initial(peepers.eye_color_right)))
+			peepers.eye_color_right = target.eye_color_right
 
 	if(HAS_TRAIT(target, TRAIT_USES_SKINTONES))
 		skin_tone = target.skin_tone
