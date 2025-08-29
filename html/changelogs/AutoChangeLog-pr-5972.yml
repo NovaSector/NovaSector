@@ -1,0 +1,6 @@
+author: "RealWinterFrost"
+delete-after: True
+changes:
+  - image: "added a new fancy 'kinaris' carpet, can be aquired through cargo"
+  - image: "added a new fancy 'kinaris' table, can be aquired through placing carpet on a wooden table frame"
+  - code_imp: "added new code to provide more modularity for maintainers/coders wanting to make new table sprites."
