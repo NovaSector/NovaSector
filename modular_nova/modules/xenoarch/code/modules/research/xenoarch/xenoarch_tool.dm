@@ -1,15 +1,18 @@
 /obj/item/xenoarch
-	name = "parent dev item"
+	name = "measuring tape"
+	desc = "A measuring tape specifically produced to measure the depth that has been dug into strange rocks."
 	icon = 'modular_nova/modules/xenoarch/icons/xenoarch_items.dmi'
+	icon_state = "tape"
 
 // HAMMERS
 
 /obj/item/xenoarch/hammer
-	name = "parent dev item"
+	name = "hammer (1cm)"
+	icon_state = "hammer1"
 	desc = "A hammer that can be used to remove dirt from strange rocks."
 	tool_behaviour = TOOL_HAMMER
 	var/dig_amount = 1
-	var/dig_speed = 1 SECONDS
+	var/dig_speed = 0.5 SECONDS
 	var/advanced = FALSE
 
 /obj/item/xenoarch/hammer/examine(mob/user)
@@ -45,12 +48,6 @@
 	dig_amount = round_dig
 	dig_speed = round_dig * 0.5
 	to_chat(user, span_notice("You change the hammer's digging depth to [round_dig]cm."))
-
-/obj/item/xenoarch/hammer/cm1
-	name = "hammer (1cm)"
-	icon_state = "hammer1"
-	dig_amount = 1
-	dig_speed = 0.5 SECONDS
 
 /obj/item/xenoarch/hammer/cm2
 	name = "hammer (2cm)"
@@ -110,11 +107,6 @@
 
 // MISC.
 
-/obj/item/xenoarch/tape_measure
-	name = "measuring tape"
-	desc = "A measuring tape specifically produced to measure the depth that has been dug into strange rocks."
-	icon_state = "tape"
-
 /obj/item/xenoarch/handheld_scanner
 	name = "handheld scanner"
 	desc = "A handheld scanner for strange rocks. It tags the depths to the rock."
@@ -136,7 +128,7 @@
 /obj/item/xenoarch/handheld_recoverer/interact_with_atom(atom/interacting_with, mob/living/user, list/modifiers)
 	var/turf/target_turf = get_turf(interacting_with)
 	. = ITEM_INTERACT_SUCCESS
-	if(istype(interacting_with, /obj/item/xenoarch/broken_item/tech))
+	if(interacting_with.type == /obj/item/xenoarch/broken_item)
 		var/spawn_item = pick_weight(GLOB.tech_reward)
 		new spawn_item(target_turf)
 		user.mind?.adjust_experience(/datum/skill/research, 5)
@@ -208,7 +200,7 @@
 	set_holdable(list(
 		/obj/item/xenoarch/hammer,
 		/obj/item/xenoarch/brush,
-		/obj/item/xenoarch/tape_measure,
+		/obj/item/xenoarch,
 		/obj/item/xenoarch/core_sampler,
 		/obj/item/xenoarch/handheld_scanner,
 		/obj/item/xenoarch/handheld_recoverer,
@@ -297,7 +289,7 @@
 
 /obj/structure/closet/xenoarch/PopulateContents()
 	. = ..()
-	new /obj/item/xenoarch/hammer/cm1(src)
+	new /obj/item/xenoarch/hammer(src)
 	new /obj/item/xenoarch/hammer/cm2(src)
 	new /obj/item/xenoarch/hammer/cm3(src)
 	new /obj/item/xenoarch/hammer/cm4(src)
@@ -305,7 +297,7 @@
 	new /obj/item/xenoarch/hammer/cm6(src)
 	new /obj/item/xenoarch/hammer/cm10(src)
 	new /obj/item/xenoarch/brush(src)
-	new /obj/item/xenoarch/tape_measure(src)
+	new /obj/item/xenoarch(src)
 	new /obj/item/xenoarch/handheld_scanner(src)
 	new /obj/item/storage/bag/xenoarch(src)
 	new /obj/item/storage/belt/utility/xenoarch(src)

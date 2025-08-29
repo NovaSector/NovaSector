@@ -180,7 +180,7 @@
 
 		return ITEM_INTERACT_BLOCKING
 
-	if(istype(tool, /obj/item/xenoarch/tape_measure))
+	if(tool.type == /obj/item/xenoarch)
 		to_chat(user, span_notice("You begin carefully using your measuring tape."))
 		var/skill_modifier = user.mind?.get_skill_modifier(/datum/skill/research, SKILL_SPEED_MODIFIER)
 		if(!do_after(user, 4 SECONDS * skill_modifier, target = src))
