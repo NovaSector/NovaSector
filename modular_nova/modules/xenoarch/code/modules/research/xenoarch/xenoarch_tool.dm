@@ -9,7 +9,6 @@
 /obj/item/xenoarch/hammer
 	name = "hammer (1cm)"
 	icon_state = "hammer1"
-	dig_amount = 1
 	desc = "A hammer that can be used to remove dirt from strange rocks."
 	tool_behaviour = TOOL_HAMMER
 	var/dig_amount = 1
@@ -290,7 +289,7 @@
 
 /obj/structure/closet/xenoarch/PopulateContents()
 	. = ..()
-	new /obj/item/xenoarch/hammer/cm1(src)
+	new /obj/item/xenoarch/hammer(src)
 	new /obj/item/xenoarch/hammer/cm2(src)
 	new /obj/item/xenoarch/hammer/cm3(src)
 	new /obj/item/xenoarch/hammer/cm4(src)

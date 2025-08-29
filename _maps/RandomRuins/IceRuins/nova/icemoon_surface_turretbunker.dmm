@@ -166,7 +166,7 @@
 /area/ruin/turretbunker)
 "mI" = (
 /obj/structure/table/reinforced,
-/obj/item/xenoarch/hammer/cm1,
+/obj/item/xenoarch/hammer,
 /turf/open/floor/iron/colony,
 /area/ruin/turretbunker)
 "mT" = (

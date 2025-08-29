@@ -17,12 +17,10 @@
 	)
 
 /datum/design/xenoarch/tool/hammer
-	desc = "A hammer that can slowly remove debris on strange rocks."
-
-/datum/design/xenoarch/tool/hammer/cm1
 	name = "Hammer (cm 1)"
+	desc = "A hammer that can slowly remove debris on strange rocks."
 	id = "hammer_cm1"
-	build_path = /obj/item/xenoarch/hammer/cm1
+	build_path = /obj/item/xenoarch/hammer
 
 /datum/design/xenoarch/tool/hammer/cm2
 	name = "Hammer (cm 2)"
