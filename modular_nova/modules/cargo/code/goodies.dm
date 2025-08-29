@@ -146,6 +146,9 @@
 	name = "Blue Carpet Single-Pack"
 	contains = list(/obj/item/stack/tile/carpet/blue/fifty)
 
+/datum/supply_pack/goody/carpet/kinaris
+	name = "Kinaris Regal Carpet"
+	contains = list(/obj/item/stack/tile/carpet/kinaris)
 /*
 * NIF STUFF
 */
