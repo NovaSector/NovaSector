@@ -1182,3 +1182,10 @@
   - bugfix: Cyborgs correctly take burn damage from EMP again.
   - bugfix: EMP Flashlights work on cyborgs for non-combat mode as well as combat
       mode
+2025-08-29:
+  Hatterhat:
+  - rscadd: Scarborough Arms is proud to announce the restart of manufacturing and
+      export of their Enforcer line of offensive handguns to your local sector, with
+      initial offerings being in the form of the Enforcer-TEN, chambered in 10mm.
+      Due to the nature of intercorporate conflicts of interest, however, these will
+      likely only be found in the hands of Syndicate operatives.
