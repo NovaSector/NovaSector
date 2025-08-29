@@ -10,7 +10,7 @@ import {
   Table,
 } from 'tgui-core/components';
 import { toFixed } from 'tgui-core/math';
-import { BooleanLike } from 'tgui-core/react';
+import type { BooleanLike } from 'tgui-core/react';
 
 import { useBackend } from '../backend';
 import { Window } from '../layouts';
@@ -246,7 +246,7 @@ export const GlassBlowing = (props) => {
                 value={glass.timeLeft}
                 format={(value) => toFixed(value, 1)}
               />
-              {'/' + glass.totalTime.toFixed(1)}
+              {`/${glass.totalTime.toFixed(1)}`}
             </ProgressBar>
           </Section>
         )}

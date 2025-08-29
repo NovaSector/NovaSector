@@ -99,9 +99,9 @@
 /obj/structure/closet/secure_closet/des_two/cl_locker/PopulateContents()
 	..()
 
-	new /obj/item/card/id/advanced/chameleon/black(src)
-	new /obj/item/card/id/advanced/chameleon/black(src)
-	new /obj/item/card/id/advanced/chameleon/black(src)
+	new /obj/item/card/id/advanced/chameleon/elite/black(src)
+	new /obj/item/card/id/advanced/chameleon/elite/black(src)
+	new /obj/item/card/id/advanced/chameleon/elite/black(src)
 	new /obj/item/encryptionkey/headset_syndicate/interdyne(src)
 	new /obj/item/encryptionkey/headset_syndicate/interdyne(src)
 	new /obj/item/encryptionkey/headset_syndicate/interdyne(src)
@@ -126,3 +126,4 @@
 	new /obj/item/clothing/suit/toggle/labcoat/nova/fancy/rd/deckofficer(src)
 	new /obj/item/modular_computer/pda/chameleon(src)
 	new /obj/item/card/id/departmental_budget/interdyne(src)
+	new /obj/item/storage/hypospraykit/cmo/interdyne(src)

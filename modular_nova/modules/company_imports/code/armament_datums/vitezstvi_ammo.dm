@@ -16,12 +16,6 @@
 	item_type = /obj/item/ammo_workbench_module/lethal
 	cost = PAYCHECK_COMMAND * 3
 
-// not a disk. adds print points
-/datum/armament_entry/company_import/vitezstvi/ammo_bench/reboot
-	name = "reusable module reauthenticator"
-	item_type = /obj/item/ammo_workbench_reboot
-	cost = PAYCHECK_CREW
-
 // disk but with the bits needed for EMP/fire bullets
 /datum/armament_entry/company_import/vitezstvi/ammo_bench/ammo_disk/lethal_gimmick
 	item_type = /obj/item/ammo_workbench_module/lethal_gimmick
@@ -94,6 +88,11 @@
 
 /datum/armament_entry/company_import/vitezstvi/ammo_boxes/auto10mm_rubber
 	item_type = /obj/item/ammo_box/c10mm/rubber
+
+/datum/armament_entry/company_import/vitezstvi/ammo_boxes/zaibas_ammo
+	item_type = /obj/item/ammo_box/pulse_cargo_box
+	//It's like, a lot of ammo compared to other packages; high-capacity universal ammo for all pulse plasma guns.
+	cost = PAYCHECK_COMMAND * 2
 
 /datum/armament_entry/company_import/vitezstvi/ammo_boxes/strilka_lethal
 	item_type = /obj/item/ammo_box/c310_cargo_box

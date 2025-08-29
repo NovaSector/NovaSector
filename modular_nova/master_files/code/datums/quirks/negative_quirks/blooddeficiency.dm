@@ -16,7 +16,6 @@
 		var/datum/blood_type/unique_blood = get_blood_type(blood_type)
 		var/datum/reagent/blood_reagent = unique_blood::reagent_type
 		blood_bag.blood_type = blood_type
-		blood_bag.unique_blood = blood_reagent
 		blood_bag.reagents.add_reagent(blood_reagent ? blood_reagent : /datum/reagent/blood, 200, list("viruses"=null,"blood_DNA"=null,"blood_type"=blood_type,"resistances"=null,"trace_chem"=null))
 		blood_bag.update_appearance()
 	give_item_to_holder_nova(
@@ -28,4 +27,5 @@
 			LOCATION_HANDS,
 		),
 		flavour_text = "These will keep you alive until you can secure a supply of medication. Don't rely on them too much!",
+		notify_player = TRUE,
 	)
