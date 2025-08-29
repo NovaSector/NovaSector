@@ -1,5 +1,0 @@
-author: "OrbisAnima"
-delete-after: True
-changes:
-  - qol: "Telepathy (Quirk) now shows when the user uses the power and on whom, but not the contents of the message."
-  - balance: "Telepathy (Quirk) now tells who the person is using it unless they have the telepathy Gene. Telepathy (Quirk) no longer automatically gives the gene."
