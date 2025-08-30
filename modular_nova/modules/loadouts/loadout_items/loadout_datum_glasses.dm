@@ -12,7 +12,7 @@
 	datum/loadout_item/added_item,
 	list/datum/loadout_item/all_loadout_items,
 )
-	var/datum/loadout_item/glasses/other_loadout_items = list()
+	var/list/datum/loadout_item/glasses/other_loadout_items = list()
 	for(var/datum/loadout_item/glasses/other_loadout_item in all_loadout_items)
 		other_loadout_items += other_loadout_item
 

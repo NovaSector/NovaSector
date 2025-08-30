@@ -21,7 +21,7 @@
 #define MAX_ALLOWED_MISC_ITEMS 3
 /// The maximum allowed amount of erp items allowed in any given character's loadout
 #define MAX_ALLOWED_ERP_ITEMS 7
-/// Max amonut of accesssories allowed to be used.
+/// Max amount of accessories allowed to be used.
 #define MAX_ALLOWED_ACCESSORIES 3
 /// Max amount of pickable clothes for any category that lets you choose more than one
 #define MAX_ALLOWED_EXTRA_CLOTHES 2
