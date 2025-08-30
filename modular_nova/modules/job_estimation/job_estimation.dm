@@ -114,7 +114,7 @@
 
 	else if(ckey) // if the player is ready, update their job estimation
 		var/mob/dead/new_player/new_player = get_mob_by_ckey(ckey)
-		if(istype(new_player) && (new_player?.ready == PLAYER_READY_TO_PLAY))
+		if(istype(new_player) && (new_player.ready == PLAYER_READY_TO_PLAY))
 			remove_job_estimation(new_player)
 			add_job_estimation(new_player)
 
