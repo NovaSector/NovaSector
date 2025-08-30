@@ -33,7 +33,7 @@
 /datum/objective/assassinate/headhunter/update_explanation_text()
 	..()
 	if(target?.current)
-		explanation_text = "Assassinate [target.name], the [target.assigned_role.title] by dismembering [target.current.p_their()] head with your katana."
+		explanation_text = "Assassinate the [target.assigned_role.title], [target.name]; by dismembering [target.current.p_their()] head with your katana."
 	else
 		explanation_text = "Objective revoked."
 
@@ -72,7 +72,7 @@
 
 /// changes the cyborg hijack objective into an optional one to aid with the primary
 /datum/objective/cyborg_hijack
-	explanation_text = "(Optional) Use your gloves to convert a cyborg to aid you in head-hunting."
+	explanation_text = "(Optional) Use your gloves to convert a cyborg to aid you."
 
 /// the goon drive is now only for lowpop shifts without command members to hunt
 /datum/antagonist/ninja/addObjectives()
