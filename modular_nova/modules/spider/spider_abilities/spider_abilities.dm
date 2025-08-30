@@ -32,19 +32,20 @@
 	. = ..()
 	if(!iscarbon(target) || blocked >= 100)
 		return
-	var/obj/item/restraints/legcuffs/beartrap/webslinger_snare/restraint = new(get_turf(target))
-	restraint.spring_trap(target)
+	var/obj/item/restraints/legcuffs/bola/webslinger_snare/restraint = new(get_turf(target))
+	restraint.ensnare(target)
 
-/obj/item/restraints/legcuffs/beartrap/webslinger_snare
+/obj/item/restraints/legcuffs/bola/webslinger_snare
 	name = "sticky restraints"
 	desc = "Used by mega-arachnids to immobilize their prey."
 	icon = 'modular_nova/modules/spider/icons/spider.dmi'
 	flags_1 = NONE
 	item_flags = DROPDEL
 	icon_state = "spideregg"
-	armed = TRUE
+	breakouttime = 10 SECONDS
+	knockdown = 2 SECONDS
 
-/obj/item/restraints/legcuffs/beartrap/webslinger_snare/Initialize(mapload)
+/obj/item/restraints/legcuffs/bola/webslinger_snare/Initialize(mapload)
 	. = ..()
 	AddElement(/datum/element/swabable, CELL_VIRUS_TABLE_GENERIC_MOB, 1, 5)
 
@@ -216,9 +217,13 @@
 
 // apply trauma to those within a few blocks who break the effigy.
 /obj/structure/spider/stickyweb/alive/spider_effigy/Destroy()
+	playsound(loc,'sound/effects/tendril_destroyed.ogg', 200, FALSE, 50, TRUE, TRUE)
 	for(var/mob/living/carbon/carbon_target in view(2,src))
-		carbon_target.gain_trauma(/datum/brain_trauma/magic/spider)
-		visible_message(span_userdanger("The spider totem screeches as it breaks, piercing your mind! You can't trust your mind!"))
+		if(carbon_target.soundbang_act(intensity = 1, stun_pwr = 0, damage_pwr = 5, deafen_pwr = 5)) // if you don't have earpro you get brain damage
+			carbon_target.gain_trauma(/datum/brain_trauma/magic/spider)
+			visible_message(span_userdanger("The spider totem screeches as it breaks, piercing your mind! You can't trust your mind!"))
+		else
+			visible_message(span_notice("The spider totem screeches as it breaks, but it's not enough to unsettle you."))
 	STOP_PROCESSING(SSobj, src)
 	return ..()
 
