@@ -21368,7 +21368,7 @@
 /obj/structure/railing{
 	dir = 8
 	},
-/obj/structure/filingcabinet/filingcabinet,
+/obj/structure/filingcabinet/white,
 /obj/effect/turf_decal/bot,
 /turf/open/floor/iron/smooth,
 /area/station/cargo/sorting)
@@ -49697,7 +49697,7 @@
 	c_tag = "Cargo - Office";
 	name = "cargo camera"
 	},
-/obj/structure/filingcabinet/filingcabinet,
+/obj/structure/filingcabinet/white,
 /obj/structure/disposalpipe/segment{
 	dir = 4
 	},

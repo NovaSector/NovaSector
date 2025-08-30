@@ -58435,7 +58435,7 @@
 /obj/machinery/keycard_auth/wall_mounted/directional/west{
 	pixel_y = -8
 	},
-/obj/structure/filingcabinet/filingcabinet,
+/obj/structure/filingcabinet/white,
 /obj/machinery/firealarm/directional/north,
 /obj/machinery/light_switch/directional/west{
 	pixel_y = 6
