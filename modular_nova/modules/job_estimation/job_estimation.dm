@@ -103,7 +103,7 @@
 
 	UnregisterSignal(player, list(COMSIG_JOB_PREF_UPDATED))
 
-/// Takes a mob or ckey an tries to update the job estimation
+/// Takes a mob or ckey an tries to update the job estimation. 'player' and 'ckey' are optional args.
 /datum/controller/subsystem/statpanels/proc/update_job_estimation(mob/dead/new_player/player, ckey)
 	if(SSticker.HasRoundStarted())
 		return
