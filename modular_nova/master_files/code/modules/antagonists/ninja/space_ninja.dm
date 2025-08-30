@@ -92,7 +92,7 @@
 			objectives += strike_fear
 
 		//Cyborg Hijack: Flag set to complete in the DrainAct in ninjaDrainAct.dm
-		var/datum/objective/hijack = new /datum/objective/cyborg_hijack()
+		var/datum/objective/cyborg_hijack/hijack = new /datum/objective/cyborg_hijack()
 		objectives += hijack
 	else
 		//Break into science and mess up their research. Only add this objective if there is no command
@@ -115,9 +115,9 @@
 	if(objectives.len)
 		report += printobjectives(objectives)
 		for(var/datum/objective/objective in objectives)
+			if(istype(objective, /datum/objective/cyborg_hijack))
+				continue
 			if(!objective.check_completion())
-				if(istype(objective, /datum/objective/hijack))
-					continue
 				objectives_complete = FALSE
 				break
 
