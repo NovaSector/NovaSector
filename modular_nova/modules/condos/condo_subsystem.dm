@@ -33,7 +33,7 @@ SUBSYSTEM_DEF(condos)
 		/obj/item/mod/control/pre_equipped/research, \
 		/obj/item/mod/control/pre_equipped/rescue, \
 		/obj/item/mod/control/pre_equipped/safeguard, \
-		/obj/item/storage/belt/sabre, \
+		/obj/item/storage/belt/sheath/sabre, \
 		/obj/item/card, \
 		/obj/item/modular_computer, \
 		/obj/item/nullrod, \

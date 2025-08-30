@@ -117,7 +117,7 @@
 				mat_string += ", "
 
 		valid_casings += our_casing // adding the valid typepath
-		valid_casings[our_casing] = initial(our_casing.name) + " \[[our_casing.print_cost]pt\]"
+		valid_casings[our_casing] = initial(our_casing.name)
 		casing_mat_strings += mat_string // adding the casing material cost string
 		// we pray to god these indexes stay consistent.
 
@@ -135,7 +135,6 @@
 		data["datadisk_loaded"] = TRUE
 		data["datadisk_name"] = loaded_module.name
 		data["datadisk_desc"] = loaded_module.desc
-		data["datadisk_points"] = loaded_module.allowed_prints
 
 	data["mag_loaded"] = FALSE
 	data["error"] = null
@@ -292,12 +291,6 @@
 		ammo_fill_finish(FALSE)
 		return
 
-	if(loaded_module && (loaded_module.allowed_prints < casing_type.print_cost))
-		error_message = "Fabrication module license insufficient for chosen ammo type; reauthenticate module or change selected munition type."
-		error_type = "bad"
-		ammo_fill_finish(FALSE)
-		return
-
 	if(loaded_magazine.stored_ammo.len >= loaded_magazine.max_ammo)
 		error_message = "Ammunition container full."
 		error_type = "good"
@@ -320,12 +313,6 @@
 		return
 
 	if(!loaded_magazine)
-		return
-
-	if(loaded_module && (loaded_module.allowed_prints < casing_type.print_cost))
-		error_message = "Fabrication module license insufficient for chosen ammo type; reauthenticate module or change selected munition type!"
-		error_type = "bad"
-		ammo_fill_finish(FALSE)
 		return
 
 	var/datum/component/material_container/materials = GetComponent(/datum/component/material_container)
@@ -355,8 +342,6 @@
 		materials.use_materials(efficient_materials)
 		new_casing.set_custom_materials(efficient_materials)
 		loaded_magazine.update_appearance()
-		if(loaded_module && new_casing.ammo_categories)
-			loaded_module.allowed_prints -= new_casing.print_cost
 		flick("ammobench_process", src)
 		use_energy(active_power_usage)
 		playsound(loc, 'sound/machines/piston/piston_raise.ogg', 60, 1)
@@ -466,9 +451,6 @@
 	if(default_deconstruction_crowbar(attacking_item))
 		return
 	if(Insert_Item(attacking_item, user))
-		return TRUE
-	if(loaded_module && istype(attacking_item, /obj/item/ammo_workbench_reboot))
-		loaded_module.item_interaction(user, attacking_item, modifiers)
 		return TRUE
 	else
 		return ..()
