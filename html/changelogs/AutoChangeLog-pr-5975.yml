@@ -1,0 +1,7 @@
+author: "OrbisAnima"
+delete-after: True
+changes:
+  - rscadd: "The flatpacked series now include the Solar panel material variants, these variants produce more power but require better materials so they are more expensive."
+  - qol: "Solar flatpacks can now be obtained from imports, and their material values had been adjusted."
+  - qol: "The RTS has been revamped, its now the High-Temperature Self-Contained Reaction Generator. It no longer produces radiation but is volatile and fragile, it also got more expensive due to the improved radiation shielding of its new materials and the expensive care needed to ship without it blowing up on the shuttle. It improved its power output slightly! Credits to Jungle for the name and lore blurb!"
+  - bugfix: "Fixed the sprites for the flatpacked solar panels, they no longer look bare."
