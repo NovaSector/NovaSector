@@ -1,4 +1,4 @@
-output_name = "fancy_table_red"
+output_name = "kiaris_table"
 template = "bitmask/diagonal_32x32.toml"
 
 [icon_size]
