@@ -22,13 +22,18 @@
 		return
 	if(!istype(wound, /datum/wound/cranial_fissure) || !istype(limb, /obj/item/bodypart/head))
 		return
-	completed = TRUE
+	//clean the signal
 	UnregisterSignal(human, COMSIG_CARBON_GAIN_WOUND)
+	//replace the cranial fissure with beheading
+	wound.remove_wound_from_victim()
+	limb.dismember(BRUTE, FALSE, WOUND_SLASH)
+	//mark complete
+	completed = TRUE
 
 /datum/objective/assassinate/headhunter/update_explanation_text()
 	..()
 	if(target?.current)
-		explanation_text = "Assassinate [target.name], the [target.assigned_role.title] by inflicting a [LOWER_TEXT(/datum/wound/cranial_fissure::name)] to [target.current.p_their()] head."
+		explanation_text = "Assassinate [target.name], the [target.assigned_role.title] by dismembering [target.current.p_their()] head with your katana."
 	else
 		explanation_text = "Objective revoked."
 
