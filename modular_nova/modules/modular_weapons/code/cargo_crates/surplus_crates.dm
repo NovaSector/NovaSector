@@ -64,7 +64,7 @@
 		/obj/item/ammo_box/magazine/lanca/spawns_empty = ITEM_WEIGHT_AMMO_SINGLE,
 		/obj/item/ammo_box/magazine/wylom = ITEM_WEIGHT_AMMO_SINGLE,
 		// Other items
-		/obj/item/sign/flag/nri = ITEM_WEIGHT_MISC,
+		/obj/item/sign/flag/hc = ITEM_WEIGHT_MISC,
 		/obj/item/trench_tool = ITEM_WEIGHT_MISC,
 		/obj/item/binoculars = ITEM_WEIGHT_MISC,
 		/obj/item/storage/box/nri_flares = ITEM_WEIGHT_MISC,

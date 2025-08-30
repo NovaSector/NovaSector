@@ -8,7 +8,6 @@
 		<i>ARMOR PIERCING: Increased armor piercing capabilities. Reduced stopping power.</i>"
 	ammo_categories = AMMO_CLASS_PLUS
 	custom_materials = AMMO_MATS_AP
-	print_cost = 2
 
 /obj/item/ammo_casing/c46x30mm/inc
 	desc = "A 4.6x30mm incendiary bullet casing.\
@@ -16,7 +15,6 @@
 		<i>INCENDIARY: Leaves a trail of fire when shot, sets targets aflame.</i>"
 	ammo_categories = AMMO_CLASS_NICHE
 	custom_materials = AMMO_MATS_TEMP
-	print_cost = 2
 
 /obj/item/ammo_casing/c46x30mm/rubber
 	name = "4.6x30mm rubber bullet casing"
@@ -26,7 +24,6 @@
 	ammo_categories = AMMO_CLASS_NONE
 	projectile_type = /obj/projectile/bullet/c46x30mm/rubber
 	harmful = FALSE
-	print_cost = 0
 
 /*
 *	.223
@@ -41,7 +38,6 @@
 		<i>PHASIC: Ignores all surfaces except organic matter.</i>"
 	ammo_categories = AMMO_CLASS_ESOTERIC
 	custom_materials = AMMO_MATS_PHASIC
-	print_cost = 4
 
 /obj/item/ammo_casing/a223/rubber
 	name = ".223 rubber bullet casing"
@@ -51,7 +47,6 @@
 	ammo_categories = AMMO_CLASS_NONE
 	projectile_type = /obj/projectile/bullet/a223/rubber
 	harmful = FALSE
-	print_cost = 0
 
 /obj/item/ammo_casing/a223/ap
 	name = ".223 armor-piercing bullet casing"
@@ -61,7 +56,6 @@
 	projectile_type = /obj/projectile/bullet/a223/ap
 	ammo_categories = AMMO_CLASS_PLUS
 	custom_materials = AMMO_MATS_AP
-	print_cost = 2
 
 /obj/projectile/bullet/a223/ap
 	name = ".223 armor-piercing bullet"
@@ -75,16 +69,13 @@
 /obj/item/ammo_casing/m7mm/ap
 	ammo_categories = AMMO_CLASS_PLUS
 	custom_materials = AMMO_MATS_AP
-	print_cost = 2
 
 /obj/item/ammo_casing/m7mm/hollow
 	ammo_categories = AMMO_CLASS_PLUS
-	print_cost = 2
 
 /obj/item/ammo_casing/m7mm/incen
 	ammo_categories = AMMO_CLASS_NICHE
 	custom_materials = AMMO_MATS_TEMP
-	print_cost = 2
 
 /obj/item/ammo_casing/m7mm/match
 	ammo_categories = AMMO_CLASS_NICHE
@@ -99,14 +90,12 @@
 /obj/item/ammo_casing/p50
 	ammo_categories = AMMO_CLASS_SUPER
 	custom_materials = AMMO_MATS_HEAVY
-	print_cost = 3
 
 /obj/item/ammo_casing/p50/surplus
 	desc = "A .50 BMG surplus bullet casing.\
 		<br><br>\
 		<i>SURPLUS: Lacks innate armor penetration, contact-stun, or innate dismemberment ability. Still incredibly painful to be hit by.</i>"
 	ammo_categories = AMMO_CLASS_LETHAL
-	print_cost = 2
 
 /obj/item/ammo_casing/p50/disruptor
 	desc = "A .50 BMG disruptor bullet casing.\
@@ -154,7 +143,6 @@
 /obj/item/ammo_casing/strilka310/phasic
 	ammo_categories = AMMO_CLASS_SUPER | AMMO_CLASS_ESOTERIC
 	custom_materials = AMMO_MATS_PHASIC
-	print_cost = 4
 
 /obj/item/ammo_casing/strilka310/rubber
 	name = ".310 Strilka rubber bullet casing"
@@ -167,7 +155,6 @@
 
 	projectile_type = /obj/projectile/bullet/strilka310/rubber
 	ammo_categories = AMMO_CLASS_NONE
-	print_cost = 0
 	harmful = FALSE
 
 /obj/projectile/bullet/strilka310/rubber
@@ -194,7 +181,6 @@
 	projectile_type = /obj/projectile/bullet/strilka310/ap
 	ammo_categories = AMMO_CLASS_PLUS
 	custom_materials = AMMO_MATS_AP
-	print_cost = 2
 
 /obj/projectile/bullet/strilka310/ap
 	name = ".310 armor-piercing bullet"
