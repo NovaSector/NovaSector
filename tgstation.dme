@@ -8227,6 +8227,7 @@
 #include "modular_nova\modules\inflatables\code\inflatable.dm"
 #include "modular_nova\modules\interaction_menu\code\interaction_component.dm"
 #include "modular_nova\modules\interaction_menu\code\interaction_datum.dm"
+#include "modular_nova\modules\jaeger_mod\code\jaeger_mod.dm"
 #include "modular_nova\modules\job_estimation\job_estimation.dm"
 #include "modular_nova\modules\job_locker_beacon\code\job_locker_beacon.dm"
 #include "modular_nova\modules\jungle\code\flora.dm"
