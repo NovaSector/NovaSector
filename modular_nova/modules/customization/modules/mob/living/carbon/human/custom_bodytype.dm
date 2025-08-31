@@ -136,3 +136,7 @@
 	set_custom_worn_icon_cached(human_icon, human_icon_state, item.greyscale_colors || "x", final_icon)
 
 	return final_icon
+
+/datum/species/proc/get_custom_mod_module_icon()
+	return null
+
