@@ -18,10 +18,10 @@
 		"Claws" = FOOTSTEP_MOB_CLAW,
 		"Highheels" = list(list(
 			'modular_nova/modules/modular_items/lewd_items/sounds/highheel1.ogg',
-			'modular_nova/modules/modular_items/lewd_items/sounds/highheel2.ogg'), 70, -1),
+			'modular_nova/modules/modular_items/lewd_items/sounds/highheel2.ogg'), 70, 1),
 		"Hooves" = list(list(
 			'modular_nova/master_files/sound/effects/footstep/hardhoof1.ogg',
-			'modular_nova/master_files/sound/effects/footstep/hardhoof2.ogg'), 30, -1),
+			'modular_nova/master_files/sound/effects/footstep/hardhoof2.ogg'), 30, 1),
 	)
 	var/footstep_type = value_to_define[value]
 
