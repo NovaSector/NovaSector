@@ -23,7 +23,7 @@
 	name = "red kinaris carpet"
 	singular_name = "red kinaris carpet tile"
 
-	icon_state = "kinaris"
+	icon_state = "kinaris_red"
 
 	turf_type = /turf/open/floor/carpet/kinaris/red
 	merge_type = /obj/item/stack/tile/carpet/kinaris/red
@@ -36,6 +36,8 @@
 	name = "yellow kinaris carpet"
 	singular_name = "yellow kinaris carpet tile"
 
+	icon_state = "kinaris_red_yellow"
+
 	turf_type = /turf/open/floor/carpet/kinaris/yellow
 	merge_type = /obj/item/stack/tile/carpet/kinaris/yellow
 	table_type = /obj/structure/table/wood/fancy/kinaris/yellow
@@ -46,6 +48,8 @@
 /obj/item/stack/tile/carpet/kinaris/orange
 	name = "orange kinaris carpet"
 	singular_name = "orange kinaris carpet tile"
+
+	icon_state = "kinaris_orange"
 
 	turf_type = /turf/open/floor/carpet/kinaris/orange
 	merge_type = /obj/item/stack/tile/carpet/kinaris/orange
@@ -58,6 +62,8 @@
 	name = "green kinaris carpet"
 	singular_name = "green kinaris carpet tile"
 
+	icon_state = "kinaris_green"
+
 	turf_type = /turf/open/floor/carpet/kinaris/green
 	merge_type = /obj/item/stack/tile/carpet/kinaris/green
 	table_type = /obj/structure/table/wood/fancy/kinaris/green
@@ -68,6 +74,8 @@
 /obj/item/stack/tile/carpet/kinaris/purple
 	name = "purple kinaris carpet"
 	singular_name = "purple kinaris carpet tile"
+
+	icon_state = "kinaris_purple"
 
 	turf_type = /turf/open/floor/carpet/kinaris/purple
 	merge_type = /obj/item/stack/tile/carpet/kinaris/purple
@@ -80,6 +88,8 @@
 	name = "black trim kinaris carpet"
 	singular_name = "black trim kinaris carpet tile"
 
+	icon_state = "kinaris_blacktrim"
+
 	turf_type = /turf/open/floor/carpet/kinaris/blacktrim
 	merge_type = /obj/item/stack/tile/carpet/kinaris/blacktrim
 	table_type = /obj/structure/table/wood/fancy/kinaris/blacktrim
@@ -90,6 +100,8 @@
 /obj/item/stack/tile/carpet/kinaris/black
 	name = "black trim kinaris carpet"
 	singular_name = "black trim kinaris carpet tile"
+
+	icon_state = "dark_kinaris"
 
 	turf_type = /turf/open/floor/carpet/kinaris/black
 	merge_type = /obj/item/stack/tile/carpet/kinaris/black
@@ -102,6 +114,8 @@
 	name = "dark red trim kinaris carpet"
 	singular_name = "red trim kinaris carpet tile"
 
+	icon_state = "dark_kinaris_red"
+
 	turf_type = /turf/open/floor/carpet/kinaris/black/red
 	merge_type = /obj/item/stack/tile/carpet/kinaris/black/red
 	table_type = /obj/structure/table/wood/fancy/kinaris/black/red
@@ -112,6 +126,8 @@
 /obj/item/stack/tile/carpet/kinaris/black/orange
 	name = "dark orange kinaris carpet"
 	singular_name = "orange kinaris carpet tile"
+
+	icon_state = "dark_kinaris_orange"
 
 	turf_type = /turf/open/floor/carpet/kinaris/black/orange
 	merge_type = /obj/item/stack/tile/carpet/kinaris/black/orange
@@ -124,6 +140,8 @@
 	name = "dark yellow kinaris carpet"
 	singular_name = "yellow kinaris carpet tile"
 
+	icon_state = "dark_kinaris_yellow"
+
 	turf_type = /turf/open/floor/carpet/kinaris/black/yellow
 	merge_type = /obj/item/stack/tile/carpet/kinaris/black/yellow
 	table_type = /obj/structure/table/wood/fancy/kinaris/black/yellow
@@ -134,6 +152,8 @@
 /obj/item/stack/tile/carpet/kinaris/black/green
 	name = "dark green kinaris carpet"
 	singular_name = "green kinaris carpet tile"
+
+	icon_state = "dark_kinaris_green"
 
 	turf_type = /turf/open/floor/carpet/kinaris/black/green
 	merge_type = /obj/item/stack/tile/carpet/kinaris/black/green
@@ -146,6 +166,8 @@
 	name = "dark kinaris carpet"
 	singular_name = "purple kinaris carpet tile"
 
+	icon_state = "dark_kinaris_purple"
+
 	turf_type = /turf/open/floor/carpet/kinaris/black/purple
 	merge_type = /obj/item/stack/tile/carpet/kinaris/black/purple
 	table_type = /obj/structure/table/wood/fancy/kinaris/black/purple
@@ -156,6 +178,8 @@
 /obj/item/stack/tile/carpet/kinaris/black/whitetrim
 	name = "white trim kinaris carpet"
 	singular_name = "white trim kinaris carpet tile"
+
+	icon_state = "dark_kinaris_whitetrim"
 
 	turf_type = /turf/open/floor/carpet/kinaris/black/whitetrim
 	merge_type = /obj/item/stack/tile/carpet/kinaris/black/whitetrim
