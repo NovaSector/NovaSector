@@ -4,6 +4,7 @@
 	if(!isnull(get_species_overlay_icon()))
 		add_custom_worn_overlay(source, overlays, standing, draw_target, isinhands, icon_file)
 		return
+	. = ..()
 
 /obj/item/mod/module/proc/get_species_overlay_icon()
 	return mod.wearer?.dna?.species.get_custom_mod_module_icon()
