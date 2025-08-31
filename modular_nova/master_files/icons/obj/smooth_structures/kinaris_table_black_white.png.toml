@@ -1,4 +1,4 @@
-output_name = "kiaris_table_black_white"
+output_name = "kinaris_table_black_white"
 template = "bitmask/diagonal_32x32.toml"
 
 [icon_size]

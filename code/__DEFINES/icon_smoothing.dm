@@ -160,7 +160,7 @@ DEFINE_BITFIELD(smoothing_junction, list(
 #define SMOOTH_GROUP_CARPET_KINARIS_BLACK_WHITETRIM S_TURF(80)
 //NOVA EDIT ADDITION END
 
-#define MAX_S_TURF 67 //Always match this value with the one above it. // NOVA EDIT CHANGE - ORIGINAL: #define MAX_S_TURF 62 //Always match this value with the one above it.
+#define MAX_S_TURF 80 //Always match this value with the one above it. // NOVA EDIT CHANGE - ORIGINAL: #define MAX_S_TURF 62 //Always match this value with the one above it.
 
 #define S_OBJ(num) ("-" + #num + ",")
 /* /obj included */
