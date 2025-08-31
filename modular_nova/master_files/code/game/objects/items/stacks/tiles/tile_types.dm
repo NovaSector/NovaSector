@@ -36,7 +36,7 @@
 	name = "yellow kinaris carpet"
 	singular_name = "yellow kinaris carpet tile"
 
-	icon_state = "kinaris_red_yellow"
+	icon_state = "kinaris_yellow"
 
 	turf_type = /turf/open/floor/carpet/kinaris/yellow
 	merge_type = /obj/item/stack/tile/carpet/kinaris/yellow
