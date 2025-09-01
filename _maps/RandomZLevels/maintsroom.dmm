@@ -1564,7 +1564,7 @@
 /obj/item/melee/energy/sword/saber/blue{
 	anchored = 1
 	},
-/obj/item/clothing/glasses/night/colorless,
+/obj/item/clothing/glasses/night,
 /obj/item/reagent_containers/hypospray/medipen/survival/luxury{
 	pixel_y = -7;
 	pixel_x = 7
@@ -14094,7 +14094,7 @@
 /area/awaymission/caves/maintsroom)
 "VD" = (
 /obj/effect/decal/remains/human,
-/obj/item/mod/control/pre_equipped/marine/noboost,
+/obj/item/mod/control/pre_equipped/marine,
 /turf/open/floor/iron/smooth,
 /area/awaymission/caves/maintsroom)
 "VE" = (

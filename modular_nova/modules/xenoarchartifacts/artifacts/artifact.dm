@@ -247,7 +247,7 @@
 				to_chat(user, span_notice("Thanks to the advanced scanner the holomark now also displays the exact depth needed!"))
 			return
 
-	if(istype(attacking_item, /obj/item/xenoarch/tape_measure))
+	if(attacking_item.type == /obj/item/xenoarch)
 		if (measured)
 			to_chat(user, span_notice("The boulder was already measured."))
 			return

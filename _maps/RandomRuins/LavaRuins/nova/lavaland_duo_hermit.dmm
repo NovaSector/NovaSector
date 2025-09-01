@@ -242,7 +242,7 @@
 "Dh" = (
 /obj/structure/decorative/shelf,
 /obj/item/flashlight/lantern,
-/obj/item/xenoarch/tape_measure,
+/obj/item/xenoarch,
 /obj/item/xenoarch/brush,
 /turf/open/floor/wood/large,
 /area/ruin/powered/hermit)

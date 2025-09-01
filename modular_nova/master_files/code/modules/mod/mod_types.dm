@@ -22,6 +22,7 @@
 	)
 
 /obj/item/mod/control/pre_equipped/deepspace
+	starting_frequency = MODLINK_FREQ_SYNDICATE
 	applied_cell = /obj/item/stock_parts/power_store/cell/hyper
 	applied_modules = list(
 		/obj/item/mod/module/storage/syndicate,
@@ -31,13 +32,13 @@
 		/obj/item/mod/module/chameleon,
 	)
 	default_pins = list(
-		/obj/item/mod/module/armor_booster,
 		/obj/item/mod/module/jetpack/advanced,
 		/obj/item/mod/module/jump_jet,
 	)
 	theme = /datum/mod_theme/syndicate/deepspace
 
 /obj/item/mod/control/pre_equipped/deepspace_admiral
+	starting_frequency = MODLINK_FREQ_SYNDICATE
 	applied_cell = /obj/item/stock_parts/power_store/cell/hyper
 	applied_modules = list(
 		/obj/item/mod/module/storage/syndicate,
@@ -52,7 +53,6 @@
 		/obj/item/mod/module/quick_cuff,
 	)
 	default_pins = list(
-		/obj/item/mod/module/armor_booster,
 		/obj/item/mod/module/jetpack/advanced,
 		/obj/item/mod/module/jump_jet,
 	)

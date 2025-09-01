@@ -1,7 +1,7 @@
 //antag
 /datum/antagonist/traitor/marauder
 	name = "Marauder"
-	job_rank = ROLE_MARAUDER
+	pref_flag = ROLE_MARAUDER
 	roundend_category = "Marauders"
 	preview_outfit = /datum/outfit/marauder_preview
 	show_to_ghosts = TRUE
@@ -79,11 +79,6 @@
 
 /datum/antagonist/traitor/marauder/on_gain()
 	. = ..()
-	//load the map, if its the first time running don't force
-	if(marauder_no == 1)
-		SSmapping.lazy_load_template(LAZY_TEMPLATE_KEY_MIDROUND_TRAITOR)
-	else
-		SSmapping.lazy_load_template(LAZY_TEMPLATE_KEY_MIDROUND_TRAITOR, TRUE)
 	//load the shuttle, we don't trust lazy_load with this
 	load_shuttle(marauder_no)
 	//set up our guy

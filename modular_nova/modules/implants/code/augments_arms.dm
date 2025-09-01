@@ -399,7 +399,7 @@
 	ammo_type = /obj/item/ammo_casing/shotgun/beanbag
 	caliber = CALIBER_SHOTGUN
 	max_ammo = 1
-	multiload = FALSE
+	ammo_box_multiload = AMMO_BOX_MULTILOAD_NONE
 
 /obj/item/organ/cyberimp/arm/toolkit/shell_launcher
 	name = "shell launch system implant"

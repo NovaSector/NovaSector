@@ -68,6 +68,7 @@
 	default_price = PAYCHECK_CREW
 	extra_price = PAYCHECK_COMMAND * 4
 	payment_department = NO_FREEBIES
+	allow_custom = TRUE
 
 /obj/item/vending_refill/medical_deforest
 	machine_name = "DeForest Med-Vend"

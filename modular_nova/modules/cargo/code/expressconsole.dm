@@ -28,12 +28,17 @@
 
 	pod_type = /obj/structure/closet/supplypod/bluespacepod
 
+/obj/machinery/computer/cargo/express/interdyne/on_construction(mob/user)
+	. = ..()
+	/// Should report the player that built the console to the admins, in case anything fucky happens.
+	message_admins("[ADMIN_LOOKUPFLW(usr)] Has built a ghost role imports console ([src.name]) at [AREACOORD(src)].")
+
 /obj/machinery/computer/cargo/express/interdyne/emag_act(mob/user, obj/item/card/emag/emag_card)
 	if(user)
 		to_chat(user, span_notice("You try to change the routing protocols, but the machine displays a runtime error and reboots!"))
 	return FALSE //never let this console be emagged
 
-/obj/machinery/computer/cargo/express/interdyne/packin_up(forced = FALSE) //we're the dauntless, add the company imports stuff to our express console
+/obj/machinery/computer/cargo/express/interdyne/packin_up(forced = FALSE) //we're the ghost role, add the company imports stuff to our express console
 	. = ..()
 
 	if(meme_pack_data["Company Imports"])

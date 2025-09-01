@@ -392,7 +392,7 @@ GLOBAL_LIST_INIT(all_loadout_categories, init_loadout_categories())
 		UNTYPED_LIST_ADD(reskins, list(
 			"name" = skin,
 			"tooltip" = skin,
-			"skin_icon_state" = cached_reskin_options[skin],
+			"skin_icon_state" = can_be_greyscale ? ui_icon_state : cached_reskin_options[skin], // NOVA EDIT CHANGE - Get rid of the error icons - ORIGINAL: "skin_icon_state" = cached_reskin_options[skin]
 		))
 
 	return reskins

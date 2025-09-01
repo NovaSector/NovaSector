@@ -27,7 +27,7 @@
 	tweak_manifest()
 	var/mob/living/carbon/human/quirk_human = quirk_holder
 	quirk_human.mind.assigned_role.job_flags &= ~(JOB_CREW_MANIFEST|JOB_ANNOUNCE_ARRIVAL)
-	quirk_human.sec_hud_set_ID()
+	quirk_human.update_ID_card()
 
 /datum/quirk/visitor/remove(return_id = TRUE, erase_new = TRUE) //these flags are for VV
 	if(QDELING(quirk_holder) || istype(quirk_holder, /mob/living/carbon/human/consistent))
@@ -35,7 +35,7 @@
 	if(return_id)
 		var/mob/living/carbon/human/quirk_human = quirk_holder
 		old_id.equip_to_best_slot(quirk_human)
-		quirk_human.sec_hud_set_ID()
+		quirk_human.update_ID_card()
 	old_id = null //idk if this is necessary
 	if(erase_new)
 		QDEL_NULL(visitor_id)

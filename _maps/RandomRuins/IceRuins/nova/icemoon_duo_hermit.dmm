@@ -49,7 +49,7 @@
 /obj/item/raptor_dex,
 /obj/structure/table/wood,
 /obj/item/xenoarch/brush,
-/obj/item/xenoarch/tape_measure,
+/obj/item/xenoarch,
 /turf/open/floor/wood,
 /area/ruin/powered/hermit)
 "gP" = (

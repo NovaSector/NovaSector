@@ -179,7 +179,7 @@ SUBSYSTEM_DEF(title)
 	if(!(istype(user) && user.title_screen_is_ready))
 		return
 
-	user.client << output(name, "title_browser:update_current_character")
+	user.client << output(name, "nova_title_browser:update_current_character")
 
 /**
  * Adds a startup message to the splashscreen.
@@ -217,5 +217,5 @@ SUBSYSTEM_DEF(title)
 		if(!new_player.title_screen_is_ready)
 			continue
 
-		new_player.client << output(msg_html, "title_browser:append_terminal_text")
-		new_player.client << output(list2params(list(new_timing, SStitle.average_completion_time)), "title_browser:update_loading_progress")
+		new_player.client << output(msg_html, "nova_title_browser:append_terminal_text")
+		new_player.client << output(list2params(list(new_timing, SStitle.average_completion_time)), "nova_title_browser:update_loading_progress")

@@ -198,6 +198,10 @@
 /obj/machinery/status_display/ai/directional/north,
 /turf/open/floor/wood,
 /area/station/command/heads_quarters/nt_rep)
+"qg" = (
+/obj/machinery/firealarm/directional/south,
+/turf/open/floor/iron,
+/area/station/hallway/primary/central)
 "qr" = (
 /obj/structure/flora/grass/green/style_random,
 /turf/open/misc/asteroid/snow/icemoon,
@@ -424,6 +428,7 @@
 	fax_name = "Nanotrasen Consultant's Office";
 	name = "Nanotrasen Consultant's Fax Machine"
 	},
+/obj/machinery/firealarm/directional/east,
 /turf/open/floor/wood,
 /area/station/command/heads_quarters/nt_rep)
 "Kq" = (
@@ -760,7 +765,7 @@ Hy
 mc
 mc
 fV
-mc
+qg
 lu
 uK
 uK

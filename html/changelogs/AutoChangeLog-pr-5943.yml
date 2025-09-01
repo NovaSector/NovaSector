@@ -1,4 +1,0 @@
-author: "Diltyrr"
-delete-after: True
-changes:
-  - rscadd: "Added a way to pick a drone name."

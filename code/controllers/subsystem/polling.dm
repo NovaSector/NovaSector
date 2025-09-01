@@ -294,11 +294,10 @@ SUBSYSTEM_DEF(polling)
 		to_chat(potential_candidate, "There was a ghost prompt for: [role], unfortunately you are banned from ghost takeovers.")
 		return FALSE
 	// NOVA EDIT ADDITION END
-	if(role)
+	if(role && potential_candidate.client)
 		if(!(role in potential_candidate.client.prefs.be_special))
 			return FALSE
-		var/required_time = GLOB.special_roles[role] || 0
-		if(potential_candidate.client && potential_candidate.client.get_remaining_days(required_time) > 0)
+		if(potential_candidate.client.get_days_to_play_antag(role) > 0)
 			return FALSE
 
 	if(check_jobban)
@@ -334,7 +333,7 @@ SUBSYSTEM_DEF(polling)
 	QDEL_IN(finishing_poll, 0.5 SECONDS)
 
 /datum/controller/subsystem/polling/stat_entry(msg)
-	msg += "Active: [length(currently_polling)] | Total: [total_polls]"
+	msg = "\n  Active: [length(currently_polling)] | Total: [total_polls]"
 	var/datum/candidate_poll/soonest_to_complete = get_next_poll_to_finish()
 	if(soonest_to_complete)
 		msg += " | Next: [DisplayTimeText(soonest_to_complete.time_left())] ([length(soonest_to_complete.signed_up)] candidates)"

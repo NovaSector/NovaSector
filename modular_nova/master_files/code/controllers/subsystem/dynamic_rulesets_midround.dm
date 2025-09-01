@@ -1,12 +1,18 @@
-/datum/dynamic_ruleset/midround/from_living/autotraitor
+/datum/dynamic_ruleset/midround/from_living/traitor
 	var/static/list/sleeper_current_polling = list()
 	var/static/list/rejected_traitor = list()
+
+/datum/dynamic_ruleset/midround/from_living/traitor/collect_candidates()
+	var/list/candidates = ..()
+	candidates = shuffle(trim_candidates(candidates))
+	return poll_candidates_for_one(candidates)
+
 /**
  * Polls a group of candidates to see if they want to be a sleeper agent.
  *
  * @param candidates a list containing a candidate mobs
  */
-/datum/dynamic_ruleset/midround/from_living/autotraitor/proc/poll_candidates_for_one(candidates)
+/datum/dynamic_ruleset/midround/from_living/traitor/proc/poll_candidates_for_one(candidates)
 	message_admins("Attempting to poll [length(candidates)] people individually to become a Sleeper Agent...first one to say yes gets chosen.")
 	var/list/potential_candidates = shuffle(candidates)
 	var/list/yes_candidate = list()

@@ -126,3 +126,4 @@
 	new /obj/item/clothing/suit/toggle/labcoat/nova/fancy/rd/deckofficer(src)
 	new /obj/item/modular_computer/pda/chameleon(src)
 	new /obj/item/card/id/departmental_budget/interdyne(src)
+	new /obj/item/storage/hypospraykit/cmo/interdyne(src)

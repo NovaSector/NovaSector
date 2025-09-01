@@ -37,5 +37,31 @@
 			"blend_mode": "overlay",
 			"color_ids": [1]
 		}
+	],
+	"interdyne-custom-mini": [
+		{
+			"type": "icon_state",
+			"icon_state": "interdyne-box",
+			"blend_mode": "overlay"
+		},
+		{
+			"type": "icon_state",
+			"icon_state": "interdyne-face",
+			"blend_mode": "overlay",
+			"color_ids": [1]
+		}
+	],
+	"interdyne-deluxe-custom-mini": [
+		{
+			"type": "icon_state",
+			"icon_state": "interdyne-deluxe-box",
+			"blend_mode": "overlay"
+		},
+		{
+			"type": "icon_state",
+			"icon_state": "interdyne-deluxe-face",
+			"blend_mode": "overlay",
+			"color_ids": [1]
+		}
 	]
 }

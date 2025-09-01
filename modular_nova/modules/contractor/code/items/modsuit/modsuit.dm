@@ -17,7 +17,6 @@
 		/obj/item/mod/module/tether,
 	)
 	default_pins = list(
-		/obj/item/mod/module/armor_booster/contractor,
 		/obj/item/mod/module/tether,
 	)
 
@@ -34,7 +33,6 @@
 		/obj/item/mod/module/storage/syndicate,
 	)
 	default_pins = list(
-		/obj/item/mod/module/armor_booster/contractor,
 		/obj/item/mod/module/jetpack,
 		/obj/item/mod/module/baton_holster/preloaded,
 	)
@@ -51,7 +49,6 @@
 		/obj/item/mod/module/storage/syndicate,
 	)
 	default_pins = list(
-		/obj/item/mod/module/armor_booster/contractor,
 		/obj/item/mod/module/jetpack,
 		/obj/item/mod/module/baton_holster/preloaded,
 		/obj/item/mod/module/scorpion_hook,

@@ -6,7 +6,7 @@
 			/* hud_owner = */ null,
 			/* hud_owner = */ src,
 			/* button_text = */ "OPFOR",
-			/* offset = */ list(-276, -260),
+			/* offset = */ list(-276, 30),
 			/* font_size = */ 24,
 			/* on_click_callback = */ CALLBACK(src, PROC_REF(home_opfor)),
 		)
@@ -18,7 +18,7 @@
 			/* hud_owner = */ null,
 			/* hud_owner = */ src,
 			/* button_text = */ "Ghost",
-			/* offset = */ list(-311, -260),
+			/* offset = */ list(-311, 30),
 			/* font_size = */ 24,
 			/* on_click_callback = */ CALLBACK(src, PROC_REF(home_ghost)),
 		)
@@ -30,7 +30,7 @@
 			/* hud_owner = */ null,
 			/* hud_owner = */ src,
 			/* button_text = */ "Respawn",
-			/* offset = */ list(-346, -260),
+			/* offset = */ list(-346, 30),
 			/* font_size = */ 24,
 			/* on_click_callback = */ CALLBACK(src, PROC_REF(home_respawn)),
 		)

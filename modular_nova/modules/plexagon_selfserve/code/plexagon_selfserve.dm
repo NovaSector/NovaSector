@@ -218,7 +218,7 @@
 
 /datum/computer_file/program/crew_self_serve/ui_act(action, params, datum/tgui/ui, datum/ui_state/state)
 	. = ..()
-	var/obj/item/card/id/inserted_auth_card = computer.computer_id_slot
+	var/obj/item/card/id/inserted_auth_card = computer.stored_id
 	var/mob/living/carbon/human/human_user = usr
 	var/datum/mind/user_mind = usr.mind
 	if(!user_mind || !human_user || !inserted_auth_card)
@@ -254,18 +254,18 @@
 
 				computer.update_static_data_for_all_viewers()
 				playsound(computer, 'sound/machines/ping.ogg', 50, FALSE)
-				computer.RemoveID(human_user, silent = TRUE)
+				computer.remove_id(human_user, silent = TRUE)
 
 			return TRUE
 
 		if("PRG_eject_id")
-			computer.RemoveID(human_user, silent = TRUE)
+			computer.remove_id(human_user, silent = TRUE)
 
 			return TRUE
 
 /datum/computer_file/program/crew_self_serve/ui_data(mob/user)
 	var/list/data = list()
-	var/obj/item/card/id/inserted_auth_card = computer.computer_id_slot
+	var/obj/item/card/id/inserted_auth_card = computer.stored_id
 	data["authCard"] = inserted_auth_card ? inserted_auth_card.name : "-----"
 	data["authCardHOPLocked"] = id_locked_check(inserted_auth_card)
 	data["authCardTimeLocked"] = id_cooldown_check(inserted_auth_card) > 0
@@ -275,7 +275,7 @@
 
 /datum/computer_file/program/crew_self_serve/ui_static_data(mob/user)
 	var/list/data = list()
-	var/obj/item/card/id/inserted_auth_card = computer.computer_id_slot
+	var/obj/item/card/id/inserted_auth_card = computer.stored_id
 	if(inserted_auth_card)
 		data["authIDName"] = inserted_auth_card.registered_name ? inserted_auth_card.registered_name : "-----"
 		data["authIDRank"] = inserted_auth_card.assignment ? inserted_auth_card.assignment : "Unassigned"

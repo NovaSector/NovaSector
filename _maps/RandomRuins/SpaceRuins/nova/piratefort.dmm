@@ -1089,7 +1089,7 @@
 /obj/machinery/porta_turret/syndicate/energy{
 	faction = list("pirate")
 	},
-/turf/closed/wall/r_wall/syndicate,
+/turf/closed/wall/r_wall/plastitanium/syndicate,
 /area/ruin/space/has_grav/powered)
 "KZ" = (
 /obj/effect/turf_decal/trimline/dark_red/filled/line{
@@ -1432,7 +1432,7 @@
 /turf/open/floor/iron/dark,
 /area/ruin/space/has_grav/powered)
 "YM" = (
-/turf/closed/wall/r_wall/syndicate,
+/turf/closed/wall/r_wall/plastitanium/syndicate,
 /area/ruin/space/has_grav/powered)
 "Ze" = (
 /obj/machinery/computer/crew,

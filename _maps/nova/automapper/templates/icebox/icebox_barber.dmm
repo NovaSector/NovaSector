@@ -438,6 +438,10 @@
 "vq" = (
 /turf/template_noop,
 /area/template_noop)
+"Sf" = (
+/obj/effect/landmark/firealarm_sanity,
+/turf/open/openspace,
+/area/station/hallway/primary/central)
 
 (1,1,1) = {"
 af
@@ -522,7 +526,7 @@ ap
 (9,1,1) = {"
 aR
 at
-at
+Sf
 aL
 vq
 lL

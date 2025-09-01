@@ -166,39 +166,19 @@
 	acid = 90
 	wound = 25
 
-/obj/item/mod/module/armor_booster
-	// Half of the old armor is on the MODsuit, the other half is from the booster
-	armor_mod = /datum/armor/mod_module_armor_boost_override
-
-/datum/armor/mod_module_armor_boost_override
-	melee = 20
-	bullet = 25
-	laser = 15
-	energy = 20
-
 /datum/mod_theme/elite // Elite Syndiate
 	armor_type = /datum/armor/mod_theme_elite
 
 /datum/armor/mod_theme_elite
-	melee = 30
-	bullet = 30
-	laser = 25
-	energy = 30
+	melee = 60
+	bullet = 60
+	laser = 50
+	energy = 60
 	bomb = 60
 	bio = 100
 	fire = 100
 	acid = 100
 	wound = 25
-
-/obj/item/mod/module/armor_booster/elite
-	// Ditto - half on suit, half on booster
-	armor_mod = /datum/armor/mod_module_armor_boost_elite
-
-/datum/armor/mod_module_armor_boost_elite
-	melee = 30
-	bullet = 30
-	laser = 25
-	energy = 30
 
 /datum/mod_theme/prototype // Charlie Station
 	armor_type = /datum/armor/mod_theme_prototype

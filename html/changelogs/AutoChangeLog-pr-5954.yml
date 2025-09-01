@@ -1,6 +1,0 @@
-author: "Diltyrr"
-delete-after: True
-changes:
-  - rscadd: "Inverses the regen algorithm for slime people with the water breathing quirk."
-  - rscadd: "Disable the damage from ingesting water for slime people with the water breathing quirk."
-  - rscadd: "Removes the Hydrophobia toggle for slime people with the water breathing quirk."

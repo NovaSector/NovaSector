@@ -55,7 +55,7 @@
 /obj/effect/turf_decal/siding/dark/corner{
 	dir = 4
 	},
-/turf/closed/wall/r_wall/syndicate,
+/turf/closed/wall/r_wall/plastitanium/syndicate,
 /area/deathmatch)
 "gQ" = (
 /obj/structure/table/reinforced/ctf,
@@ -90,7 +90,7 @@
 /area/deathmatch)
 "iO" = (
 /obj/effect/turf_decal/siding/dark/corner,
-/turf/closed/wall/r_wall/syndicate,
+/turf/closed/wall/r_wall/plastitanium/syndicate,
 /area/deathmatch)
 "jp" = (
 /obj/effect/spawner/structure/window/reinforced/plasma/plastitanium,
@@ -145,7 +145,7 @@
 /obj/effect/turf_decal/siding/dark/corner{
 	dir = 8
 	},
-/turf/closed/wall/r_wall/syndicate,
+/turf/closed/wall/r_wall/plastitanium/syndicate,
 /area/deathmatch)
 "ne" = (
 /obj/structure/emergency_shield/timer,
@@ -410,7 +410,7 @@
 /turf/open/floor/mineral/plastitanium,
 /area/deathmatch)
 "NR" = (
-/turf/closed/wall/r_wall/syndicate,
+/turf/closed/wall/r_wall/plastitanium/syndicate,
 /area/deathmatch)
 "Pu" = (
 /obj/effect/turf_decal/trimline/dark_red/filled/line{
@@ -469,7 +469,7 @@
 /obj/effect/turf_decal/siding/dark/corner{
 	dir = 1
 	},
-/turf/closed/wall/r_wall/syndicate,
+/turf/closed/wall/r_wall/plastitanium/syndicate,
 /area/deathmatch)
 "YG" = (
 /obj/structure/table/reinforced/plastitaniumglass,

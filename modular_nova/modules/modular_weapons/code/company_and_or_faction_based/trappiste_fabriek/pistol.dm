@@ -19,7 +19,7 @@
 
 	fire_delay = 0.2 SECONDS
 
-	lore_blurb = "<i>The Guêpe is an evolution of an older pistol which has seen use for over a century, with incremental \
+	lore_blurb = "The Guêpe is an evolution of an older pistol which has seen use for over a century, with incremental \
 		improvements keeping it up to date.<br><br>\
 		The first models proved incredibly popular with law enforcement throughout SolFed, \
 		due to their ease of use, maintainability, and its low-caliber bullets heavily reducing the chance of collateral damage. \
@@ -28,7 +28,7 @@
 		with more modern variants remaining the SFAF's primary service pistol to this day. \
 		In the civilian market, the Guêpe is particularly popular among spacers who appreciate its simplicity and surplus of spare parts.<br><br>\
 		Less savory individuals also appreciate just how easy it is get in full-auto, simply by traveling to a less restrictive jurisdiction, and either \
-		buying a full-auto variant or having it converted.</i>"
+		buying a full-auto variant or having it converted."
 
 /obj/item/gun/ballistic/automatic/pistol/sol/give_manufacturer_examine()
 	AddElement(/datum/element/manufacturer_examine, COMPANY_TRAPPISTE)
@@ -45,7 +45,7 @@
 // Sol pistol evil gun
 
 /obj/item/gun/ballistic/automatic/pistol/sol/evil
-	desc = parent_type::desc + "This one is painted in a tacticool black."
+	desc = parent_type::desc + " This one is painted in a tacticool black."
 
 	icon_state = "wespe_evil"
 
