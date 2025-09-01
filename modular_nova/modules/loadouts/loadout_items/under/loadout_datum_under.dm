@@ -87,6 +87,9 @@
 	name = "Refitted Shoredress Wetsuit"
 	item_path = /obj/item/clothing/under/akula_wetsuit/refit
 
+/datum/loadout_item/under/miscellaneous //This needs to be removed whenever (ifever) loadout datums are actually cleaned.
+	abstract_type = /datum/loadout_item/under/miscellaneous
+
 /datum/loadout_item/under/miscellaneous/gear_harness
 	name = "Gear Harness"
 	item_path = /obj/item/clothing/under/misc/nova/gear_harness
