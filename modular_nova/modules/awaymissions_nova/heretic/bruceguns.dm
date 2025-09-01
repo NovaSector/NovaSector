@@ -39,7 +39,7 @@
 	name ="5.7x28mm bullet"
 	speed = 1.8
 	range = 30
-	damage = 8
+	damage = 6
 	armour_penetration = 50
 
 /obj/item/gun/energy/shrink_ray/one_shot
