@@ -79,6 +79,11 @@
 
 	return MARTIAL_ATTACK_SUCCESS
 
+/// Performs a blood steal punch attack that deals extra damage and steals blood from the target
+/// Arguments:
+/// * attacker - The mob performing the attack
+/// * defender - The mob being attacked
+/// Returns TRUE if the attack was successful, FALSE if it missed
 /datum/martial_art/blood_steal/proc/feedbacker(mob/living/attacker, mob/living/defender)
 
 	var/obj/item/bodypart/arm/active_arm = attacker.get_active_hand()
@@ -132,33 +137,45 @@
 		return TRUE
 
 	var/static/list/damage_heal_order = list(BRUTE, BURN, OXY)
-	if(defender.blood_volume < BLOOD_VOLUME_SURVIVE)
-		return
-	var/attack_direction = get_dir(attacker, defender)
-	if(iscarbon(defender))
-		var/mob/living/carbon/carbon_defender = defender
-		if(carbon_defender.mob_biotypes & MOB_ORGANIC)
-			carbon_defender.spray_blood(attack_direction, 1)
-			playsound(carbon_defender, 'sound/effects/wounds/crackandbleed.ogg', 100)
-		if(carbon_defender.mob_biotypes & MOB_ROBOTIC)
-			do_sparks(2, FALSE, carbon_defender.loc)
-			playsound(carbon_defender, 'modular_nova/modules/medical/sound/robotic_slash_T2.ogg', 100)
-	defender.blood_volume -= 10
+	var/defender_has_blood = HAS_TRAIT(defender, TRAIT_NOBLOOD)
+	var/attacker_has_blood = isliving(attacker) && HAS_TRAIT(attacker, TRAIT_NOBLOOD)
 
+	// Blood drain effects on defender
+	if(defender_has_blood && defender.blood_volume >= BLOOD_VOLUME_SURVIVE)
+		var/attack_direction = get_dir(attacker, defender)
+		if(iscarbon(defender))
+			var/mob/living/carbon/carbon_defender = defender
+			if(carbon_defender.mob_biotypes & MOB_ORGANIC)
+				carbon_defender.spray_blood(attack_direction, 1)
+				playsound(carbon_defender, 'sound/effects/wounds/crackandbleed.ogg', 100)
+			if(carbon_defender.mob_biotypes & MOB_ROBOTIC)
+				do_sparks(2, FALSE, carbon_defender.loc)
+				playsound(carbon_defender, 'modular_nova/modules/medical/sound/robotic_slash_T2.ogg', 100)
+		defender.blood_volume -= 10
+
+	// Healing effects on attacker
 	if(!isliving(attacker))
 		return
 	var/mob/living/living_attacker = attacker
 	living_attacker.heal_ordered_damage(5, damage_heal_order)
-	if(living_attacker.blood_volume < BLOOD_VOLUME_MAXIMUM)
+
+	// Blood transfer effects
+	if(attacker_has_blood && living_attacker.blood_volume < BLOOD_VOLUME_MAXIMUM)
 		living_attacker.blood_volume += 5
 	if(isbodypart(active_arm) && !IS_ROBOTIC_LIMB(active_arm))
-		living_attacker.apply_damage(damage*0.75, TOX)
-		living_attacker.blood_volume -= 7
+		living_attacker.apply_damage(damage*0.75, TOX, forced = TRUE)
+		if(attacker_has_blood)
+			living_attacker.blood_volume -= 7
 
 	new /obj/effect/temp_visual/crit(get_turf(defender))
 
 	return TRUE
 
+/// Performs a blast attack that knocks the target back
+/// Arguments:
+/// * attacker - The mob performing the attack
+/// * defender - The mob being attacked
+/// Returns TRUE if the attack was successful
 /datum/martial_art/blood_steal/proc/knuckleblaster(mob/living/attacker, mob/living/defender)
 
 	attacker.do_attack_animation(defender)
@@ -187,6 +204,10 @@
 
 	return TRUE
 
+/// Checks if the attacker is capable of deflecting a projectile
+/// Arguments:
+/// * attacker - The mob to check for deflect capability
+/// Returns TRUE if the attacker can deflect, FALSE otherwise
 /datum/martial_art/blood_steal/proc/can_deflect(mob/living/attacker)
 	if(!can_use(attacker) || !attacker.throw_mode)
 		return FALSE
@@ -203,6 +224,11 @@
 	return TRUE
 
 /// Handles our parrying signals, similar to hit_reaction() on items. Only parries while not-V1 is in throw mode.
+/// Attempts to parry an incoming projectile
+/// Arguments:
+/// * attacker - The mob attempting to parry
+/// * hitting_projectile - The projectile being parried
+/// Returns COMPONENT_BULLET_ACTED if the projectile was destroyed, COMPONENT_BULLET_PIERCED if deflected, or NONE if parry failed
 /datum/martial_art/blood_steal/proc/attempt_parry(mob/living/attacker, obj/projectile/hitting_projectile)
 	SIGNAL_HANDLER
 
@@ -237,10 +263,16 @@
 	addtimer(CALLBACK(src, PROC_REF(parry_availability), attacker), 5 SECONDS)
 	return COMPONENT_BULLET_PIERCED
 
+/// Notifies the attacker when their parry ability is available again after cooldown
+/// Arguments:
+/// * attacker - The mob to notify about parry availability
 /datum/martial_art/blood_steal/proc/parry_availability(mob/living/attacker)
 	if(COOLDOWN_FINISHED(src, parry_cooldown_timer))
 		attacker.balloon_alert(holder, "parry refreshed!")
 
+/// Displays help information about the Blood Steal martial art abilities
+/// This verb shows the user information about the Feedbacker and Knuckleblaster attacks,
+/// as well as the active defense mode for parrying projectiles
 /mob/living/proc/blood_steal_help()
 	set name = "Access Core Imprint"
 	set desc = "You try to remember some of the core Blood Steal protocols."
