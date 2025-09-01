@@ -104,7 +104,7 @@
 /turf/open/indestructible/cobble
 	name = "cobblestone path"
 	desc = "A simple but beautiful path made of various sized stones."
-	icon = 'modular_nova/modules/aesthetics/floors/icons/floors.dmi'
+	icon = 'modular_nova/master_files/icons/turf/floors/floor.dmi'
 	icon_state = "cobble"
 	baseturfs = /turf/open/indestructible/cobble
 	footstep = FOOTSTEP_FLOOR
