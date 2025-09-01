@@ -101,8 +101,8 @@
 	item_type = /obj/item/reagent_containers/cup/glass/waterbottle/large/protozine
 	cost = CARGO_CRATE_VALUE
 
-/datum/armament_entry/company_import/nri_surplus/misc/nri_flag
-	item_type = /obj/item/sign/flag/nri
+/datum/armament_entry/company_import/nri_surplus/misc/hc_flag
+	item_type = /obj/item/sign/flag/hc
 	cost = PAYCHECK_CREW * 0.5
 
 /datum/armament_entry/company_import/nri_surplus/firearm
@@ -135,6 +135,11 @@
 	cost = PAYCHECK_COMMAND * 10
 	restricted = TRUE
 
+/datum/armament_entry/company_import/nri_surplus/firearm/zaibas
+	item_type = /obj/item/gun/ballistic/automatic/pulse_rifle
+	cost = PAYCHECK_COMMAND * 12
+	restricted = TRUE
+
 /datum/armament_entry/company_import/nri_surplus/firearm/napad
 	item_type = /obj/item/gun/ballistic/automatic/napad
 	cost = PAYCHECK_COMMAND * 12
@@ -147,6 +152,11 @@
 
 /datum/armament_entry/company_import/nri_surplus/firearm/lanca
 	item_type = /obj/item/gun/ballistic/automatic/lanca
+	cost = PAYCHECK_COMMAND * 14
+	restricted = TRUE
+
+/datum/armament_entry/company_import/nri_surplus/firearm/zaibas_a
+	item_type = /obj/item/gun/ballistic/rifle/pulse_sniper
 	cost = PAYCHECK_COMMAND * 14
 	restricted = TRUE
 
@@ -167,6 +177,10 @@
 
 /datum/armament_entry/company_import/nri_surplus/firearm_ammo/miecz
 	item_type = /obj/item/ammo_box/magazine/miecz/spawns_empty
+
+/datum/armament_entry/company_import/nri_surplus/firearm_ammo/zaibas
+	item_type = /obj/item/ammo_box/magazine/pulse/spawns_empty
+	cost = PAYCHECK_CREW * 2
 
 /datum/armament_entry/company_import/nri_surplus/firearm_ammo/napad
 	item_type = /obj/item/ammo_box/magazine/napad/spawns_empty

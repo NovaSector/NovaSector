@@ -7,6 +7,12 @@
 		/obj/item/paper,
 	))
 
+// Makes this available to anyone, not just those with ACCESS_AUX_BASE
+/datum/supply_pack/goody/shuttle_construction_kit/New()
+	. = ..()
+	access_view = FALSE
+	contains += /obj/item/stack/rods/shuttle/fifty
+
 /*
 *	EMERGENCY RACIAL EQUIPMENT
 */
@@ -86,6 +92,12 @@
 	contains = list(/obj/item/scratching_stone)
 	contraband = TRUE
 
+/datum/supply_pack/goody/c38_super_kit
+	name = "NT/E \"Laevateinn\" Revolver Conversion Kit"
+	desc = "A small case of parts for converting a .38 revolver into Nanotrasen's latest foray into magnetically-accelerated sidearms."
+	cost = PAYCHECK_CREW * 6 // 300 cr at time of writing
+	contains = list(/obj/item/crafting_conversion_kit/c38_super)
+
 /*
 *	CARPET PACKS
 */
@@ -134,6 +146,9 @@
 	name = "Blue Carpet Single-Pack"
 	contains = list(/obj/item/stack/tile/carpet/blue/fifty)
 
+/datum/supply_pack/goody/carpet/kinaris
+	name = "Kinaris Regal Carpet"
+	contains = list(/obj/item/stack/tile/carpet/kinaris/fifty)
 /*
 * NIF STUFF
 */
