@@ -16,6 +16,10 @@
 	var/polling = FALSE
 
 /// Checks whether the request beacon can be used
+/// Checks if the user is a domain ghost actor or bitrunning glitch and electrocutes them if they are.
+/// Arguments:
+/// * user - The mob attempting to use the beacon
+/// Returns TRUE if the beacon can be used, FALSE otherwise
 /obj/item/antag_spawner/bitrunning_help/proc/check_usability(mob/user)
 	if(user.mind.has_antag_datum(/datum/antagonist/domain_ghost_actor, TRUE) || user.mind.has_antag_datum(/datum/antagonist/bitrunning_glitch, TRUE))
 		to_chat(user, span_danger("Listen here hacker. Your interest will be terminated. Bitrunner will be retained."))
@@ -26,6 +30,8 @@
 	return TRUE
 
 /// Creates the drop pod the subcontractor will be dropped by
+/// Creates a supplypod, duh.
+/// Returns the created supplypod object
 /obj/item/antag_spawner/bitrunning_help/proc/setup_pod()
 	var/obj/structure/closet/supplypod/pod = new(null, pod_style)
 	pod.explosionSize = list(0,0,0,0)
@@ -85,6 +91,9 @@
 		polling = FALSE
 		to_chat(user, span_warning("Unable to detect spooling quantum servers. Please wait and try again later."))
 
+/// Finds an available quantum server
+/// Iterates through all quantum servers to find one that has available retries or doesn't require retries to be spent.
+/// Returns the first available quantum server or null if none are found
 /obj/item/antag_spawner/bitrunning_help/proc/get_available_server()
 	// Find an available quantum server
 	for(var/obj/machinery/quantum_server/server as anything in SSmachines.get_machines_by_type(/obj/machinery/quantum_server))
@@ -119,6 +128,11 @@
 	subcontractor.forceMove(pod)
 	new /obj/effect/pod_landingzone(spawn_location ? spawn_location : get_turf(src), pod)
 
+/// Creates a new human subcontractor from a client
+/// Creates a new human mob, transfers the client's preferences, sets the ckey, and assigns a name from either preferences or a list of hacker aliases.
+/// Arguments:
+/// * our_client - The client to create the subcontractor from
+/// Returns the newly created human subcontractor
 /obj/item/antag_spawner/bitrunning_help/proc/create_subcontractor(client/our_client)
 	var/mob/living/carbon/human/subcontractor = new()
 	our_client.prefs.safe_transfer_prefs_to(subcontractor, is_antag = TRUE)
@@ -126,12 +140,21 @@
 	subcontractor.real_name = subcontractor.client?.prefs?.read_preference(/datum/preference/name/hacker_alias) || pick(GLOB.hacker_aliases)
 	return subcontractor
 
+/// Moves the subcontractor to a safe starting location
+/// Moves the subcontractor to a new player start location if available, otherwise moves them to coordinates 1,1,1 as a fallback.
+/// Arguments:
+/// * subcontractor - The human subcontractor to be moved
 /obj/item/antag_spawner/bitrunning_help/proc/move_to_safe_location(mob/living/carbon/human/subcontractor)
 	if(length(GLOB.newplayer_start))
 		subcontractor.forceMove(pick(GLOB.newplayer_start))
 	else
 		subcontractor.forceMove(locate(1,1,1))
 
+/// Equips the subcontractor with appropriate gear
+/// Creates and customizes the outfit for the subcontractor, sets armor values for clothing, and adds custom items to the backpack if not using a forced outfit.
+/// Arguments:
+/// * subcontractor - The human subcontractor to be equipped
+/// * server - The quantum server connected to the domain (for domain-specific outfit)
 /obj/item/antag_spawner/bitrunning_help/proc/equip_subcontractor(mob/living/carbon/human/subcontractor, obj/machinery/quantum_server/server)
 	// Create and customize outfit before applying
 	var/outfit_path = server.generated_domain.forced_outfit || subcontractor_outfit
@@ -162,6 +185,10 @@
 	// Apply the customized outfit
 	subcontractor.equipOutfit(to_wear, visuals_only = TRUE)
 
+/// Sets up the subcontractor's ID card
+/// Creates a new account for the ID card, sets it as non-replaceable, registers the subcontractor's name, updates the label, and applies the bit avatar trim to the card.
+/// Arguments:
+/// * subcontractor - The human subcontractor whose ID card to set up
 /obj/item/antag_spawner/bitrunning_help/proc/setup_id_card(mob/living/carbon/human/subcontractor)
 	var/obj/item/card/id/id_card = subcontractor.wear_id
 	if(id_card)
@@ -171,6 +198,10 @@
 		id_card.update_label()
 		SSid_access.apply_trim_to_card(id_card, /datum/id_trim/bit_avatar)
 
+/// Adds a bodycam component to the subcontractor
+/// Adds a simple bodycam component to the subcontractor.
+/// Arguments:
+/// * subcontractor - The human subcontractor to add the bodycam to
 /obj/item/antag_spawner/bitrunning_help/proc/add_bodycam(mob/living/carbon/human/subcontractor)
 	subcontractor.AddComponent( \
 		/datum/component/simple_bodycam, \
