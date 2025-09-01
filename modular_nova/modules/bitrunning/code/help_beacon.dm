@@ -79,7 +79,7 @@
 
 		// Spawn the antag and clean up
 		spawn_antag(chosen_one.client, get_turf(src), "subrunner", user.mind, server)
-		do_sparks(4, TRUE, src)
+		do_sparks(4, TRUE, get_turf(src))
 		qdel(src)
 	else
 		polling = FALSE
@@ -123,7 +123,7 @@
 	var/mob/living/carbon/human/subcontractor = new()
 	our_client.prefs.safe_transfer_prefs_to(subcontractor, is_antag = TRUE)
 	subcontractor.ckey = our_client.key
-	subcontractor.real_name = subcontractor.client?.prefs?.read_preference(/datum/preference/name/hacker_alias)
+	subcontractor.real_name = subcontractor.client?.prefs?.read_preference(/datum/preference/name/hacker_alias) || pick(GLOB.hacker_aliases)
 	return subcontractor
 
 /obj/item/antag_spawner/bitrunning_help/proc/move_to_safe_location(mob/living/carbon/human/subcontractor)
