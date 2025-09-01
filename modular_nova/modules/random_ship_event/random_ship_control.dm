@@ -4,7 +4,6 @@
 	weight = 10
 	max_occurrences = 1
 	min_players = 15
-	dynamic_should_hijack = TRUE
 	category = EVENT_CATEGORY_SPACE
 	description = "A random ship will attempt to contact the station with unknown intentions."
 	admin_setup = list(/datum/event_admin_setup/listed_options/random_ship)

@@ -57,13 +57,3 @@
 		bonused_account.adjust_money(10000)
 		// Successfully added the bonus
 	return
-
-/datum/random_ship_event/nri_police/on_refuse()
-	// Placeholder for additional effects when the inspection is refused
-	// No negative consequences as it's voluntary
-	return
-
-/datum/random_ship_event/nri_police/on_ship_spawn()
-	// Placeholder for additional effects when the inspection team arrives
-	// Could handle spawning of NRI inspection team here
-	return

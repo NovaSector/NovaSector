@@ -1,7 +1,5 @@
 /datum/antagonist/cop
 	name = "\improper NRI Police Officer"
-	//Despite using some similar mechanics, they're police officers, not pirates.
-	job_rank = "NRI Officer"
 	roundend_category = "nri cops"
 	antagpanel_category = "NRI Police"
 	show_in_antagpanel = FALSE

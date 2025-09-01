@@ -30,14 +30,14 @@
 	scan_range = 9
 	shot_delay = 15
 	faction = list(FACTION_NEUTRAL)
-	icon = 'modular_nova/modules/random_ship_event/random_ships/nri/icons/turrets.dmi'
+	icon = 'modular_nova/modules/random_ship_event/random_ships/heliostatic_inspectors/icons/turrets.dmi'
 	icon_state = "gun_turret"
 	base_icon_state = "gun_turret"
 	max_integrity = 250
 	stun_projectile = /obj/projectile/bullet/ciws
 	lethal_projectile = /obj/projectile/bullet/ciws
-	lethal_projectile_sound = 'modular_nova/modules/random_ship_event/random_ships/nri/sounds/shell_out_tiny.ogg'
-	stun_projectile_sound = 'modular_nova/modules/random_ship_event/random_ships/nri/sounds/shell_out_tiny.ogg'
+	lethal_projectile_sound = 'modular_nova/modules/random_ship_event/random_ships/heliostatic_inspectors/sounds/shell_out_tiny.ogg'
+	stun_projectile_sound = 'modular_nova/modules/random_ship_event/random_ships/heliostatic_inspectors/sounds/shell_out_tiny.ogg'
 
 /obj/machinery/porta_turret/syndicate/hc_police/target(atom/movable/target)
 	if(target)
@@ -75,7 +75,7 @@
 	req_access = null
 	circuit = null
 	command_name = "Heliostatic Coalition Safety Inspection Team Announcement"
-	report_sound = ANNOUNCER_hc_police
+	report_sound = ANNOUNCER_HC_POLICE
 
 /obj/machinery/suit_storage_unit/nri
 	mod_type = /obj/item/mod/control/pre_equipped/policing

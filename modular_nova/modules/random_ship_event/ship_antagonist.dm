@@ -1,6 +1,5 @@
 /datum/antagonist/ship_crew
 	name = "\improper Ship Crew"
-	job_rank = ROLE_SPACE_PIRATE
 	roundend_category = "ship crew"
 	antagpanel_category = "Random Ship Crew"
 	show_in_antagpanel = FALSE
