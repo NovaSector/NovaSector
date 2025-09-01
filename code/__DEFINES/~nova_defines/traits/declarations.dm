@@ -177,4 +177,7 @@
 /// Trait given while using /datum/action/cooldown/mob_cooldown/abdoment_pound
 #define TRAIT_ABDOMEN_POUND "abdoment_pound"
 
+///Insanity trait for Reality Dissociation Syndrome (to make it easier to work with)
+#define TRAIT_INSANITY "insanity"
+
 // END TRAIT DEFINES

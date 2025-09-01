@@ -249,7 +249,7 @@ const InfuserEntry = (props: InfuserEntryProps) => {
   return (
     <Section
       fill
-      title={entry.name + ' Mutant'}
+      title={`${entry.name} Mutant`}
       height={PAGE_HEIGHT}
       buttons={
         <Button tooltip={tierData.desc} icon={tierData.icon}>

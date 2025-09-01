@@ -1,6 +1,0 @@
-author: "RealWinterFrost"
-delete-after: True
-changes:
-  - rscadd: "Added new cyborg ghost role spawners to DS-2 and Interdyne"
-  - image: "changed the borg spawner sprites."
-  - map: "added the new borg spawners to DS-2, Interdyne, and snowdyne (some things may be moved haphazardly)."

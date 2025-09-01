@@ -19,7 +19,7 @@
 		/obj/item/clothing/under/rank/engineering/engineer/nova/utility = 3,
 		/obj/item/clothing/under/rank/engineering/engineer/nova/hazard_chem = 3,
 		/obj/item/clothing/under/misc/overalls = 3,
-		/obj/item/clothing/suit/toggle/jacket/nova/engi = 3,
+		/obj/item/clothing/suit/toggle/jacket/nova/colorable_bomber/engi = 3,
 		/obj/item/clothing/head/utility/hardhat/orange = 2,
 		/obj/item/clothing/head/utility/hardhat/welding/orange = 2,
 		/obj/item/clothing/head/utility/hardhat/dblue = 2,
@@ -43,7 +43,7 @@
 		/obj/item/clothing/under/rank/cargo/tech/nova/turtleneck/skirt = 3,
 		/obj/item/clothing/under/rank/cargo/tech/nova/utility = 3,
 		/obj/item/clothing/under/rank/cargo/tech/nova/casualman = 3,
-		/obj/item/clothing/suit/toggle/jacket/nova/supply = 3,
+		/obj/item/clothing/suit/toggle/jacket/nova/colorable_bomber/supply = 3,
 		/obj/item/clothing/glasses/hud/gun_permit = 5, //from company imports module
 		/obj/item/storage/backpack/messenger = 3,
 	)
@@ -102,7 +102,7 @@
 		/obj/item/clothing/under/rank/rnd/scientist/nova/hlscience = 3,
 		/obj/item/clothing/under/rank/rnd/scientist/nova/utility = 3,
 		/obj/item/clothing/suit/toggle/labcoat/nova/fancy/regular = 3,
-		/obj/item/clothing/suit/toggle/jacket/nova/sci = 3,
+		/obj/item/clothing/suit/toggle/jacket/nova/colorable_bomber/sci = 3,
 		/obj/item/storage/backpack/messenger/science = 3,
 	)
 
