@@ -98,7 +98,7 @@
 	amount = 50
 
 /obj/item/stack/tile/carpet/kinaris/black
-	name = "black trim kinaris carpet"
+	name = "black kinaris carpet"
 	singular_name = "black trim kinaris carpet tile"
 
 	icon_state = "dark_kinaris"
@@ -112,7 +112,7 @@
 
 /obj/item/stack/tile/carpet/kinaris/black/red
 	name = "dark red trim kinaris carpet"
-	singular_name = "red trim kinaris carpet tile"
+	singular_name = "dark red trim kinaris carpet tile"
 
 	icon_state = "dark_kinaris_red"
 
@@ -138,7 +138,7 @@
 
 /obj/item/stack/tile/carpet/kinaris/black/yellow
 	name = "dark yellow kinaris carpet"
-	singular_name = "yellow kinaris carpet tile"
+	singular_name = "dark yellow kinaris carpet tile"
 
 	icon_state = "dark_kinaris_yellow"
 
