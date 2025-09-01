@@ -24,7 +24,6 @@
 		)
 	)
 
-
 	page_holder.give_screen_object(
 		new /atom/movable/screen/escape_menu/text/clickable/leave_body/(
 			null,
