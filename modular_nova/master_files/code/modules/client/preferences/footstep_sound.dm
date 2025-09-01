@@ -13,6 +13,11 @@
 	if(value == "Default")
 		return
 
+	/// Either use the TG footstep_type here, or specify a special_footstep_sounds list.
+	/// special_footstep_sounds list formatting must be: list(list(sounds, go, here), volume, range modifier)
+	/// Note: special_footstep_sounds will play the same effect on all turfs, but TG footstep sounds are very hardcoded
+	/// so if you want a new custom set of sounds that's the least-painful method of adding them, with the caveat of not being able to
+	/// support turf-based sounds.
 	var/static/list/value_to_define = list(
 		"Shoes" = FOOTSTEP_MOB_SHOE,
 		"Claws" = FOOTSTEP_MOB_CLAW,
