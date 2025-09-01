@@ -15,16 +15,17 @@
 	max_heat_protection_temperature = ARMOR_MAX_TEMP_PROTECT
 	min_cold_protection_temperature = ARMOR_MIN_TEMP_PROTECT
 	siemens_coefficient = 0.25
-	complexity_max = DEFAULT_MAX_COMPLEXITY - 5
-	slowdown_deployed = 0.25 // todo servo module that reduces slowdown to 0 but increases power draw
-	inbuilt_modules = list() // servo module, user-config insignia
+	complexity_max = DEFAULT_MAX_COMPLEXITY - 3
+	slowdown_deployed = 0.25
+	inbuilt_modules = list(/obj/item/mod/module/jaeger_sprint) // future todo: user-settable shoulder stripe
 	variants = list(
 		"infantry" = list(
 			MOD_ICON_OVERRIDE = 'modular_nova/modules/jaeger_mod/icons/obj/infantry.dmi',
-			MOD_WORN_ICON_OVERRIDE = 'modular_nova/modules/jaeger_mod/icons/obj/infantry.dmi',
+			MOD_WORN_ICON_OVERRIDE = 'modular_nova/modules/jaeger_mod/icons/mob/infantry.dmi',
 			/obj/item/clothing/head/mod = list(
 				UNSEALED_CLOTHING = SNUG_FIT|THICKMATERIAL,
 				UNSEALED_INVISIBILITY = HIDEEARS|HIDEHAIR,
+				SEALED_CLOTHING = HEADINTERNALS,
 				SEALED_INVISIBILITY = HIDEFACIALHAIR|HIDEMASK|HIDEEYES|HIDEFACE|HIDESNOUT,
 				SEALED_COVER = HEADCOVERSEYES|HEADCOVERSMOUTH|PEPPERPROOF,
 				UNSEALED_MESSAGE = HELMET_UNSEAL_MESSAGE,
@@ -66,26 +67,39 @@
 		/obj/item/mod/module/magnetic_harness,
 		/obj/item/mod/module/quick_cuff,
 	)
+	default_pins = list(
+		/obj/item/mod/module/jaeger_sprint,
+	)
 
-/*
-tgmc medium armor values: (MELEE = 45, BULLET = 65, LASER = 65, ENERGY = 55, BOMB = 50, BIO = 50, FIRE = 50, ACID = 55)
-/datum/armor/suit_armor
-	melee = 35
-	bullet = 30
-	laser = 30
-	energy = 40
-	bomb = 25
-	fire = 50
-	acid = 50
-	wound = 10
+/obj/item/mod/module/jaeger_sprint
+	name = "MOD jaeger sprint module"
+	desc = "An integrated subsystem that provides extra energy and cooling to the Jaeger/MOD's leg servos, reducing the equipment burden \
+		at the non-negligible cost of increased power draw. Use in controlled bursts."
+	icon = 'modular_nova/modules/jaeger_mod/icons/obj/infantry.dmi'
+	icon_state = "sprint"
+	removable = FALSE
+	module_type = MODULE_TOGGLE
+	incompatible_modules = list(/obj/item/mod/module/jaeger_sprint)
+	required_slots = list(ITEM_SLOT_FEET)
+	active_power_cost = DEFAULT_CHARGE_DRAIN * 2
+	/// How much slowdown does this add when activated?
+	var/speed_added = -0.25
 
-/datum/armor/armor_bulletproof
-	melee = 15
-	bullet = 60
-	laser = 10
-	energy = 10
-	bomb = 40
-	fire = 50
-	acid = 50
-	wound = 20
-*/
+/obj/item/mod/module/jaeger_sprint/on_activation()
+	mod.update_speed()
+
+/obj/item/mod/module/jaeger_sprint/on_deactivation(display_message = TRUE, deleting = FALSE)
+	mod.update_speed()
+
+/obj/item/mod/module/jaeger_sprint/on_install()
+	. = ..()
+	RegisterSignal(mod, COMSIG_MOD_UPDATE_SPEED, PROC_REF(on_update_speed))
+
+/obj/item/mod/module/jaeger_sprint/on_uninstall(deleting = FALSE)
+	. = ..()
+	UnregisterSignal(mod, COMSIG_MOD_UPDATE_SPEED)
+
+/obj/item/mod/module/jaeger_sprint/proc/on_update_speed(datum/source, list/module_slowdowns, prevent_slowdown)
+	SIGNAL_HANDLER
+	if (active)
+		module_slowdowns += speed_added
