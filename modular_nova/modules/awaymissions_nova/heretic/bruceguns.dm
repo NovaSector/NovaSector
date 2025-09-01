@@ -10,7 +10,12 @@
 	mag_display = FALSE
 	mag_display_ammo = FALSE
 	empty_indicator = TRUE
-	rof = 0.05 SECONDS
+	var/rof = 0.05 SECONDS
+
+
+/obj/item/gun/ballistic/automatic/wt550/p90/Initialize(mapload)
+	. = ..()
+	AddComponent(/datum/component/automatic_fire, rof)
 
 /obj/item/ammo_box/magazine/p90_mag
 	name = "p90 toploader magazine"
