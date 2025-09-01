@@ -3,19 +3,10 @@
 /obj/structure/lattice/catwalk,
 /turf/open/space/basic,
 /area/solars/tarkon)
-"d" = (
-/obj/structure/lattice,
-/turf/open/space,
-/area/solars/tarkon)
 "i" = (
 /obj/machinery/power/tracker,
 /obj/structure/cable,
 /turf/open/floor/iron/solarpanel/airless,
-/area/solars/tarkon)
-"j" = (
-/obj/structure/lattice/catwalk,
-/obj/structure/cable,
-/turf/open/space,
 /area/solars/tarkon)
 "l" = (
 /obj/structure/lattice/catwalk,
@@ -59,10 +50,6 @@
 /obj/structure/lattice,
 /obj/item/stack/cable_coil/thirty,
 /turf/open/space/basic,
-/area/solars/tarkon)
-"Q" = (
-/obj/structure/lattice/catwalk,
-/turf/open/space,
 /area/solars/tarkon)
 "S" = (
 /obj/structure/lattice/catwalk,
@@ -232,7 +219,7 @@ X
 E
 X
 w
-Q
+a
 w
 X
 X
@@ -242,7 +229,7 @@ N
 X
 X
 M
-j
+l
 w
 X
 E
@@ -252,8 +239,8 @@ X
 X
 E
 X
-d
-Q
+E
+a
 E
 w
 w
@@ -262,9 +249,9 @@ l
 M
 M
 M
-d
-j
-d
+E
+l
+E
 X
 E
 X
@@ -294,9 +281,9 @@ l
 X
 E
 X
-d
-Q
-d
+E
+a
+E
 w
 w
 w
@@ -304,9 +291,9 @@ l
 M
 M
 M
-d
-j
-d
+E
+l
+E
 X
 E
 X
@@ -316,7 +303,7 @@ X
 E
 X
 w
-Q
+a
 w
 X
 X
@@ -326,7 +313,7 @@ E
 X
 X
 w
-j
+l
 M
 X
 E

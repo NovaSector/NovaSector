@@ -44,10 +44,6 @@
 /obj/machinery/power/solar,
 /turf/open/floor/iron/solarpanel/airless,
 /area/solars/tarkon)
-"x" = (
-/obj/structure/lattice,
-/turf/open/space,
-/area/solars/tarkon)
 "y" = (
 /obj/item/solar_assembly,
 /obj/structure/cable,
@@ -58,10 +54,6 @@
 /obj/structure/cable,
 /mob/living/basic/carp,
 /turf/open/space/basic,
-/area/solars/tarkon)
-"L" = (
-/obj/structure/lattice/catwalk,
-/turf/open/space,
 /area/solars/tarkon)
 "T" = (
 /obj/structure/lattice/catwalk,
@@ -75,11 +67,6 @@
 "V" = (
 /obj/structure/lattice,
 /turf/open/space/basic,
-/area/solars/tarkon)
-"Z" = (
-/obj/structure/lattice/catwalk,
-/obj/structure/cable,
-/turf/open/space,
 /area/solars/tarkon)
 
 (1,1,1) = {"
@@ -234,7 +221,7 @@ a
 V
 a
 w
-Z
+n
 p
 p
 p
@@ -244,7 +231,7 @@ V
 a
 a
 w
-L
+T
 w
 a
 V
@@ -254,8 +241,8 @@ a
 a
 V
 a
-x
-Z
+V
+n
 V
 p
 p
@@ -264,9 +251,9 @@ T
 w
 w
 w
-x
-L
-x
+V
+T
+V
 a
 m
 a
@@ -296,9 +283,9 @@ n
 a
 V
 a
-x
-Z
-x
+V
+n
+V
 w
 w
 w
@@ -306,9 +293,9 @@ T
 w
 w
 w
-x
-L
-x
+V
+T
+V
 a
 V
 a
@@ -318,7 +305,7 @@ a
 V
 a
 c
-Z
+n
 c
 a
 a
@@ -328,7 +315,7 @@ V
 a
 a
 w
-L
+T
 y
 a
 V

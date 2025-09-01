@@ -17,10 +17,6 @@
 /obj/structure/cable,
 /turf/open/floor/iron/solarpanel/airless,
 /area/solars/tarkon)
-"i" = (
-/obj/structure/lattice,
-/turf/open/space,
-/area/solars/tarkon)
 "t" = (
 /obj/structure/lattice,
 /turf/open/space/basic,
@@ -35,11 +31,6 @@
 /obj/structure/cable,
 /obj/item/stack/cable_coil/five,
 /turf/open/space/basic,
-/area/solars/tarkon)
-"y" = (
-/obj/structure/lattice/catwalk,
-/obj/item/stack/cable_coil/five,
-/turf/open/space,
 /area/solars/tarkon)
 "A" = (
 /obj/structure/lattice/catwalk,
@@ -71,19 +62,10 @@
 /obj/modular_map_connector,
 /turf/template_noop,
 /area/template_noop)
-"S" = (
-/obj/structure/lattice/catwalk,
-/obj/structure/cable,
-/turf/open/space,
-/area/solars/tarkon)
 "W" = (
 /obj/structure/lattice/catwalk,
 /obj/structure/cable,
 /turf/open/space/basic,
-/area/solars/tarkon)
-"Y" = (
-/obj/structure/lattice/catwalk,
-/turf/open/space,
 /area/solars/tarkon)
 "Z" = (
 /obj/item/solar_assembly,
@@ -243,7 +225,7 @@ a
 t
 a
 t
-S
+W
 G
 a
 a
@@ -253,7 +235,7 @@ t
 a
 a
 N
-S
+W
 N
 a
 t
@@ -263,8 +245,8 @@ a
 a
 t
 a
-i
-S
+t
+W
 t
 G
 G
@@ -273,9 +255,9 @@ A
 N
 N
 N
-i
-Y
-i
+t
+A
+t
 a
 t
 a
@@ -305,9 +287,9 @@ W
 a
 t
 a
-i
-Y
-i
+t
+A
+t
 G
 G
 G
@@ -315,9 +297,9 @@ A
 N
 N
 N
-i
-Y
-i
+t
+A
+t
 a
 t
 a
@@ -327,7 +309,7 @@ a
 t
 a
 G
-Y
+A
 G
 a
 a
@@ -337,7 +319,7 @@ t
 a
 a
 N
-y
+w
 Z
 a
 t

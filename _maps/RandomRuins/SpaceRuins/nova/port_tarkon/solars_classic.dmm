@@ -8,10 +8,6 @@
 /obj/structure/lattice/catwalk,
 /turf/open/space/basic,
 /area/solars/tarkon)
-"d" = (
-/obj/structure/lattice/catwalk,
-/turf/open/space,
-/area/solars/tarkon)
 "e" = (
 /obj/structure/cable,
 /obj/modular_map_connector,
@@ -30,11 +26,6 @@
 /obj/structure/lattice,
 /mob/living/basic/carp,
 /turf/open/space/basic,
-/area/solars/tarkon)
-"i" = (
-/obj/structure/lattice/catwalk,
-/obj/structure/cable,
-/turf/open/space,
 /area/solars/tarkon)
 "j" = (
 /obj/structure/lattice/catwalk,
@@ -69,10 +60,6 @@
 /obj/structure/cable,
 /obj/item/stack/cable_coil/five,
 /turf/open/space/basic,
-/area/solars/tarkon)
-"T" = (
-/obj/structure/lattice,
-/turf/open/space,
 /area/solars/tarkon)
 "W" = (
 /obj/structure/lattice/catwalk,
@@ -232,7 +219,7 @@ t
 F
 t
 a
-d
+c
 w
 t
 t
@@ -242,7 +229,7 @@ F
 t
 t
 f
-d
+c
 a
 t
 F
@@ -252,8 +239,8 @@ t
 t
 F
 t
-T
-d
+F
+c
 F
 a
 a
@@ -262,9 +249,9 @@ c
 f
 f
 f
-T
-d
-T
+F
+c
+F
 t
 C
 t
@@ -294,9 +281,9 @@ L
 t
 F
 t
-T
-d
-T
+F
+c
+F
 f
 f
 f
@@ -304,9 +291,9 @@ c
 a
 a
 a
-T
-i
-T
+F
+L
+F
 t
 F
 t
@@ -316,7 +303,7 @@ t
 F
 t
 w
-d
+c
 w
 t
 t
@@ -326,7 +313,7 @@ F
 t
 t
 f
-d
+c
 f
 t
 F
