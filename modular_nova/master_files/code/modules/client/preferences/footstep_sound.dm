@@ -25,7 +25,7 @@
 			'modular_nova/master_files/sound/effects/footstep/hardhoof1.ogg',
 			'modular_nova/master_files/sound/effects/footstep/hardhoof2.ogg',
 			'modular_nova/master_files/sound/effects/footstep/hardhoof3.ogg',
-			'modular_nova/master_files/sound/effects/footstep/hardhoof4.ogg'), 30, 1),
+			'modular_nova/master_files/sound/effects/footstep/hardhoof4.ogg'), 35, 1),
 	)
 	var/footstep_type = value_to_define[value]
 
