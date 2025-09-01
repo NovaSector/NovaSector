@@ -3832,10 +3832,8 @@
 /area/awaymission/beach/heretic)
 "yd" = (
 /obj/structure/table,
-/obj/item/ammo_box/magazine/lahtimagazine{
-	anchored = 1
-	},
 /obj/effect/blessing,
+/obj/item/ammo_box/magazine/sniper_rounds,
 /turf/open/floor/iron/small,
 /area/awaymission/caves/heretic_laboratory_clean)
 "yg" = (
@@ -7763,12 +7761,8 @@
 /area/awaymission/caves/heretic_laboratory)
 "Ym" = (
 /obj/structure/table,
-/obj/item/gun/ballistic/automatic/sniper_rifle/lahti{
-	anchored = 1;
-	pixel_x = 13;
-	pixel_y = 0
-	},
 /obj/effect/blessing,
+/obj/item/gun/ballistic/rifle/sniper_rifle,
 /turf/open/floor/iron/small,
 /area/awaymission/caves/heretic_laboratory_clean)
 "Yn" = (
@@ -7804,10 +7798,8 @@
 "Yu" = (
 /obj/structure/table,
 /obj/machinery/light/directional/east,
-/obj/item/ammo_box/magazine/lahtimagazine{
-	anchored = 1
-	},
 /obj/effect/blessing,
+/obj/item/ammo_box/magazine/sniper_rounds,
 /turf/open/floor/iron/small,
 /area/awaymission/caves/heretic_laboratory_clean)
 "Yv" = (
@@ -29006,7 +28998,7 @@ xl
 xl
 Pc
 yd
-Ym
+Le
 he
 IK
 Pc
@@ -29263,7 +29255,7 @@ bZ
 xl
 Pc
 yd
-Le
+Ym
 IK
 IK
 Gp
