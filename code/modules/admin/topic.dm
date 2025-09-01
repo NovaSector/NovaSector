@@ -667,7 +667,17 @@
 		if(!check_rights(R_ADMIN))
 			return
 		output_ai_laws()
-
+	// NOVA EDIT ADDITION START - request antag
+	else if(href_list["requestantag"])
+		if(!check_rights(R_ADMIN))
+			return
+		var/datum/dynamic_ruleset/midround/from_ghosts/requested_event = locate(href_list["requestantag"])
+		if(!requested_event)
+			return
+		if(tgui_alert(usr, "Trigger [requested_event.name]?", "Message", list("Yes", "No")) != "Yes")
+			return
+		return SSdynamic.force_run_midround(requested_event, alert_admins_on_fail = TRUE, admin = usr)
+	// NOVA EDIT ADDITION END
 	else if(href_list["adminmoreinfo"])
 		var/mob/subject = locate(href_list["adminmoreinfo"]) in GLOB.mob_list
 		if(!ismob(subject))

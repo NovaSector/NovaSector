@@ -6,11 +6,24 @@
 			/* hud_owner = */ null,
 			/* hud_owner = */ src,
 			/* button_text = */ "OPFOR",
-			/* offset = */ list(-276, -260),
+			/* offset = */ list(-276, 30),
 			/* font_size = */ 24,
 			/* on_click_callback = */ CALLBACK(src, PROC_REF(home_opfor)),
 		)
 	)
+
+	page_holder.give_screen_object(
+		new /atom/movable/screen/escape_menu/text/clickable/home_button/request_antag(
+			null,
+			/* hud_owner = */ null,
+			/* hud_owner = */ src,
+			/* button_text = */ "Request antag",
+			/* offset = */ list(-311, 30),
+			/* font_size = */ 24,
+			/* on_click_callback = */ CALLBACK(src, PROC_REF(home_request_antag)),
+		)
+	)
+
 
 	page_holder.give_screen_object(
 		new /atom/movable/screen/escape_menu/text/clickable/leave_body/(
@@ -18,7 +31,7 @@
 			/* hud_owner = */ null,
 			/* hud_owner = */ src,
 			/* button_text = */ "Ghost",
-			/* offset = */ list(-311, -260),
+			/* offset = */ list(-346, 30),
 			/* font_size = */ 24,
 			/* on_click_callback = */ CALLBACK(src, PROC_REF(home_ghost)),
 		)
@@ -30,7 +43,7 @@
 			/* hud_owner = */ null,
 			/* hud_owner = */ src,
 			/* button_text = */ "Respawn",
-			/* offset = */ list(-346, -260),
+			/* offset = */ list(-386, 30),
 			/* font_size = */ 24,
 			/* on_click_callback = */ CALLBACK(src, PROC_REF(home_respawn)),
 		)
@@ -55,6 +68,13 @@
 	// Not guaranteed to be living. Everything defines verb/ghost separately. Fuck you.
 	var/mob/living/living_user = client?.mob
 	living_user?.opposing_force()
+	qdel(src)
+
+/datum/escape_menu/proc/home_request_antag()
+	PRIVATE_PROC(TRUE)
+
+	var/mob/dead/observer/ghost = client?.mob
+	ghost?.request_antag()
 	qdel(src)
 
 /atom/movable/screen/escape_menu/text/clickable/home_button/respawn
@@ -91,8 +111,25 @@
 )
 	. = ..()
 
-/atom/movable/screen/escape_menu/text/clickable/clickable/home_button/opfor/enabled()
+/atom/movable/screen/escape_menu/text/clickable/home_button/opfor/enabled()
 	if (!..())
 		return FALSE
 
 	return isliving(escape_menu.client?.mob)
+
+/atom/movable/screen/escape_menu/text/clickable/home_button/request_antag
+
+/atom/movable/screen/escape_menu/text/clickable/home_button/request_antag/Initialize(
+	mapload,
+	datum/escape_menu/escape_menu,
+	button_text,
+	offset,
+	on_click_callback,
+)
+	. = ..()
+
+/atom/movable/screen/escape_menu/text/clickable/home_button/request_antag/enabled()
+	if (!..())
+		return FALSE
+
+	return isobserver(escape_menu.client?.mob)
