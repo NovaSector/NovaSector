@@ -151,7 +151,7 @@
 
 /obj/item/stack/tile/carpet/kinaris/black/green
 	name = "dark green kinaris carpet"
-	singular_name = "green kinaris carpet tile"
+	singular_name = "dark green kinaris carpet tile"
 
 	icon_state = "dark_kinaris_green"
 
@@ -164,7 +164,7 @@
 
 /obj/item/stack/tile/carpet/kinaris/black/purple
 	name = "dark kinaris carpet"
-	singular_name = "purple kinaris carpet tile"
+	singular_name = "dark purple kinaris carpet tile"
 
 	icon_state = "dark_kinaris_purple"
 
