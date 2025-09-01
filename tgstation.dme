@@ -6940,6 +6940,7 @@
 #include "modular_nova\master_files\code\game\objects\structures\signs\signs_maps.dm"
 #include "modular_nova\master_files\code\game\turfs\closed\_closed.dm"
 #include "modular_nova\master_files\code\game\turfs\closed\minerals.dm"
+#include "modular_nova\master_files\code\game\turfs\open\floor\floors.dm"
 #include "modular_nova\master_files\code\game\turfs\open\floor\iron_floor.dm"
 #include "modular_nova\master_files\code\game\turfs\open\space\space.dm"
 #include "modular_nova\master_files\code\modules\admin\admin.dm"
