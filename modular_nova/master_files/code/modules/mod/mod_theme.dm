@@ -17,6 +17,7 @@
 /datum/mod_theme/syndicate/deepspace
 	name = "deepspace"
 	default_skin = "deepspace"
+	ui_theme = "syndicate"
 	armor_type = /datum/armor/mod_theme_syndicate/deepspace
 	variants = list(
 		"deepspace" = list(
@@ -175,6 +176,7 @@
 /datum/mod_theme/elite/admiral
 	name = "admiral"
 	default_skin = "admiral"
+	ui_theme = "syndicate"
 	armor_type = /datum/armor/mod_theme_elite/admiral
 	variants = list(
 		"admiral" = list(

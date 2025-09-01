@@ -42,8 +42,9 @@
 
 /obj/item/clothing/suit/costume/pirate/armored
 	armor_type = /datum/armor/pirate_armored
-	strip_delay = 40
-	equip_delay_other = 20
+	strip_delay = 4 SECONDS
+	equip_delay_other = 2 SECONDS
+	species_exception = null
 
 /obj/item/clothing/suit/costume/pirate/captain
 	name = "pirate captain coat"
@@ -53,8 +54,9 @@
 
 /obj/item/clothing/suit/costume/pirate/captain/armored
 	armor_type = /datum/armor/pirate_armored
-	strip_delay = 40
-	equip_delay_other = 20
+	strip_delay = 4 SECONDS
+	equip_delay_other = 2 SECONDS
+	species_exception = null
 
 /obj/item/clothing/suit/costume/cyborg_suit
 	name = "cyborg suit"
@@ -64,7 +66,7 @@
 	body_parts_covered = CHEST|GROIN|ARMS|LEGS|FEET
 	obj_flags = CONDUCTS_ELECTRICITY
 	fire_resist = T0C+5200
-	flags_inv = HIDEGLOVES|HIDESHOES|HIDEJUMPSUIT
+	flags_inv = HIDEGLOVES|HIDESHOES|HIDEJUMPSUIT|HIDETAIL // NOVA EDIT CHANGE - ORIGINAL: flags_inv = HIDEGLOVES|HIDESHOES|HIDEJUMPSUIT
 
 /obj/item/clothing/suit/costume/justice
 	name = "justice suit"
@@ -102,7 +104,7 @@
 	desc = "A plastic replica of the Syndicate space suit. You'll look just like a real murderous Syndicate agent in this! This is a toy, it is not made for use in space!"
 	w_class = WEIGHT_CLASS_NORMAL
 	allowed = list(/obj/item/flashlight, /obj/item/tank/internals/emergency_oxygen, /obj/item/tank/internals/plasmaman, /obj/item/toy)
-	flags_inv = HIDEGLOVES|HIDESHOES|HIDEJUMPSUIT|HIDETAIL // SYKRAT EDIT ADDITION - HIDETAIL
+	flags_inv = HIDEGLOVES|HIDESHOES|HIDEJUMPSUIT
 	resistance_flags = NONE
 
 /obj/item/clothing/suit/costume/hastur
@@ -298,7 +300,7 @@
 	inhand_icon_state = "space_suit_syndicate"
 	armor_type = /datum/armor/carp_costume_spaceproof
 	allowed = list(/obj/item/tank/internals, /obj/item/gun/ballistic/rifle/boltaction/harpoon) //I'm giving you a hint here
-	flags_inv = HIDEGLOVES|HIDESHOES|HIDEJUMPSUIT|HIDETAIL // NOVA EDIT ADDITION - HIDETAIL
+	flags_inv = HIDEGLOVES|HIDESHOES|HIDEJUMPSUIT|HIDETAIL // NOVA EDIT CHANGE - ORIGINAL: flags_inv = HIDEGLOVES|HIDESHOES|HIDEJUMPSUIT
 	cold_protection = CHEST|GROIN|LEGS|FEET|ARMS|HANDS
 	min_cold_protection_temperature = SPACE_SUIT_MIN_TEMP_PROTECT
 	heat_protection = CHEST|GROIN|LEGS|FEET|ARMS|HANDS
