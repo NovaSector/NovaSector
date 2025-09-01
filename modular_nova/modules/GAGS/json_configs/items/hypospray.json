@@ -93,5 +93,43 @@
 			"blend_mode": "overlay",
 			"color_ids": [2]
 		}
+	],
+	"hypo2_interdyne": [
+		{
+			"type": "icon_state",
+			"icon_state": "hypo2_interdyne",
+			"blend_mode": "overlay"
+		},
+		{
+			"type": "icon_state",
+			"icon_state": "hypo2_interdyne_accent1",
+			"blend_mode": "overlay",
+			"color_ids": [1]
+		},
+		{
+			"type": "icon_state",
+			"icon_state": "hypo2_interdyne_accent2",
+			"blend_mode": "overlay",
+			"color_ids": [2]
+		}
+	],
+	"hypo2_interdynedeck": [
+		{
+			"type": "icon_state",
+			"icon_state": "hypo2_interdynedeck",
+			"blend_mode": "overlay"
+		},
+		{
+			"type": "icon_state",
+			"icon_state": "hypo2_interdyne_accent1",
+			"blend_mode": "overlay",
+			"color_ids": [1]
+		},
+		{
+			"type": "icon_state",
+			"icon_state": "hypo2_interdyne_accent2",
+			"blend_mode": "overlay",
+			"color_ids": [2]
+		}
 	]
 }
