@@ -37,7 +37,7 @@
 
 /obj/projectile/bullet/mm57x28
 	name ="5.7x28mm bullet"
-	speed = 3.5
+	speed = 1.8
 	range = 30
 	damage = 8
 	armour_penetration = 50
