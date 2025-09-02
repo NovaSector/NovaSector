@@ -53,6 +53,11 @@
 		/obj/item/retractor/advanced = 1,
 		/obj/item/cautery/advanced = 1,
 		/obj/item/defibrillator/compact/combat/loaded/interdyne = 1,
+		/obj/item/circular_saw/field_medic/lowforce = 1,
+		/obj/item/bonesetter = 1,
+		/obj/item/stack/sticky_tape/surgical = 1,
+		/obj/item/reagent_containers/medigel/sterilizine = 1,
+		/obj/item/stack/medical/bone_gel = 1,
 	)
 	generate_items_inside(items_inside,src)
 
@@ -223,21 +228,6 @@
 		/obj/item/stack/medical/suture/medicated = 2,
 		/obj/item/reagent_containers/cup/bottle/epinephrine = 2,
 		/obj/item/storage/box/bandages/interdyne = 1,
-	)
-	generate_items_inside(items_inside,src)
-
-/obj/item/storage/pouch/medical/firstaid/interdyne/corpse
-	name = "\improper Interdyne Corpse Emergency Kit"
-	desc = "An Interdyne Pharmaceuticals Trauma kit, for immediate aid in situations where more complex aid may not be available. Despite the patient likely already being a corpse."
-	icon_state = "interdyne_lite_corpse"
-
-/obj/item/storage/pouch/medical/firstaid/interdyne/corpse/PopulateContents()
-	var/static/list/items_inside = list(
-		/obj/item/storage/hypospraykit/interdyne = 1,
-		/obj/item/reagent_containers/cup/beaker/rezadone/less = 1,
-		/obj/item/reagent_containers/cup/bottle/formaldehyde = 1,
-		/obj/item/reagent_containers/medigel/sterilizine = 1,
-		/obj/item/reagent_containers/cup/bottle/epinephrine = 1
 	)
 	generate_items_inside(items_inside,src)
 

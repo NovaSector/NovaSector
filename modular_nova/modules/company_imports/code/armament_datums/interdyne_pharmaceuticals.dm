@@ -18,7 +18,7 @@
 
 /datum/armament_entry/company_import/interdyne/solo/evilchems
 	item_type = /obj/item/storage/box/evilmeds/interdyne
-	cost = PAYCHECK_COMMAND * 12
+	cost = PAYCHECK_COMMAND * 8
 
 /datum/armament_entry/company_import/interdyne/solo/nvgs
 	item_type = /obj/item/clothing/glasses/hud/health/night/science
@@ -74,16 +74,16 @@
 */
 
 /datum/armament_entry/company_import/interdyne/largekit
-	subcategory = "kits"
-	cost = PAYCHECK_COMMAND * 40
+	subcategory = "Large kits"
+	cost = PAYCHECK_COMMAND * 5
 
 /datum/armament_entry/company_import/interdyne/largekit/doctorkit
 	item_type = /obj/item/storage/medkit/tactical/premium/interdyne
-	cost = PAYCHECK_COMMAND * 50
+	cost = PAYCHECK_COMMAND * 5
 
 /datum/armament_entry/company_import/interdyne/largekit/traumakit
 	item_type = /obj/item/storage/medkit/tactical/premium/interdyne/trauma
-	cost = PAYCHECK_COMMAND * 25
+	cost = PAYCHECK_COMMAND * 4
 
 /datum/armament_entry/company_import/interdyne/largekit/maid_sing
 	item_type = /obj/item/storage/backpack/duffelbag/syndie/interdyne/maidkit_sing
@@ -95,7 +95,7 @@
 
 /datum/armament_entry/company_import/interdyne/mediumkits
 	subcategory = "Medium Kits"
-	cost = PAYCHECK_COMMAND * 20
+	cost = PAYCHECK_COMMAND * 3.5
 
 /datum/armament_entry/company_import/interdyne/mediumkits/standard
 	item_type = /obj/item/storage/medkit/tactical/premium/interdyne/medium
@@ -112,15 +112,15 @@
 
 /datum/armament_entry/company_import/interdyne/smallkit
 	subcategory = "Small First Aid Kits"
-	cost = PAYCHECK_COMMAND * 10
+	cost = PAYCHECK_COMMAND * 1.5
 
 /datum/armament_entry/company_import/interdyne/smallkit/generalkit
 	item_type = /obj/item/storage/pouch/medical/firstaid/interdyne
 
 /datum/armament_entry/company_import/interdyne/smallkit/spraykit
 	description = "A small first aid kit loaded with a interdyne hypospray and various chemicals for usage /Trained doctor not included/"
-	item_type = /obj/item/storage/pouch/medical/firstaid/interdyne/spray
-	cost = PAYCHECK_COMMAND * 25
+	item_type = /obj/item/storage/hypospraykit/interdyne
+	cost = PAYCHECK_COMMAND * 4
 
 /datum/armament_entry/company_import/interdyne/smallkit/burnkit
 	item_type = /obj/item/storage/pouch/medical/firstaid/interdyne/burn
@@ -133,11 +133,6 @@
 
 /datum/armament_entry/company_import/interdyne/smallkit/oxygenkit
 	item_type = /obj/item/storage/pouch/medical/firstaid/interdyne/oxygen
-
-/datum/armament_entry/company_import/interdyne/smallkit/corpsekit
-	item_type = /obj/item/storage/pouch/medical/firstaid/interdyne/corpse
-	cost = PAYCHECK_COMMAND * 15
-
 
 // Modsuit mods that CAN be found in the uplinks
 /datum/armament_entry/company_import/interdyne/mods
