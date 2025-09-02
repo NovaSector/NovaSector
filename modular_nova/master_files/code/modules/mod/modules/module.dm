@@ -36,7 +36,7 @@
 
 	. = list()
 	var/used_overlay = get_current_overlay_state()
-	if (!used_overlay)
+	if(!used_overlay)
 		return
 
 	var/mutable_appearance/module_icon = mutable_appearance(get_species_overlay_icon(), used_overlay, layer = standing.layer + 0.1)
