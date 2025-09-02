@@ -14,7 +14,7 @@
 		return
 
 	var/list/added_overlays = generate_custom_worn_overlay(source, standing)
-	if (!added_overlays)
+	if(!added_overlays)
 		return
 
 	if (!mask_worn_overlay)
