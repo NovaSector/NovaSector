@@ -42,7 +42,7 @@
 	var/mutable_appearance/module_icon = mutable_appearance(get_species_overlay_icon(), used_overlay, layer = standing.layer + 0.1)
 	if(use_mod_colors)
 		module_icon.color = mod.color
-		if (mod.cached_color_filter)
+		if(mod.cached_color_filter)
 			module_icon = filter_appearance_recursive(module_icon, mod.cached_color_filter)
 
 	. += module_icon
