@@ -2,6 +2,29 @@
 
 /datum/loadout_category/shoes
 	tab_order = /datum/loadout_category/hands::tab_order + 1
+	var/max_allowed = MAX_ALLOWED_EXTRA_CLOTHES
+
+/datum/loadout_category/shoes/New()
+	. = ..()
+	category_info = "([max_allowed] allowed)"
+
+/datum/loadout_category/shoes/handle_duplicate_entires(
+	datum/preference_middleware/loadout/manager,
+	datum/loadout_item/conflicting_item,
+	datum/loadout_item/added_item,
+	list/datum/loadout_item/all_loadout_items,
+)
+	var/list/datum/loadout_item/shoes/other_loadout_items = list()
+	for(var/datum/loadout_item/shoes/other_loadout_item in all_loadout_items)
+		other_loadout_items += other_loadout_item
+
+	if(length(other_loadout_items) >= max_allowed)
+		// We only need to deselect something if we're above the limit
+		// (And if we are we prioritize the first item found, FIFO)
+		manager.deselect_item(other_loadout_items[1])
+	return TRUE
+
+//// Loadout Items
 
 /datum/loadout_item/shoes
 	abstract_type = /datum/loadout_item/shoes
