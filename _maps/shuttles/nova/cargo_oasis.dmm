@@ -56,9 +56,6 @@
 	dir = 8;
 	id = "QMLoad2"
 	},
-/obj/effect/turf_decal/stripes/line{
-	dir = 1
-	},
 /turf/open/floor/iron/dark/textured_large,
 /area/shuttle/supply)
 "t" = (
