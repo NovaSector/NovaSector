@@ -48,7 +48,7 @@
 	/obj/item/storage/belt/security/full, \
 	/obj/item/gun/energy/e_gun/hos, \
 	/obj/item/pinpointer/nuke, \
-	/obj/item/storage/belt/sabre, \
+	/obj/item/storage/belt/sheath/sabre, \
 	/obj/item/mod/control/pre_equipped/magnate, \
 	/obj/item/mod/control/pre_equipped/blueshield, \
 	/obj/item/clothing/suit/armor/vest/warden, \

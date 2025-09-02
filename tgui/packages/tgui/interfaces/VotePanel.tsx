@@ -278,8 +278,8 @@ const ChoicesPanel = (props) => {
                         name="vote-yea"
                       />
                     )}
-                  {currentVote.displayStatistics ||
-                  user.isLowerAdmin /* NOVA EDIT CHANGE - isLowerAdmin - ORIGINAL: {currentVote.displayStatistics */
+                  {currentVote.displayStatistics /* NOVA EDIT CHANGE - isLowerAdmin - ORIGINAL: {currentVote.displayStatistics */ ||
+                  user.isLowerAdmin // NoVA EDIT ADDITION
                     ? `${choice.votes} Votes`
                     : null}
                 </LabeledList.Item>

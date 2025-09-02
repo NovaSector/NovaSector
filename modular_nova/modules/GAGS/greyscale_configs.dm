@@ -635,14 +635,6 @@
 	icon_file = 'modular_nova/modules/GAGS/icons/suit/suit_oldvox.dmi'
 
 // FANCY SUITS
-/datum/greyscale_config/fancy_suit
-	name = "Fancy Suit"
-	icon_file = 'modular_nova/modules/GAGS/icons/fancy_suits.dmi'
-	json_config = 'modular_nova/modules/GAGS/json_configs/fancy_suits/fancy_suit.json'
-
-/datum/greyscale_config/fancy_suit/worn
-	name = "Fancy Suit (Worn)"
-	json_config = 'modular_nova/modules/GAGS/json_configs/fancy_suits/fancy_suit_worn.json'
 
 /datum/greyscale_config/recolorable_suit
 	name = "Formal Suit"
@@ -1210,15 +1202,6 @@
 	name = "'JUNCO' megacargo pants (Worn, Digi)"
 	icon_file = SHORTS_PANTS_SHIRTS_DIGIFILE
 
-/datum/greyscale_config/loose_pants
-	name = "Loose pants"
-	icon_file = 'modular_nova/modules/GAGS/icons/loose_pants.dmi'
-	json_config = 'modular_nova/modules/GAGS/json_configs/loose_pants/loose_pants.json'
-
-/datum/greyscale_config/loose_pants/worn
-	name = "Loose pants (Worn)"
-	json_config = 'modular_nova/modules/GAGS/json_configs/loose_pants/loose_pants_worn.json'
-
 // DRESSES / SKIRTS
 
 /datum/greyscale_config/plaidskirt/worn/digi
@@ -1232,15 +1215,6 @@
 
 /datum/greyscale_config/lone_skirt/worn
 	name = "Skirt (Worn)"
-	icon_file = 'modular_nova/master_files/icons/mob/clothing/under/skirts_dresses.dmi'
-
-/datum/greyscale_config/turtleskirt_knit
-	name = "Cableknit Skirtleneck"
-	icon_file = 'modular_nova/master_files/icons/obj/clothing/under/skirts_dresses.dmi'
-	json_config = 'modular_nova/modules/GAGS/json_configs/pants_shorts_skirts_dresses/turtleskirt_knit.json'
-
-/datum/greyscale_config/turtleskirt_knit/worn
-	name = "Cableknit Skirtleneck (Worn)"
 	icon_file = 'modular_nova/master_files/icons/mob/clothing/under/skirts_dresses.dmi'
 
 /datum/greyscale_config/jean_skirt
@@ -1435,7 +1409,6 @@
 	name = "Mini Skirt (Worn)"
 	icon_file = 'modular_nova/master_files/icons/mob/clothing/under/skirts_dresses.dmi'
 
-// KILT
 // COSTUMES
 
 /datum/greyscale_config/jester_suit/worn/digi
@@ -1518,6 +1491,7 @@
 	name = "Yukata (Worn, Digi)"
 	icon_file = 'modular_nova/master_files/icons/mob/clothing/under/costume_digi.dmi'
 
+// KILT
 /datum/greyscale_config/kilt
 	name = "Kilt"
 	icon_file = 'modular_nova/master_files/icons/obj/clothing/under/shorts_pants_shirts.dmi'

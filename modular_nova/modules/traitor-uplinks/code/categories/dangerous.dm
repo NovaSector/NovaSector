@@ -88,3 +88,11 @@
 	limited_stock = 1
 	uplink_item_flags = SYNDIE_ILLEGAL_TECH | SYNDIE_TRIPS_CONTRABAND
 	population_minimum = TRAITOR_POPULATION_LOWPOP
+
+/datum/uplink_item/dangerous/enforcer
+	name = "Enforcer-TEN Handgun Case"
+	desc = "A weapon case containing the Enforcer-TEN combat handgun, along with two spare magazines and a large box of loose 10mm ammunition. \
+		Chambered in 10mm. Incompatible with suppressors, and very loud, making it a poor choice for subtlety. \
+		The raw power of 10mm, however, makes it a fine choice for high-impact skirmishing."
+	item = /obj/item/storage/toolbox/guncase/traitor/enforcer
+	cost = 8

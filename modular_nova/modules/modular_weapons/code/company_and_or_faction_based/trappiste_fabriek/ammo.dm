@@ -41,7 +41,6 @@
 
 	projectile_type = /obj/projectile/bullet/c585trappiste/incapacitator
 	ammo_categories = AMMO_CLASS_NONE
-	print_cost = 0
 	harmful = FALSE
 
 /obj/projectile/bullet/c585trappiste/incapacitator
@@ -75,7 +74,6 @@
 
 	ammo_categories = AMMO_CLASS_NICHE
 	custom_materials = AMMO_MATS_TEMP
-	print_cost = 2
 
 /obj/projectile/bullet/c585trappiste/incendiary
 	name = ".585 Trappiste incendiary bullet"
