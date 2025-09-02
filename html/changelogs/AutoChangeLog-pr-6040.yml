@@ -1,0 +1,14 @@
+author: "OrionTheFox"
+delete-after: True
+changes:
+  - qol: "Sorted the Undersuit Loadout group. All loadout groups are now sorted. Rejoice."
+  - qol: "Donator items in the loadout now have a little icon beside them."
+  - bugfix: "fixed a few of the new uniforms' skirt variants not having skirt flags."
+  - bugfix: "fixed some minor formatting issues in several items."
+  - rscdel: "Merged \"designer inferno suit\" into a reskin of the \"inferno suit\""
+  - rscdel: "Removed \"Fancy Suit\", an outdated version of the \"White Suit\" (in loadout, \"Suit (White)\"... or the (Colorable) version)"
+  - rscdel: "Removed \"red shirt with white [pants/skirt]\" in favor of recolorable \"Office Casual Suit\" (in loadout, \"Buttondown Suit - Collared\")"
+  - rscdel: "Removed \"Loose Pants\" in favor of \"JUNCO Megacargo Pants\""
+  - rscdel: "Removed recolorable green christmas items in favor of the already-recolorable red ones. Since you can just recolor them to be green."
+  - rscdel: "Removed \"cableknit skirt\", an exact duplicate of \"turtleneck with skirt\" (in loadout, \"Turtleneck w/ Skirt\"."
+  - rscdel: "Removed erp maid costume in favor of TG's arguably-more-sexy and recolorable maid costume."

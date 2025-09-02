@@ -110,7 +110,7 @@
 	item_type = /obj/item/flatpacked_machine/solar/plastitaniumglass
 	cost = PAYCHECK_CREW * 6
 
-/datum/armament_entry/company_import/akh_frontier/deployables/turbine
+/datum/armament_entry/company_import/akh_frontier/deployables/solar_tracker
 	item_type = /obj/item/flatpacked_machine/solar_tracker
 	cost = PAYCHECK_CREW * 2
 
