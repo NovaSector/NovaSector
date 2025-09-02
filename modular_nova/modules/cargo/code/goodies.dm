@@ -165,7 +165,7 @@
 		/obj/item/stack/tile/carpet/kinaris/black/green/fifty = 2,
 		/obj/item/stack/tile/carpet/kinaris/black/purple/fifty = 2,
 		/obj/item/stack/tile/carpet/kinaris/black/whitetrim/fifty = 2,
-		)
+	)
 
 /datum/supply_pack/goody/carpet/kinaris
 	name = "Kinaris Regal Carpet"
