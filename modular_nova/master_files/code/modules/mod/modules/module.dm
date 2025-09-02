@@ -17,7 +17,7 @@
 	if(!added_overlays)
 		return
 
-	if (!mask_worn_overlay)
+	if(!mask_worn_overlay)
 		overlays += added_overlays
 		return
 
