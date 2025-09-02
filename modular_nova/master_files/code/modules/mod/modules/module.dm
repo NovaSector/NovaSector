@@ -31,7 +31,7 @@
 			return
 	else
 		var/datum/mod_part/part_datum = mod.get_part_datum(source)
-		if (!part_datum?.sealed)
+		if(!part_datum?.sealed)
 			return
 
 	. = list()
