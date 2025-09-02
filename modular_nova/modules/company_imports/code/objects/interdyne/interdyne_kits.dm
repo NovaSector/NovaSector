@@ -5,32 +5,21 @@
 /obj/item/defibrillator/compact/combat/loaded/interdyne
 	name = "\improper Interdyne rapid combative defibrillator"
 	desc = "A belt-equipped combative defibrillator. Can revive through thick clothing, has an experimental self-recharging battery, and can be utilized as a weapon via applying the paddles while in a combat stance."
-	icon_state = "defibcompact"
+	icon = 'modular_nova/master_files/icons/obj/medical/defib.dmi'
+	icon_state = "defibip"
 	inhand_icon_state = null
-	worn_icon_state = "defibcompact"
+	worn_icon_state = "defibip"
+	paddle_state = "defibip-paddles"
+	paddle_type = /obj/item/shockpaddles/interdyne
 
-/obj/item/reagent_containers/hypospray/combat/interdyne
-	name = "\improper Interdyne Rapid Stimulant Injector"
-	desc = "An Interdyne Pharmaceuticals Air needle injector, designed for specialized usage, in fields, hospital, remote locations. A true pinacle of medical technology."
-	icon = 'modular_nova/master_files/icons/obj/medical/syringe.dmi'
-	inhand_icon_state = "interdyne_hypo"
-	lefthand_file = 'modular_nova/master_files/icons/mob/inhands/equipment/medical_lefthand.dmi'
-	righthand_file = 'modular_nova/master_files/icons/mob/inhands/equipment/medical_righthand.dmi'
-	icon_state = "interdyne_hypo"
-	possible_transfer_amounts = list(1,5,10,15,20)
-
-/obj/item/reagent_containers/hypospray/combat/interdyne/empty
-	list_reagents = list()
-
-/obj/item/reagent_containers/hypospray/combat/interdyne/deckofficer
-	name = "\improper Delux Interdyne Rapid Stimulant Injector"
-	desc = "A Delux Interdyne Pharmaceuticals Air needle injector, designed with more capacity than its standard variant, and given to those whom are more experienced in the company, however doesn't have \
-	more injection capacity due to legal issues."
-	icon_state = "interdyne_hypo_deckoff"
-	volume = 120
-
-/obj/item/reagent_containers/hypospray/combat/interdyne/deckofficer/empty
-	list_reagents = list()
+/obj/item/shockpaddles/interdyne
+	name = "interdyne defibrillator paddles"
+	desc = "A pair of paddles used to revive deceased operatives. They possess both the ability to penetrate armor and to deliver powerful or disabling shocks offensively."
+	combat = TRUE
+	icon = 'modular_nova/master_files/icons/obj/medical/defib.dmi'
+	icon_state = "ippaddles0"
+	inhand_icon_state = "ippaddles0"
+	base_icon_state = "ippaddles"
 
 /obj/item/storage/medkit/tactical/premium/interdyne
 	name = "\improper Interdyne Premium Doctor's Kit"
