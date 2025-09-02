@@ -1,0 +1,4 @@
+author: "Hatterhat"
+delete-after: True
+changes:
+  - balance: "Improved propellant mixes for magnum blockshot and mil-spec buckshot shells have rolled out, improving performace against armor. Somewhat."
