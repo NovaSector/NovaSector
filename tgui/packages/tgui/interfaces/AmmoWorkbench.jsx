@@ -56,7 +56,6 @@ export const AmmunitionsTab = (props) => {
     caliber,
     datadisk_loaded,
     datadisk_name,
-    datadisk_points,
     available_rounds = [],
   } = data;
   return (
@@ -157,7 +156,6 @@ export const AmmunitionsTab = (props) => {
         }
       >
         {!!datadisk_loaded && <Box>Loaded Module: {datadisk_name}</Box>}
-        {!!datadisk_loaded && <Box>Points Left: {datadisk_points}</Box>}
         <Collapsible title="Owner's Manual">
           <Section color="label">
             The ammunition workbench, by default, can print basic non-lethal
@@ -167,15 +165,9 @@ export const AmmunitionsTab = (props) => {
             License modules can be purchased from Cargo or printed with
             sufficient research, enabling the printing of other ammunition
             variants, such as lethal, armor-piercing, or hollow-point
-            ammunition. Each module have a limited number of usage points, with
-            different ammunition having different point costs.
-            <br />
-            <br />
-            These modules are <b>reusable</b> and can have their license points
-            recharged with <b>authenticators</b>, which are&nbsp;
-            <b>much cheaper</b> than individual modules. These can be purchased
-            from Cargo or printed from techfabs with the proper technology
-            researched.
+            ammunition. These modules are <b>reusable</b> and infinite-use, but
+            many of their outputs require additional and/or exotic materials to
+            print. Spend wisely!
           </Section>
         </Collapsible>
       </Section>

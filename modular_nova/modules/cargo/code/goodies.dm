@@ -7,6 +7,12 @@
 		/obj/item/paper,
 	))
 
+// Makes this available to anyone, not just those with ACCESS_AUX_BASE
+/datum/supply_pack/goody/shuttle_construction_kit/New()
+	. = ..()
+	access_view = FALSE
+	contains += /obj/item/stack/rods/shuttle/fifty
+
 /*
 *	EMERGENCY RACIAL EQUIPMENT
 */
@@ -146,6 +152,9 @@
 	name = "Blue Carpet Single-Pack"
 	contains = list(/obj/item/stack/tile/carpet/blue/fifty)
 
+/datum/supply_pack/goody/carpet/kinaris
+	name = "Kinaris Regal Carpet"
+	contains = list(/obj/item/stack/tile/carpet/kinaris/fifty)
 /*
 * NIF STUFF
 */
