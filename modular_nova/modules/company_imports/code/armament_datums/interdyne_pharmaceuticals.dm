@@ -126,6 +126,7 @@
 /datum/armament_entry/company_import/interdyne/smallkit/toxinkit
 	item_type = /obj/item/storage/pouch/medical/firstaid/interdyne/toxin
 	cost = PAYCHECK_COMMAND * 4.5
+
 /datum/armament_entry/company_import/interdyne/smallkit/oxygenkit
 	item_type = /obj/item/storage/pouch/medical/firstaid/interdyne/oxygen
 
