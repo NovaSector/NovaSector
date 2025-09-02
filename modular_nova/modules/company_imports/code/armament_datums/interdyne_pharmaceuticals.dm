@@ -112,7 +112,7 @@
 
 /datum/armament_entry/company_import/interdyne/smallkit
 	subcategory = "Small First Aid Kits"
-	cost = PAYCHECK_COMMAND * 1.5
+	cost = PAYCHECK_COMMAND * 2.75
 
 /datum/armament_entry/company_import/interdyne/smallkit/generalkit
 	item_type = /obj/item/storage/pouch/medical/firstaid/interdyne
@@ -125,7 +125,7 @@
 
 /datum/armament_entry/company_import/interdyne/smallkit/toxinkit
 	item_type = /obj/item/storage/pouch/medical/firstaid/interdyne/toxin
-
+	cost = PAYCHECK_COMMAND * 4.5
 /datum/armament_entry/company_import/interdyne/smallkit/oxygenkit
 	item_type = /obj/item/storage/pouch/medical/firstaid/interdyne/oxygen
 
@@ -162,12 +162,12 @@
 
 /datum/armament_entry/company_import/interdyne/crates/smallkit
 	item_type = /obj/structure/closet/crate/secure/syndicate/interdyne/smallkits
-	cost = PAYCHECK_COMMAND * 40
+	cost = PAYCHECK_COMMAND * 13.5
 
 /datum/armament_entry/company_import/interdyne/crates/traumakit
 	item_type = /obj/structure/closet/crate/secure/syndicate/interdyne/premium
-	cost = PAYCHECK_COMMAND * 50
+	cost = PAYCHECK_COMMAND * 9.6
 
 /datum/armament_entry/company_import/interdyne/crates/doctorkit
 	item_type = /obj/structure/closet/crate/secure/syndicate/interdyne/doctorbox
-	cost = PAYCHECK_COMMAND * 100
+	cost = PAYCHECK_COMMAND * 10

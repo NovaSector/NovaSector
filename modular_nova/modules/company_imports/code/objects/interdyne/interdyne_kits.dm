@@ -274,19 +274,6 @@
 	)
 	generate_items_inside(items_inside,src)
 
-/obj/item/storage/pouch/medical/firstaid/interdyne/spray
-	name = "\improper Interdyne Robust Spray Kit"
-	desc = "An immensely small spraykit useful for rapid trauma emergencies, /chemical analyzer not included/."
-
-/obj/item/storage/pouch/medical/firstaid/interdyne/spray/PopulateContents()
-	var/static/list/items_inside = list(
-		/obj/item/storage/hypospraykit/interdyne = 1,
-		/obj/item/reagent_containers/cup/beaker/dyne_brutemix = 1,
-		/obj/item/reagent_containers/cup/beaker/dyne_oxytox = 1,
-		/obj/item/reagent_containers/cup/beaker/dyne_burnmix = 1,
-		/obj/item/reagent_containers/cup/beaker/atropine = 1,
-	)
-	generate_items_inside(items_inside,src)
 /*
 /// Duffel Bags Past this point
 */
@@ -297,7 +284,7 @@
 
 /obj/item/storage/backpack/duffelbag/syndie/interdyne/maidkit_sing/PopulateContents()
 	new /obj/item/clothing/head/costume/maidheadband/syndicate(src)
-	new /obj/item/clothing/under/syndicate/nova/maid(src)
+	new /obj/item/clothing/under/syndicate/maid(src)
 	new /obj/item/clothing/gloves/combat/maid(src)
 	new /obj/item/clothing/accessory/maidcorset/syndicate(src)
 
