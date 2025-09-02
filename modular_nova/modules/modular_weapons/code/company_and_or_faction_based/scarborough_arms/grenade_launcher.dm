@@ -76,6 +76,7 @@
 	folded = BOARDER_FOLD_NOPE
 	icon_state = "boarder40-nofold"
 	desc = "A Scarborough Arms \"Boarder/S-40\" enhanced velocity grenade launcher, with capacity for four 40mm grenades and one in the chamber."
+	desc_controls = null
 	recoil = 0
 	model_specific_lore = "Boarder/S-40 units feature a solid, monolithic stock, with increased recoil dampening, \
 		and are chambered for use with the venerable 40mm launcher grenade. \
@@ -166,7 +167,7 @@
 	ammo_type = /obj/item/ammo_casing/a40mm
 	caliber = CALIBER_40MM
 	max_ammo = 4
-	multiload = FALSE
+	ammo_box_multiload = AMMO_BOX_MULTILOAD_NONE
 
 /obj/item/ammo_box/magazine/internal/pump_launcher/c980
 	desc = "Oh. That's a .980 grenade. That's a .980 grenade being launched towards my face."
