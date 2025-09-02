@@ -9,7 +9,7 @@
 		/obj/item/stock_parts/power_store/cell = 1,
 		/obj/item/stock_parts/micro_laser = 1,
 	)
-	time = 10
+	time = 10 SECONDS
 	tool_behaviors = list(TOOL_SCREWDRIVER)
 	category = CAT_WEAPON_MELEE
 
