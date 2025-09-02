@@ -56,7 +56,6 @@
 			"icon" = "shirt",
 			"products" = list(
 				/obj/item/clothing/under/pants/nova/jeans_ripped = 5,
-				/obj/item/clothing/under/pants/nova/loose_pants = 5,
 				/obj/item/clothing/under/pants/nova/big_pants = 5,
 				/obj/item/clothing/under/dress/skirt/nova/loincloth = 5,
 				/obj/item/clothing/under/dress/skirt/nova/loincloth/loincloth_alt = 5,
@@ -67,7 +66,6 @@
 				/obj/item/clothing/under/suit/nova/recolorable = 5,
 				/obj/item/clothing/under/suit/nova/recolorable/skirt = 5,
 				/obj/item/clothing/under/pants/nova/kilt = 5,
-				/obj/item/clothing/under/suit/fancy = 5,
 				/obj/item/clothing/under/texas = 5,
 				/obj/item/clothing/under/sweater = 5,
 				/obj/item/clothing/under/sweater/keyhole = 5,
@@ -87,8 +85,6 @@
 				/obj/item/clothing/under/suit/nova/pencil/green = 3,
 				/obj/item/clothing/under/suit/nova/inferno = 3,
 				/obj/item/clothing/under/suit/nova/inferno/skirt = 3,
-				/obj/item/clothing/under/suit/nova/helltaker = 3,
-				/obj/item/clothing/under/suit/nova/helltaker/skirt = 3,
 				/obj/item/clothing/under/dress/skirt/nova/medium = 5,
 				/obj/item/clothing/under/dress/skirt/nova/long = 5,
 				/obj/item/clothing/under/dress/skirt/nova/mini_skirt = 5,
@@ -111,7 +107,6 @@
 			"icon" = "vest",
 			"products" = list(
 				/obj/item/clothing/under/dress/skirt/nova/lone_skirt = 5,
-				/obj/item/clothing/under/dress/skirt/nova/turtleskirt_knit = 5,
 				/obj/item/clothing/under/dress/nova/short_dress = 5,
 				/obj/item/clothing/under/dress/nova/pinktutu = 5,
 				/obj/item/clothing/under/dress/skirt/nova/jean = 5,
