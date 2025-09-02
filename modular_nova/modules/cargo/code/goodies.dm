@@ -146,10 +146,10 @@
 	name = "Blue Carpet Single-Pack"
 	contains = list(/obj/item/stack/tile/carpet/blue/fifty)
 
-/datum/supply_pack/goody/carpet/kinaris/bigcrate
-	name = "Kinaris Carpet Mega-Pack"
+/datum/supply_pack/service/carpet_kinaris
+	name = "Kinaris Carpet Crate"
 	desc = "Plasteel floor tiles getting on your nerves? This 100 units stack of each soft carpet will tie any room together."
-	cost = cost = CARGO_CRATE_VALUE * 12
+	cost = CARGO_CRATE_VALUE * 12
 	contains = list(
 		/obj/item/stack/tile/carpet/kinaris/fifty = 2,
 		/obj/item/stack/tile/carpet/kinaris/red/fifty = 2,
