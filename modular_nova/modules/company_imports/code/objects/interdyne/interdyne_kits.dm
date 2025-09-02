@@ -284,7 +284,7 @@
 
 /obj/item/storage/backpack/duffelbag/syndie/interdyne/maidkit_sing/PopulateContents()
 	new /obj/item/clothing/head/costume/maidheadband/syndicate(src)
-	new /obj/item/clothing/under/syndicate/maid(src)
+	new /obj/item/clothing/under/syndicate/nova/maid(src)
 	new /obj/item/clothing/gloves/combat/maid(src)
 	new /obj/item/clothing/accessory/maidcorset/syndicate(src)
 
