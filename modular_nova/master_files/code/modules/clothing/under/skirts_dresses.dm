@@ -174,9 +174,25 @@
 /obj/item/clothing/under/dress/nova/countess
 	name = "countess dress"
 	desc = "A wide flowing dress fitting for a countess; may be prone to catching onto stuff as you pass."
-	icon_state = "countess"
+	greyscale_colors = "#880000"
+	icon = 'icons/map_icons/clothing/under/dress.dmi'
+	icon_state = "/obj/item/clothing/under/dress/nova/countess"
+	post_init_icon_state = "countess_dress"
+	greyscale_config = /datum/greyscale_config/countess_dress
+	greyscale_config_worn = /datum/greyscale_config/countess_dress/worn
 	body_parts_covered = CHEST|GROIN|LEGS|ARMS
 	flags_inv = HIDESHOES
+	flags_1 = IS_PLAYER_COLORABLE_1
+
+/obj/item/clothing/under/dress/wedding_dress/ribbon
+	name = "wedding dress with ribbon"
+	desc = "A luxurious gown for once-in-a-lifetime occasions. Now with a cute ribbon, because you deserve it!"
+	greyscale_colors = "#FFFFFF#FF0000"
+	icon = 'icons/map_icons/clothing/under/dress.dmi'
+	icon_state = "/obj/item/clothing/under/dress/wedding_dress/ribbon"
+	post_init_icon_state = "wedding_dress_with_ribbon"
+	greyscale_config = /datum/greyscale_config/wedding_dress_ribbon
+	greyscale_config_worn = /datum/greyscale_config/wedding_dress_ribbon/worn
 
 /obj/item/clothing/under/dress/nova/strapless
 	name = "strapless dress"
