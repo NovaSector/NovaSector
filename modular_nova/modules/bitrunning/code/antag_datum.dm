@@ -1,7 +1,7 @@
 /datum/antagonist/bitrunning_reinforcement
 	name = "Subcontracted Assisting Bitrunner"
 	antagpanel_category = ANTAG_GROUP_GLITCH
-	job_rank = ROLE_GLITCH
+	pref_flag = ROLE_GLITCH
 	preview_outfit = /datum/outfit/job/bitrunner
 	show_in_roundend = FALSE
 	show_in_antagpanel = FALSE
