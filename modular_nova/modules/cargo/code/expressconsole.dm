@@ -33,7 +33,7 @@
 		MICROSTAR_ENERGY_NAME,
 		VITEZSTVI_AMMO_NAME,
 	)
-  
+
 	allowed_categories += categories
 	return ..()
 
