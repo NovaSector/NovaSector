@@ -5,7 +5,7 @@
 	port_x_offset = -5
 	port_y_offset = 5
 
-/area/shuttle/pirate/nri
+/area/shuttle/pirate/hc
 	name = "HC Starship"
 	forced_ambience = TRUE
 	ambient_buzz = 'modular_nova/modules/random_ship_event/random_ships/heliostatic_inspectors/sounds/amb_ship_01.ogg'
@@ -17,10 +17,10 @@
 				'modular_nova/modules/random_ship_event/random_ships/heliostatic_inspectors/sounds/gear_stop.ogg',
 				'modular_nova/modules/random_ship_event/random_ships/heliostatic_inspectors/sounds/intercom_loop.ogg')
 
-/obj/machinery/computer/shuttle/pirate/nri
+/obj/machinery/computer/shuttle/pirate/hc
 	name = "police shuttle console"
 
-/obj/machinery/computer/camera_advanced/shuttle_docker/syndicate/pirate/nri
+/obj/machinery/computer/camera_advanced/shuttle_docker/syndicate/pirate/hc
 	name = "police shuttle navigation computer"
 	desc = "Used to designate a precise transit location for the police shuttle."
 
@@ -55,7 +55,7 @@
 	armour_penetration = 10
 
 /obj/docking_port/mobile/pirate/hc_police
-	name = "NRI IAC-PV 'Evangelium'" //Nobody will care about the translation but basically NRI Internal Affairs Collegium-Patrol Vessel
+	name = "HC IPV 'Tequilla Sunset'"
 	initial_engine_power = 6
 	port_direction = EAST
 	preferred_direction = EAST
@@ -67,7 +67,7 @@
 	landing_sound = sound('modular_nova/modules/random_ship_event/random_ships/heliostatic_inspectors/sounds/env_ship_down.ogg')
 
 /obj/structure/plaque/static_plaque/golden/commission/ks13/hc_police
-	desc = "NRI Terentiev-Yermolayev Orbital Shipworks, Providence High Orbit, Ship OSTs-02 'Potato Beetle' Class Corvette Commissioned 10/11/2562 'Keeping Promises'"
+	desc = "HC Sector 09-G-17 Asteroidal Anomaly Orbital Shipworks, Ship OSTs-03p 'Strider' Class Corvette Commissioned 03/09/2565 'Keeping Promises'"
 
 /obj/machinery/computer/centcom_announcement/hc_police
 	name = "inspection announcement console"

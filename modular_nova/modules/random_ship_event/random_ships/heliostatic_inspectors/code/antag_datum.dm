@@ -1,10 +1,9 @@
 /datum/antagonist/cop
-	name = "\improper NRI Police Officer"
-	roundend_category = "nri cops"
-	antagpanel_category = "NRI Police"
+	name = "\improper HC Police Officer"
+	roundend_category = "hc cops"
+	antagpanel_category = "HC Police"
 	show_in_antagpanel = FALSE
 	show_to_ghosts = TRUE
-	suicide_cry = "God, save the Empress!!"
 	///Team datum for admin tracking
 	var/datum/team/cop/crew
 
@@ -58,7 +57,7 @@
 	return ..()
 
 /datum/team/cop
-	name = "\improper NRI police patrol"
+	name = "\improper HC police patrol"
 
 /datum/team/cop/proc/forge_objectives()
 	add_objective(new /datum/objective/policing)

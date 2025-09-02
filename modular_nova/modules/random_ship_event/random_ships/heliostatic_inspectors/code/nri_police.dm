@@ -1,18 +1,34 @@
 /datum/random_ship_event/nri_police
-	name = "NRI Safety Inspection Team"
+	name = "HC Safety Inspection Team"
 
-	ship_template_id = "nri_police"
-	ship_name_pool = "hc_police_names"
+	ship_template_id = "hc_police"
+	ship_name_pool = "hc_police_prefix"
 
-	message_title = "NRI Voluntary Inspection Request"
-	message_content = "Greetings %STATION, this is the %SHIPNAME dispatch outpost. 	The Novaya Rossiyskaya Imperiya is conducting routine safety inspections in this sector, with a focus on %FOCUS. 	We would like to offer your station a voluntary inspection to ensure compliance with Imperial safety standards. 	Participation is completely optional, and stations that volunteer receive %BENEFIT. 	Please let us know if you would like to schedule an inspection. Novaya Rossiyskaya Imperiya collegial secretary out."
-	arrival_announcement = "Inspection vessel approaching. Vessel ID tag is %NUMBER1-%NUMBER2-%NUMBER3. 	Vessel Model: Potato Beetle, Flight ETA: three minutes minimal. Vessel is authorized to perform voluntary inspection duties. 	We're clear for close orbit. Please note that all inspection procedures are non-invasive and require station representative accompaniment. 	We appreciate your cooperation in maintaining sector safety standards."
-	possible_answers = list("Accept the voluntary inspection.", "Decline the inspection at this time.")
+	message_title = "HC Voluntary Inspection Request"
+	message_content = "Greetings %STATION, this is the %SHIPNAME patrol vessel. \
+	The Heliostatic Coalition is conducting routine safety inspections in this sector, with a focus on %FOCUS. \
+	We would like to offer your station a voluntary inspection to ensure compliance with Coalition safety standards. \
+	Participation is completely optional, and stations that volunteer receive %BENEFIT.	\
+	Please let us know if you would like to schedule an inspection. Heliostatic Coalition collegial secretary out."
+	arrival_announcement = "Inspection vessel approaching. Vessel ID tag is %NUMBER1-%NUMBER2-%NUMBER3. \
+	Vessel Model: Potato Beetle, Flight ETA: three minutes minimal. Vessel is authorized to perform voluntary inspection duties. \
+	We're clear for close orbit. Please note that all inspection procedures are non-invasive and require station representative accompaniment. \
+	We appreciate your cooperation in maintaining sector safety standards."
+	possible_answers = list("Accept the inspection.", "Decline the inspection at this time.")
 
-	response_accepted = "Thank you for your cooperation. As a token of appreciation for participating in our voluntary inspection program, a bonus of 10000 credits has been deposited to your station's account. We look forward to a productive inspection. Novaya Rossiyskaya Imperiya collegial secretary out."
+	response_accepted = "Thank you for your cooperation. As a token of appreciation for participating in our voluntary inspection program, a bonus of 10000 credits has been deposited to your station's account. We look forward to a productive inspection. Heliostatic Coalition collegial secretary out."
 	response_rejected = "Understood. We respect your decision. Should you change your mind, please feel free to contact us at a later time."
 
 	announcement_color = "purple"
+
+/datum/random_ship_event/nri_police/New()
+	. = ..()
+	var/list/prefixes = strings("random_ships_nova.json", "hc_police_prefix")
+	var/list/suffixes = strings("random_ships_nova.json", "hc_police_suffix")
+	if(prefixes && suffixes && prefixes.len && suffixes.len)
+		var/prefix = pick(prefixes)
+		var/suffix = pick(suffixes)
+		ship_name = "[prefix] [suffix]"
 
 /datum/random_ship_event/nri_police/generate_message()
 	///Station name one is the most important pick and is pretty much the station's main identifier, thus it better be mostly always right.

@@ -2,13 +2,13 @@
 "ap" = (
 /obj/machinery/camera/autoname/directional/south,
 /turf/open/floor/engine/hull,
-/area/shuttle/pirate/nri)
+/area/shuttle/pirate/hc)
 "ay" = (
-/obj/machinery/porta_turret/syndicate/nri_raider{
+/obj/machinery/porta_turret/syndicate/hc_police{
 	dir = 5
 	},
 /turf/open/floor/engine/hull/reinforced,
-/area/shuttle/pirate/nri)
+/area/shuttle/pirate/hc)
 "be" = (
 /obj/structure/table/reinforced,
 /obj/item/modular_computer/laptop/preset/civilian,
@@ -19,7 +19,7 @@
 	pixel_y = 8
 	},
 /turf/open/floor/pod/dark,
-/area/shuttle/pirate/nri)
+/area/shuttle/pirate/hc)
 "bg" = (
 /obj/effect/turf_decal/stripes/line{
 	dir = 8
@@ -28,45 +28,45 @@
 	dir = 4
 	},
 /obj/machinery/light/floor,
-/obj/machinery/porta_turret/syndicate/nri_raider{
+/obj/machinery/porta_turret/syndicate/hc_police{
 	dir = 4
 	},
 /turf/open/floor/engine/hull/reinforced,
-/area/shuttle/pirate/nri)
+/area/shuttle/pirate/hc)
 "bE" = (
 /obj/effect/turf_decal/stripes/line,
-/obj/structure/sign/flag/nri/directional/north,
-/obj/effect/mob_spawn/ghost_role/human/nri_officer,
+/obj/effect/mob_spawn/ghost_role/human/hc_officer,
+/obj/structure/sign/flag/hc/directional/north,
 /turf/open/floor/pod/dark,
-/area/shuttle/pirate/nri)
+/area/shuttle/pirate/hc)
 "bG" = (
 /obj/machinery/light/floor,
 /obj/machinery/camera/autoname/directional/west,
 /obj/effect/turf_decal/stripes/end,
 /turf/open/floor/engine/hull/reinforced,
-/area/shuttle/pirate/nri)
+/area/shuttle/pirate/hc)
 "bM" = (
 /obj/machinery/light/very_dim/directional/south,
 /obj/structure/table/reinforced,
 /obj/item/paper_bin,
 /obj/item/pen,
 /turf/open/floor/pod/dark,
-/area/shuttle/pirate/nri)
+/area/shuttle/pirate/hc)
 "bQ" = (
 /obj/effect/turf_decal/stripes/line{
 	dir = 9
 	},
-/obj/machinery/porta_turret/syndicate/nri_raider{
+/obj/machinery/porta_turret/syndicate/hc_police{
 	dir = 8
 	},
 /turf/open/floor/engine/hull/reinforced,
-/area/shuttle/pirate/nri)
+/area/shuttle/pirate/hc)
 "cc" = (
 /obj/machinery/power/shuttle_engine/heater{
 	dir = 8
 	},
 /turf/closed/wall/mineral/titanium/spaceship/nodiagonal,
-/area/shuttle/pirate/nri)
+/area/shuttle/pirate/hc)
 "co" = (
 /obj/machinery/power/shuttle_engine/propulsion/burst{
 	dir = 8
@@ -79,7 +79,7 @@
 	pixel_x = 32
 	},
 /turf/open/floor/engine/hull,
-/area/shuttle/pirate/nri)
+/area/shuttle/pirate/hc)
 "cZ" = (
 /obj/structure/window/reinforced/survival_pod/spawner/directional/north,
 /obj/structure/window/reinforced/survival_pod/spawner/directional/south,
@@ -87,14 +87,14 @@
 	dir = 8
 	},
 /turf/open/floor/plating/airless,
-/area/shuttle/pirate/nri)
+/area/shuttle/pirate/hc)
 "du" = (
 /obj/structure/lattice/catwalk,
 /obj/structure/deployable_barricade/guardrail{
 	dir = 8
 	},
 /turf/open/floor/plating/airless,
-/area/shuttle/pirate/nri)
+/area/shuttle/pirate/hc)
 "dy" = (
 /obj/effect/turf_decal/stripes/line{
 	dir = 5
@@ -103,7 +103,7 @@
 	dir = 8
 	},
 /turf/open/floor/engine/hull/reinforced,
-/area/shuttle/pirate/nri)
+/area/shuttle/pirate/hc)
 "dS" = (
 /obj/structure/cable,
 /obj/machinery/power/shieldwallgen/unlocked/anchored{
@@ -116,7 +116,7 @@
 /obj/effect/turf_decal/bot,
 /obj/structure/sign/warning/secure_area/directional/north,
 /turf/open/floor/engine/hull/reinforced,
-/area/shuttle/pirate/nri)
+/area/shuttle/pirate/hc)
 "et" = (
 /obj/structure/window/reinforced/survival_pod/spawner/directional/south,
 /obj/structure/reagent_dispensers/fueltank/large{
@@ -125,18 +125,18 @@
 	icon_state = "vat"
 	},
 /turf/open/floor/plating,
-/area/shuttle/pirate/nri)
+/area/shuttle/pirate/hc)
 "ew" = (
 /obj/machinery/camera/autoname/directional/south,
 /obj/machinery/light/floor,
 /turf/open/floor/engine/hull,
-/area/shuttle/pirate/nri)
+/area/shuttle/pirate/hc)
 "ey" = (
-/obj/machinery/porta_turret/syndicate/nri_raider{
+/obj/machinery/porta_turret/syndicate/hc_police{
 	dir = 6
 	},
 /turf/open/floor/engine/hull/reinforced,
-/area/shuttle/pirate/nri)
+/area/shuttle/pirate/hc)
 "fB" = (
 /obj/structure/rack/shelf,
 /obj/effect/turf_decal/stripes/line,
@@ -153,14 +153,14 @@
 /obj/item/ammo_box/magazine/miecz,
 /obj/item/ammo_box/magazine/miecz,
 /turf/open/floor/pod/light,
-/area/shuttle/pirate/nri)
+/area/shuttle/pirate/hc)
 "fJ" = (
 /obj/structure/cable,
 /obj/effect/turf_decal/caution{
 	dir = 1
 	},
 /turf/open/floor/engine/hull/reinforced,
-/area/shuttle/pirate/nri)
+/area/shuttle/pirate/hc)
 "gR" = (
 /obj/effect/turf_decal/stripes/line{
 	dir = 5
@@ -169,13 +169,13 @@
 	dir = 8
 	},
 /turf/open/floor/engine/hull/reinforced,
-/area/shuttle/pirate/nri)
+/area/shuttle/pirate/hc)
 "hl" = (
 /obj/structure/table/reinforced,
 /obj/machinery/light/small/red/directional/south,
 /obj/structure/showcase/machinery/microwave,
 /turf/open/floor/pod/dark,
-/area/shuttle/pirate/nri)
+/area/shuttle/pirate/hc)
 "hn" = (
 /obj/machinery/door/airlock/survival_pod/glass{
 	dir = 4
@@ -185,7 +185,7 @@
 /obj/effect/mapping_helpers/airlock/cutaiwire,
 /obj/effect/mapping_helpers/airlock/autoname,
 /turf/open/floor/iron/dark,
-/area/shuttle/pirate/nri)
+/area/shuttle/pirate/hc)
 "hH" = (
 /obj/effect/turf_decal/stripes/line{
 	dir = 6
@@ -194,7 +194,7 @@
 	dir = 8
 	},
 /turf/open/floor/engine/hull/reinforced,
-/area/shuttle/pirate/nri)
+/area/shuttle/pirate/hc)
 "hK" = (
 /obj/machinery/door/airlock/survival_pod/glass{
 	dir = 1
@@ -204,15 +204,15 @@
 /obj/effect/mapping_helpers/airlock/cutaiwire,
 /obj/effect/mapping_helpers/airlock/autoname,
 /turf/open/floor/catwalk_floor,
-/area/shuttle/pirate/nri)
+/area/shuttle/pirate/hc)
 "hP" = (
 /obj/effect/turf_decal/stripes/line,
 /turf/open/floor/carpet/green,
-/area/shuttle/pirate/nri)
+/area/shuttle/pirate/hc)
 "hU" = (
 /obj/structure/cable,
 /turf/open/floor/pod/light,
-/area/shuttle/pirate/nri)
+/area/shuttle/pirate/hc)
 "ie" = (
 /obj/effect/mapping_helpers/airlock/access/all/syndicate/general,
 /obj/effect/mapping_helpers/airlock/cyclelink_helper,
@@ -223,45 +223,43 @@
 	req_access = list("syndicate")
 	},
 /obj/effect/mapping_helpers/airlock/autoname,
-/obj/docking_port/mobile/pirate/nri_police,
+/obj/docking_port/mobile/pirate/hc_police,
 /turf/open/floor/plating,
-/area/shuttle/pirate/nri)
+/area/shuttle/pirate/hc)
 "iq" = (
 /obj/structure/table/reinforced,
 /obj/machinery/fax{
 	fax_name = "NRI Ship";
 	name = "NRI ship fax machine"
 	},
-/obj/item/paper/fluff/nri_police,
 /turf/open/floor/pod,
-/area/shuttle/pirate/nri)
+/area/shuttle/pirate/hc)
 "iC" = (
 /turf/open/floor/plating/airless,
-/area/shuttle/pirate/nri)
+/area/shuttle/pirate/hc)
 "jx" = (
 /obj/effect/turf_decal/stripes/line{
 	dir = 4
 	},
-/obj/machinery/computer/shuttle/pirate/nri{
-	dir = 8;
-	req_access = list("syndicate")
+/obj/machinery/computer/shuttle/pirate/hc{
+	dir = 8
 	},
 /turf/open/floor/carpet/green,
-/area/shuttle/pirate/nri)
+/area/shuttle/pirate/hc)
 "jJ" = (
 /obj/structure/cable,
 /obj/effect/turf_decal/caution{
 	dir = 8
 	},
 /turf/open/floor/engine/hull/reinforced,
-/area/shuttle/pirate/nri)
+/area/shuttle/pirate/hc)
 "kb" = (
 /obj/effect/turf_decal/stripes/line{
 	dir = 4
 	},
 /obj/structure/cable,
 /turf/open/floor/pod/light,
-/area/shuttle/pirate/nri)
+/area/shuttle/pirate/hc)
 "kq" = (
 /obj/structure/rack/gunrack,
 /obj/effect/turf_decal/stripes/line{
@@ -272,7 +270,7 @@
 	},
 /obj/item/gun/ballistic/automatic/miecz,
 /turf/open/floor/pod,
-/area/shuttle/pirate/nri)
+/area/shuttle/pirate/hc)
 "kQ" = (
 /obj/effect/turf_decal/stripes/line{
 	dir = 10
@@ -280,7 +278,7 @@
 /obj/structure/cable,
 /obj/machinery/suit_storage_unit/nri,
 /turf/open/floor/pod,
-/area/shuttle/pirate/nri)
+/area/shuttle/pirate/hc)
 "kX" = (
 /obj/effect/turf_decal/stripes/line{
 	dir = 10
@@ -289,11 +287,11 @@
 	dir = 4
 	},
 /turf/open/floor/engine/hull/reinforced,
-/area/shuttle/pirate/nri)
+/area/shuttle/pirate/hc)
 "lc" = (
 /obj/machinery/light/small/red/directional/north,
 /turf/open/floor/catwalk_floor,
-/area/shuttle/pirate/nri)
+/area/shuttle/pirate/hc)
 "lv" = (
 /obj/machinery/power/shuttle_engine/propulsion/burst{
 	dir = 8
@@ -305,15 +303,15 @@
 	name = "blast shield"
 	},
 /turf/open/floor/engine/hull/reinforced,
-/area/shuttle/pirate/nri)
+/area/shuttle/pirate/hc)
 "lU" = (
 /obj/effect/turf_decal/stripes/line,
 /turf/open/floor/pod,
-/area/shuttle/pirate/nri)
+/area/shuttle/pirate/hc)
 "lV" = (
 /obj/machinery/light/warm/directional/north,
 /turf/open/floor/pod/dark,
-/area/shuttle/pirate/nri)
+/area/shuttle/pirate/hc)
 "ma" = (
 /obj/effect/turf_decal/stripes/line{
 	dir = 8
@@ -322,27 +320,27 @@
 	dir = 4
 	},
 /turf/open/floor/engine/hull/reinforced,
-/area/shuttle/pirate/nri)
+/area/shuttle/pirate/hc)
 "mG" = (
 /obj/effect/turf_decal/stripes/line,
 /obj/structure/chair/comfy/shuttle,
 /turf/open/floor/carpet/green,
-/area/shuttle/pirate/nri)
+/area/shuttle/pirate/hc)
 "mJ" = (
 /obj/structure/table/optable,
 /obj/machinery/defibrillator_mount/directional/east,
 /turf/open/floor/pod/dark,
-/area/shuttle/pirate/nri)
+/area/shuttle/pirate/hc)
 "nX" = (
 /obj/machinery/light/floor,
 /turf/open/floor/engine/hull/reinforced,
-/area/shuttle/pirate/nri)
+/area/shuttle/pirate/hc)
 "od" = (
 /obj/effect/turf_decal/stripes/line{
 	dir = 1
 	},
 /turf/open/floor/pod,
-/area/shuttle/pirate/nri)
+/area/shuttle/pirate/hc)
 "ot" = (
 /turf/template_noop,
 /area/template_noop)
@@ -350,20 +348,20 @@
 /obj/effect/turf_decal/caution/stand_clear,
 /obj/structure/cable,
 /turf/open/floor/pod/dark,
-/area/shuttle/pirate/nri)
+/area/shuttle/pirate/hc)
 "oW" = (
 /obj/structure/cable,
 /obj/effect/turf_decal/caution{
 	dir = 4
 	},
 /turf/open/floor/engine/hull/reinforced,
-/area/shuttle/pirate/nri)
+/area/shuttle/pirate/hc)
 "pb" = (
-/obj/machinery/porta_turret/syndicate/nri_raider{
+/obj/machinery/porta_turret/syndicate/hc_police{
 	dir = 5
 	},
 /turf/closed/wall/mineral/titanium/spaceship/nodiagonal,
-/area/shuttle/pirate/nri)
+/area/shuttle/pirate/hc)
 "pe" = (
 /obj/effect/turf_decal/stripes/line{
 	dir = 10
@@ -371,7 +369,7 @@
 /obj/machinery/recharge_station,
 /obj/structure/cable,
 /turf/open/floor/pod,
-/area/shuttle/pirate/nri)
+/area/shuttle/pirate/hc)
 "pg" = (
 /obj/effect/turf_decal/stripes/line{
 	dir = 1
@@ -389,20 +387,20 @@
 /obj/item/clothing/suit/armor/vest/nri_police,
 /obj/item/encryptionkey/heads/ce,
 /turf/open/floor/pod/light,
-/area/shuttle/pirate/nri)
+/area/shuttle/pirate/hc)
 "pQ" = (
 /obj/machinery/light/small/red/directional/north,
 /obj/machinery/autolathe/hacked,
 /turf/open/floor/pod/dark,
-/area/shuttle/pirate/nri)
+/area/shuttle/pirate/hc)
 "ql" = (
 /obj/structure/closet/emcloset/anchored,
 /obj/machinery/light/small/red/directional/west,
 /turf/open/floor/plating,
-/area/shuttle/pirate/nri)
+/area/shuttle/pirate/hc)
 "qp" = (
 /turf/open/floor/pod/light,
-/area/shuttle/pirate/nri)
+/area/shuttle/pirate/hc)
 "qz" = (
 /obj/effect/turf_decal/stripes/line{
 	dir = 9
@@ -410,7 +408,7 @@
 /obj/machinery/anesthetic_machine,
 /obj/item/tank/internals/anesthetic,
 /turf/open/floor/pod,
-/area/shuttle/pirate/nri)
+/area/shuttle/pirate/hc)
 "qE" = (
 /obj/structure/table/reinforced,
 /obj/item/storage/box/colonial_rations{
@@ -421,24 +419,20 @@
 	},
 /obj/item/storage/box/colonial_rations,
 /turf/open/floor/pod/light,
-/area/shuttle/pirate/nri)
+/area/shuttle/pirate/hc)
 "qJ" = (
 /obj/effect/turf_decal/stripes/line{
 	dir = 5
 	},
-/obj/machinery/computer/camera_advanced/shuttle_docker/syndicate/pirate{
-	dir = 8;
-	name = "police shuttle navigation computer";
-	desc = "Used to designate a precise transit location for the police shuttle.";
-	x_offset = -2;
-	y_offset = -5
+/obj/machinery/computer/camera_advanced/shuttle_docker/syndicate/pirate/hc{
+	dir = 8
 	},
 /turf/open/floor/carpet/green,
-/area/shuttle/pirate/nri)
+/area/shuttle/pirate/hc)
 "qQ" = (
 /obj/machinery/ntnet_relay,
 /turf/open/floor/plating,
-/area/shuttle/pirate/nri)
+/area/shuttle/pirate/hc)
 "rd" = (
 /obj/effect/turf_decal/stripes/line{
 	dir = 8
@@ -449,7 +443,7 @@
 /obj/item/stock_parts/power_store/cell/super/empty,
 /obj/item/stock_parts/power_store/cell/super/empty,
 /turf/open/floor/pod/dark,
-/area/shuttle/pirate/nri)
+/area/shuttle/pirate/hc)
 "rg" = (
 /obj/structure/table/reinforced,
 /obj/effect/turf_decal/stripes/line,
@@ -468,29 +462,29 @@
 	pixel_y = -8
 	},
 /turf/open/floor/pod/light,
-/area/shuttle/pirate/nri)
+/area/shuttle/pirate/hc)
 "rp" = (
 /obj/effect/turf_decal/delivery,
 /obj/structure/cable,
 /turf/open/floor/pod/light,
-/area/shuttle/pirate/nri)
+/area/shuttle/pirate/hc)
 "rO" = (
 /obj/effect/turf_decal/stripes/line{
 	dir = 6
 	},
 /obj/machinery/iv_drip,
 /turf/open/floor/pod,
-/area/shuttle/pirate/nri)
+/area/shuttle/pirate/hc)
 "sK" = (
 /obj/effect/turf_decal/stripes/line{
 	dir = 9
 	},
-/obj/machinery/shuttle_scrambler/nri,
+/obj/machinery/inspector_mainframe,
 /turf/open/floor/pod,
-/area/shuttle/pirate/nri)
+/area/shuttle/pirate/hc)
 "tk" = (
 /turf/open/floor/pod/dark,
-/area/shuttle/pirate/nri)
+/area/shuttle/pirate/hc)
 "tl" = (
 /obj/machinery/power/apc/auto_name/directional/east{
 	cell_type = /obj/item/stock_parts/power_store/battery/super
@@ -503,12 +497,12 @@
 /obj/item/stack/sheet/glass/fifty,
 /obj/item/stack/sheet/iron/fifty,
 /turf/open/floor/pod,
-/area/shuttle/pirate/nri)
+/area/shuttle/pirate/hc)
 "tm" = (
 /obj/structure/cable,
 /obj/machinery/power/terminal,
 /turf/open/floor/plating,
-/area/shuttle/pirate/nri)
+/area/shuttle/pirate/hc)
 "ts" = (
 /obj/structure/table/reinforced,
 /obj/item/storage/box/flashes{
@@ -527,19 +521,19 @@
 	pixel_y = -5
 	},
 /turf/open/floor/pod,
-/area/shuttle/pirate/nri)
+/area/shuttle/pirate/hc)
 "ty" = (
 /obj/structure/cable,
 /obj/machinery/power/terminal{
 	dir = 1
 	},
 /turf/open/floor/plating,
-/area/shuttle/pirate/nri)
+/area/shuttle/pirate/hc)
 "tG" = (
 /obj/structure/deployable_barricade/guardrail,
 /obj/structure/lattice/catwalk,
 /turf/open/floor/plating/airless,
-/area/shuttle/pirate/nri)
+/area/shuttle/pirate/hc)
 "uh" = (
 /obj/structure/rack/gunrack,
 /obj/item/gun/ballistic/automatic/lanca,
@@ -547,7 +541,7 @@
 	dir = 4
 	},
 /turf/open/floor/pod,
-/area/shuttle/pirate/nri)
+/area/shuttle/pirate/hc)
 "ui" = (
 /obj/effect/turf_decal/stripes/line,
 /obj/machinery/light/small/red/directional/east,
@@ -555,7 +549,7 @@
 	dir = 8
 	},
 /turf/open/floor/pod,
-/area/shuttle/pirate/nri)
+/area/shuttle/pirate/hc)
 "uo" = (
 /obj/effect/mapping_helpers/airlock/access/all/syndicate/general,
 /obj/effect/mapping_helpers/airlock/cyclelink_helper{
@@ -568,13 +562,13 @@
 	},
 /obj/effect/mapping_helpers/airlock/autoname,
 /turf/open/floor/plating,
-/area/shuttle/pirate/nri)
+/area/shuttle/pirate/hc)
 "uw" = (
 /obj/machinery/light/very_dim/directional/north,
-/obj/structure/sign/flag/nri/directional/north,
-/obj/machinery/computer/centcom_announcement/nri_police,
+/obj/structure/sign/flag/hc/directional/north,
+/obj/machinery/computer/centcom_announcement/hc_police,
 /turf/open/floor/pod/dark,
-/area/shuttle/pirate/nri)
+/area/shuttle/pirate/hc)
 "uU" = (
 /obj/effect/turf_decal/stripes/line{
 	dir = 1
@@ -588,20 +582,20 @@
 /obj/item/storage/belt/utility/full/engi,
 /obj/item/clothing/glasses/meson/engine,
 /turf/open/floor/pod,
-/area/shuttle/pirate/nri)
+/area/shuttle/pirate/hc)
 "uY" = (
 /obj/structure/deployable_barricade/guardrail{
 	dir = 1
 	},
 /obj/structure/lattice/catwalk,
 /turf/open/floor/engine/hull/reinforced,
-/area/shuttle/pirate/nri)
+/area/shuttle/pirate/hc)
 "vh" = (
 /obj/effect/turf_decal/loading_area{
 	dir = 1
 	},
 /turf/open/floor/plating,
-/area/shuttle/pirate/nri)
+/area/shuttle/pirate/hc)
 "vj" = (
 /obj/structure/cable,
 /obj/machinery/power/port_gen/pacman/super{
@@ -609,7 +603,7 @@
 	sheets = 20
 	},
 /turf/open/floor/plating,
-/area/shuttle/pirate/nri)
+/area/shuttle/pirate/hc)
 "wh" = (
 /obj/effect/turf_decal/stripes/line{
 	dir = 1
@@ -618,19 +612,19 @@
 /obj/item/storage/box/donkpockets,
 /obj/item/storage/box/donkpockets,
 /turf/open/floor/pod,
-/area/shuttle/pirate/nri)
+/area/shuttle/pirate/hc)
 "wj" = (
 /obj/machinery/light/floor,
 /obj/structure/lattice/catwalk,
 /turf/open/floor/plating/airless,
-/area/shuttle/pirate/nri)
+/area/shuttle/pirate/hc)
 "wM" = (
 /obj/machinery/door/airlock/survival_pod/glass,
 /obj/effect/mapping_helpers/airlock/access/all/syndicate/general,
 /obj/effect/mapping_helpers/airlock/cutaiwire,
 /obj/effect/mapping_helpers/airlock/autoname,
 /turf/open/floor/pod/light,
-/area/shuttle/pirate/nri)
+/area/shuttle/pirate/hc)
 "wQ" = (
 /obj/effect/turf_decal/stripes/line{
 	dir = 6
@@ -638,7 +632,7 @@
 /obj/machinery/light/small/red/directional/west,
 /obj/structure/cable,
 /turf/open/floor/catwalk_floor,
-/area/shuttle/pirate/nri)
+/area/shuttle/pirate/hc)
 "wT" = (
 /obj/effect/turf_decal/stripes/line{
 	dir = 9
@@ -646,7 +640,7 @@
 /obj/structure/cable,
 /obj/machinery/recharge_station,
 /turf/open/floor/pod,
-/area/shuttle/pirate/nri)
+/area/shuttle/pirate/hc)
 "xg" = (
 /obj/machinery/door/airlock/survival_pod/glass,
 /obj/structure/cable,
@@ -654,7 +648,7 @@
 /obj/effect/mapping_helpers/airlock/cutaiwire,
 /obj/effect/mapping_helpers/airlock/autoname,
 /turf/open/floor/catwalk_floor,
-/area/shuttle/pirate/nri)
+/area/shuttle/pirate/hc)
 "xp" = (
 /obj/machinery/door/airlock/survival_pod{
 	dir = 8
@@ -667,25 +661,25 @@
 	},
 /obj/effect/mapping_helpers/airlock/autoname,
 /turf/open/floor/catwalk_floor,
-/area/shuttle/pirate/nri)
+/area/shuttle/pirate/hc)
 "xL" = (
 /obj/structure/chair/comfy/shuttle{
 	dir = 4
 	},
 /turf/open/floor/carpet/green,
-/area/shuttle/pirate/nri)
+/area/shuttle/pirate/hc)
 "xX" = (
 /obj/effect/turf_decal/stripes/line{
 	dir = 10
 	},
 /turf/open/floor/pod,
-/area/shuttle/pirate/nri)
+/area/shuttle/pirate/hc)
 "yE" = (
-/obj/machinery/porta_turret/syndicate/nri_raider{
+/obj/machinery/porta_turret/syndicate/hc_police{
 	dir = 10
 	},
 /turf/closed/wall/mineral/titanium/spaceship/nodiagonal,
-/area/shuttle/pirate/nri)
+/area/shuttle/pirate/hc)
 "yP" = (
 /obj/effect/turf_decal/stripes/line,
 /obj/item/ammo_box/advanced/s12gauge/magnum,
@@ -696,31 +690,31 @@
 /obj/item/ammo_box/advanced/s12gauge/beehive,
 /obj/structure/rack/shelf,
 /turf/open/floor/pod/light,
-/area/shuttle/pirate/nri)
+/area/shuttle/pirate/hc)
 "zb" = (
 /obj/structure/deployable_barricade/guardrail,
 /obj/structure/lattice/catwalk,
 /turf/open/floor/engine/hull/reinforced,
-/area/shuttle/pirate/nri)
+/area/shuttle/pirate/hc)
 "ze" = (
 /obj/effect/turf_decal/stripes/line{
 	dir = 5
 	},
 /turf/open/floor/engine/hull/reinforced,
-/area/shuttle/pirate/nri)
+/area/shuttle/pirate/hc)
 "zy" = (
-/obj/machinery/porta_turret/syndicate/nri_raider{
+/obj/machinery/porta_turret/syndicate/hc_police{
 	dir = 9
 	},
 /turf/closed/wall/mineral/titanium/spaceship/nodiagonal,
-/area/shuttle/pirate/nri)
+/area/shuttle/pirate/hc)
 "zA" = (
 /obj/structure/lattice/catwalk,
 /obj/structure/deployable_barricade/guardrail{
 	dir = 1
 	},
 /turf/open/floor/plating/airless,
-/area/shuttle/pirate/nri)
+/area/shuttle/pirate/hc)
 "zJ" = (
 /obj/structure/table/reinforced,
 /obj/item/clothing/gloves/latex/nitrile{
@@ -739,7 +733,7 @@
 	},
 /obj/item/storage/medkit/surgery,
 /turf/open/floor/pod/dark,
-/area/shuttle/pirate/nri)
+/area/shuttle/pirate/hc)
 "AX" = (
 /obj/effect/turf_decal/stripes/line{
 	dir = 8
@@ -749,12 +743,12 @@
 	},
 /obj/machinery/light/floor,
 /turf/open/floor/engine/hull/reinforced,
-/area/shuttle/pirate/nri)
+/area/shuttle/pirate/hc)
 "Be" = (
 /obj/structure/window/reinforced/shuttle/spaceship,
 /obj/structure/grille,
 /turf/open/floor/plating,
-/area/shuttle/pirate/nri)
+/area/shuttle/pirate/hc)
 "Bj" = (
 /obj/effect/turf_decal/stripes/line{
 	dir = 4
@@ -763,7 +757,7 @@
 	dir = 8
 	},
 /turf/open/floor/engine/hull/reinforced,
-/area/shuttle/pirate/nri)
+/area/shuttle/pirate/hc)
 "Bk" = (
 /obj/machinery/power/shieldwallgen/unlocked/anchored{
 	max_integrity = 600;
@@ -775,27 +769,30 @@
 /obj/effect/turf_decal/bot,
 /obj/structure/sign/warning/secure_area/directional/north,
 /turf/open/floor/engine/hull/reinforced,
-/area/shuttle/pirate/nri)
+/area/shuttle/pirate/hc)
 "Bm" = (
 /obj/structure/cable,
 /obj/machinery/suit_storage_unit/nri,
 /turf/open/floor/pod/dark,
-/area/shuttle/pirate/nri)
+/area/shuttle/pirate/hc)
 "Bw" = (
 /obj/structure/sign/flag/ssc/directional/north,
 /obj/effect/turf_decal/stripes/line{
 	dir = 10
 	},
 /obj/machinery/light/small/red/directional/north,
-/obj/effect/mob_spawn/ghost_role/human/nri_officer,
-/turf/open/floor/pod,
-/area/shuttle/pirate/nri)
+/obj/effect/mob_spawn/ghost_role/human/hc_officer,
+/turf/open/floor/pod/dark,
+/area/shuttle/pirate/hc)
 "Bz" = (
 /obj/effect/turf_decal/stripes/line{
 	dir = 6
 	},
 /turf/open/floor/engine/hull/reinforced,
-/area/shuttle/pirate/nri)
+/area/shuttle/pirate/hc)
+"BM" = (
+/turf/template_noop,
+/area/shuttle/pirate/hc)
 "Ci" = (
 /obj/structure/closet/crate/secure/weapon{
 	anchored = 1
@@ -816,19 +813,19 @@
 	pixel_x = -2
 	},
 /turf/open/floor/pod/dark,
-/area/shuttle/pirate/nri)
+/area/shuttle/pirate/hc)
 "Cy" = (
 /obj/machinery/power/shuttle_engine/propulsion/burst{
 	dir = 8
 	},
 /turf/open/floor/plating/airless,
-/area/shuttle/pirate/nri)
+/area/shuttle/pirate/hc)
 "CP" = (
 /obj/machinery/newscaster/directional/north,
 /obj/structure/frame/computer,
 /obj/item/circuitboard/computer/advanced_camera,
 /turf/open/floor/pod,
-/area/shuttle/pirate/nri)
+/area/shuttle/pirate/hc)
 "Dl" = (
 /obj/effect/mapping_helpers/airlock/access/all/syndicate/general,
 /obj/effect/mapping_helpers/airlock/cutaiwire,
@@ -839,7 +836,7 @@
 	},
 /obj/effect/mapping_helpers/airlock/autoname,
 /turf/open/floor/plating,
-/area/shuttle/pirate/nri)
+/area/shuttle/pirate/hc)
 "DD" = (
 /obj/machinery/camera/autoname/directional/west,
 /obj/effect/turf_decal/stripes/end{
@@ -847,7 +844,7 @@
 	},
 /obj/machinery/light/floor,
 /turf/open/floor/engine/hull/reinforced,
-/area/shuttle/pirate/nri)
+/area/shuttle/pirate/hc)
 "DL" = (
 /obj/effect/turf_decal/stripes/line{
 	dir = 9
@@ -864,14 +861,14 @@
 /obj/item/clothing/suit/armor/vest/nri_police,
 /obj/item/encryptionkey/heads/hos,
 /turf/open/floor/pod/light,
-/area/shuttle/pirate/nri)
+/area/shuttle/pirate/hc)
 "Eh" = (
 /obj/structure/window/reinforced/survival_pod/spawner/directional/east,
 /obj/machinery/power/smes/engineering,
 /obj/structure/cable,
 /obj/structure/window/reinforced/survival_pod/spawner/directional/south,
 /turf/open/floor/plating,
-/area/shuttle/pirate/nri)
+/area/shuttle/pirate/hc)
 "EG" = (
 /obj/effect/turf_decal/stripes/line{
 	dir = 4
@@ -881,35 +878,35 @@
 	},
 /obj/machinery/light/floor,
 /turf/open/floor/engine/hull/reinforced,
-/area/shuttle/pirate/nri)
+/area/shuttle/pirate/hc)
 "Fa" = (
 /obj/structure/deployable_barricade/guardrail{
 	dir = 1
 	},
 /obj/structure/lattice/catwalk,
 /turf/open/floor/plating/airless,
-/area/shuttle/pirate/nri)
+/area/shuttle/pirate/hc)
 "Fm" = (
 /obj/effect/turf_decal/stripes/line{
 	dir = 9
 	},
 /turf/open/floor/engine/hull/reinforced,
-/area/shuttle/pirate/nri)
+/area/shuttle/pirate/hc)
 "Fv" = (
 /obj/machinery/camera/autoname/directional/north,
 /obj/machinery/light/floor,
 /turf/open/floor/engine/hull,
-/area/shuttle/pirate/nri)
+/area/shuttle/pirate/hc)
 "FS" = (
 /obj/structure/cable,
 /obj/effect/turf_decal/caution/stand_clear{
 	dir = 8
 	},
 /turf/open/floor/engine/hull/reinforced,
-/area/shuttle/pirate/nri)
+/area/shuttle/pirate/hc)
 "GO" = (
 /turf/open/floor/engine/hull,
-/area/shuttle/pirate/nri)
+/area/shuttle/pirate/hc)
 "Hh" = (
 /obj/structure/rack/shelf,
 /obj/effect/turf_decal/stripes/line,
@@ -935,7 +932,7 @@
 /obj/item/ammo_box/magazine/lanca,
 /obj/item/ammo_box/magazine/lanca,
 /turf/open/floor/pod/light,
-/area/shuttle/pirate/nri)
+/area/shuttle/pirate/hc)
 "Hl" = (
 /obj/effect/turf_decal/stripes/line{
 	dir = 4
@@ -945,11 +942,11 @@
 	},
 /obj/machinery/light/floor,
 /turf/open/floor/engine/hull/reinforced,
-/area/shuttle/pirate/nri)
+/area/shuttle/pirate/hc)
 "Hs" = (
 /obj/structure/lattice,
 /turf/open/floor/plating/airless,
-/area/shuttle/pirate/nri)
+/area/shuttle/pirate/hc)
 "Hu" = (
 /obj/structure/window/reinforced/survival_pod/spawner/directional/north,
 /obj/structure/reagent_dispensers/fueltank/large{
@@ -958,10 +955,10 @@
 	icon_state = "vat"
 	},
 /turf/open/floor/plating,
-/area/shuttle/pirate/nri)
+/area/shuttle/pirate/hc)
 "Hz" = (
 /turf/closed/wall/mineral/titanium/spaceship/nodiagonal,
-/area/shuttle/pirate/nri)
+/area/shuttle/pirate/hc)
 "HO" = (
 /obj/machinery/door/airlock/survival_pod/glass{
 	dir = 1
@@ -971,29 +968,29 @@
 /obj/structure/cable,
 /obj/effect/mapping_helpers/airlock/autoname,
 /turf/open/floor/catwalk_floor,
-/area/shuttle/pirate/nri)
+/area/shuttle/pirate/hc)
 "HV" = (
 /obj/effect/turf_decal/stripes/line{
 	dir = 8
 	},
 /turf/open/floor/pod/dark,
-/area/shuttle/pirate/nri)
+/area/shuttle/pirate/hc)
 "Ib" = (
 /obj/structure/tank_dispenser/oxygen,
 /turf/open/floor/pod/dark,
-/area/shuttle/pirate/nri)
+/area/shuttle/pirate/hc)
 "Iu" = (
 /obj/effect/turf_decal/caution/stand_clear{
 	dir = 1
 	},
 /obj/structure/cable,
 /turf/open/floor/pod/dark,
-/area/shuttle/pirate/nri)
+/area/shuttle/pirate/hc)
 "Iv" = (
 /obj/structure/grille,
 /obj/structure/window/reinforced/shuttle/spaceship,
 /turf/open/floor/plating,
-/area/shuttle/pirate/nri)
+/area/shuttle/pirate/hc)
 "IJ" = (
 /obj/effect/turf_decal/stripes/line{
 	dir = 1
@@ -1006,14 +1003,14 @@
 	dir = 1
 	},
 /turf/open/floor/carpet/green,
-/area/shuttle/pirate/nri)
+/area/shuttle/pirate/hc)
 "IT" = (
 /obj/structure/cable,
 /turf/open/floor/catwalk_floor,
-/area/shuttle/pirate/nri)
+/area/shuttle/pirate/hc)
 "IY" = (
 /turf/open/floor/engine/hull/reinforced,
-/area/shuttle/pirate/nri)
+/area/shuttle/pirate/hc)
 "JB" = (
 /obj/effect/turf_decal/stripes/line{
 	dir = 9
@@ -1027,11 +1024,11 @@
 /obj/item/ammo_box/advanced/s12gauge/magnum,
 /obj/item/ammo_box/advanced/s12gauge/express,
 /turf/open/floor/pod/dark,
-/area/shuttle/pirate/nri)
+/area/shuttle/pirate/hc)
 "JS" = (
 /obj/structure/cable,
 /turf/open/floor/engine/hull/reinforced,
-/area/shuttle/pirate/nri)
+/area/shuttle/pirate/hc)
 "Kb" = (
 /obj/machinery/light/small/red/directional/south,
 /obj/effect/turf_decal/stripes/line{
@@ -1050,23 +1047,23 @@
 /obj/item/clothing/suit/armor/vest/nri_police,
 /obj/item/encryptionkey/heads/cmo,
 /turf/open/floor/pod/light,
-/area/shuttle/pirate/nri)
+/area/shuttle/pirate/hc)
 "Kc" = (
 /obj/effect/turf_decal/stripes/line{
 	dir = 9
 	},
 /obj/effect/turf_decal/stripes/corner,
 /turf/open/floor/engine/hull/reinforced,
-/area/shuttle/pirate/nri)
+/area/shuttle/pirate/hc)
 "Kq" = (
 /obj/machinery/light/warm/directional/south,
 /turf/open/floor/pod/dark,
-/area/shuttle/pirate/nri)
+/area/shuttle/pirate/hc)
 "Lp" = (
 /obj/machinery/door/window/survival_pod/left/directional/east,
 /obj/structure/cable,
 /turf/open/floor/plating,
-/area/shuttle/pirate/nri)
+/area/shuttle/pirate/hc)
 "Lr" = (
 /obj/structure/closet/crate/secure/engineering,
 /obj/item/mod/module/active_sonar,
@@ -1075,7 +1072,7 @@
 /obj/item/mod/module/holster,
 /obj/item/mod/module/holster,
 /turf/open/floor/pod/dark,
-/area/shuttle/pirate/nri)
+/area/shuttle/pirate/hc)
 "LA" = (
 /obj/structure/table/reinforced,
 /obj/item/storage/medkit/brute{
@@ -1090,32 +1087,32 @@
 	pixel_y = 5
 	},
 /turf/open/floor/pod/dark,
-/area/shuttle/pirate/nri)
+/area/shuttle/pirate/hc)
 "Ms" = (
 /obj/effect/turf_decal/stripes/line{
 	dir = 6
 	},
 /obj/machinery/photocopier/prebuilt,
 /turf/open/floor/carpet/green,
-/area/shuttle/pirate/nri)
+/area/shuttle/pirate/hc)
 "MR" = (
 /obj/structure/cable,
 /obj/effect/turf_decal/caution/stand_clear{
 	dir = 1
 	},
 /turf/open/floor/engine/hull/reinforced,
-/area/shuttle/pirate/nri)
+/area/shuttle/pirate/hc)
 "Nu" = (
 /obj/machinery/light/small/red/directional/west,
 /obj/structure/cable,
 /turf/open/floor/catwalk_floor,
-/area/shuttle/pirate/nri)
+/area/shuttle/pirate/hc)
 "NE" = (
 /obj/effect/turf_decal/stripes/line{
 	dir = 10
 	},
 /turf/open/floor/engine/hull/reinforced,
-/area/shuttle/pirate/nri)
+/area/shuttle/pirate/hc)
 "NO" = (
 /obj/structure/closet/crate/secure/weapon{
 	anchored = 1
@@ -1130,7 +1127,7 @@
 /obj/item/stack/sticky_tape/surgical,
 /obj/item/stack/sticky_tape/surgical,
 /turf/open/floor/pod,
-/area/shuttle/pirate/nri)
+/area/shuttle/pirate/hc)
 "NW" = (
 /obj/machinery/power/shuttle_engine/propulsion/burst{
 	dir = 8
@@ -1143,16 +1140,16 @@
 	pixel_x = 32
 	},
 /turf/open/floor/engine/hull,
-/area/shuttle/pirate/nri)
+/area/shuttle/pirate/hc)
 "Oc" = (
 /obj/machinery/light/small/red/directional/south,
 /turf/open/floor/catwalk_floor,
-/area/shuttle/pirate/nri)
+/area/shuttle/pirate/hc)
 "Pi" = (
 /obj/effect/turf_decal/stripes/corner,
 /obj/machinery/dish_drive/bullet,
 /turf/open/floor/pod/light,
-/area/shuttle/pirate/nri)
+/area/shuttle/pirate/hc)
 "Pp" = (
 /obj/machinery/door/airlock/survival_pod{
 	dir = 8
@@ -1161,15 +1158,15 @@
 /obj/effect/mapping_helpers/airlock/cutaiwire,
 /obj/effect/mapping_helpers/airlock/autoname,
 /turf/open/floor/pod,
-/area/shuttle/pirate/nri)
+/area/shuttle/pirate/hc)
 "PO" = (
 /obj/effect/turf_decal/loading_area,
 /turf/open/floor/plating,
-/area/shuttle/pirate/nri)
+/area/shuttle/pirate/hc)
 "PV" = (
 /obj/machinery/camera/autoname/directional/north,
 /turf/open/floor/engine/hull,
-/area/shuttle/pirate/nri)
+/area/shuttle/pirate/hc)
 "PW" = (
 /obj/effect/mapping_helpers/airlock/access/all/syndicate/general,
 /obj/effect/mapping_helpers/airlock/cutaiwire,
@@ -1183,12 +1180,12 @@
 	},
 /obj/effect/mapping_helpers/airlock/autoname,
 /turf/open/floor/plating,
-/area/shuttle/pirate/nri)
+/area/shuttle/pirate/hc)
 "PZ" = (
 /obj/structure/cable,
 /obj/effect/turf_decal/caution/stand_clear,
 /turf/open/floor/engine/hull/reinforced,
-/area/shuttle/pirate/nri)
+/area/shuttle/pirate/hc)
 "Qg" = (
 /obj/machinery/computer/operating{
 	dir = 1
@@ -1197,12 +1194,12 @@
 	dir = 8
 	},
 /turf/open/floor/pod/dark,
-/area/shuttle/pirate/nri)
+/area/shuttle/pirate/hc)
 "QX" = (
 /obj/structure/cable,
 /obj/effect/turf_decal/caution,
 /turf/open/floor/engine/hull/reinforced,
-/area/shuttle/pirate/nri)
+/area/shuttle/pirate/hc)
 "Rb" = (
 /obj/effect/turf_decal/stripes/line{
 	dir = 6
@@ -1211,11 +1208,11 @@
 	dir = 1
 	},
 /turf/open/floor/engine/hull/reinforced,
-/area/shuttle/pirate/nri)
+/area/shuttle/pirate/hc)
 "RG" = (
 /obj/structure/lattice/catwalk,
 /turf/open/floor/plating/airless,
-/area/shuttle/pirate/nri)
+/area/shuttle/pirate/hc)
 "Su" = (
 /obj/structure/cable,
 /obj/machinery/door/airlock/survival_pod{
@@ -1229,36 +1226,36 @@
 	},
 /obj/effect/mapping_helpers/airlock/autoname,
 /turf/open/floor/catwalk_floor,
-/area/shuttle/pirate/nri)
+/area/shuttle/pirate/hc)
 "SQ" = (
-/obj/machinery/porta_turret/syndicate/nri_raider{
+/obj/machinery/porta_turret/syndicate/hc_police{
 	dir = 6
 	},
 /turf/closed/wall/mineral/titanium/spaceship/nodiagonal,
-/area/shuttle/pirate/nri)
+/area/shuttle/pirate/hc)
 "Te" = (
 /obj/structure/lattice/catwalk,
 /obj/structure/deployable_barricade/guardrail,
 /turf/open/floor/plating/airless,
-/area/shuttle/pirate/nri)
+/area/shuttle/pirate/hc)
 "Tg" = (
 /obj/structure/window/reinforced/survival_pod/spawner/directional/east,
 /obj/machinery/power/smes/engineering,
 /obj/structure/cable,
 /obj/structure/window/reinforced/survival_pod/spawner/directional/north,
 /turf/open/floor/plating,
-/area/shuttle/pirate/nri)
+/area/shuttle/pirate/hc)
 "Tj" = (
 /obj/structure/cable,
-/obj/structure/plaque/static_plaque/golden/commission/ks13/nri_police,
+/obj/structure/plaque/static_plaque/golden/commission/ks13/hc_police,
 /turf/open/floor/pod/light,
-/area/shuttle/pirate/nri)
+/area/shuttle/pirate/hc)
 "TF" = (
 /obj/structure/sign/flag/mars/directional/north,
 /obj/effect/turf_decal/stripes/line,
-/obj/effect/mob_spawn/ghost_role/human/nri_officer,
+/obj/effect/mob_spawn/ghost_role/human/hc_officer,
 /turf/open/floor/pod/dark,
-/area/shuttle/pirate/nri)
+/area/shuttle/pirate/hc)
 "TR" = (
 /obj/machinery/power/shuttle_engine/heater{
 	dir = 4
@@ -1267,7 +1264,7 @@
 	dir = 8
 	},
 /turf/closed/wall/mineral/titanium/spaceship/nodiagonal,
-/area/shuttle/pirate/nri)
+/area/shuttle/pirate/hc)
 "UO" = (
 /obj/structure/closet/crate/freezer/blood{
 	anchored = 1
@@ -1283,11 +1280,11 @@
 	specialfunctions = 4
 	},
 /turf/open/floor/pod/dark,
-/area/shuttle/pirate/nri)
+/area/shuttle/pirate/hc)
 "UP" = (
 /obj/machinery/light/floor,
 /turf/open/floor/engine/hull,
-/area/shuttle/pirate/nri)
+/area/shuttle/pirate/hc)
 "UY" = (
 /obj/structure/window/reinforced/survival_pod/spawner/directional/south,
 /obj/structure/window/reinforced/survival_pod/spawner/directional/north,
@@ -1295,32 +1292,32 @@
 	dir = 8
 	},
 /turf/open/floor/plating/airless,
-/area/shuttle/pirate/nri)
+/area/shuttle/pirate/hc)
 "Va" = (
 /obj/structure/cable,
 /obj/effect/turf_decal/stripes/line,
 /obj/machinery/suit_storage_unit/nri,
 /turf/open/floor/pod,
-/area/shuttle/pirate/nri)
+/area/shuttle/pirate/hc)
 "Vm" = (
 /obj/machinery/holopad/secure,
 /turf/open/floor/carpet/green,
-/area/shuttle/pirate/nri)
+/area/shuttle/pirate/hc)
 "VN" = (
 /obj/effect/turf_decal/stripes/line{
 	dir = 1
 	},
 /obj/machinery/light/small/red/directional/east,
 /turf/open/floor/pod,
-/area/shuttle/pirate/nri)
+/area/shuttle/pirate/hc)
 "Wa" = (
 /obj/machinery/biogenerator/food_replicator,
 /turf/open/floor/pod/light,
-/area/shuttle/pirate/nri)
+/area/shuttle/pirate/hc)
 "Wr" = (
 /obj/machinery/camera/autoname/directional/east,
 /turf/open/floor/engine/hull,
-/area/shuttle/pirate/nri)
+/area/shuttle/pirate/hc)
 "Xe" = (
 /obj/structure/cable,
 /obj/machinery/door/airlock/survival_pod{
@@ -1330,7 +1327,7 @@
 /obj/effect/mapping_helpers/airlock/cutaiwire,
 /obj/effect/mapping_helpers/airlock/autoname,
 /turf/open/floor/catwalk_floor,
-/area/shuttle/pirate/nri)
+/area/shuttle/pirate/hc)
 "Xh" = (
 /obj/machinery/power/shieldwallgen/unlocked/anchored{
 	max_integrity = 600;
@@ -1342,22 +1339,22 @@
 /obj/effect/turf_decal/bot,
 /obj/structure/sign/warning/secure_area/directional/south,
 /turf/open/floor/engine/hull/reinforced,
-/area/shuttle/pirate/nri)
+/area/shuttle/pirate/hc)
 "XA" = (
 /obj/effect/turf_decal/stripes/line{
 	dir = 1
 	},
 /turf/open/floor/carpet/green,
-/area/shuttle/pirate/nri)
+/area/shuttle/pirate/hc)
 "XY" = (
 /obj/effect/turf_decal/stripes/line{
 	dir = 10
 	},
-/obj/machinery/porta_turret/syndicate/nri_raider{
+/obj/machinery/porta_turret/syndicate/hc_police{
 	dir = 8
 	},
 /turf/open/floor/engine/hull/reinforced,
-/area/shuttle/pirate/nri)
+/area/shuttle/pirate/hc)
 "Yd" = (
 /obj/structure/closet/crate/freezer,
 /obj/item/food/meat/slab/meatproduct,
@@ -1380,7 +1377,7 @@
 /obj/item/food/meat/slab/meatproduct,
 /obj/item/food/meat/slab/meatproduct,
 /turf/open/floor/pod,
-/area/shuttle/pirate/nri)
+/area/shuttle/pirate/hc)
 "Yy" = (
 /obj/structure/cable,
 /obj/machinery/power/shieldwallgen/unlocked/anchored{
@@ -1393,7 +1390,7 @@
 /obj/effect/turf_decal/bot,
 /obj/structure/sign/warning/secure_area/directional/south,
 /turf/open/floor/engine/hull/reinforced,
-/area/shuttle/pirate/nri)
+/area/shuttle/pirate/hc)
 "Ze" = (
 /obj/effect/turf_decal/stripes/line{
 	dir = 4
@@ -1410,7 +1407,7 @@
 	},
 /obj/item/defibrillator/loaded,
 /turf/open/floor/pod/dark,
-/area/shuttle/pirate/nri)
+/area/shuttle/pirate/hc)
 "Zw" = (
 /obj/machinery/power/shuttle_engine/propulsion/burst{
 	dir = 8
@@ -1422,7 +1419,7 @@
 	name = "blast shield"
 	},
 /turf/open/floor/engine/hull/reinforced,
-/area/shuttle/pirate/nri)
+/area/shuttle/pirate/hc)
 
 (1,1,1) = {"
 ot
@@ -1837,13 +1834,13 @@ ot
 Fa
 IT
 Te
-ot
+BM
 Iv
 Iv
 Iv
 Iv
 Iv
-ot
+BM
 zA
 IT
 tG
