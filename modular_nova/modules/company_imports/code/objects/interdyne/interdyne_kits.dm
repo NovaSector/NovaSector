@@ -52,8 +52,6 @@
 		/obj/item/scalpel/advanced = 1,
 		/obj/item/retractor/advanced = 1,
 		/obj/item/cautery/advanced = 1,
-		/obj/item/reagent_containers/hypospray/combat/interdyne/empty = 1,
-		/obj/item/storage/box/evilmeds/interdyne = 1,
 		/obj/item/defibrillator/compact/combat/loaded/interdyne = 1,
 	)
 	generate_items_inside(items_inside,src)
@@ -116,7 +114,7 @@
 		/obj/item/storage/box/bandages/interdyne/burn = 1,
 		/obj/item/reagent_containers/hypospray/medipen/morphine = 2,
 		/obj/item/reagent_containers/hypospray/medipen = 2,
-		/obj/item/reagent_containers/hypospray/combat/interdyne/empty = 1,
+		/obj/item/storage/hypospraykit/interdyne = 1,
 		/obj/item/reagent_containers/cup/beaker/dyne_brutemix = 2,
 		/obj/item/reagent_containers/cup/beaker/dyne_burnmix= 2,
 		/obj/item/reagent_containers/spray/hercuri = 1,
@@ -146,7 +144,7 @@
 		/obj/item/storage/box/bandages/interdyne/burn = 1,
 		/obj/item/reagent_containers/hypospray/medipen/morphine = 2,
 		/obj/item/reagent_containers/hypospray/medipen = 2,
-		/obj/item/reagent_containers/hypospray/combat/interdyne/empty = 1,
+		/obj/item/storage/hypospraykit/interdyne = 1,
 		/obj/item/reagent_containers/cup/beaker/dyne_brutemix = 2,
 		/obj/item/reagent_containers/cup/beaker/dyne_burnmix= 2,
 		/obj/item/reagent_containers/spray/hercuri = 1,
@@ -235,7 +233,7 @@
 
 /obj/item/storage/pouch/medical/firstaid/interdyne/corpse/PopulateContents()
 	var/static/list/items_inside = list(
-		/obj/item/reagent_containers/hypospray/combat/interdyne/empty = 1,
+		/obj/item/storage/hypospraykit/interdyne = 1,
 		/obj/item/reagent_containers/cup/beaker/rezadone/less = 1,
 		/obj/item/reagent_containers/cup/bottle/formaldehyde = 1,
 		/obj/item/reagent_containers/medigel/sterilizine = 1,
@@ -292,7 +290,7 @@
 
 /obj/item/storage/pouch/medical/firstaid/interdyne/spray/PopulateContents()
 	var/static/list/items_inside = list(
-		/obj/item/reagent_containers/hypospray/combat/interdyne/empty = 1,
+		/obj/item/storage/hypospraykit/interdyne = 1,
 		/obj/item/reagent_containers/cup/beaker/dyne_brutemix = 1,
 		/obj/item/reagent_containers/cup/beaker/dyne_oxytox = 1,
 		/obj/item/reagent_containers/cup/beaker/dyne_burnmix = 1,
