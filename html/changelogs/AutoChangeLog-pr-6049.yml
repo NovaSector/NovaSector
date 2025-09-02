@@ -1,0 +1,4 @@
+author: "RealWinterFrost"
+delete-after: True
+changes:
+  - bugfix: "Fixed and added kinaris crate to the cargo menu."
