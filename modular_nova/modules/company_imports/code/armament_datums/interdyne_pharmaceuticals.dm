@@ -117,11 +117,6 @@
 /datum/armament_entry/company_import/interdyne/smallkit/generalkit
 	item_type = /obj/item/storage/pouch/medical/firstaid/interdyne
 
-/datum/armament_entry/company_import/interdyne/smallkit/spraykit
-	description = "A small first aid kit loaded with a interdyne hypospray and various chemicals for usage /Trained doctor not included/"
-	item_type = /obj/item/storage/hypospraykit/interdyne
-	cost = PAYCHECK_COMMAND * 4
-
 /datum/armament_entry/company_import/interdyne/smallkit/burnkit
 	item_type = /obj/item/storage/pouch/medical/firstaid/interdyne/burn
 
