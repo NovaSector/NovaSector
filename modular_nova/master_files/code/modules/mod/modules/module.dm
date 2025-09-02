@@ -10,7 +10,6 @@
 	return mod.wearer?.dna?.species.get_custom_mod_module_icon()
 
 /obj/item/mod/module/proc/add_custom_worn_overlay(obj/item/source, list/overlays, mutable_appearance/standing, mutable_appearance/draw_target, isinhands, icon_file)
-
 	if (isinhands)
 		return
 
