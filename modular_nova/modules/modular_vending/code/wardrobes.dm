@@ -185,7 +185,6 @@
 		/obj/item/clothing/under/suit/nova/black_really_collared/skirt = 3,
 		/obj/item/clothing/under/suit/nova/inferno = 3,
 		/obj/item/clothing/under/suit/nova/inferno/skirt = 3,
-		/obj/item/clothing/under/suit/nova/inferno/beeze = 2,
 	)
 
 /obj/machinery/vending/wardrobe/jani_wardrobe
