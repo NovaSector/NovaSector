@@ -9,7 +9,7 @@
 	var/implement_type = null //the current type of implement used. This has to be stored, as the actual typepath of the tool may not match the list type.
 	var/accept_hand = FALSE //does the surgery step require an open hand? If true, ignores implements. Compatible with accept_any_item.
 	var/accept_any_item = FALSE //does the surgery step accept any item? If true, ignores implements. Compatible with require_hand.
-	var/time = 10 //how long does the step take?
+	var/time = 1 SECONDS //how long does the step take?
 	var/repeatable = FALSE //can this step be repeated? Make shure it isn't last step, or else the surgeon will be stuck in the loop
 	var/list/chems_needed = list()  //list of chems needed to complete the step. Even on success, the step will have no effect if there aren't the chems required in the mob.
 	var/require_all_chems = TRUE    //any on the list or all on the list?
@@ -97,6 +97,15 @@
 	var/fail_prob = 0//100 - fail_prob = success_prob
 	var/advance = FALSE
 
+	// NOVA EDIT ADDITION START - Makes it so you cannot operate on people in turned on Stasis Beds
+	if(target.buckled)
+		var/obj/machinery/stasis/stasis_bed = target.buckled
+		if(istype(stasis_bed) && stasis_bed.stasis_enabled)
+			to_chat(user, span_warning("[target] cannot be operated in the [target.buckled] while it is turned on!"))
+			surgery.step_in_progress = FALSE
+			return FALSE
+
+	// NOVA EDIT ADDITION END
 	if(!chem_check(target))
 		user.balloon_alert(user, "missing [LOWER_TEXT(get_chem_list())]!")
 		to_chat(user, span_warning("[target] is missing the [LOWER_TEXT(get_chem_list())] required to perform this surgery step!"))

@@ -309,8 +309,8 @@
 		even from a few steps away. However, results against anything more durable will heavily vary."
 	icon = 'modular_nova/modules/implants/icons/implants.dmi'
 	icon_state = "razorwire_weapon"
-	righthand_file = 'modular_nova/modules/implants/icons/inhands/lefthand.dmi'
-	lefthand_file = 'modular_nova/modules/implants/icons/inhands/righthand.dmi'
+	righthand_file = 'modular_nova/modules/implants/icons/inhands/righthand.dmi'
+	lefthand_file = 'modular_nova/modules/implants/icons/inhands/lefthand.dmi'
 	inhand_icon_state = "razorwire"
 	w_class = WEIGHT_CLASS_BULKY
 	sharpness = SHARP_EDGED
@@ -369,8 +369,8 @@
 		shells famously seen in the 'Kiboko' launcher."
 	icon = 'modular_nova/modules/implants/icons/implants.dmi'
 	icon_state = "shell_cannon_weapon"
-	righthand_file = 'modular_nova/modules/implants/icons/inhands/lefthand.dmi'
-	lefthand_file = 'modular_nova/modules/implants/icons/inhands/righthand.dmi'
+	righthand_file = 'modular_nova/modules/implants/icons/inhands/righthand.dmi'
+	lefthand_file = 'modular_nova/modules/implants/icons/inhands/lefthand.dmi'
 	inhand_icon_state = "shell_cannon"
 	worn_icon = 'icons/mob/clothing/belt.dmi'
 	worn_icon_state = "gun"
@@ -399,7 +399,7 @@
 	ammo_type = /obj/item/ammo_casing/shotgun/beanbag
 	caliber = CALIBER_SHOTGUN
 	max_ammo = 1
-	multiload = FALSE
+	ammo_box_multiload = AMMO_BOX_MULTILOAD_NONE
 
 /obj/item/organ/cyberimp/arm/toolkit/shell_launcher
 	name = "shell launch system implant"

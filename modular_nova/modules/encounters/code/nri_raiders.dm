@@ -218,7 +218,6 @@ GLOBAL_VAR(first_officer)
 /obj/effect/mob_spawn/ghost_role/human/nri_raider/officer
 	name = "NRI Officer sleeper"
 	prompt_name = "a NRI Field Officer"
-	mob_name = "Novaya Rossiyskaya Imperiya police patrol's field officer"
 	outfit = /datum/outfit/pirate/nri/officer
 	flavour_text = "The station has refused to pay the fine for breaking Imperial regulations, as a consequence you are here to perform a prolonged inspection."
 	important_text = "Allowed races are humans, Akulas, IPCs. Roleplay accordingly. There is an important document in your pocket I'd advise you to read and keep safe."
@@ -524,7 +523,7 @@ GLOBAL_VAR(first_officer)
 /datum/antagonist/cop
 	name = "\improper NRI Police Officer"
 	//Even if their goal's almost a complete antithesis to what pirates normally do, their spawn is, well, done via pirate code.
-	job_rank = ROLE_SPACE_PIRATE
+	pref_flag = ROLE_SPACE_PIRATE
 	roundend_category = "nri cops"
 	antagpanel_category = "NRI Police"
 	show_in_antagpanel = FALSE

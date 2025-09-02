@@ -10,11 +10,13 @@
 	. = ..()
 	spawned_human.grant_language(/datum/language/common, source = LANGUAGE_SPAWNER)
 
+#define BM_TRADER_MIN_CASH 500
+#define BM_TRADER_MAX_CASH 2000
+
 /obj/effect/mob_spawn/ghost_role/human/blackmarket
 	name = "Black Market Trader"
 	prompt_name = "a blackmarket dealer"
 	desc = "A humming cryo pod. The machine is attempting to wake up its occupant."
-	mob_name = "a black market dealer"
 	icon = 'icons/obj/machines/sleeper.dmi'
 	icon_state = "sleeper"
 	mob_species = /datum/species/human
@@ -39,6 +41,11 @@
 
 /datum/outfit/black_market/post_equip(mob/living/carbon/human/shady, visualsOnly)
 	handlebank(shady)
+	if(shady.wear_id)
+		var/obj/item/card/id/id_card = shady.wear_id
+		if(id_card.registered_account)
+			var/datum/bank_account/bank_account = id_card.registered_account
+			bank_account.adjust_money((rand(BM_TRADER_MIN_CASH, BM_TRADER_MAX_CASH)))
 
 	. = ..()
 
@@ -69,6 +76,9 @@
 		/obj/item/gun/ballistic/automatic/sol_smg/evil = 20,
 		/obj/item/gun/ballistic/shotgun/bulldog/unrestricted,
 	)
+
+#undef BM_TRADER_MIN_CASH
+#undef BM_TRADER_MAX_CASH
 
 /obj/effect/mob_spawn/ghost_role/human/ds2
 	name = "DS2 personnel"
@@ -246,7 +256,6 @@
 
 /obj/effect/mob_spawn/ghost_role/human/hotel_staff/manager
 	name = "staff manager sleeper"
-	mob_name = "hotel staff manager"
 	outfit = /datum/outfit/hotelstaff/manager
 	you_are_text = "You are the manager of a top-of-the-line space hotel!"
 	flavour_text = "You are the manager of a top-of-the-line space hotel! Make sure the guests are looked after, the hotel is advertised, and your employees aren't slacking off!"
@@ -486,7 +495,6 @@
 	name = "freighter cryo crew pod"
 	prompt_name = "a lost cargo tech"
 	desc = "A humming cryo pod. There's a freight hauler inside."
-	mob_name = "Freighter Crew"
 	outfit = /datum/outfit/freighter_crew
 	spawner_job_path = /datum/job/freighter_crew
 	icon = 'icons/obj/machines/sleeper.dmi'
@@ -520,7 +528,6 @@
 	name = "freighter cryo excavator pod"
 	prompt_name = "a lost miner"
 	desc = "A humming cryo pod. There's an excavation worker inside."
-	mob_name = "Freighter Excavator"
 	outfit = /datum/outfit/freighter_excavator
 	spawner_job_path = /datum/job/freighter_crew
 	icon = 'icons/obj/machines/sleeper.dmi'
@@ -562,7 +569,6 @@
 	name = "freighter cryo boss pod"
 	prompt_name = "a lost Quartermaster"
 	desc = "A humming cryo pod. You see someone who looks In Charge inside."
-	mob_name = "Freighter Chief"
 	outfit = /datum/outfit/freighter_boss
 	spawner_job_path = /datum/job/freighter_crew
 	icon = 'icons/obj/machines/sleeper.dmi'
@@ -669,6 +675,21 @@
 /datum/id_trim/away/hotel/security
 	assignment = "Hotel Security"
 	access = list(ACCESS_TWIN_NEXUS_STAFF, ACCESS_TWIN_NEXUS_MANAGER)
+
+//film studio space ruins, actors and such.
+/obj/effect/mob_spawn/ghost_role/human/actor /// Overrides the /TG/ actor pod
+	name = "Actor's cryogenics pod"
+	mob_species = null
+	quirks_enabled = TRUE
+	random_appearance = FALSE
+	loadout_enabled = TRUE
+
+/obj/effect/mob_spawn/ghost_role/human/director
+	name = "Director's cryogenics pod"
+	mob_species = null
+	quirks_enabled = TRUE
+	random_appearance = FALSE
+	loadout_enabled = TRUE
 
 //CRYO CONSOLES
 /obj/machinery/computer/cryopod/interdyne
