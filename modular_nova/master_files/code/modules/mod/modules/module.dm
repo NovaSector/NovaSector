@@ -21,7 +21,7 @@
 		overlays += added_overlays
 		return
 
-	for (var/mutable_appearance/overlay as anything in added_overlays)
+	for(var/mutable_appearance/overlay as anything in added_overlays)
 		overlay.add_filter("mod_mask_overlay", 1, alpha_mask_filter(icon = icon(draw_target.icon, draw_target.icon_state)))
 		overlays += overlay
 
