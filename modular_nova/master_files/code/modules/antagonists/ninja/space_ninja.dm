@@ -16,9 +16,7 @@
 /datum/objective/assassinate/headhunter/proc/check_wound(datum/source, datum/wound/wound, obj/item/bodypart/limb)
 	SIGNAL_HANDLER
 	var/mob/living/carbon/human/human = source
-	if(!ishuman(human))
-		return
-	if(!wound || !limb)
+	if(!istype(human))
 		return
 	if(!istype(wound, /datum/wound/cranial_fissure) || !istype(limb, /obj/item/bodypart/head))
 		return
@@ -31,7 +29,7 @@
 	completed = TRUE
 
 /datum/objective/assassinate/headhunter/update_explanation_text()
-	..()
+	. = ..()
 	if(target?.current)
 		explanation_text = "Assassinate the [target.assigned_role.title], [target.name]; by dismembering [target.current.p_their()] head with your katana."
 	else
@@ -42,9 +40,7 @@
 	var/list/possible_targets = list()
 	var/list/existing_targets = list()
 
-	for(var/datum/objective/obj as anything in owner.objectives)
-		if(!istype(obj, /datum/objective/assassinate/headhunter))
-			continue
+	for(var/datum/objective/assassinate/headhunter/obj in owner.objectives)
 		existing_targets |= obj.target
 
 	var/opt_in_disabled = CONFIG_GET(flag/disable_antag_opt_in_preferences)
@@ -64,9 +60,15 @@
 
 /// command members only
 /datum/objective/assassinate/headhunter/is_valid_target(datum/mind/possible_target)
-	if(!(/datum/job_department/command in possible_target.assigned_role.departments_list))
-		return FALSE
-	else if((/datum/job_department/central_command in possible_target.assigned_role.departments_list))
+	/// target non-central command members only
+	var/target_in_command_dept = FALSE
+	for(var/department as anything in possible_target.assigned_role.departments_list)
+		if(department == /datum/job_department/central_command)
+			return FALSE
+		if(department == /datum/job_department/command)
+			target_in_command_dept = TRUE
+			break
+	if(!target_in_command_dept)
 		return FALSE
 	return ..()
 
@@ -136,11 +138,10 @@
 
 /// removes ninja glove security records console interaction
 /obj/machinery/computer/records/security/ninjadrain_charge(mob/living/carbon/human/ninja, obj/item/mod/module/hacker/hacking_module)
-	balloon_alert(ninja, "nothing happens!")
-	return
-
+/*
 /datum/antagonist/ninja/on_gain()
 	. = ..()
 	//remove boom implant
 	var/obj/item/implant/explosive/boom_implant = locate() in owner.current.implants
 	qdel(boom_implant)
+*/
