@@ -2383,6 +2383,50 @@ TREK
 	icon_file = 'modular_nova/master_files/icons/mob/clothing/accessories.dmi'
 	json_config = 'modular_nova/modules/GAGS/json_configs/accessories/other/dogtags_worn.json'
 
+/datum/greyscale_config/countess_dress
+	name = "Countess Dress"
+	icon_file = 'modular_nova/master_files/icons/obj/clothing/under/skirts_dresses.dmi'
+	json_config = 'modular_nova/modules/GAGS/json_configs/dresses/countess.json'
+
+/datum/greyscale_config/countess_dress/worn
+	name = "Countess Dress (Worn)"
+	icon_file = 'modular_nova/master_files/icons/mob/clothing/under/skirts_dresses.dmi'
+
+/datum/greyscale_config/dutch_outfit
+	name = "Dutch Outfit"
+	icon_file = 'modular_nova/master_files/icons/obj/clothing/under/costume.dmi'
+	json_config = 'modular_nova/modules/GAGS/json_configs/costumes/dutchsuit.json'
+
+/datum/greyscale_config/dutch_outfit/worn
+	name = "Dutch Outfit (Worn)"
+	icon_file = 'modular_nova/master_files/icons/mob/clothing/under/costume.dmi'
+
+/datum/greyscale_config/dutch_outfit/worn/digi
+	name = "Dutch Outfit (Worn,digi)"
+	icon_file = 'modular_nova/master_files/icons/mob/clothing/under/costume_digi.dmi'
+
+/datum/greyscale_config/powderganger
+	name = "Powderganger Outfit"
+	icon_file = 'modular_nova/master_files/icons/obj/clothing/under/costume.dmi'
+	json_config = 'modular_nova/modules/GAGS/json_configs/costumes/powerganger.json'
+
+/datum/greyscale_config/powderganger/worn
+	name = "Powderganger Outfit (Worn)"
+	icon_file = 'modular_nova/master_files/icons/mob/clothing/under/costume.dmi'
+
+/datum/greyscale_config/monkrobeeast
+	name = "Monk Robe East"
+	icon_file = 'modular_nova/master_files/icons/obj/clothing/suits/chaplain.dmi'
+	json_config = 'modular_nova/modules/GAGS/json_configs/costumes/monkrobeeast.json'
+
+/datum/greyscale_config/monkrobeeast/worn
+	name = "Monk Robe East (Worn)"
+	icon_file = 'modular_nova/master_files/icons/mob/clothing/suits/chaplain.dmi'
+
+/datum/greyscale_config/monkrobeeast/worn/digi
+	name = "Monk Robe East (Worn, digi)"
+	icon_file = 'modular_nova/master_files/icons/mob/clothing/suits/chaplain_digi.dmi'
+
 /datum/greyscale_config/ushanka
 	name = "Ushanka"
 	icon_file = 'modular_nova/master_files/icons/obj/clothing/head/costume.dmi'
