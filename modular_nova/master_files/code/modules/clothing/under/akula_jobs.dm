@@ -4,7 +4,7 @@
 #define TAIL_OVERLAY_LAYER 5.9
 
 /obj/item/clothing/under/akula_wetsuit
-	name = "Shoredress wetsuit"
+	name = "\improper Shoredress wetsuit"
 	desc = "The 'Wetworks'-pattern Shoredress is a long-standing template upon which most Azulean 'wetsuits' are made. \
 		This atmospheric exploration suit is a single form-fitting garment, designed to keep wearers comfortable in the harsh environment of dry land; \
 		even sometimes worn underneath orbital suits such as MODs. \n\n\

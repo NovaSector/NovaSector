@@ -62,15 +62,3 @@
 	greyscale_colors = "#874f16"
 	flags_1 = IS_PLAYER_COLORABLE_1
 	alternate_worn_layer = LOW_FACEMASK_LAYER
-
-/obj/item/clothing/under/pants/nova/loose_pants
-	name = "Loose pants"
-	desc = "Some loose pants with a belt that looks comfy."
-	icon = 'icons/map_icons/clothing/under/_under.dmi'
-	icon_state = "/obj/item/clothing/under/pants/nova/loose_pants"
-	post_init_icon_state = "loose_pants"
-	greyscale_config = /datum/greyscale_config/loose_pants
-	greyscale_config_worn = /datum/greyscale_config/loose_pants/worn
-	greyscale_colors = "#4d4d4d#ffcc00#ff0000"
-	flags_1 = IS_PLAYER_COLORABLE_1
-	alternate_worn_layer = LOW_FACEMASK_LAYER
