@@ -138,10 +138,9 @@
 
 /// removes ninja glove security records console interaction
 /obj/machinery/computer/records/security/ninjadrain_charge(mob/living/carbon/human/ninja, obj/item/mod/module/hacker/hacking_module)
-/*
+
 /datum/antagonist/ninja/on_gain()
 	. = ..()
 	//remove boom implant
 	var/obj/item/implant/explosive/boom_implant = locate() in owner.current.implants
 	qdel(boom_implant)
-*/
