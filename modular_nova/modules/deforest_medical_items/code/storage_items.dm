@@ -128,10 +128,10 @@
 	)
 	generate_items_inside(items_inside, src)
 
-// Pre-packed frontier medkit, with supplies to repair most common frontier health issues
+// Pre-packed frontier medkit, with supplies to stabilize most common wounds
 /obj/item/storage/medkit/frontier
-	name = "frontier medical kit"
-	desc = "A handy roll-top waterproof medkit often seen alongside those on the frontier, where medical support is less than optimal. \
+	name = "frontier emergency medical kit"
+	desc = "A handy roll-top waterproof emergency medkit often seen alongside those on the frontier, where medical support is less than optimal. \
 		It has a clip for hooking onto your belt, handy!"
 	icon = 'modular_nova/modules/deforest_medical_items/icons/storage.dmi'
 	icon_state = "frontier"
@@ -149,10 +149,10 @@
 
 /obj/item/storage/medkit/frontier/stocked/PopulateContents()
 	var/static/items_inside = list(
+		/obj/item/healthanalyzer/simple = 1,
 		/obj/item/reagent_containers/hypospray/medipen/deforest/meridine = 1,
-		/obj/item/reagent_containers/hypospray/medipen/deforest/morpital = 1,
+		/obj/item/reagent_containers/hypospray/medipen/ekit = 1,
 		/obj/item/stack/medical/ointment = 1,
-		/obj/item/stack/medical/suture = 1,
 		/obj/item/stack/medical/suture/coagulant = 1,
 		/obj/item/stack/medical/gauze/sterilized = 1,
 		/obj/item/storage/pill_bottle/painkiller = 1,
