@@ -70,8 +70,10 @@
 	var/datum/job/clocked_out_job = current_trim.job
 	SSjob.FreeRole(clocked_out_job.title)
 
-	var/obj/machinery/announcement_system/system = pick(GLOB.announcement_systems)
-	system.broadcast("[id_card.registered_name], [current_assignment] has gone off-duty.", list())
+	aas_config_announce(/datum/aas_config_entry/off_duty, list(
+		"PERSON" = id_card.registered_name,
+		"RANK" = id_card.assignment,
+	), announcement_line = "Clock Out")
 	computer.update_static_data_for_all_viewers()
 
 	SSid_access.apply_trim_to_card(id_card, target_trim, TRUE)
@@ -105,8 +107,10 @@
 	log_econ("[id_card.registered_name] clocked in to role [id_card.get_trim_assignment()]")
 	message_admins("[ADMIN_LOOKUPFLW(usr)] clocked in to role: [id_card.get_trim_assignment()].")
 
-	var/obj/machinery/announcement_system/system = pick(GLOB.announcement_systems)
-	system.broadcast("[id_card.registered_name] has returned to assignment [id_card.assignment].", list())
+	aas_config_announce(/datum/aas_config_entry/off_duty, list(
+		"PERSON" = id_card.registered_name,
+		"RANK" = id_card.assignment,
+	), announcement_line = "Clock In")
 	GLOB.manifest.modify(id_card.registered_name, id_card.assignment, id_card.get_trim_assignment())
 
 	qdel(id_component)
@@ -293,6 +297,17 @@
 		data["trimAssignment"] = ""
 
 	return data
+
+/datum/aas_config_entry/off_duty
+	name = "Departamental Alert: Off-duty Announcement"
+	announcement_lines_map = list(
+		"Clock Out" = "%PERSON, %RANK has gone off-duty.",
+		"Clock In" = "%PERSON has returned to their assignment as %RANK",
+	)
+	vars_and_tooltips_map = list(
+		"PERSON" = "will be replaced with their name.",
+		"RANK" = "with their job."
+	)
 
 #undef PUNCH_ID_INVALID
 #undef PUNCH_ID_OFF_COOLDOWN
