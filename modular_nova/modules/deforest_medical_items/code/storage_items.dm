@@ -150,11 +150,11 @@
 /obj/item/storage/medkit/frontier/stocked/PopulateContents()
 	var/static/items_inside = list(
 		/obj/item/healthanalyzer/simple = 1,
-		/obj/item/reagent_containers/hypospray/medipen/deforest/meridine = 1,
-		/obj/item/reagent_containers/hypospray/medipen/ekit = 1,
-		/obj/item/stack/medical/ointment = 1,
-		/obj/item/stack/medical/suture/coagulant = 1,
 		/obj/item/stack/medical/gauze/sterilized = 1,
+		/obj/item/stack/medical/suture/coagulant = 1,
+		/obj/item/stack/medical/ointment = 1,
+		/obj/item/reagent_containers/hypospray/medipen/ekit = 1,
+		/obj/item/reagent_containers/hypospray/medipen/deforest/meridine = 1,
 		/obj/item/storage/pill_bottle/painkiller = 1,
 	)
 	generate_items_inside(items_inside,src)
