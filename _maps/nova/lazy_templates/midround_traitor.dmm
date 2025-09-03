@@ -937,10 +937,6 @@
 	},
 /turf/open/floor/mineral/titanium/tiled,
 /area/misc/operative_barracks/armoury)
-"mR" = (
-/obj/structure/lattice,
-/turf/open/space,
-/area/space/nearstation)
 "mT" = (
 /obj/item/reagent_containers/cup/beaker/bluespace{
 	pixel_x = 12;
@@ -1112,11 +1108,6 @@
 /obj/structure/fluff/fake_firedoor,
 /turf/open/floor/mineral/plastitanium,
 /area/misc/operative_barracks/mission_briefing)
-"oP" = (
-/obj/structure/lattice,
-/obj/structure/marker_beacon/burgundy,
-/turf/open/space,
-/area/space/nearstation)
 "oS" = (
 /obj/structure/railing/unbreakable{
 	dir = 1
@@ -1364,9 +1355,6 @@
 	},
 /turf/open/floor/mineral/plastitanium,
 /area/misc/operative_barracks/mission_briefing)
-"rz" = (
-/turf/open/space,
-/area/space)
 "rS" = (
 /obj/machinery/vending/syndichem{
 	onstation_override = 1
@@ -4004,7 +3992,7 @@ TP
 TP
 TP
 TP
-rz
+TP
 TP
 "}
 (3,1,1) = {"
@@ -4030,9 +4018,9 @@ el
 oq
 TP
 TP
-rz
-rz
-rz
+TP
+TP
+TP
 TP
 "}
 (4,1,1) = {"
@@ -4059,8 +4047,8 @@ oq
 oq
 TP
 TP
-rz
-rz
+TP
+TP
 TP
 "}
 (5,1,1) = {"
@@ -4086,9 +4074,9 @@ aL
 nT
 IJ
 oq
-mR
-oP
-rz
+VE
+jV
+TP
 TP
 "}
 (6,1,1) = {"
@@ -4115,8 +4103,8 @@ aL
 RR
 uA
 XY
-mR
-rz
+VE
+TP
 TP
 "}
 (7,1,1) = {"
@@ -4144,7 +4132,7 @@ aL
 uA
 XY
 XY
-rz
+TP
 TP
 "}
 (8,1,1) = {"
@@ -4172,7 +4160,7 @@ jm
 kf
 uA
 XY
-rz
+TP
 TP
 "}
 (9,1,1) = {"
@@ -4340,7 +4328,7 @@ jm
 kf
 uA
 XY
-rz
+TP
 TP
 "}
 (15,1,1) = {"
@@ -4395,7 +4383,7 @@ xw
 Su
 uA
 XY
-mR
+VE
 TP
 TP
 "}
@@ -4449,8 +4437,8 @@ Qx
 kf
 oq
 oq
-rz
-rz
+TP
+TP
 TP
 TP
 TP
@@ -4477,8 +4465,8 @@ IJ
 el
 oq
 TP
-rz
-rz
+TP
+TP
 TP
 TP
 TP
@@ -4593,7 +4581,7 @@ TP
 TP
 TP
 TP
-rz
+TP
 TP
 "}
 (3,1,2) = {"
@@ -4619,9 +4607,9 @@ rl
 PK
 TP
 TP
-rz
-rz
-rz
+TP
+TP
+TP
 TP
 "}
 (4,1,2) = {"
@@ -4648,8 +4636,8 @@ PK
 PK
 TP
 TP
-rz
-rz
+TP
+TP
 TP
 "}
 (5,1,2) = {"
@@ -4675,9 +4663,9 @@ AE
 yf
 PK
 wx
-mR
+VE
 jV
-rz
+TP
 TP
 "}
 (6,1,2) = {"
@@ -4705,7 +4693,7 @@ mx
 PK
 wx
 VE
-rz
+TP
 TP
 "}
 (7,1,2) = {"
@@ -4733,7 +4721,7 @@ PK
 wx
 PK
 wx
-rz
+TP
 TP
 "}
 (8,1,2) = {"
@@ -4761,7 +4749,7 @@ UB
 yJ
 SD
 rl
-rz
+TP
 TP
 "}
 (9,1,2) = {"
@@ -4929,7 +4917,7 @@ OZ
 AO
 iC
 DL
-rz
+TP
 TP
 "}
 (15,1,2) = {"
@@ -5038,8 +5026,8 @@ wL
 Wu
 Kw
 Kw
-rz
-rz
+TP
+TP
 TP
 TP
 TP
@@ -5066,8 +5054,8 @@ ld
 vl
 Kw
 TP
-rz
-rz
+TP
+TP
 TP
 TP
 TP

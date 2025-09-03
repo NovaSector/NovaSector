@@ -677,7 +677,7 @@ NOVA EDIT REMOVAL END */
 /**
  * Returns the access list for this mob
  */
-/mob/living/proc/get_access()
+/mob/living/proc/get_access() as /list
 	var/list/access_list = list()
 	SEND_SIGNAL(src, COMSIG_MOB_RETRIEVE_SIMPLE_ACCESS, access_list)
 	var/obj/item/card/id/id = get_idcard()
@@ -1244,6 +1244,8 @@ NOVA EDIT REMOVAL END */
 	var/effective_grab_state = pulledby.grab_state
 	//The amount of damage inflicted on a failed resist attempt.
 	var/damage_on_resist_fail = rand(7, 13)
+	// Base chance to escape a grab. Divided by effective grab state
+	var/escape_chance = BASE_GRAB_RESIST_CHANCE
 
 	if(body_position == LYING_DOWN) //If prone, treat the grab state as one higher
 		effective_grab_state++
@@ -1276,13 +1278,19 @@ NOVA EDIT REMOVAL END */
 		var/puller_drunkenness = human_puller.get_drunk_amount()
 		if(puller_drunkenness && HAS_TRAIT(human_puller, TRAIT_DRUNKEN_BRAWLER))
 			damage_on_resist_fail += clamp((human_puller.getFireLoss() + human_puller.getBruteLoss()) / 10, 3, 20)
-			effective_grab_state ++
+			effective_grab_state++
+
+		var/datum/martial_art/puller_art = GET_ACTIVE_MARTIAL_ART(human_puller)
+		if(puller_art?.can_use(human_puller))
+			damage_on_resist_fail += puller_art.grab_damage_modifier
+			effective_grab_state += puller_art.grab_state_modifier
+			escape_chance += puller_art.grab_escape_chance_modifier
 
 	//We only resist our grab state if we are currently in a grab equal to or greater than GRAB_AGGRESSIVE (1). Otherwise, break out immediately!
 	if(effective_grab_state >= GRAB_AGGRESSIVE)
 		// see defines/combat.dm, this should be baseline 60%
 		// Resist chance divided by the value imparted by your grab state. It isn't until you reach neckgrab that you gain a penalty to escaping a grab.
-		var/resist_chance = clamp(BASE_GRAB_RESIST_CHANCE / effective_grab_state, 0, 100)
+		var/resist_chance = clamp(escape_chance / effective_grab_state, 0, 100)
 		// NOVA EDIT ADDITION START
 		// Akula grab resist
 		if(HAS_TRAIT(src, TRAIT_SLIPPERY))
@@ -1293,7 +1301,6 @@ NOVA EDIT REMOVAL END */
 		if(HAS_TRAIT(pulledby, TRAIT_OVERSIZED))
 			resist_chance -= OVERSIZED_GRAB_RESIST_BONUS
 		//NOVA EDIT ADDITION END
-
 		if(prob(resist_chance))
 			//NOVA EDIT ADDITION
 			// Akula break-out flavor
@@ -3067,7 +3074,7 @@ GLOBAL_LIST_EMPTY(fire_appearances)
 	var/our_fitness_level = calculate_fitness()
 	var/their_fitness_level = scouter.calculate_fitness()
 
-	var/comparative_fitness = our_fitness_level / their_fitness_level
+	var/comparative_fitness = their_fitness_level ? our_fitness_level / their_fitness_level : 1
 
 	if (comparative_fitness > 2)
 		scouter.set_jitter_if_lower(comparative_fitness SECONDS)
