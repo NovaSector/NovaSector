@@ -139,8 +139,3 @@
 /obj/machinery/computer/records/security/ninjadrain_charge(mob/living/carbon/human/ninja, obj/item/mod/module/hacker/hacking_module)
 	balloon_alert(ninja, "nothing happens!")
 
-/datum/antagonist/ninja/on_gain()
-	. = ..()
-	//remove boom implant
-	var/obj/item/implant/explosive/boom_implant = locate() in owner.current.implants
-	qdel(boom_implant)
