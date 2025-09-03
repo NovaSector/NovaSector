@@ -73,20 +73,6 @@
 	can_adjust = TRUE
 	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION
 
-/obj/item/clothing/under/dress/skirt/nova/turtleskirt_knit //Essentially the same as the Turtleneck Skirt but with a different texture
-	name = "cableknit skirt"
-	desc = "A casual turtleneck skirt, with a cableknit pattern."
-	icon = 'icons/map_icons/clothing/under/dress.dmi'
-	icon_state = "/obj/item/clothing/under/dress/skirt/nova/turtleskirt_knit"
-	post_init_icon_state = "turtleskirt_knit"
-	custom_price = PAYCHECK_CREW
-	greyscale_config = /datum/greyscale_config/turtleskirt_knit
-	greyscale_config_worn = /datum/greyscale_config/turtleskirt_knit/worn
-	greyscale_colors = "#cc0000#5f5f5f"
-	flags_1 = IS_PLAYER_COLORABLE_1
-	can_adjust = TRUE
-	alt_covers_chest = TRUE
-
 /obj/item/clothing/under/dress/skirt/nova/jean
 	name = "jean skirt"
 	desc = "Technically, is there much difference between these and jorts? It's just one big hole instead of two. Does that make this a jirt?"
@@ -188,9 +174,25 @@
 /obj/item/clothing/under/dress/nova/countess
 	name = "countess dress"
 	desc = "A wide flowing dress fitting for a countess; may be prone to catching onto stuff as you pass."
-	icon_state = "countess"
+	greyscale_colors = "#880000"
+	icon = 'icons/map_icons/clothing/under/dress.dmi'
+	icon_state = "/obj/item/clothing/under/dress/nova/countess"
+	post_init_icon_state = "countess_dress"
+	greyscale_config = /datum/greyscale_config/countess_dress
+	greyscale_config_worn = /datum/greyscale_config/countess_dress/worn
 	body_parts_covered = CHEST|GROIN|LEGS|ARMS
 	flags_inv = HIDESHOES
+	flags_1 = IS_PLAYER_COLORABLE_1
+
+/obj/item/clothing/under/dress/wedding_dress/ribbon
+	name = "wedding dress with ribbon"
+	desc = "A luxurious gown for once-in-a-lifetime occasions. Now with a cute ribbon, because you deserve it!"
+	greyscale_colors = "#FFFFFF#FF0000"
+	icon = 'icons/map_icons/clothing/under/dress.dmi'
+	icon_state = "/obj/item/clothing/under/dress/wedding_dress/ribbon"
+	post_init_icon_state = "wedding_dress_with_ribbon"
+	greyscale_config = /datum/greyscale_config/wedding_dress_ribbon
+	greyscale_config_worn = /datum/greyscale_config/wedding_dress_ribbon/worn
 
 /obj/item/clothing/under/dress/nova/strapless
 	name = "strapless dress"
@@ -217,7 +219,7 @@
 	flags_1 = IS_PLAYER_COLORABLE_1
 
 /obj/item/clothing/under/dress/nova/jute
-	name = "Jacarta Dress"
+	name = "jacarta dress"
 	desc = "A thick dress with a strong rough exterior layer; lined with a soft breathable thin layer. It's loose-fitting, and has a tag inside that says 'Made in Jacarta'."
 	icon_state = "jute"
 	body_parts_covered = CHEST|GROIN|LEGS
