@@ -26,3 +26,18 @@
   RealWinterFrost:
   - rscadd: Added many more types of kinaris carpet! and adds some missing description
       for them.
+2025-09-03:
+  RealWinterFrost:
+  - image: Makes the Countess dress gags supported (Limited).
+  - image: Makes the Dutch outfit gags supported.
+  - image: Makes the Powder Ganger jacket gags supported.
+  - image: Makes the Eastern Monk robes gags supported.
+  - bugfix: Fixed and added kinaris crate to the cargo menu.
+  - image: Moved some /turf/ sprites around please report if any bugs are found
+  - image: Added new brick like floor tiles, coming in many different colors!
+  carpotoxin:
+  - balance: Syndicate Contractors have a new MODsuit module, the flamethrower module.
+  - balance: The Syndicate Contractor MODsuit has lost the magnetic harness module,
+      they didn't need this anyway
+  vinylspiders:
+  - sound: adds 'Hooves' and 'Highheels' as barefoot footstep preferences
