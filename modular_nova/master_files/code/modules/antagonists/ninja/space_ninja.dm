@@ -58,7 +58,6 @@
 	update_explanation_text()
 	return target
 
-/// command members only
 /datum/objective/assassinate/headhunter/is_valid_target(datum/mind/possible_target)
 	/// target non-central command members only
 	var/target_in_command_dept = FALSE
@@ -138,6 +137,7 @@
 
 /// removes ninja glove security records console interaction
 /obj/machinery/computer/records/security/ninjadrain_charge(mob/living/carbon/human/ninja, obj/item/mod/module/hacker/hacking_module)
+	balloon_alert(ninja, "nothing happens!")
 
 /datum/antagonist/ninja/on_gain()
 	. = ..()
