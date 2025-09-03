@@ -113,7 +113,7 @@
 	report += printplayer(owner)
 
 	var/objectives_complete = TRUE
-	if(objectives.len)
+	if(length(objectives))
 		report += printobjectives(objectives)
 		for(var/datum/objective/objective in objectives)
 			if(istype(objective, /datum/objective/cyborg_hijack))
@@ -122,7 +122,7 @@
 				objectives_complete = FALSE
 				break
 
-	if(objectives.len == 0 || objectives_complete)
+	if(!length(objectives) || objectives_complete)
 		report += "<span class='greentext big'>The [name] was successful at spreading fear among NT!</span>"
 	else
 		report += "<span class='redtext big'>The [name] has failed the Cybersun!</span>"
