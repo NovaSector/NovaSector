@@ -1304,100 +1304,10 @@
 /datum/greyscale_config/giant_scarf
 	name = "Giant Scarf"
 	icon_file = 'modular_nova/master_files/icons/obj/clothing/under/skirts_dresses.dmi'
-	json_config = 'modular_nova/modules/GAGS/json_configs/pants_shorts_skirts_dresses/giant_scarf.json'
+	json_config = 'modular_nova/modules/GAGS/json_configs/pants_shorts_skirts_dresses/giant_scarf_expanded.json'
 
 /datum/greyscale_config/giant_scarf/worn
 	name = "Giant Scarf (Worn)"
-	icon_file = 'modular_nova/master_files/icons/mob/clothing/under/skirts_dresses.dmi'
-
-/datum/greyscale_config/giant_scarf/crystal
-	name = "Giant Scarf (Crystal)"
-	icon_file = 'modular_nova/master_files/icons/obj/clothing/under/skirts_dresses.dmi'
-	json_config = 'modular_nova/modules/GAGS/json_configs/pants_shorts_skirts_dresses/giant_scarf_expanded.json'
-
-/datum/greyscale_config/giant_scarf/crystal/worn
-	name = "Giant Scarf (Crystal, Worn)"
-	icon_file = 'modular_nova/master_files/icons/mob/clothing/under/skirts_dresses.dmi'
-
-/datum/greyscale_config/giant_scarf/stripe
-	name = "Giant Scarf (Stripe)"
-	icon_file = 'modular_nova/master_files/icons/obj/clothing/under/skirts_dresses.dmi'
-	json_config = 'modular_nova/modules/GAGS/json_configs/pants_shorts_skirts_dresses/giant_scarf_expanded.json'
-
-/datum/greyscale_config/giant_scarf/stripe/worn
-	name = "Giant Scarf (Stripe, Worn)"
-	icon_file = 'modular_nova/master_files/icons/mob/clothing/under/skirts_dresses.dmi'
-
-/datum/greyscale_config/giant_scarf/two_tone
-	name = "Giant Scarf (Two-Tone)"
-	icon_file = 'modular_nova/master_files/icons/obj/clothing/under/skirts_dresses.dmi'
-	json_config = 'modular_nova/modules/GAGS/json_configs/pants_shorts_skirts_dresses/giant_scarf_expanded.json'
-
-/datum/greyscale_config/giant_scarf/two_tone/worn
-	name = "Giant Scarf (Two-Tone, Worn)"
-	icon_file = 'modular_nova/master_files/icons/mob/clothing/under/skirts_dresses.dmi'
-
-/datum/greyscale_config/giant_scarf/arrow
-	name = "Giant Scarf (Arrow)"
-	icon_file = 'modular_nova/master_files/icons/obj/clothing/under/skirts_dresses.dmi'
-	json_config = 'modular_nova/modules/GAGS/json_configs/pants_shorts_skirts_dresses/giant_scarf_expanded.json'
-
-/datum/greyscale_config/giant_scarf/arrow/worn
-	name = "Giant Scarf (Arrow, Worn)"
-	icon_file = 'modular_nova/master_files/icons/mob/clothing/under/skirts_dresses.dmi'
-
-/datum/greyscale_config/giant_scarf/fancy
-	name = "Giant Scarf (Fancy)"
-	icon_file = 'modular_nova/master_files/icons/obj/clothing/under/skirts_dresses.dmi'
-	json_config = 'modular_nova/modules/GAGS/json_configs/pants_shorts_skirts_dresses/giant_scarf_expanded.json'
-
-/datum/greyscale_config/giant_scarf/fancy/worn
-	name = "Giant Scarf (Fancy, Worn)"
-	icon_file = 'modular_nova/master_files/icons/mob/clothing/under/skirts_dresses.dmi'
-
-/datum/greyscale_config/giant_scarf/sepharim
-	name = "Giant Scarf (Sepharim)"
-	icon_file = 'modular_nova/master_files/icons/obj/clothing/under/skirts_dresses.dmi'
-	json_config = 'modular_nova/modules/GAGS/json_configs/pants_shorts_skirts_dresses/giant_scarf_expanded.json'
-
-/datum/greyscale_config/giant_scarf/sepharim/worn
-	name = "Giant Scarf (Sepharim, Worn)"
-	icon_file = 'modular_nova/master_files/icons/mob/clothing/under/skirts_dresses.dmi'
-
-/datum/greyscale_config/giant_scarf/bones
-	name = "Giant Scarf (Bones)"
-	icon_file = 'modular_nova/master_files/icons/obj/clothing/under/skirts_dresses.dmi'
-	json_config = 'modular_nova/modules/GAGS/json_configs/pants_shorts_skirts_dresses/giant_scarf_expanded.json'
-
-/datum/greyscale_config/giant_scarf/bones/worn
-	name = "Giant Scarf (Bones, Worn)"
-	icon_file = 'modular_nova/master_files/icons/mob/clothing/under/skirts_dresses.dmi'
-
-/datum/greyscale_config/giant_scarf/lines
-	name = "Giant Scarf (Lines)"
-	icon_file = 'modular_nova/master_files/icons/obj/clothing/under/skirts_dresses.dmi'
-	json_config = 'modular_nova/modules/GAGS/json_configs/pants_shorts_skirts_dresses/giant_scarf_expanded.json'
-
-/datum/greyscale_config/giant_scarf/lines/worn
-	name = "Giant Scarf (Lines, Worn)"
-	icon_file = 'modular_nova/master_files/icons/mob/clothing/under/skirts_dresses.dmi'
-
-/datum/greyscale_config/giant_scarf/runes
-	name = "Giant Scarf (Runes)"
-	icon_file = 'modular_nova/master_files/icons/obj/clothing/under/skirts_dresses.dmi'
-	json_config = 'modular_nova/modules/GAGS/json_configs/pants_shorts_skirts_dresses/giant_scarf_expanded.json'
-
-/datum/greyscale_config/giant_scarf/runes/worn
-	name = "Giant Scarf (Runes, Worn)"
-	icon_file = 'modular_nova/master_files/icons/mob/clothing/under/skirts_dresses.dmi'
-
-/datum/greyscale_config/giant_scarf/heart
-	name = "Giant Scarf (Heart)"
-	icon_file = 'modular_nova/master_files/icons/obj/clothing/under/skirts_dresses.dmi'
-	json_config = 'modular_nova/modules/GAGS/json_configs/pants_shorts_skirts_dresses/giant_scarf_expanded.json'
-
-/datum/greyscale_config/giant_scarf/heart/worn
-	name = "Giant Scarf (Heart, Worn)"
 	icon_file = 'modular_nova/master_files/icons/mob/clothing/under/skirts_dresses.dmi'
 
 /datum/greyscale_config/mini_skirt
