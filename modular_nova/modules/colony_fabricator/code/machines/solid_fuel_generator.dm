@@ -1,6 +1,6 @@
 /obj/machinery/power/port_gen/pacman/solid_fuel
 	name = "\improper A.W-type portable generator"
-	desc = "TThe second most common generator design in the galaxy, second only to the P.A.C.M.A.N. \
+	desc = "The second most common generator design in the galaxy, second only to the P.A.C.M.A.N. \
 		This new and improved Akhter design of the A.W(Atomic Whisperer) is similar to other micro fission reactors in it's use, however instead of using a water moderated design, this design opts for spinning panels used to absorb radiation using an advanced decay process to turn the radiation into harmless room temperature helium. \
 		This however comes at a cost of being more resource intensive to produce and must be <b>bolted to the ground<b> in order to function. \
 		A massive warning label indicates to not tell cargo technicians about the possibility of exporting the helium gas."
