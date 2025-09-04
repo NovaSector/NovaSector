@@ -7058,6 +7058,7 @@
 "Fi" = (
 /obj/machinery/light/small/directional/west,
 /obj/item/flatpack/ammo_workbench,
+/obj/machinery/announcement_system,
 /turf/open/floor/iron/dark/textured_large,
 /area/ruin/interdyne_planetary_base/main/vault)
 "FH" = (
