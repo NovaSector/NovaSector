@@ -1,5 +1,0 @@
-author: "RealWinterFrost"
-delete-after: True
-changes:
-  - bugfix: "Deepspace modsuit and admiral variant now use the correct frequency"
-  - image: "Deepspace modsuitt backpack now has consistency and no longer has a floating pixel"

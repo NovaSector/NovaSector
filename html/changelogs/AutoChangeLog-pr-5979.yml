@@ -1,4 +1,0 @@
-author: "RealWinterFrost"
-delete-after: True
-changes:
-  - admin: "Ghost role cargo consoles now report when they are built to administrators."
