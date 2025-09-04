@@ -2,6 +2,7 @@
 	/obj/machinery/announcement_system, \
 	/obj/machinery/stasis, \
 	/obj/machinery/status_display/door_timer, \
+	/obj/machinery/posialert, \
 	/obj/machinery/cryo_cell)
 
 // Need to hook up listener to literaly something
@@ -49,6 +50,10 @@
 		var/obj/machinery/status_display/door_timer/door_timer = target
 		door_timer.req_access = list(ACCESS_SYNDICATE)
 		door_timer.broadcast_channel = RADIO_CHANNEL_INTERDYNE
+	// Posi alert
+	else if (istype(target, /obj/machinery/posialert))
+		var/obj/machinery/posialert/posialert = target
+		posialert.announcement_channel = RADIO_CHANNEL_INTERDYNE
 	// Cryo tubes
 	else if (istype(target, /obj/machinery/cryo_cell))
 		var/obj/machinery/cryo_cell/cryo = target
