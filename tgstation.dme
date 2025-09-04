@@ -7261,7 +7261,6 @@
 #include "modular_nova\master_files\code\modules\mod\mod_construction.dm"
 #include "modular_nova\master_files\code\modules\mod\mod_theme.dm"
 #include "modular_nova\master_files\code\modules\mod\mod_types.dm"
-#include "modular_nova\master_files\code\modules\mod\modules\module.dm"
 #include "modular_nova\master_files\code\modules\mod\modules\modules_general.dm"
 #include "modular_nova\master_files\code\modules\mod\modules\modules_science.dm"
 #include "modular_nova\master_files\code\modules\mod\modules\modules_supply.dm"
