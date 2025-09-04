@@ -1,5 +1,0 @@
-author: "carpotoxin"
-delete-after: True
-changes:
-  - rscadd: "The space ninja has gotten a primary objective, brutally assassinating command and spreading fear among the upper ranks."
-  - bugfix: "The space ninja's explosive implant is now *actually* gone"
