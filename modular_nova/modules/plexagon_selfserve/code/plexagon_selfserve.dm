@@ -299,7 +299,7 @@
 	return data
 
 /datum/aas_config_entry/off_duty
-	name = "Departamental Alert: Off-duty Announcement"
+	name = "Departmental Alert: Off-duty Announcement"
 	announcement_lines_map = list(
 		"Clock Out" = "%PERSON, %RANK has gone off-duty.",
 		"Clock In" = "%PERSON has returned to their assignment as %RANK",

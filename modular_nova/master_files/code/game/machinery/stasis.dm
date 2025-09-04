@@ -21,7 +21,7 @@
 			"PERSON" = buckled_mob.name,
 			"AREA" = get_area_name(src),
 		), src, list(announcement_channel),
-		buckled_mob.stat < UNCONSCIOUS ? "Critical" :
+		buckled_mob.stat != CONSCIOUS ? "Critical" :
 		(buckled_mob.maxHealth - buckled_mob.health) > 10 ? "Injured" : "Healthy")
 
 /obj/item/circuitboard/machine/stasis
@@ -42,11 +42,10 @@
 	// Empty line will be dropped, so by default we will not report nurse taking a nap on stasis bed.
 	announcement_lines_map = list(
 		"Healthy" = "",
-		"Injured" = "%PERSON awaiting treatment is stasis at %AREA.",
+		"Injured" = "%PERSON awaiting treatment in stasis at %AREA.",
 		"Critical" = "Critical Patient %PERSON set in stasis at %AREA!",
 	)
 	vars_and_tooltips_map = list(
 		"PERSON" = "will be replaced with their name.",
 		"AREA" = "with their location."
 	)
-
