@@ -1,6 +1,6 @@
 /datum/loadout_category/glasses
 	/// How many maximum of these can be chosen
-	var/max_allowed = MAX_ALLOWED_EXTRA_CLOTHES
+	max_allowed = MAX_ALLOWED_EXTRA_CLOTHES
 
 /datum/loadout_category/glasses/New()
 	. = ..()

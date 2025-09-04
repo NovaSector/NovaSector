@@ -1,5 +1,4 @@
 // LOADOUT ITEM DATUMS FOR THE EAR SLOT
-
 /datum/loadout_category/ears
 	category_name = "Ears"
 	category_ui_icon = FA_ICON_EAR_LISTEN
