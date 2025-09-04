@@ -693,7 +693,6 @@
 
 //CRYO CONSOLES
 /obj/machinery/computer/cryopod/interdyne
-	radio = /obj/item/radio/headset/interdyne
 	announcement_channel = RADIO_CHANNEL_INTERDYNE
 	req_one_access = list("syndicate_leader")
 

@@ -190,7 +190,7 @@
 	flavour_text = "On the recently reclaimed Port Tarkon, You are tasked with overlooking your crew and keeping the port up and running. (OOC note: This ghost role was not designed with Plasmamen or Vox in mind. While there are some accommodations so that they can survive, it should be noted that they were not the focal point whilst designing Port Tarkon. The closet in the middle of the room above contains the 'accommodations' for those species.)"
 	important_text = "This is Not a job ment for Non-Tarkon specific Characters. You are not to abandon Port Tarkon. Check other sleepers for alternative jobs."
 	outfit = /datum/outfit/tarkon/director
-	spawner_job_path = /datum/job/tarkon
+	spawner_job_path = /datum/job/tarkon/command
 	loadout_enabled = TRUE
 	quirks_enabled = TRUE
 	random_appearance = FALSE
@@ -206,7 +206,6 @@
 	r_pocket = /obj/item/card/id/away/tarkonrobo
 
 /obj/machinery/computer/cryopod/tarkon
-	radio = /obj/item/radio/headset/tarkon
 	announcement_channel = RADIO_CHANNEL_TARKON
 	req_one_access = list("tarkon")
 
