@@ -1,0 +1,48 @@
+2025-09-02:
+  FlufflesTheDog:
+  - bugfix: Fix missing opfor/ghost/respawn buttons on the escape menu.
+  Hatterhat:
+  - balance: Improved propellant mixes for magnum blockshot and mil-spec buckshot
+      shells have rolled out, improving performace against armor. Somewhat.
+  OrionTheFox:
+  - bugfix: fixed RPED icons disappearing when applying upgrades (they now use TG's
+      updated icons)
+  - qol: Sorted the Undersuit Loadout group. All loadout groups are now sorted. Rejoice.
+  - qol: Donator items in the loadout now have a little icon beside them.
+  - bugfix: fixed a few of the new uniforms' skirt variants not having skirt flags.
+  - bugfix: fixed some minor formatting issues in several items.
+  - rscdel: Merged "designer inferno suit" into a reskin of the "inferno suit"
+  - rscdel: Removed "Fancy Suit", an outdated version of the "White Suit" (in loadout,
+      "Suit (White)"... or the (Colorable) version)
+  - rscdel: Removed "red shirt with white [pants/skirt]" in favor of recolorable "Office
+      Casual Suit" (in loadout, "Buttondown Suit - Collared")
+  - rscdel: Removed "Loose Pants" in favor of "JUNCO Megacargo Pants"
+  - rscdel: Removed recolorable green christmas items in favor of the already-recolorable
+      red ones. Since you can just recolor them to be green.
+  - rscdel: Removed "cableknit skirt", an exact duplicate of "turtleneck with skirt"
+      (in loadout, "Turtleneck w/ Skirt".
+  - rscdel: Removed erp maid costume in favor of TG's arguably-more-sexy and recolorable
+      maid costume.
+  RealWinterFrost:
+  - rscadd: Added many more types of kinaris carpet! and adds some missing description
+      for them.
+2025-09-03:
+  RealWinterFrost:
+  - image: Makes the Countess dress gags supported (Limited).
+  - image: Makes the Dutch outfit gags supported.
+  - image: Makes the Powder Ganger jacket gags supported.
+  - image: Makes the Eastern Monk robes gags supported.
+  - bugfix: Fixed and added kinaris crate to the cargo menu.
+  - image: Moved some /turf/ sprites around please report if any bugs are found
+  - image: Added new brick like floor tiles, coming in many different colors!
+  carpotoxin:
+  - balance: Syndicate Contractors have a new MODsuit module, the flamethrower module.
+  - balance: The Syndicate Contractor MODsuit has lost the magnetic harness module,
+      they didn't need this anyway
+  vinylspiders:
+  - sound: adds 'Hooves' and 'Highheels' as barefoot footstep preferences
+2025-09-04:
+  carpotoxin:
+  - rscadd: The space ninja has gotten a primary objective, brutally assassinating
+      command and spreading fear among the upper ranks.
+  - bugfix: The space ninja's explosive implant is now *actually* gone

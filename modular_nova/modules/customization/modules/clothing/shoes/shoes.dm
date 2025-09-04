@@ -154,8 +154,8 @@
 
 
 /obj/item/clothing/shoes/winterboots/christmas
-	name = "red christmas boots"
-	desc = "A pair of fluffy red christmas boots!"
+	name = "christmas boots"
+	desc = "A pair of fluffy christmas boots!"
 	greyscale_colors = "#cc0f0f#c4c2c2"
 	icon = 'icons/map_icons/clothing/shoes.dmi'
 	icon_state = "/obj/item/clothing/shoes/winterboots/christmas"
@@ -164,11 +164,6 @@
 	greyscale_config_worn = /datum/greyscale_config/boots/christmasboots/worn
 	greyscale_config_worn_digi = /datum/greyscale_config/boots/christmasboots/worn/digi
 	flags_1 = IS_PLAYER_COLORABLE_1
-
-/obj/item/clothing/shoes/winterboots/christmas/green
-	name = "green christmas boots"
-	desc = "A pair of fluffy green christmas boots!"
-	greyscale_colors = "#1a991a#c4c2c2"
 
 /obj/item/clothing/shoes/clown_shoes/pink
 	name = "pink clown shoes"
