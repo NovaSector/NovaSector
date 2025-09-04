@@ -16,13 +16,13 @@
 /obj/machinery/stasis/post_buckle_mob(mob/living/buckled_mob)
 	. = ..()
 	var/obj/item/circuitboard/machine/stasis/board = circuit
+	var/patient_status = (buckled_mob.maxHealth - buckled_mob.health) > 10 ? "Injured" : "Healthy"
+	patient_status = buckled_mob.stat != CONSCIOUS ? "Critical" : patient_status
 	if(board && board.announce_when_buckled)
 		aas_config_announce(/datum/aas_config_entry/stasis_announcement, list(
 			"PERSON" = buckled_mob.name,
 			"AREA" = get_area_name(src),
-		), src, list(announcement_channel),
-		buckled_mob.stat != CONSCIOUS ? "Critical" :
-		(buckled_mob.maxHealth - buckled_mob.health) > 10 ? "Injured" : "Healthy")
+		), src, list(announcement_channel), patient_status)
 
 /obj/item/circuitboard/machine/stasis
 	/// Controls wherever the stasis bed gives an announcement when someone is buckled to it or not.
@@ -35,7 +35,7 @@
 
 /obj/item/circuitboard/machine/stasis/examine(mob/user)
 	. = ..()
-	. += span_info("Patiant announcement pin is now [announce_when_buckled ? "enabled" : "disabled"]. You can use a [EXAMINE_HINT("multitool")] to reconfigure it.")
+	. += span_info("Patient announcement pin is now [announce_when_buckled ? "enabled" : "disabled"]. You can use a [EXAMINE_HINT("multitool")] to reconfigure it.")
 
 /datum/aas_config_entry/stasis_announcement
 	name = "Medical Alert: Stasis Announcement"
