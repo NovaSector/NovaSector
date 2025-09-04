@@ -34,6 +34,7 @@
 	// AAS
 	if (istype(target, /obj/machinery/announcement_system))
 		var/obj/machinery/announcement_system/announcement_system = target
+		announcement_system.RemoveElement(/datum/element/manufacturer_examine)
 		announcement_system.AddElement(/datum/element/manufacturer_examine, COMPANY_INTERDYNE)
 		announcement_system.radio_type = /obj/item/radio/headset/interdyne/command
 		// Tweaking defaults a bit (requires TGcode tweaks to take effect, will be done for upstream)

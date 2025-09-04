@@ -31,6 +31,7 @@
 	// AAS
 	if (istype(target, /obj/machinery/announcement_system))
 		var/obj/machinery/announcement_system/announcement_system = target
+		announcement_system.RemoveElement(/datum/element/manufacturer_examine)
 		announcement_system.AddElement(/datum/element/manufacturer_examine, "It has <b>[span_brown("Tarkon Industries")]</b> logo on it.")
 		announcement_system.radio_type = /obj/item/radio/headset/tarkon/command
 		// Tweaking defaults a bit
