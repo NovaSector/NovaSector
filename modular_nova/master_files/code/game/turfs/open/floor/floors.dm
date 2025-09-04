@@ -38,7 +38,7 @@
 	initial_gas_mix = SAFE_PLANET_ATMOS
 	planetary_atmos = TRUE
 	baseturfs = /turf/open/openspace/safe_planet
-  
+
 /turf/open/floor/iron/brick
 	icon_state = "brick"
 	base_icon_state = "brick"
