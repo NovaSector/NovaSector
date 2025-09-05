@@ -5,7 +5,6 @@
 	preview_antag_datum = /datum/antagonist/contractor
 	weight = 6
 	min_pop = 25
-	min_antag_cap = 2
 	minimum_required_age = 14
 	midround_type = HEAVY_MIDROUND
 
