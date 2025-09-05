@@ -46,3 +46,9 @@
   - rscadd: The space ninja has gotten a primary objective, brutally assassinating
       command and spreading fear among the upper ranks.
   - bugfix: The space ninja's explosive implant is now *actually* gone
+2025-09-05:
+  OrionTheFox:
+  - qol: Made "Giant Scarf" alt-skins into Reskins! Simply choose a Style when equipping
+      the "Giant Scarf" in the loadout! (Or Alt-Click ingame.)
+  - rscdel: Removed old items of alts for the "Giant Scarf" (You'll need to re-equip
+      it in loadout and choose the corresponding reskin. Sorry!)
