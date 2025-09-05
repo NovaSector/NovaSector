@@ -157,6 +157,12 @@
 /datum/armament_entry/company_import/vitezstvi/speedloader/detective_bouncy
 	item_type = /obj/item/ammo_box/c38/match
 
+/datum/armament_entry/company_import/vitezstvi/speedloader/c35sol
+	item_type = /obj/item/ammo_box/speedloader/c35sol
+
+/datum/armament_entry/company_import/vitezstvi/speedloader/c585trappiste
+	item_type = /obj/item/ammo_box/speedloader/c585trappiste
+
 // Shotgun boxes
 
 /datum/armament_entry/company_import/vitezstvi/shot_shells

@@ -7281,6 +7281,8 @@
 #include "modular_nova\master_files\code\modules\projectiles\gun.dm"
 #include "modular_nova\master_files\code\modules\projectiles\projectile.dm"
 #include "modular_nova\master_files\code\modules\projectiles\ammunition\energy\_energy.dm"
+#include "modular_nova\master_files\code\modules\projectiles\boxes_magazines\_box_magazine.dm"
+#include "modular_nova\master_files\code\modules\projectiles\boxes_magazines\speedloaders.dm"
 #include "modular_nova\master_files\code\modules\projectiles\boxes_magazines\external\rifle.dm"
 #include "modular_nova\master_files\code\modules\projectiles\boxes_magazines\external\shotgun.dm"
 #include "modular_nova\master_files\code\modules\projectiles\boxes_magazines\external\smg.dm"
