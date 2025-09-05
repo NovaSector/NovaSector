@@ -59,3 +59,16 @@
 	desc = "Overalls designed to be comfortable, and keep you from getting wet, while only one of those is true, its still nice to have."
 	icon_state = "/obj/item/clothing/under/greyscale/overalls/skirt"
 	post_init_icon_state = "overalls_skirt"
+
+/obj/item/clothing/under/greyscale/playsuit
+	name = "playsuit"
+	desc = "For the love of the game."
+	icon = 'icons/map_icons/clothing/under/_under.dmi'
+	icon_state = "/obj/item/clothing/under/greyscale/playsuit"
+	post_init_icon_state = "playsuit"
+	greyscale_config = /datum/greyscale_config/playsuit
+	greyscale_config_worn = /datum/greyscale_config/playsuit/worn
+	greyscale_config_worn_digi = /datum/greyscale_config/playsuit/worn/digi
+	greyscale_colors = "#787878#252525#CCCED1#787878"
+	flags_1 = IS_PLAYER_COLORABLE_1
+	can_adjust = FALSE
