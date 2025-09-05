@@ -5335,7 +5335,7 @@
 /obj/machinery/cryopod{
 	dir = 4
 	},
-/obj/machinery/computer/cryopod/interdyne/directional/west{
+/obj/machinery/computer/cryopod/directional/west{
 	req_one_access = list("syndicate")
 	},
 /turf/open/floor/catwalk_floor/iron_dark,

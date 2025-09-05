@@ -7065,7 +7065,7 @@
 /turf/open/floor/iron/dark,
 /area/ruin/space/has_grav/port_tarkon/comms)
 "Vj" = (
-/obj/machinery/computer/cryopod/tarkon/directional/north,
+/obj/machinery/computer/cryopod/directional/north,
 /turf/open/floor/iron,
 /area/ruin/space/has_grav/port_tarkon)
 "Vl" = (

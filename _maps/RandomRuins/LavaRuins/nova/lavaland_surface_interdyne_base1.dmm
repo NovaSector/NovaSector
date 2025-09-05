@@ -1264,7 +1264,7 @@
 /obj/effect/turf_decal/tile/dark_green/half{
 	dir = 8
 	},
-/obj/machinery/computer/cryopod/interdyne/directional/west,
+/obj/machinery/computer/cryopod/directional/west,
 /turf/open/floor/iron/dark/smooth_edge{
 	dir = 8
 	},

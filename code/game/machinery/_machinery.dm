@@ -208,6 +208,7 @@
 	PROTECTED_PROC(TRUE)
 	SHOULD_CALL_PARENT(TRUE)
 
+	tune_special_cases()	// NOVA ADDITION
 	power_change()
 	if(use_power == NO_POWER_USE)
 		return

@@ -205,12 +205,6 @@
 	neck = /obj/item/clothing/neck/security_cape/tarkon
 	r_pocket = /obj/item/card/id/away/tarkonrobo
 
-/obj/machinery/computer/cryopod/tarkon
-	announcement_channel = RADIO_CHANNEL_TARKON
-	req_one_access = list("tarkon")
-
-MAPPING_DIRECTIONAL_HELPERS(/obj/machinery/computer/cryopod/tarkon, 32)
-
 ////////////////////// Corpse/Mob Spawners Below
 
 /datum/outfit/tarkon/loot
