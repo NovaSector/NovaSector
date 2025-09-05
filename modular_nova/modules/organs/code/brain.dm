@@ -21,7 +21,7 @@
 			owner.set_jitter_if_lower(30 SECONDS)
 			owner.adjust_stutter(30 SECONDS)
 			owner.adjust_confusion(10 SECONDS)
-		if(2)
+		if(EMP_LIGHT)
 			owner.set_jitter_if_lower(15 SECONDS)
 			owner.adjust_stutter(15 SECONDS)
 			owner.adjust_confusion(3 SECONDS)
