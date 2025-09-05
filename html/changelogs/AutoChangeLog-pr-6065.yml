@@ -1,0 +1,4 @@
+author: "carpotoxin"
+delete-after: True
+changes:
+  - bugfix: "Drifting contractor event no longer requires 2 candidates to succeed spawning"

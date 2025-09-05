@@ -15,7 +15,7 @@
 	atom_flags = PREVENT_CONTENTS_EXPLOSION_1
 	max_heat_protection_temperature = FIRE_SUIT_MAX_TEMP_PROTECT
 	siemens_coefficient = 0
-	slowdown_deployed = 0.5
+	slowdown_deployed = 0
 	ui_theme = "syndicate"
 	inbuilt_modules = list(/obj/item/mod/module/chameleon/contractor)
 	allowed_suit_storage = list(
@@ -67,12 +67,12 @@
 		),
 	)
 
-/datum/armor/mod_theme_contractor
-	melee = 35
-	bullet = 40
+/datum/armor/mod_theme_contractor // compare/contrast mod_theme_syndicate
+	melee = 40
+	bullet = 50
 	laser = 35
 	energy = 35
-	bomb = 35
+	bomb = 40
 	bio = 100
 	fire = 80
 	acid = 90

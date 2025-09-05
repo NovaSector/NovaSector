@@ -1,0 +1,5 @@
+author: "Hatterhat"
+delete-after: True
+changes:
+  - balance: "MODsuit armor was buffed, taking higher stats from tgstation's MOD armor stats if they were relevant, and keeping Nova's otherwise."
+  - balance: "Security MODsuit plate designs are back under Security Modular Suits."
