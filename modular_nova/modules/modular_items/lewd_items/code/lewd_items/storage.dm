@@ -5,6 +5,7 @@
 	illustration = "heart"
 	foldable_result = /obj/item/stack/sheet/cardboard
 	storage_type = /datum/storage/box/erp
+	w_class = WEIGHT_CLASS_SMALL
 
 /datum/storage/box/erp
 	max_specific_storage = WEIGHT_CLASS_NORMAL
