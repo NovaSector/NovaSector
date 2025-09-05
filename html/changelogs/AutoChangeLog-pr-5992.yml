@@ -1,0 +1,6 @@
+author: "Hatterhat"
+delete-after: True
+changes:
+  - code_imp: "Reduced redundant code between the Kolben combat shotgun and Laevateinn revolvers and their shared barrel charging gimmick by moving a lot of the relevant stuff to a component. If bugs crop up relating to either of those two, please report it."
+  - rscadd: "Adds the KOLBEN/NACHTREIHER shotgun parts kit to Cargo's goodies tab at 600 cr, allowing people to upgrade their M64 shotguns into the Nachtreiher, a semi-automatic shotgun with a barrel charger."
+  - image: "The Nachtreiher and Kasuar now have rifle stocks instead of stocks and pistol grips. Neat!"
