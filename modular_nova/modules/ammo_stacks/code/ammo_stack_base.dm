@@ -7,7 +7,7 @@
 	base_icon_state = "ammo_stack"
 	w_class = WEIGHT_CLASS_SMALL
 	multiple_sprites = AMMO_BOX_ONE_SPRITE
-	multiload = FALSE
+	ammo_box_multiload = AMMO_BOX_MULTILOAD_NONE
 	start_empty = TRUE
 	max_ammo = 12
 	/// Every x position we use for casings, change based on the size of the casing being put into the stack

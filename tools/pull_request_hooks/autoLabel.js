@@ -33,15 +33,10 @@ const titleKeywordSets = (() => {
  */
 const fileLabelFilepathSets = (() => {
   const map = {};
-  for (const [
-    label,
-    { filepaths = [], file_extensions = [], add_only },
-  ] of Object.entries(autoLabelConfig.file_labels)) {
-    map[label] = {
-      filepaths: new Set(filepaths),
-      file_extensions: new Set(file_extensions),
-      add_only,
-    };
+  for (const [label, { filepaths = [], file_extensions = [], add_only }] of Object.entries(
+    autoLabelConfig.file_labels
+  )) {
+    map[label] = { filepaths: new Set(filepaths), file_extensions: new Set(file_extensions), add_only };
   }
   return map;
 })();
@@ -114,12 +109,15 @@ async function check_diff_files_for_labels(github, context) {
 
   try {
     // Use github.paginate to fetch all files (up to ~3000 max)
-    const allFiles = await github.paginate(github.rest.pulls.listFiles, {
-      owner: context.repo.owner,
-      repo: context.repo.repo,
-      pull_number: context.payload.pull_request.number,
-      per_page: 100, // max per request
-    });
+    const allFiles = await github.paginate(
+      github.rest.pulls.listFiles,
+      {
+        owner: context.repo.owner,
+        repo: context.repo.repo,
+        pull_number: context.payload.pull_request.number,
+        per_page: 100, // max per request
+      }
+    );
 
     if (!allFiles?.length) {
       console.error("No files returned in pagination.");
@@ -129,10 +127,9 @@ async function check_diff_files_for_labels(github, context) {
     // Set of changed filenames for quick lookup
     const changedFiles = new Set(allFiles.map((f) => f.filename));
 
-    for (const [
-      label,
-      { filepaths = new Set(), file_extensions = new Set(), add_only },
-    ] of Object.entries(fileLabelFilepathSets)) {
+    for (const [label, { filepaths = new Set(), file_extensions = new Set(), add_only }] of Object.entries(
+      fileLabelFilepathSets
+    )) {
       let found = false;
 
       // Filepath-based matching
@@ -176,7 +173,7 @@ async function check_diff_files_for_labels(github, context) {
  * Main function to get the updated label set
  */
 export async function get_updated_label_set({ github, context }) {
-  const { action, pull_request } = context.payload;
+  const { pull_request } = context.payload;
   const {
     body = "",
     diff_url,
@@ -195,30 +192,42 @@ export async function get_updated_label_set({ github, context }) {
     labels_to_remove.forEach((label) => updated_labels.delete(label));
   }
 
-  // Check body/title only when PR is opened, not on sync
+  // Always check body/title (otherwise we can lose the changelog labels)
   if (title)
     check_title_for_labels(title).forEach((label) => updated_labels.add(label));
   if (body)
     check_body_for_labels(body).forEach((label) => updated_labels.add(label));
 
+  // Keep track of labels that were manually added/removed by maintainers in the events.
+  // And make sure they -stay- added/removed.
+  try {
+    const events = await github.paginate(
+      github.rest.issues.listEventsForTimeline,
+      {
+        owner: context.repo.owner,
+        repo: context.repo.repo,
+        issue_number: context.payload.pull_request.number,
+        per_page: 100,
+      }
+    );
+
+    for (const eventData of events) {
+      // Skip all bot actions
+      if (eventData.actor?.login === "github-actions[bot]") {
+        continue;
+      }
+      if (eventData.event === "labeled") {
+        updated_labels.add(eventData.label.name);
+      } else if (eventData.event === "unlabeled") {
+        updated_labels.delete(eventData.label.name);
+      }
+    }
+  } catch (error) {
+    console.error("Error fetching paginated events:", error);
+  }
+
   // Always remove Test Merge Candidate
   updated_labels.delete("Test Merge Candidate");
-
-  // Keep track of labels that were manually added by maintainers
-  const events = await github.rest.issues.listEventsForTimeline({
-    owner: context.repo.owner,
-    repo: context.repo.repo,
-    issue_number: context.payload.pull_request.number,
-    per_page: 100,
-  });
-  for (const eventData of events.data) {
-    if (
-      eventData.event === "labeled" &&
-      eventData.actor?.login !== context.actor
-    ) {
-      updated_labels.add(eventData.label.name);
-    }
-  }
 
   // Handle merge conflict label
   let merge_conflict = mergeable === false;
