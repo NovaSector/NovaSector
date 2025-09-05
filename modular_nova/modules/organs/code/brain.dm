@@ -17,11 +17,11 @@
 	if(owner.stat == DEAD)
 		return
 	switch(severity)
-		if(1)
+		if(EMP_HEAVY)
 			owner.set_jitter_if_lower(30 SECONDS)
 			owner.adjust_stutter(30 SECONDS)
 			owner.adjust_confusion(10 SECONDS)
-		if(2)
+		if(EMP_LIGHT)
 			owner.set_jitter_if_lower(15 SECONDS)
 			owner.adjust_stutter(15 SECONDS)
 			owner.adjust_confusion(3 SECONDS)
@@ -31,15 +31,18 @@
 /obj/item/organ/brain/cybernetic/cortical/brain_damage_examine()
 	if(suicided)
 		return span_info("Its circuitry is smoking slightly. They must not have been able to handle the stress of it all.")
-	if(brainmob && (decoy_override || brainmob.client || brainmob.get_ghost()))
-		if(organ_flags & ORGAN_FAILING)
-			return span_info("It seems to still have a bit of energy within it, but it's rather damaged... You may be able to restore it with some <b>mannitol</b>.")
-		else if(damage >= BRAIN_DAMAGE_DEATH*0.5)
-			return span_info("You can feel the small spark of life still left in this one, but it's got some bruises. You may be able to restore it with some <b>mannitol</b>.")
-		else
-			return span_info("You can feel the small spark of life still left in this one.")
-	else
+
+	// Must have a brainmob that is either active, a decoy, or has a ghost
+	if(!(brainmob && (decoy_override || brainmob.client || brainmob.get_ghost())))
 		return span_info("This one is completely devoid of life.")
+
+	if(organ_flags & ORGAN_FAILING)
+		return span_info("It seems to still have a bit of energy within it, but it's rather damaged... You may be able to restore it with some <b>mannitol</b>.")
+
+	if(damage >= BRAIN_DAMAGE_DEATH * 0.5)
+		return span_info("You can feel the small spark of life still left in this one, but it's got some bruises. You may be able to restore it with some <b>mannitol</b>.")
+
+	return span_info("You can feel the small spark of life still left in this one.")
 
 //New vox Brain
 /obj/item/organ/brain/cybernetic/cortical/vox
