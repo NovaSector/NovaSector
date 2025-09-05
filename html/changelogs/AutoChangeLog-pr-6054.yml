@@ -1,0 +1,5 @@
+author: "OrionTheFox"
+delete-after: True
+changes:
+  - qol: "Made \"Giant Scarf\" alt-skins into Reskins! Simply choose a Style when equipping the \"Giant Scarf\" in the loadout! (Or Alt-Click ingame.)"
+  - rscdel: "Removed old items of alts for the \"Giant Scarf\" (You'll need to re-equip it in loadout and choose the corresponding reskin. Sorry!)"
