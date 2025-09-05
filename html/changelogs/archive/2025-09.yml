@@ -41,3 +41,8 @@
       they didn't need this anyway
   vinylspiders:
   - sound: adds 'Hooves' and 'Highheels' as barefoot footstep preferences
+2025-09-04:
+  carpotoxin:
+  - rscadd: The space ninja has gotten a primary objective, brutally assassinating
+      command and spreading fear among the upper ranks.
+  - bugfix: The space ninja's explosive implant is now *actually* gone
