@@ -1194,6 +1194,15 @@
 	icon_file = 'modular_nova/modules/GAGS/icons/big_pants.dmi'
 	json_config = 'modular_nova/modules/GAGS/json_configs/big_pants/big_pants.json'
 
+/datum/greyscale_config/loose_pants
+	name = "Loose pants"
+	icon_file = 'modular_nova/modules/GAGS/icons/loose_pants.dmi'
+	json_config = 'modular_nova/modules/GAGS/json_configs/loose_pants/loose_pants.json'
+
+/datum/greyscale_config/loose_pants/worn
+	name = "Loose pants (Worn)"
+	json_config = 'modular_nova/modules/GAGS/json_configs/loose_pants/loose_pants_worn.json'
+
 /datum/greyscale_config/big_pants/worn
 	name = "'JUNCO' megacargo pants (Worn)"
 	json_config = 'modular_nova/modules/GAGS/json_configs/big_pants/big_pants_worn.json'
