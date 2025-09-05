@@ -40,3 +40,6 @@
 		update_appearance()
 
 	return num_loaded
+
+/obj/item/ammo_box/strilka310
+	ammo_box_multiload = AMMO_BOX_MULTILOAD_ALL
