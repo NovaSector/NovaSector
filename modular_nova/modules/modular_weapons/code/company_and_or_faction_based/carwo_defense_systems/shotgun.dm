@@ -129,7 +129,7 @@
 	)
 	RegisterSignal(src, COMSIG_GUN_BOOSTER_TOGGLED, PROC_REF(on_booster_toggle))
 
-/obj/item/gun/ballistic/shotgun/riot/sol/super/Destroy()
+/obj/item/gun/ballistic/shotgun/riot/sol/super/Destroy(force)
 	UnregisterSignal(src, COMSIG_GUN_BOOSTER_TOGGLED)
 	return ..()
 
