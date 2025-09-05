@@ -55,7 +55,7 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/machinery/posialert, 28)
 	announcement_lines_map = list(
 		"Message" = "There are positronic personalities available.",
 	)
-	general_tooltip = "Broadcasted, when new personality is available for download in posibrain."
+	general_tooltip = "Broadcasted when a new personality is available for download in posibrain."
 
 /datum/aas_config_entry/posibrain_alert/act_up()
 	. = ..()
