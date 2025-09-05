@@ -17,7 +17,7 @@
 	if(owner.stat == DEAD)
 		return
 	switch(severity)
-		if(1)
+		if(EMP_HEAVY)
 			owner.set_jitter_if_lower(30 SECONDS)
 			owner.adjust_stutter(30 SECONDS)
 			owner.adjust_confusion(10 SECONDS)
