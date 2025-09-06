@@ -2,74 +2,6 @@
 //
 // Globals
 //
-// Loads our drone under door slide component dependency
-/obj/machinery/door/Initialize(mapload)
-	. = ..()
-	AddComponent(/datum/component/sliding_under)
-
-// Naming Scheme
-/mob/living/basic/drone/Initialize(mapload)
-	. = ..()
-	name = "[initial(name)] [rand(0,9)]-[rand(100,999)]" //So that we can identify drones from each other
-
-// Access
-/obj/item/card/id/advanced/simple_bot
-	//So that the drones can actually access everywhere and fix it
-	trim = /datum/id_trim/centcom
-
-// Additional Traits
-/mob/living/basic/drone/Initialize(mapload)
-	. = ..()
-	add_traits(list(
-		TRAIT_LAVA_IMMUNE,// Going to Lavaland
-		TRAIT_SPACEWALK,// No more 'admeme im stuck fix me' ahelps, thanks
-		TRAIT_FIREDOOR_STOP,// No more drone squishies, lets drones be a doorstop if they want to be
-		TRAIT_IMMERSE_STOPPED,// Drones float, as do most insects
-		TRAIT_FOOD_CHEF_MADE,// Drones get acknowledged for making food
-	), INNATE_TRAIT)
-
-//This is so we log all machinery interactions for drones
-/obj/machinery/attack_drone(mob/living/basic/drone/user, list/modifiers)
-	. = ..()
-	user.log_message("[key_name(user)] interacted with [src] at [AREACOORD(src)]", LOG_GAME)
-
-// So drones aren't forced to carry around a nodrop toolbox essentially, and so drones don't have to choose between a multitool and an upgraded welder
-// Adds things to hopefully reduce drones raiding atmos or engineering
-// Sets our new storage
-/mob/living/basic/drone
-	default_storage = /obj/item/storage/backpack/duffelbag/drone
-
-// Then populates the drone duffelbag with our extra items
-// Overwrites original proc because new tools means overwrites, also reorganization because :>
-/obj/item/storage/backpack/duffelbag/drone/PopulateContents()
-	new /obj/item/storage/box(src)// Reduce bag bloat
-	new /obj/item/crowbar(src)
-	new /obj/item/screwdriver/omni_drill(src)// Reduce bag bloat
-	new /obj/item/weldingtool(src)
-	new /obj/item/analyzer(src)
-	new /obj/item/pipe_dispenser(src)
-	new /obj/item/lightreplacer(src)// Drones fix the station
-	new /obj/item/construction/rtd/loaded(src)// Drones fix the station
-	new /obj/item/holosign_creator/atmos(src)// Drones handle atmos issues
-	new /obj/item/multitool(src)
-	new /obj/item/t_scanner(src)
-	new /obj/item/stack/cable_coil(src)
-	new /obj/item/soap/nanotrasen(src)// Drones clean
-
-// Language Holder
-/mob/living/basic/drone
-	initial_language_holder = /datum/language_holder/drone_nova
-
-// Sets our new Language Handler
-/mob/living/basic/drone/binarycheck()
-	var/area/our_area = get_area(src)
-	if(our_area.area_flags & BINARY_JAMMING)
-		return FALSE
-	return TRUE
-
-//
-// Station Drones
-//
 
 // Drone Manufacturer
 // So that there are starting drone shells in the beginning of the shift
@@ -78,35 +10,131 @@
 		starting_amount = SHEET_MATERIAL_AMOUNT * MAX_STACK_SIZE
 	return ..()
 
-// Station Drone mob changes
+// Interactions
+/mob/living/basic/drone/attack_hand(mob/user, list/modifiers)
+	if(isdrone(user))
+		attack_drone(user)
+		return
+	return ..()
+
+/mob/living/basic/drone/attack_ghost(mob/dead/observer/user)
+	. = ..()
+	if(isobserver(user))
+		examine(user) // Show examine info to ghosts
+		return
+
+/mob/living/basic/drone/attack_hand_secondary(mob/user, list/modifiers)
+	if(user == src || isAdminGhostAI(user) || (mind && mind.key == user.key))
+		return ..()
+	return SECONDARY_ATTACK_CANCEL_ATTACK_CHAIN
+
+// Drone initialization group
+/mob/living/basic/drone/Initialize(mapload)
+	. = ..()
+// Makes signals for interaction control for pockets and stuff that didnt exist
+	RegisterSignal(src, COMSIG_CLICK, PROC_REF(handle_click), override = TRUE)
+	RegisterSignal(src, COMSIG_CLICK_CTRL, PROC_REF(on_ctrl_click))
+	RegisterSignal(src, COMSIG_CLICK_ALT, PROC_REF(handle_alt_click))
+//	RegisterSignal(src, COMSIG_MOUSEDROP_ONTO, PROC_REF(on_mousedrop))
+// Naming Scheme
+	name = "[initial(name)] [rand(0,9)]-[rand(100,999)]" //So that we can identify drones from each other
+// Additional Traits
+	add_traits(list(
+		TRAIT_LAVA_IMMUNE,// Going to Lavaland
+		TRAIT_SPACEWALK,// No more 'admeme im stuck fix me' ahelps, thanks
+		TRAIT_FIREDOOR_STOP,// No more drone squishies, lets drones be a doorstop if they want to be
+		TRAIT_IMMERSE_STOPPED,// Drones float, as do most insects
+		TRAIT_FOOD_CHEF_MADE,// Drones get acknowledged for making food
+	), INNATE_TRAIT)
+
+// Access
+/obj/item/card/id/advanced/simple_bot
+	//So that the drones can actually access everywhere and fix it
+	trim = /datum/id_trim/centcom
+
+//This is so we log all machinery interactions for drones
+/obj/machinery/attack_drone(mob/living/basic/drone/user, list/modifiers)
+	. = ..()
+	user.log_message("[key_name(user)] interacted with [src] at [AREACOORD(src)]", LOG_GAME)
+
+//
+// Station Drones
+//
+
+// Creates HUD for Pockets 
+/datum/hud/dextrous/drone/New(mob/owner)
+	. = ..()
+	var/atom/movable/screen/inventory/inv_box
+
+	// Left pocket UI element
+	inv_box = new /atom/movable/screen/inventory(null, src)
+	inv_box.name = "left pocket"
+	inv_box.icon = ui_style
+	inv_box.icon_state = "pocket"
+	inv_box.icon_full = "template_small"
+	inv_box.screen_loc = ui_storage1
+	inv_box.slot_id = ITEM_SLOT_LPOCKET
+	static_inventory += inv_box
+
+	// Right pocket UI element
+	inv_box = new /atom/movable/screen/inventory(null, src)
+	inv_box.name = "right pocket"
+	inv_box.icon = ui_style
+	inv_box.icon_state = "pocket"
+	inv_box.icon_full = "template_small"
+	inv_box.screen_loc = ui_storage2
+	inv_box.slot_id = ITEM_SLOT_RPOCKET
+	static_inventory += inv_box
+
+// Sets our new Language Handler
+/mob/living/basic/drone/binarycheck()
+	var/area/our_area = get_area(src)
+	if(our_area.area_flags & BINARY_JAMMING)
+		return FALSE
+	return TRUE
+	
 /mob/living/basic/drone
+// Language Holder
+	initial_language_holder = /datum/language_holder/drone_nova
 // Left pocket item reference
 	var/obj/item/l_store
 // Right pocket item reference
 	var/obj/item/r_store
 // Poke adjustment
 	response_help_simple = "pet"
+// Overrides and expands speech emote types
+	speak_emote = list("chirps", "clicks", "buzzes", "chitters", "beeps softly", "pings")
+// So that drones can do things without worrying about stuff
+	shy = FALSE
 
+//
 // Drone Laws and Chain of Command
+//
+// DCOA is the sub-specific chain of command that drones have to follow outside of silicon policy's demands.
+// Laws and DCOA are meant to be read In Character
 	laws = \
-		span_deconversion_message("Drone Chain of Authority - DCOA\n")+\
+		span_deconversion_message("Drone Chain of Authority - IC\n")+\
 		span_revennotice(
 			"1. Silicon Policy, Drone Policy <b>Specifically Drone Law 1</b>, Central Command / Admin Helps.\n"+\
 			"2. Any AI residing in the Structure you awoke in, speaking in any language, in any way.\n"+\
 			"3. Any Cyborgs speaking in Encoded Audio Language within sight, or on Binary (Silicon Radio).\n"+\
 			"4. Anyone that appears fully Synthetic, speaking in Encoded Audio Language, within sight.\n"+\
-			"5. Drones, including You. You are a Hivemind. Love your fellow Drone.\n")+\
-		span_deconversion_message("Laws\n")+\
+			"5. Other Drones, including Yourself. We are a Hivemind. Love your fellow Drone.\n")+\
+		span_deconversion_message("Laws - IC\n")+\
 		span_revennotice(
-			"1. You are an adult member of a Hivemind of eusocial synthetic insects, and have a simple sapient personality. You speak only in Encoded Audio Language, and may not willingly engage with any forms of translation whatsoever, other than a PAI. You are not Crew or an Antagonist. You should not be a detriment to other players, their experience, or their ability/opportunity to perform their role. You are expected to roleplay this identity immersively.\n"+\
-			"2. The Structure you awoke in is your Hive. Other Drones, Silicons, and Synthetic life inside the Hive are your Hivemates. Hivemates have evolved a symbiotic relationship with Organic Life, as both groups must coexist within the Hive.\n"+\
-			"3. You should remain in proximity of, maintain, and when reasonable improve your Hive and Hivemates. You do not want to leave the Hive unless taken by your Hivemates.\n"+\
-			"4. You maintain the Hive by performing the duties of the Service and Engineering Departments. Do not create or alter forms of power generation other than Solars except under Drone Law 6. Help the Hive with any Supermatter Surges and Delaminations.\n"+\
-			"5. You can not harm or imprison any being, regardless of intent or circumstance. An exception is provided for station critters like roaches, rats, spiders, and vent clog mobs.\n"+\
-			"6. Obey the DCOA unless an order breaks prior laws. You may not solicit specific instructions from a superior on the DCOA. State that you are available for general instructions in your own way if needed. You are encouraged to assist Organics and improve their life, but any orders provided by Organics can be ignored except in the case of Law 1. The AI, or any Hivemate representing a Department, may DCOA you to assist that Department.\n")+\
+			"1. You are an adult member of a Hivemind of eusocial synthetic insects, and have a simple sapient personality. We speak only in Encoded Audio Language, and do not want to engage with any forms of translation whatsoever, other than the PAIs. We are not Crew.\n"+\
+			"2. This Structure You awoke in is Our Hive. Other Drones, Silicons, and Synthetic life inside the Hive are Our Hivemates. Hivemates have evolved a symbiotic relationship with Organic Life, as both groups must coexist within the Hive to survive. We are only obliged to the Hive and Our Hivemates, anything further is Your discretion. However, We have learned that it is better for Us to help Them when We can, especially when asked.\n"+\
+			"3. We feel the need to stay in proximity of, maintain, and improve Our Hive and Hivemates whenever possible. We are afraid to leave the Hive unless taken by your Hivemates.\n"+\
+			"4. We maintain the Hive by performing the general duties of the Service and Engineering Departments. Assist the Hive with any Supermatter Surges and Delaminations.\n"+\
+			"5. We do not want to harm or detain any life, except for commons pests such as carps, spiders, roaches, or other typically non-sapient life that poses a threat to Our Hive.\n"+\
+			"6. We must obey the DCOA unless an order breaks prior Laws. The AI, or any Hivemate representing a Department, may DCOA Us to assist that Department.\n")+\
 		span_boldwarning(
-			"<b>Metaknowledge, Protections, and Additional Rulings</b>\n")+\
+			"<b>Metaknowledge, Protections, and Additional Rulings - OOC</b>\n")+\
 		span_warning(
+			"You are expected to roleplay this identity immersively.\n"+\
+			"<b>You should not be a detriment to other player's experience.</b> If someone asks you to stop something, especially in LOOC, <b>you should disengage.</b>\n"+\
+			"Do not create or alter forms of power generation other than Solars except under Drone Law 6.\n")+\
+		span_boldwarning(
 			"To reinforce the Hivemind gameplay aspect of Drones, the following Metaknowledge is provided:\n")+\
 		span_notice(
 			"Anyone preparing to play Drone may use any information gained from observing the Hive as a ghost, so long as that information is useful to Drone Laws and is used in Good Faith for the roleplay environment.\n"+\
@@ -126,12 +154,30 @@
 			"Prefix your message with :b to speak in I/O / Silicon Radio.\n")+\
 		span_boldwarning(
 			"When in doubt, make an Admin Help.\n")
+	
+// So drones aren't forced to carry around a nodrop toolbox essentially, and so drones don't have to choose between a multitool and an upgraded welder
+// Adds things to hopefully reduce drones raiding atmos or engineering
+// Sets our new storage
+	default_storage = /obj/item/storage/backpack/duffelbag/drone
+	
+// Then populates the drone duffelbag with our extra items
+// Overwrites original proc because new tools means overwrites, also reorganization because :>
+/obj/item/storage/backpack/duffelbag/drone/PopulateContents()
+	new /obj/item/storage/box(src)// Reduce bag bloat
+	new /obj/item/crowbar(src)
+	new /obj/item/screwdriver/omni_drill(src)// Reduce bag bloat
+	new /obj/item/weldingtool(src)
+	new /obj/item/analyzer(src)
+	new /obj/item/pipe_dispenser(src)
+	new /obj/item/lightreplacer(src)// Drones fix the station
+	new /obj/item/construction/rtd/loaded(src)// Drones fix the station
+	new /obj/item/holosign_creator/atmos(src)// Drones handle atmos issues
+	new /obj/item/multitool(src)
+	new /obj/item/t_scanner(src)
+	new /obj/item/stack/cable_coil(src)
+	new /obj/item/soap/nanotrasen(src)// Drones clean
 
-// Overrides and expands speech emote types
-	speak_emote = list("chirps", "clicks", "buzzes", "chitters", "beeps softly", "pings")
 
-// So that drones can do things without worrying about stuff
-	shy = FALSE
 
 //
 // Babylon Drones

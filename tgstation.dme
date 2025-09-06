@@ -8109,7 +8109,6 @@
 #include "modular_nova\modules\disable_worn_fov\code\worn_items.dm"
 #include "modular_nova\modules\dogfashion\code\head.dm"
 #include "modular_nova\modules\drones\_drone.dm"
-#include "modular_nova\modules\drones\drone_interaction.dm"
 #include "modular_nova\modules\drones\drone_naming.dm"
 #include "modular_nova\modules\drones\drone_pocket_interaction.dm"
 #include "modular_nova\modules\drones\drone_pockets.dm"

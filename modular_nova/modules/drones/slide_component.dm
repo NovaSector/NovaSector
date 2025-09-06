@@ -54,3 +54,8 @@
 		return
 
 	examine_list += span_warning("Ctrl + Click [atom_parent] to slide under!\n")
+
+// Loads our drone under door slide component dependency
+/obj/machinery/door/Initialize(mapload)
+	. = ..()
+	AddComponent(/datum/component/sliding_under)
