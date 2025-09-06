@@ -8,3 +8,10 @@ modules = ["cargo_stock.dmm", "cargo_warehouse.dmm", "cargo_secure.dmm"]
 
 [rooms.dorm]
 modules = ["dorm_classic.dmm", "dorm_cabin.dmm", "dorm_party.dmm"]
+
+[rooms.maint]
+modules = ["maint_jungle.dmm", "maint_simple.dmm","maint_hydro.dmm","maint_ice.dmm"]
+
+
+[rooms.solars]
+modules = ["solars_classic.dmm", "solars_construct.dmm","solars_carps.dmm","solars_meteor.dmm"]
