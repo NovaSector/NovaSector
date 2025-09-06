@@ -1,5 +1,5 @@
 // Tarkon
-// I didn't extract area check to parent proc, to reduce call times to only machines that need it
+// Do not check requirement, just changes the machine
 /obj/machinery/proc/tarkonize()
 
 // AAS

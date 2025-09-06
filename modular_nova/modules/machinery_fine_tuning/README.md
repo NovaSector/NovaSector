@@ -19,18 +19,22 @@ approach. Mainly accesses and freq for awaysites
 
 ### Master file additions
 
-- `modular_nova/master_files/code/modules/reagents/reagent_containers/hypospray.dm`
-  - Overrides `Initialize()` and `inject()`.
-  - Adds new variables `medipen/var/init_empty` and `medipen/var/unused`.
-- `modular_nova/master_files/code/modules/reagents/chemistry/holder.dm`
-  - Adds new proc `/datum/reagents/proc/trans_to_multiple()`
+- N/A
 
 ### Included files that are not contained in this module:
 
 Dependent to avoid runtime errors:
 
-- `modular_nova/master_files/code/modules/reagents/reagent_containers/hypospray.dm`
+Upstream Interdyne area
+
+- `code/game/area/areas/ruins/space.dm`
+  Interdyne, Tarkon shuttle areas
+- `modular_nova/modules/mapping/code/areas/shuttles.dm`
+  DS2, Tarkon areas
+- `modular_nova/modules/mapping/code/areas/space.dm`
+  Interdyne areas
+- `modular_nova/master_files/code/game/area/areas/ruins/lavaland.dm`
 
 ### Credits:
 
-- [@Floofies](https://github.com/Floofies)
+- Archemagus aka (Laxesh)
