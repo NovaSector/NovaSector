@@ -93,6 +93,10 @@
 	name = "Suspenders (Colorable)"
 	item_path = /obj/item/clothing/suit/toggle/suspenders
 
+/datum/loadout_item/suit/big_sweater
+	name = "Big Sweater (Colorable)"
+	item_path = /obj/item/clothing/suit/nova/sweater
+
 /*
 *	WINTER COATS
 */
