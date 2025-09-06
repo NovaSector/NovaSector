@@ -100,4 +100,6 @@
 /obj/item/folder/blue/hc_cop/Initialize(mapload)
 	. = ..()
 	new /obj/item/paper/fluff/hc_document(src)
+	new /obj/item/paper/fluff/hc_document/cheat_sheet(src)
+	new /obj/item/paper/fluff/hc_document/lexicon(src)
 	update_appearance()

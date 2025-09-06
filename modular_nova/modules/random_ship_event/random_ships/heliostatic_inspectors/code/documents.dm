@@ -1,7 +1,7 @@
 /obj/item/paper/fluff/hc_document
 	name = "HC Police SOPs"
 	default_raw_text = {"
-	<h1><i>Heliostatic Coalition Internal Affairs Collegium Rim-World Patrol Standard Operation Procedures</i></h1><br><br>
+	<h1><i>Heliostatic Coalition Internal Affairs Department Rim-World Patrol Standard Operation Procedures</i></h1><br><br>
 	<b>Table of Contents</b><br>
 	I. Annotation and Introduction<br>
 	II. Command Protocol and Designation<br>
@@ -25,7 +25,7 @@
 	In order to effectively carry out the activities of the expeditionary police, an Instruction was adopted to the ranks of independently functioning departments, which consolidated the organizational structure, rights and duties of the ranks of the latter. In particular, the Instruction determined that the branches have the purpose of their activities to secretly investigate and conduct inquiries in the form of preventing, eliminating, exposing and prosecuting criminal acts of an ordinary nature; expanding, consolidating and promoting the influence of the state in the sector. The Instructions drew attention to the area of activity of a chosen dispatch, as well as to the fact that all information on cases of a political nature, the heads of dispatches are required to document those immediately. Of interest is also a note in the Instructions, according to which the chiefs of the expeditionary police were minimally subordinate to the supreme headquarters, and were on self-government.<br><br>
 	The instruction defined the boundaries of self-defense of independent branches. In particular, clear factors were determined, consisting of obvious aggression or preparation for illegal actions on the part of the cooperating stations and the preparations necessary for their action were made. Everything, however, lies entirely on the highest rank designated by the patrol. In addition, the principles of signaling aggression were also defined.<br><br>
 	<b>II. Command Protocol and Designation</b><br>
-	In recognition of the autonomous command authority granted to leaders of independent dispatches under the Instruction, the patrol leader holds ultimate responsibility for the safety of personnel and the success of the mission. Their decisions, made in the field pursuant to these procedures, carry the weight of the Collegium.<br><br>
+	In recognition of the autonomous command authority granted to leaders of independent dispatches under the Instruction, the patrol leader holds ultimate responsibility for the safety of personnel and the success of the mission. Their decisions, made in the field pursuant to these procedures, carry the weight of the Department.<br><br>
 	To clarify the chain of command during communications, both internal and with station authorities, the patrol leader's designated callsign is to be appended with the postfix 'Actual'. This designation signifies the individual with ultimate decision-making authority for the patrol unit. For example, a patrolman with the callsign "Dagger Three" would have their callsign elevated to "Dagger Three Actual". All official requests and ultimatums must be issued by the "Actual" to be considered binding.<br><br>
 	<b>III. General Patrol Alert Status Codes</b><br>
 	<b>Purpose:</b> To provide a standardized framework for patrol posture, internal conduct, external communication, and rules of engagement (ROE) across all potential threat scenarios. The commanding officer ("Actual") is the sole authority for declaring and changing the alert status. All personnel must be immediately briefed on any status change.<br><br>
@@ -51,7 +51,7 @@
 	<b>External Communication:</b><br>
 	<b>Tone:</b> Firm, professional, and by-the-book. Authority is asserted through reference to regulations, not threats.<br>
 	<b>Protocol:</b> Hail the facility on open channels to announce presence and intent. All official communication regarding the inspection must be channeled through the patrol "Actual".<br>
-	<b>Example Transmission:</b> "'Facility Name' Command, this is Patrol Vessel 'Vessel Name', callsign 'Callsign' Actual. Per HC-Collegium Accord Sigma-Seven, we are initiating a standard compliance inspection. Please acknowledge and have your command staff ready to receive our inspection team."<br><br>
+	<b>Example Transmission:</b> "'Facility Name' Command, this is Patrol Vessel 'Vessel Name', callsign 'Callsign' Actual. Per Coalition Accords, we are initiating a standard compliance inspection. Please acknowledge and have your command staff ready to receive our inspection team."<br><br>
 	<b>Rules of Engagement (ROE):</b><br>
 	<b>Defensive Hold.</b> Weapons are not to be aimed unless a weapon is visibly aimed at you or your team.<br>
 	Lethal force is authorized <b>only in response to a clear and immediate lethal threat</b>. This includes someone raising a weapon, charging a hostile action, or ignoring a lawful command to stand down.<br>
@@ -62,7 +62,7 @@
 	<b>Weapons Status:</b> All personnel <b>draw weapons and hold them at low-ready</b>. Ship thrusters are to be kept spooled for immediate maneuver. Defensive shields are raised to tactical strength.<br>
 	<b>Posture:</b> High alert. Inspection may be halted and teams recalled to the ship or ordered to hold position and fortify. All personnel prepare for potential combat.<br>
 	<b>Internal Comms:</b> Terse and efficient. Code words or brevity codes are encouraged.<br>
-	<b>Example Internal Transmission:</b> "Actual to all points, Status Two. Helix Seven, hold your position and fortify. Why is their security team mobilizing in Sector 4? Report."<br><br>
+	<b>Example Internal Transmission:</b> "Actual to all points, Cobalt. Helix Seven, hold your position and fortify. Why is their security team mobilizing in Sector 4? Report."<br><br>
 	<b>External Communication:</b><br>
 	<b>Tone:</b> Direct, unambiguous, and demanding.<br>
 	<b>Protocol:</b> The "Actual" will directly challenge the violation. Communication is a demand for explanation and immediate corrective action.<br>
@@ -78,7 +78,7 @@
 	<b>Weapons Status:</b> Weapons free. All defensive systems are at full power. The ship is to maneuver to a tactical advantage.<br>
 	<b>Posture:</b> Combat imminent. All personnel to battle stations. Preemptive self-defense protocols are authorized. The priority is to neutralize immediate threats, secure a perimeter (around the team or the ship), and prepare for emergency departure.<br>
 	<b>Internal Comms:</b> Brevity codes and shouts take priority. Clarity is life.<br>
-	<b>Example Internal Transmission:</b> "Status Three! Status Three! We are taking fire in the corridor! Engaging hostiles!" or "Actual to helm, evasive maneuvers! They're targeting us with the BSA!"<br><br>
+	<b>Example Internal Transmission:</b> "Pearl! Pearl! We are taking fire in the corridor! Engaging hostiles!" or "Actual to helm, evasive maneuvers! They're targeting us with the BSA!"<br><br>
 	<b>External Communication:</b><br>
 	<b>Tone:</b> None. Formal communication has failed.<br>
 	<b>Protocol:</b> All open hailing channels with the hostile facility are <b>terminated</b>. The only permissible external communication is a final declaration of intent, if time allows, and an emergency burst-transmission to Coalition Command updating them on the situation.<br>
@@ -100,8 +100,26 @@
 	<b>Total Engagement.</b> The primary objective is to neutralize all threats to the patrol to allow for extraction.<br>
 	Threat identification is broadened: any asset belonging to or aligned with the hostile entity is a valid target.<br>
 	The "Actual" has full authority to use any weapon in the patrol's arsenal to ensure survival. The only guiding principle is mission survival and the preservation of Coalition lives and property.<br><br>
+	<b>STATUS FIVE (OBSIDIAN): BROKEN ARROW / DENIAL OF ASSETS</b><br>
+	<b>Situational Overview:</b> The patrol vessel is irrecoverably compromised, with capture or destruction imminent. The primary mission has failed. The new objective is to ensure that no Coalition personnel, technology, intelligence, or the vessel itself can be exploited by the enemy.<br><br>
+	<b>Internal Patrol Conduct:</b><br>
+	<b>Weapons Status:</b> All remaining weapons and munitions are to be expended against the enemy or repurposed for demolition. Energy weapons are to be set to overload at designated critical points.<br>
+	<b>Posture:</b> Total warfare with a new terminal objective. All personnel become damage control and demolition teams. The focus shifts from survival to ensuring the complete and utter destruction of the patrol vessel and its assets.<br>
+	<b>Internal Comms:</b> Brevity is absolute. Final commands and confirmation of scuttling charges take priority.<br><br>
+	<b>External Communication:</b><br>
+	<b>Tone:</b> N/A<br>
+	<b>Protocol:</b> If possible, a final, encrypted burst-transmission containing the word "OBSIDIAN" is to be sent to Coalition Command, indicating the initiation of self-destruct and denial protocols. All other external communication is forbidden.<br><br>
+	<b>Rules of Engagement (ROE):</b><br>
+	<b>Scuttle and Denial.</b> The Rules of Engagement are terminated. The following actions are now the sole priority:<br>
+	<ol>
+	<li><b>Personnel Files & Data:</b> All classified data, mission logs, and personnel records are to be purged from all systems. Physical manifests are to be destroyed.</li>
+	<li><b>Weapons & Technology:</b> Armories are to be detonated. Sensitive equipment, including navigation computers, communication arrays, and sensor suites, is to be destroyed with explosives or energy weapon overload.</li>
+	<li><b>Propulsion & Power:</b> The engine core is to be destabilized leading to a breach, and the power grid is to be overloaded to cause maximum internal damage.</li>
+	<li><b>The Hull:</b> The structural integrity of the vessel must be compromised beyond any potential salvage or repair.</li>
+	<li><b>Personnel:</b> There will be no surrender. The crew is expected to fight until the vessel is destroyed or all hands are lost. The final act of the commanding officer or senior surviving crewmember is to detonate the ship's self-destruct system if it remains functional.</li>
+	</ol><br>
 	<b>IV. Standard Station Approach and Inspection Procedures</b><br>
-	Per current HC External Relationships, as well as HC Internal Affairs Collegium regulations, the following procedure must be performed, to minimse the risk of first response patrol casualties, as well as better station-to-patrol communication chances. Ensure that:<br>
+	Per current HC External Relationships, as well as HC Internal Affairs Department regulations, the following procedure must be performed, to minimse the risk of first response patrol casualties, as well as better station-to-patrol communication chances. Ensure that:<br>
 	<ol>
 	<li>The station's bodyguarding dispatch is limited to one person per two heads only; with a maximum of three present if all heads are invited. This list includes Personal Protection Specialists, i.e. Blueshields, Redshields; security personnel; hired off-station mercenaries; weaponised crewmembers or other militia; weaponised animals, and so on.</li>
 	<li>The station's bodyguarding dispatch is positioned right in front of you; with a clear escape route present to you and your colleagues. It is permitted to install additional reinforcements or barricades in order to increase your chances of survival against untrustworthy elements, if deemed necessary by your commanding officer.</li>
@@ -149,7 +167,7 @@
 	<li><b>Safety Survey:</b> Verify the functionality of the station's self-destruct system (as its misuse is a threat) and the redundancy of command and control systems. Review command-level override logs for unusual activity.</li>
 	</ul></li>
 	</ul>
-	<b>Seizure Protocol:</b> Identified contraband is to be cataloged and seized immediately. A formal receipt of seizure, listing the general categories of items removed (e.g., "one crate of unlicensed weaponry," "three canisters of bio-hazardous material"), is to be provided to the station's commanding officer. The ultimate determination of what constitutes a threat to Coalition interests is left to the discretion of the patrol's commanding officer ("Actual"). Seized materials are to be secured aboard the patrol vessel for return to Collegium authorities as evidence.<br><br>
+	<b>Seizure Protocol:</b> Identified contraband is to be cataloged and seized immediately. A formal receipt of seizure, listing the general categories of items removed (e.g., "one crate of unlicensed weaponry," "three canisters of bio-hazardous material"), is to be provided to the station's commanding officer. The ultimate determination of what constitutes a threat to Coalition interests is left to the discretion of the patrol's commanding officer ("Actual"). Seized materials are to be secured aboard the patrol vessel for return to Coalition authorities as evidence.<br><br>
 	<b>VI. Post-Inspection Presence and Cooperative Engagement Protocol</b><br>
 	Following the satisfactory completion of a standard inspection (Sections II-A and II-B) and provided no actionable threats have been identified that would necessitate a status of Cobalt (Status Two) or higher, the patrol is authorized to maintain a presence in the vicinity of the facility.<br><br>
 	This continued presence serves multiple strategic purposes: it reinforces the Coalition's commitment to a lasting partnership, allows for the passive monitoring of the facility's compliance over time, provides a rapid-response asset should a latent threat materialize, and fosters goodwill through limited cooperation.<br><br>
@@ -175,7 +193,7 @@
 	</ul>
 	<b>Conclusion of Patrol:</b> The patrol's presence will conclude upon one of the following conditions:<br>
 	<ul>
-	<li>Receipt of new orders from Collegium command.</li>
+	<li>Receipt of new orders from Coalition command.</li>
 	<li>The facility's command formally requests the patrol's departure.</li>
 	<li>The patrol's commanding officer determines that continued presence no longer serves Coalition interests or is deemed unsafe.</li>
 	<li>The facility is scheduled for decommissioning, destruction, or reassignment, rendering the patrol's mission objective complete.</li>
@@ -190,7 +208,7 @@
 	<b>Conduct on Shore Leave:</b> Officers on shore leave are to comport themselves as diplomatic representatives of the Heliostatic Coalition. While limited socialization is permitted, the following standards are mandatory:<br>
 	<ul>
 	<li><b>Compliance with Local Law:</b> Officers are subject to the station's laws and corporate regulations. Willful violation is grounds for disciplinary action.</li>
-	<li><b>Professional Demeanor:</b> Officers will avoid excessive consumption of intoxicants, unruly behavior, public disputes, and any action that would bring disrepute upon the Collegium.</li>
+	<li><b>Professional Demeanor:</b> Officers will avoid excessive consumption of intoxicants, unruly behavior, public disputes, and any action that would bring disrepute upon the Department.</li>
 	<li><b>Information Security:</b> Discussion of classified Coalition operations, technology, patrol capabilities, or internal procedures is strictly forbidden.</li>
 	<li><b>Conflict Avoidance:</b> Officers will not engage in political or philosophical debates with station crew, nor will they interfere in internal station matters.</li>
 	</ul>
@@ -256,4 +274,132 @@
 	<b>XII. Conclusion and Jurisdictional Limitations</b><br>
 	Thus, the creation of independent branches in the Coalition led to the fact that these units directed the activities of the entire police to combat ordinary crimes. Prior to their formation, the task of combating ordinary crime was the direct responsibility of the ranks of the local planetary patrols and, in special cases, the Planetary Guard. The ranks of independent departments were given equal rights in the investigation of criminal offenses with the ranks of the planetary police, since they acted on the basis of the same adopted normative legal acts. The provisions of the law created in accordance with the recent Instruction were more specifically defined: the goals, tasks of independent departments, their internal structure, the procedure for conducting operational investigative actions. At the same time, it, in general, has not changed the principle of organizational structure of patrols and therefore they, nevertheless, in part, remain limited in their activities within the territory under their jurisdiction. In this regard, they cannot carry out operational search activities outside the stations to which they were assigned.<br><br>
 	The authority granted to the expeditionary patrol police is a privilege bestowed by the Heliostatic Coalition to ensure its interests in the rim-world sectors. It is the duty of every officer to uphold these procedures with the utmost professionalism, ensuring the safety of Coalition personnel and property while respecting the sovereignty of cooperating stations. Failure to adhere to these Standard Operating Procedures may result in disciplinary action, reassignment, or prosecution under Coalition military law.<br><br>
-	<span style="color:black;font-family:'Segoe Script';"><p><b>Printed by: Heliostatic Coalition Internal Affairs Collegium, for educational and referential purposes only.</b></p></span>"}
+	<span style="color:black;font-family:'Segoe Script';"><p><b>Printed by: Heliostatic Coalition Internal Affairs Department, for educational and referential purposes only.</b></p></span>"}
+
+/obj/item/paper/fluff/hc_document/cheat_sheet
+	name = "HC Expeditionary Patrol Field Guide"
+	default_raw_text = {"
+	<h1><i>HC Expeditionary Patrol Field Guide & Quick Reference</i></h1><br>
+	<i>Supplement to Standard Operating Procedures For Official Use Only</i><br><br>
+	<b>1. Alert Status Cheat Sheet</b><br>
+	<ul>
+	<li><b>STATUS ZERO (MARBLE):</b> Standby. Weapons locked. Relax. Do admin. Be polite.</li>
+	<li><b>STATUS ONE (SILVER):</b> Routine Inspection. Weapons holstered, safeties off. Be professional, firm, and by-the-book. (Ref: Sect. III)</li>
+	<li><b>STATUS TWO (COBALT):</b> Elevated Threat. Weapons low-ready. Demand explanations for protocol breaches. Prepare for combat. Requires a pattern of violations, not a single mistake. De-escalate if possible. (Ref: Sect. III)</li>
+	<li><b>STATUS THREE (PEARL):</b> Hostile Intent Confirmed. Weapons free. They are shooting. You are shooting. Neutralize threats and break contact. (Ref: Sect. III)</li>
+	<li><b>STATUS FOUR (ONYX):</b> Fight for Survival. Total warfare. Use everything you have to get out alive. (Ref: Sect. III)</li>
+	<li><b>STATUS FIVE (OBSIDIAN):</b> Broken Arrow. Ship lost. Scuttle everything. Deny all assets to the enemy. No surrender. (Ref: Sect. III)</li>
+	</ul>
+	<b>2. First Contact & Approach (The "Don't Get Ambushed" List)</b><br>
+	Before docking, send the pre-inspection packet via secure channel (fax/comm console). (Ref: Sect. IV-A) On approach, ensure the station complies with the "Big 5":<br>
+	<ol>
+	<li><b>Escort Limit:</b> Max 2 armed guards per 1 head to meet you. (Ref: Sect. IV.1)</li>
+	<li><b>Positioning:</b> They stay in front; you have an escape route.</li>
+	<li><b>Our Ship is Off-Limits:</b> Their security cannot approach our ship without explicit permission. We leave a Ship Overseer. (Ref: Sect. IV.3)</li>
+	<li><b>No Raid Prep:</b> Watch for their security mobilizing on cams. Call them out on the public announcement (PA) system if they are. (Ref: Sect. IV.4)</li>
+	<li><b>No Surprise Packages:</b> Do not accept anything unless its contents are declared and scanned. Immediately dispose of and report any unexpected parcels. (Ref: Sect. IV.5)</li>
+	</ol>
+	<b>3. Rules of Engagement (ROE) Quick Guide</b><br>
+	<ul>
+	<li>Never be the first to draw your weapon.</li>
+	<li>Never be the first to aim.</li>
+	<li>Never be the first to fire.</li>
+	<li>You MAY use lethal force if a hostile clearly does any of the above to you or your team. (Ref: Sect. III, Status One & Two)</li>
+	<li>Once they fire, all ROE restrictions are lifted. (Ref: Sect. III, Status Three)</li>
+	</ul>
+	<b>4. Bluespace Artillery Cannon (BSA) - The Three Commands</b><br>
+	<ol>
+	<li><b>DODGE:</b> If it charges, thrusters to full. It can't hit a moving target. (Ref: Sect. X.A)</li>
+	<li><b>CONFIRM:</b> A BSA firing on us is a confirmed act of war. Status immediately to PEARL. (Ref: Sect. X.B)</li>
+	<li><b>NEUTRALIZE:</b> One block of C4 on the main battery destroys it. (Ref: Sect. X.C)</li>
+	</ol>
+	<b>5. Shore Leave & Conduct</b><br>
+	<ul>
+	<li>You are a diplomat. Your behavior reflects on the entire Coalition. Be professional. (Ref: Sect. VII)</li>
+	<li>You may socialize. Building informal relationships is encouraged. Use good judgment. (Ref: Sect. VII-A)</li>
+	<li>Spend your credits. Boosting the local economy is good PR. You can even take on civilian bounties for extra cash if approved by the watch officer. (Ref: Sect. VI-B)</li>
+	<li>Recall is immediate. If you hear the recall order, you run back to the ship. No exceptions.</li>
+	</ul>
+	<b>6. Law Enforcement on Station (See Something, Say Something)</b><br>
+	<ul>
+	<li>Your default action: Observe and Report to station security. It's their job, not yours. (Ref: Sect. VIII)</li>
+	<li>You may ONLY intervene if:
+	<ul>
+	<li>A life is in immediate, direct danger (yours, a crewmate's, a civilian's).</li>
+	<li>Station security is absent/can't respond.</li>
+	<li>The station's Captain formally requests your help.</li>
+	</ul></li>
+	<li>Crime Response Examples:
+	<ul>
+	<li>A fistfight? Yell for security to break it up. Do not draw your weapon.</li>
+	<li>Arson? Hit the alarm, grab an extinguisher. Contain, don't chase.</li>
+	<li>Someone with a knife actively stabbing people? You are authorized to draw your sidearm and intervene with proportional force to stop the threat.</li>
+	<li>A terrorist with a bomb? Neutralize the threat with any means necessary. This is a Pearl Status situation.</li>
+	</ul></li>
+	</ul>
+	<b>7. The "Actual's" Discretion</b><br>
+	<ul>
+	<li>The patrol leader ("'Callsign' Actual") has final say on everything.</li>
+	<li>They can relax rules to be more friendly if the situation is safe and it helps the mission. (Ref: Sect. XII-A)</li>
+	<li>They can authorize the purchase of local goods and equipment to improve our capabilities. (Ref: Sect. VI-B.C)</li>
+	<li>Trust their judgment. Their primary duty is to bring us all home safely.</li>
+	</ul><br>
+	Remember: This guide is a summary. When in doubt, refer to the full SOP document or consult your commanding officer. Stay vigilant, stay professional, and come home safe.<br><br>
+	<span style="color:black;font-family:'Segoe Script';"><p><b>Printed by: Heliostatic Coalition Internal Affairs Department - Patrol Command Division.</b></p></span>
+	"}
+
+/obj/item/paper/fluff/hc_document/lexicon
+	name = "HC Expeditionary Patrol - Field Lexicon"
+	default_raw_text = {"
+	<h1><i>HC Expeditionary Patrol - Field Lexicon & Comms Protocol</i></h1><br>
+	<i>"A shared language ensures a unified will."</i><br><br>
+	<b>Preamble: On the Use of Codes</b><br>
+	The use of archaic "Ten-Codes" or other numerically-based signals is hereby prohibited for expeditionary patrol units. They are ambiguous, easily forgotten under stress, and lack the descriptive capacity required for complex field situations. The Heliostatic Coalition mandates the use of Clear-Tongue Protocol: concise, descriptive, and standardized language. The following terms are to be used in all internal patrol communications to ensure clarity and speed.<br><br>
+	<b>A. Patrol Status & Situational Terms</b><br>
+	<ul>
+	<li><b>Actual:</b> The patrol leader with ultimate authority. Always suffix the callsign. ("Dagger Three to Jury Two Actual, request instruction.") (Ref: SOP Sect. II)</li>
+	<li><b>Marble/Silver/Cobalt/Pearl/Onyx/Obsidian:</b> The six Alert Statuses. Never say "Status Two"; say "Cobalt." ("Helm, go to Cobalt, thrusters spooled.") (Ref: SOP Sect. III)</li>
+	<li><b>Static:</b> A secure, non-hostile, but potentially uncooperative environment. The default state of a non-Coalition station. ("The concourse is static, no visible security.")</li>
+	<li><b>Churn:</b> Anomalous activity that doesn't constitute a direct threat but warrants attention. Low-grade chaos. ("We've got churn in Engineering, teams mobilizing for an unknown drill.")</li>
+	<li><b>Aperture:</b> Any point of vulnerability: an open blast door, an unmonitored airlock, a compromised security camera. ("Seal that aperture before they flank us.")</li>
+	<li><b>Axiom:</b> The core, undeniable truth of a situation, often established by the Actual. ("The axiom is they fired first. We are now weapons-free.")</li>
+	<li><b>Bluesky / Bluestatic:</b> Terms derived from the Bluespace Artillery threat. Bluesky means the space is clear of BSA threats or the cannon is destroyed. Bluestatic means a BSA is present but not active. "Going Blue" means a BSA is charging/powering up. ("Bluestatic on the dorsal spire." / "ACTUAL, THEY'RE GOING BLUE!")</li>
+	<li><b>Echo:</b> A problem or threat that has been neutralized. ("The fire in Hydroponics is echo. Moving on.")</li>
+	<li><b>Reverb:</b> The lingering secondary effects of a problem. (The smoke from the echo-fire is causing reverb with the atmospheric scrubbers.")</li>
+	</ul>
+	<b>B. Personnel & Equipment Terms</b><br>
+	<ul>
+	<li><b>Overseer:</b> The officer left aboard the patrol vessel to monitor comms and ship security. (Ref: SOP Sect. IV.3)</li>
+	<li><b>Shield (Blueshield/Redshield):</b> Generic term for any personal protection agent on a station. Used regardless of actual assigned task.</li>
+	<li><b>Local Script:</b> The station's specific set of laws and corporate regulations. ("Check the local script; is that actually a crime here?")</li>
+	<li><b>Stamped/Not Stamped:</b> Authorization. A request is "stamped" if approved by Actual. "Not stamped" if denied. ("Request to pursue the bounty is not stamped. Return to patrol.")</li>
+	<li><b>Coalition Script:</b> Our rules of engagement and procedures. The only script that truly matters when a situation goes hot. ("Forget their local script, this is a Coalition Script situation now.")</li>
+	<li><b>Kit:</b> Standard-issue gear. ("My kit is holding, two mags left.")</li>
+	<li><b>Acquired Asset:</b> Any non-standard piece of equipment procured locally, from a better medkit to a bottle of whiskey. Subject to inspection. ("Picked up an acquired asset from the barkeep. A lead on the missing cargo.")</li>
+	</ul>
+	<b>C. Action & Command Terms</b><br>
+	<ul>
+	<li><b>Hold Fast:</b> Command to stop all movement and hold your current position, maintaining vigilance. Do not proceed. ("Hold fast at the junction, I see movement.")</li>
+	<li><b>Make Static:</b> Command to secure an area, pacify a situation, or ensure a person is no longer a threat. ("We need to make this corridor static before proceeding.")</li>
+	<li><b>Verify:</b> A command to confirm a piece of information visually or with instruments. ("Verify that blast door is sealed.")</li>
+	<li><b>Clamp:</b> To secure, lock down, or arrest. ("Clamp that suspect." / "Clamp the area, no one in or out.")</li>
+	<li><b>Scan:</b> To thoroughly inspect a person, object, or area for contraband or threats. More formal than "look." ("Scan the crate for false panels.")</li>
+	<li><b>Acknowledge / Confirm:</b> The only two acceptable responses to an order. "Acknowledge" means you heard it. "Confirm" means you understand and will execute. Never respond with "copy" or "roger."</li>
+	<li><b>Final Query:</b> The last, formal question before escalation. The verbal equivalent of aiming a weapon. ("Their security is refusing to stand down. Final query, Actual: are we cleared to clamp?")</li>
+	<li><b>Apply Pressure:</b> To use non-lethal or diplomatic means to gain compliance. A step below lethal force. ("They're hiding something in Cargo. Let's apply pressure on the foreman.")</li>
+	<li><b>Sanction:</b> Authorization to use lethal force. ("Actual has granted sanction on the hostiles in the hallway.")</li>
+	</ul>
+	<b>D. Slang & Informal Terms</b><br>
+	<ul>
+	<li><b>The Department's Long Arm:</b> The patrol itself; the reach of Coalition law. ("They're about to learn what it means when the Long Arm knocks.")</li>
+	<li><b>Rim-World Welcome:</b> Hostile reception; being shot at upon arrival.</li>
+	<li><b>Thinking with Portals:</b> Acting in a reckless or illogical manner. (Derived from bluespace terminology).</li>
+	<li><b>Bag a Bounty:</b> To successfully complete a civilian work contract for credits. (Ref: SOP Sect. VI-B)</li>
+	<li><b>A Good Patch:</b> A peaceful, cooperative station where things are going well. ("This is a good patch. Enjoy it while it lasts.")</li>
+	<li><b>Hard Place / Rock:</b> A difficult, uncooperative, or hostile station. ("We've been assigned another rock this cycle.")</li>
+	<li><b>Echo-Chamber:</b> The patrol vessel's mess hall or common area, where rumors and gossip are amplified.</li>
+	<li><b>Drinking from the Firehose:</b> Being overwhelmed by information or stress during a rapidly deteriorating situation.</li>
+	</ul><br>
+	<b>Protocol Directive:</b> This lexicon is a living document. New terms may be adopted with approval from the Department, but the core principle of Clear-Tongue remains. Speak plainly, describe accurately, and ensure your intent is unmistakable. Ambiguity gets officers killed.<br><br>
+	<span style="color:black;font-family:'Segoe Script';"><p><b>Printed by: Heliostatic Coalition Internal Affairs Department - Linguistic Standardization Bureau.</b></p></span>
+	"}

@@ -22,7 +22,7 @@
 			ship_type = pick(possible_ships)
 		else
 			// Fallback to a default if no valid ships found
-			ship_type = /datum/random_ship_event/rogue_ship
+			ship_type = /datum/random_ship_event/nri_police
 
 	ship_event = new ship_type
 
