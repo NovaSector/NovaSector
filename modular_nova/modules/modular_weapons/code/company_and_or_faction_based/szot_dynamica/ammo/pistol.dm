@@ -10,6 +10,7 @@
 
 	caliber = CALIBER_CESARZOWA
 	projectile_type = /obj/projectile/bullet/c27_54cesarzowa
+	ammo_stack_type = /obj/item/ammo_box/magazine/ammo_stack/c27_54cesarzowa
 
 /obj/item/ammo_casing/c27_54cesarzowa/Initialize(mapload)
 	. = ..()
