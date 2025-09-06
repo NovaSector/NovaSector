@@ -2,9 +2,6 @@
 
 // .980 grenades
 
-/obj/item/ammo_casing/c980grenade
-	ammo_stack_type = /obj/item/ammo_box/magazine/ammo_stack/c980
-
 /obj/item/ammo_box/magazine/ammo_stack/c980
 	name = ".980 Tydhouer grenades"
 	desc = "A stack of .980 Tydhouer grenades."
@@ -22,6 +19,7 @@
 	casing_y_padding = 9
 
 /obj/item/ammo_box/magazine/ammo_stack/c980/prefilled
+	name = ".980 Tydhouer practice grenades"
 	start_empty = FALSE
 
 /obj/item/ammo_box/magazine/ammo_stack/c980/prefilled/smoke
@@ -139,9 +137,6 @@
 
 // .35 sol short
 
-/obj/item/ammo_casing/c35sol
-	ammo_stack_type = /obj/item/ammo_box/magazine/ammo_stack/c35_sol
-
 /obj/item/ammo_box/magazine/ammo_stack/c35_sol
 	name = ".35 Sol Short casings"
 	desc = "A stack of .35 Sol Short cartridges."
@@ -174,9 +169,6 @@
 
 // .27-54 Cesarzowa
 
-/obj/item/ammo_casing/c27_54cesarzowa
-	ammo_stack_type = /obj/item/ammo_box/magazine/ammo_stack/c27_54cesarzowa
-
 /obj/item/ammo_box/magazine/ammo_stack/c27_54cesarzowa
 	name = ".27-54 Cesarzowa casings"
 	desc = "A stack of .27-54 Cesarzowa cartridges."
@@ -203,9 +195,6 @@
 	icon_state = "stack_spec"
 
 // .585 trappiste
-
-/obj/item/ammo_casing/c585trappiste
-	ammo_stack_type = /obj/item/ammo_box/magazine/ammo_stack/c585_trappiste
 
 /obj/item/ammo_box/magazine/ammo_stack/c585_trappiste
 	name = ".585 Trappiste casings"
@@ -238,9 +227,6 @@
 // Rifle ammo
 
 // .40 sol long
-
-/obj/item/ammo_casing/c40sol
-	ammo_stack_type = /obj/item/ammo_box/magazine/ammo_stack/c40_sol
 
 /obj/item/ammo_box/magazine/ammo_stack/c40_sol
 	name = ".40 Sol Long casings"
@@ -315,9 +301,6 @@
 	icon_state = "stack_spec"
 
 // .60 strela
-
-/obj/item/ammo_casing/p60strela
-	ammo_stack_type = /obj/item/ammo_box/magazine/ammo_stack/c60_strela
 
 /obj/item/ammo_box/magazine/ammo_stack/c60_strela
 	name = ".60 Strela casings"

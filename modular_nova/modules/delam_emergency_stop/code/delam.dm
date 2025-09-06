@@ -13,11 +13,12 @@
 		return
 
 	if(SSjob.is_skeleton_engineering(3)) // Don't bother if there's command or a well staffed department, they -should- be paying attention.
-		var/obj/machinery/announcement_system/system = pick(GLOB.announcement_systems)
 		SSsecurity_level.minimum_security_level(SEC_LEVEL_ORANGE, TRUE, FALSE) // Give the skeleton crew a warning
-		system.broadcast("The supermatter delamination early warning system has been triggered due to anomalous conditions. Please investigate the engine as soon as possible.", list(RADIO_CHANNEL_COMMAND))
-		system.broadcast("In the event of uncontrolled delamination, please consult the documentation packet regarding usage of the supermatter emergency stop button.", list(RADIO_CHANNEL_COMMAND))
-		system.broadcast("Failure to stabilise the engine may result in an automatic deployment of the suppression system.", list(RADIO_CHANNEL_COMMAND))
+		var/obj/machinery/announcement_system/system = get_announcement_system(null, sm)
+		if(system)
+			system.broadcast("The supermatter delamination early warning system has been triggered due to anomalous conditions. Please investigate the engine as soon as possible.", list(RADIO_CHANNEL_COMMAND))
+			system.broadcast("In the event of uncontrolled delamination, please consult the documentation packet regarding usage of the supermatter emergency stop button.", list(RADIO_CHANNEL_COMMAND))
+			system.broadcast("Failure to stabilise the engine may result in an automatic deployment of the suppression system.", list(RADIO_CHANNEL_COMMAND))
 
 	log_admin("DELAM: Round timer under 30 minutes! Supermatter will perform an automatic delam suppression at strength 0%.")
 	for(var/client/staff as anything in GLOB.admins)

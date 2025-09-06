@@ -33,3 +33,12 @@
 	mid_length = 3 SECONDS
 	volume = 40
 	falloff_exponent = 3
+/datum/looping_sound/solid_fuel_generator
+	mid_sounds = list(
+		'modular_nova/modules/colony_fabricator/sound/solid_fuel_generator/AW_reactor.ogg' = 1,
+		'modular_nova/modules/colony_fabricator/sound/solid_fuel_generator/AW_reactor.ogg' = 1,
+		'modular_nova/modules/colony_fabricator/sound/solid_fuel_generator/AW_reactor.ogg' = 1,
+		'modular_nova/modules/colony_fabricator/sound/solid_fuel_generator/AW_reactor.ogg' = 1,
+	)
+	mid_length = 1 SECONDS
+	volume = 80

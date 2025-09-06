@@ -23,6 +23,8 @@
 
 /obj/item/ammo_box/magazine/ammo_stack/Initialize(mapload)
 	. = ..()
+	ammo_list() // forces ammo to load for visibility's sake
+	update_appearance() // forces icon to update so ammo handfuls do, actually, appear full
 	AddElement(/datum/element/can_shatter, number_of_shards = 0, shattering_sound = 'sound/items/weapons/gun/general/mag_bullet_remove.ogg', shatters_as_weapon = TRUE)
 
 /obj/item/ammo_box/magazine/ammo_stack/attack_self(mob/user)

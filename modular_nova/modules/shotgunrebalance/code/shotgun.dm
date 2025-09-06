@@ -113,7 +113,7 @@
 	wound_falloff_tile = -0.25
 	speed = 1.5
 	armour_penetration = 5
-	// weak_against_armour = FALSE // Probably don't uncomment this unless you have a really compelling reason.
+	weak_against_armour = FALSE // lmao
 
 /obj/item/ammo_casing/shotgun/rubbershot
 	name = "rubber shot shell"
@@ -197,6 +197,7 @@
 	damage = 10
 	exposed_wound_bonus = 10
 	armour_penetration = 5
+	weak_against_armour = FALSE
 
 /obj/projectile/bullet/pellet/shotgun_buckshot/magnum/Initialize(mapload)
 	. = ..()

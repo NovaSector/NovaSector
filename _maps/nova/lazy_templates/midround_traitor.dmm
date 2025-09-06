@@ -1449,6 +1449,10 @@
 /obj/machinery/vending/robotics{
 	onstation_override = 1
 	},
+/obj/item/stack/sticky_tape/pointy/super{
+	pixel_x = 3;
+	pixel_y = 17
+	},
 /turf/open/floor/mineral/titanium/tiled,
 /area/misc/operative_barracks/robotics)
 "sU" = (
@@ -1733,6 +1737,14 @@
 /area/misc/operative_barracks/mission_briefing)
 "wc" = (
 /obj/structure/fluff/fake_scrubber,
+/obj/item/borg/upgrade/syndicate{
+	pixel_x = -6;
+	pixel_y = 5
+	},
+/obj/item/ai_module/syndicate{
+	pixel_y = -11;
+	pixel_x = 4
+	},
 /turf/open/floor/iron/dark/side{
 	dir = 8
 	},
@@ -3160,6 +3172,14 @@
 	dir = 6
 	},
 /area/misc/operative_barracks/armoury)
+"PE" = (
+/obj/item/clothing/shoes/magboots/syndie{
+	pixel_y = -5;
+	pixel_x = 2
+	},
+/obj/effect/mapping_helpers/broken_floor,
+/turf/open/floor/plating,
+/area/misc/operative_barracks/hangar)
 "PF" = (
 /turf/closed/indestructible/syndicate,
 /area/misc/operative_barracks/surgery)
@@ -4141,7 +4161,7 @@ eW
 bD
 bD
 IS
-kf
+PE
 Kz
 Of
 eR

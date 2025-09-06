@@ -184,6 +184,7 @@
 		"Gluttony" = "malina",
 		"Envy" = "zdara",
 		"Vanity" = "cereberus",
+		"Designer" = "beeze"
 	)
 
 /obj/item/clothing/under/suit/nova/inferno/skirt
@@ -194,20 +195,3 @@
 		"Lust" = "modeus",
 		"Sloth" = "pande",
 	)
-
-/obj/item/clothing/under/suit/nova/inferno/beeze
-	name = "designer inferno suit"
-	desc = "A fancy tail-coated suit with a fluffy bow emblazoned on the chest, complete with an NT pin."
-	icon_state = "beeze"
-	obj_flags = null
-	unique_reskin = null
-
-/obj/item/clothing/under/suit/nova/helltaker
-	name = "red shirt with white pants"
-	desc = "No time. Busy gathering girls."
-	icon_state = "helltaker"
-
-/obj/item/clothing/under/suit/nova/helltaker/skirt
-	name = "red shirt with white skirt"
-	desc = "No time. Busy gathering boys."
-	icon_state = "helltakerskirt"
