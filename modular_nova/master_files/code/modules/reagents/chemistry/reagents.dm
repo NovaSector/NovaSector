@@ -10,4 +10,4 @@
 	. = ..()
 	if(istype(exposed_obj, /obj/structure/spider))
 		var/obj/structure/spider/webs_or_something = exposed_obj
-		webs_or_something.take_damage(rand(15, 35), BURN, 0) // melts spider stuff pretty fast. pest control, y'know?
+		webs_or_something?.take_damage(rand(1, 3), BURN, 0) // slowly but surely damages web structures

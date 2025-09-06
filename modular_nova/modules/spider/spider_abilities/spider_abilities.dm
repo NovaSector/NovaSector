@@ -32,20 +32,21 @@
 	. = ..()
 	if(!iscarbon(target) || blocked >= 100)
 		return
-	var/obj/item/restraints/legcuffs/bola/webslinger_snare/restraint = new(get_turf(target))
-	restraint.ensnare(target)
+	var/obj/item/restraints/legcuffs/beartrap/webslinger_snare/restraint = new(get_turf(target))
+	restraint.spring_trap(target, ignore_movetypes = TRUE)
 
-/obj/item/restraints/legcuffs/bola/webslinger_snare
+/obj/item/restraints/legcuffs/beartrap/webslinger_snare
 	name = "sticky restraints"
 	desc = "Used by mega-arachnids to immobilize their prey."
 	icon = 'modular_nova/modules/spider/icons/spider.dmi'
 	flags_1 = NONE
 	item_flags = DROPDEL
 	icon_state = "spideregg"
+	armed = TRUE
+	trap_damage = 10
 	breakouttime = 10 SECONDS
-	knockdown = 2 SECONDS
 
-/obj/item/restraints/legcuffs/bola/webslinger_snare/Initialize(mapload)
+/obj/item/restraints/legcuffs/beartrap/webslinger_snare/Initialize(mapload)
 	. = ..()
 	AddElement(/datum/element/swabable, CELL_VIRUS_TABLE_GENERIC_MOB, 1, 5)
 
