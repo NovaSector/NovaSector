@@ -7,6 +7,11 @@
 	allow_quick_empty = FALSE
 	locked = STORAGE_FULLY_LOCKED
 
+// Prevent pockets from being emptied
+/datum/storage/pockets/drone/set_parent(atom/new_parent)
+	. = ..()
+	UnregisterSignal(new_parent, list(COMSIG_MOUSEDROP_ONTO, COMSIG_MOUSEDROPPED_ONTO))
+
 /mob/living/basic/drone/Initialize(mapload)
 	. = ..()
 	// Initialize pocket storage with restricted access
