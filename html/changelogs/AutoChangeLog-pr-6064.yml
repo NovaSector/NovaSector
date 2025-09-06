@@ -1,0 +1,4 @@
+author: "Hatterhat"
+delete-after: True
+changes:
+  - bugfix: "Prefilled ammo stacks/ammo handfuls now properly show their ammo when they spawn."
