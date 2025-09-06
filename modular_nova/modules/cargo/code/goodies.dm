@@ -261,7 +261,7 @@
 	desc = "Contains a single Automatic Appraisal NIFSoft uploader disk."
 	cost = CARGO_CRATE_VALUE * 1.5
 	contains = list(
-		/obj/item/disk/nifsoft_uploader/money_sense,
+		/obj/item/disk/nifsoft_uploader/job/money_sense,
 	)
 
 /datum/supply_pack/goody/shapeshifter_nifsoft

@@ -1,4 +1,4 @@
-/obj/item/disk/nifsoft_uploader/summoner/surgery
+/obj/item/disk/nifsoft_uploader/job/summoner/surgery
 	name = "Grimoire Asclepius"
 	loaded_nifsoft = /datum/nifsoft/summoner/job/surgery
 
