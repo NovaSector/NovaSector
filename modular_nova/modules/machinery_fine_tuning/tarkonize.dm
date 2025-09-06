@@ -1,5 +1,5 @@
 // Tarkon
-/// Any special changes/tuning on the Interdyne map for a particular machine can be applied by implementing this proc. If adding a new type of machine, you must also call tune_special_cases() in post_machine_initialize()
+/// Any special changes/tuning on the Tarkon map for a particular machine can be applied by implementing this proc. If adding a new type of machine, you must also call tune_special_cases() in post_machine_initialize()
 /obj/machinery/proc/tarkonize()
 
 // AAS
