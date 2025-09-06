@@ -27,7 +27,7 @@
 	worn_icon_state = "russian_brown_belt"
 
 /obj/item/storage/belt/military/nri/plus_mre/PopulateContents()
-	new /obj/item/storage/box/nri_survival_pack/raider(src)
+	new /obj/item/storage/box/nri_survival_pack/inspector(src)
 
 /obj/item/storage/belt/military/nri/soldier/PopulateContents()
 	generate_items_inside(list(
