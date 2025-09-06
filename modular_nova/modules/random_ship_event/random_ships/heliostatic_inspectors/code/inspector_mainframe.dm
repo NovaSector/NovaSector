@@ -1,6 +1,6 @@
 /obj/machinery/inspector_mainframe
 	name = "Inspector Mainframe"
-	desc = "A sophisticated machine capable of locking down cargo shuttles, disrupting research systems, and controlling ship alert status. Its functions are accessible through a secure interface."
+	desc = "A sophisticated machine capable of locking down cargo shuttles and controlling ship alert status. Its functions are accessible through a secure interface."
 	icon = 'icons/obj/machines/dominator.dmi'
 	icon_state = "dominator"
 	base_icon_state = "dominator"
@@ -11,33 +11,30 @@
 	/// Are we being tracked by the GPS signals?
 	var/tracked = FALSE
 	/// Current alert level of the ship
-	var/current_alert_level = "Status Zero (Marble)"
+	var/current_alert_level = "Status Marble"
 	/// Radio for sending guild messages
 	var/obj/item/radio/radio
 	/// Is the SOS beacon active
 	var/sos_active = FALSE
-	/// Cooldown timer for SOS signals
-	COOLDOWN_DECLARE(sos_timer)
-	/// Is research disruption active
-	var/research_disruption_active = FALSE
+	/// Timer ID for SOS signals
+	var/sos_timer_id
 	/// Options for the radial menu
 	var/static/list/radial_options = list(
 		"Cargo Disruption" = radial_toggle,
-		"Research Disruption" = radial_research,
 		"Ship Alert Status" = radial_alert,
 		"SOS Beacon" = radial_sos
 	)
 	/// Alert level options
 	var/static/list/alert_options = list(
-		"Status Zero (Marble)" = alert_zero,
-		"Status One (Silver)" = alert_one,
-		"Status Two (Cobalt)" = alert_two,
-		"Status Three (Pearl)" = alert_three,
-		"Status Four (Onyx)" = alert_four
+		"Status Marble" = alert_zero,
+		"Status Silver" = alert_one,
+		"Status Cobalt" = alert_two,
+		"Status Pearl" = alert_three,
+		"Status Onyx" = alert_four,
+		"Status Obsidian" = alert_five
 	)
 	/// Radial menu icons
 	var/static/radial_toggle = image(icon = 'icons/obj/machines/dominator.dmi', icon_state = "dominator-Blue")
-	var/static/radial_research = image(icon = 'icons/obj/machines/research.dmi', icon_state = "RD-server-on")
 	var/static/radial_alert = image(icon = 'icons/obj/machines/status_display.dmi', icon_state = "frame")
 	var/static/radial_sos = image(icon = 'icons/obj/machines/status_display.dmi', icon_state = "lockdown")
 	/// Alert level icons
@@ -46,6 +43,7 @@
 	var/static/alert_two = image(icon = 'icons/obj/machines/status_display.dmi', icon_state = "bluealert")
 	var/static/alert_three = image(icon = 'icons/obj/machines/status_display.dmi', icon_state = "redalert")
 	var/static/alert_four = image(icon = 'icons/obj/machines/status_display.dmi', icon_state = "deltaalert")
+	var/static/alert_five = image(icon = 'icons/obj/machines/status_display.dmi', icon_state = "lockdown")
 
 /obj/machinery/inspector_mainframe/Initialize(mapload)
 	. = ..()
@@ -54,21 +52,6 @@
 	radio.set_listening(FALSE)
 	radio.recalculateChannels()
 	update_appearance()
-
-/obj/machinery/inspector_mainframe/process()
-	if(!active || !sos_active || !research_disruption_active)
-		return PROCESS_KILL
-
-	if(research_disruption_active)
-		if(!is_station_level(z))
-			return
-		interrupt_research()
-
-	if(sos_active)
-		if(COOLDOWN_FINISHED(src, sos_timer))
-			playsound(src, 'modular_nova/modules/random_ship_event/random_ships/heliostatic_inspectors/sounds/alarm_small_09.ogg', 75, TRUE)
-			radio.talk_into(src, "DISTRESS SIGNAL REPEATING: Requesting immediate assistance. Patrol vessel under sustained combat operations. All available units respond.", RADIO_CHANNEL_GUILD)
-			COOLDOWN_START(src, sos_timer, 30 SECONDS)
 
 /obj/machinery/inspector_mainframe/ui_interact(mob/user)
 	. = ..()
@@ -90,18 +73,6 @@
 				toggle_off(user)
 			else
 				toggle_on(user)
-		if("Research Disruption")
-			research_disruption_active = !research_disruption_active
-			if(research_disruption_active)
-				if(!active && !sos_active)
-					START_PROCESSING(SSobj, src)
-				balloon_alert(user, "research disruption activated!")
-				playsound(src, 'sound/machines/terminal/terminal_alert.ogg', 50, TRUE)
-			else
-				if(!active && !sos_active)
-					STOP_PROCESSING(SSobj, src)
-				balloon_alert(user, "research disruption deactivated!")
-				playsound(src, 'sound/machines/terminal/terminal_prompt.ogg', 50, TRUE)
 		if("Ship Alert Status")
 			select_alert_level(user)
 		if("SOS Beacon")
@@ -114,7 +85,7 @@
 	if(!tracked)
 		AddComponent(/datum/component/gps, "HC Starship")
 		to_chat(user,span_warning("The scrambling signal can now be tracked by GPS."))
-	if(!sos_active && !research_disruption_active)
+	if(!sos_active)
 		START_PROCESSING(SSobj,src)
 	update_appearance()
 	send_notification()
@@ -122,18 +93,32 @@
 /obj/machinery/inspector_mainframe/proc/toggle_off(mob/user)
 	SSshuttle.clearTradeBlockade(src)
 	active = FALSE
-	if(!sos_active && !research_disruption_active)
+	if(!sos_active)
 		STOP_PROCESSING(SSobj,src)
 	to_chat(user,span_notice("You toggle [src] [active ? "on":"off"]."))
 	update_appearance()
 
-/obj/machinery/inspector_mainframe/proc/interrupt_research()
-	var/datum/techweb/science_web = locate(/datum/techweb/science) in SSresearch.techwebs
-	for(var/obj/machinery/rnd/server/research_server as anything in science_web.techweb_servers)
-		if(research_server.machine_stat & (NOPOWER|BROKEN|EMPED))
-			continue
-		research_server.emp_act(EMP_LIGHT)
-		new /obj/effect/temp_visual/emp(get_turf(research_server))
+/obj/machinery/inspector_mainframe/proc/broadcast_sos_signal()
+	// Only broadcast if SOS is still active
+	if(!sos_active)
+		return
+
+	// Play alarm sound
+	playsound(src, 'modular_nova/modules/random_ship_event/random_ships/heliostatic_inspectors/sounds/alarm_small_09.ogg', 75, TRUE)
+
+	// Send special messages when special statuses are active
+	if(current_alert_level == "Status Obsidian")
+		radio.talk_into(src, "ENCRYPTED BURST: OBSIDIAN. Self-destruct and denial protocols initiated. All assets to be denied to enemy.", RADIO_CHANNEL_GUILD)
+	else
+		radio.talk_into(src, "DISTRESS SIGNAL REPEATING: Requesting immediate assistance. Patrol vessel under sustained combat operations. All available units respond.", RADIO_CHANNEL_GUILD)
+
+	// Cancel any existing timer before creating a new one to prevent stacking
+	if(sos_timer_id)
+		deltimer(sos_timer_id)
+		sos_timer_id = null
+
+	// Create a new timer
+	sos_timer_id = addtimer(CALLBACK(src, PROC_REF(broadcast_sos_signal)), 30 SECONDS, TIMER_STOPPABLE)
 
 /obj/machinery/inspector_mainframe/proc/send_notification()
 	priority_announce("Signal interference detected; source registered on local GPS units. Cargo shuttle systems have been locked down.")
@@ -145,16 +130,18 @@
 	var/choice = show_radial_menu(user, src, alert_options, require_near = TRUE, tooltips = TRUE)
 
 	switch(choice)
-		if("Status Zero (Marble)")
+		if("Status Marble")
 			set_alert_level("Status Marble", "STANDBY/ADMINISTRATIVE. The patrol is in a secure, non-hostile environment. This includes being docked at a Coalition-controlled starbase, in transit through fully secured Coalition space, or undergoing maintenance and resupply in a friendly port. The threat of hostile action is assessed as negligible. All personal weapons are to be secured in the armory. Ship-based defensive systems may be powered down to standby mode to conserve energy.", user)
-		if("Status One (Silver)")
+		if("Status Silver")
 			set_alert_level("Status Silver", "ROUTINE PATROL/STANDARD INSPECTION. The patrol is approaching or has begun initial interactions with a non-Coalition facility under Standard Inspection Protocols. The facility is presumed compliant but not yet trusted. All personal weapons are to be holstered but authorized for immediate draw. Weapon safeties may be disengaged at the individual officer's discretion based on perceived threat. Ship defensive systems are active and scanning.", user)
-		if("Status Two (Cobalt)")
+		if("Status Cobalt")
 			set_alert_level("Status Cobalt", "ELEVATED THREAT/VIOLATION OF PROTOCOL. One or more Standard Procedures have been violated, or anomalous but not yet overtly hostile activity is detected. All personnel must draw weapons and hold them at low-ready. Ship thrusters are to be kept spooled for immediate maneuver. Defensive shields are raised to tactical strength. High alert. Inspection may be halted and teams recalled to the ship or ordered to hold position and fortify.", user)
-		if("Status Three (Pearl)")
+		if("Status Pearl")
 			set_alert_level("Status Pearl", "HOSTILE INTENT CONFIRMED. Direct, unambiguous evidence of hostile intent has been identified. This includes weapon discharge towards patrol personnel, attempted boarding of the patrol vessel, active targeting by a Bluespace Artillery Cannon, or a declared threat against the patrol. Weapons free. All defensive systems are at full power. The ship is to maneuver to a tactical advantage. All personnel to battle stations. Preemptive self-defense protocols are authorized.", user)
-		if("Status Four (Onyx)")
+		if("Status Onyx")
 			set_alert_level("Status Onyx", "SUSTAINED COMBAT OPERATIONS. The patrol is engaged in a full-scale battle. Escape may not be immediately possible, and the patrol must fight its way out. Total warfare. All weapons and systems are to be used to their maximum effectiveness. Damage control teams are active. The focus is on neutralizing targets of opportunity and creating an opening for extraction. The primary objective is to neutralize all threats to the patrol to allow for extraction.", user)
+		if("Status Obsidian")
+			set_alert_level("Status Obsidian", "BROKEN ARROW/DENIAL OF ASSETS. The patrol vessel is irrecoverably compromised, with capture or destruction imminent. The primary mission has failed. The new objective is to ensure that no Coalition personnel, technology, intelligence, or the vessel itself can be exploited by the enemy. All classified data, mission logs, and personnel records are to be purged from all systems. The crew is expected to fight until the vessel is destroyed or all hands are lost.", user)
 
 /obj/machinery/inspector_mainframe/proc/set_alert_level(level_name, level_description, mob/user)
 	if(current_alert_level == level_name)
@@ -172,23 +159,30 @@
 	if(machine_stat & (NOPOWER|BROKEN))
 		return
 
-	if(current_alert_level != "Status Onyx")
-		balloon_alert(user, "requires status four!")
-		to_chat(user, span_warning("The SOS beacon can only be activated when the ship is at Status Four (Onyx)."))
+	if(current_alert_level != "Status Onyx" && current_alert_level != "Status Obsidian")
+		balloon_alert(user, "requires status four or five!")
+		to_chat(user, span_warning("The SOS beacon can only be activated when the ship is at Status Onyx or Status Obsidian."))
 		return
 
 	sos_active = !sos_active
 	if(sos_active)
-		if(!active && !research_disruption_active)
+		if(!active)
 			START_PROCESSING(SSobj, src)
 		to_chat(user, span_notice("You activate the SOS beacon."))
 		balloon_alert(user, "SOS beacon activated!")
 		playsound(src, 'modular_nova/modules/random_ship_event/random_ships/heliostatic_inspectors/sounds/alarm_small_09.ogg', 75, TRUE)
-		radio.talk_into(src, "EMERGENCY DISTRESS SIGNAL ACTIVATED. Requesting immediate assistance. Patrol vessel under sustained combat operations. All available units respond.", RADIO_CHANNEL_GUILD)
-		COOLDOWN_START(src, sos_timer, 30 SECONDS)
+		if(current_alert_level == "Status Obsidian")
+			radio.talk_into(src, "ENCRYPTED BURST: OBSIDIAN. Self-destruct and denial protocols initiated. All assets to be denied to the enemy.", RADIO_CHANNEL_GUILD)
+		else
+			radio.talk_into(src, "EMERGENCY DISTRESS SIGNAL ACTIVATED. Requesting immediate assistance. Patrol vessel under sustained combat operations. All available units respond.", RADIO_CHANNEL_GUILD)
+		addtimer(CALLBACK(src, PROC_REF(broadcast_sos_signal)), 30 SECONDS, TIMER_STOPPABLE)
 	else
-		if(!active && !research_disruption_active)
+		if(!active)
 			STOP_PROCESSING(SSobj, src)
+		// Cancel the SOS timer
+		if(sos_timer_id)
+			deltimer(sos_timer_id)
+			sos_timer_id = null
 		to_chat(user, span_notice("You deactivate the SOS beacon."))
 		balloon_alert(user, "SOS beacon deactivated!")
 		playsound(src, 'sound/machines/terminal/terminal_prompt.ogg', 50, TRUE)
@@ -201,10 +195,14 @@
 
 /obj/machinery/inspector_mainframe/Destroy()
 	toggle_off()
+	// Cancel any pending SOS timer
+	if(sos_timer_id)
+		deltimer(sos_timer_id)
+		sos_timer_id = null
 	QDEL_NULL(radio)
 	return ..()
 
 /obj/machinery/inspector_mainframe/examine(mob/user)
 	. = ..()
 	if(in_range(user, src) || isobserver(user))
-		. += span_notice("The status display reads: System is [active ? "ACTIVE" : "INACTIVE"]. Current alert level: [current_alert_level]. SOS beacon: [sos_active ? "ACTIVE" : "INACTIVE"]. Research disruption: [research_disruption_active ? "ACTIVE" : "INACTIVE"].")
+		. += span_notice("The status display reads: System is [active ? "ACTIVE" : "INACTIVE"]. Current alert level: [current_alert_level]. SOS beacon: [sos_active ? "ACTIVE" : "INACTIVE"].")
