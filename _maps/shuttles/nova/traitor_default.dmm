@@ -100,14 +100,6 @@
 /obj/effect/mapping_helpers/airlock/access/all/syndicate/general,
 /obj/structure/cable,
 /obj/structure/fans/tiny,
-/obj/docking_port/stationary{
-	dir = 4;
-	name = "Deep Space";
-	shuttle_id = "traitor_home";
-	dwidth = 4;
-	width = 9;
-	height = 5
-	},
 /obj/docking_port/mobile/traitor{
 	dir = 4
 	},

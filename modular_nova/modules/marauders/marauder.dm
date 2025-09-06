@@ -6,11 +6,6 @@
 	preview_outfit = /datum/outfit/marauder_preview
 	show_to_ghosts = TRUE
 	give_uplink = FALSE
-	should_give_codewords = FALSE
-	/// Identifying number of the traitor
-	var/marauder_no
-	/// The turf inside the lazy_template marked as this antag's spawn
-	var/turf/spawnpoint
 
 /datum/outfit/marauder_preview
 	name = "Marauder (Preview only)"
@@ -58,7 +53,6 @@
 
 /// Removes NT from being the possible employer, because that would be weird
 /datum/antagonist/traitor/marauder/pick_employer()
-
 	if(!employer)
 		var/list/possible_employers = list()
 		possible_employers.Add(GLOB.syndicate_employers)
@@ -79,71 +73,9 @@
 
 /datum/antagonist/traitor/marauder/on_gain()
 	. = ..()
-	//load the shuttle, we don't trust lazy_load with this
-	load_shuttle(marauder_no)
 	//set up our guy
 	set_assignment(owner.current)
 	grant_equipment(owner.current)
-	//load personalized items
-	load_personal_items(owner.current)
-	move_to_spawnpoint(owner.current, marauder_no)
-
-/datum/antagonist/traitor/marauder/proc/load_shuttle(marauder_no)
-	var/is_first = FALSE
-	if(marauder_no == 1)
-		is_first = TRUE
-
-	var/datum/map_template/shuttle/marauder_shuttle = SSmapping.shuttle_templates["traitor_default"]
-	var/x = (world.maxx - TRANSITIONEDGE - marauder_shuttle.width - (marauder_no * 10))
-	var/y = (world.maxy - TRANSITIONEDGE - marauder_shuttle.height)
-	var/z
-	if(SSmapping.empty_space)
-		z = SSmapping.empty_space.z_value
-	else
-		//no space level, lets go for the safest next option
-		//lets find a transit z, we will claim the top right corner
-		for(var/datum/space_level/z_level as anything in SSmapping.z_list)
-			if(z_level.traits.Find(ZTRAIT_RESERVED))
-				z = z_level.z_value
-				break
-
-	var/turf/turf = locate(x,y,z)
-	if(!turf)
-		CRASH("[src] found no turf to load its shuttle in")
-	if(!marauder_shuttle.load(turf))
-		CRASH("Loading [marauder_shuttle] failed!")
-	//dock at our port
-	var/obj/docking_port/mobile/mobile_port = is_first ? SSshuttle.getShuttle("traitor") : SSshuttle.getShuttle("traitor_[marauder_no]")
-	mobile_port.destination = is_first ? SSshuttle.getDock("traitor") : SSshuttle.getDock("traitor_[marauder_no]")
-	mobile_port.mode = SHUTTLE_IGNITING
-	mobile_port.setTimer(mobile_port.ignitionTime)
-
-/// this is where we load the personalized note and loadout equipped mannequin
-/datum/antagonist/traitor/marauder/proc/load_personal_items(mob/living/carbon/human/marauder)
-	for(var/area/misc/operative_barracks/dorm/spawn_area in GLOB.areas)
-		if(!marauder || !marauder.client)
-			return
-		for(var/turf/area_turf as anything in spawn_area.get_turfs_from_all_zlevels())
-			var/obj/structure/mannequin/operative_barracks/loadout/mannequin = locate() in area_turf
-			if(!mannequin)
-				continue
-			if(mannequin.loaded) //already loaded
-				continue
-			mannequin.load_items(marauder.client)
-			mannequin.loaded = TRUE
-			mannequin.update_appearance()
-		for(var/turf/area_turf as anything in spawn_area.get_turfs_from_all_zlevels())
-			var/obj/machinery/door/airlock/airlock = locate() in area_turf
-			if(!airlock)
-				continue
-			if(airlock.note) //already loaded
-				continue
-			var/obj/item/paper/fluff/midround_traitor/greeting/note = new(airlock)
-			airlock.note = note
-			note.write_note(marauder.real_name)
-			note.update_appearance()
-			note.forceMove(airlock)
-			airlock.update_appearance()
 
 /// this is where we add the job datum and build a bank account based on it
 /datum/antagonist/traitor/marauder/proc/set_assignment(mob/living/carbon/human/marauder)
@@ -161,23 +93,6 @@
 		marauder.equipOutfit(/datum/outfit/marauder)
 	else
 		marauder.dna.species.pre_equip_species_outfit(marauder.mind?.assigned_role, marauder)
-
-/// get our spawnpoint
-/datum/antagonist/traitor/marauder/proc/set_spawnpoint(marauder_no)
-	spawnpoint = GLOB.traitor_start[marauder_no]
-
-/// move our guy
-/datum/antagonist/traitor/marauder/proc/move_to_spawnpoint(mob/living/carbon/human/marauder, marauder_no)
-	set_spawnpoint(marauder_no)
-	marauder.forceMove(spawnpoint)
-	var/obj/structure/bed/bed = locate(/obj/structure/bed) in spawnpoint.contents
-	var/obj/item/bedsheet/bedsheet = locate(/obj/item/bedsheet) in spawnpoint.contents
-	if(!bed || !bedsheet)
-		return
-	//put them in bed
-	marauder.setDir(SOUTH)
-	bed.buckle_mob(marauder)
-	bedsheet.coverup(marauder)
 
 //antag job
 /datum/job/marauder
@@ -201,6 +116,9 @@
 	var/client/player_client = player.client
 	if(player_client)
 		SSquirks.AssignQuirks(player, player.client)
+		player.increment_scar_slot()
+		player.load_persistent_scars()
+		SSpersistence.load_modular_persistence(player.get_organ_slot(ORGAN_SLOT_BRAIN))
 
 /datum/outfit/marauder/proc/turn_off_sensors(obj/item/clothing/under/uniform)
 	if(!uniform)
