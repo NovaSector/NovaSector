@@ -1,4 +1,0 @@
-author: "FlufflesTheDog"
-delete-after: True
-changes:
-  - bugfix: "Fix missing opfor/ghost/respawn buttons on the escape menu."
