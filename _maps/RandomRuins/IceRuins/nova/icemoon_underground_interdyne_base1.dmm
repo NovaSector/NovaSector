@@ -5335,7 +5335,7 @@
 /obj/machinery/cryopod{
 	dir = 4
 	},
-/obj/machinery/computer/cryopod/interdyne/directional/west{
+/obj/machinery/computer/cryopod/directional/west{
 	req_one_access = list("syndicate")
 	},
 /turf/open/floor/catwalk_floor/iron_dark,
@@ -7058,6 +7058,7 @@
 "Fi" = (
 /obj/machinery/light/small/directional/west,
 /obj/item/flatpack/ammo_workbench,
+/obj/machinery/announcement_system,
 /turf/open/floor/iron/dark/textured_large,
 /area/ruin/interdyne_planetary_base/main/vault)
 "FH" = (

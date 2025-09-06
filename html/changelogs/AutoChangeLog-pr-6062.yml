@@ -1,0 +1,11 @@
+author: "Archemagus"
+delete-after: True
+changes:
+  - bugfix: "Cryosleepers now correctly handle ghost records, which also should stop it from announcing station crew ranks as Café Sleeper and etc."
+  - code_imp: "Replaced pick(GLOB.announcement_systems) with get_announcement_system() which check accesibility"
+  - qol: "Goody Case alert will by default report only if locked case was destroyed with account holder's name. We do not really care how cargotechs recycle delivered cases? But local Sysadmin can config AAS to report opened cases too."
+  - qol: "Stasis beds will by default ignore patients with less then 10 dmg, marking them as Healthy. And anyone unconscious as Critical while rest - Injured. All three state can have personal announcement line, adjustable by your local Sysadmin."
+  - qol: "Posibrain console (that thing in robo, that you can click as a ghost) now also has editable message."
+  - map: "Tarkon now has working brig cell timers"
+  - map: "Tarkon, Interdyne & DS2 now have AAS, that operate on their freq"
+  - qol: "Now while crew crew goes to cryo only heads of department will be announced in caps into correlated channels (HoP in service, CE in engi, Captain in command, etc.).  But all command staff still be reported in command channel (includes NTR, Shield, Bridge Officer)"
