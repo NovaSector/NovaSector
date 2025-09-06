@@ -1,8 +1,8 @@
 /datum/controller/subsystem/machines
-	// If called /obj/machinery/tune_special_cases(), those who located in this areas will be tuned
+	/// If called /obj/machinery/tune_special_cases(), those who located in this areas will be tuned
 	var/list/special_tune_whitelist_areas = list()
 
-// Checks if the machine is in a special area and applies special tuning if required
+/// Checks if the machine is in a special area and applies special tuning if required
 /obj/machinery/proc/tune_special_cases()
 	var/area/target_area = get_area(src)
 	if (!target_area)

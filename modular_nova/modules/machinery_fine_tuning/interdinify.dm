@@ -1,5 +1,5 @@
 // Interdyne/DS2
-// Do not check requirement, just changes the machine
+/// Do not check requirement, just changes the machine
 /obj/machinery/proc/interdinify()
 
 // AAS
