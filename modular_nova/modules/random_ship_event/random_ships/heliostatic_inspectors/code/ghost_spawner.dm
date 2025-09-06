@@ -1,14 +1,14 @@
 /obj/effect/mob_spawn/ghost_role/human/hc_officer
-	name = "HC Inspector sleeper"
-	desc = "A comfortable sleeper with HC insignia."
-	prompt_name = "a HC Safety Inspector"
+	name = "HC Patrol Officer Sleeper"
+	desc = "A comfortable-looking sleeper unit adorned with the insignia of the Heliostatic Coalition Internal Affairs Department."
+	prompt_name = "an HC Expeditionary Patrol Officer"
 	icon = 'modular_nova/modules/cryosleep/icons/cryogenics.dmi'
 	icon_state = "cryopod"
 	mob_species = /datum/species/human
 	faction = list(FACTION_NEUTRAL)
-	you_are_text = "You are a Heliostatic Coalition safety inspection team."
-	flavour_text = "The station has accepted a voluntary safety inspection. Your role is to conduct a thorough but non-invasive inspection of station facilities and ensure compliance with Coalition safety standards. Remember that this is a voluntary inspection, so maintain a professional and courteous demeanor."
-	important_text = "Allowed races are humans, Akulas, IPCs. Follow your lead inspector's orders. Important mention - while you are listed as the pirates gamewise, you really aren't lore-and-everything-else-wise. Roleplay accordingly."
+	you_are_text = "You are an officer of the Heliostatic Coalition Expeditionary Patrol."
+	flavour_text = "Your patrol vessel is conducting a Standard Compliance and Inspection operation on this remote facility. Your mandate, derived from Coalition Accords, grants you the authority to inspect, seize contraband, and use necessary force to protect Coalition interests. Vigilance is paramount; these stations are self-governing and not inherently trustworthy. Adhere to the Standard Operating Procedures at all times."
+	important_text = "Follow the chain of command. Your patrol leader's callsign is appended with 'Actual'. Maintain professional discipline and be prepared to escalate appropriately as the situation demands."
 	outfit = /datum/outfit/hc_officer
 	random_appearance = FALSE
 	show_flavor = TRUE
@@ -23,17 +23,18 @@
 
 /obj/effect/mob_spawn/ghost_role/human/hc_officer/special(mob/living/carbon/human/spawned_human)
 	. = ..()
+	spawned_human.mind.add_antag_datum(/datum/antagonist/cop)
 	spawned_human.grant_language(/datum/language/panslavic, source = LANGUAGE_SPAWNER)
 	spawned_human.grant_language(/datum/language/uncommon, source = LANGUAGE_SPAWNER)
 	spawned_human.grant_language(/datum/language/yangyu, source = LANGUAGE_SPAWNER)
-	spawned_human.grant_language(/datum/language/panslavic, source = LANGUAGE_SPAWNER)
+	spawned_human.grant_language(/datum/language/akulan, source = LANGUAGE_SPAWNER)
 
 	// if this is the first officer, keep a reference to them
 	if(!GLOB.first_officer)
 		GLOB.first_officer = spawned_human
-		to_chat(spawned_human, span_bold("As the lead inspector of the team, it's your duty to ensure the inspection is conducted professionally and efficiently. 			Remember that this is a voluntary inspection, so maintain a cooperative attitude with the station staff. Your goal is to ensure safety compliance, 			not to find faults or issue penalties."))
+		to_chat(spawned_human, span_bold("You are the Patrol Leader (Actual). You hold ultimate authority and responsibility for this mission. Your directives are to: Ensure the safety of your personnel and vessel. Conduct a thorough inspection for contraband and violations per SOP Section V. Project Coalition authority and assess the facility's compliance. Declare Alert Status changes based on observed threats. Your discretion in the field is final. Consult your Field Guide and SOP documents."))
 
-	to_chat(spawned_human, "[span_bold("The station has voluntarily accepted our safety inspection. Your role is to coordinate the inspection team, communicate with station leadership, 		and ensure all inspections are conducted with minimal disruption to station operations. Focus on identifying safety hazards and providing constructive feedback. 		Remember that you represent the Heliostatic Coalition - act with professionalism and courtesy at all times.")] <br><br>		[span_small("Also, a small OOC clarification: none of your objectives are meant to be completable mechanically, so don't stress yourself over not greentexting or anything; 		If you have a better plan than 'completing' them, like an idea for a gimmick, it's better to communicate with the admins and your colleagues to possibly allow you to 		do something custom.")]")
+	to_chat(spawned_human, "[span_boldnotice("Your primary duty is to the Heliostatic Coalition. This inspection is a right granted by treaty, not a request. Be firm, professional, and by-the-book. Trust must be earned, and violations of procedure are to be met with immediate challenges and elevated alert statuses. Your ship contains your SOP documents; consult them for rules of engagement, contraband categories, and Bluespace Artillery countermeasures.")] <br><br> [span_info("OOC Note: Your objectives are narrative guides for creating collaborative roleplay. They are not mechanical 'greentext' goals. Focus on the experience. If you have a creative idea for a gimmick or story direction, communicating with the admins and other players is encouraged.")]")
 	apply_codename(spawned_human)
 
 /obj/effect/mob_spawn/ghost_role/human/hc_officer/post_transfer_prefs(mob/living/carbon/human/spawned_human)

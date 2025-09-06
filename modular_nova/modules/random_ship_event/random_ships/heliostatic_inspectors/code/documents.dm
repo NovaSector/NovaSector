@@ -278,10 +278,10 @@
 	<span style="color:black;font-family:'Segoe Script';"><p><b>Printed by: Heliostatic Coalition Internal Affairs Department, for educational and referential purposes only.</b></p></span>"}
 
 /obj/item/paper/fluff/hc_document/cheat_sheet
-	name = "HC Expeditionary Patrol Field Guide"
+	name = "HC Police Field Guide"
 	default_raw_text = {"
-	<h1><i>HC Expeditionary Patrol Field Guide & Quick Reference</i></h1><br>
-	<i>Supplement to Standard Operating Procedures For Official Use Only</i><br><br>
+	<h1><i>Heliostatic Coalition Internal Affairs Department Rim-World Patrol Field Guide & Quick Reference</i></h1><br>
+	<i>Supplement to Standard Operating Procedures for official use only</i><br><br>
 	<b>1. Alert Status Cheat Sheet</b><br>
 	<ul>
 	<li><b>STATUS ZERO (MARBLE):</b> Standby. Weapons locked. Relax. Do admin. Be polite.</li>
@@ -346,19 +346,18 @@
 	<li>Trust their judgment. Their primary duty is to bring us all home safely.</li>
 	</ul><br>
 	Remember: This guide is a summary. When in doubt, refer to the full SOP document or consult your commanding officer. Stay vigilant, stay professional, and come home safe.<br><br>
-	<span style="color:black;font-family:'Segoe Script';"><p><b>Printed by: Heliostatic Coalition Internal Affairs Department - Patrol Command Division.</b></p></span>
+	<span style="color:black;font-family:'Segoe Script';"><p><b>Printed by: Heliostatic Coalition Internal Affairs Department.</b></p></span>
 	"}
 
 /obj/item/paper/fluff/hc_document/lexicon
-	name = "HC Expeditionary Patrol - Field Lexicon"
+	name = "HC Police Field Lexicon"
 	default_raw_text = {"
-	<h1><i>HC Expeditionary Patrol - Field Lexicon & Comms Protocol</i></h1><br>
-	<i>"A shared language ensures a unified will."</i><br><br>
+	<h1><i>Heliostatic Coalition Internal Affairs Department Rim-World Patrol Field Lexicon & Comms Protocol</i></h1><br>
 	<b>Preamble: On the Use of Codes</b><br>
 	The use of archaic "Ten-Codes" or other numerically-based signals is hereby prohibited for expeditionary patrol units. They are ambiguous, easily forgotten under stress, and lack the descriptive capacity required for complex field situations. The Heliostatic Coalition mandates the use of Clear-Tongue Protocol: concise, descriptive, and standardized language. The following terms are to be used in all internal patrol communications to ensure clarity and speed.<br><br>
 	<b>A. Patrol Status & Situational Terms</b><br>
 	<ul>
-	<li><b>Actual:</b> The patrol leader with ultimate authority. Always prefix the callsign. ("Dagger Three to Jury Two Actual, request instruction.") (Ref: SOP Sect. II)</li>
+	<li><b>Actual:</b> The patrol leader with ultimate authority. Always postfix the callsign. ("Dagger Three to Jury Two Actual, request instruction.") (Ref: SOP Sect. II)</li>
 	<li><b>Marble/Silver/Cobalt/Pearl/Onyx/Obsidian:</b> The six Alert Statuses. Never say "Status Two"; say "Cobalt." ("Helm, go to Cobalt, thrusters spooled.") (Ref: SOP Sect. III)</li>
 	<li><b>Static:</b> A secure, non-hostile, but potentially uncooperative environment. The default state of a non-Coalition station. ("The concourse is static, no visible security.")</li>
 	<li><b>Churn:</b> Anomalous activity that doesn't constitute a direct threat but warrants attention. Low-grade chaos. ("We've got churn in Engineering, teams mobilizing for an unknown drill.")</li>
@@ -402,5 +401,5 @@
 	<li><b>Cognitive Saturation:</b> Being overwhelmed by information or stress during a rapidly deteriorating situation.</li>
 	</ul><br>
 	<b>Protocol Directive:</b> This lexicon is a living document. New terms may be adopted with approval from the Department, but the core principle of Clear-Tongue remains. Speak plainly, describe accurately, and ensure your intent is unmistakable. Ambiguity gets officers killed.<br><br>
-	<span style="color:black;font-family:'Segoe Script';"><p><b>Printed by: Heliostatic Coalition Internal Affairs Department - Linguistic Standardization Bureau.</b></p></span>
+	<span style="color:black;font-family:'Segoe Script';"><p><b>Printed by: Heliostatic Coalition Internal Affairs Department.</b></p></span>
 	"}
