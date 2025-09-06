@@ -169,7 +169,7 @@
 		if(!active)
 			START_PROCESSING(SSobj, src)
 		to_chat(user, span_notice("You activate the SOS beacon."))
-		balloon_alert(user, "SOS beacon activated!")
+		balloon_alert(user, "distress beacon activated!")
 		playsound(src, 'modular_nova/modules/random_ship_event/random_ships/heliostatic_inspectors/sounds/alarm_small_09.ogg', 75, TRUE)
 		if(current_alert_level == "Status Obsidian")
 			radio.talk_into(src, "ENCRYPTED BURST: OBSIDIAN. Self-destruct and denial protocols initiated. All assets to be denied to the enemy.", RADIO_CHANNEL_GUILD)
@@ -184,7 +184,7 @@
 			deltimer(sos_timer_id)
 			sos_timer_id = null
 		to_chat(user, span_notice("You deactivate the SOS beacon."))
-		balloon_alert(user, "SOS beacon deactivated!")
+		balloon_alert(user, "distress beacon deactivated!")
 		playsound(src, 'sound/machines/terminal/terminal_prompt.ogg', 50, TRUE)
 		radio.talk_into(src, "Distress signal deactivated.", RADIO_CHANNEL_GUILD)
 	update_appearance()
