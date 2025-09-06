@@ -1,6 +1,6 @@
 /obj/machinery/stasis
 	name = "lifeform stasis unit MK-II"
-	// May be overridden by away missions
+	/// The radio channel used to send messages. May be overridden by away missions
 	var/announcement_channel = RADIO_CHANNEL_MEDICAL
 
 /obj/machinery/stasis/Initialize(mapload)
