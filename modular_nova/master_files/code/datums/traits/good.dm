@@ -157,12 +157,12 @@
 		qdel(old_appendix)
 
 	old_appendix = null
-/* - Disabled until its reworked.
 /datum/quirk/sensitive_hearing // Teshari hearing but as a quirk
 	name = "Sensitive Hearing"
 	desc = "You can hear even the quietest of sounds, but you're more vulnerable to hearing damage as a result. NOTE: This is a direct downgrade for Teshari!"
 	icon = FA_ICON_HEADPHONES_SIMPLE
 	value = 6
+	hidden_quirk = TRUE // disabled until reworked.
 	mob_trait = TRAIT_SENSITIVE_HEARING
 	gain_text = span_notice("You could hear a pin drop from 10 feet away.")
 	lose_text = span_danger("Your hearing feels less sensitive.")
@@ -192,4 +192,3 @@
 	//we could have any subtype at this point so just take that one's initial value
 	//as opposed to making a copy at the start of the player's round (what if they transplant it, etc)
 	ears.damage_multiplier = initial(ears.damage_multiplier)
-*/
