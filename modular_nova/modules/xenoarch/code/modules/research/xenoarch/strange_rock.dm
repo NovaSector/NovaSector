@@ -40,7 +40,7 @@
 	var/adv_scanned = FALSE
 
 	///The scan state for when encountering the strange rock ore in mining.
-	var/scan_state = "rock_Strange"
+	var/scan_state = "rock_strange"
 
 	///The tier of the item that was chosen, 1-100 then 1-3
 	var/choose_tier
@@ -180,7 +180,7 @@
 
 		return ITEM_INTERACT_BLOCKING
 
-	if(istype(tool, /obj/item/xenoarch/tape_measure))
+	if(tool.type == /obj/item/xenoarch)
 		to_chat(user, span_notice("You begin carefully using your measuring tape."))
 		var/skill_modifier = user.mind?.get_skill_modifier(/datum/skill/research, SKILL_SPEED_MODIFIER)
 		if(!do_after(user, 4 SECONDS * skill_modifier, target = src))
@@ -220,7 +220,9 @@
 /turf/closed/mineral/strange_rock
 	mineralAmt = 1
 	icon = MAP_SWITCH('modular_nova/modules/liquids/icons/turf/smoothrocks.dmi', 'modular_nova/modules/xenoarch/icons/mining.dmi')
-	scan_state = "rock_Strange"
+	icon_state = "rock_strange"
+	scan_icon = 'modular_nova/modules/xenoarch/icons/ore_visuals.dmi'
+	scan_state = "rock_strange"
 	mineralType = /obj/item/xenoarch/strange_rock
 
 /turf/closed/mineral/strange_rock/volcanic
@@ -301,7 +303,7 @@
 
 //small gibonite fix
 /turf/closed/mineral/gibtonite/asteroid
-	icon = MAP_SWITCH('modular_nova/modules/xenoarch/icons/mining.dmi', 'icons/turf/mining.dmi')
+	icon = MAP_SWITCH('icons/turf/walls/red_wall.dmi', 'modular_nova/modules/xenoarch/icons/mining.dmi')
 	icon_state = "redrock_Gibonite_inactive"
 	base_icon_state = "red_wall"
 	smoothing_flags = SMOOTH_BITMASK | SMOOTH_BORDER
@@ -311,7 +313,7 @@
 	defer_change = TRUE
 
 /turf/closed/mineral/strange_rock/asteroid
-	icon = MAP_SWITCH('modular_nova/modules/xenoarch/icons/mining.dmi', 'icons/turf/mining.dmi')
+	icon = MAP_SWITCH('icons/turf/walls/red_wall.dmi', 'modular_nova/modules/xenoarch/icons/mining.dmi')
 	icon_state = "redrock_strange"
 	base_icon_state = "red_wall"
 	smoothing_flags = SMOOTH_BITMASK | SMOOTH_BORDER

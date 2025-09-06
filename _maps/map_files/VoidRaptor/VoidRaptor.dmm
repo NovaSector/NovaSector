@@ -1139,7 +1139,7 @@
 	name = "lavaland";
 	shuttle_id = "pod_3_lavaland"
 	},
-/turf/open/space,
+/turf/open/space/basic,
 /area/space/nearstation)
 "aqJ" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
@@ -4086,10 +4086,6 @@
 /obj/machinery/light/cold/directional/south,
 /turf/open/floor/iron/dark/smooth_large,
 /area/station/medical/morgue)
-"bgi" = (
-/obj/structure/lattice,
-/turf/open/space,
-/area/space/nearstation)
 "bgo" = (
 /obj/machinery/door/airlock/maintenance{
 	name = "Exam Room Maintenance"
@@ -8802,10 +8798,6 @@
 	},
 /turf/open/floor/engine/air,
 /area/station/engineering/atmos)
-"cGC" = (
-/obj/structure/lattice/catwalk,
-/turf/open/space,
-/area/station/solars/port/fore)
 "cGJ" = (
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
@@ -9195,7 +9187,7 @@
 	name = "lavaland";
 	shuttle_id = "pod_2_lavaland"
 	},
-/turf/open/space,
+/turf/open/space/basic,
 /area/space/nearstation)
 "cMm" = (
 /obj/effect/turf_decal/trimline/yellow/filled/line{
@@ -11087,7 +11079,7 @@
 "dnr" = (
 /obj/item/stack/cable_coil,
 /obj/structure/lattice/catwalk,
-/turf/open/space,
+/turf/open/space/basic,
 /area/station/solars/port/fore)
 "dns" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
@@ -14424,7 +14416,7 @@
 "egy" = (
 /obj/structure/lattice/catwalk,
 /obj/structure/cable,
-/turf/open/space,
+/turf/open/space/basic,
 /area/station/solars/starboard/fore)
 "egE" = (
 /obj/effect/turf_decal/siding/wood{
@@ -17547,10 +17539,6 @@
 /obj/effect/landmark/event_spawn,
 /turf/open/floor/iron/dark/smooth_large,
 /area/station/hallway/primary/fore)
-"fbc" = (
-/obj/structure/lattice/catwalk,
-/turf/open/space,
-/area/station/solars/starboard/fore)
 "fbg" = (
 /obj/effect/turf_decal/bot,
 /obj/structure/frame/machine,
@@ -20480,7 +20468,7 @@
 	name = "lavaland";
 	shuttle_id = "pod_lavaland"
 	},
-/turf/open/space,
+/turf/open/space/basic,
 /area/space/nearstation)
 "fXm" = (
 /obj/item/restraints/legcuffs/beartrap,
@@ -21380,7 +21368,7 @@
 /obj/structure/railing{
 	dir = 8
 	},
-/obj/structure/filingcabinet/filingcabinet,
+/obj/structure/filingcabinet/white,
 /obj/effect/turf_decal/bot,
 /turf/open/floor/iron/smooth,
 /area/station/cargo/sorting)
@@ -23425,7 +23413,7 @@
 	name = "lavaland";
 	shuttle_id = "pod_4_lavaland"
 	},
-/turf/open/space,
+/turf/open/space/basic,
 /area/space/nearstation)
 "gMS" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
@@ -24655,7 +24643,7 @@
 "hdF" = (
 /obj/structure/lattice/catwalk,
 /obj/structure/cable,
-/turf/open/space,
+/turf/open/space/basic,
 /area/station/solars/port/fore)
 "hdJ" = (
 /obj/structure/disposalpipe/segment{
@@ -26307,7 +26295,7 @@
 "hBQ" = (
 /obj/structure/lattice/catwalk,
 /obj/structure/cable,
-/turf/open/space,
+/turf/open/space/basic,
 /area/station/solars/port/aft)
 "hBV" = (
 /obj/structure/table/glass,
@@ -40450,10 +40438,6 @@
 /obj/effect/turf_decal/siding/thinplating/dark/end,
 /turf/open/floor/iron/checker,
 /area/station/medical/virology)
-"ltB" = (
-/obj/structure/lattice/catwalk,
-/turf/open/space,
-/area/space/nearstation)
 "ltH" = (
 /obj/structure/flora/bush/sparsegrass/style_random,
 /turf/open/floor/grass,
@@ -43993,10 +43977,6 @@
 /obj/effect/turf_decal/tile/dark/half,
 /turf/open/floor/iron/half,
 /area/station/service/hydroponics)
-"mql" = (
-/obj/structure/lattice/catwalk,
-/turf/open/space,
-/area/station/solars/port/aft)
 "mqA" = (
 /obj/machinery/atmospherics/components/unary/vent_pump/on/layer4{
 	dir = 8
@@ -49704,10 +49684,6 @@
 /obj/machinery/airalarm/directional/south,
 /turf/open/floor/iron/smooth_large,
 /area/station/engineering/lobby)
-"nUe" = (
-/obj/structure/lattice/catwalk,
-/turf/open/space,
-/area/station/solars/starboard/aft)
 "nUi" = (
 /obj/effect/turf_decal/trimline/brown/filled/line{
 	dir = 1
@@ -49721,7 +49697,7 @@
 	c_tag = "Cargo - Office";
 	name = "cargo camera"
 	},
-/obj/structure/filingcabinet/filingcabinet,
+/obj/structure/filingcabinet/white,
 /obj/structure/disposalpipe/segment{
 	dir = 4
 	},
@@ -52510,11 +52486,6 @@
 /obj/structure/noticeboard/directional/south,
 /turf/open/floor/iron/smooth,
 /area/station/maintenance/aft/greater)
-"oIE" = (
-/obj/structure/window/reinforced/spawner/directional/east,
-/obj/structure/lattice,
-/turf/open/space,
-/area/space/nearstation)
 "oIJ" = (
 /obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer2,
 /obj/effect/turf_decal/trimline/blue/filled/corner{
@@ -58394,7 +58365,7 @@
 "qiX" = (
 /obj/structure/lattice/catwalk,
 /obj/structure/cable,
-/turf/open/space,
+/turf/open/space/basic,
 /area/station/solars/starboard/aft)
 "qji" = (
 /obj/effect/landmark/start/hangover,
@@ -60104,7 +60075,7 @@
 "qIH" = (
 /obj/item/stack/cable_coil,
 /obj/structure/lattice/catwalk,
-/turf/open/space,
+/turf/open/space/basic,
 /area/station/solars/port/aft)
 "qIK" = (
 /obj/machinery/atmospherics/pipe/heat_exchanging/simple{
@@ -60455,11 +60426,6 @@
 /obj/machinery/digital_clock/directional/east,
 /turf/open/floor/carpet/executive,
 /area/station/command/heads_quarters/hop)
-"qNd" = (
-/obj/structure/lattice/catwalk,
-/obj/structure/marker_beacon/burgundy,
-/turf/open/space,
-/area/space/nearstation)
 "qNj" = (
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
@@ -64235,7 +64201,7 @@
 "rSE" = (
 /obj/item/stack/cable_coil,
 /obj/structure/lattice/catwalk,
-/turf/open/space,
+/turf/open/space/basic,
 /area/station/solars/starboard/aft)
 "rSG" = (
 /obj/effect/decal/cleanable/dirt,
@@ -65352,9 +65318,6 @@
 /obj/structure/disposalpipe/segment,
 /turf/open/floor/wood/large,
 /area/station/hallway/primary/central/fore)
-"siO" = (
-/turf/open/space,
-/area/space)
 "siT" = (
 /obj/machinery/atmospherics/components/unary/portables_connector/visible{
 	dir = 8
@@ -65688,7 +65651,7 @@
 "sop" = (
 /obj/item/stack/cable_coil,
 /obj/structure/lattice/catwalk,
-/turf/open/space,
+/turf/open/space/basic,
 /area/station/solars/starboard/fore)
 "sor" = (
 /obj/structure/chair/office{
@@ -77770,10 +77733,6 @@
 /obj/effect/turf_decal/siding/wood/corner,
 /obj/item/paper_bin/carbon{
 	pixel_x = -3;
-	pixel_y = 4
-	},
-/obj/item/paper/fluff/ids_for_dummies{
-	pixel_x = 11;
 	pixel_y = 4
 	},
 /turf/open/floor/wood/large,
@@ -92424,9 +92383,9 @@ ttw
 ttw
 ttw
 ttw
-ltB
+odJ
 ttw
-ltB
+odJ
 ttw
 ttw
 ttw
@@ -92681,9 +92640,9 @@ ttw
 ttw
 ttw
 ttw
-bgi
+xMq
 ttw
-bgi
+xMq
 ttw
 ttw
 ttw
@@ -92937,11 +92896,11 @@ ttw
 ttw
 ttw
 ttw
-bgi
-bgi
+xMq
+xMq
 ttw
-bgi
-bgi
+xMq
+xMq
 ttw
 ttw
 ttw
@@ -93193,13 +93152,13 @@ ttw
 ttw
 ttw
 ttw
-bgi
-bgi
+xMq
+xMq
 pZQ
 fGB
 pZQ
-bgi
-bgi
+xMq
+xMq
 ttw
 ttw
 ttw
@@ -93449,15 +93408,15 @@ ttw
 ttw
 ttw
 ttw
-bgi
-bgi
+xMq
+xMq
 fGB
 pZQ
 bBy
 pZQ
 fGB
-bgi
-bgi
+xMq
+xMq
 ttw
 ttw
 ttw
@@ -93705,8 +93664,8 @@ ttw
 ttw
 ttw
 ttw
-bgi
-bgi
+xMq
+xMq
 pZQ
 pZQ
 evm
@@ -93714,8 +93673,8 @@ wPp
 jKp
 pZQ
 pZQ
-bgi
-bgi
+xMq
+xMq
 ttw
 ttw
 ttw
@@ -93960,9 +93919,9 @@ ttw
 ttw
 ttw
 ttw
-ltB
-bgi
-bgi
+odJ
+xMq
+xMq
 fGB
 fGB
 aye
@@ -93972,9 +93931,9 @@ iKV
 hZq
 fGB
 fGB
-bgi
-bgi
-ltB
+xMq
+xMq
+odJ
 ttw
 ttw
 ttw
@@ -94474,9 +94433,9 @@ ttw
 ttw
 ttw
 ttw
-ltB
-bgi
-bgi
+odJ
+xMq
+xMq
 fGB
 fGB
 wxO
@@ -94486,9 +94445,9 @@ grD
 gLJ
 fGB
 fGB
-bgi
-bgi
-ltB
+xMq
+xMq
+odJ
 ttw
 ttw
 ttw
@@ -94733,8 +94692,8 @@ ttw
 ttw
 ttw
 ttw
-bgi
-bgi
+xMq
+xMq
 pZQ
 pZQ
 mzy
@@ -94742,8 +94701,8 @@ dbc
 eit
 pZQ
 pZQ
-bgi
-bgi
+xMq
+xMq
 ttw
 ttw
 ttw
@@ -94991,15 +94950,15 @@ ttw
 ttw
 ttw
 ttw
-bgi
-bgi
+xMq
+xMq
 fGB
 pZQ
 nQP
 pZQ
 fGB
-bgi
-bgi
+xMq
+xMq
 ttw
 ttw
 ttw
@@ -95249,13 +95208,13 @@ ttw
 ttw
 ttw
 ttw
-bgi
-bgi
+xMq
+xMq
 pZQ
 ioZ
 pZQ
-bgi
-bgi
+xMq
+xMq
 ttw
 ttw
 ttw
@@ -95507,11 +95466,11 @@ ttw
 ttw
 ttw
 ttw
-bgi
-bgi
+xMq
+xMq
 ttw
-bgi
-bgi
+xMq
+xMq
 ttw
 ttw
 ttw
@@ -95765,9 +95724,9 @@ ttw
 ttw
 ttw
 ttw
-bgi
+xMq
 ttw
-bgi
+xMq
 ttw
 ttw
 ttw
@@ -96022,9 +95981,9 @@ ttw
 ttw
 ttw
 ttw
-ltB
+odJ
 ttw
-ltB
+odJ
 ttw
 ttw
 ttw
@@ -104353,7 +104312,7 @@ hBQ
 hBQ
 hBQ
 gSS
-mql
+gSS
 gSS
 hBQ
 hBQ
@@ -105017,9 +104976,9 @@ odJ
 odJ
 dtt
 iGR
-qNd
+xqO
 ttw
-qNd
+xqO
 cvG
 ttw
 ttw
@@ -106063,13 +106022,13 @@ ttw
 ttw
 ttw
 qjA
-bgi
+xMq
 qjA
 vYP
 iyf
 rSZ
 qjA
-bgi
+xMq
 qjA
 ttw
 ttw
@@ -109147,13 +109106,13 @@ ttw
 lkj
 ttw
 qjA
-bgi
+xMq
 iTA
 rQj
 atf
 hTN
 iTA
-bgi
+xMq
 qjA
 ttw
 ttw
@@ -110373,7 +110332,7 @@ hdF
 hdF
 hdF
 byl
-cGC
+byl
 byl
 hdF
 hdF
@@ -131447,7 +131406,7 @@ egy
 egy
 egy
 nCZ
-fbc
+nCZ
 nCZ
 egy
 egy
@@ -131809,7 +131768,7 @@ qBt
 cBk
 xMq
 xqO
-ltB
+odJ
 odJ
 wuW
 puo
@@ -133872,12 +133831,12 @@ odJ
 odJ
 odJ
 odJ
-ltB
-ltB
-ltB
-ltB
-ltB
-qNd
+odJ
+odJ
+odJ
+odJ
+odJ
+xqO
 odJ
 odJ
 xMq
@@ -134132,7 +134091,7 @@ xMq
 xMq
 xMq
 xMq
-bgi
+xMq
 xMq
 xMq
 xMq
@@ -135965,7 +135924,7 @@ qiX
 qiX
 qiX
 cxC
-nUe
+cxC
 cxC
 qiX
 qiX
@@ -139957,7 +139916,7 @@ ttw
 ttw
 ttw
 ttw
-siO
+ttw
 ttw
 ttw
 ttw
@@ -140268,7 +140227,7 @@ qyC
 qyC
 qyC
 qyC
-oIE
+uUB
 uUB
 xMq
 ttw

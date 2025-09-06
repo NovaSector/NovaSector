@@ -105,6 +105,10 @@ export const IconCutterTarget = new Juke.Target({
       `icons/**/*.png.toml`,
       `icons/**/*.dmi.toml`,
       `cutter_templates/**/*.toml`,
+      // NOVA EDIT ADDITION START - Making it work in our nova master files
+      `modular_nova/**/*.png.toml`,
+      `modular_nova/**/*.dmi.toml`,
+      // NOVA EDIT ADDITION END
       cutter_path,
     ];
     // Alright we're gonna search out any existing toml files and convert
@@ -112,6 +116,10 @@ export const IconCutterTarget = new Juke.Target({
     const existing_configs = [
       ...Juke.glob(`icons/**/*.png.toml`),
       ...Juke.glob(`icons/**/*.dmi.toml`),
+      // NOVA EDIT ADDITION START - Making it work in our nova master files
+      ...Juke.glob(`modular_nova/**/*.png.toml`),
+      ...Juke.glob(`modular_nova/**/*.dmi.toml`),
+      // NOVA EDIT ADDITION END
     ];
     return [
       ...standard_inputs,
@@ -123,6 +131,10 @@ export const IconCutterTarget = new Juke.Target({
     const folders = [
       ...Juke.glob(`icons/**/*.png.toml`),
       ...Juke.glob(`icons/**/*.dmi.toml`),
+      // NOVA EDIT ADDITION START - Making it work in our nova master files
+      ...Juke.glob(`modular_nova/**/*.png.toml`),
+      ...Juke.glob(`modular_nova/**/*.dmi.toml`),
+      // NOVA EDIT ADDITION END
     ];
     return folders
       .map((file) => file.replace(`.png.toml`, '.dmi'))
@@ -134,6 +146,7 @@ export const IconCutterTarget = new Juke.Target({
       '--templates',
       'cutter_templates',
       'icons',
+      'modular_nova', // NOVA EDIT ADDITION - Making the cutter actually work
     ]);
   },
 });
