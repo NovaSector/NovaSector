@@ -10,7 +10,7 @@
 
 	caliber = CALIBER_SOL40LONG
 	projectile_type = /obj/projectile/bullet/c40sol
-
+	ammo_stack_type = /obj/item/ammo_box/magazine/ammo_stack/c40_sol
 
 /obj/item/ammo_casing/c40sol/Initialize(mapload)
 	. = ..()

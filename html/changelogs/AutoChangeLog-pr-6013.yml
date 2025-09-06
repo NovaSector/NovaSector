@@ -1,0 +1,4 @@
+author: "Balls2zawall"
+delete-after: True
+changes:
+  - rscadd: "Added an amputation function to the bonesaw when targeting limbs, and changed the item description to hint towards that."

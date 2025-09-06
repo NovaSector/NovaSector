@@ -62,7 +62,7 @@
 
 /turf/open/floor/plating/kudzu
 	name = "vine flooring"
-	icon = 'modular_nova/modules/aesthetics/floors/icons/floors.dmi'
+	icon = 'modular_nova/master_files/icons/turf/floors/floor.dmi'
 	icon_state = "vinefloor"
 
 /turf/open/floor/plating/kudzu/attackby(obj/item/attacking_item, mob/user, list/modifiers)

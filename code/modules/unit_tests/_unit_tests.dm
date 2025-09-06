@@ -323,7 +323,7 @@
 #include "worn_icons.dm"
 // NOVA EDIT START
 #include "~nova\automapper.dm"
-#include "~nova\liver.dm"
+#include "~nova\liver_nova.dm"
 #include "~nova\opposing_force.dm"
 // NOVA EDIT END
 // END_INCLUDE

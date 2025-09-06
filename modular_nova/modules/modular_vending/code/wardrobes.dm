@@ -177,7 +177,7 @@
 		/obj/item/clothing/suit/toggle/jacket/nova/det_trench/cowboyvest = 2,
 		/obj/item/storage/backpack/messenger/sec = 2,
 	)
-	premium_nova = list(/obj/item/disk/nifsoft_uploader/summoner/detective = 2)
+	premium_nova = list(/obj/item/disk/nifsoft_uploader/job/summoner/detective = 2)
 
 /obj/machinery/vending/wardrobe/law_wardrobe
 	products_nova = list(
@@ -185,11 +185,10 @@
 		/obj/item/clothing/under/suit/nova/black_really_collared/skirt = 3,
 		/obj/item/clothing/under/suit/nova/inferno = 3,
 		/obj/item/clothing/under/suit/nova/inferno/skirt = 3,
-		/obj/item/clothing/under/suit/nova/inferno/beeze = 2,
 	)
 
 /obj/machinery/vending/wardrobe/jani_wardrobe
-	premium_nova = list(/obj/item/disk/nifsoft_uploader/summoner/service = 2)
+	premium_nova = list(/obj/item/disk/nifsoft_uploader/job/summoner/service = 2)
 
 /// Removes given list of products. Must be called before build_inventory() to actually prevent the records from being created.
 /obj/machinery/vending/proc/remove_products(list/paths_to_remove)

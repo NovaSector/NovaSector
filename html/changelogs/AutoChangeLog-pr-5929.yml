@@ -1,0 +1,8 @@
+author: "carpotoxin"
+delete-after: True
+changes:
+  - map: "Added an always-spawning ruin to space and the icemoon wilderness that function as navigation gigabeacon with a dock to allow (some) shuttles to navigate into deep space and planetary surfaces"
+  - qol: "Marauders load persistent-data such as NIFs"
+  - rscadd: "Marauders can choose to don their operative alias, a random syndicate alias, or keep their character name"
+  - bugfix: "Marauder's shuttle \"Deep Space\" navigation destination is no longer an inaccessible place in the realm, but a dock everyone can go to in deep space, or on the planet surface"
+  - code_imp: "Marauder's bay 09 unloads itself after the player's departure"

@@ -338,7 +338,7 @@ GLOBAL_LIST_INIT(all_loadout_categories, init_loadout_categories())
 		displayed_text[FA_ICON_SPAGHETTI_MONSTER_FLYING] = "Species Whitelist: [capitalize(jointext(restricted_species, ", "))]"
 	if(nova_stars_only)
 		displayed_text[FA_ICON_HOURGLASS_HALF] = "Nova Star-Only"
-	if(donator_only)
+	if(donator_only || ckeywhitelist)
 		displayed_text[FA_ICON_COINS] = "Donator-Only"
 	// NOVA EDIT ADDITION END
 	return displayed_text

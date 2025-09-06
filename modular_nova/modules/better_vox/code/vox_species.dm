@@ -12,7 +12,7 @@
 	)
 	inherent_biotypes = MOB_ORGANIC | MOB_HUMANOID
 	mutantlungs = /obj/item/organ/lungs/nitrogen/vox
-	mutantbrain = /obj/item/organ/brain/vox
+	mutantbrain = /obj/item/organ/brain/cybernetic/cortical/vox //reparented vox brain
 	breathid = "n2"
 	mutant_bodyparts = list()
 	mutanttongue = /obj/item/organ/tongue/vox

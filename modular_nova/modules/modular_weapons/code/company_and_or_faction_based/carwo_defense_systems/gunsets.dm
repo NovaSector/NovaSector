@@ -71,6 +71,7 @@
 		/obj/item/ammo_box/c980grenade = 2,
 		/obj/item/ammo_box/c980grenade/smoke = 1,
 		/obj/item/ammo_box/c980grenade/riot = 1,
+		/obj/item/mod/control/pre_equipped/jaeger_med = 3,
 	), src)
 
 /obj/structure/closet/secure_closet/armory_kiboko_but_evil

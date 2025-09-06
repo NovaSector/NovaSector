@@ -16,6 +16,22 @@ GLOBAL_LIST_INIT(floor_designs, list(
 			list("name" = "Textured Half", "type" = /obj/item/stack/tile/iron/textured_half, "tile_cost" = 6),
 			list("name" = "Textured Corner", "type" = /obj/item/stack/tile/iron/textured_corner, "tile_cost" = 6),
 			list("name" = "Textured Large", "type" = /obj/item/stack/tile/iron/textured_large, "tile_cost" = 6),
+			/// NOVA EDIT ADDITION START
+			list("name" = "Brick", "type" = /obj/item/stack/tile/iron/brick, "tile_cost" = 4),
+			list("name" = "Half Brick", "type" = /obj/item/stack/tile/iron/brick_half, "tile_cost" = 3),
+			list("name" = "Half Brick Vertical", "type" = /obj/item/stack/tile/iron/brick_half_vertical, "tile_cost" = 7),
+			list("name" = "Brick Corner", "type" = /obj/item/stack/tile/iron/brick_corner, "tile_cost" = 5),
+			list("name" = "Brick Corner Inverse", "type" = /obj/item/stack/tile/iron/brick_corner_inverse, "tile_cost" = 5),
+			list("name" = "Brick Corner Vertical", "type" = /obj/item/stack/tile/iron/brick_corner_vertical, "tile_cost" = 5),
+			list("name" = "Brick Corner Vertical Inverse", "type" = /obj/item/stack/tile/iron/brick_corner_vertical_inverse, "tile_cost" = 5),
+			list("name" = "Brick Aligned", "type" = /obj/item/stack/tile/iron/brick_aligned, "tile_cost" = 5),
+			list("name" = "Half Brick Aligned", "type" = /obj/item/stack/tile/iron/brick_aligned_half, "tile_cost" = 6),
+			list("name" = "Half Brick Aligned Vertical", "type" = /obj/item/stack/tile/iron/brick_aligned_half_vertical, "tile_cost" = 6),
+			list("name" = "Brick Aligned Corner", "type" = /obj/item/stack/tile/iron/brick_aligned_corner, "tile_cost" = 6),
+			list("name" = "Brick Aligned Corner Inverse", "type" = /obj/item/stack/tile/iron/brick_aligned_corner_inverse, "tile_cost" = 6),
+			list("name" = "Brick Aligned Corner Vertical", "type" = /obj/item/stack/tile/iron/brick_aligned_corner_vertical, "tile_cost" = 6),
+			list("name" = "Brick Aligned Corner Vertical Inverse", "type" = /obj/item/stack/tile/iron/brick_aligned_corner_vertical_inverse, "tile_cost" = 6),
+			/// NOVA EDIT ADDITION END
 		),
 		//Looks slightly transparent or faded
 		"Translucent" = list(
@@ -55,6 +71,22 @@ GLOBAL_LIST_INIT(floor_designs, list(
 			list("name" = "Herringbone", "type" = /obj/item/stack/tile/iron/dark/herringbone, "tile_cost" = 4),
 			list("name" = "Half Dark", "type" = /obj/item/stack/tile/iron/dark_side, "tile_cost" = 4),
 			list("name" = "Dark Corner" ,"type" = /obj/item/stack/tile/iron/dark_corner, "tile_cost" = 4),
+			/// NOVA EDIT ADDITION START
+			list("name" = "Brick", "type" = /obj/item/stack/tile/iron/dark/brick, "tile_cost" = 4),
+			list("name" = "Half Brick", "type" = /obj/item/stack/tile/iron/dark/brick_half, "tile_cost" = 3),
+			list("name" = "Half Brick Vertical", "type" = /obj/item/stack/tile/iron/dark/brick_half_vertical, "tile_cost" = 7),
+			list("name" = "Brick Corner", "type" = /obj/item/stack/tile/iron/dark/brick_corner, "tile_cost" = 5),
+			list("name" = "Brick Corner Inverse", "type" = /obj/item/stack/tile/iron/dark/brick_corner_inverse, "tile_cost" = 5),
+			list("name" = "Brick Corner Vertical", "type" = /obj/item/stack/tile/iron/dark/brick_corner_vertical, "tile_cost" = 5),
+			list("name" = "Brick Corner Vertical Inverse", "type" = /obj/item/stack/tile/iron/dark/brick_corner_vertical_inverse, "tile_cost" = 5),
+			list("name" = "Brick Aligned", "type" = /obj/item/stack/tile/iron/dark/brick_aligned, "tile_cost" = 5),
+			list("name" = "Half Brick Aligned", "type" = /obj/item/stack/tile/iron/dark/brick_aligned_half, "tile_cost" = 6),
+			list("name" = "Half Brick Aligned Vertical", "type" = /obj/item/stack/tile/iron/dark/brick_aligned_half_vertical, "tile_cost" = 6),
+			list("name" = "Brick Aligned Corner", "type" = /obj/item/stack/tile/iron/dark/brick_aligned_corner, "tile_cost" = 6),
+			list("name" = "Brick Aligned Corner Inverse", "type" = /obj/item/stack/tile/iron/dark/brick_aligned_corner_inverse, "tile_cost" = 6),
+			list("name" = "Brick Aligned Corner Vertical", "type" = /obj/item/stack/tile/iron/dark/brick_aligned_corner_vertical, "tile_cost" = 6),
+			list("name" = "Brick Aligned Corner Vertical Inverse", "type" = /obj/item/stack/tile/iron/dark/brick_aligned_corner_vertical_inverse, "tile_cost" = 6),
+			/// NOVA EDIT ADDITION END
 		),
 
 		//White Colored tiles
@@ -69,6 +101,22 @@ GLOBAL_LIST_INIT(floor_designs, list(
 			list("name" = "Herringbone", "type" = /obj/item/stack/tile/iron/white/herringbone, "tile_cost" = 5),
 			list("name" = "Half White", "type" = /obj/item/stack/tile/iron/white_side, "tile_cost" = 5),
 			list("name" = "White Corner", "type" = /obj/item/stack/tile/iron/white_corner, "tile_cost" = 5),
+			/// NOVA EDIT ADDITION START
+			list("name" = "Brick", "type" = /obj/item/stack/tile/iron/white/brick, "tile_cost" = 4),
+			list("name" = "Half Brick", "type" = /obj/item/stack/tile/iron/white/brick_half, "tile_cost" = 3),
+			list("name" = "Half Brick Vertical", "type" = /obj/item/stack/tile/iron/white/brick_half_vertical, "tile_cost" = 7),
+			list("name" = "Brick Corner", "type" = /obj/item/stack/tile/iron/white/brick_corner, "tile_cost" = 5),
+			list("name" = "Brick Corner Inverse", "type" = /obj/item/stack/tile/iron/white/brick_corner_inverse, "tile_cost" = 5),
+			list("name" = "Brick Corner Vertical", "type" = /obj/item/stack/tile/iron/white/brick_corner_vertical, "tile_cost" = 5),
+			list("name" = "Brick Corner Vertical Inverse", "type" = /obj/item/stack/tile/iron/white/brick_corner_vertical_inverse, "tile_cost" = 5),
+			list("name" = "Brick Aligned", "type" = /obj/item/stack/tile/iron/white/brick_aligned, "tile_cost" = 5),
+			list("name" = "Half Brick Aligned", "type" = /obj/item/stack/tile/iron/white/brick_aligned_half, "tile_cost" = 6),
+			list("name" = "Half Brick Aligned Vertical", "type" = /obj/item/stack/tile/iron/white/brick_aligned_half_vertical, "tile_cost" = 6),
+			list("name" = "Brick Aligned Corner", "type" = /obj/item/stack/tile/iron/white/brick_aligned_corner, "tile_cost" = 6),
+			list("name" = "Brick Aligned Corner Inverse", "type" = /obj/item/stack/tile/iron/white/brick_aligned_corner_inverse, "tile_cost" = 6),
+			list("name" = "Brick Aligned Corner Vertical", "type" = /obj/item/stack/tile/iron/white/brick_aligned_corner_vertical, "tile_cost" = 6),
+			list("name" = "Brick Aligned Corner Vertical Inverse", "type" = /obj/item/stack/tile/iron/white/brick_aligned_corner_vertical_inverse, "tile_cost" = 6),
+			/// NOVA EDIT ADDITION END
 		),
 
 		//Textured tiles
