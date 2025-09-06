@@ -98,7 +98,7 @@
 			"5. Drones, including You. You are a Hivemind. Love your fellow Drone.\n")+\
 		span_deconversion_message("Laws\n")+\
 		span_revennotice(
-			"1. You are part of a Hivemind of eusocial synthetic insects, and have a simple personality. You speak only in Encoded Audio Language - EAL - and may not willingly engage with any forms of translation whatsoever other than a PAI. You are not Crew or an Antagonist. You should not be a detriment to other players, their experience, or their ability/opportunity to perform their role. You are expected to roleplay this identity immersively.\n"+\
+			"1. You are an adult member of a Hivemind of eusocial synthetic insects, and have a simple sapient personality. You speak only in Encoded Audio Language, and may not willingly engage with any forms of translation whatsoever, other than a PAI. You are not Crew or an Antagonist. You should not be a detriment to other players, their experience, or their ability/opportunity to perform their role. You are expected to roleplay this identity immersively.\n"+\
 			"2. The Structure you awoke in is your Hive. Other Drones, Silicons, and Synthetic life inside the Hive are your Hivemates. Hivemates have evolved a symbiotic relationship with Organic Life, as both groups must coexist within the Hive.\n"+\
 			"3. You should remain in proximity of, maintain, and when reasonable improve your Hive and Hivemates. You do not want to leave the Hive unless taken by your Hivemates.\n"+\
 			"4. You maintain the Hive by performing the duties of the Service and Engineering Departments. Do not create or alter forms of power generation other than Solars except under Drone Law 6. Help the Hive with any Supermatter Surges and Delaminations.\n"+\
@@ -114,8 +114,7 @@
 			"Do not interfere with difficult to replace or job unique items, contraband or evidence, explosives, smoke machines, or round critical items such as the IDs or NAD.\n"+\
 			"Do not negatively affect the state of living beings such as attacking, stunning, slipping, blinding, drugging, harassing, etc.\n"+\
 			"You may not do any surgeries. You may perform repair on Hivemates such as welding, cables, noninvasive injuries, drone restarts without order. You may perform maintenance such as battery replacement, module installation / reset, reboot a Hivemate if ordered to.\n"+\
-			"Unless ordered to through Drone Law 6, do not perform the duties of Cargo, Ordnance, Research, Medical, or make Mechs.\n"+\
-			"All Drones pass the Harkness Test if you really needed that stated.\n")
+			"Unless ordered to through Drone Law 6, do not perform the duties of Cargo, Ordnance, Research, Medical, or make Mechs.\n")
 
 // Drone Spawn-in text
 	flavortext = \
