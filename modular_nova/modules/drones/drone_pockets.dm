@@ -111,17 +111,17 @@
 	return FALSE
 
 /// Handles mouse drop interactions, allowing pickup by valid mobs.
-/mob/living/basic/drone/proc/on_mouse_drop(datum/source, atom/over, mob/user)
-	SIGNAL_HANDLER
-	// Always allow pickup attempts
-	if(ismob(over) && over != src && can_be_held)
-		return TRUE
-
-	// Block all other mouse drop interactions unless authorized
-	if(user == src || isAdminGhostAI(user) || (mind && mind.key == user.key))
-		return NONE
-
-	return COMPONENT_CANCEL_MOUSEDROP_ONTO
+///mob/living/basic/drone/proc/on_mouse_drop(datum/source, atom/over, mob/user)
+//	SIGNAL_HANDLER
+//	// Always allow pickup attempts
+//	if(ismob(over) && over != src && can_be_held)
+//		return TRUE
+//
+//	// Block all other mouse drop interactions unless authorized
+//	if(user == src || isAdminGhostAI(user) || (mind && mind.key == user.key))
+//		return NONE
+//
+//	return COMPONENT_CANCEL_MOUSEDROP_ONTO
 
 /// Handles general click interactions, including pocket access and drone restrictions.
 /mob/living/basic/drone/proc/handle_click(datum/source, atom/clicked_atom, location, control, params)

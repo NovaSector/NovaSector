@@ -16,17 +16,17 @@
 		return ..()
 	return SECONDARY_ATTACK_CANCEL_ATTACK_CHAIN
 
-/mob/living/basic/drone/proc/on_mousedrop(atom/over, src_location, over_location, src_control, over_control, params)
+///mob/living/basic/drone/proc/on_mousedrop(atom/over, src_location, over_location, src_control, over_control, params)
 	// Allow pickup by dragging to any mob that can hold us
-	if(ismob(over) && over != src && over.CanReach(src) && over.MouseDrop(src))
-		var/mob/over_mob = over
-		if(can_be_held && over_mob.can_hold_items())
-			return TRUE // Allow normal pickup handling
-
+//	if(ismob(over) && over != src && over.CanReach(src) && over.MouseDrop(src))
+//		var/mob/over_mob = over
+//		if(can_be_held && over_mob.can_hold_items())
+//			return TRUE // Allow normal pickup handling
+//
 	// Allow self and admin interactions
-	if(usr == src || isAdminGhostAI(usr) || (mind && mind.key == usr.key))
-		return TRUE
-	return COMPONENT_CANCEL_MOUSEDROP_ONTO// Block all other drag-and-drop interactions
+//	if(usr == src || isAdminGhostAI(usr) || (mind && mind.key == usr.key))
+//		return TRUE
+//	return COMPONENT_CANCEL_MOUSEDROP_ONTO// Block all other drag-and-drop interactions
 
 // Storage Changes
 /mob/living/basic/drone/Initialize(mapload)
@@ -35,7 +35,7 @@
 	RegisterSignal(src, COMSIG_CLICK, PROC_REF(handle_click), override = TRUE)
 	RegisterSignal(src, COMSIG_CLICK_CTRL, PROC_REF(on_ctrl_click))
 	RegisterSignal(src, COMSIG_CLICK_ALT, PROC_REF(handle_alt_click))
-	RegisterSignal(src, COMSIG_MOUSEDROP_ONTO, PROC_REF(on_mousedrop))
+//	RegisterSignal(src, COMSIG_MOUSEDROP_ONTO, PROC_REF(on_mousedrop))
 
 /datum/hud/dextrous/drone/New(mob/owner)
 	. = ..()
