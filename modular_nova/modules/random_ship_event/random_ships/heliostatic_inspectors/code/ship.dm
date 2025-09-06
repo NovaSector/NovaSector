@@ -1,13 +1,13 @@
-/datum/map_template/shuttle/pirate/hc_police
-	prefix = "_maps/shuttles/nova/"
-	suffix = "random_ship_hc_police"
-	name = "police ship (HC Enforcer-Class Starship)"
+/datum/map_template/shuttle/random_ship/hc_police
+	suffix = "hc_police"
+	name = "random ship (HC Enforcer-Class Starship)"
 	port_x_offset = -5
 	port_y_offset = 5
 
-/area/shuttle/pirate/hc
+/area/shuttle/hc_cops
 	name = "HC Starship"
 	forced_ambience = TRUE
+	requires_power = TRUE
 	ambient_buzz = 'modular_nova/modules/random_ship_event/random_ships/heliostatic_inspectors/sounds/amb_ship_01.ogg'
 	ambient_buzz_vol = 15
 	ambientsounds = list('modular_nova/modules/random_ship_event/random_ships/heliostatic_inspectors/sounds/alarm_radio.ogg',
@@ -23,6 +23,8 @@
 /obj/machinery/computer/camera_advanced/shuttle_docker/syndicate/pirate/hc
 	name = "police shuttle navigation computer"
 	desc = "Used to designate a precise transit location for the police shuttle."
+	x_offset = -3
+	y_offset = -7
 
 /obj/machinery/porta_turret/syndicate/hc_police
 	name = "anti-projectile turret"
@@ -77,6 +79,6 @@
 	command_name = "Heliostatic Coalition Safety Inspection Team Announcement"
 	report_sound = ANNOUNCER_HC_POLICE
 
-/obj/machinery/suit_storage_unit/nri
+/obj/machinery/suit_storage_unit/hc_police
 	mod_type = /obj/item/mod/control/pre_equipped/policing
 	storage_type = /obj/item/tank/internals/oxygen/yellow
