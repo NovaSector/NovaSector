@@ -1,4 +1,0 @@
-author: "Stalkeros"
-delete-after: True
-changes:
-  - rscadd: "Added a \"subcontracted assistance request beacon\", a one time use device for bitrunners to summon ghost reinforcements; being other bitrunners. Available from tier 1 gear disk."
