@@ -70,11 +70,9 @@
 		// can't receive messages on the hivemind right now
 		if(HAS_TRAIT(ling_mob, TRAIT_CHANGELING_HIVEMIND_MUTE))
 			continue
-		to_chat(ling_mob, msg)
+		to_chat(ling_mob, msg, type = MESSAGE_TYPE_RADIO, avoid_highlighting = ling_mob == user)
 
 	for(var/mob/dead/ghost as anything in GLOB.dead_mob_list)
-		to_chat(ghost, "[FOLLOW_LINK(ghost, user)] [msg]")
-	return FALSE
 		to_chat(ghost, "[FOLLOW_LINK(ghost, user)] [msg]", type = MESSAGE_TYPE_RADIO)
 	return SAYMODE_MESSAGE_HANDLED
 
@@ -134,18 +132,6 @@
 		return FALSE
 	return TRUE
 
-/datum/saymode/binary/handle_message(mob/living/user, message, datum/language/language)
-	/* //NOVA EDIT REMOVAL BEGIN - Drones speaking Robot instead of drone talk
-	if(isdrone(user))
-		var/mob/living/basic/drone/drone_user = user
-		drone_user.drone_chat(message)
-		return FALSE
-	*/ //NOVA EDIT REMOVAL END
-	if(user.binarycheck())
-		user.robot_talk(message)
-		return FALSE
-	return FALSE
-
 /datum/saymode/binary/handle_message/handle_message(
 	mob/living/user,
 	message,
@@ -153,10 +139,12 @@
 	datum/language/language,
 	list/message_mods = list()
 )
+	/* //NOVA EDIT REMOVAL BEGIN - Drones speaking Robot instead of drone talk
 	if(isdrone(user))
 		var/mob/living/basic/drone/drone_user = user
 		drone_user.drone_chat(message, spans, message_mods)
-	else if(user.binarycheck())
+	*/ //NOVA EDIT REMOVAL END
+	if(user.binarycheck())
 		user.robot_talk(message, spans, message_mods)
 	return SAYMODE_MESSAGE_HANDLED
 
