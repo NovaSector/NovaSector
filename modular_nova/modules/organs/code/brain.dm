@@ -26,7 +26,6 @@
 			owner.adjust_stutter(15 SECONDS)
 			owner.adjust_confusion(3 SECONDS)
 
-
 // It's still organic
 /obj/item/organ/brain/cybernetic/cortical/brain_damage_examine()
 	if(suicided)

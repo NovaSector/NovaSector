@@ -14,6 +14,7 @@
 
 		new_brain.modular_persistence = old_brain.modular_persistence
 		old_brain.modular_persistence = null
+		new_brain.modular_persistence?.owner_brain = WEAKREF(new_brain)
 
 		new_brain.copy_traits_from(old_brain)
 		new_brain.Insert(human_holder, special = TRUE)
