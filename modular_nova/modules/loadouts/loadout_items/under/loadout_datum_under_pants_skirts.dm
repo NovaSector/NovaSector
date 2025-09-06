@@ -109,6 +109,11 @@
 	item_path = /obj/item/clothing/under/pants/nova/big_pants
 	group = "Casualwear"
 
+/datum/loadout_item/under/miscellaneous/loose_pants
+	name = "Loose pants"
+	item_path = /obj/item/clothing/under/pants/nova/loose_pants
+	group = "Casualwear"
+
 /datum/loadout_item/under/miscellaneous/slacks
 	name = "Pants - Slacks"
 	item_path = /obj/item/clothing/under/pants/slacks
