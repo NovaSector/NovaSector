@@ -11,7 +11,7 @@ approach. Mainly accesses and freq for awaysites
 
 ### TG Proc Changes:
 
-- `/obj/machinery/post_machine_initialize()`
+- N/A
 
 ### Defines:
 
