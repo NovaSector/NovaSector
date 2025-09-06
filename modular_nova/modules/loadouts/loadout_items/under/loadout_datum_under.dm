@@ -485,6 +485,10 @@
 	name = "Striped Dress"
 	item_path = /obj/item/clothing/under/dress/striped
 
+/datum/loadout_item/under/miscellaneous/Playsuit
+	name = "Playsuit (Recolorable)"
+	item_path = /obj/item/clothing/under/greyscale/playsuit
+
 /datum/loadout_item/under/miscellaneous/skirt_black
 	name = "Black Skirt"
 	item_path = /obj/item/clothing/under/dress/skirt
@@ -700,7 +704,6 @@
 /datum/loadout_item/under/miscellaneous/tactical_maid_costume
 	name = "Tactical Maid Uniform"
 	item_path = /obj/item/clothing/under/syndicate/nova/maid/loadout_maid
-
 
 /datum/loadout_item/under/miscellaneous/yukata
 	name = "Yukata"
