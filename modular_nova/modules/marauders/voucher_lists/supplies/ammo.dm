@@ -205,4 +205,5 @@
 	icon_state = /obj/item/ammo_box/foambox/riot::icon_state
 	set_items = list(
 		/obj/item/ammo_box/foambox/riot,
+		/obj/item/ammo_box/foambox/riot,
 	)
