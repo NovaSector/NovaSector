@@ -53,7 +53,7 @@
 
 	var/important = is_job_important(id_card)
 	if(important)
-		if(tgui_alert(usr, "You are a member of security and/or command, make sure that you ahelp before punching out! If you decide to punch back in later, you will need to go to the Head of Personnel or Head of Security. Do you wish to continue?", "[src]", list("No", "Yes")) != "Yes")
+		if(tgui_alert(usr, "You are a member of security and/or command, make sure that you ahelp before punching out! If you decide to punch back in later, you will need to go to the Head of Personnel or Head of Security. Do you wish to continue?", "[filedesc]", list("No", "Yes")) != "Yes")
 			return FALSE
 
 	log_econ("[id_card.registered_name] clocked out from role [id_card.get_trim_assignment()]")
@@ -72,8 +72,8 @@
 
 	aas_config_announce(/datum/aas_config_entry/off_duty, list(
 		"PERSON" = id_card.registered_name,
-		"RANK" = id_card.assignment,
-	), announcement_line = "Clock Out")
+		"RANK" = current_assignment,
+	), computer, announcement_line = "Clock Out")
 	computer.update_static_data_for_all_viewers()
 
 	SSid_access.apply_trim_to_card(id_card, target_trim, TRUE)
@@ -110,7 +110,7 @@
 	aas_config_announce(/datum/aas_config_entry/off_duty, list(
 		"PERSON" = id_card.registered_name,
 		"RANK" = id_card.assignment,
-	), announcement_line = "Clock In")
+	), computer, announcement_line = "Clock In")
 	GLOB.manifest.modify(id_card.registered_name, id_card.assignment, id_card.get_trim_assignment())
 
 	qdel(id_component)
