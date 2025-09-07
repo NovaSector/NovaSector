@@ -124,3 +124,22 @@
   - bugfix: Drifting contractor event no longer requires 2 candidates to succeed spawning
   vinylspiders:
   - rscadd: brings back the 'loose pants', alternate styling of the junco pants.
+2025-09-07:
+  Balls2zawall:
+  - rscadd: Added an amputation function to the bonesaw when targeting limbs, and
+      changed the item description to hint towards that.
+  Stalkeros for the code, splet for the sprites:
+  - rscadd: Combat-oriented NIFsofts have started to circulate among some more unsavory
+      elements. Blood is fuel, and all that.
+  - image: Kills the immersive upper message to say that NIFsoft disks have been respited.
+  carpotoxin:
+  - map: Added an always-spawning ruin to space and the icemoon wilderness that function
+      as navigation gigabeacon with a dock to allow (some) shuttles to navigate into
+      deep space and planetary surfaces
+  - qol: Marauders load persistent-data such as NIFs
+  - rscadd: Marauders can choose to don their operative alias, a random syndicate
+      alias, or keep their character name
+  - bugfix: Marauder's shuttle "Deep Space" navigation destination is no longer an
+      inaccessible place in the realm, but a dock everyone can go to in deep space,
+      or on the planet surface
+  - code_imp: Marauder's bay 09 unloads itself after the player's departure
