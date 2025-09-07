@@ -2059,8 +2059,10 @@
 /turf/open/floor/iron,
 /area/ruin/space/has_grav/port_tarkon/power1)
 "hZ" = (
-/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer2{
+	dir = 4
+	},
 /turf/open/floor/iron/white,
 /area/ruin/space/has_grav/port_tarkon/dorms)
 "ib" = (
@@ -3655,8 +3657,7 @@
 /turf/open/floor/wood/large,
 /area/ruin/space/has_grav/port_tarkon/lounge)
 "ob" = (
-/obj/machinery/shower/directional/south,
-/obj/structure/window/reinforced/spawner/directional/east,
+/obj/machinery/washing_machine,
 /turf/open/floor/iron/white,
 /area/ruin/space/has_grav/port_tarkon/dorms)
 "oc" = (
@@ -4844,6 +4845,12 @@
 "sU" = (
 /turf/open/floor/iron/freezer,
 /area/ruin/space/has_grav/port_tarkon/kitchen)
+"sZ" = (
+/obj/machinery/shower/directional/south,
+/obj/structure/window/reinforced/tinted/spawner/directional/south,
+/obj/structure/curtain/cloth,
+/turf/open/floor/iron/white,
+/area/ruin/space/has_grav/port_tarkon/dorms)
 "ta" = (
 /obj/item/kirbyplants/random,
 /turf/open/floor/iron/dark,
@@ -5180,7 +5187,7 @@
 /area/ruin/space/has_grav/port_tarkon/aichamber)
 "uB" = (
 /obj/machinery/light/directional/west,
-/obj/structure/window/reinforced/spawner,
+/obj/structure/window/reinforced/tinted/spawner/directional/south,
 /turf/open/floor/iron/white,
 /area/ruin/space/has_grav/port_tarkon/dorms)
 "uC" = (
@@ -5887,6 +5894,7 @@
 /obj/structure/toilet{
 	dir = 4
 	},
+/obj/structure/curtain/cloth,
 /turf/open/floor/iron/white,
 /area/ruin/space/has_grav/port_tarkon/dorms)
 "wT" = (
@@ -5928,6 +5936,9 @@
 /area/ruin/space/has_grav/port_tarkon/sciencexp)
 "xc" = (
 /obj/machinery/light_switch/directional/east,
+/obj/structure/closet/generic/wall{
+	pixel_y = 32
+	},
 /turf/open/floor/iron/white,
 /area/ruin/space/has_grav/port_tarkon/dorms)
 "xd" = (
@@ -6275,8 +6286,8 @@
 /turf/open/floor/iron,
 /area/ruin/space/has_grav/port_tarkon/toolstorage)
 "yz" = (
-/obj/structure/window/reinforced/spawner/directional/east,
-/obj/machinery/shower/directional/south,
+/obj/structure/towel_bin,
+/obj/structure/table/reinforced,
 /turf/open/floor/iron/white,
 /area/ruin/space/has_grav/port_tarkon/dorms)
 "yA" = (
@@ -7933,8 +7944,9 @@
 /turf/open/floor/iron/dark,
 /area/ruin/space/has_grav/port_tarkon/comms)
 "Fe" = (
-/obj/structure/curtain/cloth,
-/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/machinery/atmospherics/components/unary/vent_pump/on/layer4{
+	dir = 4
+	},
 /turf/open/floor/iron/white,
 /area/ruin/space/has_grav/port_tarkon/dorms)
 "Ff" = (
@@ -9989,9 +10001,7 @@
 /area/ruin/space/has_grav/port_tarkon/sciencexp)
 "Nh" = (
 /obj/machinery/light/directional/east,
-/obj/machinery/atmospherics/components/unary/vent_pump/on/layer4{
-	dir = 1
-	},
+/obj/structure/window/reinforced/tinted/spawner/directional/south,
 /turf/open/floor/iron/white,
 /area/ruin/space/has_grav/port_tarkon/dorms)
 "Nj" = (
@@ -12505,9 +12515,8 @@
 /turf/open/floor/iron,
 /area/ruin/space/has_grav/port_tarkon/forehall)
 "WW" = (
-/obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer2{
-	dir = 1
-	},
+/obj/machinery/shower/directional/south,
+/obj/structure/curtain/cloth,
 /turf/open/floor/iron/white,
 /area/ruin/space/has_grav/port_tarkon/dorms)
 "WX" = (
@@ -12526,7 +12535,7 @@
 /turf/open/floor/iron/white/diagonal,
 /area/ruin/space/has_grav/port_tarkon/apartment)
 "Xa" = (
-/obj/structure/curtain/cloth,
+/obj/machinery/light/directional/south,
 /turf/open/floor/iron/white,
 /area/ruin/space/has_grav/port_tarkon/dorms)
 "Xb" = (
@@ -13086,7 +13095,8 @@
 /obj/structure/toilet{
 	dir = 4
 	},
-/obj/structure/window/reinforced/spawner,
+/obj/structure/curtain/cloth,
+/obj/structure/window/reinforced/tinted/spawner/directional/south,
 /turf/open/floor/iron/white,
 /area/ruin/space/has_grav/port_tarkon/dorms)
 "Zo" = (
@@ -18799,7 +18809,7 @@ wH
 RP
 UH
 ob
-Xa
+Nl
 uB
 Zn
 wS
@@ -18892,8 +18902,8 @@ Pb
 UH
 yz
 Fe
-WW
-Xa
+Nl
+Nl
 Xa
 WM
 FF
@@ -18985,8 +18995,8 @@ UH
 xc
 hZ
 Nh
-Nl
-Nl
+sZ
+WW
 WM
 RF
 nA
