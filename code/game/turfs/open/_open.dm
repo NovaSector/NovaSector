@@ -142,6 +142,9 @@
 		return
 	// NOVA EDIT ADDITION END
 
+	if(SSatoms.initialized == INITIALIZATION_INNEW_MAPLOAD) // we don't want to be transitioning atoms to another z-level while we are still in mapload
+		return
+
 	var/tx = destination_x
 	var/ty = destination_y
 	var/turf/DT = locate(tx, ty, destination_z)
