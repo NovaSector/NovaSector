@@ -1,0 +1,145 @@
+2025-09-02:
+  FlufflesTheDog:
+  - bugfix: Fix missing opfor/ghost/respawn buttons on the escape menu.
+  Hatterhat:
+  - balance: Improved propellant mixes for magnum blockshot and mil-spec buckshot
+      shells have rolled out, improving performace against armor. Somewhat.
+  OrionTheFox:
+  - bugfix: fixed RPED icons disappearing when applying upgrades (they now use TG's
+      updated icons)
+  - qol: Sorted the Undersuit Loadout group. All loadout groups are now sorted. Rejoice.
+  - qol: Donator items in the loadout now have a little icon beside them.
+  - bugfix: fixed a few of the new uniforms' skirt variants not having skirt flags.
+  - bugfix: fixed some minor formatting issues in several items.
+  - rscdel: Merged "designer inferno suit" into a reskin of the "inferno suit"
+  - rscdel: Removed "Fancy Suit", an outdated version of the "White Suit" (in loadout,
+      "Suit (White)"... or the (Colorable) version)
+  - rscdel: Removed "red shirt with white [pants/skirt]" in favor of recolorable "Office
+      Casual Suit" (in loadout, "Buttondown Suit - Collared")
+  - rscdel: Removed "Loose Pants" in favor of "JUNCO Megacargo Pants"
+  - rscdel: Removed recolorable green christmas items in favor of the already-recolorable
+      red ones. Since you can just recolor them to be green.
+  - rscdel: Removed "cableknit skirt", an exact duplicate of "turtleneck with skirt"
+      (in loadout, "Turtleneck w/ Skirt".
+  - rscdel: Removed erp maid costume in favor of TG's arguably-more-sexy and recolorable
+      maid costume.
+  RealWinterFrost:
+  - rscadd: Added many more types of kinaris carpet! and adds some missing description
+      for them.
+2025-09-03:
+  RealWinterFrost:
+  - image: Makes the Countess dress gags supported (Limited).
+  - image: Makes the Dutch outfit gags supported.
+  - image: Makes the Powder Ganger jacket gags supported.
+  - image: Makes the Eastern Monk robes gags supported.
+  - bugfix: Fixed and added kinaris crate to the cargo menu.
+  - image: Moved some /turf/ sprites around please report if any bugs are found
+  - image: Added new brick like floor tiles, coming in many different colors!
+  carpotoxin:
+  - balance: Syndicate Contractors have a new MODsuit module, the flamethrower module.
+  - balance: The Syndicate Contractor MODsuit has lost the magnetic harness module,
+      they didn't need this anyway
+  vinylspiders:
+  - sound: adds 'Hooves' and 'Highheels' as barefoot footstep preferences
+2025-09-04:
+  carpotoxin:
+  - rscadd: The space ninja has gotten a primary objective, brutally assassinating
+      command and spreading fear among the upper ranks.
+  - bugfix: The space ninja's explosive implant is now *actually* gone
+2025-09-05:
+  OrionTheFox:
+  - qol: Made "Giant Scarf" alt-skins into Reskins! Simply choose a Style when equipping
+      the "Giant Scarf" in the loadout! (Or Alt-Click ingame.)
+  - rscdel: Removed old items of alts for the "Giant Scarf" (You'll need to re-equip
+      it in loadout and choose the corresponding reskin. Sorry!)
+2025-09-06:
+  Archemagus:
+  - bugfix: "Cryosleepers now correctly handle ghost records, which also should stop\
+      \ it from announcing station crew ranks as Caf\xE9 Sleeper and etc."
+  - code_imp: Replaced pick(GLOB.announcement_systems) with get_announcement_system()
+      which check accesibility
+  - qol: Goody Case alert will by default report only if locked case was destroyed
+      with account holder's name. We do not really care how cargotechs recycle delivered
+      cases? But local Sysadmin can config AAS to report opened cases too.
+  - qol: Stasis beds will by default ignore patients with less then 10 dmg, marking
+      them as Healthy. And anyone unconscious as Critical while rest - Injured. All
+      three state can have personal announcement line, adjustable by your local Sysadmin.
+  - qol: Posibrain console (that thing in robo, that you can click as a ghost) now
+      also has editable message.
+  - map: Tarkon now has working brig cell timers
+  - map: Tarkon, Interdyne & DS2 now have AAS, that operate on their freq
+  - qol: Now while crew crew goes to cryo only heads of department will be announced
+      in caps into correlated channels (HoP in service, CE in engi, Captain in command,
+      etc.).  But all command staff still be reported in command channel (includes
+      NTR, Shield, Bridge Officer)
+  Hatterhat:
+  - balance: MODsuit armor was buffed, taking higher stats from tgstation's MOD armor
+      stats if they were relevant, and keeping Nova's otherwise.
+  - balance: Security MODsuit plate designs are back under Security Modular Suits.
+  - code_imp: Reduced redundant code between the Kolben combat shotgun and Laevateinn
+      revolvers and their shared barrel charging gimmick by moving a lot of the relevant
+      stuff to a component. If bugs crop up relating to either of those two, please
+      report it.
+  - rscadd: Adds the KOLBEN/NACHTREIHER shotgun parts kit to Cargo's goodies tab at
+      600 cr, allowing people to upgrade their M64 shotguns into the Nachtreiher,
+      a semi-automatic shotgun with a barrel charger.
+  - image: The Nachtreiher and Kasuar now have rifle stocks instead of stocks and
+      pistol grips. Neat!
+  - rscadd: After cracking open yet another dust-caked warehouse full of maybe-not-expeditionary
+      surplus, Nanotrasen has begun rolling out refurbished, probably-not-stolen stocks
+      of surplus Jaeger/MOD "Infantry" suits to their security teams' heavy equipment
+      lockers, and off-loading spares into expeditionary surplus crates. Caveat emptor.
+  - rscadd: Scarborough Arms has restarted export of their Boarder-40 and Boarder-980
+      grenade launchers. Boarder-40 launchers can be found in your local deathmatch
+      mystery box, while Boarder-980s are reportedly available in Syndicate telecrystal
+      uplinks.
+  - bugfix: Prefilled ammo stacks/ammo handfuls now properly show their ammo when
+      they spawn.
+  OrionTheFox:
+  - bugfix: fixed fedoras in the clothesmate being inaccessible
+  RealWinterFrost:
+  - image: added Gags support for the Bomber Jacket.
+  - image: added Gags support for the Ushanka.
+  - image: added Gags support for the Papakha.
+  - code_imp: Moves some modsuit code around, to their correct files
+  Stalkeros:
+  - rscadd: Added a "subcontracted assistance request beacon", a one time use device
+      for bitrunners to summon ghost reinforcements; being other bitrunners. Available
+      from tier 1 gear disk.
+  TeshariEnjoer:
+  - qol: custom MOD module icons
+  aKromatopzia:
+  - code_imp: '"Brain augment" selection in prefs'
+  - rscadd: Added new brain type for humanoids. It's chromed
+  - balance: androids get a brain damage cap var (BRAIN_DAMAGE_SEVERE, or 100, by
+      default); alert texts when they're EMP'd
+  - image: new sprite for vox brain
+  - code_imp: vox augmented brain now a child of android brains
+  annikaRU:
+  - balance: 'the Akhter AW-type portable generator has been fully overhauled. It
+      no longer outputs radiation, but instead helium. However, this means a higher
+      price, both in printing material and market purchase. Credit: Hollandaise for
+      the sprites'
+  carpotoxin:
+  - bugfix: Drifting contractor event no longer requires 2 candidates to succeed spawning
+  vinylspiders:
+  - rscadd: brings back the 'loose pants', alternate styling of the junco pants.
+2025-09-07:
+  Balls2zawall:
+  - rscadd: Added an amputation function to the bonesaw when targeting limbs, and
+      changed the item description to hint towards that.
+  Stalkeros for the code, splet for the sprites:
+  - rscadd: Combat-oriented NIFsofts have started to circulate among some more unsavory
+      elements. Blood is fuel, and all that.
+  - image: Kills the immersive upper message to say that NIFsoft disks have been respited.
+  carpotoxin:
+  - map: Added an always-spawning ruin to space and the icemoon wilderness that function
+      as navigation gigabeacon with a dock to allow (some) shuttles to navigate into
+      deep space and planetary surfaces
+  - qol: Marauders load persistent-data such as NIFs
+  - rscadd: Marauders can choose to don their operative alias, a random syndicate
+      alias, or keep their character name
+  - bugfix: Marauder's shuttle "Deep Space" navigation destination is no longer an
+      inaccessible place in the realm, but a dock everyone can go to in deep space,
+      or on the planet surface
+  - code_imp: Marauder's bay 09 unloads itself after the player's departure

@@ -211,6 +211,10 @@
 /obj/machinery/door/poddoor/shutters{
 	id = "ptcell1"
 	},
+/obj/machinery/door/window/brigdoor/tarkon/left/directional/south{
+	id = "tarkon1";
+	name = "Cell 1"
+	},
 /turf/open/floor/iron,
 /area/ruin/space/has_grav/port_tarkon/secoff)
 "bp" = (
@@ -374,13 +378,13 @@
 /turf/open/floor/plating,
 /area/ruin/space/has_grav/port_tarkon/cargo)
 "cy" = (
-/obj/structure/cable,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/effect/turf_decal/tile/yellow/half{
 	dir = 4
 	},
 /obj/structure/window/reinforced/spawner/directional/south,
+/obj/machinery/announcement_system,
 /turf/open/floor/iron,
 /area/ruin/space/has_grav/port_tarkon/power1)
 "cz" = (
@@ -471,6 +475,12 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/effect/turf_decal/tile/red/half,
+/obj/machinery/status_display/door_timer{
+	pixel_y = -32;
+	pixel_x = -32;
+	name = "Cell 1";
+	id = "tarkon1"
+	},
 /turf/open/floor/iron,
 /area/ruin/space/has_grav/port_tarkon/secoff)
 "dj" = (
@@ -983,10 +993,8 @@
 /turf/open/floor/iron,
 /area/ruin/space/has_grav/port_tarkon/mining)
 "gW" = (
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/structure/cable,
-/obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer2{
-	dir = 1
-	},
 /turf/open/floor/iron,
 /area/ruin/space/has_grav/port_tarkon/power1)
 "gX" = (
@@ -2945,6 +2953,7 @@
 	dir = 8
 	},
 /obj/machinery/rnd/production/colony_lathe,
+/obj/structure/cable,
 /turf/open/floor/iron,
 /area/ruin/space/has_grav/port_tarkon/power1)
 "tj" = (
@@ -5109,6 +5118,9 @@
 "IF" = (
 /obj/structure/bed/maint,
 /obj/machinery/camera/autoname/tarkon/directional/west,
+/obj/machinery/flasher/directional/south{
+	id = "tarkon2"
+	},
 /turf/open/floor/iron,
 /area/ruin/space/has_grav/port_tarkon/secoff)
 "IJ" = (
@@ -5269,6 +5281,10 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/machinery/door/poddoor/shutters{
 	id = "ptcell2"
+	},
+/obj/machinery/door/window/brigdoor/tarkon/right/directional/south{
+	id = "tarkon2";
+	name = "Cell 2"
 	},
 /turf/open/floor/iron,
 /area/ruin/space/has_grav/port_tarkon/secoff)
@@ -5852,6 +5868,12 @@
 /obj/item/paper/fluff/ruins/tarkon/detain,
 /obj/effect/turf_decal/tile/red/anticorner,
 /obj/item/paper/fluff/ruins/tarkon/sop,
+/obj/machinery/status_display/door_timer{
+	pixel_x = 32;
+	pixel_y = -32;
+	name = "Cell 2";
+	id = "tarkon2"
+	},
 /turf/open/floor/iron,
 /area/ruin/space/has_grav/port_tarkon/secoff)
 "Np" = (
@@ -6563,6 +6585,9 @@
 "Se" = (
 /obj/structure/bed/maint,
 /obj/machinery/camera/autoname/tarkon/directional/east,
+/obj/machinery/flasher/directional/south{
+	id = "tarkon1"
+	},
 /turf/open/floor/iron,
 /area/ruin/space/has_grav/port_tarkon/secoff)
 "Sg" = (
@@ -7040,7 +7065,7 @@
 /turf/open/floor/iron/dark,
 /area/ruin/space/has_grav/port_tarkon/comms)
 "Vj" = (
-/obj/machinery/computer/cryopod/tarkon/directional/north,
+/obj/machinery/computer/cryopod/directional/north,
 /turf/open/floor/iron,
 /area/ruin/space/has_grav/port_tarkon)
 "Vl" = (
@@ -9651,7 +9676,7 @@ lE
 Jg
 gR
 eN
-gW
+Lz
 Lt
 WS
 kV
@@ -9723,7 +9748,7 @@ ms
 VY
 Qi
 mh
-eN
+gW
 Yw
 Lt
 ah

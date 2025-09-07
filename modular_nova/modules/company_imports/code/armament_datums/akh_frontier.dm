@@ -85,6 +85,7 @@
 
 /datum/armament_entry/company_import/akh_frontier/deployables/solids_generator
 	item_type = /obj/item/flatpacked_machine/fuel_generator
+	cost = PAYCHECK_COMMAND * 6
 
 /datum/armament_entry/company_import/akh_frontier/deployables/stirling_generator
 	item_type = /obj/item/flatpacked_machine/stirling_generator

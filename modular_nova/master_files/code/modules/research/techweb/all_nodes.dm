@@ -334,3 +334,10 @@
 		"plantbag_holding",
 	)
 	return ..()
+
+// modsuit security stuff
+/datum/techweb_node/mod_security/New()
+	design_ids += list(
+		"mod_plating_security",
+	)
+	return ..()

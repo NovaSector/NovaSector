@@ -48,7 +48,7 @@
 /turf/open/misc/asteroid/forest/mushroom
 	name = "mushroom floor"
 	desc = "A patch of mushrooms."
-	icon = 'modular_nova/modules/aesthetics/floors/icons/floors.dmi'
+	icon = 'modular_nova/master_files/icons/turf/floors/floor.dmi'
 	icon_state = "mushroom"
 	base_icon_state = "mushroom"
 	smoothing_groups = SMOOTH_GROUP_TURF_OPEN + SMOOTH_GROUP_MUSHROOM
