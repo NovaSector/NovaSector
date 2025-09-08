@@ -289,7 +289,7 @@
 /turf/open/floor/iron,
 /area/awaymission/caves/heretic_laboratory)
 "bZ" = (
-/turf/closed/mineral/asteroid/has_air,
+/turf/closed/mineral/asteroid/has_more_air,
 /area/awaymission/caves/heretic_laboratory_clean)
 "cb" = (
 /obj/effect/decal/cleanable/crayon{
@@ -4388,7 +4388,7 @@
 /area/awaymission/caves/heretic_laboratory_clean)
 "Ci" = (
 /obj/effect/baseturf_helper/beach/sand,
-/turf/closed/mineral/asteroid/has_air,
+/turf/closed/mineral/asteroid/has_more_air,
 /area/awaymission/beach/heretic)
 "Cm" = (
 /mob/living/basic/heretic_summon/stalker,
@@ -5877,7 +5877,7 @@
 /turf/open/floor/carpet,
 /area/awaymission/caves/heretic_laboratory_clean)
 "LZ" = (
-/turf/closed/mineral/asteroid/has_air,
+/turf/closed/mineral/asteroid/has_more_air,
 /area/awaymission/caves/heretic_laboratory)
 "Ma" = (
 /obj/machinery/door/airlock/highsecurity,
@@ -8037,7 +8037,7 @@
 /turf/open/floor/mineral/plastitanium,
 /area/awaymission/caves/heretic_laboratory)
 "ZZ" = (
-/turf/closed/mineral/asteroid/has_air,
+/turf/closed/mineral/asteroid/has_more_air,
 /area/awaymission/beach/heretic)
 
 (1,1,1) = {"
