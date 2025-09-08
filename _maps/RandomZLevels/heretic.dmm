@@ -601,7 +601,7 @@
 /obj/effect/turf_decal/stripes/line{
 	dir = 1
 	},
-/turf/closed/indestructible/syndicate,
+/turf/closed/indestructible/steel,
 /area/awaymission/caves/heretic_laboratory)
 "ey" = (
 /obj/structure/railing{
@@ -2054,9 +2054,6 @@
 	},
 /turf/open/floor/iron/small,
 /area/awaymission/caves/heretic_laboratory)
-"nB" = (
-/turf/closed/wall/mineral/plastitanium/nodiagonal,
-/area/awaymission/caves/heretic_laboratory_clean)
 "nC" = (
 /obj/effect/blessing,
 /turf/open/floor/iron/pool/cobble/corner,
@@ -3401,9 +3398,6 @@
 	},
 /turf/open/floor/wood,
 /area/awaymission/beach/heretic)
-"vN" = (
-/turf/closed/wall/mineral/plastitanium/nodiagonal,
-/area/awaymission/caves/heretic_laboratory)
 "vO" = (
 /obj/machinery/light/directional/north,
 /obj/machinery/atmospherics/components/unary/vent_pump/on/layer4,
@@ -3673,7 +3667,7 @@
 /turf/open/floor/iron/small,
 /area/awaymission/caves/heretic_laboratory)
 "xl" = (
-/turf/closed/indestructible/syndicate,
+/turf/closed/indestructible/steel,
 /area/awaymission/caves/heretic_laboratory_clean)
 "xn" = (
 /obj/structure/fluff/bus/dense{
@@ -4632,7 +4626,7 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/green/visible{
 	dir = 6
 	},
-/turf/closed/indestructible/syndicate,
+/turf/closed/indestructible/steel,
 /area/awaymission/caves/heretic_laboratory)
 "DT" = (
 /obj/machinery/light/directional/north,
@@ -4670,9 +4664,6 @@
 "Ec" = (
 /obj/structure/barricade/wooden,
 /turf/open/floor/plating,
-/area/awaymission/caves/heretic_laboratory)
-"Ee" = (
-/turf/closed/wall/r_wall/syndicate,
 /area/awaymission/caves/heretic_laboratory)
 "Ei" = (
 /obj/structure/flora/bush/jungle/b/style_random,
@@ -5676,7 +5667,7 @@
 /turf/open/floor/carpet/royalblack,
 /area/awaymission/beach/heretic)
 "KB" = (
-/turf/closed/indestructible/syndicate,
+/turf/closed/indestructible/steel,
 /area/awaymission/caves/heretic_laboratory)
 "KD" = (
 /obj/machinery/door/airlock/medical,
@@ -7105,7 +7096,7 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/green/visible{
 	dir = 4
 	},
-/turf/closed/indestructible/syndicate,
+/turf/closed/indestructible/steel,
 /area/awaymission/caves/heretic_laboratory)
 "TX" = (
 /obj/structure/holosign/barrier/atmos/sturdy,
@@ -11833,7 +11824,7 @@ KB
 xQ
 xQ
 Pj
-vN
+KB
 KB
 KB
 ZI
@@ -12861,14 +12852,14 @@ KB
 xQ
 xQ
 Pj
-vN
 KB
 KB
 KB
 KB
 KB
 KB
-vN
+KB
+KB
 DT
 xQ
 xQ
@@ -14917,14 +14908,14 @@ KB
 xQ
 xQ
 Pj
-vN
 KB
 KB
 KB
 KB
 KB
 KB
-vN
+KB
+KB
 DT
 xQ
 xQ
@@ -15922,11 +15913,11 @@ KB
 KB
 KB
 KB
-vN
+KB
 oi
 WD
 oi
-vN
+KB
 KB
 KB
 KB
@@ -15945,7 +15936,7 @@ KB
 xQ
 xQ
 Pj
-vN
+KB
 KB
 KB
 KB
@@ -16689,7 +16680,7 @@ gm
 KB
 KB
 gm
-vN
+KB
 mI
 bq
 in
@@ -16714,7 +16705,7 @@ cL
 aw
 gq
 xQ
-vN
+KB
 KB
 KB
 bZ
@@ -16965,7 +16956,7 @@ xl
 nZ
 xl
 KB
-vN
+KB
 vb
 BU
 mN
@@ -20281,7 +20272,6 @@ bZ
 bZ
 KB
 OG
-vN
 KB
 KB
 KB
@@ -20291,13 +20281,14 @@ KB
 KB
 KB
 KB
-vN
+KB
+KB
 bq
 wC
 xS
 bq
 bq
-nB
+xl
 xl
 xl
 xl
@@ -21319,13 +21310,13 @@ xW
 SP
 Bj
 Vi
-vN
+KB
 mI
 wC
 xS
 bq
 bq
-nB
+xl
 qA
 ZV
 AP
@@ -22347,13 +22338,13 @@ KB
 KB
 KB
 KB
-vN
+KB
 bq
 wC
 xS
 bq
 bq
-nB
+xl
 xl
 xl
 xl
@@ -23108,7 +23099,6 @@ hs
 iF
 KB
 OG
-vN
 KB
 KB
 KB
@@ -23118,7 +23108,8 @@ KB
 KB
 KB
 KB
-vN
+KB
+KB
 bq
 Qh
 HQ
@@ -23625,9 +23616,9 @@ KB
 KB
 KB
 KB
-vN
+KB
 OG
-vN
+KB
 KB
 KB
 KB
@@ -24139,7 +24130,7 @@ KB
 KB
 KB
 KB
-vN
+KB
 OG
 KB
 bZ
@@ -24653,9 +24644,9 @@ xT
 xT
 xT
 dD
-vN
 KB
-vN
+KB
+KB
 bZ
 bZ
 bZ
@@ -32389,7 +32380,7 @@ KB
 vb
 BU
 mN
-vN
+KB
 KB
 KB
 KB
@@ -34453,7 +34444,7 @@ KB
 Ma
 KB
 KB
-vN
+KB
 Js
 mo
 KB
@@ -34713,7 +34704,7 @@ ay
 KB
 mo
 mo
-vN
+KB
 KB
 uJ
 KB
@@ -36774,7 +36765,7 @@ mo
 KB
 KB
 KB
-vN
+KB
 ay
 IL
 KB
@@ -39585,7 +39576,7 @@ KB
 vb
 BU
 mN
-vN
+KB
 KB
 KB
 KB
@@ -51915,7 +51906,7 @@ Ei
 fr
 fr
 bZ
-Ee
+nb
 ay
 KB
 zF
@@ -52172,7 +52163,7 @@ QB
 Xa
 qn
 OM
-Ee
+nb
 ay
 ay
 hi
@@ -52429,7 +52420,7 @@ FG
 fr
 BM
 Xq
-Ee
+nb
 AD
 ay
 mG
@@ -52686,7 +52677,7 @@ fr
 fr
 bZ
 bZ
-Ee
+nb
 ay
 rF
 mG
