@@ -1,3 +1,12 @@
+/obj/item/ammo_box/c38
+	ammo_box_multiload = (AMMO_BOX_MULTILOAD_IN | AMMO_BOX_MULTILOAD_OUT_LOADED)
+
+/obj/item/ammo_box/a357
+	ammo_box_multiload = (AMMO_BOX_MULTILOAD_IN | AMMO_BOX_MULTILOAD_OUT_LOADED)
+
+/obj/item/ammo_box/strilka310
+	ammo_box_multiload = AMMO_BOX_MULTILOAD_ALL
+
 /obj/item/ammo_box/speedloader
 	name = "speed loader (base type)"
 	desc = "This shouldn't be here. Report this to a coder, thanks!"
