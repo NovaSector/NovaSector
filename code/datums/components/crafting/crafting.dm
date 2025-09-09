@@ -244,7 +244,7 @@
 
 			var/found_behaviors = contents[CONTENTS_TOOL_BEHAVIOUR]
 			for(var/behavior in recipe.tool_behaviors)
-				recipe_time += found_behaviors[behavior]
+				recipe_time += dynamic_recipe_time * found_behaviors[behavior]
 
 		// NOVA EDIT ADDITION START: Construction Skill
 		if(ismob(crafter))
