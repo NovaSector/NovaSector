@@ -10,6 +10,7 @@
 
 	caliber = CALIBER_585TRAPPISTE
 	projectile_type = /obj/projectile/bullet/c585trappiste
+	ammo_stack_type = /obj/item/ammo_box/magazine/ammo_stack/c585_trappiste
 
 /obj/projectile/bullet/c585trappiste
 	name = ".585 Trappiste bullet"
