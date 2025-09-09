@@ -71,6 +71,6 @@
 	post_init_icon_state = "loose_pants"
 	greyscale_config = /datum/greyscale_config/loose_pants
 	greyscale_config_worn = /datum/greyscale_config/loose_pants/worn
-	greyscale_colors = "#4d4d4d#ffcc00#ff0000"
+	greyscale_colors = "#4d4d4d#666633#c0c0c0"
 	flags_1 = IS_PLAYER_COLORABLE_1
 	alternate_worn_layer = LOW_FACEMASK_LAYER

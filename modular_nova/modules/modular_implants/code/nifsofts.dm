@@ -164,7 +164,7 @@
 /// A disk that can upload NIFSofts to a recpient with a NIFSoft installed.
 /obj/item/disk/nifsoft_uploader
 	name = "Generic NIFSoft datadisk"
-	desc = "A datadisk that can be used to upload a loaded NIFSoft to the user's NIF"
+	desc = "A stylised nanite-infused 'magnetic' tape is perpetually spinning inside. It can be used to upload a loaded NIFSoft to the user's NIF."
 	icon = 'modular_nova/modules/modular_implants/icons/obj/disks.dmi'
 	icon_state = "base_disk"
 	///What NIFSoft is currently loaded in?
@@ -214,5 +214,13 @@
 		return FALSE
 
 	attempt_software_install(mob)
+
+/obj/item/disk/nifsoft_uploader/mil_grade
+	desc = "A high-performance, impact-resistant quantum drive that can be used to upload a loaded NIFSoft to the user's NIF."
+	icon_state = "mil_disk"
+
+/obj/item/disk/nifsoft_uploader/job
+	desc = "Enterprise-grade secure digital drive that can be used to upload a loaded NIFSoft to the user's NIF."
+	icon_state = "job_disk"
 
 #undef DEFAULT_NIFSOFT_COOLDOWN
