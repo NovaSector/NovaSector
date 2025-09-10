@@ -907,7 +907,8 @@
 /obj/structure/table/reinforced,
 /obj/machinery/button/transport/tram{
 	specific_transport_id = "heretic_1";
-	pixel_y = 8
+	pixel_y = 8;
+	id = 1
 	},
 /turf/open/floor/iron/dark,
 /area/awaymission/caves/heretic_laboratory)
@@ -1064,7 +1065,8 @@
 /obj/structure/table/reinforced,
 /obj/machinery/button/transport/tram{
 	specific_transport_id = "heretic_1";
-	pixel_y = 8
+	pixel_y = 8;
+	id = 2
 	},
 /turf/open/floor/iron/dark,
 /area/awaymission/caves/heretic_laboratory)
@@ -3555,7 +3557,8 @@
 /obj/structure/table/reinforced,
 /obj/machinery/button/transport/tram{
 	specific_transport_id = "heretic_1";
-	pixel_y = 8
+	pixel_y = 8;
+	id = 3
 	},
 /turf/open/floor/plating,
 /area/awaymission/caves/heretic_laboratory)
@@ -60141,7 +60144,7 @@ ay
 KB
 ay
 KB
-bZ
+KB
 bZ
 bZ
 bZ
@@ -60397,8 +60400,8 @@ ma
 ay
 KB
 ay
+ay
 KB
-bZ
 bZ
 bZ
 bZ
@@ -60653,9 +60656,9 @@ GV
 Ec
 ay
 KB
+KB
 ay
 KB
-bZ
 bZ
 bZ
 bZ
@@ -60909,10 +60912,10 @@ tf
 GV
 rF
 ay
+ay
 KB
 ay
 KB
-bZ
 bZ
 bZ
 bZ
@@ -61166,10 +61169,10 @@ YS
 Xm
 KB
 wL
+ay
 KB
 ay
 KB
-bZ
 bZ
 bZ
 bZ
@@ -61423,10 +61426,10 @@ tf
 eH
 ay
 ay
+ay
 KB
 ay
 KB
-bZ
 bZ
 bZ
 bZ
@@ -61681,9 +61684,9 @@ pw
 ay
 ay
 KB
+KB
 ay
 KB
-bZ
 bZ
 bZ
 bZ
@@ -61939,8 +61942,8 @@ ay
 ay
 KB
 ay
+ay
 KB
-bZ
 bZ
 bZ
 bZ
@@ -62197,7 +62200,7 @@ ay
 KB
 ay
 KB
-bZ
+KB
 bZ
 bZ
 bZ
