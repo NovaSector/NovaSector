@@ -820,7 +820,8 @@
 /obj/machinery/computer/tram_controls{
 	dir = 8;
 	density = 0;
-	specific_transport_id = "heretic_1"
+	specific_transport_id = "heretic_1";
+	icon_state = "tram_alt_controls"
 	},
 /obj/structure/transport/linear/tram,
 /obj/structure/thermoplastic/light,
