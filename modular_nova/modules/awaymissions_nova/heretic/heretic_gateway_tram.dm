@@ -25,5 +25,5 @@
 
 /obj/machinery/computer/tram_controls/heretic_tram_computer
 	icon = 'modular_nova/master_files/icons/obj/tram/heretic_tram.dmi'
-	icon_screen = HERETIC_1
+	icon_screen = HERETIC_LINE_1
 	specific_transport_id = HERETIC_LINE_1
