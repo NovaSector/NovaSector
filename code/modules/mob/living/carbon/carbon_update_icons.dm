@@ -334,9 +334,6 @@
 	overlays_standing[WOUND_LAYER] = wound_overlay
 	apply_overlay(WOUND_LAYER)
 
-// TODOHATTER GO BACK AND UPDATE MODULARS
-// NOVA EDIT REMOVAL BEGIN - CUSTOMIZATION (moved to modular)
-/*
 /mob/living/carbon/update_worn_mask()
 	remove_overlay(FACEMASK_LAYER)
 
@@ -367,11 +364,7 @@
 		update_hud_neck(wear_neck)
 
 	apply_overlay(NECK_LAYER)
-*/
-//NOVA EDIT REMOVAL END
 
-//NOVA EDIT REMOVAL BEGIN - TESHARI CLOTHES (moved to modular)
-/*
 /mob/living/carbon/update_worn_back()
 	remove_overlay(BACK_LAYER)
 
@@ -384,8 +377,6 @@
 		update_hud_back(back)
 
 	apply_overlay(BACK_LAYER)
-*/
-//NOVA EDIT REMOVAL END
 
 /mob/living/carbon/update_worn_legcuffs()
 	remove_overlay(LEGCUFF_LAYER)
@@ -395,8 +386,6 @@
 		apply_overlay(LEGCUFF_LAYER)
 		throw_alert("legcuffed", /atom/movable/screen/alert/restrained/legcuffed, new_master = src.legcuffed)
 
-//NOVA EDIT REMOVAL BEGIN - CUSTOMIZATION (moved to modular)
-/*
 /mob/living/carbon/update_worn_head()
 	remove_overlay(HEAD_LAYER)
 
@@ -413,17 +402,10 @@
 		update_hud_head(head)
 
 	apply_overlay(HEAD_LAYER)
-*/
-//NOVA EDIT REMOVAL END
-
 
 /mob/living/carbon/update_worn_handcuffs()
 	remove_overlay(HANDCUFF_LAYER)
-	if(handcuffed && !(handcuffed.item_flags & ABSTRACT)) // NOVA EDIT CHANGE - ORIGINAL: if(handcuffed)
-		// NOVA EDIT CHANGE START: certain handcuffs obscuring slots
-		if(update_obscured)
-			update_obscured_slots(handcuffed.flags_inv)
-		// NOVA EDIT CHANGE END
+	if(handcuffed)
 		var/mutable_appearance/handcuff_overlay = mutable_appearance('icons/mob/simple/mob.dmi', "handcuff1", -HANDCUFF_LAYER)
 		if(handcuffed.blocks_emissive != EMISSIVE_BLOCK_NONE)
 			handcuff_overlay.overlays += emissive_blocker(handcuff_overlay.icon, handcuff_overlay.icon_state, src, alpha = handcuff_overlay.alpha)
