@@ -1,0 +1,5 @@
+author: "Hatterhat"
+delete-after: True
+changes:
+  - bugfix: "Nachtreiher and Laevateinn recipes no longer look for already-converted guns."
+  - spellcheck: "Made some of the weapon conversion kit instructions in recipes less verbose."
