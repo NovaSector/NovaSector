@@ -142,8 +142,8 @@
 	if(!COOLDOWN_FINISHED(src, cooldown_timer))
 		balloon_alert(activator, "on cooldown!")
 		return FALSE
-	if((!mod.active || mod.activating || !mod.get_charge()) && !(allow_flags & MODULE_ALLOW_INACTIVE))
-		balloon_alert(mod.wearer, "unpowered!")
+	if((!mod.active || mod.activating || !mod.get_charge()) && !(allow_flags & MODULE_ALLOW_INACTIVE)) // NOVA EDIT CHANGE - ORIGINAL: if(!mod.active || mod.activating || !mod.get_charge())
+		balloon_alert(activator, "unpowered!")
 		return FALSE
 
 	if(!(allow_flags & MODULE_ALLOW_PHASEOUT) && istype(mod.wearer.loc, /obj/effect/dummy/phased_mob))

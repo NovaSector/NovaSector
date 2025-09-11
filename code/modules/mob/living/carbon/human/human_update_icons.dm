@@ -629,7 +629,7 @@ There are several things that need to be remembered:
 		// NOVA EDIT ADDITION
 		if(!mutant_override)
 			my_head.worn_mask_offset?.apply_offset(mask_overlay)
-		// NOVA EDIT END
+		// NOVA EDIT ADDITION END
 		overlays_standing[FACEMASK_LAYER] = mask_overlay
 
 	apply_overlay(FACEMASK_LAYER)
