@@ -28,7 +28,7 @@
 
 /obj/machinery/piratepad/ghostpad
 	name = "\improper Soar Industries sales pad"
-	desc = "A Specialized Deepspace Teleportation Pad that has been made for selling goods long distance to other companies."
+	desc = "A Specialized Deepspace Teleportation Pad that has been made for selling goods long distance to other companies. Will accept various (non-living) objects."
 	circuit = /obj/item/circuitboard/machine/ghostpad
 	icon = 'modular_nova/master_files/icons/obj/machines/ghost_pad.dmi'
 	icon_state = "ghost_pad"
@@ -172,7 +172,7 @@
 
 /obj/machinery/piratepad/ghostpad/interdyne
 	name = "Interdyne Deepspace Sales Pad"
-	desc = "A standard Interdyne telepad repurposed to \
+	desc = "A standard Interdyne Sales Pad to \
 	send any (non-living) object to an distant off-sector \
 	for processing. No returns!"
 
@@ -205,7 +205,7 @@
 
 /obj/machinery/piratepad/ghostpad/syndicate
 	name = "Syndicate Deepspace Sales Pad"
-	desc = "A standard Syndicate telepad repurposed to \
+	desc = "A Syndicate Sales Pad, Specially made to \
 	send any (non-living) object to an distant off-sector \
 	for processing. No returns!"
 
@@ -238,7 +238,7 @@
 
 /obj/machinery/piratepad/ghostpad/tarkon
 	name = "\improper Tarkon deepspace sales pad"
-	desc = "A standard Tarkon telepad repurposed to \
+	desc = "A standard Tarkon Sales Pad designed to \
 		send any (non-living) object to an distant off-sector \
 		for processing. No returns!"
 
