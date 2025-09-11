@@ -86,6 +86,7 @@
 //Interdyne Pharmaceuticals Console's console
 /obj/item/circuitboard/computer/cargo/express/ghost/interdyne
 	name = "Interdyne Express Supply Console"
+	greyscale_colors = COLOR_PRIDE_GREEN
 	build_path = /obj/machinery/computer/cargo/express/ghost/interdyne
 	contraband = TRUE
 
@@ -101,6 +102,7 @@
 //Deep Space 2's console
 /obj/item/circuitboard/computer/cargo/express/ghost/syndicate
 	name = "Syndicate Express Supply Console"
+	greyscale_colors = CIRCUIT_COLOR_SECURITY
 	build_path = /obj/machinery/computer/cargo/express/ghost/syndicate
 	contraband = TRUE
 
@@ -116,6 +118,7 @@
 /obj/item/circuitboard/computer/cargo/express/ghost/tarkon
 	name = "Tarkon Express Supply Console"
 	build_path = /obj/machinery/computer/cargo/express/ghost/tarkon
+	greyscale_colors = CIRCUIT_COLOR_ENGINEERING
 	contraband = TRUE
 
 /obj/machinery/computer/cargo/express/ghost/tarkon

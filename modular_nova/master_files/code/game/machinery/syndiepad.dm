@@ -166,13 +166,13 @@
 
 // Interdyne Pad
 /obj/item/circuitboard/machine/ghostpad/interdyne
-	name = "\improper Syndicate deepspace sales pad"
+	name = "\improper Interdyne deepspace sales pad"
 	greyscale_colors = COLOR_PRIDE_GREEN
 	build_path = /obj/machinery/piratepad/ghostpad/interdyne
 
 /obj/machinery/piratepad/ghostpad/interdyne
-	name = "Syndicate Deepspace Sales Pad"
-	desc = "A standard Syndicate telepad repurposed to \
+	name = "Interdyne Deepspace Sales Pad"
+	desc = "A standard Interdyne telepad repurposed to \
 	send any (non-living) object to an distant off-sector \
 	for processing. No returns!"
 
@@ -184,17 +184,18 @@
 	circuit = /obj/item/circuitboard/machine/ghostpad/interdyne
 
 /obj/item/circuitboard/computer/ghostpad/interdyne
-	name = "\improper Syndicate deepspace sales terminal"
+	name = "\improper Interdyne deepspace sales terminal"
+	greyscale_colors = COLOR_PRIDE_GREEN
 	build_path = /obj/machinery/computer/piratepad_control/ghostpad/interdyne
 
 /obj/machinery/computer/piratepad_control/ghostpad/interdyne
-	name = "Syndicate Deepspace Sales Terminal"
+	name = "Interdyne Deepspace Sales Terminal"
 	desc = "A modified civilian console with an elaborate relay to other authorized facilities for selling goods."
 	status_report = "Ready for delivery."
 	icon_screen = "civ_bounty"
 	icon_keyboard = "syndie_key"
 	circuit = /obj/item/circuitboard/computer/ghostpad/interdyne
-	credits_account = ACCOUNT_DS2
+	credits_account = ACCOUNT_INT
 
 // Syndicate Pad
 /obj/item/circuitboard/machine/ghostpad/syndicate
@@ -217,6 +218,7 @@
 
 /obj/item/circuitboard/computer/ghostpad/syndicate
 	name = "\improper Syndicate deepspace sales terminal"
+	greyscale_colors = CIRCUIT_COLOR_SECURITY
 	build_path = /obj/machinery/computer/piratepad_control/ghostpad/syndicate
 
 /obj/machinery/computer/piratepad_control/ghostpad/syndicate
@@ -249,6 +251,7 @@
 
 /obj/item/circuitboard/computer/ghostpad/tarkon
 	name = "Tarkon Deepspace Sales Terminal"
+	greyscale_colors = CIRCUIT_COLOR_ENGINEERING
 	build_path = /obj/machinery/computer/piratepad_control/ghostpad/tarkon
 
 /obj/machinery/computer/piratepad_control/ghostpad/tarkon
