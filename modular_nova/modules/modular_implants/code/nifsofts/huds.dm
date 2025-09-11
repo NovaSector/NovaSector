@@ -129,27 +129,27 @@
 // UPLOADER DISKS
 //
 
-/obj/item/disk/nifsoft_uploader/med_hud
+/obj/item/disk/nifsoft_uploader/job/med_hud
 	name = "Medical Scrying Lens"
 	loaded_nifsoft = /datum/nifsoft/hud/job/medical
 
-/obj/item/disk/nifsoft_uploader/diag_hud
+/obj/item/disk/nifsoft_uploader/job/diag_hud
 	name = "Diagnostic Scrying Lens"
 	loaded_nifsoft = /datum/nifsoft/hud/job/diagnostic
 
-/obj/item/disk/nifsoft_uploader/sec_hud
+/obj/item/disk/nifsoft_uploader/job/sec_hud
 	name = "Security Scrying Lens"
 	loaded_nifsoft = /datum/nifsoft/hud/job/security
 
-/obj/item/disk/nifsoft_uploader/permit_hud
+/obj/item/disk/nifsoft_uploader/job/permit_hud
 	name = "Permit Scrying Lens"
 	loaded_nifsoft = /datum/nifsoft/hud/job/cargo_tech
 
-/obj/item/disk/nifsoft_uploader/sci_hud
+/obj/item/disk/nifsoft_uploader/job/sci_hud
 	name = "Science Scrying Lens"
 	loaded_nifsoft = /datum/nifsoft/hud/job/science
 
-/obj/item/disk/nifsoft_uploader/meson_hud
+/obj/item/disk/nifsoft_uploader/job/meson_hud
 	name = "Meson Scrying Lens"
 	loaded_nifsoft = /datum/nifsoft/hud/job/meson
 

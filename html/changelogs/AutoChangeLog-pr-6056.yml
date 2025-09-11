@@ -1,0 +1,4 @@
+author: "NomNumNomYum"
+delete-after: True
+changes:
+  - code_imp: "Changes nova's radio channel file from \"mapping.dm\" to \"radio.dm\""

@@ -16,6 +16,7 @@
 	bounty_types = DS2_JOB_COMMAND
 	paycheck = PAYCHECK_COMMAND
 	paycheck_department = ACCOUNT_DS2
+	head_announce = list(RADIO_CHANNEL_INTERDYNE)
 
 /datum/job/ds2/engineer
 	bounty_types = DS2_JOB_ENGINEER
