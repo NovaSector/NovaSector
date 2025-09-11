@@ -5189,8 +5189,6 @@
 	pixel_x = 4
 	},
 /obj/item/circuitboard/machine/powerator/syndicate,
-/obj/item/circuitboard/machine/powerator/syndicate,
-/obj/item/circuitboard/machine/powerator/syndicate,
 /obj/item/circuitboard/machine/bountypad,
 /obj/item/circuitboard/computer/bountypad,
 /turf/open/floor/iron/dark,
