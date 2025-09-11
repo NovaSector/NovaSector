@@ -5179,8 +5179,8 @@
 	req_access = list("syndicate")
 	},
 /obj/structure/table,
-/obj/item/circuitboard/machine/syndiepad/syndicate,
-/obj/item/circuitboard/computer/syndiepad/syndicate{
+/obj/item/circuitboard/machine/ghostpad/syndicate,
+/obj/item/circuitboard/computer/ghostpad/syndicate{
 	pixel_x = 2;
 	pixel_y = 2
 	},

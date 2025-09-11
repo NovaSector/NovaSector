@@ -33,8 +33,8 @@
 /obj/structure/table/reinforced,
 /obj/item/clothing/gloves/color/yellow,
 /obj/structure/cable,
-/obj/item/circuitboard/machine/syndiepad/tarkon,
-/obj/item/circuitboard/computer/syndiepad/tarkon{
+/obj/item/circuitboard/machine/ghostpad/tarkon,
+/obj/item/circuitboard/computer/ghostpad/tarkon{
 	pixel_y = 2;
 	pixel_x = 2
 	},
