@@ -114,7 +114,7 @@
 	return SSaccessories.sprite_accessories["wings"] // NOVA EDIT - Customization - ORIGINAL: return SSaccessories.moth_wings_list
 
 /datum/bodypart_overlay/mutant/wings/moth/can_draw_on_bodypart(obj/item/bodypart/bodypart_owner)
-	return !(bodypart_owner.owner?.obscured_slots & HIDEMUTWINGS)
+	return !(bodypart_owner.owner?.obscured_slots & HIDEMUTWINGS) && ..(bodypart_owner, ignore_suit = TRUE) // NOVA EDIT - ORIGINAL: return !(bodypart_owner.owner?.obscured_slots & HIDEMUTWINGS)
 
 /datum/bodypart_overlay/mutant/wings/moth/get_base_icon_state()
 	return burnt ? burn_datum.icon_state : sprite_datum.icon_state
