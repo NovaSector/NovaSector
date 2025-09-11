@@ -2641,7 +2641,7 @@
 	pixel_x = 4;
 	pixel_y = 4
 	},
-/obj/item/circuitboard/computer/cargo/express/interdyne{
+/obj/item/circuitboard/computer/cargo/express/ghost{
 	pixel_x = 6;
 	pixel_y = 6
 	},
