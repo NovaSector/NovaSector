@@ -18,6 +18,9 @@
 	complexity_max = DEFAULT_MAX_COMPLEXITY - 3
 	slowdown_deployed = 0.25
 	inbuilt_modules = list(/obj/item/mod/module/jaeger_sprint) // future todo: user-settable shoulder stripe
+	allowed_suit_storage = list(
+		/obj/item/storage/belt/machete,
+	)
 	variants = list(
 		"infantry" = list(
 			MOD_ICON_OVERRIDE = 'modular_nova/modules/jaeger_mod/icons/obj/infantry.dmi',
