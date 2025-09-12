@@ -1,0 +1,6 @@
+author: "Hatterhat"
+delete-after: True
+changes:
+  - qol: "Crafted double emergency oxygen tanks inherit the gas mix of the extended-capacity emergency oxygen tanks used in their recipe."
+  - balance: "Successfully filed paperwork is now worth more to Central Command and has a consistent value."
+  - balance: "Ancient paperwork crates are now cheaper by one crate (200cr)."

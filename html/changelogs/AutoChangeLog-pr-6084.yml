@@ -1,0 +1,5 @@
+author: "Hatterhat"
+delete-after: True
+changes:
+  - rscadd: "Reintroduced the combat shotgun crate (2500cr for 3 shotguns and 3 bandoliers) and combat shotgun goody pack (1000cr for 1 shotgun and 1 bandolier). Prospective users are advised that, although it does have a hefty damage multiplier, the combat shotgun itself is also terribly hefty, and cannot be stowed anywhere but on the back."
+  - balance: "Nachtreiher combat shotguns have lost their semi-auto functionality, lost a shell's worth of magazine tube capacity, and have had their barrel chargers downtuned in order to mitigate a recent string of catastrophic failures from material strain."

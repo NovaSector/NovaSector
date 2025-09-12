@@ -143,3 +143,17 @@
       inaccessible place in the realm, but a dock everyone can go to in deep space,
       or on the planet surface
   - code_imp: Marauder's bay 09 unloads itself after the player's departure
+2025-09-12:
+  Hatterhat:
+  - bugfix: Nachtreiher and Laevateinn recipes no longer look for already-converted
+      guns.
+  - spellcheck: Made some of the weapon conversion kit instructions in recipes less
+      verbose.
+  Iajret:
+  - bugfix: Limited edition red-coloured sharmshir sabre (no-no, it wasnt a captains
+      one, i assure you) is now reverted back to its grey color. To avoid confusion,
+      of course, not because it was *stronger*
+  NomNumNomYum:
+  - code_imp: Changes nova's radio channel file from "mapping.dm" to "radio.dm"
+  carpotoxin:
+  - bugfix: Fixes holes in the Marauder map caused by a TG mirror
