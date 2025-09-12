@@ -43,5 +43,6 @@
 	name = "random maintsrooms spawn (no walls)"
 
 /obj/effect/spawner/random/maintsrooms/no_walls/New()
-	loot[/turf/open/floor/white] = 68
+	loot[/turf/open/floor/white] = (loot[/turf/open/floor/white] + loot[/turf/closed/wall/r_wall])
 	loot -= /turf/closed/wall/r_wall
+	return ..()
