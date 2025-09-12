@@ -35,6 +35,26 @@
 	purchasable_from = ~UPLINK_SPY //spy get their own tg version
 	uplink_item_flags = SYNDIE_ILLEGAL_TECH | SYNDIE_TRIPS_CONTRABAND
 
+/datum/uplink_item/dangerous/katana
+	name = "Katana"
+	desc = "A really sharp Katana. Did I mention it's sharp?"
+	item = /obj/item/katana
+	cost = 11
+	purchasable_from = UPLINK_TRAITORS
+
+// TG Overrides - Allows nukie weapons on normal op uplinks
+/datum/uplink_item/weapon_kits/low_cost
+	purchasable_from = (UPLINK_TRAITORS | UPLINK_SERIOUS_OPS)
+
+/datum/uplink_item/weapon_kits/medium_cost
+	purchasable_from = (UPLINK_TRAITORS | UPLINK_SERIOUS_OPS)
+
+/datum/uplink_item/weapon_kits/high_cost
+	purchasable_from = (UPLINK_TRAITORS | UPLINK_SERIOUS_OPS)
+
+/datum/uplink_item/ammo_nuclear
+	purchasable_from = (UPLINK_TRAITORS | UPLINK_SERIOUS_OPS)
+
 // TG Overrides - Raises cost of this by 2x
 /datum/uplink_item/role_restricted/his_grace
 	cost = 40 // forces you to murderbone, so we're taking two antags out for one if they try it
