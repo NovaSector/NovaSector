@@ -149,6 +149,23 @@
       guns.
   - spellcheck: Made some of the weapon conversion kit instructions in recipes less
       verbose.
+  - qol: Crafted double emergency oxygen tanks inherit the gas mix of the extended-capacity
+      emergency oxygen tanks used in their recipe.
+  - balance: Successfully filed paperwork is now worth more to Central Command and
+      has a consistent value.
+  - balance: Ancient paperwork crates are now cheaper by one crate (200cr).
+  - rscadd: Reintroduced the combat shotgun crate (2500cr for 3 shotguns and 3 bandoliers)
+      and combat shotgun goody pack (1000cr for 1 shotgun and 1 bandolier). Prospective
+      users are advised that, although it does have a hefty damage multiplier, the
+      combat shotgun itself is also terribly hefty, and cannot be stowed anywhere
+      but on the back.
+  - balance: Nachtreiher combat shotguns have lost their semi-auto functionality,
+      lost a shell's worth of magazine tube capacity, and have had their barrel chargers
+      downtuned in order to mitigate a recent string of catastrophic failures from
+      material strain.
+  - qol: Expeditionary Corps armor vests and modular infantry MODsuits can now equip
+      machete scabbards to their suit storage.
+  - image: Repaired pointman shields now have a unique on-mob/worn sprite.
   Iajret:
   - bugfix: Limited edition red-coloured sharmshir sabre (no-no, it wasnt a captains
       one, i assure you) is now reverted back to its grey color. To avoid confusion,
