@@ -143,3 +143,39 @@
       inaccessible place in the realm, but a dock everyone can go to in deep space,
       or on the planet surface
   - code_imp: Marauder's bay 09 unloads itself after the player's departure
+2025-09-12:
+  Hatterhat:
+  - bugfix: Nachtreiher and Laevateinn recipes no longer look for already-converted
+      guns.
+  - spellcheck: Made some of the weapon conversion kit instructions in recipes less
+      verbose.
+  - qol: Crafted double emergency oxygen tanks inherit the gas mix of the extended-capacity
+      emergency oxygen tanks used in their recipe.
+  - balance: Successfully filed paperwork is now worth more to Central Command and
+      has a consistent value.
+  - balance: Ancient paperwork crates are now cheaper by one crate (200cr).
+  - rscadd: Reintroduced the combat shotgun crate (2500cr for 3 shotguns and 3 bandoliers)
+      and combat shotgun goody pack (1000cr for 1 shotgun and 1 bandolier). Prospective
+      users are advised that, although it does have a hefty damage multiplier, the
+      combat shotgun itself is also terribly hefty, and cannot be stowed anywhere
+      but on the back.
+  - balance: Nachtreiher combat shotguns have lost their semi-auto functionality,
+      lost a shell's worth of magazine tube capacity, and have had their barrel chargers
+      downtuned in order to mitigate a recent string of catastrophic failures from
+      material strain.
+  - qol: Expeditionary Corps armor vests and modular infantry MODsuits can now equip
+      machete scabbards to their suit storage.
+  - image: Repaired pointman shields now have a unique on-mob/worn sprite.
+  Iajret:
+  - bugfix: Limited edition red-coloured sharmshir sabre (no-no, it wasnt a captains
+      one, i assure you) is now reverted back to its grey color. To avoid confusion,
+      of course, not because it was *stronger*
+  NomNumNomYum:
+  - code_imp: Changes nova's radio channel file from "mapping.dm" to "radio.dm"
+  carpotoxin:
+  - bugfix: Fixes holes in the Marauder map caused by a TG mirror
+2025-09-13:
+  OrbisAnima:
+  - rscdel: Removes Sensitive Hearing until someone reworks it.
+  RealWinterFrost:
+  - code_imp: added new "safe planet" atmosphere for mappers to enjoy and use.

@@ -27,8 +27,8 @@
 		/obj/item/crafting_conversion_kit/reclaimer_reverse = 1
 	)
 	steps = list(
-		"Remove the rC-20's magazine",
-		"Clear the rC-20's chamber"
+		"Remove the magazine",
+		"Clear the chamber"
 	)
 	tool_behaviors = list(TOOL_SCREWDRIVER)
 	time = 15 SECONDS
@@ -69,11 +69,15 @@
 		/obj/item/crafting_conversion_kit/c38_super = 1
 	)
 	steps = list(
-		"Clear your revolver's cylinder",
+		"Clear the cylinder",
 	)
 	tool_behaviors = list(TOOL_SCREWDRIVER)
 	time = 15 SECONDS
 	category = CAT_WEAPON_RANGED
+
+/datum/crafting_recipe/c38_super/New()
+	..()
+	blacklist |= typesof(/obj/item/gun/ballistic/revolver/c38/super) // let's not try to super-ize our already super revolver i think
 
 /datum/crafting_recipe/c38_super/check_requirements(mob/user, list/collected_requirements)
 	var/obj/item/gun/ballistic/revolver/c38/the_piece = collected_requirements[/obj/item/gun/ballistic/revolver/c38][1]
