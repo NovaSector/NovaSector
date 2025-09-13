@@ -134,11 +134,11 @@
 	item_path = /obj/item/storage/medkit/civil_defense/stocked
 
 /datum/loadout_item/pocket_items/medkit
-	name = "Medical Kit - First-Aid"
-	item_path = /obj/item/storage/medkit/regular
+	name = "Medical Kit - Emergency First-Aid"
+	item_path = /obj/item/storage/medkit/emergency
 
 /datum/loadout_item/pocket_items/deforest_frontiermedkit
-	name = "Medical Kit - Frontier"
+	name = "Medical Kit - Frontier Emergency Kit"
 	item_path = /obj/item/storage/medkit/frontier/stocked
 
 /datum/loadout_item/pocket_items/synthetic_medkit
