@@ -1111,10 +1111,10 @@ mutant_styles: The mutant style - taur bodytype, STYLE_TESHARI, etc. // NOVA EDI
 			building_icon = wear_taur_version(t_state, building_icon || icon(file2use, t_state), female_uniform, greyscale_colors)
 		else
 			shift_pixel_x = -16 // it doesnt look right otherwise
-	if (!isinhands && (mutant_styles & STYLE_TAUR_BIGLEGS_ALL))
-		if(!(supports_variations_flags & STYLE_TAUR_BIGLEGS_ALL) && using_taur_variant)
+	if (!isinhands && using_taur_variant && (mutant_styles & STYLE_TAUR_BIGLEGS_ALL))
+		if(!(supports_variations_flags & STYLE_TAUR_BIGLEGS_ALL))
 			building_icon = wear_digi_version(icon_exists(file2use, t_state) ? icon(file2use, t_state) : icon(worn_icon, t_state), src, "[t_state]-[worn_icon]-[female_uniform]", greyscale_colors)
-		else if(using_taur_variant)
+		else
 			shift_pixel_x = -16
 	// NOVA EDIT ADDITION END
 	if(building_icon)
