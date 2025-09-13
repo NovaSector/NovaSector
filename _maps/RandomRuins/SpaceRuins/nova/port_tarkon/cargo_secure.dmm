@@ -85,7 +85,7 @@
 /obj/machinery/door/window/brigdoor/left/directional/south{
 	req_access = list("tarkon")
 	},
-/obj/item/construction/rcd/arcd/mattermanipulator,
+/obj/item/construction/rcd/arcd/tarkon,
 /turf/template_noop,
 /area/template_noop)
 "C" = (

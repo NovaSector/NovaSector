@@ -91,7 +91,7 @@
 /turf/template_noop,
 /area/template_noop)
 "J" = (
-/obj/item/construction/rcd/arcd/mattermanipulator,
+/obj/item/construction/rcd/arcd/tarkon,
 /obj/item/rcd_ammo/large,
 /obj/item/rcd_ammo/large,
 /obj/item/rcd_ammo/large,

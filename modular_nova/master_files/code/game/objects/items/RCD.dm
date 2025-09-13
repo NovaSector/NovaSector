@@ -1,16 +1,3 @@
-/obj/item/construction/rcd/arcd/mattermanipulator
-	name = "matter manipulator"
-	desc = "A strange, familiar yet distinctly different analogue to the Nanotrasen standard RCD. Works at range, and can deconstruct reinforced walls. Reload using metal, glass, or plasteel."
-	icon = 'modular_nova/master_files/icons/obj/tools.dmi'
-	icon_state = "rcd"
-	worn_icon_state = "RCD"
-	ranged = TRUE
-	canRturf = TRUE
-	max_matter = 500
-	matter = 500
-	canRturf = TRUE
-	construction_upgrades = RCD_UPGRADE_FRAMES | RCD_UPGRADE_SIMPLE_CIRCUITS | RCD_UPGRADE_FURNISHING
-
 // Check for drains - we only want one per tile
 /obj/item/construction/plumbing/canPlace(turf/destination)
 	if(ispath(blueprint, /obj/structure/drain))
