@@ -2,7 +2,10 @@
 #define SAUNA_LOG_FUEL 150
 #define SAUNA_PAPER_FUEL 5
 #define SAUNA_MAXIMUM_FUEL 3000
-#define SAUNA_WATER_PER_WATER_UNIT 5
+/// Max amount of turfs to be affected by vapor, counts unaffected tiles adjacent to vapor
+#define SAUNA_SPREAD_CAP 120
+/// How much reagent units the sauna can hold
+#define SAUNA_REAGENT_MAX 200
 
 /obj/structure/sauna_oven
 	name = "sauna oven"
@@ -14,12 +17,15 @@
 	resistance_flags = FIRE_PROOF
 	var/lit = FALSE
 	var/fuel_amount = 0
-	var/water_amount = 0
 
 /obj/structure/sauna_oven/examine(mob/user)
 	. = ..()
-	. += span_notice("The rocks are [water_amount ? "moist" : "dry"].")
+	. += span_notice("The rocks are [reagents.total_volume ? "moist" : "dry"].")
 	. += span_notice("There's [fuel_amount ? "some fuel" : "no fuel"] in the oven.")
+
+/obj/structure/sauna_oven/Initialize(mapload)
+	. = ..()
+	create_reagents(SAUNA_REAGENT_MAX, AMOUNT_VISIBLE)
 
 /obj/structure/sauna_oven/Destroy()
 	if(lit)
@@ -35,6 +41,7 @@
 		lit = FALSE
 		STOP_PROCESSING(SSobj, src)
 		user.visible_message(span_notice("[user] turns off [src]."), span_notice("You turn off [src]."))
+		update_steam_particles()
 	else if (fuel_amount)
 		lit = TRUE
 		START_PROCESSING(SSobj, src)
@@ -50,59 +57,94 @@
 	..()
 	icon_state = "[lit ? "sauna_oven_on" : initial(icon_state)]"
 
-/obj/structure/sauna_oven/attackby(obj/item/attacking_item, mob/user, list/modifiers, list/attack_modifiers)
-	if(attacking_item.tool_behaviour == TOOL_WRENCH)
+/obj/structure/sauna_oven/item_interaction(mob/living/user, obj/item/interacting_item, list/modifiers)
+	if(interacting_item.tool_behaviour == TOOL_WRENCH)
 		balloon_alert(user, "deconstructing...")
-		if(attacking_item.use_tool(src, user, 60, volume = 50))
+		if(interacting_item.use_tool(src, user, 60, volume = 50))
 			balloon_alert(user, "deconstructed")
 			new /obj/item/stack/sheet/mineral/wood(get_turf(src), 30)
 			qdel(src)
+			return ITEM_INTERACT_SUCCESS
 
-	else if(istype(attacking_item, /obj/item/reagent_containers))
-		var/obj/item/reagent_containers/reagent_container = attacking_item
+	else if(istype(interacting_item, /obj/item/reagent_containers))
+		var/obj/item/reagent_containers/reagent_container = interacting_item
 		if(!reagent_container.is_open_container())
-			return ..()
-		if(reagent_container.reagents.has_reagent(/datum/reagent/water))
-			reagent_container.reagents.remove_reagent(/datum/reagent/water, 5)
+			return ITEM_INTERACT_BLOCKING
+		if(reagents.total_volume >= SAUNA_REAGENT_MAX)
+			return ITEM_INTERACT_BLOCKING
+		var/datum/reagent/master_reagent = reagent_container.reagents.get_master_reagent()
+		if(istype(master_reagent, /datum/reagent/water))
+			reagent_container.reagents.trans_to(src, reagent_container.amount_per_transfer_from_this)
 			user.visible_message(span_notice("[user] pours some \
 			water into [src]."), span_notice("You pour \
 			some water to [src]."))
-			water_amount += 5 * SAUNA_WATER_PER_WATER_UNIT
+			playsound(src, SFX_LIQUID_POUR, 75, TRUE)
+			return ITEM_INTERACT_SUCCESS
 		else
 			balloon_alert(user, "no water!")
+			return ITEM_INTERACT_BLOCKING
 
-	else if(istype(attacking_item, /obj/item/stack/sheet/mineral/wood))
-		var/obj/item/stack/sheet/mineral/wood/wood = attacking_item
+	else if(istype(interacting_item, /obj/item/stack/sheet/mineral/wood))
+		var/obj/item/stack/sheet/mineral/wood/wood = interacting_item
 		if(fuel_amount > SAUNA_MAXIMUM_FUEL)
 			balloon_alert(user, "it's full!")
-			return
+			return ITEM_INTERACT_BLOCKING
 		fuel_amount += SAUNA_LOG_FUEL * wood.amount
 		wood.use(wood.amount)
 		user.visible_message(span_notice("[user] tosses some \
 			wood into [src]."), span_notice("You add \
 			some fuel to [src]."))
-	else if(istype(attacking_item, /obj/item/paper_bin))
-		var/obj/item/paper_bin/paper_bin = attacking_item
-		user.visible_message(span_notice("[user] throws [attacking_item] into \
-			[src]."), span_notice("You add [attacking_item] to [src].\
+		playsound(src, 'sound/items/handling/materials/wood_drop.ogg', 75, TRUE)
+		return ITEM_INTERACT_SUCCESS
+
+	else if(istype(interacting_item, /obj/item/paper_bin))
+		var/obj/item/paper_bin/paper_bin = interacting_item
+		user.visible_message(span_notice("[user] throws [interacting_item] into \
+			[src]."), span_notice("You add [interacting_item] to [src].\
 			"))
 		fuel_amount += SAUNA_PAPER_FUEL * paper_bin.total_paper
 		qdel(paper_bin)
-	else if(istype(attacking_item, /obj/item/paper))
-		user.visible_message(span_notice("[user] throws [attacking_item] into \
-			[src]."), span_notice("You throw [attacking_item] into [src].\
+		playsound(src, 'sound/items/handling/materials/plastic_drop.ogg', 75, TRUE)
+		return ITEM_INTERACT_SUCCESS
+
+	else if(istype(interacting_item, /obj/item/paper))
+		user.visible_message(span_notice("[user] throws [interacting_item] into \
+			[src]."), span_notice("You throw [interacting_item] into [src].\
 			"))
 		fuel_amount += SAUNA_PAPER_FUEL
-		qdel(attacking_item)
-	return ..()
+		qdel(interacting_item)
+		playsound(src, 'sound/items/handling/paper_drop.ogg', 75, TRUE)
+		return ITEM_INTERACT_SUCCESS
+	return NONE
 
 /obj/structure/sauna_oven/process()
-	if(water_amount)
-		water_amount--
+	if(reagents.total_volume)
+		reagents.total_volume--
 		update_steam_particles()
-		var/turf/open/pos = get_turf(src)
-		if(istype(pos) && pos.air.return_pressure() < 2*ONE_ATMOSPHERE)
-			pos.atmos_spawn_air("water_vapor=10;TEMP=[SAUNA_H2O_TEMP]")
+		var/list/turfs_affected = list(get_turf(src))
+		var/list/turfs_to_spread = list(get_turf(src))
+		for(var/i in 1 to reagents.total_volume)
+			if(!length(turfs_to_spread))
+				break
+			var/list/new_spread_list = list()
+			for(var/turf/open/turf_to_spread as anything in turfs_to_spread)
+				if(length(turfs_affected) >= SAUNA_SPREAD_CAP)
+					break
+				if(is_space_or_openspace(turf_to_spread))
+					continue
+				var/obj/effect/abstract/fake_steam/sauna/steam = locate() in turf_to_spread
+				var/at_edge = FALSE
+				if(!steam)
+					at_edge = TRUE
+					steam = new(turf_to_spread)
+				steam.stage_up()
+				if(!at_edge)
+					for(var/turf/open/open_turf as anything in turf_to_spread.atmos_adjacent_turfs)
+						if(!(open_turf in turfs_affected))
+							new_spread_list += open_turf
+							turfs_affected += open_turf
+			turfs_to_spread = new_spread_list
+
 	fuel_amount--
 	if(fuel_amount <= 0)
 		lit = FALSE
@@ -112,12 +154,12 @@
 
 /obj/structure/sauna_oven/proc/update_steam_particles()
 	if(particles)
-		if(lit && water_amount)
+		if(lit && reagents.total_volume)
 			return
 		QDEL_NULL(particles)
 		return
 
-	if(lit && water_amount)
+	if(lit && reagents.total_volume)
 		particles = new /particles/smoke/steam/mild
 		particles.position = list(0, 6, 0)
 
@@ -125,4 +167,5 @@
 #undef SAUNA_LOG_FUEL
 #undef SAUNA_PAPER_FUEL
 #undef SAUNA_MAXIMUM_FUEL
-#undef SAUNA_WATER_PER_WATER_UNIT
+#undef SAUNA_SPREAD_CAP
+#undef SAUNA_REAGENT_MAX
