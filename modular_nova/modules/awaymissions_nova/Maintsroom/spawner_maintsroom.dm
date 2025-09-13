@@ -38,3 +38,11 @@
 		return spawn_turf.place_on_top(type_path_to_make)
 	else
 		return ..()
+
+/obj/effect/spawner/random/maintsrooms/no_walls
+	name = "random maintsrooms spawn (no walls)"
+
+/obj/effect/spawner/random/maintsrooms/no_walls/New()
+	loot[/turf/open/floor/white] = (loot[/turf/open/floor/white] + loot[/turf/closed/wall/r_wall])
+	loot -= /turf/closed/wall/r_wall
+	return ..()

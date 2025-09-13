@@ -16,7 +16,7 @@
 	. = ..()
 	AddElement(/datum/element/manufacturer_examine, COMPANY_ARCHON)
 
-/datum/crafting_recipe/riot_sol_to_riot_sol_super
+/datum/crafting_recipe/riot_sol_super
 	name = "M64 to KOLBEN/NACHTREIHER Shotgun Conversion"
 	desc = "Bring order to chaos."
 	result = /obj/item/gun/ballistic/shotgun/riot/sol/super/empty
@@ -25,14 +25,18 @@
 		/obj/item/crafting_conversion_kit/riot_sol_super = 1
 	)
 	steps = list(
-		"Empty the M64's magazine",
-		"Empty the M64's chamber"
+		"Empty the magazine",
+		"Empty the chamber"
 	)
 	tool_behaviors = list(TOOL_SCREWDRIVER)
 	time = 15 SECONDS
 	category = CAT_WEAPON_RANGED
 
-/datum/crafting_recipe/riot_sol_to_riot_sol_super/check_requirements(mob/user, list/collected_requirements)
+/datum/crafting_recipe/riot_sol_super/New()
+	..()
+	blacklist |= typesof(/obj/item/gun/ballistic/shotgun/riot/sol/super) // let's not try to super-ize our already super shotgun i think
+
+/datum/crafting_recipe/riot_sol_super/check_requirements(mob/user, list/collected_requirements)
 	var/obj/item/gun/ballistic/shotgun/riot/sol/the_piece = collected_requirements[/obj/item/gun/ballistic/shotgun/riot/sol][1]
 	if(the_piece.get_ammo())
 		return FALSE

@@ -832,7 +832,7 @@
 /turf/open/floor/plating,
 /area/misc/operative_barracks/hangar)
 "mh" = (
-/turf/closed/indestructible/syndicate/nodiagonal,
+/turf/closed/wall/r_wall/plastitanium/syndicate/nodiagonal,
 /area/misc/operative_barracks)
 "ml" = (
 /obj/effect/turf_decal/siding/dark/corner{
@@ -1435,9 +1435,6 @@
 	},
 /turf/open/floor/plating,
 /area/misc/operative_barracks/hangar)
-"sz" = (
-/turf/closed/indestructible/syndicate/nodiagonal,
-/area/misc/operative_barracks/armoury)
 "sG" = (
 /obj/effect/decal/cleanable/dirt/dust,
 /obj/effect/mapping_helpers/atom_injector/element_injector{
@@ -1581,7 +1578,7 @@
 /obj/effect/baseturf_helper{
 	baseturf = /turf/open/floor/plating
 	},
-/turf/closed/indestructible/syndicate/nodiagonal,
+/turf/closed/wall/r_wall/plastitanium/syndicate/nodiagonal,
 /area/misc/operative_barracks/hangar)
 "uv" = (
 /obj/effect/turf_decal/siding/dark{
@@ -1727,7 +1724,7 @@
 /turf/open/lava/fake,
 /area/misc/operative_barracks/mission_briefing)
 "vE" = (
-/turf/closed/indestructible/syndicate/nodiagonal,
+/turf/closed/wall/r_wall/plastitanium/syndicate/nodiagonal,
 /area/misc/operative_barracks/surgery)
 "vF" = (
 /obj/structure/mannequin/operative_barracks/spy,
@@ -3800,7 +3797,7 @@
 /obj/effect/baseturf_helper{
 	baseturf = /turf/open/floor/plating
 	},
-/turf/closed/indestructible/syndicate/nodiagonal,
+/turf/closed/wall/r_wall/plastitanium/syndicate/nodiagonal,
 /area/misc/operative_barracks)
 "Yh" = (
 /obj/structure/table/reinforced,
@@ -3947,9 +3944,6 @@
 /obj/structure/cable,
 /obj/machinery/light/floor,
 /turf/open/floor/iron/dark/smooth_large,
-/area/misc/operative_barracks/hangar)
-"ZT" = (
-/turf/closed/indestructible/syndicate/nodiagonal,
 /area/misc/operative_barracks/hangar)
 "ZV" = (
 /obj/structure/stairs/west{
@@ -4520,7 +4514,7 @@ TP
 TP
 "}
 (21,1,1) = {"
-ZT
+IJ
 WF
 jt
 WF
@@ -4565,7 +4559,7 @@ qN
 OB
 bg
 bg
-sz
+wx
 VE
 jV
 TP
@@ -4803,7 +4797,7 @@ TP
 (10,1,2) = {"
 fr
 fr
-mh
+fr
 mh
 DP
 HC
@@ -4832,7 +4826,7 @@ TP
 Nz
 Nz
 Nz
-mh
+fr
 op
 HC
 KK
@@ -4859,7 +4853,7 @@ TP
 (12,1,2) = {"
 fr
 fr
-mh
+fr
 mh
 pc
 HC

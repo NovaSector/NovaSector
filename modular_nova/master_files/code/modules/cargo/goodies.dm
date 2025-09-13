@@ -20,8 +20,10 @@
 	special = TRUE
 
 /datum/supply_pack/goody/ballistic_single
+	desc = "For when the enemy absolutely needs to be replaced with lead. Contains one Nanotrasen Peacekeeper combat shotgun, and one bandolier."
+	cost = PAYCHECK_COMMAND * 10 // more expensive than the riot shotgun, less than the jager, because you can't carry it conveniently and reloading it sucks
+	// however. 1.35x damage mult. you buy this for yourself if you're willing to carry around the biggest stick and look like a total psycho doing it
 	access_view = FALSE
-	special = TRUE
 
 /datum/supply_pack/goody/disabler_single
 	access_view = FALSE
