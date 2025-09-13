@@ -11,6 +11,22 @@
 	max_matter = 200	//Industrial/Combat RCD is like 500. Its still better than default 160 and wont matter once silo upgraded. also I like properly rounded numbers.
 	matter = 200
 	construction_upgrades = RCD_UPGRADE_FRAMES | RCD_UPGRADE_SIMPLE_CIRCUITS | RCD_UPGRADE_NO_FREQUENT_USE_COOLDOWN
+	var/safety_enabled = TRUE
+
+
+    //Check if the target is on station and safety is enabled
+	//If so, prevent placement and alert the user
+	//Ignore check if targe is within 1 tile of user
+	/obj/item/construction/rcd/tarkon/can_place(atom/target, list/rcd_results, mob/user)
+
+		if(!(target in dview(1, get_turf(user))))
+			if (istype(get_area(target), /area/station) && safety_enabled)
+				balloon_alert(user,"Safety engaged")
+				flick("[icon_state]_empty", src)
+				return FALSE
+
+		return ..(target, rcd_results, user)
+
 
 /obj/item/construction/rcd/arcd/tarkon
 	name = "Tarkon Industries Advanced RCD"
@@ -25,3 +41,4 @@
 	matter = 500
 	canRturf = TRUE
 	construction_upgrades = RCD_UPGRADE_FRAMES | RCD_UPGRADE_SIMPLE_CIRCUITS | RCD_UPGRADE_FURNISHING
+
