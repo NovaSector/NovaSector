@@ -58,14 +58,6 @@
 /obj/machinery/power/solar,
 /turf/open/floor/iron/solarpanel/airless,
 /area/solars/tarkon)
-"P" = (
-/obj/item/solar_assembly,
-/obj/structure/cable,
-/obj/modular_map_root/port_tarkon{
-	key = "nest"
-	},
-/turf/open/floor/iron/solarpanel/airless,
-/area/solars/tarkon)
 "Q" = (
 /obj/modular_map_connector,
 /turf/template_noop,
@@ -469,7 +461,7 @@ a
 a
 a
 a
-P
+Z
 a
 a
 a
