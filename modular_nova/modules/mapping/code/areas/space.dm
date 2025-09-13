@@ -144,6 +144,50 @@
 	default_gravity = STANDARD_GRAVITY
 	outdoors = TRUE
 
+/area/ruin/space/has_grav/port_tarkon/viro
+	name = "P-T Virology Center"
+	icon_state = "virology"
+
+/area/ruin/space/has_grav/port_tarkon/apartment
+	name = "P-T Command Apartment"
+	icon_state = "head_quarters"
+
+/area/ruin/space/has_grav/port_tarkon/private
+	name = "P-T Private Room"
+	icon_state = "head_quarters"
+
+/area/ruin/space/has_grav/port_tarkon/sciencexp
+	name = "P-T Experementation Research Center"
+	icon_state = "exp_lab"
+
+/area/ruin/space/has_grav/port_tarkon/sciencehall
+	name = "P-T Research Hall"
+	icon_state = "science"
+
+/area/ruin/space/has_grav/port_tarkon/sauna
+	name = "P-T Sauna"
+	icon_state = "dorms"
+
+/area/ruin/space/has_grav/port_tarkon/lounge
+	name = "P-T Bar Lounge"
+	icon_state = "bar"
+
+/area/ruin/space/has_grav/port_tarkon/engineering
+	name = "P-T Engineering Center"
+	icon_state = "engie"
+
+/area/ruin/space/has_grav/port_tarkon/park
+	name = "P-T Park"
+	icon_state = "garden"
+
+/area/ruin/space/has_grav/port_tarkon/aichamber
+	name = "P-T AI Chamber"
+	icon_state = "ai_chamber"
+
+/area/ruin/space/has_grav/port_tarkon/aiante
+	name = "P-T AI Antechamber"
+	icon_state = "ai"
+
 /**
  * DS2 Syndie Areas
  */
