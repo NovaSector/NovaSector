@@ -50,6 +50,14 @@
 /obj/structure/lattice,
 /turf/open/space/basic,
 /area/solars/tarkon)
+"J" = (
+/obj/structure/cable,
+/obj/machinery/power/solar,
+/obj/modular_map_root/port_tarkon{
+	key = "nest"
+	},
+/turf/open/floor/iron/solarpanel/airless,
+/area/solars/tarkon)
 "L" = (
 /obj/structure/lattice/catwalk,
 /obj/structure/cable,
@@ -455,7 +463,7 @@ t
 t
 t
 t
-a
+J
 t
 t
 t

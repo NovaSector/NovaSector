@@ -55,6 +55,14 @@
 /mob/living/basic/carp,
 /turf/open/space/basic,
 /area/solars/tarkon)
+"J" = (
+/obj/item/solar_assembly,
+/obj/structure/cable,
+/obj/modular_map_root/port_tarkon{
+	key = "nest"
+	},
+/turf/open/floor/iron/solarpanel/airless,
+/area/solars/tarkon)
 "T" = (
 /obj/structure/lattice/catwalk,
 /turf/open/space/basic,
@@ -457,7 +465,7 @@ a
 a
 a
 a
-y
+J
 a
 a
 a

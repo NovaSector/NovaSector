@@ -3,6 +3,13 @@
 /obj/structure/lattice/catwalk,
 /turf/open/space/basic,
 /area/solars/tarkon)
+"e" = (
+/obj/structure/cable,
+/obj/modular_map_root/port_tarkon{
+	key = "nest"
+	},
+/turf/open/floor/iron/solarpanel/airless,
+/area/solars/tarkon)
 "i" = (
 /obj/machinery/power/tracker,
 /obj/structure/cable,
@@ -455,7 +462,7 @@ X
 X
 X
 X
-M
+e
 X
 X
 X
