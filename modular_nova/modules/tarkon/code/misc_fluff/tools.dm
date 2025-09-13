@@ -16,7 +16,7 @@
 
     //Check if the target is on station and safety is enabled
 	//If so, prevent placement and alert the user
-	//Ignore check if targe is within 1 tile of user
+	//Ignore check if target is within 1 tile of user
 	/obj/item/construction/rcd/tarkon/can_place(atom/target, list/rcd_results, mob/user)
 
 		if(!(target in dview(1, get_turf(user))))
