@@ -174,3 +174,8 @@
   - code_imp: Changes nova's radio channel file from "mapping.dm" to "radio.dm"
   carpotoxin:
   - bugfix: Fixes holes in the Marauder map caused by a TG mirror
+2025-09-13:
+  OrbisAnima:
+  - rscdel: Removes Sensitive Hearing until someone reworks it.
+  RealWinterFrost:
+  - code_imp: added new "safe planet" atmosphere for mappers to enjoy and use.
