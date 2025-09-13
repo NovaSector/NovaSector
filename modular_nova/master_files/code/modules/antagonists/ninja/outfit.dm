@@ -1,3 +1,4 @@
 /datum/outfit/ninja
-	skillchips = list(/obj/item/skillchip/matrix_taunt) // Originally: null
-	implants = null // Originally: list(/obj/item/implant/explosive)
+	l_pocket = null // remove big explosion charge
+	implants  = list() // remove explosive implant
+	skillchips = list(/obj/item/skillchip/matrix_taunt)

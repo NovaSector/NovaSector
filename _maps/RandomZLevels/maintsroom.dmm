@@ -1564,7 +1564,7 @@
 /obj/item/melee/energy/sword/saber/blue{
 	anchored = 1
 	},
-/obj/item/clothing/glasses/night/colorless,
+/obj/item/clothing/glasses/night,
 /obj/item/reagent_containers/hypospray/medipen/survival/luxury{
 	pixel_y = -7;
 	pixel_x = 7
@@ -7828,7 +7828,7 @@
 /area/awaymission/caves/maintsroom)
 "Ao" = (
 /obj/effect/decal/remains/human,
-/obj/effect/spawner/random/maintsrooms,
+/obj/effect/spawner/random/maintsrooms/no_walls,
 /turf/open/floor/white,
 /area/awaymission/caves/maintsroom/deeper)
 "Ap" = (
@@ -10598,7 +10598,7 @@
 /area/awaymission/caves/maintsroom)
 "JQ" = (
 /obj/effect/decal/remains/robot,
-/obj/effect/spawner/random/maintsrooms,
+/obj/effect/spawner/random/maintsrooms/no_walls,
 /turf/open/floor/white,
 /area/awaymission/caves/maintsroom/deeper)
 "JS" = (
@@ -11809,7 +11809,7 @@
 /area/awaymission/caves/maintsroom)
 "NO" = (
 /obj/effect/decal/remains/xeno,
-/obj/effect/spawner/random/maintsrooms,
+/obj/effect/spawner/random/maintsrooms/no_walls,
 /turf/open/floor/white,
 /area/awaymission/caves/maintsroom/deeper)
 "NP" = (
@@ -13707,7 +13707,7 @@
 /area/awaymission/caves/maintsroom)
 "Uo" = (
 /obj/effect/decal/remains/xeno/larva,
-/obj/effect/spawner/random/maintsrooms,
+/obj/effect/spawner/random/maintsrooms/no_walls,
 /turf/open/floor/white,
 /area/awaymission/caves/maintsroom/deeper)
 "Up" = (
@@ -14094,7 +14094,7 @@
 /area/awaymission/caves/maintsroom)
 "VD" = (
 /obj/effect/decal/remains/human,
-/obj/item/mod/control/pre_equipped/marine/noboost,
+/obj/item/mod/control/pre_equipped/marine,
 /turf/open/floor/iron/smooth,
 /area/awaymission/caves/maintsroom)
 "VE" = (

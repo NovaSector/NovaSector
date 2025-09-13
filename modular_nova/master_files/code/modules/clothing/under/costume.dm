@@ -47,6 +47,36 @@
 	greyscale_colors = "#434d7a" //THATS RIGHT, FUCK YOU! THE BATHROBE CAN BE RECOLORED!
 	flags_1 = IS_PLAYER_COLORABLE_1
 
+/obj/item/clothing/under/costume/dutch
+	icon = 'icons/map_icons/clothing/under/_under.dmi'
+	icon_state = "/obj/item/clothing/under/costume/dutch"
+	post_init_icon_state = "dutchsuit"
+	greyscale_config = /datum/greyscale_config/dutch_outfit
+	greyscale_config_worn = /datum/greyscale_config/dutch_outfit/worn
+	greyscale_config_worn_digi = /datum/greyscale_config/dutch_outfit/worn/digi
+	greyscale_colors = "#333333#f8f8f8#ff0000#ffcc00"
+	flags_1 = IS_PLAYER_COLORABLE_1
+
+/obj/item/clothing/suit/costume/pg
+	icon = 'icons/map_icons/clothing/suit/costume.dmi'
+	icon_state = "/obj/item/clothing/suit/costume/pg"
+	post_init_icon_state = "powderganger"
+	greyscale_config = /datum/greyscale_config/powderganger
+	greyscale_config_worn = /datum/greyscale_config/powderganger/worn
+	greyscale_colors = "#76502b#c0c0c0"
+	flags_1 = IS_PLAYER_COLORABLE_1
+
+/obj/item/clothing/suit/chaplainsuit/monkrobeeast
+	icon = 'icons/map_icons/clothing/suit/costume.dmi'
+	icon_state = "/obj/item/clothing/suit/chaplainsuit/monkrobeeast"
+	post_init_icon_state = "monkrobeeast"
+	greyscale_config = /datum/greyscale_config/monkrobeeast
+	greyscale_config_worn = /datum/greyscale_config/monkrobeeast/worn
+	greyscale_config_worn_digi = /datum/greyscale_config/monkrobeeast/worn/digi
+	greyscale_colors = "#EADB83#D98E43#A52F29#212026"
+	flags_1 = IS_PLAYER_COLORABLE_1
+	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION
+
 /*
 *	LUNAR AND JAPANESE CLOTHES
 */
@@ -148,12 +178,6 @@
 	body_parts_covered = CHEST|GROIN|ARMS
 	flags_1 = IS_PLAYER_COLORABLE_1
 
-/obj/item/clothing/under/costume/nova/christmas/green
-	name = "green christmas costume"
-	desc = "4:00, wallow in self-pity. 4:30, stare into the abyss. 5:00, solve world hunger, tell no one. 5:30, jazzercize; 6:30, dinner with me. I can't cancel that again. 7:00, wrestle with my self-loathing. I'm booked. Of course, if I bump the loathing to 9, I could still be done in time to lay in bed, stare at the ceiling and slip slowly into madness."
-	icon_state = "/obj/item/clothing/under/costume/nova/christmas/green"
-	greyscale_colors = "#1a991a#c4c2c2"
-
 /obj/item/clothing/under/costume/nova/christmas/croptop
 	name = "sexy christmas costume"
 	desc = "About 550 years since the release of Mariah Carey's \"All I Want For Christmas is You\", society has yet to properly recover from its repercussions. Some still keep a gun as their christmas mantlepiece, just in case she's heard singing on their rooftop late in the night..."
@@ -166,12 +190,6 @@
 	body_parts_covered = CHEST|GROIN
 	female_sprite_flags = FEMALE_UNIFORM_TOP_ONLY
 	flags_1 = IS_PLAYER_COLORABLE_1
-
-/obj/item/clothing/under/costume/nova/christmas/croptop/green
-	name = "sexy green christmas costume"
-	desc = "Stupid. Ugly. Out of date. If I can't find something nice to wear I'm not going."
-	icon_state = "/obj/item/clothing/under/costume/nova/christmas/croptop/green"
-	greyscale_colors = "#1a991a#c4c2c2"
 
 /*
 *	TREK CLOTHES
