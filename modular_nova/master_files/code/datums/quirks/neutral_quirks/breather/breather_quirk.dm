@@ -1,6 +1,6 @@
 /datum/quirk/item_quirk/breather
 	abstract_parent_type = /datum/quirk/item_quirk/breather
-	icon = FA_ICON_LUNGS_VIRUS
+	icon = FA_ICON_MASK_VENTILATOR
 	///the message that will show up when the quirk is gained or the round starts
 	var/alert_text = "Be sure to equip your breathing apparatus, or you may end up choking!"
 	///the type of gas the dogtag accessory will be showing

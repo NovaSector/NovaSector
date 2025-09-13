@@ -59,6 +59,7 @@
 			packaging_types += list(category_item)
 
 	packaging_type = GLOB.reagent_containers[CAT_PILLS][1]
+	packaging_category = CAT_PILLS
 	max_volume = initial(packaging_type.volume)
 	current_volume = clamp(current_volume, MIN_VOLUME, max_volume)
 
@@ -83,15 +84,15 @@
 		var/suffix
 		switch(packaging_category)
 			if(CAT_PILLS)
-				suffix = "Pill"
+				suffix = "pill"
 			if(CAT_PATCHES)
-				suffix = "Patch"
+				suffix = "patch"
 			//NOVA EDIT ADDITION BEGIN - HYPOVIALS
 			if (CAT_HYPOS)
-				suffix = "Vial"
+				suffix = "vial"
 			//NOVA EDIT ADDITION END - HYPOVIALS
 			else
-				suffix = "Bottle"
+				suffix = "bottle"
 		container.name = "[product_name] [suffix]"
 		reagents.trans_to(container, current_volume)
 		if (istype(container, /obj/item/reagent_containers/applicator/pill))
