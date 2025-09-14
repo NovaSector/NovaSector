@@ -22,18 +22,18 @@
 
 /datum/vendor_equipment/primary/flashbangs
 	name = "Flashbang"
-	equipment_path = /obj/item/storage/box
+	product_path = /obj/item/storage/box
 	description = "A simple rather robust flashbang."
 	cost = 1
 
 /datum/vendor_equipment/primary/seclight
 	name = "Security Flashlight"
-	equipment_path = /obj/item/storage/box
+	product_path = /obj/item/storage/box
 	description = "A Seclight, useful in dark areas. Try to not forget it."
 	cost = 1
 
 /datum/vendor_equipment/primary/disabler
 	name = "Security Flashlight"
-	equipment_path = /obj/item/storage/box
+	product_path = /obj/item/storage/box
 	description = "A Seclight, useful in dark areas. Try to not forget it."
 	cost = 1

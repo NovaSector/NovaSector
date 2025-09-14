@@ -9,7 +9,7 @@
 	name = "Debug Equipment Vendor"
 	desc = "This accepts armament tokens in exchange for weapons, please present your token for redemption. If you see this report it to admins"
 	icon_state = "equipment_vendor"
-	icon = 'modular_nova/modules/armaments_machine/icons/token_system_icons.dmi'
+	icon = 'modular_nova/modules/armaments_machine/icons/vendors.dmi'
 
 	use_power = NO_POWER_USE
 	circuit = /obj/item/circuitboard/machine/equipment_vendor
@@ -37,6 +37,7 @@
 
 	/// The sound when a purchase is denied
 	var/denial_sound = 'sound/machines/cryo_warning.ogg'
+
 	/// The sound when a coin is slotted in successfully
 	var/token_sound = 'sound/machines/coindrop2.ogg'
 
@@ -90,7 +91,6 @@
 	var/list/armsdata = list()
 	armsdata = list("stock" = list())
 
-
 	for (var/datum/vendor_equipment/purchasable as anything in equipment_stock)
 		armsdata["stock"] += list(list(
 			"ref" = "\ref[purchasable]",
@@ -98,8 +98,7 @@
 			"description" = purchasable.description,
 			"cost" = purchasable.cost,
 			"category" = purchasable.category,
-			"item_path" = purchasable.equipment_path,
-			"icon" = purchasable.equipment_path?.icon_state,
+			"product" = purchasable.product_path,
 			"buy_limit" = purchasable.vend_limit,
 			"permit_req" = purchasable.permit_required,
 			"access" = purchasable.access_required,
@@ -109,6 +108,8 @@
 	var/list/data = list()
 	data["credits"]= src.points
 
+
+/*
 /obj/machinery/equipment_vendor/ui_act(action, list/params, datum/tgui/ui, datum/ui_state/state, mob/redeemer)
 	. = ..()
 	if(.)
@@ -119,15 +120,15 @@
 
 /obj/machinery/equipment_vendor/proc/dispense(list/params) // Maybe this works?
 	var/datum/vendor_equipment/purchased = locate(params["ref"]) in equipment_stock
-	if (src.credits[purchased.category] >= purchased.cost)
-		src.credits[purchased.category] -= purchased.cost
+	if (src.points[purchased.category] >= purchased.cost)
+		src.points[purchased.category] -= purchased.cost
 		playsound(src.loc, purchase_sound, 80, 1)
 		usr.put_in_active_hand
 		return TRUE
 	else
 		playsound(src.loc, denial_sound, 80, 1)
 	priority_announce("TEST RECIEVED","VENDING_DEBUG")
-
+*/
 
 
 
@@ -155,7 +156,7 @@
 /obj/item/equipment_token
 	name = "ERROR TOKEN"
 	desc = "If you have this or see this, let the admins know!"
-	icon = 'modular_nova/modules/armaments_machine/icons/token_system_icons.dmi'
+	icon = 'modular_nova/modules/armaments_machine/icons/tokens.dmi'
 	icon_state = "token_error"
 	w_class = WEIGHT_CLASS_TINY
 
@@ -182,7 +183,7 @@
 	/// If image_object is not defined or is null then it will just use equipment_path
 	var/obj/image_object
 	/// What path does it uses to spawn?
-	var/obj/equipment_path
+	var/obj/product_path
 	/// In case admemes want to make specific requisitions require permits
 	var/permit_required = FALSE
 	/// In case admemes want specific jobs or accesses required

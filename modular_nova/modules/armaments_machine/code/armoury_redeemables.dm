@@ -33,24 +33,24 @@
 
 /datum/vendor_equipment/primary/jager
 	name = "Jager"
-	equipment_path = /obj/item/storage/box
+	product_path = /obj/item/storage/box
 	description = "A heavily robust type of shotgun."
 	cost = 4
 
 /datum/vendor_equipment/primary/shotgun
 	name = "M64 Shotgun"
-	equipment_path = /obj/item/storage/box
+	product_path = /obj/item/storage/box
 	description = "A simple rather robust flashbang."
 	cost = 2
 
 /datum/vendor_equipment/primary/smg
 	name = "Smg"
-	equipment_path = /obj/item/storage/box
+	product_path = /obj/item/storage/box
 	description = "A simple rather robust flashbang."
 	cost = 2
 
 /datum/vendor_equipment/secondary/smg
 	name = "Jager"
-	equipment_path = /obj/item/storage/box
+	product_path = /obj/item/storage/box
 	description = "A simple rather robust flashbang."
 	cost = 2
