@@ -113,7 +113,7 @@
 	icon_state = "stamp-syndicate"
 	dye_color = DYE_SYNDICATE
 
-/obj/item/stamp/syndicate
+/obj/item/stamp/tarkon
 	name = "Port Tarkon rubber stamp"
 	icon_state = "stamp-tarkon"
 	dye_color = DYE_TARKON
