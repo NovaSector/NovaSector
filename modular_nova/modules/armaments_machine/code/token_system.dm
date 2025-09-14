@@ -35,12 +35,12 @@
 
 	/// The sound when a purchase is successfully made.
 	var/purchase_sound = 'sound/machines/machine_vend.ogg'
-
 	/// The sound when a purchase is denied
 	var/denial_sound = 'sound/machines/cryo_warning.ogg'
-
 	/// The sound when a coin is slotted in successfully
 	var/token_sound = 'sound/machines/coindrop2.ogg'
+	/// The sound when a item is rejected
+	var/token_denial = 'sound/machines/terminal/terminal_error.ogg'
 
 /obj/item/circuitboard/machine/equipment_vendor
 	name = "Equipment Vendor (Machine Board)"
@@ -54,15 +54,15 @@
 	default_unfasten_wrench(user, item, 120)
 	return TRUE
 
-/obj/machinery/equipment_vendor/attacked_by(obj/item/inserted, mob/living/user)
-	if(!istype(inserted, /obj/item/equipment_token))
+/obj/machinery/equipment_vendor/attacked_by(obj/item/equipment_token/token, mob/living/redeemer)
+	if(!istype(token, /obj/item/equipment_token))
 		return
 
-	if(!istype(inserted, accepted_token))
-		to_chat(user, span_notice("You try to use this token... but it simply gets spat back out."))
+	if(!istype(token, accepted_token))
+		to_chat(redeemer, span_notice("You try to use this [token.item_type]... but it simply gets spat back out."))
 		return
 
-	RedeemToken(inserted, user)
+	RedeemToken(token, redeemer)
 	return
 
 
@@ -73,7 +73,7 @@
 	if(QDELETED(token))
 		return
 	playsound(src, token_sound, 50, TRUE, extrarange = -3)
-	to_chat(redeemer, "Thank you for redeeming your token. Remember to use your equipment safely and wisely!")
+	to_chat(redeemer, "Thank you for redeeming your [token.item_type]. Remember to use your equipment safely and wisely!")
 	add_tokenpoints(token.points)
 	SSblackbox.record_feedback("tally", "equipment_token_used", 1)
 	qdel(token)
@@ -171,6 +171,9 @@
 	icon_state = "token_error"
 	w_class = WEIGHT_CLASS_TINY
 
+	/// What do we describe this as? "Thank you for redeeming your [token.item_type]" & "You try to use this [inserted.item_type]... but it simply gets spat back out."
+	var/item_type = "token"
+
 	/// Points for tokens should always be reasonable, such as no more than 3 for any category
 	var/list/points = list(
 		EQUIPMENT_VENDOR_CATEGORY_PRIMARY = 0,
@@ -220,3 +223,11 @@
 
 /datum/vendor_equipment/special
 	category = EQUIPMENT_VENDOR_CATEGORY_SPECIAL
+
+
+#undef EQUIPMENT_VENDOR_CATEGORY_PRIMARY
+#undef EQUIPMENT_VENDOR_CATEGORY_SECONDARY
+#undef EQUIPMENT_VENDOR_CATEGORY_UNIFORM
+#undef EQUIPMENT_VENDOR_CATEGORY_EQUIPMENT
+#undef EQUIPMENT_VENDOR_CATEGORY_UTILITIES
+#undef EQUIPMENT_VENDOR_CATEGORY_SPECIAL
