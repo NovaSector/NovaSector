@@ -2,9 +2,10 @@
 
 /datum/uplink_item/explosives
 
+
 // LOW COST
 /datum/uplink_item/explosives/soap_clusterbang
-	purchasable_from = NONE
+	purchasable_from = NONE //low rp and annoying
 
 /datum/uplink_item/explosives/frag
 
@@ -18,11 +19,6 @@
 
 /datum/uplink_item/explosives/pizza_bomb
 
-/datum/uplink_item/explosives/syndicate_bomb
-	cost = /datum/uplink_item/low_cost/explosive::cost
-
-/datum/uplink_item/explosives/syndicate_bomb/emp
-	cost = /datum/uplink_item/low_cost/explosive::cost
 
 // MEDIUM COST
 /datum/uplink_item/explosives/c4bag
@@ -36,3 +32,8 @@
 
 
 // HIGH COST
+/datum/uplink_item/explosives/syndicate_bomb
+	cost = /datum/uplink_item/high_cost/explosive::cost
+
+/datum/uplink_item/explosives/syndicate_bomb/emp
+	cost = /datum/uplink_item/high_cost/explosive::cost

@@ -3,11 +3,15 @@
 
 /datum/uplink_item/dangerous
 
+
 // LOW COST
 /datum/uplink_item/dangerous/foampistol
 	cost = 1
 
 /datum/uplink_item/dangerous/pistol
+	cost = /datum/uplink_item/low_cost/weaponry::cost
+
+/datum/uplink_item/dangerous/revolver
 	cost = /datum/uplink_item/low_cost/weaponry::cost
 
 /datum/uplink_item/dangerous/throwingweapons
@@ -29,9 +33,6 @@
 	cost = /datum/uplink_item/medium_cost/weaponry::cost
 
 /datum/uplink_item/dangerous/guardian
-	cost = /datum/uplink_item/medium_cost/weaponry::cost
-
-/datum/uplink_item/dangerous/revolver
 	cost = /datum/uplink_item/medium_cost/weaponry::cost
 
 

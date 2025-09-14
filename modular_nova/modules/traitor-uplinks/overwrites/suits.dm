@@ -2,6 +2,7 @@
 
 /datum/uplink_item/suits
 
+
 // MODSUITS
 /datum/uplink_item/suits/space_suit
 

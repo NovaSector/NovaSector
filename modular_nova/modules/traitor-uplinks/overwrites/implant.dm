@@ -2,6 +2,7 @@
 
 /datum/uplink_item/implants
 
+
 // LOW COST
 /datum/uplink_item/implants/radio
 	cost = /datum/uplink_item/low_cost::cost

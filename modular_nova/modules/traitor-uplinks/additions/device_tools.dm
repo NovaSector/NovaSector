@@ -5,7 +5,7 @@
 	In its crowbar configuration, it can be used to force open airlocks. Very useful for entering the station or its departments."
 	item = /obj/item/crowbar/power/syndicate
 	cost = /datum/uplink_item/low_cost::cost
-	purchasable_from = UPLINK_TRAITORS
+	purchasable_from = UPLINK_TRAITORS | UPLINK_SERIOUS_OPS
 
 /datum/uplink_item/device_tools/syndicateborg
 	name = "Syndicate Cyborg Upgrade"
@@ -20,6 +20,23 @@
 	item = /obj/item/clothing/gloves/tackler/combat/insulated
 	cost = 1
 	uplink_item_flags = NONE
+	purchasable_from = UPLINK_TRAITORS | UPLINK_SERIOUS_OPS
+
+/datum/uplink_item/device_tools/bulletproof_armor
+	name = "Bulletproof Armor Vest"
+	desc = "A Type III heavy bulletproof vest that excels in protecting the wearer against traditional projectile weaponry and explosives to a minor extent."
+	item = /obj/item/clothing/suit/armor/bulletproof
+	cost = /datum/uplink_item/low_cost::cost
+	uplink_item_flags = NONE
+	purchasable_from = UPLINK_TRAITORS | UPLINK_SERIOUS_OPS
+
+/datum/uplink_item/device_tools/swathelmet_traitor
+	name = "Syndicate Helmet"
+	desc = "An extremely robust, space-worthy helmet in a nefarious red and black stripe pattern."
+	item = /obj/item/clothing/head/helmet/swat
+	cost = /datum/uplink_item/low_cost::cost
+	uplink_item_flags = NONE
+	purchasable_from = UPLINK_TRAITORS | UPLINK_SERIOUS_OPS
 
 /datum/uplink_item/device_tools/ammo_pouch
 	name = "Ammo Pouch"
@@ -27,6 +44,7 @@
 	item = /obj/item/storage/pouch/ammo
 	cost = 1
 	uplink_item_flags = NONE
+	purchasable_from = UPLINK_TRAITORS | UPLINK_SERIOUS_OPS
 
 /datum/uplink_item/device_tools/syndikush
 	name = "Syndikush Green Crack cart"
@@ -34,6 +52,7 @@
 			stimulants. Not made with real crack."
 	item = /obj/item/reagent_containers/vapecart/syndicate
 	cost = /datum/uplink_item/low_cost::cost
+	purchasable_from = UPLINK_TRAITORS | UPLINK_SPY
 
 
 // MEDIUM COST
@@ -44,6 +63,7 @@
 			Be careful not to glue an item you're already holding!"
 	item = /obj/item/syndie_glue
 	cost = /datum/uplink_item/medium_cost::cost
+	purchasable_from = UPLINK_TRAITORS | UPLINK_SPY
 
 /datum/uplink_item/device_tools/evil_module
 	name = "Ammo Fabricator Advanced Lethal Authentication Module"

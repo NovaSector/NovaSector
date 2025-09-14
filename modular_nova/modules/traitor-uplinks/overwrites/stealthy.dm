@@ -1,7 +1,7 @@
 /datum/uplink_category/stealthy
 
-
 /datum/uplink_item/stealthy_weapons
+
 
 // LOW COST
 /datum/uplink_item/stealthy_weapons/dart_pistol
@@ -36,3 +36,5 @@
 
 
 // HIGH COST
+/datum/uplink_item/stealthy_weapons/romerol_kit
+	purchasable_from = NONE

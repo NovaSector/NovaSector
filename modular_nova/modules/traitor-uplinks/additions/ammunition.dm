@@ -5,6 +5,7 @@
 		a large box of loose 10mm ammunition."
 	item = /obj/item/storage/toolbox/guncase/traitor/ammunition
 	cost = /datum/uplink_item/low_cost/ammunition::cost
+	purchasable_from = UPLINK_TRAITORS | UPLINK_SERIOUS_OPS
 
 /datum/uplink_item/ammo/enforcerap
 	name = "Enforcer 10mm Armour Piercing Magazine"
@@ -12,6 +13,7 @@
 			These rounds are less effective at injuring the target but penetrate protective gear."
 	item = /obj/item/ammo_box/magazine/enforcer/ap
 	cost = /datum/uplink_item/low_cost/ammunition::cost
+	purchasable_from = UPLINK_TRAITORS | UPLINK_SERIOUS_OPS
 
 /datum/uplink_item/ammo/enforcerhp
 	name = "Enforcer 10mm Hollow Point Magazine"
@@ -19,6 +21,7 @@
 			These rounds are more damaging but ineffective against armour."
 	item = /obj/item/ammo_box/magazine/enforcer/hp
 	cost = /datum/uplink_item/low_cost/ammunition::cost
+	purchasable_from = UPLINK_TRAITORS | UPLINK_SERIOUS_OPS
 
 /datum/uplink_item/ammo/enforcerfire
 	name = "Enforcer 10mm Incendiary Magazine"
@@ -26,6 +29,7 @@
 			Loaded with incendiary rounds which inflict little damage, but ignite the target."
 	item = /obj/item/ammo_box/magazine/enforcer/fire
 	cost = /datum/uplink_item/low_cost/ammunition::cost
+	purchasable_from = UPLINK_TRAITORS | UPLINK_SERIOUS_OPS
 
 
 // MEDIUM COST
@@ -35,8 +39,7 @@
 		any shotgun, from conventional pump-actions to semi-automatics. For those with a penchant for grievous bodily harm."
 	item = /obj/item/ammo_box/advanced/s12gauge/buckshot/milspec
 	cost = /datum/uplink_item/medium_cost/ammunition::cost
-	uplink_item_flags = SYNDIE_TRIPS_CONTRABAND
-	purchasable_from = ~(UPLINK_ALL_SYNDIE_OPS | UPLINK_SPY)
+	purchasable_from = UPLINK_TRAITORS | UPLINK_SERIOUS_OPS
 
 /datum/uplink_item/ammo/milspec_slugs
 	name = "Milspec Slugs Box"
@@ -44,9 +47,7 @@
 		any shotgun, from conventional pump-actions to semi-automatics. For those with a penchant for grievous bodily harm."
 	item = /obj/item/ammo_box/advanced/s12gauge/milspec
 	cost = /datum/uplink_item/medium_cost/ammunition::cost
-	uplink_item_flags = SYNDIE_TRIPS_CONTRABAND
-	purchasable_from = ~(UPLINK_ALL_SYNDIE_OPS | UPLINK_SPY)
-
+	purchasable_from = UPLINK_TRAITORS | UPLINK_SERIOUS_OPS
 
 // HIGH COST
 /datum/uplink_item/ammo/revolver_emp
@@ -55,5 +56,4 @@
 		For when you really need a lot of things dead and batteries drained."
 	item = /obj/item/ammo_box/a357/haywire
 	cost = /datum/uplink_item/high_cost/ammunition::cost
-	uplink_item_flags = SYNDIE_TRIPS_CONTRABAND
-	purchasable_from = ~(UPLINK_ALL_SYNDIE_OPS | UPLINK_SPY)
+	purchasable_from = UPLINK_TRAITORS | UPLINK_SERIOUS_OPS

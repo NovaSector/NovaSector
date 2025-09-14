@@ -10,6 +10,7 @@
 #undef CONTRACTOR_KIT_REMAINING_TC
 #undef CONTRACTOR_KIT_PRICE
 
+
 // LOW COST
 /datum/uplink_item/contractor/reroll
 
