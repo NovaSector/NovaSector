@@ -29,8 +29,6 @@
 	base_icon_state = "datadisk"
 	icon_state = "datadisk0"
 
-	w_class = WEIGHT_CLASS_SMALL
-
 	var/datum/preferences/loaded_preference
 
 	var/include_loadout = FALSE
@@ -147,6 +145,7 @@
 /obj/item/bitrunning_disk/item/tier1/Initialize(mapload)
 	. = ..()
 	selectable_items += list(
+		/obj/item/antag_spawner/bitrunning_help,
 		/obj/item/storage/belt/military,
 		/obj/item/book_of_babel,
 		/obj/item/storage/toolbox/syndicate,
@@ -246,7 +245,7 @@
 	),src)
 
 /datum/orderable_item/bitrunning_tech/item_tier1
-	desc = "This disk contains a program that lets you equip a medical beamgun, a C4 explosive, a box of infinite pizza, a tactical toolbox, a combat knife, or a military webbing."
+	desc = "This disk contains a program that lets you equip a subcontracted assistance request beacon, medical beamgun, a C4 explosive, a box of infinite pizza, a tactical toolbox, a combat knife, or a military webbing."
 
 /datum/orderable_item/bitrunning_tech/item_tier2
 	desc = "This disk contains a program that lets you equip a luxury medipen, a pistol case, a rifle case, an armour vest, a helmet, an energy sword, a katana, a modular laser carbine, an expeditionary medkit, a ballistic shield, flashproof contacts, or a hacker implant."
