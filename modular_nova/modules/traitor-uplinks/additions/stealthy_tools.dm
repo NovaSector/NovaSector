@@ -1,12 +1,18 @@
+// LOW COST
+/datum/uplink_item/stealthy_tools/sleepy_neuroware
+	name = "Ransomware Neuroware Chip"
+	desc = "This Syndicate neuroware chip contains CrypSys, a package of ransomware viruses targeting synthetic humanoids. Designed to temporarily render the target mute, immobile, and unconscious. Note that before the target falls asleep, they will be able to move and act."
+	item = /obj/item/disk/neuroware/sleepy
+	cost = /datum/uplink_item/low_cost::cost
+	purchasable_from = UPLINK_TRAITORS
+
 /datum/uplink_item/stealthy_tools/announcement
 	name = "Fake Announcement"
 	desc = "A device that allows you to spoof an announcement to the station of your choice."
 	item = /obj/item/device/traitor_announcer
+	cost = /datum/uplink_item/low_cost::cost
+	purchasable_from = UPLINK_TRAITORS
 	surplus = 0
-	progression_minimum = 20 MINUTES
-	cost = 3
-	restricted = TRUE
-	purchasable_from = ~(UPLINK_NUKE_OPS | UPLINK_CLOWN_OPS)
 
 /datum/uplink_item/stealthy_tools/syndieshotglasses
 	name = "Extra Large Syndicate Shotglasses"
@@ -14,8 +20,13 @@
 	guaranteed to knock someone on their ass with a hearty dose of bacchus blessing. Look for the Snake underneath \
 	to tell these are the real deal. Box of 7."
 	item = /obj/item/storage/box/syndieshotglasses
-	cost = 2
+	cost = 1
+	purchasable_from = UPLINK_TRAITORS
 	restricted_roles = list(JOB_BARTENDER)
 
-/datum/uplink_item/stealthy_weapons/martialarts
-	cost = 32 // original cost: 17
+
+// MEDIUM COST
+
+
+
+// HIGH COST
