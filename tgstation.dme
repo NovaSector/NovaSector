@@ -9234,7 +9234,6 @@
 #include "modular_nova\modules\traitor-uplinks\additions\device_tools.dm"
 #include "modular_nova\modules\traitor-uplinks\additions\implant.dm"
 #include "modular_nova\modules\traitor-uplinks\additions\stealthy_tools.dm"
-#include "modular_nova\modules\traitor-uplinks\additions\suits.dm"
 #include "modular_nova\modules\traitor-uplinks\overwrites\ammunition.dm"
 #include "modular_nova\modules\traitor-uplinks\overwrites\badass.dm"
 #include "modular_nova\modules\traitor-uplinks\overwrites\bundle.dm"
