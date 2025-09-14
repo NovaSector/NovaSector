@@ -289,7 +289,14 @@
 	if(LAZYLEN(stamp_cache) > MAX_PAPER_STAMPS_OVERLAYS)
 		return
 
+	//NOVA EDIT CHANGE
 	var/mutable_appearance/stamp_overlay = mutable_appearance('icons/obj/service/bureaucracy.dmi', "paper_[stamp_icon_state]", appearance_flags = KEEP_APART | RESET_COLOR)
+	if(stamp_icon_state in nova_stamp_list)
+		stamp_overlay = mutable_appearance('modular_nova/master_files/icons/obj/bureaucracy.dmi', "paper_[stamp_icon_state]", appearance_flags = KEEP_APART | RESET_COLOR)
+	//END
+	//ORIGINAL
+	//var/mutable_appearance/stamp_overlay = mutable_appearance('icons/obj/service/bureaucracy.dmi', "paper_[stamp_icon_state]", appearance_flags = KEEP_APART | RESET_COLOR)
+	//END
 	stamp_overlay.pixel_w = rand(-2, 2)
 	stamp_overlay.pixel_z = rand(-3, 2)
 	add_overlay(stamp_overlay)
