@@ -2,7 +2,7 @@
 	name = "Deepspace Equipment Vendor"
 	desc = "This accepts armament tokens in exchange for weapons, please present your token for redemption. If you see this report it to admins"
 	icon_state = "equipment_vendor_destwo"
-	accepted_token = /obj/item/equipment_token/security
+	accepted_token = /obj/item/equipment_token/destwo
 	equipment_stock = list(
 		/datum/vendor_equipment/primary/debug1,
 		/datum/vendor_equipment/primary/debug2,

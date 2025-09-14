@@ -22,6 +22,7 @@
 		EQUIPMENT_VENDOR_CATEGORY_UNIFORM = 0,
 		EQUIPMENT_VENDOR_CATEGORY_EQUIPMENT = 0,
 		EQUIPMENT_VENDOR_CATEGORY_UTILITIES = 0,
+		EQUIPMENT_VENDOR_CATEGORY_SPECIAL = 0,
 	)
 	/// The stock of this active vending machine, look at /datum/vendor_equipment, make sure to fill this with vendor equipment)
 	var/list/datum/equipment_stock = list()
@@ -64,15 +65,27 @@
 	RedeemToken(inserted, user)
 	return
 
-/obj/machinery/equipment_vendor/proc/RedeemToken(obj/item/equipment_token/token, mob/redeemer)
 
-	message_admins("ARMAMENT LOG: [redeemer] attempted to redeem a [token.name]!")
+/// Code relevant to redeeming the token itself.
+/obj/machinery/equipment_vendor/proc/RedeemToken(obj/item/equipment_token/token, mob/redeemer)
+	/// Opens the UI when slotting the token
+	src.ui_interact(redeemer)
 	if(QDELETED(token))
 		return
 	playsound(src, token_sound, 50, TRUE, extrarange = -3)
-	to_chat(redeemer, "Thank you for redeeming your token. Remember. Use eye protection to not shoot your eye out!")
+	to_chat(redeemer, "Thank you for redeeming your token. Remember to use your equipment safely and wisely!")
+	add_tokenpoints(token.points)
 	SSblackbox.record_feedback("tally", "equipment_token_used", 1)
 	qdel(token)
+
+/// adds the amount of token points of the inserted token
+/obj/machinery/equipment_vendor/proc/add_tokenpoints(amount)
+	points += amount
+
+/// Locks in and sets the amount of tokens slotted into it.
+/obj/machinery/equipment_vendor/proc/set_tokenpoint(amount)
+	src.points = amount
+
 
 /// This machine cannot be emagged no matter what
 /obj/machinery/equipment_vendor/emag_act(mob/user, obj/item/card/emag/emag_card)
@@ -101,12 +114,10 @@
 			"product" = purchasable.product_path,
 			"buy_limit" = purchasable.vend_limit,
 			"permit_req" = purchasable.permit_required,
-			"access" = purchasable.access_required,
 		))
 
 /obj/machinery/equipment_vendor/ui_data(mob/user)
-	var/list/data = list()
-	data["credits"]= src.points
+	. = list("points" = src.points)
 
 
 /*
@@ -167,6 +178,7 @@
 		EQUIPMENT_VENDOR_CATEGORY_UNIFORM = 0,
 		EQUIPMENT_VENDOR_CATEGORY_EQUIPMENT = 0,
 		EQUIPMENT_VENDOR_CATEGORY_UTILITIES = 0,
+		EQUIPMENT_VENDOR_CATEGORY_SPECIAL = 0,
 	)
 
 /// Base Datam, Use it!
