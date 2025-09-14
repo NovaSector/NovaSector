@@ -28,8 +28,8 @@
 		/obj/item/crafting_conversion_kit/reclaimer_c20r = 1
 	)
 	steps = list(
-		"Remove the NT20's magazine",
-		"Clear the NT20's chamber"
+		"Remove the magazine",
+		"Clear the chamber"
 	)
 	tool_behaviors = list(TOOL_SCREWDRIVER)
 	time = 15 SECONDS

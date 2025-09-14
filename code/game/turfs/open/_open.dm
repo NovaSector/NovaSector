@@ -136,6 +136,11 @@
 
 	if(!destination_z || !destination_x || !destination_y || arrived.pulledby || arrived.currently_z_moving)
 		return
+	// NOVA EDIT ADDITION START
+
+	if(SSatoms.initialized == INITIALIZATION_INNEW_MAPLOAD) // we don't want to be transitioning atoms to another z-level while we are still in mapload
+		return
+	// NOVA EDIT ADDITION END
 
 	var/tx = destination_x
 	var/ty = destination_y

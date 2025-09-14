@@ -1,8 +1,8 @@
 {
-	"giant_scarf": [
+	"papakha": [
 		{
 			"type": "icon_state",
-			"icon_state": "giant_scarf",
+			"icon_state": "papakha",
 			"blend_mode": "overlay",
 			"color_ids": [1]
 		}
