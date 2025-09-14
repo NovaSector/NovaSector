@@ -9,3 +9,18 @@
 
 #undef CONTRACTOR_KIT_REMAINING_TC
 #undef CONTRACTOR_KIT_PRICE
+
+// LOW COST
+/datum/uplink_item/contractor/reroll
+
+/datum/uplink_item/contractor/pinpointer
+
+/datum/uplink_item/contractor/extraction_kit
+
+/datum/uplink_item/contractor/partner
+
+
+// MEDIUM COST
+
+
+// HIGH COST

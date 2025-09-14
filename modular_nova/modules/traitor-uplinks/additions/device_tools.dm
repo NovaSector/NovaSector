@@ -7,15 +7,6 @@
 	cost = /datum/uplink_item/low_cost::cost
 	purchasable_from = UPLINK_TRAITORS
 
-/datum/uplink_item/device_tools/medkit_traitor
-	name = "Syndicate Combat Medic Kit"
-	desc = "This first aid kit is a suspicious black and red. Included is a number of atropine medipens \
-			for rapid stabilization and detonation prevention, sutures and regenerative mesh for wound treatment, and patches \
-			for faster healing on the field. Also comes with basic medical tools and sterlizer."
-	item = /obj/item/storage/medkit/tactical
-	cost = /datum/uplink_item/low_cost::cost
-	purchasable_from = UPLINK_TRAITORS
-
 /datum/uplink_item/device_tools/syndicateborg
 	name = "Syndicate Cyborg Upgrade"
 	desc = "A marvel of modern syndicate technology; a syndicate borg hijacker. Allowing for the use of extremely powerful repair nanites, building equipment and otherwise useful upgrades to the standard saboteur modules. Due to its relatively experimental nature, it will only work on cyborgs which have already been jailbroken by an electromagnetic sequencer."
