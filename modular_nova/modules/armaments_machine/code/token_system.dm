@@ -74,13 +74,14 @@
 		return
 	playsound(src, token_sound, 50, TRUE, extrarange = -3)
 	to_chat(redeemer, "Thank you for redeeming your [token.item_type]. Remember to use your equipment safely and wisely!")
-	add_tokenpoints(token.points)
+	add_tokenpoints(token)
 	SSblackbox.record_feedback("tally", "equipment_token_used", 1)
 	qdel(token)
 
 /// adds the amount of token points of the inserted token
-/obj/machinery/equipment_vendor/proc/add_tokenpoints(amount)
-	points += amount
+/obj/machinery/equipment_vendor/proc/add_tokenpoints(token)
+	for(var/category in token.points)
+		points[category] += token.points[category]
 
 /// Locks in and sets the amount of tokens slotted into it.
 /obj/machinery/equipment_vendor/proc/set_tokenpoint(amount)
