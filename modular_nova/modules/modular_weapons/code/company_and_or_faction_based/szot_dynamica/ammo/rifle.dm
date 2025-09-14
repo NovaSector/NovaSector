@@ -46,7 +46,7 @@
 	caliber = CALIBER_60STRELA
 	projectile_type = /obj/projectile/bullet/p60strela
 	custom_materials = AMMO_MATS_HEAVY
-	print_cost = 2
+	ammo_stack_type = /obj/item/ammo_box/magazine/ammo_stack/c60_strela
 
 /obj/item/ammo_casing/p60strela/Initialize(mapload)
 	. = ..()
@@ -59,7 +59,7 @@
 	damage = 70
 	armour_penetration = 50
 	wound_bonus = 15 // Toned back down, as it's getting alot more damage.
-	bare_wound_bonus = 15
+	exposed_wound_bonus = 15
 	demolition_mod = 1.8
 	/// How much damage we add to things that are weak to this bullet
 	var/anti_materiel_damage_addition = 30

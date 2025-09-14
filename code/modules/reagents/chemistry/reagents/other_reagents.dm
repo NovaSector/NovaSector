@@ -149,10 +149,11 @@
 	var/cool_temp = cooling_temperature
 
 	var/obj/effect/hotspot/hotspot = (locate(/obj/effect/hotspot) in exposed_turf)
-	if(hotspot && !isspaceturf(exposed_turf))
+	if(hotspot && !isspaceturf(exposed_turf)) // the water evaporates in an endothermic reaction
 		if(exposed_turf.air)
 			var/datum/gas_mixture/air = exposed_turf.air
-			air.temperature = max(min(air.temperature-(cool_temp*1000), air.temperature/cool_temp),TCMB)
+			air.temperature = min(max(min(air.temperature-(cool_temp*1000), air.temperature/cool_temp), T0C), air.temperature) // the outer min temperature check is for weird phenomena like freon combustion
+			exposed_turf.temperature = clamp(min(exposed_turf.temperature-(cool_temp*1000), exposed_turf.temperature/cool_temp), T20C, exposed_turf.temperature) // turfs normally don't go below T20C so I'll just clamp it to that in case of weird phenomena.
 			air.react(src)
 			qdel(hotspot)
 
@@ -692,8 +693,7 @@
 
 	if(current_cycle >= CYCLES_TO_TURN)
 		var/datum/species/species_type = race
-		//affected_mob.set_species(species_type) //ORIGINAL
-		affected_mob.set_species(species_type, TRUE, FALSE, null, null, null, null, TRUE) //NOVA EDIT CHANGE - CUSTOMIZATION
+		affected_mob.set_species(species_type)
 		holder.del_reagent(type)
 		to_chat(affected_mob, span_warning("You've become \a [LOWER_TEXT(initial(species_type.name))]!"))
 		return
@@ -756,14 +756,12 @@
 	if(isjellyperson(affected_mob))
 		to_chat(affected_mob, span_warning("Your jelly shifts and morphs, turning you into another subspecies!"))
 		var/species_type = pick(subtypesof(/datum/species/jelly))
-		//affected_mob.set_species(species_type) //ORIGINAL
-		affected_mob.set_species(species_type, TRUE, FALSE, null, null, null, null, TRUE, TRUE) //NOVA EDIT CHANGE - CUSTOMIZATION
+		affected_mob.set_species(species_type)
 		holder.del_reagent(type)
 		return UPDATE_MOB_HEALTH
 	if(current_cycle >= CYCLES_TO_TURN) //overwrite since we want subtypes of jelly
 		var/datum/species/species_type = pick(subtypesof(race))
-		//affected_mob.set_species(species_type) //ORIGINAL
-		affected_mob.set_species(species_type, TRUE, FALSE, null, null, null, null, TRUE, TRUE) //NOVA EDIT CHANGE - CUSTOMIZATION
+		affected_mob.set_species(species_type)
 		holder.del_reagent(type)
 		to_chat(affected_mob, span_warning("You've become \a [initial(species_type.name)]!"))
 		return UPDATE_MOB_HEALTH
@@ -2144,6 +2142,8 @@
 	color = COLOR_GRAY
 	taste_description = "rainbows"
 	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
+	inverse_chem_val = 0.3
+	inverse_chem = /datum/reagent/inverse/colorful_reagent
 	/// Whenever this reagent can color mob limbs and organs upon exposure
 	var/can_color_mobs = TRUE
 	/// Whenever this reagent can color mob equipment when they're exposed to it externally
@@ -2327,6 +2327,8 @@
 	taste_description = "bitterness"
 	penetrates_skin = NONE
 	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
+	inverse_chem_val = 0.3
+	inverse_chem = /datum/reagent/inverse/baldium
 
 /datum/reagent/baldium/expose_mob(mob/living/exposed_mob, methods=TOUCH, reac_volume, show_message=TRUE, touch_protection = 0)
 	. = ..()
@@ -2536,45 +2538,80 @@
 	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
 
 /datum/reagent/glitter
-	name = "Generic Glitter"
-	description = "if you can see this description, contact a coder."
+	name = "Glitter"
+	description = "The herpes of arts and crafts."
+	data = list("colors"=list(COLOR_WHITE = 100))
 	color = COLOR_WHITE //pure white
 	taste_description = "plastic"
 	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
-	var/glitter_type = /obj/effect/decal/cleanable/glitter
+
+/datum/reagent/glitter/on_mob_life(mob/living/carbon/affected_mob, seconds_per_tick, times_fired)
+	. = ..()
+	if(SPT_PROB(25, seconds_per_tick))
+		affected_mob.emote("cough")
+		expose_turf(get_turf(affected_mob), 0)
 
 /datum/reagent/glitter/expose_turf(turf/exposed_turf, reac_volume)
 	. = ..()
 	if(!istype(exposed_turf))
 		return
-	exposed_turf.spawn_unique_cleanable(glitter_type)
+	exposed_turf.spawn_glitter(data["colors"])
 
-/datum/reagent/glitter/pink
-	name = "Pink Glitter"
-	description = "pink sparkles that get everywhere"
-	color = "#ff8080" //A light pink color
-	glitter_type = /obj/effect/decal/cleanable/glitter/pink
-	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
+/datum/reagent/glitter/on_new(data)
+	. = ..()
 
-/datum/reagent/glitter/white
-	name = "White Glitter"
-	description = "white sparkles that get everywhere"
-	glitter_type = /obj/effect/decal/cleanable/glitter/white
-	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
+	if(src.data["colors"])
+		color = pick(src.data["colors"])
+	else
+		color = COLOR_WHITE
 
-/datum/reagent/glitter/blue
-	name = "Blue Glitter"
-	description = "blue sparkles that get everywhere"
-	color = "#4040FF" //A blueish color
-	glitter_type = /obj/effect/decal/cleanable/glitter/blue
-	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
+/datum/reagent/glitter/on_merge(list/mix_data, amount)
+	. = ..()
 
-/datum/reagent/glitter/confetti
+	var/prop_current = (volume-amount)/(volume)
+
+	if(mix_data)
+		data["colors"] = blend_weighted_lists(mix_data["colors"], data["colors"], prop_current)
+
+	if(data["colors"])
+		color = pick(data["colors"])
+	else
+		color = COLOR_WHITE
+
+/datum/reagent/glitter/random
+	name = "Unrandomised Randomised Glitter"
+	description = "You shouldn't be seeing this, please make an issue report describing how you found it."
+
+	var/list/possible_colors = list(
+		list(COLOR_WHITE = 100),
+		list("#ff8080" = 100),
+		list("#4040ff" = 100),
+		list("#ff5555" = 34, "#55ff55" = 33, "#5555ff" = 33),
+	)
+
+/datum/reagent/glitter/random/on_new(data)
+	. = ..()
+
+	var/list/color_list = pick(possible_colors)
+
+	var/datum/reagents/our_holder = src.holder
+	var/our_volume = src.volume
+	var/list/our_data = list("colors" = color_list)
+
+	our_holder.remove_reagent(/datum/reagent/glitter/random, our_volume)
+	our_holder.add_reagent(/datum/reagent/glitter, our_volume, data = our_data)
+
+/datum/reagent/confetti
 	name = "Confetti"
 	description = "Tiny plastic flakes that are impossible to sweep up."
 	color = "#7dd87b"
-	glitter_type = /obj/effect/decal/cleanable/confetti
 	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
+
+/datum/reagent/confetti/expose_turf(turf/exposed_turf, reac_volume)
+	. = ..()
+	if(!istype(exposed_turf))
+		return
+	exposed_turf.spawn_unique_cleanable(/obj/effect/decal/cleanable/confetti)
 
 /datum/reagent/pax
 	name = "Pax"
@@ -2708,15 +2745,15 @@
 	. = ..()
 	yuck_cycle = 0 // reset vomiting
 
-/datum/reagent/yuck/on_transfer(atom/A, methods=TOUCH, trans_volume)
-	if((methods & INGEST) || !iscarbon(A))
-		return ..()
+/datum/reagent/yuck/expose_mob(mob/living/carbon/exposed_mob, methods, expose_volume, show_message, touch_protection)
+	. = ..()
+	if(!(methods & INGEST) || !iscarbon(exposed_mob))
+		return
 
-	A.reagents.remove_reagent(type, trans_volume)
-	A.reagents.add_reagent(/datum/reagent/fuel, trans_volume * 0.75)
-	A.reagents.add_reagent(/datum/reagent/water, trans_volume * 0.25)
-
-	return ..()
+	var/datum/reagents/mob_reagents = exposed_mob.reagents
+	mob_reagents.remove_reagent(type, expose_volume)
+	mob_reagents.add_reagent(/datum/reagent/fuel, expose_volume * 0.75)
+	mob_reagents.add_reagent(/datum/reagent/water, expose_volume * 0.25)
 
 //monkey powder heehoo
 /datum/reagent/monkey_powder
@@ -2795,6 +2832,8 @@
 	taste_mult = 0 // oderless and tasteless
 	metabolization_rate = 0.1 * REAGENTS_METABOLISM //20 times as long, so it's actually viable to use
 	var/time_multiplier = 1 MINUTES //1 minute per unit of gravitum on objects. Seems overpowered, but the whole thing is very niche
+	inverse_chem_val = 0.3
+	inverse_chem = /datum/reagent/inverse/gravitum
 	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
 	self_consuming = TRUE //this works on objects, so it should work on skeletons and robots too
 

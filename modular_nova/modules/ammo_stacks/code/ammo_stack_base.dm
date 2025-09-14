@@ -7,7 +7,7 @@
 	base_icon_state = "ammo_stack"
 	w_class = WEIGHT_CLASS_SMALL
 	multiple_sprites = AMMO_BOX_ONE_SPRITE
-	multiload = FALSE
+	ammo_box_multiload = AMMO_BOX_MULTILOAD_NONE
 	start_empty = TRUE
 	max_ammo = 12
 	/// Every x position we use for casings, change based on the size of the casing being put into the stack
@@ -23,6 +23,8 @@
 
 /obj/item/ammo_box/magazine/ammo_stack/Initialize(mapload)
 	. = ..()
+	ammo_list() // forces ammo to load for visibility's sake
+	update_appearance() // forces icon to update so ammo handfuls do, actually, appear full
 	AddElement(/datum/element/can_shatter, number_of_shards = 0, shattering_sound = 'sound/items/weapons/gun/general/mag_bullet_remove.ogg', shatters_as_weapon = TRUE)
 
 /obj/item/ammo_box/magazine/ammo_stack/attack_self(mob/user)

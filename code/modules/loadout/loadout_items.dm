@@ -336,8 +336,10 @@ GLOBAL_LIST_INIT(all_loadout_categories, init_loadout_categories())
 		displayed_text[FA_ICON_LOCK] = "Job Blacklist: [jointext(blacklisted_roles, ", ")]"
 	if(restricted_species)
 		displayed_text[FA_ICON_SPAGHETTI_MONSTER_FLYING] = "Species Whitelist: [capitalize(jointext(restricted_species, ", "))]"
-	if(veteran_only)
-		displayed_text[FA_ICON_HOURGLASS_HALF] = "Veteran-Only"
+	if(nova_stars_only)
+		displayed_text[FA_ICON_HOURGLASS_HALF] = "Nova Star-Only"
+	if(donator_only || ckeywhitelist)
+		displayed_text[FA_ICON_COINS] = "Donator-Only"
 	// NOVA EDIT ADDITION END
 	return displayed_text
 
@@ -390,7 +392,7 @@ GLOBAL_LIST_INIT(all_loadout_categories, init_loadout_categories())
 		UNTYPED_LIST_ADD(reskins, list(
 			"name" = skin,
 			"tooltip" = skin,
-			"skin_icon_state" = cached_reskin_options[skin],
+			"skin_icon_state" = can_be_greyscale ? ui_icon_state : cached_reskin_options[skin], // NOVA EDIT CHANGE - Get rid of the error icons - ORIGINAL: "skin_icon_state" = cached_reskin_options[skin]
 		))
 
 	return reskins

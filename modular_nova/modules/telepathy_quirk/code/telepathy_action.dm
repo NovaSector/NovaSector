@@ -1,4 +1,4 @@
-/datum/mutation/human/telepathy
+/datum/mutation/telepathy
 	power_path = /datum/action/cooldown/spell/pointed/telepathy
 
 /datum/action/cooldown/spell/pointed/telepathy
@@ -83,6 +83,11 @@
 
 /datum/action/cooldown/spell/pointed/telepathy/cast(mob/living/cast_on)
 	. = ..()
+	owner.visible_message(
+		span_warning("[owner]'s attention locks onto [cast_on]."),
+		span_warning("[owner]'s attention locks onto you!"),
+		ignored_mobs = owner
+	)
 	send_thought(owner, cast_on, message)
 
 /datum/action/cooldown/spell/pointed/telepathy/proc/send_thought(mob/living/caster, mob/living/target, message)
@@ -98,12 +103,12 @@
 		//different messaging if the target has the telepathy mutation themselves themselves
 		if (ishuman(target))
 			var/mob/living/carbon/human/human_target = target
-			var/datum/mutation/human/telepathy/tele_mut = human_target.dna.get_mutation(/datum/mutation/human/telepathy)
+			var/datum/mutation/telepathy/tele_mut = human_target.dna.get_mutation(/datum/mutation/telepathy)
 
 			if (tele_mut)
-				to_chat(target, span_boldnotice("[caster]'s psychic presence resounds in your mind: \"[span_purple(message)]\""))
+				to_chat(target, span_boldnotice("A psychic presence resounds in your mind: \"[span_purple(message)]\""))
 			else
-				to_chat(target, span_boldnotice("A voice echoes in your head: \"[span_purple(message)]\""))
+				to_chat(target, span_boldnotice("[caster]'s voice echoes in your head: \"[span_purple(message)]\""))
 
 		if(target.client?.prefs.read_preference(/datum/preference/toggle/enable_runechat))
 			target.create_chat_message(target, target.get_selected_language(), message, list("italics")) // it appears over them since they hear it in their head

@@ -16,7 +16,7 @@ export function KnownLanguage(props: { language: Language }) {
               mr="2px"
               mb="-4px"
               inline
-              className={'languages16x16 ' + props.language.icon}
+              className={`languages16x16 ${props.language.icon}`}
             />
             <Box inline>{props.language.name}</Box>
           </>
@@ -73,7 +73,7 @@ export function UnknownLanguage(props: { language: Language }) {
               mr="2px"
               mb="-3px"
               inline
-              className={'languages16x16 ' + props.language.icon}
+              className={`languages16x16 ${props.language.icon}`}
             />
             <Box inline>{props.language.name}</Box>
           </>

@@ -31,7 +31,7 @@
 
 	harmful = FALSE //Erm, technically
 	ammo_categories = AMMO_CLASS_NONE
-	print_cost = 0
+	ammo_stack_type = /obj/item/ammo_box/magazine/ammo_stack/c980
 
 
 /obj/item/ammo_casing/c980grenade/fire_casing(atom/target, mob/living/user, params, distro, quiet, zone_override, spread, atom/fired_from)
@@ -40,7 +40,8 @@
 		loaded_projectile.range = firing_launcher.target_range
 	else if(istype(fired_from, /obj/item/gun/ballistic/shotgun/shell_launcher))
 		loaded_projectile.range = 5
-
+	else if(istype(fired_from, /obj/item/gun/ballistic/pump_launcher/c980))
+		loaded_projectile.range = get_dist(user, target)
 	. = ..()
 
 
@@ -51,7 +52,7 @@
 
 	range = 14
 
-	speed = 0.5
+	speed = 1
 
 	sharpness = NONE
 
@@ -98,7 +99,6 @@
 	icon_state = "980_smoke"
 
 	projectile_type = /obj/projectile/bullet/c980grenade/smoke
-	print_cost = 0
 
 
 /obj/projectile/bullet/c980grenade/smoke
@@ -162,7 +162,7 @@
 
 
 /obj/item/grenade/c980payload
-	shrapnel_type = /obj/projectile/bullet/shrapnel/short_range
+	shrapnel_type = /obj/projectile/bullet/shrapnel/shorter_range
 	shrapnel_radius = 3
 	ex_dev = 0
 	ex_heavy = 0
@@ -170,9 +170,39 @@
 	ex_flame = 0
 
 
-/obj/projectile/bullet/shrapnel/short_range
+/obj/projectile/bullet/shrapnel/shorter_range
 	range = 2
 
+// .980 stingball grenade (be very careful)
+/obj/item/ammo_casing/c980grenade/shrapnel/stingball
+	name = ".980 Tydhouer stingball grenade"
+	desc = "A large grenade shell that will detonate at a range given to it by the gun that fires it. Explodes into stingballs on detonation."
+	icon_state = "980_stingball"
+
+	projectile_type = /obj/projectile/bullet/c980grenade/shrapnel/stingball
+
+	custom_materials = AMMO_MATS_GRENADE
+	ammo_categories = AMMO_CLASS_NICHE_LTL
+
+/obj/item/ammo_box/c980grenade/shrapnel/stingball
+	name = "ammo box (.980 Tydhouer stingball)"
+	desc = "A box of four .980 Tydhouer stingball grenades. Instructions on the box indicate these are stingball rounds. It's also covered in hazard signs, odd."
+
+	icon_state = "980box_stingball"
+
+	ammo_type = /obj/item/ammo_casing/c980grenade/shrapnel/stingball
+
+/obj/projectile/bullet/c980grenade/shrapnel/stingball
+	name = ".980 Tydhouer stingball grenade"
+
+	casing_to_spawn = /obj/item/grenade/c980payload/stingball
+
+/obj/item/grenade/c980payload/stingball
+	shrapnel_type = /obj/projectile/bullet/pellet/stingball/shorter_range
+	shrapnel_radius = 3
+
+/obj/projectile/bullet/pellet/stingball/shorter_range
+	range = 10
 
 // .980 phosphor grenade
 

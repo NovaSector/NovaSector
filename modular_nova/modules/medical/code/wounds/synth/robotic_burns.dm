@@ -148,12 +148,12 @@
 	if (victim)
 		QDEL_NULL(mob_glow)
 		UnregisterSignal(victim, COMSIG_MOB_AFTER_APPLY_DAMAGE)
-		UnregisterSignal(victim, COMSIG_ATOM_AFTER_EXPOSE_REAGENTS)
+		UnregisterSignal(victim, COMSIG_ATOM_EXPOSE_REAGENTS)
 	if (new_victim)
 		mob_glow = new_victim.mob_light(light_range, light_power, light_color)
 		mob_glow.set_light_on(TRUE)
 		RegisterSignal(new_victim, COMSIG_MOB_AFTER_APPLY_DAMAGE, PROC_REF(victim_attacked))
-		RegisterSignal(new_victim, COMSIG_ATOM_AFTER_EXPOSE_REAGENTS, PROC_REF(victim_exposed_to_reagents))
+		RegisterSignal(new_victim, COMSIG_ATOM_EXPOSE_REAGENTS, PROC_REF(victim_exposed_to_reagents))
 
 	return ..()
 
@@ -187,7 +187,7 @@
 	victim.adjust_bodytemperature(amount_to_adjust)
 
 /// Signal proc for when our victim is externally attacked. Increases chassis temp based on burn damage received.
-/datum/wound/burn/robotic/overheat/proc/victim_attacked(datum/source, damage, damagetype, def_zone, blocked, wound_bonus, bare_wound_bonus, sharpness, attack_direction, attacking_item)
+/datum/wound/burn/robotic/overheat/proc/victim_attacked(datum/source, damage, damagetype, def_zone, blocked, wound_bonus, exposed_wound_bonus, sharpness, attack_direction, attacking_item)
 	SIGNAL_HANDLER
 
 	if (def_zone != limb.body_zone) // use this proc since receive damage can also be called for like, chems and shit

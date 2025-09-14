@@ -17,6 +17,8 @@
 	program_icon = "id-card"
 	///What trim is applied to inserted IDs?
 	var/target_trim = /datum/id_trim/job/assistant
+	///These job datums can't go off-duty
+	var/list/blacklisted_jobs = list(/datum/job/assistant, /datum/job/prisoner)
 
 /datum/computer_file/program/crew_self_serve/on_start(mob/living/user)
 	. = ..()
@@ -51,7 +53,7 @@
 
 	var/important = is_job_important(id_card)
 	if(important)
-		if(tgui_alert(usr, "You are a member of security and/or command, make sure that you ahelp before punching out! If you decide to punch back in later, you will need to go to the Head of Personnel or Head of Security. Do you wish to continue?", "[src]", list("No", "Yes")) != "Yes")
+		if(tgui_alert(usr, "You are a member of security and/or command, make sure that you ahelp before punching out! If you decide to punch back in later, you will need to go to the Head of Personnel or Head of Security. Do you wish to continue?", "[filedesc]", list("No", "Yes")) != "Yes")
 			return FALSE
 
 	log_econ("[id_card.registered_name] clocked out from role [id_card.get_trim_assignment()]")
@@ -68,8 +70,10 @@
 	var/datum/job/clocked_out_job = current_trim.job
 	SSjob.FreeRole(clocked_out_job.title)
 
-	var/obj/machinery/announcement_system/system = pick(GLOB.announcement_systems)
-	system.broadcast("[id_card.registered_name], [current_assignment] has gone off-duty.", list())
+	aas_config_announce(/datum/aas_config_entry/off_duty, list(
+		"PERSON" = id_card.registered_name,
+		"RANK" = current_assignment,
+	), computer, announcement_line = "Clock Out")
 	computer.update_static_data_for_all_viewers()
 
 	SSid_access.apply_trim_to_card(id_card, target_trim, TRUE)
@@ -103,8 +107,10 @@
 	log_econ("[id_card.registered_name] clocked in to role [id_card.get_trim_assignment()]")
 	message_admins("[ADMIN_LOOKUPFLW(usr)] clocked in to role: [id_card.get_trim_assignment()].")
 
-	var/obj/machinery/announcement_system/system = pick(GLOB.announcement_systems)
-	system.broadcast("[id_card.registered_name] has returned to assignment [id_card.assignment].", list())
+	aas_config_announce(/datum/aas_config_entry/off_duty, list(
+		"PERSON" = id_card.registered_name,
+		"RANK" = id_card.assignment,
+	), computer, announcement_line = "Clock In")
 	GLOB.manifest.modify(id_card.registered_name, id_card.assignment, id_card.get_trim_assignment())
 
 	qdel(id_component)
@@ -216,10 +222,19 @@
 
 /datum/computer_file/program/crew_self_serve/ui_act(action, params, datum/tgui/ui, datum/ui_state/state)
 	. = ..()
-	var/obj/item/card/id/inserted_auth_card = computer.computer_id_slot
+	var/obj/item/card/id/inserted_auth_card = computer.stored_id
+	var/mob/living/carbon/human/human_user = usr
+	var/datum/mind/user_mind = usr.mind
+	if(!user_mind || !human_user || !inserted_auth_card)
+		return
+
 	switch(action)
 		if("PRG_change_status")
 			if(!inserted_auth_card)
+				return
+
+			if(blacklisted_jobs.Find(user_mind.assigned_role.type))
+				playsound(computer, 'modular_nova/modules/emotes/sound/emotes/synth_no.ogg', 50, FALSE)
 				return
 
 			if(off_duty_check(inserted_auth_card))
@@ -229,9 +244,7 @@
 				if(!clock_in(inserted_auth_card))
 					return
 
-				var/datum/mind/user_mind = usr.mind
-				if(user_mind)
-					user_mind.clocked_out_of_job = FALSE
+				user_mind.clocked_out_of_job = FALSE
 
 				computer.update_static_data_for_all_viewers()
 				playsound(computer, 'sound/machines/ping.ogg', 50, FALSE)
@@ -240,30 +253,23 @@
 				if(!clock_out(inserted_auth_card))
 					return
 
-				var/mob/living/carbon/human/human_user = usr
-				if(human_user)
-					secure_items(human_user, inserted_auth_card, eligible_items = SELF_SERVE_RETURN_ITEMS)
-
-				var/datum/mind/user_mind = usr.mind
-				if(user_mind)
-					user_mind.clocked_out_of_job = TRUE
+				secure_items(human_user, inserted_auth_card, eligible_items = SELF_SERVE_RETURN_ITEMS)
+				user_mind.clocked_out_of_job = TRUE
 
 				computer.update_static_data_for_all_viewers()
 				playsound(computer, 'sound/machines/ping.ogg', 50, FALSE)
-				computer.RemoveID(human_user, silent = TRUE)
+				computer.remove_id(human_user, silent = TRUE)
 
 			return TRUE
 
 		if("PRG_eject_id")
-			var/mob/living/carbon/human/human_user = usr
-			if(human_user)
-				computer.RemoveID(human_user, silent = TRUE)
+			computer.remove_id(human_user, silent = TRUE)
 
 			return TRUE
 
 /datum/computer_file/program/crew_self_serve/ui_data(mob/user)
 	var/list/data = list()
-	var/obj/item/card/id/inserted_auth_card = computer.computer_id_slot
+	var/obj/item/card/id/inserted_auth_card = computer.stored_id
 	data["authCard"] = inserted_auth_card ? inserted_auth_card.name : "-----"
 	data["authCardHOPLocked"] = id_locked_check(inserted_auth_card)
 	data["authCardTimeLocked"] = id_cooldown_check(inserted_auth_card) > 0
@@ -273,7 +279,7 @@
 
 /datum/computer_file/program/crew_self_serve/ui_static_data(mob/user)
 	var/list/data = list()
-	var/obj/item/card/id/inserted_auth_card = computer.computer_id_slot
+	var/obj/item/card/id/inserted_auth_card = computer.stored_id
 	if(inserted_auth_card)
 		data["authIDName"] = inserted_auth_card.registered_name ? inserted_auth_card.registered_name : "-----"
 		data["authIDRank"] = inserted_auth_card.assignment ? inserted_auth_card.assignment : "Unassigned"
@@ -291,6 +297,17 @@
 		data["trimAssignment"] = ""
 
 	return data
+
+/datum/aas_config_entry/off_duty
+	name = "Departmental Alert: Off-duty Announcement"
+	announcement_lines_map = list(
+		"Clock Out" = "%PERSON, %RANK has gone off-duty.",
+		"Clock In" = "%PERSON has returned to their assignment as %RANK",
+	)
+	vars_and_tooltips_map = list(
+		"PERSON" = "will be replaced with their name.",
+		"RANK" = "with their job."
+	)
 
 #undef PUNCH_ID_INVALID
 #undef PUNCH_ID_OFF_COOLDOWN

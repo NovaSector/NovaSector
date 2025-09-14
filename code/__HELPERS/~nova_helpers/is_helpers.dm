@@ -28,7 +28,7 @@
 #define isaquatic(A) (is_species(A,/datum/species/aquatic))
 #define ishumanoid(A) (is_species(A,/datum/species/humanoid))
 #define ismammal(A) (is_species(A,/datum/species/mammal))
-#define isinsect(A) (is_species(A,/datum/species/insect))
+#define isinsect(A) (is_species(A,/datum/species/insect) || is_species(A,/datum/species/insectoid))
 #define isfeline(A) (isfelinid(A) || istajaran(A) || HAS_TRAIT(A, TRAIT_FELINE))
 #define iscanine(A) (isvulpkanin(A) || HAS_TRAIT(A, TRAIT_CANINE))
 #define isavian(A) (isteshari(A) || isvox(A) || isvoxprimalis(A) || HAS_TRAIT(A, TRAIT_AVIAN))

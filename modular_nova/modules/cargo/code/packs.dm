@@ -214,7 +214,6 @@
 		/obj/item/flatpack/ammo_workbench,
 		/obj/item/ammo_workbench_module/lethal,
 		/obj/item/ammo_workbench_module/gimmick,
-		/obj/item/ammo_workbench_reboot = 2,
 	)
 	crate_name = "ammunition workbench starter crate"
 
@@ -409,6 +408,9 @@
 		While it's a pretty cheap bootleg of the personal gravitic engines used by the Skrell, this one's been fitted with straps and a basic storage module."
 	cost = CARGO_CRATE_VALUE * 6 // 1200 credits
 	contains = list(/obj/item/gravity_harness)
+
+/datum/supply_pack/misc/commandkeys
+	hidden = TRUE
 
 /*
 *	FOOD
@@ -782,3 +784,20 @@
 
 /datum/supply_pack/imports/error
 	cost = CARGO_CRATE_VALUE * 400 // 20k is a lot on TG, it's not as much here. Upped to 80k
+
+/datum/supply_pack/misc/ancient_paperwork
+	name = "Unfiled Paperwork"
+	desc = "Hey, we've apparently got a backlog of paperwork here. It's pretty bad. \
+		If you guys could pay the shuttle guys to look the other way, and help us fill it out so we can file this stuff away, \
+		it'll look a lot nicer on our quarterly reports... which means we can justify putting a few extra credits in your budget. \
+		Thanks."
+	cost = CARGO_CRATE_VALUE * 5
+	/*
+	one properly stamped paperwork is CARGO_CRATE_VALUE * 4.
+	however, because getting stamps capital S Sucks, requiring IC interaction (or stamp theft),
+	it's probably fine for it to be decently profitable?
+	5 paperworks for 20 crates (4000cr), initial cost of 5 crates (1000cr), profit of 15 crates (3000cr)
+	*/
+	contains = list(
+		/obj/item/folder/ancient_paperwork = 5
+	)

@@ -140,7 +140,8 @@
 	desc = "A utility uniform worn by trained Security officers."
 	icon_state = "util_sec"
 	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION
-	can_adjust = FALSE
+	female_sprite_flags = FEMALE_UNIFORM_TOP_ONLY
+	alt_covers_chest = TRUE
 
 /obj/item/clothing/under/rank/security/nova/utility/blue
 	icon_state = "util_sec_blue"

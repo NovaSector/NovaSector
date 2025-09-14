@@ -247,6 +247,11 @@
 		ACCESS_RC_ANNOUNCE,
 		ACCESS_TELEPORTER,
 		ACCESS_WEAPONS,
+		// NOVA ADDITION EDIT START
+		ACCESS_VAULT,
+		ACCESS_TECH_STORAGE,
+		ACCESS_SERVICE,
+		// NOVA ADDITION EDIT END
 	)
 	extra_access = list()
 	template_access = list(
@@ -848,6 +853,7 @@
 	extra_access = list(
 		ACCESS_SURGERY,
 		ACCESS_VIROLOGY,
+		ACCESS_PHARMACY,
 		)
 	template_access = list(
 		ACCESS_CAPTAIN,

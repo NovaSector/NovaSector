@@ -1,19 +1,16 @@
 // Sabres, including the cargo variety
 
-/obj/item/storage/belt/sabre/cargo
+/obj/item/storage/belt/sheath/sabre/cargo
 	name = "authentic shamshir leather sheath"
 	desc = "A good-looking sheath that is advertised as being made of real Venusian black leather. It feels rather plastic-like to the touch, and it looks like it's made to fit a British cavalry sabre."
 	icon = 'modular_nova/master_files/icons/obj/clothing/belts.dmi'
 	worn_icon = 'modular_nova/master_files/icons/mob/clothing/belt.dmi'
-
-/obj/item/storage/belt/sabre/cargo/PopulateContents()
-	new /obj/item/melee/sabre/cargo(src)
-	update_appearance()
+	stored_blade = /obj/item/melee/sabre/cargo
 
 /obj/item/melee/sabre
 	force = 20 // Original: 15
 	wound_bonus = 5 // Original: 10
-	bare_wound_bonus = 20 // Original: 25 Both down slightly, to make up for the damage buff, since it'd get a bit wacky ontop of the armor pen.
+	exposed_wound_bonus = 20 // Original: 25 Both down slightly, to make up for the damage buff, since it'd get a bit wacky ontop of the armor pen.
 
 /obj/item/melee/sabre/cargo
 	name = "authentic shamshir sabre"
@@ -47,4 +44,4 @@
 	target.apply_damage(stamina_damage_per_jousting_tile * usable_charge, STAMINA)
 
 /obj/item/melee/baton/nunchaku
-	cooldown = 2 SECONDS // Original Melee CD (0.8 sec), weapon deemed too powerful with the throwmode that makes you immune to melee and throw 
+	cooldown = 2 SECONDS // Original Melee CD (0.8 sec), weapon deemed too powerful with the throwmode that makes you immune to melee and throw

@@ -28,12 +28,17 @@
 
 	pod_type = /obj/structure/closet/supplypod/bluespacepod
 
+/obj/machinery/computer/cargo/express/interdyne/on_construction(mob/user)
+	. = ..()
+	/// Should report the player that built the console to the admins, in case anything fucky happens.
+	message_admins("[ADMIN_LOOKUPFLW(usr)] Has built a ghost role imports console ([src.name]) at [AREACOORD(src)].")
+
 /obj/machinery/computer/cargo/express/interdyne/emag_act(mob/user, obj/item/card/emag/emag_card)
 	if(user)
 		to_chat(user, span_notice("You try to change the routing protocols, but the machine displays a runtime error and reboots!"))
 	return FALSE //never let this console be emagged
 
-/obj/machinery/computer/cargo/express/interdyne/packin_up(forced = FALSE) //we're the dauntless, add the company imports stuff to our express console
+/obj/machinery/computer/cargo/express/interdyne/packin_up(forced = FALSE) //we're the ghost role, add the company imports stuff to our express console
 	. = ..()
 
 	if(meme_pack_data["Company Imports"])
@@ -50,9 +55,12 @@
 				for(var/datum/armament_entry/armament_entry as anything in SSarmaments.entries[armament_category][CATEGORY_ENTRY][subcategory])
 					meme_pack_data["Company Imports"]["packs"] += list(list(
 						"name" = "[armament_category]: [armament_entry.name]",
+						"first_item_icon" = armament_entry?.item_type.icon,
+						"first_item_icon_state" = armament_entry?.item_type.icon_state,
 						"cost" = armament_entry.cost,
 						"id" = REF(armament_entry),
 						"description" = armament_entry.description,
+						"desc" = armament_entry.description,
 					))
 
 /obj/machinery/computer/cargo/express/interdyne/ui_act(action, params, datum/tgui/ui)
@@ -88,3 +96,16 @@
 	circuit = /obj/item/circuitboard/computer/cargo/express/interdyne/syndicate
 	req_access = list(ACCESS_SYNDICATE)
 	cargo_account = ACCOUNT_DS2
+
+// Tarkon Industries console
+/obj/item/circuitboard/computer/cargo/express/interdyne/tarkon
+	name = "Tarkon Express Supply Console"
+	build_path = /obj/machinery/computer/cargo/express/interdyne/tarkon
+	contraband = TRUE
+
+/obj/machinery/computer/cargo/express/interdyne/tarkon
+	name = "\improper Tarkon express supply console"
+	desc = "A standard Tarkon console."
+	circuit = /obj/item/circuitboard/computer/cargo/express/interdyne/tarkon
+	req_access = list(ACCESS_TARKON)
+	cargo_account = ACCOUNT_TI

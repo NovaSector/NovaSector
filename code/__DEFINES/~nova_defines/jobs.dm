@@ -1,6 +1,6 @@
 // Just keeping this easy to maintain in the future.
-#define JOB_NOT_VETERAN (JOB_UNAVAILABLE_AGE + 1)
-#define JOB_UNAVAILABLE_QUIRK (JOB_NOT_VETERAN + 1)
+#define JOB_NOT_NOVA_STAR (JOB_UNAVAILABLE_AGE + 1)
+#define JOB_UNAVAILABLE_QUIRK (JOB_NOT_NOVA_STAR + 1)
 #define JOB_UNAVAILABLE_SPECIES (JOB_UNAVAILABLE_QUIRK + 1)
 #define JOB_UNAVAILABLE_LANGUAGE (JOB_UNAVAILABLE_SPECIES + 1)
 #define JOB_UNAVAILABLE_FLAVOUR (JOB_UNAVAILABLE_LANGUAGE + 1)
@@ -48,7 +48,7 @@
 	/obj/item/storage/belt/security/full, \
 	/obj/item/gun/energy/e_gun/hos, \
 	/obj/item/pinpointer/nuke, \
-	/obj/item/storage/belt/sabre, \
+	/obj/item/storage/belt/sheath/sabre, \
 	/obj/item/mod/control/pre_equipped/magnate, \
 	/obj/item/mod/control/pre_equipped/blueshield, \
 	/obj/item/clothing/suit/armor/vest/warden, \

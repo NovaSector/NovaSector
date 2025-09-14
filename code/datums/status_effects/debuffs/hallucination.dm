@@ -28,10 +28,19 @@
 	return ..()
 
 /datum/status_effect/hallucination/on_apply()
+	/* // NOVA EDIT REMOVAL START
 	if(owner.mob_biotypes & barred_biotypes)
 		return FALSE
 	if(HAS_TRAIT(owner, TRAIT_HALLUCINATION_IMMUNE))
 		return FALSE
+	*/ // NOVA EDIT REMOVAL END
+	// NOVA EDIT ADDITION START - Lets synths have hallucinations if they have the RDS quirk.
+	if(!HAS_MIND_TRAIT(owner, TRAIT_INSANITY))
+		if(owner.mob_biotypes & barred_biotypes)
+			return FALSE
+		if(HAS_TRAIT(owner, TRAIT_HALLUCINATION_IMMUNE))
+			return FALSE
+	// NOVA EDIT ADDITION END
 
 	RegisterSignal(owner, COMSIG_LIVING_HEALTHSCAN,  PROC_REF(on_health_scan))
 	RegisterSignal(owner, SIGNAL_ADDTRAIT(TRAIT_HALLUCINATION_IMMUNE), PROC_REF(delete_self))
@@ -93,7 +102,7 @@
 
 	var/lower_cd = lower_tick_interval
 	var/upper_cd = upper_tick_interval
-	if(!variable_tier)
+	if(variable_tier)
 		var/seconds_left = (duration - world.time) / 10
 		switch(seconds_left)
 			if(0 to 20)

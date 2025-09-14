@@ -17,7 +17,7 @@
 	light_on = FALSE
 	force = 15
 	throwforce = 10
-	bare_wound_bonus = 25 // Good precision weapon, though not perfect.
+	exposed_wound_bonus = 25 // Good precision weapon, though not perfect.
 	armour_penetration = 10 // Sharp enough to poke by default; but not exactly cleaving through any armor without the energy upgrade
 	block_chance = 20 // Definitely agile enough to block; but keep in mind it's a rapier and not a bulkier sword
 	sharpness = SHARP_POINTY // RAPIER. RAPIER. RAPIER!!!!
@@ -179,7 +179,7 @@
 	playsound(upgrade_appliable, 'sound/items/weapons/saberon.ogg', 35, TRUE)
 	upgrade_appliable.force = /obj/item/melee/energy/sword::active_force
 	upgrade_appliable.throwforce = /obj/item/melee/energy/sword::active_throwforce
-	upgrade_appliable.bare_wound_bonus = /obj/item/melee/energy/sword::bare_wound_bonus
+	upgrade_appliable.exposed_wound_bonus = /obj/item/melee/energy/sword::exposed_wound_bonus
 	upgrade_appliable.demolition_mod = /obj/item/melee/energy/sword::demolition_mod
 	upgrade_appliable.armour_penetration = /obj/item/melee/energy/sword::armour_penetration
 	return ..()
@@ -193,24 +193,10 @@
 	playsound(upgrade_appliable, 'sound/items/weapons/saberoff.ogg', 35, TRUE)
 	upgrade_appliable.force = initial(upgrade_appliable.force)
 	upgrade_appliable.throwforce = initial(upgrade_appliable.throwforce)
-	upgrade_appliable.bare_wound_bonus = initial(upgrade_appliable.bare_wound_bonus)
+	upgrade_appliable.exposed_wound_bonus = initial(upgrade_appliable.exposed_wound_bonus)
 	upgrade_appliable.demolition_mod = initial(upgrade_appliable.demolition_mod)
 	upgrade_appliable.armour_penetration = initial(upgrade_appliable.armour_penetration)
 	return ..()
-
-/obj/item/mod/module/armor_booster/retractplates
-	name = "MOD retractive plates module"
-	desc = "A complex set of actuators, micro-seals and a simple guide on how to install it, This... \"Modification\" allows the plating around the joints to retract, giving minor protection and a bit better mobility."
-	removable = TRUE
-	complexity = 1
-	space_slowdown = 0.25
-	armor_mod = /datum/armor/retractive_plates
-
-/datum/armor/retractive_plates
-	melee = 20
-	bullet = 25
-	laser = 15
-	energy = 20
 
 /obj/machinery/vending/security/noaccess
 	req_access = null

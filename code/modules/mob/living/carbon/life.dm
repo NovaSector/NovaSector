@@ -212,12 +212,7 @@
 
 	var/obj/item/organ/lungs = get_organ_slot(ORGAN_SLOT_LUNGS)
 	// Indicates if lungs can breathe without gas.
-	var/can_breathe_vacuum = FALSE
-	if(lungs)
-		// Breathing with lungs.
-		// Check for vacuum-adapted lungs.
-		can_breathe_vacuum = HAS_TRAIT(lungs, TRAIT_SPACEBREATHING)
-	else
+	if(!lungs)
 		// Lungs are missing! Can't breathe.
 		// Simulates breathing zero moles of gas.
 		has_moles = FALSE
@@ -249,6 +244,8 @@
 	var/n2o_pp = 0
 	var/nitrium_pp = 0
 	var/miasma_pp = 0
+
+	var/can_breathe_vacuum = HAS_TRAIT(src, TRAIT_NO_BREATHLESS_DAMAGE)
 
 	// Check for moles of gas and handle partial pressures / special conditions.
 	if(has_moles)
@@ -524,18 +521,18 @@
 	if(blood_type.reagent_type != chem.type)
 		return
 
+	var/blood_transfusion_cap = chem.data["monkey_origins"] ? BLOOD_VOLUME_NORMAL : BLOOD_VOLUME_MAXIMUM // NOVA EDIT ADDITION - Clamp the value so that being injected with monkey blood when you're past 560u doesn't do anything
+	var/blood_stream_volume = min(round(reac_volume, CHEMICAL_VOLUME_ROUNDING), blood_transfusion_cap - blood_volume) // NOVA EDIT CHANGE - ORIGINAL: var/blood_stream_volume = min(round(reac_volume, CHEMICAL_VOLUME_ROUNDING), BLOOD_VOLUME_MAXIMUM - blood_volume)
+	if(blood_stream_volume > 0) //remove reagents from mob that has now entered the bloodstream
+		reagents.remove_reagent(chem.type, blood_stream_volume)
+		blood_volume += blood_stream_volume
+
 	if(chem.data?["blood_type"])
 		var/datum/blood_type/donor_type = chem.data["blood_type"]
 		if(!(donor_type.type_key() in blood_type.compatible_types))
 			reagents.add_reagent(/datum/reagent/toxin, reac_volume * 0.5)
 			return COMPONENT_NO_EXPOSE_REAGENTS
 
-	// NOVA EDIT REMOVAL blood_volume = min(blood_volume + round(reac_volume, 0.1), BLOOD_VOLUME_MAXIMUM)
-	// NOVA EDIT ADDITION START
-	// We do a max() here so that being injected with monkey blood when you're past 560u doesn't reset you back to 560
-	var/max_blood_volume = chem.data["monkey_origins"] ? max(blood_volume, BLOOD_VOLUME_NORMAL) : BLOOD_VOLUME_MAXIMUM
-	blood_volume = min(blood_volume + round(reac_volume, 0.1), max_blood_volume)
-	// NOVA EDIT ADDITION END
 	return COMPONENT_NO_EXPOSE_REAGENTS
 
 /mob/living/carbon/proc/handle_bodyparts(seconds_per_tick, times_fired)
@@ -603,9 +600,6 @@
 					dna.previous.Remove("blood_type")
 				dna.temporary_mutations.Remove(mut)
 				continue
-	for(var/datum/mutation/human/HM in dna.mutations)
-		if(HM?.timeout)
-			dna.remove_mutation(HM.type)
 
 /**
  * Handles calling metabolization for dead people.
