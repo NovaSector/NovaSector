@@ -126,6 +126,33 @@
 		/obj/item/ammo_box/magazine/m9mm_aps/fire,
 	)
 
+/datum/voucher_set/traitor/supplies/ammo/enforcer_hp
+	name = /obj/item/ammo_box/magazine/enforcer/hp::name
+	description = /obj/item/ammo_box/magazine/enforcer/hp::desc
+	icon = /obj/item/ammo_box/magazine/enforcer/hp::icon
+	icon_state = /obj/item/ammo_box/magazine/enforcer/hp::icon_state
+	set_items = list(
+		/obj/item/ammo_box/magazine/enforcer/hp,
+	)
+
+/datum/voucher_set/traitor/supplies/ammo/enforcer_ap
+	name = /obj/item/ammo_box/magazine/enforcer/ap::name
+	description = /obj/item/ammo_box/magazine/enforcer/ap::desc
+	icon = /obj/item/ammo_box/magazine/enforcer/ap::icon
+	icon_state = /obj/item/ammo_box/magazine/enforcer/ap::icon_state
+	set_items = list(
+		/obj/item/ammo_box/magazine/enforcer/ap,
+	)
+
+/datum/voucher_set/traitor/supplies/ammo/enforcer_fire
+	name = /obj/item/ammo_box/magazine/enforcer/fire::name
+	description = /obj/item/ammo_box/magazine/enforcer/fire::desc
+	icon = /obj/item/ammo_box/magazine/enforcer/fire::icon
+	icon_state = /obj/item/ammo_box/magazine/enforcer/fire::icon_state
+	set_items = list(
+		/obj/item/ammo_box/magazine/enforcer/fire,
+	)
+
 /datum/voucher_set/traitor/supplies/ammo/s12gauge_milspec
 	name = /obj/item/ammo_box/advanced/s12gauge/milspec::name
 	description = /obj/item/ammo_box/advanced/s12gauge/milspec::desc
@@ -177,5 +204,6 @@
 	icon = /obj/item/ammo_box/foambox/riot::icon
 	icon_state = /obj/item/ammo_box/foambox/riot::icon_state
 	set_items = list(
+		/obj/item/ammo_box/foambox/riot,
 		/obj/item/ammo_box/foambox/riot,
 	)

@@ -94,9 +94,15 @@
 
 /datum/supply_pack/goody/c38_super_kit
 	name = "NT/E \"Laevateinn\" Revolver Conversion Kit"
-	desc = "A small case of parts for converting a .38 revolver into Nanotrasen's latest foray into magnetically-accelerated sidearms."
-	cost = PAYCHECK_CREW * 6 // 300 cr at time of writing
+	desc = "A set of parts for converting a .38 revolver into Nanotrasen's latest foray into magnetically-accelerated sidearms."
+	cost = PAYCHECK_CREW * 6 // 300 cr at time of writing, 800 cr total
 	contains = list(/obj/item/crafting_conversion_kit/c38_super)
+
+/datum/supply_pack/goody/sol_riot_super_kit
+	name = "Archon Systems \"KOLBEN/NACHTREIHER\" Shotgun Conversion Kit"
+	desc = "A set of parts for converting an M64 shotgun into one of Archon Combat Systems's forays into improving the shotgun's end-user experience."
+	cost = PAYCHECK_COMMAND * 6 // 600 cr at time of writing, 1200 cr total
+	contains = list(/obj/item/crafting_conversion_kit/riot_sol_super)
 
 /*
 *	CARPET PACKS
@@ -146,6 +152,83 @@
 	name = "Blue Carpet Single-Pack"
 	contains = list(/obj/item/stack/tile/carpet/blue/fifty)
 
+/datum/supply_pack/service/carpet_kinaris
+	name = "Kinaris Carpet Crate"
+	desc = "Plasteel floor tiles getting on your nerves? This 100 units stack of each soft carpet will tie any room together."
+	cost = CARGO_CRATE_VALUE * 12
+	contains = list(
+		/obj/item/stack/tile/carpet/kinaris/fifty = 2,
+		/obj/item/stack/tile/carpet/kinaris/red/fifty = 2,
+		/obj/item/stack/tile/carpet/kinaris/orange/fifty = 2,
+		/obj/item/stack/tile/carpet/kinaris/yellow/fifty = 2,
+		/obj/item/stack/tile/carpet/kinaris/green/fifty = 2,
+		/obj/item/stack/tile/carpet/kinaris/purple/fifty = 2,
+		/obj/item/stack/tile/carpet/kinaris/blacktrim/fifty = 2,
+		/obj/item/stack/tile/carpet/kinaris/black/fifty = 2,
+		/obj/item/stack/tile/carpet/kinaris/black/red/fifty = 2,
+		/obj/item/stack/tile/carpet/kinaris/black/orange/fifty = 2,
+		/obj/item/stack/tile/carpet/kinaris/black/yellow/fifty = 2,
+		/obj/item/stack/tile/carpet/kinaris/black/green/fifty = 2,
+		/obj/item/stack/tile/carpet/kinaris/black/purple/fifty = 2,
+		/obj/item/stack/tile/carpet/kinaris/black/whitetrim/fifty = 2,
+	)
+
+/datum/supply_pack/goody/carpet/kinaris
+	name = "Kinaris Regal Carpet"
+	contains = list(/obj/item/stack/tile/carpet/kinaris/fifty)
+
+/datum/supply_pack/goody/carpet/kinaris/red
+	name = "Kinaris Red Regal Carpet"
+	contains = list(/obj/item/stack/tile/carpet/kinaris/red/fifty)
+
+/datum/supply_pack/goody/carpet/kinaris/orange
+	name = "Kinaris orange Regal Carpet"
+	contains = list(/obj/item/stack/tile/carpet/kinaris/orange/fifty)
+
+/datum/supply_pack/goody/carpet/kinaris/yellow
+	name = "Kinaris Yellow Regal Carpet"
+	contains = list(/obj/item/stack/tile/carpet/kinaris/yellow/fifty)
+
+/datum/supply_pack/goody/carpet/kinaris/green
+	name = "Kinaris Green Regal Carpet"
+	contains = list(/obj/item/stack/tile/carpet/kinaris/green/fifty)
+
+/datum/supply_pack/goody/carpet/kinaris/purple
+	name = "Kinaris Purple Regal Carpet"
+	contains = list(/obj/item/stack/tile/carpet/kinaris/purple/fifty)
+
+/datum/supply_pack/goody/carpet/kinaris/blacktrim
+	name = "Kinaris Blacktrim Regal Carpet"
+	contains = list(/obj/item/stack/tile/carpet/kinaris/blacktrim/fifty)
+
+/datum/supply_pack/goody/carpet/kinaris/black
+	name = "Kinaris Black Regal Carpet"
+	contains = list(/obj/item/stack/tile/carpet/kinaris/black/fifty)
+
+/datum/supply_pack/goody/carpet/kinaris/black/red
+	name = "Kinaris Black & Red Regal Carpet"
+	contains = list(/obj/item/stack/tile/carpet/kinaris/black/red/fifty)
+
+/datum/supply_pack/goody/carpet/kinaris/black/orange
+	name = "Kinaris Black & orange Regal Carpet"
+	contains = list(/obj/item/stack/tile/carpet/kinaris/black/orange/fifty)
+
+/datum/supply_pack/goody/carpet/kinaris/black/black/yellow
+	name = "Kinaris Black & Yellow Regal Carpet"
+	contains = list(/obj/item/stack/tile/carpet/kinaris/black/yellow/fifty)
+
+/datum/supply_pack/goody/carpet/kinaris/black/green
+	name = "Kinaris Black & Green Regal Carpet"
+	contains = list(/obj/item/stack/tile/carpet/kinaris/black/green/fifty)
+
+/datum/supply_pack/goody/carpet/kinaris/black/purple
+	name = "Kinaris Black & Purple Regal Carpet"
+	contains = list(/obj/item/stack/tile/carpet/kinaris/black/purple/fifty)
+
+/datum/supply_pack/goody/carpet/kinaris/black/whitetrim
+	name = "Kinaris White Trim Regal Carpet"
+	contains = list(/obj/item/stack/tile/carpet/kinaris/black/whitetrim/fifty)
+
 /*
 * NIF STUFF
 */
@@ -178,7 +261,7 @@
 	desc = "Contains a single Automatic Appraisal NIFSoft uploader disk."
 	cost = CARGO_CRATE_VALUE * 1.5
 	contains = list(
-		/obj/item/disk/nifsoft_uploader/money_sense,
+		/obj/item/disk/nifsoft_uploader/job/money_sense,
 	)
 
 /datum/supply_pack/goody/shapeshifter_nifsoft
