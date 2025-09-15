@@ -3,7 +3,7 @@
 /obj/effect/baseturf_helper{
 	baseturf = /turf/open/floor/plating
 	},
-/turf/closed/wall/r_wall/syndicate/nodiagonal,
+/turf/closed/wall/r_wall/plastitanium/syndicate/nodiagonal,
 /area/misc/operative_barracks/armoury)
 "ah" = (
 /obj/effect/spawner/structure/window/reinforced/plasma/plastitanium,
@@ -107,7 +107,7 @@
 /obj/effect/turf_decal/siding/white{
 	dir = 8
 	},
-/turf/closed/wall/r_wall/syndicate,
+/turf/closed/wall/r_wall/plastitanium/syndicate,
 /area/misc/operative_barracks/robotics)
 "cb" = (
 /obj/effect/turf_decal/nova_decals/syndicate/bottom/left,
@@ -177,7 +177,7 @@
 /turf/open/floor/mineral/plastitanium,
 /area/misc/operative_barracks/mission_briefing)
 "du" = (
-/turf/closed/wall/r_wall/syndicate/nodiagonal,
+/turf/closed/wall/r_wall/plastitanium/syndicate/nodiagonal,
 /area/misc/operative_barracks/robotics)
 "dv" = (
 /obj/structure/railing/corner/end/flip/unbreakable{
@@ -351,7 +351,7 @@
 /obj/effect/baseturf_helper{
 	baseturf = /turf/open/floor/plating
 	},
-/turf/closed/wall/r_wall/syndicate,
+/turf/closed/wall/r_wall/plastitanium/syndicate,
 /area/misc/operative_barracks/medbay)
 "fp" = (
 /obj/effect/turf_decal/siding/dark/corner,
@@ -381,7 +381,7 @@
 /turf/open/floor/plating,
 /area/misc/operative_barracks/hangar)
 "fC" = (
-/turf/closed/wall/r_wall/syndicate,
+/turf/closed/wall/r_wall/plastitanium/syndicate,
 /area/misc/operative_barracks/mission_briefing)
 "fP" = (
 /obj/effect/turf_decal/stripes/line{
@@ -523,7 +523,7 @@
 /obj/effect/turf_decal/siding/white{
 	dir = 4
 	},
-/turf/closed/wall/r_wall/syndicate,
+/turf/closed/wall/r_wall/plastitanium/syndicate,
 /area/misc/operative_barracks/medbay)
 "hI" = (
 /obj/item/stack/ore/glass{
@@ -754,19 +754,19 @@
 	},
 /area/misc/operative_barracks)
 "ld" = (
-/turf/closed/wall/r_wall/syndicate/nodiagonal,
+/turf/closed/wall/r_wall/plastitanium/syndicate/nodiagonal,
 /area/misc/operative_barracks/bathroom)
 "ll" = (
 /obj/effect/turf_decal/siding/white{
 	dir = 4
 	},
-/turf/closed/wall/r_wall/syndicate,
+/turf/closed/wall/r_wall/plastitanium/syndicate,
 /area/misc/operative_barracks/armoury)
 "ln" = (
 /obj/effect/baseturf_helper{
 	baseturf = /turf/open/floor/plating
 	},
-/turf/closed/wall/r_wall/syndicate/nodiagonal,
+/turf/closed/wall/r_wall/plastitanium/syndicate/nodiagonal,
 /area/misc/operative_barracks/surgery)
 "ls" = (
 /obj/effect/turf_decal/siding/dark,
@@ -832,7 +832,7 @@
 /turf/open/floor/plating,
 /area/misc/operative_barracks/hangar)
 "mh" = (
-/turf/closed/indestructible/syndicate/nodiagonal,
+/turf/closed/wall/r_wall/plastitanium/syndicate/nodiagonal,
 /area/misc/operative_barracks)
 "ml" = (
 /obj/effect/turf_decal/siding/dark/corner{
@@ -937,10 +937,6 @@
 	},
 /turf/open/floor/mineral/titanium/tiled,
 /area/misc/operative_barracks/armoury)
-"mR" = (
-/obj/structure/lattice,
-/turf/open/space,
-/area/space/nearstation)
 "mT" = (
 /obj/item/reagent_containers/cup/beaker/bluespace{
 	pixel_x = 12;
@@ -1081,7 +1077,7 @@
 /turf/open/floor/fakebasalt,
 /area/misc/operative_barracks)
 "oq" = (
-/turf/closed/wall/r_wall/syndicate,
+/turf/closed/wall/r_wall/plastitanium/syndicate,
 /area/misc/operative_barracks/hangar)
 "ow" = (
 /obj/effect/turf_decal/siding/dark,
@@ -1094,7 +1090,7 @@
 /obj/effect/baseturf_helper{
 	baseturf = /turf/open/floor/plating
 	},
-/turf/closed/wall/r_wall/syndicate,
+/turf/closed/wall/r_wall/plastitanium/syndicate,
 /area/misc/operative_barracks/surgery)
 "oK" = (
 /obj/effect/mapping_helpers/airlock/cutaiwire,
@@ -1112,11 +1108,6 @@
 /obj/structure/fluff/fake_firedoor,
 /turf/open/floor/mineral/plastitanium,
 /area/misc/operative_barracks/mission_briefing)
-"oP" = (
-/obj/structure/lattice,
-/obj/structure/marker_beacon/burgundy,
-/turf/open/space,
-/area/space/nearstation)
 "oS" = (
 /obj/structure/railing/unbreakable{
 	dir = 1
@@ -1364,9 +1355,6 @@
 	},
 /turf/open/floor/mineral/plastitanium,
 /area/misc/operative_barracks/mission_briefing)
-"rz" = (
-/turf/open/space,
-/area/space)
 "rS" = (
 /obj/machinery/vending/syndichem{
 	onstation_override = 1
@@ -1447,9 +1435,6 @@
 	},
 /turf/open/floor/plating,
 /area/misc/operative_barracks/hangar)
-"sz" = (
-/turf/closed/indestructible/syndicate/nodiagonal,
-/area/misc/operative_barracks/armoury)
 "sG" = (
 /obj/effect/decal/cleanable/dirt/dust,
 /obj/effect/mapping_helpers/atom_injector/element_injector{
@@ -1460,6 +1445,10 @@
 /obj/effect/decal/cleanable/dirt/dust,
 /obj/machinery/vending/robotics{
 	onstation_override = 1
+	},
+/obj/item/stack/sticky_tape/pointy/super{
+	pixel_x = 3;
+	pixel_y = 17
 	},
 /turf/open/floor/mineral/titanium/tiled,
 /area/misc/operative_barracks/robotics)
@@ -1589,7 +1578,7 @@
 /obj/effect/baseturf_helper{
 	baseturf = /turf/open/floor/plating
 	},
-/turf/closed/indestructible/syndicate/nodiagonal,
+/turf/closed/wall/r_wall/plastitanium/syndicate/nodiagonal,
 /area/misc/operative_barracks/hangar)
 "uv" = (
 /obj/effect/turf_decal/siding/dark{
@@ -1735,7 +1724,7 @@
 /turf/open/lava/fake,
 /area/misc/operative_barracks/mission_briefing)
 "vE" = (
-/turf/closed/indestructible/syndicate/nodiagonal,
+/turf/closed/wall/r_wall/plastitanium/syndicate/nodiagonal,
 /area/misc/operative_barracks/surgery)
 "vF" = (
 /obj/structure/mannequin/operative_barracks/spy,
@@ -1745,6 +1734,14 @@
 /area/misc/operative_barracks/mission_briefing)
 "wc" = (
 /obj/structure/fluff/fake_scrubber,
+/obj/item/borg/upgrade/syndicate{
+	pixel_x = -6;
+	pixel_y = 5
+	},
+/obj/item/ai_module/syndicate{
+	pixel_y = -11;
+	pixel_x = 4
+	},
 /turf/open/floor/iron/dark/side{
 	dir = 8
 	},
@@ -1803,7 +1800,7 @@
 /turf/open/floor/plating,
 /area/misc/operative_barracks/hangar)
 "wx" = (
-/turf/closed/wall/r_wall/syndicate/nodiagonal,
+/turf/closed/wall/r_wall/plastitanium/syndicate/nodiagonal,
 /area/misc/operative_barracks/armoury)
 "wA" = (
 /turf/open/floor/mineral/plastitanium,
@@ -1908,7 +1905,7 @@
 /turf/open/floor/iron/dark/smooth_large,
 /area/misc/operative_barracks/dorm)
 "xU" = (
-/turf/closed/wall/r_wall/syndicate,
+/turf/closed/wall/r_wall/plastitanium/syndicate,
 /area/misc/operative_barracks/robotics)
 "xZ" = (
 /obj/effect/turf_decal/siding/dark,
@@ -2205,7 +2202,7 @@
 /turf/open/floor/iron,
 /area/misc/operative_barracks)
 "Cs" = (
-/turf/closed/wall/r_wall/syndicate/nodiagonal,
+/turf/closed/wall/r_wall/plastitanium/syndicate/nodiagonal,
 /area/misc/operative_barracks/dorm)
 "Cu" = (
 /obj/item/mod/construction/boots{
@@ -2736,7 +2733,7 @@
 /turf/open/floor/mineral/plastitanium,
 /area/misc/operative_barracks/mission_briefing)
 "IJ" = (
-/turf/closed/wall/r_wall/syndicate/nodiagonal,
+/turf/closed/wall/r_wall/plastitanium/syndicate/nodiagonal,
 /area/misc/operative_barracks/hangar)
 "IS" = (
 /obj/effect/turf_decal/siding/dark{
@@ -2814,7 +2811,7 @@
 /turf/open/floor/plating,
 /area/misc/operative_barracks/hangar)
 "Kw" = (
-/turf/closed/wall/r_wall/syndicate,
+/turf/closed/wall/r_wall/plastitanium/syndicate,
 /area/misc/operative_barracks/bathroom)
 "Kz" = (
 /obj/effect/turf_decal/siding/dark,
@@ -2991,7 +2988,7 @@
 /turf/open/floor/iron/dark/small,
 /area/misc/operative_barracks/hangar)
 "Ne" = (
-/turf/closed/wall/r_wall/syndicate,
+/turf/closed/wall/r_wall/plastitanium/syndicate,
 /area/misc/operative_barracks/dorm)
 "No" = (
 /obj/effect/turf_decal/siding/white{
@@ -3091,7 +3088,7 @@
 /turf/open/floor/mineral/plastitanium,
 /area/misc/operative_barracks/mission_briefing)
 "OI" = (
-/turf/closed/wall/r_wall/syndicate,
+/turf/closed/wall/r_wall/plastitanium/syndicate,
 /area/misc/operative_barracks/medbay)
 "OU" = (
 /obj/effect/turf_decal/loading_area/white,
@@ -3172,11 +3169,19 @@
 	dir = 6
 	},
 /area/misc/operative_barracks/armoury)
+"PE" = (
+/obj/item/clothing/shoes/magboots/syndie{
+	pixel_y = -5;
+	pixel_x = 2
+	},
+/obj/effect/mapping_helpers/broken_floor,
+/turf/open/floor/plating,
+/area/misc/operative_barracks/hangar)
 "PF" = (
 /turf/closed/indestructible/syndicate,
 /area/misc/operative_barracks/surgery)
 "PK" = (
-/turf/closed/wall/r_wall/syndicate,
+/turf/closed/wall/r_wall/plastitanium/syndicate,
 /area/misc/operative_barracks/armoury)
 "PQ" = (
 /obj/effect/turf_decal/nova_decals/syndicate/top/middle,
@@ -3372,7 +3377,7 @@
 /turf/open/floor/iron/dark,
 /area/misc/operative_barracks/hangar)
 "SA" = (
-/turf/closed/wall/r_wall/syndicate,
+/turf/closed/wall/r_wall/plastitanium/syndicate,
 /area/misc/operative_barracks/surgery)
 "SD" = (
 /obj/structure/fluff/fake_scrubber,
@@ -3595,7 +3600,7 @@
 /obj/effect/baseturf_helper{
 	baseturf = /turf/open/floor/plating
 	},
-/turf/closed/wall/r_wall/syndicate,
+/turf/closed/wall/r_wall/plastitanium/syndicate,
 /area/misc/operative_barracks/mission_briefing)
 "VM" = (
 /obj/effect/turf_decal/siding/wood/corner{
@@ -3792,7 +3797,7 @@
 /obj/effect/baseturf_helper{
 	baseturf = /turf/open/floor/plating
 	},
-/turf/closed/indestructible/syndicate/nodiagonal,
+/turf/closed/wall/r_wall/plastitanium/syndicate/nodiagonal,
 /area/misc/operative_barracks)
 "Yh" = (
 /obj/structure/table/reinforced,
@@ -3922,7 +3927,7 @@
 /obj/effect/baseturf_helper{
 	baseturf = /turf/open/floor/plating
 	},
-/turf/closed/wall/r_wall/syndicate,
+/turf/closed/wall/r_wall/plastitanium/syndicate,
 /area/misc/operative_barracks/dorm)
 "ZI" = (
 /obj/effect/turf_decal/siding/dark/inner_corner{
@@ -3939,9 +3944,6 @@
 /obj/structure/cable,
 /obj/machinery/light/floor,
 /turf/open/floor/iron/dark/smooth_large,
-/area/misc/operative_barracks/hangar)
-"ZT" = (
-/turf/closed/indestructible/syndicate/nodiagonal,
 /area/misc/operative_barracks/hangar)
 "ZV" = (
 /obj/structure/stairs/west{
@@ -4004,7 +4006,7 @@ TP
 TP
 TP
 TP
-rz
+TP
 TP
 "}
 (3,1,1) = {"
@@ -4030,9 +4032,9 @@ el
 oq
 TP
 TP
-rz
-rz
-rz
+TP
+TP
+TP
 TP
 "}
 (4,1,1) = {"
@@ -4059,8 +4061,8 @@ oq
 oq
 TP
 TP
-rz
-rz
+TP
+TP
 TP
 "}
 (5,1,1) = {"
@@ -4086,9 +4088,9 @@ aL
 nT
 IJ
 oq
-mR
-oP
-rz
+VE
+jV
+TP
 TP
 "}
 (6,1,1) = {"
@@ -4115,8 +4117,8 @@ aL
 RR
 uA
 XY
-mR
-rz
+VE
+TP
 TP
 "}
 (7,1,1) = {"
@@ -4144,7 +4146,7 @@ aL
 uA
 XY
 XY
-rz
+TP
 TP
 "}
 (8,1,1) = {"
@@ -4153,7 +4155,7 @@ eW
 bD
 bD
 IS
-kf
+PE
 Kz
 Of
 eR
@@ -4172,7 +4174,7 @@ jm
 kf
 uA
 XY
-rz
+TP
 TP
 "}
 (9,1,1) = {"
@@ -4340,7 +4342,7 @@ jm
 kf
 uA
 XY
-rz
+TP
 TP
 "}
 (15,1,1) = {"
@@ -4395,7 +4397,7 @@ xw
 Su
 uA
 XY
-mR
+VE
 TP
 TP
 "}
@@ -4449,8 +4451,8 @@ Qx
 kf
 oq
 oq
-rz
-rz
+TP
+TP
 TP
 TP
 TP
@@ -4477,8 +4479,8 @@ IJ
 el
 oq
 TP
-rz
-rz
+TP
+TP
 TP
 TP
 TP
@@ -4512,7 +4514,7 @@ TP
 TP
 "}
 (21,1,1) = {"
-ZT
+IJ
 WF
 jt
 WF
@@ -4557,7 +4559,7 @@ qN
 OB
 bg
 bg
-sz
+wx
 VE
 jV
 TP
@@ -4593,7 +4595,7 @@ TP
 TP
 TP
 TP
-rz
+TP
 TP
 "}
 (3,1,2) = {"
@@ -4619,9 +4621,9 @@ rl
 PK
 TP
 TP
-rz
-rz
-rz
+TP
+TP
+TP
 TP
 "}
 (4,1,2) = {"
@@ -4648,8 +4650,8 @@ PK
 PK
 TP
 TP
-rz
-rz
+TP
+TP
 TP
 "}
 (5,1,2) = {"
@@ -4675,9 +4677,9 @@ AE
 yf
 PK
 wx
-mR
+VE
 jV
-rz
+TP
 TP
 "}
 (6,1,2) = {"
@@ -4705,7 +4707,7 @@ mx
 PK
 wx
 VE
-rz
+TP
 TP
 "}
 (7,1,2) = {"
@@ -4733,7 +4735,7 @@ PK
 wx
 PK
 wx
-rz
+TP
 TP
 "}
 (8,1,2) = {"
@@ -4761,7 +4763,7 @@ UB
 yJ
 SD
 rl
-rz
+TP
 TP
 "}
 (9,1,2) = {"
@@ -4795,7 +4797,7 @@ TP
 (10,1,2) = {"
 fr
 fr
-mh
+fr
 mh
 DP
 HC
@@ -4824,7 +4826,7 @@ TP
 Nz
 Nz
 Nz
-mh
+fr
 op
 HC
 KK
@@ -4851,7 +4853,7 @@ TP
 (12,1,2) = {"
 fr
 fr
-mh
+fr
 mh
 pc
 HC
@@ -4929,7 +4931,7 @@ OZ
 AO
 iC
 DL
-rz
+TP
 TP
 "}
 (15,1,2) = {"
@@ -5038,8 +5040,8 @@ wL
 Wu
 Kw
 Kw
-rz
-rz
+TP
+TP
 TP
 TP
 TP
@@ -5066,8 +5068,8 @@ ld
 vl
 Kw
 TP
-rz
-rz
+TP
+TP
 TP
 TP
 TP
