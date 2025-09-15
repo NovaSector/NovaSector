@@ -3,6 +3,7 @@
 	"map_name": "OasisStation",
 	"map_path": "map_files/OasisStation",
 	"map_file": "OasisStation2.dmm",
+	"exclude_from_ci": false,
 	"planetary": 1,
 	"height_autosetup": 0,
 	"allow_space_when_planetary": 1,
@@ -17,17 +18,18 @@
 			"Linkage": null,
 			"Gravity": true,
 			"Baseturf": "/turf/open/misc/beach/sand/oasis_planet",
-			"No Parallax": true
+			"No Parallax": true,
+			"Up": true
 		},
 		{
 			"Linkage": null,
 			"Baseturf": "/turf/open/openspace/oasis_planet",
 			"Gravity": true,
-			"No Parallax": true
+			"No Parallax": true,
+			"Down": true
 		},
 		{
 			"Linkage": "Cross",
-			"Baseturf": "/turf/open/space",
 			"Gravity": false,
 			"No Parallax": false
 		}
