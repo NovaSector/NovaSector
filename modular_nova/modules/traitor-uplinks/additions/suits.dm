@@ -1,5 +1,5 @@
 // MODSUITS
-/datum/uplink_item/suits/modsuit_elite
+/datum/uplink_item/suits/modsuit_contractor
 	name = "Private Mercenary MODsuit"
 	desc = "A rare depart from the Syndicate's usual color scheme, this MODsuit is produced and manufactured for private mercenaries."
 	item = /obj/item/mod/control/pre_equipped/contractor
@@ -9,7 +9,7 @@
 	name = "Elite MODsuit"
 	desc = "An evolution of the syndicate suit, featuring a bulkier build and a matte black color scheme, this suit is only produced for high ranking Syndicate officers and elite strike teams."
 	item = /obj/item/mod/control/pre_equipped/elite/unrestricted
-	cost = /datum/uplink_item/medium_cost/modsuit::cost
+	cost = /datum/uplink_item/high_cost/modsuit::cost
 
 
 // LOW COST
