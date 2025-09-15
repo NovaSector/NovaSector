@@ -607,8 +607,6 @@
 	item_path = /obj/item/clothing/suit/chaplainsuit/habit
 	group = "Workwear"
 
-
-
 /*
 *	COSTUMES
 */
