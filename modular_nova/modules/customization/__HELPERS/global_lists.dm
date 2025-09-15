@@ -7,6 +7,7 @@
 	populate_total_ui_len_by_block()
 	populate_total_uf_len_by_block()
 	make_augment_references()
+	build_erp_item_list()
 
 /proc/init_prefs_emotes()
 	//Scream types
@@ -209,3 +210,10 @@
 			continue
 
 		SSaccessories.bra_m -= sprite_name
+
+/proc/build_erp_item_list()
+	for(var/fun_item in subtypesof(/obj/item))
+		var/obj/item/I = fun_item
+		if(initial(I.obj_flags_nova) & ERP_ITEM)
+			GLOB.erp_items += fun_item
+
