@@ -1058,6 +1058,7 @@
 
 /datum/greyscale_config/long_robe/worn
 	name = "Long robe (Worn)"
+	icon_file = 'modular_nova/modules/GAGS/icons/suit/suit.dmi'
 	json_config = 'modular_nova/modules/GAGS/json_configs/suits/long_robe/long_robe_worn.json'
 
 // TRANSPARENT LONG ROBE

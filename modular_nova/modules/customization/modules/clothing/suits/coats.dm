@@ -167,9 +167,9 @@
 	desc = "A long robe."
 	icon = 'icons/map_icons/clothing/suit/_suit.dmi'
 	icon_state = "/obj/item/clothing/suit/jacket/long_robe"
-	post_init_icon_state = "transparent_long_robe"
-	greyscale_config = /datum/greyscale_config/transparent_long_robe
-	greyscale_config_worn = /datum/greyscale_config/transparent_long_robe/worn
+	post_init_icon_state = "long_robe"
+	greyscale_config = /datum/greyscale_config/long_robe
+	greyscale_config_worn = /datum/greyscale_config/long_robe/worn
 	greyscale_colors = "#ffffff#b0c5ff"
 	flags_1 = IS_PLAYER_COLORABLE_1
 	body_parts_covered = CHEST|ARMS
