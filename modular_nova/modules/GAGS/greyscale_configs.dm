@@ -2374,7 +2374,7 @@ TREK
 	name = "Papakha (Worn)"
 	icon_file = 'modular_nova/master_files/icons/mob/clothing/head/costume.dmi'
 
-/datum/greyscale_config/overallsloneskirt
+/datum/greyscale_config/overalls_loneskirt
 	name = "Overalls-Skirt"
 	icon_file = 'modular_nova/master_files/icons/obj/clothing/suits.dmi'
 	json_config = 'modular_nova/modules/GAGS/json_configs/mass_greyscales/overalls_loneskirt.json'
