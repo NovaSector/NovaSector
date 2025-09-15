@@ -3498,7 +3498,6 @@
 	dir = 4;
 	pixel_z = 8
 	},
-/obj/machinery/duct,
 /turf/open/floor/iron/freezer,
 /area/ruin/interdyne_planetary_base/serv/rstrm)
 "Dn" = (
