@@ -29,7 +29,7 @@
 "aE" = (
 /obj/structure/decorative/fluff{
 	icon_state = "pillowpile_small_pink";
-	icon = 'modular_skyrat/modules/modular_items/lewd_items/icons/obj/lewd_structures/pillows.dmi';
+	icon = 'modular_nova/modules/modular_items/lewd_items/icons/obj/lewd_structures/pillows.dmi';
 	name = "large pillow pile";
 	desc = "A large pile of pillows. Jump on it!";
 	pixel_y = 16
@@ -165,7 +165,7 @@
 	},
 /obj/structure/fake_stairs/directional/south{
 	icon_state = "stairs-r";
-	icon = 'modular_skyrat/modules/aesthetics/floors/icons/floors.dmi';
+	icon = 'modular_nova/modules/aesthetics/floors/icons/floors.dmi';
 	color = "#2d221a"
 	},
 /obj/structure/railing{
@@ -191,7 +191,7 @@
 /obj/structure/decorative{
 	icon_state = "borgmat";
 	pixel_y = 6;
-	icon = 'modular_skyrat\master_files\icons\effects\turf_effects_64.dmi';
+	icon = 'modular_nova\master_files\icons\effects\turf_effects_64.dmi';
 	base_icon_state = "borgmat";
 	dir = 8;
 	pixel_x = 5;
@@ -252,7 +252,7 @@
 "cU" = (
 /obj/structure/fake_stairs/directional/south{
 	icon_state = "stairs-old";
-	icon = 'modular_skyrat/modules/aesthetics/floors/icons/floors.dmi';
+	icon = 'modular_nova/modules/aesthetics/floors/icons/floors.dmi';
 	color = "#2d221a";
 	dir = 4
 	},
@@ -321,7 +321,7 @@
 "eq" = (
 /obj/structure/decorative/fluff{
 	icon_state = "pillowpile_large_pink";
-	icon = 'modular_skyrat/modules/modular_items/lewd_items/icons/obj/lewd_structures/pillows.dmi';
+	icon = 'modular_nova/modules/modular_items/lewd_items/icons/obj/lewd_structures/pillows.dmi';
 	name = "large pillow pile";
 	desc = "A large pile of pillows. Jump on it!";
 	pixel_x = 16;
@@ -331,7 +331,7 @@
 /obj/structure/bed/pillow_large,
 /obj/structure/decorative/fluff{
 	icon_state = "pillowpile_small_pink";
-	icon = 'modular_skyrat/modules/modular_items/lewd_items/icons/obj/lewd_structures/pillows.dmi';
+	icon = 'modular_nova/modules/modular_items/lewd_items/icons/obj/lewd_structures/pillows.dmi';
 	name = "large pillow pile";
 	desc = "A large pile of pillows. Jump on it!";
 	pixel_y = 23;
@@ -352,7 +352,7 @@
 /obj/structure/decorative{
 	icon_state = "plant-21";
 	pixel_y = 15;
-	icon = 'modular_skyrat/modules/aesthetics/plants/plants.dmi';
+	icon = 'modular_nova/modules/aesthetics/plants/plants.dmi';
 	base_icon_state = "tile_half";
 	dir = 8;
 	pixel_x = 0;
@@ -365,7 +365,7 @@
 "eD" = (
 /obj/structure/decorative/fluff{
 	icon_state = "pillowpile_large_pink";
-	icon = 'modular_skyrat/modules/modular_items/lewd_items/icons/obj/lewd_structures/pillows.dmi';
+	icon = 'modular_nova/modules/modular_items/lewd_items/icons/obj/lewd_structures/pillows.dmi';
 	name = "large pillow pile";
 	desc = "A large pile of pillows. Jump on it!";
 	pixel_x = 16;
@@ -375,7 +375,7 @@
 /obj/structure/bed/pillow_large,
 /obj/structure/decorative/fluff{
 	icon_state = "pillowpile_small_pink";
-	icon = 'modular_skyrat/modules/modular_items/lewd_items/icons/obj/lewd_structures/pillows.dmi';
+	icon = 'modular_nova/modules/modular_items/lewd_items/icons/obj/lewd_structures/pillows.dmi';
 	name = "large pillow pile";
 	desc = "A large pile of pillows. Jump on it!";
 	pixel_y = 23;
@@ -510,7 +510,7 @@
 "gk" = (
 /obj/structure/decorative/fluff{
 	icon_state = "pillowpile_large_pink";
-	icon = 'modular_skyrat/modules/modular_items/lewd_items/icons/obj/lewd_structures/pillows.dmi';
+	icon = 'modular_nova/modules/modular_items/lewd_items/icons/obj/lewd_structures/pillows.dmi';
 	name = "large pillow pile";
 	desc = "A large pile of pillows. Jump on it!";
 	pixel_x = 16;
@@ -520,7 +520,7 @@
 /obj/structure/bed/pillow_large,
 /obj/structure/decorative/fluff{
 	icon_state = "pillowpile_small_pink";
-	icon = 'modular_skyrat/modules/modular_items/lewd_items/icons/obj/lewd_structures/pillows.dmi';
+	icon = 'modular_nova/modules/modular_items/lewd_items/icons/obj/lewd_structures/pillows.dmi';
 	name = "large pillow pile";
 	desc = "A large pile of pillows. Jump on it!";
 	pixel_y = 23;
@@ -717,7 +717,7 @@
 	},
 /obj/structure/fake_stairs/directional/south{
 	icon_state = "stairs-l";
-	icon = 'modular_skyrat/modules/aesthetics/floors/icons/floors.dmi';
+	icon = 'modular_nova/modules/aesthetics/floors/icons/floors.dmi';
 	color = "#2d221a"
 	},
 /obj/structure/railing{
@@ -775,7 +775,7 @@
 "jX" = (
 /obj/structure/fake_stairs/directional/south{
 	icon_state = "stairs-old";
-	icon = 'modular_skyrat/modules/aesthetics/floors/icons/floors.dmi';
+	icon = 'modular_nova/modules/aesthetics/floors/icons/floors.dmi';
 	color = "#2d221a";
 	dir = 8;
 	pixel_y = 0
@@ -874,7 +874,7 @@
 "lm" = (
 /obj/structure/fake_stairs/directional/south{
 	icon_state = "stairs-old";
-	icon = 'modular_skyrat/modules/aesthetics/floors/icons/floors.dmi';
+	icon = 'modular_nova/modules/aesthetics/floors/icons/floors.dmi';
 	color = "#2d221a"
 	},
 /obj/structure/decorative/fluff{
@@ -955,7 +955,7 @@
 "ml" = (
 /obj/structure/decorative/fluff{
 	icon_state = "pillowpile_large_pink";
-	icon = 'modular_skyrat/modules/modular_items/lewd_items/icons/obj/lewd_structures/pillows.dmi';
+	icon = 'modular_nova/modules/modular_items/lewd_items/icons/obj/lewd_structures/pillows.dmi';
 	name = "large pillow pile";
 	desc = "A large pile of pillows. Jump on it!";
 	pixel_x = 16;
@@ -1027,7 +1027,7 @@
 "mI" = (
 /obj/structure/decorative/fluff{
 	icon_state = "pillowpile_large_pink";
-	icon = 'modular_skyrat/modules/modular_items/lewd_items/icons/obj/lewd_structures/pillows.dmi';
+	icon = 'modular_nova/modules/modular_items/lewd_items/icons/obj/lewd_structures/pillows.dmi';
 	name = "large pillow pile";
 	desc = "A large pile of pillows. Jump on it!";
 	pixel_x = 16;
@@ -1037,7 +1037,7 @@
 /obj/structure/bed/pillow_large,
 /obj/structure/decorative/fluff{
 	icon_state = "pillowpile_small_pink";
-	icon = 'modular_skyrat/modules/modular_items/lewd_items/icons/obj/lewd_structures/pillows.dmi';
+	icon = 'modular_nova/modules/modular_items/lewd_items/icons/obj/lewd_structures/pillows.dmi';
 	name = "large pillow pile";
 	desc = "A large pile of pillows. Jump on it!";
 	pixel_y = 23;
@@ -1114,7 +1114,7 @@
 "nw" = (
 /obj/structure/decorative/fluff{
 	icon_state = "pillowpile_small_pink";
-	icon = 'modular_skyrat/modules/modular_items/lewd_items/icons/obj/lewd_structures/pillows.dmi';
+	icon = 'modular_nova/modules/modular_items/lewd_items/icons/obj/lewd_structures/pillows.dmi';
 	name = "large pillow pile";
 	desc = "A large pile of pillows. Jump on it!";
 	pixel_y = 16
@@ -1194,7 +1194,7 @@
 "oh" = (
 /obj/structure/decorative/fluff{
 	icon_state = "pillowpile_large_pink";
-	icon = 'modular_skyrat/modules/modular_items/lewd_items/icons/obj/lewd_structures/pillows.dmi';
+	icon = 'modular_nova/modules/modular_items/lewd_items/icons/obj/lewd_structures/pillows.dmi';
 	name = "large pillow pile";
 	desc = "A large pile of pillows. Jump on it!";
 	pixel_x = 16;
@@ -1203,7 +1203,7 @@
 	},
 /obj/structure/decorative/fluff{
 	icon_state = "pillowpile_small_pink";
-	icon = 'modular_skyrat/modules/modular_items/lewd_items/icons/obj/lewd_structures/pillows.dmi';
+	icon = 'modular_nova/modules/modular_items/lewd_items/icons/obj/lewd_structures/pillows.dmi';
 	name = "large pillow pile";
 	desc = "A large pile of pillows. Jump on it!";
 	pixel_y = 16
@@ -1232,7 +1232,7 @@
 "oN" = (
 /obj/structure/fake_stairs/directional/south{
 	icon_state = "stairs-old";
-	icon = 'modular_skyrat/modules/aesthetics/floors/icons/floors.dmi';
+	icon = 'modular_nova/modules/aesthetics/floors/icons/floors.dmi';
 	color = "#2d221a";
 	dir = 8;
 	pixel_y = 0
@@ -1272,7 +1272,7 @@
 "qf" = (
 /obj/structure/fake_stairs/directional/south{
 	icon_state = "stairs-old";
-	icon = 'modular_skyrat/modules/aesthetics/floors/icons/floors.dmi';
+	icon = 'modular_nova/modules/aesthetics/floors/icons/floors.dmi';
 	color = "#2d221a";
 	dir = 1;
 	pixel_y = 0
@@ -1481,7 +1481,7 @@
 	pixel_y = -16
 	},
 /turf/closed/indestructible/hoteldoor{
-	icon = 'modular_skyrat/modules/aesthetics/floors/icons/floors.dmi';
+	icon = 'modular_nova/modules/aesthetics/floors/icons/floors.dmi';
 	icon_state = "black";
 	name = "Cave Entrance";
 	desc = "You came through this! Click this to exit."
@@ -1505,7 +1505,7 @@
 "us" = (
 /obj/structure/decorative/fluff{
 	icon_state = "pillowpile_large_pink";
-	icon = 'modular_skyrat/modules/modular_items/lewd_items/icons/obj/lewd_structures/pillows.dmi';
+	icon = 'modular_nova/modules/modular_items/lewd_items/icons/obj/lewd_structures/pillows.dmi';
 	name = "large pillow pile";
 	desc = "A large pile of pillows. Jump on it!";
 	pixel_x = 16;
@@ -1515,7 +1515,7 @@
 /obj/structure/bed/pillow_large,
 /obj/structure/decorative/fluff{
 	icon_state = "pillowpile_small_pink";
-	icon = 'modular_skyrat/modules/modular_items/lewd_items/icons/obj/lewd_structures/pillows.dmi';
+	icon = 'modular_nova/modules/modular_items/lewd_items/icons/obj/lewd_structures/pillows.dmi';
 	name = "large pillow pile";
 	desc = "A large pile of pillows. Jump on it!";
 	pixel_y = 23;
@@ -1594,7 +1594,7 @@
 "vE" = (
 /obj/structure/fake_stairs/directional/south{
 	icon_state = "stairs-old";
-	icon = 'modular_skyrat/modules/aesthetics/floors/icons/floors.dmi';
+	icon = 'modular_nova/modules/aesthetics/floors/icons/floors.dmi';
 	color = "#2d221a";
 	dir = 4
 	},
@@ -1678,7 +1678,7 @@
 	},
 /obj/structure/marker_beacon/teal,
 /turf/closed/indestructible/hoteldoor{
-	icon = 'modular_skyrat/modules/aesthetics/floors/icons/floors.dmi';
+	icon = 'modular_nova/modules/aesthetics/floors/icons/floors.dmi';
 	icon_state = "black";
 	name = "CLICK ME TO EXIT";
 	desc = "A portal of strong teleportation magic. You could probably go back to where you were using this... though should you?";
@@ -1699,7 +1699,7 @@
 	pixel_y = -16
 	},
 /turf/closed/indestructible/hoteldoor{
-	icon = 'modular_skyrat/modules/aesthetics/floors/icons/floors.dmi';
+	icon = 'modular_nova/modules/aesthetics/floors/icons/floors.dmi';
 	icon_state = "black";
 	name = "Cave Entrance";
 	desc = "You came through this! Click this to exit."
@@ -1711,7 +1711,7 @@
 /obj/structure/decorative{
 	anchored = 1;
 	name = "bone sword";
-	icon = 'modular_skyrat/modules/tribal_extended/icons/items_and_weapons.dmi';
+	icon = 'modular_nova/modules/tribal_extended/icons/items_and_weapons.dmi';
 	icon_state = "bone_sword";
 	dir = 8;
 	desc = "That's... Definitely a weapon. You don't want to touch it in order to preserve its historic value...";
@@ -1721,7 +1721,7 @@
 /obj/structure/decorative{
 	anchored = 1;
 	name = "bone sword";
-	icon = 'modular_skyrat/modules/tribal_extended/icons/items_and_weapons.dmi';
+	icon = 'modular_nova/modules/tribal_extended/icons/items_and_weapons.dmi';
 	icon_state = "bone_sword";
 	dir = 8;
 	desc = "That's... Definitely a weapon. You don't want to touch it in order to preserve its historic value...";
@@ -2338,7 +2338,7 @@
 /obj/structure/decorative{
 	icon_state = "borgmat";
 	pixel_y = 25;
-	icon = 'modular_skyrat\master_files\icons\effects\turf_effects_64.dmi';
+	icon = 'modular_nova\master_files\icons\effects\turf_effects_64.dmi';
 	base_icon_state = "borgmat";
 	dir = 8;
 	pixel_x = -11;
@@ -2348,7 +2348,7 @@
 /obj/structure/decorative{
 	icon_state = "borgmat";
 	pixel_y = 8;
-	icon = 'modular_skyrat\master_files\icons\effects\turf_effects_64.dmi';
+	icon = 'modular_nova\master_files\icons\effects\turf_effects_64.dmi';
 	base_icon_state = "borgmat";
 	dir = 8;
 	pixel_x = -15;
@@ -2358,7 +2358,7 @@
 /obj/structure/decorative{
 	icon_state = "borgmat";
 	pixel_y = -9;
-	icon = 'modular_skyrat\master_files\icons\effects\turf_effects_64.dmi';
+	icon = 'modular_nova\master_files\icons\effects\turf_effects_64.dmi';
 	base_icon_state = "borgmat";
 	dir = 8;
 	pixel_x = -19;
@@ -2402,7 +2402,7 @@
 	anchored = 1;
 	density = 1;
 	name = "barrel";
-	icon = 'modular_skyrat/modules/primitive_structures/icons/storage.dmi';
+	icon = 'modular_nova/modules/primitive_structures/icons/storage.dmi';
 	icon_state = "barrel";
 	pixel_x = 4
 	},
@@ -3358,7 +3358,7 @@
 /obj/structure/decorative{
 	anchored = 1;
 	name = "wooden fence";
-	icon = 'modular_skyrat/modules/primitive_structures/icons/wooden_fence.dmi';
+	icon = 'modular_nova/modules/primitive_structures/icons/wooden_fence.dmi';
 	icon_state = "fence";
 	dir = 8;
 	pixel_y = 0;
@@ -3395,7 +3395,7 @@
 /obj/structure/bed/pillow_large,
 /obj/structure/decorative/fluff{
 	icon_state = "pillowpile_small_pink";
-	icon = 'modular_skyrat/modules/modular_items/lewd_items/icons/obj/lewd_structures/pillows.dmi';
+	icon = 'modular_nova/modules/modular_items/lewd_items/icons/obj/lewd_structures/pillows.dmi';
 	name = "large pillow pile";
 	desc = "A large pile of pillows. Jump on it!";
 	pixel_y = 23;
@@ -3928,7 +3928,7 @@
 "UF" = (
 /obj/structure/decorative/fluff{
 	icon_state = "pillowpile_large_pink";
-	icon = 'modular_skyrat/modules/modular_items/lewd_items/icons/obj/lewd_structures/pillows.dmi';
+	icon = 'modular_nova/modules/modular_items/lewd_items/icons/obj/lewd_structures/pillows.dmi';
 	name = "large pillow pile";
 	desc = "A large pile of pillows. Jump on it!";
 	pixel_x = 16;
@@ -3937,7 +3937,7 @@
 	},
 /obj/structure/decorative/fluff{
 	icon_state = "pillowpile_small_pink";
-	icon = 'modular_skyrat/modules/modular_items/lewd_items/icons/obj/lewd_structures/pillows.dmi';
+	icon = 'modular_nova/modules/modular_items/lewd_items/icons/obj/lewd_structures/pillows.dmi';
 	name = "large pillow pile";
 	desc = "A large pile of pillows. Jump on it!";
 	pixel_y = 16
@@ -3995,7 +3995,7 @@
 /obj/structure/bed/pillow_large,
 /obj/structure/decorative/fluff{
 	icon_state = "pillowpile_small_pink";
-	icon = 'modular_skyrat/modules/modular_items/lewd_items/icons/obj/lewd_structures/pillows.dmi';
+	icon = 'modular_nova/modules/modular_items/lewd_items/icons/obj/lewd_structures/pillows.dmi';
 	name = "large pillow pile";
 	desc = "A large pile of pillows. Jump on it!";
 	pixel_y = 16
@@ -4010,7 +4010,7 @@
 "Vq" = (
 /obj/structure/fake_stairs/directional/south{
 	icon_state = "stairs-m";
-	icon = 'modular_skyrat/modules/aesthetics/floors/icons/floors.dmi';
+	icon = 'modular_nova/modules/aesthetics/floors/icons/floors.dmi';
 	color = "#2d221a"
 	},
 /turf/open/floor/fakebasalt,
@@ -4235,7 +4235,7 @@
 	anchored = 1;
 	density = 1;
 	name = "barrel";
-	icon = 'modular_skyrat/modules/primitive_structures/icons/storage.dmi';
+	icon = 'modular_nova/modules/primitive_structures/icons/storage.dmi';
 	icon_state = "barrelopen";
 	pixel_x = 16;
 	pixel_y = 4
@@ -4244,7 +4244,7 @@
 	anchored = 1;
 	density = 1;
 	name = "barrel";
-	icon = 'modular_skyrat/modules/primitive_structures/icons/storage.dmi';
+	icon = 'modular_nova/modules/primitive_structures/icons/storage.dmi';
 	icon_state = "barrel";
 	pixel_x = -4
 	},
