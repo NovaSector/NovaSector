@@ -124,6 +124,8 @@
 	wielding will provide best results at the cost of reduced mobility."
 	icon_state = "riot"
 	icon = 'modular_nova/modules/exp_corps/icons/riot.dmi'
+	worn_icon = 'modular_nova/master_files/icons/mob/clothing/back.dmi'
+	worn_icon_state = "erisriot"
 	lefthand_file = 'modular_nova/modules/exp_corps/icons/riot_left.dmi'
 	righthand_file = 'modular_nova/modules/exp_corps/icons/riot_right.dmi'
 	force = 10

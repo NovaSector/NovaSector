@@ -573,7 +573,7 @@
 
 /datum/loadout_item/suit/overalls_loneskirt
 	name = "Overalls Skirt"
-	item_path = /obj/item/clothing/suit/apron/overallsloneskirt
+	item_path = /obj/item/clothing/suit/apron/overalls_loneskirt
 	group = "Workwear"
 
 //Religious Clothing (Workwear for Chaplain. Better sorted here than in Costumes)
@@ -606,8 +606,6 @@
 	name = "Religious - Tunic"
 	item_path = /obj/item/clothing/suit/chaplainsuit/habit
 	group = "Workwear"
-
-
 
 /*
 *	COSTUMES

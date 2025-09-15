@@ -384,15 +384,15 @@
 	icon_state = "bo_writer"
 	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION
 
-/obj/item/clothing/suit/apron/overallsloneskirt
+/obj/item/clothing/suit/apron/overalls_loneskirt
 	name = "overalls-skirt"
 	desc = "A set of skirted overalls, a little less good at protecting thinner clothes from the elements."
 	icon = 'icons/map_icons/clothing/under/_under.dmi'
-	icon_state = "/obj/item/clothing/under/greyscale/overallsloneskirt"
+	icon_state = "/obj/item/clothing/under/greyscale/overalls_loneskirt"
 	post_init_icon_state = "overalls_loneskirt"
-	greyscale_config = /datum/greyscale_config/overallsloneskirt
-	greyscale_config_worn = /datum/greyscale_config/overallsloneskirt/worn
-	greyscale_config_worn_digi = /datum/greyscale_config/overallsloneskirt/worn/digi
+	greyscale_config = /datum/greyscale_config/overalls_loneskirt
+	greyscale_config_worn = /datum/greyscale_config/overalls_loneskirt/worn
+	greyscale_config_worn_digi = /datum/greyscale_config/overalls_loneskirt/worn/digi
 	greyscale_colors = "#252525#CCCED1"
 	flags_1 = IS_PLAYER_COLORABLE_1
 	gets_cropped_on_taurs = FALSE
