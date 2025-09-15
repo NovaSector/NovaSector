@@ -736,9 +736,35 @@
 	item_path = /obj/item/clothing/suit/costume/whitedress
 	group = "Costumes"
 
-/datum/loadout_item/suit/white_robe
-	name = "White Robe"
-	item_path = /obj/item/clothing/suit/jacket/white_robe
+
+/datum/loadout_item/suit/jacket/long_robe
+	name = "Long Robe"
+	item_path = /obj/item/clothing/suit/jacket/long_robe
+	group = "Costumes"
+
+/datum/loadout_item/suit/jacket/transparent_long_robe
+	name = "Transparent Long Robe"
+	item_path = /obj/item/clothing/suit/jacket/transparent_long_robe
+	group = "Costumes"
+
+/datum/loadout_item/suit/jacket/split_haori
+	name = "Split Haori"
+	item_path = /obj/item/clothing/suit/jacket/split_haori
+	group = "Costumes"
+
+/datum/loadout_item/suit/jacket/haori
+	name = "Haori"
+	item_path = /obj/item/clothing/suit/jacket/haori
+	group = "Costumes"
+
+/datum/loadout_item/suit/jacket/transparent_split_haori
+	name = "Transparent Split Haori"
+	item_path = /obj/item/clothing/suit/jacket/transparent_split_haori
+	group = "Costumes"
+
+/datum/loadout_item/suit/jacket/transparent_haori
+	name = "Transparent Gradient Haori"
+	item_path = /obj/item/clothing/suit/jacket/transparent_haori
 	group = "Costumes"
 
 /datum/loadout_item/suit/witch
