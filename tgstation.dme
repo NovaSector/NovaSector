@@ -423,6 +423,7 @@
 #include "code\__DEFINES\~nova_defines\antagonists.dm"
 #include "code\__DEFINES\~nova_defines\apc_defines.dm"
 #include "code\__DEFINES\~nova_defines\armaments.dm"
+#include "code\__DEFINES\~nova_defines\armamentvendor.dm"
 #include "code\__DEFINES\~nova_defines\armor_defines.dm"
 #include "code\__DEFINES\~nova_defines\atmospherics.dm"
 #include "code\__DEFINES\~nova_defines\atom_hud.dm"

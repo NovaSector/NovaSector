@@ -1,10 +1,3 @@
-#define EQUIPMENT_VENDOR_CATEGORY_PRIMARY "primary" // Weapons that are considered a main arm
-#define EQUIPMENT_VENDOR_CATEGORY_SECONDARY "secondary" // Weaponsn that are coonsidered a sidearm
-#define EQUIPMENT_VENDOR_CATEGORY_UNIFORM "uniform" // might remove
-#define EQUIPMENT_VENDOR_CATEGORY_EQUIPMENT "equipment" // equipment for the specific department
-#define EQUIPMENT_VENDOR_CATEGORY_UTILITIES "utilities" // non-essential equipment (ex: flares, oxycandles, etc) (mightt remove)
-#define EQUIPMENT_VENDOR_CATEGORY_SPECIAL "special" // Special equipment that requires multiple people/extremely limited stock (Smartgun, Juggernaut Gear, Elite Modsuits, Etc) [USED FOR ERTS ONLY]
-
 /obj/machinery/equipment_vendor
 	name = "Debug Equipment Vendor"
 	desc = "This accepts armament tokens in exchange for weapons, please present your token for redemption. If you see this report it to admins"
@@ -79,7 +72,7 @@
 	qdel(token)
 
 /// adds the amount of token points of the inserted token
-/obj/machinery/equipment_vendor/proc/add_tokenpoints(token)
+/obj/machinery/equipment_vendor/proc/add_tokenpoints(obj/item/equipment_token/token)
 	for(var/category in token.points)
 		points[category] += token.points[category]
 
@@ -118,7 +111,7 @@
 		))
 
 /obj/machinery/equipment_vendor/ui_data(mob/user)
-	. = list("points" = src.points)
+	. = list("points" = points)
 
 
 /*
@@ -225,10 +218,3 @@
 /datum/vendor_equipment/special
 	category = EQUIPMENT_VENDOR_CATEGORY_SPECIAL
 
-
-#undef EQUIPMENT_VENDOR_CATEGORY_PRIMARY
-#undef EQUIPMENT_VENDOR_CATEGORY_SECONDARY
-#undef EQUIPMENT_VENDOR_CATEGORY_UNIFORM
-#undef EQUIPMENT_VENDOR_CATEGORY_EQUIPMENT
-#undef EQUIPMENT_VENDOR_CATEGORY_UTILITIES
-#undef EQUIPMENT_VENDOR_CATEGORY_SPECIAL

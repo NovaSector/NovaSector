@@ -10,17 +10,11 @@ import { pluralize } from 'tgui-core/string';
 
 import { useBackend } from '../backend';
 import { Window } from '../layouts';
+
 interface WeaponVendorData {
   name: string;
   desc: string;
-  points: {
-    primary: number;
-    secondary: number;
-    uniform: number;
-    equipment: number;
-    utilities: number;
-    special: number;
-  };
+  points: [];
   stock: WeaponVendorStockData[];
 }
 
@@ -46,13 +40,16 @@ type WeaponVendorStockData = {
 
 export const ArmamentVendor = (props) => {
   const { data } = useBackend<WeaponVendorData>();
+
   return (
     <Window width={550} height={700}>
       <Window.Content>
         <Stack.Item>
           <PointsContent />
         </Stack.Item>
-        <Stack.Item>aass</Stack.Item>
+        <Stack.Item>
+          <ArmamentContainer />
+        </Stack.Item>
       </Window.Content>
     </Window>
   );
@@ -85,19 +82,34 @@ export const PointsContent = (props) => {
 // Container should be a collapsible with its key being a category
 
 export const ArmamentContainer = (props) => {
-  const { data } = useBackend<WeaponVendorStockData>();
+  const { data, act } = useBackend<WeaponVendorStockData>();
+  const {
+    ref,
+    name,
+    description,
+    cost,
+    category,
+    product,
+    buy_limit,
+    permit_req,
+  } = data;
 
   return (
-    <Stack>
-      <Stack.Item grow={1}>
-        <Section fill scrollable title="Equipment">
-          {Object.entries(data.category).map(([name, value]) => (
-            <Collapsible key={value} title={name} color="red">
-              ass
-            </Collapsible>
-          ))}
-        </Section>
-      </Stack.Item>
-    </Stack>
+    <Section title="Purchasables" scrollable>
+      DROPDOWN LIST NEEDED HERE
+      {Object.entries(data).map(([category, value], index) => (
+        <Collapsible
+          key={category}
+          inline
+          mr="5px"
+          className={`ArmamentVendor--${category}`}
+        >
+          {value} {category}
+        </Collapsible>
+      ))}
+      <Collapsible title="TEST-TITLE (Haha Testicle)">
+        Button Content
+      </Collapsible>
+    </Section>
   );
 };
