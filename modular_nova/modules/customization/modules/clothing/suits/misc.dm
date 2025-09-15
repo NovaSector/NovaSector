@@ -384,7 +384,7 @@
 	icon_state = "bo_writer"
 	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION
 
-/obj/item/clothing/suit/apron/overallsloneskirt
+/obj/item/clothing/suit/apron/overalls_loneskirt
 	name = "overalls-skirt"
 	desc = "A set of skirted overalls, a little less good at protecting thinner clothes from the elements."
 	icon = 'icons/map_icons/clothing/under/_under.dmi'
