@@ -86,6 +86,3 @@
 	icon = 'modular_nova/master_files/icons/obj/bureaucracy.dmi'
 	icon_state = "stamp-tarkon"
 	dye_color = DYE_QM
-
-
-var/nova_stamp_list = list("stamp-cat", "stamp-paw", "stamp-nri", "stamp-solfed", "stamp-tarkon")
