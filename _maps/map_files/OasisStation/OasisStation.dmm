@@ -6565,10 +6565,6 @@
 /obj/effect/spawner/structure/window/reinforced,
 /turf/open/misc/beach/sand,
 /area/station/medical/break_room)
-"fdh" = (
-/obj/effect/decal/cleanable/oil/slippery,
-/turf/closed/wall/r_wall,
-/area/station/security/execution/transfer)
 "fee" = (
 /obj/machinery/camera/directional/north,
 /turf/open/floor/iron,
@@ -14330,9 +14326,9 @@
 	},
 /area/sandplanet/science)
 "kZH" = (
-/obj/effect/decal/cleanable/oil/slippery,
-/turf/open/floor/iron/dark,
-/area/station/security/execution/transfer)
+/obj/effect/landmark/start/assistant,
+/turf/open/misc/beach/sand,
+/area/sandplanet/outdoors)
 "kZP" = (
 /obj/effect/turf_decal/trimline/blue/filled/line{
 	dir = 5
@@ -15063,10 +15059,6 @@
 	dir = 8
 	},
 /area/station/security/lockers)
-"lxA" = (
-/obj/effect/decal/cleanable/oil/slippery,
-/turf/open/floor/iron,
-/area/station/security/execution/transfer)
 "lxO" = (
 /obj/machinery/seed_extractor,
 /turf/open/floor/grass,
@@ -23439,14 +23431,6 @@
 /obj/effect/turf_decal/siding/thinplating_new/light/corner,
 /turf/open/floor/iron/white/smooth_corner,
 /area/sandplanet/outdoors)
-"rWd" = (
-/obj/effect/decal/cleanable/oil/streak,
-/obj/structure/table,
-/obj/machinery/power/shuttle_engine/heater{
-	dir = 8
-	},
-/turf/open/floor/iron,
-/area/station/security/execution/transfer)
 "rWh" = (
 /obj/structure/window/reinforced/spawner/directional/east,
 /obj/structure/flora/bush/flowers_br,
@@ -24745,10 +24729,6 @@
 /obj/machinery/light/cold/directional/north,
 /turf/open/floor/iron/dark/small,
 /area/station/medical/medbay/central)
-"sPE" = (
-/obj/effect/decal/cleanable/oil/streak,
-/turf/open/floor/iron/dark,
-/area/station/security/execution/transfer)
 "sPR" = (
 /obj/machinery/light/cold/directional/north,
 /turf/open/floor/carpet/executive,
@@ -25954,10 +25934,6 @@
 /obj/structure/table/wood/fancy/royalblue,
 /obj/item/paper_bin/carbon{
 	pixel_x = -3;
-	pixel_y = 4
-	},
-/obj/item/paper/fluff/ids_for_dummies{
-	pixel_x = 11;
 	pixel_y = 4
 	},
 /obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer2,
@@ -30897,10 +30873,6 @@
 /obj/machinery/power/apc/auto_name/directional/north,
 /turf/open/floor/iron/smooth_large,
 /area/station/science/ordnance/storage)
-"xnp" = (
-/obj/effect/decal/cleanable/oil/streak,
-/turf/open/floor/iron,
-/area/station/security/execution/transfer)
 "xnx" = (
 /obj/structure/table,
 /obj/machinery/door/firedoor,
@@ -35119,7 +35091,7 @@ vnm
 vnm
 vnm
 vnm
-vnm
+kZH
 vnm
 vnm
 vnm
@@ -47379,12 +47351,12 @@ yjq
 qzf
 maz
 erG
-fdh
-erG
 goy
 erG
 goy
-xnp
+erG
+goy
+erG
 erG
 erG
 erG
@@ -47645,7 +47617,7 @@ sQa
 mui
 iJQ
 jWY
-rWd
+jrS
 goy
 ntq
 ntq
@@ -47901,7 +47873,7 @@ goy
 erG
 jrS
 hiy
-lxA
+erG
 mAE
 goy
 ntq
@@ -49435,12 +49407,12 @@ xiy
 rHt
 nuV
 fgv
-kZH
 fgv
 fgv
 fgv
 fgv
-sPE
+fgv
+fgv
 fgv
 fgv
 fgv
@@ -49701,7 +49673,7 @@ fgv
 jvy
 fgv
 fgv
-sPE
+fgv
 goy
 pLQ
 swQ
@@ -49952,10 +49924,10 @@ fgv
 fgv
 fgv
 fgv
-sPE
 fgv
 fgv
-kZH
+fgv
+fgv
 fgv
 fgv
 fgv
