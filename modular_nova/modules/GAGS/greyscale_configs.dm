@@ -2384,6 +2384,6 @@ TREK
 	icon_file = 'modular_nova/master_files/icons/mob/clothing/suit.dmi'
 	json_config = 'modular_nova/modules/GAGS/json_configs/mass_greyscales/overalls_loneskirt_worn.json'
 
-/datum/greyscale_config/overallsloneskirt/worn/digi
+/datum/greyscale_config/overalls_loneskirt/worn/digi
 	name = "Overalls-Skirt (Worn, Digi)"
 	icon_file = 'modular_nova/master_files/icons/mob/clothing/suit.dmi'
