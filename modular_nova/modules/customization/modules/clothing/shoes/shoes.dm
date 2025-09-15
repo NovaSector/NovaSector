@@ -234,7 +234,6 @@
 	greyscale_config_worn_digi = /datum/greyscale_config/sport_boots/worn/digi
 	flags_1 = IS_PLAYER_COLORABLE_1
 
-
 /obj/item/clothing/shoes/wraps/cloth
 	name = "cloth foot wraps"
 	desc = "Boxer tape or bandages wrapped like a mummy, all left up to the choice of the wearer."
