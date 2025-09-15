@@ -6,13 +6,15 @@
 	flags_1 = NONE
 	area_flags = UNIQUE_AREA
 	ambience_index = AMBIENCE_GENERIC
-	sound_environment = SOUND_AREA_FOREST
+	sound_environment = SOUND_ENVIRONMENT_PLAIN
 	ambient_buzz = 'sound/ambience/lavaland/magma.ogg'
+
 	always_unpowered = TRUE
 	power_environ = FALSE
 	power_equip = FALSE
 	power_light = FALSE
 	requires_power = TRUE
+
 	min_ambience_cooldown = 70 SECONDS
 	max_ambience_cooldown = 220 SECONDS
 	static_lighting = FALSE
