@@ -2,7 +2,7 @@
 /datum/uplink_item/device_tools/syndie_jaws_of_life_traitor
 	name = "Syndicate Jaws of Life"
 	desc = "Based on a Nanotrasen model, this powerful tool can be used as both a crowbar and a pair of wirecutters. \
-	In its crowbar configuration, it can be used to force open airlocks. Very useful for entering the station or its departments."
+			In its crowbar configuration, it can be used to force open airlocks. Very useful for entering the station or its departments."
 	item = /obj/item/crowbar/power/syndicate
 	cost = /datum/uplink_item/low_cost::cost
 	purchasable_from = UPLINK_TRAITORS | UPLINK_SERIOUS_OPS
@@ -13,38 +13,6 @@
 	item = /obj/item/borg/upgrade/transform/syndicatejack
 	cost = /datum/uplink_item/low_cost::cost
 	purchasable_from = UPLINK_TRAITORS
-
-/datum/uplink_item/device_tools/guerillagloves_traitor
-	name = "Guerilla Gloves"
-	desc = "A pair of highly robust combat gripper gloves that excels at performing takedowns at close range, with an added lining of insulation. Careful not to hit a wall!"
-	item = /obj/item/clothing/gloves/tackler/combat/insulated
-	cost = 1
-	uplink_item_flags = NONE
-	purchasable_from = UPLINK_TRAITORS | UPLINK_SERIOUS_OPS
-
-/datum/uplink_item/device_tools/bulletproof_armor
-	name = "Bulletproof Armor Vest"
-	desc = "A Type III heavy bulletproof vest that excels in protecting the wearer against traditional projectile weaponry and explosives to a minor extent."
-	item = /obj/item/clothing/suit/armor/bulletproof
-	cost = /datum/uplink_item/low_cost::cost
-	uplink_item_flags = NONE
-	purchasable_from = UPLINK_TRAITORS | UPLINK_SERIOUS_OPS
-
-/datum/uplink_item/device_tools/swathelmet_traitor
-	name = "Syndicate Helmet"
-	desc = "An extremely robust, space-worthy helmet in a nefarious red and black stripe pattern."
-	item = /obj/item/clothing/head/helmet/swat
-	cost = /datum/uplink_item/low_cost::cost
-	uplink_item_flags = NONE
-	purchasable_from = UPLINK_TRAITORS | UPLINK_SERIOUS_OPS
-
-/datum/uplink_item/device_tools/ammo_pouch
-	name = "Ammo Pouch"
-	desc = "A small yet large enough pouch that can fit in your pocket, and has room for three magazines."
-	item = /obj/item/storage/pouch/ammo
-	cost = 1
-	uplink_item_flags = NONE
-	purchasable_from = UPLINK_TRAITORS | UPLINK_SERIOUS_OPS
 
 /datum/uplink_item/device_tools/syndikush
 	name = "Syndikush Green Crack cart"
@@ -65,7 +33,7 @@
 	cost = /datum/uplink_item/medium_cost::cost
 	purchasable_from = UPLINK_TRAITORS | UPLINK_SPY
 
-/datum/uplink_item/device_tools/evil_module
+/datum/uplink_item/ammo/evil_module
 	name = "Ammo Fabricator Advanced Lethal Authentication Module"
 	desc = "A Gorlex Marauders-modified ammunition fabricator module, loaded with the authentication keys for causing lots and lots of problems."
 	item = /obj/item/ammo_workbench_module/lethal_super/evil

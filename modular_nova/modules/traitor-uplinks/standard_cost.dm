@@ -5,7 +5,6 @@
 
 */
 
-
 /// TC cost for generic uplink gadgets
 /datum/uplink_item/low_cost
 	cost = 3

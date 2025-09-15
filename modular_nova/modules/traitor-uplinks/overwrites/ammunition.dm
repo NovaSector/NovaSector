@@ -5,7 +5,7 @@
 
 // LOW COST
 /datum/uplink_item/ammo/toydarts
-	cost = /datum/uplink_item/low_cost/ammunition::cost
+	purchasable_from = NONE //unnecessary
 
 /datum/uplink_item/ammo/pistol
 	cost = /datum/uplink_item/low_cost/ammunition::cost
