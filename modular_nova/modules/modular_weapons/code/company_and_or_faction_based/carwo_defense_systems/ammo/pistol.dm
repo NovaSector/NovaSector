@@ -9,6 +9,7 @@
 	icon_state = "35sol"
 
 	caliber = CALIBER_SOL35SHORT
+	ammo_stack_type = /obj/item/ammo_box/magazine/ammo_stack/c35_sol
 	projectile_type = /obj/projectile/bullet/c35sol
 
 

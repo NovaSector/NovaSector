@@ -94,9 +94,15 @@
 
 /datum/supply_pack/goody/c38_super_kit
 	name = "NT/E \"Laevateinn\" Revolver Conversion Kit"
-	desc = "A small case of parts for converting a .38 revolver into Nanotrasen's latest foray into magnetically-accelerated sidearms."
-	cost = PAYCHECK_CREW * 6 // 300 cr at time of writing
+	desc = "A set of parts for converting a .38 revolver into Nanotrasen's latest foray into magnetically-accelerated sidearms."
+	cost = PAYCHECK_CREW * 6 // 300 cr at time of writing, 800 cr total
 	contains = list(/obj/item/crafting_conversion_kit/c38_super)
+
+/datum/supply_pack/goody/sol_riot_super_kit
+	name = "Archon Systems \"KOLBEN/NACHTREIHER\" Shotgun Conversion Kit"
+	desc = "A set of parts for converting an M64 shotgun into one of Archon Combat Systems's forays into improving the shotgun's end-user experience."
+	cost = PAYCHECK_COMMAND * 6 // 600 cr at time of writing, 1200 cr total
+	contains = list(/obj/item/crafting_conversion_kit/riot_sol_super)
 
 /*
 *	CARPET PACKS
@@ -255,7 +261,7 @@
 	desc = "Contains a single Automatic Appraisal NIFSoft uploader disk."
 	cost = CARGO_CRATE_VALUE * 1.5
 	contains = list(
-		/obj/item/disk/nifsoft_uploader/money_sense,
+		/obj/item/disk/nifsoft_uploader/job/money_sense,
 	)
 
 /datum/supply_pack/goody/shapeshifter_nifsoft
