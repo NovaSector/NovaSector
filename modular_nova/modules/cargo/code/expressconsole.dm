@@ -92,8 +92,8 @@
 
 /obj/machinery/computer/cargo/express/ghost/interdyne
 	name = "\improper Interdyne Express Supply Console"
-	desc = "A specialized Interdyne Pharmaceuticals console, allowing for deepspace communication with a specialized drop pod railgun for precise and accuratet \
-	deliveries, no matter how remote they are located"
+	desc = "A specialized Interdyne Pharmaceuticals console, allowing for deepspace communication with a specialized drop pod railgun for precise and accurate \
+		deliveries, no matter how remote they are located"
 	circuit = /obj/item/circuitboard/computer/cargo/express/ghost/interdyne
 	req_access = list(ACCESS_SYNDICATE)
 	cargo_account = ACCOUNT_INT
@@ -108,8 +108,8 @@
 
 /obj/machinery/computer/cargo/express/ghost/syndicate
 	name = "\improper Syndicate Express Supply Console"
-	desc = "A specialized Syndicate Express Supply Console, sync'd with a deepspace syndicate storage satellite, armed with a drop pod railgun for precise and accurate \
-	deliveries over long distances, no matter how remote they are located."
+	desc = "A specialized Syndicate Express Supply Console, synced with a deepspace syndicate storage satellite, armed with a drop pod railgun for precise and accurate \
+		deliveries over long distances, no matter how remote they are located."
 	circuit = /obj/item/circuitboard/computer/cargo/express/ghost/syndicate
 	req_access = list(ACCESS_SYNDICATE)
 	cargo_account = ACCOUNT_DS2
@@ -123,8 +123,8 @@
 
 /obj/machinery/computer/cargo/express/ghost/tarkon
 	name = "\improper Tarkon Express Supply Console"
-	desc = "A specialized Tarkon Industries Express Supply Console, sync'd a deepspace storage satellite, armed with a drop pod railgun for precise and accurate \
-	deliveries over long distances, no matter how remote they are located."
+	desc = "A specialized Tarkon Industries Express Supply Console, synced a deepspace storage satellite, armed with a drop pod railgun for precise and accurate \
+		deliveries over long distances, no matter how remote they are located."
 	circuit = /obj/item/circuitboard/computer/cargo/express/ghost/tarkon
 	req_access = list(ACCESS_TARKON)
 	cargo_account = ACCOUNT_TI
