@@ -63,6 +63,9 @@
 /// From /obj/item/organ/stomach/after_eat(atom/edible)
 #define COMSIG_STOMACH_AFTER_EAT "stomach_after_eat"
 
+/// Used to trigger a signal to custom tongue quirk's proc.
+#define COMSIG_SET_SAY_MODIFIERS "set_say_modifiers"
+
 /// For when a Hemophage's pulsating tumor gets added to their body.
 #define COMSIG_PULSATING_TUMOR_ADDED "pulsating_tumor_added"
 /// For when a Hemophage's pulsating tumor gets removed from their body.
@@ -89,6 +92,9 @@
 /// Whenever we need to get the soul of the mob inside of the soulcatcher.
 #define COMSIG_SOULCATCHER_SCAN_BODY "soulcatcher_scan_body"
 
+/// When a soulcatcher room's joinability is updated by opening the room, closing the room, allowing ghosts, etc: from base of datum/component/soulcatcher/proc/update_joinability()
+#define COMSIG_SOULCATCHER_UPDATE_JOINABILITY "soulcatcher_update_joinability"
+
 /// Whenever a baton successfully executes its nonlethal attack. WARNING HORRIBLE FUCKING CODE THIS IS ASS AAAAAAAAAAAAH
 #define COMSIG_PRE_BATON_FINALIZE_ATTACK "pre_baton_finalize_attack"
 
@@ -103,3 +109,9 @@
 
 ///from base of /datum/preference_middleware/jobs/proc/set_job_title() and /datum/preference_middleware/jobs/proc/set_job_preference: ()
 #define COMSIG_JOB_PREF_UPDATED "job_pref_updated"
+
+/// When a gun's safety is toggled.
+#define COMSIG_GUN_SAFETY_TOGGLED "gun_safety_toggled"
+
+/// Signal sent whenever a gun with a barrel booster toggles its barrel booster.
+#define COMSIG_GUN_BOOSTER_TOGGLED "gun_booster_toggled"

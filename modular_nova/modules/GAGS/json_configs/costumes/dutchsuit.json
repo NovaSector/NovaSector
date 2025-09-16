@@ -1,0 +1,28 @@
+{
+	"dutchsuit": [
+		{
+			"type": "icon_state",
+			"icon_state": "dutch_base",
+			"blend_mode": "overlay",
+			"color_ids": [1]
+		},
+		{
+			"type": "icon_state",
+			"icon_state": "dutch_shirt",
+			"blend_mode": "overlay",
+			"color_ids": [2]
+		},
+		{
+			"type": "icon_state",
+			"icon_state": "dutch_secondary",
+			"blend_mode": "overlay",
+			"color_ids": [3]
+		},
+		{
+			"type": "icon_state",
+			"icon_state": "dutch_pins",
+			"blend_mode": "overlay",
+			"color_ids": [4]
+		}
+	]
+}

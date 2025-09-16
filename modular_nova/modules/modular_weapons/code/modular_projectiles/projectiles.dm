@@ -1,8 +1,43 @@
 // .38
 
+/obj/projectile/bullet/c38
+	// tg base damage 25, wound bonus -20
+	// 25*1.35 = 35
+	damage = 35
+	wound_bonus = -10
+
+/obj/projectile/bullet/c38/match/bouncy
+	// tg base damage 10, stamina 30
+	// 10*1.35 = 13.5, rounded up
+	// stamina mildly buffed for funsies
+	damage = 15
+	stamina = 35
+
+/obj/projectile/bullet/c38/match/true
+	// tg base damage 15
+	// 15*1.35 = 20.25, rounded down
+	damage = 20
+
+/obj/projectile/bullet/c38/dumdum
+	// tg base damage 15, embed falloff -15
+	damage = 20
+	embed_falloff_tile = -10
+
+/datum/embedding/bullet/c38/dumdum
+	// tg base embed chance 75
+	embed_chance = 85
+
+/obj/projectile/bullet/c38/hotshot
+	// tg base damage 20
+	// 20*1.35 = 27, rounding up
+	damage = 30
+
+/obj/projectile/bullet/c38/iceblox
+	damage = 30 // originally 20 on TG
+
 /obj/projectile/bullet/c38/haywire
 	name = ".38 haywire bullet"
-	damage = 10
+	damage = 30
 	ricochets_max = 0
 	embed_type = null
 	/// EMP radius when this bullet hits a target.

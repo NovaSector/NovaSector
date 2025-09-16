@@ -160,6 +160,7 @@
 #include "ensure_subtree_operational_datum.dm"
 #include "ethereal_revival.dm"
 #include "explosion_action.dm"
+#include "firedoor_regions.dm"
 #include "fish_unit_tests.dm"
 #include "focus_only_tests.dm"
 #include "font_awesome_icons.dm"
@@ -257,6 +258,7 @@
 #include "reagent_transfer.dm"
 #include "required_map_items.dm"
 #include "resist.dm"
+#include "reta_system.dm"
 #include "say.dm"
 #include "screenshot_airlocks.dm"
 #include "screenshot_antag_icons.dm"
@@ -322,7 +324,7 @@
 #include "worn_icons.dm"
 // NOVA EDIT START
 #include "~nova\automapper.dm"
-#include "~nova\liver.dm"
+#include "~nova\liver_nova.dm"
 #include "~nova\opposing_force.dm"
 // NOVA EDIT END
 // END_INCLUDE

@@ -11,7 +11,7 @@ const BASEICONS = {
   'Bit Avatar': 'code',
   Bitrunner: 'gamepad',
   Botanist: 'seedling',
-  'Bridge Assistant': 'building-shield',
+  'Bridge Officer': 'mug-hot', // NOVA EDIT CHANGE - ORIGINAL:  'Bridge Assistant': 'building-shield',
   Captain: 'crown',
   'Cargo Gorilla': 'paw',
   'Cargo Technician': 'box',
@@ -119,7 +119,10 @@ const ALTTITLES = {
   // Captain - crown
   'Station Commander': BASEICONS['Captain'],
   'Commanding Officer': BASEICONS['Captain'],
+  'Site Administrator': BASEICONS['Captain'],
   'Site Manager': BASEICONS['Captain'],
+  'Site Overseer': BASEICONS['Captain'],
+  'Site Director': BASEICONS['Captain'],
   // Cargo Technician - box
   'Warehouse Technician': BASEICONS['Cargo Technician'],
   'Deck Worker': BASEICONS['Cargo Technician'],
@@ -145,6 +148,7 @@ const ALTTITLES = {
   'Engineering Foreman': BASEICONS['Chief Engineer'],
   'Head of Engineering': BASEICONS['Chief Engineer'],
   // Chief Medical Officer - user-md
+  'Medical Administrator': BASEICONS['Chief Medical Officer'],
   'Medical Director': BASEICONS['Chief Medical Officer'],
   'Head of Medical': BASEICONS['Chief Medical Officer'],
   'Chief Physician': BASEICONS['Chief Medical Officer'],
@@ -181,6 +185,7 @@ const ALTTITLES = {
   'Security Commander': BASEICONS['Head of Security'],
   'Chief Constable': BASEICONS['Head of Security'],
   'Chief of Security': BASEICONS['Head of Security'],
+  'Security Director': BASEICONS['Head of Security'],
   Sheriff: BASEICONS['Head of Security'],
   // Janitor - soap
   Custodian: BASEICONS['Janitor'],
@@ -208,6 +213,7 @@ const ALTTITLES = {
   Pantomimist: BASEICONS['Mime'],
   // Nanotrasen Consultant - clipboard-check
   'Nanotrasen Diplomat': BASEICONS['Nanotrasen Consultant'],
+  'Nanotrasen Advisor': BASEICONS['Nanotrasen Consultant'],
   // Paramedic - truck-medical
   'Emergency Medical Technician': BASEICONS['Paramedic'],
   'Search and Rescue Technician': BASEICONS['Paramedic'],
@@ -233,6 +239,7 @@ const ALTTITLES = {
   'Logistics Coordinator': BASEICONS['Quartermaster'],
   // Research Director - user-graduate
   'Silicon Administrator': BASEICONS['Research Director'],
+  'Research Administrator': BASEICONS['Research Director'],
   'Lead Researcher': BASEICONS['Research Director'],
   'Biorobotics Director': BASEICONS['Research Director'],
   'Research Supervisor': BASEICONS['Research Director'],

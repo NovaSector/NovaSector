@@ -95,6 +95,15 @@
 
 	. = ..()
 
+//declaration for the Frozenwake ruin, the rest can be found in modular_nova\modules\mapping\code\frozenwake.dm
+/datum/map_template/ruin/icemoon/underground/nova/frozenwake
+	name = "frozenwake"
+	id = "frozenwake"
+	description = "A forgotten Hearthkin shrine buried in ice and silence, where ancient runes whisper of a fallen light and a long-awaited return."
+	prefix = "_maps/RandomRuins/IceRuins/nova/"
+	suffix = "icemoon_underground_frozenwake.dmm"
+	allow_duplicates = FALSE
+
 /*----- Above Ground -----*/
 ////// Yes, I know the "Above Ground" Is very limited in space. This is a... ~17x17? ruin.
 /datum/map_template/ruin/icemoon/nova/turret_bunker
@@ -111,4 +120,13 @@
 	description = "A mishap during geological site testing ended a poor man's life. Anyways, Roll a d10 to loot the body."
 	prefix = "_maps/RandomRuins/IceRuins/nova/"
 	suffix = "icemoon_surface_geosite.dmm"
+	allow_duplicates = FALSE
+
+/datum/map_template/ruin/icemoon/nova/anchor_buoy
+	name = "Ice-Ruin Surface Anchor Buoy"
+	id = "nova-anchor-buoy-icemoon-1"
+	description = "A little one-way-launch navigation beacon for the charting of unexplored tundra."
+	suffix = "icemoon_beacon.dmm"
+	cost = 0
+	always_place = TRUE
 	allow_duplicates = FALSE

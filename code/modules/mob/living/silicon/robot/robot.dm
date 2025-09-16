@@ -914,7 +914,7 @@
 		radio.command = TRUE
 		radio.channels = AI.radio.channels
 		for(var/chan in radio.channels)
-			radio.secure_radio_connections[chan] = add_radio(radio, GLOB.radiochannels[chan])
+			radio.secure_radio_connections[chan] = add_radio(radio, GLOB.default_radio_channels[chan])
 
 	diag_hud_set_aishell()
 	undeployment_action.Grant(src)
@@ -925,7 +925,7 @@
 	button_icon = 'icons/mob/actions/actions_AI.dmi'
 	button_icon_state = "ai_core"
 
-/datum/action/innate/undeployment/Trigger(trigger_flags)
+/datum/action/innate/undeployment/Trigger(mob/clicker, trigger_flags)
 	if(!..())
 		return FALSE
 	var/mob/living/silicon/robot/shell_to_disconnect = owner
@@ -1048,10 +1048,7 @@
 
 /mob/living/silicon/robot/get_exp_list(minutes)
 	. = ..()
-
-	var/datum/job/cyborg/cyborg_job_ref = SSjob.get_job_type(/datum/job/cyborg)
-
-	.[cyborg_job_ref.title] = minutes
+	.[/datum/job/cyborg::title] = minutes
 
 /mob/living/silicon/robot/proc/untip_roleplay()
 	to_chat(src, span_notice("Your frustration has empowered you! You can now right yourself faster!"))

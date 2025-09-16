@@ -1,3 +1,6 @@
+/obj/item/gun/ballistic/automatic/wt550
+	w_class = WEIGHT_CLASS_NORMAL
+
 /obj/item/ammo_box/magazine/wt550m9/rub
 	name = "\improper WT-550 magazine (4.6x30mm rubber)"
 	desc = "A top-loading 4.6x30mm magazine, specifically to carry less than lethal ammo."
