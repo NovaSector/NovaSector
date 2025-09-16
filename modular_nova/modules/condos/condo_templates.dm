@@ -143,3 +143,23 @@ Due to some fuckery with how these templates work; the bottom left turf of your 
 /datum/map_template/condo/mountainside_apartment
 	name = "Condo - Mountainside Apartment"
 	mappath = "modular_nova/modules/condos/_maps/apartment_mountainside.dmm"
+	landing_zone_x_offset = 14
+	landing_zone_y_offset = 4
+
+/datum/map_template/condo/mountainside_fortuneteller
+	name = "Condo - Fortune Teller Apartment"
+	mappath = "modular_nova/modules/condos/_maps/apartment_fortuneteller.dmm"
+	landing_zone_x_offset = 5
+	landing_zone_y_offset = 8
+
+/datum/map_template/condo/mountainside_skyscraper
+	name = "Condo - Skyscraper"
+	mappath = "modular_nova/modules/condos/_maps/apartment_skyscraper.dmm"
+	landing_zone_x_offset = 18
+	landing_zone_y_offset = 4
+
+/datum/map_template/condo/mountainside_dragonlair
+	name = "Condo - Dragon's Lair"
+	mappath = "modular_nova/modules/condos/_maps/apartment_dragonslair.dmm"
+	landing_zone_x_offset = 5
+	landing_zone_y_offset = 11

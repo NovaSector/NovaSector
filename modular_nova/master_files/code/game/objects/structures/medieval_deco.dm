@@ -1,7 +1,7 @@
 /obj/structure/medieval/stone_arch
 	name = "stone arch"
 	desc = "A large decorative arch."
-	icon = 'modular_zzplurt/icons/obj/medieval/stone_arch.dmi'
+	icon = 'modular_nova/master_files/icons/obj/medieval/stone_arch.dmi'
 	icon_state = "stone_arch"
 	density = FALSE
 	max_integrity = 150
@@ -17,7 +17,7 @@
 /obj/structure/medieval/wine_barrel
 	name = "wine barrel"
 	desc = "A decorative barrel laying on its side, with supposedly wine inside."
-	icon = 'modular_zzplurt/icons/obj/medieval/structures.dmi'
+	icon = 'modular_nova/master_files/icons/obj/medieval/structures.dmi'
 	icon_state = "wine_barrel"
 	density = TRUE
 	max_integrity = 150
@@ -26,7 +26,7 @@
 /obj/structure/medieval/bed_1x2
 	name = "bed"
 	desc = "A luxurious bed, inviting you to rest on it, oh traveler."
-	icon = 'modular_zzplurt/icons/obj/medieval/structures_64x64.dmi'
+	icon = 'modular_nova/master_files/icons/obj/medieval/structures_64x64.dmi'
 	icon_state = "bed_1x2"
 	layer = 2.2
 	density = FALSE
@@ -36,7 +36,7 @@
 /obj/structure/medieval/bed_2x2
 	name = "bed"
 	desc = "A luxurious bed, inviting you to rest on it, oh traveler."
-	icon = 'modular_zzplurt/icons/obj/medieval/structures_64x64.dmi'
+	icon = 'modular_nova/master_files/icons/obj/medieval/structures_64x64.dmi'
 	icon_state = "bed_2x2"
 	layer = 2.2
 	density = FALSE
@@ -45,5 +45,5 @@
 
 /obj/structure/sink/standalone
 	name = "sink"
-	icon = 'modular_zzplurt/icons/obj/medieval/structures.dmi'
+	icon = 'modular_nova/master_files/icons/obj/medieval/structures.dmi'
 	icon_state = "sink"
