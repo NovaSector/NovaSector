@@ -212,8 +212,7 @@
 		SSaccessories.bra_m -= sprite_name
 
 /proc/build_erp_item_list()
-	for(var/fun_item in subtypesof(/obj/item))
-		var/obj/item/I = fun_item
-		if(initial(I.obj_flags_nova) & ERP_ITEM)
+	for(var/obj/item/fun_item as anything in subtypesof(/obj/item))
+		if(initial(fun_item.obj_flags_nova) & ERP_ITEM)
 			GLOB.erp_items += fun_item
 
