@@ -9216,6 +9216,7 @@
 #include "modular_nova\modules\tarkon\code\misc_fluff\spawner.dm"
 #include "modular_nova\modules\tarkon\code\misc_fluff\tools.dm"
 #include "modular_nova\modules\tarkon\code\misc_fluff\turret.dm"
+#include "modular_nova\modules\tarkon\code\vehicles\mecha\working\oracle.dm"
 #include "modular_nova\modules\taur_mechanics\code\constrict.dm"
 #include "modular_nova\modules\taur_mechanics\code\mod.dm"
 #include "modular_nova\modules\taur_mechanics\code\preferences.dm"
