@@ -27,7 +27,7 @@
 	purchasable_from = UPLINK_TRAITORS
 
 /datum/uplink_item/dangerous/ocelot
-	name = "Ocelot Revolver"
+	name = "Modified Revolver Case"
 	desc = "A .357 Magnum revolver firing ricochet bullets, in case you care about style-points."
 	item = /obj/item/storage/toolbox/guncase/nova/pistol/opfor/ocelot
 	cost = /datum/uplink_item/low_cost/weaponry::cost
@@ -44,7 +44,7 @@
 
 // MEDIUM COST
 /datum/uplink_item/dangerous/laser_carbine
-	name = "Allstar Laser Carbine"
+	name = "Allstar Laser-Carbine Case"
 	desc = "A modified laser gun which can shoot far faster, but each shot is far less damaging. \
 			Comes with a recharge kit."
 	item = /obj/item/storage/toolbox/guncase/nova/opfor/carbine
@@ -52,14 +52,14 @@
 	purchasable_from = UPLINK_TRAITORS | UPLINK_SERIOUS_OPS
 
 /datum/uplink_item/dangerous/sindano
-	name = "Sindano Submachine Gun Kit"
+	name = "Carwo-Cawil Sindano Case"
 	desc = "A Sindano SMG, with spare lethal-and-non-lethal ammo, and three various magazines."
 	item = /obj/item/storage/toolbox/guncase/nova/pistol/opfor/sindano
 	cost = /datum/uplink_item/medium_cost/weaponry::cost
 	purchasable_from = UPLINK_TRAITORS | UPLINK_SERIOUS_OPS
 
 /datum/uplink_item/dangerous/nukeop_smg
-	name = "Scarborough C-20r Gun Kit"
+	name = "Scarborough C-20r Case"
 	desc = "A fully-loaded Scarborough Arms bullpup submachine gun. The C-20r fires .45 rounds with a \
 			24-round magazine and is compatible with suppressors. Comes with spare two magazines."
 	item = /obj/item/storage/toolbox/guncase/nova/pistol/opfor/c20r
@@ -81,7 +81,7 @@
 	purchasable_from = UPLINK_TRAITORS | UPLINK_SERIOUS_OPS
 
 /datum/uplink_item/dangerous/combat_shotgun
-	name = "Carwo-Cawil M64 Shotgun"
+	name = "Carwo-Cawil M64 Shotgun Case"
 	desc = "A twelve guage shotgun with an eight shell capacity underneath."
 	item = /obj/item/storage/toolbox/guncase/nova/opfor/renoster
 	cost = /datum/uplink_item/medium_cost/weaponry::cost
@@ -99,7 +99,7 @@
 
 // HIGH COST
 /datum/uplink_item/dangerous/rawketlawnchair
-	name = "Dardo-RE Rocket Propelled Grenade Launcher"
+	name = "Dardo-RE Rocket Propelled Grenade Launcher Case"
 	desc = "A reusable rocket propelled grenade launcher preloaded with a low-yield 84mm HE round. \
 			Guaranteed to take your target out with a bang, or your money back! Comes with a bouquet of additional rockets!"
 	cost = /datum/uplink_item/high_cost/weaponry::cost
@@ -107,28 +107,28 @@
 	purchasable_from = UPLINK_TRAITORS
 
 /datum/uplink_item/dangerous/shitzu
-	name = "Shitzu Magfed Shotgun"
+	name = "Shitzu Magfed Shotgun Case"
 	desc = "Everyone says a dog is a man's best friend, lets change that and make man's best friend a 12 gauge magfed shotgun! Thanks to the beloved contributions from the Gorlex Marauders."
 	item = /obj/item/storage/toolbox/guncase/nova/syndicate/shitzu
 	cost = /datum/uplink_item/high_cost/weaponry::cost
 	purchasable_from = UPLINK_TRAITORS | UPLINK_SERIOUS_OPS
 
 /datum/uplink_item/dangerous/infanteria
-	name = "Carwo-Cawil Battle Rifle"
+	name = "Carwo-Cawil Battle Rifle Case"
 	desc = "A heavy battle rifle, this one seems to be painted tacticool black. Accepts any standard SolFed rifle magazine."
 	item = /obj/item/storage/toolbox/guncase/nova/opfor/infanteria
 	cost = /datum/uplink_item/high_cost/weaponry::cost
 	purchasable_from = UPLINK_TRAITORS | UPLINK_SERIOUS_OPS
 
 /datum/uplink_item/dangerous/wylom
-	name = "Szot Dynamica 'Wyłom' AMR"
+	name = "Szot Dynamica 'Wyłom' AMR Case"
 	desc = "A massive, outdated beast of an anti materiel rifle that was once in use by CIN military forces. Fires the devastating .60 Strela caseless round, the massively overperforming penetration of which being the reason this weapon was discontinued."
 	item = /obj/item/storage/toolbox/guncase/nova/opfor/amr
 	cost = /datum/uplink_item/high_cost/weaponry::cost
 	purchasable_from = UPLINK_TRAITORS | UPLINK_SERIOUS_OPS
 
 /datum/uplink_item/dangerous/hook_shotgun
-	name = "Hook Modified Sawn-off Shotgun"
+	name = "Modified Sawn-off Shotgun Case"
 	desc = "Range isn't an issue when you can bring your victim to you."
 	item = /obj/item/storage/toolbox/guncase/nova/opfor/hook_shotgun
 	cost = /datum/uplink_item/high_cost/weaponry::cost
