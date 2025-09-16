@@ -8,6 +8,7 @@
 
 /datum/uplink_item/suits/infiltrator_bundle
 //	cost = 17  grandfather value! there has to be a story here, TG price is 6.
+	cost = /datum/uplink_item/medium_cost/modsuit::cost
 
 /datum/uplink_item/suits/modsuit
 	cost = /datum/uplink_item/low_cost/modsuit::cost

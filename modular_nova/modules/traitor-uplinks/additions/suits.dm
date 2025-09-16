@@ -50,11 +50,10 @@
 	item = /obj/item/mod/module/jump_jet
 	cost = /datum/uplink_item/medium_cost::cost
 
+
+// HIGH COST
 /datum/uplink_item/suits/shove_blocker
 	name = "MODsuit Bulwark"
 	desc = "Layers upon layers of shock dampening plates, just to stop you from getting shoved into a wall by an angry mob."
 	item = /obj/item/mod/module/shove_blocker
-	cost = /datum/uplink_item/medium_cost::cost
-
-
-// HIGH COST
+	cost = /datum/uplink_item/high_cost::cost
