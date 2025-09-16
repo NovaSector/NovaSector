@@ -1,0 +1,5 @@
+author: "Hardly"
+delete-after: True
+changes:
+  - code_imp: "The box of love can now only carry ERP items regardless of their size."
+  - code_imp: "The box of love is now smaller to compensate for the change."
