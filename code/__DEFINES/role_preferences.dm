@@ -117,13 +117,14 @@
 #define ROLE_HOTEL_STAFF "Hotel Staff"
 #define ROLE_LAVALAND_SYNDICATE "Syndicate Lavaland Personnel" // NOVA EDIT CHANGE - Original: #define ROLE_LAVALAND_SYNDICATE "Lavaland Syndicate"
 //NOVA EDIT START - Nova Sector Spawner roles
+#define ROLE_BLACK_MARKET_DEALER "Black Market Dealer"
+#define ROLE_DS2 "Syndicate DS-2 Crew"
+#define ROLE_FREIGHTER_CREW "Freighter Crew"
+#define ROLE_GHOST_CAFE "Ghost Cafe Visitor"
 #define ROLE_INTERDYNE_PLANETARY_BASE "Interdyne Lavaland Personnel"
 #define ROLE_INTERDYNE_PLANETARY_BASE_ICEBOX "Interdyne Icemoon Personnel"
-#define ROLE_DS2 "Syndicate DS-2 Crew"
-#define ROLE_GHOST_CAFE "Ghost Cafe Visitor"
-#define ROLE_BLACK_MARKET_DEALER "Black Market Dealer"
-#define ROLE_FREIGHTER_CREW "Freighter Crew"
 #define ROLE_PORT_TARKON "Port Tarkon Survivor"
+#define ROLE_MINING_STATION_SUPPORT_ENGINEER "Mining Station Support Engineer"
 // NOVA EDIT ADDITION END
 #define ROLE_LIFEBRINGER "Lifebringer"
 #define ROLE_MAINTENANCE_DRONE "Maintenance Drone"

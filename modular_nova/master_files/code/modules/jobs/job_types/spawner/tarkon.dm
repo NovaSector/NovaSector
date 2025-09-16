@@ -6,5 +6,7 @@
 	paycheck_department = ACCOUNT_TI
 
 /datum/job/tarkon/command
-	head_announce = list(RADIO_CHANNEL_TARKON)
+	head_announce = list(
+		RADIO_CHANNEL_TARKON,
+	)
 	bounty_types = TARKON_JOB_COMMAND
