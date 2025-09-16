@@ -2339,12 +2339,12 @@ TREK
 
 /// Labeled as sweater nova 1 just in case for CaseSensitivity and so its more organized
 /datum/greyscale_config/sweater_nova_1
-	name = "Sweater"
+	name = "Big Sweater"
 	icon_file = 'modular_nova/master_files/icons/obj/clothing/suits.dmi'
 	json_config = 'modular_nova/modules/GAGS/json_configs/suits/sweater/sweater.json'
 
 /datum/greyscale_config/sweater_nova_1/worn
-	name = "Sweater (Worn)"
+	name = "Big Sweater (Worn)"
 	icon_file = 'modular_nova/master_files/icons/mob/clothing/suit.dmi'
 	json_config = 'modular_nova/modules/GAGS/json_configs/suits/sweater/sweater.json'
 
