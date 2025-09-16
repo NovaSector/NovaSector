@@ -329,7 +329,7 @@
 	desc = "Perfect for winter in Siberia, da?"
 	icon_state = "ushankadown"
 	inhand_icon_state = null
-	flags_inv = HIDEEARS //NOVA EDIT (Original: HIDEEARS|HIDEHAIR)
+	flags_inv = HIDEEARS // NOVA EDIT CHANGE - (Original: HIDEEARS|HIDEHAIR)
 	cold_protection = HEAD
 	min_cold_protection_temperature = FIRE_HELM_MIN_TEMP_PROTECT
 	dog_fashion = /datum/dog_fashion/head/ushanka

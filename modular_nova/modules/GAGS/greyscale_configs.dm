@@ -2346,15 +2346,6 @@ TREK
 	name = "Monk Robe East (Worn, digi)"
 	icon_file = 'modular_nova/master_files/icons/mob/clothing/suits/chaplain_digi.dmi'
 
-/datum/greyscale_config/ushanka
-	name = "Ushanka"
-	icon_file = 'modular_nova/master_files/icons/obj/clothing/head/costume.dmi'
-	json_config = 'modular_nova/modules/GAGS/json_configs/head/ushanka.json'
-
-/datum/greyscale_config/ushanka/worn
-	name = "Ushanka (Worn)"
-	icon_file = 'modular_nova/master_files/icons/mob/clothing/head/costume.dmi'
-
 // Named TG bomberjacket in case of future nameconflict
 /datum/greyscale_config/tg_bomberjacket
 	name = "Bomberjacket"
