@@ -690,11 +690,3 @@
 	quirks_enabled = TRUE
 	random_appearance = FALSE
 	loadout_enabled = TRUE
-
-//CRYO CONSOLES
-/obj/machinery/computer/cryopod/interdyne
-	radio = /obj/item/radio/headset/interdyne
-	announcement_channel = RADIO_CHANNEL_INTERDYNE
-	req_one_access = list("syndicate_leader")
-
-MAPPING_DIRECTIONAL_HELPERS(/obj/machinery/computer/cryopod/interdyne, 32)

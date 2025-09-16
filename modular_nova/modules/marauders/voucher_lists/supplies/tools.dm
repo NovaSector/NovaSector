@@ -10,26 +10,17 @@
 	)
 
 /datum/voucher_set/traitor/supplies/tools/radlaser
-	name = /obj/item/healthanalyzer/rad_laser::name
-	description = /obj/item/healthanalyzer/rad_laser::desc
+	name = "Radiation laser"
+	description = "A disguised device which irradiates someone unfortunate enough to stand infront of it."
 	icon = /obj/item/healthanalyzer/rad_laser::icon
 	icon_state = /obj/item/healthanalyzer/rad_laser::icon_state
 	set_items = list(
 		/obj/item/healthanalyzer/rad_laser,
 	)
 
-/datum/voucher_set/traitor/supplies/tools/tape
-	name = /obj/item/stack/sticky_tape/pointy/super::name
-	description = /obj/item/stack/sticky_tape/pointy/super::desc
-	icon = /obj/item/stack/sticky_tape/pointy/super::icon
-	icon_state = /obj/item/stack/sticky_tape/pointy/super::icon_state
-	set_items = list(
-		/obj/item/stack/sticky_tape/pointy/super,
-	)
-
 /datum/voucher_set/traitor/supplies/tools/emp_light
-	name = /obj/item/flashlight/emp::name
-	description = /obj/item/flashlight/emp::desc
+	name = "EMP flashlight"
+	description = "Seemingly just a flashlight, yet can cause EMPs in a nearby radius."
 	icon = /obj/item/flashlight/emp::icon
 	icon_state = /obj/item/flashlight/emp::icon_state
 	set_items = list(
@@ -37,8 +28,8 @@
 	)
 
 /datum/voucher_set/traitor/supplies/tools/ai_detect
-	name = /obj/item/multitool/ai_detect::name
-	description = /obj/item/multitool/ai_detect::desc
+	name = "AI detector"
+	description = "A multitool which also functions as an AI detector."
 	icon = /obj/item/multitool/ai_detect::icon
 	icon_state = /obj/item/multitool/ai_detect::icon_state
 	set_items = list(

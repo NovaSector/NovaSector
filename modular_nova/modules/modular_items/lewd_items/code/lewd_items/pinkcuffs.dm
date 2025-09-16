@@ -9,6 +9,7 @@
 	lefthand_file = 'modular_nova/modules/modular_items/lewd_items/icons/mob/lewd_inhands/lewd_inhand_left.dmi'
 	righthand_file = 'modular_nova/modules/modular_items/lewd_items/icons/mob/lewd_inhands/lewd_inhand_right.dmi'
 	breakouttime = 1 SECONDS
+	obj_flags_nova = ERP_ITEM
 
 // Additionally, we will process the installation of the desired appearance, to bypass the bug in the general code
 /obj/item/restraints/handcuffs/lewd/apply_cuffs(mob/living/carbon/target, mob/user, dispense = 0)

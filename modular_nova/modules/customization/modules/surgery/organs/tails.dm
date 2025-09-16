@@ -35,17 +35,11 @@
 	if(feature_key in wearer.try_hide_mutant_parts)
 		return FALSE
 
-	if(wearer.wear_suit)
-		// Exception for MODs
-		if(istype(wearer.wear_suit, /obj/item/clothing/suit/mod))
-			return TRUE
+	// Exception for MODs
+	if(istype(wearer.wear_suit, /obj/item/clothing/suit/mod))
+		return TRUE
 
-		// Hide accessory if flagged to do so
-		else if(wearer.wear_suit.flags_inv & HIDETAIL)
-			return FALSE
-
-	return TRUE
-
+	return !(bodypart_owner.owner?.obscured_slots & HIDETAIL)
 
 /obj/item/organ/tail/on_mob_insert(mob/living/carbon/receiver, special, movement_flags)
 	if(sprite_accessory_flags & SPRITE_ACCESSORY_WAG_ABLE)
