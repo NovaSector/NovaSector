@@ -29,11 +29,10 @@
 /datum/uplink_item/dangerous/rapid
 	cost = /datum/uplink_item/medium_cost/weaponry::cost
 
-/datum/uplink_item/dangerous/doublesword
-	cost = /datum/uplink_item/medium_cost/weaponry::cost
-
 /datum/uplink_item/dangerous/guardian
 	cost = /datum/uplink_item/medium_cost/weaponry::cost
 
 
 // HIGH COST
+/datum/uplink_item/dangerous/doublesword
+	cost = /datum/uplink_item/high_cost/weaponry::cost
