@@ -13,6 +13,7 @@
  */
 
 /obj/machinery/computer/piratepad_control
+var/export_market = EXPORT_MARKET_PIRACY
 
 ///Pad for the Syndicate Bounty Control.
 /obj/item/circuitboard/machine/ghostpad
