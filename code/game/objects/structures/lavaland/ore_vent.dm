@@ -124,7 +124,7 @@
 		if(do_after(user, boulder_size * 1 SECONDS, src))
 			user.apply_damage(20, STAMINA)
 			playsound(src, 'sound/items/weapons/genhit.ogg', 50, TRUE)
-		*/ 
+		*/
 		if(!do_after(user, boulder_size * 1 SECONDS, src))
 			user.balloon_alert(user, "stay still!")
 			return
@@ -440,7 +440,7 @@
 
 	//start the cooldown & return the boulder
 	if(apply_cooldown)
-		COOLDOWN_START(src, manual_vent_cooldown, 10 SECONDS)
+		COOLDOWN_START(src, manual_vent_cooldown, 35 SECONDS) // Nova EDIT: Slows mat spam COOLDOWN_START(src, manual_vent_cooldown, 10 SECONDS)
 	return new_rock
 
 /**
