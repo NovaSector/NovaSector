@@ -45,9 +45,9 @@
 	if(target)
 		setDir(get_dir(base, target))//even if you can't shoot, follow the target
 		shootAt(target)
-		addtimer(CALLBACK(src, PROC_REF(shootAt), target), shot_delay)
-		addtimer(CALLBACK(src, PROC_REF(shootAt), target), shot_delay * 2)
-		addtimer(CALLBACK(src, PROC_REF(shootAt), target), shot_delay * 3)
+		addtimer(CALLBACK(src, PROC_REF(shootAt), target), shot_delay, TIMER_STOPPABLE | TIMER_DELETE_ME)
+		addtimer(CALLBACK(src, PROC_REF(shootAt), target), shot_delay * 2, TIMER_STOPPABLE | TIMER_DELETE_ME)
+		addtimer(CALLBACK(src, PROC_REF(shootAt), target), shot_delay * 3, TIMER_STOPPABLE | TIMER_DELETE_ME)
 		return TRUE
 
 /obj/projectile/bullet/ciws

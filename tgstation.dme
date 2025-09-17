@@ -500,7 +500,6 @@
 #include "code\__DEFINES\~nova_defines\vox_defines.dm"
 #include "code\__DEFINES\~nova_defines\vv.dm"
 #include "code\__DEFINES\~nova_defines\wounds.dm"
-#include "code\__DEFINES\~nova_defines\_globalvars\antagonists.dm"
 #include "code\__DEFINES\~nova_defines\_globalvars\bitfields.dm"
 #include "code\__DEFINES\~nova_defines\_globalvars\food.dm"
 #include "code\__DEFINES\~nova_defines\_globalvars\logging.dm"

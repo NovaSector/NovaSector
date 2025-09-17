@@ -6,8 +6,8 @@
 	base_icon_state = "dominator"
 	density = TRUE
 	interaction_flags_machine = INTERACT_MACHINE_REQUIRES_LITERACY
-	/// Is the machine active right now
-	var/active = FALSE
+	/// Is the cargo disruption active right now?
+	var/cargo_disruption_active = FALSE
 	/// Are we being tracked by the GPS signals?
 	var/tracked = FALSE
 	/// Current alert level of the ship
@@ -22,7 +22,7 @@
 	var/static/list/radial_options = list(
 		"Cargo Disruption" = radial_toggle,
 		"Ship Alert Status" = radial_alert,
-		"SOS Beacon" = radial_sos
+		"SOS Beacon" = radial_sos,
 	)
 	/// Alert level options
 	var/static/list/alert_options = list(
@@ -31,7 +31,7 @@
 		"Status Cobalt" = alert_two,
 		"Status Pearl" = alert_three,
 		"Status Onyx" = alert_four,
-		"Status Obsidian" = alert_five
+		"Status Obsidian" = alert_five,
 	)
 	/// Radial menu icons
 	var/static/radial_toggle = image(icon = 'icons/obj/machines/dominator.dmi', icon_state = "dominator-Blue")
@@ -57,6 +57,7 @@
 	. = ..()
 	open_options_menu(user)
 
+/// Opens the radial menu with available options for the inspector mainframe
 /obj/machinery/inspector_mainframe/proc/open_options_menu(mob/user)
 	if(machine_stat & (NOPOWER|BROKEN))
 		return
@@ -69,7 +70,7 @@
 
 	switch(choice)
 		if("Cargo Disruption")
-			if(active)
+			if(cargo_disruption_active)
 				toggle_off(user)
 			else
 				toggle_on(user)
@@ -78,10 +79,11 @@
 		if("SOS Beacon")
 			toggle_sos_beacon(user)
 
+/// Activates the cargo disruption system and thus blocks Cargo; on first activation makes us visible on GPS.
 /obj/machinery/inspector_mainframe/proc/toggle_on(mob/user)
 	SSshuttle.registerTradeBlockade(src)
-	active = TRUE
-	to_chat(user,span_notice("You toggle [src] [active ? "on":"off"]."))
+	cargo_disruption_active = TRUE
+	to_chat(user,span_notice("You toggle [src] [cargo_disruption_active ? "on":"off"]."))
 	if(!tracked)
 		AddComponent(/datum/component/gps, "HC Starship")
 		to_chat(user,span_warning("The scrambling signal can now be tracked by GPS."))
@@ -90,14 +92,16 @@
 	update_appearance()
 	send_notification()
 
+/// Deactivates the cargo disruption system and clears the trade blockade
 /obj/machinery/inspector_mainframe/proc/toggle_off(mob/user)
 	SSshuttle.clearTradeBlockade(src)
-	active = FALSE
+	cargo_disruption_active = FALSE
 	if(!sos_active)
 		STOP_PROCESSING(SSobj,src)
-	to_chat(user,span_notice("You toggle [src] [active ? "on":"off"]."))
+	to_chat(user,span_notice("You toggle [src] [cargo_disruption_active ? "on":"off"]."))
 	update_appearance()
 
+/// Broadcasts an SOS signal through the radio and schedules the next broadcast
 /obj/machinery/inspector_mainframe/proc/broadcast_sos_signal()
 	// Only broadcast if SOS is still active
 	if(!sos_active)
@@ -120,9 +124,11 @@
 	// Create a new timer
 	sos_timer_id = addtimer(CALLBACK(src, PROC_REF(broadcast_sos_signal)), 30 SECONDS, TIMER_STOPPABLE)
 
+/// Sends a priority announcement about signal interference and cargo lockdown
 /obj/machinery/inspector_mainframe/proc/send_notification()
 	priority_announce("Signal interference detected; source registered on local GPS units. Cargo shuttle systems have been locked down.")
 
+/// Shows a radial menu for selecting the ship's alert level
 /obj/machinery/inspector_mainframe/proc/select_alert_level(mob/user)
 	if(machine_stat & (NOPOWER|BROKEN))
 		return
@@ -143,6 +149,7 @@
 		if("Status Obsidian")
 			set_alert_level("Status Obsidian", "BROKEN ARROW/DENIAL OF ASSETS. The patrol vessel is irrecoverably compromised, with capture or destruction imminent. The primary mission has failed. The new objective is to ensure that no Coalition personnel, technology, intelligence, or the vessel itself can be exploited by the enemy. All classified data, mission logs, and personnel records are to be purged from all systems. The crew is expected to fight until the vessel is destroyed or all hands are lost.", user)
 
+/// Sets the ship's alert level and notifies the crew via radio
 /obj/machinery/inspector_mainframe/proc/set_alert_level(level_name, level_description, mob/user)
 	if(current_alert_level == level_name)
 		balloon_alert(user, "alert level unchanged!")
@@ -155,6 +162,7 @@
 	playsound(src, 'sound/machines/terminal/terminal_prompt.ogg', 50, TRUE)
 	update_appearance()
 
+/// Toggles the SOS beacon on or off, can only be activated at Status Onyx or Status Obsidian
 /obj/machinery/inspector_mainframe/proc/toggle_sos_beacon(mob/user)
 	if(machine_stat & (NOPOWER|BROKEN))
 		return
@@ -166,7 +174,7 @@
 
 	sos_active = !sos_active
 	if(sos_active)
-		if(!active)
+		if(!cargo_disruption_active)
 			START_PROCESSING(SSobj, src)
 		to_chat(user, span_notice("You activate the SOS beacon."))
 		balloon_alert(user, "distress beacon activated!")
@@ -177,7 +185,7 @@
 			radio.talk_into(src, "EMERGENCY DISTRESS SIGNAL ACTIVATED. Requesting immediate assistance. Patrol vessel under sustained combat operations. All available units respond.", RADIO_CHANNEL_GUILD)
 		addtimer(CALLBACK(src, PROC_REF(broadcast_sos_signal)), 30 SECONDS, TIMER_STOPPABLE)
 	else
-		if(!active)
+		if(!cargo_disruption_active)
 			STOP_PROCESSING(SSobj, src)
 		// Cancel the SOS timer
 		if(sos_timer_id)
@@ -190,10 +198,10 @@
 	update_appearance()
 
 /obj/machinery/inspector_mainframe/update_icon_state()
-	icon_state = active ? "[base_icon_state]-Blue" : base_icon_state
+	icon_state = cargo_disruption_active ? "[base_icon_state]-Blue" : base_icon_state
 	return ..()
 
-/obj/machinery/inspector_mainframe/Destroy()
+/obj/machinery/inspector_mainframe/Destroy(force)
 	toggle_off()
 	// Cancel any pending SOS timer
 	if(sos_timer_id)
@@ -205,4 +213,4 @@
 /obj/machinery/inspector_mainframe/examine(mob/user)
 	. = ..()
 	if(in_range(user, src) || isobserver(user))
-		. += span_notice("The status display reads: System is [active ? "ACTIVE" : "INACTIVE"]. Current alert level: [current_alert_level]. SOS beacon: [sos_active ? "ACTIVE" : "INACTIVE"].")
+		. += span_notice("The status display reads: System is [cargo_disruption_active ? "ACTIVE" : "INACTIVE"]. Current alert level: [current_alert_level]. SOS beacon: [sos_active ? "ACTIVE" : "INACTIVE"].")

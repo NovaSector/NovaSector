@@ -6,12 +6,12 @@
 
 	message_title = "HC Voluntary Inspection Request"
 	message_content = "Greetings %STATION, this is the %SHIPNAME patrol vessel. \
-	The Heliostatic Coalition is conducting routine safety inspections in this sector, with a focus on %FOCUS. \
-	We would like to offer your station a voluntary inspection to ensure compliance with Coalition safety standards. \
-	Participation is completely optional, and stations that volunteer receive a complimentary funding package.	\
-	Please let us know if you would like to schedule an inspection. Heliostatic Coalition departmental secretary out."
+		The Heliostatic Coalition is conducting routine safety inspections in this sector, with a focus on %FOCUS. \
+		We would like to offer your station a voluntary inspection to ensure compliance with Coalition safety standards. \
+		Participation is completely optional, and stations that volunteer receive a complimentary funding package.	\
+		Please let us know if you would like to schedule an inspection. Heliostatic Coalition departmental secretary out."
 	arrival_announcement = "Inspection vessel approaching. Vessel ID tag is %NUMBER1-%NUMBER2-%NUMBER3. \
-	Vessel Model: Strider, Flight ETA: three minutes minimal. Vessel is authorized to perform inspection duties. We're clear for close orbit."
+		Vessel Model: Strider, Flight ETA: three minutes minimal. Vessel is authorized to perform inspection duties. We're clear for close orbit."
 
 	possible_answers = list("Accept the inspection.", "Decline the inspection at this time.")
 	response_accepted = "Thank you for your cooperation. As a token of appreciation for participating in our voluntary inspection program, a bonus of 10000 credits has been deposited to your station's account. Heliostatic Coalition departmental secretary out."

@@ -12,12 +12,14 @@
 	outfit = /datum/outfit/hc_officer
 	random_appearance = FALSE
 	show_flavor = TRUE
+	/// To know whether or not we have an officer already, keep a ref to them
+	var/static/first_officer
 
 /obj/effect/mob_spawn/ghost_role/human/hc_officer/proc/apply_codename(mob/living/carbon/human/spawned_human)
 	var/callsign = pick(GLOB.callsigns_nri)
 	var/number = pick(GLOB.phonetic_alphabet_numbers)
 	var/full_name = "[callsign] [number]"
-	if(GLOB.first_officer == spawned_human)
+	if(first_officer == REF(spawned_human))
 		full_name += " Actual"
 	spawned_human.fully_replace_character_name(null, full_name)
 
@@ -30,11 +32,23 @@
 	spawned_human.grant_language(/datum/language/akulan, source = LANGUAGE_SPAWNER)
 
 	// if this is the first officer, keep a reference to them
-	if(!GLOB.first_officer)
-		GLOB.first_officer = spawned_human
-		to_chat(spawned_human, span_bold("You are the Patrol Leader (Actual). You hold ultimate authority and responsibility for this mission. Your directives are to: Ensure the safety of your personnel and vessel. Conduct a thorough inspection for contraband and violations per SOP Section V. Project Coalition authority and assess the facility's compliance. Declare Alert Status changes based on observed threats. Your discretion in the field is final. Consult your Field Guide and SOP documents."))
+	if(!first_officer)
+		first_officer = REF(spawned_human)
+		to_chat(spawned_human, span_bold("You are the Patrol Leader (Actual). You hold ultimate authority and responsibility for this mission. \
+		Your directives are to: Ensure the safety of your personnel and vessel. Conduct a thorough inspection for contraband and violations per \
+		SOP Section V. Project Coalition authority and assess the facility's compliance. Declare Alert Status changes based on observed threats. \
+		Your discretion in the field is final. Consult your Field Guide and SOP documents." \
+		))
 
-	to_chat(spawned_human, "[span_boldnotice("Your primary duty is to the Heliostatic Coalition. This inspection is a right granted by treaty, not a request. Be firm, professional, and by-the-book. Trust must be earned, and violations of procedure are to be met with immediate challenges and elevated alert statuses. Your ship contains your SOP documents; consult them for rules of engagement, contraband categories, and Bluespace Artillery countermeasures.")] <br><br> [span_info("OOC Note: Your objectives are narrative guides for creating collaborative roleplay. They are not mechanical 'greentext' goals. Focus on the experience. If you have a creative idea for a gimmick or story direction, communicating with the admins and other players is encouraged.")]")
+	to_chat(spawned_human, "[span_boldnotice("Your primary duty is to the Heliostatic Coalition. \
+	This inspection is a right granted by treaty, not a request. \
+	Be firm, professional, and by-the-book. Trust must be earned, \
+	and violations of procedure are to be met with immediate challenges \
+	and elevated alert statuses. Your ship contains your SOP documents; \
+	consult them for rules of engagement, contraband categories, and Bluespace Artillery countermeasures.")] <br><br>\
+	[span_info("OOC Note: Your objectives are narrative guides for creating collaborative roleplay. \
+	They are not mechanical 'greentext' goals. Focus on the experience. If you have a creative idea for a gimmick or story direction, \
+	communicating with the admins and other players is encouraged.")]")
 	apply_codename(spawned_human)
 
 /obj/effect/mob_spawn/ghost_role/human/hc_officer/post_transfer_prefs(mob/living/carbon/human/spawned_human)
@@ -44,7 +58,7 @@
 /obj/effect/mob_spawn/ghost_role/human/hc_officer/equip(mob/living/carbon/human/spawned_human)
 	. = ..()
 	var/obj/item/card/id/advanced/card = spawned_human.get_idcard()
-	if(GLOB.first_officer == spawned_human)
+	if(first_officer == REF(spawned_human))
 		card.assignment = pick(HC_LEADER_JOB_LIST)
 		card.trim.sechud_icon_state = "hud_hc_police_lead"
 	else
@@ -53,6 +67,7 @@
 
 	card.update_label()
 
-/obj/effect/mob_spawn/ghost_role/human/hc_officer/Destroy()
-	new /obj/structure/showcase/machinery/oldpod/used(drop_location())
-	return ..()
+/obj/effect/mob_spawn/ghost_role/human/hc_officer/Destroy(force)
+    if(loc)
+        new /obj/structure/showcase/machinery/oldpod/used(loc)
+    return ..()

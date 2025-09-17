@@ -17,12 +17,12 @@
 
 /datum/antagonist/ship_crew/create_team(datum/team/ship_crew/new_team)
 	if(!new_team)
-		for(var/datum/antagonist/ship_crew/S in GLOB.antagonists)
-			if(!S.owner)
-				stack_trace("Antagonist datum without owner in GLOB.antagonists: [S]")
+		for(var/datum/antagonist/ship_crew/ship_crew_antag in GLOB.antagonists)
+			if(!ship_crew_antag.owner)
+				stack_trace("Antagonist datum without owner in GLOB.antagonists: [ship_crew_antag]")
 				continue
-			if(S.team)
-				team = S.team
+			if(ship_crew_antag.team)
+				team = ship_crew_antag.team
 				return
 		if(!new_team)
 			team = new /datum/team/ship_crew
@@ -35,20 +35,21 @@
 /datum/antagonist/ship_crew/on_gain()
 	if(team)
 		objectives |= team.objectives
-	. = ..()
+	return ..()
 
 /datum/team/ship_crew
 	name = "\improper Ship Crew"
 
+	/// Creates and assigns the primary mission objective to all ship crew members.
 /datum/team/ship_crew/proc/forge_objectives()
 	var/datum/objective/mission/primary_mission = new()
 	primary_mission.team = src
 	primary_mission.update_explanation_text()
 	objectives += primary_mission
-	for(var/datum/mind/M in members)
-		var/datum/antagonist/ship_crew/S = M.has_antag_datum(/datum/antagonist/ship_crew)
-		if(S)
-			S.objectives |= objectives
+	for(var/datum/mind/crew_member_mind in members)
+		var/datum/antagonist/ship_crew/crew_antag = crew_member_mind.has_antag_datum(/datum/antagonist/ship_crew)
+		if(crew_antag)
+			crew_antag.objectives |= objectives
 
 /datum/objective/mission
 	explanation_text = "Complete your ship's mission."
@@ -57,19 +58,19 @@
 	explanation_text = "Complete your ship's mission."
 
 /datum/team/ship_crew/roundend_report()
-	var/list/parts = list()
+	var/list/report_parts = list()
 
-	parts += span_header("Ship Crew were:")
+	report_parts += span_header("Ship Crew were:")
 
 	var/all_dead = TRUE
-	for(var/datum/mind/M in members)
-		if(considered_alive(M))
+	for(var/datum/mind/crew_member_mind in members)
+		if(considered_alive(crew_member_mind))
 			all_dead = FALSE
-	parts += printplayerlist(members)
+	report_parts += printplayerlist(members)
 
 	if(!all_dead)
-		parts += "<span class='greentext big'>The ship crew completed their mission!</span>"
+		report_parts += "<span class='greentext big'>The ship crew completed their mission!</span>"
 	else
-		parts += "<span class='redtext big'>The ship crew has failed.</span>"
+		report_parts += "<span class='redtext big'>The ship crew has failed.</span>"
 
-	return "<div class='panel redborder'>[parts.Join("<br>")]</div>"
+	return "<div class='panel redborder'>[report_parts.Join("<br>")]</div>"
