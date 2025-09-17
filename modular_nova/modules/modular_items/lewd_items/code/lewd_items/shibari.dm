@@ -12,6 +12,7 @@
 	singular_name = "rope"
 	max_amount = 5
 	flags_1 = IS_PLAYER_COLORABLE_1
+	obj_flags_nova = ERP_ITEM
 
 	icon = 'icons/map_icons/items/_item.dmi'
 	icon_state = "/obj/item/stack/shibari_rope"

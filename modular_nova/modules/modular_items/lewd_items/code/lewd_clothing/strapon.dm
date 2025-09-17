@@ -6,6 +6,7 @@
 	icon = 'modular_nova/modules/modular_items/lewd_items/icons/obj/lewd_items/lewd_items.dmi'
 	worn_icon = 'modular_nova/modules/modular_items/lewd_items/icons/mob/lewd_items/lewd_items.dmi'
 	slot_flags = ITEM_SLOT_BELT
+	obj_flags_nova = ERP_ITEM
 	var/in_hands = FALSE
 	var/type_changed = FALSE
 	var/strapon_type = "human"
