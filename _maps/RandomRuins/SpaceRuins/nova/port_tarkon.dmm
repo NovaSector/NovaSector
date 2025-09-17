@@ -311,7 +311,7 @@
 /turf/open/floor/iron,
 /area/ruin/space/has_grav/port_tarkon/dorms)
 "bl" = (
-/obj/machinery/atmospherics/components/unary/outlet_injector/monitored/incinerator_input/tarkon{
+/obj/machinery/atmospherics/components/unary/outlet_injector/monitored/incinerator_input{
 	dir = 8
 	},
 /turf/open/floor/engine/vacuum,
@@ -1574,7 +1574,7 @@
 /turf/open/floor/iron,
 /area/ruin/space/has_grav/port_tarkon/mining)
 "gQ" = (
-/obj/machinery/atmospherics/components/unary/outlet_injector/monitored/carbon_input/tarkon{
+/obj/machinery/atmospherics/components/unary/outlet_injector/monitored/carbon_input{
 	dir = 8
 	},
 /turf/open/floor/engine/co2,
@@ -2024,7 +2024,7 @@
 /turf/open/floor/iron,
 /area/ruin/space/has_grav/port_tarkon/centerhall)
 "iE" = (
-/obj/machinery/atmospherics/components/unary/vent_pump/siphon/monitored/carbon_output/tarkon{
+/obj/machinery/atmospherics/components/unary/vent_pump/siphon/monitored/carbon_output{
 	dir = 8
 	},
 /turf/open/floor/engine/co2,
@@ -2586,7 +2586,7 @@
 /turf/open/floor/iron,
 /area/ruin/space/has_grav/port_tarkon/porthall)
 "lc" = (
-/obj/machinery/atmospherics/components/unary/outlet_injector/monitored/oxygen_input/tarkon{
+/obj/machinery/atmospherics/components/unary/outlet_injector/monitored/oxygen_input{
 	dir = 4
 	},
 /turf/open/floor/engine/o2,
@@ -3775,7 +3775,7 @@
 /turf/open/floor/plating,
 /area/ruin/space/has_grav/port_tarkon/porthall)
 "qo" = (
-/obj/machinery/atmospherics/components/unary/outlet_injector/monitored/air_input/tarkon{
+/obj/machinery/atmospherics/components/unary/outlet_injector/monitored/air_input{
 	dir = 4
 	},
 /turf/open/floor/engine/vacuum,
@@ -4098,7 +4098,7 @@
 /turf/open/floor/iron/dark,
 /area/ruin/space/has_grav/port_tarkon/developement)
 "rJ" = (
-/obj/machinery/atmospherics/components/unary/outlet_injector/monitored/nitrogen_input/tarkon{
+/obj/machinery/atmospherics/components/unary/outlet_injector/monitored/nitrogen_input{
 	dir = 4
 	},
 /turf/open/floor/engine/n2,
@@ -7309,7 +7309,7 @@
 /turf/open/floor/iron,
 /area/ruin/space/has_grav/port_tarkon/atmos)
 "Gl" = (
-/obj/machinery/atmospherics/components/unary/vent_pump/siphon/monitored/plasma_output/tarkon{
+/obj/machinery/atmospherics/components/unary/vent_pump/siphon/monitored/plasma_output{
 	dir = 8
 	},
 /turf/open/floor/engine/plasma,
@@ -8791,7 +8791,7 @@
 /turf/closed/mineral/random,
 /area/ruin/space/has_grav)
 "Mv" = (
-/obj/machinery/atmospherics/components/unary/vent_pump/high_volume/siphon/monitored/air_output/tarkon{
+/obj/machinery/atmospherics/components/unary/vent_pump/high_volume/siphon/monitored/air_output{
 	dir = 4
 	},
 /turf/open/floor/engine/vacuum,
@@ -9197,7 +9197,7 @@
 /turf/open/floor/iron/dark,
 /area/ruin/space/has_grav/port_tarkon/developement)
 "Ou" = (
-/obj/machinery/atmospherics/components/unary/outlet_injector/monitored/plasma_input/tarkon{
+/obj/machinery/atmospherics/components/unary/outlet_injector/monitored/plasma_input{
 	dir = 8
 	},
 /turf/open/floor/engine/plasma,
@@ -9525,7 +9525,7 @@
 /turf/open/floor/wood/large,
 /area/ruin/space/has_grav/port_tarkon/garden)
 "PH" = (
-/obj/machinery/atmospherics/components/unary/vent_pump/siphon/monitored/nitrous_output/tarkon{
+/obj/machinery/atmospherics/components/unary/vent_pump/siphon/monitored/nitrous_output{
 	dir = 8
 	},
 /turf/open/floor/engine/n2o,
@@ -10895,7 +10895,7 @@
 /turf/open/floor/iron/white,
 /area/ruin/space/has_grav/port_tarkon/trauma)
 "VB" = (
-/obj/machinery/atmospherics/components/unary/outlet_injector/monitored/nitrous_input/tarkon{
+/obj/machinery/atmospherics/components/unary/outlet_injector/monitored/nitrous_input{
 	dir = 8
 	},
 /turf/open/floor/engine/n2o,
@@ -11542,7 +11542,7 @@
 /turf/open/floor/iron,
 /area/ruin/space/has_grav/port_tarkon/porthall)
 "Yp" = (
-/obj/machinery/atmospherics/components/unary/vent_pump/siphon/monitored/oxygen_output/tarkon{
+/obj/machinery/atmospherics/components/unary/vent_pump/siphon/monitored/oxygen_output{
 	dir = 4
 	},
 /turf/open/floor/engine/o2,
@@ -11656,7 +11656,7 @@
 /turf/open/floor/iron,
 /area/ruin/space/has_grav/port_tarkon/centerhall)
 "YM" = (
-/obj/machinery/atmospherics/components/unary/vent_pump/siphon/monitored/nitrogen_output/tarkon{
+/obj/machinery/atmospherics/components/unary/vent_pump/siphon/monitored/nitrogen_output{
 	dir = 4
 	},
 /turf/open/floor/engine/n2,
