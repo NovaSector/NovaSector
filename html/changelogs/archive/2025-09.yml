@@ -472,3 +472,17 @@
   - balance: wizard modsuit shield recharges slower
   vinylspiders:
   - bugfix: dead bodies in the morgue will no longer try to blink
+2025-09-17:
+  Hardly:
+  - code_imp: The box of love can now only carry ERP items regardless of their size.
+  - code_imp: The box of love is now smaller to compensate for the change.
+  Jureiia:
+  - rscadd: A colourable skirted overall in the suit section of your loadout.
+  RealWinterFrost:
+  - balance: Gave the blueshield modsuit the default modsuit powercell instead of
+      a downgrade
+  - balance: replaced the blueshield modsuit's standard mod storage with an expanded
+      one.
+  carpotoxin:
+  - balance: Adds a crafting recipe for the surplus energy sword! Its no longer Black
+      Market only.
