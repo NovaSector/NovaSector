@@ -1,5 +1,5 @@
 // LOW COST
-/datum/uplink_item/badass/guerillagloves
+/datum/uplink_item/badass/guerilla_gloves
 	name = "Guerilla Gloves"
 	desc = "A pair of highly robust combat gripper gloves that excels at performing takedowns at close range, with an added lining of insulation. Careful not to hit a wall!"
 	item = /obj/item/clothing/gloves/tackler/combat/insulated
@@ -23,7 +23,7 @@
 	uplink_item_flags = NONE
 	purchasable_from = UPLINK_TRAITORS | UPLINK_SERIOUS_OPS
 
-/datum/uplink_item/badass/swathelmet_traitor
+/datum/uplink_item/badass/swat_helmet
 	name = "Syndicate Helmet"
 	desc = "An extremely robust, space-worthy helmet in a nefarious red and black stripe pattern."
 	item = /obj/item/clothing/head/helmet/swat

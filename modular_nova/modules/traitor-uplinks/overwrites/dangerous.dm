@@ -1,4 +1,3 @@
-//All bundles and telecrystals
 /datum/uplink_category/dangerous
 
 /datum/uplink_item/dangerous

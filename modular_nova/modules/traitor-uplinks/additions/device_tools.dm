@@ -1,5 +1,5 @@
 // LOW COST
-/datum/uplink_item/device_tools/syndie_jaws_of_life_traitor
+/datum/uplink_item/device_tools/syndie_jaws
 	name = "Syndicate Jaws of Life"
 	desc = "Based on a Nanotrasen model, this powerful tool can be used as both a crowbar and a pair of wirecutters. \
 			In its crowbar configuration, it can be used to force open airlocks. Very useful for entering the station or its departments."

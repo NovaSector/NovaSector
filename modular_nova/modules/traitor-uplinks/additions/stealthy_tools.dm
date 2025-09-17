@@ -6,7 +6,7 @@
 	cost = /datum/uplink_item/low_cost::cost
 	purchasable_from = UPLINK_TRAITORS
 
-/datum/uplink_item/stealthy_tools/announcement
+/datum/uplink_item/stealthy_tools/custom_announcement
 	name = "Fake Announcement"
 	desc = "A device that allows you to spoof an announcement to the station of your choice."
 	item = /obj/item/device/traitor_announcer
@@ -14,7 +14,7 @@
 	purchasable_from = UPLINK_TRAITORS
 	surplus = 0
 
-/datum/uplink_item/stealthy_tools/syndieshotglasses
+/datum/uplink_item/stealthy_tools/xl_shotglasses
 	name = "Extra Large Syndicate Shotglasses"
 	desc = "These modified shot glasses can hold up to 50 units of booze while looking like a regular 15 unit model \
 			guaranteed to knock someone on their ass with a hearty dose of bacchus blessing. Look for the Snake underneath \
@@ -22,7 +22,7 @@
 	item = /obj/item/storage/box/syndieshotglasses
 	cost = 1
 	purchasable_from = UPLINK_TRAITORS
-	restricted_roles = list(JOB_BARTENDER)
+	restricted_roles = list(JOB_BARTENDER, JOB_BRIDGE_ASSISTANT)
 
 
 // MEDIUM COST
