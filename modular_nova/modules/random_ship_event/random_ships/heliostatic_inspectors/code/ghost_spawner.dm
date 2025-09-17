@@ -68,6 +68,6 @@
 	card.update_label()
 
 /obj/effect/mob_spawn/ghost_role/human/hc_officer/Destroy(force)
-    if(loc)
-        new /obj/structure/showcase/machinery/oldpod/used(loc)
-    return ..()
+	if(loc)
+		new /obj/structure/showcase/machinery/oldpod/used(loc)
+	return ..()
