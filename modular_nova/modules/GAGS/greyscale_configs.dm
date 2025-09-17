@@ -1061,27 +1061,8 @@
 	icon_file = 'modular_nova/modules/GAGS/icons/suit/suit.dmi'
 	json_config = 'modular_nova/modules/GAGS/json_configs/suits/long_robe/long_robe_worn.json'
 
-// TRANSPARENT LONG ROBE
-/datum/greyscale_config/transparent_long_robe
-	name = "Transparent Long robe"
-	icon_file = 'modular_nova/modules/GAGS/icons/suit/suit.dmi'
-	json_config = 'modular_nova/modules/GAGS/json_configs/suits/long_robe/transparent_long_robe.json'
 
-/datum/greyscale_config/transparent_long_robe/worn
-	name = "Transparent Long robe (Worn)"
-	json_config = 'modular_nova/modules/GAGS/json_configs/suits/long_robe/transparent_long_robe_worn.json'
-
-// SPLIT HAORI
-/datum/greyscale_config/split_haori
-	name = "Split Haori"
-	icon_file = 'modular_nova/modules/GAGS/icons/suit/suit.dmi'
-	json_config = 'modular_nova/modules/GAGS/json_configs/suits/haori/split_haori.json'
-
-/datum/greyscale_config/split_haori/worn
-	name = "Split Haori (Worn)"
-	json_config = 'modular_nova/modules/GAGS/json_configs/suits/haori/split_haori_worn.json'
-
-// GRADIENT HAORI
+// HAORI
 /datum/greyscale_config/haori
 	name = "Haori"
 	icon_file = 'modular_nova/modules/GAGS/icons/suit/suit.dmi'
@@ -1090,26 +1071,6 @@
 /datum/greyscale_config/haori/worn
 	name = "Haori (Worn)"
 	json_config = 'modular_nova/modules/GAGS/json_configs/suits/haori/haori_worn.json'
-
-// TRANSPARENT SPLIT HAORI
-/datum/greyscale_config/transparent_split_haori
-	name = "Transparent Split Haori"
-	icon_file = 'modular_nova/modules/GAGS/icons/suit/suit.dmi'
-	json_config = 'modular_nova/modules/GAGS/json_configs/suits/haori/transparent_split_haori.json'
-
-/datum/greyscale_config/transparent_split_haori/worn
-	name = "Transparent Split Haori (Worn)"
-	json_config = 'modular_nova/modules/GAGS/json_configs/suits/haori/transparent_split_haori_worn.json'
-
-// TRANSPARENT GRADIENT HAORI
-/datum/greyscale_config/transparent_haori
-	name = "Transparent Gradient Haori"
-	icon_file = 'modular_nova/modules/GAGS/icons/suit/suit.dmi'
-	json_config = 'modular_nova/modules/GAGS/json_configs/suits/haori/transparent_haori.json'
-
-/datum/greyscale_config/transparent_haori/worn
-	name = "Transparent Gradient Haori (Worn)"
-	json_config = 'modular_nova/modules/GAGS/json_configs/suits/haori/transparent_haori_worn.json'
 
 /*
 *	UNDER

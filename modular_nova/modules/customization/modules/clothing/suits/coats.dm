@@ -174,14 +174,10 @@
 	flags_1 = IS_PLAYER_COLORABLE_1
 	body_parts_covered = CHEST|ARMS
 	cold_protection = CHEST|ARMS
-
-/obj/item/clothing/suit/jacket/long_robe/transparent
-	name = "transparent long robe"
-	desc = "A long transparent robe, perfect for showing off what's underneath."
-	icon_state = "/obj/item/clothing/suit/jacket/transparent_long_robe"
-	post_init_icon_state = "transparent_long_robe"
-	greyscale_config = /datum/greyscale_config/transparent_long_robe
-	greyscale_config_worn = /datum/greyscale_config/transparent_long_robe/worn
+	unique_reskin = list(
+		"Regular" = "long_robe",
+		"Transparent" = "transparent_long_robe",
+	)
 
 /obj/item/clothing/suit/jacket/haori
 	name = "gradient haori"
@@ -195,30 +191,12 @@
 	flags_1 = IS_PLAYER_COLORABLE_1
 	body_parts_covered = CHEST|ARMS
 	cold_protection = CHEST|ARMS
-
-/obj/item/clothing/suit/jacket/haori/split
-	name = "split haori"
-	desc = "A traditional Japanese jacket with a distinctive split design."
-	icon_state = "/obj/item/clothing/suit/jacket/split_haori"
-	post_init_icon_state = "split_haori"
-	greyscale_config = /datum/greyscale_config/split_haori
-	greyscale_config_worn = /datum/greyscale_config/split_haori/worn
-
-/obj/item/clothing/suit/jacket/haori/transparent
-	name = "transparent gradient haori"
-	desc = "A traditional Japanese jacket with a beautiful gradient design and transparent material, perfect for showing off what's underneath."
-	icon_state = "/obj/item/clothing/suit/jacket/transparent_haori"
-	post_init_icon_state = "transparent_haori"
-	greyscale_config = /datum/greyscale_config/transparent_haori
-	greyscale_config_worn = /datum/greyscale_config/transparent_haori/worn
-
-/obj/item/clothing/suit/jacket/haori/split/transparent
-	name = "transparent split haori"
-	desc = "A traditional Japanese jacket with a distinctive split design and transparent material, perfect for showing off what's underneath."
-	icon_state = "/obj/item/clothing/suit/jacket/transparent_split_haori"
-	post_init_icon_state = "transparent_split_haori"
-	greyscale_config = /datum/greyscale_config/transparent_split_haori
-	greyscale_config_worn = /datum/greyscale_config/transparent_split_haori/worn
+	unique_reskin = list(
+		"Gradient" = "haori",
+		"Split" = "split_haori",
+		"Transparent Gradient" = "transparent_haori",
+		"Transparent Split" = "transparent_split_haori",
+	)
 
 /obj/item/clothing/suit/varsity
 	name = "varsity jacket"
