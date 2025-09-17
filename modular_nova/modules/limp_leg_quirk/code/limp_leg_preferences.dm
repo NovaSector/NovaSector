@@ -7,8 +7,7 @@
 	return "Left leg"
 
 /datum/preference/choiced/limp_leg/init_possible_values()
-	return list("Left leg")
-	//return GLOB.limp_leg_choice
+	return list("Left leg", "Right leg")
 
 /datum/preference/choiced/limp_leg/is_accessible(datum/preferences/preferences)
 	. = ..()
@@ -19,9 +18,3 @@
 
 /datum/preference/choiced/limp_leg/apply_to_human(mob/living/carbon/human/target, value)
 	return
-
-GLOBAL_LIST_INIT(limp_leg_choice, list(
-	"Random",
-	"Left Leg",
-	"Right Leg",
-))
