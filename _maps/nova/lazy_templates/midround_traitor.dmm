@@ -1944,7 +1944,7 @@
 	id = null
 	},
 /obj/effect/mapping_helpers/atom_injector/element_injector{
-	target_type = /obj/machinery/computer;
+	target_type = /obj/machinery/computer/mechpad;
 	element_type = /datum/element/voucher_redeemer;
 	element_args = list(/obj/item/paper/paperslip/corporate/syndicate/traitor/exosuit, /datum/voucher_set/traitor/mech, 8, 'sound/effects/portal/portal_open_1.ogg')
 	},
