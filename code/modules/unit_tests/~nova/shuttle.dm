@@ -21,4 +21,4 @@
 		// Cancel for the next run
 		SSshuttle.emergency.cancel()
 
-		qdel(sec)
+		qdel(sec_level)
