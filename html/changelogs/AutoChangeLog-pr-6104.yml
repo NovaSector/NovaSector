@@ -1,4 +1,0 @@
-author: "OrbisAnima"
-delete-after: True
-changes:
-  - admin: "Removed the Admin GPS from the debug tool box. Its still spawnable if needed, but it should make admin intervention less overtly."
