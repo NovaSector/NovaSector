@@ -68,3 +68,16 @@
 	female_sprite_flags = FEMALE_UNIFORM_TOP_ONLY
 	body_parts_covered = CHEST|GROIN
 	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION_NO_NEW_ICON
+
+/obj/item/clothing/under/greyscale/playsuit
+	name = "playsuit"
+	desc = "For the love of the game."
+	icon = 'icons/map_icons/clothing/under/_under.dmi'
+	icon_state = "/obj/item/clothing/under/greyscale/playsuit"
+	post_init_icon_state = "playsuit"
+	greyscale_config = /datum/greyscale_config/playsuit
+	greyscale_config_worn = /datum/greyscale_config/playsuit/worn
+	greyscale_config_worn_digi = /datum/greyscale_config/playsuit/worn/digi
+	greyscale_colors = "#787878#252525#CCCED1#787878"
+	flags_1 = IS_PLAYER_COLORABLE_1
+	can_adjust = FALSE
