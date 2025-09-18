@@ -1,0 +1,4 @@
+author: "OrbisAnima"
+delete-after: True
+changes:
+  - qol: "In compliance with SolFed safety regulations, we have disabled the overdrive from our escape shuttles, forcing us to replace the hyperdrives with TX2 models. These are roughly 30% faster to prepare, but safety meassures cannot be skipped from the startup, this means shuttles will take 12 minutes from 17 minutes to prepare, and will arrive 3 minutes after preparation, setting the time for our shuttles to arrive from CC to the station from 20 to 15 minutes, in all alert levels."
