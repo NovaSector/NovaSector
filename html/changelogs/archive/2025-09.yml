@@ -599,6 +599,9 @@
   - bugfix: vending machines now randomly shock if electrified & can be untilted again
       by hand
   - bugfix: Ore Silo UI works again
+  - bugfix: ore vents have unique distribution of at most 4 minerals without rare
+      ones being repeated
+  - bugfix: ore vents should no longer be produce 0 material boulders
   WebcomicArtist:
   - balance: EMPs now drain cells better, starting at 3 emps to drain a basic cell,
       up to 8 for bluespace.
