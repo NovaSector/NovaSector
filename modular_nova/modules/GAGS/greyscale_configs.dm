@@ -754,7 +754,6 @@
 	name = "Pencilskirt + Suit (Worn, Digi)"
 	icon_file = 'modular_nova/master_files/icons/mob/clothing/under/suits_digi.dmi'
 
-
 // DOUBLE SKIRT DRESS
 /datum/greyscale_config/double_skirt_dress
 	name = "Double Skirt Dress"
