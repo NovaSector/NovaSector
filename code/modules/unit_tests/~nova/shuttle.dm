@@ -10,7 +10,7 @@
 		var/datum/security_level/sec_level = allocate(sec_level_path)
 
 		// Request the shuttle with the coefficient from this sec level
-		SSshuttle.emergency.request(null, set_coefficient = sec_levl.shuttle_call_time_mod)
+		SSshuttle.emergency.request(null, set_coefficient = sec_level.shuttle_call_time_mod)
 
 		// Grab the time left
 		var/time_left = SSshuttle.emergency.timeLeft(1)
