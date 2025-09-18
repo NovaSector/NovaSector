@@ -5,7 +5,6 @@
 	// Expected time: 15 minutes = 9000 deciseconds. Fucking thing doesnt like macros.
 	var/expected_time = 9000
 
-
 	for(var/datum/security_level/sec_level_path as anything in subtypesof(/datum/security_level))
 		var/datum/security_level/sec_level = allocate(sec_level_path)
 
