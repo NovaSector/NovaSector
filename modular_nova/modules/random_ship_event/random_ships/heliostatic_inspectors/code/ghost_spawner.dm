@@ -68,6 +68,7 @@
 	card.update_label()
 
 /obj/effect/mob_spawn/ghost_role/human/hc_officer/Destroy(force)
-	if(loc)
-		new /obj/structure/showcase/machinery/oldpod/used(loc)
+	var/atom/drop_location = drop_location()
+	if(!QDELETED(drop_location))
+		new /obj/structure/showcase/machinery/oldpod/used(drop_location)
 	return ..()
