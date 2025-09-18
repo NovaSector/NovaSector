@@ -1,12 +1,12 @@
 // MODSUITS
 /datum/uplink_item/suits/modsuit_civ
-	name = "Nakamura's Standard MODsuit"
+	name = "Nakamura Standard MODsuit"
 	desc = "A third-generation, modular civilian class suit by Nakamura Engineering, this suit is a staple across the galaxy for civilian applications."
 	item = /obj/item/mod/control/pre_equipped/empty
 	cost = /datum/uplink_item/low_cost/modsuit::cost
 
 /datum/uplink_item/suits/modsuit_contractor
-	name = "Private Mercenary MODsuit"
+	name = "Contractor MODsuit"
 	desc = "A rare depart from the Syndicate's usual color scheme, this MODsuit is produced and manufactured for private mercenaries."
 	item = /obj/item/mod/control/pre_equipped/contractor
 	cost = /datum/uplink_item/low_cost/modsuit::cost

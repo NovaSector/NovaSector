@@ -1,5 +1,5 @@
 /// How much TC should an operative have left after buying the contractor kit, factoring in the default TC granted below.
-#define CONTRACTOR_KIT_REMAINING_TC /datum/uplink_item/medium_cost::cost
+#define CONTRACTOR_KIT_REMAINING_TC (/datum/uplink_item/low_cost/modsuit::cost + /datum/uplink_item/medium_cost::cost)
 /// Static define that will automatically update according to the traitor's default TC amount, factoring in the desired remaining TC defined above.
 #define CONTRACTOR_KIT_PRICE (TELECRYSTALS_DEFAULT - CONTRACTOR_KIT_REMAINING_TC)
 
