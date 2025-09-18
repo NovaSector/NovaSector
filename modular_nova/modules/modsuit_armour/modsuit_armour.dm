@@ -158,27 +158,13 @@
 	armor_type = /datum/armor/mod_theme_syndicate
 
 /datum/armor/mod_theme_syndicate
-	melee = 50
-	bullet = 40
-	laser = 30
+	melee = 40
+	bullet = 50
+	laser = 35
 	energy = 40
 	bomb = 30
 	bio = 100
-	fire = 100
-	acid = 90
-	wound = 25
-
-/datum/mod_theme/contractor
-	armor_type = /datum/armor/mod_theme_contractor
-
-/datum/armor/mod_theme_contractor
-	melee = 50
-	bullet = 40
-	laser = 30
-	energy = 40
-	bomb = 30
-	bio = 100
-	fire = 100
+	fire = 80
 	acid = 90
 	wound = 25
 
@@ -186,13 +172,13 @@
 	armor_type = /datum/armor/mod_theme_elite
 
 /datum/armor/mod_theme_elite
-	melee = 40
+	melee = 50
 	bullet = 60
 	laser = 40
 	energy = 40
-	bomb = 35
+	bomb = 40
 	bio = 100
-	fire = 90
+	fire = 100
 	acid = 90
 	wound = 25
 
