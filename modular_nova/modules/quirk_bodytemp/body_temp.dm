@@ -4,7 +4,6 @@
 	value = 0
 	gain_text = span_danger("Your body temperature is feeling off.")
 	lose_text = span_notice("Your body temperature is feeling right.")
-	species_blacklist = list(SPECIES_SKRELL) //Skrell already have a insane +70 to their body temp
 	medical_record_text = "Patient's body has an abnormal temperature for their species."
 	icon = FA_ICON_THERMOMETER_HALF
 	var/bodytemp = 0
@@ -65,5 +64,4 @@
 	user.dna.species.bodytemp_normal = species_normal
 	user.dna.species.bodytemp_heat_damage_limit = species_heat
 	user.dna.species.bodytemp_cold_damage_limit = species_cold
-
 
