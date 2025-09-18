@@ -142,7 +142,7 @@
 	if (pierce_hit)
 		return
 
-	if (blocked || !can_embed(source, hit))
+	if (blocked >= 100 || !can_embed(source, hit))
 		failed_embed(hit, hit_zone)
 		return
 
@@ -308,8 +308,8 @@
 /// Move self to owner's turf when our limb gets removed
 /datum/embedding/proc/on_removed(datum/source, mob/living/carbon/old_owner)
 	SIGNAL_HANDLER
-	stop_embedding()
-	parent.forceMove(old_owner.drop_location())
+	if (!stop_embedding()) // Dropdel?
+		parent.forceMove(old_owner.drop_location())
 
 /// Someone attempted to pull us out! Either the owner by inspecting themselves, or someone else by examining the owner and clicking the link.
 /datum/embedding/proc/rip_out(mob/living/jack_the_ripper)

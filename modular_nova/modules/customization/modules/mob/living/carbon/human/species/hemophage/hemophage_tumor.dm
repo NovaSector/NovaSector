@@ -22,6 +22,7 @@
 	base_icon_state = "tumor"
 	desc = "This pulsating organ nearly resembles a normal heart, but it's been twisted beyond any human appearance, having turned to the color of coal. The way it barely fits where the original organ was sends shivers down your spine... <i>The fact that it's what keeps them alive makes it all the more terrifying.</i>"
 	actions_types = list(/datum/action/cooldown/hemophage/toggle_dormant_state)
+	organ_flags = ORGAN_ORGANIC | ORGAN_UNREMOVABLE | ORGAN_TUMOR_CORRUPTED
 	/// Are we currently dormant? Defaults to PULSATING_TUMOR_ACTIVE (so FALSE).
 	var/is_dormant = PULSATING_TUMOR_ACTIVE
 	/// What is the current rate (per second) at which the tumor is consuming blood?
@@ -81,7 +82,7 @@
 		owner.investigate_log("starved to death from lack of blood caused by [src].", INVESTIGATE_DEATHS)
 		owner.death() // Owch! Ran out of blood.
 
-/obj/item/organ/heart/hemophage/get_status_text(advanced, add_tooltips)
+/obj/item/organ/heart/hemophage/get_status_text(advanced, add_tooltips, colored = TRUE)
 	if(organ_flags & ORGAN_FAILING)
 		return conditional_tooltip("<font color='#cc3333'>Non-Functional</font>", "Repair surgically. Do not remove under any circumstances.", add_tooltips)
 	return ..()

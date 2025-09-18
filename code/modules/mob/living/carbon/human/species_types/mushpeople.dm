@@ -36,9 +36,6 @@
 	/// Martial art for the mushpeople
 	var/datum/martial_art/mushpunch/mush
 
-/datum/species/mush/check_roundstart_eligible()
-	return FALSE //hard locked out of roundstart on the order of design lead kor, this can be removed in the future when planetstation is here OR SOMETHING but right now we have a problem with races.
-
 /datum/species/mush/on_species_gain(mob/living/carbon/C, datum/species/old_species, pref_load, regenerate_icons)
 	. = ..()
 	mush = new(src)
@@ -81,12 +78,7 @@
 	return SSaccessories.caps_list
 
 /datum/bodypart_overlay/mutant/mushroom_cap/can_draw_on_bodypart(obj/item/bodypart/bodypart_owner)
-	var/mob/living/carbon/human/human = bodypart_owner.owner
-	if(!istype(human))
-		return TRUE
-	if((human.head?.flags_inv & HIDEHAIR) || (human.wear_mask?.flags_inv & HIDEHAIR))
-		return FALSE
-	return TRUE
+	return !(bodypart_owner.owner?.obscured_slots & HIDEHAIR)
 
 /datum/bodypart_overlay/mutant/mushroom_cap/override_color(obj/item/bodypart/bodypart_owner)
 	//The mushroom cap is red by default (can still be dyed)

@@ -140,6 +140,11 @@
 	taur_mode = STYLE_TAUR_SNAKE
 	organ_type = /obj/item/organ/taur_body/serpentine
 
+/datum/sprite_accessory/taur/naga/fat
+	name = "Naga, Fat"
+	icon_state = "nagafat"
+	taur_mode = STYLE_TAUR_SNAKE
+
 /datum/sprite_accessory/taur/naga/striped
 	name = "Naga, Striped"
 	icon_state = "nagastriped"
@@ -161,6 +166,16 @@
 	name = "Scolipede"
 	icon_state = "pede"
 	taur_mode = STYLE_TAUR_PAW
+
+/datum/sprite_accessory/taur/centipede
+	name = "Centipede"
+	icon_state = "centipede"
+	taur_mode = STYLE_TAUR_SNAKE
+	organ_type = /obj/item/organ/taur_body/centipede
+
+/datum/sprite_accessory/taur/centipede/synth
+	name = "Centipede (Synth)"
+	organ_type = /obj/item/organ/taur_body/centipede/synth
 
 /datum/sprite_accessory/taur/tentacle
 	name = "Tentacle"

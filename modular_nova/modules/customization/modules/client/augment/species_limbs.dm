@@ -357,6 +357,16 @@
 	name = "human right leg"
 	path = /obj/item/bodypart/leg/right
 
+/datum/augment_item/limb/l_leg/species/human_digi
+	name = "skintone mutant left leg"
+	path = /obj/item/bodypart/leg/left/human_digi
+	supports_digitigrade = TRUE
+
+/datum/augment_item/limb/r_leg/species/human_digi
+	name = "skintone mutant right leg"
+	path = /obj/item/bodypart/leg/right/human_digi
+	supports_digitigrade = TRUE
+
 //Ethereals
 /datum/augment_item/limb/head/species/ethereal
 	name = "ethereal head"
@@ -457,3 +467,50 @@
 	name = "xenohybrid right leg"
 	path = /obj/item/bodypart/leg/right/digitigrade/xenohybrid
 
+//Ramatan Limbs (slugcats)
+/datum/augment_item/limb/head/species/mutant/ramatae
+	name = "small-eyes ramatae head"
+	path = /obj/item/bodypart/head/mutant/ramatae
+
+/datum/augment_item/limb/head/species/mutant/ramatae/eyes
+	name = "big-eyes ramatae head"
+	path = /obj/item/bodypart/head/mutant/ramatae/eyes
+
+/datum/augment_item/limb/chest/species/mutant/ramatae
+	name = "ramatae chest"
+	path = /obj/item/bodypart/chest/mutant/ramatae
+
+/datum/augment_item/limb/l_arm/species/mutant/ramatae
+	name = "ramatae left arm"
+	path = /obj/item/bodypart/arm/left/mutant/ramatae
+
+/datum/augment_item/limb/r_arm/species/mutant/ramatae
+	name = "ramatae right arm"
+	path = /obj/item/bodypart/arm/right/mutant/ramatae
+
+/datum/augment_item/limb/l_leg/species/mutant/ramatae
+	name = "ramatae left leg"
+	path = /obj/item/bodypart/leg/left/mutant/ramatae
+
+/datum/augment_item/limb/r_leg/species/mutant/ramatae
+	name = "ramatae right leg"
+	path = /obj/item/bodypart/leg/right/mutant/ramatae
+
+//==SPECIAL NON-SPECIES LIMBS==
+/datum/augment_item/limb/l_leg/species/mutant/harpy
+	name = "harpy left leg"
+	path = /obj/item/bodypart/leg/left/mutant/harpy
+
+/datum/augment_item/limb/r_leg/species/mutant/harpy
+	name = "harpy right leg"
+	path = /obj/item/bodypart/leg/right/mutant/harpy
+
+/datum/augment_item/limb/l_leg/species/harpy
+	name = "harpy skintone left leg"
+	path = /obj/item/bodypart/leg/left/mutant/harpy_skin
+	supports_digitigrade = TRUE
+
+/datum/augment_item/limb/r_leg/species/harpy
+	name = "harpy skintone right leg"
+	path = /obj/item/bodypart/leg/right/mutant/harpy_skin
+	supports_digitigrade = TRUE

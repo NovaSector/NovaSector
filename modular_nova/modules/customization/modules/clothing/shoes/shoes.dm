@@ -154,8 +154,8 @@
 
 
 /obj/item/clothing/shoes/winterboots/christmas
-	name = "red christmas boots"
-	desc = "A pair of fluffy red christmas boots!"
+	name = "christmas boots"
+	desc = "A pair of fluffy christmas boots!"
 	greyscale_colors = "#cc0f0f#c4c2c2"
 	icon = 'icons/map_icons/clothing/shoes.dmi'
 	icon_state = "/obj/item/clothing/shoes/winterboots/christmas"
@@ -165,36 +165,12 @@
 	greyscale_config_worn_digi = /datum/greyscale_config/boots/christmasboots/worn/digi
 	flags_1 = IS_PLAYER_COLORABLE_1
 
-/obj/item/clothing/shoes/winterboots/christmas/green
-	name = "green christmas boots"
-	desc = "A pair of fluffy green christmas boots!"
-	greyscale_colors = "#1a991a#c4c2c2"
-
 /obj/item/clothing/shoes/clown_shoes/pink
 	name = "pink clown shoes"
 	desc = "A particularly pink pair of punny shoes."
 	icon = MODULAR_SHOES_ICON
 	worn_icon = MODULAR_SHOES_WORN_ICON
 	icon_state = "pink_clown_shoes"
-
-//Modular overide to give jackboots laces
-/obj/item/clothing/shoes/jackboots
-	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION
-
-/obj/item/clothing/shoes/combat
-	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION
-
-/obj/item/clothing/shoes/workboots
-	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION
-
-/obj/item/clothing/shoes/russian
-	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION
-
-/obj/item/clothing/shoes/winterboots
-	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION
-
-/obj/item/clothing/shoes/sneakers
-	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION
 
 /obj/item/clothing/shoes/colorable_laceups
 	name = "laceup shoes"

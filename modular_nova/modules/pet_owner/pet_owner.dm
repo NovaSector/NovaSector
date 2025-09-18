@@ -4,7 +4,7 @@
 	icon = FA_ICON_HORSE
 	value = 4
 	mob_trait = TRAIT_PET_OWNER
-	veteran_only = TRUE
+	nova_stars_only = TRUE
 	gain_text = span_notice("You brought your pet with you to work.")
 	lose_text = span_danger("You feel lonely, as if leaving somebody behind...")
 	medical_record_text = "Patient mentions their fondness for their pet."
@@ -48,6 +48,7 @@
 			LOCATION_HANDS,
 		),
 		flavour_text = "Looks tightly packed - you might not be able to put the pet back in once they're out.",
+		notify_player = TRUE,
 	)
 	//Nanotrasen
 	give_item_to_holder(

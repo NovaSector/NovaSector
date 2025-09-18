@@ -6,7 +6,7 @@
 /datum/armor/mod_theme_engineering
 	melee = 10
 	bullet = 5
-	laser = 10
+	laser = 20
 	energy = 10
 	bomb = 30
 	bio = 100
@@ -21,7 +21,7 @@
 	melee = 10
 	bullet = 5
 	laser = 10
-	energy = 10
+	energy = 15
 	bomb = 40
 	bio = 100
 	fire = 100
@@ -34,8 +34,8 @@
 /datum/armor/mod_theme_advanced
 	melee = 30
 	bullet = 5
-	laser = 10
-	energy = 10
+	laser = 20
+	energy = 15
 	bomb = 50
 	bio = 100
 	fire = 100
@@ -88,8 +88,8 @@
 	armor_type = /datum/armor/mod_theme_research
 
 /datum/armor/mod_theme_research
-	melee = 10
-	bullet = 5
+	melee = 20
+	bullet = 15
 	laser = 20
 	energy = 20
 	bomb = 100
@@ -102,13 +102,13 @@
 	armor_type = /datum/armor/mod_theme_security
 
 /datum/armor/mod_theme_security
-	melee = 30
+	melee = 35
 	bullet = 20
-	laser = 20
-	energy = 30
-	bomb = 20
+	laser = 30
+	energy = 40
+	bomb = 25
 	bio = 100
-	fire = 75
+	fire = 100
 	acid = 75
 	wound = 20
 
@@ -116,14 +116,14 @@
 	armor_type = /datum/armor/mod_theme_safeguard
 
 /datum/armor/mod_theme_safeguard
-	melee = 40
+	melee = 45
 	bullet = 30
 	laser = 30
 	energy = 40
-	bomb = 30
+	bomb = 40
 	bio = 100
 	fire = 100
-	acid = 95
+	acid = 100
 	wound = 25
 
 /datum/mod_theme/magnate // Captain
@@ -131,9 +131,9 @@
 
 /datum/armor/mod_theme_magnate
 	melee = 40
-	bullet = 40
-	laser = 40
-	energy = 40
+	bullet = 50
+	laser = 50
+	energy = 60
 	bomb = 50
 	bio = 100
 	fire = 100
@@ -145,60 +145,42 @@
 
 /datum/armor/mod_theme_cosmohonk
 	melee = 10
-	energy = 10
+	bullet = 5
+	laser = 20
+	energy = 20
 	bomb = 10
 	bio = 100
-	fire = 50
-	acid = 25
+	fire = 60
+	acid = 30
 	wound = 5
 
 /datum/mod_theme/syndicate // Bloodred Syndicate
 	armor_type = /datum/armor/mod_theme_syndicate
 
 /datum/armor/mod_theme_syndicate
-	melee = 20
-	bullet = 25
-	laser = 15
-	energy = 20
+	melee = 40
+	bullet = 50
+	laser = 30
+	energy = 30
 	bomb = 40
 	bio = 100
 	fire = 50
 	acid = 90
 	wound = 25
 
-/obj/item/mod/module/armor_booster
-	// Half of the old armor is on the MODsuit, the other half is from the booster
-	armor_mod = /datum/armor/mod_module_armor_boost_override
-
-/datum/armor/mod_module_armor_boost_override
-	melee = 20
-	bullet = 25
-	laser = 15
-	energy = 20
-
 /datum/mod_theme/elite // Elite Syndiate
 	armor_type = /datum/armor/mod_theme_elite
 
 /datum/armor/mod_theme_elite
-	melee = 30
-	bullet = 30
-	laser = 25
-	energy = 30
+	melee = 60
+	bullet = 60
+	laser = 50
+	energy = 60
 	bomb = 60
 	bio = 100
 	fire = 100
 	acid = 100
 	wound = 25
-
-/obj/item/mod/module/armor_booster/elite
-	// Ditto - half on suit, half on booster
-	armor_mod = /datum/armor/mod_module_armor_boost_elite
-
-/datum/armor/mod_module_armor_boost_elite
-	melee = 30
-	bullet = 30
-	laser = 25
-	energy = 30
 
 /datum/mod_theme/prototype // Charlie Station
 	armor_type = /datum/armor/mod_theme_prototype
@@ -218,10 +200,10 @@
 	armor_type = /datum/armor/mod_theme_responsory
 
 /datum/armor/mod_theme_responsory
-	melee = 40
-	bullet = 30
-	laser = 30
-	energy = 40
+	melee = 50
+	bullet = 40
+	laser = 50
+	energy = 50
 	bomb = 50
 	bio = 100
 	fire = 100
@@ -232,11 +214,11 @@
 	armor_type = /datum/armor/mod_theme_corporate
 
 /datum/armor/mod_theme_corporate
-	melee = 50
-	bullet = 50
-	laser = 50
+	melee = 65
+	bullet = 65
+	laser = 55
 	energy = 50
-	bomb = 50
+	bomb = 60
 	bio = 100
 	fire = 100
 	acid = 100

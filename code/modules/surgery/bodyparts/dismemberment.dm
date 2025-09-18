@@ -122,10 +122,10 @@
 
 	if(!special)
 		if(phantom_owner.dna)
-			for(var/datum/mutation/human/mutation as anything in phantom_owner.dna.mutations) //some mutations require having specific limbs to be kept.
+			for(var/datum/mutation/mutation as anything in phantom_owner.dna.mutations) //some mutations require having specific limbs to be kept.
 				if(mutation.limb_req && (mutation.limb_req == body_zone))
 					to_chat(phantom_owner, span_warning("You feel your [mutation] deactivating from the loss of your [body_zone]!"))
-					phantom_owner.dna.force_lose(mutation)
+					phantom_owner.dna.remove_mutation(mutation, mutation.sources)
 
 	update_icon_dropped()
 	phantom_owner.update_health_hud() //update the healthdoll
@@ -210,10 +210,9 @@
 		arm_owner.dropItemToGround(arm_owner.get_item_for_held_index(held_index), 1)
 	. = ..()
 	if(arm_owner.handcuffed)
-		arm_owner.handcuffed.forceMove(drop_location())
-		arm_owner.handcuffed.dropped(arm_owner)
+		var/obj/item/lost_cuffs = arm_owner.handcuffed
 		arm_owner.set_handcuffed(null)
-		arm_owner.update_handcuffed()
+		arm_owner.dropItemToGround(lost_cuffs, force = TRUE)
 	if(arm_owner.hud_used)
 		var/atom/movable/screen/inventory/hand/associated_hand = arm_owner.hud_used.hand_slots["[held_index]"]
 		associated_hand?.update_appearance()
@@ -226,13 +225,8 @@
 	. = ..()
 	if(special || !leg_owner)
 		return
-	if(leg_owner.legcuffed)
-		leg_owner.legcuffed.forceMove(drop_location())
-		leg_owner.legcuffed.dropped(leg_owner)
-		leg_owner.legcuffed = null
-		leg_owner.update_worn_legcuffs()
-	if(leg_owner.shoes)
-		leg_owner.dropItemToGround(leg_owner.shoes, force = TRUE)
+	leg_owner.dropItemToGround(leg_owner.legcuffed, force = TRUE)
+	leg_owner.dropItemToGround(leg_owner.shoes, force = TRUE)
 
 /obj/item/bodypart/head/drop_limb(special, dismembered, move_to_floor = TRUE)
 	if(!special)
@@ -248,6 +242,12 @@
 			pill.forceMove(src)
 
 	name = "[owner.real_name]'s head"
+
+	/// If our owner loses their head, update their name as their face ~cannot be seen~ does not exist anymore
+	if (ishuman(owner))
+		var/mob/living/carbon/human/as_human = owner
+		as_human.update_visible_name()
+
 	return ..()
 
 ///Try to attach this bodypart to a mob, while replacing one if it exists, does nothing if it fails.
@@ -355,6 +355,11 @@
 		new_head_owner.real_name = old_real_name
 	real_name = new_head_owner.real_name
 
+	/// Update our owner's name with ours
+	if (ishuman(owner))
+		var/mob/living/carbon/human/as_human = owner
+		as_human.update_visible_name()
+
 	//Handle dental implants
 	for(var/obj/item/reagent_containers/applicator/pill/pill in src)
 		for(var/datum/action/item_action/activate_pill/pill_action in pill.actions)
@@ -385,7 +390,7 @@
 
 /mob/living/carbon/proc/regenerate_limbs(list/excluded_zones = list())
 	SEND_SIGNAL(src, COMSIG_CARBON_REGENERATE_LIMBS, excluded_zones)
-	var/list/zone_list = GLOB.all_body_zones.Copy()
+	var/list/zone_list = get_all_limbs()
 
 	var/list/dismembered_by_copy = body_zone_dismembered_by?.Copy()
 
@@ -399,30 +404,31 @@
 	if(get_bodypart(limb_zone))
 		return FALSE
 	limb = newBodyPart(limb_zone, 0, 0)
-	if(limb)
-		if(!limb.try_attach_limb(src, TRUE))
-			qdel(limb)
-			return FALSE
-		limb.update_limb(is_creating = TRUE)
-		if (LAZYLEN(dismembered_by_copy))
-			var/datum/scar/scaries = new
-			var/datum/wound/loss/phantom_loss = new // stolen valor, really
-			phantom_loss.loss_wounding_type = dismembered_by_copy?[limb_zone]
-			if (phantom_loss.loss_wounding_type)
-				scaries.generate(limb, phantom_loss)
-				LAZYREMOVE(dismembered_by_copy, limb_zone) // in case we're using a passed list
-			else
-				qdel(scaries)
-				qdel(phantom_loss)
+	if(!limb)
+		return
+	if(!limb.try_attach_limb(src, TRUE))
+		qdel(limb)
+		return FALSE
+	limb.update_limb(is_creating = TRUE)
+	if (LAZYLEN(dismembered_by_copy))
+		var/datum/scar/scaries = new
+		var/datum/wound/loss/phantom_loss = new // stolen valor, really
+		phantom_loss.loss_wounding_type = dismembered_by_copy?[limb_zone]
+		if (phantom_loss.loss_wounding_type)
+			scaries.generate(limb, phantom_loss)
+			LAZYREMOVE(dismembered_by_copy, limb_zone) // in case we're using a passed list
+		else
+			qdel(scaries)
+			qdel(phantom_loss)
 
-		//Copied from /datum/species/proc/on_species_gain()
-		for(var/obj/item/organ/organ_path as anything in dna.species.mutant_organs)
-			//Load a persons preferences from DNA
-			var/zone = initial(organ_path.zone)
-			if(zone != limb_zone)
-				continue
-			var/obj/item/organ/new_organ = SSwardrobe.provide_type(organ_path)
-			new_organ.Insert(src)
+	//Copied from /datum/species/proc/on_species_gain()
+	for(var/obj/item/organ/organ_path as anything in dna.species.mutant_organs)
+		//Load a persons preferences from DNA
+		var/zone = initial(organ_path.zone)
+		if(zone != limb_zone)
+			continue
+		var/obj/item/organ/new_organ = SSwardrobe.provide_type(organ_path)
+		new_organ.Insert(src)
 
-		update_body_parts()
-		return TRUE
+	update_body_parts()
+	return TRUE

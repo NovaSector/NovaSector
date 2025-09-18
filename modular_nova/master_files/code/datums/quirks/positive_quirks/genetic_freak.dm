@@ -1,16 +1,16 @@
 GLOBAL_LIST_INIT(genetic_mutation_choice, list(
-	"Antenna" = /datum/mutation/human/antenna,
-	"Autotomy" = /datum/mutation/human/self_amputation,
-	"Glowy" = /datum/mutation/human/glow,
-	"Anti-Glowy" = /datum/mutation/human/glow/anti,
-	"Strength" = /datum/mutation/human/strong,
-	"Stimmed" = /datum/mutation/human/stimmed,
-	"Chameleon" = /datum/mutation/human/chameleon,
-	"Geladikinesis" = /datum/mutation/human/geladikinesis,
-	"Cindikinesis" = /datum/mutation/human/cindikinesis,
-	"Transcendent Olfaction" = /datum/mutation/human/olfaction,
-	"Elastic Arms" = /datum/mutation/human/elastic_arms,
-	"Webbing" = /datum/mutation/human/webbing,
+	"Antenna" = /datum/mutation/antenna,
+	"Autotomy" = /datum/mutation/self_amputation,
+	"Glowy" = /datum/mutation/glow,
+	"Anti-Glowy" = /datum/mutation/glow/anti,
+	"Strength" = /datum/mutation/strong,
+	"Stimmed" = /datum/mutation/stimmed,
+	"Chameleon" = /datum/mutation/chameleon,
+	"Geladikinesis" = /datum/mutation/geladikinesis,
+	"Cindikinesis" = /datum/mutation/cindikinesis,
+	"Transcendent Olfaction" = /datum/mutation/olfaction,
+	"Elastic Arms" = /datum/mutation/elastic_arms,
+	"Webbing" = /datum/mutation/webbing,
 ))
 
 /datum/quirk/genetic_mutation
@@ -32,11 +32,11 @@ GLOBAL_LIST_INIT(genetic_mutation_choice, list(
 	var/mob/living/carbon/human/human_holder = quirk_holder
 	var/mutation_path = GLOB.genetic_mutation_choice[client_source?.prefs?.read_preference(/datum/preference/choiced/genetic_mutation)]
 	applied_mutation = mutation_path
-	human_holder.dna.add_mutation(applied_mutation, MUT_OTHER, 0)
+	human_holder.dna.add_mutation(applied_mutation, MUTATION_SOURCE_ACTIVATED, 0)
 
 /datum/quirk/genetic_mutation/remove()
 	var/mob/living/carbon/human/human_holder = quirk_holder
-	human_holder.dna.remove_mutation(applied_mutation)
+	human_holder.dna.remove_mutation(applied_mutation, MUTATION_SOURCE_ACTIVATED)
 
 /datum/preference/choiced/genetic_mutation
 	category = PREFERENCE_CATEGORY_MANUALLY_RENDERED

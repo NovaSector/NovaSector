@@ -205,5 +205,8 @@
 /datum/nifsoft/summoner/job
 	mutually_exclusive_programs = list(/datum/nifsoft/summoner/job) //One job grimoire per person
 
+/datum/nifsoft/summoner/combat
+	mutually_exclusive_programs = list(/datum/nifsoft/summoner/combat) //One combat grimoire per person
+
 #undef SUMMONED_ITEM_ALPHA
 #undef SUMMONED_ITEM_LIGHT

@@ -1,7 +1,7 @@
 /datum/antagonist/ninja
 	name = "\improper Space Ninja"
 	antagpanel_category = ANTAG_GROUP_NINJAS
-	job_rank = ROLE_NINJA
+	pref_flag = ROLE_NINJA
 	antag_hud_name = "ninja"
 	hijack_speed = 1
 	show_name_in_check_antagonists = TRUE
@@ -73,29 +73,27 @@
 	doorobjective.doors_required = rand(15,40)
 	doorobjective.explanation_text = "Use your gloves to doorjack [doorobjective.doors_required] airlocks on the station."
 	objectives += doorobjective
-	//NOVA EDIT START
-	if(length(get_crewmember_minds()) >= BOMB_POP_REQUIREMENT)
-		//Explosive plant, the bomb will register its completion on priming
-		var/datum/objective/plant_explosive/bombobjective = new /datum/objective/plant_explosive()
-		for(var/sanity in 1 to 100) // 100 checks at most.
-			var/area/selected_area = pick(GLOB.areas)
-			if(!is_station_level(selected_area.z) || !(selected_area.area_flags & VALID_TERRITORY))
-				continue
-			bombobjective.detonation_location = selected_area
-			break
-		if(bombobjective.detonation_location)
-			bombobjective.explanation_text = "Detonate your starter bomb in [bombobjective.detonation_location].  Note that the bomb will not work anywhere else!"
-			objectives += bombobjective
-	//NOVA EDIT END
+
+	//Explosive plant, the bomb will register its completion on priming
+	var/datum/objective/plant_explosive/bombobjective = new /datum/objective/plant_explosive()
+	for(var/sanity in 1 to 100) // 100 checks at most.
+		var/area/selected_area = pick(GLOB.areas)
+		if(!is_station_level(selected_area.z) || !(selected_area.area_flags & VALID_TERRITORY))
+			continue
+		bombobjective.detonation_location = selected_area
+		break
+	if(bombobjective.detonation_location)
+		bombobjective.explanation_text = "Detonate your starter bomb in [bombobjective.detonation_location].  Note that the bomb will not work anywhere else!"
+		objectives += bombobjective
 
 	//Security Scramble, set to complete upon using your gloves on a security console
 	var/datum/objective/securityobjective = new /datum/objective/security_scramble()
 	objectives += securityobjective
-	/* NOVA EDIT REMOVAL
+
 	//Message of Terror, set to complete upon using your gloves a communication console
 	var/datum/objective/communicationobjective = new /datum/objective/terror_message()
 	objectives += communicationobjective
-	*/
+
 	//Survival until end
 	var/datum/objective/survival = new /datum/objective/survive()
 	survival.owner = owner
@@ -114,15 +112,20 @@
 		addObjectives()
 	addMemories()
 	equip_space_ninja(owner.current)
-	owner.current.add_quirk(/datum/quirk/freerunning)
-	owner.current.add_quirk(/datum/quirk/light_step)
+	owner.current.add_quirk(/datum/quirk/freerunning, announce = FALSE)
+	owner.current.add_quirk(/datum/quirk/light_step, announce = FALSE)
 	owner.current.mind.set_assigned_role(SSjob.get_job_type(/datum/job/space_ninja))
-	owner.current.mind.special_role = ROLE_NINJA
 	return ..()
 
 /datum/antagonist/ninja/admin_add(datum/mind/new_owner,mob/admin)
 	new_owner.set_assigned_role(SSjob.get_job_type(/datum/job/space_ninja))
-	new_owner.special_role = ROLE_NINJA
 	new_owner.add_antag_datum(src)
 	message_admins("[key_name_admin(admin)] has ninja'ed [key_name_admin(new_owner)].")
 	log_admin("[key_name(admin)] has ninja'ed [key_name(new_owner)].")
+
+/datum/antagonist/ninja/on_respawn(mob/new_character)
+	equip_space_ninja()
+	var/turf/spawnpoint = find_space_spawn()
+	if(spawnpoint)
+		new_character.forceMove(spawnpoint)
+	return TRUE

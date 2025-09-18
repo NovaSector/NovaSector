@@ -69,20 +69,21 @@
 	soundpath = 'modular_nova/modules/blooper/voice/bloopers/monster5.ogg'
 	minvariance = 0
 
-/// No funny skeletons as much as it would be funny, no. Maybe during halloween maybe.
-/*
 /datum/blooper/monster6
 	name = "Monster 6"
 	id = "monster6"
 	soundpath = 'modular_nova/modules/blooper/voice/bloopers/monster6.ogg'
 	minvariance = 0
 
+/// No funny bone man, as much as it would be funny, no. Maybe during halloween maybe.
+/*
 /datum/blooper/monster7
 	name = "Monster 7"
 	id = "monster7"
 	soundpath = 'modular_nova/modules/blooper/voice/bloopers/monster7.ogg'
 	minvariance = 0
 */
+
 /datum/blooper/monster8
 	name = "Monster 8"
 	id = "monster8"
@@ -342,3 +343,35 @@
 	name = "Chitter2"
 	id = "chitter2"
 	soundpath = 'modular_nova/modules/blooper/voice/bloopers/chitter1.ogg'
+
+// Aganoo barks
+
+/datum/blooper/genius
+	name = "Genius"
+	id = "genius"
+	soundpath = 'modular_nova/modules/blooper/voice/bloopers/genius.ogg'
+
+/datum/blooper/jester
+	name = "Jester"
+	id = "jester"
+	soundpath = 'modular_nova/modules/blooper/voice/bloopers/jester.ogg'
+
+/datum/blooper/goober
+	name = "Goober"
+	id = "goober"
+	soundpath = 'modular_nova/modules/blooper/voice/bloopers/goober.ogg'
+
+/datum/blooper/royal
+	name = "Royal"
+	id = "royal"
+	soundpath = 'modular_nova/modules/blooper/voice/bloopers/royal.ogg'
+
+/datum/blooper/salesman
+	name = "Salesman"
+	id = "salesman"
+	soundpath = 'modular_nova/modules/blooper/voice/bloopers/salesman.ogg'
+
+/datum/blooper/old
+	name = "Old"
+	id = "old"
+	soundpath = 'modular_nova/modules/blooper/voice/bloopers/old.ogg'

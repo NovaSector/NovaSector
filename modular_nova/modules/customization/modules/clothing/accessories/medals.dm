@@ -197,25 +197,37 @@ Potential future ideas:
 /*
 // Special Medals
 */
-/obj/item/clothing/accessory/nova/acc_medal/glowbar
-	name = "glowbar necklace"
-	desc = "A glowing rock strung from a necklace, a token of gratitude similar to a medal."
-	icon = 'icons/map_icons/clothing/accessory.dmi'
-	icon_state = "/obj/item/clothing/accessory/nova/acc_medal/glowbar"
-	post_init_icon_state = "bar"
-	greyscale_config = /datum/greyscale_config/medals/glow
-	greyscale_config_worn = /datum/greyscale_config/medals/glow/worn
-	greyscale_colors = "#ff99ff"
-
 /obj/item/clothing/accessory/nova/acc_medal/glowcrystal
 	name = "glowcrystal necklace"
 	desc = "A glowing rock strung from a necklace, a token of gratitude similar to a medal."
 	icon = 'icons/map_icons/clothing/accessory.dmi'
 	icon_state = "/obj/item/clothing/accessory/nova/acc_medal/glowcrystal"
-	post_init_icon_state = "crystal"
+	post_init_icon_state = "necklace_crystal"
 	greyscale_config = /datum/greyscale_config/medals/glow
 	greyscale_config_worn = /datum/greyscale_config/medals/glow/worn
-	greyscale_colors = "#ff99ff"
+	greyscale_colors = "#7effff"
+	unique_reskin = list(
+		"Crystal" = "necklace_crystal",
+		"Bar" = "necklace_bar",
+		"Hollow Bar" = "necklace_bar_hollow",
+		"Diamond" = "necklace_diamond",
+		"Hollow Diamond" = "necklace_diamond_hollow",
+		"Shard" = "necklace_shard",
+		"Hollow Shard" = "necklace_shard_hollow",
+		"Triangle" = "necklace_triangle",
+		"Hollow Triangle" = "necklace_triangle_hollow",
+		"Circle" = "necklace_circle",
+	)
+
+/obj/item/clothing/accessory/nova/acc_medal/dogtags
+	name = "dogtags"
+	desc = "A pair of standard issue dogtags. Rather outdated concept, but still do their job."
+	icon = 'icons/map_icons/clothing/accessory.dmi'
+	icon_state = "/obj/item/clothing/accessory/nova/acc_medal/dogtags"
+	post_init_icon_state = "dogtags"
+	greyscale_config = /datum/greyscale_config/dogtags
+	greyscale_config_worn = /datum/greyscale_config/dogtags/worn
+	greyscale_colors = "#FCFCFD#CCCED1#8A8B9D#68697D"
 
 /*
 // Rank pins
@@ -304,6 +316,9 @@ Potential future ideas:
 	greyscale_config = /datum/greyscale_config/medals/military_ribbon
 	greyscale_config_worn = /datum/greyscale_config/medals/military_ribbon/worn
 	greyscale_colors = "#ff0000#04ff00#0008ff"
+	minimize_when_attached = TRUE
+	attachment_slot = NONE
+	flags_1 = IS_PLAYER_COLORABLE_1
 
 /obj/item/clothing/accessory/nova/military_ribbon/two
 	icon_state = "/obj/item/clothing/accessory/nova/military_ribbon/two"

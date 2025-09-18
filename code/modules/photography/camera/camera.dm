@@ -174,7 +174,6 @@
 	var/turf/target_turf = get_turf(target)
 	if(isnull(target_turf))
 		return FALSE
-
 	if(isAI(user))
 		return can_ai_target(target_turf)
 	if(ismob(user))
@@ -198,7 +197,7 @@
 
 /// Check whether a mob could take a picture of the target turf.
 /obj/item/camera/proc/can_mob_target(turf/target_turf, mob/user)
-	var/user_view = user.client ? user.client.view : CONFIG_GET(string/default_view)
+	var/user_view = user.client ? user.client.view : WIDESCREEN_VIEWPORT_SIZE
 	var/user_eye = user.client ? user.client.eye : user
 	if(!(target_turf in get_hear(user_view, user_eye)))
 		return FALSE
@@ -306,7 +305,9 @@
 		mobs_spotted += mob
 		if(mob.stat == DEAD)
 			dead_spotted += mob
-		desc += mob.get_photo_description(src)
+		var/info = mob.get_photo_description(src)
+		if(!isnull(info))
+			desc += info
 
 	var/psize_x = (size_x * 2 + 1) * ICON_SIZE_X
 	var/psize_y = (size_y * 2 + 1) * ICON_SIZE_Y
@@ -314,8 +315,9 @@
 	qdel(clone_area)
 	get_icon.Blend("#000", ICON_UNDERLAY)
 	for(var/mob/living/carbon/human/person in mobs)
-		if(person.is_face_visible())
-			names += "[person.name]"
+		if(person.obscured_slots & HIDEFACE)
+			continue
+		names += "[person.name]"
 
 	var/datum/picture/picture = new("picture", desc.Join("<br>"), mobs_spotted, dead_spotted, names, get_icon, null, psize_x, psize_y, blueprints, can_see_ghosts = see_ghosts)
 	after_picture(user, picture)
@@ -330,11 +332,12 @@
 	return
 
 /obj/item/camera/proc/after_picture(mob/user, datum/picture/picture)
+	if(!silent)
+		playsound(loc, SFX_POLAROID, 75, TRUE, -3)
+
 	if(print_picture_on_snap)
 		printpicture(user, picture)
 
-	if(!silent)
-		playsound(loc, SFX_POLAROID, 75, TRUE, -3)
 
 /obj/item/camera/proc/printpicture(mob/user, datum/picture/picture) //Normal camera proc for creating photos
 	pictures_left--

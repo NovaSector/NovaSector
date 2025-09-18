@@ -36,21 +36,17 @@ GLOBAL_LIST_EMPTY(valid_cryopods)
 	/// The items currently stored in the cryopod control panel.
 	var/list/frozen_item = list()
 
-	/// This is what the announcement system uses to make announcements. Make sure to set a radio that has the channel you want to broadcast on.
-	var/obj/item/radio/headset/radio = /obj/item/radio/headset/silicon/ai
-	/// The channel to be broadcast on, valid values are the values of any of the "RADIO_CHANNEL_" defines.
-	var/announcement_channel = null // RADIO_CHANNEL_COMMON doesn't work here.
+	/// The channel to be broadcast on, works via refactored AAS machinery.
+	var/announcement_channel = RADIO_CHANNEL_COMMON
 
 MAPPING_DIRECTIONAL_HELPERS(/obj/machinery/computer/cryopod, 32)
 
 /obj/machinery/computer/cryopod/Initialize(mapload)
 	. = ..()
 	GLOB.cryopod_computers += src
-	radio = new radio(src)
 
 /obj/machinery/computer/cryopod/Destroy()
 	GLOB.cryopod_computers -= src
-	QDEL_NULL(radio)
 	return ..()
 
 /obj/machinery/computer/cryopod/update_icon_state()
@@ -123,19 +119,36 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/machinery/computer/cryopod, 32)
 		else
 			CRASH("Illegal action for ui_act: '[action]'")
 
-/obj/machinery/computer/cryopod/proc/announce(message_type, user, rank, occupant_departments_bitflags, occupant_job_radio)
+/obj/machinery/computer/cryopod/proc/announce(message_type, user, rank, datum/job/occupant_job)
 	switch(message_type)
 		if("CRYO_JOIN")
-			radio.talk_into(src, "[user][rank ? ", [rank]" : ""] has woken up from cryo storage.", announcement_channel)
+			aas_config_announce(/datum/aas_config_entry/cryopod_announcement, list(
+				"PERSON" = user,
+				"RANK" = rank,
+			), src, list(announcement_channel), "Awakening")
 		if("CRYO_LEAVE")
-			if (occupant_job_radio)
-				if (occupant_departments_bitflags & DEPARTMENT_BITFLAG_COMMAND)
-					if (occupant_job_radio != RADIO_CHANNEL_COMMAND)
-						radio.talk_into(src, "[user][rank ? ", [rank]" : ""] has been moved to cryo storage.", RADIO_CHANNEL_COMMAND)
-					radio.use_command = TRUE
-				radio.talk_into(src, "[user][rank ? ", [rank]" : ""] has been moved to cryo storage.", occupant_job_radio)
-				radio.use_command = FALSE
-			radio.talk_into(src, "[user][rank ? ", [rank]" : ""] has been moved to cryo storage.", announcement_channel)
+			var/already_announced = FALSE
+			if (occupant_job)
+				for (var/department in occupant_job.departments_list)
+					var/datum/job_department/dep = SSjob.joinable_departments_by_type[department]
+					// Announce all command staff or heads of departments in their respected radio channels.
+					if (!(dep.department_bitflags & DEPARTMENT_BITFLAG_COMMAND) && !istype(occupant_job, dep.department_head))
+						continue
+
+					aas_config_announce(/datum/aas_config_entry/cryopod_announcement, list(
+						"PERSON" = user,
+						"RANK" = rank,
+					), src, list(dep.default_radio_channel), "Removing", istype(occupant_job, dep.department_head))
+
+					// If we announced on computer's channel, don't announce again.
+					if (dep.default_radio_channel == announcement_channel)
+						already_announced = TRUE
+
+			if (!already_announced)
+				aas_config_announce(/datum/aas_config_entry/cryopod_announcement, list(
+					"PERSON" = user,
+					"RANK" = rank,
+				), src, list(announcement_channel), "Removing")
 
 // Cryopods themselves.
 /obj/machinery/cryopod
@@ -344,10 +357,9 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/machinery/computer/cryopod, 32)
 	var/mob/living/mob_occupant = occupant
 
 	var/occupant_ckey = mob_occupant.ckey || mob_occupant.mind?.key
-	var/occupant_name = mob_occupant.name
+	var/occupant_name = mob_occupant.real_name
 	var/occupant_rank = mob_occupant.mind?.assigned_role.title
-	var/occupant_departments_bitflags = mob_occupant.mind?.assigned_role.departments_bitflags
-	var/occupant_job_radio = mob_occupant.mind?.assigned_role.default_radio_channel
+	var/occupant_job = mob_occupant.mind?.assigned_role
 
 	SSjob.FreeRole(occupant_rank)
 
@@ -360,7 +372,7 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/machinery/computer/cryopod, 32)
 		// Handle tater cleanup.
 		if(LAZYLEN(mob_occupant.mind.objectives))
 			mob_occupant.mind.objectives.Cut()
-			mob_occupant.mind.special_role = null
+			mob_occupant.mind.special_roles = null
 		// Handle freeing the high priest role for the next chaplain in line
 		if(mob_occupant.mind.holy_role == HOLY_ROLE_HIGHPRIEST)
 			reset_religion()
@@ -372,7 +384,6 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/machinery/computer/cryopod, 32)
 
 	// Delete them from datacore and ghost records.
 	var/announce_rank = null
-
 	for(var/list/record in GLOB.ghost_records)
 		if(record["name"] == occupant_name)
 			announce_rank = record["rank"]
@@ -394,12 +405,12 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/machinery/computer/cryopod, 32)
 
 		// Make an announcement and log the person entering storage. If set to quiet, does not make an announcement.
 		if(!quiet)
-			control_computer.announce("CRYO_LEAVE", mob_occupant.real_name, announce_rank, occupant_departments_bitflags, occupant_job_radio)
+			control_computer.announce("CRYO_LEAVE", mob_occupant.real_name, announce_rank, occupant_job)
 
 	visible_message(span_notice("[src] hums and hisses as it moves [mob_occupant.real_name] into storage."))
 
 	for(var/obj/item/item_content as anything in mob_occupant)
-		if(!istype(item_content) || HAS_TRAIT(item_content, TRAIT_NODROP))
+		if(!istype(item_content) || HAS_TRAIT(item_content, TRAIT_NODROP) || (item_content.item_flags & ABSTRACT|DROPDEL) || (item_content.flags_1 & HOLOGRAM_1))
 			continue
 		if (issilicon(mob_occupant) && istype(item_content, /obj/item/mmi))
 			continue
@@ -529,7 +540,7 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/machinery/computer/cryopod, 32)
 	else
 		visible_message(span_infoplain("[user] starts putting [target] into the cryo pod."))
 
-	to_chat(target, span_warning("<b>If you remain in the pod for [time_till_despawn /10] seconds, your character will be permanently removed from the round.</b>"))
+	to_chat(target, span_warning("<b>If you remain in the pod for [time_till_despawn /10] seconds or ghost, your character will be permanently removed from the round.</b>"))
 
 	log_admin("[key_name(target)] entered a stasis pod.")
 	message_admins("[key_name_admin(target)] entered a stasis pod. [ADMIN_JMP(src)]")
@@ -597,9 +608,18 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/machinery/cryopod/prison, 18)
 	var/obj/machinery/computer/cryopod/control_computer = find_control_computer()
 
 	var/alt_name = get_spawner_outfit_name()
-	GLOB.ghost_records.Add(list(list("name" = spawned_mob.real_name, "rank" = alt_name ? alt_name : name)))
+	alt_name = alt_name ? alt_name : name
+	GLOB.ghost_records.Add(list(list("name" = spawned_mob.real_name, "rank" = alt_name)))
 	if(control_computer)
-		control_computer.announce("CRYO_JOIN", spawned_mob.real_name, name)
+		// Due ghost often have only channel, I decide to not send awakening message if we sending head announcement
+		var/datum/job/ghost_job = SSjob.get_job_type(spawner_job_path)
+		if (ghost_job.head_announce)
+			aas_config_announce(/datum/aas_config_entry/newhead, list(
+				"PERSON" = spawned_mob.real_name,
+				"RANK" = alt_name,
+			), control_computer, ghost_job.head_announce, null, TRUE)
+		else
+			control_computer.announce("CRYO_JOIN", spawned_mob.real_name, alt_name)
 
 	return spawned_mob
 
@@ -626,5 +646,16 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/machinery/cryopod/prison, 18)
 
 /obj/effect/mob_spawn/ghost_role/human/lavaland_syndicate
 	computer_area = /area/ruin/syndicate_lava_base/dormitories
+
+/datum/aas_config_entry/cryopod_announcement
+	name = "Departmental Alert: Cryogenic Sleeper Announcement"
+	announcement_lines_map = list(
+		"Awakening" = "%PERSON, %RANK has woken up from cryo storage.",
+		"Removing" = "%PERSON, %RANK has been moved to cryo storage.",
+	)
+	vars_and_tooltips_map = list(
+		"PERSON" = "will be replaced with their name.",
+		"RANK" = "with their job."
+	)
 
 #undef AHELP_FIRST_MESSAGE

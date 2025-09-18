@@ -1,5 +1,6 @@
 /obj/item/circuitboard/computer
 	name = "Generic"
+	abstract_type = /obj/item/circuitboard/computer
 	name_extension = "(Computer Board)"
 
 /obj/item/circuitboard/computer/examine()
@@ -494,7 +495,7 @@
 /obj/item/circuitboard/computer/scan_consolenew
 	name = "DNA Console"
 	greyscale_colors = CIRCUIT_COLOR_SCIENCE
-	build_path = /obj/machinery/computer/scan_consolenew
+	build_path = /obj/machinery/computer/dna_console
 
 /obj/item/circuitboard/computer/mechpad
 	name = "Mecha Orbital Pad Console"
@@ -676,9 +677,9 @@
 		machine.connect_to_shuttle(TRUE, shuttle)
 
 /obj/item/circuitboard/computer/shuttle/flight_control
-	name = "Shuttle Flight Control (Computer Board)"
+	name = "Shuttle Flight Control"
 	build_path = /obj/machinery/computer/shuttle/custom_shuttle
 
 /obj/item/circuitboard/computer/shuttle/docker
-	name = "Shuttle Navigation Computer (Computer Board)"
+	name = "Shuttle Navigation Computer"
 	build_path = /obj/machinery/computer/camera_advanced/shuttle_docker/custom
