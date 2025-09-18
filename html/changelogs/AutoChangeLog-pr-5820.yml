@@ -1,0 +1,5 @@
+author: "OrbisAnima"
+delete-after: True
+changes:
+  - balance: "Gives small energy arms, and the SC2 derivates, self recharging capabilities, 10% of their charge per 15 seconds. Gives large energy arms a crank based recharge, 8 seconds of cranking (which can be done moving or shooting!) for 25% of the charge, compared to a t1 recharger that takes 20 seconds to a full charge."
+  - balance: "SC1, SC2 and the Hellgun were approved for civilian use in the frontier, so they no longer require permit for concealed carry."
