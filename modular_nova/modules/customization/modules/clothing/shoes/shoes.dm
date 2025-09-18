@@ -222,7 +222,7 @@
 
 
 /obj/item/clothing/shoes/sport_boots
-	name = "Sport boots"
+	name = "sport boots"
 	desc = "A pair of comfortable athletic boots suitable for running and sports activities."
 	worn_icon = MODULAR_SHOES_WORN_ICON
 	greyscale_colors = "#292929#ffffff#ff9900"
