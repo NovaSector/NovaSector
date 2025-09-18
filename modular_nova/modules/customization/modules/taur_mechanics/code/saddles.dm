@@ -66,9 +66,6 @@
 	max_total_storage = 26
 	max_slots = 21
 
-/obj/item/storage/backpack/saddlebags/Initialize(mapload)
-	. = ..()
-
 	AddComponent(/datum/component/carbon_saddle, RIDING_TAUR|RIDER_NEEDS_ARM) // one arm
 	AddComponent(/datum/component/accessable_storage)
 	AddComponent(/datum/component/taur_clothing_offset)
