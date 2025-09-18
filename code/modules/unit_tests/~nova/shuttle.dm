@@ -16,7 +16,7 @@
 		var/time_left = SSshuttle.emergency.timeLeft(1)
 
 		// Check against expected
-		TEST_ASSERT_EQUAL(time_left, expected_time, "[type] shuttle call time didn't match expected [expected_time], got [time_left]")
+		TEST_ASSERT_EQUAL(time_left, expected_time, "[sec_level_path] shuttle call time didn't match expected [expected_time], got [time_left]")
 
 		// Cancel for the next run
 		SSshuttle.emergency.cancel()
