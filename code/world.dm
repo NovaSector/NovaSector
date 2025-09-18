@@ -15,7 +15,7 @@
 	view = "15x15"
 	hub = "Exadv1.spacestation13"
 	hub_password = "kMZy3U5jJHSiBQjr"
-	name = "/tg/ Station 13"
+	name = "Howling Void 18+ Русскоязычный МРП"
 	fps = 20
 	cache_lifespan = 0
 	//map_format = SIDE_MAP // NOVA EDIT - TODO: WALLENING - REMOVE THIS (hopefully the visual z-fighting issues will have been ironed out by then)

@@ -1,5 +1,11 @@
 /client/New()
 	. = ..()
+	// Показываем MOTD только один раз при подключении клиента
+	var/motd_path = "config/motd.txt"
+	if(fexists(motd_path))
+		var/motd = file2text(motd_path)
+		if(motd)
+			to_chat(src, motd)
 	mentor_datum_set()
 
 /client/Destroy()

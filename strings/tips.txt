@@ -1,320 +1,308 @@
-@You can <i>italicize</i>, <b>embolden</b> or <u>underline</u> portions of your messages by enclosing them with |, + or _ respectively. You can also avoid this by adding backslashes (they won't show in the message) before these characters.
-♪ Hey, have you ever tried appending the % character before your messages when speaking in-game? ♫
-A Scientist will pay top dollar for your frogs!
-A thrown glass of water can make a slippery tile, allowing you to slow down your pursuers in a pinch.
-Anything you can light a cigarette with, you can use to cauterize a bleeding wound. Technically, that includes the Supermatter.
-As a Blobbernaut, you can communicate with overminds and other Blobbernauts via :b.
-As a Blobbernaut, your HUD shows your health and the core health of the overmind that created you.
-As a Botanist, you can combine production trait chemicals just like a Chemist. Hydrogen(grass) + water(peas) + sugar(grapes) equal mannitol!
-As a Botanist, you can combine production trait chemicals just like a Chemist. Potassium(bananas) + water(watermelons) equal... FUN!
-As a Botanist, you can hack the MegaSeed Vendor to get access to more exotic seeds. These seeds can alternatively be ordered from cargo.
-As a Botanist, you can mutate the plants growing in your hydroponics trays with Left 4 Zed from your NutriMax vendor.  Once you've ground up a few plants in the biogenerator, it can also produce Left 4 Zed.  Isn't science amazing?
-As a Botanist, you should look into increasing the potency of your plants. This increases the size, amount of chemicals, points gained from grinding them in the biogenerator, and lets people know you are a proficient botanist.
-As a Cargo Technician, you can earn more cargo points by shipping back crates from maintenance, liquid containers, plasma sheets, rare seeds from hydroponics, and more!
-As a Cargo Technician, you can hack MULEbots to make them faster, run over people in their way, and even let you ride them!
-As a Cargo Technician, you can order contraband items from the supply shuttle console by de-constructing it and using a multitool on the circuit board, the re-assembling it.
-As a Changeling, taking on someone else's appearance will also give you all of their scars. You can use Fleshmend to get rid of all scars.
-As a Changeling, the Extract DNA sting counts for your genome absorb objective, but does not let you respec your powers.
-As a Changeling, you can absorb someone by strangling them and using the Absorb verb; this gives you the ability to rechoose your powers, the DNA of whoever you absorbed, the memory of the absorbed, and some samples of things the absorbed said.
-As a Chemist, some chemicals can only be synthesized by heating up the contents with a chemical heater or manually with lighters and similar tools.
-As a Chemist, there are dozens of chemicals that can heal, and even more that can cause harm. Experiment!
-As a Chemist, Water and Potassium mixed together will create an explosion, with power scaling by amount used. Don't do it.
-As a Chemist, Holy Water and Potassium mixed together will create a HOLY explosion, with increased power scaling by amount used. If at least 75 units of both are used, the explosion will reveal, ignite, and paralyze any cultists, heretics, and revenants in sight. Do it!
-As a Chemist, you can quickly make 100u plastic bottles directly from plastic sheets, alongside being able to make 120u plastic beakers in the lathe. The ChemMaster can produce infinite 30u glass bottles as well and if researched the medical techfab can make beakers with capacity ranging from 120u to 300u.
-As a Chemist, you can recharge your chemical dispenser with an inducer or by replacing its cell.
-As a Chemist, you will be expected to supply crew with certain chemicals. For example, Cryoxadone and Mannitol for the cryo tubes, Diethylamine and Saltpetre for botany, as well as healing pills and patches for the front desk.
-As a Cook, any food you make will be much healthier than the junk food found in vendors. Having the crew routinely eating from you will provide minor buffs.
-As a Cook, being in the kitchen will make you remember the basics of Close Quarters Cooking. It is highly effective at removing Assistants from your workplace.
-As a Cook, most non-custom foods will have a secondary effect, ranging from healing you to making you move at lightspeed. Experiment!
-As a Cook, you can create a very wide variety of food with the crafting menu. You can find it by looking for the hammer icon near your combat mode indicator.
-As a Cook, you can load your food into smartfridges and custom vending machines.
-As a Cook, you can rename your custom made food with a pen.
-As a Cultist, check the alert in the upper-right of your screen for all the details about your cult's current status and objective.
-As a Cultist, do not cause too much chaos before your objective is completed. If the shuttle gets called too soon, you may not have enough time to win.
-As a Cultist, the Blood Boil rune will deal massive amounts of brute damage to non-cultists, and some damage to fellow cultists of Nar'Sie nearby, but will create a fire where the rune stands on use.
-As a Cultist, your team starts off very weak, but if necessary can quickly convert everything they have into raw power. Make sure you have the numbers and equipment to support going loud, or the cult will fall flat on its face.
-As a Curator, you earn a 22% cut (divided by number of curators) of all credits spent on painting patronages. Turn others' patience and artistry skills into your own income!
-As a Cyborg, choose your model carefully, as only cutting and mending your reset wire will let you re-pick it. If possible, refrain from choosing a model until a situation that requires one occurs.
-As a Cyborg, you are extremely vulnerable to EMPs as EMPs both stun you and damage you. The ion rifle in the armory or a traitor with an EMP kit can kill you in seconds.
-As a Cyborg, you are immune to most forms of stunning, and excel at almost everything far better than humans. However, flashes can easily stunlock you and you cannot do any precision work as you lack hands.
-As a Cyborg, you are impervious to fires and heat. If you are rogue, you can release plasma fires everywhere and walk through them without a care in the world!
-As a Drone, you can ping other drones to alert them of areas in the station in need of repair.
-As a Geneticist, becoming a hulk makes you capable of dealing high melee damage, stun-locking people, and punching through walls. However, you can't fire guns, will lose your hulk status if you go into critical condition, and are not considered a human by the AI while you are a hulk.
-As a Geneticist, T goes to A, and G goes to C.
-As a Ghost, you can both start and join capture the flag games through the minigames menu, or by clicking on one of the team spawners, which can be found under the "Misc" section of the orbit menu.
-As a Ghost, you can double click on just about anything to follow it. Or just warp around!
-As a Ghost, you can see the inside of a container on the ground by clicking on it.
-As a Heretic, you can locate an influence by dreaming about random objects around it when you sleep.
-As a Heretic, the Path of Ash focuses on stealth and disorientation, but as you progress, sheds this playstyle in favor of a more aggressive, fiery finale.
-As a Heretic, the Path of Moon will literally drive people around you crazy - perhaps crazy enough to become your allies should you succeed.
-As a Heretic, the Path of Lock is an Assistant's best friend, and can open many pathways. Including ones beyond the veil...
-As a Heretic, the Path of Flesh allows you to raise an army by summoning ghouls and monsters from beyond the veil. Through ascension, you become a one-man army yourself.
-As a Heretic, the Path of Void makes people wish they could scream in the vast emptiness of space or have a chance at escaping from you. In the end, the storm takes all.
-As a Heretic, the Path of Blade rewards your ability to fight, by making you better and better at it. Though ascension, you can become an ultimate dueling juggernaut.
-As a Heretic, the Path of Rust is quite overt, but allows you to shrug of a lot of damage as everything around you slowly decays into nothing but rot and rust.
-As a Heretic, the Path of Cosmos allows you to take rightful ownership of the very space the crew treads on. And if they don't respect your status, calling in a friend from beyond should show them.
-As a Janitor Cyborg, you are the bane of all slaughter demons and even Bubblegum himself. Cleaning up blood stains will severely gimp them.
-As a Janitor, if someone steals your janicart, you can instead use your space cleaner spray, grenades, water sprayer, exact bloody revenge or order another from Cargo.
-As a Janitor, mousetraps can be used to create bombs or booby-trap containers.
-As a Janitor, you can command cleanbots by pointing at a tile and saying mop/clean.
-As a Medical Cyborg, you can fully perform surgery and even augment people.
-As a Medical Doctor, a shower can be used to help recover from sleep, unconsciousness, confusion, drowsiness, jitters, dizziness, and drunkness.
-As a Medical Doctor, almost every type of wound can be treated at least temporarily with gauze. When in doubt, wrap it up!
-As a Medical Doctor, corpses placed inside a freezer or morgue tray will have their organs frozen preventing decay. If you don't have time to revive multiple dead bodies, transfer them to the morgue temporarily!
-As a Medical Doctor, corpses with the "...and their soul has departed" description no longer have a ghost attached to them and can't be revived.
-As a Medical Doctor, Critical Slash wounds are one of the most dangerous conditions someone can have. Apply gauze, epipens, sutures, cauteries, whatever you can, as soon as possible!
-As a Medical Doctor, Saline-Glucose not only acts as a temporary boost to a patient's blood level, it also speeds blood regeneration! Perfect for drained patients!
-As a Medical Doctor, treating plasmamen is not impossible! Salbutamol stops them from suffocating and showers stop them from burning alive. You can even perform surgery on them by doing the procedure on a roller bed under a shower. Salbutamol and convermol do NOT heal their oxyloss damage.
-As a Medical Doctor, you can attempt to drain blood from a husk with a syringe to determine the cause. If you can extract blood, it was caused by extreme temperatures or lasers, if there is no blood to extract, you have confirmed the presence of changelings.
-As a Medical Doctor, you can deal with patients who have absurd amounts of wounds by putting them in cryo. This will slowly treat all of their wounds simultaneously, but is much slower than direct treatment.
-As a Medical Doctor, you can extract implants by holding an empty implant case in your offhand while performing the extraction step.
-As a Medical Doctor, you can point your penlight at people to create a medical hologram. This lets them know that you're coming to treat them.
-As a Medical Doctor, you can surgically implant or extract things from people's chests. This can range from putting in a bomb to pulling out an alien larva.
-As a Medical Doctor, you must target the correct limb and not be in combat mode when trying to perform surgery on someone. Right clicking your patient will intentionally fail the surgery step.
-As a Medical Doctor, when messing with viruses, remember that robotic organs can give immunity to disease effects and transmissibility. Make use of the inorganic biology symptom to bypass the protection.
-As a Medical Doctor, while there's an pandemic, you only require small amounts of vaccine to heal a sick patient. Work with the Chemist to distribute your cures more efficiently.
-As a Medical Doctor, try messing with the virology lab sometime! Viruses can range from healing powers so great that you can heal out of critical status, or diseases so dangerous they can kill the entire crew with airborne spontaneous combustion. Experiment!
-As a Medical Doctor, you can cure a heart attack by repeatedly shocking the victim with a defibrillator!
-As a Monkey, you can crawl through air or scrubber vents by alt+left clicking them. You must drop everything you are wearing and holding to do this, however.
-As a Monkey, you can still wear a few human items, such as backpacks, gas masks and hats, and still have two free hands.
-As a Morph, you can talk while disguised, but your words have a chance of being slurred, giving you away!
-As a Nuclear Operative, communication is key! Use ; to speak to your fellow operatives and coordinate an attack plan.
-As a Nuclear Operative, stick together! While your equipment is robust, your fellow operatives are much better at saving your life: they can drag you away from danger while stunned and provide cover fire.
-As a Nuclear Operative, you might end up in a situation where the AI has bolted you into a room. Having some spare C4 in your pocket can save your life.
-As a Nuclear Operative, you should look into purchasing a syndicate cyborg, as they can provide heavy fire support, full access, are immune to conventional stuns, and can easily take down the AI.
-As a Paramedic, embedded objects in a patient can be safely extracted by targeting the affected limb and using a hemostat on the patient.
-As a Paramedic, it is imperative that whenever possible you put fresh corpses on the stasis beds. Your CMO will thank you.
-As a Paramedic, your UV penlight can be used to stem infections in burn wounds! Just target the infected limb and use it on the patient.
-As a Revenant, the Chaplain is your worst enemy, as they can damage you massively with the null rod and make large swaths of the station impassable with holy water.
-As a Revenant, the illness inflicted on humans by Blight can be easily cured by lying down or with holy water, making it best used on targets that have no time to lie down, such as humans in combat.
-As a Revenant, your Defile ability removes holy water from tiles in a small radius, along with salt, allowing you to reclaim the station from the chaplain if they've been covering the station in holy water. It can also be used to open morgue trays!
-As a Revenant, your essence is also your health, so revealing yourself in front of humans to harvest the essence of the living is much safer if you've already stocked up on essences from poorly guarded corpses.
-As a Revenant, your Malfunction ability in general damages machinery and mechanical objects, possibly even emagging some objects. Experiment!
-As a Revenant, your Overload Lights ability will only shock humans with lights if the lights are still on after a brief delay.
-As a Revolutionary, cargo can be your best friend or your worst nightmare. In the best case scenario you will be able to order a limitless amount of guns and armor, in the worst case scenario security will take control and order a limitless number of mindshield implants to turn your fellow revolutionaries against you.
-As a Revolutionary, you cannot convert a head of staff or someone who has a mindshield implant, such as a security officer or those they implant. Implants are often purchased by the Quartermaster, but the implants can be surgically removed. Take control of cargo to keep control of conversions!
-As a Revolutionary, your main power comes from who you convert, choose your converts wisely to ensure you win the round.
-As a Roboticist, keep an ear out for anomaly announcements. If you get your hands on a bluespace anomaly core, you can build a Phazon mech!
-As a Roboticist, you can augment people with cyborg limbs. Augmented limbs can easily be repaired with cables and welders.
-As a Roboticist, you can greatly help out Shaft Miners by building a Clarke equipped with a hydraulic clamp and plasma cutter. The mech is ash storm proof and can even walk across lava!
-As a Roboticist, you can repair your cyborgs with a welding tool. If they have taken burn damage, you can remove their battery, expose the wiring with a screwdriver and replace their wires with a cable coil.
-As a Roboticist, you can reset a cyborg's model by cutting and mending the reset wire with a wire cutter.
-As a Scientist, researchable stock parts can seriously improve the efficiency and speed of machines around the station. In some cases, it can even unlock new functions.
-As a Scientist, you can disable anomalies by scanning them with an analyzer, then send a signal on the frequency it gives you with a remote signaling device, or if researched, hit the anomaly an anomaly analyzer. This will leave behind an anomaly core, which can be used to construct a Phazon mech, reactive armors, or various unique and powerful weapons!
-As a Scientist, you can generate money for Science, and complete experiments by letting the tachyon-doppler array record increasingly large explosions.
-As a Scientist, you can maximize the number of uses you get out of a slime by feeding it slime steroid, created from purple slimes, while alive. You can then apply extract enhancer, created from cerulean slimes, on each extract.
-As a Scientist, you can use the mutation toxin obtained from green slimes to turn yourself into a jelly mutant. Each subspecies has unique features - for example telepathic powers, duplicating bodies or integrating slime extracts!
-As a Security Officer, communicate and coordinate with your fellow officers using the security channel (:s) to avoid confusion.
-As a Security Officer, examining someone while wearing sechuds or HUDsunglasses will let you set their arrest level, which will cause Beepsky and other security bots to chase after them.
-As a Security Officer, mindshield implants can only prevent someone from being turned into a cultist: unlike revolutionaries, it will not de-cult them if they have already been converted.
-As a Security Officer, remember that correlation does not equal causation. Someone may have just been at the wrong place at the wrong time!
-As a Security Officer, remember that you can attach a sec-lite to your disabler or your helmet!
-As a Security Officer, your sechuds or HUDsunglasses can not only see crewmates' job assignments and criminal status, but also if they are mindshield implanted. You can tell by the flashing blue outline around their job icon. Use this to your advantage in a revolution to definitively tell who is on your side!
-As a Security Officer, you have a special pen in your PDA that you can use to prompt people to surrender. This will stun them without the need to use a baton!
-As a Security Officer, you can treat or even cure a heart attack with repeated blows from a stunbaton. Emphasis on *repeated*.
-As a Service Cyborg, your spray can knocks people down. However, it is blocked by masks and glasses.
-As a Shaft Miner, always have a GPS on you, so a fellow miner or cyborg can come to save you if you die.
-As a Shaft Miner, every monster on Lavaland has a pattern you can exploit to minimize damage from the encounters.
-As a Shaft Miner, the northern side of Lavaland has a lot more rare minerals than on the south.
-As a Shaft Miner, you can craft a variety of equipment from the local fauna. Bone axes, lava boats and ash drake armour are just a few of them!
-As a Shaft Miner, you can harvest goliath plates from goliaths and upgrade your explorer's suit, greatly reducing incoming melee damage.
-As a Traitor, plasma can be injected into many things to sabotage them. Power cells, light bulbs, welding tools, cigars and e-cigs will all explode when used.
-As a Traitor, subverting the AI to serve you can make it an extremely powerful ally. However, be careful of the wording in the laws you give it, as it may use your poorly written laws against you!
-As a Traitor, the Captain and the Head of Security are two of the most difficult to kill targets on the station. If either one is your target, plan carefully.
-As a Traitor, the cryptographic sequencer (emag) can not only open lockers, crates, APCs and more. It can also do things like hack cyborgs, and even cause bots to go berserk. Use it on the right machines, and you can even contact the Syndicate. Experiment!
-As a Traitor, the syndicate encryption key is very useful for coordinating plans with your fellow traitors -- or, of course, betraying them.
-As a Traitor, you can manufacture and recycle revolver bullets at a hacked autolathe, making the revolver an extremely powerful tool.
-As a Traitor, you may sometimes be assigned to hunt other traitors, and in turn be hunted by others.
-As a Wizard, most spells become unusable if you are not wearing your robe, hat, and sandals.
-As a Wizard, summoning guns will turn a large portion of the crew against themselves, but will also give everyone anything from a floral somatoray to a pulse rifle. Use at your own risk!
-As a Wizard, the fireball spell performs very poorly at close range, as it can easily catch you in the blast. It is best used as a form of artillery down long hallways.
-As a Wizard, the staff of chaos can fire any type of bolts from the magical wands. This can range from bolts of instant death to healing or reviving someone.
-As a Wizard, you can turn people to stone, then animate the resulting statue with a staff of animation to create an extremely powerful minion, for all of 5 minutes at least.
-As an Abductor Agent, the combat mode vest has much higher resistance to every kind of weapon, and your helmet prevents the AI from tracking you.
-As an Abductor, the baton can cycle between four modes: stun, sleep, cuff and probe.
-As an Abductor, you can select where your victims will be sent on the ship control console.
-As an Alien, resin floors not only regenerate your plasma supply, but also passively heal you. Fight on resin floors to gain a home turf advantage!
-As an Alien, the facehugger is by far your most powerful weapon because of its ability to instantly win a fight. Remember however that certain helmets, such as biohoods or space helmets will completely block facehugger attacks.
-As an Alien, you are unable to pick up or use any human items or machinery. Instead, you should focus on sabotaging APCs, computers, cameras and either stowing, spacing, or melting any weapons you find.
-As an Alien, you take double damage from all burn attacks, such as lasers, welding tools, and fires. Furthermore, fire can destroy your resin and eggs. Expose areas to space to starve away any flamethrower fires before they can do damage!
-As an Alien, your melee prowess is unmatched, but your ranged abilities are sorely lacking. Make use of corners to force a melee confrontation!
-As an Atmospheric Technician, burning a plasma/oxygen mix inside the incinerator will not only produce power, but also gases such as tritium, water vapor and carbon dioxide.
-As an Atmospheric Technician, look into replacing your gas pumps with volumetric gas pumps, as those move air in flat numerical amounts, rather than percentages which leave trace gases.
-As an Atmospheric Technician, pay attention to gas pipe meters. The meter will change color in response to temperature and the bar will increase and get thicker in response to higher pressures.
-As an Atmospheric Technician, you are better suited to fighting fires than anyone else. As such, you have access to better firesuits or backpack firefighter tanks.
-As an Atmospheric Technician, you can change the layer of a pipe by clicking with it on a wrenched pipe or other atmos component of the desired layer.
-As an Atmospheric Technician, you can unwrench a pipe regardless of the pressures of the gases inside, but if they're too high they can burst out and injure you!
-As an Atmospheric Technician, your ATMOS holofan projector blocks gases while allowing objects to pass through. With it, you can quickly contain gas spills, fires and hull breaches.
-As an Atmospheric Technician, your backpack firefighter tank can launch resin. This resin will extinguish fires and replace any gases with a safe, room-temperature airmix.
-As an Engineer, return to Engineering once in a while to check on the engine and SMES cells. It's always a good idea to make sure the Supermatter isn't delaminating.
-As an Engineer, the Supermatter Monitoring Program on modular computers give you a detailed report on the Supermatter's condition, and the contents of the air inside of the chamber, allowing you to both diagnose and monitor programs from afar!
-As an Engineer, the Supermatter shard is an extremely dangerous piece of equipment: touching it will disintegrate you. So will touching it with telekinesis.
-As an Engineer, you can cool the Supermatter crystal by spraying it with a fire extinguisher. Only for the brave!
-As an Engineer, you can electrify grilles by placing powered cables beneath them.
-As an Engineer, you can lock APCs and emitters using your ID card to prevent others from disabling them.
-As an Engineer, you can pry open secure storage blast doors by disabling the engine room APC's main breaker. This is obviously a bad idea if the engine is running.
-As an Engineer, you can repair windows by using a welding tool on them while not in combat mode.
-As an Engineer, you can temporarily power the station solely with the solar arrays. They will provide just enough electricity to power the station for a while, however their output is just slightly below what is truly needed to consistently power the station.
-As an Engineer, your departmental protolathe and circuit printer can manufacture the necessary circuit boards and components to build just about anything. Make extra medical machinery everywhere! Build a gibber for security! Set up an array of emitters pointing down the hall! The possibilities are endless!
-As an Engineer, your RCD can be reloaded with iron, glass or plasteel sheets instead of just compressed matter cartridges.
-As an Engineering Cyborg, you can attach air alarm/fire alarm/APC frames to walls by placing them on the floor and using a screwdriver on them.
-As the AI, you can click on people's names to look at them. This only works if there are cameras that can see them, they aren't wearing agent IDs and aren't using digital camouflage as changelings.
-As the AI, you can emote to change the status displays near your core. Some emotes can even be used to change the status displays across the entire station.
-As the AI, you can quickly open and close doors by holding shift while clicking them, bolt them when holding ctrl, and even shock them while holding alt.
-As the AI, you can take pictures with your camera and upload them to newscasters.
-As the AI, you can use CTRL + 1-9 to set a location hotkey for your camera, allowing you to save the location and jump to it at will. Tilde and zero will return you to the last spot you jumped from, and the numpad numbers act as aliases to the regular number keys.
-As the Bartender, the drinks you start with only give you the basics. If you want more advanced mixtures, look into working with chemistry, hydroponics, or even mining for things to grind up and throw in!
-As the Bartender, you can use a circular saw on your shotgun to make it easier to store.
-As the Bartender, remember to set up the bar sign by walking up to it and clicking it!
-As the Blob, don't neglect the creation of factories. These create spores that carry your reagent and can chase crew members far further than you. Spores can also be rallied to swarm the crew and cause panic, and can even take over corpses to create much more dangerous blob zombies!
-As the Blob, keep your core some distance from space, as it is both expensive to expand onto space, easy to be attacked from, and does not count towards your win condition. Emitter platforms built in space are especially dangerous.
-As the Blob, removing strong blobs, resource nodes, factories, and nodes will give you 4, 15, 25, and 25 resources back, respectively.
-As the Blob, talking will send a message to all other overminds and all Blobbernauts, allowing you to direct attacks and coordinate.
-As the Blob, you can attack anything next to a blob tile, but can only expand in cardinal directions, and diagonal attacks are slightly weaker.
-As the Blob, you can expand by clicking, create strong blobs with ctrl-click, rally spores with middle-click, and remove blobs with alt-click. You do not need to have your camera over the tile to do this.
-As the Blob, you can place your core at any clear, unobserved, spot you can move to after 3 minutes have passed. If you wait too long, you will be automatically placed at a random location. Use this wait time to coordinate with any other overminds.
-As the Blob, you can produce a Blobbernaut from a factory for 40 resources. Blobbernauts are player-controlled, gradually regenerate near nodes, and apply your chemical when attacking, but die when too far from the blob or if their factory is killed. However, the factory used becomes fragile and stops spawning spores.
-As the Blob, you can re-pick your reagent type from six random options if the crew has adapted and protected themselves against your current one.
-As the Blob, you fight a war of attrition: Take out medbay and fight in choke points to prevent continued assaults and coordinated burst damage attacks!
-As the Captain, always take the nuclear disk and pinpointer with you every shift. It's a good idea to give one of these to another head you can trust with keeping it safe.
-As the Captain, you are one of the highest priority targets on the station. Everything from revolutions, to nuclear operatives, to traitors that need to rob you of your unique lasgun or your life are things to worry about.
-As the Captain, you can purchase a new emergency shuttle using a communications console. Some require cash, while others give you cash in exchange. Keep in mind that purchasing dangerous shuttles may instigate the ire of your crew.
-As the Captain, you have absolute access and control over the station, but this does not mean that being a horrible person won't result in mutiny and a ban.
-As the Chaplain, you are much more likely to get a response by praying to the gods than most people. To boost your chances, make altars with colorful crayon runes, lit candles, and wire art.
-As the Chaplain, your bible is also a container that can store small items. Depending on your god, your starting bible may come with a surprise!
-As the Chaplain, your null rod has anti magic functions: it can destroy cultist runes by hitting them, and it makes you immune to wizard spells and cult magic.
-As the Chief Engineer, the power flow control console in your office will show you APC infos and lets you control them remotely.
-As the Chief Engineer, you can rename areas or create entirely new ones using your station blueprints.
-As the Chief Engineer, you can spy on and even forge PDA communications with the message monitor console! The key is in your office.
-As the Chief Medical Officer, coordinate and communicate with your doctors, chemists, and paramedics during a nuclear emergency, blob infestation, or some other crisis to keep people alive and fighting.
-As the Chief Medical Officer, your hypospray is like a refillable instant injection syringe that can hold 30 units as opposed to the standard 15.
-As the Clown, eating bananas heals you slightly. Honk!
-As the Clown, if you lose your banana peel, you can still slip people with your PDA! Honk!
-As the Clown, if you're a Traitor and get an emag on sale (or convince another traitor), you can emag your Clown Car to unlock a variety of new functions, including the Siege Mode, which will allow you to launch your passengers, preferably directly into the Supermatter! Or into space.
-As the Clown, spice your gimmicks up! Nobody likes a one-trick pony.
-As the Clown, click with one long balloon in hand onto another to create a balloon animal! Each combination of colours has its own unique result.
-As the Clown, you can use your stamp on a sheet of cardboard as the first step of making a honkbot. Fun for the whole crew!
-As the Clown, your Grail is the mineral bananium, which can be given to the Roboticist to build you a fun and robust mech beloved by everyone.
-As the Curator, be sure to keep the shelves stocked and the library clean for crew.
-As the Curator, you are not completely defenseless. Your whip easily disarms people, your laser pointer can blind humans and cyborgs, and you can hide items in wirecut books.
-As the Coroner, you are more comfortable working on cadavers. You can perform autopsies or harvest organs from corpses a lot faster than your Medical Doctor counterparts. Work in tandem with them by helping prepare bodies for revival.
-As the Coroner, you can perform autopsies on corpses recovered from strange circumstances with your handheld autopsy scanner to discover how they died. By teaming up with a Detective, you can solve several cases together!
-As the Detective, people leave fingerprints everywhere and on everything. With the exception of white latex, gloves will hide them. All is not lost, however, as gloves leave fibers specific to their kind such as black or nitrile, pointing to a general department.
-As the Detective, you can use your forensics scanner from a distance. Use this to scan boxes or other storage containers.
-As the Detective, your revolver can be loaded with .357 ammunition obtained from a hacked autolathe. Firing it has a decent chance to blow up your revolver.
-As the Head of Personnel, you are not higher ranking than other heads of staff, even though you are expected to take the Captain's place first should he go missing. If the situation seems too rough for you, consider allowing another head to become temporary Captain.
-As the Head of Security, don't let the power go to your head. You may have high access, great equipment, and a miniature army at your side, but being a terrible person without a good reason is grounds for banning.
-As the Head of Security, you are expected to coordinate your security force to handle any threat that comes to the station. Sometimes it means making use of the armory to handle a blob, sometimes it means being ruthless during a revolution or cult.
-As the Head of Security, you can call for executions or forced cyborgization, which require the Captain's or the Prisoner's consent, respectively.
-As the Lawyer, try to negotiate with the Warden if sentences seem too high for the crime.
-As the Lawyer, you can try to convince the Captain and Head of Security to hold trials for prisoners in the courtroom.
-As the Malfunctioning AI, look into flooding the station with plasma fires to kill off large portions of the crew, letting you pick off the remaining few with space suits who escaped.
-As the Malfunctioning AI, you can shunt to an APC if the situation gets bad. This disables your doomsday device if it is active.
-As the Malfunctioning AI, you should either order your cyborgs to dismantle the robotics console or blow it up yourself in order to protect them.
-As the Mime, you can use :r and :l to speak through your ventriloquist dummy.
-As the Mime, your invisible wall power blocks people as well as projectiles. You can use it in a pinch to delay your pursuer.
-As the Mime, your oath of silence is your source of power. Breaking it robs you of your powers and of your honor.
-As the Quartermaster, be sure to check the manifests on crates you receive to make sure all the info is correct. If there's a mistake, stamp the manifest DENIED and send it back in a crate with the items untouched for a refund!
-As the Quartermaster, you can construct an express supply console that instantly delivers crates by drop pod. The impact will cause a small explosion as well.
-As the Research Director, you can lock down cyborgs instead of blowing them up. Then you can have their laws reset or if that doesn't work, safely dismantled.
-As the Research Director, you can take AIs out of their cores by loading them into an intelliCard, which lets you see their laws, even ion/syndicate ones. It can then be placed into an AI system integrity restorer computer to revive and/or repair them.
-As the Warden, if a prisoner's crimes are heinous enough you can put them in permabrig or the gulag. Make sure to check on them once in a while!
-As the Warden, keep a close eye on the armory at all times, as it is a favored strike point of nuclear operatives and cocky traitors.
-As the Warden, you can implant criminals you suspect might re-offend with devices that will track their location and allow you to remotely inject them with disabling chemicals.
-As the Warden, you can use handcuffs on orange prisoner shoes to turn them into cuffed shoes, forcing prisoners to walk and potentially thwarting an escape.
-As the Warden, your duty is to be the watchdog of the brig and handler of prisoners when little is happening, and to hand out equipment and weapons to the security officers when a crisis strikes.
-Basketball requires focus. If you don't click on your target (player or hoop) you are more likely to miss.
-Basketball requires stamina. The more you have, the less likely your ball will be stolen and the more likely you can steal from another player.
-Basketball requires strategy. The direction both players are facing affects disarms so having your back to another player that is trying to steal is ideal.
-Basketball requires skill. Spinning drains stamina, reduces accuracy, but gives resistance from disarm. Use it to dunk!
-Basketball requires teamwork. Passing the ball with LMB is instant and costs no stamina.
-Clicking on a windoor rather then bumping into it will keep it open, you can click it again to close it.
-Different weapons have different strengths. Some weapons, such as spears, floor tiles, and throwing stars, deal more damage when thrown compared to when attacked normally.
-Spears are capable of breaking into secure lockers by striking them in melee!
-Don't be afraid to ask for help, whether from your peers or from mentors.
-Experiment with different setups of the Supermatter engine to maximize output, but don't risk the crew's safety to do so!
-Felinids get temporarily distracted by laser pointers. Use this to your advantage when being pursued by one.
-Firesuits and winter coats offer mild protection from the cold, allowing you to spend longer periods of time near breaches and space than if wearing nothing at all.
-Glass shards can be welded to make glass, and iron rods can be welded to make iron. Ores can be welded too, but this takes a lot of fuel.
-Holding alt and left clicking a tile will allow you to see its contents in the top right window pane, which is much faster than holding shift and right clicking.
-If there's something you need from another department, try asking! This game isn't single-player and you'd be surprised what you can get accomplished together!
-If you find yourself in a fistfight with another player, staying on the offensive is usually the smart move. Running away often won't accomplish much.
-If you knock into somebody while doing a wicked grind on a skateboard, they will be floored for double the time. Radical!
-If you need to drag multiple people either to safety or to space, bring a locker or crate over and stuff them all in before hauling them off.
-If you're bleeding, you can apply pressure to the limb by grabbing yourself while targeting the bleeding limb. This will slow you down and take up a hand, but it'll slow down how fast you lose blood. Note this won't help the bleeding clot any faster.
-If you're using hotkey mode, you can stop pulling things using H.
-In a pinch, stripping yourself naked will give you a sizeable resistance to being tackled. What do you value more, your freedom or your dignity?
-Laying down will help slow down bloodloss. Death will halt it entirely.
-Maintenance is full of equipment that is randomized every round. Look around and see if anything is worth using.
-Most job-related suit slot clothing can fit job-related items into it, such as the atmospheric technician's winter coat holding an RPD, or labcoats holding most medicine.
-Most things have special interactions with right, alt, shift, and control click. Experiment!
-On most clothing items that go in the suit slot, you can put certain small items into your suit storage, such as a spraycan, your emergency oxygen tank, or a flashlight.
-Remote devices will work when used through cameras. For example: Bluespace RPEDs and door remotes.
-Sleeping can be used to recover from minor injuries and organ damage. Sanity, darkness, blindfolds, earmuffs, tables, beds, and bedsheets affect the healing rate.
-Some roles cannot be antagonists by default, but antag selection is decided first. For instance, you can set Security Officer to High without affecting your chances of becoming an antag -- the game will just select a different role.
-Some weapons are better at taking down robots and structures than others. Don't try to break a window with a scalpel, try a toolbox.
-Standard epipens contain a potent coagulant that not only slow bloodloss, but also help clot whichever of your wounds is bleeding the most! If you're suffering multiple bad bleeding wounds, make sure to seek out additional treatment ASAP!
-Suit storage units not only remove blood and dirt from clothing, but also radiation!
-The Chaplain can bless any container with water by hitting it with their bible. Holy water has a myriad of uses against both cults and large amounts of it are a great contributor to success against them.
-The P2P chat function found on tablet computers allows for a stealthy way to communicate with people.
-The resist button will allow you to resist out of handcuffs, being buckled to a chair or bed, out of locked lockers and more. Whenever you're stuck, try resisting!
-The station's self-destruct terminal is indestructible. Go find the disk instead of trying to destroy it.
-There are many places around the station to hide contraband. A few for starters: linen boxes, toilet cisterns, body bags. Experiment to find more!
-To crack the safe in the vault, use a stethoscope or three plastic explosives on it.
-Using sticky tape on items can make them stick to people and walls! Be careful, grenades might stick to your hand during the moment of truth!
-We were all new once, be patient and guide new players in the right direction.
-Wearing riot armor makes you significantly more effective at performing tackle takedowns, but will use extra stamina with each leap! It will also significantly protect you from other tackles!
-When crafting most items, you can either manually combine parts or use the crafting menu.
-When dealing with security, you can often get your sentence negated entirely through cooperation and deception.
-When fighting the Blob, you can hit it with an analyzer to check its chemical effects and the type of blob analyzed. Examining it with a research scanner or medical hud active will also reveal this information.
-When hacking doors, cutting and mending a "test light wire" will restore power to the door.
-When in doubt about technical issues, clear your cache (byond launcher > cogwheel > preferences > game prefs), update your BYOND, and relog.
-When placing floor tiles in space, you don't need to place down lattice if there is a piece of plating nearby.
-Where the space map levels connect is randomized every round, but are otherwise kept consistent within rounds. Remember that they are not necessarily bidirectional!
-Working out improves your fitness which increases your size and faster times to fireman carry. Remember that a quality diet and sleep are essential!
-You can catch thrown items by toggling on your throw mode with an empty hand active.
-You can change the control scheme by pressing tab. One is WASD, the other is the arrow keys. Keep in mind that hotkeys are also changed with this.
-You can cheat games by baking dice in microwaves to make them loaded. Cards can be seen with x-ray vision or be marked with either a pen or crayon to gain an edge.
-You can climb onto a table by dragging yourself onto one. This takes time and drops the items in your hands on the table. Clicking on a table that someone else is climbing onto will knock them down.
-You can deconvert Cultists of Nar'Sie by feeding them large amounts of holy water. Unlike revolutionaries, implanting them with mindshield implants won't do it!
-You can drag other players onto yourself to open the strip menu, letting you remove their equipment or force them to wear something. Note that suits or helmets will block your access to the clothing beneath them, and that certain items take longer to strip or put on than others.
-You can grab someone by holding Ctrl and clicking on them, then upgrade the grab by Ctrl-clicking on them once more. An aggressive grab will momentarily stun someone, allow you to place them on a table by clicking on it, or throw them by toggling on throwing.
-You can light a cigar on a supermatter crystal.
-You can move an item out of the way by dragging it and then clicking on an adjacent tile with an empty hand.
-You can pin your MODsuit module buttons to your action bar in the suit UI.
-You can recolor certain items like jumpsuits and gloves in washing machines by also throwing in a crayon.
-You can screwdriver any non-chemical grenade to shorten fuses from 5 seconds, to 3 seconds, to instant boom! Nobody ever expects this.
-You can spray a fire extinguisher, throw items or fire a gun while floating through space to change your direction. Simply fire opposite to where you want to go.
-You can swap floor tiles by holding a crowbar in one hand and a stack of tiles in the other.
-You can use a machine in the vault to deposit cash or rob Cargo's department funds.
-You can use an upgraded microwave to charge your PDA!
-You'll quickly lose your interest in the game if you play to win and kill. If you find yourself doing this, take a step back and talk to people - it's a much better experience!
-Some areas of the station use simple nautical directions to indicate their respective locations, like Fore (Front of the ship), Aft (Back), Port (Left side), Starboard (Right), Quarter and Bow (Either sides of Aft and Fore, respectively). You can review these terms on the Notepad App of your PDA.
-Modular computers are compatible with integrated circuits, but most of the program-dependent circuits require them to be open/backgrounded to work. To install circuits on stationary consoles, you need to toggle interaction with the frame with right-click first.
-You don't need to destroy a Spacecoin machine to make your funds stop draining. Swiping your ID on it will stop the withdrawal.
-As a Bitrunner, upgrading your quantum server will increase rewards and reduce downtime.
-As a Bitrunner, your avatar has a domain info ability which will give you clues to help complete virtual domains.
-You can right click someone with wire cutters, jaws of life, and box cutters to instantly snap cablecuffs or zipties. The jaws can even instantly break handcuffs!
-You can alt-click tank transfer valves to remove a tank from them.
-You can use a multitool in your hand to track the area's local APC.
-Some items, when examined, are labeled as 'crafting components', which means you can smack them with another item to directly construct a recipe. Try using an igniter on a rod!
-You can further the cycle of life by having two adult plushies play with eachother, creating a smaller junior child plushie.
-Most species have only 32 teeth for use in dental implants. Moths have none. Lizards have seventy five.
-As a Changeling, Repurposed Glands will break bolas, disable stuns, and give you a hefty speed boost at the cost of the use of your arms - which includes the ability to open restricted airlocks.
-As a Geneticist, you should usually save all mutations you unlock. Negative mutations will increase your genetic stability, allowing you to keep more positive mutations.
-You can craft peg limbs and crutches with wood for use in dire circumstances. The latter are also available in medical vendors.
-As a Heretic, you can also sacrifice cultists, rewarding you with a knowledge point and one of three unique, powerful rewards.
-As a Cultist, if you manage to sacrifice a Heretic, you will unlock one of three powerful and unique items to be created in every one of your cult's forges, archives, or altars.
-As a Cultist, when you sacrifice a Heretic, they will be bound inside a powerful haunted longsword. Anyone can then unbind the blade, unlocking its powers and abilities, but also allowing the blade to act of its own free will.
-As a Syndicate Monkey, you're explosively allergic to species transformations and should probably avoid them.
-Biological armor will protect your limb from a zombie's infective attack, unless the limb's more damaged than the armor value. Armor with thick material, such as firesuits and EVA suits, also partially protects, preventing at least the first attack from infection.
-In a pinch, you can reduce bleeding or burn infection with several commonplace reagents - flour, salt, saltwater can all be splashed onto the wound to stall for time, and tea can be drank for a boost to your body's defences.
-First-aid analyzers double the speed of wound treatment on injuries, alongside giving out normal and improvised instructions for treatment.
-Syndicate Duffelbags are a lot quicker to zip and unzip, have significantly less slowdown, and can carry up to two of various bulky, objective-related items - such as fire axes, guns, or gibtonite. Examine them closely to see all the possibilities.
-The Coroner's surgical tools are considered 'cruel implements', which speeds up surgery on corpses but slows it on not-yet-corpses. A few other items also have it.
-As a Coroner, remember that your autopsy scanner also works as an advanced health analyzer on right-click, but only for corpses.
-As the Captain, your sabre deals extra damage to Assistants (as long as they have their original liver).
-You can automatically extract and retract arm implants by 'activating' the empty hand they're on. This includes integrated toolsets, cursed katanas, and vorpal scythes.
-You can combine the Carpet reagent with various different reagents, such as Oil and Cyanide, to create unique carpet types.
-You can bake a birthday cake and then microwave it to create a legendary cake hat. You can then combine it with an energy sword to create an energy cake.
-You can quickly remove radiation from items in a room by releasing water vapor into the air around them (including worn items).
+Вы можете выделить фрагменты сообщений <i>курсивом</i>, <b>жирным</b> или <u>подчёркивать</u>, заключив их в символы |, + или _ соответственно. Вы также можете избежать этого, добавив перед этими символами обратную косую черту (она не будет отображаться в сообщении).
+♪ Эй, вы когда-нибудь пробовали добавлять символ % перед сообщениями в игре? ♫
+Учёный заплатит за ваших лягушек кругленькую сумму!
+Брошенный стакан воды может сделать скользкую плитку, что позволит вам замедлить преследователей в критической ситуации.
+Всё, чем можно зажечь сигарету, можно использовать для прижигания кровоточащей раны. Технически, это включает и Сверхматерию.
+Будучи Блоббернаутом, вы можете общаться со сверхразумами и другими Блоббернавтами через :b.
+
+На вашем HUD отображается ваше здоровье и здоровье основного сверхразума, который вас создал.
+Будучи Ботаником, вы можете комбинировать химикаты для производственных характеристик, как Химик. Водород (трава) + вода (горох) + сахар (виноград) равняется манниту!
+Будучи Ботаником, вы можете комбинировать химикаты для производственных характеристик, как Химик. Калий (бананы) + вода (арбузы) равно... ВЕСЕЛО!
+Будучи ботаником, вы можете взломать систему MegaSeed Vendor, чтобы получить доступ к более экзотическим семенам. Эти семена также можно заказать у Cargo.
+Будучи ботаником, вы можете мутировать растения, растущие в ваших гидропонных лотках, с помощью Left 4 Zed у вашего поставщика NutriMax. Измельчив несколько растений в биогенераторе, вы также сможете производить Left 4 Zed. Разве наука не удивительна?
+Как ботаник, вам стоит подумать об усилении эффективности своих растений. Это увеличит их размер, количество химикатов, количество очков, получаемых за измельчение в биогенераторе, и покажет окружающим, что вы опытный ботаник.
+Как грузовой техник, вы можете зарабатывать больше очков за груз, отправляя обратно ящики из техобслуживания, контейнеры с жидкостями, плазменные листы, редкие семена с гидропоники и многое другое!
+Как грузовой техник, вы можете взламывать MULEbots, чтобы они были быстрее, сбивать людей на пути и даже ездить на них!
+Как грузовой техник, вы можете заказывать контрабандные товары с пульта управления шаттла снабжения, разобрав его и собрав заново с помощью мультитула на плате.
+Как перевертыш, принятие чужой внешности также даст вам все его шрамы. Вы можете использовать Fleshmend, чтобы избавиться от всех шрамов. Будучи чейнджлингом, укус «Извлечь ДНК» засчитывается в вашу цель по поглощению генома, но не позволяет перераспределить ваши силы.
+Будучи чейнджлингом, вы можете поглотить кого-то, задушив его и используя глагол «Поглотить»; это даёт вам возможность переопределить свои силы, ДНК того, кого вы поглотили, память поглощённого и некоторые примеры сказанного им.
+Будучи химиком, некоторые химические вещества можно синтезировать только нагревая содержимое с помощью химического нагревателя или вручную с помощью зажигалок и подобных инструментов.
+Будучи химиком, вы знаете десятки химических веществ, которые могут исцелять, и ещё больше — тех, которые могут причинить вред. Экспериментируйте!
+Будучи химиком, смесь воды и калия создаст взрыв, мощность которого зависит от использованного количества. Не делайте этого.
+Будучи химиком, смесь святой воды и калия создаст СВЯТОЙ взрыв, мощность которого зависит от использованного количества. Если использовать не менее 75 единиц того и другого, взрыв выявит, пожжёт и парализует всех культистов, еретиков и ревенантов в поле зрения. Сделайте это!
+Будучи химиком, вы сможете быстро изготавливать пластиковые бутылки объёмом 100 ед. непосредственно из пластиковых листов, а также пластиковые стаканы объёмом 120 ед. на токарном станке. Химмастер также может производить бесконечное количество стеклянных бутылок объёмом 30 ед., а при исследовании медицинского техзавода можно производить стаканы объёмом от 120 до 300 ед.
+Будучи химиком, вы можете перезарядить свой дозатор химикатов с помощью индуктора или заменив его элемент питания.
+Будучи химиком, вы будете снабжать команду определёнными химикатами. Например, криоксадоном и маннитолом для криотрубок, диэтиламином и селитрой для ботаники, а также лечебными пилюлями и пластырями для администратора. Работая поваром, вы будете готовить гораздо полезнее, чем вредную еду, которую можно найти у торговцев. Регулярное питание членов экипажа вашей едой даст вам небольшие бонусы.
+Работая поваром, вы научитесь азы ближнего боя. Это очень эффективно для избавления от помощников на вашем рабочем месте.
+
+Большинство блюд, не предназначенных для приготовления пищи, будут иметь побочные эффекты: от исцеления до движения со скоростью света. Экспериментируйте!
+
+Работая поваром, вы можете создавать самые разные блюда с помощью меню крафта. Его можно найти, найдя значок молотка рядом с индикатором боевого режима.
+Работая поваром, вы можете загружать еду в умные холодильники и торговые автоматы.
+Работая поваром, вы можете переименовывать свои блюда с помощью ручки.
+Играя за культиста, следите за оповещениями в правом верхнем углу экрана, чтобы узнать всю информацию о текущем состоянии и целях вашего культа.
+Играя за культиста, не сейте слишком много хаоса до завершения своей цели. Если шаттл будет вызван слишком рано, вы можете не успеть победить.
+Играя за культиста, руна «Вскипание крови» нанесет огромный урон некультистам и некоторый урон другим культистам Нар'Си поблизости, но создаст пожар на месте использования руны.
+Играя за культиста, ваша команда поначалу очень слаба, но при необходимости может быстро превратить всё, что у неё есть, в чистую энергию. Убедитесь, что у вас достаточно сил и оборудования, чтобы поддерживать громкую кампанию, иначе культ потерпит крах.
+
+Как куратор, вы получаете 22% (делится на количество кураторов) от всех кредитов, потраченных на покровительство живописи. Превратите терпение и художественные навыки других в свой доход! Играя за киборга, тщательно выбирайте модель, так как перерезать и починить провод сброса позволит вам перебрать её. По возможности воздержитесь от выбора модели до тех пор, пока не возникнет ситуация, требующая этого.
+
+Играя за киборга, вы чрезвычайно уязвимы к ЭМИ, поскольку ЭМИ одновременно оглушают и наносят урон. Ионная винтовка в арсенале или предатель с комплектом ЭМИ могут убить вас за считанные секунды.
+Играя за киборга, вы невосприимчивы к большинству видов оглушения и преуспеваете практически во всём гораздо лучше людей. Однако вспышки света могут легко оглушить вас, и вы не сможете выполнять точные работы, поскольку у вас нет рук.
+Играя за киборга, вы невосприимчивы к огню и жару. Если вы — изгой, вы можете выпускать плазменные снаряды повсюду и проходить сквозь них, не беспокоясь ни о чём!
+Играя за дрона, вы можете посылать сигналы другим дронам, чтобы предупредить их о местах на станции, требующих ремонта. Став генетиком, вы сможете наносить высокий урон в ближнем бою, оглушать противников и пробивать стены. Однако вы не можете стрелять из огнестрельного оружия, потеряете статус «Халка» при достижении критического состояния и не будете считаться человеком ИИ, пока вы в облике «Халка».
+
+Будучи генетиком, T переходит на A, а G — на C.
+Будучи призраком, вы можете начинать и присоединяться к играм в режиме «Захват флага» через меню мини-игр или щелкнув по одному из спавнеров команд, которые находятся в разделе «Разное» в меню орбиты.
+Будучи призраком, вы можете дважды щёлкнуть по чему угодно, чтобы следовать за ним. Или просто телепортироваться!
+Будучи призраком, вы можете увидеть содержимое контейнера на земле, щёлкнув по нему.
+Будучи еретиком, вы можете обнаружить источник влияния, видя во сне случайные предметы вокруг него. Будучи Еретиком, Путь Пепла делает упор на скрытность и дезориентацию, но по мере развития отходит от этого стиля игры в пользу более агрессивного и огненного финала.
+Будучи Еретиком, Путь Луны буквально сведёт с ума окружающих – возможно, настолько, что они станут вашими союзниками, если вы добьётесь успеха.
+Будучи Еретиком, Путь Замка – лучший друг Помощника, открывающий множество путей. В том числе и за завесой...
+Будучи Еретиком, Путь Плоти позволяет вам собрать армию, призывая гулей и монстров из-за завесы. Вознесясь, вы сами становитесь армией из одного человека.
+Будучи Еретиком, Путь Пустоты заставляет людей мечтать о том, чтобы кричать в бескрайней пустоте космоса или иметь шанс сбежать от вас. В конце концов, буря забирает всё.
+Будучи Еретиком, Путь Клинка вознаграждает вашу способность сражаться, делая вас всё лучше и лучше. Несмотря на вознесение, вы можете стать непревзойденным дуэлянтом.
+Будучи Еретиком, Путь Ржавчины довольно очевиден, но позволяет вам игнорировать множество повреждений, пока всё вокруг медленно разлагается, превращаясь в гниль и ржавчину.
+Будучи Еретиком, Путь Космоса позволяет вам по праву владеть пространством, по которому ходит команда. И если они не уважают ваш статус, призыв друга из потустороннего мира должен показать им это.
+Будучи Киборгом-Уборщиком, вы — проклятие всех демонов-убийц и даже самого Баблгама. Очистка пятен крови серьёзно ослабит их.
+Будучи Уборщиком, если кто-то украдет ваш яникарт, вы можете вместо этого использовать свой спрей для очистки пространства, гранаты, водораспылитель, совершить кровавую месть или заказать новый у Карго.
+Будучи Уборщиком, вы можете использовать мышеловки для создания бомб или контейнеров-ловушек. Будучи уборщиком, вы можете отдавать команды уборщикам, указывая на плитку и говоря «швабра/уборка».
+Будучи медицинским киборгом, вы сможете полноценно проводить хирургические операции и даже аугментировать людей.
+Будучи врачом, вы можете использовать душ для восстановления после сна, потери сознания, спутанности сознания, сонливости, нервного возбуждения, головокружения и опьянения.
+Будучи врачом, практически любые раны можно хотя бы временно залечить марлей. В случае сомнений — наложите повязку!
+Будучи врачом, вы заморозите органы трупов, помещенных в морозильную камеру или на поднос морга, чтобы предотвратить их разложение. Если у вас нет времени оживлять несколько трупов, временно перенесите их в морг!
+Будьте врачом, трупы с описанием «...и их душа отлетела» больше не будут иметь призрака и не могут быть оживлены.
+Будьте врачом, критические резаные раны — одно из самых опасных состояний. Накладывайте марлю, эпиляторы, швы, прижигания — всё, что можете, как можно скорее! Как врач, физиологический раствор с глюкозой не только временно повышает уровень крови пациента, но и ускоряет её регенерацию! Идеально подходит для пациентов с истощенной кровью!
+Как врач, лечение плазмоманов не невозможно! Сальбутамол предотвращает удушье, а душ предотвращает их сгорание заживо. Вы даже можете провести операцию, используя роликовый стол под душем. Сальбутамол и конвермол НЕ лечат повреждения, вызванные кислородным голоданием.
+Как врач, вы можете попытаться слить кровь из оболочки с помощью шприца, чтобы определить причину. Если вам удаётся получить кровь, это вызвано экстремальными температурами или лазером; если крови для забора нет, вы подтвердили наличие подменышей.
+Как врач, вы можете лечить пациентов с невообразимым количеством ран, помещая их в криокамеру. Это позволит медленно залечить все раны одновременно, но гораздо медленнее, чем прямое лечение. Будучи врачом, вы можете извлекать имплантаты, держа пустой контейнер для имплантатов в свободной руке во время извлечения.
+Будучи врачом, вы можете направлять фонарик на людей, создавая медицинскую голограмму. Это даст им понять, что вы собираетесь их лечить.
+Будучи врачом, вы можете хирургически имплантировать или извлекать предметы из грудной клетки. Это может варьироваться от установки бомбы до извлечения личинки инопланетянина.
+Будучи врачом, вы должны целиться в нужную конечность и не находиться в режиме боя при попытке провести операцию. Щелчок правой кнопкой мыши по пациенту намеренно провалит операцию.
+
+Работая с вирусами, помните, что роботизированные органы могут создавать иммунитет к болезням и заразности. Используйте неорганические биологические симптомы, чтобы обойти защиту.
+Будучи врачом, во время пандемии вам требуется лишь небольшое количество вакцины для лечения больного пациента. Сотрудничайте с химиком, чтобы эффективнее распределять лекарства. Если вы врач, попробуйте иногда поработать с вирусологической лабораторией! Вирусы бывают разными: от настолько сильных целительных способностей, что вы можете вывести себя из критического состояния, до настолько опасных, что способны убить весь экипаж самовозгоранием в воздухе. Экспериментируйте!
+Играя за врача, вы можете вылечить сердечный приступ, многократно бья пострадавшего дефибриллятором!
+Играя за обезьяну, вы можете проползти через вентиляционные отверстия или газоочистители, нажав Alt+Левую кнопку мыши. Однако для этого вам придётся бросить всё, что на вас надето и что вы держите в руках.
+Играя за обезьяну, вы всё ещё можете носить некоторые человеческие вещи, такие как рюкзаки, противогазы и шапки, и у вас всё ещё есть две свободные руки.
+Играя за морфа, вы можете говорить под маской, но ваша речь может быть невнятной, что выдаст вас!
+Играя за ядерщика, общение — ключ к успеху! Используйте ;, чтобы поговорить с другими оперативниками и скоординировать план атаки.
+Играя за ядерщика, держитесь вместе! Несмотря на надёжность вашего снаряжения, ваши товарищи гораздо лучше справляются с вашей задачей: они могут оттащить вас от опасности, пока вы оглушены, и обеспечить прикрытие огнём.
+Играя за ядерщика, вы можете оказаться в ситуации, когда ИИ запер вас в комнате. Запасной C4 в кармане может спасти вам жизнь.
+Будучи ядерным оперативником, вам стоит рассмотреть вариант приобретения киборга Синдиката, поскольку он может обеспечить мощную огневую поддержку, полный доступ, невосприимчив к обычным оглушениям и легко справиться с ИИ.
+Будучи парамедиком, вы можете безопасно извлечь из тела пациента застрявшие предметы, нацелившись на поражённую конечность и применив кровоостанавливающий зажим.
+Будучи парамедиком, крайне важно по возможности помещать свежие трупы на стазисные койки. Ваш главный врач будет вам благодарен.
+Будучи парамедиком, ваш ультрафиолетовый фонарик можно использовать для остановки инфекции при ожогах! Просто нацельтесь на поражённую конечность и используйте его на пациенте.
+Будучи ревенантом, капеллан — ваш злейший враг, поскольку он может нанести вам огромный урон с помощью нуль-стержня и сделать большие участки станции непроходимыми с помощью святой воды. Будучи Ревенантом, болезнь, вызванная Мором, можно легко вылечить, лёжа или святой водой, поэтому её лучше всего применять к целям, у которых нет времени лежать, например, к людям в бою.
+Будучи Ревенантом, ваша способность «Осквернение» удаляет святую воду с плиток в небольшом радиусе вместе с солью, что позволяет вам отвоевать станцию ​​у капеллана, если он облил её святой водой. Её также можно использовать для открытия поддонов в морге!
+Будучи Ревенантом, ваша сущность — это также и ваше здоровье, поэтому раскрываться перед людьми, чтобы собирать сущность живых существ, гораздо безопаснее, если вы уже запаслись эссенцией с плохо охраняемых трупов.
+Будучи Ревенантом, ваша способность «Неисправность» обычно повреждает механизмы и механические объекты, возможно, даже вызывая электрошок. Экспериментируйте!
+Будучи Ревенантом, ваша способность «Перегрузка» будет поражать людей светом только в том случае, если свет продолжает гореть после небольшой задержки.
+Будучи Революционером, груз может стать вашим лучшим другом или вашим худшим кошмаром. В лучшем случае вы сможете заказать неограниченное количество оружия и брони, в худшем — охрана возьмет управление под свой контроль и закажет неограниченное количество имплантов ментального щита, чтобы настроить ваших товарищей-революционеров против вас.
+Будучи Революционером, вы не можете обратить в свою веру начальника штаба или кого-то с имплантом ментального щита, например, сотрудника службы безопасности или тех, кого они имплантируют. Импланты часто приобретает интендант, но их можно удалить хирургическим путем. Возьмите под контроль груз, чтобы контролировать конверсии!
+Будучи революционером, ваша главная сила зависит от того, кого вы конверсируете. Выбирайте своих конверсантов с умом, чтобы обеспечить себе победу в раунде.
+Будучи робототехником, следите за объявлениями об аномалиях. Если вам попадётся ядро ​​аномалии в синем космосе, вы сможете построить фазонового меха!
+Будучи робототехником, вы сможете аугментировать людей, используя киборгские конечности. Аугментированные конечности легко ремонтируются с помощью кабелей и сварочных аппаратов.
+Будучи робототехником, вы можете оказать существенную помощь шахтёрам, построив робота Clarke, оснащённого гидравлическим зажимом и плазменным резаком. Этот мех устойчив к пепельным бурям и даже может ходить по лаве!
+Будучи робототехником, вы можете ремонтировать своих киборгов с помощью сварочного аппарата. Если они получили ожоги, вы можете извлечь их аккумулятор, оголить проводку отвёрткой и заменить провода кабельной катушкой. Робототехник может перезагрузить модель киборга, перерезав и починив провод сброса кусачками.
+Исследуемые стандартные детали могут значительно повысить эффективность и скорость работы машин на станции. В некоторых случаях это может даже открыть новые функции.
+Робот-механик может отключать аномалии, сканируя их анализатором, а затем посылать сигнал на его частоте с помощью устройства дистанционной сигнализации или, если аномалия исследована, поражать её анализатором аномалий. Это оставит после себя ядро ​​аномалии, которое можно использовать для создания фазонового меха, реактивной брони или различного уникального и мощного оружия!
+Робот-механик может зарабатывать деньги на науку и проводить эксперименты, позволяя тахионной допплеровской системе фиксировать всё более мощные взрывы.
+Робот-механик может максимизировать количество применений слизи, кормя её слизестероидами, полученными из фиолетовых слизей, пока она жива. Затем вы можете нанести усилитель экстракта, созданный из голубых слизей, на каждый из них.
+Будучи учёным, вы можете использовать мутационный токсин, полученный из зелёных слизей, чтобы превратить себя в желеобразного мутанта. Каждый подвид обладает уникальными особенностями, например, телепатическими способностями, способностью к дублированию тел или интеграцией экстрактов слизи!
+Как офицер безопасности, общайтесь и координируйте действия с коллегами, используя канал безопасности (:s), чтобы избежать путаницы.
+Как офицер безопасности, осмотр человека в сечудах или HUD-очках позволит вам установить уровень ареста, что заставит Бипски и других ботов безопасности преследовать его.
+Как офицер безопасности, импланты ментального щита могут предотвратить только обращение в культ: в отличие от революционеров, они не декультативируют человека, если он уже был обращен.
+Как офицер безопасности, помните, что корреляция не равна причинно-следственной связи. Возможно, кто-то просто оказался не в том месте не в то время!
+Как офицер безопасности, помните, что вы можете прикрепить маскирующий экран к своему дизейблу или шлему!
+Как офицер безопасности, ваши сечуды или HUD-очки позволяют не только видеть назначения членов экипажа и их криминальный статус, но и наличие имплантированного ментального щита. Это можно определить по мигающему синему контуру вокруг значка должности. Используйте это в своих интересах во время революции, чтобы окончательно определить, кто на вашей стороне!
+Будучи офицером безопасности, вы получаете специальную ручку в КПК, которой можете принуждать людей сдаваться. Это оглушит их без необходимости использовать дубинку!
+Будучи офицером безопасности, вы можете лечить или даже вылечить сердечный приступ многократными ударами электрошокера. Акцент на *многократно*.
+Будучи киборгом-слугой, ваш баллончик сбивает людей с ног. Однако его действие блокируется масками и очками.
+Будучи шахтёром, всегда имейте при себе GPS-навигатор, чтобы другой шахтёр или киборг мог прийти на помощь в случае вашей гибели.
+Будучи шахтёром, у каждого монстра в Лаваленде есть свой шаблон, который вы можете использовать, чтобы минимизировать урон от столкновений.
+Будучи шахтёром, вы знаете, что на северной стороне Лаваленда гораздо больше редких минералов, чем на южной.
+Будучи шахтёром, вы можете создавать разнообразное снаряжение из местной фауны. Костяные топоры, лавовые лодки и доспехи пепельного дракона — лишь некоторые из них!
+Будучи шахтёром, вы можете собирать пластины гигантов с гигантов и улучшать костюм исследователя, значительно снижая входящий урон в ближнем бою.
+Будучи предателем, вы можете впрыскивать плазму во многие предметы, чтобы вывести их из строя. Энергоэлементы, лампочки, сварочные аппараты, сигары и электронные сигареты взрываются при использовании.
+Будучи предателем, подчинив ИИ себе, вы можете сделать его чрезвычайно могущественным союзником. Однако будьте осторожны с формулировками законов, которые вы ему дадите, так как он может использовать ваши плохо написанные законы против вас!
+Будучи предателем, капитан и начальник службы безопасности — две самые сложные цели на станции. Если кто-то из них станет вашей целью, тщательно планируйте свои действия.
+Будучи предателем, криптографический секвенсор (emag) может не только открывать шкафчики, ящики, БТР и многое другое. Он также может взламывать киборгов и даже приводить ботов в бешенство. Используйте его на нужных машинах, и вы даже сможете связаться с Синдикатом. Экспериментируйте!
+Будучи Предателем, ключ шифрования синдиката очень полезен для координации планов с другими предателями – или, конечно же, для их предательства.
+Будучи Предателем, вы можете производить и перерабатывать патроны для револьвера на взломанном токарном станке, что делает револьвер чрезвычайно мощным инструментом.
+Будучи Предателем, вы иногда можете получить задание охотиться на других предателей, и, в свою очередь, стать объектом охоты других.
+Будучи Волшебником, большинство заклинаний становятся бесполезными, если вы не носите мантию, шляпу и сандалии.
+Будучи Волшебником, призывая оружие, вы настроите против себя большую часть команды, но также дадите всем что угодно, от цветочного соматорея до импульсной винтовки. Используйте на свой страх и риск!
+Будучи Волшебником, заклинание «Огненный шар» очень плохо работает на близком расстоянии, так как может легко попасть под взрыв. Лучше всего использовать его как артиллерию в длинных коридорах.
+Будучи Волшебником, Посох Хаоса может стрелять любыми типами болтов из магических палочек. Это может быть как мгновенная смерть, так и исцеление или оживление.
+Играя за мага, вы можете обращать людей в камень, а затем оживлять получившуюся статую посохом оживления, создавая невероятно могущественное существо, как минимум на 5 минут.
+Играя за агента-похитителя, вы получаете жилет боевого режима с гораздо более высокой устойчивостью ко всем видам оружия, а ваш шлем не позволяет ИИ отслеживать вас.
+Играя за похитителя, дубинка переключается между четырьмя режимами: оглушение, сон, наручники и зонд.
+Играя за похитителя, вы можете выбрать, куда будут отправлены ваши жертвы, на панели управления кораблём.
+Играя за пришельца, смоляные полы не только восстанавливают запас плазмы, но и пассивно исцеляют вас. Сражайтесь на смоляных полах, чтобы получить преимущество на своей территории!
+Играя за пришельца, лицехват — безусловно, ваше самое мощное оружие благодаря своей способности мгновенно выигрывать бой. Однако помните, что некоторые шлемы, такие как биокапюшон или космический шлем, полностью блокируют атаки лицехвата. Играя за Чужого, вы не можете подбирать или использовать предметы или механизмы, принадлежащие людям. Вместо этого вам следует сосредоточиться на саботаже БТР, компьютеров, камер, а также на укладке, размещении или расплавлении любого найденного оружия.
+Играя за Чужого, вы получаете двойной урон от всех огневых атак, таких как лазеры, сварочные аппараты и огонь. Более того, огонь может уничтожить вашу смолу и яйца. Выставляйте области напоказ, чтобы погасить огонь огнемётов, прежде чем он нанесёт урон!
+Будучи пришельцем, вы непревзойденны в ближнем бою, но ваши навыки дальнего боя катастрофически недостаточны. Используйте углы, чтобы навязать ближний бой!
+Как атмосферный техник, сжигание смеси плазмы и кислорода в мусоросжигательной печи будет производить не только энергию, но и такие газы, как тритий, водяной пар и углекислый газ.
+Как атмосферный техник, рассмотрите возможность замены газовых насосов на объёмные, поскольку они перекачивают воздух в определённых количествах, а не в процентах, которые оставляют следы газа.
+Как атмосферный техник, обращайте внимание на газовые счётчики. Счётчик меняет цвет в зависимости от температуры, а полоска увеличивается и становится толще при повышении давления.
+Как атмосферный техник, вы лучше других подходите для тушения пожаров. Поэтому у вас есть доступ к более качественным пожарным костюмам и ранцевым пожарным баллонам. Как атмосферный техник, вы можете изменить слой трубы, нажав им на открученную трубу или другой компонент атмосферы нужного слоя.
+Как атмосферный техник, вы можете открутить трубу независимо от давления газов внутри, но если оно слишком высокое, они могут взорваться и травмировать вас!
+Как атмосферный техник, ваш проектор ATMOS блокирует газы, пропуская предметы. С его помощью вы можете быстро локализовать разливы газа, пожары и пробоины в корпусе.
+Как атмосферный техник, ваш ранцевый пожарный баллон может запускать смолу. Эта смола потушит пожар и заменит все газы безопасной воздушной смесью комнатной температуры.
+Как инженер, периодически возвращайтесь в инженерный отдел, чтобы проверить двигатель и ячейки SMES. Всегда полезно убедиться, что Суперматерия не расслаивается. Как инженер, программа мониторинга Сверхматерии на модульных компьютерах предоставит вам подробный отчет о состоянии Сверхматерии и содержании воздуха внутри камеры, что позволит вам диагностировать и контролировать программы на расстоянии!
+Будучи Инженером, осколок Суперматерии — чрезвычайно опасное оборудование: прикосновение к нему разрушит вас. То же самое произойдет и при телекинезе.
+Будучи Инженером, вы можете охладить кристалл Суперматерии, распылив на него огнетушитель. Только для смелых!
+Будучи Инженером, вы можете электрифицировать решётки, проложив под ними кабели питания.
+Будучи Инженером, вы можете блокировать БТР и излучатели с помощью своей идентификационной карты, чтобы другие не смогли их отключить.
+Будучи Инженером, вы можете взломать защищённые взрывозащищённые двери хранилища, отключив главный выключатель БТР машинного отделения. Это, очевидно, плохая идея, если двигатель работает.
+Будучи Инженером, вы можете ремонтировать окна, используя сварочный аппарат, не находясь в боевом режиме.
+Будучи Инженером, вы можете временно питать станцию ​​исключительно солнечными батареями. Они будут обеспечивать достаточно электроэнергии для питания станции в течение некоторого времени, однако их выходная мощность лишь немного ниже необходимой для постоянного питания станции. Работая инженером, вы можете изготавливать необходимые печатные платы и компоненты для практически чего угодно. Создавайте дополнительное медицинское оборудование повсюду! Постройте гиббер для обеспечения безопасности! Расположите ряд излучателей, направленных вдоль коридора! Возможности безграничны!
+Работая инженером, вы можете перезарядить свой УЗО листами железа, стекла или пластали, а не просто картриджами со сжатым веществом.
+Работая инженером-киборгом, вы можете крепить рамки для воздушной/пожарной сигнализации/APC к стенам, положив их на пол и используя отвертку.
+Играя за ИИ, вы можете нажимать на имена людей, чтобы посмотреть на них. Это работает только при наличии камер, которые их видят, у них нет удостоверений агентов и они не используют цифровой камуфляж, как подменыши.
+Играя за ИИ, вы можете использовать эмоции для изменения отображения статуса рядом с вашим ядром. Некоторые эмоции можно использовать даже для изменения отображения статуса по всей станции.
+Играя за ИИ, вы можете быстро открывать и закрывать двери, удерживая Shift при щелчке, запирать их, удерживая Ctrl, и даже ударять током, удерживая Alt.
+Играя за ИИ, вы можете делать снимки камерой и загружать их ведущим новостей.
+Играя за ИИ, вы можете использовать CTRL + 1-9, чтобы назначить горячую клавишу для вашей камеры, что позволит вам сохранять местоположение и перемещаться к нему по желанию. Тильда и ноль вернут вас к последней точке, с которой вы прыгали, а цифры на цифровой клавиатуре действуют как псевдонимы обычных цифровых клавиш.
+Играя за бармена, напитки, которые вы начинаете, дают вам лишь базовые навыки. Если вам нужны более сложные смеси, попробуйте работать с химией, гидропоникой или даже с горнодобывающей промышленностью, чтобы измельчать и добавлять ингредиенты!
+Играя за бармена, вы можете использовать циркулярную пилу на дробовике, чтобы упростить хранение.
+Играя за бармена, не забудьте установить табличку с названием бара, подойдя к ней и нажав на неё!
+Играя за каплю, не пренебрегайте созданием фабрик. Они создают споры, которые переносят ваш реагент и могут преследовать членов экипажа гораздо дальше, чем вы. Споры также можно объединять, чтобы нападать на экипаж и сеять панику, и даже захватывать трупы, создавая гораздо более опасных зомби-капель!
+Играя за каплю, держите своё ядро ​​на некотором расстоянии от космоса, так как его расширение в космос обходится дорого, с него легко напасть, и это не учитывается в вашем условии победы. Платформы-излучатели, построенные в космосе, особенно опасны.
+Играя за каплю, уничтожение сильных каплей, узлов ресурсов, фабрик и узлов вернёт вам 4, 15, 25 и 25 ресурсов соответственно.
+Играя за Кляксу, вы отправляете сообщение всем остальным сверхразумам и всем Блоббернавтам, позволяя вам направлять атаки и координировать их.
+Играя за Кляксу, вы можете атаковать всё, что находится рядом с плиткой с кляксой, но можете расширяться только в кардинальных направлениях, а диагональные атаки немного слабее.
+Играя за Кляксу, вы можете расширяться, щёлкая мышью, создавать мощные кляксы щелчком мыши с зажатой клавишей Ctrl, собирать споры щелчком средней клавиши и удалять кляксы щелчком мыши с зажатой клавишей Alt. Для этого вам не нужно держать камеру над плиткой.
+Играя за Кляксу, вы можете разместить своё ядро ​​в любом свободном, незаметном месте, куда сможете переместиться через 3 минуты. Если вы подождёте слишком долго, вы будете автоматически помещены в случайное место. Используйте это время ожидания для координации с другими приспешниками
+Играя за Блоб, вы можете произвести Блоббернаута на фабрике за 40 единиц ресурсов. Блоббернауты управляются игроком, постепенно восстанавливаются вблизи узлов и применяют ваш химикат при атаке, но погибают, если находятся слишком далеко от Блоба или если его фабрика уничтожена. Однако использованная фабрика становится хрупкой и перестаёт производить споры.
+Играя за Блоб, вы можете выбрать тип реагента из шести случайных вариантов, если команда адаптировалась и защитилась от вашего текущего.
+Играя за Блоб, вы ведёте войну на истощение: уничтожайте медотсек и сражайтесь в узких проходах, чтобы предотвратить дальнейшие нападения и скоординированные атаки взрывного урона!
+Будучи капитаном, всегда берите с собой ядерный диск и точечный указатель на каждую смену. Рекомендуется передать один из них другому руководителю, которому вы можете доверить его сохранность.
+Будучи капитаном, вы — одна из самых приоритетных целей на станции. Всё, от революций до ядерных агентов и предателей, которые хотят отнять у вас ваш уникальный лазган или жизнь, — вот о чём стоит беспокоиться.
+Будучи капитаном, вы можете приобрести новый аварийный шаттл с помощью коммуникационной консоли. Некоторые требуют наличных, в то время как другие дают вам наличные в обмен. Имейте в виду, что покупка опасных шаттлов может вызвать гнев вашей команды.
+Будучи капитаном, вы имеете полный доступ и контроль над станцией, но это не значит, что ваши ужасные поступки не приведут к мятежу и изгнанию.
+Будучи капелланом, вы гораздо чаще, чем большинство людей, получаете ответ, молясь богам. Чтобы повысить свои шансы, сделайте алтари с разноцветными рунами, нарисованными мелками, зажжёнными свечами и проволочными фигурками.
+Будучи капелланом, ваша Библия также является контейнером для хранения мелких предметов. В зависимости от вашего бога, ваша стартовая Библия может содержать сюрприз! В роли капеллана ваш нуль-стержень обладает антимагическими функциями: он может уничтожать руны культистов, ударяя по ним, и делает вас неуязвимым к заклинаниям волшебников и магии культа.
+В роли главного инженера консоль управления потоком энергии в вашем офисе будет отображать информацию о БПК и позволять вам управлять ими удалённо.
+В роли главного инженера вы можете переименовывать зоны или создавать совершенно новые, используя чертежи вашей станции.
+В роли главного инженера вы можете шпионить и даже подделывать сообщения КПК с помощью консоли мониторинга сообщений! Ключ находится в вашем кабинете.
+В роли главного врача координируйте и общайтесь с врачами, химиками и парамедиками во время ядерной аварии, заражения блобами или любой другой чрезвычайной ситуации, чтобы люди оставались живыми и сражались.
+В роли главного врача ваш гипоспрей подобен многоразовому шприцу для мгновенной инъекции, вмещающему 30 единиц вместо стандартных 15.
+В роли клоуна употребление бананов немного исцеляет вас. Хрюк! Играя за Клоуна, даже если вы потеряете банановую кожуру, вы всё ещё сможете кидать людей своим КПК! Сигнал!
+Играя за Клоуна, если вы Предатель и купите электронный магнит (или убедите другого предателя), вы можете использовать электронный магнит для своей Клоунской машины, чтобы открыть множество новых функций, включая режим «Осада», который позволит вам запускать пассажиров, желательно прямо в Сверхматерию! Или в космос.
+Играя за Клоуна, добавляйте остроты своим трюкам! Никто не любит пони-однодневок.
+Играя за Клоуна, нажмите одним длинным шариком на другой, чтобы создать фигурку животного из шариков! Каждая комбинация цветов даёт свой уникальный результат.
+Играя за Клоуна, вы можете использовать свой штамп на листе картона в качестве первого шага для создания сигнального робота. Веселье для всей команды!
+Играя за Клоуна, ваш Грааль — это минерал бананий, который можно отдать Робототехнику, чтобы он построил весёлого и надёжного робота, любимого всеми. Как куратор, следите за тем, чтобы полки были заполнены, а библиотека была чистой для команды.
+Как куратор, вы не совсем беззащитны. Ваш кнут легко обезоруживает людей, ваша лазерная указка может ослепить людей и киборгов, а вы можете прятать предметы в книгах, вырезанных из проволоки.
+Как коронер, вы чувствуете себя более комфортно, работая с трупами. Вы можете проводить вскрытия и извлекать органы гораздо быстрее, чем ваши коллеги-врачи. Работайте с ними в тандеме, помогая подготавливать тела к оживлению.
+Будучи коронером, вы можете проводить вскрытия трупов, найденных при странных обстоятельствах, с помощью портативного сканера для вскрытия, чтобы выяснить, как они умерли. Объединившись с детективом, вы сможете раскрыть несколько дел вместе!
+Будучи детективом, люди оставляют отпечатки пальцев везде и на всём. За исключением белых латексных перчаток, они их скроют. Однако не всё потеряно, поскольку перчатки оставляют специфические волокна, например, чёрные или нитриловые, указывающие на отдел.
+Будучи детективом, вы можете использовать свой криминалистический сканер на расстоянии. Используйте его для сканирования коробок и других контейнеров.
+Будучи детективом, вы можете заряжать свой револьвер патронами калибра .357, полученными из взломанного токарного станка. Выстрел из них с большой вероятностью может привести к взрыву револьвера.
+Будучи начальником отдела кадров, вы не имеете более высокого ранга, чем другие руководители, хотя от вас ожидают, что вы первым займёте место капитана в случае его исчезновения. Если ситуация кажется вам слишком тяжёлой, подумайте о том, чтобы другой начальник стал временным капитаном.
+Как начальник охраны, не позволяйте власти вскружить вам голову. У вас может быть высокий доступ, отличное снаряжение и небольшая армия, но быть ужасным человеком без уважительной причины — основание для бана.
+Как начальник охраны, вы должны координировать действия своих сил безопасности для борьбы с любой угрозой, которая может возникнуть на станции. Иногда это означает использование арсенала для борьбы с каплей, иногда — безжалостность во время революции или культа.
+Как начальник охраны, вы можете требовать казней или принудительной киборгизации, которые требуют согласия капитана или заключённого соответственно.
+Как адвокат, попытайтесь договориться с начальником тюрьмы, если приговоры кажутся слишком суровыми для данного преступления.
+Как адвокат, вы можете попытаться убедить капитана и начальника охраны провести судебные разбирательства над заключёнными в зале суда. Играя за неисправного ИИ, подумайте о том, чтобы затопить станцию ​​плазменным огнем, чтобы уничтожить большую часть экипажа, и добить тех немногих оставшихся в скафандрах, которые смогли сбежать.
+Играя за неисправного ИИ, вы можете переместиться в БТР, если ситуация ухудшится. Это отключит ваше устройство Судного дня, если оно активно.
+Играя за неисправного ИИ, вы должны либо приказать своим киборгам демонтировать пульт управления робототехникой, либо взорвать его самостоятельно, чтобы защитить их.
+Играя за мима, вы можете использовать :r и :l, чтобы говорить через своего чревовещателя.
+Играя за мима, ваша невидимая стена блокирует как людей, так и снаряды. Вы можете использовать её в крайнем случае, чтобы задержать преследователя.
+Играя за мима, ваша клятва молчания — ваш источник силы. Нарушение её лишает вас сил и чести.
+Играя за интенданта, обязательно проверяйте декларации на полученных ящиках, чтобы убедиться, что вся информация верна. Если вы обнаружили ошибку, поставьте на манифесте штамп «ОТКАЗАНО» и отправьте его обратно в ящике с нетронутыми предметами для возврата денег!
+Как интендант, вы можете построить консоль экспресс-поставок, которая мгновенно доставляет ящики с помощью десантной капсулы. Удар также вызовет небольшой взрыв.
+Как директор по исследованиям, вы можете блокировать киборгов, а не взрывать их. Затем вы можете сбросить их законы или, если это не сработает, безопасно демонтировать.
+Как директор по исследованиям, вы можете извлекать ИИ из их ядер, загружая их в IntelliCard, которая позволяет вам видеть их законы, даже законы Иона/Синдиката. Затем её можно поместить в компьютер восстановления целостности системы ИИ, чтобы оживить и/или исправить заключённого.
+Как начальник тюрьмы, если преступления заключённого достаточно отвратительны, вы можете отправить его на вечную каторгу или в ГУЛАГ. Не забывайте проверять их состояние время от времени! Будучи начальником тюрьмы, постоянно следите за арсеналом, поскольку это излюбленная точка нападения ядерных агентов и дерзких предателей.
+Будучи начальником тюрьмы, вы можете имплантировать преступникам, которых подозреваете в рецидиве, устройства, отслеживающие их местоположение и позволяющие дистанционно вводить им дезактивирующие вещества.
+Будучи начальником тюрьмы, вы можете использовать наручники на оранжевой обуви заключённых, чтобы превратить их в обувь с наручниками, заставляя заключённых идти и потенциально предотвращая побег.
+Ваша обязанность как начальника тюрьмы — быть сторожем брига и куратором заключённых, когда ничего не происходит, а также выдавать снаряжение и оружие сотрудникам службы безопасности в критических ситуациях.
+Баскетбол требует сосредоточенности. Если вы не нажмёте на цель (игрока или кольца), вы с большей вероятностью промахнётесь.
+Баскетбол требует выносливости. Чем больше у вас её, тем меньше вероятность, что ваш мяч украдут, и тем больше шансов украсть его у другого игрока.
+Баскетбол требует стратегии. Направление взгляда обоих игроков влияет на обезоруживание, поэтому идеальным вариантом будет положение спиной к другому игроку, который пытается украсть мяч.
+Баскетбол требует мастерства. Вращение снижает выносливость, точность, но даёт сопротивление обезоруживанию. Используйте его для бросков сверху!
+Баскетбол требует командной работы. Передача мяча левой кнопкой мыши выполняется мгновенно и не требует затрат выносливости.
+Нажатие на дверь вместо того, чтобы врезаться в неё, оставит её открытой. Чтобы закрыть её, можно нажать ещё раз.
+Разное оружие имеет разную силу.
+Не бойтесь просить о помощи, будь то у коллег или наставников.
+Экспериментируйте с различными настройками движка Supermatter, чтобы максимизировать производительность, но не рискуйте безопасностью команды!
+Лазерные указки временно отвлекают кошачьих. Используйте это в своих интересах, когда вас преследует одна из них.
+Пожарные костюмы и зимние куртки обеспечивают умеренную защиту от холода, позволяя проводить больше времени рядом с проломами и в космосе, чем без одежды.
+Осколки стекла можно сварить, чтобы получить стекло, а железные прутья — чтобы получить железо. Руды тоже можно сварить, но это требует много топлива.
+Удерживая Alt и щелкнув левой кнопкой мыши по плитке, вы увидите её содержимое в правом верхнем углу окна. Это гораздо быстрее, чем удерживая Shift и щелкнув правой кнопкой мыши.
+Если вам что-то нужно от другого отдела, попробуйте обратиться! Эта игра не однопользовательская, и вы удивитесь, чего вы сможете достичь вместе! Если вы ввязываетесь в драку с другим игроком, нападение обычно является разумным решением. Бегство часто не приводит к желаемому результату.
+Если вы врежетесь в кого-то, выполняя крутой грайнд на скейтборде, он будет лежать на полу вдвое дольше. Радикально!
+Если вам нужно оттащить нескольких человек в безопасное место или на космодром, принесите шкафчик или ящик и запихните их туда, прежде чем вытаскивать.
+Если у вас кровотечение, вы можете надавить на конечность, схватившись за себя и направив удар по кровоточащей конечности. Это замедлит вас и освободит руку, но замедлит кровопотерю. Обратите внимание, что это не поможет кровотечению быстрее сгуститься.
+Если вы используете режим горячих клавиш, вы можете прекратить тянуть предметы, нажав H.
+В крайнем случае, раздевшись догола, вы значительно повысите сопротивление захвату. Что вы цените больше — свободу или достоинство?
+Ложь поможет замедлить кровопотерю. Смерть полностью остановит её. Техническое обслуживание полно оборудования, которое рандомизируется каждый раунд. Осмотритесь и найдите что-нибудь стоящее.
+В большинство слотов костюма, предназначенных для работы, можно поместить предметы, связанные с работой, например, зимнюю куртку специалиста по атмосферным исследованиям, в которой находится РПД, или лабораторные халаты, в которых хранится большинство лекарств.
+У большинства предметов есть особые взаимодействия с нажатием правой кнопки мыши, клавишами Alt, Shift и Control. Экспериментируйте!
+Большинство предметов одежды, помещаемых в слот костюма, можно положить в хранилище костюма, например, баллон с распылителем, аварийный кислородный баллон или фонарик.
+Устройства дистанционного управления будут работать при использовании через камеры. Например, РПД Bluespace и пульты управления дверями.
+Сон может использоваться для восстановления после незначительных травм и повреждений органов. Рассудок, темнота, повязки на глаза, наушники, столы, кровати и простыни влияют на скорость восстановления.
+Некоторые роли не могут быть антагонистами по умолчанию, но выбор антагониста определяется в первую очередь. Например, вы можете установить «Офицера безопасности» на «Высокий», не влияя на ваши шансы стать антагоном — игра просто выберет другую роль.
+Некоторые виды оружия лучше подходят для уничтожения роботов и сооружений, чем другие. Не пытайтесь разбить окно скальпелем, попробуйте ящик с инструментами.
+Стандартные эпипены содержат мощный коагулянт, который не только замедляет кровотечение, но и помогает свернуть наиболее кровоточащую рану! Если у вас несколько сильно кровоточащих ран, обязательно как можно скорее обратитесь за помощью!
+
+Хранилища скафандров удаляют не только кровь и грязь с одежды, но и радиацию!
+
+Капеллан может освятить любую ёмкость с водой, ударив по ней своей Библией. Святая вода имеет множество применений против обоих культов, и её большое количество значительно способствует успеху в борьбе с ними.
+
+Функция P2P-чата на планшетных компьютерах позволяет скрытно общаться с людьми.
+
+Кнопка «Сопротивление» позволит вам сопротивляться, не будучи в наручниках, пристёгнутым к стулу или кровати, вне запертых шкафчиков и т.д. Всякий раз, когда вы застряли, попробуйте сопротивляться! Терминал самоуничтожения станции неуязвим. Найдите диск, а не пытайтесь его уничтожить.
+На станции много мест, где можно спрятать контрабанду. Вот несколько для начала: ящики для белья, туалетные бачки, мешки для трупов. Экспериментируйте, чтобы найти больше!
+Чтобы взломать сейф в хранилище, используйте стетоскоп или три пластиковых взрывчатки.
+Использование липкой ленты на предметах может привести к их прилипанию к людям и стенам! Будьте осторожны, гранаты могут прилипнуть к вашей руке в момент истины!
+Все мы когда-то были новичками, будьте терпеливы и направляйте новичков в нужное русло.
+Ношение защитной брони значительно повышает эффективность захватов, но при каждом прыжке расходует больше выносливости! Она также значительно защищает вас от других захватов!
+При создании большинства предметов вы можете либо вручную комбинировать детали, либо использовать меню крафта.
+При взаимодействии с охраной часто можно полностью отменить приговор, используя сотрудничество и обман. Во время сражения с Каплей вы можете поразить её анализатором, чтобы определить её химический эффект и тип анализируемой капли. Исследование с помощью исследовательского сканера или медицинского HUD также даст эту информацию.
+При взломе дверей перерезание и починка «провода контрольной лампы» восстановит подачу питания к двери.
+Если у вас возникли сомнения по поводу технических проблем, очистите кэш (byond launcher > шестерёнка > настройки > настройки игры), обновите BYOND и перезайдите в игру.
+При размещении плиток пола в космосе не нужно размещать решётку, если рядом есть кусок обшивки.
+Место соединения уровней космической карты определяется случайным образом каждый раунд, но в остальном остаётся неизменным. Помните, что они не обязательно двунаправленные!
+Тренировки улучшают вашу физическую форму, что увеличивает ваши габариты и ускоряет переноску предметов пожарным. Помните, что качественное питание и сон крайне важны!
+Вы можете ловить брошенные предметы, включив режим броска с пустой рукой.
+Вы можете изменить схему управления, нажав Tab. Одна — WASD, другая — клавиши со стрелками. Имейте в виду, что при этом также меняются горячие клавиши.
+Вы можете жульничать, запекая кубики в микроволновке, чтобы они заряжены. Карты можно видеть рентгеновским зрением или помечать ручкой или мелком, чтобы получить преимущество. Вы можете забраться на стол, перетащив себя на него. Это занимает время и уронит предметы из ваших рук на стол. Щелчок по столу, на который забирается кто-то другой, сбьёт его с ног.
+Вы можете деконвертировать культистов Нар'Си, напоив их большим количеством святой воды. В отличие от революционеров, имплантация им ментального щита не поможет!
+Вы можете перетащить других игроков на себя, чтобы открыть меню раздевания, позволяющее снять с них снаряжение или заставить их надеть что-нибудь. Обратите внимание, что костюмы или шлемы блокируют доступ к одежде под ними, а надевание и раздевание некоторых предметов занимает больше времени, чем других.
+Вы можете схватить кого-то, удерживая Ctrl и щёлкнув по нему, а затем улучшить захват, щёлкнув по нему ещё раз с Ctrl. Агрессивный захват на мгновение оглушит кого-то, позволит положить его на стол, щёлкнув по нему, или бросить, включив функцию броска.
+Вы можете прикурить сигару от кристалла суперматерии. Вы можете убрать предмет с пути, перетащив его и щёлкнув по соседней плитке пустой рукой.
+
+Вы можете закрепить кнопки модуля MODsuit на панели действий в интерфейсе костюма.
+
+Вы можете перекрасить некоторые предметы, например, комбинезоны и перчатки в стиральных машинах, бросив туда мелок.
+
+Вы можете использовать отвёртку для любой нехимической гранаты, чтобы сократить время действия взрывателя с 5 до 3 секунд, а затем и до мгновенного взрыва! Никто этого не ожидает.
+
+Вы можете распылять огнетушитель, бросать предметы или стрелять из пистолета, паря в космосе, чтобы изменить направление. Просто стреляйте в сторону, противоположную желаемому.
+
+Вы можете менять плитки пола, держа лом в одной руке и стопку плиток в другой.
+
+Вы можете использовать автомат в хранилище, чтобы внести наличные или ограбить фонды отдела доставки.
+
+Вы можете зарядить свой КПК с помощью улучшенной микроволновки!
+Вы быстро потеряете интерес к игре, если играете ради победы и убийств. Если вы обнаружите, что делаете это, сделайте шаг назад и поговорите с людьми — это гораздо приятнее!
+В некоторых зонах станции используются простые навигационные обозначения, например, «Фор» (передняя часть корабля), «Корма» (задняя часть), «Лев» (левый борт), «Старборд» (правый), «Квартал» и «Бус» (оба борта кормы и носа соответственно). Вы можете ознакомиться с этими терминами в приложении «Блокнот» на вашем КПК.
+Модульные компьютеры совместимы с интегральными схемами, но для работы большинства программно-зависимых схем требуется их открытие/перевод в фоновый режим. Чтобы установить схемы на стационарные консоли, необходимо сначала переключить взаимодействие с рамкой, щелкнув правой кнопкой мыши.
+Вам не нужно уничтожать автомат Spacecoin, чтобы остановить списание средств. Проведя по нему своим идентификатором, вы остановите вывод средств.
+Обновление квантового сервера для Bitrunner увеличит награды и сократит время простоя.
+У вашего аватара для Bitrunner есть способность «Информация о домене», которая даст вам подсказки для завершения виртуальных доменов.
+Вы можете щелкнуть правой кнопкой мыши по человеку кусачками, «Клюшками жизни» и канцелярским ножом, чтобы мгновенно разорвать кабельные наручники или стяжки. Эти челюсти могут даже мгновенно разорвать наручники!
+Вы можете нажать Alt на перепускные клапаны баллонов, чтобы снять с них баллон.
+Вы можете использовать мультитул в руке, чтобы отслеживать АПЦ в этом районе.
+Некоторые предметы при осмотре помечены как «компоненты для крафта», что означает, что вы можете ударить их другим предметом, чтобы напрямую создать рецепт. Попробуйте использовать воспламенитель на стержне!
+Вы можете продолжить цикл жизни, дав двум взрослым плюшевым игрушкам играть друг с другом, создав маленького ребёнка.
+У большинства видов всего 32 зуба, которые можно использовать в зубных имплантатах. У мотыльков их нет. У ящериц их семьдесят пять.
+Будучи подменышем, перепрофилированные железы будут разрушать боласы, отключать оглушение и дадут вам значительное ускорение за счёт использования рук, включая возможность открывать ограниченные шлюзы.
+Будучи генетиком, вы обычно должны сохранять все разблокированные мутации. Отрицательные мутации повышают вашу генетическую стабильность, позволяя сохранять больше положительных мутаций.
+Вы можете создавать из дерева колышки и костыли для использования в чрезвычайных ситуациях. Последние также можно приобрести у медицинских торговцев. Будучи Еретиком, вы также можете приносить в жертву культистов, что даёт вам очко знаний и одну из трёх уникальных, мощных наград.
+Если вы, будучи культистом, сможете принести в жертву Еретика, вы откроете один из трёх мощных и уникальных предметов, которые можно создать в каждой кузнице, архиве или алтаре вашего культа.
+Когда вы, будучи культистом, приносите в жертву Еретика, он будет заключён в мощный призрачный длинный меч. После этого любой может освободить клинок, открыв его силы и способности, а также позволив клинку действовать по собственной воле.
+Как Обезьяна Синдиката, вы испытываете сильную аллергию на видовые трансформации и, вероятно, должны их избегать.
+Биологическая броня защитит вашу конечность от заражения зомби, если только она не повреждена сильнее, чем требуется для защиты. Броня из плотного материала, такая как огневые костюмы и скафандры, также частично защищает, предотвращая как минимум первую атаку заражения. В крайнем случае, можно уменьшить кровотечение или заживление ожога несколькими распространёнными реагентами: мукой, солью, солёной водой можно посыпать рану, чтобы выиграть время, а чаем – повысить защитные силы организма.
+Анализаторы первой помощи удваивают скорость обработки ран, а также выдают обычные и импровизированные инструкции по лечению.
+Вещевые сумки Синдиката гораздо быстрее застёгиваются и расстёгиваются, значительно меньше замедляют движение и вмещают до двух различных громоздких предметов, предназначенных для выполнения конкретных задач, таких как пожарные топоры, пистолеты или гибтонит. Внимательно осмотрите их, чтобы оценить все возможности.
+Хирургические инструменты коронера считаются «жестокими орудиями», которые ускоряют операции на трупах, но замедляют их на ещё не трупах. Некоторые другие предметы также обладают этим свойством.
+Как коронер, помните, что ваш сканер для вскрытия также работает как расширенный анализатор здоровья, активируемый правой кнопкой мыши, но только для трупов. Играя за Капитана, ваш сабля наносит дополнительный урон Помощникам (при условии, что у них сохранилась печень).
+Вы можете автоматически извлекать и убирать имплантаты для рук, «активируя» пустую руку, в которой они находятся. Это включает в себя интегрированные наборы инструментов, проклятые катаны и снопорезы.
+Вы можете комбинировать реагент «Ковёр» с различными реагентами, такими как масло и цианид, чтобы создавать уникальные типы ковров.
+Вы можете испечь праздничный торт, а затем разогреть его в микроволновке, чтобы создать легендарную шляпу-торт. Затем вы можете объединить его с энергетическим мечом, чтобы создать энергетический торт.
+Вы можете быстро удалить радиацию с предметов в комнате, выпуская водяной пар в воздух вокруг них (включая изношенные предметы).

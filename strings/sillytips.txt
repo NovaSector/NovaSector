@@ -1,42 +1,40 @@
-As an Engineer, the Supermatter shard is an extremely dangerous piece of equipment: touching it will disintegrate you. So will talking to it with telepathy.
-As the Captain, you can use a whetstone to sharpen your fancy fountain pen for extra robustness.
-As the Lawyer, you are the last bastion of roleplay-focused jobs. Even the curator got a whip to go fight people with, that sellout!
-Ask and you shall receive.
-Bitrunning is a crime.
-Blobs are weak to fire! Use a flame thrower for maximum damage!
-Cleanbot.
-Completing your objectives is good practice, but the best antagonists will strive to do more than the bare minimum to really leave an impression.
-DEATH IS IMMINENT!
-Demoman takes skill.
-Did you know that tossing the clown into a singularity will either increase or decrease its size by a large amount?
-Did you know that tossing the clown into the Supermatter engine can destabilize or fix it massively?
-Do not go gentle into that good night.
-FEED ME A STRAY CAT
-It's fun to try and predict the round type from the tip of the round message.
-Just like real life the entropy of the game can only increase with time. If things aren't on fire yet, just wait.
-Just the tip?
-Killing the entire station isn't fun except when it is.
-Make sure you put the fresh corpse on a Nanotrasen-Brand Stasis Bed! (Patent Pending)
-Most items have names longer than "soap".
-Nanotrasen doesn't want you to know, you can print Tinfoil Hats by hacking the Autolathe at cargo. It will protect you from... aliens, and a... plethora of mind-based magic.
-Occasionally the tip of the round might lie to you. Don't panic, this is normal.
-Plenty of things that aren't traditionally considered weapons can still be used to slowly brutalize someone to death, get creative!
-Some people are unable to read text on a game where half of it is based on text.
-Sometimes a round will just be a bust. C'est la vie.
-Sometimes admins will just do stuff. Roll with it.
-Sometimes you won't be able to avoid dying no matter how good you are at the game. Try not to stress too much about it.
-Space is cold and it will quickly freeze you to death if you don't protect yourself. This isn't how thermodynamics really works but just go with it.
-The bird remembers.
-The more obscure and underused a game mechanic is, the less likely your victims are to be able to deal with it.
-The quartermaster is only a head of staff so their feelings aren’t hurt. Don’t tell them.
-The remake will never come out.
-The wizard is supposed to be extremely strong in one on one combat, stop getting mad about it.
-There are at least 11 ways to get through plastic flaps. How many can you name?
-This game is older than most of the people playing it.
-This is a game that is constantly being developed for. Expect things to be added, removed, fixed, and broken on a daily basis.
-To defeat the slaughter demon, shoot at it until it dies.
-When a round ends nearly everything about it is lost forever, leave your salt behind with it.
-You can light a match with the heel of your boot. ...What's that? Friction matches went out of style in the 19th century? That's nonsense!
-You can win a pulse rifle from the arcade machine. Honest.
-Your sprite represents your hitbox, so that afro makes you easier to kill. The sacrifices we make for style.
-Gorillas can be killed by land mines placed along forest paths.
+Для Инженера осколок Суперматерии — чрезвычайно опасное оборудование: прикосновение к нему разрушит вас. То же самое можно сказать и о телепатическом разговоре.
+Как Капитан, вы можете использовать точильный камень, чтобы заточить свою модную перьевую ручку для дополнительной прочности.
+Как Адвокат, вы — последний оплот ролевых профессий. Даже у куратора есть кнут, которым он может сражаться с людьми, этот продажный!
+Просите, и вы получите.
+Битраннинг — преступление.
+Пузыри уязвимы к огню! Используйте огнемёт для максимального урона!
+Чистобот.
+Выполнение своих задач — хорошая практика, но лучшие антагонисты будут стремиться сделать больше, чем просто минимум, чтобы действительно оставить впечатление.
+СМЕРТЬ НЕИЗБЕЖНА!
+Подрывник требует мастерства.
+Знаете ли вы, что бросок клоуна в сингулярность либо значительно увеличит, либо уменьшит его размер? Знаете ли вы, что бросок клоуна в двигатель Суперматерии может дестабилизировать его или радикально исправить?
+Не стоит слишком увлекаться этой доброй ночью.
+НАКОРМИ МЕНЯ БЕЗДОМНЫМ КОТОМ
+Забавно пытаться предсказать тип раунда по окончанию сообщения.
+Как и в реальной жизни, энтропия в игре может только увеличиваться со временем. Если что-то ещё не горит, просто подождите.
+
+Вот это совет?
+Уничтожать всю станцию ​​— не весело, пока она не загорится.
+Убедитесь, что вы положили свежее тело на стазисную кровать Nanotrasen! (Патент заявлен)
+У большинства предметов названия длиннее, чем «мыло».
+Nanotrasen не хочет, чтобы вы знали: вы можете напечатать шапочки из фольги, взломав автолак на грузовом терминале. Это защитит вас от... инопланетян и... множества магии, основанной на разуме.
+Иногда окончание раунда может вас обмануть. Не паникуйте, это нормально. Множество вещей, которые традиционно не считаются оружием, всё ещё можно использовать, чтобы медленно забить кого-то до смерти. Проявите изобретательность!
+Некоторые не способны читать текст в игре, где половина текста основана на нём.
+Иногда раунд просто проваливается. Се ля ви.
+Иногда администраторы просто делают что-то не то. Смиритесь с этим.
+Иногда смерти не избежать, как бы хорошо вы ни играли. Постарайтесь не слишком переживать по этому поводу.
+Космос холоден, и он быстро заморозит вас насмерть, если вы не защититесь. Термодинамика на самом деле работает не так, но просто смиритесь с этим.
+Птица помнит.
+Чем менее ясна и недооценена игровая механика, тем меньше вероятность, что ваши жертвы с ней справятся.
+Квартирмейстер — всего лишь начальник штаба, так что их чувства не будут задеты. Не говорите им об этом.
+Ремейк никогда не выйдет. Волшебник должен быть невероятно силён в бою один на один, перестаньте злиться из-за этого.
+Есть как минимум 11 способов пройти сквозь пластиковые заслонки. Сколько вы можете назвать?
+Эта игра старше большинства людей, которые в неё играют.
+Эта игра постоянно развивается. Будьте готовы к тому, что каждый день что-то будет добавляться, удаляться, чиниться и ломаться.
+Чтобы победить демона-убийцу, стреляйте в него, пока он не умрёт.
+Когда раунд заканчивается, почти всё, что с ним связано, потеряется навсегда, оставьте свою соль вместе с ней.
+Можно зажечь спичку каблуком ботинка. ...Что это? Спички трением вышли из моды ещё в XIX веке? Это чушь!
+Можно выиграть импульсную винтовку в игровом автомате. Честно.
+Твой спрайт отображает твою хитбокс, так что афро делает тебя легче убиваемым. Жертвы, которые мы приносим ради стиля.
+Горилл можно убить минами, расставленными вдоль лесных троп.

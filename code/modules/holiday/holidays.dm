@@ -3,7 +3,7 @@ GLOBAL_LIST_INIT(holiday_mail, list())
 
 /datum/holiday
 	///Name of the holiday itself. Visible to players.
-	var/name = "If you see this the holiday calendar code is broken"
+	var/name = "Если вы видите это, значит код праздничного календаря сломан."
 
 	///What day of begin_month does the holiday begin on?
 	var/begin_day = 1
@@ -27,8 +27,8 @@ GLOBAL_LIST_INIT(holiday_mail, list())
 	var/no_mail_holiday = FALSE
 	/// The list of items we add to the mail pool. Can either be a weighted list or a normal list. Leave empty for nothing.
 	var/list/holiday_mail = list()
-	var/poster_name = "generic celebration poster"
-	var/poster_desc = "A poster for celebrating some holiday. Unfortunately, its unfinished, so you can't see what the holiday is."
+	var/poster_name = "gпраздничный плакат «Энерик»"
+	var/poster_desc = "Плакат к какому-то празднику. К сожалению, он незакончен, поэтому не видно, что это за праздник."
 	var/poster_icon = "holiday_unfinished"
 	/// Color scheme for this holiday
 	var/list/holiday_colors
@@ -45,7 +45,7 @@ GLOBAL_LIST_INIT(holiday_mail, list())
 
 // When the round starts, this proc is ran to get a text message to display to everyone to wish them a happy holiday
 /datum/holiday/proc/greet()
-	return "Have a happy [name]!"
+	return "Счастливого вам [name]!"
 
 // Returns special prefixes for the station name on certain days. You wind up with names like "Christmas Object Epsilon". See new_station_name()
 /datum/holiday/proc/getStationPrefix()
@@ -117,29 +117,29 @@ GLOBAL_LIST_INIT(holiday_mail, list())
 
 //Fleet Day is celebrated on Jan 19th, the date on which moths were merged (#34498)
 /datum/holiday/fleet_day
-	name = "Fleet Day"
+	name = "День флота"
 	begin_month = JANUARY
 	begin_day = 19
 	holiday_hat = /obj/item/clothing/head/mothcap
 
 /datum/holiday/fleet_day/greet()
-	return "This day commemorates another year of successful survival aboard the Mothic Grand Nomad Fleet. Moths galaxywide are encouraged to eat, drink, and be merry."
+	return "В этот день отмечается ещё один год успешного выживания на борту флота Великих кочевников Мотыльков. Мотыльков по всей галактике призывают есть, пить и веселиться."
 
 /datum/holiday/fleet_day/getStationPrefix()
-	return pick("Moth", "Fleet", "Nomadic")
+	return pick("Моль", "Флот", "Кочевник")
 
 // FEBRUARY
 
 /datum/holiday/groundhog
-	name = "Groundhog Day"
+	name = "День сурка"
 	begin_day = 2
 	begin_month = FEBRUARY
 
 /datum/holiday/groundhog/getStationPrefix()
-	return pick("Deja Vu") //I have been to this place before
+	return pick("Дежавю") //I have been to this place before
 
 /datum/holiday/nz
-	name = "Waitangi Day"
+	name = "День Вайтанги"
 	timezones = list(TIMEZONE_NZDT, TIMEZONE_CHADT)
 	begin_day = 6
 	begin_month = FEBRUARY
@@ -151,18 +151,18 @@ GLOBAL_LIST_INIT(holiday_mail, list())
 	)
 
 /datum/holiday/nz/getStationPrefix()
-	return pick("Aotearoa","Kiwi","Fish 'n' Chips","Kākāpō","Southern Cross")
+	return pick("Аотеароа","Киви","Рыба с картофелем фри","Какапо","Южный Крест")
 
 /datum/holiday/nz/greet()
 	var/nz_age = text2num(time2text(world.timeofday, "YYYY", TIMEZONE_NZST)) - 1840
-	return "On this day [nz_age] years ago, New Zealand's Treaty of Waitangi, the founding document of the nation, was signed!"
+	return "В этот день, [nz_age] лет назад, в Новой Зеландии был подписан Договор Вайтанги — учредительный документ государства!"
 
 /datum/holiday/valentines
 	name = VALENTINES
 	begin_day = 13
 	end_day = 15
 	begin_month = FEBRUARY
-	poster_name = "lovey poster"
+	poster_name = "Любовный постер"
 	poster_desc = "A poster celebrating all the relationships built today. Of course, you probably don't have one."
 	poster_icon = "holiday_love"
 	holiday_mail = list(
@@ -172,15 +172,15 @@ GLOBAL_LIST_INIT(holiday_mail, list())
 		)
 
 /datum/holiday/valentines/getStationPrefix()
-	return pick("Love","Amore","Single","Smootch","Hug")
+	return pick("Любовь","Аморе","Одинокий","Смутч","Обнимать","Святой Валентин","Романтика")
 
 /datum/holiday/birthday
-	name = "Birthday of Space Station 13"
+	name = "День рождения космической станции 13"
 	begin_day = 16
 	begin_month = FEBRUARY
 	holiday_hat = /obj/item/clothing/head/costume/festive
-	poster_name = "station birthday poster"
-	poster_desc = "A poster celebrating another year of the station's operation. Why anyone would be happy to be here is byond you."
+	poster_name = "Плакат ко дню рождения станции"
+	poster_desc = "Плакат, отмечающий ещё одну годовщину работы станции. Почему кто-то был бы рад здесь оказаться, вам не понять."
 	poster_icon = "holiday_cake" // is a lie
 	holiday_mail = list(
 		/obj/item/clothing/mask/party_horn,
@@ -194,52 +194,52 @@ GLOBAL_LIST_INIT(holiday_mail, list())
 	var/Fact
 	switch(game_age)
 		if(16)
-			Fact = " SS13 is now old enough to drive!"
+			Fact = " SS13 теперь достаточно взрослый, чтобы водить!"
 		if(18)
-			Fact = " SS13 is now legal!"
+			Fact = " SS13 теперь совершеннолетний!"
 		if(21)
-			Fact = " SS13 can now drink!"
+			Fact = " SS13 теперь может бухать!"
 		if(26)
-			Fact = " SS13 can now rent a car!"
+			Fact = " SS13 теперь можно водить машину!"
 		if(30)
-			Fact = " SS13 can now go home and be a family man!"
+			Fact = " SS13 теперь может вернуться домой и стать семьянином!"
 		if(35)
-			Fact = " SS13 can now run for President of the United States!"
+			Fact = " SS13 теперь может баллотироваться на пост президента США!"
 		if(40)
-			Fact = " SS13 can now suffer a midlife crisis!"
+			Fact = " SS13 теперь может пережить кризис среднего возраста!"
 		if(50)
-			Fact = " Happy golden anniversary!"
+			Fact = " С золотым юбилеем!"
 		if(65)
-			Fact = " SS13 can now start thinking about retirement!"
+			Fact = " SS13 теперь может задуматься о выходе на пенсию!"
 	if(!Fact)
-		Fact = " SS13 is now [game_age] years old!"
+		Fact = " SS13 сейчас [game_age] лет!"
 
-	return "Say 'Happy Birthday' to Space Station 13, first publicly playable on February 16th, 2003![Fact]"
+	return "Поздравляем с днём рождения Space Station 13, впервые представленную публике 16 февраля 2003 года![Fact]"
 
 /datum/holiday/random_kindness
-	name = "Random Acts of Kindness Day"
+	name = "День спонтанного проявления доброты"
 	begin_day = 17
 	begin_month = FEBRUARY
-	poster_name = "act of kindness poster"
-	poster_desc = "A poster notifying the reader today is 'Act of Kindness' day. What a nice thing to do."
+	poster_name = "плакат с частичкой доброты"
+	poster_desc = "Плакат, оповещающий читателя о том, что сегодня — День «Проявления доброты». Какое приятное событие!"
 	poster_icon = "holiday_kind"
 
 /datum/holiday/random_kindness/greet()
-	return "Go do some random acts of kindness for a stranger!" //haha yeah right
+	return "Сделайте несколько случайных добрых дел для незнакомца!" //haha yeah right
 
 /datum/holiday/leap
-	name = "Leap Day"
+	name = "Високосный день"
 	begin_day = 29
 	begin_month = FEBRUARY
 
 // MARCH
 
 /datum/holiday/pi
-	name = "Pi Day"
+	name = "День числа Пи"
 	begin_day = 14
 	begin_month = MARCH
-	poster_name = "pi day poster"
-	poster_desc = "A poster celebrating the 3.141529th day of the year. At least theres free pie."
+	poster_name = "плакат ко дню числа Пи"
+	poster_desc = "Плакат, посвящённый 3,141529-му дню года. Зато пирог бесплатный."
 	poster_icon = "holiday_pi"
 	holiday_mail = list(
 		/obj/item/food/pieslice/apple,
@@ -256,10 +256,10 @@ GLOBAL_LIST_INIT(holiday_mail, list())
 	)
 
 /datum/holiday/pi/getStationPrefix()
-	return pick("Sine","Cosine","Tangent","Secant", "Cosecant", "Cotangent")
+	return pick("Синус","Косинус","Тангенс","Секущая", "Косеканс", "Котангенс", "Радиан", "Диаметр", "Окружность", "КОТангенс")
 
 /datum/holiday/no_this_is_patrick
-	name = "St. Patrick's Day"
+	name = "День Святого Патрика"
 	begin_day = 17
 	begin_month = MARCH
 	holiday_hat = /obj/item/clothing/head/soft/green
@@ -276,10 +276,10 @@ GLOBAL_LIST_INIT(holiday_mail, list())
 	)
 
 /datum/holiday/no_this_is_patrick/getStationPrefix()
-	return pick("Blarney","Green","Leprechaun","Booze")
+	return pick("Бларни","Зеленый","Лепрекон","Выпивка","Клевер","Шамрок","Ирландия")
 
 /datum/holiday/no_this_is_patrick/greet()
-	return "Happy National Inebriation Day!"
+	return "С Национальным днем ​​опьянения!"
 
 // APRIL
 
@@ -307,16 +307,16 @@ GLOBAL_LIST_INIT(holiday_mail, list())
 	return "#[random_short_color()]"
 
 /datum/holiday/spess
-	name = "Cosmonautics Day"
+	name = "День космонавтики"
 	begin_day = 12
 	begin_month = APRIL
 	holiday_hat = /obj/item/clothing/head/syndicatefake
 
 /datum/holiday/spess/greet()
-	return "On this day over 600 years ago, Comrade Yuri Gagarin first ventured into space!"
+	return "В этот день, более 600 лет назад, товарищ Юрий Гагарин впервые отправился в космос!"
 
 /datum/holiday/fourtwenty
-	name = "Four-Twenty"
+	name = "Четыре-двадцать"
 	begin_day = 20
 	begin_month = APRIL
 	holiday_hat = /obj/item/clothing/head/rasta
@@ -328,36 +328,36 @@ GLOBAL_LIST_INIT(holiday_mail, list())
 	holiday_mail = list(/obj/item/cigarette/rollie/cannabis)
 
 /datum/holiday/fourtwenty/getStationPrefix()
-	return pick("Snoop","Blunt","Toke","Dank","Cheech","Chong")
+	return pick("Снуп","Тупой","Жетон","Данк","Чич","Чонг")
 
 /datum/holiday/tea
-	name = "National Tea Day"
+	name = "Национальный день чая"
 	begin_day = 21
 	begin_month = APRIL
 	holiday_mail = list(/obj/item/reagent_containers/cup/glass/mug/tea)
 
 /datum/holiday/tea/getStationPrefix()
-	return pick("Crumpet","Assam","Oolong","Pu-erh","Sweet Tea","Green","Black")
+	return pick("Крампет","Ассам","Улун","Пуэр","Сладкий чай","Зелёный","Чёрный")
 
 /datum/holiday/earth
-	name = "Earth Day"
+	name = "День Земли"
 	begin_day = 22
 	begin_month = APRIL
 
 /datum/holiday/anz
-	name = "ANZAC Day"
+	name = "День АНЗАК"
 	timezones = list(TIMEZONE_TKT, TIMEZONE_TOT, TIMEZONE_NZST, TIMEZONE_NFT, TIMEZONE_LHST, TIMEZONE_AEST, TIMEZONE_ACST, TIMEZONE_ACWST, TIMEZONE_AWST, TIMEZONE_CXT, TIMEZONE_CCT, TIMEZONE_CKT, TIMEZONE_NUT)
 	begin_day = 25
 	begin_month = APRIL
 	holiday_hat = /obj/item/food/grown/poppy
 
 /datum/holiday/anz/getStationPrefix()
-	return pick("Australian","New Zealand","Poppy", "Southern Cross")
+	return pick("Австралийский","Новая Зеландия","Мак","Южный Крест")
 
 // MAY
 
 /datum/holiday/labor
-	name = "Labor Day"
+	name = "День Труда"
 	begin_day = 1
 	begin_month = MAY
 	holiday_hat = /obj/item/clothing/head/utility/hardhat
@@ -365,28 +365,28 @@ GLOBAL_LIST_INIT(holiday_mail, list())
 
 //Draconic Day is celebrated on May 3rd, the date on which the Draconic language was merged (#26780)
 /datum/holiday/draconic_day
-	name = "Draconic Language Day"
+	name = "День драконьего языка"
 	begin_month = MAY
 	begin_day = 3
 
 /datum/holiday/draconic_day/greet()
-	return "On this day, Lizardkind celebrates their language with literature and other cultural works."
+	return "В этот день ящеролюди чествуют свой язык посредством литературы и других культурных произведений."
 
 /datum/holiday/draconic_day/getStationPrefix()
-	return pick("Draconic", "Literature", "Reading")
+	return pick("Драконий", "Литература", "Чтение")
 
 /datum/holiday/firefighter
-	name = "Firefighter's Day"
+	name = "День пожарного"
 	begin_day = 4
 	begin_month = MAY
 	holiday_hat = /obj/item/clothing/head/utility/hardhat/red
 	holiday_mail = list(/obj/item/extinguisher/mini)
 
 /datum/holiday/firefighter/getStationPrefix()
-	return pick("Burning","Blazing","Plasma","Fire")
+	return pick("Горящий","Пылающий","Плазма","Огонь")
 
 /datum/holiday/bee
-	name = "Bee Day"
+	name = "День пчел"
 	begin_day = 20
 	begin_month = MAY
 	holiday_mail = list(
@@ -397,10 +397,10 @@ GLOBAL_LIST_INIT(holiday_mail, list())
 	)
 
 /datum/holiday/bee/getStationPrefix()
-	return pick("Bee","Honey","Hive","Africanized","Mead","Buzz")
+	return pick("Пчела","Мед","Улей","Африканизированный","Мёд","Жужжание", "Трутень", "Жжжжжж")
 
 /datum/holiday/goth
-	name = "Goth Day"
+	name = "День гота"
 	begin_day = 22
 	begin_month = MAY
 	holiday_mail = list(
@@ -414,21 +414,20 @@ GLOBAL_LIST_INIT(holiday_mail, list())
 	)
 
 /datum/holiday/goth/getStationPrefix()
-	return pick("Goth", "Sanguine", "Tenebris", "Lacrimosa", "Umbra", "Noctis")
-
+	return pick("Гот", "Сангвин", "Тенебрис", "Лакримоза", "Умбра", "Ноктис")
 // JUNE
 
 //The Festival of Atrakor's Might (Tizira's Moon) is celebrated on June 15th, the date on which the lizard visual revamp was merged (#9808)
 /datum/holiday/atrakor_festival
-	name = "Festival of Atrakor's Might"
+	name = "Фестиваль мощи Атракора"
 	begin_month = JUNE
 	begin_day = 15
 
 /datum/holiday/atrakor_festival/greet()
-	return "On this day, the Lizards traditionally celebrate the Festival of Atrakor's Might, where they honour the moon god with lavishly adorned clothing, large portions of food, and a massive celebration into the night."
+	return "В этот день ящеры традиционно отмечают Фестиваль могущества Атракора, во время которого они чтят бога луны, щедро украшая его одеждами, угощая большими порциями еды и устраивая масштабное празднование до самой ночи."
 
 /datum/holiday/atrakor_festival/getStationPrefix()
-	return pick("Moon", "Night Sky", "Celebration")
+	return pick("Луна", "Ночное небо", "Торжество")
 
 /// Garbage DAYYYYY
 /// Huh?.... NOOOO
@@ -445,7 +444,7 @@ GLOBAL_LIST_INIT(holiday_mail, list())
 	)
 
 /datum/holiday/summersolstice
-	name = "Summer Solstice"
+	name = "Летнее солнцестояние"
 	begin_day = 21
 	begin_month = JUNE
 	holiday_hat = /obj/item/clothing/head/costume/garland
@@ -482,7 +481,7 @@ GLOBAL_LIST_INIT(holiday_mail, list())
 // JULY
 
 /datum/holiday/doctor
-	name = "Doctor's Day"
+	name = "День доктора"
 	begin_day = 1
 	begin_month = JULY
 	holiday_hat = /obj/item/clothing/head/costume/nursehat
@@ -493,7 +492,7 @@ GLOBAL_LIST_INIT(holiday_mail, list())
 	)
 
 /datum/holiday/ufo
-	name = "UFO Day"
+	name = "День НЛО"
 	begin_day = 2
 	begin_month = JULY
 	holiday_hat = /obj/item/clothing/head/collectable/xenom
@@ -505,10 +504,10 @@ GLOBAL_LIST_INIT(holiday_mail, list())
 	)
 
 /datum/holiday/ufo/getStationPrefix() //Is such a thing even possible?
-	return pick("Ayy","Truth","Tsoukalos","Mulder","Scully") //Yes it is!
+	return pick("Ага","Правда","Цукалос","Малдер","Скалли") //Yes it is!
 
 /datum/holiday/usa
-	name = "US Independence Day"
+	name = "День независимости США"
 	timezones = list(TIMEZONE_EDT, TIMEZONE_CDT, TIMEZONE_MDT, TIMEZONE_MST, TIMEZONE_PDT, TIMEZONE_AKDT, TIMEZONE_HDT, TIMEZONE_HST)
 	begin_day = 4
 	begin_month = JULY
@@ -524,16 +523,16 @@ GLOBAL_LIST_INIT(holiday_mail, list())
 
 
 /datum/holiday/usa/getStationPrefix()
-	return pick("Independent","American","Burger","Bald Eagle","Star-Spangled", "Fireworks")
+	return pick("Независимый","американский","Бургер","Белоголовый орлан","Звездно-полосатый", "Фейерверк")
 
 /datum/holiday/writer
-	name = "Writer's Day"
+	name = "День писателя"
 	begin_day = 8
 	begin_month = JULY
 	holiday_mail = list(/obj/item/pen/fountain)
 
 /datum/holiday/france
-	name = "Bastille Day"
+	name = "День взятия Бастилии"
 	timezones = list(TIMEZONE_CEST)
 	begin_day = 14
 	begin_month = JULY
@@ -547,10 +546,10 @@ GLOBAL_LIST_INIT(holiday_mail, list())
 	holiday_pattern = PATTERN_VERTICAL_STRIPE
 
 /datum/holiday/france/getStationPrefix()
-	return pick("Francais", "Fromage", "Zut", "Merde", "Sacrebleu")
+	return pick("французский", "Сыр", "Проклятие", "Дерьмо", "Сакребле", "Багет", "Вино")
 
 /datum/holiday/france/greet()
-	return "Do you hear the people sing?"
+	return "Слышишь, как поют люди?"
 
 /datum/holiday/hotdogday
 	name = HOTDOG_DAY
@@ -559,63 +558,63 @@ GLOBAL_LIST_INIT(holiday_mail, list())
 	holiday_mail = list(/obj/item/food/hotdog)
 
 /datum/holiday/hotdogday/greet()
-	return "Happy National Hot Dog Day!"
+	return "С Национальным днем ​​хот-дога!"
 
 //Gary Gygax's birthday, a fitting day for Wizard's Day
 /datum/holiday/wizards_day
-	name = "Wizard's Day"
+	name = "День мага"
 	begin_month = JULY
 	begin_day = 27
 	holiday_hat = /obj/item/clothing/head/wizard
 
 /datum/holiday/wizards_day/getStationPrefix()
-	return pick("Dungeon", "Elf", "Magic", "D20", "Edition")
+	return pick("Подземный", "Эльфийский", "Магия", "D20", "Издание")
 
 /datum/holiday/friendship
-	name = "Friendship Day"
+	name = "День дружбы"
 	begin_day = 30
 	begin_month = JULY
 	holiday_mail = list(/obj/item/food/grown/apple)
 
 /datum/holiday/friendship/greet()
-	return "Have a magical [name]!"
+	return "Пусть у тебя будет волшебное [name]!"
 
 // AUGUST
 
 /datum/holiday/indigenous //Indigenous Peoples' Day from Earth!
-	name = "International Day of the World's Indigenous Peoples"
+	name = "Международный день коренных народов мира"
 	begin_month = AUGUST
 	begin_day = 9
 
 /datum/holiday/indigenous/getStationPrefix()
-	return pick("Endangered language", "Word", "Language", "Language revitalization", "Potato", "Corn")
+	return pick("Исчезающий язык", "Слово", "Язык", "Возрождение языка", "Картофель", "Кукуруза")
 
 // AUGUST
 
 /datum/holiday/ukraine
-	name = "Independence Day of Ukraine"
+	name = "День независимости Малоруссии"
 	begin_month = AUGUST
 	begin_day = 24
 	holiday_colors = list(COLOR_TRUE_BLUE, COLOR_TANGERINE_YELLOW)
 
 /datum/holiday/ukraine/getStationPrefix()
-	return pick("Kyiv", "Ukraine")
+	return pick("Киев", "Малороссия", "Новороссия", "Слабожанщина", "Галичина")
 
 // SEPTEMBER
 
 //Tiziran Unification Day is celebrated on Sept 1st, the day on which lizards were made a roundstart race
 /datum/holiday/tiziran_unification
-	name = "Tiziran Unification Day"
+	name = "День объединения Тизирана"
 	begin_month = SEPTEMBER
 	begin_day = 1
 	holiday_hat = /obj/item/clothing/head/costume/lizard
 	holiday_mail = list(/obj/item/toy/plush/lizard_plushie)
 
 /datum/holiday/tiziran_unification/greet()
-	return "On this day over 400 years ago, Lizardkind first united under a single banner, ready to face the stars as one unified people."
+	return "В этот день более 400 лет назад ящерообразные впервые объединились под единым знаменем, готовые встретить звезды как единый народ."
 
 /datum/holiday/tiziran_unification/getStationPrefix()
-	return pick("Tizira", "Lizard", "Imperial")
+	return pick("Тизира", "Ящерица", "Имперская")
 
 /datum/holiday/ianbirthday
 	name = IAN_HOLIDAY //github.com/tgstation/tgstation/commit/de7e4f0de0d568cd6e1f0d7bcc3fd34700598acb
@@ -634,65 +633,65 @@ GLOBAL_LIST_INIT(holiday_mail, list())
 	)
 
 /datum/holiday/ianbirthday/greet()
-	return "Happy birthday, Ian!"
+	return "С днем ​​рождения, Иэн!"
 
 /datum/holiday/ianbirthday/getStationPrefix()
-	return pick("Ian", "Corgi", "Erro")
+	return pick("Иэн", "Корги", "Эрро")
 
 /datum/holiday/pirate
-	name = "Talk-Like-a-Pirate Day"
+	name = "День пиратских говоров"
 	begin_day = 19
 	begin_month = SEPTEMBER
 	holiday_hat = /obj/item/clothing/head/costume/pirate
 	holiday_mail = list(/obj/item/clothing/head/costume/pirate)
 
 /datum/holiday/pirate/greet()
-	return "Ye be talkin' like a pirate today or else ye'r walkin' tha plank, matey!"
+	return "Сегодня ты говоришь как пират, а не то пойдёшь на доску, приятель!"
 
 /datum/holiday/pirate/getStationPrefix()
-	return pick("Yarr","Scurvy","Yo-ho-ho")
+	return pick("Ярр","Цинга","Йо-хо-хо")
 
 /datum/holiday/questions
-	name = "Stupid-Questions Day"
+	name = "День глупых вопросов"
 	begin_day = 28
 	begin_month = SEPTEMBER
 
 /datum/holiday/questions/greet()
-	return "Are you having a happy [name]?"
+	return "У вас счастливые дни [name]?"
 
 // OCTOBER
 
 /datum/holiday/animal
-	name = "Animal's Day"
+	name = "День животных"
 	begin_day = 4
 	begin_month = OCTOBER
 
 /datum/holiday/animal/getStationPrefix()
-	return pick("Parrot","Corgi","Cat","Pug","Goat","Fox")
+	return pick("Попугай","Корги","Кот","Мопс","Козел","Лиса","Енот","Панда","Ежик","Волк","Тигр")
 
 /datum/holiday/smile
-	name = "Smiling Day"
+	name = "День Улыбки"
 	begin_day = 7
 	begin_month = OCTOBER
 	holiday_hat = /obj/item/clothing/head/costume/papersack/smiley
 	holiday_mail = list(/obj/item/sticker/smile)
 
 /datum/holiday/boss
-	name = "Boss' Day"
+	name = "День босса"
 	begin_day = 16
 	begin_month = OCTOBER
 	holiday_hat = /obj/item/clothing/head/hats/tophat
 
 /datum/holiday/un_day
-	name = "Anniversary of the Foundation of the United Nations"
+	name = "Годовщина основания Организации Объединенных Наций"
 	begin_month = OCTOBER
 	begin_day = 24
 
 /datum/holiday/un_day/greet()
-	return "On this day in 1945, the United Nations was founded, laying the foundation for humanity's united government!"
+	return "В этот день в 1945 году была основана Организация Объединенных Наций, заложив основу единого правительства человечества!"
 
 /datum/holiday/un_day/getStationPrefix()
-	return pick("United", "Cooperation", "Humanitarian")
+	return pick("Соединенные", "Сотрудничество", "Гуманитарный")
 
 /datum/holiday/halloween
 	name = HALLOWEEN
@@ -707,24 +706,24 @@ GLOBAL_LIST_INIT(holiday_mail, list())
 		)
 
 /datum/holiday/halloween/greet()
-	return "Have a spooky Halloween!"
+	return "Желаем вам жуткого Хэллоуина!"
 
 /datum/holiday/halloween/getStationPrefix()
-	return pick("Bone-Rattling","Mr. Bones' Own","2SPOOKY","Spooky","Scary","Skeletons")
+	return pick("Грохочущий кости","Собственность мистера Костяна","Очень жуткий","Жуткий","Страшный","Скелеты")
 
 // NOVEMBER
 
 /datum/holiday/vegan
-	name = "Vegan Day"
+	name = "День вегана"
 	begin_day = 1
 	begin_month = NOVEMBER
 	holiday_mail = list(/obj/item/food/tofu)
 
 /datum/holiday/vegan/getStationPrefix()
-	return pick("Tofu", "Tempeh", "Seitan", "Tofurkey")
+	return pick("Тофу", "Темпе", "Сейтан", "Тофуркей")
 
 /datum/holiday/october_revolution
-	name = "October Revolution"
+	name = "Октябрьская революция"
 	begin_day = 6
 	begin_month = NOVEMBER
 	end_day = 7
@@ -735,7 +734,7 @@ GLOBAL_LIST_INIT(holiday_mail, list())
 	)
 
 /datum/holiday/october_revolution/getStationPrefix()
-	return pick("Communist", "Soviet", "Bolshevik", "Socialist", "Red", "Workers'")
+	return pick("Коммунистический", "Советский", "Большевик", "Социалистический", "Красный", "Рабочие'")
 
 /datum/holiday/remembrance_day
 	name = "Remembrance Day"
@@ -749,26 +748,26 @@ GLOBAL_LIST_INIT(holiday_mail, list())
 	)
 
 /datum/holiday/remembrance_day/greet()
-	return "Lest we forget."
+	return "Чтобы мы не забывали."
 
 /datum/holiday/remembrance_day/getStationPrefix()
-	return pick("Peace", "Armistice", "Poppy")
+	return pick("Мир", "Перемирие", "Мак", "Память")
 
 /datum/holiday/lifeday
-	name = "Life Day"
+	name = "День жизни"
 	begin_day = 17
 	begin_month = NOVEMBER
 
 /datum/holiday/lifeday/getStationPrefix()
-	return pick("Itchy", "Lumpy", "Malla", "Kazook") //he really pronounced it "Kazook", I wish I was making shit up
+	return pick("Зудящий", "Комковатый", "Малла", "Казук") //he really pronounced it "Kazook", I wish I was making shit up
 
 /datum/holiday/kindness
-	name = "Kindness Day"
+	name = "День доброты"
 	begin_day = 13
 	begin_month = NOVEMBER
 
 /datum/holiday/flowers
-	name = "Flowers Day"
+	name = "День цветов"
 	begin_day = 19
 	begin_month = NOVEMBER
 	holiday_hat = /obj/item/food/grown/moonflower
@@ -786,16 +785,16 @@ GLOBAL_LIST_INIT(holiday_mail, list())
 	)
 
 /datum/holiday/hello
-	name = "Saying-'Hello' Day"
+	name = "День приветствия"
 	begin_day = 21
 	begin_month = NOVEMBER
 
 /datum/holiday/hello/greet()
-	return "[pick(list("Aloha", "Bonjour", "Hello", "Hi", "Greetings", "Salutations", "Bienvenidos", "Hola", "Howdy", "Ni hao", "Guten Tag", "Konnichiwa", "G'day cunt"))]! " + ..()
+	return "[pick(list("Aloha", "Halo", "Hello", "Hi", "Greetings", "Salutations", "Bienvenidos", "Hola", "Howdy", "Ni hao", "Guten Tag", "Konnichiwa", "G'day cunt"))]! " + ..()
 
 //The Festival of Holy Lights is celebrated on Nov 28th, the date on which ethereals were merged (#40995)
 /datum/holiday/holy_lights
-	name = "Festival of Holy Lights"
+	name = "Фестиваль Святого Огня"
 	begin_month = NOVEMBER
 	begin_day = 28
 	/// If there's more of them I forgot
@@ -805,10 +804,10 @@ GLOBAL_LIST_INIT(holiday_mail, list())
 	)
 
 /datum/holiday/holy_lights/greet()
-	return "The Festival of Holy Lights is the final day of the Ethereal calendar. It is typically a day of prayer followed by celebration to close out the year in style."
+	return "Праздник Святого Света — последний день эфириальского календаря. Обычно это день молитвы, за которым следует праздничное празднование, чтобы торжественно завершить год."
 
 /datum/holiday/holy_lights/getStationPrefix()
-	return pick("Ethereal", "Lantern", "Holy")
+	return pick("Эфериальский", "Фонарь", "Святой", "Огонь", "Свет")
 
 // DECEMBER
 
@@ -820,10 +819,10 @@ GLOBAL_LIST_INIT(holiday_mail, list())
 	holiday_hat = /obj/item/clothing/head/costume/santa
 
 /datum/holiday/festive_season/greet()
-	return "Have a nice festive season!"
+	return "Хороших вам праздников!"
 
 /datum/holiday/human_rights
-	name = "Human-Rights Day"
+	name = "День прав человека"
 	begin_day = 10
 	begin_month = DECEMBER
 
@@ -837,7 +836,7 @@ GLOBAL_LIST_INIT(holiday_mail, list())
 	SSstation.setup_trait(/datum/station_trait/job/pun_pun)
 
 /datum/holiday/doomsday
-	name = "Mayan Doomsday Anniversary"
+	name = "Годовщина Судного дня майя"
 	begin_day = 21
 	begin_month = DECEMBER
 
@@ -855,29 +854,29 @@ GLOBAL_LIST_INIT(holiday_mail, list())
 
 /datum/holiday/xmas/getStationPrefix()
 	return pick(
-		"Bible",
-		"Birthday",
-		"Chimney",
-		"Claus",
-		"Crucifixion",
-		"Elf",
-		"Fir",
-		"Ho Ho Ho",
-		"Jesus",
-		"Jolly",
-		"Merry",
-		"Present",
-		"Sack",
-		"Santa",
-		"Sleigh",
-		"Yule",
+		"Библейская",
+		"День рождения Христова",
+		"Камин",
+		"Клаус",
+		"Распятие",
+		"Эльф",
+		"Пихта",
+		"Хо! Хо! Хо!",
+		"Иисус",
+		"Весёлье",
+		"Счастливая",
+		"Подарок",
+		"Мешок",
+		"Санта",
+		"Сани",
+		"Святки",
 	)
 
 /datum/holiday/xmas/greet()
-	return "Have a merry Christmas!"
+	return "Счастливого Рождества!"
 
 /datum/holiday/boxing
-	name = "Boxing Day"
+	name = "День подарков"
 	begin_day = 26
 	begin_month = DECEMBER
 	holiday_mail = list(
@@ -897,12 +896,12 @@ GLOBAL_LIST_INIT(holiday_mail, list())
 	no_mail_holiday = TRUE
 
 /datum/holiday/new_year/getStationPrefix()
-	return pick("Party","New","Hangover","Resolution", "Auld")
+	return pick("Вечеринка","Новая","Похмелье","Разрешение", "Старого Нового Года")
 
 // MOVING DATES
 
 /datum/holiday/friday_thirteenth
-	name = "Friday the 13th"
+	name = "Пятница 13-е"
 
 /datum/holiday/friday_thirteenth/shouldCelebrate(dd, mm, yyyy, ddd)
 	if(dd == 13 && ddd == FRIDAY)
@@ -910,10 +909,10 @@ GLOBAL_LIST_INIT(holiday_mail, list())
 	return FALSE
 
 /datum/holiday/friday_thirteenth/getStationPrefix()
-	return pick("Mike","Friday","Evil","Myers","Murder","Deathly","Stabby")
+	return pick("Майк","Пятница","Зло","Майерс","Убийство","Смертельный","Джейсон", "Вурхиз")
 
 /datum/holiday/programmers
-	name = "Programmers' Day"
+	name = "День программиста"
 	holiday_mail = list(/obj/item/sticker/robot)
 
 /datum/holiday/programmers/shouldCelebrate(dd, mm, yyyy, ddd) //Programmer's day falls on the 2^8th day of the year
@@ -932,23 +931,23 @@ GLOBAL_LIST_INIT(holiday_mail, list())
 // ISLAMIC
 
 /datum/holiday/islamic
-	name = "Islamic calendar code broken"
+	name = "Код исламского календаря сломан"
 
 /datum/holiday/islamic/shouldCelebrate(dd, mm, yyyy, ddd)
 	var/datum/foreign_calendar/islamic/cal = new(yyyy, mm, dd)
 	return ..(cal.dd, cal.mm, cal.yyyy, ddd)
 
 /datum/holiday/islamic/ramadan
-	name = "Start of Ramadan"
+	name = "Начало Рамадана"
 	begin_month = 9
 	begin_day = 1
 	end_day = 3
 
 /datum/holiday/islamic/ramadan/getStationPrefix()
-	return pick("Haram","Halaal","Jihad","Muslim", "Al", "Mohammad", "Rashidun", "Umayyad", "Abbasid", "Abdul", "Fatimid", "Ayyubid", "Almohad", "Abu")
+	return pick("Харам","Халяль","Джихад","Муслим", "Аль", "Мохаммед", "Рашидун", "Омейяды", "Аббасиды", "Абдул", "Фатимид", "Айюбиды", "Альмохады", "Абу")
 
 /datum/holiday/islamic/ramadan/end
-	name = "End of Ramadan"
+	name = "Конец Рамадана"
 	end_month = 10
 	begin_day = 28
 	end_day = 1
@@ -956,33 +955,33 @@ GLOBAL_LIST_INIT(holiday_mail, list())
 // HEBREW
 
 /datum/holiday/hebrew
-	name = "If you see this the Hebrew holiday calendar code is broken"
+	name = "Если вы видите это, значит код еврейского праздничного календаря поврежден."
 
 /datum/holiday/hebrew/shouldCelebrate(dd, mm, yyyy, ddd)
 	var/datum/foreign_calendar/hebrew/cal = new(yyyy, mm, dd)
 	return ..(cal.dd, cal.mm, cal.yyyy, ddd)
 
 /datum/holiday/hebrew/hanukkah
-	name = "Hanukkah"
+	name = "Ханука"
 	begin_day = 25
 	begin_month = 9
 	end_day = 2
 	end_month = 10
 
 /datum/holiday/hebrew/hanukkah/greet()
-	return "Happy [pick("Hanukkah", "Chanukah")]!"
+	return "Счастливой [pick("Хануки", "Ханука")]!"
 
 /datum/holiday/hebrew/hanukkah/getStationPrefix()
-	return pick("Dreidel", "Menorah", "Latkes", "Gelt")
+	return pick("Дрейдл", "Менора", "Латкес", "Гелт")
 
 /datum/holiday/hebrew/passover
-	name = "Passover"
+	name = "Пасха"
 	begin_day = 15
 	begin_month = 1
 	end_day = 22
 
 /datum/holiday/hebrew/passover/getStationPrefix()
-	return pick("Matzah", "Moses", "Red Sea")
+	return pick("Маца", "Моисей", "Красное море")
 
 // HOLIDAY ADDONS
 
@@ -1060,10 +1059,10 @@ GLOBAL_LIST_INIT(holiday_mail, list())
 	)
 
 /datum/holiday/easter/greet()
-	return "Greetings! Have a Happy Easter and keep an eye out for Easter Bunnies!"
+	return "Привет! Счастливой Пасхи и ждите пасхальных кроликов!"
 
 /datum/holiday/easter/getStationPrefix()
-	return pick("Fluffy","Bunny","Easter","Egg")
+	return pick("Пушистый","Кролик","Пасха","Яйцо","Шоколад","Весенний")
 
 /// Takes a holiday datum, a starting month, ending month, max amount of days to test in, and min/max year as input
 /// Returns a list in the form list("yyyy/m/d", ...) representing all days the holiday runs on in the tested range

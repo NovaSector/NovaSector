@@ -108,7 +108,7 @@ GLOBAL_VAR(command_name)
 	if(config_server_name)
 		world.name = "[config_server_name][config_server_name == GLOB.station_name ? "" : ": [html_decode(GLOB.station_name)]"]"
 	else
-		world.name = html_decode(GLOB.station_name)
+		world.name = "[config_server_name][config_server_name == GLOB.station_name ? "" : "Howling Void 18+ Русскоязычный МРП: [html_decode(GLOB.station_name)]"]"
 
 	SEND_GLOBAL_SIGNAL(COMSIG_GLOB_STATION_NAME_CHANGED, new_name, old_name)
 
