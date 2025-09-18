@@ -645,10 +645,6 @@
 /obj/structure/railing/corner/end/unbreakable,
 /turf/open/floor/plating,
 /area/misc/operative_barracks/hangar)
-"jI" = (
-/obj/machinery/rnd/production/protolathe/department/security,
-/turf/open/space/basic,
-/area/space)
 "jV" = (
 /obj/structure/lattice,
 /obj/structure/marker_beacon/burgundy,
@@ -735,9 +731,9 @@
 "kK" = (
 /obj/machinery/rnd/production/protolathe/department/medical,
 /obj/effect/mapping_helpers/atom_injector/element_injector{
-	target_type = /obj/machinery;
+	target_type = /obj/machinery/rnd/production/protolathe;
 	element_type = /datum/element/voucher_redeemer;
-	element_args = list(/obj/item/paper/paperslip/corporate/syndicate/traitor/implant, /datum/voucher_set/traitor/implant, sound_effect = 'sound/machines/lathe/lathe_print.ogg')
+	element_args = list(/obj/item/paper/paperslip/corporate/syndicate/traitor/implant, /datum/voucher_set/traitor/implant, 'sound/machines/lathe/lathe_print.ogg')
 	},
 /turf/open/floor/iron/dark/corner{
 	dir = 4
@@ -1791,9 +1787,9 @@
 "wv" = (
 /obj/machinery/limbgrower,
 /obj/effect/mapping_helpers/atom_injector/element_injector{
-	target_type = /obj/machinery;
+	target_type = /obj/machinery/limbgrower;
 	element_type = /datum/element/voucher_redeemer;
-	element_args = list(/obj/item/paper/paperslip/corporate/syndicate/traitor/implant, /datum/voucher_set/traitor/organ, sound_effect = 'sound/effects/cartoon_sfx/cartoon_splat.ogg')
+	element_args = list(/obj/item/paper/paperslip/corporate/syndicate/traitor/implant, /datum/voucher_set/traitor/organ, 'sound/effects/cartoon_sfx/cartoon_splat.ogg')
 	},
 /obj/effect/decal/cleanable/blood,
 /turf/open/floor/iron/showroomfloor,
@@ -1948,7 +1944,7 @@
 	id = null
 	},
 /obj/effect/mapping_helpers/atom_injector/element_injector{
-	target_type = /obj/machinery;
+	target_type = /obj/machinery/computer;
 	element_type = /datum/element/voucher_redeemer;
 	element_args = list(/obj/item/paper/paperslip/corporate/syndicate/traitor/exosuit, /datum/voucher_set/traitor/mech, 8, 'sound/effects/portal/portal_open_1.ogg')
 	},
@@ -1969,7 +1965,7 @@
 	pixel_y = 15
 	},
 /obj/effect/mapping_helpers/atom_injector/element_injector{
-	target_type = /obj/machinery;
+	target_type = /obj/machinery/mecha_part_fabricator;
 	element_type = /datum/element/voucher_redeemer;
 	element_args = list(/obj/item/paper/paperslip/corporate/syndicate/traitor/exosuit, /datum/voucher_set/traitor/mod, 2, 'sound/machines/lathe/lathe_print.ogg')
 	},
@@ -2676,9 +2672,9 @@
 	},
 /obj/machinery/light/small/directional/south,
 /obj/effect/mapping_helpers/atom_injector/element_injector{
-	target_type = /obj/machinery;
+	target_type = /obj/machinery/computer;
 	element_type = /datum/element/voucher_redeemer;
-	element_args = list(/obj/item/paper/paperslip/corporate/syndicate/traitor/supplies, /datum/voucher_set/traitor/supplies/surgery, sound_effect = 'sound/machines/card_slide.ogg')
+	element_args = list(/obj/item/paper/paperslip/corporate/syndicate/traitor/supplies, /datum/voucher_set/traitor/supplies/surgery, 'sound/machines/card_slide.ogg')
 	},
 /turf/open/floor/iron/showroomfloor,
 /area/misc/operative_barracks/surgery)
@@ -2899,9 +2895,9 @@
 /obj/machinery/light/small/directional/south,
 /obj/effect/decal/cleanable/dirt/dust,
 /obj/effect/mapping_helpers/atom_injector/element_injector{
-	target_type = /obj/machinery;
+	target_type = /obj/machinery/rnd/production/protolathe;
 	element_type = /datum/element/voucher_redeemer;
-	element_args = list(/obj/item/paper/paperslip/corporate/syndicate/traitor/primary, /datum/voucher_set/traitor/primary_weapon, sound_effect = 'sound/machines/lathe/lathe_print.ogg')
+	element_args = list(/obj/item/paper/paperslip/corporate/syndicate/traitor/primary, /datum/voucher_set/traitor/primary_weapon, 'sound/machines/lathe/lathe_print.ogg')
 	},
 /turf/open/floor/iron/smooth,
 /area/misc/operative_barracks/armoury)
@@ -3269,9 +3265,9 @@
 "QL" = (
 /obj/machinery/ammo_workbench/unlocked,
 /obj/effect/mapping_helpers/atom_injector/element_injector{
-	target_type = /obj/machinery;
+	target_type = /obj/machinery/ammo_workbench;
 	element_type = /datum/element/voucher_redeemer;
-	element_args = list(/obj/item/paper/paperslip/corporate/syndicate/traitor/supplies, /datum/voucher_set/traitor/supplies/ammo, sound_effect = 'sound/machines/piston/piston_raise.ogg')
+	element_args = list(/obj/item/paper/paperslip/corporate/syndicate/traitor/supplies, /datum/voucher_set/traitor/supplies/ammo, 'sound/machines/piston/piston_raise.ogg')
 	},
 /turf/open/floor/circuit/red/anim,
 /area/misc/operative_barracks/armoury)
@@ -3639,12 +3635,12 @@
 /turf/open/floor/plating,
 /area/misc/operative_barracks/hangar)
 "VW" = (
-/obj/machinery/modular_computer/preset/civilian,
 /obj/effect/mapping_helpers/atom_injector/element_injector{
-	target_type = /obj/machinery;
+	target_type = /obj/structure/showcase;
 	element_type = /datum/element/voucher_redeemer;
-	element_args = list(/obj/item/paper/paperslip/corporate/syndicate/traitor, /datum/voucher_set/traitor/voucher_trade, sound_effect = 'sound/machines/card_slide.ogg')
+	element_args = list(/obj/item/paper/paperslip/corporate/syndicate/traitor, /datum/voucher_set/traitor/voucher_trade, 'sound/machines/card_slide.ogg')
 	},
+/obj/structure/showcase/fakeid,
 /turf/open/floor/mineral/plastitanium/red,
 /area/misc/operative_barracks/mission_briefing)
 "VZ" = (
@@ -5071,7 +5067,7 @@ SA
 ld
 vl
 Kw
-jI
+TP
 TP
 TP
 TP
