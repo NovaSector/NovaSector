@@ -7,7 +7,7 @@
 
 
 	for(var/datum/security_level/sec_level_path as anything in subtypesof(/datum/security_level))
-		var/datum/security_level/sec = allocate(type)
+		var/datum/security_level/sec_level = allocate(sec_level_path)
 
 		// Request the shuttle with the coefficient from this sec level
 		SSshuttle.emergency.request(null, set_coefficient = sec_levl.shuttle_call_time_mod)
