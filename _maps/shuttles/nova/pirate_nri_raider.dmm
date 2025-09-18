@@ -35,8 +35,8 @@
 /area/shuttle/pirate/nri)
 "bE" = (
 /obj/effect/turf_decal/stripes/line,
-/obj/structure/sign/flag/nri/directional/north,
 /obj/effect/mob_spawn/ghost_role/human/nri_raider/officer,
+/obj/structure/sign/flag/hc/directional/north,
 /turf/open/floor/pod/dark,
 /area/shuttle/pirate/nri)
 "bG" = (
@@ -558,8 +558,8 @@
 /area/shuttle/pirate/nri)
 "uw" = (
 /obj/machinery/light/very_dim/directional/north,
-/obj/structure/sign/flag/nri/directional/north,
 /obj/machinery/computer/centcom_announcement/nri_raider,
+/obj/structure/sign/flag/hc/directional/north,
 /turf/open/floor/pod/dark,
 /area/shuttle/pirate/nri)
 "uU" = (

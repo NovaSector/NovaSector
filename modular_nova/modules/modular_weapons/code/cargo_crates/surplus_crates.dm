@@ -64,7 +64,7 @@
 		/obj/item/ammo_box/magazine/lanca/spawns_empty = ITEM_WEIGHT_AMMO_SINGLE,
 		/obj/item/ammo_box/magazine/wylom = ITEM_WEIGHT_AMMO_SINGLE,
 		// Other items
-		/obj/item/sign/flag/nri = ITEM_WEIGHT_MISC,
+		/obj/item/sign/flag/hc = ITEM_WEIGHT_MISC,
 		/obj/item/trench_tool = ITEM_WEIGHT_MISC,
 		/obj/item/binoculars = ITEM_WEIGHT_MISC,
 		/obj/item/storage/box/nri_flares = ITEM_WEIGHT_MISC,
@@ -122,6 +122,7 @@
 		/obj/item/knife/combat/throwing = ITEM_WEIGHT_MISC_BUT_RARER,
 		/obj/item/storage/belt/machete/full = ITEM_WEIGHT_MISC_BUT_RARER,
 		/obj/item/storage/medkit/expeditionary/surplus = ITEM_WEIGHT_MISC_BUT_RARER,
+		/obj/item/mod/control/pre_equipped/jaeger_med = ITEM_WEIGHT_MISC_BUT_RARER, // where the hell did they find this one bruh
 		/obj/item/pointman_broken = ITEM_WEIGHT_GUN_RARE, // diy project for a shield that you can wield for 75 blockchance + beat people to death with
 		/obj/item/clothing/gloves/chief_engineer/expeditionary_corps = ITEM_WEIGHT_MISC_BUT_RARER, // congratulations you won (it's basically combat gloves but not quite)
 		/obj/item/modular_computer/pda/expeditionary_corps = ITEM_WEIGHT_MISC_BUT_RARER, // except for when you didn't (scammed)

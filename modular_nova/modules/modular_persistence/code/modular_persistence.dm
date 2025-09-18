@@ -24,6 +24,12 @@ GLOBAL_LIST_INIT(modular_persistence_ignored_vars, list(
 	/// The modular persistence data for a character.
 	var/datum/modular_persistence/modular_persistence
 
+/obj/item/organ/brain/Destroy(force)
+	if(!QDELETED(modular_persistence))
+		qdel(modular_persistence)
+	modular_persistence = null
+	return ..()
+
 /// Saves the contents of the modular persistence datum for the player's client to their file.
 /datum/controller/subsystem/persistence/proc/save_modular_persistence()
 	for(var/mob/living/carbon/human/player in GLOB.human_list)
@@ -60,7 +66,6 @@ GLOBAL_LIST_INIT(modular_persistence_ignored_vars, list(
 		owner_brain = null
 		return
 
-	RegisterSignal(our_brain, COMSIG_QDELETING, PROC_REF(on_brain_deleted))
 	stored_character_slot_index = our_brain.owner.mind?.original_character_slot_index
 
 	if(!persistence_data)
@@ -86,11 +91,6 @@ GLOBAL_LIST_INIT(modular_persistence_ignored_vars, list(
 /datum/modular_persistence/Destroy(force)
 	owner_brain = null
 	return ..()
-
-/datum/modular_persistence/proc/on_brain_deleted(datum/source)
-	SIGNAL_HANDLER
-
-	qdel(src)
 
 // On a base datum, this should be empty, at a glance.
 /datum/modular_persistence/proc/serialize_contents_to_list()

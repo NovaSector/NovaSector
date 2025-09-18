@@ -13,6 +13,7 @@
 	righthand_file = 'modular_nova/modules/modular_items/lewd_items/icons/mob/lewd_inhands/lewd_inhand_right.dmi'
 	body_parts_covered = CHEST | GROIN | LEGS | ARMS | HANDS
 	flags_inv = HIDEGLOVES | HIDESHOES | HIDEJUMPSUIT | HIDETAIL
+	obj_flags_nova = ERP_ITEM
 	clothing_flags = DANGEROUS_OBJECT
 	equip_delay_self = NONE
 	strip_delay = 12 SECONDS

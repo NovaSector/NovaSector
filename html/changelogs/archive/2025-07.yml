@@ -264,3 +264,52 @@
       containers that are not supposed to have that feature (like epi-pens for example)
 
       /:cl'
+2025-07-28:
+  BasilTamaya:
+  - rscadd: The proto-kinetic crusher now uses OVERLAY_LIGHT_DIRECTIONAL, to be consistent
+      with the crusher variants.
+  - qol: The machete can now be renamed.
+  - bugfix: Refactor of the mining weapons, now calls to parent proto-kinetic crusher
+      like it should, save for damage buffs/nerfs
+  Chestlet:
+  - rscadd: Added Custom Tongue quirk. Custom say modifiers that overwrite the ones
+      added by the Animal Traits quirk series. Works with augments+ tongues! Lowercase
+      a-z only, no symbols, numbers, or spaces!
+  LordHookie:
+  - rscadd: Added a new hard difficulty bitrunning domain, "Abductor Mothership",
+      with its own loot pool and associated enemy types.
+  OrionTheFox:
+  - qol: 'Sorted the following Loadout groups: Shoes, Suits.'
+  - bugfix: fixed an incorrect loadout entry for one of the recolorable Hoodies
+  - rscdel: Renamed "Worn Shirt" to "Wrinkled Shirt" (in loadout, "Oversized Shirt
+      - Wrinkled")
+  - rscdel: 'Removed "white suit jacket" and ''/obj/item/clothing/suit/toggle/lawyer/black/better'',
+      old resprites of the white/black suit jackets which have since been improved
+      drastically. (search: ''Suit Jacket'' in loadout)'
+  RealWinterFrost:
+  - qol: Solfed shuttle now has multi-z functionality
+  - bugfix: Solfed squadleader and officials now have access to solfed comms
+  SynthTwo:
+  - code_imp: Fixes a small oversight where bridge officer was using the wrong datum
+      in code.
+  carpotoxin:
+  - rscadd: Adds the Marauder midround traitor, rolling for ghost observers!
+  - rscdel: Removes lone infiltrator, farewell space cowboy.
+  - map: Adds bay 9, a small barracks attached to a large Syndicate compound.
+  - map: 'Adds traitor shuttle(s), there is just one for now...
+
+      _Less important stuff:_'
+  - qol: The voucher element has gotten support for sound effects and drop direction
+      in its argument list
+  - rscadd: Adds MODsuit construction plating for nukie, elite and infiltrator themes.
+      (not broadly available)
+  - rscadd: Adds a cordiolis hepatico pillbottle for replacing a heart or liver with
+      self-surgery. (not broadly available)
+  - image: A syndicate corporate plastic slip.
+2025-07-29:
+  RealWinterFrost:
+  - rscadd: Added Civilian Bounties to ghost roles (Dyne, DS-2, Tarkon)
+  - qol: All relevant ghost roles now get paid over time by their respective faction
+      (Applies to only DS2, Interdyne, and Tarkon)
+  - qol: Ghost roles such as DS-2, Interdyne, and Tarkon now have bank accounts relevant
+      to their owner!

@@ -30,6 +30,8 @@ GLOBAL_LIST_INIT(all_loadout_categories, init_loadout_categories())
  * Singleton that holds all the information about each loadout items, and how to equip them.
  */
 /datum/loadout_item
+	/// The abstract parent of this loadout item, to determine which items to not instantiate
+	abstract_type = /datum/loadout_item
 	/// The category of the loadout item. Set automatically in New
 	VAR_FINAL/datum/loadout_category/category
 	/// Displayed name of the loadout item.
@@ -49,8 +51,6 @@ GLOBAL_LIST_INIT(all_loadout_categories, init_loadout_categories())
 	/// Whether this item can be reskinned.
 	/// Only works if the item has a "unique reskin" list set.
 	var/can_be_reskinned = FALSE
-	/// The abstract parent of this loadout item, to determine which items to not instantiate
-	var/abstract_type = /datum/loadout_item
 	/// The actual item path of the loadout item.
 	var/obj/item/item_path
 	/// Icon file (DMI) for the UI to use for preview icons.
@@ -338,7 +338,7 @@ GLOBAL_LIST_INIT(all_loadout_categories, init_loadout_categories())
 		displayed_text[FA_ICON_SPAGHETTI_MONSTER_FLYING] = "Species Whitelist: [capitalize(jointext(restricted_species, ", "))]"
 	if(nova_stars_only)
 		displayed_text[FA_ICON_HOURGLASS_HALF] = "Nova Star-Only"
-	if(donator_only)
+	if(donator_only || ckeywhitelist)
 		displayed_text[FA_ICON_COINS] = "Donator-Only"
 	// NOVA EDIT ADDITION END
 	return displayed_text
@@ -392,7 +392,7 @@ GLOBAL_LIST_INIT(all_loadout_categories, init_loadout_categories())
 		UNTYPED_LIST_ADD(reskins, list(
 			"name" = skin,
 			"tooltip" = skin,
-			"skin_icon_state" = cached_reskin_options[skin],
+			"skin_icon_state" = can_be_greyscale ? ui_icon_state : cached_reskin_options[skin], // NOVA EDIT CHANGE - Get rid of the error icons - ORIGINAL: "skin_icon_state" = cached_reskin_options[skin]
 		))
 
 	return reskins

@@ -3,7 +3,7 @@
 /obj/effect/turf_decal/siding/dark/corner{
 	dir = 1
 	},
-/turf/closed/wall/r_wall/syndicate/nodiagonal,
+/turf/closed/wall/r_wall/plastitanium/syndicate/nodiagonal,
 /area/shuttle/interdyne_cargo)
 "e" = (
 /obj/effect/turf_decal/loading_area,
@@ -51,7 +51,7 @@
 /turf/open/floor/plating,
 /area/shuttle/interdyne_cargo)
 "v" = (
-/turf/closed/wall/r_wall/syndicate,
+/turf/closed/wall/r_wall/plastitanium/syndicate,
 /area/shuttle/interdyne_cargo)
 "w" = (
 /obj/machinery/power/shuttle_engine/heater{
@@ -68,7 +68,7 @@
 /turf/open/floor/plating/airless,
 /area/shuttle/interdyne_cargo)
 "y" = (
-/turf/closed/wall/r_wall/syndicate/nodiagonal,
+/turf/closed/wall/r_wall/plastitanium/syndicate/nodiagonal,
 /area/shuttle/interdyne_cargo)
 "z" = (
 /turf/open/floor/catwalk_floor/iron_dark,
@@ -105,7 +105,7 @@
 	dir = 4;
 	pixel_x = 12
 	},
-/turf/closed/wall/r_wall/syndicate,
+/turf/closed/wall/r_wall/plastitanium/syndicate,
 /area/shuttle/interdyne_cargo)
 "H" = (
 /obj/structure/closet/crate/eva,
@@ -141,6 +141,7 @@
 	icon_keyboard = "syndie_key";
 	dir = 8
 	},
+/obj/item/shuttle_remote/interdyne,
 /turf/open/floor/iron/dark/textured_large,
 /area/shuttle/interdyne_cargo)
 "N" = (
@@ -184,7 +185,7 @@
 /obj/effect/turf_decal/siding/dark/corner{
 	dir = 8
 	},
-/turf/closed/wall/r_wall/syndicate/nodiagonal,
+/turf/closed/wall/r_wall/plastitanium/syndicate/nodiagonal,
 /area/shuttle/interdyne_cargo)
 
 (1,1,1) = {"
