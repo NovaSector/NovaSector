@@ -5,7 +5,7 @@
 	value = -4
 	gain_text = span_notice("You feel your leg give out beneath you.")
 	lose_text = span_notice("Walking feels natural again.")
-	medical_record_text = "The patient presents with a limp leg, limiting unaided movement."
+	medical_record_text = " The patient demonstrates impaired mobility due to a limp leg."
 	quirk_flags = QUIRK_HUMAN_ONLY
 
 /datum/quirk_constant_data/limp_leg
@@ -25,7 +25,23 @@
 	)
 
 /datum/quirk/item_quirk/limp_leg/add(client/client_source)
-	ADD_TRAIT(quirk_holder, TRAIT_PARALYSIS_L_LEG, QUIRK_TRAIT)
+
+	var/leg_side = client_source?.prefs.read_preference(/datum/preference/choiced/limp_leg)
+
+	switch(leg_side)
+		if("Random")
+			var/selectedLeg = pick("Left leg", "Right leg")
+			if (selectedLeg == "Left leg")
+				ADD_TRAIT(quirk_holder, TRAIT_PARALYSIS_L_LEG, QUIRK_TRAIT)
+			else
+				ADD_TRAIT(quirk_holder, TRAIT_PARALYSIS_R_LEG, QUIRK_TRAIT)
+		if("Left leg")
+			ADD_TRAIT(quirk_holder, TRAIT_PARALYSIS_L_LEG, QUIRK_TRAIT)
+			return
+		if("Right leg")
+			ADD_TRAIT(quirk_holder, TRAIT_PARALYSIS_R_LEG, QUIRK_TRAIT)
+			return
 
 /datum/quirk/item_quirk/limp_leg/remove()
 	REMOVE_TRAIT(quirk_holder, TRAIT_PARALYSIS_L_LEG, QUIRK_TRAIT)
+	REMOVE_TRAIT(quirk_holder, TRAIT_PARALYSIS_R_LEG, QUIRK_TRAIT)
