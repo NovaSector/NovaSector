@@ -23,9 +23,6 @@
 /area/mine/science/common/dorm
 	name = "Xenoarcheology Resting Room"
 
-/area/mine/science/common/dorm
-	name = "Xenoarcheology Resting Room"
-
 /area/mine/science/common/storage
 	name = "Xenoarcheology Storage Room"
 
