@@ -93,6 +93,10 @@
 	name = "Suspenders (Colorable)"
 	item_path = /obj/item/clothing/suit/toggle/suspenders
 
+/datum/loadout_item/suit/big_sweater
+	name = "Big Sweater (Colorable)"
+	item_path = /obj/item/clothing/suit/nova/sweater
+
 /*
 *	WINTER COATS
 */
@@ -569,6 +573,11 @@
 /datum/loadout_item/suit/recolorable_overalls
 	name = "Overalls"
 	item_path = /obj/item/clothing/suit/apron/overalls
+	group = "Workwear"
+
+/datum/loadout_item/suit/overalls_loneskirt
+	name = "Overalls Skirt"
+	item_path = /obj/item/clothing/suit/apron/overalls_loneskirt
 	group = "Workwear"
 
 //Religious Clothing (Workwear for Chaplain. Better sorted here than in Costumes)
