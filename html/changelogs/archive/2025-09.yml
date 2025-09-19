@@ -659,3 +659,7 @@
   - admin: Add GPS debug tool to admin debug box
   tiramisuapimancer:
   - bugfix: you can actually get the hat stabilizer modsuit module on the black market
+2025-09-19:
+  carpotoxin:
+  - bugfix: The mapping helpers that add the voucher element to the marauder base's
+      equipment now function again
