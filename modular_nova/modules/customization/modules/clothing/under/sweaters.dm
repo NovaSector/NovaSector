@@ -28,3 +28,10 @@
 	icon_state = "/obj/item/clothing/under/sweater/keyhole"
 	post_init_icon_state = "keyhole_sweater"
 	greyscale_colors = "#c5699c"
+
+/obj/item/clothing/under/sweater/cleavage
+	name = "cleavage sweater"
+	desc = "It's just a sweater dress, but now with better views"
+	icon_state = "/obj/item/clothing/under/sweater/cleavage"
+	post_init_icon_state = "cleavage_sweater"
+	greyscale_colors = "#c5699c"
