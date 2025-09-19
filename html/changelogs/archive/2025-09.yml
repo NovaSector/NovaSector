@@ -583,6 +583,22 @@
   - sound: Throwing stars now make stab sounds instead of thud sounds
   MintMetal:
   - bugfix: fixed lost cable on Delta Station
+  OrbisAnima:
+  - balance: Gives small energy arms, and the SC2 derivates, self recharging capabilities,
+      10% of their charge per 15 seconds. Gives large energy arms a crank based recharge,
+      8 seconds of cranking (which can be done moving or shooting!) for 25% of the
+      charge, compared to a t1 recharger that takes 20 seconds to a full charge.
+  - balance: SC1, SC2 and the Hellgun were approved for civilian use in the frontier,
+      so they no longer require permit for concealed carry.
+  - admin: Removed the Admin GPS from the debug tool box. Its still spawnable if needed,
+      but it should make admin intervention less overtly.
+  - qol: In compliance with SolFed safety regulations, we have disabled the overdrive
+      from our escape shuttles, forcing us to replace the hyperdrives with TX2 models.
+      These are roughly 30% faster to prepare, but safety meassures cannot be skipped
+      from the startup, this means shuttles will take 12 minutes from 17 minutes to
+      prepare, and will arrive 3 minutes after preparation, setting the time for our
+      shuttles to arrive from CC to the station from 20 to 15 minutes, in all alert
+      levels.
   Pickle-Coding:
   - code_imp: Caches individual gases for gas reactions.
   RealWinterFrost:
@@ -605,6 +621,9 @@
   WebcomicArtist:
   - balance: EMPs now drain cells better, starting at 3 emps to drain a basic cell,
       up to 8 for bluespace.
+  carpotoxin:
+  - balance: Upon stealing the Captain's antique laser gun, the burglar alarm will
+      once again go off
   lelandkemble:
   - bugfix: Station MODules no longer provide illegal technology
   - balance: Poly talks less now
@@ -640,3 +659,7 @@
   - admin: Add GPS debug tool to admin debug box
   tiramisuapimancer:
   - bugfix: you can actually get the hat stabilizer modsuit module on the black market
+2025-09-19:
+  carpotoxin:
+  - bugfix: The mapping helpers that add the voucher element to the marauder base's
+      equipment now function again
