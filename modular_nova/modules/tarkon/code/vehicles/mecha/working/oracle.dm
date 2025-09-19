@@ -45,8 +45,7 @@
 
 
 /obj/item/mecha_parts/mecha_equipment/rcd/oracle
-
-	range = 7
+	detachable = FALSE
 	// Inherit from the base RCD module (adjust the parent path if needed)
 	// This override allows omnidirectional do_after for Oracle mechs
 	do_after_checks(atom/target, flags = MECH_DO_AFTER_DIR_CHANGE_FLAG)
