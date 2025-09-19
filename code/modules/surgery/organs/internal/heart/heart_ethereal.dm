@@ -233,9 +233,9 @@
 	regenerating.apply_status_effect(/datum/status_effect/vulnerable_to_damage) // NOVA EDIT ADDITION - This lasts for five minutes, the full duration of the cooldown.
 
 	if(prob(10)) //10% chance for a severe trauma
-		regenerating.gain_trauma_type(BRAIN_TRAUMA_SEVERE, TRAUMA_RESILIENCE_ABSOLUTE)
+		regenerating.gain_trauma_type(BRAIN_TRAUMA_SEVERE, TRAUMA_RESILIENCE_SURGERY)
 	else
-		regenerating.gain_trauma_type(BRAIN_TRAUMA_MILD, TRAUMA_RESILIENCE_ABSOLUTE)
+		regenerating.gain_trauma_type(BRAIN_TRAUMA_MILD, TRAUMA_RESILIENCE_SURGERY)
 
 	// revive calls fully heal -> deletes the crystal.
 	// this qdeleted check is just for sanity.
