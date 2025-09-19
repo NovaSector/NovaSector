@@ -4,17 +4,19 @@
 
 /obj/item/defibrillator/compact/combat/loaded/interdyne
 	name = "\improper Interdyne rapid combative defibrillator"
-	desc = "A belt-equipped combative defibrillator. Can revive through thick clothing, has an experimental self-recharging battery, and can be utilized as a weapon via applying the paddles while in a combat stance."
+	desc = "A belt-equipped combative defibrillator. Can revive through thick clothing, has an experimental self-recharging battery, however due to legal concerns these defibrillators have been installed with a safeline. \
+	safeline, heartbeat detector preventing malpractice with the defibrillators"
 	icon = 'modular_nova/master_files/icons/obj/medical/defib.dmi'
 	icon_state = "defibip"
 	inhand_icon_state = null
 	worn_icon_state = "defibip"
 	paddle_state = "defibip-paddles"
 	paddle_type = /obj/item/shockpaddles/interdyne
+	safety = TRUE
 
 /obj/item/shockpaddles/interdyne
 	name = "interdyne defibrillator paddles"
-	desc = "A pair of paddles used to revive deceased operatives. They possess both the ability to penetrate armor and to deliver powerful or disabling shocks offensively."
+	desc = "A pair of paddles used to revive deceased operatives. They possess the ability to penetrate armor."
 	combat = TRUE
 	icon = 'modular_nova/master_files/icons/obj/medical/defib.dmi'
 	icon_state = "ippaddles0"
