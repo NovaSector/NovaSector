@@ -34,8 +34,25 @@
 		)
 	job = /datum/job/mining_station_engineer
 
+//headset
+/obj/item/radio/headset/headset_minegineer
+	name = "engineering radio headset"
+	desc = "When the engineers wish to chat like girls."
+	icon_state = "eng_headset"
+	worn_icon_state = "eng_headset"
+	keyslot = /obj/item/encryptionkey/headset_minegineer
+
+/obj/item/encryptionkey/headset_minegineer
+	name = "mining engineer radio encryption key"
+	icon = 'icons/map_icons/items/encryptionkey.dmi'
+	icon_state = "/obj/item/encryptionkey/headset_mining"
+	post_init_icon_state = "cypherkey_cargo"
+	channels = list(RADIO_CHANNEL_SUPPLY = 1, RADIO_CHANNEL_SCIENCE = 1, RADIO_CHANNEL_ENGINEERING = 1)
+	greyscale_config = /datum/greyscale_config/encryptionkey_cargo
+	greyscale_colors = "#49241a#bc4a9b"
+
 // Outfit
-/datum/outfit/job/engineer/mining_station
+/datum/outfit/job/mining_station
 	name = "Mining Station Support Engineer"
 	jobtype = /datum/job/station_engineer
 	id = /obj/item/card/id/advanced/mining_station_engineer
@@ -43,7 +60,7 @@
 	uniform = /obj/item/clothing/under/rank/engineering/engineer/hazard
 	glasses = /obj/item/clothing/glasses/meson/engine/tray
 	belt = /obj/item/storage/belt/utility/full/engi
-	ears = /obj/item/radio/headset/headset_eng
+	ears = /obj/item/radio/headset/headset_minegineer
 	head = /obj/item/clothing/head/utility/hardhat/welding/up
 	shoes = /obj/item/clothing/shoes/workboots
 	l_pocket = /obj/item/modular_computer/pda/engineering
@@ -64,7 +81,8 @@
 
 // Spawner
 /obj/effect/mob_spawn/ghost_role/human/mining_station_engineer
-	prompt_name = "Mining Station Support Engineer"
+	name = "Mining Station Support Engineer"
+	prompt_name = "a mining Station Support Engineer"
 	icon = 'icons/obj/machines/sleeper.dmi'
 	icon_state = "sleeper-o"
 	you_are_text = "NT is contracting this station to handle operations, your job is to ensure it stays functional for them."
@@ -73,5 +91,5 @@
 	loadout_enabled = TRUE
 	quirks_enabled = TRUE
 	random_appearance = FALSE
-	outfit = /datum/outfit/job/engineer/mining_station
+	outfit = /datum/outfit/job/mining_station
 	spawner_job_path = /datum/job/mining_station_engineer
