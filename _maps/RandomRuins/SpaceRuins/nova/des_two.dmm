@@ -5178,17 +5178,15 @@
 	req_access = list("syndicate")
 	},
 /obj/structure/table,
-/obj/item/circuitboard/machine/syndiepad/syndicate,
-/obj/item/circuitboard/computer/syndiepad/syndicate{
+/obj/item/circuitboard/machine/ghostpad/syndicate,
+/obj/item/circuitboard/computer/ghostpad/syndicate{
 	pixel_x = 2;
 	pixel_y = 2
 	},
-/obj/item/circuitboard/computer/cargo/express/interdyne/syndicate{
+/obj/item/circuitboard/computer/cargo/express/ghost/syndicate{
 	pixel_y = 4;
 	pixel_x = 4
 	},
-/obj/item/circuitboard/machine/powerator/syndicate,
-/obj/item/circuitboard/machine/powerator/syndicate,
 /obj/item/circuitboard/machine/powerator/syndicate,
 /obj/item/circuitboard/machine/bountypad,
 /obj/item/circuitboard/computer/bountypad,

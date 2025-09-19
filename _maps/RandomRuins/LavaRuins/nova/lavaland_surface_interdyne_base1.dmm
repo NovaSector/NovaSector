@@ -5709,15 +5709,15 @@
 "UE" = (
 /obj/structure/table/reinforced,
 /obj/item/folder/syndicate/red/secretformula,
-/obj/item/circuitboard/computer/syndiepad{
+/obj/item/circuitboard/computer/ghostpad/interdyne{
 	pixel_x = 2;
 	pixel_y = 2
 	},
-/obj/item/circuitboard/machine/syndiepad{
+/obj/item/circuitboard/machine/ghostpad/interdyne{
 	pixel_x = 4;
 	pixel_y = 4
 	},
-/obj/item/circuitboard/computer/cargo/express/interdyne{
+/obj/item/circuitboard/computer/cargo/express/ghost/interdyne{
 	pixel_x = 6;
 	pixel_y = 6
 	},
@@ -5940,8 +5940,6 @@
 /area/ruin/interdyne_planetary_base/cargo)
 "Wf" = (
 /obj/structure/rack/gunrack,
-/obj/item/circuitboard/machine/powerator/interdyne,
-/obj/item/circuitboard/machine/powerator/interdyne,
 /obj/item/circuitboard/machine/powerator/interdyne,
 /obj/item/circuitboard/computer/bountypad,
 /obj/item/circuitboard/machine/bountypad,
