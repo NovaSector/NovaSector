@@ -10,6 +10,11 @@
 	// remember what the name was before activation
 	var/original_name
 
+/datum/quirk/hydra/is_species_appropriate(datum/species/mob_species)
+	if(ispath(mob_species, /datum/species/dullahan))
+		return FALSE
+	return ..()
+
 /datum/quirk/hydra/add(client/client_source)
 	var/mob/living/carbon/human/hydra = quirk_holder
 	var/datum/action/innate/hydra/spell = new(hydra)
