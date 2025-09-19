@@ -34,10 +34,10 @@
 		VITEZSTVI_AMMO_NAME,
 	)
 
+	pod_type = /obj/structure/closet/supplypod/bluespacepod
+
 	allowed_categories += categories
 	return ..()
-
-	pod_type = /obj/structure/closet/supplypod/bluespacepod
 
 /obj/machinery/computer/cargo/express/interdyne/on_construction(mob/user)
 	. = ..()
