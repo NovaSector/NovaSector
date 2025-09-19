@@ -2,7 +2,7 @@
 * We're buffing the mobs HP and in a couple cases damage to account for Nova's increased health pool and mining gear
 */
 /// General Fauna
-// Worm(s) +50 hp
+// Worm(s) +50 hp over base
 /mob/living/basic/mining/bileworm
 	maxHealth = 150
 	health = 150
@@ -11,7 +11,7 @@
 	maxHealth = 200
 	health = 200
 
-// Goliath Online
+// Goliath Online +50hp over base
 /mob/living/basic/mining/goliath
 	maxHealth = 350
 	health = 350
@@ -32,7 +32,7 @@
 	icon = 'modular_nova/modules/lavaland_expac/icons/64x64megafauna.dmi'
 	maxHealth = 550
 
-// Ash Drake - 500 more HP and a smidge more  CHOMP
+// Ash Drake - 500 more HP and a smidge more CHOMP
 /mob/living/simple_animal/hostile/megafauna/dragon
 	health = 3000
 	maxHealth = 3000
@@ -51,7 +51,7 @@
 	health = 3000
 	maxHealth = 3000
 
-// let's see what happens when we give the BDM cocaine?
+// Blood Drunk Miner - What happens when you give the BDM cocaine?
 /mob/living/simple_animal/hostile/megafauna/blood_drunk_miner
 	health = 1300
 	maxHealth = 1300
