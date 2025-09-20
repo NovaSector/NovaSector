@@ -46,8 +46,8 @@
 	desc = "A ninja- in space."
 	melee_damage_lower = 40
 	melee_damage_upper = 40
-	corpse = obj/effect/mob_spawn/corpse/human/nanotrasensoldier/ninja
-	mob_spawner = obj/effect/mob_spawn/corpse/human/nanotrasensoldier/ninja
+	corpse = /obj/effect/mob_spawn/corpse/human/nanotrasensoldier/ninja
+	mob_spawner = /obj/effect/mob_spawn/corpse/human/nanotrasensoldier/ninja
 	attack_verb_continuous = "slashes"
 	attack_verb_simple = "slash"
 	attack_sound = 'sound/items/weapons/bladeslice.ogg'
