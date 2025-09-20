@@ -1,9 +1,10 @@
 /// Name-change proc to be used for midround antags that would like to change their name
 /datum/dynamic_ruleset/midround/from_ghosts/proc/prompt_namechange(mob/living/player, client/player_client)
+	if(!player_client)
+		return
 	var/old_name = player.real_name
 	player.playsound_local(player, 'sound/machines/terminal/terminal_prompt.ogg', 50, FALSE)
-	if(player_client)
-		window_flash(player_client)
+	window_flash(player_client)
 	switch(tgui_alert(
 			player,
 			"Do you wish to take on an alias?",
@@ -71,12 +72,3 @@
 			sleeper_current_polling -= candidate
 
 	return yes_candidate
-
-// We overwrite this proc decently because its kind of incompatible with our character customizer
-/datum/dynamic_ruleset/midround/from_ghosts/space_ninja/assign_role(datum/mind/candidate)
-	var/mob/living/carbon/human/new_ninja = candidate.current
-	new_ninja.forceMove(find_space_spawn()) // ninja antag datum needs the mob to be in place first
-	new_ninja.dna.update_dna_identity() // ninja antag datum needs dna to be set first
-	candidate.add_antag_datum(/datum/antagonist/ninja)
-	if(new_ninja.client)
-		prompt_namechange(new_ninja, new_ninja.client)
