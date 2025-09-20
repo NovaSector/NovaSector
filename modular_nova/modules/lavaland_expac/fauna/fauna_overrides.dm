@@ -18,12 +18,17 @@
 	melee_damage_lower = 30
 	melee_damage_upper = 30
 
+// let's slash that grapple time
+/datum/status_effect/incapacitating/stun/goliath_tentacled
+	duration = 6 SECONDS
+
 /// Megafauna
 // Legion - mild HP buff and Damage
 /mob/living/simple_animal/hostile/megafauna/legion
 	name = "Ashen Legion"
 	health = 1000
 	maxHealth = 1000
+	speed = 3
 	melee_damage_lower = 30
 	melee_damage_upper = 30
 	icon = 'modular_nova/modules/lavaland_expac/icons/96x96megafauna.dmi'
@@ -55,7 +60,7 @@
 /mob/living/simple_animal/hostile/megafauna/blood_drunk_miner
 	health = 1300
 	maxHealth = 1300
-	speed = 2
+	speed = 2.5
 	move_to_delay = 2.5
 
 // The less cool BDM
