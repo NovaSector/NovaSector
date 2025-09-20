@@ -29,6 +29,7 @@
 	pod_type = /obj/structure/closet/supplypod/bluespacepod
 
 /obj/machinery/computer/cargo/express/ghost/Initialize(mapload)
+	. = ..()
 	if(type == abstract_type) // These are not meant to be spawned
 		return INITIALIZE_HINT_QDEL
 	return ..()
