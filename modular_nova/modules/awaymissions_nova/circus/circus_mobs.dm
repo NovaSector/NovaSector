@@ -40,3 +40,27 @@
 	desc = "A great replica of a Mauler that is completely non functional."
 	icon = 'icons/mob/rideables/mecha.dmi'
 	icon_state = "mauler"
+
+/mob/living/basic/trooper/syndicate/melee/ninja //Long before time had a name, Ninjago was created by the first Spinjitzu master by using the four weapons of Spinjitzu.
+	name = "Space Ninja"
+	desc = "A ninja- in space."
+	melee_damage_lower = 40
+	melee_damage_upper = 40
+	corpse = /obj/effect/mob_spawn/corpse/human/syndicatepilot/lessenedgear/ninja
+	mob_spawner = /obj/effect/mob_spawn/corpse/human/syndicatepilot/lessenedgear/ninja
+	attack_verb_continuous = "slashes"
+	attack_verb_simple = "slash"
+	attack_sound = 'sound/items/weapons/bladeslice.ogg'
+	attack_vis_effect = ATTACK_EFFECT_SLASH
+	r_hand = /obj/item/katana/ninja_blade
+	projectile_deflect_chance = 50
+
+/obj/effect/mob_spawn/corpse/human/syndicatepilot/lessenedgear/ninja
+	name = "Ninja corpse"
+	uniform = /obj/item/clothing/under/syndicate/ninja
+	shoes = /obj/item/clothing/shoes/combat
+	gloves = /obj/item/clothing/gloves/tackler/combat
+	ears = /obj/item/radio/headset/syndicate/alt
+	mask = /obj/item/clothing/mask/gas/ninja
+	back = /obj/item/mod/control/pre_equipped/ninja
+	id = /obj/item/card/id/advanced/black/syndicate_command
