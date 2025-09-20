@@ -98,14 +98,6 @@
 
 
 // HIGH COST
-/datum/uplink_item/dangerous/rawketlawnchair
-	name = "Dardo-RE Rocket Propelled Grenade Launcher Case"
-	desc = "A reusable rocket propelled grenade launcher preloaded with a low-yield 84mm HE round. \
-			Guaranteed to take your target out with a bang, or your money back! Comes with a bouquet of additional rockets!"
-	cost = /datum/uplink_item/high_cost/weaponry::cost
-	item = /obj/item/storage/toolbox/guncase/nova/opfor/rpg
-	purchasable_from = UPLINK_TRAITORS
-
 /datum/uplink_item/dangerous/shitzu
 	name = "Shitzu Magfed Shotgun Case"
 	desc = "Everyone says a dog is a man's best friend, lets change that and make man's best friend a 12 gauge magfed shotgun! Thanks to the beloved contributions from the Gorlex Marauders."
