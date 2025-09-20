@@ -21,6 +21,7 @@
 
 /obj/projectile/bullet/shotgun_slug
 	damage = 50 // based on old stats
+	armour_penetration = 10 // except old stats didn't give these armor pen. but they can keep some as a treat
 
 /obj/item/ammo_casing/shotgun/milspec
 	desc = "A hot-loaded 12 gauge milspec slug shell, used by various paramilitaries and mercenary forces. Probably not legal to use under corporate regulations."
@@ -30,6 +31,7 @@
 
 /obj/projectile/bullet/shotgun_slug/milspec
 	damage = 60 // the fine art of physically removing chunks of flesh from your fellow spaceman
+	armour_penetration = 30 // these can keep the armor pen though. maybe. probably.
 	speed = 1.5
 
 // THE BELOW TWO SLUGS ARE NOTED AS ADMIN ONLY AND HAVE ***EIGHTY*** WOUND BONUS. NOT BARE WOUND BONUS. FLAT WOUND BONUS.
