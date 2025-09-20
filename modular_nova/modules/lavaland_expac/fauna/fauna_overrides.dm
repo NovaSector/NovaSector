@@ -11,17 +11,6 @@
 	maxHealth = 200
 	health = 200
 
-// Goliath Online +50hp over base
-/mob/living/basic/mining/goliath
-	maxHealth = 350
-	health = 350
-	melee_damage_lower = 30
-	melee_damage_upper = 30
-
-// let's slash that grapple time
-/datum/status_effect/incapacitating/stun/goliath_tentacled
-	duration = 6 SECONDS
-
 /// Megafauna
 // Legion - mild HP buff and Damage
 /mob/living/simple_animal/hostile/megafauna/legion
