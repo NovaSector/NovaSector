@@ -55,6 +55,10 @@
 	r_hand = /obj/item/katana/ninja_blade
 	projectile_deflect_chance = 50
 
+/mob/living/basic/trooper/syndicate/melee/ninja/display //Long before time had a name, Ninjago was created by the first Spinjitzu master by using the four weapons of Spinjitzu.
+
+	ai_controller = null
+
 /obj/effect/mob_spawn/corpse/human/syndicatepilot/lessenedgear/ninja
 	name = "Ninja corpse"
 	uniform = /obj/item/clothing/under/syndicate/ninja
