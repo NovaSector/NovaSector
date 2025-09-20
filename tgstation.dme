@@ -8298,7 +8298,6 @@
 #include "modular_nova\modules\lathe_medipens\code\autolathe_designs.dm"
 #include "modular_nova\modules\lathe_medipens\code\hypospray.dm"
 #include "modular_nova\modules\lavaland_expac\area.dm"
-#include "modular_nova\modules\Lavaland_expac\area.dm"
 #include "modular_nova\modules\lavaland_expac\fauna\fauna_overrides.dm"
 #include "modular_nova\modules\lavaland_expac\job\outpost_engineer.dm"
 #include "modular_nova\modules\layer_shift\code\mob_movement.dm"
