@@ -225,7 +225,6 @@
 /area/space)
 "fc" = (
 /obj/structure/sign/poster/contraband/space_up/directional/north,
-/obj/machinery/vending/cola/starkist,
 /turf/open/floor/mineral/titanium/tiled,
 /area/space)
 "fn" = (
@@ -379,6 +378,16 @@
 	initial_gas_mix = "plasma=35000;TEMP=293.15"
 	},
 /area/space)
+"iv" = (
+/obj/structure/rack,
+/obj/item/clothing/head/costume/shrine_wig{
+	pixel_x = -1;
+	pixel_y = 11
+	},
+/obj/item/clothing/suit/chaplainsuit/shrinehand,
+/obj/item/clothing/suit/costume/shrine_maiden,
+/turf/open/floor/bamboo,
+/area/space)
 "iy" = (
 /obj/machinery/computer/rdconsole{
 	dir = 8
@@ -389,6 +398,12 @@
 "iA" = (
 /obj/machinery/atmospherics/pipe/smart/simple/yellow/hidden,
 /turf/open/indestructible/rockyground,
+/area/space)
+"iG" = (
+/obj/item/katana,
+/obj/structure/rack,
+/obj/item/katana/ninja_blade,
+/turf/open/floor/bamboo,
 /area/space)
 "iH" = (
 /obj/structure/fence/door{
@@ -656,6 +671,11 @@
 "oy" = (
 /turf/open/misc/grass/jungle,
 /area/space)
+"oE" = (
+/obj/structure/window/reinforced/survival_pod/indestructible/spawner/directional/south,
+/obj/structure/rack,
+/turf/open/floor/iron/solarpanel,
+/area/space)
 "oM" = (
 /obj/structure/rack,
 /obj/effect/spawner/random/engineering/toolbox,
@@ -819,6 +839,11 @@
 	},
 /turf/open/floor/iron/white,
 /area/space)
+"sj" = (
+/obj/structure/rack,
+/obj/item/clothing/head/costume/rice_hat,
+/turf/open/floor/bamboo,
+/area/space)
 "sk" = (
 /obj/structure/fence,
 /turf/open/floor/plating,
@@ -828,6 +853,10 @@
 	dir = 8
 	},
 /turf/open/floor/iron/white,
+/area/space)
+"sG" = (
+/obj/structure/reagent_dispensers/water_cooler,
+/turf/open/floor/mineral/titanium/tiled,
 /area/space)
 "sQ" = (
 /obj/effect/spawner/random/trash/garbage,
@@ -957,6 +986,10 @@
 /obj/item/pizzabox/mushroom,
 /turf/open/floor/eighties/red,
 /area/space)
+"uQ" = (
+/obj/structure/window/reinforced/survival_pod/indestructible/spawner/directional/north,
+/turf/open/floor/bamboo,
+/area/space)
 "uT" = (
 /obj/structure/chair/comfy/shuttle{
 	dir = 1
@@ -1008,6 +1041,10 @@
 "vA" = (
 /mob/living/basic/garden_gnome,
 /turf/open/floor/carpet/cyan,
+/area/space)
+"vB" = (
+/obj/machinery/vending/imported/yangyu,
+/turf/open/floor/bamboo,
 /area/space)
 "wc" = (
 /obj/structure/disposalpipe/trunk,
@@ -1084,6 +1121,10 @@
 	},
 /obj/structure/window/reinforced/spawner/directional/east,
 /turf/open/floor/eighties/red,
+/area/space)
+"wQ" = (
+/obj/structure/window/reinforced/survival_pod/indestructible/spawner/directional/south,
+/turf/open/floor/iron/solarpanel,
 /area/space)
 "xc" = (
 /obj/structure/chair/plastic{
@@ -1524,6 +1565,11 @@
 	icon_state = "bus"
 	},
 /area/space)
+"Ey" = (
+/obj/machinery/vending/cola/starkist,
+/obj/structure/sign/poster/contraband/starkist/directional/north,
+/turf/open/floor/mineral/titanium/tiled,
+/area/space)
 "EP" = (
 /obj/structure/rack,
 /obj/effect/spawner/random/food_or_drink/seed,
@@ -1571,6 +1617,11 @@
 	},
 /obj/effect/turf_decal/siding/wood,
 /turf/open/floor/eighties/red,
+/area/space)
+"FG" = (
+/obj/structure/rack,
+/obj/item/clothing/under/costume/kimono/red,
+/turf/open/floor/bamboo,
 /area/space)
 "FT" = (
 /obj/structure/sign/warning/no_smoking,
@@ -1892,6 +1943,9 @@
 /obj/effect/spawner/random/trash/deluxe_garbage,
 /turf/open/indestructible/rockyground,
 /area/space)
+"MS" = (
+/turf/open/floor/iron/solarpanel,
+/area/space)
 "Ne" = (
 /obj/structure/fluff/bus/dense{
 	icon_state = "frontwallbottom"
@@ -1915,6 +1969,10 @@
 /turf/open/floor/iron/white/side{
 	dir = 1
 	},
+/area/space)
+"NM" = (
+/obj/structure/rack,
+/turf/open/floor/iron/solarpanel,
 /area/space)
 "NO" = (
 /obj/structure/fence{
@@ -1960,6 +2018,11 @@
 "ON" = (
 /obj/structure/billboard/lizards_gas,
 /turf/open/indestructible/rockyground,
+/area/space)
+"OW" = (
+/obj/structure/rack,
+/obj/item/clothing/under/costume/kimono/purple,
+/turf/open/floor/bamboo,
 /area/space)
 "OX" = (
 /obj/structure/billboard/fortune_telling,
@@ -32648,14 +32711,14 @@ ZU
 ZU
 ZU
 Pu
-Hi
-Hi
-Hi
+Pu
+Pu
+Pu
 Hi
 Hi
 Hi
 Pu
-HS
+vB
 HS
 HS
 Pu
@@ -32915,9 +32978,9 @@ Pu
 HS
 HS
 HS
-HS
-HS
-HS
+uQ
+sj
+FG
 Pu
 ZU
 yz
@@ -33172,7 +33235,7 @@ Pu
 HS
 HS
 HS
-HS
+uQ
 HS
 HS
 Pu
@@ -33429,7 +33492,7 @@ Pu
 HS
 HS
 HS
-HS
+uQ
 HS
 HS
 Pu
@@ -33686,9 +33749,9 @@ Pu
 HS
 HS
 HS
-HS
-HS
-HS
+uQ
+iv
+iG
 Pu
 ZU
 yz
@@ -33943,7 +34006,7 @@ Pu
 HS
 HS
 HS
-HS
+uQ
 HS
 HS
 Pu
@@ -34200,7 +34263,7 @@ Pu
 HS
 HS
 HS
-HS
+uQ
 HS
 HS
 Pu
@@ -34457,9 +34520,9 @@ Pu
 HS
 HS
 HS
-HS
-HS
-HS
+uQ
+sj
+OW
 Pu
 ZU
 BN
@@ -34704,12 +34767,12 @@ ZU
 ZU
 ZU
 Pu
-Hi
-Hi
-Hi
-Hi
-Hi
-Hi
+Pu
+Pu
+Pu
+MS
+MS
+MS
 Pu
 iS
 dm
@@ -34961,12 +35024,12 @@ ZU
 ZU
 ZU
 Pu
-Hi
-Hi
-Hi
-Hi
-Hi
-Hi
+MS
+MS
+wQ
+MS
+MS
+MS
 Pu
 dm
 dm
@@ -35218,12 +35281,12 @@ ZU
 ZU
 ZU
 Pu
-Hi
-Hi
-Hi
-Hi
-Hi
-Hi
+MS
+MS
+wQ
+MS
+MS
+MS
 Pu
 dm
 dm
@@ -35475,12 +35538,12 @@ ZU
 ZU
 ZU
 Pu
-Hi
-Hi
-Hi
-Hi
-Hi
-Hi
+MS
+MS
+wQ
+MS
+MS
+MS
 Pu
 dm
 dm
@@ -35732,12 +35795,12 @@ ZU
 ZU
 ZU
 Pu
-Hi
-Hi
-Hi
-Hi
-Hi
-Hi
+MS
+NM
+oE
+MS
+MS
+MS
 Pu
 dm
 dm
@@ -35989,12 +36052,12 @@ ZU
 ZU
 ZU
 Pu
-Hi
-Hi
-Hi
-Hi
-Hi
-Hi
+MS
+MS
+wQ
+MS
+MS
+MS
 Pu
 dm
 dm
@@ -36246,12 +36309,12 @@ ZU
 ZU
 ZU
 Pu
-Hi
-Hi
-Hi
-Hi
-Hi
-Hi
+MS
+MS
+wQ
+MS
+MS
+MS
 Pu
 dm
 dm
@@ -36503,12 +36566,12 @@ ZU
 ZU
 ZU
 Pu
-Hi
-Hi
-Hi
-Hi
-Hi
-Hi
+MS
+MS
+wQ
+MS
+MS
+MS
 Pu
 dm
 dm
@@ -36760,12 +36823,12 @@ ZU
 ZU
 ZU
 Pu
-Hi
-Hi
-Hi
-Hi
-Hi
-Hi
+Pu
+Pu
+Pu
+Pu
+mU
+Pu
 Pu
 vl
 kN
@@ -37017,12 +37080,12 @@ ZU
 ZU
 ZU
 Pu
-Pu
-Pu
-mU
-Pu
-Pu
-Pu
+Ey
+HX
+HX
+HX
+HX
+sG
 Pu
 kN
 kN
@@ -37278,7 +37341,7 @@ fc
 HX
 HX
 CH
-HX
+CH
 CH
 BN
 kN
