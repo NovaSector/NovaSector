@@ -6,6 +6,7 @@
 /obj/machinery/computer/cargo/express/ghost
 	name = "\improper Soar Industries Express Delivery Console"
 	desc = "A Standard express delivery console, preloaded with a specialized protocol by SOAR Industries. Allowing it to access specialized companies."
+	abstract_type = /obj/machinery/computer/cargo/express/ghost
 	circuit = /obj/item/circuitboard/computer/cargo/express/ghost
 	req_access = list(ACCESS_SYNDICATE)
 	cargo_account = ACCOUNT_CIV /// Change this later to somethin else, as this is meant to prevent runtiming
@@ -26,6 +27,11 @@
 	)
 
 	pod_type = /obj/structure/closet/supplypod/bluespacepod
+
+/obj/machinery/computer/cargo/express/ghost/Initialize(mapload)
+	if(type == abstract_type) // These are not meant to be spawned
+		return INITIALIZE_HINT_QDEL
+	return ..()
 
 /obj/machinery/computer/cargo/express/ghost/on_construction(mob/user)
 	. = ..()
