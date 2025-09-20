@@ -32,7 +32,6 @@
 	. = ..()
 	if(type == abstract_type) // These are not meant to be spawned
 		return INITIALIZE_HINT_QDEL
-	return ..()
 
 /obj/machinery/computer/cargo/express/ghost/on_construction(mob/user)
 	. = ..()
