@@ -19,6 +19,14 @@
 	},
 /turf/open/floor/iron/dark/textured_large,
 /area/space)
+"au" = (
+/obj/structure/rack,
+/obj/item/storage/toolbox/guncase/soviet/sakhno,
+/obj/structure/window/reinforced/survival_pod/indestructible/spawner/directional/south,
+/turf/open/floor/mineral/plastitanium/red{
+	name = "soviet floor"
+	},
+/area/space)
 "az" = (
 /obj/structure/window/reinforced/tinted/spawner/directional/west,
 /turf/open/floor/iron/dark{
@@ -44,7 +52,7 @@
 /obj/machinery/vending/toyliberationstation{
 	req_access = list("syndicate")
 	},
-/turf/open/floor/mineral/plastitanium/red,
+/turf/open/floor/mineral/plastitanium,
 /area/space)
 "aM" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
@@ -60,6 +68,13 @@
 "ba" = (
 /obj/machinery/door/airlock,
 /turf/open/floor/plating,
+/area/space)
+"bi" = (
+/obj/item/storage/pouch/cin_medipens,
+/obj/structure/rack,
+/turf/open/floor/mineral/plastitanium/red{
+	name = "soviet floor"
+	},
 /area/space)
 "bs" = (
 /obj/effect/turf_decal/siding/thinplating/dark{
@@ -160,7 +175,7 @@
 /turf/open/floor/plating,
 /area/space)
 "dm" = (
-/turf/open/floor/mineral/plastitanium/red,
+/turf/open/floor/mineral/plastitanium,
 /area/space)
 "du" = (
 /turf/open/floor/pod/dark,
@@ -324,10 +339,8 @@
 	},
 /area/space)
 "gN" = (
-/mob/living/basic/trooper/syndicate/ranged/shotgun/space/stormtrooper/anthro/fox{
-	ai_controller = null
-	},
-/turf/open/floor/mineral/plastitanium/red,
+/mob/living/basic/trooper/syndicate/ranged/shotgun/space/stormtrooper/anthro/fox/display,
+/turf/open/floor/mineral/plastitanium,
 /area/space)
 "hl" = (
 /obj/structure/table/wood/fancy/blue,
@@ -413,11 +426,11 @@
 /area/space)
 "iN" = (
 /obj/machinery/vending/medical/syndicate,
-/turf/open/floor/mineral/plastitanium/red,
+/turf/open/floor/mineral/plastitanium,
 /area/space)
 "iS" = (
 /obj/machinery/vending/wardrobe/syndie_wardrobe,
-/turf/open/floor/mineral/plastitanium/red,
+/turf/open/floor/mineral/plastitanium,
 /area/space)
 "iT" = (
 /obj/machinery/door/airlock/hatch,
@@ -573,6 +586,12 @@
 	initial_gas_mix = "plasma=35000;TEMP=293.15"
 	},
 /area/space)
+"md" = (
+/obj/structure/window/reinforced/survival_pod/indestructible/spawner/directional/south,
+/turf/open/floor/mineral/plastitanium/red{
+	name = "soviet floor"
+	},
+/area/space)
 "mn" = (
 /obj/item/clothing/mask/gas/glass,
 /obj/structure/rack,
@@ -663,10 +682,8 @@
 /turf/open/floor/iron/dark/textured_large,
 /area/space)
 "ot" = (
-/mob/living/basic/trooper/syndicate/melee/space/stormtrooper{
-	ai_controller = null
-	},
-/turf/open/floor/mineral/plastitanium/red,
+/mob/living/basic/trooper/syndicate/melee/space/stormtrooper/display,
+/turf/open/floor/mineral/plastitanium,
 /area/space)
 "oy" = (
 /turf/open/misc/grass/jungle,
@@ -674,7 +691,7 @@
 "oE" = (
 /obj/structure/window/reinforced/survival_pod/indestructible/spawner/directional/south,
 /obj/structure/rack,
-/turf/open/floor/iron/solarpanel,
+/turf/open/floor/iron/solarpanel/terrible_pun,
 /area/space)
 "oM" = (
 /obj/structure/rack,
@@ -712,7 +729,7 @@
 /area/space)
 "pv" = (
 /obj/machinery/computer/pandemic,
-/turf/open/floor/mineral/plastitanium/red,
+/turf/open/floor/mineral/plastitanium,
 /area/space)
 "pA" = (
 /obj/structure/table/reinforced,
@@ -833,6 +850,10 @@
 /obj/item/target/syndicate,
 /turf/open/floor/wood,
 /area/space)
+"rU" = (
+/obj/structure/showcase/mecha/marauder,
+/turf/open/floor/mineral/titanium/tiled/blue,
+/area/space)
 "sd" = (
 /obj/effect/turf_decal/tile/dark{
 	dir = 8
@@ -847,6 +868,14 @@
 "sk" = (
 /obj/structure/fence,
 /turf/open/floor/plating,
+/area/space)
+"sr" = (
+/obj/item/storage/backpack/industrial/cin_surplus,
+/obj/item/storage/belt/military/cin_surplus,
+/obj/structure/rack,
+/turf/open/floor/mineral/plastitanium/red{
+	name = "soviet floor"
+	},
 /area/space)
 "sC" = (
 /obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer2{
@@ -1124,7 +1153,7 @@
 /area/space)
 "wQ" = (
 /obj/structure/window/reinforced/survival_pod/indestructible/spawner/directional/south,
-/turf/open/floor/iron/solarpanel,
+/turf/open/floor/iron/solarpanel/terrible_pun,
 /area/space)
 "xc" = (
 /obj/structure/chair/plastic{
@@ -1151,6 +1180,10 @@
 	dir = 8
 	},
 /turf/open/floor/iron/dark/textured_large,
+/area/space)
+"xD" = (
+/obj/structure/showcase/mecha/gygax,
+/turf/open/floor/mineral/titanium/tiled/blue,
 /area/space)
 "xG" = (
 /obj/effect/turf_decal/siding/thinplating/dark{
@@ -1378,6 +1411,13 @@
 "BN" = (
 /turf/closed/wall,
 /area/space)
+"BW" = (
+/obj/structure/rack,
+/obj/item/storage/toolbox/guncase/soviet,
+/turf/open/floor/mineral/plastitanium/red{
+	name = "soviet floor"
+	},
+/area/space)
 "BX" = (
 /obj/effect/turf_decal/tile/dark{
 	dir = 1
@@ -1410,6 +1450,10 @@
 /turf/open/floor/iron/dark{
 	icon_state = "bus"
 	},
+/area/space)
+"Cx" = (
+/obj/structure/showcase/mecha/mauler,
+/turf/open/floor/mineral/plastitanium,
 /area/space)
 "CB" = (
 /obj/effect/turf_decal/siding/wood{
@@ -1448,6 +1492,11 @@
 /obj/machinery/door/airlock/survival_pod,
 /turf/open/floor/carpet/cyan,
 /area/space)
+"CY" = (
+/turf/open/floor/mineral/plastitanium/red{
+	name = "soviet floor"
+	},
+/area/space)
 "Da" = (
 /obj/effect/spawner/structure/window/reinforced,
 /turf/open/floor/iron/large,
@@ -1471,6 +1520,13 @@
 /obj/structure/fluff/bus/passable/seat,
 /turf/open/floor/iron/dark{
 	icon_state = "bus"
+	},
+/area/space)
+"Dq" = (
+/obj/structure/rack,
+/obj/item/gun/ballistic/revolver/shotgun_revolver,
+/turf/open/floor/mineral/plastitanium/red{
+	name = "soviet floor"
 	},
 /area/space)
 "Ds" = (
@@ -1711,7 +1767,7 @@
 "Iy" = (
 /obj/structure/sign/flag/syndicate/directional/south,
 /obj/structure/rack/gunrack,
-/turf/open/floor/mineral/plastitanium/red,
+/turf/open/floor/mineral/plastitanium,
 /area/space)
 "IA" = (
 /obj/machinery/atmospherics/components/unary/portables_connector{
@@ -1797,6 +1853,12 @@
 	},
 /turf/open/floor/stone,
 /area/space)
+"Kc" = (
+/obj/item/gun,
+/turf/open/floor/mineral/plastitanium/red{
+	name = "soviet floor"
+	},
+/area/space)
 "Kr" = (
 /obj/structure/fluff/bus/dense{
 	icon_state = "reartire"
@@ -1881,6 +1943,10 @@
 	},
 /turf/open/floor/iron/dark/textured_large,
 /area/space)
+"Mf" = (
+/obj/structure/showcase/mecha/durand,
+/turf/open/floor/mineral/titanium/tiled/blue,
+/area/space)
 "Mg" = (
 /obj/machinery/space_heater,
 /turf/open/misc/asteroid/snow/snow_cabin,
@@ -1944,7 +2010,7 @@
 /turf/open/indestructible/rockyground,
 /area/space)
 "MS" = (
-/turf/open/floor/iron/solarpanel,
+/turf/open/floor/iron/solarpanel/terrible_pun,
 /area/space)
 "Ne" = (
 /obj/structure/fluff/bus/dense{
@@ -1972,7 +2038,7 @@
 /area/space)
 "NM" = (
 /obj/structure/rack,
-/turf/open/floor/iron/solarpanel,
+/turf/open/floor/iron/solarpanel/terrible_pun,
 /area/space)
 "NO" = (
 /obj/structure/fence{
@@ -2006,9 +2072,7 @@
 /turf/open/floor/plating,
 /area/space)
 "Oo" = (
-/mob/living/basic/trooper/nanotrasen/ranged/assault{
-	ai_controller = null
-	},
+/mob/living/basic/trooper/nanotrasen/ranged/assault/dispaly,
 /turf/open/floor/mineral/titanium/tiled/blue,
 /area/space)
 "Ou" = (
@@ -2031,6 +2095,13 @@
 "OY" = (
 /obj/structure/fluff/beach_umbrella/cap,
 /turf/open/floor/stone,
+/area/space)
+"Pg" = (
+/obj/structure/rack,
+/obj/item/storage/toolbox/guncase/soviet/sakhno,
+/turf/open/floor/mineral/plastitanium/red{
+	name = "soviet floor"
+	},
 /area/space)
 "Pn" = (
 /obj/structure/billboard/roadsign/two,
@@ -2067,6 +2138,10 @@
 	dir = 8
 	},
 /area/space)
+"Qf" = (
+/obj/structure/showcase/mecha/gygax/dark_gygax,
+/turf/open/floor/mineral/plastitanium,
+/area/space)
 "Qo" = (
 /obj/structure/railing{
 	dir = 8
@@ -2077,6 +2152,13 @@
 /obj/machinery/light/directional/south,
 /turf/open/floor/iron/white/side{
 	dir = 1
+	},
+/area/space)
+"Qs" = (
+/obj/structure/rack,
+/obj/item/gun/ballistic/rifle/sks/chekhov,
+/turf/open/floor/mineral/plastitanium/red{
+	name = "soviet floor"
 	},
 /area/space)
 "Qu" = (
@@ -2098,6 +2180,14 @@
 "QG" = (
 /obj/structure/window/reinforced/survival_pod/indestructible/spawner/directional/north,
 /turf/open/floor/mineral/titanium/tiled/blue,
+/area/space)
+"QV" = (
+/obj/structure/rack,
+/obj/item/gun/ballistic/automatic/lanca,
+/obj/structure/window/reinforced/survival_pod/indestructible/spawner/directional/south,
+/turf/open/floor/mineral/plastitanium/red{
+	name = "soviet floor"
+	},
 /area/space)
 "Rc" = (
 /obj/effect/spawner/structure/window/reinforced/plasma,
@@ -2139,7 +2229,7 @@
 /area/space)
 "RN" = (
 /obj/structure/window/reinforced/survival_pod/indestructible/spawner/directional/north,
-/turf/open/floor/mineral/plastitanium/red,
+/turf/open/floor/mineral/plastitanium,
 /area/space)
 "RO" = (
 /obj/structure/fluff/bus/passable,
@@ -2226,9 +2316,7 @@
 /turf/open/floor/stone,
 /area/space)
 "TA" = (
-/mob/living/basic/trooper/nanotrasen/ranged/smg{
-	ai_controller = null
-	},
+/mob/living/basic/trooper/nanotrasen/ranged/smg/display,
 /turf/open/floor/mineral/titanium/tiled/blue,
 /area/space)
 "TE" = (
@@ -2367,6 +2455,12 @@
 /obj/structure/cable,
 /turf/open/floor/iron/white/side,
 /area/space)
+"Wn" = (
+/mob/living/basic/trooper/cin_soldier/ranged/display,
+/turf/open/floor/mineral/plastitanium/red{
+	name = "soviet floor"
+	},
+/area/space)
 "Wp" = (
 /obj/structure/flora/bush/jungle/a/style_random,
 /turf/open/misc/grass/jungle,
@@ -2418,6 +2512,12 @@
 	dir = 8
 	},
 /turf/open/indestructible/rockyground,
+/area/space)
+"XF" = (
+/obj/effect/decal/hammerandsickle,
+/turf/open/floor/mineral/plastitanium/red{
+	name = "soviet floor"
+	},
 /area/space)
 "XJ" = (
 /obj/structure/fluff/bus/passable,
@@ -27371,7 +27471,7 @@ rl
 ZU
 ZU
 ZU
-vp
+ZU
 ZU
 ZU
 ZU
@@ -32714,9 +32814,9 @@ Pu
 Pu
 Pu
 Pu
-Hi
-Hi
-Hi
+CY
+CY
+CY
 Pu
 vB
 HS
@@ -32968,12 +33068,12 @@ ZU
 ZU
 ZU
 Pu
-Hi
-Hi
-Hi
-Hi
-Hi
-Hi
+Pg
+BW
+au
+CY
+CY
+CY
 Pu
 HS
 HS
@@ -33225,12 +33325,12 @@ ZU
 ZU
 ZU
 Pu
-Hi
-Hi
-Hi
-Hi
-Hi
-Hi
+CY
+Wn
+md
+CY
+CY
+CY
 Pu
 HS
 HS
@@ -33482,12 +33582,12 @@ ZU
 ZU
 ZU
 Pu
-Hi
-Hi
-Hi
-Hi
-Hi
-Hi
+CY
+CY
+md
+CY
+CY
+CY
 Pu
 HS
 HS
@@ -33739,12 +33839,12 @@ ZU
 ZU
 ZU
 Pu
-Hi
-Hi
-Hi
-Hi
-Hi
-Hi
+sr
+bi
+md
+Kc
+XF
+CY
 Pu
 HS
 HS
@@ -33996,12 +34096,12 @@ ZU
 ZU
 ZU
 Pu
-Hi
-Hi
-Hi
-Hi
-Hi
-Hi
+CY
+CY
+md
+CY
+CY
+CY
 Pu
 HS
 HS
@@ -34253,12 +34353,12 @@ ZU
 ZU
 ZU
 Pu
-Hi
-Hi
-Hi
-Hi
-Hi
-Hi
+CY
+Wn
+md
+CY
+CY
+CY
 Pu
 HS
 HS
@@ -34510,12 +34610,12 @@ ZU
 ZU
 ZU
 Pu
-Hi
-Hi
-Hi
-Hi
-Hi
-Hi
+Dq
+Qs
+QV
+CY
+CY
+CY
 Pu
 HS
 HS
@@ -35806,7 +35906,7 @@ dm
 dm
 dm
 RN
-dm
+Cx
 Iy
 Pu
 ZU
@@ -36578,7 +36678,7 @@ dm
 dm
 RN
 iN
-dm
+Qf
 Pu
 ZU
 BN
@@ -37092,7 +37192,7 @@ kN
 kN
 oQ
 zF
-kN
+xD
 Pu
 ZU
 BN
@@ -37862,7 +37962,7 @@ kN
 kN
 kN
 QG
-kN
+rU
 bR
 Pu
 ZU
@@ -38634,7 +38734,7 @@ kN
 kN
 iy
 pR
-kN
+Mf
 Pu
 ZU
 BN
