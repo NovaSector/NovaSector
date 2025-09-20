@@ -20,14 +20,23 @@
 /obj/structure/showcase/mecha/gygax
 	name = "Gygax"
 	desc = "A great replica of a gygax that is completely non functional."
+	icon = 'icons/mob/rideables/mecha.dmi'
 	icon_state = "gygax"
 
-/obj/structure/showcase/mecha/gygax
+/obj/structure/showcase/mecha/gygax/dark_gygax
 	name = "Dark gygax"
 	desc = "A great replica of a syndicate gygax that is completely non functional."
+	icon = 'icons/mob/rideables/mecha.dmi'
 	icon_state = "darkgygax"
 
 /obj/structure/showcase/mecha/durand
 	name = "Durand"
 	desc = "A great replica of a durand that is completely non functional."
+	icon = 'icons/mob/rideables/mecha.dmi'
 	icon_state = "durand"
+
+/obj/structure/showcase/mecha/mauler
+	name = "Mauler"
+	desc = "A great replica of a Mauler that is completely non functional."
+	icon = 'icons/mob/rideables/mecha.dmi'
+	icon_state = "mauler"
