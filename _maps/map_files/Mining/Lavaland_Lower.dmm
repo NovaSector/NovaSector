@@ -1,4 +1,7 @@
 //MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
+"aj" = (
+/turf/closed/wall/rust,
+/area/mine/maintenance/living/south)
 "ak" = (
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
@@ -16,49 +19,39 @@
 /turf/open/floor/iron,
 /area/mine/engineering/atmos)
 "aq" = (
-/obj/effect/mapping_helpers/no_lava,
-/obj/structure/railing/wooden_fencing/gate{
-	dir = 8
-	},
-/turf/open/floor/grass/lavaland,
-/area/ruin/unpowered/ash_walkers)
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/structure/cable,
+/obj/effect/decal/cleanable/dirt,
+/turf/open/floor/iron/textured_large,
+/area/mine/xenoarch/science/xenoarch)
 "as" = (
 /obj/machinery/airalarm/directional/north,
 /obj/machinery/icecream_vat/no_preinstalled_reagents,
 /turf/open/floor/iron/textured_large,
 /area/mine/science/common/tool)
-"at" = (
-/obj/structure/chair{
-	dir = 8
-	},
-/obj/effect/turf_decal/tile/bar/opposingcorners{
-	dir = 1
-	},
-/obj/machinery/holopad,
-/turf/open/floor/iron/checker,
-/area/mine/cafeteria)
-"ay" = (
-/turf/open/lava/smooth/lava_land_surface,
-/area/lavaland/underground/unexplored/riverside)
-"aD" = (
+"av" = (
 /obj/effect/decal/cleanable/dirt,
-/obj/machinery/mining_weather_monitor/directional/east,
 /obj/structure/disposalpipe/segment{
 	dir = 2
 	},
 /turf/open/floor/iron/textured_large,
 /area/mine/xenoarch/science/xenoarch)
-"aF" = (
-/obj/effect/mapping_helpers/no_lava,
-/obj/structure/wall_torch/spawns_lit/directional/north,
-/obj/structure/railing/wooden_fencing{
-	dir = 8
+"ay" = (
+/turf/open/lava/smooth/lava_land_surface,
+/area/lavaland/underground/unexplored/riverside)
+"aC" = (
+/turf/closed/wall/rust,
+/area/mine/xenoarch/science/xenoarch)
+"aJ" = (
+/obj/machinery/atmospherics/components/unary/vent_pump/on/layer4{
+	dir = 1
 	},
-/turf/open/floor/grass/lavaland,
-/area/ruin/unpowered/ash_walkers)
-"aL" = (
-/turf/closed/indestructible/riveted/boss/see_through,
-/area/ruin/unpowered/ash_walkers)
+/obj/structure/disposalpipe/segment{
+	dir = 2
+	},
+/turf/open/floor/iron/textured_large,
+/area/mine/xenoarch/science/xenoarch)
 "aM" = (
 /obj/effect/turf_decal/sand/plating/volcanic,
 /obj/structure/railing{
@@ -69,29 +62,10 @@
 	},
 /turf/open/floor/plating/lavaland_atmos,
 /area/lavaland/underground/unexplored/riverside)
-"aQ" = (
-/obj/machinery/airalarm/directional/south,
-/obj/effect/decal/cleanable/dirt,
+"aU" = (
+/obj/machinery/suit_storage_unit/open,
 /turf/open/floor/iron/textured_large,
-/area/mine/xenoarch/science/xenoarch)
-"aR" = (
-/obj/structure/wall_torch/spawns_lit/directional/west,
-/obj/structure/rack/wooden,
-/obj/item/clothing/suit/ash_plates{
-	pixel_x = -10
-	},
-/obj/item/clothing/suit/ash_plates/decorated{
-	pixel_x = -5;
-	pixel_y = 5
-	},
-/obj/item/clothing/suit/ash_plates,
-/obj/item/clothing/suit/ash_plates/decorated{
-	pixel_y = 5;
-	pixel_x = 5
-	},
-/obj/effect/mapping_helpers/no_lava,
-/turf/open/misc/asteroid/basalt/lava_land_surface,
-/area/ruin/unpowered/ash_walkers)
+/area/mine/science/common/storage)
 "aY" = (
 /obj/machinery/computer/turbine_computer{
 	dir = 1;
@@ -104,16 +78,16 @@
 /turf/open/floor/iron,
 /area/mine/engineering/atmos)
 "aZ" = (
+/turf/closed/wall/rust,
+/area/mine/science)
+"bg" = (
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/structure/cable,
 /obj/effect/decal/cleanable/dirt,
-/obj/machinery/holopad,
-/turf/open/floor/iron/textured,
-/area/mine/living_quarters)
-"bf" = (
-/obj/structure/statue/bone/rib,
-/obj/structure/stone_tile/block/cracked,
-/obj/effect/mapping_helpers/no_lava,
-/turf/open/lava/smooth/lava_land_surface,
-/area/ruin/unpowered/ash_walkers)
+/obj/effect/turf_decal/siding/dark,
+/turf/open/floor/carpet/neon/simple/red/nodots,
+/area/mine/xenoarch/science/xenoarch)
 "bj" = (
 /obj/machinery/power/port_gen/pacman{
 	anchored = 1
@@ -132,6 +106,13 @@
 /obj/structure/marker_beacon/teal,
 /turf/open/misc/asteroid/basalt/lava_land_surface,
 /area/lavaland/underground/unexplored/riverside)
+"bn" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/machinery/camera/autoname/directional/west{
+	network = list("SS13","mine","rd")
+	},
+/turf/open/floor/iron/textured_large,
+/area/mine/xenoarch/science/xenoarch)
 "bp" = (
 /obj/structure/railing{
 	dir = 8
@@ -141,132 +122,134 @@
 	},
 /area/mine/engineering/atmos)
 "bs" = (
-/obj/effect/turf_decal/siding/dark{
-	dir = 1
-	},
-/turf/open/floor/carpet/neon/simple/red/nodots,
-/area/mine/xenoarch/science/xenoarch)
-"by" = (
-/obj/effect/spawner/structure/window/reinforced,
-/turf/open/misc/asteroid/basalt/lava_land_surface,
-/area/lavaland/underground/unexplored/riverside)
-"bA" = (
-/obj/machinery/holopad,
-/turf/open/floor/iron/textured,
-/area/mine/science/common/dorm)
-"bB" = (
+/obj/structure/stone_tile/block/burnt,
 /obj/effect/mapping_helpers/no_lava,
-/turf/open/floor/grass/lavaland,
-/area/ruin/unpowered/ash_walkers)
-"bC" = (
-/obj/machinery/light,
-/turf/open/floor/iron/edge{
-	dir = 1
-	},
-/area/lavaland/underground/unexplored/riverside)
-"bH" = (
-/obj/structure/stone_tile/block/burnt{
+/obj/effect/mapping_helpers/no_lava,
+/obj/structure/stone_tile/cracked{
 	dir = 4
 	},
-/obj/structure/stone_tile/cracked{
-	dir = 8
-	},
-/obj/effect/mapping_helpers/no_lava,
-/obj/effect/mapping_helpers/no_lava,
-/turf/open/misc/asteroid/basalt/lava_land_surface,
+/turf/open/lava/smooth/lava_land_surface,
 /area/ruin/unpowered/ash_walkers)
-"bK" = (
-/turf/closed/wall/rust,
-/area/mine/living_quarters)
-"bO" = (
-/obj/machinery/holopad,
-/obj/effect/decal/cleanable/dirt,
-/turf/open/floor/iron/textured_large,
-/area/mine/xenoarch/science/xenoarch)
-"bP" = (
-/obj/effect/turf_decal/box,
-/obj/machinery/suit_storage_unit/standard_unit,
-/turf/open/floor/iron/edge{
-	dir = 1
-	},
-/area/lavaland/underground/unexplored/riverside)
-"bQ" = (
+"bt" = (
 /obj/effect/turf_decal/box,
 /obj/machinery/suit_storage_unit/open,
 /turf/open/floor/iron/edge{
 	dir = 1
 	},
 /area/lavaland/underground/unexplored/riverside)
-"bV" = (
-/obj/structure/wall_torch/spawns_lit/directional/east,
-/obj/structure/stone_tile{
+"by" = (
+/obj/effect/spawner/structure/window/reinforced,
+/turf/open/misc/asteroid/basalt/lava_land_surface,
+/area/lavaland/underground/unexplored/riverside)
+"bC" = (
+/obj/machinery/light,
+/turf/open/floor/iron/edge{
+	dir = 1
+	},
+/area/lavaland/underground/unexplored/riverside)
+"bD" = (
+/obj/structure/cable,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/machinery/camera/autoname/directional/west{
+	network = list("SS13","mine","rd")
+	},
+/turf/open/floor/iron/textured_large,
+/area/mine/xenoarch/science/xenoarch)
+"bE" = (
+/obj/structure/lavaland/ash_walker,
+/obj/effect/mapping_helpers/no_lava,
+/obj/effect/mapping_helpers/no_lava,
+/turf/open/lava/smooth/lava_land_surface,
+/area/ruin/unpowered/ash_walkers)
+"bH" = (
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/structure/cable,
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/turf_decal/siding/dark{
+	dir = 10
+	},
+/turf/open/floor/carpet/neon/simple/red/nodots,
+/area/mine/xenoarch/science/xenoarch)
+"bJ" = (
+/obj/structure/cable,
+/obj/effect/decal/cleanable/dirt,
+/turf/open/floor/plating,
+/area/mine/science/maintenance/upper)
+"bK" = (
+/obj/structure/table,
+/obj/structure/disposalpipe/segment{
+	dir = 4
+	},
+/turf/open/floor/iron/textured_large,
+/area/mine/xenoarch/science/xenoarch)
+"bL" = (
+/obj/structure/stone_tile/surrounding_tile/burnt{
+	dir = 4
+	},
+/obj/structure/stone_tile/surrounding_tile/burnt{
 	dir = 8
 	},
-/obj/structure/stone_tile/cracked{
+/obj/structure/stone_tile/surrounding_tile/burnt{
+	dir = 1
+	},
+/obj/structure/stone_tile/center/burnt,
+/obj/effect/mapping_helpers/no_lava,
+/turf/open/lava/smooth/lava_land_surface,
+/area/ruin/unpowered/ash_walkers)
+"bP" = (
+/obj/structure/stone_tile/surrounding/cracked{
+	dir = 1
+	},
+/obj/structure/stone_tile/surrounding_tile/cracked{
+	dir = 8
+	},
+/obj/structure/stone_tile/center/cracked,
+/obj/effect/mapping_helpers/no_lava,
+/obj/effect/mapping_helpers/no_lava,
+/turf/open/lava/smooth/lava_land_surface,
+/area/ruin/unpowered/ash_walkers)
+"bQ" = (
+/obj/effect/turf_decal/box,
+/obj/machinery/suit_storage_unit/standard_unit,
+/turf/open/floor/iron/edge{
+	dir = 1
+	},
+/area/lavaland/underground/unexplored/riverside)
+"bU" = (
+/obj/structure/stone_tile/block/cracked,
+/obj/effect/mapping_helpers/no_lava,
+/obj/effect/mapping_helpers/no_lava,
+/turf/open/misc/asteroid/basalt/lava_land_surface,
+/area/ruin/unpowered/ash_walkers)
+"cd" = (
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/structure/cable,
+/turf/open/floor/iron/textured_large,
+/area/mine/xenoarch/science/xenoarch)
+"cj" = (
+/obj/structure/chair{
+	dir = 8
+	},
+/obj/effect/turf_decal/tile/bar/opposingcorners{
+	dir = 1
+	},
+/obj/machinery/holopad,
+/turf/open/floor/iron/checker,
+/area/mine/cafeteria)
+"cm" = (
+/obj/structure/stone_tile/block/cracked{
 	dir = 4
 	},
 /obj/effect/mapping_helpers/no_lava,
 /turf/open/misc/asteroid/basalt/lava_land_surface,
 /area/ruin/unpowered/ash_walkers)
-"bW" = (
-/obj/machinery/atmospherics/components/unary/vent_pump/on/layer4{
-	dir = 1
-	},
-/obj/effect/decal/cleanable/dirt,
-/turf/open/floor/iron/textured_large,
-/area/mine/xenoarch/science/xenoarch)
-"cd" = (
-/obj/effect/decal/cleanable/dirt,
-/obj/structure/closet/radiation,
-/turf/open/floor/iron/textured_large,
-/area/mine/engineering/atmos)
-"ci" = (
-/obj/structure/stone_tile/surrounding_tile/burnt{
-	dir = 8
-	},
-/obj/structure/stone_tile/surrounding_tile/burnt{
-	dir = 4
-	},
-/obj/structure/stone_tile/surrounding_tile/cracked,
-/obj/structure/stone_tile/center/burnt,
-/obj/effect/mapping_helpers/no_lava,
-/obj/effect/mapping_helpers/no_lava,
-/turf/open/lava/smooth/lava_land_surface,
-/area/ruin/unpowered/ash_walkers)
-"cj" = (
-/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
-/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
-/obj/effect/decal/cleanable/dirt,
-/obj/machinery/holopad,
-/turf/open/floor/iron/textured,
-/area/mine/living_quarters)
-"cl" = (
-/obj/structure/frame/machine,
-/obj/structure/disposalpipe/segment{
-	dir = 6
-	},
-/turf/open/floor/iron/textured_large,
-/area/mine/xenoarch/science/xenoarch)
-"cm" = (
-/obj/structure/cable,
-/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
-/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
-/obj/structure/disposalpipe/junction/flip{
-	dir = 1
-	},
-/turf/open/floor/iron/textured_large,
-/area/mine/xenoarch/science/xenoarch)
-"cn" = (
-/obj/structure/stone_tile/block/burnt{
-	dir = 4
-	},
-/obj/effect/mapping_helpers/no_lava,
-/turf/open/lava/smooth/lava_land_surface,
-/area/ruin/unpowered/ash_walkers)
 "cq" = (
 /obj/structure/table,
-/obj/structure/disposalpipe/segment{
-	dir = 4
+/obj/machinery/camera/autoname/directional/west{
+	network = list("SS13","mine","rd")
 	},
 /turf/open/floor/iron/textured_large,
 /area/mine/xenoarch/science/xenoarch)
@@ -291,59 +274,21 @@
 	},
 /area/lavaland/underground/unexplored/riverside)
 "cv" = (
-/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
-/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
-/obj/structure/cable,
-/obj/structure/disposalpipe/segment{
-	dir = 4
-	},
-/turf/open/floor/iron/textured_large,
-/area/mine/xenoarch/science/xenoarch)
+/obj/structure/stone_tile/surrounding/burnt,
+/obj/effect/mapping_helpers/no_lava,
+/obj/effect/mapping_helpers/no_lava,
+/turf/open/lava/smooth/lava_land_surface,
+/area/ruin/unpowered/ash_walkers)
 "cC" = (
-/turf/open/floor/iron/edge{
-	dir = 1
-	},
-/area/lavaland/underground/unexplored/riverside)
-"cF" = (
-/obj/effect/mapping_helpers/no_lava,
-/obj/structure/wall_torch/spawns_lit/directional/south,
-/obj/structure/ore_container/food_trough/raptor_trough,
-/obj/structure/railing/wooden_fencing{
-	dir = 8
-	},
-/turf/open/floor/grass/lavaland,
-/area/ruin/unpowered/ash_walkers)
-"cG" = (
-/turf/closed/wall/rust,
-/area/mine/maintenance/living/south)
-"cH" = (
-/obj/effect/mapping_helpers/no_lava,
-/obj/effect/spawner/random/lavaland_mob/raptor,
-/turf/open/floor/grass/lavaland,
-/area/ruin/unpowered/ash_walkers)
-"cI" = (
-/obj/structure/rack/wooden,
-/obj/item/clothing/under/costume/gladiator/ash_walker/ash_robes{
-	pixel_x = -5;
-	pixel_y = 5
-	},
-/obj/item/clothing/under/costume/gladiator/ash_walker/ash_robes{
-	pixel_x = -10
-	},
-/obj/item/clothing/under/costume/gladiator/ash_walker/ash_robes,
-/obj/item/clothing/under/costume/gladiator/ash_walker/ash_robes{
-	pixel_y = 5;
-	pixel_x = 5
-	},
-/obj/structure/stone_tile/surrounding/cracked{
-	dir = 1
-	},
-/obj/structure/stone_tile/surrounding_tile{
-	dir = 8
-	},
+/obj/structure/statue/bone/rib,
 /obj/effect/mapping_helpers/no_lava,
 /turf/open/misc/asteroid/basalt/lava_land_surface,
 /area/ruin/unpowered/ash_walkers)
+"cD" = (
+/obj/structure/table,
+/obj/effect/decal/cleanable/dirt,
+/turf/open/floor/iron/textured_large,
+/area/mine/xenoarch/science/xenoarch)
 "cK" = (
 /turf/open/floor/plating{
 	initial_gas_mix = "o2=14;n2=23;TEMP=300"
@@ -365,13 +310,12 @@
 	},
 /turf/open/floor/carpet/royalblue,
 /area/mine/living_quarters)
-"cS" = (
-/obj/structure/frame/machine,
-/obj/machinery/camera/autoname/directional/west{
-	network = list("SS13","mine","rd")
-	},
-/turf/open/floor/iron/textured_large,
-/area/mine/xenoarch/science/xenoarch)
+"cP" = (
+/obj/structure/stone_tile/block,
+/obj/effect/mapping_helpers/no_lava,
+/obj/effect/mapping_helpers/no_lava,
+/turf/open/misc/asteroid/basalt/lava_land_surface,
+/area/ruin/unpowered/ash_walkers)
 "cU" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
@@ -380,45 +324,37 @@
 	dir = 1
 	},
 /area/mine/living_quarters)
+"cW" = (
+/obj/effect/mapping_helpers/no_lava,
+/turf/open/floor/grass/lavaland,
+/area/ruin/unpowered/ash_walkers)
 "cX" = (
-/obj/effect/decal/cleanable/dirt,
+/obj/structure/frame/machine,
 /obj/machinery/camera/autoname/directional/west{
 	network = list("SS13","mine","rd")
 	},
 /turf/open/floor/iron/textured_large,
 /area/mine/xenoarch/science/xenoarch)
-"dc" = (
-/obj/structure/stone_tile/block/cracked{
+"db" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/structure/disposalpipe/segment{
 	dir = 8
 	},
-/obj/structure/stone_tile,
+/turf/open/floor/iron/textured_large,
+/area/mine/xenoarch/science/xenoarch)
+"de" = (
 /obj/effect/mapping_helpers/no_lava,
-/obj/effect/mapping_helpers/no_lava,
-/turf/open/misc/asteroid/basalt/lava_land_surface,
+/obj/structure/wall_torch/spawns_lit/directional/north,
+/obj/structure/railing/wooden_fencing{
+	dir = 8
+	},
+/turf/open/floor/grass/lavaland,
 /area/ruin/unpowered/ash_walkers)
-"dh" = (
-/obj/structure/stone_tile/surrounding_tile/cracked,
-/obj/effect/mapping_helpers/no_lava,
-/obj/structure/stairs/wood,
-/turf/open/misc/asteroid/basalt/lava_land_surface,
-/area/ruin/unpowered/ash_walkers)
-"dj" = (
-/obj/effect/decal/cleanable/dirt,
-/obj/effect/decal/cleanable/dirt,
-/turf/open/floor/plating,
-/area/mine/science/maintenance/upper)
 "dk" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /turf/open/floor/carpet/cyan,
 /area/mine/xenoarch/living)
-"dl" = (
-/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
-/obj/machinery/atmospherics/components/unary/vent_pump/on/layer4{
-	dir = 1
-	},
-/turf/open/floor/iron/textured_large,
-/area/mine/xenoarch/science/xenoarch)
 "dm" = (
 /obj/machinery/vending/cigarette,
 /turf/open/floor/iron/edge{
@@ -430,24 +366,48 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /turf/open/floor/plating,
 /area/mine/maintenance/living/south)
-"du" = (
-/obj/structure/stone_tile/block/cracked{
-	dir = 4
-	},
-/obj/effect/mapping_helpers/no_lava,
-/turf/open/misc/asteroid/basalt/lava_land_surface,
-/area/ruin/unpowered/ash_walkers)
 "dv" = (
 /obj/effect/spawner/structure/window/reinforced,
 /turf/open/floor/plating,
 /area/mine/xenoarch/science/xenoarch)
-"dC" = (
-/obj/structure/stone_tile/block/burnt{
-	dir = 1
+"dw" = (
+/obj/effect/mapping_helpers/no_lava,
+/obj/structure/wall_torch/spawns_lit/directional/north,
+/turf/open/misc/asteroid/basalt/lava_land_surface,
+/area/ruin/unpowered/ash_walkers)
+"dy" = (
+/obj/machinery/holopad,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/structure/cable,
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/turf_decal/siding/dark,
+/turf/open/floor/carpet/neon/simple/red/nodots,
+/area/mine/xenoarch/science/xenoarch)
+"dz" = (
+/obj/structure/fluff/drake_statue,
+/obj/effect/mapping_helpers/no_lava,
+/turf/open/misc/asteroid/basalt/lava_land_surface,
+/area/ruin/unpowered/ash_walkers)
+"dB" = (
+/obj/structure/stone_tile/surrounding_tile/burnt{
+	dir = 8
 	},
-/obj/structure/stone_tile/block/burnt,
+/obj/structure/stone_tile/surrounding_tile/burnt{
+	dir = 4
+	},
+/obj/structure/stone_tile/surrounding_tile/cracked,
+/obj/structure/stone_tile/center/burnt,
+/obj/effect/mapping_helpers/no_lava,
 /obj/effect/mapping_helpers/no_lava,
 /turf/open/lava/smooth/lava_land_surface,
+/area/ruin/unpowered/ash_walkers)
+"dD" = (
+/obj/structure/stone_tile/surrounding_tile{
+	dir = 8
+	},
+/obj/effect/mapping_helpers/no_lava,
+/turf/open/misc/asteroid/basalt/lava_land_surface,
 /area/ruin/unpowered/ash_walkers)
 "dG" = (
 /obj/structure/railing{
@@ -455,12 +415,6 @@
 	},
 /turf/open/floor/iron/textured_large,
 /area/mine/living_quarters)
-"dH" = (
-/obj/structure/stone_tile/block/cracked,
-/obj/effect/mapping_helpers/no_lava,
-/obj/effect/mapping_helpers/no_lava,
-/turf/open/misc/asteroid/basalt/lava_land_surface,
-/area/ruin/unpowered/ash_walkers)
 "dJ" = (
 /obj/structure/closet/secure_closet/personal/cabinet,
 /obj/machinery/mining_weather_monitor/directional/north,
@@ -497,20 +451,6 @@
 	dir = 1
 	},
 /area/lavaland/underground/unexplored/riverside)
-"dU" = (
-/obj/effect/decal/cleanable/dirt,
-/obj/structure/disposalpipe/segment{
-	dir = 8
-	},
-/turf/open/floor/iron/textured_large,
-/area/mine/xenoarch/science/xenoarch)
-"dW" = (
-/obj/structure/stone_tile/block/burnt{
-	dir = 8
-	},
-/obj/effect/mapping_helpers/no_lava,
-/turf/open/misc/asteroid/basalt/lava_land_surface,
-/area/ruin/unpowered/ash_walkers)
 "dZ" = (
 /obj/structure/railing{
 	dir = 4
@@ -526,25 +466,15 @@
 	name = "Mining External Airlock";
 	opacity = 0
 	},
-/obj/effect/mapping_helpers/airlock/cyclelink_helper{
-	dir = 8
-	},
 /obj/structure/fans/tiny,
 /turf/open/floor/iron/edge{
 	dir = 1
 	},
 /area/lavaland/underground/unexplored/riverside)
-"et" = (
+"eo" = (
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
-/obj/machinery/camera/autoname/directional/west{
-	network = list("SS13","mine","rd")
-	},
-/turf/open/floor/iron/textured_large,
-/area/mine/xenoarch/science/xenoarch)
-"eu" = (
-/obj/structure/table,
 /obj/structure/disposalpipe/segment{
 	dir = 9
 	},
@@ -559,18 +489,11 @@
 	dir = 1
 	},
 /area/lavaland/underground/unexplored/riverside)
-"ey" = (
-/obj/structure/stone_tile/surrounding_tile/cracked,
-/obj/structure/stone_tile/surrounding_tile/cracked{
-	dir = 1
-	},
-/obj/structure/stone_tile/surrounding_tile/burnt{
-	dir = 4
-	},
-/obj/structure/stone_tile/center/cracked,
-/obj/effect/mapping_helpers/no_lava,
-/turf/open/lava/smooth/lava_land_surface,
-/area/ruin/unpowered/ash_walkers)
+"ex" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/machinery/holopad,
+/turf/open/floor/iron/textured,
+/area/mine/living_quarters)
 "eA" = (
 /obj/machinery/door/airlock/glass{
 	dir = 1;
@@ -580,12 +503,36 @@
 	dir = 1
 	},
 /area/lavaland/underground/unexplored/riverside)
+"eC" = (
+/obj/structure/stone_tile/block{
+	dir = 8
+	},
+/obj/effect/mapping_helpers/no_lava,
+/turf/open/misc/asteroid/basalt/lava_land_surface,
+/area/ruin/unpowered/ash_walkers)
+"eE" = (
+/obj/structure/stone_tile/block/cracked{
+	dir = 8
+	},
+/obj/structure/stone_tile/block/burnt{
+	dir = 4
+	},
+/obj/item/flashlight/flare/candle/infinite,
+/obj/effect/mapping_helpers/no_lava,
+/turf/open/misc/asteroid/basalt/lava_land_surface,
+/area/ruin/unpowered/ash_walkers)
 "eG" = (
 /obj/machinery/light/small/directional/east,
 /turf/open/floor/iron/textured_large,
 /area/mine/engineering/atmos)
-"eH" = (
-/obj/structure/fluff/drake_statue,
+"eJ" = (
+/obj/structure/stone_tile/block/burnt{
+	dir = 4
+	},
+/obj/structure/stone_tile/cracked{
+	dir = 8
+	},
+/obj/effect/mapping_helpers/no_lava,
 /obj/effect/mapping_helpers/no_lava,
 /turf/open/misc/asteroid/basalt/lava_land_surface,
 /area/ruin/unpowered/ash_walkers)
@@ -593,45 +540,30 @@
 /obj/structure/closet/crate/secure/loot,
 /turf/open/floor/plating,
 /area/mine/science/maintenance/upper)
-"eP" = (
-/obj/structure/marker_beacon/teal,
-/turf/closed/wall,
-/area/lavaland/underground/unexplored/riverside)
-"eT" = (
-/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
-/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
-/obj/effect/decal/cleanable/dirt,
-/turf/open/floor/iron/textured_large,
-/area/mine/xenoarch/science/xenoarch)
-"eV" = (
-/obj/effect/mapping_helpers/no_lava,
-/obj/structure/wall_torch/spawns_lit/directional/north,
-/turf/open/misc/asteroid/basalt/lava_land_surface,
-/area/lavaland/underground/unexplored/riverside)
-"eY" = (
-/obj/structure/cable,
-/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
-/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
-/obj/structure/disposalpipe/segment{
-	dir = 4
+"eO" = (
+/obj/structure/closet/crate/wooden/storage_barrel,
+/obj/item/stack/sheet/iron/twenty,
+/obj/item/stack/sheet/leather{
+	amount = 40
 	},
-/turf/open/floor/iron/textured_large,
-/area/mine/xenoarch/science/xenoarch)
-"eZ" = (
-/obj/structure/stone_tile/block{
-	dir = 8
-	},
-/obj/structure/stone_tile/block{
-	dir = 4
-	},
-/obj/item/flashlight/flare/candle/infinite,
+/obj/item/stack/sheet/cloth/ten,
 /obj/effect/mapping_helpers/no_lava,
 /turf/open/misc/asteroid/basalt/lava_land_surface,
 /area/ruin/unpowered/ash_walkers)
-"fb" = (
-/obj/effect/decal/cleanable/dirt,
+"eQ" = (
+/obj/structure/stone_tile/block/cracked{
+	dir = 8
+	},
+/obj/effect/mapping_helpers/no_lava,
+/turf/open/lava/smooth/lava_land_surface,
+/area/ruin/unpowered/ash_walkers)
+"eY" = (
+/obj/machinery/holopad,
+/turf/open/floor/iron/textured,
+/area/mine/living_quarters)
+"fa" = (
 /obj/structure/disposalpipe/segment{
-	dir = 2
+	dir = 8
 	},
 /turf/open/floor/iron/textured_large,
 /area/mine/xenoarch/science/xenoarch)
@@ -639,41 +571,32 @@
 /obj/structure/lattice/catwalk/mining,
 /turf/open/lava/smooth/lava_land_surface,
 /area/lavaland/underground/unexplored/riverside)
-"fh" = (
-/obj/structure/closet/crate/wooden/storage_barrel,
-/obj/structure/stone_tile/block,
-/obj/item/clothing/shoes/bone_greaves,
-/obj/item/clothing/gloves/bracer,
-/obj/item/clothing/head/ash_headdress/winged,
-/obj/effect/mapping_helpers/no_lava,
-/turf/open/misc/asteroid/basalt/lava_land_surface,
-/area/ruin/unpowered/ash_walkers)
+"fe" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/structure/closet/radiation,
+/turf/open/floor/iron/textured_large,
+/area/mine/engineering/atmos)
 "fi" = (
 /obj/effect/decal/remains/human,
 /turf/open/misc/asteroid/basalt/lava_land_surface,
 /area/lavaland/underground/unexplored/riverside)
 "fj" = (
-/obj/machinery/suit_storage_unit/open,
-/turf/open/floor/iron/textured_large,
-/area/mine/science/common/storage)
+/obj/effect/turf_decal/siding/dark{
+	dir = 5
+	},
+/turf/open/floor/carpet/neon/simple/red/nodots,
+/area/mine/xenoarch/science/xenoarch)
+"fk" = (
+/turf/closed/wall/rust,
+/area/mine/living_quarters)
 "fm" = (
 /obj/structure/flora/rock/style_random,
 /turf/open/misc/asteroid/basalt/lava_land_surface,
 /area/lavaland/underground/unexplored/riverside)
-"fo" = (
-/obj/structure/stone_tile/surrounding/burnt,
-/obj/effect/mapping_helpers/no_lava,
-/obj/effect/mapping_helpers/no_lava,
-/turf/open/lava/smooth/lava_land_surface,
-/area/ruin/unpowered/ash_walkers)
 "fr" = (
-/obj/structure/cable,
-/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
-/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
-/obj/effect/decal/cleanable/dirt,
-/obj/effect/decal/cleanable/dirt,
+/obj/structure/frame/machine,
 /obj/structure/disposalpipe/segment{
-	dir = 5
+	dir = 6
 	},
 /turf/open/floor/iron/textured_large,
 /area/mine/xenoarch/science/xenoarch)
@@ -701,6 +624,19 @@
 /obj/structure/cable,
 /turf/closed/wall/r_wall,
 /area/mine/engineering/atmos)
+"fM" = (
+/obj/effect/mapping_helpers/no_lava,
+/obj/structure/wall_torch/spawns_lit/directional/south,
+/obj/structure/ore_container/food_trough/raptor_trough,
+/obj/structure/railing/wooden_fencing{
+	dir = 8
+	},
+/turf/open/floor/grass/lavaland,
+/area/ruin/unpowered/ash_walkers)
+"fP" = (
+/obj/machinery/holopad,
+/turf/open/floor/iron/textured,
+/area/mine/science/common/dorm)
 "fR" = (
 /obj/structure/rack,
 /obj/item/flashlight,
@@ -713,23 +649,15 @@
 "fS" = (
 /turf/open/floor/iron/textured_large,
 /area/mine/science/common/tool)
-"fT" = (
-/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
-/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
-/obj/structure/cable,
-/obj/effect/decal/cleanable/dirt,
-/obj/structure/disposalpipe/segment{
-	dir = 9
-	},
-/turf/open/floor/iron/textured_large,
-/area/mine/xenoarch/science/xenoarch)
 "fV" = (
 /obj/effect/spawner/structure/window,
 /turf/open/floor/plating,
 /area/mine/xenoarch/science/xenoarch)
-"gc" = (
-/obj/structure/frame/machine/secured,
-/obj/machinery/light/directional/west,
+"fW" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/structure/disposalpipe/segment{
+	dir = 4
+	},
 /turf/open/floor/iron/textured_large,
 /area/mine/xenoarch/science/xenoarch)
 "gd" = (
@@ -739,8 +667,35 @@
 	},
 /area/mine/living_quarters)
 "ge" = (
-/obj/structure/stone_tile/block/cracked,
+/obj/structure/closet/crate/wooden/storage_barrel,
+/obj/item/screwdriver/ashwalker,
+/obj/item/wirecutters/ashwalker,
+/obj/item/wrench/ashwalker,
+/obj/item/crowbar/ashwalker,
+/obj/item/weldingtool/mini,
+/obj/structure/stone_tile/surrounding_tile/cracked{
+	dir = 8
+	},
+/turf/open/misc/asteroid/basalt/lava_land_surface,
+/area/ruin/unpowered/ash_walkers)
+"gg" = (
+/obj/structure/stone_tile/block/burnt{
+	dir = 8
+	},
 /obj/effect/mapping_helpers/no_lava,
+/turf/open/misc/asteroid/basalt/lava_land_surface,
+/area/ruin/unpowered/ash_walkers)
+"gh" = (
+/obj/structure/stone_tile/block/burnt{
+	dir = 4
+	},
+/obj/effect/mapping_helpers/no_lava,
+/obj/effect/mapping_helpers/no_lava,
+/turf/open/lava/smooth/lava_land_surface,
+/area/ruin/unpowered/ash_walkers)
+"gi" = (
+/obj/structure/statue/bone/rib,
+/obj/structure/stone_tile/block/cracked,
 /obj/effect/mapping_helpers/no_lava,
 /turf/open/lava/smooth/lava_land_surface,
 /area/ruin/unpowered/ash_walkers)
@@ -752,36 +707,51 @@
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/iron/textured,
 /area/mine/science/common/dorm)
+"gp" = (
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/structure/cable,
+/obj/structure/disposalpipe/segment{
+	dir = 2
+	},
+/turf/open/floor/iron/textured_large,
+/area/mine/xenoarch/science/xenoarch)
+"gq" = (
+/obj/effect/mapping_helpers/no_lava,
+/obj/structure/wall_torch/spawns_lit/directional/south,
+/turf/open/misc/asteroid/basalt/lava_land_surface,
+/area/ruin/unpowered/ash_walkers)
 "gr" = (
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /turf/open/floor/iron/textured_large,
 /area/mine/living_quarters)
-"gt" = (
-/obj/structure/statue/bone/rib{
+"gu" = (
+/obj/structure/stone_tile/block/burnt{
 	dir = 1
 	},
-/obj/structure/stone_tile/block/cracked,
+/obj/structure/stone_tile/block/burnt,
 /obj/effect/mapping_helpers/no_lava,
 /turf/open/lava/smooth/lava_land_surface,
 /area/ruin/unpowered/ash_walkers)
 "gB" = (
-/obj/structure/table,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/structure/cable,
 /obj/structure/disposalpipe/segment{
 	dir = 2
 	},
 /turf/open/floor/iron/textured_large,
 /area/mine/xenoarch/science/xenoarch)
-"gD" = (
-/obj/structure/closet/crate/wooden/storage_barrel,
-/obj/item/stack/sheet/iron/twenty,
-/obj/item/stack/sheet/leather{
-	amount = 40
+"gE" = (
+/obj/structure/stone_tile/block/burnt,
+/obj/structure/stone_tile/block/cracked{
+	dir = 1
 	},
-/obj/item/stack/sheet/cloth/ten,
+/obj/item/flashlight/flare/candle/infinite,
 /obj/effect/mapping_helpers/no_lava,
-/turf/open/misc/asteroid/basalt/lava_land_surface,
+/turf/open/lava/smooth/lava_land_surface,
 /area/ruin/unpowered/ash_walkers)
 "gF" = (
 /obj/effect/turf_decal/stripes/asteroid{
@@ -789,19 +759,11 @@
 	},
 /turf/open/floor/asphalt/lavaland,
 /area/lavaland/underground/unexplored/riverside)
-"gH" = (
-/obj/structure/stone_tile/slab/cracked,
-/obj/item/flashlight/flare/candle/infinite,
-/obj/effect/mapping_helpers/no_lava,
-/obj/effect/mapping_helpers/no_lava,
-/turf/open/lava/smooth/lava_land_surface,
-/area/ruin/unpowered/ash_walkers)
-"gJ" = (
-/obj/effect/spawner/structure/window,
-/obj/structure/disposalpipe/segment{
-	dir = 4
+"gG" = (
+/obj/machinery/camera/autoname/directional/north{
+	network = list("SS13","mine","rd")
 	},
-/turf/open/floor/plating,
+/turf/open/floor/iron/textured_large,
 /area/mine/xenoarch/science/xenoarch)
 "gL" = (
 /obj/structure/railing,
@@ -814,34 +776,70 @@
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/plating,
 /area/mine/science/maintenance/lower)
+"gP" = (
+/obj/structure/frame/machine/secured,
+/obj/machinery/light/directional/west,
+/turf/open/floor/iron/textured_large,
+/area/mine/xenoarch/science/xenoarch)
+"gS" = (
+/turf/closed/wall/rust,
+/area/mine/xenoarch/living)
 "gT" = (
 /obj/machinery/atmospherics/miner/plasma,
 /obj/machinery/light/small/directional/south,
 /turf/open/floor/engine/plasma,
 /area/mine/engineering/atmos)
-"hd" = (
+"gW" = (
+/obj/machinery/holopad,
 /obj/effect/decal/cleanable/dirt,
-/obj/effect/turf_decal/siding/dark{
-	dir = 1
-	},
-/turf/open/floor/carpet/neon/simple/red/nodots,
+/turf/open/floor/iron/textured_large,
 /area/mine/xenoarch/science/xenoarch)
-"hg" = (
-/obj/structure/stone_tile/block/cracked{
+"hc" = (
+/obj/structure/stone_tile/block{
 	dir = 8
 	},
+/obj/structure/stone_tile,
+/obj/structure/stone_tile/surrounding_tile/cracked{
+	dir = 1
+	},
+/obj/effect/mapping_helpers/no_lava,
 /obj/effect/mapping_helpers/no_lava,
 /turf/open/lava/smooth/lava_land_surface,
 /area/ruin/unpowered/ash_walkers)
-"ho" = (
-/obj/structure/stone_tile/block/burnt,
+"hd" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt,
+/turf/open/floor/iron/textured_large,
+/area/mine/xenoarch/science/xenoarch)
+"hg" = (
+/obj/structure/closet/crate/wooden/storage_barrel,
+/obj/structure/stone_tile/block,
+/obj/item/clothing/shoes/bone_greaves,
+/obj/item/clothing/gloves/bracer,
+/obj/item/clothing/head/ash_headdress/winged,
 /obj/effect/mapping_helpers/no_lava,
-/obj/effect/mapping_helpers/no_lava,
+/turf/open/misc/asteroid/basalt/lava_land_surface,
+/area/ruin/unpowered/ash_walkers)
+"hj" = (
+/obj/structure/wall_torch/spawns_lit/directional/east,
+/obj/structure/stone_tile{
+	dir = 8
+	},
 /obj/structure/stone_tile/cracked{
 	dir = 4
 	},
-/turf/open/lava/smooth/lava_land_surface,
+/obj/effect/mapping_helpers/no_lava,
+/turf/open/misc/asteroid/basalt/lava_land_surface,
 /area/ruin/unpowered/ash_walkers)
+"hl" = (
+/obj/structure/cable,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/structure/disposalpipe/segment{
+	dir = 10
+	},
+/turf/open/floor/iron/textured_large,
+/area/mine/xenoarch/science/xenoarch)
 "hr" = (
 /obj/structure/ore_box,
 /obj/effect/turf_decal/stripes/line{
@@ -857,24 +855,15 @@
 	},
 /turf/open/floor/iron/textured_large,
 /area/mine/xenoarch/science/xenoarch)
-"ht" = (
-/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
-/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
-/obj/structure/cable,
-/obj/structure/disposalpipe/segment{
-	dir = 2
-	},
-/turf/open/floor/iron/textured_large,
-/area/mine/xenoarch/science/xenoarch)
-"hu" = (
-/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
-/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
-/obj/structure/cable,
-/obj/structure/disposalpipe/segment{
-	dir = 2
-	},
-/turf/open/floor/iron/textured_large,
-/area/mine/xenoarch/science/xenoarch)
+"hv" = (
+/turf/closed/indestructible/riveted/boss,
+/area/ruin/unpowered/ash_walkers)
+"hy" = (
+/obj/structure/stone_tile/surrounding_tile/cracked,
+/obj/effect/mapping_helpers/no_lava,
+/obj/structure/stairs/wood,
+/turf/open/misc/asteroid/basalt/lava_land_surface,
+/area/ruin/unpowered/ash_walkers)
 "hA" = (
 /obj/structure/ore_box,
 /obj/effect/turf_decal/stripes/asteroid,
@@ -883,22 +872,23 @@
 /turf/open/floor/asphalt/lavaland,
 /area/lavaland/underground/unexplored/riverside)
 "hC" = (
-/obj/structure/stone_tile/block{
-	dir = 8
+/obj/structure/statue/bone/rib{
+	dir = 1
 	},
-/obj/structure/stone_tile/block{
-	dir = 4
-	},
+/obj/structure/stone_tile/block/cracked,
 /obj/effect/mapping_helpers/no_lava,
-/turf/open/misc/asteroid/basalt/lava_land_surface,
+/turf/open/lava/smooth/lava_land_surface,
 /area/ruin/unpowered/ash_walkers)
-"hF" = (
-/obj/effect/decal/cleanable/dirt,
-/obj/machinery/camera/autoname/directional/west{
-	network = list("SS13","mine","rd")
+"hG" = (
+/obj/machinery/holopad,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/structure/cable,
+/obj/structure/disposalpipe/segment{
+	dir = 2
 	},
-/turf/open/floor/circuit,
-/area/mine/maintenance/service/comms)
+/turf/open/floor/iron/textured_large,
+/area/mine/xenoarch/science/xenoarch)
 "hH" = (
 /obj/structure/extinguisher_cabinet/directional/north,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
@@ -906,50 +896,14 @@
 /obj/structure/cable,
 /turf/open/floor/iron/textured_large,
 /area/mine/xenoarch/science/xenoarch)
-"hN" = (
-/obj/machinery/atmospherics/pipe/smart/manifold4w/yellow,
-/turf/closed/wall/r_wall,
-/area/mine/engineering/atmos)
-"hW" = (
+"hI" = (
 /obj/structure/stone_tile/block/burnt{
 	dir = 4
 	},
 /obj/effect/mapping_helpers/no_lava,
-/obj/effect/mapping_helpers/no_lava,
 /turf/open/lava/smooth/lava_land_surface,
 /area/ruin/unpowered/ash_walkers)
-"hY" = (
-/obj/structure/lattice/catwalk/mining,
-/turf/open/misc/asteroid/basalt/lava_land_surface,
-/area/lavaland/underground/unexplored/riverside)
-"ia" = (
-/obj/structure/statue/bone/rib,
-/obj/structure/stone_tile/block/burnt,
-/obj/effect/mapping_helpers/no_lava,
-/turf/open/lava/smooth/lava_land_surface,
-/area/ruin/unpowered/ash_walkers)
-"ic" = (
-/obj/structure/cable,
-/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
-/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
-/obj/structure/disposalpipe/segment{
-	dir = 10
-	},
-/turf/open/floor/iron/textured_large,
-/area/mine/xenoarch/science/xenoarch)
-"ij" = (
-/obj/effect/decal/cleanable/dirt,
-/obj/effect/turf_decal/siding/dark{
-	dir = 9
-	},
-/turf/open/floor/carpet/neon/simple/red/nodots,
-/area/mine/xenoarch/science/xenoarch)
-"ik" = (
-/obj/effect/mapping_helpers/no_lava,
-/obj/structure/wall_torch/spawns_lit/directional/south,
-/turf/open/misc/asteroid/basalt/lava_land_surface,
-/area/ruin/unpowered/ash_walkers)
-"in" = (
+"hM" = (
 /obj/structure/stone_tile{
 	dir = 1
 	},
@@ -961,42 +915,54 @@
 /obj/effect/mapping_helpers/no_lava,
 /turf/open/lava/smooth/lava_land_surface,
 /area/ruin/unpowered/ash_walkers)
-"is" = (
-/obj/structure/closet/crate/wooden/storage_barrel,
-/obj/item/screwdriver/ashwalker,
-/obj/item/wirecutters/ashwalker,
-/obj/item/wrench/ashwalker,
-/obj/item/crowbar/ashwalker,
-/obj/item/weldingtool/mini,
-/obj/structure/stone_tile/surrounding_tile/cracked{
+"hN" = (
+/obj/machinery/atmospherics/pipe/smart/manifold4w/yellow,
+/turf/closed/wall/r_wall,
+/area/mine/engineering/atmos)
+"hS" = (
+/obj/machinery/atmospherics/components/unary/vent_pump/on/layer4{
+	dir = 1
+	},
+/obj/effect/decal/cleanable/dirt,
+/turf/open/floor/iron/textured_large,
+/area/mine/xenoarch/science/xenoarch)
+"hY" = (
+/obj/structure/lattice/catwalk/mining,
+/turf/open/misc/asteroid/basalt/lava_land_surface,
+/area/lavaland/underground/unexplored/riverside)
+"ia" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/machinery/mining_weather_monitor/directional/east,
+/obj/structure/disposalpipe/segment{
+	dir = 2
+	},
+/turf/open/floor/iron/textured_large,
+/area/mine/xenoarch/science/xenoarch)
+"ij" = (
+/obj/structure/table,
+/obj/structure/disposalpipe/segment{
+	dir = 9
+	},
+/turf/open/floor/iron/textured_large,
+/area/mine/xenoarch/science/xenoarch)
+"il" = (
+/turf/closed/wall/rust,
+/area/mine/science/maintenance/upper)
+"iw" = (
+/obj/structure/stone_tile/block/cracked{
 	dir = 8
 	},
-/turf/open/misc/asteroid/basalt/lava_land_surface,
-/area/ruin/unpowered/ash_walkers)
-"iw" = (
-/obj/effect/decal/cleanable/dirt,
-/obj/structure/disposalpipe/segment{
-	dir = 4
-	},
-/turf/open/floor/iron/textured_large,
-/area/mine/xenoarch/science/xenoarch)
-"ix" = (
-/obj/structure/table,
-/obj/effect/decal/cleanable/dirt,
-/turf/open/floor/iron/textured_large,
-/area/mine/xenoarch/science/xenoarch)
-"iB" = (
-/obj/structure/lavaland/ash_walker,
 /obj/effect/mapping_helpers/no_lava,
 /obj/effect/mapping_helpers/no_lava,
 /turf/open/lava/smooth/lava_land_surface,
 /area/ruin/unpowered/ash_walkers)
-"iC" = (
-/obj/structure/disposalpipe/segment{
-	dir = 4
-	},
-/turf/open/floor/iron/textured_large,
-/area/mine/xenoarch/science/xenoarch)
+"iH" = (
+/obj/effect/decal/cleanable/dirt,
+/turf/open/floor/plating,
+/area/mine/science/maintenance/upper)
+"iI" = (
+/turf/closed/wall/rust,
+/area/mine/maintenance/service/comms)
 "iJ" = (
 /obj/item/toy/plush/bubbleplush,
 /turf/open/misc/asteroid/basalt/lava_land_surface,
@@ -1039,39 +1005,48 @@
 	},
 /turf/open/floor/asphalt/lavaland,
 /area/lavaland/underground/unexplored/riverside)
-"iU" = (
-/turf/closed/wall/rust,
-/area/mine/maintenance/service/comms)
-"iV" = (
+"iT" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/structure/cable,
-/obj/effect/decal/cleanable/dirt,
-/obj/effect/turf_decal/siding/dark{
-	dir = 10
-	},
-/turf/open/floor/carpet/neon/simple/red/nodots,
-/area/mine/xenoarch/science/xenoarch)
-"iY" = (
-/obj/structure/table,
-/obj/machinery/camera/autoname/directional/west{
-	network = list("SS13","mine","rd")
+/obj/structure/disposalpipe/segment{
+	dir = 4
 	},
 /turf/open/floor/iron/textured_large,
 /area/mine/xenoarch/science/xenoarch)
+"iU" = (
+/obj/structure/stone_tile/block/cracked{
+	dir = 8
+	},
+/obj/structure/stone_tile,
+/obj/effect/mapping_helpers/no_lava,
+/obj/effect/mapping_helpers/no_lava,
+/turf/open/misc/asteroid/basalt/lava_land_surface,
+/area/ruin/unpowered/ash_walkers)
 "je" = (
 /obj/effect/turf_decal/siding/wood{
 	dir = 8
 	},
 /turf/open/floor/wood,
 /area/mine/cafeteria)
-"ji" = (
-/obj/structure/stone_tile/block{
-	dir = 8
+"jf" = (
+/obj/structure/cable,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt,
+/obj/structure/disposalpipe/segment{
+	dir = 5
 	},
-/obj/effect/mapping_helpers/no_lava,
-/turf/open/misc/asteroid/basalt/lava_land_surface,
-/area/ruin/unpowered/ash_walkers)
+/turf/open/floor/iron/textured_large,
+/area/mine/xenoarch/science/xenoarch)
+"jj" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/machinery/camera/autoname/directional/west{
+	network = list("SS13","mine","rd")
+	},
+/turf/open/floor/circuit,
+/area/mine/maintenance/service/comms)
 "jm" = (
 /obj/structure/flora/rock/style_random,
 /obj/structure/flora/rock/style_random,
@@ -1084,53 +1059,21 @@
 	},
 /turf/open/floor/plating/lavaland_atmos,
 /area/lavaland/underground/unexplored/riverside)
-"jr" = (
-/obj/structure/stone_tile/surrounding_tile/cracked{
-	dir = 4
-	},
-/obj/structure/stone_tile/surrounding_tile/burnt{
-	dir = 1
-	},
+"js" = (
 /obj/effect/mapping_helpers/no_lava,
-/turf/open/lava/smooth/lava_land_surface,
-/area/ruin/unpowered/ash_walkers)
-"ju" = (
-/obj/structure/cable,
-/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
-/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
-/obj/structure/disposalpipe/segment{
-	dir = 9
-	},
+/obj/structure/wall_torch/spawns_lit/directional/north,
+/turf/open/misc/asteroid/basalt/lava_land_surface,
+/area/lavaland/underground/unexplored/riverside)
+"jt" = (
+/obj/machinery/airalarm/directional/south,
+/obj/effect/decal/cleanable/dirt,
 /turf/open/floor/iron/textured_large,
 /area/mine/xenoarch/science/xenoarch)
 "jw" = (
-/obj/structure/stone_tile/block{
-	dir = 8
-	},
-/obj/structure/stone_tile,
-/obj/structure/stone_tile/surrounding_tile/cracked{
+/turf/open/floor/iron/edge{
 	dir = 1
 	},
-/obj/effect/mapping_helpers/no_lava,
-/obj/effect/mapping_helpers/no_lava,
-/turf/open/lava/smooth/lava_land_surface,
-/area/ruin/unpowered/ash_walkers)
-"jx" = (
-/obj/structure/stone_tile/cracked{
-	dir = 8
-	},
-/obj/structure/stone_tile/surrounding_tile{
-	dir = 4;
-	pixel_x = -16;
-	pixel_y = 16
-	},
-/obj/structure/stone_tile/block/cracked{
-	dir = 1
-	},
-/obj/effect/mapping_helpers/no_lava,
-/obj/effect/mapping_helpers/no_lava,
-/turf/open/lava/smooth/lava_land_surface,
-/area/ruin/unpowered/ash_walkers)
+/area/lavaland/underground/unexplored/riverside)
 "jy" = (
 /obj/machinery/door/airlock{
 	name = "Bathrooms"
@@ -1152,6 +1095,24 @@
 /obj/structure/flora/grass/jungle/b,
 /turf/open/misc/asteroid/basalt/lava_land_surface,
 /area/lavaland/underground/unexplored/riverside)
+"jF" = (
+/obj/machinery/vending/ashclothingvendor,
+/obj/structure/stone_tile/surrounding_tile,
+/obj/structure/stone_tile/surrounding_tile{
+	dir = 8
+	},
+/obj/structure/stone_tile/surrounding_tile{
+	dir = 4
+	},
+/obj/effect/mapping_helpers/no_lava,
+/turf/open/misc/asteroid/basalt/lava_land_surface,
+/area/ruin/unpowered/ash_walkers)
+"jG" = (
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/effect/decal/cleanable/dirt,
+/turf/open/floor/iron/textured_large,
+/area/mine/xenoarch/science/xenoarch)
 "jH" = (
 /turf/closed/wall,
 /area/mine/xenoarch/science/xenoarch)
@@ -1169,55 +1130,18 @@
 	},
 /turf/open/floor/iron/textured,
 /area/mine/science/common/dorm)
-"jN" = (
-/obj/effect/decal/cleanable/dirt,
-/obj/effect/decal/cleanable/dirt,
-/turf/open/floor/iron/textured_large,
-/area/mine/xenoarch/science/xenoarch)
-"jO" = (
-/obj/structure/stone_tile/block/cracked{
-	dir = 8
-	},
-/obj/effect/mapping_helpers/no_lava,
-/obj/effect/mapping_helpers/no_lava,
-/turf/open/lava/smooth/lava_land_surface,
-/area/ruin/unpowered/ash_walkers)
-"jS" = (
-/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
-/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
-/obj/structure/cable,
-/turf/open/floor/iron/textured_large,
-/area/mine/xenoarch/science/xenoarch)
-"jT" = (
-/obj/structure/cable,
-/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
-/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
-/obj/effect/decal/cleanable/dirt,
-/turf/open/floor/iron/textured_large,
-/area/mine/xenoarch/science/xenoarch)
 "jU" = (
-/obj/structure/disposalpipe/segment{
-	dir = 8
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/turf_decal/siding/dark{
+	dir = 9
 	},
-/turf/open/floor/iron/textured_large,
+/turf/open/floor/carpet/neon/simple/red/nodots,
 /area/mine/xenoarch/science/xenoarch)
 "jV" = (
 /obj/structure/flora/rock/pile,
 /turf/open/misc/asteroid/basalt/lava_land_surface,
 /area/lavaland/underground/unexplored/riverside)
-"kb" = (
-/obj/machinery/camera/autoname/directional/north{
-	network = list("SS13","mine","rd")
-	},
-/turf/open/floor/iron/textured_large,
-/area/mine/xenoarch/science/xenoarch)
-"kc" = (
-/obj/effect/turf_decal/stripes/line{
-	dir = 9
-	},
-/turf/open/floor/asphalt/lavaland,
-/area/lavaland/underground/unexplored/riverside)
-"ki" = (
+"ka" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/structure/cable,
@@ -1226,6 +1150,45 @@
 	},
 /turf/open/floor/carpet/neon/simple/red/nodots,
 /area/mine/xenoarch/science/xenoarch)
+"kc" = (
+/obj/effect/turf_decal/stripes/line{
+	dir = 9
+	},
+/turf/open/floor/asphalt/lavaland,
+/area/lavaland/underground/unexplored/riverside)
+"ke" = (
+/obj/structure/stone_tile/block{
+	dir = 8
+	},
+/obj/structure/stone_tile/block{
+	dir = 4
+	},
+/obj/item/flashlight/flare/candle/infinite,
+/obj/effect/mapping_helpers/no_lava,
+/turf/open/misc/asteroid/basalt/lava_land_surface,
+/area/ruin/unpowered/ash_walkers)
+"kk" = (
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/effect/decal/cleanable/dirt,
+/obj/machinery/holopad,
+/turf/open/floor/iron/textured,
+/area/mine/living_quarters)
+"kl" = (
+/obj/structure/stone_tile/surrounding_tile/cracked,
+/obj/structure/stone_tile/surrounding_tile/cracked{
+	dir = 1
+	},
+/obj/structure/stone_tile/surrounding_tile/burnt{
+	dir = 4
+	},
+/obj/structure/stone_tile/center/cracked,
+/obj/effect/mapping_helpers/no_lava,
+/turf/open/lava/smooth/lava_land_surface,
+/area/ruin/unpowered/ash_walkers)
+"km" = (
+/turf/closed/indestructible/riveted/boss/see_through,
+/area/ruin/unpowered/ash_walkers)
 "ko" = (
 /obj/structure/table,
 /obj/machinery/cell_charger,
@@ -1242,18 +1205,25 @@
 /obj/effect/turf_decal/delivery,
 /turf/open/floor/asphalt/lavaland,
 /area/lavaland/underground/unexplored/riverside)
-"ky" = (
-/turf/closed/wall/rust,
-/area/mine/science)
+"kx" = (
+/obj/structure/disposalpipe/segment{
+	dir = 4
+	},
+/turf/open/floor/iron/textured_large,
+/area/mine/xenoarch/science/xenoarch)
+"kA" = (
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/structure/cable,
+/obj/effect/decal/cleanable/dirt,
+/obj/structure/disposalpipe/segment{
+	dir = 9
+	},
+/turf/open/floor/iron/textured_large,
+/area/mine/xenoarch/science/xenoarch)
 "kB" = (
 /obj/machinery/light/directional/west,
 /turf/open/floor/iron/textured_large,
-/area/mine/xenoarch/science/xenoarch)
-"kE" = (
-/obj/effect/turf_decal/siding/dark{
-	dir = 5
-	},
-/turf/open/floor/carpet/neon/simple/red/nodots,
 /area/mine/xenoarch/science/xenoarch)
 "kF" = (
 /obj/effect/turf_decal/sand/plating/volcanic,
@@ -1261,83 +1231,64 @@
 /obj/structure/lattice/catwalk/mining,
 /turf/open/floor/plating/lavaland_atmos,
 /area/lavaland/underground/unexplored/riverside)
-"kM" = (
-/obj/structure/stone_tile/block{
+"kQ" = (
+/obj/structure/stone_tile/block/cracked,
+/obj/structure/stone_tile{
+	dir = 4
+	},
+/obj/structure/stone_tile/surrounding_tile/cracked{
 	dir = 1
 	},
-/obj/effect/mapping_helpers/no_lava,
+/obj/item/flashlight/flare/candle/infinite,
 /obj/effect/mapping_helpers/no_lava,
 /turf/open/lava/smooth/lava_land_surface,
 /area/ruin/unpowered/ash_walkers)
-"kQ" = (
-/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
-/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
-/obj/structure/cable,
-/obj/effect/decal/cleanable/dirt,
-/obj/effect/turf_decal/siding/dark,
-/turf/open/floor/carpet/neon/simple/red/nodots,
-/area/mine/xenoarch/science/xenoarch)
 "kS" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/iron/dark/smooth_large,
 /area/mine/xenoarch/science/xenoarch)
-"kV" = (
-/obj/machinery/holopad,
-/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
-/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
-/obj/structure/cable,
+"kW" = (
+/obj/effect/turf_decal/siding/dark{
+	dir = 1
+	},
+/turf/open/floor/carpet/neon/simple/red/nodots,
+/area/mine/xenoarch/science/xenoarch)
+"kY" = (
+/obj/structure/wall_torch/spawns_lit/directional/west,
+/obj/structure/rack/wooden,
+/obj/item/clothing/suit/ash_plates{
+	pixel_x = -10
+	},
+/obj/item/clothing/suit/ash_plates/decorated{
+	pixel_x = -5;
+	pixel_y = 5
+	},
+/obj/item/clothing/suit/ash_plates,
+/obj/item/clothing/suit/ash_plates/decorated{
+	pixel_y = 5;
+	pixel_x = 5
+	},
+/obj/effect/mapping_helpers/no_lava,
+/turf/open/misc/asteroid/basalt/lava_land_surface,
+/area/ruin/unpowered/ash_walkers)
+"lm" = (
+/obj/structure/statue/bone/rib,
+/obj/structure/stone_tile/block/burnt,
+/obj/effect/mapping_helpers/no_lava,
+/turf/open/lava/smooth/lava_land_surface,
+/area/ruin/unpowered/ash_walkers)
+"lC" = (
+/turf/closed/wall/r_wall,
+/area/mine/science/common/tool)
+"lI" = (
+/obj/structure/table,
 /obj/structure/disposalpipe/segment{
 	dir = 2
 	},
 /turf/open/floor/iron/textured_large,
 /area/mine/xenoarch/science/xenoarch)
-"lb" = (
-/obj/structure/cable,
-/obj/effect/decal/cleanable/dirt,
-/turf/open/floor/plating,
-/area/mine/science/maintenance/upper)
-"le" = (
-/obj/effect/mapping_helpers/no_lava,
-/obj/structure/wall_torch/spawns_lit/directional/north,
-/turf/open/misc/asteroid/basalt/lava_land_surface,
-/area/ruin/unpowered/ash_walkers)
-"lh" = (
-/obj/machinery/holopad,
-/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
-/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
-/obj/structure/cable,
-/obj/effect/decal/cleanable/dirt,
-/obj/effect/turf_decal/siding/dark,
-/turf/open/floor/carpet/neon/simple/red/nodots,
-/area/mine/xenoarch/science/xenoarch)
-"lk" = (
-/turf/closed/indestructible/riveted/boss,
-/area/ruin/unpowered/ash_walkers)
-"lq" = (
-/turf/closed/wall/rust,
-/area/mine/xenoarch/science/xenoarch)
-"lu" = (
-/obj/structure/stone_tile/surrounding_tile/burnt{
-	dir = 4
-	},
-/obj/structure/stone_tile/surrounding_tile/burnt{
-	dir = 8
-	},
-/obj/structure/stone_tile/surrounding_tile/burnt{
-	dir = 1
-	},
-/obj/structure/stone_tile/center/burnt,
-/obj/effect/mapping_helpers/no_lava,
-/turf/open/lava/smooth/lava_land_surface,
-/area/ruin/unpowered/ash_walkers)
-"lz" = (
-/turf/closed/wall/rust,
-/area/mine/cafeteria)
-"lC" = (
-/turf/closed/wall/r_wall,
-/area/mine/science/common/tool)
 "lL" = (
 /obj/structure/table,
 /obj/effect/turf_decal/tile/purple/anticorner/contrasted{
@@ -1345,37 +1296,23 @@
 	},
 /turf/open/floor/iron/textured_large,
 /area/mine/xenoarch/science/xenoarch)
-"lO" = (
-/obj/structure/stone_tile/surrounding/cracked{
-	dir = 1
-	},
-/obj/structure/stone_tile/surrounding_tile/cracked{
-	dir = 8
-	},
-/obj/structure/stone_tile/center/cracked,
+"lT" = (
+/obj/structure/stone_tile/slab/cracked,
+/obj/item/flashlight/flare/candle/infinite,
 /obj/effect/mapping_helpers/no_lava,
 /obj/effect/mapping_helpers/no_lava,
 /turf/open/lava/smooth/lava_land_surface,
 /area/ruin/unpowered/ash_walkers)
-"lT" = (
-/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
-/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
-/obj/structure/cable,
-/obj/effect/decal/cleanable/dirt,
-/turf/open/floor/iron/textured_large,
-/area/mine/xenoarch/science/xenoarch)
 "lV" = (
 /obj/structure/sign/poster/official/random/directional/north,
 /turf/open/misc/asteroid/basalt/lava_land_surface,
 /area/lavaland/underground/unexplored/riverside)
-"mb" = (
-/obj/structure/stone_tile/block/burnt,
-/obj/structure/stone_tile/block/cracked{
-	dir = 1
-	},
-/obj/item/flashlight/flare/candle/infinite,
+"lW" = (
 /obj/effect/mapping_helpers/no_lava,
-/turf/open/lava/smooth/lava_land_surface,
+/obj/structure/railing/wooden_fencing/gate{
+	dir = 8
+	},
+/turf/open/floor/grass/lavaland,
 /area/ruin/unpowered/ash_walkers)
 "mc" = (
 /obj/effect/spawner/structure/window/reinforced,
@@ -1394,6 +1331,13 @@
 /obj/structure/cable,
 /turf/open/floor/plating,
 /area/mine/science/maintenance/lower)
+"mm" = (
+/obj/structure/cable,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/effect/decal/cleanable/dirt,
+/turf/open/floor/iron/textured_large,
+/area/mine/xenoarch/science/xenoarch)
 "mn" = (
 /obj/effect/turf_decal/sand/plating/volcanic,
 /obj/structure/railing,
@@ -1409,17 +1353,8 @@
 /turf/closed/wall,
 /area/mine/science/common/storage)
 "mq" = (
-/obj/machinery/vending/ashclothingvendor,
-/obj/structure/stone_tile/surrounding_tile,
-/obj/structure/stone_tile/surrounding_tile{
-	dir = 8
-	},
-/obj/structure/stone_tile/surrounding_tile{
-	dir = 4
-	},
-/obj/effect/mapping_helpers/no_lava,
-/turf/open/misc/asteroid/basalt/lava_land_surface,
-/area/ruin/unpowered/ash_walkers)
+/turf/closed/wall/rust,
+/area/mine/cafeteria)
 "ms" = (
 /turf/closed/indestructible/riveted/boss,
 /area/lavaland/underground/unexplored/riverside)
@@ -1436,26 +1371,37 @@
 /obj/effect/turf_decal/stripes/asteroid,
 /turf/open/floor/plating/lavaland_atmos,
 /area/lavaland/underground/unexplored/riverside)
-"mL" = (
-/turf/open/floor/carpet/cyan,
-/area/mine/xenoarch/living)
-"mN" = (
-/obj/structure/stone_tile/block/cracked,
-/obj/structure/stone_tile{
+"mx" = (
+/obj/structure/cable,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/structure/disposalpipe/segment{
 	dir = 4
 	},
-/obj/structure/stone_tile/surrounding_tile/cracked{
-	dir = 1
-	},
-/obj/item/flashlight/flare/candle/infinite,
+/turf/open/floor/iron/textured_large,
+/area/mine/xenoarch/science/xenoarch)
+"mH" = (
+/obj/structure/stone_tile/block/cracked,
+/obj/effect/mapping_helpers/no_lava,
 /obj/effect/mapping_helpers/no_lava,
 /turf/open/lava/smooth/lava_land_surface,
 /area/ruin/unpowered/ash_walkers)
+"mL" = (
+/turf/open/floor/carpet/cyan,
+/area/mine/xenoarch/living)
 "mP" = (
-/obj/structure/stone_tile/block,
+/obj/effect/spawner/structure/window,
+/obj/structure/disposalpipe/segment{
+	dir = 4
+	},
+/turf/open/floor/plating,
+/area/mine/xenoarch/science/xenoarch)
+"mQ" = (
 /obj/effect/mapping_helpers/no_lava,
-/obj/effect/mapping_helpers/no_lava,
-/turf/open/misc/asteroid/basalt/lava_land_surface,
+/obj/structure/railing/wooden_fencing{
+	dir = 8
+	},
+/turf/open/floor/grass/lavaland,
 /area/ruin/unpowered/ash_walkers)
 "mR" = (
 /obj/structure/closet/crate/trashcart,
@@ -1473,6 +1419,10 @@
 "nf" = (
 /turf/open/genturf,
 /area/lavaland/underground/unexplored)
+"ni" = (
+/obj/structure/marker_beacon/teal,
+/turf/closed/wall,
+/area/lavaland/underground/unexplored/riverside)
 "nl" = (
 /obj/structure/extinguisher_cabinet{
 	pixel_y = 28
@@ -1488,17 +1438,6 @@
 	},
 /turf/open/lava/smooth/lava_land_surface,
 /area/lavaland/underground/unexplored/riverside)
-"nq" = (
-/obj/structure/stone_tile/block/cracked{
-	dir = 8
-	},
-/obj/structure/stone_tile/block/burnt{
-	dir = 4
-	},
-/obj/item/flashlight/flare/candle/infinite,
-/obj/effect/mapping_helpers/no_lava,
-/turf/open/misc/asteroid/basalt/lava_land_surface,
-/area/ruin/unpowered/ash_walkers)
 "nr" = (
 /obj/structure/cable,
 /obj/machinery/airalarm/directional/north,
@@ -1511,41 +1450,49 @@
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/plating,
 /area/mine/science/maintenance/upper)
-"nt" = (
-/obj/structure/statue/bone/rib{
+"nw" = (
+/obj/structure/cable,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/structure/disposalpipe/junction/flip{
 	dir = 1
 	},
-/obj/structure/stone_tile/block/burnt,
-/obj/effect/mapping_helpers/no_lava,
-/turf/open/lava/smooth/lava_land_surface,
-/area/ruin/unpowered/ash_walkers)
+/turf/open/floor/iron/textured_large,
+/area/mine/xenoarch/science/xenoarch)
 "nx" = (
 /obj/structure/closet/crate/secure/loot,
 /turf/open/floor/plating,
 /area/mine/maintenance/living/south)
-"nH" = (
-/obj/structure/stone_tile/block{
+"nM" = (
+/obj/structure/stone_tile/block/burnt{
 	dir = 1
 	},
-/obj/structure/stone_tile,
-/obj/structure/stone_tile/surrounding_tile/cracked{
-	dir = 1;
-	pixel_y = 16;
-	pixel_x = 16
-	},
-/obj/effect/mapping_helpers/no_lava,
+/obj/structure/stone_tile/block/cracked,
 /obj/effect/mapping_helpers/no_lava,
 /turf/open/lava/smooth/lava_land_surface,
 /area/ruin/unpowered/ash_walkers)
-"nI" = (
-/turf/closed/wall/rust,
-/area/mine/xenoarch/living)
-"nN" = (
-/obj/effect/mapping_helpers/no_lava,
-/obj/structure/railing/wooden_fencing{
+"nO" = (
+/obj/structure/rack/wooden,
+/obj/item/clothing/under/costume/gladiator/ash_walker/ash_robes{
+	pixel_x = -5;
+	pixel_y = 5
+	},
+/obj/item/clothing/under/costume/gladiator/ash_walker/ash_robes{
+	pixel_x = -10
+	},
+/obj/item/clothing/under/costume/gladiator/ash_walker/ash_robes,
+/obj/item/clothing/under/costume/gladiator/ash_walker/ash_robes{
+	pixel_y = 5;
+	pixel_x = 5
+	},
+/obj/structure/stone_tile/surrounding/cracked{
+	dir = 1
+	},
+/obj/structure/stone_tile/surrounding_tile{
 	dir = 8
 	},
-/turf/open/floor/grass/lavaland,
+/obj/effect/mapping_helpers/no_lava,
+/turf/open/misc/asteroid/basalt/lava_land_surface,
 /area/ruin/unpowered/ash_walkers)
 "nP" = (
 /turf/open/genturf/orange,
@@ -1560,37 +1507,35 @@
 "nR" = (
 /turf/closed/wall/r_wall,
 /area/mine/science/common/storage)
-"nU" = (
-/obj/structure/statue/bone/rib,
-/obj/effect/mapping_helpers/no_lava,
-/turf/open/misc/asteroid/basalt/lava_land_surface,
-/area/ruin/unpowered/ash_walkers)
-"nV" = (
-/obj/structure/stone_tile/surrounding_tile{
-	dir = 8
-	},
-/obj/effect/mapping_helpers/no_lava,
-/turf/open/misc/asteroid/basalt/lava_land_surface,
-/area/ruin/unpowered/ash_walkers)
 "ob" = (
-/obj/structure/stone_tile/block/burnt{
+/obj/structure/stone_tile/block{
 	dir = 1
 	},
-/obj/structure/stone_tile/block/cracked,
+/obj/structure/stone_tile,
+/obj/structure/stone_tile/surrounding_tile/cracked{
+	dir = 1;
+	pixel_y = 16;
+	pixel_x = 16
+	},
+/obj/effect/mapping_helpers/no_lava,
 /obj/effect/mapping_helpers/no_lava,
 /turf/open/lava/smooth/lava_land_surface,
 /area/ruin/unpowered/ash_walkers)
-"od" = (
-/obj/structure/necropolis_arch,
-/obj/structure/necropolis_gate,
-/obj/structure/stone_tile/block{
+"of" = (
+/obj/structure/stone_tile/cracked{
 	dir = 8
 	},
-/obj/structure/stone_tile/block{
-	dir = 4
+/obj/structure/stone_tile/surrounding_tile{
+	dir = 4;
+	pixel_x = -16;
+	pixel_y = 16
+	},
+/obj/structure/stone_tile/block/cracked{
+	dir = 1
 	},
 /obj/effect/mapping_helpers/no_lava,
-/turf/open/misc/asteroid/basalt/lava_land_surface,
+/obj/effect/mapping_helpers/no_lava,
+/turf/open/lava/smooth/lava_land_surface,
 /area/ruin/unpowered/ash_walkers)
 "ok" = (
 /obj/structure/table,
@@ -1601,16 +1546,22 @@
 	},
 /turf/open/floor/iron/checker,
 /area/mine/cafeteria)
+"ol" = (
+/obj/structure/stone_tile/block{
+	dir = 8
+	},
+/obj/structure/stone_tile/block{
+	dir = 4
+	},
+/obj/effect/mapping_helpers/no_lava,
+/turf/open/misc/asteroid/basalt/lava_land_surface,
+/area/ruin/unpowered/ash_walkers)
 "on" = (
 /obj/structure/railing,
 /obj/structure/lattice/catwalk/mining,
 /obj/effect/turf_decal/stripes/asteroid,
 /turf/open/lava/smooth/lava_land_surface,
 /area/lavaland/underground/unexplored/riverside)
-"oo" = (
-/obj/machinery/holopad,
-/turf/open/floor/iron/textured,
-/area/mine/living_quarters)
 "op" = (
 /turf/open/floor/plating/lavaland_atmos,
 /area/lavaland/underground/unexplored/riverside)
@@ -2394,9 +2345,6 @@
 /obj/machinery/light/small/directional/south,
 /turf/open/floor/plating,
 /area/mine/maintenance/living/south)
-"tb" = (
-/turf/closed/wall/rust,
-/area/mine/science/maintenance/upper)
 "td" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
@@ -2576,6 +2524,7 @@
 /area/mine/xenoarch/science/xenoarch)
 "vF" = (
 /obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt,
 /turf/open/floor/plating,
 /area/mine/science/maintenance/upper)
 "vJ" = (
@@ -2638,13 +2587,6 @@
 /obj/structure/cable,
 /turf/open/floor/plating,
 /area/mine/engineering/atmos)
-"wz" = (
-/obj/effect/mapping_helpers/no_lava,
-/obj/structure/statue/bone/rib{
-	dir = 1
-	},
-/turf/open/misc/asteroid/basalt/lava_land_surface,
-/area/ruin/unpowered/ash_walkers)
 "wA" = (
 /obj/machinery/holopad,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
@@ -2999,9 +2941,21 @@
 	},
 /turf/open/floor/wood,
 /area/mine/cafeteria)
+"Av" = (
+/obj/effect/mapping_helpers/no_lava,
+/obj/structure/statue/bone/rib{
+	dir = 1
+	},
+/turf/open/misc/asteroid/basalt/lava_land_surface,
+/area/ruin/unpowered/ash_walkers)
 "Az" = (
 /turf/open/floor/iron/textured_edge,
 /area/mine/living_quarters)
+"AF" = (
+/obj/effect/mapping_helpers/no_lava,
+/obj/effect/spawner/random/lavaland_mob/raptor,
+/turf/open/floor/grass/lavaland,
+/area/ruin/unpowered/ash_walkers)
 "AM" = (
 /obj/effect/spawner/random/trash/mess,
 /obj/effect/turf_decal/tile/bar/opposingcorners{
@@ -3026,7 +2980,11 @@
 /obj/machinery/airlock_controller/incinerator_syndicatelava{
 	pixel_x = -8;
 	pixel_y = -26;
-	id_tag = "lava_airlock_controller"
+	id_tag = "lava_airlock_controller";
+	airpump_tag = "lava_airlock_pump";
+	exterior_door_tag = "lava_airlock_exterior";
+	interior_door_tag = "lava_airlock_interior";
+	sensor_tag = "lava_airlock_sensor"
 	},
 /obj/machinery/button/ignition/incinerator/syndicatelava{
 	pixel_x = 6;
@@ -3312,6 +3270,10 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /turf/open/floor/iron/textured_large,
 /area/mine/engineering/atmos)
+"Eh" = (
+/obj/effect/mapping_helpers/no_lava,
+/turf/open/misc/asteroid/basalt/lava_land_surface,
+/area/ruin/unpowered/ash_walkers)
 "Ek" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/machinery/light/small/directional/north,
@@ -3491,9 +3453,6 @@
 "Gm" = (
 /obj/machinery/atmospherics/components/unary/vent_pump/on/layer4{
 	dir = 1
-	},
-/obj/structure/disposalpipe/segment{
-	dir = 2
 	},
 /turf/open/floor/iron/textured_large,
 /area/mine/xenoarch/science/xenoarch)
@@ -3975,7 +3934,9 @@
 	},
 /obj/structure/cable,
 /obj/machinery/airlock_sensor/incinerator_syndicatelava{
-	pixel_x = 22
+	pixel_x = 22;
+	id_tag = "lava_airlock_sensor";
+	master_tag = "lava_airlock_controller"
 	},
 /obj/machinery/light/small/directional/east,
 /turf/open/floor/engine,
@@ -4063,6 +4024,14 @@
 /obj/machinery/seed_extractor,
 /turf/open/floor/iron/textured_large,
 /area/mine/science)
+"Ov" = (
+/obj/structure/stone_tile/block{
+	dir = 1
+	},
+/obj/effect/mapping_helpers/no_lava,
+/obj/effect/mapping_helpers/no_lava,
+/turf/open/lava/smooth/lava_land_surface,
+/area/ruin/unpowered/ash_walkers)
 "OD" = (
 /obj/structure/railing{
 	dir = 1
@@ -4149,10 +4118,6 @@
 /obj/machinery/light/small/directional/north,
 /turf/open/floor/plating,
 /area/mine/science/maintenance/lower)
-"QZ" = (
-/obj/effect/mapping_helpers/no_lava,
-/turf/open/misc/asteroid/basalt/lava_land_surface,
-/area/ruin/unpowered/ash_walkers)
 "Rd" = (
 /obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer2{
 	dir = 4
@@ -4329,6 +4294,16 @@
 /obj/structure/cable,
 /turf/open/floor/iron/textured_edge,
 /area/mine/living_quarters)
+"Tx" = (
+/obj/structure/stone_tile/surrounding_tile/cracked{
+	dir = 4
+	},
+/obj/structure/stone_tile/surrounding_tile/burnt{
+	dir = 1
+	},
+/obj/effect/mapping_helpers/no_lava,
+/turf/open/lava/smooth/lava_land_surface,
+/area/ruin/unpowered/ash_walkers)
 "TD" = (
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/circuit,
@@ -4473,6 +4448,14 @@
 	},
 /turf/open/floor/iron/textured_large,
 /area/mine/science/common/storage)
+"VI" = (
+/obj/structure/statue/bone/rib{
+	dir = 1
+	},
+/obj/structure/stone_tile/block/burnt,
+/obj/effect/mapping_helpers/no_lava,
+/turf/open/lava/smooth/lava_land_surface,
+/area/ruin/unpowered/ash_walkers)
 "VS" = (
 /obj/machinery/atmospherics/pipe/color_adapter/layer4,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
@@ -4553,6 +4536,18 @@
 	},
 /turf/open/floor/iron,
 /area/mine/engineering/atmos)
+"WR" = (
+/obj/structure/necropolis_arch,
+/obj/structure/necropolis_gate,
+/obj/structure/stone_tile/block{
+	dir = 8
+	},
+/obj/structure/stone_tile/block{
+	dir = 4
+	},
+/obj/effect/mapping_helpers/no_lava,
+/turf/open/misc/asteroid/basalt/lava_land_surface,
+/area/ruin/unpowered/ash_walkers)
 "WT" = (
 /obj/effect/turf_decal/tile/purple{
 	dir = 1
@@ -4668,6 +4663,13 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /turf/open/floor/carpet,
 /area/mine/living_quarters)
+"YL" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/turf_decal/siding/dark{
+	dir = 1
+	},
+/turf/open/floor/carpet/neon/simple/red/nodots,
+/area/mine/xenoarch/science/xenoarch)
 "YN" = (
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/iron/textured_edge{
@@ -5659,7 +5661,7 @@ ay
 zT
 zT
 zT
-nI
+gS
 na
 na
 Ap
@@ -6682,16 +6684,16 @@ ay
 ay
 ay
 Bn
-tb
+il
 yc
 Mc
-bA
+fP
 yc
 Ap
 TN
-lq
-lq
-lq
+aC
+aC
+aC
 jH
 jH
 jH
@@ -6937,8 +6939,8 @@ ay
 ay
 ay
 ay
-tb
-tb
+il
+il
 me
 yc
 Zk
@@ -6948,7 +6950,7 @@ TG
 NL
 JE
 xw
-cS
+cX
 JE
 UA
 jH
@@ -7194,21 +7196,21 @@ ay
 ay
 ay
 ay
-tb
+il
 eK
-vF
+iH
 yc
 Yy
 go
 jy
-ic
-fr
-jT
-jT
+hl
+jf
+mm
+mm
 NL
 NL
 qF
-gc
+gP
 jH
 jH
 zT
@@ -7451,15 +7453,15 @@ ay
 ay
 ay
 ay
-tb
+il
 me
-vF
+iH
 yc
 yc
 yc
 yc
 Qn
-iw
+fW
 Wi
 JE
 Wi
@@ -7467,9 +7469,9 @@ wA
 Wi
 JE
 In
-lq
-lq
-lq
+aC
+aC
+aC
 jH
 jH
 ay
@@ -7710,13 +7712,13 @@ ay
 ay
 Bn
 ns
-lb
+bJ
 Od
 Pv
 Pz
 YY
 Rw
-cq
+bK
 In
 In
 JE
@@ -7724,9 +7726,9 @@ qe
 JE
 JE
 JE
-ix
-ix
-iY
+cD
+cD
+cq
 lL
 jH
 ay
@@ -7967,22 +7969,22 @@ ay
 ay
 Bn
 zg
-vF
+iH
 YY
 nr
 wm
 YY
 fV
-gJ
+mP
 fV
 fV
-lq
+aC
 hH
 sO
-eT
-eT
-eT
-dl
+jG
+jG
+jG
+Gm
 mt
 VT
 jH
@@ -8224,16 +8226,16 @@ ay
 zT
 Bn
 wa
-vF
+iH
 YY
 Eo
 ZP
 Ga
 NL
-eY
+mx
 NL
 NL
-et
+bD
 WT
 JE
 JE
@@ -8481,17 +8483,17 @@ ay
 zT
 Bn
 eK
-vF
+iH
 YY
 Zx
 rm
 YY
 FK
-iC
+kx
 JE
 Wi
-jN
-lT
+hd
+aq
 JE
 tE
 tD
@@ -8738,19 +8740,19 @@ zT
 zT
 Bn
 me
-dj
+vF
 YY
 Xk
 wm
 YY
 LR
-iw
+fW
 jH
 In
-ij
-iV
+jU
+bH
 xw
-ky
+aZ
 un
 un
 un
@@ -9001,11 +9003,11 @@ Hf
 Pz
 YY
 HL
-iw
-lq
+fW
+aC
 In
-hd
-kQ
+YL
+bg
 JE
 Er
 uz
@@ -9258,11 +9260,11 @@ WU
 WU
 WU
 EA
-iw
+fW
 jH
 PS
-hd
-lh
+YL
+dy
 MD
 DH
 EQ
@@ -9512,14 +9514,14 @@ zT
 zT
 WU
 Sa
-hF
+jj
 WU
-kb
-iw
+gG
+fW
 jH
 In
-bs
-kQ
+kW
+bg
 EN
 Er
 zQ
@@ -9772,11 +9774,11 @@ Qq
 TD
 Vj
 JE
-iw
+fW
 jH
 In
-kE
-ki
+fj
+ka
 JE
 Er
 un
@@ -10024,7 +10026,7 @@ zT
 Sz
 XQ
 hA
-iU
+iI
 TD
 TD
 WU
@@ -10033,13 +10035,13 @@ HJ
 Wi
 Wi
 JE
-jS
+cd
 JE
 kB
 xw
 xw
 xw
-cl
+fr
 UP
 jH
 ay
@@ -10286,17 +10288,17 @@ WU
 WU
 WU
 Wi
-cv
-jS
-lT
-lT
-jS
-bW
+iT
+cd
+aq
+aq
+cd
+hS
 Wi
 Wi
 JE
 Wi
-jU
+fa
 In
 jH
 ay
@@ -10555,7 +10557,7 @@ JE
 Wi
 vU
 In
-lq
+aC
 ay
 ay
 ay
@@ -10804,15 +10806,15 @@ Oe
 jH
 LA
 JE
-lq
+aC
 jH
 jH
 NT
 Wi
-bO
-dU
+gW
+db
 xd
-lq
+aC
 ay
 ay
 pD
@@ -11061,14 +11063,14 @@ Zt
 jH
 xp
 xp
-lq
+aC
 JO
 si
 IA
 uL
 Om
-dU
-aQ
+db
+jt
 jH
 ay
 ay
@@ -11314,7 +11316,7 @@ qJ
 qJ
 qJ
 qQ
-cv
+iT
 jH
 jH
 jH
@@ -11324,7 +11326,7 @@ OS
 ZT
 Wx
 tr
-jU
+fa
 JE
 jH
 ay
@@ -11571,19 +11573,19 @@ fz
 US
 qJ
 PU
-fT
+kA
 JE
 JE
-cX
+bn
 Wi
 Wi
 Wi
 Wi
 JE
 zr
-dU
+db
 Wi
-lq
+aC
 ay
 ay
 pD
@@ -11827,18 +11829,18 @@ Id
 Jg
 Jg
 mh
-cm
+nw
 CY
-hu
-hu
-kV
-ht
-Gm
-aD
-fb
 gB
 gB
-eu
+hG
+gp
+aJ
+ia
+av
+lI
+lI
+ij
 yb
 jH
 ay
@@ -12085,7 +12087,7 @@ qJ
 qJ
 qJ
 hs
-ju
+eo
 JE
 Ft
 JE
@@ -12849,13 +12851,13 @@ ay
 ay
 ay
 ay
-bK
+fk
 RT
 VF
 Lk
 OD
 nR
-fj
+aU
 Dc
 IS
 BX
@@ -13377,7 +13379,7 @@ as
 rj
 fS
 lC
-cG
+aj
 ay
 zT
 ay
@@ -13623,7 +13625,7 @@ ay
 JL
 yE
 No
-oo
+eY
 ss
 nR
 dN
@@ -13634,8 +13636,8 @@ Xy
 Ng
 ZR
 lC
-cG
-cG
+aj
+aj
 ay
 ay
 ay
@@ -13716,7 +13718,7 @@ pD
 jV
 pD
 pD
-cC
+jw
 eA
 pD
 dM
@@ -13892,8 +13894,8 @@ lC
 lC
 lC
 nx
-cG
-cG
+aj
+aj
 ay
 ay
 ay
@@ -13973,7 +13975,7 @@ pD
 pD
 pD
 pD
-cC
+jw
 oU
 pD
 dM
@@ -14228,11 +14230,11 @@ pD
 jV
 pD
 pD
-bP
-cC
+bQ
+jw
 cs
 oU
-cC
+jw
 pD
 dM
 pD
@@ -14408,7 +14410,7 @@ JL
 qq
 Ly
 va
-cG
+aj
 ay
 ay
 ay
@@ -14485,8 +14487,8 @@ pD
 pD
 pD
 oU
-bP
-cC
+bQ
+jw
 ct
 oU
 dm
@@ -14494,7 +14496,7 @@ pD
 dM
 pD
 pD
-cC
+jw
 pD
 pD
 pD
@@ -14742,14 +14744,14 @@ pD
 pD
 pD
 oU
-bQ
-cC
+bt
+jw
 ct
 oU
-cC
+jw
 pD
 pD
-cC
+jw
 iR
 pD
 pD
@@ -14905,7 +14907,7 @@ pD
 zT
 zT
 zT
-bK
+fk
 Ae
 TP
 No
@@ -15147,7 +15149,7 @@ ay
 ay
 vw
 vw
-cd
+fe
 zU
 WP
 eG
@@ -15180,7 +15182,7 @@ xv
 JL
 Ly
 sX
-cG
+aj
 ay
 ay
 ay
@@ -15262,11 +15264,11 @@ pD
 cK
 by
 dQ
-cC
+jw
 pD
 oU
 nl
-cC
+jw
 pD
 pD
 nf
@@ -15422,14 +15424,14 @@ ay
 JL
 So
 TP
-aZ
+ex
 No
 TP
 No
 TP
 No
 UR
-aZ
+ex
 Tw
 vJ
 uD
@@ -15519,11 +15521,11 @@ pD
 pD
 by
 dR
-cC
+jw
 bC
 oU
 pD
-cC
+jw
 pD
 pD
 nf
@@ -15688,7 +15690,7 @@ No
 No
 Fn
 Tw
-bK
+fk
 Vf
 rs
 JL
@@ -16037,7 +16039,7 @@ gF
 hr
 oU
 cr
-cC
+jw
 pD
 pD
 pD
@@ -16191,8 +16193,8 @@ ay
 ay
 zT
 Cl
-lz
-lz
+mq
+mq
 qV
 qV
 qV
@@ -16288,7 +16290,7 @@ pD
 pD
 pD
 pD
-bl
+pD
 HS
 Py
 jI
@@ -16722,7 +16724,7 @@ cN
 JL
 Ly
 Ly
-cG
+aj
 ay
 ay
 ay
@@ -16979,7 +16981,7 @@ rl
 JL
 rt
 Ly
-cG
+aj
 ay
 ay
 ay
@@ -17223,12 +17225,12 @@ CE
 EB
 JN
 Am
-at
+cj
 Am
 EB
 yz
 EV
-cj
+kk
 pj
 JL
 Jr
@@ -17236,7 +17238,7 @@ Yb
 JL
 Ly
 sX
-cG
+aj
 ay
 ay
 ay
@@ -17493,7 +17495,7 @@ JL
 JL
 Ly
 Ly
-cG
+aj
 ay
 ay
 ay
@@ -17750,7 +17752,7 @@ sl
 JL
 nx
 va
-cG
+aj
 ay
 ay
 ay
@@ -18005,7 +18007,7 @@ JL
 vq
 Bu
 JL
-cG
+aj
 va
 zT
 ay
@@ -18260,7 +18262,7 @@ LD
 qV
 Cl
 JL
-bK
+fk
 JL
 zT
 zT
@@ -60269,12 +60271,12 @@ nf
 nf
 "}
 (217,1,1) = {"
-lk
-lk
-lk
-lk
-lk
-lk
+hv
+hv
+hv
+hv
+hv
+hv
 pD
 nf
 nf
@@ -60526,12 +60528,12 @@ nf
 nf
 "}
 (218,1,1) = {"
-lk
-cI
-aR
-gD
-lk
-lk
+hv
+nO
+kY
+eO
+hv
+hv
 pD
 nf
 pD
@@ -60783,12 +60785,12 @@ nf
 nf
 "}
 (219,1,1) = {"
-lk
-fh
-QZ
-QZ
-QZ
-lk
+hv
+hg
+Eh
+Eh
+Eh
+hv
 pD
 pD
 pD
@@ -61040,13 +61042,13 @@ nf
 nf
 "}
 (220,1,1) = {"
-lk
-mq
-ji
-bV
-is
-lk
-lk
+hv
+jF
+eC
+hj
+ge
+hv
+hv
 pD
 pD
 pD
@@ -61297,14 +61299,14 @@ nf
 nf
 "}
 (221,1,1) = {"
-lk
-le
-QZ
-QZ
-QZ
-ik
-lk
-lk
+hv
+dw
+Eh
+Eh
+Eh
+gq
+hv
+hv
 pD
 pD
 zT
@@ -61554,14 +61556,14 @@ nf
 nf
 "}
 (222,1,1) = {"
-lk
-QZ
-QZ
-QZ
-QZ
-QZ
-QZ
-lk
+hv
+Eh
+Eh
+Eh
+Eh
+Eh
+Eh
+hv
 pD
 zT
 zT
@@ -61811,15 +61813,15 @@ nf
 nf
 "}
 (223,1,1) = {"
-lk
-QZ
-QZ
-QZ
-QZ
-QZ
-QZ
-lk
-lk
+hv
+Eh
+Eh
+Eh
+Eh
+Eh
+Eh
+hv
+hv
 zT
 zT
 zT
@@ -62068,18 +62070,18 @@ nf
 nf
 "}
 (224,1,1) = {"
-lk
-QZ
-dC
-gt
-nq
-dW
-nV
-wz
-lk
-lk
-lk
-eV
+hv
+Eh
+gu
+hC
+eE
+gg
+dD
+Av
+hv
+hv
+hv
+js
 zT
 zT
 pD
@@ -62325,17 +62327,17 @@ nf
 nf
 "}
 (225,1,1) = {"
-lk
-nt
-mb
-fo
-jw
-ge
-mP
-ik
-aL
-aL
-aL
+hv
+VI
+gE
+cv
+hc
+mH
+cP
+gq
+km
+km
+km
 zT
 zT
 zT
@@ -62582,17 +62584,17 @@ nf
 nf
 "}
 (226,1,1) = {"
-lk
-cn
-ey
-lO
-hW
-nH
-dc
-QZ
-aL
-aL
-aL
+hv
+hI
+kl
+bP
+gh
+ob
+iU
+Eh
+km
+km
+km
 zT
 zT
 zT
@@ -62839,17 +62841,17 @@ nf
 nf
 "}
 (227,1,1) = {"
-lk
-eH
-jr
-ge
-iB
-kM
-gH
-hC
-hC
-hC
-od
+hv
+dz
+Tx
+mH
+bE
+Ov
+lT
+ol
+ol
+ol
+WR
 zT
 zT
 zT
@@ -63096,17 +63098,17 @@ nf
 nf
 "}
 (228,1,1) = {"
-lk
-hg
-lu
-ci
-jO
-jx
-bH
-QZ
-aL
-aL
-aL
+hv
+eQ
+bL
+dB
+iw
+of
+eJ
+Eh
+km
+km
+km
 zT
 zT
 zT
@@ -63353,17 +63355,17 @@ nf
 nf
 "}
 (229,1,1) = {"
-lk
-bf
-mN
-fo
-in
-ho
-dH
-ik
-aL
-aL
-aL
+hv
+gi
+kQ
+cv
+hM
+bs
+bU
+gq
+km
+km
+km
 zT
 zT
 zT
@@ -63610,18 +63612,18 @@ nf
 nf
 "}
 (230,1,1) = {"
-lk
-QZ
-ob
-ia
-eZ
-du
-dh
-nU
-lk
-lk
-lk
-eV
+hv
+Eh
+nM
+lm
+ke
+cm
+hy
+cC
+hv
+hv
+hv
+js
 zT
 zT
 ay
@@ -63867,15 +63869,15 @@ nf
 nf
 "}
 (231,1,1) = {"
-lk
-QZ
-QZ
-QZ
-QZ
-QZ
-QZ
-lk
-lk
+hv
+Eh
+Eh
+Eh
+Eh
+Eh
+Eh
+hv
+hv
 zT
 zT
 zT
@@ -64124,14 +64126,14 @@ nf
 nf
 "}
 (232,1,1) = {"
-lk
-QZ
-QZ
-QZ
-QZ
-QZ
-QZ
-lk
+hv
+Eh
+Eh
+Eh
+Eh
+Eh
+Eh
+hv
 pD
 zT
 zT
@@ -64381,14 +64383,14 @@ nf
 nf
 "}
 (233,1,1) = {"
-lk
-aF
-nN
-nN
-aq
-cF
-lk
-lk
+hv
+de
+mQ
+mQ
+lW
+fM
+hv
+hv
 pD
 pD
 pD
@@ -64638,13 +64640,13 @@ nf
 nf
 "}
 (234,1,1) = {"
-lk
-bB
-bB
-cH
-bB
-lk
-lk
+hv
+cW
+cW
+AF
+cW
+hv
+hv
 pD
 pD
 pD
@@ -64835,7 +64837,7 @@ pr
 pA
 pD
 pD
-eP
+ni
 ay
 ay
 ay
@@ -64844,7 +64846,7 @@ oU
 pn
 pn
 pU
-eP
+ni
 pD
 pD
 oU
@@ -64895,12 +64897,12 @@ nf
 nf
 "}
 (235,1,1) = {"
-lk
-bB
-cH
-bB
-bB
-lk
+hv
+cW
+AF
+cW
+cW
+hv
 pD
 pD
 nf
@@ -65152,12 +65154,12 @@ nf
 nf
 "}
 (236,1,1) = {"
-lk
-bB
-bB
-bB
-bB
-lk
+hv
+cW
+cW
+cW
+cW
+hv
 pD
 nf
 nf
@@ -65409,12 +65411,12 @@ nf
 nf
 "}
 (237,1,1) = {"
-lk
-lk
-lk
-lk
-lk
-lk
+hv
+hv
+hv
+hv
+hv
+hv
 nf
 nf
 nf
@@ -65863,7 +65865,7 @@ pD
 pD
 pD
 pD
-eP
+ni
 ay
 ay
 ay
@@ -65872,7 +65874,7 @@ oU
 pn
 qd
 pn
-eP
+ni
 pD
 pD
 oU
