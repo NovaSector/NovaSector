@@ -25140,7 +25140,6 @@
 	},
 /obj/item/folder/blue,
 /obj/item/folder/blue,
-/obj/item/paper/fluff/ids_for_dummies,
 /obj/item/hand_labeler_refill{
 	pixel_x = 6;
 	pixel_y = 19
@@ -33793,6 +33792,14 @@
 /obj/machinery/duct,
 /turf/open/floor/plating,
 /area/station/maintenance/starboard/fore)
+"guX" = (
+/obj/machinery/conveyor{
+	dir = 1;
+	id = "cargodeliver"
+	},
+/obj/effect/landmark/firealarm_sanity,
+/turf/open/floor/iron/dark,
+/area/station/cargo/office)
 "gva" = (
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
@@ -85690,7 +85697,7 @@
 /obj/item/clothing/gloves/latex/nitrile,
 /obj/item/clothing/gloves/latex/nitrile,
 /obj/item/clothing/neck/stethoscope,
-/obj/item/xenoarch/hammer/cm1{
+/obj/item/xenoarch/hammer{
 	desc = "A small hammer to test reflexes.. you can't seem to swing this thing right.";
 	name = "Reflex Hammer"
 	},
@@ -166180,7 +166187,7 @@ qvv
 iYm
 cbL
 mTQ
-mTQ
+guX
 nup
 iVN
 sBw

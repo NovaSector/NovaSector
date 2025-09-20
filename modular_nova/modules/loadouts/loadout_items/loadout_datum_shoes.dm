@@ -71,6 +71,10 @@
 	name = "Sport Shoes"
 	item_path = /obj/item/clothing/shoes/sports
 
+/datum/loadout_item/shoes/sport_boots
+	name = "Sport Boots"
+	item_path = /obj/item/clothing/shoes/sport_boots
+
 /*
 *	BOOTS
 */
@@ -221,13 +225,9 @@
 */
 
 /datum/loadout_item/shoes/christmas
-	name = "Christmas Boots (Red)"
+	name = "Christmas Boots"
 	item_path = /obj/item/clothing/shoes/winterboots/christmas
 	group = "Costumes"
-
-/datum/loadout_item/shoes/christmas/green
-	name = "Christmas Boots (Green)"
-	item_path = /obj/item/clothing/shoes/winterboots/christmas/green
 
 /datum/loadout_item/shoes/glow_shoes
 	name = "Glowing Shoes (Colorable)"

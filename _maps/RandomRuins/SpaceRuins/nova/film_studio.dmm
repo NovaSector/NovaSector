@@ -2425,7 +2425,7 @@
 /turf/open/floor/plating,
 /area/ruin/space/has_grav/film_studio/solars)
 "Ny" = (
-/obj/structure/filingcabinet/filingcabinet,
+/obj/structure/filingcabinet/white,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/structure/window/reinforced/spawner/directional/west,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
@@ -2789,7 +2789,7 @@
 /turf/open/floor/iron/dark,
 /area/ruin/space/has_grav/film_studio/dorms)
 "Te" = (
-/obj/structure/filingcabinet/filingcabinet,
+/obj/structure/filingcabinet/white,
 /obj/structure/window/reinforced/spawner/directional/west,
 /turf/open/floor/pod/light,
 /area/ruin/space/has_grav/film_studio/starboard)
