@@ -7487,6 +7487,8 @@
 #include "modular_nova\modules\autotransfer\code\autotransfer_config.dm"
 #include "modular_nova\modules\autotransfer\code\shuttle.dm"
 #include "modular_nova\modules\autotransfer\code\transfer_vote.dm"
+#include "modular_nova\modules\awaymissions_nova\circus\circus_misc.dm"
+#include "modular_nova\modules\awaymissions_nova\circus\circus_mobs.dm"
 #include "modular_nova\modules\awaymissions_nova\code\gateway_key.dm"
 #include "modular_nova\modules\awaymissions_nova\heretic\heretic.dm"
 #include "modular_nova\modules\awaymissions_nova\Maintsroom\black_floor_helper.dm"
