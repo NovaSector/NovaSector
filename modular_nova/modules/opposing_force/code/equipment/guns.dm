@@ -239,8 +239,8 @@
 
 /obj/item/storage/toolbox/guncase/nova/pistol/opfor/syndie_revolver/PopulateContents()
 	new /obj/item/gun/ballistic/revolver/badass(src)
-	new /obj/item/ammo_box/a357(src)
-	new /obj/item/ammo_box/a357(src)
+	new /obj/item/ammo_box/speedloader/c357(src)
+	new /obj/item/ammo_box/speedloader/c357(src)
 
 /datum/opposing_force_equipment/ranged_stealth/ocelot
 	name = "Colt Peacemaker revolver"
@@ -250,8 +250,8 @@
 
 /obj/item/storage/toolbox/guncase/nova/pistol/opfor/ocelot/PopulateContents()
 	new /obj/item/gun/ballistic/revolver/ocelot(src)
-	new /obj/item/ammo_box/a357/peacemaker(src)
-	new /obj/item/ammo_box/a357/peacemaker(src)
+	new /obj/item/ammo_box/speedloader/c357/peacemaker(src)
+	new /obj/item/ammo_box/speedloader/c357/peacemaker(src)
 
 //foamforce
 /datum/opposing_force_equipment/ranged_stealth/foamforce_smg

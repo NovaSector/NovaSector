@@ -30,13 +30,13 @@
 	materials = list(
 		/datum/material/iron = SHEET_MATERIAL_AMOUNT * 2,
 	)
-	build_path = /obj/item/ammo_box/a357/peacemaker
+	build_path = /obj/item/ammo_box/speedloader/c357/peacemaker
 	category = list(
 		RND_CATEGORY_HACKED,
 		RND_CATEGORY_WEAPONS + RND_SUBCATEGORY_WEAPONS_AMMO,
 	)
 
-/obj/item/ammo_box/a357/peacemaker
+/obj/item/ammo_box/speedloader/c357/peacemaker
 	name = "speed loader (.357 Peacemaker)"
 	desc = "Designed to quickly reload revolvers."
 	icon_state = "357"

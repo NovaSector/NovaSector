@@ -46,10 +46,10 @@
 	custom_materials = AMMO_MATS_EMP
 
 // ammo boxes
-/obj/item/ammo_box/c38
+/obj/item/ammo_box/speedloader/c38
 	caliber = CALIBER_38
 
-/obj/item/ammo_box/c38/haywire
+/obj/item/ammo_box/speedloader/c38/haywire
 	name = "speed loader (.38 Haywire)"
 	desc = "Designed to quickly reload revolvers. These rounds create small electromagnetic pulses upon impact."
 	ammo_type = /obj/item/ammo_casing/c38/haywire
@@ -96,7 +96,7 @@
 
 // ammo boxes
 
-/obj/item/ammo_box/a357/haywire
+/obj/item/ammo_box/speedloader/c357/haywire
 	name = "speed loader (.357 Haywire+)"
 	desc = "Designed to quickly reload revolvers. These rounds create small, but powerful electromagnetic pulses upon impact."
 	ammo_type = /obj/item/ammo_casing/c357/haywire

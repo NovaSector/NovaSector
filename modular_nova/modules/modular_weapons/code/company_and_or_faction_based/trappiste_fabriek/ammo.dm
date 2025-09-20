@@ -99,3 +99,14 @@
 	icon_state = "585box_hot"
 
 	ammo_type = /obj/item/ammo_casing/c585trappiste/incendiary
+
+/obj/item/ammo_box/speedloader/c585trappiste
+	name = "speed loader (.585 Trappiste)"
+	desc = "Designed to quickly reload six-chamber .585 Trappiste revolvers."
+	icon = 'modular_nova/modules/modular_weapons/icons/obj/company_and_or_faction_based/trappiste_fabriek/ammo.dmi'
+	icon_state = "sl585t"
+	ammo_type = /obj/item/ammo_casing/c585trappiste
+	max_ammo = 6
+	caliber = CALIBER_585TRAPPISTE
+	ammo_band_icon = "+sl585_band"
+	ammo_band_color = null
