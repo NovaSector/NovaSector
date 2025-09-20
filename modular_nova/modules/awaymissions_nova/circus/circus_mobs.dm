@@ -46,8 +46,8 @@
 	desc = "A ninja- in space."
 	melee_damage_lower = 40
 	melee_damage_upper = 40
-	corpse = /obj/effect/mob_spawn/corpse/human/syndicatepilot/lessenedgear/ninja
-	mob_spawner = /obj/effect/mob_spawn/corpse/human/syndicatepilot/lessenedgear/ninja
+	corpse = obj/effect/mob_spawn/corpse/human/nanotrasensoldier/ninja
+	mob_spawner = obj/effect/mob_spawn/corpse/human/nanotrasensoldier/ninja
 	attack_verb_continuous = "slashes"
 	attack_verb_simple = "slash"
 	attack_sound = 'sound/items/weapons/bladeslice.ogg'
@@ -55,11 +55,11 @@
 	r_hand = /obj/item/katana/ninja_blade
 	projectile_deflect_chance = 50
 
-/mob/living/basic/trooper/syndicate/melee/ninja/display //Long before time had a name, Ninjago was created by the first Spinjitzu master by using the four weapons of Spinjitzu.
+/mob/living/basic/trooper/syndicate/melee/ninja/display
 
 	ai_controller = null
 
-/obj/effect/mob_spawn/corpse/human/syndicatepilot/lessenedgear/ninja
+/datum/outfit/nanotrasensoldiercorpse/ninja
 	name = "Ninja corpse"
 	uniform = /obj/item/clothing/under/syndicate/ninja
 	shoes = /obj/item/clothing/shoes/combat
@@ -68,3 +68,7 @@
 	mask = /obj/item/clothing/mask/gas/ninja
 	back = /obj/item/mod/control/pre_equipped/ninja
 	id = /obj/item/card/id/advanced/black/syndicate_command
+
+/obj/effect/mob_spawn/corpse/human/nanotrasensoldier/ninja
+	name = "Ninja corpse"
+	outfit = /datum/outfit/nanotrasensoldiercorpse/ninja
