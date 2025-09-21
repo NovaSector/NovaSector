@@ -765,6 +765,13 @@
 /obj/effect/spawner/random/trash/bin,
 /turf/open/floor/eighties,
 /area/awaymission/beach/circus_day)
+"nd" = (
+/obj/structure/shipping_container/nanotrasen{
+	name = "Lost pulse pistol shipping container";
+	desc = "oh THATS where they get them from! But also the crate seems to be completely sealed"
+	},
+/turf/open/floor/iron/large,
+/area/awaymission/beach/circus_day)
 "nj" = (
 /obj/structure/chair/stool/bar/directional/south,
 /turf/open/floor/iron/dark,
@@ -1682,6 +1689,7 @@
 /area/awaymission/beach/circus_day)
 "Ci" = (
 /obj/structure/rack,
+/obj/item/climbing_hook,
 /turf/open/floor/carpet/cyan,
 /area/awaymission/beach/circus_day)
 "Cn" = (
@@ -1725,6 +1733,12 @@
 	icon_state = "fronttire"
 	},
 /turf/open/indestructible/rockyground,
+/area/awaymission/beach/circus_day)
+"CN" = (
+/obj/effect/oneway{
+	dir = 1
+	},
+/turf/open/floor/eighties,
 /area/awaymission/beach/circus_day)
 "CP" = (
 /turf/open/water/deep_beach,
@@ -2559,6 +2573,10 @@
 /obj/structure/closet/crate/secure/gear,
 /turf/closed/mineral,
 /area/awaymission/beach/circus_day)
+"QE" = (
+/obj/structure/railing,
+/turf/open/floor/eighties,
+/area/awaymission/beach/circus_day)
 "QG" = (
 /obj/structure/window/reinforced/survival_pod/indestructible/spawner/directional/north,
 /turf/open/floor/carpet/executive,
@@ -2882,6 +2900,12 @@
 "VW" = (
 /turf/open/floor/iron/white,
 /area/awaymission/beach/circus_day)
+"VY" = (
+/obj/structure/railing/corner{
+	dir = 8
+	},
+/turf/open/floor/eighties,
+/area/awaymission/beach/circus_day)
 "Wa" = (
 /obj/machinery/atmospherics/pipe/smart/simple/yellow/hidden,
 /obj/structure/cable,
@@ -2890,6 +2914,10 @@
 "Wd" = (
 /obj/structure/showcase/mecha/mauler,
 /turf/open/floor/mineral/plastitanium,
+/area/awaymission/beach/circus_day)
+"Wj" = (
+/obj/structure/railing/corner,
+/turf/open/floor/eighties,
 /area/awaymission/beach/circus_day)
 "Wp" = (
 /obj/structure/flora/bush/jungle/a/style_random,
@@ -21704,7 +21732,7 @@ qo
 qo
 fx
 qo
-fx
+nd
 BT
 qP
 OI
@@ -26566,7 +26594,7 @@ XC
 XC
 XC
 XC
-XC
+Wj
 mt
 XC
 wp
@@ -26823,9 +26851,9 @@ XC
 XC
 XC
 XC
+QE
 XC
-mt
-XC
+CN
 mF
 wp
 XC
@@ -27080,7 +27108,7 @@ XC
 XC
 XC
 XC
-XC
+VY
 mt
 XC
 vi
