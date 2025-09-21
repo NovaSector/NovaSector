@@ -5,9 +5,7 @@
 	icon_state = "rain";
 	alpha = 100
 	},
-/turf/open/indestructible/tram{
-	icon = 'modular_nova/master_files/icons/obj/skyscraper/background.dmi';
-	base_icon_state = "0,34";
+/turf/open/skyline{
 	icon_state = "21,20"
 	},
 /area/misc/condo)
@@ -17,9 +15,7 @@
 	icon_state = "rain";
 	alpha = 100
 	},
-/turf/open/indestructible/tram{
-	icon = 'modular_nova/master_files/icons/obj/skyscraper/background.dmi';
-	base_icon_state = "0,34";
+/turf/open/skyline{
 	icon_state = "9,25"
 	},
 /area/misc/condo)
@@ -47,11 +43,10 @@
 /obj/structure/fluff/metalpole{
 	dir = 1
 	},
-/turf/open/indestructible/tram{
+/turf/open/skyline{
 	base_icon_state = "0,34";
 	icon = 'modular_nova/master_files/icons/obj/skyscraper/background.dmi';
-	icon_state = "8,10";
-	name = "long way down"
+	icon_state = "8,10"
 	},
 /area/misc/condo)
 "as" = (
@@ -60,9 +55,7 @@
 	icon_state = "rain";
 	alpha = 100
 	},
-/turf/open/indestructible/tram{
-	icon = 'modular_nova/master_files/icons/obj/skyscraper/background.dmi';
-	base_icon_state = "0,34";
+/turf/open/skyline{
 	icon_state = "10,19"
 	},
 /area/misc/condo)
@@ -72,9 +65,7 @@
 	icon_state = "rain";
 	alpha = 100
 	},
-/turf/open/indestructible/tram{
-	icon = 'modular_nova/master_files/icons/obj/skyscraper/background.dmi';
-	base_icon_state = "0,34";
+/turf/open/skyline{
 	icon_state = "4,15"
 	},
 /area/misc/condo)
@@ -111,9 +102,7 @@
 	icon_state = "rain";
 	alpha = 100
 	},
-/turf/open/indestructible/tram{
-	icon = 'modular_nova/master_files/icons/obj/skyscraper/background.dmi';
-	base_icon_state = "0,34";
+/turf/open/skyline{
 	icon_state = "30,10"
 	},
 /area/misc/condo)
@@ -141,9 +130,7 @@
 	icon_state = "rain";
 	alpha = 100
 	},
-/turf/open/indestructible/tram{
-	icon = 'modular_nova/master_files/icons/obj/skyscraper/background.dmi';
-	base_icon_state = "0,34";
+/turf/open/skyline{
 	icon_state = "10,27"
 	},
 /area/misc/condo)
@@ -153,9 +140,7 @@
 	icon_state = "rain";
 	alpha = 100
 	},
-/turf/open/indestructible/tram{
-	icon = 'modular_nova/master_files/icons/obj/skyscraper/background.dmi';
-	base_icon_state = "0,34";
+/turf/open/skyline{
 	icon_state = "6,15"
 	},
 /area/misc/condo)
@@ -165,9 +150,7 @@
 	icon_state = "rain";
 	alpha = 100
 	},
-/turf/open/indestructible/tram{
-	icon = 'modular_nova/master_files/icons/obj/skyscraper/background.dmi';
-	base_icon_state = "0,34";
+/turf/open/skyline{
 	icon_state = "30,23"
 	},
 /area/misc/condo)
@@ -193,9 +176,7 @@
 	icon_state = "rain";
 	alpha = 100
 	},
-/turf/open/indestructible/tram{
-	icon = 'modular_nova/master_files/icons/obj/skyscraper/background.dmi';
-	base_icon_state = "0,34";
+/turf/open/skyline{
 	icon_state = "9,15"
 	},
 /area/misc/condo)
@@ -205,9 +186,7 @@
 	icon_state = "rain";
 	alpha = 100
 	},
-/turf/open/indestructible/tram{
-	icon = 'modular_nova/master_files/icons/obj/skyscraper/background.dmi';
-	base_icon_state = "0,34";
+/turf/open/skyline{
 	icon_state = "30,26"
 	},
 /area/misc/condo)
@@ -217,9 +196,7 @@
 	icon_state = "rain";
 	alpha = 100
 	},
-/turf/open/indestructible/tram{
-	icon = 'modular_nova/master_files/icons/obj/skyscraper/background.dmi';
-	base_icon_state = "0,34";
+/turf/open/skyline{
 	icon_state = "29,25"
 	},
 /area/misc/condo)
@@ -245,9 +222,7 @@
 	icon_state = "rain";
 	alpha = 100
 	},
-/turf/open/indestructible/tram{
-	icon = 'modular_nova/master_files/icons/obj/skyscraper/background.dmi';
-	base_icon_state = "0,34";
+/turf/open/skyline{
 	icon_state = "9,20"
 	},
 /area/misc/condo)
@@ -261,9 +236,7 @@
 	icon_state = "rain";
 	alpha = 100
 	},
-/turf/open/indestructible/tram{
-	icon = 'modular_nova/master_files/icons/obj/skyscraper/background.dmi';
-	base_icon_state = "0,34";
+/turf/open/skyline{
 	icon_state = "8,27"
 	},
 /area/misc/condo)
@@ -273,9 +246,7 @@
 	icon_state = "rain";
 	alpha = 100
 	},
-/turf/open/indestructible/tram{
-	icon = 'modular_nova/master_files/icons/obj/skyscraper/background.dmi';
-	base_icon_state = "0,34";
+/turf/open/skyline{
 	icon_state = "24,25"
 	},
 /area/misc/condo)
@@ -285,9 +256,7 @@
 	icon_state = "rain";
 	alpha = 100
 	},
-/turf/open/indestructible/tram{
-	icon = 'modular_nova/master_files/icons/obj/skyscraper/background.dmi';
-	base_icon_state = "0,34";
+/turf/open/skyline{
 	icon_state = "5,20"
 	},
 /area/misc/condo)
@@ -320,11 +289,8 @@
 /obj/structure/fluff/metalpole{
 	dir = 8
 	},
-/turf/open/indestructible/tram{
-	base_icon_state = "0,34";
-	icon = 'modular_nova/master_files/icons/obj/skyscraper/background.dmi';
-	icon_state = "7,5";
-	name = "long way down"
+/turf/open/skyline{
+	icon_state = "7,5"
 	},
 /area/misc/condo)
 "cH" = (
@@ -333,9 +299,7 @@
 	icon_state = "rain";
 	alpha = 100
 	},
-/turf/open/indestructible/tram{
-	icon = 'modular_nova/master_files/icons/obj/skyscraper/background.dmi';
-	base_icon_state = "0,34";
+/turf/open/skyline{
 	icon_state = "26,12"
 	},
 /area/misc/condo)
@@ -367,9 +331,7 @@
 	icon_state = "rain";
 	alpha = 100
 	},
-/turf/open/indestructible/tram{
-	icon = 'modular_nova/master_files/icons/obj/skyscraper/background.dmi';
-	base_icon_state = "0,34";
+/turf/open/skyline{
 	icon_state = "9,7"
 	},
 /area/misc/condo)
@@ -383,9 +345,7 @@
 	icon_state = "rain";
 	alpha = 100
 	},
-/turf/open/indestructible/tram{
-	icon = 'modular_nova/master_files/icons/obj/skyscraper/background.dmi';
-	base_icon_state = "0,34";
+/turf/open/skyline{
 	icon_state = "27,10"
 	},
 /area/misc/condo)
@@ -422,11 +382,8 @@
 /obj/structure/fluff/metalpole/anchor{
 	dir = 1
 	},
-/turf/open/indestructible/tram{
-	base_icon_state = "0,34";
-	icon = 'modular_nova/master_files/icons/obj/skyscraper/background.dmi';
-	icon_state = "7,6";
-	name = "long way down"
+/turf/open/skyline{
+	icon_state = "7,6"
 	},
 /area/misc/condo)
 "cT" = (
@@ -435,9 +392,7 @@
 	icon_state = "rain";
 	alpha = 100
 	},
-/turf/open/indestructible/tram{
-	icon = 'modular_nova/master_files/icons/obj/skyscraper/background.dmi';
-	base_icon_state = "0,34";
+/turf/open/skyline{
 	icon_state = "10,18"
 	},
 /area/misc/condo)
@@ -447,9 +402,7 @@
 	icon_state = "rain";
 	alpha = 100
 	},
-/turf/open/indestructible/tram{
-	icon = 'modular_nova/master_files/icons/obj/skyscraper/background.dmi';
-	base_icon_state = "0,34";
+/turf/open/skyline{
 	icon_state = "15,27"
 	},
 /area/misc/condo)
@@ -481,9 +434,7 @@
 	icon_state = "rain";
 	alpha = 100
 	},
-/turf/open/indestructible/tram{
-	icon = 'modular_nova/master_files/icons/obj/skyscraper/background.dmi';
-	base_icon_state = "0,34";
+/turf/open/skyline{
 	icon_state = "23,22"
 	},
 /area/misc/condo)
@@ -493,9 +444,7 @@
 	icon_state = "rain";
 	alpha = 100
 	},
-/turf/open/indestructible/tram{
-	icon = 'modular_nova/master_files/icons/obj/skyscraper/background.dmi';
-	base_icon_state = "0,34";
+/turf/open/skyline{
 	icon_state = "30,14"
 	},
 /area/misc/condo)
@@ -522,9 +471,7 @@
 	icon_state = "rain";
 	alpha = 100
 	},
-/turf/open/indestructible/tram{
-	icon = 'modular_nova/master_files/icons/obj/skyscraper/background.dmi';
-	base_icon_state = "0,34";
+/turf/open/skyline{
 	icon_state = "25,7"
 	},
 /area/misc/condo)
@@ -534,9 +481,7 @@
 	icon_state = "rain";
 	alpha = 100
 	},
-/turf/open/indestructible/tram{
-	icon = 'modular_nova/master_files/icons/obj/skyscraper/background.dmi';
-	base_icon_state = "0,34";
+/turf/open/skyline{
 	icon_state = "29,27"
 	},
 /area/misc/condo)
@@ -546,9 +491,7 @@
 	icon_state = "rain";
 	alpha = 100
 	},
-/turf/open/indestructible/tram{
-	icon = 'modular_nova/master_files/icons/obj/skyscraper/background.dmi';
-	base_icon_state = "0,34";
+/turf/open/skyline{
 	icon_state = "9,5"
 	},
 /area/misc/condo)
@@ -558,9 +501,7 @@
 	icon_state = "rain";
 	alpha = 100
 	},
-/turf/open/indestructible/tram{
-	icon = 'modular_nova/master_files/icons/obj/skyscraper/background.dmi';
-	base_icon_state = "0,34";
+/turf/open/skyline{
 	icon_state = "17,19"
 	},
 /area/misc/condo)
@@ -585,9 +526,7 @@
 	icon_state = "rain";
 	alpha = 100
 	},
-/turf/open/indestructible/tram{
-	icon = 'modular_nova/master_files/icons/obj/skyscraper/background.dmi';
-	base_icon_state = "0,34";
+/turf/open/skyline{
 	icon_state = "27,12"
 	},
 /area/misc/condo)
@@ -616,9 +555,7 @@
 	icon_state = "rain";
 	alpha = 100
 	},
-/turf/open/indestructible/tram{
-	icon = 'modular_nova/master_files/icons/obj/skyscraper/background.dmi';
-	base_icon_state = "0,34";
+/turf/open/skyline{
 	icon_state = "21,24"
 	},
 /area/misc/condo)
@@ -655,9 +592,7 @@
 	icon_state = "rain";
 	alpha = 100
 	},
-/turf/open/indestructible/tram{
-	icon = 'modular_nova/master_files/icons/obj/skyscraper/background.dmi';
-	base_icon_state = "0,34";
+/turf/open/skyline{
 	icon_state = "27,16"
 	},
 /area/misc/condo)
@@ -712,11 +647,8 @@
 	dir = 1
 	},
 /obj/structure/railing,
-/turf/open/indestructible/tram{
-	base_icon_state = "0,34";
-	icon = 'modular_nova/master_files/icons/obj/skyscraper/background.dmi';
-	icon_state = "6,11";
-	name = "long way down"
+/turf/open/skyline{
+	icon_state = "6,11"
 	},
 /area/misc/condo)
 "eA" = (
@@ -728,9 +660,7 @@
 	icon_state = "rain";
 	alpha = 100
 	},
-/turf/open/indestructible/tram{
-	icon = 'modular_nova/master_files/icons/obj/skyscraper/background.dmi';
-	base_icon_state = "0,34";
+/turf/open/skyline{
 	icon_state = "6,22"
 	},
 /area/misc/condo)
@@ -760,9 +690,7 @@
 	icon_state = "rain";
 	alpha = 100
 	},
-/turf/open/indestructible/tram{
-	icon = 'modular_nova/master_files/icons/obj/skyscraper/background.dmi';
-	base_icon_state = "0,34";
+/turf/open/skyline{
 	icon_state = "10,21"
 	},
 /area/misc/condo)
@@ -772,9 +700,7 @@
 	icon_state = "rain";
 	alpha = 100
 	},
-/turf/open/indestructible/tram{
-	icon = 'modular_nova/master_files/icons/obj/skyscraper/background.dmi';
-	base_icon_state = "0,34";
+/turf/open/skyline{
 	icon_state = "19,25"
 	},
 /area/misc/condo)
@@ -788,9 +714,7 @@
 	icon_state = "rain";
 	alpha = 100
 	},
-/turf/open/indestructible/tram{
-	icon = 'modular_nova/master_files/icons/obj/skyscraper/background.dmi';
-	base_icon_state = "0,34";
+/turf/open/skyline{
 	icon_state = "30,7"
 	},
 /area/misc/condo)
@@ -800,9 +724,7 @@
 	icon_state = "rain";
 	alpha = 100
 	},
-/turf/open/indestructible/tram{
-	icon = 'modular_nova/master_files/icons/obj/skyscraper/background.dmi';
-	base_icon_state = "0,34";
+/turf/open/skyline{
 	icon_state = "8,9"
 	},
 /area/misc/condo)
@@ -838,9 +760,7 @@
 	icon_state = "rain";
 	alpha = 100
 	},
-/turf/open/indestructible/tram{
-	icon = 'modular_nova/master_files/icons/obj/skyscraper/background.dmi';
-	base_icon_state = "0,34";
+/turf/open/skyline{
 	icon_state = "28,26"
 	},
 /area/misc/condo)
@@ -850,9 +770,7 @@
 	icon_state = "rain";
 	alpha = 100
 	},
-/turf/open/indestructible/tram{
-	icon = 'modular_nova/master_files/icons/obj/skyscraper/background.dmi';
-	base_icon_state = "0,34";
+/turf/open/skyline{
 	icon_state = "28,14"
 	},
 /area/misc/condo)
@@ -862,9 +780,7 @@
 	icon_state = "rain";
 	alpha = 100
 	},
-/turf/open/indestructible/tram{
-	icon = 'modular_nova/master_files/icons/obj/skyscraper/background.dmi';
-	base_icon_state = "0,34";
+/turf/open/skyline{
 	icon_state = "17,22"
 	},
 /area/misc/condo)
@@ -885,9 +801,7 @@
 	icon_state = "rain";
 	alpha = 100
 	},
-/turf/open/indestructible/tram{
-	icon = 'modular_nova/master_files/icons/obj/skyscraper/background.dmi';
-	base_icon_state = "0,34";
+/turf/open/skyline{
 	icon_state = "11,25"
 	},
 /area/misc/condo)
@@ -904,9 +818,7 @@
 	icon_state = "rain";
 	alpha = 100
 	},
-/turf/open/indestructible/tram{
-	icon = 'modular_nova/master_files/icons/obj/skyscraper/background.dmi';
-	base_icon_state = "0,34";
+/turf/open/skyline{
 	icon_state = "12,21"
 	},
 /area/misc/condo)
@@ -916,9 +828,7 @@
 	icon_state = "rain";
 	alpha = 100
 	},
-/turf/open/indestructible/tram{
-	icon = 'modular_nova/master_files/icons/obj/skyscraper/background.dmi';
-	base_icon_state = "0,34";
+/turf/open/skyline{
 	icon_state = "22,20"
 	},
 /area/misc/condo)
@@ -971,11 +881,8 @@
 /obj/structure/fluff/metalpole/anchor{
 	dir = 1
 	},
-/turf/open/indestructible/tram{
-	base_icon_state = "0,34";
-	icon = 'modular_nova/master_files/icons/obj/skyscraper/background.dmi';
-	icon_state = "4,8";
-	name = "long way down"
+/turf/open/skyline{
+	icon_state = "4,8"
 	},
 /area/misc/condo)
 "gf" = (
@@ -984,9 +891,7 @@
 	icon_state = "rain";
 	alpha = 100
 	},
-/turf/open/indestructible/tram{
-	icon = 'modular_nova/master_files/icons/obj/skyscraper/background.dmi';
-	base_icon_state = "0,34";
+/turf/open/skyline{
 	icon_state = "16,26"
 	},
 /area/misc/condo)
@@ -1011,9 +916,7 @@
 	icon_state = "rain";
 	alpha = 100
 	},
-/turf/open/indestructible/tram{
-	icon = 'modular_nova/master_files/icons/obj/skyscraper/background.dmi';
-	base_icon_state = "0,34";
+/turf/open/skyline{
 	icon_state = "7,16"
 	},
 /area/misc/condo)
@@ -1023,9 +926,7 @@
 	icon_state = "rain";
 	alpha = 100
 	},
-/turf/open/indestructible/tram{
-	icon = 'modular_nova/master_files/icons/obj/skyscraper/background.dmi';
-	base_icon_state = "0,34";
+/turf/open/skyline{
 	icon_state = "27,24"
 	},
 /area/misc/condo)
@@ -1035,9 +936,7 @@
 	icon_state = "rain";
 	alpha = 100
 	},
-/turf/open/indestructible/tram{
-	icon = 'modular_nova/master_files/icons/obj/skyscraper/background.dmi';
-	base_icon_state = "0,34";
+/turf/open/skyline{
 	icon_state = "24,22"
 	},
 /area/misc/condo)
@@ -1047,9 +946,7 @@
 	icon_state = "rain";
 	alpha = 100
 	},
-/turf/open/indestructible/tram{
-	icon = 'modular_nova/master_files/icons/obj/skyscraper/background.dmi';
-	base_icon_state = "0,34";
+/turf/open/skyline{
 	icon_state = "14,25"
 	},
 /area/misc/condo)
@@ -1063,9 +960,7 @@
 	icon_state = "rain";
 	alpha = 100
 	},
-/turf/open/indestructible/tram{
-	icon = 'modular_nova/master_files/icons/obj/skyscraper/background.dmi';
-	base_icon_state = "0,34";
+/turf/open/skyline{
 	icon_state = "26,13"
 	},
 /area/misc/condo)
@@ -1094,9 +989,7 @@
 	icon_state = "rain";
 	alpha = 100
 	},
-/turf/open/indestructible/tram{
-	icon = 'modular_nova/master_files/icons/obj/skyscraper/background.dmi';
-	base_icon_state = "0,34";
+/turf/open/skyline{
 	icon_state = "26,9"
 	},
 /area/misc/condo)
@@ -1106,9 +999,7 @@
 	icon_state = "rain";
 	alpha = 100
 	},
-/turf/open/indestructible/tram{
-	icon = 'modular_nova/master_files/icons/obj/skyscraper/background.dmi';
-	base_icon_state = "0,34";
+/turf/open/skyline{
 	icon_state = "4,27"
 	},
 /area/misc/condo)
@@ -1118,9 +1009,7 @@
 	icon_state = "rain";
 	alpha = 100
 	},
-/turf/open/indestructible/tram{
-	icon = 'modular_nova/master_files/icons/obj/skyscraper/background.dmi';
-	base_icon_state = "0,34";
+/turf/open/skyline{
 	icon_state = "26,22"
 	},
 /area/misc/condo)
@@ -1143,9 +1032,7 @@
 	icon_state = "rain";
 	alpha = 100
 	},
-/turf/open/indestructible/tram{
-	icon = 'modular_nova/master_files/icons/obj/skyscraper/background.dmi';
-	base_icon_state = "0,34";
+/turf/open/skyline{
 	icon_state = "26,23"
 	},
 /area/misc/condo)
@@ -1155,9 +1042,7 @@
 	icon_state = "rain";
 	alpha = 100
 	},
-/turf/open/indestructible/tram{
-	icon = 'modular_nova/master_files/icons/obj/skyscraper/background.dmi';
-	base_icon_state = "0,34";
+/turf/open/skyline{
 	icon_state = "18,21"
 	},
 /area/misc/condo)
@@ -1215,9 +1100,7 @@
 	icon_state = "rain";
 	alpha = 100
 	},
-/turf/open/indestructible/tram{
-	icon = 'modular_nova/master_files/icons/obj/skyscraper/background.dmi';
-	base_icon_state = "0,34";
+/turf/open/skyline{
 	icon_state = "13,23"
 	},
 /area/misc/condo)
@@ -1238,9 +1121,7 @@
 	icon_state = "rain";
 	alpha = 100
 	},
-/turf/open/indestructible/tram{
-	icon = 'modular_nova/master_files/icons/obj/skyscraper/background.dmi';
-	base_icon_state = "0,34";
+/turf/open/skyline{
 	icon_state = "21,22"
 	},
 /area/misc/condo)
@@ -1250,9 +1131,7 @@
 	icon_state = "rain";
 	alpha = 100
 	},
-/turf/open/indestructible/tram{
-	icon = 'modular_nova/master_files/icons/obj/skyscraper/background.dmi';
-	base_icon_state = "0,34";
+/turf/open/skyline{
 	icon_state = "12,26"
 	},
 /area/misc/condo)
@@ -1284,9 +1163,7 @@
 	icon_state = "rain";
 	alpha = 100
 	},
-/turf/open/indestructible/tram{
-	icon = 'modular_nova/master_files/icons/obj/skyscraper/background.dmi';
-	base_icon_state = "0,34";
+/turf/open/skyline{
 	icon_state = "10,25"
 	},
 /area/misc/condo)
@@ -1296,9 +1173,7 @@
 	icon_state = "rain";
 	alpha = 100
 	},
-/turf/open/indestructible/tram{
-	icon = 'modular_nova/master_files/icons/obj/skyscraper/background.dmi';
-	base_icon_state = "0,34";
+/turf/open/skyline{
 	icon_state = "25,13"
 	},
 /area/misc/condo)
@@ -1315,11 +1190,8 @@
 /obj/structure/railing{
 	dir = 8
 	},
-/turf/open/indestructible/tram{
-	base_icon_state = "0,34";
-	icon = 'modular_nova/master_files/icons/obj/skyscraper/background.dmi';
-	icon_state = "7,12";
-	name = "long way down"
+/turf/open/skyline{
+	icon_state = "7,12"
 	},
 /area/misc/condo)
 "iw" = (
@@ -1348,9 +1220,7 @@
 	icon_state = "rain";
 	alpha = 100
 	},
-/turf/open/indestructible/tram{
-	icon = 'modular_nova/master_files/icons/obj/skyscraper/background.dmi';
-	base_icon_state = "0,34";
+/turf/open/skyline{
 	icon_state = "21,21"
 	},
 /area/misc/condo)
@@ -1360,9 +1230,7 @@
 	icon_state = "rain";
 	alpha = 100
 	},
-/turf/open/indestructible/tram{
-	icon = 'modular_nova/master_files/icons/obj/skyscraper/background.dmi';
-	base_icon_state = "0,34";
+/turf/open/skyline{
 	icon_state = "25,6"
 	},
 /area/misc/condo)
@@ -1378,11 +1246,8 @@
 /obj/structure/fluff/metalpole{
 	dir = 8
 	},
-/turf/open/indestructible/tram{
-	base_icon_state = "0,34";
-	icon = 'modular_nova/master_files/icons/obj/skyscraper/background.dmi';
-	icon_state = "4,5";
-	name = "long way down"
+/turf/open/skyline{
+	icon_state = "4,5"
 	},
 /area/misc/condo)
 "iH" = (
@@ -1391,9 +1256,7 @@
 	icon_state = "rain";
 	alpha = 100
 	},
-/turf/open/indestructible/tram{
-	icon = 'modular_nova/master_files/icons/obj/skyscraper/background.dmi';
-	base_icon_state = "0,34";
+/turf/open/skyline{
 	icon_state = "27,9"
 	},
 /area/misc/condo)
@@ -1403,9 +1266,7 @@
 	icon_state = "rain";
 	alpha = 100
 	},
-/turf/open/indestructible/tram{
-	icon = 'modular_nova/master_files/icons/obj/skyscraper/background.dmi';
-	base_icon_state = "0,34";
+/turf/open/skyline{
 	icon_state = "10,24"
 	},
 /area/misc/condo)
@@ -1415,9 +1276,7 @@
 	icon_state = "rain";
 	alpha = 100
 	},
-/turf/open/indestructible/tram{
-	icon = 'modular_nova/master_files/icons/obj/skyscraper/background.dmi';
-	base_icon_state = "0,34";
+/turf/open/skyline{
 	icon_state = "8,22"
 	},
 /area/misc/condo)
@@ -1427,9 +1286,7 @@
 	icon_state = "rain";
 	alpha = 100
 	},
-/turf/open/indestructible/tram{
-	icon = 'modular_nova/master_files/icons/obj/skyscraper/background.dmi';
-	base_icon_state = "0,34";
+/turf/open/skyline{
 	icon_state = "20,26"
 	},
 /area/misc/condo)
@@ -1449,9 +1306,7 @@
 	icon_state = "rain";
 	alpha = 100
 	},
-/turf/open/indestructible/tram{
-	icon = 'modular_nova/master_files/icons/obj/skyscraper/background.dmi';
-	base_icon_state = "0,34";
+/turf/open/skyline{
 	icon_state = "17,27"
 	},
 /area/misc/condo)
@@ -1461,9 +1316,7 @@
 	icon_state = "rain";
 	alpha = 100
 	},
-/turf/open/indestructible/tram{
-	icon = 'modular_nova/master_files/icons/obj/skyscraper/background.dmi';
-	base_icon_state = "0,34";
+/turf/open/skyline{
 	icon_state = "13,21"
 	},
 /area/misc/condo)
@@ -1473,9 +1326,7 @@
 	icon_state = "rain";
 	alpha = 100
 	},
-/turf/open/indestructible/tram{
-	icon = 'modular_nova/master_files/icons/obj/skyscraper/background.dmi';
-	base_icon_state = "0,34";
+/turf/open/skyline{
 	icon_state = "4,21"
 	},
 /area/misc/condo)
@@ -1513,9 +1364,7 @@
 	icon_state = "rain";
 	alpha = 100
 	},
-/turf/open/indestructible/tram{
-	icon = 'modular_nova/master_files/icons/obj/skyscraper/background.dmi';
-	base_icon_state = "0,34";
+/turf/open/skyline{
 	icon_state = "28,21"
 	},
 /area/misc/condo)
@@ -1525,9 +1374,7 @@
 	icon_state = "rain";
 	alpha = 100
 	},
-/turf/open/indestructible/tram{
-	icon = 'modular_nova/master_files/icons/obj/skyscraper/background.dmi';
-	base_icon_state = "0,34";
+/turf/open/skyline{
 	icon_state = "29,12"
 	},
 /area/misc/condo)
@@ -1537,9 +1384,7 @@
 	icon_state = "rain";
 	alpha = 100
 	},
-/turf/open/indestructible/tram{
-	icon = 'modular_nova/master_files/icons/obj/skyscraper/background.dmi';
-	base_icon_state = "0,34";
+/turf/open/skyline{
 	icon_state = "29,20"
 	},
 /area/misc/condo)
@@ -1549,9 +1394,7 @@
 	icon_state = "rain";
 	alpha = 100
 	},
-/turf/open/indestructible/tram{
-	icon = 'modular_nova/master_files/icons/obj/skyscraper/background.dmi';
-	base_icon_state = "0,34";
+/turf/open/skyline{
 	icon_state = "30,24"
 	},
 /area/misc/condo)
@@ -1561,9 +1404,7 @@
 	icon_state = "rain";
 	alpha = 100
 	},
-/turf/open/indestructible/tram{
-	icon = 'modular_nova/master_files/icons/obj/skyscraper/background.dmi';
-	base_icon_state = "0,34";
+/turf/open/skyline{
 	icon_state = "14,23"
 	},
 /area/misc/condo)
@@ -1573,9 +1414,7 @@
 	icon_state = "rain";
 	alpha = 100
 	},
-/turf/open/indestructible/tram{
-	icon = 'modular_nova/master_files/icons/obj/skyscraper/background.dmi';
-	base_icon_state = "0,34";
+/turf/open/skyline{
 	icon_state = "5,24"
 	},
 /area/misc/condo)
@@ -1594,11 +1433,8 @@
 /obj/structure/fluff/metalpole/anchor{
 	dir = 1
 	},
-/turf/open/indestructible/tram{
-	base_icon_state = "0,34";
-	icon = 'modular_nova/master_files/icons/obj/skyscraper/background.dmi';
-	icon_state = "4,6";
-	name = "long way down"
+/turf/open/skyline{
+	icon_state = "4,6"
 	},
 /area/misc/condo)
 "jZ" = (
@@ -1611,9 +1447,7 @@
 	icon_state = "rain";
 	alpha = 100
 	},
-/turf/open/indestructible/tram{
-	icon = 'modular_nova/master_files/icons/obj/skyscraper/background.dmi';
-	base_icon_state = "0,34";
+/turf/open/skyline{
 	icon_state = "25,10"
 	},
 /area/misc/condo)
@@ -1627,9 +1461,7 @@
 	icon_state = "rain";
 	alpha = 100
 	},
-/turf/open/indestructible/tram{
-	icon = 'modular_nova/master_files/icons/obj/skyscraper/background.dmi';
-	base_icon_state = "0,34";
+/turf/open/skyline{
 	icon_state = "26,6"
 	},
 /area/misc/condo)
@@ -1639,9 +1471,7 @@
 	icon_state = "rain";
 	alpha = 100
 	},
-/turf/open/indestructible/tram{
-	icon = 'modular_nova/master_files/icons/obj/skyscraper/background.dmi';
-	base_icon_state = "0,34";
+/turf/open/skyline{
 	icon_state = "29,21"
 	},
 /area/misc/condo)
@@ -1669,9 +1499,7 @@
 	icon_state = "rain";
 	alpha = 100
 	},
-/turf/open/indestructible/tram{
-	icon = 'modular_nova/master_files/icons/obj/skyscraper/background.dmi';
-	base_icon_state = "0,34";
+/turf/open/skyline{
 	icon_state = "11,27"
 	},
 /area/misc/condo)
@@ -1681,9 +1509,7 @@
 	icon_state = "rain";
 	alpha = 100
 	},
-/turf/open/indestructible/tram{
-	icon = 'modular_nova/master_files/icons/obj/skyscraper/background.dmi';
-	base_icon_state = "0,34";
+/turf/open/skyline{
 	icon_state = "13,25"
 	},
 /area/misc/condo)
@@ -1735,9 +1561,7 @@
 	icon_state = "rain";
 	alpha = 100
 	},
-/turf/open/indestructible/tram{
-	icon = 'modular_nova/master_files/icons/obj/skyscraper/background.dmi';
-	base_icon_state = "0,34";
+/turf/open/skyline{
 	icon_state = "6,21"
 	},
 /area/misc/condo)
@@ -1747,9 +1571,7 @@
 	icon_state = "rain";
 	alpha = 100
 	},
-/turf/open/indestructible/tram{
-	icon = 'modular_nova/master_files/icons/obj/skyscraper/background.dmi';
-	base_icon_state = "0,34";
+/turf/open/skyline{
 	icon_state = "30,12"
 	},
 /area/misc/condo)
@@ -1759,9 +1581,7 @@
 	icon_state = "rain";
 	alpha = 100
 	},
-/turf/open/indestructible/tram{
-	icon = 'modular_nova/master_files/icons/obj/skyscraper/background.dmi';
-	base_icon_state = "0,34";
+/turf/open/skyline{
 	icon_state = "22,23"
 	},
 /area/misc/condo)
@@ -1771,9 +1591,7 @@
 	icon_state = "rain";
 	alpha = 100
 	},
-/turf/open/indestructible/tram{
-	icon = 'modular_nova/master_files/icons/obj/skyscraper/background.dmi';
-	base_icon_state = "0,34";
+/turf/open/skyline{
 	icon_state = "27,17"
 	},
 /area/misc/condo)
@@ -1783,9 +1601,7 @@
 	icon_state = "rain";
 	alpha = 100
 	},
-/turf/open/indestructible/tram{
-	icon = 'modular_nova/master_files/icons/obj/skyscraper/background.dmi';
-	base_icon_state = "0,34";
+/turf/open/skyline{
 	icon_state = "10,23"
 	},
 /area/misc/condo)
@@ -1815,11 +1631,8 @@
 /obj/structure/fluff/metalpole/anchor{
 	dir = 1
 	},
-/turf/open/indestructible/tram{
-	base_icon_state = "0,34";
-	icon = 'modular_nova/master_files/icons/obj/skyscraper/background.dmi';
-	icon_state = "6,6";
-	name = "long way down"
+/turf/open/skyline{
+	icon_state = "6,6"
 	},
 /area/misc/condo)
 "lB" = (
@@ -1841,11 +1654,8 @@
 	dir = 8
 	},
 /obj/structure/marker_beacon/burgundy,
-/turf/open/indestructible/tram{
-	base_icon_state = "0,34";
-	icon = 'modular_nova/master_files/icons/obj/skyscraper/background.dmi';
-	icon_state = "4,13";
-	name = "long way down"
+/turf/open/skyline{
+	icon_state = "4,13"
 	},
 /area/misc/condo)
 "lC" = (
@@ -1854,9 +1664,7 @@
 	icon_state = "rain";
 	alpha = 100
 	},
-/turf/open/indestructible/tram{
-	icon = 'modular_nova/master_files/icons/obj/skyscraper/background.dmi';
-	base_icon_state = "0,34";
+/turf/open/skyline{
 	icon_state = "24,20"
 	},
 /area/misc/condo)
@@ -1902,9 +1710,7 @@
 	icon_state = "rain";
 	alpha = 100
 	},
-/turf/open/indestructible/tram{
-	icon = 'modular_nova/master_files/icons/obj/skyscraper/background.dmi';
-	base_icon_state = "0,34";
+/turf/open/skyline{
 	icon_state = "26,10"
 	},
 /area/misc/condo)
@@ -1920,11 +1726,8 @@
 /obj/structure/fluff/metalpole{
 	dir = 8
 	},
-/turf/open/indestructible/tram{
-	base_icon_state = "0,34";
-	icon = 'modular_nova/master_files/icons/obj/skyscraper/background.dmi';
-	icon_state = "7,7";
-	name = "long way down"
+/turf/open/skyline{
+	icon_state = "7,7"
 	},
 /area/misc/condo)
 "lN" = (
@@ -1933,9 +1736,7 @@
 	icon_state = "rain";
 	alpha = 100
 	},
-/turf/open/indestructible/tram{
-	icon = 'modular_nova/master_files/icons/obj/skyscraper/background.dmi';
-	base_icon_state = "0,34";
+/turf/open/skyline{
 	icon_state = "26,19"
 	},
 /area/misc/condo)
@@ -1945,9 +1746,7 @@
 	icon_state = "rain";
 	alpha = 100
 	},
-/turf/open/indestructible/tram{
-	icon = 'modular_nova/master_files/icons/obj/skyscraper/background.dmi';
-	base_icon_state = "0,34";
+/turf/open/skyline{
 	icon_state = "15,22"
 	},
 /area/misc/condo)
@@ -1961,9 +1760,7 @@
 	icon_state = "rain";
 	alpha = 100
 	},
-/turf/open/indestructible/tram{
-	icon = 'modular_nova/master_files/icons/obj/skyscraper/background.dmi';
-	base_icon_state = "0,34";
+/turf/open/skyline{
 	icon_state = "9,24"
 	},
 /area/misc/condo)
@@ -1973,9 +1770,7 @@
 	icon_state = "rain";
 	alpha = 100
 	},
-/turf/open/indestructible/tram{
-	icon = 'modular_nova/master_files/icons/obj/skyscraper/background.dmi';
-	base_icon_state = "0,34";
+/turf/open/skyline{
 	icon_state = "8,15"
 	},
 /area/misc/condo)
@@ -1991,11 +1786,8 @@
 /obj/structure/fluff/metalpole{
 	dir = 8
 	},
-/turf/open/indestructible/tram{
-	base_icon_state = "0,34";
-	icon = 'modular_nova/master_files/icons/obj/skyscraper/background.dmi';
-	icon_state = "4,7";
-	name = "long way down"
+/turf/open/skyline{
+	icon_state = "4,7"
 	},
 /area/misc/condo)
 "mj" = (
@@ -2004,9 +1796,7 @@
 	icon_state = "rain";
 	alpha = 100
 	},
-/turf/open/indestructible/tram{
-	icon = 'modular_nova/master_files/icons/obj/skyscraper/background.dmi';
-	base_icon_state = "0,34";
+/turf/open/skyline{
 	icon_state = "25,9"
 	},
 /area/misc/condo)
@@ -2016,9 +1806,7 @@
 	icon_state = "rain";
 	alpha = 100
 	},
-/turf/open/indestructible/tram{
-	icon = 'modular_nova/master_files/icons/obj/skyscraper/background.dmi';
-	base_icon_state = "0,34";
+/turf/open/skyline{
 	icon_state = "29,9"
 	},
 /area/misc/condo)
@@ -2028,9 +1816,7 @@
 	icon_state = "rain";
 	alpha = 100
 	},
-/turf/open/indestructible/tram{
-	icon = 'modular_nova/master_files/icons/obj/skyscraper/background.dmi';
-	base_icon_state = "0,34";
+/turf/open/skyline{
 	icon_state = "25,19"
 	},
 /area/misc/condo)
@@ -2040,9 +1826,7 @@
 	icon_state = "rain";
 	alpha = 100
 	},
-/turf/open/indestructible/tram{
-	icon = 'modular_nova/master_files/icons/obj/skyscraper/background.dmi';
-	base_icon_state = "0,34";
+/turf/open/skyline{
 	icon_state = "12,27"
 	},
 /area/misc/condo)
@@ -2052,9 +1836,7 @@
 	icon_state = "rain";
 	alpha = 100
 	},
-/turf/open/indestructible/tram{
-	icon = 'modular_nova/master_files/icons/obj/skyscraper/background.dmi';
-	base_icon_state = "0,34";
+/turf/open/skyline{
 	icon_state = "27,19"
 	},
 /area/misc/condo)
@@ -2064,9 +1846,7 @@
 	icon_state = "rain";
 	alpha = 100
 	},
-/turf/open/indestructible/tram{
-	icon = 'modular_nova/master_files/icons/obj/skyscraper/background.dmi';
-	base_icon_state = "0,34";
+/turf/open/skyline{
 	icon_state = "30,9"
 	},
 /area/misc/condo)
@@ -2076,9 +1856,7 @@
 	icon_state = "rain";
 	alpha = 100
 	},
-/turf/open/indestructible/tram{
-	icon = 'modular_nova/master_files/icons/obj/skyscraper/background.dmi';
-	base_icon_state = "0,34";
+/turf/open/skyline{
 	icon_state = "16,21"
 	},
 /area/misc/condo)
@@ -2102,9 +1880,7 @@
 	icon_state = "rain";
 	alpha = 100
 	},
-/turf/open/indestructible/tram{
-	icon = 'modular_nova/master_files/icons/obj/skyscraper/background.dmi';
-	base_icon_state = "0,34";
+/turf/open/skyline{
 	icon_state = "4,19"
 	},
 /area/misc/condo)
@@ -2114,9 +1890,7 @@
 	icon_state = "rain";
 	alpha = 100
 	},
-/turf/open/indestructible/tram{
-	icon = 'modular_nova/master_files/icons/obj/skyscraper/background.dmi';
-	base_icon_state = "0,34";
+/turf/open/skyline{
 	icon_state = "16,27"
 	},
 /area/misc/condo)
@@ -2126,9 +1900,7 @@
 	icon_state = "rain";
 	alpha = 100
 	},
-/turf/open/indestructible/tram{
-	icon = 'modular_nova/master_files/icons/obj/skyscraper/background.dmi';
-	base_icon_state = "0,34";
+/turf/open/skyline{
 	icon_state = "3,24"
 	},
 /area/misc/condo)
@@ -2162,9 +1934,7 @@
 	icon_state = "rain";
 	alpha = 100
 	},
-/turf/open/indestructible/tram{
-	icon = 'modular_nova/master_files/icons/obj/skyscraper/background.dmi';
-	base_icon_state = "0,34";
+/turf/open/skyline{
 	icon_state = "3,18"
 	},
 /area/misc/condo)
@@ -2206,11 +1976,8 @@
 	dir = 1
 	},
 /obj/structure/railing,
-/turf/open/indestructible/tram{
-	base_icon_state = "0,34";
-	icon = 'modular_nova/master_files/icons/obj/skyscraper/background.dmi';
-	icon_state = "3,11";
-	name = "long way down"
+/turf/open/skyline{
+	icon_state = "3,11"
 	},
 /area/misc/condo)
 "nt" = (
@@ -2219,9 +1986,7 @@
 	icon_state = "rain";
 	alpha = 100
 	},
-/turf/open/indestructible/tram{
-	icon = 'modular_nova/master_files/icons/obj/skyscraper/background.dmi';
-	base_icon_state = "0,34";
+/turf/open/skyline{
 	icon_state = "25,17"
 	},
 /area/misc/condo)
@@ -2235,9 +2000,7 @@
 	icon_state = "rain";
 	alpha = 100
 	},
-/turf/open/indestructible/tram{
-	icon = 'modular_nova/master_files/icons/obj/skyscraper/background.dmi';
-	base_icon_state = "0,34";
+/turf/open/skyline{
 	icon_state = "22,25"
 	},
 /area/misc/condo)
@@ -2247,9 +2010,7 @@
 	icon_state = "rain";
 	alpha = 100
 	},
-/turf/open/indestructible/tram{
-	icon = 'modular_nova/master_files/icons/obj/skyscraper/background.dmi';
-	base_icon_state = "0,34";
+/turf/open/skyline{
 	icon_state = "7,15"
 	},
 /area/misc/condo)
@@ -2262,11 +2023,8 @@
 /obj/structure/fluff/metalpole/anchor{
 	dir = 1
 	},
-/turf/open/indestructible/tram{
-	base_icon_state = "0,34";
-	icon = 'modular_nova/master_files/icons/obj/skyscraper/background.dmi';
-	icon_state = "5,8";
-	name = "long way down"
+/turf/open/skyline{
+	icon_state = "5,8"
 	},
 /area/misc/condo)
 "nZ" = (
@@ -2275,9 +2033,7 @@
 	icon_state = "rain";
 	alpha = 100
 	},
-/turf/open/indestructible/tram{
-	icon = 'modular_nova/master_files/icons/obj/skyscraper/background.dmi';
-	base_icon_state = "0,34";
+/turf/open/skyline{
 	icon_state = "22,26"
 	},
 /area/misc/condo)
@@ -2287,9 +2043,7 @@
 	icon_state = "rain";
 	alpha = 100
 	},
-/turf/open/indestructible/tram{
-	icon = 'modular_nova/master_files/icons/obj/skyscraper/background.dmi';
-	base_icon_state = "0,34";
+/turf/open/skyline{
 	icon_state = "14,24"
 	},
 /area/misc/condo)
@@ -2299,9 +2053,7 @@
 	icon_state = "rain";
 	alpha = 100
 	},
-/turf/open/indestructible/tram{
-	icon = 'modular_nova/master_files/icons/obj/skyscraper/background.dmi';
-	base_icon_state = "0,34";
+/turf/open/skyline{
 	icon_state = "27,23"
 	},
 /area/misc/condo)
@@ -2311,9 +2063,7 @@
 	icon_state = "rain";
 	alpha = 100
 	},
-/turf/open/indestructible/tram{
-	icon = 'modular_nova/master_files/icons/obj/skyscraper/background.dmi';
-	base_icon_state = "0,34";
+/turf/open/skyline{
 	icon_state = "26,16"
 	},
 /area/misc/condo)
@@ -2323,9 +2073,7 @@
 	icon_state = "rain";
 	alpha = 100
 	},
-/turf/open/indestructible/tram{
-	icon = 'modular_nova/master_files/icons/obj/skyscraper/background.dmi';
-	base_icon_state = "0,34";
+/turf/open/skyline{
 	icon_state = "8,14"
 	},
 /area/misc/condo)
@@ -2335,9 +2083,7 @@
 	icon_state = "rain";
 	alpha = 100
 	},
-/turf/open/indestructible/tram{
-	icon = 'modular_nova/master_files/icons/obj/skyscraper/background.dmi';
-	base_icon_state = "0,34";
+/turf/open/skyline{
 	icon_state = "27,26"
 	},
 /area/misc/condo)
@@ -2347,9 +2093,7 @@
 	icon_state = "rain";
 	alpha = 100
 	},
-/turf/open/indestructible/tram{
-	icon = 'modular_nova/master_files/icons/obj/skyscraper/background.dmi';
-	base_icon_state = "0,34";
+/turf/open/skyline{
 	icon_state = "9,13"
 	},
 /area/misc/condo)
@@ -2363,9 +2107,7 @@
 	icon_state = "rain";
 	alpha = 100
 	},
-/turf/open/indestructible/tram{
-	icon = 'modular_nova/master_files/icons/obj/skyscraper/background.dmi';
-	base_icon_state = "0,34";
+/turf/open/skyline{
 	icon_state = "12,25"
 	},
 /area/misc/condo)
@@ -2375,9 +2117,7 @@
 	icon_state = "rain";
 	alpha = 100
 	},
-/turf/open/indestructible/tram{
-	icon = 'modular_nova/master_files/icons/obj/skyscraper/background.dmi';
-	base_icon_state = "0,34";
+/turf/open/skyline{
 	icon_state = "25,22"
 	},
 /area/misc/condo)
@@ -2387,9 +2127,7 @@
 	icon_state = "rain";
 	alpha = 100
 	},
-/turf/open/indestructible/tram{
-	icon = 'modular_nova/master_files/icons/obj/skyscraper/background.dmi';
-	base_icon_state = "0,34";
+/turf/open/skyline{
 	icon_state = "10,22"
 	},
 /area/misc/condo)
@@ -2399,9 +2137,7 @@
 	icon_state = "rain";
 	alpha = 100
 	},
-/turf/open/indestructible/tram{
-	icon = 'modular_nova/master_files/icons/obj/skyscraper/background.dmi';
-	base_icon_state = "0,34";
+/turf/open/skyline{
 	icon_state = "26,26"
 	},
 /area/misc/condo)
@@ -2421,9 +2157,7 @@
 	icon_state = "rain";
 	alpha = 100
 	},
-/turf/open/indestructible/tram{
-	icon = 'modular_nova/master_files/icons/obj/skyscraper/background.dmi';
-	base_icon_state = "0,34";
+/turf/open/skyline{
 	icon_state = "14,21"
 	},
 /area/misc/condo)
@@ -2441,11 +2175,8 @@
 	dir = 1
 	},
 /obj/structure/marker_beacon/violet,
-/turf/open/indestructible/tram{
-	base_icon_state = "0,34";
-	icon = 'modular_nova/master_files/icons/obj/skyscraper/background.dmi';
-	icon_state = "5,6";
-	name = "long way down"
+/turf/open/skyline{
+	icon_state = "5,6"
 	},
 /area/misc/condo)
 "pd" = (
@@ -2454,11 +2185,8 @@
 	icon_state = "rain";
 	alpha = 100
 	},
-/turf/open/indestructible/tram{
-	base_icon_state = "0,34";
-	icon = 'modular_nova/master_files/icons/obj/skyscraper/background.dmi';
-	icon_state = "6,5";
-	name = "long way down"
+/turf/open/skyline{
+	icon_state = "6,5"
 	},
 /area/misc/condo)
 "pg" = (
@@ -2467,9 +2195,7 @@
 	icon_state = "rain";
 	alpha = 100
 	},
-/turf/open/indestructible/tram{
-	icon = 'modular_nova/master_files/icons/obj/skyscraper/background.dmi';
-	base_icon_state = "0,34";
+/turf/open/skyline{
 	icon_state = "8,24"
 	},
 /area/misc/condo)
@@ -2479,9 +2205,7 @@
 	icon_state = "rain";
 	alpha = 100
 	},
-/turf/open/indestructible/tram{
-	icon = 'modular_nova/master_files/icons/obj/skyscraper/background.dmi';
-	base_icon_state = "0,34";
+/turf/open/skyline{
 	icon_state = "4,24"
 	},
 /area/misc/condo)
@@ -2515,9 +2239,7 @@
 	icon_state = "rain";
 	alpha = 100
 	},
-/turf/open/indestructible/tram{
-	icon = 'modular_nova/master_files/icons/obj/skyscraper/background.dmi';
-	base_icon_state = "0,34";
+/turf/open/skyline{
 	icon_state = "8,5"
 	},
 /area/misc/condo)
@@ -2547,9 +2269,7 @@
 	icon_state = "rain";
 	alpha = 100
 	},
-/turf/open/indestructible/tram{
-	icon = 'modular_nova/master_files/icons/obj/skyscraper/background.dmi';
-	base_icon_state = "0,34";
+/turf/open/skyline{
 	icon_state = "6,18"
 	},
 /area/misc/condo)
@@ -2579,9 +2299,7 @@
 	icon_state = "rain";
 	alpha = 100
 	},
-/turf/open/indestructible/tram{
-	icon = 'modular_nova/master_files/icons/obj/skyscraper/background.dmi';
-	base_icon_state = "0,34";
+/turf/open/skyline{
 	icon_state = "29,19"
 	},
 /area/misc/condo)
@@ -2591,9 +2309,7 @@
 	icon_state = "rain";
 	alpha = 100
 	},
-/turf/open/indestructible/tram{
-	icon = 'modular_nova/master_files/icons/obj/skyscraper/background.dmi';
-	base_icon_state = "0,34";
+/turf/open/skyline{
 	icon_state = "24,26"
 	},
 /area/misc/condo)
@@ -2603,9 +2319,7 @@
 	icon_state = "rain";
 	alpha = 100
 	},
-/turf/open/indestructible/tram{
-	icon = 'modular_nova/master_files/icons/obj/skyscraper/background.dmi';
-	base_icon_state = "0,34";
+/turf/open/skyline{
 	icon_state = "3,5"
 	},
 /area/misc/condo)
@@ -2615,9 +2329,7 @@
 	icon_state = "rain";
 	alpha = 100
 	},
-/turf/open/indestructible/tram{
-	icon = 'modular_nova/master_files/icons/obj/skyscraper/background.dmi';
-	base_icon_state = "0,34";
+/turf/open/skyline{
 	icon_state = "24,19"
 	},
 /area/misc/condo)
@@ -2631,9 +2343,7 @@
 	icon_state = "rain";
 	alpha = 100
 	},
-/turf/open/indestructible/tram{
-	icon = 'modular_nova/master_files/icons/obj/skyscraper/background.dmi';
-	base_icon_state = "0,34";
+/turf/open/skyline{
 	icon_state = "28,7"
 	},
 /area/misc/condo)
@@ -2643,9 +2353,7 @@
 	icon_state = "rain";
 	alpha = 100
 	},
-/turf/open/indestructible/tram{
-	icon = 'modular_nova/master_files/icons/obj/skyscraper/background.dmi';
-	base_icon_state = "0,34";
+/turf/open/skyline{
 	icon_state = "27,27"
 	},
 /area/misc/condo)
@@ -2664,11 +2372,8 @@
 /obj/structure/fluff/metalpole/anchor{
 	dir = 1
 	},
-/turf/open/indestructible/tram{
-	base_icon_state = "0,34";
-	icon = 'modular_nova/master_files/icons/obj/skyscraper/background.dmi';
-	icon_state = "7,8";
-	name = "long way down"
+/turf/open/skyline{
+	icon_state = "7,8"
 	},
 /area/misc/condo)
 "qy" = (
@@ -2677,9 +2382,7 @@
 	icon_state = "rain";
 	alpha = 100
 	},
-/turf/open/indestructible/tram{
-	icon = 'modular_nova/master_files/icons/obj/skyscraper/background.dmi';
-	base_icon_state = "0,34";
+/turf/open/skyline{
 	icon_state = "25,23"
 	},
 /area/misc/condo)
@@ -2689,9 +2392,7 @@
 	icon_state = "rain";
 	alpha = 100
 	},
-/turf/open/indestructible/tram{
-	icon = 'modular_nova/master_files/icons/obj/skyscraper/background.dmi';
-	base_icon_state = "0,34";
+/turf/open/skyline{
 	icon_state = "3,23"
 	},
 /area/misc/condo)
@@ -2705,9 +2406,7 @@
 	icon_state = "rain";
 	alpha = 100
 	},
-/turf/open/indestructible/tram{
-	icon = 'modular_nova/master_files/icons/obj/skyscraper/background.dmi';
-	base_icon_state = "0,34";
+/turf/open/skyline{
 	icon_state = "30,21"
 	},
 /area/misc/condo)
@@ -2734,9 +2433,7 @@
 	icon_state = "rain";
 	alpha = 100
 	},
-/turf/open/indestructible/tram{
-	icon = 'modular_nova/master_files/icons/obj/skyscraper/background.dmi';
-	base_icon_state = "0,34";
+/turf/open/skyline{
 	icon_state = "20,25"
 	},
 /area/misc/condo)
@@ -2746,9 +2443,7 @@
 	icon_state = "rain";
 	alpha = 100
 	},
-/turf/open/indestructible/tram{
-	icon = 'modular_nova/master_files/icons/obj/skyscraper/background.dmi';
-	base_icon_state = "0,34";
+/turf/open/skyline{
 	icon_state = "26,24"
 	},
 /area/misc/condo)
@@ -2758,9 +2453,7 @@
 	icon_state = "rain";
 	alpha = 100
 	},
-/turf/open/indestructible/tram{
-	icon = 'modular_nova/master_files/icons/obj/skyscraper/background.dmi';
-	base_icon_state = "0,34";
+/turf/open/skyline{
 	icon_state = "28,12"
 	},
 /area/misc/condo)
@@ -2770,9 +2463,7 @@
 	icon_state = "rain";
 	alpha = 100
 	},
-/turf/open/indestructible/tram{
-	icon = 'modular_nova/master_files/icons/obj/skyscraper/background.dmi';
-	base_icon_state = "0,34";
+/turf/open/skyline{
 	icon_state = "3,17"
 	},
 /area/misc/condo)
@@ -2782,9 +2473,7 @@
 	icon_state = "rain";
 	alpha = 100
 	},
-/turf/open/indestructible/tram{
-	icon = 'modular_nova/master_files/icons/obj/skyscraper/background.dmi';
-	base_icon_state = "0,34";
+/turf/open/skyline{
 	icon_state = "27,8"
 	},
 /area/misc/condo)
@@ -2794,9 +2483,7 @@
 	icon_state = "rain";
 	alpha = 100
 	},
-/turf/open/indestructible/tram{
-	icon = 'modular_nova/master_files/icons/obj/skyscraper/background.dmi';
-	base_icon_state = "0,34";
+/turf/open/skyline{
 	icon_state = "21,23"
 	},
 /area/misc/condo)
@@ -2806,9 +2493,7 @@
 	icon_state = "rain";
 	alpha = 100
 	},
-/turf/open/indestructible/tram{
-	icon = 'modular_nova/master_files/icons/obj/skyscraper/background.dmi';
-	base_icon_state = "0,34";
+/turf/open/skyline{
 	icon_state = "30,20"
 	},
 /area/misc/condo)
@@ -2822,9 +2507,7 @@
 	icon_state = "rain";
 	alpha = 100
 	},
-/turf/open/indestructible/tram{
-	icon = 'modular_nova/master_files/icons/obj/skyscraper/background.dmi';
-	base_icon_state = "0,34";
+/turf/open/skyline{
 	icon_state = "30,11"
 	},
 /area/misc/condo)
@@ -2855,9 +2538,7 @@
 	icon_state = "rain";
 	alpha = 100
 	},
-/turf/open/indestructible/tram{
-	icon = 'modular_nova/master_files/icons/obj/skyscraper/background.dmi';
-	base_icon_state = "0,34";
+/turf/open/skyline{
 	icon_state = "25,8"
 	},
 /area/misc/condo)
@@ -2867,9 +2548,7 @@
 	icon_state = "rain";
 	alpha = 100
 	},
-/turf/open/indestructible/tram{
-	icon = 'modular_nova/master_files/icons/obj/skyscraper/background.dmi';
-	base_icon_state = "0,34";
+/turf/open/skyline{
 	icon_state = "24,24"
 	},
 /area/misc/condo)
@@ -2889,11 +2568,8 @@
 /obj/structure/fluff/metalpole{
 	dir = 8
 	},
-/turf/open/indestructible/tram{
-	base_icon_state = "0,34";
-	icon = 'modular_nova/master_files/icons/obj/skyscraper/background.dmi';
-	icon_state = "4,9";
-	name = "long way down"
+/turf/open/skyline{
+	icon_state = "4,9"
 	},
 /area/misc/condo)
 "rD" = (
@@ -2902,9 +2578,7 @@
 	icon_state = "rain";
 	alpha = 100
 	},
-/turf/open/indestructible/tram{
-	icon = 'modular_nova/master_files/icons/obj/skyscraper/background.dmi';
-	base_icon_state = "0,34";
+/turf/open/skyline{
 	icon_state = "9,27"
 	},
 /area/misc/condo)
@@ -2914,9 +2588,7 @@
 	icon_state = "rain";
 	alpha = 100
 	},
-/turf/open/indestructible/tram{
-	icon = 'modular_nova/master_files/icons/obj/skyscraper/background.dmi';
-	base_icon_state = "0,34";
+/turf/open/skyline{
 	icon_state = "8,12"
 	},
 /area/misc/condo)
@@ -2926,9 +2598,7 @@
 	icon_state = "rain";
 	alpha = 100
 	},
-/turf/open/indestructible/tram{
-	icon = 'modular_nova/master_files/icons/obj/skyscraper/background.dmi';
-	base_icon_state = "0,34";
+/turf/open/skyline{
 	icon_state = "19,20"
 	},
 /area/misc/condo)
@@ -2938,9 +2608,7 @@
 	icon_state = "rain";
 	alpha = 100
 	},
-/turf/open/indestructible/tram{
-	icon = 'modular_nova/master_files/icons/obj/skyscraper/background.dmi';
-	base_icon_state = "0,34";
+/turf/open/skyline{
 	icon_state = "7,18"
 	},
 /area/misc/condo)
@@ -2956,9 +2624,7 @@
 	icon_state = "rain";
 	alpha = 100
 	},
-/turf/open/indestructible/tram{
-	icon = 'modular_nova/master_files/icons/obj/skyscraper/background.dmi';
-	base_icon_state = "0,34";
+/turf/open/skyline{
 	icon_state = "30,17"
 	},
 /area/misc/condo)
@@ -2974,9 +2640,7 @@
 	icon_state = "rain";
 	alpha = 100
 	},
-/turf/open/indestructible/tram{
-	icon = 'modular_nova/master_files/icons/obj/skyscraper/background.dmi';
-	base_icon_state = "0,34";
+/turf/open/skyline{
 	icon_state = "8,25"
 	},
 /area/misc/condo)
@@ -2986,9 +2650,7 @@
 	icon_state = "rain";
 	alpha = 100
 	},
-/turf/open/indestructible/tram{
-	icon = 'modular_nova/master_files/icons/obj/skyscraper/background.dmi';
-	base_icon_state = "0,34";
+/turf/open/skyline{
 	icon_state = "23,21"
 	},
 /area/misc/condo)
@@ -3024,9 +2686,7 @@
 	icon_state = "rain";
 	alpha = 100
 	},
-/turf/open/indestructible/tram{
-	icon = 'modular_nova/master_files/icons/obj/skyscraper/background.dmi';
-	base_icon_state = "0,34";
+/turf/open/skyline{
 	icon_state = "9,23"
 	},
 /area/misc/condo)
@@ -3036,9 +2696,7 @@
 	icon_state = "rain";
 	alpha = 100
 	},
-/turf/open/indestructible/tram{
-	icon = 'modular_nova/master_files/icons/obj/skyscraper/background.dmi';
-	base_icon_state = "0,34";
+/turf/open/skyline{
 	icon_state = "22,24"
 	},
 /area/misc/condo)
@@ -3061,9 +2719,7 @@
 	icon_state = "rain";
 	alpha = 100
 	},
-/turf/open/indestructible/tram{
-	icon = 'modular_nova/master_files/icons/obj/skyscraper/background.dmi';
-	base_icon_state = "0,34";
+/turf/open/skyline{
 	icon_state = "28,25"
 	},
 /area/misc/condo)
@@ -3073,9 +2729,7 @@
 	icon_state = "rain";
 	alpha = 100
 	},
-/turf/open/indestructible/tram{
-	icon = 'modular_nova/master_files/icons/obj/skyscraper/background.dmi';
-	base_icon_state = "0,34";
+/turf/open/skyline{
 	icon_state = "27,15"
 	},
 /area/misc/condo)
@@ -3085,9 +2739,7 @@
 	icon_state = "rain";
 	alpha = 100
 	},
-/turf/open/indestructible/tram{
-	icon = 'modular_nova/master_files/icons/obj/skyscraper/background.dmi';
-	base_icon_state = "0,34";
+/turf/open/skyline{
 	icon_state = "30,15"
 	},
 /area/misc/condo)
@@ -3111,9 +2763,7 @@
 	icon_state = "rain";
 	alpha = 100
 	},
-/turf/open/indestructible/tram{
-	icon = 'modular_nova/master_files/icons/obj/skyscraper/background.dmi';
-	base_icon_state = "0,34";
+/turf/open/skyline{
 	icon_state = "3,13"
 	},
 /area/misc/condo)
@@ -3140,9 +2790,7 @@
 	icon_state = "rain";
 	alpha = 100
 	},
-/turf/open/indestructible/tram{
-	icon = 'modular_nova/master_files/icons/obj/skyscraper/background.dmi';
-	base_icon_state = "0,34";
+/turf/open/skyline{
 	icon_state = "26,21"
 	},
 /area/misc/condo)
@@ -3152,9 +2800,7 @@
 	icon_state = "rain";
 	alpha = 100
 	},
-/turf/open/indestructible/tram{
-	icon = 'modular_nova/master_files/icons/obj/skyscraper/background.dmi';
-	base_icon_state = "0,34";
+/turf/open/skyline{
 	icon_state = "3,9"
 	},
 /area/misc/condo)
@@ -3168,9 +2814,7 @@
 	icon_state = "rain";
 	alpha = 100
 	},
-/turf/open/indestructible/tram{
-	icon = 'modular_nova/master_files/icons/obj/skyscraper/background.dmi';
-	base_icon_state = "0,34";
+/turf/open/skyline{
 	icon_state = "29,24"
 	},
 /area/misc/condo)
@@ -3180,11 +2824,8 @@
 	icon_state = "rain";
 	alpha = 100
 	},
-/turf/open/indestructible/tram{
-	base_icon_state = "0,34";
-	icon = 'modular_nova/master_files/icons/obj/skyscraper/background.dmi';
-	icon_state = "6,12";
-	name = "long way down"
+/turf/open/skyline{
+	icon_state = "6,12"
 	},
 /area/misc/condo)
 "tG" = (
@@ -3193,11 +2834,8 @@
 	icon_state = "rain";
 	alpha = 100
 	},
-/turf/open/indestructible/tram{
-	base_icon_state = "0,34";
-	icon = 'modular_nova/master_files/icons/obj/skyscraper/background.dmi';
-	icon_state = "5,12";
-	name = "long way down"
+/turf/open/skyline{
+	icon_state = "5,12"
 	},
 /area/misc/condo)
 "tH" = (
@@ -3206,9 +2844,7 @@
 	icon_state = "rain";
 	alpha = 100
 	},
-/turf/open/indestructible/tram{
-	icon = 'modular_nova/master_files/icons/obj/skyscraper/background.dmi';
-	base_icon_state = "0,34";
+/turf/open/skyline{
 	icon_state = "29,11"
 	},
 /area/misc/condo)
@@ -3222,9 +2858,7 @@
 	icon_state = "rain";
 	alpha = 100
 	},
-/turf/open/indestructible/tram{
-	icon = 'modular_nova/master_files/icons/obj/skyscraper/background.dmi';
-	base_icon_state = "0,34";
+/turf/open/skyline{
 	icon_state = "20,21"
 	},
 /area/misc/condo)
@@ -3234,9 +2868,7 @@
 	icon_state = "rain";
 	alpha = 100
 	},
-/turf/open/indestructible/tram{
-	icon = 'modular_nova/master_files/icons/obj/skyscraper/background.dmi';
-	base_icon_state = "0,34";
+/turf/open/skyline{
 	icon_state = "7,14"
 	},
 /area/misc/condo)
@@ -3246,9 +2878,7 @@
 	icon_state = "rain";
 	alpha = 100
 	},
-/turf/open/indestructible/tram{
-	icon = 'modular_nova/master_files/icons/obj/skyscraper/background.dmi';
-	base_icon_state = "0,34";
+/turf/open/skyline{
 	icon_state = "3,8"
 	},
 /area/misc/condo)
@@ -3268,9 +2898,7 @@
 	icon_state = "rain";
 	alpha = 100
 	},
-/turf/open/indestructible/tram{
-	icon = 'modular_nova/master_files/icons/obj/skyscraper/background.dmi';
-	base_icon_state = "0,34";
+/turf/open/skyline{
 	icon_state = "25,15"
 	},
 /area/misc/condo)
@@ -3280,9 +2908,7 @@
 	icon_state = "rain";
 	alpha = 100
 	},
-/turf/open/indestructible/tram{
-	icon = 'modular_nova/master_files/icons/obj/skyscraper/background.dmi';
-	base_icon_state = "0,34";
+/turf/open/skyline{
 	icon_state = "3,27"
 	},
 /area/misc/condo)
@@ -3292,9 +2918,7 @@
 	icon_state = "rain";
 	alpha = 100
 	},
-/turf/open/indestructible/tram{
-	icon = 'modular_nova/master_files/icons/obj/skyscraper/background.dmi';
-	base_icon_state = "0,34";
+/turf/open/skyline{
 	icon_state = "19,26"
 	},
 /area/misc/condo)
@@ -3304,9 +2928,7 @@
 	icon_state = "rain";
 	alpha = 100
 	},
-/turf/open/indestructible/tram{
-	icon = 'modular_nova/master_files/icons/obj/skyscraper/background.dmi';
-	base_icon_state = "0,34";
+/turf/open/skyline{
 	icon_state = "15,23"
 	},
 /area/misc/condo)
@@ -3316,9 +2938,7 @@
 	icon_state = "rain";
 	alpha = 100
 	},
-/turf/open/indestructible/tram{
-	icon = 'modular_nova/master_files/icons/obj/skyscraper/background.dmi';
-	base_icon_state = "0,34";
+/turf/open/skyline{
 	icon_state = "21,25"
 	},
 /area/misc/condo)
@@ -3338,9 +2958,7 @@
 	icon_state = "rain";
 	alpha = 100
 	},
-/turf/open/indestructible/tram{
-	icon = 'modular_nova/master_files/icons/obj/skyscraper/background.dmi';
-	base_icon_state = "0,34";
+/turf/open/skyline{
 	icon_state = "14,27"
 	},
 /area/misc/condo)
@@ -3350,9 +2968,7 @@
 	icon_state = "rain";
 	alpha = 100
 	},
-/turf/open/indestructible/tram{
-	icon = 'modular_nova/master_files/icons/obj/skyscraper/background.dmi';
-	base_icon_state = "0,34";
+/turf/open/skyline{
 	icon_state = "9,18"
 	},
 /area/misc/condo)
@@ -3362,9 +2978,7 @@
 	icon_state = "rain";
 	alpha = 100
 	},
-/turf/open/indestructible/tram{
-	icon = 'modular_nova/master_files/icons/obj/skyscraper/background.dmi';
-	base_icon_state = "0,34";
+/turf/open/skyline{
 	icon_state = "17,23"
 	},
 /area/misc/condo)
@@ -3392,9 +3006,7 @@
 	icon_state = "rain";
 	alpha = 100
 	},
-/turf/open/indestructible/tram{
-	icon = 'modular_nova/master_files/icons/obj/skyscraper/background.dmi';
-	base_icon_state = "0,34";
+/turf/open/skyline{
 	icon_state = "17,18"
 	},
 /area/misc/condo)
@@ -3409,11 +3021,8 @@
 	dir = 1
 	},
 /obj/structure/railing,
-/turf/open/indestructible/tram{
-	base_icon_state = "0,34";
-	icon = 'modular_nova/master_files/icons/obj/skyscraper/background.dmi';
-	icon_state = "8,11";
-	name = "long way down"
+/turf/open/skyline{
+	icon_state = "8,11"
 	},
 /area/misc/condo)
 "uS" = (
@@ -3422,9 +3031,7 @@
 	icon_state = "rain";
 	alpha = 100
 	},
-/turf/open/indestructible/tram{
-	icon = 'modular_nova/master_files/icons/obj/skyscraper/background.dmi';
-	base_icon_state = "0,34";
+/turf/open/skyline{
 	icon_state = "8,19"
 	},
 /area/misc/condo)
@@ -3434,9 +3041,7 @@
 	icon_state = "rain";
 	alpha = 100
 	},
-/turf/open/indestructible/tram{
-	icon = 'modular_nova/master_files/icons/obj/skyscraper/background.dmi';
-	base_icon_state = "0,34";
+/turf/open/skyline{
 	icon_state = "7,23"
 	},
 /area/misc/condo)
@@ -3446,9 +3051,7 @@
 	icon_state = "rain";
 	alpha = 100
 	},
-/turf/open/indestructible/tram{
-	icon = 'modular_nova/master_files/icons/obj/skyscraper/background.dmi';
-	base_icon_state = "0,34";
+/turf/open/skyline{
 	icon_state = "9,16"
 	},
 /area/misc/condo)
@@ -3458,9 +3061,7 @@
 	icon_state = "rain";
 	alpha = 100
 	},
-/turf/open/indestructible/tram{
-	icon = 'modular_nova/master_files/icons/obj/skyscraper/background.dmi';
-	base_icon_state = "0,34";
+/turf/open/skyline{
 	icon_state = "8,13"
 	},
 /area/misc/condo)
@@ -3470,9 +3071,7 @@
 	icon_state = "rain";
 	alpha = 100
 	},
-/turf/open/indestructible/tram{
-	icon = 'modular_nova/master_files/icons/obj/skyscraper/background.dmi';
-	base_icon_state = "0,34";
+/turf/open/skyline{
 	icon_state = "26,7"
 	},
 /area/misc/condo)
@@ -3482,9 +3081,7 @@
 	icon_state = "rain";
 	alpha = 100
 	},
-/turf/open/indestructible/tram{
-	icon = 'modular_nova/master_files/icons/obj/skyscraper/background.dmi';
-	base_icon_state = "0,34";
+/turf/open/skyline{
 	icon_state = "3,14"
 	},
 /area/misc/condo)
@@ -3534,9 +3131,7 @@
 	icon_state = "rain";
 	alpha = 100
 	},
-/turf/open/indestructible/tram{
-	icon = 'modular_nova/master_files/icons/obj/skyscraper/background.dmi';
-	base_icon_state = "0,34";
+/turf/open/skyline{
 	icon_state = "6,14"
 	},
 /area/misc/condo)
@@ -3546,9 +3141,7 @@
 	icon_state = "rain";
 	alpha = 100
 	},
-/turf/open/indestructible/tram{
-	icon = 'modular_nova/master_files/icons/obj/skyscraper/background.dmi';
-	base_icon_state = "0,34";
+/turf/open/skyline{
 	icon_state = "20,20"
 	},
 /area/misc/condo)
@@ -3558,9 +3151,7 @@
 	icon_state = "rain";
 	alpha = 100
 	},
-/turf/open/indestructible/tram{
-	icon = 'modular_nova/master_files/icons/obj/skyscraper/background.dmi';
-	base_icon_state = "0,34";
+/turf/open/skyline{
 	icon_state = "5,23"
 	},
 /area/misc/condo)
@@ -3623,9 +3214,7 @@
 	icon_state = "rain";
 	alpha = 100
 	},
-/turf/open/indestructible/tram{
-	icon = 'modular_nova/master_files/icons/obj/skyscraper/background.dmi';
-	base_icon_state = "0,34";
+/turf/open/skyline{
 	icon_state = "28,20"
 	},
 /area/misc/condo)
@@ -3658,9 +3247,7 @@
 	icon_state = "rain";
 	alpha = 100
 	},
-/turf/open/indestructible/tram{
-	icon = 'modular_nova/master_files/icons/obj/skyscraper/background.dmi';
-	base_icon_state = "0,34";
+/turf/open/skyline{
 	icon_state = "8,17"
 	},
 /area/misc/condo)
@@ -3692,11 +3279,8 @@
 	},
 /obj/structure/lattice/catwalk/mining,
 /obj/structure/railing,
-/turf/open/indestructible/tram{
-	base_icon_state = "0,34";
-	icon = 'modular_nova/master_files/icons/obj/skyscraper/background.dmi';
-	icon_state = "7,11";
-	name = "long way down"
+/turf/open/skyline{
+	icon_state = "7,11"
 	},
 /area/misc/condo)
 "wv" = (
@@ -3705,9 +3289,7 @@
 	icon_state = "rain";
 	alpha = 100
 	},
-/turf/open/indestructible/tram{
-	icon = 'modular_nova/master_files/icons/obj/skyscraper/background.dmi';
-	base_icon_state = "0,34";
+/turf/open/skyline{
 	icon_state = "4,22"
 	},
 /area/misc/condo)
@@ -3717,9 +3299,7 @@
 	icon_state = "rain";
 	alpha = 100
 	},
-/turf/open/indestructible/tram{
-	icon = 'modular_nova/master_files/icons/obj/skyscraper/background.dmi';
-	base_icon_state = "0,34";
+/turf/open/skyline{
 	icon_state = "7,26"
 	},
 /area/misc/condo)
@@ -3729,9 +3309,7 @@
 	icon_state = "rain";
 	alpha = 100
 	},
-/turf/open/indestructible/tram{
-	icon = 'modular_nova/master_files/icons/obj/skyscraper/background.dmi';
-	base_icon_state = "0,34";
+/turf/open/skyline{
 	icon_state = "5,25"
 	},
 /area/misc/condo)
@@ -3741,9 +3319,7 @@
 	icon_state = "rain";
 	alpha = 100
 	},
-/turf/open/indestructible/tram{
-	icon = 'modular_nova/master_files/icons/obj/skyscraper/background.dmi';
-	base_icon_state = "0,34";
+/turf/open/skyline{
 	icon_state = "8,7"
 	},
 /area/misc/condo)
@@ -3753,9 +3329,7 @@
 	icon_state = "rain";
 	alpha = 100
 	},
-/turf/open/indestructible/tram{
-	icon = 'modular_nova/master_files/icons/obj/skyscraper/background.dmi';
-	base_icon_state = "0,34";
+/turf/open/skyline{
 	icon_state = "29,5"
 	},
 /area/misc/condo)
@@ -3765,9 +3339,7 @@
 	icon_state = "rain";
 	alpha = 100
 	},
-/turf/open/indestructible/tram{
-	icon = 'modular_nova/master_files/icons/obj/skyscraper/background.dmi';
-	base_icon_state = "0,34";
+/turf/open/skyline{
 	icon_state = "20,22"
 	},
 /area/misc/condo)
@@ -3777,9 +3349,7 @@
 	icon_state = "rain";
 	alpha = 100
 	},
-/turf/open/indestructible/tram{
-	icon = 'modular_nova/master_files/icons/obj/skyscraper/background.dmi';
-	base_icon_state = "0,34";
+/turf/open/skyline{
 	icon_state = "25,12"
 	},
 /area/misc/condo)
@@ -3854,9 +3424,7 @@
 	icon_state = "rain";
 	alpha = 100
 	},
-/turf/open/indestructible/tram{
-	icon = 'modular_nova/master_files/icons/obj/skyscraper/background.dmi';
-	base_icon_state = "0,34";
+/turf/open/skyline{
 	icon_state = "3,7"
 	},
 /area/misc/condo)
@@ -3873,11 +3441,8 @@
 /obj/structure/railing{
 	dir = 8
 	},
-/turf/open/indestructible/tram{
-	base_icon_state = "0,34";
-	icon = 'modular_nova/master_files/icons/obj/skyscraper/background.dmi';
-	icon_state = "4,12";
-	name = "long way down"
+/turf/open/skyline{
+	icon_state = "4,12"
 	},
 /area/misc/condo)
 "xx" = (
@@ -3925,9 +3490,7 @@
 	icon_state = "rain";
 	alpha = 100
 	},
-/turf/open/indestructible/tram{
-	icon = 'modular_nova/master_files/icons/obj/skyscraper/background.dmi';
-	base_icon_state = "0,34";
+/turf/open/skyline{
 	icon_state = "27,20"
 	},
 /area/misc/condo)
@@ -3937,9 +3500,7 @@
 	icon_state = "rain";
 	alpha = 100
 	},
-/turf/open/indestructible/tram{
-	icon = 'modular_nova/master_files/icons/obj/skyscraper/background.dmi';
-	base_icon_state = "0,34";
+/turf/open/skyline{
 	icon_state = "29,26"
 	},
 /area/misc/condo)
@@ -3949,9 +3510,7 @@
 	icon_state = "rain";
 	alpha = 100
 	},
-/turf/open/indestructible/tram{
-	icon = 'modular_nova/master_files/icons/obj/skyscraper/background.dmi';
-	base_icon_state = "0,34";
+/turf/open/skyline{
 	icon_state = "3,15"
 	},
 /area/misc/condo)
@@ -3961,9 +3520,7 @@
 	icon_state = "rain";
 	alpha = 100
 	},
-/turf/open/indestructible/tram{
-	icon = 'modular_nova/master_files/icons/obj/skyscraper/background.dmi';
-	base_icon_state = "0,34";
+/turf/open/skyline{
 	icon_state = "29,13"
 	},
 /area/misc/condo)
@@ -3973,9 +3530,7 @@
 	icon_state = "rain";
 	alpha = 100
 	},
-/turf/open/indestructible/tram{
-	icon = 'modular_nova/master_files/icons/obj/skyscraper/background.dmi';
-	base_icon_state = "0,34";
+/turf/open/skyline{
 	icon_state = "29,22"
 	},
 /area/misc/condo)
@@ -3995,11 +3550,8 @@
 	pixel_y = 11;
 	default_raw_text = "You can no longer fall to your death. Sorry."
 	},
-/turf/open/indestructible/tram{
-	base_icon_state = "0,34";
-	icon = 'modular_nova/master_files/icons/obj/skyscraper/background.dmi';
-	icon_state = "6,13";
-	name = "long way down"
+/turf/open/skyline{
+	icon_state = "6,13"
 	},
 /area/misc/condo)
 "yn" = (
@@ -4008,9 +3560,7 @@
 	icon_state = "rain";
 	alpha = 100
 	},
-/turf/open/indestructible/tram{
-	icon = 'modular_nova/master_files/icons/obj/skyscraper/background.dmi';
-	base_icon_state = "0,34";
+/turf/open/skyline{
 	icon_state = "4,23"
 	},
 /area/misc/condo)
@@ -4020,9 +3570,7 @@
 	icon_state = "rain";
 	alpha = 100
 	},
-/turf/open/indestructible/tram{
-	icon = 'modular_nova/master_files/icons/obj/skyscraper/background.dmi';
-	base_icon_state = "0,34";
+/turf/open/skyline{
 	icon_state = "13,27"
 	},
 /area/misc/condo)
@@ -4048,9 +3596,7 @@
 	icon_state = "rain";
 	alpha = 100
 	},
-/turf/open/indestructible/tram{
-	icon = 'modular_nova/master_files/icons/obj/skyscraper/background.dmi';
-	base_icon_state = "0,34";
+/turf/open/skyline{
 	icon_state = "26,14"
 	},
 /area/misc/condo)
@@ -4060,9 +3606,7 @@
 	icon_state = "rain";
 	alpha = 100
 	},
-/turf/open/indestructible/tram{
-	icon = 'modular_nova/master_files/icons/obj/skyscraper/background.dmi';
-	base_icon_state = "0,34";
+/turf/open/skyline{
 	icon_state = "9,9"
 	},
 /area/misc/condo)
@@ -4072,9 +3616,7 @@
 	icon_state = "rain";
 	alpha = 100
 	},
-/turf/open/indestructible/tram{
-	icon = 'modular_nova/master_files/icons/obj/skyscraper/background.dmi';
-	base_icon_state = "0,34";
+/turf/open/skyline{
 	icon_state = "8,20"
 	},
 /area/misc/condo)
@@ -4104,9 +3646,7 @@
 	icon_state = "rain";
 	alpha = 100
 	},
-/turf/open/indestructible/tram{
-	icon = 'modular_nova/master_files/icons/obj/skyscraper/background.dmi';
-	base_icon_state = "0,34";
+/turf/open/skyline{
 	icon_state = "27,7"
 	},
 /area/misc/condo)
@@ -4116,9 +3656,7 @@
 	icon_state = "rain";
 	alpha = 100
 	},
-/turf/open/indestructible/tram{
-	icon = 'modular_nova/master_files/icons/obj/skyscraper/background.dmi';
-	base_icon_state = "0,34";
+/turf/open/skyline{
 	icon_state = "27,14"
 	},
 /area/misc/condo)
@@ -4128,9 +3666,7 @@
 	icon_state = "rain";
 	alpha = 100
 	},
-/turf/open/indestructible/tram{
-	icon = 'modular_nova/master_files/icons/obj/skyscraper/background.dmi';
-	base_icon_state = "0,34";
+/turf/open/skyline{
 	icon_state = "26,17"
 	},
 /area/misc/condo)
@@ -4140,9 +3676,7 @@
 	icon_state = "rain";
 	alpha = 100
 	},
-/turf/open/indestructible/tram{
-	icon = 'modular_nova/master_files/icons/obj/skyscraper/background.dmi';
-	base_icon_state = "0,34";
+/turf/open/skyline{
 	icon_state = "7,19"
 	},
 /area/misc/condo)
@@ -4152,9 +3686,7 @@
 	icon_state = "rain";
 	alpha = 100
 	},
-/turf/open/indestructible/tram{
-	icon = 'modular_nova/master_files/icons/obj/skyscraper/background.dmi';
-	base_icon_state = "0,34";
+/turf/open/skyline{
 	icon_state = "26,20"
 	},
 /area/misc/condo)
@@ -4164,9 +3696,7 @@
 	icon_state = "rain";
 	alpha = 100
 	},
-/turf/open/indestructible/tram{
-	icon = 'modular_nova/master_files/icons/obj/skyscraper/background.dmi';
-	base_icon_state = "0,34";
+/turf/open/skyline{
 	icon_state = "6,27"
 	},
 /area/misc/condo)
@@ -4176,9 +3706,7 @@
 	icon_state = "rain";
 	alpha = 100
 	},
-/turf/open/indestructible/tram{
-	icon = 'modular_nova/master_files/icons/obj/skyscraper/background.dmi';
-	base_icon_state = "0,34";
+/turf/open/skyline{
 	icon_state = "5,18"
 	},
 /area/misc/condo)
@@ -4188,11 +3716,8 @@
 	icon_state = "rain";
 	alpha = 100
 	},
-/turf/open/indestructible/tram{
-	base_icon_state = "0,34";
-	icon = 'modular_nova/master_files/icons/obj/skyscraper/background.dmi';
-	icon_state = "3,12";
-	name = "long way down"
+/turf/open/skyline{
+	icon_state = "3,12"
 	},
 /area/misc/condo)
 "zJ" = (
@@ -4201,9 +3726,7 @@
 	icon_state = "rain";
 	alpha = 100
 	},
-/turf/open/indestructible/tram{
-	icon = 'modular_nova/master_files/icons/obj/skyscraper/background.dmi';
-	base_icon_state = "0,34";
+/turf/open/skyline{
 	icon_state = "3,16"
 	},
 /area/misc/condo)
@@ -4221,9 +3744,7 @@
 	icon_state = "rain";
 	alpha = 100
 	},
-/turf/open/indestructible/tram{
-	icon = 'modular_nova/master_files/icons/obj/skyscraper/background.dmi';
-	base_icon_state = "0,34";
+/turf/open/skyline{
 	icon_state = "19,21"
 	},
 /area/misc/condo)
@@ -4233,9 +3754,7 @@
 	icon_state = "rain";
 	alpha = 100
 	},
-/turf/open/indestructible/tram{
-	icon = 'modular_nova/master_files/icons/obj/skyscraper/background.dmi';
-	base_icon_state = "0,34";
+/turf/open/skyline{
 	icon_state = "9,14"
 	},
 /area/misc/condo)
@@ -4245,9 +3764,7 @@
 	icon_state = "rain";
 	alpha = 100
 	},
-/turf/open/indestructible/tram{
-	icon = 'modular_nova/master_files/icons/obj/skyscraper/background.dmi';
-	base_icon_state = "0,34";
+/turf/open/skyline{
 	icon_state = "20,24"
 	},
 /area/misc/condo)
@@ -4291,11 +3808,8 @@
 /obj/structure/billboard/starway{
 	pixel_x = -34
 	},
-/turf/open/indestructible/tram{
-	base_icon_state = "0,34";
-	icon = 'modular_nova/master_files/icons/obj/skyscraper/background.dmi';
-	icon_state = "5,5";
-	name = "long way down"
+/turf/open/skyline{
+	icon_state = "5,5"
 	},
 /area/misc/condo)
 "As" = (
@@ -4304,9 +3818,7 @@
 	icon_state = "rain";
 	alpha = 100
 	},
-/turf/open/indestructible/tram{
-	icon = 'modular_nova/master_files/icons/obj/skyscraper/background.dmi';
-	base_icon_state = "0,34";
+/turf/open/skyline{
 	icon_state = "24,23"
 	},
 /area/misc/condo)
@@ -4316,9 +3828,7 @@
 	icon_state = "rain";
 	alpha = 100
 	},
-/turf/open/indestructible/tram{
-	icon = 'modular_nova/master_files/icons/obj/skyscraper/background.dmi';
-	base_icon_state = "0,34";
+/turf/open/skyline{
 	icon_state = "5,17"
 	},
 /area/misc/condo)
@@ -4333,9 +3843,7 @@
 	icon_state = "rain";
 	alpha = 100
 	},
-/turf/open/indestructible/tram{
-	icon = 'modular_nova/master_files/icons/obj/skyscraper/background.dmi';
-	base_icon_state = "0,34";
+/turf/open/skyline{
 	icon_state = "18,22"
 	},
 /area/misc/condo)
@@ -4345,9 +3853,7 @@
 	icon_state = "rain";
 	alpha = 100
 	},
-/turf/open/indestructible/tram{
-	icon = 'modular_nova/master_files/icons/obj/skyscraper/background.dmi';
-	base_icon_state = "0,34";
+/turf/open/skyline{
 	icon_state = "4,17"
 	},
 /area/misc/condo)
@@ -4357,9 +3863,7 @@
 	icon_state = "rain";
 	alpha = 100
 	},
-/turf/open/indestructible/tram{
-	icon = 'modular_nova/master_files/icons/obj/skyscraper/background.dmi';
-	base_icon_state = "0,34";
+/turf/open/skyline{
 	icon_state = "27,22"
 	},
 /area/misc/condo)
@@ -4407,9 +3911,7 @@
 	icon_state = "rain";
 	alpha = 100
 	},
-/turf/open/indestructible/tram{
-	icon = 'modular_nova/master_files/icons/obj/skyscraper/background.dmi';
-	base_icon_state = "0,34";
+/turf/open/skyline{
 	icon_state = "23,19"
 	},
 /area/misc/condo)
@@ -4419,9 +3921,7 @@
 	icon_state = "rain";
 	alpha = 100
 	},
-/turf/open/indestructible/tram{
-	icon = 'modular_nova/master_files/icons/obj/skyscraper/background.dmi';
-	base_icon_state = "0,34";
+/turf/open/skyline{
 	icon_state = "30,8"
 	},
 /area/misc/condo)
@@ -4449,9 +3949,7 @@
 	icon_state = "rain";
 	alpha = 100
 	},
-/turf/open/indestructible/tram{
-	icon = 'modular_nova/master_files/icons/obj/skyscraper/background.dmi';
-	base_icon_state = "0,34";
+/turf/open/skyline{
 	icon_state = "6,25"
 	},
 /area/misc/condo)
@@ -4461,9 +3959,7 @@
 	icon_state = "rain";
 	alpha = 100
 	},
-/turf/open/indestructible/tram{
-	icon = 'modular_nova/master_files/icons/obj/skyscraper/background.dmi';
-	base_icon_state = "0,34";
+/turf/open/skyline{
 	icon_state = "9,6"
 	},
 /area/misc/condo)
@@ -4473,9 +3969,7 @@
 	icon_state = "rain";
 	alpha = 100
 	},
-/turf/open/indestructible/tram{
-	icon = 'modular_nova/master_files/icons/obj/skyscraper/background.dmi';
-	base_icon_state = "0,34";
+/turf/open/skyline{
 	icon_state = "22,22"
 	},
 /area/misc/condo)
@@ -4532,9 +4026,7 @@
 	icon_state = "rain";
 	alpha = 100
 	},
-/turf/open/indestructible/tram{
-	icon = 'modular_nova/master_files/icons/obj/skyscraper/background.dmi';
-	base_icon_state = "0,34";
+/turf/open/skyline{
 	icon_state = "19,27"
 	},
 /area/misc/condo)
@@ -4544,11 +4036,8 @@
 	icon_state = "rain";
 	alpha = 100
 	},
-/turf/open/indestructible/tram{
-	base_icon_state = "0,34";
-	icon = 'modular_nova/master_files/icons/obj/skyscraper/background.dmi';
-	icon_state = "6,7";
-	name = "long way down"
+/turf/open/skyline{
+	icon_state = "6,7"
 	},
 /area/misc/condo)
 "Ca" = (
@@ -4583,9 +4072,7 @@
 	icon_state = "rain";
 	alpha = 100
 	},
-/turf/open/indestructible/tram{
-	icon = 'modular_nova/master_files/icons/obj/skyscraper/background.dmi';
-	base_icon_state = "0,34";
+/turf/open/skyline{
 	icon_state = "12,23"
 	},
 /area/misc/condo)
@@ -4595,9 +4082,7 @@
 	icon_state = "rain";
 	alpha = 100
 	},
-/turf/open/indestructible/tram{
-	icon = 'modular_nova/master_files/icons/obj/skyscraper/background.dmi';
-	base_icon_state = "0,34";
+/turf/open/skyline{
 	icon_state = "20,23"
 	},
 /area/misc/condo)
@@ -4607,9 +4092,7 @@
 	icon_state = "rain";
 	alpha = 100
 	},
-/turf/open/indestructible/tram{
-	icon = 'modular_nova/master_files/icons/obj/skyscraper/background.dmi';
-	base_icon_state = "0,34";
+/turf/open/skyline{
 	icon_state = "9,19"
 	},
 /area/misc/condo)
@@ -4628,11 +4111,8 @@
 /obj/structure/fluff/metalpole{
 	dir = 8
 	},
-/turf/open/indestructible/tram{
-	base_icon_state = "0,34";
-	icon = 'modular_nova/master_files/icons/obj/skyscraper/background.dmi';
-	icon_state = "7,9";
-	name = "long way down"
+/turf/open/skyline{
+	icon_state = "7,9"
 	},
 /area/misc/condo)
 "CD" = (
@@ -4667,9 +4147,7 @@
 	icon_state = "rain";
 	alpha = 100
 	},
-/turf/open/indestructible/tram{
-	icon = 'modular_nova/master_files/icons/obj/skyscraper/background.dmi';
-	base_icon_state = "0,34";
+/turf/open/skyline{
 	icon_state = "28,24"
 	},
 /area/misc/condo)
@@ -4684,11 +4162,8 @@
 /obj/structure/railing{
 	dir = 1
 	},
-/turf/open/indestructible/tram{
-	base_icon_state = "0,34";
-	icon = 'modular_nova/master_files/icons/obj/skyscraper/background.dmi';
-	icon_state = "5,13";
-	name = "long way down"
+/turf/open/skyline{
+	icon_state = "5,13"
 	},
 /area/misc/condo)
 "CN" = (
@@ -4697,9 +4172,7 @@
 	icon_state = "rain";
 	alpha = 100
 	},
-/turf/open/indestructible/tram{
-	icon = 'modular_nova/master_files/icons/obj/skyscraper/background.dmi';
-	base_icon_state = "0,34";
+/turf/open/skyline{
 	icon_state = "28,10"
 	},
 /area/misc/condo)
@@ -4709,9 +4182,7 @@
 	icon_state = "rain";
 	alpha = 100
 	},
-/turf/open/indestructible/tram{
-	icon = 'modular_nova/master_files/icons/obj/skyscraper/background.dmi';
-	base_icon_state = "0,34";
+/turf/open/skyline{
 	icon_state = "5,22"
 	},
 /area/misc/condo)
@@ -4721,9 +4192,7 @@
 	icon_state = "rain";
 	alpha = 100
 	},
-/turf/open/indestructible/tram{
-	icon = 'modular_nova/master_files/icons/obj/skyscraper/background.dmi';
-	base_icon_state = "0,34";
+/turf/open/skyline{
 	icon_state = "17,25"
 	},
 /area/misc/condo)
@@ -4744,9 +4213,7 @@
 	icon_state = "rain";
 	alpha = 100
 	},
-/turf/open/indestructible/tram{
-	icon = 'modular_nova/master_files/icons/obj/skyscraper/background.dmi';
-	base_icon_state = "0,34";
+/turf/open/skyline{
 	icon_state = "4,14"
 	},
 /area/misc/condo)
@@ -4756,9 +4223,7 @@
 	icon_state = "rain";
 	alpha = 100
 	},
-/turf/open/indestructible/tram{
-	icon = 'modular_nova/master_files/icons/obj/skyscraper/background.dmi';
-	base_icon_state = "0,34";
+/turf/open/skyline{
 	icon_state = "19,23"
 	},
 /area/misc/condo)
@@ -4772,11 +4237,8 @@
 	dir = 1
 	},
 /obj/structure/marker_beacon/violet,
-/turf/open/indestructible/tram{
-	base_icon_state = "0,34";
-	icon = 'modular_nova/master_files/icons/obj/skyscraper/background.dmi';
-	icon_state = "5,10";
-	name = "long way down"
+/turf/open/skyline{
+	icon_state = "5,10"
 	},
 /area/misc/condo)
 "Ds" = (
@@ -4785,9 +4247,7 @@
 	icon_state = "rain";
 	alpha = 100
 	},
-/turf/open/indestructible/tram{
-	icon = 'modular_nova/master_files/icons/obj/skyscraper/background.dmi';
-	base_icon_state = "0,34";
+/turf/open/skyline{
 	icon_state = "15,25"
 	},
 /area/misc/condo)
@@ -4833,9 +4293,7 @@
 	icon_state = "rain";
 	alpha = 100
 	},
-/turf/open/indestructible/tram{
-	icon = 'modular_nova/master_files/icons/obj/skyscraper/background.dmi';
-	base_icon_state = "0,34";
+/turf/open/skyline{
 	icon_state = "5,27"
 	},
 /area/misc/condo)
@@ -4845,9 +4303,7 @@
 	icon_state = "rain";
 	alpha = 100
 	},
-/turf/open/indestructible/tram{
-	icon = 'modular_nova/master_files/icons/obj/skyscraper/background.dmi';
-	base_icon_state = "0,34";
+/turf/open/skyline{
 	icon_state = "7,27"
 	},
 /area/misc/condo)
@@ -4857,9 +4313,7 @@
 	icon_state = "rain";
 	alpha = 100
 	},
-/turf/open/indestructible/tram{
-	icon = 'modular_nova/master_files/icons/obj/skyscraper/background.dmi';
-	base_icon_state = "0,34";
+/turf/open/skyline{
 	icon_state = "25,5"
 	},
 /area/misc/condo)
@@ -4873,9 +4327,7 @@
 	icon_state = "rain";
 	alpha = 100
 	},
-/turf/open/indestructible/tram{
-	icon = 'modular_nova/master_files/icons/obj/skyscraper/background.dmi';
-	base_icon_state = "0,34";
+/turf/open/skyline{
 	icon_state = "13,22"
 	},
 /area/misc/condo)
@@ -4896,9 +4348,7 @@
 	icon_state = "rain";
 	alpha = 100
 	},
-/turf/open/indestructible/tram{
-	icon = 'modular_nova/master_files/icons/obj/skyscraper/background.dmi';
-	base_icon_state = "0,34";
+/turf/open/skyline{
 	icon_state = "25,14"
 	},
 /area/misc/condo)
@@ -4908,9 +4358,7 @@
 	icon_state = "rain";
 	alpha = 100
 	},
-/turf/open/indestructible/tram{
-	icon = 'modular_nova/master_files/icons/obj/skyscraper/background.dmi';
-	base_icon_state = "0,34";
+/turf/open/skyline{
 	icon_state = "22,27"
 	},
 /area/misc/condo)
@@ -4920,9 +4368,7 @@
 	icon_state = "rain";
 	alpha = 100
 	},
-/turf/open/indestructible/tram{
-	icon = 'modular_nova/master_files/icons/obj/skyscraper/background.dmi';
-	base_icon_state = "0,34";
+/turf/open/skyline{
 	icon_state = "29,18"
 	},
 /area/misc/condo)
@@ -4932,9 +4378,7 @@
 	icon_state = "rain";
 	alpha = 100
 	},
-/turf/open/indestructible/tram{
-	icon = 'modular_nova/master_files/icons/obj/skyscraper/background.dmi';
-	base_icon_state = "0,34";
+/turf/open/skyline{
 	icon_state = "25,18"
 	},
 /area/misc/condo)
@@ -4959,9 +4403,7 @@
 	icon_state = "rain";
 	alpha = 100
 	},
-/turf/open/indestructible/tram{
-	icon = 'modular_nova/master_files/icons/obj/skyscraper/background.dmi';
-	base_icon_state = "0,34";
+/turf/open/skyline{
 	icon_state = "26,11"
 	},
 /area/misc/condo)
@@ -4971,9 +4413,7 @@
 	icon_state = "rain";
 	alpha = 100
 	},
-/turf/open/indestructible/tram{
-	icon = 'modular_nova/master_files/icons/obj/skyscraper/background.dmi';
-	base_icon_state = "0,34";
+/turf/open/skyline{
 	icon_state = "14,22"
 	},
 /area/misc/condo)
@@ -5013,9 +4453,7 @@
 	icon_state = "rain";
 	alpha = 100
 	},
-/turf/open/indestructible/tram{
-	icon = 'modular_nova/master_files/icons/obj/skyscraper/background.dmi';
-	base_icon_state = "0,34";
+/turf/open/skyline{
 	icon_state = "27,13"
 	},
 /area/misc/condo)
@@ -5063,9 +4501,7 @@
 	icon_state = "rain";
 	alpha = 100
 	},
-/turf/open/indestructible/tram{
-	icon = 'modular_nova/master_files/icons/obj/skyscraper/background.dmi';
-	base_icon_state = "0,34";
+/turf/open/skyline{
 	icon_state = "8,16"
 	},
 /area/misc/condo)
@@ -5093,9 +4529,7 @@
 	icon_state = "rain";
 	alpha = 100
 	},
-/turf/open/indestructible/tram{
-	icon = 'modular_nova/master_files/icons/obj/skyscraper/background.dmi';
-	base_icon_state = "0,34";
+/turf/open/skyline{
 	icon_state = "26,18"
 	},
 /area/misc/condo)
@@ -5109,9 +4543,7 @@
 	icon_state = "rain";
 	alpha = 100
 	},
-/turf/open/indestructible/tram{
-	icon = 'modular_nova/master_files/icons/obj/skyscraper/background.dmi';
-	base_icon_state = "0,34";
+/turf/open/skyline{
 	icon_state = "25,26"
 	},
 /area/misc/condo)
@@ -5121,9 +4553,7 @@
 	icon_state = "rain";
 	alpha = 100
 	},
-/turf/open/indestructible/tram{
-	icon = 'modular_nova/master_files/icons/obj/skyscraper/background.dmi';
-	base_icon_state = "0,34";
+/turf/open/skyline{
 	icon_state = "3,20"
 	},
 /area/misc/condo)
@@ -5136,11 +4566,8 @@
 /obj/structure/fluff/metalpole{
 	dir = 1
 	},
-/turf/open/indestructible/tram{
-	base_icon_state = "0,34";
-	icon = 'modular_nova/master_files/icons/obj/skyscraper/background.dmi';
-	icon_state = "3,10";
-	name = "long way down"
+/turf/open/skyline{
+	icon_state = "3,10"
 	},
 /area/misc/condo)
 "FD" = (
@@ -5149,9 +4576,7 @@
 	icon_state = "rain";
 	alpha = 100
 	},
-/turf/open/indestructible/tram{
-	icon = 'modular_nova/master_files/icons/obj/skyscraper/background.dmi';
-	base_icon_state = "0,34";
+/turf/open/skyline{
 	icon_state = "29,10"
 	},
 /area/misc/condo)
@@ -5182,9 +4607,7 @@
 	icon_state = "rain";
 	alpha = 100
 	},
-/turf/open/indestructible/tram{
-	icon = 'modular_nova/master_files/icons/obj/skyscraper/background.dmi';
-	base_icon_state = "0,34";
+/turf/open/skyline{
 	icon_state = "16,25"
 	},
 /area/misc/condo)
@@ -5194,9 +4617,7 @@
 	icon_state = "rain";
 	alpha = 100
 	},
-/turf/open/indestructible/tram{
-	icon = 'modular_nova/master_files/icons/obj/skyscraper/background.dmi';
-	base_icon_state = "0,34";
+/turf/open/skyline{
 	icon_state = "10,20"
 	},
 /area/misc/condo)
@@ -5206,9 +4627,7 @@
 	icon_state = "rain";
 	alpha = 100
 	},
-/turf/open/indestructible/tram{
-	icon = 'modular_nova/master_files/icons/obj/skyscraper/background.dmi';
-	base_icon_state = "0,34";
+/turf/open/skyline{
 	icon_state = "3,26"
 	},
 /area/misc/condo)
@@ -5239,9 +4658,7 @@
 	icon_state = "rain";
 	alpha = 100
 	},
-/turf/open/indestructible/tram{
-	icon = 'modular_nova/master_files/icons/obj/skyscraper/background.dmi';
-	base_icon_state = "0,34";
+/turf/open/skyline{
 	icon_state = "28,27"
 	},
 /area/misc/condo)
@@ -5271,9 +4688,7 @@
 	icon_state = "rain";
 	alpha = 100
 	},
-/turf/open/indestructible/tram{
-	icon = 'modular_nova/master_files/icons/obj/skyscraper/background.dmi';
-	base_icon_state = "0,34";
+/turf/open/skyline{
 	icon_state = "11,23"
 	},
 /area/misc/condo)
@@ -5293,9 +4708,7 @@
 	icon_state = "rain";
 	alpha = 100
 	},
-/turf/open/indestructible/tram{
-	icon = 'modular_nova/master_files/icons/obj/skyscraper/background.dmi';
-	base_icon_state = "0,34";
+/turf/open/skyline{
 	icon_state = "19,19"
 	},
 /area/misc/condo)
@@ -5305,9 +4718,7 @@
 	icon_state = "rain";
 	alpha = 100
 	},
-/turf/open/indestructible/tram{
-	icon = 'modular_nova/master_files/icons/obj/skyscraper/background.dmi';
-	base_icon_state = "0,34";
+/turf/open/skyline{
 	icon_state = "3,6"
 	},
 /area/misc/condo)
@@ -5317,9 +4728,7 @@
 	icon_state = "rain";
 	alpha = 100
 	},
-/turf/open/indestructible/tram{
-	icon = 'modular_nova/master_files/icons/obj/skyscraper/background.dmi';
-	base_icon_state = "0,34";
+/turf/open/skyline{
 	icon_state = "8,23"
 	},
 /area/misc/condo)
@@ -5329,9 +4738,7 @@
 	icon_state = "rain";
 	alpha = 100
 	},
-/turf/open/indestructible/tram{
-	icon = 'modular_nova/master_files/icons/obj/skyscraper/background.dmi';
-	base_icon_state = "0,34";
+/turf/open/skyline{
 	icon_state = "9,21"
 	},
 /area/misc/condo)
@@ -5358,9 +4765,7 @@
 	icon_state = "rain";
 	alpha = 100
 	},
-/turf/open/indestructible/tram{
-	icon = 'modular_nova/master_files/icons/obj/skyscraper/background.dmi';
-	base_icon_state = "0,34";
+/turf/open/skyline{
 	icon_state = "29,23"
 	},
 /area/misc/condo)
@@ -5370,9 +4775,7 @@
 	icon_state = "rain";
 	alpha = 100
 	},
-/turf/open/indestructible/tram{
-	icon = 'modular_nova/master_files/icons/obj/skyscraper/background.dmi';
-	base_icon_state = "0,34";
+/turf/open/skyline{
 	icon_state = "7,24"
 	},
 /area/misc/condo)
@@ -5382,9 +4785,7 @@
 	icon_state = "rain";
 	alpha = 100
 	},
-/turf/open/indestructible/tram{
-	icon = 'modular_nova/master_files/icons/obj/skyscraper/background.dmi';
-	base_icon_state = "0,34";
+/turf/open/skyline{
 	icon_state = "28,6"
 	},
 /area/misc/condo)
@@ -5394,9 +4795,7 @@
 	icon_state = "rain";
 	alpha = 100
 	},
-/turf/open/indestructible/tram{
-	icon = 'modular_nova/master_files/icons/obj/skyscraper/background.dmi';
-	base_icon_state = "0,34";
+/turf/open/skyline{
 	icon_state = "26,8"
 	},
 /area/misc/condo)
@@ -5433,9 +4832,7 @@
 	icon_state = "rain";
 	alpha = 100
 	},
-/turf/open/indestructible/tram{
-	icon = 'modular_nova/master_files/icons/obj/skyscraper/background.dmi';
-	base_icon_state = "0,34";
+/turf/open/skyline{
 	icon_state = "9,8"
 	},
 /area/misc/condo)
@@ -5445,9 +4842,7 @@
 	icon_state = "rain";
 	alpha = 100
 	},
-/turf/open/indestructible/tram{
-	icon = 'modular_nova/master_files/icons/obj/skyscraper/background.dmi';
-	base_icon_state = "0,34";
+/turf/open/skyline{
 	icon_state = "25,24"
 	},
 /area/misc/condo)
@@ -5478,9 +4873,7 @@
 	icon_state = "rain";
 	alpha = 100
 	},
-/turf/open/indestructible/tram{
-	icon = 'modular_nova/master_files/icons/obj/skyscraper/background.dmi';
-	base_icon_state = "0,34";
+/turf/open/skyline{
 	icon_state = "28,17"
 	},
 /area/misc/condo)
@@ -5490,9 +4883,7 @@
 	icon_state = "rain";
 	alpha = 100
 	},
-/turf/open/indestructible/tram{
-	icon = 'modular_nova/master_files/icons/obj/skyscraper/background.dmi';
-	base_icon_state = "0,34";
+/turf/open/skyline{
 	icon_state = "8,21"
 	},
 /area/misc/condo)
@@ -5502,9 +4893,7 @@
 	icon_state = "rain";
 	alpha = 100
 	},
-/turf/open/indestructible/tram{
-	icon = 'modular_nova/master_files/icons/obj/skyscraper/background.dmi';
-	base_icon_state = "0,34";
+/turf/open/skyline{
 	icon_state = "17,24"
 	},
 /area/misc/condo)
@@ -5514,9 +4903,7 @@
 	icon_state = "rain";
 	alpha = 100
 	},
-/turf/open/indestructible/tram{
-	icon = 'modular_nova/master_files/icons/obj/skyscraper/background.dmi';
-	base_icon_state = "0,34";
+/turf/open/skyline{
 	icon_state = "29,16"
 	},
 /area/misc/condo)
@@ -5526,9 +4913,7 @@
 	icon_state = "rain";
 	alpha = 100
 	},
-/turf/open/indestructible/tram{
-	icon = 'modular_nova/master_files/icons/obj/skyscraper/background.dmi';
-	base_icon_state = "0,34";
+/turf/open/skyline{
 	icon_state = "30,18"
 	},
 /area/misc/condo)
@@ -5551,9 +4936,7 @@
 	icon_state = "rain";
 	alpha = 100
 	},
-/turf/open/indestructible/tram{
-	icon = 'modular_nova/master_files/icons/obj/skyscraper/background.dmi';
-	base_icon_state = "0,34";
+/turf/open/skyline{
 	icon_state = "29,17"
 	},
 /area/misc/condo)
@@ -5563,9 +4946,7 @@
 	icon_state = "rain";
 	alpha = 100
 	},
-/turf/open/indestructible/tram{
-	icon = 'modular_nova/master_files/icons/obj/skyscraper/background.dmi';
-	base_icon_state = "0,34";
+/turf/open/skyline{
 	icon_state = "27,11"
 	},
 /area/misc/condo)
@@ -5597,9 +4978,7 @@
 	icon_state = "rain";
 	alpha = 100
 	},
-/turf/open/indestructible/tram{
-	icon = 'modular_nova/master_files/icons/obj/skyscraper/background.dmi';
-	base_icon_state = "0,34";
+/turf/open/skyline{
 	icon_state = "23,25"
 	},
 /area/misc/condo)
@@ -5609,9 +4988,7 @@
 	icon_state = "rain";
 	alpha = 100
 	},
-/turf/open/indestructible/tram{
-	icon = 'modular_nova/master_files/icons/obj/skyscraper/background.dmi';
-	base_icon_state = "0,34";
+/turf/open/skyline{
 	icon_state = "23,27"
 	},
 /area/misc/condo)
@@ -5621,9 +4998,7 @@
 	icon_state = "rain";
 	alpha = 100
 	},
-/turf/open/indestructible/tram{
-	icon = 'modular_nova/master_files/icons/obj/skyscraper/background.dmi';
-	base_icon_state = "0,34";
+/turf/open/skyline{
 	icon_state = "30,22"
 	},
 /area/misc/condo)
@@ -5633,9 +5008,7 @@
 	icon_state = "rain";
 	alpha = 100
 	},
-/turf/open/indestructible/tram{
-	icon = 'modular_nova/master_files/icons/obj/skyscraper/background.dmi';
-	base_icon_state = "0,34";
+/turf/open/skyline{
 	icon_state = "26,25"
 	},
 /area/misc/condo)
@@ -5645,9 +5018,7 @@
 	icon_state = "rain";
 	alpha = 100
 	},
-/turf/open/indestructible/tram{
-	icon = 'modular_nova/master_files/icons/obj/skyscraper/background.dmi';
-	base_icon_state = "0,34";
+/turf/open/skyline{
 	icon_state = "20,19"
 	},
 /area/misc/condo)
@@ -5669,9 +5040,7 @@
 	icon_state = "rain";
 	alpha = 100
 	},
-/turf/open/indestructible/tram{
-	icon = 'modular_nova/master_files/icons/obj/skyscraper/background.dmi';
-	base_icon_state = "0,34";
+/turf/open/skyline{
 	icon_state = "20,27"
 	},
 /area/misc/condo)
@@ -5735,9 +5104,7 @@
 	icon_state = "rain";
 	alpha = 100
 	},
-/turf/open/indestructible/tram{
-	icon = 'modular_nova/master_files/icons/obj/skyscraper/background.dmi';
-	base_icon_state = "0,34";
+/turf/open/skyline{
 	icon_state = "24,21"
 	},
 /area/misc/condo)
@@ -5756,11 +5123,8 @@
 /obj/structure/fluff/metalpole{
 	dir = 8
 	},
-/turf/open/indestructible/tram{
-	base_icon_state = "0,34";
-	icon = 'modular_nova/master_files/icons/obj/skyscraper/background.dmi';
-	icon_state = "7,10";
-	name = "long way down"
+/turf/open/skyline{
+	icon_state = "7,10"
 	},
 /area/misc/condo)
 "KA" = (
@@ -5789,9 +5153,7 @@
 	icon_state = "rain";
 	alpha = 100
 	},
-/turf/open/indestructible/tram{
-	icon = 'modular_nova/master_files/icons/obj/skyscraper/background.dmi';
-	base_icon_state = "0,34";
+/turf/open/skyline{
 	icon_state = "5,14"
 	},
 /area/misc/condo)
@@ -5801,9 +5163,7 @@
 	icon_state = "rain";
 	alpha = 100
 	},
-/turf/open/indestructible/tram{
-	icon = 'modular_nova/master_files/icons/obj/skyscraper/background.dmi';
-	base_icon_state = "0,34";
+/turf/open/skyline{
 	icon_state = "7,17"
 	},
 /area/misc/condo)
@@ -5813,9 +5173,7 @@
 	icon_state = "rain";
 	alpha = 100
 	},
-/turf/open/indestructible/tram{
-	icon = 'modular_nova/master_files/icons/obj/skyscraper/background.dmi';
-	base_icon_state = "0,34";
+/turf/open/skyline{
 	icon_state = "6,20"
 	},
 /area/misc/condo)
@@ -5880,9 +5238,7 @@
 	icon_state = "rain";
 	alpha = 100
 	},
-/turf/open/indestructible/tram{
-	icon = 'modular_nova/master_files/icons/obj/skyscraper/background.dmi';
-	base_icon_state = "0,34";
+/turf/open/skyline{
 	icon_state = "29,14"
 	},
 /area/misc/condo)
@@ -5953,9 +5309,7 @@
 	icon_state = "rain";
 	alpha = 100
 	},
-/turf/open/indestructible/tram{
-	icon = 'modular_nova/master_files/icons/obj/skyscraper/background.dmi';
-	base_icon_state = "0,34";
+/turf/open/skyline{
 	icon_state = "15,26"
 	},
 /area/misc/condo)
@@ -5965,9 +5319,7 @@
 	icon_state = "rain";
 	alpha = 100
 	},
-/turf/open/indestructible/tram{
-	icon = 'modular_nova/master_files/icons/obj/skyscraper/background.dmi';
-	base_icon_state = "0,34";
+/turf/open/skyline{
 	icon_state = "21,19"
 	},
 /area/misc/condo)
@@ -6028,9 +5380,7 @@
 	icon_state = "rain";
 	alpha = 100
 	},
-/turf/open/indestructible/tram{
-	icon = 'modular_nova/master_files/icons/obj/skyscraper/background.dmi';
-	base_icon_state = "0,34";
+/turf/open/skyline{
 	icon_state = "3,22"
 	},
 /area/misc/condo)
@@ -6040,9 +5390,7 @@
 	icon_state = "rain";
 	alpha = 100
 	},
-/turf/open/indestructible/tram{
-	icon = 'modular_nova/master_files/icons/obj/skyscraper/background.dmi';
-	base_icon_state = "0,34";
+/turf/open/skyline{
 	icon_state = "28,8"
 	},
 /area/misc/condo)
@@ -6052,9 +5400,7 @@
 	icon_state = "rain";
 	alpha = 100
 	},
-/turf/open/indestructible/tram{
-	icon = 'modular_nova/master_files/icons/obj/skyscraper/background.dmi';
-	base_icon_state = "0,34";
+/turf/open/skyline{
 	icon_state = "23,24"
 	},
 /area/misc/condo)
@@ -6117,9 +5463,7 @@
 	icon_state = "rain";
 	alpha = 100
 	},
-/turf/open/indestructible/tram{
-	icon = 'modular_nova/master_files/icons/obj/skyscraper/background.dmi';
-	base_icon_state = "0,34";
+/turf/open/skyline{
 	icon_state = "24,27"
 	},
 /area/misc/condo)
@@ -6129,9 +5473,7 @@
 	icon_state = "rain";
 	alpha = 100
 	},
-/turf/open/indestructible/tram{
-	icon = 'modular_nova/master_files/icons/obj/skyscraper/background.dmi';
-	base_icon_state = "0,34";
+/turf/open/skyline{
 	icon_state = "5,19"
 	},
 /area/misc/condo)
@@ -6141,9 +5483,7 @@
 	icon_state = "rain";
 	alpha = 100
 	},
-/turf/open/indestructible/tram{
-	icon = 'modular_nova/master_files/icons/obj/skyscraper/background.dmi';
-	base_icon_state = "0,34";
+/turf/open/skyline{
 	icon_state = "6,26"
 	},
 /area/misc/condo)
@@ -6168,9 +5508,7 @@
 	icon_state = "rain";
 	alpha = 100
 	},
-/turf/open/indestructible/tram{
-	icon = 'modular_nova/master_files/icons/obj/skyscraper/background.dmi';
-	base_icon_state = "0,34";
+/turf/open/skyline{
 	icon_state = "18,24"
 	},
 /area/misc/condo)
@@ -6180,9 +5518,7 @@
 	icon_state = "rain";
 	alpha = 100
 	},
-/turf/open/indestructible/tram{
-	icon = 'modular_nova/master_files/icons/obj/skyscraper/background.dmi';
-	base_icon_state = "0,34";
+/turf/open/skyline{
 	icon_state = "29,8"
 	},
 /area/misc/condo)
@@ -6192,9 +5528,7 @@
 	icon_state = "rain";
 	alpha = 100
 	},
-/turf/open/indestructible/tram{
-	icon = 'modular_nova/master_files/icons/obj/skyscraper/background.dmi';
-	base_icon_state = "0,34";
+/turf/open/skyline{
 	icon_state = "3,25"
 	},
 /area/misc/condo)
@@ -6209,11 +5543,8 @@
 	dir = 1
 	},
 /obj/structure/railing,
-/turf/open/indestructible/tram{
-	base_icon_state = "0,34";
-	icon = 'modular_nova/master_files/icons/obj/skyscraper/background.dmi';
-	icon_state = "5,11";
-	name = "long way down"
+/turf/open/skyline{
+	icon_state = "5,11"
 	},
 /area/misc/condo)
 "MA" = (
@@ -6230,9 +5561,7 @@
 	icon_state = "rain";
 	alpha = 100
 	},
-/turf/open/indestructible/tram{
-	icon = 'modular_nova/master_files/icons/obj/skyscraper/background.dmi';
-	base_icon_state = "0,34";
+/turf/open/skyline{
 	icon_state = "27,21"
 	},
 /area/misc/condo)
@@ -6242,9 +5571,7 @@
 	icon_state = "rain";
 	alpha = 100
 	},
-/turf/open/indestructible/tram{
-	icon = 'modular_nova/master_files/icons/obj/skyscraper/background.dmi';
-	base_icon_state = "0,34";
+/turf/open/skyline{
 	icon_state = "30,13"
 	},
 /area/misc/condo)
@@ -6254,9 +5581,7 @@
 	icon_state = "rain";
 	alpha = 100
 	},
-/turf/open/indestructible/tram{
-	icon = 'modular_nova/master_files/icons/obj/skyscraper/background.dmi';
-	base_icon_state = "0,34";
+/turf/open/skyline{
 	icon_state = "10,26"
 	},
 /area/misc/condo)
@@ -6266,9 +5591,7 @@
 	icon_state = "rain";
 	alpha = 100
 	},
-/turf/open/indestructible/tram{
-	icon = 'modular_nova/master_files/icons/obj/skyscraper/background.dmi';
-	base_icon_state = "0,34";
+/turf/open/skyline{
 	icon_state = "8,6"
 	},
 /area/misc/condo)
@@ -6278,9 +5601,7 @@
 	icon_state = "rain";
 	alpha = 100
 	},
-/turf/open/indestructible/tram{
-	icon = 'modular_nova/master_files/icons/obj/skyscraper/background.dmi';
-	base_icon_state = "0,34";
+/turf/open/skyline{
 	icon_state = "11,22"
 	},
 /area/misc/condo)
@@ -6290,9 +5611,7 @@
 	icon_state = "rain";
 	alpha = 100
 	},
-/turf/open/indestructible/tram{
-	icon = 'modular_nova/master_files/icons/obj/skyscraper/background.dmi';
-	base_icon_state = "0,34";
+/turf/open/skyline{
 	icon_state = "28,16"
 	},
 /area/misc/condo)
@@ -6332,11 +5651,8 @@
 	dir = 1
 	},
 /obj/structure/railing,
-/turf/open/indestructible/tram{
-	base_icon_state = "0,34";
-	icon = 'modular_nova/master_files/icons/obj/skyscraper/background.dmi';
-	icon_state = "9,11";
-	name = "long way down"
+/turf/open/skyline{
+	icon_state = "9,11"
 	},
 /area/misc/condo)
 "No" = (
@@ -6345,9 +5661,7 @@
 	icon_state = "rain";
 	alpha = 100
 	},
-/turf/open/indestructible/tram{
-	icon = 'modular_nova/master_files/icons/obj/skyscraper/background.dmi';
-	base_icon_state = "0,34";
+/turf/open/skyline{
 	icon_state = "27,25"
 	},
 /area/misc/condo)
@@ -6361,9 +5675,7 @@
 	icon_state = "rain";
 	alpha = 100
 	},
-/turf/open/indestructible/tram{
-	icon = 'modular_nova/master_files/icons/obj/skyscraper/background.dmi';
-	base_icon_state = "0,34";
+/turf/open/skyline{
 	icon_state = "18,27"
 	},
 /area/misc/condo)
@@ -6373,9 +5685,7 @@
 	icon_state = "rain";
 	alpha = 100
 	},
-/turf/open/indestructible/tram{
-	icon = 'modular_nova/master_files/icons/obj/skyscraper/background.dmi';
-	base_icon_state = "0,34";
+/turf/open/skyline{
 	icon_state = "16,24"
 	},
 /area/misc/condo)
@@ -6385,9 +5695,7 @@
 	icon_state = "rain";
 	alpha = 100
 	},
-/turf/open/indestructible/tram{
-	icon = 'modular_nova/master_files/icons/obj/skyscraper/background.dmi';
-	base_icon_state = "0,34";
+/turf/open/skyline{
 	icon_state = "18,23"
 	},
 /area/misc/condo)
@@ -6414,11 +5722,8 @@
 /obj/structure/fluff/metalpole{
 	dir = 8
 	},
-/turf/open/indestructible/tram{
-	base_icon_state = "0,34";
-	icon = 'modular_nova/master_files/icons/obj/skyscraper/background.dmi';
-	icon_state = "4,10";
-	name = "long way down"
+/turf/open/skyline{
+	icon_state = "4,10"
 	},
 /area/misc/condo)
 "NO" = (
@@ -6427,9 +5732,7 @@
 	icon_state = "rain";
 	alpha = 100
 	},
-/turf/open/indestructible/tram{
-	icon = 'modular_nova/master_files/icons/obj/skyscraper/background.dmi';
-	base_icon_state = "0,34";
+/turf/open/skyline{
 	icon_state = "30,5"
 	},
 /area/misc/condo)
@@ -6464,9 +5767,7 @@
 	icon_state = "rain";
 	alpha = 100
 	},
-/turf/open/indestructible/tram{
-	icon = 'modular_nova/master_files/icons/obj/skyscraper/background.dmi';
-	base_icon_state = "0,34";
+/turf/open/skyline{
 	icon_state = "11,24"
 	},
 /area/misc/condo)
@@ -6521,9 +5822,7 @@
 	icon_state = "rain";
 	alpha = 100
 	},
-/turf/open/indestructible/tram{
-	icon = 'modular_nova/master_files/icons/obj/skyscraper/background.dmi';
-	base_icon_state = "0,34";
+/turf/open/skyline{
 	icon_state = "9,17"
 	},
 /area/misc/condo)
@@ -6535,11 +5834,8 @@
 	},
 /obj/structure/lattice/catwalk/mining,
 /obj/structure/railing,
-/turf/open/indestructible/tram{
-	base_icon_state = "0,34";
-	icon = 'modular_nova/master_files/icons/obj/skyscraper/background.dmi';
-	icon_state = "4,11";
-	name = "long way down"
+/turf/open/skyline{
+	icon_state = "4,11"
 	},
 /area/misc/condo)
 "OA" = (
@@ -6574,9 +5870,7 @@
 	icon_state = "rain";
 	alpha = 100
 	},
-/turf/open/indestructible/tram{
-	icon = 'modular_nova/master_files/icons/obj/skyscraper/background.dmi';
-	base_icon_state = "0,34";
+/turf/open/skyline{
 	icon_state = "28,23"
 	},
 /area/misc/condo)
@@ -6641,9 +5935,7 @@
 	icon_state = "rain";
 	alpha = 100
 	},
-/turf/open/indestructible/tram{
-	icon = 'modular_nova/master_files/icons/obj/skyscraper/background.dmi';
-	base_icon_state = "0,34";
+/turf/open/skyline{
 	icon_state = "5,15"
 	},
 /area/misc/condo)
@@ -6657,11 +5949,8 @@
 	dir = 1
 	},
 /obj/structure/marker_beacon/violet,
-/turf/open/indestructible/tram{
-	base_icon_state = "0,34";
-	icon = 'modular_nova/master_files/icons/obj/skyscraper/background.dmi';
-	icon_state = "6,8";
-	name = "long way down"
+/turf/open/skyline{
+	icon_state = "6,8"
 	},
 /area/misc/condo)
 "Pc" = (
@@ -6670,9 +5959,7 @@
 	icon_state = "rain";
 	alpha = 100
 	},
-/turf/open/indestructible/tram{
-	icon = 'modular_nova/master_files/icons/obj/skyscraper/background.dmi';
-	base_icon_state = "0,34";
+/turf/open/skyline{
 	icon_state = "28,22"
 	},
 /area/misc/condo)
@@ -6682,9 +5969,7 @@
 	icon_state = "rain";
 	alpha = 100
 	},
-/turf/open/indestructible/tram{
-	icon = 'modular_nova/master_files/icons/obj/skyscraper/background.dmi';
-	base_icon_state = "0,34";
+/turf/open/skyline{
 	icon_state = "13,26"
 	},
 /area/misc/condo)
@@ -6694,9 +5979,7 @@
 	icon_state = "rain";
 	alpha = 100
 	},
-/turf/open/indestructible/tram{
-	icon = 'modular_nova/master_files/icons/obj/skyscraper/background.dmi';
-	base_icon_state = "0,34";
+/turf/open/skyline{
 	icon_state = "6,24"
 	},
 /area/misc/condo)
@@ -6706,9 +5989,7 @@
 	icon_state = "rain";
 	alpha = 100
 	},
-/turf/open/indestructible/tram{
-	icon = 'modular_nova/master_files/icons/obj/skyscraper/background.dmi';
-	base_icon_state = "0,34";
+/turf/open/skyline{
 	icon_state = "30,6"
 	},
 /area/misc/condo)
@@ -6718,9 +5999,7 @@
 	icon_state = "rain";
 	alpha = 100
 	},
-/turf/open/indestructible/tram{
-	icon = 'modular_nova/master_files/icons/obj/skyscraper/background.dmi';
-	base_icon_state = "0,34";
+/turf/open/skyline{
 	icon_state = "28,11"
 	},
 /area/misc/condo)
@@ -6745,9 +6024,7 @@
 	icon_state = "rain";
 	alpha = 100
 	},
-/turf/open/indestructible/tram{
-	icon = 'modular_nova/master_files/icons/obj/skyscraper/background.dmi';
-	base_icon_state = "0,34";
+/turf/open/skyline{
 	icon_state = "13,24"
 	},
 /area/misc/condo)
@@ -6757,9 +6034,7 @@
 	icon_state = "rain";
 	alpha = 100
 	},
-/turf/open/indestructible/tram{
-	icon = 'modular_nova/master_files/icons/obj/skyscraper/background.dmi';
-	base_icon_state = "0,34";
+/turf/open/skyline{
 	icon_state = "26,27"
 	},
 /area/misc/condo)
@@ -6769,9 +6044,7 @@
 	icon_state = "rain";
 	alpha = 100
 	},
-/turf/open/indestructible/tram{
-	icon = 'modular_nova/master_files/icons/obj/skyscraper/background.dmi';
-	base_icon_state = "0,34";
+/turf/open/skyline{
 	icon_state = "30,19"
 	},
 /area/misc/condo)
@@ -6815,9 +6088,7 @@
 	icon_state = "rain";
 	alpha = 100
 	},
-/turf/open/indestructible/tram{
-	icon = 'modular_nova/master_files/icons/obj/skyscraper/background.dmi';
-	base_icon_state = "0,34";
+/turf/open/skyline{
 	icon_state = "22,19"
 	},
 /area/misc/condo)
@@ -6827,9 +6098,7 @@
 	icon_state = "rain";
 	alpha = 100
 	},
-/turf/open/indestructible/tram{
-	icon = 'modular_nova/master_files/icons/obj/skyscraper/background.dmi';
-	base_icon_state = "0,34";
+/turf/open/skyline{
 	icon_state = "4,26"
 	},
 /area/misc/condo)
@@ -6839,9 +6108,7 @@
 	icon_state = "rain";
 	alpha = 100
 	},
-/turf/open/indestructible/tram{
-	icon = 'modular_nova/master_files/icons/obj/skyscraper/background.dmi';
-	base_icon_state = "0,34";
+/turf/open/skyline{
 	icon_state = "28,13"
 	},
 /area/misc/condo)
@@ -6851,9 +6118,7 @@
 	icon_state = "rain";
 	alpha = 100
 	},
-/turf/open/indestructible/tram{
-	icon = 'modular_nova/master_files/icons/obj/skyscraper/background.dmi';
-	base_icon_state = "0,34";
+/turf/open/skyline{
 	icon_state = "15,24"
 	},
 /area/misc/condo)
@@ -6863,9 +6128,7 @@
 	icon_state = "rain";
 	alpha = 100
 	},
-/turf/open/indestructible/tram{
-	icon = 'modular_nova/master_files/icons/obj/skyscraper/background.dmi';
-	base_icon_state = "0,34";
+/turf/open/skyline{
 	icon_state = "3,19"
 	},
 /area/misc/condo)
@@ -6893,9 +6156,7 @@
 	icon_state = "rain";
 	alpha = 100
 	},
-/turf/open/indestructible/tram{
-	icon = 'modular_nova/master_files/icons/obj/skyscraper/background.dmi';
-	base_icon_state = "0,34";
+/turf/open/skyline{
 	icon_state = "4,16"
 	},
 /area/misc/condo)
@@ -6905,9 +6166,7 @@
 	icon_state = "rain";
 	alpha = 100
 	},
-/turf/open/indestructible/tram{
-	icon = 'modular_nova/master_files/icons/obj/skyscraper/background.dmi';
-	base_icon_state = "0,34";
+/turf/open/skyline{
 	icon_state = "15,21"
 	},
 /area/misc/condo)
@@ -6935,9 +6194,7 @@
 	icon_state = "rain";
 	alpha = 100
 	},
-/turf/open/indestructible/tram{
-	icon = 'modular_nova/master_files/icons/obj/skyscraper/background.dmi';
-	base_icon_state = "0,34";
+/turf/open/skyline{
 	icon_state = "11,26"
 	},
 /area/misc/condo)
@@ -6947,9 +6204,7 @@
 	icon_state = "rain";
 	alpha = 100
 	},
-/turf/open/indestructible/tram{
-	icon = 'modular_nova/master_files/icons/obj/skyscraper/background.dmi';
-	base_icon_state = "0,34";
+/turf/open/skyline{
 	icon_state = "8,8"
 	},
 /area/misc/condo)
@@ -6963,9 +6218,7 @@
 	icon_state = "rain";
 	alpha = 100
 	},
-/turf/open/indestructible/tram{
-	icon = 'modular_nova/master_files/icons/obj/skyscraper/background.dmi';
-	base_icon_state = "0,34";
+/turf/open/skyline{
 	icon_state = "5,16"
 	},
 /area/misc/condo)
@@ -6975,9 +6228,7 @@
 	icon_state = "rain";
 	alpha = 100
 	},
-/turf/open/indestructible/tram{
-	icon = 'modular_nova/master_files/icons/obj/skyscraper/background.dmi';
-	base_icon_state = "0,34";
+/turf/open/skyline{
 	icon_state = "26,5"
 	},
 /area/misc/condo)
@@ -6987,9 +6238,7 @@
 	icon_state = "rain";
 	alpha = 100
 	},
-/turf/open/indestructible/tram{
-	icon = 'modular_nova/master_files/icons/obj/skyscraper/background.dmi';
-	base_icon_state = "0,34";
+/turf/open/skyline{
 	icon_state = "17,26"
 	},
 /area/misc/condo)
@@ -6999,9 +6248,7 @@
 	icon_state = "rain";
 	alpha = 100
 	},
-/turf/open/indestructible/tram{
-	icon = 'modular_nova/master_files/icons/obj/skyscraper/background.dmi';
-	base_icon_state = "0,34";
+/turf/open/skyline{
 	icon_state = "27,18"
 	},
 /area/misc/condo)
@@ -7020,9 +6267,7 @@
 	icon_state = "rain";
 	alpha = 100
 	},
-/turf/open/indestructible/tram{
-	icon = 'modular_nova/master_files/icons/obj/skyscraper/background.dmi';
-	base_icon_state = "0,34";
+/turf/open/skyline{
 	icon_state = "29,15"
 	},
 /area/misc/condo)
@@ -7042,9 +6287,7 @@
 	icon_state = "rain";
 	alpha = 100
 	},
-/turf/open/indestructible/tram{
-	icon = 'modular_nova/master_files/icons/obj/skyscraper/background.dmi';
-	base_icon_state = "0,34";
+/turf/open/skyline{
 	icon_state = "5,26"
 	},
 /area/misc/condo)
@@ -7069,9 +6312,7 @@
 	icon_state = "rain";
 	alpha = 100
 	},
-/turf/open/indestructible/tram{
-	icon = 'modular_nova/master_files/icons/obj/skyscraper/background.dmi';
-	base_icon_state = "0,34";
+/turf/open/skyline{
 	icon_state = "7,22"
 	},
 /area/misc/condo)
@@ -7081,9 +6322,7 @@
 	icon_state = "rain";
 	alpha = 100
 	},
-/turf/open/indestructible/tram{
-	icon = 'modular_nova/master_files/icons/obj/skyscraper/background.dmi';
-	base_icon_state = "0,34";
+/turf/open/skyline{
 	icon_state = "27,6"
 	},
 /area/misc/condo)
@@ -7109,9 +6348,7 @@
 	icon_state = "rain";
 	alpha = 100
 	},
-/turf/open/indestructible/tram{
-	icon = 'modular_nova/master_files/icons/obj/skyscraper/background.dmi';
-	base_icon_state = "0,34";
+/turf/open/skyline{
 	icon_state = "4,18"
 	},
 /area/misc/condo)
@@ -7131,9 +6368,7 @@
 	icon_state = "rain";
 	alpha = 100
 	},
-/turf/open/indestructible/tram{
-	icon = 'modular_nova/master_files/icons/obj/skyscraper/background.dmi';
-	base_icon_state = "0,34";
+/turf/open/skyline{
 	icon_state = "25,11"
 	},
 /area/misc/condo)
@@ -7162,9 +6397,7 @@
 	icon_state = "rain";
 	alpha = 100
 	},
-/turf/open/indestructible/tram{
-	icon = 'modular_nova/master_files/icons/obj/skyscraper/background.dmi';
-	base_icon_state = "0,34";
+/turf/open/skyline{
 	icon_state = "11,21"
 	},
 /area/misc/condo)
@@ -7174,9 +6407,7 @@
 	icon_state = "rain";
 	alpha = 100
 	},
-/turf/open/indestructible/tram{
-	icon = 'modular_nova/master_files/icons/obj/skyscraper/background.dmi';
-	base_icon_state = "0,34";
+/turf/open/skyline{
 	icon_state = "27,5"
 	},
 /area/misc/condo)
@@ -7186,9 +6417,7 @@
 	icon_state = "rain";
 	alpha = 100
 	},
-/turf/open/indestructible/tram{
-	icon = 'modular_nova/master_files/icons/obj/skyscraper/background.dmi';
-	base_icon_state = "0,34";
+/turf/open/skyline{
 	icon_state = "4,20"
 	},
 /area/misc/condo)
@@ -7223,9 +6452,7 @@
 	icon_state = "rain";
 	alpha = 100
 	},
-/turf/open/indestructible/tram{
-	icon = 'modular_nova/master_files/icons/obj/skyscraper/background.dmi';
-	base_icon_state = "0,34";
+/turf/open/skyline{
 	icon_state = "28,9"
 	},
 /area/misc/condo)
@@ -7243,11 +6470,8 @@
 	dir = 4
 	},
 /obj/structure/marker_beacon/burgundy,
-/turf/open/indestructible/tram{
-	base_icon_state = "0,34";
-	icon = 'modular_nova/master_files/icons/obj/skyscraper/background.dmi';
-	icon_state = "7,13";
-	name = "long way down"
+/turf/open/skyline{
+	icon_state = "7,13"
 	},
 /area/misc/condo)
 "Ti" = (
@@ -7260,11 +6484,8 @@
 	pixel_x = 2;
 	pixel_y = -2
 	},
-/turf/open/indestructible/tram{
-	base_icon_state = "0,34";
-	icon = 'modular_nova/master_files/icons/obj/skyscraper/background.dmi';
-	icon_state = "5,7";
-	name = "long way down"
+/turf/open/skyline{
+	icon_state = "5,7"
 	},
 /area/misc/condo)
 "Tj" = (
@@ -7273,9 +6494,7 @@
 	icon_state = "rain";
 	alpha = 100
 	},
-/turf/open/indestructible/tram{
-	icon = 'modular_nova/master_files/icons/obj/skyscraper/background.dmi';
-	base_icon_state = "0,34";
+/turf/open/skyline{
 	icon_state = "28,18"
 	},
 /area/misc/condo)
@@ -7295,9 +6514,7 @@
 	icon_state = "rain";
 	alpha = 100
 	},
-/turf/open/indestructible/tram{
-	icon = 'modular_nova/master_files/icons/obj/skyscraper/background.dmi';
-	base_icon_state = "0,34";
+/turf/open/skyline{
 	icon_state = "29,6"
 	},
 /area/misc/condo)
@@ -7321,9 +6538,7 @@
 	icon_state = "rain";
 	alpha = 100
 	},
-/turf/open/indestructible/tram{
-	icon = 'modular_nova/master_files/icons/obj/skyscraper/background.dmi';
-	base_icon_state = "0,34";
+/turf/open/skyline{
 	icon_state = "7,25"
 	},
 /area/misc/condo)
@@ -7371,9 +6586,7 @@
 	icon_state = "rain";
 	alpha = 100
 	},
-/turf/open/indestructible/tram{
-	icon = 'modular_nova/master_files/icons/obj/skyscraper/background.dmi';
-	base_icon_state = "0,34";
+/turf/open/skyline{
 	icon_state = "18,20"
 	},
 /area/misc/condo)
@@ -7383,9 +6596,7 @@
 	icon_state = "rain";
 	alpha = 100
 	},
-/turf/open/indestructible/tram{
-	icon = 'modular_nova/master_files/icons/obj/skyscraper/background.dmi';
-	base_icon_state = "0,34";
+/turf/open/skyline{
 	icon_state = "9,26"
 	},
 /area/misc/condo)
@@ -7395,9 +6606,7 @@
 	icon_state = "rain";
 	alpha = 100
 	},
-/turf/open/indestructible/tram{
-	icon = 'modular_nova/master_files/icons/obj/skyscraper/background.dmi';
-	base_icon_state = "0,34";
+/turf/open/skyline{
 	icon_state = "18,25"
 	},
 /area/misc/condo)
@@ -7416,9 +6625,7 @@
 	icon_state = "rain";
 	alpha = 100
 	},
-/turf/open/indestructible/tram{
-	icon = 'modular_nova/master_files/icons/obj/skyscraper/background.dmi';
-	base_icon_state = "0,34";
+/turf/open/skyline{
 	icon_state = "9,12"
 	},
 /area/misc/condo)
@@ -7428,9 +6635,7 @@
 	icon_state = "rain";
 	alpha = 100
 	},
-/turf/open/indestructible/tram{
-	icon = 'modular_nova/master_files/icons/obj/skyscraper/background.dmi';
-	base_icon_state = "0,34";
+/turf/open/skyline{
 	icon_state = "14,26"
 	},
 /area/misc/condo)
@@ -7473,9 +6678,7 @@
 	icon_state = "rain";
 	alpha = 100
 	},
-/turf/open/indestructible/tram{
-	icon = 'modular_nova/master_files/icons/obj/skyscraper/background.dmi';
-	base_icon_state = "0,34";
+/turf/open/skyline{
 	icon_state = "17,21"
 	},
 /area/misc/condo)
@@ -7501,9 +6704,7 @@
 	icon_state = "rain";
 	alpha = 100
 	},
-/turf/open/indestructible/tram{
-	icon = 'modular_nova/master_files/icons/obj/skyscraper/background.dmi';
-	base_icon_state = "0,34";
+/turf/open/skyline{
 	icon_state = "28,5"
 	},
 /area/misc/condo)
@@ -7550,9 +6751,7 @@
 	icon_state = "rain";
 	alpha = 100
 	},
-/turf/open/indestructible/tram{
-	icon = 'modular_nova/master_files/icons/obj/skyscraper/background.dmi';
-	base_icon_state = "0,34";
+/turf/open/skyline{
 	icon_state = "9,22"
 	},
 /area/misc/condo)
@@ -7562,9 +6761,7 @@
 	icon_state = "rain";
 	alpha = 100
 	},
-/turf/open/indestructible/tram{
-	icon = 'modular_nova/master_files/icons/obj/skyscraper/background.dmi';
-	base_icon_state = "0,34";
+/turf/open/skyline{
 	icon_state = "22,21"
 	},
 /area/misc/condo)
@@ -7585,9 +6782,7 @@
 	icon_state = "rain";
 	alpha = 100
 	},
-/turf/open/indestructible/tram{
-	icon = 'modular_nova/master_files/icons/obj/skyscraper/background.dmi';
-	base_icon_state = "0,34";
+/turf/open/skyline{
 	icon_state = "21,27"
 	},
 /area/misc/condo)
@@ -7621,9 +6816,7 @@
 	icon_state = "rain";
 	alpha = 100
 	},
-/turf/open/indestructible/tram{
-	icon = 'modular_nova/master_files/icons/obj/skyscraper/background.dmi';
-	base_icon_state = "0,34";
+/turf/open/skyline{
 	icon_state = "16,22"
 	},
 /area/misc/condo)
@@ -7683,9 +6876,7 @@
 	icon_state = "rain";
 	alpha = 100
 	},
-/turf/open/indestructible/tram{
-	icon = 'modular_nova/master_files/icons/obj/skyscraper/background.dmi';
-	base_icon_state = "0,34";
+/turf/open/skyline{
 	icon_state = "3,21"
 	},
 /area/misc/condo)
@@ -7720,9 +6911,7 @@
 	icon_state = "rain";
 	alpha = 100
 	},
-/turf/open/indestructible/tram{
-	icon = 'modular_nova/master_files/icons/obj/skyscraper/background.dmi';
-	base_icon_state = "0,34";
+/turf/open/skyline{
 	icon_state = "5,21"
 	},
 /area/misc/condo)
@@ -7736,9 +6925,7 @@
 	icon_state = "rain";
 	alpha = 100
 	},
-/turf/open/indestructible/tram{
-	icon = 'modular_nova/master_files/icons/obj/skyscraper/background.dmi';
-	base_icon_state = "0,34";
+/turf/open/skyline{
 	icon_state = "7,20"
 	},
 /area/misc/condo)
@@ -7751,11 +6938,8 @@
 /obj/structure/fluff/metalpole{
 	dir = 1
 	},
-/turf/open/indestructible/tram{
-	base_icon_state = "0,34";
-	icon = 'modular_nova/master_files/icons/obj/skyscraper/background.dmi';
-	icon_state = "9,10";
-	name = "long way down"
+/turf/open/skyline{
+	icon_state = "9,10"
 	},
 /area/misc/condo)
 "WR" = (
@@ -7768,11 +6952,8 @@
 	pixel_y = -4;
 	pixel_x = -34
 	},
-/turf/open/indestructible/tram{
-	base_icon_state = "0,34";
-	icon = 'modular_nova/master_files/icons/obj/skyscraper/background.dmi';
-	icon_state = "5,9";
-	name = "long way down"
+/turf/open/skyline{
+	icon_state = "5,9"
 	},
 /area/misc/condo)
 "WU" = (
@@ -7781,9 +6962,7 @@
 	icon_state = "rain";
 	alpha = 100
 	},
-/turf/open/indestructible/tram{
-	icon = 'modular_nova/master_files/icons/obj/skyscraper/background.dmi';
-	base_icon_state = "0,34";
+/turf/open/skyline{
 	icon_state = "26,15"
 	},
 /area/misc/condo)
@@ -7793,9 +6972,7 @@
 	icon_state = "rain";
 	alpha = 100
 	},
-/turf/open/indestructible/tram{
-	icon = 'modular_nova/master_files/icons/obj/skyscraper/background.dmi';
-	base_icon_state = "0,34";
+/turf/open/skyline{
 	icon_state = "7,21"
 	},
 /area/misc/condo)
@@ -7805,9 +6982,7 @@
 	icon_state = "rain";
 	alpha = 100
 	},
-/turf/open/indestructible/tram{
-	icon = 'modular_nova/master_files/icons/obj/skyscraper/background.dmi';
-	base_icon_state = "0,34";
+/turf/open/skyline{
 	icon_state = "23,23"
 	},
 /area/misc/condo)
@@ -7817,9 +6992,7 @@
 	icon_state = "rain";
 	alpha = 100
 	},
-/turf/open/indestructible/tram{
-	icon = 'modular_nova/master_files/icons/obj/skyscraper/background.dmi';
-	base_icon_state = "0,34";
+/turf/open/skyline{
 	icon_state = "25,20"
 	},
 /area/misc/condo)
@@ -7855,9 +7028,7 @@
 	icon_state = "rain";
 	alpha = 100
 	},
-/turf/open/indestructible/tram{
-	icon = 'modular_nova/master_files/icons/obj/skyscraper/background.dmi';
-	base_icon_state = "0,34";
+/turf/open/skyline{
 	icon_state = "19,24"
 	},
 /area/misc/condo)
@@ -7867,9 +7038,7 @@
 	icon_state = "rain";
 	alpha = 100
 	},
-/turf/open/indestructible/tram{
-	icon = 'modular_nova/master_files/icons/obj/skyscraper/background.dmi';
-	base_icon_state = "0,34";
+/turf/open/skyline{
 	icon_state = "25,27"
 	},
 /area/misc/condo)
@@ -7879,9 +7048,7 @@
 	icon_state = "rain";
 	alpha = 100
 	},
-/turf/open/indestructible/tram{
-	icon = 'modular_nova/master_files/icons/obj/skyscraper/background.dmi';
-	base_icon_state = "0,34";
+/turf/open/skyline{
 	icon_state = "30,25"
 	},
 /area/misc/condo)
@@ -7912,9 +7079,7 @@
 	icon_state = "rain";
 	alpha = 100
 	},
-/turf/open/indestructible/tram{
-	icon = 'modular_nova/master_files/icons/obj/skyscraper/background.dmi';
-	base_icon_state = "0,34";
+/turf/open/skyline{
 	icon_state = "23,26"
 	},
 /area/misc/condo)
@@ -7924,9 +7089,7 @@
 	icon_state = "rain";
 	alpha = 100
 	},
-/turf/open/indestructible/tram{
-	icon = 'modular_nova/master_files/icons/obj/skyscraper/background.dmi';
-	base_icon_state = "0,34";
+/turf/open/skyline{
 	icon_state = "12,24"
 	},
 /area/misc/condo)
@@ -7936,11 +7099,8 @@
 	icon_state = "rain";
 	alpha = 100
 	},
-/turf/open/indestructible/tram{
-	base_icon_state = "0,34";
-	icon = 'modular_nova/master_files/icons/obj/skyscraper/background.dmi';
-	icon_state = "6,9";
-	name = "long way down"
+/turf/open/skyline{
+	icon_state = "6,9"
 	},
 /area/misc/condo)
 "XS" = (
@@ -7961,9 +7121,7 @@
 	icon_state = "rain";
 	alpha = 100
 	},
-/turf/open/indestructible/tram{
-	icon = 'modular_nova/master_files/icons/obj/skyscraper/background.dmi';
-	base_icon_state = "0,34";
+/turf/open/skyline{
 	icon_state = "30,16"
 	},
 /area/misc/condo)
@@ -7973,9 +7131,7 @@
 	icon_state = "rain";
 	alpha = 100
 	},
-/turf/open/indestructible/tram{
-	icon = 'modular_nova/master_files/icons/obj/skyscraper/background.dmi';
-	base_icon_state = "0,34";
+/turf/open/skyline{
 	icon_state = "21,26"
 	},
 /area/misc/condo)
@@ -7997,9 +7153,7 @@
 	icon_state = "rain";
 	alpha = 100
 	},
-/turf/open/indestructible/tram{
-	icon = 'modular_nova/master_files/icons/obj/skyscraper/background.dmi';
-	base_icon_state = "0,34";
+/turf/open/skyline{
 	icon_state = "6,19"
 	},
 /area/misc/condo)
@@ -8021,9 +7175,7 @@
 	icon_state = "rain";
 	alpha = 100
 	},
-/turf/open/indestructible/tram{
-	icon = 'modular_nova/master_files/icons/obj/skyscraper/background.dmi';
-	base_icon_state = "0,34";
+/turf/open/skyline{
 	icon_state = "28,15"
 	},
 /area/misc/condo)
@@ -8033,9 +7185,7 @@
 	icon_state = "rain";
 	alpha = 100
 	},
-/turf/open/indestructible/tram{
-	icon = 'modular_nova/master_files/icons/obj/skyscraper/background.dmi';
-	base_icon_state = "0,34";
+/turf/open/skyline{
 	icon_state = "17,20"
 	},
 /area/misc/condo)
@@ -8045,9 +7195,7 @@
 	icon_state = "rain";
 	alpha = 100
 	},
-/turf/open/indestructible/tram{
-	icon = 'modular_nova/master_files/icons/obj/skyscraper/background.dmi';
-	base_icon_state = "0,34";
+/turf/open/skyline{
 	icon_state = "6,16"
 	},
 /area/misc/condo)
@@ -8057,9 +7205,7 @@
 	icon_state = "rain";
 	alpha = 100
 	},
-/turf/open/indestructible/tram{
-	icon = 'modular_nova/master_files/icons/obj/skyscraper/background.dmi';
-	base_icon_state = "0,34";
+/turf/open/skyline{
 	icon_state = "4,25"
 	},
 /area/misc/condo)
@@ -8078,9 +7224,7 @@
 	icon_state = "rain";
 	alpha = 100
 	},
-/turf/open/indestructible/tram{
-	icon = 'modular_nova/master_files/icons/obj/skyscraper/background.dmi';
-	base_icon_state = "0,34";
+/turf/open/skyline{
 	icon_state = "8,26"
 	},
 /area/misc/condo)
@@ -8090,9 +7234,7 @@
 	icon_state = "rain";
 	alpha = 100
 	},
-/turf/open/indestructible/tram{
-	icon = 'modular_nova/master_files/icons/obj/skyscraper/background.dmi';
-	base_icon_state = "0,34";
+/turf/open/skyline{
 	icon_state = "28,19"
 	},
 /area/misc/condo)
@@ -8102,9 +7244,7 @@
 	icon_state = "rain";
 	alpha = 100
 	},
-/turf/open/indestructible/tram{
-	icon = 'modular_nova/master_files/icons/obj/skyscraper/background.dmi';
-	base_icon_state = "0,34";
+/turf/open/skyline{
 	icon_state = "25,21"
 	},
 /area/misc/condo)
@@ -8114,9 +7254,7 @@
 	icon_state = "rain";
 	alpha = 100
 	},
-/turf/open/indestructible/tram{
-	icon = 'modular_nova/master_files/icons/obj/skyscraper/background.dmi';
-	base_icon_state = "0,34";
+/turf/open/skyline{
 	icon_state = "29,7"
 	},
 /area/misc/condo)
@@ -8126,9 +7264,7 @@
 	icon_state = "rain";
 	alpha = 100
 	},
-/turf/open/indestructible/tram{
-	icon = 'modular_nova/master_files/icons/obj/skyscraper/background.dmi';
-	base_icon_state = "0,34";
+/turf/open/skyline{
 	icon_state = "30,27"
 	},
 /area/misc/condo)
@@ -8138,9 +7274,7 @@
 	icon_state = "rain";
 	alpha = 100
 	},
-/turf/open/indestructible/tram{
-	icon = 'modular_nova/master_files/icons/obj/skyscraper/background.dmi';
-	base_icon_state = "0,34";
+/turf/open/skyline{
 	icon_state = "18,26"
 	},
 /area/misc/condo)
@@ -8153,11 +7287,8 @@
 /obj/structure/fluff/metalpole{
 	dir = 1
 	},
-/turf/open/indestructible/tram{
-	base_icon_state = "0,34";
-	icon = 'modular_nova/master_files/icons/obj/skyscraper/background.dmi';
-	icon_state = "6,10";
-	name = "long way down"
+/turf/open/skyline{
+	icon_state = "6,10"
 	},
 /area/misc/condo)
 "Zo" = (
@@ -8166,9 +7297,7 @@
 	icon_state = "rain";
 	alpha = 100
 	},
-/turf/open/indestructible/tram{
-	icon = 'modular_nova/master_files/icons/obj/skyscraper/background.dmi';
-	base_icon_state = "0,34";
+/turf/open/skyline{
 	icon_state = "6,17"
 	},
 /area/misc/condo)
@@ -8218,9 +7347,7 @@
 	icon_state = "rain";
 	alpha = 100
 	},
-/turf/open/indestructible/tram{
-	icon = 'modular_nova/master_files/icons/obj/skyscraper/background.dmi';
-	base_icon_state = "0,34";
+/turf/open/skyline{
 	icon_state = "16,23"
 	},
 /area/misc/condo)
@@ -8234,9 +7361,7 @@
 	icon_state = "rain";
 	alpha = 100
 	},
-/turf/open/indestructible/tram{
-	icon = 'modular_nova/master_files/icons/obj/skyscraper/background.dmi';
-	base_icon_state = "0,34";
+/turf/open/skyline{
 	icon_state = "6,23"
 	},
 /area/misc/condo)
@@ -8246,9 +7371,7 @@
 	icon_state = "rain";
 	alpha = 100
 	},
-/turf/open/indestructible/tram{
-	icon = 'modular_nova/master_files/icons/obj/skyscraper/background.dmi';
-	base_icon_state = "0,34";
+/turf/open/skyline{
 	icon_state = "25,16"
 	},
 /area/misc/condo)
@@ -8276,9 +7399,7 @@
 	icon_state = "rain";
 	alpha = 100
 	},
-/turf/open/indestructible/tram{
-	icon = 'modular_nova/master_files/icons/obj/skyscraper/background.dmi';
-	base_icon_state = "0,34";
+/turf/open/skyline{
 	icon_state = "25,25"
 	},
 /area/misc/condo)
@@ -8288,9 +7409,7 @@
 	icon_state = "rain";
 	alpha = 100
 	},
-/turf/open/indestructible/tram{
-	icon = 'modular_nova/master_files/icons/obj/skyscraper/background.dmi';
-	base_icon_state = "0,34";
+/turf/open/skyline{
 	icon_state = "8,18"
 	},
 /area/misc/condo)
@@ -8300,9 +7419,7 @@
 	icon_state = "rain";
 	alpha = 100
 	},
-/turf/open/indestructible/tram{
-	icon = 'modular_nova/master_files/icons/obj/skyscraper/background.dmi';
-	base_icon_state = "0,34";
+/turf/open/skyline{
 	icon_state = "19,22"
 	},
 /area/misc/condo)
@@ -8312,9 +7429,7 @@
 	icon_state = "rain";
 	alpha = 100
 	},
-/turf/open/indestructible/tram{
-	icon = 'modular_nova/master_files/icons/obj/skyscraper/background.dmi';
-	base_icon_state = "0,34";
+/turf/open/skyline{
 	icon_state = "18,19"
 	},
 /area/misc/condo)
@@ -8333,9 +7448,7 @@
 	icon_state = "rain";
 	alpha = 100
 	},
-/turf/open/indestructible/tram{
-	icon = 'modular_nova/master_files/icons/obj/skyscraper/background.dmi';
-	base_icon_state = "0,34";
+/turf/open/skyline{
 	icon_state = "12,22"
 	},
 /area/misc/condo)
@@ -8345,9 +7458,7 @@
 	icon_state = "rain";
 	alpha = 100
 	},
-/turf/open/indestructible/tram{
-	icon = 'modular_nova/master_files/icons/obj/skyscraper/background.dmi';
-	base_icon_state = "0,34";
+/turf/open/skyline{
 	icon_state = "23,20"
 	},
 /area/misc/condo)
