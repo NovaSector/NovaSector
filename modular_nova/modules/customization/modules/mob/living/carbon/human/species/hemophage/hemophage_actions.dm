@@ -142,7 +142,7 @@
 		if(iter_wound.blood_flow && (iter_wound.blood_flow > chosen_wound?.blood_flow))
 			chosen_wound = iter_wound
 
-	if(chosen_wound) // This one has the greatest blood flow, so heal it--first taking a snapshot of it so we can restore it later if the limb takes damage.
+	if(chosen_wound) // This one has the greatest blood flow, so heal it--first taking a snapshot of it so we can restore it later if the limb takes damage. The snapshot is a quadruplet list of data about the wound.
 		previous_wounds[chosen_wound.limb.name] = list(list(chosen_wound.type, chosen_wound.wound_source, WEAKREF(chosen_wound.limb), chosen_wound.blood_flow))
 		RegisterSignal(carbon_owner, COMSIG_CARBON_LIMB_DAMAGED, PROC_REF(on_limb_damaged), override = TRUE)
 		chosen_wound.adjust_blood_flow(-WOUND_MAX_BLOODFLOW)
@@ -161,8 +161,8 @@
 		return
 
 	// Wounds are really complicated in that they are constantly 'downgrading' or 'upgrading' themselves, which involves copying aspects of the old wound into a new datum, deleting the old one
-	// We are going to just keep a 'copy' of the old wound around in a list and reapply it, adjusting the blood flow to what it was before. To accomplish this we can just use a simple quadruplet list.
-	// In the quadruplet we have the wound datum, a weakref to the limb (so we don't cause hard dels), and the previous blood flow value. That's all we need to put the wound back..
+	// We are going to just keep a 'copy' of the old wound around in a list and reapply it, adjusting the blood flow to what it was before. To accomplish this we can just use a simple quadruplet list which stores a 'snapshot' of the wound data.
+	// In the quadruplet we have the wound's type, the wound_source, a weakref to the limb (so we don't cause hard dels), and the previous blood flow value. That should be all we need to put the wound back basically the same as it was before we 'healed' it.
 	// Pray that TG doesn't severely refactor things there.
 	for (var/limb_name in previous_wounds)
 		var/list_entry = previous_wounds[limb_name]
