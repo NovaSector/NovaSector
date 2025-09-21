@@ -1,0 +1,5 @@
+author: "RealWinterFrost"
+delete-after: True
+changes:
+  - map: "Imported a few new dorms choices from Splurt-Station (Cliffside, Fortune Teller, Mountainside, Skyscraper)"
+  - qol: "Quality of life improvement for anyone making a new dorm, added a new 'condos' sprite to avoid any visual confusion with 'hilberthotel'"
