@@ -34,22 +34,11 @@
 /obj/structure/cable,
 /turf/open/floor/iron/white/side,
 /area/space)
-"aD" = (
-/obj/effect/decal/hammerandsickle,
-/turf/open/floor/mineral/plastitanium/red,
-/area/space)
 "aF" = (
 /obj/machinery/power/shuttle_engine/propulsion/left{
 	dir = 8
 	},
 /turf/open/floor/plating/airless,
-/area/space)
-"aK" = (
-/obj/structure/window/reinforced/survival_pod/indestructible/spawner/directional/north,
-/obj/machinery/computer/dna_console{
-	dir = 8
-	},
-/turf/open/floor/mineral/plastitanium,
 /area/space)
 "aL" = (
 /obj/machinery/vending/toyliberationstation{
@@ -72,10 +61,9 @@
 /obj/machinery/door/airlock,
 /turf/open/floor/plating,
 /area/space)
-"br" = (
-/obj/structure/window/reinforced/survival_pod/indestructible/spawner/directional/south,
-/obj/machinery/vending/liberationstation,
-/turf/open/floor/iron/solarpanel/terrible_pun,
+"bq" = (
+/obj/structure/showcase/mecha/gygax/dark_gygax,
+/turf/open/floor/mineral/plastitanium,
 /area/space)
 "bs" = (
 /obj/effect/turf_decal/siding/thinplating/dark{
@@ -158,6 +146,10 @@
 	},
 /turf/open/floor/iron/dark/textured_large,
 /area/space)
+"cL" = (
+/mob/living/basic/trooper/cin_soldier/ranged/display,
+/turf/open/floor/mineral/plastitanium/red,
+/area/space)
 "cQ" = (
 /obj/structure/sign/poster/fluff/lizards_gas_payment/directional/north,
 /turf/open/floor/iron/dark/smooth_corner{
@@ -209,6 +201,11 @@
 /obj/machinery/door/airlock/plasma/glass,
 /turf/open/floor/carpet/cyan,
 /area/space)
+"dW" = (
+/obj/structure/window/reinforced/survival_pod/indestructible/spawner/directional/north,
+/obj/machinery/vending/wardrobe/syndie_wardrobe/interdyne,
+/turf/open/floor/mineral/plastitanium,
+/area/space)
 "dZ" = (
 /obj/structure/fence/door,
 /turf/open/floor/plating,
@@ -243,6 +240,13 @@
 /obj/structure/sign/poster/contraband/space_up/directional/north,
 /turf/open/floor/mineral/titanium/tiled,
 /area/space)
+"fe" = (
+/obj/structure/rack,
+/obj/item/storage/backpack/ert/odst/hecu/sol_militant{
+	anchored = 1
+	},
+/turf/open/floor/iron/solarpanel/terrible_pun,
+/area/space)
 "fn" = (
 /obj/structure/rack,
 /obj/item/analyzer,
@@ -264,6 +268,10 @@
 "fx" = (
 /obj/structure/shipping_container/donk_co,
 /turf/open/floor/iron/large,
+/area/space)
+"fJ" = (
+/obj/effect/decal/hammerandsickle,
+/turf/open/floor/mineral/plastitanium/red,
 /area/space)
 "fN" = (
 /obj/structure/filingcabinet{
@@ -425,6 +433,10 @@
 /obj/structure/cable,
 /turf/open/floor/plating,
 /area/space)
+"iX" = (
+/obj/structure/showcase/mecha/gygax,
+/turf/open/floor/carpet/executive,
+/area/space)
 "jf" = (
 /obj/structure/rack,
 /obj/item/clothing/head/costume/rice_hat,
@@ -433,6 +445,13 @@
 "jk" = (
 /obj/machinery/door/airlock/hatch,
 /turf/open/floor/plating,
+/area/space)
+"jz" = (
+/obj/structure/rack,
+/obj/item/gun/ballistic/automatic/pistol/sol{
+	anchored = 1
+	},
+/turf/open/floor/iron/solarpanel/terrible_pun,
 /area/space)
 "jE" = (
 /obj/structure/closet/crate/secure/trashcart/filled,
@@ -446,25 +465,18 @@
 "jJ" = (
 /turf/open/floor/grass,
 /area/space)
-"jL" = (
-/obj/structure/rack,
-/obj/item/gun/ballistic/revolver/russian{
-	anchored = 1
-	},
-/turf/open/floor/mineral/plastitanium/red,
-/area/space)
 "jT" = (
 /obj/structure/rack,
 /obj/item/gun/energy/laser/practice,
 /turf/open/floor/pod/dark,
 /area/space)
-"kb" = (
-/obj/structure/showcase/mecha/durand,
-/turf/open/floor/carpet/executive,
-/area/space)
 "ku" = (
 /obj/machinery/computer/mech_bay_power_console,
 /turf/open/floor/iron/large,
+/area/space)
+"kw" = (
+/mob/living/silicon/robot/model/syndicate/medical,
+/turf/open/floor/circuit,
 /area/space)
 "ky" = (
 /obj/machinery/washing_machine,
@@ -512,6 +524,13 @@
 	},
 /turf/open/indestructible/rockyground,
 /area/space)
+"lr" = (
+/obj/structure/rack,
+/obj/item/clothing/under/sol_emt{
+	anchored = 1
+	},
+/turf/open/floor/iron/solarpanel/terrible_pun,
+/area/space)
 "lu" = (
 /obj/structure/chair/wood{
 	dir = 8
@@ -557,6 +576,10 @@
 	dir = 4
 	},
 /turf/open/floor/pod/light,
+/area/space)
+"lQ" = (
+/obj/structure/mannequin/operative_barracks/sol_militant,
+/turf/open/floor/iron/solarpanel/terrible_pun,
 /area/space)
 "lS" = (
 /obj/machinery/atmospherics/pipe/smart/simple/yellow/hidden,
@@ -664,13 +687,6 @@
 /obj/machinery/suit_storage_unit,
 /turf/open/floor/pod/dark,
 /area/space)
-"nJ" = (
-/obj/structure/rack,
-/obj/item/clothing/under/sol_emt{
-	anchored = 1
-	},
-/turf/open/floor/iron/solarpanel/terrible_pun,
-/area/space)
 "oe" = (
 /turf/open/floor/carpet/green,
 /area/space)
@@ -683,6 +699,10 @@
 	},
 /turf/open/floor/iron/dark/textured_large,
 /area/space)
+"oq" = (
+/mob/living/silicon/robot/model/medical,
+/turf/open/floor/circuit,
+/area/space)
 "ot" = (
 /mob/living/basic/trooper/syndicate/melee/space/stormtrooper/display,
 /turf/open/floor/mineral/plastitanium,
@@ -690,9 +710,17 @@
 "oy" = (
 /turf/open/misc/grass/jungle,
 /area/space)
-"oL" = (
-/mob/living/silicon/robot/model/security,
-/turf/open/floor/circuit,
+"oG" = (
+/obj/structure/rack,
+/obj/item/paper/fluff/cyborg_circus,
+/turf/open/floor/circuit/off,
+/area/space)
+"oH" = (
+/obj/structure/rack,
+/obj/item/storage/toolbox/guncase/soviet/sakhno{
+	anchored = 1
+	},
+/turf/open/floor/mineral/plastitanium/red,
 /area/space)
 "oM" = (
 /obj/structure/rack,
@@ -709,20 +737,6 @@
 /obj/structure/window/reinforced/survival_pod/indestructible/spawner/directional/north,
 /obj/machinery/vending/cart,
 /turf/open/floor/carpet/executive,
-/area/space)
-"oR" = (
-/obj/structure/rack,
-/obj/item/storage/backpack/industrial/cin_surplus/forest{
-	anchored = 1
-	},
-/turf/open/floor/mineral/plastitanium/red,
-/area/space)
-"oX" = (
-/obj/structure/window/reinforced/survival_pod/indestructible/spawner/directional/east,
-/obj/structure/window/reinforced/survival_pod/indestructible/spawner/directional/north,
-/obj/structure/window/reinforced/survival_pod/indestructible/spawner/directional/west,
-/obj/machinery/vending/access/solfed,
-/turf/open/floor/iron/solarpanel/terrible_pun,
 /area/space)
 "pe" = (
 /obj/structure/fluff/bus/passable,
@@ -785,13 +799,6 @@
 "pZ" = (
 /obj/structure/closet/crate/secure/trashcart/filled,
 /turf/open/indestructible/rockyground,
-/area/space)
-"qa" = (
-/obj/structure/rack,
-/obj/item/clothing/suit/armor/vest/russian_coat{
-	anchored = 1
-	},
-/turf/open/floor/mineral/plastitanium/red,
 /area/space)
 "qe" = (
 /obj/structure/fluff/beach_umbrella,
@@ -862,6 +869,14 @@
 /obj/item/pen,
 /turf/open/floor/mineral/titanium/tiled,
 /area/space)
+"rs" = (
+/obj/structure/window/reinforced/survival_pod/indestructible/spawner/directional/north,
+/turf/open/floor/mineral/plastitanium,
+/area/space)
+"rI" = (
+/obj/structure/window/reinforced/survival_pod/indestructible/spawner/directional/south,
+/turf/open/floor/mineral/plastitanium/red,
+/area/space)
 "rK" = (
 /obj/effect/turf_decal/siding/wood{
 	dir = 4
@@ -876,7 +891,7 @@
 /obj/structure/reagent_dispensers/water_cooler,
 /turf/open/floor/mineral/titanium/tiled,
 /area/space)
-"sa" = (
+"rY" = (
 /obj/structure/rack,
 /obj/item/gun/ballistic/automatic/sol_rifle{
 	anchored = 1
@@ -904,11 +919,19 @@
 /obj/structure/closet/crate/secure/trashcart/filled,
 /turf/open/indestructible/rockyground,
 /area/space)
+"sS" = (
+/obj/structure/showcase/mecha/durand,
+/turf/open/floor/carpet/executive,
+/area/space)
 "tb" = (
 /obj/structure/fluff/bus/dense{
 	icon_state = "hoodbottom"
 	},
 /turf/open/indestructible/rockyground,
+/area/space)
+"th" = (
+/obj/machinery/recharge_station,
+/turf/open/floor/circuit,
 /area/space)
 "tj" = (
 /obj/structure/railing{
@@ -970,10 +993,6 @@
 /obj/structure/disposalpipe/segment,
 /obj/structure/curtain/cloth/fancy/mechanical/start_closed,
 /turf/open/floor/plating,
-/area/space)
-"tY" = (
-/mob/living/silicon/robot/model/syndicate,
-/turf/open/floor/circuit,
 /area/space)
 "uc" = (
 /obj/effect/spawner/random/food_or_drink/refreshing_beverage,
@@ -1076,10 +1095,6 @@
 /obj/structure/curtain/cloth/fancy/mechanical/start_closed,
 /turf/open/floor/plating,
 /area/space)
-"vn" = (
-/obj/structure/showcase/mecha/gygax/dark_gygax,
-/turf/open/floor/mineral/plastitanium,
-/area/space)
 "vp" = (
 /turf/open/misc/ice/temperate,
 /area/space)
@@ -1162,6 +1177,11 @@
 	},
 /obj/structure/window/reinforced/spawner/directional/east,
 /turf/open/floor/eighties/red,
+/area/space)
+"wS" = (
+/obj/structure/window/reinforced/survival_pod/indestructible/spawner/directional/north,
+/obj/machinery/vending/imported/yangyu,
+/turf/open/floor/bamboo,
 /area/space)
 "xb" = (
 /obj/item/katana,
@@ -1253,11 +1273,7 @@
 	},
 /turf/open/floor/plating,
 /area/space)
-"yn" = (
-/turf/open/floor/circuit,
-/area/space)
 "yr" = (
-/obj/structure/mannequin/operative_barracks/sol_militant,
 /turf/open/floor/iron/solarpanel/terrible_pun,
 /area/space)
 "ys" = (
@@ -1296,11 +1312,6 @@
 	icon_state = "bus"
 	},
 /area/space)
-"zb" = (
-/obj/structure/window/reinforced/survival_pod/indestructible/spawner/directional/north,
-/obj/machinery/vending/imported/yangyu,
-/turf/open/floor/bamboo,
-/area/space)
 "zo" = (
 /obj/structure/closet,
 /obj/effect/spawner/random/maintenance/three,
@@ -1328,9 +1339,6 @@
 	dir = 4
 	},
 /turf/open/floor/carpet/executive,
-/area/space)
-"zH" = (
-/turf/open/floor/iron/solarpanel/terrible_pun,
 /area/space)
 "zI" = (
 /obj/structure/billboard/gloves,
@@ -1379,13 +1387,6 @@
 	icon_state = "bus"
 	},
 /area/space)
-"Ak" = (
-/obj/structure/rack,
-/obj/item/storage/backpack/ert/odst/hecu/sol_militant{
-	anchored = 1
-	},
-/turf/open/floor/iron/solarpanel/terrible_pun,
-/area/space)
 "Az" = (
 /obj/structure/disposalpipe/segment,
 /turf/closed/wall,
@@ -1429,14 +1430,6 @@
 "Bc" = (
 /turf/open/floor/stone,
 /area/space)
-"Bg" = (
-/obj/structure/ai_core/deactivated,
-/turf/open/floor/circuit,
-/area/space)
-"Bk" = (
-/obj/structure/window/reinforced/survival_pod/indestructible/spawner/directional/south,
-/turf/open/floor/mineral/plastitanium/red,
-/area/space)
 "Bn" = (
 /obj/machinery/door/airlock/maintenance_hatch,
 /turf/open/misc/ice/temperate,
@@ -1444,6 +1437,10 @@
 "Bv" = (
 /obj/structure/table,
 /turf/open/indestructible/rockyground,
+/area/space)
+"Bz" = (
+/obj/machinery/dna_scannernew,
+/turf/open/floor/carpet/executive,
 /area/space)
 "BA" = (
 /obj/effect/spawner/structure/window,
@@ -1513,6 +1510,13 @@
 "CP" = (
 /turf/open/water/deep_beach,
 /area/space)
+"CQ" = (
+/obj/structure/rack,
+/obj/item/storage/backpack/industrial/cin_surplus/forest{
+	anchored = 1
+	},
+/turf/open/floor/mineral/plastitanium/red,
+/area/space)
 "CR" = (
 /obj/machinery/atmospherics/pipe/smart/simple/green/visible{
 	dir = 4
@@ -1547,10 +1551,6 @@
 /turf/open/floor/iron/dark{
 	icon_state = "bus"
 	},
-/area/space)
-"Dp" = (
-/obj/machinery/recharge_station,
-/turf/open/floor/circuit/off,
 /area/space)
 "Ds" = (
 /obj/machinery/vending/cola/space_up,
@@ -1617,10 +1617,6 @@
 "Ea" = (
 /turf/closed/wall/r_wall,
 /area/space)
-"Ec" = (
-/mob/living/silicon/robot/model/medical,
-/turf/open/floor/circuit,
-/area/space)
 "Ef" = (
 /obj/machinery/power/smes{
 	charge = 4e+007;
@@ -1647,6 +1643,16 @@
 /turf/open/floor/iron/dark{
 	icon_state = "bus"
 	},
+/area/space)
+"EF" = (
+/obj/structure/rack,
+/obj/item/clothing/under/solfed{
+	anchored = 1
+	},
+/obj/item/clothing/suit/armor/vest/sol{
+	anchored = 1
+	},
+/turf/open/floor/iron/solarpanel/terrible_pun,
 /area/space)
 "EP" = (
 /obj/structure/rack,
@@ -1721,10 +1727,10 @@
 /area/space)
 "Gc" = (
 /obj/structure/rack,
-/obj/item/gun/ballistic/automatic/pistol/sol{
+/obj/item/clothing/suit/armor/vest/russian_coat{
 	anchored = 1
 	},
-/turf/open/floor/iron/solarpanel/terrible_pun,
+/turf/open/floor/mineral/plastitanium/red,
 /area/space)
 "Gk" = (
 /obj/structure/fluff/beach_umbrella/engine,
@@ -1754,12 +1760,12 @@
 /obj/structure/table/wood/fancy/orange,
 /turf/open/floor/carpet/donk,
 /area/space)
+"GT" = (
+/obj/structure/ai_core/deactivated,
+/turf/open/floor/circuit,
+/area/space)
 "GX" = (
 /turf/open/floor/circuit/off,
-/area/space)
-"Hc" = (
-/obj/structure/showcase/mecha/gygax,
-/turf/open/floor/carpet/executive,
 /area/space)
 "Hf" = (
 /obj/structure/billboard/nanotrasen,
@@ -1775,6 +1781,13 @@
 	dir = 4
 	},
 /turf/open/floor/plating,
+/area/space)
+"Hz" = (
+/obj/structure/window/reinforced/survival_pod/indestructible/spawner/directional/east,
+/obj/structure/window/reinforced/survival_pod/indestructible/spawner/directional/north,
+/obj/structure/window/reinforced/survival_pod/indestructible/spawner/directional/west,
+/obj/machinery/vending/access/solfed,
+/turf/open/floor/iron/solarpanel/terrible_pun,
 /area/space)
 "HC" = (
 /obj/structure/chair/sofa/bench/left,
@@ -1796,9 +1809,21 @@
 /obj/structure/tank_dispenser/oxygen,
 /turf/open/floor/plating,
 /area/space)
+"Id" = (
+/obj/structure/rack,
+/obj/item/clothing/under/syndicate/rus_army/cin_surplus/forest{
+	anchored = 1
+	},
+/turf/open/floor/mineral/plastitanium/red,
+/area/space)
 "Ie" = (
 /obj/machinery/door/airlock,
 /turf/open/floor/iron/large,
+/area/space)
+"Ix" = (
+/obj/structure/window/reinforced/survival_pod/indestructible/spawner/directional/south,
+/obj/machinery/vending/sovietsoda,
+/turf/open/floor/mineral/plastitanium/red,
 /area/space)
 "Iy" = (
 /obj/structure/sign/flag/syndicate/directional/south,
@@ -1840,11 +1865,6 @@
 /obj/item/clothing/under/costume/kimono/purple,
 /turf/open/floor/bamboo,
 /area/space)
-"IT" = (
-/obj/structure/window/reinforced/survival_pod/indestructible/spawner/directional/east,
-/obj/machinery/vending/robotics,
-/turf/open/floor/circuit/red,
-/area/space)
 "Je" = (
 /obj/structure/fluff/bus/passable,
 /obj/structure/window/reinforced/tinted/spawner/directional/west,
@@ -1872,6 +1892,10 @@
 	icon_state = "bus"
 	},
 /area/space)
+"Ju" = (
+/obj/machinery/recharge_station,
+/turf/open/floor/circuit/off,
+/area/space)
 "Jv" = (
 /obj/structure/fence{
 	dir = 9;
@@ -1894,15 +1918,16 @@
 /obj/structure/disposalpipe/segment,
 /turf/open/floor/plating,
 /area/space)
-"JU" = (
-/obj/structure/window/reinforced/survival_pod/indestructible/spawner/directional/east,
-/turf/open/floor/circuit/red,
-/area/space)
 "JW" = (
 /obj/structure/chair/plastic{
 	dir = 8
 	},
 /turf/open/floor/stone,
+/area/space)
+"Kd" = (
+/obj/structure/window/reinforced/survival_pod/indestructible/spawner/directional/east,
+/obj/machinery/vending/robotics,
+/turf/open/floor/circuit/red,
 /area/space)
 "Kr" = (
 /obj/structure/fluff/bus/dense{
@@ -1919,10 +1944,6 @@
 /obj/structure/curtain/cloth/fancy/mechanical/start_closed,
 /turf/open/floor/plating,
 /area/space)
-"KN" = (
-/obj/machinery/recharge_station,
-/turf/open/floor/circuit,
-/area/space)
 "KT" = (
 /obj/structure/chair/plastic,
 /obj/item/reagent_containers/cup/soda_cans/lemon_lime{
@@ -1930,11 +1951,6 @@
 	pixel_y = -7
 	},
 /turf/open/floor/stone,
-/area/space)
-"KU" = (
-/obj/structure/window/reinforced/survival_pod/indestructible/spawner/directional/south,
-/obj/machinery/vending/sovietsoda,
-/turf/open/floor/mineral/plastitanium/red,
 /area/space)
 "KV" = (
 /obj/structure/sign/warning/no_smoking,
@@ -1971,6 +1987,11 @@
 /obj/structure/billboard/cvr,
 /turf/open/indestructible/rockyground,
 /area/space)
+"Lv" = (
+/obj/structure/window/reinforced/survival_pod/indestructible/spawner/directional/south,
+/obj/machinery/vending/liberationstation,
+/turf/open/floor/iron/solarpanel/terrible_pun,
+/area/space)
 "LA" = (
 /obj/machinery/vending/cola/starkist,
 /obj/structure/sign/poster/contraband/starkist/directional/north,
@@ -1981,6 +2002,14 @@
 	pixel_x = -12
 	},
 /turf/open/floor/grass,
+/area/space)
+"LJ" = (
+/obj/structure/window/reinforced/survival_pod/indestructible/spawner/directional/east,
+/turf/open/floor/circuit/red,
+/area/space)
+"LK" = (
+/mob/living/silicon/robot/model/syndicate,
+/turf/open/floor/circuit,
 /area/space)
 "LM" = (
 /obj/machinery/conveyor/auto/hardened{
@@ -2106,11 +2135,6 @@
 	dir = 1
 	},
 /area/space)
-"NS" = (
-/obj/structure/window/reinforced/survival_pod/indestructible/spawner/directional/north,
-/obj/machinery/vending/wardrobe/syndie_wardrobe/interdyne,
-/turf/open/floor/mineral/plastitanium,
-/area/space)
 "NT" = (
 /obj/effect/oneway{
 	dir = 4
@@ -2122,10 +2146,6 @@
 	dir = 8
 	},
 /turf/open/floor/iron/sepia,
-/area/space)
-"NZ" = (
-/obj/machinery/dna_scannernew,
-/turf/open/floor/carpet/executive,
 /area/space)
 "On" = (
 /obj/structure/curtain/cloth/fancy/mechanical,
@@ -2144,6 +2164,9 @@
 /obj/structure/billboard/lizards_gas,
 /turf/open/indestructible/rockyground,
 /area/space)
+"OS" = (
+/turf/open/floor/circuit,
+/area/space)
 "OT" = (
 /mob/living/basic/trooper/syndicate/melee/ninja/display,
 /turf/open/floor/bamboo,
@@ -2156,10 +2179,6 @@
 /obj/structure/fluff/beach_umbrella/cap,
 /turf/open/floor/stone,
 /area/space)
-"Pl" = (
-/mob/living/basic/trooper/cin_soldier/ranged/display,
-/turf/open/floor/mineral/plastitanium/red,
-/area/space)
 "Pn" = (
 /obj/structure/billboard/roadsign/two,
 /turf/open/indestructible/rockyground,
@@ -2169,10 +2188,6 @@
 /area/space)
 "Pu" = (
 /turf/closed/indestructible/steel,
-/area/space)
-"PE" = (
-/mob/living/silicon/robot/model/syndicate/medical,
-/turf/open/floor/circuit,
 /area/space)
 "PI" = (
 /obj/structure/table/wood,
@@ -2285,6 +2300,9 @@
 /area/space)
 "RN" = (
 /obj/structure/window/reinforced/survival_pod/indestructible/spawner/directional/north,
+/obj/machinery/computer/dna_console{
+	dir = 8
+	},
 /turf/open/floor/mineral/plastitanium,
 /area/space)
 "RO" = (
@@ -2326,10 +2344,6 @@
 "Sh" = (
 /obj/structure/window/reinforced/survival_pod/indestructible/spawner/directional/south,
 /turf/open/floor/iron/solarpanel/terrible_pun,
-/area/space)
-"Sk" = (
-/obj/structure/showcase/mecha/mauler,
-/turf/open/floor/mineral/plastitanium,
 /area/space)
 "Sn" = (
 /obj/structure/marker_beacon/burgundy,
@@ -2416,21 +2430,6 @@
 	},
 /turf/open/floor/plating,
 /area/space)
-"Uw" = (
-/obj/structure/rack,
-/turf/open/floor/circuit/off,
-/area/space)
-"Uz" = (
-/obj/machinery/vending/sovietsoda,
-/turf/open/floor/mineral/plastitanium/red,
-/area/space)
-"UH" = (
-/obj/structure/rack,
-/obj/item/clothing/under/syndicate/rus_army/cin_surplus/forest{
-	anchored = 1
-	},
-/turf/open/floor/mineral/plastitanium/red,
-/area/space)
 "UY" = (
 /turf/closed/wall/mineral/snow,
 /area/space)
@@ -2504,16 +2503,6 @@
 /obj/machinery/door/poddoor/shutters/indestructible,
 /turf/open/floor/plating,
 /area/space)
-"VH" = (
-/obj/structure/rack,
-/obj/item/clothing/under/solfed{
-	anchored = 1
-	},
-/obj/item/clothing/suit/armor/vest/sol{
-	anchored = 1
-	},
-/turf/open/floor/iron/solarpanel/terrible_pun,
-/area/space)
 "VI" = (
 /obj/structure/table/wood,
 /obj/item/pizzabox/random,
@@ -2544,6 +2533,10 @@
 /obj/structure/cable,
 /turf/open/floor/iron/white/side,
 /area/space)
+"Wd" = (
+/obj/structure/showcase/mecha/mauler,
+/turf/open/floor/mineral/plastitanium,
+/area/space)
 "Wp" = (
 /obj/structure/flora/bush/jungle/a/style_random,
 /turf/open/misc/grass/jungle,
@@ -2552,18 +2545,15 @@
 /obj/effect/spawner/random/trash/bin,
 /turf/open/floor/eighties/red,
 /area/space)
+"WA" = (
+/obj/machinery/vending/sovietsoda,
+/turf/open/floor/mineral/plastitanium/red,
+/area/space)
 "WC" = (
 /obj/effect/oneway{
 	dir = 4
 	},
 /turf/open/indestructible/rockyground,
-/area/space)
-"WF" = (
-/obj/structure/rack,
-/obj/item/storage/toolbox/guncase/soviet/sakhno{
-	anchored = 1
-	},
-/turf/open/floor/mineral/plastitanium/red,
 /area/space)
 "WU" = (
 /obj/structure/table/wood,
@@ -2642,6 +2632,13 @@
 	},
 /turf/open/floor/plating,
 /area/space)
+"Yi" = (
+/obj/structure/rack,
+/obj/item/storage/toolbox/guncase/soviet{
+	anchored = 1
+	},
+/turf/open/floor/mineral/plastitanium/red,
+/area/space)
 "Ys" = (
 /obj/structure/cable,
 /turf/open/floor/iron/white/corner,
@@ -2652,14 +2649,8 @@
 	},
 /turf/open/floor/iron/sepia,
 /area/space)
-"YF" = (
-/turf/open/floor/mineral/plastitanium,
-/area/space)
 "YM" = (
-/obj/effect/oneway{
-	dir = 4
-	},
-/turf/open/floor/noslip,
+/turf/open/floor/mineral/plastitanium,
 /area/space)
 "YU" = (
 /obj/structure/billboard/azik,
@@ -2683,6 +2674,13 @@
 /obj/structure/curtain/cloth/fancy/mechanical,
 /turf/open/floor/iron/sepia,
 /area/space)
+"Za" = (
+/obj/structure/rack,
+/obj/item/gun/ballistic/revolver/russian{
+	anchored = 1
+	},
+/turf/open/floor/mineral/plastitanium/red,
+/area/space)
 "Zd" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/yellow/hidden,
 /turf/open/indestructible/rockyground,
@@ -2693,6 +2691,10 @@
 	anchored = 1
 	},
 /turf/open/floor/iron/solarpanel/terrible_pun,
+/area/space)
+"Zq" = (
+/mob/living/silicon/robot/model/security,
+/turf/open/floor/circuit,
 /area/space)
 "Zt" = (
 /obj/structure/chair/sofa/bench/left{
@@ -2705,13 +2707,6 @@
 	dir = 8
 	},
 /turf/open/floor/iron/dark/textured_large,
-/area/space)
-"ZC" = (
-/obj/structure/rack,
-/obj/item/storage/toolbox/guncase/soviet{
-	anchored = 1
-	},
-/turf/open/floor/mineral/plastitanium/red,
 /area/space)
 "ZJ" = (
 /obj/structure/fence{
@@ -6376,7 +6371,7 @@ Pr
 NT
 NT
 NT
-YM
+gy
 NT
 NT
 NT
@@ -6384,7 +6379,7 @@ WC
 NT
 NT
 NT
-YM
+gy
 NT
 NT
 NT
@@ -31627,19 +31622,19 @@ ZU
 ZU
 ZU
 Pu
-KN
-yn
-yn
-oL
-tY
-yn
-Bg
-yn
-PE
-Ec
-yn
-yn
-KN
+th
+OS
+OS
+Zq
+LK
+OS
+GT
+OS
+kw
+oq
+OS
+OS
+th
 Pu
 ZU
 yz
@@ -31884,19 +31879,19 @@ ZU
 ZU
 ZU
 Pu
-JU
-JU
-JU
-JU
-JU
-JU
-IT
-JU
-JU
-JU
-JU
-JU
-JU
+LJ
+LJ
+LJ
+LJ
+LJ
+LJ
+Kd
+LJ
+LJ
+LJ
+LJ
+LJ
+LJ
 Pu
 ZU
 yz
@@ -32398,7 +32393,7 @@ ZU
 ZU
 ZU
 Pu
-Uw
+oG
 GX
 GX
 GX
@@ -32410,7 +32405,7 @@ GX
 GX
 GX
 GX
-GX
+oG
 Pu
 ZU
 yz
@@ -32655,7 +32650,7 @@ ZU
 ZU
 ZU
 Pu
-Dp
+Ju
 GX
 GX
 GX
@@ -32667,7 +32662,7 @@ GX
 GX
 GX
 GX
-GX
+Ju
 Pu
 ZU
 yz
@@ -32917,7 +32912,7 @@ Pu
 Pu
 dm
 dm
-Uz
+WA
 Pu
 QC
 HS
@@ -33169,9 +33164,9 @@ ZU
 ZU
 ZU
 Pu
-oR
-UH
-KU
+CQ
+Id
+Ix
 dm
 dm
 dm
@@ -33179,7 +33174,7 @@ Pu
 HS
 HS
 HS
-zb
+wS
 jf
 Fc
 Pu
@@ -33427,8 +33422,8 @@ ZU
 ZU
 Pu
 dm
-Pl
-Bk
+cL
+rI
 dm
 dm
 dm
@@ -33685,7 +33680,7 @@ ZU
 Pu
 dm
 dm
-Bk
+rI
 dm
 dm
 dm
@@ -33940,11 +33935,11 @@ ZU
 ZU
 ZU
 Pu
-jL
-qa
-Bk
+Za
+Gc
+rI
 dm
-aD
+fJ
 dm
 Pu
 HS
@@ -34199,7 +34194,7 @@ ZU
 Pu
 dm
 dm
-Bk
+rI
 dm
 dm
 dm
@@ -34455,8 +34450,8 @@ ZU
 ZU
 Pu
 dm
-Pl
-Bk
+cL
+rI
 dm
 dm
 dm
@@ -34711,9 +34706,9 @@ ZU
 ZU
 ZU
 Pu
-ZC
-WF
-Bk
+Yi
+oH
+rI
 dm
 dm
 dm
@@ -34971,13 +34966,13 @@ Pu
 Pu
 Pu
 Pu
-zH
-zH
-oX
+yr
+yr
+Hz
 Pu
 iS
-YF
-YF
+YM
+YM
 Pu
 Pu
 Pu
@@ -35225,17 +35220,17 @@ ZU
 ZU
 ZU
 Pu
-sa
-Gc
-br
-zH
-zH
-zH
+rY
+jz
+Lv
+yr
+yr
+yr
 Pu
-YF
+YM
 ZT
-YF
-NS
+YM
+dW
 pv
 aL
 Pu
@@ -35482,19 +35477,19 @@ ZU
 ZU
 ZU
 Pu
-zH
 yr
+lQ
 Sh
-zH
-zH
-zH
+yr
+yr
+yr
 Pu
-YF
+YM
 ZT
-YF
-RN
+YM
+rs
 gN
-YF
+YM
 Pu
 ZU
 BN
@@ -35739,19 +35734,19 @@ ZU
 ZU
 ZU
 Pu
-zH
-zH
+yr
+yr
 Sh
-zH
-zH
-zH
+yr
+yr
+yr
 Pu
-YF
+YM
 ZT
-YF
-RN
-YF
-YF
+YM
+rs
+YM
+YM
 Pu
 ZU
 BN
@@ -35996,18 +35991,18 @@ ZU
 ZU
 ZU
 Pu
-Ak
+fe
 Zj
 Sh
-zH
-zH
-zH
+yr
+yr
+yr
 Pu
-YF
+YM
 ZT
-YF
-RN
-Sk
+YM
+rs
+Wd
 Iy
 Pu
 ZU
@@ -36253,19 +36248,19 @@ ZU
 ZU
 ZU
 Pu
-zH
-zH
+yr
+yr
 Sh
-zH
-zH
-zH
+yr
+yr
+yr
 Pu
-YF
+YM
 ZT
-YF
-RN
-YF
-YF
+YM
+rs
+YM
+YM
 Pu
 ZU
 BN
@@ -36510,19 +36505,19 @@ ZU
 ZU
 ZU
 Pu
-zH
 yr
+lQ
 Sh
-zH
-zH
-zH
+yr
+yr
+yr
 Pu
-YF
+YM
 ZT
-YF
-RN
+YM
+rs
 ot
-YF
+YM
 Pu
 ZU
 BN
@@ -36767,19 +36762,19 @@ ZU
 ZU
 ZU
 Pu
-nJ
-VH
+lr
+EF
 Sh
-zH
-zH
-zH
+yr
+yr
+yr
 Pu
-YF
-YF
-YF
-aK
+YM
+YM
+YM
+RN
 iN
-vn
+bq
 Pu
 ZU
 BN
@@ -37293,7 +37288,7 @@ kN
 kN
 oQ
 zF
-NZ
+Bz
 Pu
 ZU
 BN
@@ -38063,7 +38058,7 @@ kN
 kN
 kN
 QG
-kb
+sS
 bR
 Pu
 ZU
@@ -38835,7 +38830,7 @@ kN
 kN
 iy
 pR
-Hc
+iX
 Pu
 ZU
 BN
@@ -62916,7 +62911,7 @@ Pr
 bS
 bS
 bS
-bS
+Lm
 bS
 bS
 bS
@@ -62924,7 +62919,7 @@ XD
 bS
 bS
 bS
-bS
+Lm
 bS
 bS
 bS
