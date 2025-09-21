@@ -61,7 +61,7 @@
 /datum/objective/assassinate/headhunter/is_valid_target(datum/mind/possible_target)
 	/// target non-central command members only
 	var/target_in_command_dept = FALSE
-	for(var/department as anything in possible_target.assigned_role.departments_list)
+	for(var/department in possible_target.assigned_role.departments_list)
 		if(department == /datum/job_department/central_command)
 			return FALSE
 		if(department == /datum/job_department/command)
