@@ -1,5 +1,10 @@
 /// Areas for Lavaland 2.0
 
+// openspace for the boi
+/turf/open/openspace/lavaland
+	name = "ice chasm"
+	initial_gas_mix = LAVALAND_DEFAULT_ATMOS
+
 // Lavaland sec
 /area/mine/security/checkpoint
 	name = "Lavaland Security checkpoint"
