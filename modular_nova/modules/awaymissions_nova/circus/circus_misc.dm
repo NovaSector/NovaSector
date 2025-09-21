@@ -19,8 +19,6 @@
 
 /obj/structure/trap/cult/honkmother
 	name = "funny rune"
-	var/cultist_desc = "what- what the hell? this isnt one of your runes- what is this?!"
-	var/clown_desc = "A rune that summons denizens and items from the clown planet! sadly its one way so you cant go home using this, you know, as a clown, that you have about a 1/5 chance of something bad coming through and rumors of a 1/100 chance of getting something, really good."
 	desc = "A rune that looks like it would belong in a clown convention- its yellow, and made out of banana paste"
 	icon = 'icons/effects/96x96.dmi'
 	color = "#Ffff00"
@@ -156,21 +154,4 @@
 		/obj/effect/anomaly/ectoplasm,
 		/obj/effect/anomaly/bioscrambler,
 	)
-//the var's being defined sections
-/obj/structure/trap/cult/honkmother/examine(mob/user)
-	. = ..()
-	if(IS_CULTIST(user) || user.stat == DEAD) //If they're a cultist or a ghost, tell them the effects
-		. += "<b>Name:</b> [cultist_name]\n"+\
-		"<b>Effects:</b> [capitalize(cultist_desc)]\n"+\
-		"<b>Required Acolytes:</b> [req_cultists_text ? "[req_cultists_text]":"[req_cultists]"]"
-		if(req_keyword && keyword)
-			. += "<b>Keyword:</b> [keyword]"
 
-/obj/structure/trap/cult/honkmother/examine_clown(mob/user)
-	. = ..()
-	if(is_clown_job(user)) //If they're a clown
-		. += "<b>Name:</b> [cultist_name]\n"+\
-		"<b>Effects:</b> [capitalize(clown_desc)]\n"+\
-		"<b>Required Acolytes:</b> [req_cultists_text ? "[req_cultists_text]":"[req_cultists]"]"
-		if(req_keyword && keyword)
-			. += "<b>Keyword:</b> [keyword]"

@@ -76,4 +76,6 @@
 /mob/living/basic/revolutionary/deranged_assistant
 	name = "Deranged Assistant"
 	desc = "Your average grey shirt assistant"
-	loot = /obj/item/gun/ballistic/revolver/golden/boingos_blicky
+	loot = list(
+		/obj/item/gun/ballistic/revolver/golden/boingos_blicky,
+	)
