@@ -1,18 +1,21 @@
-/// Base File for all base nova uniforms
 /obj/item/clothing/under/greyscale
 	icon = 'modular_nova/master_files/icons/obj/clothing/under/shorts_pants_shirts.dmi'
 	worn_icon = 'modular_nova/master_files/icons/mob/clothing/under/shorts_pants_shirts.dmi'
 	worn_icon_digi = 'modular_nova/master_files/icons/mob/clothing/under/shorts_pants_shirts_digi.dmi'
-	/// Assumes false just in case. Add can_adjust = TRUE to your entry when you want it to be adjustable
+	// Defaults to FALSE for this type because greyscale items are less commonly adjustable
 	can_adjust = FALSE
 
 /*
-*	Attire that is uniforms,
+*	This file is for things that are recolorable and/or mix-and-match. Things like Jeans, T-Shirts, Skirts.
+*	Basically the hope is that items here will reuse component icons that already exist in the .dmis where possible.
+*
+*	(Do not put items here that are too specific. These should generally be generic, customizable uniforms.)
+*	These will likely fit in the CASUALWEAR loadout category.
 */
 
 /obj/item/clothing/under/greyscale/turtleneck
-	name = "turtleneck"
-	desc = "A rather comfortable turtleneck, keeping you comfortable through its robust threads."
+	name = "turtleneck with pants"
+	desc = "A rather comfortable turtleneck worn with pants. Talk about robust threads."
 	icon = 'icons/map_icons/clothing/under/_under.dmi'
 	icon_state = "/obj/item/clothing/under/greyscale/turtleneck"
 	post_init_icon_state = "turtleneck"
@@ -24,14 +27,17 @@
 	flags_1 = IS_PLAYER_COLORABLE_1
 
 /obj/item/clothing/under/greyscale/turtleneck/skirt
-	name = "Skirtleneck"
-	desc = "A rather comfortable skirtleneck, keeping you comfortable through its robust threads"
+	name = "turtleneck with skirt"
+	desc = "A rather comfortable turtleneck worn with a skirt. A skirtleneck, if you would."
 	icon_state = "/obj/item/clothing/under/greyscale/turtleneck/skirt"
 	post_init_icon_state = "skirtleneck"
+	female_sprite_flags = FEMALE_UNIFORM_TOP_ONLY
+	body_parts_covered = CHEST|GROIN
+	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION_NO_NEW_ICON
 
 /obj/item/clothing/under/greyscale/gorkas
-	name = "gorka"
-	desc = "A somewhat comfortable gorka, just as comfortable as a regular jumpsuit but having a unique design."
+	name = "gorka jumpsuit"
+	desc = "A somewhat comfortable gorka, as comfy as a regular jumpsuit but with a more unique design."
 	icon = 'icons/map_icons/clothing/under/_under.dmi'
 	icon_state = "/obj/item/clothing/under/greyscale/gorkas"
 	post_init_icon_state = "gags_gorka"
@@ -42,8 +48,8 @@
 	flags_1 = IS_PLAYER_COLORABLE_1
 
 /obj/item/clothing/under/greyscale/overalls
-	name = "overalls"
-	desc = "Overalls designed to be comfortable, and keep you from getting wet, while only one of those is true, its still nice to have."
+	name = "turtleneck with overalls"
+	desc = "Overalls worn over a turtleneck. A combination providing comfort and coverage... or, at the least, the coverage."
 	icon = 'icons/map_icons/clothing/under/_under.dmi'
 	icon_state = "/obj/item/clothing/under/greyscale/overalls"
 	post_init_icon_state = "overalls"
@@ -55,7 +61,23 @@
 	can_adjust = TRUE
 
 /obj/item/clothing/under/greyscale/overalls/skirt
-	name = "skirt overalls"
-	desc = "Overalls designed to be comfortable, and keep you from getting wet, while only one of those is true, its still nice to have."
+	name = "turtleneck with overalls-skirt"
+	desc = "An overalls-skirt worn over a turtleneck. A combination providing comfort and coverage... or, at the least- no, wait, this doesn't really provide either."
 	icon_state = "/obj/item/clothing/under/greyscale/overalls/skirt"
 	post_init_icon_state = "overalls_skirt"
+	female_sprite_flags = FEMALE_UNIFORM_TOP_ONLY
+	body_parts_covered = CHEST|GROIN
+	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION_NO_NEW_ICON
+
+/obj/item/clothing/under/greyscale/playsuit
+	name = "playsuit"
+	desc = "For the love of the game."
+	icon = 'icons/map_icons/clothing/under/_under.dmi'
+	icon_state = "/obj/item/clothing/under/greyscale/playsuit"
+	post_init_icon_state = "playsuit"
+	greyscale_config = /datum/greyscale_config/playsuit
+	greyscale_config_worn = /datum/greyscale_config/playsuit/worn
+	greyscale_config_worn_digi = /datum/greyscale_config/playsuit/worn/digi
+	greyscale_colors = "#787878#252525#CCCED1#787878"
+	flags_1 = IS_PLAYER_COLORABLE_1
+	can_adjust = FALSE

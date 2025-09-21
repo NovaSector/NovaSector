@@ -1556,7 +1556,6 @@
 /area/ruin/space/has_grav/nova/des_two/security)
 "gN" = (
 /obj/machinery/atmospherics/components/unary/outlet_injector/monitored/incinerator_input{
-	chamber_id = "syndicatelava_incinerator";
 	dir = 8
 	},
 /turf/open/floor/engine,
@@ -3611,7 +3610,7 @@
 /turf/open/floor/engine,
 /area/ruin/space/has_grav/nova/des_two/engineering)
 "ps" = (
-/obj/machinery/computer/cryopod/interdyne/directional/west,
+/obj/machinery/computer/cryopod/directional/west,
 /obj/structure/table,
 /obj/effect/turf_decal/trimline/dark_green/filled/line{
 	dir = 8
@@ -5179,17 +5178,15 @@
 	req_access = list("syndicate")
 	},
 /obj/structure/table,
-/obj/item/circuitboard/machine/syndiepad/syndicate,
-/obj/item/circuitboard/computer/syndiepad/syndicate{
+/obj/item/circuitboard/machine/ghostpad/syndicate,
+/obj/item/circuitboard/computer/ghostpad/syndicate{
 	pixel_x = 2;
 	pixel_y = 2
 	},
-/obj/item/circuitboard/computer/cargo/express/interdyne/syndicate{
+/obj/item/circuitboard/computer/cargo/express/ghost/syndicate{
 	pixel_y = 4;
 	pixel_x = 4
 	},
-/obj/item/circuitboard/machine/powerator/syndicate,
-/obj/item/circuitboard/machine/powerator/syndicate,
 /obj/item/circuitboard/machine/powerator/syndicate,
 /obj/item/circuitboard/machine/bountypad,
 /obj/item/circuitboard/computer/bountypad,
@@ -8971,7 +8968,7 @@
 	color = "#00ff00";
 	name = "green"
 	},
-/obj/machinery/computer/cryopod/interdyne/directional/east,
+/obj/machinery/computer/cryopod/directional/east,
 /turf/open/floor/mineral/plastitanium/red,
 /area/ruin/space/has_grav/nova/des_two/security/prison)
 "OU" = (
@@ -9407,6 +9404,7 @@
 	dir = 1
 	},
 /obj/machinery/light/cold/directional/north,
+/obj/machinery/announcement_system,
 /turf/open/floor/iron/dark/side{
 	dir = 1
 	},

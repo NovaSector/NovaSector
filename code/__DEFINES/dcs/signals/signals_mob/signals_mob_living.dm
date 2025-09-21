@@ -27,6 +27,8 @@
 #define COMSIG_LIVING_ENTER_STAMCRIT "living_enter_stamcrit"
 ///from /obj/structure/door/crush(): (mob/living/crushed, /obj/machinery/door/crushing_door)
 #define COMSIG_LIVING_DOORCRUSHED "living_doorcrush"
+	/// Stop the door from causing wounds (damage still applies though)
+	#define DOORCRUSH_NO_WOUND (1<<0)
 ///from base of mob/living/resist() (/mob/living)
 #define COMSIG_LIVING_RESIST "living_resist"
 ///from base of mob/living/ignite_mob() (/mob/living)
@@ -349,4 +351,7 @@
 #define COMSIG_LIVING_GHOSTROLE_INFO "living_ghostrole_info"
 
 ///from mob/living/befriend()
-#define COMSIG_LIVING_MADE_NEW_FRIEND "made_new_friend"
+#define COMSIG_LIVING_MADE_NEW_FRIEND "living_made_new_friend"
+
+/// From /mob/living/update_offsets(animate) : (new_x, new_y, new_w, new_z, animate)
+#define COMSIG_LIVING_UPDATE_OFFSETS "living_update_offsets"

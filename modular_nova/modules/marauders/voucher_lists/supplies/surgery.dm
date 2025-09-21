@@ -1,7 +1,7 @@
 /datum/voucher_set/traitor/supplies/surgery
 
 /datum/voucher_set/traitor/supplies/surgery/brainwashing
-	name = /obj/item/disk/surgery/brainwashing::name
+	name = "Brainwashing surgery disk"
 	description = /obj/item/disk/surgery/brainwashing::desc
 	icon = /obj/item/disk/surgery/brainwashing::icon
 	icon_state = /obj/item/disk/surgery/brainwashing::icon_state
