@@ -5772,6 +5772,13 @@
 	},
 /turf/open/floor/asphalt,
 /area/awaymission/beach/heretic)
+"Lj" = (
+/obj/effect/turf_decal/tile/dark/half{
+	dir = 4
+	},
+/obj/item/kirbyplants/random,
+/turf/open/floor/iron/small,
+/area/awaymission/caves/heretic_laboratory)
 "Ln" = (
 /obj/machinery/door/airlock/titanium,
 /turf/open/floor/pod/dark,
@@ -7013,6 +7020,13 @@
 /obj/structure/barricade/wooden/crude,
 /obj/machinery/light/directional/east,
 /turf/open/floor/plating,
+/area/awaymission/caves/heretic_laboratory)
+"Tf" = (
+/obj/effect/turf_decal/tile/purple/half{
+	dir = 8
+	},
+/obj/item/kirbyplants/random,
+/turf/open/floor/iron/small,
 /area/awaymission/caves/heretic_laboratory)
 "Ti" = (
 /obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer2{
@@ -25394,7 +25408,7 @@ bZ
 bZ
 bZ
 bZ
-bZ
+KB
 KB
 KB
 KB
@@ -30280,7 +30294,7 @@ KB
 KB
 CQ
 KB
-DG
+Tf
 DG
 DG
 DG
@@ -30794,7 +30808,7 @@ KB
 KB
 Ir
 KB
-UV
+Lj
 UV
 UV
 UV
@@ -36205,7 +36219,7 @@ bZ
 bZ
 bZ
 KB
-bq
+El
 bq
 Nj
 bq
