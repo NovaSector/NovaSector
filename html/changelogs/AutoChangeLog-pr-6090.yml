@@ -1,7 +1,0 @@
-author: "RealWinterFrost"
-delete-after: True
-changes:
-  - map: "Reduced the various ghost roles powerators from 3 > 1."
-  - image: "Changed the ghost console sales pads so its more visually distinct from the regular civilian pads."
-  - spellcheck: "Fixed some wording, grammer, and descriptions of the various ghost role machines"
-  - refactor: "Resubtyped the various ghost machines from subtyping from interdyne to a dedicated ghost console."
