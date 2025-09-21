@@ -72,3 +72,8 @@
 /obj/effect/mob_spawn/corpse/human/nanotrasensoldier/ninja
 	name = "Ninja corpse"
 	outfit = /datum/outfit/nanotrasensoldiercorpse/ninja
+
+/mob/living/basic/revolutionary/deranged_assistant
+	name = "Deranged Assistant"
+	desc = "Your average grey shirt assistant"
+	loot = /obj/item/gun/ballistic/revolver/golden/boingos_blicky

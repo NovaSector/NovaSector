@@ -17,7 +17,7 @@
 	explosive_resistance = 50
 	rust_resistance = RUST_RESISTANCE_ABSOLUTE
 
-obj/structure/trap/cult/honkmother
+/obj/structure/trap/cult/honkmother
 	name = "funny rune"
 	var/cultist_desc = "what- what the hell? this isnt one of your runes- what is this?!"
 	var/clown_desc = "A rune that summons denizens and items from the clown planet! sadly its one way so you cant go home using this, you know, as a clown, that you have about a 1/5 chance of something bad coming through and rumors of a 1/100 chance of getting something, really good."
@@ -157,7 +157,7 @@ obj/structure/trap/cult/honkmother
 		/obj/effect/anomaly/bioscrambler,
 	)
 //the var's being defined sections
-/obj/effect/rune/examine(mob/user)
+/obj/structure/trap/cult/honkmother/examine(mob/user)
 	. = ..()
 	if(IS_CULTIST(user) || user.stat == DEAD) //If they're a cultist or a ghost, tell them the effects
 		. += "<b>Name:</b> [cultist_name]\n"+\
@@ -166,7 +166,7 @@ obj/structure/trap/cult/honkmother
 		if(req_keyword && keyword)
 			. += "<b>Keyword:</b> [keyword]"
 
-/obj/effect/rune/examine_clown(mob/user)
+/obj/structure/trap/cult/honkmother/examine_clown(mob/user)
 	. = ..()
 	if(is_clown_job(user)) //If they're a clown
 		. += "<b>Name:</b> [cultist_name]\n"+\

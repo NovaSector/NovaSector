@@ -179,6 +179,10 @@
 /obj/machinery/atmospherics/pipe/smart/simple/yellow/visible,
 /turf/open/indestructible/rockyground,
 /area/awaymission/beach/circus_day)
+"cX" = (
+/obj/effect/spawner/random/trash/deluxe_garbage,
+/turf/open/indestructible/rockyground,
+/area/awaymission/beach/circus_day)
 "de" = (
 /obj/structure/rack,
 /obj/item/wrench,
@@ -1093,6 +1097,10 @@
 	icon_state = "bus"
 	},
 /area/awaymission/beach/circus_day)
+"tr" = (
+/mob/living/basic/mining_drone,
+/turf/open/floor/circuit,
+/area/awaymission/beach/circus_day)
 "tv" = (
 /obj/structure/sign/poster/contraband/clown/directional/east,
 /turf/open/floor/mineral/bananium,
@@ -1496,12 +1504,20 @@
 /obj/structure/holosign/barrier/wetsign,
 /turf/open/misc/asteroid/snow/snow_cabin,
 /area/awaymission/beach/circus_day)
+"yQ" = (
+/obj/structure/firepit,
+/turf/open/indestructible/rockyground,
+/area/awaymission/beach/circus_day)
 "yX" = (
 /obj/machinery/door/poddoor/shutters/indestructible/preopen,
 /obj/machinery/smartfridge,
 /turf/open/floor/iron/dark{
 	icon_state = "bus"
 	},
+/area/awaymission/beach/circus_day)
+"za" = (
+/obj/structure/table,
+/turf/open/floor/carpet/donk,
 /area/awaymission/beach/circus_day)
 "zj" = (
 /obj/item/food/grown/lanternfruit,
@@ -1793,6 +1809,10 @@
 /obj/machinery/vending/cola/space_up,
 /obj/structure/sign/poster/official/space_cops/directional/north,
 /turf/open/floor/mineral/titanium/tiled,
+/area/awaymission/beach/circus_day)
+"Du" = (
+/obj/structure/closet/crate/wooden/storage_barrel,
+/turf/open/indestructible/rockyground,
 /area/awaymission/beach/circus_day)
 "Dv" = (
 /obj/structure/fluff/bus/passable,
@@ -2106,6 +2126,12 @@
 	},
 /turf/open/floor/plating,
 /area/awaymission/beach/circus_day)
+"Im" = (
+/obj/structure/chair/sofa/bench/left{
+	dir = 1
+	},
+/turf/open/floor/carpet/donk,
+/area/awaymission/beach/circus_day)
 "Iu" = (
 /obj/machinery/door/airlock/titanium,
 /obj/effect/mapping_helpers/airlock/locked,
@@ -2283,6 +2309,11 @@
 	dir = 4
 	},
 /turf/open/floor/plating,
+/area/awaymission/beach/circus_day)
+"Lr" = (
+/obj/structure/bed/maint,
+/obj/item/bedsheet/patriot,
+/turf/open/indestructible/rockyground,
 /area/awaymission/beach/circus_day)
 "Ls" = (
 /obj/structure/billboard/cvr,
@@ -2744,6 +2775,10 @@
 	},
 /turf/open/floor/iron/white,
 /area/awaymission/beach/circus_day)
+"TH" = (
+/obj/effect/gibspawner/generic,
+/turf/open/indestructible/rockyground,
+/area/awaymission/beach/circus_day)
 "TN" = (
 /obj/structure/fluff/bus/dense{
 	icon_state = "hoodtop"
@@ -2915,6 +2950,12 @@
 /obj/structure/showcase/mecha/mauler,
 /turf/open/floor/mineral/plastitanium,
 /area/awaymission/beach/circus_day)
+"We" = (
+/obj/structure/chair/sofa/bench/right{
+	dir = 1
+	},
+/turf/open/floor/carpet/donk,
+/area/awaymission/beach/circus_day)
 "Wj" = (
 /obj/structure/railing/corner,
 /turf/open/floor/eighties,
@@ -2936,6 +2977,12 @@
 	dir = 4
 	},
 /turf/open/indestructible/rockyground,
+/area/awaymission/beach/circus_day)
+"WO" = (
+/obj/structure/chair/sofa/bench{
+	dir = 1
+	},
+/turf/open/floor/carpet/donk,
 /area/awaymission/beach/circus_day)
 "WU" = (
 /obj/structure/table/wood,
@@ -24053,9 +24100,9 @@ Pr
 Pr
 fO
 fO
+cX
 fO
-fO
-fO
+cX
 Pr
 OI
 lu
@@ -24307,10 +24354,10 @@ qo
 qo
 OI
 Pr
+cX
 fO
-fO
-fO
-fO
+yQ
+Du
 fO
 fO
 fO
@@ -24564,13 +24611,13 @@ qo
 qo
 OI
 Pr
+Lr
 fO
 fO
 fO
+cX
 fO
-fO
-fO
-fO
+TH
 OI
 by
 iI
@@ -25340,8 +25387,8 @@ gB
 gB
 gB
 OI
-fO
-fO
+Uq
+Uq
 OI
 iI
 iI
@@ -25597,8 +25644,8 @@ gB
 gB
 gB
 OI
-fO
-fO
+Uq
+Uq
 OI
 iI
 iI
@@ -32026,7 +32073,7 @@ fO
 fO
 Pu
 th
-OS
+tr
 OS
 Zq
 LK
@@ -32036,7 +32083,7 @@ OS
 kw
 oq
 OS
-OS
+tr
 th
 Pu
 fO
@@ -37908,12 +37955,12 @@ fO
 fO
 fO
 fO
-fO
-fO
-fO
-fO
-fO
-fO
+OI
+OI
+OI
+OI
+OI
+OI
 fO
 fO
 fO
@@ -38165,12 +38212,12 @@ fO
 fO
 fO
 fO
-fO
-fO
-fO
-fO
-fO
-fO
+OI
+ZT
+ZT
+ZT
+za
+Im
 fO
 fO
 fO
@@ -38422,12 +38469,12 @@ fO
 fO
 fO
 fO
-fO
-fO
-fO
-fO
-fO
-fO
+OI
+ZT
+ZT
+ZT
+za
+WO
 fO
 fO
 fO
@@ -38679,12 +38726,12 @@ fO
 fO
 fO
 fO
-fO
-fO
-fO
-fO
-fO
-fO
+OI
+ZT
+ZT
+ZT
+za
+WO
 fO
 fO
 fO
@@ -38936,12 +38983,12 @@ fO
 fO
 fO
 fO
-fO
-fO
-fO
-fO
-fO
-fO
+OI
+ZT
+ZT
+ZT
+za
+WO
 fO
 fO
 fO
@@ -39193,12 +39240,12 @@ fO
 fO
 fO
 fO
-fO
-fO
-fO
-fO
-fO
-fO
+OI
+ZT
+ZT
+ZT
+za
+We
 fO
 fO
 fO
@@ -39450,12 +39497,12 @@ fO
 fO
 fO
 fO
-fO
-fO
-fO
-fO
-fO
-fO
+OI
+OI
+OI
+OI
+OI
+OI
 fO
 fO
 fO
