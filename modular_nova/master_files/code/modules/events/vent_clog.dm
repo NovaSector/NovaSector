@@ -37,7 +37,6 @@
 		/mob/living/simple_animal/hostile/scorpion,
 		/mob/living/simple_animal/hostile/plantmutant,
 		/mob/living/simple_animal/hostile/bigcrab,
-		/mob/living/simple_animal/hostile/ooze/gelatinous,
 	)
 	return pick(mob_list)
 
