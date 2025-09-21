@@ -155,8 +155,8 @@ Due to some fuckery with how these templates work; the bottom left turf of your 
 /datum/map_template/condo/mountainside_skyscraper
 	name = "Condo - Skyscraper"
 	mappath = "modular_nova/modules/condos/_maps/apartment_skyscraper.dmm"
-	landing_zone_x_offset = 18
-	landing_zone_y_offset = 4
+	landing_zone_x_offset = 17
+	landing_zone_y_offset = 3
 
 /datum/map_template/condo/mountainside_dragonlair
 	name = "Condo - Dragon's Lair"
