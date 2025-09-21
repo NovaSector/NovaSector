@@ -31,6 +31,23 @@ obj/structure/trap/cult/honkmother
 	faction = "clown"
 	alpha = 100 //initially quite hidden when not "recharging"
 
+/obj/item/bikehorn/golden/boingos_lost_horn
+	name = "boingos lost bike horn"
+	desc = "it seems to be made out of bananium"
+
+/obj/item/access_key/boingos_car_key
+	name = "Boingos car key"
+	desc = "this has way more than just one car key on it"
+
+/obj/item/gun/ballistic/revolver/golden/boingos_blicky
+	name = "Boingos gun"
+	desc = "A gun- made out of bananium- which is a very, soft material"
+	projectile_damage_multiplier = 0.5
+
+/obj/item/toy/figure/clown/boingos_action_figure
+	name = "Boingos action figure"
+	desc = "An old figurine of a clown"
+
 /obj/structure/trap/cult/honkmother/trap_effect(mob/living/victim)
 	to_chat(victim, span_bolddanger("With a crack, a clown and something else emerge from a small yellow portal with lightning shooting off of the portals,shocking you!"))
 	victim.electrocute_act(10, src, flags = SHOCK_NOGLOVES) // electrocute act does a message.

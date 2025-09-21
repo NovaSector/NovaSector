@@ -1,4 +1,17 @@
 //MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
+"aj" = (
+/obj/structure/fluff/bus/passable,
+/obj/structure/fluff/bus/passable/seat{
+	pixel_y = 0
+	},
+/obj/item/access_key/boingos_car_key{
+	pixel_x = 0;
+	pixel_y = 7
+	},
+/turf/open/floor/iron/dark{
+	icon_state = "bus"
+	},
+/area/awaymission/beach/circus_day)
 "ak" = (
 /obj/structure/closet/crate/secure/freezer{
 	desc = "There's a reason why this is behind the counter. Do not sell to minors.";
@@ -183,6 +196,11 @@
 "du" = (
 /turf/open/floor/pod/dark,
 /area/space)
+"dx" = (
+/obj/structure/barricade/wooden,
+/obj/structure/barricade/wooden/crude/snow,
+/turf/open/misc/asteroid/snow/snow_cabin,
+/area/awaymission/beach/circus_day)
 "dy" = (
 /obj/structure/table/reinforced,
 /obj/item/gun/energy/laser/carbine/practice,
@@ -493,6 +511,11 @@
 "jk" = (
 /obj/machinery/door/airlock/hatch,
 /turf/open/floor/plating,
+/area/awaymission/beach/circus_day)
+"ju" = (
+/obj/structure/barricade/wooden,
+/obj/structure/barricade/wooden/crude/snow,
+/turf/open/indestructible/rockyground,
 /area/awaymission/beach/circus_day)
 "jz" = (
 /obj/structure/rack,
@@ -1462,6 +1485,10 @@
 /obj/effect/spawner/random/entertainment/arcade,
 /turf/open/floor/eighties,
 /area/awaymission/beach/circus_day)
+"yP" = (
+/obj/structure/holosign/barrier/wetsign,
+/turf/open/misc/asteroid/snow/snow_cabin,
+/area/awaymission/beach/circus_day)
 "yX" = (
 /obj/machinery/door/poddoor/shutters/indestructible/preopen,
 /obj/machinery/smartfridge,
@@ -1632,6 +1659,10 @@
 "BN" = (
 /turf/closed/wall,
 /area/space)
+"BT" = (
+/obj/item/bikehorn/golden/boingos_lost_horn,
+/turf/open/floor/iron/large,
+/area/awaymission/beach/circus_day)
 "BX" = (
 /obj/effect/turf_decal/tile/dark{
 	dir = 1
@@ -1777,6 +1808,7 @@
 /obj/effect/spawner/random/entertainment/toy,
 /obj/effect/spawner/random/entertainment/toy,
 /obj/effect/spawner/random/entertainment/toy,
+/obj/item/toy/figure/clown/boingos_action_figure,
 /turf/open/floor/plating,
 /area/awaymission/beach/circus_day)
 "DK" = (
@@ -1932,6 +1964,10 @@
 	},
 /obj/effect/turf_decal/siding/wood,
 /turf/open/floor/eighties/red,
+/area/awaymission/beach/circus_day)
+"FL" = (
+/mob/living/basic/trader/clown,
+/turf/open/floor/mineral/bananium,
 /area/awaymission/beach/circus_day)
 "FT" = (
 /obj/structure/sign/warning/no_smoking,
@@ -2720,6 +2756,11 @@
 "Uk" = (
 /obj/machinery/door/airlock/external/ruin,
 /turf/open/floor/plating,
+/area/awaymission/beach/circus_day)
+"Uq" = (
+/obj/structure/barricade/wooden,
+/obj/structure/barricade/wooden/crude,
+/turf/open/indestructible/rockyground,
 /area/awaymission/beach/circus_day)
 "Uv" = (
 /turf/closed/indestructible/reinforced,
@@ -19574,7 +19615,7 @@ fO
 fO
 ui
 Mt
-kE
+aj
 gd
 Tp
 Lm
@@ -21664,7 +21705,7 @@ qo
 fx
 qo
 fx
-qo
+BT
 qP
 OI
 Pr
@@ -25785,8 +25826,8 @@ gB
 gB
 gB
 OI
-fO
-ys
+Uq
+dx
 OI
 iI
 iI
@@ -26042,8 +26083,8 @@ gB
 gB
 gB
 OI
-fO
-ys
+Uq
+dx
 OI
 iI
 iI
@@ -26299,8 +26340,8 @@ gB
 gB
 gB
 OI
-fO
-ys
+ju
+yP
 OI
 iI
 iI
@@ -40948,7 +40989,7 @@ fO
 fO
 fO
 EA
-vU
+FL
 mJ
 vU
 vU

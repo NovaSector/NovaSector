@@ -1,5 +1,5 @@
 /mob/living/basic/trader/clown
-	name = "Clown Trader"
+	name = "Boingo the Clown Trader"
 	desc = "A clown who has come to sell you goods! why does he have a pulse pistol...?"
 	unique_name = FALSE
 	icon = 'icons/mob/simple/simple_human.dmi'
