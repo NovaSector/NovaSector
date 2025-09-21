@@ -99,6 +99,10 @@
 	item_path = /obj/item/clothing/under/dress/nova/giant_scarf
 	can_be_reskinned = TRUE
 
+/datum/loadout_item/under/miscellaneous/playsuit
+	name = "Playsuit (Recolorable)"
+	item_path = /obj/item/clothing/under/greyscale/playsuit
+
 /datum/loadout_item/under/jumpsuit/disco
 	name = "Superstar Cop Uniform"
 	item_path = /obj/item/clothing/under/rank/security/detective/disco

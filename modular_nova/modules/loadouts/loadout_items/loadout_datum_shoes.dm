@@ -68,6 +68,10 @@
 	name = "Sport Shoes"
 	item_path = /obj/item/clothing/shoes/sports
 
+/datum/loadout_item/shoes/sport_boots
+	name = "Sport Boots"
+	item_path = /obj/item/clothing/shoes/sport_boots
+
 /*
 *	BOOTS
 */

@@ -114,6 +114,16 @@
 	item_path = /obj/item/clothing/under/pants/nova/loose_pants
 	group = "Casualwear"
 
+/datum/loadout_item/under/miscellaneous/hakama
+	name = "Hakama"
+	item_path = /obj/item/clothing/under/pants/nova/hakama
+	group = "Casualwear"
+
+/datum/loadout_item/under/miscellaneous/double_skirt_dress
+	name = "Double Skirt Dress"
+	item_path = /obj/item/clothing/under/pants/nova/double_skirt_dress
+	group = "Casualwear"
+
 /datum/loadout_item/under/miscellaneous/slacks
 	name = "Pants - Slacks"
 	item_path = /obj/item/clothing/under/pants/slacks
@@ -243,6 +253,11 @@
 /datum/loadout_item/under/miscellaneous/keyhole
 	name = "Turtleneck (Keyhole)"
 	item_path = /obj/item/clothing/under/sweater/keyhole
+	group = "Casualwear"
+
+/datum/loadout_item/under/miscellaneous/cleavage
+	name = "Sweater (cleavage)"
+	item_path = /obj/item/clothing/under/sweater/cleavage
 	group = "Casualwear"
 
 /datum/loadout_item/under/jumpsuit/turtleneck

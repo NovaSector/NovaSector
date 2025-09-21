@@ -56,8 +56,8 @@
 	mix_message = "The liquid starts swirling, before forming a pink cloud that dissipates in the air."
 
 /datum/chemical_reaction/drink/strawberry_daiquiri
-	results = list(/datum/reagent/consumable/ethanol/strawberry_daiquiri = 7)
-	required_reagents = list(/datum/reagent/consumable/ethanol/rum = 2, /datum/reagent/consumable/limejuice = 1, /datum/reagent/consumable/sugar = 1, /datum/reagent/consumable/berryjuice = 2, /datum/reagent/consumable/ice = 1)
+	results = list(/datum/reagent/consumable/ethanol/strawberry_daiquiri = 3)
+	required_reagents = list(/datum/reagent/consumable/ethanol/daiquiri = 2, /datum/reagent/consumable/berryjuice = 1)
 
 /datum/chemical_reaction/drink/miami_vice
 	results = list(/datum/reagent/consumable/ethanol/miami_vice = 2)

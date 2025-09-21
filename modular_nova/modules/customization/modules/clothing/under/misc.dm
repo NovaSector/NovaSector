@@ -74,3 +74,15 @@
 	greyscale_colors = "#4d4d4d#666633#c0c0c0"
 	flags_1 = IS_PLAYER_COLORABLE_1
 	alternate_worn_layer = LOW_FACEMASK_LAYER
+
+/obj/item/clothing/under/pants/nova/hakama
+	name = "hakama"
+	desc = "Traditional Japanese wide-legged trousers, often worn with formal attire."
+	icon = 'icons/map_icons/clothing/under/_under.dmi'
+	icon_state = "/obj/item/clothing/under/pants/nova/hakama"
+	post_init_icon_state = "hakama"
+	greyscale_config = /datum/greyscale_config/hakama
+	greyscale_config_worn = /datum/greyscale_config/hakama/worn
+	greyscale_colors = "#292929#ffffff#ff0000"
+	flags_1 = IS_PLAYER_COLORABLE_1
+	alternate_worn_layer = LOW_FACEMASK_LAYER

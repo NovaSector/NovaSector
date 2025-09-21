@@ -733,7 +733,7 @@
 /obj/effect/mapping_helpers/atom_injector/element_injector{
 	target_type = /obj/machinery/rnd/production/protolathe;
 	element_type = /datum/element/voucher_redeemer;
-	element_args = list(/obj/item/paper/paperslip/corporate/syndicate/traitor/implant, /datum/voucher_set/traitor/implant, sound_effect = 'sound/machines/lathe/lathe_print.ogg')
+	element_args = list(/obj/item/paper/paperslip/corporate/syndicate/traitor/implant, /datum/voucher_set/traitor/implant, 0, 'sound/machines/lathe/lathe_print.ogg')
 	},
 /turf/open/floor/iron/dark/corner{
 	dir = 4
@@ -1789,7 +1789,7 @@
 /obj/effect/mapping_helpers/atom_injector/element_injector{
 	target_type = /obj/machinery/limbgrower;
 	element_type = /datum/element/voucher_redeemer;
-	element_args = list(/obj/item/paper/paperslip/corporate/syndicate/traitor/implant, /datum/voucher_set/traitor/organ, sound_effect = 'sound/effects/cartoon_sfx/cartoon_splat.ogg')
+	element_args = list(/obj/item/paper/paperslip/corporate/syndicate/traitor/implant, /datum/voucher_set/traitor/organ, 0, 'sound/effects/cartoon_sfx/cartoon_splat.ogg')
 	},
 /obj/effect/decal/cleanable/blood,
 /turf/open/floor/iron/showroomfloor,
@@ -2674,7 +2674,7 @@
 /obj/effect/mapping_helpers/atom_injector/element_injector{
 	target_type = /obj/machinery/computer;
 	element_type = /datum/element/voucher_redeemer;
-	element_args = list(/obj/item/paper/paperslip/corporate/syndicate/traitor/supplies, /datum/voucher_set/traitor/supplies/surgery, sound_effect = 'sound/machines/card_slide.ogg')
+	element_args = list(/obj/item/paper/paperslip/corporate/syndicate/traitor/supplies, /datum/voucher_set/traitor/supplies/surgery, 0, 'sound/machines/card_slide.ogg')
 	},
 /turf/open/floor/iron/showroomfloor,
 /area/misc/operative_barracks/surgery)
@@ -2897,7 +2897,7 @@
 /obj/effect/mapping_helpers/atom_injector/element_injector{
 	target_type = /obj/machinery/rnd/production/protolathe;
 	element_type = /datum/element/voucher_redeemer;
-	element_args = list(/obj/item/paper/paperslip/corporate/syndicate/traitor/primary, /datum/voucher_set/traitor/primary_weapon, sound_effect = 'sound/machines/lathe/lathe_print.ogg')
+	element_args = list(/obj/item/paper/paperslip/corporate/syndicate/traitor/primary, /datum/voucher_set/traitor/primary_weapon, 0, 'sound/machines/lathe/lathe_print.ogg')
 	},
 /turf/open/floor/iron/smooth,
 /area/misc/operative_barracks/armoury)
@@ -3267,7 +3267,7 @@
 /obj/effect/mapping_helpers/atom_injector/element_injector{
 	target_type = /obj/machinery/ammo_workbench;
 	element_type = /datum/element/voucher_redeemer;
-	element_args = list(/obj/item/paper/paperslip/corporate/syndicate/traitor/supplies, /datum/voucher_set/traitor/supplies/ammo, sound_effect = 'sound/machines/piston/piston_raise.ogg')
+	element_args = list(/obj/item/paper/paperslip/corporate/syndicate/traitor/supplies, /datum/voucher_set/traitor/supplies/ammo, 0, 'sound/machines/piston/piston_raise.ogg')
 	},
 /turf/open/floor/circuit/red/anim,
 /area/misc/operative_barracks/armoury)
@@ -3635,12 +3635,12 @@
 /turf/open/floor/plating,
 /area/misc/operative_barracks/hangar)
 "VW" = (
-/obj/machinery/modular_computer/preset/civilian,
 /obj/effect/mapping_helpers/atom_injector/element_injector{
-	target_type = /obj/machinery/modular_computer;
+	target_type = /obj/structure/showcase;
 	element_type = /datum/element/voucher_redeemer;
-	element_args = list(/obj/item/paper/paperslip/corporate/syndicate/traitor, /datum/voucher_set/traitor/voucher_trade, sound_effect = 'sound/machines/card_slide.ogg')
+	element_args = list(/obj/item/paper/paperslip/corporate/syndicate/traitor, /datum/voucher_set/traitor/voucher_trade, 0, 'sound/machines/card_slide.ogg')
 	},
+/obj/structure/showcase/fakeid,
 /turf/open/floor/mineral/plastitanium/red,
 /area/misc/operative_barracks/mission_briefing)
 "VZ" = (
