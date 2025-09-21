@@ -38,13 +38,16 @@
 	icon_state = /obj/machinery/door/poddoor::icon_state
 
 
-/turf/closed/indestructible/skyline
+/turf/open/skyline
 	name = "long way down"
-	icon = 'modular_nova/master_files/icons/obj/skyscraper/background.dmi';
-	base_icon_state = "0,34";
-	opacity = FALSE
+	icon = 'modular_nova/master_files/icons/obj/skyscraper/background.dmi'
+	base_icon_state = "0,34"
 
-/turf/open/indestructible/skyline
-	name = "long way down"
-	icon = 'modular_nova/master_files/icons/obj/skyscraper/background.dmi';
-	base_icon_state = "0,34";
+// Don't let things enter if they can't fly
+/turf/open/skyline/Enter(atom/movable/movable, atom/oldloc)
+	. = ..()
+	if(.)
+		if(HAS_TRAIT(src, TRAIT_CHASM_STOPPED)) // lets people walk on catwalks and such
+			return
+		return HAS_TRAIT(movable, TRAIT_MOVE_FLYING) || HAS_TRAIT(movable, TRAIT_MOVE_FLOATING)
+
