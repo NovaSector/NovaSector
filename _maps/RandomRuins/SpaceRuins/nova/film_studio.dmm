@@ -29,9 +29,10 @@
 /turf/open/floor/iron/large,
 /area/ruin/space/has_grav/film_studio/stage)
 "aG" = (
-/obj/structure/lattice,
-/turf/open/space/basic,
-/area/template_noop)
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/turf/open/floor/carpet,
+/area/ruin/space/has_grav/film_studio/backstage)
 "aI" = (
 /obj/effect/turf_decal/siding/wood,
 /obj/structure/curtain/cloth/fancy,
@@ -131,7 +132,7 @@
 "cd" = (
 /obj/effect/turf_decal/bot,
 /obj/machinery/power/port_gen/pacman/pre_loaded,
-/obj/structure/cable/layer1,
+/obj/structure/cable,
 /turf/open/floor/plating,
 /area/ruin/space/has_grav/film_studio)
 "ck" = (
@@ -193,7 +194,7 @@
 /turf/open/floor/wood,
 /area/ruin/space/has_grav/film_studio/director)
 "dd" = (
-/turf/open/space/basic,
+/turf/template_noop,
 /area/template_noop)
 "dg" = (
 /turf/closed/wall,
@@ -232,7 +233,8 @@
 /obj/machinery/atmospherics/components/unary/passive_vent/layer2{
 	dir = 8
 	},
-/turf/open/floor/catwalk_floor/airless,
+/obj/structure/lattice/catwalk,
+/turf/template_noop,
 /area/template_noop)
 "dR" = (
 /obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer2{
@@ -304,7 +306,7 @@
 /area/ruin/space/has_grav/film_studio/dorms)
 "fs" = (
 /obj/structure/table,
-/obj/structure/showcase/machinery/microwave,
+/obj/machinery/microwave,
 /turf/open/floor/iron/smooth,
 /area/ruin/space/has_grav/film_studio/dorms)
 "ft" = (
@@ -440,6 +442,9 @@
 "hw" = (
 /obj/machinery/door/airlock/external/glass/ruin,
 /obj/effect/mapping_helpers/airlock/access/all/away,
+/obj/effect/mapping_helpers/airlock/cyclelink_helper{
+	dir = 4
+	},
 /turf/open/floor/plating,
 /area/ruin/space/has_grav/film_studio/starboard)
 "hA" = (
@@ -600,15 +605,9 @@
 /turf/open/floor/plating,
 /area/ruin/space/has_grav/film_studio)
 "kq" = (
-/obj/structure/railing{
-	dir = 8
-	},
-/obj/structure/railing{
-	dir = 4
-	},
-/obj/structure/cable,
-/turf/open/floor/catwalk_floor/airless,
-/area/ruin/space)
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/turf/open/floor/carpet,
+/area/ruin/space/has_grav/film_studio/backstage)
 "ku" = (
 /obj/structure/rack,
 /obj/item/clothing/suit/caution{
@@ -795,13 +794,14 @@
 "ok" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/structure/cable,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /turf/open/floor/plating,
 /area/ruin/space/has_grav/film_studio/stage)
 "or" = (
 /obj/machinery/power/terminal{
 	dir = 8
 	},
-/obj/structure/cable/multilayer/connected,
+/obj/structure/cable,
 /turf/open/floor/plating,
 /area/ruin/space/has_grav/film_studio)
 "oI" = (
@@ -1158,7 +1158,7 @@
 "tD" = (
 /obj/structure/lattice/catwalk,
 /obj/structure/marker_beacon/teal,
-/turf/open/space/basic,
+/turf/template_noop,
 /area/ruin/space)
 "tG" = (
 /obj/structure/railing{
@@ -1239,7 +1239,8 @@
 /area/ruin/space/has_grav/film_studio/solars)
 "vi" = (
 /obj/structure/cable,
-/turf/open/floor/catwalk_floor/airless,
+/obj/structure/lattice/catwalk,
+/turf/template_noop,
 /area/ruin/space)
 "vD" = (
 /turf/open/floor/iron/smooth,
@@ -1471,6 +1472,7 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/structure/cable,
 /obj/effect/mapping_helpers/airlock/access/all/away,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /turf/open/floor/plating,
 /area/ruin/space/has_grav/film_studio/backstage)
 "zG" = (
@@ -1934,6 +1936,7 @@
 	},
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/structure/cable,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /turf/open/floor/plating,
 /area/ruin/space/has_grav/film_studio/stage)
 "Fv" = (
@@ -1959,6 +1962,7 @@
 	},
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/structure/cable,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /turf/open/floor/plating,
 /area/ruin/space/has_grav/film_studio/stage)
 "FO" = (
@@ -2034,7 +2038,8 @@
 	dir = 8
 	},
 /obj/structure/cable,
-/turf/open/floor/catwalk_floor/airless,
+/obj/structure/lattice/catwalk,
+/turf/template_noop,
 /area/ruin/space)
 "GL" = (
 /obj/effect/turf_decal/siding/dark_green,
@@ -2183,14 +2188,19 @@
 /turf/open/floor/iron,
 /area/ruin/space/has_grav/film_studio/solars)
 "JN" = (
-/obj/structure/cable/layer1,
-/obj/effect/spawner/structure/window,
-/turf/open/floor/plating,
-/area/ruin/space/has_grav/film_studio)
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/structure/cable,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/turf/open/floor/wood,
+/area/ruin/space/has_grav/film_studio/backstage)
 "JS" = (
-/obj/structure/cable/layer1,
-/turf/open/floor/iron/dark,
-/area/ruin/space/has_grav/film_studio)
+/obj/machinery/door/airlock/external/glass/ruin,
+/obj/effect/mapping_helpers/airlock/access/all/away,
+/obj/effect/mapping_helpers/airlock/cyclelink_helper{
+	dir = 8
+	},
+/turf/open/floor/plating,
+/area/ruin/space/has_grav/film_studio/starboard)
 "JU" = (
 /obj/effect/turf_decal/siding/thinplating_new/terracotta/corner,
 /obj/structure/bookcase/random/fiction,
@@ -2355,8 +2365,7 @@
 /area/ruin/space/has_grav/film_studio/stage)
 "Mt" = (
 /obj/structure/lattice,
-/obj/effect/spawner/random/structure/grille,
-/turf/open/space/basic,
+/turf/template_noop,
 /area/ruin/space)
 "MB" = (
 /obj/effect/turf_decal/bot,
@@ -2414,7 +2423,6 @@
 /obj/structure/chair/comfy/black{
 	dir = 8
 	},
-/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /turf/open/floor/wood,
 /area/ruin/space/has_grav/film_studio/director)
 "Np" = (
@@ -2548,6 +2556,7 @@
 	},
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/structure/cable,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /turf/open/floor/plating,
 /area/ruin/space/has_grav/film_studio/stage)
 "OZ" = (
@@ -2678,7 +2687,8 @@
 	},
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
-/turf/open/floor/catwalk_floor/airless,
+/obj/structure/lattice/catwalk,
+/turf/template_noop,
 /area/ruin/space)
 "Rf" = (
 /obj/effect/spawner/structure/window,
@@ -2777,7 +2787,7 @@
 "SY" = (
 /obj/structure/lattice/catwalk,
 /obj/structure/marker_beacon/burgundy,
-/turf/open/space/basic,
+/turf/template_noop,
 /area/ruin/space)
 "Ta" = (
 /obj/machinery/door/airlock{
@@ -3237,7 +3247,8 @@
 /area/ruin/space/has_grav/film_studio/stage)
 "YG" = (
 /obj/structure/lattice,
-/turf/open/space/basic,
+/obj/effect/spawner/random/structure/grille,
+/turf/template_noop,
 /area/ruin/space)
 "YK" = (
 /obj/structure/toilet{
@@ -3936,8 +3947,8 @@ Fo
 cd
 cd
 cd
-JN
-JS
+oX
+nQ
 Lt
 nQ
 KV
@@ -4306,7 +4317,7 @@ nf
 pA
 Yq
 Dd
-lJ
+kq
 nj
 sM
 Yq
@@ -4332,8 +4343,8 @@ dd
 dd
 dd
 dd
-YG
-YG
+Mt
+Mt
 dd
 dd
 dd
@@ -4359,7 +4370,7 @@ nf
 qa
 Yq
 yE
-lJ
+kq
 lJ
 Df
 Yq
@@ -4384,7 +4395,7 @@ dd
 dd
 dd
 dd
-Mt
+YG
 Mt
 dd
 dd
@@ -4412,7 +4423,7 @@ nf
 dY
 Yq
 yE
-lJ
+kq
 lJ
 RN
 Yq
@@ -4437,7 +4448,7 @@ dd
 dd
 dd
 dd
-Mt
+YG
 dd
 dd
 dd
@@ -4465,7 +4476,7 @@ nf
 sa
 Yq
 pK
-mr
+aG
 mr
 WM
 Yq
@@ -4517,8 +4528,8 @@ ok
 Ft
 FH
 zB
-Pu
-Pu
+JN
+JN
 Xm
 pV
 Yq
@@ -4542,10 +4553,10 @@ dd
 dd
 dd
 dd
+Mt
+Mt
+Mt
 YG
-Mt
-Mt
-Mt
 YG
 dd
 dd
@@ -4587,23 +4598,23 @@ dd
 dd
 dd
 dd
-Mt
-Mt
-Mt
-Mt
-Mt
+dd
+dd
+dd
+dd
 YG
+Mt
 YG
 YG
 YG
 dd
-YG
+Mt
 dd
-YG
-YG
-YG
-YG
-YG
+Mt
+Mt
+Mt
+Mt
+Mt
 Cp
 HF
 Yl
@@ -4640,17 +4651,17 @@ dd
 dd
 dd
 dd
-YG
-dd
-dd
-dd
-dd
 dd
 YG
-dd
-dd
-dd
 YG
+YG
+YG
+dd
+Mt
+dd
+dd
+dd
+Mt
 dd
 dd
 dd
@@ -4692,25 +4703,25 @@ dd
 (27,1,1) = {"
 dd
 dd
+dd
+dd
 Mt
-YG
 dd
 dd
 dd
 dd
-dd
-YG
-dd
+Mt
 dd
 dd
-YG
+dd
+Mt
 dd
 dd
 dd
 dd
 dd
 dd
-YG
+Mt
 dd
 Cp
 dI
@@ -4745,6 +4756,17 @@ dd
 (28,1,1) = {"
 dd
 dd
+dd
+YG
+Mt
+dd
+dd
+dd
+dd
+Mt
+dd
+dd
+dd
 Mt
 dd
 dd
@@ -4752,18 +4774,7 @@ dd
 dd
 dd
 dd
-YG
-dd
-dd
-dd
-YG
-dd
-dd
-dd
-dd
-dd
-dd
-YG
+Mt
 dd
 Cp
 Cp
@@ -4798,14 +4809,14 @@ dd
 (29,1,1) = {"
 dd
 dd
-Mt
-dd
-dd
-dd
-dd
-dd
 dd
 YG
+dd
+dd
+dd
+dd
+dd
+Mt
 dd
 dd
 OI
@@ -4816,7 +4827,7 @@ dd
 dd
 dd
 dd
-YG
+Mt
 dd
 Ek
 ln
@@ -4851,25 +4862,25 @@ dd
 (30,1,1) = {"
 dd
 dd
-Mt
-dd
-dd
-dd
-dd
-dd
-OI
-vi
-OI
-dd
-OI
-vi
-OI
-dd
-dd
-dd
-dd
 dd
 YG
+dd
+dd
+dd
+dd
+OI
+vi
+OI
+dd
+OI
+vi
+OI
+dd
+dd
+dd
+dd
+dd
+Mt
 dd
 Ek
 Dk
@@ -4904,25 +4915,25 @@ dd
 (31,1,1) = {"
 dd
 dd
-Mt
-dd
-dd
-dd
-dd
-dd
-OI
-vi
-OI
-dd
-OI
-vi
-OI
-dd
-dd
-dd
-dd
 dd
 YG
+dd
+dd
+dd
+dd
+OI
+vi
+OI
+dd
+OI
+vi
+OI
+dd
+dd
+dd
+dd
+dd
+Mt
 dd
 Ek
 sf
@@ -4957,8 +4968,8 @@ dd
 (32,1,1) = {"
 dd
 dd
-Mt
 dd
+YG
 dd
 dd
 dd
@@ -5010,8 +5021,8 @@ dd
 (33,1,1) = {"
 dd
 dd
-YG
 dd
+YG
 dd
 dd
 dd
@@ -5063,12 +5074,12 @@ dd
 (34,1,1) = {"
 dd
 dd
+dd
 Mt
-YG
-YG
-YG
+Mt
+Mt
 Cy
-kq
+Gy
 Gy
 vi
 Gy
@@ -5116,8 +5127,8 @@ dd
 (35,1,1) = {"
 dd
 dd
-Mt
 dd
+YG
 dd
 dd
 dd
@@ -5169,8 +5180,8 @@ dd
 (36,1,1) = {"
 dd
 dd
-Mt
 dd
+YG
 dd
 dd
 dd
@@ -5222,24 +5233,24 @@ dd
 (37,1,1) = {"
 dd
 dd
+dd
+YG
+dd
+dd
+dd
+dd
+OI
+vi
+OI
+dd
+OI
+vi
+OI
+dd
+dd
+dd
+dd
 Mt
-dd
-dd
-dd
-dd
-dd
-OI
-vi
-OI
-dd
-OI
-vi
-OI
-dd
-dd
-dd
-dd
-aG
 dd
 dd
 dd
@@ -5275,24 +5286,24 @@ dd
 (38,1,1) = {"
 dd
 dd
+dd
+YG
+dd
+dd
+dd
+dd
+OI
+vi
+OI
+dd
+OI
+vi
+OI
+dd
+dd
+dd
+dd
 Mt
-dd
-dd
-dd
-dd
-dd
-OI
-vi
-OI
-dd
-OI
-vi
-OI
-dd
-dd
-dd
-dd
-aG
 dd
 dd
 dd
@@ -5328,14 +5339,14 @@ dd
 (39,1,1) = {"
 dd
 dd
-Mt
-dd
-dd
-dd
-dd
-dd
 dd
 YG
+dd
+dd
+dd
+dd
+dd
+Mt
 dd
 dd
 OI
@@ -5345,7 +5356,7 @@ dd
 dd
 dd
 dd
-aG
+Mt
 dd
 dd
 dd
@@ -5381,24 +5392,24 @@ dd
 (40,1,1) = {"
 dd
 dd
+dd
+YG
+Mt
+dd
+dd
+dd
+dd
+Mt
+dd
+dd
+dd
 Mt
 dd
 dd
 dd
 dd
 dd
-dd
-YG
-dd
-dd
-dd
-YG
-dd
-dd
-dd
-dd
-dd
-aG
+Mt
 dd
 dd
 dg
@@ -5434,24 +5445,24 @@ dd
 (41,1,1) = {"
 dd
 dd
+dd
+dd
+Mt
+dd
+dd
+dd
+dd
+Mt
+dd
+dd
+dd
 Mt
 dd
 dd
 dd
 dd
 dd
-dd
-YG
-dd
-dd
-dd
-YG
-dd
-dd
-dd
-dd
-dd
-aG
+Mt
 dd
 dd
 dg
@@ -5487,24 +5498,24 @@ dd
 (42,1,1) = {"
 dd
 dd
+dd
+dd
+Mt
 YG
 YG
-dd
-dd
-dd
-dd
-dd
 YG
 dd
-dd
-dd
-YG
-dd
+Mt
 dd
 dd
 dd
+Mt
 dd
-aG
+dd
+dd
+dd
+dd
+Mt
 dd
 dd
 dg
@@ -5541,25 +5552,25 @@ dd
 dd
 dd
 dd
+dd
+dd
+dd
+dd
+YG
+YG
+Mt
+YG
+YG
+YG
+Mt
+YG
+YG
 YG
 YG
 Mt
 Mt
 Mt
 Mt
-Mt
-YG
-YG
-YG
-Mt
-Mt
-Mt
-YG
-YG
-YG
-YG
-YG
-YG
 dg
 dg
 dg
@@ -5987,7 +5998,7 @@ dd
 dd
 dd
 dd
-YG
+Mt
 dg
 dg
 hw
@@ -5998,7 +6009,7 @@ dg
 hw
 dg
 dg
-YG
+Mt
 dd
 dd
 dd
@@ -6040,7 +6051,7 @@ dd
 dd
 dd
 dd
-YG
+Mt
 dd
 dg
 Rh
@@ -6051,7 +6062,7 @@ dg
 Rh
 dg
 dd
-YG
+Mt
 dd
 dd
 dd
@@ -6096,12 +6107,12 @@ dd
 tD
 dd
 dg
-hw
+JS
 dg
 dd
 dd
 dg
-hw
+JS
 dg
 dd
 SY
