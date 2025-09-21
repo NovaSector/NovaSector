@@ -663,3 +663,28 @@
   carpotoxin:
   - bugfix: The mapping helpers that add the voucher element to the marauder base's
       equipment now function again
+2025-09-20:
+  RuinedTrickster:
+  - rscadd: added hakama (suit)
+  - rscadd: added cleavage sweater (suit)
+  - rscadd: added cleavage sweater for tesharis (suit)
+  - rscadd: added thigh highs double-side/right-side/left-side (underwear)
+  - rscadd: added transparent long robe (coat)
+  - rscadd: added haori (coat)
+  - rscadd: added split haori (coat)
+  - rscadd: added transparent haori (coat)
+  - rscadd: added transparent split haori(coat)
+  - rscadd: added sport boots (shoes)
+  - rscadd: added double skirt dress (suit)
+  - bugfix: fixed missing pixels of loose pants
+  intense-skies:
+  - qol: 'Taur laying recovery: 2 secs -> 1 sec'
+  - bugfix: Being ahealed should no longer glitch out saddlebags
+2025-09-21:
+  carpotoxin:
+  - balance: Energy katana dash recharge rate is down from 350 to 200
+  - balance: To headhunt better, the Space Ninja has gotten a crew pinpointer
+  - code_imp: Removed randomness from Space Ninja appearance, adds operative name
+      selection
+  - bugfix: Fixes the Space Ninja's head hunter objective rolling too often
+  - bugfix: Fixes the Space Ninja's MODsuit sometimes gibbing the ninja
