@@ -182,7 +182,6 @@
 			current_mob.handcuffed.forceMove(loc)
 			current_mob.handcuffed.dropped(current_mob)
 			current_mob.set_handcuffed(null)
-			current_mob.update_handcuffed()
 
 		var/obj/item/restraints/handcuffs/milker/cuffs = new (victim)
 		current_mob.set_handcuffed(cuffs)
