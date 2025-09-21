@@ -359,6 +359,24 @@
 /obj/item/autosurgeon/syndicate/razorwire
 	name = "razorwire autosurgeon"
 	starting_organ = /obj/item/organ/cyberimp/arm/toolkit/razorwire
+// Surgical toolsets (normal + cruel) additions
+
+/obj/item/organ/cyberimp/arm/toolkit/surgery/Initialize(mapload)
+	if (src.type == /obj/item/organ/cyberimp/arm/toolkit/surgery)
+		LAZYINITLIST(items_to_create)
+		items_to_create += list(
+			/obj/item/bonesetter/augment,
+			/obj/item/blood_filter/augment,
+		)
+	return ..()
+
+/obj/item/organ/cyberimp/arm/toolkit/surgery/cruel/Initialize(mapload)
+	LAZYINITLIST(items_to_create)
+	items_to_create += list(
+		/obj/item/bonesetter/cruel/augment,
+		/obj/item/blood_filter/cruel/augment,
+	)
+	return ..()
 
 // Shell launch system, an arm mounted single-shot shotgun/.980 grenade launcher that comes out of your arm
 
