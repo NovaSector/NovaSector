@@ -680,3 +680,11 @@
   intense-skies:
   - qol: 'Taur laying recovery: 2 secs -> 1 sec'
   - bugfix: Being ahealed should no longer glitch out saddlebags
+2025-09-21:
+  carpotoxin:
+  - balance: Energy katana dash recharge rate is down from 350 to 200
+  - balance: To headhunt better, the Space Ninja has gotten a crew pinpointer
+  - code_imp: Removed randomness from Space Ninja appearance, adds operative name
+      selection
+  - bugfix: Fixes the Space Ninja's head hunter objective rolling too often
+  - bugfix: Fixes the Space Ninja's MODsuit sometimes gibbing the ninja
