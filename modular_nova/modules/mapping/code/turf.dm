@@ -36,3 +36,15 @@
 	desc = /obj/machinery/door/poddoor::desc
 	icon = /obj/machinery/door/poddoor::icon
 	icon_state = /obj/machinery/door/poddoor::icon_state
+
+
+/turf/closed/indestructible/skyline
+	name = "long way down"
+	icon = 'modular_nova/master_files/icons/obj/skyscraper/background.dmi';
+	base_icon_state = "0,34";
+	opacity = FALSE
+
+/turf/open/indestructible/skyline
+	name = "long way down"
+	icon = 'modular_nova/master_files/icons/obj/skyscraper/background.dmi';
+	base_icon_state = "0,34";
