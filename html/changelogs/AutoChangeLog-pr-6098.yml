@@ -1,0 +1,6 @@
+author: "Happyowl93"
+delete-after: True
+changes:
+  - rscadd: "Added document stamp for Port Tarkon"
+  - qol: "Tarkon Industries fax is now visible in NT fax network"
+  - map: "added stamp to command office in Port Tarkon."
