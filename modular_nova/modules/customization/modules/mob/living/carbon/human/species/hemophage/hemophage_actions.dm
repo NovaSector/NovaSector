@@ -161,7 +161,7 @@
 		return
 
 	// Wounds are really complicated in that they are constantly 'downgrading' or 'upgrading' themselves, which involves copying aspects of the old wound into a new datum, deleting the old one
-	// We are going to just keep the old wound around in a list and reapply it, adjusting the blood flow to what it was before. To accomplish this we can just use a simple triplet list.
+	// We are going to just keep a 'copy' of the old wound around in a list and reapply it, adjusting the blood flow to what it was before. To accomplish this we can just use a simple triplet list.
 	// In the quadruplet we have the wound datum, a weakref to the limb (so we don't cause hard dels), and the previous blood flow value. That's all we need to put the wound back..
 	// Pray that TG doesn't severely refactor things there.
 	for (var/limb_name in previous_wounds)
