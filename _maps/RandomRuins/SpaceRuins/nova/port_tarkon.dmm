@@ -4656,6 +4656,9 @@
 /area/ruin/space/has_grav/port_tarkon/cargo)
 "FF" = (
 /obj/structure/table/reinforced,
+/obj/item/stamp/tarkon{
+	pixel_x = 16
+	},
 /obj/item/stamp/denied,
 /obj/item/stamp/granted{
 	pixel_x = 8
