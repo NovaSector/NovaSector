@@ -148,9 +148,9 @@ Always compile, always use that verb, and always make sure that it works for wha
 	ZTRAIT_ASHSTORM = TRUE, \
 	ZTRAIT_LAVA_RUINS = TRUE, \
 	ZTRAIT_BOMBCAP_MULTIPLIER = 2, \
-	ZTRAIT_DOWN = TRUE, \
+	ZTRAIT_DOWN = TRUE,/* Nova Edit Addition */ \
 	ZTRAIT_BASETURF = /turf/open/lava/smooth/lava_land_surface)
-/// Nova Edit Start: UndergroundLavaland
+/// NOVA EDIT ADDITION START: UndergroundLavaland
 #define ZTRAITS_LAVALAND_UNDERRGOUND list(\
 	ZTRAIT_LAVA_UNDERGROUND = TRUE, \
 	ZTRAIT_BOMBCAP_MULTIPLIER = 2, \
@@ -158,7 +158,7 @@ Always compile, always use that verb, and always make sure that it works for wha
 	ZTRAIT_LAVA_RUINS = TRUE, \
 	ZTRAIT_UP = TRUE, \
 	ZTRAIT_BASETURF = /turf/open/lava/smooth/lava_land_surface)
-/// Nova Edit: End
+/// NOVA EDIT ADDITION END
 ///Z level traits for Away Missions
 #define ZTRAITS_AWAY list(ZTRAIT_AWAY = TRUE)
 ///Z level traits for Secret Away Missions
