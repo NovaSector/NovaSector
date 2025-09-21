@@ -370,6 +370,12 @@
 		)
 	return ..()
 
+// Block swapping while a blood filter is active
+/obj/item/organ/cyberimp/arm/toolkit/surgery/swap_tools(active_item)
+	if (istype(src.active_item, /obj/item/blood_filter))
+		return
+	return ..()
+
 /obj/item/organ/cyberimp/arm/toolkit/surgery/cruel/Initialize(mapload)
 	LAZYINITLIST(items_to_create)
 	items_to_create += list(
