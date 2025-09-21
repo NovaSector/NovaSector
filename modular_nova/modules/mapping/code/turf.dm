@@ -37,7 +37,6 @@
 	icon = /obj/machinery/door/poddoor::icon
 	icon_state = /obj/machinery/door/poddoor::icon_state
 
-
 /turf/open/skyline
 	name = "long way down"
 	icon = 'modular_nova/master_files/icons/obj/skyscraper/background.dmi'
