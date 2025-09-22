@@ -116,7 +116,7 @@
 	name = "backpack power source"
 	desc = "The massive external power source for the laser gatling gun."
 
-	var/obj/item/gun/energy/minigun/weaker/gun
+	/obj/item/gun/energy/minigun/weaker/gun
 
 /obj/item/gun/energy/minigun/weaker
 	projectile_damage_multiplier = 0.5
@@ -189,7 +189,7 @@
 		/obj/item/sticker/clown = 10,
 	)
 
-/obj/effect/spawner/random/rare_clown_loot//im 99% sure that theres an upper limit on how many things can spawn from one spawner so here is this work around
+/obj/effect/spawner/random/rare_stuff//im 99% sure that theres an upper limit on how many things can spawn from one spawner so here is this work around
 	name = "random funny rare spawn"
 	desc = "Spawns a random rare item from the clown loot pool, DO. NOT. PUT. ON. STATION. MAPS."
 	loot = list(
