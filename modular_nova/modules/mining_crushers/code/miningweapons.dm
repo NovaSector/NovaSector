@@ -199,11 +199,16 @@
 	)
 	sharpness = SHARP_POINTY
 	light_range = 4
-	charge_time = 1 SECONDS // idea: increased charge time, but mark detonations reduce cooldown?
+	charge_time = 1 SECONDS
 	detonation_damage = 20 // 30 on det
-	backstab_bonus = 80 // 120 on backstab
+	backstab_bonus = 90 // 120 on backstab
 	// with style meter you can consistently hit backstabs in any direction. you shouldn't get 200+ damage hits for basically free
 	current_inhand_icon_state = "PKClaw"
+	/**
+	 * possible ideas in regards to making the claw more interesting than just backstab-focused sidegrade:
+	 * - long cooldown but mark detonations/melee hits reduce/reset cooldown?
+	 * - getting multiple detonations off one mark?
+	 */
 
 /obj/item/kinetic_crusher/claw/Initialize(mapload)
 	. = ..()
