@@ -53,6 +53,9 @@
 	radio.recalculateChannels()
 	update_appearance()
 
+/obj/machinery/inspector_mainframe/attack_ghost(mob/user)
+	examine(user)
+
 /obj/machinery/inspector_mainframe/ui_interact(mob/user)
 	. = ..()
 	open_options_menu(user)
