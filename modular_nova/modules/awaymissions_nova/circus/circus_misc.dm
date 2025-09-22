@@ -80,6 +80,11 @@
 
 //end of boingos lost items, beginning of the red/blue laser tag miniguns and the shields
 
+/obj/item/minigunpack/red
+	name = "backpack power source"
+	desc = "The massive external power source for the laser gatling gun."
+	gun = /obj/item/gun/energy/minigun/red
+
 /obj/item/gun/energy/minigun/red
 	name = "Red team laser minigun"
 	desc = "Not a real laser minigun- but one meant for laser tag"
@@ -88,6 +93,11 @@
 	can_charge = TRUE
 	gun_flags = NOT_A_REAL_GUN
 	selfcharge = TRUE
+
+/obj/item/minigunpack/blue
+	name = "backpack power source"
+	desc = "The massive external power source for the laser gatling gun."
+	gun = /obj/item/gun/energy/minigun/blue
 
 /obj/item/gun/energy/minigun/blue
 	name = "Blue team laser minigun"
@@ -115,8 +125,7 @@
 /obj/item/minigunpack/weaker
 	name = "backpack power source"
 	desc = "The massive external power source for the laser gatling gun."
-
-	/obj/item/gun/energy/minigun/weaker/gun
+	gun = /obj/item/gun/energy/minigun/weaker/gun
 
 /obj/item/gun/energy/minigun/weaker
 	projectile_damage_multiplier = 0.5
