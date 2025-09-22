@@ -9019,6 +9019,7 @@
 #include "modular_nova\modules\random_ship_event\random_ships\heliostatic_inspectors\code\inspector_mainframe.dm"
 #include "modular_nova\modules\random_ship_event\random_ships\heliostatic_inspectors\code\outfit.dm"
 #include "modular_nova\modules\random_ship_event\random_ships\heliostatic_inspectors\code\ship.dm"
+#include "modular_nova\modules\random_ship_event\random_ships\heliostatic_inspectors\code\templates.dm"
 #include "modular_nova\modules\RBMK2\code\reactor.dm"
 #include "modular_nova\modules\RBMK2\code\reactor_acts.dm"
 #include "modular_nova\modules\RBMK2\code\reactor_areas.dm"
