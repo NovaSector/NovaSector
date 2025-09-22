@@ -1,4 +1,4 @@
-/datum/trader_data/clothing_trader_data
+/datum/trader_data/burger_trader_data
 
 	///The item that marks the shopkeeper will sit on
 	shop_spot_type =  /obj/structure/chair/office/tactical

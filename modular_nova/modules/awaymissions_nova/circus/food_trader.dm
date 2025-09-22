@@ -1,4 +1,4 @@
-/mob/living/basic/trader/clothing
+/mob/living/basic/trader/burger
 	name = "Mc Bruce the chef"
 	desc = "A food merchant who wishes to sell you food! why do they have a pulse pistol...?"
 	unique_name = FALSE
@@ -26,4 +26,4 @@
 	ranged_attack_casing = /obj/item/ammo_casing/energy/laser/pulse
 	ranged_attack_sound = 'sound/items/weapons/gun/pistol/shot.ogg'
 	held_weapon_visual = /obj/item/gun/energy/pulse/pistol
-	trader_data_path = /datum/trader_data/clothing_trader_data
+	trader_data_path = /datum/trader_data/burger_trader_data
