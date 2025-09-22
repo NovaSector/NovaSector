@@ -1,0 +1,4 @@
+author: "MintMetal"
+delete-after: True
+changes:
+  - bugfix: "Issues on film studio is now fixed"
