@@ -1,6 +1,6 @@
-/mob/living/basic/trader/clown
+/mob/living/basic/trader/clothing
 	name = "Boingo the Clown Trader"
-	desc = "A clown who has come to sell you goods! why does he have a pulse pistol...?"
+	desc = "A clothing store clerk who can sell you clothing! why do they have a pulse pistol...?"
 	unique_name = FALSE
 	icon = 'icons/mob/simple/simple_human.dmi'
 	maxHealth = 420
@@ -26,5 +26,4 @@
 	ranged_attack_casing = /obj/item/ammo_casing/energy/laser/pulse
 	ranged_attack_sound = 'sound/items/weapons/gun/pistol/shot.ogg'
 	held_weapon_visual = /obj/item/gun/energy/pulse/pistol
-	trader_data_path = /datum/trader_data/clown_trader_data
-
+	trader_data_path = /datum/trader_data/deathsquadtrader

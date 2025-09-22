@@ -4,6 +4,12 @@
 	requires_power = FALSE
 	static_lighting = TRUE
 
+/area/awaymission/beach/circus_day/no_light
+	name = "The Circus, but dark"
+	icon_state = "away2"
+	requires_power = FALSE
+	static_lighting = FALSE
+
 /obj/item/paper/fluff/cyborg_circus
 	name = "Cyborg charger"
 	default_raw_text = "Dont worry for any of or silicon friends out there, here is a recharger."
@@ -35,6 +41,14 @@
 	faction = "clown"
 	alpha = 100 //initially quite hidden when not "recharging"
 
+/obj/structure/trap/cult/honkmother/trap_effect(mob/living/victim)
+	to_chat(victim, span_bolddanger("With a crack, a clown and something else emerge from a small yellow portal with lightning shooting off of the portals,shocking you!"))
+	victim.electrocute_act(10, src, flags = SHOCK_NOGLOVES) // electrocute act does a message.
+	victim.Paralyze(2 SECONDS)
+	new /obj/effect/spawner/random/clown_loot(loc)
+	new /mob/living/basic/clown(loc)
+	QDEL_IN(src, 3 SECONDS)
+
 //end of structures beginning of boingos lost stuff
 
 /obj/item/bikehorn/golden/boingos_lost_horn
@@ -54,7 +68,7 @@
 	name = "Boingos action figure"
 	desc = "An old figurine of a clown"
 
-//end of boingos lost items, beginning of the red/blue laser tag miniguns.
+//end of boingos lost items, beginning of the red/blue laser tag miniguns and the shields
 
 /obj/item/gun/energy/minigun/red
 	name = "Red team laser minigun"
@@ -70,15 +84,19 @@
 	gun_flags = NOT_A_REAL_GUN
 	selfcharge = TRUE
 
-/obj/structure/trap/cult/honkmother/trap_effect(mob/living/victim)
-	to_chat(victim, span_bolddanger("With a crack, a clown and something else emerge from a small yellow portal with lightning shooting off of the portals,shocking you!"))
-	victim.electrocute_act(10, src, flags = SHOCK_NOGLOVES) // electrocute act does a message.
-	victim.Paralyze(2 SECONDS)
-	new /obj/effect/spawner/random/clown_loot(loc)
-	new /mob/living/basic/clown(loc)
-	QDEL_IN(src, 3 SECONDS)
+/obj/item/shield/roman/blue
+	name = "Blue team shield"
+	desc = "A blue painted shield"
+	uses_integrity = 0
+	color = "#0000FF"
 
-//Spawners section
+/obj/item/shield/roman/red
+	name = "Red team shield"
+	desc = "A red painted shield"
+	uses_integrity = 0
+	color = "#ff0000"
+
+//end of laser tag stuff beginning of spawners
 
 /obj/effect/spawner/random/clown_loot
 	name = "random funny spawn"
