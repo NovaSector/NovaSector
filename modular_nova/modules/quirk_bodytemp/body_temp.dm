@@ -1,15 +1,14 @@
 /datum/quirk/bodytemp
 	name = "Abnormal body temperature"
-	desc = "Your body temperature is strange compared to your baseline species, being offset a certain amount above or below. This is not recommended to take with coldblooded species. The quirk ranges from -40 to +70, due to how you are delivered to the station taking this at extreme amounts may result in minor burns."
+	desc = "Your body temperature is strange compared to your baseline species, being offset a certain amount above or below. This is not recommended to take with coldblooded species. \
+		The quirk ranges from -40 to +70, due to how you are delivered to the station taking this at extreme amounts may result in minor burns."
 	value = 0
 	gain_text = span_danger("Your body temperature is feeling off.")
 	lose_text = span_notice("Your body temperature is feeling right.")
 	medical_record_text = "Patient's body has an abnormal temperature for their species."
 	icon = FA_ICON_THERMOMETER_HALF
-	var/bodytemp = 0
-	var/species_normal = 0
-	var/species_heat = 0
-	var/species_cold = 0
+	/// The number that will be added to the original quirk_holder's bodytemp_normal
+	var/bodytemp_modifier = 0
 
 /datum/quirk_constant_data/bodytemp
 	associated_typepath = /datum/quirk/bodytemp
@@ -33,27 +32,14 @@
 /datum/preference/numeric/bodytemp_customization/bodytemp
 	savefile_key = "bodytemp"
 
-
-/datum/quirk/bodytemp/add(client/client_source)
-	. = ..()
-
-	var/mob/living/carbon/human/user = quirk_holder
-	species_normal = user.dna.species.bodytemp_normal
-	species_heat = user.dna.species.bodytemp_heat_damage_limit //Storing the species's default body temps incase the quirk is removed.
-	species_cold = user.dna.species.bodytemp_cold_damage_limit
-	user.dna.species.bodytemp_normal += bodytemp
-	user.dna.species.bodytemp_heat_damage_limit += bodytemp
-	user.dna.species.bodytemp_cold_damage_limit += bodytemp
-
-/datum/quirk/bodytemp/post_add()
-	. = ..()
-
-	var/mob/living/carbon/human/user = quirk_holder
-	var/datum/preferences/prefs = user.client.prefs
-	bodytemp = prefs.read_preference(/datum/preference/numeric/bodytemp_customization/bodytemp)
-	user.dna.species.bodytemp_normal += bodytemp
-	user.dna.species.bodytemp_heat_damage_limit += bodytemp
-	user.dna.species.bodytemp_cold_damage_limit += bodytemp
+  /datum/quirk/bodytemp/add_unique(client/client_source)
+	  . = ..()
+  
+	  bodytemp_modifier = client_source?.prefs?.read_preference(/datum/preference/numeric/bodytemp_customization/bodytemp) || 0
+	  var/mob/living/carbon/human/user = quirk_holder
+	  user.dna.species.bodytemp_normal += bodytemp_modifier
+	  user.dna.species.bodytemp_heat_damage_limit += bodytemp_modifier
+	  user.dna.species.bodytemp_cold_damage_limit += bodytemp_modifier
 
 /datum/quirk/bodytemp/remove()
 	. = ..()
@@ -61,7 +47,7 @@
 	if(QDELETED(quirk_holder))
 		return
 	var/mob/living/carbon/human/user = quirk_holder
-	user.dna.species.bodytemp_normal = species_normal
-	user.dna.species.bodytemp_heat_damage_limit = species_heat
-	user.dna.species.bodytemp_cold_damage_limit = species_cold
+	user.dna.species.bodytemp_normal -= bodytemp_modifier
+	user.dna.species.bodytemp_heat_damage_limit -= bodytemp_modifier
+	user.dna.species.bodytemp_cold_damage_limit -= bodytemp_modifier
 
