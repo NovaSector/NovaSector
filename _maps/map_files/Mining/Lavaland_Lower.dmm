@@ -220,6 +220,10 @@
 /obj/effect/turf_decal/sand/plating/volcanic,
 /turf/open/floor/iron/lavaland_atmos,
 /area/lavaland/underground/unexplored/riverside)
+"bT" = (
+/obj/effect/decal/cleanable/dirt,
+/turf/open/floor/iron/shuttle/exploration/hazard,
+/area/mine/engineering/atmos)
 "ck" = (
 /obj/structure/stone_tile/block/cracked{
 	dir = 8
@@ -314,10 +318,15 @@
 /obj/effect/turf_decal/siding/yellow{
 	dir = 10
 	},
-/obj/item/toy/plush/abductor/agent{
-	name = "Mothership Agent Psi"
+/obj/effect/turf_decal/trimline/white/filled/line{
+	dir = 10
 	},
-/turf/open/floor/carpet/royalblue,
+/obj/effect/turf_decal/trimline/dark_blue/filled/line{
+	color = "#D4D4D4";
+	alpha = 255;
+	dir = 10
+	},
+/turf/open/floor/circuit/green/off,
 /area/mine/living_quarters)
 "cP" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
@@ -2200,7 +2209,11 @@
 /obj/item/paper,
 /obj/item/pen,
 /obj/effect/turf_decal/siding/yellow,
-/turf/open/floor/carpet/royalblue,
+/obj/effect/turf_decal/trimline/dark_blue/filled/line{
+	color = "#D4D4D4";
+	alpha = 255
+	},
+/turf/open/floor/circuit/green/off,
 /area/mine/living_quarters)
 "rm" = (
 /obj/machinery/atmospherics/components/unary/vent_pump/on/layer4{
@@ -3093,7 +3106,12 @@
 /obj/effect/turf_decal/siding/yellow{
 	dir = 9
 	},
-/turf/open/floor/carpet/royalblue,
+/obj/effect/turf_decal/trimline/dark_blue/filled/line{
+	color = "#D4D4D4";
+	alpha = 255;
+	dir = 9
+	},
+/turf/open/floor/circuit/green/off,
 /area/mine/living_quarters)
 "CC" = (
 /obj/effect/turf_decal/tile/bar/opposingcorners{
@@ -3643,7 +3661,12 @@
 	dir = 5
 	},
 /obj/machinery/mining_weather_monitor/directional/north,
-/turf/open/floor/carpet/royalblue,
+/obj/effect/turf_decal/trimline/dark_blue/filled/line{
+	color = "#D4D4D4";
+	alpha = 255;
+	dir = 5
+	},
+/turf/open/floor/circuit/green/off,
 /area/mine/living_quarters)
 "Jx" = (
 /obj/machinery/portable_atmospherics/scrubber,
@@ -3752,7 +3775,12 @@
 /obj/effect/turf_decal/siding/yellow{
 	dir = 1
 	},
-/turf/open/floor/carpet/royalblue,
+/obj/effect/turf_decal/trimline/dark_blue/filled/line{
+	color = "#D4D4D4";
+	alpha = 255;
+	dir = 1
+	},
+/turf/open/floor/circuit/green/off,
 /area/mine/living_quarters)
 "KN" = (
 /obj/structure/ore_box,
@@ -4068,6 +4096,9 @@
 	},
 /turf/open/floor/iron/textured_large,
 /area/mine/xenoarch/science/xenoarch)
+"PV" = (
+/turf/open/floor/iron/shuttle/exploration/hazard,
+/area/mine/engineering/atmos)
 "Qf" = (
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/plating/lavaland_atmos,
@@ -4603,7 +4634,12 @@
 /obj/effect/turf_decal/siding/yellow{
 	dir = 6
 	},
-/turf/open/floor/carpet/royalblue,
+/obj/effect/turf_decal/trimline/dark_blue/filled/line{
+	color = "#D4D4D4";
+	alpha = 255;
+	dir = 6
+	},
+/turf/open/floor/circuit/green/off,
 /area/mine/living_quarters)
 "Yh" = (
 /obj/structure/table/wood,
@@ -9467,7 +9503,7 @@ pD
 pD
 pD
 pD
-ay
+pD
 ay
 ay
 ay
@@ -9723,9 +9759,9 @@ pD
 pD
 pD
 pD
-ay
-ay
-ay
+pD
+pD
+pD
 zT
 zT
 zT
@@ -9979,8 +10015,8 @@ pD
 pD
 pD
 pD
-ay
-ay
+pD
+pD
 zT
 zT
 zT
@@ -10236,8 +10272,8 @@ ay
 ay
 pD
 pD
-ay
-ay
+pD
+pD
 zT
 zT
 zT
@@ -14345,7 +14381,7 @@ ay
 ay
 ay
 vw
-qS
+bT
 bp
 Ee
 xh
@@ -14602,7 +14638,7 @@ ay
 ay
 ay
 vw
-Xf
+PV
 zv
 yX
 xh

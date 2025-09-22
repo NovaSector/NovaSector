@@ -11,6 +11,10 @@
 	maxHealth = 200
 	health = 200
 
+// let's slash that grapple time and make goliaths blush if they hold you too long.
+/datum/status_effect/incapacitating/stun/goliath_tentacled
+	duration = 6 SECONDS
+
 /// Megafauna
 // Legion - mild HP buff and Damage
 /mob/living/simple_animal/hostile/megafauna/legion
