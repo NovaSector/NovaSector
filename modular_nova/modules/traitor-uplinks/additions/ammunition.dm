@@ -160,7 +160,7 @@
 	name = ".357 Haywire+ (EMP) speedloader"
 	desc = "A speed loader that contains seven additional .357 Magnum Haywire+ rounds; usable with the Syndicate revolver. \
 			For when you really need a lot of things dead and batteries drained."
-	item = /obj/item/ammo_box/a357/haywire
+	item = /obj/item/ammo_box/speedloader/c357/haywire
 	cost = /datum/uplink_item/high_cost/ammunition::cost
 	purchasable_from = UPLINK_TRAITORS | UPLINK_SERIOUS_OPS
 
