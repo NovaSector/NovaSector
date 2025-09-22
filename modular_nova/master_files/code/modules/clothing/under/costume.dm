@@ -47,6 +47,36 @@
 	greyscale_colors = "#434d7a" //THATS RIGHT, FUCK YOU! THE BATHROBE CAN BE RECOLORED!
 	flags_1 = IS_PLAYER_COLORABLE_1
 
+/obj/item/clothing/under/costume/dutch
+	icon = 'icons/map_icons/clothing/under/_under.dmi'
+	icon_state = "/obj/item/clothing/under/costume/dutch"
+	post_init_icon_state = "dutchsuit"
+	greyscale_config = /datum/greyscale_config/dutch_outfit
+	greyscale_config_worn = /datum/greyscale_config/dutch_outfit/worn
+	greyscale_config_worn_digi = /datum/greyscale_config/dutch_outfit/worn/digi
+	greyscale_colors = "#333333#f8f8f8#ff0000#ffcc00"
+	flags_1 = IS_PLAYER_COLORABLE_1
+
+/obj/item/clothing/suit/costume/pg
+	icon = 'icons/map_icons/clothing/suit/costume.dmi'
+	icon_state = "/obj/item/clothing/suit/costume/pg"
+	post_init_icon_state = "powderganger"
+	greyscale_config = /datum/greyscale_config/powderganger
+	greyscale_config_worn = /datum/greyscale_config/powderganger/worn
+	greyscale_colors = "#76502b#c0c0c0"
+	flags_1 = IS_PLAYER_COLORABLE_1
+
+/obj/item/clothing/suit/chaplainsuit/monkrobeeast
+	icon = 'icons/map_icons/clothing/suit/costume.dmi'
+	icon_state = "/obj/item/clothing/suit/chaplainsuit/monkrobeeast"
+	post_init_icon_state = "monkrobeeast"
+	greyscale_config = /datum/greyscale_config/monkrobeeast
+	greyscale_config_worn = /datum/greyscale_config/monkrobeeast/worn
+	greyscale_config_worn_digi = /datum/greyscale_config/monkrobeeast/worn/digi
+	greyscale_colors = "#EADB83#D98E43#A52F29#212026"
+	flags_1 = IS_PLAYER_COLORABLE_1
+	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION
+
 /*
 *	LUNAR AND JAPANESE CLOTHES
 */

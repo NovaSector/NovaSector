@@ -1,0 +1,5 @@
+author: "intense-skies"
+delete-after: True
+changes:
+  - rscadd: "Added new quirk 'Abnormal Body Temperature' for added uniqueness."
+  - qol: "Made Adapted Lungs quirk into a neutral pick, allowing more broad customization"
