@@ -32,14 +32,14 @@
 /datum/preference/numeric/bodytemp_customization/bodytemp
 	savefile_key = "bodytemp"
 
-  /datum/quirk/bodytemp/add_unique(client/client_source)
-	  . = ..()
+/datum/quirk/bodytemp/add_unique(client/client_source)
+	. = ..()
 
-	  bodytemp_modifier = client_source?.prefs?.read_preference(/datum/preference/numeric/bodytemp_customization/bodytemp) || 0
-	  var/mob/living/carbon/human/user = quirk_holder
-	  user.dna.species.bodytemp_normal += bodytemp_modifier
-	  user.dna.species.bodytemp_heat_damage_limit += bodytemp_modifier
-	  user.dna.species.bodytemp_cold_damage_limit += bodytemp_modifier
+	bodytemp_modifier = client_source?.prefs?.read_preference(/datum/preference/numeric/bodytemp_customization/bodytemp) || 0
+	var/mob/living/carbon/human/user = quirk_holder
+	user.dna.species.bodytemp_normal += bodytemp_modifier
+	user.dna.species.bodytemp_heat_damage_limit += bodytemp_modifier
+	user.dna.species.bodytemp_cold_damage_limit += bodytemp_modifier
 
 /datum/quirk/bodytemp/remove()
 	. = ..()
