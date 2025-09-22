@@ -1,3 +1,4 @@
+//lobotomized mobs category
 /mob/living/basic/trooper/nanotrasen/ranged/smg/display
 	ai_controller = null
 
@@ -10,12 +11,10 @@
 /mob/living/basic/trooper/syndicate/ranged/shotgun/space/stormtrooper/anthro/fox/display
 	ai_controller = null
 
-/turf/open/floor/iron/solarpanel/terrible_pun
-	name = "SOLarpanel"
-	desc = "Wow."
-
 /mob/living/basic/trooper/cin_soldier/ranged/display
 	ai_controller = null
+
+//mech displays
 
 /obj/structure/showcase/mecha/gygax
 	name = "Gygax"
@@ -40,6 +39,8 @@
 	desc = "A great replica of a Mauler that is completely non functional."
 	icon = 'icons/mob/rideables/mecha.dmi'
 	icon_state = "mauler"
+
+//i gave up organizing
 
 /mob/living/basic/trooper/syndicate/melee/ninja //Long before time had a name, Ninjago was created by the first Spinjitzu master by using the four weapons of Spinjitzu.
 	name = "Space Ninja"
@@ -76,3 +77,40 @@
 /mob/living/basic/revolutionary/deranged_assistant
 	name = "Deranged Assistant"
 	desc = "Your average grey shirt assistant"
+
+/mob/living/basic/trooper/nanotrasen/ranged/elite/the_victor
+	name = "The Victor"
+	desc = "They used their know-how of laser weaponry to become the ultimate victor of laser tag..."
+	maxHealth = 1500
+	health = 1500
+	melee_damage_lower = 40
+	melee_damage_upper = 40
+	habitable_atmos = null
+	unsuitable_cold_damage = 0
+	casingtype = /obj/item/ammo_casing/energy/laser
+	burst_shots = 5
+	projectilesound = 'sound/items/weapons/laser.ogg'
+	ranged_cooldown = 2 SECONDS
+	faction = list(ROLE_DEATHSQUAD)
+	loot = /obj/item/minigunpack/weaker
+	corpse = /obj/effect/gibspawner/human
+	mob_spawner = /obj/effect/mob_spawn/corpse/human/Heavy_minigunner
+	r_hand = /obj/item/gun/energy/pulse/carbine/lethal
+
+/obj/effect/mob_spawn/corpse/human/Heavy_minigunner
+	name = "\improper Heavy Minigunner Corpse"
+	outfit = /datum/outfit/nanotrasenelitesoldiercorpse
+	hairstyle = "Bald"
+	facial_hairstyle = "Shaved"
+
+/datum/outfit/Heavy_minigunner
+	name = "\improper Heavy Minigunner Corpse"
+	uniform = /obj/item/clothing/under/rank/centcom/military
+	suit = /obj/item/clothing/suit/armor/heavy
+	shoes = /obj/item/clothing/shoes/combat
+	gloves = /obj/item/clothing/gloves/combat
+	mask = /obj/item/cigarette/cigar/premium
+	glasses = /obj/item/clothing/glasses/sunglasses/big
+	head = /obj/item/clothing/head/helmet/space/beret
+	back = /obj/item/minigunpack
+	id = /obj/item/card/id/advanced/silver

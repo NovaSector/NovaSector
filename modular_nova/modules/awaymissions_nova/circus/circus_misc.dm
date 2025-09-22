@@ -14,7 +14,17 @@
 	name = "Cyborg charger"
 	default_raw_text = "Dont worry for any of or silicon friends out there, here is a recharger."
 
+/turf/open/floor/iron/solarpanel/terrible_pun
+	name = "SOLarpanel"
+	desc = "Wow."
+
 //walls n floor and structures and stuff.
+
+/turf/open/floor/carpet/cyan/cold_atmos
+	initial_gas_mix = COLD_ATMOS
+
+/turf/open/chasm/cold_atmos
+	initial_gas_mix = COLD_ATMOS
 
 /turf/open/lava/incinerator
 	name = "Incineration lava"
@@ -74,6 +84,8 @@
 	name = "Red team laser minigun"
 	desc = "Not a real laser minigun- but one meant for laser tag"
 	ammo_type = list(/obj/item/ammo_casing/energy/laser/redtag)
+	cell_type = /obj/item/stock_parts/power_store/cell/minigun
+	can_charge = TRUE
 	gun_flags = NOT_A_REAL_GUN
 	selfcharge = TRUE
 
@@ -81,6 +93,8 @@
 	name = "Blue team laser minigun"
 	desc = "Not a real laser minigun- but one meant for laser tag"
 	ammo_type = list(/obj/item/ammo_casing/energy/laser/bluetag)
+	cell_type = /obj/item/stock_parts/power_store/cell/minigun
+	can_charge = TRUE
 	gun_flags = NOT_A_REAL_GUN
 	selfcharge = TRUE
 
@@ -95,6 +109,17 @@
 	desc = "A red painted shield"
 	uses_integrity = 0
 	color = "#ff0000"
+
+//weaker subtype of the normal minigun as a result for killing the victor
+
+/obj/item/minigunpack/weaker
+	name = "backpack power source"
+	desc = "The massive external power source for the laser gatling gun."
+
+	var/obj/item/gun/energy/minigun/weaker/gun
+
+/obj/item/gun/energy/minigun/weaker
+	projectile_damage_multiplier = 0.5
 
 //end of laser tag stuff beginning of spawners
 
