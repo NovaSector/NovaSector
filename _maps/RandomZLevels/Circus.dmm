@@ -1772,6 +1772,10 @@
 	initial_gas_mix = "plasma=35000;TEMP=293.15"
 	},
 /area/awaymission/beach/circus_day/no_light)
+"oO" = (
+/mob/living/basic/trader/burger,
+/turf/open/floor/carpet,
+/area/awaymission/beach/circus_day/no_light)
 "oQ" = (
 /obj/structure/window/reinforced/survival_pod/indestructible/spawner/directional/north,
 /obj/machinery/vending/cart,
@@ -2542,8 +2546,8 @@
 /area/awaymission/beach/circus_day/no_light)
 "uO" = (
 /obj/structure/rack,
-/obj/item/gun/energy/minigun/red,
 /obj/item/shield/roman/red,
+/obj/item/minigunpack/red,
 /turf/open/floor/eighties/red,
 /area/awaymission/beach/circus_day/no_light)
 "uS" = (
@@ -4280,6 +4284,16 @@
 /area/awaymission/beach/circus_day/no_light)
 "HX" = (
 /turf/open/floor/mineral/titanium/tiled,
+/area/awaymission/beach/circus_day/no_light)
+"HY" = (
+/obj/vehicle/ridden/atv{
+	dir = 8
+	},
+/obj/effect/turf_decal/stripes{
+	dir = 1
+	},
+/mob/living/basic/trader/burger,
+/turf/open/floor/asphalt,
 /area/awaymission/beach/circus_day/no_light)
 "Ia" = (
 /obj/effect/spawner/random/maintenance/three,
@@ -6102,8 +6116,8 @@
 /area/awaymission/beach/circus_day)
 "Ww" = (
 /obj/structure/rack,
-/obj/item/gun/energy/minigun/blue,
 /obj/item/shield/roman/blue,
+/obj/item/minigunpack/blue,
 /turf/open/floor/eighties,
 /area/awaymission/beach/circus_day/no_light)
 "Wx" = (
@@ -28690,7 +28704,7 @@ gB
 gB
 nU
 nU
-gB
+oO
 nU
 nU
 gB
@@ -48017,7 +48031,7 @@ tD
 pM
 Uy
 aF
-Wo
+HY
 wR
 Of
 tD

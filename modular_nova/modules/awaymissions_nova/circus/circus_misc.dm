@@ -57,6 +57,7 @@
 	victim.Paralyze(2 SECONDS)
 	new /obj/effect/spawner/random/clown_loot(loc)
 	new /mob/living/basic/clown(loc)
+	new /obj/structure/trap/cult/honkmother(loc)
 	QDEL_IN(src, 3 SECONDS)
 
 //end of structures beginning of boingos lost stuff
