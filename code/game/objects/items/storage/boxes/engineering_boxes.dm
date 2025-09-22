@@ -40,7 +40,7 @@
 		/obj/item/uplink/debug=1,
 		/obj/item/uplink/nuclear/debug=1,
 		/obj/item/clothing/ears/earmuffs/debug=1,
-		/obj/item/gps/visible_debug=1,
+		// /obj/item/gps/visible_debug=1, //NOVA EDIT REMOVAL
 		)
 	generate_items_inside(items_inside, src)
 
