@@ -486,6 +486,11 @@
 /obj/effect/turf_decal/box,
 /turf/open/floor/carpet/cyan,
 /area/awaymission/beach/circus_day/no_light)
+"dP" = (
+/obj/structure/rack,
+/obj/item/shield/roman/red,
+/turf/open/floor/eighties/red,
+/area/awaymission/beach/circus_day/no_light)
 "dQ" = (
 /obj/structure/table/wood/fancy/blue,
 /obj/effect/spawner/random/food_or_drink,
@@ -6323,6 +6328,11 @@
 	dir = 8
 	},
 /turf/open/misc/asteroid/basalt,
+/area/awaymission/beach/circus_day/no_light)
+"Ye" = (
+/obj/structure/rack,
+/obj/item/shield/roman/blue,
+/turf/open/floor/eighties,
 /area/awaymission/beach/circus_day/no_light)
 "Yf" = (
 /obj/structure/fence,
@@ -43697,7 +43707,7 @@ RT
 qV
 xO
 xO
-uO
+dP
 Pu
 QB
 QB
@@ -50636,7 +50646,7 @@ rz
 qV
 XC
 XC
-Ww
+Ye
 Pu
 QB
 QB

@@ -99,7 +99,7 @@
 
 /obj/effect/mob_spawn/corpse/human/Heavy_minigunner
 	name = "\improper Heavy Minigunner Corpse"
-	outfit = /datum/outfit/nanotrasenelitesoldiercorpse
+	outfit = /datum/outfit/Heavy_minigunner
 	hairstyle = "Bald"
 	facial_hairstyle = "Shaved"
 
