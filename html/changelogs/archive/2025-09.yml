@@ -788,3 +788,14 @@
   - balance: a ushanka no longer can protect brainy as much as a metal helmet
   timothymtorres:
   - bugfix: Fix blink animation for eyes with no eyelids
+2025-09-22:
+  Hatterhat:
+  - balance: As a cost-cutting measure, new manufacturing specs for shotgun slugs
+      in-sector came with reduced powder loads and adjusted metallurgic techniques,
+      reducing their armor penetration capabilities (10, down from 30). Scarborough
+      Arms's hot-loaded, "mil-spec" shells are unaffected.
+  MintMetal:
+  - bugfix: Issues on film studio is now fixed
+  intense-skies:
+  - rscadd: Added new quirk 'Abnormal Body Temperature' for added uniqueness.
+  - qol: Made Adapted Lungs quirk into a neutral pick, allowing more broad customization
