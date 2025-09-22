@@ -126,7 +126,7 @@
 /obj/item/minigunpack/weaker
 	name = "backpack power source"
 	desc = "The massive external power source for the laser gatling gun."
-	gun = /obj/item/gun/energy/minigun/weaker/gun
+	gun = /obj/item/gun/energy/minigun/weaker
 
 /obj/item/gun/energy/minigun/weaker
 	projectile_damage_multiplier = 0.5

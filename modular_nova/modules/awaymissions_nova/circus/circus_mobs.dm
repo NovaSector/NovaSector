@@ -78,7 +78,7 @@
 	name = "Deranged Assistant"
 	desc = "Your average grey shirt assistant"
 
-/mob/living/basic/trooper/the_victor
+/mob/living/basic/trooper/nanotrasen/ranged/the_victor
 	name = "The Victor"
 	desc = "They used their know-how of laser weaponry to become the ultimate victor of laser tag..."
 	maxHealth = 1500
