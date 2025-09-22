@@ -6,7 +6,7 @@
 		It has a yellow radioactive warning, minor radiation posibility. Do not store tomatos nearby."
 	icon = 'modular_nova/modules/colony_fabricator/icons/machines.dmi'
 	circuit = null
-	power_gen = 10 KILO WATTS // same as a Plastitanium Solar or winded turbine, 
+	power_gen = 12 KILO WATTS // 20% more than a t4 solar or winded turbine.
 	max_integrity = 40
 	/// What we turn into when we are repacked
 	var/repacked_type = /obj/item/flatpacked_machine/rtg
@@ -14,7 +14,7 @@
 /obj/machinery/power/rtg/portable/Initialize(mapload)
 	. = ..()
 	AddElement(/datum/element/repackable, repacked_type, 2 SECONDS)
-	AddElement(/datum/element/radioactive, 1, RAD_LIGHT_INSULATION, URANIUM_IRRADIATION_CHANCE * 0.5, URANIUM_RADIATION_MINIMUM_EXPOSURE_TIME * 5)
+	AddElement(/datum/element/radioactive, 1, RAD_LIGHT_INSULATION, URANIUM_IRRADIATION_CHANCE * 0.5, URANIUM_RADIATION_MINIMUM_EXPOSURE_TIME * 7)
 	AddElement(/datum/element/manufacturer_examine, COMPANY_FRONTIER)
 	if(!mapload)
 		flick("rtg_deploy", src)

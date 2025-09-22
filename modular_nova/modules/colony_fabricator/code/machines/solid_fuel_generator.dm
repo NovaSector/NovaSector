@@ -43,8 +43,8 @@
 	. = ..()
 	if(active)
 		var/turf/where_we_spawn_air = get_turf(src)
-		where_we_spawn_air.atmos_spawn_air("water_vapor=9;TEMP=840") // Mid-range steam output temp for nuclear reactors is around 520C or 840K
-		where_we_spawn_air.atmos_spawn_air("helium=1;TEMP=840") // Advanced fission decay of Krypton and Xenon, short lived isotopes of nuclear fission reactions.
+		where_we_spawn_air.atmos_spawn_air("water_vapor=9;TEMP=400") 
+		where_we_spawn_air.atmos_spawn_air("helium=1;TEMP=400")
 
 // Item for creating the generator or carrying it around
 
