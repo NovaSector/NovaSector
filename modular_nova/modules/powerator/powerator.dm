@@ -81,10 +81,7 @@
 	var/credits_made = 0
 
 	/// What account is assigned to this?
-	var/credits_account_1 = ACCOUNT_ENG
-
-	/// What second account is assigned (IF THERE IS ONE, otherwise use null)
-	var/credits_account_2 = null
+	var/credits_account = ACCOUNT_ENG
 	
 	/// Percent of tax we deduct from people using the powerator, allowing easy adjustment for VV admins.
 	var/tax = 20
@@ -178,16 +175,10 @@
 
 	attached_cable.add_delayedload(current_power * NOVA_POWER_MULTI) //we do this because both add_load and add_delayedload half the power and confuses players.
 
-	///split it in half for chosen departments if there is more than one
-	var/datum/bank_account/primary_account = SSeconomy.get_dep_account(credits_account_1)
+	var/datum/bank_account/primary_account = SSeconomy.get_dep_account(credits_account)
 	var/money_ratio = round(current_power * (1/divide_ratio) * ((100-tax) / 100))
-	// cut in half if we have a second account
-	if(credits_account_2)
-		money_ratio *= 0.5
-		var/datum/bank_account/secondary_account = SSeconomy.get_dep_account(credits_account_2)
-		secondary_account.adjust_money(money_ratio)
 	primary_account.adjust_money(money_ratio)
-	credits_made += money_ratio  //don't want to be misleading, but just display what half each departments get and not the total
+	credits_made += money_ratio 
 
 /obj/machinery/powerator/attack_hand(mob/living/user, list/modifiers)
 	. = ..()
@@ -259,8 +250,7 @@
 // This produces 25 per 2 seconds, no tax, so around 12 per second.
 /obj/machinery/powerator/syndicate
 	name = "\improper Syndicate Powerator"
-	credits_account_1 = ACCOUNT_DS2
-	credits_account_2 = null
+	credits_account = ACCOUNT_DS2
 	power_cap = 2500 KILO WATTS
 	divide_ratio = 100 KILO WATTS
 	tax = 0
@@ -270,8 +260,7 @@
 // This produces 25 per 2 seconds, taxed to 22-23, which gives us 11 per second.
 /obj/machinery/powerator/interdyne
 	name = "\improper Interdyne Powerator"
-	credits_account_1 = ACCOUNT_INT
-	credits_account_2 = null
+	credits_account = ACCOUNT_INT
 	power_cap = 1000 KILO WATTS
 	divide_ratio = 40 KILO WATTS
 	tax = 10
@@ -281,8 +270,7 @@
 // This produces 40 per 2 seconds, taxed to 28, which gives us 14 per second.
 /obj/machinery/powerator/tarkon
 	name = "\improper Tarkon Powerator"
-	credits_account_1 = ACCOUNT_TI
-	credits_account_2 = null
+	credits_account = ACCOUNT_TI
 	power_cap = 6000 KILO WATTS
 	divide_ratio = 150 KILO WATTS
 	tax = 30
