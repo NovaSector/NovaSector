@@ -681,6 +681,91 @@
   - qol: 'Taur laying recovery: 2 secs -> 1 sec'
   - bugfix: Being ahealed should no longer glitch out saddlebags
 2025-09-21:
+  Aliceee2ch:
+  - bugfix: Removed rogue decal in DeltaStation garden
+  - bugfix: Fixed meson and thermal view action for cyborgs
+  - bugfix: You can't eject infinite toner from cyborg decal painter anymore.
+  - rscdel: Removed now unused cyborg meson and thermal goggles items.
+  - bugfix: Added missing insulated gloves in WawaStation tech storage
+  - map: Remapped gateway museum area.
+  - bugfix: Added missing RD computer in RD office (Catwalk)
+  - map: Replaced one of RND consoles on bridge with RD computer (Catwalk)
+  AyIong:
+  - qol: Chat tabs are scrollable now (with your mouse wheel yeah) if they are too
+      much or your screen resolution sucks
+  Ezel:
+  - map: makes psychology office in metastation feel a little more open
+  Ghommie:
+  - bugfix: Shivs cannot be erroneously crafted via crafting menu anymore. That'd
+      cause you to get a generic glass shiv if you were to use sturdier shards like
+      plasma or titanium.
+  - rscdel: Removed the recipe for cable handcuffs from the crafting menu.
+  - bugfix: Fixed some recipes taking too long to make.
+  - bugfix: You can once again craft custom material stuff like carving blocks and
+      toilets made of sand once again.
+  - qol: The direction of your character changes when moving inside a cardboard box.
+  Happyowl93:
+  - rscadd: Added document stamp for Port Tarkon
+  - qol: Tarkon Industries fax is now visible in NT fax network
+  - map: added stamp to command office in Port Tarkon.
+  Hatterhat:
+  - balance: General ammo boxes (not speedloaders, not stripper clips) can no longer
+      multiload into currently loaded magazines (revolver cylinders, internal magazines).
+  - balance: Speedloaders are now a separate type from ammo boxes, and can only multiload
+      into currently loaded magazines e.g. revolver cylinders.
+  - qol: Ammo boxes, magazines, and speedloaders now have fancier types for spawning
+      in by admins.
+  - rscadd: .35 Sol Short and .585 Trappiste speedloaders are now buyable through
+      Cargo.
+  - bugfix: Lava no longer slows you down while running on heatproof catwalks. Also,
+      heatproof support lattices are heatproof catwalks now, which is more accurate
+      to their sprites.
+  Melbert:
+  - bugfix: Honorifics will no longer interfere with voice detectors and similar things
+  - spellcheck: Replaced ooc ic in RCD, RPLD, and alien power feedback
+  - code_imp: Removed some redundant code from core hearing code. Report if you hear
+      anything weird.
+  Pink-MB:
+  - bugfix: Intercomms work for Cyborgs
+  RealWinterFrost:
+  - map: Reduced the various ghost roles powerators from 3 > 1.
+  - image: Changed the ghost console sales pads so its more visually distinct from
+      the regular civilian pads.
+  - spellcheck: Fixed some wording, grammer, and descriptions of the various ghost
+      role machines
+  - refactor: Resubtyped the various ghost machines from subtyping from interdyne
+      to a dedicated ghost console.
+  - map: Imported a few new dorms choices from Splurt-Station (Dragon's Lair, Fortune
+      Teller, Mountainside, Skyscraper)
+  - qol: Quality of life improvement for anyone making a new dorm, added a new 'condos'
+      sprite to avoid any visual confusion with 'hilberthotel'
+  SmArtKar:
+  - refactor: Refactors immerse element to use alpha filters instead of static overlays.
+      It should look much prettier now.
+  - refactor: Refactored filters to utilize binary insertion instead of timSort. The
+      server should run somewhat faster now, hopefully.
+  SyncIt21:
+  - qol: ' Multitooling a pod door controller now picks from a list of doors available
+      for that player(crafted, set via controller) only and can auto generate new
+      IDs for you'
+  - bugfix: no BSOD when clicking table row buttons in controller overview window
+  Y0SH1M4S73R:
+  - bugfix: You no longer need 40 welding fuel to start welding or unwelding shuttle
+      engines, despite only consuming 1.
+  - bugfix: Shuttle engines constructed from anchored machine frames start in the
+      wrenched-but-unwelded state.
+  - bugfix: Expanding custom shuttles from shuttle frames is once again possible without
+      href exploitation.
+  - bugfix: Shuttle expansion now correctly checks for other shuttle docking ports
+      the expanded shuttle's footprint would encroach upon.
+  - qol: Tries to make some of the buttons in the custom shuttle UI more indicative
+      of what they actually do.
+  YakiAttaki:
+  - rscadd: Added the ability to pick up stoats
+  - rscadd: Stoats can now breed!
+  - rscadd: Baby stoat mobs are now a thing. Aww, so cute!
+  Yobrocharlie:
+  - rscadd: Added the Lahti-L39 rifle
   carpotoxin:
   - balance: Energy katana dash recharge rate is down from 350 to 200
   - balance: To headhunt better, the Space Ninja has gotten a crew pinpointer
@@ -688,3 +773,18 @@
       selection
   - bugfix: Fixes the Space Ninja's head hunter objective rolling too often
   - bugfix: Fixes the Space Ninja's MODsuit sometimes gibbing the ninja
+  - balance: Changes to the armor values of the Bloodred, Elite, and Contractor MODsuits
+      have been made!
+  lelandkemble:
+  - spellcheck: Changed det hat candy corn text to more neutral language
+  - bugfix: Apcs will no longer bluescreen without a screen
+  - map: Moved one RPD from atmos to engi on Nebula
+  - bugfix: Locked reflector boxes no longer repeat "can't rotate" forever
+  loganuk:
+  - bugfix: Fixes unable to place power cables on reinforced catwalk in Lavaland
+  - bugfix: Allows health analysers to scan Cyborg MMIs and show a brain (or not)
+  theselfish:
+  - spellcheck: HDD has been properly capitalised in the server robbery thing.
+  - balance: a ushanka no longer can protect brainy as much as a metal helmet
+  timothymtorres:
+  - bugfix: Fix blink animation for eyes with no eyelids
