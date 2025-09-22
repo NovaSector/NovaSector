@@ -20,8 +20,8 @@
 	icon_state = /obj/item/gun/ballistic/revolver/badass/nuclear::icon_state
 	set_items = list(
 		/obj/item/gun/ballistic/revolver/badass/nuclear,
-		/obj/item/ammo_box/a357,
-		/obj/item/ammo_box/a357,
+		/obj/item/ammo_box/speedloader/c357,
+		/obj/item/ammo_box/speedloader/c357,
 	)
 
 /datum/voucher_set/traitor/primary_weapon/stechkin

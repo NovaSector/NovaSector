@@ -942,7 +942,7 @@ const FunActions = () => {
               unit="Range"
               value={expPower}
               stepPixelSize={15}
-              onDrag={(e, value) => setExpPower(value)}
+              onChange={(e, value) => setExpPower(value)}
               ranges={{
                 green: [0, 8],
                 orange: [8, 15],
@@ -1027,7 +1027,7 @@ const FunActions = () => {
                     // align="center"
                     step={1}
                     stepPixelSize={25}
-                    onDrag={(value) => setNarrateSize(value)}
+                    onChange={(value) => setNarrateSize(value)}
                   />
                 </LabeledList.Item>
                 {!narrateGlobal && (
@@ -1041,7 +1041,7 @@ const FunActions = () => {
                       step={1}
                       // align="center"
                       stepPixelSize={25}
-                      onDrag={(value) => setNarrateRange(value)}
+                      onChange={(value) => setNarrateRange(value)}
                     />
                   </LabeledList.Item>
                 )}
