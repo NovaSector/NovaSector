@@ -210,3 +210,10 @@
 	. = ..()
 	if(current_inhand_icon_state == initial(current_inhand_icon_state)) // don't alter retool kit appearance
 		inhand_icon_state = initial(inhand_icon_state) // get rid of the '0' or '1' at the end
+
+// Prevents cheesing the point of the claw with parrying.
+/datum/component/parriable_projectile/on_turf_click(turf/source, atom/location, control, list/params, mob/user)
+	var/obj/projectile/proj_parent = parent
+	if(istype(proj_parent.fired_from, /obj/item/kinetic_crusher/claw))
+		return
+	. = ..()
