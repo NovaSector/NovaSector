@@ -8,6 +8,12 @@
 	name = "Cyborg charger"
 	default_raw_text = "Dont worry for any of or silicon friends out there, here is a recharger."
 
+//walls n floor and structures and stuff.
+
+/turf/open/lava/incinerator
+	name = "Incineration lava"
+	desc = "So this is how this circus gets rid of their trash and keep things so clean"
+
 /turf/closed/indestructible/bananium
 	name = "silly wall"
 	desc = "Effectively impervious to conventional methods of honking."
@@ -29,6 +35,8 @@
 	faction = "clown"
 	alpha = 100 //initially quite hidden when not "recharging"
 
+//end of structures beginning of boingos lost stuff
+
 /obj/item/bikehorn/golden/boingos_lost_horn
 	name = "boingos lost bike horn"
 	desc = "it seems to be made out of bananium"
@@ -45,6 +53,22 @@
 /obj/item/toy/figure/clown/boingos_action_figure
 	name = "Boingos action figure"
 	desc = "An old figurine of a clown"
+
+//end of boingos lost items, beginning of the red/blue laser tag miniguns.
+
+/obj/item/gun/energy/minigun/red
+	name = "Red team laser minigun"
+	desc = "Not a real laser minigun- but one meant for laser tag"
+	ammo_type = list(/obj/item/ammo_casing/energy/laser/redtag)
+	gun_flags = NOT_A_REAL_GUN
+	selfcharge = TRUE
+
+/obj/item/gun/energy/minigun/blue
+	name = "Blue team laser minigun"
+	desc = "Not a real laser minigun- but one meant for laser tag"
+	ammo_type = list(/obj/item/ammo_casing/energy/laser/bluetag)
+	gun_flags = NOT_A_REAL_GUN
+	selfcharge = TRUE
 
 /obj/structure/trap/cult/honkmother/trap_effect(mob/living/victim)
 	to_chat(victim, span_bolddanger("With a crack, a clown and something else emerge from a small yellow portal with lightning shooting off of the portals,shocking you!"))
