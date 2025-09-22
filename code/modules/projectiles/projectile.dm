@@ -8,6 +8,7 @@
 	name = "projectile"
 	icon = 'icons/obj/weapons/guns/projectiles.dmi'
 	icon_state = "bullet"
+	abstract_type = /obj/projectile
 	density = FALSE
 	anchored = TRUE
 	mouse_opacity = MOUSE_OPACITY_TRANSPARENT
@@ -1278,6 +1279,11 @@
 				break
 			source_loc = new_loc
 		pixel_y = pixel_y % (ICON_SIZE_X / 2)
+
+	// We've got moved by turf offsets
+	if (starting != source_loc)
+		starting = source_loc
+		forceMove(source_loc)
 
 	if(length(modifiers))
 		var/list/calculated = calculate_projectile_angle_and_pixel_offsets(source, target_loc && target, modifiers)

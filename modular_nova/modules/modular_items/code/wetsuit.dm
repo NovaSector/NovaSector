@@ -1,5 +1,5 @@
 /obj/item/clothing/under/akula_wetsuit/refit
-	name = "\improper Refitted Shoredress wetsuit"
+	name = "refitted Shoredress wetsuit"
 	desc = "The 'Wetworks'-pattern Shoredress is a long-standing template upon which most Azulean 'wetsuits' are made. \
 		This atmospheric exploration suit is a single form-fitting garment, designed to keep wearers comfortable in the harsh environment of dry land; \
 		even sometimes worn underneath orbital suits such as MODs. \n\n\

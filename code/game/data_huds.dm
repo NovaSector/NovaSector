@@ -262,18 +262,21 @@ Security HUDs! Basic mode shows only the job.
 
 //HOOKS
 
-/mob/living/carbon/human/proc/sec_hud_set_ID()
+/mob/living/carbon/human/proc/update_ID_card()
+	SIGNAL_HANDLER
+
 	var/sechud_icon_state = wear_id?.get_sechud_job_icon_state()
-	if(!sechud_icon_state || HAS_TRAIT(src, TRAIT_UNKNOWN))
+	if(!sechud_icon_state || HAS_TRAIT(src, TRAIT_UNKNOWN_APPEARANCE))
 		sechud_icon_state = "hudno_id"
 	set_hud_image_state(ID_HUD, sechud_icon_state)
 	sec_hud_set_security_status()
-	//NOVA EDIT START
+	//NOVA EDIT ADDITION START
 	var/permit_icon_state = wear_id?.get_gun_permit_iconstate()
 	if(!permit_icon_state)
 		permit_icon_state = "hudfan_no"
 	set_hud_image_state(PERMIT_HUD, permit_icon_state)
-	//NOVA EDIT END
+	//NOVA EDIT ADDITION END
+	update_visible_name()
 
 /mob/living/proc/sec_hud_set_implants()
 	for(var/hud_type in (list(IMPSEC_FIRST_HUD, IMPLOYAL_HUD, IMPSEC_SECOND_HUD) & hud_list))

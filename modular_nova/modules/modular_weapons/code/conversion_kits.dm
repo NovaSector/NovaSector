@@ -38,11 +38,11 @@
 		/obj/item/crafting_conversion_kit/mosin_pro = 1
 	)
 	steps = list(
-		"Empty the rifle",
+		"Empty the magazine",
 		"Leave the bolt open"
 	)
 	tool_behaviors = list(TOOL_SCREWDRIVER)
-	time = 30 SECONDS
+	time = 15 SECONDS
 	category = CAT_WEAPON_RANGED
 
 /datum/crafting_recipe/mosin_pro/New()

@@ -1,6 +1,7 @@
 GLOBAL_LIST_INIT(nova_special_firearms, list(
 	/obj/item/storage/toolbox/guncase/nova/carwo_large_case/thunderdome_kiboko,
 	/obj/item/storage/toolbox/guncase/nova/carwo_large_case/thunderdome_kiboko/evil,
+	/obj/item/storage/toolbox/guncase/nova/boarder,
 	/obj/item/gun/ballistic/automatic/sol_rifle,
 	/obj/item/gun/ballistic/automatic/sol_rifle/evil,
 	/obj/item/gun/ballistic/automatic/sol_rifle/marksman,
@@ -8,7 +9,7 @@ GLOBAL_LIST_INIT(nova_special_firearms, list(
 	/obj/item/gun/ballistic/automatic/sol_rifle/machinegun,
 	/obj/item/gun/ballistic/shotgun/riot/sol/thunderdome,
 	/obj/item/gun/ballistic/shotgun/riot/sol/evil/thunderdome,
-	/obj/item/gun/ballistic/shotgun/riot/sol/super,
+	/obj/item/gun/ballistic/shotgun/riot/sol/super/plus,
 	/obj/item/gun/ballistic/automatic/sol_smg,
 	/obj/item/gun/ballistic/automatic/sol_smg/evil,
 	/obj/item/gun/energy/modular_laser_rifle,

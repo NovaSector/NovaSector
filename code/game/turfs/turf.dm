@@ -3,6 +3,7 @@ GLOBAL_LIST_EMPTY(station_turfs)
 /// Any floor or wall. What makes up the station and the rest of the map.
 /turf
 	icon = 'icons/turf/floors.dmi'
+	abstract_type = /turf
 	datum_flags = DF_STATIC_OBJECT
 	vis_flags = VIS_INHERIT_ID // Important for interaction with and visualization of openspace.
 	luminosity = 1
@@ -822,7 +823,7 @@ GLOBAL_LIST_EMPTY(station_turfs)
 
 /turf/proc/add_fishing_spot_comp(datum/source, obj/item/fishing_rod/rod, mob/user)
 	SIGNAL_HANDLER
-	var/datum/component/fishing_spot/spot = source.AddComponent(/datum/component/fishing_spot, fish_source)
+	var/datum/component/fishing_spot/spot = source.AddComponent(/datum/component/fishing_spot, GLOB.preset_fish_sources[fish_source])
 	remove_lazy_fishing()
 	return spot.handle_cast(arglist(args))
 

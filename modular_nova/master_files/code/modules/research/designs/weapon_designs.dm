@@ -7,7 +7,7 @@
 		/datum/material/iron = HALF_SHEET_MATERIAL_AMOUNT * 10,
 		/datum/material/uranium = HALF_SHEET_MATERIAL_AMOUNT * 3,
 	)
-	build_path = /obj/item/ammo_box/c38/haywire
+	build_path = /obj/item/ammo_box/speedloader/c38/haywire
 	category = list(
 		RND_CATEGORY_WEAPONS + RND_SUBCATEGORY_WEAPONS_AMMO,
 	)

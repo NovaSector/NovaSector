@@ -10,6 +10,7 @@
 
 	caliber = CALIBER_585TRAPPISTE
 	projectile_type = /obj/projectile/bullet/c585trappiste
+	ammo_stack_type = /obj/item/ammo_box/magazine/ammo_stack/c585_trappiste
 
 /obj/projectile/bullet/c585trappiste
 	name = ".585 Trappiste bullet"
@@ -41,7 +42,6 @@
 
 	projectile_type = /obj/projectile/bullet/c585trappiste/incapacitator
 	ammo_categories = AMMO_CLASS_NONE
-	print_cost = 0
 	harmful = FALSE
 
 /obj/projectile/bullet/c585trappiste/incapacitator
@@ -75,7 +75,6 @@
 
 	ammo_categories = AMMO_CLASS_NICHE
 	custom_materials = AMMO_MATS_TEMP
-	print_cost = 2
 
 /obj/projectile/bullet/c585trappiste/incendiary
 	name = ".585 Trappiste incendiary bullet"
@@ -100,3 +99,14 @@
 	icon_state = "585box_hot"
 
 	ammo_type = /obj/item/ammo_casing/c585trappiste/incendiary
+
+/obj/item/ammo_box/speedloader/c585trappiste
+	name = "speed loader (.585 Trappiste)"
+	desc = "Designed to quickly reload six-chamber .585 Trappiste revolvers."
+	icon = 'modular_nova/modules/modular_weapons/icons/obj/company_and_or_faction_based/trappiste_fabriek/ammo.dmi'
+	icon_state = "sl585t"
+	ammo_type = /obj/item/ammo_casing/c585trappiste
+	max_ammo = 6
+	caliber = CALIBER_585TRAPPISTE
+	ammo_band_icon = "+sl585_band"
+	ammo_band_color = null

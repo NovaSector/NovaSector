@@ -9,6 +9,7 @@
 	var/acts_as_if_wielded
 	/// This var is used by retool kits when changing the crusher's projectile appearance
 	var/projectile_icon_file = 'icons/obj/weapons/guns/projectiles.dmi'
+	block_sound = 'sound/items/weapons/parry.ogg' //Added this for cases for the machete or adding the Marked One's trophy to the crusher variants.
 
 /obj/item/kinetic_crusher/machete
 	icon = 'modular_nova/modules/mining_crushers/icons/items_and_weapons.dmi'
@@ -22,6 +23,7 @@
 	desc = "Recent breakthroughs with proto-kinetic technology have led to improved designs for the early proto-kinetic crusher, namely the ability to pack all \
 		the same technology into a smaller more portable package. The machete design was chosen as to make a much easier to handle and less cumbersome frame. Of course \
 		the smaller package means that the power is not as high as the original crusher design, but the different shell makes it capable of blocking basic attacks."
+	force = 10
 	force_wielded = 15
 	block_chance = 15
 	slot_flags = ITEM_SLOT_BELT
@@ -53,6 +55,10 @@
 		speed = 4 SECONDS, \
 		effectiveness = 150, \
 	)
+/obj/item/kinetic_crusher/machete/update_wielding()
+	// Component that handles special behaviour for force differences between wielding and unwielding
+	AddComponent(/datum/component/two_handed, force_unwielded = 10, force_wielded = 15) // If you happen to sharpen the machete, you will increase its sharpness but until you wield it, you will not get the force values applied (consequence of one-handed use).
+
 /obj/item/kinetic_crusher/machete/update_icon_state()
 	. = ..()
 	if(current_inhand_icon_state == initial(current_inhand_icon_state)) // don't alter retool kit appearance

@@ -7,6 +7,7 @@
 	inhand_icon_state = null
 	body_parts_covered = NECK
 	slot_flags = ITEM_SLOT_NECK
+	obj_flags_nova = ERP_ITEM
 	w_class = WEIGHT_CLASS_SMALL
 	strip_delay = 60
 	obj_flags = parent_type::obj_flags | UNIQUE_RENAME

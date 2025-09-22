@@ -423,6 +423,7 @@
 	icon = 'modular_nova/modules/borgs/icons/robot_items.dmi'
 	icon_state = "module_lust"
 	custom_price = 0
+	obj_flags_nova = ERP_ITEM
 
 /obj/item/borg/upgrade/dominatrixmodule/action(mob/living/silicon/robot/borg)
 	. = ..()
