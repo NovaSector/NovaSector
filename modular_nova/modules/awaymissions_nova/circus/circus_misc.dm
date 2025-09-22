@@ -127,7 +127,7 @@
 	name = "random funny spawn"
 	desc = "Spawns a random clown or item intended for the secret clown gambling."
 	loot = list(
-		/obj/effect/spawner/random/clown_loot/rare_stuff = 1,//spawns the really rare clown stuff
+		/obj/effect/spawner/random/rare_clown_loot = 1,//spawns the really rare clown stuff
 		/obj/effect/spawner/random/clown_loot_medium = 60,//spawns the more mediocre clown stuff- still some good stuff though
 		/obj/effect/spawner/random/clown_food_loot = 20,//mostly food and consumables
 		/obj/effect/spawner/random/clown_loot_hostile = 19,//odds of you getting a monster spawned on you
@@ -189,7 +189,7 @@
 		/obj/item/sticker/clown = 10,
 	)
 
-/obj/effect/spawner/random/rare_stuff//im 99% sure that theres an upper limit on how many things can spawn from one spawner so here is this work around
+/obj/effect/spawner/random/rare_clown_loot//im 99% sure that theres an upper limit on how many things can spawn from one spawner so here is this work around
 	name = "random funny rare spawn"
 	desc = "Spawns a random rare item from the clown loot pool, DO. NOT. PUT. ON. STATION. MAPS."
 	loot = list(
