@@ -77,7 +77,7 @@
 		/obj/item/knife/combat = 1,
 		/obj/item/grenade/smokebomb = 1,
 		/obj/item/grenade/flashbang = 1,
-	),src)
+	), src)
 
 /obj/item/storage/box/nri_survival_pack/inspector
 	w_class = WEIGHT_CLASS_SMALL

@@ -5,6 +5,7 @@
 	show_in_antagpanel = FALSE
 	show_to_ghosts = TRUE
 	suicide_cry = "I don't want to die!!"
+	///Ship crew datum to keep track of all the players.
 	var/datum/team/ship_crew/team
 
 /datum/antagonist/ship_crew/greet()
@@ -40,7 +41,7 @@
 /datum/team/ship_crew
 	name = "\improper Ship Crew"
 
-	/// Creates and assigns the primary mission objective to all ship crew members.
+/// Creates and assigns the primary mission objective to all ship crew members.
 /datum/team/ship_crew/proc/forge_objectives()
 	var/datum/objective/mission/primary_mission = new()
 	primary_mission.team = src

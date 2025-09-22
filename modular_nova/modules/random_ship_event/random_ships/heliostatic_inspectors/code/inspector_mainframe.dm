@@ -140,17 +140,35 @@
 
 	switch(choice)
 		if("Status Marble")
-			set_alert_level("Status Marble", "STANDBY/ADMINISTRATIVE. The patrol is in a secure, non-hostile environment. This includes being docked at a Coalition-controlled starbase, in transit through fully secured Coalition space, or undergoing maintenance and resupply in a friendly port. The threat of hostile action is assessed as negligible. All personal weapons are to be secured in the armory. Ship-based defensive systems may be powered down to standby mode to conserve energy.", user)
+			set_alert_level("Status Marble", "STANDBY/ADMINISTRATIVE. The patrol is in a secure, non-hostile environment. This includes being docked \
+			at a Coalition-controlled starbase, in transit through fully secured Coalition space, or undergoing maintenance and resupply in a friendly port. \
+			The threat of hostile action is assessed as negligible. All personal weapons are to be secured in the armory. \
+			Ship-based defensive systems may be powered down to standby mode to conserve energy.", user)
 		if("Status Silver")
-			set_alert_level("Status Silver", "ROUTINE PATROL/STANDARD INSPECTION. The patrol is approaching or has begun initial interactions with a non-Coalition facility under Standard Inspection Protocols. The facility is presumed compliant but not yet trusted. All personal weapons are to be holstered but authorized for immediate draw. Weapon safeties may be disengaged at the individual officer's discretion based on perceived threat. Ship defensive systems are active and scanning.", user)
+			set_alert_level("Status Silver", "ROUTINE PATROL/STANDARD INSPECTION. The patrol is approaching or has begun initial interactions with a non-Coalition \
+			facility under Standard Inspection Protocols. The facility is presumed compliant but not yet trusted. \
+			All personal weapons are to be holstered but authorized for immediate draw. Weapon safeties may be disengaged at the individual officer's discretion \
+			based on perceived threat. Ship defensive systems are active and scanning.", user)
 		if("Status Cobalt")
-			set_alert_level("Status Cobalt", "ELEVATED THREAT/VIOLATION OF PROTOCOL. One or more Standard Procedures have been violated, or anomalous but not yet overtly hostile activity is detected. All personnel must draw weapons and hold them at low-ready. Ship thrusters are to be kept spooled for immediate maneuver. Defensive shields are raised to tactical strength. High alert. Inspection may be halted and teams recalled to the ship or ordered to hold position and fortify.", user)
+			set_alert_level("Status Cobalt", "ELEVATED THREAT/VIOLATION OF PROTOCOL. One or more Standard Procedures have been violated, or anomalous but not yet \
+			overtly hostile activity is detected. All personnel must draw weapons and hold them at low-ready. \
+			Ship thrusters are to be kept spooled for immediate maneuver. Defensive shields are raised to tactical strength. High alert. Inspection may be \
+			halted and teams recalled to the ship or ordered to hold position and fortify.", user)
 		if("Status Pearl")
-			set_alert_level("Status Pearl", "HOSTILE INTENT CONFIRMED. Direct, unambiguous evidence of hostile intent has been identified. This includes weapon discharge towards patrol personnel, attempted boarding of the patrol vessel, active targeting by a Bluespace Artillery Cannon, or a declared threat against the patrol. Weapons free. All defensive systems are at full power. The ship is to maneuver to a tactical advantage. All personnel to battle stations. Preemptive self-defense protocols are authorized.", user)
+			set_alert_level("Status Pearl", "HOSTILE INTENT CONFIRMED. Direct, unambiguous evidence of hostile intent has been identified. This includes weapon discharge \
+			towards patrol personnel, attempted boarding of the patrol vessel, active targeting by a Bluespace Artillery Cannon, or a declared threat against the \
+			patrol. Weapons free. All defensive systems are at full power. The ship is to maneuver to a tactical advantage. \
+			All personnel to battle stations. Preemptive self-defense protocols are authorized.", user)
 		if("Status Onyx")
-			set_alert_level("Status Onyx", "SUSTAINED COMBAT OPERATIONS. The patrol is engaged in a full-scale battle. Escape may not be immediately possible, and the patrol must fight its way out. Total warfare. All weapons and systems are to be used to their maximum effectiveness. Damage control teams are active. The focus is on neutralizing targets of opportunity and creating an opening for extraction. The primary objective is to neutralize all threats to the patrol to allow for extraction.", user)
+			set_alert_level("Status Onyx", "SUSTAINED COMBAT OPERATIONS. The patrol is engaged in a full-scale battle. Escape may not be immediately possible, \
+			and the patrol must fight its way out. Total warfare. All weapons and systems are to be used to their maximum effectiveness. \
+			Damage control teams are active. The focus is on neutralizing targets of opportunity and creating an opening for extraction. \
+			The primary objective is to neutralize all threats to the patrol to allow for extraction.", user)
 		if("Status Obsidian")
-			set_alert_level("Status Obsidian", "BROKEN ARROW/DENIAL OF ASSETS. The patrol vessel is irrecoverably compromised, with capture or destruction imminent. The primary mission has failed. The new objective is to ensure that no Coalition personnel, technology, intelligence, or the vessel itself can be exploited by the enemy. All classified data, mission logs, and personnel records are to be purged from all systems. The crew is expected to fight until the vessel is destroyed or all hands are lost.", user)
+			set_alert_level("Status Obsidian", "BROKEN ARROW/DENIAL OF ASSETS. The patrol vessel is irrecoverably compromised, with capture or destruction \
+			imminent. The primary mission has failed. The new objective is to ensure that no Coalition personnel, technology, intelligence, or the vessel \
+			itself can be exploited by the enemy. All classified data, mission logs, and personnel records are to be purged from all systems. The crew \
+			is expected to fight until the vessel is destroyed or all hands are lost.", user)
 
 /// Sets the ship's alert level and notifies the crew via radio
 /obj/machinery/inspector_mainframe/proc/set_alert_level(level_name, level_description, mob/user)
