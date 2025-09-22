@@ -1,6 +1,5 @@
 
 #define TECHWEB_NODE_POWERATOR "powerator"
-#define NOVA_POWER_MULTI 2
 
 /obj/item/circuitboard/machine/powerator
 	name = "Powerator"
@@ -40,6 +39,8 @@
 	description = "We've been saved by it in the past, we should send some power ourselves!"
 	research_costs = list(TECHWEB_POINT_TYPE_GENERIC = TECHWEB_TIER_3_POINTS)
 	announce_channels = list(RADIO_CHANNEL_ENGINEERING)
+	hidden = TRUE
+	experimental = TRUE
 	prereq_ids = list(TECHWEB_NODE_PARTS_ADV)
 	design_ids = list(
 		"powerator",
@@ -147,7 +148,7 @@
 		add_overlay("cable")
 		return
 
-	if(!attached_cable.avail(current_power * NOVA_POWER_MULTI))
+	if(!attached_cable.avail(power_to_energy(current_power)))
 		add_overlay("power")
 		return
 
@@ -161,10 +162,10 @@
 	if(current_power < 0)
 		current_power = 0 //this is just for the fringe case, wouldn't want it to somehow produce power for money! unless...
 
-	if(!attached_cable.avail(current_power * NOVA_POWER_MULTI))
+	if(!attached_cable.avail(power_to_energy(current_power)))
 		if(!attached_cable.newavail())
 			return
-		current_power = attached_cable.newavail() / NOVA_POWER_MULTI
+		current_power = energy_to_power(attached_cable.newavail())
 
 	if (power_cap)
 		max_power = clamp(max_power, 0, power_cap)
@@ -173,7 +174,7 @@
 	if(current_power == 0)
 		return
 
-	attached_cable.add_delayedload(current_power * NOVA_POWER_MULTI) //we do this because both add_load and add_delayedload half the power and confuses players.
+	attached_cable.add_delayedload(power_to_energy(current_power))
 
 	var/datum/bank_account/primary_account = SSeconomy.get_dep_account(credits_account)
 	var/money_ratio = round(current_power * (1/divide_ratio) * ((100-tax) / 100))
@@ -278,4 +279,3 @@
 	circuit = /obj/item/circuitboard/machine/powerator/tarkon
 
 #undef TECHWEB_NODE_POWERATOR
-#undef NOVA_POWER_MULTI
