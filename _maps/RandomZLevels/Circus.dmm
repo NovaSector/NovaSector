@@ -449,7 +449,6 @@
 /turf/open/floor/mineral/bananium,
 /area/awaymission/beach/circus_day/no_light)
 "du" = (
-/obj/structure/grille,
 /obj/effect/spawner/structure/window/reinforced/indestructible,
 /turf/open/floor/wood,
 /area/awaymission/beach/circus_day/no_light)
@@ -567,7 +566,6 @@
 /area/awaymission/beach/circus_day)
 "eT" = (
 /obj/effect/spawner/structure/window/reinforced,
-/obj/structure/grille,
 /turf/open/floor/carpet,
 /area/awaymission/beach/circus_day/no_light)
 "eU" = (
@@ -1227,7 +1225,6 @@
 /area/awaymission/beach/circus_day)
 "kH" = (
 /obj/effect/spawner/structure/window/reinforced,
-/obj/structure/grille,
 /turf/open/floor/carpet/royalblack,
 /area/awaymission/beach/circus_day/no_light)
 "kI" = (
@@ -1932,12 +1929,6 @@
 	},
 /turf/open/indestructible/rockyground,
 /area/awaymission/beach/circus_day/no_light)
-"pU" = (
-/obj/effect/spawner/structure/window,
-/obj/structure/curtain/cloth,
-/obj/structure/grille,
-/turf/open/floor/plating,
-/area/awaymission/beach/circus_day)
 "pV" = (
 /obj/structure/rack,
 /obj/effect/spawner/random/food_or_drink/donkpockets,
@@ -3046,7 +3037,6 @@
 /area/awaymission/beach/circus_day)
 "yt" = (
 /obj/effect/spawner/structure/window/reinforced,
-/obj/structure/grille,
 /turf/open/floor/carpet/cyan,
 /area/awaymission/beach/circus_day/no_light)
 "yv" = (
@@ -3098,11 +3088,6 @@
 /obj/structure/fence/corner,
 /turf/open/indestructible/rockyground,
 /area/awaymission/beach/circus_day/no_light)
-"yM" = (
-/obj/effect/spawner/structure/window/reinforced,
-/obj/structure/grille,
-/turf/open/floor/plating,
-/area/awaymission/beach/circus_day)
 "yN" = (
 /obj/effect/spawner/random/entertainment/arcade,
 /turf/open/floor/eighties,
@@ -3222,7 +3207,6 @@
 /area/awaymission/beach/circus_day/no_light)
 "zE" = (
 /obj/effect/spawner/structure/window/reinforced,
-/obj/structure/grille,
 /turf/open/floor/carpet/green,
 /area/awaymission/beach/circus_day/no_light)
 "zF" = (
@@ -3284,7 +3268,6 @@
 "zZ" = (
 /obj/effect/spawner/structure/window,
 /obj/structure/curtain/cloth,
-/obj/structure/grille,
 /obj/effect/spawner/structure/window/reinforced/indestructible,
 /turf/open/floor/plating,
 /area/awaymission/beach/circus_day/no_light)
@@ -3452,7 +3435,6 @@
 /obj/machinery/door/poddoor/shutters/preopen{
 	name = "Criminal Shutters"
 	},
-/obj/structure/grille,
 /turf/open/floor/plating,
 /area/awaymission/beach/circus_day/no_light)
 "Bc" = (
@@ -4209,11 +4191,6 @@
 /obj/structure/billboard/nanotrasen,
 /turf/open/indestructible/rockyground,
 /area/awaymission/beach/circus_day)
-"Hh" = (
-/obj/effect/spawner/structure/window/reinforced,
-/obj/structure/grille,
-/turf/open/floor/plating,
-/area/awaymission/beach/circus_day/no_light)
 "Hi" = (
 /obj/structure/fence/corner{
 	dir = 8
@@ -4407,7 +4384,6 @@
 /area/awaymission/beach/circus_day/no_light)
 "Jb" = (
 /obj/effect/spawner/structure/window/reinforced,
-/obj/structure/grille,
 /turf/open/floor/iron,
 /area/awaymission/beach/circus_day/no_light)
 "Jc" = (
@@ -4481,7 +4457,6 @@
 /area/awaymission/beach/circus_day/no_light)
 "JG" = (
 /obj/effect/spawner/structure/window/reinforced,
-/obj/structure/grille,
 /turf/open/floor/stone,
 /area/awaymission/beach/circus_day/no_light)
 "JI" = (
@@ -4580,12 +4555,6 @@
 	},
 /turf/open/indestructible/rockyground,
 /area/awaymission/beach/circus_day)
-"Ks" = (
-/obj/effect/spawner/structure/window,
-/obj/structure/curtain/cloth,
-/obj/structure/grille,
-/turf/open/floor/plating,
-/area/awaymission/beach/circus_day/no_light)
 "Kt" = (
 /obj/machinery/gateway,
 /turf/open/floor/pod/dark,
@@ -4874,7 +4843,6 @@
 /area/awaymission/beach/circus_day/no_light)
 "MI" = (
 /obj/effect/spawner/structure/window/reinforced,
-/obj/structure/grille,
 /turf/open/floor/wood,
 /area/awaymission/beach/circus_day/no_light)
 "MK" = (
@@ -5627,7 +5595,6 @@
 /area/awaymission/beach/circus_day/no_light)
 "Sv" = (
 /obj/effect/spawner/structure/window/reinforced,
-/obj/structure/grille,
 /turf/open/floor/stone,
 /area/awaymission/beach/circus_day)
 "Sw" = (
@@ -10185,7 +10152,7 @@ fO
 fO
 fO
 fO
-yM
+yz
 OI
 tW
 tW
@@ -10315,7 +10282,7 @@ QB
 QB
 QB
 QB
-Hh
+hb
 qV
 Ud
 Ud
@@ -10441,8 +10408,8 @@ fO
 fO
 fO
 fO
-yM
-yM
+yz
+yz
 tW
 tW
 tW
@@ -10571,8 +10538,8 @@ QB
 QB
 QB
 QB
-Hh
-Hh
+hb
+hb
 Ud
 Ud
 Ud
@@ -10697,8 +10664,8 @@ fO
 fO
 fO
 fO
-yM
-yM
+yz
+yz
 tW
 tW
 tW
@@ -10827,8 +10794,8 @@ QB
 QB
 QB
 QB
-Hh
-Hh
+hb
+hb
 Ud
 Ud
 Ud
@@ -10953,8 +10920,8 @@ fO
 fO
 fO
 fO
-yM
-yM
+yz
+yz
 tW
 tW
 tW
@@ -11083,8 +11050,8 @@ QB
 QB
 QB
 QB
-Hh
-Hh
+hb
+hb
 Ud
 Ud
 Ud
@@ -11209,8 +11176,8 @@ fO
 fO
 fO
 fO
-yM
-yM
+yz
+yz
 tW
 tW
 tW
@@ -11339,8 +11306,8 @@ QB
 QB
 QB
 QB
-Hh
-Hh
+hb
+hb
 Ud
 Ud
 Ud
@@ -11465,8 +11432,8 @@ fO
 fO
 fO
 fO
-yM
-yM
+yz
+yz
 tW
 tW
 tW
@@ -11595,8 +11562,8 @@ QB
 QB
 QB
 QB
-Hh
-Hh
+hb
+hb
 Ud
 Ud
 Ud
@@ -11721,8 +11688,8 @@ fO
 fO
 fO
 fO
-yM
-yM
+yz
+yz
 tW
 tW
 tW
@@ -11851,8 +11818,8 @@ QB
 QB
 QB
 QB
-Hh
-Hh
+hb
+hb
 Ud
 Ud
 Ud
@@ -11977,8 +11944,8 @@ ZJ
 fO
 fO
 fO
-yM
-yM
+yz
+yz
 tW
 tW
 tW
@@ -12107,8 +12074,8 @@ Pu
 QB
 QB
 QB
-Hh
-Hh
+hb
+hb
 Ud
 Ud
 Ud
@@ -12233,8 +12200,8 @@ fO
 ZJ
 fO
 fO
-yM
-yM
+yz
+yz
 tW
 tW
 tW
@@ -12245,8 +12212,8 @@ tW
 tW
 tW
 tW
-yM
-yM
+yz
+yz
 fO
 Pr
 Pr
@@ -12363,8 +12330,8 @@ QB
 Pu
 QB
 QB
-Hh
-Hh
+hb
+hb
 Ud
 Ud
 Ud
@@ -12375,8 +12342,8 @@ Ud
 Ud
 Ud
 Ud
-Hh
-Hh
+hb
+hb
 QB
 Gl
 Gl
@@ -12490,7 +12457,7 @@ fO
 ZJ
 fO
 fO
-yM
+yz
 tW
 tW
 tW
@@ -12501,8 +12468,8 @@ tW
 tW
 tW
 tW
-yM
-yM
+yz
+yz
 fO
 fO
 fO
@@ -12620,7 +12587,7 @@ QB
 Pu
 QB
 QB
-Hh
+hb
 Ud
 Ud
 Ud
@@ -12631,8 +12598,8 @@ Ud
 Ud
 Ud
 Ud
-Hh
-Hh
+hb
+hb
 QB
 QB
 QB
@@ -12747,7 +12714,7 @@ fO
 ZJ
 fO
 fO
-yM
+yz
 tW
 tW
 tW
@@ -12758,7 +12725,7 @@ UY
 tW
 tW
 tW
-yM
+yz
 fO
 fO
 fO
@@ -12877,7 +12844,7 @@ QB
 Pu
 QB
 QB
-Hh
+hb
 Ud
 Ud
 Ud
@@ -12888,7 +12855,7 @@ wN
 Ud
 Ud
 Ud
-Hh
+hb
 QB
 QB
 QB
@@ -13004,7 +12971,7 @@ fO
 ZJ
 fO
 fO
-yM
+yz
 tW
 tW
 tW
@@ -13015,7 +12982,7 @@ tW
 tW
 tW
 tW
-yM
+yz
 fO
 fO
 fO
@@ -13134,7 +13101,7 @@ QB
 Pu
 QB
 QB
-Hh
+hb
 Ud
 Ud
 Ud
@@ -13145,7 +13112,7 @@ Ud
 Ud
 Ud
 Ud
-Hh
+hb
 QB
 QB
 QB
@@ -13261,7 +13228,7 @@ fO
 ZJ
 fO
 fO
-yM
+yz
 tW
 tW
 tW
@@ -13272,7 +13239,7 @@ tW
 tW
 tW
 tW
-yM
+yz
 fO
 fO
 fO
@@ -13391,7 +13358,7 @@ QB
 Pu
 QB
 QB
-Hh
+hb
 Ud
 Ud
 Ud
@@ -13402,7 +13369,7 @@ Ud
 Ud
 Ud
 Ud
-Hh
+hb
 QB
 QB
 QB
@@ -13518,7 +13485,7 @@ fO
 ZJ
 fO
 fO
-yM
+yz
 tW
 tW
 tW
@@ -13529,7 +13496,7 @@ tW
 tW
 tW
 tW
-yM
+yz
 fO
 fO
 fO
@@ -13648,7 +13615,7 @@ QB
 Pu
 QB
 QB
-Hh
+hb
 Ud
 Ud
 Ud
@@ -13659,7 +13626,7 @@ Ud
 Ud
 Ud
 Ud
-Hh
+hb
 QB
 QB
 QB
@@ -13775,7 +13742,7 @@ fO
 ZJ
 fO
 fO
-yM
+yz
 tW
 tW
 tW
@@ -13786,7 +13753,7 @@ tW
 tW
 tW
 tW
-yM
+yz
 fO
 fO
 fO
@@ -13905,7 +13872,7 @@ QB
 Pu
 QB
 QB
-Hh
+hb
 Ud
 Ud
 Ud
@@ -13916,7 +13883,7 @@ Ud
 Ud
 Ud
 Ud
-Hh
+hb
 QB
 QB
 QB
@@ -14032,7 +13999,7 @@ fO
 ZJ
 fO
 fO
-yM
+yz
 tW
 tW
 tW
@@ -14043,7 +14010,7 @@ tW
 tW
 tW
 tW
-yM
+yz
 fO
 fO
 fO
@@ -14162,7 +14129,7 @@ QB
 Pu
 QB
 QB
-Hh
+hb
 Ud
 Ud
 Ud
@@ -14173,7 +14140,7 @@ Ud
 Ud
 Ud
 Ud
-Hh
+hb
 QB
 QB
 QB
@@ -14289,7 +14256,7 @@ fO
 ZJ
 fO
 fO
-yM
+yz
 tW
 tW
 tW
@@ -14300,7 +14267,7 @@ UY
 tW
 tW
 tW
-yM
+yz
 fO
 fO
 fO
@@ -14419,7 +14386,7 @@ QB
 Pu
 QB
 QB
-Hh
+hb
 Ud
 Ud
 Ud
@@ -14430,7 +14397,7 @@ wN
 Ud
 Ud
 Ud
-Hh
+hb
 QB
 QB
 QB
@@ -14546,7 +14513,7 @@ fO
 ZJ
 fO
 fO
-yM
+yz
 tW
 tW
 tW
@@ -14557,7 +14524,7 @@ tW
 tW
 tW
 tW
-yM
+yz
 fO
 fO
 fO
@@ -14676,7 +14643,7 @@ QB
 Pu
 QB
 QB
-Hh
+hb
 Ud
 Ud
 Ud
@@ -14687,7 +14654,7 @@ Ud
 Ud
 Ud
 Ud
-Hh
+hb
 QB
 QB
 QB
@@ -14803,7 +14770,7 @@ fO
 ZJ
 fO
 fO
-yM
+yz
 tW
 tW
 tW
@@ -14814,7 +14781,7 @@ tW
 tW
 tW
 tW
-yM
+yz
 fO
 fO
 fO
@@ -14933,7 +14900,7 @@ QB
 Pu
 QB
 QB
-Hh
+hb
 Ud
 Ud
 Ud
@@ -14944,7 +14911,7 @@ Ud
 Ud
 Ud
 Ud
-Hh
+hb
 QB
 QB
 QB
@@ -15060,7 +15027,7 @@ fO
 ZJ
 fO
 fO
-yM
+yz
 tW
 tW
 tW
@@ -15071,7 +15038,7 @@ tW
 tW
 tW
 tW
-yM
+yz
 fO
 fO
 fO
@@ -15190,7 +15157,7 @@ QB
 Pu
 QB
 QB
-Hh
+hb
 Ud
 Ud
 Ud
@@ -15201,7 +15168,7 @@ Ud
 Ud
 Ud
 Ud
-Hh
+hb
 QB
 QB
 QB
@@ -15317,7 +15284,7 @@ fO
 ZJ
 fO
 fO
-yM
+yz
 tW
 tW
 tW
@@ -15328,7 +15295,7 @@ tW
 tW
 tW
 tW
-yM
+yz
 fO
 fO
 fO
@@ -15447,7 +15414,7 @@ QB
 Pu
 QB
 QB
-Hh
+hb
 Ud
 Ud
 Ud
@@ -15458,7 +15425,7 @@ Ud
 Ud
 Ud
 Ud
-Hh
+hb
 QB
 QB
 QB
@@ -15574,7 +15541,7 @@ fO
 ZJ
 fO
 fO
-yM
+yz
 tW
 tW
 tW
@@ -15585,7 +15552,7 @@ tW
 tW
 tW
 tW
-yM
+yz
 fO
 fO
 Pr
@@ -15704,7 +15671,7 @@ QB
 Pu
 QB
 QB
-Hh
+hb
 Ud
 Ud
 Ud
@@ -15715,7 +15682,7 @@ Ud
 Ud
 Ud
 Ud
-Hh
+hb
 QB
 QB
 Gl
@@ -15831,7 +15798,7 @@ fO
 ZJ
 fO
 fO
-yM
+yz
 tW
 tW
 tW
@@ -15842,7 +15809,7 @@ UY
 tW
 tW
 tW
-yM
+yz
 fO
 fO
 Pr
@@ -15961,7 +15928,7 @@ QB
 Pu
 QB
 QB
-Hh
+hb
 Ud
 Ud
 Ud
@@ -15972,7 +15939,7 @@ wN
 Ud
 Ud
 Ud
-Hh
+hb
 QB
 QB
 Gl
@@ -16088,7 +16055,7 @@ fO
 ZJ
 fO
 fO
-yM
+yz
 tW
 tW
 tW
@@ -16099,7 +16066,7 @@ tW
 tW
 tW
 tW
-yM
+yz
 fO
 fO
 Pr
@@ -16218,7 +16185,7 @@ QB
 Pu
 QB
 QB
-Hh
+hb
 Ud
 Ud
 Ud
@@ -16229,7 +16196,7 @@ Ud
 Ud
 Ud
 Ud
-Hh
+hb
 QB
 QB
 Gl
@@ -16345,7 +16312,7 @@ fO
 ZJ
 fO
 fO
-yM
+yz
 tW
 tW
 tW
@@ -16356,7 +16323,7 @@ tW
 tW
 tW
 tW
-yM
+yz
 OI
 Pr
 Pr
@@ -16475,7 +16442,7 @@ QB
 Pu
 QB
 QB
-Hh
+hb
 Ud
 Ud
 Ud
@@ -16486,7 +16453,7 @@ Ud
 Ud
 Ud
 Ud
-Hh
+hb
 qV
 Gl
 Gl
@@ -16602,8 +16569,8 @@ fO
 ZJ
 fO
 fO
-yM
-yM
+yz
+yz
 tW
 tW
 tW
@@ -16732,8 +16699,8 @@ QB
 Pu
 QB
 QB
-Hh
-Hh
+hb
+hb
 Ud
 Ud
 Ud
@@ -16860,8 +16827,8 @@ ZJ
 fO
 fO
 fO
-yM
-yM
+yz
+yz
 tW
 tW
 tW
@@ -16990,8 +16957,8 @@ Pu
 QB
 QB
 QB
-Hh
-Hh
+hb
+hb
 Ud
 Ud
 Ud
@@ -17118,8 +17085,8 @@ fO
 fO
 fO
 fO
-yM
-yM
+yz
+yz
 tW
 tW
 tW
@@ -17248,8 +17215,8 @@ QB
 QB
 QB
 QB
-Hh
-Hh
+hb
+hb
 Ud
 Ud
 Ud
@@ -17376,8 +17343,8 @@ fO
 fO
 fO
 fO
-yM
-yM
+yz
+yz
 tW
 tW
 tW
@@ -17506,8 +17473,8 @@ QB
 QB
 QB
 QB
-Hh
-Hh
+hb
+hb
 Ud
 Ud
 Ud
@@ -17634,8 +17601,8 @@ fO
 fO
 fO
 fO
-yM
-yM
+yz
+yz
 tW
 tW
 tW
@@ -17764,8 +17731,8 @@ QB
 QB
 QB
 QB
-Hh
-Hh
+hb
+hb
 Ud
 Ud
 Ud
@@ -17892,8 +17859,8 @@ fO
 fO
 fO
 fO
-yM
-yM
+yz
+yz
 tW
 tW
 tW
@@ -18022,8 +17989,8 @@ QB
 QB
 QB
 QB
-Hh
-Hh
+hb
+hb
 Ud
 Ud
 Ud
@@ -18150,8 +18117,8 @@ fO
 fO
 fO
 fO
-yM
-yM
+yz
+yz
 tW
 tW
 tW
@@ -18280,8 +18247,8 @@ QB
 QB
 QB
 QB
-Hh
-Hh
+hb
+hb
 Ud
 Ud
 Ud
@@ -18408,7 +18375,7 @@ fO
 fO
 fO
 fO
-yM
+yz
 OI
 tW
 tW
@@ -18538,7 +18505,7 @@ QB
 QB
 QB
 QB
-Hh
+hb
 qV
 Ud
 Ud
@@ -37941,10 +37908,10 @@ fO
 fO
 fO
 fO
-pU
+pG
 dK
 kq
-pU
+pG
 fO
 fO
 fO
@@ -38071,7 +38038,7 @@ QB
 QB
 QB
 QB
-Ks
+BA
 dK
 kq
 zZ
@@ -38198,10 +38165,10 @@ jR
 jR
 jR
 jR
-pU
+pG
 vq
 UN
-pU
+pG
 fO
 fO
 fO
@@ -38328,7 +38295,7 @@ RH
 RH
 RH
 RH
-Ks
+BA
 vq
 UN
 zZ
@@ -39740,10 +39707,10 @@ wG
 wG
 wG
 wG
-pU
+pG
 kI
 xX
-pU
+pG
 fO
 fO
 fO
@@ -39870,7 +39837,7 @@ cW
 cW
 cW
 cW
-Ks
+BA
 kI
 xX
 zZ
@@ -39997,10 +39964,10 @@ fO
 fO
 fO
 fO
-pU
+pG
 uY
 kq
-pU
+pG
 fO
 fO
 fO
@@ -40127,7 +40094,7 @@ QB
 QB
 QB
 QB
-Ks
+BA
 uY
 kq
 zZ
