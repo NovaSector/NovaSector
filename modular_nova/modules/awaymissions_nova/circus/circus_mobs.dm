@@ -78,7 +78,7 @@
 	name = "Deranged Assistant"
 	desc = "Your average grey shirt assistant"
 
-/mob/living/basic/trooper/nanotrasen/ranged/elite/the_victor
+/mob/living/basic/trooper/the_victor
 	name = "The Victor"
 	desc = "They used their know-how of laser weaponry to become the ultimate victor of laser tag..."
 	maxHealth = 1500
@@ -92,10 +92,10 @@
 	projectilesound = 'sound/items/weapons/laser.ogg'
 	ranged_cooldown = 2 SECONDS
 	faction = list(ROLE_DEATHSQUAD)
-	loot = /obj/item/minigunpack/weaker
-	corpse = /obj/effect/gibspawner/human
+	corpse = /obj/effect/mob_spawn/corpse/human/Heavy_minigunner
 	mob_spawner = /obj/effect/mob_spawn/corpse/human/Heavy_minigunner
-	r_hand = /obj/item/gun/energy/pulse/carbine/lethal
+	r_hand = /obj/item/gun/energy/minigun
+	ai_controller = /datum/ai_controller/basic_controller/trooper/ranged
 
 /obj/effect/mob_spawn/corpse/human/Heavy_minigunner
 	name = "\improper Heavy Minigunner Corpse"
