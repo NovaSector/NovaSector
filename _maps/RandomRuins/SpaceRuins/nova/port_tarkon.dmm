@@ -33,12 +33,12 @@
 /obj/structure/table/reinforced,
 /obj/item/clothing/gloves/color/yellow,
 /obj/structure/cable,
-/obj/item/circuitboard/machine/syndiepad/tarkon,
-/obj/item/circuitboard/computer/syndiepad/tarkon{
+/obj/item/circuitboard/machine/ghostpad/tarkon,
+/obj/item/circuitboard/computer/ghostpad/tarkon{
 	pixel_y = 2;
 	pixel_x = 2
 	},
-/obj/item/circuitboard/computer/cargo/express/interdyne/tarkon{
+/obj/item/circuitboard/computer/cargo/express/ghost/tarkon{
 	pixel_x = 4;
 	pixel_y = 4
 	},
@@ -1819,8 +1819,6 @@
 /obj/item/circuitboard/machine/circulator,
 /obj/item/circuitboard/machine/circulator,
 /obj/item/circuitboard/machine/thermoelectric_generator,
-/obj/item/circuitboard/machine/powerator/tarkon,
-/obj/item/circuitboard/machine/powerator/tarkon,
 /obj/item/circuitboard/machine/powerator/tarkon,
 /turf/open/floor/iron,
 /area/ruin/space/has_grav/port_tarkon/atmos)
@@ -4658,6 +4656,9 @@
 /area/ruin/space/has_grav/port_tarkon/cargo)
 "FF" = (
 /obj/structure/table/reinforced,
+/obj/item/stamp/tarkon{
+	pixel_x = 16
+	},
 /obj/item/stamp/denied,
 /obj/item/stamp/granted{
 	pixel_x = 8

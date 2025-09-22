@@ -63,7 +63,7 @@
 	var/target_in_command_dept = FALSE
 	if(!possible_target)
 		return FALSE
-	for(var/department as anything in possible_target.assigned_role.departments_list)
+	for(var/department in possible_target.assigned_role.departments_list)
 		if(department == /datum/job_department/central_command)
 			return FALSE
 		if(department == /datum/job_department/command)
