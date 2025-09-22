@@ -47,7 +47,7 @@
 
 // This produces 62 per 2 seconds, taxed to 49, which gives us 24-25 per second.
 /obj/machinery/powerator
-	name = "\improper Nanotransen Powerator"
+	name = "\improper Nanotrasen Powerator"
 	desc = "Beyond the ridiculous name, it is the standard for transporting and selling energy to power networks that require additional sources!"
 	icon = 'modular_nova/modules/powerator/icons/machines.dmi'
 	icon_state = "powerator"
