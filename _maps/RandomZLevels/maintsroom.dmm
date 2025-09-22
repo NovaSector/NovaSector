@@ -8770,10 +8770,6 @@
 /obj/structure/alien/weeds,
 /turf/open/floor/plating,
 /area/awaymission/caves/maintsroom)
-"Du" = (
-/obj/item/borg/sight/meson,
-/turf/open/misc/asteroid/snow/indestructible/planet,
-/area/awaymission/caves/maintsroom)
 "Dv" = (
 /obj/machinery/light/directional/east,
 /obj/machinery/power/smes/full,
@@ -20638,7 +20634,7 @@ vf
 CW
 vf
 oN
-Du
+DT
 DT
 DT
 DT

@@ -163,7 +163,7 @@
 		return assoc_to_keys_features(SSaccessories.sprite_accessories[relevant_mutant_bodypart])
 
 	var/list/list_of_accessories = list()
-	for(var/sprite_accessory_name as anything in SSaccessories.sprite_accessories[relevant_mutant_bodypart])
+	for(var/sprite_accessory_name in SSaccessories.sprite_accessories[relevant_mutant_bodypart])
 		var/datum/sprite_accessory/sprite_accessory = SSaccessories.sprite_accessories[relevant_mutant_bodypart][sprite_accessory_name]
 		list_of_accessories += list("[sprite_accessory.name]" = generate_icon(sprite_accessory))
 

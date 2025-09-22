@@ -335,7 +335,7 @@
 /area/awaymission/mothership_astrum/halls)
 "fO" = (
 /obj/structure/alien/weeds/creature,
-/obj/item/ammo_box/c38,
+/obj/item/ammo_box/speedloader/c38,
 /turf/open/floor/plating/abductor2,
 /area/awaymission/mothership_astrum/deck4)
 "fP" = (
@@ -1740,7 +1740,7 @@
 /area/awaymission/mothership_astrum/halls)
 "Cs" = (
 /obj/structure/table/abductor,
-/obj/item/ammo_box/c38,
+/obj/item/ammo_box/speedloader/c38,
 /turf/open/floor/mineral/abductor,
 /area/awaymission/mothership_astrum/halls)
 "Cv" = (
@@ -1967,7 +1967,7 @@
 /obj/structure/window/spawner/directional/south,
 /obj/structure/window/spawner/directional/east,
 /obj/structure/window/spawner/directional/west,
-/obj/item/ammo_box/c38,
+/obj/item/ammo_box/speedloader/c38,
 /turf/open/floor/plating/abductor2,
 /area/awaymission/mothership_astrum/halls)
 "Fo" = (
@@ -2194,7 +2194,7 @@
 /area/awaymission/mothership_astrum/deck1)
 "Hk" = (
 /obj/structure/closet/abductor,
-/obj/item/ammo_box/c38,
+/obj/item/ammo_box/speedloader/c38,
 /turf/open/floor/mineral/abductor,
 /area/awaymission/mothership_astrum/halls)
 "Hn" = (
@@ -3158,8 +3158,8 @@
 /obj/structure/window/spawner/directional/north,
 /obj/structure/window/spawner/directional/east,
 /obj/structure/window/spawner/directional/west,
-/obj/item/ammo_box/c38,
-/obj/item/ammo_box/c38,
+/obj/item/ammo_box/speedloader/c38,
+/obj/item/ammo_box/speedloader/c38,
 /turf/open/floor/mineral/abductor,
 /area/awaymission/mothership_astrum/halls)
 "SY" = (
@@ -3214,7 +3214,7 @@
 /area/awaymission/mothership_astrum/halls)
 "TJ" = (
 /obj/structure/table/abductor,
-/obj/item/ammo_box/c38,
+/obj/item/ammo_box/speedloader/c38,
 /turf/open/floor/plating/abductor2,
 /area/awaymission/mothership_astrum/halls)
 "TX" = (
@@ -3330,8 +3330,8 @@
 /obj/structure/window/spawner/directional/south,
 /obj/structure/window/spawner/directional/east,
 /obj/structure/window/spawner/directional/west,
-/obj/item/ammo_box/c38,
-/obj/item/ammo_box/c38,
+/obj/item/ammo_box/speedloader/c38,
+/obj/item/ammo_box/speedloader/c38,
 /turf/open/floor/mineral/abductor,
 /area/awaymission/mothership_astrum/halls)
 "Va" = (
@@ -3462,7 +3462,7 @@
 "WB" = (
 /obj/structure/table/abductor,
 /obj/structure/window/spawner/directional/north,
-/obj/item/ammo_box/c38,
+/obj/item/ammo_box/speedloader/c38,
 /turf/open/floor/mineral/abductor,
 /area/awaymission/mothership_astrum/halls)
 "WC" = (
@@ -3484,7 +3484,7 @@
 /turf/open/floor/wood,
 /area/awaymission/mothership_astrum/deck5)
 "WN" = (
-/obj/item/ammo_box/c38,
+/obj/item/ammo_box/speedloader/c38,
 /turf/open/floor/wood,
 /area/awaymission/mothership_astrum/deck1)
 "WT" = (
@@ -3627,7 +3627,7 @@
 /turf/open/floor/mineral/abductor,
 /area/awaymission/mothership_astrum/halls)
 "YI" = (
-/obj/item/ammo_box/c38,
+/obj/item/ammo_box/speedloader/c38,
 /turf/open/misc/ironsand,
 /area/awaymission/mothership_astrum/deck1)
 "YL" = (

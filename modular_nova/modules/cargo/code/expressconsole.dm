@@ -1,18 +1,18 @@
-/obj/item/circuitboard/computer/cargo/express/interdyne
-	name = "Interdyne Express Supply Console"
-	build_path = /obj/machinery/computer/cargo/express/interdyne
+/obj/item/circuitboard/computer/cargo/express/ghost
+	name = "Soar Industries Express Delivery Console"
+	build_path = /obj/machinery/computer/cargo/express/ghost
 	contraband = TRUE
 
-/obj/machinery/computer/cargo/express/interdyne
-	name = "\improper Interdyne express supply console"
-	desc = "A standard NT express console, hacked by Gorlex Industries to use \
-	their own experimental \"1100mm Rail Cannon\", made to be extra robust to prevent \
-	being emagged by the Syndicate cadets of the SSV Dauntless."
-	circuit = /obj/item/circuitboard/computer/cargo/express/interdyne
+/obj/machinery/computer/cargo/express/ghost
+	name = "\improper Soar Industries Express Delivery Console"
+	desc = "A Standard express delivery console, preloaded with a specialized protocol by SOAR Industries. Allowing it to access specialized companies."
+	abstract_type = /obj/machinery/computer/cargo/express/ghost
+	circuit = /obj/item/circuitboard/computer/cargo/express/ghost
 	req_access = list(ACCESS_SYNDICATE)
-	cargo_account = ACCOUNT_INT
+	cargo_account = ACCOUNT_CIV /// Change this later to somethin else, as this is meant to prevent runtiming
 	contraband = TRUE
 
+	/// Do not touch this unless a new company is added to the imports list.
 	var/static/list/allowed_categories = list(
 		NAKAMURA_ENGINEERING_MODSUITS_NAME,
 		BLACKSTEEL_FOUNDATION_NAME,
@@ -28,17 +28,22 @@
 
 	pod_type = /obj/structure/closet/supplypod/bluespacepod
 
-/obj/machinery/computer/cargo/express/interdyne/on_construction(mob/user)
+/obj/machinery/computer/cargo/express/ghost/Initialize(mapload)
+	. = ..()
+	if(type == abstract_type) // These are not meant to be spawned
+		return INITIALIZE_HINT_QDEL
+
+/obj/machinery/computer/cargo/express/ghost/on_construction(mob/user)
 	. = ..()
 	/// Should report the player that built the console to the admins, in case anything fucky happens.
 	message_admins("[ADMIN_LOOKUPFLW(usr)] Has built a ghost role imports console ([src.name]) at [AREACOORD(src)].")
 
-/obj/machinery/computer/cargo/express/interdyne/emag_act(mob/user, obj/item/card/emag/emag_card)
+/obj/machinery/computer/cargo/express/ghost/emag_act(mob/user, obj/item/card/emag/emag_card)
 	if(user)
-		to_chat(user, span_notice("You try to change the routing protocols, but the machine displays a runtime error and reboots!"))
+		to_chat(user, span_notice("You try to change the routing protocols, but the [src.name] displays a runtime error and reboots!"))
 	return FALSE //never let this console be emagged
 
-/obj/machinery/computer/cargo/express/interdyne/packin_up(forced = FALSE) //we're the ghost role, add the company imports stuff to our express console
+/obj/machinery/computer/cargo/express/ghost/packin_up(forced = FALSE) //we're the ghost role, add the company imports stuff to our express console
 	. = ..()
 
 	if(meme_pack_data["Company Imports"])
@@ -49,8 +54,8 @@
 		"packs" = list()
 	)
 
-	for(var/armament_category as anything in SSarmaments.entries)//babe! it's 4pm, time for the company importing logic
-		for(var/subcategory as anything in SSarmaments.entries[armament_category][CATEGORY_ENTRY])
+	for(var/armament_category in SSarmaments.entries)//babe! it's 4pm, time for the company importing logic
+		for(var/subcategory in SSarmaments.entries[armament_category][CATEGORY_ENTRY])
 			if(armament_category in allowed_categories)
 				for(var/datum/armament_entry/armament_entry as anything in SSarmaments.entries[armament_category][CATEGORY_ENTRY][subcategory])
 					meme_pack_data["Company Imports"]["packs"] += list(list(
@@ -63,7 +68,7 @@
 						"desc" = armament_entry.description,
 					))
 
-/obj/machinery/computer/cargo/express/interdyne/ui_act(action, params, datum/tgui/ui)
+/obj/machinery/computer/cargo/express/ghost/ui_act(action, params, datum/tgui/ui)
 	if(action == "add") // if we're generating a supply order
 		if (!beacon || !using_beacon ) // checks if using a beacon or not.
 			say("Error! Destination is not whitelisted, aborting.")
@@ -84,28 +89,48 @@
 			return
 	return ..()
 
-//Deep Space 2's console
-/obj/item/circuitboard/computer/cargo/express/interdyne/syndicate
-	name = "Syndicate Express Supply Console"
-	build_path = /obj/machinery/computer/cargo/express/interdyne/syndicate
+//Interdyne Pharmaceuticals Console's console
+/obj/item/circuitboard/computer/cargo/express/ghost/interdyne
+	name = "Interdyne Express Supply Console"
+	greyscale_colors = COLOR_PRIDE_GREEN
+	build_path = /obj/machinery/computer/cargo/express/ghost/interdyne
 	contraband = TRUE
 
-/obj/machinery/computer/cargo/express/interdyne/syndicate
-	name = "\improper Syndicate express supply console"
-	desc = "A standard Syndicate console."
-	circuit = /obj/item/circuitboard/computer/cargo/express/interdyne/syndicate
+/obj/machinery/computer/cargo/express/ghost/interdyne
+	name = "\improper Interdyne Express Supply Console"
+	desc = "A specialized Interdyne Pharmaceuticals console, allowing for deepspace communication with a specialized drop pod railgun for precise and accurate \
+		deliveries, no matter how remote they are located"
+	circuit = /obj/item/circuitboard/computer/cargo/express/ghost/interdyne
+	req_access = list(ACCESS_SYNDICATE)
+	cargo_account = ACCOUNT_INT
+	contraband = TRUE
+
+//Deep Space 2's console
+/obj/item/circuitboard/computer/cargo/express/ghost/syndicate
+	name = "Syndicate Express Supply Console"
+	greyscale_colors = CIRCUIT_COLOR_SECURITY
+	build_path = /obj/machinery/computer/cargo/express/ghost/syndicate
+	contraband = TRUE
+
+/obj/machinery/computer/cargo/express/ghost/syndicate
+	name = "\improper Syndicate Express Supply Console"
+	desc = "A specialized Syndicate Express Supply Console, synced with a deepspace syndicate storage satellite, armed with a drop pod railgun for precise and accurate \
+		deliveries over long distances, no matter how remote they are located."
+	circuit = /obj/item/circuitboard/computer/cargo/express/ghost/syndicate
 	req_access = list(ACCESS_SYNDICATE)
 	cargo_account = ACCOUNT_DS2
 
 // Tarkon Industries console
-/obj/item/circuitboard/computer/cargo/express/interdyne/tarkon
+/obj/item/circuitboard/computer/cargo/express/ghost/tarkon
 	name = "Tarkon Express Supply Console"
-	build_path = /obj/machinery/computer/cargo/express/interdyne/tarkon
+	build_path = /obj/machinery/computer/cargo/express/ghost/tarkon
+	greyscale_colors = CIRCUIT_COLOR_ENGINEERING
 	contraband = TRUE
 
-/obj/machinery/computer/cargo/express/interdyne/tarkon
-	name = "\improper Tarkon express supply console"
-	desc = "A standard Tarkon console."
-	circuit = /obj/item/circuitboard/computer/cargo/express/interdyne/tarkon
+/obj/machinery/computer/cargo/express/ghost/tarkon
+	name = "\improper Tarkon Express Supply Console"
+	desc = "A specialized Tarkon Industries Express Supply Console, synced a deepspace storage satellite, armed with a drop pod railgun for precise and accurate \
+		deliveries over long distances, no matter how remote they are located."
+	circuit = /obj/item/circuitboard/computer/cargo/express/ghost/tarkon
 	req_access = list(ACCESS_TARKON)
 	cargo_account = ACCOUNT_TI
