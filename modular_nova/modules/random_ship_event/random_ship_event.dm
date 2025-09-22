@@ -73,30 +73,6 @@ GLOBAL_LIST_INIT(random_ship_events, init_random_ship_events())
 		priority_announce(event.response_rejected, sender_override = event.ship_name, color_override = event.announcement_color)
 		event.on_refuse()
 
-/proc/spawn_random_ship(datum/random_ship_event/event)
-	if(!event || !event.accepted)
-		return
-
-	var/template_key = "random_ship_[event.ship_template_id]"
-	var/datum/map_template/shuttle/random_ship/ship = SSmapping.shuttle_templates[template_key]
-	if(!ship)
-		template_key = "random_ship_default"
-		ship = SSmapping.shuttle_templates[template_key]
-		if(!ship)
-			CRASH("No valid ship template found for random ship event!")
-
-	var/x = rand(TRANSITIONEDGE, world.maxx - TRANSITIONEDGE - ship.width)
-	var/y = rand(TRANSITIONEDGE, world.maxy - TRANSITIONEDGE - ship.height)
-	var/z = SSmapping.empty_space.z_value
-	var/turf/T = locate(x, y, z)
-	if(!T)
-		CRASH("Random ship event found no turf to load in")
-
-	if(!ship.load(T))
-		CRASH("Loading random ship failed!")
-
-	priority_announce(event.arrival_announcement, sender_override = event.ship_name, color_override = event.announcement_color)
-
 /datum/random_ship_event/proc/spawn_ship()
 	var/template_key = "random_ship_[ship_template_id]"
 	var/datum/map_template/shuttle/random_ship/ship = SSmapping.shuttle_templates[template_key]
