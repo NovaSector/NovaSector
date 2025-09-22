@@ -7493,6 +7493,8 @@
 #include "modular_nova\modules\awaymissions_nova\circus\clothing_trader_data.dm"
 #include "modular_nova\modules\awaymissions_nova\circus\clown_trader.dm"
 #include "modular_nova\modules\awaymissions_nova\circus\clown_trader_data.dm"
+#include "modular_nova\modules\awaymissions_nova\circus\food_trader.dm"
+#include "modular_nova\modules\awaymissions_nova\circus\food_trader_data.dm"
 #include "modular_nova\modules\awaymissions_nova\code\gateway_key.dm"
 #include "modular_nova\modules\awaymissions_nova\heretic\heretic.dm"
 #include "modular_nova\modules\awaymissions_nova\Maintsroom\black_floor_helper.dm"

@@ -1,6 +1,6 @@
 /mob/living/basic/trader/clothing
-	name = "Claurice the tailor"
-	desc = "A clothing store clerk who can sell you clothing! why do they have a pulse pistol...?"
+	name = "Mc Bruce the chef"
+	desc = "A food merchant who wishes to sell you food! why do they have a pulse pistol...?"
 	unique_name = FALSE
 	icon = 'icons/mob/simple/simple_human.dmi'
 	maxHealth = 200
