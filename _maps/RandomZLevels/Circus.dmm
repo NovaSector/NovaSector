@@ -1169,6 +1169,10 @@
 /obj/machinery/door/airlock/bananium,
 /turf/open/floor/mineral/bananium,
 /area/awaymission/beach/circus_day/no_light)
+"kh" = (
+/mob/living/basic/trooper/nanotrasen/ranged/the_victor,
+/turf/open/floor/plating,
+/area/awaymission/beach/circus_day/no_light)
 "kl" = (
 /obj/structure/fluff/bus/dense,
 /obj/effect/turf_decal/siding/thinplating/light{
@@ -4161,7 +4165,7 @@
 /turf/open/indestructible/rockyground,
 /area/awaymission/beach/circus_day)
 "GJ" = (
-/mob/living/basic/trooper/nanotrasen/ranged/elite/the_victor,
+/mob/living/basic/trooper/nanotrasen/ranged/the_victor,
 /turf/open/floor/eighties,
 /area/awaymission/beach/circus_day/no_light)
 "GL" = (
@@ -39289,7 +39293,7 @@ QB
 QB
 YV
 Kk
-Kk
+kh
 wa
 iB
 wv
@@ -47312,8 +47316,8 @@ XC
 XC
 bH
 bH
-XC
 GJ
+XC
 XC
 bH
 bH
