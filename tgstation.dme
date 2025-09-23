@@ -9003,6 +9003,7 @@
 #include "modular_nova\modules\protected_roles\code\antag_restricted_jobs.dm"
 #include "modular_nova\modules\QOL\code\datums\components\crafting\recipes\recipes_misc.dm"
 #include "modular_nova\modules\QOL\code\game\objects\items\mop.dm"
+#include "modular_nova\modules\quirk_bodytemp\body_temp.dm"
 #include "modular_nova\modules\quirk_customtongue\customtongue.dm"
 #include "modular_nova\modules\quirk_heavyset\heavyset.dm"
 #include "modular_nova\modules\quirk_masquerade\masquerade.dm"
