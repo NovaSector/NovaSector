@@ -151,6 +151,7 @@ Always compile, always use that verb, and always make sure that it works for wha
 	ZTRAIT_DOWN = TRUE, /* Nova Edit Addition */ \
 	ZTRAIT_BASETURF = /turf/open/lava/smooth/lava_land_surface)
 // NOVA EDIT ADDITION START: UndergroundLavaland
+///Z level traits for Underground Lavaland
 #define ZTRAITS_LAVALAND_UNDERGROUND list(\
 	ZTRAIT_LAVA_UNDERGROUND = TRUE, \
 	ZTRAIT_BOMBCAP_MULTIPLIER = 2, \
