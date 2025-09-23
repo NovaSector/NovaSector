@@ -1,4 +1,5 @@
 /obj/item/bonesetter/augment
+<<<<<<< HEAD
 	desc = "An augmented bonesetter, fit for setting bones into place."
 	toolspeed = 0.5
 /obj/item/blood_filter/augment
@@ -10,5 +11,17 @@
 	toolspeed = 0.5
 /obj/item/blood_filter/cruel/augment
 	desc = "Drop by drop, your impurities will be bled out..."
+=======
+	toolspeed = 0.5
+
+/obj/item/blood_filter/augment
+	w_class = WEIGHT_CLASS_SMALL
+	toolspeed = 0.5
+
+/obj/item/bonesetter/cruel/augment
+	toolspeed = 0.5
+
+/obj/item/blood_filter/cruel/augment
+>>>>>>> ffa529bc4165006b3adfd16136aedea45376ebdf
 	w_class = WEIGHT_CLASS_SMALL
 	toolspeed = 0.5

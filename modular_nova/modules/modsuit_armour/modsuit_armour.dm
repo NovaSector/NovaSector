@@ -160,26 +160,26 @@
 /datum/armor/mod_theme_syndicate
 	melee = 40
 	bullet = 50
-	laser = 30
-	energy = 30
-	bomb = 40
+	laser = 35
+	energy = 40
+	bomb = 30
 	bio = 100
-	fire = 50
+	fire = 80
 	acid = 90
 	wound = 25
 
-/datum/mod_theme/elite // Elite Syndiate
+/datum/mod_theme/elite // Elite Syndicate
 	armor_type = /datum/armor/mod_theme_elite
 
 /datum/armor/mod_theme_elite
-	melee = 60
+	melee = 50
 	bullet = 60
-	laser = 50
+	laser = 40
 	energy = 60
-	bomb = 60
+	bomb = 40
 	bio = 100
 	fire = 100
-	acid = 100
+	acid = 90
 	wound = 25
 
 /datum/mod_theme/prototype // Charlie Station
