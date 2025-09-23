@@ -81,34 +81,6 @@
 
 //end of boingos lost items, beginning of the red/blue laser tag miniguns and the shields
 
-/obj/item/minigunpack/red
-	name = "backpack power source"
-	desc = "The massive external power source for the laser gatling gun."
-	gun = /obj/item/gun/energy/minigun/red
-
-/obj/item/gun/energy/minigun/red
-	name = "Red team laser minigun"
-	desc = "Not a real laser minigun- but one meant for laser tag"
-	ammo_type = list(/obj/item/ammo_casing/energy/laser/redtag)
-	cell_type = /obj/item/stock_parts/power_store/cell/minigun
-	can_charge = TRUE
-	gun_flags = NOT_A_REAL_GUN
-	selfcharge = TRUE
-
-/obj/item/minigunpack/blue
-	name = "backpack power source"
-	desc = "The massive external power source for the laser gatling gun."
-	gun = /obj/item/gun/energy/minigun/blue
-
-/obj/item/gun/energy/minigun/blue
-	name = "Blue team laser minigun"
-	desc = "Not a real laser minigun- but one meant for laser tag"
-	ammo_type = list(/obj/item/ammo_casing/energy/laser/bluetag)
-	cell_type = /obj/item/stock_parts/power_store/cell/minigun
-	can_charge = TRUE
-	gun_flags = NOT_A_REAL_GUN
-	selfcharge = TRUE
-
 /obj/item/shield/roman/blue
 	name = "Blue team shield"
 	desc = "A blue painted shield"
@@ -120,16 +92,6 @@
 	desc = "A red painted shield"
 	uses_integrity = 0
 	color = "#ff0000"
-
-//weaker subtype of the normal minigun as a result for killing the victor
-
-/obj/item/minigunpack/weaker
-	name = "backpack power source"
-	desc = "The massive external power source for the laser gatling gun."
-	gun = /obj/item/gun/energy/minigun/weaker
-
-/obj/item/gun/energy/minigun/weaker
-	projectile_damage_multiplier = 0.5
 
 //end of laser tag stuff beginning of spawners
 
