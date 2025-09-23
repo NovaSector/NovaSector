@@ -130,7 +130,7 @@
 /mob/living/basic/cult/assassin/CodZ
 	ai_controller = /datum/ai_controller/basic_controller/cult_circus
 	death_loot = (
-		/obj/item/stack/spacecash/c100
+		/obj/item/stack/spacecash/c100,
 		/obj/item/stack/spacecash/c100
 	)
 
@@ -143,24 +143,24 @@
 /mob/living/basic/cult/engorge/devourdem/CodZ
 	ai_controller = /datum/ai_controller/basic_controller/cult_circus
 	death_loot = (
-		/obj/item/stack/spacecash/c1000
-		/obj/item/stack/spacecash/c100
-		/obj/item/stack/spacecash/c100
+		/obj/item/stack/spacecash/c1000,
+		/obj/item/stack/spacecash/c100,
+		/obj/item/stack/spacecash/c100,
 		/obj/item/stack/spacecash/c100
 	)
 
 /mob/living/basic/cult/ghost/CodZ
 	ai_controller = /datum/ai_controller/basic_controller/cult_circus
 	death_loot = (
-		/obj/item/stack/spacecash/c100
-		/obj/item/stack/spacecash/c100
+		/obj/item/stack/spacecash/c100,
+		/obj/item/stack/spacecash/c100,
 		/obj/item/stack/spacecash/c100
 	)
 
 /mob/living/basic/cult/horror/CodZ
 	ai_controller = /datum/ai_controller/basic_controller/cult_circus
 	death_loot = (
-		/obj/item/stack/spacecash/c1000
+		/obj/item/stack/spacecash/c1000,
 		/obj/item/stack/spacecash/c100
 	)
 
@@ -173,28 +173,28 @@
 /mob/living/basic/cult/magic/elite/CodZ
 	ai_controller = /datum/ai_controller/basic_controller/cult_circus
 	death_loot = (
-		/obj/item/stack/spacecash/c1000
-		/obj/item/stack/spacecash/c1000
+		/obj/item/stack/spacecash/c1000,
+		/obj/item/stack/spacecash/c1000,
 		/obj/item/stack/spacecash/c1000
 	)
 
 /mob/living/basic/cult/magic/elite/fireball/CodZ
 	ai_controller = /datum/ai_controller/basic_controller/cult_circus
 	death_loot = (
-		/obj/item/stack/spacecash/c1000
-		/obj/item/stack/spacecash/c1000
-		/obj/item/stack/spacecash/c1000
-		/obj/item/stack/spacecash/c1000
+		/obj/item/stack/spacecash/c1000,
+		/obj/item/stack/spacecash/c1000,
+		/obj/item/stack/spacecash/c1000,
+		/obj/item/stack/spacecash/c1000,
 		/obj/item/stack/spacecash/c1000
 	)
 
 /mob/living/basic/cult/mannequin/CodZ
 	ai_controller = /datum/ai_controller/basic_controller/cult_circus
 	death_loot = (
-		/obj/item/stack/spacecash/c100
-		/obj/item/stack/spacecash/c100
-		/obj/item/stack/spacecash/c100
-		/obj/item/stack/spacecash/c100
+		/obj/item/stack/spacecash/c100,
+		/obj/item/stack/spacecash/c100,
+		/obj/item/stack/spacecash/c100,
+		/obj/item/stack/spacecash/c100,
 		/obj/item/stack/spacecash/c100
 	)
 
@@ -229,10 +229,10 @@
 	melee_damage_lower = 40
 	melee_damage_upper = 40
 	death_loot = list(
-		/obj/item/nullrod/vibro/talking/chainsword
-		/obj/item/mod/control/pre_equipped/responsory/inquisitory/commander
-		/obj/item/stack/spacecash/c10000
-		/obj/item/stack/spacecash/c10000
-		/obj/item/stack/spacecash/c10000
+		/obj/item/nullrod/vibro/talking/chainsword,
+		/obj/item/mod/control/pre_equipped/responsory/inquisitory/commander,
+		/obj/item/stack/spacecash/c10000,
+		/obj/item/stack/spacecash/c10000,
+		/obj/item/stack/spacecash/c10000,
 		/obj/item/keycard/circus
 	)
