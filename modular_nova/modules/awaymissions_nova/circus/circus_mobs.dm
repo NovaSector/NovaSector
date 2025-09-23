@@ -124,26 +124,26 @@
 
 //start of the Call of duty zombies attack wave mobs
 /mob/living/basic/cult/CodZ
-	BB_aggro_range = 80
+	ai_controller = /datum/ai_controller/basic_controller/cult_circus
 	death_loot = (
 		/obj/item/stack/spacecash/c100
 	)
 
 /mob/living/basic/cult/assassin/CodZ
-	BB_aggro_range = 80
+	ai_controller = /datum/ai_controller/basic_controller/cult_circus
 	death_loot = (
 		/obj/item/stack/spacecash/c100
 		/obj/item/stack/spacecash/c100
 	)
 
 /mob/living/basic/cult/engorge/CodZ
-	BB_aggro_range = 80
+	ai_controller = /datum/ai_controller/basic_controller/cult_circus
 	death_loot = (
 		/obj/item/stack/spacecash/c1000
 	)
 
 /mob/living/basic/cult/engorge/devourdem/CodZ
-	BB_aggro_range = 80
+	ai_controller = /datum/ai_controller/basic_controller/cult_circus
 	death_loot = (
 		/obj/item/stack/spacecash/c1000
 		/obj/item/stack/spacecash/c100
@@ -152,7 +152,7 @@
 	)
 
 /mob/living/basic/cult/ghost/CodZ
-	BB_aggro_range = 80
+	ai_controller = /datum/ai_controller/basic_controller/cult_circus
 	death_loot = (
 		/obj/item/stack/spacecash/c100
 		/obj/item/stack/spacecash/c100
@@ -160,20 +160,20 @@
 	)
 
 /mob/living/basic/cult/horror/CodZ
-	BB_aggro_range = 80
+	ai_controller = /datum/ai_controller/basic_controller/cult_circus
 	death_loot = (
 		/obj/item/stack/spacecash/c1000
 		/obj/item/stack/spacecash/c100
 	)
 
 /mob/living/basic/cult/magic/CodZ
-	BB_aggro_range = 80
+	ai_controller = /datum/ai_controller/basic_controller/cult_circus
 	death_loot = (
 		/obj/item/stack/spacecash/c1000
 	)
 
 /mob/living/basic/cult/magic/elite/CodZ
-	BB_aggro_range = 80
+	ai_controller = /datum/ai_controller/basic_controller/cult_circus
 	death_loot = (
 		/obj/item/stack/spacecash/c1000
 		/obj/item/stack/spacecash/c1000
@@ -181,7 +181,7 @@
 	)
 
 /mob/living/basic/cult/magic/elite/fireball/CodZ
-	BB_aggro_range = 80
+	ai_controller = /datum/ai_controller/basic_controller/cult_circus
 	death_loot = (
 		/obj/item/stack/spacecash/c1000
 		/obj/item/stack/spacecash/c1000
@@ -191,7 +191,7 @@
 	)
 
 /mob/living/basic/cult/mannequin/CodZ
-	BB_aggro_range = 80
+	ai_controller = /datum/ai_controller/basic_controller/cult_circus
 	death_loot = (
 		/obj/item/stack/spacecash/c100
 		/obj/item/stack/spacecash/c100
@@ -201,13 +201,13 @@
 	)
 
 /mob/living/basic/cult/spear/CodZ
-	BB_aggro_range = 80
+	ai_controller = /datum/ai_controller/basic_controller/cult_circus
 	death_loot = (
 		/obj/item/stack/spacecash/c1000
 	)
 
 /mob/living/basic/cult/warrior/CodZ
-	BB_aggro_range = 80
+	ai_controller = /datum/ai_controller/basic_controller/cult_circus
 	death_loot = (
 		/obj/item/stack/spacecash/c1000
 	)
