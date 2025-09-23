@@ -7282,6 +7282,7 @@
 #include "modular_nova\master_files\code\modules\mob\living\simple_animal\hostile\grabbagmob.dm"
 #include "modular_nova\master_files\code\modules\mob\living\simple_animal\hostile\zombie.dm"
 #include "modular_nova\master_files\code\modules\mob_spawn\mob_spawn.dm"
+#include "modular_nova\master_files\code\modules\mob_spawn\corpses\job_corpses.dm"
 #include "modular_nova\master_files\code\modules\mob_spawn\ghost_roles\mining_roles.dm"
 #include "modular_nova\master_files\code\modules\mod\mod_clothes.dm"
 #include "modular_nova\master_files\code\modules\mod\mod_construction.dm"
