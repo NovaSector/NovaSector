@@ -363,7 +363,6 @@
 
 /obj/item/organ/cyberimp/arm/toolkit/surgery/Initialize(mapload)
 	if (src.type == /obj/item/organ/cyberimp/arm/toolkit/surgery)
-		LAZYINITLIST(items_to_create)
 		items_to_create += list(
 			/obj/item/bonesetter/augment,
 			/obj/item/blood_filter/augment,
@@ -377,7 +376,6 @@
 	return ..()
 
 /obj/item/organ/cyberimp/arm/toolkit/surgery/cruel/Initialize(mapload)
-	LAZYINITLIST(items_to_create)
 	items_to_create += list(
 		/obj/item/bonesetter/cruel/augment,
 		/obj/item/blood_filter/cruel/augment,
