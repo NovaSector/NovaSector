@@ -289,24 +289,8 @@
 	department_color = COLOR_SCIENCE_PINK
 	subdepartment_color = COLOR_SCIENCE_PINK
 	sechud_icon_state = SECHUD_SCIENCE_GUARD
-	extra_access = list(
-		ACCESS_AUX_BASE,
-		ACCESS_BRIG_ENTRANCE,
-		ACCESS_GENETICS,
-		ACCESS_MECH_SCIENCE,
-		ACCESS_MINERAL_STOREROOM,
-		ACCESS_ORDNANCE,
-		ACCESS_ORDNANCE_STORAGE,
-		ACCESS_RESEARCH,
-		ACCESS_ROBOTICS,
-		ACCESS_SCIENCE,
-		ACCESS_SECURITY,
-		ACCESS_TECH_STORAGE,
-		ACCESS_WEAPONS,
-		ACCESS_XENOBIOLOGY,
-	)
+	extra_access = list()
 	minimal_access = list(
-		ACCESS_AUX_BASE,
 		ACCESS_BRIG_ENTRANCE,
 		ACCESS_GENETICS,
 		ACCESS_MECH_SCIENCE,
@@ -391,19 +375,7 @@
 	department_color = COLOR_MEDICAL_BLUE
 	subdepartment_color = COLOR_MEDICAL_BLUE
 	sechud_icon_state = SECHUD_ORDERLY
-	extra_access = list(
-		ACCESS_BRIG_ENTRANCE,
-		ACCESS_MECH_MEDICAL,
-		ACCESS_MEDICAL,
-		ACCESS_MINERAL_STOREROOM,
-		ACCESS_MORGUE,
-		ACCESS_PHARMACY,
-		ACCESS_PLUMBING,
-		ACCESS_SECURITY,
-		ACCESS_SURGERY,
-		ACCESS_VIROLOGY,
-		ACCESS_WEAPONS,
-	)
+	extra_access = list()
 	minimal_access = list(
 		ACCESS_BRIG_ENTRANCE,
 		ACCESS_MECH_MEDICAL,
@@ -587,19 +559,7 @@
 	department_color = COLOR_CARGO_BROWN
 	subdepartment_color = COLOR_CARGO_BROWN
 	sechud_icon_state = SECHUD_CUSTOMS_AGENT
-	extra_access = list(
-		ACCESS_BRIG_ENTRANCE,
-		ACCESS_CARGO,
-		ACCESS_MAINT_TUNNELS,
-		ACCESS_MECH_MINING,
-		ACCESS_MINERAL_STOREROOM,
-		ACCESS_MINING,
-		ACCESS_MINING_STATION,
-		ACCESS_SECURITY,
-		ACCESS_SHIPPING,
-		ACCESS_QM,
-		ACCESS_WEAPONS,
-	)
+	extra_access = list()
 	minimal_access = list(
 		ACCESS_BRIG_ENTRANCE,
 		ACCESS_CARGO,
@@ -682,19 +642,7 @@
 	department_color = COLOR_SERVICE_LIME
 	subdepartment_color = COLOR_SERVICE_LIME // Personally speaking I'd have one of these with sec colors but I'm being authentic
 	sechud_icon_state = SECHUD_BOUNCER
-	extra_access = list(
-		ACCESS_BAR,
-		ACCESS_JANITOR,
-		ACCESS_SERVICE,
-		ACCESS_BRIG_ENTRANCE,
-		ACCESS_HYDROPONICS,
-		ACCESS_KITCHEN,
-		ACCESS_MINERAL_STOREROOM,
-		ACCESS_MORGUE,
-		ACCESS_SECURITY,
-		ACCESS_THEATRE,
-		ACCESS_WEAPONS,
-	)
+	extra_access = list()
 	minimal_access = list(
 		ACCESS_BAR,
 		ACCESS_JANITOR,
