@@ -4,11 +4,11 @@
 	requires_power = FALSE
 	static_lighting = TRUE
 
-/area/awaymission/beach/circus_day/no_light
-	name = "The Circus, but dark"
-	icon_state = "away2"
+/area/awaymission/circus/no_light
 	requires_power = FALSE
-	static_lighting = FALSE
+	default_gravity = STANDARD_GRAVITY
+	name = "The Circus, but dark"
+	icon_state = "away3"
 
 /obj/item/paper/fluff/cyborg_circus
 	name = "Cyborg charger"
@@ -232,3 +232,199 @@
 		/obj/effect/anomaly/bioscrambler,
 	)
 
+//keycards and the keycard doors
+
+/obj/item/keycard/circus
+	name = "pink keycard"
+	desc = "A pink keycard. How terrific. Looks like it belongs to a circus door."
+	color = "#db3bc0"
+	puzzle_id = "circus_codz"
+
+/obj/machinery/door/puzzle/keycard/circus
+	name = "circus airlock"
+	desc = "It looks like it requires a pink keycard."
+	puzzle_id = "circus_codz"
+
+/obj/item/keycard/circus_laser_tag
+	name = "LASER keycard"
+	desc = "A LASER keycard. How strange? Looks like it belongs to a circus door."
+	color = "#a9d5ff"
+	puzzle_id = "circus_laser_tag"
+
+/obj/machinery/door/puzzle/keycard/circus_laser_tag
+	name = "circus airlock"
+	desc = "It looks like it requires a LASER keycard."
+	puzzle_id = "circus_laser_tag"
+
+/obj/item/keycard/circus_pool
+	name = "pool keycard"
+	desc = "A pool keycard. How, moist? Looks like it belongs to a circus door, why is it orange?"
+	color = "#e26015"
+	puzzle_id = "circus_pool"
+
+/obj/machinery/door/puzzle/keycard/circus_pool
+	name = "circus airlock"
+	desc = "It looks like it requires a pool keycard."
+	puzzle_id = "circus_pool"
+
+/obj/item/keycard/circus_museum
+	name = "museum keycard"
+	desc = "A museum keycard. Hope the exhibits dont get up."
+	color = "#e26015"
+	puzzle_id = "circus_museum"
+
+/obj/machinery/door/puzzle/keycard/circus_museum
+	name = "circus airlock"
+	desc = "It looks like it requires a museum keycard."
+	puzzle_id = "circus_museum"
+
+//Firing pins and guns for Codz
+
+/obj/item/firing_pin/explorer/un_removable
+	pin_removable = FALSE
+
+/obj/item/firing_pin/explorer/un_removable/circus
+	name = "Circus Firing Pin"
+
+	var/list/circus = list(
+			/area/awaymission/beach/circus_day,
+			/area/awaymission/circus,
+			/area/awaymission/circus/no_light,
+	)
+
+/obj/item/firing_pin/explorer/un_removable/circus/pin_auth(mob/living/user)
+	if(!istype(user))
+		return FALSE
+	if (is_type_in_list(get_area(user), circus))
+		return TRUE
+	var/turf/station_check = get_turf(user)
+	if(!station_check || is_station_level(station_check.z))
+		return FALSE
+	return TRUE
+
+//tier 4
+/obj/item/gun/ballistic/automatic/smart_machine_gun/unrestricted/circus //heavy support
+	pin = /obj/item/firing_pin/explorer/un_removable/circus
+
+/obj/item/gun/ballistic/automatic/ar/modular/circus //soldier
+	pin = /obj/item/firing_pin/explorer/un_removable/circus
+
+/obj/item/gun/ballistic/automatic/tommygun/circus //smg-er
+	pin = /obj/item/firing_pin/explorer/un_removable/circus
+
+/obj/item/gun/ballistic/rifle/sniper_rifle/circus //sniper
+	pin = /obj/item/firing_pin/explorer/un_removable/circus
+
+/obj/item/gun/energy/pulse/carbine/circus //energy weapons
+	pin = /obj/item/firing_pin/explorer/un_removable/circus
+
+/obj/item/gun/ballistic/rocketlauncher/nobackblast/circus //explosive specialist
+	pin = /obj/item/firing_pin/explorer/un_removable/circus
+
+/obj/item/gun/energy/pulse/pistol/circus //secondary
+	pin = /obj/item/firing_pin/explorer/un_removable/circus
+
+//tier 3 guns for the circus
+
+/obj/item/gun/ballistic/automatic/l6_saw/circus //Heavy support
+	pin = /obj/item/firing_pin/explorer/un_removable/circus
+
+/obj/item/gun/ballistic/automatic/m90/circus //Soldier
+	pin = /obj/item/firing_pin/explorer/un_removable/circus
+
+/obj/item/gun/ballistic/automatic/c20r/reclaimed/circus //smg-er
+	pin = /obj/item/firing_pin/explorer/un_removable/circus
+
+/obj/item/gun/ballistic/automatic/wylom/circus //sniper
+	pin = /obj/item/firing_pin/explorer/un_removable/circus
+
+/obj/item/gun/ballistic/automatic/pulse_rifle/circus //energy weapons
+	pin = /obj/item/firing_pin/explorer/un_removable/circus
+
+/obj/item/gun/ballistic/pump_launcher/circus //explosive specialist
+	pin = /obj/item/firing_pin/explorer/un_removable/circus
+
+/obj/item/gun/ballistic/automatic/pistol/deagle/gold/circus //secondary
+	pin = /obj/item/firing_pin/explorer/un_removable/circus
+
+//tier 2 guns for the circus
+
+/obj/item/gun/ballistic/automatic/sol_rifle/machinegun/circus //Heavy support
+	pin = /obj/item/firing_pin/explorer/un_removable/circus
+
+/obj/item/gun/ballistic/automatic/battle_rifle/circus  //Soldier
+	pin = /obj/item/firing_pin/explorer/un_removable/circus
+
+/obj/item/gun/ballistic/automatic/napad/circus //smg-er
+	pin = /obj/item/firing_pin/explorer/un_removable/circus
+
+/obj/item/gun/ballistic/rifle/lionhunter/circus //sniper
+	pin = /obj/item/firing_pin/explorer/un_removable/circus
+
+/obj/item/gun/energy/laser/hellgun/circus //energy weapons
+	pin = /obj/item/firing_pin/explorer/un_removable/circus
+
+/obj/item/gun/ballistic/revolver/grenadelauncher/circus //explosive specialist
+	pin = /obj/item/firing_pin/explorer/un_removable/circus
+
+/obj/item/gun/ballistic/automatic/pistol/m1911/circus  //secondary
+	pin = /obj/item/firing_pin/explorer/un_removable/circus
+
+//tier 1 guns for the circus
+
+/obj/item/gun/ballistic/automatic/smartgun/circus //"heavy" support
+	pin = /obj/item/firing_pin/explorer/un_removable/circus
+
+/obj/item/gun/ballistic/rifle/boltaction/circus //soldier
+	pin = /obj/item/firing_pin/explorer/un_removable/circus
+
+/obj/item/gun/ballistic/automatic/wt550/circus //smg-er
+	pin = /obj/item/firing_pin/explorer/un_removable/circus
+
+/obj/item/gun/ballistic/rifle/boltaction/donkrifle/circus //sniper
+	pin = /obj/item/firing_pin/explorer/un_removable/circus
+
+/obj/item/gun/energy/laser/carbine/circus //energy weapons
+	pin = /obj/item/firing_pin/explorer/un_removable/circus
+
+/obj/item/gun/ballistic/automatic/sol_grenade_launcher/circus //explosive specialist
+	pin = /obj/item/firing_pin/explorer/un_removable/circus
+
+/obj/item/gun/ballistic/automatic/pistol/sol/circus //secondary
+	pin = /obj/item/firing_pin/explorer/un_removable/circus
+
+//begining of wave mob spawners, fuck my life and determination to make a silly gateway
+/obj/effect/spawner/random/cult_wave_3
+	name = "cult_wave_3-4 spawn"
+	desc = "Spawns a random cultist, used in the circus gateway."
+	loot = list(
+		/obj/structure/spawner/clown = 1,
+	)
+
+/obj/effect/spawner/random/cult_wave_5
+	name = "cult_wave_5-10 spawn"
+	desc = "Spawns a random cultist, used in the circus gateway."
+	loot = list(
+		/obj/structure/spawner/clown = 1,
+	)
+
+/obj/effect/spawner/random/cult_wave_6
+	name = "cult_wave_6-9 spawn"
+	desc = "Spawns a random cultist, used in the circus gateway."
+	loot = list(
+		/obj/structure/spawner/clown = 1,
+	)
+
+/obj/effect/spawner/random/cult_wave_11
+	name = "cult_wave_11-14 spawn"
+	desc = "Spawns a random cultist, used in the circus gateway."
+	loot = list(
+		/obj/structure/spawner/clown = 1,
+	)
+
+/obj/effect/spawner/random/cult_wave_15
+	name = "cult_wave_15 spawn"
+	desc = "Spawns a random cultist, used in the circus gateway."
+	loot = list(
+		/obj/structure/spawner/clown = 1,
+	)

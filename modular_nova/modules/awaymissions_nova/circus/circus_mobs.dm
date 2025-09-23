@@ -114,3 +114,127 @@
 	head = /obj/item/clothing/head/helmet/space/beret
 	back = /obj/item/minigunpack
 	id = /obj/item/card/id/advanced/silver
+
+/datum/ai_controller/basic_controller/cult_circus
+	blackboard = list(
+		AI_MAX_PATH_LENGTH = 80
+		BB_AGRO_RANGE = 80
+		AI_DEFAULT_INTERESTING_DIST 90
+	)
+
+//start of the Call of duty zombies attack wave mobs
+/mob/living/basic/cult/CodZ
+	BB_aggro_range = 80
+	death_loot = (
+		/obj/item/stack/spacecash/c100
+	)
+
+/mob/living/basic/cult/assassin/CodZ
+	BB_aggro_range = 80
+	death_loot = (
+		/obj/item/stack/spacecash/c100
+		/obj/item/stack/spacecash/c100
+	)
+
+/mob/living/basic/cult/engorge/CodZ
+	BB_aggro_range = 80
+	death_loot = (
+		/obj/item/stack/spacecash/c1000
+	)
+
+/mob/living/basic/cult/engorge/devourdem/CodZ
+	BB_aggro_range = 80
+	death_loot = (
+		/obj/item/stack/spacecash/c1000
+		/obj/item/stack/spacecash/c100
+		/obj/item/stack/spacecash/c100
+		/obj/item/stack/spacecash/c100
+	)
+
+/mob/living/basic/cult/ghost/CodZ
+	BB_aggro_range = 80
+	death_loot = (
+		/obj/item/stack/spacecash/c100
+		/obj/item/stack/spacecash/c100
+		/obj/item/stack/spacecash/c100
+	)
+
+/mob/living/basic/cult/horror/CodZ
+	BB_aggro_range = 80
+	death_loot = (
+		/obj/item/stack/spacecash/c1000
+		/obj/item/stack/spacecash/c100
+	)
+
+/mob/living/basic/cult/magic/CodZ
+	BB_aggro_range = 80
+	death_loot = (
+		/obj/item/stack/spacecash/c1000
+	)
+
+/mob/living/basic/cult/magic/elite/CodZ
+	BB_aggro_range = 80
+	death_loot = (
+		/obj/item/stack/spacecash/c1000
+		/obj/item/stack/spacecash/c1000
+		/obj/item/stack/spacecash/c1000
+	)
+
+/mob/living/basic/cult/magic/elite/fireball/CodZ
+	BB_aggro_range = 80
+	death_loot = (
+		/obj/item/stack/spacecash/c1000
+		/obj/item/stack/spacecash/c1000
+		/obj/item/stack/spacecash/c1000
+		/obj/item/stack/spacecash/c1000
+		/obj/item/stack/spacecash/c1000
+	)
+
+/mob/living/basic/cult/mannequin/CodZ
+	BB_aggro_range = 80
+	death_loot = (
+		/obj/item/stack/spacecash/c100
+		/obj/item/stack/spacecash/c100
+		/obj/item/stack/spacecash/c100
+		/obj/item/stack/spacecash/c100
+		/obj/item/stack/spacecash/c100
+	)
+
+/mob/living/basic/cult/spear/CodZ
+	BB_aggro_range = 80
+	death_loot = (
+		/obj/item/stack/spacecash/c1000
+	)
+
+/mob/living/basic/cult/warrior/CodZ
+	BB_aggro_range = 80
+	death_loot = (
+		/obj/item/stack/spacecash/c1000
+	)
+
+/mob/living/basic/cult/magic/elite/CodZ/Final_Boss
+	name = "Cult Leader"
+	desc = "The boss of the cult operating on this planet, killing him will be taking the head off the snake."
+	maxHealth = 1500
+	health = 1500
+	melee_damage_lower = 40
+	melee_damage_upper = 40
+	death_loot = (
+		/obj/item/keycard/circus
+	)
+
+/mob/living/basic/cult/magic/elite/fireball/CodZ/Rare_shiny_final_boss
+	name = "Shiny Cult Leader"
+	desc = "Well isnt this your lucky day."
+	maxHealth = 15000
+	health = 15000
+	melee_damage_lower = 40
+	melee_damage_upper = 40
+	death_loot = list(
+		/obj/item/nullrod/vibro/talking/chainsword
+		/obj/item/mod/control/pre_equipped/responsory/inquisitory/commander
+		/obj/item/stack/spacecash/c10000
+		/obj/item/stack/spacecash/c10000
+		/obj/item/stack/spacecash/c10000
+		/obj/item/keycard/circus
+	)

@@ -7491,6 +7491,8 @@
 #include "modular_nova\modules\awaymissions_nova\circus\circus_mobs.dm"
 #include "modular_nova\modules\awaymissions_nova\circus\clothing_trader.dm"
 #include "modular_nova\modules\awaymissions_nova\circus\clothing_trader_data.dm"
+#include "modular_nova\modules\awaymissions_nova\circus\clown_gun_trader.dm"
+#include "modular_nova\modules\awaymissions_nova\circus\clown_gun_trader_data.dm"
 #include "modular_nova\modules\awaymissions_nova\circus\clown_trader.dm"
 #include "modular_nova\modules\awaymissions_nova\circus\clown_trader_data.dm"
 #include "modular_nova\modules\awaymissions_nova\circus\food_trader.dm"
