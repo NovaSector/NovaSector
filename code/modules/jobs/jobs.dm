@@ -25,7 +25,7 @@ GLOBAL_LIST_INIT(exp_specialmap, list(
 		ROLE_SYNDICATE_DRONE,
 		ROLE_VENUSHUMANTRAP,
 		ROLE_GHOST_ROLE,
-		//NOVA EDIT Start - Custom Ghost roles
+		//NOVA EDIT ADDITION START - Custom Ghost roles
 		ROLE_BLACK_MARKET_DEALER,
 		ROLE_DS2,
 		ROLE_FREIGHTER_CREW,
@@ -34,7 +34,7 @@ GLOBAL_LIST_INIT(exp_specialmap, list(
 		ROLE_INTERDYNE_PLANETARY_BASE_ICEBOX,
 		ROLE_PORT_TARKON,
 		ROLE_MINING_STATION_SUPPORT_ENGINEER,
-		//NOVA EDIT Start - End Custom Ghost roles
+		//NOVA EDIT ADDITION END - Custom Ghost roles
 		), // Ghost roles
 	EXP_TYPE_GHOST = list() // dead people, observers
 ))

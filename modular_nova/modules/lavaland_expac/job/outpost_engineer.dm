@@ -86,7 +86,9 @@
 	icon = 'icons/obj/machines/sleeper.dmi'
 	icon_state = "sleeper-o"
 	you_are_text = "NT is contracting this station to handle operations, your job is to ensure it stays functional for them."
-	flavour_text = "You are your own boss and expected to self-manage, make sure the station is powered and sealed at all times. Call for support when needed from the main station and support rescue efforts by accomodating visiting crew, you do not care about security related issues unless it involves you or your duty station."
+	flavour_text = "You are your own boss and expected to self-manage, make sure the station is powered and sealed at all times. \
+		Call for support when needed from the main station and support rescue efforts by accommodating visiting crew, you do not care about security \
+		related issues unless it involves you or your duty station."
 	important_text = "This job is contract based, your sole duty of care is the maintaining of the mining station and items within and around. Any character is allowed to play outside of DS-2 characters."
 	loadout_enabled = TRUE
 	quirks_enabled = TRUE
