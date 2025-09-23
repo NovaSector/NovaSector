@@ -67,7 +67,6 @@
 	extra_access = list()
 	minimal_access = list(
 		ACCESS_AI_UPLOAD,
-		ACCESS_ALL_PERSONAL_LOCKERS,
 		ACCESS_BAR,
 		ACCESS_BRIG_ENTRANCE,
 		ACCESS_CENT_GENERAL,
