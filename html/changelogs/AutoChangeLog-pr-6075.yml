@@ -1,0 +1,6 @@
+author: "OrbisAnima"
+delete-after: True
+changes:
+  - balance: "Lobstrocities and Explosions will no longer fish up unique items from the fishing pools, automation only gets you the baseliine stuff. Fish for the actual rewards!"
+  - balance: "Binyat once again can hack fishing portals. It was only a matter of time for CODEX to get around its firmware, really."
+  - balance: "Monocloning jumpercables breed themselves into the Sterile Jumpercables, to no one's surprise! (They no longer mate and cannot self reproduce as they did in the past, they are still pretty great, just not an AFK exponential swarm of free power and money.)"
