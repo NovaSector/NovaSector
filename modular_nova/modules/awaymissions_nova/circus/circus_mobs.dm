@@ -116,6 +116,11 @@
 	id = /obj/item/card/id/advanced/silver
 
 /datum/ai_controller/basic_controller/cult_circus
+	ai_movement = /datum/ai_movement/basic_avoidance
+
+	planning_subtrees = list(
+		/datum/ai_planning_subtree/simple_find_target
+	)
 	blackboard = list(
 		BB_AGGRO_RANGE = 80
 	)
