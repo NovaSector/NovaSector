@@ -117,9 +117,7 @@
 
 /datum/ai_controller/basic_controller/cult_circus
 	blackboard = list(
-		AI_MAX_PATH_LENGTH = 80
-		BB_AGRO_RANGE = 80
-		AI_DEFAULT_INTERESTING_DIST 90
+		BB_AGGRO_RANGE = 80
 	)
 
 //start of the Call of duty zombies attack wave mobs

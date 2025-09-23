@@ -575,6 +575,13 @@
 	icon_state = "bus"
 	},
 /area/awaymission/circus/no_light)
+"el" = (
+/obj/machinery/door/poddoor/shutters/indestructible{
+	id = "WaveThirteen";
+	name = "zW13"
+	},
+/turf/open/floor/cult,
+/area/awaymission/circus/no_light)
 "ep" = (
 /obj/machinery/atmospherics/pipe/smart/simple/yellow/hidden{
 	dir = 8
@@ -617,6 +624,13 @@
 "eX" = (
 /obj/machinery/door/poddoor/shutters/preopen,
 /turf/open/floor/iron/large,
+/area/awaymission/circus/no_light)
+"fb" = (
+/obj/machinery/door/poddoor/shutters/indestructible{
+	id = "WaveSeven";
+	name = "W7"
+	},
+/turf/open/floor/cult,
 /area/awaymission/circus/no_light)
 "fc" = (
 /obj/structure/sign/poster/contraband/space_up/directional/north,
@@ -1167,9 +1181,9 @@
 /turf/open/floor/plating,
 /area/awaymission/circus/no_light)
 "jI" = (
-/obj/machinery/door/poddoor/shutters{
-	dir = 4;
-	id = "abandoned_kitchen"
+/obj/machinery/door/poddoor/shutters/indestructible{
+	id = "WaveTen";
+	name = "zW10"
 	},
 /turf/open/floor/cult,
 /area/awaymission/circus/no_light)
@@ -1188,8 +1202,9 @@
 /turf/open/misc/asteroid/basalt,
 /area/awaymission/circus/no_light)
 "jR" = (
-/obj/machinery/door/poddoor/shutters{
-	id = "supplybridge"
+/obj/machinery/door/poddoor/shutters/indestructible{
+	id = "WaveEleven";
+	name = "zW11"
 	},
 /turf/open/floor/cult,
 /area/awaymission/circus/no_light)
@@ -1230,39 +1245,57 @@
 /obj/structure/table/wood/fancy/orange,
 /obj/machinery/button/door/directional{
 	pixel_x = -9;
-	pixel_y = -5
+	pixel_y = -5;
+	name = "Wave One";
+	id = "WaveOne"
 	},
 /obj/machinery/button/door/directional{
 	pixel_x = 0;
-	pixel_y = -5
+	pixel_y = -5;
+	name = "Wave Two";
+	id = "WaveTwo"
 	},
 /obj/machinery/button/door/directional{
 	pixel_x = 9;
-	pixel_y = -5
+	pixel_y = -5;
+	name = "Wave Three";
+	id = "WaveThree"
 	},
 /obj/machinery/button/door/directional{
 	pixel_x = 0;
-	pixel_y = 3
+	pixel_y = 3;
+	name = "Wave Five";
+	id = "WaveFive"
 	},
 /obj/machinery/button/door/directional{
 	pixel_x = 9;
-	pixel_y = 3
+	pixel_y = 3;
+	name = "Wave Six";
+	id = "WaveSix"
 	},
 /obj/machinery/button/door/directional{
 	pixel_x = 9;
-	pixel_y = 11
+	pixel_y = 11;
+	name = "Wave Nine";
+	id = "WaveNine"
 	},
 /obj/machinery/button/door/directional{
 	pixel_x = 0;
-	pixel_y = 11
+	pixel_y = 11;
+	name = "Wave Eight";
+	id = "WaveEight"
 	},
 /obj/machinery/button/door/directional{
 	pixel_x = -9;
-	pixel_y = 11
+	pixel_y = 11;
+	name = "Wave Seven";
+	id = "WaveSeven"
 	},
 /obj/machinery/button/door/directional{
 	pixel_x = -9;
-	pixel_y = 3
+	pixel_y = 3;
+	name = "Wave Four";
+	id = "WaveFour"
 	},
 /turf/open/floor/carpet/donk,
 /area/awaymission/circus/no_light)
@@ -1387,6 +1420,13 @@
 	},
 /obj/machinery/door/poddoor/shutters/indestructible,
 /turf/open/floor/plating,
+/area/awaymission/circus/no_light)
+"lg" = (
+/obj/machinery/door/poddoor/shutters/indestructible{
+	id = "WaveOne";
+	name = "W1"
+	},
+/turf/open/floor/cult,
 /area/awaymission/circus/no_light)
 "ll" = (
 /obj/structure/chair/plastic{
@@ -1731,6 +1771,13 @@
 /area/awaymission/circus/no_light)
 "nr" = (
 /turf/open/misc/asteroid/basalt,
+/area/awaymission/circus/no_light)
+"ns" = (
+/obj/machinery/door/poddoor/shutters/indestructible{
+	id = "WaveTwo";
+	name = "W2"
+	},
+/turf/open/floor/cult,
 /area/awaymission/circus/no_light)
 "nu" = (
 /obj/structure/disposalpipe/segment,
@@ -2161,6 +2208,13 @@
 	dir = 8
 	},
 /area/awaymission/circus/no_light)
+"qL" = (
+/obj/machinery/door/poddoor/shutters/indestructible{
+	id = "WaveThree";
+	name = "W3"
+	},
+/turf/open/floor/cult,
+/area/awaymission/circus/no_light)
 "qO" = (
 /obj/structure/table/reinforced,
 /turf/open/floor/stone,
@@ -2429,9 +2483,9 @@
 /turf/open/indestructible/rockyground,
 /area/awaymission/circus/no_light)
 "tg" = (
-/obj/machinery/door/poddoor/shutters{
-	dir = 1;
-	id = "supplybridge"
+/obj/machinery/door/poddoor/shutters/indestructible{
+	id = "WaveEight";
+	name = "W8"
 	},
 /turf/open/floor/cult,
 /area/awaymission/circus/no_light)
@@ -2847,6 +2901,13 @@
 "vV" = (
 /obj/structure/frame/machine/secured,
 /turf/open/floor/bamboo,
+/area/awaymission/circus/no_light)
+"vY" = (
+/obj/machinery/door/poddoor/shutters/indestructible{
+	id = "WaveTwelve";
+	name = "zW12"
+	},
+/turf/open/floor/cult,
 /area/awaymission/circus/no_light)
 "wa" = (
 /turf/closed/wall/mineral/titanium,
@@ -4257,6 +4318,13 @@
 /obj/structure/sign/warning/no_smoking,
 /turf/closed/wall,
 /area/awaymission/beach/circus_day)
+"FX" = (
+/obj/machinery/door/poddoor/shutters/indestructible{
+	id = "WaveFive";
+	name = "W5"
+	},
+/turf/open/floor/cult,
+/area/awaymission/circus/no_light)
 "FY" = (
 /obj/structure/fence/door,
 /turf/open/indestructible/rockyground,
@@ -5109,6 +5177,13 @@
 	dir = 1
 	},
 /area/awaymission/circus/no_light)
+"Nm" = (
+/obj/machinery/door/poddoor/shutters/indestructible{
+	id = "WaveFour";
+	name = "W4"
+	},
+/turf/open/floor/cult,
+/area/awaymission/circus/no_light)
 "Nn" = (
 /obj/effect/turf_decal/stripes/line{
 	dir = 10
@@ -5860,6 +5935,46 @@
 	},
 /turf/open/floor/wood,
 /area/awaymission/circus/no_light)
+"SR" = (
+/obj/structure/table/wood/fancy/orange,
+/obj/machinery/button/door/directional{
+	pixel_x = -9;
+	pixel_y = -5;
+	name = "Wave Ten";
+	id = "WaveTen"
+	},
+/obj/machinery/button/door/directional{
+	pixel_x = 0;
+	pixel_y = -5;
+	name = "Wave Eleven";
+	id = "WaveEleven"
+	},
+/obj/machinery/button/door/directional{
+	pixel_x = 9;
+	pixel_y = -5;
+	name = "Wave Twelve";
+	id = "WaveTwelve"
+	},
+/obj/machinery/button/door/directional{
+	pixel_x = 0;
+	pixel_y = 3;
+	name = "Wave Fourteen";
+	id = "WaveFourteen"
+	},
+/obj/machinery/button/door/directional{
+	pixel_x = 9;
+	pixel_y = 3;
+	name = "Wave Fifteen";
+	id = "WaveFifteen"
+	},
+/obj/machinery/button/door/directional{
+	pixel_x = -9;
+	pixel_y = 3;
+	name = "Wave Thirteen";
+	id = "WaveThirteen"
+	},
+/turf/open/floor/carpet/donk,
+/area/awaymission/circus/no_light)
 "SS" = (
 /obj/structure/table/wood/fancy/orange,
 /obj/machinery/recharger,
@@ -6009,6 +6124,11 @@
 	},
 /turf/open/floor/plating,
 /area/awaymission/circus/no_light)
+"TY" = (
+/mob/living/basic/cult/CodZ,
+/mob/living/basic/cult/CodZ,
+/turf/open/floor/cult,
+/area/awaymission/circus/no_light)
 "Ud" = (
 /turf/open/misc/ice/temperate,
 /area/awaymission/circus/no_light)
@@ -6033,6 +6153,13 @@
 /obj/structure/barricade/wooden/crude,
 /turf/open/indestructible/rockyground,
 /area/awaymission/beach/circus_day)
+"Ur" = (
+/obj/machinery/door/poddoor/shutters/indestructible{
+	id = "WaveSix";
+	name = "W6"
+	},
+/turf/open/floor/cult,
+/area/awaymission/circus/no_light)
 "Uv" = (
 /turf/closed/indestructible/reinforced,
 /area/awaymission/beach/circus_day)
@@ -6149,6 +6276,13 @@
 /obj/item/clothing/shoes/sneakers/rainbow,
 /obj/item/clothing/head/soft/rainbow,
 /turf/open/floor/carpet/green,
+/area/awaymission/circus/no_light)
+"Vq" = (
+/obj/machinery/door/poddoor/shutters/indestructible{
+	id = "WaveFifteen";
+	name = "zW15"
+	},
+/turf/open/floor/cult,
 /area/awaymission/circus/no_light)
 "Vr" = (
 /obj/structure/curtain/cloth,
@@ -6457,6 +6591,13 @@
 	},
 /turf/open/floor/iron/bluespace,
 /area/awaymission/circus/no_light)
+"Xy" = (
+/obj/machinery/door/poddoor/shutters/indestructible{
+	id = "WaveNine";
+	name = "W9"
+	},
+/turf/open/floor/cult,
+/area/awaymission/circus/no_light)
 "XC" = (
 /turf/open/floor/eighties,
 /area/awaymission/circus/no_light)
@@ -6685,6 +6826,13 @@
 /obj/machinery/conveyor/auto/hardened,
 /obj/machinery/light/floor,
 /turf/open/floor/plating,
+/area/awaymission/circus/no_light)
+"Zp" = (
+/obj/machinery/door/poddoor/shutters/indestructible{
+	id = "WaveFourteen";
+	name = "zW14"
+	},
+/turf/open/floor/cult,
 /area/awaymission/circus/no_light)
 "Zq" = (
 /mob/living/silicon/robot/model/security,
@@ -22417,11 +22565,11 @@ Gl
 Gl
 Gl
 Gl
-jI
+Vq
 Gl
 jI
 Gl
-jI
+FX
 Gl
 Ud
 Ud
@@ -22931,11 +23079,11 @@ Gl
 Gl
 Gl
 Gl
-jI
+Zp
 Gl
-jI
+Xy
 Gl
-jI
+Nm
 Gl
 Ud
 Ud
@@ -23445,11 +23593,11 @@ Gl
 Gl
 Gl
 Gl
-jI
+el
 Gl
-jI
+tg
 Gl
-jI
+qL
 Gl
 Ud
 Ud
@@ -23929,15 +24077,15 @@ tF
 XX
 qV
 ge
-tg
+jR
 ge
-tg
+vY
 ge
-tg
+el
 ge
-tg
+Zp
 ge
-tg
+Vq
 ge
 Gl
 Gl
@@ -23959,11 +24107,11 @@ Gl
 Gl
 Gl
 Gl
-jI
+vY
 Gl
-jI
+fb
 Gl
-jI
+ns
 Gl
 Ud
 Ud
@@ -24220,7 +24368,7 @@ ge
 Gl
 ge
 Gl
-ge
+TY
 Gl
 Ud
 Ud
@@ -24443,41 +24591,41 @@ mI
 lD
 qV
 ge
-tg
+Ur
+ge
+fb
 ge
 tg
 ge
-tg
+Xy
 ge
-tg
-ge
-tg
-ge
-Gl
-Gl
-Gl
-Gl
-Gl
-Ud
-Ud
-Ud
-Ud
-Ud
-Ud
-Ud
-Ud
-Ud
-Ud
-Gl
-Gl
-Gl
-Gl
-Gl
 jI
+ge
 Gl
-jI
 Gl
-jI
+Gl
+Gl
+Gl
+Ud
+Ud
+Ud
+Ud
+Ud
+Ud
+Ud
+Ud
+Ud
+Ud
+Gl
+Gl
+Gl
+Gl
+Gl
+jR
+Gl
+Ur
+Gl
+lg
 Gl
 Ud
 Ud
@@ -24957,15 +25105,15 @@ su
 ge
 ge
 ge
-tg
+lg
+TY
+ns
 ge
-tg
+qL
 ge
-tg
+Nm
 ge
-tg
-ge
-tg
+FX
 ge
 Gl
 Gl
@@ -39357,7 +39505,7 @@ QB
 vG
 vG
 vG
-kh
+SR
 SS
 kh
 vG
@@ -42417,15 +42565,15 @@ QB
 QB
 yx
 ge
-jR
+FX
 ge
-jR
+Nm
 ge
-jR
+qL
 ge
-jR
-ge
-jR
+ns
+TY
+lg
 ge
 Pu
 Th
@@ -42931,15 +43079,15 @@ QB
 QB
 yx
 ge
-jR
+jI
 ge
-jR
+Xy
 ge
-jR
+tg
 ge
-jR
+fb
 ge
-jR
+Ur
 ge
 Pu
 MS
@@ -43445,13 +43593,13 @@ QB
 QB
 yx
 ge
-jR
+Vq
 ge
-jR
+Zp
 ge
-jR
+el
 ge
-jR
+vY
 ge
 jR
 ge
