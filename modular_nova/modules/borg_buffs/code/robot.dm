@@ -188,8 +188,7 @@
 	force = 20
 
 /obj/item/robot_model/miner/Initialize(mapload)
-	LAZYINITLIST(basic_modules)
-	LAZYADD(basic_modules, /obj/item/kinetic_crusher/robot)
+	basic_modules += /obj/item/kinetic_crusher/robot
 	return ..()
 
 /obj/item/kinetic_crusher/robot/Initialize(mapload)
