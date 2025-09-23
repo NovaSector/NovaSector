@@ -9,3 +9,4 @@
 	greyscale_config = /datum/greyscale_config/dorms_blindfold
 	greyscale_config_worn = /datum/greyscale_config/dorms_blindfold/worn
 	flags_1 = IS_PLAYER_COLORABLE_1
+	obj_flags_nova = ERP_ITEM
