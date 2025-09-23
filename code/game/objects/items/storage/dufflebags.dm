@@ -397,9 +397,9 @@
 	new /obj/item/t_scanner/adv_mining_scanner/lesser(src)
 	new /obj/item/storage/bag/ore(src)
 	new /obj/item/clothing/suit/hooded/explorer(src)
-	new /obj/item/encryptionkey/headset_mining(src)
+	// new /obj/item/encryptionkey/headset_mining(src) // NOVA EDIT REMOVAL
 	new /obj/item/clothing/mask/gas/explorer(src)
-	new /obj/item/card/id/advanced/mining(src)
+	// new /obj/item/card/id/advanced/mining(src) // NOVA EDIT REMOVAL 
 	new /obj/item/gun/energy/recharge/kinetic_accelerator(src)
 	new /obj/item/knife/combat/survival(src)
 	new /obj/item/flashlight/seclite(src)
