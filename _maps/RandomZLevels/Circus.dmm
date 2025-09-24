@@ -652,6 +652,10 @@
 	},
 /turf/open/floor/iron/dark/textured_large,
 /area/awaymission/circus/no_light)
+"fj" = (
+/obj/machinery/door/puzzle/keycard/circus_minigun,
+/turf/open/floor/eighties/red,
+/area/awaymission/circus/no_light)
 "fk" = (
 /obj/effect/turf_decal/stripes/line{
 	dir = 9
@@ -789,6 +793,10 @@
 	},
 /turf/open/floor/asphalt,
 /area/awaymission/beach/circus_day)
+"gh" = (
+/obj/item/minigunpack,
+/turf/open/floor/eighties/red,
+/area/awaymission/circus/no_light)
 "gi" = (
 /mob/living/basic/clown{
 	faction = list("hostile","cult")
@@ -47145,7 +47153,7 @@ hF
 xO
 xO
 xO
-xO
+fj
 zW
 hF
 xO
@@ -47401,8 +47409,8 @@ Pu
 bH
 bH
 xO
-xO
-bH
+fj
+gh
 bH
 xO
 xO
@@ -50739,7 +50747,7 @@ QB
 uu
 QB
 Pu
-Br
+XC
 XC
 XC
 XC
@@ -50996,7 +51004,7 @@ QB
 uu
 QB
 Pu
-rz
+gm
 XC
 XC
 bH
