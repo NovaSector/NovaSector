@@ -462,6 +462,10 @@
 "dm" = (
 /turf/open/floor/mineral/plastitanium/red,
 /area/awaymission/circus/no_light)
+"do" = (
+/obj/item/minigunpack,
+/turf/open/floor/eighties/red,
+/area/awaymission/circus/no_light)
 "dp" = (
 /mob/living/basic/clown/clownhulk/chlown{
 	faction = list("hostile","cult")
@@ -47406,7 +47410,7 @@ bH
 bH
 xO
 fj
-xO
+do
 bH
 xO
 xO
