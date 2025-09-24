@@ -61,10 +61,7 @@
 	l_pocket = /obj/item/modular_computer/pda/engineering
 	r_pocket = /obj/item/t_scanner
 	r_hand = /obj/item/gun/ballistic/shotgun/doublebarrel/slugs
-	backpack_contents = list(
-		/obj/item/construction/rcd/loaded,
-		/obj/item/inducer = 1,
-	)
+
 	var/backpack = /obj/item/storage/backpack/industrial
 	var/satchel = /obj/item/storage/backpack/satchel/eng
 	var/duffelbag = /obj/item/storage/backpack/duffelbag/engineering
@@ -95,7 +92,6 @@
 				back = duffelbag
 			else
 				back = backpack
-
 	var/client/client = GLOB.directory[ckey(minegineer.mind?.key)]
 
 	if(isplasmaman(minegineer))
