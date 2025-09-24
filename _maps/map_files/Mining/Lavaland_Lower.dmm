@@ -3775,8 +3775,11 @@
 /turf/open/lava/smooth/lava_land_surface,
 /area/lavaland/underground/unexplored/riverside)
 "KG" = (
-/obj/effect/spawner/structure/window,
 /obj/structure/hedge/opaque,
+/obj/structure/window/reinforced/spawner/directional/east,
+/obj/structure/window/reinforced/spawner/directional/north,
+/obj/structure/window/reinforced/spawner/directional/south,
+/obj/structure/window/reinforced/spawner/directional/west,
 /turf/open/floor/plating,
 /area/mine/cafeteria)
 "KL" = (
