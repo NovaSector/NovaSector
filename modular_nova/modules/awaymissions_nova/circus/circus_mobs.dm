@@ -94,7 +94,7 @@
 	faction = list(ROLE_DEATHSQUAD)
 	loot = list(/obj/item/keycard/circus_minigun)
 	corpse = /obj/effect/mob_spawn/corpse/human/Heavy_minigunner
-	r_hand = /obj/item/gun/energy/minigun
+	held_weapon_visual = /obj/item/gun/energy/pulse
 	ai_controller = /datum/ai_controller/basic_controller/trooper/ranged
 
 /obj/effect/mob_spawn/corpse/human/Heavy_minigunner
@@ -112,6 +112,7 @@
 	mask = /obj/item/cigarette/cigar/premium
 	glasses = /obj/item/clothing/glasses/sunglasses/big
 	head = /obj/item/clothing/head/helmet/space/beret
+	back = /obj/item/minigunpack
 	id = /obj/item/card/id/advanced/silver
 
 /datum/ai_controller/basic_controller/cult_circus
