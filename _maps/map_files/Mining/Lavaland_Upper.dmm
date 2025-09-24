@@ -1674,10 +1674,6 @@
 /obj/effect/mapping_helpers/no_lava,
 /turf/closed/indestructible/riveted/boss,
 /area/ruin/unpowered/ash_walkers)
-"jf" = (
-/obj/machinery/light/small/directional/north,
-/turf/open/misc/hay/lavaland,
-/area/mine/lobby/raptor)
 "jg" = (
 /obj/structure/wall_torch/spawns_lit/directional/north,
 /obj/structure/stone_tile/block,
@@ -2510,6 +2506,7 @@
 /area/mine/storage)
 "oo" = (
 /obj/structure/table/reinforced,
+/obj/machinery/light/directional/north,
 /turf/open/floor/iron/textured_large,
 /area/mine/engineering/storage)
 "op" = (
@@ -4520,15 +4517,6 @@
 /obj/structure/extinguisher_cabinet/directional/north,
 /turf/open/floor/iron/textured_large,
 /area/mine/lounge)
-"zf" = (
-/obj/structure/table/wood,
-/obj/item/construction/rcd,
-/obj/item/construction/rcd{
-	pixel_y = 6;
-	pixel_x = -5
-	},
-/turf/open/floor/iron/dark/smooth_large,
-/area/mine/engineering)
 "zj" = (
 /obj/structure/stone_tile/slab{
 	pixel_y = -2;
@@ -5022,6 +5010,10 @@
 "BM" = (
 /turf/closed/wall,
 /area/mine/engineering/electrical)
+"BP" = (
+/obj/machinery/light/small/directional/north,
+/turf/open/misc/hay/lavaland,
+/area/mine/lobby/raptor)
 "BR" = (
 /obj/structure/stone_tile/block{
 	dir = 4
@@ -5089,6 +5081,11 @@
 /obj/item/weldingtool/mini,
 /turf/open/misc/asteroid/basalt/lava_land_surface,
 /area/ruin/unpowered/ash_walkers)
+"Cj" = (
+/obj/structure/table/reinforced,
+/obj/item/inducer,
+/turf/open/floor/iron/textured_large,
+/area/mine/engineering/storage)
 "Cl" = (
 /obj/effect/mapping_helpers/no_lava,
 /obj/structure/ore_vein/stone,
@@ -6680,6 +6677,15 @@
 /obj/structure/cable,
 /turf/open/floor/wood/parquet,
 /area/mine/lobby/raptor)
+"Ka" = (
+/obj/structure/table/wood,
+/obj/item/construction/rcd,
+/obj/item/construction/rcd{
+	pixel_y = 6;
+	pixel_x = -5
+	},
+/turf/open/floor/iron/dark/smooth_large,
+/area/mine/engineering)
 "Kc" = (
 /obj/machinery/suit_storage_unit/engine,
 /turf/open/floor/iron/textured_large,
@@ -7562,11 +7568,6 @@
 /obj/structure/cable,
 /turf/open/floor/iron/dark/brick_aligned_corner_inverse,
 /area/mine/engineering)
-"Ox" = (
-/obj/structure/table/reinforced,
-/obj/machinery/light/directional/north,
-/turf/open/floor/iron/textured_large,
-/area/mine/engineering/storage)
 "OB" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
@@ -13811,7 +13812,7 @@ PK
 PK
 PK
 Dj
-jf
+BP
 dx
 Dj
 WZ
@@ -15096,7 +15097,7 @@ Eu
 Eu
 Eu
 Dj
-jf
+BP
 dx
 Dj
 QX
@@ -16656,7 +16657,7 @@ oZ
 oZ
 oZ
 Pz
-Ox
+oo
 BH
 BH
 qN
@@ -16913,7 +16914,7 @@ oZ
 oZ
 oZ
 Pz
-oo
+Cj
 BH
 xx
 EA
@@ -17427,8 +17428,8 @@ oZ
 fm
 fm
 fm
-ic
-ic
+fm
+fm
 Vh
 VD
 ST
@@ -17684,8 +17685,8 @@ oZ
 fm
 um
 bR
-zf
-ic
+Ka
+fm
 vF
 SL
 iy
@@ -17942,7 +17943,7 @@ uw
 Px
 bR
 sy
-ic
+fm
 Vg
 Ao
 tX
@@ -18199,7 +18200,7 @@ fm
 mS
 lx
 ii
-ic
+fm
 ST
 UA
 ST
@@ -18709,11 +18710,11 @@ Ho
 oZ
 oZ
 oZ
-oZ
-hf
-BM
-BM
-BM
+fm
+fm
+fm
+fm
+fm
 Fr
 VE
 Ep
