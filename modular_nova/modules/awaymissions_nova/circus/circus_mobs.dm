@@ -94,7 +94,7 @@
 	faction = list(ROLE_DEATHSQUAD)
 	loot = list(/obj/item/keycard/circus_minigun)
 	corpse = /obj/effect/mob_spawn/corpse/human/Heavy_minigunner
-	held_weapon_visual = /obj/item/gun/energy/pulse
+	r_hand = /obj/item/gun/energy/pulse
 	ai_controller = /datum/ai_controller/basic_controller/trooper/ranged
 
 /obj/effect/mob_spawn/corpse/human/Heavy_minigunner
