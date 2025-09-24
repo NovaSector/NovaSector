@@ -92,6 +92,9 @@
 	projectilesound = 'sound/items/weapons/laser.ogg'
 	ranged_cooldown = 2 SECONDS
 	faction = list(ROLE_DEATHSQUAD)
+	death_loot = list(
+		/obj/item/minigunpack
+	)
 	corpse = /obj/effect/mob_spawn/corpse/human/Heavy_minigunner
 	mob_spawner = /obj/effect/mob_spawn/corpse/human/Heavy_minigunner
 	r_hand = /obj/item/gun/energy/minigun
@@ -112,7 +115,6 @@
 	mask = /obj/item/cigarette/cigar/premium
 	glasses = /obj/item/clothing/glasses/sunglasses/big
 	head = /obj/item/clothing/head/helmet/space/beret
-	back = /obj/item/minigunpack
 	id = /obj/item/card/id/advanced/silver
 
 /datum/ai_controller/basic_controller/cult_circus
