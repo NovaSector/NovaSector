@@ -289,15 +289,6 @@
 /obj/structure/barricade/sandbags,
 /turf/open/floor/eighties,
 /area/awaymission/circus/no_light)
-"cc" = (
-/obj/machinery/atmospherics/components/unary/outlet_injector/monitored{
-	chamber_id = "lizardgas";
-	dir = 4
-	},
-/turf/open/floor/engine/plasma{
-	initial_gas_mix = "plasma=35000;TEMP=293.15"
-	},
-/area/awaymission/circus/no_light)
 "cd" = (
 /obj/structure/fluff/bus/dense{
 	icon_state = "hoodtop"
@@ -933,14 +924,6 @@
 /obj/machinery/light/broken/directional/south,
 /turf/open/floor/carpet/executive,
 /area/awaymission/circus/no_light)
-"hB" = (
-/obj/machinery/air_sensor{
-	chamber_id = "lizardgas"
-	},
-/turf/open/floor/engine/plasma{
-	initial_gas_mix = "plasma=35000;TEMP=293.15"
-	},
-/area/awaymission/circus/no_light)
 "hC" = (
 /obj/structure/railing{
 	dir = 8
@@ -1028,9 +1011,7 @@
 /turf/open/floor/grass,
 /area/awaymission/circus/no_light)
 "iq" = (
-/obj/machinery/atmospherics/components/unary/vent_pump/siphon/monitored{
-	chamber_id = "lizardgas"
-	},
+/obj/machinery/atmospherics/components/unary/vent_pump/on,
 /turf/open/floor/engine/plasma{
 	initial_gas_mix = "plasma=35000;TEMP=293.15"
 	},
@@ -4584,10 +4565,6 @@
 /turf/open/indestructible/rockyground,
 /area/awaymission/beach/circus_day)
 "ID" = (
-/obj/machinery/computer/atmos_control/noreconnect{
-	atmos_chambers = list("lizardgas"="Plasma Supply");
-	dir = 8
-	},
 /turf/open/floor/iron/dark/smooth_edge{
 	dir = 4
 	},
@@ -4695,12 +4672,6 @@
 	dir = 4
 	},
 /turf/open/floor/stone,
-/area/awaymission/circus/no_light)
-"Jx" = (
-/obj/machinery/atmospherics/components/unary/portables_connector/visible{
-	dir = 8
-	},
-/turf/open/floor/plating,
 /area/awaymission/circus/no_light)
 "JG" = (
 /obj/effect/spawner/structure/window/reinforced,
@@ -57149,7 +57120,7 @@ Gl
 Ea
 oN
 GN
-iq
+GN
 Ga
 Wa
 MK
@@ -57275,7 +57246,7 @@ Pr
 Pr
 Ea
 GN
-hB
+GN
 ma
 Rc
 hR
@@ -57405,7 +57376,7 @@ Gl
 Gl
 Ea
 GN
-hB
+GN
 ma
 Rc
 hR
@@ -57531,7 +57502,7 @@ Gl
 Gl
 Pr
 Ea
-cc
+GN
 GN
 GN
 Rc
@@ -57661,7 +57632,7 @@ Gl
 Gl
 Gl
 Ea
-cc
+GN
 GN
 GN
 Rc
@@ -57788,7 +57759,7 @@ NP
 Gl
 Gl
 Ea
-CR
+Ea
 Ea
 Ea
 Ea
@@ -58045,7 +58016,7 @@ QB
 QB
 QB
 qV
-Jx
+Kk
 aM
 ik
 qV
@@ -58175,7 +58146,7 @@ QB
 QB
 QB
 qV
-Jx
+Kk
 aM
 ik
 qV
