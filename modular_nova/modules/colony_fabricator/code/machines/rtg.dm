@@ -6,7 +6,7 @@
 		It has a yellow radioactive warning, minor radiation posibility. Do not store tomatos nearby."
 	icon = 'modular_nova/modules/colony_fabricator/icons/machines.dmi'
 	circuit = null
-	power_gen = 12 KILO WATTS // 20% more than a t4 solar or winded turbine.
+	power_gen = 15 KILO WATTS // 50% more than a t4 solar or winded turbine.
 	max_integrity = 40
 	/// What we turn into when we are repacked
 	var/repacked_type = /obj/item/flatpacked_machine/rtg
