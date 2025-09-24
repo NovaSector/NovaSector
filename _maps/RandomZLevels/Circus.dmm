@@ -793,10 +793,6 @@
 	},
 /turf/open/floor/asphalt,
 /area/awaymission/beach/circus_day)
-"gh" = (
-/obj/item/minigunpack,
-/turf/open/floor/eighties/red,
-/area/awaymission/circus/no_light)
 "gi" = (
 /mob/living/basic/clown{
 	faction = list("hostile","cult")
@@ -47410,7 +47406,7 @@ bH
 bH
 xO
 fj
-gh
+xO
 bH
 xO
 xO
