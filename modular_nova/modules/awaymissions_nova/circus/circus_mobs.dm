@@ -92,9 +92,7 @@
 	projectilesound = 'sound/items/weapons/laser.ogg'
 	ranged_cooldown = 2 SECONDS
 	faction = list(ROLE_DEATHSQUAD)
-	death_loot = list(
-		/obj/item/minigunpack
-	)
+	loot = list(/obj/item/minigunpack)
 	corpse = /obj/effect/mob_spawn/corpse/human/Heavy_minigunner
 	mob_spawner = /obj/effect/mob_spawn/corpse/human/Heavy_minigunner
 	r_hand = /obj/item/gun/energy/minigun
