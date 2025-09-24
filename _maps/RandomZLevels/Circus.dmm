@@ -2720,12 +2720,6 @@
 	},
 /turf/open/floor/grass,
 /area/awaymission/circus/no_light)
-"uO" = (
-/obj/structure/rack,
-/obj/item/shield/roman/red,
-/obj/item/minigunpack/red,
-/turf/open/floor/eighties/red,
-/area/awaymission/circus/no_light)
 "uS" = (
 /obj/effect/spawner/random/trash/bin,
 /turf/open/indestructible/rockyground,
@@ -6144,10 +6138,6 @@
 /obj/structure/billboard/roadsign/two,
 /turf/open/indestructible/rockyground,
 /area/awaymission/circus/no_light)
-"Up" = (
-/obj/effect/spawner/structure/window/reinforced/indestructible,
-/turf/closed/indestructible/steel,
-/area/awaymission/circus/no_light)
 "Uq" = (
 /obj/structure/barricade/wooden,
 /obj/structure/barricade/wooden/crude,
@@ -6466,12 +6456,6 @@
 /obj/effect/turf_decal/stripes,
 /turf/open/floor/asphalt,
 /area/awaymission/beach/circus_day)
-"Ww" = (
-/obj/structure/rack,
-/obj/item/shield/roman/blue,
-/obj/item/minigunpack/blue,
-/turf/open/floor/eighties,
-/area/awaymission/circus/no_light)
 "Wx" = (
 /obj/effect/turf_decal/siding/dark/corner{
 	dir = 8
@@ -38721,7 +38705,7 @@ RH
 qb
 mv
 mv
-Up
+Pu
 pq
 Pu
 QB
@@ -43990,7 +43974,7 @@ RT
 qV
 xO
 xO
-uO
+dP
 qV
 fO
 fO
@@ -50929,7 +50913,7 @@ rz
 qV
 XC
 XC
-Ww
+Ye
 qV
 fO
 fO
