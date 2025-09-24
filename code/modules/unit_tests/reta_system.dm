@@ -140,7 +140,7 @@
 
 	// Test that paramedic no longer has broad access
 	TEST_ASSERT(!(ACCESS_CARGO in paramedic_trim.minimal_access), "Paramedic should not have cargo access")
-/*	TEST_ASSERT(!(ACCESS_SCIENCE in paramedic_trim.minimal_access), "Paramedic should not have science access") */ // NOVA EDIT REMOVAL, paramedic science access
+//	TEST_ASSERT(!(ACCESS_SCIENCE in paramedic_trim.minimal_access), "Paramedic should not have science access") // NOVA EDIT REMOVAL, paramedic science access
 	TEST_ASSERT(!(ACCESS_CONSTRUCTION in paramedic_trim.minimal_access), "Paramedic should not have construction access")
 	TEST_ASSERT(!(ACCESS_HYDROPONICS in paramedic_trim.minimal_access), "Paramedic should not have hydroponics access")
 	TEST_ASSERT(!(ACCESS_MINING in paramedic_trim.minimal_access), "Paramedic should not have mining access")
