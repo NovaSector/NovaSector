@@ -253,13 +253,6 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /turf/open/floor/iron/small,
 /area/awaymission/caves/heretic_laboratory)
-"bI" = (
-/obj/machinery/atmospherics/components/unary/outlet_injector/monitored{
-	chamber_id = "classifiedo2";
-	dir = 8
-	},
-/turf/open/floor/plating,
-/area/awaymission/caves/heretic_laboratory)
 "bN" = (
 /obj/effect/spawner/structure/window,
 /turf/open/floor/plating,
@@ -457,7 +450,6 @@
 /area/awaymission/caves/heretic_laboratory)
 "dm" = (
 /obj/machinery/atmospherics/components/unary/outlet_injector/monitored{
-	chamber_id = "classifiedn2";
 	dir = 8
 	},
 /turf/open/floor/plating,
@@ -1633,12 +1625,6 @@
 /obj/structure/chair/comfy/shuttle/tactical,
 /turf/open/floor/mineral/plastitanium,
 /area/awaymission/caves/heretic_laboratory_clean)
-"kC" = (
-/obj/machinery/air_sensor{
-	chamber_id = "classifiedo2"
-	},
-/turf/open/floor/plating,
-/area/awaymission/caves/heretic_laboratory)
 "kD" = (
 /turf/open/floor/carpet/royalblack,
 /area/awaymission/beach/heretic)
@@ -2473,20 +2459,6 @@
 /obj/machinery/door/airlock/service,
 /turf/open/floor/plating,
 /area/awaymission/caves/heretic_laboratory)
-"pP" = (
-/obj/machinery/computer/atmos_control/noreconnect{
-	atmos_chambers = list("classifiedn2"="Nitrogen Supply");
-	dir = 8
-	},
-/turf/open/floor/iron,
-/area/awaymission/caves/heretic_laboratory)
-"pQ" = (
-/obj/machinery/computer/atmos_control/noreconnect{
-	atmos_chambers = list("classifiedo2"="Oxygen Supply");
-	dir = 8
-	},
-/turf/open/floor/iron,
-/area/awaymission/caves/heretic_laboratory)
 "pU" = (
 /obj/structure/falsewall/plastitanium,
 /turf/open/floor/iron/small,
@@ -2536,7 +2508,6 @@
 /area/awaymission/caves/heretic_laboratory)
 "ql" = (
 /obj/machinery/atmospherics/components/unary/vent_pump/siphon/monitored{
-	chamber_id = "classifiedn2";
 	dir = 8
 	},
 /turf/open/floor/plating,
@@ -5195,12 +5166,6 @@
 /obj/effect/blessing,
 /turf/open/floor/iron/small,
 /area/awaymission/caves/heretic_laboratory)
-"HG" = (
-/obj/machinery/air_sensor{
-	chamber_id = "classifiedn2"
-	},
-/turf/open/floor/plating,
-/area/awaymission/caves/heretic_laboratory)
 "HH" = (
 /turf/open/floor/mineral/uranium,
 /area/awaymission/beach/heretic)
@@ -6770,13 +6735,6 @@
 /obj/item/gun/magic/staff,
 /turf/open/floor/iron/small,
 /area/awaymission/caves/heretic_laboratory_clean)
-"RC" = (
-/obj/machinery/atmospherics/components/unary/vent_pump/siphon/monitored{
-	chamber_id = "classifiedo2";
-	dir = 8
-	},
-/turf/open/floor/plating,
-/area/awaymission/caves/heretic_laboratory)
 "RE" = (
 /obj/effect/turf_decal/siding/wood{
 	dir = 8
@@ -15906,11 +15864,11 @@ KB
 TV
 ju
 lB
-pQ
+mo
 iz
 RW
 lB
-pP
+mo
 iz
 mX
 KB
@@ -16419,12 +16377,12 @@ mo
 KB
 TV
 KB
-RC
-kC
-bI
+ql
+ay
+dm
 KB
 ql
-HG
+ay
 dm
 KB
 KB
