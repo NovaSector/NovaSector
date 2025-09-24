@@ -240,6 +240,18 @@
 	desc = "It looks like it requires a museum keycard."
 	puzzle_id = "circus_museum"
 
+/obj/item/keycard/circus_minigun // its done like this because if i incoporate the minigun on mob loot it will cause runtimes
+	name = "minigun keycard"
+	desc = "A MINIGUN KEYCARD?!? LETS GOOOOO."
+	color = "#8b0000"
+	puzzle_id = "circus_minigun"
+
+/obj/machinery/door/puzzle/keycard/circus_minigun
+	name = "circus airlock"
+	desc = "It looks like it requires a museum keycard."
+	puzzle_id = "circus_minigun"
+
+
 //Firing pins and guns for Codz
 
 /obj/item/firing_pin/explorer/un_removable
