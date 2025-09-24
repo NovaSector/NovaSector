@@ -56,3 +56,34 @@
 /area/mine/engineering/storage
 	name = "Mining Station tool storage"
 
+// Mining Underground
+// Greenturf - we do a lil monster
+/area/lavaland/underground/unexplored
+	name = "Lavaland Underground Caves"
+	icon_state = "unexplored"
+	always_unpowered = TRUE
+	power_environ = FALSE
+	power_equip = FALSE
+	power_light = FALSE
+	requires_power = TRUE
+	ambience_index = AMBIENCE_MINING
+	area_flags = CAVES_ALLOWED | FLORA_ALLOWED | MOB_SPAWN_ALLOWED
+	map_generator = /datum/map_generator/cave_generator/lavaland/underground
+
+// orangeturf - 'safe passage'
+/area/lavaland/underground/unexplored/tunnels
+	icon_state = "shore"
+	area_flags = UNIQUE_AREA | CAVES_ALLOWED | FLORA_ALLOWED
+	map_generator = /datum/map_generator/cave_generator/lavaland/tunnel
+
+// blueturf - rock and rubble near the lava rivers
+/area/lavaland/underground/unexplored/riverside
+	icon_state = "norivers"
+	area_flags = UNIQUE_AREA | FLORA_ALLOWED
+	map_generator = /datum/map_generator/cave_generator/lavaland/riverside
+
+// monster infested
+/area/lavaland/underground/unexplored/rivers/deep
+	icon_state = "danger"
+	area_flags = CAVES_ALLOWED | MOB_SPAWN_ALLOWED
+	map_generator = /datum/map_generator/cave_generator/lavaland

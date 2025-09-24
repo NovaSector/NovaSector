@@ -23,7 +23,6 @@
 		/obj/structure/flora/ash/tall_shroom = 4,
 	)
 
-	///Note that this spawn list is also in the icemoon generator
 	weighted_feature_spawn_list = list(
 		/obj/structure/geyser/hollowwater = 10,
 		/obj/structure/geyser/plasma_oxide = 10,
@@ -78,4 +77,3 @@
 	/obj/structure/flora/ash = 1,
 	)
 
-/area/lavaland/underground/unexplored/rivers/deep

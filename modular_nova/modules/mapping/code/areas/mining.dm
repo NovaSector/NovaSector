@@ -35,29 +35,3 @@
 /area/mine/xenoarch/maintenance/east
 	name = "Xenoarch East Maintenance"
 	icon_state = "xa_e_maint"
-
-// Mining Underground
-// Greenturf - we do a lil monster
-/area/lavaland/underground/unexplored
-	name = "Lavaland Underground Caves"
-	icon_state = "unexplored"
-	area_flags = CAVES_ALLOWED | FLORA_ALLOWED | MOB_SPAWN_ALLOWED
-	map_generator = /datum/map_generator/cave_generator/lavaland/underground
-
-// orangeturf - 'safe passage'
-/area/lavaland/underground/unexplored/tunnels
-	icon_state = "shore"
-	area_flags = UNIQUE_AREA | CAVES_ALLOWED | FLORA_ALLOWED
-	map_generator = /datum/map_generator/cave_generator/lavaland/tunnel
-
-// blueturf - rock and rubble near the lava rivers
-/area/lavaland/underground/unexplored/riverside
-	icon_state = "norivers"
-	area_flags = UNIQUE_AREA | FLORA_ALLOWED
-	map_generator = /datum/map_generator/cave_generator/lavaland/riverside
-
-// monster infested
-/area/lavaland/underground/unexplored/rivers/deep
-	icon_state = "danger"
-	area_flags = CAVES_ALLOWED | MOB_SPAWN_ALLOWED
-	map_generator = /datum/map_generator/cave_generator/lavaland

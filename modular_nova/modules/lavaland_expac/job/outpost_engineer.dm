@@ -1,37 +1,29 @@
 /// all things ghostineer
-// Job - Cargo will be paying them their contracted rate.
-/datum/job/mining_station_engineer
-	title = ROLE_MINING_STATION_SUPPORT_ENGINEER
-	description = "mining station support engineer"
-	paycheck = PAYCHECK_CREW
-	paycheck_department = ACCOUNT_CAR
-	bounty_types = CIV_JOB_ENG
-
 // Access and ID Trim
 /obj/item/card/id/advanced/mining_station_engineer
 	name = "Mining Station Support Engineer's access card"
 	desc = "An access card designated for \"engineering staff\". You're going to be the one everyone points at to fix stuff, let's be honest."
-	trim = /datum/id_trim/away/tarkon/eng
+	trim = /datum/id_trim/job/mining_station_engineer
 
 /datum/id_trim/job/mining_station_engineer
 	assignment = "Mining Station Support Engineer"
 	trim_state = "trim_stationengineer"
 	department_color = COLOR_AMETHYST
-	sechud_icon_state = SECHUD_STATION_ENGINEER
+	sechud_icon_state = SECHUD_MINING_STATION_SUPPORT_ENGINEER
 	minimal_access = list(
+		ACCESS_ATMOSPHERICS, // access for alarms
 		ACCESS_AUX_BASE,
 		ACCESS_CONSTRUCTION,
 		ACCESS_ENGINEERING,
+		ACCESS_ENGINE_EQUIP, // access to APC's and tool lockers
 		ACCESS_EXTERNAL_AIRLOCKS,
 		ACCESS_MAINT_TUNNELS,
-		ACCESS_MECH_ENGINE,
 		ACCESS_MINERAL_STOREROOM,
-		ACCESS_TCOMMS,
-		ACCESS_ATMOSPHERICS,
-		ACCESS_WEAPONS,
 		ACCESS_MINING_STATION,
 		ACCESS_MINING,
-		)
+		ACCESS_SCIENCE, // access to the Xenoarch area
+		ACCESS_WEAPONS, // shotgun
+	)
 	job = /datum/job/mining_station_engineer
 
 //headset
@@ -47,14 +39,17 @@
 	icon = 'icons/map_icons/items/encryptionkey.dmi'
 	icon_state = "/obj/item/encryptionkey/headset_mining"
 	post_init_icon_state = "cypherkey_cargo"
-	channels = list(RADIO_CHANNEL_SUPPLY = 1, RADIO_CHANNEL_SCIENCE = 1, RADIO_CHANNEL_ENGINEERING = 1)
+	channels = list(
+		RADIO_CHANNEL_SUPPLY = 1,
+		RADIO_CHANNEL_SCIENCE = 1,
+		RADIO_CHANNEL_ENGINEERING = 1,
+	)
 	greyscale_config = /datum/greyscale_config/encryptionkey_cargo
 	greyscale_colors = "#49241a#bc4a9b"
 
 // Outfit
-/datum/outfit/job/mining_station
+/datum/outfit/mining_station
 	name = "Mining Station Support Engineer"
-	jobtype = /datum/job/station_engineer
 	id = /obj/item/card/id/advanced/mining_station_engineer
 	id_trim = /datum/id_trim/job/mining_station_engineer
 	uniform = /obj/item/clothing/under/rank/engineering/engineer/hazard
@@ -65,19 +60,63 @@
 	shoes = /obj/item/clothing/shoes/workboots
 	l_pocket = /obj/item/modular_computer/pda/engineering
 	r_pocket = /obj/item/t_scanner
-
-	backpack = /obj/item/storage/backpack/industrial
-	satchel = /obj/item/storage/backpack/satchel/eng
-	duffelbag = /obj/item/storage/backpack/duffelbag/engineering
-	messenger = /obj/item/storage/backpack/messenger/eng
-
+	r_hand = /obj/item/gun/ballistic/shotgun/doublebarrel/slugs
 	backpack_contents = list(
 		/obj/item/construction/rcd/loaded,
 		/obj/item/inducer = 1,
 	)
+	var/backpack = /obj/item/storage/backpack/industrial
+	var/satchel = /obj/item/storage/backpack/satchel/eng
+	var/duffelbag = /obj/item/storage/backpack/duffelbag/engineering
+	var/messenger = /obj/item/storage/backpack/messenger/eng
 	box = /obj/item/storage/box/survival/engineer
-	pda_slot = ITEM_SLOT_LPOCKET
 	skillchips = list(/obj/item/skillchip/job/engineer)
+
+/datum/outfit/mining_station/pre_equip(mob/living/carbon/human/minegineer, visuals_only = FALSE)
+	if(ispath(back, /obj/item/storage/backpack)) //we just steal this from the job outfit datum.
+		switch(minegineer.backpack)
+			if(GBACKPACK)
+				back = /obj/item/storage/backpack //Grey backpack
+			if(GSATCHEL)
+				back = /obj/item/storage/backpack/satchel //Grey satchel
+			if(GDUFFELBAG)
+				back = /obj/item/storage/backpack/duffelbag //Grey Duffel bag
+			if(LSATCHEL)
+				back = /obj/item/storage/backpack/satchel/leather //Leather Satchel
+			if(GMESSENGER)
+				back = /obj/item/storage/backpack/messenger //Grey messenger bag
+			if(DBACKPACK)
+				back = backpack
+			if(DSATCHEL)
+				back = satchel
+			if(DMESSENGER)
+				back = messenger
+			if(DDUFFELBAG)
+				back = duffelbag
+			else
+				back = backpack
+
+	var/client/client = GLOB.directory[ckey(minegineer.mind?.key)]
+
+	if(isplasmaman(minegineer))
+		uniform = /obj/item/clothing/under/plasmaman
+		gloves = /obj/item/clothing/gloves/color/plasmaman
+		head = /obj/item/clothing/head/helmet/space/plasmaman
+		l_hand = /obj/item/tank/internals/plasmaman/belt/full
+		internals_slot = ITEM_SLOT_HANDS
+
+	if(isvox(minegineer) || isvoxprimalis(minegineer))
+		l_hand = /obj/item/tank/internals/nitrogen/belt/full
+		mask = /obj/item/clothing/mask/breath/vox
+		internals_slot = ITEM_SLOT_HANDS
+
+	if(client?.is_veteran() && client?.prefs.read_preference(/datum/preference/toggle/playtime_reward_cloak))
+		neck = /obj/item/clothing/neck/cloak/skill_reward/playing
+
+/datum/outfit/mining_station/post_equip(mob/living/carbon/human/minegineer, visualsOnly)
+	handlebank(minegineer)
+
+	. = ..()
 
 // Spawner
 /obj/effect/mob_spawn/ghost_role/human/mining_station_engineer
@@ -93,5 +132,5 @@
 	loadout_enabled = TRUE
 	quirks_enabled = TRUE
 	random_appearance = FALSE
-	outfit = /datum/outfit/job/mining_station
+	outfit = /datum/outfit/mining_station
 	spawner_job_path = /datum/job/mining_station_engineer

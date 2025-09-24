@@ -210,8 +210,8 @@
 /area/mine/engineering/atmos)
 "bP" = (
 /obj/effect/turf_decal/box,
-/obj/machinery/suit_storage_unit/standard_unit,
 /obj/effect/turf_decal/sand/plating/volcanic,
+/obj/machinery/suit_storage_unit/open,
 /turf/open/floor/iron/lavaland_atmos,
 /area/lavaland/underground/unexplored/riverside)
 "bQ" = (
@@ -220,10 +220,6 @@
 /obj/effect/turf_decal/sand/plating/volcanic,
 /turf/open/floor/iron/lavaland_atmos,
 /area/lavaland/underground/unexplored/riverside)
-"bT" = (
-/obj/effect/decal/cleanable/dirt,
-/turf/open/floor/iron/shuttle/exploration/hazard,
-/area/mine/engineering/atmos)
 "ck" = (
 /obj/structure/stone_tile/block/cracked{
 	dir = 8
@@ -549,6 +545,9 @@
 	},
 /turf/open/floor/iron/textured_large,
 /area/mine/xenoarch/science/xenoarch)
+"ek" = (
+/turf/open/floor/iron/shuttle/exploration/hazard,
+/area/mine/engineering/atmos)
 "em" = (
 /obj/machinery/door/airlock/external{
 	glass = 1;
@@ -766,6 +765,7 @@
 /turf/open/floor/iron/textured_large,
 /area/mine/science/common/storage)
 "fS" = (
+/obj/structure/closet/xenoarch,
 /turf/open/floor/iron/textured_large,
 /area/mine/science/common/tool)
 "fT" = (
@@ -1145,6 +1145,7 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/effect/decal/cleanable/dirt,
+/obj/effect/mapping_helpers/airlock/access/any/science/general,
 /turf/open/floor/iron/textured,
 /area/mine/science/common/dorm)
 "jz" = (
@@ -1152,6 +1153,7 @@
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/effect/mapping_helpers/airlock/access/any/science/general,
 /turf/open/floor/iron/textured_large,
 /area/mine/science/common/storage)
 "jB" = (
@@ -2771,8 +2773,14 @@
 /turf/open/floor/carpet/cyan,
 /area/mine/xenoarch/living)
 "yW" = (
-/obj/machinery/suit_storage_unit/mining,
 /obj/machinery/light/directional/north,
+/obj/structure/rack,
+/obj/item/clothing/suit/hooded/seva,
+/obj/item/clothing/mask/gas/seva,
+/obj/item/clothing/head/hooded/seva{
+	pixel_y = 6;
+	pixel_x = -4
+	},
 /turf/open/floor/iron/textured_large,
 /area/mine/science/common/storage)
 "yX" = (
@@ -2857,7 +2865,13 @@
 /turf/open/floor/engine,
 /area/mine/engineering/atmos)
 "zy" = (
-/obj/machinery/suit_storage_unit/mining,
+/obj/structure/rack,
+/obj/item/clothing/suit/hooded/seva,
+/obj/item/clothing/mask/gas/seva,
+/obj/item/clothing/head/hooded/seva{
+	pixel_y = 6;
+	pixel_x = -4
+	},
 /turf/open/floor/iron/textured_large,
 /area/mine/science/common/storage)
 "zE" = (
@@ -3191,6 +3205,7 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/effect/decal/cleanable/dirt,
+/obj/effect/mapping_helpers/airlock/access/any/science/general,
 /turf/open/floor/plating,
 /area/mine/xenoarch/science/xenoarch)
 "Dm" = (
@@ -3434,6 +3449,7 @@
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/effect/mapping_helpers/airlock/access/any/science/general,
 /turf/open/floor/iron/textured_large,
 /area/mine/xenoarch/engineering)
 "Gd" = (
@@ -3566,6 +3582,7 @@
 	opacity = 0
 	},
 /obj/effect/mapping_helpers/airlock/cyclelink_helper,
+/obj/effect/mapping_helpers/airlock/access/any/science/general,
 /turf/open/floor/plating,
 /area/mine/xenoarch/science/xenoarch)
 "Ik" = (
@@ -3758,13 +3775,10 @@
 /turf/open/lava/smooth/lava_land_surface,
 /area/lavaland/underground/unexplored/riverside)
 "KG" = (
-/obj/structure/fans/tiny,
-/obj/machinery/door/airlock/external/ruin{
-	name = "Turbine Exhaust Chamber Access"
-	},
-/obj/effect/mapping_helpers/airlock/access/any/engineering,
+/obj/effect/spawner/structure/window,
+/obj/structure/hedge/opaque,
 /turf/open/floor/plating,
-/area/mine/engineering/atmos)
+/area/mine/cafeteria)
 "KL" = (
 /obj/machinery/button/door/directional/north{
 	id = "miningdorm3";
@@ -3998,6 +4012,7 @@
 	name = "Xenoarcheology Utility Room"
 	},
 /obj/structure/cable,
+/obj/effect/mapping_helpers/airlock/access/any/science/general,
 /turf/open/floor/plating,
 /area/mine/science/maintenance/upper)
 "Oe" = (
@@ -4096,9 +4111,6 @@
 	},
 /turf/open/floor/iron/textured_large,
 /area/mine/xenoarch/science/xenoarch)
-"PV" = (
-/turf/open/floor/iron/shuttle/exploration/hazard,
-/area/mine/engineering/atmos)
 "Qf" = (
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/plating/lavaland_atmos,
@@ -4330,6 +4342,7 @@
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/effect/mapping_helpers/airlock/access/any/science/general,
 /turf/open/floor/iron/textured_large,
 /area/mine/xenoarch/living)
 "TP" = (
@@ -4406,6 +4419,10 @@
 	},
 /turf/open/floor/circuit,
 /area/mine/maintenance/service/comms)
+"Vk" = (
+/obj/effect/decal/cleanable/dirt,
+/turf/open/floor/iron/shuttle/exploration/hazard,
+/area/mine/engineering/atmos)
 "Vl" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/item/kirbyplants/random,
@@ -4494,6 +4511,7 @@
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/effect/mapping_helpers/airlock/access/any/science/general,
 /turf/open/floor/iron/textured_large,
 /area/mine/science/common/tool)
 "Ws" = (
@@ -14381,7 +14399,7 @@ ay
 ay
 ay
 vw
-bT
+Vk
 bp
 Ee
 xh
@@ -14638,7 +14656,7 @@ ay
 ay
 ay
 vw
-PV
+ek
 zv
 yX
 xh
@@ -14908,7 +14926,7 @@ qn
 vw
 zR
 vw
-pD
+zT
 zT
 zT
 zT
@@ -15162,10 +15180,10 @@ JA
 eG
 al
 BR
-KG
-pD
-pD
-pD
+vw
+zT
+zT
+zT
 zT
 zT
 ay
@@ -15420,9 +15438,9 @@ vw
 uk
 vw
 vw
-pD
-pD
-pD
+zT
+zT
+zT
 zT
 zT
 ay
@@ -15676,10 +15694,10 @@ Dy
 vw
 HQ
 vw
-vw
-pD
-pD
-pD
+zT
+zT
+zT
+zT
 zT
 ay
 ay
@@ -15933,7 +15951,7 @@ tw
 vw
 Dm
 vw
-vw
+zT
 zT
 ay
 ay
@@ -18262,9 +18280,9 @@ Cl
 Cl
 Cl
 Cl
-qV
+KG
 LD
-qV
+KG
 Cl
 JL
 Gq
