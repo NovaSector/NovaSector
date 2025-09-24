@@ -52,6 +52,7 @@
 	name = "Mining Station Support Engineer"
 	id = /obj/item/card/id/advanced/mining_station_engineer
 	id_trim = /datum/id_trim/job/mining_station_engineer
+	back = /obj/item/storage/backpack/messenger/eng
 	uniform = /obj/item/clothing/under/rank/engineering/engineer/hazard
 	glasses = /obj/item/clothing/glasses/meson/engine/tray
 	belt = /obj/item/storage/belt/utility/full/engi
