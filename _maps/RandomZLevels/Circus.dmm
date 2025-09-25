@@ -463,8 +463,10 @@
 /turf/open/floor/mineral/plastitanium/red,
 /area/awaymission/circus/no_light)
 "do" = (
-/obj/item/minigunpack,
-/turf/open/floor/eighties/red,
+/mob/living/basic/cult/CodZ,
+/mob/living/basic/cult/CodZ,
+/mob/living/basic/cult/CodZ,
+/turf/open/floor/cult,
 /area/awaymission/circus/no_light)
 "dp" = (
 /mob/living/basic/clown/clownhulk/chlown{
@@ -657,8 +659,11 @@
 /turf/open/floor/iron/dark/textured_large,
 /area/awaymission/circus/no_light)
 "fj" = (
-/obj/machinery/door/puzzle/keycard/circus_minigun,
-/turf/open/floor/eighties/red,
+/mob/living/basic/cult/CodZ,
+/mob/living/basic/cult/CodZ,
+/mob/living/basic/cult/CodZ,
+/mob/living/basic/cult/CodZ,
+/turf/open/floor/cult,
 /area/awaymission/circus/no_light)
 "fk" = (
 /obj/effect/turf_decal/stripes/line{
@@ -999,6 +1004,17 @@
 	dir = 8
 	},
 /turf/open/floor/plating/airless,
+/area/awaymission/circus/no_light)
+"ih" = (
+/obj/structure/table,
+/obj/machinery/recharger,
+/obj/item/wormhole_jaunter,
+/obj/item/wormhole_jaunter,
+/obj/item/wormhole_jaunter,
+/obj/item/wormhole_jaunter,
+/obj/item/wormhole_jaunter,
+/obj/item/wormhole_jaunter,
+/turf/open/floor/pod/dark,
 /area/awaymission/circus/no_light)
 "ij" = (
 /obj/structure/railing/corner,
@@ -1875,8 +1891,8 @@
 /turf/open/misc/grass/jungle,
 /area/awaymission/beach/circus_day)
 "oB" = (
-/obj/effect/temp_visual/explosion,
-/turf/open/indestructible/rockyground,
+/obj/structure/signpost/salvation,
+/turf/open/floor/pod/dark,
 /area/awaymission/circus/no_light)
 "oE" = (
 /obj/item/flashlight/lantern/on,
@@ -6133,8 +6149,15 @@
 /turf/closed/indestructible/reinforced,
 /area/awaymission/beach/circus_day)
 "Uw" = (
-/obj/item/ammo_casing/rocket,
-/turf/closed/wall,
+/obj/structure/table,
+/obj/machinery/recharger,
+/obj/item/extraction_pack,
+/obj/item/extraction_pack,
+/obj/item/extraction_pack,
+/obj/item/extraction_pack,
+/obj/item/extraction_pack,
+/obj/item/extraction_pack,
+/turf/open/floor/pod/dark,
 /area/awaymission/circus/no_light)
 "Uy" = (
 /obj/machinery/power/port_gen/pacman/super,
@@ -6255,6 +6278,7 @@
 /area/awaymission/circus/no_light)
 "Vr" = (
 /obj/structure/curtain/cloth,
+/mob/living/basic/trader/gun_clown,
 /turf/open/floor/plating,
 /area/awaymission/circus/no_light)
 "Vs" = (
@@ -23817,7 +23841,7 @@ ge
 Gl
 ge
 Gl
-ge
+fj
 Gl
 Ud
 Ud
@@ -25071,7 +25095,7 @@ ge
 lg
 TY
 ns
-ge
+do
 qL
 ge
 Nm
@@ -28658,7 +28682,7 @@ zw
 yN
 XC
 QB
-oB
+QB
 QB
 QB
 QB
@@ -32745,7 +32769,7 @@ ee
 yA
 yA
 yA
-Wf
+QB
 QB
 QB
 QB
@@ -38620,11 +38644,11 @@ YV
 Kk
 wa
 EQ
-Fy
+ih
 wa
 we
 wa
-Fy
+Uw
 ml
 wa
 Kk
@@ -39907,7 +39931,7 @@ Kk
 Uk
 Kt
 wv
-Kt
+oB
 wv
 wv
 Uk
@@ -41769,7 +41793,7 @@ QB
 QB
 Pu
 qV
-Uw
+qV
 qV
 qV
 qV
@@ -42533,7 +42557,7 @@ ge
 Nm
 ge
 qL
-ge
+do
 ns
 TY
 lg
@@ -47153,7 +47177,7 @@ hF
 xO
 xO
 xO
-fj
+xO
 zW
 hF
 xO
@@ -47409,8 +47433,8 @@ Pu
 bH
 bH
 xO
-fj
-do
+xO
+bH
 bH
 xO
 xO

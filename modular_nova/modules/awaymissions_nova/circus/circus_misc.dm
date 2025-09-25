@@ -134,8 +134,10 @@
 		/obj/item/vending_refill/donksoft = 5,
 		/obj/item/storage/toolbox/guncase/traitor/donksoft = 5,
 		/obj/item/storage/toolbox/guncase/traitor/ammunition/donksoft = 5,
-		/obj/effect/spawner/random/clothing/funny_hats = 10,
-		/obj/item/reagent_containers/spray/cyborg_lube = 10,
+		/obj/effect/spawner/random/clothing/funny_hats = 5,
+		/obj/item/melee/energy/sword/bananium = 5,
+		/obj/item/shield/energy/bananium = 5,
+		/obj/item/reagent_containers/spray/cyborg_lube = 5,
 		/obj/item/reagent_containers/spray/waterflower/superlube = 10,
 		/obj/item/toy/crayon/spraycan/lubecan = 10,
 		/obj/item/reagent_containers/spray/waterflower/lube = 10,
@@ -165,8 +167,8 @@
 	name = "random funny rare spawn"
 	desc = "Spawns a random rare item from the clown loot pool, DO. NOT. PUT. ON. STATION. MAPS."
 	loot = list(
-		/mob/living/basic/mining/legion/houndoftindalos = 0.09,//if you roll this, you better act fast.
-		/obj/item/uplink/clownop =  0.01,//these are the same odds as getting a pulse rifle from an arcade machine it will be FINE, especially considering how doing this is actually SIGNIFICANTLY SLOWER than doing an arcade machine
+		/mob/living/basic/mining/legion/houndoftindalos = 0.099,//if you roll this, you better act fast.
+		/obj/item/uplink/clownop =  0.001,//these are the same odds as getting a pulse rifle from an arcade machine it will be FINE, especially considering how doing this is actually SIGNIFICANTLY SLOWER than doing an arcade machine
 		/obj/effect/spawner/random/anomaly = 0.9,//so rare because these portals work- most of the time with no downside, but ya know clownmancy isnt perfect.
 		/obj/item/stack/sheet/mineral/runite = 3,
 		/obj/item/stack/sheet/mineral/gold = 10,
@@ -372,33 +374,49 @@
 	name = "cult_wave_3-4 spawn"
 	desc = "Spawns a random cultist, used in the circus gateway."
 	loot = list(
-		/obj/structure/spawner/clown = 1,
+		/mob/living/basic/cult/CodZ = 40,
+		/mob/living/basic/cult/assassin/CodZ = 30,
+		/mob/living/basic/cult/mannequin/CodZ = 30,
 	)
 
 /obj/effect/spawner/random/cult_wave_5
 	name = "cult_wave_5-10 spawn"
 	desc = "Spawns a random cultist, used in the circus gateway."
 	loot = list(
-		/obj/structure/spawner/clown = 1,
+		/mob/living/basic/cult/mannequin/CodZ = 90,
+		/mob/living/basic/cult/engorge/CodZ = 8,
+		/mob/living/basic/cult/engorge/devourdem/CodZ = 2,
 	)
 
 /obj/effect/spawner/random/cult_wave_6
 	name = "cult_wave_6-9 spawn"
 	desc = "Spawns a random cultist, used in the circus gateway."
 	loot = list(
-		/obj/structure/spawner/clown = 1,
+		/mob/living/basic/cult/CodZ = 20,
+		/mob/living/basic/cult/assassin/CodZ = 30,
+		/mob/living/basic/cult/mannequin/CodZ = 20,
+		/mob/living/basic/cult/horror/CodZ = 10,
+		/mob/living/basic/cult/magic/CodZ = 20,
 	)
 
 /obj/effect/spawner/random/cult_wave_11
 	name = "cult_wave_11-14 spawn"
 	desc = "Spawns a random cultist, used in the circus gateway."
 	loot = list(
-		/obj/structure/spawner/clown = 1,
+		/mob/living/basic/cult/assassin/CodZ = 20,
+		/mob/living/basic/cult/ghost/CodZ = 20,
+		/mob/living/basic/cult/horror/CodZ = 10,
+		/mob/living/basic/cult/magic/CodZ = 20,
+		/mob/living/basic/cult/spear/CodZ = 10,
+		/mob/living/basic/cult/warrior/CodZ = 10,
+		/mob/living/basic/cult/engorge/devourdem/CodZ = 5,
+		/mob/living/basic/cult/magic/elite/CodZ = 5,
 	)
 
 /obj/effect/spawner/random/cult_wave_15
 	name = "cult_wave_15 spawn"
-	desc = "Spawns a random cultist, used in the circus gateway."
+	desc = "Spawns a random cultist, used in the circus gateway, this one spawns a boss."
 	loot = list(
-		/obj/structure/spawner/clown = 1,
+		/mob/living/basic/cult/magic/elite/CodZ/Final_Boss = 99.9,
+		/mob/living/basic/cult/magic/elite/fireball/CodZ/Rare_shiny_final_boss = 0.1, //hehehehehe
 	)
