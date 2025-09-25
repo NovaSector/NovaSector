@@ -40,7 +40,7 @@
 		id_card.update_label()
 		id_card.update_appearance()
 	if(penkit)
-		if(rand(0, 10))
+		if(rand(1, 10) == 1)
 			new /obj/item/food/cheese/wedge(penkit)
 		new /obj/item/reagent_containers/hypospray/medipen/deforest/psifinil(penkit)
 		new /obj/item/reagent_containers/hypospray/medipen/deforest/adrenaline(penkit)
