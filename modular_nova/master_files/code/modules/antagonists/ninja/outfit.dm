@@ -21,7 +21,7 @@
 	var/cyber_limb_amount = 0
 	for(var/obj/item/bodypart/limb as anything in ninja.bodyparts)
 		if(limb.bodytype & BODYTYPE_ROBOTIC)
-			cyber_limb_amount++
+			cyber_limb_amount += 1
 	if(issynthetic(ninja) || cyber_limb_amount >= 3)
 		suitable_medkit = /obj/item/storage/medkit/robotic_repair/preemo/stocked
 	//set the backpack contents
