@@ -258,6 +258,7 @@
 #include "reagent_transfer.dm"
 #include "required_map_items.dm"
 #include "resist.dm"
+#include "reta_system.dm"
 #include "say.dm"
 #include "screenshot_airlocks.dm"
 #include "screenshot_antag_icons.dm"
@@ -325,6 +326,7 @@
 #include "~nova\automapper.dm"
 #include "~nova\liver_nova.dm"
 #include "~nova\opposing_force.dm"
+#include "~nova\shuttle.dm"
 // NOVA EDIT END
 // END_INCLUDE
 #ifdef REFERENCE_TRACKING_DEBUG //Don't try and parse this file if ref tracking isn't turned on. IE: don't parse ref tracking please mr linter

@@ -10412,7 +10412,7 @@
 	pixel_x = -11;
 	pixel_y = 8
 	},
-/obj/item/ammo_box/a357,
+/obj/item/ammo_box/speedloader/c357,
 /turf/open/floor/plating,
 /area/station/maintenance/department/science/lower)
 "caB" = (
@@ -20417,7 +20417,7 @@
 /obj/item/lazarus_injector,
 /obj/item/gun/energy/disabler,
 /obj/item/gun/ballistic/revolver/russian,
-/obj/item/ammo_box/a357,
+/obj/item/ammo_box/speedloader/c357,
 /obj/item/clothing/neck/stethoscope,
 /obj/item/book{
 	desc = "An undeniably handy book.";
