@@ -3,6 +3,7 @@
 	var/datum/random_ship_event/ship_type
 	///The instantiated ship event
 	var/datum/random_ship_event/ship_event
+	fakeable = FALSE
 
 /datum/round_event/random_ship_event/announce(fake)
 	priority_announce("An unknown ship is attempting to contact the station.", sender_override = "Automated Traffic Control System")
