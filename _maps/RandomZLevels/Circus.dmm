@@ -47,6 +47,10 @@
 	},
 /turf/open/floor/iron/dark/textured_large,
 /area/awaymission/beach/circus_day)
+"ax" = (
+/obj/effect/spawner/random/cult_wave_15,
+/turf/open/floor/cult,
+/area/awaymission/circus/no_light)
 "az" = (
 /obj/structure/window/reinforced/tinted/spawner/directional/west,
 /turf/open/floor/iron/dark{
@@ -659,10 +663,11 @@
 /turf/open/floor/iron/dark/textured_large,
 /area/awaymission/circus/no_light)
 "fj" = (
-/mob/living/basic/cult/CodZ,
-/mob/living/basic/cult/CodZ,
-/mob/living/basic/cult/CodZ,
-/mob/living/basic/cult/CodZ,
+/obj/effect/spawner/random/cult_wave_3,
+/obj/effect/spawner/random/cult_wave_3,
+/obj/effect/spawner/random/cult_wave_3,
+/obj/effect/spawner/random/cult_wave_3,
+/obj/effect/spawner/random/cult_wave_3,
 /turf/open/floor/cult,
 /area/awaymission/circus/no_light)
 "fk" = (
@@ -1242,6 +1247,13 @@
 	},
 /turf/open/floor/asphalt,
 /area/awaymission/beach/circus_day)
+"kd" = (
+/obj/effect/spawner/random/cult_wave_3,
+/obj/effect/spawner/random/cult_wave_3,
+/obj/effect/spawner/random/cult_wave_3,
+/obj/effect/spawner/random/cult_wave_3,
+/turf/open/floor/cult,
+/area/awaymission/circus/no_light)
 "kf" = (
 /obj/machinery/door/airlock/bananium,
 /turf/open/floor/mineral/bananium,
@@ -1517,6 +1529,16 @@
 	dir = 9
 	},
 /turf/open/floor/plating,
+/area/awaymission/circus/no_light)
+"lF" = (
+/obj/effect/spawner/random/cult_wave_6,
+/obj/effect/spawner/random/cult_wave_6,
+/obj/effect/spawner/random/cult_wave_6,
+/obj/effect/spawner/random/cult_wave_6,
+/obj/effect/spawner/random/cult_wave_6,
+/obj/effect/spawner/random/cult_wave_6,
+/obj/effect/spawner/random/cult_wave_6,
+/turf/open/floor/cult,
 /area/awaymission/circus/no_light)
 "lH" = (
 /obj/machinery/atmospherics/components/unary/portables_connector/visible/layer2{
@@ -1835,6 +1857,15 @@
 /turf/open/floor/iron/dark{
 	icon_state = "bus"
 	},
+/area/awaymission/circus/no_light)
+"nT" = (
+/obj/effect/spawner/random/cult_wave_5,
+/obj/effect/spawner/random/cult_wave_5,
+/obj/effect/spawner/random/cult_wave_5,
+/obj/effect/spawner/random/cult_wave_5,
+/obj/effect/spawner/random/cult_wave_5,
+/obj/effect/spawner/random/cult_wave_5,
+/turf/open/floor/cult,
 /area/awaymission/circus/no_light)
 "nU" = (
 /obj/structure/table/wood,
@@ -2644,6 +2675,22 @@
 /obj/item/pneumatic_cannon/pie/selfcharge,
 /turf/open/floor/iron/bluespace,
 /area/awaymission/circus/no_light)
+"uo" = (
+/obj/effect/spawner/random/cult_wave_11,
+/obj/effect/spawner/random/cult_wave_11,
+/obj/effect/spawner/random/cult_wave_11,
+/obj/effect/spawner/random/cult_wave_11,
+/obj/effect/spawner/random/cult_wave_11,
+/obj/effect/spawner/random/cult_wave_11,
+/obj/effect/spawner/random/cult_wave_11,
+/obj/effect/spawner/random/cult_wave_11,
+/obj/effect/spawner/random/cult_wave_11,
+/obj/effect/spawner/random/cult_wave_11,
+/obj/effect/spawner/random/cult_wave_11,
+/obj/effect/spawner/random/cult_wave_11,
+/obj/effect/spawner/random/cult_wave_11,
+/turf/open/floor/cult,
+/area/awaymission/circus/no_light)
 "up" = (
 /obj/structure/chair/plastic,
 /turf/open/floor/stone,
@@ -2724,6 +2771,33 @@
 	dir = 4
 	},
 /turf/open/floor/grass,
+/area/awaymission/circus/no_light)
+"uO" = (
+/obj/effect/spawner/random/cult_wave_11,
+/obj/effect/spawner/random/cult_wave_11,
+/obj/effect/spawner/random/cult_wave_11,
+/obj/effect/spawner/random/cult_wave_11,
+/obj/effect/spawner/random/cult_wave_11,
+/obj/effect/spawner/random/cult_wave_11,
+/obj/effect/spawner/random/cult_wave_11,
+/obj/effect/spawner/random/cult_wave_11,
+/obj/effect/spawner/random/cult_wave_11,
+/obj/effect/spawner/random/cult_wave_11,
+/obj/effect/spawner/random/cult_wave_11,
+/obj/effect/spawner/random/cult_wave_11,
+/turf/open/floor/cult,
+/area/awaymission/circus/no_light)
+"uP" = (
+/obj/effect/spawner/random/cult_wave_6,
+/obj/effect/spawner/random/cult_wave_6,
+/obj/effect/spawner/random/cult_wave_6,
+/obj/effect/spawner/random/cult_wave_6,
+/obj/effect/spawner/random/cult_wave_6,
+/obj/effect/spawner/random/cult_wave_6,
+/obj/effect/spawner/random/cult_wave_6,
+/obj/effect/spawner/random/cult_wave_6,
+/obj/effect/spawner/random/cult_wave_6,
+/turf/open/floor/cult,
 /area/awaymission/circus/no_light)
 "uS" = (
 /obj/effect/spawner/random/trash/bin,
@@ -2908,6 +2982,19 @@
 	},
 /turf/open/floor/cult,
 /area/awaymission/circus/no_light)
+"vZ" = (
+/obj/effect/spawner/random/cult_wave_6,
+/obj/effect/spawner/random/cult_wave_6,
+/obj/effect/spawner/random/cult_wave_6,
+/obj/effect/spawner/random/cult_wave_6,
+/obj/effect/spawner/random/cult_wave_6,
+/obj/effect/spawner/random/cult_wave_6,
+/obj/effect/spawner/random/cult_wave_6,
+/obj/effect/spawner/random/cult_wave_6,
+/obj/effect/spawner/random/cult_wave_6,
+/obj/effect/spawner/random/cult_wave_6,
+/turf/open/floor/cult,
+/area/awaymission/circus/no_light)
 "wa" = (
 /turf/closed/wall/mineral/titanium,
 /area/awaymission/circus/no_light)
@@ -2935,6 +3022,17 @@
 	dir = 4
 	},
 /turf/open/floor/grass,
+/area/awaymission/circus/no_light)
+"wi" = (
+/obj/effect/spawner/random/cult_wave_6,
+/obj/effect/spawner/random/cult_wave_6,
+/obj/effect/spawner/random/cult_wave_6,
+/obj/effect/spawner/random/cult_wave_6,
+/obj/effect/spawner/random/cult_wave_6,
+/obj/effect/spawner/random/cult_wave_6,
+/obj/effect/spawner/random/cult_wave_6,
+/obj/effect/spawner/random/cult_wave_6,
+/turf/open/floor/cult,
 /area/awaymission/circus/no_light)
 "wj" = (
 /obj/machinery/power/port_gen/pacman/super,
@@ -4435,6 +4533,23 @@
 /obj/machinery/door/airlock/plasma/glass,
 /turf/open/floor/carpet/cyan,
 /area/awaymission/beach/circus_day)
+"Hc" = (
+/obj/effect/spawner/random/cult_wave_11,
+/obj/effect/spawner/random/cult_wave_11,
+/obj/effect/spawner/random/cult_wave_11,
+/obj/effect/spawner/random/cult_wave_11,
+/obj/effect/spawner/random/cult_wave_11,
+/obj/effect/spawner/random/cult_wave_11,
+/obj/effect/spawner/random/cult_wave_11,
+/obj/effect/spawner/random/cult_wave_11,
+/obj/effect/spawner/random/cult_wave_11,
+/obj/effect/spawner/random/cult_wave_11,
+/obj/effect/spawner/random/cult_wave_11,
+/obj/effect/spawner/random/cult_wave_11,
+/obj/effect/spawner/random/cult_wave_11,
+/obj/effect/spawner/random/cult_wave_11,
+/turf/open/floor/cult,
+/area/awaymission/circus/no_light)
 "He" = (
 /obj/machinery/vending/cigarette,
 /obj/effect/turf_decal/stripes/white/box,
@@ -5523,6 +5638,21 @@
 	icon_state = "bus"
 	},
 /area/awaymission/circus/no_light)
+"PE" = (
+/obj/effect/spawner/random/cult_wave_5,
+/obj/effect/spawner/random/cult_wave_5,
+/obj/effect/spawner/random/cult_wave_5,
+/obj/effect/spawner/random/cult_wave_5,
+/obj/effect/spawner/random/cult_wave_5,
+/obj/effect/spawner/random/cult_wave_5,
+/obj/effect/spawner/random/cult_wave_5,
+/obj/effect/spawner/random/cult_wave_5,
+/obj/effect/spawner/random/cult_wave_5,
+/obj/effect/spawner/random/cult_wave_5,
+/obj/effect/spawner/random/cult_wave_5,
+/obj/effect/spawner/random/cult_wave_5,
+/turf/open/floor/cult,
+/area/awaymission/circus/no_light)
 "PI" = (
 /obj/structure/table/wood,
 /obj/item/food/burger/rootchicken,
@@ -6021,6 +6151,20 @@
 "Th" = (
 /obj/machinery/deepfryer,
 /turf/open/floor/carpet/donk,
+/area/awaymission/circus/no_light)
+"To" = (
+/obj/effect/spawner/random/cult_wave_11,
+/obj/effect/spawner/random/cult_wave_11,
+/obj/effect/spawner/random/cult_wave_11,
+/obj/effect/spawner/random/cult_wave_11,
+/obj/effect/spawner/random/cult_wave_11,
+/obj/effect/spawner/random/cult_wave_11,
+/obj/effect/spawner/random/cult_wave_11,
+/obj/effect/spawner/random/cult_wave_11,
+/obj/effect/spawner/random/cult_wave_11,
+/obj/effect/spawner/random/cult_wave_11,
+/obj/effect/spawner/random/cult_wave_11,
+/turf/open/floor/cult,
 /area/awaymission/circus/no_light)
 "Tp" = (
 /obj/effect/turf_decal/siding/thinplating/light{
@@ -22297,9 +22441,9 @@ Gl
 Gl
 ge
 Gl
-ge
+PE
 Gl
-ge
+nT
 Gl
 Ud
 Ud
@@ -22809,11 +22953,11 @@ Gl
 Gl
 Gl
 Gl
-ge
+Hc
 Gl
-ge
+vZ
 Gl
-ge
+fj
 Gl
 Ud
 Ud
@@ -23323,11 +23467,11 @@ Gl
 Gl
 Gl
 Gl
-ge
+uo
 Gl
-ge
+uP
 Gl
-ge
+kd
 Gl
 Ud
 Ud
@@ -23837,11 +23981,11 @@ Gl
 Gl
 Gl
 Gl
-ge
+uO
 Gl
-ge
+wi
 Gl
-fj
+do
 Gl
 Ud
 Ud
@@ -24065,13 +24209,13 @@ XX
 qV
 ge
 jR
-ge
+To
 vY
-ge
+uO
 el
-ge
+uo
 Zp
-ge
+Hc
 Vq
 ge
 Gl
@@ -24351,9 +24495,9 @@ Gl
 Gl
 Gl
 Gl
-ge
+To
 Gl
-ge
+lF
 Gl
 TY
 Gl
@@ -24579,15 +24723,15 @@ lD
 qV
 ge
 Ur
-ge
+lF
 fb
-ge
+wi
 tg
-ge
+uP
 Xy
-ge
+vZ
 jI
-ge
+PE
 Gl
 Gl
 Gl
@@ -25097,11 +25241,11 @@ TY
 ns
 do
 qL
-ge
+kd
 Nm
-ge
+fj
 FX
-ge
+nT
 Gl
 Gl
 Gl
@@ -42551,11 +42695,11 @@ QB
 QB
 QB
 yx
-ge
+nT
 FX
-ge
+fj
 Nm
-ge
+kd
 qL
 do
 ns
@@ -43065,15 +43209,15 @@ QB
 QB
 QB
 yx
-ge
+PE
 jI
-ge
+vZ
 Xy
-ge
+uP
 tg
-ge
+wi
 fb
-ge
+lF
 Ur
 ge
 Pu
@@ -43579,15 +43723,15 @@ QB
 QB
 QB
 yx
-ge
+ax
 Vq
-ge
+Hc
 Zp
-ge
+uo
 el
-ge
+uO
 vY
-ge
+To
 jR
 ge
 ge
