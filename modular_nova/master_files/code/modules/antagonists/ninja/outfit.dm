@@ -4,7 +4,7 @@
 	suit_store = /obj/item/energy_katana
 	glasses = /obj/item/clothing/glasses/night
 	mask = /obj/item/clothing/mask/gas/ninja
-	ears = null
+	ears = /obj/item/radio/headset/ninja
 	shoes = /obj/item/clothing/shoes/combat
 	l_pocket = /obj/item/storage/medkit/civil_defense // remove big explosion charge, replace it with a small medkit
 	r_pocket = /obj/item/tank/internals/emergency_oxygen/double
@@ -12,7 +12,7 @@
 	belt = /obj/item/storage/belt/military/cin_surplus/ninja
 	back = /obj/item/mod/control/pre_equipped/ninja
 	box = /obj/item/storage/box/survival
-	implants  = list(/obj/item/implant/radio/syndicate) // remove explosive implant, change it to radio implant
+	implants  = list(/obj/item/implant/smoke) // remove explosive implant, change it to smoke implant
 	skillchips = list(/obj/item/skillchip/matrix_taunt)
 
 /datum/outfit/ninja/pre_equip(mob/living/carbon/human/ninja, visuals_only)
@@ -66,13 +66,26 @@
 	greyscale_colors = COLOR_DARK
 
 /obj/item/storage/belt/military/cin_surplus/ninja/PopulateContents()
+	new /obj/item/crowbar(src)
 	new /obj/item/stock_parts/power_store/cell/hyper(src)
-	new /obj/item/grenade/smokebomb(src)
 	new /obj/item/card/id/advanced/visitor(src)
 	new /obj/item/stack/spacecash/c200(src)
 	new /obj/item/reagent_containers/cup/glass/flask/sake(src)
 	new /obj/item/food/rationpack(src)
 	new /obj/item/pinpointer/crew(src) //keep last for quick keys
+
+/obj/item/radio/headset/ninja
+	name = "\improper Spider-Clan radio headset"
+	desc = "A Spider-Clan labeled headset that can be used to hear from the command radio frequency. Protects ears from flashbangs."
+	icon = 'modular_nova/master_files/icons/obj/clothing/headsets.dmi'
+	worn_icon = 'modular_nova/master_files/icons/mob/clothing/ears.dmi'
+	icon_state = "ninja_headset"
+	worn_icon_state = "ninja_headset"
+	keyslot = /obj/item/encryptionkey/headset_com
+
+/obj/item/radio/headset/ninja/Initialize(mapload)
+	. = ..()
+	AddComponent(/datum/component/wearertargeting/earprotection)
 
 /obj/item/reagent_containers/cup/glass/flask/sake
 	list_reagents = list(/datum/reagent/consumable/ethanol/sake = 60)
