@@ -1,4 +1,11 @@
 // LOW COST
+/datum/uplink_item/stealthy_tools/thief_gloves
+	name = "Thieves Gloves"
+	desc = "Gloves which enhance the wearer's ability to strip small items from another, silently unequipping the desired loot and placing it within your grasp."
+	item = /obj/item/clothing/gloves/color/black/thief
+	cost = /datum/uplink_item/low_cost::cost
+	purchasable_from = UPLINK_TRAITORS
+
 /datum/uplink_item/stealthy_tools/sleepy_neuroware
 	name = "Ransomware Neuroware Chip"
 	desc = "This Syndicate neuroware chip contains CrypSys, a package of ransomware viruses targeting synthetic humanoids. Designed to temporarily render the target mute, immobile, and unconscious. Note that before the target falls asleep, they will be able to move and act."
