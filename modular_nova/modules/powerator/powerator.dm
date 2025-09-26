@@ -83,7 +83,6 @@
 
 	/// What account is assigned to this?
 	var/credits_account = ACCOUNT_ENG
-	
 	/// Percent of tax we deduct from people using the powerator, allowing easy adjustment for VV admins.
 	var/tax = 20
 
