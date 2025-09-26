@@ -44,9 +44,9 @@
 	purchase_path = /obj/item/gun/energy/recharge/kinetic_accelerator/variant/shotgun
 	cost_per_order = 1250
 
-/datum/orderable_item/accelerator/gun/shockwave
-	purchase_path = /obj/item/gun/energy/recharge/kinetic_accelerator/variant/shockwave
-	cost_per_order = 1250
+// /datum/orderable_item/accelerator/gun/shockwave
+//	purchase_path = /obj/item/gun/energy/recharge/kinetic_accelerator/variant/shockwave
+//	cost_per_order = 1250
 
 /datum/orderable_item/accelerator/gun/glock
 	purchase_path = /obj/item/gun/energy/recharge/kinetic_accelerator/variant/glock
