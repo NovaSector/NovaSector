@@ -351,7 +351,7 @@ GLOBAL_LIST_INIT(call911_do_and_do_not, list(
 /datum/outfit/request_911
 	name = "911 Response: Base"
 	back = /obj/item/storage/backpack/duffelbag/cops
-	backpack_contents = list(/obj/item/solfed_reporter/swat_caller = 1)
+	backpack_contents = list(/obj/item/solfed_reporter/espatier_caller = 1)
 
 	id_trim = /datum/id_trim/space_police
 
@@ -398,7 +398,7 @@ GLOBAL_LIST_INIT(call911_do_and_do_not, list(
 		/obj/item/ammo_box/magazine/c35sol_pistol = 4,
 		/obj/item/storage/box/survival = 1,
 		/obj/item/storage/box/handcuffs = 1,
-		/obj/item/solfed_reporter/swat_caller = 1,
+		/obj/item/solfed_reporter/espatier_caller = 1,
 		/obj/item/beamout_tool = 1,
 	)
 
@@ -430,7 +430,7 @@ GLOBAL_LIST_INIT(call911_do_and_do_not, list(
 		/obj/item/extinguisher/advanced = 1,
 		/obj/item/rwd/loaded = 1,
 		/obj/item/beamout_tool = 1,
-		/obj/item/solfed_reporter/swat_caller = 1,
+		/obj/item/solfed_reporter/espatier_caller = 1,
 	)
 	id_trim = /datum/id_trim/solfed/atmos
 
@@ -516,7 +516,7 @@ GLOBAL_LIST_INIT(call911_do_and_do_not, list(
 		/obj/item/storage/box/survival = 1,
 		/obj/item/emergency_bed = 1,
 		/obj/item/storage/box/medipens = 1,
-		/obj/item/solfed_reporter/swat_caller = 1,
+		/obj/item/solfed_reporter/espatier_caller = 1,
 		/obj/item/beamout_tool = 1,
 	)
 
@@ -563,7 +563,7 @@ GLOBAL_LIST_INIT(call911_do_and_do_not, list(
 		/obj/item/storage/box/handcuffs = 1,
 		/obj/item/melee/baton/security/loaded = 1,
 		/obj/item/storage/box/lethalshot = 2,
-		/obj/item/solfed_reporter/treason_reporter = 1,
+		/obj/item/solfed_reporter/grand_espatier_caller = 1,
 		/obj/item/beamout_tool = 1,
 	)
 
@@ -728,7 +728,7 @@ GLOBAL_LIST_INIT(call911_do_and_do_not, list(
 					log_game("[key_name(cop)] has been selected as an [ert_antag.name]")
 					agents_number--
 
-/obj/item/solfed_reporter/swat_caller
+/obj/item/solfed_reporter/espatier_caller
 	name = "S.W.A.T. backup caller"
 	desc = "Use this in-hand to vote to call SolFed S.W.A.T. backup. If half your team votes for it, SWAT will be dispatched."
 	type_to_check = /datum/antagonist/ert/request_911
@@ -743,7 +743,7 @@ GLOBAL_LIST_INIT(call911_do_and_do_not, list(
 		impediment, or due to a fraudulent 911 call. We have billed the station $20,000 for this, to cover the expenses of flying a second emergency response to \
 		your station. Please comply with all requests by said S.W.A.T. members."
 
-/obj/item/solfed_reporter/swat_caller/questions(mob/user)
+/obj/item/solfed_reporter/espatier_caller/questions(mob/user)
 	var/question = "Does the situation require additional S.W.A.T. backup, involve the station impeding you from doing your job, \
 		or involve the station making a fraudulent 911 call and needing an arrest made on the caller?"
 	if(tgui_input_list(user, question, "S.W.A.T. Backup Caller", list("Yes", "No")) != "Yes")
@@ -752,7 +752,19 @@ GLOBAL_LIST_INIT(call911_do_and_do_not, list(
 	message_admins("[ADMIN_LOOKUPFLW(user)] has voted to summon S.W.A.T backup.")
 	return TRUE
 
-/obj/item/solfed_reporter/treason_reporter
+
+
+
+
+
+
+
+
+
+
+
+
+/obj/item/solfed_reporter/grand_espatier_caller
 	name = "treason reporter"
 	desc = "Use this in-hand to vote that the station is engaging in Treason. If half your team votes for it, the Military will handle the situation."
 	type_to_check = /datum/antagonist/ert/request_911/condom_destroyer
@@ -771,7 +783,7 @@ GLOBAL_LIST_INIT(call911_do_and_do_not, list(
 		Non-offending citizens, prepare for evacuation. Comply with all orders given to you by Sol Federation military personnel.\n\
 		To all those who are engaging in treason, lay down your weapons and surrender. Refusal to comply may be met with lethal force."
 
-/obj/item/solfed_reporter/treason_reporter/questions(mob/user)
+/obj/item/solfed_reporter/grand_espatier_caller/questions(mob/user)
 	var/list/list_of_questions = list(
 		"Treason is the crime of attacking a state authority to which one owes allegiance. The station is located within Sol Federation space, \
 			and owes allegiance to the Sol Federation despite being owned by Nanotrasen. Did the station engage in this today?",
