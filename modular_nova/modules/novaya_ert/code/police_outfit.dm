@@ -1,6 +1,6 @@
 /obj/item/clothing/under/colonial/nri_police
 	name = "imperial police outfit"
-	desc = "Fancy blue durathread shirt and a pair of cotton-blend pants with a black synthleather belt. A time-tested design first employed by the HC police's \
+	desc = "Fancy blue durathread shirt and a pair of cotton-blend pants with a black synthleather belt. A time-tested design first employed by the NRI police's \
 	precursor organisation, Rim-world Colonial Militia, now utilised by them as a tribute."
 	icon_state = "under_police"
 	armor_type = /datum/armor/clothing_under/rank_security
@@ -13,16 +13,9 @@
 	. = ..()
 	AddElement(/datum/element/manufacturer_examine, COMPANY_ZCM)
 
-/obj/item/clothing/under/colonial/nri_police/skirt
-	name = "imperial police skirt outfit"
-	desc = "Fancy blue durathread shirt and a cotton-blend pencil skirt. A time-tested design first employed by the HC police's \
-	precursor organisation, Rim-world Colonial Militia, now utilised by them as a tribute."
-	icon_state = "under_police_skirt"
-	can_adjust = TRUE
-
 /obj/item/clothing/neck/cloak/colonial/nri_police
 	name = "imperial police cloak"
-	desc = "A cloak made from heavy tarpaulin. Nigh wind- and waterproof thanks to its design. The signature white rectangle of the HC police covers the garment's back."
+	desc = "A cloak made from heavy tarpaulin. Nigh wind- and waterproof thanks to its design. The signature white rectangle of the NRI police covers the garment's back."
 	icon_state = "cloak_police"
 
 // Just some extra police equipment
@@ -41,7 +34,7 @@
 /obj/item/clothing/head/hats/colonial/nri_police
 	name = "imperial police cap"
 	desc = "A puffy cap made out of tarpaulin covered by some textile. It is sturdy and comfortable, and seems to retain its form very well. <br>\
-		Silver HC police insignia is woven right above its visor."
+		Silver NRI police insignia is woven right above its visor."
 	icon_state = "cap_police"
 	armor_type = /datum/armor/cosmetic_sec
 
@@ -67,8 +60,8 @@
 	AddElement(/datum/element/manufacturer_examine, COMPANY_ZCM)
 
 /obj/item/clothing/head/helmet/nri_police
-	name = "coalition police helmet"
-	desc = "Thick-looking tactical helmet made out of shaped Plasteel. Colored dark blue, similar to one coalition police is commonly using."
+	name = "imperial police helmet"
+	desc = "Thick-looking tactical helmet made out of shaped Plasteel. Colored dark blue, similar to one imperial police is commonly using."
 	icon_state = "police_helmet"
 	icon = 'modular_nova/modules/novaya_ert/icons/armor.dmi'
 	worn_icon = 'modular_nova/modules/novaya_ert/icons/wornarmor.dmi'
@@ -78,7 +71,7 @@
 	AddElement(/datum/element/manufacturer_examine, COMPANY_ZCM)
 
 /obj/item/clothing/suit/armor/vest/nri_police
-	name = "coalition police plate carrier"
+	name = "imperial police plate carrier"
 	desc = "A reasonably heavy, yet comfortable armor vest comprised of a bunch of dense plates. Colored dark blue and bears a reflective stripe on the front and back."
 	icon_state = "police_vest"
 	icon = 'modular_nova/modules/novaya_ert/icons/armor.dmi'
@@ -89,7 +82,7 @@
 	AddElement(/datum/element/manufacturer_examine, COMPANY_ZCM)
 
 /obj/item/clothing/suit/armor/vest/nri_police_jacket
-	name = "coalition police aerostatic bomber jacket"
+	name = "imperial police aerostatic bomber jacket"
 	desc = "A jacket design worn by the more dynamic officers. There are quite a few pockets on the inside, mostly for storing notebooks and compasses."
 	icon = 'modular_nova/modules/food_replicator/icons/clothing.dmi'
 	worn_icon = 'modular_nova/modules/food_replicator/icons/clothing_worn.dmi'
@@ -115,7 +108,7 @@
 	return ..()
 
 /obj/item/clothing/suit/armor/vest/nri_police_jacket/suit
-	name = "coalition police official jacket"
+	name = "imperial police official jacket"
 	desc = "A black uniform jacket with Zvirdnyan Colonial Militia's signature white rectangle on its right sleeve and backside. \
 	Letters inside the collar read: %RANK-%KINK. The jacket is of exceptional quality."
 	icon_state = "suit_police"
@@ -132,7 +125,7 @@
 		desc = replacetext(desc, "%KINK", "N/A")
 
 /obj/item/clothing/head/soft/nri_police
-	name = "coalition police baseball cap"
+	name = "imperial police baseball cap"
 	desc = "It's a robust baseball hat in tasteless washed out blue colour.<br>\
 	Hey, this one's round!"
 	icon_state = "policesoft"
