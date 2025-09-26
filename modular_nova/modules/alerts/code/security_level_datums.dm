@@ -101,7 +101,8 @@
 /**
  * Gamma
  *
- * XK-Class EOW Event
+ * SolFed Advised Emergency Evacuation
+ * Use for when SolFed doesn't want to do a military lead evacuation/takeover, but just having it be an advisement.
  */
 /datum/security_level/gamma
 	name = "gamma"
@@ -131,9 +132,7 @@
 	status_display_icon_state = "federalalert"
 	fire_alarm_light_color = COLOR_THEME_GLASS
 	elevating_to_configuration_key = /datum/config_entry/string/alert_federal
-	sound = 'modular_nova/modules/alerts/sound/security_levels/gamma_alert.ogg'
-	looping_sound = 'modular_nova/modules/alerts/sound/security_levels/gamma_alert.ogg'
-	looping_sound_interval = 13 SECONDS
+	sound = 'modular_nova/modules/alerts/sound/security_levels/federal.ogg'
 	shuttle_call_time_mod = ALERT_COEFF_NOVA
 
 #undef ALERT_COEFF_NOVA
