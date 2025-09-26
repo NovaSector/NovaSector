@@ -66,9 +66,9 @@
 	power_equip = FALSE
 	power_light = FALSE
 	requires_power = TRUE
-	ambience_index = AMBIENCE_MINING
-	area_flags = CAVES_ALLOWED | FLORA_ALLOWED | MOB_SPAWN_ALLOWED
+	area_flags = CAVES_ALLOWED | FLORA_ALLOWED | MOB_SPAWN_ALLOWED | UNIQUE_AREA
 	map_generator = /datum/map_generator/cave_generator/lavaland/underground
+	allow_shuttle_docking = FALSE
 
 // orangeturf - 'safe passage'
 /area/lavaland/underground/unexplored/tunnels

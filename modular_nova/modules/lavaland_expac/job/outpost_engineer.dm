@@ -9,7 +9,7 @@
 	assignment = "Mining Station Support Engineer"
 	trim_state = "trim_stationengineer"
 	department_color = COLOR_AMETHYST
-	sechud_icon_state = SECHUD_MINING_STATION_SUPPORT_ENGINEER
+	sechud_icon_state = SECHUD_STATION_ENGINEER
 	minimal_access = list(
 		ACCESS_ATMOSPHERICS, // access for alarms
 		ACCESS_AUX_BASE,
