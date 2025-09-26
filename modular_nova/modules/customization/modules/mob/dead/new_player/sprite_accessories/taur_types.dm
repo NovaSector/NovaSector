@@ -248,6 +248,8 @@
 	name = "Kitsune"
 	icon_state = "kitsune"
 	taur_mode = STYLE_TAUR_PAW
+	can_lay_down = TRUE
+	laydown_offset = -3
 
 /datum/sprite_accessory/taur/kitsune/alt
 	name = "Kitsune (alt)"
