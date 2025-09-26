@@ -234,7 +234,7 @@
 	fax_name = "NRI Ship";
 	name = "NRI ship fax machine"
 	},
-/obj/item/paper/fluff/nri_police,
+/obj/item/paper/fluff/hc_police,
 /turf/open/floor/pod,
 /area/shuttle/pirate/nri)
 "iC" = (
@@ -387,8 +387,8 @@
 /obj/item/clothing/glasses/meson/engine,
 /obj/item/storage/belt/military/cin_surplus/marine,
 /obj/item/clothing/glasses/hud/security/sunglasses/peacekeeper,
-/obj/item/clothing/head/helmet/nri_police,
-/obj/item/clothing/suit/armor/vest/nri_police,
+/obj/item/clothing/head/helmet/hc_police,
+/obj/item/clothing/suit/armor/vest/hc_police,
 /obj/item/encryptionkey/heads/ce,
 /turf/open/floor/pod/light,
 /area/shuttle/pirate/nri)
@@ -847,8 +847,8 @@
 /obj/item/clothing/glasses/hud/security/sunglasses/peacekeeper,
 /obj/item/clothing/mask/balaclava/adjustable,
 /obj/item/storage/belt/military/cin_surplus/marine,
-/obj/item/clothing/head/helmet/nri_police,
-/obj/item/clothing/suit/armor/vest/nri_police,
+/obj/item/clothing/head/helmet/hc_police,
+/obj/item/clothing/suit/armor/vest/hc_police,
 /obj/item/encryptionkey/heads/hos,
 /turf/open/floor/pod/light,
 /area/shuttle/pirate/nri)
@@ -1033,8 +1033,8 @@
 /obj/item/clothing/glasses/hud/security/sunglasses/peacekeeper,
 /obj/item/clothing/mask/balaclava/adjustable,
 /obj/item/storage/belt/military/cin_surplus/marine,
-/obj/item/clothing/head/helmet/nri_police,
-/obj/item/clothing/suit/armor/vest/nri_police,
+/obj/item/clothing/head/helmet/hc_police,
+/obj/item/clothing/suit/armor/vest/hc_police,
 /obj/item/encryptionkey/heads/cmo,
 /turf/open/floor/pod/light,
 /area/shuttle/pirate/nri)
