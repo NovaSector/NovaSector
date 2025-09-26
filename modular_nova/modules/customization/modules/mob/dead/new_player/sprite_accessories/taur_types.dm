@@ -243,3 +243,12 @@
 /datum/sprite_accessory/taur/biglegs/stanced/peg
 	name = "Big Legs, Stanced Pegs"
 	icon_state = "biglegs_peg_stanced"
+
+/datum/sprite_accessory/taur/kitsune
+	name = "Kitsune"
+	icon_state = "kitsune"
+	taur_mode = STYLE_TAUR_PAW
+
+/datum/sprite_accessory/taur/kitsune/alt
+	name = "Kitsune (alt)"
+	icon_state = "kitsunealt"
