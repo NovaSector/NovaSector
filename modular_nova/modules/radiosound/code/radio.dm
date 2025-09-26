@@ -21,3 +21,6 @@
 
 /obj/item/radio/headset/headset_sec
 	radio_talk_sound = 'modular_nova/modules/radiosound/sound/radio/security.ogg'
+
+/obj/item/radio/headset/headset_solfed
+	radio_talk_sound = 'modular_nova/modules/radiosound/sound/radio/solfed.ogg'

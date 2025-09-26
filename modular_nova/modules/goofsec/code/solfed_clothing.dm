@@ -364,7 +364,6 @@ SOLFED ARMOR VALUES!
 	icon_state = "com_headset_alt"
 	worn_icon_state = "com_headset_alt"
 	keyslot = /obj/item/encryptionkey/headset_solfed/sec
-	radio_talk_sound = 'modular_nova/modules/radiosound/sound/radio/security.ogg'
 
 /obj/item/radio/headset/headset_solfed/espatier/Initialize(mapload)
 	. = ..()
