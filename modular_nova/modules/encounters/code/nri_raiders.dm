@@ -115,13 +115,13 @@ GLOBAL_VAR(first_officer)
 /datum/outfit/pirate/nri/officer
 	name = "NRI Field Officer"
 
-	head = /obj/item/clothing/head/hats/colonial/nri_police
+	head = /obj/item/clothing/head/hats/colonial/hc_police
 	glasses = /obj/item/clothing/glasses/sunglasses
 	ears = /obj/item/radio/headset/guild/command
 	mask = null
-	neck = /obj/item/clothing/neck/cloak/colonial/nri_police
+	neck = /obj/item/clothing/neck/cloak/colonial/hc_police
 
-	uniform = /obj/item/clothing/under/colonial/nri_police
+	uniform = /obj/item/clothing/under/colonial/hc_police
 	suit = null
 
 	gloves = /obj/item/clothing/gloves/combat
@@ -135,16 +135,16 @@ GLOBAL_VAR(first_officer)
 		/obj/item/ammo_box/magazine/recharge/plasma_battery = 3,
 		/obj/item/gun/ballistic/automatic/pistol/plasma_marksman = 1,
 		/obj/item/crucifix = 1,
-		/obj/item/clothing/mask/gas/nri_police = 1,
-		/obj/item/modular_computer/pda/nri_police = 1,
+		/obj/item/clothing/mask/gas/hc_police = 1,
+		/obj/item/modular_computer/pda/hc_police = 1,
 	)
 	l_pocket = /obj/item/folder/blue/nri_cop
 	r_pocket = /obj/item/storage/pouch/ammo
 
-	id = /obj/item/card/id/advanced/nri_police
-	id_trim = /datum/id_trim/nri_police
+	id = /obj/item/card/id/advanced/hc_police
+	id_trim = /datum/id_trim/hc_police
 
-/obj/item/modular_computer/pda/nri_police
+/obj/item/modular_computer/pda/hc_police
 	name = "\improper NRI police PDA"
 	device_theme = PDA_THEME_TERMINAL
 	greyscale_colors = "#363655#7878f7"
@@ -157,14 +157,14 @@ GLOBAL_VAR(first_officer)
 	)
 	inserted_item = /obj/item/pen/fourcolor
 
-/obj/item/card/id/advanced/nri_police
+/obj/item/card/id/advanced/hc_police
 	name = "\improper NRI police identification card"
 	desc = "A retro-looking card model modified to work with the modern identification systems."
 	icon = 'modular_nova/master_files/icons/obj/card.dmi'
 	icon_state = "card_nri_police"
 	assigned_icon_state = "assigned_nri_police"
 
-/datum/id_trim/nri_police
+/datum/id_trim/hc_police
 	assignment = "NRI Field Officer"
 	trim_icon = 'modular_nova/master_files/icons/obj/card.dmi'
 	trim_state = "trim_nri_police"
@@ -439,7 +439,7 @@ GLOBAL_VAR(first_officer)
 	<br><small>Thus, the creation of independent branches in the Empire led to the fact that these units directed the activities of the entire police to combat ordinary crimes. Prior to their formation, the task of combating corporal crime was the direct responsibility of the ranks of the local planetary patrols and, in special cases, the Planetary Guard. The ranks of independent departments were given equal rights in the investigation of criminal offenses with the ranks of the planetary police, since they acted on the basis of the same adopted normative legal acts. The provisions of the law created in accordance with the recent Instruction were more specifically defined: the goals, tasks of independent departments, their internal structure, the procedure for conducting operational investigative actions. At the same time, it, in general, has not changed the principle of organizational structure of patrols and therefore they, nevertheless, in part, remain limited in their activities within the territory under their jurisdiction. In this regard, they cannot carry out operational search activities outside the stations to which they were assigned.</small>
 	<br> <span style=\"color:black;font-family:'Segoe Script';\"><p><b>Printed by: Novaya Rossiyskaya Imperiya Internal Affairs Collegium, for educational and referential purposes only.</b></p></span>"}
 
-/obj/item/paper/fluff/nri_police
+/obj/item/paper/fluff/hc_police
 	name = "hastily printed note"
 	default_raw_text = {"Hey, officer, we couldn't arrange getting you a proper military frigate, -you know, those goddamn bureaucrats with their permission requests and paperwork-, so the police corvette will have to suffice.
 	<br> It was not designed for any kind of long-term deployments and anything more aggressive than shooting up a bunch of punks, so expect frequent power outages and a significant lack of raiding machinery.
