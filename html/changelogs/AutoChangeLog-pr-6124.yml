@@ -1,5 +1,0 @@
-author: "Hatterhat"
-delete-after: True
-changes:
-  - qol: "Adjusted the proto-kinetic melee variant descriptions to not be so long and to be a smidge more informative. Theoretically, anyway."
-  - balance: "The proto-kinetic claw now does 10 damage normally (up from 5), 30 damage on standard detonation (up from 10), and 120 damage (down from 200) on backstab."
