@@ -54,31 +54,11 @@
 
 //Ushankas
 //These have to be subtypes of TG's ushanka to inherit the toggleability
-/obj/item/clothing/head/costume/ushanka
-	icon = 'icons/map_icons/clothing/head/_head.dmi'
-	icon_state = "/obj/item/clothing/head/costume/ushanka"
-	post_init_icon_state = "ushanka_gagdown"
-	greyscale_config = /datum/greyscale_config/ushanka
-	greyscale_config_worn = /datum/greyscale_config/ushanka/worn
-	greyscale_colors = "#C7B08B#5A4E44"
-	upsprite = "ushanka_gagup"
-	downsprite = "ushanka_gagdown"
-	flags_1 = IS_PLAYER_COLORABLE_1
-
-/obj/item/clothing/head/costume/ushanka/polar
-	icon_state = "/obj/item/clothing/head/costume/ushanka/polar"
-	greyscale_colors = "#FCFCFD#CCCED1"
-	flags_1 = null
-
-/obj/item/clothing/head/costume/ushanka/sec
-	icon_state = "/obj/item/clothing/head/costume/ushanka/sec"
-	greyscale_colors = "#C7B08B#A52F29"
-	armor_type = /datum/armor/head_helmet
-	flags_1 = null
 
 /obj/item/clothing/head/costume/ushanka/sec/blue
 	icon_state = "/obj/item/clothing/head/costume/ushanka/sec/blue"
 	greyscale_colors = "#C7B08B#3F6E9E"
+
 //Pelts
 //Not made into a subtype of /costume but stored in the same file
 /obj/item/clothing/head/pelt

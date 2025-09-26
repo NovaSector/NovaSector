@@ -114,4 +114,4 @@
 	item_type = /obj/item/storage/belt/utility/frontier_colonist
 
 /datum/armament_entry/company_import/kahraman/storage_equipment/vest
-	item_type = /obj/item/clothing/accessory/webbing/colonial
+	item_type = /obj/item/storage/belt/webbing/colonial

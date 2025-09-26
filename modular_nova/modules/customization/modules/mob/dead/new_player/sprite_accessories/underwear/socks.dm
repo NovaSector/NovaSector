@@ -185,3 +185,18 @@
 	name = "Ripped Black Thigh-highs"
 	icon_state = "thigh_high_ripped"
 	use_static = TRUE
+
+/datum/sprite_accessory/socks/thigh_high
+	name = "Black Thigh-highs"
+	icon_state = "thigh_high"
+	use_static = TRUE
+
+/datum/sprite_accessory/socks/right_side_thigh_high
+	name = "Right sided Black Thigh-highs"
+	icon_state = "right_side_thigh_high"
+	use_static = TRUE
+
+/datum/sprite_accessory/socks/left_side_thigh_high
+	name = "Left sided Black Thigh-highs"
+	icon_state = "left_side_thigh_high"
+	use_static = TRUE
