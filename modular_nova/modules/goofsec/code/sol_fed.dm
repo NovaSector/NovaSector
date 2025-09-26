@@ -50,12 +50,12 @@ GLOBAL_LIST_INIT(solfed_responder_info, list(
 		SOLFED_VOTES = 0,
 		SOLFED_DECLARED = FALSE
 	),
-	"swat" = list(
+	"standard_espatiers" = list(
 		SOLFED_AMT = 0,
 		SOLFED_VOTES = 0,
 		SOLFED_DECLARED = FALSE
 	),
-	"national_guard" = list(
+	"grand_espatiers" = list(
 		SOLFED_AMT = 0,
 		SOLFED_VOTES = 0,
 		SOLFED_DECLARED = FALSE
@@ -729,76 +729,59 @@ GLOBAL_LIST_INIT(call911_do_and_do_not, list(
 					agents_number--
 
 /obj/item/solfed_reporter/espatier_caller
-	name = "S.W.A.T. backup caller"
-	desc = "Use this in-hand to vote to call SolFed S.W.A.T. backup. If half your team votes for it, SWAT will be dispatched."
+	name = "Solfed Military backup caller"
+	desc = "Use this in-hand to vote to call SolFed Military backup. If half your team votes for it, a Military Squadron will be dispatched."
 	type_to_check = /datum/antagonist/ert/request_911
 	type_of_callers = "911_responders"
-	announcement_source = "Sol Federation S.W.A.T."
-	fine_station = TRUE
-	ghost_poll_msg = "The Sol-Fed 911 services have requested a S.W.A.T. backup. Do you wish to become a S.W.A.T. member?"
+	announcement_source = "SolFed Military Squadron"
+	fine_station = FALSE
+	ghost_poll_msg = "The Sol-Fed 911 services have requested Military backup. Do you wish to become an Espatier?"
 	amount_to_summon = 6
 	type_to_summon = /datum/antagonist/ert/request_911/condom_destroyer
-	summoned_type = "swat"
-	announcement_message = "Hello, crewmembers. Our emergency services have requested S.W.A.T. backup, either for assistance doing their job due to crew \
-		impediment, or due to a fraudulent 911 call. We have billed the station $20,000 for this, to cover the expenses of flying a second emergency response to \
-		your station. Please comply with all requests by said S.W.A.T. members."
+	summoned_type = "standard_espatiers"
+	announcement_message = "Hello, crewmembers of [station_name()]. Our on-station emergency services teams have requested for Military Aid, Either for their active safety \
+	or the current situation has caused reasonable escallation, please remain calm and cooperate with any requests or orders made by our Espatiers. For your safety and others."
 
 /obj/item/solfed_reporter/espatier_caller/questions(mob/user)
-	var/question = "Does the situation require additional S.W.A.T. backup, involve the station impeding you from doing your job, \
+	var/question = "Does the situation require additional Military backup, involve the station impeding you from doing your job, \
 		or involve the station making a fraudulent 911 call and needing an arrest made on the caller?"
-	if(tgui_input_list(user, question, "S.W.A.T. Backup Caller", list("Yes", "No")) != "Yes")
-		to_chat(user, "You decide not to request S.W.A.T. backup.")
+	if(tgui_input_list(user, question, "Military backup Caller", list("Yes", "No")) != "Yes")
+		to_chat(user, "You decide not to request for Military backup")
 		return FALSE
-	message_admins("[ADMIN_LOOKUPFLW(user)] has voted to summon S.W.A.T backup.")
+	message_admins("[ADMIN_LOOKUPFLW(user)] has voted to summon Military backup.")
 	return TRUE
 
-
-
-
-
-
-
-
-
-
-
-
-
 /obj/item/solfed_reporter/grand_espatier_caller
-	name = "treason reporter"
-	desc = "Use this in-hand to vote that the station is engaging in Treason. If half your team votes for it, the Military will handle the situation."
+	name = "Solfed Platoon Radio Caller"
+	desc = "Use this in hand to report that the active situation is noticably worse or out of control."
 	type_to_check = /datum/antagonist/ert/request_911/condom_destroyer
-	type_of_callers = "swat"
-	announcement_source = "Sol Federation National Guard"
+	type_of_callers = "standard_espatiers"
+	announcement_source = "Sol Federation Espatier Platoon"
 	fine_station = FALSE
-	ghost_poll_msg = "The station has decided to engage in treason. Do you wish to join the Sol Federation Military?"
+	ghost_poll_msg = "The situation is completely out of hand and our Espatiers need backup, Volunteer to become a Grand Response Espatier?"
 	amount_to_summon = 12
 	type_to_summon = /datum/antagonist/ert/request_911/treason_destroyer
-	summoned_type = "national_guard"
-	announcement_message = "Crewmembers of the station. You have refused to comply with first responders and SWAT officers, and have assaulted them, \
-		and they are unable to carry out the wills of the Sol Federation, despite residing within Sol Federation borders.\n\
-		As such, we are charging those responsible with Treason. The penalty of which is death, or no less than twenty-five years in Superjail.\n\
-		Treason is a serious crime. Our military forces are en route to your station. They will be assuming direct control of the station, and \
-		will be evacuating civilians from the scene.\n\
-		Non-offending citizens, prepare for evacuation. Comply with all orders given to you by Sol Federation military personnel.\n\
-		To all those who are engaging in treason, lay down your weapons and surrender. Refusal to comply may be met with lethal force."
+	summoned_type = "grand_espatiers"
+	announcement_message = "Attention [station_name] the active situation has devolved, and is too much to bear for our currently deployed squadron of espatiers. \
+	A Sol Federation Espatier Platoon is being disbatched to your station, Cooperate with any and all instructions given by any SolFed Personnel, A full station-wide evacuation \
+	may be enacted for your safety. Again please cooperate with any and all instructions from SolFed Personnel."
 
 /obj/item/solfed_reporter/grand_espatier_caller/questions(mob/user)
 	var/list/list_of_questions = list(
-		"Treason is the crime of attacking a state authority to which one owes allegiance. The station is located within Sol Federation space, \
-			and owes allegiance to the Sol Federation despite being owned by Nanotrasen. Did the station engage in this today?",
-		"Did station crewmembers assault you or the SWAT team at the direction of Security and/or Command?",
-		"Did station crewmembers actively prevent you and the SWAT team from accomplishing your objectives at the direction of Security and/or Command?",
-		"Were you and your fellow SWAT members unable to handle the issue on your own?",
-		"Are you absolutely sure you wish to declare the station as engaging in Treason? Misuse of this can and will result in \
+		"Grand threats are threats in which mass casualties, treason against the federation, xenomorphs, and other threats that would be \
+			a danger to the greater galactic community, such as resonance cascade, runaway blob, etc.",
+		"Did the station crew members attack you and your fellow Espatiers?",
+		"Did the station crew members actively prevent you from completing your mission, or objectives?",
+		"Were you and your fellow Espatiers unable to contain or handle the situation on your own?",
+		"Are you surer you wish to declare a Grand Threat of any kind is present? Misuse of this can and will result in \
 			administrative action against your account."
 	)
 	for(var/question in list_of_questions)
 		if(tgui_input_list(user, question, "Treason Reporter", list("Yes", "No")) != "Yes")
-			to_chat(user, "You decide not to declare the station as treasonous.")
+			to_chat(user, "You decide not to call the platoon... yet...")
 			return FALSE
-	message_admins("[ADMIN_LOOKUPFLW(user)] has acknowledged the consequences of a false claim of Treason administratively, \
-		and has voted that the station is engaging in Treason.")
+	message_admins("[ADMIN_LOOKUPFLW(user)] has acknowledged the consequences of a false claim of a Grand Threat administratively, \
+		and has voted that the station is engaging a Grand Threat.")
 	return TRUE
 
 /obj/item/solfed_reporter/pizza_managers
