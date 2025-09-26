@@ -1,0 +1,5 @@
+author: "OrionTheFox"
+delete-after: True
+changes:
+  - balance: "all 'accessory' webbings are now 'belt' webbings"
+  - balance: "all loadout belts can now hold a few more items"
