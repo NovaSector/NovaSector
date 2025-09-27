@@ -98,8 +98,8 @@
 	needs_anchored = TRUE
 
 
-/datum/design/board/big_manipulator
-	name = "Silo box"
+/datum/design/board/silobox
+	name = "Silo box Board"
 	desc = "A machine that pulls materials from a connected ore silo, one type at a time."
 	id = "silo_box"
 	build_path = /obj/item/circuitboard/machine/silobox
@@ -107,3 +107,6 @@
 		RND_CATEGORY_MACHINE + RND_SUBCATEGORY_MACHINE_ENGINEERING
 	)
 	departmental_flags = DEPARTMENT_BITFLAG_SCIENCE | DEPARTMENT_BITFLAG_ENGINEERING | DEPARTMENT_BITFLAG_CARGO | DEPARTMENT_BITFLAG_SERVICE
+
+/datum/techweb_node/construction
+	design_ids = list("silo_box")
