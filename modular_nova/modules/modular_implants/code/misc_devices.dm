@@ -59,34 +59,32 @@
 	icon_state = "nifsoft_remover_syndie"
 	create_disk = TRUE
 
-/obj/item/nifsoft_remover/syndie/attack(mob/living/carbon/human/target_mob, mob/living/user)
-	var/obj/item/organ/cyberimp/brain/nif/target_nif = target_mob.get_organ_by_type(/obj/item/organ/cyberimp/brain/nif)
+/obj/item/nifsoft_remover/syndie/interact_with_atom(atom/interacting_with, mob/living/user, list/modifiers)
+	if(!isliving(interacting_with))
+		return NONE
 
-/obj/item/nifsoft_remover/syndie/attack(mob/living/carbon/human/target_mob, mob/living/user)
-	. = ..()
+	var/mob/living/carbon/human/target_mob = interacting_with
 	var/obj/item/organ/cyberimp/brain/nif/target_nif = target_mob.get_organ_by_type(/obj/item/organ/cyberimp/brain/nif)
 
 	if(!target_nif || !length(target_nif.loaded_nifsofts))
 		balloon_alert(user, "[target_mob] has no NIFSofts!")
-		return
+		return ITEM_INTERACT_BLOCKING
 
-	var/list/installed_nifsofts = target_nif.loaded_nifsofts
-	var/datum/nifsoft/nifsoft_to_remove = tgui_input_list(user, "Choose a NIFSoft to remove.", "[src]", installed_nifsofts)
-
+	var/datum/nifsoft/nifsoft_to_remove = tgui_input_list(user, "Choose a NIFSoft to remove.", "[src]", target_nif.loaded_nifsofts)
 	if(!nifsoft_to_remove)
-		return FALSE
+		return ITEM_INTERACT_BLOCKING
 
 	user.visible_message(span_warning("[user] starts to use [src] on [target_mob]"), span_notice("You start to use [src] on [target_mob]"))
 	if(!do_after(user, 5 SECONDS, target_mob))
 		balloon_alert(user, "removal cancelled!")
-		return FALSE
+		return ITEM_INTERACT_BLOCKING
 
 	if(!target_nif.remove_nifsoft(nifsoft_to_remove))
 		balloon_alert(user, "removal failed!")
-		return FALSE
+		return ITEM_INTERACT_BLOCKING
 
-	to_chat(user, span_notice("You successfully remove [nifsoft_to_remove]."))
-	user.log_message("removed [nifsoft_to_remove] from [target_mob]" ,LOG_GAME)
+	balloon_alert(user, "removal successful")
+	user.log_message("removed [nifsoft_to_remove] from [target_mob]", LOG_GAME)
 
 	if(create_disk)
 		var/obj/item/disk/nifsoft_uploader/new_disk = new
@@ -95,7 +93,8 @@
 		user.put_in_hands(new_disk)
 
 	qdel(nifsoft_to_remove)
-	return TRUE
+	return ITEM_INTERACT_SUCCESS
+
 
 /datum/uplink_item/device_tools/nifsoft_remover
 	name = "Cybersun 'Scalpel' NIF-Cutter"
