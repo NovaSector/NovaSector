@@ -2,6 +2,9 @@
 
 /datum/loadout_category/shoes
 	tab_order = /datum/loadout_category/hands::tab_order + 1
+	max_allowed = MAX_ALLOWED_EXTRA_CLOTHES
+
+//// Loadout Items
 
 /datum/loadout_item/shoes
 	abstract_type = /datum/loadout_item/shoes
