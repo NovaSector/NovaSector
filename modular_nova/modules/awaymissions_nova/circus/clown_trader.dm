@@ -1,0 +1,30 @@
+/mob/living/basic/trader/clown
+	name = "Boingo the Clown Trader"
+	desc = "A clown who has come to sell you goods! why does he have a pulse pistol...?"
+	unique_name = FALSE
+	icon = 'icons/mob/simple/simple_human.dmi'
+	maxHealth = 420
+	health = 420
+	melee_damage_lower = 10
+	melee_damage_upper = 10
+	attack_verb_continuous = "punches"
+	attack_verb_simple = "punch"
+	attack_sound = 'sound/items/weapons/punch1.ogg'
+	basic_mob_flags = DEL_ON_DEATH
+	unsuitable_atmos_damage = 2.5
+	combat_mode = FALSE
+	move_resist = MOVE_FORCE_STRONG
+	mob_biotypes = MOB_ORGANIC|MOB_HUMANOID
+	sentience_type = SENTIENCE_HUMANOID
+	speed = 0
+	ai_controller = /datum/ai_controller/basic_controller/trader
+	sell_sound = 'sound/effects/cashregister.ogg'
+	currency_name = "credits"
+	spawner_path = /obj/effect/mob_spawn/corpse/human/clown
+	species_path = /datum/species/human
+	loot = list(/obj/effect/mob_spawn/corpse/human/clown)
+	ranged_attack_casing = /obj/item/ammo_casing/energy/laser/pulse
+	ranged_attack_sound = 'sound/items/weapons/gun/pistol/shot.ogg'
+	held_weapon_visual = /obj/item/gun/energy/pulse/pistol
+	trader_data_path = /datum/trader_data/clown_trader_data
+
