@@ -35,4 +35,3 @@
 /area/mine/xenoarch/maintenance/east
 	name = "Xenoarch East Maintenance"
 	icon_state = "xa_e_maint"
-
