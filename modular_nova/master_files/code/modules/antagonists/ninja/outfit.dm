@@ -1,6 +1,5 @@
 /datum/outfit/ninja
 	uniform = /obj/item/clothing/under/syndicate/ninja
-	accessory = /obj/item/clothing/accessory/webbing/pilot
 	suit_store = /obj/item/energy_katana
 	glasses = /obj/item/clothing/glasses/night
 	mask = /obj/item/clothing/mask/gas/ninja
@@ -9,7 +8,7 @@
 	l_pocket = /obj/item/storage/medkit/civil_defense // remove big explosion charge, replace it with a small medkit
 	r_pocket = /obj/item/tank/internals/emergency_oxygen/double
 	internals_slot = ITEM_SLOT_RPOCKET
-	belt = /obj/item/storage/belt/military/cin_surplus/ninja
+	belt = /obj/item/storage/belt/webbing/pilot/ninja
 	back = /obj/item/mod/control/pre_equipped/ninja
 	box = /obj/item/storage/box/survival
 	implants  = list(/obj/item/implant/smoke) // remove explosive implant, change it to smoke implant
@@ -28,6 +27,7 @@
 	backpack_contents = list(
 		suitable_medkit,
 		/obj/item/jammer,
+		/obj/item/pinpointer/crew, //keep last for quick keys
 	)
 
 /datum/outfit/ninja/post_equip(mob/living/carbon/human/ninja)
@@ -61,18 +61,19 @@
 /obj/item/energy_katana
 	worn_icon = 'icons/mob/clothing/belt.dmi' //makes the sword's suit-storage appearance work
 
-/obj/item/storage/belt/military/cin_surplus/ninja
-	icon_state = "/obj/item/storage/belt/military/cin_surplus/ninja"
-	greyscale_colors = COLOR_DARK
+/obj/item/storage/belt/webbing/pilot/ninja
+	name = "storage webbing"
+	desc = "Sleek and discrete storage solutions."
+	unique_reskin = NONE
 
-/obj/item/storage/belt/military/cin_surplus/ninja/PopulateContents()
-	new /obj/item/crowbar(src)
-	new /obj/item/stock_parts/power_store/cell/hyper(src)
-	new /obj/item/card/id/advanced/visitor(src)
-	new /obj/item/stack/spacecash/c200(src)
-	new /obj/item/reagent_containers/cup/glass/flask/sake(src)
+/obj/item/storage/belt/webbing/pilot/ninja/PopulateContents()
 	new /obj/item/food/rationpack(src)
-	new /obj/item/pinpointer/crew(src) //keep last for quick keys
+	new /obj/item/reagent_containers/cup/glass/flask/sake(src)
+	new /obj/item/reagent_containers/cup/glass/waterbottle/tea/strawberry(src)
+	new /obj/item/food/vendor_snacks/rice_crackers(src)
+	new /obj/item/stock_parts/power_store/cell/hyper(src)
+	new /obj/item/stack/spacecash/c200(src)
+	new /obj/item/card/id/advanced/visitor(src) //keep last for quick keys
 
 /obj/item/radio/headset/ninja
 	name = "\improper Spider-Clan radio headset"
