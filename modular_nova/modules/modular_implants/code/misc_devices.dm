@@ -70,7 +70,6 @@
 		balloon_alert(user, "[target_mob] has no NIFSofts!")
 		return
 
-	// Убрано сканирование (первый do_after) - сразу показываем выбор NIFSoft
 	var/list/installed_nifsofts = target_nif.loaded_nifsofts
 	var/datum/nifsoft/nifsoft_to_remove = tgui_input_list(user, "Choose a NIFSoft to remove.", "[src]", installed_nifsofts)
 
