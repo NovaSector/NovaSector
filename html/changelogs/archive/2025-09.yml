@@ -875,6 +875,8 @@
       Keyhole and Cleavage sweaters have been merged into it, plus an additional new
       Crop Top skin!
   - rscdel: Removed Keyhole Sweater and Cleavage Sweater (See above)
+  - balance: all 'accessory' webbings are now 'belt' webbings
+  - balance: all loadout belts can now hold a few more items
   SmArtKar:
   - bugfix: Fixed delayed viewport fitting on server join/init
   Xander3359:
@@ -883,6 +885,9 @@
   - bugfix: Kickflippers now catch their board every time
   loganuk:
   - bugfix: Fixes endless updates to det forensic scanner into the UI
+  lukevale:
+  - rscadd: Adds the Kitsune and Kitsune (Alt) parts to the Taur selections. Tails
+      brush not included.
   mcbalaam, Ez-Briz:
   - admin: Added a new TGUI spawn panel, removing it's ancestors - HTML "Create X"
       panels
