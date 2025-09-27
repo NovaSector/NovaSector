@@ -484,6 +484,7 @@
 	dir = 8;
 	name = "public lavaland shuttle console"
 	},
+/obj/structure/cable,
 /turf/open/floor/iron/brick_aligned_half{
 	dir = 8
 	},
@@ -749,6 +750,7 @@
 	},
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/structure/cable,
 /turf/open/floor/plating,
 /area/mine/maintenance/service/disposals)
 "ed" = (
@@ -1992,6 +1994,7 @@
 "lq" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/structure/cable,
 /turf/open/floor/plating,
 /area/mine/maintenance/service/disposals)
 "lr" = (
@@ -3570,6 +3573,9 @@
 /obj/effect/mapping_helpers/airlock/cyclelink_helper_multi{
 	cycle_id = "lavaland_mining_north"
 	},
+/obj/structure/cable,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /turf/open/floor/iron/shuttle/exploration/hazard,
 /area/mine/maintenance/service/disposals)
 "ub" = (
@@ -4511,6 +4517,9 @@
 /turf/open/floor/iron/textured_large,
 /area/mine/engineering)
 "zd" = (
+/obj/structure/cable,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /turf/open/floor/plating,
 /area/mine/maintenance/service/disposals)
 "ze" = (
@@ -4604,6 +4613,10 @@
 	dir = 8
 	},
 /turf/open/floor/wood/parquet,
+/area/mine/lobby/raptor)
+"zM" = (
+/obj/machinery/light/small/directional/north,
+/turf/open/misc/hay/lavaland,
 /area/mine/lobby/raptor)
 "zN" = (
 /obj/structure/stone_tile/block{
@@ -5010,10 +5023,6 @@
 "BM" = (
 /turf/closed/wall,
 /area/mine/engineering/electrical)
-"BP" = (
-/obj/machinery/light/small/directional/north,
-/turf/open/misc/hay/lavaland,
-/area/mine/lobby/raptor)
 "BR" = (
 /obj/structure/stone_tile/block{
 	dir = 4
@@ -5081,11 +5090,6 @@
 /obj/item/weldingtool/mini,
 /turf/open/misc/asteroid/basalt/lava_land_surface,
 /area/ruin/unpowered/ash_walkers)
-"Cj" = (
-/obj/structure/table/reinforced,
-/obj/item/inducer,
-/turf/open/floor/iron/textured_large,
-/area/mine/engineering/storage)
 "Cl" = (
 /obj/effect/mapping_helpers/no_lava,
 /obj/structure/ore_vein/stone,
@@ -5846,12 +5850,18 @@
 	},
 /turf/open/misc/asteroid/basalt/lava_land_surface,
 /area/lavaland/surface/outdoors)
+"FQ" = (
+/obj/structure/table/wood,
+/obj/item/construction/rcd,
+/obj/item/construction/rcd{
+	pixel_y = 6;
+	pixel_x = -5
+	},
+/turf/open/floor/iron/dark/smooth_large,
+/area/mine/engineering)
 "FS" = (
 /obj/effect/mapping_helpers/airlock/cyclelink_helper{
 	dir = 4
-	},
-/obj/effect/turf_decal/trimline/blue/filled/line{
-	dir = 8
 	},
 /obj/effect/turf_decal/trimline/blue/filled/mid_joiner{
 	dir = 8
@@ -6677,15 +6687,6 @@
 /obj/structure/cable,
 /turf/open/floor/wood/parquet,
 /area/mine/lobby/raptor)
-"Ka" = (
-/obj/structure/table/wood,
-/obj/item/construction/rcd,
-/obj/item/construction/rcd{
-	pixel_y = 6;
-	pixel_x = -5
-	},
-/turf/open/floor/iron/dark/smooth_large,
-/area/mine/engineering)
 "Kc" = (
 /obj/machinery/suit_storage_unit/engine,
 /turf/open/floor/iron/textured_large,
@@ -6955,6 +6956,8 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/effect/spawner/random/trash/mess,
+/obj/structure/cable,
+/obj/structure/cable,
 /turf/open/floor/plating,
 /area/mine/maintenance/service/disposals)
 "Le" = (
@@ -8076,6 +8079,7 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/machinery/airalarm/directional/north,
+/obj/structure/cable,
 /turf/open/floor/plating,
 /area/mine/maintenance/service/disposals)
 "QP" = (
@@ -8132,6 +8136,13 @@
 	},
 /turf/open/misc/hay/lavaland,
 /area/mine/lobby/raptor)
+"QY" = (
+/obj/structure/trash_pile,
+/obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer2{
+	dir = 8
+	},
+/turf/open/floor/plating,
+/area/mine/maintenance/service/disposals)
 "Ra" = (
 /obj/machinery/light/small/directional/south,
 /turf/open/floor/iron/dark/smooth_corner{
@@ -8368,6 +8379,11 @@
 /obj/effect/mapping_helpers/no_lava,
 /turf/open/misc/asteroid/basalt/lava_land_surface,
 /area/ruin/unpowered/ash_walkers)
+"Se" = (
+/obj/structure/table/reinforced,
+/obj/item/inducer,
+/turf/open/floor/iron/textured_large,
+/area/mine/engineering/storage)
 "Sg" = (
 /obj/structure/railing{
 	dir = 5
@@ -8819,6 +8835,7 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/effect/spawner/random/trash/mess,
+/obj/structure/cable,
 /turf/open/floor/plating,
 /area/mine/maintenance/service/disposals)
 "Uj" = (
@@ -8894,10 +8911,12 @@
 /turf/open/floor/catwalk_floor/iron,
 /area/mine/engineering/storage)
 "UB" = (
-/obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer2,
 /obj/machinery/camera/autoname/directional/north{
 	network = list("mine","SS13")
 	},
+/obj/structure/cable,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /turf/open/floor/plating,
 /area/mine/maintenance/service/disposals)
 "UD" = (
@@ -13812,7 +13831,7 @@ PK
 PK
 PK
 Dj
-BP
+zM
 dx
 Dj
 WZ
@@ -15097,7 +15116,7 @@ Eu
 Eu
 Eu
 Dj
-BP
+zM
 dx
 Dj
 QX
@@ -16914,7 +16933,7 @@ oZ
 oZ
 oZ
 Pz
-Cj
+Se
 BH
 xx
 EA
@@ -17177,7 +17196,7 @@ od
 mV
 ST
 yl
-xm
+QY
 xm
 Fk
 nK
@@ -17685,7 +17704,7 @@ oZ
 fm
 um
 bR
-Ka
+FQ
 fm
 vF
 SL
