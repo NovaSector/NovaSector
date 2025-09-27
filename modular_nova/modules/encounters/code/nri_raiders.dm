@@ -461,7 +461,7 @@ GLOBAL_VAR(first_officer)
 	update_appearance()
 
 /obj/machinery/suit_storage_unit/nri
-	mod_type = /obj/item/mod/control/pre_equipped/policing
+	mod_type = /obj/item/mod/control/pre_equipped/rim_inspector
 	storage_type = /obj/item/tank/internals/oxygen/yellow
 
 /obj/machinery/shuttle_scrambler/nri
