@@ -1,0 +1,22 @@
+{
+	"hakama": [
+		{
+			"type": "icon_state",
+			"icon_state": "hakama",
+			"blend_mode": "overlay",
+			"color_ids": [1]
+		},
+		{
+			"type": "icon_state",
+			"icon_state": "hakama_top",
+			"blend_mode": "overlay",
+			"color_ids": [2]
+		},
+		{
+			"type": "icon_state",
+			"icon_state": "hakama_gradient",
+			"blend_mode": "overlay",
+			"color_ids": [3]
+		}
+	]
+}

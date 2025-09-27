@@ -171,3 +171,14 @@
 	icon_state = "35box_flash"
 
 	ammo_type = /obj/item/ammo_casing/c35sol/flash
+
+/obj/item/ammo_box/speedloader/c35sol
+	name = "speed loader (.35 Sol Short)"
+	desc = "Designed to quickly reload eight-chamber .35 Sol Short revolvers."
+	icon = 'modular_nova/modules/modular_weapons/icons/obj/company_and_or_faction_based/carwo_defense_systems/ammo.dmi'
+	icon_state = "sl35sol"
+	ammo_type = /obj/item/ammo_casing/c35sol
+	max_ammo = 8
+	caliber = CALIBER_SOL35SHORT
+	ammo_band_icon = "+sl35_band"
+	ammo_band_color = null
