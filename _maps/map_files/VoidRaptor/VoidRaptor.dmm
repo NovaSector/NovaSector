@@ -22331,15 +22331,6 @@
 /obj/effect/turf_decal/bot,
 /turf/open/floor/pod/dark,
 /area/station/engineering/storage/tech)
-"gxe" = (
-/obj/effect/turf_decal/trimline/green/filled/line{
-	dir = 4
-	},
-/obj/machinery/bluespace_vendor/directional/east,
-/turf/open/floor/iron/edge{
-	dir = 8
-	},
-/area/station/commons/fitness/recreation/entertainment)
 "gxq" = (
 /obj/structure/table/wood,
 /obj/item/storage/fancy/cigarettes{
@@ -29262,19 +29253,6 @@
 	},
 /turf/open/floor/iron/dark/smooth_edge,
 /area/station/hallway/primary/fore)
-"isF" = (
-/obj/structure/cable,
-/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
-/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
-/obj/structure/disposalpipe/segment,
-/obj/machinery/bluespace_vendor/directional/east,
-/obj/effect/turf_decal/trimline/blue/filled/line{
-	dir = 4
-	},
-/turf/open/floor/iron/dark/smooth_edge{
-	dir = 8
-	},
-/area/station/hallway/secondary/command)
 "isS" = (
 /obj/effect/turf_decal/trimline/yellow/filled/end{
 	dir = 4
@@ -33877,7 +33855,6 @@
 /area/space/nearstation)
 "jEK" = (
 /obj/effect/turf_decal/trimline/yellow/filled/line,
-/obj/machinery/bluespace_vendor/directional/south,
 /turf/open/floor/iron/smooth_edge{
 	dir = 1
 	},
@@ -47037,14 +47014,6 @@
 /obj/effect/spawner/random/armory/rubbershot,
 /turf/open/floor/engine,
 /area/station/ai_monitored/security/armory)
-"njl" = (
-/obj/effect/turf_decal/trimline/green/filled/line,
-/obj/machinery/bluespace_vendor/directional/south,
-/obj/effect/landmark/start/hangover,
-/turf/open/floor/iron/dark/smooth_edge{
-	dir = 1
-	},
-/area/station/hallway/primary/fore)
 "nju" = (
 /obj/structure/rack,
 /obj/item/aicard/aitater,
@@ -53787,7 +53756,6 @@
 /obj/effect/turf_decal/trimline/dark_red/filled/warning{
 	dir = 6
 	},
-/obj/machinery/bluespace_vendor/directional/south,
 /turf/open/floor/iron/smooth,
 /area/station/science/ordnance)
 "pbe" = (
@@ -56239,7 +56207,6 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/structure/cable,
 /obj/effect/turf_decal/trimline/green/arrow_ccw,
-/obj/machinery/bluespace_vendor/directional/south,
 /obj/structure/chair{
 	dir = 1
 	},
@@ -62650,16 +62617,6 @@
 	},
 /turf/open/floor/iron/smooth,
 /area/station/engineering/gravity_generator)
-"ruG" = (
-/obj/effect/turf_decal/trimline/yellow/filled/line{
-	dir = 10
-	},
-/obj/effect/turf_decal/trimline/blue/filled/line{
-	dir = 10
-	},
-/obj/machinery/atmospherics/components/unary/bluespace_sender,
-/turf/open/floor/iron/smooth,
-/area/station/engineering/atmos/hfr_room)
 "ruH" = (
 /obj/machinery/airalarm/directional/west,
 /obj/structure/disposalpipe/trunk{
@@ -109474,7 +109431,7 @@ nEp
 nEp
 vZa
 iXr
-ruG
+dOx
 tjr
 ttw
 ttw
@@ -123543,7 +123500,7 @@ ufu
 gpr
 tSO
 osL
-gxe
+osL
 pvl
 wZT
 kHe
@@ -124991,7 +124948,7 @@ ffe
 set
 dLK
 hae
-isF
+bAf
 xma
 bAf
 dZN
@@ -125541,7 +125498,7 @@ ful
 ubW
 lzd
 uKh
-njl
+cUM
 iNV
 iNV
 qzy

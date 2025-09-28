@@ -390,7 +390,7 @@
 				user.balloon_alert(user, "empty!")
 				return ITEM_INTERACT_BLOCKING
 			else
-				reagents.trans_to(mop, 5, transferred_by = user)
+				reagents.trans_to(tool, 5, transferred_by = user)
 				user.balloon_alert(user, "doused [tool]")
 				playsound(loc, 'sound/effects/slosh.ogg', 25, TRUE)
 				return ITEM_INTERACT_SUCCESS
