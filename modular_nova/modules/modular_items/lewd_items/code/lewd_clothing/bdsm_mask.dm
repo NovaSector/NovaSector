@@ -299,6 +299,7 @@
 	unique_reskin = list("pink" = "filter_pink",
 						"teal" = "filter_teal")
 	w_class = WEIGHT_CLASS_SMALL
+	obj_flags_nova = ERP_ITEM
 	custom_materials = list(
 		/datum/material/glass = SHEET_MATERIAL_AMOUNT,
 		/datum/material/plastic = SHEET_MATERIAL_AMOUNT,

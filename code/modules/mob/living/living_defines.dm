@@ -1,6 +1,7 @@
 /mob/living
 	see_invisible = SEE_INVISIBLE_LIVING
-	hud_possible = list(HEALTH_HUD,STATUS_HUD,ANTAG_HUD, DNR_HUD) // NOVA EDIT ADDITION - DNR_HUD
+	abstract_type = /mob/living
+	hud_possible = list(HEALTH_HUD,STATUS_HUD,ANTAG_HUD,DNR_HUD) // NOVA EDIT ADDITION - ORIGINAL hud_possible = list(HEALTH_HUD,STATUS_HUD,ANTAG_HUD)
 	pressure_resistance = 10
 	hud_type = /datum/hud/living
 	interaction_flags_click = ALLOW_RESTING

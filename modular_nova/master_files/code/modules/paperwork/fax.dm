@@ -21,7 +21,7 @@
 	fax_name = "Tarkon Industries";
 	name = "Tarkon Fax Machine";
 	req_access = list("syndicate");
-	syndicate_network = 1
+	syndicate_network = 0
 
 /obj/machinery/fax/tarkon/Initialize(mapload)
 	. = ..()

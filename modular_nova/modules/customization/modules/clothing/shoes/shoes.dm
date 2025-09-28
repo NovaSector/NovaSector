@@ -220,6 +220,20 @@
 	greyscale_config_worn_vox = /datum/greyscale_config/boots/worn/oldvox
 	flags_1 = IS_PLAYER_COLORABLE_1
 
+
+/obj/item/clothing/shoes/sport_boots
+	name = "sport boots"
+	desc = "A pair of comfortable athletic boots suitable for running and sports activities."
+	worn_icon = MODULAR_SHOES_WORN_ICON
+	greyscale_colors = "#292929#ffffff#ff9900"
+	icon = 'icons/map_icons/clothing/shoes.dmi'
+	icon_state = "/obj/item/clothing/shoes/sport_boots"
+	post_init_icon_state = "sport_boots"
+	greyscale_config = /datum/greyscale_config/sport_boots
+	greyscale_config_worn = /datum/greyscale_config/sport_boots/worn
+	greyscale_config_worn_digi = /datum/greyscale_config/sport_boots/worn/digi
+	flags_1 = IS_PLAYER_COLORABLE_1
+
 /obj/item/clothing/shoes/wraps/cloth
 	name = "cloth foot wraps"
 	desc = "Boxer tape or bandages wrapped like a mummy, all left up to the choice of the wearer."

@@ -21,6 +21,7 @@
 	var/static/list/pillow_colors
 	var/static/list/pillow_forms
 	w_class = WEIGHT_CLASS_SMALL
+	obj_flags_nova = ERP_ITEM // who the hell is getting freaky for pillows bruh
 
 // Create radial menu
 /obj/item/fancy_pillow/proc/populate_pillow_colors()

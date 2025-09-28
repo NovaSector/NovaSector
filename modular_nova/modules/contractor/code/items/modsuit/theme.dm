@@ -71,9 +71,9 @@
 	melee = 40
 	bullet = 50
 	laser = 35
-	energy = 35
-	bomb = 40
+	energy = 40
+	bomb = 30
 	bio = 100
-	fire = 80
+	fire = 90
 	acid = 90
 	wound = 25

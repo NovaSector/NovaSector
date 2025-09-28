@@ -801,3 +801,19 @@
 	contains = list(
 		/obj/item/folder/ancient_paperwork = 5
 	)
+
+/*
+* ACCESS OVERWRITES
+*/
+
+/datum/supply_pack/engineering/portagrav
+	access_view = NONE
+
+/datum/supply_pack/engineering/powergamermitts
+	access_view = NONE
+
+/datum/supply_pack/engineering/pacman
+	access_view = NONE
+
+/datum/supply_pack/engineering/tools
+	access_view = NONE

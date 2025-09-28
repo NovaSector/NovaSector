@@ -1,6 +1,7 @@
 /obj/item/disk/nifsoft_uploader/dorms
 	name = "Grimoire Libidine"
 	loaded_nifsoft = /datum/nifsoft/summoner/dorms
+	obj_flags_nova = ERP_ITEM
 
 /datum/nifsoft/summoner/dorms
 	name = "Grimoire Libidine"

@@ -60,7 +60,7 @@
 		/obj/item/ammo_box/c310_cargo_box/piercing = ITEM_WEIGHT_AMMO_BULK,
 		/obj/item/ammo_box/magazine/recharge/plasma_battery = ITEM_WEIGHT_AMMO_SINGLE,
 		/obj/item/ammo_box/magazine/miecz/spawns_empty = ITEM_WEIGHT_AMMO_SINGLE,
-		/obj/item/ammo_box/strilka310 = ITEM_WEIGHT_AMMO_SINGLE,
+		/obj/item/ammo_box/speedloader/strilka310 = ITEM_WEIGHT_AMMO_SINGLE,
 		/obj/item/ammo_box/magazine/lanca/spawns_empty = ITEM_WEIGHT_AMMO_SINGLE,
 		/obj/item/ammo_box/magazine/wylom = ITEM_WEIGHT_AMMO_SINGLE,
 		// Other items

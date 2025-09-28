@@ -13,6 +13,7 @@
 	flags_1 = IS_PLAYER_COLORABLE_1
 	w_class = WEIGHT_CLASS_SMALL
 	flags_cover = MASKCOVERSMOUTH
+	obj_flags_nova = ERP_ITEM
 
 /obj/item/clothing/mask/muzzle/ballgag/choking
 	name = "phallic ball gag"
@@ -36,3 +37,4 @@
 	worn_icon = 'modular_nova/modules/modular_items/lewd_items/icons/mob/lewd_clothing/lewd_masks.dmi'
 	worn_icon_muzzled = 'modular_nova/modules/modular_items/lewd_items/icons/mob/lewd_clothing/lewd_masks_muzzled.dmi'
 	icon_state = "ringgag"
+	obj_flags_nova = ERP_ITEM

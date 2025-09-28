@@ -93,6 +93,10 @@
 	name = "Suspenders (Colorable)"
 	item_path = /obj/item/clothing/suit/toggle/suspenders
 
+/datum/loadout_item/suit/big_sweater
+	name = "Big Sweater (Colorable)"
+	item_path = /obj/item/clothing/suit/nova/sweater
+
 /*
 *	WINTER COATS
 */
@@ -571,6 +575,11 @@
 	item_path = /obj/item/clothing/suit/apron/overalls
 	group = "Workwear"
 
+/datum/loadout_item/suit/overalls_loneskirt
+	name = "Overalls Skirt"
+	item_path = /obj/item/clothing/suit/apron/overalls_loneskirt
+	group = "Workwear"
+
 //Religious Clothing (Workwear for Chaplain. Better sorted here than in Costumes)
 /datum/loadout_item/suit/chap_eastmonk
 	name = "Religious - Eastern Monk's Robe"
@@ -736,9 +745,17 @@
 	item_path = /obj/item/clothing/suit/costume/whitedress
 	group = "Costumes"
 
-/datum/loadout_item/suit/white_robe
-	name = "White Robe"
-	item_path = /obj/item/clothing/suit/jacket/white_robe
+
+/datum/loadout_item/suit/jacket/long_robe
+	name = "Long Robe"
+	item_path = /obj/item/clothing/suit/jacket/long_robe
+	can_be_reskinned = TRUE
+	group = "Costumes"
+
+/datum/loadout_item/suit/jacket/haori
+	name = "Haori"
+	item_path = /obj/item/clothing/suit/jacket/haori
+	can_be_reskinned = TRUE
 	group = "Costumes"
 
 /datum/loadout_item/suit/witch

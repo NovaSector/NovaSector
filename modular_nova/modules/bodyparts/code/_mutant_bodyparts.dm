@@ -30,7 +30,6 @@
 /obj/item/bodypart/head/mutant
 	icon_greyscale = BODYPART_ICON_MAMMAL
 	limb_id = SPECIES_MAMMAL
-	head_flags = HEAD_ALL_FEATURES
 
 /obj/item/bodypart/chest/mutant
 	icon_greyscale = BODYPART_ICON_MAMMAL

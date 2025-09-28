@@ -22,6 +22,7 @@
 	flags_1 = IS_PLAYER_COLORABLE_1
 	flags_inv = HIDEMASK|HIDEEARS|HIDEEYES|HIDEFACE|HIDEHAIR|HIDESNOUT|HIDEFACIALHAIR
 	flags_cover = HEADCOVERSEYES | HEADCOVERSMOUTH
+	obj_flags_nova = ERP_ITEM
 	clothing_flags = SNUG_FIT
 	action_slots = ALL
 	unique_reskin = list(
