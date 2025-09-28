@@ -2142,7 +2142,7 @@
 /obj/item/stack/sheet/mineral/titanium{
 	amount = 3
 	},
-/turf/open/floor/plating,
+/turf/open/floor/plating/airless,
 /area/ruin/space/has_grav)
 "jb" = (
 /obj/structure/bed/nest,
@@ -8215,12 +8215,12 @@
 /turf/open/floor/iron/white,
 /area/ruin/space/has_grav/port_tarkon/trauma)
 "JE" = (
-/turf/open/floor/plating,
+/turf/open/floor/plating/airless,
 /area/ruin/space/has_grav)
 "JF" = (
 /obj/item/shard/titanium,
 /obj/structure/grille/broken,
-/turf/open/floor/plating,
+/turf/open/floor/plating/airless,
 /area/ruin/space/has_grav)
 "JG" = (
 /obj/effect/turf_decal/tile/purple/half{
@@ -9862,7 +9862,7 @@
 /area/ruin/space/has_grav/port_tarkon/kitchen)
 "QK" = (
 /obj/structure/door_assembly/door_assembly_shuttle,
-/turf/open/floor/mineral/titanium/blue,
+/turf/open/floor/mineral/titanium/blue/airless,
 /area/ruin/space/has_grav)
 "QL" = (
 /obj/effect/turf_decal/tile/blue{
@@ -11176,7 +11176,7 @@
 /obj/structure/chair/comfy/shuttle{
 	dir = 4
 	},
-/turf/open/floor/mineral/titanium/blue,
+/turf/open/floor/mineral/titanium/blue/airless,
 /area/ruin/space/has_grav)
 "Wj" = (
 /obj/machinery/vending/hydronutrients,
@@ -11960,7 +11960,7 @@
 	},
 /obj/effect/mob_spawn/corpse/human/assistant,
 /obj/effect/mapping_helpers/mob_buckler,
-/turf/open/floor/mineral/titanium/blue,
+/turf/open/floor/mineral/titanium/blue/airless,
 /area/ruin/space/has_grav)
 "ZE" = (
 /obj/effect/turf_decal/caution/stand_clear,
