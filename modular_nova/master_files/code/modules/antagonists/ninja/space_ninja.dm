@@ -44,14 +44,14 @@
 		existing_targets |= obj.target
 
 	var/opt_in_disabled = CONFIG_GET(flag/disable_antag_opt_in_preferences)
-	for(var/datum/mind/possible_target in get_crewmember_minds())
-		if(possible_target in existing_targets)
+	for(var/mob/living/possible_target in get_active_player_list(TRUE, TRUE, TRUE))
+		if(possible_target.mind in existing_targets)
 			continue
-		if(!is_valid_target(possible_target))
+		if(!is_valid_target(possible_target.mind))
 			continue
-		if(!opt_in_disabled && !opt_in_valid(possible_target))
+		if(!opt_in_disabled && !opt_in_valid(possible_target.mind))
 			continue
-		possible_targets += possible_target
+		possible_targets += possible_target.mind
 
 	target = pick(possible_targets)
 	RegisterSignal(target.current, COMSIG_CARBON_GAIN_WOUND, PROC_REF(check_wound))
@@ -61,7 +61,9 @@
 /datum/objective/assassinate/headhunter/is_valid_target(datum/mind/possible_target)
 	/// target non-central command members only
 	var/target_in_command_dept = FALSE
-	for(var/department as anything in possible_target.assigned_role.departments_list)
+	if(!possible_target)
+		return FALSE
+	for(var/department in possible_target.assigned_role.departments_list)
 		if(department == /datum/job_department/central_command)
 			return FALSE
 		if(department == /datum/job_department/command)
@@ -78,14 +80,14 @@
 /// the goon drive is now only for lowpop shifts without command members to hunt
 /datum/antagonist/ninja/addObjectives()
 	var/list/commandies = list()
-	for(var/datum/mind/mind as anything in get_crewmember_minds())
-		if(/datum/job_department/central_command in mind.assigned_role.departments_list)
+	for(var/mob/living/crew as anything in get_active_player_list(TRUE, TRUE, TRUE))
+		if(/datum/job_department/central_command in crew.mind?.assigned_role.departments_list)
 			continue
-		if(/datum/job_department/command in mind.assigned_role.departments_list)
-			commandies |= mind
+		if(/datum/job_department/command in crew.mind?.assigned_role.departments_list)
+			commandies |= crew.mind
 
-	if(length(commandies))
-		var/lethality = rand(1, length(commandies))
+	if(length(commandies) >= 3)
+		var/lethality = rand(1, 3)
 		for(var/i in 1 to lethality)
 			var/datum/objective/assassinate/headhunter/strike_fear = new /datum/objective/assassinate/headhunter()
 			strike_fear.owner = owner
@@ -96,7 +98,7 @@
 		var/datum/objective/cyborg_hijack/hijack = new /datum/objective/cyborg_hijack()
 		objectives += hijack
 	else
-		//Break into science and mess up their research. Only add this objective if there is no command
+		//Break into science and mess up their research. Only add this objective if there is not enough command
 		var/datum/objective/research_secrets/sabotage_research = new /datum/objective/research_secrets()
 		objectives += sabotage_research
 
