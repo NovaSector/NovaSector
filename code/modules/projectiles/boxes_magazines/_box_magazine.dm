@@ -187,7 +187,10 @@
 		for(var/obj/item/ammo_casing/casing in other_box.ammo_list())
 			var/did_load = give_round(casing, replace_spent)
 			if(did_load)
-				other_box.stored_ammo -= casing
+				// NOVA EDIT START - turns out ammo handfuls like to runtime so let's do a qdeleted check
+				if(!QDELETED(other_box))
+					other_box.stored_ammo -= casing
+				// NOVA EDIT END | original other_box.stored_ammo -= casing
 				num_loaded++
 			// failed to load (full already? ran out of ammo?)
 			if(!did_load)
