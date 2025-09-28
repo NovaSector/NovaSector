@@ -45,15 +45,15 @@
 	//Breath damage
 	//These thresholds are checked against what amounts to total_mix_pressure * (gas_type_mols/total_mols)
 	var/safe_oxygen_min = 16 // Minimum safe partial pressure of O2, in kPa
-	var/safe_oxygen_max = 160 // Hyperoxia starts 'bout here
+	var/safe_oxygen_max = 160 //NOVA EDIT CHANGE - Hyperoxia
 	var/safe_nitro_min = 0
 	var/safe_co2_max = 10 // Yes it's an arbitrary value who cares?
 	var/safe_plasma_min = 0
 	///How much breath partial pressure is a safe amount of plasma. 0 means that we are immune to plasma.
 	var/safe_plasma_max = 0.05
 	var/n2o_detect_min = 0.08 //Minimum n2o for effects
-	var/n2o_para_min = 5 //Damn, ain't 1 and 5 kPa too low for fainting? Changed it to 5 and 15 so that making laughing gas mixtures is possible without falling asleep.
-	var/n2o_sleep_min = 15 //Sleeping agent
+	var/n2o_para_min = 5 //NOVA EDIT CHANGE - N2O nerf
+	var/n2o_sleep_min = 15 //NOVA EDIT CHANGE - N2O nerf
 	var/BZ_trip_balls_min = 1 //BZ gas
 	var/BZ_brain_damage_min = 10 //Give people some room to play around without killing the station
 	var/gas_stimulation_min = 0.002 // For, Pluoxium, Nitrium and Freon
