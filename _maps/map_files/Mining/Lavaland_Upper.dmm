@@ -2509,7 +2509,7 @@
 /area/mine/storage)
 "oo" = (
 /obj/structure/table/reinforced,
-/obj/machinery/light/directional/north,
+/obj/item/inducer,
 /turf/open/floor/iron/textured_large,
 /area/mine/engineering/storage)
 "op" = (
@@ -4254,11 +4254,9 @@
 /turf/open/misc/asteroid/basalt/lava_land_surface,
 /area/lavaland/surface/outdoors)
 "xO" = (
-/obj/effect/turf_decal/trimline/brown/filled/line{
-	dir = 10
-	},
-/turf/closed/wall,
-/area/mine/production)
+/obj/machinery/light/small/directional/north,
+/turf/open/misc/hay/lavaland,
+/area/mine/lobby/raptor)
 "xR" = (
 /obj/effect/turf_decal/siding/wood,
 /obj/effect/turf_decal/siding/wood{
@@ -4613,10 +4611,6 @@
 	dir = 8
 	},
 /turf/open/floor/wood/parquet,
-/area/mine/lobby/raptor)
-"zM" = (
-/obj/machinery/light/small/directional/north,
-/turf/open/misc/hay/lavaland,
 /area/mine/lobby/raptor)
 "zN" = (
 /obj/structure/stone_tile/block{
@@ -5850,21 +5844,9 @@
 	},
 /turf/open/misc/asteroid/basalt/lava_land_surface,
 /area/lavaland/surface/outdoors)
-"FQ" = (
-/obj/structure/table/wood,
-/obj/item/construction/rcd,
-/obj/item/construction/rcd{
-	pixel_y = 6;
-	pixel_x = -5
-	},
-/turf/open/floor/iron/dark/smooth_large,
-/area/mine/engineering)
 "FS" = (
 /obj/effect/mapping_helpers/airlock/cyclelink_helper{
 	dir = 4
-	},
-/obj/effect/turf_decal/trimline/blue/filled/mid_joiner{
-	dir = 8
 	},
 /obj/machinery/door/airlock/external{
 	name = "Lavaland Shuttle Airlock"
@@ -6957,7 +6939,6 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/effect/spawner/random/trash/mess,
 /obj/structure/cable,
-/obj/structure/cable,
 /turf/open/floor/plating,
 /area/mine/maintenance/service/disposals)
 "Le" = (
@@ -8046,13 +8027,10 @@
 /turf/open/misc/asteroid/basalt/lava_land_surface,
 /area/ruin/unpowered/ash_walkers)
 "QJ" = (
-/obj/machinery/computer/order_console/mining,
-/obj/structure/tank_dispenser/oxygen,
-/obj/effect/turf_decal/trimline/brown/filled/line{
-	dir = 1
-	},
-/turf/open/floor/iron/dark,
-/area/mine/eva)
+/obj/structure/table/reinforced,
+/obj/machinery/light/directional/north,
+/turf/open/floor/iron/textured_large,
+/area/mine/engineering/storage)
 "QL" = (
 /obj/machinery/door/airlock/external/glass{
 	name = "Raptor Ranch External Airlock"
@@ -8136,13 +8114,6 @@
 	},
 /turf/open/misc/hay/lavaland,
 /area/mine/lobby/raptor)
-"QY" = (
-/obj/structure/trash_pile,
-/obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer2{
-	dir = 8
-	},
-/turf/open/floor/plating,
-/area/mine/maintenance/service/disposals)
 "Ra" = (
 /obj/machinery/light/small/directional/south,
 /turf/open/floor/iron/dark/smooth_corner{
@@ -8236,24 +8207,12 @@
 /turf/open/floor/iron/brick_aligned,
 /area/mine/engineering)
 "RE" = (
-/obj/machinery/door/airlock/external/glass{
-	name = "Mining External Airlock"
-	},
-/obj/effect/mapping_helpers/airlock/cyclelink_helper_multi{
-	cycle_id = "lavaland_mining_west"
-	},
-/obj/structure/disposalpipe/segment{
-	dir = 4
-	},
-/obj/effect/mapping_helpers/airlock/access/any/supply/mining_station,
 /obj/effect/turf_decal/trimline/brown/filled/line{
-	dir = 4
+	dir = 1
 	},
-/obj/effect/turf_decal/trimline/brown/filled/mid_joiner{
-	dir = 4
-	},
-/turf/open/floor/iron/dark/textured_large,
-/area/mine/production)
+/obj/structure/tank_dispenser/oxygen,
+/turf/open/floor/iron/dark,
+/area/mine/eva)
 "RI" = (
 /obj/structure/stone_tile/cracked,
 /obj/structure/stone_tile{
@@ -8379,11 +8338,6 @@
 /obj/effect/mapping_helpers/no_lava,
 /turf/open/misc/asteroid/basalt/lava_land_surface,
 /area/ruin/unpowered/ash_walkers)
-"Se" = (
-/obj/structure/table/reinforced,
-/obj/item/inducer,
-/turf/open/floor/iron/textured_large,
-/area/mine/engineering/storage)
 "Sg" = (
 /obj/structure/railing{
 	dir = 5
@@ -9069,9 +9023,14 @@
 	},
 /area/mine/engineering)
 "VF" = (
-/obj/effect/turf_decal/trimline/brown/filled/line,
-/turf/closed/wall,
-/area/mine/production)
+/obj/structure/table/wood,
+/obj/item/construction/rcd,
+/obj/item/construction/rcd{
+	pixel_y = 6;
+	pixel_x = -5
+	},
+/turf/open/floor/iron/dark/smooth_large,
+/area/mine/engineering)
 "VH" = (
 /obj/effect/turf_decal/stripes/line,
 /obj/effect/turf_decal/stripes/white/line,
@@ -9277,18 +9236,12 @@
 	},
 /area/mine/engineering)
 "Wz" = (
-/obj/machinery/door/airlock/external/glass{
-	name = "Mining External Airlock"
+/obj/structure/trash_pile,
+/obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer2{
+	dir = 8
 	},
-/obj/effect/mapping_helpers/airlock/cyclelink_helper_multi{
-	cycle_id = "lavaland_mining_west"
-	},
-/obj/structure/disposalpipe/segment{
-	dir = 4
-	},
-/obj/effect/mapping_helpers/airlock/access/any/supply/mining_station,
-/turf/open/floor/iron/shuttle/exploration/hazard,
-/area/mine/production)
+/turf/open/floor/plating,
+/area/mine/maintenance/service/disposals)
 "WA" = (
 /obj/structure/wall_torch/spawns_lit/directional/west,
 /obj/structure/stone_tile/block/burnt,
@@ -13831,7 +13784,7 @@ PK
 PK
 PK
 Dj
-zM
+xO
 dx
 Dj
 WZ
@@ -15116,7 +15069,7 @@ Eu
 Eu
 Eu
 Dj
-zM
+xO
 dx
 Dj
 QX
@@ -16676,7 +16629,7 @@ oZ
 oZ
 oZ
 Pz
-oo
+QJ
 BH
 BH
 qN
@@ -16933,7 +16886,7 @@ oZ
 oZ
 oZ
 Pz
-Se
+oo
 BH
 xx
 EA
@@ -17196,7 +17149,7 @@ od
 mV
 ST
 yl
-QY
+Wz
 xm
 Fk
 nK
@@ -17704,7 +17657,7 @@ oZ
 fm
 um
 bR
-FQ
+VF
 fm
 vF
 SL
@@ -23371,7 +23324,7 @@ au
 nB
 uB
 cE
-Wz
+cE
 OZ
 Ho
 zp
@@ -23885,7 +23838,7 @@ OZ
 pp
 OZ
 gh
-RE
+gh
 OZ
 qO
 Ho
@@ -24144,7 +24097,7 @@ Qe
 yi
 yi
 FM
-xO
+OZ
 Js
 Js
 OZ
@@ -25428,7 +25381,7 @@ AJ
 aX
 aH
 HJ
-VF
+OZ
 oZ
 oZ
 oZ
@@ -26453,7 +26406,7 @@ GB
 Xq
 Ob
 fb
-Gu
+RE
 js
 tu
 Kf
@@ -26710,7 +26663,7 @@ aQ
 hN
 aQ
 fb
-QJ
+Gu
 jp
 tu
 Pd
