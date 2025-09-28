@@ -36,7 +36,7 @@
 	id = "slavic_webbing"
 	build_type = BIOGENERATOR
 	materials = list(/datum/material/biomass = 200)
-	build_path = /obj/item/clothing/accessory/webbing/colonial
+	build_path = /obj/item/storage/belt/webbing/colonial
 	category = list(
 		RND_CATEGORY_INITIAL,
 		RND_CATEGORY_NRI_CLOTHING,

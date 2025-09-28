@@ -68,8 +68,6 @@
 				/obj/item/clothing/under/pants/nova/kilt = 5,
 				/obj/item/clothing/under/texas = 5,
 				/obj/item/clothing/under/sweater = 5,
-				/obj/item/clothing/under/sweater/keyhole = 5,
-				/obj/item/clothing/under/sweater/cleavage = 5,
 				/obj/item/clothing/under/tachawaiian = 5,
 				/obj/item/clothing/under/tachawaiian/purple = 5,
 				/obj/item/clothing/under/tachawaiian/green = 5,

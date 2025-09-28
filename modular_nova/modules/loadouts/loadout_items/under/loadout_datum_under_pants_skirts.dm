@@ -246,19 +246,10 @@
 	group = "Casualwear"
 
 /datum/loadout_item/under/miscellaneous/sweater
-	name = "Turtleneck (Cableknit)" //Different than the Suit item ("Sweater")!!
+	name = "Cableknit Sweater" //Different than the Suit item ("Sweater")!!
 	item_path = /obj/item/clothing/under/sweater
 	group = "Casualwear"
-
-/datum/loadout_item/under/miscellaneous/keyhole
-	name = "Turtleneck (Keyhole)"
-	item_path = /obj/item/clothing/under/sweater/keyhole
-	group = "Casualwear"
-
-/datum/loadout_item/under/miscellaneous/cleavage
-	name = "Sweater (cleavage)"
-	item_path = /obj/item/clothing/under/sweater/cleavage
-	group = "Casualwear"
+	can_be_reskinned = TRUE
 
 /datum/loadout_item/under/jumpsuit/turtleneck
 	name = "Turtleneck w/ Pants"

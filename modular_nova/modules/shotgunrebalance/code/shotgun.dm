@@ -20,7 +20,11 @@
 	custom_materials = AMMO_MATS_SHOTGUN
 
 /obj/projectile/bullet/shotgun_slug
-	damage = 50 // based on old stats
+	// tg stats at time of writing: 25 damage, 30 AP
+	// buffed to 50 force, nerfed to 10 AP
+	// for some parity with old stats, except the 10 AP buff
+	damage = 50
+	armour_penetration = 10
 
 /obj/item/ammo_casing/shotgun/milspec
 	desc = "A hot-loaded 12 gauge milspec slug shell, used by various paramilitaries and mercenary forces. Probably not legal to use under corporate regulations."
@@ -29,7 +33,11 @@
 	custom_materials = AMMO_MATS_HEAVY_FAST
 
 /obj/projectile/bullet/shotgun_slug/milspec
-	damage = 60 // the fine art of physically removing chunks of flesh from your fellow spaceman
+	// tg stats at time of writing: 50 damage, 30 AP (inherited from base slugs)
+	// buffed to 60 force, keeps the 30 AP to give it an edge over base, easily produced slugs
+	// also gets extra speed to give it another edge
+	damage = 60
+	armour_penetration = 30
 	speed = 1.5
 
 // THE BELOW TWO SLUGS ARE NOTED AS ADMIN ONLY AND HAVE ***EIGHTY*** WOUND BONUS. NOT BARE WOUND BONUS. FLAT WOUND BONUS.

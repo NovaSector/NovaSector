@@ -10,15 +10,14 @@
 		/obj/item/stack/sheet/glass = 1,
 		/obj/item/stack/ore/bluespace_crystal/refined = 1,
 		/obj/item/stack/cable_coil = 5,
-		/datum/stock_part/matter_bin = 2,
-		/datum/stock_part/micro_laser = 2,
-		/datum/stock_part/servo = 2,
+		/datum/stock_part/capacitor = 5,
+		/datum/stock_part/micro_laser = 1,
 	)
 	needs_anchored = TRUE
 
-/datum/supply_pack/misc/powerator
+/datum/supply_pack/engineering/powerator
 	name = "Powerator"
-	desc = "We know the feeling of losing power and Central sending power, it is our time to do the same."
+	desc = "We know the feeling of losing power and Central sending power, it is our time to do the same. All proceeds go to the engineering budget."
 	cost = CARGO_CRATE_VALUE * 50 // 10,000
 	contains = list(/obj/item/circuitboard/machine/powerator)
 	crate_name = "Powerator Circuitboard Crate"
@@ -32,7 +31,7 @@
 	category = list(
 		RND_CATEGORY_MACHINE + RND_SUBCATEGORY_MACHINE_ENGINEERING,
 	)
-	departmental_flags = DEPARTMENT_BITFLAG_SCIENCE | DEPARTMENT_BITFLAG_CARGO | DEPARTMENT_BITFLAG_ENGINEERING
+	departmental_flags = DEPARTMENT_BITFLAG_ENGINEERING
 
 /datum/techweb_node/powerator
 	id = TECHWEB_NODE_POWERATOR
@@ -47,8 +46,9 @@
 		"powerator",
 	)
 
+// This produces 62 per 2 seconds, taxed to 49, which gives us 24-25 per second.
 /obj/machinery/powerator
-	name = "powerator"
+	name = "\improper Nanotrasen Powerator"
 	desc = "Beyond the ridiculous name, it is the standard for transporting and selling energy to power networks that require additional sources!"
 	icon = 'modular_nova/modules/powerator/icons/machines.dmi'
 	icon_state = "powerator"
@@ -60,17 +60,20 @@
 	/// the current amount of power that we are trying to process
 	var/current_power = 10 KILO WATTS
 
-	/// the max amount of power that can be sent per process, from 100 KW (t1) to 10000 KW (t4)
-	var/max_power = 100 KILO WATTS
+	/// the max amount of power that can be sent per process, this var should be base + rating*5 at start to keep consistency. so goes from 3.25MJ to 10MJ as of this writting.
+	var/max_power = 3250 KILO WATTS
+
+	/// the base starting ratio for power
+	var/power_base = 1000 KILO WATTS
 
 	/// the rating change for the max power (upgrades)
-	var/power_rating = 1650 KILO WATTS
+	var/power_rating = 450 KILO WATTS
+	
+	/// power cap, if its 0 it will be ignored, otherwise caps the max power the system will have (better than using taxes for small operations)
+	var/power_cap = 0
 
-	/// how much the current_power is divided by to determine the profit
-	var/divide_ratio = 0.00001
-
-	// the rating change for the divide ratio (upgrade)
-	var/divide_rating = 0.000005
+	/// how much power is needed to get 1 credit per two seconds. (And the mininum power you need to get credits.)
+	var/divide_ratio = 160 KILO WATTS
 
 	/// the attached cable to the machine
 	var/obj/structure/cable/attached_cable
@@ -79,10 +82,9 @@
 	var/credits_made = 0
 
 	/// What account is assigned to this?
-	var/credits_account_1 = ACCOUNT_CAR
-
-	/// What second account is assigned (IF THERE IS ONE, otherwise use null)
-	var/credits_account_2 = ACCOUNT_ENG
+	var/credits_account = ACCOUNT_ENG
+	/// Percent of tax we deduct from people using the powerator, allowing easy adjustment for VV admins.
+	var/tax = 20
 
 /obj/machinery/powerator/Initialize(mapload)
 	. = ..()
@@ -120,23 +122,19 @@
 	else
 		. += span_notice("There is a power cable underneath.")
 
-	. += span_notice("Current Power: [display_power(current_power)]/[display_power(max_power)]")
+	. += span_notice("Current Power: [display_power(current_power, FALSE)]/[display_power(max_power, FALSE)]")
 	. += span_notice("This machine has made [credits_made] credits from selling power so far.")
+	. += span_notice("This machine makes 1 credit every two seconds per [display_power(divide_ratio, FALSE)] sent outward.")
+	. += span_notice("This machine is taxed [tax]% credits by the SolFed Power Ministry.")
 
 /obj/machinery/powerator/RefreshParts()
 	. = ..()
 
-	var/efficiency = -2 //set to -2 so that tier 1 parts do nothing
-	max_power = 100 KILO WATTS
-	for(var/datum/stock_part/micro_laser/laser_part in component_parts)
-		efficiency += laser_part.tier
-	max_power += (efficiency * power_rating)
+	var/power_efficiency = 0
+	for(var/datum/stock_part/capacitor/capacitor_part in component_parts)
+		power_efficiency += capacitor_part.tier
+	max_power = power_base + (power_efficiency * power_rating)
 
-	efficiency = -2
-	divide_ratio = 0.00001
-	for(var/datum/stock_part/servo/servo_part in component_parts)
-		efficiency += servo_part.tier
-	divide_ratio += (efficiency * divide_rating)
 
 /obj/machinery/powerator/update_overlays()
 	. = ..()
@@ -149,7 +147,7 @@
 		add_overlay("cable")
 		return
 
-	if(!attached_cable.avail(current_power))
+	if(!attached_cable.avail(power_to_energy(current_power)))
 		add_overlay("power")
 		return
 
@@ -163,33 +161,28 @@
 	if(current_power < 0)
 		current_power = 0 //this is just for the fringe case, wouldn't want it to somehow produce power for money! unless...
 
-	if(!attached_cable.avail(current_power))
+	if(!attached_cable.avail(power_to_energy(current_power)))
 		if(!attached_cable.newavail())
 			return
+		current_power = energy_to_power(attached_cable.newavail())
 
-		current_power = attached_cable.newavail()
-
+	if (power_cap)
+		max_power = clamp(max_power, 0, power_cap)
 	current_power = clamp(current_power, 0, max_power)
 
 	if(current_power == 0)
 		return
 
-	attached_cable.add_delayedload(current_power)
+	attached_cable.add_delayedload(power_to_energy(current_power))
 
-	///split it in half for chosen departments if there is more than one
-	var/datum/bank_account/primary_account = SSeconomy.get_dep_account(credits_account_1)
-	var/money_ratio = round(current_power * divide_ratio)
-	// cut in half if we have a second account
-	if(credits_account_2)
-		money_ratio *= 0.5
-		var/datum/bank_account/secondary_account = SSeconomy.get_dep_account(credits_account_2)
-		secondary_account.adjust_money(money_ratio)
+	var/datum/bank_account/primary_account = SSeconomy.get_dep_account(credits_account)
+	var/money_ratio = round(current_power * (1/divide_ratio) * ((100-tax) / 100))
 	primary_account.adjust_money(money_ratio)
-	credits_made += money_ratio  //don't want to be misleading, but just display what half each departments get and not the total
+	credits_made += money_ratio 
 
 /obj/machinery/powerator/attack_hand(mob/living/user, list/modifiers)
 	. = ..()
-	current_power = tgui_input_number(user, "How much power (in Watts) would you like to draw? Max: [display_power(max_power)]", "Power Draw", current_power, max_power, 0)
+	current_power = tgui_input_number(user, "How much power (in Watts) would you like to draw? Max: [display_power(max_power, FALSE)]", "Power Draw", current_power, max_power, 0)
 	if(isnull(current_power))
 		return
 
@@ -254,24 +247,34 @@
 	name = "\improper Tarkon Powerator"
 	build_path = /obj/machinery/powerator/tarkon
 
+// This produces 25 per 2 seconds, no tax, so around 12 per second.
 /obj/machinery/powerator/syndicate
 	name = "\improper Syndicate Powerator"
-	credits_account_1 = ACCOUNT_DS2
-	credits_account_2 = null
+	credits_account = ACCOUNT_DS2
+	power_cap = 2500 KILO WATTS
+	divide_ratio = 100 KILO WATTS
+	tax = 0
 	icon_state = "powerator_syndi"
 	circuit = /obj/item/circuitboard/machine/powerator/syndicate
 
+// This produces 25 per 2 seconds, taxed to 22-23, which gives us 11 per second.
 /obj/machinery/powerator/interdyne
 	name = "\improper Interdyne Powerator"
-	credits_account_1 = ACCOUNT_INT
-	credits_account_2 = null
+	credits_account = ACCOUNT_INT
+	power_cap = 1000 KILO WATTS
+	divide_ratio = 40 KILO WATTS
+	tax = 10
 	icon_state = "powerator_dyne"
 	circuit = /obj/item/circuitboard/machine/powerator/interdyne
 
+// This produces 40 per 2 seconds, taxed to 28, which gives us 14 per second.
 /obj/machinery/powerator/tarkon
 	name = "\improper Tarkon Powerator"
-	credits_account_1 = ACCOUNT_TI
-	credits_account_2 = null
+	credits_account = ACCOUNT_TI
+	power_cap = 6000 KILO WATTS
+	divide_ratio = 150 KILO WATTS
+	tax = 30
 	icon_state = "powerator_tarkon"
 	circuit = /obj/item/circuitboard/machine/powerator/tarkon
 
+#undef TECHWEB_NODE_POWERATOR
