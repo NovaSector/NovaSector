@@ -261,6 +261,7 @@
 "aV" = (
 /obj/item/reagent_containers/cup/glass/waterbottle/tea/nip,
 /obj/structure/table/wood,
+/obj/machinery/light_switch/directional/west,
 /turf/open/floor/wood/large,
 /area/ruin/space/has_grav/port_tarkon/apartment)
 "aY" = (
@@ -491,6 +492,7 @@
 	mapping_id = "tarkon_turbine"
 	},
 /obj/structure/cable,
+/obj/machinery/light/floor,
 /turf/open/floor/engine/vacuum,
 /area/ruin/space/has_grav/port_tarkon/atmos)
 "cj" = (
@@ -2991,6 +2993,7 @@
 "mJ" = (
 /obj/machinery/airalarm/directional/north,
 /obj/effect/mapping_helpers/airalarm/all_access,
+/obj/effect/mapping_helpers/turn_off_lights_with_lightswitch,
 /turf/open/floor/iron,
 /area/ruin/space/has_grav/port_tarkon/sauna)
 "mM" = (
@@ -4274,6 +4277,10 @@
 /obj/structure/disposalpipe/trunk,
 /turf/open/floor/iron/white,
 /area/ruin/space/has_grav/port_tarkon/trauma)
+"sv" = (
+/obj/machinery/light/small/directional/west,
+/turf/open/floor/plating,
+/area/ruin/space/has_grav/port_tarkon/power1)
 "sx" = (
 /obj/machinery/light/directional/west,
 /obj/effect/turf_decal/tile/neutral/half{
@@ -5391,7 +5398,6 @@
 /turf/open/floor/iron,
 /area/ruin/space/has_grav/port_tarkon/secoff)
 "xp" = (
-/obj/machinery/airalarm/directional/west,
 /obj/effect/mapping_helpers/airalarm/all_access,
 /obj/effect/turf_decal/tile/yellow/half{
 	dir = 8
@@ -5588,6 +5594,10 @@
 	},
 /turf/open/floor/iron,
 /area/ruin/space/has_grav/port_tarkon/mining)
+"yi" = (
+/obj/effect/mapping_helpers/turn_off_lights_with_lightswitch,
+/turf/open/floor/grass,
+/area/ruin/space/has_grav/port_tarkon/park)
 "yj" = (
 /obj/effect/turf_decal/tile/purple/half{
 	dir = 1
@@ -8297,6 +8307,7 @@
 /obj/effect/turf_decal/tile/brown/anticorner{
 	dir = 8
 	},
+/obj/machinery/light/directional/south,
 /turf/open/floor/iron,
 /area/ruin/space/has_grav/port_tarkon/mining)
 "JW" = (
@@ -9689,6 +9700,10 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /turf/open/floor/iron,
 /area/ruin/space/has_grav/port_tarkon/centerhall)
+"PU" = (
+/obj/machinery/light/warm/directional/west,
+/turf/open/floor/grass,
+/area/ruin/space/has_grav/port_tarkon/park)
 "PX" = (
 /obj/effect/turf_decal/tile/yellow/half{
 	dir = 8
@@ -10044,6 +10059,7 @@
 /obj/effect/turf_decal/tile/blue/half{
 	dir = 1
 	},
+/obj/machinery/light_switch/directional/north,
 /turf/open/floor/iron/dark/smooth_large,
 /area/ruin/space/has_grav/port_tarkon/apartment)
 "Rp" = (
@@ -10336,6 +10352,13 @@
 /obj/machinery/disposal/bin,
 /turf/open/floor/iron,
 /area/ruin/space/has_grav/port_tarkon/cargo)
+"Su" = (
+/obj/effect/turf_decal/tile/blue/half{
+	dir = 4
+	},
+/obj/machinery/light/directional/east,
+/turf/open/floor/iron/white,
+/area/ruin/space/has_grav/port_tarkon/porthall)
 "Sx" = (
 /obj/structure/cable,
 /obj/effect/turf_decal/tile/brown/half{
@@ -10364,6 +10387,10 @@
 	},
 /turf/open/floor/iron/dark,
 /area/ruin/space/has_grav/port_tarkon/sciencehall)
+"SE" = (
+/obj/effect/mapping_helpers/turn_off_lights_with_lightswitch,
+/turf/open/floor/iron/dark/smooth_large,
+/area/ruin/space/has_grav/port_tarkon/apartment)
 "SF" = (
 /obj/machinery/disposal/bin,
 /obj/structure/disposalpipe/trunk{
@@ -11532,6 +11559,7 @@
 /area/ruin/space/has_grav/port_tarkon/sciencehall)
 "XJ" = (
 /obj/machinery/light/directional/east,
+/obj/machinery/light_switch/directional/east,
 /turf/open/floor/iron/dark/smooth_large,
 /area/ruin/space/has_grav/port_tarkon/apartment)
 "XL" = (
@@ -14377,7 +14405,7 @@ CY
 lV
 lV
 lV
-lV
+PU
 EZ
 Wv
 lV
@@ -14654,7 +14682,7 @@ lV
 wg
 lV
 zt
-lV
+yi
 Ma
 xY
 TD
@@ -16321,7 +16349,7 @@ jl
 Hq
 cK
 Gs
-cK
+Su
 jx
 cK
 cK
@@ -16400,7 +16428,7 @@ wq
 wq
 vi
 xN
-CV
+sv
 eQ
 UP
 VG
@@ -18964,7 +18992,7 @@ LX
 mq
 mq
 IW
-rF
+SE
 Zb
 VX
 aD
