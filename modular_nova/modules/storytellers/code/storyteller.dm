@@ -76,50 +76,6 @@
 	return
 
 
-// Analyzer
-/datum/storyteller_analyzer
-	/// Role multipliers for value
-	var/list/role_multipliers = list(
-		JOB_SECURITY_OFFICER = 1.3,
-		JOB_HEAD_OF_SECURITY = 1.5,
-		JOB_CAPTAIN = 1.6,
-		JOB_HEAD_OF_PERSONNEL = 1.3,
-	)
-
-/datum/storyteller_analyzer/proc/sample_station()
-	var/datum/storyteller_inputs/i = new
-	i.station_value = compute_station_value()
-	i.num_players = get_active_player_count(alive_check = TRUE, afk_check = TRUE, human_check = TRUE)
-	i.num_antags = length(GLOB.antagonists)
-	i.role_weights = compute_role_weights()
-	return i
-
-/datum/storyteller_analyzer/proc/compute_station_value()
-	// Very rough: sum of atoms approximate value; can be refined later
-	var/total = 0
-	for(var/atom/movable/A in world)
-		total += storyteller_atom_value(A)
-	var/mult = max(1, get_active_player_count(TRUE, TRUE, TRUE))
-	return round(total * mult)
-
-/datum/storyteller_analyzer/proc/compute_role_weights()
-	var/list/result = list()
-	for(var/mob/living/carbon/human/H in GLOB.alive_mob_list)
-		var/trim = H?.mind?.assigned_role
-		if(isnull(trim))
-			continue
-		var/m = role_multipliers[trim] || 1.0
-		result[trim] = (result[trim] || 0) + m
-	return result
-
-/datum/storyteller_analyzer/proc/storyteller_atom_value(atom/A)
-	// Placeholder: prefer existing economy/pricing systems if available
-	if(istype(A, /obj/item))
-		var/obj/item/I = A
-		return I?.custom_materials?.total_material_worth() || 1
-	return 1
-
-
 // Balance
 /datum/storyteller_balance
 	/// Base weight per player
@@ -129,7 +85,10 @@
 
 /datum/storyteller_balance/proc/compute(datum/storyteller_inputs/inputs)
 	var/datum/storyteller_balance_snapshot/s = new
-	s.total_player_weight = (inputs.num_players * player_weight) + sum_list(list_values(inputs.role_weights))
+	var/roles_weight = 0
+	for(var/role in inputs.role_weights)
+		roles_weight += inputs.role_weights[role]
+	s.total_player_weight = (inputs.num_players * player_weight) + roles_weight
 	s.total_antag_weight = inputs.num_antags * antag_weight
 	s.ratio = max(0.001, s.total_player_weight) / max(0.001, s.total_antag_weight)
 	return s
@@ -147,3 +106,36 @@
 		out += L[k]
 	return out
 
+
+// Analyzer
+/datum/storyteller_analyzer
+	var/list/role_multipliers = list(
+		JOB_SECURITY_OFFICER = 1.3,
+		JOB_HEAD_OF_SECURITY = 1.5,
+		JOB_CAPTAIN = 1.6,
+		JOB_HEAD_OF_PERSONNEL = 1.3,
+	)
+
+/datum/storyteller_analyzer/proc/storyteller_atom_value(atom/A)
+	if(isnull(A) || QDELETED(A))
+		return 0
+	// Prefer per-atom personalized story value if provided
+	var/personal = A.story_value()
+	if(isnum(personal) && personal > 0)
+		return personal
+	// Prefer intrinsic item credit value when available
+	if(istype(A, /obj/item))
+		var/obj/item/I = A
+		var/item_val = I.get_item_credit_value()
+		if(item_val)
+			return max(0, item_val)
+	// Fall back to material worth for anything with custom materials
+	return max(0, materials_value(A))
+
+/datum/storyteller_analyzer/proc/sample_station()
+	var/datum/storyteller_inputs/i = new
+	i.station_value = compute_station_value()
+	i.num_players = get_active_player_count(alive_check = TRUE, afk_check = TRUE, human_check = TRUE)
+	i.num_antags = length(GLOB.antagonists)
+	i.role_weights = compute_role_weights()
+	return i
