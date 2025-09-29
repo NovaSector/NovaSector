@@ -308,6 +308,11 @@
 	affected_bodyparts = CHEST
 	gendered = FALSE
 
+/datum/body_marking/other/chemlight
+	name = "Chemlight"
+	icon_state = "chemlight"
+	affected_bodyparts = HEAD | CHEST | ARM_LEFT | ARM_RIGHT | HAND_LEFT | HAND_RIGHT | LEG_RIGHT | LEG_LEFT
+
 /datum/body_marking/secondary
 	icon = 'modular_nova/master_files/icons/mob/body_markings/secondary_markings.dmi'
 	default_color = DEFAULT_SECONDARY
@@ -610,6 +615,11 @@
 	icon_state = "insect"
 	affected_bodyparts = CHEST
 
+/datum/body_marking/secondary/bellyoutline
+	name = "Belly outline"
+	icon_state = "chembelly_trim"
+	affected_bodyparts = CHEST
+
 /datum/body_marking/tertiary
 	icon = 'modular_nova/master_files/icons/mob/body_markings/tertiary_markings.dmi'
 	default_color = DEFAULT_TERTIARY
@@ -749,6 +759,11 @@
 	name = "Insectoid Trim"
 	icon_state = "insect_trim"
 	affected_bodyparts = CHEST | ARM_LEFT | ARM_RIGHT | LEG_LEFT | LEG_RIGHT
+
+/datum/body_marking/tertiary/chemlight
+	name = "Chembright"
+	icon_state = "chem_light"
+	affected_bodyparts = ARM_LEFT | ARM_RIGHT | HAND_LEFT | HAND_RIGHT | LEG_RIGHT | LEG_LEFT
 
 /datum/body_marking/tattoo
 	icon = 'modular_nova/master_files/icons/mob/body_markings/tattoo_markings.dmi'
