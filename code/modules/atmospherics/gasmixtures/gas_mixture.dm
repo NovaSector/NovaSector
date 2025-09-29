@@ -161,8 +161,10 @@ GLOBAL_LIST_INIT(gaslist_cache, init_gaslist_cache())
 		var/combined_heat_capacity = giver_heat_capacity + self_heat_capacity
 		if(combined_heat_capacity)
 			temperature = (giver.temperature * giver_heat_capacity + temperature * self_heat_capacity) / combined_heat_capacity
+			// NOVA EDIT ADDITION START - Clamp this until TG fixes whatever is causing the 0 temp bug
 			if(temperature < TCMB)
 				temperature = TCMB
+			// NOVA EDIT ADDITION END
 
 	var/list/cached_gases = gases //accessing datum vars is slower than proc vars
 	var/list/giver_gases = giver.gases
@@ -266,10 +268,12 @@ GLOBAL_LIST_INIT(gaslist_cache, init_gaslist_cache())
 		var/new_temp = (temperature * self_heat_cap + other.temperature * other_heat_cap) / (self_heat_cap + other_heat_cap)
 		temperature = new_temp
 		other.temperature = new_temp
+		// NOVA EDIT ADDITION START - Clamp this until TG fixes the 0 temperature bug
 		if(temperature < TCMB)
 			temperature = TCMB
 		if(other.temperature < TCMB)
 			other.temperature = TCMB
+		// NOVA EDIT ADDITION END
 
 	var/min_p_delta = 0.1
 	var/total_volume = volume + other.volume
