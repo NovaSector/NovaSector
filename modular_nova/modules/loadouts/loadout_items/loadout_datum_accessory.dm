@@ -1,8 +1,8 @@
 // LOADOUT ITEM DATUMS FOR THE ACCESSORY SLOT
-
 /datum/loadout_category/accessories
 	category_ui_icon = FA_ICON_ID_BADGE
 	tab_order = /datum/loadout_category/undersuit::tab_order + 1
+	max_allowed = MAX_ALLOWED_ACCESSORIES
 
 /datum/loadout_item/accessory/pre_equip_item(datum/outfit/outfit, datum/outfit/outfit_important_for_life, visuals_only = FALSE)
 	if(initial(outfit_important_for_life.accessory))
