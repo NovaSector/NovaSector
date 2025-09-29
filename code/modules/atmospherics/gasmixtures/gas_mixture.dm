@@ -268,6 +268,15 @@ GLOBAL_LIST_INIT(gaslist_cache, init_gaslist_cache())
 	var/min_p_delta = 0.1
 	var/total_volume = volume + other.volume
 	var/list/gas_list = gases | other.gases
+
+	// NOVA EDIT ADDITION START
+	if(!temperature)
+		stack_trace("Temperature is 0. This should not happen.")
+		garbage_collect()
+		other.garbage_collect()
+		return
+	// NOVA EDIT ADDITION END
+
 	for(var/gas_id in gas_list)
 		assert_gas(gas_id)
 		other.assert_gas(gas_id)
