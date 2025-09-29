@@ -95,7 +95,6 @@
 	qdel(nifsoft_to_remove)
 	return ITEM_INTERACT_SUCCESS
 
-
 /datum/uplink_item/device_tools/nifsoft_remover
 	name = "Cybersun 'Scalpel' NIF-Cutter"
 	desc = "A modified version of a NIFSoft remover that allows the user to remove a NIFSoft and have a blank copy of the removed NIFSoft saved to a disk."
