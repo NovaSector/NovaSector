@@ -1,0 +1,4 @@
+author: "Bannhammger"
+delete-after: True
+changes:
+  - balance: "NT Wrangler nif cutter now have 5 seconds delay to scan before seeing installed NIFsoft"
