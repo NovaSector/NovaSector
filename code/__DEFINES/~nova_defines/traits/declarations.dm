@@ -86,6 +86,9 @@
 /// The trait accompanying the "Heavyset" quirk.
 #define TRAIT_HEAVYSET "trait_heavyset"
 
+/// The trait accompanying the "Big Boned"/belly quirk.  See "tums" module for more info.
+#define TRAIT_PREDATORY "trait_predatory"
+
 /// The trait that determines if someone has the system shock quirk.
 #define TRAIT_SYSTEM_SHOCK "trait_system_shock"
 
