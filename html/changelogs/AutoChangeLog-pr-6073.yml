@@ -1,0 +1,6 @@
+author: "Stalkeros"
+delete-after: True
+changes:
+  - rscadd: "A Random Ship Event framework which permits contributors and anyone else to add new non-initially-antagonistic random ships that fly up to the station, if it wishes so, and does cool things!"
+  - rscadd: "Added Heliostatic Coalition Police Inspector random ship event."
+  - rscdel: "NRI cops' pirate event has been deleted and doesn't exist anymore oh wow! Wait, what's \"NRI\" again?"
