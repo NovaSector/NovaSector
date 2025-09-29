@@ -269,8 +269,8 @@ GLOBAL_LIST_INIT(gaslist_cache, init_gaslist_cache())
 	var/total_volume = volume + other.volume
 	var/list/gas_list = gases | other.gases
 	// NOVA EDIT ADDITION START
-	if(!temperature)
-		stack_trace("Temperature is 0. This should not happen.")
+	if(!temperature || !other.volume)
+		stack_trace("Something weird is happening with equalize. gas temperature: [temperature], other gas volume: [other.volume]")
 		garbage_collect()
 		other.garbage_collect()
 		return

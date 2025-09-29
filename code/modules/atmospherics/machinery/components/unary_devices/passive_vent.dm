@@ -32,11 +32,6 @@
 
 	var/datum/gas_mixture/external = location.return_air()
 	var/datum/gas_mixture/internal = airs[1]
-	// NOVA EDIT ADDITION START
-	if(!internal.volume)
-		stack_trace("volume is 0, this shouldn't happen")
-		return
-	// NOVA EDIT ADDITION END
 
 	if(internal.equalize(external))
 		air_update_turf(FALSE, FALSE)
