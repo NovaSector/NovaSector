@@ -18,6 +18,7 @@
 	bolt_type = BOLT_TYPE_LOCKING
 	accepted_magazine_type = /obj/item/ammo_box/magazine/internal/pulse_sniper
 	semi_auto = FALSE
+	can_suppress = FALSE
 	fire_sound = 'modular_nova/modules/modular_weapons/sounds/pulse_shoot.ogg'
 	fire_sound_volume = 70
 	rack_sound = 'modular_nova/modules/modular_weapons/sounds/pulse_pull.ogg'
