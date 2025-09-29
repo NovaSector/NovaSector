@@ -1,0 +1,6 @@
+author: "Hatterhat"
+delete-after: True
+changes:
+  - balance: "Pestkiller now damages spider structures (e.g. webs, effigies, eggs) upon exposure (e.g. spraying, smoke, foam)."
+  - balance: "Webslinger snares now do less damage and are easier to resist out of (it still takes 10 seconds though, which is non-negligible)."
+  - balance: "Spider effigies (the ones that look like Eris sprites) now check for ear protection when trying to inflict brain damage. Bowmans are sufficient to block the trauma infliction, at time of writing."
