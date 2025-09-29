@@ -63,7 +63,7 @@
 
 	return ..()
 
-/obj/item/clothing/accessory/webbing/colonial
+/obj/item/storage/belt/webbing/colonial
 	name = "slim colonial webbing vest"
 	desc = "A versatile individual carrying equipment, cherished by colonists and hoarders alike. Compact enough to be worn underneath bulky clothing."
 	icon = 'modular_nova/modules/food_replicator/icons/clothing.dmi'
