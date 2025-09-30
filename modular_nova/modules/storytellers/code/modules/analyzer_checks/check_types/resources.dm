@@ -6,7 +6,7 @@
 /datum/storytellor_check/resource_check/perform(datum/storyteller_analyzer/anl, datum/storyteller/ctl, datum/storyteller_inputs/inputs, scan_flags)
 	// Check ore silos for total minerals
 	var/total_minerals = 0
-	for(var/obj/machinery/ore_silo/silo in GLOB.machines)
+	for(var/obj/machinery/ore_silo/silo in SSmachines.get_all_machines())
 		if(!istype(silo) || !silo.holds)
 			continue
 		for(var/mat_type in silo.holds)
@@ -22,3 +22,4 @@
 		other_resources += SSshuttle.points
 	inputs.vault[STORY_RESOURCE_OTHER] = other_resources
 	..()
+

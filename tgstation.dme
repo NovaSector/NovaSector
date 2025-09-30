@@ -9178,6 +9178,7 @@
 #include "modular_nova\modules\storytellers\code\modules\analyzer_checks\storytellor_check.dm"
 #include "modular_nova\modules\storytellers\code\modules\analyzer_checks\check_types\health_metrics.dm"
 #include "modular_nova\modules\storytellers\code\modules\analyzer_checks\check_types\resources.dm"
+#include "modular_nova\modules\storytellers\code\modules\expressions\expressions_tree.dm"
 #include "modular_nova\modules\storytellers\code\modules\weights\storyvalue.dm"
 #include "modular_nova\modules\storytellers\code\modules\weights\storyweight.dm"
 #include "modular_nova\modules\storytellers\code\modules\goals\storyteller_goal.dm"
