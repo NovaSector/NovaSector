@@ -475,7 +475,15 @@
 	relevant_mutant_bodypart = ORGAN_SLOT_BREASTS
 
 /datum/preference/choiced/breasts_size/init_possible_values()
-	return GLOB.breast_size_to_number
+	var/full_list = GLOB.breast_size_to_number
+	var/filtered_list = list()
+
+	// allows to define maximum selectable size without touching every other single aspect of genetails code
+	for(var/size in full_list)
+		if(full_list[size] <= GLOB.breast_size_to_number[BREAST_SIZE_H])
+			filtered_list[size] = full_list[size]
+
+	return filtered_list
 
 /datum/preference/choiced/breasts_size/is_accessible(datum/preferences/preferences)
 	var/passed_initial_check = ..(preferences)
