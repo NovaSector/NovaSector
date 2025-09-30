@@ -7647,6 +7647,7 @@
 #include "modular_nova\modules\cargo_items\cargo_teleporter.dm"
 #include "modular_nova\modules\cargo_items\conveyor_sorter.dm"
 #include "modular_nova\modules\cargo_items\import_holder.dm"
+#include "modular_nova\modules\cars_props\code\cars_props.dm"
 #include "modular_nova\modules\cell_component\code\cell_component.dm"
 #include "modular_nova\modules\cellguns\code\cellgun_cells.dm"
 #include "modular_nova\modules\cellguns\code\cellguns.dm"
