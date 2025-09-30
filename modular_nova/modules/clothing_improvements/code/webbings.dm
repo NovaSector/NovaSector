@@ -39,7 +39,6 @@
 
 /obj/item/clothing/accessory/webbing/pouch
 	name = "drop pouches"
-	gender = PLURAL
 	desc = "A robust pair of drop pouches with good capacity, ready to share your burdens."
 	icon_state = "thigh_brown"
 	unique_reskin = list(
