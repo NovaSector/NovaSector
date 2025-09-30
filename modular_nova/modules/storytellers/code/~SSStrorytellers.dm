@@ -146,3 +146,187 @@ SUBSYSTEM_DEF(storytellers)
 /datum/controller/subsystem/storytellers/proc/select_weighted_goal(list/context)
 	var/list/candidates = get_available_goals(context)
 	return select_weighted_goal_from_list(candidates, context)
+
+
+
+/datum/storyteller_admin_ui
+	/// cached reference to storyteller
+	var/datum/storyteller/ctl
+
+/datum/storyteller_admin_ui/New()
+	. = ..()
+	ctl = SSstorytellers?.active
+
+/datum/storyteller_admin_ui/ui_state(mob/user)
+	return ADMIN_STATE(R_ADMIN)
+
+/datum/storyteller_admin_ui/ui_interact(mob/user, datum/tgui/ui)
+	ctl = SSstorytellers?.active
+	ui = SStgui.try_update_ui(user, src, ui)
+	if(!ui)
+		ui = new(user, src, "Storyteller")
+		ui.open()
+
+/datum/storyteller_admin_ui/ui_static_data(mob/user)
+	var/list/data = list()
+	var/list/moods = list()
+	for(var/mood_type as anything in subtypesof(/datum/storyteller_mood))
+		if(mood_type == /datum/storyteller_mood)
+			continue
+		var/datum/storyteller_mood/mood = mood_type
+		moods += list(list(
+			"id" = "[mood_type]",
+			"name" = initial(mood.name),
+			"pace" = initial(mood.pace),
+			"threat" = initial(mood.aggression),
+		))
+	data["available_moods"] = moods
+
+	// Available goals from the subsystem registry, filtered by availability
+	var/list/goals = list()
+	if(ctl)
+		var/list/context = ctl.get_context()
+		for(var/id_key in SSstorytellers.goals_by_id)
+			var/datum/storyteller_goal/G = SSstorytellers.goals_by_id[id_key]
+			if(G.is_available(context))
+				goals += list(list(
+					"id" = G.id,
+					"name" = G.name || G.id,
+					"weight" = G.get_weight(context),
+				))
+	data["available_goals"] = goals
+	return data
+
+/datum/storyteller_admin_ui/ui_data(mob/user)
+	var/list/data = list()
+	ctl = SSstorytellers?.active
+	if(!ctl)
+		data["name"] = "No storyteller"
+		return data
+
+	data["name"] = ctl.name
+	data["desc"] = ctl.desc
+	if(ctl.mood)
+		data["mood"] = list(
+			"id" = "[ctl.mood.type]",
+			"name" = ctl.mood.name,
+			"pace" = ctl.mood.pace,
+			"threat" = ctl.mood.get_threat_multiplier(),
+		)
+	if(ctl.current_global_goal)
+		data["current_global_goal"] = list(
+			"id" = ctl.current_global_goal.id,
+			"name" = ctl.current_global_goal.name || ctl.current_global_goal.id,
+			"weight" = ctl.current_global_goal.get_weight(ctl.get_context()),
+		)
+	if(ctl.subgoals)
+		data["current_subgoal"] = list(
+			"id" = ctl.subgoals.id,
+			"name" = ctl.subgoals.name || ctl.subgoals.id,
+		)
+	data["global_goal_progress"] = ctl.global_goal_progress
+	data["global_goal_weight"] = ctl.global_goal_weight
+	data["next_think_time"] = ctl.next_think_time
+	data["base_think_delay"] = ctl.base_think_delay
+	data["min_event_interval"] = ctl.min_event_interval
+	data["max_event_interval"] = ctl.max_event_interval
+	data["player_count"] = ctl.get_active_player_count()
+	data["antag_count"] = ctl.get_active_antagonist_count()
+	data["player_antag_balance"] = ctl.player_antag_balance
+	data["event_difficulty_modifier"] = ctl.event_difficulty_modifier
+	data["can_force_event"] = TRUE
+
+	// Recent events log formatting
+	var/list/events = list()
+	for(var/i in 1 to length(ctl.recent_events))
+		var/tick = ctl.recent_events[i]
+		events += list(list(
+			"time" = tick,
+			"desc" = "Event at [tick]",
+		))
+	data["recent_events"] = events
+	return data
+
+/datum/storyteller_admin_ui/ui_act(action, list/params, datum/tgui/ui, datum/ui_state/state)
+	. = ..()
+	if(.)
+		return
+	if(!check_rights(R_ADMIN))
+		return TRUE
+	ctl = SSstorytellers?.active
+	if(!ctl)
+		return TRUE
+
+	switch(action)
+		if("force_think")
+			ctl.think()
+			return TRUE
+		if("trigger_event")
+			ctl.trigger_random_event(ctl.get_context())
+			return TRUE
+		if("clear_goal")
+			ctl.current_global_goal = null
+			ctl.subgoals = null
+			ctl.global_goal_progress = 0
+			return TRUE
+		if("complete_goal")
+			ctl.on_goal_completed()
+			return TRUE
+		if("set_global_goal")
+			var/id = params["id"]
+			if(!id)
+				return TRUE
+			var/datum/storyteller_goal/G = SSstorytellers.goals_by_id[id]
+			if(istype(G))
+				ctl.current_global_goal = G
+				ctl.global_goal_weight = G.get_weight(ctl.get_context())
+				ctl.global_goal_progress = 0
+				var/list/children = G.get_children()
+				ctl.subgoals = children.len ? SSstorytellers.select_weighted_goal_from_list(children, ctl.get_context()) : null
+			return TRUE
+		if("reroll_goal")
+			ctl.current_global_goal = SSstorytellers.select_weighted_goal(ctl.get_context())
+			if(ctl.current_global_goal)
+				ctl.global_goal_weight = ctl.current_global_goal.get_weight(ctl.get_context())
+				var/list/children = ctl.current_global_goal.get_children()
+				ctl.subgoals = children.len ? SSstorytellers.select_weighted_goal_from_list(children, ctl.get_context()) : null
+			return TRUE
+		if("promote_subgoal")
+			if(ctl.subgoals)
+				ctl.current_global_goal = ctl.subgoals
+				ctl.global_goal_weight = ctl.current_global_goal.get_weight(ctl.get_context())
+				ctl.global_goal_progress = 0
+				ctl.subgoals = null
+			return TRUE
+		if("next_subgoal")
+			if(ctl.current_global_goal)
+				var/list/children = ctl.current_global_goal.get_children()
+				if(children.len)
+					ctl.subgoals = SSstorytellers.select_weighted_goal_from_list(children, ctl.get_context())
+			return TRUE
+		if("set_mood")
+			var/mood_id = params["id"]
+			if(mood_id)
+				var/path = text2path(mood_id)
+				if(ispath(path, /datum/storyteller_mood))
+					ctl.mood = new path
+					ctl.schedule_next_think()
+			return TRUE
+		if("set_pace")
+			var/pace = clamp(text2num(params["pace"]), 0.1, 3.0)
+			if(ctl.mood)
+				ctl.mood.pace = pace
+				ctl.schedule_next_think()
+			return TRUE
+		if("reanalyse")
+			ctl.analyzer.scan_station()
+			ctl.inputs = ctl.analyzer.get_inputs()
+			return TRUE
+		if("replan")
+			ctl.planner.update_plan(ctl, ctl.inputs, null)
+			return TRUE
+	return FALSE
+
+ADMIN_VERB(storyteller_admin, R_ADMIN, "Storyteller", "Open the storyteller admin panel.", ADMIN_CATEGORY_EVENTS)
+	var/datum/storyteller_admin_ui/ui = new
+	ui.ui_interact(usr)
