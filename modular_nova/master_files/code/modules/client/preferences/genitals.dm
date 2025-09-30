@@ -480,7 +480,7 @@
 
 	// allows to define maximum selectable size without touching every other single aspect of genetails code
 	for(var/size in full_list)
-		if(full_list[size] <= GLOB.breast_size_to_number[BREAST_SIZE_H])
+		if(full_list[size] <= GLOB.breast_size_to_number[BREAST_SIZE_BEYOND_MEASUREMENT])
 			filtered_list[size] = full_list[size]
 
 	return filtered_list
