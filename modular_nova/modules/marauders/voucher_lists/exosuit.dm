@@ -55,11 +55,16 @@
 	icon = /obj/vehicle/sealed/mecha/gygax/dark::icon
 	icon_state = /obj/vehicle/sealed/mecha/gygax/dark::icon_state
 	set_items = list(
-		/obj/vehicle/sealed/mecha/gygax/dark,
-		/obj/item/mecha_parts/mecha_equipment/armor/antiproj_armor_booster,
-		/obj/item/mecha_parts/mecha_equipment/weapon/ballistic/lmg,
-		/obj/item/mecha_ammo/lmg,
-		/obj/item/mecha_parts/mecha_equipment/repair_droid,
+		/obj/vehicle/sealed/mecha/gygax/dark/loaded,
+	)
+
+/datum/voucher_set/traitor/mech/marauder
+	name = /obj/vehicle/sealed/mecha/marauder/mauler::name
+	description = /obj/vehicle/sealed/mecha/marauder/mauler::desc
+	icon = /obj/vehicle/sealed/mecha/marauder/mauler::icon
+	icon_state = /obj/vehicle/sealed/mecha/marauder/mauler::icon_state
+	set_items = list(
+		/obj/vehicle/sealed/mecha/marauder/mauler/loaded,
 	)
 
 /datum/voucher_set/traitor/mech/ripley
@@ -81,8 +86,5 @@
 	icon = /obj/vehicle/sealed/mecha/honker/dark::icon
 	icon_state = /obj/vehicle/sealed/mecha/honker/dark::icon_state
 	set_items = list(
-		/obj/vehicle/sealed/mecha/honker/dark,
-		/obj/item/mecha_parts/mecha_equipment/weapon/ballistic/launcher/punching_glove,
-		/obj/item/mecha_parts/mecha_equipment/weapon/ballistic/launcher/banana_mortar,
-
+		/obj/vehicle/sealed/mecha/honker/dark/loaded,
 	)

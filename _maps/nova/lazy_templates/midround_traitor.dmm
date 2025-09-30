@@ -1012,7 +1012,6 @@
 /area/misc/operative_barracks/mission_briefing)
 "nE" = (
 /obj/structure/mecha_wreckage/phazon,
-/obj/effect/decal/cleanable/glass/plastitanium/screws,
 /obj/item/mecha_parts/mecha_equipment/thrusters/ion,
 /obj/effect/decal/cleanable/glass,
 /obj/item/mecha_parts/mecha_equipment/radio,
@@ -1020,6 +1019,12 @@
 /obj/structure/sign/poster/contraband/dancing_honk/directional/south,
 /obj/effect/turf_decal/siding/thinplating_new/dark{
 	dir = 8
+	},
+/obj/item/mecha_parts/mecha_equipment/armor/antiproj_armor_booster,
+/obj/item/mecha_ammo/lmg,
+/obj/item/mecha_parts/mecha_equipment/thrusters/ion,
+/obj/item/mecha_parts/mecha_equipment/weapon/ballistic/lmg{
+	pixel_y = -7
 	},
 /turf/open/floor/iron/dark/side{
 	dir = 8
