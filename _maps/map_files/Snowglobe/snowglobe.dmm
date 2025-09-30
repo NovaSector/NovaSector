@@ -16700,10 +16700,6 @@
 	},
 /turf/open/floor/plating,
 /area/mine/laborcamp)
-"evU" = (
-/obj/machinery/atmospherics/components/unary/bluespace_sender,
-/turf/open/floor/iron/white/smooth_large,
-/area/station/engineering/atmos/pumproom)
 "evW" = (
 /obj/effect/turf_decal/tile/bar{
 	dir = 1
@@ -73084,15 +73080,6 @@
 /obj/item/holosign_creator/robot_seat/restaurant,
 /turf/open/floor/iron/dark,
 /area/station/service/kitchen)
-"tDz" = (
-/obj/machinery/bluespace_vendor/directional/east,
-/obj/effect/turf_decal/trimline/yellow/line{
-	dir = 4
-	},
-/turf/open/floor/iron/edge{
-	dir = 4
-	},
-/area/station/engineering/atmos)
 "tDD" = (
 /obj/machinery/camera/autoname/directional/south{
 	network = list("ss13","rd")
@@ -191549,7 +191536,7 @@ sia
 ygA
 nUC
 tUA
-evU
+nUC
 uBc
 nNe
 rfH
@@ -192580,7 +192567,7 @@ rRd
 tfy
 tlb
 lxc
-tDz
+lrP
 dtY
 avQ
 jdX
