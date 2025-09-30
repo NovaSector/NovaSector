@@ -52,8 +52,8 @@
 	///How much breath partial pressure is a safe amount of plasma. 0 means that we are immune to plasma.
 	var/safe_plasma_max = 0.05
 	var/n2o_detect_min = 0.08 //Minimum n2o for effects
-	var/n2o_para_min = 5 //NOVA EDIT CHANGE - N2O nerf
-	var/n2o_sleep_min = 15 //NOVA EDIT CHANGE - N2O nerf
+	var/n2o_para_min = 5 //Sleeping agent // NOVA EDIT CHANGE - N2O nerf - ORIGINAL: var/n2o_para_min = 1 //Sleeping agent
+	var/n2o_sleep_min = 15 //Sleeping agent // NOVA EDIT CHANGE - N2O nerf - ORIGINAL: var/n2o_sleep_min = 5 //Sleeping agent
 	var/BZ_trip_balls_min = 1 //BZ gas
 	var/BZ_brain_damage_min = 10 //Give people some room to play around without killing the station
 	var/gas_stimulation_min = 0.002 // For, Pluoxium, Nitrium and Freon
