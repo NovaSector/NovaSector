@@ -413,6 +413,7 @@
 #include "code\__DEFINES\traits\sources.dm"
 #include "code\__DEFINES\~nova_defines\_organ_defines.dm"
 #include "code\__DEFINES\~nova_defines\_storytellers.dm"
+#include "code\__DEFINES\~nova_defines\_storytellers_vault.dm"
 #include "code\__DEFINES\~nova_defines\access.dm"
 #include "code\__DEFINES\~nova_defines\actionspeed_modification.dm"
 #include "code\__DEFINES\~nova_defines\airlock.dm"
