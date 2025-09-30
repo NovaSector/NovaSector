@@ -1,20 +1,32 @@
 // Personalized story value calculation per-atom for storyteller
 
 /atom/proc/story_value()
-	return story_value_materials(src)
+	// Base atoms: value from materials; for turfs/mobs overridden below
+	var/base = story_value_materials(src)
+	return base
 
 /obj/item/story_value()
 	var/val = story_value_item_credit(src)
 	if(val)
 		return val
-	return story_value_materials(src)
+	return max(1, story_value_materials(src))
 
 /obj/machinery/story_value()
-	// Default: materials define most of the value; items inside are not counted here
-	return story_value_materials(src)
+	// Machinery has operational importance; add a small baseline on top of mats
+	return max(5, story_value_materials(src))
 
 /obj/structure/story_value()
-	return story_value_materials(src)
+	return max(2, story_value_materials(src))
+
+/turf/story_value()
+	// Turfs typically have negligible direct value
+	return STORY_VALUE_BASE_TURF
+
+/mob/story_value()
+	return STORY_VALUE_BASE_MOB
+
+/mob/living/carbon/story_value()
+	return STORY_VALUE_BASE_CARBON
 
 
 /proc/story_value_item_credit(obj/item/I)
@@ -23,7 +35,7 @@
 	var/val = I.get_item_credit_value()
 	return max(0, val)
 
-/proc/story_value_materials(atom/A)
+/atom/proc/story_value_materials(atom/A)
 	if(isnull(A) || QDELETED(A))
 		return 0
 	if(!length(A.custom_materials))

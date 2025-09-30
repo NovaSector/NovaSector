@@ -1,0 +1,48 @@
+// Defines for storyteller vault keys
+// These are used to store custom metrics in storyteller_inputs.vault
+#define STORY_CREW_COUNT "story_crew_count"
+#define STORY_CREW_AVG_HEALTH "story_crew_avg_health"
+#define STORY_ANTAG_COUNT "story_antag_count"
+#define STORY_ANTAG_AVG_HEALTH "story_antag_avg_health"
+
+#define STORY_DEPT_COMMAND_CREW_COUNT "story_dept_command_crew_count"
+#define STORY_DEPT_COMMAND_CREW_AVG_HEALTH "story_dept_command_crew_avg_health"
+#define STORY_DEPT_COMMAND_ANTAG_COUNT "story_dept_command_antag_count"
+#define STORY_DEPT_COMMAND_ANTAG_AVG_HEALTH "story_dept_command_antag_avg_health"
+
+#define STORY_DEPT_SECURITY_CREW_COUNT "story_dept_security_crew_count"
+#define STORY_DEPT_SECURITY_CREW_AVG_HEALTH "story_dept_security_crew_avg_health"
+#define STORY_DEPT_SECURITY_ANTAG_COUNT "story_dept_security_antag_count"
+#define STORY_DEPT_SECURITY_ANTAG_AVG_HEALTH "story_dept_security_antag_avg_health"
+
+#define STORY_DEPT_ENGINEERING_CREW_COUNT "story_dept_engineering_crew_count"
+#define STORY_DEPT_ENGINEERING_CREW_AVG_HEALTH "story_dept_engineering_crew_avg_health"
+#define STORY_DEPT_ENGINEERING_ANTAG_COUNT "story_dept_engineering_antag_count"
+#define STORY_DEPT_ENGINEERING_ANTAG_AVG_HEALTH "story_dept_engineering_antag_avg_health"
+
+#define STORY_DEPT_MEDICAL_CREW_COUNT "story_dept_medical_crew_count"
+#define STORY_DEPT_MEDICAL_CREW_AVG_HEALTH "story_dept_medical_crew_avg_health"
+#define STORY_DEPT_MEDICAL_ANTAG_COUNT "story_dept_medical_antag_count"
+#define STORY_DEPT_MEDICAL_ANTAG_AVG_HEALTH "story_dept_medical_antag_avg_health"
+
+#define STORY_DEPT_SCIENCE_CREW_COUNT "story_dept_science_crew_count"
+#define STORY_DEPT_SCIENCE_CREW_AVG_HEALTH "story_dept_science_crew_avg_health"
+#define STORY_DEPT_SCIENCE_ANTAG_COUNT "story_dept_science_antag_count"
+#define STORY_DEPT_SCIENCE_ANTAG_AVG_HEALTH "story_dept_science_antag_avg_health"
+
+#define STORY_DEPT_SUPPLY_CREW_COUNT "story_dept_supply_crew_count"
+#define STORY_DEPT_SUPPLY_CREW_AVG_HEALTH "story_dept_supply_crew_avg_health"
+#define STORY_DEPT_SUPPLY_ANTAG_COUNT "story_dept_supply_antag_count"
+#define STORY_DEPT_SUPPLY_ANTAG_AVG_HEALTH "story_dept_supply_antag_avg_health"
+
+#define STORY_DEPT_SERVICE_CREW_COUNT "story_dept_service_crew_count"
+#define STORY_DEPT_SERVICE_CREW_AVG_HEALTH "story_dept_service_crew_avg_health"
+#define STORY_DEPT_SERVICE_ANTAG_COUNT "story_dept_service_antag_count"
+#define STORY_DEPT_SERVICE_ANTAG_AVG_HEALTH "story_dept_service_antag_avg_health"
+
+
+
+// Total minerals in ore silos
+#define STORY_RESOURCE_MINERALS "story_resource_minerals"
+// Placeholder for other resources (e.g., cargo points, power)
+#define STORY_RESOURCE_OTHER "story_resource_other"

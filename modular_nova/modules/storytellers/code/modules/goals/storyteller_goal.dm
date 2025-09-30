@@ -1,0 +1,2 @@
+/datum/storyteller_goal
+
