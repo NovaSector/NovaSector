@@ -45,7 +45,7 @@
 
 /datum/element/crusher_loot/proc/on_death(mob/living/target, gibbed)
 	SIGNAL_HANDLER
-
+	/* NOVA EDIT START - ash walker damage handling for crusher trophy drops
 	var/datum/status_effect/crusher_damage/damage = target.has_status_effect(/datum/status_effect/crusher_damage)
 	if (!damage)
 		return
@@ -55,6 +55,20 @@
 			return
 	else if (!prob((damage.total_damage / target.maxHealth) * drop_mod)) // On average, you'll need to kill 4 creatures before getting the item. by default.
 		return
+	*/
+	var/datum/status_effect/crusher_damage/damage = target.has_status_effect(/datum/status_effect/crusher_damage)
+	var/datum/status_effect/ashwalker_damage/ashie_damage = target.has_status_effect(/datum/status_effect/ashwalker_damage)
+	var/final_damage_total = damage?.total_damage + ashie_damage?.total_damage
+
+	if (!final_damage_total)
+		return
+
+	if (guaranteed_drop)
+		if (final_damage_total / target.maxHealth < guaranteed_drop)
+			return
+	else if (!prob((final_damage_total / target.maxHealth) * drop_mod)) // On average, you'll need to kill 4 creatures before getting the item. by default.
+		return
+	// NOVA EDIT END
 
 	if (replace_all && isanimal(target))
 		var/mob/living/simple_animal/expiring_code = target
