@@ -143,7 +143,14 @@
 			chosen_wound = iter_wound
 
 	if(chosen_wound) // This one has the greatest blood flow, so heal it--first taking a snapshot of it so we can restore it later if the limb takes damage. The snapshot is a quadruplet list of data about the wound.
-		previous_wounds[chosen_wound.limb.name] = list(list(chosen_wound.type, chosen_wound.wound_source, WEAKREF(chosen_wound.limb), chosen_wound.blood_flow))
+		if(!previous_wounds[chosen_wound.limb.name])
+			previous_wounds[chosen_wound.limb.name] = list()
+		previous_wounds[chosen_wound.limb.name] += list(list(
+			chosen_wound.type, 
+			chosen_wound.wound_source, 
+			WEAKREF(chosen_wound.limb), 
+			chosen_wound.blood_flow
+		))
 		RegisterSignal(carbon_owner, COMSIG_CARBON_LIMB_DAMAGED, PROC_REF(on_limb_damaged), override = TRUE)
 		chosen_wound.adjust_blood_flow(-WOUND_MAX_BLOODFLOW)
 		to_chat(carbon_owner, span_good("You use hemokinesis to clot the [chosen_wound]."))
