@@ -101,25 +101,6 @@
 /mob/living/simple_animal/hostile/megafauna/death(gibbed)
 	if(health > 0 && !gibbed) // prevents instakills
 		return
-	var/datum/status_effect/crusher_damage/crusher_dmg = has_status_effect(/datum/status_effect/crusher_damage)
-	///Whether we killed the megafauna with primarily crusher damage or not
-	var/crusher_kill = FALSE
-	if(crusher_dmg && crusher_dmg.total_damage >= maxHealth * 0.6)
-		crusher_kill = TRUE
-		if(crusher_loot) // spawn crusher loot, if any
-			spawn_crusher_loot()
-	// NOVA EDIT ADDITION START - ASHWALKER TROPHIES
-	var/datum/status_effect/ashwalker_damage/ashie_damage = has_status_effect(/datum/status_effect/ashwalker_damage)
-	if(!crusher_kill && ashie_damage && crusher_loot && ashie_damage.total_damage >= maxHealth * 0.6)
-		spawn_crusher_loot()
-	// NOVA EDIT ADDITION END
-	if(true_spawn && !(flags_1 & ADMIN_SPAWNED_1))
-		var/tab = "megafauna_kills"
-		if(crusher_kill)
-			tab = "megafauna_kills_crusher"
-		if(!elimination) //used so the achievment only occurs for the last legion to die.
-			grant_achievement(achievement_type, score_achievement_type, crusher_kill, force_grant)
-			SSblackbox.record_feedback("tally", tab, 1, "[initial(name)]")
 	return ..()
 
 /mob/living/simple_animal/hostile/megafauna/gib()

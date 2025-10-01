@@ -1,4 +1,4 @@
-/datum/element/crusher_loot/proc/on_death(mob/living/target, gibbed)
+/datum/element/crusher_loot/on_death(mob/living/target, gibbed)
 	SIGNAL_HANDLER
 
 	var/datum/status_effect/crusher_damage/damage = target.has_status_effect(/datum/status_effect/crusher_damage)
