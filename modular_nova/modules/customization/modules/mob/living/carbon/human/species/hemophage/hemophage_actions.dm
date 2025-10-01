@@ -185,7 +185,7 @@
 				var/previous_blood_flow = quadruplet[4]
 				var/datum/wound/iter_wound = new wound_type
 				iter_wound.wound_source = wound_source
-				iter_wound.apply_wound(iter_limb, replacing = TRUE)
+				iter_wound.apply_wound(iter_limb)
 				iter_wound.adjust_blood_flow(previous_blood_flow)
 				list_entry -= quadruplet
 				if(!length(list_entry))
