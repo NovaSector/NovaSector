@@ -9,45 +9,33 @@ SUBSYSTEM_DEF(storytellers)
 
 	var/station_value = 0
 
+	var/list/goals_by_category = list()
 	/// Goal registry built from JSON
 	var/list/goals_by_id = list()
 	/// Root goals without a valid parent
 	var/list/goal_roots = list()
-	/// Base directory for expressions/config
-	var/goal_base_dir = "config/storyteller/expressions"
 	/// Current active goal (for tracking progress)
 	var/datum/storyteller_goal/active_goal
 
 
 /datum/controller/subsystem/storytellers/Initialize()
 	. = ..()
-	// Load goals registry from all configured paths
-	load_all_goals()
+	goals_by_id = list()
+	goal_roots = list()
+	goals_by_category = list()
+	collect_avaible_goals()
+
+
 	// Create default storyteller
 	active = new /datum/storyteller
 	active.initialize_round()
 	return SS_INIT_SUCCESS
 
+
 /datum/controller/subsystem/storytellers/fire(resumed)
 	if(active)
 		active.think()
-		// Check if active goal is still valid or achieved
-		if(active_goal)
-			var/list/context = active.get_context()
-			if(!active_goal.is_available(context))
-				// Goal no longer valid; clear and select new
-				active_goal = select_weighted_goal(context)
-			else if(active_goal_is_achieved(context))
-				// Trigger event and move to next goal
-				active_goal.trigger_event()
-				log_storyteller("Goal [active_goal.id] achieved, triggered event: [active_goal.event_path]")
-				var/list/children = active_goal.get_children()
-				active_goal = children.len ? select_weighted_goal_from_list(children, context) : null
-			// If no active goal, select a new one
-			if(!active_goal)
-				active_goal = select_weighted_goal(context)
-				if(active_goal)
-					log_storyteller("Selected new goal: [active_goal.id]")
+
 
 /datum/controller/subsystem/storytellers/proc/register_atom_for_storyteller(atom/A)
 	if(!active)
@@ -58,94 +46,110 @@ SUBSYSTEM_DEF(storytellers)
 	if(isnull(value) || value <= 0)
 		return
 	active.analyzer.register_atom_for_storyteller(A)
-	station_value += value
 
-/// Check if the active goal is achieved (e.g., requirement still true and event conditions met)
+
 /datum/controller/subsystem/storytellers/proc/active_goal_is_achieved(list/context)
 	if(!active_goal)
 		return FALSE
-	// Example: assume goal is achieved if requirement is true and event_path is defined
 	return active_goal.is_available(context) && active_goal.event_path
 
-/// Select a goal from a specific list (e.g., children of a parent goal)
-/datum/controller/subsystem/storytellers/proc/select_weighted_goal_from_list(list/candidates, list/context)
-	if(!length(candidates))
-		return null
-	var/total = 0
-	var/list/weights = list()
-	for(var/datum/storyteller_goal/G in candidates)
-		var/w = max(0, G.get_weight(context))
-		weights[G] = w
-		total += w
-	if(total <= 0)
-		var/datum/storyteller_goal/best = null
-		var/best_p = -INFINITY
-		for(var/datum/storyteller_goal/G in candidates)
-			var/p = G.get_priority(context)
-			if(isnull(best) || p > best_p)
-				best = G
-				best_p = p
-		return best
-	var/roll = rand() * total
-	for(var/datum/storyteller_goal/G in candidates)
-		roll -= weights[G]
-		if(roll <= 0)
-			return G
-	return candidates[1]
 
-/// Recursively enumerate all JSON files in goal_base_dir and subfolders
-/datum/controller/subsystem/storytellers/proc/enumerate_goal_files(path = goal_base_dir)
-	var/list/files = list()
-	if(!fexists(path))
-		return files
-	for(var/entry in flist(path))
-		var/full_path = "[path]/[entry]"
-		if(findtext(entry, "/"))
-			// Directory; recurse
-			files += enumerate_goal_files(full_path)
-		else if(copytext(entry, -4) == ".json")
-			// JSON file
-			files += full_path
-	return files
 
-/// Load all goal specs from discovered JSON files
-/datum/controller/subsystem/storytellers/proc/load_all_goals()
+/datum/controller/subsystem/storytellers/proc/collect_avaible_goals()
 	goals_by_id = list()
+	goals_by_category = list()
 	goal_roots = list()
-	var/list/files = enumerate_goal_files()
-	for(var/path in files)
-		var/list/result = storyteller_goals_from_json(path)
-		if(!islist(result))
-			log_storyteller("Failed to load goals from [path]")
+
+	goals_by_category["GOAL_RANDOM"] = list()
+	goals_by_category["GOAL_GOOD"] = list()
+	goals_by_category["GOAL_BAD"] = list()
+	goals_by_category["GOAL_NEUTRAL"] = list()
+	goals_by_category["GOAL_UNCATEGORIZED"] = list()
+
+	var/list/goal_types = subtypesof(/datum/storyteller_goal)
+	for(var/goal_type in goal_types)
+		var/datum/storyteller_goal/goal = new goal_type()
+
+		if(goal.id)
+			goals_by_id[goal.id] = goal
+		else
+			log_storyteller("Storyteller goal [goal_type] has no ID and was skipped.")
 			continue
-		var/list/map_in = result["goals_by_id"]
-		if(islist(map_in))
-			for(var/id_key in map_in)
-				goals_by_id[id_key] = map_in[id_key]
-		var/list/roots_in = result["roots"]
-		if(islist(roots_in))
-			for(var/datum/storyteller_goal/G in roots_in)
-				if(!(G in goal_roots))
-					goal_roots += G
-	// Relink children
-	for(var/id_key in goals_by_id)
-		var/datum/storyteller_goal/G = goals_by_id[id_key]
-		G.link_children(goals_by_id)
-	log_storyteller("Loaded [goals_by_id.len] goals and [goal_roots.len] root goals")
 
-/// Return all goals available under a context
-/datum/controller/subsystem/storytellers/proc/get_available_goals(list/context)
-	var/list/available = list()
-	for(var/id_key in goals_by_id)
-		var/datum/storyteller_goal/G = goals_by_id[id_key]
-		if(G.is_available(context))
-			available += G
-	return available
+		if(goal.category & STORY_GOAL_RANDOM)
+			goals_by_category["GOAL_RANDOM"] += goal
+		if(goal.category & STORY_GOAL_GOOD)
+			goals_by_category["GOAL_GOOD"] += goal
+		if(goal.category & STORY_GOAL_BAD)
+			goals_by_category["GOAL_BAD"] += goal
+		if(goal.category & STORY_GOAL_NEUTRAL)
+			goals_by_category["GOAL_NEUTRAL"] += goal
+		if(goal.category & STORY_GOAL_UNCATEGORIZED)
+			goals_by_category["GOAL_UNCATEGORIZED"] += goal
 
-/// Select a goal given context, using weight, then priority as tie-breaker
-/datum/controller/subsystem/storytellers/proc/select_weighted_goal(list/context)
-	var/list/candidates = get_available_goals(context)
-	return select_weighted_goal_from_list(candidates, context)
+	for(var/id in goals_by_id)
+		var/datum/storyteller_goal/goal = goals_by_id[id]
+		goal.link_children(goals_by_id)
+
+	for(var/id in goals_by_id)
+		var/datum/storyteller_goal/goal = goals_by_id[id]
+		if(!goal.parent_id || !goals_by_id[goal.parent_id])
+			goal_roots += goal
+
+
+	log_storyteller("Collected [goals_by_id.len] storyteller goals. Root goals: [goal_roots.len].")
+
+/datum/controller/subsystem/storytellers/proc/filter_goals(category = null, required_tags = null, subtype = null, all_tags_required = FALSE, include_children = TRUE)
+	var/list/result = list()
+
+
+	var/list/goals_to_check = list()
+	if(category)
+		if(!goals_by_category[category])
+			log_storyteller("Invalid category [category] in filter_goals.")
+			return result
+		goals_to_check = goals_by_category[category]
+	else
+		var/list/seen_ids = list()
+		for(var/cat in goals_by_category)
+			for(var/datum/storyteller_goal/goal in goals_by_category[cat])
+				if(!seen_ids[goal.id])
+					goals_to_check += goal
+					seen_ids[goal.id] = TRUE
+
+	for(var/datum/storyteller_goal/goal in goals_to_check)
+		// Check subtype
+		if(subtype && !istype(goal, subtype))
+			continue
+
+		if(required_tags)
+			if(!goal.tags)
+				continue
+			if(all_tags_required)
+				if((goal.tags & required_tags) != required_tags)
+					continue
+			else
+				if(!(goal.tags & required_tags))
+					continue
+
+		if(!include_children && goal.parent_id && goals_by_id[goal.parent_id])
+			continue
+		result += goal
+	return result
+
+
+/// Convenience method to get root goals by category, tags, and subtype
+/datum/controller/subsystem/storytellers/proc/get_root_goals(category = null, required_tags = null, subtype = null, all_tags_required = FALSE)
+	return filter_goals(category, required_tags, subtype, all_tags_required, FALSE)
+
+/// Convenience method to get goals by category and subtype
+/datum/controller/subsystem/storytellers/proc/get_goals_by_category_and_subtype(category, subtype)
+	return filter_goals(category, null, subtype, FALSE, TRUE)
+
+/// Convenience method to get goals by tags
+/datum/controller/subsystem/storytellers/proc/get_goals_by_tags(required_tags, all_tags_required = FALSE)
+	return filter_goals(null, required_tags, null, all_tags_required, TRUE)
+
 
 
 
@@ -185,14 +189,13 @@ SUBSYSTEM_DEF(storytellers)
 	// Available goals from the subsystem registry, filtered by availability
 	var/list/goals = list()
 	if(ctl)
-		var/list/context = ctl.get_context()
 		for(var/id_key in SSstorytellers.goals_by_id)
 			var/datum/storyteller_goal/G = SSstorytellers.goals_by_id[id_key]
-			if(G.is_available(context))
+			if(G.is_available(ctl.inputs.vault, ctl.inputs, ctl))
 				goals += list(list(
 					"id" = G.id,
 					"name" = G.name || G.id,
-					"weight" = G.get_weight(context),
+					"weight" = G.get_weight(ctl.inputs.vault, ctl.inputs, ctl),
 				))
 	data["available_goals"] = goals
 	return data
@@ -217,13 +220,16 @@ SUBSYSTEM_DEF(storytellers)
 		data["current_global_goal"] = list(
 			"id" = ctl.current_global_goal.id,
 			"name" = ctl.current_global_goal.name || ctl.current_global_goal.id,
-			"weight" = ctl.current_global_goal.get_weight(ctl.get_context()),
+			"weight" = ctl.current_global_goal.get_weight(ctl.inputs.vault, ctl.inputs, ctl),
 		)
-	if(ctl.subgoals)
-		data["current_subgoal"] = list(
-			"id" = ctl.subgoals.id,
-			"name" = ctl.subgoals.name || ctl.subgoals.id,
-		)
+	if(length(ctl.subgoals))
+		for(var/datum/storyteller_goal/subgoal in ctl.subgoals)
+			data["current_subgoal"] += list(
+				list(
+					"id" = subgoal.id,
+					"name" = subgoal.name || subgoal.id
+				),
+			)
 	data["global_goal_progress"] = ctl.global_goal_progress
 	data["global_goal_weight"] = ctl.global_goal_weight
 	data["next_think_time"] = ctl.next_think_time
@@ -262,7 +268,7 @@ SUBSYSTEM_DEF(storytellers)
 			ctl.think()
 			return TRUE
 		if("trigger_event")
-			ctl.trigger_random_event(ctl.get_context())
+//			ctl.trigger_random_event(ctl.get_context())
 			return TRUE
 		if("clear_goal")
 			ctl.current_global_goal = null
@@ -278,31 +284,39 @@ SUBSYSTEM_DEF(storytellers)
 				return TRUE
 			var/datum/storyteller_goal/G = SSstorytellers.goals_by_id[id]
 			if(istype(G))
+/*
 				ctl.current_global_goal = G
 				ctl.global_goal_weight = G.get_weight(ctl.get_context())
 				ctl.global_goal_progress = 0
 				var/list/children = G.get_children()
 				ctl.subgoals = children.len ? SSstorytellers.select_weighted_goal_from_list(children, ctl.get_context()) : null
+*/
 			return TRUE
 		if("reroll_goal")
+/*
 			ctl.current_global_goal = SSstorytellers.select_weighted_goal(ctl.get_context())
 			if(ctl.current_global_goal)
 				ctl.global_goal_weight = ctl.current_global_goal.get_weight(ctl.get_context())
 				var/list/children = ctl.current_global_goal.get_children()
 				ctl.subgoals = children.len ? SSstorytellers.select_weighted_goal_from_list(children, ctl.get_context()) : null
+*/
 			return TRUE
 		if("promote_subgoal")
+/*
 			if(ctl.subgoals)
 				ctl.current_global_goal = ctl.subgoals
 				ctl.global_goal_weight = ctl.current_global_goal.get_weight(ctl.get_context())
 				ctl.global_goal_progress = 0
 				ctl.subgoals = null
+*/
 			return TRUE
 		if("next_subgoal")
+/*
 			if(ctl.current_global_goal)
 				var/list/children = ctl.current_global_goal.get_children()
 				if(children.len)
 					ctl.subgoals = SSstorytellers.select_weighted_goal_from_list(children, ctl.get_context())
+*/
 			return TRUE
 		if("set_mood")
 			var/mood_id = params["id"]

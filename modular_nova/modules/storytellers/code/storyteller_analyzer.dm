@@ -42,7 +42,7 @@
 /datum/storyteller_analyzer/New(datum/storyteller/_owner)
 	..()
 	owner = _owner
-	for(var/datum/storytellor_check/check in check_list)
+	for(var/datum/storyteller_metric/check in check_list)
 		check = new
 	compute_station_value()
 	scan_station()
@@ -73,18 +73,18 @@
 	inputs.antag_count = get_player_counts()[TOTAL_ANTAGS]
 	inputs.antag_crew_ratio = get_antag_to_crew_ratio(inputs.antag_weight, inputs.crew_weight)
 
-	for(var/datum/storytellor_check/check in check_list)
+	for(var/datum/storyteller_metric/check in check_list)
 		if(!istype(check))
 			continue
 		if(!check.can_perform_now(src, owner, inputs, scan_flags))
 			continue
-		INVOKE_ASYNC(check, TYPE_PROC_REF(/datum/storytellor_check, perform), src, owner, inputs, scan_flags)
+		INVOKE_ASYNC(check, TYPE_PROC_REF(/datum/storyteller_metric, perform), src, owner, inputs, scan_flags)
 
 	UNTIL(analyzing)
 	actual_inputs = inputs
 
 
-/datum/storyteller_analyzer/proc/try_stop_analyzing(datum/storytellor_check/current)
+/datum/storyteller_analyzer/proc/try_stop_analyzing(datum/storyteller_metric/current)
 	if(!can_finish_analyzing(current))
 		return
 	analyzing = FALSE
@@ -92,7 +92,7 @@
 
 // Checks if the current scan stage is the last in the check_list
 // Returns TRUE if it is the last stage (analysis can finish), FALSE otherwise
-/datum/storyteller_analyzer/proc/can_finish_analyzing(datum/storytellor_check/current)
+/datum/storyteller_analyzer/proc/can_finish_analyzing(datum/storyteller_metric/current)
 	if(!(current in check_list))
 		return FALSE
 

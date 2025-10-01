@@ -1,48 +1,159 @@
-// Defines for storyteller vault keys
-// These are used to store custom metrics in storyteller_inputs.vault
-#define STORY_CREW_COUNT "story_crew_count"
-#define STORY_CREW_AVG_HEALTH "story_crew_avg_health"
-#define STORY_ANTAG_COUNT "story_antag_count"
-#define STORY_ANTAG_AVG_HEALTH "story_antag_avg_health"
+GLOBAL_LIST(all_antagonist_metrics)
 
-#define STORY_DEPT_COMMAND_CREW_COUNT "story_dept_command_crew_count"
-#define STORY_DEPT_COMMAND_CREW_AVG_HEALTH "story_dept_command_crew_avg_health"
-#define STORY_DEPT_COMMAND_ANTAG_COUNT "story_dept_command_antag_count"
-#define STORY_DEPT_COMMAND_ANTAG_AVG_HEALTH "story_dept_command_antag_avg_health"
+// Storyteller vault metrics for tracking station state
+// Each metric represents a category of station conditions used by the storyteller to select goals and events
 
-#define STORY_DEPT_SECURITY_CREW_COUNT "story_dept_security_crew_count"
-#define STORY_DEPT_SECURITY_CREW_AVG_HEALTH "story_dept_security_crew_avg_health"
-#define STORY_DEPT_SECURITY_ANTAG_COUNT "story_dept_security_antag_count"
-#define STORY_DEPT_SECURITY_ANTAG_AVG_HEALTH "story_dept_security_antag_avg_health"
+/*
+	Health metric
+*/
 
-#define STORY_DEPT_ENGINEERING_CREW_COUNT "story_dept_engineering_crew_count"
-#define STORY_DEPT_ENGINEERING_CREW_AVG_HEALTH "story_dept_engineering_crew_avg_health"
-#define STORY_DEPT_ENGINEERING_ANTAG_COUNT "story_dept_engineering_antag_count"
-#define STORY_DEPT_ENGINEERING_ANTAG_AVG_HEALTH "story_dept_engineering_antag_avg_health"
+// Tracks the overall health status of antagonists to influence goal selection (e.g., antagonist support or crew advantage events).
+#define STORY_VAULT_ANTAG_HEALTH "antag_health"
+// Tracks the overall health status of the crew to influence goal selection.
+#define STORY_VAULT_CREW_HEALTH "crew_health"
+	// Many crew members are in critical condition, with very low health.
+	#define STORY_VAULT_HEALTH_LOW 3
+	// Many crew members are injured but not critical.
+	#define STORY_VAULT_HEALTH_DAMAGED 2
+	// Most crew members are in average health.
+	#define STORY_VAULT_HEALTH_NORMAL 1
+	// Most crew members are in excellent health.
+	#define STORY_VAULT_HEALTH_HEALTHY 0
 
-#define STORY_DEPT_MEDICAL_CREW_COUNT "story_dept_medical_crew_count"
-#define STORY_DEPT_MEDICAL_CREW_AVG_HEALTH "story_dept_medical_crew_avg_health"
-#define STORY_DEPT_MEDICAL_ANTAG_COUNT "story_dept_medical_antag_count"
-#define STORY_DEPT_MEDICAL_ANTAG_AVG_HEALTH "story_dept_medical_antag_avg_health"
+// Tracks the extent of physical wounds among antagonists.
+#define STORY_VAULT_ANTAG_WOUNDING "antag_wounding"
+// Tracks the extent of physical wounds among the crew.
+#define STORY_VAULT_CREW_WOUNDING "crew_wounding"
+	// Few to no crew members have significant wounds.
+	#define STORY_VAULT_NO_WOUNDS 0
+	// Some crew members have moderate wounds.
+	#define STORY_VAULT_SOME_WOUNDED 1
+	// Many crew members are heavily wounded.
+	#define STORY_VAULT_MANY_WOUNDED 2
+	// Many crew members have life-threatening wounds.
+	#define STORY_VAULT_CRITICAL_WOUNDED 3
 
-#define STORY_DEPT_SCIENCE_CREW_COUNT "story_dept_science_crew_count"
-#define STORY_DEPT_SCIENCE_CREW_AVG_HEALTH "story_dept_science_crew_avg_health"
-#define STORY_DEPT_SCIENCE_ANTAG_COUNT "story_dept_science_antag_count"
-#define STORY_DEPT_SCIENCE_ANTAG_AVG_HEALTH "story_dept_science_antag_avg_health"
-
-#define STORY_DEPT_SUPPLY_CREW_COUNT "story_dept_supply_crew_count"
-#define STORY_DEPT_SUPPLY_CREW_AVG_HEALTH "story_dept_supply_crew_avg_health"
-#define STORY_DEPT_SUPPLY_ANTAG_COUNT "story_dept_supply_antag_count"
-#define STORY_DEPT_SUPPLY_ANTAG_AVG_HEALTH "story_dept_supply_antag_avg_health"
-
-#define STORY_DEPT_SERVICE_CREW_COUNT "story_dept_service_crew_count"
-#define STORY_DEPT_SERVICE_CREW_AVG_HEALTH "story_dept_service_crew_avg_health"
-#define STORY_DEPT_SERVICE_ANTAG_COUNT "story_dept_service_antag_count"
-#define STORY_DEPT_SERVICE_ANTAG_AVG_HEALTH "story_dept_service_antag_avg_health"
+// Tracks the prevalence of diseases among the crew, influencing events like outbreaks or medical research.
+#define STORY_VAULT_CREW_DISEASES "crew_diseases"
+	// No significant diseases among the crew, allowing non-medical or routine events.
+	#define STORY_VAULT_NO_DISEASES 0
+	// Some crew members have minor diseases.
+	#define STORY_VAULT_MINOR_DISEASES 1
+	// Many crew members have serious diseases.
+	#define STORY_VAULT_MAJOR_DISEASES 2
+	// Widespread, critical disease outbreak.
+	#define STORY_VAULT_OUTBREAK 3
 
 
+#define STORY_VAULT_ANTAG_DEAD_COUNT "antag_dead_count"
 
-// Total minerals in ore silos
-#define STORY_RESOURCE_MINERALS "story_resource_minerals"
-// Placeholder for other resources (e.g., cargo points, power)
-#define STORY_RESOURCE_OTHER "story_resource_other"
+#define STORY_VAULT_CREW_DEAD_COUNT "crew_dead_count"
+
+#define STORY_VAULT_ANTAG_ALIVE_COUNT "antag_alive_count"
+
+#define STORY_VAULT_CREW_ALIVE_COUNT "crew_alive_count"
+
+#define STORY_VAULT_ANTAG_ALIVE_LEVEL "antag_alive_level"
+
+#define STORY_VAULT_CREW_ALIVE_LEVEL "crew_alive_level"
+	// No dead crew members.
+	#define STORY_VAULT_NO_DEAD 0
+	// Few dead crew members (e.g., 1-5).
+	#define STORY_VAULT_FEW_DEAD 1
+	// Some dead crew members (e.g., 6-15).
+	#define STORY_VAULT_SOME_DEAD 2
+	// Many dead crew members (e.g., >15).
+	#define STORY_VAULT_MANY_DEAD 3
+
+
+// Tracks the ratio of dead to total antagonists.
+#define STORY_VAULT_ANTAG_DEAD_RATIO "antag_dead_ratio"
+// Same for antagonist
+#define STORY_VAULT_CREW_DEAD_RATIO "crew_dead_reation"
+	// Very low death ratio (<10%).
+	#define STORY_VAULT_LOW_DEAD_RATIO 0
+	// Moderate death ratio (10-30%).
+	#define STORY_VAULT_MODERATE_DEAD_RATIO 1
+	// High death ratio (30-60%).
+	#define STORY_VAULT_HIGH_DEAD_RATIO 2
+	// Extreme death ratio (>60%).
+	#define STORY_VAULT_EXTREME_DEAD_RATIO 3
+
+
+/*
+	Resource metric
+*/
+
+
+// Metric: Antagonist Presence
+// Tracks the number of active antagonists on the station, influencing events like sabotage or crew conflict.
+#define STORY_VAULT_ANTAGONIST_PRESENCE "antagonist_presence"
+	// No active antagonists detected, favoring peaceful or routine station events.
+	#define STORY_VAULT_NO_ANTAGONISTS 0
+	// A small number of antagonists are active, prompting minor conflict or vigilance events.
+	#define STORY_VAULT_FEW_ANTAGONISTS 1
+	// A moderate number of antagonists are active, escalating to events requiring security response.
+	#define STORY_VAULT_MODERATE_ANTAGONISTS 2
+	// A large number of antagonists are active, triggering major conflict or crisis events.
+	#define STORY_VAULT_MANY_ANTAGONISTS 3
+
+
+
+/*
+	Antagonist metrics
+*/
+
+// Tracks the level of antagonist-driven disruption, influencing escalation or mitigation events.
+#define STORY_VAULT_ANTAGONIST_ACTIVITY "antagonist_activity"
+	// No significant antagonist activity, allowing calm or routine station operations.
+	#define STORY_VAULT_NO_ACTIVITY 0
+	// Minor antagonist actions (e.g., theft, minor sabotage), prompting low-level response events.
+	#define STORY_VAULT_LOW_ACTIVITY 1
+	// Noticeable antagonist actions (e.g., fights, system damage), requiring active security or repair events.
+	#define STORY_VAULT_MODERATE_ACTIVITY 2
+	// Major antagonist actions (e.g., bombings, mass chaos), escalating to critical station-wide events.
+	#define STORY_VAULT_HIGH_ACTIVITY 3
+
+// Tracks the number of crew killed by antagonists, influencing threat escalation.
+#define STORY_VAULT_ANTAG_KILLS "antag_kills"
+	// No kills by antagonists.
+	#define STORY_VAULT_NO_KILLS 0
+	// Few kills (e.g., 1-3).
+	#define STORY_VAULT_FEW_KILLS 1
+	// Moderate kills (e.g., 4-8).
+	#define STORY_VAULT_MODERATE_KILLS 2
+	// Many kills (e.g., >8).
+	#define STORY_VAULT_MANY_KILLS 3
+
+// Tracks completed objectives by antagonists (e.g., assassinations, thefts).
+#define STORY_VAULT_ANTAG_OBJECTIVES_COMPLETED "antag_objectives_completed"
+	// No objectives completed.
+	#define STORY_VAULT_NO_OBJECTIVES 0
+	// Few objectives done (e.g., 1-2 per antag).
+	#define STORY_VAULT_FEW_OBJECTIVES 1
+	// Moderate progress (e.g., half done).
+	#define STORY_VAULT_MODERATE_OBJECTIVES 2
+	// Most objectives completed.
+	#define STORY_VAULT_MANY_OBJECTIVES 3
+
+// Tracks antagonist influence (e.g., hacked systems, stolen resources, converted allies).
+#define STORY_VAULT_ANTAG_INFLUENCE "antag_influence"
+	// Minimal influence (no hacks/conversions).
+	#define STORY_VAULT_LOW_INFLUENCE 0
+	// Some influence (e.g., minor hacks).
+	#define STORY_VAULT_MODERATE_INFLUENCE 1
+	// Significant control (e.g., department hacked).
+	#define STORY_VAULT_HIGH_INFLUENCE 2
+	// Dominant influence (e.g., cult majority).
+	#define STORY_VAULT_EXTREME_INFLUENCE 3
+
+// Tracks disruption caused (e.g., power failures, fires from sabotage).
+#define STORY_VAULT_ANTAG_DISRUPTION "antag_disruption"
+	// No disruption.
+	#define STORY_VAULT_NO_DISRUPTION 0
+	// Minor issues (e.g., single room sabotage).
+	#define STORY_VAULT_MINOR_DISRUPTION 1
+	// Moderate chaos (e.g., area-wide blackout).
+	#define STORY_VAULT_MAJOR_DISRUPTION 2
+	// Station-wide crisis.
+	#define STORY_VAULT_CRITICAL_DISRUPTION 3
