@@ -1,6 +1,6 @@
 /obj/structure/vehicle/prop
 	name = "vehicle prop"
-	desc = "A standard-measure shipping container for bulk transport of goods. This one is blank, offering no clue as to its contents."
+	desc = "A base vehicle prop."
 	icon = 'modular_nova/modules/cars_props/icons/vehiclesexpanded.dmi'
 	icon_state = "SUV"
 	max_integrity = 1000
@@ -73,6 +73,21 @@
 	desc = "A damaged SUV."
 	icon_state = "SUV2_damaged"
 
+/obj/structure/vehicle/prop/crashed_car
+	icon = 'modular_nova/modules/cars_props/icons/crashedcars.dmi'
+	bound_width = 64
+	bound_height = 96
+
+/obj/structure/vehicle/prop/crashed_car/left
+	name = "\improper Crashed SUV"
+	desc = "A crashed SUV."
+	icon_state = "crashedcarsleft"
+
+/obj/structure/vehicle/prop/crashed_car/right
+	name = "\improper Crashed SUV"
+	desc = "A crashed SUV."
+	icon_state = "crashedcarsright"
+
 /obj/structure/vehicle/prop/suv/wy_suv_1
 	name = "\improper SUV"
 	desc = "A SUV."
@@ -88,10 +103,18 @@
 	desc = "A SUV."
 	icon_state = "WYSUV3"
 
-/obj/structure/vehicle/prop/suv/ambulance
+/obj/structure/vehicle/prop/suv/ambulance_1
 	name = "\improper Ambulance"
 	desc = "An Ambulance."
 	icon_state = "ambulance"
+
+/obj/structure/vehicle/prop/suv/ambulance_2
+	icon = 'modular_nova/modules/cars_props/icons/128x32_vehiclesexpanded.dmi'
+	icon_state = "ambulance"
+	bound_width = 64
+	bound_height = 32
+	name = "\improper Ambulance"
+	desc = "An Ambulance."
 
 /obj/structure/vehicle/prop/suv/van_1
 	name = "\improper Van"
@@ -239,10 +262,46 @@
 	desc = "A Covered Crawler."
 	icon_state = "crawler_covered_bed"
 
-/obj/structure/vehicle/prop/small_truck/crawler_fuel
+/obj/structure/vehicle/prop/small_truck/crawler_fuel_1
 	name = "\improper Fuel Crawler"
 	desc = "A Fuel Crawler."
 	icon_state = "crawler_fuel"
+
+/obj/structure/vehicle/prop/small_truck/crawler_fuel_2
+	name = "\improper Fuel Crawler"
+	desc = "A Fuel Crawler."
+	icon = 'modular_nova/modules/cars_props/icons/64x64.dmi'
+	icon_state = "crawler_fuel"
+
+/obj/structure/vehicle/prop/small_truck/crawler_plain
+	name = "\improper Crawler"
+	desc = "A Crawler."
+	icon = 'modular_nova/modules/cars_props/icons/64x64.dmi'
+	icon_state = "crawler"
+
+/obj/structure/vehicle/prop/small_truck/crawler_blue
+	name = "\improper Crawler"
+	desc = "A Crawler."
+	icon = 'modular_nova/modules/cars_props/icons/64x64.dmi'
+	icon_state = "crawler_crate_b"
+
+/obj/structure/vehicle/prop/small_truck/crawler_red
+	name = "\improper Crawler"
+	desc = "A Crawler."
+	icon = 'modular_nova/modules/cars_props/icons/64x64.dmi'
+	icon_state = "crawler_crate_r"
+
+/obj/structure/vehicle/prop/small_truck/crawler_green
+	name = "\improper Crawler"
+	desc = "A Crawler."
+	icon = 'modular_nova/modules/cars_props/icons/64x64.dmi'
+	icon_state = "crawler_crate_g"
+
+/obj/structure/vehicle/prop/small_truck/crawler_cargo
+	name = "\improper Crawler"
+	desc = "A Crawler."
+	icon = 'modular_nova/modules/cars_props/icons/64x64.dmi'
+	icon_state = "crawler_cargo"
 
 /obj/structure/vehicle/prop/small_truck/crawler_mining_1
 	name = "\improper Mining Crawler"
@@ -277,6 +336,70 @@
 	name = "\improper Long Truck"
 	desc = "A long truck."
 	icon_state = "longtruck_kellandmining"
+
+/obj/structure/vehicle/prop/long_truck/blue_redstripe
+	name = "\improper Long Truck"
+	desc = "A long truck."
+	icon_state = "longtruck_blue_redstripe"
+
+/obj/structure/vehicle/prop/long_truck/red_bluestripe
+	name = "\improper Long Truck"
+	desc = "A long truck."
+	icon_state = "longtruck_red_bluestripe"
+
+/obj/structure/vehicle/prop/long_truck/brown
+	name = "\improper Long Truck"
+	desc = "A long truck."
+	icon_state = "longtruck_brown"
+
+/obj/structure/vehicle/prop/long_truck/donk
+	name = "\improper Long Truck"
+	desc = "A long truck."
+	icon_state = "longtruck_donk"
+
+/obj/structure/vehicle/prop/long_truck/nt_black
+	name = "\improper Long Truck"
+	desc = "A long truck."
+	icon_state = "longtruck_nt_black"
+
+/obj/structure/vehicle/prop/long_truck/nt_blue
+	name = "\improper Long Truck"
+	desc = "A long truck."
+	icon_state = "longtruck_nt_blue"
+
+/obj/structure/vehicle/prop/armoredtruck
+	icon = 'modular_nova/modules/cars_props/icons/128x32_vehiclesexpanded.dmi'
+	bound_width = 96
+	bound_height = 32
+
+/obj/structure/vehicle/prop/armoredtruck/Initialize(mapload)
+	. = ..()
+	AddComponent(/datum/component/seethrough, SEE_THROUGH_MAP_LONG_TRUCK_HALF) //It's easier to reuse the half truck since they're the same size anyway 2x2
+
+/obj/structure/vehicle/prop/armoredtruck/nt_security_1
+	name = "\improper Armored Truck"
+	desc = "An armored truck."
+	icon_state = "armoredtruck_nt_security_1"
+
+/obj/structure/vehicle/prop/armoredtruck/nt_security_2
+	name = "\improper Armored Truck"
+	desc = "An armored truck."
+	icon_state = "armoredtruck_nt_security_2"
+
+/obj/structure/vehicle/prop/armoredtruck/white_white
+	name = "\improper Armored Truck"
+	desc = "An armored truck."
+	icon_state = "armoredtruck_white_white"
+
+/obj/structure/vehicle/prop/armoredtruck/white_teal
+	name = "\improper Armored Truck"
+	desc = "An armored truck."
+	icon_state = "armoredtruck_white_teal"
+
+/obj/structure/vehicle/prop/armoredtruck/blue_white
+	name = "\improper Armored Truck"
+	desc = "An armored truck."
+	icon_state = "armoredtruck_blue_white"
 
 /obj/structure/vehicle/prop/long_truck_half
 	icon = 'modular_nova/modules/cars_props/icons/vehiclesexpanded.dmi'
@@ -321,3 +444,133 @@
 	name = "\improper Long Truck"
 	desc = "A long truck."
 	icon_state = "zenithlongtruck5"
+
+/obj/structure/vehicle/prop/truck
+	icon = 'modular_nova/modules/cars_props/icons/64x64.dmi'
+	bound_width = 64
+	bound_height = 64
+
+/obj/structure/vehicle/prop/truck/truck_1
+	name = "\improper Truck"
+	desc = "A regular sized truck."
+	icon_state = "truck"
+
+/obj/structure/vehicle/prop/truck/truck_damaged
+	name = "\improper Damaged Truck"
+	desc = "A damaged truck."
+	icon_state = "truck_damaged"
+
+/obj/structure/vehicle/prop/truck/truck_snow
+	name = "\improper Truck"
+	desc = "A regular sized truck covered in snow."
+	icon_state = "truck_snow"
+
+/obj/structure/vehicle/prop/truck/truck_cargo
+	name = "\improper Truck"
+	desc = "A regular sized cargo truck."
+	icon_state = "truck_cargo"
+
+/obj/structure/vehicle/prop/truck/van
+	name = "\improper Van"
+	desc = "A van."
+	icon_state = "van"
+
+/obj/structure/vehicle/prop/truck/van_wrecked
+	name = "\improper Wrecked Van"
+	desc = "A wrecked van."
+	icon_state = "van_wrecked"
+
+/obj/structure/vehicle/prop/crane
+	icon = 'modular_nova/modules/cars_props/icons/64x64.dmi'
+	bound_width = 64
+	bound_height = 64
+
+/obj/structure/vehicle/prop/crane/crane_1
+	name = "\improper Crane"
+	desc = "A crane."
+	icon_state = "crane"
+
+/obj/structure/vehicle/prop/crane/crane_snow
+	name = "\improper Crane"
+	desc = "A crane covered in snow."
+	icon_state = "crane_snow"
+
+/obj/structure/vehicle/prop/crane/crane_cargo
+	name = "\improper Crane"
+	desc = "A crane."
+	icon_state = "crane_cargo"
+
+/obj/structure/vehicle/prop/crane/crane_damaged
+	name = "\improper Crane"
+	desc = "A damaged crane."
+	icon_state = "crane_damaged"
+
+/obj/structure/vehicle/prop/crane/crane_wrecked
+	name = "\improper Crane"
+	desc = "A wrecked crane."
+	icon_state = "crane_wrecked"
+
+/obj/structure/vehicle/prop/large_truck
+	icon = 'modular_nova/modules/cars_props/icons/large_truck.dmi'
+	bound_width = 96
+	bound_height = 96
+
+/obj/structure/vehicle/prop/large_truck/truck_flat
+	name = "\improper Large Truck"
+	desc = "A large truck."
+	icon_state = "truck_flat"
+
+/obj/structure/vehicle/prop/large_truck/truck_flat_treads
+	name = "\improper Large Truck"
+	desc = "A large truck."
+	icon_state = "truck_flat_treads"
+
+/obj/structure/vehicle/prop/large_truck/truck_flat_wrecked
+	name = "\improper Large Truck"
+	desc = "A large truck."
+	icon_state = "truck_flat_wrecked"
+
+/obj/structure/vehicle/prop/large_truck/truck_flat_treads_wrecked
+	name = "\improper Large Truck"
+	desc = "A large truck."
+	icon_state = "truck_flat_treads_wrecked"
+
+/obj/structure/vehicle/prop/large_truck/truck_regular
+	name = "\improper Large Truck"
+	desc = "A large truck."
+	icon_state = "truck"
+
+/obj/structure/vehicle/prop/large_truck/truck_regular_treads
+	name = "\improper Large Truck"
+	desc = "A large truck."
+	icon_state = "truck_treads"
+
+/obj/structure/vehicle/prop/large_truck/truck_regular_wrecked
+	name = "\improper Large Truck"
+	desc = "A large truck."
+	icon_state = "truck_wrecked"
+
+/obj/structure/vehicle/prop/large_truck/truck_regular_treads_wrecked
+	name = "\improper Large Truck"
+	desc = "A large truck."
+	icon_state = "truck_treads_wrecked"
+
+/obj/structure/vehicle/prop/large_truck/truck_enclosed
+	name = "\improper Large Truck"
+	desc = "A large truck."
+	icon_state = "truck_enclosed"
+
+/obj/structure/vehicle/prop/large_truck/truck_enclosed_treads
+	name = "\improper Large Truck"
+	desc = "A large truck."
+	icon_state = "truck_enclosed_treads"
+
+/obj/structure/vehicle/prop/large_truck/truck_enclosed_wrecked
+	name = "\improper Large Truck"
+	desc = "A large truck."
+	icon_state = "truck_enclosed_wrecked"
+
+/obj/structure/vehicle/prop/large_truck/truck_enclosed_treads_wrecked
+	name = "\improper Large Truck"
+	desc = "A large truck."
+	icon_state = "truck_enclosed_treads_wrecked"
