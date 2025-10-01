@@ -38809,10 +38809,6 @@
 	},
 /turf/open/floor/stone,
 /area/station/commons/dorms/room1)
-"kmQ" = (
-/obj/structure/sign/poster/greenscreen/directional/east,
-/turf/open/genturf,
-/area/icemoon/underground/unexplored/rivers/deep)
 "kmT" = (
 /obj/structure/chair/wood{
 	dir = 8
@@ -73517,7 +73513,6 @@
 /area/station/security/office)
 "tHd" = (
 /obj/effect/turf_decal/trimline/yellow/filled/line,
-/obj/machinery/light/small/directional/south,
 /obj/structure/chair/sofa/bench/right{
 	dir = 1
 	},
@@ -94419,7 +94414,7 @@ jKe
 jKe
 jKe
 jKe
-kmQ
+jKe
 jKe
 jKe
 jKe
