@@ -7073,15 +7073,6 @@
 /obj/effect/turf_decal/siding/wideplating_new/dark/corner{
 	dir = 4
 	},
-/obj/structure/decorative{
-	icon = 'icons/effects/crayondecal.dmi';
-	icon_state = "scp";
-	anchored = 1;
-	name = "that one logo";
-	pixel_x = 16;
-	pixel_y = 16;
-	color = "#000000"
-	},
 /turf/open/floor/wood/parquet,
 /area/misc/condo)
 "QB" = (
