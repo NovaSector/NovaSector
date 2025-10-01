@@ -111,6 +111,11 @@
 		neck = /obj/item/clothing/neck/cloak/skill_reward/playing
 
 /datum/outfit/mining_station/post_equip(mob/living/carbon/human/minegineer, visualsOnly)
+	var/obj/item/card/id/id_card = minegineer.wear_id
+	if(istype(id_card))
+		id_card.registered_name = minegineer.real_name
+		id_card.update_label()
+		id_card.update_icon()
 	handlebank(minegineer)
 
 	. = ..()
