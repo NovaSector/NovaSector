@@ -146,9 +146,9 @@
 		if(!previous_wounds[chosen_wound.limb.name])
 			previous_wounds[chosen_wound.limb.name] = list()
 		previous_wounds[chosen_wound.limb.name] += list(list(
-			chosen_wound.type, 
-			chosen_wound.wound_source, 
-			WEAKREF(chosen_wound.limb), 
+			chosen_wound.type,
+			chosen_wound.wound_source,
+			WEAKREF(chosen_wound.limb),
 			chosen_wound.blood_flow
 		))
 		RegisterSignal(carbon_owner, COMSIG_CARBON_LIMB_DAMAGED, PROC_REF(on_limb_damaged), override = TRUE)
@@ -187,7 +187,7 @@
 				iter_wound.wound_source = wound_source
 				iter_wound.apply_wound(iter_limb)
 				iter_wound.adjust_blood_flow(previous_blood_flow)
-				list_entry -= quadruplet
+				list_entry -= list(quadruplet)
 				if(!length(list_entry))
 					previous_wounds -= limb_name
 				to_chat(our_mob, span_warning("The [iter_wound] comes unclotted upon taking damage!"))
