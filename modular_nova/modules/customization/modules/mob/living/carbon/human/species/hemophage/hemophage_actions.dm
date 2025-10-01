@@ -187,7 +187,9 @@
 				iter_wound.wound_source = wound_source
 				iter_wound.apply_wound(iter_limb, replacing = TRUE)
 				iter_wound.adjust_blood_flow(previous_blood_flow)
-				previous_wounds -= limb_name
+				list_entry -= quadruplet
+				if(!length(list_entry))
+					previous_wounds -= limb_name
 				to_chat(our_mob, span_warning("The [iter_wound] comes unclotted upon taking damage!"))
 
 	UnregisterSignal(our_mob, COMSIG_CARBON_LIMB_DAMAGED)
