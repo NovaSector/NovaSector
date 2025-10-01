@@ -17290,6 +17290,17 @@
 	},
 /turf/open/floor/iron/checker,
 /area/station/commons/lounge)
+"eFl" = (
+/obj/docking_port/stationary{
+	dir = 4;
+	dwidth = 2;
+	height = 5;
+	name = "labor camp";
+	shuttle_id = "laborcamp_away";
+	width = 9
+	},
+/turf/open/misc/asteroid/snow/icemoon,
+/area/icemoon/surface/outdoors/nospawn)
 "eFm" = (
 /obj/structure/cable,
 /turf/open/floor/iron,
@@ -230695,7 +230706,7 @@ jcZ
 jcZ
 jcZ
 jcZ
-jcZ
+eFl
 jcZ
 jcZ
 jcZ
