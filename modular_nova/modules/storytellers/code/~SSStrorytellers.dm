@@ -239,7 +239,8 @@ SUBSYSTEM_DEF(storytellers)
 	data["player_count"] = ctl.get_active_player_count()
 	data["antag_count"] = ctl.get_active_antagonist_count()
 	data["player_antag_balance"] = ctl.player_antag_balance
-	data["event_difficulty_modifier"] = ctl.event_difficulty_modifier
+	data["difficulty_multiplier"] = ctl.difficulty_multiplier
+	data["event_difficulty_modifier"] = ctl.difficulty_multiplier
 	data["can_force_event"] = TRUE
 
 	// Recent events log formatting
@@ -284,39 +285,26 @@ SUBSYSTEM_DEF(storytellers)
 				return TRUE
 			var/datum/storyteller_goal/G = SSstorytellers.goals_by_id[id]
 			if(istype(G))
-/*
+				// Promote immediately
 				ctl.current_global_goal = G
-				ctl.global_goal_weight = G.get_weight(ctl.get_context())
+				ctl.global_goal_weight = G.get_weight(ctl.inputs.vault, ctl.inputs, ctl)
 				ctl.global_goal_progress = 0
-				var/list/children = G.get_children()
-				ctl.subgoals = children.len ? SSstorytellers.select_weighted_goal_from_list(children, ctl.get_context()) : null
-*/
 			return TRUE
 		if("reroll_goal")
-/*
-			ctl.current_global_goal = SSstorytellers.select_weighted_goal(ctl.get_context())
-			if(ctl.current_global_goal)
-				ctl.global_goal_weight = ctl.current_global_goal.get_weight(ctl.get_context())
-				var/list/children = ctl.current_global_goal.get_children()
-				ctl.subgoals = children.len ? SSstorytellers.select_weighted_goal_from_list(children, ctl.get_context()) : null
-*/
+			ctl.current_global_goal = null
+			ctl.global_goal_progress = 0
 			return TRUE
 		if("promote_subgoal")
-/*
 			if(ctl.subgoals)
-				ctl.current_global_goal = ctl.subgoals
-				ctl.global_goal_weight = ctl.current_global_goal.get_weight(ctl.get_context())
+				var/datum/storyteller_goal/G2 = pick(ctl.subgoals)
+				ctl.current_global_goal = G2
+				ctl.global_goal_weight = G2.get_weight(ctl.inputs.vault, ctl.inputs, ctl)
 				ctl.global_goal_progress = 0
 				ctl.subgoals = null
-*/
 			return TRUE
 		if("next_subgoal")
-/*
-			if(ctl.current_global_goal)
-				var/list/children = ctl.current_global_goal.get_children()
-				if(children.len)
-					ctl.subgoals = SSstorytellers.select_weighted_goal_from_list(children, ctl.get_context())
-*/
+			// Ask planner to regenerate timeline which will pick next subgoal
+			ctl.planner.recalculate_plan(ctl, ctl.inputs, ctl.balancer.make_snapshot(ctl.inputs))
 			return TRUE
 		if("set_mood")
 			var/mood_id = params["id"]
@@ -337,10 +325,127 @@ SUBSYSTEM_DEF(storytellers)
 			ctl.inputs = ctl.analyzer.get_inputs()
 			return TRUE
 		if("replan")
-			ctl.planner.update_plan(ctl, ctl.inputs, null)
+			ctl.planner.update_plan(ctl, ctl.inputs, ctl.balancer.make_snapshot(ctl.inputs))
+			return TRUE
+		// Advanced setters
+		if("set_difficulty")
+			var/value = clamp(text2num(params["value"]), 0.1, 5.0)
+			ctl.difficulty_multiplier = value
+			return TRUE
+		if("set_target_tension")
+			var/value = clamp(text2num(params["value"]), 0, 100)
+			ctl.target_tension = value
+			return TRUE
+		if("set_think_delay")
+			var/value = max(0, round(text2num(params["value"])) )
+			ctl.base_think_delay = value
+			ctl.schedule_next_think()
+			return TRUE
+		if("set_event_intervals")
+			var/minv = max(0, round(text2num(params["min"])) )
+			var/maxv = max(minv, round(text2num(params["max"])) )
+			ctl.min_event_interval = minv
+			ctl.max_event_interval = maxv
+			return TRUE
+		if("set_grace_period")
+			var/value = max(0, round(text2num(params["value"])) )
+			ctl.grace_period = value
+			return TRUE
+		if("set_repetition_penalty")
+			var/value = clamp(text2num(params["value"]), 0, 2)
+			ctl.repetition_penalty = value
 			return TRUE
 	return FALSE
 
 ADMIN_VERB(storyteller_admin, R_ADMIN, "Storyteller", "Open the storyteller admin panel.", ADMIN_CATEGORY_EVENTS)
 	var/datum/storyteller_admin_ui/ui = new
 	ui.ui_interact(usr)
+
+
+// Storyteller Voting UI
+/datum/storyteller_vote_ui
+	var/list/candidates
+	var/selection
+	var/difficulty = 1.0
+
+/datum/storyteller_vote_ui/New()
+	. = ..()
+	candidates = list()
+	for(var/type in subtypesof(/datum/storyteller))
+		if(type == /datum/storyteller)
+			continue
+		var/name = initial(type:name)
+		var/desc = initial(type:desc)
+		candidates += list(list(
+			"id" = "[type]",
+			"name" = name,
+			"desc" = desc,
+			"portrait" = null,
+		))
+	for(var/mob/living/L in GLOB.player_list)
+		if(L.client)
+			ui_interact(L.client.mob)
+
+
+/datum/storyteller_vote_ui/ui_state(mob/user)
+	return null
+
+/datum/storyteller_vote_ui/ui_static_data(mob/user)
+	var/list/data = list()
+	data["storytellers"] = candidates
+	data["min_difficulty"] = 0.3
+	data["max_difficulty"] = 5.0
+	return data
+
+/datum/storyteller_vote_ui/ui_data(mob/user)
+	var/list/data = list()
+	data["selection"] = selection
+	data["difficulty"] = difficulty
+	return data
+
+/datum/storyteller_vote_ui/ui_interact(mob/user, datum/tgui/ui)
+	ui = SStgui.try_update_ui(user, src, ui)
+	if(!ui)
+		ui = new(user, src, "StorytellerVote")
+		ui.open()
+
+/datum/storyteller_vote_ui/ui_act(action, list/params, datum/tgui/ui, datum/ui_state/state)
+	. = ..()
+	if(.)
+		return
+	switch(action)
+		if("vote_select")
+			selection = params["id"]
+			return TRUE
+		if("vote_difficulty")
+			difficulty = clamp(text2num(params["value"]), 0.3, 5.0)
+			return TRUE
+		if("vote_submit")
+			SSstorytellers.finalize_vote(selection, difficulty)
+			return TRUE
+	return FALSE
+
+
+// Subsystem procs for voting
+/datum/controller/subsystem/storytellers/proc/start_vote()
+	for(var/client/C as anything in GLOB.clients)
+		var/datum/storyteller_vote_ui/ui = new
+		ui.ui_interact(C.mob)
+
+/datum/controller/subsystem/storytellers/proc/finalize_vote(selection, difficulty)
+	if(!selection)
+		return
+	var/path = text2path(selection)
+	if(!ispath(path, /datum/storyteller))
+		return
+	if(active)
+		qdel(active)
+	active = new path
+	if(isnum(difficulty))
+		active.difficulty_multiplier = clamp(difficulty, 0.3, 5.0)
+	active.initialize_round()
+	log_storyteller("Storyteller vote finalized: [selection] diff=[difficulty]")
+
+
+ADMIN_VERB(storyteller_vote, R_ADMIN, "Storyteller - vote", "Open the storyteller vote.", ADMIN_CATEGORY_EVENTS)
+	var/datum/storyteller_vote_ui/ui = new

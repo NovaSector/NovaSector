@@ -69,7 +69,7 @@ GLOBAL_LIST(all_antagonist_metrics)
 // Tracks the ratio of dead to total antagonists.
 #define STORY_VAULT_ANTAG_DEAD_RATIO "antag_dead_ratio"
 // Same for antagonist
-#define STORY_VAULT_CREW_DEAD_RATIO "crew_dead_reation"
+#define STORY_VAULT_CREW_DEAD_RATIO "crew_dead_ratio"
 	// Very low death ratio (<10%).
 	#define STORY_VAULT_LOW_DEAD_RATIO 0
 	// Moderate death ratio (10-30%).
@@ -97,6 +97,12 @@ GLOBAL_LIST(all_antagonist_metrics)
 	// A large number of antagonists are active, triggering major conflict or crisis events.
 	#define STORY_VAULT_MANY_ANTAGONISTS 3
 
+// Antagonist inactivity ratio among alive antags (0..1)
+#define STORY_VAULT_ANTAG_INACTIVE_RATIO "antag_inactive_ratio"
+
+// Station resources
+#define STORY_VAULT_RESOURCE_MINERALS "resource_minerals"
+#define STORY_VAULT_RESOURCE_OTHER "resource_other"
 
 
 /*

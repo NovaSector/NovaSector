@@ -1,5 +1,6 @@
 /datum/component/antag_metric_tracker
 	var/datum/antagonist/owner_antag
+	var/mob/living/tracked_mob
 	var/kills = 0
 	var/damage_dealt = 0
 	var/activity_time = 0
@@ -14,10 +15,10 @@
 		return COMPONENT_INCOMPATIBLE
 
 	owner_antag = parent
-	var/mob/living/antag_mob = owner_antag.owner.current
-	if(antag_mob)
-		RegisterSignal(antag_mob, COMSIG_MOB_APPLY_DAMAGE, PROC_REF(on_damage_dealt))
-		RegisterSignal(antag_mob, COMSIG_LIVING_DEATH, PROC_REF(on_death))
+	tracked_mob = owner_antag.owner?.current
+	if(tracked_mob)
+		RegisterSignal(tracked_mob, COMSIG_MOB_APPLY_DAMAGE, PROC_REF(on_damage_dealt))
+		RegisterSignal(tracked_mob, COMSIG_LIVING_DEATH, PROC_REF(on_death))
 	last_update = world.time
 	START_PROCESSING(SSdcs, src)
 
@@ -56,6 +57,7 @@
 	influence_score += points
 
 /datum/component/antag_metric_tracker/Destroy(force, silent)
-	STOP_PROCESSING(SSprocessing, src)
-	UnregisterSignal(owner_antag?.owner, list(COMSIG_MOB_APPLY_DAMAGE, COMSIG_LIVING_DEATH))
+	STOP_PROCESSING(SSdcs, src)
+	if(tracked_mob)
+		UnregisterSignal(tracked_mob, list(COMSIG_MOB_APPLY_DAMAGE, COMSIG_LIVING_DEATH))
 	return ..()

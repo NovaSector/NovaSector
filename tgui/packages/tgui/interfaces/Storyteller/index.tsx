@@ -99,7 +99,7 @@ export const Storyteller = (props) => {
     can_force_event,
   } = data;
 
-  const [tab, setTab] = useLocalState<'overview' | 'goals' | 'settings'>(
+  const [tab, setTab] = useLocalState<'overview' | 'goals' | 'settings' | 'advanced'>(
     'tab',
     'overview',
   );
@@ -110,11 +110,38 @@ export const Storyteller = (props) => {
   const [pace, setPace] = useLocalState('pace', String(mood?.pace ?? 1.0));
   const [selectedGoal, setSelectedGoal] = useLocalState('selectedGoal', '');
 
+  // Advanced parameter local states
+  const [difficulty, setDifficulty] = useLocalState(
+    'difficulty',
+    String(event_difficulty_modifier ?? 1.0),
+  );
+  const [targetTension, setTargetTension] = useLocalState(
+    'targetTension',
+    '50',
+  );
+  const [thinkDelay, setThinkDelay] = useLocalState(
+    'thinkDelay',
+    String(base_think_delay ?? 0),
+  );
+  const [minInterval, setMinInterval] = useLocalState(
+    'minInterval',
+    String(min_event_interval ?? 0),
+  );
+  const [maxInterval, setMaxInterval] = useLocalState(
+    'maxInterval',
+    String(max_event_interval ?? 0),
+  );
+  const [grace, setGrace] = useLocalState('grace', '3000');
+  const [repetitionPenalty, setRepetitionPenalty] = useLocalState(
+    'repetitionPenalty',
+    '0.5',
+  );
+
   return (
     <Window
       title={`Storyteller — ${name || 'Unknown'}`}
       width={720}
-      height={640}
+      height={720}
     >
       <Window.Content scrollable>
         <Tabs>
@@ -138,6 +165,13 @@ export const Storyteller = (props) => {
             onClick={() => setTab('settings')}
           >
             Settings
+          </Tabs.Tab>
+          <Tabs.Tab
+            selected={tab === 'advanced'}
+            icon="sliders-h"
+            onClick={() => setTab('advanced')}
+          >
+            Advanced
           </Tabs.Tab>
         </Tabs>
 
@@ -298,6 +332,22 @@ export const Storyteller = (props) => {
               </Stack>
             </Section>
 
+            <Section title="Available Goals (weights)">
+              {available_goals.length ? (
+                <LabeledList>
+                  {available_goals
+                    .slice(0, 20)
+                    .map((g) => (
+                      <LabeledList.Item key={g.id} label={g.name || g.id}>
+                        {typeof g.weight === 'number' ? `w=${g.weight}` : '—'}
+                      </LabeledList.Item>
+                    ))}
+                </LabeledList>
+              ) : (
+                <Box opacity={0.6}>No goals available.</Box>
+              )}
+            </Section>
+
             <Section title="Subgoal">
               <LabeledList>
                 <LabeledList.Item label="Current">
@@ -375,9 +425,7 @@ export const Storyteller = (props) => {
                     <Stack.Item>
                       <Button
                         icon="check"
-                        onClick={() =>
-                          act('set_pace', { pace: Number(pace) || 1 })
-                        }
+                        onClick={() => act('set_pace', { pace: Number(pace) || 1 })}
                       >
                         Apply Pace
                       </Button>
@@ -400,6 +448,176 @@ export const Storyteller = (props) => {
                   </Button>
                 </Stack.Item>
               </Stack>
+            </Section>
+          </>
+        )}
+
+        {tab === 'advanced' && (
+          <>
+            <Section title="Difficulty & Tension">
+              <LabeledList>
+                <LabeledList.Item label="Difficulty Multiplier">
+                  <Stack>
+                    <Stack.Item grow>
+                      <Dropdown
+                        selected={difficulty}
+                        onSelected={(v) => setDifficulty(String(v))}
+                        options={[0.75, 1, 1.25, 1.5, 2].map((v) => String(v))}
+                        placeholder="Select difficulty..."
+                        width="100%"
+                      />
+                    </Stack.Item>
+                    <Stack.Item>
+                      <Button
+                        icon="check"
+                        onClick={() =>
+                          act('set_difficulty', {
+                            value: Number(difficulty) || 1,
+                          })
+                        }
+                      >
+                        Apply
+                      </Button>
+                    </Stack.Item>
+                  </Stack>
+                </LabeledList.Item>
+                <LabeledList.Item label="Target Tension">
+                  <Stack>
+                    <Stack.Item grow>
+                      <Dropdown
+                        selected={targetTension}
+                        onSelected={(v) => setTargetTension(String(v))}
+                        options={[30, 40, 50, 60, 70].map((v) => String(v))}
+                        placeholder="Select target tension..."
+                        width="100%"
+                      />
+                    </Stack.Item>
+                    <Stack.Item>
+                      <Button
+                        icon="check"
+                        onClick={() =>
+                          act('set_target_tension', {
+                            value: Number(targetTension) || 50,
+                          })
+                        }
+                      >
+                        Apply
+                      </Button>
+                    </Stack.Item>
+                  </Stack>
+                </LabeledList.Item>
+              </LabeledList>
+            </Section>
+
+            <Section title="Pacing & Intervals">
+              <LabeledList>
+                <LabeledList.Item label="Think Delay (ticks)">
+                  <Stack>
+                    <Stack.Item grow>
+                      <Dropdown
+                        selected={thinkDelay}
+                        onSelected={(v) => setThinkDelay(String(v))}
+                        options={[300, 600, 900, 1200, 1800, 2400].map((v) =>
+                          String(v),
+                        )}
+                        placeholder="Select think delay..."
+                        width="100%"
+                      />
+                    </Stack.Item>
+                    <Stack.Item>
+                      <Button
+                        icon="check"
+                        onClick={() => act('set_think_delay', { value: Number(thinkDelay) || 600 })}
+                      >
+                        Apply
+                      </Button>
+                    </Stack.Item>
+                  </Stack>
+                </LabeledList.Item>
+                <LabeledList.Item label="Event Interval (ticks)">
+                  <Stack>
+                    <Stack.Item grow>
+                      <Dropdown
+                        selected={minInterval}
+                        onSelected={(v) => setMinInterval(String(v))}
+                        options={[200, 300, 400, 500, 600].map((v) => String(v))}
+                        placeholder="Min"
+                        width="100%"
+                      />
+                    </Stack.Item>
+                    <Stack.Item grow>
+                      <Dropdown
+                        selected={maxInterval}
+                        onSelected={(v) => setMaxInterval(String(v))}
+                        options={[3000, 6000, 9000, 12000].map((v) => String(v))}
+                        placeholder="Max"
+                        width="100%"
+                      />
+                    </Stack.Item>
+                    <Stack.Item>
+                      <Button
+                        icon="check"
+                        onClick={() =>
+                          act('set_event_intervals', {
+                            min: Number(minInterval) || 300,
+                            max: Number(maxInterval) || 9000,
+                          })
+                        }
+                      >
+                        Apply
+                      </Button>
+                    </Stack.Item>
+                  </Stack>
+                </LabeledList.Item>
+                <LabeledList.Item label="Grace Period (ticks)">
+                  <Stack>
+                    <Stack.Item grow>
+                      <Dropdown
+                        selected={grace}
+                        onSelected={(v) => setGrace(String(v))}
+                        options={[600, 1200, 1800, 2400, 3000].map((v) =>
+                          String(v),
+                        )}
+                        placeholder="Select grace period..."
+                        width="100%"
+                      />
+                    </Stack.Item>
+                    <Stack.Item>
+                      <Button
+                        icon="check"
+                        onClick={() => act('set_grace_period', { value: Number(grace) || 3000 })}
+                      >
+                        Apply
+                      </Button>
+                    </Stack.Item>
+                  </Stack>
+                </LabeledList.Item>
+                <LabeledList.Item label="Repetition Penalty">
+                  <Stack>
+                    <Stack.Item grow>
+                      <Dropdown
+                        selected={repetitionPenalty}
+                        onSelected={(v) => setRepetitionPenalty(String(v))}
+                        options={[0.25, 0.5, 0.75, 1.0].map((v) => String(v))}
+                        placeholder="Select penalty..."
+                        width="100%"
+                      />
+                    </Stack.Item>
+                    <Stack.Item>
+                      <Button
+                        icon="check"
+                        onClick={() =>
+                          act('set_repetition_penalty', {
+                            value: Number(repetitionPenalty) || 0.5,
+                          })
+                        }
+                      >
+                        Apply
+                      </Button>
+                    </Stack.Item>
+                  </Stack>
+                </LabeledList.Item>
+              </LabeledList>
             </Section>
           </>
         )}

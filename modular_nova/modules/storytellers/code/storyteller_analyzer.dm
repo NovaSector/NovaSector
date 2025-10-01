@@ -42,6 +42,12 @@
 /datum/storyteller_analyzer/New(datum/storyteller/_owner)
 	..()
 	owner = _owner
+	// Discover and register metric stages dynamically
+	check_list = list()
+	for(var/type in subtypesof(/datum/storyteller_metric))
+		if(type == /datum/storyteller_metric)
+			continue
+		check_list += type
 	for(var/datum/storyteller_metric/check in check_list)
 		check = new
 	compute_station_value()
@@ -73,15 +79,38 @@
 	inputs.antag_count = get_player_counts()[TOTAL_ANTAGS]
 	inputs.antag_crew_ratio = get_antag_to_crew_ratio(inputs.antag_weight, inputs.crew_weight)
 
+	var/metrics_count = 0
 	for(var/datum/storyteller_metric/check in check_list)
 		if(!istype(check))
 			continue
 		if(!check.can_perform_now(src, owner, inputs, scan_flags))
 			continue
-		INVOKE_ASYNC(check, TYPE_PROC_REF(/datum/storyteller_metric, perform), src, owner, inputs, scan_flags)
+		metrics_count++
+		// Protect metric execution
+		INVOKE_ASYNC(src, TYPE_PROC_REF(/datum/storyteller_analyzer, __run_metric_safe), check, inputs, scan_flags)
 
-	UNTIL(analyzing)
+	// Wait for async metrics to finish or timeout
+	if(metrics_count <= 0)
+		analyzing = FALSE
+	var/timeout_at = world.time + (cache_duration * 2)
+	while(analyzing && world.time < timeout_at)
+		stoplag()
+		sleep(world.tick_lag)
+	if(analyzing)
+		// Timed out; stop now
+		analyzing = FALSE
+		log_storyteller_analyzer("Analyzer scan timed out; continuing with partial inputs")
+
 	actual_inputs = inputs
+	log_storyteller_analyzer("Analyzer scan finished. players=[inputs.player_count] antags=[inputs.antag_count] metrics=[metrics_count]")
+
+
+/datum/storyteller_analyzer/proc/__run_metric_safe(datum/storyteller_metric/check, datum/storyteller_inputs/inputs, scan_flags)
+	try
+		INVOKE_ASYNC(check, TYPE_PROC_REF(/datum/storyteller_metric, perform), src, owner, inputs, scan_flags)
+	catch(var/exception/e)
+		log_storyteller_analyzer("Metric [check?.type] crashed: [e]")
+		message_admins("[span_warning("Storyteller metric [check?.type] crashed during scan.")] Check server logs.")
 
 
 /datum/storyteller_analyzer/proc/try_stop_analyzing(datum/storyteller_metric/current)

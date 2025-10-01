@@ -17,7 +17,7 @@
 	/// Last recalculation time; throttle to avoid spam
 	var/last_recalc_time = 0
 	/// Recalc frequency (scaled by pace; default 5 mins)
-	var/recalc_interval = 5 MINUTES
+	var/recalc_interval = STORY_RECALC_INTERVAL
 
 
 
@@ -61,13 +61,15 @@
 			// Progress global if subgoal
 			if(goal != current_goal)
 				ctl.global_goal_progress += 0.2
+			message_admins("[span_notice("Storyteller fired goal: ")] [goal.name || goal.id]. Use the Storyteller panel to clear if needed.")
 		else
 			entry[3] = STORY_GOAL_FAILED
+			message_admins("[span_warning("Storyteller goal failed to fire: ")] [goal.name || goal.id]")
 
 	// Clean completed/failed from timeline
 	for(var/offset in timeline.Copy())
 		var/entry = timeline[offset]
-		if(entry[10] in list(STORY_GOAL_COMPLETED, STORY_GOAL_FAILED))
+		if(entry[3] in list(STORY_GOAL_COMPLETED, STORY_GOAL_FAILED))
 			timeline -= offset
 
 
@@ -100,7 +102,7 @@
 	var/list/new_timeline = build_timeline(ctl, inputs, bal, derived_tags, duration)
 	timeline += new_timeline
 
-	log_storyteller("Storyteller recalculated plan: [length(timeline)] events scheduled.")
+	log_storyteller_planner("Storyteller recalculated plan: [length(timeline)] events scheduled.")
 	return timeline
 
 
@@ -171,7 +173,7 @@
 
 	var/derived_tags = derive_universal_tags(category, ctl, inputs, bal)
 	var/effective_threat = ctl.threat_points * ctl.mood.get_threat_multiplier() * ctl.difficulty_multiplier
-	var/adaptation_adjust = 1.0 - ctl.adaptation_factor
+	// var/adaptation_adjust = 1.0 - ctl.adaptation_factor
 
 	// Bias tag filter by threat/adaptation
 	var/tag_filter = derived_tags
@@ -195,7 +197,9 @@
 
 	ctl.threat_points += ctl.threat_growth_rate * ctl.mood.get_variance_multiplier()
 	ctl.adaptation_factor = max(0, ctl.adaptation_factor - ctl.adaptation_decay_rate)
-	log_storyteller("Storyteller picked global goal [current_goal?.name || "None"]. Threat: [ctl.threat_points], Adaptation: [ctl.adaptation_factor]")
+	log_storyteller_planner("Storyteller picked global goal [current_goal?.name || "None"]. Threat: [ctl.threat_points], Adaptation: [ctl.adaptation_factor]")
+	if(current_goal)
+		message_admins("[span_notice("Storyteller selected global goal: ")] [current_goal.name || current_goal.id]. Use the Storyteller panel to Clear Goal to veto.")
 	return current_goal
 
 
@@ -210,7 +214,7 @@
 		generated += children_goals
 	else
 		var/list/candidates = SSstorytellers.filter_goals(null, derived_tags & ~(STORY_TAG_AFFECTS_WHOLE_STATION), null, FALSE)
-		var/num_subs = round(3 * owner.mood.get_event_frequency_multiplier())
+		var/num_subs = round(STORY_BASE_SUBGOALS_COUNT * owner.mood.get_event_frequency_multiplier())
 		for(var/i in 1 to min(num_subs, candidates.len))
 			var/sub = select_weighted_goal(owner, owner.inputs, owner.balancer.make_snapshot(), candidates)
 			if(sub)
@@ -240,15 +244,15 @@
 			rep_penalty = ctl.repetition_penalty
 
 		// Threat/adaptation influence: Boost aggressive/escalation if threat high, reduce if adapted (post-damage grace)
-		var/threat_bonus = ctl.threat_points * ctl.mood.get_threat_multiplier() * 0.01  // Small scaling for gradual escalation
+		var/threat_bonus = ctl.threat_points * ctl.mood.get_threat_multiplier() * STORY_PICK_THREAT_BONUS_SCALE  // Small scaling for gradual escalation
 		var/adapt_reduce = 1.0 - ctl.adaptation_factor
 
 		// Balance tension: If tension high, boost deescalation goals; low -> escalation
 		var/balance_bonus = 0
 		if(bal.overall_tension > ctl.target_tension && (G.tags & STORY_TAG_DEESCALATION))
-			balance_bonus += 1.5
+			balance_bonus += STORY_BALANCE_BONUS
 		else if(bal.overall_tension < ctl.target_tension && (G.tags & STORY_TAG_ESCALATION))
-			balance_bonus += 1.5
+			balance_bonus += STORY_BALANCE_BONUS
 
 		// Final weight: Combine all, ensure minimum to avoid zero-weight goals
 		var/final_weight = max(0.1, (base_weight + priority_boost + threat_bonus + balance_bonus - rep_penalty) * diff_adjust * adapt_reduce)
@@ -282,7 +286,7 @@
 			category_bias = 0.8
 
 	if(category & STORY_GOAL_GLOBAL)
-	tags |= STORY_TAG_AFFECTS_WHOLE_STATION
+		tags |= STORY_TAG_AFFECTS_WHOLE_STATION
 
 	// Step 1: Base Level - Direct from inputs.vault metrics, scaled by category bias
 	var/crew_health = inputs.vault[STORY_VAULT_CREW_HEALTH]
@@ -399,5 +403,5 @@
 		category = (category == STORY_GOAL_GOOD) ? STORY_GOAL_BAD : STORY_GOAL_GOOD
 
 
-	log_storyteller("Storyteller selected category [category] based on tension [bal.overall_tension], adaptation [ctl.adaptation_factor]")
+	log_storyteller_planner("Storyteller selected category [category] based on tension [bal.overall_tension], adaptation [ctl.adaptation_factor]")
 	return category
