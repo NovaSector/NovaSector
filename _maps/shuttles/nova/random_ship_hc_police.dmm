@@ -88,13 +88,6 @@
 	},
 /turf/open/floor/plating/airless,
 /area/shuttle/hc_cops)
-"du" = (
-/obj/structure/lattice/catwalk,
-/obj/structure/deployable_barricade/guardrail{
-	dir = 8
-	},
-/turf/open/floor/plating/airless,
-/area/shuttle/hc_cops)
 "dy" = (
 /obj/effect/turf_decal/stripes/line{
 	dir = 5
@@ -450,15 +443,12 @@
 /obj/machinery/light/small/red/directional/north,
 /obj/machinery/recharger,
 /obj/item/gun/energy/taser/crank{
-	pixel_x = 0;
 	pixel_y = 2
 	},
 /obj/item/gun/energy/taser/crank{
-	pixel_x = 0;
 	pixel_y = -3
 	},
 /obj/item/gun/energy/taser/crank{
-	pixel_x = 0;
 	pixel_y = -8
 	},
 /turf/open/floor/pod/light,
@@ -529,11 +519,6 @@
 	},
 /turf/open/floor/plating,
 /area/shuttle/hc_cops)
-"tG" = (
-/obj/structure/deployable_barricade/guardrail,
-/obj/structure/lattice/catwalk,
-/turf/open/floor/plating/airless,
-/area/shuttle/hc_cops)
 "uh" = (
 /obj/structure/rack/gunrack,
 /obj/item/gun/ballistic/automatic/lanca,
@@ -582,13 +567,6 @@
 /obj/item/storage/belt/utility/full/engi,
 /obj/item/clothing/glasses/meson/engine,
 /turf/open/floor/pod,
-/area/shuttle/hc_cops)
-"uY" = (
-/obj/structure/deployable_barricade/guardrail{
-	dir = 1
-	},
-/obj/structure/lattice/catwalk,
-/turf/open/floor/engine/hull/reinforced,
 /area/shuttle/hc_cops)
 "vh" = (
 /obj/effect/turf_decal/loading_area{
@@ -692,7 +670,6 @@
 /turf/open/floor/pod/light,
 /area/shuttle/hc_cops)
 "zb" = (
-/obj/structure/deployable_barricade/guardrail,
 /obj/structure/lattice/catwalk,
 /turf/open/floor/engine/hull/reinforced,
 /area/shuttle/hc_cops)
@@ -707,13 +684,6 @@
 	dir = 9
 	},
 /turf/closed/wall/mineral/titanium/spaceship/nodiagonal,
-/area/shuttle/hc_cops)
-"zA" = (
-/obj/structure/lattice/catwalk,
-/obj/structure/deployable_barricade/guardrail{
-	dir = 1
-	},
-/turf/open/floor/plating/airless,
 /area/shuttle/hc_cops)
 "zJ" = (
 /obj/structure/table/reinforced,
@@ -878,13 +848,6 @@
 	},
 /obj/machinery/light/floor,
 /turf/open/floor/engine/hull/reinforced,
-/area/shuttle/hc_cops)
-"Fa" = (
-/obj/structure/deployable_barricade/guardrail{
-	dir = 1
-	},
-/obj/structure/lattice/catwalk,
-/turf/open/floor/plating/airless,
 /area/shuttle/hc_cops)
 "Fm" = (
 /obj/effect/turf_decal/stripes/line{
@@ -1232,11 +1195,6 @@
 	dir = 6
 	},
 /turf/closed/wall/mineral/titanium/spaceship/nodiagonal,
-/area/shuttle/hc_cops)
-"Te" = (
-/obj/structure/lattice/catwalk,
-/obj/structure/deployable_barricade/guardrail,
-/turf/open/floor/plating/airless,
 /area/shuttle/hc_cops)
 "Tg" = (
 /obj/structure/window/reinforced/survival_pod/spawner/directional/east,
@@ -1814,7 +1772,7 @@ ot
 "}
 (24,1,1) = {"
 ot
-Fa
+RG
 PZ
 RG
 Iv
@@ -1826,14 +1784,14 @@ Iv
 Iv
 RG
 MR
-tG
+RG
 ot
 "}
 (25,1,1) = {"
 ot
-Fa
+RG
 IT
-Te
+RG
 BM
 Iv
 Iv
@@ -1841,23 +1799,23 @@ Iv
 Iv
 Iv
 BM
-zA
+RG
 IT
-tG
+RG
 ot
 "}
 (26,1,1) = {"
 ot
-uY
+zb
 jJ
 wj
-du
-du
-du
-du
-du
-du
-du
+RG
+RG
+RG
+RG
+RG
+RG
+RG
 wj
 jJ
 zb

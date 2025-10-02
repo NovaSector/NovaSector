@@ -653,9 +653,6 @@
 /turf/open/floor/iron/smooth_large,
 /area/ruin/space/has_grav/nova/blackmarket)
 "Fq" = (
-/obj/structure/deployable_barricade/guardrail{
-	dir = 8
-	},
 /obj/effect/turf_decal/siding/thinplating_new/dark{
 	dir = 10
 	},
@@ -809,9 +806,6 @@
 /turf/open/floor/iron/dark/textured_large,
 /area/ruin/space/has_grav/nova/blackmarket)
 "Nf" = (
-/obj/structure/deployable_barricade/guardrail{
-	dir = 4
-	},
 /obj/effect/turf_decal/siding/thinplating_new/dark{
 	dir = 6
 	},
