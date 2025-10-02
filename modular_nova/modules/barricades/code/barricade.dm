@@ -233,22 +233,6 @@
 
 	setDir(turn(dir, 270))
 
-
-/*----------------------*/
-// SNOW
-/*----------------------*/
-
-/obj/structure/deployable_barricade/snow
-	name = "snow barricade"
-	desc = "A snowdrift, carefully rammed with palms up to a relatively solid state. The architect in your head believes that it is better than nothing. In principle, you agree with him."
-	icon_state = "snow_0"
-	barricade_type = "snow"
-	max_integrity = 75
-	stack_type = /obj/item/stack/sheet/mineral/snow
-	stack_amount = 2
-	destroyed_stack_amount = 0
-	can_wire = FALSE
-
 /*----------------------*/
 // GUARD RAIL
 /*----------------------*/
@@ -276,47 +260,6 @@
 	. = ..()
 	if(dir == NORTH)
 		pixel_y = 11
-
-/*----------------------*/
-// WOOD
-/*----------------------*/
-
-/obj/structure/deployable_barricade/wooden
-	name = "wooden barricade"
-	desc = "A wall hammered out of wooden planks may not even look very strong, but it still provides some protection."
-	icon = 'modular_nova/modules/barricades/icons/barricade.dmi'
-	icon_state = "wooden"
-	max_integrity = 100
-	layer = OBJ_LAYER
-	stack_type = /obj/item/stack/sheet/mineral/wood
-	stack_amount = 2
-	destroyed_stack_amount = 1
-	can_change_dmg_state = FALSE
-	barricade_type = "wooden"
-	can_wire = FALSE
-
-/obj/structure/deployable_barricade/wooden/attackby(obj/item/attacking_item, mob/user, list/modifiers, list/attack_modifiers)
-	. = ..()
-	if(istype(attacking_item, /obj/item/stack/sheet/mineral/wood))
-		var/obj/item/stack/sheet/mineral/wood/wood = attacking_item
-		if(get_integrity() >= max_integrity)
-			return
-
-		if(wood.get_amount() < 1)
-			to_chat(user, span_warning("You need at least one board to repair [src]!"))
-			return
-
-		visible_message(span_notice("[user] begins to repair [src]."))
-
-		if(!do_after(user,20, src) || get_integrity() >= max_integrity)
-			return
-
-		if(!wood.use(1))
-			return
-
-		repair_damage(max_integrity)
-		visible_message(span_notice("[user] repairs [src]."))
-
 
 /*----------------------*/
 // METAL
