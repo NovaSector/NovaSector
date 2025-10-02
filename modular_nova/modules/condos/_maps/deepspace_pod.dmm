@@ -271,7 +271,7 @@
 	pixel_x = -16;
 	anchored = 1;
 	name = "Intercom";
-	desc = "An older model version of a standard intercom system"
+	desc = "An older model version of a standard intercom system."
 	},
 /turf/open/floor/mineral/plastitanium,
 /area/misc/condo)
@@ -472,7 +472,7 @@
 	dir = 8;
 	anchored = 1;
 	name = "Intercom";
-	desc = "An older model version of a standard intercom system"
+	desc = "An older model version of a standard intercom system."
 	},
 /obj/effect/turf_decal/siding/wideplating_new/dark{
 	dir = 10
@@ -532,7 +532,7 @@
 	dir = 8;
 	anchored = 1;
 	name = "Intercom";
-	desc = "An older model version of a standard intercom system"
+	desc = "An older model version of a standard intercom system."
 	},
 /turf/open/floor/carpet/royalblue,
 /area/misc/condo)
@@ -862,7 +862,7 @@
 	dir = 8;
 	anchored = 1;
 	name = "Intercom";
-	desc = "An older model version of a standard intercom system"
+	desc = "An older model version of a standard intercom system."
 	},
 /obj/machinery/light/directional/south,
 /turf/open/floor/wood/parquet,
@@ -916,7 +916,7 @@
 	pixel_x = -16;
 	anchored = 1;
 	name = "Intercom";
-	desc = "An older model version of a standard intercom system"
+	desc = "An older model version of a standard intercom system."
 	},
 /turf/open/floor/circuit/red/off,
 /area/misc/condo)

@@ -1793,7 +1793,7 @@
 /obj/effect/turf_decal/siding/wideplating_new/dark/corner{
 	dir = 1
 	},
-/turf/open/floor/wood/large,
+/turf/open/floor/wood,
 /area/misc/condo)
 "kA" = (
 /obj/structure/curtain/cloth/fancy/mechanical{
@@ -2810,7 +2810,7 @@
 	density = 1;
 	pixel_y = 0;
 	uses_integrity = 0;
-	desc = "Sees occasional usage. It seems to be paired with a server called Nova Sector]"
+	desc = "Sees occasional usage. It seems to be paired with a server called Nova Sector."
 	},
 /obj/structure/marker_beacon/indigo,
 /obj/item/clothing/mask/muzzle/tape{
@@ -3626,7 +3626,7 @@
 /area/misc/condo)
 "vr" = (
 /obj/structure/fluff/bus/passable/seat{
-	desc = "Tests all the systems to make sure they function accordingly, also tends to false positive things it doesn't like";
+	desc = "Tests all the systems to make sure they function accordingly; also tends to false positive things it doesn't like.";
 	icon = 'icons/obj/machines/telecomms.dmi';
 	icon_state = "blackbox";
 	name = "Unit Test server";
@@ -3770,7 +3770,7 @@
 /area/misc/condo)
 "wn" = (
 /obj/structure/fluff/bus/passable/seat{
-	desc = "Occasionallly runtimes and crashes on serenity station.";
+	desc = "Occasionally runtimes and crashes on deer-infested simulations.";
 	icon = 'icons/obj/machines/telecomms.dmi';
 	icon_state = "blackbox";
 	name = "Nova Sector server";
@@ -4469,7 +4469,7 @@
 	pixel_y = 0;
 	uses_integrity = 0;
 	name = "Copium Mining Server";
-	desc = "400TB of various tears and crashouts from maintainers and contributors alike, we're not sure how you got this many, but its probably best not to ask."
+	desc = "400TB of various tears and crashouts from maintainers and contributors alike. We're not sure how you got this many, but it's probably best not to ask."
 	},
 /turf/open/floor/plating,
 /area/misc/condo)
@@ -7085,7 +7085,7 @@
 	pixel_y = -5
 	},
 /obj/structure/fluff/bus/passable/seat{
-	desc = "Seems to have etched on the side 'breaks-the-prs waz here'";
+	desc = "Seems to have etched on the side 'breaks-the-prs waz here.'";
 	icon = 'icons/obj/machines/telecomms.dmi';
 	icon_state = "blackbox";
 	name = "Nova Sector Deployment server";
