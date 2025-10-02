@@ -9435,7 +9435,7 @@
 "cxB" = (
 /obj/machinery/conveyor{
 	dir = 8;
-	id = "cargoload"
+	id = "QMLoad"
 	},
 /obj/machinery/door/poddoor{
 	id = "QMLoaddoor";
@@ -12499,7 +12499,7 @@
 "dpQ" = (
 /obj/machinery/conveyor{
 	dir = 1;
-	id = "cargounload"
+	id = "QMLoad2"
 	},
 /turf/open/floor/iron/dark/side{
 	dir = 8
@@ -15173,7 +15173,7 @@
 "ebj" = (
 /obj/machinery/conveyor{
 	dir = 1;
-	id = "cargoload"
+	id = "QMLoad"
 	},
 /turf/open/floor/iron/dark,
 /area/station/cargo/storage)
@@ -21150,7 +21150,7 @@
 "fGF" = (
 /obj/machinery/conveyor{
 	dir = 8;
-	id = "cargoload"
+	id = "QMLoad"
 	},
 /turf/open/floor/plating,
 /area/station/cargo/storage)
@@ -21980,7 +21980,7 @@
 /area/station/service/library)
 "fSX" = (
 /obj/machinery/conveyor_switch/oneway{
-	id = "cargounload";
+	id = "QMLoad2";
 	name = "Unloading Conveyor"
 	},
 /turf/open/floor/iron/large,
@@ -28592,7 +28592,7 @@
 /obj/machinery/light/directional/west,
 /obj/machinery/conveyor{
 	dir = 1;
-	id = "cargounload"
+	id = "QMLoad2"
 	},
 /turf/open/floor/iron/dark/side{
 	dir = 8
@@ -53746,7 +53746,7 @@
 "onW" = (
 /obj/machinery/conveyor_switch/oneway{
 	dir = 8;
-	id = "cargoload";
+	id = "QMLoad";
 	name = "Loading Conveyor"
 	},
 /turf/open/floor/iron/large,
@@ -54970,7 +54970,7 @@
 "oGX" = (
 /obj/machinery/conveyor/inverted{
 	dir = 6;
-	id = "cargoload"
+	id = "QMLoad"
 	},
 /turf/open/floor/iron/dark,
 /area/station/cargo/storage)
@@ -58128,7 +58128,7 @@
 "pyj" = (
 /obj/machinery/conveyor{
 	dir = 8;
-	id = "cargoload"
+	id = "QMLoad"
 	},
 /obj/machinery/door/poddoor{
 	id = "QMLoaddoor";
@@ -66994,7 +66994,7 @@
 "rXX" = (
 /obj/machinery/conveyor{
 	dir = 4;
-	id = "cargounload"
+	id = "QMLoad2"
 	},
 /obj/machinery/door/poddoor{
 	id = "QMLoaddoor2";
@@ -77429,7 +77429,7 @@
 "uIP" = (
 /obj/machinery/conveyor{
 	dir = 4;
-	id = "cargounload"
+	id = "QMLoad2"
 	},
 /turf/open/floor/plating,
 /area/station/cargo/storage)
@@ -77696,7 +77696,7 @@
 "uNA" = (
 /obj/machinery/conveyor/inverted{
 	dir = 10;
-	id = "cargounload"
+	id = "QMLoad2"
 	},
 /turf/open/floor/iron/dark/side{
 	dir = 8
@@ -83732,7 +83732,7 @@
 "wrY" = (
 /obj/machinery/conveyor{
 	dir = 4;
-	id = "cargounload"
+	id = "QMLoad2"
 	},
 /obj/machinery/door/poddoor{
 	id = "QMLoaddoor2";
@@ -88414,7 +88414,7 @@
 /obj/machinery/light/directional/west,
 /obj/machinery/conveyor{
 	dir = 1;
-	id = "cargoload"
+	id = "QMLoad"
 	},
 /obj/machinery/camera/autoname/directional/west,
 /turf/open/floor/iron/dark,
