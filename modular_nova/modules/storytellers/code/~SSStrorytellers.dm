@@ -1,12 +1,20 @@
+GLOBAL_LIST(storyteller_vote_uis)
+
 SUBSYSTEM_DEF(storytellers)
 	name = "Storytellers"
 	runlevels = RUNLEVEL_GAME
 	wait = 1 MINUTES
 	priority = FIRE_PRIORITY_PING
 
+	// Stortyteller selected on vote
+	var/selected_path
+	// Difficult selected on vote
+	var/selected_difficult
+
 	/// Active storyteller instance
 	var/datum/storyteller/active
 
+	// The current station value
 	var/station_value = 0
 
 	var/list/goals_by_category = list()
@@ -24,17 +32,42 @@ SUBSYSTEM_DEF(storytellers)
 	goal_roots = list()
 	goals_by_category = list()
 	collect_avaible_goals()
+	SSevents.flags = SS_NO_FIRE
+
 
 
 	// Create default storyteller
 	active = new /datum/storyteller
 	active.initialize_round()
+
+
+	disable_dynamic()
 	return SS_INIT_SUCCESS
 
 
 /datum/controller/subsystem/storytellers/fire(resumed)
 	if(active)
 		active.think()
+
+
+/datum/controller/subsystem/storytellers/proc/disable_dynamic()
+	SSdynamic.flags = SS_NO_FIRE
+
+
+/datum/controller/subsystem/storytellers/proc/initialize_storyteller()
+	if(!ispath(selected_path, /datum/storyteller))
+		log_storyteller("Failed to Initialize storyteller: invalid path [selected_path]")
+		message_admins(span_bolditalic("Failed to Initialize storyteller! Default storyteller selected"))
+		if (active)
+			qdel(active)
+		active = new /datum/storyteller
+		active.difficulty_multiplier = 1.0
+		active.initialize_round()
+		return
+
+	active = new selected_path
+	active.difficulty_multiplier = clamp(selected_difficult, 0.3, 5.0)
+	active.initialize_round()
 
 
 /datum/controller/subsystem/storytellers/proc/register_atom_for_storyteller(atom/A)
@@ -149,6 +182,109 @@ SUBSYSTEM_DEF(storytellers)
 /// Convenience method to get goals by tags
 /datum/controller/subsystem/storytellers/proc/get_goals_by_tags(required_tags, all_tags_required = FALSE)
 	return filter_goals(null, required_tags, null, all_tags_required, TRUE)
+
+
+/datum/controller/subsystem/storytellers/proc/start_vote(duration = 60 SECONDS)
+	GLOB.storyteller_vote_uis = list()
+	to_chat(world, span_boldnotice("<Storyteller voting has begun!"))
+	for (var/client/C in GLOB.clients)
+		var/datum/storyteller_vote_ui/ui = new(C, duration)
+		ui.ui_interact(C.mob)
+	addtimer(CALLBACK(src, PROC_REF(check_vote_end)), duration)
+	log_storyteller("Storyteller vote started: duration=[duration/10]s")
+
+/datum/controller/subsystem/storytellers/proc/check_vote_end()
+	if (length(GLOB.storyteller_vote_uis))
+		end_vote()
+
+/datum/controller/subsystem/storytellers/proc/end_vote()
+	if (!length(GLOB.storyteller_vote_uis))
+		return
+
+	var/list/tallies = list()
+	var/list/all_diffs = list()
+	var/total_votes = 0
+	for (var/datum/storyteller_vote_ui/ui in GLOB.storyteller_vote_uis)
+		for (var/ckey in ui.votes)
+			var/list/v = ui.votes[ckey]
+			var/path_str = v["storyteller"]
+			if (!path_str)
+				continue
+			tallies[path_str] = (tallies[path_str] || 0) + 1
+			if (v["difficulty"])
+				all_diffs += v["difficulty"]
+			total_votes++
+		SStgui.close_uis(ui.owner.mob, ui)
+		qdel(ui)
+	GLOB.storyteller_vote_uis = list()
+
+	var/list/best_storytellers = list()
+	var/max_votes = 0
+	for (var/path_str in tallies)
+		var/count = tallies[path_str]
+		if (count > max_votes)
+			max_votes = count
+			best_storytellers = list(path_str)
+		else if (count == max_votes)
+			best_storytellers += path_str
+
+	var/selected_path_str
+	if (best_storytellers.len == 1)
+		selected_path_str = best_storytellers[1]
+	else
+		selected_path_str = pick(best_storytellers)
+		to_chat(world, span_announce("Tie broken randomly!"))
+
+	selected_path = text2path(selected_path_str)
+	var/avg_diff = length(all_diffs) ? get_avg(all_diffs) : 1.0
+	selected_difficult = avg_diff
+
+	if(!SSticker.state == GAME_STATE_PLAYING)
+		return
+
+	if(!ispath(selected_path, /datum/storyteller))
+		log_storyteller("Vote failed: invalid path [selected_path_str]")
+		to_chat(world, span_big("<span class='bold warning'>Vote failed! Default storyteller selected.</span>"))
+		if (active)
+			qdel(active)
+		active = new /datum/storyteller
+		active.difficulty_multiplier = 1.0
+		active.initialize_round()
+		return
+
+	if(active)
+		qdel(active)
+	active = new selected_path
+	active.difficulty_multiplier = clamp(avg_diff, 0.3, 5.0)
+	active.initialize_round()
+
+	var/selected_name = find_candidate_name_global(selected_path_str)
+	to_chat(world, span_boldnotice("Storyteller selected: [selected_name] at difficulty [round(avg_diff, 0.1)]."))
+	log_storyteller("Storyteller vote ended: [selected_path_str] (votes=[max_votes], diff=[avg_diff]), total votes=[total_votes]")
+
+/datum/storyteller_vote_ui/proc/find_candidate_name(path_str)
+	for (var/list/cand in candidates)
+		if (cand["id"] == path_str)
+			return cand["name"]
+	return "Unknown"
+
+
+/proc/get_avg(list/nums)
+	if (!length(nums))
+		return 1.0
+	var/sum = 0
+	for (var/n in nums)
+		sum += n
+	return sum / length(nums)
+
+
+/proc/find_candidate_name_global(path_str)
+	for (var/datum/storyteller_vote_ui/ui in GLOB.storyteller_vote_uis)
+		for (var/list/cand in ui.candidates)
+			if (cand["id"] == path_str)
+				return cand["name"]
+	var/datum/storyteller/ST = text2path(path_str)
+	return initial(ST:name) || "Unknown"
 
 
 
@@ -362,33 +498,42 @@ ADMIN_VERB(storyteller_admin, R_ADMIN, "Storyteller", "Open the storyteller admi
 	ui.ui_interact(usr)
 
 
-// Storyteller Voting UI
 /datum/storyteller_vote_ui
 	var/list/candidates
-	var/selection
-	var/difficulty = 1.0
+	var/list/votes = list() // ckey -> list("storyteller" = path_string, "difficulty" = num)
+	var/vote_end_time = 0
+	var/vote_duration = 60 SECONDS
+	var/client/owner
 
-/datum/storyteller_vote_ui/New()
+/datum/storyteller_vote_ui/New(client/C, duration = 60 SECONDS)
 	. = ..()
+	if (!C)
+		qdel(src)
+		return
+	owner = C
+	vote_duration = duration
+	vote_end_time = world.time + duration
 	candidates = list()
-	for(var/type in subtypesof(/datum/storyteller))
-		if(type == /datum/storyteller)
+	for (var/typepath in subtypesof(/datum/storyteller))
+		if (typepath == /datum/storyteller)
 			continue
-		var/name = initial(type:name)
-		var/desc = initial(type:desc)
+		var/datum/storyteller/ST = typepath
+		var/name = initial(ST:name)
+		var/desc = initial(ST:desc)
 		candidates += list(list(
-			"id" = "[type]",
+			"id" = "[typepath]",
 			"name" = name,
 			"desc" = desc,
 			"portrait" = null,
 		))
-	for(var/mob/living/L in GLOB.player_list)
-		if(L.client)
-			ui_interact(L.client.mob)
+	GLOB.storyteller_vote_uis += src
 
+/datum/storyteller_vote_ui/Destroy()
+	GLOB.storyteller_vote_uis -= src
+	return ..()
 
 /datum/storyteller_vote_ui/ui_state(mob/user)
-	return null
+	return GLOB.always_state
 
 /datum/storyteller_vote_ui/ui_static_data(mob/user)
 	var/list/data = list()
@@ -398,54 +543,93 @@ ADMIN_VERB(storyteller_admin, R_ADMIN, "Storyteller", "Open the storyteller admi
 	return data
 
 /datum/storyteller_vote_ui/ui_data(mob/user)
+	var/ckey = owner.ckey
+	var/list/personal_vote = votes[ckey] || list("storyteller" = null, "difficulty" = 1.0)
+
+	var/list/tallies = list()
+	var/list/difficulties = list()
+	for (var/datum/storyteller_vote_ui/ui in GLOB.storyteller_vote_uis)
+		for (var/vote_ckey in ui.votes)
+			var/list/v = ui.votes[vote_ckey]
+			var/path_str = v["storyteller"]
+			if (!path_str)
+				continue
+			tallies[path_str] = (tallies[path_str] || 0) + 1
+			LAZYADD(difficulties[path_str], v["difficulty"])
+
+	var/list/top_tallies = list()
+	var/list/sorted_tallies = sortTim(tallies, /proc/cmp_numeric_dsc, TRUE)
+	for (var/i = 1 to min(3, length(sorted_tallies)))
+		var/path_str = sorted_tallies[i]
+		top_tallies += list(list(
+			"name" = find_candidate_name(path_str),
+			"count" = tallies[path_str],
+			"avg_diff" = length(difficulties[path_str]) ? get_avg(difficulties[path_str]) : 1.0
+		))
+
 	var/list/data = list()
-	data["selection"] = selection
-	data["difficulty"] = difficulty
+	data["personal_selection"] = personal_vote["storyteller"]
+	data["personal_difficulty"] = personal_vote["difficulty"]
+	data["total_voters"] = length(GLOB.clients)
+	data["voted_count"] = length(tallies)
+	data["time_left"] = max(0, (vote_end_time - world.time))
+	data["top_tallies"] = top_tallies
+	data["is_open"] = world.time < vote_end_time
 	return data
 
 /datum/storyteller_vote_ui/ui_interact(mob/user, datum/tgui/ui)
+	if (!owner)
+		return
 	ui = SStgui.try_update_ui(user, src, ui)
-	if(!ui)
-		ui = new(user, src, "StorytellerVote")
+	if (!ui)
+		ui = new(user, src, "StorytellerVote", "Storyteller Vote")
 		ui.open()
 
 /datum/storyteller_vote_ui/ui_act(action, list/params, datum/tgui/ui, datum/ui_state/state)
 	. = ..()
-	if(.)
+	if (.)
 		return
-	switch(action)
-		if("vote_select")
-			selection = params["id"]
+	var/ckey = owner.ckey
+	switch (action)
+		if ("select_storyteller")
+			var/id = params["id"]
+			var/list/personal = votes[ckey] || list()
+			personal["storyteller"] = id
+			votes[ckey] = personal
 			return TRUE
-		if("vote_difficulty")
-			difficulty = clamp(text2num(params["value"]), 0.3, 5.0)
-			return TRUE
-		if("vote_submit")
-			SSstorytellers.finalize_vote(selection, difficulty)
+		if ("set_difficulty")
+			var/value = text2num(params["value"])
+			value = clamp(value, 0.3, 5.0)
+			var/list/personal = votes[ckey] || list()
+			personal["difficulty"] = value
+			votes[ckey] = personal
 			return TRUE
 	return FALSE
 
 
-// Subsystem procs for voting
-/datum/controller/subsystem/storytellers/proc/start_vote()
-	for(var/client/C as anything in GLOB.clients)
-		var/datum/storyteller_vote_ui/ui = new
-		ui.ui_interact(C.mob)
-
-/datum/controller/subsystem/storytellers/proc/finalize_vote(selection, difficulty)
-	if(!selection)
+/client/verb/reopen_storyteller_vote()
+	set name = "Reopen Storyteller Vote"
+	set category = "OOC"
+	var/datum/storyteller_vote_ui/ui
+	for (var/datum/storyteller_vote_ui/V in GLOB.storyteller_vote_uis)
+		if (V.owner == src)
+			ui = V
+			break
+	if (!ui)
+		to_chat(src, span_warning("No active storyteller vote or you don't have an active voting UI."))
 		return
-	var/path = text2path(selection)
-	if(!ispath(path, /datum/storyteller))
+	if (world.time >= ui.vote_end_time)
+		to_chat(src, span_warning("Voting has ended."))
 		return
-	if(active)
-		qdel(active)
-	active = new path
-	if(isnum(difficulty))
-		active.difficulty_multiplier = clamp(difficulty, 0.3, 5.0)
-	active.initialize_round()
-	log_storyteller("Storyteller vote finalized: [selection] diff=[difficulty]")
+	ui.ui_interact(mob)
+	to_chat(src, span_notice("Storyteller vote menu reopened."))
 
 
-ADMIN_VERB(storyteller_vote, R_ADMIN, "Storyteller - vote", "Open the storyteller vote.", ADMIN_CATEGORY_EVENTS)
-	var/datum/storyteller_vote_ui/ui = new
+ADMIN_VERB(storyteller_vote, R_ADMIN | R_DEBUG, "Storyteller - Start Vote", "Start a global storyteller vote.", ADMIN_CATEGORY_EVENTS)
+	if (tg_alert(usr, "Start global vote?", "Storyteller Vote", "Yes", "No") == "No")
+		return
+	var/duration = tgui_input_number(usr, "Duration in seconds:", "Vote Duration", 60, 240, 60) as num
+	SSstorytellers.start_vote(duration SECONDS)
+
+ADMIN_VERB(storyteller_end_vote, R_ADMIN | R_DEBUG, "Storyteller - End Vote", "End vote early.", ADMIN_CATEGORY_EVENTS)
+	SSstorytellers.end_vote()

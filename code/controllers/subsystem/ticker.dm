@@ -171,6 +171,7 @@ SUBSYSTEM_DEF(ticker)
 
 			current_state = GAME_STATE_PREGAME
 			SStitle.change_title_screen() // NOVA EDIT ADDITION - Title screen
+			SSstorytellers.start_vote(90 SECONDS) // NOVA EDIT ADDITION - Start storyteller vote
 			addtimer(CALLBACK(SStitle, TYPE_PROC_REF(/datum/controller/subsystem/title, change_title_screen)), 1 SECONDS) // NOVA EDIT ADDITION - Title screen
 			//Everyone who wants to be an observer is now spawned
 			SEND_SIGNAL(src, COMSIG_TICKER_ENTER_PREGAME)
@@ -316,11 +317,14 @@ SUBSYSTEM_DEF(ticker)
 /datum/controller/subsystem/ticker/proc/PostSetup()
 	set waitfor = FALSE
 
+	SSstorytellers.initialize_storyteller() // NOVA EDIT ADDITION - inititalize storyteller
+	/* // NOVA EDIT REMOVAL START - Storytellers: stortyteller roll antags by itself
 	// Spawn traitors and stuff
 	for(var/datum/dynamic_ruleset/roundstart/ruleset in SSdynamic.queued_rulesets)
 		ruleset.execute()
 		SSdynamic.queued_rulesets -= ruleset
 		SSdynamic.executed_rulesets += ruleset
+	*/ // NOVA EDIT REMOVAL
 	// Queue roundstart intercept report
 	/* // NOVA EDIT REMOVAL START
 	if(!CONFIG_GET(flag/no_intercept_report))

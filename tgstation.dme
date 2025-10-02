@@ -9201,6 +9201,7 @@
 #include "modular_nova\modules\storytellers\code\modules\weights\storyvalue.dm"
 #include "modular_nova\modules\storytellers\code\modules\weights\storyweight.dm"
 #include "modular_nova\modules\storytellers\code\modules\goals\storyteller_goal.dm"
+#include "modular_nova\modules\storytellers\code\persons\standart.dm"
 #include "modular_nova\modules\stunsword\stunsword.dm"
 #include "modular_nova\modules\subsystems\code\ticket_ping\adminhelp.dm"
 #include "modular_nova\modules\subsystems\code\ticket_ping\preference.dm"

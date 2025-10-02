@@ -99,10 +99,9 @@ export const Storyteller = (props) => {
     can_force_event,
   } = data;
 
-  const [tab, setTab] = useLocalState<'overview' | 'goals' | 'settings' | 'advanced'>(
-    'tab',
-    'overview',
-  );
+  const [tab, setTab] = useLocalState<
+    'overview' | 'goals' | 'settings' | 'advanced'
+  >('tab', 'overview');
   const [selectedMood, setSelectedMood] = useLocalState(
     'selectedMood',
     mood?.id || '',
@@ -335,13 +334,11 @@ export const Storyteller = (props) => {
             <Section title="Available Goals (weights)">
               {available_goals.length ? (
                 <LabeledList>
-                  {available_goals
-                    .slice(0, 20)
-                    .map((g) => (
-                      <LabeledList.Item key={g.id} label={g.name || g.id}>
-                        {typeof g.weight === 'number' ? `w=${g.weight}` : '—'}
-                      </LabeledList.Item>
-                    ))}
+                  {available_goals.slice(0, 20).map((g) => (
+                    <LabeledList.Item key={g.id} label={g.name || g.id}>
+                      {typeof g.weight === 'number' ? `w=${g.weight}` : '—'}
+                    </LabeledList.Item>
+                  ))}
                 </LabeledList>
               ) : (
                 <Box opacity={0.6}>No goals available.</Box>
@@ -425,7 +422,9 @@ export const Storyteller = (props) => {
                     <Stack.Item>
                       <Button
                         icon="check"
-                        onClick={() => act('set_pace', { pace: Number(pace) || 1 })}
+                        onClick={() =>
+                          act('set_pace', { pace: Number(pace) || 1 })
+                        }
                       >
                         Apply Pace
                       </Button>
@@ -527,7 +526,11 @@ export const Storyteller = (props) => {
                     <Stack.Item>
                       <Button
                         icon="check"
-                        onClick={() => act('set_think_delay', { value: Number(thinkDelay) || 600 })}
+                        onClick={() =>
+                          act('set_think_delay', {
+                            value: Number(thinkDelay) || 600,
+                          })
+                        }
                       >
                         Apply
                       </Button>
@@ -540,7 +543,9 @@ export const Storyteller = (props) => {
                       <Dropdown
                         selected={minInterval}
                         onSelected={(v) => setMinInterval(String(v))}
-                        options={[200, 300, 400, 500, 600].map((v) => String(v))}
+                        options={[200, 300, 400, 500, 600].map((v) =>
+                          String(v),
+                        )}
                         placeholder="Min"
                         width="100%"
                       />
@@ -549,7 +554,9 @@ export const Storyteller = (props) => {
                       <Dropdown
                         selected={maxInterval}
                         onSelected={(v) => setMaxInterval(String(v))}
-                        options={[3000, 6000, 9000, 12000].map((v) => String(v))}
+                        options={[3000, 6000, 9000, 12000].map((v) =>
+                          String(v),
+                        )}
                         placeholder="Max"
                         width="100%"
                       />
@@ -585,7 +592,11 @@ export const Storyteller = (props) => {
                     <Stack.Item>
                       <Button
                         icon="check"
-                        onClick={() => act('set_grace_period', { value: Number(grace) || 3000 })}
+                        onClick={() =>
+                          act('set_grace_period', {
+                            value: Number(grace) || 3000,
+                          })
+                        }
                       >
                         Apply
                       </Button>
