@@ -1793,7 +1793,7 @@
 /obj/effect/turf_decal/siding/wideplating_new/dark/corner{
 	dir = 1
 	},
-/turf/open/floor/wood/large,
+/turf/open/floor/wood,
 /area/misc/condo)
 "kA" = (
 /obj/structure/curtain/cloth/fancy/mechanical{
