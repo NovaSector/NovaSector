@@ -16,7 +16,6 @@
 	limited_stock = 1 //please don't spam deadchat
 	surplus = 5
 
-/* NOVA EDIT REMOVAL START - DISABLED
 /datum/uplink_item/role_restricted/mail_counterfeit_kit
 	name = "GLA Brand Mail Counterfeit Kit"
 	desc = "A box containing five devices capable of counterfeiting NT's mail. Can be used to store items within as an easy means of smuggling contraband. \
@@ -28,7 +27,6 @@
 	uplink_item_flags = SYNDIE_TRIPS_CONTRABAND
 	restricted_roles = list(JOB_CARGO_TECHNICIAN, JOB_QUARTERMASTER)
 	surplus = 5
-*/ // NOVA EDIT REMOVAL END
 
 /datum/uplink_item/role_restricted/bureaucratic_error
 	name = "Organic Capital Disturbance Virus"
@@ -300,7 +298,6 @@
 	car.visible_message(span_notice("[key] drops out of [car] onto the floor."))
 	return car
 
-/* NOVA EDIT REMOVAL START - DISABLED
 /datum/uplink_item/role_restricted/his_grace
 	name = "His Grace"
 	desc = "An incredibly dangerous weapon recovered from a station overcome by the grey tide. Once activated, He will thirst for blood and must be used to kill to sate that thirst. \
@@ -314,7 +311,6 @@
 	surplus = 0
 	restricted_roles = list(JOB_CHAPLAIN)
 	purchasable_from = ~UPLINK_SPY
-*/ // NOVA EDIT REMOVAL END
 
 /datum/uplink_item/role_restricted/concealed_weapon_bay
 	name = "Concealed Weapon Bay"
@@ -327,7 +323,6 @@
 	restricted_roles = list(JOB_ROBOTICIST, JOB_RESEARCH_DIRECTOR)
 	surplus = 15
 
-/* // NOVA EDIT REMOVAL START
 /datum/uplink_item/role_restricted/spider_injector
 	name = "Australicus Slime Mutator"
 	desc = "Crikey mate, it's been a wild travel from the Australicus sector but we've managed to get \
@@ -352,8 +347,6 @@
 	cost = 14 //High cost because of the potential for extreme damage in the hands of a skilled scientist.
 	restricted_roles = list(JOB_RESEARCH_DIRECTOR, JOB_SCIENTIST)
 	surplus = 5
-*/
-// NOVA EDIT REMOVAL END
 
 /datum/uplink_item/role_restricted/evil_seedling
 	name = "Evil Seedling"
