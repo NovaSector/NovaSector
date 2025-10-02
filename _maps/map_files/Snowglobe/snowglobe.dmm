@@ -7219,7 +7219,6 @@
 /area/station/science/circuits)
 "bUm" = (
 /obj/structure/cable,
-/obj/machinery/light_switch/directional/north,
 /obj/structure/disposalpipe/segment{
 	dir = 10
 	},
@@ -9438,7 +9437,7 @@
 	id = "QMLoad"
 	},
 /obj/machinery/door/poddoor{
-	id = "QMLoaddoor";
+	id = "cargo_QMLoaddoor";
 	name = "Supply Dock Loading Door"
 	},
 /obj/structure/plasticflaps,
@@ -56149,6 +56148,7 @@
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/machinery/light_switch/directional/north,
 /turf/open/floor/iron/dark/side{
 	dir = 1
 	},
@@ -58131,7 +58131,7 @@
 	id = "QMLoad"
 	},
 /obj/machinery/door/poddoor{
-	id = "QMLoaddoor";
+	id = "cargo_QMLoaddoor";
 	name = "Supply Dock Loading Door"
 	},
 /turf/open/floor/plating,
@@ -66997,7 +66997,7 @@
 	id = "QMLoad2"
 	},
 /obj/machinery/door/poddoor{
-	id = "QMLoaddoor2";
+	id = "cargo_QMLoaddoor2";
 	name = "Supply Dock Unloading Door"
 	},
 /obj/structure/plasticflaps,
@@ -83735,7 +83735,7 @@
 	id = "QMLoad2"
 	},
 /obj/machinery/door/poddoor{
-	id = "QMLoaddoor2";
+	id = "cargo_QMLoaddoor2";
 	name = "Supply Dock Unloading Door"
 	},
 /turf/open/floor/plating,
@@ -85734,13 +85734,13 @@
 /obj/structure/table/reinforced,
 /obj/machinery/button/door/directional/west{
 	pixel_y = -3;
-	id = "QMLoaddoor";
+	id = "cargo_QMLoaddoor";
 	name = "Loading Blast Doors";
 	pixel_x = -6
 	},
 /obj/machinery/button/door/directional/west{
 	pixel_y = 7;
-	id = "QMLoaddoor2";
+	id = "cargo_QMLoaddoor2";
 	name = "Unloading Blast Doors";
 	pixel_x = -6
 	},
