@@ -7526,7 +7526,6 @@
 #include "modular_nova\modules\ballmer_fix\research_director.dm"
 #include "modular_nova\modules\ballmer_fix\scientist.dm"
 #include "modular_nova\modules\banning\code\nova_bans.dm"
-#include "modular_nova\modules\barricades\code\barricade.dm"
 #include "modular_nova\modules\barsigns\code\barsigns.dm"
 #include "modular_nova\modules\basic_mobs\code\bananaspider.dm"
 #include "modular_nova\modules\basic_mobs\code\chinchilla.dm"

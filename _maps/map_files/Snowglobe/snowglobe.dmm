@@ -1831,12 +1831,6 @@
 "avZ" = (
 /obj/structure/cable,
 /obj/structure/table/reinforced,
-/obj/item/storage/barricade{
-	pixel_y = 9
-	},
-/obj/item/storage/barricade{
-	pixel_y = 4
-	},
 /obj/machinery/firealarm/directional/north,
 /turf/open/floor/engine,
 /area/station/ai_monitored/security/armory)
@@ -2657,8 +2651,7 @@
 	pixel_y = 7
 	},
 /obj/item/storage/toolbox/emergency{
-	pixel_x = 3;
-	pixel_y = 0
+	pixel_x = 3
 	},
 /obj/item/weldingtool{
 	pixel_x = -8;
@@ -2844,7 +2837,6 @@
 	pixel_y = 12
 	},
 /obj/item/wrench{
-	pixel_x = 0;
 	pixel_y = 6
 	},
 /turf/open/floor/plating,
@@ -3375,20 +3367,16 @@
 	dir = 10
 	},
 /obj/structure/sign/directions/medical/directional/north{
-	pixel_x = 0;
 	pixel_y = 41;
 	dir = 4
 	},
 /obj/structure/sign/directions/security/directional/north{
-	pixel_x = 0;
 	pixel_y = 35
 	},
 /obj/structure/sign/directions/command/directional/north{
-	pixel_x = 0;
 	pixel_y = 29
 	},
 /obj/structure/sign/directions/dorms/directional/north{
-	pixel_x = 0;
 	pixel_y = 23;
 	dir = 2
 	},
@@ -3472,7 +3460,6 @@
 	pixel_y = -1
 	},
 /obj/item/reagent_containers/syringe{
-	pixel_x = 0;
 	pixel_y = 10
 	},
 /turf/open/floor/iron/white/smooth_large,
@@ -3675,8 +3662,7 @@
 	pixel_y = 4
 	},
 /obj/item/multitool{
-	pixel_y = 8;
-	pixel_x = 0
+	pixel_y = 8
 	},
 /obj/item/multitool{
 	pixel_x = 5;
@@ -4003,22 +3989,18 @@
 /area/station/science/xenobiology)
 "aYF" = (
 /obj/structure/sign/directions/arrival{
-	pixel_x = 0;
 	pixel_y = -4
 	},
 /obj/structure/sign/directions/security{
 	dir = 1;
-	pixel_y = 2;
-	pixel_x = 0
+	pixel_y = 2
 	},
 /obj/structure/sign/directions/engineering{
-	pixel_y = -10;
-	pixel_x = 0
+	pixel_y = -10
 	},
 /obj/structure/sign/directions/supply{
 	dir = 8;
-	pixel_y = 8;
-	pixel_x = 0
+	pixel_y = 8
 	},
 /turf/closed/wall,
 /area/station/common/arcade)
@@ -4156,7 +4138,6 @@
 /obj/machinery/airalarm/directional/east,
 /obj/item/radio/intercom/directional/south,
 /obj/structure/bedsheetbin{
-	pixel_x = 0;
 	pixel_y = 5
 	},
 /turf/open/floor/plastic,
@@ -5029,7 +5010,6 @@
 /obj/machinery/status_display/door_timer{
 	id = "Cell 3";
 	name = "Cell 3";
-	pixel_y = 0;
 	pixel_x = -32
 	},
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
@@ -5516,7 +5496,6 @@
 /obj/structure/rack/wooden,
 /obj/item/storage/bag/plants,
 /obj/item/storage/bag/plants{
-	pixel_x = 0;
 	pixel_y = 3
 	},
 /obj/item/cultivator{
@@ -5618,7 +5597,6 @@
 	pixel_y = 3
 	},
 /obj/item/storage/belt/utility{
-	pixel_x = 0;
 	pixel_y = -6
 	},
 /obj/effect/turf_decal/trimline/yellow/line{
@@ -5946,7 +5924,6 @@
 "bAT" = (
 /obj/structure/bookcase/random/religion,
 /obj/structure/sign/painting/library_private{
-	pixel_x = 0;
 	pixel_y = 32
 	},
 /turf/open/floor/wood/large,
@@ -6004,7 +5981,6 @@
 	pixel_x = -4
 	},
 /obj/item/clothing/mask/gas{
-	pixel_x = 0;
 	pixel_y = 3
 	},
 /obj/item/clothing/mask/gas{
@@ -6032,7 +6008,6 @@
 /obj/structure/cable,
 /obj/machinery/camera/autoname/directional/south,
 /obj/structure/sign/directions/evac/directional/south{
-	pixel_x = 0;
 	pixel_y = -40;
 	dir = 1
 	},
@@ -7172,7 +7147,6 @@
 "bTf" = (
 /obj/structure/table,
 /obj/structure/towel_bin{
-	pixel_x = 0;
 	pixel_y = 4
 	},
 /turf/open/floor/iron/freezer,
@@ -7331,8 +7305,7 @@
 	pixel_y = 7
 	},
 /obj/item/reagent_containers/cup/glass/mug{
-	pixel_x = -7;
-	pixel_y = 0
+	pixel_x = -7
 	},
 /turf/open/floor/iron/white,
 /area/station/medical/break_room)
@@ -7444,7 +7417,6 @@
 	},
 /obj/machinery/door_buttons/access_button{
 	pixel_x = 25;
-	pixel_y = 0;
 	idSelf = "viro_med_control";
 	idDoor = "viro_med_external";
 	req_access = list("virology")
@@ -9197,7 +9169,6 @@
 	pixel_x = -3
 	},
 /obj/item/pen{
-	pixel_x = 0;
 	pixel_y = 8
 	},
 /obj/effect/turf_decal/tile/bar/opposingcorners,
@@ -10771,7 +10742,6 @@
 	pixel_y = 5
 	},
 /obj/item/toy/plush/shark{
-	pixel_x = 0;
 	pixel_y = -5
 	},
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
@@ -12308,11 +12278,9 @@
 /obj/structure/table,
 /obj/item/stock_parts/subspace/ansible,
 /obj/item/stock_parts/subspace/ansible{
-	pixel_x = 0;
 	pixel_y = -3
 	},
 /obj/item/stock_parts/subspace/ansible{
-	pixel_x = 0;
 	pixel_y = -6
 	},
 /obj/item/stock_parts/subspace/crystal{
@@ -12320,7 +12288,6 @@
 	pixel_y = 12
 	},
 /obj/item/stock_parts/subspace/crystal{
-	pixel_x = 0;
 	pixel_y = 12
 	},
 /obj/item/stock_parts/subspace/crystal{
@@ -13478,7 +13445,6 @@
 /obj/effect/turf_decal/trimline/white/filled/line,
 /obj/machinery/light/directional/south,
 /obj/structure/sign/directions/cryo/directional/south{
-	pixel_x = 0;
 	pixel_y = -21
 	},
 /turf/open/floor/iron/edge{
@@ -13770,7 +13736,6 @@
 	},
 /obj/structure/chair/sofa/bench/left{
 	dir = 8;
-	pixel_y = 0;
 	pixel_x = 5
 	},
 /obj/structure/extinguisher_cabinet/directional/east,
@@ -15001,8 +14966,7 @@
 	pixel_y = 15
 	},
 /obj/item/hairbrush{
-	pixel_y = 9;
-	pixel_x = 0
+	pixel_y = 9
 	},
 /obj/item/reagent_containers/spray/barbers_aid{
 	pixel_x = 12;
@@ -15036,11 +15000,9 @@
 	},
 /obj/item/stack/cable_coil/thirty,
 /obj/item/stack/cable_coil/thirty{
-	pixel_x = 0;
 	pixel_y = 3
 	},
 /obj/item/stack/cable_coil/thirty{
-	pixel_x = 0;
 	pixel_y = 6
 	},
 /turf/open/floor/iron/white/smooth_corner{
@@ -16337,7 +16299,6 @@
 	pixel_y = 6
 	},
 /obj/item/reagent_containers/cup/glass/coffee_cup{
-	pixel_x = 0;
 	pixel_y = 6
 	},
 /obj/item/reagent_containers/cup/glass/coffee_cup{
@@ -17843,7 +17804,6 @@
 	pixel_y = 1
 	},
 /obj/item/wrench{
-	pixel_x = 0;
 	pixel_y = 1
 	},
 /turf/open/floor/engine,
@@ -18534,7 +18494,6 @@
 /obj/machinery/light/directional/east,
 /obj/structure/rack/shelf,
 /obj/item/clothing/mask/surgical{
-	pixel_x = 0;
 	pixel_y = -4
 	},
 /obj/item/clothing/gloves/latex,
@@ -18698,8 +18657,7 @@
 	dir = 8
 	},
 /obj/item/flashlight{
-	pixel_x = 13;
-	pixel_y = 0
+	pixel_x = 13
 	},
 /turf/open/floor/iron/white/smooth_large,
 /area/station/engineering/atmos/pumproom)
@@ -19632,8 +19590,7 @@
 /obj/structure/table/wood,
 /obj/effect/landmark/start/hangover,
 /obj/effect/spawner/random/food_or_drink/snack{
-	pixel_y = -7;
-	pixel_x = 0
+	pixel_y = -7
 	},
 /turf/open/floor/wood,
 /area/station/commons/fitness/recreation)
@@ -20144,7 +20101,6 @@
 /obj/machinery/button/curtain{
 	id = "dormscurtain5b";
 	pixel_x = 34;
-	pixel_y = 0;
 	name = "External Curtains"
 	},
 /turf/open/floor/wood/tile,
@@ -21107,8 +21063,7 @@
 	pixel_x = 2
 	},
 /obj/item/clothing/mask/gas{
-	pixel_x = -5;
-	pixel_y = 0
+	pixel_x = -5
 	},
 /obj/item/radio{
 	pixel_x = 8;
@@ -21408,10 +21363,7 @@
 /turf/open/floor/plating,
 /area/station/maintenance/department/engine/atmos/lesser)
 "fJG" = (
-/obj/item/stack/license_plates/empty/fifty{
-	pixel_x = 0;
-	pixel_y = 0
-	},
+/obj/item/stack/license_plates/empty/fifty,
 /obj/item/stack/license_plates/empty/fifty{
 	pixel_x = -2;
 	pixel_y = 6
@@ -25010,7 +24962,6 @@
 "gHL" = (
 /obj/structure/table/wood/poker,
 /obj/item/gun/ballistic/revolver/russian{
-	pixel_x = 0;
 	pixel_y = 10
 	},
 /turf/open/floor/plating,
@@ -25901,11 +25852,9 @@
 /obj/machinery/camera/autoname/directional/south,
 /obj/item/reagent_containers/medigel/sterilizine,
 /obj/item/storage/box/lipsticks{
-	pixel_x = 0;
 	pixel_y = -4
 	},
 /obj/item/storage/box/perfume{
-	pixel_x = 0;
 	pixel_y = 3
 	},
 /turf/open/floor/iron/dark,
@@ -27341,8 +27290,7 @@
 /obj/machinery/light/directional/west,
 /obj/machinery/button/curtain{
 	id = "psychcurtain";
-	pixel_x = -24;
-	pixel_y = 0
+	pixel_x = -24
 	},
 /turf/open/floor/wood/tile,
 /area/station/medical/psychology)
@@ -27699,7 +27647,6 @@
 /obj/structure/cable,
 /obj/structure/table/wood,
 /obj/item/book/bible{
-	pixel_x = 0;
 	pixel_y = 3
 	},
 /obj/item/paper_bin{
@@ -28435,8 +28382,7 @@
 "hDf" = (
 /obj/structure/table,
 /obj/item/newspaper{
-	pixel_x = -3;
-	pixel_y = 0
+	pixel_x = -3
 	},
 /obj/item/pai_card{
 	pixel_x = 5;
@@ -28563,7 +28509,6 @@
 /obj/structure/closet/secure_closet/freezer/kitchen/all_access,
 /obj/item/storage/fancy/egg_box,
 /obj/item/storage/fancy/egg_box{
-	pixel_x = 0;
 	pixel_y = 5
 	},
 /turf/open/floor/iron/checker,
@@ -29105,7 +29050,6 @@
 	pixel_x = 4
 	},
 /obj/item/restraints/handcuffs{
-	pixel_x = 0;
 	pixel_y = 5
 	},
 /turf/open/floor/iron/dark/smooth_edge{
@@ -30351,12 +30295,10 @@
 	pixel_y = -3
 	},
 /obj/item/seeds/cabbage{
-	pixel_x = 7;
-	pixel_y = 0
+	pixel_x = 7
 	},
 /obj/item/seeds/cucumber{
-	pixel_x = -8;
-	pixel_y = 0
+	pixel_x = -8
 	},
 /obj/item/seeds/wheat{
 	pixel_x = -6;
@@ -30772,7 +30714,6 @@
 	},
 /obj/structure/rack/shelf,
 /obj/item/grenade/chem_grenade/smart_metal_foam{
-	pixel_x = 0;
 	pixel_y = 5
 	},
 /obj/item/grenade/chem_grenade/smart_metal_foam{
@@ -31551,7 +31492,6 @@
 	pixel_x = -2
 	},
 /obj/item/construction/plumbing{
-	pixel_x = 0;
 	pixel_y = 2
 	},
 /turf/open/floor/iron/white/smooth_edge{
@@ -32286,8 +32226,7 @@
 	},
 /obj/item/storage/box/beakers,
 /obj/item/storage/box/beakers{
-	pixel_y = 7;
-	pixel_x = 0
+	pixel_y = 7
 	},
 /turf/open/floor/iron/white/smooth_edge{
 	dir = 4
@@ -32391,8 +32330,7 @@
 	pixel_x = -8
 	},
 /obj/effect/spawner/random/entertainment/toy_figure{
-	pixel_x = 6;
-	pixel_y = 0
+	pixel_x = 6
 	},
 /turf/open/floor/plating,
 /area/station/maintenance/condemned_med)
@@ -32954,7 +32892,6 @@
 	pixel_x = 6
 	},
 /obj/item/pen{
-	pixel_y = 0;
 	pixel_x = 5
 	},
 /obj/item/reagent_containers/spray/quantum_hair_dye{
@@ -33410,8 +33347,7 @@
 	pixel_y = 5
 	},
 /obj/item/storage/box/sparklers{
-	pixel_x = 4;
-	pixel_y = 0
+	pixel_x = 4
 	},
 /obj/structure/sign/calendar/directional/south,
 /turf/open/floor/carpet/donk,
@@ -35001,8 +34937,7 @@
 	pixel_y = 8
 	},
 /obj/item/storage/toolbox/mechanical{
-	pixel_x = 3;
-	pixel_y = 0
+	pixel_x = 3
 	},
 /turf/open/floor/iron/white/smooth_corner{
 	dir = 4
@@ -35240,8 +35175,7 @@
 "jrt" = (
 /obj/structure/table/wood,
 /obj/item/storage/fancy/donut_box{
-	pixel_y = 1;
-	pixel_x = 0
+	pixel_y = 1
 	},
 /turf/open/floor/iron/sepia,
 /area/station/service/kitchen/diner)
@@ -35620,7 +35554,6 @@
 	pixel_y = 3
 	},
 /obj/item/bouquet/sunflower{
-	pixel_x = 0;
 	pixel_y = 6
 	},
 /turf/open/floor/carpet/red,
@@ -36104,7 +36037,6 @@
 "jDP" = (
 /obj/structure/table,
 /obj/item/crowbar{
-	pixel_x = 0;
 	pixel_y = 3
 	},
 /obj/item/pushbroom{
@@ -36392,15 +36324,13 @@
 	pixel_y = 2
 	},
 /obj/item/secateurs{
-	pixel_x = 4;
-	pixel_y = 0
+	pixel_x = 4
 	},
 /obj/item/secateurs{
 	pixel_x = 5;
 	pixel_y = 5
 	},
 /obj/item/wirecutters{
-	pixel_x = 0;
 	pixel_y = -8
 	},
 /obj/item/radio/intercom/prison/directional/north,
@@ -37398,22 +37328,18 @@
 /obj/effect/turf_decal/trimline/green/filled/line,
 /obj/machinery/door/firedoor,
 /obj/structure/sign/directions/science/directional/south{
-	pixel_x = 0;
 	pixel_y = -40;
 	dir = 4
 	},
 /obj/structure/sign/directions/security/directional/south{
-	pixel_x = 0;
 	pixel_y = -22;
 	dir = 1
 	},
 /obj/structure/sign/directions/supply/directional/south{
-	pixel_x = 0;
 	pixel_y = -34;
 	dir = 8
 	},
 /obj/structure/sign/directions/command/directional/south{
-	pixel_x = 0;
 	pixel_y = -28;
 	dir = 1
 	},
@@ -37971,22 +37897,18 @@
 /obj/effect/turf_decal/trimline/yellow/filled/line,
 /obj/machinery/door/firedoor,
 /obj/structure/sign/directions/medical/directional/south{
-	pixel_x = 0;
 	pixel_y = -22;
 	dir = 4
 	},
 /obj/structure/sign/directions/dorms/directional/south{
-	pixel_x = 0;
 	pixel_y = -28;
 	dir = 8
 	},
 /obj/structure/sign/directions/cryo/directional/south{
-	pixel_x = 0;
 	pixel_y = -34;
 	dir = 4
 	},
 /obj/structure/sign/directions/supply/directional/south{
-	pixel_x = 0;
 	pixel_y = -40;
 	dir = 8
 	},
@@ -39149,26 +39071,22 @@
 /area/station/maintenance/department/science/xenobiology)
 "krJ" = (
 /obj/item/plunger{
-	pixel_x = 9;
-	pixel_y = 0
+	pixel_x = 9
 	},
 /turf/open/floor/plating,
 /area/station/maintenance/abandon_art_studio)
 "krR" = (
 /obj/structure/sign/directions/engineering{
 	dir = 8;
-	pixel_y = 5;
-	pixel_x = 0
+	pixel_y = 5
 	},
 /obj/structure/sign/directions/dorms/directional{
 	dir = 8;
-	pixel_y = -1;
-	pixel_x = 0
+	pixel_y = -1
 	},
 /obj/structure/sign/directions/arrival{
 	dir = 4;
-	pixel_y = 11;
-	pixel_x = 0
+	pixel_y = 11
 	},
 /turf/closed/wall/r_wall,
 /area/station/engineering/storage/tech)
@@ -39226,8 +39144,7 @@
 	pixel_y = 4
 	},
 /obj/effect/spawner/random/entertainment/toy_figure{
-	pixel_x = 4;
-	pixel_y = 0
+	pixel_x = 4
 	},
 /turf/open/floor/plating,
 /area/station/maintenance/wrestle)
@@ -39985,8 +39902,7 @@
 /area/station/cargo/miningfoyer)
 "kBZ" = (
 /obj/item/universal_scanner{
-	pixel_y = 27;
-	pixel_x = 0
+	pixel_y = 27
 	},
 /obj/machinery/disposal/delivery_chute{
 	name = "Auto Unloader"
@@ -40400,7 +40316,6 @@
 /obj/machinery/light/directional/west,
 /obj/structure/sign/directions/cryo/directional/west{
 	dir = 2;
-	pixel_x = -32;
 	pixel_y = 14
 	},
 /turf/open/floor/iron/edge{
@@ -41666,8 +41581,7 @@
 	pixel_y = 8
 	},
 /obj/effect/spawner/random/entertainment/toy_figure{
-	pixel_x = -7;
-	pixel_y = 0
+	pixel_x = -7
 	},
 /turf/open/floor/plating,
 /area/station/maintenance/department/cargo)
@@ -41865,7 +41779,6 @@
 "lbY" = (
 /obj/structure/chair/sofa/bench/left{
 	dir = 8;
-	pixel_y = 0;
 	pixel_x = 5
 	},
 /obj/item/radio/intercom/directional/south,
@@ -43638,12 +43551,10 @@
 	},
 /obj/item/radio/intercom/directional/south,
 /obj/item/clothing/gloves/latex{
-	pixel_y = 8;
-	pixel_x = 0
+	pixel_y = 8
 	},
 /obj/item/clothing/glasses/science{
-	pixel_x = -13;
-	pixel_y = 0
+	pixel_x = -13
 	},
 /obj/item/storage/bag/chemistry{
 	pixel_x = 1;
@@ -43880,8 +43791,7 @@
 	dir = 6
 	},
 /obj/item/coffee_cartridge{
-	pixel_y = 4;
-	pixel_x = 0
+	pixel_y = 4
 	},
 /obj/structure/sign/calendar/directional/east,
 /turf/open/floor/iron/white/smooth_corner{
@@ -44049,9 +43959,7 @@
 	},
 /area/station/ai_monitored/command/storage/eva)
 "lGD" = (
-/obj/machinery/atmospherics/components/unary/vent_pump/on/layer4{
-	dir = 2
-	},
+/obj/machinery/atmospherics/components/unary/vent_pump/on/layer4,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /turf/open/floor/wood,
 /area/station/maintenance/abandon_office)
@@ -44206,8 +44114,7 @@
 	dir = 1
 	},
 /obj/item/pipe_dispenser{
-	pixel_x = -7;
-	pixel_y = 0
+	pixel_x = -7
 	},
 /turf/open/floor/iron/edge{
 	dir = 1
@@ -45676,7 +45583,6 @@
 	},
 /obj/item/paper_bin/carbon,
 /obj/item/pen{
-	pixel_y = 0;
 	pixel_x = 5
 	},
 /obj/machinery/door/poddoor/preopen{
@@ -45935,7 +45841,6 @@
 /obj/structure/rack,
 /obj/item/wrench,
 /obj/item/screwdriver{
-	pixel_x = 0;
 	pixel_y = 7
 	},
 /turf/open/floor/iron/dark/smooth_corner{
@@ -47002,8 +46907,7 @@
 	pixel_y = 7
 	},
 /obj/item/camera{
-	pixel_x = 1;
-	pixel_y = 0
+	pixel_x = 1
 	},
 /turf/open/floor/wood/parquet,
 /area/station/common/night_club/back_stage)
@@ -49200,11 +49104,9 @@
 /obj/structure/rack/shelf,
 /obj/item/circuitboard/machine/exoscanner,
 /obj/item/circuitboard/machine/exoscanner{
-	pixel_x = 0;
 	pixel_y = 4
 	},
 /obj/item/circuitboard/machine/exoscanner{
-	pixel_x = 0;
 	pixel_y = 2
 	},
 /turf/open/floor/iron/smooth_large,
@@ -50053,12 +49955,10 @@
 	},
 /obj/structure/bed/medical/emergency{
 	dir = 4;
-	pixel_x = 0;
 	pixel_y = 5
 	},
 /obj/structure/bed/medical/emergency{
 	dir = 4;
-	pixel_x = 0;
 	pixel_y = 10
 	},
 /turf/open/floor/iron/white/smooth_edge{
@@ -51285,8 +51185,7 @@
 	pixel_x = 4
 	},
 /obj/item/lighter{
-	pixel_x = -8;
-	pixel_y = 0
+	pixel_x = -8
 	},
 /turf/open/floor/iron/smooth_edge{
 	dir = 1
@@ -51507,7 +51406,6 @@
 "nKl" = (
 /obj/structure/rack/shelf,
 /obj/item/healthanalyzer{
-	pixel_x = 0;
 	pixel_y = 2
 	},
 /obj/machinery/newscaster/directional/west,
@@ -52278,7 +52176,6 @@
 	dir = 4
 	},
 /obj/machinery/cell_charger_multi{
-	pixel_x = 0;
 	pixel_y = 5
 	},
 /turf/open/floor/iron/white/smooth_half{
@@ -55027,7 +54924,6 @@
 	pixel_y = 5
 	},
 /obj/item/forging/tongs{
-	pixel_x = 0;
 	pixel_y = 4
 	},
 /obj/item/forging/hammer{
@@ -55402,9 +55298,7 @@
 /turf/open/floor/iron/edge,
 /area/station/hallway/primary/forestarboardhall)
 "oMv" = (
-/obj/machinery/atmospherics/components/unary/vent_pump/on/layer4{
-	dir = 2
-	},
+/obj/machinery/atmospherics/components/unary/vent_pump/on/layer4,
 /obj/effect/landmark/firealarm_sanity,
 /turf/open/floor/carpet/green,
 /area/station/commons/dorms/room7)
@@ -55772,10 +55666,7 @@
 /obj/machinery/door/firedoor/border_only{
 	dir = 4
 	},
-/obj/machinery/atmospherics/components/unary/thermomachine/freezer/on{
-	pixel_x = 0;
-	pixel_y = 0
-	},
+/obj/machinery/atmospherics/components/unary/thermomachine/freezer/on,
 /obj/machinery/door/firedoor/border_only,
 /turf/open/floor/iron/white/smooth_large,
 /area/station/engineering/atmos/pumproom)
@@ -56738,7 +56629,6 @@
 "pdM" = (
 /obj/structure/table,
 /obj/effect/spawner/random/entertainment/drugs{
-	pixel_x = 0;
 	pixel_y = 8
 	},
 /turf/open/floor/plating,
@@ -58104,8 +57994,7 @@
 	pixel_y = 19
 	},
 /obj/item/airlock_painter/decal{
-	pixel_y = 1;
-	pixel_x = 0
+	pixel_y = 1
 	},
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /turf/open/floor/iron,
@@ -58248,7 +58137,6 @@
 	},
 /obj/structure/table/reinforced,
 /obj/machinery/coffeemaker{
-	pixel_x = 0;
 	pixel_y = 11
 	},
 /obj/item/coffee_cartridge/decaf{
@@ -58353,12 +58241,10 @@
 "pBM" = (
 /obj/structure/table/wood,
 /obj/item/plate{
-	pixel_y = -8;
-	pixel_x = 0
+	pixel_y = -8
 	},
 /obj/item/reagent_containers/condiment/saltshaker{
-	pixel_y = 12;
-	pixel_x = 0
+	pixel_y = 12
 	},
 /obj/item/reagent_containers/condiment/peppermill{
 	pixel_x = 7;
@@ -58771,8 +58657,7 @@
 /obj/effect/turf_decal/tile/dark_green/half,
 /obj/structure/table/glass,
 /obj/item/storage/box/injectors{
-	pixel_y = 2;
-	pixel_x = 0
+	pixel_y = 2
 	},
 /turf/open/floor/iron/white/smooth_edge,
 /area/station/medical/virology)
@@ -59253,8 +59138,7 @@
 /obj/structure/table/reinforced,
 /obj/machinery/door/firedoor,
 /obj/item/folder{
-	pixel_x = -6;
-	pixel_y = 0
+	pixel_x = -6
 	},
 /obj/item/stack/package_wrap{
 	pixel_y = 11;
@@ -59843,12 +59727,10 @@
 /obj/machinery/newscaster/directional/north,
 /obj/structure/table/wood,
 /obj/item/storage/box/mime{
-	pixel_y = 9;
-	pixel_x = 0
+	pixel_y = 9
 	},
 /obj/item/newspaper{
-	pixel_x = 15;
-	pixel_y = 0
+	pixel_x = 15
 	},
 /turf/open/floor/carpet/black,
 /area/station/service/greenroom)
@@ -60224,8 +60106,7 @@
 "qgh" = (
 /obj/structure/table,
 /obj/item/storage/toolbox/emergency{
-	pixel_y = 9;
-	pixel_x = 0
+	pixel_y = 9
 	},
 /obj/item/toner{
 	pixel_x = 13;
@@ -60586,8 +60467,7 @@
 	dir = 5
 	},
 /obj/item/airlock_painter/decal{
-	pixel_y = -17;
-	pixel_x = 0
+	pixel_y = -17
 	},
 /obj/item/storage/box/lights/mixed{
 	pixel_y = 11;
@@ -63683,7 +63563,6 @@
 /obj/machinery/newscaster/directional/south,
 /obj/structure/table,
 /obj/effect/spawner/random/food_or_drink/refreshing_beverage{
-	pixel_x = 0;
 	pixel_y = 10
 	},
 /turf/open/floor/iron/dark/smooth_large,
@@ -64227,7 +64106,6 @@
 /obj/structure/table,
 /obj/item/clothing/gloves/color/yellow,
 /obj/item/clothing/gloves/color/yellow{
-	pixel_x = 0;
 	pixel_y = 4
 	},
 /obj/item/clothing/gloves/color/yellow,
@@ -65809,7 +65687,6 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/effect/mapping_helpers/airlock/locked,
 /obj/machinery/door_buttons/access_button{
-	pixel_x = 0;
 	pixel_y = -21;
 	idSelf = "viro_public_control";
 	req_access = list("virology");
@@ -66642,12 +66519,10 @@
 /obj/effect/turf_decal/tile/green/diagonal_centre,
 /obj/structure/table/reinforced,
 /obj/item/paper/guides/jobs/hydroponics{
-	pixel_x = 6;
-	pixel_y = 0
+	pixel_x = 6
 	},
 /obj/item/plant_analyzer{
-	pixel_y = 19;
-	pixel_x = 0
+	pixel_y = 19
 	},
 /obj/item/plant_analyzer{
 	pixel_y = 14;
@@ -67313,7 +67188,6 @@
 /obj/structure/rack/wooden,
 /obj/machinery/newscaster/directional/north,
 /obj/item/storage/box/utensils{
-	pixel_x = 0;
 	pixel_y = 7
 	},
 /turf/open/floor/wood/tile,
@@ -67918,7 +67792,6 @@
 "slq" = (
 /obj/effect/turf_decal/tile/dark_green,
 /obj/machinery/door_buttons/airlock_controller{
-	pixel_x = 0;
 	pixel_y = 24;
 	idSelf = "viro_med_control";
 	name = "Virology Medical Access Control";
@@ -68186,20 +68059,16 @@
 /obj/structure/table,
 /obj/item/stock_parts/subspace/treatment,
 /obj/item/stock_parts/subspace/treatment{
-	pixel_x = 0;
 	pixel_y = 2
 	},
 /obj/item/stock_parts/subspace/transmitter,
 /obj/item/stock_parts/subspace/transmitter{
-	pixel_x = 0;
 	pixel_y = 6
 	},
 /obj/item/stock_parts/subspace/transmitter{
-	pixel_x = 0;
 	pixel_y = 3
 	},
 /obj/item/stock_parts/subspace/treatment{
-	pixel_x = 0;
 	pixel_y = 4
 	},
 /turf/open/floor/iron/dark,
@@ -68517,7 +68386,6 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/effect/mapping_helpers/airlock/locked,
 /obj/machinery/door_buttons/access_button{
-	pixel_x = 0;
 	pixel_y = -21;
 	idSelf = "viro_public_control";
 	req_access = list("virology");
@@ -68629,8 +68497,7 @@
 	pixel_y = 4
 	},
 /obj/item/stock_parts/subspace/analyzer{
-	pixel_x = 7;
-	pixel_y = 0
+	pixel_x = 7
 	},
 /obj/item/stock_parts/subspace/analyzer{
 	pixel_x = 7;
@@ -68949,8 +68816,7 @@
 	pixel_y = -4
 	},
 /obj/item/lightreplacer{
-	pixel_x = -5;
-	pixel_y = 0
+	pixel_x = -5
 	},
 /turf/open/floor/iron/dark/smooth_edge{
 	dir = 8
@@ -69134,9 +69000,7 @@
 /obj/effect/turf_decal/tile/dark/opposingcorners{
 	dir = 1
 	},
-/obj/machinery/atmospherics/components/unary/vent_pump/on/layer4{
-	dir = 2
-	},
+/obj/machinery/atmospherics/components/unary/vent_pump/on/layer4,
 /turf/open/floor/iron/checker,
 /area/station/security/prison/rec)
 "sAP" = (
@@ -69218,8 +69082,7 @@
 	},
 /obj/structure/table,
 /obj/item/storage/fancy/donut_box{
-	pixel_y = 19;
-	pixel_x = 0
+	pixel_y = 19
 	},
 /turf/open/floor/iron/edge{
 	dir = 8
@@ -70012,8 +69875,7 @@
 	},
 /obj/structure/table,
 /obj/item/flashlight{
-	pixel_y = 10;
-	pixel_x = 0
+	pixel_y = 10
 	},
 /turf/open/floor/iron/dark/side,
 /area/station/hallway/secondary/service)
@@ -70391,7 +70253,6 @@
 	pixel_y = 4
 	},
 /obj/effect/spawner/random/entertainment/toy_figure{
-	pixel_x = 0;
 	pixel_y = 5
 	},
 /turf/open/floor/plating,
@@ -70622,7 +70483,6 @@
 "sVQ" = (
 /obj/structure/table,
 /obj/item/storage/toolbox/electrical{
-	pixel_x = 0;
 	pixel_y = 7
 	},
 /obj/machinery/atmospherics/components/unary/vent_pump/on/layer4{
@@ -73819,9 +73679,7 @@
 /obj/effect/turf_decal/trimline/yellow/line{
 	dir = 1
 	},
-/obj/machinery/atmospherics/components/unary/vent_pump/on/layer4{
-	dir = 2
-	},
+/obj/machinery/atmospherics/components/unary/vent_pump/on/layer4,
 /turf/open/floor/iron/edge{
 	dir = 1
 	},
@@ -74481,7 +74339,6 @@
 /obj/machinery/computer/libraryconsole/bookmanagement,
 /obj/effect/turf_decal/siding/wood,
 /obj/structure/sign/painting/library_private{
-	pixel_x = 0;
 	pixel_y = 32
 	},
 /turf/open/floor/wood/tile,
@@ -76405,18 +76262,15 @@
 "uxF" = (
 /obj/structure/sign/directions/security{
 	dir = 1;
-	pixel_y = 10;
-	pixel_x = 0
+	pixel_y = 10
 	},
 /obj/structure/sign/directions/command{
 	dir = 1;
-	pixel_y = 4;
-	pixel_x = 0
+	pixel_y = 4
 	},
 /obj/structure/sign/directions/dorms{
 	dir = 8;
-	pixel_y = -2;
-	pixel_x = 0
+	pixel_y = -2
 	},
 /turf/closed/wall,
 /area/station/common/arcade)
@@ -76741,7 +76595,6 @@
 	pixel_y = 6
 	},
 /obj/item/screwdriver{
-	pixel_x = 0;
 	pixel_y = -9
 	},
 /turf/open/floor/plating,
@@ -77077,7 +76930,6 @@
 	},
 /obj/structure/sign/directions/science/directional/south{
 	dir = 4;
-	pixel_x = 0;
 	pixel_y = -39
 	},
 /turf/open/floor/iron/edge{
@@ -79516,8 +79368,7 @@
 	pixel_y = 3
 	},
 /obj/item/storage/medkit/toxin{
-	pixel_x = 1;
-	pixel_y = 0
+	pixel_x = 1
 	},
 /obj/item/storage/medkit/regular{
 	pixel_x = -3;
@@ -79695,8 +79546,7 @@
 "vqe" = (
 /obj/structure/table/reinforced,
 /obj/item/storage/medkit/combat_surgeon{
-	pixel_y = 4;
-	pixel_x = 0
+	pixel_y = 4
 	},
 /obj/effect/turf_decal/trimline/dark_blue/filled/warning,
 /turf/open/floor/iron,
@@ -79815,8 +79665,7 @@
 	pixel_x = -10
 	},
 /obj/item/reagent_containers/cup/glass/mug{
-	pixel_x = 5;
-	pixel_y = 0
+	pixel_x = 5
 	},
 /turf/open/floor/iron/white/smooth_edge{
 	dir = 1
@@ -80108,7 +79957,6 @@
 "vxb" = (
 /obj/structure/table/wood,
 /obj/item/bikehorn{
-	pixel_x = 0;
 	pixel_y = 5
 	},
 /obj/item/storage/box/ingredients/wildcard{
@@ -80521,8 +80369,7 @@
 	dir = 4
 	},
 /obj/item/newspaper{
-	pixel_x = -5;
-	pixel_y = 0
+	pixel_x = -5
 	},
 /obj/item/paper_bin{
 	pixel_y = 6;
@@ -80922,7 +80769,6 @@
 	pixel_y = 13
 	},
 /obj/item/reagent_containers/cup/beaker/cryoxadone{
-	pixel_x = 0;
 	pixel_y = 8
 	},
 /obj/item/wrench/medical{
@@ -83947,8 +83793,7 @@
 	pixel_y = 5
 	},
 /obj/item/stock_parts/micro_laser{
-	pixel_x = 1;
-	pixel_y = 0
+	pixel_x = 1
 	},
 /obj/item/stock_parts/micro_laser{
 	pixel_x = 5;
@@ -85426,7 +85271,6 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/item/clothing/gloves/color/yellow{
-	pixel_x = 0;
 	pixel_y = -6
 	},
 /turf/open/floor/engine,
@@ -87322,7 +87166,6 @@
 	pixel_x = 2
 	},
 /obj/item/reagent_containers/dropper{
-	pixel_y = 0;
 	pixel_x = 2
 	},
 /obj/machinery/reagentgrinder{
@@ -87617,7 +87460,6 @@
 	pixel_y = -2
 	},
 /obj/item/clothing/glasses/meson{
-	pixel_x = 0;
 	pixel_y = 1
 	},
 /obj/item/clothing/glasses/meson{
@@ -88278,7 +88120,6 @@
 /obj/structure/rack/shelf,
 /obj/item/radio/intercom/directional/east,
 /obj/item/shovel/spade{
-	pixel_x = 0;
 	pixel_y = 4
 	},
 /obj/item/shovel/spade{
@@ -88912,7 +88753,6 @@
 /obj/machinery/button/curtain{
 	id = "dormscurtain7b";
 	pixel_x = 34;
-	pixel_y = 0;
 	name = "External Curtains"
 	},
 /turf/open/floor/wood/tile,
@@ -89266,8 +89106,7 @@
 	pixel_y = 4
 	},
 /obj/item/assembly/flash/handheld{
-	pixel_x = -5;
-	pixel_y = 0
+	pixel_x = -5
 	},
 /turf/open/floor/iron/dark/smooth_edge,
 /area/station/security/breakroom)
@@ -89391,7 +89230,6 @@
 	pixel_x = -9
 	},
 /obj/item/wrench{
-	pixel_y = 0;
 	pixel_x = 4
 	},
 /turf/open/floor/iron/dark/smooth_edge{
@@ -90269,22 +90107,18 @@
 /obj/structure/cable,
 /obj/structure/sign/directions/cryo/directional/north{
 	dir = 2;
-	pixel_x = 0;
 	pixel_y = 29
 	},
 /obj/structure/sign/directions/medical/directional/north{
 	dir = 4;
-	pixel_x = 0;
 	pixel_y = 23
 	},
 /obj/structure/sign/directions/engineering/directional/north{
 	dir = 2;
-	pixel_x = 0;
 	pixel_y = 35
 	},
 /obj/structure/sign/directions/dorms/directional/north{
 	dir = 2;
-	pixel_x = 0;
 	pixel_y = 41
 	},
 /obj/item/clothing/head/cone,
@@ -90296,7 +90130,6 @@
 /obj/structure/table/wood,
 /obj/machinery/airalarm/directional/north,
 /obj/item/storage/box/rubbershot{
-	pixel_x = 0;
 	pixel_y = 10
 	},
 /obj/item/gun/ballistic/shotgun/doublebarrel{
@@ -90437,7 +90270,6 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/item/clothing/gloves/color/yellow,
 /obj/item/clothing/gloves/color/yellow{
-	pixel_x = 0;
 	pixel_y = 7
 	},
 /turf/open/floor/iron/white/smooth_half,
@@ -90594,7 +90426,6 @@
 	},
 /obj/machinery/door_buttons/access_button{
 	pixel_x = 25;
-	pixel_y = 0;
 	idSelf = "viro_med_control";
 	idDoor = "viro_med_internal";
 	req_access = list("virology")

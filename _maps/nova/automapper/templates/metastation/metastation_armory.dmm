@@ -66,13 +66,6 @@
 /area/station/ai_monitored/security/armory)
 "p" = (
 /obj/structure/rack,
-/obj/item/storage/barricade{
-	pixel_y = -5
-	},
-/obj/item/storage/barricade,
-/obj/item/storage/barricade{
-	pixel_y = 5
-	},
 /turf/open/floor/iron/dark,
 /area/station/ai_monitored/security/armory)
 "q" = (

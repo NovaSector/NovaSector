@@ -49,8 +49,7 @@
 /area/virtual_domain/ancient_milsim/snpc_cafe)
 "bB" = (
 /obj/structure/inflatable{
-	color = "#556B2F";
-	opacity = 1
+	color = "#556B2F"
 	},
 /turf/open/floor/iron/dark,
 /area/virtual_domain/ancient_milsim/loot_camp)
@@ -487,10 +486,7 @@
 /turf/open/misc/grass/planet/ancient_milsim,
 /area/virtual_domain/ancient_milsim/entrance)
 "nH" = (
-/obj/item/storage/barricade,
 /obj/structure/closet/crate/cardboard,
-/obj/item/storage/barricade,
-/obj/item/storage/barricade,
 /obj/machinery/button/door/directional/north{
 	id = "cin_place"
 	},
@@ -884,16 +880,13 @@
 	pixel_x = 4
 	},
 /obj/item/ammo_box/magazine/pulse{
-	pixel_x = -3;
-	pixel_y = 0
+	pixel_x = -3
 	},
 /obj/item/ammo_box/magazine/pulse{
-	pixel_x = 3;
-	pixel_y = 0
+	pixel_x = 3
 	},
 /obj/item/ammo_box/magazine/pulse{
-	pixel_x = -9;
-	pixel_y = 0
+	pixel_x = -9
 	},
 /obj/item/ammo_box/pulse_cargo_box,
 /turf/open/floor/iron,
@@ -1103,10 +1096,6 @@
 /obj/item/storage/medkit/frontier/stocked,
 /turf/open/floor/iron/white,
 /area/virtual_domain/ancient_milsim/medbay)
-"Cj" = (
-/obj/item/storage/barricade,
-/turf/open/floor/iron/dark,
-/area/virtual_domain/ancient_milsim/loot_camp)
 "Cr" = (
 /obj/structure/chair/office/light{
 	dir = 4
@@ -1544,7 +1533,6 @@
 /area/virtual_domain/ancient_milsim/carrier)
 "My" = (
 /obj/structure/table,
-/obj/item/storage/barricade,
 /turf/open/floor/iron/dark,
 /area/virtual_domain/ancient_milsim/loot_camp)
 "Mz" = (
@@ -4386,7 +4374,7 @@ Uz
 TQ
 bB
 bB
-Cj
+ki
 vQ
 ki
 Ww
