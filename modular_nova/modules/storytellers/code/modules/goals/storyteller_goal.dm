@@ -20,6 +20,7 @@
 	/// Optional event path to trigger on achievement (e.g., /datum/event/meteor)
 	var/event_path
 
+	var/announce_color = COLOR_GRAY
 
 
 /// Is goal available for selection under the given context?
@@ -53,10 +54,10 @@
 	return children
 
 /// Trigger the associated event if defined (called when goal is achieved)
-/datum/storyteller_goal/proc/trigger_event()
+/datum/storyteller_goal/proc/trigger_event(list/vault, datum/storyteller_inputs/inputs, datum/storyteller/storyteller, threat_points, station_value)
 	if(!event_path)
 		return
-	var/datum/round_event/E = new event_path()
-	E.setup()
-	E.announce()
-
+	var/datum/round_event/E = new event_path(TRUE, new /datum/round_event_control/storyteller_control)
+	E.__setup_for_storyteller(threat_points)
+	E.__announce_for_storyteller()
+	E.__start_for_storyteller()

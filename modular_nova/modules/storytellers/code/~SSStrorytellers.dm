@@ -34,13 +34,6 @@ SUBSYSTEM_DEF(storytellers)
 	collect_avaible_goals()
 	SSevents.flags = SS_NO_FIRE
 
-
-
-	// Create default storyteller
-	active = new /datum/storyteller
-	active.initialize_round()
-
-
 	disable_dynamic()
 	return SS_INIT_SUCCESS
 
@@ -405,7 +398,7 @@ SUBSYSTEM_DEF(storytellers)
 			ctl.think()
 			return TRUE
 		if("trigger_event")
-//			ctl.trigger_random_event(ctl.get_context())
+			// fafa
 			return TRUE
 		if("clear_goal")
 			ctl.current_global_goal = null
@@ -628,7 +621,7 @@ ADMIN_VERB(storyteller_admin, R_ADMIN, "Storyteller", "Open the storyteller admi
 ADMIN_VERB(storyteller_vote, R_ADMIN | R_DEBUG, "Storyteller - Start Vote", "Start a global storyteller vote.", ADMIN_CATEGORY_EVENTS)
 	if (tg_alert(usr, "Start global vote?", "Storyteller Vote", "Yes", "No") == "No")
 		return
-	var/duration = tgui_input_number(usr, "Duration in seconds:", "Vote Duration", 60, 240, 60) as num
+	var/duration = tgui_input_number(usr, "Duration in seconds:", "Vote Duration", 60, 240, 60)
 	SSstorytellers.start_vote(duration SECONDS)
 
 ADMIN_VERB(storyteller_end_vote, R_ADMIN | R_DEBUG, "Storyteller - End Vote", "End vote early.", ADMIN_CATEGORY_EVENTS)

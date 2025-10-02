@@ -118,9 +118,6 @@
 	var/datum/storyteller_balance_snapshot/snap = balancer.make_snapshot(inputs)
 	player_antag_balance = round(snap.overall_tension)
 
-	// 2.5) Time-based scaling: ramp threat/difficulty with round progression and adjust population factor
-	apply_round_progression_scaling(inputs)
-
 	// 3) Mood: adapt mood based on current tension vs target and recent adaptation
 	if(world.time - last_mood_update_time > mood_update_interval)
 		update_mood_based_on_balance(snap)
@@ -144,6 +141,7 @@
 
 	// 6) Advance plan: let planner fire due goals and reschedule timeline if needed
 	planner.update_plan(src, inputs, snap)
+
 
 	// 7) Passive threat/adaptation drift each think
 	threat_points = min(max_threat_scale, threat_points + threat_growth_rate * mood.get_variance_multiplier())
@@ -248,44 +246,6 @@
 
 /datum/storyteller/proc/get_active_antagonist_count()
 	return inputs.antag_count
-
-
-/// Apply time-based scaling for round progression and player population
-/datum/storyteller/proc/apply_round_progression_scaling(datum/storyteller_inputs/cur_inputs)
-	if(!cur_inputs)
-		return
-	// Progression 0..1 over target duration
-	round_progression = clamp((world.time - round_start_time) / max(1, STORY_ROUND_TARGET_DURATION), 0, 1)
-	// Early warmup: favor crew, weaken storyteller a bit
-	var/in_warmup = (world.time - round_start_time) < STORY_EARLY_WARMUP_DURATION
-	// var/favor = in_warmup ? STORY_EARLY_CREW_FAVOR : 1.0
-	var/weakness = in_warmup ? STORY_EARLY_STORYTELLER_WEAKNESS : 1.0
-
-	// Ramp threat and difficulty towards targets as round progresses
-	var/threat_scale = lerp(1.0, STORY_THREAT_RAMP_TARGET, round_progression)
-	var/difficulty_scale = lerp(1.0, STORY_DIFFICULTY_RAMP_TARGET, round_progression)
-
-	threat_growth_rate = STORY_THREAT_GROWTH_RATE * threat_scale * weakness
-	difficulty_multiplier = STORY_DIFFICULTY_MULTIPLIER * difficulty_scale * weakness
-
-	// Grace period shrinks a bit over time, but not below minimum
-	var/grace_target = clamp(STORY_GRACE_PERIOD_DEFAULT * (1.0 - round_progression * 0.5), STORY_GRACE_MIN, STORY_GRACE_MAX)
-	grace_period = grace_target
-
-	// Population scaling around baseline 70 players with caps
-	var/players = max(1, cur_inputs.player_count)
-	var/pop_scale = clamp(players / max(1, STORY_PLAYER_BASELINE), STORY_POPULATION_MIN, STORY_POPULATION_MAX)
-	population_factor = pop_scale
-
-	// Apply crew favor by slightly biasing target tension downward early
-	if(in_warmup)
-		target_tension = max(0, STORY_TARGET_TENSION - 5)
-	else
-		target_tension = STORY_TARGET_TENSION
-
-	// Log occasionally on major phase shifts
-	if(prob(5))
-		log_storyteller("Progression: [round(round_progression*100)]% players=[players] pop=[round(population_factor,0.01)] diff=[round(difficulty_multiplier,0.01)] threat_rate=[round(threat_growth_rate,0.01)]")
 
 
 // Inputs datum to hold sampled data from the station

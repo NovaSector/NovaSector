@@ -111,28 +111,31 @@ DEFINE_BITFIELD(story_goal_category, list(
 #define STORY_TAG_DEESCALATION (1 << 1)
 // Affects Crew Health: Goals impacting crew well-being, such as healing wounds, spreading diseases, or causing harm.
 #define STORY_TAG_AFFECTS_CREW_HEALTH (1 << 2)
+
+#define STORY_TAG_AFFECTS_CREW_MIND (1 << 3)
 // Affects Antagonist: Goals influencing antagonists, like boosting/hindering their power or triggering antag-related events.
-#define STORY_TAG_AFFECTS_ANTAGONIST (1 << 3)
+#define STORY_TAG_AFFECTS_ANTAGONIST (1 << 4)
 // Affects Resources: Goals related to station resources, such as generating/supplying items, destroying infrastructure, or economic impacts.
-#define STORY_TAG_AFFECTS_RESOURCES (1 << 4)
+#define STORY_TAG_AFFECTS_RESOURCES (1 << 5)
 // Affects Morale: Goals influencing crew mood or psychological state (e.g., events boosting/lowering happiness or panic).
-#define STORY_TAG_AFFECTS_MORALE (1 << 5)
+#define STORY_TAG_AFFECTS_MORALE (1 << 6)
 // Affects Infrastructure: Goals targeting station structures, like repairs, sabotage, or environmental changes.
-#define STORY_TAG_AFFECTS_INFRASTRUCTURE (1 << 6)
+#define STORY_TAG_AFFECTS_INFRASTRUCTURE (1 << 7)
 // Affects Economy: Goals involving trade, credits, or resource allocation (e.g., cargo shipments or thefts).
-#define STORY_TAG_AFFECTS_ECONOMY (1 << 7)
+#define STORY_TAG_AFFECTS_ECONOMY (1 << 8)
 // Affects Security: Goals related to security systems, arrests, or law enforcement dynamics.
-#define STORY_TAG_AFFECTS_SECURITY (1 << 8)
+#define STORY_TAG_AFFECTS_SECURITY (1 << 9)
 //
-#define STORY_TAG_AFFECTS_WHOLE_STATION (1 << 9)
+#define STORY_TAG_AFFECTS_WHOLE_STATION (1 << 10)
 // Affects Research: Goals impacting science/tech progress, like experiments or tech unlocks/destruction.
-#define STORY_TAG_AFFECTS_RESEARCH (1 << 10)
+#define STORY_TAG_AFFECTS_RESEARCH (1 << 11)
 
 
 DEFINE_BITFIELD(story_universal_tags, list(
 	"ESCALATION" = STORY_TAG_ESCALATION,
 	"DEESCALATION" = STORY_TAG_DEESCALATION,
 	"AFFECTS_CREW_HEALTH" = STORY_TAG_AFFECTS_CREW_HEALTH,
+	"AFFECTS_CREW_MIND" = STORY_TAG_AFFECTS_CREW_MIND,
 	"AFFECTS_ANTAGONIST" = STORY_TAG_AFFECTS_ANTAGONIST,
 	"AFFECTS_RESOURCES" = STORY_TAG_AFFECTS_RESOURCES,
 	"AFFECTS_MORALE" = STORY_TAG_AFFECTS_MORALE,
@@ -167,7 +170,7 @@ DEFINE_BITFIELD(story_universal_tags, list(
 #define STORY_POPULATION_FACTOR 1.0
 
 // Planner constants
-#define STORY_RECALC_INTERVAL (5 MINUTES)
+#define STORY_RECALC_INTERVAL (10 MINUTES)
 #define STORY_BASE_SUBGOALS_COUNT 3
 #define STORY_PICK_THREAT_BONUS_SCALE 0.01
 #define STORY_BALANCE_BONUS 1.5
@@ -204,3 +207,11 @@ DEFINE_BITFIELD(story_universal_tags, list(
 #define STORY_PLAYER_BASELINE 70
 #define STORY_POPULATION_MIN 0.8
 #define STORY_POPULATION_MAX 1.8
+
+
+
+#define STORY_THREAT_LOW 100
+#define STORY_THREAT_MODERATE 500
+#define STORY_THREAT_HIGH 2000
+#define STORY_THREAT_EXTREME 5000
+#define STORY_THREAT_APOCALYPTIC 10000

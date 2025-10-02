@@ -16,7 +16,7 @@
 	var/list/timeline = list()
 	/// Last recalculation time; throttle to avoid spam
 	var/last_recalc_time = 0
-	/// Recalc frequency (scaled by pace; default 5 mins)
+	/// Recalc frequency
 	var/recalc_interval = STORY_RECALC_INTERVAL
 
 
@@ -50,7 +50,7 @@
 			continue
 
 		entry[3] = STORY_GOAL_FIRING
-		if(goal.trigger_event())
+		if(goal.trigger_event(inputs.vault, inputs, ctl, round(ctl.threat_points * ctl.difficulty_multiplier * 100), inputs.station_value))
 			fired_goals += goal
 			entry[3] = STORY_GOAL_COMPLETED
 			ctl.recent_events |= goal.id
@@ -61,10 +61,11 @@
 			// Progress global if subgoal
 			if(goal != current_goal)
 				ctl.global_goal_progress += 0.2
-			message_admins("[span_notice("Storyteller fired goal: ")] [goal.name || goal.id]. Use the Storyteller panel to clear if needed.")
+			message_admins("[span_notice("Storyteller fired goal: ")] [goal.name || goal.id].")
 		else
 			entry[3] = STORY_GOAL_FAILED
 			message_admins("[span_warning("Storyteller goal failed to fire: ")] [goal.name || goal.id]")
+
 
 	// Clean completed/failed from timeline
 	for(var/offset in timeline.Copy())
@@ -173,7 +174,6 @@
 
 	var/derived_tags = derive_universal_tags(category, ctl, inputs, bal)
 	var/effective_threat = ctl.threat_points * ctl.mood.get_threat_multiplier() * ctl.difficulty_multiplier
-	// var/adaptation_adjust = 1.0 - ctl.adaptation_factor
 
 	// Bias tag filter by threat/adaptation
 	var/tag_filter = derived_tags
@@ -196,7 +196,6 @@
 
 
 	ctl.threat_points += ctl.threat_growth_rate * ctl.mood.get_variance_multiplier()
-	ctl.adaptation_factor = max(0, ctl.adaptation_factor - ctl.adaptation_decay_rate)
 	log_storyteller_planner("Storyteller picked global goal [current_goal?.name || "None"]. Threat: [ctl.threat_points], Adaptation: [ctl.adaptation_factor]")
 	if(current_goal)
 		message_admins("[span_notice("Storyteller selected global goal: ")] [current_goal.name || current_goal.id]. Use the Storyteller panel to Clear Goal to veto.")
@@ -263,6 +262,7 @@
 
 
 
+
 // Derive universal tags, incorporating balancer snapshot for antag/station dynamics
 // Builds hierarchy: Base from metrics (influenced by category for bias), mid from aggregation, high from balance implications.
 // Category biases derivation: e.g., GOAL_BAD favors ESCALATION/AFFECTS_CREW_HEALTH harm; GOAL_GOOD favors DEESCALATION/recovery.
@@ -273,17 +273,16 @@
 
 	// Category bias: Influence base tag selection (e.g., BAD -> escalation/harm tags)
 	var/category_bias = 1.0
-	switch(category)
-		if(STORY_GOAL_BAD)
-			category_bias = 1.5
-			tags |= STORY_TAG_ESCALATION
-		if(STORY_GOAL_GOOD)
-			category_bias = 1.5
-			tags |= STORY_TAG_DEESCALATION
-		if(STORY_GOAL_RANDOM)
-			category_bias = 1.2
-		if(STORY_GOAL_NEUTRAL)
-			category_bias = 0.8
+	if(category & STORY_GOAL_BAD)
+		category_bias = 1.5
+		tags |= STORY_TAG_ESCALATION
+	else if(category & STORY_GOAL_GOOD)
+		category_bias = 1.5
+		tags |= STORY_TAG_DEESCALATION
+	else if(category & STORY_GOAL_RANDOM)
+		category_bias = 1.2
+	else if(category & STORY_GOAL_NEUTRAL)
+		category_bias = 0.8
 
 	if(category & STORY_GOAL_GLOBAL)
 		tags |= STORY_TAG_AFFECTS_WHOLE_STATION

@@ -47,9 +47,8 @@
 	for(var/type in subtypesof(/datum/storyteller_metric))
 		if(type == /datum/storyteller_metric)
 			continue
-		check_list += type
-	for(var/datum/storyteller_metric/check in check_list)
-		check = new
+		check_list += new type
+
 	compute_station_value()
 	scan_station()
 
@@ -81,13 +80,11 @@
 
 	var/metrics_count = 0
 	for(var/datum/storyteller_metric/check in check_list)
-		if(!istype(check))
-			continue
 		if(!check.can_perform_now(src, owner, inputs, scan_flags))
 			continue
 		metrics_count++
 		// Protect metric execution
-		INVOKE_ASYNC(src, TYPE_PROC_REF(/datum/storyteller_analyzer, __run_metric_safe), check, inputs, scan_flags)
+		INVOKE_ASYNC(src, PROC_REF(__run_metric_safe), check, inputs, scan_flags)
 
 	// Wait for async metrics to finish or timeout
 	if(metrics_count <= 0)
@@ -106,11 +103,8 @@
 
 
 /datum/storyteller_analyzer/proc/__run_metric_safe(datum/storyteller_metric/check, datum/storyteller_inputs/inputs, scan_flags)
-	try
-		INVOKE_ASYNC(check, TYPE_PROC_REF(/datum/storyteller_metric, perform), src, owner, inputs, scan_flags)
-	catch(var/exception/e)
-		log_storyteller_analyzer("Metric [check?.type] crashed: [e]")
-		message_admins("[span_warning("Storyteller metric [check?.type] crashed during scan.")] Check server logs.")
+	INVOKE_ASYNC(check, TYPE_PROC_REF(/datum/storyteller_metric, perform), src, owner, inputs, scan_flags)
+
 
 
 /datum/storyteller_analyzer/proc/try_stop_analyzing(datum/storyteller_metric/current)
