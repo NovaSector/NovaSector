@@ -785,6 +785,7 @@
 /obj/item/stack/sheet/mineral/uranium/fifty,
 /obj/item/stack/sheet/iron/fifty,
 /obj/item/stack/sheet/glass/fifty,
+/obj/machinery/light/small/dim/directional/east,
 /turf/open/floor/iron/shuttle/exploration/hazard,
 /area/misc/condo)
 "qE" = (
@@ -1076,6 +1077,9 @@
 	anchored = 1;
 	name = "sink";
 	pixel_x = -15
+	},
+/obj/machinery/light/directional/north{
+	pixel_x = -16
 	},
 /turf/open/floor/iron/dark/smooth_large,
 /area/misc/condo)
