@@ -76,6 +76,7 @@
 	var/list/additional_stack_recipes = list(
 		/obj/item/stack/sheet/leather = list(GLOB.nova_leather_recipes, GLOB.nova_leather_belt_recipes),
 		/obj/item/stack/sheet/mineral/titanium = list(GLOB.nova_titanium_recipes),
+		/obj/item/stack/sheet/mineral/snow = list(GLOB.nova_snow_recipes),
 		/obj/item/stack/sheet/iron = list(GLOB.nova_metal_recipes, GLOB.nova_metal_airlock_recipes),
 		/obj/item/stack/sheet/mineral/wood = list(GLOB.nova_wood_recipes),
 		/obj/item/stack/sheet/cardboard = list(GLOB.nova_cardboard_recipes),

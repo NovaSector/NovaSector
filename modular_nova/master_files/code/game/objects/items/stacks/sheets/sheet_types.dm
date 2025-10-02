@@ -64,6 +64,7 @@ GLOBAL_LIST_INIT(nova_rod_recipes, list(
 GLOBAL_LIST_INIT(nova_wood_recipes, list(
 	new/datum/stack_recipe("water basin", /obj/structure/reagent_water_basin, 5, time = 2 SECONDS, crafting_flags = CRAFT_CHECK_DENSITY | CRAFT_ONE_PER_TURF | CRAFT_ON_SOLID_GROUND, category = CAT_TOOLS),
 	new/datum/stack_recipe("forging work bench", /obj/structure/reagent_crafting_bench, 5, time = 2 SECONDS, crafting_flags = CRAFT_CHECK_DENSITY | CRAFT_ONE_PER_TURF | CRAFT_ON_SOLID_GROUND, category = CAT_TOOLS),
+	new/datum/stack_recipe("wooden railing alternative", /obj/structure/railing/wooden_fence_alt, 5, time = 2 SECONDS, crafting_flags = CRAFT_CHECK_DENSITY | CRAFT_ON_SOLID_GROUND | CRAFT_CHECK_DIRECTION, category = CAT_STRUCTURE),
 	new/datum/stack_recipe("sauna oven", /obj/structure/sauna_oven, 30, time = 1.5 SECONDS, crafting_flags = CRAFT_CHECK_DENSITY | CRAFT_ONE_PER_TURF | CRAFT_ON_SOLID_GROUND, category = CAT_ENTERTAINMENT),
 	new/datum/stack_recipe("large wooden mortar", /obj/structure/large_mortar, 10, time = 3 SECONDS, crafting_flags = CRAFT_CHECK_DENSITY | CRAFT_ONE_PER_TURF | CRAFT_ON_SOLID_GROUND, category = CAT_TOOLS),
 	new/datum/stack_recipe("wooden cutting board", /obj/item/cutting_board, 5, time = 2 SECONDS, category = CAT_TOOLS),
@@ -144,6 +145,14 @@ GLOBAL_LIST_INIT(nova_titanium_recipes, list(
 	. = ..()
 	. += GLOB.nova_titanium_recipes
 
+
+GLOBAL_LIST_INIT(nova_snow_recipes, list(
+	new/datum/stack_recipe("snow railing", /obj/structure/railing/snow, 2, crafting_flags = CRAFT_CHECK_DENSITY | CRAFT_ON_SOLID_GROUND | CRAFT_CHECK_DIRECTION, category = CAT_STRUCTURE),
+))
+
+/obj/item/stack/sheet/mineral/snow/get_main_recipes()
+	. = ..()
+	. += GLOB.nova_snow_recipes
 
 // Plastic
 
