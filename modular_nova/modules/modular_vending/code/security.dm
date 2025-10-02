@@ -1,7 +1,6 @@
 /obj/machinery/vending/security
 	products_nova = list(
 		/obj/item/storage/pouch/ammo = 2,
-		/obj/item/storage/barricade = 4,
 		/obj/item/ammo_box/magazine/kineticballs = 10,
 		/obj/item/ammo_box/advanced/kineticballs = 5,
 		/obj/item/ammo_box/magazine/pepperball = 4,

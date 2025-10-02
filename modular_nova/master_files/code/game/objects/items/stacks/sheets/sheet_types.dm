@@ -28,7 +28,6 @@ GLOBAL_LIST_INIT(nova_metal_recipes, list(
 	new/datum/stack_recipe("lowered floor tile", /obj/item/stack/tile/iron/lowered, 1, 4, 20, category = CAT_TILES),
 	new/datum/stack_recipe("elevated floor tile", /obj/item/stack/tile/iron/elevated, 1, 4, 20, category = CAT_TILES),
 	new/datum/stack_recipe("wrestling turnbuckle", /obj/structure/wrestling_corner, 3, time = 2.5 SECONDS, crafting_flags = CRAFT_CHECK_DENSITY | CRAFT_ONE_PER_TURF | CRAFT_ON_SOLID_GROUND, category = CAT_STRUCTURE),
-	new/datum/stack_recipe("metal barricade", /obj/structure/deployable_barricade/metal, 2, time = 1 SECONDS, crafting_flags = CRAFT_CHECK_DENSITY | CRAFT_ON_SOLID_GROUND | CRAFT_CHECK_DIRECTION, category = CAT_STRUCTURE),
 	new/datum/stack_recipe("gun rack", /obj/structure/rack/gunrack, 1, time = 2 SECONDS, crafting_flags = CRAFT_CHECK_DENSITY | CRAFT_ONE_PER_TURF | CRAFT_ON_SOLID_GROUND, category = CAT_STRUCTURE),
 	new/datum/stack_recipe("gun locker", /obj/structure/guncase, 5, time = 2 SECONDS, crafting_flags = CRAFT_CHECK_DENSITY | CRAFT_ONE_PER_TURF | CRAFT_ON_SOLID_GROUND, category = CAT_STRUCTURE),
 	new/datum/stack_recipe("metal shelf", /obj/structure/rack/shelf, 1, time = 2 SECONDS, crafting_flags = CRAFT_CHECK_DENSITY | CRAFT_ONE_PER_TURF | CRAFT_ON_SOLID_GROUND, category = CAT_STRUCTURE),
@@ -47,21 +46,10 @@ GLOBAL_LIST_INIT(nova_metal_airlock_recipes, list(
 	. += GLOB.nova_metal_recipes
 	add_recipes_to_sublist(., "airlock assemblies", GLOB.nova_metal_airlock_recipes)
 
-// Plasteel
-
-GLOBAL_LIST_INIT(nova_plasteel_recipes, list(
-	new/datum/stack_recipe("plasteel barricade", /obj/structure/deployable_barricade/metal/plasteel, 2, time = 1 SECONDS, crafting_flags = CRAFT_CHECK_DENSITY | CRAFT_ONE_PER_TURF | CRAFT_ON_SOLID_GROUND | CRAFT_CHECK_DIRECTION, category = CAT_STRUCTURE),
-))
-
-/obj/item/stack/sheet/plasteel/get_main_recipes()
-	. = ..()
-	. += GLOB.nova_plasteel_recipes
-
 // Rods
 
 GLOBAL_LIST_INIT(nova_rod_recipes, list(
 	new/datum/stack_recipe("towel bin", /obj/structure/towel_bin/empty, 2, time = 0.5 SECONDS, crafting_flags = CRAFT_ONE_PER_TURF, category = CAT_CONTAINERS),
-	new/datum/stack_recipe("guard rail", /obj/structure/deployable_barricade/guardrail, 2, time = 1 SECONDS, crafting_flags = CRAFT_CHECK_DENSITY | CRAFT_ON_SOLID_GROUND | CRAFT_CHECK_DIRECTION, category = CAT_STRUCTURE),
 	new/datum/stack_recipe("wrestling ropes", /obj/structure/railing/wrestling, 3, time = 1.8 SECONDS, crafting_flags = CRAFT_ON_SOLID_GROUND | CRAFT_CHECK_DIRECTION, category = CAT_STRUCTURE),
 	new/datum/stack_recipe("crutch", /obj/item/cane/crutch, 3, time = 1 SECONDS, category = CAT_TOOLS),
 	new/datum/stack_recipe("torch mount", /obj/item/wallframe/torch_mount, 2, category = CAT_MISC),
@@ -76,7 +64,6 @@ GLOBAL_LIST_INIT(nova_rod_recipes, list(
 GLOBAL_LIST_INIT(nova_wood_recipes, list(
 	new/datum/stack_recipe("water basin", /obj/structure/reagent_water_basin, 5, time = 2 SECONDS, crafting_flags = CRAFT_CHECK_DENSITY | CRAFT_ONE_PER_TURF | CRAFT_ON_SOLID_GROUND, category = CAT_TOOLS),
 	new/datum/stack_recipe("forging work bench", /obj/structure/reagent_crafting_bench, 5, time = 2 SECONDS, crafting_flags = CRAFT_CHECK_DENSITY | CRAFT_ONE_PER_TURF | CRAFT_ON_SOLID_GROUND, category = CAT_TOOLS),
-	new/datum/stack_recipe("wooden half-barricade", /obj/structure/deployable_barricade/wooden, 5, time = 2 SECONDS, crafting_flags = CRAFT_CHECK_DENSITY | CRAFT_ON_SOLID_GROUND | CRAFT_CHECK_DIRECTION, category = CAT_STRUCTURE),
 	new/datum/stack_recipe("sauna oven", /obj/structure/sauna_oven, 30, time = 1.5 SECONDS, crafting_flags = CRAFT_CHECK_DENSITY | CRAFT_ONE_PER_TURF | CRAFT_ON_SOLID_GROUND, category = CAT_ENTERTAINMENT),
 	new/datum/stack_recipe("large wooden mortar", /obj/structure/large_mortar, 10, time = 3 SECONDS, crafting_flags = CRAFT_CHECK_DENSITY | CRAFT_ONE_PER_TURF | CRAFT_ON_SOLID_GROUND, category = CAT_TOOLS),
 	new/datum/stack_recipe("wooden cutting board", /obj/item/cutting_board, 5, time = 2 SECONDS, category = CAT_TOOLS),
@@ -157,15 +144,6 @@ GLOBAL_LIST_INIT(nova_titanium_recipes, list(
 	. = ..()
 	. += GLOB.nova_titanium_recipes
 
-// Snow
-
-GLOBAL_LIST_INIT(nova_snow_recipes, list(
-	new/datum/stack_recipe("snow barricade", /obj/structure/deployable_barricade/snow, 2, crafting_flags = CRAFT_CHECK_DENSITY | CRAFT_ON_SOLID_GROUND | CRAFT_CHECK_DIRECTION, category = CAT_STRUCTURE),
-))
-
-/obj/item/stack/sheet/mineral/snow/get_main_recipes()
-	. = ..()
-	. += GLOB.nova_snow_recipes
 
 // Plastic
 

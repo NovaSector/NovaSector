@@ -156,8 +156,6 @@
 		Features barricades, building materials, extra large fuel tank and 5.6mm defensive autoturrets."
 
 /obj/structure/closet/crate/secure/weapon/nri/engineer/defense/PopulateContents()
-	new /obj/item/storage/barricade(src)
-	new /obj/item/storage/barricade(src)
 	new /obj/item/stack/sheet/iron/fifty(src)
 	new /obj/item/stack/sheet/iron/fifty(src)
 	new /obj/item/stack/sheet/plasteel/fifty(src)
@@ -181,7 +179,6 @@
 		Features way less barricades and building materials than its more defensive analogue, but includes NRI-issued viscerator grenades and a combat RCD."
 
 /obj/structure/closet/crate/secure/weapon/nri/engineer/offense/PopulateContents()
-	new /obj/item/storage/barricade(src)
 	new /obj/item/stack/sheet/mineral/sandbags/fifty(src)
 	new /obj/item/grenade/barrier(src)
 	new /obj/item/grenade/barrier(src)
