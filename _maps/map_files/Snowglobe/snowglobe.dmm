@@ -56012,11 +56012,11 @@
 /turf/open/floor/iron/dark/smooth_half,
 /area/station/commons/arrivalsshop)
 "oUp" = (
-/obj/machinery/rnd/server/master,
 /obj/effect/turf_decal/trimline/purple/filled/warning{
 	dir = 6
 	},
 /obj/item/radio/intercom/directional/east,
+/obj/machinery/rnd/server,
 /turf/open/floor/iron/kitchen_coldroom/freezerfloor,
 /area/station/science/server)
 "oUy" = (
