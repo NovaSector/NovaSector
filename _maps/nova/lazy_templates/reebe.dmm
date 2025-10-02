@@ -18,10 +18,6 @@
 /obj/item/paper/crumpled/bloody/reebe2,
 /turf/open/floor/bronze,
 /area/ruin/powered/reebe)
-"en" = (
-/obj/structure/deployable_barricade/wooden,
-/turf/open/floor/bronze/flat,
-/area/ruin/powered/reebe)
 "et" = (
 /obj/effect/mob_spawn/corpse/human/blood_cultist,
 /turf/open/floor/bronze/filled,
@@ -214,10 +210,6 @@
 	pixel_y = 7
 	},
 /turf/open/floor/bronze/flat,
-/area/ruin/powered/reebe)
-"wW" = (
-/obj/structure/deployable_barricade/wooden,
-/turf/open/floor/bronze/filled,
 /area/ruin/powered/reebe)
 "xd" = (
 /turf/open/floor/bronze/flat,
@@ -1723,7 +1715,7 @@ QX
 qS
 FD
 cg
-en
+xd
 Pi
 xd
 wu
@@ -1827,7 +1819,7 @@ QX
 qS
 qS
 qS
-wW
+Pi
 MF
 xd
 aj

@@ -33,6 +33,7 @@
 /obj/effect/turf_decal/tile/neutral/fourcorners,
 /obj/effect/turf_decal/bot,
 /obj/structure/rack/gunrack,
+/obj/effect/spawner/random/armory/barrier_grenades/six,
 /obj/effect/spawner/armory_spawn/mod_lasers_small,
 /turf/open/floor/iron/dark,
 /area/station/ai_monitored/security/armory)
@@ -60,13 +61,6 @@
 /obj/structure/table/reinforced,
 /obj/effect/turf_decal/tile/neutral/fourcorners,
 /obj/machinery/airalarm/directional/north,
-/obj/item/storage/barricade{
-	pixel_y = 10
-	},
-/obj/item/storage/barricade{
-	pixel_y = 5
-	},
-/obj/item/storage/barricade,
 /turf/open/floor/iron/dark,
 /area/station/ai_monitored/security/armory)
 "R" = (

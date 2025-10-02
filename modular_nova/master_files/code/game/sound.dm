@@ -234,13 +234,13 @@
 /obj/structure/table_frame/wood
 	bullet_impact_sound = SFX_BULLET_IMPACT_WOOD
 
-/obj/structure/deployable_barricade/wooden
+/obj/structure/railing/wooden_fence_alt
 	bullet_impact_sound = SFX_BULLET_IMPACT_WOOD
 
 /obj/structure/statue/snow
 	bullet_impact_sound = SFX_BULLET_IMPACT_ICE
 
-/obj/structure/deployable_barricade/snow
+/obj/structure/railing/snow
 	bullet_impact_sound = SFX_BULLET_IMPACT_ICE
 
 // MACHINERY

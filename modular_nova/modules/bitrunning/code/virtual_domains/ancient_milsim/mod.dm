@@ -52,7 +52,6 @@
 		/obj/item/mod/module/visor/night,
 	)
 	insignia_type = /obj/item/mod/module/insignia/milsim_marksman
-	additional_modules = /obj/item/mod/module/dispenser/ancient_milsim/marksman
 
 /obj/item/mod/control/pre_equipped/responsory/milsim/medic
 	applied_modules = list(
@@ -146,14 +145,6 @@
 	cooldown_time = 10 SECONDS
 	new_dispense_type = /obj/item/minespawner/ancient_milsim
 	new_cooldown_time = 10 SECONDS
-
-/obj/item/mod/module/dispenser/ancient_milsim/marksman
-	name = "MOD barricade box-throwing knives dispenser module"
-	desc = "This module can create a box of barricades and additional throwing knives at the user's liking."
-	dispense_type = /obj/item/storage/barricade
-	cooldown_time = 15 SECONDS
-	new_dispense_type = /obj/item/knife/combat/throwing
-	new_cooldown_time = 5 SECONDS
 
 /obj/item/mod/module/dispenser/ancient_milsim/medic
 	name = "MOD custom hypospray-hypospray vials dispenser module"
