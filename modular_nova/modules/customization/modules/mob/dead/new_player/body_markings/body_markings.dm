@@ -354,6 +354,12 @@
 	recommended_species = list(SPECIES_TESHARI)
 	affected_bodyparts = HEAD | CHEST | ARM_LEFT | ARM_RIGHT | HAND_LEFT | HAND_RIGHT | LEG_RIGHT | LEG_LEFT
 
+/datum/body_marking/secondary/teshari_lashes
+	name = "Teshari Lashes"
+	icon_state = "teshari_lashes"
+	recommended_species = list(SPECIES_TESHARI)
+	affected_bodyparts = HEAD
+
 /datum/body_marking/secondary/tajaran
 	name = "Tajaran"
 	icon_state = "tajaran"

@@ -41,10 +41,10 @@
 		var/list/temp_ambientsounds = GLOB.ambience_assoc[ambience_index]
 		ambientsounds = temp_ambientsounds.Copy()
 		ambientsounds += list(
-			'modular_nova/modules/encounters/sounds/morse.ogg',
+			'modular_nova/modules/random_ship_event/random_ships/heliostatic_inspectors/sounds/morse.ogg',
 			'sound/ambience/engineering/ambitech.ogg',
 			'sound/ambience/misc/signal.ogg',
-			'modular_nova/modules/encounters/sounds/morse.ogg',
+			'modular_nova/modules/random_ship_event/random_ships/heliostatic_inspectors/sounds/morse.ogg',
 		)
 	return ..()
 
@@ -129,7 +129,7 @@
 	name = "Interdyne Engineering"
 	icon = 'icons/area/areas_station.dmi'
 	icon_state = "maint_electrical" // given interdyne's powerplant is rtg's, thought this looked good on the frontend for mappers
-	ambient_buzz = 'modular_nova/modules/encounters/sounds/gear_loop.ogg'
+	ambient_buzz = 'modular_nova/modules/random_ship_event/random_ships/heliostatic_inspectors/sounds/gear_loop.ogg'
 
 /area/ruin/interdyne_planetary_base/eng/Initialize(mapload)
 	if(!ambientsounds)
