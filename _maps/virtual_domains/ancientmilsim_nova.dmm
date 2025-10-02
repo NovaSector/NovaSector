@@ -490,6 +490,7 @@
 /obj/machinery/button/door/directional/north{
 	id = "cin_place"
 	},
+/obj/effect/spawner/random/armory/barrier_grenades/six,
 /turf/open/floor/iron,
 /area/virtual_domain/ancient_milsim/snpc_garage)
 "nM" = (
@@ -1286,6 +1287,10 @@
 "Fv" = (
 /turf/open/floor/iron/smooth_half,
 /area/virtual_domain/ancient_milsim/atrium)
+"FC" = (
+/obj/effect/spawner/random/armory/barrier_grenades/six,
+/turf/open/floor/iron/dark,
+/area/virtual_domain/ancient_milsim/loot_camp)
 "FG" = (
 /obj/item/storage/toolbox/emergency/turret/mag_fed/spider/twin_fang/pre_filled,
 /turf/open/floor/plating,
@@ -1533,6 +1538,7 @@
 /area/virtual_domain/ancient_milsim/carrier)
 "My" = (
 /obj/structure/table,
+/obj/effect/spawner/random/armory/barrier_grenades/six,
 /turf/open/floor/iron/dark,
 /area/virtual_domain/ancient_milsim/loot_camp)
 "Mz" = (
@@ -4374,7 +4380,7 @@ Uz
 TQ
 bB
 bB
-ki
+FC
 vQ
 ki
 Ww

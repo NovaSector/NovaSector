@@ -65,7 +65,6 @@
 /turf/open/floor/iron/dark,
 /area/station/ai_monitored/security/armory)
 "p" = (
-/obj/structure/rack,
 /turf/open/floor/iron/dark,
 /area/station/ai_monitored/security/armory)
 "q" = (
@@ -79,7 +78,7 @@
 /obj/effect/turf_decal/tile/blue/half/contrasted{
 	dir = 4
 	},
-/obj/effect/spawner/random/armory/barrier_grenades,
+/obj/effect/spawner/random/armory/barrier_grenades/six,
 /turf/open/floor/iron/dark,
 /area/station/ai_monitored/security/armory)
 "s" = (

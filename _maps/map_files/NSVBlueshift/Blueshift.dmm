@@ -94530,6 +94530,7 @@
 /obj/structure/table/reinforced,
 /obj/structure/window/reinforced/spawner/directional/south,
 /obj/machinery/newscaster/directional/west,
+/obj/effect/spawner/random/armory/barrier_grenades/six,
 /turf/open/floor/iron/dark,
 /area/station/ai_monitored/security/armory)
 "sbK" = (
