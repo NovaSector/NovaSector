@@ -1832,6 +1832,7 @@
 /obj/structure/cable,
 /obj/structure/table/reinforced,
 /obj/machinery/firealarm/directional/north,
+/obj/effect/spawner/random/armory/barrier_grenades/six,
 /turf/open/floor/engine,
 /area/station/ai_monitored/security/armory)
 "awe" = (
