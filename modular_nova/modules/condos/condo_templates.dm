@@ -167,8 +167,8 @@ Due to some fuckery with how these templates work; the bottom left turf of your 
 /datum/map_template/condo/deepspace_ship
 	name = "Condo - Deepspace Ship"
 	mappath = "modular_nova/modules/condos/_maps/ship_apartment.dmm"
-	landing_zone_x_offset = 14
-	landing_zone_y_offset = 4
+	landing_zone_x_offset = 9
+	landing_zone_y_offset = 2
 
 /datum/map_template/condo/deepspace_pod
 	name = "Condo - Deepspace Pod"

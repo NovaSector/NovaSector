@@ -11,26 +11,61 @@
 /obj/effect/turf_decal/siding/wood/end{
 	dir = 4
 	},
+/obj/machinery/light_switch/directional/north,
 /turf/open/floor/wood/large,
+/area/misc/condo)
+"aL" = (
+/obj/structure/table/reinforced/plastitaniumglass,
+/obj/item/reagent_containers/cup/bottle/syrup_bottle/caramel{
+	pixel_x = 9;
+	pixel_y = 16
+	},
+/obj/item/reagent_containers/cup/bottle/syrup_bottle/korta_nectar{
+	pixel_y = 16
+	},
+/obj/item/reagent_containers/cup/bottle/syrup_bottle/liqueur{
+	pixel_x = -9;
+	pixel_y = 16
+	},
+/obj/item/storage/fancy/coffee_condi_display{
+	pixel_x = 4;
+	pixel_y = 2
+	},
+/turf/open/floor/iron/dark/smooth_large,
 /area/misc/condo)
 "cz" = (
 /obj/structure/decorative{
 	icon = 'modular_nova/modules/advanced_shuttles/icons/computer.dmi';
-	icon_state = "computer_left"
+	icon_state = "computer_left";
+	density = 1;
+	anchored = 1
 	},
 /turf/open/floor/iron/shuttle/exploration/blanktile,
 /area/misc/condo)
 "cK" = (
 /obj/structure/hedge,
 /obj/structure/window/reinforced/tinted/spawner/directional/south,
+/obj/structure/marker_beacon/cerulean,
 /turf/open/floor/iron/shuttle/exploration/blanktile,
-/area/misc/condo)
-"cO" = (
-/obj/structure/decorative/shelf/crates1,
-/turf/open/floor/iron/shuttle/exploration/hazard,
 /area/misc/condo)
 "cV" = (
 /turf/open/floor/iron/dark/smooth_large,
+/area/misc/condo)
+"dY" = (
+/obj/structure/chair/bronze{
+	dir = 1;
+	density = 1
+	},
+/obj/effect/turf_decal/siding/wideplating_new/dark{
+	dir = 1
+	},
+/obj/effect/turf_decal/siding/wood{
+	dir = 1
+	},
+/obj/effect/turf_decal/siding/wideplating_new/dark/corner{
+	dir = 8
+	},
+/turf/open/floor/iron/shuttle/exploration/blanktile,
 /area/misc/condo)
 "eq" = (
 /obj/effect/turf_decal/trimline/dark_blue/filled/line{
@@ -69,7 +104,6 @@
 	},
 /obj/machinery/light/floor{
 	pixel_y = 16;
-	bulb_colour = "#66ccff";
 	pixel_x = 16
 	},
 /turf/open/floor/iron/shuttle/exploration/uside{
@@ -98,8 +132,13 @@
 	icon = 'icons\obj\mining_zones\donkvendor.dmi';
 	icon_state = "donkvendor";
 	anchored = 1;
-	name = "Life Support Systems"
+	name = "Life Support Systems";
+	density = 1
 	},
+/turf/open/floor/iron/shuttle/exploration/hazard,
+/area/misc/condo)
+"ff" = (
+/obj/structure/decorative/shelf/crates1,
 /turf/open/floor/iron/shuttle/exploration/hazard,
 /area/misc/condo)
 "fn" = (
@@ -136,6 +175,7 @@
 	color = "#596479";
 	dir = 4
 	},
+/obj/machinery/light_switch/directional/west,
 /turf/open/floor/circuit/red/off,
 /area/misc/condo)
 "gH" = (
@@ -143,6 +183,10 @@
 	dir = 1
 	},
 /turf/open/floor/plating/airless,
+/area/misc/condo)
+"hv" = (
+/obj/structure/decorative/shelf/milk_big,
+/turf/open/floor/iron/shuttle/exploration/hazard,
 /area/misc/condo)
 "kk" = (
 /obj/structure/table/reinforced/plastitaniumglass,
@@ -153,6 +197,15 @@
 	dir = 9
 	},
 /turf/open/floor/carpet/kinaris/black,
+/area/misc/condo)
+"kM" = (
+/obj/effect/turf_decal/siding/wideplating_new/dark{
+	dir = 5
+	},
+/obj/effect/turf_decal/siding/wood{
+	dir = 5
+	},
+/turf/open/floor/iron/shuttle/exploration/blanktile,
 /area/misc/condo)
 "kN" = (
 /obj/machinery/door/airlock/survival_pod{
@@ -170,6 +223,10 @@
 /turf/open/floor/iron/shuttle/exploration/uside{
 	dir = 4
 	},
+/area/misc/condo)
+"kT" = (
+/obj/machinery/light/small/directional/south,
+/turf/open/floor/iron/shuttle/exploration/hazard,
 /area/misc/condo)
 "kZ" = (
 /obj/structure/chair/sofa/corp/corner{
@@ -219,6 +276,11 @@
 /turf/open/floor/mineral/plastitanium,
 /area/misc/condo)
 "mD" = (
+/obj/effect/turf_decal/siding/wideplating_new/dark,
+/obj/effect/turf_decal/siding/wood,
+/obj/effect/turf_decal/siding/wideplating_new/dark/corner{
+	dir = 1
+	},
 /turf/open/floor/iron/shuttle/exploration/blanktile,
 /area/misc/condo)
 "mM" = (
@@ -276,28 +338,15 @@
 /turf/open/floor/iron/dark/smooth_large,
 /area/misc/condo)
 "rK" = (
-/obj/effect/turf_decal/siding/wideplating_new/dark{
-	dir = 8
-	},
-/obj/effect/turf_decal/siding/wood{
-	dir = 8
-	},
-/obj/machinery/light/floor{
-	pixel_y = 16;
-	bulb_colour = "#66ccff";
-	pixel_x = 16
-	},
-/obj/effect/turf_decal/siding/wideplating_new/dark/corner{
-	dir = 4
-	},
-/turf/open/floor/iron/shuttle/exploration/uside{
-	dir = 4
-	},
+/obj/effect/turf_decal/siding/dark,
+/obj/machinery/light/directional/south,
+/turf/open/floor/carpet/kinaris/black,
 /area/misc/condo)
 "rV" = (
 /obj/structure/decorative{
 	icon = 'modular_nova/modules/advanced_shuttles/icons/computer.dmi';
-	icon_state = "computer_right"
+	icon_state = "computer_right";
+	anchored = 1
 	},
 /turf/open/floor/iron/shuttle/exploration/blanktile,
 /area/misc/condo)
@@ -305,6 +354,7 @@
 /obj/effect/turf_decal/siding/dark{
 	dir = 10
 	},
+/obj/machinery/light_switch/directional/west,
 /turf/open/floor/carpet/kinaris/black,
 /area/misc/condo)
 "sb" = (
@@ -327,6 +377,10 @@
 	dir = 4
 	},
 /turf/open/floor/iron/shuttle/exploration/blanktile,
+/area/misc/condo)
+"ta" = (
+/obj/machinery/light_switch/directional/west,
+/turf/open/floor/iron/dark/smooth_large,
 /area/misc/condo)
 "tw" = (
 /obj/effect/turf_decal/siding/dark{
@@ -365,6 +419,12 @@
 /obj/structure/medieval/bed_2x2{
 	dir = 8
 	},
+/obj/structure/marker_beacon/violet{
+	pixel_x = -16;
+	pixel_y = 16;
+	color = "#FFFFFF";
+	alpha = 0
+	},
 /turf/open/floor/iron/dark/smooth_large,
 /area/misc/condo)
 "vs" = (
@@ -398,6 +458,9 @@
 	dir = 9
 	},
 /obj/structure/table/bronze,
+/obj/item/kirbyplants/synthetic{
+	pixel_y = 8
+	},
 /turf/open/floor/circuit/red/off,
 /area/misc/condo)
 "wk" = (
@@ -410,6 +473,12 @@
 	anchored = 1;
 	name = "Intercom";
 	desc = "An older model version of a standard intercom system"
+	},
+/obj/effect/turf_decal/siding/wideplating_new/dark{
+	dir = 10
+	},
+/obj/effect/turf_decal/siding/wood{
+	dir = 10
 	},
 /turf/open/floor/iron/shuttle/exploration/blanktile,
 /area/misc/condo)
@@ -437,6 +506,7 @@
 /obj/machinery/chem_dispenser/drinks/fullupgrade{
 	dir = 8
 	},
+/obj/machinery/light/directional/east,
 /turf/open/floor/iron/dark/smooth_large,
 /area/misc/condo)
 "zP" = (
@@ -465,6 +535,18 @@
 	desc = "An older model version of a standard intercom system"
 	},
 /turf/open/floor/carpet/royalblue,
+/area/misc/condo)
+"Aw" = (
+/obj/effect/turf_decal/siding/wideplating_new/dark,
+/obj/effect/turf_decal/siding/wood,
+/obj/effect/turf_decal/siding/wideplating_new/dark/corner{
+	dir = 4
+	},
+/obj/machinery/light/floor{
+	pixel_y = 16;
+	pixel_x = 16
+	},
+/turf/open/floor/iron/shuttle/exploration/blanktile,
 /area/misc/condo)
 "AL" = (
 /obj/effect/turf_decal/siding/dark{
@@ -528,6 +610,7 @@
 	anchored = 1;
 	name = "speaker"
 	},
+/obj/structure/marker_beacon/cerulean,
 /turf/open/floor/circuit/red/off,
 /area/misc/condo)
 "DA" = (
@@ -565,6 +648,7 @@
 	name = "TV screen";
 	desc = "An ancient, though still half-decent television screen, model M0-LDB."
 	},
+/obj/structure/marker_beacon/cerulean,
 /turf/open/floor/circuit/red/off,
 /area/misc/condo)
 "DW" = (
@@ -587,15 +671,20 @@
 	},
 /turf/open/floor/carpet/royalblue,
 /area/misc/condo)
+"Fr" = (
+/obj/machinery/light/small/directional/north,
+/turf/open/floor/iron/shuttle/exploration/hazard,
+/area/misc/condo)
 "FD" = (
 /turf/closed/wall/r_wall/plastitanium,
 /area/misc/condo)
-"FI" = (
+"FG" = (
 /obj/structure/decorative{
 	icon = 'icons/obj/mining_zones/survival_pod.dmi';
 	icon_state = "fans";
 	anchored = 1;
-	name = "Life Support Systems"
+	name = "Life Support Systems";
+	density = 1
 	},
 /turf/open/floor/iron/shuttle/exploration/hazard,
 /area/misc/condo)
@@ -630,6 +719,13 @@
 /obj/structure/chair/bronze{
 	dir = 1
 	},
+/obj/effect/turf_decal/siding/wideplating_new/dark{
+	dir = 1
+	},
+/obj/effect/turf_decal/siding/wood{
+	dir = 1
+	},
+/obj/effect/turf_decal/siding/wideplating_new/dark/corner,
 /turf/open/floor/iron/shuttle/exploration/blanktile,
 /area/misc/condo)
 "Hc" = (
@@ -685,10 +781,6 @@
 "Kv" = (
 /turf/open/floor/carpet/royalblue,
 /area/misc/condo)
-"KQ" = (
-/obj/structure/decorative/shelf/milk_big,
-/turf/open/floor/iron/shuttle/exploration/hazard,
-/area/misc/condo)
 "Lg" = (
 /obj/effect/turf_decal/siding/wideplating_new/light/end{
 	color = "#3F48CC";
@@ -697,11 +789,16 @@
 /obj/effect/turf_decal/siding/dark/end{
 	dir = 1
 	},
+/obj/machinery/light_switch/directional/north,
 /turf/open/floor/mineral/plastitanium,
 /area/misc/condo)
 "Lt" = (
 /obj/effect/turf_decal/siding/dark,
 /turf/open/floor/carpet/kinaris/black,
+/area/misc/condo)
+"LS" = (
+/obj/machinery/light/small/directional/east,
+/turf/open/floor/iron/shuttle/exploration/hazard,
 /area/misc/condo)
 "Mw" = (
 /obj/effect/overlay/water{
@@ -711,6 +808,15 @@
 	icon_state = "OLD_top"
 	},
 /turf/open/floor/iron/freezer,
+/area/misc/condo)
+"Of" = (
+/obj/effect/turf_decal/siding/wideplating_new/dark{
+	dir = 9
+	},
+/obj/effect/turf_decal/siding/wood{
+	dir = 9
+	},
+/turf/open/floor/iron/shuttle/exploration/blanktile,
 /area/misc/condo)
 "Ok" = (
 /obj/effect/turf_decal/siding/dark,
@@ -758,6 +864,7 @@
 	name = "Intercom";
 	desc = "An older model version of a standard intercom system"
 	},
+/obj/machinery/light/directional/south,
 /turf/open/floor/wood/parquet,
 /area/misc/condo)
 "RA" = (
@@ -767,6 +874,7 @@
 /obj/effect/turf_decal/siding/dark{
 	dir = 8
 	},
+/obj/machinery/light/directional/east,
 /turf/open/floor/carpet/royalblue,
 /area/misc/condo)
 "Sf" = (
@@ -811,6 +919,10 @@
 	desc = "An older model version of a standard intercom system"
 	},
 /turf/open/floor/circuit/red/off,
+/area/misc/condo)
+"SH" = (
+/obj/machinery/light/small/directional/west,
+/turf/open/floor/iron/shuttle/exploration/hazard,
 /area/misc/condo)
 "Tt" = (
 /obj/effect/turf_decal/siding/dark/corner{
@@ -906,6 +1018,9 @@
 	pixel_x = 2;
 	pixel_y = 5
 	},
+/obj/structure/marker_beacon/yellow{
+	alpha = 0
+	},
 /turf/open/floor/iron/shuttle/exploration/blanktile,
 /area/misc/condo)
 "WS" = (
@@ -930,6 +1045,15 @@
 /obj/machinery/door/airlock/survival_pod{
 	name = "Restroom";
 	dir = 4
+	},
+/turf/open/floor/iron/shuttle/exploration/blanktile,
+/area/misc/condo)
+"ZM" = (
+/obj/effect/turf_decal/siding/wideplating_new/dark{
+	dir = 6
+	},
+/obj/effect/turf_decal/siding/wood{
+	dir = 6
 	},
 /turf/open/floor/iron/shuttle/exploration/blanktile,
 /area/misc/condo)
@@ -963,11 +1087,11 @@ lm
 lm
 lm
 lm
-FI
-FI
-FI
-KQ
-cO
+FG
+FG
+FG
+hv
+ff
 lm
 cK
 Sf
@@ -979,9 +1103,9 @@ gr
 UU
 kZ
 lm
+Fr
 Yo
-Yo
-Yo
+kT
 lm
 "}
 (3,1,1) = {"
@@ -989,7 +1113,7 @@ tB
 gH
 FD
 fa
-Yo
+LS
 Yo
 Yo
 Yo
@@ -1042,7 +1166,7 @@ fn
 fn
 lm
 lm
-mD
+Of
 wk
 lm
 Zr
@@ -1056,7 +1180,7 @@ FJ
 lm
 Va
 tw
-Lt
+rK
 lm
 "}
 (6,1,1) = {"
@@ -1068,13 +1192,13 @@ fn
 um
 cz
 GS
-mD
+Aw
 YJ
 xI
-rK
+eC
 vs
 pV
-rK
+eC
 vs
 pV
 eC
@@ -1092,7 +1216,7 @@ fn
 fn
 um
 rV
-GS
+dY
 mD
 YJ
 JW
@@ -1117,8 +1241,8 @@ fn
 fn
 lm
 lm
-mD
-mD
+kM
+ZM
 lm
 tV
 lm
@@ -1131,7 +1255,7 @@ ap
 lm
 nZ
 tw
-Lt
+rK
 lm
 "}
 (9,1,1) = {"
@@ -1146,7 +1270,7 @@ sc
 lm
 lm
 Af
-cV
+ta
 vi
 lm
 qK
@@ -1164,7 +1288,7 @@ tB
 gH
 FD
 fa
-Yo
+SH
 Yo
 Yo
 Yo
@@ -1188,25 +1312,25 @@ lm
 lm
 lm
 lm
-FI
-FI
-FI
-cO
-cO
+FG
+FG
+FG
+ff
+ff
 lm
 cK
 WS
 RA
 Gb
 lm
-kk
+aL
 kk
 zK
 yz
 lm
+Fr
 Yo
-Yo
-Yo
+kT
 lm
 "}
 (12,1,1) = {"
