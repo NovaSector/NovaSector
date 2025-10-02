@@ -22,6 +22,7 @@
 /datum/uplink_item/role_restricted/syndimmi
 
 /datum/uplink_item/role_restricted/explosive_hot_potato
+	purchasable_from = NONE //hilariously unfitting for the server
 
 /datum/uplink_item/role_restricted/clownsuperpin
 	cost = /datum/uplink_item/low_cost::cost
