@@ -1619,8 +1619,8 @@
 	pixel_x = 15
 	},
 /obj/item/shell/server{
-	name = "splurt-citadel server";
-	desc = "Ye' ol' reliable server. 0 days without incidents!";
+	name = "Nova Sector server";
+	desc = "On the side you see a small LCD saying 'CONGRADULATIONS ITS BEEN 0 DAYS SINCE A UNIT TEST FAILED! A NEW RECORD!'";
 	anchored = 1;
 	pixel_x = -8;
 	pixel_y = 1
@@ -7078,8 +7078,8 @@
 "QB" = (
 /obj/structure/railing,
 /obj/item/shell/bot{
-	name = "splurt-citadel server";
-	desc = "Ye' ol' reliable server. 0 days without incidents!";
+	name = "Nova Sector server";
+	desc = "There's a sticky note on the side. It says 'Todo: Fix Serenity Station Crash Issues'";
 	anchored = 1;
 	pixel_x = 7;
 	pixel_y = -5
