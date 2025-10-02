@@ -326,7 +326,7 @@
 /area/shuttle/hc_cops)
 "nR" = (
 /obj/structure/lattice/catwalk,
-/obj/effect/ctf/dead_barricade,
+/obj/structure/barricade/security,
 /turf/open/floor/plating/airless,
 /area/shuttle/hc_cops)
 "nX" = (
@@ -693,7 +693,7 @@
 /area/shuttle/hc_cops)
 "zb" = (
 /obj/structure/lattice/catwalk,
-/obj/effect/ctf/dead_barricade,
+/obj/structure/barricade/security,
 /turf/open/floor/engine/hull/reinforced,
 /area/shuttle/hc_cops)
 "ze" = (

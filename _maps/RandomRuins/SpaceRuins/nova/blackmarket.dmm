@@ -833,6 +833,7 @@
 /obj/structure/fluff/metalpole/anchor{
 	dir = 1
 	},
+/obj/structure/barricade/security,
 /turf/open/floor/plating,
 /area/ruin/space/has_grav/nova/blackmarket)
 "OR" = (
