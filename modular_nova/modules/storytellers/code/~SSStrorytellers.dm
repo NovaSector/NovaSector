@@ -13,6 +13,7 @@ SUBSYSTEM_DEF(storytellers)
 	// Difficult selected on vote
 	var/selected_difficult
 
+	var/vote_active = FALSE
 	/// Active storyteller instance
 	var/datum/storyteller/active
 
@@ -198,26 +199,28 @@ SUBSYSTEM_DEF(storytellers)
 
 /datum/controller/subsystem/storytellers/proc/start_vote(duration = 60 SECONDS)
 	GLOB.storyteller_vote_uis = list()
-	to_chat(world, span_boldnotice("<Storyteller voting has begun!"))
+	to_chat(world, span_boldnotice("Storyteller voting has begun!"))
 	for (var/client/C in GLOB.clients)
 		var/datum/storyteller_vote_ui/ui = new(C, duration)
 		ui.ui_interact(C.mob)
 	addtimer(CALLBACK(src, PROC_REF(check_vote_end)), duration)
 	log_storyteller("Storyteller vote started: duration=[duration/10]s")
+	vote_active = TRUE
 
 /datum/controller/subsystem/storytellers/proc/check_vote_end()
-	if (length(GLOB.storyteller_vote_uis))
+	if(length(GLOB.storyteller_vote_uis) > 0)
 		end_vote()
 
 /datum/controller/subsystem/storytellers/proc/end_vote()
-	if (!length(GLOB.storyteller_vote_uis))
+	if(!length(GLOB.storyteller_vote_uis))
 		return
 
+	vote_active = FALSE
 	var/list/tallies = list()
 	var/list/all_diffs = list()
 	var/total_votes = 0
-	for (var/datum/storyteller_vote_ui/ui in GLOB.storyteller_vote_uis)
-		for (var/ckey in ui.votes)
+	for(var/datum/storyteller_vote_ui/ui in GLOB.storyteller_vote_uis)
+		for(var/ckey in ui.votes)
 			var/list/v = ui.votes[ckey]
 			var/path_str = v["storyteller"]
 			if (!path_str)
@@ -229,7 +232,6 @@ SUBSYSTEM_DEF(storytellers)
 		SStgui.close_uis(ui.owner.mob, ui)
 		qdel(ui)
 	GLOB.storyteller_vote_uis = list()
-
 	var/list/best_storytellers = list()
 	var/max_votes = 0
 	for (var/path_str in tallies)
@@ -538,10 +540,12 @@ ADMIN_VERB(storyteller_admin, R_ADMIN, "Storyteller", "Open the storyteller admi
 			"desc" = desc,
 			"portrait" = null,
 		))
-	GLOB.storyteller_vote_uis += src
+	GLOB.storyteller_vote_uis += list(
+		owner = src
+	)
 
 /datum/storyteller_vote_ui/Destroy()
-	GLOB.storyteller_vote_uis -= src
+	GLOB.storyteller_vote_uis -= owner
 	return ..()
 
 /datum/storyteller_vote_ui/ui_state(mob/user)
@@ -622,19 +626,18 @@ ADMIN_VERB(storyteller_admin, R_ADMIN, "Storyteller", "Open the storyteller admi
 /client/verb/reopen_storyteller_vote()
 	set name = "Reopen Storyteller Vote"
 	set category = "OOC"
-	var/datum/storyteller_vote_ui/ui
-	for (var/datum/storyteller_vote_ui/V in GLOB.storyteller_vote_uis)
-		if (V.owner == src)
-			ui = V
-			break
+	var/datum/storyteller_vote_ui/ui = GLOB.storyteller_vote_uis[usr.client]
+	if(!SSstorytellers.vote_active)
+		to_chat(src, span_warning("Voting has ended."))
+		return
 	if (!ui)
-		to_chat(src, span_warning("No active storyteller vote or you don't have an active voting UI."))
+		to_chat(src, span_warning("No active storyteller vote"))
 		return
 	if (world.time >= ui.vote_end_time)
 		to_chat(src, span_warning("Voting has ended."))
 		return
 	ui.ui_interact(mob)
-	to_chat(src, span_notice("Storyteller vote menu reopened."))
+
 
 
 ADMIN_VERB(storyteller_vote, R_ADMIN | R_DEBUG, "Storyteller - Start Vote", "Start a global storyteller vote.", ADMIN_CATEGORY_EVENTS)

@@ -171,7 +171,7 @@ SUBSYSTEM_DEF(ticker)
 
 			current_state = GAME_STATE_PREGAME
 			SStitle.change_title_screen() // NOVA EDIT ADDITION - Title screen
-			SSstorytellers.start_vote(90 SECONDS) // NOVA EDIT ADDITION - Start storyteller vote
+			SSstorytellers.start_vote(30 SECONDS) // NOVA EDIT ADDITION - Start storyteller vote
 			addtimer(CALLBACK(SStitle, TYPE_PROC_REF(/datum/controller/subsystem/title, change_title_screen)), 1 SECONDS) // NOVA EDIT ADDITION - Title screen
 			//Everyone who wants to be an observer is now spawned
 			SEND_SIGNAL(src, COMSIG_TICKER_ENTER_PREGAME)

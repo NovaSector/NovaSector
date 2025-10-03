@@ -98,7 +98,7 @@
 // Throttled by recalc_interval to avoid spam.
 /datum/storyteller_planner/proc/recalculate_plan(datum/storyteller/ctl, datum/storyteller_inputs/inputs, datum/storyteller_balance_snapshot/bal, duration = 30 MINUTES)
 	if(!timeline)
-		timeline = list()
+		return build_timeline(ctl, inputs, bal, duration = 30 MINUTES)
 
 	if(!current_goal || !current_goal.is_available(inputs.vault, inputs, ctl))
 		var/datum/storyteller_goal/new_goal = pick_new_global_goal(ctl, inputs, bal)
@@ -150,7 +150,7 @@
 	// Add global goal at now (if not already)
 	if(!current_goal)
 		var/datum/storyteller_goal/new_goal = pick_new_global_goal(ctl, inputs, bal)
-		try_plan_goal(new_goal, event_interval * duration)
+		try_plan_goal(new_goal, duration)
 
 	var/category = current_goal.category
 	category = category & ~STORY_GOAL_GLOBAL
@@ -324,102 +324,7 @@
 // Builds hierarchy: Base from metrics (influenced by category for bias), mid from aggregation, high from balance implications.
 // Category biases derivation: e.g., GOAL_BAD favors ESCALATION/AFFECTS_CREW_HEALTH harm; GOAL_GOOD favors DEESCALATION/recovery.
 /datum/storyteller_planner/proc/derive_universal_tags(category, datum/storyteller/ctl, datum/storyteller_inputs/inputs, datum/storyteller_balance_snapshot/bal)
-	var/tags = 0
-	if(!category)
-		category = STORY_GOAL_UNCATEGORIZED
-
-	// Category bias: Influence base tag selection (e.g., BAD -> escalation/harm tags)
-	var/category_bias = 1.0
-	if(category & STORY_GOAL_BAD)
-		category_bias = 1.5
-		tags |= STORY_TAG_ESCALATION
-	else if(category & STORY_GOAL_GOOD)
-		category_bias = 1.5
-		tags |= STORY_TAG_DEESCALATION
-	else if(category & STORY_GOAL_RANDOM)
-		category_bias = 1.2
-	else if(category & STORY_GOAL_NEUTRAL)
-		category_bias = 0.8
-
-	if(category & STORY_GOAL_GLOBAL)
-		tags |= STORY_TAG_AFFECTS_WHOLE_STATION
-
-	// Step 1: Base Level - Direct from inputs.vault metrics, scaled by category bias
-	var/crew_health = inputs.vault[STORY_VAULT_CREW_HEALTH]
-	if(crew_health >= STORY_VAULT_HEALTH_DAMAGED)
-		if(prob(70 * category_bias))
-			tags |= STORY_TAG_AFFECTS_CREW_HEALTH
-
-	var/crew_wounding = inputs.vault[STORY_VAULT_CREW_WOUNDING]
-	if(crew_wounding >= STORY_VAULT_SOME_WOUNDED)
-		if(prob(60 * category_bias))
-			tags |= STORY_TAG_AFFECTS_CREW_HEALTH
-
-	var/crew_diseases = inputs.vault[STORY_VAULT_CREW_DISEASES]
-	if(crew_diseases >= STORY_VAULT_MINOR_DISEASES)
-		if(prob(65 * category_bias))
-			tags |= STORY_TAG_AFFECTS_CREW_HEALTH
-
-	var/crew_dead_ratio = inputs.vault[STORY_VAULT_CREW_DEAD_RATIO]
-	if(crew_dead_ratio >= STORY_VAULT_MODERATE_DEAD_RATIO)
-		if(prob(75 * category_bias))
-			tags |= STORY_TAG_AFFECTS_MORALE
-
-	// Step 2: Mid Level - Aggregate for crises, incorporating bal for antag influence
-	// Aggregation: If multiple base health/morale tags, add escalation/deescalation
-	var/health_crisis = (tags & STORY_TAG_AFFECTS_CREW_HEALTH)
-	var/morale_crisis = (tags & STORY_TAG_AFFECTS_MORALE)
-	if(health_crisis || morale_crisis)
-		if(category == STORY_GOAL_BAD || bal.overall_tension > ctl.target_tension)
-			tags |= STORY_TAG_ESCALATION  // Aggregate to escalation in bad/high-tension states
-		else
-			tags |= STORY_TAG_DEESCALATION  // Otherwise, deescalate/recover
-
-	// Deeper: Use bal snapshot for antag-station dynamics
-	if(bal.antag_effectiveness < owner.balancer.weak_antag_threshold && bal.ratio < 0.8)
-		if(prob(80 * category_bias))
-			tags |= STORY_TAG_AFFECTS_ANTAGONIST
-	if(bal.station_strength < 0.5)  // Low station strength
-		if(prob(70 * category_bias))
-			tags |= STORY_TAG_AFFECTS_RESOURCES | STORY_TAG_AFFECTS_INFRASTRUCTURE
-
-
-
-	// Step 3: High Level - Narrative implications, biased by balance tension and category
-	if(health_crisis)
-		if(category == STORY_GOAL_GOOD || bal.overall_tension > ctl.target_tension)
-			tags |= STORY_TAG_DEESCALATION | STORY_TAG_AFFECTS_CREW_HEALTH
-		else
-			tags |= STORY_TAG_ESCALATION | STORY_TAG_AFFECTS_CREW_HEALTH
-	if(morale_crisis)
-		tags |= STORY_TAG_AFFECTS_MORALE | (category == STORY_GOAL_BAD ? STORY_TAG_ESCALATION : STORY_TAG_DEESCALATION)
-	if(bal.ratio < 0.8)  // Weak antags
-		tags |= STORY_TAG_AFFECTS_ANTAGONIST | STORY_TAG_DEESCALATION  // Boost to balance
-	if(bal.overall_tension > owner.target_tension)
-		tags |= STORY_TAG_DEESCALATION
-	else if(bal.overall_tension < owner.target_tension * 0.7)
-		tags |= STORY_TAG_ESCALATION
-
-
-	// Additional influences based on category and potential vault entries (placeholders)
-	if(category == STORY_GOAL_GLOBAL)
-		tags |= STORY_TAG_AFFECTS_WHOLE_STATION
-	if(inputs.vault["low_resources"])
-		tags |= STORY_TAG_AFFECTS_ECONOMY | STORY_TAG_AFFECTS_RESOURCES
-	if(category == STORY_GOAL_BAD && inputs.vault["research_progress"])
-		tags |= STORY_TAG_AFFECTS_RESEARCH | STORY_TAG_AFFECTS_SECURITY
-
-
-
-	// Volatility random: If high volatility
-	// Randy Random likes it
-	if(ctl.mood.volatility > 1.0)
-		for(var/i = 0 to rand(1, 3))
-			var/random_tag = get_random_bitflag("story_universal_tags")
-			if(random_tag)
-				tags |= random_tag
-
-	return tags
+	return ctl.mind.tokenize(category, ctl, inputs, bal, ctl.mood)
 
 
 
@@ -428,39 +333,7 @@
 // E.g., high tension/adaptation -> BAD (escalation); low threat/relaxed mood -> GOOD (recovery).
 // Called in planner before filtering goals, to bias directionality (STORY_GOAL_GOOD/GOAL_BAD).
 /datum/storyteller_planner/proc/select_goal_category(datum/storyteller/ctl, datum/storyteller_balance_snapshot/bal)
-	var/category = STORY_GOAL_UNCATEGORIZED  // Default neutral
-
-	// Mood influence: High aggression favors BAD; low pace favors GOOD
-	var/mood_bias = ctl.mood.get_threat_multiplier() - ctl.mood.get_variance_multiplier()
-	if(mood_bias > 1.2)  // Aggressive/volatile -> Negative
-		category = STORY_GOAL_BAD
-	else if(mood_bias < 0.8)  // Calm/slow -> Positive
-		category = STORY_GOAL_GOOD
-
-
-
-	// Balance/tension override: High tension -> Deescalate with GOOD; low -> Escalate with BAD
-	if(bal.overall_tension > ctl.target_tension + 20)
-		category = STORY_GOAL_GOOD  // Recovery to balance
-	else if(bal.overall_tension < ctl.target_tension - 20)
-		category = STORY_GOAL_BAD  // Challenge to build tension
-
-
-	// Adaptation/threat check: Post-damage adaptation -> GOOD (grace); high threat -> BAD
-	if(ctl.adaptation_factor > 0.3)
-		category = STORY_GOAL_GOOD
-	else if(ctl.threat_points > ctl.max_threat_scale * 0.6)
-		category = STORY_GOAL_BAD
-
-
-	// Final volatility random: If high volatility, 30% chance to flip for chaos
-	// Hello mr. random!
-	if(ctl.mood.get_variance_multiplier() > 1.5 && prob(30))
-		category = (category == STORY_GOAL_GOOD) ? STORY_GOAL_BAD : STORY_GOAL_GOOD
-
-
-	log_storyteller_planner("Storyteller selected category [category] based on tension [bal.overall_tension], adaptation [ctl.adaptation_factor]")
-	return category
+	return ctl.mind.determine_category(ctl, bal)
 
 #undef ENTRY_GOAL
 #undef ENTRY_FIRE_TIME

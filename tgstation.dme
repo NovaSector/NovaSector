@@ -9193,6 +9193,7 @@
 #include "modular_nova\modules\storytellers\code\storyteller_mood.dm"
 #include "modular_nova\modules\storytellers\code\storyteller_planner.dm"
 #include "modular_nova\modules\storytellers\code\~SSStrorytellers.dm"
+#include "modular_nova\modules\storytellers\code\~storyteller_think.dm"
 #include "modular_nova\modules\storytellers\code\modules\antagonist\antagonist_effectivity.dm"
 #include "modular_nova\modules\storytellers\code\modules\antagonist\metrics_component.dm"
 #include "modular_nova\modules\storytellers\code\modules\goals\round_event.dm"

@@ -129,7 +129,14 @@ DEFINE_BITFIELD(story_goal_category, list(
 #define STORY_TAG_AFFECTS_WHOLE_STATION (1 << 10)
 // Affects Research: Goals impacting science/tech progress, like experiments or tech unlocks/destruction.
 #define STORY_TAG_AFFECTS_RESEARCH (1 << 11)
-
+// Goals impacting station environment, like atmos breaches, radiation, or hull integrity.
+#define STORY_TAG_AFFECTS_ENVIRONMENT (1 << 12)
+ // Goals related to tech systems, AI, comms, or machinery (e.g., hacks or upgrades).
+#define STORY_TAG_AFFECTS_TECHNOLOGY (1 << 13)
+// Goals influencing command structure, laws, or crew hierarchy (e.g., mutinies or promotions).
+#define STORY_TAG_AFFECTS_POLITICS (1 << 14)
+// Goals introducing randomness or unpredictability, favoring volatile moods.
+#define STORY_TAG_CHAOTIC (1 << 15)
 
 DEFINE_BITFIELD(story_universal_tags, list(
 	"ESCALATION" = STORY_TAG_ESCALATION,
@@ -144,6 +151,10 @@ DEFINE_BITFIELD(story_universal_tags, list(
 	"AFFECTS_SECURITY" = STORY_TAG_AFFECTS_SECURITY,
 	"AFFECTS_WHOLESTATION" = STORY_TAG_AFFECTS_WHOLE_STATION,
 	"AFFECTS_RESEARCH" = STORY_TAG_AFFECTS_RESEARCH,
+	"AFFECTS_ENVIRONMENT" = STORY_TAG_AFFECTS_ENVIRONMENT,
+	"AFFECTS_TECHNOLOGY" = STORY_TAG_AFFECTS_TECHNOLOGY,
+	"AFFECTS_POLITICS" = STORY_TAG_AFFECTS_POLITICS,
+	"CHAOTIC" = STORY_TAG_CHAOTIC,
 ))
 
 

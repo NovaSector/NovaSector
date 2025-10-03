@@ -103,7 +103,7 @@ GLOBAL_LIST(all_antagonist_metrics)
 // Station resources
 #define STORY_VAULT_RESOURCE_MINERALS "resource_minerals"
 #define STORY_VAULT_RESOURCE_OTHER "resource_other"
-
+#define STORY_VAULT_LOW_RESOURCE "low_station_resources"
 
 /*
 	Antagonist metrics
@@ -163,3 +163,38 @@ GLOBAL_LIST(all_antagonist_metrics)
 	#define STORY_VAULT_MAJOR_DISRUPTION 2
 	// Station-wide crisis.
 	#define STORY_VAULT_CRITICAL_DISRUPTION 3
+
+// Tracks station power availability, influencing events like blackouts or engineering repairs.
+#define STORY_VAULT_POWER_STATUS "power_status"
+	#define STORY_VAULT_FULL_POWER 0
+	#define STORY_VAULT_LOW_POWER 1
+	#define STORY_VAULT_BLACKOUT 2
+	#define STORY_VAULT_CRITICAL_POWER_FAILURE 3
+
+// Tracks atmospheric breaches or hazards, for events like meteors or gas leaks.
+#define STORY_VAULT_ATMOS_STATUS "atmos_status"
+	#define STORY_VAULT_STABLE_ATMOS 0
+	#define STORY_VAULT_MINOR_BREACHES 1
+	#define STORY_VAULT_MAJOR_BREACHES 2
+	#define STORY_VAULT_ATMOS_CRISIS 3
+
+// Tracks overall research progress, influencing science-related goals.
+#define STORY_VAULT_RESEARCH_PROGRESS "research_progress"
+	#define STORY_VAULT_LOW_RESEARCH 0
+	#define STORY_VAULT_MODERATE_RESEARCH 1
+	#define STORY_VAULT_HIGH_RESEARCH 2
+	#define STORY_VAULT_ADVANCED_RESEARCH 3
+
+// Tracks crew morale level explicitly (beyond dead ratio), based on events, announcements, etc.
+#define STORY_VAULT_MORALE_LEVEL "morale_level"
+	#define STORY_VAULT_HIGH_MORALE 0
+	#define STORY_VAULT_NORMAL_MORALE 1
+	#define STORY_VAULT_LOW_MORALE 2
+	#define STORY_VAULT_CRITICAL_MORALE 3
+
+// Tracks station security status (e.g., alert levels, arrests).
+#define STORY_VAULT_SECURITY_STATUS "security_status"
+	#define STORY_VAULT_GREEN_ALERT 0
+	#define STORY_VAULT_BLUE_ALERT 1
+	#define STORY_VAULT_RED_ALERT 2
+	#define STORY_VAULT_DELTA_ALERT 3

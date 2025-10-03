@@ -8,6 +8,8 @@
 	var/datum/storyteller_mood/mood
 	/// Planner selects global goal and branches
 	var/datum/storyteller_planner/planner
+
+	var/datum/storyteller_think/mind
 	/// Analyzer computes station value and inputs
 	var/datum/storyteller_analyzer/analyzer
 	/// Balancer computes weights of players vs antagonists
@@ -84,6 +86,7 @@
 	planner = new /datum/storyteller_planner(src)
 	analyzer = new /datum/storyteller_analyzer(src)
 	balancer = new /datum/storyteller_balance(src)
+	mind = new /datum/storyteller_think
 	inputs = new /datum/storyteller_inputs
 
 
@@ -98,7 +101,6 @@
 	schedule_next_think()
 	// Mark round start
 	round_start_time = world.time
-
 
 /datum/storyteller/proc/schedule_next_think()
 	// Apply mood-based pacing (pace is clamped by storyteller bounds)
