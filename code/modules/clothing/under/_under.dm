@@ -97,7 +97,7 @@
 	return changed ? CONTEXTUAL_SCREENTIP_SET : .
 
 
-/obj/item/clothing/under/worn_overlays(mutable_appearance/standing, isinhands = FALSE, file2use = null, mutant_styles = NONE)
+/obj/item/clothing/under/worn_overlays(mutable_appearance/standing, isinhands = FALSE)
 	. = ..()
 	if(isinhands)
 		return
@@ -257,19 +257,6 @@
 
 	if(has_sensor >= HAS_SENSORS && sensor_mode >= SENSOR_LIVING)
 		GLOB.suit_sensors_list |= wearer
-	var/mob/living/carbon/human/ooman = loc
-	ooman.update_suit_sensors()
-	ooman.med_hud_set_status()
-
-/mob/living/carbon/human/update_suit_sensors()
-	. = ..()
-	update_sensor_list()
-
-/// Adds or removes a mob from the global suit sensors list based on sensor status and mode
-/mob/living/carbon/human/proc/update_sensor_list()
-	var/obj/item/clothing/under/uniform = w_uniform
-	if(istype(uniform) && uniform.has_sensor != NO_SENSORS && uniform.sensor_mode) // NOVA EDIT CHANGE - ORIGINAL: if(istype(uniform) && uniform.has_sensor > NO_SENSORS && uniform.sensor_mode)
-		GLOB.suit_sensors_list |= src
 	else
 		GLOB.suit_sensors_list -= wearer
 
@@ -286,7 +273,7 @@
 		break_sensors()
 		return
 
-	sensor_mode = clamp(sensor_mode + pick(-1,1), SENSOR_OFF, SENSOR_COORDS) // NOVA EDIT CHANGE ORIGINAL: set_sensor_mode(pick(SENSOR_OFF, SENSOR_OFF, SENSOR_OFF, SENSOR_LIVING, SENSOR_LIVING, SENSOR_VITALS, SENSOR_VITALS, SENSOR_COORDS))
+	set_sensor_mode(clamp(sensor_mode + pick(-1,1), SENSOR_OFF, SENSOR_COORDS)) // NOVA EDIT CHANGE ORIGINAL: set_sensor_mode(pick(SENSOR_OFF, SENSOR_OFF, SENSOR_OFF, SENSOR_LIVING, SENSOR_LIVING, SENSOR_VITALS, SENSOR_VITALS, SENSOR_COORDS))
 	playsound(source = src, soundin = 'sound/effects/sparks/sparks3.ogg', vol = 75, vary = TRUE, extrarange = SHORT_RANGE_SOUND_EXTRARANGE, ignore_walls = FALSE)
 	visible_message(span_warning("The [src]'s medical sensors flash and change rapidly!"), blind_message = span_warning("The [src] makes an electronic sizzling sound!"), vision_distance = COMBAT_MESSAGE_RANGE)
 

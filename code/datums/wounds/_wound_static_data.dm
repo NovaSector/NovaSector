@@ -149,6 +149,10 @@
 /datum/wound_pregen_data/proc/wounding_types_valid(suggested_wounding_type)
 	if (required_wounding_type == WOUND_ALL)
 		return TRUE
+	// NOVA EDIT START: WOUND_BRUTE as a catch-all for all brute damage types
+	if (required_wounding_type == WOUND_BRUTE && (suggested_wounding_type == WOUND_BLUNT || suggested_wounding_type == WOUND_SLASH || suggested_wounding_type == WOUND_PIERCE))
+		return TRUE
+	// NOVA EDIT END
 	return suggested_wounding_type == required_wounding_type
 
 /**

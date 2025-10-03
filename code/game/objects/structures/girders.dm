@@ -44,13 +44,7 @@
 			. += span_notice("[src] is designed for tram usage. Deconstructed with a screwdriver!")
 
 /obj/structure/girder/attackby(obj/item/W, mob/user, list/modifiers, list/attack_modifiers)
-	var/skill_modifier = user.mind?.get_skill_modifier(/datum/skill/construction, SKILL_SPEED_MODIFIER) //NOVA EDIT ADDITION: Construction Skill
-	var/platingmodifier = 1
-	if(HAS_TRAIT(user, TRAIT_QUICK_BUILD))
-		platingmodifier = 0.7
-		if(next_beep <= world.time)
-			next_beep = world.time + 10
-			playsound(src, 'sound/machines/clockcult/integration_cog_install.ogg', 50, TRUE)
+
 	add_fingerprint(user)
 
 	if(istype(W, /obj/item/gun/energy/plasmacutter))
@@ -98,6 +92,7 @@
 	return ..()
 
 /obj/structure/girder/proc/make_wall(obj/item/stack/stack, mob/user)
+	var/skill_modifier = user.mind?.get_skill_modifier(/datum/skill/construction, SKILL_SPEED_MODIFIER) //NOVA EDIT ADDITION: Construction Skill
 	var/speed_modifier = 1
 	if(HAS_TRAIT(user, TRAIT_QUICK_BUILD))
 		speed_modifier = 0.7
@@ -118,7 +113,7 @@
 					return
 				rod.use(amount)
 				var/obj/structure/falsewall/iron/FW = new (loc)
-					user.mind?.adjust_experience(/datum/skill/construction, 2) //NOVA EDIT ADDITION: Construction Skill
+				user.mind?.adjust_experience(/datum/skill/construction, 2) //NOVA EDIT ADDITION: Construction Skill
 				transfer_fingerprints_to(FW)
 				qdel(src)
 			return
@@ -137,7 +132,7 @@
 			rod.use(amount)
 			var/turf/T = get_turf(src)
 			T.place_on_top(/turf/closed/wall/mineral/iron)
-					user.mind?.adjust_experience(/datum/skill/construction, 2) //NOVA EDIT ADDITION: Construction Skill
+			user.mind?.adjust_experience(/datum/skill/construction, 2) //NOVA EDIT ADDITION: Construction Skill
 			transfer_fingerprints_to(T)
 			qdel(src)
 		return
@@ -149,12 +144,12 @@
 				balloon_alert(user, "need [amount] sheets!")
 				return
 			balloon_alert(user, "concealing entrance...")
-			if(do_after(user, 20 * platingmodifier * skill_modifier, target = src)) // NOVA EDIT CHANGE - ORIGINAL: if(do_after(user, 20 * speed_modifier, target = src))
+			if(do_after(user, 20 * speed_modifier * skill_modifier, target = src)) // NOVA EDIT CHANGE - ORIGINAL: if(do_after(user, 20 * speed_modifier, target = src))
 				if(stack.get_amount() < amount)
 					return
 				stack.use(amount)
 				var/obj/structure/falsewall/F = new (loc)
-					user.mind?.adjust_experience(/datum/skill/construction, 2) //NOVA EDIT ADDITION: Construction Skill
+				user.mind?.adjust_experience(/datum/skill/construction, 2) //NOVA EDIT ADDITION: Construction Skill
 				transfer_fingerprints_to(F)
 				qdel(src)
 				return
@@ -171,7 +166,7 @@
 					return
 				stack.use(amount)
 				var/obj/structure/tram/alt/iron/tram_wall = new(loc)
-					user.mind?.adjust_experience(/datum/skill/construction, 2) //NOVA EDIT ADDITION: Construction Skill
+				user.mind?.adjust_experience(/datum/skill/construction, 2) //NOVA EDIT ADDITION: Construction Skill
 				transfer_fingerprints_to(tram_wall)
 				qdel(src)
 			return
@@ -180,13 +175,13 @@
 				balloon_alert(user, "need [amount] sheets!")
 				return
 			balloon_alert(user, "adding plating...")
-			if (do_after(user, 40 * platingmodifier * skill_modifier, target = src)) // NOVA EDIT CHANGE - ORIGINAL: if(do_after(user, 40 * speed_modifier, target = src))
+			if (do_after(user, 40 * speed_modifier * skill_modifier, target = src)) // NOVA EDIT CHANGE - ORIGINAL: if(do_after(user, 40 * speed_modifier, target = src))
 				if(stack.get_amount() < amount)
 					return
 				stack.use(amount)
 				var/turf/T = get_turf(src)
 				T.place_on_top(/turf/closed/wall)
-					user.mind?.adjust_experience(/datum/skill/construction, 2) //NOVA EDIT ADDITION: Construction Skill
+				user.mind?.adjust_experience(/datum/skill/construction, 2) //NOVA EDIT ADDITION: Construction Skill
 				transfer_fingerprints_to(T)
 				qdel(src)
 			return
@@ -202,7 +197,7 @@
 				return
 			stack.use(amount)
 			var/obj/structure/tram/tram_wall = new(loc)
-				user.mind?.adjust_experience(/datum/skill/construction, 2) //NOVA EDIT ADDITION: Construction Skill
+			user.mind?.adjust_experience(/datum/skill/construction, 2) //NOVA EDIT ADDITION: Construction Skill
 			transfer_fingerprints_to(tram_wall)
 			qdel(src)
 		return
@@ -219,7 +214,7 @@
 					return
 				stack.use(amount)
 				var/obj/structure/falsewall/reinforced/FW = new (loc)
-					user.mind?.adjust_experience(/datum/skill/construction, 2) //NOVA EDIT ADDITION: Construction Skill
+				user.mind?.adjust_experience(/datum/skill/construction, 2) //NOVA EDIT ADDITION: Construction Skill
 				transfer_fingerprints_to(FW)
 				qdel(src)
 				return
@@ -228,13 +223,13 @@
 			if(stack.get_amount() < amount)
 				return
 			balloon_alert(user, "adding plating...")
-			if(do_after(user, 50 * platingmodifier * skill_modifier, target = src)) // NOVA EDIT CHANGE - ORIGINAL: if(do_after(user, 50 * speed_modifier, target = src))
+			if(do_after(user, 50 * speed_modifier * skill_modifier, target = src)) // NOVA EDIT CHANGE - ORIGINAL: if(do_after(user, 50 * speed_modifier, target = src))
 				if(stack.get_amount() < amount)
 					return
 				stack.use(amount)
 				var/turf/T = get_turf(src)
 				T.place_on_top(/turf/closed/wall/r_wall)
-					user.mind?.adjust_experience(/datum/skill/construction, 2) //NOVA EDIT ADDITION: Construction Skill
+				user.mind?.adjust_experience(/datum/skill/construction, 2) //NOVA EDIT ADDITION: Construction Skill
 				transfer_fingerprints_to(T)
 				qdel(src)
 			return
@@ -243,12 +238,12 @@
 			if(stack.get_amount() < amount)
 				return
 			balloon_alert(user, "reinforcing frame...")
-			if(do_after(user, 60 * platingmodifier * skill_modifier, target = src)) // NOVA EDIT CHANGE - ORIGINAL: if(do_after(user, 60 * speed_modifier, target = src))
+			if(do_after(user, 60 * speed_modifier * skill_modifier, target = src)) // NOVA EDIT CHANGE - ORIGINAL: if(do_after(user, 60 * speed_modifier, target = src))
 				if(stack.get_amount() < amount)
 					return
 				stack.use(amount)
 				var/obj/structure/girder/reinforced/R = new (loc)
-					user.mind?.adjust_experience(/datum/skill/construction, 2) //NOVA EDIT ADDITION: Construction Skill
+				user.mind?.adjust_experience(/datum/skill/construction, 2) //NOVA EDIT ADDITION: Construction Skill
 				transfer_fingerprints_to(R)
 				qdel(src)
 			return

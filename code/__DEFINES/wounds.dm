@@ -49,6 +49,9 @@ GLOBAL_LIST_INIT(wound_severities_chronological, list(
 /// any concentrated burn attack (lasers really). rolls for burning wounds
 #define WOUND_BURN "wound_burn"
 
+// NOVA ADDITION: covers all brute-type damage sources, e.g. blunt/slash/pierce
+#define WOUND_BRUTE "wound_brute"
+
 /// Mainly a define used for wound_pregen_data, if a pregen data instance expects this, it will accept any and all wound types, even none at all
 #define WOUND_ALL "wound_all"
 
