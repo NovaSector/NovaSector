@@ -2830,7 +2830,7 @@
 /turf/open/floor/iron/smooth,
 /area/station/maintenance/aft/greater)
 "aOQ" = (
-/obj/machinery/computer/station_alert/station_only{
+/obj/machinery/computer/station_alert{
 	dir = 4
 	},
 /obj/machinery/status_display/evac/directional/west,
@@ -32565,7 +32565,7 @@
 /obj/effect/turf_decal/trimline/yellow/filled/line{
 	dir = 10
 	},
-/obj/machinery/computer/station_alert/station_only{
+/obj/machinery/computer/station_alert{
 	dir = 4
 	},
 /obj/effect/turf_decal/bot,
@@ -32974,7 +32974,7 @@
 /turf/open/floor/iron/smooth_edge,
 /area/station/engineering/lobby)
 "jtX" = (
-/obj/machinery/computer/station_alert/station_only,
+/obj/machinery/computer/station_alert,
 /obj/structure/sign/nanotrasen{
 	pixel_x = 32
 	},
@@ -42264,7 +42264,7 @@
 /turf/open/floor/iron/smooth_large,
 /area/station/hallway/secondary/construction)
 "lSC" = (
-/obj/machinery/computer/station_alert/station_only{
+/obj/machinery/computer/station_alert{
 	dir = 1
 	},
 /obj/effect/turf_decal/bot,
@@ -78379,7 +78379,7 @@
 /turf/open/floor/engine/o2,
 /area/station/engineering/atmos)
 "vKI" = (
-/obj/machinery/computer/station_alert/station_only,
+/obj/machinery/computer/station_alert,
 /obj/item/radio/intercom/directional/west{
 	freerange = 1;
 	frequency = 1447;
@@ -86096,7 +86096,7 @@
 /area/station/commons/storage/primary)
 "xSM" = (
 /obj/effect/turf_decal/bot,
-/obj/machinery/computer/station_alert/station_only,
+/obj/machinery/computer/station_alert,
 /obj/machinery/requests_console/directional/east{
 	department = "Atmospherics";
 	name = "Atmospherics Requests Console"

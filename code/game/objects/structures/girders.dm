@@ -287,7 +287,7 @@
 					return
 				var/obj/structure/tram/tram_wall
 				tram_wall = new tram_wall_type(loc)
-					user.mind?.adjust_experience(/datum/skill/construction, 2) //NOVA EDIT ADDITION: Construction Skill
+				user.mind?.adjust_experience(/datum/skill/construction, 2) //NOVA EDIT ADDITION: Construction Skill
 				stack.use(amount)
 				transfer_fingerprints_to(tram_wall)
 				qdel(src)
