@@ -91,9 +91,9 @@
 	// Initialize inputs with starting station analysis
 	inputs = analyzer.get_inputs()
 	// Initial snapshot to seed planner decisions
-	balancer.make_snapshot(inputs)
+	var/datum/storyteller_balance_snapshot/bal = balancer.make_snapshot(inputs)
 	// Pick starting global goal (planner derives tags and subgoals when recalculated)
-	current_global_goal = planner.select_weighted_goal()
+	planner.build_timeline(src, inputs, bal, duration = rand(30, 50) MINUTES)
 	// Schedule first think according to mood pace
 	schedule_next_think()
 	// Mark round start
@@ -107,8 +107,8 @@
 	next_think_time = world.time + delay
 
 
-/datum/storyteller/proc/think()
-	if(world.time < next_think_time)
+/datum/storyteller/proc/think(force = FALSE)
+	if(world.time < next_think_time && !force)
 		return
 
 	// 1) Analyze: sample station metrics, compute crew/antag weights, update vault
@@ -146,10 +146,13 @@
 	// 7) Passive threat/adaptation drift each think
 	threat_points = min(max_threat_scale, threat_points + threat_growth_rate * mood.get_variance_multiplier())
 	adaptation_factor = max(0, adaptation_factor - adaptation_decay_rate)
+	round_progression = clamp((world.realtime - round_start_time) / STORY_ROUND_PROGRESSION_TRESHOLD, 0, 1)
 
 	// 8) Schedule next cycle
 	schedule_next_think()
 
+/datum/storyteller/proc/get_closest_subgoals()
+	return planner.get_upcoming_goals(10)
 
 /// Called when a global goal reaches full progress; triggers its event and updates adaptation
 /datum/storyteller/proc/on_goal_completed()
@@ -199,6 +202,19 @@
 		return TRUE
 	var/prob_modifier = (mood ? mood.get_threat_multiplier() : 1.0) * difficulty_multiplier
 	return prob(50 * prob_modifier)
+
+/// Event trigger guard for ad-hoc random events outside goals
+/datum/storyteller/proc/can_trigger_event_at(time)
+	return time - time_since_last_event < grace_period
+
+/datum/storyteller/proc/get_effective_pace()
+	return mood.get_event_frequency_multiplier() * (1.0 - adaptation_factor)
+
+/datum/storyteller/proc/get_event_interval()
+	return (min_event_interval + (max_event_interval - min_event_interval) / get_effective_pace()) / population_factor
+
+/datum/storyteller/proc/get_event_interval_no_population_factor()
+	return min_event_interval + (max_event_interval - min_event_interval) / get_effective_pace()
 
 
 /// Ad-hoc random event for testing or emergency pacing

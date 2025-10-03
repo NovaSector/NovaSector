@@ -1,10 +1,12 @@
 GLOBAL_LIST(storyteller_vote_uis)
+#define FIRE_PRIORITY_STORYTELLERS 101
+
 
 SUBSYSTEM_DEF(storytellers)
-	name = "Storytellers"
+	name = "AI Storytellers"
 	runlevels = RUNLEVEL_GAME
-	wait = 1 MINUTES
-	priority = FIRE_PRIORITY_PING
+	wait = 1 SECONDS
+	priority = FIRE_PRIORITY_STORYTELLERS
 
 	// Stortyteller selected on vote
 	var/selected_path
@@ -102,6 +104,10 @@ SUBSYSTEM_DEF(storytellers)
 			log_storyteller("Storyteller goal [goal_type] has no ID and was skipped.")
 			continue
 
+		if(!goal.tags)
+			log_storyteller("Storyteller goal [goal_type] has signed with no category.")
+			goal.tags = STORY_GOAL_UNCATEGORIZED
+
 		if(goal.category & STORY_GOAL_RANDOM)
 			goals_by_category["GOAL_RANDOM"] += goal
 		if(goal.category & STORY_GOAL_GOOD)
@@ -123,15 +129,27 @@ SUBSYSTEM_DEF(storytellers)
 			goal_roots += goal
 
 
-	log_storyteller("Collected [goals_by_id.len] storyteller goals. Root goals: [goal_roots.len].")
 
 /datum/controller/subsystem/storytellers/proc/filter_goals(category = null, required_tags = null, subtype = null, all_tags_required = FALSE, include_children = TRUE)
 	var/list/result = list()
 
 
 	var/list/goals_to_check = list()
+	var/category_str
+	if(category & STORY_GOAL_RANDOM)
+		category_str = "GOAL_RANDOM"
+	else if(category & STORY_GOAL_GOOD)
+		category_str = "GOAL_GOOD"
+	else if(category & STORY_GOAL_BAD)
+		category_str = "GOAL_BAD"
+	else if(category & STORY_GOAL_NEUTRAL)
+		category_str = "GOAL_NEUTRAL"
+	else
+		category_str = "GOAL_UNCATEGORIZED"
+
+	var/is_global = category & STORY_GOAL_GLOBAL | FALSE
 	if(category)
-		if(!goals_by_category[category])
+		if(!goals_by_category[category_str])
 			log_storyteller("Invalid category [category] in filter_goals.")
 			return result
 		goals_to_check = goals_by_category[category]
@@ -144,10 +162,8 @@ SUBSYSTEM_DEF(storytellers)
 					seen_ids[goal.id] = TRUE
 
 	for(var/datum/storyteller_goal/goal in goals_to_check)
-		// Check subtype
 		if(subtype && !istype(goal, subtype))
 			continue
-
 		if(required_tags)
 			if(!goal.tags)
 				continue
@@ -159,6 +175,9 @@ SUBSYSTEM_DEF(storytellers)
 					continue
 
 		if(!include_children && goal.parent_id && goals_by_id[goal.parent_id])
+			continue
+
+		if(is_global & !goal.category & STORY_GOAL_GLOBAL)
 			continue
 		result += goal
 	return result
@@ -352,7 +371,7 @@ SUBSYSTEM_DEF(storytellers)
 			"weight" = ctl.current_global_goal.get_weight(ctl.inputs.vault, ctl.inputs, ctl),
 		)
 	if(length(ctl.subgoals))
-		for(var/datum/storyteller_goal/subgoal in ctl.subgoals)
+		for(var/datum/storyteller_goal/subgoal in ctl.get_closest_subgoals())
 			data["current_subgoal"] += list(
 				list(
 					"id" = subgoal.id,
@@ -371,7 +390,7 @@ SUBSYSTEM_DEF(storytellers)
 	data["difficulty_multiplier"] = ctl.difficulty_multiplier
 	data["event_difficulty_modifier"] = ctl.difficulty_multiplier
 	data["can_force_event"] = TRUE
-
+	data["current_world_time"] = world.time
 	// Recent events log formatting
 	var/list/events = list()
 	for(var/i in 1 to length(ctl.recent_events))
@@ -395,7 +414,7 @@ SUBSYSTEM_DEF(storytellers)
 
 	switch(action)
 		if("force_think")
-			ctl.think()
+			ctl.next_think_time = world.time + 1
 			return TRUE
 		if("trigger_event")
 			// fafa
@@ -626,3 +645,5 @@ ADMIN_VERB(storyteller_vote, R_ADMIN | R_DEBUG, "Storyteller - Start Vote", "Sta
 
 ADMIN_VERB(storyteller_end_vote, R_ADMIN | R_DEBUG, "Storyteller - End Vote", "End vote early.", ADMIN_CATEGORY_EVENTS)
 	SSstorytellers.end_vote()
+
+#undef FIRE_PRIORITY_STORYTELLERS
