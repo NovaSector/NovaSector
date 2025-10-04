@@ -38,7 +38,7 @@
 	fire_delay = 0.4 SECONDS
 	actions_types = list()
 
-	spread = 7.5
+	spread = 5
 	projectile_wound_bonus = -10
 
 	lore_blurb = "The V-K Lastdier series of battle rifles are SolFed's previous generation of battle rifle, manufactured by Veldjen-Kuiper Armories.<br>\
@@ -97,6 +97,7 @@
 
 	spread = 0
 	projectile_damage_multiplier = 1.2
+	projectile_speed_multiplier = 1.2
 	projectile_wound_bonus = 10
 
 	model_specific_lore = "This particular variant is the Stridjpaard-d'Elite model, built for precision fire for use by designated marksmen. \
