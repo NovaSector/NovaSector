@@ -52,6 +52,10 @@
 	},
 /turf/open/floor/wood,
 /area/station/command/heads_quarters/nt_rep)
+"j" = (
+/obj/machinery/firealarm/directional/west,
+/turf/template_noop,
+/area/template_noop)
 "n" = (
 /obj/structure/cable,
 /obj/machinery/door/airlock/maintenance,
@@ -83,6 +87,9 @@
 /obj/machinery/light/directional/north,
 /turf/open/floor/wood,
 /area/station/command/heads_quarters/nt_rep)
+"v" = (
+/turf/template_noop,
+/area/template_noop)
 "w" = (
 /obj/structure/filingcabinet/chestdrawer,
 /turf/open/floor/carpet/executive,
@@ -284,4 +291,13 @@ M
 M
 M
 z
+"}
+(8,1,1) = {"
+v
+v
+v
+j
+v
+v
+v
 "}

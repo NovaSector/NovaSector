@@ -64,7 +64,7 @@
 /turf/open/floor/iron,
 /area/station/maintenance/disposal)
 "abb" = (
-/obj/machinery/computer/station_alert/station_only{
+/obj/machinery/computer/station_alert{
 	dir = 1
 	},
 /obj/effect/turf_decal/box,
@@ -12708,7 +12708,7 @@
 /turf/open/floor/iron/dark/smooth_edge,
 /area/station/security/brig)
 "dLY" = (
-/obj/machinery/computer/station_alert/station_only{
+/obj/machinery/computer/station_alert{
 	dir = 8
 	},
 /obj/effect/turf_decal/box,
@@ -17452,7 +17452,7 @@
 /turf/open/floor/plating,
 /area/station/maintenance/port/lesser)
 "fca" = (
-/obj/machinery/computer/station_alert/station_only{
+/obj/machinery/computer/station_alert{
 	dir = 1
 	},
 /obj/structure/railing/corner,
@@ -23977,7 +23977,7 @@
 /turf/open/floor/iron/white,
 /area/station/medical/chemistry)
 "gZp" = (
-/obj/machinery/computer/station_alert/station_only{
+/obj/machinery/computer/station_alert{
 	dir = 8
 	},
 /obj/effect/turf_decal/box,
@@ -27900,7 +27900,7 @@
 /area/station/science/ordnance)
 "iey" = (
 /obj/effect/turf_decal/box,
-/obj/machinery/computer/station_alert/station_only{
+/obj/machinery/computer/station_alert{
 	dir = 8
 	},
 /obj/machinery/light_switch/directional/east,
@@ -29032,7 +29032,7 @@
 /turf/open/openspace,
 /area/station/engineering/atmos/upper)
 "ivc" = (
-/obj/machinery/computer/station_alert/station_only,
+/obj/machinery/computer/station_alert,
 /obj/effect/turf_decal/box,
 /obj/machinery/requests_console/auto_name/directional/north,
 /obj/effect/mapping_helpers/requests_console/assistance,
@@ -44216,7 +44216,7 @@
 /turf/closed/wall,
 /area/station/commons/vacant_room/office)
 "mHO" = (
-/obj/machinery/computer/station_alert/station_only{
+/obj/machinery/computer/station_alert{
 	dir = 4
 	},
 /obj/effect/turf_decal/box,
@@ -79527,7 +79527,6 @@
 /obj/effect/turf_decal/tile/purple/half/contrasted,
 /obj/structure/closet/crate/bin,
 /obj/item/vending_refill/donksoft,
-/obj/item/circuitboard/machine/vending/donksofttoyvendor,
 /obj/structure/railing,
 /obj/machinery/airalarm/directional/north,
 /obj/machinery/power/apc/auto_name/directional/east,
