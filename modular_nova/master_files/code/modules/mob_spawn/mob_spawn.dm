@@ -12,6 +12,8 @@
 	var/quirks_enabled = FALSE
 	/// Are we limited to a certain species type? LISTED TYPE
 	var/restricted_species
+	/// Do we have an outfit for Plasmaman prepared for this role?
+	var/plasmaman_outfit
 
 /obj/effect/mob_spawn/ghost_role/create(mob/mob_possessor, newname, use_loadout = FALSE)
 	var/load_prefs = FALSE
@@ -50,9 +52,13 @@
 		post_transfer_prefs(spawned_human)
 
 	if(load_prefs && loadout_enabled)
-		spawned_human?.equip_outfit_and_loadout(outfit, spawned_mob.client.prefs)
+		if(isplasmaman(spawned_human) && plasmaman_outfit)
+			spawned_human?.equip_outfit_and_loadout(plasmaman_outfit, spawned_mob.client.prefs)
+		else
+			spawned_human?.equip_outfit_and_loadout(outfit, spawned_mob.client.prefs)
 	else if (!isnull(spawned_human))
 		equip(spawned_human)
+		message_admins("called equip 1")
 		var/mutable_appearance/character_appearance = new(spawned_human.appearance)
 		GLOB.name_to_appearance[spawned_human.real_name] = character_appearance // Cache this for Character Directory
 
@@ -64,7 +70,9 @@
 	var/mob/living/spawned_mob = new mob_type(get_turf(src)) //living mobs only
 	name_mob(spawned_mob, newname)
 	special(spawned_mob, mob_possessor)
-	equip(spawned_mob)
+	// Only run equip logic if this is NOT a ghost_role spawner, as we already solve equip with loadout there.
+	if (!istype(src, /obj/effect/mob_spawn/ghost_role))
+		equip(spawned_mob)
 	spawned_mob_ref = WEAKREF(spawned_mob)
 	return spawned_mob
 
