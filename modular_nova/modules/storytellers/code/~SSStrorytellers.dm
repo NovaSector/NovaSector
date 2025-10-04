@@ -13,6 +13,8 @@ SUBSYSTEM_DEF(storytellers)
 	// Difficult selected on vote
 	var/selected_difficult
 
+	var/current_vote_duration = 60 SECONDS
+
 	var/vote_active = FALSE
 	/// Active storyteller instance
 	var/datum/storyteller/active
@@ -35,9 +37,8 @@ SUBSYSTEM_DEF(storytellers)
 	goal_roots = list()
 	goals_by_category = list()
 	collect_avaible_goals()
-	SSevents.flags = SS_NO_FIRE
 
-	disable_dynamic()
+	RegisterSignal(src, COMSIG_CLIENT_MOB_LOGIN, PROC_REF(on_login))
 	return SS_INIT_SUCCESS
 
 
@@ -46,8 +47,24 @@ SUBSYSTEM_DEF(storytellers)
 		active.think()
 
 
+/datum/controller/subsystem/storytellers/proc/setup_game(start_now = FALSE)
+	disable_dynamic()
+	disable_ICES()
+
+	if(vote_active)
+		end_vote()
+
 /datum/controller/subsystem/storytellers/proc/disable_dynamic()
 	SSdynamic.flags = SS_NO_FIRE
+	SSdynamic.antag_events_enabled = FALSE
+	// TODO: add ability to completely disable dynamic by adading all rullsets to admin-disabled
+
+
+/datum/controller/subsystem/storytellers/proc/disable_ICES()
+	SSevents.flags = SS_NO_FIRE
+	SSevents.intensity_credit_rate = 0
+	SSevents.intensity_credit_last_time = 0
+	SSevents.active_intensity_multiplier = 0
 
 
 /datum/controller/subsystem/storytellers/proc/initialize_storyteller()
@@ -65,6 +82,10 @@ SUBSYSTEM_DEF(storytellers)
 	active.difficulty_multiplier = clamp(selected_difficult, 0.3, 5.0)
 	active.initialize_round()
 
+/datum/controller/subsystem/storytellers/proc/on_login(mob/new_client)
+	if(vote_active)
+		var/datum/storyteller_vote_ui/ui = new(new_client, current_vote_duration)
+		ui.ui_interact(new_client)
 
 /datum/controller/subsystem/storytellers/proc/register_atom_for_storyteller(atom/A)
 	if(!active)
@@ -200,6 +221,7 @@ SUBSYSTEM_DEF(storytellers)
 /datum/controller/subsystem/storytellers/proc/start_vote(duration = 60 SECONDS)
 	GLOB.storyteller_vote_uis = list()
 	to_chat(world, span_boldnotice("Storyteller voting has begun!"))
+	current_vote_duration = duration
 	for (var/client/C in GLOB.clients)
 		var/datum/storyteller_vote_ui/ui = new(C, duration)
 		ui.ui_interact(C.mob)
@@ -219,7 +241,8 @@ SUBSYSTEM_DEF(storytellers)
 	var/list/tallies = list()
 	var/list/all_diffs = list()
 	var/total_votes = 0
-	for(var/datum/storyteller_vote_ui/ui in GLOB.storyteller_vote_uis)
+	for(var/client/client in GLOB.storyteller_vote_uis)
+		var/datum/storyteller_vote_ui/ui = GLOB.storyteller_vote_uis[client]
 		for(var/ckey in ui.votes)
 			var/list/v = ui.votes[ckey]
 			var/path_str = v["storyteller"]
@@ -231,6 +254,7 @@ SUBSYSTEM_DEF(storytellers)
 			total_votes++
 		SStgui.close_uis(ui.owner.mob, ui)
 		qdel(ui)
+
 	GLOB.storyteller_vote_uis = list()
 	var/list/best_storytellers = list()
 	var/max_votes = 0
@@ -253,12 +277,15 @@ SUBSYSTEM_DEF(storytellers)
 	var/avg_diff = length(all_diffs) ? get_avg(all_diffs) : 1.0
 	selected_difficult = avg_diff
 
+	var/selected_name = find_candidate_name_global(selected_path_str)
+	to_chat(world, span_boldnotice("Storyteller selected: [selected_name] at difficulty [round(avg_diff, 0.1)]."))
+	log_storyteller("Storyteller vote ended: [selected_path_str] (votes=[max_votes], diff=[avg_diff]), total votes=[total_votes]")
 	if(!SSticker.state == GAME_STATE_PLAYING)
 		return
 
 	if(!ispath(selected_path, /datum/storyteller))
 		log_storyteller("Vote failed: invalid path [selected_path_str]")
-		to_chat(world, span_big("<span class='bold warning'>Vote failed! Default storyteller selected.</span>"))
+		to_chat(world, span_boldnotice("Vote failed! Default storyteller selected."))
 		if (active)
 			qdel(active)
 		active = new /datum/storyteller
@@ -272,16 +299,11 @@ SUBSYSTEM_DEF(storytellers)
 	active.difficulty_multiplier = clamp(avg_diff, 0.3, 5.0)
 	active.initialize_round()
 
-	var/selected_name = find_candidate_name_global(selected_path_str)
-	to_chat(world, span_boldnotice("Storyteller selected: [selected_name] at difficulty [round(avg_diff, 0.1)]."))
-	log_storyteller("Storyteller vote ended: [selected_path_str] (votes=[max_votes], diff=[avg_diff]), total votes=[total_votes]")
-
 /datum/storyteller_vote_ui/proc/find_candidate_name(path_str)
 	for (var/list/cand in candidates)
 		if (cand["id"] == path_str)
 			return cand["name"]
 	return "Unknown"
-
 
 /proc/get_avg(list/nums)
 	if (!length(nums))
@@ -290,7 +312,6 @@ SUBSYSTEM_DEF(storytellers)
 	for (var/n in nums)
 		sum += n
 	return sum / length(nums)
-
 
 /proc/find_candidate_name_global(path_str)
 	for (var/datum/storyteller_vote_ui/ui in GLOB.storyteller_vote_uis)

@@ -1,5 +1,3 @@
-GLOBAL_DATUM_INIT(storyteller_vote_ui, /datum/storyteller_vote_ui, null)
-
 #define LOG_CATEGORY_STORYTELLER "storyteller"
 #define LOG_CATEGORY_STORYTELLER_PLANNER "storyteller_planner"
 #define LOG_CATEGORY_STORYTELLER_ANALYZER "storyteller_analyzer"
