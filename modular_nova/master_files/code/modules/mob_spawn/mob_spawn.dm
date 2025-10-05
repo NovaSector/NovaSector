@@ -70,7 +70,7 @@
 	name_mob(spawned_mob, newname)
 	special(spawned_mob, mob_possessor)
 	// Only run equip logic if this is NOT a ghost_role spawner, as we already solve equip with loadout there.
-	if (!istype(src, /obj/effect/mob_spawn/ghost_role))
+	if (!use_loadout)
 		equip(spawned_mob)
 	spawned_mob_ref = WEAKREF(spawned_mob)
 	return spawned_mob
