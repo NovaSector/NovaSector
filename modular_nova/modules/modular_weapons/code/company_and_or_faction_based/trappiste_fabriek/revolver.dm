@@ -92,7 +92,7 @@
 	can_suppress = TRUE
 
 	fire_delay = 0.4 SECONDS
-	recoil = 2
+	recoil = 1
 
 	lore_blurb = "The Défonce was designed to fulfill a request by the Sol Federation Armed Forces for a maintainable high-caliber handgun.<br><br>\
 		Although it served its purpose well, complaints were received from Nanotrasen staff regarding its unwieldiness in combat situations. \
