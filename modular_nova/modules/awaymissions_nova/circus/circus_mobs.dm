@@ -122,14 +122,20 @@
 		/datum/ai_planning_subtree/basic_melee_attack_subtree,
 	)
 	blackboard = list(
-		BB_AGGRO_RANGE = 80
 		BB_TARGETING_STRATEGY = /datum/targeting_strategy/basic,
 		BB_TARGET_MINIMUM_STAT = HARD_CRIT,
+		BB_AGGRO_RANGE = 80
 	)
 	ai_movement = /datum/ai_movement/basic_avoidance
 	idle_behavior = /datum/idle_behavior/idle_random_walk
 
 /datum/ai_controller/basic_controller/cult/magic/cult_circus
+	planning_subtrees = list(
+		/datum/ai_planning_subtree/simple_find_target,
+		/datum/ai_planning_subtree/attack_obstacle_in_path/trooper,
+		/datum/ai_planning_subtree/basic_ranged_attack_subtree/trooper/cult,
+		/datum/ai_planning_subtree/basic_melee_attack_subtree,
+	)
 	blackboard = list(
 		BB_TARGETING_STRATEGY = /datum/targeting_strategy/basic,
 		BB_TARGET_MINIMUM_STAT = HARD_CRIT,
@@ -138,12 +144,6 @@
 
 	ai_movement = /datum/ai_movement/basic_avoidance
 	idle_behavior = /datum/idle_behavior/idle_random_walk
-	planning_subtrees = list(
-		/datum/ai_planning_subtree/simple_find_target,
-		/datum/ai_planning_subtree/attack_obstacle_in_path/trooper,
-		/datum/ai_planning_subtree/basic_ranged_attack_subtree/trooper/cult,
-		/datum/ai_planning_subtree/basic_melee_attack_subtree,
-	)
 
 //start of the Call of duty zombies attack wave mobs
 /mob/living/basic/cult/CodZ
