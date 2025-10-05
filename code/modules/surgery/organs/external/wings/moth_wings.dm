@@ -5,8 +5,6 @@
 	name = "moth wings"
 	desc = "Spread your wings and FLOOOOAAAAAT!"
 
-	preference = "feature_moth_wings"
-
 	//dna_block = DNA_MOTH_WINGS_BLOCK // NOVA EDIT REMOVAL
 
 	bodypart_overlay = /datum/bodypart_overlay/mutant/wings/moth
