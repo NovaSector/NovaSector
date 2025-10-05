@@ -27,7 +27,7 @@
 /datum/storyteller_goal/global_goal/invasion_defense/can_fire_now(list/vault, datum/storyteller_inputs/inputs, datum/storyteller/storyteller)
 
 
-/datum/storyteller_goal/global_goal/invasion_defense/trigger_event(list/vault, datum/storyteller_inputs/inputs, datum/storyteller/storyteller, threat_points, station_value)
+/datum/storyteller_goal/global_goal/invasion_defense/complete(list/vault, datum/storyteller_inputs/inputs, datum/storyteller/storyteller, threat_points, station_value)
 	storyteller.threat_points += min(threat_points * 0.3, 1000)
 	if(!event_path)
 		return

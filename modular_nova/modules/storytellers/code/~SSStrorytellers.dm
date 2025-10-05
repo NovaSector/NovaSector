@@ -8,6 +8,7 @@ SUBSYSTEM_DEF(storytellers)
 	wait = 1 SECONDS
 	priority = FIRE_PRIORITY_STORYTELLERS
 
+	var/hard_debug = FALSE
 	// Stortyteller selected on vote
 	var/selected_path
 	// Difficult selected on vote
@@ -19,6 +20,8 @@ SUBSYSTEM_DEF(storytellers)
 	/// Active storyteller instance
 	var/datum/storyteller/active
 
+	var/list/storyteller_vote_uis = list()
+
 	// The current station value
 	var/station_value = 0
 
@@ -29,6 +32,7 @@ SUBSYSTEM_DEF(storytellers)
 	var/list/goal_roots = list()
 	/// Current active goal (for tracking progress)
 	var/datum/storyteller_goal/active_goal
+
 
 
 /datum/controller/subsystem/storytellers/Initialize()
@@ -47,25 +51,27 @@ SUBSYSTEM_DEF(storytellers)
 		active.think()
 
 
-/datum/controller/subsystem/storytellers/proc/setup_game(start_now = FALSE)
+/datum/controller/subsystem/storytellers/proc/setup_game()
 	disable_dynamic()
 	disable_ICES()
 
 	if(vote_active)
 		end_vote()
 
+	initialize_storyteller()
+
 /datum/controller/subsystem/storytellers/proc/disable_dynamic()
 	SSdynamic.flags = SS_NO_FIRE
 	SSdynamic.antag_events_enabled = FALSE
 	// TODO: add ability to completely disable dynamic by adading all rullsets to admin-disabled
-
+	message_admins(span_bolditalic("Dynamic was disabled by Storyteller!"))
 
 /datum/controller/subsystem/storytellers/proc/disable_ICES()
 	SSevents.flags = SS_NO_FIRE
 	SSevents.intensity_credit_rate = 0
 	SSevents.intensity_credit_last_time = 0
 	SSevents.active_intensity_multiplier = 0
-
+	message_admins(span_bolditalic("ICES and random events was disabled by Storyteller"))
 
 /datum/controller/subsystem/storytellers/proc/initialize_storyteller()
 	if(!ispath(selected_path, /datum/storyteller))
@@ -219,30 +225,27 @@ SUBSYSTEM_DEF(storytellers)
 
 
 /datum/controller/subsystem/storytellers/proc/start_vote(duration = 60 SECONDS)
-	GLOB.storyteller_vote_uis = list()
+	SSstorytellers.storyteller_vote_uis = list()
+	vote_active = TRUE
 	to_chat(world, span_boldnotice("Storyteller voting has begun!"))
 	current_vote_duration = duration
 	for (var/client/C in GLOB.clients)
 		var/datum/storyteller_vote_ui/ui = new(C, duration)
 		ui.ui_interact(C.mob)
-	addtimer(CALLBACK(src, PROC_REF(check_vote_end)), duration)
+	addtimer(CALLBACK(src, PROC_REF(end_vote)), duration)
 	log_storyteller("Storyteller vote started: duration=[duration/10]s")
-	vote_active = TRUE
 
-/datum/controller/subsystem/storytellers/proc/check_vote_end()
-	if(length(GLOB.storyteller_vote_uis) > 0)
-		end_vote()
 
 /datum/controller/subsystem/storytellers/proc/end_vote()
-	if(!length(GLOB.storyteller_vote_uis))
+	if(!length(SSstorytellers.storyteller_vote_uis))
 		return
 
 	vote_active = FALSE
 	var/list/tallies = list()
 	var/list/all_diffs = list()
 	var/total_votes = 0
-	for(var/client/client in GLOB.storyteller_vote_uis)
-		var/datum/storyteller_vote_ui/ui = GLOB.storyteller_vote_uis[client]
+	for(var/client/client in SSstorytellers.storyteller_vote_uis)
+		var/datum/storyteller_vote_ui/ui = SSstorytellers.storyteller_vote_uis[client]
 		for(var/ckey in ui.votes)
 			var/list/v = ui.votes[ckey]
 			var/path_str = v["storyteller"]
@@ -255,7 +258,7 @@ SUBSYSTEM_DEF(storytellers)
 		SStgui.close_uis(ui.owner.mob, ui)
 		qdel(ui)
 
-	GLOB.storyteller_vote_uis = list()
+	SSstorytellers.storyteller_vote_uis = list()
 	var/list/best_storytellers = list()
 	var/max_votes = 0
 	for (var/path_str in tallies)
@@ -314,7 +317,7 @@ SUBSYSTEM_DEF(storytellers)
 	return sum / length(nums)
 
 /proc/find_candidate_name_global(path_str)
-	for (var/datum/storyteller_vote_ui/ui in GLOB.storyteller_vote_uis)
+	for (var/datum/storyteller_vote_ui/ui in SSstorytellers.storyteller_vote_uis)
 		for (var/list/cand in ui.candidates)
 			if (cand["id"] == path_str)
 				return cand["name"]
@@ -561,12 +564,10 @@ ADMIN_VERB(storyteller_admin, R_ADMIN, "Storyteller", "Open the storyteller admi
 			"desc" = desc,
 			"portrait" = null,
 		))
-	GLOB.storyteller_vote_uis += list(
-		owner = src
-	)
+	SSstorytellers.storyteller_vote_uis[owner] = src
 
 /datum/storyteller_vote_ui/Destroy()
-	GLOB.storyteller_vote_uis -= owner
+	SSstorytellers.storyteller_vote_uis -= owner
 	return ..()
 
 /datum/storyteller_vote_ui/ui_state(mob/user)
@@ -585,7 +586,9 @@ ADMIN_VERB(storyteller_admin, R_ADMIN, "Storyteller", "Open the storyteller admi
 
 	var/list/tallies = list()
 	var/list/difficulties = list()
-	for (var/datum/storyteller_vote_ui/ui in GLOB.storyteller_vote_uis)
+	for (var/client/client in SSstorytellers.storyteller_vote_uis)
+		var/datum/storyteller_vote_ui/ui = SSstorytellers.storyteller_vote_uis[client]
+
 		for (var/vote_ckey in ui.votes)
 			var/list/v = ui.votes[vote_ckey]
 			var/path_str = v["storyteller"]
@@ -647,12 +650,13 @@ ADMIN_VERB(storyteller_admin, R_ADMIN, "Storyteller", "Open the storyteller admi
 /client/verb/reopen_storyteller_vote()
 	set name = "Reopen Storyteller Vote"
 	set category = "OOC"
-	var/datum/storyteller_vote_ui/ui = GLOB.storyteller_vote_uis[usr.client]
+	var/datum/storyteller_vote_ui/ui = SSstorytellers.storyteller_vote_uis[usr.client]
 	if(!SSstorytellers.vote_active)
 		to_chat(src, span_warning("Voting has ended."))
 		return
 	if (!ui)
 		to_chat(src, span_warning("No active storyteller vote"))
+		ui = new(src, SSstorytellers.current_vote_duration)
 		return
 	if (world.time >= ui.vote_end_time)
 		to_chat(src, span_warning("Voting has ended."))

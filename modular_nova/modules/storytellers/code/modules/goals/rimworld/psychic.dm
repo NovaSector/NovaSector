@@ -17,10 +17,6 @@
 /datum/storyteller_goal/execute_psychic_drone/get_priority(list/vault, datum/storyteller_inputs/inputs, datum/storyteller/storyteller)
 	return 3
 
-/datum/storyteller_goal/execute_psychic_drone/trigger_event(list/vault, datum/storyteller_inputs/inputs, datum/storyteller/storyteller, threat_points, station_value)
-	..()
-
-
 /datum/round_event/psychic_drone
 	// Default, but randomize per wave or target
 	var/target_sex = MALE

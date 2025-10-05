@@ -33,7 +33,11 @@
 
 
 /datum/storyteller_goal/proc/get_priority(list/vault, datum/storyteller_inputs/inputs, datum/storyteller/storyteller)
-	return 0
+	return 1
+
+
+/datum/storyteller_goal/proc/get_progress(list/vault, datum/storyteller_inputs/inputs, datum/storyteller/storyteller)
+	return 1
 
 
 /datum/storyteller_goal/proc/can_fire_now(list/vault, datum/storyteller_inputs/inputs, datum/storyteller/storyteller)
@@ -53,11 +57,32 @@
 			children += G
 	return children
 
-/// Trigger the associated event if defined (called when goal is achieved)
-/datum/storyteller_goal/proc/trigger_event(list/vault, datum/storyteller_inputs/inputs, datum/storyteller/storyteller, threat_points, station_value)
-	if(!event_path)
-		return
-	var/datum/round_event/E = new event_path(TRUE, new /datum/round_event_control/storyteller_control)
-	E.__setup_for_storyteller(threat_points)
-	E.__announce_for_storyteller()
-	E.__start_for_storyteller()
+/// Complete goal and triggers associative events if any
+/datum/storyteller_goal/proc/complete(list/vault, datum/storyteller_inputs/inputs, datum/storyteller/storyteller, threat_points, station_value)
+	if(event_path)
+		var/datum/round_event/E = new event_path(TRUE, new /datum/round_event_control/storyteller_control)
+		E.__setup_for_storyteller(threat_points)
+		E.__announce_for_storyteller()
+		E.__start_for_storyteller()
+	return TRUE
+
+
+// Storyteller Goals
+/datum/storyteller_goal/global_goal
+
+
+
+// Global goals should be always completed, before
+/datum/storyteller_goal/global_goal/complete(list/vault, datum/storyteller_inputs/inputs, datum/storyteller/storyteller, threat_points, station_value)
+	if(!get_progress(vault, inputs, storyteller) < 1)
+		return FALSE
+	return ..()
+
+
+
+/datum/storyteller_goal/global_goal/proc/move_to_goal(list/vault, datum/storyteller_inputs/inputs, datum/storyteller/storyteller)
+
+
+
+/datum/storyteller_goal/global_goal/execute_event
+	name = "Execute the event"

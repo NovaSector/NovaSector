@@ -45,11 +45,17 @@
 	var/current_time = world.time
 
 	for(var/offset in get_upcoming_goals(length(timeline)))
+		var/entry = timeline[offset]
+		var/datum/storyteller_goal/goal = entry[1]
+
+		if(istype(goal, /datum/storyteller_goal/global_goal) && goal.category & STORY_GOAL_GLOBAL)
+			var/datum/storyteller_goal/global_goal/GG = goal
+			GG.move_to_goal(inputs.vault, inputs, ctl)
+			ctl.global_goal_progress = GG.get_progress(inputs.vault, inputs, ctl)
+
 		if(current_time < offset)
 			continue
 
-		var/entry = timeline[offset]
-		var/datum/storyteller_goal/goal = entry[1]
 		var/status = entry[ENTRY_STATUS] || STORY_GOAL_PENDING
 		if(status != STORY_GOAL_PENDING)
 			continue
@@ -57,24 +63,26 @@
 		// Check if goal can fire now (uses vault/inputs for context)
 		if(!goal.can_fire_now(inputs.vault, inputs, ctl))
 			timeline -= offset
-			try_plan_goal(entry[ENTRY_GOAL], ctl.next_think_time) //We try to fire again on next think time
+			try_plan_goal(entry[ENTRY_GOAL], 5 MINUTES) //We try to fire again on next think time
 			continue
 
 		entry[ENTRY_STATUS] = STORY_GOAL_FIRING
-		if(goal.trigger_event(inputs.vault, inputs, ctl, round(ctl.threat_points * ctl.difficulty_multiplier * 100), inputs.station_value))
+		if(goal.complete(inputs.vault, inputs, ctl, round(ctl.threat_points * ctl.difficulty_multiplier * 100), inputs.station_value))
 			fired_goals += goal
 			entry[ENTRY_STATUS] = STORY_GOAL_COMPLETED
-			ctl.recent_events |= goal.id
 			// Update adaptation if damage event (placeholder: check tags)
 			if(goal.tags & STORY_TAG_ESCALATION)
 				ctl.adaptation_factor = min(1.0, ctl.adaptation_factor + 0.2)  // Increase adaptation post-threat
-			ctl.time_since_last_event = current_time
-			// Progress global if subgoal
-			if(goal != current_goal)
-				ctl.global_goal_progress += 0.2
+			ctl.record_event(goal, STORY_GOAL_COMPLETED)
 			message_admins("[span_notice("Storyteller fired goal: ")] [goal.name || goal.id].")
 		else
-			entry[ENTRY_STATUS] = STORY_GOAL_FAILED
+			if(goal.category & STORY_GOAL_GLOBAL)
+				entry[ENTRY_STATUS] = STORY_GOAL_PENDING
+				timeline -= offset
+				// TODO: replaning goal based on mood
+				try_plan_goal(entry[ENTRY_GOAL], 10 MINUTES * goal.get_progress(inputs.vault, inputs, ctl)) // replaning goal if it's global
+			else
+				entry[ENTRY_STATUS] = STORY_GOAL_FAILED
 			message_admins("[span_warning("Storyteller goal failed to fire: ")] [goal.name || goal.id]")
 
 
@@ -324,7 +332,14 @@
 // Builds hierarchy: Base from metrics (influenced by category for bias), mid from aggregation, high from balance implications.
 // Category biases derivation: e.g., GOAL_BAD favors ESCALATION/AFFECTS_CREW_HEALTH harm; GOAL_GOOD favors DEESCALATION/recovery.
 /datum/storyteller_planner/proc/derive_universal_tags(category, datum/storyteller/ctl, datum/storyteller_inputs/inputs, datum/storyteller_balance_snapshot/bal)
-	return ctl.mind.tokenize(category, ctl, inputs, bal, ctl.mood)
+	var/tags = ctl.mind.tokenize(category, ctl, inputs, bal, ctl.mood)
+	if(SSstorytellers.hard_debug)
+		var/string_tags = ""
+		for(var/tag_str in get_valid_bitflags("story_universal_tags"))
+			if(tags & get_valid_bitflags("story_universal_tags")[tag_str])
+				string_tags += tag_str + ", "
+		message_admins("Storyteller [ctl.name] tokenize station snapshot with next tags: [string_tags]")
+	return tags
 
 
 

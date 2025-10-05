@@ -317,7 +317,7 @@ SUBSYSTEM_DEF(ticker)
 /datum/controller/subsystem/ticker/proc/PostSetup()
 	set waitfor = FALSE
 
-	SSstorytellers.initialize_storyteller() // NOVA EDIT ADDITION - inititalize storyteller
+	SSstorytellers.setup_game() // NOVA EDIT ADDITION - inititalize storyteller
 	/* // NOVA EDIT REMOVAL START - Storytellers: stortyteller roll antags by itself
 	// Spawn traitors and stuff
 	for(var/datum/dynamic_ruleset/roundstart/ruleset in SSdynamic.queued_rulesets)

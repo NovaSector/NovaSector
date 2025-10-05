@@ -49,8 +49,9 @@
 			continue
 		check_list += new type
 
-	compute_station_value()
 	scan_station()
+	get_station_integrity()
+	compute_station_value()
 
 	cached_state = new
 	actual_state = new
@@ -60,7 +61,7 @@
 	RETURN_TYPE(/datum/storyteller_inputs)
 
 	if(COOLDOWN_FINISHED(src, inputs_cahche_duration))
-		scan_station()
+		INVOKE_ASYNC(src, PROC_REF(scan_station), scan_flags)
 
 	return actual_inputs
 
@@ -126,9 +127,9 @@
 
 
 /datum/storyteller_analyzer/proc/get_station_integrity()
-	if(isnull(actual_state))
+	if(!actual_state)
 		actual_state = new
-	if(isnull(cached_state))
+	if(!cached_state)
 		cached_state = new
 
 	cached_state.floor = actual_state.floor
@@ -150,8 +151,9 @@
 // This is a full recalculation; use register_atom_for_storyteller for incremental updates
 /datum/storyteller_analyzer/proc/compute_station_value()
 	var/raw_total = 0
-	for(var/atom/movable/A in SSmapping.levels_by_trait(ZTRAIT_STATION))
-		raw_total += A.story_value()
+	for(var/area/A in GLOB.the_station_areas)
+		for(var/atom/AM in get_area_turfs(A))
+			raw_total += AM.story_value()
 
 
 	var/crew_weight = get_crew_weight()

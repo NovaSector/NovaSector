@@ -60,7 +60,7 @@
 	/// Current grace period after major event when we avoid rapid-fire scheduling
 	var/grace_period = STORY_GRACE_PERIOD
 	/// Time since last major event; used to enforce grace periods
-	var/time_since_last_event = 0
+	var/last_event_time = 0
 	/// Round start timestamp
 	var/round_start_time = 0
 	/// Cached progression 0..1 over target duration
@@ -79,6 +79,8 @@
 	var/mood_update_interval = STORY_RECALC_INTERVAL
 	var/last_mood_update_time = 0
 
+	var/initial_analization = FALSE
+
 
 /datum/storyteller/New()
 	..()
@@ -91,6 +93,12 @@
 
 
 /datum/storyteller/proc/initialize_round()
+	set waitfor = FALSE
+
+	INVOKE_ASYNC(analyzer, TYPE_PROC_REF(/datum/storyteller_analyzer, scan_station))
+	while(analyzer.analyzing)
+		sleep(world.tick_lag)
+
 	// Initialize inputs with starting station analysis
 	inputs = analyzer.get_inputs()
 	// Initial snapshot to seed planner decisions
@@ -162,7 +170,7 @@
 		return
 	log_storyteller("Global goal [current_global_goal.id] completed")
 	record_event(current_global_goal)
-	current_global_goal.trigger_event()
+	current_global_goal.complete()
 	// Escalation events increase adaptation (post-damage grace), deescalation reduces it
 	if(current_global_goal.tags & STORY_TAG_ESCALATION)
 		adaptation_factor = min(1.0, adaptation_factor + 0.2)
@@ -195,19 +203,17 @@
 
 
 /// Event trigger guard for ad-hoc random events outside goals
-/datum/storyteller/proc/can_trigger_event()
-	var/last_event_time = recent_events.len ? recent_events[recent_events.len] : 0
-	var/time_since_last = world.time - last_event_time
-	if(time_since_last < min_event_interval)
+/datum/storyteller/proc/can_trigger_event_now()
+	if(get_time_since_last_event() < grace_period + 2 MINUTES * (mood ? mood.get_threat_multiplier() : 1.0))
 		return FALSE
-	if(time_since_last > max_event_interval)
+	if(get_time_since_last_event() > round(grace_period * (mood ? mood.get_threat_multiplier() : 1.0) / min(3,difficulty_multiplier)))
 		return TRUE
 	var/prob_modifier = (mood ? mood.get_threat_multiplier() : 1.0) * difficulty_multiplier
 	return prob(50 * prob_modifier)
 
 /// Event trigger guard for ad-hoc random events outside goals
 /datum/storyteller/proc/can_trigger_event_at(time)
-	return time - time_since_last_event < grace_period
+	return time - get_time_since_last_event() > grace_period
 
 /datum/storyteller/proc/get_effective_pace()
 	return mood.get_event_frequency_multiplier() * (1.0 - adaptation_factor)
@@ -218,6 +224,8 @@
 /datum/storyteller/proc/get_event_interval_no_population_factor()
 	return min_event_interval + (max_event_interval - min_event_interval) / get_effective_pace()
 
+/datum/storyteller/proc/get_time_since_last_event()
+	return world.time - last_event_time
 
 /// Ad-hoc random event for testing or emergency pacing
 /datum/storyteller/proc/trigger_random_event(list/vault, datum/storyteller_inputs/inputs, datum/storyteller/storyteller)
@@ -227,15 +235,21 @@
 
 
 /// Helper to record a goal event: store timestamp for spacing and id for repetition penalty
-/datum/storyteller/proc/record_event(datum/storyteller_goal/G)
+/datum/storyteller/proc/record_event(datum/storyteller_goal/G, status)
 	if(!G)
 		return
-	recent_events += world.time
+	var/current_time = world.time
+	var/id = G.id + "_" + current_time
+	recent_events[id] = list(list(
+		"id" = G.id,
+		"desc" = G.desc,
+		"status" = status,
+		"fired_at" = (current_time / 1 MINUTES) + " min",
+	))
 	recent_event_ids |= G.id
 	while(recent_event_ids.len > recent_event_ids_max)
 		recent_event_ids.Cut(1, 2)
-	// Update last event time for grace period checks
-	time_since_last_event = world.time
+	last_event_time = current_time
 
 
 /// Adjust current mood variables based on balance snapshot (smooth, non-destructive)
