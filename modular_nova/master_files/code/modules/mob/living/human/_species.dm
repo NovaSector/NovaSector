@@ -26,8 +26,8 @@
 		)
 			features += preference.savefile_key
 
-	for (var/obj/item/organ/organ_type as anything in mutant_organs)
-		var/preference = initial(organ_type.preference)
+	for (var/obj/item/organ/organ_type as anything in get_organs())
+		var/preference = organ_type::mutantpart_key
 		if (!isnull(preference))
 			features += preference
 
