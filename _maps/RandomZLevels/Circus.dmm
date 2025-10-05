@@ -5503,6 +5503,10 @@
 /obj/structure/sign/poster/contraband/clown/directional/west,
 /turf/open/floor/mineral/bananium,
 /area/awaymission/circus/no_light)
+"JS" = (
+/obj/structure/closet/cardboard,
+/turf/open/indestructible/rockyground,
+/area/awaymission/circus/no_light)
 "JT" = (
 /obj/effect/turf_decal/stripes/corner,
 /turf/open/floor/grass,
@@ -46452,7 +46456,7 @@ vU
 Ok
 Uq
 qV
-Ud
+tW
 Ud
 Ud
 ZU
@@ -72846,7 +72850,7 @@ yA
 yA
 yA
 yA
-QB
+JS
 yA
 yA
 yA
