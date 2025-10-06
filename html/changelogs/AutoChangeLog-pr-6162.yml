@@ -1,0 +1,5 @@
+author: "Stalkeros"
+delete-after: True
+changes:
+  - bugfix: "Due to a concerning amount of reports regarding molten suppressors, as well as a pending lawsuit for damaged customer equipment, Szot Dynamica had to remove muzzle threads from the Zaibas family of weapons."
+  - bugfix: "In layman's terms, you can't install suppressors on the Zaibases anymore."
