@@ -1,0 +1,4 @@
+author: "TheSS13Melon"
+delete-after: True
+changes:
+  - rscdel: "Removes nova stars requirements from Shapeshifter, Hemophage, Oversized, and Snails."
