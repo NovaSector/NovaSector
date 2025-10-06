@@ -49,12 +49,9 @@
 			continue
 		check_list += new type
 
-	scan_station()
-	get_station_integrity()
-	compute_station_value()
-
 	cached_state = new
 	actual_state = new
+
 
 /datum/storyteller_analyzer/proc/get_inputs(scan_flags)
 	SHOULD_NOT_OVERRIDE(TRUE)
@@ -67,8 +64,14 @@
 
 
 /datum/storyteller_analyzer/proc/scan_station(scan_flags)
-	ASYNC
+	set waitfor = FALSE
 	analyzing = TRUE
+
+	if(scan_flags & RESCAN_STATION_VALUE)
+		compute_station_value()
+	if(scan_flags & RESCAN_STATION_INTEGRITY)
+		get_station_integrity(TRUE)
+
 	COOLDOWN_START(src, inputs_cahche_duration, cache_duration)
 	var/datum/storyteller_inputs/inputs = new
 	inputs.station_state = get_station_integrity()
@@ -126,7 +129,9 @@
 	return FALSE
 
 
-/datum/storyteller_analyzer/proc/get_station_integrity()
+/datum/storyteller_analyzer/proc/get_station_integrity(force = FALSE)
+	set waitfor = FALSE
+
 	if(!actual_state)
 		actual_state = new
 	if(!cached_state)
@@ -140,7 +145,7 @@
 	cached_state.grille = actual_state.grille
 	cached_state.mach = actual_state.mach
 
-	if(COOLDOWN_FINISHED(src, station_integrity_duration))
+	if(COOLDOWN_FINISHED(src, station_integrity_duration) || force)
 		INVOKE_ASYNC(actual_state, TYPE_PROC_REF(/datum/station_state, count))
 		COOLDOWN_START(src, station_integrity_duration, cache_duration * 10)
 		return cached_state
@@ -150,6 +155,8 @@
 // Very rough: sum of atoms approximate value; can be refined later
 // This is a full recalculation; use register_atom_for_storyteller for incremental updates
 /datum/storyteller_analyzer/proc/compute_station_value()
+	set waitfor = FALSE
+
 	var/raw_total = 0
 	for(var/area/A in GLOB.the_station_areas)
 		for(var/atom/AM in get_area_turfs(A))

@@ -68,7 +68,7 @@
 	var/mood_update_interval = STORY_RECALC_INTERVAL
 	var/last_mood_update_time = 0
 
-	var/initial_analization = FALSE
+	var/initialized = FALSE
 
 /datum/storyteller/New()
 	..()
@@ -81,25 +81,17 @@
 
 
 /datum/storyteller/proc/initialize_round()
-	set waitfor = FALSE
-
-	INVOKE_ASYNC(analyzer, TYPE_PROC_REF(/datum/storyteller_analyzer, scan_station))
-	while(analyzer.analyzing)
-		sleep(world.tick_lag)
-
-	// Initialize inputs with starting station analysis
-	inputs = analyzer.get_inputs()
-	// Initial snapshot to seed planner decisions
-	var/datum/storyteller_balance_snapshot/bal = balancer.make_snapshot(inputs)
-	// Pick starting global goal (planner derives tags and subgoals when recalculated)
-	planner.build_timeline(src, inputs, bal)
-	// Schedule first think according to mood pace
-	schedule_next_think()
-	// Mark round start
 	round_start_time = world.time
+	INVOKE_ASYNC(analyzer, TYPE_PROC_REF(/datum/storyteller_analyzer, scan_station), RESCAN_STATION_INTEGRITY, RESCAN_STATION_VALUE)
+	addtimer(CALLBACK(src, PROC_REF(post_initialize), 2 MINUTES))
 
-	initial_analization = TRUE
+/datum/storyteller/proc/post_initialize()
+	inputs = analyzer.get_inputs()
+	var/datum/storyteller_balance_snapshot/bal = balancer.make_snapshot(inputs)
 
+	planner.build_timeline(src, inputs, bal)
+	initialized = TRUE
+	schedule_next_think()
 
 /datum/storyteller/proc/schedule_next_think()
 	// Apply mood-based pacing (pace is clamped by storyteller bounds)
@@ -109,7 +101,8 @@
 
 
 /datum/storyteller/proc/think(force = FALSE)
-	if(world.time < next_think_time && !force)
+
+	if(world.time < next_think_time && !force || !initialized)
 		return
 
 	// 1) Analyze: sample station metrics, compute crew/antag weights, update vault

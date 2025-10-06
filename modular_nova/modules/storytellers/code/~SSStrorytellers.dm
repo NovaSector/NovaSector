@@ -1,5 +1,5 @@
-GLOBAL_LIST(storyteller_vote_uis)
 #define FIRE_PRIORITY_STORYTELLERS 101
+#define STORYTELLER_JSON_PATH "config/storytellers.json"  // Define for JSON path
 
 
 SUBSYSTEM_DEF(storytellers)
@@ -9,10 +9,10 @@ SUBSYSTEM_DEF(storytellers)
 	priority = FIRE_PRIORITY_STORYTELLERS
 
 	var/hard_debug = FALSE
-	// Stortyteller selected on vote
-	var/selected_path
-	// Difficult selected on vote
-	var/selected_difficult
+
+	var/selected_id
+	// Difficulty selected on vote
+	var/selected_difficulty
 
 	var/current_vote_duration = 60 SECONDS
 
@@ -26,24 +26,169 @@ SUBSYSTEM_DEF(storytellers)
 	var/station_value = 0
 
 	var/list/goals_by_category = list()
-	/// Goal registry built from JSON
+	/// Goal registry built from subtypes
 	var/list/goals_by_id = list()
 	/// Root goals without a valid parent
 	var/list/goal_roots = list()
-	/// Current active goal (for tracking progress)
-	var/datum/storyteller_goal/active_goal
+
+	/// Loaded storyteller data from JSON: id -> assoc list(name, desc, mood_type, base_think_delay, etc.)
+	var/list/storyteller_data = list()
+
+	// Config vars (read from config/storyteller.txt or similar; assume /datum/controller/configuration loads them)
+	var/storyteller_replace_dynamic = TRUE
+	var/storyteller_helps_antags = FALSE
+	var/storyteller_allows_speech = TRUE
 
 
 
 /datum/controller/subsystem/storytellers/Initialize()
 	. = ..()
+	// Load storyteller data from JSON
+	load_storyteller_data()
+
 	goals_by_id = list()
 	goal_roots = list()
 	goals_by_category = list()
-	collect_avaible_goals()
+	collect_available_goals()
+
+	// Load config values (assuming global config loader; adjust if needed)
+	storyteller_replace_dynamic = config.Get(/datum/config_entry/flag/storyteller_replace_dynamic) || TRUE
+	storyteller_helps_antags = config.Get(/datum/config_entry/flag/storyteller_helps_antags) || FALSE
+	storyteller_allows_speech = config.Get(/datum/config_entry/flag/storyteller_allows_speech) || TRUE
 
 	RegisterSignal(src, COMSIG_CLIENT_MOB_LOGIN, PROC_REF(on_login))
 	return SS_INIT_SUCCESS
+
+/// Initializes the active storyteller from selected_id (JSON profile), applying parsed data for adaptive behavior.
+/// Delegates creation to create_storyteller_from_data() for modularity; kicks off round analysis/planning.
+/// Ensures chain starts with 3+ events, biased by profile (e.g., low tension for chill).
+/datum/controller/subsystem/storytellers/proc/initialize_storyteller()
+	if(active)
+		message_admins(span_notice("Storyteller already initialized, deleting."))
+		qdel(active)
+
+	if(!selected_id || !storyteller_data[selected_id])
+		log_storyteller("Failed to Initialize storyteller: invalid ID [selected_id]")
+		var/id = pick(storyteller_data)
+		message_admins(span_bolditalic("Failed to Initialize storyteller! Selected random storyteller"))
+		active = create_storyteller_from_data(id)
+		active.difficulty_multiplier = 1.0
+		active.initialize_round()
+		return
+
+	active = create_storyteller_from_data(selected_id)
+	active.difficulty_multiplier = clamp(selected_difficulty, 0.3, 5.0)
+	active.initialize_round()
+
+
+/datum/controller/subsystem/storytellers/proc/load_storyteller_data()
+	if(!fexists(STORYTELLER_JSON_PATH))
+		log_storyteller("Storyteller JSON not found at [STORYTELLER_JSON_PATH], using defaults.")
+		return
+
+	var/json_text = rustg_file_read(STORYTELLER_JSON_PATH)
+	var/list/loaded = json_decode(json_text)
+	if(!islist(loaded))
+		log_storyteller("Invalid JSON in storyteller data: [json_text]")
+		return
+
+	for(var/list/entry in loaded)
+		var/id = entry["id"]
+		if(!id || !istext(id))
+			log_storyteller("Skipping invalid entry without valid 'id' string.")
+			continue
+
+		var/list/parsed = list()
+
+		parsed["name"] = istext(entry["name"]) ? entry["name"] : "Unnamed Storyteller"
+		parsed["desc"] = istext(entry["desc"]) ? entry["desc"] : "No description provided."
+		parsed["base_cost_multiplier"] = isnum(entry["base_cost_multiplier"]) ? clamp(entry["base_cost_multiplier"], 0.1, 5.0) : 1.0
+		parsed["player_antag_balance"] = isnum(entry["player_antag_balance"]) ? clamp(entry["player_antag_balance"], 0, 100) : STORY_DEFAULT_PLAYER_ANTAG_BALANCE
+
+		var/mood_str = entry["mood_type"]
+		parsed["mood_path"] = text2path(mood_str)
+		if(!ispath(parsed["mood_path"], /datum/storyteller_mood))
+			log_storyteller("Invalid mood_type '[mood_str]' for [id], using default.")
+			parsed["mood_path"] = /datum/storyteller_mood
+
+
+		parsed["base_think_delay"] = isnum(entry["base_think_delay"]) ? max(0, entry["base_think_delay"] * 10) : STORY_THINK_BASE_DELAY
+		parsed["min_event_interval"] = isnum(entry["min_event_interval"]) ? max(0, entry["min_event_interval"] * 10) : STORY_MIN_EVENT_INTERVAL
+		parsed["max_event_interval"] = isnum(entry["max_event_interval"]) ? max(parsed["min_event_interval"], entry["max_event_interval"] * 10) : STORY_MAX_EVENT_INTERVAL
+		parsed["grace_period"] = isnum(entry["grace_period"]) ? max(0, entry["grace_period"] * 10) : STORY_GRACE_PERIOD
+		parsed["mood_update_interval"] = isnum(entry["mood_update_interval"]) ? max(0, entry["mood_update_interval"] * 10) : STORY_RECALC_INTERVAL
+		parsed["recent_damage_threshold"] = isnum(entry["recent_damage_threshold"]) ? max(0, entry["recent_damage_threshold"]) : STORY_RECENT_DAMAGE_THRESHOLD  // Not time, raw value
+
+		// Non-time numerics
+		parsed["threat_growth_rate"] = isnum(entry["threat_growth_rate"]) ? clamp(entry["threat_growth_rate"], 0, 10) : STORY_THREAT_GROWTH_RATE
+		parsed["adaptation_decay_rate"] = isnum(entry["adaptation_decay_rate"]) ? clamp(entry["adaptation_decay_rate"], 0, 1) : STORY_ADAPTATION_DECAY_RATE
+		parsed["target_tension"] = isnum(entry["target_tension"]) ? clamp(entry["target_tension"], 0, 100) : STORY_TARGET_TENSION
+		parsed["max_threat_scale"] = isnum(entry["max_threat_scale"]) ? max(0, entry["max_threat_scale"]) : STORY_MAX_THREAT_SCALE
+		parsed["repetition_penalty"] = isnum(entry["repetition_penalty"]) ? clamp(entry["repetition_penalty"], 0, 2) : STORY_REPETITION_PENALTY
+		parsed["difficulty_multiplier"] = isnum(entry["difficulty_multiplier"]) ? clamp(entry["difficulty_multiplier"], 0.1, 5.0) : STORY_DIFFICULTY_MULTIPLIER
+
+		// Placeholder lists: welcome and round speech (assume list of strings)
+		parsed["storyteller_welcome_speech"] = islist(entry["welcome_speech"]) ? entry["welcome_speech"] : list()
+		parsed["storyteller_round_speech"] = islist(entry["round_speech"]) ? entry["round_speech"] : list()
+
+		storyteller_data[id] = parsed
+
+	if(hard_debug)
+		log_storyteller("Loaded [length(storyteller_data)] storytellers from JSON.")
+
+
+/// Creates a new /datum/storyteller instance from JSON data (or default if null), applying all parsed fields.
+/// Modular extraction: overrides vars (pacing, threat, adaptation), instantiates mood, sets speech lists.
+/// Returns tuned instance for planner chain-building; logs profile for debug, announces welcome speech.
+/datum/controller/subsystem/storytellers/proc/create_storyteller_from_data(id)
+	var/datum/storyteller/new_st = new /datum/storyteller(id)  // Base with ID for logging
+
+	if(!id || !storyteller_data[id])
+		// Default fallback
+		new_st.name = "Default Storyteller"
+		new_st.desc = "A generic storyteller managing station events and goals."
+		new_st.mood = new /datum/storyteller_mood()
+		if(hard_debug)
+			log_storyteller("Created default storyteller.")
+		return new_st
+
+	var/list/data = storyteller_data[id]
+	new_st.name = data["name"]
+	new_st.desc = data["desc"]
+	new_st.base_cost_multiplier = data["base_cost_multiplier"]
+	new_st.player_antag_balance = data["player_antag_balance"]
+
+	// Core pacing/threat vars
+	new_st.base_think_delay = data["base_think_delay"]
+	new_st.min_event_interval = data["min_event_interval"]
+	new_st.max_event_interval = data["max_event_interval"]
+	new_st.grace_period = data["grace_period"]
+	new_st.mood_update_interval = data["mood_update_interval"]
+	new_st.recent_damage_threshold = data["recent_damage_threshold"]
+	new_st.threat_growth_rate = data["threat_growth_rate"]
+	new_st.adaptation_decay_rate = data["adaptation_decay_rate"]
+	new_st.target_tension = data["target_tension"]
+	new_st.max_threat_scale = data["max_threat_scale"]
+	new_st.repetition_penalty = data["repetition_penalty"]
+
+	var/mood = data["mood_path"]
+	if(ispath(mood, /datum/storyteller_mood))
+		new_st.mood = new mood
+
+
+	// new_st.storyteller_welcome_speech = data["storyteller_welcome_speech"]
+	// new_st.storyteller_round_speech = data["storyteller_round_speech"]
+
+	/* TODO storytellers welcome speach!
+	if(length(new_st.storyteller_welcome_speech))
+		var/welcome_msg = pick(new_st.storyteller_welcome_speech)
+		to_chat(world, span_big(welcome_msg))
+		log_storyteller("[new_st.name] welcomes: [welcome_msg]")
+	*/
+	if(hard_debug)
+		log_storyteller("Created [new_st.name] ([id]): pace=[new_st.mood.pace], threat_growth=[new_st.threat_growth_rate], tension=[new_st.target_tension]")
+
+	return new_st
 
 
 /datum/controller/subsystem/storytellers/fire(resumed)
@@ -61,9 +206,11 @@ SUBSYSTEM_DEF(storytellers)
 	initialize_storyteller()
 
 /datum/controller/subsystem/storytellers/proc/disable_dynamic()
+	if(!storyteller_replace_dynamic)
+		return
 	SSdynamic.flags = SS_NO_FIRE
 	SSdynamic.antag_events_enabled = FALSE
-	// TODO: add ability to completely disable dynamic by adading all rullsets to admin-disabled
+	// TODO: add ability to completely disable dynamic by adding all rulesets to admin-disabled
 	message_admins(span_bolditalic("Dynamic was disabled by Storyteller!"))
 
 /datum/controller/subsystem/storytellers/proc/disable_ICES()
@@ -71,27 +218,14 @@ SUBSYSTEM_DEF(storytellers)
 	SSevents.intensity_credit_rate = 0
 	SSevents.intensity_credit_last_time = 0
 	SSevents.active_intensity_multiplier = 0
-	message_admins(span_bolditalic("ICES and random events was disabled by Storyteller"))
+	message_admins(span_bolditalic("ICES and random events were disabled by Storyteller"))
 
-/datum/controller/subsystem/storytellers/proc/initialize_storyteller()
-	if(!ispath(selected_path, /datum/storyteller))
-		log_storyteller("Failed to Initialize storyteller: invalid path [selected_path]")
-		message_admins(span_bolditalic("Failed to Initialize storyteller! Default storyteller selected"))
-		if (active)
-			qdel(active)
-		active = new /datum/storyteller
-		active.difficulty_multiplier = 1.0
-		active.initialize_round()
-		return
 
-	active = new selected_path
-	active.difficulty_multiplier = clamp(selected_difficult, 0.3, 5.0)
-	active.initialize_round()
-
-/datum/controller/subsystem/storytellers/proc/on_login(mob/new_client)
+/datum/controller/subsystem/storytellers/proc/on_login(datum/source, mob/new_client)
+	SIGNAL_HANDLER
 	if(vote_active)
-		var/datum/storyteller_vote_ui/ui = new(new_client, current_vote_duration)
-		ui.ui_interact(new_client)
+		var/datum/storyteller_vote_ui/ui = new(new_client.client, current_vote_duration)
+		INVOKE_ASYNC(ui, TYPE_PROC_REF(/datum/storyteller_vote_ui, ui_interact), new_client)
 
 /datum/controller/subsystem/storytellers/proc/register_atom_for_storyteller(atom/A)
 	if(!active)
@@ -105,89 +239,82 @@ SUBSYSTEM_DEF(storytellers)
 
 
 /datum/controller/subsystem/storytellers/proc/active_goal_is_achieved(list/context)
-	if(!active_goal)
-		return FALSE
-	return active_goal.is_available(context) && active_goal.event_path
+	return FALSE  // Stub: removed active_goal, as per chain refactor
 
 
-
-/datum/controller/subsystem/storytellers/proc/collect_avaible_goals()
+/datum/controller/subsystem/storytellers/proc/collect_available_goals()
 	goals_by_id = list()
 	goals_by_category = list()
 	goal_roots = list()
 
-	goals_by_category["GOAL_RANDOM"] = list()
-	goals_by_category["GOAL_GOOD"] = list()
-	goals_by_category["GOAL_BAD"] = list()
-	goals_by_category["GOAL_NEUTRAL"] = list()
-	goals_by_category["GOAL_UNCATEGORIZED"] = list()
+	// Initialize categories as empty lists with bitflags as keys
+	goals_by_category[STORY_GOAL_RANDOM] = list()
+	goals_by_category[STORY_GOAL_GOOD] = list()
+	goals_by_category[STORY_GOAL_BAD] = list()
+	goals_by_category[STORY_GOAL_NEUTRAL] = list()
+	goals_by_category[STORY_GOAL_UNCATEGORIZED] = list()
 
 	var/list/goal_types = subtypesof(/datum/storyteller_goal)
 	for(var/goal_type in goal_types)
+		if(goal_type == /datum/storyteller_goal)  // Skip base type
+			continue
 		var/datum/storyteller_goal/goal = new goal_type()
 
-		if(goal.id)
-			goals_by_id[goal.id] = goal
-		else
+		if(!goal.id)
 			log_storyteller("Storyteller goal [goal_type] has no ID and was skipped.")
+			qdel(goal)
 			continue
+		if(goals_by_id[goal.id])  // Prevent duplicates
+			log_storyteller("Duplicate goal ID [goal.id] for [goal_type], skipping.")
+			qdel(goal)
+			continue
+		goals_by_id[goal.id] = goal
 
-		if(!goal.tags)
-			log_storyteller("Storyteller goal [goal_type] has signed with no category.")
-			goal.tags = STORY_GOAL_UNCATEGORIZED
+		if(!goal.category)  // Fixed: tags -> category for consistency
+			log_storyteller("Storyteller goal [goal_type] has no category, assigning uncategorized.")
+			goal.category = STORY_GOAL_UNCATEGORIZED
 
+		// Assign to all matching categories (bitflags allow multiple)
 		if(goal.category & STORY_GOAL_RANDOM)
-			goals_by_category["GOAL_RANDOM"] += goal
+			goals_by_category[STORY_GOAL_RANDOM] += goal
 		if(goal.category & STORY_GOAL_GOOD)
-			goals_by_category["GOAL_GOOD"] += goal
+			goals_by_category[STORY_GOAL_GOOD] += goal
 		if(goal.category & STORY_GOAL_BAD)
-			goals_by_category["GOAL_BAD"] += goal
+			goals_by_category[STORY_GOAL_BAD] += goal
 		if(goal.category & STORY_GOAL_NEUTRAL)
-			goals_by_category["GOAL_NEUTRAL"] += goal
+			goals_by_category[STORY_GOAL_NEUTRAL] += goal
 		if(goal.category & STORY_GOAL_UNCATEGORIZED)
-			goals_by_category["GOAL_UNCATEGORIZED"] += goal
+			goals_by_category[STORY_GOAL_UNCATEGORIZED] += goal
 
+	// Link children after all instantiated
 	for(var/id in goals_by_id)
 		var/datum/storyteller_goal/goal = goals_by_id[id]
 		goal.link_children(goals_by_id)
 
+	// Collect roots: no parent or invalid parent
 	for(var/id in goals_by_id)
 		var/datum/storyteller_goal/goal = goals_by_id[id]
 		if(!goal.parent_id || !goals_by_id[goal.parent_id])
 			goal_roots += goal
+
+	if(hard_debug)
+		log_storyteller("Collected [length(goals_by_id)] goals, [length(goal_roots)] roots.")
 
 
 
 /datum/controller/subsystem/storytellers/proc/filter_goals(category = null, required_tags = null, subtype = null, all_tags_required = FALSE, include_children = TRUE)
 	var/list/result = list()
 
-
 	var/list/goals_to_check = list()
-	var/category_str
-	if(category & STORY_GOAL_RANDOM)
-		category_str = "GOAL_RANDOM"
-	else if(category & STORY_GOAL_GOOD)
-		category_str = "GOAL_GOOD"
-	else if(category & STORY_GOAL_BAD)
-		category_str = "GOAL_BAD"
-	else if(category & STORY_GOAL_NEUTRAL)
-		category_str = "GOAL_NEUTRAL"
-	else
-		category_str = "GOAL_UNCATEGORIZED"
-
-	var/is_global = category & STORY_GOAL_GLOBAL | FALSE
 	if(category)
-		if(!goals_by_category[category_str])
-			log_storyteller("Invalid category [category] in filter_goals.")
+		if(!(category in goals_by_category))  // Check if category exists
+			if(hard_debug)
+				log_storyteller("Invalid category [category] in filter_goals.")
 			return result
-		goals_to_check = goals_by_category[category]
+		goals_to_check = _list_copy(goals_by_category[category])
 	else
-		var/list/seen_ids = list()
-		for(var/cat in goals_by_category)
-			for(var/datum/storyteller_goal/goal in goals_by_category[cat])
-				if(!seen_ids[goal.id])
-					goals_to_check += goal
-					seen_ids[goal.id] = TRUE
+		// All goals if no category
+		goals_to_check = goals_by_id.Copy()
 
 	for(var/datum/storyteller_goal/goal in goals_to_check)
 		if(subtype && !istype(goal, subtype))
@@ -205,9 +332,15 @@ SUBSYSTEM_DEF(storytellers)
 		if(!include_children && goal.parent_id && goals_by_id[goal.parent_id])
 			continue
 
-		if(is_global & !goal.category & STORY_GOAL_GLOBAL)
+		// Additional filter for global flag if set in category
+		if(category & STORY_GOAL_GLOBAL && !(goal.category & STORY_GOAL_GLOBAL))
 			continue
+
 		result += goal
+
+	if(hard_debug)
+		log_storyteller("Filtered [length(result)] goals for category=[category], tags=[required_tags].")
+
 	return result
 
 
@@ -224,459 +357,14 @@ SUBSYSTEM_DEF(storytellers)
 	return filter_goals(null, required_tags, null, all_tags_required, TRUE)
 
 
-/datum/controller/subsystem/storytellers/proc/start_vote(duration = 60 SECONDS)
-	SSstorytellers.storyteller_vote_uis = list()
-	vote_active = TRUE
-	to_chat(world, span_boldnotice("Storyteller voting has begun!"))
-	current_vote_duration = duration
-	for (var/client/C in GLOB.clients)
-		var/datum/storyteller_vote_ui/ui = new(C, duration)
-		ui.ui_interact(C.mob)
-	addtimer(CALLBACK(src, PROC_REF(end_vote)), duration)
-	log_storyteller("Storyteller vote started: duration=[duration/10]s")
+/datum/config_entry/flag/storyteller_replace_dynamic
+	default = TRUE
 
+/datum/config_entry/flag/storyteller_helps_antags
+	default = TRUE
 
-/datum/controller/subsystem/storytellers/proc/end_vote()
-	if(!length(SSstorytellers.storyteller_vote_uis))
-		return
-
-	vote_active = FALSE
-	var/list/tallies = list()
-	var/list/all_diffs = list()
-	var/total_votes = 0
-	for(var/client/client in SSstorytellers.storyteller_vote_uis)
-		var/datum/storyteller_vote_ui/ui = SSstorytellers.storyteller_vote_uis[client]
-		for(var/ckey in ui.votes)
-			var/list/v = ui.votes[ckey]
-			var/path_str = v["storyteller"]
-			if (!path_str)
-				continue
-			tallies[path_str] = (tallies[path_str] || 0) + 1
-			if (v["difficulty"])
-				all_diffs += v["difficulty"]
-			total_votes++
-		SStgui.close_uis(ui.owner.mob, ui)
-		qdel(ui)
-
-	SSstorytellers.storyteller_vote_uis = list()
-	var/list/best_storytellers = list()
-	var/max_votes = 0
-	for (var/path_str in tallies)
-		var/count = tallies[path_str]
-		if (count > max_votes)
-			max_votes = count
-			best_storytellers = list(path_str)
-		else if (count == max_votes)
-			best_storytellers += path_str
-
-	var/selected_path_str
-	if (best_storytellers.len == 1)
-		selected_path_str = best_storytellers[1]
-	else
-		selected_path_str = pick(best_storytellers)
-		to_chat(world, span_announce("Tie broken randomly!"))
-
-	selected_path = text2path(selected_path_str)
-	var/avg_diff = length(all_diffs) ? get_avg(all_diffs) : 1.0
-	selected_difficult = avg_diff
-
-	var/selected_name = find_candidate_name_global(selected_path_str)
-	to_chat(world, span_boldnotice("Storyteller selected: [selected_name] at difficulty [round(avg_diff, 0.1)]."))
-	log_storyteller("Storyteller vote ended: [selected_path_str] (votes=[max_votes], diff=[avg_diff]), total votes=[total_votes]")
-	if(!SSticker.state == GAME_STATE_PLAYING)
-		return
-
-	if(!ispath(selected_path, /datum/storyteller))
-		log_storyteller("Vote failed: invalid path [selected_path_str]")
-		to_chat(world, span_boldnotice("Vote failed! Default storyteller selected."))
-		if (active)
-			qdel(active)
-		active = new /datum/storyteller
-		active.difficulty_multiplier = 1.0
-		active.initialize_round()
-		return
-
-	if(active)
-		qdel(active)
-	active = new selected_path
-	active.difficulty_multiplier = clamp(avg_diff, 0.3, 5.0)
-	active.initialize_round()
-
-/datum/storyteller_vote_ui/proc/find_candidate_name(path_str)
-	for (var/list/cand in candidates)
-		if (cand["id"] == path_str)
-			return cand["name"]
-	return "Unknown"
-
-/proc/get_avg(list/nums)
-	if (!length(nums))
-		return 1.0
-	var/sum = 0
-	for (var/n in nums)
-		sum += n
-	return sum / length(nums)
-
-/proc/find_candidate_name_global(path_str)
-	for (var/datum/storyteller_vote_ui/ui in SSstorytellers.storyteller_vote_uis)
-		for (var/list/cand in ui.candidates)
-			if (cand["id"] == path_str)
-				return cand["name"]
-	var/datum/storyteller/ST = text2path(path_str)
-	return initial(ST:name) || "Unknown"
-
-
-
-
-/datum/storyteller_admin_ui
-	/// cached reference to storyteller
-	var/datum/storyteller/ctl
-
-/datum/storyteller_admin_ui/New()
-	. = ..()
-	ctl = SSstorytellers?.active
-
-/datum/storyteller_admin_ui/ui_state(mob/user)
-	return ADMIN_STATE(R_ADMIN)
-
-/datum/storyteller_admin_ui/ui_interact(mob/user, datum/tgui/ui)
-	ctl = SSstorytellers?.active
-	ui = SStgui.try_update_ui(user, src, ui)
-	if(!ui)
-		ui = new(user, src, "Storyteller")
-		ui.open()
-
-/datum/storyteller_admin_ui/ui_static_data(mob/user)
-	var/list/data = list()
-	var/list/moods = list()
-	for(var/mood_type as anything in subtypesof(/datum/storyteller_mood))
-		if(mood_type == /datum/storyteller_mood)
-			continue
-		var/datum/storyteller_mood/mood = mood_type
-		moods += list(list(
-			"id" = "[mood_type]",
-			"name" = initial(mood.name),
-			"pace" = initial(mood.pace),
-			"threat" = initial(mood.aggression),
-		))
-	data["available_moods"] = moods
-
-	// Available goals from the subsystem registry, filtered by availability
-	var/list/goals = list()
-	if(ctl)
-		for(var/id_key in SSstorytellers.goals_by_id)
-			var/datum/storyteller_goal/G = SSstorytellers.goals_by_id[id_key]
-			if(G.is_available(ctl.inputs.vault, ctl.inputs, ctl))
-				goals += list(list(
-					"id" = G.id,
-					"name" = G.name || G.id,
-					"weight" = G.get_weight(ctl.inputs.vault, ctl.inputs, ctl),
-				))
-	data["available_goals"] = goals
-	return data
-
-/datum/storyteller_admin_ui/ui_data(mob/user)
-	var/list/data = list()
-	ctl = SSstorytellers?.active
-	if(!ctl)
-		data["name"] = "No storyteller"
-		return data
-
-	data["name"] = ctl.name
-	data["desc"] = ctl.desc
-	if(ctl.mood)
-		data["mood"] = list(
-			"id" = "[ctl.mood.type]",
-			"name" = ctl.mood.name,
-			"pace" = ctl.mood.pace,
-			"threat" = ctl.mood.get_threat_multiplier(),
-		)
-	var/list/upcoming = ctl.planner.get_upcoming_goals(10)
-	data["upcoming_goals"] = list()
-	for(var/list/entry in upcoming)
-		var/datum/storyteller_goal/goal = entry["goal"]
-		data["upcoming_goals"] += list(list(
-			"id" = goal.id,
-			"name" = goal.name || goal.id,
-			"fire_time" = entry["fire_time"],
-			"category" = entry["category"],
-			"status" = entry["status"],
-			"weight" = goal.get_weight(ctl.inputs.vault, ctl.inputs, ctl),
-			"progress" = goal.get_progress(ctl.inputs.vault, ctl.inputs, ctl),
-		))
-	data["next_think_time"] = ctl.next_think_time
-	data["base_think_delay"] = ctl.base_think_delay
-	data["min_event_interval"] = ctl.min_event_interval
-	data["max_event_interval"] = ctl.max_event_interval
-	data["player_count"] = ctl.get_active_player_count()
-	data["antag_count"] = ctl.get_active_antagonist_count()
-	data["player_antag_balance"] = ctl.player_antag_balance
-	data["difficulty_multiplier"] = ctl.difficulty_multiplier
-	data["event_difficulty_modifier"] = ctl.difficulty_multiplier
-	data["can_force_event"] = TRUE
-	data["current_world_time"] = world.time
-	var/list/events = list()
-	for(var/id in ctl.recent_events)
-		var/list/details = ctl.recent_events[id]
-		if(length(details))
-			var/list/event_data = details[1]
-			events += list(list(
-				"time" = text2num(splittext(event_data["fired_at"], " ")[1]) * 1 MINUTES,  // Parse back to ticks approx
-				"desc" = event_data["desc"],
-				"status" = event_data["status"],
-				"id" = event_data["id"],
-			))
-
-	// sortTim(events, some sorter?, "time") TODO: sort this shit by time
-	data["recent_events"] = events.len ? events.Copy(1, min(20, events.len + 1)) : list()
-	data["available_moods"] = list()
-	for(var/path in subtypesof(/datum/storyteller_mood))
-		var/datum/storyteller_mood/M = path
-		data["available_moods"] += list(list(
-			"id" = "[path]",
-			"name" = initial(M.name),
-		))
-	data["available_goals"] = list()
-	for(var/id in SSstorytellers.goals_by_id)
-		var/datum/storyteller_goal/G = SSstorytellers.goals_by_id[id]
-		data["available_goals"] += list(list(
-			"id" = G.id,
-			"name" = G.name || G.id,
-		))
-	return data
-
-/datum/storyteller_admin_ui/ui_act(action, list/params, datum/tgui/ui, datum/ui_state/state)
-	. = ..()
-	if(.)
-		return
-	if(!check_rights(R_ADMIN))
-		return TRUE
-	ctl = SSstorytellers?.active
-	if(!ctl)
-		return TRUE
-
-	switch(action)
-		if("force_think")
-			ctl.next_think_time = world.time + 1
-			return TRUE
-		if("trigger_event")
-			// Trigger ad-hoc random event outside chain
-			ctl.trigger_random_event(ctl.inputs.vault, ctl.inputs, ctl)
-			return TRUE
-		if("force_fire_next")
-			var/datum/storyteller_goal/next = ctl.planner.get_closest_goal()
-			if(next)
-				next.complete(ctl.inputs.vault, ctl.inputs, ctl, round(ctl.threat_points * ctl.difficulty_multiplier * 100), ctl.inputs.station_value)
-				ctl.planner.recalculate_plan(ctl, ctl.inputs, ctl.balancer.make_snapshot(ctl.inputs))  // Recalc chain after force
-			return TRUE
-		if("reschedule_chain")
-			ctl.planner.recalculate_plan(ctl, ctl.inputs, ctl.balancer.make_snapshot(ctl.inputs))
-			return TRUE
-		if("next_subgoal")
-			ctl.planner.recalculate_plan(ctl, ctl.inputs, ctl.balancer.make_snapshot(ctl.inputs))
-			return TRUE
-		if("set_mood")
-			var/mood_id = params["id"]
-			if(mood_id)
-				var/path = text2path(mood_id)
-				if(ispath(path, /datum/storyteller_mood))
-					ctl.mood = new path
-					ctl.schedule_next_think()
-			return TRUE
-		if("set_pace")
-			var/pace = clamp(text2num(params["pace"]), 0.1, 3.0)
-			if(ctl.mood)
-				ctl.mood.pace = pace
-				ctl.schedule_next_think()
-			return TRUE
-		if("reanalyse")
-			ctl.analyzer.scan_station()
-			ctl.inputs = ctl.analyzer.get_inputs()
-			return TRUE
-		if("replan")
-			ctl.planner.recalculate_plan(ctl, ctl.inputs, ctl.balancer.make_snapshot(ctl.inputs))
-			return TRUE
-		// Advanced setters
-		if("set_difficulty")
-			var/value = clamp(text2num(params["value"]), 0.1, 5.0)
-			ctl.difficulty_multiplier = value
-			return TRUE
-		if("set_target_tension")
-			var/value = clamp(text2num(params["value"]), 0, 100)
-			ctl.target_tension = value
-			return TRUE
-		if("set_think_delay")
-			var/value = max(0, round(text2num(params["value"])) )
-			ctl.base_think_delay = value
-			ctl.schedule_next_think()
-			return TRUE
-		if("set_event_intervals")
-			var/minv = max(0, round(text2num(params["min"])) )
-			var/maxv = max(minv, round(text2num(params["max"])) )
-			ctl.min_event_interval = minv
-			ctl.max_event_interval = maxv
-			return TRUE
-		if("set_grace_period")
-			var/value = max(0, round(text2num(params["value"])) )
-			ctl.grace_period = value
-			return TRUE
-		if("set_repetition_penalty")
-			var/value = clamp(text2num(params["value"]), 0, 2)
-			ctl.repetition_penalty = value
-			return TRUE
-		// Новое: manual insert goal to chain
-		if("insert_goal_to_chain")
-			var/id = params["id"]
-			if(!id)
-				return TRUE
-			var/datum/storyteller_goal/G = SSstorytellers.goals_by_id[id]
-			if(istype(G))
-				// Schedule at end of chain with default offset
-				var/fire_offset = ctl.get_event_interval() * (length(ctl.planner.timeline) + 1)
-				ctl.planner.try_plan_goal(G, fire_offset)
-			return TRUE
-	return FALSE
-
-ADMIN_VERB(storyteller_admin, R_ADMIN, "Storyteller", "Open the storyteller admin panel.", ADMIN_CATEGORY_EVENTS)
-	var/datum/storyteller_admin_ui/ui = new
-	ui.ui_interact(usr)
-
-
-/datum/storyteller_vote_ui
-	var/list/candidates
-	var/list/votes = list() // ckey -> list("storyteller" = path_string, "difficulty" = num)
-	var/vote_end_time = 0
-	var/vote_duration = 60 SECONDS
-	var/client/owner
-
-/datum/storyteller_vote_ui/New(client/C, duration = 60 SECONDS)
-	. = ..()
-	if (!C)
-		qdel(src)
-		return
-	owner = C
-	vote_duration = duration
-	vote_end_time = world.time + duration
-	candidates = list()
-	for (var/typepath in subtypesof(/datum/storyteller))
-		if (typepath == /datum/storyteller)
-			continue
-		var/datum/storyteller/ST = typepath
-		var/name = initial(ST:name)
-		var/desc = initial(ST:desc)
-		candidates += list(list(
-			"id" = "[typepath]",
-			"name" = name,
-			"desc" = desc,
-			"portrait" = null,
-		))
-	SSstorytellers.storyteller_vote_uis[owner] = src
-
-/datum/storyteller_vote_ui/Destroy()
-	SSstorytellers.storyteller_vote_uis -= owner
-	return ..()
-
-/datum/storyteller_vote_ui/ui_state(mob/user)
-	return GLOB.always_state
-
-/datum/storyteller_vote_ui/ui_static_data(mob/user)
-	var/list/data = list()
-	data["storytellers"] = candidates
-	data["min_difficulty"] = 0.3
-	data["max_difficulty"] = 5.0
-	return data
-
-/datum/storyteller_vote_ui/ui_data(mob/user)
-	var/ckey = owner.ckey
-	var/list/personal_vote = votes[ckey] || list("storyteller" = null, "difficulty" = 1.0)
-
-	var/list/tallies = list()
-	var/list/difficulties = list()
-	for (var/client/client in SSstorytellers.storyteller_vote_uis)
-		var/datum/storyteller_vote_ui/ui = SSstorytellers.storyteller_vote_uis[client]
-
-		for (var/vote_ckey in ui.votes)
-			var/list/v = ui.votes[vote_ckey]
-			var/path_str = v["storyteller"]
-			if (!path_str)
-				continue
-			tallies[path_str] = (tallies[path_str] || 0) + 1
-			LAZYADD(difficulties[path_str], v["difficulty"])
-
-	var/list/top_tallies = list()
-	var/list/sorted_tallies = sortTim(tallies, /proc/cmp_numeric_dsc, TRUE)
-	for (var/i = 1 to min(3, length(sorted_tallies)))
-		var/path_str = sorted_tallies[i]
-		top_tallies += list(list(
-			"name" = find_candidate_name(path_str),
-			"count" = tallies[path_str],
-			"avg_diff" = length(difficulties[path_str]) ? get_avg(difficulties[path_str]) : 1.0
-		))
-
-	var/list/data = list()
-	data["personal_selection"] = personal_vote["storyteller"]
-	data["personal_difficulty"] = personal_vote["difficulty"]
-	data["total_voters"] = length(GLOB.clients)
-	data["voted_count"] = length(tallies)
-	data["time_left"] = max(0, (vote_end_time - world.time))
-	data["top_tallies"] = top_tallies
-	data["is_open"] = world.time < vote_end_time
-	return data
-
-/datum/storyteller_vote_ui/ui_interact(mob/user, datum/tgui/ui)
-	if (!owner)
-		return
-	ui = SStgui.try_update_ui(user, src, ui)
-	if (!ui)
-		ui = new(user, src, "StorytellerVote", "Storyteller Vote")
-		ui.open()
-
-/datum/storyteller_vote_ui/ui_act(action, list/params, datum/tgui/ui, datum/ui_state/state)
-	. = ..()
-	if (.)
-		return
-	var/ckey = owner.ckey
-	switch (action)
-		if ("select_storyteller")
-			var/id = params["id"]
-			var/list/personal = votes[ckey] || list()
-			personal["storyteller"] = id
-			votes[ckey] = personal
-			return TRUE
-		if ("set_difficulty")
-			var/value = text2num(params["value"])
-			value = clamp(value, 0.3, 5.0)
-			var/list/personal = votes[ckey] || list()
-			personal["difficulty"] = value
-			votes[ckey] = personal
-			return TRUE
-	return FALSE
-
-
-/client/verb/reopen_storyteller_vote()
-	set name = "Reopen Storyteller Vote"
-	set category = "OOC"
-	var/datum/storyteller_vote_ui/ui = SSstorytellers.storyteller_vote_uis[usr.client]
-	if(!SSstorytellers.vote_active)
-		to_chat(src, span_warning("Voting has ended."))
-		return
-	if (!ui)
-		to_chat(src, span_warning("No active storyteller vote"))
-		ui = new(src, SSstorytellers.current_vote_duration)
-		return
-	if (world.time >= ui.vote_end_time)
-		to_chat(src, span_warning("Voting has ended."))
-		return
-	ui.ui_interact(mob)
-
-
-
-ADMIN_VERB(storyteller_vote, R_ADMIN | R_DEBUG, "Storyteller - Start Vote", "Start a global storyteller vote.", ADMIN_CATEGORY_EVENTS)
-	if (tg_alert(usr, "Start global vote?", "Storyteller Vote", "Yes", "No") == "No")
-		return
-	var/duration = tgui_input_number(usr, "Duration in seconds:", "Vote Duration", 60, 240, 60)
-	SSstorytellers.start_vote(duration SECONDS)
-
-ADMIN_VERB(storyteller_end_vote, R_ADMIN | R_DEBUG, "Storyteller - End Vote", "End vote early.", ADMIN_CATEGORY_EVENTS)
-	SSstorytellers.end_vote()
+/datum/config_entry/flag/storyteller_allows_speech
+	default = TRUE
 
 #undef FIRE_PRIORITY_STORYTELLERS
+#undef STORYTELLER_JSON_PATH

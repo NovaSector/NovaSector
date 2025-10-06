@@ -56,3 +56,46 @@
 	aggression = 1.5
 	pace = 1.2
 	volatility = 1.8
+
+
+/// Chill mood: Serene, introspective pacing with low aggression and minimal volatility.
+/// Ideal for Mia'Chill — fosters roleplay immersion, slow sub-goal branches via extended grace, low threat for peaceful analysis.
+/datum/storyteller_mood/chill
+	name = "Chill"
+	pace = 1.5  // Slower events for quiet wonders
+	aggression = 0.6  // Gentle threats, yielding to cosmic peace
+	volatility = 0.4  // Minimal swings, steady hush
+
+/// Classic mood: Steady escalation with balanced aggression and low volatility.
+/// For Cas'Classic — inevitable doom symphonies, consistent sub-goal buildup, medium tension for survival arcs.
+/datum/storyteller_mood/classic
+	name = "Classic"
+	pace = 1.0  // Standard pacing for chronicled falls
+	aggression = 1.2  // Heightened unrest whispers
+	volatility = 0.6  // Controlled variance for symphonic progression
+
+/// Gambit mood: Capricious, high volatility with neutral pace/aggression.
+/// Randall's Gambit — dice rolls of fate, erratic chain flips (bureaucracy to apocalypse), high variance for whim-based vetting.
+/datum/storyteller_mood/gambit
+	name = "Gambit"
+	pace = 1.1  // Slight edge for unpredictability
+	aggression = 1.0  // Neutral, flips on whim
+	volatility = 1.8  // High swings for fortune's folly
+
+
+/// Catastrophe mood: Hyper-aggressive, low volatility for relentless pressure.
+/// Nick Catastrophe — twin tempests of ruin, rapid escalation, minimal recovery in adaptation for doubled havoc.
+/datum/storyteller_mood/catastrophe
+	name = "Catastrophe"
+	pace = 0.7  // Fast barrages, scant respite
+	aggression = 1.8  // Crushing doomsayer fury
+	volatility = 0.3  // Steady storm, no mercy variance
+
+
+/// Challenge mood: Balanced hybrid with rising aggression and moderate volatility.
+/// Mia & Nic'Challenge — serenity to fury pact, teetering balance, progressive tension for beautiful trials.
+/datum/storyteller_mood/challenge
+	name = "Challenge"
+	pace = 1.2  // Starts tranquil, ramps to trials
+	aggression = 1.3  // Blends lulls into escalating edge
+	volatility = 1.2  // Moderate swings for paradoxical pact

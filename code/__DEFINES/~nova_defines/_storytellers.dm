@@ -73,6 +73,14 @@
 
 
 
+#define RESCAN_STATION_INTEGRITY (1 << 0)
+#define RESCAN_STATION_VALUE (1 << 1)
+
+DEFINE_BITFIELD(story_analyzer_flags, list(
+	"STORYTELLER_SCAN_INTEGRITY" = RESCAN_STATION_INTEGRITY,
+	"STORYTELLER_SCAN_VALUE" = RESCAN_STATION_VALUE,
+))
+
 
 // Bitfield categories for story goals
 
