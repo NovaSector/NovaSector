@@ -5,7 +5,7 @@
 	value = -4
 	gain_text = span_notice("You feel your leg give out beneath you.")
 	lose_text = span_notice("Walking feels natural again.")
-	medical_record_text = " The patient demonstrates impaired mobility due to a limp leg."
+	medical_record_text = "The patient demonstrates impaired mobility due to a limp leg."
 	quirk_flags = QUIRK_HUMAN_ONLY
 
 /datum/quirk_constant_data/limp_leg
