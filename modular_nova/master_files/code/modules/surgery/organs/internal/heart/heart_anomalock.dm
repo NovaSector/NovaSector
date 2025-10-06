@@ -121,7 +121,6 @@
 /obj/item/organ/heart/cybernetic/anomalock/proc/finish_recharge(mob/living/carbon/organ_owner)
 	balloon_alert(organ_owner, "your heart strengthens")
 	playsound(organ_owner, 'sound/items/eshield_recharge.ogg', 40)
-	RegisterSignal(organ_owner, COMSIG_ATOM_EMP_ACT, PROC_REF(on_emp_act))
 
 /obj/item/organ/heart/cybernetic/anomalock/item_interaction(mob/living/user, obj/item/tool, list/modifiers)
 	if(!istype(tool, required_anomaly))

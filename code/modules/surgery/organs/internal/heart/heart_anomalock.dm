@@ -1,8 +1,8 @@
 /*!
  * Contains Voltaic Combat Cyberheart
  */
-#define DOAFTER_IMPLANTING_HEART "implanting"
 /* NOVA EDIT START: overridden in modular_nova\master_files\code\modules\surgery\organs\internal\heart\heart_anomalock.dm to
+#define DOAFTER_IMPLANTING_HEART "implanting"
 /obj/item/organ/heart/cybernetic/anomalock
 	name = "voltaic combat cyberheart"
 	desc = "A cutting-edge cyberheart, originally designed for Nanotrasen killsquad usage but later declassified for normal research. Voltaic technology allows the heart to keep the body upright in dire circumstances, alongside redirecting anomalous flux energy to fully shield the user from shocks and electro-magnetic pulses. Requires a refined Flux core as a power source."
