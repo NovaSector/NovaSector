@@ -1,0 +1,10 @@
+author: "vinylspiders"
+delete-after: True
+changes:
+  - balance: "hemophages will now start with 80% of the maximum blood capacity upon spawning"
+  - balance: "hemophages will now take 1.2x the amount of blood loss from all instances"
+  - balance: "bloodshot has been reduced to 2x the potency of a bloody mary, from 3x"
+  - qol: "when a hemophage passes out from low blood, there is now a visible message for other mobs so they can tell what is happening\nrem"
+  - rscadd: "new hemophage ability to replace healing in darkness, \"Hemokinetic Rejen\" - toggle to use hemokinesis to heal minor wounds. No longer heals toxloss, costs .25u of blood per damage healed."
+  - rscadd: "new hemophage ability, \"Hemokinetic Clot\" - use 50u of your blood to clot a bleeding wound. automatically prioritizes the worst wounds. These will unclot immediately upon taking any sort of brute/burn damage."
+  - rscadd: "new hemophage ability, \"Master of the House\" - toggle to wrest control of your lungs from the tumor to regain the need to breathe. comes with a movespeed cost, 50% stamina reduction as this is taxing on you, but lets you passively regenerate a small amount of blood this way."
