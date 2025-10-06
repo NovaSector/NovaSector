@@ -218,13 +218,11 @@
 		to_chat(src, span_warning("Voting has ended."))
 		return
 	var/datum/storyteller_vote_ui/ui = SSstorytellers.storyteller_vote_uis[usr.client]
-	if (!ui)
-		to_chat(src, span_warning("No active storyteller vote"))
-		ui = new(src, SSstorytellers.current_vote_duration)
-		return
 	if (world.time >= ui.vote_end_time)
 		to_chat(src, span_warning("Voting has ended."))
 		return
+	if (!ui)
+		ui = new(src, SSstorytellers.current_vote_duration)
 	ui.ui_interact(mob)
 
 

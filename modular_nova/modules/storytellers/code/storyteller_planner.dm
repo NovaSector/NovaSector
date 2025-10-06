@@ -148,11 +148,14 @@
 
 		ctl.threat_points += ctl.threat_growth_rate * ctl.mood.get_variance_multiplier()
 
+	var/attempts = 0
 	while(pending_count < 3)
+		if(attempts > 3)
+			break
 		var/datum/storyteller_goal/fallback = build_goal(ctl, inputs, bal, 0, STORY_GOAL_RANDOM)
 		if(fallback && try_plan_goal(fallback, event_interval * pending_count))
 			pending_count++
-
+		attempts++
 	last_recalc_time = world.time
 	log_storyteller_planner("Storyteller recalculated plan: [pending_count] pending events in chain, [invalid_goals] invalids cleared.")
 	return timeline
@@ -217,12 +220,17 @@
 
 		ctl.threat_points += ctl.threat_growth_rate * ctl.mood.get_variance_multiplier()
 
+	var/attempts = 0
 	while(pending_count < 3)
+		if(attempts > 3)
+			break
+
 		var/fallback_category = STORY_GOAL_RANDOM
 		var/datum/storyteller_goal/fallback = build_goal(ctl, inputs, bal, 0, fallback_category)
 		if(fallback && try_plan_goal(fallback, event_interval * pending_count))
 			pending_count++
 			ctl.threat_points += ctl.threat_growth_rate * 0.5
+		attempts++
 
 	timeline = sortTim(timeline, GLOBAL_PROC_REF(cmp_numeric_asc))
 	last_recalc_time = world.time

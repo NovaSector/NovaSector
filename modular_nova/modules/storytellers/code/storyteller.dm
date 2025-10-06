@@ -83,7 +83,7 @@
 /datum/storyteller/proc/initialize_round()
 	round_start_time = world.time
 	INVOKE_ASYNC(analyzer, TYPE_PROC_REF(/datum/storyteller_analyzer, scan_station), RESCAN_STATION_INTEGRITY, RESCAN_STATION_VALUE)
-	addtimer(CALLBACK(src, PROC_REF(post_initialize), 2 MINUTES))
+	addtimer(CALLBACK(src, PROC_REF(post_initialize)), 2 MINUTES)
 
 /datum/storyteller/proc/post_initialize()
 	inputs = analyzer.get_inputs()
@@ -101,8 +101,10 @@
 
 
 /datum/storyteller/proc/think(force = FALSE)
+	if(!initialized)
+		return
 
-	if(world.time < next_think_time && !force || !initialized)
+	if(world.time < next_think_time && !force)
 		return
 
 	// 1) Analyze: sample station metrics, compute crew/antag weights, update vault

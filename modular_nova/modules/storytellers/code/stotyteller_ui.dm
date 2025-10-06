@@ -19,7 +19,7 @@
 /datum/storyteller_admin_ui/ui_static_data(mob/user)
 	var/list/data = list()
 	var/list/moods = list()
-	for(var/mood_type as anything in subtypesof(/datum/storyteller_mood))
+	for(var/mood_type in subtypesof(/datum/storyteller_mood))
 		if(mood_type == /datum/storyteller_mood)
 			continue
 		var/datum/storyteller_mood/mood = mood_type

@@ -312,9 +312,9 @@ SUBSYSTEM_DEF(storytellers)
 				log_storyteller("Invalid category [category] in filter_goals.")
 			return result
 		goals_to_check = _list_copy(goals_by_category[category])
-	else
-		// All goals if no category
-		goals_to_check = goals_by_id.Copy()
+
+	if(!goals_to_check)
+		return list()
 
 	for(var/datum/storyteller_goal/goal in goals_to_check)
 		if(subtype && !istype(goal, subtype))

@@ -161,7 +161,8 @@
 	for(var/area/A in GLOB.the_station_areas)
 		for(var/atom/AM in get_area_turfs(A))
 			raw_total += AM.story_value()
-
+			CHECK_TICK
+		CHECK_TICK
 
 	var/crew_weight = get_crew_weight()
 	var/antag_weight = get_antag_weight()
@@ -204,6 +205,7 @@
 				var/playtime_modifier = 1.0 + (playtime_hours / 10)  // Caps influence at higher hours
 				weight *= min(playtime_modifier, 2.0)
 		crew_weight += weight
+		CHECK_TICK
 	return crew_weight
 
 
