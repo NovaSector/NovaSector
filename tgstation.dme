@@ -9170,7 +9170,6 @@
 #include "modular_nova\modules\spider\spider_abilities\spider_toxin_reagents.dm"
 #include "modular_nova\modules\spider\spider_abilities\spideregg_organ.dm"
 #include "modular_nova\modules\star_only\code\job_types.dm"
-#include "modular_nova\modules\star_only\code\species_types.dm"
 #include "modular_nova\modules\stasisrework\code\all_nodes.dm"
 #include "modular_nova\modules\stasisrework\code\bodybag.dm"
 #include "modular_nova\modules\stasisrework\code\bodybag_structure.dm"
