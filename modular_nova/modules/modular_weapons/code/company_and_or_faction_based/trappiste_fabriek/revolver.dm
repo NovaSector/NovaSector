@@ -76,7 +76,7 @@
 // .585 bluey edition
 
 /obj/item/gun/ballistic/revolver/bluvolva
-	name = "\improper Défender Revolver"
+	name = "\improper Fendér Revolver"
 	desc = "A custom fabricated version of the Défonce revolver. Made of more lightweight materials and utilizing a thinner grip and hammer."
 
 	icon = 'modular_nova/modules/modular_weapons/icons/obj/company_and_or_faction_based/trappiste_fabriek/guns32x.dmi'
@@ -96,7 +96,7 @@
 
 	lore_blurb = "The Défonce was designed to fulfill a request by the Sol Federation Armed Forces for a maintainable high-caliber handgun.<br><br>\
 		Although it served its purpose well, complaints were received from Nanotrasen staff regarding its unwieldiness in combat situations. \
-		The Défender was made on custom order from Nanotrasen to distribute to junior members of their Asset Protection program. \
+		The Fendér was made on custom order from Nanotrasen to distribute to junior members of their Asset Protection program. \
 		This variant is made from a more lightweight composite throughout, including shaving down the grip and replacing the old wood \
 		with those same composites, resulting in a firmer grip, helping with recoil. A lightened hammer also allows the weapon to fire \
 		and cycle faster than its civilian counterpart, suiting the fast response required of asset protection. \

@@ -18,6 +18,6 @@
 
 // Gunset for the Blueshield Revolver
 /obj/item/storage/toolbox/guncase/nova/pistol/trappiste_small_case/bluvolva
-	name = "\improper Trappiste 'Défender' gunset"
+	name = "\improper Trappiste 'Fendér' gunset"
 	weapon_to_spawn = /obj/item/gun/ballistic/revolver/bluvolva
 	extra_to_spawn = /obj/item/ammo_box/speedloader/c585trappiste
