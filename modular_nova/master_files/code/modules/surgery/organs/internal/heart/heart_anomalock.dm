@@ -119,7 +119,7 @@
 
 ///Alerts our owner that the organ is ready to do its thing again
 /obj/item/organ/heart/cybernetic/anomalock/proc/finish_recharge(mob/living/carbon/organ_owner)
-	balloon_alert(organ_owner, "your heart strengthtens")
+	balloon_alert(organ_owner, "your heart strengthens")
 	playsound(organ_owner, 'sound/items/eshield_recharge.ogg', 40)
 	RegisterSignal(organ_owner, COMSIG_ATOM_EMP_ACT, PROC_REF(on_emp_act))
 
@@ -176,6 +176,10 @@
 
 /datum/status_effect/voltaic_overdrive/tick(seconds_between_ticks)
 	. = ..()
+
+	if(!associated_heart.owner)
+		qdel(src)
+		return
 
 	if(owner.health <= owner.crit_threshold)
 		owner.heal_overall_damage(5, 5)
