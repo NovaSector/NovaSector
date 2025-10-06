@@ -165,7 +165,43 @@ DEFINE_BITFIELD(story_universal_tags, list(
 	"CHAOTIC" = STORY_TAG_CHAOTIC,
 ))
 
+// Affects Research: Goals impacting science/tech progress, like experiments or tech unlocks/destruction.
+#define STORY_TAG_AFFECTS_RESEARCH (1 << 11)
+// Goals impacting station environment, like atmos breaches, radiation, or hull integrity.
+#define STORY_TAG_AFFECTS_ENVIRONMENT (1 << 12)
+// Goals related to tech systems, AI, comms, or machinery (e.g., hacks or upgrades).
+#define STORY_TAG_AFFECTS_TECHNOLOGY (1 << 13)
+// Goals influencing command structure, laws, or crew hierarchy (e.g., mutinies or promotions).
+#define STORY_TAG_AFFECTS_POLITICS (1 << 14)
+// Goals introducing randomness or unpredictability, favoring volatile moods.
+#define STORY_TAG_CHAOTIC (1 << 15)
 
+DEFINE_BITFIELD(story_universal_tags, list(
+	"ESCALATION" = STORY_TAG_ESCALATION,
+	"DEESCALATION" = STORY_TAG_DEESCALATION,
+	"AFFECTS_CREW_HEALTH" = STORY_TAG_AFFECTS_CREW_HEALTH,
+	"AFFECTS_CREW_MIND" = STORY_TAG_AFFECTS_CREW_MIND,
+	"AFFECTS_ANTAGONIST" = STORY_TAG_AFFECTS_ANTAGONIST,
+	"AFFECTS_RESOURCES" = STORY_TAG_AFFECTS_RESOURCES,
+	"AFFECTS_MORALE" = STORY_TAG_AFFECTS_MORALE,
+	"AFFECTS_INFRASTRUCTURE" = STORY_TAG_AFFECTS_INFRASTRUCTURE,
+	"AFFECTS_ECONOMY" = STORY_TAG_AFFECTS_ECONOMY,
+	"AFFECTS_SECURITY" = STORY_TAG_AFFECTS_SECURITY,
+	"AFFECTS_WHOLESTATION" = STORY_TAG_AFFECTS_WHOLE_STATION,
+	"AFFECTS_RESEARCH" = STORY_TAG_AFFECTS_RESEARCH,
+	"AFFECTS_ENVIRONMENT" = STORY_TAG_AFFECTS_ENVIRONMENT,
+	"AFFECTS_TECHNOLOGY" = STORY_TAG_AFFECTS_TECHNOLOGY,
+	"AFFECTS_POLITICS" = STORY_TAG_AFFECTS_POLITICS,
+	"CHAOTIC" = STORY_TAG_CHAOTIC,
+))
+
+#define STORY_GOAL_PENDING "goal_pending"
+#define STORY_GOAL_FIRING "goal_firing"
+#define STORY_GOAL_COMPLETED "goal_completed"
+#define STORY_GOAL_FAILED "goal_failed"
+
+// Core storyteller pacing and difficulty constants
+#define STORY_THINK_BASE_DELAY (2 MINUTES)
 #define STORY_GOAL_PENDING "goal_pending"
 #define STORY_GOAL_FIRING "goal_firing"
 #define STORY_GOAL_COMPLETED "goal_completed"
