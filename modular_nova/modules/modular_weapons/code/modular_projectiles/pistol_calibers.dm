@@ -253,3 +253,4 @@
 	desc = "A standard magazine loaded with soporific 10mm rounds, designed for non-lethal takedowns."
 	ammo_type = /obj/item/ammo_casing/c10mm/soporific
 	max_ammo = 8
+
