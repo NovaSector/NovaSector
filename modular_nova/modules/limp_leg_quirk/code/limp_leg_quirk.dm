@@ -30,11 +30,7 @@
 
 	switch(leg_side)
 		if("Random")
-			var/selectedLeg = pick("Left leg", "Right leg")
-			if (selectedLeg == "Left leg")
-				ADD_TRAIT(quirk_holder, TRAIT_PARALYSIS_L_LEG, QUIRK_TRAIT)
-			else
-				ADD_TRAIT(quirk_holder, TRAIT_PARALYSIS_R_LEG, QUIRK_TRAIT)
+			ADD_TRAIT(quirk_holder, pick(TRAIT_PARALYSIS_L_LEG, TRAIT_PARALYSIS_R_LEG), QUIRK_TRAIT)
 		if("Left leg")
 			ADD_TRAIT(quirk_holder, TRAIT_PARALYSIS_L_LEG, QUIRK_TRAIT)
 			return
