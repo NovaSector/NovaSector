@@ -1,0 +1,4 @@
+author: "Hatterhat"
+delete-after: True
+changes:
+  - balance: "Sawed-off M64s now only have a maximum capacity of 4+1, because you are not fitting eight shells in a halved shotgun magazine tube."
