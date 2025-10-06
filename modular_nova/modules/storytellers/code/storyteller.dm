@@ -1,4 +1,3 @@
-// Base storyteller actor
 /datum/storyteller
 	var/name = "Base Storyteller"
 	var/desc = "A generic storyteller managing station events and goals."
@@ -6,7 +5,7 @@
 	var/base_cost_multiplier = 1.0
 	/// Current mood profile, affecting event pacing and tone
 	var/datum/storyteller_mood/mood
-	/// Planner selects global goal and branches
+	/// Planner selects chain of goals and timeline-based execution
 	var/datum/storyteller_planner/planner
 
 	var/datum/storyteller_think/mind
@@ -20,16 +19,6 @@
 	var/next_think_time = 0
 	/// Base think frequency; scaled by mood pace (in ticks)
 	var/base_think_delay = STORY_THINK_BASE_DELAY
-
-	/// Currently tracked global goal and branched subgoals (from planner)
-	var/datum/storyteller_goal/current_global_goal = null
-	var/list/subgoals = list()
-
-	/// Global goal progress (0..1)
-	var/global_goal_progress = 0
-	/// Cached global goal weight (affects progress increment)
-	var/global_goal_weight = 1.0
-
 	/// Event pacing limits
 	var/min_event_interval = STORY_MIN_EVENT_INTERVAL
 	var/max_event_interval = STORY_MAX_EVENT_INTERVAL
@@ -81,7 +70,6 @@
 
 	var/initial_analization = FALSE
 
-
 /datum/storyteller/New()
 	..()
 	mood = new /datum/storyteller_mood
@@ -104,11 +92,14 @@
 	// Initial snapshot to seed planner decisions
 	var/datum/storyteller_balance_snapshot/bal = balancer.make_snapshot(inputs)
 	// Pick starting global goal (planner derives tags and subgoals when recalculated)
-	planner.build_timeline(src, inputs, bal, duration = rand(30, 50) MINUTES)
+	planner.build_timeline(src, inputs, bal)
 	// Schedule first think according to mood pace
 	schedule_next_think()
 	// Mark round start
 	round_start_time = world.time
+
+	initial_analization = TRUE
+
 
 /datum/storyteller/proc/schedule_next_think()
 	// Apply mood-based pacing (pace is clamped by storyteller bounds)
@@ -133,74 +124,26 @@
 		update_mood_based_on_balance(snap)
 		last_mood_update_time = world.time
 
-	// 4) Validate or pick global goal
-	if(current_global_goal && !current_global_goal.is_available(inputs.vault, inputs, src))
-		log_storyteller("Global goal [current_global_goal.id] no longer valid")
-		current_global_goal = null
-		global_goal_progress = 0
 
-	if(!current_global_goal)
-		current_global_goal = planner.pick_new_global_goal(src, inputs, snap)
+	// 4) plan anf fire goals
+	var/list/fired = planner.update_plan(src, inputs, snap)
+	for(var/datum/storyteller_goal/completed_goal in fired)
+		if(completed_goal.tags & STORY_TAG_ESCALATION)
+			adaptation_factor = min(1.0, adaptation_factor + 0.2)  // Post-threat adaptation spike
+		else if(completed_goal.tags & STORY_TAG_DEESCALATION)
+			adaptation_factor = max(0, adaptation_factor - 0.1)  // Recovery grace
+		record_event(completed_goal, STORY_GOAL_COMPLETED)
 
-	// 5) Progress toward global goal; trigger completion when ready
-	if(current_global_goal)
-		global_goal_weight = max(0.1, current_global_goal.get_weight(inputs.vault, inputs, src))
-		global_goal_progress = update_goal_progress(inputs.vault, inputs, src)
-		if(global_goal_progress >= 1.0)
-			on_goal_completed()
-
-	// 6) Advance plan: let planner fire due goals and reschedule timeline if needed
-	planner.update_plan(src, inputs, snap)
-
-
-	// 7) Passive threat/adaptation drift each think
+	// 5) Passive threat/adaptation drift each think
 	threat_points = min(max_threat_scale, threat_points + threat_growth_rate * mood.get_variance_multiplier())
 	adaptation_factor = max(0, adaptation_factor - adaptation_decay_rate)
 	round_progression = clamp((world.realtime - round_start_time) / STORY_ROUND_PROGRESSION_TRESHOLD, 0, 1)
 
-	// 8) Schedule next cycle
+	// 6) Schedule next cycle
 	schedule_next_think()
 
 /datum/storyteller/proc/get_closest_subgoals()
 	return planner.get_upcoming_goals(10)
-
-/// Called when a global goal reaches full progress; triggers its event and updates adaptation
-/datum/storyteller/proc/on_goal_completed()
-	if(!current_global_goal)
-		return
-	log_storyteller("Global goal [current_global_goal.id] completed")
-	record_event(current_global_goal)
-	current_global_goal.complete()
-	// Escalation events increase adaptation (post-damage grace), deescalation reduces it
-	if(current_global_goal.tags & STORY_TAG_ESCALATION)
-		adaptation_factor = min(1.0, adaptation_factor + 0.2)
-	else if(current_global_goal.tags & STORY_TAG_DEESCALATION)
-		adaptation_factor = max(0, adaptation_factor - 0.1)
-	// Reset for next arc
-	current_global_goal = null
-	global_goal_progress = 0
-
-
-/// Progress update toward the active global goal; scales with goal weight
-/datum/storyteller/proc/update_goal_progress(list/vault, datum/storyteller_inputs/inputs, datum/storyteller/storyteller)
-	if(!current_global_goal)
-		return 0
-	var/weight = current_global_goal.get_weight(vault, inputs, storyteller)
-	if(weight <= 0)
-		return 0
-	// Heavier goals progress slower; lighter progress faster
-	return min(global_goal_progress + (0.1 * global_goal_weight / weight), 1.0)
-
-
-/// Subgoal progress helper (kept for potential direct checks outside planner)
-/datum/storyteller/proc/check_subgoal_progress(datum/storyteller_goal/goal, list/vault, datum/storyteller_inputs/inputs, datum/storyteller/storyteller)
-	if(!goal)
-		return 0
-	var/weight = goal.get_weight(vault, inputs, storyteller)
-	if(weight <= 0)
-		return 0
-	return min(1.0, goal.get_weight(vault, inputs, storyteller) / global_goal_weight)
-
 
 /// Event trigger guard for ad-hoc random events outside goals
 /datum/storyteller/proc/can_trigger_event_now()
@@ -211,19 +154,26 @@
 	var/prob_modifier = (mood ? mood.get_threat_multiplier() : 1.0) * difficulty_multiplier
 	return prob(50 * prob_modifier)
 
-/// Event trigger guard for ad-hoc random events outside goals
+/// Checks if an event can trigger at a future time, respecting grace period after last event.
+/// Aids scheduling during sub-goal analysis without disrupting global objective pacing.
 /datum/storyteller/proc/can_trigger_event_at(time)
 	return time - get_time_since_last_event() > grace_period
 
+/// Effective event pace: mood frequency multiplier * (1 - adaptation). Lower = slower events,
+/// building tension toward global goals during crew adaptation phases.
 /datum/storyteller/proc/get_effective_pace()
 	return mood.get_event_frequency_multiplier() * (1.0 - adaptation_factor)
 
+/// Base event interval, scaled by pace and divided by population for denser threats in larger crews.
+/// Supports sub-goal branching via station analysis for goal progression.
 /datum/storyteller/proc/get_event_interval()
 	return (min_event_interval + (max_event_interval - min_event_interval) / get_effective_pace()) / population_factor
 
+/// Event interval without population adjustment; for baseline pacing in global goal selection.
 /datum/storyteller/proc/get_event_interval_no_population_factor()
 	return min_event_interval + (max_event_interval - min_event_interval) / get_effective_pace()
 
+/// Time since last event; tracks history for grace periods and intervals in event planning.
 /datum/storyteller/proc/get_time_since_last_event()
 	return world.time - last_event_time
 
@@ -233,6 +183,8 @@
 	recent_events += world.time
 	log_storyteller("Triggered random event via SSevents")
 
+/datum/storyteller/proc/get_effective_threat()
+	return threat_points * mood.get_threat_multiplier() * difficulty_multiplier
 
 /// Helper to record a goal event: store timestamp for spacing and id for repetition penalty
 /datum/storyteller/proc/record_event(datum/storyteller_goal/G, status)

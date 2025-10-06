@@ -34,24 +34,19 @@
 
 
 
-// Main update_plan: Central control for goal execution and timeline advancement.
-// Called every think tick; checks timeline for fire-ready goals, executes them, updates progress,
-// and triggers recalc if needed (e.g., major changes or interval hit).
-// Returns list of fired goals for logging/feedback.
+// Main update_plan: Central control for goal execution and timeline advancement in event chain.
+// Called every think tick; scans upcoming for fire-ready goals, executes (complete()), updates status,
+// reschedules fails, cleans timeline. Returns list of fired goals for think() processing (adaptation/tags).
+// No global/sub distinction — all goals uniform in chain; inspired by RimWorld's cycle firing with adaptive rescheduling.
 /datum/storyteller_planner/proc/update_plan(datum/storyteller/ctl, datum/storyteller_inputs/inputs, datum/storyteller_balance_snapshot/bal)
 	SHOULD_NOT_OVERRIDE(TRUE)
 
 	var/list/fired_goals = list()
 	var/current_time = world.time
 
-	for(var/offset in get_upcoming_goals(length(timeline)))
-		var/entry = timeline[offset]
-		var/datum/storyteller_goal/goal = entry[1]
-
-		if(istype(goal, /datum/storyteller_goal/global_goal) && goal.category & STORY_GOAL_GLOBAL)
-			var/datum/storyteller_goal/global_goal/GG = goal
-			GG.move_to_goal(inputs.vault, inputs, ctl)
-			ctl.global_goal_progress = GG.get_progress(inputs.vault, inputs, ctl)
+	for(var/offset in get_upcoming_goals(10))
+		var/list/entry = timeline[offset]
+		var/datum/storyteller_goal/goal = entry[ENTRY_GOAL]
 
 		if(current_time < offset)
 			continue
@@ -60,41 +55,38 @@
 		if(status != STORY_GOAL_PENDING)
 			continue
 
-		// Check if goal can fire now (uses vault/inputs for context)
 		if(!goal.can_fire_now(inputs.vault, inputs, ctl))
 			timeline -= offset
-			try_plan_goal(entry[ENTRY_GOAL], 5 MINUTES) //We try to fire again on next think time
+			try_plan_goal(goal, 5 MINUTES * (1 - goal.get_progress(inputs.vault, inputs, ctl)))  // Faster retry if high progress
 			continue
 
 		entry[ENTRY_STATUS] = STORY_GOAL_FIRING
 		if(goal.complete(inputs.vault, inputs, ctl, round(ctl.threat_points * ctl.difficulty_multiplier * 100), inputs.station_value))
 			fired_goals += goal
 			entry[ENTRY_STATUS] = STORY_GOAL_COMPLETED
-			// Update adaptation if damage event (placeholder: check tags)
-			if(goal.tags & STORY_TAG_ESCALATION)
-				ctl.adaptation_factor = min(1.0, ctl.adaptation_factor + 0.2)  // Increase adaptation post-threat
-			ctl.record_event(goal, STORY_GOAL_COMPLETED)
 			message_admins("[span_notice("Storyteller fired goal: ")] [goal.name || goal.id].")
 		else
-			if(goal.category & STORY_GOAL_GLOBAL)
-				entry[ENTRY_STATUS] = STORY_GOAL_PENDING
-				timeline -= offset
-				// TODO: replaning goal based on mood
-				try_plan_goal(entry[ENTRY_GOAL], 10 MINUTES * goal.get_progress(inputs.vault, inputs, ctl)) // replaning goal if it's global
-			else
-				entry[ENTRY_STATUS] = STORY_GOAL_FAILED
-			message_admins("[span_warning("Storyteller goal failed to fire: ")] [goal.name || goal.id]")
-
-
-	// Clean completed/failed from timeline
-	for(var/offset in timeline.Copy())
-		var/entry = timeline[offset]
-		if(entry[ENTRY_STATUS] in list(STORY_GOAL_COMPLETED, STORY_GOAL_FAILED))
+			entry[ENTRY_STATUS] = STORY_GOAL_PENDING
 			timeline -= offset
+			var/replan_delay = 10 MINUTES * (1 - goal.get_progress(inputs.vault, inputs, ctl)) * ctl.mood.get_event_frequency_multiplier()
+			try_plan_goal(goal, replan_delay)
+			message_admins("[span_warning("Storyteller goal failed to fire: ")] [goal.name || goal.id] — rescheduling.")
 
-	// TODO: add recalculating aftet changing populcation factor
-	// Something like inputs.vault[STORY_VAULT_CREW_ALIVE_COUNT] != ctl.population_factor * 20
-	if(!length(timeline) || current_time - last_recalc_time > recalc_interval)
+
+	for(var/offset in timeline.Copy())
+		var/list/entry = timeline[offset]
+		if(entry[ENTRY_STATUS] in list(STORY_GOAL_COMPLETED, STORY_GOAL_FAILED))
+			var/datum/storyteller_goal/clean_goal = entry[ENTRY_GOAL]
+			timeline -= offset
+			if(clean_goal)
+				qdel(clean_goal)
+
+	var/pending_count = 0
+	for(var/offset in timeline)
+		if(timeline[offset][ENTRY_STATUS] == STORY_GOAL_PENDING)
+			pending_count++
+	var/pop_changed = (inputs.vault[STORY_VAULT_CREW_ALIVE_COUNT] != round(ctl.population_factor * 20))  // TODO: refine threshold
+	if(!length(timeline) || pending_count < 3 || current_time - last_recalc_time > recalc_interval || pop_changed)
 		recalculate_plan(ctl, inputs, bal)
 	last_recalc_time = current_time
 	return fired_goals
@@ -102,85 +94,140 @@
 
 
 // Recalculate the entire plan: Rebuild timeline from current state.
-// Clears old timeline, picks new global if needed, generates subgoals, and schedules.
-// Throttled by recalc_interval to avoid spam.
+// Clears invalid/unavailable goals, ensures at least 3 pending events for continuous pacing.
+// Dynamically generates chain of events (no global/sub distinction), throttled by recalc_interval.
+// Triggers on major shifts (threat/adaptation) or emptiness; analyzes station for fresh tags.
+// Ensures storyteller's event chain branches adaptively toward threat escalation.
 /datum/storyteller_planner/proc/recalculate_plan(datum/storyteller/ctl, datum/storyteller_inputs/inputs, datum/storyteller_balance_snapshot/bal, duration = 30 MINUTES)
-	if(!timeline)
-		return build_timeline(ctl, inputs, bal, duration = 30 MINUTES)
-
-	if(!current_goal || !current_goal.is_available(inputs.vault, inputs, ctl))
-		var/datum/storyteller_goal/new_goal = pick_new_global_goal(ctl, inputs, bal)
-		try_plan_goal(new_goal, ctl.get_event_interval() * ctl.grace_period MINUTES)
-
-	if(!current_goal)
-		return list()
-
-	var/new_sub_goals = 0
+	var/pending_count = 0
+	var/invalid_goals = 0
 	for(var/offset in get_upcoming_goals(length(timeline)))
 		var/list/entry = timeline[offset]
-		if(entry[ENTRY_CATEGORY] & STORY_GOAL_GLOBAL)
+		var/datum/storyteller_goal/goal = entry[ENTRY_GOAL]
+		if(!goal.is_available(inputs.vault, inputs, ctl) || !goal.can_fire_now(inputs.vault, inputs, ctl))
+			invalid_goals++
+			timeline -= offset
+			qdel(goal)  // Cleanup instance
+			continue
+		if(entry[ENTRY_STATUS] == STORY_GOAL_PENDING)
+			pending_count++
+
+	var/needs_rebuild = (invalid_goals > 0 || pending_count < 3 || (world.time - last_recalc_time > recalc_interval))
+	var/effective_threat = ctl.get_effective_threat()
+	if(effective_threat > ctl.max_threat_scale * 0.7 || ctl.adaptation_factor > 0.5)
+		needs_rebuild = TRUE
+
+	if(!needs_rebuild)
+		return timeline
+
+	if(timeline && length(timeline) > 0)
+		timeline = list()
+
+
+	var/category = select_goal_category(ctl, bal)
+	var/derived_tags = derive_universal_tags(category, ctl, inputs, bal)
+
+	if(effective_threat > ctl.max_threat_scale * 0.7 && !(derived_tags & STORY_TAG_ESCALATION))
+		derived_tags |= STORY_TAG_ESCALATION
+	else if(ctl.adaptation_factor > 0.5 && !(derived_tags & STORY_TAG_DEESCALATION))
+		derived_tags |= STORY_TAG_DEESCALATION
+
+	var/target_count = max(3, STORY_BASE_SUBGOALS_COUNT)
+	var/event_interval = ctl.get_event_interval()
+	for(var/i = 1 to target_count)
+		var/datum/storyteller_goal/new_goal = build_goal(ctl, inputs, bal, derived_tags, category)
+		if(!new_goal)
 			continue
 
-		var/datum/storyteller_goal/goal = entry[ENTRY_GOAL]
-		if(!goal.is_available(inputs.vault, inputs, ctl))
-			new_sub_goals += 1
-			timeline -= offset
-			qdel(entry)
+		var/fire_offset = event_interval * i * ctl.mood.get_event_frequency_multiplier()
+		if(ctl.can_trigger_event_at(world.time + fire_offset))
+			if(try_plan_goal(new_goal, fire_offset))
+				pending_count++
+			else
+				qdel(new_goal)
 
+		ctl.threat_points += ctl.threat_growth_rate * ctl.mood.get_variance_multiplier()
 
-	if(new_sub_goals != 0)
-		var/category = current_goal.category
-		category = category & ~STORY_GOAL_GLOBAL
+	while(pending_count < 3)
+		var/datum/storyteller_goal/fallback = build_goal(ctl, inputs, bal, 0, STORY_GOAL_RANDOM)
+		if(fallback && try_plan_goal(fallback, event_interval * pending_count))
+			pending_count++
 
-		var/new_tags = derive_universal_tags(category, ctl, inputs, bal)
-		var/count = min(STORY_BASE_SUBGOALS_COUNT, new_sub_goals * ctl.mood.get_event_frequency_multiplier())
-		var/list/subgoals = generate_subgoals(current_goal, new_tags, category, count)
-
-		for(var/i = 1 to length(subgoals))
-			var/fire_offset = ctl.get_event_interval() * i * ctl.mood.get_event_frequency_multiplier()
-			if(!ctl.can_trigger_event_at(fire_offset))
-				continue
-			try_plan_goal(subgoals[i], fire_offset MINUTES)
-
-	ctl.threat_points += ctl.threat_growth_rate * ctl.mood.get_variance_multiplier()
-	log_storyteller_planner("Storyteller recalculated plan: [length(timeline)] events rescheduled.")
+	last_recalc_time = world.time
+	log_storyteller_planner("Storyteller recalculated plan: [pending_count] pending events in chain, [invalid_goals] invalids cleared.")
 	return timeline
 
 
 
 
 
-// Build timeline from global/subgoals: Schedules events with offsets based on mood, adaptation, threat.
-/datum/storyteller_planner/proc/build_timeline(datum/storyteller/ctl, datum/storyteller_inputs/inputs, datum/storyteller_balance_snapshot/bal, derived_tags, duration = 30 MINUTES)
-	var/list/timeline_plan = list()
+// Build initial timeline on round start: Generates chain of 3+ events as adaptive threat sequence.
+// Analyzes station (bal/inputs) for category/tags, biases by threat/adaptation for escalation start.
+// No current_goal dependency; schedules with dynamic offsets based on mood/pace.
+// Ensures buffer for branching sub-threats, fallback to random for continuity.
+/datum/storyteller_planner/proc/build_timeline(datum/storyteller/ctl, datum/storyteller_inputs/inputs, datum/storyteller_balance_snapshot/bal, derived_tags)
+	timeline = list()
 	var/event_interval = ctl.get_event_interval()
 
-	// Add global goal at now (if not already)
-	if(!current_goal)
-		var/datum/storyteller_goal/new_goal = pick_new_global_goal(ctl, inputs, bal)
-		try_plan_goal(new_goal, duration)
-
-	var/category = current_goal.category
-	category = category & ~STORY_GOAL_GLOBAL
+	var/category = select_goal_category(ctl, bal)
+	var/tags = derived_tags || derive_universal_tags(category, ctl, inputs, bal)
 
 
-	var/tags = derive_universal_tags(category, ctl, inputs, bal)
-	// 3-4 goals at start
-	var/num_subgoals = min(STORY_BASE_SUBGOALS_COUNT, round(duration / event_interval))
-	var/list/subgoals = generate_subgoals(current_goal, tags, category, num_subgoals)
+	var/effective_threat = ctl.get_effective_threat()
+	if(effective_threat > ctl.max_threat_scale * 0.7 && !(derived_tags & STORY_TAG_ESCALATION))
+		tags |= STORY_TAG_ESCALATION
+	else if(ctl.adaptation_factor > 0.5 && !(derived_tags & STORY_TAG_DEESCALATION))
+		tags |= STORY_TAG_DEESCALATION
 
-	for(var/i in 1 to num_subgoals)
-		var/fire_offset = num_subgoals * i
-		if(ctl.can_trigger_event_at(fire_offset))
+	if(SSstorytellers.hard_debug)
+		var/string_tags = ""
+		for(var/tag_str in get_valid_bitflags("story_universal_tags"))
+			if(tags & get_valid_bitflags("story_universal_tags")[tag_str])
+				string_tags += "[tag_str], "
+		message_admins("Storyteller [ctl.name] built initial timeline with category: [bitfield_to_list(category)], tags: [string_tags]")
+
+
+	var/pending_count = 0
+	var/target_count = max(3, STORY_BASE_SUBGOALS_COUNT)
+	for(var/i = 1 to target_count)
+		var/datum/storyteller_goal/new_goal = build_goal(ctl, inputs, bal, tags, category)
+		if(!new_goal)
 			continue
-		var/datum/storyteller_goal/sg = subgoals[i]
-		if(!sg)
-			continue
-		if(sg.tags & STORY_TAG_ESCALATION)
-			fire_offset -= (event_interval * 0.2)
-		try_plan_goal(sg, fire_offset MINUTES)
 
-	return sortTim(timeline_plan, GLOBAL_PROC_REF(cmp_numeric_asc))
+		var/fire_offset = event_interval * i * ctl.mood.get_event_frequency_multiplier()
+		if(new_goal.tags & STORY_TAG_ESCALATION)
+			fire_offset *= 0.8  // Accelerate 20% for high-threat branches
+		else if(new_goal.tags & STORY_TAG_DEESCALATION)
+			fire_offset *= 1.2  // Slow for adaptation phases
+
+		if(!new_goal.is_available(inputs.vault, inputs, ctl) || !new_goal.can_fire_now(inputs.vault, inputs, ctl))
+			qdel(new_goal)
+			continue
+
+		if(!ctl.can_trigger_event_at(world.time + fire_offset))
+			fire_offset += ctl.grace_period
+			if(!ctl.can_trigger_event_at(world.time + fire_offset))
+				qdel(new_goal)
+				continue
+
+		if(try_plan_goal(new_goal, fire_offset))
+			pending_count++
+		else
+			qdel(new_goal)
+
+		ctl.threat_points += ctl.threat_growth_rate * ctl.mood.get_variance_multiplier()
+
+	while(pending_count < 3)
+		var/fallback_category = STORY_GOAL_RANDOM
+		var/datum/storyteller_goal/fallback = build_goal(ctl, inputs, bal, 0, fallback_category)
+		if(fallback && try_plan_goal(fallback, event_interval * pending_count))
+			pending_count++
+			ctl.threat_points += ctl.threat_growth_rate * 0.5
+
+	timeline = sortTim(timeline, GLOBAL_PROC_REF(cmp_numeric_asc))
+	last_recalc_time = world.time
+	log_storyteller_planner("Storyteller built initial timeline: [pending_count] events chained, threat=[effective_threat].")
+	return timeline
 
 
 
@@ -240,6 +287,21 @@
 	return upcoming
 
 
+/datum/storyteller_planner/proc/build_goal(datum/storyteller/ctl, datum/storyteller_inputs/inputs, datum/storyteller_balance_snapshot/bal)
+	var/category = select_goal_category(ctl, bal)
+	var/effective_threat = ctl.get_effective_pace()
+	var/tag_filter = derive_universal_tags(category, ctl, inputs, bal)
+	if(effective_threat > ctl.max_threat_scale * 0.7 && !(tag_filter & STORY_TAG_ESCALATION))
+		tag_filter |= STORY_TAG_ESCALATION
+	else if(ctl.adaptation_factor > 0.5 && !(tag_filter & STORY_TAG_DEESCALATION))
+		tag_filter |= STORY_TAG_DEESCALATION
+	var/list/candidates = SSstorytellers.filter_goals(category, tag_filter, null, FALSE)
+	if(!candidates.len)
+		candidates = SSstorytellers.filter_goals(STORY_GOAL_RANDOM)
+	var/datum/storyteller_goal/goal = ctl.mind.select_weighted_goal(ctl, inputs, bal, candidates, ctl.population_factor)
+	return goal
+
+
 // Pick a new global goal at round start or on completion
 // Integrates category selection, tag derivation, and weighting with adaptation/threat.
 /datum/storyteller_planner/proc/pick_new_global_goal(datum/storyteller/ctl, datum/storyteller_inputs/inputs, datum/storyteller_balance_snapshot/bal)
@@ -260,7 +322,7 @@
 	if(!candidates.len)
 		candidates = SSstorytellers.filter_goals(base_category)
 
-	current_goal = select_weighted_goal(ctl, inputs, bal, candidates, ctl.population_factor)
+	current_goal = ctl.mind.select_weighted_goal(ctl, inputs, bal, candidates, ctl.population_factor)
 	return current_goal
 
 
@@ -281,56 +343,12 @@
 	var/list/candidates = SSstorytellers.filter_goals(category, derived_tags & ~(STORY_TAG_AFFECTS_WHOLE_STATION), null, FALSE)
 	var/num_subs = round(STORY_BASE_SUBGOALS_COUNT * owner.mood.get_event_frequency_multiplier())
 	for(var/i in 1 to min(num_subs, candidates.len))
-		var/sub = select_weighted_goal(owner, owner.inputs, owner.balancer.make_snapshot(), candidates)
+		var/sub = owner.mind.select_weighted_goal(owner, owner.inputs, owner.balancer.make_snapshot(), candidates)
 		if(sub)
 			generated += sub
 	return generated
 
 
-
-// Basic select_weighted_goal with integration to goal procs
-// Computes final weight using G.get_weight (which can access vault/inputs for custom logic),
-// then applies storyteller vars (difficulty, adaptation, repetition) for adaptation.
-// Inspired by RimWorld's event weighting: base chance + modifiers from colony state (here, station metrics).
-/datum/storyteller_planner/proc/select_weighted_goal(datum/storyteller/ctl, datum/storyteller_inputs/inputs, datum/storyteller_balance_snapshot/bal, list/candidates, population_scale = 1.0)
-	if(!candidates.len)
-		return null
-
-	var/list/weighted = list()
-	for(var/datum/storyteller_goal/G in candidates)
-		var/base_weight = G.get_weight(inputs.vault, inputs, ctl)
-		var/priority_boost = G.get_priority(inputs.vault, inputs, ctl) * 0.5  // Scale to avoid dominance
-		var/diff_adjust = ctl.difficulty_multiplier * population_scale
-
-		// Repetition penalty if goal similar to prevents spam
-		var/rep_penalty = 0
-		if(G.id in ctl.recent_events)
-			rep_penalty = ctl.repetition_penalty
-
-		// Threat/adaptation influence: Boost aggressive/escalation if threat high, reduce if adapted (post-damage grace)
-		var/threat_bonus = ctl.threat_points * ctl.mood.get_threat_multiplier() * STORY_PICK_THREAT_BONUS_SCALE  // Small scaling for gradual escalation
-		var/adapt_reduce = 1.0 - ctl.adaptation_factor
-
-		// Balance tension: If tension high, boost deescalation goals; low -> escalation
-		var/balance_bonus = 0
-		if(bal.overall_tension > ctl.target_tension && (G.tags & STORY_TAG_DEESCALATION))
-			balance_bonus += STORY_BALANCE_BONUS
-		else if(bal.overall_tension < ctl.target_tension && (G.tags & STORY_TAG_ESCALATION))
-			balance_bonus += STORY_BALANCE_BONUS
-
-		// Final weight: Combine all, ensure minimum to avoid zero-weight goals
-		var/final_weight = max(0.1, (base_weight + priority_boost + threat_bonus + balance_bonus - rep_penalty) * diff_adjust * adapt_reduce)
-		weighted[G] = final_weight
-
-	// Use pick_weighted helper for selection
-	return pick_weight(weighted)
-
-
-
-
-// Derive universal tags, incorporating balancer snapshot for antag/station dynamics
-// Builds hierarchy: Base from metrics (influenced by category for bias), mid from aggregation, high from balance implications.
-// Category biases derivation: e.g., GOAL_BAD favors ESCALATION/AFFECTS_CREW_HEALTH harm; GOAL_GOOD favors DEESCALATION/recovery.
 /datum/storyteller_planner/proc/derive_universal_tags(category, datum/storyteller/ctl, datum/storyteller_inputs/inputs, datum/storyteller_balance_snapshot/bal)
 	var/tags = ctl.mind.tokenize(category, ctl, inputs, bal, ctl.mood)
 	if(SSstorytellers.hard_debug)
@@ -342,13 +360,16 @@
 	return tags
 
 
-
-// Method to select goal category (GOOD/BAD) based on storyteller state
-// Uses mood (aggression/pace), balance tension, adaptation_factor, and threat_points.
-// E.g., high tension/adaptation -> BAD (escalation); low threat/relaxed mood -> GOOD (recovery).
-// Called in planner before filtering goals, to bias directionality (STORY_GOAL_GOOD/GOAL_BAD).
 /datum/storyteller_planner/proc/select_goal_category(datum/storyteller/ctl, datum/storyteller_balance_snapshot/bal)
-	return ctl.mind.determine_category(ctl, bal)
+	var/category = ctl.mind.determine_category(ctl, bal)
+
+	if(SSstorytellers.hard_debug)
+		var/string_tags = ""
+		for(var/tag_str in get_valid_bitflags("story_goal_category"))
+			if(category & get_valid_bitflags("story_goal_category")[tag_str])
+				string_tags += tag_str + ", "
+		message_admins("Storyteller [ctl.name] determinete goal category: [string_tags]")
+	return category
 
 #undef ENTRY_GOAL
 #undef ENTRY_FIRE_TIME

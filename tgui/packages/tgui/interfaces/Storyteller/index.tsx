@@ -8,6 +8,7 @@ import {
   ProgressBar,
   Section,
   Stack,
+  Table,
   Tabs,
 } from 'tgui-core/components';
 import type { BooleanLike } from 'tgui-core/react';
@@ -15,13 +16,13 @@ import { useBackend, useLocalState } from '../../backend';
 import { Window } from '../../layouts';
 
 // Data contract expected from backend
-// Adjust on the BYOND side to match these names or adapt here accordingly
+// Refactored for chain: upcoming_goals list, removed global/sub/progress/weight
 
 type StorytellerGoal = {
   id: string;
   name?: string;
   weight?: number;
-  progress?: number; // 0..1
+  progress?: number; // 0..1 for individual goal
 };
 
 type StorytellerMood = {
@@ -32,18 +33,27 @@ type StorytellerMood = {
 };
 
 type StorytellerEventLog = {
-  time: number; // world.time
+  time: number; // ticks
   desc: string;
+  status?: string;
+  id?: string;
+};
+
+type StorytellerUpcomingGoal = {
+  id: string;
+  name?: string;
+  fire_time: number;
+  category?: number;
+  status: string;
+  weight?: number;
+  progress?: number;
 };
 
 type StorytellerData = {
   name: string;
   desc?: string;
   mood?: StorytellerMood;
-  current_global_goal?: StorytellerGoal | null;
-  current_subgoal?: StorytellerGoal | null;
-  global_goal_progress?: number; // 0..1
-  global_goal_weight?: number;
+  upcoming_goals?: StorytellerUpcomingGoal[]; // Chain preview
   next_think_time?: number;
   base_think_delay?: number;
   min_event_interval?: number;
@@ -56,14 +66,15 @@ type StorytellerData = {
   available_moods?: StorytellerMood[];
   available_goals?: StorytellerGoal[];
   can_force_event?: BooleanLike;
+  current_world_time?: number; // For relative times
 };
 
-const formatTime = (ticks?: number) => {
+const formatTime = (ticks?: number, current_time?: number) => {
   if (!ticks && ticks !== 0) return '—';
-  // world.tick_lag is commonly 0.5, but we can't rely on it at UI level
-  // Display raw ticks and seconds (assuming 10 ticks per second)
-  const seconds = Math.floor((ticks as number) / 10);
-  return `${ticks}t (${seconds}s)`;
+  const relative = current_time ? ticks - current_time : ticks;
+  const seconds = Math.floor(Math.abs(relative) / 10);
+  const sign = relative < 0 ? '-' : '';
+  return `${sign}${Math.abs(ticks)}t (${sign}${seconds}s)`;
 };
 
 const ProgressRow = ({ label, value }: { label: string; value?: number }) => {
@@ -81,10 +92,7 @@ export const Storyteller = (props) => {
     name,
     desc,
     mood,
-    current_global_goal,
-    current_subgoal,
-    global_goal_progress,
-    global_goal_weight,
+    upcoming_goals = [],
     next_think_time,
     base_think_delay,
     min_event_interval,
@@ -97,6 +105,7 @@ export const Storyteller = (props) => {
     available_moods = [],
     available_goals = [],
     can_force_event,
+    current_world_time,
   } = data;
 
   const [tab, setTab] = useLocalState<
@@ -156,7 +165,7 @@ export const Storyteller = (props) => {
             icon="flag-checkered"
             onClick={() => setTab('goals')}
           >
-            Goals
+            Chain
           </Tabs.Tab>
           <Tabs.Tab
             selected={tab === 'settings'}
@@ -195,50 +204,45 @@ export const Storyteller = (props) => {
                   ×{event_difficulty_modifier ?? 1}
                 </LabeledList.Item>
                 <LabeledList.Item label="Think Delay (base)">
-                  {formatTime(base_think_delay)}
+                  {formatTime(base_think_delay, current_world_time)}
                 </LabeledList.Item>
                 <LabeledList.Item label="Next Think At">
-                  {formatTime(next_think_time)}
+                  {formatTime(next_think_time, current_world_time)}
                 </LabeledList.Item>
                 <LabeledList.Item label="Event Interval">
-                  {formatTime(min_event_interval)} —{' '}
-                  {formatTime(max_event_interval)}
+                  {formatTime(min_event_interval, current_world_time)} —{' '}
+                  {formatTime(max_event_interval, current_world_time)}
                 </LabeledList.Item>
               </LabeledList>
             </Section>
 
-            <Section title="Current Goal">
-              <LabeledList>
-                <LabeledList.Item label="Global">
-                  {current_global_goal ? (
-                    <Box>
-                      <b>
-                        {current_global_goal.name || current_global_goal.id}
-                      </b>
-                      {typeof current_global_goal.weight === 'number' ? (
-                        <Box opacity={0.6}>
-                          Weight: {current_global_goal.weight}
-                        </Box>
-                      ) : null}
-                    </Box>
-                  ) : (
-                    '—'
-                  )}
-                </LabeledList.Item>
-                <ProgressRow label="Progress" value={global_goal_progress} />
-                {typeof global_goal_weight === 'number' ? (
-                  <LabeledList.Item label="Weight">
-                    {global_goal_weight}
-                  </LabeledList.Item>
-                ) : null}
-                <LabeledList.Item label="Subgoal">
-                  {current_subgoal ? (
-                    <b>{current_subgoal.name || current_subgoal.id}</b>
-                  ) : (
-                    '—'
-                  )}
-                </LabeledList.Item>
-              </LabeledList>
+            <Section title="Upcoming Chain">
+              {upcoming_goals.length ? (
+                <Table>
+                  <Table.Row header>
+                    <Table.Cell>Fire At</Table.Cell>
+                    <Table.Cell>Goal</Table.Cell>
+                    <Table.Cell>Status</Table.Cell>
+                    <Table.Cell>Progress</Table.Cell>
+                    <Table.Cell>Weight</Table.Cell>
+                  </Table.Row>
+                  {upcoming_goals.map((g, i) => (
+                    <Table.Row key={i}>
+                      <Table.Cell>
+                        {formatTime(g.fire_time, current_world_time)}
+                      </Table.Cell>
+                      <Table.Cell>{g.name || g.id}</Table.Cell>
+                      <Table.Cell>{g.status}</Table.Cell>
+                      <Table.Cell>
+                        {Math.round((g.progress ?? 0) * 100)}%
+                      </Table.Cell>
+                      <Table.Cell>{g.weight ?? '—'}</Table.Cell>
+                    </Table.Row>
+                  ))}
+                </Table>
+              ) : (
+                <Box opacity={0.6}>No chain planned.</Box>
+              )}
 
               <Stack mt={1} wrap>
                 <Stack.Item>
@@ -252,24 +256,21 @@ export const Storyteller = (props) => {
                     disabled={!can_force_event}
                     onClick={() => act('trigger_event')}
                   >
-                    Trigger Event
+                    Trigger Random
                   </Button>
                 </Stack.Item>
                 <Stack.Item>
                   <Button.Confirm
                     color="red"
                     icon="trash"
-                    onClick={() => act('clear_goal')}
+                    onClick={() => act('reschedule_chain')}
                   >
-                    Clear Goal
+                    Reschedule Chain
                   </Button.Confirm>
                 </Stack.Item>
                 <Stack.Item>
-                  <Button
-                    icon="flag-checkered"
-                    onClick={() => act('complete_goal')}
-                  >
-                    Complete Goal
+                  <Button icon="fire" onClick={() => act('force_fire_next')}>
+                    Fire Next
                   </Button>
                 </Stack.Item>
               </Stack>
@@ -278,14 +279,14 @@ export const Storyteller = (props) => {
             <Section title="Recent Events">
               {recent_events.length ? (
                 <LabeledList>
-                  {recent_events
-                    .slice(-10)
-                    .reverse()
-                    .map((ev, i) => (
-                      <LabeledList.Item key={i} label={formatTime(ev.time)}>
-                        {ev.desc}
-                      </LabeledList.Item>
-                    ))}
+                  {recent_events.map((ev, i) => (
+                    <LabeledList.Item
+                      key={i}
+                      label={formatTime(ev.time, current_world_time)}
+                    >
+                      {ev.desc} ({ev.status || '—'} - ID: {ev.id || '—'})
+                    </LabeledList.Item>
+                  ))}
                 </LabeledList>
               ) : (
                 <Box opacity={0.6}>No events recorded.</Box>
@@ -296,7 +297,7 @@ export const Storyteller = (props) => {
 
         {tab === 'goals' && (
           <>
-            <Section title="Select Global Goal">
+            <Section title="Insert to Chain">
               <Stack>
                 <Stack.Item grow>
                   <Dropdown
@@ -316,27 +317,27 @@ export const Storyteller = (props) => {
                         (g) => (g.name || g.id) === selectedGoal,
                       );
                       if (goal) {
-                        act('set_global_goal', { id: goal.id });
+                        act('insert_goal_to_chain', { id: goal.id });
                       }
                     }}
                   >
-                    Set Goal
+                    Insert
                   </Button>
                 </Stack.Item>
                 <Stack.Item>
-                  <Button icon="random" onClick={() => act('reroll_goal')}>
-                    Reroll
+                  <Button icon="random" onClick={() => act('reschedule_chain')}>
+                    Reschedule
                   </Button>
                 </Stack.Item>
               </Stack>
             </Section>
 
-            <Section title="Available Goals (weights)">
+            <Section title="Available Goals">
               {available_goals.length ? (
                 <LabeledList>
                   {available_goals.slice(0, 20).map((g) => (
                     <LabeledList.Item key={g.id} label={g.name || g.id}>
-                      {typeof g.weight === 'number' ? `w=${g.weight}` : '—'}
+                      —
                     </LabeledList.Item>
                   ))}
                 </LabeledList>
@@ -345,31 +346,14 @@ export const Storyteller = (props) => {
               )}
             </Section>
 
-            <Section title="Subgoal">
-              <LabeledList>
-                <LabeledList.Item label="Current">
-                  {current_subgoal ? (
-                    <b>{current_subgoal.name || current_subgoal.id}</b>
-                  ) : (
-                    '—'
-                  )}
-                </LabeledList.Item>
-              </LabeledList>
+            <Section title="Chain Controls">
               <Stack mt={1} wrap>
-                <Stack.Item>
-                  <Button
-                    icon="chevron-up"
-                    onClick={() => act('promote_subgoal')}
-                  >
-                    Promote to Global
-                  </Button>
-                </Stack.Item>
                 <Stack.Item>
                   <Button
                     icon="step-forward"
                     onClick={() => act('next_subgoal')}
                   >
-                    Next Subgoal
+                    Advance Chain
                   </Button>
                 </Stack.Item>
               </Stack>
@@ -443,7 +427,7 @@ export const Storyteller = (props) => {
                 </Stack.Item>
                 <Stack.Item>
                   <Button icon="calendar" onClick={() => act('replan')}>
-                    Replan Goals
+                    Replan Chain
                   </Button>
                 </Stack.Item>
               </Stack>

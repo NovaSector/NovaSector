@@ -20,10 +20,6 @@
 /datum/storyteller_goal/global_goal/catastrophic_failure/move_to_goal(list/vault, datum/storyteller_inputs/inputs, datum/storyteller/storyteller)
 	storyteller.threat_points += storyteller.threat_growth_rate * 2
 
-	if(storyteller.can_trigger_event_now())
-		var/list/available_children = get_children()
-		if(available_children.len)
-			var/datum/storyteller_goal/child = pick_weight(available_children)
 
 
 	storyteller.adaptation_factor = max(0, storyteller.adaptation_factor - storyteller.adaptation_decay_rate * 0.5)

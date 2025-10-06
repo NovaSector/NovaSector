@@ -2,6 +2,7 @@
 #define CONTEXT_TAGS "tags"
 #define CONTEXT_CATEGORY "category"
 #define CONTEXT_BIAS "bias"
+#define STORY_REPETITION_DECAY_TIME (20 MINUTES)
 
 /datum/storyteller_think
 	var/list/think_stages = list(
@@ -23,6 +24,10 @@
 		think_stages[i] = new stage
 
 
+
+// Derive universal tags, incorporating balancer snapshot for antag/station dynamics
+// Builds hierarchy: Base from metrics (influenced by category for bias), mid from aggregation, high from balance implications.
+// Category biases derivation: e.g., GOAL_BAD favors ESCALATION/AFFECTS_CREW_HEALTH harm; GOAL_GOOD favors DEESCALATION/recovery.
 /datum/storyteller_think/proc/tokenize( \
 	category, \
 	datum/storyteller/ctl, \
@@ -45,6 +50,10 @@
 	return context[CONTEXT_TAGS]
 
 
+// Method to select goal category (GOOD/BAD) based on storyteller state
+// Uses mood (aggression/pace), balance tension, adaptation_factor, and threat_points.
+// E.g., high tension/adaptation -> BAD (escalation); low threat/relaxed mood -> GOOD (recovery).
+// Called in planner before filtering goals, to bias directionality (STORY_GOAL_GOOD/GOAL_BAD).
 /datum/storyteller_think/proc/determine_category(datum/storyteller/ctl, datum/storyteller_balance_snapshot/bal)
 	var/category = STORY_GOAL_UNCATEGORIZED  // Default neutral
 
@@ -58,9 +67,9 @@
 
 
 	// Balance/tension override: High tension -> Deescalate with GOOD; low -> Escalate with BAD
-	if(bal.overall_tension > ctl.target_tension + 20)
+	if(bal.overall_tension > ctl.target_tension + 10 * ctl.mood.get_threat_multiplier())
 		category = STORY_GOAL_GOOD  // Recovery to balance
-	else if(bal.overall_tension < ctl.target_tension - 20)
+	else if(bal.overall_tension < ctl.target_tension - 10 * ctl.mood.get_threat_multiplier())
 		category = STORY_GOAL_BAD  // Challenge to build tension
 
 
@@ -73,10 +82,77 @@
 
 	// Final volatility random: If high volatility, 30% chance to flip for chaos
 	// Hello mr. random!
-	if(ctl.mood.get_variance_multiplier() > 1.5 && prob(30))
-		category = (category == STORY_GOAL_GOOD) ? STORY_GOAL_BAD : STORY_GOAL_GOOD
+	if(ctl.mood.get_variance_multiplier() > 1.5)
+		if(prob(round(30 * ctl.mood.get_threat_multiplier())))
+			category = (category == STORY_GOAL_GOOD) ? STORY_GOAL_BAD : STORY_GOAL_GOOD
+		else if(prob(50))
+			category = STORY_GOAL_RANDOM
 
 	return category
+
+
+
+// Basic select_weighted_goal with integration to goal procs
+// Computes final weight using G.get_weight (which can access vault/inputs for custom logic),
+// then applies storyteller vars (difficulty, adaptation, repetition) for adaptation.
+// Enhanced repetition: Gradient penalty based on recency (time since last similar) and frequency (count in history),
+// scaled by adaptation (stronger post-recovery) and population (tolerable in big crews).
+// Inspired by RimWorld's event weighting: base chance + modifiers from colony state (here(Nova), station metrics + history avoidance).
+/datum/storyteller_think/proc/select_weighted_goal(datum/storyteller/ctl, datum/storyteller_inputs/inputs, datum/storyteller_balance_snapshot/bal, list/candidates, population_scale = 1.0)
+	if(!candidates.len)
+		return null
+
+	var/list/weighted = list()
+	for(var/datum/storyteller_goal/G in candidates)
+		var/base_weight = G.get_weight(inputs.vault, inputs, ctl)
+		var/priority_boost = G.get_priority(inputs.vault, inputs, ctl) * 0.5  // Scale to avoid dominance
+		var/diff_adjust = ctl.difficulty_multiplier * population_scale
+
+		// Enhanced repetition penalty: Recency (time-based decay) + frequency (count in history)
+		var/rep_penalty = 0
+		var/list/recent_history = ctl.recent_events  // Assoc [unique_id = details], unique_id = G.id + "_time"
+		var/id_prefix = G.id + "_"
+		var/last_fire_time = 0
+		var/repeat_count = 0
+
+		for(var/hist_id in recent_history)
+			if(starts_with_any(hist_id, id_prefix))  // Match prefix for this goal's ID
+				repeat_count++
+				var/list/details = recent_history[hist_id]
+				var/fire_time = text2num(splittext(details["fired_at"], " ")[1]) * 1 MINUTES  // Parse "X min" back to world.time approx
+				if(fire_time > last_fire_time)
+					last_fire_time = fire_time
+
+		if(repeat_count > 0)
+			// Recency decay: Full penalty if recent, 0 if old (DECAY_TIME ~20-30 min)
+			var/age = world.time - last_fire_time
+			var/recency_factor = clamp(1 - (age / STORY_REPETITION_DECAY_TIME), 0, 1)
+			// Frequency multiplier: Linear ramp for spam (e.g., 1x=base, 2x=1.5x, 3x=2x)
+			var/freq_mult = 1 + (repeat_count - 1) * 0.5
+			rep_penalty = ctl.repetition_penalty * recency_factor * freq_mult
+
+		// Adaptation scaling: Stronger penalty when crew adapted (avoid boring repeats post-recovery)
+		rep_penalty *= (1 + ctl.adaptation_factor * 0.5)
+		// Population tolerance: Weaker in big crews (more players = less notice repeats)
+		rep_penalty /= max(1.0, ctl.population_factor)
+
+		// Threat/adaptation influence: Boost aggressive/escalation if threat high, reduce if adapted (post-damage grace)
+		var/threat_bonus = ctl.threat_points * ctl.mood.get_threat_multiplier() * STORY_PICK_THREAT_BONUS_SCALE  // Small scaling for gradual escalation
+		var/adapt_reduce = 1.0 - ctl.adaptation_factor
+
+		// Balance tension: If tension high, boost deescalation goals; low -> escalation
+		var/balance_bonus = 0
+		if(bal.overall_tension > ctl.target_tension && (G.tags & STORY_TAG_DEESCALATION))
+			balance_bonus += STORY_BALANCE_BONUS
+		else if(bal.overall_tension < ctl.target_tension && (G.tags & STORY_TAG_ESCALATION))
+			balance_bonus += STORY_BALANCE_BONUS
+
+		// Final weight: Combine all, ensure minimum to avoid zero-weight goals
+		var/final_weight = max(0.1, (base_weight + priority_boost + threat_bonus + balance_bonus - rep_penalty) * diff_adjust * adapt_reduce)
+		weighted[G] = final_weight
+
+	// Use pick_weight helper for selection
+	return pick_weight(weighted)
 
 
 /datum/think_stage

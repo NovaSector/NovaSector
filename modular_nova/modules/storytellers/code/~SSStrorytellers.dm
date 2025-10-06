@@ -390,22 +390,19 @@ SUBSYSTEM_DEF(storytellers)
 			"pace" = ctl.mood.pace,
 			"threat" = ctl.mood.get_threat_multiplier(),
 		)
-	if(ctl.current_global_goal)
-		data["current_global_goal"] = list(
-			"id" = ctl.current_global_goal.id,
-			"name" = ctl.current_global_goal.name || ctl.current_global_goal.id,
-			"weight" = ctl.current_global_goal.get_weight(ctl.inputs.vault, ctl.inputs, ctl),
-		)
-	if(length(ctl.subgoals))
-		for(var/datum/storyteller_goal/subgoal in ctl.get_closest_subgoals())
-			data["current_subgoal"] += list(
-				list(
-					"id" = subgoal.id,
-					"name" = subgoal.name || subgoal.id
-				),
-			)
-	data["global_goal_progress"] = ctl.global_goal_progress
-	data["global_goal_weight"] = ctl.global_goal_weight
+	var/list/upcoming = ctl.planner.get_upcoming_goals(10)
+	data["upcoming_goals"] = list()
+	for(var/list/entry in upcoming)
+		var/datum/storyteller_goal/goal = entry["goal"]
+		data["upcoming_goals"] += list(list(
+			"id" = goal.id,
+			"name" = goal.name || goal.id,
+			"fire_time" = entry["fire_time"],
+			"category" = entry["category"],
+			"status" = entry["status"],
+			"weight" = goal.get_weight(ctl.inputs.vault, ctl.inputs, ctl),
+			"progress" = goal.get_progress(ctl.inputs.vault, ctl.inputs, ctl),
+		))
 	data["next_think_time"] = ctl.next_think_time
 	data["base_think_delay"] = ctl.base_think_delay
 	data["min_event_interval"] = ctl.min_event_interval
@@ -417,15 +414,34 @@ SUBSYSTEM_DEF(storytellers)
 	data["event_difficulty_modifier"] = ctl.difficulty_multiplier
 	data["can_force_event"] = TRUE
 	data["current_world_time"] = world.time
-	// Recent events log formatting
 	var/list/events = list()
-	for(var/i in 1 to length(ctl.recent_events))
-		var/tick = ctl.recent_events[i]
-		events += list(list(
-			"time" = tick,
-			"desc" = "Event at [tick]",
+	for(var/id in ctl.recent_events)
+		var/list/details = ctl.recent_events[id]
+		if(length(details))
+			var/list/event_data = details[1]
+			events += list(list(
+				"time" = text2num(splittext(event_data["fired_at"], " ")[1]) * 1 MINUTES,  // Parse back to ticks approx
+				"desc" = event_data["desc"],
+				"status" = event_data["status"],
+				"id" = event_data["id"],
+			))
+
+	// sortTim(events, some sorter?, "time") TODO: sort this shit by time
+	data["recent_events"] = events.len ? events.Copy(1, min(20, events.len + 1)) : list()
+	data["available_moods"] = list()
+	for(var/path in subtypesof(/datum/storyteller_mood))
+		var/datum/storyteller_mood/M = path
+		data["available_moods"] += list(list(
+			"id" = "[path]",
+			"name" = initial(M.name),
 		))
-	data["recent_events"] = events
+	data["available_goals"] = list()
+	for(var/id in SSstorytellers.goals_by_id)
+		var/datum/storyteller_goal/G = SSstorytellers.goals_by_id[id]
+		data["available_goals"] += list(list(
+			"id" = G.id,
+			"name" = G.name || G.id,
+		))
 	return data
 
 /datum/storyteller_admin_ui/ui_act(action, list/params, datum/tgui/ui, datum/ui_state/state)
@@ -443,41 +459,19 @@ SUBSYSTEM_DEF(storytellers)
 			ctl.next_think_time = world.time + 1
 			return TRUE
 		if("trigger_event")
-			// fafa
+			// Trigger ad-hoc random event outside chain
+			ctl.trigger_random_event(ctl.inputs.vault, ctl.inputs, ctl)
 			return TRUE
-		if("clear_goal")
-			ctl.current_global_goal = null
-			ctl.subgoals = null
-			ctl.global_goal_progress = 0
+		if("force_fire_next")
+			var/datum/storyteller_goal/next = ctl.planner.get_closest_goal()
+			if(next)
+				next.complete(ctl.inputs.vault, ctl.inputs, ctl, round(ctl.threat_points * ctl.difficulty_multiplier * 100), ctl.inputs.station_value)
+				ctl.planner.recalculate_plan(ctl, ctl.inputs, ctl.balancer.make_snapshot(ctl.inputs))  // Recalc chain after force
 			return TRUE
-		if("complete_goal")
-			ctl.on_goal_completed()
-			return TRUE
-		if("set_global_goal")
-			var/id = params["id"]
-			if(!id)
-				return TRUE
-			var/datum/storyteller_goal/G = SSstorytellers.goals_by_id[id]
-			if(istype(G))
-				// Promote immediately
-				ctl.current_global_goal = G
-				ctl.global_goal_weight = G.get_weight(ctl.inputs.vault, ctl.inputs, ctl)
-				ctl.global_goal_progress = 0
-			return TRUE
-		if("reroll_goal")
-			ctl.current_global_goal = null
-			ctl.global_goal_progress = 0
-			return TRUE
-		if("promote_subgoal")
-			if(ctl.subgoals)
-				var/datum/storyteller_goal/G2 = pick(ctl.subgoals)
-				ctl.current_global_goal = G2
-				ctl.global_goal_weight = G2.get_weight(ctl.inputs.vault, ctl.inputs, ctl)
-				ctl.global_goal_progress = 0
-				ctl.subgoals = null
+		if("reschedule_chain")
+			ctl.planner.recalculate_plan(ctl, ctl.inputs, ctl.balancer.make_snapshot(ctl.inputs))
 			return TRUE
 		if("next_subgoal")
-			// Ask planner to regenerate timeline which will pick next subgoal
 			ctl.planner.recalculate_plan(ctl, ctl.inputs, ctl.balancer.make_snapshot(ctl.inputs))
 			return TRUE
 		if("set_mood")
@@ -499,7 +493,7 @@ SUBSYSTEM_DEF(storytellers)
 			ctl.inputs = ctl.analyzer.get_inputs()
 			return TRUE
 		if("replan")
-			ctl.planner.update_plan(ctl, ctl.inputs, ctl.balancer.make_snapshot(ctl.inputs))
+			ctl.planner.recalculate_plan(ctl, ctl.inputs, ctl.balancer.make_snapshot(ctl.inputs))
 			return TRUE
 		// Advanced setters
 		if("set_difficulty")
@@ -528,6 +522,17 @@ SUBSYSTEM_DEF(storytellers)
 		if("set_repetition_penalty")
 			var/value = clamp(text2num(params["value"]), 0, 2)
 			ctl.repetition_penalty = value
+			return TRUE
+		// Новое: manual insert goal to chain
+		if("insert_goal_to_chain")
+			var/id = params["id"]
+			if(!id)
+				return TRUE
+			var/datum/storyteller_goal/G = SSstorytellers.goals_by_id[id]
+			if(istype(G))
+				// Schedule at end of chain with default offset
+				var/fire_offset = ctl.get_event_interval() * (length(ctl.planner.timeline) + 1)
+				ctl.planner.try_plan_goal(G, fire_offset)
 			return TRUE
 	return FALSE
 
