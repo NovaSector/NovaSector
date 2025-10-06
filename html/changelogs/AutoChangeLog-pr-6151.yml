@@ -1,4 +1,0 @@
-author: "Hardly"
-delete-after: True
-changes:
-  - code_imp: "Suppressors are now permit restricted."

@@ -1,4 +1,0 @@
-author: "dekunutkid"
-delete-after: True
-changes:
-  - bugfix: "DS-2 and Interdyne cyborg now have proper door access, no longer start with a defective cell, and name and gender preferences now apply properly."

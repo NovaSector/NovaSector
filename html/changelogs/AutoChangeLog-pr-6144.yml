@@ -1,9 +1,0 @@
-author: "carpotoxin"
-delete-after: True
-changes:
-  - balance: "Space ninja can now equip their katana on their MODsuit suit-storage, as well as a variety of other swords"
-  - balance: "Space ninja starts with a medkit appropriate to their anatomy, as well as various basic stimulants"
-  - balance: "Space ninja gets a simple loadout featuring food and drink items, as well as a genuine(ly stolen) visitor's ID"
-  - balance: "Space ninja's pinpointer is no longer contractor tier, command may hide from the ninja's tracking if they deem it worth the risk of being harder to find by everyone else too."
-  - balance: "Space ninja's headset has been upgraded to a unique Spider-Clan radio, it lets them hear the command channel"
-  - balance: "Space ninja now has a radio jammer, and an implant allowing them to create smoke fields."
