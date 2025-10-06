@@ -52,3 +52,12 @@
 			Loaded with incendiary rounds which inflict little damage, but ignite the target."
 	item = /obj/item/ammo_box/magazine/enforcer/fire
 	cost = 3
+
+
+/datum/uplink_item/ammo/enforcer_soporific
+	name = "Enforcer 10mm Soporific Magazine"
+	desc = "An additional 12-round 10mm magazine, compatible with the Enforcer pistol. \
+		Loaded with soporific rounds that induce temporary unconsciousness in unarmored organic targets, \
+		dealing minimal stamina damage with no effect on mechanical or armored targets."
+	item = /obj/item/ammo_box/magazine/enforcer/soporific
+	cost = 4

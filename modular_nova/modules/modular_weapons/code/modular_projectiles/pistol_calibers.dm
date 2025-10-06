@@ -231,3 +231,25 @@
 /obj/item/ammo_box/c10mm/large
 	name = "deluxe ammo box (10mm)"
 	max_ammo = 48 // multiple of 8, multiple of 12
+
+/obj/item/ammo_casing/c10mm/soporific
+	name = "10mm soporific bullet casing"
+	desc = "A 10mm soporific bullet casing.\
+		<br><br>\
+		<i>SOPORIFIC: Non-lethal ammo that induces temporary unconsciousness in unarmored organic targets.</i>"
+	projectile_type = /obj/projectile/bullet/c10mm/soporific
+	fire_sound = 'sound/items/weapons/gun/pistol/shot_suppressed.ogg'
+	ammo_categories = AMMO_CLASS_NONE
+	harmful = FALSE
+
+/obj/item/ammo_box/magazine/enforcer/soporific
+	name = "enforcer soporific magazine (10mm)"
+	desc = "A high-capacity magazine loaded with soporific 10mm rounds, designed for non-lethal takedowns."
+	ammo_type = /obj/item/ammo_casing/c10mm/soporific
+	max_ammo = 12
+
+/obj/item/ammo_box/magazine/m10mm/soporific
+	name = "ansem soporific magazine (10mm)"
+	desc = "A standard magazine loaded with soporific 10mm rounds, designed for non-lethal takedowns."
+	ammo_type = /obj/item/ammo_casing/c10mm/soporific
+	max_ammo = 8
