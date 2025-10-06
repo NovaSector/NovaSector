@@ -103,5 +103,5 @@
 		It also contains a lower mount for some sort of attachment. Rumor has it that a hardlight blade is planned to be distributed \
 		directly from Nanotrasen themelves, but these plans have yet to materialize."
 
-/obj/item/gun/ballistic/revolver/takbok/give_manufacturer_examine()
+/obj/item/gun/ballistic/revolver/bluvolva/give_manufacturer_examine()
 	AddElement(/datum/element/manufacturer_examine, COMPANY_TRAPPISTE)
