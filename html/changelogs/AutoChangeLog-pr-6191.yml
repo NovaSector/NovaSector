@@ -1,0 +1,4 @@
+author: "Iajret"
+delete-after: True
+changes:
+  - bugfix: "Fixed wallets, death rattle implants and other things appearing on ghost role characters"
