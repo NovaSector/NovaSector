@@ -13,7 +13,7 @@
 /obj/item/melee/energy/sword/surplus
 	embed_type = /datum/embedding/esword/surplus
 
-/obj/item/melee/energy/sword/surplus/slapcraft
+/obj/item/melee/energy/sword/surplus/improvised
 	name = "\improper Type II 'Bokuto' energy sword"
 	desc = "A hand made energy sword used for live training and pest control. It can be recharged with the dynamos in the handle."
 	block_chance = 25 // Surplus is 50
