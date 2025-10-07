@@ -1009,3 +1009,19 @@
 
 /datum/mod_theme/marines/noboost /// Marine modsuit that doenst allow you to put an armor booster in it. This makes it better than a base security hardsuit while worse than the HoS's and Captains- assuming those two have boosters in them.
 	desc = "Developed by Nanotrasen in collaboration with multiple high-profile contractors, this specialized suit was made for high-intensity combat. This one doesnt allow for an armor booster."
+
+// Replaces the Syndicate night vision for the night visors, as they are currently broken, and cannot be removed.
+/datum/mod_theme/infiltrator/New()
+	. = ..()
+	inbuilt_modules -= /obj/item/mod/module/night
+	inbuilt_modules += /obj/item/mod/module/visor/night
+
+/datum/mod_theme/syndicate/New()
+	. = ..()
+	inbuilt_modules -= /obj/item/mod/module/night
+	inbuilt_modules += /obj/item/mod/module/visor/night
+
+/datum/mod_theme/elite/New()
+	. = ..()
+	inbuilt_modules -= /obj/item/mod/module/night
+	inbuilt_modules += /obj/item/mod/module/visor/night
