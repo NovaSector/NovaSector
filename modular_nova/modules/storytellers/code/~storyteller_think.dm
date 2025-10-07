@@ -104,6 +104,9 @@
 
 	var/list/weighted = list()
 	for(var/datum/storyteller_goal/G in candidates)
+		if(!G.is_available(inputs.vault, inputs, ctl) && !SSstorytellers.hard_debug)
+			continue
+
 		var/base_weight = G.get_weight(inputs.vault, inputs, ctl)
 		var/priority_boost = G.get_priority(inputs.vault, inputs, ctl) * 0.5  // Scale to avoid dominance
 		var/diff_adjust = ctl.difficulty_multiplier * population_scale

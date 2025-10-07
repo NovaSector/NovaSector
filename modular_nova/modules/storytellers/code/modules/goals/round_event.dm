@@ -8,6 +8,12 @@
 	SHOULD_CALL_PARENT(FALSE)
 	return TRUE
 
+/datum/round_event
+	//Should event be avaible for random selection? by default? FALSE - It's mean only storyteller can handle with it.
+	var/allow_random = TRUE
+
+
+// Overrading control of the event to the storyteller system
 /datum/round_event/proc/__setup_for_storyteller(threat_points, ...)
 	SHOULD_CALL_PARENT(TRUE)
 	setup()
@@ -18,5 +24,4 @@
 
 /datum/round_event/proc/__start_for_storyteller()
 	SHOULD_CALL_PARENT(TRUE)
-	processing = FALSE
 

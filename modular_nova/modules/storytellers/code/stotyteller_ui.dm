@@ -63,7 +63,8 @@
 		)
 	var/list/upcoming = ctl.planner.get_upcoming_goals(10)
 	data["upcoming_goals"] = list()
-	for(var/list/entry in upcoming)
+	for(var/offset in upcoming)
+		var/list/entry = ctl.planner.timeline[offset]
 		var/datum/storyteller_goal/goal = entry["goal"]
 		data["upcoming_goals"] += list(list(
 			"id" = goal.id,
@@ -137,7 +138,6 @@
 			var/datum/storyteller_goal/next = ctl.planner.get_closest_goal()
 			if(next)
 				next.complete(ctl.inputs.vault, ctl.inputs, ctl, round(ctl.threat_points * ctl.difficulty_multiplier * 100), ctl.inputs.station_value)
-				ctl.planner.recalculate_plan(ctl, ctl.inputs, ctl.balancer.make_snapshot(ctl.inputs))  // Recalc chain after force
 			return TRUE
 		if("reschedule_chain")
 			ctl.planner.recalculate_plan(ctl, ctl.inputs, ctl.balancer.make_snapshot(ctl.inputs))
@@ -204,6 +204,10 @@
 				// Schedule at end of chain with default offset
 				var/fire_offset = ctl.get_event_interval() * (length(ctl.planner.timeline) + 1)
 				ctl.planner.try_plan_goal(G, fire_offset)
+			return TRUE
+		if("toggle_debug")
+			SSstorytellers.hard_debug = !SSstorytellers.hard_debug
+			message_admins("Stortyteller debug mode: [SSstorytellers.hard_debug ? "ENABLED" : "DISABLED"]")
 			return TRUE
 	return FALSE
 

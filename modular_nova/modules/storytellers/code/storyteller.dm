@@ -137,6 +137,30 @@
 	// 6) Schedule next cycle
 	schedule_next_think()
 
+
+
+/// Helper to record a goal event: store timestamp for spacing and id for repetition penalty
+/datum/storyteller/proc/record_event(datum/storyteller_goal/G, status)
+	if(!G)
+		return
+	var/current_time = world.time
+	var/id = G.id + "_" + current_time
+	recent_events[id] = list(list(
+		"id" = G.id,
+		"desc" = G.desc,
+		"status" = status,
+		"fired_at" = (current_time / 1 MINUTES) + " min",
+	))
+	recent_event_ids |= G.id
+	while(recent_event_ids.len > recent_event_ids_max)
+		recent_event_ids.Cut(1, 2)
+	last_event_time = current_time
+
+
+/datum/storyteller/proc/update_population_factor()
+
+
+
 /datum/storyteller/proc/get_closest_subgoals()
 	return planner.get_upcoming_goals(10)
 
@@ -180,24 +204,6 @@
 
 /datum/storyteller/proc/get_effective_threat()
 	return threat_points * mood.get_threat_multiplier() * difficulty_multiplier
-
-/// Helper to record a goal event: store timestamp for spacing and id for repetition penalty
-/datum/storyteller/proc/record_event(datum/storyteller_goal/G, status)
-	if(!G)
-		return
-	var/current_time = world.time
-	var/id = G.id + "_" + current_time
-	recent_events[id] = list(list(
-		"id" = G.id,
-		"desc" = G.desc,
-		"status" = status,
-		"fired_at" = (current_time / 1 MINUTES) + " min",
-	))
-	recent_event_ids |= G.id
-	while(recent_event_ids.len > recent_event_ids_max)
-		recent_event_ids.Cut(1, 2)
-	last_event_time = current_time
-
 
 /// Adjust current mood variables based on balance snapshot (smooth, non-destructive)
 /datum/storyteller/proc/update_mood_based_on_balance(datum/storyteller_balance_snapshot/snap)

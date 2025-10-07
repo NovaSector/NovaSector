@@ -3,7 +3,7 @@
 	name = "Sabotage Infrastructure"
 	desc = "Sabotage the station machinery."
 	category = STORY_GOAL_BAD
-	tags = STORY_TAG_ESCALATION | STORY_TAG_AFFECTS_INFRASTRUCTURE
+	tags = STORY_TAG_ESCALATION | STORY_TAG_WIDE_IMPACT | STORY_TAG_TARGETS_SYSTEMS
 	path_ids = list("power_outage", "fire_outbreak")
 	event_path = /datum/round_event/sabotage_machinery
 
@@ -12,13 +12,14 @@
 	return inputs.station_state.mach != 0
 
 /datum/storyteller_goal/sabotage_infrastructure/get_weight(list/vault, datum/storyteller_inputs/inputs, datum/storyteller/storyteller)
-	return round((inputs.station_state.mach / 10) + storyteller.threat_points * 0.1)
+	return STORY_GOAL_BASE_WEIGHT * 2 + (storyteller.threat_points * 0.01)
 
 
 /datum/storyteller_goal/sabotage_infrastructure/get_priority(list/vault, datum/storyteller_inputs/inputs, datum/storyteller/storyteller)
 
 
 /datum/round_event/sabotage_machinery
+	allow_random = FALSE
 	var/list/candidate_types = list(
 		/obj/machinery/rnd,
 		/obj/machinery/recharger,

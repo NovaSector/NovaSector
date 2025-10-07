@@ -188,7 +188,9 @@ export const Storyteller = (props) => {
         {tab === 'overview' && (
           <>
             {desc ? <NoticeBox>{desc}</NoticeBox> : null}
-
+            <Button icon="plus" onClick={() => act('toggle_debug')}>
+                Toggle Storyteller debug mode
+            </Button>
             <Section title="Status">
               <LabeledList>
                 <LabeledList.Item label="Mood">
@@ -197,21 +199,17 @@ export const Storyteller = (props) => {
                 <LabeledList.Item label="Players / Antags">
                   {player_count ?? '—'} / {antag_count ?? '—'}
                 </LabeledList.Item>
-                <LabeledList.Item label="Balance">
-                  {player_antag_balance ?? '—'}
+                <LabeledList.Item>
+                  <ProgressRow
+                  label="Player / Antag Balance"
+                  value={(player_antag_balance ?? 50) / 100}
+                  ></ProgressRow>
                 </LabeledList.Item>
                 <LabeledList.Item label="Event Difficulty">
                   ×{event_difficulty_modifier ?? 1}
                 </LabeledList.Item>
-                <LabeledList.Item label="Think Delay (base)">
-                  {formatTime(base_think_delay, current_world_time)}
-                </LabeledList.Item>
                 <LabeledList.Item label="Next Think At">
-                  {formatTime(next_think_time, current_world_time)}
-                </LabeledList.Item>
-                <LabeledList.Item label="Event Interval">
-                  {formatTime(min_event_interval, current_world_time)} —{' '}
-                  {formatTime(max_event_interval, current_world_time)}
+                  {formatTime(next_think_time, current_world_time)}{' '}
                 </LabeledList.Item>
               </LabeledList>
             </Section>
@@ -237,6 +235,14 @@ export const Storyteller = (props) => {
                         {Math.round((g.progress ?? 0) * 100)}%
                       </Table.Cell>
                       <Table.Cell>{g.weight ?? '—'}</Table.Cell>
+                      <Table.Cell>
+                        <Button icon="play" onClick={() => act('fire_goal', {id: g.id})}>
+                          Fire goal
+                        </Button>
+                        <Button icon="bolt" onClick={() => act('remove_goal', {id: g.id})}>
+                          Remove goal
+                        </Button>
+                      </Table.Cell>
                     </Table.Row>
                   ))}
                 </Table>
@@ -274,6 +280,11 @@ export const Storyteller = (props) => {
                   </Button>
                 </Stack.Item>
               </Stack>
+              <Stack.Item>
+                <Button icon="plus" onClick={() => act('add_goal')}>
+                  Schedule New Goal
+                </Button>
+              </Stack.Item>
             </Section>
 
             <Section title="Recent Events">

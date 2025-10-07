@@ -71,7 +71,17 @@
 // Higher for conflict roles
 #define STORY_SECURITY_JOB_WEIGHT_MODIFIER (STORY_DEFAULT_JOB_WEIGHT_MODIFIER * 2.0)
 
+#define STORY_GOAL_BASE_WEIGHT 1.0
 
+#define STORY_GOAL_BIG_WEIGHT 3.0
+
+#define STORY_GOAL_MAJOR_WEIGHT 5.0
+
+#define STORY_GOAL_BASE_PRIORITY 1
+
+#define STORY_GOAL_HIGH_PRIORITY 5
+
+#define STORY_GOAL_CRITICAL_PRIORITY 10
 
 #define RESCAN_STATION_INTEGRITY (1 << 0)
 #define RESCAN_STATION_VALUE (1 << 1)
@@ -145,6 +155,12 @@ DEFINE_BITFIELD(story_goal_category, list(
 #define STORY_TAG_AFFECTS_POLITICS (1 << 14)
 // Goals introducing randomness or unpredictability, favoring volatile moods.
 #define STORY_TAG_CHAOTIC (1 << 15)
+// Goals targeting specific individuals rather than groups or the whole station.
+#define STORY_TAG_TARGETS_INDIVIDUALS (1 << 16)
+// Goals with broad impact across multiple station systems or the entire station.
+#define STORY_TAG_WIDE_IMPACT (1 << 17)
+
+#define STORY_TAG_TARGETS_SYSTEMS (STORY_TAG_AFFECTS_INFRASTRUCTURE | STORY_TAG_AFFECTS_TECHNOLOGY | STORY_TAG_AFFECTS_ENVIRONMENT)
 
 DEFINE_BITFIELD(story_universal_tags, list(
 	"ESCALATION" = STORY_TAG_ESCALATION,
@@ -163,15 +179,10 @@ DEFINE_BITFIELD(story_universal_tags, list(
 	"AFFECTS_TECHNOLOGY" = STORY_TAG_AFFECTS_TECHNOLOGY,
 	"AFFECTS_POLITICS" = STORY_TAG_AFFECTS_POLITICS,
 	"CHAOTIC" = STORY_TAG_CHAOTIC,
+	"TARGETS_INDIVIDUALS" = STORY_TAG_TARGETS_INDIVIDUALS,
+	"STORY_TAG_WIDE_IMPACT" = STORY_TAG_WIDE_IMPACT,
 ))
 
-#define STORY_GOAL_PENDING "goal_pending"
-#define STORY_GOAL_FIRING "goal_firing"
-#define STORY_GOAL_COMPLETED "goal_completed"
-#define STORY_GOAL_FAILED "goal_failed"
-
-// Core storyteller pacing and difficulty constants
-#define STORY_THINK_BASE_DELAY (2 MINUTES)
 #define STORY_GOAL_PENDING "goal_pending"
 #define STORY_GOAL_FIRING "goal_firing"
 #define STORY_GOAL_COMPLETED "goal_completed"

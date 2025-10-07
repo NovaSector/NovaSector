@@ -20,6 +20,8 @@ SUBSYSTEM_DEF(storytellers)
 	/// Active storyteller instance
 	var/datum/storyteller/active
 
+	VAR_PRIVATE/list/active_events = list()
+
 	var/list/storyteller_vote_uis = list()
 
 	// The current station value
@@ -190,10 +192,14 @@ SUBSYSTEM_DEF(storytellers)
 
 	return new_st
 
-
 /datum/controller/subsystem/storytellers/fire(resumed)
 	if(active)
 		active.think()
+	for(var/datum/round_event/E in active_events)
+		if(!E || QDELETED(E))
+			active_events -= E
+			continue
+		E.process()
 
 
 /datum/controller/subsystem/storytellers/proc/setup_game()
@@ -248,14 +254,14 @@ SUBSYSTEM_DEF(storytellers)
 	goal_roots = list()
 
 	// Initialize categories as empty lists with bitflags as keys
-	goals_by_category[STORY_GOAL_RANDOM] = list()
-	goals_by_category[STORY_GOAL_GOOD] = list()
-	goals_by_category[STORY_GOAL_BAD] = list()
-	goals_by_category[STORY_GOAL_NEUTRAL] = list()
-	goals_by_category[STORY_GOAL_UNCATEGORIZED] = list()
+	goals_by_category["GOAL_RANDOM"] = list()
+	goals_by_category["GOAL_GOOD"] = list()
+	goals_by_category["GOAL_BAD"] = list()
+	goals_by_category["GOAL_NEUTRAL"] = list()
+	goals_by_category["GOAL_UNCATEGORIZED"] = list()
 
-	var/list/goal_types = subtypesof(/datum/storyteller_goal)
-	for(var/goal_type in goal_types)
+
+	for(var/goal_type in subtypesof(/datum/storyteller_goal))
 		if(goal_type == /datum/storyteller_goal)  // Skip base type
 			continue
 		var/datum/storyteller_goal/goal = new goal_type()
@@ -276,15 +282,15 @@ SUBSYSTEM_DEF(storytellers)
 
 		// Assign to all matching categories (bitflags allow multiple)
 		if(goal.category & STORY_GOAL_RANDOM)
-			goals_by_category[STORY_GOAL_RANDOM] += goal
+			goals_by_category["GOAL_RANDOM"] += goal
 		if(goal.category & STORY_GOAL_GOOD)
-			goals_by_category[STORY_GOAL_GOOD] += goal
+			goals_by_category["GOAL_GOOD"] += goal
 		if(goal.category & STORY_GOAL_BAD)
-			goals_by_category[STORY_GOAL_BAD] += goal
+			goals_by_category["GOAL_BAD"] += goal
 		if(goal.category & STORY_GOAL_NEUTRAL)
-			goals_by_category[STORY_GOAL_NEUTRAL] += goal
+			goals_by_category["GOAL_NEUTRAL"] += goal
 		if(goal.category & STORY_GOAL_UNCATEGORIZED)
-			goals_by_category[STORY_GOAL_UNCATEGORIZED] += goal
+			goals_by_category["GOAL_UNCATEGORIZED"] += goal
 
 	// Link children after all instantiated
 	for(var/id in goals_by_id)
@@ -306,13 +312,22 @@ SUBSYSTEM_DEF(storytellers)
 	var/list/result = list()
 
 	var/list/goals_to_check = list()
+	var/category_str
 	if(category)
-		if(!(category in goals_by_category))  // Check if category exists
-			if(hard_debug)
-				log_storyteller("Invalid category [category] in filter_goals.")
-			return result
-		goals_to_check = _list_copy(goals_by_category[category])
+		if(category & STORY_GOAL_RANDOM)
+			category_str = "GOAL_RANDOM"
+		else if(category & STORY_GOAL_GOOD)
+			category_str = "GOAL_GOOD"
+		else if(category & STORY_GOAL_BAD)
+			category_str = "GOAL_BAD"
+		else if(category & STORY_GOAL_NEUTRAL)
+			category_str = "GOAL_NEUTRAL"
+		else
+			category_str = "GOAL_UNCATEGORIZED"
+	else
+		category_str = "GOAL_UNCATEGORIZED"  // Default to uncategorized if none specified
 
+	goals_to_check = _list_copy(goals_by_category[category_str])
 	if(!goals_to_check)
 		return list()
 
@@ -356,6 +371,15 @@ SUBSYSTEM_DEF(storytellers)
 /datum/controller/subsystem/storytellers/proc/get_goals_by_tags(required_tags, all_tags_required = FALSE)
 	return filter_goals(null, required_tags, null, all_tags_required, TRUE)
 
+/datum/controller/subsystem/storytellers/proc/register_active_event(datum/round_event/E)
+	if(!E || QDELETED(E))
+		return
+	active_events += E
+
+/datum/controller/subsystem/storytellers/proc/unregister_active_event(datum/round_event/E)
+	if(!E || QDELETED(E))
+		return
+	active_events -= E
 
 /datum/config_entry/flag/storyteller_replace_dynamic
 	default = TRUE

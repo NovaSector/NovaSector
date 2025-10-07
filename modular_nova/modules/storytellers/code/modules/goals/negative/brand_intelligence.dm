@@ -1,0 +1,22 @@
+/datum/storyteller_goal/execute_event/brand_intelligence
+	id = "brand_intelligence"
+	name = "Brand Intelligence"
+	desc = "A vending machine has become self-aware and is aggressively marketing its products to the crew.\
+			This event can lead to increased stress levels among personnel if not addressed promptly."
+	children = list()
+	category = STORY_GOAL_BAD
+	tags = STORY_TAG_AFFECTS_CREW_MIND | STORY_TAG_ESCALATION | STORY_TAG_WIDE_IMPACT
+	event_path = /datum/round_event/brand_intelligence
+
+
+/datum/storyteller_goal/execute_event/brand_intelligence/is_available(list/vault, datum/storyteller_inputs/inputs, datum/storyteller/storyteller)
+	return vault[STORY_VAULT_CREW_ALIVE_COUNT] >= 15 && SSmachines.get_machines_by_type_and_subtypes(/obj/machinery/vending)
+
+/datum/storyteller_goal/execute_event/brand_intelligence/get_weight(list/vault, datum/storyteller_inputs/inputs, datum/storyteller/storyteller)
+	return STORY_GOAL_BASE_WEIGHT + (vault[STORY_VAULT_CREW_ALIVE_COUNT] * 0.2) + (storyteller.threat_points * 0.1)
+
+/datum/storyteller_goal/execute_event/brand_intelligence/get_priority(list/vault, datum/storyteller_inputs/inputs, datum/storyteller/storyteller)
+	return STORY_GOAL_BASE_PRIORITY + (storyteller.threat_points * 0.05)
+
+/datum/round_event/brand_intelligence
+	allow_random = FALSE
