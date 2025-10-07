@@ -55,6 +55,7 @@
 	if(!ammo_count(TRUE) && !QDELING(src))
 		qdel(src)
 
+/// Iterates through every casing in this ammo stack, scattering it and moving it out of the ammo stack, in the event this was thrown.
 /obj/item/ammo_box/magazine/ammo_stack/proc/scatter(atom/hit_atom, pixel_distance = 48)
 	var/turf/scatter_turf = get_turf(hit_atom)
 	if(!hit_atom.CanPass(src, get_dir(src, hit_atom))) //Object is too dense to fall apart on
@@ -69,6 +70,7 @@
 	playsound(scatter_turf, 'sound/items/weapons/gun/general/mag_bullet_remove.ogg', 60, TRUE)
 	check_empty()
 
+/// Scatters an individual casing, bouncing and pixel-moving it about.
 /obj/item/ammo_box/magazine/ammo_stack/proc/scatter_individual_casing(obj/item/ammo_casing/scattered_casing, pixel_x_offset = 0, pixel_y_offset = 0)
 	if(prob(50)) // Randomize order, avoid bias to one axis if stepping is blocked
 		pixelmove_casing(scattered_casing, pixel_y_offset, x_axis = FALSE)
@@ -78,6 +80,7 @@
 		pixelmove_casing(scattered_casing, pixel_y_offset, x_axis = FALSE)
 	scattered_casing.bounce_away(FALSE, rand(0, 3))
 
+/// Pixel-moves a casing around based on offsets, in tandem with casing scattering when this ammo stack is thrown.
 /obj/item/ammo_box/magazine/ammo_stack/proc/pixelmove_casing(obj/item/ammo_casing/scattered_casing, pixel_offset = 0, x_axis = TRUE)
 	var/positive_dir = x_axis ? EAST : NORTH
 	var/negative_dir = x_axis ? WEST : SOUTH
