@@ -139,3 +139,4 @@
 	registered_age = null
 	trim = /datum/id_trim/admin
 	wildcard_slots = WILDCARD_LIMIT_ADMIN
+
