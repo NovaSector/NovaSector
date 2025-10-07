@@ -1,0 +1,5 @@
+author: "OrbisAnima"
+delete-after: True
+changes:
+  - bugfix: "fixed the bug with ghost roles spawned with two of the same first backpack item"
+  - bugfix: "fixed the bug with plasmamans not being able to spawn in ghost roles without inmediatly inmolating themselves. Cafe Visitor plasmas also start with 3 plasma tanks. Cafe Visitors Vox (and primalis!) spawn with 3 nitrogen tanks."
