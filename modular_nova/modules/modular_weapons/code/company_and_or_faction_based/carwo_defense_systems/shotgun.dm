@@ -58,6 +58,11 @@
 
 	. = ..()
 
+/obj/item/gun/ballistic/shotgun/riot/sol/sawoff(mob/user, obj/item/saw, handle_modifications)
+	. = ..()
+	magazine.max_ammo = 4 // capacity drops to 4+1 because Where's The Rest Of The Magazine, Bro
+	// possible todo short inhands?
+
 /obj/item/ammo_box/magazine/internal/shot/sol
 	ammo_type = /obj/item/ammo_casing/shotgun/rubbershot
 	max_ammo = 8

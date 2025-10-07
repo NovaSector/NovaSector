@@ -1,0 +1,4 @@
+author: "dmnaru"
+delete-after: True
+changes:
+  - rscadd: "Added new limp leg quirk to loadout"
