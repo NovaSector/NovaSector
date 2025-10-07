@@ -517,9 +517,9 @@
 	name = "Chonky (Fish Infusion)"
 
 /datum/sprite_accessory/tails/mammal/wagging/chemlight
-	name = "Chemlight"
+	name = "Striped tail"
 	icon_state = "chemlight"
 
 /datum/sprite_accessory/tails/mammal/wagging/chemlight_alt
-	name = "Striped tail"
+	name = "Striped tail (Alt)"
 	icon_state = "chemlight_alt"
