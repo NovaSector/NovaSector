@@ -1,72 +1,164 @@
 /obj/machinery/trash_compactor
 	name = "trash compactor"
-	desc = "A machine that crushes and processes recyclable materials."
+	desc = "A machine that crushes and processes recyclable materials. After processing trash, it punches GAP cards and dispenses ration tickets. Wisdom guaranteed with every transaction."
 	icon = 'modular_nova/modules/trash_compactor/icons/trash_compactor.dmi'
-	icon_state = "recycler"
+	icon_state = "active"
 	density = TRUE
 	use_power = IDLE_POWER_USE
 	idle_power_usage = 10
 	active_power_usage = 500
 	circuit = /obj/item/circuitboard/machine/trash_compactor
 
-	// Processing variables
-	var/processing = FALSE
-	var/processing_time = 30 // deciseconds
-	var/processing_efficiency = 0.8 // 80% return rate
+	// Component-based variables
+	var/coin_multiplier = 1 // Kept for compatibility but unused
+	var/coin_quality = 1 // Kept for compatibility but unused
+	// Track trash count for each user
+	var/list/trash_counts = list()
+	// Track inserted GAP cards
+	var/obj/item/gbp_punchcard/inserted_card = null
 
-	// Storage
-	var/datum/component/storage/consuming/hold
-	var/max_items = 20
-
-/obj/machinery/trash_compactor/Initialize(mapload)
+/obj/machinery/trash_compactor/RefreshParts()
 	. = ..()
-	hold = AddComponent(/datum/component/storage)
-	hold.max_items = max_items
+	// Component effects can be repurposed later if needed
 
-/obj/machinery/trash_compactor/attackby(obj/item/O, mob/user, params)
-	if(hold.can_be_inserted(O, stop_messages = FALSE))
-		hold.handle_item_insertion(O, user = user)
-		return TRUE
-	return ..()
+/obj/machinery/trash_compactor/examine(mob/living/user)
+	. = ..()
+	if(in_range(user, src) || isobserver(user))
+		// Get user's bank account
+		var/datum/bank_account/user_account = user.get_bank_account()
 
-/obj/machinery/trash_compactor/process()
-	if(!processing && hold.contents.len > 0)
-		start_processing()
+		// Get tracker key
+		var/tracker_key
+		if(user_account)
+			tracker_key = user_account.account_id
+		else if(user)
+			tracker_key = user.real_name
 
-/obj/machinery/trash_compactor/proc/start_processing()
-	if(processing)
-		return
-	processing = TRUE
-	update_appearance()
-	addtimer(CALLBACK(src, PROC_REF(finish_processing)), processing_time)
+		// Show trash count if user has used the machine before
+		if(tracker_key && trash_counts[tracker_key])
+			var/required = is_janitor(user) ? 5 : 15
+			var/remaining = required - trash_counts[tracker_key]
+			. += span_notice("The status display reads: You have deposited <b>[trash_counts[tracker_key]]</b> pieces of trash. <b>[remaining]</b> more needed for a ration ticket.")
+		else
+			. += span_notice("The status display reads: Deposit [is_janitor(user) ? "5" : "15"] pieces of trash to receive a ration ticket.")
 
-/obj/machinery/trash_compactor/proc/finish_processing()
-	if(!processing)
-		return
-	processing = FALSE
-	update_appearance()
+		if(inserted_card)
+			. += span_notice("There's a GAP card inserted in the machine.")
 
-	// Process each item
-	for(var/obj/item/I in hold.contents)
-		process_item(I)
+/obj/machinery/trash_compactor/attackby(obj/item/attacking_item, mob/living/carbon/user)
+	. = ..()
 
-/obj/machinery/trash_compactor/proc/process_item(obj/item/I)
-	// Convert items to materials
-	var/material_amount = I.get_material_amount() * processing_efficiency
-	if(material_amount > 0)
-		var/material_type = I.get_material_type()
-		if(material_type)
-			new material_type(get_turf(src), material_amount)
-	qdel(I)
+	// Handle GAP card insertion
+	if(istype(attacking_item, /obj/item/gbp_punchcard))
+		if(inserted_card)
+			balloon_alert(user, "card already inserted!")
+			return COMPONENT_NO_AFTERATTACK
+		if(!user.transferItemToLoc(attacking_item, src))
+			return
+		inserted_card = attacking_item
+		balloon_alert(user, "card inserted")
+		return COMPONENT_NO_AFTERATTACK
+
+	// Handle trash bags for bulk processing
+	if(istype(attacking_item, /obj/item/storage/bag/trash))
+		process_trash_bag(attacking_item, user)
+		return COMPONENT_NO_AFTERATTACK
+
+	if(process_trash(attacking_item, user))
+		return COMPONENT_NO_AFTERATTACK
+
+	return NONE
+
+/obj/machinery/trash_compactor/proc/is_janitor(mob/user)
+	if(!ishuman(user))
+		return FALSE
+	var/mob/living/carbon/human/human_user = user
+	return human_user.mind?.assigned_role == "Janitor"
+
+/obj/machinery/trash_compactor/proc/process_trash(obj/item/trash_item, mob/living/carbon/user, bulk_processing = FALSE)
+	if(!istype(trash_item, /obj/item/trash))
+		return FALSE
+
+	if(machine_stat & (NOPOWER|BROKEN))
+		balloon_alert(user, "no power!")
+		return FALSE
+
+	// Instant processing - no delay
+	if(!bulk_processing)
+		balloon_alert(user, "compacting trash...")
+	playsound(src, 'sound/machines/click.ogg', 40, TRUE)
+
+	// Get user's bank account
+	var/datum/bank_account/user_account = user.get_bank_account()
+
+	// Track trash count by account or user if no account
+	var/tracker_key
+	if(user_account)
+		tracker_key = user_account.account_id
+	else if(user)
+		tracker_key = user.real_name
+
+	if(tracker_key)
+		trash_counts[tracker_key] = trash_counts[tracker_key] ? trash_counts[tracker_key] + 1 : 1
+
+	qdel(trash_item)
+
+	if(!bulk_processing)
+		// Say random wisdom (only for single items, not bulk)
+		var/wisdom = pick(GLOB.wisdoms)
+		say(wisdom)
+		balloon_alert(user, "trash compacted!")
+		playsound(src, 'sound/machines/ping.ogg', 40, TRUE)
+		use_energy(active_power_usage)
+
+		// Check if we've reached required pieces of trash
+		if(tracker_key && trash_counts[tracker_key] >= (is_janitor(user) ? 5 : 15))
+			// Reset counter
+			trash_counts[tracker_key] = 0
+			// Dispense a ration ticket
+			new /obj/item/paper/paperslip/ration_ticket(drop_location())
+			say("Ration ticket dispensed! Thank you for your contribution to recycling.")
+			playsound(src, 'sound/machines/chime.ogg', 50, TRUE)
+
+			// Punch the GAP card if one is inserted
+			if(inserted_card)
+				if(inserted_card.punches < inserted_card.max_punches)
+					inserted_card.punches++
+					inserted_card.icon_state = "punchcard_[inserted_card.punches]"
+				say("GAP card punched!")
+				playsound(src, 'sound/items/boxcutter_activate.ogg', 50, TRUE)
+				if(inserted_card.punches == inserted_card.max_punches)
+					playsound(src, 'sound/items/party_horn.ogg', 100)
+					say("Congratulations, you have finished your punchcard!")
+
+	return TRUE
+
+/obj/machinery/trash_compactor/proc/process_trash_bag(obj/item/storage/bag/trash/trash_bag, mob/living/carbon/user)
+	if(machine_stat & (NOPOWER|BROKEN))
+		balloon_alert(user, "no power!")
+		return FALSE
+
+	var/processed_count = 0
+	for(var/obj/item/trash/trash_item in trash_bag.contents)
+		if(process_trash(trash_item, user, bulk_processing = TRUE))
+			processed_count++
+
+	if(processed_count > 0)
+		balloon_alert(user, "processed [processed_count] items!")
+		playsound(src, 'sound/machines/ping.ogg', 60, TRUE)
+		use_energy(active_power_usage * processed_count)
+	else
+		balloon_alert(user, "bag empty!")
+
+	return processed_count > 0
 
 /obj/machinery/trash_compactor/update_icon_state()
-	if(processing)
-		icon_state = "recycler-o"
-	else
-		icon_state = "recycler"
 	return ..()
 
 /obj/item/circuitboard/machine/trash_compactor
 	name = "Trash Compactor (Machine Board)"
 	build_path = /obj/machinery/trash_compactor
-	req_components = list()
+	req_components = list(
+		/datum/stock_part/servo = 1,
+		/datum/stock_part/micro_laser = 1,
+	)
