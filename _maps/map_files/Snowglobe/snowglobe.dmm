@@ -51924,8 +51924,9 @@
 /turf/open/floor/carpet/red,
 /area/station/service/chapel)
 "nPm" = (
+/obj/effect/turf_decal/siding/wood,
 /obj/structure/closet/crate/bin,
-/turf/open/floor/wood/tile,
+/turf/open/floor/wood,
 /area/station/security/courtroom)
 "nPv" = (
 /obj/effect/spawner/random/structure/closet_maintenance,
@@ -257229,7 +257230,7 @@ mdr
 tMc
 lQg
 aSC
-nPm
+pLM
 fCa
 jNz
 eHC
@@ -257485,7 +257486,7 @@ sNr
 hTv
 epO
 lQg
-nlO
+nPm
 pLM
 jCh
 niX
