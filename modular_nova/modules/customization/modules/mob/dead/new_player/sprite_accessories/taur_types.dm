@@ -263,5 +263,5 @@
 	laydown_offset = -6
 
 /datum/sprite_accessory/taur/chemlight/alt
-	name = "striped canine"
+	name = "Striped Canine"
 	icon_state = "chemtaur_alt"
