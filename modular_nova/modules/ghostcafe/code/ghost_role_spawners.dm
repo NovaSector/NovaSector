@@ -49,7 +49,6 @@
 	density = FALSE
 	spawner_job_path = /datum/job/ghostcafe
 	outfit = /datum/outfit/ghostcafe
-	plasmaman_outfit = /datum/outfit/ghostcafe/plasmaman
 	you_are_text = "You are a Cafe Visitor!"
 	flavour_text = "You are off-duty and have decided to visit your favourite cafe. Enjoy yourself."
 	random_appearance = FALSE
@@ -85,17 +84,12 @@
 	back = /obj/item/storage/backpack/chameleon
 	backpack_contents = list(/obj/item/storage/box/syndie_kit/chameleon/ghostcafe = 1)
 
-/datum/outfit/ghostcafe/plasmaman
-	name = " Cafe Visitor Plasmaman"
-	uniform = /obj/item/clothing/under/plasmaman
-	gloves = /obj/item/clothing/gloves/color/plasmaman
-	head = /obj/item/clothing/head/helmet/space/plasmaman
-	l_pocket = /obj/item/tank/internals/plasmaman/belt/full
-	internals_slot = ITEM_SLOT_LPOCKET
-
-/datum/outfit/ghostcafe/plasmaman/New()
+/datum/outfit/ghostcafe/pre_equip(mob/living/carbon/human/visitor, visuals_only = FALSE)
 	..()
-	backpack_contents += list(/obj/item/tank/internals/plasmaman/belt/full = 2)
+	if (isplasmaman(visitor))
+		backpack_contents += list(/obj/item/tank/internals/plasmaman/belt/full = 2)
+	if(isvox(visitor) || isvoxprimalis(visitor))
+		backpack_contents += list(/obj/item/tank/internals/nitrogen/belt/full = 2)
 
 /datum/action/toggle_dead_chat_mob
 	button_icon = 'icons/mob/simple/mob.dmi'

@@ -12,8 +12,6 @@
 	var/quirks_enabled = FALSE
 	/// Are we limited to a certain species type? LISTED TYPE
 	var/restricted_species
-	/// Do we have an outfit for Plasmaman prepared for this role?
-	var/plasmaman_outfit
 
 /obj/effect/mob_spawn/ghost_role/create(mob/mob_possessor, newname, use_loadout = FALSE)
 	var/load_prefs = FALSE
@@ -52,10 +50,7 @@
 		post_transfer_prefs(spawned_human)
 
 	if(load_prefs && loadout_enabled)
-		if(isplasmaman(spawned_human) && plasmaman_outfit)
-			spawned_human?.equip_outfit_and_loadout(plasmaman_outfit, spawned_mob.client.prefs)
-		else
-			spawned_human?.equip_outfit_and_loadout(outfit, spawned_mob.client.prefs)
+		spawned_human?.equip_outfit_and_loadout(outfit, spawned_mob.client.prefs)
 	else if (!isnull(spawned_human))
 		equip(spawned_human)
 		var/mutable_appearance/character_appearance = new(spawned_human.appearance)
