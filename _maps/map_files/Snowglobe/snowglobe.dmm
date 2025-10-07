@@ -44148,10 +44148,10 @@
 /obj/machinery/door/airlock/research/glass{
 	name = "Ordnance Lab"
 	},
-/obj/effect/mapping_helpers/airlock/locked,
 /obj/machinery/atmospherics/pipe/smart/simple/purple/visible{
 	dir = 4
 	},
+/obj/structure/plasticflaps/kitchen,
 /turf/open/floor/iron/dark,
 /area/station/science/ordnance/freezerchamber)
 "lHO" = (
