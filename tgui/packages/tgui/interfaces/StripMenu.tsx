@@ -63,7 +63,7 @@ const ALTERNATE_ACTIONS: Record<string, AlternateAction> = {
     icon: 'handcuffs',
     text: 'Remove Handcuffs',
   },
- 
+
   enable_internals: {
     icon: 'lungs', // NOVA EDIT - TGFONT IS FUCKED AND I DUNNO WHY SO HERE'S A BANDAID - original "tg-air-tank"
     text: 'Enable internals',
@@ -351,7 +351,7 @@ export const StripMenu = (props) => {
                     );
 
                     tooltip = item.name;
-                    if (item.alternate) {
+                    if (item.alternate?.length) {
                       alternateActions = item.alternate.map(
                         (alternateKey, idx) => {
                           const alternateAction =
