@@ -16,5 +16,4 @@
 /obj/item/melee/energy/sword/surplus/slapcraft
 	name = "\improper Type II 'Bokuto' energy sword"
 	desc = "A hand made energy sword used for live training and pest control. It can be recharged with the dynamos in the handle."
-	armour_penetration = 20 // Surplus is 35
-	block_chance = 20 // Surplus is 50
+	block_chance = 25 // Surplus is 50
