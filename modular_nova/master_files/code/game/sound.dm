@@ -1,6 +1,5 @@
 //! Nova's modular sound key overrides
 
-// sound overrides
 /datum/sound_effect/cat_meow // everything from tg without the fucked up oranges meow (lmao)
 	key = SFX_CAT_MEOW
 	file_paths = list(
