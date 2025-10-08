@@ -34,7 +34,7 @@
 		'sound/mobs/humanoids/human/snore/snore_mimimi2.ogg' = 1,
 	)
 
-/* // NOVA EDIT REMOVAL START - We don't want the oranges meow but can't override this one due to its behavior expecting an associative list, and can't have a non-assoc datum with the same key due to BYOND logic
+/* // NOVA EDIT REMOVAL START - We don't want the oranges meow but can't deal with this modularly due to complications
 /datum/sound_effect/assoc/cat_meow
 	key = SFX_CAT_MEOW
 	file_paths = list(
