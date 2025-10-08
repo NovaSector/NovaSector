@@ -5,7 +5,7 @@
 			This event can lead to increased stress levels among personnel if not addressed promptly."
 	children = list()
 	category = STORY_GOAL_BAD
-	tags = STORY_TAG_AFFECTS_CREW_MIND | STORY_TAG_ESCALATION | STORY_TAG_WIDE_IMPACT
+	tags = STORY_TAG_ESCALATION | STORY_TAG_WIDE_IMPACT | STORY_TAG_ENTITIES
 	event_path = /datum/round_event/brand_intelligence
 
 

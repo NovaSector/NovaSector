@@ -25,6 +25,4 @@
 	. = ..()
 	end_when = (2 MINUTES) * (1 + round(threat_points / 200))
 
-/datum/round_event/aurora_caelus/__start_for_storyteller()
-	. = ..()
-	SSstorytellers.register_active_event(src)
+

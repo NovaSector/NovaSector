@@ -57,8 +57,10 @@
 
 	/// Overall difficulty multiplier; scales all weights/threats (1.0 normal)
 	var/difficulty_multiplier = STORY_DIFFICULTY_MULTIPLIER
-	/// Population factor; scales by active player population
+	/// Population factor; scales by active player population, larger crews get denser and more frequent events
 	var/population_factor = STORY_POPULATION_FACTOR
+	/// History of population counts for caunting population factor
+	VAR_PRIVATE/list/population_history = list()
 	/// Max threat scale; caps threat_points to prevent over-escalation
 	var/max_threat_scale = STORY_MAX_THREAT_SCALE
 	/// Repetition penalty; reduces weight of recently used events/goals for variety
@@ -130,10 +132,15 @@
 		record_event(completed_goal, STORY_GOAL_COMPLETED)
 
 	// 5) Passive threat/adaptation drift each think
-	threat_points = min(max_threat_scale, threat_points + threat_growth_rate * mood.get_variance_multiplier())
+	threat_points = min(max_threat_scale, threat_points + threat_growth_rate * mood.get_threat_multiplier())
 	adaptation_factor = max(0, adaptation_factor - adaptation_decay_rate)
 	round_progression = clamp((world.realtime - round_start_time) / STORY_ROUND_PROGRESSION_TRESHOLD, 0, 1)
 
+	population_history[num2text(world.time)] = inputs.vault[STORY_VAULT_CREW_ALIVE_COUNT] \
+											? inputs.vault[STORY_VAULT_CREW_ALIVE_COUNT] : 0
+	while(length(population_history) > 10)
+		population_history.Cut(1, 2)
+	update_population_factor()
 	// 6) Schedule next cycle
 	schedule_next_think()
 
@@ -152,13 +159,22 @@
 		"fired_at" = (current_time / 1 MINUTES) + " min",
 	))
 	recent_event_ids |= G.id
-	while(recent_event_ids.len > recent_event_ids_max)
+	while(length(recent_event_ids) > recent_event_ids_max)
 		recent_event_ids.Cut(1, 2)
 	last_event_time = current_time
 
 
 /datum/storyteller/proc/update_population_factor()
-
+	var/total = 0
+	var/count = 0
+	for(var/key in population_history)
+		total += text2num(population_history[key])
+		count++
+	if(count > 0)
+		var/avg = total / count
+		population_factor = clamp(max(1, avg) / inputs.vault[STORY_VAULT_CREW_ALIVE_COUNT], 0.1, 1.0)
+	else
+		population_factor = 1.0
 
 
 /datum/storyteller/proc/get_closest_subgoals()
@@ -184,9 +200,9 @@
 	return mood.get_event_frequency_multiplier() * (1.0 - adaptation_factor)
 
 /// Base event interval, scaled by pace and divided by population for denser threats in larger crews.
-/// Supports sub-goal branching via station analysis for goal progression.
+/// Biger crews can handle more frequent events
 /datum/storyteller/proc/get_event_interval()
-	return (min_event_interval + (max_event_interval - min_event_interval) / get_effective_pace()) / population_factor
+	return (min_event_interval + (max_event_interval - min_event_interval) / get_effective_pace()) * population_factor
 
 /// Event interval without population adjustment; for baseline pacing in global goal selection.
 /datum/storyteller/proc/get_event_interval_no_population_factor()
@@ -204,6 +220,10 @@
 
 /datum/storyteller/proc/get_effective_threat()
 	return threat_points * mood.get_threat_multiplier() * difficulty_multiplier
+
+
+/datum/storyteller/proc/get_next_possible_event_time()
+	return world.time - get_time_since_last_event() + get_event_interval()
 
 /// Adjust current mood variables based on balance snapshot (smooth, non-destructive)
 /datum/storyteller/proc/update_mood_based_on_balance(datum/storyteller_balance_snapshot/snap)

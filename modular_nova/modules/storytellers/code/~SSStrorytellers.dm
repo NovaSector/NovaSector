@@ -114,20 +114,20 @@ SUBSYSTEM_DEF(storytellers)
 			parsed["mood_path"] = /datum/storyteller_mood
 
 
-		parsed["base_think_delay"] = isnum(entry["base_think_delay"]) ? max(0, entry["base_think_delay"] * 10) : STORY_THINK_BASE_DELAY
-		parsed["min_event_interval"] = isnum(entry["min_event_interval"]) ? max(0, entry["min_event_interval"] * 10) : STORY_MIN_EVENT_INTERVAL
-		parsed["max_event_interval"] = isnum(entry["max_event_interval"]) ? max(parsed["min_event_interval"], entry["max_event_interval"] * 10) : STORY_MAX_EVENT_INTERVAL
-		parsed["grace_period"] = isnum(entry["grace_period"]) ? max(0, entry["grace_period"] * 10) : STORY_GRACE_PERIOD
-		parsed["mood_update_interval"] = isnum(entry["mood_update_interval"]) ? max(0, entry["mood_update_interval"] * 10) : STORY_RECALC_INTERVAL
-		parsed["recent_damage_threshold"] = isnum(entry["recent_damage_threshold"]) ? max(0, entry["recent_damage_threshold"]) : STORY_RECENT_DAMAGE_THRESHOLD  // Not time, raw value
+		parsed["base_think_delay"] = isnum(entry["base_think_delay"]) ? max(0, entry["base_think_delay"] SECONDS) : STORY_THINK_BASE_DELAY
+		parsed["min_event_interval"] = isnum(entry["min_event_interval"]) ? max(0, entry["min_event_interval"] MINUTES) : STORY_MIN_EVENT_INTERVAL
+		parsed["max_event_interval"] = isnum(entry["max_event_interval"]) ? max(parsed["min_event_interval"], entry["max_event_interval"] MINUTES) : STORY_MAX_EVENT_INTERVAL
+		parsed["grace_period"] = isnum(entry["grace_period"]) ? max(0, entry["grace_period"] MINUTES) : STORY_GRACE_PERIOD
+		parsed["mood_update_interval"] = isnum(entry["mood_update_interval"]) ? max(0, entry["mood_update_interval"] MINUTES) : STORY_RECALC_INTERVAL
+
 
 		// Non-time numerics
+		parsed["recent_damage_threshold"] = isnum(entry["recent_damage_threshold"]) ? max(0, entry["recent_damage_threshold"]) : STORY_RECENT_DAMAGE_THRESHOLD
 		parsed["threat_growth_rate"] = isnum(entry["threat_growth_rate"]) ? clamp(entry["threat_growth_rate"], 0, 10) : STORY_THREAT_GROWTH_RATE
 		parsed["adaptation_decay_rate"] = isnum(entry["adaptation_decay_rate"]) ? clamp(entry["adaptation_decay_rate"], 0, 1) : STORY_ADAPTATION_DECAY_RATE
 		parsed["target_tension"] = isnum(entry["target_tension"]) ? clamp(entry["target_tension"], 0, 100) : STORY_TARGET_TENSION
 		parsed["max_threat_scale"] = isnum(entry["max_threat_scale"]) ? max(0, entry["max_threat_scale"]) : STORY_MAX_THREAT_SCALE
 		parsed["repetition_penalty"] = isnum(entry["repetition_penalty"]) ? clamp(entry["repetition_penalty"], 0, 2) : STORY_REPETITION_PENALTY
-		parsed["difficulty_multiplier"] = isnum(entry["difficulty_multiplier"]) ? clamp(entry["difficulty_multiplier"], 0.1, 5.0) : STORY_DIFFICULTY_MULTIPLIER
 
 		// Placeholder lists: welcome and round speech (assume list of strings)
 		parsed["storyteller_welcome_speech"] = islist(entry["welcome_speech"]) ? entry["welcome_speech"] : list()
@@ -199,7 +199,7 @@ SUBSYSTEM_DEF(storytellers)
 		if(!E || QDELETED(E))
 			active_events -= E
 			continue
-		E.process()
+		E.__process_for_storyteller(world.tick_lag)
 
 
 /datum/controller/subsystem/storytellers/proc/setup_game()

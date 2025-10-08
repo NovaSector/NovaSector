@@ -28,6 +28,15 @@
 /datum/storyteller_planner/proc/update_plan(datum/storyteller/ctl, datum/storyteller_inputs/inputs, datum/storyteller_balance_snapshot/bal)
 	SHOULD_NOT_OVERRIDE(TRUE)
 
+	// First, clean up completed/failed goals from timeline
+	for(var/offset_str in timeline.Copy())
+		var/list/entry = timeline[offset_str]
+		if(entry[ENTRY_STATUS] in list(STORY_GOAL_COMPLETED, STORY_GOAL_FAILED))
+			var/datum/storyteller_goal/clean_goal = entry[ENTRY_GOAL]
+			timeline -= offset_str
+			if(clean_goal)
+				qdel(clean_goal)
+
 	var/list/fired_goals = list()
 	var/current_time = world.time
 
@@ -49,6 +58,7 @@
 			continue
 
 		entry[ENTRY_STATUS] = STORY_GOAL_FIRING
+		// We literally multiply by difficulty_multiplier, it's mean 5x difficulty = 5x points
 		if(goal.complete(inputs.vault, inputs, ctl, round(ctl.threat_points * ctl.difficulty_multiplier * 100), inputs.station_value))
 			fired_goals += goal
 			entry[ENTRY_STATUS] = STORY_GOAL_COMPLETED
@@ -60,20 +70,16 @@
 			try_plan_goal(goal, replan_delay)
 			message_admins("[span_warning("Storyteller goal failed to fire: ")] [goal.name || goal.id] — rescheduling.")
 
-	for(var/offset_str in timeline.Copy())
-		var/list/entry = timeline[offset_str]
-		if(entry[ENTRY_STATUS] in list(STORY_GOAL_COMPLETED, STORY_GOAL_FAILED))
-			var/datum/storyteller_goal/clean_goal = entry[ENTRY_GOAL]
-			timeline -= offset_str
-			if(clean_goal)
-				qdel(clean_goal)
-
 	var/pending_count = 0
 	for(var/offset_str in timeline)
 		if(timeline[offset_str][ENTRY_STATUS] == STORY_GOAL_PENDING)
 			pending_count++
-	var/pop_changed = (inputs.vault[STORY_VAULT_CREW_ALIVE_COUNT] != round(ctl.population_factor * 20))  // TODO: refine threshold
-	if(!length(timeline) || pending_count < 3 || current_time - last_recalc_time > recalc_interval || pop_changed)
+/*
+	var/expected_pop = round(ctl.population_factor * inputs.vault[STORY_VAULT_CREW_ALIVE_COUNT]) // TODO: averge crew
+	var/pop_delta = abs(inputs.vault[STORY_VAULT_CREW_ALIVE_COUNT] - expected_pop) / max(1, expected_pop)
+	var/pop_changed = (pop_delta > 0.20)
+*/
+	if(!length(timeline) || pending_count < 3 || current_time - last_recalc_time > recalc_interval)
 		recalculate_plan(ctl, inputs, bal)
 	last_recalc_time = current_time
 	return fired_goals
@@ -86,16 +92,40 @@
 /datum/storyteller_planner/proc/recalculate_plan(datum/storyteller/ctl, datum/storyteller_inputs/inputs, datum/storyteller_balance_snapshot/bal, duration = 30 MINUTES)
 	var/pending_count = 0
 	var/invalid_goals = 0
-	for(var/offset_str in get_upcoming_goals(length(timeline)))
+	var/list/upcoming_offsets = get_upcoming_goals(length(timeline))
+	var/list/valid_entries = list()
+	var/list/to_delete = list()
+
+	for(var/offset_str in upcoming_offsets)
 		var/list/entry = timeline[offset_str]
 		var/datum/storyteller_goal/goal = entry[ENTRY_GOAL]
 		if(!goal.is_available(inputs.vault, inputs, ctl) || !goal.can_fire_now(inputs.vault, inputs, ctl))
 			invalid_goals++
-			timeline -= offset_str
+			to_delete += offset_str
 			qdel(goal)
 			continue
+		valid_entries += list(entry)
 		if(entry[ENTRY_STATUS] == STORY_GOAL_PENDING)
 			pending_count++
+
+	var/event_interval = ctl.get_event_interval()
+	var/current_time = world.time
+	var/base_offset = event_interval
+	for(var/delete_offset in to_delete)
+		timeline -= delete_offset
+
+	if(length(valid_entries) > 0)
+		var/list/new_timeline = list()
+		var/accum_offset = base_offset
+		for(var/i = 1 to length(valid_entries))
+			var/list/entry = valid_entries[i]
+			var/new_offset_num = current_time + accum_offset
+			var/new_offset_str = num2text(new_offset_num)
+			entry[ENTRY_FIRE_TIME] = new_offset_num
+			new_timeline[new_offset_str] = entry
+			accum_offset += event_interval
+		timeline = new_timeline
+		pending_count = length(valid_entries)
 
 	var/needs_rebuild = (invalid_goals > 0 || pending_count < 3 || (world.time - last_recalc_time > recalc_interval))
 	var/effective_threat = ctl.get_effective_threat()
@@ -105,8 +135,11 @@
 	if(!needs_rebuild)
 		return timeline
 
-	if(timeline && length(timeline) > 0)
-		timeline = list()
+
+	var/last_pending_offset = 0
+	if(length(timeline) > 0)
+		var/list/last_entry = timeline[length(timeline)]
+		last_pending_offset = text2num(last_entry[ENTRY_FIRE_TIME] || "0")
 
 	var/category = select_goal_category(ctl, bal)
 	var/derived_tags = derive_universal_tags(category, ctl, inputs, bal)
@@ -116,14 +149,17 @@
 	else if(ctl.adaptation_factor > 0.5 && !(derived_tags & STORY_TAG_DEESCALATION))
 		derived_tags |= STORY_TAG_DEESCALATION
 
-	var/target_count = max(3, STORY_BASE_SUBGOALS_COUNT)
-	var/event_interval = ctl.get_event_interval()
+	var/target_count = STORY_BASE_SUBGOALS_COUNT - pending_count
+	if(target_count <= 0)
+		return timeline
+	var/start_offset = last_pending_offset > 0 ? last_pending_offset + event_interval : event_interval
+
 	for(var/i = 1 to target_count)
 		var/datum/storyteller_goal/new_goal = build_goal(ctl, inputs, bal, derived_tags, category)
 		if(!new_goal)
 			continue
 
-		var/fire_offset = event_interval * i * ctl.mood.get_event_frequency_multiplier()
+		var/fire_offset = start_offset + (event_interval * (i - 1)) * ctl.mood.get_event_frequency_multiplier()
 		if(ctl.can_trigger_event_at(world.time + fire_offset))
 			if(try_plan_goal(new_goal, fire_offset))
 				pending_count++
@@ -137,11 +173,11 @@
 		if(attempts > 3)
 			break
 		var/datum/storyteller_goal/fallback = build_goal(ctl, inputs, bal, 0, STORY_GOAL_RANDOM)
-		if(fallback && try_plan_goal(fallback, event_interval * pending_count))
+		if(fallback && try_plan_goal(fallback, start_offset + (event_interval * pending_count)))  // После новых
 			pending_count++
 		attempts++
 	last_recalc_time = world.time
-	log_storyteller_planner("Storyteller recalculated plan: [pending_count] pending events in chain, [invalid_goals] invalids cleared.")
+	log_storyteller_planner("Storyteller recalculated plan: [pending_count] pending events in chain (added [target_count], shifted [invalid_goals]), invalids cleared.")
 	return timeline
 
 // Build initial timeline on round start: Generates chain of 3+ events as adaptive threat sequence.
