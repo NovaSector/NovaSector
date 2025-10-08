@@ -9203,6 +9203,7 @@
 #include "modular_nova\modules\storytellers\code\modules\goals\round_event.dm"
 #include "modular_nova\modules\storytellers\code\modules\goals\negative\brain_trauma.dm"
 #include "modular_nova\modules\storytellers\code\modules\goals\negative\brand_intelligence.dm"
+#include "modular_nova\modules\storytellers\code\modules\goals\negative\disease_outbreak.dm"
 #include "modular_nova\modules\storytellers\code\modules\goals\negative\sabotage_infrastructure.dm"
 #include "modular_nova\modules\storytellers\code\modules\goals\neutral\camera_failure.dm"
 #include "modular_nova\modules\storytellers\code\modules\goals\neutral\carp_migration.dm"

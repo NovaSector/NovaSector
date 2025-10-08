@@ -99,7 +99,7 @@
 	for(var/offset_str in upcoming_offsets)
 		var/list/entry = timeline[offset_str]
 		var/datum/storyteller_goal/goal = entry[ENTRY_GOAL]
-		if(!goal.is_available(inputs.vault, inputs, ctl) || !goal.can_fire_now(inputs.vault, inputs, ctl))
+		if(!goal.is_available(inputs.vault, inputs, ctl) && !SSstorytellers.hard_debug)
 			invalid_goals++
 			to_delete += offset_str
 			qdel(goal)
@@ -138,8 +138,7 @@
 
 	var/last_pending_offset = 0
 	if(length(timeline) > 0)
-		var/list/last_entry = timeline[length(timeline)]
-		last_pending_offset = text2num(last_entry[ENTRY_FIRE_TIME] || "0")
+		last_pending_offset = text2num(timeline[length(timeline)])
 
 	var/category = select_goal_category(ctl, bal)
 	var/derived_tags = derive_universal_tags(category, ctl, inputs, bal)

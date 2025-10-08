@@ -3,6 +3,9 @@
 #define CONTEXT_CATEGORY "category"
 #define CONTEXT_BIAS "bias"
 #define STORY_REPETITION_DECAY_TIME (20 MINUTES)
+#define STORY_TAG_MATCH_BONUS 0.2
+#define STORY_VOLATILITY_NEUTRAL_CHANCE 10  // Percent chance to pick neutral in high volatility
+#define STORY_TENSION_THRESHOLD 15 // Threshold for balanced tension
 
 /datum/storyteller_think
 	var/list/think_stages = list(
@@ -50,46 +53,45 @@
 	return context[CONTEXT_TAGS]
 
 
-// Method to select goal category (GOOD/BAD) based on storyteller state
-// Uses mood (aggression/pace), balance tension, adaptation_factor, and threat_points.
-// E.g., high tension/adaptation -> BAD (escalation); low threat/relaxed mood -> GOOD (recovery).
-// Called in planner before filtering goals, to bias directionality (STORY_GOAL_GOOD/GOAL_BAD).
+// Method to select goal category (GOOD/BAD/NEUTRAL/RANDOM) based on storyteller state
+// Uses mood (aggression/pace), balance tension, adaptation_factor, threat_points, and population_factor.
+// E.g., high tension/adaptation -> GOOD/NEUTRAL (recovery/grace); low threat/relaxed mood -> BAD (challenge); balanced tension -> NEUTRAL (RP filler).
+// Called in planner before filtering goals, to bias directionality (STORY_GOAL_GOOD/GOAL_BAD/GOAL_NEUTRAL).
+// Inspired by RimWorld: Balances like Cassandra (tension-targeted), with Randy's volatility for flips/neutrals.
 /datum/storyteller_think/proc/determine_category(datum/storyteller/ctl, datum/storyteller_balance_snapshot/bal)
-	var/category = STORY_GOAL_UNCATEGORIZED  // Default neutral
+	var/category = STORY_GOAL_NEUTRAL  // Default to neutral for balanced starts (RP focus)
 
-	// Mood influence: High aggression favors BAD; low pace favors GOOD
-	var/mood_bias = ctl.mood.get_threat_multiplier() - ctl.mood.get_variance_multiplier()
-	if(mood_bias > 1.2)  // Aggressive/volatile -> Negative
+	var/mood_bias = clamp((ctl.mood.get_threat_multiplier() - ctl.mood.get_variance_multiplier()) / 2, 0, 1)  // Normalized [0 calm..1 aggressive]
+	if(mood_bias > 0.7)  // Aggressive/volatile -> Negative escalation
 		category = STORY_GOAL_BAD
-	else if(mood_bias < 0.8)  // Calm/slow -> Positive
+	else if(mood_bias < 0.3)  // Calm/slow -> Positive recovery
 		category = STORY_GOAL_GOOD
 
-
-
-	// Balance/tension override: High tension -> Deescalate with GOOD; low -> Escalate with BAD
-	if(bal.overall_tension > ctl.target_tension + 10 * ctl.mood.get_threat_multiplier())
-		category = STORY_GOAL_GOOD  // Recovery to balance
-	else if(bal.overall_tension < ctl.target_tension - 10 * ctl.mood.get_threat_multiplier())
-		category = STORY_GOAL_BAD  // Challenge to build tension
-
-
-	// Adaptation/threat check: Post-damage adaptation -> GOOD (grace); high threat -> BAD
-	if(ctl.adaptation_factor > 0.3)
+	// Balance/tension override: Use abs diff for threshold; integrate population (big crews tolerate more neutrals)
+	var/tension_diff = abs(bal.overall_tension - ctl.target_tension)
+	var/pop_mod = ctl.population_factor  // [0.1..1.0], high pop -> more neutral tolerance
+	if(tension_diff < STORY_TENSION_THRESHOLD * pop_mod)  // Balanced -> Neutral for RP/breathing room
+		category = STORY_GOAL_NEUTRAL
+	else if(bal.overall_tension > ctl.target_tension)  // High tension -> Deescalate with GOOD
 		category = STORY_GOAL_GOOD
-	else if(ctl.threat_points > ctl.max_threat_scale * 0.6)
+	else  // Low tension -> Escalate with BAD
 		category = STORY_GOAL_BAD
 
+	// Adaptation/threat check: High adaptation -> GOOD/NEUTRAL (grace post-damage); high threat -> BAD
+	if(ctl.adaptation_factor > 0.5)  // Strong adaptation -> Favor recovery/neutral
+		category = prob(50 * pop_mod) ? STORY_GOAL_NEUTRAL : STORY_GOAL_GOOD
+	else if(ctl.threat_points > ctl.max_threat_scale * 0.7)  // High threat -> BAD for climax push
+		category = STORY_GOAL_BAD
 
-	// Final volatility random: If high volatility, 30% chance to flip for chaos
-	// Hello mr. random!
-	if(ctl.mood.get_variance_multiplier() > 1.5)
-		if(prob(round(30 * ctl.mood.get_threat_multiplier())))
+	// Final volatility random: If high volatility, chance to flip or neutral for chaos (Randy-style)
+	if(ctl.mood.get_variance_multiplier() > 1.2)
+		if(prob(STORY_VOLATILITY_NEUTRAL_CHANCE * mood_bias))
+			category = STORY_GOAL_NEUTRAL
+		else if(prob(20 * ctl.mood.get_threat_multiplier()))
 			category = (category == STORY_GOAL_GOOD) ? STORY_GOAL_BAD : STORY_GOAL_GOOD
-		else if(prob(50))
+		else if(prob(40))
 			category = STORY_GOAL_RANDOM
-
 	return category
-
 
 
 // Basic select_weighted_goal with integration to goal procs
@@ -98,7 +100,7 @@
 // Enhanced repetition: Gradient penalty based on recency (time since last similar) and frequency (count in history),
 // scaled by adaptation (stronger post-recovery) and population (tolerable in big crews).
 // Inspired by RimWorld's event weighting: base chance + modifiers from colony state (here(Nova), station metrics + history avoidance).
-/datum/storyteller_think/proc/select_weighted_goal(datum/storyteller/ctl, datum/storyteller_inputs/inputs, datum/storyteller_balance_snapshot/bal, list/candidates, population_scale = 1.0)
+/datum/storyteller_think/proc/select_weighted_goal(datum/storyteller/ctl, datum/storyteller_inputs/inputs, datum/storyteller_balance_snapshot/bal, list/candidates, population_scale = 1.0, list/desired_tags = null)
 	if(!candidates.len)
 		return null
 
@@ -108,7 +110,7 @@
 			continue
 
 		var/base_weight = G.get_weight(inputs.vault, inputs, ctl)
-		var/priority_boost = G.get_priority(inputs.vault, inputs, ctl) * 0.5  // Scale to avoid dominance
+		var/priority_boost = G.get_priority(inputs.vault, inputs, ctl) * 0.5
 		var/diff_adjust = ctl.difficulty_multiplier * population_scale
 
 		// Enhanced repetition penalty: Recency (time-based decay) + frequency (count in history)
@@ -119,18 +121,16 @@
 		var/repeat_count = 0
 
 		for(var/hist_id in recent_history)
-			if(starts_with_any(hist_id, id_prefix))  // Match prefix for this goal's ID
+			if(findtext(hist_id, id_prefix, 1, 0))
 				repeat_count++
 				var/list/details = recent_history[hist_id]
-				var/fire_time = text2num(splittext(details["fired_at"], " ")[1]) * 1 MINUTES  // Parse "X min" back to world.time approx
+				var/fire_time = text2num(splittext(details["fired_at"], " ")[1]) * 1 MINUTES
 				if(fire_time > last_fire_time)
 					last_fire_time = fire_time
 
 		if(repeat_count > 0)
-			// Recency decay: Full penalty if recent, 0 if old (DECAY_TIME ~20-30 min)
 			var/age = world.time - last_fire_time
 			var/recency_factor = clamp(1 - (age / STORY_REPETITION_DECAY_TIME), 0, 1)
-			// Frequency multiplier: Linear ramp for spam (e.g., 1x=base, 2x=1.5x, 3x=2x)
 			var/freq_mult = 1 + (repeat_count - 1) * 0.5
 			rep_penalty = ctl.repetition_penalty * recency_factor * freq_mult
 
@@ -150,13 +150,23 @@
 		else if(bal.overall_tension < ctl.target_tension && (G.tags & STORY_TAG_ESCALATION))
 			balance_bonus += STORY_BALANCE_BONUS
 
+
+		var/tag_match_bonus = 0
+		if(desired_tags && G.tags)
+			var/matches = G.tags & desired_tags  // Bitfield intersection (assuming tags are bitflags)
+			var/num_matches = 0
+			var/temp = matches
+			while(temp)
+				num_matches += (temp & 1)
+				temp >>= 1  // Manual popcount via bitshift loop
+			tag_match_bonus = num_matches * STORY_TAG_MATCH_BONUS
+
 		// Final weight: Combine all, ensure minimum to avoid zero-weight goals
-		var/final_weight = max(0.1, (base_weight + priority_boost + threat_bonus + balance_bonus - rep_penalty) * diff_adjust * adapt_reduce)
+		var/final_weight = max(0.1, (base_weight + priority_boost + threat_bonus + balance_bonus + tag_match_bonus - rep_penalty) * diff_adjust * adapt_reduce)
 		weighted[G] = final_weight
 
 	// Use pick_weight helper for selection
 	return pick_weight(weighted)
-
 
 /datum/think_stage
 	var/description = "Base think stage"
@@ -351,3 +361,11 @@
 				context[CONTEXT_TAGS] |= random_tag
 		if(mood.volatility > 1.5 && prob(50))
 			context[CONTEXT_TAGS] |= STORY_TAG_CHAOTIC
+
+#undef STORY_VOLATILITY_NEUTRAL_CHANCE
+#undef STORY_TENSION_THRESHOLD
+#undef CONTEXT_TAGS
+#undef CONTEXT_CATEGORY
+#undef CONTEXT_BIAS
+#undef STORY_REPETITION_DECAY_TIME
+#undef STORY_TAG_MATCH_BONUS

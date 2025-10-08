@@ -202,7 +202,7 @@
 /// Base event interval, scaled by pace and divided by population for denser threats in larger crews.
 /// Biger crews can handle more frequent events
 /datum/storyteller/proc/get_event_interval()
-	return (min_event_interval + (max_event_interval - min_event_interval) / get_effective_pace()) * population_factor
+	return min(max_event_interval, ((min_event_interval + (max_event_interval - min_event_interval)) * get_effective_pace()) * population_factor)
 
 /// Event interval without population adjustment; for baseline pacing in global goal selection.
 /datum/storyteller/proc/get_event_interval_no_population_factor()

@@ -21,7 +21,7 @@
 	// Default, but randomize per wave or target
 	var/target_sex = MALE
 	// Assume custom drone mob (implement separately)
-	var/drone_path = /mob/living/simple_animal/hostile/psychic_drone
+	var/drone_path = /mob/living/basic/psychic_drone
 	// Time between noise pulses
 	var/wave_duration = 30 SECONDS
 	// Total pulses, scaled by threat
@@ -53,64 +53,74 @@
 	else
 		noise_strength = 5
 		num_waves = 15
-		positive_noise_chance = 10  // Mostly negative at high threat
+		positive_noise_chance = 10
 
 	// Dynamic scaling
-	num_waves = min(num_waves + round(threat_points / 500), 20)  // Max 20 waves
-
-/datum/round_event/psychic_drone/__announce_for_storyteller()
-	priority_announce("A faint psychic hum echoes through the station's vents. Crew reports of unease.", "Anomalous Readings")
+	num_waves = min(num_waves + round(threat_points / 500), 20)
+	start_when = 30
 
 /datum/round_event/psychic_drone/__start_for_storyteller()
 	. = ..()
 	var/turf/spawn_turf = pick(get_area_turfs(/area/station/maintenance))
-	var/mob/living/simple_animal/hostile/psychic_drone/drone = new drone_path(spawn_turf)
+	var/obj/structure/closet/supplypod/pod = podspawn(list(
+		"target" = spawn_turf,
+		"path" = /obj/structure/closet/supplypod/phychic_drone,
+		"style" = /datum/pod_style/deathsquad,
+		"spawn" = drone_path,
+	))
+	var/mob/living/basic/psychic_drone/drone = locate(/mob/living/basic/psychic_drone, pod.contents)
 	drone.noise_strength = noise_strength
 	drone.positive_noise_chance = positive_noise_chance
 	drone.num_waves = num_waves
 	drone.wave_duration = wave_duration
 
+	notify_ghosts("Aphyic drone deployed at [get_area(spawn_turf)].", spawn_turf, "Phychic drone deployed")
+	priority_announce("A psychic drone has been deployed at [get_area(spawn_turf)], broadcasting disruptive psionic noise across the station!", "Anomalies detected")
 
-	drone.pulse_psychic_noise()
-	log_game("Storyteller: Psychic Drone deployed. Strength: [noise_strength], Waves: [num_waves]")
+
+/obj/structure/closet/supplypod/phychic_drone
+	name = "cruise missile"
+	desc = "A big ass missile, likely launched from some far-off deep space missile silo."
+	style = /datum/pod_style/syndicate
+	explosionSize = list(0,0,2,2)
+	specialised = TRUE
+	delays = list(POD_TRANSIT = 10.0 SECONDS, POD_FALLING = 10.0 SECONDS)
+	effectMissile = TRUE
 
 
-/mob/living/simple_animal/hostile/psychic_drone
+/mob/living/basic/psychic_drone
 	name = "psychic drone"
-	desc = "A hovering orb emitting faint psionic waves."
+	desc = "A hovering orb emitting faint psionic waves, influencing crew minds in unpredictable ways."
 	icon = 'icons/mob/simple/hivebot.dmi'
 	icon_state = "commdish"
 	density = TRUE
 	anchored = TRUE
 	health = 2000
 	maxHealth = 2000
-	melee_damage_lower = 0
-	melee_damage_upper = 0
-	atmos_requirements = list("min_oxy" = 0, "max_oxy" = 0, "min_tox" = 0, "max_tox" = 0, "min_co2" = 0, "max_co2" = 0, "min_n2" = 0, "max_n2" = 0)
-	minbodytemp = 0
-	maxbodytemp = FIRE_SUIT_MAX_TEMP_PROTECT
+	habitable_atmos = 0
+	minimum_survivable_temperature = 0
+	maximum_survivable_temperature = FIRE_SUIT_MAX_TEMP_PROTECT
 	speed = 0
-	faction = list()
+	faction = list(FACTION_HOSTILE)
 	status_flags = 0
 
+	var/positive_noise_chance
 	var/noise_strength = 1
-	var/positive_noise_chance = 50
 	var/num_waves = 5
 	var/wave_duration = 30 SECONDS
 	var/current_wave = 0
 
-/mob/living/simple_animal/hostile/psychic_drone/Initialize(mapload)
+/mob/living/basic/psychic_drone/Initialize(mapload, threat_mod = 1.0, tension_mod = 1.0)
 	. = ..()
-	START_PROCESSING(SSobj, src)
+	noise_strength *= threat_mod
+	num_waves = round(num_waves * tension_mod)
 	addtimer(CALLBACK(src, PROC_REF(pulse_psychic_noise)), wave_duration)
 
-/mob/living/simple_animal/hostile/psychic_drone/process()
-	if(prob(5))
-		var/turf/T = get_step(src, pick(GLOB.cardinals))
-		if(!isspaceturf(T))
-			forceMove(T)
 
-/mob/living/simple_animal/hostile/psychic_drone/proc/pulse_psychic_noise()
+/mob/living/basic/psychic_drone/Destroy()
+	return ..()
+
+/mob/living/basic/psychic_drone/proc/pulse_psychic_noise()
 	current_wave++
 	if(current_wave > num_waves)
 		qdel(src)
@@ -118,21 +128,24 @@
 
 	var/list/targets = list()
 	for(var/mob/living/carbon/human/H in GLOB.human_list)
-		if(!H.mind || H.stat == DEAD)
+		if(!H.mind || H.stat == DEAD || !is_station_level(H.z))
 			continue
-		targets |= H
+		targets += H
 
 	if(length(targets))
-		var/is_positive = prob(positive_noise_chance)
-		var/target_sex_local = pick(MALE, FEMALE, NEUTER)
+		var/is_positive = FALSE
+		if(prob(positive_noise_chance))
+			is_positive = TRUE
+
+		var/target_sex_local = pick(MALE, FEMALE)
 		for(var/mob/living/carbon/human/target in targets)
 			apply_psychic_noise(target, is_positive, noise_strength, target_sex_local)
 
-	// playsound(src, is_positive ? 'sound/hallucinations/wail.ogg' : 'sound/hallucinations/growl1.ogg', 50 * noise_strength, TRUE)
+
 
 	addtimer(CALLBACK(src, PROC_REF(pulse_psychic_noise)), wave_duration)
 
-/mob/living/simple_animal/hostile/psychic_drone/proc/apply_psychic_noise(mob/living/carbon/human/target, is_positive, strength, target_sex)
+/mob/living/basic/psychic_drone/proc/apply_psychic_noise(mob/living/carbon/human/target, is_positive, strength, target_sex)
 	var/debuff_duration = 30 SECONDS * strength
 
 	var/effect_msg = ""
@@ -144,11 +157,10 @@
 		else
 			effect_msg = span_notice("A neutral hum clears mental fog briefly.")
 
-		target.add_mood_event("psychic_drone", /datum/mood_event/phychic_drone_positive)
+		target.add_mood_event("psychic_drone", /datum/mood_event/psychic_drone_positive)
 		target.add_movespeed_modifier(/datum/movespeed_modifier/psychic_boost, update=TRUE)
-		addtimer(CALLBACK(target, TYPE_PROC_REF(/mob/living/carbon/human/, remove_movespeed_modifier), \
-				/datum/movespeed_modifier/psychic_boost, TRUE), debuff_duration)
-	else
+		addtimer(CALLBACK(target, TYPE_PROC_REF(/mob/living/carbon/human, remove_movespeed_modifier), /datum/movespeed_modifier/psychic_boost, TRUE), debuff_duration)
+	else if(is_positive == FALSE)
 		if(target_sex == MALE)
 			effect_msg = span_userdanger("Aggressive shrieks invade your head, fueling rage!")
 		else if(target_sex == FEMALE)
@@ -157,41 +169,40 @@
 			effect_msg = span_userdanger("Disorienting wails echo, inducing nausea.")
 			target.adjust_disgust(25 * strength)
 
-		if(prob(50 * strength))
-			target.vomit()
-		target.adjust_hallucinations(30 SECONDS)
 		SEND_SOUND(target, sound('sound/items/weapons/flash_ring.ogg'))
-		target.add_mood_event("psychic_drone", )
-
+		target.add_mood_event("psychic_drone", /datum/mood_event/psychic_drone_negative)
 		if(strength <= 2)
-			target.add_mood_event("psychic_drone", /datum/mood_event/phychic_drone_negative)
+			target.add_mood_event("psychic_drone", /datum/mood_event/psychic_drone_negative)
 		else if(strength <= 4)
-			target.add_mood_event("psychic_drone", /datum/mood_event/phychic_drone_negative/strong)
+			target.add_mood_event("psychic_drone", /datum/mood_event/psychic_drone_negative/strong)
 		else if(strength <= 5)
-			target.add_mood_event("psychic_drone", /datum/mood_event/phychic_drone_negative/extreme)
+			target.add_mood_event("psychic_drone", /datum/mood_event/psychic_drone_negative/extreme)
 		target.adjustOxyLoss(rand(40-60), forced=TRUE)
+		target.adjust_hallucinations(30 SECONDS)
+	else
+		effect_msg = span_notice("A subtle psychic hum resonates, leaving you mildly disoriented but aware.")
+		target.adjust_disgust(10 * strength)
 
 	to_chat(target, effect_msg)
 	new /obj/effect/temp_visual/psychic_scream(get_turf(target), target)
 
-
-/datum/mood_event/phychic_drone_negative
-	description = ""
+/datum/mood_event/psychic_drone_negative
+	description = "Psionic echoes unsettle my thoughts."
 	mood_change = -16
 	timeout = 30 SECONDS
 
-/datum/mood_event/phychic_drone_negative/strong
-	description = ""
+/datum/mood_event/psychic_drone_negative/strong
+	description = "Intense psychic noise disrupts my focus severely."
 	mood_change = -24
 	timeout = 30 SECONDS
 
-/datum/mood_event/phychic_drone_negative/extreme
-	description = ""
+/datum/mood_event/psychic_drone_negative/extreme
+	description = "Overwhelming psionic waves crush my mental stability."
 	mood_change = -40
 	timeout = 30 SECONDS
 
-/datum/mood_event/phychic_drone_positive
-	description = ""
+/datum/mood_event/psychic_drone_positive
+	description = "A psionic surge invigorates my mind."
 	mood_change = 14
 	timeout = 30 SECONDS
 

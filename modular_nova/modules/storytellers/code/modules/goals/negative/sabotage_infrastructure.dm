@@ -12,7 +12,7 @@
 	return inputs.station_state.mach != 0
 
 /datum/storyteller_goal/sabotage_infrastructure/get_weight(list/vault, datum/storyteller_inputs/inputs, datum/storyteller/storyteller)
-	return STORY_GOAL_BASE_WEIGHT * 2 + (storyteller.threat_points * 0.01)
+	return STORY_GOAL_BASE_WEIGHT + (storyteller.threat_points * 0.01)
 
 
 /datum/storyteller_goal/sabotage_infrastructure/get_priority(list/vault, datum/storyteller_inputs/inputs, datum/storyteller/storyteller)

@@ -29,11 +29,11 @@
 
 /// Compute selection weight
 /datum/storyteller_goal/proc/get_weight(list/vault, datum/storyteller_inputs/inputs, datum/storyteller/storyteller)
-	return 1.0
+	return STORY_GOAL_BASE_WEIGHT
 
 
 /datum/storyteller_goal/proc/get_priority(list/vault, datum/storyteller_inputs/inputs, datum/storyteller/storyteller)
-	return 1
+	return STORY_GOAL_BASE_PRIORITY
 
 
 /datum/storyteller_goal/proc/get_progress(list/vault, datum/storyteller_inputs/inputs, datum/storyteller/storyteller)
@@ -50,6 +50,9 @@
 /// Link this goal's children by id using a registry
 /datum/storyteller_goal/proc/link_children(list/goals_by_id)
 	children = list()
+	if(!path_ids || !length(path_ids))
+		return children
+
 	for(var/i in 1 to path_ids.len)
 		var/child_id = path_ids[i]
 		var/datum/storyteller_goal/G = goals_by_id[child_id]
