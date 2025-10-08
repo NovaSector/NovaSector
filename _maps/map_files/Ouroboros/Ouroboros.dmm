@@ -27680,9 +27680,6 @@
 /obj/machinery/door/firedoor,
 /obj/effect/mapping_helpers/airlock/access/any/medical/general,
 /obj/effect/mapping_helpers/airlock/access/any/medical/morgue,
-/obj/machinery/light_switch/directional/north{
-	pixel_x = -8
-	},
 /turf/open/floor/iron/dark/smooth_large,
 /area/station/medical/medbay/lobby)
 "ibY" = (
@@ -33525,6 +33522,7 @@
 /obj/effect/turf_decal/trimline/blue/filled/line{
 	dir = 10
 	},
+/obj/machinery/light_switch/directional/west,
 /turf/open/floor/iron/white,
 /area/station/medical/medbay/lobby)
 "jJu" = (
