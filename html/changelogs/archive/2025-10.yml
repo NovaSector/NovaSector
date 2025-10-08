@@ -56,3 +56,15 @@
       of your lungs from the tumor to regain the need to breathe. comes with a movespeed
       cost, 50% stamina reduction as this is taxing on you, but lets you passively
       regenerate a small amount of blood this way.
+2025-10-08:
+  Archemagus:
+  - image: Added RETA lights sprites for Nova airlocks
+  - bugfix: Enabled highlight of said airlocks as were intended by upstream
+  OrbisAnima:
+  - bugfix: fixed the bug with ghost roles spawned with two of the same first backpack
+      item
+  - bugfix: fixed the bug with plasmamans not being able to spawn in ghost roles without
+      inmediatly inmolating themselves. Cafe Visitor plasmas also start with 3 plasma
+      tanks. Cafe Visitors Vox (and primalis!) spawn with 3 nitrogen tanks.
+  dmnaru:
+  - rscadd: Added new limp leg quirk to loadout

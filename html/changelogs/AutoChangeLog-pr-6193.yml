@@ -1,5 +1,0 @@
-author: "Archemagus"
-delete-after: True
-changes:
-  - image: "Added RETA lights sprites for Nova airlocks"
-  - bugfix: "Enabled highlight of said airlocks as were intended by upstream"
