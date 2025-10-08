@@ -1,0 +1,70 @@
+2025-10-06:
+  Hardly:
+  - code_imp: Suppressors are now permit restricted.
+  - spellcheck: Fixed tech description for illegal implants
+  Hatterhat:
+  - balance: Sawed-off M64s now only have a maximum capacity of 4+1, because you are
+      not fitting eight shells in a halved shotgun magazine tube.
+  - image: The Lanca is now back to its old, bullpup brick-like self. Also it's green
+      again.
+  - image: The Miecz's inhands and worn sprite now reflect its old form as a compact
+      PDW vaguely reminiscent of a shrunken Lanca. Also it's green again.
+  Iajret:
+  - bugfix: Fixed wallets, death rattle implants and other things appearing on ghost
+      role characters
+  Stalkeros:
+  - bugfix: Due to a concerning amount of reports regarding molten suppressors, as
+      well as a pending lawsuit for damaged customer equipment, Szot Dynamica had
+      to remove muzzle threads from the Zaibas family of weapons.
+  - bugfix: In layman's terms, you can't install suppressors on the Zaibases anymore.
+  TheSS13Melon:
+  - rscdel: Removes nova stars requirements from Shapeshifter, Hemophage, Oversized,
+      and Snails.
+  carpotoxin:
+  - balance: Space ninja can now equip their katana on their MODsuit suit-storage,
+      as well as a variety of other swords
+  - balance: Space ninja starts with a medkit appropriate to their anatomy, as well
+      as various basic stimulants
+  - balance: Space ninja gets a simple loadout featuring food and drink items, as
+      well as a genuine(ly stolen) visitor's ID
+  - balance: Space ninja's pinpointer is no longer contractor tier, command may hide
+      from the ninja's tracking if they deem it worth the risk of being harder to
+      find by everyone else too.
+  - balance: Space ninja's headset has been upgraded to a unique Spider-Clan radio,
+      it lets them hear the command channel
+  - balance: Space ninja now has a radio jammer, and an implant allowing them to create
+      smoke fields.
+  dekunutkid:
+  - bugfix: DS-2 and Interdyne cyborg now have proper door access, no longer start
+      with a defective cell, and name and gender preferences now apply properly.
+  vinylspiders:
+  - balance: hemophages will now start with 80% of the maximum blood capacity upon
+      spawning
+  - balance: hemophages will now take 1.2x the amount of blood loss from all instances
+  - balance: bloodshot has been reduced to 2x the potency of a bloody mary, from 3x
+  - qol: 'when a hemophage passes out from low blood, there is now a visible message
+      for other mobs so they can tell what is happening
+
+      rem'
+  - rscadd: new hemophage ability to replace healing in darkness, "Hemokinetic Rejen"
+      - toggle to use hemokinesis to heal minor wounds. No longer heals toxloss, costs
+      .25u of blood per damage healed.
+  - rscadd: new hemophage ability, "Hemokinetic Clot" - use 50u of your blood to clot
+      a bleeding wound. automatically prioritizes the worst wounds. These will unclot
+      immediately upon taking any sort of brute/burn damage.
+  - rscadd: new hemophage ability, "Master of the House" - toggle to wrest control
+      of your lungs from the tumor to regain the need to breathe. comes with a movespeed
+      cost, 50% stamina reduction as this is taxing on you, but lets you passively
+      regenerate a small amount of blood this way.
+2025-10-08:
+  Archemagus:
+  - image: Added RETA lights sprites for Nova airlocks
+  - bugfix: Enabled highlight of said airlocks as were intended by upstream
+  OrbisAnima:
+  - bugfix: fixed the bug with ghost roles spawned with two of the same first backpack
+      item
+  - bugfix: fixed the bug with plasmamans not being able to spawn in ghost roles without
+      inmediatly inmolating themselves. Cafe Visitor plasmas also start with 3 plasma
+      tanks. Cafe Visitors Vox (and primalis!) spawn with 3 nitrogen tanks.
+  dmnaru:
+  - rscadd: Added new limp leg quirk to loadout
