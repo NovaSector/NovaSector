@@ -3,6 +3,7 @@
 #define LOG_CATEGORY_STORYTELLER_ANALYZER "storyteller_analyzer"
 #define LOG_CATEGORY_STORYTELLER_BALANCER "storyteller_balancer"
 #define LOG_CATEGORY_STORYTELLER_METRICS "storyteller_metrics"
+#define ADMIN_CATEGORY_STORYTELLER "Admin.Storyteller"
 
 /proc/log_storyteller(text, list/data)
 	logger.Log(LOG_CATEGORY_STORYTELLER, text, data)

@@ -1,3 +1,9 @@
+
+ADMIN_VERB(storyteller_admin, R_ADMIN, "Storyteller UI", "Open the storyteller admin panel.", ADMIN_CATEGORY_STORYTELLER)
+	var/datum/storyteller_admin_ui/ui = new
+	ui.ui_interact(usr)
+
+
 /datum/storyteller_admin_ui
 	/// cached reference to storyteller
 	var/datum/storyteller/ctl
@@ -209,7 +215,3 @@
 			message_admins("Stortyteller debug mode: [SSstorytellers.hard_debug ? "ENABLED" : "DISABLED"]")
 			return TRUE
 	return FALSE
-
-ADMIN_VERB(storyteller_admin, R_ADMIN, "Storyteller", "Open the storyteller admin panel.", ADMIN_CATEGORY_EVENTS)
-	var/datum/storyteller_admin_ui/ui = new
-	ui.ui_interact(usr)

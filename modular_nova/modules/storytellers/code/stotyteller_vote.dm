@@ -1,3 +1,12 @@
+ADMIN_VERB(storyteller_vote, R_ADMIN | R_DEBUG, "Storyteller - Start Vote", "Start a global storyteller vote.", ADMIN_CATEGORY_STORYTELLER)
+	if (tgui_alert(usr, "Start global vote?", "Storyteller Vote", "Yes", "No") == "No")
+		return
+	var/duration = tgui_input_number(usr, "Duration in seconds:", "Vote Duration", 60, 240, 60)
+	SSstorytellers.start_vote(duration SECONDS)
+
+ADMIN_VERB(storyteller_end_vote, R_ADMIN | R_DEBUG, "Storyteller - End Vote", "End vote early.", ADMIN_CATEGORY_STORYTELLER)
+	SSstorytellers.end_vote()
+
 /datum/controller/subsystem/storytellers/proc/start_vote(duration = 60 SECONDS)
 	// Clears existing UIs to prevent duplicates or stale data
 	storyteller_vote_uis = list()
@@ -232,12 +241,3 @@
 	ui.ui_interact(mob)
 
 
-
-ADMIN_VERB(storyteller_vote, R_ADMIN | R_DEBUG, "Storyteller - Start Vote", "Start a global storyteller vote.", ADMIN_CATEGORY_EVENTS)
-	if (tg_alert(usr, "Start global vote?", "Storyteller Vote", "Yes", "No") == "No")
-		return
-	var/duration = tgui_input_number(usr, "Duration in seconds:", "Vote Duration", 60, 240, 60)
-	SSstorytellers.start_vote(duration SECONDS)
-
-ADMIN_VERB(storyteller_end_vote, R_ADMIN | R_DEBUG, "Storyteller - End Vote", "End vote early.", ADMIN_CATEGORY_EVENTS)
-	SSstorytellers.end_vote()
