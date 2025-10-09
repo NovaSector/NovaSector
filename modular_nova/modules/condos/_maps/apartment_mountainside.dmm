@@ -1620,7 +1620,7 @@
 	},
 /obj/item/shell/server{
 	name = "Nova Sector server";
-	desc = "On the side you see a small LCD saying 'CONGRADULATIONS ITS BEEN 0 DAYS SINCE A UNIT TEST FAILED! A NEW RECORD!'";
+	desc = "On the side you see a small LCD saying 'CONGRATULATIONS ITS BEEN 0 DAYS SINCE A UNIT TEST FAILED! A NEW RECORD!'";
 	anchored = 1;
 	pixel_x = -8;
 	pixel_y = 1
