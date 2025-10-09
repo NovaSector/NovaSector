@@ -3999,7 +3999,7 @@
 /area/ruin/space/has_grav)
 "rh" = (
 /obj/machinery/door/airlock/research{
-	name = "RND gas storage"
+	name = "Gas Storage"
 	},
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
