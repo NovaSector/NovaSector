@@ -1,0 +1,4 @@
+author: "Neocloudy"
+delete-after: True
+changes:
+  - bugfix: "[NOVA] The 1% chance for the Oranges meow sound to play is gone again."
