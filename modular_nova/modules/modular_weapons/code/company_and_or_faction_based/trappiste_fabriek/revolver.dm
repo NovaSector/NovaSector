@@ -101,7 +101,7 @@
 		with those same composites, resulting in a firmer grip, helping with recoil. A lightened hammer also allows the weapon to fire \
 		and cycle faster than its civilian counterpart, suiting the fast response required of asset protection. \
 		It also contains a lower mount for some sort of attachment. Rumor has it that a hardlight blade is planned to be distributed \
-		directly from Nanotrasen themelves, but these plans have yet to materialize."
+		directly from Nanotrasen themselves, but these plans have yet to materialize."
 
 /obj/item/gun/ballistic/revolver/bluvolva/give_manufacturer_examine()
 	AddElement(/datum/element/manufacturer_examine, COMPANY_TRAPPISTE)
