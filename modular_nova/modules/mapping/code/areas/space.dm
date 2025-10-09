@@ -159,6 +159,12 @@
 /area/ruin/space/has_grav/nova/des_two/cargo/hangar
 	name = "DS-2 Hangar"
 
+/area/ruin/space/has_grav/nova/des_two/cargo/exodrone
+	name = "DS-2 Exodrone Control Bay"
+
+/area/ruin/space/has_grav/nova/des_two/cargo/salvager
+	name = "DS-2 Salvager Bay"
+
 //Bridge
 /area/ruin/space/has_grav/nova/des_two/bridge
 	name = "DS-2 Bridge"
@@ -175,6 +181,9 @@
 /area/ruin/space/has_grav/nova/des_two/bridge/vault
 	name = "DS-2 Vault"
 
+/area/ruin/space/has_grav/nova/des_two/bridge/vault
+	name = "DS-2 Intel Center"
+
 /area/ruin/space/has_grav/nova/des_two/bridge/eva
 	name = "DS-2 E.V.A."
 
@@ -185,6 +194,9 @@
 
 /area/ruin/space/has_grav/nova/des_two/security/armory
 	name = "DS-2 Armory"
+
+/area/ruin/space/has_grav/nova/des_two/security/armory
+	name = "DS-2 Master At Arms Office"
 
 /area/ruin/space/has_grav/nova/des_two/security/lawyer
 	name = "DS-2 Interrogation Office"
@@ -207,6 +219,18 @@
 
 /area/ruin/space/has_grav/nova/des_two/service/lounge
 	name = "DS-2 Lounge"
+
+/area/ruin/space/has_grav/nova/des_two/service/changing_room
+	name = "DS-2 Changing Room"
+
+/area/ruin/space/has_grav/nova/des_two/service/sauna
+	name = "DS-2 Sauna"
+
+/area/ruin/space/has_grav/nova/des_two/service/restroom
+	name = "DS-2 Restroom"
+
+/area/ruin/space/has_grav/nova/des_two/service/library
+	name = "DS-2 Library"
 
 /area/ruin/space/has_grav/nova/des_two/service/hydroponics
 	name = "DS-2 Hydroponics"
