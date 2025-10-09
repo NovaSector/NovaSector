@@ -39,7 +39,7 @@
 /datum/techweb_node/cyber/implants_nova
 	id = TECHWEB_NODE_CYBERNETICS_ILLEGAL_NOVA
 	display_name = "Illegal Cybernetics Implants"
-	description = "So hipotetically if we didn't care about the formalities of ethics..."
+	description = "So, hypothetically, if we didn't care about the formalities of ethics..."
 	prereq_ids = list(TECHWEB_NODE_COMBAT_IMPLANTS)
 	design_ids = list(
 		"combat_implant_hackerman",

@@ -38,6 +38,7 @@
 
 /datum/armament_entry/company_import/vitezstvi/accessory/suppressor
 	item_type = /obj/item/suppressor/standard
+	restricted = TRUE
 
 /datum/armament_entry/company_import/vitezstvi/accessory/seclight
 	item_type = /obj/item/flashlight/seclite

@@ -1,7 +1,6 @@
 /// Some starter text sent to the Hemophage initially, because Hemophages have shit to do to stay alive.
 #define HEMOPHAGE_SPAWN_TEXT "You are an [span_danger("Hemophage")]. You will slowly but constantly lose blood if outside of a closet-like object. If inside a closet-like object, or in pure darkness, you will slowly heal, at the cost of blood. You may gain more blood by grabbing a live victim and using your drain ability."
 
-
 /datum/species/hemophage
 	name = "Hemophage"
 	id = SPECIES_HEMOPHAGE
@@ -25,15 +24,17 @@
 	changesource_flags = MIRROR_BADMIN | WABBAJACK | MIRROR_MAGIC | MIRROR_PRIDE | ERT_SPAWN | RACE_SWAP | SLIME_EXTRACT
 	examine_limb_id = SPECIES_HUMAN
 	skinned_type = /obj/item/stack/sheet/animalhide/human
-	nova_stars_only = TRUE
+
 
 /datum/species/hemophage/allows_food_preferences()
 	return FALSE
+
 
 /datum/species/hemophage/get_default_mutant_bodyparts()
 	return list(
 		"legs" = list("Normal Legs", FALSE),
 	)
+
 
 /datum/species/hemophage/check_roundstart_eligible()
 	if(check_holidays(HALLOWEEN))
@@ -41,10 +42,20 @@
 
 	return ..()
 
+
 /datum/species/hemophage/on_species_gain(mob/living/carbon/human/new_hemophage, datum/species/old_species, pref_load, regenerate_icons)
 	. = ..()
 	to_chat(new_hemophage, HEMOPHAGE_SPAWN_TEXT)
+	new_hemophage.blood_volume = BLOOD_VOLUME_ROUNDSTART_HEMOPHAGE
+	new_hemophage.physiology.bleed_mod *= HEMOPHAGE_BLEED_MOD
 	new_hemophage.update_body()
+
+
+/datum/species/hemophage/on_species_loss(mob/living/carbon/human/former_hemophage, datum/species/new_species, pref_load)
+	. = ..()
+	former_hemophage.blood_volume = BLOOD_VOLUME_NORMAL
+	former_hemophage.physiology.bleed_mod /= HEMOPHAGE_BLEED_MOD
+	former_hemophage.update_body()
 
 
 /datum/species/hemophage/get_species_description()
@@ -120,11 +131,9 @@
 			SPECIES_PERK_TYPE = SPECIES_POSITIVE_PERK,
 			SPECIES_PERK_ICON = "moon",
 			SPECIES_PERK_NAME = "Darkness Affinity",
-			SPECIES_PERK_DESC = "A Hemophage is only at home in the darkness, the infection \
-								within a Hemophage seeking to return them to a healthy state \
-								whenever it can be in the shadow. However, light artificial or \
-								otherwise irritates their bodies and the cancer keeping them alive, \
-								not harming them but keeping them from regenerating. Modern \
+			SPECIES_PERK_DESC = "A Hemophage is most at home in the darkness, as light artificial or \
+								otherwise irritates their bodies and the cancer keeping them alive. \
+								Modern \
 								Hemophages have been known to use lockers as a convenient \
 								source of darkness, while the extra protection they provide \
 								against background radiations allows their tumor to avoid \

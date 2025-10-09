@@ -5,8 +5,6 @@
 #define DORMANT_DAMAGE_MULTIPLIER 3
 /// By how much the blood drain will be divided when the tumor is in a dormant state.
 #define DORMANT_BLOODLOSS_MULTIPLIER 10
-/// How much blood do Hemophages normally lose per second (visible effect is every two seconds, so twice this value).
-#define NORMAL_BLOOD_DRAIN 0.05
 
 /// Just a conversion factor that ensures there's no weird floating point errors when blood is draining.
 #define FLOATING_POINT_ERROR_AVOIDING_FACTOR 1000
@@ -21,12 +19,17 @@
 	icon_state = "tumor-on"
 	base_icon_state = "tumor"
 	desc = "This pulsating organ nearly resembles a normal heart, but it's been twisted beyond any human appearance, having turned to the color of coal. The way it barely fits where the original organ was sends shivers down your spine... <i>The fact that it's what keeps them alive makes it all the more terrifying.</i>"
-	actions_types = list(/datum/action/cooldown/hemophage/toggle_dormant_state)
+	actions_types = list(
+		/datum/action/cooldown/hemophage/toggle_dormant_state,
+		/datum/action/cooldown/hemophage/hemokinetic_regen,
+		/datum/action/cooldown/hemophage/hemokinetic_clot,
+		/datum/action/cooldown/hemophage/master_of_the_house,
+	)
 	organ_flags = ORGAN_ORGANIC | ORGAN_UNREMOVABLE | ORGAN_TUMOR_CORRUPTED
 	/// Are we currently dormant? Defaults to PULSATING_TUMOR_ACTIVE (so FALSE).
 	var/is_dormant = PULSATING_TUMOR_ACTIVE
 	/// What is the current rate (per second) at which the tumor is consuming blood?
-	var/bloodloss_rate = NORMAL_BLOOD_DRAIN
+	var/bloodloss_rate = NORMAL_HEMOPHAGE_BLOOD_DRAIN
 
 
 /obj/item/organ/heart/hemophage/on_mob_insert(mob/living/carbon/tumorful, special, movement_flags)
@@ -35,6 +38,9 @@
 	SEND_SIGNAL(tumorful, COMSIG_PULSATING_TUMOR_ADDED, tumorful)
 	tumorful.AddElement(/datum/element/tumor_corruption)
 	RegisterSignal(tumorful, COMSIG_MOB_GET_STATUS_TAB_ITEMS, PROC_REF(get_status_tab_item))
+
+	if(!ishuman(tumorful))
+		return
 
 
 /obj/item/organ/heart/hemophage/on_mob_remove(mob/living/carbon/tumorless, special = FALSE)
@@ -66,31 +72,35 @@
 	// It's intended that you can't print a tumor, because why would you?
 	operated = FALSE
 
-	if(can_heal_owner_damage())
-		owner.apply_status_effect(/datum/status_effect/blood_regen_active)
-
-	else
-		owner.remove_status_effect(/datum/status_effect/blood_regen_active)
-
 	if(in_closet(owner)) // No regular bloodloss if you're in a closet
 		return
 
-	owner.blood_volume = (owner.blood_volume * FLOATING_POINT_ERROR_AVOIDING_FACTOR - bloodloss_rate * seconds_per_tick * FLOATING_POINT_ERROR_AVOIDING_FACTOR) / FLOATING_POINT_ERROR_AVOIDING_FACTOR
+	if(!owner.has_status_effect(/datum/status_effect/master_of_the_house))
+		owner.blood_volume = (owner.blood_volume * FLOATING_POINT_ERROR_AVOIDING_FACTOR - bloodloss_rate * seconds_per_tick * FLOATING_POINT_ERROR_AVOIDING_FACTOR) / FLOATING_POINT_ERROR_AVOIDING_FACTOR
 
 	if(owner.blood_volume <= BLOOD_VOLUME_SURVIVE)
 		to_chat(owner, span_danger("You ran out of blood!"))
 		owner.investigate_log("starved to death from lack of blood caused by [src].", INVESTIGATE_DEATHS)
 		owner.death() // Owch! Ran out of blood.
 
+
 /obj/item/organ/heart/hemophage/get_status_text(advanced, add_tooltips, colored = TRUE)
 	if(organ_flags & ORGAN_FAILING)
 		return conditional_tooltip("<font color='#cc3333'>Non-Functional</font>", "Repair surgically. Do not remove under any circumstances.", add_tooltips)
 	return ..()
 
+
 /// Simple helper proc that toggles the dormant state of the tumor, which also switches its appearance to reflect said change.
 /obj/item/organ/heart/hemophage/proc/toggle_dormant_state()
 	is_dormant = !is_dormant
 	base_icon_state = is_dormant ? "[base_icon_state]-dormant" : initial(base_icon_state)
+
+	// Most hemophage actions will not work while in the dormant state
+	for(var/datum/action/cooldown/hemophage/hemophage_action in owner.actions)
+		if(is_dormant)
+			hemophage_action.go_dormant()
+		else
+			hemophage_action.wake_up()
 
 	bloodloss_rate *= is_dormant ? 1 / DORMANT_BLOODLOSS_MULTIPLIER : DORMANT_BLOODLOSS_MULTIPLIER
 
@@ -111,24 +121,6 @@
 /// Simple helper proc that returns whether or not the given hemophage is in a closet subtype (but not in any bodybag subtype).
 /obj/item/organ/heart/hemophage/proc/in_closet(mob/living/carbon/human/hemophage)
 	return istype(hemophage.loc, /obj/structure/closet) && !istype(hemophage.loc, /obj/structure/closet/body_bag)
-
-
-/// Simple helper proc that returns whether or not the given hemophage is in total darkness.
-/obj/item/organ/heart/hemophage/proc/in_total_darkness(mob/living/carbon/human/hemophage)
-	var/turf/current_turf = get_turf(hemophage)
-	if(!istype(current_turf))
-		return FALSE
-
-	return current_turf.get_lumcount() <= MINIMUM_LIGHT_THRESHOLD_FOR_REGEN
-
-
-/// Whether or not we should be applying the healing status effect for the owner.
-/obj/item/organ/heart/hemophage/proc/can_heal_owner_damage()
-	// We handle the least expensive checks first.
-	if(owner.health >= owner.maxHealth || is_dormant || owner.blood_volume <= MINIMUM_VOLUME_FOR_REGEN || (!in_closet(owner) && !in_total_darkness(owner)))
-		return FALSE
-
-	return owner.getBruteLoss() || owner.getFireLoss() || owner.getToxLoss()
 
 
 /// Simple helper to toggle the hemophage's vulnerability (or lack thereof) based on the status of their tumor.
@@ -156,6 +148,5 @@
 
 #undef DORMANT_DAMAGE_MULTIPLIER
 #undef DORMANT_BLOODLOSS_MULTIPLIER
-#undef NORMAL_BLOOD_DRAIN
 
 #undef TRAIT_TUMOR
