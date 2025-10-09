@@ -135,14 +135,13 @@
 			ctl.trigger_random_event(ctl.inputs.vault, ctl.inputs, ctl)
 			return TRUE
 		if("force_fire_next")
-			var/datum/storyteller_goal/next = ctl.planner.get_closest_goal()
-			if(next)
-				next.complete(ctl.inputs.vault, ctl.inputs, ctl, round(ctl.threat_points * ctl.difficulty_multiplier * 100), ctl.inputs.station_value)
+			var/list/entry = ctl.planner.get_closest_entry()
+			if(entry)
+				var/fire_time = entry["fire_time"]
+				var/new_fire_time = entry["fire_time"] = world.time + 1
+				ctl.planner.reschedule_goal(fire_time, new_fire_time)
 			return TRUE
 		if("reschedule_chain")
-			ctl.planner.recalculate_plan(ctl, ctl.inputs, ctl.balancer.make_snapshot(ctl.inputs))
-			return TRUE
-		if("next_subgoal")
 			ctl.planner.recalculate_plan(ctl, ctl.inputs, ctl.balancer.make_snapshot(ctl.inputs))
 			return TRUE
 		if("set_mood")

@@ -44,6 +44,12 @@
 		else if (count == max_votes)
 			best_storytellers += id_str
 
+	if(!length(best_storytellers))
+		to_chat(world, span_boldnotice("No votes were cast! Random storyteller selected."))
+		selected_id = pick(list(storyteller_data))
+		selected_difficulty = 1.0
+		return
+
 	var/selected_id_str
 	if (best_storytellers.len == 1)
 		selected_id_str = best_storytellers[1]

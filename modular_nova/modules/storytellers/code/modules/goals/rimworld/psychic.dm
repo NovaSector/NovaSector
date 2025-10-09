@@ -94,15 +94,18 @@
 	icon = 'icons/mob/simple/hivebot.dmi'
 	icon_state = "commdish"
 	density = TRUE
-	anchored = TRUE
 	health = 2000
 	maxHealth = 2000
-	habitable_atmos = 0
+	habitable_atmos = null
 	minimum_survivable_temperature = 0
 	maximum_survivable_temperature = FIRE_SUIT_MAX_TEMP_PROTECT
+	basic_mob_flags = IMMUNE_TO_FISTS
 	speed = 0
 	faction = list(FACTION_HOSTILE)
 	status_flags = 0
+	move_force = MOVE_FORCE_VERY_STRONG
+	move_resist = MOVE_FORCE_VERY_STRONG
+	pull_force = MOVE_FORCE_VERY_STRONG
 
 	var/positive_noise_chance
 	var/noise_strength = 1

@@ -353,7 +353,7 @@
 /datum/think_stage/volatility_random
 	description = "Adds random tags based on mood volatility"
 
-/datum/think_stage/volatility_random/process(datum/storyteller/ctl, datum/storyteller_inputs/inputs, datum/storyteller_balance_snapshot/bal, datum/storyteller_mood/mood, list/context)
+/datum/think_stage/volatility_random/execute(datum/storyteller/ctl, datum/storyteller_inputs/inputs, datum/storyteller_balance_snapshot/bal, datum/storyteller_mood/mood, list/context)
 	if(mood.volatility > 1.1)
 		for(var/i in 1 to rand(1, 3))
 			var/random_tag = get_random_bitflag("story_universal_tags")

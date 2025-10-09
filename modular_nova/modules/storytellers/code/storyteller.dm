@@ -144,8 +144,6 @@
 	// 6) Schedule next cycle
 	schedule_next_think()
 
-
-
 /// Helper to record a goal event: store timestamp for spacing and id for repetition penalty
 /datum/storyteller/proc/record_event(datum/storyteller_goal/G, status)
 	if(!G)
@@ -163,19 +161,21 @@
 		recent_event_ids.Cut(1, 2)
 	last_event_time = current_time
 
-
 /datum/storyteller/proc/update_population_factor()
+	var/current = inputs.vault[STORY_VAULT_CREW_ALIVE_COUNT] ? inputs.vault[STORY_VAULT_CREW_ALIVE_COUNT] : 0
+
 	var/total = 0
 	var/count = 0
 	for(var/key in population_history)
 		total += text2num(population_history[key])
 		count++
-	if(count > 0)
-		var/avg = total / count
-		population_factor = clamp(max(1, avg) / inputs.vault[STORY_VAULT_CREW_ALIVE_COUNT], 0.1, 1.0)
-	else
-		population_factor = 1.0
+	var/avg = (count > 0 ? total / count : current)
 
+
+	var/desired = (avg > 0 ? current / avg : 1.0)
+	desired = clamp(desired, 0.1, 1.0)
+	var/smooth_weight = 0.7
+	population_factor = clamp((population_factor * smooth_weight) + (desired * (1.0 - smooth_weight)), 0.1, 1.0)
 
 /datum/storyteller/proc/get_closest_subgoals()
 	return planner.get_upcoming_goals(10)
@@ -202,7 +202,11 @@
 /// Base event interval, scaled by pace and divided by population for denser threats in larger crews.
 /// Biger crews can handle more frequent events
 /datum/storyteller/proc/get_event_interval()
-	return min(max_event_interval, ((min_event_interval + (max_event_interval - min_event_interval)) * get_effective_pace()) * population_factor)
+    var/base = max_event_interval
+    var/pop_mod = clamp(1.0 - 0.6 * population_factor, 0.4, 1.0)
+    var/interval = base / max(get_effective_pace(), 0.05) * pop_mod
+    return clamp(interval, min_event_interval, max_event_interval)
+
 
 /// Event interval without population adjustment; for baseline pacing in global goal selection.
 /datum/storyteller/proc/get_event_interval_no_population_factor()

@@ -29,7 +29,7 @@
 	SHOULD_NOT_OVERRIDE(TRUE)
 
 	// First, clean up completed/failed goals from timeline
-	for(var/offset_str in timeline.Copy())
+	for(var/offset_str in timeline)
 		var/list/entry = timeline[offset_str]
 		if(entry[ENTRY_STATUS] in list(STORY_GOAL_COMPLETED, STORY_GOAL_FAILED))
 			var/datum/storyteller_goal/clean_goal = entry[ENTRY_GOAL]
@@ -83,6 +83,11 @@
 		recalculate_plan(ctl, inputs, bal)
 	last_recalc_time = current_time
 	return fired_goals
+
+
+
+
+
 
 // Recalculate the entire plan: Rebuild timeline from current state.
 // Clears invalid/unavailable goals, ensures at least 3 pending events for continuous pacing.
@@ -295,23 +300,37 @@
 // Used for preview/debugging in admin tools or logs.
 /datum/storyteller_planner/proc/get_upcoming_goals(limit = 5)
 	var/list/upcoming = list()
-	var/current_time = world.time
 	var/count = 0
 	for(var/offset_str in sortTim(timeline.Copy(), GLOBAL_PROC_REF(cmp_text_asc)))
-		var/offset = text2num(offset_str)
-		if(current_time >= offset || count >= limit)
-			continue
+		if(count >= limit)
+			break
 		upcoming += offset_str
 		count++
 	return upcoming
 
 /datum/storyteller_planner/proc/get_closest_goal()
 	for(var/offset_str in sortTim(timeline.Copy(), GLOBAL_PROC_REF(cmp_text_asc)))
-		var/offset = text2num(offset_str)
-		if(world.time >= offset)
-			continue
 		var/entry = timeline[offset_str]
 		return entry[ENTRY_GOAL]
+
+
+/datum/storyteller_planner/proc/get_closest_entry()
+	for(var/offset_str in sortTim(timeline.Copy(), GLOBAL_PROC_REF(cmp_text_asc)))
+		return timeline[offset_str]
+	return null
+
+
+/datum/storyteller_planner/proc/reschedule_goal(old_offset, new_offset)
+	var/old_str = "[old_offset]"
+	var/new_str = "[new_offset]"
+	if(!timeline[old_str] || timeline[new_str])
+		return FALSE
+	timeline[new_str] = timeline[old_str]
+	timeline[new_str][ENTRY_FIRE_TIME] = new_offset
+	timeline[new_str][ENTRY_STATUS] = STORY_GOAL_PENDING
+	timeline -= old_str
+	return TRUE
+
 
 /datum/storyteller_planner/proc/get_goals_in_time(time = 1 MINUTES)
 	var/list/upcoming = list()

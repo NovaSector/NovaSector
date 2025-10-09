@@ -195,11 +195,11 @@ SUBSYSTEM_DEF(storytellers)
 /datum/controller/subsystem/storytellers/fire(resumed)
 	if(active)
 		active.think()
-	for(var/datum/round_event/E in active_events)
-		if(!E || QDELETED(E))
-			active_events -= E
+	for(var/datum/round_event/evt in active_events)
+		if(!evt || QDELETED(evt))
+			active_events -= evt
 			continue
-		E.__process_for_storyteller(world.tick_lag)
+		evt.__process_for_storyteller(world.tick_lag)
 
 
 /datum/controller/subsystem/storytellers/proc/setup_game()
