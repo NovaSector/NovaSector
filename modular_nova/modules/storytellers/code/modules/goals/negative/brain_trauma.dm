@@ -8,7 +8,7 @@
 	event_path = /datum/round_event/brain_trauma
 
 /datum/storyteller_goal/execute_event/brain_trauma/is_available(list/vault, datum/storyteller_inputs/inputs, datum/storyteller/storyteller)
-	return vault[STORY_VAULT_CREW_ALIVE_COUNT] >= 13
+	return vault[STORY_VAULT_CREW_ALIVE_COUNT] >= 5
 
 /datum/storyteller_goal/execute_event/brain_trauma/get_weight(list/vault, datum/storyteller_inputs/inputs, datum/storyteller/storyteller)
 	return STORY_GOAL_BASE_WEIGHT + storyteller.threat_points * 0.05

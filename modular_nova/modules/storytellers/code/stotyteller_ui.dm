@@ -1,4 +1,3 @@
-
 ADMIN_VERB(storyteller_admin, R_ADMIN, "Storyteller UI", "Open the storyteller admin panel.", ADMIN_CATEGORY_STORYTELLER)
 	var/datum/storyteller_admin_ui/ui = new
 	ui.ui_interact(usr)
@@ -134,7 +133,7 @@ ADMIN_VERB(storyteller_admin, R_ADMIN, "Storyteller UI", "Open the storyteller a
 
 	switch(action)
 		if("force_think")
-			ctl.next_think_time = world.time + 1
+			ctl.next_think_time = world.time + 1 SECONDS
 			return TRUE
 		if("trigger_event")
 			// Trigger ad-hoc random event outside chain
@@ -144,7 +143,7 @@ ADMIN_VERB(storyteller_admin, R_ADMIN, "Storyteller UI", "Open the storyteller a
 			var/list/entry = ctl.planner.get_closest_entry()
 			if(entry)
 				var/fire_time = entry["fire_time"]
-				var/new_fire_time = entry["fire_time"] = world.time + 1
+				var/new_fire_time = entry["fire_time"] = world.time + 1 SECONDS
 				ctl.planner.reschedule_goal(fire_time, new_fire_time)
 			return TRUE
 		if("reschedule_chain")

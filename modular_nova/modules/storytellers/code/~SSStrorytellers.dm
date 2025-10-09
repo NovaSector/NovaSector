@@ -58,7 +58,7 @@ SUBSYSTEM_DEF(storytellers)
 	storyteller_helps_antags = config.Get(/datum/config_entry/flag/storyteller_helps_antags) || FALSE
 	storyteller_allows_speech = config.Get(/datum/config_entry/flag/storyteller_allows_speech) || TRUE
 
-	RegisterSignal(src, COMSIG_CLIENT_MOB_LOGIN, PROC_REF(on_login))
+	RegisterSignal(src, COMSIG_GLOB_MOB_LOGGED_IN, PROC_REF(on_login))
 	return SS_INIT_SUCCESS
 
 /// Initializes the active storyteller from selected_id (JSON profile), applying parsed data for adaptive behavior.
@@ -193,6 +193,10 @@ SUBSYSTEM_DEF(storytellers)
 	return new_st
 
 /datum/controller/subsystem/storytellers/fire(resumed)
+
+#ifdef TESTING //Storyteller thinking disabled during testing, it's handle by unit test
+	return
+#endif
 	if(active)
 		active.think()
 	for(var/datum/round_event/evt in active_events)
@@ -203,6 +207,11 @@ SUBSYSTEM_DEF(storytellers)
 
 
 /datum/controller/subsystem/storytellers/proc/setup_game()
+
+#ifdef TESTING // Stortyteller setup disabled during testing, it's handle by unit test
+	return
+#endif
+
 	disable_dynamic()
 	disable_ICES()
 
@@ -227,7 +236,7 @@ SUBSYSTEM_DEF(storytellers)
 	message_admins(span_bolditalic("ICES and random events were disabled by Storyteller"))
 
 
-/datum/controller/subsystem/storytellers/proc/on_login(datum/source, mob/new_client)
+/datum/controller/subsystem/storytellers/proc/on_login(mob/new_client)
 	SIGNAL_HANDLER
 	if(vote_active)
 		var/datum/storyteller_vote_ui/ui = new(new_client.client, current_vote_duration)

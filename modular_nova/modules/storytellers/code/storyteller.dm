@@ -154,7 +154,7 @@
 		"id" = G.id,
 		"desc" = G.desc,
 		"status" = status,
-		"fired_at" = (current_time / 1 MINUTES) + " min",
+		"fired_at" = num2text((current_time / 1 MINUTES)) + " min",
 	))
 	recent_event_ids |= G.id
 	while(length(recent_event_ids) > recent_event_ids_max)
