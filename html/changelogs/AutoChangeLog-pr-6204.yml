@@ -1,0 +1,4 @@
+author: "Hardly"
+delete-after: True
+changes:
+  - bugfix: "The light switch in medical lobby is no longer on the floor."
