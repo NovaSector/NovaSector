@@ -146,38 +146,6 @@ GLOBAL_LIST_INIT(strippable_human_items, create_strippable_list(list(
 	to_chat(source, span_notice("[user] has taken [chosen_accessory] off of [jumpsuit]."))
 	jumpsuit.remove_accessory(chosen_accessory)
 	jumpsuit.update_appearance()
-	chosen_accessory.forceMove(jumpsuit.drop_location())
-
-	if(!ismob(source))
-		return
-
-	var/mob/mob_source = source
-	mob_source.update_worn_undersuit()
-
-/datum/strippable_item/mob_item_slot/jumpsuit/proc/do_strip_accessory(atom/source, mob/user, obj/item/clothing/under/jumpsuit)
-	var/list/accessory_choices = list()
-	for(var/obj/item/clothing/accessory/jumpsuit_accessory as anything in jumpsuit.attached_accessories)
-		if(!istype(jumpsuit_accessory))
-			continue
-		accessory_choices[jumpsuit_accessory.name] += jumpsuit_accessory
-
-	var/chosen_accessory_name = tgui_input_list(user, "Select which accessory to strip", "Select Accessory", accessory_choices)
-	var/obj/item/clothing/accessory/chosen_accessory = accessory_choices[chosen_accessory_name]
-	if(isnull(chosen_accessory))
-		return
-
-	if(!user.Adjacent(source))
-		source.balloon_alert(user, "can't reach!")
-		return
-
-	to_chat(source, span_notice("[user] is trying to take [chosen_accessory] off of [jumpsuit]!"))
-	if(!do_after(user, chosen_accessory.strip_delay, source))
-		source.balloon_alert(user, "failed!")
-		return
-
-	to_chat(source, span_notice("[user] has taken [chosen_accessory] off of [jumpsuit]."))
-	jumpsuit.remove_accessory(chosen_accessory)
-	jumpsuit.update_appearance()
 	//NOVA EDIT CHANGE BEGIN - THIEVING GLOVES - ORIGINAL: chosen_accessory.forceMove(jumpsuit.drop_location())
 	if(HAS_TRAIT(user, TRAIT_STICKY_FINGERS))
 		user.put_in_hands(chosen_accessory)
