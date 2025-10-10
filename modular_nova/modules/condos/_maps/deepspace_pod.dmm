@@ -53,8 +53,7 @@
 /area/misc/condo)
 "dY" = (
 /obj/structure/chair/bronze{
-	dir = 1;
-	density = 1
+	dir = 1
 	},
 /obj/effect/turf_decal/siding/wideplating_new/dark{
 	dir = 1
