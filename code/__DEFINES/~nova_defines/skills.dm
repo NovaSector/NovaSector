@@ -1,2 +1,1 @@
-/// XP Multiplier for the construction skill for crafting items or right-click making girders
-#define CONSTRUCTION_XP_MULTIPLIER 0.1
+#define CONSTRUCTION_XP_MULTIPLIER (1 / (1 SECONDS)) // 1 construction XP per second spent crafting an item
