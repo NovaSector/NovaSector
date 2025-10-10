@@ -163,16 +163,3 @@
 	item = /obj/item/ammo_box/speedloader/c357/haywire
 	cost = /datum/uplink_item/high_cost/ammunition::cost
 	purchasable_from = UPLINK_TRAITORS | UPLINK_SERIOUS_OPS
-
-/datum/uplink_item/ammo/rocket
-	name = "84mm HE Rocket Bouquet (Rocket Launcher)"
-	desc = "Three low-yield anti-personnel HE rocket wrapped in a bundle. Gonna take you out in style!"
-	cost = /datum/uplink_item/high_cost/ammunition::cost
-	item = /obj/item/ammo_box/rocket
-
-/datum/uplink_item/ammo/rocket_ap
-	name = "84mm HEAP Rocket (Rocket Launcher)"
-	desc = "A high-yield HEAP rocket; extremely effective against literally everything and anything near that thing that doesn't exist anymore. \
-			Strike fear into the hearts of your enemies."
-	cost = /datum/uplink_item/high_cost/ammunition::cost
-	item = /obj/item/ammo_casing/rocket/heap
