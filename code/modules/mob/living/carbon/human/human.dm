@@ -143,7 +143,7 @@
 			"&bull; Gender: [id_gender || "Unknown"]",
 			"&bull; Blood Type: [id_blood_type || "?"]",
 			"&bull; Species: [id_species || "Unknown"]",
-			"&bull; Weapon Permit: [id_permit || "Unknown"]", // NOVA EDIT ADD - Permit shown on ID
+			"&bull; Weapon Permit: [id_permit || "Unknown"]", // NOVA EDIT ADDITION - Permit shown on ID
 		), "<br>")
 		id_examine += "</div>" // container
 		id_examine += "</div>" // text
