@@ -224,7 +224,7 @@
 /turf/open/misc/asteroid/basalt/lava_land_surface,
 /area/lavaland/surface/outdoors)
 "bf" = (
-/obj/structure/disposalpipe/segment{
+/obj/structure/disposalpipe/junction{
 	dir = 8
 	},
 /turf/open/floor/iron/brick_aligned,
@@ -270,9 +270,8 @@
 /turf/open/misc/asteroid/basalt/lava_land_surface,
 /area/ruin/unpowered/ash_walkers)
 "bu" = (
-/obj/machinery/modular_computer/preset/engineering{
-	dir = 1
-	},
+/obj/effect/turf_decal/trimline/yellow/filled/line,
+/obj/structure/table,
 /turf/open/floor/iron/brick_aligned_half{
 	dir = 1
 	},
@@ -404,6 +403,7 @@
 /obj/effect/turf_decal/trimline/purple/filled/line{
 	dir = 9
 	},
+/obj/machinery/light/directional/north,
 /turf/open/floor/iron/dark/smooth_corner,
 /area/mine/science/common)
 "ci" = (
@@ -412,6 +412,16 @@
 /turf/open/floor/iron/dark,
 /area/mine/mechbay)
 "cn" = (
+/obj/structure/table/reinforced,
+/obj/item/clipboard{
+	pixel_y = 3;
+	pixel_x = -6
+	},
+/obj/item/gps/engineering{
+	pixel_x = 6;
+	pixel_y = 6
+	},
+/obj/item/gps/engineering,
 /turf/open/floor/iron/dark/brick_aligned_half{
 	dir = 4
 	},
@@ -435,6 +445,7 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/effect/decal/cleanable/dirt,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/effect/turf_decal/trimline/yellow/filled/warning,
 /turf/open/floor/iron/brick_aligned_half{
 	dir = 1
 	},
@@ -481,11 +492,11 @@
 /turf/open/floor/plating/lavaland_atmos,
 /area/lavaland/surface/outdoors)
 "cB" = (
-/obj/machinery/computer/shuttle/mining/common{
-	dir = 8;
-	name = "public lavaland shuttle console"
-	},
 /obj/structure/cable,
+/obj/effect/turf_decal/trimline/yellow/filled/line{
+	dir = 4
+	},
+/obj/item/kirbyplants/random,
 /turf/open/floor/iron/brick_aligned_half{
 	dir = 8
 	},
@@ -531,6 +542,9 @@
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/machinery/computer/shuttle/mining/common,
+/obj/structure/window/reinforced/spawner/directional/north,
+/obj/structure/window/reinforced/spawner/directional/east,
 /turf/open/floor/iron/dark/brick_aligned_corner_inverse{
 	dir = 8
 	},
@@ -594,6 +608,9 @@
 /area/mine/lounge)
 "dg" = (
 /obj/effect/decal/cleanable/dirt,
+/obj/effect/turf_decal/trimline/yellow/filled/line{
+	dir = 8
+	},
 /turf/open/floor/iron/brick_aligned_half{
 	dir = 4
 	},
@@ -621,11 +638,9 @@
 /turf/open/misc/asteroid/basalt/lava_land_surface,
 /area/ruin/unpowered/ash_walkers)
 "dm" = (
-/obj/structure/chair/office{
-	dir = 1
-	},
-/turf/open/floor/iron/brick_aligned,
-/area/mine/engineering)
+/obj/machinery/portable_atmospherics/scrubber,
+/turf/open/floor/iron/textured_large,
+/area/mine/engineering/storage)
 "do" = (
 /obj/structure/table/wood,
 /obj/structure/curtain/bounty,
@@ -887,13 +902,16 @@
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/effect/turf_decal/trimline/yellow/filled/warning{
+	dir = 4
+	},
 /turf/open/floor/iron/brick_aligned_half{
 	dir = 8
 	},
 /area/mine/engineering)
 "eR" = (
-/obj/structure/table/reinforced,
-/obj/item/inducer,
+/obj/structure/frame/machine/secured,
+/obj/item/circuitboard/machine/ore_silo,
 /turf/open/floor/iron/textured_large,
 /area/mine/engineering/storage)
 "eS" = (
@@ -1263,6 +1281,10 @@
 /turf/open/misc/asteroid/basalt/lava_land_surface,
 /area/ruin/unpowered/ash_walkers)
 "gI" = (
+/obj/structure/frame/computer{
+	dir = 1
+	},
+/obj/structure/window/reinforced/spawner/directional/south,
 /turf/open/floor/iron/dark/brick_aligned_half,
 /area/mine/engineering)
 "gJ" = (
@@ -1439,7 +1461,10 @@
 /area/mine/mechbay)
 "hP" = (
 /obj/structure/cable,
-/obj/structure/table/reinforced,
+/obj/effect/turf_decal/trimline/yellow/filled/line{
+	dir = 6
+	},
+/obj/machinery/vending/cigarette,
 /turf/open/floor/iron/brick_aligned_corner{
 	dir = 1
 	},
@@ -2329,9 +2354,13 @@
 /turf/open/floor/iron/textured_large,
 /area/mine/lounge)
 "nh" = (
-/obj/structure/closet/secure_closet/engineering_electrical,
-/turf/open/floor/iron/textured_large,
-/area/mine/engineering/storage)
+/obj/effect/turf_decal/trimline/yellow/filled/line{
+	dir = 8
+	},
+/turf/open/floor/iron/brick_aligned_half{
+	dir = 4
+	},
+/area/mine/engineering)
 "nj" = (
 /obj/structure/cable,
 /obj/effect/turf_decal/trimline/green/filled/corner{
@@ -2717,6 +2746,9 @@
 "pg" = (
 /obj/machinery/airalarm/directional/north,
 /obj/effect/decal/cleanable/dirt,
+/obj/effect/turf_decal/trimline/yellow/filled/line{
+	dir = 1
+	},
 /turf/open/floor/iron/brick_aligned_half,
 /area/mine/engineering)
 "pj" = (
@@ -2754,8 +2786,11 @@
 /area/mine/storage)
 "pq" = (
 /obj/machinery/light/directional/south,
-/obj/effect/spawner/random/trash/bin,
 /obj/effect/decal/cleanable/dirt,
+/obj/effect/turf_decal/trimline/yellow/filled/line,
+/obj/structure/chair{
+	dir = 4
+	},
 /turf/open/floor/iron/brick_aligned_half{
 	dir = 1
 	},
@@ -2883,6 +2918,8 @@
 /obj/structure/disposalpipe/segment{
 	dir = 8
 	},
+/obj/structure/table/reinforced,
+/obj/machinery/recharger,
 /turf/open/floor/iron/dark/brick_aligned_half{
 	dir = 4
 	},
@@ -2911,12 +2948,14 @@
 /obj/structure/disposalpipe/segment{
 	dir = 8
 	},
-/obj/structure/table/reinforced,
 /turf/open/floor/iron/dark/smooth_large,
 /area/mine/engineering)
 "qg" = (
 /obj/structure/disposalpipe/segment{
 	dir = 6
+	},
+/obj/structure/chair/office{
+	dir = 1
 	},
 /turf/open/floor/iron/dark/brick_aligned_half{
 	dir = 8
@@ -3119,6 +3158,9 @@
 /area/mine/lobby/raptor)
 "rn" = (
 /obj/effect/spawner/random/trash/mess,
+/obj/effect/turf_decal/trimline/yellow/filled/line{
+	dir = 8
+	},
 /turf/open/floor/iron/brick_aligned_half{
 	dir = 4
 	},
@@ -3195,6 +3237,9 @@
 /turf/closed/wall/r_wall/rust,
 /area/mine/storage)
 "rQ" = (
+/obj/effect/turf_decal/trimline/yellow/filled/warning{
+	dir = 8
+	},
 /turf/open/floor/iron/brick_aligned_half{
 	dir = 4
 	},
@@ -3398,6 +3443,9 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/structure/cable,
+/obj/effect/turf_decal/trimline/yellow/filled/warning{
+	dir = 8
+	},
 /turf/open/floor/iron/brick_aligned_half{
 	dir = 4
 	},
@@ -3536,10 +3584,14 @@
 /turf/open/lava/smooth/lava_land_surface,
 /area/lavaland/surface/outdoors)
 "tG" = (
-/obj/item/circuitboard/machine/ore_silo,
-/obj/structure/frame/machine/secured,
-/turf/open/floor/iron/textured_large,
-/area/mine/engineering/storage)
+/obj/structure/rack,
+/obj/item/circuitboard/computer/crew{
+	pixel_y = -5;
+	pixel_x = -6
+	},
+/obj/item/circuitboard/computer/crew,
+/turf/open/floor/catwalk_floor/iron_dark,
+/area/mine/engineering)
 "tI" = (
 /obj/structure/stone_tile/block/cracked{
 	dir = 8
@@ -3797,14 +3849,7 @@
 /turf/open/floor/iron/dark,
 /area/mine/mechbay)
 "ve" = (
-/obj/structure/rack,
-/obj/item/circuitboard/computer/crew{
-	pixel_y = -5;
-	pixel_x = -6
-	},
-/obj/item/circuitboard/computer/crew{
-	pixel_y = -5
-	},
+/obj/structure/reagent_dispensers/fueltank,
 /turf/open/floor/iron/textured_large,
 /area/mine/engineering)
 "vf" = (
@@ -3921,8 +3966,8 @@
 /turf/open/misc/asteroid/basalt/lava_land_surface,
 /area/ruin/unpowered/ash_walkers)
 "vF" = (
-/obj/machinery/portable_atmospherics/scrubber,
 /obj/effect/decal/cleanable/dirt,
+/obj/structure/closet/secure_closet/engineering_electrical,
 /turf/open/floor/iron/textured_large,
 /area/mine/engineering/storage)
 "vJ" = (
@@ -4254,7 +4299,9 @@
 /area/mine/engineering/storage)
 "xy" = (
 /obj/machinery/light/floor,
-/obj/structure/table/reinforced,
+/obj/structure/chair/office{
+	dir = 4
+	},
 /turf/open/floor/iron/dark/smooth_large,
 /area/mine/engineering)
 "xC" = (
@@ -5649,14 +5696,10 @@
 /turf/open/misc/hay/lavaland,
 /area/mine/lobby/raptor)
 "Ev" = (
-/obj/effect/turf_decal/trimline/purple/filled/line{
-	dir = 1
-	},
-/obj/machinery/light/directional/north,
-/turf/open/floor/iron/dark/textured_half{
-	dir = 4
-	},
-/area/mine/science/common)
+/obj/effect/decal/cleanable/dirt,
+/obj/structure/disposalpipe/segment,
+/turf/open/floor/iron/brick_aligned,
+/area/mine/engineering)
 "Ew" = (
 /obj/effect/turf_decal/trimline/blue/filled/line{
 	dir = 6
@@ -5770,6 +5813,12 @@
 "Fg" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/effect/turf_decal/trimline/yellow/filled/warning{
+	dir = 1
+	},
+/obj/effect/turf_decal/trimline/yellow/filled/corner{
+	dir = 8
+	},
 /turf/open/floor/iron/brick_aligned_corner,
 /area/mine/engineering)
 "Fh" = (
@@ -5842,8 +5891,11 @@
 /turf/open/floor/iron/dark,
 /area/mine/production)
 "Fr" = (
-/obj/structure/closet/secure_closet/engineering_personal,
 /obj/machinery/light/directional/north,
+/obj/effect/turf_decal/trimline/yellow/filled/line{
+	dir = 5
+	},
+/obj/item/kirbyplants/random,
 /turf/open/floor/iron/brick_aligned_corner{
 	dir = 8
 	},
@@ -6124,6 +6176,9 @@
 	dir = 4
 	},
 /obj/machinery/light/directional/west,
+/obj/effect/turf_decal/trimline/yellow/filled/line{
+	dir = 8
+	},
 /turf/open/floor/iron/brick_aligned_half{
 	dir = 4
 	},
@@ -6339,12 +6394,11 @@
 /turf/open/floor/iron/textured_large,
 /area/mine/laborcamp/security)
 "HV" = (
-/obj/structure/frame/computer{
-	anchored = 1;
-	dir = 8
-	},
 /obj/machinery/power/apc/auto_name/directional/east,
 /obj/structure/cable,
+/obj/effect/turf_decal/trimline/yellow/filled/line{
+	dir = 4
+	},
 /turf/open/floor/iron/brick_aligned_half{
 	dir = 8
 	},
@@ -6549,6 +6603,8 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/structure/cable,
+/obj/machinery/computer/security/mining,
+/obj/structure/window/reinforced/spawner/directional/north,
 /turf/open/floor/iron/dark/brick_aligned_half{
 	dir = 1
 	},
@@ -6763,6 +6819,10 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/structure/cable,
+/obj/effect/turf_decal/trimline/yellow/filled/warning{
+	dir = 8
+	},
+/obj/effect/turf_decal/trimline/yellow/filled/corner,
 /turf/open/floor/iron/brick_aligned_corner{
 	dir = 4
 	},
@@ -6940,6 +7000,9 @@
 /obj/machinery/camera/autoname/directional/north{
 	network = list("mine","SS13")
 	},
+/obj/effect/turf_decal/trimline/yellow/filled/line{
+	dir = 1
+	},
 /turf/open/floor/iron/brick_aligned_half,
 /area/mine/engineering)
 "KL" = (
@@ -7047,6 +7110,9 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/structure/cable,
+/obj/effect/turf_decal/trimline/yellow/filled/warning{
+	dir = 1
+	},
 /turf/open/floor/iron/brick_aligned_half,
 /area/mine/engineering)
 "Li" = (
@@ -7625,6 +7691,11 @@
 /area/lavaland/surface/outdoors)
 "Ot" = (
 /obj/effect/decal/cleanable/dirt,
+/obj/machinery/computer/shuttle/mining{
+	dir = 1
+	},
+/obj/structure/window/reinforced/spawner/directional/south,
+/obj/structure/window/reinforced/spawner/directional/east,
 /turf/open/floor/iron/dark/brick_aligned_corner_inverse{
 	dir = 1
 	},
@@ -7641,6 +7712,8 @@
 /obj/effect/decal/cleanable/dirt,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/structure/cable,
+/obj/structure/frame/computer,
+/obj/structure/window/reinforced/spawner/directional/north,
 /turf/open/floor/iron/dark/brick_aligned_corner_inverse,
 /area/mine/engineering)
 "OB" = (
@@ -7735,10 +7808,11 @@
 /turf/open/misc/asteroid/basalt/lava_land_surface,
 /area/ruin/unpowered/ash_walkers)
 "Pg" = (
-/obj/machinery/computer/shuttle/mining{
-	dir = 8
-	},
 /obj/structure/cable,
+/obj/effect/turf_decal/trimline/yellow/filled/line{
+	dir = 4
+	},
+/obj/machinery/vending/coffee,
 /turf/open/floor/iron/brick_aligned_half{
 	dir = 8
 	},
@@ -7921,8 +7995,9 @@
 /turf/open/lava/smooth/lava_land_surface,
 /area/ruin/unpowered/ash_walkers)
 "PV" = (
-/obj/machinery/computer/security/mining{
-	dir = 1
+/obj/effect/turf_decal/trimline/yellow/filled/line,
+/obj/structure/chair{
+	dir = 8
 	},
 /turf/open/floor/iron/brick_aligned_half{
 	dir = 1
@@ -7933,10 +8008,13 @@
 /turf/open/misc/asteroid/basalt/lava_land_surface,
 /area/ruin/unpowered/ash_walkers)
 "PY" = (
+/obj/structure/cable,
+/obj/effect/turf_decal/trimline/yellow/filled/line{
+	dir = 4
+	},
 /obj/structure/disposalpipe/segment{
 	dir = 8
 	},
-/obj/structure/cable,
 /turf/open/floor/iron/brick_aligned_half{
 	dir = 8
 	},
@@ -7958,12 +8036,9 @@
 /turf/open/floor/iron/dark,
 /area/mine/production)
 "Qf" = (
-/obj/effect/decal/cleanable/dirt,
-/obj/structure/chair/office{
-	dir = 4
-	},
-/turf/open/floor/iron/brick_aligned,
-/area/mine/engineering)
+/obj/effect/spawner/structure/window/reinforced,
+/turf/open/floor/plating,
+/area/mine/science/common)
 "Qg" = (
 /obj/structure/wall_torch/spawns_lit/directional/north,
 /obj/structure/stone_tile/surrounding_tile/cracked{
@@ -8193,6 +8268,7 @@
 	},
 /obj/structure/cable,
 /obj/effect/decal/cleanable/dirt,
+/obj/effect/turf_decal/trimline/yellow/filled/line,
 /turf/open/floor/iron/brick_aligned_half{
 	dir = 1
 	},
@@ -9069,13 +9145,13 @@
 /area/lavaland/surface/outdoors)
 "Vg" = (
 /obj/machinery/airalarm/directional/north,
-/obj/machinery/portable_atmospherics/scrubber,
 /obj/effect/decal/cleanable/dirt,
+/obj/structure/closet/secure_closet/engineering_welding,
 /turf/open/floor/iron/textured_large,
 /area/mine/engineering/storage)
 "Vh" = (
 /obj/effect/decal/cleanable/dirt,
-/obj/structure/closet/secure_closet/engineering_welding,
+/obj/structure/closet/secure_closet/engineering_personal,
 /turf/open/floor/iron/textured_large,
 /area/mine/engineering/storage)
 "Vi" = (
@@ -9094,6 +9170,11 @@
 /area/mine/production)
 "Vt" = (
 /obj/structure/sign/warning/fire/directional/north,
+/obj/effect/turf_decal/trimline/yellow/filled/line{
+	dir = 1
+	},
+/obj/machinery/disposal/bin,
+/obj/structure/disposalpipe/trunk,
 /turf/open/floor/iron/brick_aligned_half,
 /area/mine/engineering)
 "Vx" = (
@@ -9124,6 +9205,9 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/structure/cable,
+/obj/effect/turf_decal/trimline/yellow/filled/corner{
+	dir = 4
+	},
 /turf/open/floor/iron/brick_aligned_corner_inverse{
 	dir = 4
 	},
@@ -9327,9 +9411,8 @@
 /turf/open/floor/iron/textured_large,
 /area/mine/lounge)
 "Wy" = (
-/obj/structure/frame/computer{
-	anchored = 1;
-	dir = 8
+/obj/effect/turf_decal/trimline/yellow/filled/line{
+	dir = 4
 	},
 /turf/open/floor/iron/brick_aligned_half{
 	dir = 8
@@ -9633,10 +9716,10 @@
 /turf/open/floor/iron/shuttle/exploration/hazard,
 /area/mine/production)
 "XI" = (
-/obj/structure/frame/computer{
-	anchored = 1;
-	dir = 8
+/obj/effect/turf_decal/trimline/yellow/filled/line{
+	dir = 5
 	},
+/obj/machinery/vending/imported/nt,
 /turf/open/floor/iron/brick_aligned_corner{
 	dir = 8
 	},
@@ -9845,6 +9928,7 @@
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/structure/disposalpipe/segment,
 /turf/open/floor/iron/brick_aligned,
 /area/mine/engineering)
 "Zo" = (
@@ -9922,6 +10006,10 @@
 /area/lavaland/surface/outdoors)
 "ZO" = (
 /obj/structure/disposalpipe/segment,
+/obj/machinery/modular_computer/preset/engineering{
+	dir = 1
+	},
+/obj/structure/window/reinforced/spawner/directional/south,
 /turf/open/floor/iron/dark/brick_aligned_corner_inverse{
 	dir = 4
 	},
@@ -15985,7 +16073,7 @@ nf
 mR
 Jd
 vk
-IC
+CW
 ch
 Mh
 wR
@@ -16242,12 +16330,12 @@ yL
 Uc
 Wx
 Sc
-IC
-Ev
+Qf
+TX
 UV
 DD
 DD
-CW
+IC
 Au
 jN
 zp
@@ -16475,8 +16563,8 @@ oZ
 oZ
 oZ
 Pz
-tG
-nh
+iy
+tX
 PI
 Ej
 ST
@@ -16499,7 +16587,7 @@ Hz
 bP
 Ul
 Sc
-CW
+Qf
 TX
 PB
 DD
@@ -17758,16 +17846,16 @@ zp
 oZ
 oZ
 fm
-um
+sy
 bR
 RE
 fm
 vF
 SL
-iy
+dm
 ST
 Wo
-bR
+tG
 ve
 ic
 Ui
@@ -18017,11 +18105,11 @@ oZ
 uw
 Px
 bR
-sy
+um
 fm
 Vg
 Ao
-tX
+dm
 ST
 yZ
 Cz
@@ -18535,12 +18623,12 @@ dt
 IA
 Fg
 sU
-rQ
+nh
 GS
 rn
 rQ
 dg
-rQ
+nh
 Kd
 eA
 zZ
@@ -19820,12 +19908,12 @@ si
 ir
 BM
 Vt
-uV
+Ev
 Zn
 bf
 RC
-Qf
-dm
+uV
+RC
 PV
 eA
 zB
