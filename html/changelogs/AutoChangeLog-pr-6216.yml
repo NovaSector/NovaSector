@@ -1,0 +1,4 @@
+author: "OrbisAnima"
+delete-after: True
+changes:
+  - bugfix: "Restores the Eldritch Theme to the pda selection of the character options."
