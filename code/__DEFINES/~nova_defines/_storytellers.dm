@@ -60,6 +60,12 @@
 // Weight for antagonists (high threat/disruption)
 #define STORY_DEFAULT_ANTAG_WEIGHT (STORY_DEFAULT_WEIGHT * 10)
 
+#define STORY_MINOR_ANTAG_WEIGHT (STORY_DEFAULT_ANTAG_WEIGHT + 5)
+
+#define STORY_MEDIUM_ANTAG_WEIGHT (STORY_MINOR_ANTAG_WEIGHT * 2)
+
+#define STORY_MAJOR_ANTAG_WEIGHT (STORY_MEDIUM_ANTAG_WEIGHT * 2)
+
 // Job Roles Weights
 // These modifiers adjust weights based on job roles, affecting how the storyteller
 // prioritizes events or subgoals involving specific crew members.

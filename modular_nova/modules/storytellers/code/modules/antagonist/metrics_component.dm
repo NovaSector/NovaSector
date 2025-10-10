@@ -18,6 +18,7 @@
 	var/is_dead = FALSE
 	var/last_update = 0
 	var/victim_track_time = 30 SECONDS
+	var/tracking = FALSE
 
 	COOLDOWN_DECLARE(update_objectives_cooldown)
 
@@ -33,6 +34,7 @@
 	last_update = world.time
 	RegisterWithParent()
 	START_PROCESSING(SSdcs, src)
+	tracking = TRUE
 
 /datum/component/antag_metric_tracker/RegisterWithParent()
 	if(!tracked_mob)
@@ -41,11 +43,12 @@
 	RegisterSignal(tracked_mob, COMSIG_LIVING_ATTACK_ATOM, PROC_REF(on_damage_dealt), TRUE)
 	RegisterSignal(tracked_mob, COMSIG_LIVING_DEATH, PROC_REF(on_death))
 	RegisterSignal(tracked_mob, COMSIG_QDELETING, PROC_REF(on_qdel))
+	RegisterSignal(tracked_mob.mind, COMSIG_MIND_TRANSFERRED, PROC_REF(on_mind_transferred))
 
 
 /datum/component/antag_metric_tracker/UnregisterFromParent()
 	if(tracked_mob)
-		UnregisterSignal(tracked_mob, list(COMSIG_MOB_APPLY_DAMAGE, COMSIG_LIVING_DEATH, COMSIG_QDELETING))
+		UnregisterSignal(tracked_mob, list(COMSIG_MOB_APPLY_DAMAGE, COMSIG_LIVING_DEATH, COMSIG_QDELETING, COMSIG_MIND_TRANSFERRED))
 	tracked_mob = null
 
 
@@ -88,8 +91,34 @@
 	unregister_victim(victim)
 	kills++
 
+/datum/component/antag_metric_tracker/proc/on_mind_transferred(datum/mind/mind, mob/living/previous_body)
+	SIGNAL_HANDLER
+
+	tracking = FALSE
+	// If we got a new mind, we might no longer be an antagonist.
+	if(mind?.antag_datums?.len == 0)
+		is_antagonist = FALSE
+	else
+		is_antagonist = TRUE
+	objectives = list()
+	objectives_completed = 0
+	owner_antag_datums = mind.antag_datums.Copy()
+	for(var/client/client in tracked_victims)
+		var/list/entry = tracked_victims[client]
+		var/mob/living/victim = entry[TRACKED_VICTIM]
+		unregister_victim(victim)
+	tracking = TRUE
 
 /datum/component/antag_metric_tracker/process(delta_time)
+	if(!tracking)
+		return
+
+	if(!tracked_mob || QDELETED(tracked_mob) || !isliving(tracked_mob))
+		return
+
+	if(tracked_mob?.client.is_afk())
+		return
+
 	activity_time += delta_time
 	if(world.time - last_update > 100)
 		last_update = world.time
