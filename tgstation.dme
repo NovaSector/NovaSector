@@ -9213,6 +9213,8 @@
 #include "modular_nova\modules\storytellers\code\modules\metrics\types\atnagonist.dm"
 #include "modular_nova\modules\storytellers\code\modules\metrics\types\health.dm"
 #include "modular_nova\modules\storytellers\code\modules\metrics\types\resources.dm"
+#include "modular_nova\modules\storytellers\code\modules\metrics\types\security.dm"
+#include "modular_nova\modules\storytellers\code\modules\metrics\types\station_integrity.dm"
 #include "modular_nova\modules\storytellers\code\modules\weights\storyvalue.dm"
 #include "modular_nova\modules\storytellers\code\modules\weights\storyweight.dm"
 #include "modular_nova\modules\stunsword\stunsword.dm"

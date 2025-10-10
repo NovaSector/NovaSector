@@ -6,6 +6,13 @@
 #define STORY_TAG_MATCH_BONUS 0.2
 #define STORY_VOLATILITY_NEUTRAL_CHANCE 10  // Percent chance to pick neutral in high volatility
 #define STORY_TENSION_THRESHOLD 15 // Threshold for balanced tension
+#define THINK_TAG_BASE_MULT 1.0
+#define THINK_VOLATILITY_WEIGHT 0.6
+#define THINK_TENSION_WEIGHT 1.0
+#define THINK_MOOD_WEIGHT 1.0
+#define THINK_ADAPTATION_WEIGHT 1.0
+
+
 
 /datum/storyteller_think
 	var/list/think_stages = list(
@@ -59,39 +66,57 @@
 // Called in planner before filtering goals, to bias directionality (STORY_GOAL_GOOD/GOAL_BAD/GOAL_NEUTRAL).
 // Inspired by RimWorld: Balances like Cassandra (tension-targeted), with Randy's volatility for flips/neutrals.
 /datum/storyteller_think/proc/determine_category(datum/storyteller/ctl, datum/storyteller_balance_snapshot/bal)
-	var/category = STORY_GOAL_NEUTRAL  // Default to neutral for balanced starts (RP focus)
+	var/tension = bal.overall_tension // 0..100
+	var/target = ctl.target_tension
 
-	var/mood_bias = clamp((ctl.mood.get_threat_multiplier() - ctl.mood.get_variance_multiplier()) / 2, 0, 1)  // Normalized [0 calm..1 aggressive]
-	if(mood_bias > 0.7)  // Aggressive/volatile -> Negative escalation
-		category = STORY_GOAL_BAD
-	else if(mood_bias < 0.3)  // Calm/slow -> Positive recovery
-		category = STORY_GOAL_GOOD
+	var/tension_norm = clamp((tension / 100.0), 0, 1)
+	var/tension_diff_norm = clamp(abs(tension - target) / 100.0, 0, 1)
+	var/mood_aggr = ctl.mood.get_threat_multiplier() // 0..2
+	var/mood_vol = ctl.mood.get_variance_multiplier() // 0..2
+	var/adapt = clamp(ctl.adaptation_factor, 0, 1)
+	var/threat_rel = clamp(ctl.threat_points / max(1, ctl.max_threat_scale), 0, 1)
+	var/pop = clamp(ctl.population_factor, 0.1, 1.0)
 
-	// Balance/tension override: Use abs diff for threshold; integrate population (big crews tolerate more neutrals)
-	var/tension_diff = abs(bal.overall_tension - ctl.target_tension)
-	var/pop_mod = ctl.population_factor  // [0.1..1.0], high pop -> more neutral tolerance
-	if(tension_diff < STORY_TENSION_THRESHOLD * pop_mod)  // Balanced -> Neutral for RP/breathing room
-		category = STORY_GOAL_NEUTRAL
-	else if(bal.overall_tension > ctl.target_tension)  // High tension -> Deescalate with GOOD
-		category = STORY_GOAL_GOOD
-	else  // Low tension -> Escalate with BAD
-		category = STORY_GOAL_BAD
+	// Scores for each category (higher -> more likely)
+	var/score_good = 0
+	var/score_bad = 0
+	var/score_neutral = 0
+	var/score_random = 0
 
-	// Adaptation/threat check: High adaptation -> GOOD/NEUTRAL (grace post-damage); high threat -> BAD
-	if(ctl.adaptation_factor > 0.5)  // Strong adaptation -> Favor recovery/neutral
-		category = prob(50 * pop_mod) ? STORY_GOAL_NEUTRAL : STORY_GOAL_GOOD
-	else if(ctl.threat_points > ctl.max_threat_scale * 0.7)  // High threat -> BAD for climax push
-		category = STORY_GOAL_BAD
+	// GOOD (recovery) becomes more likely when tension is high (we want deescalation) and/or adaptation active
+	score_good += tension_norm * THINK_TENSION_WEIGHT * 0.8
+	score_good += adapt * THINK_ADAPTATION_WEIGHT * 0.6
+	score_good += mood_aggr < 0.8 ? 0.2 : 0.0 // calm bias slightly towards good
 
-	// Final volatility random: If high volatility, chance to flip or neutral for chaos (Randy-style)
-	if(ctl.mood.get_variance_multiplier() > 1.2)
-		if(prob(STORY_VOLATILITY_NEUTRAL_CHANCE * mood_bias))
-			category = STORY_GOAL_NEUTRAL
-		else if(prob(20 * ctl.mood.get_threat_multiplier()))
-			category = (category == STORY_GOAL_GOOD) ? STORY_GOAL_BAD : STORY_GOAL_GOOD
-		else if(prob(40))
-			category = STORY_GOAL_RANDOM
-	return category
+	// BAD (escalation) more likely when tension is low (need to push), when mood_aggression high or threat_rel high
+	score_bad += (1.0 - tension_norm) * THINK_TENSION_WEIGHT * 0.9
+	score_bad += mood_aggr * THINK_MOOD_WEIGHT * 0.8
+	score_bad += threat_rel * 0.6
+
+	// NEUTRAL more likely when tension close to target and population large
+	score_neutral += (1.0 - tension_diff_norm) * 0.8 * pop
+	score_neutral += 0.2 * (1.0 - mood_aggr) // calm -> RP filler
+
+	// RANDOM becomes more attractive when volatility high
+	score_random += (mood_vol - 1.0) * THINK_VOLATILITY_WEIGHT
+	if(score_random < 0) score_random = 0
+
+	// small random jitter to avoid strict ties
+	score_good += rand(0,10)/100.0
+	score_bad += rand(0,10)/100.0
+	score_neutral += rand(0,10)/100.0
+	score_random += rand(0,10)/100.0
+
+	// choose highest score
+	var/maxs = max(score_good, score_bad, score_neutral, score_random)
+	if(maxs == score_random && score_random > 0.15) // threshold to avoid spurious randoms
+		return STORY_GOAL_RANDOM
+	else if(maxs == score_good)
+		return STORY_GOAL_GOOD
+	else if(maxs == score_bad)
+		return STORY_GOAL_BAD
+	else
+		return STORY_GOAL_NEUTRAL
 
 
 // Basic select_weighted_goal with integration to goal procs
@@ -171,6 +196,16 @@
 /datum/think_stage
 	var/description = "Base think stage"
 
+/datum/think_stage/proc/_apply_tag_with_context(list/context, datum/storyteller_mood/mood, tag, base_chance_percent)
+	if(!context) return
+	var/bias = context[CONTEXT_BIAS] || 1.0
+	var/vol = mood ? mood.get_variance_multiplier() : 1.0
+	var/final_chance = base_chance_percent * bias * (1.0 + (vol - 1.0) * THINK_VOLATILITY_WEIGHT)
+	final_chance = clamp(final_chance, 0, 100)
+	if(prob(final_chance))
+		context[CONTEXT_TAGS] |= tag
+
+
 /datum/think_stage/proc/execute(datum/storyteller/ctl, \
 	datum/storyteller_inputs/inputs, \
 	datum/storyteller_balance_snapshot/bal, \
@@ -184,16 +219,24 @@
 /datum/think_stage/apply_category_bias/execute(datum/storyteller/ctl, datum/storyteller_inputs/inputs, datum/storyteller_balance_snapshot/bal, datum/storyteller_mood/mood, list/context)
 	var/category = context[CONTEXT_CATEGORY]
 	context[CONTEXT_BIAS] = 1.0
+	// always ensure tags is integer bitfield
+	if(!context[CONTEXT_TAGS])
+		context[CONTEXT_TAGS] = 0
+
 	if(category & STORY_GOAL_BAD)
 		context[CONTEXT_BIAS] = 1.5
 		context[CONTEXT_TAGS] |= STORY_TAG_ESCALATION
 	else if(category & STORY_GOAL_GOOD)
-		context[CONTEXT_BIAS] = 1.5
+		context[CONTEXT_BIAS] = 1.3
 		context[CONTEXT_TAGS] |= STORY_TAG_DEESCALATION
 	else if(category & STORY_GOAL_RANDOM)
-		context[CONTEXT_BIAS] = 1.2
+		context[CONTEXT_BIAS] = 1.1
+		// random gets a chance to be chaotic
+		_apply_tag_with_context(context, mood, STORY_TAG_CHAOTIC, 30)
 	else if(category & STORY_GOAL_NEUTRAL)
-		context[CONTEXT_TAGS] = 0.8
+		context[CONTEXT_BIAS] = 0.85
+		// neutral generally avoids escalation/deescalation, but may affect morale or roleplay tags
+		_apply_tag_with_context(context, mood, STORY_TAG_AFFECTS_MORALE, 40)
 
 	if(category & STORY_GOAL_GLOBAL)
 		context[CONTEXT_TAGS] |= STORY_TAG_AFFECTS_WHOLE_STATION
@@ -205,59 +248,50 @@
 /datum/think_stage/base_health_tags/execute(datum/storyteller/ctl, datum/storyteller_inputs/inputs, datum/storyteller_balance_snapshot/bal, datum/storyteller_mood/mood, list/context)
 	var/category_bias = context[CONTEXT_BIAS]
 	var/crew_health = inputs.vault[STORY_VAULT_CREW_HEALTH] || STORY_VAULT_HEALTH_HEALTHY
-	if(crew_health >= STORY_VAULT_HEALTH_DAMAGED)
-		if(prob(70 * category_bias))
-			context[CONTEXT_TAGS] |= STORY_TAG_AFFECTS_CREW_HEALTH
-
 	var/crew_wounding = inputs.vault[STORY_VAULT_CREW_WOUNDING] || STORY_VAULT_NO_WOUNDS
-	if(crew_wounding >= STORY_VAULT_SOME_WOUNDED)
-		if(prob(60 * category_bias))
-			context[CONTEXT_TAGS] |= STORY_TAG_AFFECTS_CREW_HEALTH
-
 	var/crew_diseases = inputs.vault[STORY_VAULT_CREW_DISEASES] || STORY_VAULT_NO_DISEASES
-	if(crew_diseases >= STORY_VAULT_MINOR_DISEASES)
-		if(prob(65 * category_bias))
-			context[CONTEXT_TAGS] |= STORY_TAG_AFFECTS_CREW_HEALTH | STORY_TAG_AFFECTS_ENVIRONMENT
-
 	var/crew_dead_ratio = inputs.vault[STORY_VAULT_CREW_DEAD_RATIO] || STORY_VAULT_LOW_DEAD_RATIO
+
+	// higher base chances for worse states
+	if(crew_health >= STORY_VAULT_HEALTH_DAMAGED)
+		_apply_tag_with_context(context, mood, STORY_TAG_AFFECTS_CREW_HEALTH, 65 * category_bias)
+	if(crew_wounding >= STORY_VAULT_SOME_WOUNDED)
+		_apply_tag_with_context(context, mood, STORY_TAG_AFFECTS_CREW_HEALTH, 55 * category_bias)
+	if(crew_diseases >= STORY_VAULT_MINOR_DISEASES)
+		_apply_tag_with_context(context, mood, STORY_TAG_AFFECTS_CREW_HEALTH | STORY_TAG_AFFECTS_ENVIRONMENT, 50 * category_bias)
 	if(crew_dead_ratio >= STORY_VAULT_MODERATE_DEAD_RATIO)
-		if(prob(75 * category_bias))
-			context[CONTEXT_TAGS] |= STORY_TAG_AFFECTS_MORALE
+		_apply_tag_with_context(context, mood, STORY_TAG_AFFECTS_MORALE, 75 * category_bias)
 
 
 /datum/think_stage/base_antag_tags
 	description = "Adds base tags from antagonist metrics"
 
 /datum/think_stage/base_antag_tags/execute(datum/storyteller/ctl, datum/storyteller_inputs/inputs, datum/storyteller_balance_snapshot/bal, datum/storyteller_mood/mood, list/context)
-	var/category = context[CONTEXT_CATEGORY]
 	var/category_bias = context[CONTEXT_BIAS]
 	var/antag_presence = inputs.vault[STORY_VAULT_ANTAGONIST_PRESENCE] || STORY_VAULT_NO_ANTAGONISTS
-	if(antag_presence >= STORY_VAULT_FEW_ANTAGONISTS)
-		if(prob(50 * category_bias))
-			context[CONTEXT_TAGS] |= STORY_TAG_AFFECTS_ANTAGONIST
-	if(antag_presence >= STORY_VAULT_MANY_ANTAGONISTS)
-		context[CONTEXT_TAGS] |= (category & STORY_GOAL_BAD ? STORY_TAG_ESCALATION : STORY_TAG_DEESCALATION)
-
 	var/antag_activity = inputs.vault[STORY_VAULT_ANTAGONIST_ACTIVITY] || STORY_VAULT_NO_ACTIVITY
-	if(antag_activity >= STORY_VAULT_MODERATE_ACTIVITY)
-		if(prob(70 * category_bias))
-			context[CONTEXT_TAGS] |= STORY_TAG_AFFECTS_SECURITY | STORY_TAG_ESCALATION
-
 	var/antag_kills = inputs.vault[STORY_VAULT_ANTAG_KILLS] || STORY_VAULT_NO_KILLS
-	if(antag_kills >= STORY_VAULT_MODERATE_KILLS)
-		if(prob(80 * category_bias))
-			context[CONTEXT_TAGS] |= STORY_TAG_AFFECTS_MORALE | STORY_TAG_ESCALATION
-
 	var/antag_objectives = inputs.vault[STORY_VAULT_ANTAG_OBJECTIVES_COMPLETED] || STORY_VAULT_NO_OBJECTIVES
-	if(antag_objectives >= STORY_VAULT_MODERATE_OBJECTIVES)
-		context[CONTEXT_TAGS] |= STORY_TAG_AFFECTS_ANTAGONIST
-
 	var/antag_influence = inputs.vault[STORY_VAULT_ANTAG_INFLUENCE] || STORY_VAULT_LOW_INFLUENCE
-	if(antag_influence >= STORY_VAULT_HIGH_INFLUENCE)
-		if(prob(60 * category_bias))
-			context[CONTEXT_TAGS] |= STORY_TAG_AFFECTS_WHOLE_STATION | STORY_TAG_AFFECTS_POLITICS
-
 	var/antag_disruption = inputs.vault[STORY_VAULT_ANTAG_DISRUPTION] || STORY_VAULT_NO_DISRUPTION
+
+	if(antag_presence >= STORY_VAULT_FEW_ANTAGONISTS)
+		_apply_tag_with_context(context, mood, STORY_TAG_AFFECTS_ANTAGONIST, 50 * category_bias)
+	if(antag_presence >= STORY_VAULT_MANY_ANTAGONISTS)
+		// many antags -> either escalation or deescalation depending on category
+		if(context[CONTEXT_CATEGORY] & STORY_GOAL_BAD)
+			context[CONTEXT_TAGS] |= STORY_TAG_ESCALATION
+		else
+			context[CONTEXT_TAGS] |= STORY_TAG_DEESCALATION
+
+	if(antag_activity >= STORY_VAULT_MODERATE_ACTIVITY)
+		_apply_tag_with_context(context, mood, STORY_TAG_AFFECTS_SECURITY | STORY_TAG_ESCALATION, 70 * category_bias)
+	if(antag_kills >= STORY_VAULT_MODERATE_KILLS)
+		_apply_tag_with_context(context, mood, STORY_TAG_AFFECTS_MORALE | STORY_TAG_ESCALATION, 80 * category_bias)
+	if(antag_objectives >= STORY_VAULT_MODERATE_OBJECTIVES)
+		_apply_tag_with_context(context, mood, STORY_TAG_AFFECTS_ANTAGONIST, 55 * category_bias)
+	if(antag_influence >= STORY_VAULT_HIGH_INFLUENCE)
+		_apply_tag_with_context(context, mood, STORY_TAG_AFFECTS_WHOLE_STATION | STORY_TAG_AFFECTS_POLITICS, 60 * category_bias)
 	if(antag_disruption >= STORY_VAULT_MAJOR_DISRUPTION)
 		context[CONTEXT_TAGS] |= STORY_TAG_AFFECTS_INFRASTRUCTURE | STORY_TAG_ESCALATION
 
@@ -266,72 +300,63 @@
 	description = "Adds base tags from resources and additional metrics"
 
 /datum/think_stage/base_resource_tags/execute(datum/storyteller/ctl, datum/storyteller_inputs/inputs, datum/storyteller_balance_snapshot/bal, datum/storyteller_mood/mood, list/context)
-	var/category = context[CONTEXT_CATEGORY]
 	var/category_bias = context[CONTEXT_BIAS]
 	var/research_progress = inputs.vault[STORY_VAULT_RESEARCH_PROGRESS] || STORY_VAULT_LOW_RESEARCH
 	var/resource_minerals = inputs.vault[STORY_VAULT_RESOURCE_MINERALS] || 0
+
 	if(resource_minerals >= 2)
-		if(prob(60 * category_bias))
-			context[CONTEXT_TAGS] |= STORY_TAG_AFFECTS_RESOURCES | STORY_TAG_AFFECTS_ECONOMY
-
+		_apply_tag_with_context(context, mood, STORY_TAG_AFFECTS_RESOURCES | STORY_TAG_AFFECTS_ECONOMY, 60 * category_bias)
 	if(inputs.vault[STORY_VAULT_POWER_STATUS] >= STORY_VAULT_LOW_POWER)
-		if(prob(70 * category_bias))
-			context[CONTEXT_TAGS] |= STORY_TAG_AFFECTS_INFRASTRUCTURE | STORY_TAG_AFFECTS_TECHNOLOGY
-
-	if(inputs.vault[STORY_VAULT_ATMOS_STATUS] >= STORY_VAULT_MINOR_BREACHES)
-		if(prob(65 * category_bias))
-			context[CONTEXT_TAGS] |= STORY_TAG_AFFECTS_ENVIRONMENT | STORY_TAG_AFFECTS_CREW_HEALTH
-
+		_apply_tag_with_context(context, mood, STORY_TAG_AFFECTS_INFRASTRUCTURE | STORY_TAG_AFFECTS_TECHNOLOGY, 70 * category_bias)
+	if(inputs.vault[STORY_VAULT_ENV_HAZARDS] >= STORY_VAULT_MINOR_HAZARDS)
+		_apply_tag_with_context(context, mood, STORY_TAG_AFFECTS_ENVIRONMENT | STORY_TAG_AFFECTS_CREW_HEALTH, 65 * category_bias)
 	if(research_progress >= STORY_VAULT_HIGH_RESEARCH)
-		if(prob(55 * category_bias))
-			context[CONTEXT_TAGS] |= STORY_TAG_AFFECTS_RESEARCH | (category & STORY_GOAL_BAD ? STORY_TAG_ESCALATION : STORY_TAG_DEESCALATION)
-
-	if(inputs.vault[STORY_VAULT_MORALE_LEVEL] >= STORY_VAULT_LOW_MORALE)
+		_apply_tag_with_context(context, mood, STORY_TAG_AFFECTS_RESEARCH | (context[CONTEXT_CATEGORY] & STORY_GOAL_BAD ? STORY_TAG_ESCALATION : STORY_TAG_DEESCALATION), 55 * category_bias)
+	if(inputs.vault[STORY_VAULT_CREW_MORALE] >= STORY_VAULT_LOW_MORALE)
 		context[CONTEXT_TAGS] |= STORY_TAG_AFFECTS_MORALE
-
-	if(inputs.vault[STORY_VAULT_SECURITY_STATUS] >= STORY_VAULT_RED_ALERT)
+	if(inputs.vault[STORY_VAULT_SECURITY_ALERT] >= STORY_VAULT_RED_ALERT)
 		context[CONTEXT_TAGS] |= STORY_TAG_AFFECTS_SECURITY | STORY_TAG_ESCALATION
 
 /datum/think_stage/mid_aggregation
 	description = "Aggregates mid-level crises and antag dynamics"
 
 /datum/think_stage/mid_aggregation/execute(datum/storyteller/ctl, datum/storyteller_inputs/inputs, datum/storyteller_balance_snapshot/bal, datum/storyteller_mood/mood, list/context)
-	var/category = context[CONTEXT_CATEGORY]
-	var/category_bias = context[CONTEXT_BIAS]
 	var/tags = context[CONTEXT_TAGS]
 	var/health_crisis = (tags & STORY_TAG_AFFECTS_CREW_HEALTH)
 	var/morale_crisis = (tags & STORY_TAG_AFFECTS_MORALE)
+
 	if(health_crisis || morale_crisis)
-		if(category & STORY_GOAL_BAD || bal.overall_tension > ctl.target_tension)
+		if((context[CONTEXT_CATEGORY] & STORY_GOAL_BAD) || bal.overall_tension > ctl.target_tension)
 			context[CONTEXT_TAGS] |= STORY_TAG_ESCALATION
 		else
 			context[CONTEXT_TAGS] |= STORY_TAG_DEESCALATION
 
 	if(bal.antag_effectiveness < ctl.balancer.weak_antag_threshold && bal.ratio < 0.8)
-		if(prob(80 * category_bias))
-			context[CONTEXT_TAGS] |= STORY_TAG_AFFECTS_ANTAGONIST
+		_apply_tag_with_context(context, mood, STORY_TAG_AFFECTS_ANTAGONIST, 80 * context[CONTEXT_BIAS])
 
 	if(bal.station_strength < 0.5)
-		if(prob(70 * category_bias))
-			context[CONTEXT_TAGS] |= STORY_TAG_AFFECTS_RESOURCES | STORY_TAG_AFFECTS_INFRASTRUCTURE
+		_apply_tag_with_context(context, mood, STORY_TAG_AFFECTS_RESOURCES | STORY_TAG_AFFECTS_INFRASTRUCTURE, 70 * context[CONTEXT_BIAS])
 
 /datum/think_stage/high_implications
 	description = "Applies high-level narrative adjustments"
 
 /datum/think_stage/high_implications/execute(datum/storyteller/ctl, datum/storyteller_inputs/inputs, datum/storyteller_balance_snapshot/bal, datum/storyteller_mood/mood, list/context)
-	var/category = context[CONTEXT_CATEGORY]
 	var/tags = context[CONTEXT_TAGS]
 	var/health_crisis = (tags & STORY_TAG_AFFECTS_CREW_HEALTH)
 	var/morale_crisis = (tags & STORY_TAG_AFFECTS_MORALE)
+
 	if(health_crisis)
-		if(category & STORY_GOAL_GOOD || bal.overall_tension > ctl.target_tension)
+		if((context[CONTEXT_CATEGORY] & STORY_GOAL_GOOD) || bal.overall_tension > ctl.target_tension)
 			context[CONTEXT_TAGS] |= STORY_TAG_DEESCALATION | STORY_TAG_AFFECTS_CREW_HEALTH
 		else
 			context[CONTEXT_TAGS] |= STORY_TAG_ESCALATION | STORY_TAG_AFFECTS_CREW_HEALTH
+
 	if(morale_crisis)
-		context[CONTEXT_TAGS] |= STORY_TAG_AFFECTS_MORALE | (category & STORY_GOAL_BAD ? STORY_TAG_ESCALATION : STORY_TAG_DEESCALATION)
+		context[CONTEXT_TAGS] |= STORY_TAG_AFFECTS_MORALE | ((context[CONTEXT_CATEGORY] & STORY_GOAL_BAD) ? STORY_TAG_ESCALATION : STORY_TAG_DEESCALATION)
+
 	if(bal.ratio < 0.8)
 		context[CONTEXT_TAGS] |= STORY_TAG_AFFECTS_ANTAGONIST | STORY_TAG_DEESCALATION
+
 	if(bal.overall_tension > ctl.target_tension)
 		context[CONTEXT_TAGS] |= STORY_TAG_DEESCALATION
 	else if(bal.overall_tension < ctl.target_tension * 0.7)
@@ -341,13 +366,11 @@
 	description = "Adds additional category-specific influences"
 
 /datum/think_stage/additional_influences/execute(datum/storyteller/ctl, datum/storyteller_inputs/inputs, datum/storyteller_balance_snapshot/bal, datum/storyteller_mood/mood, list/context)
-	var/category = context[CONTEXT_CATEGORY]
-	var/research_progress = inputs.vault[STORY_VAULT_RESEARCH_PROGRESS] || STORY_VAULT_LOW_RESEARCH
-	if(category & STORY_GOAL_GLOBAL)
+	if(context[CONTEXT_CATEGORY] & STORY_GOAL_GLOBAL)
 		context[CONTEXT_TAGS] |= STORY_TAG_AFFECTS_WHOLE_STATION
 	if(STORY_VAULT_LOW_RESOURCE in inputs.vault)
 		context[CONTEXT_TAGS] |= STORY_TAG_AFFECTS_ECONOMY | STORY_TAG_AFFECTS_RESOURCES
-	if(category & STORY_GOAL_BAD && research_progress >= STORY_VAULT_MODERATE_RESEARCH)
+	if((context[CONTEXT_CATEGORY] & STORY_GOAL_BAD) && (inputs.vault[STORY_VAULT_RESEARCH_PROGRESS] >= STORY_VAULT_MODERATE_RESEARCH))
 		context[CONTEXT_TAGS] |= STORY_TAG_AFFECTS_RESEARCH | STORY_TAG_AFFECTS_SECURITY
 
 /datum/think_stage/volatility_random
@@ -362,6 +385,7 @@
 		if(mood.volatility > 1.5 && prob(50))
 			context[CONTEXT_TAGS] |= STORY_TAG_CHAOTIC
 
+
 #undef STORY_VOLATILITY_NEUTRAL_CHANCE
 #undef STORY_TENSION_THRESHOLD
 #undef CONTEXT_TAGS
@@ -369,3 +393,8 @@
 #undef CONTEXT_BIAS
 #undef STORY_REPETITION_DECAY_TIME
 #undef STORY_TAG_MATCH_BONUS
+#undef THINK_TAG_BASE_MULT
+#undef THINK_VOLATILITY_WEIGHT
+#undef THINK_TENSION_WEIGHT
+#undef THINK_MOOD_WEIGHT
+#undef THINK_ADAPTATION_WEIGHT

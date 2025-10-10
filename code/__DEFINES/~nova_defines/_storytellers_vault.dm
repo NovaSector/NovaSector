@@ -1,10 +1,9 @@
-GLOBAL_LIST(all_antagonist_metrics)
-
 // Storyteller vault metrics for tracking station state
 // Each metric represents a category of station conditions used by the storyteller to select goals and events
 
 /*
-	Health metric
+	Health metrics
+	These track the physical well-being of crew and antagonists, including health levels, wounds, and diseases.
 */
 
 // Tracks the overall health status of antagonists to influence goal selection (e.g., antagonist support or crew advantage events).
@@ -44,17 +43,27 @@ GLOBAL_LIST(all_antagonist_metrics)
 	// Widespread, critical disease outbreak.
 	#define STORY_VAULT_OUTBREAK 3
 
+/*
+	Death and alive metrics
+	These track counts and ratios of dead/alive crew and antagonists to gauge station mortality and survival rates.
+*/
 
+// Tracks the number of dead antagonists.
 #define STORY_VAULT_ANTAG_DEAD_COUNT "antag_dead_count"
 
+// Tracks the number of dead crew members.
 #define STORY_VAULT_CREW_DEAD_COUNT "crew_dead_count"
 
+// Tracks the number of alive antagonists.
 #define STORY_VAULT_ANTAG_ALIVE_COUNT "antag_alive_count"
 
+// Tracks the number of alive crew members.
 #define STORY_VAULT_CREW_ALIVE_COUNT "crew_alive_count"
 
+// Tracks the alive level for antagonists (based on dead counts).
 #define STORY_VAULT_ANTAG_ALIVE_LEVEL "antag_alive_level"
 
+// Tracks the alive level for crew (based on dead counts).
 #define STORY_VAULT_CREW_ALIVE_LEVEL "crew_alive_level"
 	// No dead crew members.
 	#define STORY_VAULT_NO_DEAD 0
@@ -65,10 +74,9 @@ GLOBAL_LIST(all_antagonist_metrics)
 	// Many dead crew members (e.g., >15).
 	#define STORY_VAULT_MANY_DEAD 3
 
-
 // Tracks the ratio of dead to total antagonists.
 #define STORY_VAULT_ANTAG_DEAD_RATIO "antag_dead_ratio"
-// Same for antagonist
+// Tracks the ratio of dead to total crew.
 #define STORY_VAULT_CREW_DEAD_RATIO "crew_dead_ratio"
 	// Very low death ratio (<10%).
 	#define STORY_VAULT_LOW_DEAD_RATIO 0
@@ -79,13 +87,11 @@ GLOBAL_LIST(all_antagonist_metrics)
 	// Extreme death ratio (>60%).
 	#define STORY_VAULT_EXTREME_DEAD_RATIO 3
 
-
 /*
-	Resource metric
+	Resource metrics
+	These track station resources, antagonist presence, and related factors affecting economic and operational stability.
 */
 
-
-// Metric: Antagonist Presence
 // Tracks the number of active antagonists on the station, influencing events like sabotage or crew conflict.
 #define STORY_VAULT_ANTAGONIST_PRESENCE "antagonist_presence"
 	// No active antagonists detected, favoring peaceful or routine station events.
@@ -97,16 +103,59 @@ GLOBAL_LIST(all_antagonist_metrics)
 	// A large number of antagonists are active, triggering major conflict or crisis events.
 	#define STORY_VAULT_MANY_ANTAGONISTS 3
 
-// Antagonist inactivity ratio among alive antags (0..1)
+// Tracks the inactivity ratio among alive antagonists (0..1).
 #define STORY_VAULT_ANTAG_INACTIVE_RATIO "antag_inactive_ratio"
 
-// Station resources
+// Tracks the level of mineral resources on the station.
 #define STORY_VAULT_RESOURCE_MINERALS "resource_minerals"
+
+// Tracks the level of other (non-mineral) resources on the station.
 #define STORY_VAULT_RESOURCE_OTHER "resource_other"
+
+// Tracks overall low resource conditions on the station.
 #define STORY_VAULT_LOW_RESOURCE "low_station_resources"
 
 /*
+	Security metrics
+	These track security personnel, equipment, and alert levels to influence law enforcement and response events.
+*/
+
+// Tracks security strength (number of active security officers, their gear, arrests made).
+#define STORY_VAULT_SECURITY_STRENGTH "security_strength"
+	#define STORY_VAULT_NO_SECURITY 0      // No active security
+	#define STORY_VAULT_WEAK_SECURITY 1    // Few/low-geared officers
+	#define STORY_VAULT_MODERATE_SECURITY 2 // Standard force
+	#define STORY_VAULT_STRONG_SECURITY 3  // High numbers/well-equipped
+
+// Tracks security alert level (green to delta).
+#define STORY_VAULT_SECURITY_ALERT "security_alert"  // Already partially in code, expanded
+	#define STORY_VAULT_GREEN_ALERT 0
+	#define STORY_VAULT_BLUE_ALERT 1
+	#define STORY_VAULT_RED_ALERT 2
+	#define STORY_VAULT_DELTA_ALERT 3
+
+/*
+	Crew state metrics
+	These track morale and readiness of the crew to handle crises or daily operations.
+*/
+
+// Tracks crew morale (happiness, stress from events/deaths).
+#define STORY_VAULT_CREW_MORALE "crew_morale"
+	#define STORY_VAULT_HIGH_MORALE 0     // Happy/productive
+	#define STORY_VAULT_MODERATE_MORALE 1 // Neutral
+	#define STORY_VAULT_LOW_MORALE 2      // Stressed
+	#define STORY_VAULT_CRITICAL_MORALE 3 // Mutiny-level low
+
+// Tracks crew readiness (access to weapons, meds, tools for crises).
+#define STORY_VAULT_CREW_READINESS "crew_readiness"
+	#define STORY_VAULT_UNPREPARED 0     // No gear/stockpiles
+	#define STORY_VAULT_BASIC_READY 1    // Minimal supplies
+	#define STORY_VAULT_PREPARED 2       // Good stockpiles
+	#define STORY_VAULT_HIGHLY_READY 3   // Overprepared (armory full, etc.)
+
+/*
 	Antagonist metrics
+	These track antagonist behavior, progress, and impact to escalate or mitigate threats.
 */
 
 // Tracks the level of antagonist-driven disruption, influencing escalation or mitigation events.
@@ -164,6 +213,49 @@ GLOBAL_LIST(all_antagonist_metrics)
 	// Station-wide crisis.
 	#define STORY_VAULT_CRITICAL_DISRUPTION 3
 
+// Tracks intensity of antag actions (low: sporadic; high: constant pressure).
+#define STORY_VAULT_ANTAG_INTENSITY "antag_intensity"
+	#define STORY_VAULT_LOW_INTENSITY 0
+	#define STORY_VAULT_MODERATE_INTENSITY 1
+	#define STORY_VAULT_HIGH_INTENSITY 2
+	#define STORY_VAULT_EXTREME_INTENSITY 3
+
+// Tracks teamwork among antags (low: solo; high: coordinated teams).
+#define STORY_VAULT_ANTAG_TEAMWORK "antag_teamwork"
+	#define STORY_VAULT_NO_TEAMWORK 0
+	#define STORY_VAULT_LOW_TEAMWORK 1
+	#define STORY_VAULT_MODERATE_TEAMWORK 2
+	#define STORY_VAULT_HIGH_TEAMWORK 3
+
+// Tracks stealth level (high: undetected progress; low: obvious chaos).
+#define STORY_VAULT_ANTAG_STEALTH "antag_stealth"
+	#define STORY_VAULT_NO_STEALTH 0
+	#define STORY_VAULT_LOW_STEALTH 1
+	#define STORY_VAULT_MODERATE_STEALTH 2
+	#define STORY_VAULT_HIGH_STEALTH 3
+
+// Tracks the major current threat/crisis type (e.g., "cult", "blob").
+#define STORY_VAULT_MAJOR_THREAT "major_threat"
+
+// Tracks threat escalation rate (slow: buildup; fast: sudden spikes).
+#define STORY_VAULT_THREAT_ESCALATION "threat_escalation"
+	#define STORY_VAULT_SLOW_ESCALATION 0
+	#define STORY_VAULT_MODERATE_ESCALATION 1
+	#define STORY_VAULT_FAST_ESCALATION 2
+	#define STORY_VAULT_EXPLOSIVE_ESCALATION 3
+
+/*
+	Station crises metrics
+	These track infrastructure, power, hazards, and research to influence emergency and recovery events.
+*/
+
+// Tracks infrastructure damage (power, hull breaches, etc.).
+#define STORY_VAULT_INFRA_DAMAGE "infra_damage"
+	#define STORY_VAULT_NO_DAMAGE 0
+	#define STORY_VAULT_MINOR_DAMAGE 1
+	#define STORY_VAULT_MAJOR_DAMAGE 2
+	#define STORY_VAULT_CRITICAL_DAMAGE 3
+
 // Tracks station power availability, influencing events like blackouts or engineering repairs.
 #define STORY_VAULT_POWER_STATUS "power_status"
 	#define STORY_VAULT_FULL_POWER 0
@@ -171,12 +263,12 @@ GLOBAL_LIST(all_antagonist_metrics)
 	#define STORY_VAULT_BLACKOUT 2
 	#define STORY_VAULT_CRITICAL_POWER_FAILURE 3
 
-// Tracks atmospheric breaches or hazards, for events like meteors or gas leaks.
-#define STORY_VAULT_ATMOS_STATUS "atmos_status"
-	#define STORY_VAULT_STABLE_ATMOS 0
-	#define STORY_VAULT_MINOR_BREACHES 1
-	#define STORY_VAULT_MAJOR_BREACHES 2
-	#define STORY_VAULT_ATMOS_CRISIS 3
+// Tracks environmental hazards (toxins, fires, rads).
+#define STORY_VAULT_ENV_HAZARDS "env_hazards"
+	#define STORY_VAULT_NO_HAZARDS 0
+	#define STORY_VAULT_MINOR_HAZARDS 1
+	#define STORY_VAULT_MAJOR_HAZARDS 2
+	#define STORY_VAULT_CRITICAL_HAZARDS 3
 
 // Tracks overall research progress, influencing science-related goals.
 #define STORY_VAULT_RESEARCH_PROGRESS "research_progress"
@@ -184,17 +276,3 @@ GLOBAL_LIST(all_antagonist_metrics)
 	#define STORY_VAULT_MODERATE_RESEARCH 1
 	#define STORY_VAULT_HIGH_RESEARCH 2
 	#define STORY_VAULT_ADVANCED_RESEARCH 3
-
-// Tracks crew morale level explicitly (beyond dead ratio), based on events, announcements, etc.
-#define STORY_VAULT_MORALE_LEVEL "morale_level"
-	#define STORY_VAULT_HIGH_MORALE 0
-	#define STORY_VAULT_NORMAL_MORALE 1
-	#define STORY_VAULT_LOW_MORALE 2
-	#define STORY_VAULT_CRITICAL_MORALE 3
-
-// Tracks station security status (e.g., alert levels, arrests).
-#define STORY_VAULT_SECURITY_STATUS "security_status"
-	#define STORY_VAULT_GREEN_ALERT 0
-	#define STORY_VAULT_BLUE_ALERT 1
-	#define STORY_VAULT_RED_ALERT 2
-	#define STORY_VAULT_DELTA_ALERT 3

@@ -10,40 +10,54 @@
 	var/list/objectives = list()
 	var/is_antagonist = TRUE
 	var/kills = 0
+	// Tracks the total damage dealt by the mob
 	var/damage_dealt = 0
+	// Tracks the total activity time of the mob (non-afk time)
 	var/activity_time = 0
+	// Tracks the number of objectives completed by the mob
 	var/objectives_completed = 0
+	// Tracks the disruption score of the mob
 	var/disruption_score = 0
+	// Tracks the influence score of the mob
 	var/influence_score = 0
+	// Indicates whether the mob is dead
 	var/is_dead = FALSE
 	var/last_update = 0
+	// Time duration for tracking victims
 	var/victim_track_time = 30 SECONDS
+	 // Indicates whether the component is actively tracking
 	var/tracking = FALSE
 
-	COOLDOWN_DECLARE(update_objectives_cooldown)
+	// Time with actions (kills, objectives, damage)
+	var/effective_activity_time = 0
+	// Actions in last 5 min
+	var/burst_activity = 0
+	var/last_burst_check = 0
+	var/burst_window = 5 MINUTES
 
+	COOLDOWN_DECLARE(update_objectives_cooldown) // Declares a cooldown for updating objectives
 
 /datum/component/antag_metric_tracker/Initialize(mob/living/tracked_mob)
 	if(!tracked_mob)
-		return COMPONENT_INCOMPATIBLE
+		return COMPONENT_INCOMPATIBLE // If no mob is provided, the component is incompatible
 
 	if(tracked_mob.mind?.antag_datums?.len == 0)
-		is_antagonist = FALSE
+		is_antagonist = FALSE // If the mob has no antagonist data, mark as non-antagonist
 
-	parent = tracked_mob
-	last_update = world.time
-	RegisterWithParent()
-	START_PROCESSING(SSdcs, src)
-	tracking = TRUE
+	parent = tracked_mob // Set the parent to the tracked mob
+	last_update = world.time // Initialize the last update time
+	RegisterWithParent() // Register signals with the parent mob
+	START_PROCESSING(SSdcs, src) // Start processing the component
+	tracking = TRUE // Set tracking to active
 
 /datum/component/antag_metric_tracker/RegisterWithParent()
 	if(!tracked_mob)
-		Destroy()
+		Destroy() // Destroy the component if the mob is invalid
 
-	RegisterSignal(tracked_mob, COMSIG_LIVING_ATTACK_ATOM, PROC_REF(on_damage_dealt), TRUE)
-	RegisterSignal(tracked_mob, COMSIG_LIVING_DEATH, PROC_REF(on_death))
-	RegisterSignal(tracked_mob, COMSIG_QDELETING, PROC_REF(on_qdel))
-	RegisterSignal(tracked_mob.mind, COMSIG_MIND_TRANSFERRED, PROC_REF(on_mind_transferred))
+	RegisterSignal(tracked_mob, COMSIG_LIVING_ATTACK_ATOM, PROC_REF(on_damage_dealt), TRUE) // Register signal for damage dealt
+	RegisterSignal(tracked_mob, COMSIG_LIVING_DEATH, PROC_REF(on_death)) // Register signal for mob death
+	RegisterSignal(tracked_mob, COMSIG_QDELETING, PROC_REF(on_qdel)) // Register signal for mob deletion
+	RegisterSignal(tracked_mob.mind, COMSIG_MIND_TRANSFERRED, PROC_REF(on_mind_transferred)) // Register signal for mind transfer
 
 
 /datum/component/antag_metric_tracker/UnregisterFromParent()
@@ -65,7 +79,7 @@
 	RegisterSignals(victim, list(COMSIG_LIVING_DEATH, COMSIG_QDELETING), PROC_REF(on_victim_lost))
 	tracked_victims[victim.client] = list(list(
 		TRACKED_VICTIM = victim,
-		TRACKED_TIME = 30 SECONDS
+		TRACKED_TIME = 30 SECONDS,
 	))
 
 /datum/component/antag_metric_tracker/proc/unregister_victim(mob/living/victim)
@@ -122,6 +136,15 @@
 	activity_time += delta_time
 	if(world.time - last_update > 100)
 		last_update = world.time
+
+	if(world.time - last_burst_check > burst_window)
+		last_burst_check = world.time
+		burst_activity = (kills + objectives_completed + damage_dealt / 100)  // Reset burst to recent actions
+	else
+		burst_activity += delta_time * 0.1  // Accumulate in window
+
+	effective_activity_time += delta_time * (kills + objectives_completed + (damage_dealt > 0 ? 1 : 0)) / 3
+
 
 	// Checking objectives once per minute should be often enough.
 	if(COOLDOWN_FINISHED(src, update_objectives_cooldown) && is_antagonist && tracked_mob?.mind && tracked_mob.mind?.antag_datums?.len)

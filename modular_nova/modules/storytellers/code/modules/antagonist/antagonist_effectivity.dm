@@ -1,6 +1,8 @@
 /datum/antagonist
 	var/initial_weight = STORY_DEFAULT_ANTAG_WEIGHT
 
+
+// Base atnag effective from 0 to 2, where 1 is average
 /datum/antagonist/proc/get_effectivity()
 	if(antag_flags & ANTAG_FAKE)
 		return 0
