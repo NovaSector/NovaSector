@@ -435,6 +435,11 @@
 			return
 		if(!building_checks(builder, recipe, multiplier))
 			return
+		// NOVA EDIT ADDITION START: Construction Skill
+		var/experience = floor(recipe.time * CONSTRUCTION_XP_MULTIPLIER)
+		if(experience)
+			builder.mind?.adjust_experience(/datum/skill/construction, experience)
+		// NOVA EDIT ADDITION END
 
 	var/atom/created
 	if(recipe.max_res_amount > 1) // Is it a stack?
@@ -459,7 +464,6 @@
 		SEND_SIGNAL(created, COMSIG_ATOM_CONSTRUCTED, builder)
 		on_item_crafted(builder, created)
 
-	builder.mind?.adjust_experience(/datum/skill/construction, 2) //NOVA EDIT ADDITION: Construction Skill
 	// Use up the material
 	use(recipe.req_amount * multiplier)
 	builder.investigate_log("crafted [recipe.title]", INVESTIGATE_CRAFTING)
