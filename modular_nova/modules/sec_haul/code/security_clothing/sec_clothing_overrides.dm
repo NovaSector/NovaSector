@@ -132,7 +132,7 @@
 		show_contents(to_show)
 		return
 
-	if(!to_show.CanReach(resolve_parent))
+	if(!resolve_parent.IsReachableBy(to_show))
 		resolve_parent.balloon_alert(to_show, "can't reach!")
 		return FALSE
 

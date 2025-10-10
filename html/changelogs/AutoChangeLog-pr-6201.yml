@@ -1,0 +1,4 @@
+author: "OrbisAnima"
+delete-after: True
+changes:
+  - rscadd: "Adds Two Oversized variants for beds (craft menu, 4/8 cloth and wood), an universal, synthetic, variant of the wolf pelt beds (craft menu, 4 leather and wood) and liberates the recipe for the thatch bed (craft menu, 4 wood and thatch, which is made by putting grass in a dehidratator)"

@@ -24,10 +24,6 @@
 *	ITEMS BELOW HERE
 */
 
-/datum/loadout_item/belts/candle_box
-	name = "Candle Box"
-	item_path = /obj/item/storage/fancy/candle_box
-
 /datum/loadout_item/belts/fanny_pack_black
 	name = "Fannypack (Black)"
 	item_path = /obj/item/storage/belt/fannypack/black

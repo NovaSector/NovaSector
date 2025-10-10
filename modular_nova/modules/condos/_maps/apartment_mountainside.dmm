@@ -1619,8 +1619,8 @@
 	pixel_x = 15
 	},
 /obj/item/shell/server{
-	name = "splurt-citadel server";
-	desc = "Ye' ol' reliable server. 0 days without incidents!";
+	name = "Nova Sector server";
+	desc = "On the side you see a small LCD saying 'CONGRATULATIONS ITS BEEN 0 DAYS SINCE A UNIT TEST FAILED! A NEW RECORD!'";
 	anchored = 1;
 	pixel_x = -8;
 	pixel_y = 1
@@ -2804,13 +2804,13 @@
 /area/misc/condo)
 "rk" = (
 /obj/structure/fluff/bus/passable/seat{
-	desc = "stop ooming please i want to play";
 	icon = 'icons/obj/machines/telecomms.dmi';
 	icon_state = "blackbox_b";
-	name = "splurt-tg server";
+	name = "Solaris server";
 	density = 1;
 	pixel_y = 0;
-	uses_integrity = 0
+	uses_integrity = 0;
+	desc = "Sees occasional usage. It seems to be paired with a server called Nova Sector."
 	},
 /obj/structure/marker_beacon/indigo,
 /obj/item/clothing/mask/muzzle/tape{
@@ -3626,10 +3626,10 @@
 /area/misc/condo)
 "vr" = (
 /obj/structure/fluff/bus/passable/seat{
-	desc = "Ye' ol' reliable server. 0 days without incidents!";
+	desc = "Tests all the systems to make sure they function accordingly; also tends to false positive things it doesn't like.";
 	icon = 'icons/obj/machines/telecomms.dmi';
 	icon_state = "blackbox";
-	name = "splurt-tg server";
+	name = "Unit Test server";
 	density = 1;
 	pixel_y = 0;
 	uses_integrity = 0
@@ -3770,10 +3770,10 @@
 /area/misc/condo)
 "wn" = (
 /obj/structure/fluff/bus/passable/seat{
-	desc = "Ye' ol' reliable server. 0 days without incidents!";
+	desc = "Occasionally runtimes and crashes on deer-infested simulations.";
 	icon = 'icons/obj/machines/telecomms.dmi';
 	icon_state = "blackbox";
-	name = "splurt-tg server";
+	name = "Nova Sector server";
 	density = 1;
 	pixel_y = 0;
 	uses_integrity = 0
@@ -3933,6 +3933,9 @@
 	},
 /obj/effect/turf_decal/box/white{
 	color = "#b357ff"
+	},
+/obj/machinery/computer/arcade/amputation{
+	dir = 8
 	},
 /turf/open/floor/iron/dark/smooth_large,
 /area/misc/condo)
@@ -4465,8 +4468,8 @@
 	density = 1;
 	pixel_y = 0;
 	uses_integrity = 0;
-	name = "Dr. Bright's homework folder";
-	desc = "400TB of SCP porn and \[REDACTED]"
+	name = "Copium Mining Server";
+	desc = "400TB of various tears and crashouts from maintainers and contributors alike. We're not sure how you got this many, but it's probably best not to ask."
 	},
 /turf/open/floor/plating,
 /area/misc/condo)
@@ -7070,31 +7073,22 @@
 /obj/effect/turf_decal/siding/wideplating_new/dark/corner{
 	dir = 4
 	},
-/obj/structure/decorative{
-	icon = 'icons/effects/crayondecal.dmi';
-	icon_state = "scp";
-	anchored = 1;
-	name = "that one logo";
-	pixel_x = 16;
-	pixel_y = 16;
-	color = "#000000"
-	},
 /turf/open/floor/wood/parquet,
 /area/misc/condo)
 "QB" = (
 /obj/structure/railing,
 /obj/item/shell/bot{
-	name = "splurt-citadel server";
-	desc = "Ye' ol' reliable server. 0 days without incidents!";
+	name = "Nova Sector server";
+	desc = "There's a sticky note on the side. It says 'Todo: Fix Serenity Station Crash Issues'";
 	anchored = 1;
 	pixel_x = 7;
 	pixel_y = -5
 	},
 /obj/structure/fluff/bus/passable/seat{
-	desc = "Ye' ol' reliable server. 0 days without incidents!";
+	desc = "Seems to have etched on the side 'breaks-the-prs waz here.'";
 	icon = 'icons/obj/machines/telecomms.dmi';
 	icon_state = "blackbox";
-	name = "splurt-citadel server";
+	name = "Nova Sector Deployment server";
 	density = 1;
 	pixel_y = 0;
 	uses_integrity = 0;

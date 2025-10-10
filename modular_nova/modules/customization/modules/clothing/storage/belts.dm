@@ -33,7 +33,7 @@
 		),
 		cant_hold_list = list(
 			/obj/item/nullrod/armblade,
-			/obj/item/nullrod/carp,
+			/obj/item/toy/plush/carpplushie/nullrod,
 			/obj/item/nullrod/chainsaw,
 			/obj/item/nullrod/bostaff,
 			/obj/item/nullrod/hammer,

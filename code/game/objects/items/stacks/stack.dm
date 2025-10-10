@@ -45,8 +45,6 @@
 	// these amounts will be multiplied by the stack size in on_grind()
 	/// Amount of matter given back to RCDs
 	var/matter_amount = 0
-	/// Does this stack require a unique girder in order to make a wall?
-	var/has_unique_girder = FALSE
 	/// What typepath table we create from this stack
 	var/obj/structure/table/table_type
 	/// What typepath stairs do we create from this stack
@@ -72,6 +70,13 @@
 	/// Expected lifetime of this bandage in seconds is thus absorption_capacity/absorption_rate,
 	/// or until the cut heals, whichever comes first
 	var/absorption_rate
+
+	/// Can this stack be used for contruction of girders?
+	var/usable_for_construction = FALSE
+	/// Does this stack require a unique girder in order to make a wall?
+	var/has_unique_girder = FALSE
+	///What type of wall does this sheet spawn
+	var/walltype
 
 /obj/item/stack/Initialize(mapload, new_amount = amount, merge = TRUE, list/mat_override=null, mat_amt=1)
 	amount = new_amount
@@ -435,6 +440,11 @@
 			return
 		if(!building_checks(builder, recipe, multiplier))
 			return
+		// NOVA EDIT ADDITION START: Construction Skill
+		var/experience = floor(recipe.time * CONSTRUCTION_XP_MULTIPLIER)
+		if(experience)
+			builder.mind?.adjust_experience(/datum/skill/construction, experience)
+		// NOVA EDIT ADDITION END
 
 	var/atom/created
 	if(recipe.max_res_amount > 1) // Is it a stack?
@@ -459,7 +469,6 @@
 		SEND_SIGNAL(created, COMSIG_ATOM_CONSTRUCTED, builder)
 		on_item_crafted(builder, created)
 
-	builder.mind?.adjust_experience(/datum/skill/construction, 2) //NOVA EDIT ADDITION: Construction Skill
 	// Use up the material
 	use(recipe.req_amount * multiplier)
 	builder.investigate_log("crafted [recipe.title]", INVESTIGATE_CRAFTING)

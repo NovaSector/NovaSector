@@ -26,7 +26,7 @@
 	var/obj/item/clothing/under/crew_uniform = equipped.w_uniform
 	if(crew_uniform)
 		crew_uniform.sensor_mode = SENSOR_OFF
-		equipped.update_suit_sensors()
+		crew_uniform.update_wearer_status()
 
 /datum/outfit/ship_crew/captain
 	name = "Ship Captain"

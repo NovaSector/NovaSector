@@ -6950,7 +6950,7 @@
 	pixel_y = -1
 	},
 /obj/effect/decal/cleanable/dirt,
-/obj/effect/landmark/start/hangover/closet,
+/obj/effect/landmark/start/hangover,
 /turf/open/floor/wood,
 /area/awaymission/caves/maintsroom)
 "xe" = (
@@ -13579,7 +13579,7 @@
 	},
 /area/awaymission/caves/maintsroom)
 "TP" = (
-/obj/machinery/computer/station_alert/station_only{
+/obj/machinery/computer/station_alert{
 	dir = 4
 	},
 /obj/effect/turf_decal/bot/left,

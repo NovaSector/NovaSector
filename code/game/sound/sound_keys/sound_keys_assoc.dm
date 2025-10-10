@@ -40,5 +40,5 @@
 		'sound/mobs/non-humanoids/cat/cat_meow1.ogg' = 33,
 		'sound/mobs/non-humanoids/cat/cat_meow2.ogg' = 33,
 		'sound/mobs/non-humanoids/cat/cat_meow3.ogg' = 33,
-		'sound/mobs/non-humanoids/cat/oranges_meow1.ogg' = 1,
+		//'sound/mobs/non-humanoids/cat/oranges_meow1.ogg' = 1, // NOVA EDIT REMOVAL
 	)

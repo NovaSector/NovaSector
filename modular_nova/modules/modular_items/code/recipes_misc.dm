@@ -20,7 +20,7 @@
 		/obj/item/stack/sheet/iron = 4,
 		/obj/item/stack/sheet/cloth = 1,
 	)
-	time = 60
+	time = 6 SECONDS
 	category = CAT_MISC
 
 /datum/crafting_recipe/makeshift/screwdriver
@@ -31,7 +31,7 @@
 		/obj/item/stack/sheet/cloth = 2,
 		/obj/item/stack/rods = 2,
 	)
-	time = 60
+	time = 6 SECONDS
 	category = CAT_MISC
 
 /datum/crafting_recipe/makeshift/welder
@@ -44,7 +44,7 @@
 		/obj/item/stack/sheet/iron = 6,
 		/obj/item/lighter = 1,
 	)
-	time = 60
+	time = 6 SECONDS
 	category = CAT_MISC
 
 /datum/crafting_recipe/makeshift/wirecutters
@@ -53,7 +53,7 @@
 	tool_behaviors = list(TOOL_SCREWDRIVER)
 	result = /obj/item/wirecutters/makeshift
 	reqs = list(/obj/item/stack/rods = 4)
-	time = 60
+	time = 6 SECONDS
 	category = CAT_MISC
 
 /datum/crafting_recipe/makeshift/wrench
@@ -66,5 +66,5 @@
 		/obj/item/stack/rods = 1,
 		/obj/item/stack/sheet/cloth = 2,
 	)
-	time = 60
+	time = 6 SECONDS
 	category = CAT_MISC
