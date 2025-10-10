@@ -25,6 +25,19 @@
 	density = FALSE
 	layer = SIGN_LAYER
 
+/obj/structure/sign/spooky/fairy_lights_pumpkin
+	name = "Pumpkin Fairy Lights"
+	desc = "A string of tiny pumpkin lights"
+	icon = 'modular_nova/modules/event_props/icons/spooky2025.dmi'
+	icon_state = "spiceblinkers"
+	anchored = TRUE
+	opacity = FALSE
+	density = FALSE
+	layer = SIGN_LAYER
+	max_integrity = 100
+	armor_type = /datum/armor/structure_sign
+	resistance_flags = FIRE_PROOF
+
 //Straw man
 /obj/structure/prop/spooky/scarecrow/low_tatter
 	name = "a scarecrow"
