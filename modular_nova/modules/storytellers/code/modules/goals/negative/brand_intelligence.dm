@@ -10,10 +10,10 @@
 
 
 /datum/storyteller_goal/execute_event/brand_intelligence/is_available(list/vault, datum/storyteller_inputs/inputs, datum/storyteller/storyteller)
-	return vault[STORY_VAULT_CREW_ALIVE_COUNT] >= 15 && SSmachines.get_machines_by_type_and_subtypes(/obj/machinery/vending)
+	return vault[STORY_VAULT_CREW_ALIVE_COUNT] >= 15 && storyteller.mood.get_threat_multiplier() > 1.0
 
 /datum/storyteller_goal/execute_event/brand_intelligence/get_weight(list/vault, datum/storyteller_inputs/inputs, datum/storyteller/storyteller)
-	return STORY_GOAL_BASE_WEIGHT + (vault[STORY_VAULT_CREW_ALIVE_COUNT] * 0.2) + (storyteller.threat_points * 0.1)
+	return STORY_GOAL_BASE_WEIGHT + (vault[STORY_VAULT_CREW_ALIVE_COUNT] * 0.2) + (storyteller.threat_points * 0.01)
 
 /datum/storyteller_goal/execute_event/brand_intelligence/get_priority(list/vault, datum/storyteller_inputs/inputs, datum/storyteller/storyteller)
 	return STORY_GOAL_BASE_PRIORITY + (storyteller.threat_points * 0.05)

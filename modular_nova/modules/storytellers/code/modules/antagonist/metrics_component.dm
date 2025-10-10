@@ -25,7 +25,7 @@
 	var/last_update = 0
 	// Time duration for tracking victims
 	var/victim_track_time = 30 SECONDS
-	 // Indicates whether the component is actively tracking
+	// Indicates whether the component is actively tracking
 	var/tracking = FALSE
 
 	// Time with actions (kills, objectives, damage)

@@ -34,6 +34,5 @@
 		maximum_targets = 5
 
 /datum/round_event/brain_trauma/__start_for_storyteller()
-	. = ..()
 	for(var/i = 0 to maximum_targets)
 		start()

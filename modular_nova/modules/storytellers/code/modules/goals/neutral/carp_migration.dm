@@ -8,6 +8,11 @@
 	event_path = /datum/round_event/carp_migration
 
 
+/datum/storyteller_goal/execute_event/carp_migration/is_available(list/vault, datum/storyteller_inputs/inputs, datum/storyteller/storyteller)
+	return storyteller.mood.get_threat_multiplier() > 1.0
+
+
+
 /datum/round_event/carp_migration
 	allow_random = FALSE
 	var/carps_to_spawn = 0
