@@ -1,26 +1,26 @@
+/* Includes:
 /datum/uplink_category/bundle
-
 /datum/uplink_item/bundles_tc
-
+*/
 
 // LOW COST
-/datum/uplink_item/bundles_tc/random
-
-/datum/uplink_item/bundles_tc/telecrystal
 
 
 // MEDIUM COST
 /datum/uplink_item/bundles_tc/bundle_a
 	cost = /datum/uplink_item/medium_cost/bundle::cost
+//	cost = 20
 
 /datum/uplink_item/bundles_tc/bundle_b
 	cost = /datum/uplink_item/medium_cost/bundle::cost
+//	cost = 20
 
 /datum/uplink_item/bundles_tc/surplus
 	cost = /datum/uplink_item/medium_cost/bundle::cost
 	crate_tc_value = 50
 	desc = "A dusty crate from the back of the Syndicate warehouse delivered directly to you via Supply Pod. \
 			Contents are sorted to always be worth 50 TC. The Syndicate will only provide one surplus item per agent."
+//	cost = 20
 
 /datum/uplink_item/bundles_tc/surplus/united
 	cost = /datum/uplink_item/medium_cost/bundle::cost
@@ -31,6 +31,7 @@
 
 /datum/uplink_item/bundles_tc/surplus_key
 	cost = /datum/uplink_item/medium_cost/bundle::cost
+//	cost = 20
 
 
 // HIGH COST

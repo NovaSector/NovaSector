@@ -9315,7 +9315,6 @@
 #include "modular_nova\modules\traitor-uplinks\overwrites\implant.dm"
 #include "modular_nova\modules\traitor-uplinks\overwrites\job.dm"
 #include "modular_nova\modules\traitor-uplinks\overwrites\special.dm"
-#include "modular_nova\modules\traitor-uplinks\overwrites\species.dm"
 #include "modular_nova\modules\traitor-uplinks\overwrites\stealthy.dm"
 #include "modular_nova\modules\traitor-uplinks\overwrites\stealthy_tools.dm"
 #include "modular_nova\modules\traitor-uplinks\overwrites\suits.dm"
