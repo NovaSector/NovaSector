@@ -75,6 +75,7 @@
 		/obj/item/flesh_shears,
 		/obj/item/blood_scanner,
 		/obj/item/reflexhammer,
+		/obj/item/crowbar/power/paramedic,
 		// NOVA EDIT ADDITION START
 		/obj/item/clothing/suit/toggle/labcoat/nova/surgical_gown,
 		/obj/item/hypospray/mkii,
