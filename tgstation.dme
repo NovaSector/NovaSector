@@ -6923,6 +6923,7 @@
 #include "modular_nova\master_files\code\game\effects\spawners\random\structure.dm"
 #include "modular_nova\master_files\code\game\gamemodes\dynamic.dm"
 #include "modular_nova\master_files\code\game\gamemodes\objective.dm"
+#include "modular_nova\master_files\code\game\machinery\chem_dispenser.dm"
 #include "modular_nova\master_files\code\game\machinery\department_balance.dm"
 #include "modular_nova\master_files\code\game\machinery\deployable.dm"
 #include "modular_nova\master_files\code\game\machinery\hologram.dm"
