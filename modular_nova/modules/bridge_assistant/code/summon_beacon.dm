@@ -4,7 +4,7 @@
 	inhand_icon_state = "electronic"
 	locker_path = list(/obj/structure/closet/secure_closet/bridge_officer)
 
-/obj/structure/closet/secure_closet/bridge_officers
+/obj/structure/closet/secure_closet/bridge_officer
 	name = "bridge officer's locker"
 	icon_state = "bo"
 	icon = 'modular_nova/master_files/icons/obj/closet.dmi'
