@@ -436,9 +436,9 @@
 		if(!building_checks(builder, recipe, multiplier))
 			return
 		// NOVA EDIT ADDITION START: Construction Skill
-		var/expirience = floor(recipe.time * 0.1)
-		if(expirience)
-			builder.mind?.adjust_experience(/datum/skill/construction, expirience)
+		var/experience = floor(recipe.time * CONSTRUCTION_XP_MULTIPLIER)
+		if(experience)
+			builder.mind?.adjust_experience(/datum/skill/construction, experience)
 		// NOVA EDIT ADDITION END
 
 	var/atom/created

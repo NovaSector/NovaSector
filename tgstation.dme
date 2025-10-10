@@ -484,6 +484,7 @@
 #include "code\__DEFINES\~nova_defines\say.dm"
 #include "code\__DEFINES\~nova_defines\security_alerts.dm"
 #include "code\__DEFINES\~nova_defines\signals.dm"
+#include "code\__DEFINES\~nova_defines\skills.dm"
 #include "code\__DEFINES\~nova_defines\solfed.dm"
 #include "code\__DEFINES\~nova_defines\sound.dm"
 #include "code\__DEFINES\~nova_defines\span.dm"
