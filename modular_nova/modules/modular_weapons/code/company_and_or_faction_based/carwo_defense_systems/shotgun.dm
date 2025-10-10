@@ -63,6 +63,7 @@
 	if(.)
 		var/datum/component/seclite_attachable/light = GetComponent(/datum/component/seclite_attachable)
 		light.overlay_x = 16
+		light.update_light()
 		magazine.max_ammo = 4 // capacity drops to 4+1 because Where's The Rest Of The Magazine, Bro
 		lefthand_file = 'modular_nova/modules/modular_weapons/icons/mob/company_and_or_faction_based/carwo_defense_systems/guns_lefthand.dmi'
 		righthand_file = 'modular_nova/modules/modular_weapons/icons/mob/company_and_or_faction_based/carwo_defense_systems/guns_righthand.dmi'
