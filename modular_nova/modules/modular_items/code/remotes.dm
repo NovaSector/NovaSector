@@ -17,4 +17,3 @@
 	icon = 'modular_nova/modules/modular_items/icons/remote.dmi'
 	icon_state = "syndi_becon_self"
 	inhand_icon_state = "electronic"
-// /obj/item/choice_beacon/holy || No holy changes yet
