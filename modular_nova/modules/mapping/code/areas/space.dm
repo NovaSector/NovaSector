@@ -159,11 +159,8 @@
 /area/ruin/space/has_grav/nova/des_two/cargo/hangar
 	name = "DS-2 Hangar"
 
-/area/ruin/space/has_grav/nova/des_two/cargo/exodrone
-	name = "DS-2 Exodrone Control Bay"
-
-/area/ruin/space/has_grav/nova/des_two/cargo/salvager
-	name = "DS-2 Salvager Bay"
+/area/ruin/space/has_grav/nova/des_two/cargo/storage
+	name = "DS-2 Deep Storage"
 
 //Bridge
 /area/ruin/space/has_grav/nova/des_two/bridge
@@ -192,10 +189,13 @@
 	name = "DS-2 Security"
 	ambience_index = AMBIENCE_DANGER
 
+/area/ruin/space/has_grav/nova/des_two/security/intel
+	name = "DS-2 Intelligence Office"
+
 /area/ruin/space/has_grav/nova/des_two/security/armory
 	name = "DS-2 Armory"
 
-/area/ruin/space/has_grav/nova/des_two/security/armory
+/area/ruin/space/has_grav/nova/des_two/security/maa
 	name = "DS-2 Master At Arms Office"
 
 /area/ruin/space/has_grav/nova/des_two/security/lawyer
