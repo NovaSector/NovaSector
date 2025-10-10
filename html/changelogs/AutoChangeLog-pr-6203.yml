@@ -1,6 +1,0 @@
-author: "Gboster-0"
-delete-after: True
-changes:
-  - balance: "reading a unique type of book now gives a flat 15 XP instead of 5+"
-  - balance: "construction XP is now awarded based on the time you spent crafting something instead of a flat amount"
-  - balance: "the research skill is now named archeology, and no longer gets experience from using the experi-scanner"
