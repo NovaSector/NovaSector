@@ -1,0 +1,4 @@
+author: "Iajret"
+delete-after: True
+changes:
+  - bugfix: "fixed health analyzer lying about changeling husking being uncurable"
