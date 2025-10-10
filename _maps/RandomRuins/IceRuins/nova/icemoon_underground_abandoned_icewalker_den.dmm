@@ -158,16 +158,8 @@
 /turf/open/misc/dirt/icemoon,
 /area/ruin/unpowered/abandoned_hearth)
 "ew" = (
-/obj/structure/deployable_barricade/wooden{
-	dir = 4;
-	pixel_y = 6
-	},
-/turf/open/misc/asteroid/snow/icemoon,
-/area/ruin/unpowered/abandoned_hearth)
-"eG" = (
-/obj/structure/deployable_barricade/wooden{
-	dir = 4;
-	pixel_y = 12
+/obj/structure/railing/wooden_fence_alt{
+	dir = 4
 	},
 /turf/open/misc/asteroid/snow/icemoon,
 /area/ruin/unpowered/abandoned_hearth)
@@ -216,21 +208,14 @@
 	},
 /turf/open/misc/asteroid/snow/ice/icemoon,
 /area/ruin/unpowered/abandoned_hearth)
-"gV" = (
-/obj/structure/deployable_barricade/wooden{
-	dir = 8
-	},
-/turf/open/misc/asteroid/snow/icemoon,
-/area/ruin/unpowered/abandoned_hearth)
 "hJ" = (
 /turf/open/floor/stone/icemoon,
 /area/ruin/unpowered/abandoned_hearth)
 "hY" = (
-/obj/structure/deployable_barricade/wooden{
-	dir = 8;
-	pixel_y = 12
+/obj/structure/railing/wooden_fence_alt{
+	dir = 8
 	},
-/obj/structure/deployable_barricade/wooden,
+/obj/structure/railing/wooden_fence_alt,
 /turf/open/misc/asteroid/snow/icemoon,
 /area/ruin/unpowered/abandoned_hearth)
 "iJ" = (
@@ -342,13 +327,6 @@
 /obj/effect/decal/cleanable/dirt/dust,
 /turf/open/floor/stone/icemoon,
 /area/ruin/unpowered/abandoned_hearth)
-"ng" = (
-/obj/structure/deployable_barricade/wooden{
-	dir = 8;
-	pixel_y = 6
-	},
-/turf/open/misc/asteroid/snow/icemoon,
-/area/ruin/unpowered/abandoned_hearth)
 "nh" = (
 /obj/effect/turf_decal/weather/snow/corner{
 	dir = 1
@@ -450,12 +428,6 @@
 	initial_gas_mix = "ICEMOON_ATMOS"
 	},
 /area/ruin/unpowered/abandoned_hearth)
-"qx" = (
-/obj/structure/deployable_barricade/wooden{
-	dir = 4
-	},
-/turf/open/misc/asteroid/snow/icemoon,
-/area/ruin/unpowered/abandoned_hearth)
 "qF" = (
 /obj/effect/turf_decal/weather/snow/corner{
 	dir = 5
@@ -487,16 +459,6 @@
 	},
 /obj/effect/decal/cleanable/dirt,
 /turf/open/misc/dirt/icemoon,
-/area/ruin/unpowered/abandoned_hearth)
-"rf" = (
-/obj/structure/deployable_barricade/wooden{
-	dir = 1;
-	pixel_y = 23
-	},
-/obj/structure/deployable_barricade/wooden{
-	dir = 4
-	},
-/turf/open/misc/asteroid/snow/icemoon,
 /area/ruin/unpowered/abandoned_hearth)
 "rl" = (
 /obj/structure/chair/wood{
@@ -571,9 +533,8 @@
 /turf/open/misc/dirt/icemoon,
 /area/ruin/unpowered/abandoned_hearth)
 "tf" = (
-/obj/structure/deployable_barricade/wooden{
-	dir = 1;
-	pixel_y = 23
+/obj/structure/railing/wooden_fence_alt{
+	dir = 1
 	},
 /turf/open/misc/asteroid/snow/icemoon,
 /area/ruin/unpowered/abandoned_hearth)
@@ -704,9 +665,8 @@
 /turf/open/floor/stone/icemoon,
 /area/ruin/unpowered/abandoned_hearth)
 "xk" = (
-/obj/structure/deployable_barricade/wooden{
-	dir = 8;
-	pixel_y = 12
+/obj/structure/railing/wooden_fence_alt{
+	dir = 8
 	},
 /turf/open/misc/asteroid/snow/icemoon,
 /area/ruin/unpowered/abandoned_hearth)
@@ -1351,9 +1311,7 @@
 /turf/open/misc/asteroid/snow/icemoon,
 /area/ruin/unpowered/abandoned_hearth)
 "Uw" = (
-/obj/structure/deployable_barricade/wooden{
-	broken = 1
-	},
+/obj/structure/railing/wooden_fence_alt,
 /turf/open/misc/asteroid/snow/icemoon,
 /area/ruin/unpowered/abandoned_hearth)
 "Uz" = (
@@ -1373,10 +1331,6 @@
 /area/ruin/unpowered/abandoned_hearth)
 "UO" = (
 /obj/structure/fermenting_barrel,
-/turf/open/misc/asteroid/snow/icemoon,
-/area/ruin/unpowered/abandoned_hearth)
-"Vz" = (
-/obj/structure/deployable_barricade/wooden,
 /turf/open/misc/asteroid/snow/icemoon,
 /area/ruin/unpowered/abandoned_hearth)
 "VP" = (
@@ -1498,7 +1452,7 @@ Yf
 Yf
 Yf
 nq
-Vz
+Uw
 Yf
 Yf
 Yf
@@ -1519,7 +1473,7 @@ Yf
 Yf
 Yf
 Yf
-gV
+xk
 Pg
 Pg
 xk
@@ -1541,11 +1495,11 @@ Yf
 (3,1,1) = {"
 Yf
 Yf
-gV
+xk
 Pg
 oa
 Pg
-Vz
+Uw
 lz
 Ib
 KZ
@@ -1554,7 +1508,7 @@ Gy
 Yf
 Yf
 Yf
-ng
+xk
 xk
 Yf
 Yf
@@ -1576,7 +1530,7 @@ Oo
 lz
 Eq
 Gy
-ng
+xk
 Pg
 mr
 xk
@@ -1602,7 +1556,7 @@ Pg
 Pg
 DV
 Pg
-Vz
+Uw
 Yf
 Yf
 Yf
@@ -1672,7 +1626,7 @@ Pg
 kh
 Pg
 Pg
-Vz
+Uw
 Yf
 Yf
 "}
@@ -1695,7 +1649,7 @@ EX
 gD
 UO
 rB
-eG
+ew
 Yf
 Yf
 "}
@@ -1740,7 +1694,7 @@ Pg
 Dc
 Pg
 QO
-Vz
+Uw
 Yf
 Yf
 Yf
@@ -1787,7 +1741,7 @@ gM
 mr
 Pg
 dw
-Vz
+Uw
 Yf
 Yf
 "}
@@ -1817,7 +1771,7 @@ Yf
 (15,1,1) = {"
 Yf
 Yf
-rf
+tf
 rB
 Pg
 mr
@@ -1857,14 +1811,14 @@ Pg
 Pg
 XW
 xG
-Vz
+Uw
 Yf
 "}
 (17,1,1) = {"
 Yf
 Yf
 Yf
-qx
+ew
 Pg
 jP
 xG
@@ -1888,8 +1842,8 @@ Yf
 Yf
 Yf
 Yf
-qx
-qx
+ew
+ew
 KZ
 dJ
 Cc
@@ -1904,7 +1858,7 @@ ZO
 Pg
 NG
 rJ
-Vz
+Uw
 "}
 (19,1,1) = {"
 Yf
@@ -1950,7 +1904,7 @@ xs
 gM
 nE
 Cl
-Vz
+Uw
 "}
 (21,1,1) = {"
 Yf
@@ -1973,7 +1927,7 @@ qJ
 SZ
 Ec
 Pg
-Vz
+Uw
 "}
 (22,1,1) = {"
 Yf
@@ -1995,7 +1949,7 @@ mr
 Pi
 EV
 wd
-Vz
+Uw
 Yf
 "}
 (23,1,1) = {"
@@ -2082,7 +2036,7 @@ Yf
 Yf
 Yf
 Yf
-qx
+ew
 ew
 Uw
 Yf

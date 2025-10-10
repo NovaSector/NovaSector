@@ -175,16 +175,6 @@
 	contains = list(/obj/item/clothing/head/helmet/sec = 3)
 	crate_name = "helmet crate"
 
-/datum/supply_pack/security/deployablebarricades
-	name = "C.U.C.K.S Deployable Barricades"
-	desc = "Two cases of deployable barricades, for all your fortification needs."
-	cost = CARGO_CRATE_VALUE * 4
-	contains = list(
-		/obj/item/storage/barricade,
-		/obj/item/storage/barricade,
-	)
-	crate_name = "C.U.C.K.S Crate"
-
 /*
 * ARMORY
 */

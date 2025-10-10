@@ -69,6 +69,26 @@
 	density = TRUE
 	resistance_flags = INDESTRUCTIBLE | LAVA_PROOF | FIRE_PROOF | UNACIDABLE | ACID_PROOF
 
+/obj/structure/railing/snow
+	name = "snow wall"
+	desc = "A snowdrift, carefully rammed with palms up to a relatively solid state. The architect in your head believes that it is better than nothing. In principle, you agree with him."
+	icon = 'modular_nova/modules/mapping/icons/unique/dungeon.dmi'
+	icon_state = "snow"
+	max_integrity = 75
+	density = TRUE
+	anchored = TRUE
+	climbable = TRUE
+
+/obj/structure/railing/wooden_fence_alt
+	name = "wooden fence"
+	desc = "A wall hammered out of wooden planks may not even look very strong, but it still provides some protection."
+	icon = 'modular_nova/modules/mapping/icons/unique/dungeon.dmi'
+	icon_state = "wooden"
+	max_integrity = 100
+	density = TRUE
+	anchored = TRUE
+	climbable = TRUE
+
 /obj/structure/railing/stone/Initialize(mapload)
 	.=..()
 	if(dir == 2)

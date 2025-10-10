@@ -13,11 +13,6 @@
 /obj/effect/decal/cleanable/dirt/dust,
 /turf/open/floor/mineral/gold/icemoon,
 /area/ruin/unpowered/frozenwake)
-"er" = (
-/obj/effect/decal/cleanable/dirt/dust,
-/obj/structure/deployable_barricade/wooden,
-/turf/open/floor/stone/icemoon,
-/area/ruin/unpowered/frozenwake)
 "eX" = (
 /turf/closed/mineral/snowmountain/icemoon,
 /area/ruin/unpowered/frozenwake)
@@ -221,11 +216,6 @@
 /obj/structure/statue/hearthkin/frozenwake/puzzle/dreamer,
 /obj/effect/decal/cleanable/dirt/dust,
 /turf/open/floor/mineral/gold/icemoon,
-/area/ruin/unpowered/frozenwake)
-"Kg" = (
-/obj/effect/decal/cleanable/dirt/dust,
-/obj/structure/deployable_barricade/wooden,
-/turf/open/misc/dirt/icemoon,
 /area/ruin/unpowered/frozenwake)
 "KP" = (
 /obj/effect/decal/cleanable/dirt/dust,
@@ -1071,7 +1061,7 @@ hQ
 hQ
 hQ
 Cv
-er
+hQ
 hQ
 hQ
 hQ
@@ -1089,7 +1079,7 @@ mb
 hQ
 hQ
 Cv
-er
+hQ
 hQ
 KP
 hQ
@@ -1185,7 +1175,7 @@ hQ
 hQ
 hQ
 Cv
-er
+hQ
 hQ
 hQ
 hQ
@@ -1203,7 +1193,7 @@ mb
 hQ
 Cv
 KP
-Kg
+KP
 hQ
 hQ
 hQ
