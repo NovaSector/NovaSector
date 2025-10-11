@@ -1,9 +1,32 @@
+/datum/species/lizard
+	monkey_species = /datum/species/monkey/kobold
+
+/*
+Lizard subspecies: Silverscale
+*/
+
+/datum/species/lizard/silverscale
+	///stored mutcolor2 for when we turn back off of a silverscale.
+	var/old_mutcolor2
+	///stored mutcolor3 for when we turn back off of a silverscale.
+	var/old_mutcolor3
+
+// Just adds handling for the other two mutcolors being changed to silver.
+/datum/species/lizard/silverscale/on_species_gain(mob/living/carbon/human/new_silverscale, datum/species/old_species, pref_load, regenerate_icons)
+	old_mutcolor2 = new_silverscale.dna.features["mcolor2"]
+	old_mutcolor3 = new_silverscale.dna.features["mcolor3"]
+	new_silverscale.dna.features["mcolor2"] = "#eeeeee"
+	new_silverscale.dna.features["mcolor3"] = "#eeeeee"
+	return ..()
+
+/datum/species/lizard/silverscale/on_species_loss(mob/living/carbon/human/was_silverscale, datum/species/new_species, pref_load)
+	new_silverscale.dna.features["mcolor2"] = old_mutcolor2
+	new_silverscale.dna.features["mcolor3"] = old_mutcolor3
+	return ..()
+
 /*
 Lizard subspecies: ASHWALKERS
 */
-
-/datum/species/lizard
-	monkey_species = /datum/species/monkey/kobold
 
 /datum/species/lizard/ashwalker/
 	language_prefs_whitelist = list(/datum/language/ashtongue)

@@ -63,6 +63,7 @@ GLOBAL_LIST_EMPTY(customizable_races)
 
 /datum/species/human/felinid
 	mutant_bodyparts = list()
+	mutant_organs = list()
 
 /datum/species/human/felinid/get_default_mutant_bodyparts()
 	return list(
@@ -97,6 +98,7 @@ GLOBAL_LIST_EMPTY(customizable_races)
 
 /datum/species/mush
 	mutant_bodyparts = list()
+	mutant_organs = list()
 
 /datum/species/human/vampire
 	mutant_bodyparts = list()

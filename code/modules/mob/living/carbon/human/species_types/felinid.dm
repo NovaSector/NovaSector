@@ -5,12 +5,10 @@
 	examine_limb_id = SPECIES_HUMAN
 	mutantbrain = /obj/item/organ/brain/felinid
 	mutanttongue = /obj/item/organ/tongue/cat
-	/* NOVA EDIT REMOVAL - CUSTOMIZATION
 	mutantears = /obj/item/organ/ears/cat
 	mutant_organs = list(
 		/obj/item/organ/tail/cat = "Cat",
 	)
-	*/ // NOVA EDIT REMOVAL END
 	inherent_traits = list(
 		TRAIT_CATLIKE_GRACE,
 		TRAIT_HATED_BY_DOGS,
