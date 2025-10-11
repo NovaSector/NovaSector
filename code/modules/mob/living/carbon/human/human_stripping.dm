@@ -146,7 +146,12 @@ GLOBAL_LIST_INIT(strippable_human_items, create_strippable_list(list(
 	to_chat(source, span_notice("[user] has taken [chosen_accessory] off of [jumpsuit]."))
 	jumpsuit.remove_accessory(chosen_accessory)
 	jumpsuit.update_appearance()
-	chosen_accessory.forceMove(jumpsuit.drop_location())
+	//NOVA EDIT CHANGE BEGIN - THIEVING GLOVES - ORIGINAL: chosen_accessory.forceMove(jumpsuit.drop_location())
+	if(HAS_TRAIT(user, TRAIT_STICKY_FINGERS))
+		user.put_in_hands(chosen_accessory)
+	else
+		chosen_accessory.forceMove(jumpsuit.drop_location())
+	//NOVA EDIT CHANGE END
 
 	if(!ismob(source))
 		return
