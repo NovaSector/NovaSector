@@ -416,3 +416,8 @@
   - admin: Equipping the admin outfit will no longer automatically trigger the debug
       gps effect.
   - map: Replace snow cabin gateway geothermal generator with real turbine
+2025-10-11:
+  Iajret:
+  - bugfix: fixed health analyzer lying about changeling husking being uncurable
+  OrbisAnima:
+  - bugfix: Restores the Eldritch Theme to the pda selection of the character options.
