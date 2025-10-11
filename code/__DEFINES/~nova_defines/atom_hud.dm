@@ -34,3 +34,6 @@
 #define SECHUD_INTERDYNE_CREW "hud_interdyne"
 #define SECHUD_INTERDYNE_DECKOFFICER "hud_interdynecommand"
 #define SECHUD_INTERDYNE_SHAFTMINER "hud_interdyneshaft"
+
+// Nova Mining Station Engineer
+#define SECHUD_MINING_STATION_SUPPORT_ENGINEER "hud_miningstationengineer"
