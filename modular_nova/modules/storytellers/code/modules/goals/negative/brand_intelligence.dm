@@ -8,9 +8,9 @@
 	tags = STORY_TAG_ESCALATION | STORY_TAG_WIDE_IMPACT | STORY_TAG_ENTITIES
 	event_path = /datum/round_event/brand_intelligence
 
-
-/datum/storyteller_goal/execute_event/brand_intelligence/is_available(list/vault, datum/storyteller_inputs/inputs, datum/storyteller/storyteller)
-	return vault[STORY_VAULT_CREW_ALIVE_COUNT] >= 15 && storyteller.mood.get_threat_multiplier() > 1.0
+	requierd_population = 10
+	required_round_progress = STORY_ROUND_PROGRESSION_MID
+	requierd_threat_level = STORY_GOAL_THREAT_ELEVATED
 
 /datum/storyteller_goal/execute_event/brand_intelligence/get_weight(list/vault, datum/storyteller_inputs/inputs, datum/storyteller/storyteller)
 	return STORY_GOAL_BASE_WEIGHT + (vault[STORY_VAULT_CREW_ALIVE_COUNT] * 0.2) + (storyteller.threat_points * 0.01)

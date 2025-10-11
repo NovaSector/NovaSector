@@ -149,7 +149,7 @@
 			if(findtext(hist_id, id_prefix, 1, 0))
 				repeat_count++
 				var/list/details = recent_history[hist_id]
-				var/fire_time = text2num(splittext(details["fired_at"], " ")[1]) * 1 MINUTES
+				var/fire_time = details["fired_ts"]
 				if(fire_time > last_fire_time)
 					last_fire_time = fire_time
 
@@ -190,8 +190,9 @@
 		var/final_weight = max(0.1, (base_weight + priority_boost + threat_bonus + balance_bonus + tag_match_bonus - rep_penalty) * diff_adjust * adapt_reduce)
 		weighted[G] = final_weight
 
+	var/datum/storyteller_goal/selected = pick_weight(weighted)
 	// Use pick_weight helper for selection
-	return pick_weight(weighted)
+	return new selected.type
 
 /datum/think_stage
 	var/description = "Base think stage"

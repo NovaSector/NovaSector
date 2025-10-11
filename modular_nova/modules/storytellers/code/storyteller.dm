@@ -149,7 +149,7 @@
 	if(!G)
 		return
 	var/current_time = world.time
-	var/id = G.id + "_" + current_time
+	var/id = G.id + "_" + num2text(current_time)
 	recent_events[id] = list(list(
 		"id" = G.id,
 		"desc" = G.desc,
@@ -224,7 +224,7 @@
 	log_storyteller("Triggered random event via SSevents")
 
 /datum/storyteller/proc/get_effective_threat()
-	return threat_points * mood.get_threat_multiplier() * difficulty_multiplier
+	return (threat_points/10) * mood.get_threat_multiplier() * difficulty_multiplier
 
 
 /datum/storyteller/proc/get_next_possible_event_time()

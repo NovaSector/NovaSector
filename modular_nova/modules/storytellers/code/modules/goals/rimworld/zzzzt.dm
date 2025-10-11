@@ -7,22 +7,28 @@
 	tags = STORY_TAG_ESCALATION
 	event_path = /datum/round_event/zzzzzt
 
+	requierd_population = 1
+
 /datum/round_event/zzzzzt
 	var/maximum_charge = 50 KILO JOULES
-
+	allow_random = FALSE
+	start_when = 10
 
 /datum/round_event/zzzzzt/__setup_for_storyteller(threat_points, ...)
 	. = ..()
 	maximum_charge = 50 KILO JOULES + ((threat_points/10) * 10 KILO JOULES)
 
+/datum/round_event/zzzzzt/__announce_for_storyteller()
+	priority_announce("Anomalous power surge detected in [station_name()]'s powernet. \
+					Crew members in close proximity to power cables may be at risk of electrocution.", "Zzzzzzzt")
 
 /datum/round_event/zzzzzt/__start_for_storyteller()
 	var/attempts = 0
 	var/mob/living/carbon/human/bad_luck
 	var/obj/structure/cable/closest
 	for(var/mob/living/carbon/human/H in shuffle(GLOB.alive_mob_list))
-		if(attempts++ > 10)
-			break
+		if(attempts > 10)
+			return
 		if(!H.client)
 			continue
 		if(H.stat == DEAD)

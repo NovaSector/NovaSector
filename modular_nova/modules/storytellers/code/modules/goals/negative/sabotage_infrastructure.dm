@@ -7,9 +7,8 @@
 	path_ids = list("power_outage", "fire_outbreak")
 	event_path = /datum/round_event/sabotage_machinery
 
-
-/datum/storyteller_goal/sabotage_infrastructure/is_available(list/vault, datum/storyteller_inputs/inputs, datum/storyteller/storyteller)
-	return inputs.station_state.mach != 0
+	requierd_population = 4
+	required_round_progress = STORY_ROUND_PROGRESSION_EARLY
 
 /datum/storyteller_goal/sabotage_infrastructure/get_weight(list/vault, datum/storyteller_inputs/inputs, datum/storyteller/storyteller)
 	return STORY_GOAL_BASE_WEIGHT + (storyteller.threat_points * 0.01)

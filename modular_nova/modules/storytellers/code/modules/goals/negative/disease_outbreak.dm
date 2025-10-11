@@ -32,9 +32,15 @@
 	category = STORY_GOAL_BAD
 	tags = STORY_TAG_ESCALATION | STORY_TAG_AFFECTS_CREW_HEALTH | STORY_TAG_WIDE_IMPACT
 
+	requierd_population = 10
+	required_round_progress = STORY_ROUND_PROGRESSION_MID
+	requierd_threat_level = STORY_GOAL_THREAT_ELEVATED
 
 
 /datum/storyteller_goal/epidemic_outbreak/is_available(list/vault, datum/storyteller_inputs/inputs, datum/storyteller/storyteller)
+	. = ..()
+	if( !.)
+		return FALSE
 	return vault[STORY_VAULT_CREW_DISEASES] <= STORY_VAULT_MINOR_DISEASES
 
 /datum/storyteller_goal/epidemic_outbreak/get_weight(list/vault, datum/storyteller_inputs/inputs, datum/storyteller/storyteller)

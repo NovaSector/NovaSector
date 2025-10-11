@@ -7,11 +7,9 @@
 	tags = STORY_TAG_WIDE_IMPACT | STORY_TAG_AFFECTS_ENVIRONMENT | STORY_TAG_ENTITIES
 	event_path = /datum/round_event/carp_migration
 
-
-/datum/storyteller_goal/execute_event/carp_migration/is_available(list/vault, datum/storyteller_inputs/inputs, datum/storyteller/storyteller)
-	return storyteller.mood.get_threat_multiplier() > 1.0
-
-
+	requierd_population = 5
+	required_round_progress = STORY_ROUND_PROGRESSION_EARLY
+	requierd_threat_level = STORY_GOAL_THREAT_ELEVATED
 
 /datum/round_event/carp_migration
 	allow_random = FALSE

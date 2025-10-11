@@ -7,8 +7,9 @@
 	path_ids = list()
 	event_path = /datum/round_event/brain_trauma
 
-/datum/storyteller_goal/execute_event/brain_trauma/is_available(list/vault, datum/storyteller_inputs/inputs, datum/storyteller/storyteller)
-	return vault[STORY_VAULT_CREW_ALIVE_COUNT] >= 5
+	requierd_population = 5
+	required_round_progress = STORY_ROUND_PROGRESSION_EARLY
+	requierd_threat_level = STORY_GOAL_THREAT_BASIC
 
 /datum/storyteller_goal/execute_event/brain_trauma/get_weight(list/vault, datum/storyteller_inputs/inputs, datum/storyteller/storyteller)
 	return STORY_GOAL_BASE_WEIGHT + storyteller.threat_points * 0.05

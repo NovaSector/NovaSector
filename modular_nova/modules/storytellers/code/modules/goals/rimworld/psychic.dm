@@ -7,8 +7,9 @@
 	path_ids = list("mass_hysteria", "psychic_breakdown")
 	event_path = /datum/round_event/psychic_drone
 
-/datum/storyteller_goal/execute_psychic_drone/is_available(list/vault, datum/storyteller_inputs/inputs, datum/storyteller/storyteller)
-	return inputs.antag_crew_ratio > 0.05
+	requierd_population = 10
+	required_round_progress = STORY_ROUND_PROGRESSION_EARLY
+	requierd_threat_level = STORY_GOAL_THREAT_ELEVATED
 
 /datum/storyteller_goal/execute_psychic_drone/get_weight(list/vault, datum/storyteller_inputs/inputs, datum/storyteller/storyteller)
 	// TODO: crew sanity
@@ -60,8 +61,7 @@
 	start_when = 30
 
 /datum/round_event/psychic_drone/__start_for_storyteller()
-	. = ..()
-	var/turf/spawn_turf = pick(get_area_turfs(/area/station/maintenance))
+	var/turf/spawn_turf = get_safe_random_station_turf()
 	var/obj/structure/closet/supplypod/pod = podspawn(list(
 		"target" = spawn_turf,
 		"path" = /obj/structure/closet/supplypod/phychic_drone,

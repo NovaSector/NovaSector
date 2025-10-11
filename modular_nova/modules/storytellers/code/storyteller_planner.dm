@@ -94,7 +94,7 @@
 // Dynamically generates chain of events (no global/sub distinction), throttled by recalc_interval.
 // Triggers on major shifts (threat/adaptation) or emptiness; analyzes station for fresh tags.
 // Ensures storyteller's event chain branches adaptively toward threat escalation.
-/datum/storyteller_planner/proc/recalculate_plan(datum/storyteller/ctl, datum/storyteller_inputs/inputs, datum/storyteller_balance_snapshot/bal, duration = 30 MINUTES)
+/datum/storyteller_planner/proc/recalculate_plan(datum/storyteller/ctl, datum/storyteller_inputs/inputs, datum/storyteller_balance_snapshot/bal, force = FALSE)
 	var/pending_count = 0
 	var/invalid_goals = 0
 	var/list/upcoming_offsets = get_upcoming_goals(length(timeline))
@@ -132,7 +132,7 @@
 		timeline = new_timeline
 		pending_count = length(valid_entries)
 
-	var/needs_rebuild = (invalid_goals > 0 || pending_count < 3 || (world.time - last_recalc_time > recalc_interval))
+	var/needs_rebuild = (invalid_goals > 0 || pending_count < 3 || (world.time - last_recalc_time > recalc_interval) || force)
 	var/effective_threat = ctl.get_effective_threat()
 	if(effective_threat > ctl.max_threat_scale * 0.7 || ctl.adaptation_factor > 0.5)
 		needs_rebuild = TRUE
@@ -143,7 +143,13 @@
 
 	var/last_pending_offset = 0
 	if(length(timeline) > 0)
-		last_pending_offset = text2num(timeline[length(timeline)])
+		var/max_key = -1
+		for(var/key_str in timeline)
+			var/k = text2num(key_str)
+			if(k > max_key)
+				max_key = k
+		if(max_key >= 0)
+			last_pending_offset = max_key
 
 	var/category = select_goal_category(ctl, bal)
 	var/derived_tags = derive_universal_tags(category, ctl, inputs, bal)
@@ -263,7 +269,7 @@
 
 	while(attempts < max_attempts)
 		var/target_time = world.time + base_delay
-		var/target_str = "[target_time]"
+		var/target_str = time_key(target_time)
 
 		if(!timeline[target_str])
 			timeline[target_str] = list(
@@ -278,22 +284,23 @@
 
 		base_delay += 1 MINUTES
 		attempts++
-
-
 	stack_trace("Storyteller planner: Failed to find free timeline slot after [max_attempts] attempts for goal [goal.id || goal.name].")
 	qdel(goal)
 	return FALSE
 
+/datum/storyteller_planner/proc/time_key(num)
+	PRIVATE_PROC(TRUE)
+	return num2text(num)
+
 /datum/storyteller_planner/proc/get_entry_at(time)
 	PRIVATE_PROC(TRUE)
 	RETURN_TYPE(/list)
-	return timeline["[time]"]
+	return timeline[time_key(time)]
 
 /datum/storyteller_planner/proc/set_entry_at(time, entry)
 	PRIVATE_PROC(TRUE)
-	if(!entry || !islist(entry))
-		return
-	timeline["[time]"] = entry
+	if(!entry || !islist(entry)) return
+	timeline[time_key(time)] = entry
 	return TRUE
 
 // Get upcoming events: Returns list of string offsets (keys) for next N events (default 5).
@@ -331,6 +338,16 @@
 	timeline -= old_str
 	return TRUE
 
+/datum/storyteller_planner/proc/cancel_goal(offset)
+	var/offset_str = "[offset]"
+	if(!timeline[offset_str])
+		return FALSE
+	var/datum/storyteller_goal/goal = timeline[offset_str][ENTRY_GOAL]
+	if(goal)
+		qdel(goal)
+	timeline -= offset_str
+	return TRUE
+
 
 /datum/storyteller_planner/proc/get_goals_in_time(time = 1 MINUTES)
 	var/list/upcoming = list()
@@ -341,20 +358,20 @@
 			upcoming += timeline[str_i]
 	return upcoming
 
-/datum/storyteller_planner/proc/build_goal(datum/storyteller/ctl, datum/storyteller_inputs/inputs, datum/storyteller_balance_snapshot/bal)
-	var/category = select_goal_category(ctl, bal)
-	var/effective_threat = ctl.get_effective_pace()
-	var/tag_filter = derive_universal_tags(category, ctl, inputs, bal)
+/datum/storyteller_planner/proc/build_goal(datum/storyteller/ctl, datum/storyteller_inputs/inputs, datum/storyteller_balance_snapshot/bal, tag_filter = 0, category = STORY_GOAL_NEUTRAL)
+	var/effective_threat = ctl.get_effective_threat() // was incorrectly get_effective_pace()
+	tag_filter = tag_filter || derive_universal_tags(category, ctl, inputs, bal)
 	if(effective_threat > ctl.max_threat_scale * 0.7 && !(tag_filter & STORY_TAG_ESCALATION))
 		tag_filter |= STORY_TAG_ESCALATION
 	else if(ctl.adaptation_factor > 0.5 && !(tag_filter & STORY_TAG_DEESCALATION))
 		tag_filter |= STORY_TAG_DEESCALATION
+
 	var/list/candidates = SSstorytellers.filter_goals(category, tag_filter, null, FALSE)
 	if(!candidates.len)
 		candidates = SSstorytellers.filter_goals(STORY_GOAL_RANDOM)
+
 	var/datum/storyteller_goal/goal = ctl.mind.select_weighted_goal(ctl, inputs, bal, candidates, ctl.population_factor)
 	return goal
-
 
 /datum/storyteller_planner/proc/derive_universal_tags(category, datum/storyteller/ctl, datum/storyteller_inputs/inputs, datum/storyteller_balance_snapshot/bal)
 	var/tags = ctl.mind.tokenize(category, ctl, inputs, bal, ctl.mood)

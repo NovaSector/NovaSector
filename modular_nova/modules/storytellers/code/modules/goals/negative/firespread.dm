@@ -10,9 +10,15 @@
 	tags = STORY_TAG_ESCALATION | STORY_TAG_WIDE_IMPACT | STORY_TAG_AFFECTS_ENVIRONMENT | STORY_TAG_ENTITIES
 	event_path = /datum/round_event/fire_spread
 
+	requierd_population = 10
+	required_round_progress = STORY_ROUND_PROGRESSION_EARLY
+	requierd_threat_level = STORY_GOAL_THREAT_BASIC
 
 /datum/storyteller_goal/execute_event/fire_spread/is_available(list/vault, datum/storyteller_inputs/inputs, datum/storyteller/storyteller)
-	return vault[STORY_VAULT_CREW_ALIVE_COUNT] >= 10 && storyteller.mood.get_threat_multiplier() > 1.2 && vault[STORY_VAULT_INFRA_DAMAGE] >= STORY_VAULT_MINOR_DAMAGE
+	. = ..()
+	if(!.)
+		return FALSE
+	return vault[STORY_VAULT_INFRA_DAMAGE] >= STORY_VAULT_MINOR_DAMAGE
 
 
 /datum/storyteller_goal/execute_event/fire_spread/get_weight(list/vault, datum/storyteller_inputs/inputs, datum/storyteller/storyteller)
@@ -66,13 +72,14 @@
 		waves_count--
 		if(waves_count <= 0)
 			__kill_for_storyteller()
+		spread_fire()
 
 /datum/round_event/fire_spread/proc/spread_fire()
 	for(var/i = 0 to hot_spots)
 		var/turf/target_turf = get_safe_random_station_turf_equal_weight()
 		if(!isturf(target_turf))
 			continue
-		var/mob/living/basic/fire_burst/fire = new target_turf
+		var/mob/living/basic/fire_burst/fire = new /mob/living/basic/fire_burst(target_turf)
 		notify_ghosts("A fire has started at [target_turf]!", fire, "Fire Spread")
 
 /mob/living/basic/fire_burst

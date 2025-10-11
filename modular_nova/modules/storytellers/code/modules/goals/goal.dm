@@ -1,31 +1,43 @@
 // Storyteller Goals
 /datum/storyteller_goal
-	/// Unique identifier for the goal
+	// Unique identifier for the goal
 	var/id
-	/// Display name
+	// Display name
 	var/name
-	/// Description
+	// Description
 	var/desc
-	/// Category of the goal
+	// Category of the goal
 	var/category
-	/// Optional for filtering
+	// Optional for filtering
 	var/tags
-	/// Optional parent goal id
+	// Optional parent goal id
 	var/parent_id
-	/// Linked child goal datums after resolution
+	// Linked child goal datums after resolution
 	var/list/children
-
+	// List of child goal ids to link after selection
 	var/list/path_ids
-
-	/// Optional event path to trigger on achievement (e.g., /datum/event/meteor)
+	// Optional event path to trigger on achievement (e.g., /datum/event/meteor)
 	var/event_path
-
+	// Color for announcer messages
 	var/announce_color = COLOR_GRAY
+	// Minimum threat level required to select this goal
+	var/requierd_threat_level = STORY_GOAL_NO_THREAT
+	// Minimum population of alive and non-afk crew required to select this goal
+	var/requierd_population = 0
+	// Minimum round progress (from 0..1) required to select this goal
+	var/required_round_progress = STORY_ROUND_PROGRESSION_START
 
 
 /// Is goal available for selection under the given context?
 /datum/storyteller_goal/proc/is_available(list/vault, datum/storyteller_inputs/inputs, datum/storyteller/storyteller)
-	return TRUE
+	. = TRUE
+	if(requierd_threat_level < storyteller.get_effective_threat())
+		. = FALSE
+	if(requierd_population < vault[STORY_VAULT_CREW_ALIVE_COUNT])
+		. = FALSE
+	if(required_round_progress < storyteller.round_progression)
+		. = FALSE
+	return .
 
 /// Compute selection weight
 /datum/storyteller_goal/proc/get_weight(list/vault, datum/storyteller_inputs/inputs, datum/storyteller/storyteller)

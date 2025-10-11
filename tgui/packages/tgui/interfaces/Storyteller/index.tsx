@@ -58,6 +58,10 @@ type StorytellerData = {
   base_think_delay?: number;
   min_event_interval?: number;
   max_event_interval?: number;
+  threat_level?: number; // 0..100
+  effective_threat_level?: number;
+  round_progression?: number; // 0..1
+  target_tension?: number; // 0..100
   recent_events?: StorytellerEventLog[];
   player_count?: number;
   antag_count?: number;
@@ -196,6 +200,21 @@ export const Storyteller = (props) => {
                 <LabeledList.Item label="Mood">
                   {mood ? `${mood.name} (pace ×${mood.pace})` : '—'}
                 </LabeledList.Item>
+                <LabeledList.Item label="Target tension">
+                  {data.target_tension != null ? `${data.target_tension}` : '—'}
+                </LabeledList.Item>
+                <LabeledList.Item label="Threat Level">
+                  {data.threat_level != null ? `${data.threat_level}/100` : '—'}
+                </LabeledList.Item>
+                <LabeledList.Item label="Effective Threat">
+                  {data.effective_threat_level != null
+                    ? `${data.effective_threat_level}/100`
+                    : '—'}
+                </LabeledList.Item>
+                <ProgressRow
+                  label="Round Progression"
+                  value={data.round_progression ?? 1 / 1}
+                />
                 <LabeledList.Item label="Players / Antags">
                   {player_count ?? '—'} / {antag_count ?? '—'}
                 </LabeledList.Item>
@@ -241,13 +260,17 @@ export const Storyteller = (props) => {
                       <Table.Cell>
                         <Button
                           icon="play"
-                          onClick={() => act('fire_goal', { id: g.id })}
+                          onClick={() =>
+                            act('trigger_goal', { offset: g.fire_time })
+                          }
                         >
                           Fire
                         </Button>
                         <Button
                           icon="bolt"
-                          onClick={() => act('remove_goal', { id: g.id })}
+                          onClick={() =>
+                            act('remove_goal', { offset: g.fire_time })
+                          }
                         >
                           Remove
                         </Button>
@@ -300,10 +323,7 @@ export const Storyteller = (props) => {
               {recent_events.length ? (
                 <LabeledList>
                   {recent_events.map((ev, i) => (
-                    <LabeledList.Item
-                      key={i}
-                      label={formatTime(ev.time, current_world_time)}
-                    >
+                    <LabeledList.Item key={i} label={formatTime(ev.time)}>
                       {ev.desc} ({ev.status || '—'} - ID: {ev.id || '—'})
                     </LabeledList.Item>
                   ))}

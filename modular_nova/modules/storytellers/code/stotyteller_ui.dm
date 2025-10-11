@@ -71,6 +71,8 @@ ADMIN_VERB(storyteller_admin, R_ADMIN, "Storyteller UI", "Open the storyteller a
 	for(var/offset in upcoming)
 		var/list/entry = ctl.planner.timeline[offset]
 		var/datum/storyteller_goal/goal = entry["goal"]
+		if(!goal)
+			continue
 		data["upcoming_goals"] += list(list(
 			"id" = goal.id,
 			"name" = goal.name || goal.id,
@@ -80,6 +82,10 @@ ADMIN_VERB(storyteller_admin, R_ADMIN, "Storyteller UI", "Open the storyteller a
 			"weight" = goal.get_weight(ctl.inputs.vault, ctl.inputs, ctl),
 			"progress" = goal.get_progress(ctl.inputs.vault, ctl.inputs, ctl),
 		))
+	data["effective_threat_level"] = ctl.get_effective_threat()
+	data["target_tension"] = ctl.target_tension
+	data["round_progression"] = ctl.round_progression
+	data["threat_level"] = ctl.threat_points
 	data["next_think_time"] = ctl.next_think_time
 	data["base_think_delay"] = ctl.base_think_delay
 	data["min_event_interval"] = ctl.min_event_interval
@@ -94,14 +100,15 @@ ADMIN_VERB(storyteller_admin, R_ADMIN, "Storyteller UI", "Open the storyteller a
 	var/list/events = list()
 	for(var/id in ctl.recent_events)
 		var/list/details = ctl.recent_events[id]
-		if(length(details))
-			var/list/event_data = details[1]
-			events += list(list(
-				"time" = text2num(splittext(event_data["fired_at"], " ")[1]) * 1 MINUTES,  // Parse back to ticks approx
-				"desc" = event_data["desc"],
-				"status" = event_data["status"],
-				"id" = event_data["id"],
-			))
+		if(!details || !length(details))
+			continue
+		var/list/event_data = details[1]
+		events += list(list(
+			"time" = text2num(splittext(event_data["fired_at"], " ")[1]) * 1 MINUTES,  // Parse back to ticks approx
+			"desc" = event_data["desc"],
+			"status" = event_data["status"],
+			"id" = event_data["id"],
+		))
 
 	// sortTim(events, some sorter?, "time") TODO: sort this shit by time
 	data["recent_events"] = events.len ? events.Copy(1, min(20, events.len + 1)) : list()
@@ -147,7 +154,7 @@ ADMIN_VERB(storyteller_admin, R_ADMIN, "Storyteller UI", "Open the storyteller a
 				ctl.planner.reschedule_goal(fire_time, new_fire_time)
 			return TRUE
 		if("reschedule_chain")
-			ctl.planner.recalculate_plan(ctl, ctl.inputs, ctl.balancer.make_snapshot(ctl.inputs))
+			ctl.planner.recalculate_plan(ctl, ctl.inputs, ctl.balancer.make_snapshot(ctl.inputs), TRUE)
 			return TRUE
 		if("set_mood")
 			var/mood_id = params["id"]
@@ -168,7 +175,7 @@ ADMIN_VERB(storyteller_admin, R_ADMIN, "Storyteller UI", "Open the storyteller a
 			ctl.inputs = ctl.analyzer.get_inputs()
 			return TRUE
 		if("replan")
-			ctl.planner.recalculate_plan(ctl, ctl.inputs, ctl.balancer.make_snapshot(ctl.inputs))
+			ctl.planner.recalculate_plan(ctl, ctl.inputs, ctl.balancer.make_snapshot(ctl.inputs), TRUE)
 			return TRUE
 		// Advanced setters
 		if("set_difficulty")
@@ -198,7 +205,6 @@ ADMIN_VERB(storyteller_admin, R_ADMIN, "Storyteller UI", "Open the storyteller a
 			var/value = clamp(text2num(params["value"]), 0, 2)
 			ctl.repetition_penalty = value
 			return TRUE
-		// Новое: manual insert goal to chain
 		if("insert_goal_to_chain")
 			var/id = params["id"]
 			if(!id)
@@ -208,6 +214,18 @@ ADMIN_VERB(storyteller_admin, R_ADMIN, "Storyteller UI", "Open the storyteller a
 				// Schedule at end of chain with default offset
 				var/fire_offset = ctl.get_event_interval() * (length(ctl.planner.timeline) + 1)
 				ctl.planner.try_plan_goal(G, fire_offset)
+			return TRUE
+		if("trigger_goal")
+			var/fire_offset = params["offset"]
+			if(!fire_offset)
+				return TRUE
+			ctl.planner.reschedule_goal(fire_offset, world.time + 1 SECONDS)
+			return TRUE
+		if("remove_goal")
+			var/fire_offset = params["offset"]
+			if(!fire_offset)
+				return TRUE
+			ctl.planner.cancel_goal(fire_offset)
 			return TRUE
 		if("toggle_debug")
 			SSstorytellers.hard_debug = !SSstorytellers.hard_debug
