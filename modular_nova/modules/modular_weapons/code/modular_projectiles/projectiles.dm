@@ -169,3 +169,16 @@
 	sharpness = NONE
 	embed_data = null
 	wound_bonus = -50
+
+/obj/projectile/bullet/c10mm/soporific
+	name = "10mm soporific bullet"
+	damage = 5 // Minimal stamina damage
+	damage_type = STAMINA
+
+/obj/projectile/bullet/c10mm/soporific/on_hit(atom/target, blocked = 0, pierce_hit)
+	. = ..()
+	if(blocked != 0) // Only works on unarmored targets
+		return
+	if(isliving(target) && !issilicon(target)) // Only affects organic, non-silicon targets
+		var/mob/living/living_target = target
+		living_target.Sleeping(5 SECONDS)
