@@ -121,6 +121,7 @@
 "aw" = (
 /obj/structure/closet/secure_closet/des_two/maa_locker,
 /obj/item/clothing/mask/neck_gaiter/syndicate,
+/obj/item/inducer/syndicate,
 /turf/open/floor/mineral/plastitanium,
 /area/ruin/space/has_grav/nova/des_two/security/maa)
 "aA" = (
@@ -502,13 +503,11 @@
 /turf/open/floor/iron/dark/textured_large,
 /area/ruin/space/has_grav/nova/des_two/bridge)
 "cs" = (
-/obj/effect/turf_decal/siding/dark/corner{
-	dir = 8
+/obj/effect/turf_decal/siding/wood{
+	dir = 9
 	},
-/turf/open/floor/iron/kitchen{
-	dir = 4
-	},
-/area/ruin/space/has_grav/nova/des_two/service/diner)
+/turf/open/floor/wood/parquet,
+/area/ruin/space/has_grav/nova/des_two/service/lounge)
 "ct" = (
 /obj/structure/rack/shelf,
 /obj/item/circuitboard/machine/xenoarch_machine/xenoarch_researcher{
@@ -752,6 +751,14 @@
 /obj/machinery/door/firedoor,
 /turf/open/floor/plating,
 /area/ruin/space/has_grav/nova/des_two/research)
+"dq" = (
+/obj/effect/turf_decal/siding/dark{
+	dir = 5
+	},
+/turf/open/floor/iron/kitchen{
+	dir = 4
+	},
+/area/ruin/space/has_grav/nova/des_two/service/diner)
 "dr" = (
 /obj/effect/turf_decal/trimline/dark_red/filled/line,
 /obj/effect/turf_decal/trimline/dark_red/warning{
@@ -1151,12 +1158,6 @@
 /obj/effect/spawner/structure/window/reinforced/plasma/plastitanium,
 /turf/open/floor/plating,
 /area/ruin/space/has_grav/nova/des_two/service/sauna)
-"fe" = (
-/obj/effect/turf_decal/siding/wood{
-	dir = 6
-	},
-/turf/open/floor/wood/parquet,
-/area/ruin/space/has_grav/nova/des_two/service/lounge)
 "ff" = (
 /obj/structure/cable,
 /obj/machinery/light/warm/directional/north,
@@ -1216,10 +1217,6 @@
 	},
 /turf/open/floor/iron/dark/brick_aligned_half_vertical,
 /area/ruin/space/has_grav/nova/des_two/bridge)
-"fz" = (
-/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
-/turf/open/floor/catwalk_floor/iron_dark,
-/area/ruin/space/has_grav/nova/des_two/engineering)
 "fB" = (
 /turf/open/floor/iron/dark/small,
 /area/ruin/space/has_grav/nova/des_two/security/prison)
@@ -1710,6 +1707,20 @@
 /obj/machinery/light/cold/directional/south,
 /turf/open/floor/iron/dark/textured_large,
 /area/ruin/space/has_grav/nova/des_two/research/robotics)
+"hE" = (
+/obj/structure/cable,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/structure/disposalpipe/segment{
+	dir = 4
+	},
+/obj/effect/turf_decal/siding/dark{
+	dir = 8
+	},
+/turf/open/floor/iron/kitchen{
+	dir = 4
+	},
+/area/ruin/space/has_grav/nova/des_two/service/diner)
 "hG" = (
 /obj/item/kirbyplants/organic/plant21,
 /obj/machinery/airalarm/directional/east,
@@ -1857,14 +1868,6 @@
 /obj/item/storage/box/skillchips/engineering,
 /turf/open/floor/plating,
 /area/ruin/space/has_grav/nova/des_two/engineering)
-"iy" = (
-/obj/effect/turf_decal/siding/dark{
-	dir = 5
-	},
-/turf/open/floor/iron/kitchen{
-	dir = 4
-	},
-/area/ruin/space/has_grav/nova/des_two/service/diner)
 "iz" = (
 /turf/closed/wall/r_wall/plastitanium/syndicate/nodiagonal,
 /area/ruin/space/has_grav/nova/des_two/cargo/hangar)
@@ -2464,7 +2467,7 @@
 /obj/structure/disposalpipe/segment{
 	dir = 4
 	},
-/obj/effect/turf_decal/siding/wood/corner,
+/obj/effect/turf_decal/siding/wood,
 /turf/open/floor/wood/parquet,
 /area/ruin/space/has_grav/nova/des_two/service/lounge)
 "ld" = (
@@ -2825,10 +2828,9 @@
 /turf/open/floor/grass,
 /area/ruin/space/has_grav/nova/des_two/security/lawyer)
 "mI" = (
-/obj/structure/cable,
-/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
-/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
-/obj/effect/turf_decal/siding/dark,
+/obj/effect/turf_decal/siding/dark{
+	dir = 10
+	},
 /turf/open/floor/iron/kitchen{
 	dir = 4
 	},
@@ -3083,12 +3085,6 @@
 	},
 /turf/open/floor/iron/dark/textured_large,
 /area/ruin/space/has_grav/nova/des_two/service/lounge)
-"nI" = (
-/obj/effect/turf_decal/siding/dark,
-/turf/open/floor/iron/kitchen{
-	dir = 4
-	},
-/area/ruin/space/has_grav/nova/des_two/service/diner)
 "nJ" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
@@ -3854,6 +3850,7 @@
 /obj/structure/closet/secure_closet/des_two/cl_locker,
 /obj/item/binoculars,
 /obj/machinery/light/warm/directional/west,
+/obj/item/inducer/syndicate,
 /turf/open/floor/iron/dark/smooth_large,
 /area/ruin/space/has_grav/nova/des_two/bridge/cl)
 "rg" = (
@@ -4534,7 +4531,7 @@
 /area/ruin/space/has_grav/nova/des_two/engineering)
 "up" = (
 /obj/effect/turf_decal/siding/dark{
-	dir = 4
+	dir = 1
 	},
 /turf/open/floor/iron/kitchen{
 	dir = 4
@@ -4544,6 +4541,12 @@
 /obj/machinery/firealarm/directional/south,
 /turf/open/floor/wood/large,
 /area/ruin/space/has_grav/nova/des_two/service/changing_room)
+"uu" = (
+/obj/effect/turf_decal/siding/wood{
+	dir = 6
+	},
+/turf/open/floor/wood/parquet,
+/area/ruin/space/has_grav/nova/des_two/service/lounge)
 "ux" = (
 /obj/structure/chair/sofa/corner{
 	color = "#3d3c38"
@@ -5046,11 +5049,13 @@
 /turf/open/floor/plating,
 /area/ruin/space/has_grav/nova/des_two/bridge)
 "wB" = (
-/obj/effect/turf_decal/siding/wood{
-	dir = 9
+/obj/effect/turf_decal/siding/dark/corner{
+	dir = 8
 	},
-/turf/open/floor/wood/parquet,
-/area/ruin/space/has_grav/nova/des_two/service/lounge)
+/turf/open/floor/iron/kitchen{
+	dir = 4
+	},
+/area/ruin/space/has_grav/nova/des_two/service/diner)
 "wE" = (
 /obj/effect/turf_decal/siding/wood{
 	dir = 10
@@ -5191,6 +5196,12 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /turf/open/floor/mineral/plastitanium,
 /area/ruin/space/has_grav/nova/des_two/security/lawyer)
+"xn" = (
+/obj/effect/turf_decal/siding/dark,
+/turf/open/floor/iron/kitchen{
+	dir = 4
+	},
+/area/ruin/space/has_grav/nova/des_two/service/diner)
 "xo" = (
 /obj/effect/turf_decal/stripes/line{
 	dir = 9
@@ -6087,14 +6098,6 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /turf/open/floor/catwalk_floor/iron_dark,
 /area/ruin/space/has_grav/nova/des_two/cargo)
-"BB" = (
-/obj/effect/turf_decal/siding/dark{
-	dir = 10
-	},
-/turf/open/floor/iron/kitchen{
-	dir = 4
-	},
-/area/ruin/space/has_grav/nova/des_two/service/diner)
 "BD" = (
 /obj/machinery/deepfryer,
 /obj/effect/turf_decal/siding/dark{
@@ -6155,6 +6158,24 @@
 /obj/effect/mapping_helpers/airalarm/syndicate_access,
 /turf/open/floor/iron/dark/brick_aligned_half_vertical,
 /area/ruin/space/has_grav/nova/des_two/halls)
+"BU" = (
+/obj/structure/closet/secure_closet/des_two/electrical_supplies,
+/obj/item/weldingtool/largetank{
+	pixel_y = 4
+	},
+/obj/item/weldingtool/largetank{
+	pixel_y = -3
+	},
+/obj/item/clothing/glasses/welding{
+	pixel_y = 4
+	},
+/obj/item/clothing/glasses/welding{
+	pixel_y = -3
+	},
+/obj/item/inducer/syndicate,
+/obj/item/inducer/syndicate,
+/turf/open/floor/iron/dark/brick,
+/area/ruin/space/has_grav/nova/des_two/engineering)
 "BW" = (
 /obj/structure/dresser,
 /obj/machinery/airalarm/directional/north,
@@ -6536,6 +6557,14 @@
 	},
 /turf/open/floor/carpet/red,
 /area/ruin/space/has_grav/nova/des_two/service/library)
+"Dn" = (
+/obj/structure/cable,
+/obj/structure/disposalpipe/segment,
+/obj/effect/turf_decal/siding/wood/corner{
+	dir = 1
+	},
+/turf/open/floor/wood/parquet,
+/area/ruin/space/has_grav/nova/des_two/service/lounge)
 "Dq" = (
 /obj/machinery/door/airlock/research/glass,
 /obj/effect/mapping_helpers/airlock/access/all/syndicate/general,
@@ -6625,12 +6654,6 @@
 	},
 /turf/open/floor/iron/dark/textured_large,
 /area/ruin/space/has_grav/nova/des_two/cargo)
-"DM" = (
-/obj/effect/turf_decal/siding/dark/corner,
-/turf/open/floor/iron/kitchen{
-	dir = 4
-	},
-/area/ruin/space/has_grav/nova/des_two/service/diner)
 "DN" = (
 /obj/structure/bed/maint,
 /obj/effect/turf_decal/trimline/dark_red/filled/line{
@@ -6803,6 +6826,15 @@
 /obj/machinery/vending/coffee,
 /turf/open/floor/mineral/plastitanium,
 /area/ruin/space/has_grav/nova/des_two/security)
+"EI" = (
+/obj/structure/cable,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/effect/turf_decal/siding/dark,
+/turf/open/floor/iron/kitchen{
+	dir = 4
+	},
+/area/ruin/space/has_grav/nova/des_two/service/diner)
 "EJ" = (
 /obj/machinery/atmospherics/components/unary/vent_pump/on/layer4,
 /obj/structure/cable,
@@ -7884,6 +7916,12 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /turf/open/floor/carpet/neon/simple/red/nodots,
 /area/ruin/space/has_grav/nova/des_two/service/dorms)
+"Jt" = (
+/obj/effect/turf_decal/siding/dark/corner,
+/turf/open/floor/iron/kitchen{
+	dir = 4
+	},
+/area/ruin/space/has_grav/nova/des_two/service/diner)
 "Ju" = (
 /obj/effect/spawner/structure/window/reinforced/plasma/plastitanium,
 /obj/machinery/door/poddoor{
@@ -8909,6 +8947,7 @@
 "NL" = (
 /obj/structure/window/reinforced/survival_pod/spawner/directional/west,
 /obj/structure/closet/secure_closet/des_two/sa_locker,
+/obj/item/inducer/syndicate,
 /turf/open/floor/iron/dark/textured_large,
 /area/ruin/space/has_grav/nova/des_two/bridge/admiral)
 "NN" = (
@@ -8921,14 +8960,6 @@
 	},
 /turf/open/floor/carpet/red,
 /area/ruin/space/has_grav/nova/des_two/bridge/admiral)
-"NO" = (
-/obj/structure/cable,
-/obj/structure/disposalpipe/segment{
-	dir = 4
-	},
-/obj/effect/turf_decal/siding/wood,
-/turf/open/floor/wood/parquet,
-/area/ruin/space/has_grav/nova/des_two/service/lounge)
 "NP" = (
 /obj/machinery/airalarm/directional/north,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
@@ -8958,6 +8989,14 @@
 "NW" = (
 /turf/open/floor/plating,
 /area/ruin/space/has_grav/nova/des_two/cargo/hangar)
+"Od" = (
+/obj/structure/cable,
+/obj/structure/disposalpipe/segment{
+	dir = 4
+	},
+/obj/effect/turf_decal/siding/wood/corner,
+/turf/open/floor/wood/parquet,
+/area/ruin/space/has_grav/nova/des_two/service/lounge)
 "Of" = (
 /obj/structure/weightmachine/weightlifter,
 /obj/machinery/airalarm/directional/north,
@@ -9293,23 +9332,13 @@
 /turf/open/floor/catwalk_floor/iron_dark,
 /area/ruin/space/has_grav/nova/des_two/halls)
 "PI" = (
-/obj/structure/closet/secure_closet/des_two/electrical_supplies,
-/obj/item/weldingtool/largetank{
-	pixel_y = 4
+/obj/effect/turf_decal/siding/dark{
+	dir = 4
 	},
-/obj/item/weldingtool/largetank{
-	pixel_y = -3
+/turf/open/floor/iron/kitchen{
+	dir = 4
 	},
-/obj/item/clothing/glasses/welding{
-	pixel_y = 4
-	},
-/obj/item/clothing/glasses/welding{
-	pixel_y = -3
-	},
-/obj/item/inducer/syndicate,
-/obj/item/inducer/syndicate,
-/turf/open/floor/iron/dark/brick,
-/area/ruin/space/has_grav/nova/des_two/engineering)
+/area/ruin/space/has_grav/nova/des_two/service/diner)
 "PJ" = (
 /obj/effect/turf_decal/siding/thinplating/dark,
 /obj/effect/turf_decal/trimline/dark_red/end,
@@ -9375,6 +9404,10 @@
 	dir = 8
 	},
 /turf/open/floor/plating,
+/area/ruin/space/has_grav/nova/des_two/engineering)
+"PS" = (
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/turf/open/floor/catwalk_floor/iron_dark,
 /area/ruin/space/has_grav/nova/des_two/engineering)
 "PU" = (
 /obj/structure/weightmachine/weightlifter,
@@ -9554,14 +9587,6 @@
 /obj/machinery/light/warm/directional/east,
 /turf/open/floor/iron,
 /area/ruin/space/has_grav/nova/des_two/service/dorms/fitness)
-"QR" = (
-/obj/structure/cable,
-/obj/structure/disposalpipe/segment,
-/obj/effect/turf_decal/siding/wood/corner{
-	dir = 1
-	},
-/turf/open/floor/wood/parquet,
-/area/ruin/space/has_grav/nova/des_two/service/lounge)
 "QS" = (
 /obj/effect/turf_decal/siding/thinplating/dark{
 	dir = 9
@@ -10968,14 +10993,6 @@
 	},
 /turf/open/floor/iron/dark/small,
 /area/ruin/space/has_grav/nova/des_two/security/prison)
-"Xj" = (
-/obj/effect/turf_decal/siding/dark{
-	dir = 1
-	},
-/turf/open/floor/iron/kitchen{
-	dir = 4
-	},
-/area/ruin/space/has_grav/nova/des_two/service/diner)
 "Xl" = (
 /obj/machinery/porta_turret/syndicate/energy{
 	faction = list("Syndicate DS-2 Crew","Interdyne Lavaland Personnel")
@@ -11038,20 +11055,6 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /turf/open/floor/catwalk_floor/iron_dark,
 /area/ruin/space/has_grav/nova/des_two/engineering)
-"Xw" = (
-/obj/structure/cable,
-/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
-/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
-/obj/structure/disposalpipe/segment{
-	dir = 4
-	},
-/obj/effect/turf_decal/siding/dark{
-	dir = 8
-	},
-/turf/open/floor/iron/kitchen{
-	dir = 4
-	},
-/area/ruin/space/has_grav/nova/des_two/service/diner)
 "Xy" = (
 /obj/machinery/vending/assist,
 /obj/machinery/light/cold/directional/west,
@@ -12724,7 +12727,7 @@ IN
 IN
 AL
 Mb
-fz
+PS
 xp
 TK
 ry
@@ -13628,7 +13631,7 @@ uY
 Da
 wW
 oj
-PI
+BU
 op
 bl
 NB
@@ -13730,7 +13733,7 @@ dn
 Sh
 nG
 Rm
-wB
+cs
 pn
 wa
 KR
@@ -13795,7 +13798,7 @@ JO
 JO
 yu
 Qn
-QR
+Dn
 cO
 pa
 rX
@@ -13858,11 +13861,11 @@ Jc
 oA
 KC
 KC
-la
+Od
 Lm
 Lm
 Lm
-fe
+uu
 TN
 Bv
 Bv
@@ -13923,7 +13926,7 @@ Jc
 oA
 KC
 KC
-NO
+la
 GL
 SA
 Hq
@@ -13988,7 +13991,7 @@ Jc
 oA
 KC
 KC
-NO
+la
 XG
 xA
 xA
@@ -13997,8 +14000,8 @@ ns
 gT
 Iy
 zQ
-Xw
-BB
+hE
+mI
 qq
 AI
 aj
@@ -14063,7 +14066,7 @@ gT
 NS
 xt
 en
-nI
+xn
 qq
 LI
 sh
@@ -14190,10 +14193,10 @@ Om
 IM
 Fs
 sT
-Xj
+up
 vQ
 rn
-nI
+xn
 qq
 pO
 KO
@@ -14323,7 +14326,7 @@ gT
 bJ
 vQ
 sq
-cs
+wB
 BD
 Ql
 sP
@@ -14452,10 +14455,10 @@ Us
 gT
 pm
 vQ
-DM
-up
+Jt
+PI
 Iz
-up
+PI
 Lc
 xG
 xG
@@ -14580,9 +14583,9 @@ Lg
 Lg
 Lg
 LF
-Xj
+up
 vQ
-nI
+xn
 Zx
 MS
 BN
@@ -14645,9 +14648,9 @@ id
 rx
 Al
 gT
-Xj
+up
 vQ
-mI
+EI
 gj
 PG
 Tf
@@ -14710,8 +14713,8 @@ gT
 gT
 gT
 gT
-iy
-up
+dq
+PI
 Is
 oW
 Xr
