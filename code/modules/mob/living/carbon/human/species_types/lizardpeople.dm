@@ -7,11 +7,9 @@
 		TRAIT_MUTANT_COLORS,
 	)
 	inherent_biotypes = MOB_ORGANIC|MOB_HUMANOID|MOB_REPTILE
-	/* NOVA EDIT REMOVAL START - Customization
 	body_markings = list(
 		/datum/bodypart_overlay/simple/body_marking/lizard = SPRITE_ACCESSORY_NONE,
 	)
-	*/ // NOVA EDIT REMOVAL END
 	mutant_bodyparts = list("body_markings" = "None", "legs" = "Normal Legs") // NOVA EDIT ADDITION - Customization
 	mutant_organs = list(
 		/obj/item/organ/horns = SPRITE_ACCESSORY_NONE,
