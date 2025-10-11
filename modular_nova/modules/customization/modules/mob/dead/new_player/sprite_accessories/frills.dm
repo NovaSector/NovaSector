@@ -1,6 +1,5 @@
 /datum/sprite_accessory/frills
-	key = "frills"
-	generic = "Frills"
+	key = FEATURE_FRILLS
 	default_color = DEFAULT_SECONDARY
 	relevent_layers = list(BODY_ADJ_LAYER)
 	genetic = TRUE

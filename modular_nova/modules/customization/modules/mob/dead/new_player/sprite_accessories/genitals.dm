@@ -59,7 +59,7 @@
 	icon = 'modular_nova/master_files/icons/mob/sprite_accessory/genitals/penis_onmob.dmi'
 	organ_type = /obj/item/organ/genital/penis
 	associated_organ_slot = ORGAN_SLOT_PENIS
-	key = ORGAN_SLOT_PENIS
+	key = FEATURE_PENIS
 	color_src = USE_MATRIXED_COLORS
 	always_color_customizable = TRUE
 	center = TRUE
@@ -135,7 +135,7 @@
 	icon = 'modular_nova/master_files/icons/mob/sprite_accessory/genitals/testicles_onmob.dmi'
 	organ_type = /obj/item/organ/genital/testicles
 	associated_organ_slot = ORGAN_SLOT_TESTICLES
-	key = ORGAN_SLOT_TESTICLES
+	key = FEATURE_TESTICLES
 	always_color_customizable = TRUE
 	special_x_dimension = TRUE
 	default_color = DEFAULT_SKIN_OR_PRIMARY
@@ -180,7 +180,7 @@
 	icon = 'modular_nova/master_files/icons/mob/sprite_accessory/genitals/vagina_onmob.dmi'
 	organ_type = /obj/item/organ/genital/vagina
 	associated_organ_slot = ORGAN_SLOT_VAGINA
-	key = ORGAN_SLOT_VAGINA
+	key = FEATURE_VAGINA
 	always_color_customizable = TRUE
 	default_color = "#FFCCCC"
 	relevent_layers = list(BODY_FRONT_UNDER_CLOTHES)
@@ -231,7 +231,7 @@
 /datum/sprite_accessory/genital/womb
 	organ_type = /obj/item/organ/genital/womb
 	associated_organ_slot = ORGAN_SLOT_WOMB
-	key = ORGAN_SLOT_WOMB
+	key = FEATURE_WOMB
 	genetic = TRUE
 
 /datum/sprite_accessory/genital/womb/none
@@ -248,7 +248,7 @@
 /datum/sprite_accessory/genital/anus
 	organ_type = /obj/item/organ/genital/anus
 	associated_organ_slot = ORGAN_SLOT_ANUS
-	key = ORGAN_SLOT_ANUS
+	key = FEATURE_ANUS
 	genetic = TRUE
 
 /datum/sprite_accessory/genital/anus/none
@@ -266,7 +266,7 @@
 	icon = 'modular_nova/master_files/icons/mob/sprite_accessory/genitals/breasts_onmob.dmi'
 	organ_type = /obj/item/organ/genital/breasts
 	associated_organ_slot = ORGAN_SLOT_BREASTS
-	key = ORGAN_SLOT_BREASTS
+	key = FEATURE_BREASTS
 	always_color_customizable = TRUE
 	default_color = DEFAULT_SKIN_OR_PRIMARY
 	relevent_layers = list(BODY_BEHIND_LAYER, BODY_FRONT_UNDER_CLOTHES)

@@ -1,6 +1,5 @@
 /datum/sprite_accessory/moth_antennae
-	generic = "Moth Antennae"
-	key = "moth_antennae"
+	key = FEATURE_MOTH_ANTENNAE
 	relevent_layers = list(BODY_BEHIND_LAYER, BODY_FRONT_LAYER)
 	genetic = TRUE
 	organ_type = /obj/item/organ/antennae

@@ -1,7 +1,6 @@
 /datum/sprite_accessory/skrell_hair
 	icon = 'modular_nova/master_files/icons/mob/sprite_accessory/skrell_hair.dmi'
-	generic = "Skrell Headtails"
-	key = "skrell_hair"
+	key = FEATURE_SKRELL_HAIR
 	color_src = USE_ONE_COLOR
 	relevent_layers = list(BODY_ADJ_LAYER, BODY_FRONT_LAYER)
 	genetic = TRUE

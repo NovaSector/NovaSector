@@ -114,6 +114,13 @@
 #define FEATURE_NECK_ACCESSORY "neck_acc"
 #define FEATURE_GHOUL_COLOR "ghoulcolor"
 
+#define FEATURE_PENIS "penis"
+#define FEATURE_WOMB "womb"
+#define FEATURE_VAGINA "vagina"
+#define FEATURE_TESTICLES "testicles"
+#define FEATURE_BREASTS "breasts"
+#define FEATURE_ANUS "anus"
+
 #define MANDATORY_FEATURE_LIST list(\
 	"mcolor" = "#FFFFBB",\
 	"mcolor2" = "#FFFFBB",\

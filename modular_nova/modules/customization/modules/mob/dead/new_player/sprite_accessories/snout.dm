@@ -1,6 +1,5 @@
 /datum/sprite_accessory/snouts
-	key = "snout"
-	generic = "Snout"
+	key = FEATURE_SNOUT
 	icon = 'modular_nova/master_files/icons/mob/sprite_accessory/lizard_snouts.dmi'
 	flags_for_organ = SPRITE_ACCESSORY_USE_MUZZLED_SPRITE
 	organ_type = /obj/item/organ/snout

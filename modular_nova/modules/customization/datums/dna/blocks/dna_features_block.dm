@@ -50,3 +50,76 @@
 	)
 	target.dna.mutant_bodyparts[feature_key][MUTANT_INDEX_NAME] = SSaccessories.sprite_accessories[feature_key][accessory_index]
 	target.dna.mutant_bodyparts[feature_key][MUTANT_INDEX_COLOR_LIST] = color_portions
+
+/datum/dna_block/feature/mutant/tail_generic
+	feature_key = FEATURE_TAIL_GENERIC
+
+/datum/dna_block/feature/mutant/snout
+	feature_key = FEATURE_SNOUT
+
+/datum/dna_block/feature/mutant/horns
+	feature_key = FEATURE_HORNS
+
+/datum/dna_block/feature/mutant/ears
+	feature_key = FEATURE_EARS
+
+/datum/dna_block/feature/mutant/wings
+	feature_key = FEATURE_WINGS
+
+/datum/dna_block/feature/mutant/frills
+	feature_key = FEATURE_FRILLS
+
+/datum/dna_block/feature/mutant/spines
+	feature_key = FEATURE_SPINES
+
+/datum/dna_block/feature/mutant/caps
+	feature_key = FEATURE_MUSH_CAP
+
+/datum/dna_block/feature/mutant/moth_antennae
+	feature_key = FEATURE_MOTH_ANTENNAE
+
+/datum/dna_block/feature/mutant/legs
+	feature_key = FEATURE_LEGS
+
+/datum/dna_block/feature/mutant/fluff
+	feature_key = FEATURE_FLUFF
+
+/datum/dna_block/feature/mutant/skrell_hair
+	feature_key = FEATURE_SKRELL_HAIR
+
+/datum/dna_block/feature/mutant/xenodorsal
+	feature_key = FEATURE_XENODORSAL
+
+/datum/dna_block/feature/mutant/xenohead
+	feature_key = FEATURE_XENOHEAD
+
+/datum/dna_block/feature/mutant/taur
+	feature_key = FEATURE_TAUR
+
+
+/datum/dna_block/feature/mutant/penis
+	feature_key = FEATURE_PENIS
+
+/datum/dna_block/feature/mutant/testicles
+	feature_key = FEATURE_TESTICLES
+
+/datum/dna_block/feature/mutant/vagina
+	feature_key = FEATURE_VAGINA
+
+/datum/dna_block/feature/mutant/womb
+	feature_key = FEATURE_WOMB
+
+/datum/dna_block/feature/mutant/anus
+	feature_key = FEATURE_ANUS
+
+/datum/dna_block/feature/mutant/breasts
+	feature_key = FEATURE_BREASTS
+
+#undef FEATURE_HASH_PART_START
+#undef FEATURE_HASH_PART_END
+#undef FEATURE_HASH_COLOR1_START
+#undef FEATURE_HASH_COLOR1_END
+#undef FEATURE_HASH_COLOR2_START
+#undef FEATURE_HASH_COLOR2_END
+#undef FEATURE_HASH_COLOR3_START
+#undef FEATURE_HASH_COLOR3_END

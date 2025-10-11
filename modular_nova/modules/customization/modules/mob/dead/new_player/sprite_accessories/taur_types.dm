@@ -17,8 +17,7 @@
 
 /datum/sprite_accessory/taur
 	icon = 'modular_nova/master_files/icons/mob/sprite_accessory/taur.dmi'
-	key = "taur"
-	generic = "Taur Type"
+	key = FEATURE_TAUR
 	color_src = USE_MATRIXED_COLORS
 	dimension_x = 64
 	center = TRUE

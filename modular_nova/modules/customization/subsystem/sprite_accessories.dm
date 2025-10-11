@@ -18,7 +18,4 @@
 						features_block_lengths["[dna_mutant_bodypart_blocks[P.key] + color_block]"] = DNA_BLOCK_SIZE_COLOR
 					dna_total_feature_blocks += DNA_BLOCKS_PER_FEATURE
 
-				genetic_accessories[P.key] += P.name
-			//TODO: Replace "generic" definitions with something better
-			if(P.generic && !generic_accessories[P.key])
-				generic_accessories[P.key] = P.generic */
+				genetic_accessories[P.key] += P.name */

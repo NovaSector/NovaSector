@@ -7,8 +7,7 @@
 */
 /datum/sprite_accessory/wings
 	icon = 'icons/mob/human/species/wings.dmi'
-	generic = "Wings"
-	key = "wings"
+	key = FEATURE_WINGS
 	color_src = USE_ONE_COLOR
 	recommended_species = list(SPECIES_HUMAN, SPECIES_SYNTH, SPECIES_FELINE, SPECIES_LIZARD, SPECIES_MAMMAL)
 	organ_type = /obj/item/organ/wings

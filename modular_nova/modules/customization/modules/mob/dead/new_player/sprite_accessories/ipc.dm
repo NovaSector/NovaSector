@@ -6,7 +6,6 @@
 	icon = 'modular_nova/master_files/icons/mob/sprite_accessory/ipc_screens.dmi'
 	color_src = null
 	key = MUTANT_SYNTH_SCREEN
-	generic = "Screen"
 	relevent_layers = list(BODY_FRONT_UNDER_CLOTHES)
 	organ_type = /obj/item/organ/synth_screen
 
@@ -148,7 +147,6 @@
 	default_color = DEFAULT_SECONDARY
 	recommended_species = list(SPECIES_SYNTH)
 	key = MUTANT_SYNTH_ANTENNA
-	generic = "Antenna"
 	relevent_layers = list(BODY_ADJ_LAYER)
 	genetic = FALSE
 	organ_type = /obj/item/organ/synth_antenna
@@ -203,7 +201,6 @@
 	color_src = null
 	factual = FALSE
 	key = MUTANT_SYNTH_CHASSIS
-	generic = "Chassis Type"
 
 /datum/sprite_accessory/synth_chassis/default
 	name = "Default Chassis"
@@ -306,7 +303,6 @@
 	color_src = null
 	factual = FALSE
 	key = MUTANT_SYNTH_HEAD
-	generic = "Head Type"
 
 /datum/sprite_accessory/synth_head/default
 	name = "Default Head"
