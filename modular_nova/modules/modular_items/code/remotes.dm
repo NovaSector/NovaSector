@@ -15,5 +15,5 @@
 
 /obj/item/choice_beacon/augments
 	icon = 'modular_nova/modules/modular_items/icons/remote.dmi'
-	icon_state = "syndi_becon_self"
+	icon_state = "syndi_beacon_self"
 	inhand_icon_state = "electronic"
