@@ -17,3 +17,12 @@
 	icon = 'modular_nova/modules/modular_items/icons/remote.dmi'
 	icon_state = "syndi_beacon_self"
 	inhand_icon_state = "electronic"
+
+/obj/item/royale_remote
+	icon = 'modular_nova/modules/modular_items/icons/remote.dmi'
+
+/obj/item/assault_pod
+	icon = 'modular_nova/modules/modular_items/icons/remote.dmi'
+
+/obj/item/assault_pod/mining
+	icon = 'modular_nova/modules/modular_items/icons/remote.dmi'
