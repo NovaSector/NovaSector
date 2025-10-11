@@ -91,6 +91,9 @@
 /datum/armament_entry/company_import/nakamura_modsuits/protection_modules/emp_shield
 	item_type = /obj/item/mod/module/emp_shield
 
+/datum/armament_entry/company_import/nakamura_modsuits/protection_modules/dampener
+	item_type = /obj/item/mod/module/projectile_dampener
+
 // Medical Mods
 
 /datum/armament_entry/company_import/nakamura_modsuits/medical_modules
