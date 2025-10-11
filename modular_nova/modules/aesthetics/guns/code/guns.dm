@@ -76,16 +76,32 @@
 /obj/item/ammo_casing
 	custom_materials = AMMO_MATS_BASIC
 
-///GUN SPRITE OVERWRITES
+// GUN SPRITE OVERRIDES
+
+// todo: modular egun subtypes? for the sprite support
+
 /obj/item/gun/energy/ionrifle
 	icon = 'modular_nova/modules/aesthetics/guns/icons/energy.dmi'
-	lefthand_file = 'modular_nova/modules/aesthetics/guns/icons/guns_lefthand.dmi'
-	righthand_file = 'modular_nova/modules/aesthetics/guns/icons/guns_righthand.dmi'
+	// also covers the ion carbine
 
-/obj/item/gun/energy/ionrifle/carbine
-	icon = 'icons/obj/weapons/guns/energy.dmi'
-	lefthand_file = 'icons/mob/inhands/weapons/guns_lefthand.dmi'
-	righthand_file = 'icons/mob/inhands/weapons/guns_righthand.dmi'
+/obj/item/gun/energy/xray
+	icon = 'modular_nova/modules/aesthetics/guns/icons/energy.dmi'
+
+/obj/item/gun/energy/e_gun
+	icon = 'modular_nova/modules/aesthetics/guns/icons/energy.dmi'
+	shaded_charge = TRUE
+	// also covers the hybrid taser, HoS gun, mini e-gun. necessitates overrides for all other e_gun subtypes
+
+/obj/item/gun/energy/laser
+	icon = 'modular_nova/modules/aesthetics/guns/icons/energy.dmi'
+	// also covers laser carbine (the automatic one). necessitates overrides for all other laser subtypes
+
+/obj/item/gun/energy/disabler
+	icon = 'modular_nova/modules/aesthetics/guns/icons/energy.dmi'
+	shaded_charge = TRUE
+	// also covers disabler SMG.
+
+// BALLISTICS, MOSTLY, PAST THIS POINT
 
 /obj/item/gun/ballistic/shotgun/automatic/combat
 	name = "\improper Peacekeeper combat shotgun"

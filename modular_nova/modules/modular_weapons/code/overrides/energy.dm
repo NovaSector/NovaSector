@@ -1,6 +1,6 @@
 /obj/item/gun/energy/laser
 	name = "laser carbine"
-	desc = "The Allstar Lasers Star Combat 1, or \"Allstar SC-1\",\
+	desc = "The Allstar Lasers Star Combat 1, or \"Allstar SC-1\", \
 		is a basic, energy-based laser carbine that fires concentrated beams of light which pass through glass and thin metal."
 	w_class = WEIGHT_CLASS_NORMAL
 
