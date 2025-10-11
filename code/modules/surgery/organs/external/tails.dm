@@ -172,7 +172,7 @@
 
 ///Cat tail bodypart overlay
 /datum/bodypart_overlay/mutant/tail/cat
-	feature_key = FEATURE_TAIL_GENERIC // NOVA EDIT - Customization - ORIGINAL: feature_key = "tail_cat"
+	feature_key = FEATURE_TAIL_GENERIC // NOVA EDIT - Customization - ORIGINAL: feature_key = FEATURE_TAIL
 	// color_source = ORGAN_COLOR_HAIR // NOVA EDIT REMOVAL
 
 /datum/bodypart_overlay/mutant/tail/cat/get_global_feature_list()
@@ -188,7 +188,7 @@
 ///Monkey tail bodypart overlay
 /datum/bodypart_overlay/mutant/tail/monkey
 	color_source = NONE
-	feature_key = "tail" // NOVA EDIT - Customization - ORIGINAL: feature_key = "tail_monkey"
+	feature_key = FEATURE_TAIL_GENERIC // NOVA EDIT - Customization - ORIGINAL: feature_key = FEATURE_TAIL_MONKEY
 
 /datum/bodypart_overlay/mutant/tail/monkey/get_global_feature_list()
 	return SSaccessories.tails_list_monkey

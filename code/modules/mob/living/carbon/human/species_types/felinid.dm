@@ -40,7 +40,7 @@
 			var/obj/item/organ/ears/cat/ears = new(FALSE, target_human.dna.features[FEATURE_EARS])
 			ears.Insert(target_human, movement_flags = DELETE_IF_REPLACED)
 		*/
-		if(target_human.dna.features[FEATURE_TAIL] == "Cat")
+		if(target_human.dna.features[FEATURE_EARS] == "Cat")
 			var/obj/item/organ/ears/cat/ears = new
 			ears.Insert(target_human, movement_flags = DELETE_IF_REPLACED)
 		else
