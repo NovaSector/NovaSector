@@ -8139,6 +8139,7 @@
 #include "modular_nova\modules\drones\drone_naming.dm"
 #include "modular_nova\modules\drones_derelict\code\areas.dm"
 #include "modular_nova\modules\drones_derelict\code\space.dm"
+#include "modular_nova\modules\ds2_fluff\code\mixer.dm"
 #include "modular_nova\modules\echolocation_quirk\code\echolocation.dm"
 #include "modular_nova\modules\echolocation_quirk\code\echolocation_component.dm"
 #include "modular_nova\modules\economy\code\materials_market.dm"
