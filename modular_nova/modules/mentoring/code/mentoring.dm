@@ -128,7 +128,7 @@
 				to_chat(user, span_notice("You put [src] down."))
 				return
 
-			user.mind.adjust_experience(/datum/skill/language, check_reading_exp(user))
+			give_experience(user)
 
 		return
 
@@ -306,7 +306,7 @@
 			return ITEM_INTERACT_BLOCKING
 
 		new /obj/item/book/random(get_turf(user))
-		user.mind.adjust_experience(/datum/skill/language, check_reading_exp(user))
+		give_experience(user)
 		playsound(src, SFX_WRITING_PEN, 50, TRUE, SHORT_RANGE_SOUND_EXTRARANGE, SOUND_FALLOFF_EXPONENT + 3, ignore_walls = FALSE)
 		to_chat(user, span_notice("A quick, blue lightning escapes from [tool], wrapping around [src], causing it to flicker out of existence... another book has replaced it!"))
 		qdel(src)
@@ -314,18 +314,16 @@
 
 	return ..()
 
-/**
- * This proc will check some conditions in the environment to adjust how much experience we actually do
- */
-/obj/item/mentoring_book/proc/check_reading_exp(mob/living/user)
-	var/default_exp = 5
-	for(var/obj/structure/bookcase/found_bookcase in range(2, user))
-		default_exp += 1
+/// Gives experience to the person reading the book
+/obj/item/mentoring_book/proc/give_experience(mob/living/user)
+	var/gained_experience = 5
+	if(locate(/obj/structure/bookcase) in range(2, user))
+		gained_experience += 5
 
 	if(user.mob_mood.mood_level > MOOD_LEVEL_HAPPY1)
-		default_exp += 5
+		gained_experience += 5
 
-	return default_exp
+	user.mind.adjust_experience(/datum/skill/language, gained_experience)
 
 #undef AUTHOR_LEVEL_NOVICE
 #undef AUTHOR_LEVEL_APPRENTICE
