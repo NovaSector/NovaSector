@@ -153,7 +153,7 @@
 
 // NOVA EDIT ADDITION - CUSTOMIZATION
 /datum/bodypart_overlay/mutant/tail/get_global_feature_list()
-	return SSaccessories.sprite_accessories["tail"]
+	return SSaccessories.sprite_accessories[FEATURE_TAIL_GENERIC]
 // NOVA EDIT ADDITION END
 /datum/bodypart_overlay/mutant/tail/can_draw_on_bodypart(obj/item/bodypart/bodypart_owner)
 	return !(bodypart_owner.owner?.obscured_slots & HIDEJUMPSUIT)
@@ -172,11 +172,11 @@
 
 ///Cat tail bodypart overlay
 /datum/bodypart_overlay/mutant/tail/cat
-	feature_key = "tail" // NOVA EDIT - Customization - ORIGINAL: feature_key = "tail_cat"
+	feature_key = FEATURE_TAIL_GENERIC // NOVA EDIT - Customization - ORIGINAL: feature_key = "tail_cat"
 	// color_source = ORGAN_COLOR_HAIR // NOVA EDIT REMOVAL
 
 /datum/bodypart_overlay/mutant/tail/cat/get_global_feature_list()
-	return SSaccessories.sprite_accessories["tail"] // NOVA EDIT CHANGE - ORIGINAL: return SSaccessories.tails_list_felinid
+	return SSaccessories.sprite_accessories[FEATURE_TAIL_GENERIC] // NOVA EDIT CHANGE - ORIGINAL: return SSaccessories.tails_list_felinid
 
 /obj/item/organ/tail/monkey
 	name = "monkey tail"
@@ -261,10 +261,10 @@
 
 ///Lizard tail bodypart overlay datum
 /datum/bodypart_overlay/mutant/tail/lizard
-	feature_key = "tail" // NOVA EDIT - Customization - ORIGINAL: feature_key = FEATURE_TAIL_LIZARD
+	feature_key = FEATURE_TAIL_GENERIC // NOVA EDIT - Customization - ORIGINAL: feature_key = FEATURE_TAIL_LIZARD
 
 /datum/bodypart_overlay/mutant/tail/lizard/get_global_feature_list()
-	return SSaccessories.sprite_accessories["tail"] // NOVA EDIT - Customization - ORIGINAL: return SSaccessories.tails_list_lizard
+	return SSaccessories.sprite_accessories[FEATURE_TAIL_GENERIC] // NOVA EDIT - Customization - ORIGINAL: return SSaccessories.tails_list_lizard
 
 /obj/item/organ/tail/lizard/fake
 	name = "fabricated lizard tail"

@@ -334,8 +334,8 @@
 	new_body.undershirt = "Nude" //Which undershirt the player wants
 	new_body.socks = "Nude" //Which socks the player wants
 	brainmob.stored_dna.copy_dna(new_body.dna, transfer_flags = COPY_DNA_SE|COPY_DNA_SPECIES)
-	new_body.dna.features["mcolor"] = new_body.dna.features["mcolor"]
-	new_body.dna.update_uf_block(DNA_MUTANT_COLOR_BLOCK)
+	new_body.dna.features[FEATURE_MUTANT_COLOR] = new_body.dna.features[FEATURE_MUTANT_COLOR]
+	new_body.dna.update_uf_block(FEATURE_MUTANT_COLOR)
 	new_body.real_name = new_body.dna.real_name
 	new_body.name = new_body.dna.real_name
 	new_body.updateappearance(mutcolor_update=1)
@@ -740,8 +740,8 @@
 	var/selected_skintone = GLOB.skin_tones[skintone_index]
 
 	alterer.skin_tone = selected_skintone
-	alterer.dna.features["skin_color"] = skintone2hex(selected_skintone)
-	alterer.dna.update_uf_block(DNA_SKIN_TONE_BLOCK)
+	alterer.dna.features[FEATURE_SKIN_COLOR] = skintone2hex(selected_skintone)
+	alterer.dna.update_uf_block(/datum/dna_block/feature/skin_color)
 	alterer.update_body(is_creating = TRUE)
 
 /**
@@ -800,21 +800,21 @@
 	)
 
 	if(color_choice == "All")
-		alterer.dna.features["mcolor"] = sanitize_hexcolor(new_mutant_colour)
-		alterer.dna.features["mcolor2"] = sanitize_hexcolor(new_mutant_colour)
-		alterer.dna.features["mcolor3"] = sanitize_hexcolor(new_mutant_colour)
-		alterer.dna.update_uf_block(DNA_MUTANT_COLOR_BLOCK)
-		alterer.dna.update_uf_block(DNA_MUTANT_COLOR_2_BLOCK)
-		alterer.dna.update_uf_block(DNA_MUTANT_COLOR_3_BLOCK)
+		alterer.dna.features[FEATURE_MUTANT_COLOR] = sanitize_hexcolor(new_mutant_colour)
+		alterer.dna.features[FEATURE_MUTANT_COLOR_TWO] = sanitize_hexcolor(new_mutant_colour)
+		alterer.dna.features[FEATURE_MUTANT_COLOR_THREE] = sanitize_hexcolor(new_mutant_colour)
+		alterer.dna.update_uf_block(/datum/dna_block/feature/mutant_color)
+		alterer.dna.update_uf_block(/datum/dna_block/feature/mutant_color/two)
+		alterer.dna.update_uf_block(/datum/dna_block/feature/mutant_color/three)
 	else
 		alterer.dna.features[color_target] = sanitize_hexcolor(new_mutant_colour)
 		switch(color_target)
-			if("mcolor")
-				alterer.dna.update_uf_block(DNA_MUTANT_COLOR_BLOCK)
-			if("mcolor2")
-				alterer.dna.update_uf_block(DNA_MUTANT_COLOR_2_BLOCK)
-			if("mcolor3")
-				alterer.dna.update_uf_block(DNA_MUTANT_COLOR_3_BLOCK)
+			if(FEATURE_MUTANT_COLOR)
+				alterer.dna.update_uf_block(/datum/dna_block/feature/mutant_color)
+			if(FEATURE_MUTANT_COLOR_TWO)
+				alterer.dna.update_uf_block(/datum/dna_block/feature/mutant_color/two)
+			if(FEATURE_MUTANT_COLOR_THREE)
+				alterer.dna.update_uf_block(/datum/dna_block/feature/mutant_color/three)
 
 	if(marking_reset == "Yes")
 		for(var/zone in alterer.dna.species.body_markings)

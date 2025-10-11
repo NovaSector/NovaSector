@@ -100,6 +100,20 @@
 #define SHEATH_SLIT	"Slit"
 #define SHEATH_MODES list(SHEATH_NONE, SHEATH_NORMAL, SHEATH_SLIT)
 
+#define FEATURE_MUTANT_COLOR_TWO "mcolor2"
+#define FEATURE_MUTANT_COLOR_THREE "mcolor3"
+#define FEATURE_MARKING_GENERIC "body_markings"
+#define FEATURE_TAIL_GENERIC "tail"
+#define FEATURE_TAUR "taur"
+#define FEATURE_SKIN_COLOR "skin_color"
+#define FEATURE_XENODORSAL "xenodorsal"
+#define FEATURE_XENOHEAD "xenohead"
+#define FEATURE_SKRELL_HAIR "skrell_hair"
+#define FEATURE_FLUFF "fluff"
+#define FEATURE_HEAD_ACCESSORY "head_acc"
+#define FEATURE_NECK_ACCESSORY "neck_acc"
+#define FEATURE_GHOUL_COLOR "ghoulcolor"
+
 #define MANDATORY_FEATURE_LIST list(\
 	"mcolor" = "#FFFFBB",\
 	"mcolor2" = "#FFFFBB",\
