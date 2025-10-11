@@ -75,7 +75,6 @@
 	regenerate_organs(skrell, src, visual_only = TRUE)
 	skrell.update_body(TRUE)
 
-
 /obj/item/organ/tongue/skrell
 	name = "internal vocal sacs"
 	desc = "An Strange looking sac."
@@ -141,7 +140,6 @@
 	cold_level_2_damage = COLD_GAS_DAMAGE_LEVEL_2
 	cold_level_3_damage = COLD_GAS_DAMAGE_LEVEL_3
 	cold_damage_type = BRUTE
-
 
 	hot_message = "You can't stand the searing heat with every breath you take!"
 	heat_level_1_threshold = 318

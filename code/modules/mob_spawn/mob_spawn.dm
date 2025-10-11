@@ -53,7 +53,7 @@
 	spawned_mob_ref = WEAKREF(spawned_mob)
 	return spawned_mob
 
-/obj/effect/mob_spawn/proc/special(mob/living/spawned_mob, mob/mob_possessor, use_loadout = FALSE) // NOVA EDIT CHANGE - ORIGINAL: /obj/effect/mob_spawn/proc/special(mob/living/spawned_mob)
+/obj/effect/mob_spawn/proc/special(mob/living/spawned_mob, mob/mob_possessor) // NOVA EDIT CHANGE - ORIGINAL: /obj/effect/mob_spawn/proc/special(mob/living/spawned_mob)
 	SHOULD_CALL_PARENT(TRUE)
 	if(faction)
 		spawned_mob.faction = faction
@@ -260,7 +260,7 @@
 	return ..()
 
 
-/obj/effect/mob_spawn/ghost_role/special(mob/living/spawned_mob, mob/mob_possessor, use_loadout = FALSE) // NOVA EDIT CHANGE - ORIGINAL: /obj/effect/mob_spawn/ghost_role/special(mob/living/spawned_mob, mob/mob_possessor)
+/obj/effect/mob_spawn/ghost_role/special(mob/living/spawned_mob, mob/mob_possessor, use_loadout) // NOVA EDIT CHANGE - ORIGINAL: /obj/effect/mob_spawn/ghost_role/special(mob/living/spawned_mob, mob/mob_possessor)
 	. = ..()
 	if(mob_possessor)
 		if(mob_possessor.mind)
