@@ -3,7 +3,6 @@
 	organ_type = /obj/item/organ/ears_external
 	relevent_layers = list(BODY_BEHIND_LAYER, BODY_ADJ_LAYER, BODY_FRONT_LAYER)
 	color_src = USE_MATRIXED_COLORS
-	genetic = TRUE
 
 /datum/sprite_accessory/ears/is_hidden(mob/living/carbon/human/wearer)
 	if(!wearer.head)

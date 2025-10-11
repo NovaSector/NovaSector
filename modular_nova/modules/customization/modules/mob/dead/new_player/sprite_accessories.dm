@@ -46,8 +46,6 @@
 	var/use_custom_mod_icon
 	///If defined, the accessory will be only available to ckeys inside the list. ITS ASSOCIATIVE, ie. ("ckey" = TRUE). For speed
 	var/list/ckey_whitelist
-	///Whether this feature is genetic, and thus modifiable by DNA consoles
-	var/genetic = FALSE
 	var/uses_emissives = FALSE
 	var/color_layer_names
 	/// If this sprite accessory will be inaccessable if ERP config is disabled
@@ -145,7 +143,6 @@
 	relevent_layers = list(BODY_ADJ_LAYER)
 	color_src = USE_ONE_COLOR
 	organ_type = /obj/item/organ/mushroom_cap
-	genetic = TRUE
 
 /datum/sprite_accessory/caps/is_hidden(mob/living/carbon/human/human)
 	if(((human.head?.flags_inv & HIDEHAIR) || (human.wear_mask?.flags_inv & HIDEHAIR)) || (key in human.try_hide_mutant_parts))
@@ -178,7 +175,6 @@
 	em_block = TRUE
 	key = FEATURE_LEGS
 	color_src = null
-	genetic = TRUE
 
 /datum/sprite_accessory/legs/none
 	name = NORMAL_LEGS

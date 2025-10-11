@@ -2,7 +2,6 @@
 	icon = 'modular_nova/master_files/icons/mob/sprite_accessory/neck_accessory.dmi'
 	key = FEATURE_NECK_ACCESSORY
 	relevent_layers = list(BODY_ADJ_LAYER, BODY_FRONT_LAYER)
-	genetic = TRUE
 	organ_type = /obj/item/organ/neck_accessory
 
 /datum/sprite_accessory/neck_accessory/none

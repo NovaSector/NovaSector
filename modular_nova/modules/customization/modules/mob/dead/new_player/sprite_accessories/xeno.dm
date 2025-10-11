@@ -3,7 +3,6 @@
 	key = FEATURE_XENODORSAL
 	color_src = USE_ONE_COLOR
 	relevent_layers = list(BODY_BEHIND_LAYER, BODY_FRONT_LAYER)
-	genetic = TRUE
 	organ_type = /obj/item/organ/xenodorsal
 
 /datum/sprite_accessory/xenodorsal/none
@@ -45,7 +44,6 @@
 	icon = 'modular_nova/master_files/icons/mob/sprite_accessory/xeno_parts.dmi'
 	key = FEATURE_XENOHEAD
 	relevent_layers = list(BODY_ADJ_LAYER)
-	genetic = TRUE
 	organ_type = /obj/item/organ/xenohead
 
 /datum/sprite_accessory/xenohead/none

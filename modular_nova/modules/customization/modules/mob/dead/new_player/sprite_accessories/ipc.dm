@@ -148,7 +148,6 @@
 	recommended_species = list(SPECIES_SYNTH)
 	key = MUTANT_SYNTH_ANTENNA
 	relevent_layers = list(BODY_ADJ_LAYER)
-	genetic = FALSE
 	organ_type = /obj/item/organ/synth_antenna
 
 /datum/sprite_accessory/antenna/is_hidden(mob/living/carbon/human/wearer)
