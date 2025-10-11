@@ -1,13 +1,13 @@
 /datum/outfit/hc_officer
 	name = "HC Inspector"
 
-	head = /obj/item/clothing/head/hats/colonial/nri_police
+	head = /obj/item/clothing/head/hats/colonial/hc_police
 	glasses = /obj/item/clothing/glasses/sunglasses
 	ears = /obj/item/radio/headset/guild/command
 	mask = null
-	neck = /obj/item/clothing/neck/cloak/colonial/nri_police
+	neck = /obj/item/clothing/neck/cloak/colonial/hc_police
 
-	uniform = /obj/item/clothing/under/colonial/nri_police
+	uniform = /obj/item/clothing/under/colonial/hc_police
 	suit = null
 
 	gloves = /obj/item/clothing/gloves/combat
@@ -20,7 +20,7 @@
 		/obj/item/storage/box/nri_survival_pack/inspector = 1,
 		/obj/item/ammo_box/magazine/recharge/plasma_battery = 2,
 		/obj/item/gun/ballistic/automatic/pistol/plasma_marksman = 1,
-		/obj/item/clothing/mask/gas/nri_police = 1,
+		/obj/item/clothing/mask/gas/hc_police = 1,
 		/obj/item/modular_computer/pda/hc_police = 1,
 	)
 	l_pocket = /obj/item/folder/blue/hc_cop
