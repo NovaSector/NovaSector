@@ -15,6 +15,8 @@ Lizard subspecies: Silverscale
 
 // Just adds handling for the other two mutcolors and mutant bodyparts being changed to silver.
 /datum/species/lizard/silverscale/on_species_gain(mob/living/carbon/human/new_silverscale, datum/species/old_species, pref_load, regenerate_icons)
+	if(istype(old_species, /datum/species/lizard/silverscale))
+		return ..()
 	old_mutcolor2 = new_silverscale.dna.features["mcolor2"]
 	old_mutcolor3 = new_silverscale.dna.features["mcolor3"]
 	old_mutant_bodyparts_colors = list()
@@ -29,6 +31,8 @@ Lizard subspecies: Silverscale
 	return ..()
 
 /datum/species/lizard/silverscale/on_species_loss(mob/living/carbon/human/was_silverscale, datum/species/new_species, pref_load)
+	if(istype(new_species, /datum/species/lizard/silverscale))
+		return ..()
 	was_silverscale.dna.features["mcolor2"] = old_mutcolor2
 	for(var/key in was_silverscale.dna.mutant_bodyparts)
 		was_silverscale.dna.mutant_bodyparts[key][MUTANT_INDEX_COLOR_LIST] = old_mutant_bodyparts_colors[key]
