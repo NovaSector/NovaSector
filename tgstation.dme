@@ -7344,6 +7344,7 @@
 #include "modular_nova\master_files\code\modules\projectiles\guns\ballistic\bows\bow_types.dm"
 #include "modular_nova\master_files\code\modules\projectiles\guns\energy\kinetic_accelerator.dm"
 #include "modular_nova\master_files\code\modules\projectiles\guns\energy\recharge.dm"
+#include "modular_nova\master_files\code\modules\projectiles\guns\energy\special.dm"
 #include "modular_nova\master_files\code\modules\projectiles\projectile\energy\stun.dm"
 #include "modular_nova\master_files\code\modules\reagents\bottle.dm"
 #include "modular_nova\master_files\code\modules\reagents\pill.dm"
