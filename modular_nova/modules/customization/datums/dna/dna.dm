@@ -7,14 +7,14 @@
  *  "[dna block number]" = dna block size,
  * Failure to do that may result in bugs. Thanks.
  */
-GLOBAL_LIST_INIT(identity_block_lengths, list(
+/* GLOBAL_LIST_INIT(identity_block_lengths, list(
 		"[DNA_HAIR_COLOR_BLOCK]" = DNA_BLOCK_SIZE_COLOR,
 		"[DNA_FACIAL_HAIR_COLOR_BLOCK]" = DNA_BLOCK_SIZE_COLOR,
 		"[DNA_EYE_COLOR_LEFT_BLOCK]" = DNA_BLOCK_SIZE_COLOR,
 		"[DNA_EYE_COLOR_RIGHT_BLOCK]" = DNA_BLOCK_SIZE_COLOR,
 		"[DNA_HAIR_COLOR_GRADIENT_BLOCK]" = DNA_BLOCK_SIZE_COLOR,
 		"[DNA_FACIAL_HAIR_COLOR_GRADIENT_BLOCK]" = DNA_BLOCK_SIZE_COLOR,
-	))
+	)) */
 
 /**
  * The same rules of the above also apply here, with the exception that this is for the unique_features string variable
@@ -32,7 +32,7 @@ GLOBAL_LIST_INIT(identity_block_lengths, list(
  * A list of numbers that keeps track of where ui blocks start in the unique_identity string variable of the dna datum.
  * Commonly used by the datum/dna/set_uni_identity_block and datum/dna/get_uni_identity_block procs.
  */
-GLOBAL_LIST_EMPTY(total_ui_len_by_block)
+/* GLOBAL_LIST_EMPTY(total_ui_len_by_block)
 
 /proc/populate_total_ui_len_by_block()
 	GLOB.total_ui_len_by_block = list()
@@ -49,7 +49,7 @@ GLOBAL_LIST_EMPTY(total_uf_len_by_block)
 	var/total_block_len = 1
 	for(var/blocknumber in 1 to SSaccessories.dna_total_feature_blocks)
 		GLOB.total_uf_len_by_block += total_block_len
-		total_block_len += GET_UF_BLOCK_LEN(blocknumber)
+		total_block_len += GET_UF_BLOCK_LEN(blocknumber) */
 
 /datum/dna
 	var/list/list/mutant_bodyparts = list()
@@ -59,7 +59,7 @@ GLOBAL_LIST_EMPTY(total_uf_len_by_block)
 	///Current body size, used for proper re-sizing and keeping track of that
 	var/current_body_size = BODY_SIZE_NORMAL
 
-/datum/dna/proc/generate_unique_features()
+/* /datum/dna/proc/generate_unique_features()
 	var/list/data = list()
 
 	if(features["mcolor"])
@@ -108,9 +108,9 @@ GLOBAL_LIST_EMPTY(total_uf_len_by_block)
 		else
 			data += construct_block(1, MAXIMUM_MARKINGS_PER_LIMB + 1)
 			data += random_string(MAXIMUM_MARKINGS_PER_LIMB * DNA_MARKING_BLOCKS_TOTAL_SIZE_PER_MARKING,GLOB.hex_characters)
-	return data.Join()
+	return data.Join() */
 
-/datum/dna/proc/update_uf_block(blocknumber)
+/* /datum/dna/proc/update_uf_block(blocknumber)
 	if(!blocknumber)
 		CRASH("UF block index is null")
 	if(blocknumber<1 || blocknumber>DNA_FEATURE_BLOCKS)
@@ -162,7 +162,7 @@ GLOBAL_LIST_EMPTY(total_uf_len_by_block)
 					set_uni_feature_block(blocknumber, sanitize_hexcolor(body_markings[zone][marking], include_crunch = FALSE))
 				else
 					var/list/marking_list = GLOB.body_markings_per_limb[zone]
-					set_uni_feature_block(blocknumber, construct_block(marking_list.Find(marking), marking_list.len))
+					set_uni_feature_block(blocknumber, construct_block(marking_list.Find(marking), marking_list.len)) */
 
 /// Updates the mob's body size to prefs features
 /datum/dna/proc/update_body_size(force_reapply = FALSE)
@@ -194,7 +194,7 @@ GLOBAL_LIST_EMPTY(total_uf_len_by_block)
 				continue
 	dna.species.mutant_bodyparts = bodyparts_to_add.Copy()
 
-/mob/living/carbon/human/updateappearance(icon_update = TRUE, mutcolor_update = FALSE, mutations_overlay_update = FALSE, eyeorgancolor_update = FALSE)
+/* /mob/living/carbon/human/updateappearance(icon_update = TRUE, mutcolor_update = FALSE, mutations_overlay_update = FALSE, eyeorgancolor_update = FALSE)
 	..()
 	var/structure = dna.unique_identity
 
@@ -242,4 +242,4 @@ GLOBAL_LIST_EMPTY(total_uf_len_by_block)
 		organ.mutate_feature(features, src)
 
 	if(icon_update)
-		update_body(is_creating = mutcolor_update)
+		update_body(is_creating = mutcolor_update) */
