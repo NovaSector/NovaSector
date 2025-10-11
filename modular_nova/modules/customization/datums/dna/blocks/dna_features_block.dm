@@ -10,7 +10,7 @@
 /datum/dna_block/feature
 	/// Determines whether to check dna.mutant_bodyparts instead of dna.features for an entry
 	var/mutant_part = FALSE
-	var/abstract_type = /datum/dna_block/feature
+	abstract_type = /datum/dna_block/feature
 
 /datum/dna_block/feature/mutant_color/two
 	feature_key = FEATURE_MUTANT_COLOR_TWO
