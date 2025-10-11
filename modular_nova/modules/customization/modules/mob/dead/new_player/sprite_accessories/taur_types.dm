@@ -254,3 +254,14 @@
 /datum/sprite_accessory/taur/kitsune/alt
 	name = "Kitsune (alt)"
 	icon_state = "kitsunealt"
+
+/datum/sprite_accessory/taur/chemlight
+	name = "Chemtaur"
+	icon_state = "chemtaur"
+	taur_mode = STYLE_TAUR_PAW
+	can_lay_down = TRUE
+	laydown_offset = -6
+
+/datum/sprite_accessory/taur/chemlight/alt
+	name = "Striped Canine"
+	icon_state = "chemtaur_alt"
