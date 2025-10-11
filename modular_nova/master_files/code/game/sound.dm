@@ -1,10 +1,4 @@
-// sound overrides
-/datum/sound_effect/cat_meow // everything from tg without the fucked up oranges meow (lmao)
-	file_paths = list(
-		'sound/mobs/non-humanoids/cat/cat_meow1.ogg',
-		'sound/mobs/non-humanoids/cat/cat_meow2.ogg',
-		'sound/mobs/non-humanoids/cat/cat_meow3.ogg',
-	)
+//! Nova's modular sound overrides
 
 /datum/sound_effect/punch
 	file_paths = list(

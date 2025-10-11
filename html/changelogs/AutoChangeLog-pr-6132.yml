@@ -1,0 +1,5 @@
+author: "OrbisAnima"
+delete-after: True
+changes:
+  - rscadd: "ID cards now show if they got weapon permits or not on double examine!"
+  - rscadd: "ID cards show if they have weapon permits on the hyperlink of the examine panel! (yes, I didnt knew it was a thing either)"
