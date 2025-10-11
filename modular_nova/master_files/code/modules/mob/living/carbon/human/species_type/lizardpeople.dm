@@ -31,9 +31,10 @@ Lizard subspecies: Silverscale
 	return ..()
 
 /datum/species/lizard/silverscale/on_species_loss(mob/living/carbon/human/was_silverscale, datum/species/new_species, pref_load)
-	if(istype(new_species, /datum/species/lizard/silverscale))
+	if(istype(new_species, /datum/species/lizard/silverscale) || isnull(old_mcolor2)) // Nothing to do here if we're just turning into another silverscale, or if we started off as one.
 		return ..()
 	was_silverscale.dna.features["mcolor2"] = old_mutcolor2
+	was_silverscale.dna.features["mcolor3"] = old_mutcolor3
 	for(var/key in was_silverscale.dna.mutant_bodyparts)
 		was_silverscale.dna.mutant_bodyparts[key][MUTANT_INDEX_COLOR_LIST] = old_mutant_bodyparts_colors[key]
 	regenerate_organs(was_silverscale, src, visual_only = TRUE)
