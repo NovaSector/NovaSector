@@ -407,6 +407,9 @@
 /datum/dynamic_ruleset/midround/from_ghosts/blob/false_alarm()
 	priority_announce("Confirmed outbreak of level 5 biohazard aboard [station_name()]. All personnel must contain the outbreak.", "Biohazard Alert", ANNOUNCER_OUTBREAK5)
 
+	// Set status displays to biohazard alert even for false alarm
+	send_status_display_biohazard_alert()
+
 /datum/dynamic_ruleset/midround/from_ghosts/xenomorph
 	name = "Alien Infestation"
 	config_tag = "Xenomorph"
@@ -590,24 +593,15 @@
 /datum/dynamic_ruleset/midround/from_ghosts/space_ninja/assign_role(datum/mind/candidate)
 	var/mob/living/carbon/human/new_ninja = candidate.current
 	new_ninja.forceMove(find_space_spawn()) // ninja antag datum needs the mob to be in place first
+	/* // NOVA EDIT REMOVAL START 
 	randomize_human_normie(new_ninja)
 	var/new_name = "[pick(GLOB.ninja_titles)] [pick(GLOB.ninja_names)]"
 	new_ninja.name = new_name
 	new_ninja.real_name = new_name
+	*/ // NOVA EDIT REMOVAL END
 	new_ninja.dna.update_dna_identity() // ninja antag datum needs dna to be set first
 	candidate.add_antag_datum(/datum/antagonist/ninja)
-	// NOVA EDIT ADDITION BEGIN: Preference Ninjas
-	var/loadme = tgui_input_list(new_ninja, "Do you wish to load your character slot?", "Load Character?", list("Yes!", "No, I want to be random!"), default = "No, I want to be random!", timeout = 60 SECONDS)
-	var/codename
-	if(loadme != "Yes!")
-		return
-	new_ninja.client?.prefs?.safe_transfer_prefs_to(new_ninja)
-	codename = tgui_input_text(new_ninja.client, "What should your codename be?", "Agent Name", "[pick("Master", "Legendary", "Agent", "Shinobi", "Ninja")] [new_ninja.dna.species.name]", 42, FALSE, TRUE, 300 SECONDS)
-	codename ? codename : (codename = "[pick("Master", "Legendary", "Agent", "Shinobi", "Ninja")] [new_ninja.dna.species.name]")
-	new_ninja.name = codename
-	new_ninja.real_name = codename
-	new_ninja.dna.update_dna_identity()
-	// NOVA EDIT ADDITION END: Preference Ninjas
+	prompt_namechange(new_ninja, new_ninja.client) // NOVA EDIT ADDITION
 
 /datum/dynamic_ruleset/midround/from_ghosts/revenant
 	name = "Revenant"

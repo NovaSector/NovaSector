@@ -1,0 +1,1916 @@
+//MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
+"ap" = (
+/obj/machinery/camera/autoname/directional/south,
+/turf/open/floor/engine/hull,
+/area/shuttle/hc_cops)
+"ay" = (
+/obj/machinery/porta_turret/syndicate/hc_police{
+	dir = 5
+	},
+/turf/open/floor/engine/hull/reinforced,
+/area/shuttle/hc_cops)
+"be" = (
+/obj/structure/table/reinforced,
+/obj/item/modular_computer/laptop/preset/civilian,
+/obj/item/modular_computer/laptop/preset/civilian{
+	pixel_y = 4
+	},
+/obj/item/modular_computer/laptop/preset/civilian{
+	pixel_y = 8
+	},
+/turf/open/floor/pod/dark,
+/area/shuttle/hc_cops)
+"bg" = (
+/obj/effect/turf_decal/stripes/line{
+	dir = 8
+	},
+/obj/effect/turf_decal/stripes/line{
+	dir = 4
+	},
+/obj/machinery/light/floor,
+/obj/machinery/porta_turret/syndicate/hc_police{
+	dir = 4
+	},
+/turf/open/floor/engine/hull/reinforced,
+/area/shuttle/hc_cops)
+"bE" = (
+/obj/effect/turf_decal/stripes/line,
+/obj/effect/mob_spawn/ghost_role/human/hc_officer,
+/obj/structure/sign/flag/hc/directional/north,
+/turf/open/floor/pod/dark,
+/area/shuttle/hc_cops)
+"bG" = (
+/obj/machinery/light/floor,
+/obj/machinery/camera/autoname/directional/west,
+/obj/effect/turf_decal/stripes/end,
+/turf/open/floor/engine/hull/reinforced,
+/area/shuttle/hc_cops)
+"bM" = (
+/obj/machinery/light/very_dim/directional/south,
+/obj/structure/table/reinforced,
+/obj/item/paper_bin,
+/obj/item/pen,
+/turf/open/floor/pod/dark,
+/area/shuttle/hc_cops)
+"bQ" = (
+/obj/effect/turf_decal/stripes/line{
+	dir = 9
+	},
+/obj/machinery/porta_turret/syndicate/hc_police{
+	dir = 8
+	},
+/turf/open/floor/engine/hull/reinforced,
+/area/shuttle/hc_cops)
+"cc" = (
+/obj/machinery/power/shuttle_engine/heater{
+	dir = 8
+	},
+/turf/closed/wall/mineral/titanium/spaceship/nodiagonal,
+/area/shuttle/hc_cops)
+"co" = (
+/obj/machinery/power/shuttle_engine/propulsion/burst{
+	dir = 8
+	},
+/obj/structure/window/reinforced/survival_pod/spawner/directional/south{
+	name = "blast shield"
+	},
+/obj/machinery/power/shuttle_engine/heater{
+	dir = 8;
+	pixel_x = 32
+	},
+/turf/open/floor/engine/hull,
+/area/shuttle/hc_cops)
+"cZ" = (
+/obj/structure/window/reinforced/survival_pod/spawner/directional/north,
+/obj/structure/window/reinforced/survival_pod/spawner/directional/south,
+/obj/machinery/power/shuttle_engine/propulsion/burst{
+	dir = 8
+	},
+/turf/open/floor/plating/airless,
+/area/shuttle/hc_cops)
+"du" = (
+/obj/structure/lattice/catwalk,
+/obj/structure/deployable_barricade/guardrail{
+	dir = 8
+	},
+/turf/open/floor/plating/airless,
+/area/shuttle/hc_cops)
+"dy" = (
+/obj/effect/turf_decal/stripes/line{
+	dir = 5
+	},
+/obj/effect/turf_decal/stripes/line{
+	dir = 8
+	},
+/turf/open/floor/engine/hull/reinforced,
+/area/shuttle/hc_cops)
+"dS" = (
+/obj/structure/cable,
+/obj/machinery/power/shieldwallgen/unlocked/anchored{
+	shield_range = 12;
+	max_integrity = 600;
+	desc = "A heavy-duty reinforced shield generator designed for ship defense.";
+	name = "defense shield generator";
+	req_access = list("syndicate")
+	},
+/obj/effect/turf_decal/bot,
+/obj/structure/sign/warning/secure_area/directional/north,
+/turf/open/floor/engine/hull/reinforced,
+/area/shuttle/hc_cops)
+"et" = (
+/obj/structure/window/reinforced/survival_pod/spawner/directional/south,
+/obj/structure/reagent_dispensers/fueltank/large{
+	anchored = 1;
+	desc = "A tank full of a high quantity of liquid hydrogen fuel. Keep away from open flames and 57mm mortar shells.";
+	icon_state = "vat"
+	},
+/turf/open/floor/plating,
+/area/shuttle/hc_cops)
+"ew" = (
+/obj/machinery/camera/autoname/directional/south,
+/obj/machinery/light/floor,
+/turf/open/floor/engine/hull,
+/area/shuttle/hc_cops)
+"ey" = (
+/obj/machinery/porta_turret/syndicate/hc_police{
+	dir = 6
+	},
+/turf/open/floor/engine/hull/reinforced,
+/area/shuttle/hc_cops)
+"fB" = (
+/obj/structure/rack/shelf,
+/obj/effect/turf_decal/stripes/line,
+/obj/machinery/light/small/red/directional/north,
+/obj/item/ammo_box/c27_54cesarzowa,
+/obj/item/ammo_box/c27_54cesarzowa,
+/obj/item/ammo_box/c27_54cesarzowa/rubber{
+	pixel_y = 6
+	},
+/obj/item/ammo_box/c27_54cesarzowa/rubber{
+	pixel_y = 6
+	},
+/obj/item/ammo_box/magazine/miecz,
+/obj/item/ammo_box/magazine/miecz,
+/obj/item/ammo_box/magazine/miecz,
+/turf/open/floor/pod/light,
+/area/shuttle/hc_cops)
+"fJ" = (
+/obj/structure/cable,
+/obj/effect/turf_decal/caution{
+	dir = 1
+	},
+/turf/open/floor/engine/hull/reinforced,
+/area/shuttle/hc_cops)
+"gR" = (
+/obj/effect/turf_decal/stripes/line{
+	dir = 5
+	},
+/obj/effect/turf_decal/stripes/corner{
+	dir = 8
+	},
+/turf/open/floor/engine/hull/reinforced,
+/area/shuttle/hc_cops)
+"hl" = (
+/obj/structure/table/reinforced,
+/obj/machinery/light/small/red/directional/south,
+/obj/structure/showcase/machinery/microwave,
+/turf/open/floor/pod/dark,
+/area/shuttle/hc_cops)
+"hn" = (
+/obj/machinery/door/airlock/survival_pod/glass{
+	dir = 4
+	},
+/obj/structure/cable,
+/obj/effect/mapping_helpers/airlock/access/all/syndicate/general,
+/obj/effect/mapping_helpers/airlock/cutaiwire,
+/obj/effect/mapping_helpers/airlock/autoname,
+/turf/open/floor/iron/dark,
+/area/shuttle/hc_cops)
+"hH" = (
+/obj/effect/turf_decal/stripes/line{
+	dir = 6
+	},
+/obj/effect/turf_decal/stripes/line{
+	dir = 8
+	},
+/turf/open/floor/engine/hull/reinforced,
+/area/shuttle/hc_cops)
+"hK" = (
+/obj/machinery/door/airlock/survival_pod/glass{
+	dir = 1
+	},
+/obj/structure/cable,
+/obj/effect/mapping_helpers/airlock/access/all/syndicate/general,
+/obj/effect/mapping_helpers/airlock/cutaiwire,
+/obj/effect/mapping_helpers/airlock/autoname,
+/turf/open/floor/catwalk_floor,
+/area/shuttle/hc_cops)
+"hP" = (
+/obj/effect/turf_decal/stripes/line,
+/turf/open/floor/carpet/green,
+/area/shuttle/hc_cops)
+"hU" = (
+/obj/structure/cable,
+/turf/open/floor/pod/light,
+/area/shuttle/hc_cops)
+"ie" = (
+/obj/effect/mapping_helpers/airlock/access/all/syndicate/general,
+/obj/effect/mapping_helpers/airlock/cyclelink_helper,
+/obj/effect/mapping_helpers/airlock/cutaiwire,
+/obj/structure/fans/tiny,
+/obj/machinery/door/airlock/external/glass{
+	id_tag = "nripoliceship2";
+	req_access = list("syndicate")
+	},
+/obj/effect/mapping_helpers/airlock/autoname,
+/obj/docking_port/mobile/pirate/hc_police,
+/turf/open/floor/plating,
+/area/shuttle/hc_cops)
+"iq" = (
+/obj/structure/table/reinforced,
+/obj/machinery/fax{
+	fax_name = "NRI Ship";
+	name = "NRI ship fax machine"
+	},
+/turf/open/floor/pod,
+/area/shuttle/hc_cops)
+"iC" = (
+/turf/open/floor/plating/airless,
+/area/shuttle/hc_cops)
+"jx" = (
+/obj/effect/turf_decal/stripes/line{
+	dir = 4
+	},
+/obj/machinery/computer/shuttle/pirate/hc{
+	dir = 8
+	},
+/turf/open/floor/carpet/green,
+/area/shuttle/hc_cops)
+"jJ" = (
+/obj/structure/cable,
+/obj/effect/turf_decal/caution{
+	dir = 8
+	},
+/turf/open/floor/engine/hull/reinforced,
+/area/shuttle/hc_cops)
+"kb" = (
+/obj/effect/turf_decal/stripes/line{
+	dir = 4
+	},
+/obj/structure/cable,
+/turf/open/floor/pod/light,
+/area/shuttle/hc_cops)
+"kq" = (
+/obj/structure/rack/gunrack,
+/obj/effect/turf_decal/stripes/line{
+	dir = 4
+	},
+/obj/item/gun/ballistic/shotgun/riot{
+	pixel_x = -4
+	},
+/obj/item/gun/ballistic/automatic/miecz,
+/turf/open/floor/pod,
+/area/shuttle/hc_cops)
+"kQ" = (
+/obj/effect/turf_decal/stripes/line{
+	dir = 10
+	},
+/obj/structure/cable,
+/obj/machinery/suit_storage_unit/hc_police,
+/turf/open/floor/pod,
+/area/shuttle/hc_cops)
+"kX" = (
+/obj/effect/turf_decal/stripes/line{
+	dir = 10
+	},
+/obj/effect/turf_decal/stripes/corner{
+	dir = 4
+	},
+/turf/open/floor/engine/hull/reinforced,
+/area/shuttle/hc_cops)
+"lc" = (
+/obj/machinery/light/small/red/directional/north,
+/turf/open/floor/catwalk_floor,
+/area/shuttle/hc_cops)
+"lv" = (
+/obj/machinery/power/shuttle_engine/propulsion/burst{
+	dir = 8
+	},
+/obj/structure/window/reinforced/survival_pod/spawner/directional/south{
+	name = "blast shield"
+	},
+/obj/structure/window/reinforced/survival_pod/spawner/directional/north{
+	name = "blast shield"
+	},
+/turf/open/floor/engine/hull/reinforced,
+/area/shuttle/hc_cops)
+"lU" = (
+/obj/effect/turf_decal/stripes/line,
+/turf/open/floor/pod,
+/area/shuttle/hc_cops)
+"lV" = (
+/obj/machinery/light/warm/directional/north,
+/turf/open/floor/pod/dark,
+/area/shuttle/hc_cops)
+"ma" = (
+/obj/effect/turf_decal/stripes/line{
+	dir = 8
+	},
+/obj/effect/turf_decal/stripes/line{
+	dir = 4
+	},
+/turf/open/floor/engine/hull/reinforced,
+/area/shuttle/hc_cops)
+"mG" = (
+/obj/effect/turf_decal/stripes/line,
+/obj/structure/chair/comfy/shuttle,
+/turf/open/floor/carpet/green,
+/area/shuttle/hc_cops)
+"mJ" = (
+/obj/structure/table/optable,
+/obj/machinery/defibrillator_mount/directional/east,
+/turf/open/floor/pod/dark,
+/area/shuttle/hc_cops)
+"nX" = (
+/obj/machinery/light/floor,
+/turf/open/floor/engine/hull/reinforced,
+/area/shuttle/hc_cops)
+"od" = (
+/obj/effect/turf_decal/stripes/line{
+	dir = 1
+	},
+/turf/open/floor/pod,
+/area/shuttle/hc_cops)
+"ot" = (
+/turf/template_noop,
+/area/template_noop)
+"ov" = (
+/obj/effect/turf_decal/caution/stand_clear,
+/obj/structure/cable,
+/turf/open/floor/pod/dark,
+/area/shuttle/hc_cops)
+"oW" = (
+/obj/structure/cable,
+/obj/effect/turf_decal/caution{
+	dir = 4
+	},
+/turf/open/floor/engine/hull/reinforced,
+/area/shuttle/hc_cops)
+"pb" = (
+/obj/machinery/porta_turret/syndicate/hc_police{
+	dir = 5
+	},
+/turf/closed/wall/mineral/titanium/spaceship/nodiagonal,
+/area/shuttle/hc_cops)
+"pe" = (
+/obj/effect/turf_decal/stripes/line{
+	dir = 10
+	},
+/obj/machinery/recharge_station,
+/obj/structure/cable,
+/turf/open/floor/pod,
+/area/shuttle/hc_cops)
+"pg" = (
+/obj/effect/turf_decal/stripes/line{
+	dir = 1
+	},
+/obj/structure/closet/crate/secure/weapon{
+	name = "footlocker";
+	desc = "A secure crate to keep all your personal belongings in.";
+	anchored = 1
+	},
+/obj/item/clothing/mask/balaclava/adjustable,
+/obj/item/clothing/glasses/meson/engine,
+/obj/item/storage/belt/military/cin_surplus/marine,
+/obj/item/clothing/glasses/hud/security/sunglasses/peacekeeper,
+/obj/item/clothing/head/helmet/nri_police,
+/obj/item/clothing/suit/armor/vest/nri_police,
+/obj/item/encryptionkey/heads/ce,
+/turf/open/floor/pod/light,
+/area/shuttle/hc_cops)
+"pQ" = (
+/obj/machinery/light/small/red/directional/north,
+/obj/machinery/autolathe/hacked,
+/turf/open/floor/pod/dark,
+/area/shuttle/hc_cops)
+"ql" = (
+/obj/structure/closet/emcloset/anchored,
+/obj/machinery/light/small/red/directional/west,
+/turf/open/floor/plating,
+/area/shuttle/hc_cops)
+"qp" = (
+/turf/open/floor/pod/light,
+/area/shuttle/hc_cops)
+"qz" = (
+/obj/effect/turf_decal/stripes/line{
+	dir = 9
+	},
+/obj/machinery/anesthetic_machine,
+/obj/item/tank/internals/anesthetic,
+/turf/open/floor/pod,
+/area/shuttle/hc_cops)
+"qE" = (
+/obj/structure/table/reinforced,
+/obj/item/storage/box/colonial_rations{
+	pixel_y = 12
+	},
+/obj/item/storage/box/colonial_rations{
+	pixel_y = 6
+	},
+/obj/item/storage/box/colonial_rations,
+/turf/open/floor/pod/light,
+/area/shuttle/hc_cops)
+"qJ" = (
+/obj/effect/turf_decal/stripes/line{
+	dir = 5
+	},
+/obj/machinery/computer/camera_advanced/shuttle_docker/syndicate/pirate/hc{
+	dir = 8
+	},
+/turf/open/floor/carpet/green,
+/area/shuttle/hc_cops)
+"qQ" = (
+/obj/machinery/ntnet_relay,
+/turf/open/floor/plating,
+/area/shuttle/hc_cops)
+"rd" = (
+/obj/effect/turf_decal/stripes/line{
+	dir = 8
+	},
+/obj/structure/table/reinforced,
+/obj/machinery/cell_charger_multi,
+/obj/item/stock_parts/power_store/cell/super/empty,
+/obj/item/stock_parts/power_store/cell/super/empty,
+/obj/item/stock_parts/power_store/cell/super/empty,
+/turf/open/floor/pod/dark,
+/area/shuttle/hc_cops)
+"rg" = (
+/obj/structure/table/reinforced,
+/obj/effect/turf_decal/stripes/line,
+/obj/machinery/light/small/red/directional/north,
+/obj/machinery/recharger,
+/obj/item/gun/energy/taser/crank{
+	pixel_x = 0;
+	pixel_y = 2
+	},
+/obj/item/gun/energy/taser/crank{
+	pixel_x = 0;
+	pixel_y = -3
+	},
+/obj/item/gun/energy/taser/crank{
+	pixel_x = 0;
+	pixel_y = -8
+	},
+/turf/open/floor/pod/light,
+/area/shuttle/hc_cops)
+"rp" = (
+/obj/effect/turf_decal/delivery,
+/obj/structure/cable,
+/turf/open/floor/pod/light,
+/area/shuttle/hc_cops)
+"rO" = (
+/obj/effect/turf_decal/stripes/line{
+	dir = 6
+	},
+/obj/machinery/iv_drip,
+/turf/open/floor/pod,
+/area/shuttle/hc_cops)
+"sK" = (
+/obj/effect/turf_decal/stripes/line{
+	dir = 9
+	},
+/obj/machinery/inspector_mainframe,
+/turf/open/floor/pod,
+/area/shuttle/hc_cops)
+"tk" = (
+/turf/open/floor/pod/dark,
+/area/shuttle/hc_cops)
+"tl" = (
+/obj/machinery/power/apc/auto_name/directional/east{
+	cell_type = /obj/item/stock_parts/power_store/battery/super
+	},
+/obj/effect/mapping_helpers/apc/syndicate_access,
+/obj/structure/cable,
+/obj/effect/turf_decal/stripes/line,
+/obj/structure/table/reinforced,
+/obj/item/stack/sheet/plastic/five,
+/obj/item/stack/sheet/glass/fifty,
+/obj/item/stack/sheet/iron/fifty,
+/turf/open/floor/pod,
+/area/shuttle/hc_cops)
+"tm" = (
+/obj/structure/cable,
+/obj/machinery/power/terminal,
+/turf/open/floor/plating,
+/area/shuttle/hc_cops)
+"ts" = (
+/obj/structure/table/reinforced,
+/obj/item/storage/box/flashes{
+	pixel_x = -2
+	},
+/obj/item/storage/box/zipties{
+	pixel_x = 2
+	},
+/obj/item/melee/baton/security/stun_gun/loaded,
+/obj/item/melee/baton/security/stun_gun/loaded{
+	pixel_x = -6;
+	pixel_y = 6
+	},
+/obj/item/melee/baton/security/stun_gun/loaded{
+	pixel_x = 6;
+	pixel_y = -5
+	},
+/turf/open/floor/pod,
+/area/shuttle/hc_cops)
+"ty" = (
+/obj/structure/cable,
+/obj/machinery/power/terminal{
+	dir = 1
+	},
+/turf/open/floor/plating,
+/area/shuttle/hc_cops)
+"tG" = (
+/obj/structure/deployable_barricade/guardrail,
+/obj/structure/lattice/catwalk,
+/turf/open/floor/plating/airless,
+/area/shuttle/hc_cops)
+"uh" = (
+/obj/structure/rack/gunrack,
+/obj/item/gun/ballistic/automatic/lanca,
+/obj/effect/turf_decal/stripes/line{
+	dir = 4
+	},
+/turf/open/floor/pod,
+/area/shuttle/hc_cops)
+"ui" = (
+/obj/effect/turf_decal/stripes/line,
+/obj/machinery/light/small/red/directional/east,
+/obj/machinery/sleeper{
+	dir = 8
+	},
+/turf/open/floor/pod,
+/area/shuttle/hc_cops)
+"uo" = (
+/obj/effect/mapping_helpers/airlock/access/all/syndicate/general,
+/obj/effect/mapping_helpers/airlock/cyclelink_helper{
+	dir = 1
+	},
+/obj/effect/mapping_helpers/airlock/cutaiwire,
+/obj/machinery/door/airlock/external/glass{
+	id_tag = "nripoliceship2";
+	req_access = list("syndicate")
+	},
+/obj/effect/mapping_helpers/airlock/autoname,
+/turf/open/floor/plating,
+/area/shuttle/hc_cops)
+"uw" = (
+/obj/machinery/light/very_dim/directional/north,
+/obj/structure/sign/flag/hc/directional/north,
+/obj/machinery/computer/centcom_announcement/hc_police,
+/turf/open/floor/pod/dark,
+/area/shuttle/hc_cops)
+"uU" = (
+/obj/effect/turf_decal/stripes/line{
+	dir = 1
+	},
+/obj/structure/closet/crate/engineering/electrical,
+/obj/item/stack/sheet/iron/fifty,
+/obj/item/stack/sheet/glass/fifty,
+/obj/item/construction/rcd/loaded/upgraded,
+/obj/item/inducer,
+/obj/item/stack/cable_coil,
+/obj/item/storage/belt/utility/full/engi,
+/obj/item/clothing/glasses/meson/engine,
+/turf/open/floor/pod,
+/area/shuttle/hc_cops)
+"uY" = (
+/obj/structure/deployable_barricade/guardrail{
+	dir = 1
+	},
+/obj/structure/lattice/catwalk,
+/turf/open/floor/engine/hull/reinforced,
+/area/shuttle/hc_cops)
+"vh" = (
+/obj/effect/turf_decal/loading_area{
+	dir = 1
+	},
+/turf/open/floor/plating,
+/area/shuttle/hc_cops)
+"vj" = (
+/obj/structure/cable,
+/obj/machinery/power/port_gen/pacman/super{
+	anchored = 1;
+	sheets = 20
+	},
+/turf/open/floor/plating,
+/area/shuttle/hc_cops)
+"wh" = (
+/obj/effect/turf_decal/stripes/line{
+	dir = 1
+	},
+/obj/structure/table/reinforced,
+/obj/item/storage/box/donkpockets,
+/obj/item/storage/box/donkpockets,
+/turf/open/floor/pod,
+/area/shuttle/hc_cops)
+"wj" = (
+/obj/machinery/light/floor,
+/obj/structure/lattice/catwalk,
+/turf/open/floor/plating/airless,
+/area/shuttle/hc_cops)
+"wM" = (
+/obj/machinery/door/airlock/survival_pod/glass,
+/obj/effect/mapping_helpers/airlock/access/all/syndicate/general,
+/obj/effect/mapping_helpers/airlock/cutaiwire,
+/obj/effect/mapping_helpers/airlock/autoname,
+/turf/open/floor/pod/light,
+/area/shuttle/hc_cops)
+"wQ" = (
+/obj/effect/turf_decal/stripes/line{
+	dir = 6
+	},
+/obj/machinery/light/small/red/directional/west,
+/obj/structure/cable,
+/turf/open/floor/catwalk_floor,
+/area/shuttle/hc_cops)
+"wT" = (
+/obj/effect/turf_decal/stripes/line{
+	dir = 9
+	},
+/obj/structure/cable,
+/obj/machinery/recharge_station,
+/turf/open/floor/pod,
+/area/shuttle/hc_cops)
+"xg" = (
+/obj/machinery/door/airlock/survival_pod/glass,
+/obj/structure/cable,
+/obj/effect/mapping_helpers/airlock/access/all/syndicate/general,
+/obj/effect/mapping_helpers/airlock/cutaiwire,
+/obj/effect/mapping_helpers/airlock/autoname,
+/turf/open/floor/catwalk_floor,
+/area/shuttle/hc_cops)
+"xp" = (
+/obj/machinery/door/airlock/survival_pod{
+	dir = 8
+	},
+/obj/structure/cable,
+/obj/effect/mapping_helpers/airlock/access/all/syndicate/general,
+/obj/effect/mapping_helpers/airlock/cutaiwire,
+/obj/effect/mapping_helpers/airlock/cyclelink_helper{
+	dir = 4
+	},
+/obj/effect/mapping_helpers/airlock/autoname,
+/turf/open/floor/catwalk_floor,
+/area/shuttle/hc_cops)
+"xL" = (
+/obj/structure/chair/comfy/shuttle{
+	dir = 4
+	},
+/turf/open/floor/carpet/green,
+/area/shuttle/hc_cops)
+"xX" = (
+/obj/effect/turf_decal/stripes/line{
+	dir = 10
+	},
+/turf/open/floor/pod,
+/area/shuttle/hc_cops)
+"yE" = (
+/obj/machinery/porta_turret/syndicate/hc_police{
+	dir = 10
+	},
+/turf/closed/wall/mineral/titanium/spaceship/nodiagonal,
+/area/shuttle/hc_cops)
+"yP" = (
+/obj/effect/turf_decal/stripes/line,
+/obj/item/ammo_box/advanced/s12gauge/magnum,
+/obj/item/ammo_box/advanced/s12gauge/magnum,
+/obj/item/ammo_box/advanced/s12gauge/magnum,
+/obj/item/ammo_box/advanced/s12gauge/beehive,
+/obj/item/ammo_box/advanced/s12gauge/beehive,
+/obj/item/ammo_box/advanced/s12gauge/beehive,
+/obj/structure/rack/shelf,
+/turf/open/floor/pod/light,
+/area/shuttle/hc_cops)
+"zb" = (
+/obj/structure/deployable_barricade/guardrail,
+/obj/structure/lattice/catwalk,
+/turf/open/floor/engine/hull/reinforced,
+/area/shuttle/hc_cops)
+"ze" = (
+/obj/effect/turf_decal/stripes/line{
+	dir = 5
+	},
+/turf/open/floor/engine/hull/reinforced,
+/area/shuttle/hc_cops)
+"zy" = (
+/obj/machinery/porta_turret/syndicate/hc_police{
+	dir = 9
+	},
+/turf/closed/wall/mineral/titanium/spaceship/nodiagonal,
+/area/shuttle/hc_cops)
+"zA" = (
+/obj/structure/lattice/catwalk,
+/obj/structure/deployable_barricade/guardrail{
+	dir = 1
+	},
+/turf/open/floor/plating/airless,
+/area/shuttle/hc_cops)
+"zJ" = (
+/obj/structure/table/reinforced,
+/obj/item/clothing/gloves/latex/nitrile{
+	pixel_y = 3
+	},
+/obj/item/wrench/medical{
+	pixel_x = 16;
+	pixel_y = 4
+	},
+/obj/item/healthanalyzer{
+	pixel_x = 10;
+	pixel_y = 9
+	},
+/obj/effect/turf_decal/stripes/line{
+	dir = 8
+	},
+/obj/item/storage/medkit/surgery,
+/turf/open/floor/pod/dark,
+/area/shuttle/hc_cops)
+"AX" = (
+/obj/effect/turf_decal/stripes/line{
+	dir = 8
+	},
+/obj/effect/turf_decal/stripes/line{
+	dir = 4
+	},
+/obj/machinery/light/floor,
+/turf/open/floor/engine/hull/reinforced,
+/area/shuttle/hc_cops)
+"Be" = (
+/obj/structure/window/reinforced/shuttle/spaceship,
+/obj/structure/grille,
+/turf/open/floor/plating,
+/area/shuttle/hc_cops)
+"Bj" = (
+/obj/effect/turf_decal/stripes/line{
+	dir = 4
+	},
+/obj/effect/turf_decal/stripes/line{
+	dir = 8
+	},
+/turf/open/floor/engine/hull/reinforced,
+/area/shuttle/hc_cops)
+"Bk" = (
+/obj/machinery/power/shieldwallgen/unlocked/anchored{
+	max_integrity = 600;
+	desc = "A heavy-duty reinforced shield generator designed for ship defense.";
+	name = "defense shield generator";
+	req_access = list("syndicate")
+	},
+/obj/structure/cable,
+/obj/effect/turf_decal/bot,
+/obj/structure/sign/warning/secure_area/directional/north,
+/turf/open/floor/engine/hull/reinforced,
+/area/shuttle/hc_cops)
+"Bm" = (
+/obj/structure/cable,
+/obj/machinery/suit_storage_unit/hc_police,
+/turf/open/floor/pod/dark,
+/area/shuttle/hc_cops)
+"Bw" = (
+/obj/structure/sign/flag/ssc/directional/north,
+/obj/effect/turf_decal/stripes/line{
+	dir = 10
+	},
+/obj/machinery/light/small/red/directional/north,
+/obj/effect/mob_spawn/ghost_role/human/hc_officer,
+/turf/open/floor/pod/dark,
+/area/shuttle/hc_cops)
+"Bz" = (
+/obj/effect/turf_decal/stripes/line{
+	dir = 6
+	},
+/turf/open/floor/engine/hull/reinforced,
+/area/shuttle/hc_cops)
+"BM" = (
+/turf/template_noop,
+/area/shuttle/hc_cops)
+"Ci" = (
+/obj/structure/closet/crate/secure/weapon{
+	anchored = 1
+	},
+/obj/effect/turf_decal/stripes/line{
+	dir = 5
+	},
+/obj/item/grenade/c4{
+	pixel_x = 10
+	},
+/obj/item/grenade/c4{
+	pixel_x = 6
+	},
+/obj/item/grenade/c4{
+	pixel_x = 2
+	},
+/obj/item/grenade/c4{
+	pixel_x = -2
+	},
+/turf/open/floor/pod/dark,
+/area/shuttle/hc_cops)
+"Cy" = (
+/obj/machinery/power/shuttle_engine/propulsion/burst{
+	dir = 8
+	},
+/turf/open/floor/plating/airless,
+/area/shuttle/hc_cops)
+"CP" = (
+/obj/machinery/newscaster/directional/north,
+/obj/structure/frame/computer,
+/obj/item/circuitboard/computer/advanced_camera,
+/turf/open/floor/pod,
+/area/shuttle/hc_cops)
+"Dl" = (
+/obj/effect/mapping_helpers/airlock/access/all/syndicate/general,
+/obj/effect/mapping_helpers/airlock/cutaiwire,
+/obj/effect/mapping_helpers/airlock/cyclelink_helper,
+/obj/machinery/door/airlock/external/glass{
+	id_tag = "nripoliceship";
+	req_access = list("syndicate")
+	},
+/obj/effect/mapping_helpers/airlock/autoname,
+/turf/open/floor/plating,
+/area/shuttle/hc_cops)
+"DD" = (
+/obj/machinery/camera/autoname/directional/west,
+/obj/effect/turf_decal/stripes/end{
+	dir = 1
+	},
+/obj/machinery/light/floor,
+/turf/open/floor/engine/hull/reinforced,
+/area/shuttle/hc_cops)
+"DL" = (
+/obj/effect/turf_decal/stripes/line{
+	dir = 9
+	},
+/obj/structure/closet/crate/secure/weapon{
+	name = "footlocker";
+	desc = "A secure crate to keep all your personal belongings in.";
+	anchored = 1
+	},
+/obj/item/clothing/glasses/hud/security/sunglasses/peacekeeper,
+/obj/item/clothing/mask/balaclava/adjustable,
+/obj/item/storage/belt/military/cin_surplus/marine,
+/obj/item/clothing/head/helmet/nri_police,
+/obj/item/clothing/suit/armor/vest/nri_police,
+/obj/item/encryptionkey/heads/hos,
+/turf/open/floor/pod/light,
+/area/shuttle/hc_cops)
+"Eh" = (
+/obj/structure/window/reinforced/survival_pod/spawner/directional/east,
+/obj/machinery/power/smes/engineering,
+/obj/structure/cable,
+/obj/structure/window/reinforced/survival_pod/spawner/directional/south,
+/turf/open/floor/plating,
+/area/shuttle/hc_cops)
+"EG" = (
+/obj/effect/turf_decal/stripes/line{
+	dir = 4
+	},
+/obj/effect/turf_decal/stripes/corner{
+	dir = 8
+	},
+/obj/machinery/light/floor,
+/turf/open/floor/engine/hull/reinforced,
+/area/shuttle/hc_cops)
+"Fa" = (
+/obj/structure/deployable_barricade/guardrail{
+	dir = 1
+	},
+/obj/structure/lattice/catwalk,
+/turf/open/floor/plating/airless,
+/area/shuttle/hc_cops)
+"Fm" = (
+/obj/effect/turf_decal/stripes/line{
+	dir = 9
+	},
+/turf/open/floor/engine/hull/reinforced,
+/area/shuttle/hc_cops)
+"Fv" = (
+/obj/machinery/camera/autoname/directional/north,
+/obj/machinery/light/floor,
+/turf/open/floor/engine/hull,
+/area/shuttle/hc_cops)
+"FS" = (
+/obj/structure/cable,
+/obj/effect/turf_decal/caution/stand_clear{
+	dir = 8
+	},
+/turf/open/floor/engine/hull/reinforced,
+/area/shuttle/hc_cops)
+"GO" = (
+/turf/open/floor/engine/hull,
+/area/shuttle/hc_cops)
+"Hh" = (
+/obj/structure/rack/shelf,
+/obj/effect/turf_decal/stripes/line,
+/obj/item/ammo_box/c310_cargo_box/piercing{
+	pixel_x = 1;
+	pixel_y = 1
+	},
+/obj/item/ammo_box/c310_cargo_box/piercing{
+	pixel_x = 1;
+	pixel_y = 1
+	},
+/obj/item/ammo_box/c310_cargo_box/rubber{
+	pixel_x = -1;
+	pixel_y = -1
+	},
+/obj/item/ammo_box/c310_cargo_box/rubber{
+	pixel_x = -1;
+	pixel_y = -1
+	},
+/obj/item/ammo_box/c310_cargo_box,
+/obj/item/ammo_box/c310_cargo_box,
+/obj/item/ammo_box/magazine/lanca,
+/obj/item/ammo_box/magazine/lanca,
+/obj/item/ammo_box/magazine/lanca,
+/turf/open/floor/pod/light,
+/area/shuttle/hc_cops)
+"Hl" = (
+/obj/effect/turf_decal/stripes/line{
+	dir = 4
+	},
+/obj/effect/turf_decal/stripes/corner{
+	dir = 1
+	},
+/obj/machinery/light/floor,
+/turf/open/floor/engine/hull/reinforced,
+/area/shuttle/hc_cops)
+"Hs" = (
+/obj/structure/lattice,
+/turf/open/floor/plating/airless,
+/area/shuttle/hc_cops)
+"Hu" = (
+/obj/structure/window/reinforced/survival_pod/spawner/directional/north,
+/obj/structure/reagent_dispensers/fueltank/large{
+	anchored = 1;
+	desc = "A tank full of a high quantity of liquid hydrogen fuel. Keep away from open flames and 57mm mortar shells.";
+	icon_state = "vat"
+	},
+/turf/open/floor/plating,
+/area/shuttle/hc_cops)
+"Hz" = (
+/turf/closed/wall/mineral/titanium/spaceship/nodiagonal,
+/area/shuttle/hc_cops)
+"HO" = (
+/obj/machinery/door/airlock/survival_pod/glass{
+	dir = 1
+	},
+/obj/effect/mapping_helpers/airlock/access/all/syndicate/general,
+/obj/effect/mapping_helpers/airlock/cutaiwire,
+/obj/structure/cable,
+/obj/effect/mapping_helpers/airlock/autoname,
+/turf/open/floor/catwalk_floor,
+/area/shuttle/hc_cops)
+"HV" = (
+/obj/effect/turf_decal/stripes/line{
+	dir = 8
+	},
+/turf/open/floor/pod/dark,
+/area/shuttle/hc_cops)
+"Ib" = (
+/obj/structure/tank_dispenser/oxygen,
+/turf/open/floor/pod/dark,
+/area/shuttle/hc_cops)
+"Iu" = (
+/obj/effect/turf_decal/caution/stand_clear{
+	dir = 1
+	},
+/obj/structure/cable,
+/turf/open/floor/pod/dark,
+/area/shuttle/hc_cops)
+"Iv" = (
+/obj/structure/grille,
+/obj/structure/window/reinforced/shuttle/spaceship,
+/turf/open/floor/plating,
+/area/shuttle/hc_cops)
+"IJ" = (
+/obj/effect/turf_decal/stripes/line{
+	dir = 1
+	},
+/obj/machinery/turretid{
+	req_access = list("syndicate");
+	pixel_x = -32
+	},
+/obj/structure/chair/comfy/shuttle{
+	dir = 1
+	},
+/turf/open/floor/carpet/green,
+/area/shuttle/hc_cops)
+"IT" = (
+/obj/structure/cable,
+/turf/open/floor/catwalk_floor,
+/area/shuttle/hc_cops)
+"IY" = (
+/turf/open/floor/engine/hull/reinforced,
+/area/shuttle/hc_cops)
+"JB" = (
+/obj/effect/turf_decal/stripes/line{
+	dir = 9
+	},
+/obj/structure/closet/crate/secure/weapon{
+	anchored = 1
+	},
+/obj/machinery/light/small/red/directional/south,
+/obj/item/ammo_box/advanced/s12gauge/bean,
+/obj/item/ammo_box/advanced/s12gauge/bean,
+/obj/item/ammo_box/advanced/s12gauge/magnum,
+/obj/item/ammo_box/advanced/s12gauge/express,
+/turf/open/floor/pod/dark,
+/area/shuttle/hc_cops)
+"JS" = (
+/obj/structure/cable,
+/turf/open/floor/engine/hull/reinforced,
+/area/shuttle/hc_cops)
+"Kb" = (
+/obj/machinery/light/small/red/directional/south,
+/obj/effect/turf_decal/stripes/line{
+	dir = 1
+	},
+/obj/structure/closet/crate/secure/weapon{
+	name = "footlocker";
+	desc = "A secure crate to keep all your personal belongings in.";
+	anchored = 1
+	},
+/obj/item/clothing/glasses/hud/health,
+/obj/item/clothing/glasses/hud/security/sunglasses/peacekeeper,
+/obj/item/clothing/mask/balaclava/adjustable,
+/obj/item/storage/belt/military/cin_surplus/marine,
+/obj/item/clothing/head/helmet/nri_police,
+/obj/item/clothing/suit/armor/vest/nri_police,
+/obj/item/encryptionkey/heads/cmo,
+/turf/open/floor/pod/light,
+/area/shuttle/hc_cops)
+"Kc" = (
+/obj/effect/turf_decal/stripes/line{
+	dir = 9
+	},
+/obj/effect/turf_decal/stripes/corner,
+/turf/open/floor/engine/hull/reinforced,
+/area/shuttle/hc_cops)
+"Kq" = (
+/obj/machinery/light/warm/directional/south,
+/turf/open/floor/pod/dark,
+/area/shuttle/hc_cops)
+"Lp" = (
+/obj/machinery/door/window/survival_pod/left/directional/east,
+/obj/structure/cable,
+/turf/open/floor/plating,
+/area/shuttle/hc_cops)
+"Lr" = (
+/obj/structure/closet/crate/secure/engineering,
+/obj/item/mod/module/active_sonar,
+/obj/item/mod/module/megaphone,
+/obj/item/mod/module/quick_carry,
+/obj/item/mod/module/holster,
+/obj/item/mod/module/holster,
+/turf/open/floor/pod/dark,
+/area/shuttle/hc_cops)
+"LA" = (
+/obj/structure/table/reinforced,
+/obj/item/storage/medkit/brute{
+	pixel_x = 6;
+	pixel_y = 11
+	},
+/obj/item/storage/medkit/fire{
+	pixel_y = 9
+	},
+/obj/item/storage/medkit/o2{
+	pixel_x = 6;
+	pixel_y = 5
+	},
+/turf/open/floor/pod/dark,
+/area/shuttle/hc_cops)
+"Ms" = (
+/obj/effect/turf_decal/stripes/line{
+	dir = 6
+	},
+/obj/machinery/photocopier/prebuilt,
+/turf/open/floor/carpet/green,
+/area/shuttle/hc_cops)
+"MR" = (
+/obj/structure/cable,
+/obj/effect/turf_decal/caution/stand_clear{
+	dir = 1
+	},
+/turf/open/floor/engine/hull/reinforced,
+/area/shuttle/hc_cops)
+"Nu" = (
+/obj/machinery/light/small/red/directional/west,
+/obj/structure/cable,
+/turf/open/floor/catwalk_floor,
+/area/shuttle/hc_cops)
+"NE" = (
+/obj/effect/turf_decal/stripes/line{
+	dir = 10
+	},
+/turf/open/floor/engine/hull/reinforced,
+/area/shuttle/hc_cops)
+"NO" = (
+/obj/structure/closet/crate/secure/weapon{
+	anchored = 1
+	},
+/obj/effect/turf_decal/stripes/line{
+	dir = 5
+	},
+/obj/item/stack/sticky_tape,
+/obj/item/stack/sticky_tape,
+/obj/item/storage/box/medipens,
+/obj/item/book/manual/wiki/surgery,
+/obj/item/stack/sticky_tape/surgical,
+/obj/item/stack/sticky_tape/surgical,
+/turf/open/floor/pod,
+/area/shuttle/hc_cops)
+"NW" = (
+/obj/machinery/power/shuttle_engine/propulsion/burst{
+	dir = 8
+	},
+/obj/structure/window/reinforced/survival_pod/spawner/directional/north{
+	name = "blast shield"
+	},
+/obj/machinery/power/shuttle_engine/heater{
+	dir = 8;
+	pixel_x = 32
+	},
+/turf/open/floor/engine/hull,
+/area/shuttle/hc_cops)
+"Oc" = (
+/obj/machinery/light/small/red/directional/south,
+/turf/open/floor/catwalk_floor,
+/area/shuttle/hc_cops)
+"Pi" = (
+/obj/effect/turf_decal/stripes/corner,
+/obj/machinery/dish_drive/bullet,
+/turf/open/floor/pod/light,
+/area/shuttle/hc_cops)
+"Pp" = (
+/obj/machinery/door/airlock/survival_pod{
+	dir = 8
+	},
+/obj/effect/mapping_helpers/airlock/access/all/syndicate/general,
+/obj/effect/mapping_helpers/airlock/cutaiwire,
+/obj/effect/mapping_helpers/airlock/autoname,
+/turf/open/floor/pod,
+/area/shuttle/hc_cops)
+"PO" = (
+/obj/effect/turf_decal/loading_area,
+/turf/open/floor/plating,
+/area/shuttle/hc_cops)
+"PV" = (
+/obj/machinery/camera/autoname/directional/north,
+/turf/open/floor/engine/hull,
+/area/shuttle/hc_cops)
+"PW" = (
+/obj/effect/mapping_helpers/airlock/access/all/syndicate/general,
+/obj/effect/mapping_helpers/airlock/cutaiwire,
+/obj/effect/mapping_helpers/airlock/cyclelink_helper{
+	dir = 1
+	},
+/obj/structure/fans/tiny,
+/obj/machinery/door/airlock/external/glass{
+	id_tag = "nripoliceship";
+	req_access = list("syndicate")
+	},
+/obj/effect/mapping_helpers/airlock/autoname,
+/turf/open/floor/plating,
+/area/shuttle/hc_cops)
+"PZ" = (
+/obj/structure/cable,
+/obj/effect/turf_decal/caution/stand_clear,
+/turf/open/floor/engine/hull/reinforced,
+/area/shuttle/hc_cops)
+"Qg" = (
+/obj/machinery/computer/operating{
+	dir = 1
+	},
+/obj/effect/turf_decal/stripes/line{
+	dir = 8
+	},
+/turf/open/floor/pod/dark,
+/area/shuttle/hc_cops)
+"QX" = (
+/obj/structure/cable,
+/obj/effect/turf_decal/caution,
+/turf/open/floor/engine/hull/reinforced,
+/area/shuttle/hc_cops)
+"Rb" = (
+/obj/effect/turf_decal/stripes/line{
+	dir = 6
+	},
+/obj/effect/turf_decal/stripes/corner{
+	dir = 1
+	},
+/turf/open/floor/engine/hull/reinforced,
+/area/shuttle/hc_cops)
+"RG" = (
+/obj/structure/lattice/catwalk,
+/turf/open/floor/plating/airless,
+/area/shuttle/hc_cops)
+"Su" = (
+/obj/structure/cable,
+/obj/machinery/door/airlock/survival_pod{
+	dir = 8
+	},
+/obj/effect/mapping_helpers/airlock/cutaiwire,
+/obj/effect/mapping_helpers/airlock/access/all/syndicate/general,
+/obj/structure/fans/tiny,
+/obj/effect/mapping_helpers/airlock/cyclelink_helper{
+	dir = 8
+	},
+/obj/effect/mapping_helpers/airlock/autoname,
+/turf/open/floor/catwalk_floor,
+/area/shuttle/hc_cops)
+"SQ" = (
+/obj/machinery/porta_turret/syndicate/hc_police{
+	dir = 6
+	},
+/turf/closed/wall/mineral/titanium/spaceship/nodiagonal,
+/area/shuttle/hc_cops)
+"Te" = (
+/obj/structure/lattice/catwalk,
+/obj/structure/deployable_barricade/guardrail,
+/turf/open/floor/plating/airless,
+/area/shuttle/hc_cops)
+"Tg" = (
+/obj/structure/window/reinforced/survival_pod/spawner/directional/east,
+/obj/machinery/power/smes/engineering,
+/obj/structure/cable,
+/obj/structure/window/reinforced/survival_pod/spawner/directional/north,
+/turf/open/floor/plating,
+/area/shuttle/hc_cops)
+"Tj" = (
+/obj/structure/cable,
+/obj/structure/plaque/static_plaque/golden/commission/ks13/hc_police,
+/turf/open/floor/pod/light,
+/area/shuttle/hc_cops)
+"TF" = (
+/obj/structure/sign/flag/mars/directional/north,
+/obj/effect/turf_decal/stripes/line,
+/obj/effect/mob_spawn/ghost_role/human/hc_officer,
+/turf/open/floor/pod/dark,
+/area/shuttle/hc_cops)
+"TR" = (
+/obj/machinery/power/shuttle_engine/heater{
+	dir = 4
+	},
+/obj/machinery/power/shuttle_engine/heater{
+	dir = 8
+	},
+/turf/closed/wall/mineral/titanium/spaceship/nodiagonal,
+/area/shuttle/hc_cops)
+"UO" = (
+/obj/structure/closet/crate/freezer/blood{
+	anchored = 1
+	},
+/obj/effect/turf_decal/stripes/line{
+	dir = 4
+	},
+/obj/machinery/light/small/red/directional/north,
+/obj/machinery/button/door/directional/north{
+	id = "nripoliceship2";
+	name = "External Bolt Control";
+	normaldoorcontrol = 1;
+	specialfunctions = 4
+	},
+/turf/open/floor/pod/dark,
+/area/shuttle/hc_cops)
+"UP" = (
+/obj/machinery/light/floor,
+/turf/open/floor/engine/hull,
+/area/shuttle/hc_cops)
+"UY" = (
+/obj/structure/window/reinforced/survival_pod/spawner/directional/south,
+/obj/structure/window/reinforced/survival_pod/spawner/directional/north,
+/obj/machinery/power/shuttle_engine/propulsion/burst{
+	dir = 8
+	},
+/turf/open/floor/plating/airless,
+/area/shuttle/hc_cops)
+"Va" = (
+/obj/structure/cable,
+/obj/effect/turf_decal/stripes/line,
+/obj/machinery/suit_storage_unit/hc_police,
+/turf/open/floor/pod,
+/area/shuttle/hc_cops)
+"Vm" = (
+/obj/machinery/holopad/secure,
+/turf/open/floor/carpet/green,
+/area/shuttle/hc_cops)
+"VN" = (
+/obj/effect/turf_decal/stripes/line{
+	dir = 1
+	},
+/obj/machinery/light/small/red/directional/east,
+/turf/open/floor/pod,
+/area/shuttle/hc_cops)
+"Wa" = (
+/obj/machinery/biogenerator/food_replicator,
+/turf/open/floor/pod/light,
+/area/shuttle/hc_cops)
+"Wr" = (
+/obj/machinery/camera/autoname/directional/east,
+/turf/open/floor/engine/hull,
+/area/shuttle/hc_cops)
+"Xe" = (
+/obj/structure/cable,
+/obj/machinery/door/airlock/survival_pod{
+	dir = 8
+	},
+/obj/effect/mapping_helpers/airlock/access/all/syndicate/general,
+/obj/effect/mapping_helpers/airlock/cutaiwire,
+/obj/effect/mapping_helpers/airlock/autoname,
+/turf/open/floor/catwalk_floor,
+/area/shuttle/hc_cops)
+"Xh" = (
+/obj/machinery/power/shieldwallgen/unlocked/anchored{
+	max_integrity = 600;
+	desc = "A heavy-duty reinforced shield generator designed for ship defense.";
+	name = "defense shield generator";
+	req_access = list("syndicate")
+	},
+/obj/structure/cable,
+/obj/effect/turf_decal/bot,
+/obj/structure/sign/warning/secure_area/directional/south,
+/turf/open/floor/engine/hull/reinforced,
+/area/shuttle/hc_cops)
+"XA" = (
+/obj/effect/turf_decal/stripes/line{
+	dir = 1
+	},
+/turf/open/floor/carpet/green,
+/area/shuttle/hc_cops)
+"XY" = (
+/obj/effect/turf_decal/stripes/line{
+	dir = 10
+	},
+/obj/machinery/porta_turret/syndicate/hc_police{
+	dir = 8
+	},
+/turf/open/floor/engine/hull/reinforced,
+/area/shuttle/hc_cops)
+"Yd" = (
+/obj/structure/closet/crate/freezer,
+/obj/item/food/meat/slab/meatproduct,
+/obj/item/food/meat/slab/meatproduct,
+/obj/item/food/meat/slab/meatproduct,
+/obj/item/food/meat/slab/meatproduct,
+/obj/item/food/meat/slab/meatproduct,
+/obj/item/food/meat/slab/meatproduct,
+/obj/item/food/meat/slab/meatproduct,
+/obj/item/food/meat/slab/meatproduct,
+/obj/item/food/meat/slab/meatproduct,
+/obj/item/food/meat/slab/meatproduct,
+/obj/item/food/meat/slab/meatproduct,
+/obj/item/food/meat/slab/meatproduct,
+/obj/item/food/meat/slab/meatproduct,
+/obj/item/food/meat/slab/meatproduct,
+/obj/item/food/meat/slab/meatproduct,
+/obj/item/food/meat/slab/meatproduct,
+/obj/item/food/meat/slab/meatproduct,
+/obj/item/food/meat/slab/meatproduct,
+/obj/item/food/meat/slab/meatproduct,
+/turf/open/floor/pod,
+/area/shuttle/hc_cops)
+"Yy" = (
+/obj/structure/cable,
+/obj/machinery/power/shieldwallgen/unlocked/anchored{
+	shield_range = 12;
+	max_integrity = 600;
+	desc = "A heavy-duty reinforced shield generator designed for ship defense.";
+	name = "defense shield generator";
+	req_access = list("syndicate")
+	},
+/obj/effect/turf_decal/bot,
+/obj/structure/sign/warning/secure_area/directional/south,
+/turf/open/floor/engine/hull/reinforced,
+/area/shuttle/hc_cops)
+"Ze" = (
+/obj/effect/turf_decal/stripes/line{
+	dir = 4
+	},
+/obj/machinery/light/small/red/directional/south,
+/obj/structure/closet/crate/secure/weapon{
+	anchored = 1
+	},
+/obj/machinery/button/door/directional/south{
+	id = "nripoliceship";
+	name = "External Bolt Control";
+	normaldoorcontrol = 1;
+	specialfunctions = 4
+	},
+/obj/item/defibrillator/loaded,
+/turf/open/floor/pod/dark,
+/area/shuttle/hc_cops)
+"Zw" = (
+/obj/machinery/power/shuttle_engine/propulsion/burst{
+	dir = 8
+	},
+/obj/structure/window/reinforced/survival_pod/spawner/directional/north{
+	name = "blast shield"
+	},
+/obj/structure/window/reinforced/survival_pod/spawner/directional/south{
+	name = "blast shield"
+	},
+/turf/open/floor/engine/hull/reinforced,
+/area/shuttle/hc_cops)
+
+(1,1,1) = {"
+ot
+ot
+ot
+ot
+ot
+IY
+nX
+iC
+nX
+IY
+ot
+ot
+ot
+ot
+ot
+"}
+(2,1,1) = {"
+ot
+ot
+ot
+ot
+IY
+IY
+IY
+iC
+IY
+IY
+IY
+ot
+ot
+ot
+ot
+"}
+(3,1,1) = {"
+ot
+ot
+bQ
+NE
+iC
+IY
+iC
+iC
+iC
+IY
+iC
+Fm
+XY
+ot
+ot
+"}
+(4,1,1) = {"
+ot
+dy
+Hl
+Bz
+lv
+Wr
+UY
+Cy
+cZ
+Wr
+Zw
+ze
+EG
+hH
+ot
+"}
+(5,1,1) = {"
+ot
+GO
+GO
+GO
+cc
+Hz
+TR
+cc
+TR
+Hz
+cc
+GO
+GO
+GO
+ot
+"}
+(6,1,1) = {"
+ot
+GO
+GO
+ap
+Hz
+vj
+Hu
+qQ
+et
+vj
+Hz
+PV
+GO
+GO
+ot
+"}
+(7,1,1) = {"
+ot
+iC
+iC
+UP
+Hz
+tm
+Tg
+Lp
+Eh
+ty
+Hz
+UP
+iC
+iC
+ot
+"}
+(8,1,1) = {"
+GO
+iC
+iC
+IY
+Hz
+HV
+kQ
+rp
+sK
+HV
+Hz
+IY
+iC
+iC
+GO
+"}
+(9,1,1) = {"
+UP
+NW
+co
+IY
+Hz
+lV
+lU
+hU
+od
+Kq
+Hz
+IY
+NW
+co
+UP
+"}
+(10,1,1) = {"
+zy
+Hz
+Hz
+Hz
+Hz
+Bm
+Va
+hU
+uU
+Lr
+Hz
+Hz
+Hz
+Hz
+yE
+"}
+(11,1,1) = {"
+Hz
+Pi
+kq
+uh
+Hz
+Iv
+Iv
+hn
+Iv
+Iv
+Hz
+qE
+Yd
+Wa
+Hz
+"}
+(12,1,1) = {"
+Hz
+yP
+qp
+qp
+wM
+kb
+wQ
+IT
+Nu
+IT
+HO
+IT
+qp
+qp
+Hz
+"}
+(13,1,1) = {"
+Hz
+fB
+qp
+JB
+Hz
+rd
+pe
+hU
+wT
+be
+Hz
+Bw
+qp
+DL
+Hz
+"}
+(14,1,1) = {"
+Hz
+Hh
+qp
+Ci
+Hz
+tk
+lU
+Tj
+od
+tk
+Hz
+bE
+qp
+pg
+Hz
+"}
+(15,1,1) = {"
+Hz
+rg
+qp
+ts
+Hz
+pQ
+tl
+hU
+wh
+hl
+Hz
+TF
+qp
+Kb
+Hz
+"}
+(16,1,1) = {"
+Hz
+Hz
+Hz
+Hz
+Hz
+Hz
+Hz
+Xe
+Hz
+Hz
+Hz
+Hz
+Hz
+Hz
+Hz
+"}
+(17,1,1) = {"
+Hz
+ql
+Hz
+Ib
+Hz
+UO
+rO
+IT
+NO
+Ze
+Hz
+Ib
+Hz
+ql
+Hz
+"}
+(18,1,1) = {"
+ie
+PO
+uo
+ov
+xg
+IT
+IT
+IT
+IT
+IT
+hK
+Iu
+Dl
+vh
+PW
+"}
+(19,1,1) = {"
+pb
+Hz
+Hz
+xp
+Hz
+zJ
+xX
+qp
+qz
+Qg
+Hz
+xp
+Hz
+Hz
+SQ
+"}
+(20,1,1) = {"
+IY
+Hz
+lc
+IT
+Hz
+LA
+ui
+qp
+VN
+mJ
+Hz
+IT
+Oc
+Hz
+IY
+"}
+(21,1,1) = {"
+ew
+Hz
+Be
+Su
+Hz
+Hz
+Hz
+Pp
+Hz
+Hz
+Hz
+Su
+Iv
+Hz
+Fv
+"}
+(22,1,1) = {"
+IY
+Hz
+Bk
+IT
+Hz
+CP
+IJ
+Vm
+hP
+iq
+Hz
+IT
+Xh
+Hz
+IY
+"}
+(23,1,1) = {"
+ot
+Hz
+oW
+RG
+Hz
+uw
+XA
+xL
+mG
+bM
+Hz
+RG
+oW
+Hz
+ot
+"}
+(24,1,1) = {"
+ot
+Fa
+PZ
+RG
+Iv
+Iv
+qJ
+jx
+Ms
+Iv
+Iv
+RG
+MR
+tG
+ot
+"}
+(25,1,1) = {"
+ot
+Fa
+IT
+Te
+BM
+Iv
+Iv
+Iv
+Iv
+Iv
+BM
+zA
+IT
+tG
+ot
+"}
+(26,1,1) = {"
+ot
+uY
+jJ
+wj
+du
+du
+du
+du
+du
+du
+du
+wj
+jJ
+zb
+ot
+"}
+(27,1,1) = {"
+ot
+Hz
+dS
+QX
+JS
+FS
+IT
+IT
+IT
+FS
+JS
+fJ
+Yy
+Hz
+ot
+"}
+(28,1,1) = {"
+ot
+ay
+Hz
+Hz
+Kc
+AX
+ma
+bg
+ma
+AX
+kX
+Hz
+Hz
+ey
+ot
+"}
+(29,1,1) = {"
+ot
+ot
+DD
+ma
+Rb
+Hs
+Hs
+Hs
+Hs
+Hs
+gR
+Bj
+bG
+ot
+ot
+"}

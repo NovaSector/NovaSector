@@ -39,8 +39,8 @@
 		'sound/mobs/non-humanoids/clown/hehe.ogg', // hohoho
 		'sound/effects/wounds/crack1.ogg',
 		'modular_nova/modules/emotes/sound/voice/scream_f1.ogg',
-		'modular_nova/modules/encounters/sounds/alarm_radio.ogg',
-		'modular_nova/modules/encounters/sounds/morse.ogg', // I can spend all day here, adding sounds. But i wont.
+		'modular_nova/modules/random_ship_event/random_ships/heliostatic_inspectors/sounds/alarm_radio.ogg',
+		'modular_nova/modules/random_ship_event/random_ships/heliostatic_inspectors/sounds/morse.ogg', // I can spend all day here, adding sounds. But i wont.
 	)
 
 /datum/artifact_effect/noise/New()

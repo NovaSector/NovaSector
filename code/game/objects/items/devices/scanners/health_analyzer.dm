@@ -178,7 +178,7 @@
 			if(HAS_TRAIT_FROM(target, TRAIT_HUSK, BURN))
 				render_list += "<span class='alert ml-1'>Subject has been husked by [conditional_tooltip("severe burns", "Tend burns and apply a de-husking agent, such as [/datum/reagent/medicine/c2/synthflesh::name].", tochat)].</span><br>"
 			else if (HAS_TRAIT_FROM(target, TRAIT_HUSK, CHANGELING_DRAIN))
-				render_list += "<span class='alert ml-1'>Subject has been husked by [conditional_tooltip("desiccation", "Irreparable. Under normal circumstances, revival can only proceed via brain transplant.", tochat)].</span><br>"
+				render_list += "<span class='alert ml-1'>Subject has been husked by [conditional_tooltip("desiccation", "Perform blood transfusion and apply a de-husking agent such as [/datum/reagent/medicine/c2/synthflesh::name]. Full restoration will require more than usual.", tochat)].</span><br>" // NOVA EDIT - CHANGE. ORIGINAL: render_list += "<span class='alert ml-1'>Subject has been husked by [conditional_tooltip("desiccation", "Irreparable. Under normal circumstances, revival can only proceed via brain transplant.", tochat)].</span><br>"
 			else
 				render_list += "<span class='alert ml-1'>Subject has been husked by mysterious causes.</span><br>"
 
@@ -190,7 +190,17 @@
 			render_list += "<span class='alert ml-1'>Fatigue level: [target.getStaminaLoss()]%.</span><br>"
 		else
 			render_list += "<span class='alert ml-1'>Subject appears to be suffering from fatigue.</span><br>"
-	if (!target.get_organ_slot(ORGAN_SLOT_BRAIN)) // kept exclusively for soul purposes
+	
+	// Check for brain - both organic (carbon) and synthetic (cyborg MMI)
+	var/has_brain = FALSE
+	if(target.get_organ_slot(ORGAN_SLOT_BRAIN))
+		has_brain = TRUE
+	else if(iscyborg(target))
+		var/mob/living/silicon/robot/cyborg_target = target
+		if(cyborg_target.mmi?.brain)
+			has_brain = TRUE
+	
+	if(!has_brain) // kept exclusively for soul purposes
 		render_list += "<span class='alert ml-1'>Subject lacks a brain.</span><br>"
 
 	if(iscarbon(target))
