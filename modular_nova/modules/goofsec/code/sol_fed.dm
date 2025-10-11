@@ -93,12 +93,19 @@ GLOBAL_LIST_INIT(call911_do_and_do_not, list(
 
 /// Internal. Polls ghosts and sends in a team of space cops according to the alert level, accompanied by an announcement.
 /obj/machinery/computer/communications/proc/call_911(ordered_team)
+	/// How big do you want the response team to be?
 	var/team_size
+	/// Which ERT antag do we deploy?
 	var/datum/antagonist/ert/cops_to_send
+	/// What is the announcecment message?
 	var/announcement_message = "sussus amogus"
+	/// Who is sending this announcement?
 	var/announcer = "Sol Federation Marshal Department"
+	/// Ghost volunteer option text.
 	var/poll_question = "fuck you leatherman"
+	/// Gang phone number system (might remove, cause SOLFED already has secure comms)
 	var/cell_phone_number = "911"
+	/// What is the check for 911 respponders
 	var/list_to_use = "911_responders"
 	switch(ordered_team)
 		if(EMERGENCY_RESPONSE_POLICE)
