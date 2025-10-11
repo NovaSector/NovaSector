@@ -20,8 +20,8 @@ Lizard subspecies: Silverscale
 	return ..()
 
 /datum/species/lizard/silverscale/on_species_loss(mob/living/carbon/human/was_silverscale, datum/species/new_species, pref_load)
-	new_silverscale.dna.features["mcolor2"] = old_mutcolor2
-	new_silverscale.dna.features["mcolor3"] = old_mutcolor3
+	was_silverscale.dna.features["mcolor2"] = old_mutcolor2
+	was_silverscale.dna.features["mcolor3"] = old_mutcolor3
 	return ..()
 
 /*

@@ -59,7 +59,7 @@
 
 /datum/species/lizard/randomize_features()
 	var/list/features = ..()
-	if(istype(/datum/species/lizard/silverscale)) // don't randomize silvercale colors
+	if(istype(src, /datum/species/lizard/silverscale)) // don't randomize silvercale colors
 		return features
 
 	var/main_color = "#[random_color()]"
