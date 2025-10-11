@@ -2,7 +2,9 @@
 
 /datum/loadout_category/neck
 	tab_order = /datum/loadout_category/ears::tab_order + 1
+	max_allowed = MAX_ALLOWED_EXTRA_CLOTHES
 
+// Loadout items
 /datum/loadout_item/neck/pre_equip_item(datum/outfit/outfit, datum/outfit/outfit_important_for_life, mob/living/carbon/human/equipper, visuals_only = FALSE)
 	if(initial(outfit_important_for_life.neck))
 		.. ()
