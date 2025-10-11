@@ -1,0 +1,5 @@
+author: "dee-dubya"
+delete-after: True
+changes:
+  - rscadd: "Adds the Fender revolver; a slimmed down variant of the Defonce - exclusive to Blueshield weapon beacons."
+  - rscdel: "As such; the Defonce is no longer able to be called by the Blueshield's beacon."

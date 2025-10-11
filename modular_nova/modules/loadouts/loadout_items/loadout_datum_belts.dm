@@ -68,17 +68,13 @@
 	name = "Fannypack (Yellow)"
 	item_path = /obj/item/storage/belt/fannypack/yellow
 
-/datum/loadout_item/belts/thigh_satchel
-	name = "Thigh Satchel"
-	item_path = /obj/item/storage/belt/thigh_satchel
-
 /datum/loadout_item/belts/lantern
 	name = "Lantern"
 	item_path = /obj/item/flashlight/lantern
 
-/datum/loadout_item/belts/candle_box
-	name = "Candle Box"
-	item_path = /obj/item/storage/fancy/candle_box
+/datum/loadout_item/belts/thigh_satchel
+	name = "Thigh Satchel"
+	item_path = /obj/item/storage/belt/thigh_satchel
 
 // HOLSTERS
 
@@ -92,30 +88,53 @@
 
 // RIGS/WEBBING (for military larpers)
 
+/datum/loadout_item/belts/webbing
+	name = "Webbing - Basic"
+	item_path = /obj/item/storage/belt/webbing
+
 /datum/loadout_item/belts/cin_surplus_chestrig
-	name = "Chest Rig - CIN Surplus (Colorable)"
+	name = "Webbing - CIN Surplus (Colorable)"
 	item_path = /obj/item/storage/belt/military/cin_surplus
 
 /datum/loadout_item/belts/cin_surplus_chestrig_desert
-	name = "Chest Rig - CIN Surplus (Desert)"
+	name = "Webbing - CIN Surplus (Desert)"
 	item_path = /obj/item/storage/belt/military/cin_surplus/desert
 	can_be_greyscale = DONT_GREYSCALE
 
 /datum/loadout_item/belts/cin_surplus_chestrig_forest
-	name = "Chest Rig - CIN Surplus (Forest)"
+	name = "Webbing - CIN Surplus (Forest)"
 	item_path = /obj/item/storage/belt/military/cin_surplus/forest
 	can_be_greyscale = DONT_GREYSCALE
 
 /datum/loadout_item/belts/cin_surplus_chestrig_marine
-	name = "Chest Rig - CIN Surplus (Marine)"
+	name = "Webbing - CIN Surplus (Marine)"
 	item_path = /obj/item/storage/belt/military/cin_surplus/marine
 	can_be_greyscale = DONT_GREYSCALE
 
+/datum/loadout_item/belts/colonial_webbing
+	name = "Webbing - Colonial"
+	item_path = /obj/item/storage/belt/webbing/colonial
+
+/datum/loadout_item/belts/webbing_pouch
+	name = "Webbing - Drop Pouches"
+	item_path = /obj/item/storage/belt/webbing/pouch
+	can_be_reskinned = TRUE
+
 /datum/loadout_item/belts/expeditionary_chestrig_belt
-	name = "Chest Rig - Expeditionary"
+	name = "Webbing - Expeditionary"
 	item_path = /obj/item/storage/belt/military/expeditionary_corps
 
 /datum/loadout_item/belts/frontier_chestrig
-	name = "Chest Rig - Frontier"
+	name = "Webbing - Frontier"
 	item_path = /obj/item/storage/belt/utility/frontier_colonist
+
+/datum/loadout_item/belts/webbing_pilot
+	name = "Webbing - Rigging"
+	item_path = /obj/item/storage/belt/webbing/pilot
+	can_be_reskinned = TRUE
+
+/datum/loadout_item/belts/webbing_vest
+	name = "Webbing - Vest"
+	item_path = /obj/item/storage/belt/webbing/vest
+	can_be_reskinned = TRUE
 
