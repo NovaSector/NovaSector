@@ -84,7 +84,6 @@ GLOBAL_LIST_EMPTY(customizable_races)
 	return to_add
 
 /datum/species/human
-	mutant_bodyparts = list()
 	digitigrade_customization = DIGITIGRADE_OPTIONAL
 	mutant_bodyparts = list("legs" = "Normal Legs")
 
