@@ -8,10 +8,13 @@
 	safeline, heartbeat detector preventing malpractice with the defibrillators"
 	icon = 'modular_nova/master_files/icons/obj/medical/defib.dmi'
 	icon_state = "defibip"
-	inhand_icon_state = null
 	worn_icon = 'modular_nova/master_files/icons/mob/clothing/belt.dmi'
 	worn_icon_state = "defibip"
 	paddle_state = "defibip-paddles"
+	powered_state = "defibip-powered"
+	charge_state = "defibip-charge"
+	nocell_state = "defibip-nocell"
+	emagged_state = "defibip-emagged"
 	paddle_type = /obj/item/shockpaddles/interdyne
 	safety = TRUE
 
