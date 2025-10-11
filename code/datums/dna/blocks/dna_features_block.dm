@@ -11,7 +11,7 @@
 /datum/dna_block/feature/ethereal_color
 	block_length = DNA_BLOCK_SIZE_COLOR
 	feature_key = FEATURE_ETHEREAL_COLOR
-
+/*
 /datum/dna_block/feature/ethereal_color/create_unique_block(mob/living/carbon/human/target)
 	return sanitize_hexcolor(target.dna.features[FEATURE_ETHEREAL_COLOR], include_crunch = FALSE)
 
@@ -46,7 +46,7 @@
 
 /datum/dna_block/feature/tail_lizard/apply_to_mob(mob/living/carbon/human/target, dna_hash)
 	target.dna.features[feature_key] = SSaccessories.tails_list_lizard[deconstruct_block(get_block(dna_hash), length(SSaccessories.tails_list_lizard))]
-
+*/
 /datum/dna_block/feature/tail_fish
 	feature_key = FEATURE_TAIL_FISH
 
@@ -55,7 +55,7 @@
 
 /datum/dna_block/feature/tail_fish/apply_to_mob(mob/living/carbon/human/target, dna_hash)
 	target.dna.features[feature_key] = SSaccessories.tails_list_fish[deconstruct_block(get_block(dna_hash), length(SSaccessories.tails_list_fish))]
-
+/*
 /datum/dna_block/feature/snout
 	feature_key = FEATURE_SNOUT
 
@@ -149,3 +149,4 @@
 
 /datum/dna_block/feature/pod_hair/apply_to_mob(mob/living/carbon/human/target, dna_hash)
 	target.dna.features[feature_key] = SSaccessories.pod_hair_list[deconstruct_block(get_block(dna_hash), length(SSaccessories.pod_hair_list))]
+ */

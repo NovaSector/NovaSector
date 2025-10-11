@@ -1,5 +1,3 @@
-//NOVA EDIT REMOVAL BEGIN - CUSTOMIZATION (moved to modular_nova/modules/customization/code/datums/dna.dm)
-/*
 /**
  * A list of numbers that keeps track of where ui blocks start in the unique_identity string variable of the dna datum.
  * Commonly used by the datum/dna/set_uni_identity_block and datum/dna/get_uni_identity_block procs.
@@ -26,8 +24,7 @@ GLOBAL_LIST_INIT(total_uf_len_by_block, populate_total_uf_len_by_block())
 		var/datum/dna_block/feature/block = GLOB.dna_feature_blocks[block_path]
 		.[block_path] += total_block_len
 		total_block_len += block.block_length
-*/
-//NOVA EDIT REMOVAL END
+
 /////////////////////////// DNA DATUM
 /datum/dna
 	///An md5 hash of the dna holder's real name

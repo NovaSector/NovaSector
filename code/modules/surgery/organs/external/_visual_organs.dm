@@ -33,7 +33,6 @@ Unlike normal organs, we're actually inside a persons limbs at all times
 */
 /obj/item/organ/proc/setup_bodypart_overlay(accessory_type)
 	bodypart_overlay = new bodypart_overlay(src)
-	dna_block = SSaccessories.dna_mutant_bodypart_blocks[preference] // NOVA EDIT ADDITION - we have like 145+ fucking dna blocks lmao
 
 	accessory_type = accessory_type ? accessory_type : sprite_accessory_override
 	var/update_overlays = TRUE
@@ -281,7 +280,7 @@ Unlike normal organs, we're actually inside a persons limbs at all times
 	preference = "feature_pod_hair"
 	use_mob_sprite_as_obj_sprite = TRUE
 
-	dna_block = /datum/dna_block/feature/pod_hair
+	// dna_block = /datum/dna_block/feature/pod_hair //NOVA CHANGE REMOVAL - Customization
 	restyle_flags = EXTERNAL_RESTYLE_PLANT
 
 	bodypart_overlay = /datum/bodypart_overlay/mutant/pod_hair

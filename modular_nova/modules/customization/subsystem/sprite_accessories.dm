@@ -9,7 +9,7 @@
 			if(!sprite_accessories[P.key])
 				sprite_accessories[P.key] = list()
 			sprite_accessories[P.key][P.name] = P
-			if(P.genetic)
+/* 			if(P.genetic)
 				if(!dna_mutant_bodypart_blocks[P.key])
 					dna_mutant_bodypart_blocks[P.key] = dna_total_feature_blocks+1
 				if(!genetic_accessories[P.key])
@@ -21,4 +21,4 @@
 				genetic_accessories[P.key] += P.name
 			//TODO: Replace "generic" definitions with something better
 			if(P.generic && !generic_accessories[P.key])
-				generic_accessories[P.key] = P.generic
+				generic_accessories[P.key] = P.generic */
