@@ -734,25 +734,25 @@ GLOBAL_LIST_INIT(call911_do_and_do_not, list(
 
 /obj/item/solfed_reporter/espatier_caller
 	name = "Solfed Military backup caller"
-	desc = "Use this in-hand to vote to call SolFed Military backup. If half your team votes for it, a Military Squadron will be dispatched."
+	desc = "Use this in-hand to vote to call SolFed military backup. If half your team votes for it, a military squadron will be dispatched."
 	type_to_check = /datum/antagonist/ert/request_911
 	type_of_callers = "911_responders"
 	announcement_source = "SolFed Military Squadron"
 	fine_station = FALSE
-	ghost_poll_msg = "The Sol-Fed 911 services have requested Military backup. Do you wish to become an Espatier?"
+	ghost_poll_msg = "The Sol-Fed 911 services have requested military backup. Do you wish to become an Espatier?"
 	amount_to_summon = 6
 	type_to_summon = /datum/antagonist/ert/request_911/condom_destroyer
 	summoned_type = "standard_espatiers"
-	announcement_message = "Hello, crewmembers of [station_name()]. Our on-station emergency services teams have requested for Military Aid, Either for their active safety \
+	announcement_message = "Hello, crewmembers of [station_name()]. Our on-station emergency services teams have requested for military aid, Either for their active safety \
 	or the current situation has caused reasonable escallation, please remain calm and cooperate with any requests or orders made by our Espatiers. For your safety and others."
 
 /obj/item/solfed_reporter/espatier_caller/questions(mob/user)
-	var/question = "Does the situation require additional Military backup, involve the station impeding you from doing your job, \
+	var/question = "Does the situation require additional military backup, involve the station impeding you from doing your job, \
 		or involve the station making a fraudulent 911 call and needing an arrest made on the caller?"
 	if(tgui_input_list(user, question, "Military backup Caller", list("Yes", "No")) != "Yes")
-		to_chat(user, "You decide not to request for Military backup")
+		to_chat(user, "You decide not to request for military backup")
 		return FALSE
-	message_admins("[ADMIN_LOOKUPFLW(user)] has voted to summon Military backup.")
+	message_admins("[ADMIN_LOOKUPFLW(user)] has voted to summon military backup.")
 	return TRUE
 
 /obj/item/solfed_reporter/grand_espatier_caller
@@ -762,13 +762,13 @@ GLOBAL_LIST_INIT(call911_do_and_do_not, list(
 	type_of_callers = "standard_espatiers"
 	announcement_source = "Sol Federation Espatier Platoon"
 	fine_station = FALSE
-	ghost_poll_msg = "The situation is completely out of hand and our Espatiers need backup, Volunteer to become a Grand Response Espatier?"
+	ghost_poll_msg = "The situation is completely out of hand and our Espatiers need backup, volunteer to become a Grand Response Espatier?"
 	amount_to_summon = 12
 	type_to_summon = /datum/antagonist/ert/request_911/treason_destroyer
 	summoned_type = "grand_espatiers"
 	announcement_message = "Attention [station_name] the active situation has devolved, and is too much to bear for our currently deployed squadron of espatiers. \
-	A Sol Federation Espatier Platoon is being disbatched to your station, Cooperate with any and all instructions given by any SolFed Personnel, A full station-wide evacuation \
-	may be enacted for your safety. Again please cooperate with any and all instructions from SolFed Personnel."
+	A Sol Federation Espatier platoon is being disbatched to your station, cooperate with any and all instructions given by any SolFed personnel, a full station-wide evacuation \
+	may be enacted for your safety. Please cooperate with any and all instructions from SolFed personnel."
 
 /obj/item/solfed_reporter/grand_espatier_caller/questions(mob/user)
 	var/list/list_of_questions = list(
@@ -777,14 +777,14 @@ GLOBAL_LIST_INIT(call911_do_and_do_not, list(
 		"Did the station crew members attack you and your fellow Espatiers?",
 		"Did the station crew members actively prevent you from completing your mission, or objectives?",
 		"Were you and your fellow Espatiers unable to contain or handle the situation on your own?",
-		"Are you surer you wish to declare a Grand Threat of any kind is present? Misuse of this can and will result in \
+		"Are you surer you wish to declare a grand threat of any kind is present? Misuse of this can and will result in \
 			administrative action against your account."
 	)
 	for(var/question in list_of_questions)
 		if(tgui_input_list(user, question, "Treason Reporter", list("Yes", "No")) != "Yes")
 			to_chat(user, "You decide not to call the platoon... yet...")
 			return FALSE
-	message_admins("[ADMIN_LOOKUPFLW(user)] has acknowledged the consequences of a false claim of a Grand Threat administratively, \
+	message_admins("[ADMIN_LOOKUPFLW(user)] has acknowledged the consequences of a false claim of a grand threat administratively, \
 		and has voted that the station is engaging a Grand Threat.")
 	return TRUE
 
