@@ -9,14 +9,8 @@
 	ammo_type = /obj/item/ammo_casing/c980grenade
 	casing_phrasing = "shell"
 	max_ammo = 6
-	casing_x_positions = list(
-		-6,
-		-3,
-		0,
-		3,
-		6,
-	)
-	casing_y_padding = 9
+	casing_w_spacing = 3
+	casing_z_padding = 9
 
 /obj/item/ammo_box/magazine/ammo_stack/c980/prefilled
 	name = ".980 Tydhouer practice grenades"
@@ -52,14 +46,8 @@
 	ammo_type = /obj/item/ammo_casing/shotgun
 	casing_phrasing = "shell"
 	max_ammo = 8
-	casing_x_positions = list(
-		-6,
-		-3,
-		0,
-		3,
-		6,
-	)
-	casing_y_padding = 4
+	casing_w_spacing = 3
+	casing_z_padding = 4
 
 /obj/item/ammo_box/magazine/ammo_stack/s12gauge/prefilled
 	name = "12 gauge slug shells"
@@ -143,16 +131,8 @@
 	caliber = CALIBER_SOL35SHORT
 	ammo_type = /obj/item/ammo_casing/c35sol
 	max_ammo = 12
-	casing_x_positions = list(
-		-6,
-		-4,
-		-2,
-		0,
-		2,
-		4,
-		6,
-	)
-	casing_y_padding = 6
+	casing_w_spacing = 2
+	casing_z_padding = 6
 
 /obj/item/ammo_box/magazine/ammo_stack/c35_sol/prefilled
 	start_empty = FALSE
@@ -175,16 +155,8 @@
 	caliber = CALIBER_CESARZOWA
 	ammo_type = /obj/item/ammo_casing/c27_54cesarzowa
 	max_ammo = 18
-	casing_x_positions = list(
-		-6,
-		-4,
-		-2,
-		0,
-		2,
-		4,
-		6,
-	)
-	casing_y_padding = 6
+	casing_w_spacing = 2
+	casing_z_padding = 6
 
 /obj/item/ammo_box/magazine/ammo_stack/c27_54cesarzowa/prefilled
 	start_empty = FALSE
@@ -202,14 +174,8 @@
 	caliber = CALIBER_585TRAPPISTE
 	ammo_type = /obj/item/ammo_casing/c585trappiste
 	max_ammo = 6
-	casing_x_positions = list(
-		-4,
-		-2,
-		0,
-		2,
-		4,
-	)
-	casing_y_padding = 9
+	casing_w_spacing = 2
+	casing_z_padding = 9
 
 /obj/item/ammo_box/magazine/ammo_stack/c585_trappiste/prefilled
 	start_empty = FALSE
@@ -234,16 +200,8 @@
 	caliber = CALIBER_SOL40LONG
 	ammo_type = /obj/item/ammo_casing/c40sol
 	max_ammo = 15
-	casing_x_positions = list(
-		-6,
-		-4,
-		-2,
-		0,
-		2,
-		4,
-		6,
-	)
-	casing_y_padding = 6
+	casing_w_spacing = 2
+	casing_z_padding = 6
 
 /obj/item/ammo_box/magazine/ammo_stack/c40_sol/prefilled
 	start_empty = FALSE
@@ -274,14 +232,8 @@
 	caliber = CALIBER_STRILKA310
 	ammo_type = /obj/item/ammo_casing/strilka310
 	max_ammo = 5
-	casing_x_positions = list(
-		-4,
-		-2,
-		0,
-		2,
-		4,
-	)
-	casing_y_padding = 8
+	casing_w_spacing = 2
+	casing_z_padding = 8
 
 /obj/item/ammo_box/magazine/ammo_stack/c310_strilka/prefilled
 	start_empty = FALSE
@@ -308,14 +260,8 @@
 	caliber = CALIBER_60STRELA
 	ammo_type = /obj/item/ammo_casing/p60strela
 	max_ammo = 6
-	casing_x_positions = list(
-		-6,
-		-3,
-		0,
-		3,
-		6,
-	)
-	casing_y_padding = 9
+	casing_w_spacing = 3
+	casing_z_padding = 9
 
 /obj/item/ammo_box/magazine/ammo_stack/c60_strela/prefilled
 	start_empty = FALSE
