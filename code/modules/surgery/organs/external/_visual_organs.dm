@@ -7,8 +7,6 @@ Unlike normal organs, we're actually inside a persons limbs at all times
 	///The overlay datum that actually draws stuff on the limb
 	var/datum/bodypart_overlay/mutant/bodypart_overlay
 
-	/// The savefile_key of the preference this relates to. Used for the preferences UI.
-	var/preference
 	///With what DNA block do we mutate in mutate_feature() ? For genetics
 	var/dna_block
 
@@ -33,7 +31,7 @@ Unlike normal organs, we're actually inside a persons limbs at all times
 */
 /obj/item/organ/proc/setup_bodypart_overlay(accessory_type)
 	bodypart_overlay = new bodypart_overlay(src)
-	dna_block = SSaccessories.dna_mutant_bodypart_blocks[preference] // NOVA EDIT ADDITION - we have like 145+ fucking dna blocks lmao
+	dna_block = SSaccessories.dna_mutant_bodypart_blocks[mutantpart_key] // NOVA EDIT ADDITION - we have like 145+ fucking dna blocks lmao
 
 	accessory_type = accessory_type ? accessory_type : sprite_accessory_override
 	var/update_overlays = TRUE
@@ -109,7 +107,6 @@ Unlike normal organs, we're actually inside a persons limbs at all times
 	zone = BODY_ZONE_HEAD
 	slot = ORGAN_SLOT_EXTERNAL_HORNS
 
-	preference = "feature_lizard_horns"
 	//dna_block = DNA_HORNS_BLOCK // NOVA EDIT REMOVAL - Customization - We have our own system to handle DNA.
 	restyle_flags = EXTERNAL_RESTYLE_ENAMEL
 
@@ -137,7 +134,6 @@ Unlike normal organs, we're actually inside a persons limbs at all times
 	zone = BODY_ZONE_HEAD
 	slot = ORGAN_SLOT_EXTERNAL_FRILLS
 
-	preference = "feature_lizard_frills"
 	//dna_block = DNA_FRILLS_BLOCK // NOVA EDIT REMOVAL - Customization - We have our own system to handle DNA.
 	restyle_flags = EXTERNAL_RESTYLE_FLESH
 
@@ -164,7 +160,6 @@ Unlike normal organs, we're actually inside a persons limbs at all times
 	zone = BODY_ZONE_HEAD
 	slot = ORGAN_SLOT_EXTERNAL_SNOUT
 
-	preference = "feature_lizard_snout"
 	external_bodyshapes = BODYSHAPE_SNOUTED
 
 	//dna_block = DNA_SNOUT_BLOCK // NOVA EDIT REMOVAL - Customization - We have our own system to handle DNA.
@@ -193,7 +188,6 @@ Unlike normal organs, we're actually inside a persons limbs at all times
 	zone = BODY_ZONE_HEAD
 	slot = ORGAN_SLOT_EXTERNAL_ANTENNAE
 
-	preference = "feature_moth_antennae"
 	//dna_block = DNA_MOTH_ANTENNAE_BLOCK // NOVA EDIT REMOVAL - Customization - We have our own system to handle DNA.
 	restyle_flags = EXTERNAL_RESTYLE_FLESH
 
@@ -277,7 +271,6 @@ Unlike normal organs, we're actually inside a persons limbs at all times
 	zone = BODY_ZONE_HEAD
 	slot = ORGAN_SLOT_EXTERNAL_POD_HAIR
 
-	preference = "feature_pod_hair"
 	use_mob_sprite_as_obj_sprite = TRUE
 
 	dna_block = DNA_POD_HAIR_BLOCK

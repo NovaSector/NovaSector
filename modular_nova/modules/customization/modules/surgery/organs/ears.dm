@@ -8,7 +8,6 @@
 	zone = BODY_ZONE_HEAD
 	slot = ORGAN_SLOT_EXTERNAL_EARS
 	organ_flags = ORGAN_EXTERNAL
-	preference = "feature_ears"
 	bodypart_overlay = /datum/bodypart_overlay/mutant/ears
 
 /datum/bodypart_overlay/mutant/ears

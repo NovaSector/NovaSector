@@ -10,8 +10,6 @@
 	zone = BODY_ZONE_HEAD
 	slot = ORGAN_SLOT_EXTERNAL_XENODORSAL
 
-	preference = "feature_xenodorsal"
-
 	bodypart_overlay = /datum/bodypart_overlay/mutant/xenodorsal
 
 /datum/bodypart_overlay/mutant/xenodorsal
