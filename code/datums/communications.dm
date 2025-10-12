@@ -127,7 +127,7 @@ GLOBAL_DATUM_INIT(communications_controller, /datum/communciations_controller, n
 		)
 	else if(CONFIG_GET(flag/roundstart_blue_alert))
 		if(SSsecurity_level.get_current_level_as_number() < SEC_LEVEL_BLUE)
-			SSsecurity_level.set_level(SEC_LEVEL_BLUE, announce = FALSE)
+			SSsecurity_level.set_level(SEC_LEVEL_RED, announce = FALSE)
 		priority_announce(
 			"[SSsecurity_level.current_security_level.elevating_to_announcement]\n\n\
 				A summary has been copied and printed to all communications consoles.",

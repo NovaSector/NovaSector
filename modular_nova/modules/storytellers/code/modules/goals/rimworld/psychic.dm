@@ -73,9 +73,10 @@
 	drone.positive_noise_chance = positive_noise_chance
 	drone.num_waves = num_waves
 	drone.wave_duration = wave_duration
+	drone.target_sex = pick(MALE, FEMALE) // There only two genders in the universe, deal with it
 
-	notify_ghosts("Aphyic drone deployed at [get_area(spawn_turf)].", spawn_turf, "Phychic drone deployed")
-	priority_announce("A psychic drone has been deployed at [get_area(spawn_turf)], broadcasting disruptive psionic noise across the station!", "Anomalies detected")
+	notify_ghosts("Psychic drone deployed at [get_area(spawn_turf)].", spawn_turf, "Phychic drone deployed")
+	priority_announce("A psychic drone has been deployed at [get_area(spawn_turf)], broadcasting disruptive psionic noise across the station! It's option set to [drone.target_sex].", "Anomalies detected")
 
 
 /obj/structure/closet/supplypod/phychic_drone
@@ -87,12 +88,13 @@
 	delays = list(POD_TRANSIT = 10.0 SECONDS, POD_FALLING = 10.0 SECONDS)
 	effectMissile = TRUE
 
-
 /mob/living/basic/psychic_drone
 	name = "psychic drone"
 	desc = "A hovering orb emitting faint psionic waves, influencing crew minds in unpredictable ways."
 	icon = 'icons/mob/simple/hivebot.dmi'
 	icon_state = "commdish"
+	icon_living = "commdish"
+	icon_dead = "commdish"
 	density = TRUE
 	health = 2000
 	maxHealth = 2000
@@ -112,13 +114,16 @@
 	var/num_waves = 5
 	var/wave_duration = 30 SECONDS
 	var/current_wave = 0
+	var/is_bad = TRUE
+	var/target_sex = MALE // The power of man
 
 /mob/living/basic/psychic_drone/Initialize(mapload, threat_mod = 1.0, tension_mod = 1.0)
 	. = ..()
 	noise_strength *= threat_mod
 	num_waves = round(num_waves * tension_mod)
 	addtimer(CALLBACK(src, PROC_REF(pulse_psychic_noise)), wave_duration)
-
+	if(prob(positive_noise_chance))
+		is_bad = FALSE
 
 /mob/living/basic/psychic_drone/Destroy()
 	return ..()
@@ -128,7 +133,6 @@
 	if(current_wave > num_waves)
 		qdel(src)
 		return
-
 	var/list/targets = list()
 	for(var/mob/living/carbon/human/H in GLOB.human_list)
 		if(!H.mind || H.stat == DEAD || !is_station_level(H.z))
@@ -136,15 +140,12 @@
 		targets += H
 
 	if(length(targets))
-		var/is_positive = FALSE
-		if(prob(positive_noise_chance))
-			is_positive = TRUE
-
 		var/target_sex_local = pick(MALE, FEMALE)
 		for(var/mob/living/carbon/human/target in targets)
-			apply_psychic_noise(target, is_positive, noise_strength, target_sex_local)
+			apply_psychic_noise(target, is_bad, noise_strength, target_sex_local)
 
-
+	if(prob(25 * current_wave))
+		noise_strength += 1
 
 	addtimer(CALLBACK(src, PROC_REF(pulse_psychic_noise)), wave_duration)
 
@@ -160,9 +161,10 @@
 		else
 			effect_msg = span_notice("A neutral hum clears mental fog briefly.")
 
-		target.add_mood_event("psychic_drone", /datum/mood_event/psychic_drone_positive)
-		target.add_movespeed_modifier(/datum/movespeed_modifier/psychic_boost, update=TRUE)
-		addtimer(CALLBACK(target, TYPE_PROC_REF(/mob/living/carbon/human, remove_movespeed_modifier), /datum/movespeed_modifier/psychic_boost, TRUE), debuff_duration)
+		if(target.gender == target_sex || target.gender == PLURAL || target.gender == NEUTER)
+			target.add_mood_event("psychic_drone", /datum/mood_event/psychic_drone_positive)
+			target.add_movespeed_modifier(/datum/movespeed_modifier/psychic_boost, update=TRUE)
+			addtimer(CALLBACK(target, TYPE_PROC_REF(/mob/living/carbon/human, remove_movespeed_modifier), /datum/movespeed_modifier/psychic_boost, TRUE), debuff_duration)
 	else if(is_positive == FALSE)
 		if(target_sex == MALE)
 			effect_msg = span_userdanger("Aggressive shrieks invade your head, fueling rage!")
@@ -172,16 +174,17 @@
 			effect_msg = span_userdanger("Disorienting wails echo, inducing nausea.")
 			target.adjust_disgust(25 * strength)
 
-		SEND_SOUND(target, sound('sound/items/weapons/flash_ring.ogg'))
-		target.add_mood_event("psychic_drone", /datum/mood_event/psychic_drone_negative)
-		if(strength <= 2)
-			target.add_mood_event("psychic_drone", /datum/mood_event/psychic_drone_negative)
-		else if(strength <= 4)
-			target.add_mood_event("psychic_drone", /datum/mood_event/psychic_drone_negative/strong)
-		else if(strength <= 5)
-			target.add_mood_event("psychic_drone", /datum/mood_event/psychic_drone_negative/extreme)
-		target.adjustOxyLoss(rand(40-60), forced=TRUE)
-		target.adjust_hallucinations(30 SECONDS)
+		if(target.gender == target_sex || target.gender == PLURAL || target.gender == NEUTER)
+			SEND_SOUND(target, sound('sound/items/weapons/flash_ring.ogg'))
+			if(strength <= 2)
+				target.add_mood_event("psychic_drone", /datum/mood_event/psychic_drone_negative)
+			else if(strength <= 4)
+				target.add_mood_event("psychic_drone", /datum/mood_event/psychic_drone_negative/strong)
+			else if(strength <= 5)
+				target.add_mood_event("psychic_drone", /datum/mood_event/psychic_drone_negative/extreme)
+			target.adjustOxyLoss(rand(30-40), forced=TRUE)
+			target.adjust_hallucinations(30 SECONDS)
+			target.adjust_drunk_effect(30 SECONDS)
 	else
 		effect_msg = span_notice("A subtle psychic hum resonates, leaving you mildly disoriented but aware.")
 		target.adjust_disgust(10 * strength)

@@ -134,7 +134,7 @@
 	// 5) Passive threat/adaptation drift each think
 	threat_points = min(max_threat_scale, threat_points + threat_growth_rate * mood.get_threat_multiplier())
 	adaptation_factor = max(0, adaptation_factor - adaptation_decay_rate)
-	round_progression = clamp((world.realtime - round_start_time) / STORY_ROUND_PROGRESSION_TRESHOLD, 0, 1)
+	round_progression = clamp((world.time - round_start_time) / STORY_ROUND_PROGRESSION_TRESHOLD, 0, 1)
 
 	population_history[num2text(world.time)] = inputs.vault[STORY_VAULT_CREW_ALIVE_COUNT] \
 											? inputs.vault[STORY_VAULT_CREW_ALIVE_COUNT] : 0

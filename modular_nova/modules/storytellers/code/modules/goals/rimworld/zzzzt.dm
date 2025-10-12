@@ -55,13 +55,16 @@
 
 	if(power_sources == 0)
 		return // No power sources on this network - no bad luck for you
-	explosion(closest, 0, 1, 5, 4)
+	explosion(closest, 0, 0, 5, 4)
 	closest.Beam(bad_luck, "lightning1", emissive = FALSE, time = 1 SECONDS)
-	bad_luck.electrocute_act(rand(60-70), src, 1.0)
+	bad_luck.electrocute_act(rand(60-70), src, 1.0, SHOCK_NOGLOVES | SHOCK_TESLA)
 	QDEL_IN(closest, 1 SECONDS)
 
 
 /datum/round_event/zzzzzt/proc/pick_closest_cable(mob/living/carbon/human/bad_luck)
-	for(var/obj/structure/cable/C in RANGE_TURFS(10, bad_luck))
-		if(get_dist(bad_luck, C) < 10)
-			return C
+	for(var/turf/check_turf in RANGE_TURFS(2, bad_luck))
+		var/obj/structure/cable/C = locate(/obj/structure/cable) in check_turf
+
+		if(!istype(C) || C == null)
+			continue
+		return C

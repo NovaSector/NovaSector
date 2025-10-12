@@ -34,6 +34,7 @@
 			fish = new carp_type(pick(spawn_loc))
 		else
 			fish = new boss_type(pick(spawn_loc))
+
 			fishannounce(fish)
 
 		var/z_level_key = zstation.z_value
@@ -42,4 +43,4 @@
 		if (z_migration_paths[z_level_key])
 			fish.migrate_to(z_migration_paths[z_level_key])
 
-
+	notify_ghosts("The school of space carp has arrived and is migrating through the station's vicinity.", pick(spawn_loc),"Lifesign Alert")

@@ -90,6 +90,7 @@
 	health = 1
 	maxHealth = 1
 	max_stamina = BASIC_MOB_NO_STAMCRIT
+	basic_mob_flags = DEL_ON_DEATH
 	gender = PLURAL
 	living_flags = MOVES_ON_ITS_OWN
 	status_flags = NONE
@@ -103,6 +104,7 @@
 	habitable_atmos = null
 
 	ai_controller = /datum/ai_controller/basic_controller/fire_burst
+	var/life_time = 30 SECONDS
 
 /mob/living/basic/fire_burst/Initialize(mapload)
 	. = ..()
@@ -111,6 +113,24 @@
 	)
 	grant_actions_by_list(other_innate_actions)
 
+/mob/living/basic/fire_burst/Life(seconds_per_tick, times_fired)
+	. = ..()
+	life_time -= 1 SECONDS * seconds_per_tick
+	if(life_time <= 0)
+		death()
+	new /obj/effect/hotspot(loc)
+
+/mob/living/basic/fire_burst/death(gibbed)
+	for(var/turf/T in RANGE_TURFS(1, src))
+		if(isturf(T))
+			for(var/mob/living/living in T.contents)
+				new /obj/effect/hotspot(T)
+				living.apply_damage(4, BURN, TRUE, src)
+	return ..()
+
+/mob/living/basic/fire_burst/extinguish()
+	. = ..()
+	death()
 
 /datum/ai_controller/basic_controller/fire_burst
 	blackboard = list(
@@ -146,7 +166,6 @@
 
 /datum/action/cooldown/mob_cooldown/a_ring_of_fire_fire_fire/proc/room_of_fire(mob/clicker)
 	set waitfor = FALSE
-	sleep(1 SECONDS)
 
 	if(!isturf(clicker.loc))
 		return
