@@ -101,6 +101,20 @@
 	var/delay = base_think_delay * clamp(pace_multiplier, STORY_PACE_MIN, STORY_PACE_MAX)
 	next_think_time = world.time + delay
 
+/datum/storyteller/proc/post_goal(datum/storyteller_goal/goal)
+	if(!goal)
+		return
+
+	if(goal.tags & STORY_TAG_ESCALATION)
+		adaptation_factor = min(1.0, adaptation_factor + 0.3)
+	else if(goal.tags & STORY_TAG_DEESCALATION)
+		adaptation_factor = max(0, adaptation_factor - 0.1)
+	if(goal.category == STORY_GOAL_BAD)
+		// Calculate the percentage loss of threat_points based on recent_damage_threshold
+		var/loss_percentage = 100 / recent_damage_threshold
+		var/threat_loss = threat_points * (loss_percentage / 100)
+		threat_points = min(threat_points, threat_points - threat_loss)
+	record_event(goal, STORY_GOAL_FAILED)
 
 /datum/storyteller/proc/think(force = FALSE)
 	if(!initialized)
@@ -125,11 +139,7 @@
 	// 4) plan anf fire goals
 	var/list/fired = planner.update_plan(src, inputs, snap)
 	for(var/datum/storyteller_goal/completed_goal in fired)
-		if(completed_goal.tags & STORY_TAG_ESCALATION)
-			adaptation_factor = min(1.0, adaptation_factor + 0.2)  // Post-threat adaptation spike
-		else if(completed_goal.tags & STORY_TAG_DEESCALATION)
-			adaptation_factor = max(0, adaptation_factor - 0.1)  // Recovery grace
-		record_event(completed_goal, STORY_GOAL_COMPLETED)
+		post_goal(completed_goal)
 
 	// 5) Passive threat/adaptation drift each think
 	threat_points = min(max_threat_scale, threat_points + threat_growth_rate * mood.get_threat_multiplier())

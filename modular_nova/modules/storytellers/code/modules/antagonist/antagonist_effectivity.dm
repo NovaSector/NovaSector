@@ -35,6 +35,9 @@
 	var/mob/living/tracked = owner?.current
 	if(!tracked)
 		return
+	if(!tracked.mind)
+		return
+
 	AddComponent(/datum/component/antag_metric_tracker, tracked)
 
 

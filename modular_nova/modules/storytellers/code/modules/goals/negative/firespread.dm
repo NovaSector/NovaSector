@@ -158,11 +158,11 @@
 	shared_cooldown = MOB_SHARED_COOLDOWN_1 | MOB_SHARED_COOLDOWN_2
 	var/maximum_range = 7
 
-/datum/action/cooldown/mob_cooldown/a_ring_of_fire_fire_fire/Trigger(mob/clicker, trigger_flags, atom/target)
+/datum/action/cooldown/mob_cooldown/a_ring_of_fire_fire_fire/Act(mob/clicker, trigger_flags, atom/target)
 	. = ..()
-	if(!isturf(clicker.loc))
+	if(!isturf(owner.loc))
 		return
-	INVOKE_ASYNC(src, PROC_REF(room_of_fire), clicker)
+	INVOKE_ASYNC(src, PROC_REF(room_of_fire), owner)
 
 /datum/action/cooldown/mob_cooldown/a_ring_of_fire_fire_fire/proc/room_of_fire(mob/clicker)
 	set waitfor = FALSE
