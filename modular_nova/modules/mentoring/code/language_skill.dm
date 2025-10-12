@@ -36,16 +36,3 @@
 /obj/item/clothing/accessory/language/Initialize(mapload)
 	. = ..()
 	AddElement(/datum/element/skill_reward, /datum/skill/language)
-
-/**
- * This proc will check some conditions in the environment to adjust how much experience we actually do
- */
-/obj/item/book/proc/check_reading_exp(mob/living/user)
-	var/default_exp = 5
-	if(locate(/obj/structure/bookcase) in range(2, user))
-		default_exp += 5
-
-	if(user.mob_mood.mood_level > MOOD_LEVEL_HAPPY1)
-		default_exp += 5
-
-	return default_exp
