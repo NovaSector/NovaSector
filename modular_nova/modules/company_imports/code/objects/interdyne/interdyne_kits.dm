@@ -24,8 +24,10 @@
 	combat = TRUE
 	icon = 'modular_nova/master_files/icons/obj/medical/defib.dmi'
 	icon_state = "ippaddles0"
-	inhand_icon_state = "ippaddles0"
-	base_icon_state = "ippaddles"
+	lefthand_file = 'modular_nova/master_files/icons/mob/inhands/equipment/medical_lefthand.dmi'
+	righthand_file = 'modular_nova/master_files/icons/mob/inhands/equipment/medical_righthand.dmi'
+	inhand_icon_state = "dynepaddles0"
+	base_icon_state = "dynepaddles0"
 
 /obj/item/storage/medkit/tactical/premium/interdyne
 	name = "\improper Interdyne Premium Doctor's Kit"
