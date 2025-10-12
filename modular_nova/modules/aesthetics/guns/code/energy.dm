@@ -21,9 +21,11 @@
 
 	if(shaded_charge == SHADED_CHARGE_MODE_LABELED)
 		. += "[icon_state]_[initial(shot.select_name)]_charge[ratio]"
+		return
 
 	if(shaded_charge == TRUE)
 		. += "[icon_state]_charge[ratio]"
+		return
 
 	var/mutable_appearance/charge_overlay = mutable_appearance(icon, overlay_icon_state)
 	for(var/i = ratio, i >= 1, i--)
@@ -49,6 +51,9 @@
 
 /obj/item/gun/energy/e_gun/stun
 	shaded_charge = TRUE
+
+/obj/item/gun/energy/e_gun/mini
+	charge_sections = 4
 
 /obj/item/gun/energy/e_gun/mini/add_seclight_point()
 	// The mini energy gun's light comes attached but is unremovable.
