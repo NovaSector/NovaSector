@@ -71,3 +71,25 @@ PDA GALORE!
 	greyscale_config = /datum/greyscale_config/tablet/nova/neko
 	greyscale_colors = "#ffccff#a92323"
 	flags_1 = IS_PLAYER_COLORABLE_1
+
+/obj/item/modular_computer/pda/old
+	name = "Outdated PDA"
+	desc = "This PDA is from a time since passed, still useful, built tough... may not be as fast due to its older parts.."
+	icon = 'modular_nova/master_files/icons/obj/devices/modular_pda.dmi'
+	icon_state = "/obj/item/modular_computer/pda/old"
+	post_init_icon_state = "pda"
+
+	greyscale_config = /datum/greyscale_config/tablet/nova/outdated
+	greyscale_colors = "#ffccff#a92323"
+	flags_1 = IS_PLAYER_COLORABLE_1
+
+/obj/item/modular_computer/pda/holodeck
+	name = "Holodeck PDA"
+	desc = "A somehat nice PDA, using holo technology for its display."
+	icon = 'modular_nova/master_files/icons/obj/devices/modular_pda.dmi'
+	icon_state = "/obj/item/modular_computer/pda/holodeck"
+	post_init_icon_state = "pda"
+
+	greyscale_config = /datum/greyscale_config/tablet/nova/outdated
+	greyscale_colors = "#ffccff#a92323"
+	flags_1 = IS_PLAYER_COLORABLE_1
