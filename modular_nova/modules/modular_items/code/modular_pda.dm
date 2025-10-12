@@ -55,7 +55,7 @@ PDA GALORE!
 	icon = 'modular_nova/master_files/icons/obj/devices/modular_pda.dmi'
 	icon_state = "/obj/item/modular_computer/pda/robust"
 	post_init_icon_state = "pda"
-	max_integrity = 250 // DAMN THAT SHIT GOOD
+	max_integrity = 250 // DAMN THAT IS PRETTY GOOD
 
 	greyscale_config = /datum/greyscale_config/tablet/nova/robust
 	greyscale_colors = "#ffccff#a92323"
@@ -85,11 +85,23 @@ PDA GALORE!
 
 /obj/item/modular_computer/pda/holodeck
 	name = "Holodeck PDA"
-	desc = "A somehat nice PDA, using holo technology for its display."
+	desc = "A somewhat nice PDA, using holo technology for its display."
 	icon = 'modular_nova/master_files/icons/obj/devices/modular_pda.dmi'
 	icon_state = "/obj/item/modular_computer/pda/holodeck"
 	post_init_icon_state = "pda"
 
 	greyscale_config = /datum/greyscale_config/tablet/nova/holodeck
+	greyscale_colors = "#ffccff#a92323"
+	flags_1 = IS_PLAYER_COLORABLE_1
+
+/obj/item/modular_computer/pda/hologram
+	name = "Holographic PDA"
+	desc = "A rather flimsy PDA device, built with holo technology for displaying data and information"
+	icon = 'modular_nova/master_files/icons/obj/devices/modular_pda.dmi'
+	icon_state = "/obj/item/modular_computer/pda/hologram"
+	post_init_icon_state = "pda"
+	max_integrity = 50
+
+	greyscale_config = /datum/greyscale_config/tablet/nova/hologram
 	greyscale_colors = "#ffccff#a92323"
 	flags_1 = IS_PLAYER_COLORABLE_1
