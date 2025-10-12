@@ -421,3 +421,13 @@
   - bugfix: fixed health analyzer lying about changeling husking being uncurable
   OrbisAnima:
   - bugfix: Restores the Eldritch Theme to the pda selection of the character options.
+2025-10-12:
+  OrbisAnima:
+  - rscadd: ID cards now show if they got weapon permits or not on double examine!
+  - rscadd: ID cards show if they have weapon permits on the hyperlink of the examine
+      panel! (yes, I didnt knew it was a thing either)
+  dee-dubya:
+  - rscadd: Adds the Fender revolver; a slimmed down variant of the Defonce - exclusive
+      to Blueshield weapon beacons.
+  - rscdel: As such; the Defonce is no longer able to be called by the Blueshield's
+      beacon.
