@@ -23,7 +23,7 @@ This is all our modular PDAs, ITS LARGE!
 	name = "Virtual PDA"
 	json_config = 'modular_nova/modules/GAGS/json_configs/modular_pda/virtual/pda_virtual.json'
 
-/// Ported from VOREstation
+/// Ported from Baystation
 /datum/greyscale_config/tablet/nova/robust
 	name = "Robust PDA"
 	json_config = 'modular_nova/modules/GAGS/json_configs/modular_pda/robust/pda_robust.json'
@@ -48,3 +48,35 @@ This is all our modular PDAs, ITS LARGE!
 /datum/greyscale_config/tablet/nova/hologram
 	name = "Holographic PDA"
 	json_config = 'modular_nova/modules/GAGS/json_configs/modular_pda/hologram/pda_hologram.json'
+
+/// Ported from VOREstation
+/datum/greyscale_config/tablet/nova/tablet
+	name = "Tablet PDA"
+	json_config = 'modular_nova/modules/GAGS/json_configs/modular_pda/tablet/pda_tablet.json'
+
+/// Ported from Dopplerstation
+/datum/greyscale_config/tablet/nova/g3
+	name = "Holographic PDA"
+	json_config = 'modular_nova/modules/GAGS/json_configs/modular_pda/hologram/pda_hologram.json'
+
+/// Ported from Dopplerstation
+/datum/greyscale_config/tablet/nova/slimline
+	name = "Holographic PDA"
+	json_config = 'modular_nova/modules/GAGS/json_configs/modular_pda/hologram/pda_hologram.json'
+
+/// Ported from Dopplerstation
+/datum/greyscale_config/tablet/nova/rugged
+	name = "Holographic PDA"
+	json_config = 'modular_nova/modules/GAGS/json_configs/modular_pda/hologram/pda_hologram.json'
+
+/// Ported from VOREstation
+/datum/greyscale_config/tablet/nova/holosystem
+	name = "Holographic PDA"
+	json_config = 'modular_nova/modules/GAGS/json_configs/modular_pda/hologram/pda_hologram.json'
+
+
+/// Ported from VOREstation
+/datum/greyscale_config/computer
+	name = "Hybrid Computer"
+	icon_file = 'modular_nova/master_files/icons/obj/devices/modular_laptop.dmi'
+	json_config = 'modular_nova/modules/GAGS/json_configs/modular_computer/elite-computer.json'
