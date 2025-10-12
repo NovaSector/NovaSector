@@ -84,7 +84,7 @@
 	// The more DNA features and random things we change, the more likely we are to catch something not updating correctly.
 	// Yeah guess who/what this is, I dare you.
 	ling.dna.features[FEATURE_MUTANT_COLOR] = "#886600"
-	ling.dna.mutant_bodyparts[FEATURE_TAIL_GENERIC] = list(MUTANT_INDEX_NAME = "Smooth", MUTANT_INDEX_COLOR_LIST = list("#886600", "#886600", "#886600")) // NOVA EDIT CHANGE - ORIGINAL: ling.dna.features[FEATURE_TAIL_LIZARD] = "Smooth"
+	ling.dna.mutant_bodyparts[FEATURE_TAIL] = list(MUTANT_INDEX_NAME = "Smooth", MUTANT_INDEX_COLOR_LIST = list("#886600", "#886600", "#886600")) // NOVA EDIT CHANGE - ORIGINAL: ling.dna.features[FEATURE_TAIL_LIZARD] = "Smooth"
 	ling.dna.mutant_bodyparts[FEATURE_SNOUT] = list(MUTANT_INDEX_NAME = "Sharp + Light", MUTANT_INDEX_COLOR_LIST = list("#886600", "#886600", "#886600")) // NOVA EDIT CHANGE - ORIGINAL: ling.dna.features[FEATURE_SNOUT] = "Sharp + Light"
 	ling.dna.mutant_bodyparts[FEATURE_HORNS] = list(MUTANT_INDEX_NAME = "Curled", MUTANT_INDEX_COLOR_LIST = list("#292826", "#292826", "#8292826")) // NOVA EDIT CHANGE - ORIGINAL: ling.dna.features[FEATURE_HORNS] = "Curved"
 	ling.dna.mutant_bodyparts[FEATURE_FRILLS] = list(MUTANT_INDEX_NAME = "Short", MUTANT_INDEX_COLOR_LIST = list("#886600", "#886600", "#886600")) // NOVA EDIT CHANGE - ORIGINAL: ling.dna.features[FEATURE_FRILLS] = "Sort"

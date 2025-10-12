@@ -47,7 +47,7 @@
 /datum/species/akula/get_default_mutant_bodyparts()
 	return list(
 		FEATURE_EARS = list("None", FALSE),
-		FEATURE_TAIL_GENERIC = list("Akula", TRUE),
+		FEATURE_TAIL = list("Akula", TRUE),
 		FEATURE_LEGS = list("Normal Legs", FALSE),
 	)
 
@@ -145,7 +145,7 @@
 	akula.dna.features[FEATURE_MUTANT_COLOR] = main_color
 	akula.dna.features[FEATURE_MUTANT_COLOR_TWO] = secondary_color
 	akula.dna.features[FEATURE_MUTANT_COLOR_THREE] = tertiary_color
-	akula.dna.mutant_bodyparts[FEATURE_TAIL_GENERIC] = list(MUTANT_INDEX_NAME = "Akula", MUTANT_INDEX_COLOR_LIST = list(main_color, secondary_color, tertiary_color))
+	akula.dna.mutant_bodyparts[FEATURE_TAIL] = list(MUTANT_INDEX_NAME = "Akula", MUTANT_INDEX_COLOR_LIST = list(main_color, secondary_color, tertiary_color))
 	akula.dna.features[FEATURE_LEGS] = "Normal Legs"
 	regenerate_organs(akula, src, visual_only = TRUE)
 	akula.update_body(TRUE)

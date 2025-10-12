@@ -24,7 +24,7 @@
 
 /datum/species/insect/get_default_mutant_bodyparts()
 	return list(
-		FEATURE_TAIL_GENERIC = list("None", FALSE),
+		FEATURE_TAIL = list("None", FALSE),
 		FEATURE_SNOUT = list("None", FALSE),
 		FEATURE_HORNS = list("None", FALSE),
 		FEATURE_EARS = list("None", FALSE),

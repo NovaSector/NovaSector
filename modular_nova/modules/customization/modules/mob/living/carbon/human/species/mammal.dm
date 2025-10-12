@@ -23,7 +23,7 @@
 
 /datum/species/mammal/get_default_mutant_bodyparts()
 	return list(
-		FEATURE_TAIL_GENERIC = list("Husky", TRUE),
+		FEATURE_TAIL = list("Husky", TRUE),
 		FEATURE_SNOUT = list("Husky", TRUE),
 		FEATURE_HORNS = list("None", FALSE),
 		FEATURE_EARS = list("Husky", TRUE),
@@ -111,6 +111,6 @@
 	human.dna.features[FEATURE_MUTANT_COLOR_THREE] = secondary_color
 	human.dna.mutant_bodyparts[FEATURE_EARS] = list(MUTANT_INDEX_NAME = "Husky", MUTANT_INDEX_COLOR_LIST = list(main_color, secondary_color, "#464646"))
 	human.dna.mutant_bodyparts[FEATURE_SNOUT] = list(MUTANT_INDEX_NAME = "Husky", MUTANT_INDEX_COLOR_LIST = list(main_color, secondary_color, secondary_color))
-	human.dna.mutant_bodyparts[FEATURE_TAIL_GENERIC] = list(MUTANT_INDEX_NAME = "Husky", MUTANT_INDEX_COLOR_LIST = list(main_color, "#4D4D4D", secondary_color))
+	human.dna.mutant_bodyparts[FEATURE_TAIL] = list(MUTANT_INDEX_NAME = "Husky", MUTANT_INDEX_COLOR_LIST = list(main_color, "#4D4D4D", secondary_color))
 	regenerate_organs(human, src, visual_only = TRUE)
 	human.update_body(TRUE)

@@ -44,7 +44,7 @@
 /datum/species/xeno/get_default_mutant_bodyparts()
 	return list(
 		FEATURE_EARS = list("None", FALSE),
-		FEATURE_TAIL_GENERIC = list("Xenomorph Tail", FALSE),
+		FEATURE_TAIL = list("Xenomorph Tail", FALSE),
 		FEATURE_XENODORSAL = list("Standard", TRUE),
 		FEATURE_XENOHEAD = list("Standard", TRUE),
 		FEATURE_LEGS = list(DIGITIGRADE_LEGS,FALSE),
@@ -80,7 +80,7 @@
 	var/xeno_color = "#525288"
 	xeno.dna.features[FEATURE_MUTANT_COLOR] = xeno_color
 	xeno.set_eye_color( "#30304F")
-	xeno.dna.mutant_bodyparts[FEATURE_TAIL_GENERIC] = list(MUTANT_INDEX_NAME = "Xenomorph Tail", MUTANT_INDEX_COLOR_LIST = list(xeno_color, xeno_color, xeno_color))
+	xeno.dna.mutant_bodyparts[FEATURE_TAIL] = list(MUTANT_INDEX_NAME = "Xenomorph Tail", MUTANT_INDEX_COLOR_LIST = list(xeno_color, xeno_color, xeno_color))
 	xeno.dna.mutant_bodyparts[FEATURE_XENODORSAL] = list(MUTANT_INDEX_NAME = "Standard", MUTANT_INDEX_COLOR_LIST = list(xeno_color))
 	xeno.dna.mutant_bodyparts[FEATURE_XENOHEAD] = list(MUTANT_INDEX_NAME = "Standard", MUTANT_INDEX_COLOR_LIST = list(xeno_color, xeno_color, xeno_color))
 	regenerate_organs(xeno, src, visual_only = TRUE)

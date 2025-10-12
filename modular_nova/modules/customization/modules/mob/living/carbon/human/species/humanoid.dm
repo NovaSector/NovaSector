@@ -15,7 +15,7 @@
 
 /datum/species/humanoid/get_default_mutant_bodyparts()
 	return list(
-		FEATURE_TAIL_GENERIC = list("None", FALSE),
+		FEATURE_TAIL = list("None", FALSE),
 		FEATURE_SNOUT = list("None", FALSE),
 		FEATURE_EARS = list("None", FALSE),
 		FEATURE_LEGS = list("Normal Legs", FALSE),

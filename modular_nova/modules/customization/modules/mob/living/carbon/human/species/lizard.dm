@@ -5,7 +5,7 @@
 
 /datum/species/lizard/get_default_mutant_bodyparts()
 	return list(
-		FEATURE_TAIL_GENERIC = list("Smooth", TRUE),
+		FEATURE_TAIL = list("Smooth", TRUE),
 		FEATURE_SNOUT = list("Sharp + Light", TRUE),
 		FEATURE_SPINES = list("Long + Membrane", TRUE),
 		FEATURE_FRILLS = list("Short", TRUE),
@@ -79,7 +79,7 @@
 
 /datum/species/lizard/prepare_human_for_preview(mob/living/carbon/human/lizard, lizard_color = "#009999")
 	lizard.dna.features[FEATURE_MUTANT_COLOR] = lizard_color
-	lizard.dna.mutant_bodyparts[FEATURE_TAIL_GENERIC] = list(MUTANT_INDEX_NAME = "Light Tiger", MUTANT_INDEX_COLOR_LIST = list(lizard_color, lizard_color, lizard_color))
+	lizard.dna.mutant_bodyparts[FEATURE_TAIL] = list(MUTANT_INDEX_NAME = "Light Tiger", MUTANT_INDEX_COLOR_LIST = list(lizard_color, lizard_color, lizard_color))
 	lizard.dna.mutant_bodyparts[FEATURE_SNOUT] = list(MUTANT_INDEX_NAME = "Sharp + Light", MUTANT_INDEX_COLOR_LIST = list(lizard_color, lizard_color, lizard_color))
 	lizard.dna.mutant_bodyparts[FEATURE_HORNS] = list(MUTANT_INDEX_NAME = "Simple", MUTANT_INDEX_COLOR_LIST = list(lizard_color, lizard_color, lizard_color))
 	lizard.dna.mutant_bodyparts[FEATURE_FRILLS] = list(MUTANT_INDEX_NAME = "Aquatic", MUTANT_INDEX_COLOR_LIST = list(lizard_color, lizard_color, lizard_color))

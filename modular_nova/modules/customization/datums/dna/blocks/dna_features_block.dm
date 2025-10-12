@@ -52,7 +52,7 @@
 	target.dna.mutant_bodyparts[feature_key][MUTANT_INDEX_COLOR_LIST] = color_portions
 
 /datum/dna_block/feature/mutant/tail_generic
-	feature_key = FEATURE_TAIL_GENERIC
+	feature_key = FEATURE_TAIL
 
 /datum/dna_block/feature/mutant/snout
 	feature_key = FEATURE_SNOUT

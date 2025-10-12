@@ -38,7 +38,7 @@
 
 /datum/species/monkey/kobold/get_default_mutant_bodyparts()
 	return list(
-		FEATURE_TAIL_GENERIC = list("Smooth", TRUE),
+		FEATURE_TAIL = list("Smooth", TRUE),
 		FEATURE_SNOUT = list("Round", TRUE),
 		FEATURE_FRILLS = list("Short", FALSE),
 		FEATURE_HORNS = list("Curled", FALSE),
@@ -129,7 +129,7 @@
 	kobold.dna.features[FEATURE_MUTANT_COLOR_TWO] = second_color
 	kobold.dna.features[FEATURE_MUTANT_COLOR_THREE] = third_color
 	kobold.dna.mutant_bodyparts[FEATURE_SNOUT] = list(MUTANT_INDEX_NAME = "Round", MUTANT_INDEX_COLOR_LIST = list(main_color, main_color, main_color))
-	kobold.dna.mutant_bodyparts[FEATURE_TAIL_GENERIC] = list(MUTANT_INDEX_NAME = "Smooth", MUTANT_INDEX_COLOR_LIST = list(second_color, main_color, main_color))
+	kobold.dna.mutant_bodyparts[FEATURE_TAIL] = list(MUTANT_INDEX_NAME = "Smooth", MUTANT_INDEX_COLOR_LIST = list(second_color, main_color, main_color))
 	kobold.dna.mutant_bodyparts[FEATURE_HORNS] = list(MUTANT_INDEX_NAME = "Curled", MUTANT_INDEX_COLOR_LIST = list(main_color, main_color, main_color))
 	kobold.dna.mutant_bodyparts[FEATURE_FRILLS] = list(MUTANT_INDEX_NAME = "Short", MUTANT_INDEX_COLOR_LIST = list(main_color, main_color, main_color))
 	regenerate_organs(kobold, src, visual_only = TRUE)

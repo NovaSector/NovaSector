@@ -37,7 +37,7 @@
 /datum/species/insectoid/get_default_mutant_bodyparts()
 	return list(
 		FEATURE_EARS = list("Royal Antenna", FALSE),
-		FEATURE_TAIL_GENERIC = list("Insectoid", FALSE),
+		FEATURE_TAIL = list("Insectoid", FALSE),
 		FEATURE_WINGS = list("Insectoid II", FALSE),
 		FEATURE_FLUFF = list("Insectoid", FALSE),
 		FEATURE_LEGS = list(NORMAL_LEGS, FALSE),

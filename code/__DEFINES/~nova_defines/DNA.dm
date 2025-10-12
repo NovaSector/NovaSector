@@ -103,7 +103,7 @@
 #define FEATURE_MUTANT_COLOR_TWO "mcolor2"
 #define FEATURE_MUTANT_COLOR_THREE "mcolor3"
 #define FEATURE_MARKING_GENERIC "body_markings"
-#define FEATURE_TAIL_GENERIC "tail"
+#define FEATURE_TAIL "tail"
 #define FEATURE_TAUR "taur"
 #define FEATURE_SKIN_COLOR "skin_color"
 #define FEATURE_XENODORSAL "xenodorsal"

@@ -25,7 +25,7 @@
 
 /datum/species/aquatic/get_default_mutant_bodyparts()
 	return list(
-		FEATURE_TAIL_GENERIC = list("Shark", TRUE),
+		FEATURE_TAIL = list("Shark", TRUE),
 		FEATURE_SNOUT = list("Shark", TRUE),
 		FEATURE_HORNS = list("None", FALSE),
 		FEATURE_EARS = list("Hammerhead", TRUE),

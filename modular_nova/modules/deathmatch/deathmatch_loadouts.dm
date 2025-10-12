@@ -62,7 +62,7 @@
 	features[FEATURE_MUTANT_COLOR_THREE] = tertiary_color
 	//clear mutant parts
 	for(var/feature in user.dna.mutant_bodyparts)
-		if(feature == FEATURE_TAIL_GENERIC)
+		if(feature == FEATURE_TAIL)
 			user.dna.mutant_bodyparts[feature] = list(MUTANT_INDEX_NAME = "Akula", MUTANT_INDEX_COLOR_LIST = list(features[FEATURE_MUTANT_COLOR], features[FEATURE_MUTANT_COLOR_TWO], features[FEATURE_MUTANT_COLOR_THREE]))
 			continue
 		user.dna.mutant_bodyparts[feature] = null

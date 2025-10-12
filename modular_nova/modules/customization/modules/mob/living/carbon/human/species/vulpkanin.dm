@@ -25,7 +25,7 @@
 
 /datum/species/vulpkanin/get_default_mutant_bodyparts()
 	return list(
-		FEATURE_TAIL_GENERIC = list("Fox", TRUE),
+		FEATURE_TAIL = list("Fox", TRUE),
 		FEATURE_SNOUT = list("Mammal, Long", TRUE),
 		FEATURE_EARS = list("Fox", TRUE),
 		FEATURE_LEGS = list("Normal Legs", FALSE),
@@ -86,7 +86,7 @@
 	vulp.dna.features[FEATURE_MUTANT_COLOR_TWO] = second_color
 	vulp.dna.features[FEATURE_MUTANT_COLOR_THREE] = second_color
 	vulp.dna.mutant_bodyparts[FEATURE_SNOUT] = list(MUTANT_INDEX_NAME = "Mammal, Long", MUTANT_INDEX_COLOR_LIST = list(main_color, main_color, main_color))
-	vulp.dna.mutant_bodyparts[FEATURE_TAIL_GENERIC] = list(MUTANT_INDEX_NAME = "Husky", MUTANT_INDEX_COLOR_LIST = list(second_color, main_color, main_color))
+	vulp.dna.mutant_bodyparts[FEATURE_TAIL] = list(MUTANT_INDEX_NAME = "Husky", MUTANT_INDEX_COLOR_LIST = list(second_color, main_color, main_color))
 	vulp.dna.mutant_bodyparts[FEATURE_EARS] = list(MUTANT_INDEX_NAME = "Wolf", MUTANT_INDEX_COLOR_LIST = list(main_color, second_color, second_color))
 	regenerate_organs(vulp, src, visual_only = TRUE)
 	vulp.update_body(TRUE)
