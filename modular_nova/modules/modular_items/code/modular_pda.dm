@@ -90,6 +90,6 @@ PDA GALORE!
 	icon_state = "/obj/item/modular_computer/pda/holodeck"
 	post_init_icon_state = "pda"
 
-	greyscale_config = /datum/greyscale_config/tablet/nova/outdated
+	greyscale_config = /datum/greyscale_config/tablet/nova/holodeck
 	greyscale_colors = "#ffccff#a92323"
 	flags_1 = IS_PLAYER_COLORABLE_1
