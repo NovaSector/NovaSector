@@ -2,6 +2,15 @@
 
 #define CRANK_MESSAGE "Outfitted with a manual dyno-crank assembly. Burns an action to top up the cell on the fly, slower than a proper charger, but keeps you shooting when it counts."
 
+// alt method for selecting firemodes - not on attack_self_secondary because that conflicts with gun spinning, but maybe it should be.
+/obj/item/gun/energy/attack_hand_secondary(mob/user, list/modifiers)
+	. = ..()
+	if(. == SECONDARY_ATTACK_CANCEL_ATTACK_CHAIN)
+		return .
+	if(ammo_type.len > 1 && can_select)
+		select_fire(user)
+	return SECONDARY_ATTACK_CANCEL_ATTACK_CHAIN
+
 // Allstar sc1 laser carbine, the allstar sc1 laser auto carbine (/obj/item/gun/energy/laser/carbine) and Hellfire laser gun (/obj/item/gun/energy/laser/hellgun) are included since they are its child.
 /obj/item/gun/energy/laser/Initialize(mapload)
 	. = ..()

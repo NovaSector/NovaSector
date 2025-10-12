@@ -7436,6 +7436,7 @@
 #include "modular_nova\modules\aesthetics\flag\code\signs_flags.dm"
 #include "modular_nova\modules\aesthetics\floors\code\floors.dm"
 #include "modular_nova\modules\aesthetics\furniture\bed.dm"
+#include "modular_nova\modules\aesthetics\guns\code\energy.dm"
 #include "modular_nova\modules\aesthetics\guns\code\guns.dm"
 #include "modular_nova\modules\aesthetics\guns\code\magazine.dm"
 #include "modular_nova\modules\aesthetics\heater\code\spaceheater.dm"
