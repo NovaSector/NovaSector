@@ -61,7 +61,13 @@ PDA GALORE!
 	greyscale_colors = "#ffccff#a92323"
 	flags_1 = IS_PLAYER_COLORABLE_1
 
+/obj/item/modular_computer/pda/neko
+	name = "Neko PDA"
+	desc = "This thing is an affront to something."
+	icon = 'modular_nova/master_files/icons/obj/devices/modular_pda.dmi'
+	icon_state = "/obj/item/modular_computer/pda/neko"
+	post_init_icon_state = "pda"
 
-
-
-
+	greyscale_config = /datum/greyscale_config/tablet/nova/neko
+	greyscale_colors = "#ffccff#a92323"
+	flags_1 = IS_PLAYER_COLORABLE_1
