@@ -589,6 +589,10 @@
 /obj/machinery/door/puzzle/keycard/misc_anomalies,
 /turf/open/floor/iron/small,
 /area/awaymission/caves/heretic_laboratory)
+"eu" = (
+/obj/machinery/vending/wardrobe/syndie_wardrobe,
+/turf/open/floor/iron/small,
+/area/awaymission/caves/heretic_laboratory)
 "ev" = (
 /obj/effect/turf_decal/stripes/line{
 	dir = 1
@@ -2041,6 +2045,13 @@
 	},
 /turf/open/floor/iron/small,
 /area/awaymission/caves/heretic_laboratory)
+"nz" = (
+/obj/machinery/conveyor/auto/hardened{
+	dir = 4
+	},
+/obj/machinery/door/puzzle/keycard/highsec_access,
+/turf/open/floor/plating,
+/area/awaymission/caves/heretic_laboratory_clean)
 "nC" = (
 /obj/effect/blessing,
 /turf/open/floor/iron/pool/cobble/corner,
@@ -12756,7 +12767,7 @@ xl
 xl
 xl
 xl
-MV
+nz
 xl
 xl
 xl
@@ -36952,7 +36963,7 @@ bq
 bq
 bq
 bq
-bq
+ZD
 KB
 nG
 vn
@@ -37204,7 +37215,7 @@ bZ
 bZ
 bZ
 KB
-ZD
+eu
 bq
 bq
 bq
