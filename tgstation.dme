@@ -8744,6 +8744,8 @@
 #include "modular_nova\modules\modular_weapons\code\melee.dm"
 #include "modular_nova\modules\modular_weapons\code\modular_projectiles.dm"
 #include "modular_nova\modules\modular_weapons\code\pepperball_gun.dm"
+#include "modular_nova\modules\modular_weapons\code\knuckleduster.dm"
+#include "modular_nova\modules\modular_weapons\code\detective_beacon.dm"
 #include "modular_nova\modules\modular_weapons\code\cargo_crates\armory_guns.dm"
 #include "modular_nova\modules\modular_weapons\code\cargo_crates\surplus_crates.dm"
 #include "modular_nova\modules\modular_weapons\code\company_and_or_faction_based\gun_cases.dm"
