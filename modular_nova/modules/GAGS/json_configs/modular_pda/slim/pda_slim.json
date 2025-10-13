@@ -14,8 +14,8 @@
 		},
 		{
 			"type": "icon_state",
-			"icon_state": "pda_slimline_buttons",
-			"blend_mode": "pda_screen_borders"
+			"icon_state": "pda_screen_borders",
+			"blend_mode": "overlay"
 		}
 	]
 }
