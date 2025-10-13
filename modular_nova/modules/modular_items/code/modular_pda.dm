@@ -10,7 +10,7 @@ PDA GALORE!
 	post_init_icon_state = "pda"
 
 	greyscale_config = /datum/greyscale_config/tablet/nova
-	greyscale_colors = "#ffccff#a92323"
+	greyscale_colors = "#5f5f5f#969696"
 	flags_1 = IS_PLAYER_COLORABLE_1
 
 /obj/item/modular_computer/pda/ultraslim
@@ -22,7 +22,7 @@ PDA GALORE!
 	max_integrity = 50
 
 	greyscale_config = /datum/greyscale_config/tablet/nova/ultraslim
-	greyscale_colors = "#ffccff#a92323"
+	greyscale_colors = "#5f5f5f#969696"
 	flags_1 = IS_PLAYER_COLORABLE_1
 
 /obj/item/modular_computer/pda/ceti
@@ -34,7 +34,7 @@ PDA GALORE!
 	max_integrity = 200
 
 	greyscale_config = /datum/greyscale_config/tablet/nova/ceti
-	greyscale_colors = "#ffccff#a92323"
+	greyscale_colors = "#5f5f5f#969696"
 	flags_1 = IS_PLAYER_COLORABLE_1
 
 /obj/item/modular_computer/pda/virtual
@@ -46,7 +46,7 @@ PDA GALORE!
 	max_integrity = 125
 
 	greyscale_config = /datum/greyscale_config/tablet/nova/virtual
-	greyscale_colors = "#ffccff#a92323"
+	greyscale_colors = "#5f5f5f#969696"
 	flags_1 = IS_PLAYER_COLORABLE_1
 
 /obj/item/modular_computer/pda/robust
@@ -58,7 +58,7 @@ PDA GALORE!
 	max_integrity = 250 // DAMN THAT IS PRETTY GOOD
 
 	greyscale_config = /datum/greyscale_config/tablet/nova/robust
-	greyscale_colors = "#ffccff#a92323"
+	greyscale_colors = "#5f5f5f#969696"
 	flags_1 = IS_PLAYER_COLORABLE_1
 
 /obj/item/modular_computer/pda/neko
@@ -69,7 +69,7 @@ PDA GALORE!
 	post_init_icon_state = "pda"
 
 	greyscale_config = /datum/greyscale_config/tablet/nova/neko
-	greyscale_colors = "#ffccff#a92323"
+	greyscale_colors = "#5f5f5f#969696"
 	flags_1 = IS_PLAYER_COLORABLE_1
 
 /obj/item/modular_computer/pda/old
@@ -80,7 +80,7 @@ PDA GALORE!
 	post_init_icon_state = "pda"
 
 	greyscale_config = /datum/greyscale_config/tablet/nova/outdated
-	greyscale_colors = "#ffccff#a92323"
+	greyscale_colors = "#5f5f5f#969696"
 	flags_1 = IS_PLAYER_COLORABLE_1
 
 /obj/item/modular_computer/pda/holodeck
@@ -91,7 +91,7 @@ PDA GALORE!
 	post_init_icon_state = "pda"
 
 	greyscale_config = /datum/greyscale_config/tablet/nova/holodeck
-	greyscale_colors = "#ffccff#a92323"
+	greyscale_colors = "#5f5f5f#969696"
 	flags_1 = IS_PLAYER_COLORABLE_1
 
 /obj/item/modular_computer/pda/hologram
@@ -103,5 +103,63 @@ PDA GALORE!
 	max_integrity = 50
 
 	greyscale_config = /datum/greyscale_config/tablet/nova/hologram
-	greyscale_colors = "#ffccff#a92323"
+	greyscale_colors = "#5f5f5f#969696"
+	flags_1 = IS_PLAYER_COLORABLE_1
+
+/obj/item/modular_computer/pda/tablet
+	name = "Tablet PDA"
+	desc = "A niche type of PDA, its rumored you can hear someone asking if you have games on it."
+	icon = 'modular_nova/master_files/icons/obj/devices/modular_pda.dmi'
+	icon_state = "/obj/item/modular_computer/pda/tablet"
+	post_init_icon_state = "pda"
+
+	greyscale_config = /datum/greyscale_config/tablet/nova/tablet
+	greyscale_colors = "#5f5f5f#969696"
+	flags_1 = IS_PLAYER_COLORABLE_1
+
+/obj/item/modular_computer/pda/slimline
+	name = "Slim PDA"
+	desc = "A much slimmer, portable micro computer"
+	icon = 'modular_nova/master_files/icons/obj/devices/modular_pda.dmi'
+	icon_state = "/obj/item/modular_computer/pda/slimline"
+	post_init_icon_state = "pda"
+
+	greyscale_config = /datum/greyscale_config/tablet/nova/slimline
+	greyscale_colors = "#5f5f5f#969696"
+	flags_1 = IS_PLAYER_COLORABLE_1
+
+/obj/item/modular_computer/pda/rugged
+	name = "Rugged PDA"
+	desc = "A much more rugged and well built portable micro computer."
+	icon = 'modular_nova/master_files/icons/obj/devices/modular_pda.dmi'
+	icon_state = "/obj/item/modular_computer/pda/rugged"
+	post_init_icon_state = "pda"
+	max_integrity = 150
+
+	greyscale_config = /datum/greyscale_config/tablet/nova/rugged
+	greyscale_colors = "#5f5f5f#969696"
+	flags_1 = IS_PLAYER_COLORABLE_1
+
+/obj/item/modular_computer/pda/g3
+	name = "G3 PDA"
+	desc = "A unique portable micro computer design."
+	icon = 'modular_nova/master_files/icons/obj/devices/modular_pda.dmi'
+	icon_state = "/obj/item/modular_computer/pda/g3"
+	post_init_icon_state = "pda"
+	max_integrity = 50
+
+	greyscale_config = /datum/greyscale_config/tablet/nova/g3
+	greyscale_colors = "#5f5f5f#969696"
+	flags_1 = IS_PLAYER_COLORABLE_1
+
+/obj/item/modular_computer/pda/holosystem
+	name = "Holosystem PDA"
+	desc = "A holographic portable micro computer."
+	icon = 'modular_nova/master_files/icons/obj/devices/modular_pda.dmi'
+	icon_state = "/obj/item/modular_computer/pda/holosystem"
+	post_init_icon_state = "pda"
+	max_integrity = 50
+
+	greyscale_config = /datum/greyscale_config/tablet/nova/holosystem
+	greyscale_colors = "#5f5f5f#969696"
 	flags_1 = IS_PLAYER_COLORABLE_1
