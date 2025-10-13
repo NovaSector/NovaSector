@@ -80,6 +80,9 @@
 /// The trait that determines if someone has the oversized quirk.
 #define TRAIT_OVERSIZED "trait_oversized"
 
+//// The trait for undersized quirk
+#define TRAIT_UNDERSIZED "undersized"
+
 /// The trait that allows taurs to lay down (loaf)
 #define TRAIT_TAUR_LOAF "taur-laydown"
 
