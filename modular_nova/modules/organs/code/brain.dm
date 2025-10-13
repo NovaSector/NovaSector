@@ -44,6 +44,11 @@
 	if(slot == ITEM_SLOT_ID)
 		internal_computer.handle_id_slot(owner, item)
 
+/// Mark cortical brains as robotic for systems that require synthetic brains
+/obj/item/organ/brain/cybernetic/cortical/Initialize(mapload)
+	. = ..()
+	organ_flags |= ORGAN_ROBOTIC
+
 //Extra effects
 /obj/item/organ/brain/cybernetic/cortical/emp_act(severity)
 	. = ..()
