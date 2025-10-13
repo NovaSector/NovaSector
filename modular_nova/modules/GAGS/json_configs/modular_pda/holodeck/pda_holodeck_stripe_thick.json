@@ -17,11 +17,6 @@
 			"icon_state": "pda_holodeck_stripe_thick",
 			"blend_mode": "overlay",
 			"color_ids": [3]
-		},
-		{
-			"type": "icon_state",
-			"icon_state": "pda_screen_borders",
-			"blend_mode": "overlay"
 		}
 	]
 }
