@@ -2,11 +2,6 @@
 	"pda": [
 		{
 			"type": "icon_state",
-			"icon_state": "pda_tablet_handles",
-			"blend_mode": "overlay"
-		},
-		{
-			"type": "icon_state",
 			"icon_state": "pda_tablet",
 			"blend_mode": "overlay",
 			"color_ids": [1]

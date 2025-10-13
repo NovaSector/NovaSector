@@ -2,7 +2,7 @@
 	"pda": [
 		{
 			"type": "icon_state",
-			"icon_state": "pda_rugged",
+			"icon_state": "pda_slimline",
 			"blend_mode": "overlay",
 			"color_ids": [1]
 		},
@@ -14,14 +14,8 @@
 		},
 		{
 			"type": "icon_state",
-			"icon_state": "pda_rugged_stripe_double",
-			"blend_mode": "overlay",
-			"color_ids": [3]
-		},
-		{
-			"type": "icon_state",
-			"icon_state": "pda_screen_borders",
-			"blend_mode": "overlay"
+			"icon_state": "pda_slimline_buttons",
+			"blend_mode": "pda_screen_borders"
 		}
 	]
 }
