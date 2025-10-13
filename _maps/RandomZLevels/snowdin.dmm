@@ -6871,6 +6871,7 @@
 /obj/effect/turf_decal/tile/neutral/half/contrasted{
 	dir = 4
 	},
+/obj/item/broken_bottle,
 /turf/open/floor/iron,
 /area/awaymission/snowdin/post/minipost)
 "Az" = (

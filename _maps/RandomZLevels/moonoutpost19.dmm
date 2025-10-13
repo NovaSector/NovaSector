@@ -1795,6 +1795,10 @@
 /obj/item/radio/off,
 /turf/open/floor/mineral/titanium/yellow,
 /area/awaymission/moonoutpost19/arrivals)
+"lY" = (
+/obj/item/broken_bottle,
+/turf/open/misc/asteroid/basalt,
+/area/awaymission/moonoutpost19/main)
 "lZ" = (
 /obj/machinery/computer/security/telescreen/entertainment/directional/west,
 /turf/open/floor/mineral/titanium/yellow,
@@ -40814,7 +40818,7 @@ aL
 aL
 aL
 aL
-aL
+lY
 My
 Bz
 My

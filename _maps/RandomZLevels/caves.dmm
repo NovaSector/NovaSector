@@ -1152,6 +1152,10 @@
 /obj/machinery/light/small/built/directional/east,
 /turf/open/misc/asteroid/basalt,
 /area/awaymission/caves/bmp_asteroid/level_two)
+"vp" = (
+/obj/item/broken_bottle,
+/turf/open/misc/asteroid/basalt,
+/area/awaymission/caves/bmp_asteroid)
 "vR" = (
 /obj/structure/sign/departments/medbay/directional/west,
 /turf/open/misc/asteroid/basalt,
@@ -12314,7 +12318,7 @@ BK
 BK
 BK
 Mq
-BK
+vp
 BK
 fJ
 fQ

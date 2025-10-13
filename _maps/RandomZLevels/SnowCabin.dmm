@@ -498,6 +498,15 @@
 /obj/structure/closet/crate/bin,
 /turf/open/floor/iron/freezer,
 /area/awaymission/cabin)
+"cb" = (
+/obj/effect/light_emitter{
+	set_cap = 3;
+	set_luminosity = 6;
+	light_color = "#9bbbff"
+	},
+/obj/item/broken_bottle,
+/turf/open/floor/plating/snowed/snow_cabin,
+/area/awaymission/cabin/snowforest/sovietsurface)
 "ci" = (
 /obj/structure/chair/wood,
 /turf/open/floor/wood,
@@ -42544,7 +42553,7 @@ yP
 SK
 QC
 SK
-Ae
+cb
 yU
 Xw
 XQ

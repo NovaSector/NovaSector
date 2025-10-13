@@ -4636,6 +4636,7 @@
 /obj/item/poster/random_contraband,
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/mapping_helpers/burnt_floor,
+/obj/item/broken_bottle,
 /turf/open/floor/plating,
 /area/awaymission/undergroundoutpost45/research)
 "rE" = (

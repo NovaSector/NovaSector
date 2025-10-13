@@ -1993,6 +1993,10 @@
 	},
 /turf/open/floor/carpet/cyan,
 /area/awaymission/museum/mothroachvoid)
+"qv" = (
+/obj/item/broken_bottle,
+/turf/open/floor/iron,
+/area/awaymission/museum)
 "qw" = (
 /obj/item/flashlight/flare{
 	icon_state = "flare-on";
@@ -34409,7 +34413,7 @@ uY
 Yk
 qj
 uY
-uY
+qv
 Rq
 FK
 nE

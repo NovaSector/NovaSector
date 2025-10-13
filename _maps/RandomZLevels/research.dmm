@@ -382,6 +382,7 @@
 /area/awaymission/research/interior/engineering)
 "bP" = (
 /obj/structure/sign/warning/vacuum/directional/east,
+/obj/item/broken_bottle,
 /turf/open/floor/plating,
 /area/awaymission/research/interior/maint)
 "bQ" = (
