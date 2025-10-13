@@ -13,3 +13,4 @@
 		/obj/item/choice_beacon/detective = 1,
 		/obj/item/storage/box/evidence = 1,
 	)
+
