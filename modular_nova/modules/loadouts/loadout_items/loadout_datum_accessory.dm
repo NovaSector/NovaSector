@@ -122,6 +122,10 @@
 	abstract_type = /datum/loadout_item/accessory/medal
 	group = "Medals"
 
+/datum/loadout_item/accessory/medal/dogtags
+	name = "Dogtags"
+	item_path = /obj/item/clothing/accessory/nova/acc_medal/dogtags
+
 /datum/loadout_item/accessory/medal/shield
 	name = "Medal - Shield"
 	item_path = /obj/item/clothing/accessory/nova/acc_medal/shield
@@ -199,13 +203,10 @@
 	name = "Medal - Crown (Hollow, Bar-Ribbon)"
 	item_path = /obj/item/clothing/accessory/nova/acc_medal/crown/hollow/bar_ribbon
 
-/datum/loadout_item/accessory/medal/glow_bar
-	name = "Glowbar necklace"
-	item_path = /obj/item/clothing/accessory/nova/acc_medal/glowbar
-
 /datum/loadout_item/accessory/medal/glow_crystal
 	name = "Glowcrystal necklace"
 	item_path = /obj/item/clothing/accessory/nova/acc_medal/glowcrystal
+	can_be_reskinned = TRUE
 
 /datum/loadout_item/accessory/medal/rankpin_star
 	name = "Rankpin (Star)"
@@ -279,30 +280,3 @@
 /datum/loadout_item/accessory/medal/ribbon7
 	name = "Ribbon (Two-Tone)"
 	item_path = /obj/item/clothing/accessory/nova/ribbon/ribbon_twotone
-
-/*
-* Webbings
-*/
-
-/datum/loadout_item/accessory/webbing
-	name = "Webbing - Basic"
-	item_path = /obj/item/clothing/accessory/webbing
-
-/datum/loadout_item/accessory/colonial_webbing
-	name = "Webbing - Colonial"
-	item_path = /obj/item/clothing/accessory/webbing/colonial
-
-/datum/loadout_item/accessory/webbing_vest
-	name = "Webbing - Vest"
-	item_path = /obj/item/clothing/accessory/webbing/vest
-	can_be_reskinned = TRUE
-
-/datum/loadout_item/accessory/webbing_pouch
-	name = "Webbing - Drop Pouches"
-	item_path = /obj/item/clothing/accessory/webbing/pouch
-	can_be_reskinned = TRUE
-
-/datum/loadout_item/accessory/webbing_pilot
-	name = "Webbing - Rigging"
-	item_path = /obj/item/clothing/accessory/webbing/pilot
-	can_be_reskinned = TRUE

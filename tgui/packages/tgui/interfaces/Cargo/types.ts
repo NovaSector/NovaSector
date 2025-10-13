@@ -1,4 +1,4 @@
-import { BooleanLike } from 'tgui-core/react';
+import type { BooleanLike } from 'tgui-core/react';
 
 export type CargoData = {
   amount_by_name: Record<string, number> | undefined;
@@ -65,5 +65,6 @@ type Request = {
   id: string;
   object: string;
   orderer: string;
+  account: string;
   reason: string;
 };

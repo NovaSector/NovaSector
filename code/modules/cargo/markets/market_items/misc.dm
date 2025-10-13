@@ -72,7 +72,7 @@
 /datum/market_item/misc/hat_stabilizer
 	name = "MOD Hat Stabilizer Module"
 	desc = "Don't sacrifice style for substance with this module! Hats not included."
-	item = /obj/item/mod/module/tanner
+	item = /obj/item/mod/module/hat_stabilizer
 	price_min = CARGO_CRATE_VALUE * 2
 	price_max = CARGO_CRATE_VALUE * 3
 	stock_max = 2
@@ -185,7 +185,7 @@
 
 /datum/market_item/misc/girlypop/spawn_item(loc, datum/market_purchase/purchase)
 	. = ..()
-	var/obj/structure/closet/crate/pink/C = new(loc)
+	var/obj/structure/closet/crate/glitter/C = new(loc)
 	for (var/type in list(
 		/obj/item/poster/contraband/dream,
 		/obj/item/poster/contraband/beekind,

@@ -9,6 +9,7 @@
 	icon_state = "35sol"
 
 	caliber = CALIBER_SOL35SHORT
+	ammo_stack_type = /obj/item/ammo_box/magazine/ammo_stack/c35_sol
 	projectile_type = /obj/projectile/bullet/c35sol
 
 
@@ -52,7 +53,6 @@
 
 	projectile_type = /obj/projectile/bullet/c35sol/incapacitator
 	harmful = FALSE
-	print_cost = 0
 	ammo_categories = AMMO_CLASS_NONE
 
 
@@ -100,7 +100,6 @@
 
 	custom_materials = AMMO_MATS_RIPPER
 	ammo_categories = AMMO_CLASS_PLUS
-	print_cost = 2
 
 /obj/projectile/bullet/c35sol/ripper
 	name = ".35 Sol ripper bullet"
@@ -145,7 +144,6 @@
 
 	projectile_type = /obj/projectile/bullet/c35sol/flash
 	harmful = FALSE
-	print_cost = 0
 	ammo_categories = AMMO_CLASS_NONE
 
 /obj/projectile/bullet/c35sol/flash
@@ -173,3 +171,14 @@
 	icon_state = "35box_flash"
 
 	ammo_type = /obj/item/ammo_casing/c35sol/flash
+
+/obj/item/ammo_box/speedloader/c35sol
+	name = "speed loader (.35 Sol Short)"
+	desc = "Designed to quickly reload eight-chamber .35 Sol Short revolvers."
+	icon = 'modular_nova/modules/modular_weapons/icons/obj/company_and_or_faction_based/carwo_defense_systems/ammo.dmi'
+	icon_state = "sl35sol"
+	ammo_type = /obj/item/ammo_casing/c35sol
+	max_ammo = 8
+	caliber = CALIBER_SOL35SHORT
+	ammo_band_icon = "+sl35_band"
+	ammo_band_color = null

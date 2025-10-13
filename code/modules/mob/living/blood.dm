@@ -28,8 +28,7 @@
 	//Bloodloss from wounds
 	var/temp_bleed = 0
 	for(var/obj/item/bodypart/iter_part as anything in bodyparts)
-		var/iter_bleed_rate = iter_part.get_modified_bleed_rate()
-		temp_bleed += iter_bleed_rate * seconds_per_tick
+		temp_bleed += iter_part.cached_bleed_rate * seconds_per_tick
 
 		if(iter_part.generic_bleedstacks) // If you don't have any bleedstacks, don't try and heal them
 			iter_part.adjustBleedStacks(-1, 0)
@@ -97,6 +96,10 @@
 			if(SPT_PROB(7.5, seconds_per_tick))
 				Unconscious(rand(1 SECONDS, 2 SECONDS))
 				to_chat(src, span_userdanger("You black out for a moment!"))
+				// NOVA EDIT ADDITION START
+				if(ishemophage(src))
+					src.visible_message(span_warning("[src] convulses before crumpling to the floor, black veins beginning to throb outwardly along their body."), ignored_mobs = src)
+				// NOVA EDIT ADDITION END
 		// Instantly die upon this threshold
 		if(-INFINITY to BLOOD_VOLUME_SURVIVE)
 			if(!HAS_TRAIT(src, TRAIT_NODEATH))
@@ -145,7 +148,7 @@
 	var/bleed_amt = 0
 	for(var/X in bodyparts)
 		var/obj/item/bodypart/iter_bodypart = X
-		bleed_amt += iter_bodypart.get_modified_bleed_rate()
+		bleed_amt += iter_bodypart.cached_bleed_rate
 	return bleed_amt
 
 /mob/living/carbon/human/get_bleed_rate()
@@ -476,6 +479,9 @@
 /mob/living/proc/add_splatter_floor(turf/splatter_turf, small_drip = FALSE)
 	if (!splatter_turf)
 		splatter_turf = get_turf(src)
+
+	if (!splatter_turf)
+		return
 
 	// Check for husking and TRAIT_NOBLOOD
 	switch (can_bleed(BLOOD_COVER_TURFS))

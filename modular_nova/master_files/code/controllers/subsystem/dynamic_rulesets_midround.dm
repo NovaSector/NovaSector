@@ -1,12 +1,44 @@
-/datum/dynamic_ruleset/midround/from_living/autotraitor
+/// Name-change proc to be used for midround antags that would like to change their name
+/datum/dynamic_ruleset/midround/from_ghosts/proc/prompt_namechange(mob/living/player, client/player_client)
+	if(!player_client)
+		return
+	var/old_name = player.real_name
+	player.playsound_local(player, 'sound/machines/terminal/terminal_prompt.ogg', 50, FALSE)
+	window_flash(player_client)
+	switch(tgui_alert(
+			player,
+			"Do you wish to take on an alias?",
+			"Change Name?",
+			list("Operative alias", "Random alias", "Keep current name"),
+			1 MINUTES,
+		))
+		if("Operative alias")
+			player.fully_replace_character_name(player.real_name, "[player_client?.prefs?.read_preference(/datum/preference/name/operative_alias)]")
+			player.playsound_local(player, 'sound/machines/terminal/terminal_prompt_confirm.ogg', 50, FALSE)
+			message_admins("[ADMIN_LOOKUPFLW(player)] has taken on [player.p_their()] operative alias, [player.p_their()] previous name was [old_name].")
+		if("Random alias")
+			player.fully_replace_character_name(player.real_name, "[pick(GLOB.operative_aliases)] [syndicate_name()]")
+			player.playsound_local(player, 'sound/machines/terminal/terminal_prompt_confirm.ogg', 50, FALSE)
+			message_admins("[ADMIN_LOOKUPFLW(player)] has taken on a random name, [player.p_their()] previous name was [old_name].")
+		else
+			player.playsound_local(player, 'sound/machines/terminal/terminal_prompt_deny.ogg', 50, FALSE)
+
+
+/datum/dynamic_ruleset/midround/from_living/traitor
 	var/static/list/sleeper_current_polling = list()
 	var/static/list/rejected_traitor = list()
+
+/datum/dynamic_ruleset/midround/from_living/traitor/collect_candidates()
+	var/list/candidates = ..()
+	candidates = shuffle(trim_candidates(candidates))
+	return poll_candidates_for_one(candidates)
+
 /**
  * Polls a group of candidates to see if they want to be a sleeper agent.
  *
  * @param candidates a list containing a candidate mobs
  */
-/datum/dynamic_ruleset/midround/from_living/autotraitor/proc/poll_candidates_for_one(candidates)
+/datum/dynamic_ruleset/midround/from_living/traitor/proc/poll_candidates_for_one(candidates)
 	message_admins("Attempting to poll [length(candidates)] people individually to become a Sleeper Agent...first one to say yes gets chosen.")
 	var/list/potential_candidates = shuffle(candidates)
 	var/list/yes_candidate = list()

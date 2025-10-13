@@ -45,6 +45,10 @@
 	name = "Hawaiian Shirt"
 	item_path = /obj/item/clothing/suit/costume/hawaiian
 
+/datum/loadout_item/suit/overcoat
+	name = "Overcoat (Colorable)"
+	item_path = /obj/item/clothing/suit/nova/overcoat
+
 /datum/loadout_item/suit/wellwornshirt
 	name = "Oversized Shirt"
 	item_path = /obj/item/clothing/suit/costume/wellworn_shirt
@@ -89,6 +93,10 @@
 	name = "Suspenders (Colorable)"
 	item_path = /obj/item/clothing/suit/toggle/suspenders
 
+/datum/loadout_item/suit/big_sweater
+	name = "Big Sweater (Colorable)"
+	item_path = /obj/item/clothing/suit/nova/sweater
+
 /*
 *	WINTER COATS
 */
@@ -124,6 +132,10 @@
 /datum/loadout_item/suit/winter_coat_greyscale
 	name = "Winter Coat - Tailored (Colorable)"
 	item_path = /obj/item/clothing/suit/hooded/wintercoat/custom
+
+/datum/loadout_item/suit/winter_coat_fancy
+	name = "Winter Coat - Trenchcoat (Colorable)"
+	item_path = /obj/item/clothing/suit/nova/furred_trenchcoat
 
 //Job Winter Coats (Don't want to alphabetize these mixed with the other wintercoats)
 /datum/loadout_item/suit/coat_atmos
@@ -399,23 +411,23 @@
 
 /datum/loadout_item/suit/offdep_jacket
 	name = "Work Jacket - Off-Department"
-	item_path = /obj/item/clothing/suit/toggle/jacket/nova/assistant
+	item_path = /obj/item/clothing/suit/toggle/jacket/nova/colorable_bomber
 
 /datum/loadout_item/suit/engi_jacket
 	name = "Work Jacket - Engineering"
-	item_path = /obj/item/clothing/suit/toggle/jacket/nova/engi
+	item_path = /obj/item/clothing/suit/toggle/jacket/nova/colorable_bomber/engi
 
 /datum/loadout_item/suit/sci_jacket
 	name = "Work Jacket - Science"
-	item_path = /obj/item/clothing/suit/toggle/jacket/nova/sci
+	item_path = /obj/item/clothing/suit/toggle/jacket/nova/colorable_bomber/sci
 
 /datum/loadout_item/suit/med_jacket
 	name = "Work Jacket - Medbay"
-	item_path = /obj/item/clothing/suit/toggle/jacket/nova/med
+	item_path = /obj/item/clothing/suit/toggle/jacket/nova/colorable_bomber/med
 
 /datum/loadout_item/suit/supply_jacket
 	name = "Work Jacket - Supply"
-	item_path = /obj/item/clothing/suit/toggle/jacket/nova/supply
+	item_path = /obj/item/clothing/suit/toggle/jacket/nova/colorable_bomber/supply
 
 /*
 *	HOODIES
@@ -561,6 +573,11 @@
 /datum/loadout_item/suit/recolorable_overalls
 	name = "Overalls"
 	item_path = /obj/item/clothing/suit/apron/overalls
+	group = "Workwear"
+
+/datum/loadout_item/suit/overalls_loneskirt
+	name = "Overalls Skirt"
+	item_path = /obj/item/clothing/suit/apron/overalls_loneskirt
 	group = "Workwear"
 
 //Religious Clothing (Workwear for Chaplain. Better sorted here than in Costumes)
@@ -728,9 +745,17 @@
 	item_path = /obj/item/clothing/suit/costume/whitedress
 	group = "Costumes"
 
-/datum/loadout_item/suit/white_robe
-	name = "White Robe"
-	item_path = /obj/item/clothing/suit/jacket/white_robe
+
+/datum/loadout_item/suit/jacket/long_robe
+	name = "Long Robe"
+	item_path = /obj/item/clothing/suit/jacket/long_robe
+	can_be_reskinned = TRUE
+	group = "Costumes"
+
+/datum/loadout_item/suit/jacket/haori
+	name = "Haori"
+	item_path = /obj/item/clothing/suit/jacket/haori
+	can_be_reskinned = TRUE
 	group = "Costumes"
 
 /datum/loadout_item/suit/witch

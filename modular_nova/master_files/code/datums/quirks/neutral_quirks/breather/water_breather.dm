@@ -7,6 +7,7 @@
 	gain_text = span_notice("You suddenly have a hard time breathing through thin air.")
 	lose_text = span_danger("You suddenly feel like you aren't bound to breathing through liquid anymore.")
 	value = 0
+	breathing_mask = NONE
 	breathing_tank = /obj/item/clothing/accessory/vaporizer
 	breath_type = "water"
 	// bonus trait
@@ -33,3 +34,22 @@
 /datum/quirk/item_quirk/breather/water_breather/remove()
 	. = ..()
 	quirk_holder.clear_alert(ALERT_NOT_ENOUGH_WATER)
+	UnregisterSignal(quirk_holder, COMSIG_MOB_GRANTED_ACTION)
+
+/datum/quirk/item_quirk/breather/water_breather/add_unique(client/client_source)
+	. = ..()
+	RegisterSignal(quirk_holder, COMSIG_MOB_GRANTED_ACTION, PROC_REF(on_hydrophobia_action_granted))
+	// Clean up any action that might already exist
+	for (var/datum/action/cooldown/spell/slime_hydrophobia/hydrophobia_action in quirk_holder.actions)
+		qdel(hydrophobia_action)
+
+/// Remove hydrophobia action when granted to a slime with water breathing.
+/datum/quirk/item_quirk/breather/water_breather/proc/remove_hydrophobia_action(datum/action/action)
+	if(QDELETED(quirk_holder))
+		return
+	if(istype(action, /datum/action/cooldown/spell/slime_hydrophobia))
+		qdel(action)
+
+/// Remove the hydrophobia action immediately if it gets granted
+/datum/quirk/item_quirk/breather/water_breather/proc/on_hydrophobia_action_granted(datum/source, datum/action/action)
+	remove_hydrophobia_action(action)

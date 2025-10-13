@@ -21,14 +21,14 @@
 			return
 
 		balloon_alert(user, "starting analysis!")
-		var/skill_modifier = user.mind?.get_skill_modifier(/datum/skill/research, SKILL_SPEED_MODIFIER)
+		var/skill_modifier = user.mind?.get_skill_modifier(/datum/skill/archeology, SKILL_SPEED_MODIFIER)
 		if(!do_after(user, 5 SECONDS * skill_modifier, target = src))
 			balloon_alert(user, "stand still!")
 			return
 
 		loc.balloon_alert(user, "magnified!")
 		spawn_magnified(magnified_number)
-		user.mind?.adjust_experience(/datum/skill/research, 5)
+		user.mind?.adjust_experience(/datum/skill/archeology, 5)
 		return
 
 	return ..()
@@ -132,12 +132,9 @@
 
 //broken items
 /obj/item/xenoarch/broken_item
-	name = "broken item"
-	desc = "An item that has been damaged, destroyed for quite some time. It is possible to recover it."
-
-/obj/item/xenoarch/broken_item/tech
 	name = "broken tech"
 	icon_state = "recover_tech"
+	desc = "An item that has been damaged, destroyed for quite some time. It is possible to recover it."
 
 /obj/item/xenoarch/broken_item/weapon
 	name = "broken weapon"

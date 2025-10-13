@@ -1,4 +1,4 @@
-#define LAYDOWN_COOLDOWN 2 SECONDS
+#define LAYDOWN_COOLDOWN 1 SECONDS
 
 /obj/item/organ/taur_body
 	name = "taur body"
@@ -84,6 +84,13 @@
 /obj/item/organ/taur_body/blob
 	left_leg_name = "outer blob"
 	right_leg_name = "inner blob"
+
+/obj/item/organ/taur_body/centipede
+	left_leg_name = "dozens of left legs"
+	right_leg_name = "dozens of right legs"
+
+/obj/item/organ/taur_body/centipede/synth
+	organ_flags = parent_type::organ_flags | ORGAN_ROBOTIC
 
 /obj/item/organ/taur_body/anthro
 	left_leg_name = null

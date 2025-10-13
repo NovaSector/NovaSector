@@ -354,6 +354,12 @@
 	recommended_species = list(SPECIES_TESHARI)
 	affected_bodyparts = HEAD | CHEST | ARM_LEFT | ARM_RIGHT | HAND_LEFT | HAND_RIGHT | LEG_RIGHT | LEG_LEFT
 
+/datum/body_marking/secondary/teshari_lashes
+	name = "Teshari Lashes"
+	icon_state = "teshari_lashes"
+	recommended_species = list(SPECIES_TESHARI)
+	affected_bodyparts = HEAD
+
 /datum/body_marking/secondary/tajaran
 	name = "Tajaran"
 	icon_state = "tajaran"
@@ -605,6 +611,11 @@
 	icon_state = "lower_limb"
 	affected_bodyparts = ARM_LEFT | ARM_RIGHT | LEG_RIGHT | LEG_LEFT
 
+/datum/body_marking/secondary/insectoid
+	name = "Insectoid"
+	icon_state = "insect"
+	affected_bodyparts = CHEST
+
 /datum/body_marking/tertiary
 	icon = 'modular_nova/master_files/icons/mob/body_markings/tertiary_markings.dmi'
 	default_color = DEFAULT_TERTIARY
@@ -740,6 +751,10 @@
 	icon_state = "lbelly"
 	affected_bodyparts = CHEST
 
+/datum/body_marking/tertiary/insectoid
+	name = "Insectoid Trim"
+	icon_state = "insect_trim"
+	affected_bodyparts = CHEST | ARM_LEFT | ARM_RIGHT | LEG_LEFT | LEG_RIGHT
 
 /datum/body_marking/tattoo
 	icon = 'modular_nova/master_files/icons/mob/body_markings/tattoo_markings.dmi'

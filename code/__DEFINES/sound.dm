@@ -75,12 +75,13 @@
 #define SOUND_MINIMUM_PRESSURE 10
 
 #define INTERACTION_SOUND_RANGE_MODIFIER -3
-#define EQUIP_SOUND_VOLUME 30
 #define LIQUID_SLOSHING_SOUND_VOLUME 10
 #define PICKUP_SOUND_VOLUME 15
 #define DROP_SOUND_VOLUME 20
-#define YEET_SOUND_VOLUME 90
+#define EQUIP_SOUND_VOLUME 30
+#define HALFWAY_SOUND_VOLUME 50
 #define BLOCK_SOUND_VOLUME 70
+#define YEET_SOUND_VOLUME 90
 
 #define AMBIENCE_GENERIC "generic"
 #define AMBIENCE_HOLY "holy"
@@ -184,7 +185,7 @@
 #define ANNOUNCER_SPOOKY "announcer_spooky"
 #define ANNOUNCER_ERTYES "announcer_ertyes"
 #define ANNOUNCER_MUTANTS "announcer_mutants"
-#define ANNOUNCER_NRI_RAIDERS "announcer_nri_raiders"
+#define ANNOUNCER_HC_POLICE "announcer_hc_police"
 #define ANNOUNCER_OUTBREAK6 "announcer_outbreak6"
 #define ANNOUNCER_DEPARTMENTAL "announcer_departmental"
 #define ANNOUNCER_SHUTTLE "announcer_shuttle"
@@ -230,12 +231,23 @@ GLOBAL_LIST_INIT(announcer_keys, list(
 	ANNOUNCER_SPOOKY,
 	ANNOUNCER_ERTYES,
 	ANNOUNCER_MUTANTS,
-	ANNOUNCER_NRI_RAIDERS,
+	ANNOUNCER_HC_POLICE,
 	ANNOUNCER_OUTBREAK6,
 	//NOVA EDIT END
 ))
 
-/// List of all of our sound keys.
+/**
+# assoc list of datum by key
+* k = SFX_KEY (see below)
+* v = singleton sound_effect datum ref
+* initialized in SSsounds init
+*/
+GLOBAL_LIST_EMPTY(sfx_datum_by_key)
+
+/* List of all of our sound keys.
+	used with /datum/sound_effect as the key
+	see code\game\sound_keys.dm
+*/
 #define SFX_BODYFALL "bodyfall"
 #define SFX_BULLET_MISS "bullet_miss"
 #define SFX_CAN_OPEN "can_open"
@@ -325,6 +337,12 @@ GLOBAL_LIST_INIT(announcer_keys, list(
 #define SFX_REGEN_MESH_END "regen_mesh_end"
 #define SFX_REGEN_MESH_PICKUP "regen_mesh_pickup"
 #define SFX_REGEN_MESH_DROP "regen_mesh_drop"
+#define SFX_CIG_PACK_DROP "cig_pack_drop"
+#define SFX_CIG_PACK_INSERT "cig_pack_insert"
+#define SFX_CIG_PACK_PICKUP "cig_pack_pickup"
+#define SFX_CIG_PACK_RUSTLE "cig_pack_rustle"
+#define SFX_CIG_PACK_THROW_DROP "cig_pack_throw_drop"
+#define	SFX_RORO_WARBLE "roro_warble"
 
 // Standard is 44.1khz
 #define MIN_EMOTE_PITCH 40000

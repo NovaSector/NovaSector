@@ -30,6 +30,9 @@
 /// Checks that nightvision eyes have a full set of color lists
 /datum/unit_test/focus_only/nightvision_color_cutoffs
 
+/// Ensures that items that got the nullrod_core element with the chaptain_spawnable arg can be selected by the chaplain
+/datum/unit_test/focus_only/nullrod_variants
+
 /// Checks that no light shares a tile/pixel offsets with another
 /datum/unit_test/focus_only/stacked_lights
 
@@ -59,3 +62,6 @@
 
 /// Checks that foodtypes are the same for food whether it's spawned or crafted (with the exact required types)
 /datum/unit_test/focus_only/check_foodtypes
+
+///Checks that items have roughly the same materials whenever spawned via processing/microwaving/baking etc. or any other mean.
+/datum/unit_test/focus_only/check_materials_when_processed

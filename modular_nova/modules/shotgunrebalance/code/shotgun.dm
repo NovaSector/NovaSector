@@ -20,16 +20,24 @@
 	custom_materials = AMMO_MATS_SHOTGUN
 
 /obj/projectile/bullet/shotgun_slug
-	damage = 50 // based on old stats
+	// tg stats at time of writing: 25 damage, 30 AP
+	// buffed to 50 force, nerfed to 10 AP
+	// for some parity with old stats, except the 10 AP buff
+	damage = 50
+	armour_penetration = 10
 
 /obj/item/ammo_casing/shotgun/milspec
 	desc = "A hot-loaded 12 gauge milspec slug shell, used by various paramilitaries and mercenary forces. Probably not legal to use under corporate regulations."
 	icon_state = "mblshell"
 	ammo_categories = AMMO_CLASS_SUPER
-	print_cost = 4
+	custom_materials = AMMO_MATS_HEAVY_FAST
 
 /obj/projectile/bullet/shotgun_slug/milspec
-	damage = 60 // the fine art of physically removing chunks of flesh from your fellow spaceman
+	// tg stats at time of writing: 50 damage, 30 AP (inherited from base slugs)
+	// buffed to 60 force, keeps the 30 AP to give it an edge over base, easily produced slugs
+	// also gets extra speed to give it another edge
+	damage = 60
+	armour_penetration = 30
 	speed = 1.5
 
 // THE BELOW TWO SLUGS ARE NOTED AS ADMIN ONLY AND HAVE ***EIGHTY*** WOUND BONUS. NOT BARE WOUND BONUS. FLAT WOUND BONUS.
@@ -45,7 +53,6 @@
 
 /obj/item/ammo_casing/shotgun/beanbag
 	harmful = FALSE
-	print_cost = 0
 	ammo_categories = AMMO_CLASS_NONE
 
 /obj/item/ammo_casing/shotgun/incendiary
@@ -106,7 +113,7 @@
 	icon_state = "mgshell"
 	variance = 15
 	ammo_categories = AMMO_CLASS_SUPER
-	print_cost = 4
+	custom_materials = AMMO_MATS_HEAVY_FAST
 
 /obj/projectile/bullet/pellet/shotgun_buckshot/milspec
 	damage = 6 // 6 * 12 = 72
@@ -114,7 +121,7 @@
 	wound_falloff_tile = -0.25
 	speed = 1.5
 	armour_penetration = 5
-	// weak_against_armour = FALSE // Probably don't uncomment this unless you have a really compelling reason.
+	weak_against_armour = FALSE // lmao
 
 /obj/item/ammo_casing/shotgun/rubbershot
 	name = "rubber shot shell"
@@ -125,7 +132,6 @@
 	variance = 27
 	ammo_categories = AMMO_CLASS_NONE
 	harmful = FALSE
-	print_cost = 0
 
 /obj/projectile/bullet/pellet/shotgun_rubbershot
 	stamina = 10
@@ -147,9 +153,9 @@
 	name = "shredder flechette shell"
 	desc = "A 12 gauge flechette shell that specializes in cutting through armor and embedding like hell."
 	ammo_categories = AMMO_CLASS_SUPER // i mean with exotic tech you get to print this for free anyway
-	// but if you want early access you pay up
-	// pellets remaining unchanged but getting a damage buff
-	print_cost = 4
+	// Points-cost is gone, this may need additional balance.
+	// Why didn't these already use flechette materials though??
+	custom_materials = AMMO_MATS_SHOTGUN_FLECH
 
 /obj/projectile/bullet/pellet/flechette
 	name = "shredder flechette"
@@ -160,7 +166,6 @@
 
 /obj/item/ammo_casing/shotgun/flechette/donk
 	ammo_categories = AMMO_CLASS_NONE
-	print_cost = 0 // lmao
 
 /obj/item/ammo_casing/shotgun/ion
 	can_be_printed = FALSE // techshell. assumed intended balance being a pain to assemble
@@ -180,6 +185,7 @@
 
 /obj/item/ammo_casing/shotgun/breacher
 	ammo_categories = AMMO_CLASS_NICHE_LTL
+	can_be_printed = FALSE
 	// on one hand, 1k damage against airlocks. and mechs. and borgs.
 	// on the other hand like 5 damage against everyone else lmao
 
@@ -193,13 +199,13 @@
 	pellets = 6 // Half as many pellets for twice the damage each pellet, same overall damage as buckshot
 	variance = 20
 	ammo_categories = AMMO_CLASS_SUPER
-	print_cost = 2
 
 /obj/projectile/bullet/pellet/shotgun_buckshot/magnum
 	name = "magnum blockshot"
 	damage = 10
 	exposed_wound_bonus = 10
 	armour_penetration = 5
+	weak_against_armour = FALSE
 
 /obj/projectile/bullet/pellet/shotgun_buckshot/magnum/Initialize(mapload)
 	. = ..()
@@ -212,7 +218,6 @@
 	icon_state = "expshell"
 	projectile_type = /obj/projectile/bullet/pellet/shotgun_buckshot/express
 	ammo_categories = AMMO_CLASS_SUPER
-	print_cost = 2
 	pellets = 15 // 4 * 15 for 60 damage, with less spread then buckshot.
 	variance = 12 // Slightly less spread then buckshot
 
@@ -334,7 +339,6 @@
 	variance = 35
 	fire_sound = 'sound/items/bikehorn.ogg'
 	harmful = FALSE
-	print_cost = 0
 	ammo_categories = AMMO_CLASS_NONE
 
 /obj/projectile/bullet/honkshot

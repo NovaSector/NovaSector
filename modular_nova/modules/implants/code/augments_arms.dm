@@ -309,8 +309,8 @@
 		even from a few steps away. However, results against anything more durable will heavily vary."
 	icon = 'modular_nova/modules/implants/icons/implants.dmi'
 	icon_state = "razorwire_weapon"
-	righthand_file = 'modular_nova/modules/implants/icons/inhands/lefthand.dmi'
-	lefthand_file = 'modular_nova/modules/implants/icons/inhands/righthand.dmi'
+	righthand_file = 'modular_nova/modules/implants/icons/inhands/righthand.dmi'
+	lefthand_file = 'modular_nova/modules/implants/icons/inhands/lefthand.dmi'
 	inhand_icon_state = "razorwire"
 	w_class = WEIGHT_CLASS_BULKY
 	sharpness = SHARP_EDGED
@@ -359,6 +359,28 @@
 /obj/item/autosurgeon/syndicate/razorwire
 	name = "razorwire autosurgeon"
 	starting_organ = /obj/item/organ/cyberimp/arm/toolkit/razorwire
+// Surgical toolsets (normal + cruel) additions
+
+/obj/item/organ/cyberimp/arm/toolkit/surgery/Initialize(mapload)
+	if (src.type == /obj/item/organ/cyberimp/arm/toolkit/surgery)
+		items_to_create += list(
+			/obj/item/bonesetter/augment,
+			/obj/item/blood_filter/augment,
+		)
+	return ..()
+
+// Block swapping while a blood filter is active
+/obj/item/organ/cyberimp/arm/toolkit/surgery/swap_tools(active_item)
+	if (istype(src.active_item, /obj/item/blood_filter))
+		return
+	return ..()
+
+/obj/item/organ/cyberimp/arm/toolkit/surgery/cruel/Initialize(mapload)
+	items_to_create += list(
+		/obj/item/bonesetter/cruel/augment,
+		/obj/item/blood_filter/cruel/augment,
+	)
+	return ..()
 
 // Shell launch system, an arm mounted single-shot shotgun/.980 grenade launcher that comes out of your arm
 
@@ -369,8 +391,8 @@
 		shells famously seen in the 'Kiboko' launcher."
 	icon = 'modular_nova/modules/implants/icons/implants.dmi'
 	icon_state = "shell_cannon_weapon"
-	righthand_file = 'modular_nova/modules/implants/icons/inhands/lefthand.dmi'
-	lefthand_file = 'modular_nova/modules/implants/icons/inhands/righthand.dmi'
+	righthand_file = 'modular_nova/modules/implants/icons/inhands/righthand.dmi'
+	lefthand_file = 'modular_nova/modules/implants/icons/inhands/lefthand.dmi'
 	inhand_icon_state = "shell_cannon"
 	worn_icon = 'icons/mob/clothing/belt.dmi'
 	worn_icon_state = "gun"
@@ -399,7 +421,7 @@
 	ammo_type = /obj/item/ammo_casing/shotgun/beanbag
 	caliber = CALIBER_SHOTGUN
 	max_ammo = 1
-	multiload = FALSE
+	ammo_box_multiload = AMMO_BOX_MULTILOAD_NONE
 
 /obj/item/organ/cyberimp/arm/toolkit/shell_launcher
 	name = "shell launch system implant"
