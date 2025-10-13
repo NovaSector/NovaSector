@@ -21,6 +21,11 @@
 	..()
 	crafting_flags |= CRAFT_MUST_BE_LEARNED
 
+// Makes it so only ghost roles can make it, as DS2 use it for their bounties and adds to their evil league of evil thing, item doesnt really do anything.
+/datum/design/beamrifle/New()
+	..()
+	build_type  = AWAY_LATHE
+
 /datum/crafting_recipe/armband/cargo
 	name = "Brown Armband"
 	reqs = list(/obj/item/stack/sheet/cloth = 1)
