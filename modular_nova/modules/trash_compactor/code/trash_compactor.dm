@@ -9,17 +9,10 @@
 	active_power_usage = 500
 	circuit = /obj/item/circuitboard/machine/trash_compactor
 
-	// Component-based variables
-	var/coin_multiplier = 1 // Kept for compatibility but unused
-	var/coin_quality = 1 // Kept for compatibility but unused
 	// Track trash count for each user
 	var/list/trash_counts = list()
 	// Track inserted GAP cards
 	var/obj/item/gbp_punchcard/inserted_card = null
-
-/obj/machinery/trash_compactor/RefreshParts()
-	. = ..()
-	// Component effects can be repurposed later if needed
 
 /obj/machinery/trash_compactor/examine(mob/living/user)
 	. = ..()
@@ -69,6 +62,16 @@
 
 	return NONE
 
+/obj/machinery/trash_compactor/attack_hand_secondary(mob/living/user)
+	. = ..()
+	if(inserted_card)
+		if(!user.put_in_hands(inserted_card))
+			inserted_card.forceMove(drop_location())
+		inserted_card = null
+		balloon_alert(user, "card removed")
+		return TRUE
+	return FALSE
+
 /obj/machinery/trash_compactor/proc/is_janitor(mob/user)
 	if(!ishuman(user))
 		return FALSE
@@ -82,11 +85,6 @@
 	if(machine_stat & (NOPOWER|BROKEN))
 		balloon_alert(user, "no power!")
 		return FALSE
-
-	// Instant processing - no delay
-	if(!bulk_processing)
-		balloon_alert(user, "compacting trash...")
-	playsound(src, 'sound/machines/click.ogg', 40, TRUE)
 
 	// Get user's bank account
 	var/datum/bank_account/user_account = user.get_bank_account()
@@ -125,11 +123,12 @@
 				if(inserted_card.punches < inserted_card.max_punches)
 					inserted_card.punches++
 					inserted_card.icon_state = "punchcard_[inserted_card.punches]"
-				say("GAP card punched!")
-				playsound(src, 'sound/items/boxcutter_activate.ogg', 50, TRUE)
 				if(inserted_card.punches == inserted_card.max_punches)
 					playsound(src, 'sound/items/party_horn.ogg', 100)
 					say("Congratulations, you have finished your punchcard!")
+				else
+					playsound(src, 'sound/items/boxcutter_activate.ogg', 50, TRUE)
+					say("GAP card punched!")
 
 	return TRUE
 
@@ -151,9 +150,6 @@
 		balloon_alert(user, "bag empty!")
 
 	return processed_count > 0
-
-/obj/machinery/trash_compactor/update_icon_state()
-	return ..()
 
 /obj/item/circuitboard/machine/trash_compactor
 	name = "Trash Compactor (Machine Board)"
