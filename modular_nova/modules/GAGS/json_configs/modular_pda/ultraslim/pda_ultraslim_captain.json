@@ -23,11 +23,6 @@
 			"icon_state": "pda_ultraslim_stripe_thick",
 			"blend_mode": "overlay",
 			"color_ids": [4]
-		},
-		{
-			"type": "icon_state",
-			"icon_state": "pda_screen_borders",
-			"blend_mode": "overlay"
 		}
 	]
 }
