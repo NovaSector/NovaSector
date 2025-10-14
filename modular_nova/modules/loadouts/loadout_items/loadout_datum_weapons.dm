@@ -17,6 +17,7 @@
 
 /datum/loadout_item/weapons
 	abstract_type = /datum/loadout_item/weapons
+	blacklisted_roles = list(JOB_PRISONER)
 
 /*
 *	GHETTO GUNS
