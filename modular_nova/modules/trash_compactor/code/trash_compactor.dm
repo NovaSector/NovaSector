@@ -11,6 +11,8 @@
 
 	// Track trash count for each user
 	var/list/trash_counts = list()
+	// Add this with the other variable declarations at the top of the trash_compactor object
+	var/list/ticket_counts = list()
 	// Track inserted GAP cards
 	var/obj/item/gbp_punchcard/inserted_card = null
 
@@ -44,12 +46,12 @@
 	// Handle GAP card insertion
 	if(istype(attacking_item, /obj/item/gbp_punchcard))
 		if(inserted_card)
-			balloon_alert(user, "card already inserted!")
+			balloon_alert(user, "GAP card already inserted!")
 			return COMPONENT_NO_AFTERATTACK
 		if(!user.transferItemToLoc(attacking_item, src))
 			return
 		inserted_card = attacking_item
-		balloon_alert(user, "card inserted")
+		balloon_alert(user, "GAP card inserted!")
 		return COMPONENT_NO_AFTERATTACK
 
 	// Handle trash bags for bulk processing
@@ -79,11 +81,11 @@
 	return human_user.mind?.assigned_role == "Janitor"
 
 /obj/machinery/trash_compactor/proc/process_trash(obj/item/trash_item, mob/living/carbon/user, bulk_processing = FALSE)
-	if(!istype(trash_item, /obj/item/trash))
-		return FALSE
-
 	if(machine_stat & (NOPOWER|BROKEN))
 		balloon_alert(user, "no power!")
+		return FALSE
+
+	if(!istype(trash_item, /obj/item/trash))
 		return FALSE
 
 	// Get user's bank account
@@ -111,12 +113,27 @@
 
 		// Check if we've reached required pieces of trash
 		if(tracker_key && trash_counts[tracker_key] >= (is_janitor(user) ? 5 : 15))
-			// Reset counter
+			// Reset trash counter
 			trash_counts[tracker_key] = 0
-			// Dispense a ration ticket
-			new /obj/item/paper/paperslip/ration_ticket(drop_location())
-			say("Ration ticket dispensed! Thank you for your contribution to recycling.")
-			playsound(src, 'sound/machines/chime.ogg', 50, TRUE)
+
+			// Handle janitor rewards
+			if(is_janitor(user))
+				if(user_account)
+					user_account.adjust_money(100)
+					say("100 credits added to your bank account! Thank you for your service.")
+				else
+					new /obj/item/stack/spacecash/c100(drop_location())
+					say("100 credit bill dispensed! Please consider opening a bank account.")
+				playsound(src, 'sound/machines/chime.ogg', 50, TRUE)
+			else
+				// Non-janitor rewards
+				ticket_counts[tracker_key] = ticket_counts[tracker_key] ? ticket_counts[tracker_key] + 1 : 1
+				var/ticket_type = /obj/item/paper/paperslip/ration_ticket
+				if(ticket_counts[tracker_key] % 3 == 0)  // Every third ticket
+					ticket_type = /obj/item/paper/paperslip/ration_ticket/luxury
+				new ticket_type(drop_location())
+				say("Ration ticket dispensed! Thank you for your contribution to recycling.")
+				playsound(src, 'sound/machines/chime.ogg', 50, TRUE)
 
 			// Punch the GAP card if one is inserted
 			if(inserted_card)
@@ -154,7 +171,4 @@
 /obj/item/circuitboard/machine/trash_compactor
 	name = "Trash Compactor (Machine Board)"
 	build_path = /obj/machinery/trash_compactor
-	req_components = list(
-		/datum/stock_part/servo = 1,
-		/datum/stock_part/micro_laser = 1,
-	)
+	req_components = null
