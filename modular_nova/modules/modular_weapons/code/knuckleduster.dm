@@ -5,6 +5,7 @@
 	desc = "Weighted rings for the knuckles. While worn, you fall back on 'Evil Boxing' techniques — no rules, just results."
 	icon = 'modular_nova/modules/modular_weapons/icons/obj/melee.dmi'
 	icon_state = "knuckleduster"
+    inhand_icon_state = "hand"
 	w_class = WEIGHT_CLASS_SMALL
 	obj_flags = CONDUCTS_ELECTRICITY
 	hitsound = 'sound/items/weapons/punch1.ogg'
