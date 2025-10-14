@@ -391,6 +391,7 @@
 	clothing_flags = MASKINTERNALS
 	w_class = WEIGHT_CLASS_SMALL
 	flags_cover = MASKCOVERSEYES
+	resistance_flags = FIRE_PROOF
 
 /******CALIGRA DONATIONS******/
 // Donation reward for Farsighted Nightlight
