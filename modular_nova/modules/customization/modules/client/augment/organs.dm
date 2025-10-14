@@ -39,10 +39,22 @@
 	slot = AUGMENT_SLOT_BRAIN
 	path = /obj/item/organ/brain/cybernetic/cortical
 
+/datum/augment_item/organ/brain/cortical/apply(mob/living/carbon/human/human_holder, character_setup = FALSE, datum/preferences/prefs)
+	// Proteans cannot use cortically augmented brains - they need their protean core
+	if(istype(human_holder.dna.species, /datum/species/protean))
+		return
+	return ..()
+
 //HEARTS
 /datum/augment_item/organ/heart
 	slot = AUGMENT_SLOT_HEART
 	allowed_biotypes = MOB_ORGANIC | MOB_ROBOTIC
+
+/datum/augment_item/organ/heart/apply(mob/living/carbon/human/human_holder, character_setup = FALSE, datum/preferences/prefs)
+	// Proteans cannot replace their orchestrator module
+	if(istype(human_holder.dna.species, /datum/species/protean))
+		return
+	return ..()
 
 /datum/augment_item/organ/heart/normal
 	name = "Organic heart"
@@ -74,6 +86,12 @@
 	slot = AUGMENT_SLOT_LIVER
 	allowed_biotypes = MOB_ORGANIC | MOB_ROBOTIC
 
+/datum/augment_item/organ/liver/apply(mob/living/carbon/human/human_holder, character_setup = FALSE, datum/preferences/prefs)
+	// Proteans cannot replace their reagent catalyst
+	if(istype(human_holder.dna.species, /datum/species/protean))
+		return
+	return ..()
+
 /datum/augment_item/organ/liver/normal
 	name = "Organic Liver"
 	path = /obj/item/organ/liver
@@ -90,6 +108,12 @@
 /datum/augment_item/organ/stomach
 	slot = AUGMENT_SLOT_STOMACH
 	allowed_biotypes = MOB_ORGANIC | MOB_ROBOTIC
+
+/datum/augment_item/organ/stomach/apply(mob/living/carbon/human/human_holder, character_setup = FALSE, datum/preferences/prefs)
+	// Proteans cannot replace their refactory
+	if(istype(human_holder.dna.species, /datum/species/protean))
+		return
+	return ..()
 
 /datum/augment_item/organ/stomach/normal
 	name = "Organic stomach"
@@ -112,6 +136,12 @@
 /datum/augment_item/organ/eyes
 	slot = AUGMENT_SLOT_EYES
 	allowed_biotypes = MOB_ORGANIC | MOB_ROBOTIC
+
+/datum/augment_item/organ/eyes/apply(mob/living/carbon/human/human_holder, character_setup = FALSE, datum/preferences/prefs)
+	// Proteans cannot replace their imaging nanites
+	if(istype(human_holder.dna.species, /datum/species/protean))
+		return
+	return ..()
 
 /datum/augment_item/organ/eyes/normal
 	name = "Organic eyes"
@@ -145,6 +175,12 @@
 	slot = AUGMENT_SLOT_TONGUE
 	allowed_biotypes = MOB_ORGANIC | MOB_ROBOTIC
 
+/datum/augment_item/organ/tongue/apply(mob/living/carbon/human/human_holder, character_setup = FALSE, datum/preferences/prefs)
+	// Proteans cannot replace their audio fabricator
+	if(istype(human_holder.dna.species, /datum/species/protean))
+		return
+	return ..()
+
 /datum/augment_item/organ/tongue/normal
 	name = "Organic tongue"
 	path = /obj/item/organ/tongue/human
@@ -177,6 +213,12 @@
 /datum/augment_item/organ/ears
 	slot = AUGMENT_SLOT_EARS
 	allowed_biotypes = MOB_ORGANIC | MOB_ROBOTIC
+
+/datum/augment_item/organ/ears/apply(mob/living/carbon/human/human_holder, character_setup = FALSE, datum/preferences/prefs)
+	// Proteans cannot replace their sensory nanites
+	if(istype(human_holder.dna.species, /datum/species/protean))
+		return
+	return ..()
 
 /datum/augment_item/organ/ears/normal
 	name = "Organic ears"

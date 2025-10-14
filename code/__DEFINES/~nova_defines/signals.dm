@@ -115,3 +115,6 @@
 
 /// Signal sent whenever a gun with a barrel booster toggles its barrel booster.
 #define COMSIG_GUN_BOOSTER_TOGGLED "gun_booster_toggled"
+
+/// From [/datum/outfit]: (datum/outfit, visuals_only) - NOVA EDIT: Used by proteans for outfit handling
+#define COMSIG_OUTFIT_EQUIP "outfit_equip"

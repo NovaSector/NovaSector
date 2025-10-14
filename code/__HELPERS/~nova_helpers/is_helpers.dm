@@ -20,6 +20,7 @@
 #define isprimitivedemihuman(A) (is_species(A, /datum/species/human/felinid/primitive))
 #define isrogue(A) (is_species(A, /datum/species/abductor/abductorweak))
 #define iskobold(A) (is_species(A, /datum/species/monkey/kobold))
+#define isprotean(A) (is_species(A, /datum/species/protean))
 //Antags
 #define ishorrorling(A) (istype(A, /mob/living/simple_animal/hostile/true_changeling))
 #define iscorticalborer(A) (istype(A, /mob/living/basic/cortical_borer))
