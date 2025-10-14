@@ -9,28 +9,45 @@
 	active_power_usage = 500
 	circuit = /obj/item/circuitboard/machine/trash_compactor
 
-	// Track trash count for each user
+	///Track trash count for each user
 	var/list/trash_counts = list()
-	// Add this with the other variable declarations at the top of the trash_compactor object
+	///Track rewarded tickets for each user
 	var/list/ticket_counts = list()
-	// Track inserted GAP cards
+	///Store processed trash items separately from contents
+	var/list/trash_storage = list()
+	///Track inserted GAP cards
 	var/obj/item/gbp_punchcard/inserted_card = null
+	///Which items are considered trash?
+	var/list/trash_items = list(
+		/obj/item/trash,
+		/obj/item/cigbutt,
+		/obj/item/shard,
+		/obj/item/broken_bottle,
+		/obj/item/light/tube/broken,
+		/obj/item/light/bulb/broken,
+		/obj/item/food/deadmouse,
+		/obj/item/popsicle_stick,
+		/obj/item/reagent_containers/cup/glass/sillycup,
+		/obj/item/grown/bananapeel,
+		/obj/item/grown/corncob,
+		/obj/item/food/candy_trash,
+	)
 
 /obj/machinery/trash_compactor/examine(mob/living/user)
 	. = ..()
-	if(in_range(user, src) || isobserver(user))
+	if(in_range(user, src))
 		// Get user's bank account
 		var/datum/bank_account/user_account = user.get_bank_account()
 
-		// Get tracker key
+		// Track trash count by account or user if no account
 		var/tracker_key
 		if(user_account)
-			tracker_key = user_account.account_id
+			tracker_key = "[user_account.account_id]"
 		else if(user)
-			tracker_key = user.real_name
+			tracker_key = "[user.real_name]"
 
 		// Show trash count if user has used the machine before
-		if(tracker_key && trash_counts[tracker_key])
+		if(tracker_key && (tracker_key in trash_counts))
 			var/required = is_janitor(user) ? 5 : 15
 			var/remaining = required - trash_counts[tracker_key]
 			. += span_notice("The status display reads: You have deposited <b>[trash_counts[tracker_key]]</b> pieces of trash. <b>[remaining]</b> more needed for a ration ticket.")
@@ -78,14 +95,19 @@
 	if(!ishuman(user))
 		return FALSE
 	var/mob/living/carbon/human/human_user = user
-	return human_user.mind?.assigned_role == "Janitor"
+	var/obj/item/card/id/id_card = human_user.get_idcard()
+	if(!id_card)
+		return FALSE
+	if(istype(id_card.trim, /datum/id_trim/job/janitor)) //It's by trim so specifically-janitors get the advantage.
+		return TRUE
+	return FALSE
 
 /obj/machinery/trash_compactor/proc/process_trash(obj/item/trash_item, mob/living/carbon/user, bulk_processing = FALSE)
 	if(machine_stat & (NOPOWER|BROKEN))
 		balloon_alert(user, "no power!")
 		return FALSE
 
-	if(!istype(trash_item, /obj/item/trash))
+	if(!is_type_in_list(trash_item, trash_items))
 		return FALSE
 
 	// Get user's bank account
@@ -94,14 +116,24 @@
 	// Track trash count by account or user if no account
 	var/tracker_key
 	if(user_account)
-		tracker_key = user_account.account_id
+		tracker_key = "[user_account.account_id]"
 	else if(user)
-		tracker_key = user.real_name
+		tracker_key = "[user.real_name]"
 
+	// Initialize count if key doesn't exist
 	if(tracker_key)
-		trash_counts[tracker_key] = trash_counts[tracker_key] ? trash_counts[tracker_key] + 1 : 1
+		if(!(tracker_key in trash_counts))
+			trash_counts[tracker_key] = 0
+		if(!(tracker_key in ticket_counts))
+			ticket_counts[tracker_key] = 0
 
-	qdel(trash_item)
+		trash_counts[tracker_key]++
+
+	// Store the trash item in the compactor
+	trash_item.forceMove(src)
+
+	// Keep track of trash in storage list
+	trash_storage += trash_item
 
 	if(!bulk_processing)
 		// Say random wisdom (only for single items, not bulk)
@@ -109,43 +141,43 @@
 		say(wisdom)
 		balloon_alert(user, "trash compacted!")
 		playsound(src, 'sound/machines/ping.ogg', 40, TRUE)
-		use_energy(active_power_usage)
 
-		// Check if we've reached required pieces of trash
-		if(tracker_key && trash_counts[tracker_key] >= (is_janitor(user) ? 5 : 15))
-			// Reset trash counter
-			trash_counts[tracker_key] = 0
+	// Check if we've reached required pieces of trash
+	if(tracker_key && trash_counts[tracker_key] >= (is_janitor(user) ? 5 : 15))
+		// Reset trash counter
+		trash_counts[tracker_key] = 0
 
-			// Handle janitor rewards
-			if(is_janitor(user))
-				if(user_account)
-					user_account.adjust_money(100)
-					say("100 credits added to your bank account! Thank you for your service.")
-				else
-					new /obj/item/stack/spacecash/c100(drop_location())
-					say("100 credit bill dispensed! Please consider opening a bank account.")
-				playsound(src, 'sound/machines/chime.ogg', 50, TRUE)
+		// Handle janitor rewards
+		if(is_janitor(user))
+			if(user_account)
+				user_account.adjust_money(100, "Trash Compactor: Wage Bonus")
+				say("100 credits added to your bank account! Thank you for your service.")
 			else
-				// Non-janitor rewards
-				ticket_counts[tracker_key] = ticket_counts[tracker_key] ? ticket_counts[tracker_key] + 1 : 1
-				var/ticket_type = /obj/item/paper/paperslip/ration_ticket
-				if(ticket_counts[tracker_key] % 3 == 0)  // Every third ticket
-					ticket_type = /obj/item/paper/paperslip/ration_ticket/luxury
-				new ticket_type(drop_location())
-				say("Ration ticket dispensed! Thank you for your contribution to recycling.")
-				playsound(src, 'sound/machines/chime.ogg', 50, TRUE)
+				new /obj/item/stack/spacecash/c100(drop_location())
+				say("100 credit bill dispensed! Please consider opening a bank account.")
+			playsound(src, 'sound/machines/chime.ogg', 50, TRUE)
+		else
+			// Non-janitor rewards
+			ticket_counts[tracker_key]++
 
-			// Punch the GAP card if one is inserted
-			if(inserted_card)
-				if(inserted_card.punches < inserted_card.max_punches)
-					inserted_card.punches++
-					inserted_card.icon_state = "punchcard_[inserted_card.punches]"
-				if(inserted_card.punches == inserted_card.max_punches)
-					playsound(src, 'sound/items/party_horn.ogg', 100)
-					say("Congratulations, you have finished your punchcard!")
-				else
-					playsound(src, 'sound/items/boxcutter_activate.ogg', 50, TRUE)
-					say("GAP card punched!")
+			var/ticket_type = /obj/item/paper/paperslip/ration_ticket
+			if(ticket_counts[tracker_key] % 3 == 0)  // Every third ticket
+				ticket_type = /obj/item/paper/paperslip/ration_ticket/luxury
+			new ticket_type(drop_location())
+			say("Ration ticket dispensed! Thank you for your contribution to recycling.")
+			playsound(src, 'sound/machines/chime.ogg', 50, TRUE)
+
+		// Punch the GAP card if one is inserted
+		if(inserted_card)
+			if(inserted_card.punches < inserted_card.max_punches)
+				inserted_card.punches++
+				inserted_card.icon_state = "punchcard_[inserted_card.punches]"
+			if(inserted_card.punches == inserted_card.max_punches)
+				playsound(src, 'sound/items/party_horn.ogg', 100)
+				say("Congratulations, you have finished your punchcard!")
+			else
+				playsound(src, 'sound/items/boxcutter_activate.ogg', 50, TRUE)
+				say("GAP card punched!")
 
 	return TRUE
 
@@ -162,7 +194,6 @@
 	if(processed_count > 0)
 		balloon_alert(user, "processed [processed_count] items!")
 		playsound(src, 'sound/machines/ping.ogg', 60, TRUE)
-		use_energy(active_power_usage * processed_count)
 	else
 		balloon_alert(user, "bag empty!")
 
@@ -171,4 +202,4 @@
 /obj/item/circuitboard/machine/trash_compactor
 	name = "Trash Compactor (Machine Board)"
 	build_path = /obj/machinery/trash_compactor
-	req_components = null
+	req_components = list()
