@@ -38,7 +38,7 @@ PDA GALORE!
 	flags_1 = IS_PLAYER_COLORABLE_1
 
 /obj/item/modular_computer/pda/virtual
-	name = "Virtual PDA"
+	name = "virtual PDA"
 	desc = "A somewhat useful PDA, with not so great crash padding on it, not sure how this is virtual however."
 	icon = 'modular_nova/master_files/icons/obj/devices/modular_pda.dmi'
 	icon_state = "/obj/item/modular_computer/pda/virtual"
@@ -50,7 +50,7 @@ PDA GALORE!
 	flags_1 = IS_PLAYER_COLORABLE_1
 
 /obj/item/modular_computer/pda/robust
-	name = "Shell-Shock PDA"
+	name = "\improper Shell-Shock PDA"
 	desc = "A PDA built similar to that of human's ancient nokia phones, this PDA is built tough, and will take most beatings"
 	icon = 'modular_nova/master_files/icons/obj/devices/modular_pda.dmi'
 	icon_state = "/obj/item/modular_computer/pda/robust"
@@ -73,7 +73,7 @@ PDA GALORE!
 	flags_1 = IS_PLAYER_COLORABLE_1
 
 /obj/item/modular_computer/pda/old
-	name = "Outdated PDA"
+	name = "outdated PDA"
 	desc = "This PDA is from a time since passed, still useful, built tough... may not be as fast due to its older parts.."
 	icon = 'modular_nova/master_files/icons/obj/devices/modular_pda.dmi'
 	icon_state = "/obj/item/modular_computer/pda/old"
@@ -84,7 +84,7 @@ PDA GALORE!
 	flags_1 = IS_PLAYER_COLORABLE_1
 
 /obj/item/modular_computer/pda/holodeck
-	name = "Holodeck PDA"
+	name = "holodeck PDA"
 	desc = "A somewhat nice PDA, using holo technology for its display."
 	icon = 'modular_nova/master_files/icons/obj/devices/modular_pda.dmi'
 	icon_state = "/obj/item/modular_computer/pda/holodeck"
@@ -95,8 +95,8 @@ PDA GALORE!
 	flags_1 = IS_PLAYER_COLORABLE_1
 
 /obj/item/modular_computer/pda/hologram
-	name = "Holographic PDA"
-	desc = "A rather flimsy PDA device, built with holo technology for displaying data and information"
+	name = "holographic PDA"
+	desc = "A rather flimsy PDA device, built with holo technology for displaying data and information."
 	icon = 'modular_nova/master_files/icons/obj/devices/modular_pda.dmi'
 	icon_state = "/obj/item/modular_computer/pda/hologram"
 	post_init_icon_state = "pda"
@@ -107,8 +107,8 @@ PDA GALORE!
 	flags_1 = IS_PLAYER_COLORABLE_1
 
 /obj/item/modular_computer/pda/tablet
-	name = "Tablet PDA"
-	desc = "A niche type of PDA, its rumored you can hear someone asking if you have games on it."
+	name = "tablet PDA"
+	desc = "A niche type of PDA, it is rumored you can hear someone asking if you have games on it."
 	icon = 'modular_nova/master_files/icons/obj/devices/modular_pda.dmi'
 	icon_state = "/obj/item/modular_computer/pda/tablet"
 	post_init_icon_state = "pda"
@@ -118,7 +118,7 @@ PDA GALORE!
 	flags_1 = IS_PLAYER_COLORABLE_1
 
 /obj/item/modular_computer/pda/slimline
-	name = "Slim PDA"
+	name = "slim PDA"
 	desc = "A much slimmer, portable micro computer"
 	icon = 'modular_nova/master_files/icons/obj/devices/modular_pda.dmi'
 	icon_state = "/obj/item/modular_computer/pda/slimline"
@@ -129,8 +129,8 @@ PDA GALORE!
 	flags_1 = IS_PLAYER_COLORABLE_1
 
 /obj/item/modular_computer/pda/rugged
-	name = "Rugged PDA"
-	desc = "A much more rugged and well built portable micro computer."
+	name = "rugged PDA"
+	desc = "A much more rugged and well-built portable micro computer."
 	icon = 'modular_nova/master_files/icons/obj/devices/modular_pda.dmi'
 	icon_state = "/obj/item/modular_computer/pda/rugged"
 	post_init_icon_state = "pda"
@@ -141,7 +141,7 @@ PDA GALORE!
 	flags_1 = IS_PLAYER_COLORABLE_1
 
 /obj/item/modular_computer/pda/g3
-	name = "G3 PDA"
+	name = "\improper G3 PDA"
 	desc = "A unique portable micro computer design."
 	icon = 'modular_nova/master_files/icons/obj/devices/modular_pda.dmi'
 	icon_state = "/obj/item/modular_computer/pda/g3"
@@ -153,7 +153,7 @@ PDA GALORE!
 	flags_1 = IS_PLAYER_COLORABLE_1
 
 /obj/item/modular_computer/pda/holosystem
-	name = "Holosystem PDA"
+	name = "holosystem PDA"
 	desc = "A holographic portable micro computer."
 	icon = 'modular_nova/master_files/icons/obj/devices/modular_pda.dmi'
 	icon_state = "/obj/item/modular_computer/pda/holosystem"
