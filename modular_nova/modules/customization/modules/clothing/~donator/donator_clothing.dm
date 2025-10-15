@@ -954,6 +954,8 @@
 	visor_flags_cover = MASKCOVERSMOUTH | MASKCOVERSEYES | PEPPERPROOF
 	clothing_flags = parent_type::clothing_flags | VOICEBOX_DISABLED
 	flags_inv = NONE
+	use_radio_beeps_tts = TRUE
+	voice_filter = /obj/item/clothing/mask/gas/sechailer::voice_filter
 
 // Donation reward for Koruu
 /obj/item/clothing/mask/gas/signalis_gaiter
