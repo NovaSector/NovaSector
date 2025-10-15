@@ -177,7 +177,6 @@
 /obj/effect/turf_decal/siding/thinplating/dark{
 	dir = 1
 	},
-/obj/structure/cable,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/structure/disposalpipe/segment{
 	dir = 2
@@ -263,9 +262,7 @@
 /turf/open/floor/iron/dark/brick,
 /area/ruin/space/has_grav/nova/des_two/engineering)
 "bl" = (
-/obj/machinery/power/apc/auto_name/directional/east,
 /obj/effect/mapping_helpers/apc/syndicate_access,
-/obj/structure/cable,
 /turf/open/floor/iron/dark/brick,
 /area/ruin/space/has_grav/nova/des_two/engineering)
 "bn" = (
@@ -1469,7 +1466,6 @@
 /turf/open/floor/plating,
 /area/ruin/space/has_grav/nova/des_two/cargo/hangar)
 "gy" = (
-/obj/structure/cable,
 /obj/structure/disposalpipe/segment{
 	dir = 10
 	},
@@ -2340,7 +2336,6 @@
 /turf/open/floor/iron/dark/textured_large,
 /area/ruin/space/has_grav/nova/des_two/bridge/cl)
 "ky" = (
-/obj/structure/cable,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/structure/disposalpipe/segment{
 	dir = 2
@@ -3556,7 +3551,6 @@
 /turf/open/floor/carpet/black,
 /area/ruin/space/has_grav/nova/des_two/service/dorms)
 "pI" = (
-/obj/structure/cable,
 /obj/structure/disposalpipe/segment{
 	dir = 4
 	},
@@ -3720,7 +3714,6 @@
 /area/ruin/space/has_grav/nova/des_two/cargo)
 "qE" = (
 /obj/effect/turf_decal/nova_decals/ds2/middle,
-/obj/structure/cable,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/structure/disposalpipe/segment{
 	dir = 2
@@ -3788,7 +3781,6 @@
 /area/space)
 "qS" = (
 /obj/effect/turf_decal/siding/thinplating/dark,
-/obj/structure/cable,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/structure/disposalpipe/segment{
 	dir = 2
@@ -4025,7 +4017,6 @@
 	name = "Engineering"
 	},
 /obj/effect/mapping_helpers/airlock/access/all/syndicate/general,
-/obj/structure/cable,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/structure/disposalpipe/segment{
 	dir = 2
@@ -4054,14 +4045,6 @@
 /area/ruin/space/has_grav/nova/des_two/bridge/vault)
 "sk" = (
 /obj/machinery/light/warm/directional/west,
-/turf/open/floor/plating,
-/area/ruin/space/has_grav/nova/des_two/engineering)
-"sl" = (
-/obj/effect/spawner/structure/window/reinforced/plasma/plastitanium,
-/obj/machinery/door/poddoor/shutters/radiation/preopen{
-	id = "ds2engineering"
-	},
-/obj/structure/cable,
 /turf/open/floor/plating,
 /area/ruin/space/has_grav/nova/des_two/engineering)
 "sn" = (
@@ -5014,7 +4997,6 @@
 /turf/open/floor/iron/half,
 /area/ruin/space/has_grav/nova/des_two/research/robotics)
 "ws" = (
-/obj/structure/cable,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/structure/disposalpipe/junction/flip,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
@@ -8354,7 +8336,6 @@
 /turf/open/floor/catwalk_floor/iron_dark,
 /area/ruin/space/has_grav/nova/des_two/service/diner)
 "Lh" = (
-/obj/structure/cable,
 /obj/structure/disposalpipe/segment{
 	dir = 4
 	},
@@ -13244,7 +13225,7 @@ ch
 lj
 Rb
 Ya
-sl
+jp
 Il
 ba
 KT
@@ -13374,7 +13355,7 @@ xY
 lj
 eC
 Lh
-sl
+jp
 mx
 ba
 EN
