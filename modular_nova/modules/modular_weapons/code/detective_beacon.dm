@@ -12,8 +12,8 @@
     company_message = span_bold("Supply Pod incoming, please stand by.")
 
 /obj/item/choice_beacon/detective/generate_display_names()
-    var/static/list/selectable_types = list(
-        "Knuckleduster" = /obj/item/melee/knuckleduster,
-        "Police Baton" = /obj/item/melee/baton
+	var/static/list/selectable_types = list(
+		"Knuckleduster" = /obj/item/melee/knuckleduster,
+		"Police Baton" = /obj/item/melee/baton
 	)
-    return selectable_types
+	return selectable_types
