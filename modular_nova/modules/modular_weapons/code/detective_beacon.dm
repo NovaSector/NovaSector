@@ -14,7 +14,6 @@
 /obj/item/choice_beacon/detective/generate_display_names()
     var/static/list/selectable_types = list(
         "Knuckleduster" = /obj/item/melee/knuckleduster,
-        "Police Baton" = /obj/item/melee/baton,
-    )
+        "Police Baton" = /obj/item/melee/baton
+	)
     return selectable_types
-
