@@ -22,6 +22,12 @@
 		GLOB.laugh_types[L.name] = spath
 	sort_list(GLOB.laugh_types, GLOBAL_PROC_REF(cmp_typepaths_asc))
 
+	//Deathgasp types (for synthetic species)
+	for(var/spath in subtypesof(/datum/deathgasp_type))
+		var/datum/deathgasp_type/D = new spath()
+		GLOB.synth_deathgasp_types[D.name] = spath
+	sort_list(GLOB.synth_deathgasp_types, GLOBAL_PROC_REF(cmp_typepaths_asc))
+
 	//Voice_Bark
 	for(var/sound_blooper_path in subtypesof(/datum/blooper))
 		var/datum/blooper/blooper = new sound_blooper_path()
