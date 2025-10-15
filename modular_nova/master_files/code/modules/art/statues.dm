@@ -126,12 +126,6 @@
 	Large Statues
 */
 
-/obj/structure/statue/silver/nova
-	name = "statue of ancient twins"
-	desc = "A statue of twin sisters, giving life to the flame of the universe, keeping the universe alive and well kept... each ember a star, in its infinite chaos."
-	icon = 'modular_nova/master_files/icons/obj/art/statue.dmi'
-	icon_state = "twins"
-
 /obj/structure/statue/silver/nova/large
 	name = "Sol Federation Memorium"
 	desc = "To all the soldiers, whom have fallen bravely in the line of duty protecting this beautiful galaxy..."
