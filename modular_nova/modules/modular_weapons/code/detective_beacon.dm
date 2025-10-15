@@ -17,3 +17,4 @@
 		"Police Baton" = /obj/item/melee/baton
 	)
 	return selectable_types
+
