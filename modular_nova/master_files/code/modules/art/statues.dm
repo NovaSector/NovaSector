@@ -29,7 +29,7 @@
 	icon_state = "twins"
 
 /*
- Small Statues
+	Small Statues
 */
 
 /obj/structure/statue/silver/nova/small
@@ -118,7 +118,7 @@
 	icon_state = "statue_heart"
 
 /*
- Small Statues but glowy
+	Small Statues but glowy
 */
 
 /obj/structure/statue/silver/nova/small/glow
@@ -128,7 +128,7 @@
 
 
 /*
- Large Statues
+	Large Statues
 */
 
 /obj/structure/statue/silver/nova
@@ -156,7 +156,7 @@
 	icon_state = "obelisk_base_dark"
 
 /*
- Large Glowing Statues
+	Large Glowing Statues
 */
 
 /obj/structure/statue/silver/nova/large/glow
