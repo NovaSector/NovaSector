@@ -40,8 +40,9 @@
 	return ..()
 
 /obj/item/melee/knuckleduster/worn_overlays(mutable_appearance/standing, isinhands, icon_file)
-	// Return empty list for overlays
-	return list()
+	. = ..()
+	// Clear all overlays to make invisible
+	. = list()
 
 /obj/item/melee/knuckleduster/proc/knuckle_equipped(obj/item/source, mob/user, slot)
 	SIGNAL_HANDLER
