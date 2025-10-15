@@ -2485,7 +2485,6 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/structure/sign/poster/contraband/korpstech, 32)
 	icon = 'modular_nova/master_files/icons/donator/obj/clothing/suits.dmi'
 	worn_icon = 'modular_nova/master_files/icons/donator/mob/clothing/suit.dmi'
 
-
 // Kaynite Donor Items
 /obj/item/clothing/suit/hooded/merctac_hoodie
 	name = "\improper MercTac hoodie"
