@@ -30,6 +30,10 @@
 			borg.model.remove_module(CS)
 		for(var/obj/item/healthanalyzer/HA in borg.model.modules)
 			borg.model.remove_module(HA)
+		for(var/obj/item/blood_filter/BF in borg.model.modules)
+			borg.model.remove_module(BF)
+		for(var/obj/item/borg/cyborg_omnitool/medical/OMNI in borg.model.modules)
+			borg.model.remove_module(OMNI)
 
 		var/obj/item/scalpel/advanced/AS = new /obj/item/scalpel/advanced(borg.model)
 		borg.model.basic_modules += AS
@@ -40,6 +44,9 @@
 		var/obj/item/cautery/advanced/AC = new /obj/item/cautery/advanced(borg.model)
 		borg.model.basic_modules += AC
 		borg.model.add_module(AC, FALSE, TRUE)
+		var/obj/item/blood_filter/advanced/ABF = new /obj/item/blood_filter/advanced(borg.model)
+		borg.model.basic_modules += ABF
+		borg.model.add_module(ABF, FALSE, TRUE)
 		var/obj/item/healthanalyzer/advanced/AHA = new /obj/item/healthanalyzer/advanced(borg.model)
 		borg.model.basic_modules += AHA
 		borg.model.add_module(AHA, FALSE, TRUE)
@@ -53,6 +60,8 @@
 			borg.model.remove_module(AR)
 		for(var/obj/item/cautery/advanced/AC in borg.model.modules)
 			borg.model.remove_module(AC)
+		for(var/obj/item/blood_filter/advanced/ABF in borg.model.modules)
+			borg.model.remove_module(ABF)
 		for(var/obj/item/healthanalyzer/advanced/AHA in borg.model.modules)
 			borg.model.remove_module(AHA)
 
@@ -74,6 +83,15 @@
 		var/obj/item/circular_saw/CS = new (borg.model)
 		borg.model.basic_modules += CS
 		borg.model.add_module(CS, FALSE, TRUE)
+		var/obj/item/borg/cyborg_omnitool/medical/OMNI1 = new (borg.model)
+		borg.model.basic_modules += OMNI1
+		borg.model.add_module(OMNI1, FALSE, TRUE)
+		var/obj/item/borg/cyborg_omnitool/medical/OMNI2 = new (borg.model)
+		borg.model.basic_modules += OMNI2
+		borg.model.add_module(OMNI2, FALSE, TRUE)
+		var/obj/item/blood_filter/BF = new (borg.model)
+		borg.model.basic_modules += BF
+		borg.model.add_module(BF, FALSE, TRUE)
 		var/obj/item/healthanalyzer/HA = new (borg.model)
 		borg.model.basic_modules += HA
 		borg.model.add_module(HA, FALSE, TRUE)
