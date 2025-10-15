@@ -25,7 +25,7 @@
 
 /datum/loadout_item/shoes/kim
 	name = "Aerostatic Shoes"
-	item_path = /obj/item/clothing/shoes/kim
+	item_path = /obj/item/clothing/shoes/jackboots/kim
 
 /datum/loadout_item/shoes/high_heels
 	name = "High Heels"
@@ -67,6 +67,10 @@
 /datum/loadout_item/shoes/sportshoes
 	name = "Sport Shoes"
 	item_path = /obj/item/clothing/shoes/sports
+
+/datum/loadout_item/shoes/sport_boots
+	name = "Sport Boots"
+	item_path = /obj/item/clothing/shoes/sport_boots
 
 /*
 *	BOOTS

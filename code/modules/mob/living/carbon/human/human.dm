@@ -105,7 +105,7 @@
 		if(!same_id || (text2num(href_list["examine_time"]) + viable_time) < world.time)
 			to_chat(viewer, span_notice("You don't have that good of a memory. Examine [p_them()] again."))
 			return
-		if(HAS_TRAIT(src, TRAIT_UNKNOWN))
+		if(HAS_TRAIT(src, TRAIT_UNKNOWN_APPEARANCE))
 			to_chat(viewer, span_notice("You can't make out that ID anymore."))
 			return
 		if(!isobserver(viewer) && get_dist(viewer, src) > ID_EXAMINE_DISTANCE + 1) // leeway, ignored if the viewer is a ghost
@@ -121,6 +121,7 @@
 		var/id_gender = record?.gender
 		var/id_species = record?.species
 		var/id_icon = jointext(id.get_id_examine_strings(viewer), "")
+		var/id_permit = (ACCESS_WEAPONS in id.GetAccess()) ? "Authorized" : "Unauthorized" // NOVA EDIT ADDITION - Permit shown on ID
 		// Fill in some blanks for chameleon IDs to maintain the illusion of a real ID
 		if(istype(id, /obj/item/card/id/advanced/chameleon))
 			id_gender ||= gender
@@ -142,6 +143,7 @@
 			"&bull; Gender: [id_gender || "Unknown"]",
 			"&bull; Blood Type: [id_blood_type || "?"]",
 			"&bull; Species: [id_species || "Unknown"]",
+			"&bull; Weapon Permit: [id_permit || "Unknown"]", // NOVA EDIT ADDITION - Permit shown on ID
 		), "<br>")
 		id_examine += "</div>" // container
 		id_examine += "</div>" // text
@@ -648,7 +650,7 @@
  * Returns false if we couldn't wash our hands due to them being obscured, otherwise true
  */
 /mob/living/carbon/human/proc/wash_hands(clean_types)
-	if(check_covered_slots() & ITEM_SLOT_GLOVES)
+	if(covered_slots & HIDEGLOVES)
 		return FALSE
 
 	if(gloves)
@@ -671,7 +673,7 @@
 	if(glasses && !is_eyes_covered(ITEM_SLOT_MASK|ITEM_SLOT_HEAD) && glasses.wash(clean_types))
 		. = TRUE
 
-	if(wear_mask && !(check_covered_slots() & ITEM_SLOT_MASK) && wear_mask.wash(clean_types))
+	if(wear_mask && !(covered_slots & HIDEMASK) && wear_mask.wash(clean_types))
 		. = TRUE
 
 /**
@@ -683,7 +685,7 @@
 		. |= COMPONENT_CLEANED
 
 	// Wash hands if exposed
-	if(!gloves && (clean_types & CLEAN_TYPE_BLOOD) && blood_in_hands > 0 && !(check_covered_slots() & ITEM_SLOT_GLOVES))
+	if(!gloves && (clean_types & CLEAN_TYPE_BLOOD) && blood_in_hands > 0 && !(covered_slots & HIDEGLOVES))
 		blood_in_hands = 0
 		update_worn_gloves()
 		. |= COMPONENT_CLEANED
@@ -1218,11 +1220,8 @@
 /mob/living/carbon/human/species/lizard/silverscale
 	race = /datum/species/lizard/silverscale
 
-/mob/living/carbon/human/species/spirit
-	race = /datum/species/spirit
-
 /mob/living/carbon/human/species/ghost
-	race = /datum/species/spirit/ghost
+	race = /datum/species/ghost
 
 /mob/living/carbon/human/species/ethereal
 	race = /datum/species/ethereal

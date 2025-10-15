@@ -6950,7 +6950,7 @@
 	pixel_y = -1
 	},
 /obj/effect/decal/cleanable/dirt,
-/obj/effect/landmark/start/hangover/closet,
+/obj/effect/landmark/start/hangover,
 /turf/open/floor/wood,
 /area/awaymission/caves/maintsroom)
 "xe" = (
@@ -8415,7 +8415,7 @@
 /turf/open/floor/iron/diagonal,
 /area/awaymission/caves/maintsroom)
 "Cb" = (
-/obj/machinery/porta_turret/syndicate/nri_raider/ancient_milsim/garrison_turret,
+/obj/machinery/porta_turret/syndicate/hc_police/ancient_milsim/garrison_turret,
 /turf/open/floor/iron/smooth,
 /area/awaymission/caves/maintsroom)
 "Cc" = (
@@ -8769,10 +8769,6 @@
 /obj/effect/turf_decal/sand/plating,
 /obj/structure/alien/weeds,
 /turf/open/floor/plating,
-/area/awaymission/caves/maintsroom)
-"Du" = (
-/obj/item/borg/sight/meson,
-/turf/open/misc/asteroid/snow/indestructible/planet,
 /area/awaymission/caves/maintsroom)
 "Dv" = (
 /obj/machinery/light/directional/east,
@@ -13583,7 +13579,7 @@
 	},
 /area/awaymission/caves/maintsroom)
 "TP" = (
-/obj/machinery/computer/station_alert/station_only{
+/obj/machinery/computer/station_alert{
 	dir = 4
 	},
 /obj/effect/turf_decal/bot/left,
@@ -20638,7 +20634,7 @@ vf
 CW
 vf
 oN
-Du
+DT
 DT
 DT
 DT
