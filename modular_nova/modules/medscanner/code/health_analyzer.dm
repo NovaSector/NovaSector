@@ -114,7 +114,7 @@ GLOBAL_LIST_INIT(analyzerthemes, list(
 	ui = SStgui.try_update_ui(user, src, ui)
 	if(!ui)
 		ui = new(user, src, "MedScanner", "Medical Scanner")
-		ui.set_autoupdate(value = 1) // Update every processing tick (2 seconds)
+		ui.set_autoupdate(1) // Update every processing tick (2 seconds)
 		ui.open()
 
 /obj/item/healthanalyzer/ui_data(mob/user)
@@ -372,11 +372,11 @@ GLOBAL_LIST_INIT(analyzerthemes, list(
 		for(var/limb_wound in wounded_part.wounds)
 			var/datum/wound/current_wound = limb_wound
 			render_list += list(list(
-				"type" = current_wound.name,
-				"where" = wounded_part.name,
-				"severity" = current_wound.severity_text(simple = FALSE),
-				"description" = current_wound.desc,
-				"recomended_treatement" = current_wound.treat_text,
+			"type" = current_wound.name,
+			"where" = wounded_part.name,
+			"severity" = current_wound.severity_text(FALSE),
+			"description" = current_wound.desc,
+			"recomended_treatement" = current_wound.treat_text,
 			))
 	data["wounds"] = render_list
 
@@ -620,7 +620,7 @@ GLOBAL_LIST_INIT(analyzerthemes, list(
 	if(!theme)
 		theme = "default"
 	var/list/data = list(
-		"accessible_theme" = lowertext(theme),
+		"accessible_theme" = LOWER_TEXT(theme),
 		"available_themes" = GLOB.analyzerthemes,
 	)
 	return data
