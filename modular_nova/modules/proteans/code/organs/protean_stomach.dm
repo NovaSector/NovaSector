@@ -12,7 +12,7 @@
 	/// How much metal are we holding currently (In sheets)
 	var/metal = PROTEAN_STOMACH_FULL
 	/// Multiplicative modifier to how fast we lose metal
-	var/metabolism_modifier = 1
+	var/metabolism_modifier = 0.5
 	COOLDOWN_DECLARE(starving_message)
 	COOLDOWN_DECLARE(damage_delay)
 
