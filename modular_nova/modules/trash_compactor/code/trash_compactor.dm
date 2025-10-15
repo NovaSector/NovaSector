@@ -83,12 +83,12 @@
 	// Handle GAP card insertion
 	if(istype(attacking_item, /obj/item/gbp_punchcard))
 		if(inserted_card)
-			balloon_alert(user, "GAP card already inserted!")
+			balloon_alert(user, "gap card already inserted!")
 			return COMPONENT_NO_AFTERATTACK
 		if(!user.transferItemToLoc(attacking_item, src))
 			return
 		inserted_card = attacking_item
-		balloon_alert(user, "GAP card inserted!")
+		balloon_alert(user, "gap card inserted!")
 		update_appearance()
 		return COMPONENT_NO_AFTERATTACK
 
