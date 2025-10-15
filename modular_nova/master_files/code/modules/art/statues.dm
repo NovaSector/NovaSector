@@ -1,18 +1,16 @@
 //Initializing the glow for the steles.
-/obj/structure/statue/Initialize(mapload)
+/obj/structure/statue/silver/nova/Initialize(mapload)
 	. = ..()
 	update_appearance(UPDATE_OVERLAYS)
 
 //Adding the glowing runes overlay to the steles.
-/obj/structure/statue/update_overlays()
+/obj/structure/statue/silver/nova/large/glow/update_overlays()
 	. = ..()
 	. += add_statue_glow()
 
-/obj/structure/statue/silver
-	max_integrity = 50
-	impressiveness = 15
-	custom_materials = list(/datum/material/sandstone=SHEET_MATERIAL_AMOUNT*5)
-	abstract_type = /obj/structure/statue/sandstone
+/obj/structure/statue/silver/nova/small/glow/update_overlays()
+	. = ..()
+	. += add_statue_glow()
 
 /obj/structure/statue/proc/add_statue_glow() /// Will attempt to add glow to ALL statues if possible, otherwise do nothing
 
@@ -23,12 +21,20 @@
 		alpha = src.alpha
 	)
 
-/// Smol statues
+/// Base statue, do not the statue please
+/obj/structure/statue/silver/nova
+	name = "statue of ancient twinss"
+	desc = "A statue of twin sisters, giving life to the flame of the universe, keeping the universe alive and well kept... each ember a star, in its infinite chaos."
+	icon = 'modular_nova/master_files/icons/obj/art/statue.dmi'
+	icon_state = "twins"
+
+/*
+ Small Statues
+*/
 
 /obj/structure/statue/silver/nova/small
 	name = "letter statue"
 	desc = "a statue depicting a letter"
-	icon = 'modular_nova/master_files/icons/obj/art/statue.dmi'
 	icon_state = "statue_a"
 
 /obj/structure/statue/silver/nova/small/b
@@ -111,54 +117,85 @@
 	desc = "A small statue depicting a heart..."
 	icon_state = "statue_heart"
 
-// Large statues
+/*
+ Small Statues but glowy
+*/
+
+/obj/structure/statue/silver/nova/small/glow
+	name = "Statue of Curiosity"
+	desc = "A statue, depicting ancient humans and their system of sol, its past showing how little they once knew and how their determination helped them ascend to the stars"
+	icon_state = "statue_curiosity"
+
+
+/*
+ Large Statues
+*/
 
 /obj/structure/statue/silver/nova
 	name = "statue of ancient twinss"
 	desc = "A statue of twin sisters, giving life to the flame of the universe, keeping the universe alive and well kept... each ember a star, in its infinite chaos."
-	icon = 'modular_nova/master_files/icons/obj/art/statuelarge.dmi'
+	icon = 'modular_nova/master_files/icons/obj/art/statue.dmi'
 	icon_state = "twins"
 
-/obj/structure/statue/silver/nova/twins_light
-	icon_state = "twins_light"
-
-/obj/structure/statue/silver/nova/telekenesis
-	name = "statue of telekenesis"
-	desc = "A statue, depicting telekinetic behaviour... but yet it feels like your mind is being invaded by the statue..."
-	icon_state = "telekenesis"
-
-/obj/structure/statue/silver/nova/honor
-	name = "Statue of the Honourbound"
-	desc = "An elaborately made statue, depicting that of honour, dignity, and solitude, in which one's own honour must never be broken."
-	icon_state = "honour"
-
-/obj/structure/statue/silver/nova/honor_lights
-	icon_state = "honour_light"
-
-/obj/structure/statue/silver/nova/truelight
-	name = "statue of light"
-	desc = "An iron statue, made depicting darkness, but that following the light will guide you home."
-	icon_state = "light_statue"
-
-/obj/structure/statue/silver/nova/order
-	name = "Statue of order"
-	desc = "A statue, with a great feeling of order, and community, through unity aand order."
-	icon_state = "order"
-
-/obj/structure/statue/silver/nova/federation
+/obj/structure/statue/silver/nova/large
 	name = "Sol Federation Memorium"
 	desc = "To all the soldiers, whom have fallen bravely in the line of duty protecting this beautiful galaxy..."
+	icon = 'modular_nova/master_files/icons/obj/art/statuelarge.dmi'
 	icon_state = "obelisk_solfed"
 
-/obj/structure/statue/silver/nova/obelisk
+	max_integrity = 120
+	impressiveness = 35
+	custom_materials = list(/datum/material/silver=SHEET_MATERIAL_AMOUNT*10)
+
+/obj/structure/statue/silver/nova/large/obelisk
 	name = "Obelisk"
 	desc = "You're not sure why its here... its just a block of iron, but yet... its menacing... like a pillar... such cleanly cut... its corners looking too sharp to touch..."
 	icon_state = "obelisk_base"
 
-/obj/structure/statue/silver/nova/obelisk/dark
+/obj/structure/statue/silver/nova/large/obelisk/dark
 	icon_state = "obelisk_base_dark"
 
-/obj/structure/statue/silver/nova/love
+/*
+ Large Glowing Statues
+*/
+
+/obj/structure/statue/silver/nova/large/glow
+	name = "statue of ancient twinss"
+	desc = "A statue of twin sisters, giving life to the flame of the universe, keeping the universe alive and well kept... each ember a star, in its infinite chaos."
+	icon_state = "twins"
+
+/obj/structure/statue/silver/nova/large/glow/twins_light
+	icon_state = "twins_light"
+
+/obj/structure/statue/silver/nova/large/glow/telekenesis
+	name = "statue of telekenesis"
+	desc = "A statue, depicting telekinetic behaviour... but yet it feels like your mind is being invaded by the statue..."
+	icon_state = "telekenesis"
+
+/obj/structure/statue/silver/nova/large/glow/honor
+	name = "Statue of the Honourbound"
+	desc = "An elaborately made statue, depicting that of honour, dignity, and solitude, in which one's own honour must never be broken."
+	icon_state = "honour"
+
+/obj/structure/statue/silver/nova/large/glow/honor_lights
+	icon_state = "honour_light"
+
+/obj/structure/statue/silver/nova/large/glow/truelight
+	name = "statue of light"
+	desc = "An iron statue, made depicting darkness, but that following the light will guide you home."
+	icon_state = "light_statue"
+
+/obj/structure/statue/silver/nova/large/glow/order
+	name = "Statue of order"
+	desc = "A statue, with a great feeling of order, and community, through unity aand order."
+	icon_state = "order"
+
+/obj/structure/statue/silver/nova/large/glow/love
 	name = "Statue of love"
 	desc = "A faint feeling of affection and care, seems present in your mind as you look at the statue... but yet... you feel nothing..."
 	icon_state = "statue_love"
+
+/obj/structure/statue/silver/nova/large/glow/curiosity
+	name = "Statue of Curiosity"
+	desc = "A statue, depicting ancient humans and their system of sol, its past showing how little they once knew and how their determination helped them ascend to the stars"
+	icon_state = "curiosity"
