@@ -969,6 +969,8 @@
 	clothing_flags = parent_type::clothing_flags | VOICEBOX_DISABLED
 	flags_inv = NONE
 	interaction_flags_click = NEED_DEXTERITY
+	use_radio_beeps_tts = TRUE
+	voice_filter = /obj/item/clothing/mask/gas/sechailer::voice_filter
 
 /obj/item/clothing/mask/gas/signalis_gaiter/attack_self(mob/user)
 	adjust_visor(user)
