@@ -140,7 +140,7 @@ const PatientBasics = () => {
           <Stack.Item grow={1}>
             <Box textAlign="center">
               {ssd ? (
-                <NoticeBox danger>Space sleep disorder detected!</NoticeBox>
+                <NoticeBox danger>Sudden sleep disorder detected!</NoticeBox>
               ) : null}
             </Box>
           </Stack.Item>
