@@ -1,12 +1,11 @@
 /obj/machinery/trash_compactor
-	name = "trash compactor"
-	desc = "A machine that crushes and processes recyclable materials. After processing trash, it punches GAP cards and dispenses ration tickets. Wisdom guaranteed with every transaction."
+	name = "\improper DeForest Materiel Recovery Terminal"
+	desc = "A vending machine-like terminal for the processing and re-logistics of post-consumer station materials. \
+	Approved waste inputs are converted into ration slips via the integrated incentive program. A clean station is a symptom of a healthy crew. \
+	Consult your hygiene officer for a list of approved inputs."
 	icon = 'modular_nova/modules/trash_compactor/icons/trash_compactor.dmi'
-	icon_state = "active"
+	icon_state = "trash_compactor"
 	density = TRUE
-	use_power = IDLE_POWER_USE
-	idle_power_usage = 10
-	active_power_usage = 500
 	circuit = /obj/item/circuitboard/machine/trash_compactor
 
 	///Track trash count for each user
@@ -32,6 +31,27 @@
 		/obj/item/grown/corncob,
 		/obj/item/food/candy_trash,
 	)
+
+/obj/machinery/trash_compactor/update_icon_state()
+	if(machine_stat & BROKEN)
+		icon_state = "trash_compactor_broken"
+		return
+	if(machine_stat & NOPOWER)
+		icon_state = "trash_compactor_nopower"
+	else
+		icon_state = "trash_compactor"
+	return ..()
+
+/obj/machinery/trash_compactor/update_overlays()
+	. = ..()
+	if(machine_stat & MAINT)
+		. += "trash_compactor_maintenance"
+	if((machine_stat & BROKEN || machine_stat & NOPOWER))
+		return
+	. += emissive_appearance(icon, "trash_compactor_glow", src, alpha = src.alpha)
+	if(inserted_card)
+		. += "trash_compactor_gap"
+		. += emissive_appearance(icon, "trash_compactor_gap_glow", src, alpha = src.alpha)
 
 /obj/machinery/trash_compactor/examine(mob/living/user)
 	. = ..()
@@ -69,6 +89,7 @@
 			return
 		inserted_card = attacking_item
 		balloon_alert(user, "GAP card inserted!")
+		update_appearance()
 		return COMPONENT_NO_AFTERATTACK
 
 	// Handle trash bags for bulk processing
@@ -87,7 +108,8 @@
 		if(!user.put_in_hands(inserted_card))
 			inserted_card.forceMove(drop_location())
 		inserted_card = null
-		balloon_alert(user, "card removed")
+		balloon_alert(user, "card removed!")
+		update_appearance()
 		return TRUE
 	return FALSE
 
@@ -200,6 +222,11 @@
 	return processed_count > 0
 
 /obj/item/circuitboard/machine/trash_compactor
-	name = "Trash Compactor (Machine Board)"
+	name = "\improper DeForest Materiel Recovery Terminal (Machine Board)"
 	build_path = /obj/machinery/trash_compactor
 	req_components = list()
+
+/obj/item/flatpack/trash_compactor
+	name = "\improper DeForest Materiel Recovery Terminal"
+	board = /obj/item/circuitboard/machine/trash_compactor
+	custom_premium_price = PAYCHECK_CREW * 1.5

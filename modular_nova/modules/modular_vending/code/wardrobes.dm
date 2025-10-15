@@ -188,7 +188,7 @@
 	)
 
 /obj/machinery/vending/wardrobe/jani_wardrobe
-	premium_nova = list(/obj/item/disk/nifsoft_uploader/job/summoner/service = 2)
+	premium_nova = list(/obj/item/disk/nifsoft_uploader/job/summoner/service = 2, /obj/item/flatpack/trash_compactor = 1)
 
 /// Removes given list of products. Must be called before build_inventory() to actually prevent the records from being created.
 /obj/machinery/vending/proc/remove_products(list/paths_to_remove)
