@@ -1,8 +1,8 @@
 /obj/machinery/trash_compactor
 	name = "\improper DeForest Materiel Recovery Terminal"
 	desc = "A vending machine-like terminal for the processing and re-logistics of post-consumer station materials. \
-	Approved waste inputs are converted into ration slips via the integrated incentive program. A clean station is a symptom of a healthy crew. \
-	Consult your hygiene officer for a list of approved inputs."
+	Approved waste inputs are converted into ration slips via the integrated incentive program. Has a slot for GAP cards, to stamp them for janitorial service. \
+	A clean station is a symptom of a healthy crew. Consult your hygiene officer for a list of approved inputs."
 	icon = 'modular_nova/modules/trash_compactor/icons/trash_compactor.dmi'
 	icon_state = "trash_compactor"
 	density = TRUE
