@@ -106,7 +106,7 @@
 /obj/structure/statue/silver/nova/small/z
 	icon_state = "statue_z"
 
-/obj/structure/statue/silver/nova/heart
+/obj/structure/statue/silver/nova/small/heart
 	name = "heart statue"
 	desc = "A small statue depicting a heart..."
 	icon_state = "statue_heart"
@@ -138,7 +138,7 @@
 /obj/structure/statue/silver/nova/truelight
 	name = "statue of light"
 	desc = "An iron statue, made depicting darkness, but that following the light will guide you home."
-	icon_state = "light"
+	icon_state = "light_statue"
 
 /obj/structure/statue/silver/nova/order
 	name = "Statue of order"
@@ -159,6 +159,6 @@
 	icon_state = "obelisk_base_dark"
 
 /obj/structure/statue/silver/nova/love
-	name = "Statue of love."
+	name = "Statue of love"
 	desc = "A faint feeling of affection and care, seems present in your mind as you look at the statue... but yet... you feel nothing..."
 	icon_state = "statue_love"
