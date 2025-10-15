@@ -153,41 +153,6 @@
 	)
 	all_emotes += nova_living_emotes
 
-	// modular_nova\modules\modular_bubber_emotes\code\emotes.dm
-	var/static/list/bubber_living_emotes = list(
-		/mob/living/proc/emote_chirp,
-		/mob/living/proc/emote_fpurr,
-		/mob/living/proc/emote_gecker,
-		/mob/living/proc/emote_mar,
-		/mob/living/proc/emote_meow_alt,
-		/mob/living/proc/emote_mrowl,
-		/mob/living/proc/emote_tail_thump,
-		/mob/living/proc/emote_squeal,
-		/mob/living/proc/emote_yipyip,
-		/mob/living/proc/emote_yip,
-		/mob/living/proc/emote_kweh,
-		/mob/living/proc/emote_kweh_sad,
-		/mob/living/proc/emote_xenogrowl,
-		/mob/living/proc/emote_xenohiss,
-		/mob/living/proc/emote_stoatchirp,
-		/mob/living/proc/emote_shortmoo,
-		/mob/living/proc/emote_deermah
-	)
-	all_emotes += bubber_living_emotes
-
-	var/static/list/bubber_carbon_emotes = list(
-		/mob/living/carbon/proc/emote_bonk
-	)
-	all_emotes += bubber_carbon_emotes
-
-	var/static/list/bubber_synth_emotes = list(
-		/mob/living/carbon/human/proc/emote_scary,
-		/mob/living/carbon/human/proc/emote_error,
-		/mob/living/carbon/human/proc/emote_rstartup,
-		/mob/living/carbon/human/proc/emote_rshutdown
-	)
-	all_emotes += bubber_synth_emotes
-
 	// code\modules\mob\living\brain\emote.dm
 	var/static/list/brain_emotes = list(
 		/mob/living/brain/proc/emote_alarm,
@@ -261,7 +226,6 @@
 		if(isliving(src))
 			available_emotes += living_emotes
 			available_emotes += nova_living_emotes
-			available_emotes += bubber_living_emotes
 			available_emotes += nova_living_emotes_overlay
 			available_emotes += /mob/living/proc/emote_mark_turf
 			// Checking if should apply Synth emotes
@@ -269,7 +233,6 @@
 				available_emotes += synth_emotes
 		if(iscarbon(src))
 			available_emotes += carbon_emotes
-			available_emotes += bubber_carbon_emotes
 		if(ishuman(src))
 			available_emotes += human_emotes
 			var/mob/living/carbon/human/current_mob = src
@@ -280,12 +243,6 @@
 			// Checking if has wings
 			if(!current_mob.get_organ_slot(ORGAN_SLOT_EXTERNAL_WINGS))
 				available_emotes -= /mob/living/carbon/human/proc/emote_wing
-			// Checking if synth for Bubber synth emotes
-			if(istype(current_mob.dna?.species, /datum/species/synthetic))
-				available_emotes += bubber_synth_emotes
-			// Remove tail thump if no tail
-			if(!tail)
-				available_emotes -= /mob/living/proc/emote_tail_thump
 		if(isalien(src))
 			available_emotes += alien_emotes
 
@@ -1077,119 +1034,3 @@
 	set name = "| Mark Turf |"
 	set category = "Emotes+"
 	usr.emote("turf", intentional = TRUE)
-
-// modular_nova\modules\modular_bubber_emotes\code\emotes.dm
-
-/mob/living/proc/emote_chirp()
-	set name = "> Chirp"
-	set category = "Emotes+"
-	usr.emote("chirp", intentional = TRUE)
-
-/mob/living/proc/emote_fpurr()
-	set name = "> Fox Purr"
-	set category = "Emotes+"
-	usr.emote("fpurr", intentional = TRUE)
-
-/mob/living/proc/emote_gecker()
-	set name = "> Gecker"
-	set category = "Emotes+"
-	usr.emote("gecker", intentional = TRUE)
-
-/mob/living/proc/emote_mar()
-	set name = "> Mar"
-	set category = "Emotes+"
-	usr.emote("mar", intentional = TRUE)
-
-/mob/living/proc/emote_meow_alt()
-	set name = "> Meow Alt"
-	set category = "Emotes+"
-	usr.emote("meow1", intentional = TRUE)
-
-/mob/living/proc/emote_mrowl()
-	set name = "> Mrowl"
-	set category = "Emotes+"
-	usr.emote("mrowl", intentional = TRUE)
-
-/mob/living/proc/emote_tail_thump()
-	set name = "> Tail Thump"
-	set category = "Emotes+"
-	usr.emote("tailthump", intentional = TRUE)
-
-/mob/living/proc/emote_squeal()
-	set name = "> Squeal"
-	set category = "Emotes+"
-	usr.emote("squeal", intentional = TRUE)
-
-/mob/living/proc/emote_yipyip()
-	set name = "> Yip-yip"
-	set category = "Emotes+"
-	usr.emote("yipyip", intentional = TRUE)
-
-/mob/living/proc/emote_yip()
-	set name = "> Yip"
-	set category = "Emotes+"
-	usr.emote("yip", intentional = TRUE)
-
-/mob/living/proc/emote_kweh()
-	set name = "> Kweh"
-	set category = "Emotes+"
-	usr.emote("kweh", intentional = TRUE)
-
-/mob/living/proc/emote_kweh_sad()
-	set name = "> Skweh"
-	set category = "Emotes+"
-	usr.emote("skweh", intentional = TRUE)
-
-/mob/living/proc/emote_xenogrowl()
-	set name = "> Xenogrowl"
-	set category = "Emotes+"
-	usr.emote("xenogrowl", intentional = TRUE)
-
-/mob/living/proc/emote_xenohiss()
-	set name = "> Xenohiss"
-	set category = "Emotes+"
-	usr.emote("xenohiss", intentional = TRUE)
-
-/mob/living/proc/emote_stoatchirp()
-	set name = "> Stoat Chirp"
-	set category = "Emotes+"
-	usr.emote("schirp", intentional = TRUE)
-
-/mob/living/proc/emote_shortmoo()
-	set name = "> Short Moo"
-	set category = "Emotes+"
-	usr.emote("smoo", intentional = TRUE)
-
-/mob/living/proc/emote_deermah()
-	set name = "> Deer Mah"
-	set category = "Emotes+"
-	usr.emote("mah", intentional = TRUE)
-
-// modular_nova\modules\modular_bubber_emotes\code\hand_items.dm
-
-/mob/living/carbon/proc/emote_bonk()
-	set name = "| Bonk |"
-	set category = "Emotes+"
-	usr.emote("bonk", intentional = TRUE)
-
-// modular_nova\modules\modular_bubber_emotes\code\synth_emotes.dm
-
-/mob/living/carbon/human/proc/emote_scary()
-	set name = "< Scary >"
-	set category = "Emotes"
-	usr.emote("scary", intentional = TRUE)
-
-/mob/living/carbon/human/proc/emote_error()
-	set name = "< Error >"
-	set category = "Emotes"
-	usr.emote("error", intentional = TRUE)
-
-/mob/living/carbon/human/proc/emote_rstartup()
-	set name = "< Startup >"
-	set category = "Emotes"
-	usr.emote("startup", intentional = TRUE)
-
-/mob/living/carbon/human/proc/emote_rshutdown()
-	set name = "< Shutdown >"
-	set category = "Emotes"
-	usr.emote("shutdown", intentional = TRUE)

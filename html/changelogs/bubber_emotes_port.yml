@@ -7,7 +7,6 @@ changes:
   - rscadd: "Added bonk emote that creates a hand item for bonking people on the head"
   - rscadd: "Added synthetic-only emotes: scary, error, startup, and shutdown"
   - rscadd: "Added deathgasp sound selection for synthetic species in character creation (positioned under Character Scream)"
-  - rscadd: "All new Bubber emotes are available in the Emotes+ panel"
   - soundadd: "Added various animal and creature sounds for the new emotes"
   - soundadd: "Added cat and slug scream sound variants"
 
