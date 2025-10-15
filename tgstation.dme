@@ -7017,6 +7017,7 @@
 #include "modular_nova\master_files\code\modules\antagonists\pirate\pirate_gang.dm"
 #include "modular_nova\master_files\code\modules\antagonists\pirate\pirate_outfits.dm"
 #include "modular_nova\master_files\code\modules\antagonists\pirate\pirate_shuttle_equipment.dm"
+#include "modular_nova\master_files\code\modules\art\statues.dm"
 #include "modular_nova\master_files\code\modules\assembly\flash.dm"
 #include "modular_nova\master_files\code\modules\asset_cache\assets\plumbing.dm"
 #include "modular_nova\master_files\code\modules\atmospherics\gasmixtures\gas_types.dm"
