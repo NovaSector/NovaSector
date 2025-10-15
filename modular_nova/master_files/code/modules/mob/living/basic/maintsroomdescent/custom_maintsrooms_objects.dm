@@ -35,7 +35,7 @@
 	name = "Commanding Combat Mech"
 	icon_state = "seraph"
 
-/obj/machinery/porta_turret/syndicate/nri_raider/ancient_milsim/garrison_turret
+/obj/machinery/porta_turret/syndicate/hc_police/ancient_milsim/garrison_turret
 	name = "anti-personel turret"
 	desc = "A repurposed point defense turret usually used to stop heavy projectiles or large missiles coming for small ships- imagine what it would do to you."
 	faction = list("hostile","cult")
