@@ -23,10 +23,10 @@
 
 /// Base statue, do not the statue please
 /obj/structure/statue/silver/nova
-	name = "statue of ancient twinss"
-	desc = "A statue of twin sisters, giving life to the flame of the universe, keeping the universe alive and well kept... each ember a star, in its infinite chaos."
+	name = "heart statue"
+	desc = "A small statue depicting a heart..."
 	icon = 'modular_nova/master_files/icons/obj/art/statue.dmi'
-	icon_state = "twins"
+	icon_state = "statue_heart"
 
 /*
 	Small Statues
@@ -112,11 +112,6 @@
 /obj/structure/statue/silver/nova/small/z
 	icon_state = "statue_z"
 
-/obj/structure/statue/silver/nova/small/heart
-	name = "heart statue"
-	desc = "A small statue depicting a heart..."
-	icon_state = "statue_heart"
-
 /*
 	Small Statues but glowy
 */
@@ -132,7 +127,7 @@
 */
 
 /obj/structure/statue/silver/nova
-	name = "statue of ancient twinss"
+	name = "statue of ancient twins"
 	desc = "A statue of twin sisters, giving life to the flame of the universe, keeping the universe alive and well kept... each ember a star, in its infinite chaos."
 	icon = 'modular_nova/master_files/icons/obj/art/statue.dmi'
 	icon_state = "twins"
