@@ -113,6 +113,22 @@
 	name = "Ring Box - Silver"
 	item_path = /obj/item/storage/fancy/ringbox/silver
 
+/datum/loadout_item/pocket_items/paperbin
+	name = "Paperbin - Paper"
+	item_path = /obj/item/paper_bin
+
+/datum/loadout_item/pocket_items/paperbin_carbon
+	name = "Paperbin - Carbon"
+	item_path = /obj/item/paper_bin/carbon
+
+/datum/loadout_item/pocket_items/paperbin_construction
+	name = "Paperbin - Construction"
+	item_path = /obj/item/paper_bin/construction
+
+/datum/loadout_item/pocket_items/paperbin_natural
+	name = "Paperbin - Natural"
+	item_path = /obj/item/paper_bin/bundlenatural
+
 /*
 *	UTILITY
 */

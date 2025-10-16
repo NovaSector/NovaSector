@@ -58,6 +58,18 @@
 
 	. = ..()
 
+/obj/item/gun/ballistic/shotgun/riot/sol/sawoff(mob/user, obj/item/saw, handle_modifications)
+	. = ..()
+	if(.)
+		var/datum/component/seclite_attachable/light = GetComponent(/datum/component/seclite_attachable)
+		light.overlay_x = 16
+		light.update_light()
+		magazine.max_ammo = 4 // capacity drops to 4+1 because Where's The Rest Of The Magazine, Bro
+		lefthand_file = 'modular_nova/modules/modular_weapons/icons/mob/company_and_or_faction_based/carwo_defense_systems/guns_lefthand.dmi'
+		righthand_file = 'modular_nova/modules/modular_weapons/icons/mob/company_and_or_faction_based/carwo_defense_systems/guns_righthand.dmi'
+		inhand_icon_state = "renoster_sawed"
+		weapon_weight = WEAPON_MEDIUM // compare/contrast the bobr shotgun revolver - +1 capacity, less accuracy, equal recoil, pump-action
+
 /obj/item/ammo_box/magazine/internal/shot/sol
 	ammo_type = /obj/item/ammo_casing/shotgun/rubbershot
 	max_ammo = 8

@@ -77,12 +77,19 @@
 		return COMPONENT_CANNOT_USE_RADIO
 
 /datum/outfit/ghostcafe
-	name = "ID, jumpsuit and shoes"
+	name = "Cafe Visitor"
 	uniform = /obj/item/clothing/under/color/random
 	shoes = /obj/item/clothing/shoes/sneakers/black
 	id = /obj/item/card/id/advanced/chameleon/ghost_cafe
 	back = /obj/item/storage/backpack/chameleon
 	backpack_contents = list(/obj/item/storage/box/syndie_kit/chameleon/ghostcafe = 1)
+
+/datum/outfit/ghostcafe/pre_equip(mob/living/carbon/human/visitor, visuals_only = FALSE)
+	..()
+	if (isplasmaman(visitor))
+		backpack_contents += list(/obj/item/tank/internals/plasmaman/belt/full = 2)
+	if(isvox(visitor) || isvoxprimalis(visitor))
+		backpack_contents += list(/obj/item/tank/internals/nitrogen/belt/full = 2)
 
 /datum/action/toggle_dead_chat_mob
 	button_icon = 'icons/mob/simple/mob.dmi'
