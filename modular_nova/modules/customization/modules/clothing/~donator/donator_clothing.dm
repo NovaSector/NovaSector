@@ -2447,8 +2447,16 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/structure/sign/poster/contraband/korpstech, 32)
 	worn_icon_state = "ecologist_claw"
 	icon = 'modular_nova/master_files/icons/donator/obj/clothing/gloves.dmi'
 	worn_icon = 'modular_nova/master_files/icons/donator/mob/clothing/hands.dmi'
-// Kaynite Donor Items
 
+/obj/item/clothing/suit/admiral_coat
+	name = "admiral's coat"
+	desc = "A robust and imposing looking Sol-naval coat made out of genuine Europan thresher leather. It provides a durable yet comfortable layer, lined with icewolf fur to protect from the bitter cold and ingrained armored padding to protect from the bitter assistants." 
+	icon_state = "hosnavyzec"
+	worn_icon_state = "hosnavyzec"
+	icon = 'modular_nova/master_files/icons/donator/obj/clothing/suits.dmi'
+	worn_icon = 'modular_nova/master_files/icons/donator/mob/clothing/suit.dmi'
+
+// Kaynite Donor Items
 /obj/item/clothing/suit/hooded/merctac_hoodie
 	name = "\improper MercTac hoodie"
 	desc = "A custom tailored hoodie with rash guard, and a sleeveless option for the opposite arm. \
