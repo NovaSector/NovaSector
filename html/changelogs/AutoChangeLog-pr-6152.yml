@@ -1,0 +1,5 @@
+author: "Stalkeros, splet for the sprites"
+delete-after: True
+changes:
+  - rscadd: "HC rim-world inspector MOD has been added, replacing the now-deleted \"\"NRI\"\" policing one."
+  - rscdel: "\"\"NRI\"\" policing MOD doesn't exist, yippie!"
