@@ -36,6 +36,8 @@
 		qdel(owner.get_organ_slot(ORGAN_SLOT_STOMACH))
 		go_into_suit(TRUE)
 		owner.add_traits(list(TRAIT_CRITICAL_CONDITION)) // Just to make crew monitoring console scream
+		// Start emergency recovery cycle
+		revive_timer()
 
 /obj/item/organ/brain/protean/proc/handle_refactory(obj/item/organ) // Slowly degrade
 	var/datum/species/protean/species = owner?.dna.species
@@ -180,7 +182,56 @@
 
 /obj/item/organ/brain/protean/proc/revive_timer()
 	balloon_alert_to_viewers("repairing")
-	addtimer(CALLBACK(src, PROC_REF(revive)), 5 MINUTES) // Bump to 5 minutes
+
+	// Notify the protean that emergency recovery has begun
+	to_chat(owner, span_userdanger("<B>EMERGENCY RECOVERY CYCLE INITIATED</B>"))
+	to_chat(owner, span_warning("Your core has detected critical damage and begun emergency protocols."))
+	to_chat(owner, span_notice("<b>Assisted Recovery:</b> If someone installs a refactory, you will recover in <b>15 seconds</b>."))
+	to_chat(owner, span_notice("<b>Auto-Recovery:</b> If left alone for <b>10-15 minutes</b>, emergency self-repair will activate."))
+	to_chat(owner, span_notice("Your modsuit is currently non-functional. You can still observe and communicate."))
+
+	addtimer(CALLBACK(src, PROC_REF(revive)), 5 MINUTES)
+	// Auto self-revival after 10 minutes if unreachable
+	addtimer(CALLBACK(src, PROC_REF(check_auto_revival)), 10 MINUTES)
+
+/obj/item/organ/brain/protean/proc/check_auto_revival()
+	// If they're still dead and nobody installed a refactory, auto-revive
+	if(!dead)
+		return
+
+	var/datum/species/protean/species = owner?.dna.species
+	if(!istype(species))
+		return
+
+	var/obj/item/organ/stomach/protean/stomach = owner.get_organ_slot(ORGAN_SLOT_STOMACH)
+	if(stomach) // Someone helped them
+		return
+
+	// Check if anyone is nearby who could help
+	var/mob/living/nearby_help = null
+	for(var/mob/living/potential_helper in orange(7, species.species_modsuit))
+		if(potential_helper.stat == CONSCIOUS && potential_helper.client)
+			nearby_help = potential_helper
+			break
+
+	if(nearby_help)
+		// Someone is nearby but hasn't helped - give them more time
+		addtimer(CALLBACK(src, PROC_REF(check_auto_revival)), 5 MINUTES)
+		to_chat(owner, span_notice("Emergency protocols detecting nearby lifeforms... Delaying auto-recovery for <b>5 more minutes</b> to allow assistance."))
+		return
+
+	// Nobody around to help, auto-revive with minimal metal
+	to_chat(owner, span_userdanger("<B>EMERGENCY SELF-REPAIR ACTIVATED</B>"))
+	to_chat(owner, span_notice("No assistance detected within range. Fabricating minimal refactory from reserve nanite materials..."))
+	to_chat(owner, span_boldwarning("WARNING: You will recover with only 1 unit of metal. Find more immediately!"))
+	species.species_modsuit.visible_message(span_warning("[species.species_modsuit] emits a series of mechanical whirs and clicks as it begins emergency self-repair!"))
+
+	// Create a basic refactory with minimal metal
+	var/obj/item/organ/stomach/protean/emergency_stomach = new()
+	emergency_stomach.metal = 1 // Start with only 1 metal - they'll need to find more
+	emergency_stomach.Insert(owner, TRUE, DELETE_IF_REPLACED)
+
+	addtimer(CALLBACK(src, PROC_REF(revive)), 30 SECONDS) // Give them time to see the messages
 
 /obj/effect/temp_visual/protean_to_suit
 	name = "to_suit"

@@ -8,8 +8,11 @@
 	resistance_flags = LAVA_PROOF | FIRE_PROOF | UNACIDABLE | ACID_PROOF // funny nanite
 	/// Whether or not the wearer can undeploy parts.
 	var/modlocked = FALSE
+	/// Currently assimilated modsuit
 	var/obj/item/mod/control/stored_modsuit
+	/// Cached modules from assimilated suits
 	var/list/cached_modules = list()
+	/// Stored theme from assimilated suit
 	var/datum/mod_theme/stored_theme
 
 /datum/mod_theme/protean
@@ -25,6 +28,20 @@
 	if(!storage)
 		storage = new()
 		install(storage, null, TRUE)
+
+/obj/item/mod/control/pre_equipped/protean/item_ctrl_click(mob/user)
+	if(!isprotean(user))
+		return ..()
+
+	// Quick-set crew sensors to tracking for protean wearers
+	var/obj/item/mod/module/crew_sensor/protean/crew_sensor = locate() in modules
+	if(crew_sensor)
+		crew_sensor.set_sensor_mode(SENSOR_COORDS)
+		balloon_alert(user, "sensors set to tracking")
+		return CLICK_ACTION_SUCCESS
+
+	return ..()
+
 
 /obj/item/mod/control/pre_equipped/protean/Destroy()
 	if(stored_modsuit)
@@ -47,10 +64,82 @@
 	to_chat(user, span_warning("The [src] does not respond to the [emag_card]."))
 	return FALSE // Nope
 
+/obj/item/mod/control/pre_equipped/protean/acid_act(acidpwr, acid_volume, acid_id)
+	. = ..()
+	if(modlocked && !isprotean(wearer) && acidpwr >= 50) // Strong acid can force unlock
+		visible_message(span_warning("[src]'s locking mechanisms corrode and fail!"))
+		toggle_lock(TRUE)
+		playsound(src, 'sound/items/tools/welder2.ogg', 50, TRUE)
+		return
+
+/obj/item/mod/control/pre_equipped/protean/emp_act(severity)
+	. = ..()
+	if(modlocked && !isprotean(wearer))
+		var/unlock_chance = (severity == EMP_HEAVY) ? 100 : 50
+		if(prob(unlock_chance))
+			visible_message(span_warning("[src]'s systems glitch out and unlock!"))
+			toggle_lock(TRUE)
+			playsound(src, 'sound/machines/nuke/angry_beep.ogg', 50, TRUE)
+
+/obj/item/mod/control/pre_equipped/protean/screwdriver_act(mob/living/user, obj/item/tool)
+	if(modlocked && !isprotean(wearer) && !open)
+		balloon_alert(user, "unscrewing panel...")
+		if(!do_after(user, 3 SECONDS, wearer))
+			return ITEM_INTERACT_BLOCKING
+		open = TRUE
+		balloon_alert(user, "panel opened")
+		to_chat(user, span_notice("You unscrew the maintenance panel. Now you need to cut the wires..."))
+		playsound(src, 'sound/items/tools/screwdriver_operating.ogg', 50, TRUE)
+		return ITEM_INTERACT_SUCCESS
+	return ..()
+
+/obj/item/mod/control/pre_equipped/protean/wirecutter_act(mob/living/user, obj/item/tool)
+	if(modlocked && !isprotean(wearer) && open)
+		balloon_alert(user, "cutting wires...")
+		if(!do_after(user, 4 SECONDS, wearer))
+			return ITEM_INTERACT_BLOCKING
+		balloon_alert(user, "wires cut")
+		to_chat(user, span_notice("You cut through the locking wires. Now you can pry it off..."))
+		playsound(src, 'sound/items/tools/wirecutter.ogg', 50, TRUE)
+		ADD_TRAIT(src, TRAIT_PROTEAN_UNLOCKABLE, "tool_unlock")
+		return ITEM_INTERACT_SUCCESS
+	return ..()
+
+/obj/item/mod/control/pre_equipped/protean/crowbar_act(mob/living/user, obj/item/tool)
+	if(modlocked && !isprotean(wearer) && HAS_TRAIT(src, TRAIT_PROTEAN_UNLOCKABLE))
+		balloon_alert(user, "prying off...")
+		if(!do_after(user, 5 SECONDS, wearer))
+			return ITEM_INTERACT_BLOCKING
+		visible_message(span_warning("[user] forcefully pries [src] off [wearer]!"))
+		toggle_lock(TRUE)
+		drop_suit()
+		open = FALSE
+		REMOVE_TRAIT(src, TRAIT_PROTEAN_UNLOCKABLE, "tool_unlock")
+		playsound(src, 'sound/items/tools/crowbar.ogg', 50, TRUE)
+		return ITEM_INTERACT_SUCCESS
+	return ..()
+
 /obj/item/mod/control/pre_equipped/protean/canStrip(mob/who)
 	return TRUE
 
 /obj/item/mod/control/pre_equipped/protean/doStrip(mob/stripper, mob/owner) // Custom stripping code.
+	// If mounted on someone, they can remove it by stripping
+	if(HAS_TRAIT(src, TRAIT_PROTEAN_MOUNTED) && stripper == wearer)
+		to_chat(stripper, span_warning("You struggle to remove the mounted protean suit from your back..."))
+		var/obj/item/mod/core/protean/pcore = core
+		var/datum/species/protean/pspecies = pcore?.linked_species
+		if(pspecies?.owner)
+			to_chat(pspecies.owner, span_warning("[stripper] is trying to remove you!"))
+
+		if(do_after(stripper, 3 SECONDS, src))
+			to_chat(stripper, span_notice("You successfully pull the protean suit off your back!"))
+			if(pspecies)
+				pspecies.dismount_from_target()
+			return TRUE
+		else
+			to_chat(stripper, span_warning("You couldn't remove it!"))
+			return FALSE
+
 	if(!isprotean(wearer)) // Strip it normally
 		REMOVE_TRAIT(src, TRAIT_NODROP, "protean") // Your ass is coming off.
 		return ..()
@@ -77,6 +166,20 @@
 		REMOVE_TRAIT(src, TRAIT_NODROP, "protean")
 	modlocked = !modlocked
 
+	// End hijack when suit is unlocked
+	if(!modlocked && HAS_TRAIT(src, TRAIT_PROTEAN_HIJACKED))
+		end_hijack()
+
+/obj/item/mod/control/pre_equipped/protean/proc/end_hijack()
+	if(!HAS_TRAIT(src, TRAIT_PROTEAN_HIJACKED))
+		return
+
+	REMOVE_TRAIT(src, TRAIT_PROTEAN_HIJACKED, "protean_hijack")
+
+	if(wearer)
+		to_chat(wearer, span_notice("The suit's autonomous control ceases!"))
+		wearer.balloon_alert(wearer, "hijack ended")
+
 /obj/item/mod/control/pre_equipped/protean/equipped(mob/user, slot, initial)
 	. = ..()
 
@@ -91,12 +194,22 @@
 		UnregisterSignal(user, COMSIG_OOC_ESCAPE)
 
 /obj/item/mod/control/pre_equipped/protean/choose_deploy(mob/user)
+	if(!isprotean(user) && HAS_TRAIT(src, TRAIT_PROTEAN_HIJACKED))
+		// When hijacked, victim can't control deployment at all
+		balloon_alert(user, "hijacked - no control!")
+		return FALSE
 	if(!isprotean(user) && modlocked && active)
 		balloon_alert(user, "it refuses to listen")
 		return FALSE
 	return ..()
 
 /obj/item/mod/control/pre_equipped/protean/toggle_activate(mob/user, force_deactivate)
+	// Allow victims to try resisting by mashing the toggle - builds up resistance
+	if(!isprotean(user) && HAS_TRAIT(src, TRAIT_PROTEAN_HIJACKED))
+		if(!force_deactivate)
+			build_hijack_resistance(user)
+			balloon_alert(user, "struggling... ([get_resistance_percent(user)]%)")
+			return FALSE
 	if(!force_deactivate && modlocked && !isprotean(user) && active)
 		balloon_alert(user, "it doesn't turn off")
 		return FALSE
@@ -107,16 +220,49 @@
 	return ..()
 
 /obj/item/mod/control/pre_equipped/protean/quick_deploy(mob/user)
+	if(!isprotean(user) && HAS_TRAIT(src, TRAIT_PROTEAN_HIJACKED))
+		balloon_alert(user, "hijacked - no control!")
+		return FALSE
 	if(!isprotean(user) && modlocked && active)
 		balloon_alert(user, "it won't undeploy")
 		return FALSE
 	return ..()
 
 /obj/item/mod/control/pre_equipped/protean/retract(mob/user, obj/item/part, instant)
+	if(!isprotean(user) && HAS_TRAIT(src, TRAIT_PROTEAN_HIJACKED) && !instant)
+		balloon_alert(user, "hijacked - no control!")
+		return FALSE
 	if(!isprotean(user) && modlocked && active && !instant)
 		balloon_alert(user, "that button is unresponsive")
 		return FALSE
 	return ..()
+
+/// Resistance system for victims to break hijack
+/obj/item/mod/control/pre_equipped/protean/proc/build_hijack_resistance(mob/user)
+	var/resistance_key = "hijack_resistance_[user.ckey]"
+	var/current_resistance = vars[resistance_key] || 0
+	current_resistance += 10 // Each attempt adds 10%
+	vars[resistance_key] = current_resistance
+
+	if(current_resistance >= 100)
+		// They broke free!
+		visible_message(span_boldwarning("[user] forcefully breaks free from the hijack through sheer willpower!"))
+		to_chat(user, span_boldnotice("You've broken the protean's control!"))
+		end_hijack()
+		vars[resistance_key] = 0
+		return TRUE
+
+	// Reset resistance after 10 seconds of no attempts
+	addtimer(CALLBACK(src, PROC_REF(decay_resistance), user.ckey), 10 SECONDS)
+	return FALSE
+
+/obj/item/mod/control/pre_equipped/protean/proc/decay_resistance(user_ckey)
+	var/resistance_key = "hijack_resistance_[user_ckey]"
+	vars[resistance_key] = max((vars[resistance_key] || 0) - 5, 0)
+
+/obj/item/mod/control/pre_equipped/protean/proc/get_resistance_percent(mob/user)
+	var/resistance_key = "hijack_resistance_[user.ckey]"
+	return vars[resistance_key] || 0
 
 /// Protean Revivial
 
@@ -132,7 +278,9 @@
 		stomach.Insert(protean_core.linked_species.owner, TRUE, DELETE_IF_REPLACED)
 		balloon_alert(user, "inserted!")
 		playsound(src, 'sound/machines/click.ogg', 50, TRUE, SILENCED_SOUND_EXTRARANGE)
-		brain.revive_timer()
+		// Immediate revival - no timer!
+		balloon_alert_to_viewers("repairing systems")
+		addtimer(CALLBACK(brain, TYPE_PROC_REF(/obj/item/organ/brain/protean, revive)), 15 SECONDS)
 		return ITEM_INTERACT_SUCCESS
 
 	if(istype(tool, /obj/item/mod/construction/plating))
@@ -155,11 +303,8 @@
 			balloon_alert(user, "turn it off")
 			return ITEM_INTERACT_BLOCKING
 
-		var/static/list/obj/item/mod/control/banned_modsuits = list(
-				/obj/item/mod/control/pre_equipped/infiltrator,
-				/obj/item/mod/control/pre_equipped/protean,)
-
-		if(is_type_in_list(tool, banned_modsuits))
+		// Only block other protean modsuits to prevent recursion
+		if(istype(tool, /obj/item/mod/control/pre_equipped/protean))
 			balloon_alert(user, "incompatable")
 			return ITEM_INTERACT_BLOCKING
 
@@ -189,10 +334,31 @@
 
 /obj/item/mod/control/pre_equipped/protean/ui_status(mob/user, datum/ui_state/state)
 	var/obj/item/mod/core/protean/source = core
-	var/datum/species/protean/species = source.linked_species
-	if(isprotean(species.owner) && species.owner == user && user.loc == src)
-		return 2
-	. = ..()
+	var/datum/species/protean/species = source?.linked_species
+
+	// Proteans can ALWAYS access their suit UI from anywhere
+	if(species?.owner == user)
+		return UI_INTERACTIVE
+
+	// Allow hijacked puppet controller to access
+	if(HAS_TRAIT(src, TRAIT_PROTEAN_HIJACKED) && wearer)
+		var/datum/component/protean_direct_controller/controller_comp = wearer.GetComponent(/datum/component/protean_direct_controller)
+		if(controller_comp && controller_comp.protean_body == user)
+			return UI_INTERACTIVE
+
+	return ..()
+
+/obj/item/mod/control/pre_equipped/protean/attack_hand(mob/living/user, list/modifiers)
+	// Allow protean to access their suit by clicking on the mounted target
+	var/obj/item/mod/core/protean/pcore = core
+	var/datum/species/protean/pspecies = pcore?.linked_species
+
+	if(pspecies?.owner == user && HAS_TRAIT(src, TRAIT_PROTEAN_MOUNTED))
+		// Protean clicking on their mounted target opens their suit UI
+		ui_interact(user)
+		return TRUE
+
+	return ..()
 
 /obj/item/mod/control/pre_equipped/protean/proc/assimilate_theme(mob/user, plating)
 	var/obj/item/mod/construction/plating/plates = plating
@@ -214,11 +380,53 @@
 
 /obj/item/mod/control/pre_equipped/protean/proc/assimilate_modsuit(mob/user, modsuit, forced)
 	var/obj/item/mod/control/to_assimilate = modsuit
+
+	// If we already have a stored suit, eject it completely with all modules
 	if(stored_modsuit)
-		to_chat(user, span_warning("Can't absorb two modsuits!"))
-		if(forced)
-			stack_trace("assimilate_modsuit: Tried to assimilate modsuit while there's already a stored modsuit. stored_modsuit: [stored_modsuit], new_modsuit: [to_assimilate]")
-		return
+		to_chat(user, span_notice("Ejecting previous modsuit [stored_modsuit]..."))
+
+		// Retract to original theme first
+		for(var/obj/item/part as anything in get_parts())
+			if(part.loc == src)
+				continue
+			retract(null, part, instant = TRUE)
+
+		theme = stored_theme
+		stored_theme = null
+		skin = initial(skin)
+		theme.set_up_parts(src, skin)
+		name = initial(name)
+		desc = initial(desc)
+		extended_desc = initial(extended_desc)
+
+		// Transfer modules back to old suit (except protean-specific ones)
+		for(var/obj/item/mod/module/module in modules)
+			// Don't transfer protean-specific modules
+			if(istype(module, /obj/item/mod/module/gps/protean))
+				continue
+			if(istype(module, /obj/item/mod/module/crew_sensor/protean))
+				continue
+
+			// Don't transfer protean's storage if it has items
+			if(istype(module, /obj/item/mod/module/storage))
+				var/obj/item/mod/module/storage/storage_module = module
+				if(storage_module.contents && length(storage_module.contents) > 0)
+					continue // Keep storage with our items
+
+			// Transfer back to old suit
+			if(stored_modsuit.install(module, user, TRUE))
+				uninstall(module)
+
+		// Restore cached modules to old suit
+		for(var/obj/item/mod/module/cached in cached_modules)
+			stored_modsuit.install(cached, user, TRUE)
+		cached_modules = list()
+
+		// Drop the complete old suit to ground
+		stored_modsuit.forceMove(get_turf(src))
+		balloon_alert_to_viewers("previous suit ejected")
+		stored_modsuit = null
+
 	if(!user?.transferItemToLoc(to_assimilate, src, forced))
 		balloon_alert(user, "stuck!")
 		return
@@ -227,28 +435,53 @@
 			if(part.loc == src)
 				continue
 			retract(null, part, instant = TRUE)
+
 	stored_modsuit = to_assimilate
 	stored_theme = theme // Store the old theme in cache
 	theme = to_assimilate.theme // Set new theme
-	skin = to_assimilate.skin // Inheret skin
+	skin = to_assimilate.skin // Inherit skin
 	theme.set_up_parts(src, skin) // Put everything together
 	name = to_assimilate.name
 	desc = to_assimilate.desc
 	extended_desc = to_assimilate.extended_desc
-	for(var/obj/item/mod/module/module in to_assimilate.modules) // Insert every module
+	for(var/obj/item/mod/module/module in to_assimilate.modules) // Transfer modules without replacing
+		// Check if we already have this type of module
+		var/already_have = FALSE
+		for(var/obj/item/mod/module/existing_module in modules)
+			if(istype(existing_module, module.type))
+				already_have = TRUE
+				to_chat(user, span_notice("You already have [existing_module], keeping both in reserve!"))
+				// Store the new one in cached modules for later
+				cached_modules += module
+				to_assimilate.uninstall(module)
+				break
+
+		if(already_have)
+			continue
+
+		// Special handling for storage - keep existing storage primary
 		if(istype(module, /obj/item/mod/module/storage))
 			var/obj/item/mod/module/storage/existing_storage = locate() in modules
 			if(existing_storage)
-				cached_modules += existing_storage
-				to_chat(user, span_notice("[existing_storage] has been pushed aside!"))
-				uninstall(existing_storage)
+				cached_modules += module
+				to_assimilate.uninstall(module)
+				to_chat(user, span_notice("[module] stored in reserve, keeping your current storage!"))
+				continue
+
+		// Try to install the module
 		if(install(module, user, TRUE))
+			to_chat(user, span_notice("Integrated [module]!"))
 			continue
-		if(!module.removable) // Just leave it inside the original suit if it doesn't transfer.
-			continue
-		to_assimilate.uninstall(module) // Drop it
-		module.forceMove(get_turf(src))
-		to_chat(user, span_warning("[module] has dropped onto the floor!"))
+
+		// If it can't be installed, cache it if removable
+		if(module.removable)
+			to_assimilate.uninstall(module)
+			cached_modules += module
+			to_chat(user, span_notice("[module] stored in reserve!"))
+		else
+			// Leave non-removable modules in original suit
+			to_chat(user, span_warning("[module] cannot be transferred!"))
+
 	update_static_data_for_all_viewers()
 
 /obj/item/mod/control/pre_equipped/protean/proc/unassimilate_modsuit(mob/living/user, forced = FALSE)
@@ -293,9 +526,6 @@
 	name = initial(name)
 	desc = initial(desc)
 	extended_desc = initial(extended_desc)
-	//if(forced)
-	//	stored_modsuit.forceMove(get_turf(src))
-	//	stored_modsuit = null
 	if(user.can_put_in_hand(stored_modsuit, user.active_hand_index))
 		user.put_in_hand(stored_modsuit, user.active_hand_index)
 		stored_modsuit = null
@@ -316,6 +546,22 @@
 	var/t_him = protean_in_suit.p_them()
 	var/t_has = protean_in_suit.p_have()
 	var/t_is = protean_in_suit.p_are()
+
+	// Show crew sensor status
+	var/obj/item/mod/module/crew_sensor/protean/crew_sensor = locate() in modules
+	if(crew_sensor)
+		switch(crew_sensor.sensor_mode)
+			if(SENSOR_OFF)
+				. += "Its sensors appear to be disabled."
+			if(SENSOR_LIVING)
+				. += "Its binary life sensors appear to be enabled."
+			if(SENSOR_VITALS)
+				. += "Its vital tracker appears to be enabled."
+			if(SENSOR_COORDS)
+				. += "Its vital tracker and tracking beacon appear to be enabled."
+		if(isprotean(user))
+			. += span_notice("<b>Ctrl-Click</b> to quickly set sensors to tracking.")
+
 	if(!isnull(brain) || istype(brain))
 		. += span_notice("<b>Control Shift Click</b> to open Protean strip menu.")
 		if(brain.dead)

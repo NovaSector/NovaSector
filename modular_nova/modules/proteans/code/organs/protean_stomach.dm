@@ -46,6 +46,11 @@
 		return
 	if(isnull(owner.client)) // So we dont die from afk/crashing out
 		return
+
+	// If in low power mode, don't consume any metal - they're conserving energy
+	if(owner.has_status_effect(/datum/status_effect/protean_low_power_mode/low_power))
+		return
+
 	if(metal > PROTEAN_STOMACH_FALTERING)
 		owner.remove_movespeed_modifier(/datum/movespeed_modifier/protean_slowdown)
 		var/hunger_modifier = metabolism_modifier
@@ -65,10 +70,18 @@
 				owner.blood_volume = min(owner.blood_volume + (((BLOOD_REGEN_FACTOR * PROTEAN_METABOLISM_RATE) * 0.05) * seconds_per_tick), BLOOD_VOLUME_NORMAL)
 		metal -= clamp(((PROTEAN_STOMACH_FULL / PROTEAN_METABOLISM_RATE) * hunger_modifier * seconds_per_tick), 0, metal_max)
 		return
-	owner.adjustBruteLoss(2, forced = TRUE)
+
+	// Starvation state - cap damage to prevent pseudo-death, apply heavy debuffs instead
+	// Only deal damage if health is above 50% to prevent accumulation
+	if(owner.health > (owner.maxHealth * 0.5))
+		owner.adjustBruteLoss(1.5, forced = TRUE)
+
+	// Apply heavy slowdown and debuffs
+	owner.add_or_update_variable_movespeed_modifier(/datum/movespeed_modifier/protean_slowdown, multiplicative_slowdown = 3)
+
 	if(COOLDOWN_FINISHED(src, starving_message))
-		to_chat(owner, span_warning("You are starving! You must find metal now!"))
-		owner.add_or_update_variable_movespeed_modifier(/datum/movespeed_modifier/protean_slowdown, multiplicative_slowdown = 2)
+		to_chat(owner, span_warning("You are starving! Your mass is cannibalizing itself!"))
+		owner.adjust_temp_blindness(1 SECONDS)
 		COOLDOWN_START(src, starving_message, 20 SECONDS)
 
 /obj/item/organ/stomach/protean/proc/damage_listener()

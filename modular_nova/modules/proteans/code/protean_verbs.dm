@@ -53,6 +53,23 @@
 		return
 
 	var/obj/item/mod/control/pre_equipped/protean/suit = species.species_modsuit
+
+	if(!suit.wearer || isprotean(suit.wearer))
+		to_chat(src, span_warning("Your suit is not on someone else!"))
+		return
+
+	// Check if locking (not unlocking)
+	if(!suit.modlocked)
+		// Check if wearer has opted in
+		if(suit.wearer.client?.prefs)
+			var/allow_lock = suit.wearer.client.prefs.read_preference(/datum/preference/toggle/allow_protean_lock)
+			if(!allow_lock)
+				to_chat(src, span_warning("[suit.wearer]'s biometrics reject the lock command!"))
+				to_chat(src, span_notice("The suit's safety protocols prevent involuntary locking."))
+				to_chat(suit.wearer, span_notice("You feel the modsuit attempt to lock, but your biometric safety override prevents it."))
+				suit.wearer.balloon_alert(suit.wearer, "lock rejected!")
+				return
+
 	species.species_modsuit.toggle_lock()
 	to_chat(src, span_notice("You [suit.modlocked ? "<b>lock</b>" : "<b>unlock</b>"] the suit [isprotean(suit.wearer) || loc == suit ? "" : "onto [suit.wearer]"]"))
 	playsound(src, 'sound/machines/click.ogg', 25)
@@ -73,6 +90,12 @@
 	if(!species.species_modsuit)
 		to_chat(src, span_warning("ERROR: Missing species modsuit! Report this bug."))
 		return
+
+	// Can't transform while mounted
+	if(HAS_TRAIT(species.species_modsuit, TRAIT_PROTEAN_MOUNTED))
+		to_chat(src, span_warning("You can't transform while mounted on someone! Dismount first."))
+		return
+
 	if(loc == species.species_modsuit)
 		brain.leave_modsuit()
 	else if(isturf(loc))
@@ -109,4 +132,39 @@
 		if(has_status_effect(/datum/status_effect/protean_low_power_mode))
 			remove_status_effect(/datum/status_effect/protean_low_power_mode)
 		apply_status_effect(effect)
+
+// Hijacking and mounting features removed
+
+/mob/living/carbon/proc/speak_through_modsuit()
+	set name = "Speak Through Suit"
+	set desc = "Speak to whoever is wearing your modsuit through internal speakers."
+	set category = "Protean"
+
+	var/datum/species/protean/species = dna.species
+	if(!istype(species))
+		to_chat(src, span_warning("You are not a protean!"))
+		return
+
+	if(!species.species_modsuit)
+		to_chat(src, span_warning("ERROR: Missing species modsuit! Report this bug."))
+		return
+
+	var/obj/item/mod/control/pre_equipped/protean/suit = species.species_modsuit
+
+	// Check if someone else is wearing the suit
+	if(!suit.wearer || isprotean(suit.wearer))
+		to_chat(src, span_warning("Nobody else is wearing your suit!"))
+		return
+
+	// Get the message
+	var/message = tgui_input_text(src, "What do you want to say through the suit's internal speakers?", "Internal Comms", max_length = 200)
+	if(!message)
+		return
+
+	// Send the message to the wearer
+	to_chat(suit.wearer, "<span class='robot'><b>\[Suit Internal Comms\]</b> [message]</span>")
+	to_chat(src, span_notice("You broadcast through the suit's speakers: \"[message]\""))
+
+	// Play a subtle beep to the wearer
+	playsound(suit.wearer, 'sound/machines/beep/twobeep_high.ogg', 25, FALSE, SHORT_RANGE_SOUND_EXTRARANGE)
 

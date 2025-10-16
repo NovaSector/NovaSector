@@ -111,9 +111,14 @@
 		/mob/living/carbon/proc/protean_heal,
 		/mob/living/carbon/proc/lock_suit,
 		/mob/living/carbon/proc/suit_transformation,
-		/mob/living/carbon/proc/low_power
+		/mob/living/carbon/proc/low_power,
+		/mob/living/carbon/proc/speak_through_modsuit
 	)
 	add_verb(gainer, protean_verbs)
+
+	// Grant shapeshifting ability
+	var/datum/action/innate/alter_form/quirk/shapeshift_action = new()
+	shapeshift_action.Grant(gainer)
 
 	// Ensure protean has correct organs (fixes quirk/preference organ replacement)
 	var/obj/item/organ/brain/current_brain = gainer.get_organ_slot(ORGAN_SLOT_BRAIN)
@@ -174,16 +179,21 @@
 		storage = new()
 		species_modsuit.install(storage, owner, TRUE)
 
-	if(outfit.backpack_contents)
-		outfit.backpack_contents += /obj/item/stack/sheet/iron/twenty
-		for(var/path in outfit.backpack_contents)
-			if(!get_a_job)
-				continue
-			var/number = outfit.backpack_contents[path]
-			if(!isnum(number))//Default to 1
-				number = 1
-			for(var/i in 1 to number) // Copy and paste of EQUIP_OUTFIT_ITEM
-				owner.equip_to_storage(SSwardrobe.provide_type(path, owner), ITEM_SLOT_BACK, TRUE, TRUE)
+	// Install crew sensor module if not present
+	var/obj/item/mod/module/crew_sensor/protean/crew_sensor = locate() in species_modsuit.modules
+	if(!crew_sensor)
+		crew_sensor = new()
+		species_modsuit.install(crew_sensor, owner, TRUE)
+
+	// Install GPS module if not present
+	var/obj/item/mod/module/gps/protean/gps_module = locate() in species_modsuit.modules
+	if(!gps_module)
+		gps_module = new()
+		species_modsuit.install(gps_module, owner, TRUE)
+
+	// Outfit system already equipped backpack_contents, we just add bonus iron sheets
+	if(get_a_job)
+		owner.equip_to_storage(new /obj/item/stack/sheet/iron/twenty(owner), ITEM_SLOT_BACK, TRUE, TRUE)
 
 /datum/species/protean/on_species_loss(mob/living/carbon/human/gainer, datum/species/new_species, pref_load)
 	. = ..()
