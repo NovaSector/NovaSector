@@ -26,7 +26,7 @@
 		user.balloon_alert(user, "no suitable space!")
 		return FALSE
 
-// CE's roundstart toolbelt
+// CE's roundstart toolbelt, with T2 tools
 /obj/item/storage/belt/utility/chief/full/PopulateContents()
 	SSwardrobe.provide_type(/obj/item/screwdriver/power, src)
 	SSwardrobe.provide_type(/obj/item/crowbar/power, src)
