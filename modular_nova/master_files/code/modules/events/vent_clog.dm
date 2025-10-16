@@ -12,7 +12,6 @@
 	)
 	return pick(mob_list)
 
-
 /datum/round_event/vent_clog/major/get_mob()
 	var/static/list/mob_list = list(
 	//	TG additions:
