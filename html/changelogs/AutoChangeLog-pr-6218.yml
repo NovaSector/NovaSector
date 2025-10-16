@@ -1,0 +1,6 @@
+author: "Hatterhat"
+delete-after: True
+changes:
+  - bugfix: "The M64 shotgun no longer halves its magazine capacity if you attach a seclite."
+  - image: "The M64 shotgun now has short inhands when sawed down."
+  - balance: "The M64 shotgun is now a medium-weight weapon when sawed down, meaning you can't akimbo with it but you can one-hand it."
