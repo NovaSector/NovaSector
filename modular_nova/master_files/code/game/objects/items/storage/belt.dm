@@ -27,6 +27,9 @@
 		return FALSE
 
 
+
+
+// CE's roundstart toolbelt
 /obj/item/storage/belt/utility/chief/full/PopulateContents()
 	SSwardrobe.provide_type(/obj/item/screwdriver/power, src)
 	SSwardrobe.provide_type(/obj/item/crowbar/power, src)
