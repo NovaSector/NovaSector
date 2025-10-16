@@ -1,5 +1,9 @@
+///Defines for trash amounts to deposit, per person
 #define REQUIRED_TRASH_CREW 15
 #define REQUIRED_TRASH_JANITOR 5
+
+///How much credits to give for doing your job right
+#define JANITOR_WAGE_BONUS 100
 
 /obj/machinery/trash_compactor
 	name = "\improper DeForest trash reclamation terminal"
@@ -71,14 +75,14 @@
 
 		// Show trash count if user has used the machine before
 		if(tracker_key && (tracker_key in trash_counts))
-			var/required = is_janitor(user) ? 5 : 15
+			var/required = is_janitor(user) ? REQUIRED_TRASH_JANITOR : REQUIRED_TRASH_CREW
 			var/remaining = required - trash_counts[tracker_key]
-			. += span_notice("The status display reads: You have deposited <b>[trash_counts[tracker_key]]</b> pieces of trash. <b>[remaining]</b> more needed for a ration ticket.")
+			. += span_notice("The status display reads: You have deposited <b>[trash_counts[tracker_key]]</b> pieces of trash. <b>[remaining]</b> more needed for [is_janitor(user) ? "a wage bonus" : "a ration ticket"].")
 		else
-			. += span_notice("The status display reads: Deposit [is_janitor(user) ? "5" : "15"] pieces of trash to receive a ration ticket.")
+			. += span_notice("The status display reads: Deposit [is_janitor(user) ? "[REQUIRED_TRASH_JANITOR]" : "[REQUIRED_TRASH_CREW]"] pieces of trash to receive a ration ticket.")
 
 		if(inserted_card)
-			. += span_notice("There's a GAP card inserted in the machine.")
+			. += span_notice("There's a <b>GAP card</b> inserted in the machine. It'll <b>get stamped once</b> upon <b>hitting the quota</b>.")
 
 /obj/machinery/trash_compactor/attackby(obj/item/attacking_item, mob/living/carbon/user)
 	. = ..()
@@ -168,14 +172,14 @@
 		playsound(src, 'sound/machines/ping.ogg', 40, TRUE)
 
 	// Check if we've reached required pieces of trash
-	if(tracker_key && trash_counts[tracker_key] >= (is_janitor(user) ? 5 : 15))
+	if(tracker_key && trash_counts[tracker_key] >= (is_janitor(user) ? REQUIRED_TRASH_JANITOR : REQUIRED_TRASH_CREW))
 		// Reset trash counter
 		trash_counts[tracker_key] = 0
 
 		// Handle janitor rewards
 		if(is_janitor(user))
 			if(user_account)
-				user_account.adjust_money(100, "Trash Compactor: Wage Bonus")
+				user_account.adjust_money(JANITOR_WAGE_BONUS, "Trash Compactor: Wage Bonus")
 				say("100 credits added to your bank account! Thank you for your service.")
 			else
 				new /obj/item/stack/spacecash/c100(drop_location())
@@ -186,7 +190,7 @@
 			ticket_counts[tracker_key]++
 
 			var/ticket_type = /obj/item/paper/paperslip/ration_ticket
-			if(ticket_counts[tracker_key] % 3 == 0)  // Every third ticket
+			if(ticket_counts[tracker_key] % 3 == 0)  // Every third ticket similar to the rations quirk behavior
 				ticket_type = /obj/item/paper/paperslip/ration_ticket/luxury
 			new ticket_type(drop_location())
 			say("Ration ticket dispensed! Thank you for your contribution to recycling.")
@@ -225,11 +229,11 @@
 	return processed_count > 0
 
 /obj/item/circuitboard/machine/trash_compactor
-	name = "\improper DeForest Materiel Recovery Terminal (Machine Board)"
+	name = "\improper DeForest trash reclamation terminal (Machine Board)"
 	build_path = /obj/machinery/trash_compactor
 	req_components = list()
 
 /obj/item/flatpack/trash_compactor
-	name = "\improper DeForest Materiel Recovery Terminal"
+	name = "\improper DeForest trash reclamation terminal"
 	board = /obj/item/circuitboard/machine/trash_compactor
 	custom_premium_price = PAYCHECK_CREW * 1.5
