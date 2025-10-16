@@ -18,6 +18,7 @@
 /datum/loadout_item/weapons
 	abstract_type = /datum/loadout_item/weapons
 	blacklisted_roles = list(JOB_PRISONER)
+	must_be_station_job = TRUE
 
 /*
 *	GHETTO GUNS
@@ -25,7 +26,7 @@
 
 /datum/loadout_item/weapons/ghettoguns
 	abstract_type = /datum/loadout_item/weapons/ghettoguns
-	group = "Improvised Ballistics"
+	group = "Improvised Guns"
 
 /datum/loadout_item/weapons/ghettoguns/pipegun
 	name = /obj/item/gun/ballistic/rifle/boltaction/pipegun::name

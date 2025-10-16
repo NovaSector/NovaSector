@@ -332,7 +332,7 @@ GLOBAL_LIST_INIT(all_loadout_categories, init_loadout_categories())
 		displayed_text[FA_ICON_HEART] = "CKEY Whitelist: [jointext(ckeywhitelist, ", ")]"
 	if(restricted_roles)
 		displayed_text[FA_ICON_BRIEFCASE] = "Job Whitelist: [jointext(restricted_roles, ", ")]"
-	if(blacklisted_roles)
+	if(blacklisted_roles && !istype(src, /datum/loadout_item/weapons)) //snowflake the wep cat so it doesn't display the icon on ALL weps
 		displayed_text[FA_ICON_LOCK] = "Job Blacklist: [jointext(blacklisted_roles, ", ")]"
 	if(restricted_species)
 		displayed_text[FA_ICON_SPAGHETTI_MONSTER_FLYING] = "Species Whitelist: [capitalize(jointext(restricted_species, ", "))]"
