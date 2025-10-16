@@ -1,7 +1,10 @@
+#define REQUIRED_TRASH_CREW 15
+#define REQUIRED_TRASH_JANITOR 5
+
 /obj/machinery/trash_compactor
-	name = "\improper DeForest Materiel Recovery Terminal"
-	desc = "A vending machine-like terminal for the processing and re-logistics of post-consumer station materials. \
-	Approved waste inputs are converted into ration slips via the integrated incentive program. Has a slot for GAP cards, to stamp them for janitorial service. \
+	name = "\improper DeForest trash reclamation terminal"
+	desc = "A vending machine-like terminal for the processing and reclamation of post-consumer station materials. \
+	Approved waste inputs are converted into ration slips via the integrated incentive program. There's a slot for GAP cards, to stamp them for janitorial service. \
 	A clean station is a symptom of a healthy crew. Consult your hygiene officer for a list of approved inputs."
 	icon = 'modular_nova/modules/trash_compactor/icons/trash_compactor.dmi'
 	icon_state = "trash_compactor"
@@ -88,7 +91,7 @@
 		if(!user.transferItemToLoc(attacking_item, src))
 			return
 		inserted_card = attacking_item
-		balloon_alert(user, "gap card inserted!")
+		balloon_alert(user, "inserted card")
 		update_appearance()
 		return COMPONENT_NO_AFTERATTACK
 
@@ -108,7 +111,7 @@
 		if(!user.put_in_hands(inserted_card))
 			inserted_card.forceMove(drop_location())
 		inserted_card = null
-		balloon_alert(user, "card removed!")
+		balloon_alert(user, "removed card")
 		update_appearance()
 		return TRUE
 	return FALSE
@@ -161,7 +164,7 @@
 		// Say random wisdom (only for single items, not bulk)
 		var/wisdom = pick(GLOB.wisdoms)
 		say(wisdom)
-		balloon_alert(user, "trash compacted!")
+		balloon_alert(user, "trash compacted")
 		playsound(src, 'sound/machines/ping.ogg', 40, TRUE)
 
 	// Check if we've reached required pieces of trash
@@ -214,7 +217,7 @@
 			processed_count++
 
 	if(processed_count > 0)
-		balloon_alert(user, "processed [processed_count] items!")
+		balloon_alert(user, "processed [processed_count] items")
 		playsound(src, 'sound/machines/ping.ogg', 60, TRUE)
 	else
 		balloon_alert(user, "bag empty!")
