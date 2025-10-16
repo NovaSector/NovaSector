@@ -2472,14 +2472,7 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/structure/sign/poster/contraband/korpstech, 32)
 
 /obj/item/clothing/suit/admiral_coat
 	name = "admiral's coat"
-	desc = "A robust and imposing looking Sol-naval coat, made out of genuine Europan thresher leather \
-		providing a durable yet still shockingly comfortable layer able to protect from the bite of cold \
-		as well with armor padding to boot. While on the inside theres a soft layer of icewolf fur. \
-		Worn either as a coat- or a duster to showboat comfortably over a uniform. \
-		It looks well-worn but lovingly cared for with the initials ZVZ in cursive on the inside of the collar \
-		alongside the custom designers proof-markings. The epaulettes seem to denote the rank of 'Admiral', \
-		although whoever wears this no-longer will ever hold that title. That doesn't mean their vicious reputation will ever falter, \
-		the skull with wings pointing down has already made its visage remembered enough"
+	desc = "A robust and imposing looking Sol-naval coat made out of genuine Europan thresher leather. It provides a durable yet comfortable layer, lined with icewolf fur to protect from the bitter cold and ingrained armored padding to protect from the bitter assistants." 
 	icon_state = "hosnavyzec"
 	worn_icon_state = "hosnavyzec"
 	icon = 'modular_nova/master_files/icons/donator/obj/clothing/suits.dmi'
