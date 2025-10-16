@@ -41,20 +41,22 @@
 	spread = 5
 	projectile_wound_bonus = -10
 
-	lore_blurb = "The V-K Lastdier series of battle rifles are SolFed's previous generation of battle rifle, manufactured by Veldjen-Kuiper Armories.<br>\
+	lore_blurb = "The V-K Blokstaart series of battle rifles are SolFed's previous generation of battle rifle, manufactured by Veldjen-Kuiper Armories.<br>\
 		<br>\
-		Designed from the ground-up to be reliable, durable, and still relatively cheap for mass adoption, the Lastdier series was developed around \
+		Designed from the ground-up to be reliable, durable, and still relatively cheap for mass adoption, the Blokstaart series was developed around \
 		the .40 Sagittarian cartridge, well before its official adoption as .40 Sol Long. \
-		This close relationship between rifle and cartridge allows all conventional variants of the Lastdier to share magazines and cartridges, \
-		lengthening the lifespans of logistics coordinators, quartermasters, and other supply staff by several years. \
+		This close relationship between rifle and cartridge allows all conventional variants of the Blokstaart to share magazines and cartridges, \
+		lengthening the lifespans of logistics coordinators, quartermasters, and other supply staff by several years.<br>\
+		<br>\
 		While primarily manufactured for military sale, limited amounts were sold to the civilian market when it was still in service. \
-		When the MMR-2543 series was initially adopted, the Lastdier series was decommissioned and left for surplus stockpiles - which gave it \
-		a second life during the Rimward War, when those stockpiles were smuggled into occupied territories to arm a great deal of SolFed partisans. \
+		When the MMR-2543 series was initially adopted, the Blokstaart series was decommissioned and left for surplus stockpiles - which gave it \
+		a second life during the Rimward War, when those stockpiles were smuggled into occupied territories to arm a great deal of SolFed partisans.<br>\
+		<br>\
 		With the further adoption of the MMR-2543, Veldjen-Kuiper Armories has decided to open sales to independent customers \
 		to make good use of their surplus stock."
 
 	/// Lore specific to this type of gun.
-	var/model_specific_lore = "This particular variant is the Renpaard-d'Infanterie model, built for general use across SolFed's various infantry branches. \
+	var/model_specific_lore = "This particular variant is the Renpaard-Infanterie model, built for general use across SolFed's various infantry branches. \
 		The plain glow-sights aren't anything remarkable, and the skeletal stock is firmly locked in place, unable to fold. \
 		The fact of the matter, though, is that it remains true to its name as a swift warhorse of a rifle."
 
@@ -83,7 +85,7 @@
 // Sol marksman rifle
 
 /obj/item/gun/ballistic/automatic/sol_classic/marksman
-	name = "\improper Stridjpaard Marksman Rifle"
+	name = "\improper Krijgspaard Marksman Rifle"
 	desc = "A previous-generation heavy marksman rifle firing .40 Sol, sacrificing firerate for precision. Seen in the hands of SolFed parade units \
 		or in surplus stockpiles. Accepts any standard SolFed rifle magazine."
 
@@ -96,14 +98,15 @@
 	fire_delay = 0.6 SECONDS
 
 	spread = 0
-	projectile_damage_multiplier = 1.2
+	projectile_damage_multiplier = 1.15 // 35*1.15 = 40.25 damage off base .40 sol
 	projectile_speed_multiplier = 1.2
 	projectile_wound_bonus = 10
 
-	model_specific_lore = "This particular variant is the Stridjpaard-d'Elite model, built for precision fire for use by designated marksmen. \
+	model_specific_lore = "This particular variant is the Krijgspaard-Elite model, built for precision fire for use by designated marksmen. \
 		Forsaking automatic fire in favor of precision, models like these typically feature match-grade triggers, \
-		free-floating accurized barrels, and a variable optic built into the carrying handle. \
-		These are typically seen with smaller magazines for the shooter's comfort, but remains fully compatible with full-size magazines."
+		free-floating accurized barrels, and a variable-magnification optic built into the carrying handle. \
+		These are typically seen with smaller magazines for the shooter's comfort, but remain fully compatible with full-size magazines, \
+		in case you need to make a lot of very precise shots without switching magazines."
 
 /obj/item/gun/ballistic/automatic/sol_classic/marksman/Initialize(mapload)
 	. = ..()
