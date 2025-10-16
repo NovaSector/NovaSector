@@ -83,7 +83,7 @@
 /datum/uplink_item/dangerous/combat_shotgun
 	name = "Carwo-Cawil M64 Shotgun Case"
 	desc = "A twelve guage shotgun with an eight shell capacity underneath."
-	item = /obj/item/storage/toolbox/guncase/nova/opfor/renoster
+	item = /obj/item/storage/toolbox/guncase/nova/opfor/riot_sol
 	cost = /datum/uplink_item/medium_cost/weaponry::cost
 	purchasable_from = UPLINK_TRAITORS | UPLINK_SERIOUS_OPS
 
@@ -105,10 +105,10 @@
 	cost = /datum/uplink_item/high_cost/weaponry::cost
 	purchasable_from = UPLINK_TRAITORS | UPLINK_SERIOUS_OPS
 
-/datum/uplink_item/dangerous/infanteria
-	name = "Carwo-Cawil Battle Rifle Case"
+/datum/uplink_item/dangerous/sol_rifle
+	name = "Carwo-Cawil MMR-2543E Assault Rifle"
 	desc = "A heavy battle rifle, this one seems to be painted tacticool black. Accepts any standard SolFed rifle magazine."
-	item = /obj/item/storage/toolbox/guncase/nova/opfor/infanteria
+	item = /obj/item/storage/toolbox/guncase/nova/opfor/sol_rifle
 	cost = /datum/uplink_item/high_cost/weaponry::cost
 	purchasable_from = UPLINK_TRAITORS | UPLINK_SERIOUS_OPS
 
