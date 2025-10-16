@@ -439,3 +439,10 @@
   - rscadd: Added paper bins to the loadout
   theselfish:
   - rscdel: Minecraft Youtuber plush is gone.
+2025-10-16:
+  RealWinterFrost:
+  - image: adds an the following PDA options to nova sector loadouts (Old, Neko, G3,
+      Slimline, Rugged, Ultraslim, Ancient, Holosystem, Hologram, Robust, Tablet,
+      Virtual, Holodeck, Ceti)
+  TheSS13Melon:
+  - rscadd: Adds a singular Gas Miner to every atmos technician locker.
