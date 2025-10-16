@@ -91,14 +91,14 @@
 	. = ..()
 
 	// Add diagnostic HUD types so synthetics show on diagnostic HUD instead of medical HUD
-	if(!(DIAG_HUD in transformer.hud_possible))
-		transformer.hud_possible += list(DIAG_STAT_HUD, DIAG_HUD, DIAG_BATT_HUD)
+	if(!(HEALTH_HUD in transformer.hud_possible))
+		transformer.hud_possible += list(HEALTH_HUD, STATUS_HUD, DIAG_BATT_HUD, DNR_HUD)
 
 		// CRITICAL: Create the hud_list images for the new HUD types
 		// prepare_huds() only runs during Initialize(), so we need to create these manually
 		if(!transformer.hud_list)
 			transformer.hud_list = list()
-		for(var/hud_type in list(DIAG_STAT_HUD, DIAG_HUD, DIAG_BATT_HUD))
+		for(var/hud_type in list(HEALTH_HUD, STATUS_HUD, DIAG_BATT_HUD, DNR_HUD))
 			if(!(hud_type in transformer.hud_list))
 				var/image/hud_image = image('modular_nova/master_files/icons/mob/huds/hud.dmi', transformer, "")
 				hud_image.appearance_flags = RESET_COLOR|PIXEL_SCALE|KEEP_APART
@@ -118,6 +118,7 @@
 	transformer.diag_hud_set_health()
 	transformer.diag_hud_set_status()
 	transformer.diag_hud_set_synthcell()
+	transformer.diag_hud_set_dnr()
 
 	RegisterSignal(transformer, COMSIG_ATOM_EMAG_ACT, PROC_REF(on_emag_act))
 
@@ -180,7 +181,7 @@
 	. = ..()
 
 	// Remove diagnostic HUD types when losing synthetic species
-	human.hud_possible -= list(DIAG_STAT_HUD, DIAG_HUD, DIAG_BATT_HUD)
+	human.hud_possible -= list(HEALTH_HUD, STATUS_HUD, DIAG_BATT_HUD, DNR_HUD)
 
 	// Remove from diagnostic HUD
 	for(var/datum/atom_hud/data/diagnostic/diag_hud in GLOB.huds)
