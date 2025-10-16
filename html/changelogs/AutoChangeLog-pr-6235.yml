@@ -1,0 +1,4 @@
+author: "OrbisAnima"
+delete-after: True
+changes:
+  - rscdel: "Removes the recipes for the event horizon rifle and Supermatter Sword, as they are both RR weapons capable of completly derailing a round. Removes the part from the station to not confuse players, but leaves it on ds2 as its used for bounties. It still wont let you make the funny rifle."
