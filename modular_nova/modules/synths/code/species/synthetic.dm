@@ -90,6 +90,35 @@
 /datum/species/synthetic/on_species_gain(mob/living/carbon/human/transformer, datum/species/old_species, pref_load, regenerate_icons)
 	. = ..()
 
+	// Add diagnostic HUD types so synthetics show on diagnostic HUD instead of medical HUD
+	if(!(DIAG_HUD in transformer.hud_possible))
+		transformer.hud_possible += list(DIAG_STAT_HUD, DIAG_HUD, DIAG_BATT_HUD)
+
+		// CRITICAL: Create the hud_list images for the new HUD types
+		// prepare_huds() only runs during Initialize(), so we need to create these manually
+		if(!transformer.hud_list)
+			transformer.hud_list = list()
+		for(var/hud_type in list(DIAG_STAT_HUD, DIAG_HUD, DIAG_BATT_HUD))
+			if(!(hud_type in transformer.hud_list))
+				var/image/hud_image = image('modular_nova/master_files/icons/mob/huds/hud.dmi', transformer, "")
+				hud_image.appearance_flags = RESET_COLOR|PIXEL_SCALE|KEEP_APART
+				transformer.hud_list[hud_type] = hud_image
+				transformer.set_hud_image_active(hud_type, update_huds = FALSE)
+
+	// Actually add the synthetic to the diagnostic HUD
+	// Remove from medical HUD if present
+	var/datum/atom_hud/data/human/medical/advanced/medhud = GLOB.huds[DATA_HUD_MEDICAL_ADVANCED]
+	medhud.remove_atom_from_hud(transformer)
+
+	// Add to diagnostic HUD
+	for(var/datum/atom_hud/data/diagnostic/diag_hud in GLOB.huds)
+		diag_hud.add_atom_to_hud(transformer)
+
+	// Initialize the diagnostic HUD displays
+	transformer.diag_hud_set_health()
+	transformer.diag_hud_set_status()
+	transformer.diag_hud_set_synthcell()
+
 	RegisterSignal(transformer, COMSIG_ATOM_EMAG_ACT, PROC_REF(on_emag_act))
 
 	var/datum/action/sing_tones/sing_action = new
@@ -149,6 +178,17 @@
 
 /datum/species/synthetic/on_species_loss(mob/living/carbon/human/human)
 	. = ..()
+
+	// Remove diagnostic HUD types when losing synthetic species
+	human.hud_possible -= list(DIAG_STAT_HUD, DIAG_HUD, DIAG_BATT_HUD)
+
+	// Remove from diagnostic HUD
+	for(var/datum/atom_hud/data/diagnostic/diag_hud in GLOB.huds)
+		diag_hud.remove_atom_from_hud(human)
+
+	// Re-add to medical HUD
+	var/datum/atom_hud/data/human/medical/advanced/medhud = GLOB.huds[DATA_HUD_MEDICAL_ADVANCED]
+	medhud.add_atom_to_hud(human)
 
 	UnregisterSignal(human, COMSIG_ATOM_EMAG_ACT)
 
