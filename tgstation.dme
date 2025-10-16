@@ -6918,6 +6918,7 @@
 #include "modular_nova\master_files\code\datums\quirks\neutral_quirks\breather\nitrogen_breather.dm"
 #include "modular_nova\master_files\code\datums\quirks\neutral_quirks\breather\plasma_breather.dm"
 #include "modular_nova\master_files\code\datums\quirks\neutral_quirks\breather\water_breather.dm"
+#include "modular_nova\master_files\code\datums\quirks\neutral_quirks\lunch_box\lunchbox.dm"
 #include "modular_nova\master_files\code\datums\quirks\positive_quirks\adapted_lungs.dm"
 #include "modular_nova\master_files\code\datums\quirks\positive_quirks\genetic_freak.dm"
 #include "modular_nova\master_files\code\datums\quirks\positive_quirks\night_vision.dm"
