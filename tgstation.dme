@@ -8793,6 +8793,7 @@
 #include "modular_nova\modules\modular_weapons\code\company_and_or_faction_based\trappiste_fabriek\magazines.dm"
 #include "modular_nova\modules\modular_weapons\code\company_and_or_faction_based\trappiste_fabriek\pistol.dm"
 #include "modular_nova\modules\modular_weapons\code\company_and_or_faction_based\trappiste_fabriek\revolver.dm"
+#include "modular_nova\modules\modular_weapons\code\company_and_or_faction_based\veldjen-kuiper_armories\rifle.dm"
 #include "modular_nova\modules\modular_weapons\code\company_and_or_faction_based\xhihao_light_arms\gunsets.dm"
 #include "modular_nova\modules\modular_weapons\code\company_and_or_faction_based\xhihao_light_arms\rifle.dm"
 #include "modular_nova\modules\modular_weapons\code\company_and_or_faction_based\xhihao_light_arms\submachinegun.dm"
