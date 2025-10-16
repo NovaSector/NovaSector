@@ -5,6 +5,9 @@
 ///How much credits to give for doing your job right
 #define JANITOR_WAGE_BONUS 100
 
+///Every third ticket, for non-janitors, is a special one
+#define LUXURY_TICKET_THRESHOLD 3
+
 /obj/machinery/trash_compactor
 	name = "\improper DeForest trash reclamation terminal"
 	desc = "A vending machine-like terminal for the processing and reclamation of post-consumer station materials. \
@@ -190,7 +193,7 @@
 			ticket_counts[tracker_key]++
 
 			var/ticket_type = /obj/item/paper/paperslip/ration_ticket
-			if(ticket_counts[tracker_key] % 3 == 0)  // Every third ticket similar to the rations quirk behavior
+			if(ticket_counts[tracker_key] % LUXURY_TICKET_THRESHOLD == 0)  // Every third ticket similar to the rations quirk behavior
 				ticket_type = /obj/item/paper/paperslip/ration_ticket/luxury
 			new ticket_type(drop_location())
 			say("Ration ticket dispensed! Thank you for your contribution to recycling.")
