@@ -26,6 +26,12 @@
 	var/glove_force_bonus = 20
 	/// Track if currently worn as gloves
 	var/is_worn_as_glove = FALSE
+	/// How much stamina damage we deal on a successful hit against a living, non-cyborg mob.
+	var/stamina_damage = 35
+	/// How much armor does our baton ignore? This operates as armour penetration, but only applies to the stun attack.
+	var/stun_armour_penetration = 15
+	/// What armor does our stun attack check before delivering the attack?
+	var/armour_type_against_stun = MELEE
 
 /obj/item/melee/knuckleduster/Initialize(mapload)
 	. = ..()
