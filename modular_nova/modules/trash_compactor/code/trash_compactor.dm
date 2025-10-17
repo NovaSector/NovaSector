@@ -11,8 +11,8 @@
 /obj/machinery/trash_compactor
 	name = "\improper DeForest trash reclamation terminal"
 	desc = "A vending machine-like terminal for the processing and reclamation of post-consumer station materials. \
-	Approved waste inputs are converted into ration slips via the integrated incentive program. There's a slot for GAP cards, to stamp them for janitorial service. \
-	A clean station is a symptom of a healthy crew. Consult your hygiene officer for a list of approved inputs."
+		Approved waste inputs are converted into ration slips via the integrated incentive program. There's a slot for GAP cards, to stamp them for janitorial service. \
+		A clean station is a symptom of a healthy crew. Consult your hygiene officer for a list of approved inputs."
 	icon = 'modular_nova/modules/trash_compactor/icons/trash_compactor.dmi'
 	icon_state = "trash_compactor"
 	density = TRUE
@@ -59,69 +59,69 @@
 	if((machine_stat & BROKEN || machine_stat & NOPOWER))
 		return
 	. += emissive_appearance(icon, "trash_compactor_glow", src, alpha = src.alpha)
-	if(inserted_card)
+	if(!isnull(inserted_card))
 		. += "trash_compactor_gap"
 		. += emissive_appearance(icon, "trash_compactor_gap_glow", src, alpha = src.alpha)
 
 /obj/machinery/trash_compactor/examine(mob/living/user)
 	. = ..()
-	if(in_range(user, src))
-		// Get user's bank account
-		var/datum/bank_account/user_account = user.get_bank_account()
+	if(!in_range(user, src))
+		return
+	if(inserted_card)
+		. += span_notice("There's a <b>GAP card</b> inserted in the machine. It'll <b>get stamped once</b> upon <b>hitting the quota</b>.")
+	if(!istype(user)) // Only living mobs have bank accounts
+		return
+	// Get user's bank account
+	var/datum/bank_account/user_account = user.get_bank_account()
 
-		// Track trash count by account or user if no account
-		var/tracker_key
-		if(user_account)
-			tracker_key = "[user_account.account_id]"
-		else if(user)
-			tracker_key = "[user.real_name]"
+	// Track trash count by account or user if no account
+	var/tracker_key
+	if(user_account)
+		tracker_key = "[user_account.account_id]"
+	else if(user)
+		tracker_key = "[user.real_name]"
 
-		// Show trash count if user has used the machine before
-		if(tracker_key && (tracker_key in trash_counts))
-			var/required = is_janitor(user) ? REQUIRED_TRASH_JANITOR : REQUIRED_TRASH_CREW
-			var/remaining = required - trash_counts[tracker_key]
-			. += span_notice("The status display reads: You have deposited <b>[trash_counts[tracker_key]]</b> pieces of trash. <b>[remaining]</b> more needed for [is_janitor(user) ? "a wage bonus" : "a ration ticket"].")
+	// Show trash count if user has used the machine before
+	if(tracker_key && (tracker_key in trash_counts))
+		var/required = is_janitor(user) ? REQUIRED_TRASH_JANITOR : REQUIRED_TRASH_CREW
+		var/remaining = required - trash_counts[tracker_key]
+		. += span_notice("The status display reads: You have deposited <b>[trash_counts[tracker_key]]</b> pieces of trash. <b>[remaining]</b> more needed for [is_janitor(user) ? "a wage bonus" : "a ration ticket"].")
 		else
-			. += span_notice("The status display reads: Deposit [is_janitor(user) ? "[REQUIRED_TRASH_JANITOR]" : "[REQUIRED_TRASH_CREW]"] pieces of trash to receive a ration ticket.")
+		. += span_notice("The status display reads: Deposit [is_janitor(user) ? "[REQUIRED_TRASH_JANITOR]" : "[REQUIRED_TRASH_CREW]"] pieces of trash to receive a ration ticket.")
 
-		if(inserted_card)
-			. += span_notice("There's a <b>GAP card</b> inserted in the machine. It'll <b>get stamped once</b> upon <b>hitting the quota</b>.")
-
-/obj/machinery/trash_compactor/attackby(obj/item/attacking_item, mob/living/carbon/user)
-	. = ..()
+/obj/machinery/trash_compactor/item_interaction(mob/living/user, obj/item/tool, list/modifiers)
+	. = NONE
 
 	// Handle GAP card insertion
 	if(istype(attacking_item, /obj/item/gbp_punchcard))
-		if(inserted_card)
+		if(!isnull(inserted_card))
 			balloon_alert(user, "gap card already inserted!")
-			return COMPONENT_NO_AFTERATTACK
+			return ITEM_INTERACT_BLOCKING
 		if(!user.transferItemToLoc(attacking_item, src))
-			return
+			return ITEM_INTERACT_BLOCKING
 		inserted_card = attacking_item
 		balloon_alert(user, "inserted card")
 		update_appearance()
-		return COMPONENT_NO_AFTERATTACK
+		return ITEM_INTERACTION_SUCCESS
 
 	// Handle trash bags for bulk processing
 	if(istype(attacking_item, /obj/item/storage/bag/trash))
 		process_trash_bag(attacking_item, user)
-		return COMPONENT_NO_AFTERATTACK
+		return ITEM_INTERACTION_SUCCESS
 
 	if(process_trash(attacking_item, user))
-		return COMPONENT_NO_AFTERATTACK
+		return ITEM_INTERACTION_SUCCESS
 
-	return NONE
-
-/obj/machinery/trash_compactor/attack_hand_secondary(mob/living/user)
-	. = ..()
-	if(inserted_card)
-		if(!user.put_in_hands(inserted_card))
-			inserted_card.forceMove(drop_location())
-		inserted_card = null
-		balloon_alert(user, "removed card")
-		update_appearance()
-		return TRUE
-	return FALSE
+/obj/machinery/trash_compactor/item_interaction_secondary(mob/living/user, obj/item/tool, list/modifiers)
+	. = NONE
+	if(isnull(inserted_card))
+		return
+	if(!user.put_in_hands(inserted_card))
+		inserted_card.forceMove(drop_location())
+	inserted_card = null
+	balloon_alert(user, "removed card")
+	update_appearance()
+	return ITEM_INTERACTION_SUCCESS
 
 /obj/machinery/trash_compactor/proc/is_janitor(mob/user)
 	if(!ishuman(user))
@@ -154,11 +154,8 @@
 
 	// Initialize count if key doesn't exist
 	if(tracker_key)
-		if(!(tracker_key in trash_counts))
-			trash_counts[tracker_key] = 0
-		if(!(tracker_key in ticket_counts))
-			ticket_counts[tracker_key] = 0
-
+		trash_counts[tracker_key] ||= 0
+		ticket_counts[tracker_key] ||= 0
 		trash_counts[tracker_key]++
 
 	// Store the trash item in the compactor
@@ -186,7 +183,7 @@
 				say("100 credits added to your bank account! Thank you for your service.")
 			else
 				new /obj/item/stack/spacecash/c100(drop_location())
-				say("100 credit bill dispensed! Please consider opening a bank account.")
+				say("[/obj/item/stack/spacecash/c100::value] credit bill dispensed! Please consider opening a bank account.")
 			playsound(src, 'sound/machines/chime.ogg', 50, TRUE)
 		else
 			// Non-janitor rewards
