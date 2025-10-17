@@ -2980,6 +2980,7 @@
 	charge = 4.5e+006;
 	input_level = 150000
 	},
+/obj/structure/cable,
 /turf/open/floor/plating,
 /area/ruin/space/has_grav/nova/des_two/engineering)
 "nb" = (
