@@ -106,15 +106,12 @@
 	RegisterSignal(owner, COMSIG_CARBON_GAIN_ORGAN, PROC_REF(organ_reject))
 	var/obj/item/mod/core/protean/core = species_modsuit.core
 	core?.linked_species = src
-	var/static/protean_verbs = list(
-		/mob/living/carbon/proc/protean_ui,
-		/mob/living/carbon/proc/protean_heal,
-		/mob/living/carbon/proc/lock_suit,
-		/mob/living/carbon/proc/suit_transformation,
-		/mob/living/carbon/proc/low_power,
-		/mob/living/carbon/proc/speak_through_modsuit
-	)
-	add_verb(gainer, protean_verbs)
+	gainer.verbs += /mob/living/carbon/proc/protean_ui
+	gainer.verbs += /mob/living/carbon/proc/protean_heal
+	gainer.verbs += /mob/living/carbon/proc/lock_suit
+	gainer.verbs += /mob/living/carbon/proc/suit_transformation
+	gainer.verbs += /mob/living/carbon/proc/low_power
+	gainer.verbs += /mob/living/carbon/proc/speak_through_modsuit
 
 	// Grant shapeshifting ability
 	var/datum/action/innate/alter_form/quirk/shapeshift_action = new()
