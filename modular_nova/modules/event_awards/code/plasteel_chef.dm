@@ -47,7 +47,7 @@
 
 /datum/loadout_item/inhand/plasteel_chef/on_equip_item(
 	obj/item/knife/kitchen/plasteel_chef/equipped_item,
-	datum/preferences/preference_source,
+	list/item_details,
 	list/preference_list,
 	mob/living/carbon/human/equipper,
 	visuals_only = FALSE,

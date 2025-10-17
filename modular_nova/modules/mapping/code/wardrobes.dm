@@ -37,7 +37,7 @@
 		/obj/item/clothing/gloves/combat = 3,
 		/obj/item/clothing/under/syndicate/nova/maid = 5,
 		/obj/item/clothing/gloves/combat/maid = 5,
-		/obj/item/clothing/head/costume/maidheadband/syndicate = 5,
+		/obj/item/clothing/head/costume/maid_headband/syndicate = 5,
 	)
 
 	refill_canister = /obj/item/vending_refill/wardrobe/syndie_wardrobe
@@ -143,7 +143,7 @@
 		/obj/item/clothing/gloves/latex/nitrile = 3,
 		/obj/item/clothing/under/syndicate/nova/maid = 5,
 		/obj/item/clothing/gloves/combat/maid = 5,
-		/obj/item/clothing/head/costume/maidheadband/syndicate = 5,
+		/obj/item/clothing/head/costume/maid_headband/syndicate = 5,
 		/obj/item/storage/box/nif_ghost_box/ghost_role = 8,
 	)
 
