@@ -33,8 +33,8 @@
 		RND_CATEGORY_EQUIPMENT + RND_SUBCATEGORY_EQUIPMENT_MISC,
 	)
 
-/obj/item/electropack/shockcollar/allow_attack_hand_drop(mob/user)
-	if(user.get_item_by_slot(ITEM_SLOT_NECK) == src)
+/obj/item/electropack/shockcollar/can_mob_unequip(mob/user)
+	if(user.get_item_by_slot(slot_flags) == src)
 		to_chat(user, span_warning("The collar is fastened tight! You'll need help if you want to take it off!"))
 		return FALSE
 	return ..()
