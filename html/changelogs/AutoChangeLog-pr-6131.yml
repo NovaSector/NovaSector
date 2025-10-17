@@ -1,5 +1,0 @@
-author: "carpotoxin"
-delete-after: True
-changes:
-  - rscadd: "Adds and changes around various ventilation clog creatures"
-  - bugfix: "Fixes cheese zombie appearance"
