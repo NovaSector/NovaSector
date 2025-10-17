@@ -99,17 +99,17 @@
 /datum/loadout_item/belts/cin_surplus_chestrig_desert
 	name = "Webbing - CIN Surplus (Desert)"
 	item_path = /obj/item/storage/belt/military/cin_surplus/desert
-	can_be_greyscale = DONT_GREYSCALE
+	loadout_flags = parent_type::loadout_flags | LOADOUT_FLAG_BLOCK_GREYSCALING
 
 /datum/loadout_item/belts/cin_surplus_chestrig_forest
 	name = "Webbing - CIN Surplus (Forest)"
 	item_path = /obj/item/storage/belt/military/cin_surplus/forest
-	can_be_greyscale = DONT_GREYSCALE
+	loadout_flags = parent_type::loadout_flags | LOADOUT_FLAG_BLOCK_GREYSCALING
 
 /datum/loadout_item/belts/cin_surplus_chestrig_marine
 	name = "Webbing - CIN Surplus (Marine)"
 	item_path = /obj/item/storage/belt/military/cin_surplus/marine
-	can_be_greyscale = DONT_GREYSCALE
+	loadout_flags = parent_type::loadout_flags | LOADOUT_FLAG_BLOCK_GREYSCALING
 
 /datum/loadout_item/belts/colonial_webbing
 	name = "Webbing - Colonial"
@@ -118,7 +118,7 @@
 /datum/loadout_item/belts/webbing_pouch
 	name = "Webbing - Drop Pouches"
 	item_path = /obj/item/storage/belt/webbing/pouch
-	can_be_reskinned = TRUE
+	loadout_flags = parent_type::loadout_flags | LOADOUT_FLAG_ALLOW_RESKIN
 
 /datum/loadout_item/belts/expeditionary_chestrig_belt
 	name = "Webbing - Expeditionary"
@@ -131,10 +131,10 @@
 /datum/loadout_item/belts/webbing_pilot
 	name = "Webbing - Rigging"
 	item_path = /obj/item/storage/belt/webbing/pilot
-	can_be_reskinned = TRUE
+	loadout_flags = parent_type::loadout_flags | LOADOUT_FLAG_ALLOW_RESKIN
 
 /datum/loadout_item/belts/webbing_vest
 	name = "Webbing - Vest"
 	item_path = /obj/item/storage/belt/webbing/vest
-	can_be_reskinned = TRUE
+	loadout_flags = parent_type::loadout_flags | LOADOUT_FLAG_ALLOW_RESKIN
 

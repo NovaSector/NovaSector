@@ -67,7 +67,7 @@
 	flags_1 = IS_PLAYER_COLORABLE_1
 
 /obj/item/clothing/suit/chaplainsuit/monkrobeeast
-	icon = 'icons/map_icons/clothing/suit/costume.dmi'
+	icon = 'icons/map_icons/clothing/suit/_suit.dmi'
 	icon_state = "/obj/item/clothing/suit/chaplainsuit/monkrobeeast"
 	post_init_icon_state = "monkrobeeast"
 	greyscale_config = /datum/greyscale_config/monkrobeeast
