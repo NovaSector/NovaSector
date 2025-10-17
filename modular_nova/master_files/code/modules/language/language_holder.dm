@@ -93,7 +93,8 @@ GLOBAL_DATUM_INIT(language_holder_adjustor, /datum/language_holder_adjustor, new
 	for (var/language in known_secret_languages)
 		grant_language(language, source = LANGUAGE_ATOM)
 
-	get_selected_language()
+	if(owner) // may be initialized without one, especially during init
+		get_selected_language()
 
 /datum/language_holder/drone_nova
 	understood_languages = list(/datum/language/drone = list(LANGUAGE_ATOM), /datum/language/common = list(LANGUAGE_ATOM))
