@@ -1,7 +1,7 @@
 /obj/item/clothing/under/colonial/hc_police
 	name = "coalition police outfit"
 	desc = "Fancy blue durathread shirt and a pair of cotton-blend pants with a black synthleather belt. A time-tested design first employed by the HC police's \
-	precursor organisation, Rim-world Colonial Militia, now utilised by them as a tribute."
+		precursor organisation, Rim-world Colonial Militia, now utilised by them as a tribute."
 	icon_state = "under_police"
 	armor_type = /datum/armor/clothing_under/rank_security
 	strip_delay = 5 SECONDS
@@ -118,7 +118,7 @@
 /obj/item/clothing/suit/armor/vest/hc_police_jacket/suit
 	name = "coalition police official jacket"
 	desc = "A black uniform jacket with Zvirdnyan Colonial Militia's signature white rectangle on its right sleeve and backside. \
-	Letters inside the collar read: %RANK-%KINK. The jacket is of exceptional quality."
+		Letters inside the collar read: %RANK-%KINK. The jacket is of exceptional quality."
 	icon_state = "suit_police"
 	inhand_icon_state = "ro_suit"
 
@@ -135,7 +135,7 @@
 /obj/item/clothing/head/soft/hc_police
 	name = "coalition police baseball cap"
 	desc = "It's a robust baseball hat in tasteless washed out blue colour.<br>\
-	Hey, this one's round!"
+		Hey, this one's round!"
 	icon_state = "policesoft"
 	icon = 'modular_nova/modules/food_replicator/icons/clothing.dmi'
 	worn_icon = 'modular_nova/modules/food_replicator/icons/clothing_worn.dmi'
