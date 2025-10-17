@@ -172,7 +172,7 @@
 
 ///Cat tail bodypart overlay
 /datum/bodypart_overlay/mutant/tail/cat
-	feature_key = FEATURE_TAIL_CAT // NOVA EDIT - Customization - ORIGINAL: feature_key = FEATURE_TAIL
+	feature_key = FEATURE_TAIL // NOVA EDIT - Customization - ORIGINAL: feature_key = FEATURE_TAIL_CAT
 	// color_source = ORGAN_COLOR_HAIR // NOVA EDIT REMOVAL
 
 /datum/bodypart_overlay/mutant/tail/cat/get_global_feature_list()
