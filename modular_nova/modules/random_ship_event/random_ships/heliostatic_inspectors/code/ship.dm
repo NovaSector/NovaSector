@@ -80,5 +80,5 @@
 	report_sound = ANNOUNCER_HC_POLICE
 
 /obj/machinery/suit_storage_unit/hc_police
-	mod_type = /obj/item/mod/control/pre_equipped/policing
+	mod_type = /obj/item/mod/control/pre_equipped/rim_inspector
 	storage_type = /obj/item/tank/internals/oxygen/yellow
