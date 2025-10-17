@@ -24,11 +24,11 @@
 	return TRUE
 
 /datum/action/item_action/protean/open_internal_computer
-	name = "Open persocom emulation"
+	name = "Open Persocom"
 	desc = "Accesses your built-in virtual machine."
-	check_flags = AB_CHECK_CONSCIOUS
-	button_icon = 'icons/mob/actions/actions_silicon.dmi'
-	button_icon_state = "robot_pda"
+	check_flags = NONE
+	button_icon = 'modular_nova/modules/proteans/icons/protean.dmi'
+	button_icon_state = "posi1"
 
 /datum/action/item_action/protean/open_internal_computer/Trigger(trigger_flags)
 	. = ..()
