@@ -137,6 +137,8 @@ GLOBAL_LIST_INIT(analyzerthemes, list(
 		"blood_amount" = patient.blood_volume,
 		"majquirks" = patient.get_quirk_string(FALSE, CAT_QUIRK_MAJOR_DISABILITY, from_scan = TRUE),
 		"minquirks" = patient.get_quirk_string(FALSE, CAT_QUIRK_MINOR_DISABILITY, TRUE),
+		"species" = patient.dna.species,
+		"custom_species" = patient.client?.prefs.read_preference(/datum/preference/text/custom_species),
 	)
 
 	// Special Medical Conditions
@@ -150,7 +152,7 @@ GLOBAL_LIST_INIT(analyzerthemes, list(
 				"type" = "cardiac_arrest",
 				"severity" = "critical",
 				"message" = "CARDIAC ARREST - Apply defibrillation immediately!",
-				"icon" = "heartbeat"
+				"icon" = "heartbeat",
 			))
 
 		// Heart attack (different from cardiac arrest)
@@ -159,7 +161,7 @@ GLOBAL_LIST_INIT(analyzerthemes, list(
 				"type" = "heart_attack",
 				"severity" = "critical",
 				"message" = "MYOCARDIAL INFARCTION - Defibrillate now!",
-				"icon" = "heart-broken"
+				"icon" = "heart-broken",
 			))
 
 		// Husk detection
@@ -174,7 +176,7 @@ GLOBAL_LIST_INIT(analyzerthemes, list(
 				"type" = "husked",
 				"severity" = "critical",
 				"message" = "Subject has been husked by [husk_cause]",
-				"icon" = "skull"
+				"icon" = "skull",
 			))
 
 	// Irradiated
@@ -183,7 +185,7 @@ GLOBAL_LIST_INIT(analyzerthemes, list(
 			"type" = "irradiated",
 			"severity" = "warning",
 			"message" = "Subject is irradiated - administer antiradiation",
-			"icon" = "radiation"
+			"icon" = "radiation",
 		))
 
 	// Genetic damage
@@ -194,7 +196,7 @@ GLOBAL_LIST_INIT(analyzerthemes, list(
 			"type" = "genetic_damage",
 			"severity" = gen_dam.total_damage >= 500 ? "critical" : "warning",
 			"message" = "Genetic damage: [genetic_percent]% - will decay over time",
-			"icon" = "dna"
+			"icon" = "dna",
 		))
 
 	// Hallucination
@@ -203,7 +205,7 @@ GLOBAL_LIST_INIT(analyzerthemes, list(
 			"type" = "hallucinating",
 			"severity" = "warning",
 			"message" = "Subject is hallucinating - administer antipsychotics",
-			"icon" = "eye"
+			"icon" = "eye",
 		))
 
 	// Temporal instability
@@ -212,7 +214,7 @@ GLOBAL_LIST_INIT(analyzerthemes, list(
 			"type" = "temporal_unstable",
 			"severity" = "warning",
 			"message" = "Temporally unstable - administer stabilizers",
-			"icon" = "clock"
+			"icon" = "clock",
 		))
 
 	// Mutant infection
@@ -221,7 +223,7 @@ GLOBAL_LIST_INIT(analyzerthemes, list(
 			"type" = "mutant_infection",
 			"severity" = "critical",
 			"message" = "UNKNOWN PROTO-VIRAL INFECTION - ISOLATE IMMEDIATELY",
-			"icon" = "biohazard"
+			"icon" = "biohazard",
 		))
 
 	// Blood alcohol content
@@ -232,10 +234,11 @@ GLOBAL_LIST_INIT(analyzerthemes, list(
 			"type" = "intoxicated",
 			"severity" = severity,
 			"message" = "Blood alcohol content: [blood_alcohol_content]%",
-			"icon" = "wine-bottle"
+			"icon" = "wine-bottle",
 		))
 
 	data["medical_alerts"] = medical_alerts
+
 	/*
 	CHEMICALS
 	*/
@@ -247,35 +250,39 @@ GLOBAL_LIST_INIT(analyzerthemes, list(
 			"amount" = round(reagent.volume, 0.1),
 			"od" = reagent.overdosed,
 			"od_threshold" = reagent.overdose_threshold,
-			"dangerous" = reagent.overdosed || istype(reagent, /datum/reagent/toxin)
+			"dangerous" = reagent.overdosed || istype(reagent, /datum/reagent/toxin),
 		)
 	data["has_chemicals"] = length(patient.reagents.reagent_list)
 	data["chemicals_lists"] = chemicals_lists
-	data["species"] = patient.dna.species
-	data["custom_species"] = patient.client?.prefs.read_preference(/datum/preference/text/custom_species)
 
 	/*
 	LIMBS
 	*/
-
 	var/list/limb_data_lists = list()
 	if(!ishuman(patient)) // how did we get here?
 		return
 
 	var/mob/living/carbon/carbontarget = patient
-	var/list/damaged = carbontarget.get_damaged_bodyparts(1,1)
 
-	for(var/obj/item/bodypart/limb as anything in damaged)
-		var/list/current_list = list(
+	for(var/zone in carbontarget.get_all_limbs())
+		var/obj/item/bodypart/limb = carbontarget.get_bodypart(zone)
+		var/list/current_list = list()
+		if(isnull(limb))
+			current_list += list(
+				"name" = parse_zone(zone),
+				"missing" = TRUE,
+			)
+			continue
+		current_list += list(
 			"name" = limb.name,
+			"missing" = FALSE,
 			"brute" = round(limb.brute_dam),
 			"burn" = round(limb.burn_dam),
-			"bandaged" = limb.current_gauze ? TRUE : null,
-			"missing" = !limb ? TRUE: FALSE,
 			"limb_status" = null,
 			"limb_type" = null,
-			"bleeding" = limb.get_wound_type(/datum/wound/slash) ? limb : null,
-			"infection" = limb.get_wound_type(/datum/wound/burn) ? TRUE : FALSE
+			"bandaged" = limb.current_gauze ? TRUE : null,
+			"bleeding" = limb.get_wound_type(/datum/wound/slash) ? TRUE : FALSE,
+			"infection" = limb.get_wound_type(/datum/wound/burn) ? TRUE : FALSE,
 		)
 		var/limb_status = ""
 		var/limb_type = ""
@@ -290,13 +297,11 @@ GLOBAL_LIST_INIT(analyzerthemes, list(
 		current_list["limb_status"] = limb_status
 		limb_data_lists["[capitalize(limb.name)]"] = current_list
 	data["limb_data_lists"] = limb_data_lists
-	data["limbs_damaged"] = length(limb_data_lists)
-	data["body_temperature"] = "[round(patient.bodytemperature*1.8-459.67, 0.1)] degrees F ([round(patient.bodytemperature-T0C, 0.1)] degrees C)"
+	data["body_temperature"] = "[round(patient.bodytemperature-T0C, 0.1)] degrees C ([round(patient.bodytemperature*1.8-459.67, 0.1)] degrees F)"
 
 	/*
 	ORGANS, handles organ data input into the tgui
 	*/
-
 	var/damaged_organs = list()
 	var/has_alien_embryo = FALSE
 	var/embryo_stage = 0
@@ -322,7 +327,7 @@ GLOBAL_LIST_INIT(analyzerthemes, list(
 			damaged_organs += list(list(
 				"name" = "ALIEN PARASITE",
 				"status" = "Stage [embryo_stage]/6 - [stage_desc]",
-				"damage" = "",
+				"damage" = 0,
 				"effects" = "BIOHAZARD: Xenomorph larva detected! Recommend immediate surgical removal or the patient will not survive.",
 				"is_embryo" = TRUE,
 			))
@@ -339,9 +344,9 @@ GLOBAL_LIST_INIT(analyzerthemes, list(
 			"effects" = organ.desc || "No description available.",
 		)
 		damaged_organs += list(current_organ)
+
 	data["damaged_organs"] = damaged_organs
 	data["damaged_organs"] += get_missing_organs(patient)
-	data["has_alien_embryo"] = has_alien_embryo
 	data["embryo_stage"] = embryo_stage
 
 	if(HAS_TRAIT(patient, TRAIT_DNR))
@@ -371,11 +376,11 @@ GLOBAL_LIST_INIT(analyzerthemes, list(
 		for(var/limb_wound in wounded_part.wounds)
 			var/datum/wound/current_wound = limb_wound
 			render_list += list(list(
-			"type" = current_wound.name,
-			"where" = wounded_part.name,
-			"severity" = current_wound.severity_text(FALSE),
-			"description" = current_wound.desc,
-			"recomended_treatement" = current_wound.treat_text,
+				"type" = current_wound.name,
+				"where" = wounded_part.name,
+				"severity" = current_wound.severity_text(FALSE),
+				"description" = current_wound.desc,
+				"recomended_treatement" = current_wound.treat_text,
 			))
 	data["wounds"] = render_list
 
@@ -418,7 +423,8 @@ GLOBAL_LIST_INIT(analyzerthemes, list(
 				trauma_text += trauma_desc
 			trauma_list += "Cerebral traumas detected: subject appears to be suffering from [english_list(trauma_text)]."
 	data["brain_traumas"] = length(trauma_list) > 0 ? trauma_list : null
-		/*
+
+	/*
 	ADVICE
 	*/
 	var/list/advice = list()
@@ -438,19 +444,19 @@ GLOBAL_LIST_INIT(analyzerthemes, list(
 				"advice" = "Synthetic: Patient is not revived by defibrillation.",
 				"tooltip" = "Synthetics do not heal when being shocked with a defibrillator, meaning they are only revivable over [(round((patient.getBruteLoss() - MAX_REVIVE_BRUTE_DAMAGE) || (patient.getFireLoss() - MAX_REVIVE_FIRE_DAMAGE)))]% health.",
 				"icon" = "robot",
-				"color" = "label"
+				"color" = "label",
 			))
 			advice += list(list(
 				"advice" = "Synthetic: Patient overheats while lower than [patient.crit_threshold / patient.maxHealth * 100]% health.",
 				"tooltip" = "Synthetics overheat rapidly while their health is lower than [patient.crit_threshold / patient.maxHealth * 100]%. When defibrillating, the patient should be repaired above this threshold to avoid unnecessary burning.",
 				"icon" = "robot",
-				"color" = "label"
+				"color" = "label",
 			))
 			advice += list(list(
 				"advice" = "Synthetic: Patient does not suffer from blood loss.",
 				"tooltip" = "Synthetics don't lose blood normaly.",
 				"icon" = "robot",
-				"color" = "label"
+				"color" = "label",
 			))
 		if(patient.stat == DEAD) // death advice
 			for(var/obj/item/clothing/C in patient.get_equipped_items())
@@ -459,29 +465,29 @@ GLOBAL_LIST_INIT(analyzerthemes, list(
 						"advice" = "Remove patient's suit or armor.",
 						"tooltip" = "To defibrillate the patient, you need to remove anything conductive obscuring their chest.",
 						"icon" = "shield-alt",
-						"color" = "blue"
-						))
+						"color" = "blue",
+					))
 			if((patient.getBruteLoss() <= MAX_REVIVE_BRUTE_DAMAGE) || (patient.getFireLoss() <= MAX_REVIVE_FIRE_DAMAGE))
 				advice += list(list(
 					"advice" = "Administer shock via defibrillator!",
 					"tooltip" = "The patient is ready to be revived, defibrillate them as soon as possible!",
 					"icon" = "bolt",
-					"color" = "yellow"
-					))
+					"color" = "yellow",
+				))
 		if(patient.getBruteLoss() > 5)
 			if(!issynthetic(patient))
 				advice += list(list(
 					"advice" = "Use Brute healing medicine or sutures to repair the bruised areas.",
 					"tooltip" = "Brute damage can be cured with sutures, or administer some brute healing medicine.",
 					"icon" = "band-aid",
-					"color" = "green"
-					))
+					"color" = "green",
+				))
 			else
 				advice += list(list(
 					"advice" = "Use a welding tool to repair the dented areas.",
 					"tooltip" = "Only a welding tool can repair dented robotic limbs.",
 					"icon" = "tools",
-					"color" = "red"
+					"color" = "red",
 				))
 		if(patient.getFireLoss() > 5)
 			if(!issynthetic(patient))
@@ -489,14 +495,14 @@ GLOBAL_LIST_INIT(analyzerthemes, list(
 					"advice" = "Use Burn healing medicine or sutures to repair the burned areas.",
 					"tooltip" = "Regenerative Mesh will heal burn damage, or you can administer burn healing medicine.",
 					"icon" = "band-aid",
-					"color" = "orange"
-					))
+					"color" = "orange",
+				))
 			else
 				advice += list(list(
 					"advice" = "Use cable coils to repair the scorched areas.",
 					"tooltip" = "Only cable coils can repair scorched robotic limbs.",
 					"icon" = "plug",
-					"color" = "orange"
+					"color" = "orange",
 				))
 
 		for(var/obj/item/organ/organs as anything in patient.organs)
@@ -507,8 +513,8 @@ GLOBAL_LIST_INIT(analyzerthemes, list(
 						"advice" = "Administer a single dose of mannitol.",
 						"tooltip" = "Significant brain damage detected. Mannitol heals brain damage. If left untreated, patient may be unable to function well.",
 						"icon" = "syringe",
-						"color" = "blue"
-						))
+						"color" = "blue",
+					))
 					if(chemicals_lists["Mannitol"])
 						if(chemicals_lists["Mannitol"]["amount"] < 3)
 							advice += temp_advice
@@ -523,8 +529,8 @@ GLOBAL_LIST_INIT(analyzerthemes, list(
 						"advice" = "Administer a single dose of occuline.",
 						"tooltip" = "Eye damage detected. Occuline heals eye damage. If left untreated, patient may be unable to see properly.",
 						"icon" = "syringe",
-						"color" = "yellow"
-						))
+						"color" = "yellow",
+					))
 					if(chemicals_lists["Occuline"])
 						if(chemicals_lists["Occuline"]["amount"] < 3)
 							advice += temp_advice
@@ -537,8 +543,8 @@ GLOBAL_LIST_INIT(analyzerthemes, list(
 				"advice" = "Administer a single dose of Libital or Salicylic Acid to reduce physical trauma.",
 				"tooltip" = "Significant physical trauma detected. Libital and Salicylic Acid both reduce brute damage.",
 				"icon" = "syringe",
-				"color" = "red"
-				))
+				"color" = "red",
+			))
 			if(chemicals_lists["Libital"])
 				if(chemicals_lists["Libital"]["amount"] < 3)
 					advice += temp_advice
@@ -549,8 +555,8 @@ GLOBAL_LIST_INIT(analyzerthemes, list(
 				"advice" = "Administer a single dose of Aiuri or Oxandrolone to reduce burns.",
 				"tooltip" = "Significant tissue burns detected. Aiuri and Oxandrolone both reduces burn damage.",
 				"icon" = "syringe",
-				"color" = "yellow"
-				))
+				"color" = "yellow",
+			))
 			if(chemicals_lists["Aiuri"])
 				if(chemicals_lists["Aiuri"]["amount"] < 3)
 					advice += temp_advice
@@ -561,8 +567,8 @@ GLOBAL_LIST_INIT(analyzerthemes, list(
 				"advice" = "Administer a single dose of multiver or pentetic acid.",
 				"tooltip" = "Significant blood toxins detected. Multiver and Pentetic Acid both will reduce toxin damage, or their liver will filter it out on its own. Damaged livers will take even more damage while clearing blood toxins.",
 				"icon" = "syringe",
-				"color" = "green"
-				))
+				"color" = "green",
+			))
 			if(chemicals_lists["Multiver"])
 				if(chemicals_lists["Multiver"]["amount"] < 5)
 					advice += temp_advice
@@ -573,8 +579,8 @@ GLOBAL_LIST_INIT(analyzerthemes, list(
 				"advice" = "Administer a single dose of salbutamol to re-oxygenate patient's blood.",
 				"tooltip" = "If you don't have Salbutamol, CPR or treating their other symptoms and waiting for their bloodstream to re-oxygenate will work.",
 				"icon" = "syringe",
-				"color" = "blue"
-				))
+				"color" = "blue",
+			))
 			if(chemicals_lists["Salbutamol"])
 				if(chemicals_lists["Salbutamol"]["amount"] < 3)
 					advice += temp_advice
@@ -585,33 +591,34 @@ GLOBAL_LIST_INIT(analyzerthemes, list(
 				"advice" = "Administer a single dose of Saline-Glucose or Iron.",
 				"tooltip" = "The patient has lost a significant amount of blood. Saline-Glucose or Iron speeds up blood regeneration significantly.",
 				"icon" = "syringe",
-				"color" = "cyan"
-				))
+				"color" = "cyan",
+			))
 			advice += temp_advice
 		if(patient.stat != DEAD && patient.health < patient.crit_threshold)
 			temp_advice = list(list(
 				"advice" = "Administer a single dose of epinephrine.",
 				"tooltip" = "When used in hard critical condition, Epinephrine prevents suffocation and heals the patient, triggering a 5 minute cooldown.",
 				"icon" = "syringe",
-				"color" = "purple"
-				))
+				"color" = "purple",
+			))
 			if(chemicals_lists["Epinephrine"])
 				if(chemicals_lists["Epinephrine"]["amount"] < 5)
 					advice += temp_advice
 			else
 				advice += temp_advice
-
 	else
 		advice += list(list(
 			"advice" = "Patient is unrevivable.",
 			"tooltip" = "The patient is permanently deceased. Can occur through being decapitated, DNR on record, or soullessness.",
 			"icon" = "ribbon",
-			"color" = "white"
-			))
+			"color" = "white",
+		))
+
 	if(advice.len)
 		data["advice"] = advice
 	else
 		data["advice"] = null
+
 	return data
 
 /obj/item/healthanalyzer/ui_static_data(mob/user)
@@ -664,56 +671,56 @@ GLOBAL_LIST_INIT(analyzerthemes, list(
 				"status" = "Missing",
 				"damage" = "",
 				"effects" = "Handles all cognitive functions. Stores the patient's mind and memories.",
-				))
+			))
 		if(!HAS_TRAIT_FROM(humantarget, TRAIT_NOBLOOD, SPECIES_TRAIT) && !humantarget.get_organ_slot(ORGAN_SLOT_HEART))
 			missing_organs += list(list(
 				"name" = "Heart",
 				"status" = "Missing",
 				"damage" = "",
 				"effects" = "Pumps blood throughout the body. Required to prevent suffocation.",
-				))
+			))
 		if(!HAS_TRAIT_FROM(humantarget, TRAIT_NOBREATH, SPECIES_TRAIT) && !humantarget.get_organ_slot(ORGAN_SLOT_LUNGS))
 			missing_organs += list(list(
 				"name" = "Lungs",
 				"status" = "Missing",
 				"damage" = "",
 				"effects" = "Oxygenates blood. Required for breathing.",
-				))
+			))
 		if(!HAS_TRAIT_FROM(humantarget, TRAIT_LIVERLESS_METABOLISM, SPECIES_TRAIT) && !humantarget.get_organ_slot(ORGAN_SLOT_LIVER))
 			missing_organs += list(list(
 				"name" = "Liver",
 				"status" = "Missing",
 				"damage" = "",
 				"effects" = "Filters toxins from the bloodstream.",
-				))
+			))
 		if(!HAS_TRAIT_FROM(humantarget, TRAIT_NOHUNGER, SPECIES_TRAIT) && !humantarget.get_organ_slot(ORGAN_SLOT_STOMACH))
 			missing_organs += list(list(
 				"name" = "Stomach",
 				"status" = "Missing",
 				"damage" = "",
 				"effects" = "Processes and digests food.",
-				))
+			))
 		if(!humantarget.get_organ_slot(ORGAN_SLOT_TONGUE))
 			missing_organs += list(list(
 				"name" = "Tongue",
 				"status" = "Missing",
 				"damage" = "",
 				"effects" = "Required for speech and tasting.",
-				))
+			))
 		if(!humantarget.get_organ_slot(ORGAN_SLOT_EARS))
 			missing_organs += list(list(
 				"name" = "Ears",
 				"status" = "Missing",
 				"damage" = "",
 				"effects" = "Required for hearing.",
-				))
+			))
 		if(!humantarget.get_organ_slot(ORGAN_SLOT_EYES))
 			missing_organs += list(list(
 				"name" = "Eyes",
 				"status" = "Missing",
 				"damage" = "",
 				"effects" = "Required for vision.",
-				))
+			))
 		return missing_organs
 
 #undef MAX_HEALTH_ANALYZER_UPDATE_RANGE
