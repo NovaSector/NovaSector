@@ -193,7 +193,10 @@
 /obj/item/organ/brain/protean/Initialize(mapload)
 	. = ..()
 	internal_computer = new(src)
-	actions_types |= /datum/action/item_action/protean/open_internal_computer
+
+	// Create and add perscom action to organ's actions list
+	var/datum/action/item_action/protean/open_internal_computer/perscom_action = new(src)
+	actions += perscom_action
 
 /obj/item/organ/brain/protean/Destroy()
 	QDEL_NULL(internal_computer)
@@ -206,6 +209,9 @@
 	RegisterSignal(brain_owner, COMSIG_MOB_EQUIPPED_ITEM, PROC_REF(on_equip_signal))
 	if(internal_computer && brain_owner.wear_id)
 		internal_computer.handle_id_slot(brain_owner, brain_owner.wear_id)
+
+	// Action should be auto-granted from actions list
+	to_chat(brain_owner, span_boldnotice("Perscom button should be at the TOP of your screen (brain icon)!"))
 
 /obj/item/organ/brain/protean/on_mob_remove(mob/living/carbon/human/brain_owner, special, movement_flags)
 	. = ..()
