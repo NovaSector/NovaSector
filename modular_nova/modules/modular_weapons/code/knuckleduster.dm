@@ -97,8 +97,10 @@
 	. = ..()
 	if(!isliving(target) || !LAZYACCESS(modifiers, RIGHT_CLICK))
 		return
-	var/mob/living/L = target
-	L.apply_damage(35, STAMINA) // stamina_rmb_damage as inline value
+	var/effective_armour_penetration = stun_armour_penetration
+	var/armour_block = target.run_armor_check(null, armour_type_against_stun, null, null, effective_armour_penetration)
+	var/mob/living/living_mob = target
+	living_mob.apply_damage(stamina_damage, STAMINA, blocked = armour_block) // stamina_rmb_damage as inline value
 	if(hitsound)
 		playsound(src, hitsound, 50, TRUE)
 
