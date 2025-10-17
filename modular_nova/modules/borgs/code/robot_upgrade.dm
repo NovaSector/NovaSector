@@ -50,6 +50,9 @@
 		var/obj/item/healthanalyzer/advanced/AHA = new /obj/item/healthanalyzer/advanced(borg.model)
 		borg.model.basic_modules += AHA
 		borg.model.add_module(AHA, FALSE, TRUE)
+		var/obj/item/surgical_drapes/SDRP = new /obj/item/surgical_drapes(borg.model)
+		borg.model.basic_modules += SDRP
+		borg.model.add_module(SDRP, FALSE, TRUE)
 
 /obj/item/borg/upgrade/surgerytools/deactivate(mob/living/silicon/robot/borg, user = usr)
 	. = ..()
@@ -64,6 +67,8 @@
 			borg.model.remove_module(ABF)
 		for(var/obj/item/healthanalyzer/advanced/AHA in borg.model.modules)
 			borg.model.remove_module(AHA)
+		for(var/obj/item/surgical_drapes/SDRP in borg.model.modules)
+			borg.model.remove_module(SDRP)
 
 		var/obj/item/retractor/RT = new (borg.model)
 		borg.model.basic_modules += RT
