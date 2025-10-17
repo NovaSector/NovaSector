@@ -75,8 +75,11 @@ GLOBAL_DATUM_INIT(language_holder_adjustor, /datum/language_holder_adjustor, new
 
 	/// list of [/datum/language]s (typepaths of them) with [/datum/language/var/secret] but still known by our borgs and AIs
 	var/static/list/known_secret_languages = list(
+		/datum/language/beachbum,
+		/datum/language/buzzwords,
 		/datum/language/calcic,
 		/datum/language/monkey,
+		/datum/language/mushroom,
 		/datum/language/nekomimetic,
 		/datum/language/shadowtongue,
 	)
