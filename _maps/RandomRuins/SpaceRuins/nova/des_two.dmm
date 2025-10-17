@@ -917,7 +917,7 @@
 "dO" = (
 /obj/machinery/camera/directional/west{
 	network = list("ds2-interro");
-	c_tag = "DS-2 Interrogation Room 2"
+	c_tag = "ss"
 	},
 /turf/open/floor/wood,
 /area/ruin/space/has_grav/nova/des_two/security/lawyer)
@@ -3072,8 +3072,8 @@
 /area/ruin/space/has_grav/nova/des_two/halls)
 "nn" = (
 /obj/machinery/camera/directional/north{
-	c_tag = "DS-2 Interrogation Observation";
-	network = list("ds2")
+	c_tag = "DS-2 Interrogation Room 1";
+	network = list("ds2","ds2-interro")
 	},
 /obj/machinery/digital_clock/directional/north,
 /turf/open/floor/wood/large,
@@ -3920,6 +3920,15 @@
 	dir = 8
 	},
 /area/ruin/space/has_grav/nova/des_two/bridge)
+"ra" = (
+/obj/structure/chair/stool/bar/directional/south{
+	dir = 8
+	},
+/obj/item/paint_palette,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/turf/open/floor/iron/dark/small,
+/area/ruin/space/has_grav/nova/des_two/security/prison)
 "rc" = (
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
@@ -5628,15 +5637,6 @@
 /obj/effect/turf_decal/siding/dark,
 /turf/open/floor/mineral/plastitanium/red,
 /area/ruin/space/has_grav/nova/des_two/security)
-"zi" = (
-/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
-/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
-/obj/machinery/camera/directional/north{
-	c_tag = "DS-2 Interrogation Room";
-	network = list("ds2")
-	},
-/turf/open/floor/mineral/plastitanium,
-/area/ruin/space/has_grav/nova/des_two/security/lawyer)
 "zj" = (
 /obj/structure/closet/secure_closet/freezer/kitchen/all_access,
 /obj/item/food/breadslice/plain,
@@ -6455,6 +6455,10 @@
 	freqlock = 1;
 	anonymize = 1
 	},
+/obj/machinery/camera/directional/north{
+	c_tag = "DS-2 Interrogation Observation";
+	network = list("ds2")
+	},
 /turf/open/floor/mineral/plastitanium,
 /area/ruin/space/has_grav/nova/des_two/security/lawyer)
 "CD" = (
@@ -6493,9 +6497,6 @@
 	},
 /turf/open/floor/mineral/plastitanium,
 /area/ruin/space/has_grav/nova/des_two/security/maa)
-"CK" = (
-/turf/open/floor/iron/dark/textured_large,
-/area/ruin/space/has_grav/nova/des_two/security/prison)
 "CN" = (
 /obj/structure/table/reinforced/plastitaniumglass,
 /obj/machinery/chem_dispenser/drinks/fullupgrade{
@@ -7359,25 +7360,6 @@
 /obj/effect/spawner/random/medical/medkit,
 /turf/open/floor/iron/dark/textured_large,
 /area/ruin/space/has_grav/nova/des_two/cargo/storage)
-"Gw" = (
-/obj/item/disk{
-	desc = "A cheap, plastic hard-disk labelled 'good tunes to assault ops to'. It looks disused... wait, is that a 'THE WEAPONIZED' logo?";
-	icon_state = "nucleardisk";
-	name = "dat fukken disk"
-	},
-/obj/item/choice_beacon/music{
-	pixel_x = 5
-	},
-/obj/item/choice_beacon/music{
-	pixel_x = -3;
-	pixel_y = -4
-	},
-/obj/structure/closet/crate/wooden,
-/obj/structure/window/reinforced/survival_pod/spawner/directional/east{
-	pixel_x = 4
-	},
-/turf/open/floor/iron/dark/diagonal,
-/area/ruin/space/has_grav/nova/des_two/cargo)
 "Gx" = (
 /obj/effect/turf_decal/vg_decals/atmos/nitrogen{
 	dir = 4
@@ -8069,14 +8051,6 @@
 /obj/structure/aquarium/donkfish,
 /turf/open/floor/iron/dark/textured_large,
 /area/ruin/space/has_grav/nova/des_two/service/library)
-"JH" = (
-/obj/effect/turf_decal/trimline/dark_red/filled/line,
-/obj/effect/turf_decal/siding/dark,
-/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
-/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
-/obj/machinery/light/small,
-/turf/open/floor/iron/dark,
-/area/ruin/space/has_grav/nova/des_two/security/prison)
 "JI" = (
 /obj/machinery/light/warm/directional/west,
 /obj/machinery/firealarm/directional/west,
@@ -8647,13 +8621,6 @@
 /obj/machinery/coffeemaker,
 /turf/open/floor/iron/dark,
 /area/ruin/space/has_grav/nova/des_two/research)
-"Mp" = (
-/obj/structure/chair/stool/bar/directional/south{
-	dir = 8
-	},
-/obj/item/paint_palette,
-/turf/open/floor/iron/dark/small,
-/area/ruin/space/has_grav/nova/des_two/security/prison)
 "Mq" = (
 /obj/effect/spawner/structure/window/reinforced/plasma/plastitanium,
 /obj/structure/cable,
@@ -10849,7 +10816,7 @@
 	name = "Incinerator Hatch Bolt";
 	normaldoorcontrol = 1;
 	pixel_x = 6;
-	req_access = list("syndicate_leader");
+	req_access = list("syndicate");
 	specialfunctions = 4
 	},
 /turf/open/floor/plating,
@@ -11616,15 +11583,24 @@
 /turf/open/floor/wood,
 /area/ruin/space/has_grav/nova/des_two/security/intel)
 "ZM" = (
-/obj/effect/turf_decal/trimline/dark_red/filled/line{
-	dir = 1
+/obj/item/disk{
+	desc = "A cheap, plastic hard-disk labelled 'good tunes to assault ops to'. It looks disused... wait, is that a 'THE WEAPONIZED' logo?";
+	icon_state = "nucleardisk";
+	name = "dat fukken disk"
 	},
-/obj/effect/turf_decal/siding/dark{
-	dir = 1
+/obj/item/choice_beacon/music{
+	pixel_x = 5
 	},
-/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
-/turf/open/floor/iron/dark,
-/area/ruin/space/has_grav/nova/des_two/security/prison)
+/obj/item/choice_beacon/music{
+	pixel_x = -3;
+	pixel_y = -4
+	},
+/obj/structure/closet/crate/wooden,
+/obj/structure/window/reinforced/survival_pod/spawner/directional/east{
+	pixel_x = 4
+	},
+/turf/open/floor/iron/dark/diagonal,
+/area/ruin/space/has_grav/nova/des_two/cargo)
 "ZN" = (
 /obj/effect/turf_decal/stripes/red/corner{
 	dir = 8
@@ -11701,17 +11677,17 @@ iD
 iD
 iD
 iD
-el
-zd
-zd
-zd
-zd
-zd
-zd
-zd
-zd
-tG
-zd
+iD
+iD
+iD
+iD
+iD
+iD
+iD
+iD
+iD
+iD
+iD
 tG
 tG
 tG
@@ -11766,18 +11742,18 @@ el
 el
 el
 el
-ME
-PU
-jK
-wJ
-Ih
-FD
-QK
-JM
-Gs
-cU
-Fh
-Wr
+el
+zd
+zd
+zd
+zd
+zd
+zd
+zd
+zd
+tG
+zd
+tG
 Pu
 zO
 Zj
@@ -11832,16 +11808,16 @@ dO
 Bk
 oB
 ME
-IC
-fB
-fB
-fB
-fB
-fB
-fB
-fB
-Mp
-fB
+PU
+jK
+wJ
+Ih
+FD
+QK
+JM
+Gs
+cU
+Fh
 Wr
 Sc
 Xg
@@ -11897,16 +11873,16 @@ PM
 IT
 oB
 YW
+IC
 fB
 fB
-AA
-ym
-ym
-ym
-ym
-ym
-ym
-ym
+vz
+vz
+vz
+vz
+vz
+ra
+vz
 oI
 Ss
 ym
@@ -11962,16 +11938,16 @@ jU
 jU
 uC
 ME
-Sw
-Aq
-ln
-my
-ia
-Wa
-my
-Aq
-TC
-my
+fB
+fB
+AA
+vz
+fB
+fB
+vz
+fB
+fB
+vz
 Wr
 fU
 my
@@ -12027,16 +12003,16 @@ nC
 vT
 Uv
 ME
-CK
-tG
-tZ
-ot
-tG
-eR
-qI
-tG
-SQ
-wS
+Sw
+Aq
+ln
+my
+ia
+Wa
+my
+Aq
+TC
+my
 tG
 tG
 jV
@@ -12094,14 +12070,14 @@ xm
 ME
 vZ
 tG
-iL
-an
+tZ
+ot
 tG
-Ko
-an
+eR
+qI
 tG
-hC
-an
+SQ
+wS
 tG
 xH
 an
@@ -12155,18 +12131,18 @@ Mh
 CC
 mi
 Wu
-zi
+AR
 ME
 pb
 tG
-ZM
-JH
+iL
+an
 tG
-ZM
-JH
+Ko
+an
 tG
-ZM
-JH
+hC
+an
 tG
 qO
 DN
@@ -14253,7 +14229,7 @@ Sr
 Sr
 TU
 we
-Gw
+ZM
 aJ
 eM
 re
