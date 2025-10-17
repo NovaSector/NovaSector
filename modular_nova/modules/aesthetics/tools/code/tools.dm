@@ -11,6 +11,11 @@
 /obj/item/crowbar/power/syndicate	//Because we have a clearly different color JOL than upstream, this needs to be specifically different now
 	inhand_icon_state = "jaws_syndie"
 
+/obj/item/crowbar/power/paramedic
+	icon = 'icons/obj/tools.dmi'
+	lefthand_file = 'icons/mob/inhands/equipment/tools_lefthand.dmi'
+	righthand_file = 'icons/mob/inhands/equipment/tools_righthand.dmi'
+
 /obj/item/crowbar/large/heavy
 	icon = 'icons/obj/tools.dmi'
 
@@ -19,6 +24,9 @@
 
 /obj/item/wrench
 	icon = 'modular_nova/modules/aesthetics/tools/icons/tools.dmi'
+
+/obj/item/wrench/combat
+	icon = 'icons/obj/tools.dmi'
 
 /obj/item/wrench/caravan
 	icon = 'icons/obj/tools.dmi'
