@@ -16,7 +16,7 @@
 /obj/item/clothing/under/colonial/hc_police/skirt
 	name = "coalition police skirt outfit"
 	desc = "Fancy blue durathread shirt and a cotton-blend pencil skirt. A time-tested design first employed by the HC police's \
-	precursor organisation, Rim-world Colonial Militia, now utilised by them as a tribute."
+		precursor organisation, Rim-world Colonial Militia, now utilised by them as a tribute."
 	icon_state = "under_police_skirt"
 	can_adjust = TRUE
 	female_sprite_flags = FEMALE_UNIFORM_TOP_ONLY
