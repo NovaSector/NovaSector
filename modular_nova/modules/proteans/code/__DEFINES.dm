@@ -27,15 +27,6 @@
 // Trait for mechanical unlock system
 #define TRAIT_PROTEAN_UNLOCKABLE "protean_unlockable"
 
-// Trait for hijacked modsuit
-#define TRAIT_PROTEAN_HIJACKED "protean_hijacked"
-
-// Trait for direct control of corpse
-#define TRAIT_PROTEAN_DIRECT_CONTROL "protean_direct_control"
-
-// Trait for when protean is mounted on someone's back
-#define TRAIT_PROTEAN_MOUNTED "protean_mounted"
-
 // Sprite file location
 #define PROTEAN_ORGAN_SPRITE 'modular_nova/modules/proteans/icons/protean.dmi'
 

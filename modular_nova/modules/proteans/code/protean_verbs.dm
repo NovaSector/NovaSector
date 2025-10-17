@@ -91,11 +91,6 @@
 		to_chat(src, span_warning("ERROR: Missing species modsuit! Report this bug."))
 		return
 
-	// Can't transform while mounted
-	if(HAS_TRAIT(species.species_modsuit, TRAIT_PROTEAN_MOUNTED))
-		to_chat(src, span_warning("You can't transform while mounted on someone! Dismount first."))
-		return
-
 	if(loc == species.species_modsuit)
 		brain.leave_modsuit()
 	else if(isturf(loc))

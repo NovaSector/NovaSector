@@ -123,23 +123,6 @@
 	return TRUE
 
 /obj/item/mod/control/pre_equipped/protean/doStrip(mob/stripper, mob/owner) // Custom stripping code.
-	// If mounted on someone, they can remove it by stripping
-	if(HAS_TRAIT(src, TRAIT_PROTEAN_MOUNTED) && stripper == wearer)
-		to_chat(stripper, span_warning("You struggle to remove the mounted protean suit from your back..."))
-		var/obj/item/mod/core/protean/pcore = core
-		var/datum/species/protean/pspecies = pcore?.linked_species
-		if(pspecies?.owner)
-			to_chat(pspecies.owner, span_warning("[stripper] is trying to remove you!"))
-
-		if(do_after(stripper, 3 SECONDS, src))
-			to_chat(stripper, span_notice("You successfully pull the protean suit off your back!"))
-			if(pspecies)
-				pspecies.dismount_from_target()
-			return TRUE
-		else
-			to_chat(stripper, span_warning("You couldn't remove it!"))
-			return FALSE
-
 	if(!isprotean(wearer)) // Strip it normally
 		REMOVE_TRAIT(src, TRAIT_NODROP, "protean") // Your ass is coming off.
 		return ..()
@@ -166,20 +149,6 @@
 		REMOVE_TRAIT(src, TRAIT_NODROP, "protean")
 	modlocked = !modlocked
 
-	// End hijack when suit is unlocked
-	if(!modlocked && HAS_TRAIT(src, TRAIT_PROTEAN_HIJACKED))
-		end_hijack()
-
-/obj/item/mod/control/pre_equipped/protean/proc/end_hijack()
-	if(!HAS_TRAIT(src, TRAIT_PROTEAN_HIJACKED))
-		return
-
-	REMOVE_TRAIT(src, TRAIT_PROTEAN_HIJACKED, "protean_hijack")
-
-	if(wearer)
-		to_chat(wearer, span_notice("The suit's autonomous control ceases!"))
-		wearer.balloon_alert(wearer, "hijack ended")
-
 /obj/item/mod/control/pre_equipped/protean/equipped(mob/user, slot, initial)
 	. = ..()
 
@@ -194,22 +163,12 @@
 		UnregisterSignal(user, COMSIG_OOC_ESCAPE)
 
 /obj/item/mod/control/pre_equipped/protean/choose_deploy(mob/user)
-	if(!isprotean(user) && HAS_TRAIT(src, TRAIT_PROTEAN_HIJACKED))
-		// When hijacked, victim can't control deployment at all
-		balloon_alert(user, "hijacked - no control!")
-		return FALSE
 	if(!isprotean(user) && modlocked && active)
 		balloon_alert(user, "it refuses to listen")
 		return FALSE
 	return ..()
 
 /obj/item/mod/control/pre_equipped/protean/toggle_activate(mob/user, force_deactivate)
-	// Allow victims to try resisting by mashing the toggle - builds up resistance
-	if(!isprotean(user) && HAS_TRAIT(src, TRAIT_PROTEAN_HIJACKED))
-		if(!force_deactivate)
-			build_hijack_resistance(user)
-			balloon_alert(user, "struggling... ([get_resistance_percent(user)]%)")
-			return FALSE
 	if(!force_deactivate && modlocked && !isprotean(user) && active)
 		balloon_alert(user, "it doesn't turn off")
 		return FALSE
@@ -220,49 +179,17 @@
 	return ..()
 
 /obj/item/mod/control/pre_equipped/protean/quick_deploy(mob/user)
-	if(!isprotean(user) && HAS_TRAIT(src, TRAIT_PROTEAN_HIJACKED))
-		balloon_alert(user, "hijacked - no control!")
-		return FALSE
 	if(!isprotean(user) && modlocked && active)
 		balloon_alert(user, "it won't undeploy")
 		return FALSE
 	return ..()
 
 /obj/item/mod/control/pre_equipped/protean/retract(mob/user, obj/item/part, instant)
-	if(!isprotean(user) && HAS_TRAIT(src, TRAIT_PROTEAN_HIJACKED) && !instant)
-		balloon_alert(user, "hijacked - no control!")
-		return FALSE
 	if(!isprotean(user) && modlocked && active && !instant)
 		balloon_alert(user, "that button is unresponsive")
 		return FALSE
 	return ..()
 
-/// Resistance system for victims to break hijack
-/obj/item/mod/control/pre_equipped/protean/proc/build_hijack_resistance(mob/user)
-	var/resistance_key = "hijack_resistance_[user.ckey]"
-	var/current_resistance = vars[resistance_key] || 0
-	current_resistance += 10 // Each attempt adds 10%
-	vars[resistance_key] = current_resistance
-
-	if(current_resistance >= 100)
-		// They broke free!
-		visible_message(span_boldwarning("[user] forcefully breaks free from the hijack through sheer willpower!"))
-		to_chat(user, span_boldnotice("You've broken the protean's control!"))
-		end_hijack()
-		vars[resistance_key] = 0
-		return TRUE
-
-	// Reset resistance after 10 seconds of no attempts
-	addtimer(CALLBACK(src, PROC_REF(decay_resistance), user.ckey), 10 SECONDS)
-	return FALSE
-
-/obj/item/mod/control/pre_equipped/protean/proc/decay_resistance(user_ckey)
-	var/resistance_key = "hijack_resistance_[user_ckey]"
-	vars[resistance_key] = max((vars[resistance_key] || 0) - 5, 0)
-
-/obj/item/mod/control/pre_equipped/protean/proc/get_resistance_percent(mob/user)
-	var/resistance_key = "hijack_resistance_[user.ckey]"
-	return vars[resistance_key] || 0
 
 /// Protean Revivial
 
@@ -340,24 +267,9 @@
 	if(species?.owner == user)
 		return UI_INTERACTIVE
 
-	// Allow hijacked puppet controller to access
-	if(HAS_TRAIT(src, TRAIT_PROTEAN_HIJACKED) && wearer)
-		var/datum/component/protean_direct_controller/controller_comp = wearer.GetComponent(/datum/component/protean_direct_controller)
-		if(controller_comp && controller_comp.protean_body == user)
-			return UI_INTERACTIVE
-
 	return ..()
 
 /obj/item/mod/control/pre_equipped/protean/attack_hand(mob/living/user, list/modifiers)
-	// Allow protean to access their suit by clicking on the mounted target
-	var/obj/item/mod/core/protean/pcore = core
-	var/datum/species/protean/pspecies = pcore?.linked_species
-
-	if(pspecies?.owner == user && HAS_TRAIT(src, TRAIT_PROTEAN_MOUNTED))
-		// Protean clicking on their mounted target opens their suit UI
-		ui_interact(user)
-		return TRUE
-
 	return ..()
 
 /obj/item/mod/control/pre_equipped/protean/proc/assimilate_theme(mob/user, plating)
