@@ -161,13 +161,12 @@
 /turf/open/floor/engine/hull,
 /area/template_noop)
 "aJ" = (
+/obj/effect/spawner/random/decoration/carpet,
+/obj/structure/closet/crate/cardboard,
 /obj/structure/window/reinforced/survival_pod/spawner/directional/east{
 	pixel_x = 4
 	},
 /obj/effect/spawner/random/maintenance/three,
-/obj/effect/spawner/random/engineering/tool_advanced,
-/obj/effect/spawner/random/decoration/carpet,
-/obj/structure/closet/crate/wooden,
 /turf/open/floor/iron/dark/diagonal,
 /area/ruin/space/has_grav/nova/des_two/cargo)
 "aK" = (
@@ -1801,14 +1800,6 @@
 /obj/effect/spawner/random/bedsheet/any/double,
 /turf/open/floor/iron/dark/textured_large,
 /area/ruin/space/has_grav/nova/des_two/cargo/storage)
-"hS" = (
-/obj/structure/closet/crate/cardboard,
-/obj/effect/spawner/random/maintenance/three,
-/obj/effect/spawner/random/engineering/tool,
-/obj/effect/spawner/random/engineering/toolbox,
-/obj/effect/turf_decal/bot,
-/turf/open/floor/iron/dark/textured_large,
-/area/ruin/space/has_grav/nova/des_two/cargo)
 "hT" = (
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
@@ -2709,26 +2700,6 @@
 	},
 /turf/open/floor/iron/dark/textured_large,
 /area/ruin/space/has_grav/nova/des_two/service/changing_room)
-"lP" = (
-/obj/effect/turf_decal/bot,
-/obj/item/disk{
-	desc = "A cheap, plastic hard-disk labelled 'good tunes to assault ops to'. It looks disused... wait, is that a 'THE WEAPONIZED' logo?";
-	icon_state = "nucleardisk";
-	name = "dat fukken disk"
-	},
-/obj/item/choice_beacon/music{
-	pixel_x = 5
-	},
-/obj/item/choice_beacon/music{
-	pixel_x = -3;
-	pixel_y = -4
-	},
-/obj/structure/closet/crate/wooden,
-/obj/structure/window/reinforced/survival_pod/spawner/directional/east{
-	pixel_x = 4
-	},
-/turf/open/floor/iron/dark/textured_large,
-/area/ruin/space/has_grav/nova/des_two/cargo)
 "lQ" = (
 /obj/effect/turf_decal/stripes/line,
 /obj/effect/turf_decal/trimline/dark_red/filled/warning{
@@ -2949,9 +2920,6 @@
 	},
 /turf/open/floor/iron/small,
 /area/ruin/space/has_grav/nova/des_two/service/diner)
-"mJ" = (
-/turf/template_noop,
-/area/ruin/space/has_grav/nova/des_two/service/hydroponics)
 "mL" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
@@ -3952,9 +3920,6 @@
 	dir = 8
 	},
 /area/ruin/space/has_grav/nova/des_two/bridge)
-"ra" = (
-/turf/template_noop,
-/area/ruin/space/has_grav/nova/des_two/bridge)
 "rc" = (
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
@@ -4016,9 +3981,6 @@
 /obj/machinery/vending/wardrobe/syndie_wardrobe,
 /turf/open/floor/iron/dark/textured_large,
 /area/ruin/space/has_grav/nova/des_two/service/changing_room)
-"rn" = (
-/turf/template_noop,
-/area/ruin/space/has_grav/nova/des_two/security/lawyer)
 "rp" = (
 /obj/effect/turf_decal/siding/thinplating/dark,
 /obj/effect/turf_decal/trimline/dark_red/corner{
@@ -4324,11 +4286,6 @@
 	dir = 4
 	},
 /area/ruin/space/has_grav/nova/des_two/service/diner)
-"sS" = (
-/obj/structure/closet/crate/solarpanel_small,
-/obj/effect/turf_decal/bot,
-/turf/open/floor/iron/dark/textured_large,
-/area/ruin/space/has_grav/nova/des_two/cargo)
 "sT" = (
 /obj/machinery/door/firedoor,
 /obj/machinery/door/airlock/service/glass{
@@ -5076,10 +5033,9 @@
 /obj/structure/window/reinforced/survival_pod/spawner/directional/east{
 	pixel_x = 4
 	},
+/obj/structure/closet/crate/cardboard,
 /obj/effect/spawner/random/maintenance/three,
-/obj/effect/spawner/random/engineering/toolbox,
-/obj/effect/spawner/random/decoration/carpet,
-/obj/structure/closet/crate/wooden,
+/obj/effect/spawner/random/engineering/tool_advanced,
 /turf/open/floor/iron/dark/diagonal,
 /area/ruin/space/has_grav/nova/des_two/cargo)
 "wi" = (
@@ -5516,16 +5472,6 @@
 /obj/machinery/light/cold/directional/east,
 /turf/open/floor/mineral/plastitanium/red,
 /area/ruin/space/has_grav/nova/des_two/halls)
-"xZ" = (
-/obj/structure/window/reinforced/survival_pod/spawner/directional/east{
-	pixel_x = 4
-	},
-/obj/structure/closet/crate/cardboard,
-/obj/effect/spawner/random/maintenance/three,
-/obj/effect/spawner/random/engineering/tool_advanced,
-/obj/effect/turf_decal/bot,
-/turf/open/floor/iron/dark/textured_large,
-/area/ruin/space/has_grav/nova/des_two/cargo)
 "yd" = (
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
@@ -5565,9 +5511,7 @@
 /turf/open/floor/carpet/donk,
 /area/ruin/space/has_grav/nova/des_two/bridge/cl)
 "yp" = (
-/obj/structure/closet/crate/cardboard,
-/obj/effect/spawner/random/maintenance/seven,
-/obj/effect/spawner/random/decoration/carpet,
+/obj/structure/closet/crate/solarpanel_small,
 /turf/open/floor/iron/dark/diagonal,
 /area/ruin/space/has_grav/nova/des_two/cargo)
 "yt" = (
@@ -6439,16 +6383,6 @@
 	dir = 8
 	},
 /area/ruin/space/has_grav/nova/des_two/halls)
-"Cn" = (
-/obj/effect/turf_decal/bot,
-/obj/effect/spawner/random/decoration/carpet,
-/obj/structure/closet/crate/cardboard,
-/obj/structure/window/reinforced/survival_pod/spawner/directional/east{
-	pixel_x = 4
-	},
-/obj/effect/spawner/random/maintenance/three,
-/turf/open/floor/iron/dark/textured_large,
-/area/ruin/space/has_grav/nova/des_two/cargo)
 "Cr" = (
 /obj/structure/table/wood,
 /obj/machinery/status_display/department_balance/science/directional/north,
@@ -6500,13 +6434,6 @@
 	},
 /turf/open/floor/iron/dark/textured_large,
 /area/ruin/space/has_grav/nova/des_two/engineering)
-"Cw" = (
-/obj/effect/turf_decal/bot,
-/obj/effect/spawner/random/maintenance/two,
-/obj/structure/closet/crate,
-/obj/effect/spawner/random/engineering/tool,
-/turf/open/floor/iron/dark/textured_large,
-/area/ruin/space/has_grav/nova/des_two/cargo)
 "Cx" = (
 /obj/machinery/computer/records/security/syndie,
 /obj/machinery/status_display/department_balance/medical/directional/north,
@@ -7433,12 +7360,24 @@
 /turf/open/floor/iron/dark/textured_large,
 /area/ruin/space/has_grav/nova/des_two/cargo/storage)
 "Gw" = (
-/obj/machinery/porta_turret/syndicate/energy{
-	dir = 5;
-	faction = list("Syndicate DS-2 Crew","Interdyne Lavaland Personnel")
+/obj/item/disk{
+	desc = "A cheap, plastic hard-disk labelled 'good tunes to assault ops to'. It looks disused... wait, is that a 'THE WEAPONIZED' logo?";
+	icon_state = "nucleardisk";
+	name = "dat fukken disk"
 	},
-/turf/closed/wall/r_wall/plastitanium/syndicate/nodiagonal,
-/area/ruin/space/has_grav/nova/des_two)
+/obj/item/choice_beacon/music{
+	pixel_x = 5
+	},
+/obj/item/choice_beacon/music{
+	pixel_x = -3;
+	pixel_y = -4
+	},
+/obj/structure/closet/crate/wooden,
+/obj/structure/window/reinforced/survival_pod/spawner/directional/east{
+	pixel_x = 4
+	},
+/turf/open/floor/iron/dark/diagonal,
+/area/ruin/space/has_grav/nova/des_two/cargo)
 "Gx" = (
 /obj/effect/turf_decal/vg_decals/atmos/nitrogen{
 	dir = 4
@@ -9459,9 +9398,9 @@
 /area/ruin/space/has_grav/nova/des_two/security/prison)
 "Px" = (
 /obj/structure/closet/crate/cardboard,
-/obj/effect/spawner/random/maintenance/six,
-/obj/effect/spawner/random/engineering/tool_advanced,
-/obj/effect/spawner/random/decoration/carpet,
+/obj/effect/spawner/random/maintenance/three,
+/obj/effect/spawner/random/engineering/tool,
+/obj/effect/spawner/random/engineering/toolbox,
 /turf/open/floor/iron/dark/diagonal,
 /area/ruin/space/has_grav/nova/des_two/cargo)
 "PB" = (
@@ -9810,10 +9749,9 @@
 /turf/open/floor/mineral/plastitanium/red,
 /area/ruin/space/has_grav/nova/des_two/security/armory)
 "Rj" = (
-/obj/structure/closet/crate/cardboard,
-/obj/effect/spawner/random/maintenance/six,
-/obj/effect/spawner/random/engineering/toolbox,
-/obj/effect/spawner/random/decoration/carpet,
+/obj/effect/spawner/random/maintenance/two,
+/obj/structure/closet/crate,
+/obj/effect/spawner/random/engineering/tool,
 /turf/open/floor/iron/dark/diagonal,
 /area/ruin/space/has_grav/nova/des_two/cargo)
 "Rk" = (
@@ -11493,9 +11431,6 @@
 /obj/item/storage/fancy/donut_box,
 /turf/open/floor/mineral/plastitanium,
 /area/ruin/space/has_grav/nova/des_two/security)
-"YI" = (
-/turf/template_noop,
-/area/ruin/space/has_grav/nova/des_two/service/diner)
 "YK" = (
 /obj/structure/chair/pew,
 /obj/machinery/light/warm/directional/north,
@@ -11759,13 +11694,13 @@ iD
 iD
 iD
 iD
-rn
-rn
-rn
-rn
-rn
-rn
-rn
+iD
+iD
+iD
+iD
+iD
+iD
+iD
 el
 zd
 zd
@@ -13183,7 +13118,7 @@ iD
 vD
 iD
 iD
-ra
+iD
 zu
 cI
 Pt
@@ -14318,7 +14253,7 @@ Sr
 Sr
 TU
 we
-aJ
+Gw
 aJ
 eM
 re
@@ -14453,9 +14388,9 @@ Pr
 Pr
 Ip
 Os
-xZ
-lP
-Cn
+Rv
+Rv
+Rv
 Rv
 Rv
 Rv
@@ -14518,9 +14453,9 @@ lH
 lH
 TU
 Lk
-hS
-sS
-Cw
+Rv
+Rv
+Rv
 Rv
 Rv
 Rv
@@ -15201,7 +15136,7 @@ iD
 iD
 CP
 fK
-Gw
+qJ
 Jc
 nc
 nc
@@ -15268,18 +15203,18 @@ iD
 iD
 iD
 iD
-RT
-YI
-YI
-YI
-YI
-mJ
-mJ
-mJ
-mJ
-mJ
-mJ
-mJ
+iD
+iD
+iD
+iD
+iD
+iD
+iD
+iD
+iD
+iD
+iD
+iD
 WA
 Rt
 Rt
