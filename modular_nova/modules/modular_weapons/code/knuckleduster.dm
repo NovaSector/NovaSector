@@ -145,9 +145,9 @@
 	. = ..()
 	if(!isliving(target) || !LAZYACCESS(modifiers, RIGHT_CLICK))
 		return
-	var/effective_armour_penetration = stun_armour_penetration
-	var/armour_block = target.run_armor_check(null, armour_type_against_stun, null, null, effective_armour_penetration)
 	var/mob/living/living_mob = target
+	var/effective_armour_penetration = stun_armour_penetration
+	var/armour_block = living_mob.run_armor_check(null, armour_type_against_stun, null, null, effective_armour_penetration)
 	living_mob.apply_damage(stamina_damage, STAMINA, blocked = armour_block)
 	if(hitsound)
 		playsound(src, hitsound, 50, TRUE)
