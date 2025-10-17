@@ -11760,7 +11760,7 @@
 /turf/open/floor/iron,
 /area/ruin/space/has_grav/port_tarkon/centerhall)
 "Yt" = (
-/obj/effect/mob_spawn/corpse/human/assistant,
+/obj/effect/mob_spawn/corpse/human/tarkon,
 /obj/structure/bed/nest,
 /obj/effect/mapping_helpers/mob_buckler,
 /turf/open/misc/asteroid,
@@ -12026,7 +12026,7 @@
 /obj/structure/chair/comfy/shuttle{
 	dir = 4
 	},
-/obj/effect/mob_spawn/corpse/human/assistant,
+/obj/effect/mob_spawn/corpse/human/skeleton,
 /obj/effect/mapping_helpers/mob_buckler,
 /turf/open/floor/mineral/titanium/blue/airless,
 /area/ruin/space/has_grav)
