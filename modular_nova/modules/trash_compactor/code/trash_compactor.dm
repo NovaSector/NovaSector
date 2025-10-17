@@ -180,7 +180,7 @@
 		if(is_janitor(user))
 			if(user_account)
 				user_account.adjust_money(JANITOR_WAGE_BONUS, "Trash Compactor: Wage Bonus")
-				say("100 credits added to your bank account! Thank you for your service.")
+				say("[JANITOR_WAGE_BONUS] credits added to your bank account! Thank you for your service.")
 			else
 				new /obj/item/stack/spacecash/c100(drop_location())
 				say("[/obj/item/stack/spacecash/c100::value] credit bill dispensed! Please consider opening a bank account.")
