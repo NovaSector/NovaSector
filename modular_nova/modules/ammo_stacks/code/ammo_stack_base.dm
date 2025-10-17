@@ -32,11 +32,6 @@
 	. = ..()
 	check_empty()
 
-/obj/item/ammo_box/magazine/ammo_stack/remove_from_stored_ammo(atom/movable/gone)
-	if(QDELETED(src))
-		return
-	return ..()
-
 /obj/item/ammo_box/magazine/ammo_stack/throw_impact(atom/hit_atom, datum/thrownthing/throwingdatum)
 	. = ..()
 	if(.) // They caught all the bullets. Powerful.
@@ -52,7 +47,7 @@
 
 /// Checks the shells in the ammo stack to make sure it isn't empty, if it is, the stack is deleted
 /obj/item/ammo_box/magazine/ammo_stack/proc/check_empty()
-	if(!ammo_count(TRUE) && !QDELING(src))
+	if(!ammo_count(TRUE) && !QDELETED(src))
 		qdel(src)
 
 /// Iterates through every casing in this ammo stack, scattering it and moving it out of the ammo stack, in the event this was thrown.
