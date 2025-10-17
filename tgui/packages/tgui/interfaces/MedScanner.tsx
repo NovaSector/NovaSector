@@ -2,13 +2,13 @@ import {
   Box,
   Button,
   Collapsible,
-  Dropdown,
   Icon,
   LabeledList,
   NoticeBox,
   ProgressBar,
   Section,
   Stack,
+  Table,
   Tooltip,
 } from 'tgui-core/components';
 
@@ -32,10 +32,9 @@ type MedScannerData = {
   revivable_string: number;
   has_chemicals: boolean;
   chemicals_lists: object;
-  limb_data_lists: object;
-  limbs_damaged: object;
-  damaged_organs: any[];
-  ssd: string;
+  limb_data_lists: LimbData[];
+  damaged_organs: OrganData[];
+  ssd: boolean;
   blood_type: string;
   blood_amount: number;
   body_temperature: string;
@@ -45,49 +44,86 @@ type MedScannerData = {
   majquirks: any;
   minquirks: any;
   custom_species: string;
-  wounds: any[];
+  wounds: WoundData[];
   brain_traumas: any;
-  viruses: any[];
-  has_alien_embryo: boolean;
+  viruses: VirusData[];
   embryo_stage: number;
   medical_alerts: any[];
+};
+
+type LimbData = {
+  name: string;
+  missing: boolean;
+  brute: number;
+  burn: number;
+  limb_type: string;
+  limb_status: string;
+  bandaged: boolean;
+  bleeding: boolean;
+  infection: boolean;
+  salved: boolean; // ???????
+};
+
+type OrganData = {
+  name: string;
+  status: string;
+  damage: number;
+  effects: string;
+  is_embryo: boolean;
+};
+
+type WoundData = {
+  type: string;
+  where: string;
+  severity: string;
+  description: string;
+  recomended_treatement: string;
+};
+
+type VirusData = {
+  form: string;
+  name: string;
+  type: string;
+  stage: number;
+  maxstage: number;
+  cure: string;
 };
 
 export const MedScanner = () => {
   const { data } = useBackend<MedScannerData>();
   const {
-    species,
     has_chemicals,
-    limbs_damaged,
+    limb_data_lists,
     damaged_organs,
     blood_amount,
     advice,
     accessible_theme,
     wounds,
     viruses,
-    has_alien_embryo,
     medical_alerts,
   } = data;
+
   return (
     <Window width={515} height={615} theme={accessible_theme}>
       <Window.Content scrollable>
         <PatientBasics />
-        {has_alien_embryo ? <AlienEmbryo /> : null}
+        <AlienEmbryo />
         {medical_alerts?.length ? <MedicalAlerts /> : null}
-        {has_chemicals ? <PatientChemicals /> : null}
-        {limbs_damaged ? <PatientLimbs /> : null}
+        {limb_data_lists.length ? <PatientLimbs /> : null}
         {damaged_organs.length ? <PatientOrgans /> : null}
         {blood_amount ? <PatientBlood /> : null}
-        {advice ? <PatientAdvice /> : null}
+        {has_chemicals ? <PatientChemicals /> : null}
         {wounds.length ? <Wounds /> : null}
         {viruses.length ? <Viruses /> : null}
+        <Quirks />
+        {advice ? <PatientAdvice /> : null}
       </Window.Content>
     </Window>
   );
 };
 
 const PatientBasics = () => {
-  const { act, data } = useBackend<MedScannerData>();
+  const { data } = useBackend<MedScannerData>();
   const {
     patient,
     species,
@@ -111,193 +147,157 @@ const PatientBasics = () => {
     accessible_theme,
     available_themes,
 
-    majquirks,
-    minquirks,
     custom_species,
     brain_traumas,
   } = data;
   return (
-    <>
-      <Section
-        title={
-          (species === 'Synthetic Humanoid' ? 'Unit: ' : 'Patient: ') + patient
-        }
-      >
-        <Stack fill align="center">
-          <Stack.Item basis="140px">
-            <Box bold fontSize="11px" color="label" mb="3px">
-              Theme:
-            </Box>
-            <Dropdown
-              width="130px"
-              options={available_themes}
-              selected={accessible_theme}
-              onSelected={(value) => act('change_theme', { theme: value })}
-            />
-          </Stack.Item>
+    <Section
+      title={
+        (species === 'Synthetic Humanoid' ? 'Unit: ' : 'Patient: ') + patient
+      }
+      buttons={
+        <Button
+          icon="info"
+          tooltip="Most elements of this window have a tooltip for additional information. Hover your mouse over something for clarification!"
+          color="transparent"
+          fluid
+        >
+          Tooltips
+        </Button>
+      }
+    >
+      <Stack fill align="center" pb="7px">
+        {ssd ? (
           <Stack.Item grow={1}>
-            <Box textAlign="center">
-              {ssd ? (
-                <NoticeBox danger>Sudden sleep disorder detected!</NoticeBox>
-              ) : null}
-            </Box>
+            <NoticeBox danger mb="0">
+              Sudden sleep disorder detected!
+            </NoticeBox>
           </Stack.Item>
-          <Stack.Item basis="140px">
-            <Box bold fontSize="11px" color="label" mb="3px" textAlign="right">
-              Help:
-            </Box>
-            <Button
-              icon="info"
-              tooltip="Most elements of this window have a tooltip for additional information. Hover your mouse over something for clarification!"
-              color="transparent"
-              fluid
-            >
-              Tooltips
-            </Button>
-          </Stack.Item>
-        </Stack>
-      </Section>
-      <Section>
-        <LabeledList>
-          <LabeledList.Item label="Health">
-            <Tooltip
-              content={
-                'How healthy the patient is.' +
-                (species === 'Synthetic Humanoid'
-                  ? ''
-                  : " If the patient's health dips below " +
-                    crit_threshold +
-                    '%, they enter critical condition and suffocate rapidly.') +
-                " If the patient's health hits " +
-                Math.round(dead_threshold / max_health) * 100 +
-                '%, they die.'
-              }
-            >
-              {health >= 0 ? (
-                <ProgressBar
-                  value={health / max_health}
-                  ranges={{
-                    good: [0.4, Infinity],
-                    average: [0.2, 0.4],
-                    bad: [-Infinity, 0.2],
-                  }}
-                />
-              ) : (
-                <ProgressBar
-                  value={1 + health / max_health}
-                  ranges={{
-                    bad: [-Infinity, Infinity],
-                  }}
-                >
-                  {Math.trunc((health / max_health) * 100)}%
-                </ProgressBar>
-              )}
-            </Tooltip>
-          </LabeledList.Item>
-          {dead ? (
-            <LabeledList.Item label="Revivable">
-              <Box
-                color={
-                  revivable_boolean
-                    ? accessible_theme
-                      ? 'yellow'
-                      : 'label'
-                    : 'red'
-                }
-                bold
+        ) : null}
+      </Stack>
+      <LabeledList>
+        <LabeledList.Item label="Health">
+          <Tooltip
+            content={
+              'How healthy the patient is.' +
+              (species === 'Synthetic Humanoid'
+                ? ''
+                : " If the patient's health dips below " +
+                  crit_threshold +
+                  '%, they enter critical condition and suffocate rapidly.') +
+              " If the patient's health hits " +
+              Math.round(dead_threshold / max_health) * 100 +
+              '%, they die.'
+            }
+          >
+            {health >= 0 ? (
+              <ProgressBar
+                value={health / max_health}
+                ranges={{
+                  good: [0.4, Infinity],
+                  average: [0.2, 0.4],
+                  bad: [-Infinity, 0.2],
+                }}
+              />
+            ) : (
+              <ProgressBar
+                value={1 + health / max_health}
+                ranges={{
+                  bad: [-Infinity, Infinity],
+                }}
               >
-                {revivable_string}
-              </Box>
-            </LabeledList.Item>
-          ) : null}
-          <LabeledList.Item label="Damage">
-            <Tooltip
-              content={
-                species === 'Synthetic Humanoid'
-                  ? 'Brute. Sustained from sources of physical trauma such as melee combat, firefights, etc. Repaired with a welding tool or surgery.'
-                  : 'Brute. Sustained from sources of physical trauma such as melee combat, firefights, etc. Treated with Libital or sutures.'
+                {Math.trunc((health / max_health) * 100)}%
+              </ProgressBar>
+            )}
+          </Tooltip>
+        </LabeledList.Item>
+        {dead ? (
+          <LabeledList.Item label="Revivable">
+            <Box
+              color={
+                revivable_boolean
+                  ? accessible_theme
+                    ? 'yellow'
+                    : 'label'
+                  : 'red'
               }
+              bold
             >
-              <Box inline>
-                <ProgressBar value={0}>
-                  Brute:{' '}
-                  <Box inline bold color={'red'}>
-                    {total_brute}
-                  </Box>
-                </ProgressBar>
-              </Box>
-            </Tooltip>
-            <Box inline width={'5px'} />
-            <Tooltip
-              content={
-                species === 'Synthetic Humanoid'
-                  ? 'Burn. Sustained from sources of burning such as energy weapons, acid, fire, etc. Repaired with cable coils.'
-                  : 'Burn. Sustained from sources of burning such as overheating, energy weapons, acid, fire, etc. Treated with Airui or regenerative mesh.'
-              }
-            >
-              <Box inline>
-                <ProgressBar value={0}>
-                  Burn:{' '}
-                  <Box inline bold color={'#ffb833'}>
-                    {total_burn}
-                  </Box>
-                </ProgressBar>
-              </Box>
-            </Tooltip>
-            <Box inline width={'5px'} />
-            <Tooltip content="Toxin. Sustained from chemicals or organ damage. Treated with toxin healing medicine.">
-              <Box inline>
-                <ProgressBar value={0}>
-                  Tox:{' '}
-                  <Box inline bold color={'green'}>
-                    {toxin}
-                  </Box>
-                </ProgressBar>
-              </Box>
-            </Tooltip>
-            <Box inline width={'5px'} />
-            <Tooltip content="Oxyloss. Sustained from being in critical condition, organ damage or extreme exhaustion. Treated with CPR, oxygen healing medicine or decreases on its own if the patient isn't in critical condition.">
-              <Box inline>
-                <ProgressBar value={0}>
-                  Oxy:{' '}
-                  <Box inline bold color={'blue'}>
-                    {oxy}
-                  </Box>
-                </ProgressBar>
-              </Box>
-            </Tooltip>
-          </LabeledList.Item>
-          <LabeledList.Item label="Species">
-            <Box width="50px" bold color="#42bff5" nowrap maxWidth="100px">
-              {species + (custom_species ? ' | ' + custom_species : ' ')}
+              {revivable_string}
             </Box>
           </LabeledList.Item>
-          {majquirks ? (
-            <LabeledList.Item label="Quirks">
-              <Box width="100%">
-                Subject Major Disabilities:{' '}
-                <b className="quirks">{majquirks} </b>
-              </Box>
-            </LabeledList.Item>
-          ) : null}
-          {majquirks ? (
-            <LabeledList.Item>
-              <Box width="100%">
-                Subject Minor Disabilities:{' '}
-                <b className="quirks"> {minquirks} </b>
-              </Box>
-            </LabeledList.Item>
-          ) : null}
-          {brain_traumas && brain_traumas !== 'null' ? (
-            <LabeledList.Item label="Brain Traumas" labelWrap>
-              <Box width="100%" color="orange" bold>
-                {brain_traumas}
-              </Box>
-            </LabeledList.Item>
-          ) : null}
-        </LabeledList>
-      </Section>
-    </>
+        ) : null}
+        <LabeledList.Item label="Damage">
+          <Tooltip
+            content={
+              species === 'Synthetic Humanoid'
+                ? 'Brute. Sustained from sources of physical trauma such as melee combat, firefights, etc. Repaired with a welding tool or surgery.'
+                : 'Brute. Sustained from sources of physical trauma such as melee combat, firefights, etc. Treated with Libital or sutures.'
+            }
+          >
+            <Box inline>
+              <ProgressBar value={0}>
+                Brute:{' '}
+                <Box inline bold color={'red'}>
+                  {total_brute}
+                </Box>
+              </ProgressBar>
+            </Box>
+          </Tooltip>
+          <Box inline width={'5px'} />
+          <Tooltip
+            content={
+              species === 'Synthetic Humanoid'
+                ? 'Burn. Sustained from sources of burning such as energy weapons, acid, fire, etc. Repaired with cable coils.'
+                : 'Burn. Sustained from sources of burning such as overheating, energy weapons, acid, fire, etc. Treated with Airui or regenerative mesh.'
+            }
+          >
+            <Box inline>
+              <ProgressBar value={0}>
+                Burn:{' '}
+                <Box inline bold color={'#ffb833'}>
+                  {total_burn}
+                </Box>
+              </ProgressBar>
+            </Box>
+          </Tooltip>
+          <Box inline width={'5px'} />
+          <Tooltip content="Toxin. Sustained from chemicals or organ damage. Treated with toxin healing medicine.">
+            <Box inline>
+              <ProgressBar value={0}>
+                Tox:{' '}
+                <Box inline bold color={'green'}>
+                  {toxin}
+                </Box>
+              </ProgressBar>
+            </Box>
+          </Tooltip>
+          <Box inline width={'5px'} />
+          <Tooltip content="Oxyloss. Sustained from being in critical condition, organ damage or extreme exhaustion. Treated with CPR, oxygen healing medicine or decreases on its own if the patient isn't in critical condition.">
+            <Box inline>
+              <ProgressBar value={0}>
+                Oxy:{' '}
+                <Box inline bold color={'blue'}>
+                  {oxy}
+                </Box>
+              </ProgressBar>
+            </Box>
+          </Tooltip>
+        </LabeledList.Item>
+        <LabeledList.Item label="Species">
+          <Box width="50px" bold color="#42bff5" nowrap maxWidth="100px">
+            {species + (custom_species ? ` | ${custom_species}` : ' ')}
+          </Box>
+        </LabeledList.Item>
+        {brain_traumas && brain_traumas !== 'null' ? (
+          <LabeledList.Item label="Brain Traumas" labelWrap>
+            <Box width="100%" color="orange" bold>
+              {brain_traumas}
+            </Box>
+          </LabeledList.Item>
+        ) : null}
+      </LabeledList>
+    </Section>
   );
 };
 
@@ -317,7 +317,7 @@ const PatientChemicals = () => {
                   (chemical.od
                     ? ' (OVERDOSING)'
                     : chemical.od_threshold > 0
-                      ? ' (OD: ' + chemical.od_threshold + 'u)'
+                      ? ` (OD: ${chemical.od_threshold} u)`
                       : '')
                 }
               >
@@ -326,7 +326,7 @@ const PatientChemicals = () => {
                   color={chemical.dangerous ? 'red' : 'white'}
                   bold={chemical.dangerous}
                 >
-                  {chemical.amount + 'u ' + chemical.name}
+                  {`${chemical.amount}u ${chemical.name}`}
                 </Box>
                 <Box inline width={'5px'} />
                 {chemical.od ? (
@@ -352,30 +352,28 @@ const PatientLimbs = () => {
   return (
     <Collapsible title="Limb Status">
       <Section>
-        <Stack vertical fill>
-          <Stack
+        <Table>
+          <Table.Row
             height="22px"
             mb="5px"
             pb="5px"
             style={{ borderBottom: '1px solid rgba(255, 255, 255, 0.1)' }}
           >
-            <Stack.Item basis="95px" bold fontSize="12px" color="label">
+            <Table.Cell bold fontSize="12px" color="label">
               LIMB
-            </Stack.Item>
-            <Stack.Item basis="55px" bold fontSize="12px" color="red">
+            </Table.Cell>
+            <Table.Cell bold fontSize="12px" color="red" textAlign="center">
               BRUTE
-            </Stack.Item>
-            <Stack.Item basis="50px" bold fontSize="12px" color="#ffb833">
+            </Table.Cell>
+            <Table.Cell bold fontSize="12px" color="#ffb833" textAlign="center">
               BURN
-            </Stack.Item>
-          </Stack>
+            </Table.Cell>
+          </Table.Row>
           {limb_data.map((limb) => (
-            <Stack
+            <Table.Row
               key={limb.name}
               width="100%"
-              py="5px"
               px="3px"
-              mb="2px"
               backgroundColor={row_transparency++ % 2 === 0 ? row_bg_color : ''}
               style={{
                 borderRadius: '3px',
@@ -385,24 +383,30 @@ const PatientLimbs = () => {
                     : '1px solid transparent',
               }}
             >
-              <Stack.Item basis="95px" bold>
-                <Icon
-                  name={
-                    limb.name.includes('head')
-                      ? 'head-side-virus'
-                      : limb.name.includes('chest')
-                        ? 'heart-pulse'
-                        : limb.name.includes('arm')
-                          ? 'hand-paper'
-                          : limb.name.includes('leg')
-                            ? 'shoe-prints'
-                            : 'circle'
-                  }
-                  mr={1}
-                  color="label"
-                />
-                {limb.name[0].toUpperCase() + limb.name.slice(1)}
-              </Stack.Item>
+              <Table.Cell width="130px" bold pl="3px" py="4px">
+                <Stack style={{ gap: '0' }}>
+                  <Stack.Item align="center" verticalAlign="middle">
+                    <Icon
+                      name={
+                        limb.name.includes('head')
+                          ? 'head-side-virus'
+                          : limb.name.includes('chest')
+                            ? 'heart-pulse'
+                            : limb.name.includes('arm')
+                              ? 'hand-paper'
+                              : limb.name.includes('leg')
+                                ? 'shoe-prints'
+                                : 'circle'
+                      }
+                      mr={1}
+                      color="label"
+                    />
+                  </Stack.Item>
+                  <Stack.Item>
+                    {limb.name[0].toUpperCase() + limb.name.slice(1)}
+                  </Stack.Item>
+                </Stack>
+              </Table.Cell>
               {limb.missing ? (
                 <Tooltip
                   content={
@@ -425,7 +429,7 @@ const PatientLimbs = () => {
                 </Tooltip>
               ) : (
                 <>
-                  <Stack.Item basis="55px">
+                  <Table.Cell width="55px" verticalAlign="middle">
                     <Tooltip
                       content={
                         limb.limb_type === 'Robotic'
@@ -474,8 +478,8 @@ const PatientLimbs = () => {
                         )}
                       </Box>
                     </Tooltip>
-                  </Stack.Item>
-                  <Stack.Item basis="50px">
+                  </Table.Cell>
+                  <Table.Cell width="55px" verticalAlign="middle">
                     <Tooltip
                       content={
                         limb.limb_type === 'Robotic'
@@ -524,8 +528,8 @@ const PatientLimbs = () => {
                         )}
                       </Box>
                     </Tooltip>
-                  </Stack.Item>
-                  <Stack.Item>
+                  </Table.Cell>
+                  <Table.Cell>
                     {limb.limb_status && limb.limb_status !== '' ? (
                       <Tooltip
                         content={
@@ -538,6 +542,7 @@ const PatientLimbs = () => {
                           inline
                           px="5px"
                           py="2px"
+                          mx="2px"
                           backgroundColor={
                             limb.limb_status === 'Splinted'
                               ? 'rgba(100, 255, 100, 0.15)'
@@ -557,7 +562,7 @@ const PatientLimbs = () => {
                             name={
                               limb.limb_status === 'Splinted'
                                 ? 'bandage'
-                                : 'bone-break'
+                                : 'crutch'
                             }
                             mr={1}
                           />
@@ -596,6 +601,7 @@ const PatientLimbs = () => {
                           inline
                           px="5px"
                           py="2px"
+                          mx="2px"
                           backgroundColor="rgba(255, 0, 0, 0.2)"
                           color="red"
                           bold
@@ -603,18 +609,19 @@ const PatientLimbs = () => {
                             borderRadius: '3px',
                             animation: 'pulse 2s infinite',
                           }}
+                          gr="true"
                         >
-                          <Icon name="droplet" mr={1} />
+                          <Icon name="droplet" mr={1} height="auto" />
                           Bleeding
                         </Box>
                       </Tooltip>
                     ) : null}
-                  </Stack.Item>
+                  </Table.Cell>
                 </>
               )}
-            </Stack>
+            </Table.Row>
           ))}
-        </Stack>
+        </Table>
       </Section>
     </Collapsible>
   );
@@ -640,10 +647,7 @@ const PatientOrgans = () => {
                 >
                   {organ.status === 'Missing'
                     ? organ.status
-                    : organ.status +
-                      ' with ' +
-                      Math.ceil(organ.damage) +
-                      ' damage'}
+                    : `${organ.status} with ${Math.ceil(organ.damage)} damage`}
                 </Box>
               </Tooltip>
             </LabeledList.Item>
@@ -768,14 +772,16 @@ const Wounds = () => {
                       flex: 1,
                       textAlign: 'center',
                     }}
-                  >
-                    {(wound.severity && wound.severity !== 'null'
-                      ? wound.severity + ' '
-                      : '') +
-                      wound.type +
-                      ' detected on ' +
-                      wound.where}
-                  </div>
+                    dangerouslySetInnerHTML={{
+                      __html:
+                        (wound.severity && wound.severity !== 'null'
+                          ? `${wound.severity} `
+                          : '') +
+                        wound.type +
+                        ' detected on ' +
+                        wound.where,
+                    }}
+                  />
                 </Tooltip>
               </div>
               <div
@@ -914,7 +920,7 @@ const Viruses = () => {
                 }}
               >
                 <b className="virus_label"> {'Warning: '}</b>
-                {virus.form + ' detected'}
+                {`${virus.form} detected`}
               </Box>
               <Box
                 style={{
@@ -941,7 +947,7 @@ const Viruses = () => {
                 }}
               >
                 <b className="virus_label"> {'Stage: '} </b>
-                {+virus.stage + '/' + virus.maxstage}
+                {`${+virus.stage}/${virus.maxstage}`}
               </Box>
               <Box
                 style={{
@@ -953,6 +959,36 @@ const Viruses = () => {
               </Box>
             </Box>
           ))}
+        </Stack>
+      </Section>
+    </Collapsible>
+  );
+};
+
+const Quirks = () => {
+  const { data } = useBackend<MedScannerData>();
+  const { majquirks, minquirks } = data;
+
+  return (
+    <Collapsible title="Quirks">
+      <Section>
+        <Stack vertical>
+          {majquirks ? (
+            <Stack.Item>
+              <Box width="100%">
+                Subject Major Disabilities:{' '}
+                <b className="quirks">{majquirks} </b>
+              </Box>
+            </Stack.Item>
+          ) : null}
+          {majquirks ? (
+            <Stack.Item>
+              <Box width="100%">
+                Subject Minor Disabilities:{' '}
+                <b className="quirks"> {minquirks} </b>
+              </Box>
+            </Stack.Item>
+          ) : null}
         </Stack>
       </Section>
     </Collapsible>
