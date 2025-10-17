@@ -45,6 +45,8 @@
 	var/nova_stars_only
 	/// Whether the item requires a specific season in order to be available
 	var/required_season = null
+	/// Is the loadout item a mechanical item? If so, it will be blocked by 'allow_mechanical_loadout_items' under some circumstances
+	var/mechanical_item = FALSE
 	/// If the item won't appear when the ERP config is disabled
 	var/erp_item = FALSE
 	/// If the item goes into the special erp box
@@ -92,8 +94,13 @@
  *
  * Returns `TRUE` if `target` is allowed to receive this item, `FALSE` if not.
  */
-/datum/loadout_item/proc/can_be_applied_to(mob/living/target, datum/preferences/preference_source, datum/job/equipping_job, silent = FALSE)
+/datum/loadout_item/proc/can_be_applied_to(mob/living/target, datum/preferences/preference_source, datum/job/equipping_job, allow_mechanical_loadout_items, silent = FALSE)
 	var/client/client = preference_source.parent
+	if(!allow_mechanical_loadout_items && !equipping_job  && mechanical_item)
+		if(client && !silent)
+			to_chat(target, span_warning("You were unable to get a loadout item ([initial(item_path.name)]) due to being a non-whitelisted ghostrole!"))
+		return FALSE
+
 	if(restricted_roles && equipping_job && !(equipping_job.title in restricted_roles))
 		if(client && !silent)
 			to_chat(target, span_warning("You were unable to get a loadout item ([initial(item_path.name)]) due to job restrictions!"))

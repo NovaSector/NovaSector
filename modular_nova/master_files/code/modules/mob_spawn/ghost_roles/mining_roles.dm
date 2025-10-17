@@ -79,6 +79,7 @@
 	outfit = /datum/outfit/interdyne_planetary_base
 	spawner_job_path = /datum/job/interdyne_planetary_base
 	loadout_enabled = TRUE
+	allow_mechanical_loadout_items = TRUE
 	quirks_enabled = TRUE
 	random_appearance = FALSE
 

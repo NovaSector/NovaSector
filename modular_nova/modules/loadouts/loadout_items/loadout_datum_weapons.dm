@@ -17,6 +17,7 @@
 
 /datum/loadout_item/weapons
 	abstract_type = /datum/loadout_item/weapons
+	mechanical_item = TRUE
 	blacklisted_roles = list(JOB_PRISONER)
 
 /*

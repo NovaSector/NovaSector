@@ -25,6 +25,7 @@
 /mob/living/carbon/human/equip_outfit_and_loadout(
 	datum/outfit/outfit = /datum/outfit,
 	datum/preferences/preference_source = GLOB.preference_entries_by_key[ckey],
+	allow_mechanical_loadout_items,
 	visuals_only = FALSE,
 	datum/job/equipping_job,
 )
@@ -57,7 +58,7 @@
 					erpbox = new(loc)
 				new item.item_path(erpbox)
 			else
-				if (!item.can_be_applied_to(src, preference_source, equipping_job))
+				if (!item.can_be_applied_to(src, preference_source, equipping_job, allow_mechanical_loadout_items))
 					continue
 				new item.item_path(briefcase)
 
@@ -71,7 +72,7 @@
 					erpbox = new(loc)
 				new item.item_path(erpbox)
 			else
-				if (!item.can_be_applied_to(src, preference_source, equipping_job))
+				if (!item.can_be_applied_to(src, preference_source, equipping_job, allow_mechanical_loadout_items))
 					continue
 
 				// Make sure the item is not overriding an important for life outfit item
