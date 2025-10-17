@@ -16,14 +16,27 @@
 /obj/item/storage/toolbox/guncase/nova/carwo_large_case/sindano/evil
 	weapon_to_spawn = /obj/item/gun/ballistic/automatic/sol_smg/evil/no_mag
 
-// For the armory, generic-john-halo rifle.
+// Not quite meant for the armory, features a generic John Halo rifle.
 
 /obj/item/storage/toolbox/guncase/nova/carwo_large_case/sol_rifle
-	name = "\improper MR-2543 Rifle Kit"
+	name = "\improper Carwo 'MMR-2543E' rifle gunset"
 	weapon_to_spawn = /obj/item/gun/ballistic/automatic/sol_rifle/no_mag
 	extra_to_spawn = /obj/item/ammo_box/magazine/c40sol_rifle/starts_empty
 
 /obj/item/storage/toolbox/guncase/nova/carwo_large_case/sol_rifle/PopulateContents()
+	. = ..()
+	generate_items_inside(list(
+		/obj/item/ammo_box/c40sol = 3,
+	), src)
+
+// Meant for the armory, features an old reliable Space FAL.
+
+/obj/item/storage/toolbox/guncase/nova/carwo_large_case/sol_classic
+	name = "\improper Veldjen-Kuiper 'Renpaard' rifle gunset"
+	weapon_to_spawn = /obj/item/gun/ballistic/automatic/sol_classic/no_mag
+	extra_to_spawn = /obj/item/ammo_box/magazine/c40sol_rifle/starts_empty
+
+/obj/item/storage/toolbox/guncase/nova/carwo_large_case/sol_classic/PopulateContents()
 	. = ..()
 	generate_items_inside(list(
 		/obj/item/ammo_box/c40sol = 3,
