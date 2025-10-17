@@ -132,7 +132,6 @@ GLOBAL_LIST_INIT(analyzerthemes, list(
 		"total_burn" = ceil(patient.getFireLoss()),
 		"toxin" = ceil(patient.getToxLoss()),
 		"oxy" = ceil(patient.getOxyLoss()),
-		"stamina" = ceil(patient.getStaminaLoss()),
 		"ssd" = (!patient.client),
 		"blood_type" = patient.dna.blood_type,
 		"blood_amount" = patient.blood_volume,

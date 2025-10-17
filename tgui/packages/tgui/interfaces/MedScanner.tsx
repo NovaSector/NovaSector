@@ -28,7 +28,6 @@ type MedScannerData = {
   total_burn: number;
   toxin: number;
   oxy: number;
-  stamina: number;
   revivable_boolean: boolean;
   revivable_string: number;
   has_chemicals: boolean;
@@ -103,7 +102,6 @@ const PatientBasics = () => {
     total_burn,
     toxin,
     oxy,
-    stamina,
 
     revivable_boolean,
     revivable_string,
@@ -269,16 +267,6 @@ const PatientBasics = () => {
               </Box>
             </Tooltip>
           </LabeledList.Item>
-          <LabeledList.Item label="Stamina">
-            <Tooltip content="Stamina damage. Caused by stun weapons, exhaustion, or certain attacks. Regenerates over time or by resting.">
-              <ProgressBar value={0}>
-                Stamina:{' '}
-                <Box inline bold color={'#9fb6c7'}>
-                  {stamina}
-                </Box>
-              </ProgressBar>
-            </Tooltip>
-          </LabeledList.Item>
           <LabeledList.Item label="Species">
             <Box width="50px" bold color="#42bff5" nowrap maxWidth="100px">
               {species + (custom_species ? ' | ' + custom_species : ' ')}
@@ -379,14 +367,6 @@ const PatientLimbs = () => {
             </Stack.Item>
             <Stack.Item basis="50px" bold fontSize="12px" color="#ffb833">
               BURN
-            </Stack.Item>
-            <Stack.Item
-              grow={1}
-              textAlign="right"
-              fontSize="11px"
-              color="label"
-            >
-              {'{ } = Untreated'}
             </Stack.Item>
           </Stack>
           {limb_data.map((limb) => (
@@ -885,61 +865,23 @@ const AlienEmbryo = () => {
   if (!embryo_data) return null;
 
   return (
-    <Section title="⚠ BIOHAZARD ALERT ⚠" className="alien-embryo-section" fill>
-      <NoticeBox danger>
-        <Stack vertical>
+    <Section>
+      <NoticeBox
+        danger
+        style={embryo_stage >= 5 ? { animation: 'pulse 2s infinite' } : {}}
+      >
+        <Stack>
           <Stack.Item>
-            <Box
-              bold
-              fontSize="18px"
-              textAlign="center"
-              color="red"
-              style={{
-                textShadow: '0 0 10px red',
-                animation: 'pulse 2s infinite',
-              }}
-            >
-              ☣ XENOMORPH PARASITE DETECTED ☣
+            <Icon name="biohazard" size={2} color="red" />
+          </Stack.Item>
+          <Stack.Item grow={1}>
+            <Box bold>☣ XENOMORPH PARASITE - {embryo_data.status}</Box>
+            <Box fontSize="12px" mt={0.5}>
+              Gestation: {Math.round((embryo_stage / 6) * 100)}% - Recommend
+              immediate surgical removal
+              {embryo_stage >= 5 ? ' - EMERGENCY!' : ''}
             </Box>
           </Stack.Item>
-          <Stack.Item>
-            <Box textAlign="center" fontSize="16px" bold mt={1}>
-              {embryo_data.status}
-            </Box>
-          </Stack.Item>
-          <Stack.Item>
-            <Box mt={1} textAlign="center" italic>
-              {embryo_data.effects}
-            </Box>
-          </Stack.Item>
-          <Stack.Item>
-            <ProgressBar
-              value={embryo_stage / 6}
-              ranges={{
-                bad: [0, 0.33],
-                average: [0.33, 0.66],
-                good: [0.66, Infinity],
-              }}
-              mt={1}
-            >
-              Gestation Progress: {Math.round((embryo_stage / 6) * 100)}%
-            </ProgressBar>
-          </Stack.Item>
-          {embryo_stage >= 5 ? (
-            <Stack.Item>
-              <Box
-                bold
-                color="red"
-                textAlign="center"
-                mt={1}
-                style={{
-                  animation: 'blink 1s infinite',
-                }}
-              >
-                ⚠ EMERGENCY SURGERY REQUIRED ⚠
-              </Box>
-            </Stack.Item>
-          ) : null}
         </Stack>
       </NoticeBox>
     </Section>
@@ -1016,4 +958,3 @@ const Viruses = () => {
     </Collapsible>
   );
 };
-
