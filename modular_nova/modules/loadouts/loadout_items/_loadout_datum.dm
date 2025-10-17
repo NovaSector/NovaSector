@@ -39,8 +39,6 @@
 	var/list/blacklisted_roles
 	/// If set, is a list of species which can get the loadout item
 	var/list/restricted_species
-	/// If set to TRUE, the loadout item is only granted when the player is playing a station job (not a ghost role)
-	var/must_be_station_job = FALSE
 	/// Whether the item is restricted to supporters
 	var/donator_only
 	/// Whether the item is restricted to Nova stars.
@@ -99,11 +97,6 @@
 	if(restricted_roles && equipping_job && !(equipping_job.title in restricted_roles))
 		if(client && !silent)
 			to_chat(target, span_warning("You were unable to get a loadout item ([initial(item_path.name)]) due to job restrictions!"))
-		return FALSE
-
-	if(must_be_station_job && !equipping_job)
-		if(client && !silent)
-			to_chat(target, span_warning("You were unable to get a loadout item ([initial(item_path.name)]) due to being off-station!"))
 		return FALSE
 
 	if(blacklisted_roles && equipping_job && (equipping_job.title in blacklisted_roles))
