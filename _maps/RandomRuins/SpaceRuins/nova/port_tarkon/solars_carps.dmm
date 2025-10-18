@@ -39,7 +39,7 @@
 /area/solars/tarkon)
 "L" = (
 /obj/structure/lattice/catwalk,
-/obj/effect/mob_spawn/corpse/human/tarkon,
+/obj/effect/mob_spawn/corpse/human/skeleton,
 /turf/template_noop,
 /area/solars/tarkon)
 "M" = (
