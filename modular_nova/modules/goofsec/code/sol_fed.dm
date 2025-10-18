@@ -710,7 +710,6 @@ GLOBAL_LIST_INIT(call911_do_and_do_not, list(
 	desc = "Use this in-hand to vote to call SolFed military backup. If half your team votes for it, a military squadron will be dispatched."
 	type_to_check = /datum/antagonist/ert/request_911
 	type_of_callers = "911_responders"
-	announcement_source = "SolFed Military Squadron"
 	announcement_source = "Sol Federation Military Command"
 	fine_station = FALSE
 	ghost_poll_msg = "The Sol-Fed 911 services have requested military backup. Do you wish to become an Espatier?"
