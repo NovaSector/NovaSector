@@ -11,10 +11,19 @@
 /datum/id_trim/solfed/espatier
 	assignment = "SolFed Espatier"
 	threat_modifier = -10 // This counts as military intervention
+	trim_state = "trim_solfed_espatier"
 
 /datum/id_trim/solfed/espatier/New()
 	. = ..()
 	access = SSid_access.get_region_access_list(list(REGION_CENTCOM, REGION_ALL_STATION))
+
+/datum/id_trim/solfed/espatier/odst
+	assignment = "SolFed Orbital Drop Trooper"
+	trim_state = "trim_solfed_odst"
+
+/datum/id_trim/solfed/espatier/commando
+	assignment = "SolFed Commando"
+	trim_state = "trim_solfed_commandos"
 
 /// This is the Soft ERT variant of the solfed Officials
 /datum/id_trim/solfed/official
@@ -24,6 +33,57 @@
 /datum/id_trim/solfed/official/New()
 	. = ..()
 	access = SSid_access.get_region_access_list(list(REGION_CENTCOM, REGION_ALL_STATION))
+
+/datum/id_trim/solfed/official/gold
+	trim_state = "trim_solfed_gold"
+
+/datum/id_trim/solfed/official/ensign
+	assignment = "SolFed Ensign"
+	trim_state = "trim_solfed_official_ensign"
+	honorifics = list("Ensign")
+	honorific_positions = HONORIFIC_POSITION_LAST | HONORIFIC_POSITION_NONE
+
+/datum/id_trim/solfed/official/lieutenant
+	assignment = "SolFed Lieutenant"
+	trim_state = "trim_solfed_official_lieutenant"
+	honorifics = list("Lieutenant")
+	honorific_positions = HONORIFIC_POSITION_LAST | HONORIFIC_POSITION_NONE
+
+/datum/id_trim/solfed/official/commander
+	assignment = "SolFed Commander"
+	trim_state = "trim_solfed_official_commander"
+	honorifics = list("Commander")
+	honorific_positions = HONORIFIC_POSITION_LAST | HONORIFIC_POSITION_NONE
+
+/datum/id_trim/solfed/official/captain
+	assignment = "SolFed Captain"
+	trim_state = "trim_solfed_official_captain"
+	honorifics = list("Captain")
+	honorific_positions = HONORIFIC_POSITION_LAST | HONORIFIC_POSITION_NONE
+
+/datum/id_trim/solfed/official/admiral
+	assignment = "SolFed Admiral"
+	trim_state = "trim_solfed_official_admiral"
+	honorifics = list("Admiral")
+	honorific_positions = HONORIFIC_POSITION_LAST | HONORIFIC_POSITION_NONE
+
+/datum/id_trim/solfed/police
+	assignment = "SolFed Police"
+	trim_state = "trim_solfed_police"
+	honorifics = list("Officer")
+	honorific_positions = HONORIFIC_POSITION_LAST | HONORIFIC_POSITION_NONE
+
+/datum/id_trim/solfed/med
+	assignment = "SolFed Paramedic"
+	trim_state = "trim_solfed_medic"
+	honorifics = list("Dr.","Nurse")
+	honorific_positions = HONORIFIC_POSITION_LAST | HONORIFIC_POSITION_NONE
+
+/datum/id_trim/solfed/atmos
+	assignment = "SolFed Emergency Atmospherics Technician"
+	trim_state = "trim_solfed_engineer"
+	honorifics = list("Technician","Engineer")
+	honorific_positions = HONORIFIC_POSITION_LAST | HONORIFIC_POSITION_NONE
 
 /datum/id_trim/solfed/atmos/New()
 	. = ..()
