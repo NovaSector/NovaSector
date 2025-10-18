@@ -1,3 +1,9 @@
+/// Assures no matter how the outfit is loaded the SolFed faction is always applied
+/datum/antagonist/ert/solfed/on_gain()
+	owner?.current.faction |= FACTION_SOLFED
+	. = ..()
+
+/// Base outfit
 /datum/outfit/solfed
 	name = "SolFed Official"
 	uniform = /obj/item/clothing/under/solfed/officer
