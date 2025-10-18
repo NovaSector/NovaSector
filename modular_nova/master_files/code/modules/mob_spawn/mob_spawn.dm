@@ -52,7 +52,7 @@
 		post_transfer_prefs(spawned_human)
 
 	if(load_prefs && loadout_enabled)
-		spawned_human?.equip_outfit_and_loadout(outfit, spawned_mob.client.prefs, allow_mechanical_loadout_items)
+		spawned_human?.equip_outfit_and_loadout(outfit, spawned_mob.client.prefs, FALSE, null, allow_mechanical_loadout_items)
 	else if (!isnull(spawned_human))
 		equip(spawned_human)
 		var/mutable_appearance/character_appearance = new(spawned_human.appearance)

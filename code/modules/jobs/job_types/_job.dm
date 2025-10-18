@@ -239,7 +239,7 @@
 
 /mob/living/carbon/human/dress_up_as_job(datum/job/equipping, visual_only = FALSE, client/player_client, consistent = FALSE)
 	dna.species.pre_equip_species_outfit(equipping, src, visual_only)
-	equip_outfit_and_loadout(equipping.get_outfit(consistent), player_client?.prefs, TRUE, visual_only, equipping) // NOVA EDIT - Loadout stuff - ORIGINAL: equip_outfit_and_loadout(equipping.get_outfit(consistent), player_client?.prefs, visual_only)
+	equip_outfit_and_loadout(equipping.get_outfit(consistent), player_client?.prefs, visual_only, equipping) // NOVA EDIT - Loadout stuff - ORIGINAL: equip_outfit_and_loadout(equipping.get_outfit(consistent), player_client?.prefs, visual_only)
 
 /datum/job/proc/announce_head(mob/living/carbon/human/human, channels) //tells the given channel that the given mob is the new department head. See communications.dm for valid channels.
 	if(human)

@@ -25,9 +25,9 @@
 /mob/living/carbon/human/equip_outfit_and_loadout(
 	datum/outfit/outfit = /datum/outfit,
 	datum/preferences/preference_source = GLOB.preference_entries_by_key[ckey],
-	allow_mechanical_loadout_items,
 	visuals_only = FALSE,
 	datum/job/equipping_job,
+	allow_mechanical_loadout_items = TRUE,
 )
 	if (!preference_source)
 		equipOutfit(outfit, visuals_only) // no prefs for loadout items, but we should still equip the outfit.
