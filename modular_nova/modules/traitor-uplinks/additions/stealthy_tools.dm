@@ -6,6 +6,14 @@
 	cost = /datum/uplink_item/low_cost::cost
 	purchasable_from = UPLINK_TRAITORS
 
+/datum/uplink_item/stealthy_tools/knuckleduster
+	name = "Reinforced Knuckleduster"
+	desc = "A compact, concealable set of reinforced knuckles. Quiet, fast, and hits harder than it looks."
+	item = /obj/item/melee/knuckleduster/traitor
+	cost = /datum/uplink_item/low_cost::cost
+	purchasable_from = UPLINK_TRAITORS
+	uplink_item_flags = SYNDIE_ILLEGAL_TECH | SYNDIE_TRIPS_CONTRABAND
+
 /datum/uplink_item/stealthy_tools/sleepy_neuroware
 	name = "Ransomware Neuroware Chip"
 	desc = "This Syndicate neuroware chip contains CrypSys, a package of ransomware viruses targeting synthetic humanoids. Designed to temporarily render the target mute, immobile, and unconscious. Note that before the target falls asleep, they will be able to move and act."
