@@ -50,3 +50,11 @@
 	name = "SolFed Official (Social Services)"
 	uniform = /obj/item/clothing/under/solfed/official_social
 	accessory = /obj/item/clothing/accessory/nova/acc_medal/neckpin/solfed/official
+/datum/outfit/solfed/high_comm
+	name = "SolFed Official (Social Services)"
+/// These guys are lightly equipped, more like cannon fodder, much more than marshals, but oddly more well equipped than a marshal.
+/datum/outfit/solfed/odst
+	name = "SolFed Orbital Drop Trooper"
+/// When shit has gone TRULY WRONG (In reality these guys are not super strong equipment wise, but just meant to be versitille)
+/datum/outfit/solfed/odst
+	name = "SolFed Commando"
