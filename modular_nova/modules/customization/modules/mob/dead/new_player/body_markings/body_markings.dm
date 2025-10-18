@@ -309,9 +309,14 @@
 	gendered = FALSE
 
 /datum/body_marking/other/chemlight
-	name = "Chemlight"
+	name = "Bands and stripes"
 	icon_state = "chemlight"
-	affected_bodyparts = HEAD | CHEST | ARM_LEFT | ARM_RIGHT | HAND_LEFT | HAND_RIGHT | LEG_RIGHT | LEG_LEFT
+	affected_bodyparts = ARM_LEFT | ARM_RIGHT | HAND_LEFT | HAND_RIGHT | LEG_RIGHT | LEG_LEFT
+
+/datum/body_marking/other/back_stripe
+	name = "Back Stripe"
+	icon_state = "backstripe"
+	affected_bodyparts = HEAD | CHEST
 
 /datum/body_marking/secondary
 	icon = 'modular_nova/master_files/icons/mob/body_markings/secondary_markings.dmi'
@@ -767,7 +772,7 @@
 	affected_bodyparts = CHEST | ARM_LEFT | ARM_RIGHT | LEG_LEFT | LEG_RIGHT
 
 /datum/body_marking/tertiary/chemlight
-	name = "Chembright"
+	name = "Bands and stripes_(alt)"
 	icon_state = "chem_light"
 	affected_bodyparts = ARM_LEFT | ARM_RIGHT | HAND_LEFT | HAND_RIGHT | LEG_RIGHT | LEG_LEFT
 
