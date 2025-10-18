@@ -5,6 +5,22 @@
 	zone = "l_arm"
 	cannot_confiscate = TRUE
 
+/obj/item/organ/cyberimp/arm/toolkit/power_cord/emp_act(severity)
+	. = ..()
+	if(. & EMP_PROTECT_SELF || !IS_ROBOTIC_ORGAN(src))
+		return
+	if(prob(45/severity) && owner)
+		owner.visible_message(
+			span_danger("[owner]'s charging implant sparks and crackles!"),
+			span_warning("Your charging implant shorts out, making you twitch!")
+		)
+		if(active_item)
+			Retract()
+		owner.adjust_stutter(8 SECONDS / severity)
+		owner.set_jitter_if_lower(12 SECONDS / severity)
+		do_sparks(3, TRUE, owner)
+		SEND_SIGNAL(owner, COMSIG_LIVING_MINOR_SHOCK)
+
 /obj/item/synth_powercord
 	name = "power cord"
 	desc = "An internal power cord. Useful if you run on electricity. Not so much otherwise."
