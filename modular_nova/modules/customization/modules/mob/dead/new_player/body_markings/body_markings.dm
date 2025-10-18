@@ -772,7 +772,7 @@
 	affected_bodyparts = CHEST | ARM_LEFT | ARM_RIGHT | LEG_LEFT | LEG_RIGHT
 
 /datum/body_marking/tertiary/chemlight
-	name = "Bands and stripes_(alt)"
+	name = "Bands and stripes (alt)"
 	icon_state = "chem_light"
 	affected_bodyparts = ARM_LEFT | ARM_RIGHT | HAND_LEFT | HAND_RIGHT | LEG_RIGHT | LEG_LEFT
 
