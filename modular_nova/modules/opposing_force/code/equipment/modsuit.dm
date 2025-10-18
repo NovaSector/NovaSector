@@ -36,13 +36,13 @@
 	description = "The flagship version of the Nakamura Engineering industrial model, and their latest product.	Combining all the features of their other industrial model suits inside, with blast resistance almost approaching some EOD suits, the outside has been coated with a white polish rumored to be a corporate secret."
 	item_type = /obj/item/mod/control/pre_equipped/advanced
 
-/datum/opposing_force_equipment/modsuit/nri
+/datum/opposing_force_equipment/modsuit/hc
 	name = "HC's Voskhod"
 	item_type = /obj/item/mod/control/pre_equipped/voskhod/ancient_milsim
 
-/datum/opposing_force_equipment/modsuit/nri_police
-	name = "ZCM's Policing"
-	item_type = /obj/item/mod/control/pre_equipped/policing
+/datum/opposing_force_equipment/modsuit/hc_patrol
+	name = "ZCM's Rim-World Inspector"
+	item_type = /obj/item/mod/control/pre_equipped/rim_inspector
 
 /datum/opposing_force_equipment/modsuit/infiltrator
 	name = "MI13's Infiltrator"
