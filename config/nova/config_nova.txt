@@ -195,3 +195,15 @@ MISSING_WHITELIST_MESSAGE "\nThis server requires you to be whitelisted in order
 
 #If enabled, /human mobs will no longer occasionally blink
 #DISABLE_BLINKING
+
+#If enabled, firing pins will be enforced only on cargo import
+#PERMIT_PINS
+
+#If enabled, the SolFed communications button will appear on the comms console
+SOLFED_COMMUNICATIONS
+
+#If enabled, the solfed send distress button will appear and be able to be pressed
+SOLFED_ERT_BUTTON
+
+#If enabled, the solfed send distress button will appear and be able to be pressed
+SOLFED_RED_ALERT_DISTRESS
