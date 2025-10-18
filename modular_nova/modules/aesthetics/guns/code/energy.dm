@@ -65,6 +65,9 @@
 		overlay_x = 0, \
 		overlay_y = 0)
 
+/obj/item/gun/energy/e_gun/mini/practice_phaser
+	shaded_charge = FALSE
+
 /obj/item/gun/energy/e_gun/mini/practice_phaser/add_seclight_point()
 	return // practice phaser (from the holodeck) doesn't get a free light
 
