@@ -309,7 +309,7 @@
 	gendered = FALSE
 
 /datum/body_marking/other/chemlight
-	name = "Bands and stripes"
+	name = "Bands and Stripes"
 	icon_state = "chemlight"
 	affected_bodyparts = ARM_LEFT | ARM_RIGHT | HAND_LEFT | HAND_RIGHT | LEG_RIGHT | LEG_LEFT
 
