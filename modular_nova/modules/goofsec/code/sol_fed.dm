@@ -499,13 +499,13 @@ GLOBAL_LIST_INIT(call911_do_and_do_not, list(
 
 	id_trim = /datum/id_trim/solfed/med
 
-/datum/antagonist/ert/request_911/condom_destroyer
-	name = "Armed S.W.A.T. Officer"
-	role = "S.W.A.T. Officer"
-	department = "Police"
-	outfit = /datum/outfit/request_911/condom_destroyer
+/datum/antagonist/ert/request_911/military_squadron
+	name = "SolFed Espatier Squadron"
+	role = "Solfed Espatier"
+	department = "SolFed Military"
+	outfit = /datum/outfit/request_911/military_squadron
 
-/datum/antagonist/ert/request_911/condom_destroyer/greet()
+/datum/antagonist/ert/request_911/military_squadron/greet()
 	var/missiondesc =  ""
 	missiondesc += "<B><font size=5 color=red>You are NOT a Nanotrasen Employee. You work for the Sol Federation as a [role].</font></B>"
 	missiondesc += "<BR>You are here to backup the 911 first responders, as they have reported for your assistance..\n"
@@ -521,8 +521,8 @@ GLOBAL_LIST_INIT(call911_do_and_do_not, list(
 	var/mob/living/greeted_mob = owner.current
 	greeted_mob.playsound_local(greeted_mob, 'sound/effects/families_police.ogg', 100, FALSE, pressure_affected = FALSE, use_reverb = FALSE)
 
-/datum/outfit/request_911/condom_destroyer
-	name = "911 Response: Armed S.W.A.T. Officer"
+/datum/outfit/request_911/military_squadron
+	name = "911 Response: Solfed Espatier Squadron"
 	back = /obj/item/storage/backpack
 	uniform = /obj/item/clothing/under/solfed
 	shoes = /obj/item/clothing/shoes/jackboots
@@ -540,19 +540,19 @@ GLOBAL_LIST_INIT(call911_do_and_do_not, list(
 		/obj/item/storage/box/handcuffs = 1,
 		/obj/item/melee/baton/security/loaded = 1,
 		/obj/item/storage/box/lethalshot = 2,
-		/obj/item/solfed_reporter/grand_espatier_caller = 1,
+		/obj/item/solfed_reporter/espatier_platoon_caller = 1,
 		/obj/item/beamout_tool = 1,
 	)
 
 	id_trim = /datum/id_trim/solfed
 
-/datum/antagonist/ert/request_911/treason_destroyer
+/datum/antagonist/ert/request_911/military_platoon
 	name = "Sol Federation Military"
 	role = "Private"
-	department = "Military"
-	outfit = /datum/outfit/request_911/treason_destroyer
+	department = "SolFed Military"
+	outfit = /datum/outfit/request_911/military_platoon
 
-/datum/antagonist/ert/request_911/treason_destroyer/greet()
+/datum/antagonist/ert/request_911/military_platoon/greet()
 	var/missiondesc =  ""
 	missiondesc += "<B><font size=5 color=red>You are NOT a Nanotrasen Employee. You work for the Sol Federation as a [role].</font></B>"
 	missiondesc += "<BR>You are here to assume control of [station_name()] due to the occupants engaging in Treason as reported by our SWAT team.\n"
@@ -566,7 +566,7 @@ GLOBAL_LIST_INIT(call911_do_and_do_not, list(
 	var/mob/living/greeted_mob = owner.current
 	greeted_mob.playsound_local(greeted_mob, 'sound/effects/families_police.ogg', 100, FALSE, pressure_affected = FALSE, use_reverb = FALSE)
 
-/datum/outfit/request_911/treason_destroyer
+/datum/outfit/request_911/military_platoon
 	name = "911 Response: SolFed Military"
 
 	uniform = /obj/item/clothing/under/solfed/marines
@@ -606,7 +606,7 @@ GLOBAL_LIST_INIT(call911_do_and_do_not, list(
 	/// What table should we be incrementing votes in and checking against in the solfed responders global?
 	var/type_of_callers = "911_responders"
 	/// What source should be supplied for the announcement message?
-	var/announcement_source = "Sol Federation S.W.A.T."
+	var/announcement_source = "Sol Federation"
 	/// Should the station be issued a fine when the vote completes?
 	var/fine_station = TRUE
 	/// What poll message should we show to the ghosts when they are asked to join the squad?
@@ -614,7 +614,7 @@ GLOBAL_LIST_INIT(call911_do_and_do_not, list(
 	/// How many ghosts should we pick from the applicants to become members of the squad?
 	var/amount_to_summon = 4
 	/// What antagonist type should we give to the ghosts?
-	var/type_to_summon = /datum/antagonist/ert/request_911/condom_destroyer
+	var/type_to_summon = /datum/antagonist/ert/request_911/military_squadron
 	/// What table should be be incrementing amount in in the solfed responders global?
 	var/summoned_type = "swat"
 	/// What name and ID should be on the cell phone given to the squad members?
@@ -711,13 +711,14 @@ GLOBAL_LIST_INIT(call911_do_and_do_not, list(
 	type_to_check = /datum/antagonist/ert/request_911
 	type_of_callers = "911_responders"
 	announcement_source = "SolFed Military Squadron"
+	announcement_source = "Sol Federation Military Command"
 	fine_station = FALSE
 	ghost_poll_msg = "The Sol-Fed 911 services have requested military backup. Do you wish to become an Espatier?"
 	amount_to_summon = 6
-	type_to_summon = /datum/antagonist/ert/request_911/condom_destroyer
+	type_to_summon = /datum/antagonist/ert/request_911/military_squadron
 	summoned_type = "standard_espatiers"
-	announcement_message = "Hello, crewmembers of [station_name()]. Our on-station emergency services teams have requested for military aid, Either for their active safety \
-	or the current situation has caused reasonable escallation, please remain calm and cooperate with any requests or orders made by our Espatiers. For your safety and others."
+	announcement_message = "Hello Crewmembers, Our on-station emergency services teams have requested for Military Aid, Either for their active safety \
+	or the current situation has caused reasonable escallation, please remain calm and cooperate with any requests or orders made by our Espatier Squadron. For your safety and others."
 
 /obj/item/solfed_reporter/espatier_caller/questions(mob/user)
 	var/question = "Does the situation require additional military backup, involve the station impeding you from doing your job, \
@@ -728,22 +729,22 @@ GLOBAL_LIST_INIT(call911_do_and_do_not, list(
 	message_admins("[ADMIN_LOOKUPFLW(user)] has voted to summon military backup.")
 	return TRUE
 
-/obj/item/solfed_reporter/grand_espatier_caller
+/obj/item/solfed_reporter/espatier_platoon_caller
 	name = "Solfed Platoon Radio Caller"
 	desc = "Use this in hand to report that the active situation is noticably worse or out of control."
-	type_to_check = /datum/antagonist/ert/request_911/condom_destroyer
+	type_to_check = /datum/antagonist/ert/request_911/military_squadron
 	type_of_callers = "standard_espatiers"
-	announcement_source = "Sol Federation Espatier Platoon"
+	announcement_source = "Sol Federation Military Command"
 	fine_station = FALSE
 	ghost_poll_msg = "The situation is completely out of hand and our Espatiers need backup, volunteer to become a Grand Response Espatier?"
 	amount_to_summon = 12
-	type_to_summon = /datum/antagonist/ert/request_911/treason_destroyer
+	type_to_summon = /datum/antagonist/ert/request_911/military_platoon
 	summoned_type = "grand_espatiers"
-	announcement_message = "Attention [station_name] the active situation has devolved, and is too much to bear for our currently deployed squadron of espatiers. \
-	A Sol Federation Espatier platoon is being disbatched to your station, cooperate with any and all instructions given by any SolFed personnel, a full station-wide evacuation \
-	may be enacted for your safety. Please cooperate with any and all instructions from SolFed personnel."
+	announcement_message = "Attention station and its crew the active situation has devolved, and is too much to bear for our currently deployed squadron of espatiers. \
+	A Sol Federation Espatier Platoon is being disbatched to your station, Cooperate with any and all instructions given by any SolFed Personnel, A full station-wide evacuation \
+	may be enacted for your safety. Again please cooperate with any and all instructions from SolFed Personnel."
 
-/obj/item/solfed_reporter/grand_espatier_caller/questions(mob/user)
+/obj/item/solfed_reporter/espatier_platoon_caller/questions(mob/user)
 	var/list/list_of_questions = list(
 		"Grand threats are threats in which mass casualties, treason against the federation, xenomorphs, and other threats that would be \
 			a danger to the greater galactic community, such as resonance cascade, runaway blob, etc.",
