@@ -635,3 +635,17 @@
   - bugfix: integrated toolset and integrated paperwork implants can be emagged for
       an integrated combat knife and chameleon stamp, respectively (fixed a bug preventing
       that from working)
+2025-10-18:
+  Bannhammger:
+  - rscadd: Knuckleduster and it's variant to uplink!
+  Stalkeros, splet for the sprites:
+  - rscadd: Adds a new piece of Coalition police clothing, being a pretty official
+      shirt-pencil skirt combo
+  - spellcheck: Generally speaking, most of the then-Imperial/NRI mentions in the
+      police gear has been swapped to now-Coalition/HC
+  lukevale:
+  - rscadd: Adds 3 new markings, Belly trim, Chemlight, and Chembright.
+  - rscadd: Adds two new tails, chemlight, and striped tail.
+  - rscadd: Adds two new taurs, chemlight, and striped canine.
+  - rscadd: Adds a new set of tall ears for those canines looking to get those ear
+      scritches.
