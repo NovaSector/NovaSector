@@ -303,13 +303,11 @@ GLOBAL_LIST_INIT(analyzerthemes, list(
 	ORGANS, handles organ data input into the tgui
 	*/
 	var/damaged_organs = list()
-	var/has_alien_embryo = FALSE
 	var/embryo_stage = 0
 
 	for(var/obj/item/organ/organ as anything in patient.organs)
 		// Check for alien embryo
 		if(istype(organ, /obj/item/organ/body_egg/alien_embryo))
-			has_alien_embryo = TRUE
 			var/obj/item/organ/body_egg/alien_embryo/embryo = organ
 			embryo_stage = embryo.stage
 
