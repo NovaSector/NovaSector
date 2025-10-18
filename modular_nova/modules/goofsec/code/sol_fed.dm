@@ -91,6 +91,28 @@ GLOBAL_LIST_INIT(call911_do_and_do_not, list(
 		Are you sure you want to call Advanced Atmospherics?"
 ))
 
+/*
+	LANDMARKS
+*/
+/obj/effect/landmark/start/solfed
+	name = "Solfed General"
+	icon_state = "solfed_standard"
+	icon = 'modular_nova/master_files/icons/mob/landmarks.dmi'
+
+/obj/effect/landmark/start/solfed_leader
+	name = "Solfed Leadership"
+	icon_state = "solfed_leader"
+	icon = 'modular_nova/master_files/icons/mob/landmarks.dmi'
+
+/obj/effect/landmark/start/solfed_military
+	name = "Solfed Military"
+	icon_state = "solfed_military"
+	icon = 'modular_nova/master_files/icons/mob/landmarks.dmi'
+
+/obj/effect/landmark/start/solfed_military_leader
+	name = "Solfed Military Leadership"
+	icon_state = "solfed_military_leader"
+	icon = 'modular_nova/master_files/icons/mob/landmarks.dmi'
 /// Internal. Polls ghosts and sends in a team of space cops according to the alert level, accompanied by an announcement.
 /obj/machinery/computer/communications/proc/call_911(ordered_team)
 	/// How big do you want the response team to be?
