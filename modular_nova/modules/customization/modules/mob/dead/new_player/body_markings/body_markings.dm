@@ -627,7 +627,7 @@
 	affected_bodyparts = CHEST
 
 /datum/body_marking/secondary/bellyoutline
-	name = "Belly outline"
+	name = "Belly Outline"
 	icon_state = "chembelly_trim"
 	affected_bodyparts = CHEST
 
@@ -772,7 +772,7 @@
 	affected_bodyparts = CHEST | ARM_LEFT | ARM_RIGHT | LEG_LEFT | LEG_RIGHT
 
 /datum/body_marking/tertiary/chemlight
-	name = "Bands and stripes (alt)"
+	name = "Bands and Stripes (Alt)"
 	icon_state = "chem_light"
 	affected_bodyparts = ARM_LEFT | ARM_RIGHT | HAND_LEFT | HAND_RIGHT | LEG_RIGHT | LEG_LEFT
 
