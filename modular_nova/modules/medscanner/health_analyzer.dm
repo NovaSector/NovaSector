@@ -13,8 +13,6 @@ GLOBAL_LIST_INIT(analyzerthemes, list(
 	var/mob/living/carbon/human/patient
 	///Current user of the scanner
 	var/mob/living/carbon/human/current_user
-	/// Whether to use TGUI mode (TRUE) or chat readout mode (FALSE)
-	var/tgui_mode = TRUE
 
 /obj/item/healthanalyzer/Initialize(mapload)
 	. = ..()
@@ -24,100 +22,26 @@ GLOBAL_LIST_INIT(analyzerthemes, list(
 	. = ..()
 	UnregisterSignal(src, COMSIG_ITEM_DROPPED, PROC_REF(on_drop))
 
-/obj/item/healthanalyzer/add_context(atom/source, list/context, obj/item/held_item, mob/user)
-	. = ..()
-	context[SCREENTIP_CONTEXT_CTRL_LMB] = tgui_mode ? "Switch to Chat Mode" : "Switch to TGUI Mode"
-	return CONTEXTUAL_SCREENTIP_SET
-
-/obj/item/healthanalyzer/item_ctrl_click(mob/user)
-	tgui_mode = !tgui_mode
-	balloon_alert(user, tgui_mode ? "TGUI mode" : "chat mode")
-	to_chat(user, span_notice("Health scanner display mode: <b>[tgui_mode ? "TGUI" : "Chat Readout"]</b>"))
-	return CLICK_ACTION_SUCCESS
-
-/obj/item/healthanalyzer/interact_with_atom(atom/interacting_with, mob/living/user, list/modifiers)
-	if(!isliving(interacting_with))
-		return NONE
-
-	var/mob/living/M = interacting_with
-
-	. = ITEM_INTERACT_SUCCESS
-
-	flick("[icon_state]-scan", src)
-
-	// Clumsiness/brain damage check
-	if((HAS_TRAIT(user, TRAIT_CLUMSY) || HAS_TRAIT(user, TRAIT_DUMB)) && prob(50))
-		var/turf/scan_turf = get_turf(user)
-		user.visible_message(
-			span_warning("[user] analyzes [scan_turf]'s vitals!"),
-			span_notice("You stupidly try to analyze [scan_turf]'s vitals!"),
-		)
-
-		var/floor_text = "<span class='info'>Analyzing results for <b>[scan_turf]</b> ([station_time_timestamp()]):</span><br>"
-		floor_text += "<span class='info ml-1'>Overall status: <i>Unknown</i></span><br>"
-		floor_text += "<span class='alert ml-1'>Subject lacks a brain.</span><br>"
-		floor_text += "<span class='info ml-1'>Body temperature: [scan_turf?.return_air()?.return_temperature() || "???"]</span><br>"
-
-		if(user.can_read(src) && !user.is_blind())
-			to_chat(user, custom_boxed_message("blue_box", floor_text))
-		last_scan_text = floor_text
+/obj/item/healthanalyzer/process(seconds_per_tick)
+	if(get_turf(src) != get_turf(current_user) || get_dist(get_turf(current_user), get_turf(patient)) > MAX_HEALTH_ANALYZER_UPDATE_RANGE || patient == current_user)
+		reset_analyzer_interface()
 		return
+	update_static_data(current_user)
 
-	if(ispodperson(M) && !advanced)
-		to_chat(user, span_info("[M]'s biological structure is too complex for the health analyzer."))
-		return
-
-	user.visible_message(span_notice("[user] analyzes [M]'s vitals."))
-	balloon_alert(user, "analyzing vitals")
-	playsound(user.loc, 'sound/items/healthanalyzer.ogg', 50)
-
-	// BUBBER EDIT START - Set patient and current user for TGUI
-	current_user = user
-	patient = interacting_with
-	// BUBBER EDIT END
-
-	var/readability_check = user.can_read(src)
-	switch(scanmode)
-		if(0) // SCANMODE_HEALTH
-			// BUBBER EDIT START - TGUI mode check
-			if(!ishuman(patient))
-				last_scan_text = healthscan(user, M, mode, advanced, tochat = readability_check)
-			else
-				if(tgui_mode)
-					// TGUI mode - no chat output, only UI
-					ui_interact(user)
-				else
-					// Chat mode - show readout
-					healthscan(user, M, mode, advanced)
-			// BUBBER EDIT END
-
-			if((M.health / M.maxHealth) > CLEAN_BILL_OF_HEALTH_RATIO)
-				last_healthy_scanned = WEAKREF(M)
-			else
-				last_healthy_scanned = null
-		if(1) // SCANMODE_WOUND
-			if(readability_check)
-				woundscan(user, M, src)
-
-	add_fingerprint(user)
+/obj/item/healthanalyzer/proc/reset_analyzer_interface()
+	STOP_PROCESSING(SSobj, src)
+	patient = null
+	current_user = null
 
 /obj/item/healthanalyzer/ui_interact(mob/user, datum/tgui/ui)
-	// Check if patient is still in range
-	if(patient && current_user)
-		if(get_turf(src) != get_turf(current_user) || get_dist(get_turf(current_user), get_turf(patient)) > MAX_HEALTH_ANALYZER_UPDATE_RANGE)
-			patient = null
-			current_user = null
-			if(ui)
-				ui.close()
-			return
-
+	. = ..()
 	ui = SStgui.try_update_ui(user, src, ui)
 	if(!ui)
 		ui = new(user, src, "MedScanner", "Medical Scanner")
-		ui.set_autoupdate(1) // Update every processing tick (2 seconds)
+		update_static_data(user, ui)
 		ui.open()
 
-/obj/item/healthanalyzer/ui_data(mob/user)
+/obj/item/healthanalyzer/ui_static_data(mob/user)
 	if(!patient)
 		return list()
 
@@ -137,10 +61,14 @@ GLOBAL_LIST_INIT(analyzerthemes, list(
 		"blood_amount" = patient.blood_volume,
 		"majquirks" = patient.get_quirk_string(FALSE, CAT_QUIRK_MAJOR_DISABILITY, from_scan = TRUE),
 		"minquirks" = patient.get_quirk_string(FALSE, CAT_QUIRK_MINOR_DISABILITY, TRUE),
+		"accessible_theme" = lowertext(user.client?.prefs.read_preference(/datum/preference/choiced/health_analyzer_themes)),
 		"species" = patient.dna.species,
 		"custom_species" = patient.client?.prefs.read_preference(/datum/preference/text/custom_species),
 	)
 
+	/*
+	MEDICAL ALERTS
+	*/
 	// Special Medical Conditions
 	var/list/medical_alerts = list()
 
@@ -242,23 +170,22 @@ GLOBAL_LIST_INIT(analyzerthemes, list(
 	/*
 	CHEMICALS
 	*/
-	var/list/chemicals_lists = list()
+	var/list/chemicals_list = list()
 	for(var/datum/reagent/reagent as anything in patient.reagents.reagent_list)
-		chemicals_lists["[reagent.name]"] = list(
+		chemicals_list += list(list(
 			"name" = reagent.name,
 			"description" = reagent.description,
 			"amount" = round(reagent.volume, 0.1),
 			"od" = reagent.overdosed,
 			"od_threshold" = reagent.overdose_threshold,
 			"dangerous" = reagent.overdosed || istype(reagent, /datum/reagent/toxin),
-		)
-	data["has_chemicals"] = length(patient.reagents.reagent_list)
-	data["chemicals_lists"] = chemicals_lists
+		))
+	data["chemicals_list"] = chemicals_list
 
 	/*
 	LIMBS
 	*/
-	var/list/limb_data_lists = list()
+	var/list/limb_data_list = list()
 	if(!ishuman(patient)) // how did we get here?
 		return
 
@@ -295,21 +222,20 @@ GLOBAL_LIST_INIT(analyzerthemes, list(
 
 		current_list["limb_type"] = limb_type
 		current_list["limb_status"] = limb_status
-		limb_data_lists["[capitalize(limb.name)]"] = current_list
-	data["limb_data_lists"] = limb_data_lists
-	data["body_temperature"] = "[round(patient.bodytemperature-T0C, 0.1)] degrees C ([round(patient.bodytemperature*1.8-459.67, 0.1)] degrees F)"
+		limb_data_list += list(current_list)
+	data["limb_data_list"] = limb_data_list
 
 	/*
 	ORGANS, handles organ data input into the tgui
 	*/
 	var/damaged_organs = list()
-	var/embryo_stage = 0
+	var/embryo_data
 
 	for(var/obj/item/organ/organ as anything in patient.organs)
 		// Check for alien embryo
 		if(istype(organ, /obj/item/organ/body_egg/alien_embryo))
 			var/obj/item/organ/body_egg/alien_embryo/embryo = organ
-			embryo_stage = embryo.stage
+			var/embryo_stage = embryo.stage
 
 			var/stage_desc = ""
 			switch(embryo_stage)
@@ -324,17 +250,19 @@ GLOBAL_LIST_INIT(analyzerthemes, list(
 
 			damaged_organs += list(list(
 				"name" = "ALIEN PARASITE",
-				"status" = "Stage [embryo_stage]/6 - [stage_desc]",
+				"status" = stage_desc,
 				"damage" = 0,
 				"effects" = "BIOHAZARD: Xenomorph larva detected! Recommend immediate surgical removal or the patient will not survive.",
-				"is_embryo" = TRUE,
 			))
+
+			embryo_data = list(
+				"embryo_stage" = embryo_stage,
+				"stage_desc" = stage_desc,
+			)
 			continue
 
 		if(!organ.damage)
 			continue
-		if(!organ)
-			return
 		var/current_organ = list(
 			"name" = organ.name,
 			"status" = organ.get_status_text(advanced, add_tooltips = FALSE, colored = FALSE),
@@ -345,7 +273,7 @@ GLOBAL_LIST_INIT(analyzerthemes, list(
 
 	data["damaged_organs"] = damaged_organs
 	data["damaged_organs"] += get_missing_organs(patient)
-	data["embryo_stage"] = embryo_stage
+	data["embryo_data"] = embryo_data
 
 	if(HAS_TRAIT(patient, TRAIT_DNR))
 		data["revivable_string"] = "Permanently deceased" // the actual information shown next to "revivable:" in tgui. "too much damage" etc.
@@ -400,7 +328,7 @@ GLOBAL_LIST_INIT(analyzerthemes, list(
 			))
 	data["viruses"] = virus_list
 
-	var/list/trauma_list = list()
+	var/list/trauma_string
 	if(iscarbon(patient))
 		if(LAZYLEN(patient.get_traumas()))
 			var/list/trauma_text = list()
@@ -419,8 +347,8 @@ GLOBAL_LIST_INIT(analyzerthemes, list(
 						trauma_desc += "permanent "
 				trauma_desc += trauma.scan_desc
 				trauma_text += trauma_desc
-			trauma_list += "Cerebral traumas detected: subject appears to be suffering from [english_list(trauma_text)]."
-	data["brain_traumas"] = length(trauma_list) > 0 ? trauma_list : null
+			trauma_string = "Cerebral traumas detected: subject appears to be suffering from [english_list(trauma_text)]."
+	data["brain_traumas"] = trauma_string
 
 	/*
 	ADVICE
@@ -513,8 +441,8 @@ GLOBAL_LIST_INIT(analyzerthemes, list(
 						"icon" = "syringe",
 						"color" = "blue",
 					))
-					if(chemicals_lists["Mannitol"])
-						if(chemicals_lists["Mannitol"]["amount"] < 3)
+					if(chemicals_list["Mannitol"])
+						if(chemicals_list["Mannitol"]["amount"] < 3)
 							advice += temp_advice
 					else
 						advice += temp_advice
@@ -529,8 +457,8 @@ GLOBAL_LIST_INIT(analyzerthemes, list(
 						"icon" = "syringe",
 						"color" = "yellow",
 					))
-					if(chemicals_lists["Occuline"])
-						if(chemicals_lists["Occuline"]["amount"] < 3)
+					if(chemicals_list["Occuline"])
+						if(chemicals_list["Occuline"]["amount"] < 3)
 							advice += temp_advice
 					else
 						advice += temp_advice
@@ -543,8 +471,8 @@ GLOBAL_LIST_INIT(analyzerthemes, list(
 				"icon" = "syringe",
 				"color" = "red",
 			))
-			if(chemicals_lists["Libital"])
-				if(chemicals_lists["Libital"]["amount"] < 3)
+			if(chemicals_list["Libital"])
+				if(chemicals_list["Libital"]["amount"] < 3)
 					advice += temp_advice
 			else
 				advice += temp_advice
@@ -555,8 +483,8 @@ GLOBAL_LIST_INIT(analyzerthemes, list(
 				"icon" = "syringe",
 				"color" = "yellow",
 			))
-			if(chemicals_lists["Aiuri"])
-				if(chemicals_lists["Aiuri"]["amount"] < 3)
+			if(chemicals_list["Aiuri"])
+				if(chemicals_list["Aiuri"]["amount"] < 3)
 					advice += temp_advice
 			else
 				advice += temp_advice
@@ -567,8 +495,8 @@ GLOBAL_LIST_INIT(analyzerthemes, list(
 				"icon" = "syringe",
 				"color" = "green",
 			))
-			if(chemicals_lists["Multiver"])
-				if(chemicals_lists["Multiver"]["amount"] < 5)
+			if(chemicals_list["Multiver"])
+				if(chemicals_list["Multiver"]["amount"] < 5)
 					advice += temp_advice
 			else
 				advice += temp_advice
@@ -579,12 +507,12 @@ GLOBAL_LIST_INIT(analyzerthemes, list(
 				"icon" = "syringe",
 				"color" = "blue",
 			))
-			if(chemicals_lists["Salbutamol"])
-				if(chemicals_lists["Salbutamol"]["amount"] < 3)
+			if(chemicals_list["Salbutamol"])
+				if(chemicals_list["Salbutamol"]["amount"] < 3)
 					advice += temp_advice
 			else
 				advice += temp_advice
-		if(patient.blood_volume <= 500 && !chemicals_lists["Saline-Glucose"])
+		if(patient.blood_volume <= 500 && !chemicals_list["Saline-Glucose"])
 			advice += list(list(
 				"advice" = "Administer a single dose of Saline-Glucose or Iron.",
 				"tooltip" = "The patient has lost a significant amount of blood. Saline-Glucose or Iron speeds up blood regeneration significantly.",
@@ -599,8 +527,8 @@ GLOBAL_LIST_INIT(analyzerthemes, list(
 				"icon" = "syringe",
 				"color" = "purple",
 			))
-			if(chemicals_lists["Epinephrine"])
-				if(chemicals_lists["Epinephrine"]["amount"] < 5)
+			if(chemicals_list["Epinephrine"])
+				if(chemicals_list["Epinephrine"]["amount"] < 5)
 					advice += temp_advice
 			else
 				advice += temp_advice
@@ -612,39 +540,9 @@ GLOBAL_LIST_INIT(analyzerthemes, list(
 			"color" = "white",
 		))
 
-	if(advice.len)
-		data["advice"] = advice
-	else
-		data["advice"] = null
+	data["advice"] = advice
 
 	return data
-
-/obj/item/healthanalyzer/ui_static_data(mob/user)
-	var/theme = user.client?.prefs.read_preference(/datum/preference/choiced/health_analyzer_themes)
-	if(!theme)
-		theme = "default"
-	var/list/data = list(
-		"accessible_theme" = LOWER_TEXT(theme),
-		"available_themes" = GLOB.analyzerthemes,
-	)
-	return data
-
-/obj/item/healthanalyzer/ui_act(action, list/params)
-	. = ..()
-	if(.)
-		return
-
-	switch(action)
-		if("change_theme")
-			var/new_theme = params["theme"]
-			if(new_theme in GLOB.analyzerthemes)
-				var/mob/user = usr
-				if(user?.client)
-					user.client.prefs.write_preference(GLOB.preference_entries[/datum/preference/choiced/health_analyzer_themes], new_theme)
-					balloon_alert(user, "theme changed")
-					// Force refresh static data to apply new theme
-					update_static_data(user)
-			return TRUE
 
 /obj/item/healthanalyzer/ui_state(mob/user)
 	return GLOB.hands_state
@@ -652,12 +550,10 @@ GLOBAL_LIST_INIT(analyzerthemes, list(
 /// Handles UI closing when item is dropped
 /obj/item/healthanalyzer/proc/on_drop(mob/user)
 	SIGNAL_HANDLER
-	patient = null
-	current_user = null
+	reset_analyzer_interface()
 
 /obj/item/healthanalyzer/ui_close(mob/user)
-	patient = null
-	current_user = null
+	reset_analyzer_interface()
 
 /obj/item/healthanalyzer/proc/get_missing_organs(mob/living/carbon/target)
 	if(ishuman(target))

@@ -14,7 +14,8 @@ import {
 
 import { useBackend } from '../backend';
 import { Window } from '../layouts';
-import '../styles/interfaces/MedScanner.scss';
+
+// import '../styles/interfaces/MedScanner.scss';
 
 type MedScannerData = {
   patient: string;
@@ -30,25 +31,32 @@ type MedScannerData = {
   oxy: number;
   revivable_boolean: boolean;
   revivable_string: number;
-  has_chemicals: boolean;
-  chemicals_lists: object;
-  limb_data_lists: LimbData[];
+  chemicals_list: ChemicalData[];
+  limb_data_list: LimbData[];
   damaged_organs: OrganData[];
   ssd: boolean;
   blood_type: string;
   blood_amount: number;
   body_temperature: string;
-  advice: any;
+  advice: AdviceData[];
   accessible_theme: string;
-  available_themes: string[];
-  majquirks: any;
-  minquirks: any;
+  majquirks: string;
+  minquirks: string;
   custom_species: string;
   wounds: WoundData[];
-  brain_traumas: any;
+  brain_traumas: string | null;
   viruses: VirusData[];
-  embryo_stage: number;
-  medical_alerts: any[];
+  embryo_data: EmbryoData | null;
+  medical_alerts: AlertData[];
+};
+
+type ChemicalData = {
+  name: string;
+  description: string;
+  amount: number;
+  od: boolean;
+  od_threshold: number;
+  dangerous: boolean;
 };
 
 type LimbData = {
@@ -89,11 +97,30 @@ type VirusData = {
   cure: string;
 };
 
+type AdviceData = {
+  advice: string;
+  tooltip: string;
+  icon: string;
+  color: number;
+};
+
+type EmbryoData = {
+  embryo_stage: number;
+  stage_desc: string;
+};
+
+type AlertData = {
+  type: string;
+  severity: string;
+  message: string;
+  icon: string;
+};
+
 export const MedScanner = () => {
   const { data } = useBackend<MedScannerData>();
   const {
-    has_chemicals,
-    limb_data_lists,
+    chemicals_list,
+    limb_data_list,
     damaged_organs,
     blood_amount,
     advice,
@@ -109,21 +136,21 @@ export const MedScanner = () => {
         <PatientBasics />
         <AlienEmbryo />
         {medical_alerts?.length ? <MedicalAlerts /> : null}
-        {limb_data_lists.length ? <PatientLimbs /> : null}
+        {limb_data_list.length ? <PatientLimbs /> : null}
         {damaged_organs.length ? <PatientOrgans /> : null}
         {blood_amount ? <PatientBlood /> : null}
-        {has_chemicals ? <PatientChemicals /> : null}
+        {chemicals_list.length ? <PatientChemicals /> : null}
         {wounds.length ? <Wounds /> : null}
         {viruses.length ? <Viruses /> : null}
         <Quirks />
-        {advice ? <PatientAdvice /> : null}
+        {advice.length ? <PatientAdvice /> : null}
       </Window.Content>
     </Window>
   );
 };
 
 const PatientBasics = () => {
-  const { data } = useBackend<MedScannerData>();
+  const { act, data } = useBackend<MedScannerData>();
   const {
     patient,
     species,
@@ -145,11 +172,11 @@ const PatientBasics = () => {
     ssd,
 
     accessible_theme,
-    available_themes,
 
     custom_species,
     brain_traumas,
   } = data;
+
   return (
     <Section
       title={
@@ -303,13 +330,13 @@ const PatientBasics = () => {
 
 const PatientChemicals = () => {
   const { data } = useBackend<MedScannerData>();
-  const { chemicals_lists } = data;
-  const chemicals = Object.values(chemicals_lists);
+  const { chemicals_list } = data;
+
   return (
     <Collapsible title="Chemical Contents">
       <Section>
         <LabeledList>
-          {chemicals.map((chemical) => (
+          {chemicals_list.map((chemical) => (
             <LabeledList.Item key={chemical.name}>
               <Tooltip
                 content={
@@ -347,8 +374,8 @@ const PatientLimbs = () => {
   const row_bg_color = 'rgba(255, 255, 255, .05)';
   let row_transparency = 0;
   const { data } = useBackend<MedScannerData>();
-  const { limb_data_lists, species, accessible_theme } = data;
-  const limb_data = Object.values(limb_data_lists);
+  const { limb_data_list, species, accessible_theme } = data;
+
   return (
     <Collapsible title="Limb Status">
       <Section>
@@ -369,7 +396,7 @@ const PatientLimbs = () => {
               BURN
             </Table.Cell>
           </Table.Row>
-          {limb_data.map((limb) => (
+          {limb_data_list.map((limb) => (
             <Table.Row
               key={limb.name}
               width="100%"
@@ -828,7 +855,7 @@ const MedicalAlerts = () => {
 
   return (
     <Collapsible title="⚠ Medical Alerts">
-      <Section className="medical-alerts-section">
+      <Section className="MedicalScanner__medical-alerts-section">
         <Stack vertical>
           {medical_alerts.map((alert, index) => (
             <Stack.Item key={index}>
@@ -864,33 +891,72 @@ const MedicalAlerts = () => {
 
 const AlienEmbryo = () => {
   const { data } = useBackend<MedScannerData>();
-  const { embryo_stage, damaged_organs } = data;
+  const { embryo_data } = data;
 
-  // Find the embryo data from organs
-  const embryo_data = damaged_organs.find((organ) => organ.is_embryo);
   if (!embryo_data) return null;
 
+  const { embryo_stage, stage_desc } = embryo_data;
+
   return (
-    <Section>
-      <NoticeBox
-        danger
-        style={embryo_stage >= 5 ? { animation: 'pulse 2s infinite' } : {}}
-      >
-        <Stack>
+    <Box className="MedicalScanner__alien-embryo-section" mb="6px">
+      <NoticeBox danger mb="0px">
+        <Stack vertical>
           <Stack.Item>
-            <Icon name="biohazard" size={2} color="red" />
-          </Stack.Item>
-          <Stack.Item grow={1}>
-            <Box bold>☣ XENOMORPH PARASITE - {embryo_data.status}</Box>
-            <Box fontSize="12px" mt={0.5}>
-              Gestation: {Math.round((embryo_stage / 6) * 100)}% - Recommend
-              immediate surgical removal
-              {embryo_stage >= 5 ? ' - EMERGENCY!' : ''}
+            <Box
+              bold
+              fontSize="18px"
+              textAlign="center"
+              color="red"
+              style={{
+                textShadow: '0 0 10px red',
+                animation: 'danger-pulse 2s infinite',
+              }}
+            >
+              ☣ XENOMORPH PARASITE DETECTED ☣
             </Box>
           </Stack.Item>
+          <Stack.Item>
+            <Box textAlign="center" fontSize="16px" bold mt={1}>
+              {`Stage ${embryo_stage}/6 - ${stage_desc}`}
+            </Box>
+          </Stack.Item>
+          <Stack.Item>
+            <Box mt={1} textAlign="center" italic>
+              BIOHAZARD: Xenomorph larva detected! Recommend immediate surgical
+              removal or the patient will not survive.
+            </Box>
+          </Stack.Item>
+          <Stack.Item>
+            <ProgressBar
+              value={embryo_stage / 6}
+              ranges={{
+                bad: [0, 0.33],
+                average: [0.33, 0.66],
+                good: [0.66, Infinity],
+              }}
+              mt={1}
+            >
+              Gestation Progress: {Math.round((embryo_stage / 6) * 100)}%
+            </ProgressBar>
+          </Stack.Item>
+          {embryo_stage >= 5 ? (
+            <Stack.Item>
+              <Box
+                bold
+                color="red"
+                textAlign="center"
+                mt={1}
+                style={{
+                  animation: 'warning-blink 1s infinite',
+                }}
+              >
+                ⚠ EMERGENCY SURGERY REQUIRED ⚠
+              </Box>
+            </Stack.Item>
+          ) : null}
         </Stack>
       </NoticeBox>
-    </Section>
+    </Box>
   );
 };
 
@@ -919,7 +985,7 @@ const Viruses = () => {
                   fontSize: '16px',
                 }}
               >
-                <b className="virus_label"> {'Warning: '}</b>
+                <b className="MedicalScanner__VirusLabel "> {'Warning: '}</b>
                 {`${virus.form} detected`}
               </Box>
               <Box
@@ -928,7 +994,7 @@ const Viruses = () => {
                   fontSize: '14px',
                 }}
               >
-                <b className="virus_label"> {'Name: '}</b>
+                <b className="MedicalScanner__VirusLabel "> {'Name: '}</b>
                 {virus.name}
               </Box>
               <Box
@@ -937,7 +1003,7 @@ const Viruses = () => {
                   fontSize: '14px',
                 }}
               >
-                <b className="virus_label"> {'Type: '}</b>
+                <b className="MedicalScanner__VirusLabel "> {'Type: '}</b>
                 {virus.type}
               </Box>
               <Box
@@ -946,7 +1012,7 @@ const Viruses = () => {
                   fontSize: '14px',
                 }}
               >
-                <b className="virus_label"> {'Stage: '} </b>
+                <b className="MedicalScanner__VirusLabel"> {'Stage: '} </b>
                 {`${+virus.stage}/${virus.maxstage}`}
               </Box>
               <Box
@@ -954,7 +1020,10 @@ const Viruses = () => {
                   fontSize: '14px',
                 }}
               >
-                <b className="virus_label"> {'Possible Cure: '} </b>{' '}
+                <b className="MedicalScanner__VirusLabel ">
+                  {' '}
+                  {'Possible Cure: '}{' '}
+                </b>{' '}
                 {virus.cure}
               </Box>
             </Box>
@@ -977,7 +1046,7 @@ const Quirks = () => {
             <Stack.Item>
               <Box width="100%">
                 Subject Major Disabilities:{' '}
-                <b className="quirks">{majquirks} </b>
+                <b className="MedicalScanner__Quirks">{majquirks} </b>
               </Box>
             </Stack.Item>
           ) : null}
@@ -985,7 +1054,7 @@ const Quirks = () => {
             <Stack.Item>
               <Box width="100%">
                 Subject Minor Disabilities:{' '}
-                <b className="quirks"> {minquirks} </b>
+                <b className="MedicalScanner__Quirks"> {minquirks} </b>
               </Box>
             </Stack.Item>
           ) : null}
