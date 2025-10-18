@@ -256,12 +256,12 @@
 	. = ..()
 	if(. & EMP_PROTECT_SELF || !IS_ROBOTIC_ORGAN(src))
 		return
-	if(prob(25/severity) && owner && active_item)
+	if(prob(25/severity) && owner)
 		owner.visible_message(
-			span_danger("[owner]'s [active_item] is forcefully ejected from their arm!"),
-			span_warning("Your cargo implant malfunctions, ejecting [active_item]!")
+			span_danger("[owner]'s cargo implant sparks and malfunctions!"),
+			span_warning("Your cargo implant shorts out briefly!")
 		)
-		do_sparks(2, TRUE, owner)
-		var/atom/throw_target = get_edge_target_turf(owner, pick(GLOB.cardinals))
-		active_item.throw_at(throw_target, rand(2, 4), rand(1, 3))
-		Retract()
+		do_sparks(3, TRUE, owner)
+		if(active_item)
+			Retract()
+		owner.set_jitter_if_lower(8 SECONDS / severity)
