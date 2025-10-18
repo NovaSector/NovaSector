@@ -68,14 +68,20 @@
 /obj/item/gun/energy/e_gun/mini/practice_phaser/add_seclight_point()
 	return // practice phaser (from the holodeck) doesn't get a free light
 
+/obj/item/gun/energy/e_gun/stun
+	shaded_charge = FALSE
+
 /obj/item/gun/energy/e_gun/old
-	shaded_charge = TRUE
+	shaded_charge = FALSE
 
 /obj/item/gun/energy/e_gun/dragnet
-	shaded_charge = TRUE
+	shaded_charge = FALSE
+
+/obj/item/gun/energy/e_gun/turret
+	shaded_charge = FALSE
 
 /obj/item/gun/energy/e_gun/advtaser/mounted
-	shaded_charge = TRUE
+	shaded_charge = FALSE
 
 /obj/item/gun/energy/laser
 	icon = 'modular_nova/modules/aesthetics/guns/icons/energy.dmi'
@@ -93,6 +99,7 @@
 	righthand_file = 'modular_nova/modules/aesthetics/guns/icons/guns_righthand.dmi'
 	worn_icon_state = "gun"
 	worn_icon = null
+	shaded_charge = FALSE
 
 /obj/item/gun/energy/e_gun/nuclear/rainbow
 	name = "fantastic energy gun"
