@@ -68,7 +68,7 @@
 
 .theme-hackerman {
   // Enhanced alien embryo styling for hackerman theme
-  .alien-embryo-section {
+  .MedicalScanner__alien-embryo-section {
     border-color: #00ff00 !important;
     box-shadow: 0 0 20px rgba(0, 255, 0, 0.7);
 
@@ -79,25 +79,9 @@
   }
 }
 
-.theme-ntos_rusty {
-  // Rusty theme alien embryo
-  .alien-embryo-section {
-    border-color: #ff6600 !important;
-    box-shadow: 0 0 20px rgba(255, 100, 0, 0.6);
-  }
-}
-
-.theme-ntos_healthy {
-  // Healthy theme alien embryo (ironic!)
-  .alien-embryo-section {
-    border-color: #ff3333 !important;
-    box-shadow: 0 0 20px rgba(255, 50, 50, 0.7);
-  }
-}
-
 // BlackNTOS theme - sleek dark interface with cyan accents
 .theme-black_ntos {
-  .alien-embryo-section {
+  .MedicalScanner__alien-embryo-section {
     background: linear-gradient(
       135deg,
       rgba(80, 0, 0, 0.8),
@@ -117,5 +101,40 @@
       background: rgba(80, 0, 0, 0.7);
       border-color: #ff3366;
     }
+  }
+}
+
+.theme-transparent {
+  // Default TGUI blue theme - minimal overrides
+  .Section {
+    background-color: rgba(32, 48, 64, 0.3);
+    border-color: rgba(64, 96, 128, 0.6);
+  }
+
+  .Section__title {
+    background-color: rgba(40, 60, 80, 0.5);
+    color: #88ccff;
+  }
+
+  .ProgressBar {
+    border-color: rgba(64, 96, 128, 0.8);
+  }
+
+  .Button {
+    background-color: rgba(40, 60, 80, 0.4);
+    border-color: rgba(64, 96, 128, 0.6);
+
+    &:hover {
+      background-color: rgba(50, 75, 100, 0.5);
+    }
+  }
+
+  .LabeledList__label {
+    color: #88ccff;
+  }
+
+  .Dropdown {
+    background-color: rgba(32, 48, 64, 0.9);
+    border-color: rgba(64, 96, 128, 0.6);
   }
 }

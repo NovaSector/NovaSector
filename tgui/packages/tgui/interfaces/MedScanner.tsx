@@ -18,8 +18,10 @@ import { Window } from '../layouts';
 // import '../styles/interfaces/MedScanner.scss';
 
 type MedScannerData = {
+  advanced: boolean;
   patient: string;
   species: string;
+  custom_species: string;
   dead: boolean;
   health: number;
   max_health: number;
@@ -29,20 +31,21 @@ type MedScannerData = {
   total_burn: number;
   toxin: number;
   oxy: number;
-  revivable_boolean: boolean;
-  revivable_string: number;
+  revivable_boolean: boolean | null;
+  revivable_string: string | null;
   chemicals_list: ChemicalData[];
   limb_data_list: LimbData[];
   damaged_organs: OrganData[];
   ssd: boolean;
   blood_type: string;
-  blood_amount: number;
+  blood_volume: number;
+  blood_percent: number;
   body_temperature: string;
+  core_temperature: string;
   advice: AdviceData[];
   accessible_theme: string;
   majquirks: string;
   minquirks: string;
-  custom_species: string;
   wounds: WoundData[];
   brain_traumas: string | null;
   viruses: VirusData[];
@@ -77,7 +80,7 @@ type OrganData = {
   status: string;
   damage: number;
   effects: string;
-  is_embryo: boolean;
+  color: string;
 };
 
 type WoundData = {
@@ -122,7 +125,7 @@ export const MedScanner = () => {
     chemicals_list,
     limb_data_list,
     damaged_organs,
-    blood_amount,
+    blood_type,
     advice,
     accessible_theme,
     wounds,
@@ -135,10 +138,10 @@ export const MedScanner = () => {
       <Window.Content scrollable>
         <PatientBasics />
         <AlienEmbryo />
-        {medical_alerts?.length ? <MedicalAlerts /> : null}
+        {medical_alerts.length ? <MedicalAlerts /> : null}
         {limb_data_list.length ? <PatientLimbs /> : null}
         {damaged_organs.length ? <PatientOrgans /> : null}
-        {blood_amount ? <PatientBlood /> : null}
+        {blood_type ? <PatientBlood /> : null}
         {chemicals_list.length ? <PatientChemicals /> : null}
         {wounds.length ? <Wounds /> : null}
         {viruses.length ? <Viruses /> : null}
@@ -386,15 +389,34 @@ const PatientLimbs = () => {
             pb="5px"
             style={{ borderBottom: '1px solid rgba(255, 255, 255, 0.1)' }}
           >
-            <Table.Cell bold fontSize="12px" color="label">
+            <Table.Cell
+              bold
+              width="130px"
+              fontSize="12px"
+              color="label"
+              pl="3px"
+            >
               LIMB
             </Table.Cell>
-            <Table.Cell bold fontSize="12px" color="red" textAlign="center">
+            <Table.Cell
+              bold
+              width="55px"
+              fontSize="12px"
+              color="red"
+              textAlign="center"
+            >
               BRUTE
             </Table.Cell>
-            <Table.Cell bold fontSize="12px" color="#ffb833" textAlign="center">
+            <Table.Cell
+              bold
+              width="55px"
+              fontSize="12px"
+              color="#ffb833"
+              textAlign="center"
+            >
               BURN
             </Table.Cell>
+            <Table.Cell />
           </Table.Row>
           {limb_data_list.map((limb) => (
             <Table.Row
@@ -435,25 +457,28 @@ const PatientLimbs = () => {
                 </Stack>
               </Table.Cell>
               {limb.missing ? (
-                <Tooltip
-                  content={
-                    'Missing limbs can only be fixed through surgical intervention.'
-                  }
-                >
-                  <Stack.Item>
-                    <Box
-                      px="8px"
-                      py="3px"
-                      backgroundColor="rgba(255, 0, 0, 0.25)"
-                      color="red"
-                      bold
-                      style={{ borderRadius: '4px', border: '1px solid red' }}
-                    >
-                      <Icon name="exclamation-triangle" mr={1} />
-                      MISSING
-                    </Box>
-                  </Stack.Item>
-                </Tooltip>
+                <Table.Cell colSpan={3}>
+                  <Tooltip
+                    content={
+                      'Missing limbs can only be fixed through surgical intervention.'
+                    }
+                  >
+                    <Stack.Item>
+                      <Box
+                        px="8px"
+                        py="3px"
+                        backgroundColor="rgba(255, 0, 0, 0.25)"
+                        color="red"
+                        bold
+                        style={{ borderRadius: '4px', border: '1px solid red' }}
+                        align="center"
+                      >
+                        <Icon name="exclamation-triangle" mr={1} />
+                        MISSING
+                      </Box>
+                    </Stack.Item>
+                  </Tooltip>
+                </Table.Cell>
               ) : (
                 <>
                   <Table.Cell width="55px" verticalAlign="middle">
@@ -643,6 +668,23 @@ const PatientLimbs = () => {
                         </Box>
                       </Tooltip>
                     ) : null}
+                    {limb.infection ? (
+                      <Tooltip content="Inf">
+                        <Box
+                          inline
+                          px="5px"
+                          py="2px"
+                          mx="2px"
+                          backgroundColor={'rgba(255, 184, 51, 0.25)'}
+                          color={'#ffb833'}
+                          bold
+                          gr="true"
+                        >
+                          <Icon name="fire" mr={1} height="auto" />
+                          Infected
+                        </Box>
+                      </Tooltip>
+                    ) : null}
                   </Table.Cell>
                 </>
               )}
@@ -656,30 +698,48 @@ const PatientLimbs = () => {
 
 const PatientOrgans = () => {
   const { data } = useBackend<MedScannerData>();
-  const { damaged_organs } = data;
+  const { advanced, damaged_organs } = data;
   return (
-    <Collapsible title="Organs">
-      <Section title="Organs Damaged">
-        <LabeledList>
+    <Collapsible title="Organ Status">
+      <Section>
+        <Table>
+          <Table.Row
+            height="22px"
+            style={{ borderBottom: '1px solid rgba(255, 255, 255, 0.1)' }}
+            fontSize=""
+          >
+            <Table.Cell bold fontSize="12px">
+              Organ
+            </Table.Cell>
+            {advanced ? (
+              <Table.Cell bold fontSize="12px">
+                Dmg
+              </Table.Cell>
+            ) : null}
+            <Table.Cell bold fontSize="12px">
+              Status
+            </Table.Cell>
+          </Table.Row>
           {damaged_organs.map((organ) => (
-            <LabeledList.Item
-              key={organ.name}
-              label={organ.name[0].toUpperCase() + organ.name.slice(1)}
-            >
-              <Tooltip content={organ.effects}>
-                <Box
-                  inline
-                  color={organ.status === 'Midly Damaged' ? 'orange' : 'red'}
-                  bold
-                >
-                  {organ.status === 'Missing'
-                    ? organ.status
-                    : `${organ.status} with ${Math.ceil(organ.damage)} damage`}
-                </Box>
-              </Tooltip>
-            </LabeledList.Item>
+            <Table.Row key={organ.name}>
+              <Table.Cell pt="5px" px="3px" bold>
+                {`${organ.name[0].toUpperCase()}${organ.name.slice(1)}:`}
+              </Table.Cell>
+              {advanced ? (
+                <Table.Cell color="#ff3333">
+                  {organ.damage ? organ.damage : '-'}
+                </Table.Cell>
+              ) : null}
+              <Table.Cell color={organ.color}>
+                <Tooltip content={organ.effects}>
+                  <Box inline bold={organ.status !== 'Missing'}>
+                    {organ.status}
+                  </Box>
+                </Tooltip>
+              </Table.Cell>
+            </Table.Row>
           ))}
-        </LabeledList>
+        </Table>
       </Section>
     </Collapsible>
   );
@@ -687,15 +747,21 @@ const PatientOrgans = () => {
 
 const PatientBlood = () => {
   const { data } = useBackend<MedScannerData>();
-  const { blood_amount, blood_type, body_temperature } = data;
+  const {
+    blood_volume,
+    blood_percent,
+    blood_type,
+    body_temperature,
+    core_temperature,
+  } = data;
   return (
     <Collapsible title="Blood & Temperature">
       <Section>
         <LabeledList>
-          <LabeledList.Item label={'Blood Levels:'}>
+          <LabeledList.Item label={'Blood Level'}>
             <Tooltip content="Bloodloss causes symptoms that start as suffocation and pain, but get significantly worse as more blood is lost. Blood can be restored by eating and taking Iron or temporarly by Saline.">
               <ProgressBar
-                value={blood_amount / 560}
+                value={blood_percent / 100}
                 ranges={{
                   blue: [Infinity, 0.8],
                   good: [0.8, 1],
@@ -704,11 +770,14 @@ const PatientBlood = () => {
               />
             </Tooltip>
           </LabeledList.Item>
+          <LabeledList.Item color="cyan" label={'Blood Type'}>
+            {blood_type}, {blood_volume} cl
+          </LabeledList.Item>
           <LabeledList.Item label={'Body Temperature'}>
             {body_temperature}
           </LabeledList.Item>
-          <LabeledList.Item color="cyan" label={'Blood Type:'}>
-            {blood_type}
+          <LabeledList.Item label={'Core Temperature'}>
+            {core_temperature}
           </LabeledList.Item>
         </LabeledList>
       </Section>
@@ -1036,7 +1105,7 @@ const Viruses = () => {
 
 const Quirks = () => {
   const { data } = useBackend<MedScannerData>();
-  const { majquirks, minquirks } = data;
+  const { advanced, majquirks, minquirks } = data;
 
   return (
     <Collapsible title="Quirks">
@@ -1050,7 +1119,7 @@ const Quirks = () => {
               </Box>
             </Stack.Item>
           ) : null}
-          {majquirks ? (
+          {advanced && minquirks ? (
             <Stack.Item>
               <Box width="100%">
                 Subject Minor Disabilities:{' '}

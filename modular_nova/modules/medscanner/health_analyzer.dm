@@ -4,6 +4,7 @@ GLOBAL_LIST_INIT(analyzerthemes, list(
 	"ntos_rusty",
 	"ntos_healthy",
 	"black_ntos",
+	"transparent",
 ))
 
 #define MAX_HEALTH_ANALYZER_UPDATE_RANGE 3
@@ -45,7 +46,10 @@ GLOBAL_LIST_INIT(analyzerthemes, list(
 	if(!patient)
 		return list()
 
+	var/currently_advanced = advanced || !!patient.has_reagent(/datum/reagent/inverse/technetium)
+
 	var/list/data = list(
+		"advanced" = currently_advanced,
 		"patient" = patient.name,
 		"dead" = (patient.stat == DEAD),
 		"health" = patient.health,
@@ -57,14 +61,33 @@ GLOBAL_LIST_INIT(analyzerthemes, list(
 		"toxin" = ceil(patient.getToxLoss()),
 		"oxy" = ceil(patient.getOxyLoss()),
 		"ssd" = (!patient.client),
-		"blood_type" = patient.dna.blood_type,
-		"blood_amount" = patient.blood_volume,
 		"majquirks" = patient.get_quirk_string(FALSE, CAT_QUIRK_MAJOR_DISABILITY, from_scan = TRUE),
 		"minquirks" = patient.get_quirk_string(FALSE, CAT_QUIRK_MINOR_DISABILITY, TRUE),
-		"accessible_theme" = lowertext(user.client?.prefs.read_preference(/datum/preference/choiced/health_analyzer_themes)),
+		"accessible_theme" = LOWER_TEXT(user.client?.prefs.read_preference(/datum/preference/choiced/health_analyzer_themes)),
 		"species" = patient.dna.species,
 		"custom_species" = patient.client?.prefs.read_preference(/datum/preference/text/custom_species),
+		"body_temperature" = "[round(patient.bodytemperature-T0C, 0.1)] °C ([round(patient.bodytemperature*1.8-459.67, 0.1)] °F)",
+		"core_temperature" = "[round(patient.coretemperature-T0C, 0.1)] °C ([round(patient.coretemperature*1.8-459.67, 0.1)] °F)",
 	)
+
+	if(patient.stat == DEAD)
+		if(HAS_TRAIT(patient, TRAIT_DNR))
+			data["revivable_string"] = "Permanently deceased" // the actual information shown next to "revivable:" in tgui. "too much damage" etc.
+			data["revivable_boolean"] = FALSE // the actual TRUE/FALSE entry used by tgui. if false, revivable text is red. if true, revivable text is yellow
+		else if(isnull(patient.get_organ_slot(ORGAN_SLOT_HEART)))
+			data["revivable_string"] = "Not ready to defibrillate - heart is missing"
+			data["revivable_boolean"] = FALSE
+		else
+			var/obj/item/organ/heart = patient.get_organ_by_type(/obj/item/organ/heart)
+			if(heart.organ_flags & ORGAN_FAILING || heart.damage >= 100)
+				data["revivable_string"] = "Not ready to defibrillate - heart is too damaged"
+				data["revivable_boolean"] = FALSE
+			else if((patient.getBruteLoss() <= MAX_REVIVE_BRUTE_DAMAGE) && (patient.getFireLoss() <= MAX_REVIVE_FIRE_DAMAGE) && (!HAS_TRAIT(patient, TRAIT_HUSK)))
+				data["revivable_string"] = "Ready to [patient ? "defibrillate" : "reboot"]" // Ternary for defibrillate or reboot for some IC flavor
+				data["revivable_boolean"] = TRUE
+			else
+				data["revivable_string"] = "Not ready to [patient ? "defibrillate" : "reboot"] - damage left to repair [(round((patient.getBruteLoss() - MAX_REVIVE_BRUTE_DAMAGE) || (patient.getFireLoss() - MAX_REVIVE_FIRE_DAMAGE)))]"
+				data["revivable_boolean"] = FALSE
 
 	/*
 	MEDICAL ALERTS
@@ -103,7 +126,7 @@ GLOBAL_LIST_INIT(analyzerthemes, list(
 			medical_alerts += list(list(
 				"type" = "husked",
 				"severity" = "critical",
-				"message" = "Subject has been husked by [husk_cause]",
+				"message" = "Subject has been husked[currently_advanced ? " by [husk_cause]" : ""]",
 				"icon" = "skull",
 			))
 
@@ -183,34 +206,38 @@ GLOBAL_LIST_INIT(analyzerthemes, list(
 	data["chemicals_list"] = chemicals_list
 
 	/*
+	BLOOD
+	*/
+	var/datum/blood_type/blood_type = patient.get_bloodtype()
+	if(blood_type)
+		data["blood_type"] = blood_type
+		data["blood_volume"] = patient.blood_volume
+		data["blood_percent"] = round((patient.blood_volume / BLOOD_VOLUME_NORMAL) * 100)
+
+	/*
 	LIMBS
 	*/
 	var/list/limb_data_list = list()
 	if(!ishuman(patient)) // how did we get here?
 		return
 
-	var/mob/living/carbon/carbontarget = patient
-
-	for(var/zone in carbontarget.get_all_limbs())
-		var/obj/item/bodypart/limb = carbontarget.get_bodypart(zone)
-		var/list/current_list = list()
+	for(var/zone in patient.get_all_limbs())
+		var/obj/item/bodypart/limb = patient.get_bodypart(zone)
 		if(isnull(limb))
-			current_list += list(
+			limb_data_list += list(list(
 				"name" = parse_zone(zone),
 				"missing" = TRUE,
-			)
+			))
 			continue
-		current_list += list(
-			"name" = limb.name,
-			"missing" = FALSE,
-			"brute" = round(limb.brute_dam),
-			"burn" = round(limb.burn_dam),
-			"limb_status" = null,
-			"limb_type" = null,
-			"bandaged" = limb.current_gauze ? TRUE : null,
-			"bleeding" = limb.get_wound_type(/datum/wound/slash) ? TRUE : FALSE,
-			"infection" = limb.get_wound_type(/datum/wound/burn) ? TRUE : FALSE,
-		)
+
+		var/list/current_list = list()
+
+		var/has_any_embeds = length(limb.embedded_objects) >= 1
+		var/has_any_wounds = length(limb.wounds) >= 1
+		var/is_damaged = limb.burn_dam > 0 || limb.brute_dam > 0
+		if(!is_damaged && !has_any_embeds && !has_any_wounds)
+			continue
+
 		var/limb_status = ""
 		var/limb_type = ""
 		if(IS_ROBOTIC_LIMB(limb))
@@ -220,8 +247,17 @@ GLOBAL_LIST_INIT(analyzerthemes, list(
 		else if((limb.get_wound_type(/datum/wound/blunt)) && limb.current_gauze)
 			limb_status = "Splinted"
 
-		current_list["limb_type"] = limb_type
-		current_list["limb_status"] = limb_status
+		current_list += list(
+			"name" = limb.name,
+			"missing" = FALSE,
+			"brute" = ceil(limb.brute_dam),
+			"burn" = ceil(limb.burn_dam),
+			"limb_status" = limb_status,
+			"limb_type" = limb_type,
+			"bandaged" = limb.current_gauze ? TRUE : null,
+			"bleeding" = limb.get_wound_type(/datum/wound/slash) ? TRUE : FALSE,
+			"infection" = limb.get_wound_type(/datum/wound/burn) ? TRUE : FALSE,
+		)
 		limb_data_list += list(current_list)
 	data["limb_data_list"] = limb_data_list
 
@@ -231,8 +267,29 @@ GLOBAL_LIST_INIT(analyzerthemes, list(
 	var/damaged_organs = list()
 	var/embryo_data
 
-	for(var/obj/item/organ/organ as anything in patient.organs)
-		// Check for alien embryo
+	// Follow same order as in the organ_process_order so it's consistent across all humans
+	for(var/sorted_slot in GLOB.organ_process_order)
+		var/obj/item/organ/organ = patient.get_organ_slot(sorted_slot)
+		if(isnull(organ))
+			continue
+		var/organ_status = organ.get_status_text(currently_advanced, add_tooltips = FALSE, colored = FALSE)
+		if(organ_status)
+			organ_status ||= "OK"
+			var/color = "#33cc33"
+			if(organ.damage > organ.low_threshold)
+				color = "#ffcc33"
+			if(organ.damage > organ.high_threshold)
+				color = "#ff9933"
+			if(organ.organ_flags & (ORGAN_FAILING | ORGAN_EMP | ORGAN_HAZARDOUS))
+				color = "#cc3333"
+
+			damaged_organs += list(list(
+				"name" = organ.name,
+				"status" = organ_status,
+				"damage" = ceil(organ.damage),
+				"effects" = organ.desc || "No description available.",
+				"color" = color,
+			))
 		if(istype(organ, /obj/item/organ/body_egg/alien_embryo))
 			var/obj/item/organ/body_egg/alien_embryo/embryo = organ
 			var/embryo_stage = embryo.stage
@@ -248,50 +305,13 @@ GLOBAL_LIST_INIT(analyzerthemes, list(
 				if(6)
 					stage_desc = "CRITICAL - Imminent emergence!"
 
-			damaged_organs += list(list(
-				"name" = "ALIEN PARASITE",
-				"status" = stage_desc,
-				"damage" = 0,
-				"effects" = "BIOHAZARD: Xenomorph larva detected! Recommend immediate surgical removal or the patient will not survive.",
-			))
-
 			embryo_data = list(
 				"embryo_stage" = embryo_stage,
 				"stage_desc" = stage_desc,
 			)
-			continue
-
-		if(!organ.damage)
-			continue
-		var/current_organ = list(
-			"name" = organ.name,
-			"status" = organ.get_status_text(advanced, add_tooltips = FALSE, colored = FALSE),
-			"damage" = organ.damage,
-			"effects" = organ.desc || "No description available.",
-		)
-		damaged_organs += list(current_organ)
-
 	data["damaged_organs"] = damaged_organs
 	data["damaged_organs"] += get_missing_organs(patient)
 	data["embryo_data"] = embryo_data
-
-	if(HAS_TRAIT(patient, TRAIT_DNR))
-		data["revivable_string"] = "Permanently deceased" // the actual information shown next to "revivable:" in tgui. "too much damage" etc.
-		data["revivable_boolean"] = FALSE // the actual TRUE/FALSE entry used by tgui. if false, revivable text is red. if true, revivable text is yellow
-	else if(isnull(patient.get_organ_slot(ORGAN_SLOT_HEART)))
-		data["revivable_string"] = "Not ready to defibrillate - heart is missing"
-		data["revivable_boolean"] = FALSE
-	else if(!isnull(patient.get_organ_slot(ORGAN_SLOT_HEART)))
-		var/obj/item/organ/heart = patient.get_organ_by_type(/obj/item/organ/heart)
-		if(heart.organ_flags & ORGAN_FAILING || heart.damage >= 100)
-			data["revivable_string"] = "Not ready to defibrillate - heart is too damaged"
-			data["revivable_boolean"] = FALSE
-	else if((patient.getBruteLoss() <= MAX_REVIVE_BRUTE_DAMAGE) && (patient.getFireLoss() <= MAX_REVIVE_FIRE_DAMAGE) && (!HAS_TRAIT(patient, TRAIT_HUSK)))
-		data["revivable_string"] = "Ready to [patient ? "defibrillate" : "reboot"]" // Ternary for defibrillate or reboot for some IC flavor
-		data["revivable_boolean"] = TRUE
-	else
-		data["revivable_string"] = "Not ready to [patient ? "defibrillate" : "reboot"] - damage left to repair [(round((patient.getBruteLoss() - MAX_REVIVE_BRUTE_DAMAGE) || (patient.getFireLoss() - MAX_REVIVE_FIRE_DAMAGE)))]"
-		data["revivable_boolean"] = FALSE
 
 	/*
 	WOUNDS
@@ -550,7 +570,7 @@ GLOBAL_LIST_INIT(analyzerthemes, list(
 /// Handles UI closing when item is dropped
 /obj/item/healthanalyzer/proc/on_drop(mob/user)
 	SIGNAL_HANDLER
-	reset_analyzer_interface()
+	ui_close()
 
 /obj/item/healthanalyzer/ui_close(mob/user)
 	reset_analyzer_interface()
@@ -565,6 +585,7 @@ GLOBAL_LIST_INIT(analyzerthemes, list(
 				"status" = "Missing",
 				"damage" = "",
 				"effects" = "Handles all cognitive functions. Stores the patient's mind and memories.",
+				"color" = "#cc3333",
 			))
 		if(!HAS_TRAIT_FROM(humantarget, TRAIT_NOBLOOD, SPECIES_TRAIT) && !humantarget.get_organ_slot(ORGAN_SLOT_HEART))
 			missing_organs += list(list(
@@ -572,6 +593,7 @@ GLOBAL_LIST_INIT(analyzerthemes, list(
 				"status" = "Missing",
 				"damage" = "",
 				"effects" = "Pumps blood throughout the body. Required to prevent suffocation.",
+				"color" = "#cc3333",
 			))
 		if(!HAS_TRAIT_FROM(humantarget, TRAIT_NOBREATH, SPECIES_TRAIT) && !humantarget.get_organ_slot(ORGAN_SLOT_LUNGS))
 			missing_organs += list(list(
@@ -579,6 +601,7 @@ GLOBAL_LIST_INIT(analyzerthemes, list(
 				"status" = "Missing",
 				"damage" = "",
 				"effects" = "Oxygenates blood. Required for breathing.",
+				"color" = "#cc3333",
 			))
 		if(!HAS_TRAIT_FROM(humantarget, TRAIT_LIVERLESS_METABOLISM, SPECIES_TRAIT) && !humantarget.get_organ_slot(ORGAN_SLOT_LIVER))
 			missing_organs += list(list(
@@ -586,6 +609,7 @@ GLOBAL_LIST_INIT(analyzerthemes, list(
 				"status" = "Missing",
 				"damage" = "",
 				"effects" = "Filters toxins from the bloodstream.",
+				"color" = "#cc3333",
 			))
 		if(!HAS_TRAIT_FROM(humantarget, TRAIT_NOHUNGER, SPECIES_TRAIT) && !humantarget.get_organ_slot(ORGAN_SLOT_STOMACH))
 			missing_organs += list(list(
@@ -593,6 +617,7 @@ GLOBAL_LIST_INIT(analyzerthemes, list(
 				"status" = "Missing",
 				"damage" = "",
 				"effects" = "Processes and digests food.",
+				"color" = "#cc3333",
 			))
 		if(!humantarget.get_organ_slot(ORGAN_SLOT_TONGUE))
 			missing_organs += list(list(
@@ -600,6 +625,7 @@ GLOBAL_LIST_INIT(analyzerthemes, list(
 				"status" = "Missing",
 				"damage" = "",
 				"effects" = "Required for speech and tasting.",
+				"color" = "#cc3333",
 			))
 		if(!humantarget.get_organ_slot(ORGAN_SLOT_EARS))
 			missing_organs += list(list(
@@ -607,6 +633,7 @@ GLOBAL_LIST_INIT(analyzerthemes, list(
 				"status" = "Missing",
 				"damage" = "",
 				"effects" = "Required for hearing.",
+				"color" = "#cc3333",
 			))
 		if(!humantarget.get_organ_slot(ORGAN_SLOT_EYES))
 			missing_organs += list(list(
@@ -614,6 +641,7 @@ GLOBAL_LIST_INIT(analyzerthemes, list(
 				"status" = "Missing",
 				"damage" = "",
 				"effects" = "Required for vision.",
+				"color" = "#cc3333",
 			))
 		return missing_organs
 
