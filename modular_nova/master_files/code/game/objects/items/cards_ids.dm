@@ -32,6 +32,14 @@
 	icon_state = "card_solfed"
 	assigned_icon_state = "assigned_solfed"
 
+/obj/item/card/id/advanced/solfed/military
+	icon_state = "card_solfed"
+	assigned_icon_state = "card_solfed_official"
+
+/obj/item/card/id/advanced/solfed/official
+	icon_state = "card_solfed"
+	assigned_icon_state = "card_solfed_military"
+
 // Station CC
 /obj/item/card/id/advanced/centcom/station
 	wildcard_slots = WILDCARD_LIMIT_SILVER
