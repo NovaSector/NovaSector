@@ -193,7 +193,10 @@
 /obj/item/organ/brain/protean/Initialize(mapload)
 	. = ..()
 	internal_computer = new(src)
-	actions_types |= /datum/action/item_action/protean/open_internal_computer
+
+	// Properly create and add perscom action to actions list (not actions_types)
+	var/datum/action/item_action/protean/open_internal_computer/perscom_action = new(src)
+	actions += perscom_action
 
 /obj/item/organ/brain/protean/Destroy()
 	QDEL_NULL(internal_computer)
