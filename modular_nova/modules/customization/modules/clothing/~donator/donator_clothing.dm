@@ -2450,11 +2450,12 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/structure/sign/poster/contraband/korpstech, 32)
 
 /obj/item/clothing/suit/admiral_coat
 	name = "admiral's coat"
-	desc = "A robust and imposing looking Sol-naval coat made out of genuine Europan thresher leather. It provides a durable yet comfortable layer, lined with icewolf fur to protect from the bitter cold and ingrained armored padding to protect from the bitter assistants." 
+	desc = "A robust and imposing looking Sol-naval coat made out of genuine Europan thresher leather. It provides a durable yet comfortable layer, lined with icewolf fur to protect from the bitter cold and ingrained armored padding to protect from the bitter assistants."
 	icon_state = "hosnavyzec"
 	worn_icon_state = "hosnavyzec"
 	icon = 'modular_nova/master_files/icons/donator/obj/clothing/suits.dmi'
 	worn_icon = 'modular_nova/master_files/icons/donator/mob/clothing/suit.dmi'
+	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION_NO_NEW_ICON
 
 // Kaynite Donor Items
 /obj/item/clothing/suit/hooded/merctac_hoodie
