@@ -1,7 +1,6 @@
 /*!
  * Contains Voltaic Combat Cyberheart
  */
-#define DOAFTER_IMPLANTING_HEART "implanting"
 
 /obj/item/organ/heart/cybernetic/anomalock
 	name = "voltaic combat cyberheart"
@@ -55,19 +54,24 @@
 	. = ..()
 	if(!core)
 		return
+	if(owner.has_status_effect(/datum/status_effect/voltaic_overdrive))
+		owner.remove_status_effect(/datum/status_effect/voltaic_overdrive)
 	UnregisterSignal(organ_owner, list(COMSIG_ATOM_EMP_ACT, SIGNAL_ADDTRAIT(TRAIT_CRITICAL_CONDITION)))
 	tesla_zap(source = organ_owner, zap_range = 20, power = 2.5e5, cutoff = 1e3)
 
 /obj/item/organ/heart/cybernetic/anomalock/proc/on_emp_act(severity)
+	// for some reason getting shot with an ion rifle triggers this twice.
 	SIGNAL_HANDLER
-	. = EMP_PROTECT_ALL
 	if(owner.has_status_effect(/datum/status_effect/voltaic_overdrive))
+		. = EMP_PROTECT_ALL
 		to_chat(owner, span_danger("Your voltaic combat cyberheart flutters against an electromagnetic pulse!"))
 		return
+	if(activate_survival(owner))
+		. = EMP_PROTECT_ALL
+		to_chat(owner, span_userdanger("Your voltaic combat cyberheart thunders in your chest wildly, surging to hold against the electromagnetic pulse!"))
+		return
 	add_lightning_overlay(10 SECONDS)
-	to_chat(owner, span_userdanger("Your voltaic combat cyberheart thunders in your chest wildly, surging to hold against the electromagnetic pulse!"))
-	activate_survival(owner)
-	return
+	to_chat(owner, span_danger("Your voltaic combat cyberheart flutters weakly, failing to protect against an electromagnetic pulse!"))
 
 /obj/item/organ/heart/cybernetic/anomalock/proc/add_lightning_overlay(time_to_last = 10 SECONDS)
 	if(lightning_overlay)
@@ -110,12 +114,13 @@
 ///Does a few things to try to help you live whatever you may be going through
 /obj/item/organ/heart/cybernetic/anomalock/proc/activate_survival(mob/living/carbon/organ_owner)
 	if(!COOLDOWN_FINISHED(src, survival_cooldown))
-		return
+		return FALSE
 	var/datum/status_effect/voltaic_overdrive/maximum_overdrive = organ_owner.apply_status_effect(/datum/status_effect/voltaic_overdrive)
 	maximum_overdrive.associated_heart = src
 	add_lightning_overlay(30 SECONDS)
 	COOLDOWN_START(src, survival_cooldown, survival_cooldown_time)
 	addtimer(CALLBACK(src, PROC_REF(finish_recharge), organ_owner), COOLDOWN_TIMELEFT(src, survival_cooldown))
+	return TRUE
 
 ///Alerts our owner that the organ is ready to do its thing again
 /obj/item/organ/heart/cybernetic/anomalock/proc/finish_recharge(mob/living/carbon/organ_owner)
@@ -198,12 +203,9 @@
 	. = ..()
 	owner.remove_movespeed_mod_immunities(type, /datum/movespeed_modifier/damage_slowdown)
 	owner.remove_filter("emp_shield")
-	owner.balloon_alert(owner, "your heart weakens")
+	owner.balloon_alert(owner, "your heart weakens!")
 	to_chat(owner, span_userdanger("Your voltaic combat cyberheart putters weakly in your chest as it recharges; it won't protect you against EMPs until it recovers."))
 	owner.remove_traits(list(TRAIT_NOSOFTCRIT, TRAIT_NOHARDCRIT, TRAIT_ANALGESIA), REF(src))
-	// Just in case the heart has migrated from its owner in the meantime of this status effect
-	if(associated_heart.owner == owner)
-		associated_heart.UnregisterSignal(owner, COMSIG_ATOM_EMP_ACT)
 	associated_heart = null
 
 /atom/movable/screen/alert/status_effect/anomalock_active
@@ -219,5 +221,3 @@
 	if(hearer.electrocute_act(15, "stethoscope", flags = SHOCK_NOGLOVES)) //the stethoscope is in your ears. (returns true if it does damage so we only scream in that case)
 		hearer.emote("scream")
 	return span_danger("[owner.p_Their()] heart produces [beat_noise].")
-
-#undef DOAFTER_IMPLANTING_HEART
