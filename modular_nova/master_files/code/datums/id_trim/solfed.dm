@@ -17,6 +17,10 @@
 	. = ..()
 	access = SSid_access.get_region_access_list(list(REGION_CENTCOM, REGION_ALL_STATION))
 
+/datum/outfit/solfed/post_equip(mob/living/carbon/human/agent)
+	agent.faction |= FACTION_SOLFED
+	return ..()
+
 /datum/id_trim/solfed/espatier/odst
 	assignment = "SolFed Orbital Drop Trooper"
 	trim_state = "trim_solfed_odst"
