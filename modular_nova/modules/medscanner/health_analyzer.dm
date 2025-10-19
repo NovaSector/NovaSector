@@ -1,9 +1,15 @@
 GLOBAL_LIST_INIT(analyzerthemes, list(
 	"default",
 	"hackerman",
-	"ntos_rusty",
-	"ntos_healthy",
-	"black_ntos",
+	"ntOS95",
+	"ntos_terminal",
+	"ntos_lightmode",
+	"ntos_synth",
+	"syndicate",
+	"ntos",
+	"abductor",
+	"neutral",
+	"ntos_darkmode",
 	"transparent",
 ))
 
