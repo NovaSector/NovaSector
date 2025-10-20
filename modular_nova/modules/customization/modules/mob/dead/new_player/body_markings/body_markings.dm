@@ -195,6 +195,13 @@
 	affected_bodyparts = HEAD
 	always_color_customizable = TRUE
 
+/datum/body_marking/other/sclera
+	name = "Sclera"
+	icon_state = "sclera"
+	default_color = "#FF0000"
+	affected_bodyparts = HEAD
+	always_color_customizable = TRUE
+
 /datum/body_marking/other/anime_inner
 	name = "Anime Eyes (Inner)"
 	icon_state = "anime_inner"
