@@ -9,6 +9,6 @@
 	. = ..()
 	backpack_contents = list(
 		/obj/item/detective_scanner = 1,
+		/obj/item/melee/baton = 1,
 		/obj/item/pinpointer/crew = 1,
 	)
-
