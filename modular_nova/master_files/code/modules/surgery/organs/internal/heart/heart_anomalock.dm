@@ -54,8 +54,8 @@
 	. = ..()
 	if(!core)
 		return
-	if(owner.has_status_effect(/datum/status_effect/voltaic_overdrive))
-		owner.remove_status_effect(/datum/status_effect/voltaic_overdrive)
+	if(owner?.has_status_effect(/datum/status_effect/voltaic_overdrive))
+		owner?.remove_status_effect(/datum/status_effect/voltaic_overdrive)
 	UnregisterSignal(organ_owner, list(COMSIG_ATOM_EMP_ACT, SIGNAL_ADDTRAIT(TRAIT_CRITICAL_CONDITION)))
 	tesla_zap(source = organ_owner, zap_range = 20, power = 2.5e5, cutoff = 1e3)
 
