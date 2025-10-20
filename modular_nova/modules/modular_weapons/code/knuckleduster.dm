@@ -36,7 +36,7 @@
 /// Sets up the martial art component and registers equipment/drop signals
 /obj/item/melee/knuckleduster/Initialize(mapload)
 	. = ..()
-	AddComponent(/datum/component/martial_art_giver, /datum/martial_art/boxing/street)
+	AddComponent(/datum/component/martial_art_giver, granted_style)
 	RegisterSignal(src, COMSIG_ITEM_EQUIPPED, PROC_REF(knuckle_equipped))
 	RegisterSignal(src, COMSIG_ITEM_DROPPED, PROC_REF(knuckle_dropped))
 
