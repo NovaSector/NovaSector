@@ -7,8 +7,5 @@
 
 /datum/outfit/job/detective/New()
 	. = ..()
-	backpack_contents = list(
-		/obj/item/detective_scanner = 1,
-		/obj/item/melee/baton = 1,
-		/obj/item/pinpointer/crew = 1,
-	)
+	backpack_contents -= /obj/item/storage/box/evidence
+	backpack_contents += list(/obj/item/pinpointer/crew = 1)
