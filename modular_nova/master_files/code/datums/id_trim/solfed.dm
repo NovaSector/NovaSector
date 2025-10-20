@@ -1,3 +1,11 @@
+/datum/outfit/solfed/post_equip(mob/living/carbon/human/agent)
+	agent.faction |= FACTION_SOLFED
+	return ..()
+
+/datum/id_trim/solfed/espatier/New()
+	. = ..()
+	access = SSid_access.get_region_access_list(list(REGION_CENTCOM, REGION_ALL_STATION))
+
 /datum/id_trim/solfed
 	trim_icon = 'modular_nova/master_files/icons/obj/card.dmi'
 	assignment = "SolFed"
@@ -6,20 +14,14 @@
 	subdepartment_color = COLOR_SOLFED_GOLD
 	sechud_icon_state = SECHUD_SOLFED
 	threat_modifier = -5 // Solfed Count as a police force
+	big_pointer = TRUE
+	pointer_color = COLOR_SOLFED_GOLD
 
 /// Lets be real if the ERT variant of these guys are coming, ya'll are cooked
 /datum/id_trim/solfed/espatier
 	assignment = "SolFed Espatier"
 	threat_modifier = -10 // This counts as military intervention
 	trim_state = "trim_solfed_espatier"
-
-/datum/id_trim/solfed/espatier/New()
-	. = ..()
-	access = SSid_access.get_region_access_list(list(REGION_CENTCOM, REGION_ALL_STATION))
-
-/datum/outfit/solfed/post_equip(mob/living/carbon/human/agent)
-	agent.faction |= FACTION_SOLFED
-	return ..()
 
 /datum/id_trim/solfed/espatier/odst
 	assignment = "SolFed Orbital Drop Trooper"
