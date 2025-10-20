@@ -1,0 +1,4 @@
+author: "Stalkeros, Zydras for the sprites"
+delete-after: True
+changes:
+  - rscadd: "Added the DeForest Materiel Recovery Terminal, a Janitor vending machine-exclusive flatpack of a machine that exchanges trash, for cash if you're a janitor, and ration tickets if you're not."
