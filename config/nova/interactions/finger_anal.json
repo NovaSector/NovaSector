@@ -1,0 +1,29 @@
+{
+	"name": "Finger anus",
+	"description": "Play with your fingers in their ass.",
+	"usage": "other",
+	"category": " Anal",
+	"distance_allowed": 0,
+	"message": [
+		"%USER% fucks %TARGET%'s ass with %USER_PRONOUN_THEIR% fingers.",
+    	"%USER% penetrates %TARGET%'s anus with %USER_PRONOUN_THEIR% fingers.",
+    	"%USER% sticks %USER_PRONOUN_THEIR% fingers in %TARGET%'s ass.",
+    	"%USER% works %TARGET%'s anal ring with %USER_PRONOUN_THEIR% fingers."
+	],
+	"sound_use": 1,
+	"sound_possible": [
+		"modular_nova/modules/modular_items/lewd_items/sounds/bang1.ogg",
+		"modular_nova/modules/modular_items/lewd_items/sounds/bang2.ogg",
+		"modular_nova/modules/modular_items/lewd_items/sounds/bang3.ogg"
+	],
+	"sound_range": 7,
+	"interaction_requires": ["self_hand"],
+	"color": "pink",
+	"user_required_parts": [],
+	"user_arousal": 4,
+	"user_pleasure": 0,
+	"target_required_parts": ["anus"],
+	"target_arousal": 2,
+	"target_pleasure": 2,
+	"lewd": 1
+}

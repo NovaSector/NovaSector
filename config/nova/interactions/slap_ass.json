@@ -1,0 +1,29 @@
+{
+	"name": "Slap ass",
+	"description": "Slap their butt.",
+	"usage": "other",
+	"category": " Petting",
+	"distance_allowed": 0,
+	"message": [
+		"%USER% slaps %TARGET% on the butt!",
+    	"%USER% forcefully places %USER_PRONOUN_THEIR% hand on %TARGET%'s ass!",
+    	"%USER% punishes %TARGET% with a slap on the butt!",
+    	"%USER% puts %USER_PRONOUN_THEIR% hand on %TARGET%'s ass!"
+	],
+	"sound_use": 1,
+	"sound_possible": [
+		"sound/items/weapons/slap.ogg",
+		"modular_nova/modules/modular_items/lewd_items/sounds/slap.ogg"
+	],
+	"sound_range": 7,
+	"interaction_requires": ["self_hand"],
+	"color": "pink",
+	"user_required_parts": [],
+	"user_arousal": 2,
+	"user_pleasure": 0,
+	"target_required_parts": [],
+	"target_arousal": 4,
+	"target_pleasure": 0,
+    "target_pain": 4,
+	"lewd": 1
+}

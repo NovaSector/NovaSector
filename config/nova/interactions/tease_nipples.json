@@ -1,0 +1,25 @@
+{
+	"name": "Tease nipples",
+	"description": "Tease their nipples",
+	"usage": "other",
+	"category": " Chest",
+	"distance_allowed": 0,
+	"message": [
+    	"%USER% squeezes %TARGET%'s nipples with %USER_PRONOUN_THEIR% fingers and pulls on them.",
+    	"%USER% rubs %TARGET%'s areolas with %USER_PRONOUN_THEIR% fingers.",
+    	"%USER% squeezes %TARGET%'s nipples with %USER_PRONOUN_THEIR% fingers.",
+    	"%USER% presses %USER_PRONOUN_THEIR% fingertips against %TARGET%'s nipples."
+	],
+	"sound_use": 1,
+	"sound_possible": ["modular_nova/modules/emotes/sound/emotes/blush.ogg"],
+	"sound_range": 7,
+	"interaction_requires": ["self_hand"],
+	"color": "pink",
+	"user_required_parts": [],
+	"user_arousal": 3,
+	"user_pleasure": 0,
+	"target_required_parts": [],
+	"target_arousal": 5,
+	"target_pleasure": 3,
+	"lewd": 1
+}

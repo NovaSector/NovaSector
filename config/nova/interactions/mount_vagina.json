@@ -1,0 +1,29 @@
+{
+	"name": "Mount (Vagina)",
+	"description": "Put your pussy on their cock.",
+	"usage": "other",
+	"category": " Vaginal",
+	"distance_allowed": 0,
+	"message": [
+    	"%USER% impales herself with %USER_PRONOUN_THEIR% lower lips on %TARGET%'s sturdy shaft.",
+    	"%USER% bounces %USER_PRONOUN_THEIR% pussy on %TARGET%'s cock.",
+    	"%USER% inserts %TARGET%'s cock into %USER_PRONOUN_THEIR% vagina.",
+    	"%USER% rubs %TARGET%'s dick inside %USER_PRONOUN_THEIR% pussy."
+	],
+	"sound_use": 1,
+	"sound_possible": [
+		"modular_nova/modules/modular_items/lewd_items/sounds/bj3.ogg",
+		"modular_nova/modules/modular_items/lewd_items/sounds/bj4.ogg",
+		"modular_nova/modules/modular_items/lewd_items/sounds/bj5.ogg"
+	],
+	"sound_range": 7,
+	"interaction_requires": [],
+	"color": "pink",
+	"user_required_parts": ["vagina"],
+	"user_arousal": 6,
+	"user_pleasure": 8,
+	"target_required_parts": ["penis"],
+	"target_arousal": 6,
+	"target_pleasure": 8,
+	"lewd": 1
+}

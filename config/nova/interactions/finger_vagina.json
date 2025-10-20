@@ -1,0 +1,29 @@
+{
+	"name": "Finger pussy",
+	"description": "Play with your fingers in their pussy.",
+	"usage": "other",
+	"category": " Vaginal",
+	"distance_allowed": 0,
+	"message": [
+		"%USER% holds %USER_PRONOUN_THEIR% palm on %TARGET%'s pussy and fucks with %USER_PRONOUN_THEIR% fingers.",
+    	"%USER% penetrates %TARGET%'s pussy with %USER_PRONOUN_THEIR% fingers.",
+    	"%USER% sticks %USER_PRONOUN_THEIR% fingers into %TARGET%'s pussy.",
+    	"%USER% slides inside %TARGET%'s pussy with %USER_PRONOUN_THEIR% fingers."
+	],
+	"sound_use": 1,
+	"sound_possible": [
+		"modular_nova/modules/modular_items/lewd_items/sounds/bj9.ogg",
+		"modular_nova/modules/modular_items/lewd_items/sounds/bj10.ogg",
+		"modular_nova/modules/modular_items/lewd_items/sounds/bj11.ogg"
+	],
+	"sound_range": 7,
+	"interaction_requires": ["self_hand"],
+	"color": "pink",
+	"user_required_parts": [],
+	"user_arousal": 4,
+	"user_pleasure": 0,
+	"target_required_parts": ["vagina"],
+	"target_arousal": 5,
+	"target_pleasure": 5,
+	"lewd": 1
+}

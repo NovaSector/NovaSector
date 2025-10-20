@@ -1,0 +1,26 @@
+{
+	"name": "Grab ass",
+	"description": "Grab their butt.",
+	"usage": "other",
+	"category": " Petting",
+	"distance_allowed": 0,
+	"message": [
+		"%USER% squeezes %TARGET%'s butt with %USER_PRONOUN_THEIR% palm.",
+		"%USER% clench %TARGET%'s ass in %USER_PRONOUN_THEIR% palm.",
+		"%USER% digs %USER_PRONOUN_THEIR% fingers into %TARGET%'s butt.",
+		"%USER% checks the elasticity of %TARGET%'s gluteal muscles."
+	],
+	"sound_use": 1,
+	"sound_possible": ["modular_nova/modules/emotes/sound/emotes/blush.ogg"
+],
+	"sound_range": 7,
+	"interaction_requires": ["self_hand"],
+	"color": "pink",
+	"user_required_parts": [],
+	"user_arousal": 2,
+	"user_pleasure": 0,
+	"target_required_parts": [],
+	"target_arousal": 4,
+	"target_pleasure": 0,
+	"lewd": 1
+}

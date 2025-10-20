@@ -1,0 +1,26 @@
+{
+	"name": "Grope breasts",
+	"description": "Grope their breasts.",
+	"usage": "other",
+	"category": " Chest",
+	"distance_allowed": 0,
+	"message": [
+		"%USER% gropes %TARGET%'s breasts.",
+    	"%USER% grabs %TARGET%'s boobs.",
+    	"%USER% plays with %TARGET%'s tits.",
+    	"%USER% squeezes %TARGET%'s tits."
+	],
+	"sound_use": 1,
+	"sound_possible": ["modular_nova/modules/emotes/sound/emotes/blush.ogg"
+],
+	"sound_range": 7,
+	"interaction_requires": ["self_hand"],
+	"color": "pink",
+	"user_required_parts": [],
+	"user_arousal": 2,
+	"user_pleasure": 0,
+	"target_required_parts": ["breasts"],
+	"target_arousal": 4,
+	"target_pleasure": 2,
+	"lewd": 1
+}

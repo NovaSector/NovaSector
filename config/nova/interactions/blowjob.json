@@ -1,0 +1,28 @@
+{
+	"name": "Blowjob",
+	"description": "Take their penis in your mouth and caress.",
+	"usage": "other",
+	"category": " Oral",
+	"distance_allowed": 0,
+	"message": [
+		"%USER% sucks %TARGET%'s cock, gripping tightly with %USER_PRONOUN_THEIR% lips.",
+        "%USER% holds %TARGET%'s shaft in %USER_PRONOUN_THEIR% mouth and moves %USER_PRONOUN_THEIR% head forward and backward.",
+        "%USER% presses %USER_PRONOUN_THEIR% tongue against %TARGET%'s penis as it penetrates %USER_PRONOUN_THEIR% mouth.",
+        "%USER% moves %USER_PRONOUN_THEIR% tongue in circles around %TARGET%'s penis."
+	],
+	"sound_use": 1,
+	"sound_possible": [
+		"modular_nova/modules/modular_items/lewd_items/sounds/oral1.ogg",
+		"modular_nova/modules/modular_items/lewd_items/sounds/oral2.ogg"
+	],
+	"sound_range": 7,
+	"interaction_requires": [],
+	"color": "pink",
+	"user_required_parts": [],
+	"user_arousal": 5,
+	"user_pleasure": 0,
+	"target_required_parts": ["penis"],
+	"target_arousal": 7,
+	"target_pleasure": 5,
+	"lewd": 1
+}

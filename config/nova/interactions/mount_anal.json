@@ -1,0 +1,30 @@
+{
+	"name": "Mount (Anal)",
+	"description": "Put your ass on their cock.",
+	"usage": "other",
+	"category": " Anal",
+	"distance_allowed": 0,
+	"message": [
+    	"%USER% impales herself with %USER_PRONOUN_THEIR% anal hole on %TARGET%'s sturdy shaft.",
+    	"%USER% bounces %USER_PRONOUN_THEIR% ass on %TARGET%'s cock.",
+    	"%USER% inserts %TARGET%'s cock into %USER_PRONOUN_THEIR% anal.",
+    	"%USER% rubs %TARGET%'s dick inside %USER_PRONOUN_THEIR% ass."
+	],
+	"sound_use": 1,
+	"sound_possible": [
+		"modular_nova/modules/modular_items/lewd_items/sounds/bang4.ogg",
+		"modular_nova/modules/modular_items/lewd_items/sounds/bang5.ogg",
+		"modular_nova/modules/modular_items/lewd_items/sounds/bang6.ogg"
+	],
+	"sound_range": 7,
+	"interaction_requires": [],
+	"color": "pink",
+	"user_required_parts": ["anus"],
+	"user_arousal": 6,
+	"user_pleasure": 6,
+	"user_pain": 4,
+	"target_required_parts": ["penis"],
+	"target_arousal": 6,
+	"target_pleasure": 8,
+	"lewd": 1
+}

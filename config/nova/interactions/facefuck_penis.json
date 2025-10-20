@@ -1,0 +1,28 @@
+{
+	"name": "Facefuck (Penis)",
+	"description": "Fuck their mouth with your cock.",
+	"usage": "other",
+	"category": " Oral",
+	"distance_allowed": 0,
+	"message": [
+		"%USER% fucks %TARGET%'s mouth with %USER_PRONOUN_THEIR% dick.",
+        "%USER% shoves %USER_PRONOUN_THEIR% dick down %TARGET%'s mouth.",
+        "%USER% thrusts %USER_PRONOUN_THEIR% penis inside %TARGET%'s mouth.",
+        "%USER% uses %TARGET%'s mouth for %USER_PRONOUN_THEIR% own satisfaction."
+	],
+	"sound_use": 1,
+	"sound_possible": [
+		"modular_nova/modules/modular_items/lewd_items/sounds/oral1.ogg",
+		"modular_nova/modules/modular_items/lewd_items/sounds/oral2.ogg"
+	],
+	"sound_range": 7,
+	"interaction_requires": [],
+	"color": "pink",
+	"user_required_parts": ["penis"],
+	"user_arousal": 7,
+	"user_pleasure": 5,
+	"target_required_parts": [],
+	"target_arousal": 5,
+	"target_pleasure": 0,
+	"lewd": 1
+}

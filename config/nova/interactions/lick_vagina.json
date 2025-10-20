@@ -1,0 +1,29 @@
+{
+	"name": "Lick pussy",
+	"description": "Caress their erogenous zones with your mouth.",
+	"usage": "other",
+	"category": " Oral",
+	"distance_allowed": 0,
+	"message": [
+		"%USER% runs %USER_PRONOUN_THEIR% lips over %TARGET%'s labia.",
+		"%USER% presses %USER_PRONOUN_THEIR% face into %TARGET%'s pussy, moistening it with %USER_PRONOUN_THEIR% saliva.",
+		"%USER% tastes %TARGET% with %USER_PRONOUN_THEIR% tongue.",
+		"%USER% savors %TARGET%'s erogenous zone with %USER_PRONOUN_THEIR% lips."
+	],
+	"sound_use": 1,
+	"sound_possible": [
+		"modular_nova/modules/modular_items/lewd_items/sounds/bj1.ogg",
+		"modular_nova/modules/modular_items/lewd_items/sounds/bj5.ogg"
+	],
+	"sound_range": 7,
+	"interaction_requires": [],
+	"color": "pink",
+	"user_required_parts": [],
+	"user_arousal": 3,
+	"user_pleasure": 0,
+	"target_required_parts": ["vagina"],
+	"target_arousal": 5,
+	"target_pleasure": 3,
+	"lewd": 1
+}
+

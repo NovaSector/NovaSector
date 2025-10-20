@@ -1,0 +1,30 @@
+{
+	"name": "Fuck ass",
+	"description": "Penetrate the ass of them.",
+	"usage": "other",
+	"category": " Anal",
+	"distance_allowed": 0,
+	"message": [
+    	"%USER% inserts %USER_PRONOUN_THEIR% dick into %TARGET%'s ass.",
+        "%USER% pounds %TARGET%'s anal hole with %USER_PRONOUN_THEIR% penis.",
+        "%USER% drives %USER_PRONOUN_THEIR% dick into %TARGET%'s anal hole.",
+        "%USER% fucks %TARGET%'s ass with %USER_PRONOUN_THEIR% penis."
+	],
+	"sound_use": 1,
+	"sound_possible": [
+		"modular_nova/modules/modular_items/lewd_items/sounds/bang4.ogg",
+		"modular_nova/modules/modular_items/lewd_items/sounds/bang5.ogg",
+		"modular_nova/modules/modular_items/lewd_items/sounds/bang6.ogg"
+	],
+	"sound_range": 7,
+	"interaction_requires": [],
+	"color": "pink",
+	"user_required_parts": ["penis"],
+	"user_arousal": 6,
+	"user_pleasure": 8,
+	"target_required_parts": ["anus"],
+	"target_arousal": 6,
+	"target_pleasure": 6,
+	"target_pain": 4,
+	"lewd": 1
+}
