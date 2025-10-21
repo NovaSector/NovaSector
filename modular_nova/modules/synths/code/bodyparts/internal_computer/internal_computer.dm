@@ -59,15 +59,15 @@
 	if(!(istype(brain_loc, /obj/item/organ/brain/synth) || istype(brain_loc, /obj/item/organ/brain/cybernetic/cortical)))
 		return
 	if(istype(brain_loc, /obj/item/organ/brain/synth))
-		var/obj/item/organ/brain/synth/sb = brain_loc
-		if(isnull(sb.internal_computer))
+		var/obj/item/organ/brain/synth/synth_brain = brain_loc
+		if(isnull(synth_brain.internal_computer))
 			return
-		sb.internal_computer.handle_id_slot(sb.owner, id_card)
+		synth_brain.internal_computer.handle_id_slot(synth_brain.owner, id_card)
 		return
-	var/obj/item/organ/brain/cybernetic/cortical/cb = brain_loc
-	if(isnull(cb.internal_computer))
+	var/obj/item/organ/brain/cybernetic/cortical/cortical_brain = brain_loc
+	if(isnull(cortical_brain.internal_computer))
 		return
-	cb.internal_computer.handle_id_slot(cb.owner, id_card)
+	cortical_brain.internal_computer.handle_id_slot(cortical_brain.owner, id_card)
 
 /// Called when id slot item is unequipped from the id slot
 /obj/item/modular_computer/pda/synth/proc/on_id_item_unequipped(datum/source)
