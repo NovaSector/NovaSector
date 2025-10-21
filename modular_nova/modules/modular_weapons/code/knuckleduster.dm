@@ -75,7 +75,8 @@
 		return
 
 	if(slot == ITEM_SLOT_GLOVES && !is_worn_as_glove)
-		user.add_traits(list(TRAIT_CHUNKYFINGERS), REF(src))
+		add_glove_effects(user)
+
 	else if(slot != ITEM_SLOT_GLOVES && is_worn_as_glove)
 		remove_glove_effects(user)
 
@@ -91,6 +92,18 @@
 	SIGNAL_HANDLER
 	if(is_worn_as_glove)
 		remove_glove_effects(user)
+
+/**
+ * Adds all glove-related bonuses, effects, and traits.
+ * Called when the knuckledusters are equipped from the glove slot.
+ *
+ * Arguments:
+ * * user - The mob that was wearing the knuckledusters
+ */
+/obj/item/melee/knuckleduster/proc/add_glove_effects(mob/user)
+	is_worn_as_glove = TRUE
+	if(istype(user))
+		user.add_traits(list(TRAIT_CHUNKYFINGERS), REF(src))
 
 /**
  * Removes all glove-related bonuses, effects, and traits.
@@ -193,16 +206,16 @@
 			// otherwise, if baton resistant, more stagger and stamina damage
 			if(HAS_TRAIT(defender, TRAIT_BATON_RESISTANCE))
 				defender.visible_message(
-					span_danger("[attacker] knocks [defender] down with a haymaker!"),
-					span_userdanger("You're knocked down by [attacker]!"),
+					span_danger("[attacker] knocks [defender] around with a haymaker, staggering [defender.p_them()]!"),
+					span_userdanger("You're knocked around by [attacker]!"),
 					span_hear("You hear a sickening sound of flesh hitting flesh!"),
 					COMBAT_MESSAGE_RANGE,
 					attacker,
 				)
-				to_chat(attacker, span_danger("You knock [defender] down with a haymaker!"))
+				to_chat(attacker, span_danger("You knock [defender] around with a haymaker!"))
 				defender.adjust_staggered_up_to(STAGGERED_SLOWDOWN_LENGTH, 10 SECONDS)
 				defender.apply_damage(20, STAMINA, blocked = armor_block)
-				log_combat(attacker, defender, "knocked down (boxing) ")
+				log_combat(attacker, defender, "knocked around (boxing) ")
 			else
 			// otherwise, sit down buddy (if you got crit once you're probably lined up to eat more crits)
 				defender.visible_message(
@@ -213,6 +226,7 @@
 					attacker,
 				)
 				to_chat(attacker, span_danger("You knock [defender] down with a haymaker!"))
+				defender.adjust_staggered_up_to(STAGGERED_SLOWDOWN_LENGTH, 10 SECONDS)
 				defender.apply_effect(5 SECONDS, EFFECT_KNOCKDOWN, armor_block)
 				defender.apply_damage(30, STAMINA, blocked = armor_block)
 				log_combat(attacker, defender, "knocked down (boxing) ")
