@@ -53,7 +53,15 @@
 	pixel_y = 4;
 	pixel_x = 4
 	},
-/turf/open/floor/iron/dark/textured_large,
+/obj/effect/turf_decal/tile/dark_red/half{
+	dir = 8
+	},
+/obj/effect/turf_decal/siding/wideplating_new/dark{
+	dir = 4
+	},
+/turf/open/floor/iron/dark/textured_half{
+	dir = 1
+	},
 /area/ruin/space/has_grav/nova/des_two/cargo)
 "aj" = (
 /obj/structure/cable,
@@ -1091,7 +1099,15 @@
 /obj/structure/frame/machine/secured,
 /obj/item/circuitboard/machine/ghostpad/syndicate,
 /obj/machinery/light/cold/directional/west,
-/turf/open/floor/iron/dark/textured_large,
+/obj/effect/turf_decal/tile/dark_red/half{
+	dir = 8
+	},
+/obj/effect/turf_decal/siding/wideplating_new/dark{
+	dir = 4
+	},
+/turf/open/floor/iron/dark/textured_half{
+	dir = 1
+	},
 /area/ruin/space/has_grav/nova/des_two/cargo)
 "eJ" = (
 /obj/machinery/atmospherics/components/unary/vent_pump/on/layer4{
@@ -2346,26 +2362,16 @@
 /turf/open/floor/mineral/plastitanium,
 /area/ruin/space/has_grav/nova/des_two/security/prison)
 "ku" = (
-/obj/item/clothing/shoes/galoshes{
-	pixel_y = -8
+/obj/effect/turf_decal/tile/dark_red/anticorner{
+	dir = 8
 	},
-/obj/item/reagent_containers/spray/cleaner{
-	pixel_x = 6;
-	pixel_y = -6
-	},
-/obj/item/holosign_creator/janibarrier{
-	pixel_y = -9
-	},
-/obj/item/mop,
-/obj/effect/turf_decal/tile/purple/half{
+/obj/effect/turf_decal/siding/wideplating_new/dark/corner{
 	dir = 4
 	},
-/obj/machinery/light/small/directional/east,
-/obj/structure/mop_bucket/janitorialcart{
+/obj/machinery/power/apc/auto_name/directional/south,
+/obj/structure/cable,
+/turf/open/floor/iron/dark/textured_corner{
 	dir = 4
-	},
-/turf/open/floor/iron/dark/textured_half{
-	dir = 1
 	},
 /area/ruin/space/has_grav/nova/des_two/cargo)
 "kv" = (
@@ -6376,15 +6382,13 @@
 /turf/open/floor/wood,
 /area/ruin/space/has_grav/nova/des_two/security/intel)
 "Cs" = (
-/obj/machinery/door/firedoor,
-/obj/machinery/door/airlock/hatch{
-	name = "Janitorial Supplies"
+/obj/effect/turf_decal/tile/dark_red/half,
+/obj/effect/turf_decal/siding/wideplating_new/dark{
+	dir = 1
 	},
-/obj/effect/mapping_helpers/airlock/access/all/syndicate/general,
-/obj/effect/mapping_helpers/airlock/unres{
+/turf/open/floor/iron/dark/textured_half{
 	dir = 4
 	},
-/turf/open/floor/iron/dark/textured_large,
 /area/ruin/space/has_grav/nova/des_two/cargo)
 "Ct" = (
 /obj/effect/turf_decal/bot,
@@ -6722,7 +6726,15 @@
 	pixel_x = 2;
 	pixel_y = 2
 	},
-/turf/open/floor/iron/dark/textured_large,
+/obj/effect/turf_decal/tile/dark_red/half{
+	dir = 8
+	},
+/obj/effect/turf_decal/siding/wideplating_new/dark{
+	dir = 4
+	},
+/turf/open/floor/iron/dark/textured_half{
+	dir = 1
+	},
 /area/ruin/space/has_grav/nova/des_two/cargo)
 "DN" = (
 /obj/structure/bed/maint,
@@ -7985,6 +7997,9 @@
 	},
 /turf/open/floor/iron/white/textured_large,
 /area/ruin/space/has_grav/nova/des_two/security/prison)
+"Jp" = (
+/turf/open/floor/plating,
+/area/ruin/space/has_grav/nova/des_two/bridge/vault)
 "Js" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
@@ -9487,6 +9502,18 @@
 /obj/item/reagent_containers/cup/bucket/wooden,
 /turf/open/floor/iron/dark/textured_large,
 /area/ruin/space/has_grav/nova/des_two/service/sauna)
+"Qc" = (
+/obj/effect/turf_decal/tile/dark_red/half{
+	dir = 8
+	},
+/obj/effect/turf_decal/siding/wideplating_new/dark{
+	dir = 4
+	},
+/obj/structure/cable,
+/turf/open/floor/iron/dark/textured_half{
+	dir = 1
+	},
+/area/ruin/space/has_grav/nova/des_two/cargo/hangar)
 "Qd" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
@@ -10848,7 +10875,6 @@
 /obj/structure/marker_beacon/burgundy,
 /obj/effect/mapping_helpers/apc/syndicate_access,
 /obj/structure/cable,
-/obj/machinery/power/apc/auto_name/directional/south,
 /turf/open/floor/iron/dark/textured_half{
 	dir = 1
 	},
@@ -14697,7 +14723,7 @@ bI
 TU
 dJ
 TU
-Cs
+TU
 TU
 IZ
 gd
@@ -14761,7 +14787,7 @@ Xo
 WT
 iz
 VQ
-iz
+Qc
 ku
 TU
 IZ
@@ -14826,8 +14852,8 @@ NW
 NW
 ju
 gw
-qJ
-TU
+Jp
+Cs
 TU
 IZ
 gd
