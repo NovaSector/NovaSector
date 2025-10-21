@@ -162,9 +162,12 @@
 	playsound(user ? user : src, 'sound/items/tools/change_drill.ogg', 50, TRUE)
 	return COMPONENT_NO_DEFAULT_MESSAGE
 
-/obj/item/blood_filter/advanced/examine()
+/obj/item/blood_filter/advanced/examine(mob/user)
 	. = ..()
 	. += span_notice("It resembles a [tool_behaviour == TOOL_BLOODFILTER ? "bloodfilter" : "bonesetter"].")
+	. += span_notice("Alt-click to configure chemical filtering whitelist.")
+	if(issilicon(user))
+		. += span_notice("Ctrl-click to configure chemical filtering whitelist.")
 
 /datum/design/combitool
 	name = "Medical Combitool"
