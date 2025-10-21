@@ -23,7 +23,7 @@
 	desc = "Tall rustling stalks form a wall of corn. It seems to part slightly."
 	opacity = TRUE
 	density = FALSE
-	layer = SIGN_LAYER
+	layer = WALL_OBJ_LAYER
 
 /obj/structure/sign/spooky/fairy_lights_pumpkin
 	name = "Pumpkin Fairy Lights"
