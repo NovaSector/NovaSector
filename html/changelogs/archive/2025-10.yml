@@ -652,3 +652,31 @@
 2025-10-19:
   vinylspiders:
   - bugfix: fixes teshari icons for storage belts, waistpacks, and chest pouches
+2025-10-21:
+  Bannhammger:
+  - rscadd: Added the medical combitool - a combination surgical tool that can switch
+      between bonesetter and blood filter modes
+  - rscadd: Added alien bonesetter and alien bloodfilter - advanced variants with
+      faster tool speeds
+  - qol: Medical cyborgs' Advanced Surgery Tools upgrade now includes the medical
+      combitool instead of separate surgical omnitools
+  - qol: Medical combitool is now available through DeForest Medical cargo imports
+      for 3 command paychecks
+  - rscadd: returns of Cursed quirk into selection
+  FIoppie:
+  - rscadd: Standalone eye sclera marking
+  Hatterhat:
+  - balance: The detective's knuckledusters no longer grant Evil Boxing for free,
+      and instead grant Street Boxing, which still allows you to punch people who
+      aren't boxers to chain together knockdowns. Syndicate knuckledusters remain
+      Evil, however.
+  OrbisAnima:
+  - bugfix: Adapts the custom screams to the new system, we can shout again.
+  RealWinterFrost:
+  - image: 'replaces many items in the remotes dmi file to have unique sprite for
+      each item. (EX: TTS Device, Blueshield Beacon, NTC Beacon, Ingredients Beacon,
+      Etc)'
+  Stalkeros, Zydras for the sprites:
+  - rscadd: Added the DeForest Materiel Recovery Terminal, a Janitor vending machine-exclusive
+      flatpack of a machine that exchanges trash, for cash if you're a janitor, and
+      ration tickets if you're not.

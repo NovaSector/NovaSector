@@ -1,7 +1,0 @@
-author: "Bannhammger"
-delete-after: True
-changes:
-  - rscadd: "Added the medical combitool - a combination surgical tool that can switch between bonesetter and blood filter modes"
-  - rscadd: "Added alien bonesetter and alien bloodfilter - advanced variants with faster tool speeds"
-  - qol: "Medical cyborgs' Advanced Surgery Tools upgrade now includes the medical combitool instead of separate surgical omnitools"
-  - qol: "Medical combitool is now available through DeForest Medical cargo imports for 3 command paychecks"
