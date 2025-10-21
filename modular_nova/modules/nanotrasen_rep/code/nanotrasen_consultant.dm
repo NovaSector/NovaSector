@@ -163,8 +163,8 @@
 /obj/item/choice_beacon/ntc
 	name = "gunset beacon"
 	desc = "A single use beacon to deliver a gunset of your choice. Please only call this in your office"
-	icon_state = "cc_becon"
-	inhand_icon_state = "cc_becon"
+	icon_state = "cc_beacon"
+	inhand_icon_state = "cc_beacon"
 	icon = 'modular_nova/modules/modular_items/icons/remote.dmi'
 	lefthand_file = 'modular_nova/modules/modular_items/icons/inhand/mobs/lefthand_remote.dmi'
 	righthand_file = 'modular_nova/modules/modular_items/icons/inhand/mobs/righthand_remote.dmi'
