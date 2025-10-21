@@ -1,0 +1,4 @@
+author: "RealWinterFrost"
+delete-after: True
+changes:
+  - image: "replaces many items in the remotes dmi file to have unique sprite for each item. (EX: TTS Device, Blueshield Beacon, NTC Beacon, Ingredients Beacon, Etc)"
