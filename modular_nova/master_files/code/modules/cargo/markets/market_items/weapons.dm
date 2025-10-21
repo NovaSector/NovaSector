@@ -110,3 +110,12 @@
 	price_max = CARGO_CRATE_VALUE * 20
 	availability_prob = 20
 	stock_max = 1
+
+/datum/market_item/weapon/knuckleduster
+	name = "Knuckledusters"
+	desc = /obj/item/melee/knuckleduster::desc
+	item = /obj/item/melee/knuckleduster
+	price_min = CARGO_CRATE_VALUE * 3
+	price_max = CARGO_CRATE_VALUE * 7
+	availability_prob = 85
+	stock_max = 3
