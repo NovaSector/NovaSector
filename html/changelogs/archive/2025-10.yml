@@ -635,3 +635,49 @@
   - bugfix: integrated toolset and integrated paperwork implants can be emagged for
       an integrated combat knife and chameleon stamp, respectively (fixed a bug preventing
       that from working)
+2025-10-18:
+  Bannhammger:
+  - rscadd: Knuckleduster and it's variant to uplink!
+  Stalkeros, splet for the sprites:
+  - rscadd: Adds a new piece of Coalition police clothing, being a pretty official
+      shirt-pencil skirt combo
+  - spellcheck: Generally speaking, most of the then-Imperial/NRI mentions in the
+      police gear has been swapped to now-Coalition/HC
+  lukevale:
+  - rscadd: Adds 3 new markings, Belly trim, Chemlight, and Chembright.
+  - rscadd: Adds two new tails, chemlight, and striped tail.
+  - rscadd: Adds two new taurs, chemlight, and striped canine.
+  - rscadd: Adds a new set of tall ears for those canines looking to get those ear
+      scritches.
+2025-10-19:
+  vinylspiders:
+  - bugfix: fixes teshari icons for storage belts, waistpacks, and chest pouches
+2025-10-21:
+  Bannhammger:
+  - rscadd: Added the medical combitool - a combination surgical tool that can switch
+      between bonesetter and blood filter modes
+  - rscadd: Added alien bonesetter and alien bloodfilter - advanced variants with
+      faster tool speeds
+  - qol: Medical cyborgs' Advanced Surgery Tools upgrade now includes the medical
+      combitool instead of separate surgical omnitools
+  - qol: Medical combitool is now available through DeForest Medical cargo imports
+      for 3 command paychecks
+  - rscadd: returns of Cursed quirk into selection
+  - rscadd: perscom added to the cortically augumented brain
+  FIoppie:
+  - rscadd: Standalone eye sclera marking
+  Hatterhat:
+  - balance: The detective's knuckledusters no longer grant Evil Boxing for free,
+      and instead grant Street Boxing, which still allows you to punch people who
+      aren't boxers to chain together knockdowns. Syndicate knuckledusters remain
+      Evil, however.
+  OrbisAnima:
+  - bugfix: Adapts the custom screams to the new system, we can shout again.
+  RealWinterFrost:
+  - image: 'replaces many items in the remotes dmi file to have unique sprite for
+      each item. (EX: TTS Device, Blueshield Beacon, NTC Beacon, Ingredients Beacon,
+      Etc)'
+  Stalkeros, Zydras for the sprites:
+  - rscadd: Added the DeForest Materiel Recovery Terminal, a Janitor vending machine-exclusive
+      flatpack of a machine that exchanges trash, for cash if you're a janitor, and
+      ration tickets if you're not.
