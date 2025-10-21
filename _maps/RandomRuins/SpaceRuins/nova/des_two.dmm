@@ -9706,6 +9706,8 @@
 /obj/effect/spawner/random/maintenance/two,
 /obj/structure/closet/crate,
 /obj/effect/spawner/random/engineering/tool,
+/obj/item/storage/box/stockparts/deluxe,
+/obj/item/storage/box/stockparts/deluxe,
 /turf/open/floor/iron/dark/diagonal,
 /area/ruin/space/has_grav/nova/des_two/cargo)
 "Rk" = (
