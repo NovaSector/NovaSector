@@ -23,6 +23,26 @@
 	threat_modifier = -10 // This counts as military intervention
 	trim_state = "trim_solfed_espatier"
 
+/datum/id_trim/solfed/espatier/engineer
+	assignment = "SolFed Espatier Combat Engineer"
+	trim_state = "trim_solfed_engineer"
+
+/datum/id_trim/solfed/espatier/corpsman
+	assignment = "SolFed Espatier Combat Medic"
+	trim_state = "trim_solfed_medic"
+
+/datum/id_trim/solfed/espatier/squadleader
+	assignment = "SolFed Espatier Squad Leader"
+	trim_state = "trim_solfed_espatier_gold"
+
+/datum/id_trim/solfed/espatier/smartgunner
+	assignment = "SolFed Espatier Smart Gunner"
+	trim_state = "trim_solfed_specialist"
+
+/datum/id_trim/solfed/espatier/specialist
+	assignment = "SolFed Espatier Combat Specialist"
+	trim_state = "trim_solfed_smartgun"
+
 /datum/id_trim/solfed/espatier/odst
 	assignment = "SolFed Orbital Drop Trooper"
 	trim_state = "trim_solfed_odst"
