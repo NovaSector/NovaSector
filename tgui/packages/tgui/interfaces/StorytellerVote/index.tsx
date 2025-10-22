@@ -2,8 +2,8 @@ import '../../styles/interfaces/StorytellerVote.scss';
 
 import {
   Box,
+  Button,
   Divider,
-  Icon,
   LabeledList,
   NoticeBox,
   ProgressBar,
@@ -24,6 +24,8 @@ type Candidate = {
   id: string;
   name: string;
   desc?: string;
+  ooc_desc?: string;
+  ooc_diff?: string;
   portrait_path?: string;
   logo_path?: string;
 };
@@ -74,10 +76,9 @@ export const StorytellerVote = (props) => {
     act('set_difficulty', { value: v });
   };
 
-  let current =
+  const current =
     storytellers.find((c) => c.id === selected) ||
     (is_open ? storytellers[0] : null);
-  if (!current) current = storytellers[0];
 
   if (!is_open && top_tallies.length === 0) {
     return (
@@ -103,6 +104,7 @@ export const StorytellerVote = (props) => {
             : undefined,
           backgroundSize: '480px 480px',
           backgroundPositionX: '100%',
+          backgroundPositionY: '100%',
           position: 'absolute',
         }}
       >
@@ -124,46 +126,29 @@ export const StorytellerVote = (props) => {
                 {storytellers.length ? (
                   <Stack fill vertical>
                     {storytellers.map((c) => (
-                      <Box
-                        key={c.id}
-                        minHeight="96px"
-                        minWidth="96px"
-                        height="100%"
-                        width="100%"
-                        p={1}
-                        mb={1}
-                        style={{
-                          cursor: is_open ? 'pointer' : 'default',
-                          borderRadius: 4,
-                          opacity: is_open ? 1 : 0.6,
-                        }}
-                        backgroundColor={
-                          c.id === selected
-                            ? 'rgba(255,255,255,0.08)'
-                            : undefined
-                        }
-                        onClick={() => select(c.id)}
-                      >
-                        {c.logo_path ? (
-                          <Box
-                            style={{
-                              backgroundImage: `url(${resolveAsset(`${c.id}_logo.png`)})`,
-                              borderRadius: 4,
-                            }}
-                            height="96px"
-                            width="96px"
-                            align="center"
-                            mr={1}
-                          />
-                        ) : (
-                          <Box backgroundColor="#222" mr={1}>
-                            No image
-                          </Box>
-                        )}
-                        <Tooltip content={c.name}>
-                          <Icon name="question-circle" />
-                        </Tooltip>
-                      </Box>
+                      <Tooltip content={c.name} key={c.id}>
+                        <Button
+                          p={1}
+                          mb={1}
+                          width="96px"
+                          height="96px"
+                          style={{
+                            cursor: is_open ? 'pointer' : 'default',
+                            borderRadius: 4,
+                            opacity: is_open ? 1 : 0.6,
+                            maxWidth: '96px',
+                            maxHeight: '96px',
+                            backgroundImage: c.logo_path
+                              ? `url(${resolveAsset(`${c.id}_logo.png`)})`
+                              : undefined,
+                            backgroundColor:
+                              c.id === selected
+                                ? 'rgba(255,255,255,0.255)'
+                                : 'rgba(255,255,255,0.00)',
+                          }}
+                          onClick={() => select(c.id)}
+                        />
+                      </Tooltip>
                     ))}
                   </Stack>
                 ) : (
@@ -172,8 +157,8 @@ export const StorytellerVote = (props) => {
               </Box>
             </Section>
           </Stack.Item>
-          <Stack.Item grow>
-            <Section title="Your Vote" scrollable minHeight="480px">
+          <Stack.Item grow maxWidth="60%">
+            <Section title="Your Vote" scrollable>
               {current ? (
                 <>
                   <h1>{current.name}</h1>
@@ -181,10 +166,19 @@ export const StorytellerVote = (props) => {
                     <LabeledList.Item label="Description">
                       {current.desc || '—'}
                     </LabeledList.Item>
+                    <LabeledList.Item label="OOC Description">
+                      {current.ooc_desc || '-'}
+                    </LabeledList.Item>
+                    <LabeledList.Item label="OOC Difficulty">
+                      {current.ooc_diff || '-'}
+                    </LabeledList.Item>
                   </LabeledList>
                   <Divider />
                   <LabeledList>
-                    <LabeledList.Item label="Difficulty">
+                    <LabeledList.Item
+                      label="Difficulty multiplyer"
+                      tooltip="How much storyteller threat points will be multiplied."
+                    >
                       <Stack align="center">
                         <Stack.Item grow>
                           <input

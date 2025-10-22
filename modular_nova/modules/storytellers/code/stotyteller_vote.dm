@@ -171,6 +171,8 @@ ADMIN_VERB(storyteller_end_vote, R_ADMIN | R_DEBUG, "Storyteller - End Vote", "E
 			"desc" = data["desc"],
 			"portrait_path" = data["portrait_path"],
 			"logo_path" = data["logo_path"],
+			"ooc_desc" = data["ooc_desc"],
+			"ooc_diff" = data["ooc_difficulty"],
 		))
 	SSstorytellers.storyteller_vote_uis[owner] = src
 
