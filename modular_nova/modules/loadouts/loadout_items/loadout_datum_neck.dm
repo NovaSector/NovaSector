@@ -266,9 +266,9 @@
 	item_path = /obj/item/clothing/neck/cloak/colonial
 	group = "Cloaks and Shrouds"
 
-/datum/loadout_item/neck/imperial_police_cloak
-	name = "Colonial Cloak - Imperial Police"
-	item_path = /obj/item/clothing/neck/cloak/colonial/nri_police
+/datum/loadout_item/neck/coalition_police_cloak
+	name = "Colonial Cloak - Coalition Police"
+	item_path = /obj/item/clothing/neck/cloak/colonial/hc_police
 	group = "Cloaks and Shrouds"
 
 /datum/loadout_item/neck/mantle

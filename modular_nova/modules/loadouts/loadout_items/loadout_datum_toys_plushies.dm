@@ -229,10 +229,6 @@
 	name = "Edgy Bird Plushie"
 	item_path = /obj/item/toy/plush/nova/donator/edgy_bird
 
-/datum/loadout_item/toys/plush/tree_ferret
-	name = "Tree Ferret Plushie"
-	item_path = /obj/item/toy/plush/nova/donator/tree_ferret
-
 /datum/loadout_item/toys/plush/xixi
 	name = "Familiar Harpy Plushie"
 	item_path = /obj/item/toy/plush/nova/donator/xixi

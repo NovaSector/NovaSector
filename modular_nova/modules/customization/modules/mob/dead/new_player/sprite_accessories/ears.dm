@@ -519,3 +519,7 @@
 /datum/sprite_accessory/ears/external/hawk
 	name = "Hawk"
 	icon_state = "hawk"
+
+/datum/sprite_accessory/ears/external/big/chemlight
+	name = "Tall Tipped Ears"
+	icon_state = "chemlight"

@@ -17,3 +17,11 @@
 	item = /obj/item/disk/neuroware/sleepy
 	cost = 4
 	purchasable_from = ~(UPLINK_NUKE_OPS | UPLINK_CLOWN_OPS)
+
+/datum/uplink_item/stealthy_weapons/knuckleduster
+	name = "Reinforced Knuckleduster"
+	desc = "A compact, concealable set of reinforced knuckles. Quiet, fast, and hits harder than it looks."
+	item = /obj/item/melee/knuckleduster/traitor
+	cost = 3
+	purchasable_from = ~(UPLINK_NUKE_OPS | UPLINK_CLOWN_OPS)
+	uplink_item_flags = SYNDIE_ILLEGAL_TECH | SYNDIE_TRIPS_CONTRABAND
