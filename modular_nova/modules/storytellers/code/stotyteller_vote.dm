@@ -7,6 +7,38 @@ ADMIN_VERB(storyteller_vote, R_ADMIN | R_DEBUG, "Storyteller - Start Vote", "Sta
 ADMIN_VERB(storyteller_end_vote, R_ADMIN | R_DEBUG, "Storyteller - End Vote", "End vote early.", ADMIN_CATEGORY_STORYTELLER)
 	SSstorytellers.end_vote()
 
+/datum/asset/simple/storyteller_logo_icons
+	assets = list()
+
+/datum/asset/simple/storyteller_logo_icons/New()
+	for(var/storyteller_id in SSstorytellers.storyteller_data)
+		var/list/storyteller_data = SSstorytellers.storyteller_data[storyteller_id]
+		if(!storyteller_data)
+			continue
+		var/asset_id = storyteller_id + "_logo" + ".png"
+		var/path = storyteller_data["logo_path"]
+		assets[asset_id] = path
+	..()
+
+
+
+/datum/asset/simple/storyteller_portraits_icons
+	assets = list()
+
+/datum/asset/simple/storyteller_portraits_icons/New()
+	GLOB.asset_datums[type] = src
+	for(var/storyteller_id in SSstorytellers.storyteller_data)
+		var/list/storyteller_data = SSstorytellers.storyteller_data[storyteller_id]
+		if(!storyteller_data)
+			continue
+		var/asset_id = storyteller_id + "_portrait" + ".png"
+		var/path = storyteller_data["portait_path"]
+		assets[asset_id] = path
+	..()
+
+
+
+
 /datum/controller/subsystem/storytellers/proc/start_vote(duration = 60 SECONDS)
 	// Clears existing UIs to prevent duplicates or stale data
 	storyteller_vote_uis = list()
@@ -145,6 +177,14 @@ ADMIN_VERB(storyteller_end_vote, R_ADMIN | R_DEBUG, "Storyteller - End Vote", "E
 /datum/storyteller_vote_ui/Destroy()
 	SSstorytellers.storyteller_vote_uis -= owner
 	return ..()
+
+/datum/storyteller_vote_ui/ui_assets(mob/user)
+	return list(
+		get_asset_datum(/datum/asset/simple/storyteller_logo_icons),
+		get_asset_datum(/datum/asset/simple/storyteller_portraits_icons),
+	)
+
+
 
 /datum/storyteller_vote_ui/ui_state(mob/user)
 	return GLOB.always_state

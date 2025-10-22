@@ -6,8 +6,10 @@ import {
   ProgressBar,
   Section,
   Stack,
+  Tooltip,
 } from 'tgui-core/components';
 import type { BooleanLike } from 'tgui-core/react';
+import { resolveAsset } from '../../assets';
 import { useBackend, useLocalState } from '../../backend';
 import { Window } from '../../layouts';
 
@@ -97,9 +99,9 @@ export const StorytellerVote = (props) => {
               title="Candidates"
               scrollable={true}
               style={{
-                width: '240px',
                 maxWidth: '240px',
                 height: '100%',
+                width: '100%',
                 boxSizing: 'border-box',
                 overflowX: 'hidden',
                 overflowY: 'auto',
@@ -111,13 +113,16 @@ export const StorytellerVote = (props) => {
                     {storytellers.map((c) => (
                       <Box
                         key={c.id}
+                        minHeight="96px"
+                        minWidth="96px"
+                        height="100%"
+                        width="100%"
                         p={1}
                         mb={1}
                         style={{
                           cursor: is_open ? 'pointer' : 'default',
                           borderRadius: 4,
                           opacity: is_open ? 1 : 0.6,
-                          maxWidth: '100%',
                         }}
                         backgroundColor={
                           c.id === selected
@@ -128,26 +133,21 @@ export const StorytellerVote = (props) => {
                       >
                         {c.logo_path ? (
                           <Box
-                            maxHeight="96px"
-                            maxWidth="96px"
                             style={{
-                              backgroundImage: `${c.logo_path}`,
-                              backgroundSize: 'cover',
+                              backgroundImage: `url(${resolveAsset(`${c.id}_logo.png`)})`,
                               borderRadius: 4,
                             }}
+                            height="96px"
+                            width="96px"
                             align="center"
                             mr={1}
                           />
                         ) : (
-                          <Box
-                            maxHeight="96px"
-                            maxWidth="96px"
-                            backgroundColor="#222"
-                            mr={1}
-                          >
+                          <Box backgroundColor="#222" mr={1}>
                             No image
                           </Box>
                         )}
+                        <Tooltip content={<NoticeBox>{c.name}</NoticeBox>} />
                       </Box>
                     ))}
                   </Stack>
@@ -158,9 +158,23 @@ export const StorytellerVote = (props) => {
             </Section>
           </Stack.Item>
           <Stack.Item grow>
-            <Section title="Your Vote">
+            <Section title="Your Vote" scrollable minHeight="480px">
               {current ? (
                 <>
+                  <Box
+                    width="480px"
+                    height="480px"
+                    style={{
+                      backgroundImage: `url(${resolveAsset(`${current.id}_portrait.png`)})`,
+                      backgroundSize: 'cover',
+                      position: 'absolute',
+                      top: '0',
+                      right: '0',
+                      zIndex: '-1',
+                      pointerEvents: 'none',
+                    }}
+                    align="right"
+                  />
                   <LabeledList>
                     <LabeledList.Item label="Name">
                       {current.name}

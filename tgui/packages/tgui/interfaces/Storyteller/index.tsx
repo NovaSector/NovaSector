@@ -589,14 +589,18 @@ export const Storyteller = (props) => {
                 <LabeledList.Item label="Difficulty">
                   <Stack>
                     <Stack.Item grow>
-                      <Dropdown
-                        selected={difficulty}
-                        onSelected={setDifficulty}
-                        options={[0.75, 1, 1.25, 1.5, 2].map(String)}
-                        placeholder="Select..."
+                      {''}
+                      <input
+                        type="range"
+                        min={0.3}
+                        max={5}
+                        step={0.1}
+                        onChange={(e) => setDifficulty(e.currentTarget.value)}
+                        style={{ width: '100%' }}
                         width="100%"
                       />
                     </Stack.Item>
+                    <Stack.Item>{difficulty}</Stack.Item>
                     <Stack.Item>
                       <Button
                         icon="check"
