@@ -31,21 +31,42 @@
 /// Is goal available for selection under the given context?
 /datum/storyteller_goal/proc/is_available(list/vault, datum/storyteller_inputs/inputs, datum/storyteller/storyteller)
 	. = TRUE
-	if(requierd_threat_level < storyteller.get_effective_threat())
+	if(storyteller.get_effective_threat() < requierd_threat_level)
 		. = FALSE
-	if(requierd_population < vault[STORY_VAULT_CREW_ALIVE_COUNT])
+	if(vault[STORY_VAULT_CREW_ALIVE_COUNT] < requierd_population)
 		. = FALSE
-	if(required_round_progress < storyteller.round_progression)
+	if(storyteller.round_progression < required_round_progress)
 		. = FALSE
 	return .
 
 /// Compute selection weight
 /datum/storyteller_goal/proc/get_weight(list/vault, datum/storyteller_inputs/inputs, datum/storyteller/storyteller)
-	return STORY_GOAL_BASE_WEIGHT
-
+	var/base_weight = STORY_GOAL_BASE_WEIGHT
+	if(category & STORY_GOAL_GLOBAL)
+		base_weight = STORY_GOAL_MAJOR_WEIGHT
+	else if(category & STORY_GOAL_BAD)
+		base_weight = STORY_GOAL_BIG_WEIGHT
+	if(HAS_TRAIT(storyteller, STORYTELLER_TRAIT_FORCE_TENSION) && category & STORY_GOAL_BAD)
+		base_weight += STORY_GOAL_BIG_WEIGHT
+	if(HAS_TRAIT(storyteller, STORYTELLER_TRAIT_KIND) && category & STORY_GOAL_GOOD)
+		base_weight += STORY_GOAL_BIG_WEIGHT
+	if(HAS_TRAIT(storyteller, STORYTELLER_TRAIT_NO_GOOD_EVENTS) && category & STORY_GOAL_GOOD)
+		base_weight = 0
+	return base_weight
 
 /datum/storyteller_goal/proc/get_priority(list/vault, datum/storyteller_inputs/inputs, datum/storyteller/storyteller)
-	return STORY_GOAL_BASE_PRIORITY
+	var/base_weight = STORY_GOAL_BASE_WEIGHT
+	if(category & STORY_GOAL_GLOBAL)
+		base_weight = STORY_GOAL_MAJOR_WEIGHT
+	else if(category & STORY_GOAL_BAD)
+		base_weight = STORY_GOAL_BIG_WEIGHT
+	if(HAS_TRAIT(storyteller, STORYTELLER_TRAIT_FORCE_TENSION) && category & STORY_GOAL_BAD)
+		base_weight += STORY_GOAL_BIG_WEIGHT
+	if(HAS_TRAIT(storyteller, STORYTELLER_TRAIT_KIND) && category & STORY_GOAL_GOOD)
+		base_weight += STORY_GOAL_BIG_WEIGHT
+	if(HAS_TRAIT(storyteller, STORYTELLER_TRAIT_NO_GOOD_EVENTS) && category & STORY_GOAL_GOOD)
+		base_weight = 0
+	return base_weight
 
 
 /datum/storyteller_goal/proc/get_progress(list/vault, datum/storyteller_inputs/inputs, datum/storyteller/storyteller)
@@ -82,3 +103,48 @@
 
 /datum/storyteller_goal/global_goal/execute_event
 	name = "Execute the event"
+
+
+
+
+/datum/storyteller_goal/execute_random_event
+	id = "execute_random_event"
+	name = "Execute Random Event"
+	desc = "Triggers a random event from the SSevents event pool."
+	children = list()
+	category = STORY_GOAL_RANDOM
+	tags = STORY_TAG_CHAOTIC
+	event_path = null // This will be set dynamically
+
+	var/list/possible_events = list()
+
+
+/datum/storyteller_goal/execute_random_event/is_available(list/vault, datum/storyteller_inputs/inputs, datum/storyteller/storyteller)
+	if(storyteller.mood.volatility >= 1.3) //Best for chaotic storytellers
+		return TRUE
+	else
+		return FALSE
+
+
+/datum/storyteller_goal/execute_random_event/get_weight(list/vault, datum/storyteller_inputs/inputs, datum/storyteller/storyteller)
+	return rand(STORY_GOAL_BASE_WEIGHT, STORY_GOAL_BASE_WEIGHT * 2) * storyteller.mood.volatility
+
+/datum/storyteller_goal/execute_random_event/get_priority(list/vault, datum/storyteller_inputs/inputs, datum/storyteller/storyteller)
+	var/base = ..()
+	return base * (1 - storyteller.adaptation_factor)
+
+
+/datum/storyteller_goal/execute_random_event/complete(list/vault, datum/storyteller_inputs/inputs, datum/storyteller/storyteller, threat_points, station_value)
+	if(!possible_events.len)
+		possible_events = list()
+		for(var/datum/round_event/event in subtypesof(/datum/round_event))
+			if(event::allow_random && event != /datum/round_event)
+				possible_events += event
+
+	if(!possible_events.len)
+		message_admins("No valid random events found for storyteller to execute.")
+		return
+	var/datum/round_event/event_to_execute = pick(possible_events)
+	var/datum/round_event/evt = new event_to_execute(TRUE, new /datum/round_event_control/storyteller_control)
+	evt.setup() // Executing event normally(without storyteller)
+	return TRUE

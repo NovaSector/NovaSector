@@ -47,3 +47,95 @@
 		edge_turfs += center_turf
 
 	return edge_turfs
+
+
+/proc/get_inventory(atom/holder, recursive = TRUE)
+	RETURN_TYPE(/list)
+
+	. = list()
+	if(!holder || istype(holder) || !length(holder.contents))
+		return .
+
+	for(var/atom/atom in holder.contents)
+		. += atom
+		if(length(atom.contents) && recursive)
+			. += get_inventory(atom)
+
+	return .
+
+
+/proc/is_safe_area(area/to_check)
+	var/list/vents = to_check.air_vents
+	var/total_vents = length(vents)
+	var/unsafe_vents = 0
+
+	var/static/list/safe_gases = list(
+		/datum/gas/oxygen = list(16, 100),
+		/datum/gas/nitrogen,
+		/datum/gas/carbon_dioxide = list(0, 10)
+	)
+
+	for(var/obj/machinery/atmospherics/components/unary/vent_pump/vent in vents)
+		var/turf/open/T = get_turf(vent)
+		var/datum/gas_mixture/floor_gas_mixture = T.air
+		if(!floor_gas_mixture)
+			unsafe_vents += 1
+			continue
+
+		var/list/floor_gases = floor_gas_mixture.gases
+		if(!check_gases(floor_gases, safe_gases))
+			unsafe_vents += 1
+			continue
+
+		if((floor_gas_mixture.temperature <= 270) || (floor_gas_mixture.temperature >= 360))
+			unsafe_vents += 1
+			continue
+
+		var/pressure = floor_gas_mixture.return_pressure()
+		if((pressure <= 20) || (pressure >= 550))
+			unsafe_vents += 1
+			continue
+
+	if(!(total_vents == 1 && unsafe_vents == 0))
+		return !(unsafe_vents > round(total_vents * 0.5))
+	return TRUE
+
+/proc/pick_weight_f(list/list_to_pick)
+	if(length(list_to_pick) == 0)
+		return null
+
+	var/total = 0.0
+	for(var/item in list_to_pick)
+		var/weight = list_to_pick[item]
+		if(!isnum(weight) || weight < 0)
+			list_to_pick[item] = 0
+			continue
+		total += weight
+
+	if(total <= 0)
+		return null
+
+
+	var/list/cumulative = list()
+	var/cum_sum = 0.0
+	for(var/item in list_to_pick)
+		var/weight = list_to_pick[item]
+		if(weight <= 0)
+			continue
+		cum_sum += weight
+		cumulative += list(list("item" = item, "cum" = cum_sum))
+
+	if(length(cumulative) == 0)
+		return null
+
+
+	#define PRECISION 1000000
+	var/rand_float = rand(1, PRECISION) / PRECISION
+	#undef PRECISION
+
+	var/target = rand_float * total
+	for(var/entry in cumulative)
+		if(entry["cum"] >= target)
+			return entry["item"]
+
+	return cumulative[cumulative.len]["item"]

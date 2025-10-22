@@ -5,11 +5,10 @@
 SUBSYSTEM_DEF(storytellers)
 	name = "AI Storytellers"
 	runlevels = RUNLEVEL_GAME
-	wait = 1 SECONDS
-	priority = FIRE_PRIORITY_STORYTELLERS
 
+	wait = 10
 	var/hard_debug = FALSE
-
+	var/simulation = FALSE
 	var/selected_id
 	// Difficulty selected on vote
 	var/selected_difficulty
@@ -22,6 +21,10 @@ SUBSYSTEM_DEF(storytellers)
 
 	VAR_PRIVATE/list/active_events = list()
 
+	VAR_PRIVATE/list/simulated_atoms = list()
+
+	VAR_PRIVATE/list/processed_metrics = list()
+
 	var/list/storyteller_vote_uis = list()
 
 	// The current station value
@@ -32,22 +35,21 @@ SUBSYSTEM_DEF(storytellers)
 	var/list/goals_by_id = list()
 	/// Root goals without a valid parent
 	var/list/goal_roots = list()
-
 	/// Loaded storyteller data from JSON: id -> assoc list(name, desc, mood_type, base_think_delay, etc.)
 	var/list/storyteller_data = list()
 
-	// Config vars (read from config/storyteller.txt or similar; assume /datum/controller/configuration loads them)
+	/// Config-value: should storyteller overrides dynamic
 	var/storyteller_replace_dynamic = TRUE
+	/// Config-value: should storyteller helps to antagonist
 	var/storyteller_helps_antags = FALSE
+	/// Config-value: should storyteller speak with station
 	var/storyteller_allows_speech = TRUE
 
 
 
 /datum/controller/subsystem/storytellers/Initialize()
-	. = ..()
 	// Load storyteller data from JSON
 	load_storyteller_data()
-
 	goals_by_id = list()
 	goal_roots = list()
 	goals_by_category = list()
@@ -58,29 +60,33 @@ SUBSYSTEM_DEF(storytellers)
 	storyteller_helps_antags = config.Get(/datum/config_entry/flag/storyteller_helps_antags) || FALSE
 	storyteller_allows_speech = config.Get(/datum/config_entry/flag/storyteller_allows_speech) || TRUE
 
-	RegisterSignal(src, COMSIG_GLOB_MOB_LOGGED_IN, PROC_REF(on_login))
+	RegisterSignal(src, COMSIG_GLOB_CLIENT_CONNECT, PROC_REF(on_login))
 	return SS_INIT_SUCCESS
 
 /// Initializes the active storyteller from selected_id (JSON profile), applying parsed data for adaptive behavior.
 /// Delegates creation to create_storyteller_from_data() for modularity; kicks off round analysis/planning.
 /// Ensures chain starts with 3+ events, biased by profile (e.g., low tension for chill).
-/datum/controller/subsystem/storytellers/proc/initialize_storyteller()
+/datum/controller/subsystem/storytellers/proc/load_storyteller()
 	if(active)
 		message_admins(span_notice("Storyteller already initialized, deleting."))
 		qdel(active)
 
 	if(!selected_id || !storyteller_data[selected_id])
-		log_storyteller("Failed to Initialize storyteller: invalid ID [selected_id]")
+		log_storyteller("Failed to load storyteller: invalid ID [selected_id]")
 		var/id = pick(storyteller_data)
-		message_admins(span_bolditalic("Failed to Initialize storyteller! Selected random storyteller"))
+		message_admins(span_bolditalic("Failed to load storyteller! Selected random storyteller"))
 		active = create_storyteller_from_data(id)
 		active.difficulty_multiplier = 1.0
-		active.initialize_round()
 		return
 
 	active = create_storyteller_from_data(selected_id)
 	active.difficulty_multiplier = clamp(selected_difficulty, 0.3, 5.0)
-	active.initialize_round()
+
+
+/datum/controller/subsystem/storytellers/proc/initialize_storyteller()
+	if(!active)
+		load_storyteller()
+	active.initialize()
 
 
 /datum/controller/subsystem/storytellers/proc/load_storyteller_data()
@@ -132,7 +138,7 @@ SUBSYSTEM_DEF(storytellers)
 		// Placeholder lists: welcome and round speech (assume list of strings)
 		parsed["storyteller_welcome_speech"] = islist(entry["welcome_speech"]) ? entry["welcome_speech"] : list()
 		parsed["storyteller_round_speech"] = islist(entry["round_speech"]) ? entry["round_speech"] : list()
-
+		parsed["personality_traits"] = islist(entry["personality_traits"]) ? entry["personality_traits"] : list()
 		storyteller_data[id] = parsed
 
 	if(hard_debug)
@@ -176,7 +182,10 @@ SUBSYSTEM_DEF(storytellers)
 	var/mood = data["mood_path"]
 	if(ispath(mood, /datum/storyteller_mood))
 		new_st.mood = new mood
-
+	var/list/traits = data["personality_traits"]
+	if(length(traits))
+		for(var/trait in traits)
+			ADD_TRAIT(new_st, trait, "storyteller_mind")
 
 	// new_st.storyteller_welcome_speech = data["storyteller_welcome_speech"]
 	// new_st.storyteller_round_speech = data["storyteller_round_speech"]
@@ -194,7 +203,7 @@ SUBSYSTEM_DEF(storytellers)
 
 /datum/controller/subsystem/storytellers/fire(resumed)
 
-#ifdef TESTING //Storyteller thinking disabled during testing, it's handle by unit test
+#ifdef UNIT_TESTS //Storyteller thinking disabled during testing, it's handle by unit test
 	return
 #endif
 	if(active)
@@ -204,12 +213,16 @@ SUBSYSTEM_DEF(storytellers)
 			active_events -= evt
 			continue
 		evt.__process_for_storyteller(world.tick_lag)
-
+	for(var/datum/storyteller_analyzer/A in processed_metrics)
+		if(!A || QDELETED(A))
+			processed_metrics -= A
+			continue
+		A.process(world.tick_lag)
 
 /datum/controller/subsystem/storytellers/proc/setup_game()
 
-#ifdef TESTING // Stortyteller setup disabled during testing, it's handle by unit test
-	return
+#ifdef UNIT_TESTS // Stortyteller setup disabled during testing, it's handle by unit test
+	return TRUE
 #endif
 
 	disable_dynamic()
@@ -217,6 +230,14 @@ SUBSYSTEM_DEF(storytellers)
 
 	if(vote_active)
 		end_vote()
+
+	return TRUE
+
+/datum/controller/subsystem/storytellers/proc/post_setup()
+
+#ifdef UNIT_TESTS // Stortyteller setup disabled during testing, it's handle by unit test
+	return
+#endif
 
 	initialize_storyteller()
 
@@ -230,16 +251,13 @@ SUBSYSTEM_DEF(storytellers)
 
 /datum/controller/subsystem/storytellers/proc/disable_ICES()
 	SSevents.flags = SS_NO_FIRE
-	SSevents.intensity_credit_rate = 0
-	SSevents.intensity_credit_last_time = 0
-	SSevents.active_intensity_multiplier = 0
 	message_admins(span_bolditalic("ICES and random events were disabled by Storyteller"))
 
 
-/datum/controller/subsystem/storytellers/proc/on_login(mob/new_client)
+/datum/controller/subsystem/storytellers/proc/on_login(client/new_client)
 	SIGNAL_HANDLER
 	if(vote_active)
-		var/datum/storyteller_vote_ui/ui = new(new_client.client, current_vote_duration)
+		var/datum/storyteller_vote_ui/ui = new(new_client, current_vote_duration)
 		INVOKE_ASYNC(ui, TYPE_PROC_REF(/datum/storyteller_vote_ui, ui_interact), new_client)
 
 /datum/controller/subsystem/storytellers/proc/register_atom_for_storyteller(atom/A)
@@ -389,6 +407,107 @@ SUBSYSTEM_DEF(storytellers)
 	if(!E || QDELETED(E))
 		return
 	active_events -= E
+
+/datum/controller/subsystem/storytellers/proc/register_analyzer(datum/storyteller_analyzer/A)
+	if(!A || QDELETED(A))
+		return
+	processed_metrics += A
+
+/datum/controller/subsystem/storytellers/proc/unregister_analyzer(datum/storyteller_analyzer/A)
+	if(!A || QDELETED(A))
+		return
+	processed_metrics -= A
+
+
+#define STORY_TRAIT_IM_SIMULATION "simulation_mob"
+
+ADMIN_VERB(storyteller_simulation, R_ADMIN, "Storyteller - Simulation", "Simulate round", ADMIN_CATEGORY_STORYTELLER)
+	var/ask = tgui_alert(usr, "Do you want to perform simulation?", "Storyteller - simulation", list("Process", "Nevermind"))
+	if(ask != "Process")
+		return
+
+
+	var/list/variants = list(
+		"simulate manifest",
+		"simulate antagonist",
+		"simulate influence",
+		"abort",
+	)
+	var/chosen = tgui_input_list(usr, "Pick variant of simulation.", "Storyteller - simulation", variants)
+	if(chosen == "abort")
+		return
+
+	SSstorytellers.hard_debug = TRUE
+	SSstorytellers.simulation = TRUE
+
+	message_admins("[key_name_admin(user)]is starting storyteller round simulation with: [chosen] mode.")
+	if(chosen == "simulate manifest")
+		var/gear_ask = tgui_alert(usr, "Should we add some gear to crew?", "Storyteller - simulation", list("Yes", "Nevermind"))
+		SSstorytellers.simulate_crew_activity(gear_ask == "Yes")
+
+/datum/controller/subsystem/storytellers/proc/generate_random_key(length = 16)
+	var/static/list/to_pick = list(
+		"A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M",
+		"N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z",
+		"0", "1", "2", "3", "4", "5", "6", "7", "8", "9"
+	)
+	var/key = ""
+	for(var/i = 0 to length)
+		key += pick(to_pick)
+	key += num2text(rand(16, 1024))
+	return key
+
+
+/datum/controller/subsystem/storytellers/proc/simulate_crew_activity(add_gear)
+	if(!usr)
+		return
+	var/obj/effect/landmark/observer_start/observer_point = locate(/obj/effect/landmark/observer_start) in GLOB.landmarks_list
+	var/turf/destination = get_turf(observer_point)
+	if(!destination)
+		to_chat(usr, "Failed to find the observer spawn to send the dummies.")
+		return
+
+	var/list/possible_species = list(
+		/datum/species/human = 70,
+		/datum/species/teshari = 20,
+		/datum/species/moth = 10,
+	)
+	var/number_made = 0
+	for(var/rank in SSjob.name_occupations)
+		var/datum/job/job = SSjob.get_job(rank)
+		if(!(job.job_flags & JOB_CREW_MEMBER))
+			continue
+
+		var/mob/dead/new_player/new_guy = new()
+		new_guy.mind_initialize()
+		new_guy.mind.name = "[rank] Dummy"
+
+		if(!SSjob.assign_role(new_guy, job, do_eligibility_checks = FALSE))
+			qdel(new_guy)
+			to_chat(usr, "[rank] wasn't able to be spawned.")
+			continue
+		var/mob/living/carbon/human/character = new(destination)
+		character.name = new_guy.mind.name
+		new_guy.mind.transfer_to(character)
+		qdel(new_guy)
+
+		character.set_species(pick_weight(possible_species))
+		SSjob.equip_rank(character, job)
+		job.after_latejoin_spawn(character)
+
+		SSticker.minds += character.mind
+		if(ishuman(character))
+			GLOB.manifest.inject(character)
+
+		number_made++
+		CHECK_TICK
+		LAZYADD(simulated_atoms, WEAKREF(character))
+
+	to_chat(usr, "[number_made] crewmembers have been created.")
+
+
+#undef STORY_TRAIT_IM_SIMULATION
+
 
 /datum/config_entry/flag/storyteller_replace_dynamic
 	default = TRUE

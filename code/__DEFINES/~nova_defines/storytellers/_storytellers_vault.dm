@@ -19,6 +19,11 @@
 	// Most crew members are in excellent health.
 	#define STORY_VAULT_HEALTH_HEALTHY 0
 
+
+#define STORY_VAULT_AVG_CREW_WOUNDS "avg_crew_wounds"
+
+#define STORY_VAULT_AVG_ANTAG_WOUNDS "avg_atnag_wounds"
+
 // Tracks the extent of physical wounds among antagonists.
 #define STORY_VAULT_ANTAG_WOUNDING "antag_wounding"
 // Tracks the extent of physical wounds among the crew.
@@ -47,6 +52,11 @@
 	Death and alive metrics
 	These track counts and ratios of dead/alive crew and antagonists to gauge station mortality and survival rates.
 */
+
+#define STORY_VAULT_AVG_CREW_HEALTH "avg_crew_health"
+
+#define STORY_VAULT_AVG_ANTAG_HEALTH "avg_atnag_health"
+
 
 // Tracks the number of dead antagonists.
 #define STORY_VAULT_ANTAG_DEAD_COUNT "antag_dead_count"
@@ -120,6 +130,8 @@
 	These track security personnel, equipment, and alert levels to influence law enforcement and response events.
 */
 
+#define STORY_VAULT_SECURITY_COUNT "security_count"
+
 // Tracks security strength (number of active security officers, their gear, arrests made).
 #define STORY_VAULT_SECURITY_STRENGTH "security_strength"
 	#define STORY_VAULT_NO_SECURITY 0      // No active security
@@ -139,6 +151,8 @@
 	These track morale and readiness of the crew to handle crises or daily operations.
 */
 
+#define STORY_VAULT_CREW_WEIGHT "crew_weight"
+
 // Tracks crew morale (happiness, stress from events/deaths).
 #define STORY_VAULT_CREW_MORALE "crew_morale"
 	#define STORY_VAULT_HIGH_MORALE 0     // Happy/productive
@@ -153,10 +167,16 @@
 	#define STORY_VAULT_PREPARED 2       // Good stockpiles
 	#define STORY_VAULT_HIGHLY_READY 3   // Overprepared (armory full, etc.)
 
+
+#define STORY_VAULT_STATION_ALLIES "station_allies"
+#define STORY_VAULT_NUKE_ACTIVATED "NUKE_INCOMING"
+#define STORY_VAULT_DEATHSQUAD "doomguys_here"
 /*
 	Antagonist metrics
 	These track antagonist behavior, progress, and impact to escalate or mitigate threats.
 */
+
+#define STORY_VAULT_ANTAG_WEIGHT "antag_weight"
 
 // Tracks the level of antagonist-driven disruption, influencing escalation or mitigation events.
 #define STORY_VAULT_ANTAGONIST_ACTIVITY "antagonist_activity"
@@ -249,6 +269,7 @@
 	These track infrastructure, power, hazards, and research to influence emergency and recovery events.
 */
 
+#define STORY_VAULT_STATION_INTEGRITY "station_integrity"
 // Tracks infrastructure damage (power, hull breaches, etc.).
 #define STORY_VAULT_INFRA_DAMAGE "infra_damage"
 	#define STORY_VAULT_NO_DAMAGE 0
@@ -263,12 +284,17 @@
 	#define STORY_VAULT_BLACKOUT 2
 	#define STORY_VAULT_CRITICAL_POWER_FAILURE 3
 
-// Tracks environmental hazards (toxins, fires, rads).
-#define STORY_VAULT_ENV_HAZARDS "env_hazards"
-	#define STORY_VAULT_NO_HAZARDS 0
-	#define STORY_VAULT_MINOR_HAZARDS 1
-	#define STORY_VAULT_MAJOR_HAZARDS 2
-	#define STORY_VAULT_CRITICAL_HAZARDS 3
+
+// Divisors for damage_level (for 0-3 scaling)
+#define STORY_POWER_SMES_DISCHARGE_DIVISOR "power_grid_smes"// For (100 - smes_percent) / this → tune for sensitivity
+// Vault keys for storing results (unique strings to avoid conflicts)
+#define STORY_VAULT_POWER_GRID_STRENGTH "power_grid_strength"  // Raw 0-100 for balancer
+
+#define STORY_VAULT_POWER_GRID_DAMAGE "power_grid_damage"
+	#define STORY_VAULT_POWER_GRID_NOMINAL 0
+	#define STORY_VAULT_POWER_GRID_FAILURES 1
+	#define STORY_VAULT_POWER_GRID_DAMAGED 2
+	#define STORY_VAULT_POWER_GRID_CRITICAL 3
 
 // Tracks overall research progress, influencing science-related goals.
 #define STORY_VAULT_RESEARCH_PROGRESS "research_progress"

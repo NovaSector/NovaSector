@@ -43,12 +43,6 @@
 		return FALSE
 	return vault[STORY_VAULT_CREW_DISEASES] <= STORY_VAULT_MINOR_DISEASES
 
-/datum/storyteller_goal/epidemic_outbreak/get_weight(list/vault, datum/storyteller_inputs/inputs, datum/storyteller/storyteller)
-	return STORY_GOAL_BASE_WEIGHT * vault[STORY_VAULT_CREW_DISEASES]
-
-/datum/storyteller_goal/epidemic_outbreak/get_priority(list/vault, datum/storyteller_inputs/inputs, datum/storyteller/storyteller)
-	return STORY_GOAL_BASE_PRIORITY * vault[STORY_VAULT_CREW_DISEASES]
-
 /datum/storyteller_goal/epidemic_outbreak/get_progress(list/vault, datum/storyteller_inputs/inputs, datum/storyteller/storyteller)
 	var/infected_count = 0
 	for(var/mob/living/carbon/human/H in GLOB.human_list)
@@ -76,7 +70,7 @@
 
 		control.generate_candidates()
 		var/list/afflicted = control.disease_candidates.Copy(1, initial_carriers + 1)
-		var/datum/disease/advance/random/event/new_disease = new /datum/disease/advance/random/event(E.max_symptoms, severity, transmissibility)
+		var/datum/disease/advance/random/new_disease = new /datum/disease/advance/random(E.max_symptoms, severity)
 		for(var/mob/living/carbon/human/victim in afflicted)
 			victim.ForceContractDisease(new_disease, FALSE)
 			notify_ghosts(

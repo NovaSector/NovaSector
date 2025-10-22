@@ -14,26 +14,36 @@
 		anl.try_stop_analyzing(src)
 
 
-// Specialized check for station resources: ore silos and other resource-related objects
-/datum/storyteller_metric/resource_check
-	name = "Resource Check"
+/datum/storyteller_metric/proc/get_alive_crew(only_humans = TRUE, only_station = TRUE, only_with_mind = TRUE, no_afk = TRUE)
+	var/list/to_check = SSstorytellers.simulation ? GLOB.alive_mob_list : GLOB.alive_player_list
+	if(!length(to_check))
+		return list()
 
-/datum/storyteller_metric/resource_check/perform(datum/storyteller_analyzer/anl, datum/storyteller/ctl, datum/storyteller_inputs/inputs, scan_flags)
-	var/total_minerals = 0
-	for(var/obj/machinery/ore_silo/silo in SSmachines.get_all_machines())
-		if(!istype(silo) || !silo.holds)
+	var/list/result
+	for(var/mob/living/L as anything in to_check)
+		if(only_humans && !(ishuman(L)))
 			continue
-		for(var/mat_type in silo.holds)
-			var/datum/material/mat = mat_type
-			total_minerals += silo.holds[mat]
+		if(only_station && !is_station_level(L.z))
+			continue
+		if(only_with_mind && !L.mind)
+			continue
+		if(L.client && L?.client.is_afk())
+			continue
+		LAZYADD(result, L)
+	return result
 
-	inputs.vault[STORY_VAULT_RESOURCE_MINERALS] = total_minerals
+/datum/storyteller_metric/proc/get_dead_crew(only_humans = TRUE, only_station = TRUE, only_with_mind = TRUE)
+	var/list/to_check = SSstorytellers.simulation ? GLOB.dead_mob_list : GLOB.dead_mob_list
+	if(!length(to_check))
+		return list()
 
-	// Other resources, like cargo points
-	var/other_resources = 0
-	if(SSshuttle && SSshuttle.points)
-		other_resources += SSshuttle.points
-	inputs.vault[STORY_VAULT_RESOURCE_OTHER] = other_resources
-	log_storyteller_metrics("Resource metrics updated: minerals=[total_minerals], other=[other_resources]")
-	..()
-
+	var/list/result
+	for(var/mob/living/L as anything in to_check)
+		if(only_humans && !(ishuman(L)))
+			continue
+		if(only_station && !is_station_level(L.z))
+			continue
+		if(only_with_mind && !L.mind)
+			continue
+		LAZYADD(result, L)
+	return result

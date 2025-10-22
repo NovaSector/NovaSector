@@ -33,15 +33,6 @@
 
 
 
-// Storyteller Memory Defines
-// These are keys for storing data in the storyteller's memory system.
-// Used for caching event candidates, progress tracking, or temporary states.
-
-// Key for potential event candidates during planning
-#define STORY_MEMORY_EVENT_CANDIDATE "memory_event_candidate"
-
-
-
 // Weights for Entities in Balancing
 // These weights are used in the balancer subsystem to compute relative importance
 // of entities (e.g., players vs. antagonists) when updating plans or adjusting difficulty.
@@ -71,11 +62,17 @@
 // prioritizes events or subgoals involving specific crew members.
 // For example, engineers might have higher weight in infrastructure-related goals.
 
-#define STORY_DEFAULT_JOB_WEIGHT_MODIFIER 1.0  // Default multiplier for job-based weight adjustments
-// Higher for tech-focused roles
-#define STORY_ENGINEER_JOB_WEIGHT_MODIFIER (STORY_DEFAULT_JOB_WEIGHT_MODIFIER * 1.5)
-// Higher for conflict roles
-#define STORY_SECURITY_JOB_WEIGHT_MODIFIER (STORY_DEFAULT_JOB_WEIGHT_MODIFIER * 2.0)
+#define STORY_DEFAULT_JOB_WEIGHT 10.0  // Default multiplier for job-based weight adjustments
+
+#define STORY_ENGINEER_JOB_WEIGHT (STORY_DEFAULT_JOB_WEIGHT * 1.5)
+
+#define STORY_SECURITY_JOB_WEIGHT (STORY_DEFAULT_JOB_WEIGHT * 2.5)
+
+#define STORY_MEDICAL_JOB_WEIGHT (STORY_DEFAULT_JOB_WEIGHT * 1.5)
+
+#define STORY_HEAD_JOB_WEIGHT (STORY_DEFAULT_JOB_WEIGHT * 3)
+
+#define STORY_UNIMPORTANT_JOB_WEIGHT (STORY_DEFAULT_JOB_WEIGHT * 0.5)
 
 #define STORY_GOAL_BASE_WEIGHT 1.0
 
@@ -94,11 +91,11 @@
 // Basic threat level for standard goals
 #define STORY_GOAL_THREAT_BASIC 1.0
 
-#define STORY_GOAL_THREAT_ELEVATED 4.0
+#define STORY_GOAL_THREAT_ELEVATED 3.0
 
-#define STORY_GOAL_THREAT_HIGH 8.0
+#define STORY_GOAL_THREAT_HIGH 6.0
 
-#define STORY_GOAL_THREAT_EXTREME 10.0
+#define STORY_GOAL_THREAT_EXTREME 9.0
 
 #define STORY_ROUND_PROGRESSION_START 0
 
@@ -116,6 +113,17 @@ DEFINE_BITFIELD(story_analyzer_flags, list(
 	"STORYTELLER_SCAN_VALUE" = RESCAN_STATION_VALUE,
 ))
 
+
+// Storytellers traits
+
+#define STORYTELLER_TRAIT_NO_MERCY "NO_MERCY"
+#define STORYTELLER_TRAIT_CAN_HELP "CAN_HELP"
+#define STORYTELLER_TRAIT_FORCE_TENSION "FORCE_TENSION"
+#define STORYTELLER_TRAIT_SPEAKER "LOVE_SPEAK"
+#define STORYTELLER_TRAIT_BALANCING_TENSTION "BALANCER"
+#define STORYTELLER_TRAIT_NO_GOOD_EVENTS "NO_GOOD_EVENTS"
+#define STORYTELLER_TRAIT_KIND "KIND"
+#define STORYTELLER_TRAIT_NO_ADAPTATION_DECAY "NO_ADAPTAION_DECAY"
 
 // Bitfield categories for story goals
 
@@ -142,6 +150,25 @@ DEFINE_BITFIELD(story_goal_category, list(
 	"GOAL_UNCATEGORIZED" = STORY_GOAL_UNCATEGORIZED,
 ))
 
+
+
+
+// Bitfield categories for jobs flags
+
+
+#define STORY_JOB_IMPORTANT (1 << 0)
+#define STORY_JOB_COMBAT (1 << 1)
+#define STORY_JOB_ANTAG_MAGNET (1 << 2)
+#define STORY_JOB_HEAVYWEIGHT (1 << 3)
+#define STORY_JOB_SECURITY (1 << 4)
+
+DEFINE_BITFIELD(story_job_flags, list(
+	"JOB_IMPORTANT" = STORY_JOB_IMPORTANT,
+	"JOB_COMBAT" = STORY_JOB_COMBAT,
+	"JOB_ANTAG_MAGNET" = STORY_JOB_ANTAG_MAGNET,
+	"JOB_HEAVYWEIGHT" = STORY_JOB_HEAVYWEIGHT,
+	"JOB_SECURITY" = STORY_JOB_SECURITY,
+))
 
 // Bitfield for universal tags describing areas of influence
 // These tags characterize the scope or impact of a goal, such as escalation/deescalation or effects on specific station elements.
@@ -231,11 +258,10 @@ DEFINE_BITFIELD(story_universal_tags, list(
 #define STORY_MAX_THREAT_SCALE 100.0 // Maximum 10 000 points for events
 #define STORY_REPETITION_PENALTY 0.5
 #define STORY_DIFFICULTY_MULTIPLIER 1.0
-#define STORY_POPULATION_FACTOR 1.0
 
 // Planner constants
 #define STORY_RECALC_INTERVAL (10 MINUTES)
-#define STORY_BASE_SUBGOALS_COUNT 3
+#define STORY_INITIAL_GOALS_COUNT 2
 #define STORY_PICK_THREAT_BONUS_SCALE 0.01
 #define STORY_BALANCE_BONUS 1.5
 #define STORY_PACE_MIN 0.1
@@ -247,6 +273,8 @@ DEFINE_BITFIELD(story_universal_tags, list(
 #define STORY_BALANCER_WEAK_ANTAG_THRESHOLD 0.5
 #define STORY_BALANCER_INACTIVE_ACTIVITY_THRESHOLD 0.25
 #define STORY_STATION_STRENGTH_MULTIPLIER 1.0
+#define STORY_MAX_TENSION_BONUS 30
+#define STORY_TENSION_BONUS_DECAY_RATE 1
 
 // Metric thresholds
 #define STORY_INACTIVITY_ACT_INDEX_THRESHOLD 0.15
@@ -256,7 +284,7 @@ DEFINE_BITFIELD(story_universal_tags, list(
 #define STORY_DISRUPTION_SCALE 10
 #define STORY_INFLUENCE_SCALE 5
 #define STORY_KILLS_CAP 3
-#define STORY_OBJECTIVES_CAP 3
+#define STORY_OBJECTIVES_CAP 4
 
 // Round progression tuning (target: ~3 hours average round, 60-80 players)
 #define STORY_ROUND_PROGRESSION_TRESHOLD (2 HOURS)
@@ -268,9 +296,6 @@ DEFINE_BITFIELD(story_universal_tags, list(
 #define STORY_GRACE_MIN (2 MINUTES)
 #define STORY_GRACE_MAX STORY_GRACE_PERIOD_DEFAULT
 #define STORY_GRACE_PERIOD_DEFAULT (5 MINUTES)
-#define STORY_PLAYER_BASELINE 70
-#define STORY_POPULATION_MIN 0.8
-#define STORY_POPULATION_MAX 1.8
 
 
 

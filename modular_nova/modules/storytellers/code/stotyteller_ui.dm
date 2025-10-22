@@ -69,7 +69,9 @@ ADMIN_VERB(storyteller_admin, R_ADMIN, "Storyteller UI", "Open the storyteller a
 	var/list/upcoming = ctl.planner.get_upcoming_goals(10)
 	data["upcoming_goals"] = list()
 	for(var/offset in upcoming)
-		var/list/entry = ctl.planner.timeline[offset]
+		var/list/entry = ctl.planner.get_entry_at(offset)
+		if(!entry || !entry["goal"])
+			continue
 		var/datum/storyteller_goal/goal = entry["goal"]
 		if(!goal)
 			continue
@@ -95,6 +97,7 @@ ADMIN_VERB(storyteller_admin, R_ADMIN, "Storyteller UI", "Open the storyteller a
 	data["player_antag_balance"] = ctl.player_antag_balance
 	data["difficulty_multiplier"] = ctl.difficulty_multiplier
 	data["event_difficulty_modifier"] = ctl.difficulty_multiplier
+	data["current_tension"] = ctl.current_tension
 	data["can_force_event"] = TRUE
 	data["current_world_time"] = world.time
 	var/list/events = list()
@@ -104,7 +107,7 @@ ADMIN_VERB(storyteller_admin, R_ADMIN, "Storyteller UI", "Open the storyteller a
 			continue
 		var/list/event_data = details[1]
 		events += list(list(
-			"time" = text2num(splittext(event_data["fired_at"], " ")[1]) * 1 MINUTES,  // Parse back to ticks approx
+			"time" = text2num(splittext(event_data["fired_at"], " ")[1]) / 60,  // Parse back to ticks approx
 			"desc" = event_data["desc"],
 			"status" = event_data["status"],
 			"id" = event_data["id"],
@@ -171,8 +174,7 @@ ADMIN_VERB(storyteller_admin, R_ADMIN, "Storyteller UI", "Open the storyteller a
 				ctl.schedule_next_think()
 			return TRUE
 		if("reanalyse")
-			ctl.analyzer.scan_station()
-			ctl.inputs = ctl.analyzer.get_inputs()
+			ctl.run_metrics()
 			return TRUE
 		if("replan")
 			ctl.planner.recalculate_plan(ctl, ctl.inputs, ctl.balancer.make_snapshot(ctl.inputs), TRUE)
@@ -212,7 +214,7 @@ ADMIN_VERB(storyteller_admin, R_ADMIN, "Storyteller UI", "Open the storyteller a
 			var/datum/storyteller_goal/G = SSstorytellers.goals_by_id[id]
 			if(istype(G))
 				// Schedule at end of chain with default offset
-				var/fire_offset = ctl.get_event_interval() * (length(ctl.planner.timeline) + 1)
+				var/fire_offset = ctl.planner.next_offest()
 				ctl.planner.try_plan_goal(G, fire_offset)
 			return TRUE
 		if("trigger_goal")

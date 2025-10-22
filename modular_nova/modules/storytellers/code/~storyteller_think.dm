@@ -2,17 +2,21 @@
 #define CONTEXT_TAGS "tags"
 #define CONTEXT_CATEGORY "category"
 #define CONTEXT_BIAS "bias"
-#define STORY_REPETITION_DECAY_TIME (20 MINUTES)
-#define STORY_TAG_MATCH_BONUS 0.2
-#define STORY_VOLATILITY_NEUTRAL_CHANCE 10  // Percent chance to pick neutral in high volatility
-#define STORY_TENSION_THRESHOLD 15 // Threshold for balanced tension
+
+#define STORY_REPETITION_DECAY_TIME (15 MINUTES)
+#define STORY_TAG_MATCH_BONUS 0.33
+#define STORY_VOLATILITY_NEUTRAL_CHANCE 13
+#define STORY_TENSION_THRESHOLD 14
 #define THINK_TAG_BASE_MULT 1.0
 #define THINK_VOLATILITY_WEIGHT 0.6
 #define THINK_TENSION_WEIGHT 1.0
 #define THINK_MOOD_WEIGHT 1.0
 #define THINK_ADAPTATION_WEIGHT 1.0
 
-
+#define THINK_THREAT_WEIGHT 0.05
+#define STORY_PRIORITY_BOOST_SCALE 0.4
+#define STORY_MAX_FREQ_MULT 0.5
+#define STORY_MAX_THREAT_BONUS 0.4
 
 /datum/storyteller_think
 	var/list/think_stages = list(
@@ -60,63 +64,160 @@
 	return context[CONTEXT_TAGS]
 
 
+// Helper to add jitter to score: uniform rand in range for variability
+/datum/storyteller_think/proc/add_jitter(score, min_val = 0, max_val = 0.1)
+	PRIVATE_PROC(TRUE)
+	return score + (rand(min_val * 100, max_val * 100) / 100.0)
+
+
+
 // Method to select goal category (GOOD/BAD/NEUTRAL/RANDOM) based on storyteller state
 // Uses mood (aggression/pace), balance tension, adaptation_factor, threat_points, and population_factor.
 // E.g., high tension/adaptation -> GOOD/NEUTRAL (recovery/grace); low threat/relaxed mood -> BAD (challenge); balanced tension -> NEUTRAL (RP filler).
 // Called in planner before filtering goals, to bias directionality (STORY_GOAL_GOOD/GOAL_BAD/GOAL_NEUTRAL).
 // Inspired by RimWorld: Balances like Cassandra (tension-targeted), with Randy's volatility for flips/neutrals.
 /datum/storyteller_think/proc/determine_category(datum/storyteller/ctl, datum/storyteller_balance_snapshot/bal)
-	var/tension = bal.overall_tension // 0..100
-	var/target = ctl.target_tension
+    var/tension = bal.overall_tension
+    var/target = ctl.target_tension
 
-	var/tension_norm = clamp((tension / 100.0), 0, 1)
-	var/tension_diff_norm = clamp(abs(tension - target) / 100.0, 0, 1)
-	var/mood_aggr = ctl.mood.get_threat_multiplier() // 0..2
-	var/mood_vol = ctl.mood.get_variance_multiplier() // 0..2
-	var/adapt = clamp(ctl.adaptation_factor, 0, 1)
-	var/threat_rel = clamp(ctl.threat_points / max(1, ctl.max_threat_scale), 0, 1)
-	var/pop = clamp(ctl.population_factor, 0.1, 1.0)
+    var/tension_norm = clamp((tension / 100.0), 0, 1)
+    var/tension_diff_norm = clamp(abs(tension - target) / 100.0, 0, 1)
+    var/mood_aggr = ctl.mood.get_threat_multiplier()
+    var/mood_vol = ctl.mood.get_variance_multiplier()
+    var/pace = ctl.get_effective_pace()
+    var/adapt = clamp(ctl.adaptation_factor, 0, 1)
+    var/threat_rel = clamp(ctl.threat_points / max(1, ctl.max_threat_scale), 0, 1)
+    var/pop = clamp(ctl.population_factor, 0.1, 1.0)
 
-	// Scores for each category (higher -> more likely)
-	var/score_good = 0
-	var/score_bad = 0
-	var/score_neutral = 0
-	var/score_random = 0
+    // Scores for each category (higher -> more likely)
+    var/score_good = 0
+    var/score_bad = 0
+    var/score_neutral = 0
+    var/score_random = 0
 
-	// GOOD (recovery) becomes more likely when tension is high (we want deescalation) and/or adaptation active
-	score_good += tension_norm * THINK_TENSION_WEIGHT * 0.8
-	score_good += adapt * THINK_ADAPTATION_WEIGHT * 0.6
-	score_good += mood_aggr < 0.8 ? 0.2 : 0.0 // calm bias slightly towards good
 
-	// BAD (escalation) more likely when tension is low (need to push), when mood_aggression high or threat_rel high
-	score_bad += (1.0 - tension_norm) * THINK_TENSION_WEIGHT * 0.9
-	score_bad += mood_aggr * THINK_MOOD_WEIGHT * 0.8
-	score_bad += threat_rel * 0.6
+    var/good_base_bias = 0.12
+    var/bad_tension_mult = 0.3
+    var/good_tension_mult = 0.8
+    var/good_adapt_mult = 0.8
 
-	// NEUTRAL more likely when tension close to target and population large
-	score_neutral += (1.0 - tension_diff_norm) * 0.8 * pop
-	score_neutral += 0.2 * (1.0 - mood_aggr) // calm -> RP filler
 
-	// RANDOM becomes more attractive when volatility high
-	score_random += (mood_vol - 1.0) * THINK_VOLATILITY_WEIGHT
-	if(score_random < 0) score_random = 0
+    score_good += tension_norm * THINK_TENSION_WEIGHT * good_tension_mult
+    score_good += adapt * THINK_ADAPTATION_WEIGHT * good_adapt_mult
+    score_good += mood_aggr < (0.8 * pace) ? 0.4 : 0.0
+    score_good += good_base_bias
+    score_good = min(score_good, 2.0)
 
-	// small random jitter to avoid strict ties
-	score_good += rand(0,10)/100.0
-	score_bad += rand(0,10)/100.0
-	score_neutral += rand(0,10)/100.0
-	score_random += rand(0,10)/100.0
+    score_bad += (1.0 - tension_norm) * THINK_TENSION_WEIGHT * bad_tension_mult
+    score_bad += mood_aggr * THINK_MOOD_WEIGHT * 0.4
+    score_bad += threat_rel * THINK_THREAT_WEIGHT * 0.4
+    score_bad += pace * THINK_MOOD_WEIGHT * 0.25
+    score_bad = min(score_bad, 2.0)
 
-	// choose highest score
-	var/maxs = max(score_good, score_bad, score_neutral, score_random)
-	if(maxs == score_random && score_random > 0.15) // threshold to avoid spurious randoms
-		return STORY_GOAL_RANDOM
-	else if(maxs == score_good)
-		return STORY_GOAL_GOOD
-	else if(maxs == score_bad)
-		return STORY_GOAL_BAD
-	else
-		return STORY_GOAL_NEUTRAL
+    score_neutral += (1.0 - tension_diff_norm) * 0.8 * pop
+    score_neutral += 0.2 * (1.0 - mood_aggr)
+    score_neutral = min(score_neutral, 2.0)
+
+    score_random += (mood_vol - 1.0) * THINK_VOLATILITY_WEIGHT
+    if(score_random < 0)
+        score_random = 0
+
+    if(tension_diff_norm > 0.45)
+        score_good += 0.15
+
+    if(HAS_TRAIT(ctl, STORYTELLER_TRAIT_NO_GOOD_EVENTS))
+        score_good = 0
+    if(HAS_TRAIT(ctl, STORYTELLER_TRAIT_KIND))
+        score_good += add_jitter(0, 0.02, 0.2)
+    if(HAS_TRAIT(ctl, STORYTELLER_TRAIT_FORCE_TENSION))
+        if(ctl.current_tension < ctl.target_tension)
+            score_bad += add_jitter(0, 0.02, 0.2)
+    if(HAS_TRAIT(ctl, STORYTELLER_TRAIT_BALANCING_TENSTION))
+        if(abs(ctl.current_tension - ctl.target_tension) > 10)
+            score_neutral += add_jitter(0, 0.02, 0.2)
+    if(!HAS_TRAIT(ctl, STORYTELLER_TRAIT_NO_MERCY) && ctl.population_factor <= 0.5)
+        if(tension_diff_norm > 0.5)
+            score_good += add_jitter(0, 0.02, 0.2)
+        else
+            score_neutral += add_jitter(0, 0.02, 0.2)
+
+    score_good = max(score_good + add_jitter(0, 0, 0.1), 0.06)
+    score_bad  = max(score_bad  + add_jitter(0, 0, 0.1), 0.02)
+    score_neutral = max(score_neutral + add_jitter(0, 0, 0.1), 0.02)
+    score_random  = max(score_random  + add_jitter(0, 0, 0.1), 0.0)
+
+    // Normalize scores to probs
+    var/total_score = score_good + score_bad + score_neutral + score_random
+    if(total_score <= 0)
+        return STORY_GOAL_NEUTRAL  // fallback
+
+    var/prob_good = score_good / total_score
+    var/prob_bad = score_bad / total_score
+    var/prob_neutral = score_neutral / total_score
+    var/prob_random = score_random / total_score
+
+    // Roll (rand returns 0..1) with cumulative check
+    var/roll = rand()
+    var/cum_prob = 0
+
+    cum_prob += prob_good
+    if(roll < cum_prob && !HAS_TRAIT(ctl, STORYTELLER_TRAIT_NO_GOOD_EVENTS))
+        if(SSstorytellers.hard_debug)
+            message_admins("Storyteller [ctl.name] selected category: GOOD (roll=[roll], probs: G=[prob_good], B=[prob_bad], N=[prob_neutral], R=[prob_random])")
+        return STORY_GOAL_GOOD
+
+    cum_prob += prob_bad
+    if(roll < cum_prob)
+        if(SSstorytellers.hard_debug)
+            message_admins("Storyteller [ctl.name] selected category: BAD (roll=[roll], probs: G=[prob_good], B=[prob_bad], N=[prob_neutral], R=[prob_random])")
+        return STORY_GOAL_BAD
+
+    cum_prob += prob_neutral
+    if(roll < cum_prob)
+        if(SSstorytellers.hard_debug)
+            message_admins("Storyteller [ctl.name] selected category: NEUTRAL (roll=[roll], probs: G=[prob_good], B=[prob_bad], N=[prob_neutral], R=[prob_random])")
+        return STORY_GOAL_NEUTRAL
+
+    cum_prob += prob_random
+    if(roll < cum_prob)
+        if(SSstorytellers.hard_debug)
+            message_admins("Storyteller [ctl.name] selected category: RANDOM (roll=[roll], probs: G=[prob_good], B=[prob_bad], N=[prob_neutral], R=[prob_random])")
+        return STORY_GOAL_RANDOM
+
+    return STORY_GOAL_NEUTRAL
+
+
+// Helper to add jitter to weight: uniform rand in range for variability, scaled by volatility
+/datum/storyteller_think/proc/add_weight_jitter(weight, volatility = 1.0, min_val = -0.1, max_val = 0.1)
+	PRIVATE_PROC(TRUE)
+	return weight + (rand(min_val * 100, max_val * 100) / 100.0) * volatility
+
+
+// Helper to get repetition info for a goal id: Returns list("count"=N, "last_time"=T) from history
+/datum/storyteller_think/proc/get_repeat_info(goal_id, list/recent_history)
+	PRIVATE_PROC(TRUE)
+	var/id_prefix = goal_id + "_"
+	var/count = 0
+	var/last_time = 0
+	for(var/hist_id in recent_history)
+		if(findtext(hist_id, id_prefix, 1, 0))
+			count++
+			var/list/details = recent_history[hist_id]
+			var/fire_time = details["fired_ts"]
+			if(fire_time > last_time)
+				last_time = fire_time
+	return list("count" = count, "last_time" = last_time)
+
+
+// Helper for bitflag popcount: Counts set bits in a number (tags intersection)
+/datum/storyteller_think/proc/popcount_tags(bits)
+	PRIVATE_PROC(TRUE)
+	var/count = 0
+	var/temp = bits
+	while(temp)
+		count += (temp & 1)
+		temp >>= 1
+	return count
 
 
 // Basic select_weighted_goal with integration to goal procs
@@ -124,8 +225,8 @@
 // then applies storyteller vars (difficulty, adaptation, repetition) for adaptation.
 // Enhanced repetition: Gradient penalty based on recency (time since last similar) and frequency (count in history),
 // scaled by adaptation (stronger post-recovery) and population (tolerable in big crews).
-// Inspired by RimWorld's event weighting: base chance + modifiers from colony state (here(Nova), station metrics + history avoidance).
-/datum/storyteller_think/proc/select_weighted_goal(datum/storyteller/ctl, datum/storyteller_inputs/inputs, datum/storyteller_balance_snapshot/bal, list/candidates, population_scale = 1.0, list/desired_tags = null)
+// Inspired by RimWorld's event weighting: base chance + modifiers from colony state (here, station metrics + history avoidance).
+/datum/storyteller_think/proc/select_weighted_goal(datum/storyteller/ctl, datum/storyteller_inputs/inputs, datum/storyteller_balance_snapshot/bal, list/candidates, population_scale = 1.0, desired_tags = null)
 	if(!candidates.len)
 		return null
 
@@ -135,63 +236,53 @@
 			continue
 
 		var/base_weight = G.get_weight(inputs.vault, inputs, ctl)
-		var/priority_boost = G.get_priority(inputs.vault, inputs, ctl) * 0.5
+		var/priority_boost = G.get_priority(inputs.vault, inputs, ctl) * STORY_PRIORITY_BOOST_SCALE
 		var/diff_adjust = ctl.difficulty_multiplier * population_scale
 
 		// Enhanced repetition penalty: Recency (time-based decay) + frequency (count in history)
 		var/rep_penalty = 0
-		var/list/recent_history = ctl.recent_events  // Assoc [unique_id = details], unique_id = G.id + "_time"
-		var/id_prefix = G.id + "_"
-		var/last_fire_time = 0
-		var/repeat_count = 0
-
-		for(var/hist_id in recent_history)
-			if(findtext(hist_id, id_prefix, 1, 0))
-				repeat_count++
-				var/list/details = recent_history[hist_id]
-				var/fire_time = details["fired_ts"]
-				if(fire_time > last_fire_time)
-					last_fire_time = fire_time
+		var/list/rep_info = get_repeat_info(G.id, ctl.recent_events)
+		var/repeat_count = rep_info["count"]
+		var/last_fire_time = rep_info["last_time"]
 
 		if(repeat_count > 0)
 			var/age = world.time - last_fire_time
 			var/recency_factor = clamp(1 - (age / STORY_REPETITION_DECAY_TIME), 0, 1)
-			var/freq_mult = 1 + (repeat_count - 1) * 0.5
+			var/freq_mult = clamp(1 + (repeat_count - 1) * 0.5, 1, STORY_MAX_FREQ_MULT)
 			rep_penalty = ctl.repetition_penalty * recency_factor * freq_mult
 
-		// Adaptation scaling: Stronger penalty when crew adapted (avoid boring repeats post-recovery)
-		rep_penalty *= (1 + ctl.adaptation_factor * 0.5)
-		// Population tolerance: Weaker in big crews (more players = less notice repeats)
-		rep_penalty /= max(1.0, ctl.population_factor)
 
-		// Threat/adaptation influence: Boost aggressive/escalation if threat high, reduce if adapted (post-damage grace)
-		var/threat_bonus = ctl.threat_points * ctl.mood.get_threat_multiplier() * STORY_PICK_THREAT_BONUS_SCALE  // Small scaling for gradual escalation
+		rep_penalty *= (1 + ctl.adaptation_factor * 0.5)
+		rep_penalty /= max(0.5, ctl.population_factor)
+
+
+		var/threat_bonus = clamp(ctl.threat_points * ctl.mood.get_threat_multiplier() * STORY_PICK_THREAT_BONUS_SCALE, 0, STORY_MAX_THREAT_BONUS)  // Added clamp
 		var/adapt_reduce = 1.0 - ctl.adaptation_factor
 
-		// Balance tension: If tension high, boost deescalation goals; low -> escalation
 		var/balance_bonus = 0
+		var/tension_diff_norm = abs(bal.overall_tension - ctl.target_tension) / 100.0
 		if(bal.overall_tension > ctl.target_tension && (G.tags & STORY_TAG_DEESCALATION))
-			balance_bonus += STORY_BALANCE_BONUS
+			balance_bonus += STORY_BALANCE_BONUS * tension_diff_norm
 		else if(bal.overall_tension < ctl.target_tension && (G.tags & STORY_TAG_ESCALATION))
-			balance_bonus += STORY_BALANCE_BONUS
-
+			balance_bonus += STORY_BALANCE_BONUS * tension_diff_norm  // Scaled
 
 		var/tag_match_bonus = 0
 		if(desired_tags && G.tags)
-			var/matches = G.tags & desired_tags  // Bitfield intersection (assuming tags are bitflags)
-			var/num_matches = 0
-			var/temp = matches
-			while(temp)
-				num_matches += (temp & 1)
-				temp >>= 1  // Manual popcount via bitshift loop
+			var/matches = G.tags & desired_tags
+			var/num_matches = popcount_tags(matches)
 			tag_match_bonus = num_matches * STORY_TAG_MATCH_BONUS
 
-		// Final weight: Combine all, ensure minimum to avoid zero-weight goals
 		var/final_weight = max(0.1, (base_weight + priority_boost + threat_bonus + balance_bonus + tag_match_bonus - rep_penalty) * diff_adjust * adapt_reduce)
+		final_weight = add_weight_jitter(final_weight, ctl.mood.volatility)
 		weighted[G] = final_weight
 
-	var/datum/storyteller_goal/selected = pick_weight(weighted)
-	// Use pick_weight helper for selection
+	var/datum/storyteller_goal/selected = pick_weight_f(weighted)
+	if(!selected)
+		return null
+
+	if(SSstorytellers.hard_debug)
+		message_admins("Storyteller [ctl.name] selected goal: [selected.id || selected.name] (final_weight=[weighted[selected]])")
+
 	return new selected.type
 
 /datum/think_stage
@@ -309,7 +400,7 @@
 		_apply_tag_with_context(context, mood, STORY_TAG_AFFECTS_RESOURCES | STORY_TAG_AFFECTS_ECONOMY, 60 * category_bias)
 	if(inputs.vault[STORY_VAULT_POWER_STATUS] >= STORY_VAULT_LOW_POWER)
 		_apply_tag_with_context(context, mood, STORY_TAG_AFFECTS_INFRASTRUCTURE | STORY_TAG_AFFECTS_TECHNOLOGY, 70 * category_bias)
-	if(inputs.vault[STORY_VAULT_ENV_HAZARDS] >= STORY_VAULT_MINOR_HAZARDS)
+	if(inputs.vault[STORY_VAULT_INFRA_DAMAGE] >= STORY_VAULT_MINOR_DAMAGE)
 		_apply_tag_with_context(context, mood, STORY_TAG_AFFECTS_ENVIRONMENT | STORY_TAG_AFFECTS_CREW_HEALTH, 65 * category_bias)
 	if(research_progress >= STORY_VAULT_HIGH_RESEARCH)
 		_apply_tag_with_context(context, mood, STORY_TAG_AFFECTS_RESEARCH | (context[CONTEXT_CATEGORY] & STORY_GOAL_BAD ? STORY_TAG_ESCALATION : STORY_TAG_DEESCALATION), 55 * category_bias)
@@ -399,3 +490,7 @@
 #undef THINK_TENSION_WEIGHT
 #undef THINK_MOOD_WEIGHT
 #undef THINK_ADAPTATION_WEIGHT
+#undef THINK_THREAT_WEIGHT
+#undef STORY_PRIORITY_BOOST_SCALE
+#undef STORY_MAX_FREQ_MULT
+#undef STORY_MAX_THREAT_BONUS
