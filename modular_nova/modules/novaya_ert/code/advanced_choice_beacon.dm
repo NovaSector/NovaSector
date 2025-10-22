@@ -1,7 +1,7 @@
 /obj/item/advanced_choice_beacon
 	name = "advanced choice beacon"
 	desc = "A beacon that will send whatever your heart desires, providing Nanotrasen approves it."
-	icon = 'icons/obj/devices/remote.dmi'
+	icon = 'modular_nova/modules/modular_items/icons/remote.dmi'
 	icon_state = "self_delivery"
 	inhand_icon_state = null
 
@@ -58,6 +58,7 @@
 /obj/item/advanced_choice_beacon/nri
 	name = "\improper NRI Defense Collegium supply beacon"
 	desc = "Used to request your job supplies, use in hand to do so!"
+	icon_state = "nri_beacon"
 
 /obj/item/advanced_choice_beacon/nri/get_available_options()
 	var/list/options = list()
@@ -76,13 +77,13 @@
 /obj/item/advanced_choice_beacon/nri/engineer
 	name = "\improper NRI Defense Collegium engineering supply beacon"
 	desc = "Used to request your job supplies, use in hand to do so!"
-
+	icon_state = "nri_beacon_engi"
 	possible_choices = list(/obj/structure/closet/crate/secure/weapon/nri/engineer/defense, /obj/structure/closet/crate/secure/weapon/nri/engineer/offense)
 
 /obj/item/advanced_choice_beacon/nri/heavy
 	name = "\improper NRI Defense Collegium heavy armaments supply beacon"
 	desc = "Used to request your job supplies, use in hand to do so!"
-
+	icon_state = "nri_beacon_heavy"
 	possible_choices = list(/obj/structure/closet/crate/secure/weapon/nri/heavy/defense,/obj/structure/closet/crate/secure/weapon/nri/heavy/offense)
 
 /obj/item/stack/sheet/mineral/sandbags/fifty
