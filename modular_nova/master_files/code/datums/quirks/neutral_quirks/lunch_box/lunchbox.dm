@@ -62,21 +62,46 @@
 		lunchbox_meal_choice = pick(flatten_list(GLOB.possible_player_lunchbox_meal_choice))
 
 	/// What snack does this character desire?
-	var/desired_snack
+	var/desired_snack = client_source?.prefs.read_preference(/datum/preference/choiced/lunchbox_first_snack_choice) || "Random"
+	if(desired_snack != "Random")
+		lunchbox_first_snack_choice = GLOB.possible_player_lunchbox_snack_choice[desired_snack]
+	/// If no snack choice, WE PICKIN FOR EM!!
+	if(lunchbox_first_snack_choice == NONE)
+		lunchbox_first_snack_choice = pick(flatten_list(GLOB.possible_player_lunchbox_snack_choice))
 
-	/// You get two snackies
-	var/desired_snack_2
+	/// What snack does this character desire?
+	var/desired_snack_2 = client_source?.prefs.read_preference(/datum/preference/choiced/lunchbox_second_snack_choice) || "Random"
+	if(desired_snack_2 != "Random")
+		lunchbox_second_snack_choice = GLOB.possible_player_lunchbox_snack_choice[desired_snack_2]
+	/// If no snack choice, WE PICKIN FOR EM!!
+	if(lunchbox_second_snack_choice == NONE)
+		lunchbox_second_snack_choice = pick(flatten_list(GLOB.possible_player_lunchbox_snack_choice))
 
 	/// What are they thirsty for?
-	var/desired_drink
+	var/desired_drink = client_source?.prefs.read_preference(/datum/preference/choiced/lunchbox_drink_choice) || "Random"
+	if(desired_drink != "Random")
+		lunchbox_drink_choice = GLOB.possible_player_lunchbox_snack_choice[desired_drink]
+	/// If no snack choice, WE PICKIN FOR EM!!
+	if(lunchbox_drink_choice == NONE)
+		lunchbox_drink_choice = pick(flatten_list(GLOB.possible_player_lunchbox_snack_choice))
 
 	/// Got room for desert?
-	var/desired_desert
+	var/desired_desert = client_source?.prefs.read_preference(/datum/preference/choiced/lunchbox_desert_choice) || "Random"
+	if(desired_desert != "Random")
+		lunchbox_dessert_choice = GLOB.possible_player_lunchbox_desert_choice[desired_desert]
+	/// If no snack choice, WE PICKIN FOR EM!!
+	if(lunchbox_dessert_choice == NONE)
+		lunchbox_dessert_choice = pick(flatten_list(GLOB.possible_player_lunchbox_desert_choice))
 
 	var/obj/item/storage/toolbox/lunchbox = new /obj/item/storage/toolbox/lunchbox(get_turf(quirk_holder))
 
-	lunchbox.PopulateContents(list(desired_meal,))
-
+	// Spawn items directly inside the lunchbox
+	lunchbox.icon_state = lunchbox_design
+	new lunchbox_meal_choice(lunchbox)
+	new lunchbox_first_snack_choice(lunchbox)
+	new lunchbox_second_snack_choice(lunchbox)
+	new lunchbox_drink_choice(lunchbox)
+	new lunchbox_dessert_choice(lunchbox)
 
 	give_item_to_holder(
 		lunchbox,
@@ -94,7 +119,14 @@
 	can_randomize = FALSE
 
 GLOBAL_LIST_INIT(possible_player_lunchbox_design_choice, list(
-	"NT Branded Lunchbox" = /mob/living/basic/axolotl,
+	"Dark" = "dark",
+	"Nanotrasen" = "nanotrasen",
+	"Syndicate" = "syndicate",
+	"SolFed" = "solfed",
+	"Interdyne" = "interdyne",
+	"Space" = "space",
+	"Hearts" = "hearts",
+	"Golden" = "gold",
 ))
 
 /datum/preference/choiced/lunchbox_design/init_possible_values()
@@ -121,7 +153,9 @@ GLOBAL_LIST_INIT(possible_player_lunchbox_design_choice, list(
 	can_randomize = FALSE
 
 GLOBAL_LIST_INIT(possible_player_lunchbox_meal_choice, list(
-	"DEBUG" = list(/mob/living/basic/pet/penguin/baby/permanent),
+	"Burger" = /obj/item/food/burger,
+	"Tofu" = /obj/item/food/bread/tofu,
+	"Baguette" = /obj/item/food/baguette,
 ))
 
 /datum/preference/choiced/lunchbox_meal_choice/init_possible_values()
@@ -148,7 +182,7 @@ GLOBAL_LIST_INIT(possible_player_lunchbox_meal_choice, list(
 	can_randomize = FALSE
 
 GLOBAL_LIST_INIT(possible_player_lunchbox_snack_choice, list(
-	"DEBUG" = list(/mob/living/basic/pet/penguin/baby/permanent),
+	"DEBUG" = /obj/item/reagent_containers/cup/soda_cans/cola,
 ))
 
 /datum/preference/choiced/lunchbox_first_snack_choice/init_possible_values()
@@ -174,10 +208,6 @@ GLOBAL_LIST_INIT(possible_player_lunchbox_snack_choice, list(
 	savefile_identifier = PREFERENCE_CHARACTER
 	can_randomize = FALSE
 
-GLOBAL_LIST_INIT(lunchbox_second_snack_choice, list(
-	"DEBUG" = list(/mob/living/basic/pet/penguin/baby/permanent),
-))
-
 /datum/preference/choiced/lunchbox_second_snack_choice/init_possible_values()
 	return list("Random") + assoc_to_keys(GLOB.possible_player_lunchbox_snack_choice)
 
@@ -202,7 +232,14 @@ GLOBAL_LIST_INIT(lunchbox_second_snack_choice, list(
 	can_randomize = FALSE
 
 GLOBAL_LIST_INIT(possible_player_lunchbox_drink_choice, list(
-	"DEBUG" = list(/mob/living/basic/pet/penguin/baby/permanent),
+	"Cola" = /obj/item/reagent_containers/cup/soda_cans/cola,
+	"Dr. Gibb" = /obj/item/reagent_containers/cup/soda_cans/dr_gibb,
+	"Lemon Lime" = /obj/item/reagent_containers/cup/soda_cans/lemon_lime,
+	"Pwr Game" = /obj/item/reagent_containers/cup/soda_cans/pwr_game,
+	"Space Mountain Wind" = /obj/item/reagent_containers/cup/soda_cans/space_mountain_wind,
+	"Space Up" = /obj/item/reagent_containers/cup/soda_cans/space_up,
+	"Starkist" = /obj/item/reagent_containers/cup/soda_cans/starkist,
+	"Robust Coffee" = /obj/item/reagent_containers/cup/glass/coffee,
 ))
 
 /datum/preference/choiced/lunchbox_drink_choice/init_possible_values()
@@ -229,7 +266,12 @@ GLOBAL_LIST_INIT(possible_player_lunchbox_drink_choice, list(
 	can_randomize = FALSE
 
 GLOBAL_LIST_INIT(possible_player_lunchbox_desert_choice, list(
-	"DEBUG" = list(/mob/living/basic/pet/penguin/baby/permanent),
+	"Banana Nut Bread" = /obj/item/food/breadslice/banana,
+	"Plain Cake Slice" = /obj/item/food/cakeslice/plain,
+	"Chocolate Cake Slice" = /obj/item/food/cakeslice/berry_chocolate_cake,
+	"Ice Cream Sandwich" = /obj/item/food/icecreamsandwich,
+	"Ice Cream Sandwich (Strawberry)" = /obj/item/food/strawberryicecreamsandwich,
+	"Space Freezy" = /obj/item/food/spacefreezy,
 ))
 
 /datum/preference/choiced/lunchbox_desert_choice/init_possible_values()
