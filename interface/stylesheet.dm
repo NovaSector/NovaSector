@@ -244,6 +244,11 @@ h1.alert, h2.alert		{color: #000000;}
 .cyan {
 	color: #0ea1e6;
 }
+
+.horizonblue {
+	color: #7ca2b8;
+}
+
 // NOVA EDIT ADDITION END
 
 .phobia			{color: #dd0000;	font-weight: bold;	animation: phobia 750ms infinite;}

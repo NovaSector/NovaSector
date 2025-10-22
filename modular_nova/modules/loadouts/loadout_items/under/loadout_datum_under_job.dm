@@ -68,9 +68,14 @@
 	item_path = /obj/item/clothing/under/colonial
 	group = "Workwear"
 
-/datum/loadout_item/under/jumpsuit/imperial_police_uniform
-	name = "Colonial Police Uniform"
-	item_path = /obj/item/clothing/under/colonial/nri_police
+/datum/loadout_item/under/jumpsuit/coalition_police_uniform
+	name = "Coalition Police Uniform"
+	item_path = /obj/item/clothing/under/colonial/hc_police
+	group = "Workwear"
+
+/datum/loadout_item/under/jumpsuit/coalition_police_skirt
+	name = "Coalition Police Skirt"
+	item_path = /obj/item/clothing/under/colonial/hc_police/skirt
 	group = "Workwear"
 
 /datum/loadout_item/under/jumpsuit/utility_eng

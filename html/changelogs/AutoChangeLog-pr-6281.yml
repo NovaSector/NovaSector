@@ -1,0 +1,4 @@
+author: "RealWinterFrost"
+delete-after: True
+changes:
+  - bugfix: "Fixed the detective equipment beacon from being invisible"

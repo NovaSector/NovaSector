@@ -439,3 +439,245 @@
   - rscadd: Added paper bins to the loadout
   theselfish:
   - rscdel: Minecraft Youtuber plush is gone.
+2025-10-16:
+  RealWinterFrost:
+  - image: adds an the following PDA options to nova sector loadouts (Old, Neko, G3,
+      Slimline, Rugged, Ultraslim, Ancient, Holosystem, Hologram, Robust, Tablet,
+      Virtual, Holodeck, Ceti)
+  TheSS13Melon:
+  - rscadd: Adds a singular Gas Miner to every atmos technician locker.
+2025-10-17:
+  ArchBTW:
+  - bugfix: Fixes riot shotgun unintentional melee when point blank shooting
+  ArchBTW, NecromancerAnne (original code, sprites), SmArtKar (sprites), DrDiasyl (sprites):
+  - rscadd: adds Stunsword
+  EnterTheJake:
+  - rscadd: All Heretic paths now start with a gradually evolving passive ability.
+  - balance: the entire heretic tree has been rebalanced.
+  - balance: the grasp and mark upgrade are now granted upon selecting the path
+  - rscadd: All Heretic paths now have a unique robe.
+  - balance: Heretic ability to blade break is now disabled after X amount of knowledge
+      has been acquired (and so is the limit on blades) or the 2nd passive level is
+      unlocked.
+  - balance: it's no longer possible to cross-path into different heretic paths.
+  - balance: Every main knowledge spell will now grant to the heretic the option to
+      select a side knowledge from a draft of 3, this is a free point.
+  - balance: Heretic ascension will now call the shuttle with no possibility of recall.
+  - rscadd: A new tab has been added in the heretic UI, the knowledge shop.
+  - rscadd: Heretics will now gain temporary X-ray vision when near an untapped essence.
+  - balance: Codex cicatrix no longer requires a special pen.
+  - balance: Ritual of knowledge requires less items to complete now.
+  - balance: the minimum number of required sacrifices to unlock ascension has been
+      upped to 4, and the minimum bumped down to 5.
+  - image: loads of new sprites have been added.
+  Ezel:
+  - map: Deltastation Sec eva becomes all access when its red alert.
+  - map: Sec eva now becomes all access on red alert on nebula/catwalk/icebox/wawa
+  FalloutFalcon:
+  - admin: abstract types dont show up in admin selection menu for station traits
+  - bugfix: ghost basic mobs use natural hair colors
+  Fghj240:
+  - bugfix: Atlas gravitronic spinal implants now use their intended sprite
+  - qol: Health analyzers now tell the difference between curable and incurable permanent
+      traumas
+  - rscadd: New T3 cybernetic ears, the volume-adjusted ears.
+  - balance: The T1 and T2 ears are now slightly worse than and slightly better than
+      normal ears, respectively.
+  Gaxeer:
+  - bugfix: energy dagger pen report will be now shown in detective scanner and also
+      all items that transform will have additional note about it
+  Ghommie:
+  - refactor: Refactored flash and flashers. Report any issue about it
+  - balance: Flashes now affect basic mobs as well. Yes, this extends to the hypno-flash.
+      Yes, this includes converting them as a headrev / blood bro
+  - balance: Flashers now actually use the flashes that they're installed with, and
+      the portable version is also triggered by nearby basic mobs and cyborgs passing
+      through.
+  - balance: Elite mobs cannot be converted while they're busy battling their challenger.
+  - balance: Mobs that have been given sentience potions to are unconvertable. They
+      answer to their master (the one that gave them the potion in the first place)
+      anyway.
+  - bugfix: Fixed dimensional anomalies duplicating airlocks
+  - code_imp: Merged the human and living versions of the scream emote. Remember to
+      reset your scream hotkey if it is ever unset.
+  Happyowl93:
+  - balance: adds 1.2s fire delay to ion gun.
+  - balance: Restored CE's belt with T2 tools
+  Hatterhat:
+  - bugfix: The M64 shotgun no longer halves its magazine capacity if you attach a
+      seclite.
+  - image: The M64 shotgun now has short inhands when sawed down.
+  - balance: The M64 shotgun is now a medium-weight weapon when sawed down, meaning
+      you can't akimbo with it but you can one-hand it.
+  - balance: Due to a quite lucrative military surplus buyback program by SolFed,
+      Nanotrasen has seen fit to sell back their stocks of MMR-2543-series rifles,
+      including the 2543E assault rifles and 2543I battle rifles.
+  - balance: In place of the now-sold-back MMR rifles, Nanotrasen has begun stocking
+      (or restocking?) the previous-generation Veldjen-Kuiper Armories' Renpaard-d'Infanterie
+      battle rifle and Stridjpaard-d'Elite designated marksman rifle. Find them in
+      your local cargo console or armory.
+  - balance: The Sindano fires faster (0.25s fire delay, matching the MMR-2543E) to
+      give it more of its niche as a bullet hose for turning targets into perforated
+      targets.
+  - rscadd: The visors on MODsuits that used to have armor boosters now visibly toggle
+      based on whether the wearer is in combat mode or not.
+  Krysonism:
+  - bugfix: food / animal hybrids like the butterbear and cak now once again correctly
+      grab ghosts and store brains.
+  Melbert:
+  - balance: Death of artifical mobs (such as monkey cube monkeys) result in a 75%
+      weaker, 80% shorter moodlet that does not compound with more deaths.
+  - bugfix: You can interact with soup pots on stoves again
+  - bugfix: Dragging defibs and modsuits off your back works again
+  - image: CMO now has unique backpack/satchel/etc. sprites which matches their teal
+      palette.
+  - image: CMO spawns with white sneakers instead of blue sneakers.
+  - qol: Garment bags can hold empty backpacks/satchels/etc.
+  - rscdel: Defib mount removed from CMO's locker.
+  - bugfix: Items stocked in a storage item by default can be mouse-drag-swapped like
+      any other item.
+  MrSunabouzu:
+  - bugfix: Snowglobe ore vents produce ore now
+  OrbisAnima:
+  - rscdel: Removes the recipes for the event horizon rifle and Supermatter Sword,
+      as they are both RR weapons capable of completly derailing a round. Removes
+      the part from the station to not confuse players, but leaves it on ds2 as its
+      used for bounties. It still wont let you make the funny rifle.
+  - balance: Removes certain Overpowered characteristics from early donator items
+      that gave minor but unfair advantage to certain donators over regular players.
+  RealWinterFrost:
+  - bugfix: Playsuit now has an ass
+  SmArtKar:
+  - bugfix: Fixed ore bags being able to reject any ores despite having ample space
+  - bugfix: Pulling a stack behind you and getting it topped up by lying items will
+      no longer spam pulls and lock out your inputs
+  - bugfix: Picking up ores into an ore box via an ore bag will no longer play a jank
+      animation
+  - qol: Ore bags and MODule ore bags no longer pick up ores you've dropped from your
+      hand until you walk over them again
+  - bugfix: Fixed raptors going at mach speeds
+  - bugfix: Sleeping Carp and Cain & Abel no longer tell you about armor penetration
+      when you reflect projectiles with them
+  - bugfix: Items no longer randomly fall out of bags when changing their size
+  Sothanforax:
+  - rscadd: Added chitter and squeak emotes for moths
+  - sound: Added chitters and squeaks
+  Stalkeros, splet for the sprites:
+  - rscadd: HC rim-world inspector MOD has been added, replacing the now-deleted ""NRI""
+      policing one.
+  - rscdel: '""NRI"" policing MOD doesn''t exist, yippie!'
+  SyncIt21:
+  - bugfix: circuit multitool won't reveal special items on mobs
+  - bugfix: order console correctly differentiates between private & department orders
+  - bugfix: order console checkout cart displays correct Private/Department order
+      text amounts
+  TealSeer:
+  - code_imp: renamed flatten_list proc to assoc_to_values
+  Xander3359:
+  - refactor: Converts some attacks to interactions
+  Yobrocharlie:
+  - balance: restored the weak claymore to its former glory
+  - balance: buffed the cleric mace by a little bit.
+  carpotoxin:
+  - rscadd: Adds and changes around various ventilation clog creatures
+  - bugfix: Fixes cheese zombie appearance
+  grungussuss:
+  - qol: item offers now persist when pulling
+  intense-skies:
+  - bugfix: Updates the borg/AI language list to be current
+  lelandkemble:
+  - spellcheck: Removed lie about free stuff from contractor kit uplink description
+  - qol: Flowers can now be attached to space helmets.
+  - qol: Taking hats off of helmets will now put them in your hand.
+  - bugfix: MOD flashlights won't move hats on them when toggling.
+  mcbalaam:
+  - qol: Better output for sound requesting
+  - bugfix: '"Request Internet sound" input window''s title and description are not
+      inverted anymore'
+  necromanceranne:
+  - balance: Hunter boxing now grants a reasonable amount of experience in Athletics
+      for punching the absolute shit out of the local wildlife.
+  - balance: Includes crustaceans and reptiles to the list of mob types that Hunter
+      Boxing is allowed to mangle with their bare hands. You still can't use Hunter
+      Boxing on lizardpeople. Or crabpeople when they are added in 2030.
+  - bugfix: The warp sfx now works properly.
+  - bugfix: The Jaws of Recovery bonesetting mode now has an actual sprite.
+  - bugfix: Some Jaws of Recovery cabinets that were strangely empty are now filled.
+  - rscadd: Adds the Jaws of Recovery. One can be found in a locked glass cabinet
+      in medical. These jaws of life are restricted on what they can force open, and
+      alert security and medical whenever they are utilized to pry open departmental
+      doors. They can't be used to open high security doors whatsoever. And they come
+      with a bonesetter attachment instead of wirecutters. You know, for power-relocating
+      your arm.
+  - qol: The chaplain energy swords now work like energy swords. Turn them on and
+      off! Light your way with the blade. Light a cigarette with your blade like a
+      badass. Feel bad that it isn't a REAL energy sword.
+  - bugfix: The carp'sie plushie now fits in chaplain suit storage.
+  paganiy:
+  - rscadd: changeling's last resort ability now can rupture surrounding them walls
+      and other objects
+  - rscadd: last resort now has a short animation
+  - balance: increased last resort's blind range from 2 to 4 tiles
+  - bugfix: fixed several runtimes related to changeling's last resort ability
+  - sound: added a gore sound effect to last resort explosion
+  thegrb93:
+  - bugfix: Self sustaining slime and clusterbuster now correctly fill required reagents
+  timothymtorres:
+  - bugfix: Fix lighters triggering runtimes when out of fuel
+  - rscadd: Central Command has finally realized that old fashioned water is actually
+      good for you. It now provides a minor buff to the natural healing of liver damage.
+  tontyGH:
+  - bugfix: moves the computer frame's anchor requirement from circuit step to finalization
+      step, fixing an issue where you could construct unanchored and FUNCTIONAL computers
+  - qol: as a side effect, you only need to wrench the PC down when construction is
+      being finished
+  vinylspiders:
+  - bugfix: integrated toolset and integrated paperwork implants can be emagged for
+      an integrated combat knife and chameleon stamp, respectively (fixed a bug preventing
+      that from working)
+2025-10-18:
+  Bannhammger:
+  - rscadd: Knuckleduster and it's variant to uplink!
+  Stalkeros, splet for the sprites:
+  - rscadd: Adds a new piece of Coalition police clothing, being a pretty official
+      shirt-pencil skirt combo
+  - spellcheck: Generally speaking, most of the then-Imperial/NRI mentions in the
+      police gear has been swapped to now-Coalition/HC
+  lukevale:
+  - rscadd: Adds 3 new markings, Belly trim, Chemlight, and Chembright.
+  - rscadd: Adds two new tails, chemlight, and striped tail.
+  - rscadd: Adds two new taurs, chemlight, and striped canine.
+  - rscadd: Adds a new set of tall ears for those canines looking to get those ear
+      scritches.
+2025-10-19:
+  vinylspiders:
+  - bugfix: fixes teshari icons for storage belts, waistpacks, and chest pouches
+2025-10-21:
+  Bannhammger:
+  - rscadd: Added the medical combitool - a combination surgical tool that can switch
+      between bonesetter and blood filter modes
+  - rscadd: Added alien bonesetter and alien bloodfilter - advanced variants with
+      faster tool speeds
+  - qol: Medical cyborgs' Advanced Surgery Tools upgrade now includes the medical
+      combitool instead of separate surgical omnitools
+  - qol: Medical combitool is now available through DeForest Medical cargo imports
+      for 3 command paychecks
+  - rscadd: returns of Cursed quirk into selection
+  - rscadd: perscom added to the cortically augumented brain
+  FIoppie:
+  - rscadd: Standalone eye sclera marking
+  Hatterhat:
+  - balance: The detective's knuckledusters no longer grant Evil Boxing for free,
+      and instead grant Street Boxing, which still allows you to punch people who
+      aren't boxers to chain together knockdowns. Syndicate knuckledusters remain
+      Evil, however.
+  OrbisAnima:
+  - bugfix: Adapts the custom screams to the new system, we can shout again.
+  RealWinterFrost:
+  - image: 'replaces many items in the remotes dmi file to have unique sprite for
+      each item. (EX: TTS Device, Blueshield Beacon, NTC Beacon, Ingredients Beacon,
+      Etc)'
+  Stalkeros, Zydras for the sprites:
+  - rscadd: Added the DeForest Materiel Recovery Terminal, a Janitor vending machine-exclusive
+      flatpack of a machine that exchanges trash, for cash if you're a janitor, and
+      ration tickets if you're not.
