@@ -82,8 +82,7 @@
 	for(var/obj/item/bodypart/bodypart as anything in human_holder.bodyparts)
 		bodypart.name = replacetext(bodypart.name, "tiny ", "")
 
-	UnregisterSignal(human_holder, COMSIG_CARBON_POST_ATTACH_LIMB)
-	UnregisterSignal(human_holder, COMSIG_MOB_APPLY_DAMAGE_MODIFIERS)
+	UnregisterSignal(human_holder, list(COMSIG_CARBON_POST_ATTACH_LIMB, COMSIG_MOB_APPLY_DAMAGE_MODIFIERS))
 
 	human_holder.remove_traits(undersized_traits)
 
@@ -115,6 +114,7 @@
 	var/datum/component/squashable/component = human_holder.GetComponent(/datum/component/squashable)
 	qdel(component)
 
+/// Tweak the effectiveness/damage values of outbound unarmed attacks of newly gained limbs
 /datum/quirk/undersized/proc/on_gain_limb(datum/source, obj/item/bodypart/gained, special)
 	SIGNAL_HANDLER
 
@@ -134,6 +134,7 @@
 /datum/movespeed_modifier/undersized
 	multiplicative_slowdown = UNDERSIZED_SPEED_SLOWDOWN
 
+/// Tweak the effectiveness/damage values of inbound attacks
 /datum/quirk/undersized/proc/damage_weakness(datum/source, list/damage_mods, damage_amount, damagetype, def_zone, sharpness, attack_direction, obj/item/attacking_item)
 	if(istype(attacking_item, /obj/item/melee/flyswatter))
 		damage_mods += 50 // :)

@@ -14,10 +14,8 @@
 		shake_camera(user, 1, kickback_range/2) //small guys get a lil extra recoil as a treat
 
 //Happens before the actual projectile creation
-/obj/item/gun/before_firing(atom/target,mob/user)
+/obj/item/gun/before_firing(atom/target, mob/user)
 	kickback_force = chambered.loaded_projectile.damage
 	kickback_speed = kickback_force
 	kickback_range = chambered.loaded_projectile.damage/10
-	. = ..()
-	return
-
+	return ..()

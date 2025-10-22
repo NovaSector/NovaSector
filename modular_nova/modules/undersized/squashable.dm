@@ -25,7 +25,7 @@
 		src.squash_damage_base = squash_damage
 	if(squash_flags)
 		src.squash_flags = squash_flags
-	if(!src.on_squash_callback && squash_callback)
+	if(!src.on_squash_callback && istype(squash_callback, /datum/callback))
 		on_squash_callback = CALLBACK(parent, squash_callback)
 
 	AddComponent(/datum/component/connect_loc_behalf, parent, loc_connections)
