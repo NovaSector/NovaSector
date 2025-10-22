@@ -87,6 +87,7 @@
 /datum/outfit/solfed/military
 	name = "Solfed Base Military Uniform"
 	uniform = /obj/item/clothing/under/solfed/marines
+	r_hand = /obj/item/advanced_choice_beacon/solfed
 	id = /obj/item/card/id/advanced/solfed/military
 	id_trim = /datum/id_trim/solfed/espatier
 	ears = /obj/item/radio/headset/headset_solfed/espatier
@@ -94,6 +95,7 @@
 /datum/outfit/solfed/military/espatiers
 	name = "SolFed Espatier"
 	ears = /obj/item/radio/headset/headset_solfed/espatier
+	r_pocket = /obj/item/advanced_choice_beacon/solfed
 
 /datum/outfit/solfed/military/espatier/grand
 	name = "Solfed Grand Response Espatier"
@@ -101,6 +103,8 @@
 /datum/outfit/solfed/military/espatier/corpsman
 	name = "SolFed Espatier (Corpsman)"
 	ears = /obj/item/radio/headset/headset_solfed/espatier/corpsman
+	r_pocket = /obj/item/advanced_choice_beacon/solfed/corpsman
+	id_trim = /datum/id_trim/solfed/espatier/corpsman
 
 /datum/outfit/solfed/military/espatier/corpsman/grand
 	name = "Solfed Grand Response Espatier (Corspman)"
@@ -108,6 +112,8 @@
 /datum/outfit/solfed/military/espatier/engineer
 	name = "SolFed Espatier (Combat Technician)"
 	ears = /obj/item/radio/headset/headset_solfed/espatier/engineer
+	r_pocket = /obj/item/advanced_choice_beacon/solfed/engineer
+	id_trim = /datum/id_trim/solfed/espatier/engineer
 
 /datum/outfit/solfed/military/espatier/engineer/grand
 	name = "Solfed Grand Response Espatier (Combat Technician)"
@@ -115,6 +121,8 @@
 /datum/outfit/solfed/military/espatier/squadleader
 	name = "SolFed Espatier (Squad Leader)"
 	ears = /obj/item/radio/headset/headset_solfed/espatier/squadleader
+	r_pocket = /obj/item/advanced_choice_beacon/solfed/squadleader
+	id_trim = /datum/id_trim/solfed/espatier/squadleader
 
 /datum/outfit/solfed/military/espatier/squadleader/grand
 	name = "Solfed Grand Response Espatier (Squad Leader)"
@@ -122,6 +130,8 @@
 /// Only spawns on the second wave or grand response squad
 /datum/outfit/solfed/military/specialist
 	name = "SolFed Specialist"
+	r_pocket = /obj/item/advanced_choice_beacon/solfed/specialist
+	id_trim = /datum/id_trim/solfed/espatier/specialist
 /// These guys are lightly equipped, more like cannon fodder, much more than marshals, but oddly more well equipped than a marshal.
 /datum/outfit/solfed/military/odst
 	name = "SolFed Orbital Drop Trooper"
