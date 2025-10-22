@@ -6,8 +6,6 @@
 	max_integrity = 1000
 	density = TRUE
 	anchored = TRUE
-	//layer = ABOVE_ALL_MOB_LAYER
-	//plane = ABOVE_GAME_PLANE
 
 /turf/closed/indestructible/spooky/cornwall
 	name = "cornwall"
@@ -27,9 +25,48 @@
 
 /obj/structure/sign/spooky/fairy_lights_pumpkin
 	name = "Pumpkin Fairy Lights"
-	desc = "A string of tiny pumpkin lights"
+	desc = "A string of tiny pumpkin lights."
 	icon = 'modular_nova/modules/event_props/icons/spooky2025.dmi'
 	icon_state = "spiceblinkers"
+	anchored = TRUE
+	opacity = FALSE
+	density = FALSE
+	layer = SIGN_LAYER
+	max_integrity = 100
+	armor_type = /datum/armor/structure_sign
+	resistance_flags = FIRE_PROOF
+
+/obj/structure/sign/spooky/fairy_lights_pumpkin_small
+	name = "Pumpkin Fairy Lights"
+	desc = "A string of tiny pumpkin lights."
+	icon = 'modular_nova/modules/event_props/icons/spooky2025.dmi'
+	icon_state = "spiceblinkers_top"
+	anchored = TRUE
+	opacity = FALSE
+	density = FALSE
+	layer = SIGN_LAYER
+	max_integrity = 100
+	armor_type = /datum/armor/structure_sign
+	resistance_flags = FIRE_PROOF
+
+/obj/structure/sign/spooky/skull_strings
+	name = "Tiny Skull Decorations"
+	desc = "A string of tiny skulls."
+	icon = 'modular_nova/modules/event_props/icons/spooky2025.dmi'
+	icon_state = "skullstringers"
+	anchored = TRUE
+	opacity = FALSE
+	density = FALSE
+	layer = SIGN_LAYER
+	max_integrity = 100
+	armor_type = /datum/armor/structure_sign
+	resistance_flags = FIRE_PROOF
+
+/obj/structure/sign/spooky/spider_stickers
+	name = "Spooky Spiders"
+	desc = "A small gathering of spiders."
+	icon = 'modular_nova/modules/event_props/icons/spooky2025.dmi'
+	icon_state = "spoodstickers"
 	anchored = TRUE
 	opacity = FALSE
 	density = FALSE
