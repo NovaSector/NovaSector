@@ -1,5 +1,5 @@
 ADMIN_VERB(storyteller_vote, R_ADMIN | R_DEBUG, "Storyteller - Start Vote", "Start a global storyteller vote.", ADMIN_CATEGORY_STORYTELLER)
-	if (tgui_alert(usr, "Start global vote?", "Storyteller Vote", "Yes", "No") == "No")
+	if (tgui_alert(usr, "Start global vote?", "Storyteller Vote", list("Yes", "No")) == "No")
 		return
 	var/duration = tgui_input_number(usr, "Duration in seconds:", "Vote Duration", 60, 240, 60)
 	SSstorytellers.start_vote(duration SECONDS)
@@ -131,14 +131,14 @@ ADMIN_VERB(storyteller_end_vote, R_ADMIN | R_DEBUG, "Storyteller - End Vote", "E
 	vote_duration = duration
 	vote_end_time = world.time + duration
 	candidates = list()
-	// Build from JSON data instead of subtypes
 	for(var/id in SSstorytellers.storyteller_data)
 		var/list/data = SSstorytellers.storyteller_data[id]
 		candidates += list(list(
 			"id" = id,
 			"name" = data["name"],
 			"desc" = data["desc"],
-			"portrait" = null,
+			"portrait_path" = data["portrait_path"],
+			"logo_path" = data["logo_path"],
 		))
 	SSstorytellers.storyteller_vote_uis[owner] = src
 

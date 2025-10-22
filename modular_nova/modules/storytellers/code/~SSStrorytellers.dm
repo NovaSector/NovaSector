@@ -1,6 +1,6 @@
 #define FIRE_PRIORITY_STORYTELLERS 101
 #define STORYTELLER_JSON_PATH "config/storytellers.json"  // Define for JSON path
-
+#define STORYTELLER_ICONS_PATH "config/storytellers_icons/"
 
 SUBSYSTEM_DEF(storytellers)
 	name = "AI Storytellers"
@@ -60,7 +60,8 @@ SUBSYSTEM_DEF(storytellers)
 	storyteller_helps_antags = config.Get(/datum/config_entry/flag/storyteller_helps_antags) || FALSE
 	storyteller_allows_speech = config.Get(/datum/config_entry/flag/storyteller_allows_speech) || TRUE
 
-	RegisterSignal(src, COMSIG_GLOB_CLIENT_CONNECT, PROC_REF(on_login))
+
+	RegisterSignal(SSdcs, COMSIG_GLOB_CLIENT_CONNECT, PROC_REF(on_login))
 	return SS_INIT_SUCCESS
 
 /// Initializes the active storyteller from selected_id (JSON profile), applying parsed data for adaptive behavior.
@@ -112,6 +113,10 @@ SUBSYSTEM_DEF(storytellers)
 		parsed["desc"] = istext(entry["desc"]) ? entry["desc"] : "No description provided."
 		parsed["base_cost_multiplier"] = isnum(entry["base_cost_multiplier"]) ? clamp(entry["base_cost_multiplier"], 0.1, 5.0) : 1.0
 		parsed["player_antag_balance"] = isnum(entry["player_antag_balance"]) ? clamp(entry["player_antag_balance"], 0, 100) : STORY_DEFAULT_PLAYER_ANTAG_BALANCE
+		parsed["ooc_desc"] = istext(entry["ooc_desc"]) ? entry["ooc_desc"] : "No description provided."
+		parsed["ooc_difficulty"] = istext(entry["ooc_difficulty"]) ? entry["ooc_difficulty"] : "Default"
+		parsed["portait_path"] = istext(entry["portait_path"]) ? STORYTELLER_ICONS_PATH + entry["portait_path"] : ""
+		parsed["logo_path"] = istext(entry["logo_path"]) ? STORYTELLER_ICONS_PATH + entry["logo_path"] : ""
 
 		var/mood_str = entry["mood_type"]
 		parsed["mood_path"] = text2path(mood_str)
@@ -178,6 +183,10 @@ SUBSYSTEM_DEF(storytellers)
 	new_st.target_tension = data["target_tension"]
 	new_st.max_threat_scale = data["max_threat_scale"]
 	new_st.repetition_penalty = data["repetition_penalty"]
+	new_st.ooc_desc = data["ooc_desc"]
+	new_st.ooc_difficulty = data["ooc_difficulty"]
+	new_st.portait_path = data["portait_path"]
+	new_st.logo_path = data["logo_path"]
 
 	var/mood = data["mood_path"]
 	if(ispath(mood, /datum/storyteller_mood))
@@ -520,3 +529,4 @@ ADMIN_VERB(storyteller_simulation, R_ADMIN, "Storyteller - Simulation", "Simulat
 
 #undef FIRE_PRIORITY_STORYTELLERS
 #undef STORYTELLER_JSON_PATH
+#undef STORYTELLER_ICONS_PATH

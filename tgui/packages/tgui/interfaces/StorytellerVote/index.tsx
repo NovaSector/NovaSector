@@ -19,7 +19,8 @@ type Candidate = {
   id: string;
   name: string;
   desc?: string;
-  portrait?: string;
+  portrait_path?: string;
+  logo_path?: string;
 };
 
 type TopTally = {
@@ -98,7 +99,7 @@ export const StorytellerVote = (props) => {
               style={{
                 width: '240px',
                 maxWidth: '240px',
-                maxHeight: '560px',
+                height: '100%',
                 boxSizing: 'border-box',
                 overflowX: 'hidden',
                 overflowY: 'auto',
@@ -106,49 +107,52 @@ export const StorytellerVote = (props) => {
             >
               <Box>
                 {storytellers.length ? (
-                  storytellers.map((c) => (
-                    <Box
-                      key={c.id}
-                      p={1}
-                      mb={1}
-                      style={{
-                        cursor: is_open ? 'pointer' : 'default',
-                        borderRadius: 4,
-                        opacity: is_open ? 1 : 0.6,
-                        maxWidth: '100%',
-                      }}
-                      backgroundColor={
-                        c.id === selected ? 'rgba(255,255,255,0.08)' : undefined
-                      }
-                      onClick={() => select(c.id)}
-                    >
-                      {c.portrait ? (
-                        <Box
-                          width={96}
-                          height={96}
-                          style={{
-                            backgroundImage: `url(${c.portrait})`,
-                            backgroundSize: 'cover',
-                            borderRadius: 4,
-                          }}
-                          align="center"
-                          mr={1}
-                        />
-                      ) : (
-                        <Box
-                          width={48}
-                          height={48}
-                          backgroundColor="#222"
-                          mr={1}
-                        />
-                      )}
-                    </Box>
-                  ))
+                  <Stack fill vertical>
+                    {storytellers.map((c) => (
+                      <Box
+                        key={c.id}
+                        p={1}
+                        mb={1}
+                        style={{
+                          cursor: is_open ? 'pointer' : 'default',
+                          borderRadius: 4,
+                          opacity: is_open ? 1 : 0.6,
+                          maxWidth: '100%',
+                        }}
+                        backgroundColor={
+                          c.id === selected
+                            ? 'rgba(255,255,255,0.08)'
+                            : undefined
+                        }
+                        onClick={() => select(c.id)}
+                      >
+                        {c.logo_path ? (
+                          <Box
+                            maxHeight="96px"
+                            maxWidth="96px"
+                            style={{
+                              backgroundImage: `${c.logo_path}`,
+                              backgroundSize: 'cover',
+                              borderRadius: 4,
+                            }}
+                            align="center"
+                            mr={1}
+                          />
+                        ) : (
+                          <Box
+                            maxHeight="96px"
+                            maxWidth="96px"
+                            backgroundColor="#222"
+                            mr={1}
+                          >
+                            No image
+                          </Box>
+                        )}
+                      </Box>
+                    ))}
+                  </Stack>
                 ) : (
-                  <NoticeBox>
-                    Define /datum/storyteller subtypes in code to enable voting.
-                    Check server logs for details.
-                  </NoticeBox>
+                  <NoticeBox>No storytellers provided.</NoticeBox>
                 )}
               </Box>
             </Section>

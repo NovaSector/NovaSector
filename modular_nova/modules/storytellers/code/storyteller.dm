@@ -15,9 +15,10 @@
 /datum/storyteller
 	var/name = "Base Storyteller"
 	var/desc = "A generic storyteller managing station events and goals."
-	var/ooc_desc = "A fallback storyteller/"
+	var/ooc_desc = "A fallback storyteller"
 	var/ooc_difficulty = "Default"
-
+	var/portait_path = ""
+	var/logo_path = ""
 
 	var/base_cost_multiplier = 1.0
 	/// Current mood profile, affecting event pacing and tone
