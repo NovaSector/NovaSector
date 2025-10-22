@@ -80,10 +80,10 @@
 	/// What are they thirsty for?
 	var/desired_drink = client_source?.prefs.read_preference(/datum/preference/choiced/lunchbox_drink_choice) || "Random"
 	if(desired_drink != "Random")
-		lunchbox_drink_choice = GLOB.possible_player_lunchbox_snack_choice[desired_drink]
+		lunchbox_drink_choice = GLOB.possible_player_lunchbox_drink_choice[desired_drink]
 	/// If no snack choice, WE PICKIN FOR EM!!
 	if(lunchbox_drink_choice == NONE)
-		lunchbox_drink_choice = pick(flatten_list(GLOB.possible_player_lunchbox_snack_choice))
+		lunchbox_drink_choice = pick(flatten_list(GLOB.possible_player_lunchbox_drink_choice))
 
 	/// Got room for desert?
 	var/desired_desert = client_source?.prefs.read_preference(/datum/preference/choiced/lunchbox_desert_choice) || "Random"
@@ -182,7 +182,16 @@ GLOBAL_LIST_INIT(possible_player_lunchbox_meal_choice, list(
 	can_randomize = FALSE
 
 GLOBAL_LIST_INIT(possible_player_lunchbox_snack_choice, list(
-	"DEBUG" = /obj/item/reagent_containers/cup/soda_cans/cola,
+	"Candy" = /obj/item/food/candy,
+	"South Bronx Paradise bar" = /obj/item/food/candy/bronx,
+	"Scaredy's Private Reserve Beef Jerky" = /obj/item/food/sosjerky,
+	"Homemade Beef Jerky" = /obj/item/food/sosjerky/healthy,
+	"Chips" = /obj/item/food/chips,
+	"Shrimp Chips" = /obj/item/food/chips/shrimp,
+	"4no raisins" = /obj/item/food/no_raisin,
+	"Homemade Rasins" = /obj/item/food/no_raisin/healthy,
+	"Space Twinky" = /obj/item/food/spacetwinkie,
+	"Cheesie Honkers" = /obj/item/food/cheesiehonkers,
 ))
 
 /datum/preference/choiced/lunchbox_first_snack_choice/init_possible_values()
