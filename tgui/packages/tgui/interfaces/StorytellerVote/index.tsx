@@ -1,6 +1,9 @@
+import '../../styles/interfaces/StorytellerVote.scss';
+
 import {
   Box,
   Divider,
+  Icon,
   LabeledList,
   NoticeBox,
   ProgressBar,
@@ -89,10 +92,20 @@ export const StorytellerVote = (props) => {
   return (
     <Window
       title={is_open ? 'Vote for Storyteller' : 'Storyteller Vote Results'}
-      width={760}
-      height={560}
+      width={800}
+      height={620}
+      theme="stortellerVote"
     >
-      <Window.Content>
+      <Window.Content
+        style={{
+          backgroundImage: current
+            ? `url(${resolveAsset(`${current.id}_portrait.png`)})`
+            : undefined,
+          backgroundSize: '480px 480px',
+          backgroundPositionX: '100%',
+          position: 'absolute',
+        }}
+      >
         <Stack fill>
           <Stack.Item style={{ flex: '0 0 240px', boxSizing: 'border-box' }}>
             <Section
@@ -147,7 +160,9 @@ export const StorytellerVote = (props) => {
                             No image
                           </Box>
                         )}
-                        <Tooltip content={<NoticeBox>{c.name}</NoticeBox>} />
+                        <Tooltip content={c.name}>
+                          <Icon name="question-circle" />
+                        </Tooltip>
                       </Box>
                     ))}
                   </Stack>
@@ -161,24 +176,8 @@ export const StorytellerVote = (props) => {
             <Section title="Your Vote" scrollable minHeight="480px">
               {current ? (
                 <>
-                  <Box
-                    width="480px"
-                    height="480px"
-                    style={{
-                      backgroundImage: `url(${resolveAsset(`${current.id}_portrait.png`)})`,
-                      backgroundSize: 'cover',
-                      position: 'absolute',
-                      top: '0',
-                      right: '0',
-                      zIndex: '-1',
-                      pointerEvents: 'none',
-                    }}
-                    align="right"
-                  />
+                  <h1>{current.name}</h1>
                   <LabeledList>
-                    <LabeledList.Item label="Name">
-                      {current.name}
-                    </LabeledList.Item>
                     <LabeledList.Item label="Description">
                       {current.desc || '—'}
                     </LabeledList.Item>
