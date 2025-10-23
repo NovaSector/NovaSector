@@ -200,7 +200,6 @@
 	clothing_flags = STOPSPRESSUREDAMAGE | THICKMATERIAL | SNUG_FIT | STACKABLE_HELMET_EXEMPT | HEADINTERNALS
 	icon_state = "helmet"
 	inhand_icon_state = "helmet"
-	flash_protect = NONE
 	strip_delay = 6 SECONDS
 	armor_type = /datum/armor/wetsuit_helmet
 	resistance_flags = FIRE_PROOF
