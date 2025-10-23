@@ -20,7 +20,7 @@
 ///Two rows of four wide, but offset one tile to the left, like shipping containers
 #define SEE_THROUGH_MAP_LONG_TRUCK "long_truck"
 
-//Two rows of 2 wide, but offset one tile to the left, like shipping containers
+///Two rows of 2 wide, but offset one tile to the left, like shipping containers
 #define SEE_THROUGH_MAP_LONG_TRUCK_HALF "long_truck_half"
 
 //  NOVA EDIT ADDITION END - cars_props
