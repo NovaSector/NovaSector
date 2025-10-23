@@ -663,6 +663,7 @@
   - qol: Medical combitool is now available through DeForest Medical cargo imports
       for 3 command paychecks
   - rscadd: returns of Cursed quirk into selection
+  - rscadd: perscom added to the cortically augumented brain
   FIoppie:
   - rscadd: Standalone eye sclera marking
   Hatterhat:
@@ -680,3 +681,6 @@
   - rscadd: Added the DeForest Materiel Recovery Terminal, a Janitor vending machine-exclusive
       flatpack of a machine that exchanges trash, for cash if you're a janitor, and
       ration tickets if you're not.
+2025-10-22:
+  RealWinterFrost:
+  - bugfix: Fixed the detective equipment beacon from being invisible
