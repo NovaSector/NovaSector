@@ -154,12 +154,12 @@ ADMIN_VERB(storyteller_end_vote, R_ADMIN | R_DEBUG, "Storyteller - End Vote", "E
 	var/vote_duration = 60 SECONDS
 	var/client/owner
 
-/datum/storyteller_vote_ui/New(client/C, duration = 60 SECONDS)
+/datum/storyteller_vote_ui/New(client/vote_client, duration = 60 SECONDS)
 	. = ..()
-	if (!C)
+	if (!vote_client)
 		qdel(src)
 		return
-	owner = C
+	owner = vote_client
 	vote_duration = duration
 	vote_end_time = world.time + duration
 	candidates = list()

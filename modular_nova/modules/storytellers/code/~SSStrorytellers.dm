@@ -222,11 +222,11 @@ SUBSYSTEM_DEF(storytellers)
 			active_events -= evt
 			continue
 		evt.__process_for_storyteller(world.tick_lag)
-	for(var/datum/storyteller_analyzer/A in processed_metrics)
-		if(!A || QDELETED(A))
-			processed_metrics -= A
+	for(var/datum/storyteller_analyzer/AN in processed_metrics)
+		if(!AN || QDELETED(AN))
+			processed_metrics -= AN
 			continue
-		A.process(world.tick_lag)
+		AN.process(world.tick_lag)
 
 /datum/controller/subsystem/storytellers/proc/setup_game()
 

@@ -5,7 +5,9 @@
 	var/story_weight = 0
 
 /datum/job_department
+	// Adds storyteller weight flags to the departament jobs
 	var/job_story_flags = NONE
+	// Oerride departent jobs weights
 	var/job_weight_override = 0
 
 /datum/job_department/proc/add_storyweight(datum/job/job)

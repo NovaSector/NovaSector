@@ -53,8 +53,9 @@
 	These track counts and ratios of dead/alive crew and antagonists to gauge station mortality and survival rates.
 */
 
+// Avarge health of crew
 #define STORY_VAULT_AVG_CREW_HEALTH "avg_crew_health"
-
+// A varge health of atntagonists
 #define STORY_VAULT_AVG_ANTAG_HEALTH "avg_atnag_health"
 
 

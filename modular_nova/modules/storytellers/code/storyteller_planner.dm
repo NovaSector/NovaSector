@@ -32,7 +32,7 @@
 // Main update_plan: Central control for goal execution and timeline advancement in event chain.
 // Called every think tick; scans upcoming for fire-ready goals, executes (complete()), updates status,
 // reschedules fails, cleans timeline. Returns list of fired goals for think() processing (adaptation/tags).
-// No global/sub distinction — all goals uniform in chain; inspired by RimWorld's cycle firing with adaptive rescheduling.
+// inspired by RimWorld's cycle firing with adaptive rescheduling.
 /datum/storyteller_planner/proc/update_plan(datum/storyteller/ctl, datum/storyteller_inputs/inputs, datum/storyteller_balance_snapshot/bal)
 	SHOULD_NOT_OVERRIDE(TRUE)
 	if(!timeline)
@@ -87,7 +87,7 @@
 		if(timeline[offset_str][ENTRY_STATUS] == STORY_GOAL_PENDING)
 			pending_count++
 
-	if(pending_count < 3 && COOLDOWN_FINISHED(src, goal_planing_cooldown))
+	if(pending_count <= 0 && COOLDOWN_FINISHED(src, goal_planing_cooldown))
 		if(add_next_goal(ctl, inputs, bal))
 			COOLDOWN_START(src, goal_planing_cooldown, planning_cooldown)
 
@@ -117,7 +117,7 @@
 	var/last_time = get_last_reference_time(ctl)
 	var/fire_offset = last_time + next_delay
 	if(try_plan_goal(new_goal, fire_offset, TRUE))
-		log_storyteller_planner("Storyteller added next goal to chain: [new_goal.name || new_goal.id] at offset [fire_offset] (relative delay: [next_delay]).")
+		log_storyteller_planner("[ctl.name] added next goal to chain: [new_goal.name || new_goal.id] at offset [fire_offset] (relative delay: [next_delay]).")
 		return TRUE
 	else
 		qdel(new_goal)
@@ -266,7 +266,7 @@
 
 	// Fallback if still low (add random)
 	var/attempts = 0
-	while(pending_count < 3)
+	while(pending_count < 0)
 		if(attempts > 3)
 			break
 		var/datum/storyteller_goal/fallback = build_goal(ctl, inputs, bal, 0, STORY_GOAL_RANDOM)
@@ -282,7 +282,7 @@
 
 // Build initial timeline on round start: Generates chain of events as adaptive threat sequence.
 // Analyzes station (bal/inputs) for category/tags, biases by threat/adaptation for escalation start.
-// No current_goal dependency; schedules with dynamic offsets based on mood/pace.
+// schedules with dynamic offsets based on mood/pace.
 // Ensures buffer for branching sub-threats, fallback to random for continuity.
 /datum/storyteller_planner/proc/build_timeline(datum/storyteller/ctl, datum/storyteller_inputs/inputs, datum/storyteller_balance_snapshot/bal, derived_tags)
 	timeline = list()

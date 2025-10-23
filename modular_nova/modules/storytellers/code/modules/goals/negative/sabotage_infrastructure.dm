@@ -65,9 +65,9 @@
 
 	for(var/machine_type in candidate_types)
 		var/list/candidates = list()
-		for(var/obj/machinery/M in SSmachines.get_all_machines())
-			if(istype(M, machine_type) && M.max_integrity > 0)
-				candidates += M
+		for(var/obj/machinery/machine in SSmachines.get_all_machines())
+			if(istype(machine, machine_type) && machine.max_integrity > 0)
+				candidates += machine
 
 		if(!length(candidates))
 			continue
