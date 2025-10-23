@@ -3,7 +3,8 @@
 
 /obj/item/shield/energy/returning
 	name = "returning energy shield"
-	active_throwforce = 13 //toolbox worth of damage.
+	active_throwforce = 27 // exactly 5 hits to kill.
+	reflect =  0 // no reflects.
 
 /obj/item/shield/energy/returning/on_transform(obj/item/source, mob/user, active)
 	. = ..()
