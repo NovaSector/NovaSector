@@ -746,6 +746,7 @@
 /obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer2{
 	dir = 8
 	},
+/obj/machinery/light/warm,
 /turf/open/floor/iron/dark,
 /area/ruin/space/has_grav/nova/des_two/security/prison)
 "dh" = (
@@ -797,12 +798,14 @@
 /turf/open/floor/iron/dark/textured_large,
 /area/ruin/space/has_grav/nova/des_two/service/lounge)
 "dp" = (
-/obj/machinery/door/airlock/research,
 /obj/effect/mapping_helpers/airlock/access/all/syndicate/general,
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/machinery/door/firedoor,
+/obj/machinery/door/airlock/research{
+	name = "Research"
+	},
 /turf/open/floor/iron/dark/smooth_large,
 /area/ruin/space/has_grav/nova/des_two/research)
 "dq" = (
@@ -1608,7 +1611,9 @@
 	},
 /area/ruin/space/has_grav/nova/des_two/halls)
 "gE" = (
-/obj/machinery/door/airlock/service,
+/obj/machinery/door/airlock/service{
+	name = "Library"
+	},
 /obj/effect/mapping_helpers/airlock/access/all/syndicate/general,
 /obj/machinery/door/firedoor,
 /turf/open/floor/iron/dark/textured_large,
@@ -1705,7 +1710,9 @@
 /turf/open/floor/mineral/plastitanium/red,
 /area/ruin/space/has_grav/nova/des_two/security)
 "gW" = (
-/obj/machinery/door/airlock/service,
+/obj/machinery/door/airlock/service{
+	name = "Locker Room"
+	},
 /obj/effect/mapping_helpers/airlock/access/all/syndicate/general,
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
@@ -2008,7 +2015,9 @@
 /turf/template_noop,
 /area/template_noop)
 "iE" = (
-/obj/machinery/door/airlock/research,
+/obj/machinery/door/airlock/research{
+	name = "Research"
+	},
 /obj/effect/mapping_helpers/airlock/access/all/syndicate/general,
 /obj/structure/disposalpipe/segment{
 	dir = 2
@@ -2378,7 +2387,9 @@
 /turf/open/floor/wood/large,
 /area/ruin/space/has_grav/nova/des_two/service/dorms)
 "km" = (
-/obj/machinery/door/airlock/service,
+/obj/machinery/door/airlock/service{
+	name = "Sauna"
+	},
 /obj/machinery/atmos_shield_gen/active{
 	dir = 4
 	},
@@ -2425,7 +2436,8 @@
 "kv" = (
 /obj/structure/cable,
 /obj/machinery/door/airlock/vault{
-	id_tag = "syndie_ds2_vault"
+	id_tag = "syndie_ds2_vault";
+	name = "DS-2 Vault"
 	},
 /obj/effect/mapping_helpers/airlock/access/all/syndicate/general,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
@@ -3200,7 +3212,9 @@
 /turf/open/floor/iron/dark/small,
 /area/ruin/space/has_grav/nova/des_two/security/prison)
 "nv" = (
-/obj/machinery/door/airlock/research/glass,
+/obj/machinery/door/airlock/research/glass{
+	name = "Robotics"
+	},
 /obj/effect/mapping_helpers/airlock/access/all/syndicate/general,
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
@@ -3274,7 +3288,7 @@
 /area/ruin/space/has_grav/nova/des_two/cargo)
 "nN" = (
 /obj/machinery/door/airlock/service/glass{
-	name = "Hydroponics"
+	name = "Gym"
 	},
 /obj/effect/mapping_helpers/airlock/access/all/syndicate/general,
 /obj/structure/cable,
@@ -3698,7 +3712,7 @@
 /area/template_noop)
 "pC" = (
 /obj/machinery/door/airlock/service/glass{
-	name = "Hydroponics"
+	name = "Kitchen"
 	},
 /obj/machinery/door/firedoor,
 /obj/effect/mapping_helpers/airlock/access/all/syndicate/general,
@@ -4221,14 +4235,14 @@
 /turf/open/floor/mineral/plastitanium,
 /area/ruin/space/has_grav/nova/des_two/security/armory)
 "rX" = (
-/obj/machinery/door/airlock/public/glass{
-	name = "Diner"
-	},
 /obj/structure/cable,
 /obj/machinery/door/firedoor,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/structure/disposalpipe/segment,
+/obj/machinery/door/airlock/public/glass{
+	name = "Lounge"
+	},
 /turf/open/floor/iron/dark/smooth_large,
 /area/ruin/space/has_grav/nova/des_two/service/lounge)
 "sb" = (
@@ -4270,7 +4284,7 @@
 /turf/open/floor/wood/parquet,
 /area/ruin/space/has_grav/nova/des_two/service/diner)
 "sq" = (
-/turf/open/floor/mineral/plastitanium,
+/turf/open/floor/iron/dark/textured_large,
 /area/ruin/space/has_grav/nova/des_two/security/prison)
 "ss" = (
 /obj/machinery/light/warm/directional/east,
@@ -4396,7 +4410,7 @@
 "sT" = (
 /obj/machinery/door/firedoor,
 /obj/machinery/door/airlock/service/glass{
-	name = "Hydroponics"
+	name = "Kitchen"
 	},
 /obj/effect/mapping_helpers/airlock/access/all/syndicate/general,
 /turf/open/floor/iron/dark/smooth_large,
@@ -5156,10 +5170,6 @@
 /obj/structure/disposalpipe/segment,
 /turf/open/floor/catwalk_floor/iron_dark,
 /area/ruin/space/has_grav/nova/des_two/engineering)
-"vZ" = (
-/obj/machinery/light/small/directional/east,
-/turf/closed/wall/r_wall/plastitanium/syndicate/nodiagonal,
-/area/ruin/space/has_grav/nova/des_two/security/prison)
 "wa" = (
 /obj/machinery/disposal/bin,
 /obj/structure/disposalpipe/trunk{
@@ -5720,7 +5730,9 @@
 /turf/open/floor/iron/dark/textured_large,
 /area/ruin/space/has_grav/nova/des_two/cargo)
 "yJ" = (
-/obj/machinery/door/airlock/service,
+/obj/machinery/door/airlock/service{
+	name = "Library"
+	},
 /obj/effect/mapping_helpers/airlock/access/all/syndicate/general,
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
@@ -6281,6 +6293,7 @@
 /obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer2{
 	dir = 8
 	},
+/obj/machinery/light/warm,
 /turf/open/floor/iron/dark,
 /area/ruin/space/has_grav/nova/des_two/security/prison)
 "Bi" = (
@@ -6824,9 +6837,11 @@
 /turf/open/floor/wood/parquet,
 /area/ruin/space/has_grav/nova/des_two/service/lounge)
 "Dq" = (
-/obj/machinery/door/airlock/research/glass,
 /obj/effect/mapping_helpers/airlock/access/all/syndicate/general,
 /obj/machinery/door/firedoor,
+/obj/machinery/door/airlock/research/glass{
+	name = "Robotics"
+	},
 /turf/open/floor/iron/dark/smooth_large,
 /area/ruin/space/has_grav/nova/des_two/research/robotics)
 "Dt" = (
@@ -6889,6 +6904,7 @@
 /obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer2{
 	dir = 8
 	},
+/obj/machinery/light/warm,
 /turf/open/floor/iron/dark,
 /area/ruin/space/has_grav/nova/des_two/security/prison)
 "DI" = (
@@ -8836,7 +8852,9 @@
 /turf/open/floor/iron/dark/textured_large,
 /area/ruin/space/has_grav/nova/des_two/cargo)
 "Ma" = (
-/obj/machinery/door/airlock/bathroom,
+/obj/machinery/door/airlock/bathroom{
+	name = "Bathroom"
+	},
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
@@ -8997,7 +9015,7 @@
 /area/ruin/space/has_grav/nova/des_two/cargo)
 "MD" = (
 /obj/machinery/door/airlock/silver/glass{
-	name = "Kitchen"
+	name = "Break Room"
 	},
 /obj/effect/mapping_helpers/airlock/access/all/syndicate/general,
 /obj/machinery/door/firedoor,
@@ -9230,7 +9248,9 @@
 /turf/open/floor/iron/dark/brick,
 /area/ruin/space/has_grav/nova/des_two/engineering)
 "NG" = (
-/obj/machinery/door/airlock/bathroom,
+/obj/machinery/door/airlock/bathroom{
+	name = "Bath"
+	},
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/machinery/door/firedoor,
@@ -9998,7 +10018,9 @@
 /turf/open/floor/iron/white/small,
 /area/ruin/space/has_grav/nova/des_two/service/restroom)
 "Rg" = (
-/obj/machinery/door/airlock/bathroom,
+/obj/machinery/door/airlock/bathroom{
+	name = "Toilet"
+	},
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /turf/open/floor/iron/white/textured_large,
@@ -10610,7 +10632,7 @@
 /area/ruin/space/has_grav/nova/des_two/engineering)
 "TN" = (
 /obj/machinery/door/airlock/public/glass{
-	name = "Diner"
+	name = "Lounge"
 	},
 /obj/machinery/door/firedoor,
 /turf/open/floor/iron/dark/smooth_large,
@@ -12413,7 +12435,7 @@ WP
 WP
 xm
 ME
-vZ
+tG
 tG
 tZ
 ot
