@@ -121,7 +121,7 @@
 GLOBAL_LIST_INIT(possible_player_lunchbox_design_choice, list(
 	"Dark" = "dark",
 	"Nanotrasen" = "nanotrasen",
-	"Nanotrasen (gold)" = "nanotrasen_gold"
+	"Nanotrasen (gold)" = "nanotrasen_gold",
 	"Syndicate" = "syndicate",
 	"SolFed" = "solfed",
 	"Interdyne" = "interdyne",
