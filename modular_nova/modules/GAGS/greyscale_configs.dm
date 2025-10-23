@@ -2535,3 +2535,11 @@ This is all our modular PDAs, ITS LARGE!
 /datum/greyscale_config/tablet/nova/holosystem
 	name = "Holosystem PDA"
 	json_config = 'modular_nova/modules/GAGS/json_configs/modular_pda/holosystem/pda_holosystem.json'
+
+/datum/greyscale_config/antique_short_cloak
+	name = "Antique Shortcloak"
+	icon_file = 'modular_nova/master_files/icons/obj/clothing/neck.dmi'
+	json_config = 'modular_nova/modules/GAGS/json_configs/neck/shortcloak.json'
+/datum/greyscale_config/antique_short_cloak/worn
+	name = "Antique Shortcloak (Worn)"
+	icon_file = 'modular_nova/master_files/icons/mob/clothing/neck.dmi'
