@@ -316,6 +316,26 @@
 	item_path = /obj/item/clothing/neck/cloak/colourable/veil
 	group = "Cloaks and Shrouds"
 
+/datum/loadout_item/neck/shortcloak
+	name = "Short Cloak (Colorable)"
+	item_path = /obj/item/clothing/neck/greyscaled
+	group = "Cloaks and Shrouds"
+
+/datum/loadout_item/neck/seecloak
+	name = "Seer Cloak (Colorable)"
+	item_path = /obj/item/clothing/neck/greyscaled/seecloak
+	group = "Cloaks and Shrouds"
+
+/datum/loadout_item/neck/matroncloak
+	name = "Matron Cloak (Colorable)"
+	item_path = /obj/item/clothing/neck/greyscaled/matroncloak
+	group = "Cloaks and Shrouds"
+
+/datum/loadout_item/neck/xylixcloak
+	name = "Xylix Cloak (Colorable)"
+	item_path = /obj/item/clothing/neck/greyscaled/xylixcloak
+	group = "Cloaks and Shrouds"
+
 /*
 *	JOB-LOCKED
 */
