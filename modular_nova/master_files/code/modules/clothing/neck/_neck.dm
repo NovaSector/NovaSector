@@ -38,7 +38,6 @@
 	greyscale_config = /datum/greyscale_config/antique_matroncloak
 	greyscale_config_worn = /datum/greyscale_config/antique_matroncloak/worn
 	greyscale_colors = "#777777#ffffcc#66ffff"
-	body_parts_covered = NECK|HAND_LEFT|ARM_LEFT|CHEST
 
 /obj/item/clothing/neck/greyscaled/xylixcloak
 	name = "Antique Xylix Cloak"
@@ -50,4 +49,4 @@
 	greyscale_config = /datum/greyscale_config/antique_xylixcloak
 	greyscale_config_worn = /datum/greyscale_config/antique_xylixcloak/worn
 	greyscale_colors = "#787878#abe2dc#f5d54a"
-	body_parts_covered = NECK|HAND_LEFT|CHEST
+	body_parts_covered = NECK|CHEST
