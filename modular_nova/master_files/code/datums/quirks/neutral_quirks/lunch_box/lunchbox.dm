@@ -175,11 +175,12 @@ GLOBAL_LIST_INIT(possible_player_lunchbox_meal_choice, list(
 	"Homestyle Noodles" = /obj/item/food/vendor_tray_meal/ramen,
 	"Fresh Carp Rolls" = /obj/item/food/vendor_tray_meal/sushi,
 	"Beef and Fried Rice" = /obj/item/food/vendor_tray_meal/beef_rice,
-	"" = /obj/item/food/vendor_tray_meal/baked_rice,
-	"" = /obj/item/food/vendor_tray_meal/baked_rice,
-	"" = /obj/item/food/vendor_tray_meal/baked_rice,
-	"" = /obj/item/food/vendor_tray_meal/baked_rice,
-	"" = /obj/item/food/vendor_tray_meal/baked_rice,
+	"BBQ Ribs" = /obj/item/food/bbqribs,
+	"Beef Wellington" = /obj/item/food/beef_wellington_slice,
+	"Korta Wellington" = /obj/item/food/korta_wellington_slice,
+	"Philly Cheesesteak" = /obj/item/food/sandwich/philly_cheesesteak,
+	"Steak" = /obj/item/food/meat/steak,
+	"Lasagna" = /obj/item/food/lasagna,
 ))
 
 /datum/preference/choiced/lunchbox_meal_choice/init_possible_values()
@@ -385,6 +386,8 @@ GLOBAL_LIST_INIT(possible_player_lunchbox_desert_choice, list(
 	"Ice Cream Sandwich" = /obj/item/food/icecreamsandwich,
 	"Ice Cream Sandwich (Strawberry)" = /obj/item/food/strawberryicecreamsandwich,
 	"Space Freezy" = /obj/item/food/spacefreezy,
+	"Matcha Mochi Balls" = /obj/item/food/vendor_snacks/mochi_ice_cream/matcha,
+	"Vanilla Mochi Balls" = /obj/item/food/vendor_snacks/mochi_ice_cream,
 ))
 
 /datum/preference/choiced/lunchbox_desert_choice/init_possible_values()
