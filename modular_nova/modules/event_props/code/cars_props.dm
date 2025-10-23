@@ -373,6 +373,7 @@
 	icon = 'modular_nova/modules/event_props/icons/128x32_vehiclesexpanded.dmi'
 	bound_width = 96
 	bound_height = 32
+	icon_state = "armoredtruck_nt_security_1"
 
 /obj/structure/prop/vehicle/armoredtruck/Initialize(mapload)
 	. = ..()
@@ -487,6 +488,7 @@
 	icon = 'modular_nova/modules/event_props/icons/64x64.dmi'
 	bound_width = 64
 	bound_height = 64
+	icon_state = "crane"
 
 /obj/structure/prop/vehicle/crane/crane_1
 	name = "\improper Crane"
