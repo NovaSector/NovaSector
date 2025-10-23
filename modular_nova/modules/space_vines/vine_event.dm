@@ -1,9 +1,9 @@
 /datum/round_event_control/spacevine/difficult
 	name = "Space Vines (Hard)"
 	typepath = /datum/round_event/spacevine/difficult
-	min_players = 40
-	max_occurrences = 1
-	weight = 8 //LOW_EVENT_FREQ
+	min_players = 400
+	max_occurrences = 0
+	weight = 0 //LOW_EVENT_FREQ
 	description = "Kudzu begins to overtake the station. Will spawn man-traps."
 	admin_setup = list(
 		/datum/event_admin_setup/set_location/spacevine,
