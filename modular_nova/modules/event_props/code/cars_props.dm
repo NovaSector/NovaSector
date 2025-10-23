@@ -77,6 +77,7 @@
 	icon = 'modular_nova/modules/event_props/icons/crashedcars.dmi'
 	bound_width = 64
 	bound_height = 96
+	icon_state = "crashedcarsleft"
 
 /obj/structure/prop/vehicle/crashed_car/left
 	name = "\improper Crashed SUV"
@@ -327,6 +328,7 @@
 	icon = 'modular_nova/modules/event_props/icons/128x32_vehiclesexpanded.dmi'
 	bound_width = 128
 	bound_height = 32
+	icon_state = "longtruck_kellandmining"
 
 /obj/structure/prop/vehicle/long_truck/Initialize(mapload)
 	. = ..()
@@ -449,6 +451,7 @@
 	icon = 'modular_nova/modules/event_props/icons/64x64.dmi'
 	bound_width = 64
 	bound_height = 64
+	icon_state = "truck"
 
 /obj/structure/prop/vehicle/truck/truck_1
 	name = "\improper Truck"
@@ -514,6 +517,7 @@
 	icon = 'modular_nova/modules/event_props/icons/large_truck.dmi'
 	bound_width = 96
 	bound_height = 96
+	icon_state = "truck_flat"
 
 /obj/structure/prop/vehicle/large_truck/truck_flat
 	name = "\improper Large Truck"
