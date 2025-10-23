@@ -50,7 +50,7 @@
 
 	/// If no box design is picked WE'RE PICKIN FOR EM!!!
 	if(lunchbox_design == NONE)
-		lunchbox_design = pick(flatten_list(GLOB.possible_player_lunchbox_design_choice))
+		lunchbox_design = pick(assoc_to_values(GLOB.possible_player_lunchbox_design_choice))
 
 	/// What meal is this character CRAVING for?
 	var/desired_meal = client_source?.prefs.read_preference(/datum/preference/choiced/lunchbox_meal_choice) || "Random"
@@ -59,7 +59,7 @@
 		lunchbox_meal_choice = GLOB.possible_player_lunchbox_meal_choice[desired_meal]
 	/// If no box design is picked WE'RE PICKIN FOR EM!!!
 	if(lunchbox_meal_choice == NONE)
-		lunchbox_meal_choice = pick(flatten_list(GLOB.possible_player_lunchbox_meal_choice))
+		lunchbox_meal_choice = pick(assoc_to_values(GLOB.possible_player_lunchbox_meal_choice))
 
 	/// What snack does this character desire?
 	var/desired_snack = client_source?.prefs.read_preference(/datum/preference/choiced/lunchbox_first_snack_choice) || "Random"
@@ -67,7 +67,7 @@
 		lunchbox_first_snack_choice = GLOB.possible_player_lunchbox_snack_choice[desired_snack]
 	/// If no snack choice, WE PICKIN FOR EM!!
 	if(lunchbox_first_snack_choice == NONE)
-		lunchbox_first_snack_choice = pick(flatten_list(GLOB.possible_player_lunchbox_snack_choice))
+		lunchbox_first_snack_choice = pick(assoc_to_values(GLOB.possible_player_lunchbox_snack_choice))
 
 	/// What snack does this character desire?
 	var/desired_snack_2 = client_source?.prefs.read_preference(/datum/preference/choiced/lunchbox_second_snack_choice) || "Random"
@@ -75,7 +75,7 @@
 		lunchbox_second_snack_choice = GLOB.possible_player_lunchbox_snack_choice[desired_snack_2]
 	/// If no snack choice, WE PICKIN FOR EM!!
 	if(lunchbox_second_snack_choice == NONE)
-		lunchbox_second_snack_choice = pick(flatten_list(GLOB.possible_player_lunchbox_snack_choice))
+		lunchbox_second_snack_choice = pick(assoc_to_values(GLOB.possible_player_lunchbox_snack_choice))
 
 	/// What are they thirsty for?
 	var/desired_drink = client_source?.prefs.read_preference(/datum/preference/choiced/lunchbox_drink_choice) || "Random"
@@ -83,7 +83,7 @@
 		lunchbox_drink_choice = GLOB.possible_player_lunchbox_drink_choice[desired_drink]
 	/// If no snack choice, WE PICKIN FOR EM!!
 	if(lunchbox_drink_choice == NONE)
-		lunchbox_drink_choice = pick(flatten_list(GLOB.possible_player_lunchbox_drink_choice))
+		lunchbox_drink_choice = pick(assoc_to_values(GLOB.possible_player_lunchbox_drink_choice))
 
 	/// Got room for desert?
 	var/desired_desert = client_source?.prefs.read_preference(/datum/preference/choiced/lunchbox_desert_choice) || "Random"
@@ -91,7 +91,7 @@
 		lunchbox_dessert_choice = GLOB.possible_player_lunchbox_desert_choice[desired_desert]
 	/// If no snack choice, WE PICKIN FOR EM!!
 	if(lunchbox_dessert_choice == NONE)
-		lunchbox_dessert_choice = pick(flatten_list(GLOB.possible_player_lunchbox_desert_choice))
+		lunchbox_dessert_choice = pick(assoc_to_values(GLOB.possible_player_lunchbox_desert_choice))
 
 	var/obj/item/storage/toolbox/lunchbox = new /obj/item/storage/toolbox/lunchbox(get_turf(quirk_holder))
 
