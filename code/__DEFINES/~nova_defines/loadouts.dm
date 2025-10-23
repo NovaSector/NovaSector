@@ -39,7 +39,7 @@
 #define LOADOUT_MAX_NAME_LENGTH 24
 
 
-/// Please add jobs here. It's cleaner using these smiley face equals three
+/// Please add jobs here. It's cleaner using these.
 //Security. Yes we don't use deptsec, but it's future proofing
 #define ALL_JOBS_SEC JOB_WARDEN, JOB_DETECTIVE, JOB_SECURITY_OFFICER, JOB_HEAD_OF_SECURITY, JOB_CORRECTIONS_OFFICER, JOB_SECURITY_OFFICER_MEDICAL, JOB_SECURITY_OFFICER_ENGINEERING, JOB_SECURITY_OFFICER_SCIENCE, JOB_SECURITY_OFFICER_SUPPLY, JOB_BLUESHIELD, JOB_VETERAN_ADVISOR,
 //Dept Guards.
