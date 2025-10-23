@@ -184,8 +184,8 @@ GLOBAL_LIST_INIT(possible_player_lunchbox_meal_choice, list(
 
 GLOBAL_LIST_INIT(possible_player_lunchbox_snack_choice, list(
 	"Candy" = /obj/item/food/candy,
-	"South Bronx Paradise bar" = /obj/item/food/candy/bronx,
 	"Scaredy's Private Reserve Beef Jerky" = /obj/item/food/sosjerky,
+	"Ration Pack" = /obj/item/food/rationpack,
 	"Homemade Beef Jerky" = /obj/item/food/sosjerky/healthy,
 	"Chips" = /obj/item/food/chips,
 	"Shrimp Chips" = /obj/item/food/chips/shrimp,
