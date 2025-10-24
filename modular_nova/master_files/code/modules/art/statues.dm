@@ -12,7 +12,8 @@
 	. = ..()
 	. += add_statue_glow()
 
-/obj/structure/statue/proc/add_statue_glow() /// Will attempt to add glow to ALL statues if possible, otherwise do nothing
+/// Will attempt to add glow to ALL statues if possible, otherwise do nothing
+/obj/structure/statue/proc/add_statue_glow()
 
 	return emissive_appearance(
 		src.icon,
@@ -118,9 +119,8 @@
 
 /obj/structure/statue/silver/nova/small/glow
 	name = "Statue of Curiosity"
-	desc = "A statue, depicting ancient humans and their system of sol, its past showing how little they once knew and how their determination helped them ascend to the stars"
+	desc = "A statue, depicting ancient humans and their system of sol, its past showing how little they once knew and how their determination helped them ascend to the stars."
 	icon_state = "statue_curiosity"
-
 
 /*
 	Large Statues
@@ -138,7 +138,7 @@
 
 /obj/structure/statue/silver/nova/large/obelisk
 	name = "Obelisk"
-	desc = "You're not sure why its here... its just a block of iron, but yet... its menacing... like a pillar... such cleanly cut... its corners looking too sharp to touch..."
+	desc = "You're not sure why it's here... it's just a block of iron, but yet... it is menacing... like a pillar... so cleanly cut... its corners looking too sharp to touch..."
 	icon_state = "obelisk_base"
 
 /obj/structure/statue/silver/nova/large/obelisk/dark
@@ -149,7 +149,7 @@
 */
 
 /obj/structure/statue/silver/nova/large/glow
-	name = "statue of ancient twinss"
+	name = "statue of ancient twins"
 	desc = "A statue of twin sisters, giving life to the flame of the universe, keeping the universe alive and well kept... each ember a star, in its infinite chaos."
 	icon_state = "twins"
 
@@ -157,7 +157,7 @@
 	icon_state = "twins_light"
 
 /obj/structure/statue/silver/nova/large/glow/telekenesis
-	name = "statue of telekenesis"
+	name = "Statue of Telekinesis"
 	desc = "A statue, depicting telekinetic behaviour... but yet it feels like your mind is being invaded by the statue..."
 	icon_state = "telekenesis"
 
@@ -170,17 +170,17 @@
 	icon_state = "honour_light"
 
 /obj/structure/statue/silver/nova/large/glow/truelight
-	name = "statue of light"
+	name = "Statue of Light"
 	desc = "An iron statue, made depicting darkness, but that following the light will guide you home."
 	icon_state = "light_statue"
 
 /obj/structure/statue/silver/nova/large/glow/order
-	name = "Statue of order"
+	name = "Statue of Order"
 	desc = "A statue, with a great feeling of order, and community, through unity aand order."
 	icon_state = "order"
 
 /obj/structure/statue/silver/nova/large/glow/love
-	name = "Statue of love"
+	name = "Statue of Love"
 	desc = "A faint feeling of affection and care, seems present in your mind as you look at the statue... but yet... you feel nothing..."
 	icon_state = "statue_love"
 
