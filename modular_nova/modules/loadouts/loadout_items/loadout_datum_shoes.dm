@@ -257,7 +257,7 @@
 /datum/loadout_item/shoes/jackboots_sec_blue
 	name = "Security Jackboots (Blue)"
 	item_path = /obj/item/clothing/shoes/jackboots/sec/blue
-	restricted_roles = list(JOB_SECURITY_OFFICER, JOB_WARDEN, JOB_HEAD_OF_SECURITY)
+	restricted_roles = list(ALL_JOBS_SEC)
 	group = "Job-Locked"
 
 /datum/loadout_item/shoes/clown_shoes
