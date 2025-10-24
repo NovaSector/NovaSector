@@ -48,7 +48,8 @@
 /// Checks the shells in the ammo stack to make sure it isn't empty, if it is, the stack is deleted
 /obj/item/ammo_box/magazine/ammo_stack/proc/check_empty()
 	if(!ammo_count(TRUE) && !QDELETED(src))
-		qdel(src)
+		spawn(0) // We are doing this to yield execution to the rest of the call chain to avoid a race condition. Hacky but avoids nonmodular messes.
+			qdel(src)
 
 /// Iterates through every casing in this ammo stack, scattering it and moving it out of the ammo stack, in the event this was thrown.
 /obj/item/ammo_box/magazine/ammo_stack/proc/scatter(atom/hit_atom, pixel_distance = 48)
