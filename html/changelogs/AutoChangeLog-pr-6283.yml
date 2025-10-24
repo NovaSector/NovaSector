@@ -1,0 +1,5 @@
+author: "theselfish"
+delete-after: True
+changes:
+  - code_imp: "Changes most loadout things to defines."
+  - rscadd: "Chungo Fops were made available for anyone to pick in the loadout."
