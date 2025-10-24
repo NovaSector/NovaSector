@@ -171,7 +171,7 @@
 
 /obj/structure/statue/silver/nova/large/glow/truelight
 	name = "Statue of Light"
-	desc = "An iron statue, made depicting darkness, but that following the light will guide you home."
+	desc = "An iron statue made depicting darkness, yet it stirs a faint sense that following the light will guide you home."
 	icon_state = "light_statue"
 
 /obj/structure/statue/silver/nova/large/glow/order
