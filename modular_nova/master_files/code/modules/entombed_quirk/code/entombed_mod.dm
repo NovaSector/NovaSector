@@ -9,7 +9,7 @@
 	max_heat_protection_temperature = FIRE_SUIT_MAX_TEMP_PROTECT
 	siemens_coefficient = 0
 	complexity_max = DEFAULT_MAX_COMPLEXITY - 5
-	charge_drain = DEFAULT_CHARGE_DRAIN / 4 // Quarter of the normal charge rate to allow for more RP.
+	charge_drain = DEFAULT_CHARGE_DRAIN / 2
 	slowdown_deployed = 0.95
 	inbuilt_modules = list(
 		/obj/item/mod/module/joint_torsion/entombed,
