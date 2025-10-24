@@ -4,7 +4,7 @@
 
 /obj/item/clothing/neck/greyscaled
 	name = "Antique Short Cloak"
-	desc = "An antique, fluffy shortcloak... not sure why its so puffy and short."
+	desc = "An antique, fluffy shortcloak... not sure why it's so puffy and short."
 
 	icon = 'modular_nova/master_files/icons/mob/clothing/neck.dmi'
 	icon_state = "/obj/item/clothing/neck/greyscaled"
@@ -18,7 +18,7 @@
 
 /obj/item/clothing/neck/greyscaled/seecloak
 	name = "Antique Seecloak"
-	desc = "An antique cloak, with a symbol that now means nothing..."
+	desc = "An antique cloak, with a symbol that has been lost to time..."
 
 	icon_state = "/obj/item/clothing/neck/greyscaled/seecloak"
 	post_init_icon_state = "seecloak"
