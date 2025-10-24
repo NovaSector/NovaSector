@@ -96,6 +96,7 @@
 	new lunchbox_drink_choice(lunchbox_base)
 	new lunchbox_dessert_choice(lunchbox_base)
 
+	lunchbox_base.name = "[quirk_holder.real_name]'s lunchbox"
 	give_item_to_holder(
 		lunchbox_base,
 		list(
