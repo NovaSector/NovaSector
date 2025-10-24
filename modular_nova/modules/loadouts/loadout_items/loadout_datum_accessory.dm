@@ -64,7 +64,7 @@
 /datum/loadout_item/accessory/armband_security
 	name = "Armband - Security Deputy"
 	item_path = /obj/item/clothing/accessory/armband/deputy
-	restricted_roles = list(JOB_HEAD_OF_SECURITY, JOB_SECURITY_OFFICER, JOB_WARDEN, JOB_DETECTIVE, JOB_CORRECTIONS_OFFICER)
+	restricted_roles = list(ALL_JOBS_SEC)
 
 /datum/loadout_item/accessory/green_pin
 	name = "Green \"Newbie\" Pin"
@@ -73,17 +73,17 @@
 /datum/loadout_item/accessory/holobadge
 	name = "Holobadge"
 	item_path = /obj/item/clothing/accessory/badge/holo
-	restricted_roles = list(JOB_SECURITY_OFFICER, JOB_DETECTIVE, JOB_WARDEN, JOB_HEAD_OF_SECURITY)
+	restricted_roles = list(ALL_JOBS_SEC)
 
 /datum/loadout_item/accessory/holobadge/blue
 	name = "Holobadge (Blue)"
 	item_path = /obj/item/clothing/accessory/badge/holo/blue
-	restricted_roles = list(JOB_SECURITY_OFFICER, JOB_DETECTIVE, JOB_WARDEN, JOB_HEAD_OF_SECURITY)
+	restricted_roles = list(ALL_JOBS_SEC)
 
 /datum/loadout_item/accessory/holobadge/lanyard
 	name = "Holobadge (Lanyard)"
 	item_path = /obj/item/clothing/accessory/badge/holo/cord
-	restricted_roles = list(JOB_SECURITY_OFFICER, JOB_DETECTIVE, JOB_WARDEN, JOB_HEAD_OF_SECURITY)
+	restricted_roles = list(ALL_JOBS_SEC)
 
 /*
 *	ARMOURLESS
@@ -227,7 +227,7 @@
 /datum/loadout_item/accessory/medal/cc_pin
 	name = "Neckpin - CentCom"
 	item_path = /obj/item/clothing/accessory/nova/acc_medal/neckpin/centcom
-	restricted_roles = list(JOB_NT_REP, JOB_CAPTAIN, JOB_BLUESHIELD)
+	restricted_roles = list(JOB_CAPTAIN, ALL_JOBS_CC)
 
 /datum/loadout_item/accessory/medal/nt_pin
 	name = "Neckpin - Nanotrasen"
