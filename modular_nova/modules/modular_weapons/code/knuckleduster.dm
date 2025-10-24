@@ -6,8 +6,8 @@
 	icon = 'modular_nova/modules/modular_weapons/icons/obj/melee.dmi'
 	icon_state = "knuckleduster"
 	inhand_icon_state = null
-	worn_icon = 'icons/mob/clothing/hands.dmi'
-	worn_icon_state = "black"
+	worn_icon = 'modular_nova/master_files/icons/mob/clothing/hands.dmi'
+	worn_icon_state = "knuckledusters"
 	w_class = WEIGHT_CLASS_SMALL
 	obj_flags = CONDUCTS_ELECTRICITY
 	hitsound = 'sound/items/weapons/punch1.ogg'
@@ -39,15 +39,6 @@
 	AddComponent(/datum/component/martial_art_giver, granted_style)
 	RegisterSignal(src, COMSIG_ITEM_EQUIPPED, PROC_REF(knuckle_equipped))
 	RegisterSignal(src, COMSIG_ITEM_DROPPED, PROC_REF(knuckle_dropped))
-
-/**
- * Overrides worn icon generation to make the knuckledusters invisible when worn as gloves.
- * Returns null for worn sprites to achieve complete concealment on the character sprite.
- */
-/obj/item/melee/knuckleduster/build_worn_icon(default_layer, default_icon_file, isinhands, female_uniform, override_state, override_file, mutant_styles)
-	if(!isinhands)
-		return null // Make invisible when worn as gloves
-	return ..()
 
 /**
  * Clears all worn overlays to ensure complete invisibility when equipped.
@@ -213,7 +204,7 @@
 					attacker,
 				)
 				to_chat(attacker, span_danger("You knock [defender] around with a haymaker!"))
-				defender.adjust_staggered_up_to(STAGGERED_SLOWDOWN_LENGTH, 10 SECONDS)
+				defender.adjust_staggered_up_to(0.5 SECONDS, 10 SECONDS) // probably not enough to increase the window to eat more crits
 				defender.apply_damage(20, STAMINA, blocked = armor_block)
 				log_combat(attacker, defender, "knocked around (boxing) ")
 			else
@@ -226,7 +217,7 @@
 					attacker,
 				)
 				to_chat(attacker, span_danger("You knock [defender] down with a haymaker!"))
-				defender.adjust_staggered_up_to(STAGGERED_SLOWDOWN_LENGTH, 10 SECONDS)
+				defender.adjust_staggered_up_to(2 SECONDS, 10 SECONDS) // slight increase in window to eat more crits
 				defender.apply_effect(5 SECONDS, EFFECT_KNOCKDOWN, armor_block)
 				defender.apply_damage(30, STAMINA, blocked = armor_block)
 				log_combat(attacker, defender, "knocked down (boxing) ")
