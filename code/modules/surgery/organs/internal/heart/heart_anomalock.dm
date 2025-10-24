@@ -1,7 +1,7 @@
 /*!
  * Contains Voltaic Combat Cyberheart
  */
-/* NOVA EDIT START: overridden in modular_nova\master_files\code\modules\surgery\organs\internal\heart\heart_anomalock.dm to
+/* NOVA EDIT START: overridden in modular_nova\master_files\code\modules\surgery\organs\internal\heart\heart_anomalock.dm
 #define DOAFTER_IMPLANTING_HEART "implanting"
 /obj/item/organ/heart/cybernetic/anomalock
 	name = "voltaic combat cyberheart"
@@ -223,4 +223,4 @@
 	return span_danger("[owner.p_Their()] heart produces [beat_noise].")
 
 #undef DOAFTER_IMPLANTING_HEART
-*/ // NOVA EDIT END
+*/ // NOVA EDIT CHANGE END
