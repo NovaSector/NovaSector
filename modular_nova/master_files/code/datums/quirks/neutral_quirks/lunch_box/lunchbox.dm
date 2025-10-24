@@ -3,7 +3,7 @@
 	name = "Lunchbox User"
 	desc = "You brought a lunch, homemade or not, you decided to pack one for yourself!"
 	icon = FA_ICON_BOX
-	value = 2
+	value = 0
 	mob_trait = TRAIT_LUNCHBOX_OWNER
 	gain_text = span_notice("You brought your lunchbox with you, yippee!.")
 	lose_text = span_danger("The feeling... the love... the passion for a home made meal leaves you... a tear sheds down your face, a weep... a sorrow... an apology as you say goodbye to your delicious homemade delectables.")
