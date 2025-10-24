@@ -4,10 +4,8 @@
 
 /obj/item/organ/heart/cybernetic/anomalock
 	name = "voltaic combat cyberheart"
-	desc = "A cutting-edge cyberheart, originally designed for corporate killsquad usage but later declassified for normal research. \
-		How Nanotrasen got the designs, you'll probably never know. \
-		Voltaic technology allows the heart to keep the body upright in dire circumstances, alongside redirecting anomalous flux energy to \
-		fully shield the user from shocks and electro-magnetic pulses. \
+	desc = "A cutting-edge cyberheart. Voltaic technology allows the heart to keep the body upright in dire circumstances, \
+		along with fully shielding the user from shocks and electro-magnetic pulses. \
 		Requires a refined flux core as a power source. \
 		The critical protection functionality requires a cooldown period before it can be used again."
 	icon_state = "anomalock_heart"
@@ -36,6 +34,22 @@
 /obj/item/organ/heart/cybernetic/anomalock/Initialize(mapload) // The heart itself is ALWAYS immune to EMPs
 	. = ..()
 	AddElement(/datum/element/empprotection, EMP_PROTECT_SELF)
+	AddElement(/datum/element/examine_lore, \
+		lore_hint = span_notice("You can [EXAMINE_HINT("look closer")] to learn a little more about [src]."), \
+		lore = "The voltaic combat cyberheart was originally designed for corporate killsquad usage, \
+		but later declassified for normal research. Nobody knows where the original designs came from, and \
+		how Nanotrasen got the designs, you'll probably never know.<br>\
+		<br>\
+		However, continuous improvements over the design allow it to fully utilize the anomalous energies \
+		from a flux anomaly's core, leveraging the flux core's power to provide both \
+		total protection against electromagnetic pulse interference, and keep a user's body upright even under stress \
+		that would incapacitate or outright kill lesser men. There are some caveats with this, though. \
+		Without a flux core, the voltaic combat cyberheart only provides increased blood regeneration, \
+		and with a flux core, receiving an electromagnetic pulse will force the heart into voltaic overdrive, \
+		which could possibly leave the user vulnerable to a direct attack once their voltaic overdrive wears off. \
+		Voltaic overdrive lasts about thirty seconds, and recharges after approximately five minutes. \
+		In that four minutes and thirty seconds, the user is, arguably, quite vulnerable."\
+	)
 
 /obj/item/organ/heart/cybernetic/anomalock/Destroy()
 	QDEL_NULL(core)
