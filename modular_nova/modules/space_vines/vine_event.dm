@@ -30,7 +30,7 @@
 	var/list/possible_spawn_turfs = list()
 
 	if(override_turf)
-		possible_spawn_turfs += list(override_turf)
+		INVOKE_ASYNC(src, PROC_REF(make_spacevine_controller), override_turf)
 		return
 
 	var/obj/structure/spacevine/test_vine = new()
