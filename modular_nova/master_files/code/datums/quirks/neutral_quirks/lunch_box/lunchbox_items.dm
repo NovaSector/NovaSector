@@ -5,6 +5,12 @@
 	desc = "A Spessman's best friend, a beautifully packed lunch."
 	material_flags = NONE
 	storage_type = /datum/storage/toolbox/lunchbox
+	w_class = WEIGHT_CLASS_NORMAL
+
+
+	force = 5
+	throwforce = 5
+	demolition_mod = 1
 
 /datum/storage/toolbox/lunchbox/New(atom/parent, max_slots, max_specific_storage, max_total_storage, rustle_sound, remove_rustle_sound)
 	. = ..()
