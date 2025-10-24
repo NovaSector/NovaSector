@@ -684,3 +684,37 @@
 2025-10-22:
   RealWinterFrost:
   - bugfix: Fixed the detective equipment beacon from being invisible
+2025-10-24:
+  Hatterhat:
+  - bugfix: Knuckledusters no longer make you permanently have chunky fingers.
+  - balance: Street boxing now applies more stagger on crit punches.
+  OrbisAnima:
+  - rscadd: Regular Welder Helmet added to loadout.
+  - rscadd: Telecom specialists now can get all restricted loadout that station engineers
+      can (yes, its only mesons).
+  - balance: Removes armor from cloth bracers. Bone bracers unafected.
+  - balance: Loadout Tarkon Welder blacklist expanded.
+  RealWinterFrost:
+  - rscadd: Adds many new statues to nova sector
+  - rscadd: Nanotrasen now allows for crew members to bring a packed lunch due to
+      sol-federation labor violations.
+  - bugfix: Fixes the lunchbox from a positive quirk to a neutral quirk.
+  - rscadd: Added a variety of antique cloaks from NovaSector/Solaris.
+  Zydras (sprites), Hatterhat (code):
+  - image: Allstar Lasers has updated a good chunk of their crew-attainable energy
+      firearms with shiny new casings, as to unify their design philosophies or something.
+  - balance: The X-01 multiphase energy gun (HoS egun) now has matching capacities
+      for laser and disabler (25 shots, up from 12 for laser, 20 from disabler) and
+      a slight increase in ion mode capacity (5 shots, up from 4).
+  - bugfix: Energy weapons with alternate firemodes that have cranks can now have
+      their firemodes switched by right-clicking on them with an empty hand. It's
+      not great, but it's something.
+  dmnaru:
+  - rscadd: Added a bunch of vehicle and spooky theme props
+  intense-skies:
+  - qol: Equipped the entombed mod with an expanded storage module instead of the
+      standard small. Providing 'normal' backpack space.
+  - qol: Reduced entombed modsuit passive drain to 25% of its standard value.
+  theselfish:
+  - code_imp: Changes most loadout things to defines.
+  - rscadd: Chungo Fops were made available for anyone to pick in the loadout.

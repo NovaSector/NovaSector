@@ -95,7 +95,7 @@
 
 /obj/item/gun/energy/laser/hellgun/blueshield
 	name = "streamlined hellfire laser carbine"
-	icon = 'modular_nova/modules/modular_weapons/icons/obj/energy.dmi'
+	icon = 'modular_nova/modules/aesthetics/guns/icons/energy.dmi'
 	icon_state = "bshg"
 	desc = parent_type::desc + " This one has been tinkered with by Central Command technicians to add blue-tinted furniture and squeeze out a few extra shots before running dry."
 	ammo_type = list(/obj/item/ammo_casing/energy/laser/hellfire/blueshield)

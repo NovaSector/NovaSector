@@ -1,7 +1,7 @@
 //MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
 "aa" = (
 /obj/structure/safe/floor,
-/obj/item/gun/energy/e_gun/nuclear/rainbow,
+/obj/item/gun/energy/e_gun/nuclear,
 /turf/open/floor/iron/dark/textured,
 /area/awaymission/caves/maintsroom)
 "ab" = (
