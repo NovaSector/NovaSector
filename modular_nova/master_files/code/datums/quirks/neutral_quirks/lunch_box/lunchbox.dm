@@ -86,7 +86,8 @@
 	var/obj/item/storage/toolbox/lunchbox/lunchbox_base
 
 	lunchbox_design = lunchbox_design == "Random" ? pick(GLOB.possible_player_lunchbox_design_choice) : lunchbox_design
-	lunchbox_base = GLOB.possible_player_lunchbox_design_choice[lunchbox_design]
+	var/lunchbox_type = GLOB.possible_player_lunchbox_design_choice[lunchbox_design]
+	lunchbox_base = new lunchbox_type(get_turf(quirk_holder))
 
 	give_item_to_holder(
 		lunchbox_base,
