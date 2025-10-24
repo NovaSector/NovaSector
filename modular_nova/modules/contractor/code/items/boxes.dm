@@ -19,11 +19,6 @@
 	special_desc_requirement = EXAMINE_CHECK_CONTRACTOR
 	special_desc = "Supplied to Syndicate contractors, providing their specialised MODSuit and chameleon uniform."
 
-/obj/item/storage/box/syndicate/contractor_loadout/PopulateContents()
-	new /obj/item/mod/control/pre_equipped/contractor(src)
-	. = ..() // so their MODSuit is first
-	new /obj/item/uplink/old_radio(src)
-
 /obj/item/storage/box/contractor/fulton_extraction/PopulateContents()
 	new /obj/item/extraction_pack/contractor(src)
 	new /obj/item/fulton_core(src)
