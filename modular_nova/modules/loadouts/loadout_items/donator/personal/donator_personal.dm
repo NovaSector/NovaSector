@@ -119,7 +119,7 @@
 	name = "XuraCorp Biohazard Underfitting"
 	item_path = /obj/item/clothing/under/plasmaman/jax2
 	ckeywhitelist = list("candlejax")
-	restricted_roles = list(ALL_JOBS_SCI, JOB_VIROLOGIST,)
+	restricted_roles = list(ALL_JOBS_SCI, JOB_VIROLOGIST)
 
 /datum/loadout_item/mask/cmcp_mask
 	name = "CMCP Mask"
@@ -560,17 +560,14 @@
 /datum/loadout_item/toys/plush/CFBonnie
 	name = "Chunko Fop: Blue Bunny Plushie"
 	item_path = /obj/item/toy/plush/nova/donator/chunko/bonnie
-//donator_only = TRUE
 
 /datum/loadout_item/toys/plush/CFAndrew
 	name = "Chunko Fop: Green Bunny Plushie"
 	item_path = /obj/item/toy/plush/nova/donator/chunko/andrew
-//donator_only = TRUE
 
 /datum/loadout_item/toys/plush/CFInessa
 	name = "Chunko Fop: Medical Bear Plushie"
 	item_path = /obj/item/toy/plush/nova/donator/chunko/inessa
-//donator_only = TRUE
 
 /datum/loadout_item/toys/plush/plushie_chiara
 	name = "Commanding Fox Plushie"

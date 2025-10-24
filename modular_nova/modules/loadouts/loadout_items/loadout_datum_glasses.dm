@@ -194,31 +194,31 @@
 /datum/loadout_item/glasses/mesonpatch
 	name = "Meson HUD - Eyepatch"
 	item_path = /obj/item/clothing/glasses/hud/eyepatch/meson
-	restricted_roles = list(ALL_JOBS_CARGO, ALL_JOBS_ENGI,)
+	restricted_roles = list(ALL_JOBS_CARGO, ALL_JOBS_ENGI)
 	group = "Job-Locked"
 
 /datum/loadout_item/glasses/meson_prescription
 	name = "Meson HUD - Prescription"
 	item_path = /obj/item/clothing/glasses/meson/prescription
-	restricted_roles = list(ALL_JOBS_CARGO, ALL_JOBS_ENGI,)
+	restricted_roles = list(ALL_JOBS_CARGO, ALL_JOBS_ENGI)
 	group = "Job-Locked"
 
 /datum/loadout_item/glasses/prescription_aviator_meson
 	name = "Meson HUD - Prescription Sunglasses"
 	item_path = /obj/item/clothing/glasses/hud/ar/aviator/meson/prescription
-	restricted_roles = list(ALL_JOBS_CARGO, ALL_JOBS_ENGI,)
+	restricted_roles = list(ALL_JOBS_CARGO, ALL_JOBS_ENGI)
 	group = "Job-Locked"
 
 /datum/loadout_item/glasses/aviator_meson
 	name = "Meson HUD - Sunglasses"
 	item_path = /obj/item/clothing/glasses/hud/ar/aviator/meson
-	restricted_roles = list(ALL_JOBS_CARGO, ALL_JOBS_ENGI,)
+	restricted_roles = list(ALL_JOBS_CARGO, ALL_JOBS_ENGI)
 	group = "Job-Locked"
 
 /datum/loadout_item/glasses/retinal_projector_meson
 	name = "Meson HUD - Retinal Projector"
 	item_path = /obj/item/clothing/glasses/hud/ar/projector/meson
-	restricted_roles = list(ALL_JOBS_CARGO, ALL_JOBS_ENGI,)
+	restricted_roles = list(ALL_JOBS_CARGO, ALL_JOBS_ENGI)
 	group = "Job-Locked"
 
 //Science
