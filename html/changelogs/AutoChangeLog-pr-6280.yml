@@ -1,7 +1,0 @@
-author: "OrbisAnima"
-delete-after: True
-changes:
-  - rscadd: "Regular Welder Helmet added to loadout."
-  - rscadd: "Telecom specialists now can get all restricted loadout that station engineers can (yes, its only mesons)."
-  - balance: "Removes armor from cloth bracers. Bone bracers unafected."
-  - balance: "Loadout Tarkon Welder blacklist expanded."

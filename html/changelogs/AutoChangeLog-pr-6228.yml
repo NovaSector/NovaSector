@@ -1,6 +1,0 @@
-author: "Zydras (sprites), Hatterhat (code)"
-delete-after: True
-changes:
-  - image: "Allstar Lasers has updated a good chunk of their crew-attainable energy firearms with shiny new casings, as to unify their design philosophies or something."
-  - balance: "The X-01 multiphase energy gun (HoS egun) now has matching capacities for laser and disabler (25 shots, up from 12 for laser, 20 from disabler) and a slight increase in ion mode capacity (5 shots, up from 4)."
-  - bugfix: "Energy weapons with alternate firemodes that have cranks can now have their firemodes switched by right-clicking on them with an empty hand. It's not great, but it's something."
