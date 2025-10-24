@@ -18,7 +18,7 @@
 
 /obj/item/clothing/neck/greyscaled/seecloak
 	name = "Antique Seecloak"
-	desc = "An antique cloak, with a symbol that has been lost to time..."
+	desc = "An antique cloak, with a symbol whose meaning has been lost to time..."
 
 	icon_state = "/obj/item/clothing/neck/greyscaled/seecloak"
 	post_init_icon_state = "seecloak"
