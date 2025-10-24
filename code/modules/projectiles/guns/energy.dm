@@ -259,7 +259,7 @@
 
 /obj/item/gun/energy/update_overlays()
 	. = ..()
-	if(!automatic_charge_overlays)
+	if(!automatic_charge_overlays || !cell) // NOVA EDIT: in the event a gun loses its cell, original if(!automatic_charge_overlays)
 		return
 
 	var/overlay_icon_state = "[icon_state]_charge"
@@ -278,9 +278,16 @@
 	if(shot_type_fluff_overlay)
 		. += "[icon_state]_[initial(shot.select_name)]_extra"
 
+	// NOVA EDIT START: labeled charge mode
+	if(shaded_charge == SHADED_CHARGE_MODE_LABELED) // support a third shaded_charge state
+		. += "[icon_state]_[initial(shot.select_name)]_charge[ratio]"
+		return
+	// NOVA EDIT END
+
 	if(shaded_charge)
 		. += "[icon_state]_charge[ratio]"
 		return
+
 	var/mutable_appearance/charge_overlay = mutable_appearance(icon, overlay_icon_state)
 	for(var/i = ratio, i >= 1, i--)
 		charge_overlay.pixel_w = ammo_x_offset * (i - 1)
