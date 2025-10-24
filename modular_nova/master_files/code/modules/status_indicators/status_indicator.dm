@@ -1,5 +1,5 @@
 /obj/effect/overlay/status_indicator/
-	icon = 'modular_zubbers/icons/mob/status_indicators.dmi'
+	icon = 'modular_nova/master_files/icons/status_indicators.dmi'
 	pixel_z = 16
 	plane = ABOVE_GAME_PLANE
 	mouse_opacity = MOUSE_OPACITY_TRANSPARENT
