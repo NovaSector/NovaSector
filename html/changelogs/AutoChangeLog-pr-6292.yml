@@ -1,0 +1,4 @@
+author: "RealWinterFrost"
+delete-after: True
+changes:
+  - bugfix: "Fixes the lunchbox from a positive quirk to a neutral quirk."
