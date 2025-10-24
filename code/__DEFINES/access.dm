@@ -435,6 +435,7 @@
 	ACCESS_LIBRARY, \
 	ACCESS_SERVICE, \
 	ACCESS_THEATRE, \
+	ACCESS_BARBER,  /* NOVA EDIT ADDITION - Barber */ \
 )
 /// Name for the Security region.
 #define REGION_SECURITY "Security"

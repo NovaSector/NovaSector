@@ -21,14 +21,14 @@
 			return
 
 		balloon_alert(user, "starting analysis!")
-		var/skill_modifier = user.mind?.get_skill_modifier(/datum/skill/research, SKILL_SPEED_MODIFIER)
+		var/skill_modifier = user.mind?.get_skill_modifier(/datum/skill/archeology, SKILL_SPEED_MODIFIER)
 		if(!do_after(user, 5 SECONDS * skill_modifier, target = src))
 			balloon_alert(user, "stand still!")
 			return
 
 		loc.balloon_alert(user, "magnified!")
 		spawn_magnified(magnified_number)
-		user.mind?.adjust_experience(/datum/skill/research, 5)
+		user.mind?.adjust_experience(/datum/skill/archeology, 5)
 		return
 
 	return ..()

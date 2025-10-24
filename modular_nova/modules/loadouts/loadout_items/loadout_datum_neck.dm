@@ -266,9 +266,9 @@
 	item_path = /obj/item/clothing/neck/cloak/colonial
 	group = "Cloaks and Shrouds"
 
-/datum/loadout_item/neck/imperial_police_cloak
-	name = "Colonial Cloak - Imperial Police"
-	item_path = /obj/item/clothing/neck/cloak/colonial/nri_police
+/datum/loadout_item/neck/coalition_police_cloak
+	name = "Colonial Cloak - Coalition Police"
+	item_path = /obj/item/clothing/neck/cloak/colonial/hc_police
 	group = "Cloaks and Shrouds"
 
 /datum/loadout_item/neck/mantle
@@ -314,6 +314,26 @@
 /datum/loadout_item/neck/gags_veil
 	name = "Veil (Colorable)"
 	item_path = /obj/item/clothing/neck/cloak/colourable/veil
+	group = "Cloaks and Shrouds"
+
+/datum/loadout_item/neck/shortcloak
+	name = "Short Cloak (Colorable)"
+	item_path = /obj/item/clothing/neck/greyscaled
+	group = "Cloaks and Shrouds"
+
+/datum/loadout_item/neck/seecloak
+	name = "Seer Cloak (Colorable)"
+	item_path = /obj/item/clothing/neck/greyscaled/seecloak
+	group = "Cloaks and Shrouds"
+
+/datum/loadout_item/neck/matroncloak
+	name = "Matron Cloak (Colorable)"
+	item_path = /obj/item/clothing/neck/greyscaled/matroncloak
+	group = "Cloaks and Shrouds"
+
+/datum/loadout_item/neck/xylixcloak
+	name = "Xylix Cloak (Colorable)"
+	item_path = /obj/item/clothing/neck/greyscaled/xylixcloak
 	group = "Cloaks and Shrouds"
 
 /*

@@ -64,7 +64,9 @@
 	var/mob/living/spawned_mob = new mob_type(get_turf(src)) //living mobs only
 	name_mob(spawned_mob, newname)
 	special(spawned_mob, mob_possessor)
-	equip(spawned_mob)
+	// Only run equip logic if this is NOT a ghost_role spawner, as we already solve equip with loadout there.
+	if (!use_loadout)
+		equip(spawned_mob)
 	spawned_mob_ref = WEAKREF(spawned_mob)
 	return spawned_mob
 

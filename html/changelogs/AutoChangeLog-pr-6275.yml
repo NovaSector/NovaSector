@@ -1,0 +1,5 @@
+author: "Hatterhat"
+delete-after: True
+changes:
+  - bugfix: "Knuckledusters no longer make you permanently have chunky fingers."
+  - balance: "Street boxing now applies more stagger on crit punches."
