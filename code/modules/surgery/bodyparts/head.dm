@@ -210,28 +210,25 @@
 	if(worn_face_offset)
 		worn_face_offset.apply_offset(eye_left)
 		worn_face_offset.apply_offset(eye_right)
+		// NOVA EDIT ADDITION START - Customization (Emissives and synths)
+		if(eyes.eye_icon_state == "None")
+			eye_left.alpha = 0
+			eye_right.alpha = 0
 
+		if (eyes.is_emissive) // Because it was done all weird up there.
+			var/mutable_appearance/emissive_left = emissive_appearance(eye_left.icon, eye_left.icon_state, src, -BODY_LAYER, eye_left.alpha)
+			var/mutable_appearance/emissive_right = emissive_appearance(eye_right.icon, eye_right.icon_state, src, -BODY_LAYER, eye_right.alpha)
 
-			// NOVA EDIT ADDITION START - Customization (Emissives and synths)
-			if(eyes.eye_icon_state == "None")
-				eye_left.alpha = 0
-				eye_right.alpha = 0
+			emissive_left.appearance_flags &= ~RESET_TRANSFORM
+			emissive_right.appearance_flags &= ~RESET_TRANSFORM
 
-			if (eyes.is_emissive) // Because it was done all weird up there.
-				var/mutable_appearance/emissive_left = emissive_appearance(eye_left.icon, eye_left.icon_state, src, -BODY_LAYER, eye_left.alpha)
-				var/mutable_appearance/emissive_right = emissive_appearance(eye_right.icon, eye_right.icon_state, src, -BODY_LAYER, eye_right.alpha)
+			if(worn_face_offset)
+				worn_face_offset.apply_offset(emissive_right)
+				worn_face_offset.apply_offset(emissive_left)
 
-				emissive_left.appearance_flags &= ~RESET_TRANSFORM
-				emissive_right.appearance_flags &= ~RESET_TRANSFORM
-
-				if(worn_face_offset)
-					worn_face_offset.apply_offset(emissive_right)
-					worn_face_offset.apply_offset(emissive_left)
-
-				eye_left.overlays += emissive_left
-				eye_right.overlays += emissive_right
-
-			// NOVA EDIT END
+			eye_left.overlays += emissive_left
+			eye_right.overlays += emissive_right
+		// NOVA EDIT ADDITION END
 
 	. += eye_left
 	. += eye_right
