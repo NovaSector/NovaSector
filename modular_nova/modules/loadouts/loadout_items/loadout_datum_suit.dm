@@ -561,12 +561,8 @@
 	group = "Workwear"
 
 /datum/loadout_item/suit/overall
-	name = "Overalls (Job-Colored)"
-	group = "Workwear"
-
-/datum/loadout_item/suit/overalls_recolorable
-	name = "Overalls (Recolorable)"
-	item_path = /obj/item/clothing/suit/apron/overalls
+	name = "Overalls (Recolorable)" // can't have both job palettes and player coloring, so we prefer player colors
+	loadout_flags = LOADOUT_FLAG_ALLOW_NAMING
 	group = "Workwear"
 
 /datum/loadout_item/suit/overalls_loneskirt

@@ -110,7 +110,7 @@
 	name = "magnified useless relic"
 	desc = "A useless relic that can be exported through Cargo. Has been magnified."
 
-/datum/export/xenoarch/useless_relic
+/datum/export/xenoarch
 	cost = CARGO_CRATE_VALUE * 3 //600
 	unit_name = "useless relic"
 	export_types = list(/obj/item/xenoarch/useless_relic)
@@ -124,7 +124,7 @@
 	include_subtypes = TRUE
 	k_elasticity = 0
 
-/datum/export/xenoarch/useless_relic/magnified
+/datum/export/xenoarch/magnified_relic
 	cost = CARGO_CRATE_VALUE * 6 //1200
 	unit_name = "magnified useless relic"
 	export_types = list(/obj/item/xenoarch/useless_relic/magnified)
