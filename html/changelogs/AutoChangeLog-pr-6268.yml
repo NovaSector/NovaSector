@@ -1,0 +1,4 @@
+author: "dmnaru"
+delete-after: True
+changes:
+  - rscadd: "Added a bunch of vehicle and spooky theme props"
