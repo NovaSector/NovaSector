@@ -41,17 +41,6 @@
 
 /datum/quirk/item_quirk/lunchbox_owner/add_unique(client/client_source)
 
-	/// What design does this character have for their
-	var/desired_design = client_source?.prefs.read_preference(/datum/preference/choiced/lunchbox_design) || "Random"
-
-	/// if NOT random, this lunchbox will pick the desired lunchbox
-	if(desired_design != "Random")
-		lunchbox_design = GLOB.possible_player_lunchbox_design_choice[desired_design]
-
-	/// If no box design is picked WE'RE PICKIN FOR EM!!!
-	if(lunchbox_design == NONE)
-		lunchbox_design = pick(assoc_to_values(GLOB.possible_player_lunchbox_design_choice))
-
 	/// What meal is this character CRAVING for?
 	var/desired_meal = client_source?.prefs.read_preference(/datum/preference/choiced/lunchbox_meal_choice) || "Random"
 	/// picks a random lunchox from the list
@@ -93,18 +82,14 @@
 	if(lunchbox_dessert_choice == NONE)
 		lunchbox_dessert_choice = pick(assoc_to_values(GLOB.possible_player_lunchbox_desert_choice))
 
-	var/obj/item/storage/toolbox/lunchbox = new /obj/item/storage/toolbox/lunchbox(get_turf(quirk_holder))
+	var/lunchbox_design = client_source?.prefs.read_preference(/datum/preference/choiced/lunchbox_design) || "Regular"
+	var/obj/item/storage/toolbox/lunchbox/lunchbox_base
 
-	// Spawn items directly inside the lunchbox
-	lunchbox.icon_state = lunchbox_design
-	new lunchbox_meal_choice(lunchbox)
-	new lunchbox_first_snack_choice(lunchbox)
-	new lunchbox_second_snack_choice(lunchbox)
-	new lunchbox_drink_choice(lunchbox)
-	new lunchbox_dessert_choice(lunchbox)
+	lunchbox_design = lunchbox_design == "Random" ? pick(GLOB.possible_player_lunchbox_design_choice) : lunchbox_design
+	lunchbox_base = GLOB.possible_player_lunchbox_design_choice[lunchbox_design]
 
 	give_item_to_holder(
-		lunchbox,
+		lunchbox_base,
 		list(
 			LOCATION_HANDS,
 		),
@@ -112,22 +97,33 @@
 		notify_player = TRUE,
 	)
 
+	// Spawn items directly inside the lunchbox
+	new lunchbox_meal_choice(lunchbox_base)
+	new lunchbox_first_snack_choice(lunchbox_base)
+	new lunchbox_second_snack_choice(lunchbox_base)
+	new lunchbox_drink_choice(lunchbox_base)
+	new lunchbox_dessert_choice(lunchbox_base)
+
+
+
 /datum/preference/choiced/lunchbox_design
 	category = PREFERENCE_CATEGORY_MANUALLY_RENDERED
 	savefile_key = "lunchbox_design"
 	savefile_identifier = PREFERENCE_CHARACTER
 	can_randomize = FALSE
+	should_generate_icons = TRUE
 
 GLOBAL_LIST_INIT(possible_player_lunchbox_design_choice, list(
-	"Dark" = "dark",
-	"Nanotrasen" = "nanotrasen",
-	"Nanotrasen (gold)" = "nanotrasen_gold",
-	"Syndicate" = "syndicate",
-	"SolFed" = "solfed",
-	"Interdyne" = "interdyne",
-	"Space" = "space",
-	"Hearts" = "hearts",
-	"Golden" = "gold",
+	"Dark" = /obj/item/storage/toolbox/lunchbox/dark,
+	"Blank" = /obj/item/storage/toolbox/lunchbox/light,
+	"Nanotrasen" = /obj/item/storage/toolbox/lunchbox,
+	"Nanotrasen (Gold)" = /obj/item/storage/toolbox/lunchbox/nt_gold,
+	"Syndicate" = /obj/item/storage/toolbox/lunchbox/syndicate,
+	"Interdyne" = /obj/item/storage/toolbox/lunchbox/interdyne,
+	"SolFed" = /obj/item/storage/toolbox/lunchbox/solfed,
+	"Space" = /obj/item/storage/toolbox/lunchbox/space,
+	"Hearts" = /obj/item/storage/toolbox/lunchbox/hearts,
+	"Gold" = /obj/item/storage/toolbox/lunchbox/gold,
 ))
 
 /datum/preference/choiced/lunchbox_design/init_possible_values()
@@ -135,6 +131,13 @@ GLOBAL_LIST_INIT(possible_player_lunchbox_design_choice, list(
 
 /datum/preference/choiced/lunchbox_design/create_default_value()
 	return "Random"
+
+/datum/preference/choiced/lunchbox_design/icon_for(value)
+	if (value == "Random")
+		return uni_icon('icons/effects/random_spawners.dmi', "questionmark")
+	else
+		var/obj/item/storage/toolbox/selected_type = GLOB.possible_player_lunchbox_design_choice[value]
+		return uni_icon(selected_type::icon, selected_type::icon_state)
 
 /datum/preference/choiced/lunchbox_design/is_accessible(datum/preferences/preferences)
 	if (!..())
@@ -152,6 +155,20 @@ GLOBAL_LIST_INIT(possible_player_lunchbox_design_choice, list(
 	savefile_key = "lunchbox_meal_choice"
 	savefile_identifier = PREFERENCE_CHARACTER
 	can_randomize = FALSE
+	should_generate_icons = TRUE
+
+/datum/preference/choiced/lunchbox_meal_choice/init_possible_values()
+	return list("Random") + assoc_to_keys(GLOB.possible_player_lunchbox_meal_choice)
+
+/datum/preference/choiced/lunchbox_meal_choice/create_default_value()
+	return "Random"
+
+/datum/preference/choiced/lunchbox_meal_choice/icon_for(value)
+	if (value == "Random")
+		return uni_icon('icons/effects/random_spawners.dmi', "questionmark")
+	else
+		var/obj/item/food/selected_type = GLOB.possible_player_lunchbox_meal_choice[value]
+		return uni_icon(selected_type::icon, selected_type::icon_state)
 
 GLOBAL_LIST_INIT(possible_player_lunchbox_meal_choice, list(
 	"Burger" = /obj/item/food/burger,
@@ -183,12 +200,6 @@ GLOBAL_LIST_INIT(possible_player_lunchbox_meal_choice, list(
 	"Lasagna" = /obj/item/food/lasagna,
 ))
 
-/datum/preference/choiced/lunchbox_meal_choice/init_possible_values()
-	return list("Random") + assoc_to_keys(GLOB.possible_player_lunchbox_meal_choice)
-
-/datum/preference/choiced/lunchbox_meal_choice/create_default_value()
-	return "Random"
-
 /datum/preference/choiced/lunchbox_meal_choice/is_accessible(datum/preferences/preferences)
 	if (!..())
 		return FALSE
@@ -205,6 +216,14 @@ GLOBAL_LIST_INIT(possible_player_lunchbox_meal_choice, list(
 	savefile_key = "lunchbox_first_snack_choice"
 	savefile_identifier = PREFERENCE_CHARACTER
 	can_randomize = FALSE
+	should_generate_icons = TRUE
+
+/datum/preference/choiced/lunchbox_first_snack_choice/icon_for(value)
+	if (value == "Random")
+		return uni_icon('icons/effects/random_spawners.dmi', "questionmark")
+	else
+		var/obj/item/food/selected_type = GLOB.possible_player_lunchbox_snack_choice[value]
+		return uni_icon(selected_type::icon, selected_type::icon_state)
 
 GLOBAL_LIST_INIT(possible_player_lunchbox_snack_choice, list(
 	"Space Twinkie" = /obj/item/food/spacetwinkie,
@@ -276,6 +295,14 @@ GLOBAL_LIST_INIT(possible_player_lunchbox_snack_choice, list(
 	savefile_key = "lunchbox_second_snack_choice"
 	savefile_identifier = PREFERENCE_CHARACTER
 	can_randomize = FALSE
+	should_generate_icons = TRUE
+
+/datum/preference/choiced/lunchbox_second_snack_choice/icon_for(value)
+	if (value == "Random")
+		return uni_icon('icons/effects/random_spawners.dmi', "questionmark")
+	else
+		var/obj/item/food/selected_type = GLOB.possible_player_lunchbox_snack_choice[value]
+		return uni_icon(selected_type::icon, selected_type::icon_state)
 
 /datum/preference/choiced/lunchbox_second_snack_choice/init_possible_values()
 	return list("Random") + assoc_to_keys(GLOB.possible_player_lunchbox_snack_choice)
@@ -299,6 +326,15 @@ GLOBAL_LIST_INIT(possible_player_lunchbox_snack_choice, list(
 	savefile_key = "lunchbox_drink_choice"
 	savefile_identifier = PREFERENCE_CHARACTER
 	can_randomize = FALSE
+	should_generate_icons = TRUE
+
+/datum/preference/choiced/lunchbox_drink_choice/icon_for(value)
+	if (value == "Random")
+		return uni_icon('icons/effects/random_spawners.dmi', "questionmark")
+	else
+		var/obj/item/food/selected_type = GLOB.possible_player_lunchbox_drink_choice[value]
+		return uni_icon(selected_type::icon, selected_type::icon_state)
+
 
 GLOBAL_LIST_INIT(possible_player_lunchbox_drink_choice, list(
 	"Space Cola" = /obj/item/reagent_containers/cup/soda_cans/cola,
@@ -378,6 +414,14 @@ GLOBAL_LIST_INIT(possible_player_lunchbox_drink_choice, list(
 	savefile_key = "lunchbox_desert_choice"
 	savefile_identifier = PREFERENCE_CHARACTER
 	can_randomize = FALSE
+	should_generate_icons = TRUE
+
+/datum/preference/choiced/lunchbox_desert_choice/icon_for(value)
+	if (value == "Random")
+		return uni_icon('icons/effects/random_spawners.dmi', "questionmark")
+	else
+		var/obj/item/food/selected_type = GLOB.possible_player_lunchbox_desert_choice[value]
+		return uni_icon(selected_type::icon, selected_type::icon_state)
 
 GLOBAL_LIST_INIT(possible_player_lunchbox_desert_choice, list(
 	"Banana Nut Bread" = /obj/item/food/breadslice/banana,
