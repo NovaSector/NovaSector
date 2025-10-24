@@ -89,6 +89,13 @@
 	var/lunchbox_type = GLOB.possible_player_lunchbox_design_choice[lunchbox_design]
 	lunchbox_base = new lunchbox_type(get_turf(quirk_holder))
 
+	// Spawn items directly inside the lunchbox
+	new lunchbox_meal_choice(lunchbox_base)
+	new lunchbox_first_snack_choice(lunchbox_base)
+	new lunchbox_second_snack_choice(lunchbox_base)
+	new lunchbox_drink_choice(lunchbox_base)
+	new lunchbox_dessert_choice(lunchbox_base)
+
 	give_item_to_holder(
 		lunchbox_base,
 		list(
@@ -97,15 +104,6 @@
 		flavour_text = "Looks well packed... delicious!",
 		notify_player = TRUE,
 	)
-
-	// Spawn items directly inside the lunchbox
-	new lunchbox_meal_choice(lunchbox_base)
-	new lunchbox_first_snack_choice(lunchbox_base)
-	new lunchbox_second_snack_choice(lunchbox_base)
-	new lunchbox_drink_choice(lunchbox_base)
-	new lunchbox_dessert_choice(lunchbox_base)
-
-
 
 /datum/preference/choiced/lunchbox_design
 	category = PREFERENCE_CATEGORY_MANUALLY_RENDERED
