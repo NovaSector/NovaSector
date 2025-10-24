@@ -36,8 +36,8 @@
 		/datum/preference/choiced/lunchbox_first_snack_choice,
 		/datum/preference/choiced/lunchbox_second_snack_choice,
 		/datum/preference/choiced/lunchbox_drink_choice,
-		/datum/preference/choiced/lunchbox_desert_choice
-		)
+		/datum/preference/choiced/lunchbox_desert_choice,
+	)
 
 /datum/quirk/item_quirk/lunchbox_owner/add_unique(client/client_source)
 
