@@ -7378,6 +7378,7 @@
 #include "modular_nova\master_files\code\modules\sleep\code\datums\status_effects\_status_effect.dm"
 #include "modular_nova\master_files\code\modules\sleep\code\datums\status_effects\debuffs\debuffs.dm"
 #include "modular_nova\master_files\code\modules\sleep\code\mob\living\living.dm"
+#include "modular_nova\master_files\code\modules\status_indicators\status_indicators.dm"
 #include "modular_nova\master_files\code\modules\surgery\amputation.dm"
 #include "modular_nova\master_files\code\modules\surgery\brain_surgery.dm"
 #include "modular_nova\master_files\code\modules\surgery\coronary_bypass.dm"
