@@ -7,7 +7,7 @@
 	mob_trait = TRAIT_LUNCHBOX_OWNER
 	gain_text = span_notice("You brought your lunchbox with you, yippee!.")
 	lose_text = span_danger("The feeling... the love... the passion for a home made meal leaves you... a tear sheds down your face, a weep... a sorrow... an apology as you say goodbye to your delicious homemade delectables.")
-	medical_record_text = "Patient mentions their fondness from exterior foods and drinks."
+	medical_record_text = "Patient mentions their fondness for exterior foods and drinks."
 	mail_goodies = list()
 
 	/// What design of lunchbox does the player want?
