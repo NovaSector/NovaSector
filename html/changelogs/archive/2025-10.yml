@@ -681,3 +681,9 @@
   - rscadd: Added the DeForest Materiel Recovery Terminal, a Janitor vending machine-exclusive
       flatpack of a machine that exchanges trash, for cash if you're a janitor, and
       ration tickets if you're not.
+2025-10-22:
+  RealWinterFrost:
+  - bugfix: Fixed the detective equipment beacon from being invisible
+2025-10-24:
+  dmnaru:
+  - rscadd: Added a bunch of vehicle and spooky theme props
