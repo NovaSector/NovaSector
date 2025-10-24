@@ -36,7 +36,7 @@
 	desc = "Your adaptation to life in this MODsuit shell allows you to ambulate in such a way that your movements recharge the suit's internal batteries slightly, but only while under the effect of gravity."
 	removable = FALSE
 	complexity = 0
-	power_per_step = DEFAULT_CHARGE_DRAIN * 0.4
+	power_per_step = DEFAULT_CHARGE_DRAIN * 0.6
 
 /obj/item/mod/module/plasma_stabilizer/entombed
 	name = "colony-stabilized interior seal"
