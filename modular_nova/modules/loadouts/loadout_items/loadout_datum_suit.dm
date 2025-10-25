@@ -5,6 +5,10 @@
 	category_ui_icon = FA_ICON_VEST
 	type_to_generate = /datum/loadout_item/suit
 	tab_order = /datum/loadout_category/neck::tab_order + 1
+	/// How many maximum of these can be chosen
+	max_allowed = MAX_ALLOWED_EXTRA_CLOTHES
+
+/// Loadout base item
 
 /datum/loadout_item/suit
 	abstract_type = /datum/loadout_item/suit
