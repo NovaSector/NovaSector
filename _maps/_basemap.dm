@@ -28,7 +28,8 @@
 		#include "map_files\NSVBlueshift\Blueshift.dmm"
 		#include "map_files\Ouroboros\Ouroboros.dmm"
 		#include "map_files\SerenityStation\SerenityStation.dmm"
-		#include "map_files\Snowglobe\snowglobe.dmm"
+    	#include "map_files\Snowglobe\snowglobe.dmm"
+		#include "map_files\OasisStation\OasisStation.dmm"
 		// NOVA EDIT ADDITION END
 	#endif
 	#ifdef ALL_TEMPLATES
