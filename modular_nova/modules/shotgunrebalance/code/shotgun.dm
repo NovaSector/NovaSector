@@ -1,18 +1,21 @@
 #define AMMO_MATS_SHOTGUN list(/datum/material/iron = SMALL_MATERIAL_AMOUNT * 4) // not quite as thick as a half-sheet
 
 #define AMMO_MATS_SHOTGUN_FLECH list(/datum/material/iron = SMALL_MATERIAL_AMOUNT * 2,\
-									/datum/material/glass = SMALL_MATERIAL_AMOUNT * 2)
+									/datum/material/glass = SMALL_MATERIAL_AMOUNT * 2,)
 
 #define AMMO_MATS_SHOTGUN_HIVE list(/datum/material/iron = SMALL_MATERIAL_AMOUNT * 2,\
 									/datum/material/plasma = SMALL_MATERIAL_AMOUNT * 1,\
-									/datum/material/silver = SMALL_MATERIAL_AMOUNT * 1)
+									/datum/material/silver = SMALL_MATERIAL_AMOUNT * 1,)
 
 #define AMMO_MATS_SHOTGUN_TIDE list(/datum/material/iron = SMALL_MATERIAL_AMOUNT * 2,\
 									/datum/material/plasma = SMALL_MATERIAL_AMOUNT * 1,\
-									/datum/material/gold = SMALL_MATERIAL_AMOUNT * 1)
+									/datum/material/gold = SMALL_MATERIAL_AMOUNT * 1,)
 
 #define AMMO_MATS_SHOTGUN_PLASMA list(/datum/material/iron = SMALL_MATERIAL_AMOUNT * 2,\
-									/datum/material/plasma = SMALL_MATERIAL_AMOUNT * 2)
+									/datum/material/plasma = SMALL_MATERIAL_AMOUNT * 2,)
+
+#define AMMO_MATS_SHOTGUN_PENDART list(/datum/material/iron = SMALL_MATERIAL_AMOUNT * 3,\
+									/datum/material/diamond = SMALL_MATERIAL_AMOUNT * 1,)
 
 /obj/item/ammo_casing/shotgun
 	icon = 'modular_nova/modules/shotgunrebalance/icons/shotshells.dmi'
@@ -179,6 +182,14 @@
 
 /obj/item/ammo_casing/shotgun/dart
 	ammo_categories = AMMO_CLASS_NICHE_LTL // technically.
+
+/obj/item/ammo_casing/shotgun/dart/piercing
+	name = "piercing shotgun dart"
+	desc = "A diamond-tipped piercing dart for use in shotguns, trading capacity for penetration. Can be injected with up to 5 units of any chemical."
+	icon_state = "pcshell"
+	projectile_type = /obj/projectile/bullet/dart/piercing
+	reagent_amount = 5
+	custom_materials = AMMO_MATS_SHOTGUN_PENDART
 
 /obj/item/ammo_casing/shotgun/dart/bioterror
 	can_be_printed = FALSE // PRELOADED WITH TERROR CHEMS MAYBE LET'S NOT
