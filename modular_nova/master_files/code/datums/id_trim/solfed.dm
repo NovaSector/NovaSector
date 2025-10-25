@@ -22,34 +22,42 @@
 	assignment = "SolFed Espatier"
 	threat_modifier = -10 // This counts as military intervention
 	trim_state = "trim_solfed_espatier"
+	sechud_icon_state = SECHUD_SOLFED_ESPATIER
 
 /datum/id_trim/solfed/espatier/engineer
 	assignment = "SolFed Espatier Combat Engineer"
 	trim_state = "trim_solfed_engineer"
+	sechud_icon_state = SECHUD_SOLFED_ENGINEER
 
 /datum/id_trim/solfed/espatier/corpsman
 	assignment = "SolFed Espatier Combat Medic"
 	trim_state = "trim_solfed_medic"
+	sechud_icon_state = SECHUD_SOLFED_MEDIC
 
 /datum/id_trim/solfed/espatier/squadleader
 	assignment = "SolFed Espatier Squad Leader"
 	trim_state = "trim_solfed_espatier_gold"
+	sechud_icon_state = SECHUD_SOLFED_SQUADLEADER
 
 /datum/id_trim/solfed/espatier/smartgunner
 	assignment = "SolFed Espatier Smart Gunner"
 	trim_state = "trim_solfed_specialist"
+	sechud_icon_state = SECHUD_SOLFED_SMARTGUNNER
 
 /datum/id_trim/solfed/espatier/specialist
 	assignment = "SolFed Espatier Combat Specialist"
 	trim_state = "trim_solfed_smartgun"
+	sechud_icon_state = SECHUD_SOLFED_SPECIALIST
 
 /datum/id_trim/solfed/espatier/odst
 	assignment = "SolFed Orbital Drop Trooper"
 	trim_state = "trim_solfed_odst"
+	sechud_icon_state = SECHUD_SOLFED_ODST
 
 /datum/id_trim/solfed/espatier/commando
 	assignment = "SolFed Commando"
 	trim_state = "trim_solfed_commandos"
+	sechud_icon_state = SECHUD_SOLFED_COMMANDO
 
 /// This is the Soft ERT variant of the solfed Officials
 /datum/id_trim/solfed/official
@@ -96,6 +104,7 @@
 /datum/id_trim/solfed/police
 	assignment = "SolFed Police"
 	trim_state = "trim_solfed_police"
+	sechud_icon_state = SECHUD_SOLFED_MARSHALS
 	honorifics = list("Officer")
 	honorific_positions = HONORIFIC_POSITION_LAST | HONORIFIC_POSITION_NONE
 
@@ -123,6 +132,7 @@
 /datum/id_trim/solfed/med
 	assignment = "SolFed Paramedic"
 	trim_state = "trim_solfed_medic"
+	sechud_icon_state = SECHUD_SOLFED_MEDIC
 	honorifics = list("Dr.","Nurse")
 	honorific_positions = HONORIFIC_POSITION_LAST | HONORIFIC_POSITION_NONE
 
@@ -153,6 +163,7 @@
 /datum/id_trim/solfed/atmos
 	assignment = "SolFed Emergency Atmospherics Technician"
 	trim_state = "trim_solfed_engineer"
+	sechud_icon_state = SECHUD_SOLFED_ENGINEER
 	honorifics = list("Technician","Engineer")
 	honorific_positions = HONORIFIC_POSITION_LAST | HONORIFIC_POSITION_NONE
 
