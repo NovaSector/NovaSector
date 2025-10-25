@@ -35,7 +35,7 @@
 
 /datum/antagonist/ert/solfed/espatier
 	name = "SolFed Espatier"
-	outfit = /datum/outfit/solfed/espatier
+	outfit = /datum/outfit/solfed/military/espatier
 	role = "Rifleman"
 
 /datum/antagonist/ert/solfed/espatier/New()
@@ -44,17 +44,17 @@
 
 /datum/antagonist/ert/solfed/espatier/engineer
 	name = "SolFed Espatier Engineer"
-	outfit = /datum/outfit/solfed/espatier/engineer
+	outfit = /datum/outfit/solfed/military/espatier/engineer
 	role = "Engineer"
 
 /datum/antagonist/ert/solfed/espatier/corpsman
 	name = "SolFed Espatier Corpsman"
-	outfit = /datum/outfit/solfed/espatier/corpsman
+	outfit = /datum/outfit/solfed/military/espatier/corpsman
 	role = "Corpsman"
 
 /datum/antagonist/ert/solfed/espatier/leader
 	name = "SolFed Espatier Squad Leader"
-	outfit = /datum/outfit/solfed/espatier/squadleader
+	outfit = /datum/outfit/solfed/military/espatier/squadleader
 	role = "Squad Leader"
 	leader = TRUE
 
@@ -77,17 +77,17 @@
 /// Grand Response variant
 /datum/antagonist/ert/solfed/grand_espatier/engineer
 	name = "SolFed Espatier Engineer"
-	outfit = /datum/outfit/solfed/grand_espatier/engineer
+	outfit = /datum/outfit/solfed/military/espatier/engineer/grand
 	role = "Engineer"
 
 /datum/antagonist/ert/solfed/grand_espatier/corpsman
 	name = "SolFed Espatier Corpsman"
-	outfit = /datum/outfit/solfed/grand_espatier/corpsman
+	outfit = /datum/outfit/solfed/military/espatier/corpsman/grand
 	role = "Corpsman"
 
 /datum/antagonist/ert/solfed/grand_espatier/leader
 	name = "SolFed Espatier Squad Leader"
-	outfit = /datum/outfit/solfed/grand_espatier/squadleader
+	outfit = /datum/outfit/solfed/military/espatier/squadleader/grand
 	role = "Squad Leader"
 	leader = TRUE
 

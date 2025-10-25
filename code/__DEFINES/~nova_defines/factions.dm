@@ -9,6 +9,9 @@
 // Tarkon faction
 #define FACTION_TARKON "tarkon"
 
+// SolFed Faction
+#define FACTION_SOLFED "sol-federation"
+
 // Lavaland Mobs
 #define FACTION_MINING_FAUNA "mining_fauna"
 

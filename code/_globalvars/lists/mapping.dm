@@ -139,6 +139,12 @@ GLOBAL_LIST_EMPTY(mining_center) // For determining vent size ranked lists, epic
 
 // NOVA ADDITIONS START
 GLOBAL_LIST_EMPTY(traitor_start)
+/// Standard solfed response (911, 811, Officials, Etc)
+GLOBAL_LIST_EMPTY(solfed_start)
+GLOBAL_LIST_EMPTY(solfed_leader_start)
+/// Militarized solfed response (Smartgunners, Squadleader, Corpsman, Etc)
+GLOBAL_LIST_EMPTY(solfed_military_start)
+GLOBAL_LIST_EMPTY(solfed_military_sleader_start)
 // NOVA ADDITIONS END
 
 /// List of all the maps that have been cached for /proc/load_map

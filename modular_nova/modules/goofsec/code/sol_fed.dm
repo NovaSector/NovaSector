@@ -50,12 +50,12 @@ GLOBAL_LIST_INIT(solfed_responder_info, list(
 		SOLFED_VOTES = 0,
 		SOLFED_DECLARED = FALSE
 	),
-	"swat" = list(
+	"standard_espatiers" = list(
 		SOLFED_AMT = 0,
 		SOLFED_VOTES = 0,
 		SOLFED_DECLARED = FALSE
 	),
-	"national_guard" = list(
+	"grand_espatiers" = list(
 		SOLFED_AMT = 0,
 		SOLFED_VOTES = 0,
 		SOLFED_DECLARED = FALSE
@@ -91,14 +91,43 @@ GLOBAL_LIST_INIT(call911_do_and_do_not, list(
 		Are you sure you want to call Advanced Atmospherics?"
 ))
 
+/*
+	LANDMARKS
+*/
+/obj/effect/landmark/start/solfed
+	name = "Solfed General"
+	icon_state = "solfed_standard"
+	icon = 'modular_nova/master_files/icons/mob/landmarks.dmi'
+
+/obj/effect/landmark/start/solfed_leader
+	name = "Solfed Leadership"
+	icon_state = "solfed_leader"
+	icon = 'modular_nova/master_files/icons/mob/landmarks.dmi'
+
+/obj/effect/landmark/start/solfed_military
+	name = "Solfed Military"
+	icon_state = "solfed_military"
+	icon = 'modular_nova/master_files/icons/mob/landmarks.dmi'
+
+/obj/effect/landmark/start/solfed_military_leader
+	name = "Solfed Military Leadership"
+	icon_state = "solfed_military_leader"
+	icon = 'modular_nova/master_files/icons/mob/landmarks.dmi'
 /// Internal. Polls ghosts and sends in a team of space cops according to the alert level, accompanied by an announcement.
 /obj/machinery/computer/communications/proc/call_911(ordered_team)
+	/// How big do you want the response team to be?
 	var/team_size
+	/// Which ERT antag do we deploy?
 	var/datum/antagonist/ert/cops_to_send
+	/// What is the announcecment message?
 	var/announcement_message = "sussus amogus"
+	/// Who is sending this announcement?
 	var/announcer = "Sol Federation Marshal Department"
+	/// Ghost volunteer option text.
 	var/poll_question = "fuck you leatherman"
+	/// Gang phone number system (might remove, cause SOLFED already has secure comms)
 	var/cell_phone_number = "911"
+	/// What is the check for 911 respponders
 	var/list_to_use = "911_responders"
 	switch(ordered_team)
 		if(EMERGENCY_RESPONSE_POLICE)
@@ -351,7 +380,7 @@ GLOBAL_LIST_INIT(call911_do_and_do_not, list(
 /datum/outfit/request_911
 	name = "911 Response: Base"
 	back = /obj/item/storage/backpack/duffelbag/cops
-	backpack_contents = list(/obj/item/solfed_reporter/swat_caller = 1)
+	backpack_contents = list(/obj/item/solfed_reporter/espatier_caller = 1)
 
 	id_trim = /datum/id_trim/space_police
 
@@ -398,7 +427,7 @@ GLOBAL_LIST_INIT(call911_do_and_do_not, list(
 		/obj/item/ammo_box/magazine/c35sol_pistol = 4,
 		/obj/item/storage/box/survival = 1,
 		/obj/item/storage/box/handcuffs = 1,
-		/obj/item/solfed_reporter/swat_caller = 1,
+		/obj/item/solfed_reporter/espatier_caller = 1,
 		/obj/item/beamout_tool = 1,
 	)
 
@@ -430,61 +459,9 @@ GLOBAL_LIST_INIT(call911_do_and_do_not, list(
 		/obj/item/extinguisher/advanced = 1,
 		/obj/item/rwd/loaded = 1,
 		/obj/item/beamout_tool = 1,
-		/obj/item/solfed_reporter/swat_caller = 1,
+		/obj/item/solfed_reporter/espatier_caller = 1,
 	)
 	id_trim = /datum/id_trim/solfed/atmos
-
-/obj/item/radio/headset/headset_solfed/atmos
-	name = "\improper SolFed adv. atmos headset"
-	desc = "A headset used by the Solar Federation response teams."
-	icon_state = "med_headset"
-	keyslot = /obj/item/encryptionkey/headset_solfed/atmos
-	radio_talk_sound = 'modular_nova/modules/radiosound/sound/radio/security.ogg'
-
-/obj/item/encryptionkey/headset_solfed/headset_solfed
-	flags_1 = parent_type::flags_1 | NO_NEW_GAGS_PREVIEW_1
-	icon = 'icons/map_icons/items/_item.dmi'
-
-/obj/item/encryptionkey/headset_solfed/atmos
-	name = "\improper SolFed adv. atmos encryption key"
-	special_channels = RADIO_SPECIAL_CENTCOM
-	channels = list(RADIO_CHANNEL_SOLFED = 1, RADIO_CHANNEL_ENGINEERING = 1, RADIO_CHANNEL_COMMAND = 1)
-	icon_state = "/obj/item/encryptionkey/headset_solfed/atmos"
-	post_init_icon_state = "cypherkey_medical"
-	greyscale_config = /datum/greyscale_config/encryptionkey_medical
-	greyscale_colors = "#ebebeb#2b2793"
-
-/obj/item/radio/headset/headset_solfed/sec
-	name = "\improper SolFed adv. Security headset"
-	desc = "A headset used by the Solar Federation response teams."
-	icon_state = "med_headset"
-	keyslot = /obj/item/encryptionkey/headset_solfed/sec
-	radio_talk_sound = 'modular_nova/modules/radiosound/sound/radio/security.ogg'
-
-/obj/item/encryptionkey/headset_solfed/sec
-	name = "\improper SolFed adv. Security encryption key"
-	special_channels = RADIO_SPECIAL_CENTCOM
-	channels = list(RADIO_CHANNEL_SOLFED = 1, RADIO_CHANNEL_SECURITY = 1, RADIO_CHANNEL_COMMAND = 1)
-	icon_state = "/obj/item/encryptionkey/headset_solfed/sec"
-	post_init_icon_state = "cypherkey_medical"
-	greyscale_config = /datum/greyscale_config/encryptionkey_medical
-	greyscale_colors = "#ebebeb#2b2793"
-
-/obj/item/radio/headset/headset_solfed/med
-	name = "\improper SolFed adv. Medical headset"
-	desc = "A headset used by the Solar Federation response teams."
-	icon_state = "med_headset"
-	keyslot = /obj/item/encryptionkey/headset_solfed/med
-	radio_talk_sound = 'modular_nova/modules/radiosound/sound/radio/security.ogg'
-
-/obj/item/encryptionkey/headset_solfed/med
-	name = "\improper SolFed adv. Medical encryption key"
-	special_channels = RADIO_SPECIAL_CENTCOM
-	channels = list(RADIO_CHANNEL_SOLFED = 1, RADIO_CHANNEL_MEDICAL = 1, RADIO_CHANNEL_COMMAND = 1)
-	icon_state = "/obj/item/encryptionkey/headset_solfed/med"
-	post_init_icon_state = "cypherkey_medical"
-	greyscale_config = /datum/greyscale_config/encryptionkey_medical
-	greyscale_colors = "#ebebeb#2b2793"
 
 /*
 *	EMT
@@ -516,19 +493,19 @@ GLOBAL_LIST_INIT(call911_do_and_do_not, list(
 		/obj/item/storage/box/survival = 1,
 		/obj/item/emergency_bed = 1,
 		/obj/item/storage/box/medipens = 1,
-		/obj/item/solfed_reporter/swat_caller = 1,
+		/obj/item/solfed_reporter/espatier_caller = 1,
 		/obj/item/beamout_tool = 1,
 	)
 
 	id_trim = /datum/id_trim/solfed/med
 
-/datum/antagonist/ert/request_911/condom_destroyer
-	name = "Armed S.W.A.T. Officer"
-	role = "S.W.A.T. Officer"
-	department = "Police"
-	outfit = /datum/outfit/request_911/condom_destroyer
+/datum/antagonist/ert/request_911/military_squadron
+	name = "SolFed Espatier Squadron"
+	role = "Solfed Espatier"
+	department = "SolFed Military"
+	outfit = /datum/outfit/request_911/military_squadron
 
-/datum/antagonist/ert/request_911/condom_destroyer/greet()
+/datum/antagonist/ert/request_911/military_squadron/greet()
 	var/missiondesc =  ""
 	missiondesc += "<B><font size=5 color=red>You are NOT a Nanotrasen Employee. You work for the Sol Federation as a [role].</font></B>"
 	missiondesc += "<BR>You are here to backup the 911 first responders, as they have reported for your assistance..\n"
@@ -544,8 +521,8 @@ GLOBAL_LIST_INIT(call911_do_and_do_not, list(
 	var/mob/living/greeted_mob = owner.current
 	greeted_mob.playsound_local(greeted_mob, 'sound/effects/families_police.ogg', 100, FALSE, pressure_affected = FALSE, use_reverb = FALSE)
 
-/datum/outfit/request_911/condom_destroyer
-	name = "911 Response: Armed S.W.A.T. Officer"
+/datum/outfit/request_911/military_squadron
+	name = "911 Response: Solfed Espatier Squadron"
 	back = /obj/item/storage/backpack
 	uniform = /obj/item/clothing/under/solfed
 	shoes = /obj/item/clothing/shoes/jackboots
@@ -563,19 +540,19 @@ GLOBAL_LIST_INIT(call911_do_and_do_not, list(
 		/obj/item/storage/box/handcuffs = 1,
 		/obj/item/melee/baton/security/loaded = 1,
 		/obj/item/storage/box/lethalshot = 2,
-		/obj/item/solfed_reporter/treason_reporter = 1,
+		/obj/item/solfed_reporter/espatier_platoon_caller = 1,
 		/obj/item/beamout_tool = 1,
 	)
 
 	id_trim = /datum/id_trim/solfed
 
-/datum/antagonist/ert/request_911/treason_destroyer
+/datum/antagonist/ert/request_911/military_platoon
 	name = "Sol Federation Military"
 	role = "Private"
-	department = "Military"
-	outfit = /datum/outfit/request_911/treason_destroyer
+	department = "SolFed Military"
+	outfit = /datum/outfit/request_911/military_platoon
 
-/datum/antagonist/ert/request_911/treason_destroyer/greet()
+/datum/antagonist/ert/request_911/military_platoon/greet()
 	var/missiondesc =  ""
 	missiondesc += "<B><font size=5 color=red>You are NOT a Nanotrasen Employee. You work for the Sol Federation as a [role].</font></B>"
 	missiondesc += "<BR>You are here to assume control of [station_name()] due to the occupants engaging in Treason as reported by our SWAT team.\n"
@@ -589,7 +566,7 @@ GLOBAL_LIST_INIT(call911_do_and_do_not, list(
 	var/mob/living/greeted_mob = owner.current
 	greeted_mob.playsound_local(greeted_mob, 'sound/effects/families_police.ogg', 100, FALSE, pressure_affected = FALSE, use_reverb = FALSE)
 
-/datum/outfit/request_911/treason_destroyer
+/datum/outfit/request_911/military_platoon
 	name = "911 Response: SolFed Military"
 
 	uniform = /obj/item/clothing/under/solfed/marines
@@ -629,7 +606,7 @@ GLOBAL_LIST_INIT(call911_do_and_do_not, list(
 	/// What table should we be incrementing votes in and checking against in the solfed responders global?
 	var/type_of_callers = "911_responders"
 	/// What source should be supplied for the announcement message?
-	var/announcement_source = "Sol Federation S.W.A.T."
+	var/announcement_source = "Sol Federation"
 	/// Should the station be issued a fine when the vote completes?
 	var/fine_station = TRUE
 	/// What poll message should we show to the ghosts when they are asked to join the squad?
@@ -637,7 +614,7 @@ GLOBAL_LIST_INIT(call911_do_and_do_not, list(
 	/// How many ghosts should we pick from the applicants to become members of the squad?
 	var/amount_to_summon = 4
 	/// What antagonist type should we give to the ghosts?
-	var/type_to_summon = /datum/antagonist/ert/request_911/condom_destroyer
+	var/type_to_summon = /datum/antagonist/ert/request_911/military_squadron
 	/// What table should be be incrementing amount in in the solfed responders global?
 	var/summoned_type = "swat"
 	/// What name and ID should be on the cell phone given to the squad members?
@@ -728,65 +705,60 @@ GLOBAL_LIST_INIT(call911_do_and_do_not, list(
 					log_game("[key_name(cop)] has been selected as an [ert_antag.name]")
 					agents_number--
 
-/obj/item/solfed_reporter/swat_caller
-	name = "S.W.A.T. backup caller"
-	desc = "Use this in-hand to vote to call SolFed S.W.A.T. backup. If half your team votes for it, SWAT will be dispatched."
+/obj/item/solfed_reporter/espatier_caller
+	name = "Solfed Military backup caller"
+	desc = "Use this in-hand to vote to call SolFed military backup. If half your team votes for it, a military squadron will be dispatched."
 	type_to_check = /datum/antagonist/ert/request_911
 	type_of_callers = "911_responders"
-	announcement_source = "Sol Federation S.W.A.T."
-	fine_station = TRUE
-	ghost_poll_msg = "The Sol-Fed 911 services have requested a S.W.A.T. backup. Do you wish to become a S.W.A.T. member?"
+	announcement_source = "Sol Federation Military Command"
+	fine_station = FALSE
+	ghost_poll_msg = "The Sol-Fed 911 services have requested military backup. Do you wish to become an Espatier?"
 	amount_to_summon = 6
-	type_to_summon = /datum/antagonist/ert/request_911/condom_destroyer
-	summoned_type = "swat"
-	announcement_message = "Hello, crewmembers. Our emergency services have requested S.W.A.T. backup, either for assistance doing their job due to crew \
-		impediment, or due to a fraudulent 911 call. We have billed the station $20,000 for this, to cover the expenses of flying a second emergency response to \
-		your station. Please comply with all requests by said S.W.A.T. members."
+	type_to_summon = /datum/antagonist/ert/request_911/military_squadron
+	summoned_type = "standard_espatiers"
+	announcement_message = "Hello Crewmembers, Our on-station emergency services teams have requested for Military Aid, Either for their active safety \
+	or the current situation has caused reasonable escallation, please remain calm and cooperate with any requests or orders made by our Espatier Squadron. For your safety and others."
 
-/obj/item/solfed_reporter/swat_caller/questions(mob/user)
-	var/question = "Does the situation require additional S.W.A.T. backup, involve the station impeding you from doing your job, \
+/obj/item/solfed_reporter/espatier_caller/questions(mob/user)
+	var/question = "Does the situation require additional military backup, involve the station impeding you from doing your job, \
 		or involve the station making a fraudulent 911 call and needing an arrest made on the caller?"
-	if(tgui_input_list(user, question, "S.W.A.T. Backup Caller", list("Yes", "No")) != "Yes")
-		to_chat(user, "You decide not to request S.W.A.T. backup.")
+	if(tgui_input_list(user, question, "Military backup Caller", list("Yes", "No")) != "Yes")
+		to_chat(user, "You decide not to request for military backup")
 		return FALSE
-	message_admins("[ADMIN_LOOKUPFLW(user)] has voted to summon S.W.A.T backup.")
+	message_admins("[ADMIN_LOOKUPFLW(user)] has voted to summon military backup.")
 	return TRUE
 
-/obj/item/solfed_reporter/treason_reporter
-	name = "treason reporter"
-	desc = "Use this in-hand to vote that the station is engaging in Treason. If half your team votes for it, the Military will handle the situation."
-	type_to_check = /datum/antagonist/ert/request_911/condom_destroyer
-	type_of_callers = "swat"
-	announcement_source = "Sol Federation National Guard"
+/obj/item/solfed_reporter/espatier_platoon_caller
+	name = "Solfed Platoon Radio Caller"
+	desc = "Use this in hand to report that the active situation is noticably worse or out of control."
+	type_to_check = /datum/antagonist/ert/request_911/military_squadron
+	type_of_callers = "standard_espatiers"
+	announcement_source = "Sol Federation Military Command"
 	fine_station = FALSE
-	ghost_poll_msg = "The station has decided to engage in treason. Do you wish to join the Sol Federation Military?"
+	ghost_poll_msg = "The situation is completely out of hand and our Espatiers need backup, volunteer to become a Grand Response Espatier?"
 	amount_to_summon = 12
-	type_to_summon = /datum/antagonist/ert/request_911/treason_destroyer
-	summoned_type = "national_guard"
-	announcement_message = "Crewmembers of the station. You have refused to comply with first responders and SWAT officers, and have assaulted them, \
-		and they are unable to carry out the wills of the Sol Federation, despite residing within Sol Federation borders.\n\
-		As such, we are charging those responsible with Treason. The penalty of which is death, or no less than twenty-five years in Superjail.\n\
-		Treason is a serious crime. Our military forces are en route to your station. They will be assuming direct control of the station, and \
-		will be evacuating civilians from the scene.\n\
-		Non-offending citizens, prepare for evacuation. Comply with all orders given to you by Sol Federation military personnel.\n\
-		To all those who are engaging in treason, lay down your weapons and surrender. Refusal to comply may be met with lethal force."
+	type_to_summon = /datum/antagonist/ert/request_911/military_platoon
+	summoned_type = "grand_espatiers"
+	announcement_message = "Attention station and its crew the active situation has devolved, and is too much to bear for our currently deployed squadron of espatiers. \
+	A Sol Federation Espatier Platoon is being disbatched to your station, Cooperate with any and all instructions given by any SolFed Personnel, A full station-wide evacuation \
+	may be enacted for your safety. Again please cooperate with any and all instructions from SolFed Personnel."
 
-/obj/item/solfed_reporter/treason_reporter/questions(mob/user)
+/obj/item/solfed_reporter/espatier_platoon_caller/questions(mob/user)
 	var/list/list_of_questions = list(
-		"Treason is the crime of attacking a state authority to which one owes allegiance. The station is located within Sol Federation space, \
-			and owes allegiance to the Sol Federation despite being owned by Nanotrasen. Did the station engage in this today?",
-		"Did station crewmembers assault you or the SWAT team at the direction of Security and/or Command?",
-		"Did station crewmembers actively prevent you and the SWAT team from accomplishing your objectives at the direction of Security and/or Command?",
-		"Were you and your fellow SWAT members unable to handle the issue on your own?",
-		"Are you absolutely sure you wish to declare the station as engaging in Treason? Misuse of this can and will result in \
+		"Grand threats are threats in which mass casualties, treason against the federation, xenomorphs, and other threats that would be \
+			a danger to the greater galactic community, such as resonance cascade, runaway blob, etc.",
+		"Did the station crew members attack you and your fellow Espatiers?",
+		"Did the station crew members actively prevent you from completing your mission, or objectives?",
+		"Were you and your fellow Espatiers unable to contain or handle the situation on your own?",
+		"Are you surer you wish to declare a grand threat of any kind is present? Misuse of this can and will result in \
 			administrative action against your account."
 	)
 	for(var/question in list_of_questions)
 		if(tgui_input_list(user, question, "Treason Reporter", list("Yes", "No")) != "Yes")
-			to_chat(user, "You decide not to declare the station as treasonous.")
+			to_chat(user, "You decide not to call the platoon... yet...")
 			return FALSE
-	message_admins("[ADMIN_LOOKUPFLW(user)] has acknowledged the consequences of a false claim of Treason administratively, \
-		and has voted that the station is engaging in Treason.")
+	message_admins("[ADMIN_LOOKUPFLW(user)] has acknowledged the consequences of a false claim of a grand threat administratively, \
+		and has voted that the station is engaging a Grand Threat.")
 	return TRUE
 
 /obj/item/solfed_reporter/pizza_managers
