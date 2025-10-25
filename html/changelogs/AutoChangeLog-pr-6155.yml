@@ -1,7 +1,0 @@
-author: "00-Steven, Paxilmaniac"
-delete-after: True
-changes:
-  - bugfix: "Ammo stacks actually have an outline when hovered over in your inventory."
-  - bugfix: "A newly created ammo stack actually drops ammo when thrown."
-  - bugfix: "Ammo stacks no longer pixel offset into walls or other dense objects."
-  - bugfix: "fixes ammo stacks runtiming when emptied"

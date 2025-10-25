@@ -1,5 +1,0 @@
-author: "RealWinterFrost"
-delete-after: True
-changes:
-  - balance: "Lunchbox weight is now set to NORMAL instead of BULKY"
-  - balance: "Lunchbox now deals half the damage of a toolbox."
