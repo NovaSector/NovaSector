@@ -118,3 +118,33 @@
 
 /obj/item/toy/plush/lizard_plushie
 	squeak_override = list('modular_nova/modules/emotes/sound/voice/weh.ogg' = 1)
+
+/obj/item/toy/plush/nova/funniyellowrock
+	name = "squishy yellow rock"
+	desc = "A familiar looking yellow rock plushie. Touching it won't reduce you to dust. Probably."
+	icon_state = "plush_sm"
+	squeak_override = list('sound/machines/sm/accent/delam/1.ogg' = 1)
+
+/obj/item/toy/plush/nova/fkinbnuuy
+	name = "heckin bnuuy"
+	desc = "A small bunny plushie with black beady eyes. The nametag appears to be misspelled?"
+	icon_state = "plush_bnuuy"
+	attack_verb_continuous = list("cuddles", "squeaks")
+	attack_verb_simple = list("cuddle", "squeak")
+	squeak_override = list('modular_nova/modules/customization/game/objects/items/sound/deerplush.ogg' = 1)
+
+/obj/item/toy/plush/nova/securifox
+	name = "securifox slushie"
+	desc = "An NT security branded fox plush. Wait. If it has more than one tail, doesn't that make it a kitsune? And why does it look so smug?"
+	icon_state = "plush_dee"
+	attack_verb_continuous = list("geckers", "boops", "nuzzles")
+	attack_verb_simple = list("gecker", "boop", "nuzzle")
+	squeak_override = list('sound/vehicles/mecha/justice_shield_broken.ogg' = 1)
+
+/obj/item/toy/plush/nova/towa
+	name = "tiny overwatch"
+	desc = "It invokes a certain comfort knowing its on your side when the chips are down."
+	icon_state = "plush_towa"
+	attack_verb_continuous = list("cuddles", "meows", "hisses")
+	attack_verb_simple = list("cuddle", "meow", "hiss")
+	squeak_override = list('modular_nova/modules/kahraman_equipment/sound/thumper_thump/punch_press_2.wav' = 1)
