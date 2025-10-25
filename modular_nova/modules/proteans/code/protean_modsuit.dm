@@ -44,6 +44,12 @@
 
 
 /obj/item/mod/control/pre_equipped/protean/Destroy()
+	// Eject protean if they're inside
+	var/mob/living/carbon/human/protean_inside = locate(/mob/living/carbon/human) in src
+	if(protean_inside && isprotean(protean_inside))
+		protean_inside.forceMove(get_turf(src))
+		to_chat(protean_inside, span_warning("Your suit is being destroyed! You are forcefully ejected!"))
+
 	if(stored_modsuit)
 		for(var/obj/item/mod/module/modules in cached_modules)
 			if(!modules.removable)
@@ -106,6 +112,11 @@
 	return ..()
 
 /obj/item/mod/control/pre_equipped/protean/crowbar_act(mob/living/user, obj/item/tool)
+	// Priority 1: If suit is open, allow normal module removal
+	if(open && !modlocked)
+		return ..()
+
+	// Priority 2: If suit is locked and unlockable, allow forced removal
 	if(modlocked && !isprotean(wearer) && HAS_TRAIT(src, TRAIT_PROTEAN_UNLOCKABLE))
 		balloon_alert(user, "prying off...")
 		if(!do_after(user, 5 SECONDS, wearer))
@@ -117,6 +128,7 @@
 		REMOVE_TRAIT(src, TRAIT_PROTEAN_UNLOCKABLE, "tool_unlock")
 		playsound(src, 'sound/items/tools/crowbar.ogg', 50, TRUE)
 		return ITEM_INTERACT_SUCCESS
+
 	return ..()
 
 /obj/item/mod/control/pre_equipped/protean/canStrip(mob/who)
@@ -135,6 +147,12 @@
 
 	to_chat(stripper, span_warning("This suit seems to be a part of them. You can't remove it!"))
 	stripper.balloon_alert(stripper, "can't strip a protean's suit!")
+	return ..()
+
+/obj/item/mod/control/pre_equipped/protean/dropped(mob/user)
+	// Don't clean up if a protean is going into the suit
+	if(isprotean(user) && locate(/mob/living/carbon/human) in src)
+		return
 	return ..()
 
 /obj/item/mod/control/pre_equipped/protean/proc/drop_suit()
@@ -293,55 +311,22 @@
 /obj/item/mod/control/pre_equipped/protean/proc/assimilate_modsuit(mob/user, modsuit, forced)
 	var/obj/item/mod/control/to_assimilate = modsuit
 
-	// If we already have a stored suit, eject it completely with all modules
 	if(stored_modsuit)
-		to_chat(user, span_notice("Ejecting previous modsuit [stored_modsuit]..."))
+		to_chat(user, span_warning("Can't absorb two modsuits!"))
+		if(forced)
+			stack_trace("assimilate_modsuit: Tried to assimilate modsuit while there's already a stored modsuit. stored_modsuit: [stored_modsuit], new_modsuit: [to_assimilate]")
+		return
 
-		// Retract to original theme first
-		for(var/obj/item/part as anything in get_parts())
-			if(part.loc == src)
-				continue
-			retract(null, part, instant = TRUE)
-
-		theme = stored_theme
-		stored_theme = null
-		skin = initial(skin)
-		theme.set_up_parts(src, skin)
-		name = initial(name)
-		desc = initial(desc)
-		extended_desc = initial(extended_desc)
-
-		// Transfer modules back to old suit (except protean-specific ones)
-		for(var/obj/item/mod/module/module in modules)
-			// Don't transfer protean-specific modules
-			if(istype(module, /obj/item/mod/module/gps/protean))
-				continue
-			if(istype(module, /obj/item/mod/module/crew_sensor/protean))
-				continue
-
-			// Don't transfer protean's storage if it has items
-			if(istype(module, /obj/item/mod/module/storage))
-				var/obj/item/mod/module/storage/storage_module = module
-				if(storage_module.contents && length(storage_module.contents) > 0)
-					continue // Keep storage with our items
-
-			// Transfer back to old suit
-			if(stored_modsuit.install(module, user, TRUE))
-				uninstall(module)
-
-		// Restore cached modules to old suit
-		for(var/obj/item/mod/module/cached in cached_modules)
-			stored_modsuit.install(cached, user, TRUE)
-		cached_modules = list()
-
-		// Drop the complete old suit to ground
-		stored_modsuit.forceMove(get_turf(src))
-		balloon_alert_to_viewers("previous suit ejected")
-		stored_modsuit = null
+	// Check if our storage module has items - must be empty to assimilate
+	if(atom_storage)
+		if(length(atom_storage.real_location?.contents))
+			to_chat(user, span_warning("Your storage module must be empty before you can assimilate another modsuit!"))
+			return
 
 	if(!user?.transferItemToLoc(to_assimilate, src, forced))
 		balloon_alert(user, "stuck!")
 		return
+
 	if(!forced)
 		for(var/obj/item/part as anything in get_parts())
 			if(part.loc == src)
@@ -352,47 +337,49 @@
 	stored_theme = theme // Store the old theme in cache
 	theme = to_assimilate.theme // Set new theme
 	skin = to_assimilate.skin // Inherit skin
+	complexity_max = to_assimilate.complexity_max // CRITICAL: Inherit complexity limit from assimilated suit!
 	theme.set_up_parts(src, skin) // Put everything together
 	name = to_assimilate.name
 	desc = to_assimilate.desc
 	extended_desc = to_assimilate.extended_desc
-	for(var/obj/item/mod/module/module in to_assimilate.modules) // Transfer modules without replacing
-		// Check if we already have this type of module
-		var/already_have = FALSE
-		for(var/obj/item/mod/module/existing_module in modules)
-			if(istype(existing_module, module.type))
-				already_have = TRUE
-				to_chat(user, span_notice("You already have [existing_module], keeping both in reserve!"))
-				// Store the new one in cached modules for later
-				cached_modules += module
-				to_assimilate.uninstall(module)
-				break
 
-		if(already_have)
-			continue
-
-		// Special handling for storage - keep existing storage primary
+	// Transfer modules - exactly like Bubberstation (install() handles the transfer via forceMove)
+	// CRITICAL: Iterate over a COPY because install() modifies the source list!
+	var/list/modules_to_transfer = to_assimilate.modules.Copy()
+	for(var/obj/item/mod/module/module in modules_to_transfer)
+		// Special handling for storage - compare sizes and use the bigger one
 		if(istype(module, /obj/item/mod/module/storage))
-			var/obj/item/mod/module/storage/existing_storage = locate() in modules
-			if(existing_storage)
-				cached_modules += module
-				to_assimilate.uninstall(module)
-				to_chat(user, span_notice("[module] stored in reserve, keeping your current storage!"))
-				continue
+			var/obj/item/mod/module/storage/our_storage = locate() in modules
+			if(our_storage)
+				var/obj/item/mod/module/storage/incoming_storage = module
+				// Compare max storage space
+				if(incoming_storage.max_combined_w_class > our_storage.max_combined_w_class)
+					// Incoming is bigger - swap to use it
+					cached_modules += our_storage
+					uninstall(our_storage, deleting = TRUE)
+					to_chat(user, span_notice("[incoming_storage] is larger! Swapping to it and caching your [our_storage]."))
+					// Continue to install the larger storage below
+				else
+					// Ours is bigger or equal - keep it
+					cached_modules += module
+					to_chat(user, span_notice("[module] stored in reserve, keeping your current [our_storage]!"))
+					continue
 
-		// Try to install the module
-		if(install(module, user, TRUE))
-			to_chat(user, span_notice("Integrated [module]!"))
+		// Try to install - install() uses forceMove() to automatically transfer the module
+		install(module, user, TRUE)
+
+		// Check if it actually got installed (module is now in our modules list)
+		if(module in modules)
 			continue
 
-		// If it can't be installed, cache it if removable
-		if(module.removable)
-			to_assimilate.uninstall(module)
-			cached_modules += module
-			to_chat(user, span_notice("[module] stored in reserve!"))
-		else
-			// Leave non-removable modules in original suit
-			to_chat(user, span_warning("[module] cannot be transferred!"))
+		// If it can't be installed and it's not removable, leave it in original suit
+		if(!module.removable)
+			continue
+
+		// Otherwise uninstall from old suit and drop to floor
+		to_assimilate.uninstall(module)
+		module.forceMove(get_turf(src))
+		to_chat(user, span_warning("[module] has dropped onto the floor!"))
 
 	update_static_data_for_all_viewers()
 
@@ -418,17 +405,38 @@
 		retract(null, part, instant = TRUE)
 
 	complexity_max = initial(complexity_max)
-	for(var/obj/item/mod/module in modules) // Transfer back every module
-		if(stored_modsuit.install(module, user, TRUE))
+
+	// Transfer all modules back to stored modsuit (EXCEPT storage - we keep ours)
+	// Make a copy because install() will modify the list
+	var/list/modules_to_return = modules.Copy()
+	for(var/obj/item/mod/module/module in modules_to_return)
+		// Skip storage modules - we keep the protean's storage
+		if(istype(module, /obj/item/mod/module/storage))
 			continue
+
+		// Try to install - install() will use forceMove() to transfer
+		stored_modsuit.install(module, user, TRUE)
+
+		// Check if it transferred
+		if(module in stored_modsuit.modules)
+			continue
+
+		// If it failed, drop it
 		uninstall(module)
-		to_chat(user, span_notice("[module] has fallen to the floor!"))
+		to_chat(user, span_notice("[module] couldn't fit back, dropping to floor!"))
 		module.forceMove(get_turf(src))
 
+	// Restore cached storage (magnate storage) back to the original modsuit
 	for(var/obj/item/mod/module/cached in cached_modules)
-		if(!install(cached, user, TRUE))
-			to_chat(user, span_warning("[cached] failed to return to its original place! REPORT THIS"))
-			stack_trace("Modsuit Unassimilate: cached module [cached] failed to return to original modsuit! [src]")
+		stored_modsuit.install(cached, user, TRUE)
+
+		if(cached in stored_modsuit.modules)
+			cached_modules -= cached
+			continue
+
+		// If it failed, drop it
+		to_chat(user, span_warning("[cached] couldn't fit back, dropping to floor!"))
+		cached.forceMove(get_turf(src))
 		cached_modules -= cached
 
 	theme = stored_theme
@@ -438,6 +446,7 @@
 	name = initial(name)
 	desc = initial(desc)
 	extended_desc = initial(extended_desc)
+
 	if(user.can_put_in_hand(stored_modsuit, user.active_hand_index))
 		user.put_in_hand(stored_modsuit, user.active_hand_index)
 		stored_modsuit = null

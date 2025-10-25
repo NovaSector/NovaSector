@@ -9047,6 +9047,7 @@
 #include "modular_nova\modules\proteans\code\protean_perscom.dm"
 #include "modular_nova\modules\proteans\code\protean_prefab.dm"
 #include "modular_nova\modules\proteans\code\protean_preference.dm"
+#include "modular_nova\modules\proteans\code\protean_quirk_compatibility.dm"
 #include "modular_nova\modules\proteans\code\protean_servo_module.dm"
 #include "modular_nova\modules\proteans\code\protean_species.dm"
 #include "modular_nova\modules\proteans\code\protean_status_effects.dm"

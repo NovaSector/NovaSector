@@ -99,9 +99,31 @@
 		species_modsuit.install(storage, equipping, TRUE)
 
 /datum/species/protean/on_species_gain(mob/living/carbon/human/gainer, datum/species/old_species, pref_load, regenerate_icons = TRUE)
+	// If we're switching from protean to protean (SAD/pref reload), preserve the old modsuit
+	var/obj/item/mod/control/pre_equipped/protean/old_protean_suit = null
+	if(istype(old_species, /datum/species/protean))
+		var/datum/species/protean/old_protean = old_species
+		old_protean_suit = old_protean.species_modsuit
+		// Temporarily prevent deletion of the old suit
+		old_protean.species_modsuit = null
+
 	. = ..()
 	owner = gainer
-	equip_modsuit(gainer)
+
+	// If we have an old protean suit, reuse it instead of creating new one
+	if(old_protean_suit)
+		species_modsuit = old_protean_suit
+		// Re-equip to back slot if needed
+		if(gainer.back != species_modsuit)
+			var/obj/item/item_in_slot = gainer.get_item_by_slot(ITEM_SLOT_BACK)
+			if(item_in_slot && item_in_slot != species_modsuit)
+				if(HAS_TRAIT(item_in_slot, TRAIT_NODROP))
+					stack_trace("Protean modsuit forced dropped a TRAIT_NODROP item on species re-gain. Type: [item_in_slot]")
+				gainer.dropItemToGround(item_in_slot, force = TRUE)
+			gainer.equip_to_slot_if_possible(species_modsuit, ITEM_SLOT_BACK, disable_warning = TRUE)
+	else
+		equip_modsuit(gainer)
+
 	RegisterSignal(src, COMSIG_OUTFIT_EQUIP, PROC_REF(outfit_handling))
 	RegisterSignal(owner, COMSIG_CARBON_GAIN_ORGAN, PROC_REF(organ_reject))
 	var/obj/item/mod/core/protean/core = species_modsuit.core
@@ -112,6 +134,7 @@
 	gainer.verbs += /mob/living/carbon/proc/suit_transformation
 	gainer.verbs += /mob/living/carbon/proc/low_power
 	gainer.verbs += /mob/living/carbon/proc/speak_through_modsuit
+	gainer.verbs += /mob/living/carbon/proc/eject_assimilated_modsuit
 
 	// Grant shapeshifting ability
 	var/datum/action/innate/alter_form/quirk/shapeshift_action = new()
@@ -196,11 +219,16 @@
 	. = ..()
 	if(gainer)
 		UnregisterSignal(owner, COMSIG_CARBON_GAIN_ORGAN)
-	if(species_modsuit?.stored_modsuit)
-		species_modsuit.unassimilate_modsuit(owner, TRUE)
-	gainer.dropItemToGround(species_modsuit, TRUE)
-	if(species_modsuit)
-		QDEL_NULL(species_modsuit)
+
+	// If we're changing to another protean (SAD/pref reload), don't delete the suit
+	// The new protean species will reuse it in on_species_gain
+	if(!istype(new_species, /datum/species/protean))
+		if(species_modsuit?.stored_modsuit)
+			species_modsuit.unassimilate_modsuit(owner, TRUE)
+		gainer.dropItemToGround(species_modsuit, TRUE)
+		if(species_modsuit)
+			QDEL_NULL(species_modsuit)
+
 	owner = null
 
 /datum/species/protean/get_default_mutant_bodyparts()

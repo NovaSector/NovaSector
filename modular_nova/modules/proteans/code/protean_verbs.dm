@@ -163,3 +163,25 @@
 	// Play a subtle beep to the wearer
 	playsound(suit.wearer, 'sound/machines/beep/twobeep_high.ogg', 25, FALSE, SHORT_RANGE_SOUND_EXTRARANGE)
 
+/mob/living/carbon/proc/eject_assimilated_modsuit()
+	set name = "Eject Assimilated Modsuit"
+	set desc = "Eject the modsuit you have assimilated, returning it to its original form."
+	set category = "Protean"
+
+	var/datum/species/protean/species = dna.species
+	if(!istype(species))
+		to_chat(src, span_warning("You are not a protean!"))
+		return
+
+	if(!species.species_modsuit)
+		to_chat(src, span_warning("ERROR: Missing species modsuit! Report this bug."))
+		return
+
+	var/obj/item/mod/control/pre_equipped/protean/suit = species.species_modsuit
+
+	if(!suit.stored_modsuit)
+		to_chat(src, span_warning("You haven't assimilated any modsuit!"))
+		return
+
+	suit.unassimilate_modsuit(src)
+
