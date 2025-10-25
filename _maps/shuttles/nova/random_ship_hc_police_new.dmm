@@ -34,6 +34,11 @@
 /obj/structure/rack,
 /turf/open/floor/pod/dark,
 /area/space)
+"cn" = (
+/obj/structure/sink/directional/north,
+/obj/structure/mirror/directional/south,
+/turf/open/floor/iron/white,
+/area/space)
 "cq" = (
 /obj/structure/chair/office{
 	dir = 8
@@ -64,6 +69,13 @@
 /obj/structure/window/reinforced/survival_pod/spawner/directional/north,
 /turf/open/floor/pod/dark,
 /area/space)
+"ez" = (
+/obj/structure/window/reinforced/survival_pod/spawner/directional/north,
+/obj/structure/chair/office{
+	dir = 8
+	},
+/turf/open/floor/pod/light,
+/area/space)
 "fv" = (
 /obj/structure/table,
 /obj/structure/window/reinforced/survival_pod/spawner/directional/west,
@@ -91,6 +103,7 @@
 	pixel_x = 0;
 	pixel_y = -32
 	},
+/obj/structure/mirror/directional/west,
 /turf/open/floor/iron/white,
 /area/space)
 "jF" = (
@@ -119,6 +132,7 @@
 /area/space)
 "mN" = (
 /obj/structure/window/reinforced/survival_pod/spawner/directional/north,
+/obj/structure/closet/crate/bin,
 /turf/open/floor/pod/light,
 /area/space)
 "of" = (
@@ -144,11 +158,22 @@
 /obj/structure/table,
 /obj/structure/window/reinforced/survival_pod/spawner/directional/west,
 /obj/structure/window/reinforced/survival_pod/spawner/directional/south,
+/obj/item/modular_computer/laptop/preset/civilian,
 /turf/open/floor/pod/light,
+/area/space)
+"ri" = (
+/obj/structure/bed{
+	dir = 1
+	},
+/turf/open/floor/carpet/royalblue,
 /area/space)
 "sd" = (
 /obj/machinery/door/window/survival_pod/left/directional/west,
 /turf/open/floor/pod/light,
+/area/space)
+"sU" = (
+/obj/effect/spawner/random/structure/closet_private,
+/turf/open/floor/carpet/royalblue,
 /area/space)
 "uD" = (
 /obj/structure/table,
@@ -164,11 +189,25 @@
 	},
 /turf/open/floor/pod/dark,
 /area/space)
+"vh" = (
+/obj/structure/window/reinforced/survival_pod/spawner/directional/north,
+/obj/structure/chair/office{
+	dir = 4
+	},
+/turf/open/floor/pod/light,
+/area/space)
 "vF" = (
 /obj/structure/chair{
 	dir = 4
 	},
 /turf/open/floor/iron/kitchen,
+/area/space)
+"wb" = (
+/obj/structure/window/reinforced/survival_pod/spawner/directional/south,
+/obj/structure/chair/office{
+	dir = 4
+	},
+/turf/open/floor/pod/light,
 /area/space)
 "wO" = (
 /obj/machinery/vending/security/noaccess,
@@ -202,12 +241,20 @@
 	},
 /turf/open/floor/plating,
 /area/space)
+"CA" = (
+/obj/structure/window/reinforced/survival_pod/spawner/directional/south,
+/obj/structure/chair/office{
+	dir = 8
+	},
+/turf/open/floor/pod/light,
+/area/space)
 "CO" = (
 /obj/structure/closet/firecloset,
 /turf/open/floor/plating,
 /area/space)
 "Db" = (
 /obj/structure/window/reinforced/survival_pod/spawner/directional/south,
+/obj/structure/closet/crate/bin,
 /turf/open/floor/pod/light,
 /area/space)
 "DE" = (
@@ -218,6 +265,7 @@
 /obj/structure/table,
 /obj/structure/window/reinforced/survival_pod/spawner/directional/east,
 /obj/structure/window/reinforced/survival_pod/spawner/directional/south,
+/obj/item/modular_computer/laptop/preset/civilian,
 /turf/open/floor/pod/light,
 /area/space)
 "DM" = (
@@ -273,6 +321,14 @@
 /obj/structure/closet/secure_closet/freezer/fridge/all_access,
 /turf/open/floor/iron/kitchen,
 /area/space)
+"Kb" = (
+/obj/structure/table,
+/turf/open/floor/carpet/royalblue,
+/area/space)
+"Nj" = (
+/obj/structure/table/wood,
+/turf/open/floor/carpet/royalblue,
+/area/space)
 "NX" = (
 /obj/structure/table/reinforced/plastitaniumglass,
 /obj/item/storage/fancy/donut_box,
@@ -318,6 +374,7 @@
 /obj/structure/table,
 /obj/structure/window/reinforced/survival_pod/spawner/directional/north,
 /obj/structure/window/reinforced/survival_pod/spawner/directional/west,
+/obj/item/modular_computer/laptop/preset/civilian,
 /turf/open/floor/pod/light,
 /area/space)
 "SC" = (
@@ -354,6 +411,7 @@
 /obj/structure/table,
 /obj/structure/window/reinforced/survival_pod/spawner/directional/north,
 /obj/structure/window/reinforced/survival_pod/spawner/directional/east,
+/obj/item/modular_computer/laptop/preset/civilian,
 /turf/open/floor/pod/light,
 /area/space)
 "ZB" = (
@@ -364,6 +422,10 @@
 	dir = 1
 	},
 /turf/open/floor/wood,
+/area/space)
+"ZO" = (
+/obj/structure/toilet,
+/turf/open/floor/iron/white,
 /area/space)
 
 (1,1,1) = {"
@@ -408,13 +470,13 @@ iP
 iP
 iP
 Rx
+ri
 Aj
-Aj
-Aj
+sU
 Rx
+ZO
 Tf
-Tf
-Tf
+cn
 Rx
 xB
 ZB
@@ -446,10 +508,10 @@ iP
 iP
 iP
 Rx
+Nj
 Aj
 Aj
-Aj
-Tf
+gs
 Tf
 Tf
 Tf
@@ -481,11 +543,11 @@ iP
 iP
 "}
 (4,1,1) = {"
-iP
-iP
 Rx
-Aj
-Aj
+Rx
+Rx
+Rx
+Rx
 Aj
 Rx
 Rx
@@ -519,9 +581,9 @@ iP
 iP
 "}
 (5,1,1) = {"
-iP
-iP
 Rx
+Kb
+Aj
 Aj
 Aj
 Aj
@@ -557,9 +619,9 @@ iP
 iP
 "}
 (6,1,1) = {"
-iP
-iP
 Rx
+Kb
+Aj
 Aj
 Aj
 Aj
@@ -595,8 +657,8 @@ iP
 iP
 "}
 (7,1,1) = {"
-iP
-iP
+Rx
+Rx
 Rx
 af
 af
@@ -726,14 +788,14 @@ Rx
 bt
 bt
 Rx
-af
-af
+Rx
+Rx
 Rx
 Fl
 Fl
 Rx
-af
-af
+Rx
+Rx
 Rx
 bt
 bt
@@ -763,7 +825,7 @@ Gb
 Gb
 bt
 bt
-af
+Rx
 Fl
 Fl
 Db
@@ -772,7 +834,7 @@ Fl
 mN
 Fl
 Fl
-af
+Rx
 bt
 bt
 Rx
@@ -801,16 +863,16 @@ Gb
 Gb
 bt
 bt
-af
+Rx
 Fl
 Fl
-Db
+wb
 Fl
 Fl
-mN
+vh
 Fl
 Fl
-af
+Rx
 bt
 bt
 Rx
@@ -848,7 +910,7 @@ Fl
 YX
 jF
 SC
-af
+Rx
 bt
 bt
 Rx
@@ -962,7 +1024,7 @@ Fl
 RX
 fv
 sd
-af
+Rx
 bt
 bt
 Rx
@@ -991,16 +1053,16 @@ mH
 Rx
 bt
 bt
-af
+Rx
 Fl
 Fl
-Db
+CA
 Fl
 Fl
-mN
+ez
 Fl
 Fl
-af
+Rx
 bt
 bt
 Rx
@@ -1029,7 +1091,7 @@ mH
 Rx
 bt
 bt
-af
+Rx
 Fl
 Fl
 Db
@@ -1038,7 +1100,7 @@ Fl
 mN
 Fl
 Fl
-af
+Rx
 bt
 bt
 Rx
@@ -1068,14 +1130,14 @@ Rx
 bt
 bt
 Rx
+Rx
+Rx
+Rx
 af
 af
-af
-af
-af
-af
-af
-af
+Rx
+Rx
+Rx
 Rx
 bt
 bt
