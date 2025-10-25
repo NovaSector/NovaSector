@@ -187,7 +187,7 @@
 	cost = PAYCHECK_COMMAND * 8
 
 /datum/armament_entry/company_import/sol_defense/longarm/elite
-	item_type = /obj/item/gun/ballistic/automatic/sol_rifle/marksman
+	item_type = /obj/item/gun/ballistic/automatic/sol_classic/marksman
 	cost = PAYCHECK_COMMAND * 12
 
 /datum/armament_entry/company_import/sol_defense/longarm/bogseo
@@ -199,7 +199,7 @@
 	cost = PAYCHECK_COMMAND * 16
 
 /datum/armament_entry/company_import/sol_defense/longarm/infanterie
-	item_type = /obj/item/gun/ballistic/automatic/sol_rifle
+	item_type = /obj/item/gun/ballistic/automatic/sol_classic
 	cost = PAYCHECK_COMMAND * 14
 
 /* //
