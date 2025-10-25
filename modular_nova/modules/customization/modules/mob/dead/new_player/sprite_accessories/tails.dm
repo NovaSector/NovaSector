@@ -523,3 +523,7 @@
 /datum/sprite_accessory/tails/mammal/wagging/chemlight_alt
 	name = "Striped Tail (Alt)"
 	icon_state = "chemlight_alt"
+
+/datum/sprite_accessory/tails/mammal/insectunder
+	name = "Insect (Underbelly)"
+	icon_state = "insectunder"
