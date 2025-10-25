@@ -1,0 +1,28 @@
+{
+	"name": "Caress penis",
+	"description": "Use your hands and fingers for stimulation.",
+	"usage": "other",
+	"category": " Petting",
+	"distance_allowed": 0,
+	"message": [
+		"%USER% caresses %TARGET%'s penis with %USER_PRONOUN_THEIR% palm.",
+        "%USER% eagerly jerks off %TARGET%'s cock.",
+        "%USER% teases %TARGET%'s head and shaft with %USER_PRONOUN_THEIR% fingers.",
+        "%USER% stimulates %TARGET%'s shaft with %USER_PRONOUN_THEIR% palm."
+	],
+	"sound_use": 1,
+	"sound_possible": [
+		"modular_nova/modules/modular_items/lewd_items/sounds/vax1.ogg",
+		"modular_nova/modules/modular_items/lewd_items/sounds/vax2.ogg"
+	],
+	"sound_range": 7,
+	"interaction_requires": ["self_hand"],
+	"color": "pink",
+	"user_required_parts": [],
+	"user_arousal": 2,
+	"user_pleasure": 0,
+	"target_required_parts": ["penis"],
+	"target_arousal": 4,
+	"target_pleasure": 6,
+	"lewd": 1
+}

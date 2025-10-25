@@ -1,0 +1,28 @@
+{
+	"name": "Caress pussy",
+	"description": "Use your hands and fingers for stimulation.",
+	"usage": "other",
+	"category": " Petting",
+	"distance_allowed": 0,
+	"message": [
+		"%USER% willingly plays with %USER_PRONOUN_THEIR% fingers with %TARGET%'s pussy.",
+        "%USER% caresses %TARGET%'s vulva with %USER_PRONOUN_THEIR% palm.",
+        "%USER% rubs %TARGET%'s sensitive spots with %USER_PRONOUN_THEIR% hand.",
+        "%USER% teases %TARGET%'s vagina with %USER_PRONOUN_THEIR% hand."
+	],
+	"sound_use": 1,
+	"sound_possible": [
+		"modular_nova/modules/modular_items/lewd_items/sounds/vax1.ogg",
+		"modular_nova/modules/modular_items/lewd_items/sounds/vax2.ogg"
+	],
+	"sound_range": 7,
+	"interaction_requires": ["self_hand"],
+	"color": "pink",
+	"user_required_parts": [],
+	"user_arousal": 2,
+	"user_pleasure": 0,
+	"target_required_parts": ["vagina"],
+	"target_arousal": 4,
+	"target_pleasure": 6,
+	"lewd": 1
+}

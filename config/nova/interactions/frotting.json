@@ -1,0 +1,28 @@
+{
+	"name": "Frotting",
+	"description": "Play with your penis against theirs.",
+	"usage": "other",
+	"category": " Petting",
+	"distance_allowed": 0,
+	"message": [
+        "%USER% rubs %USER_PRONOUN_THEIR% cock against %TARGET%'s.",
+		"%USER% grinds %USER_PRONOUN_THEIR% shaft against %TARGET%'s penis.",
+		"%USER% presses %USER_PRONOUN_THEIR% dick against %TARGET%'s member.",
+		"%USER% frotts against %TARGET%'s cock."
+	],
+	"sound_use": 1,
+	"sound_possible": [
+		"modular_nova/modules/modular_items/lewd_items/sounds/vax1.ogg",
+		"modular_nova/modules/modular_items/lewd_items/sounds/vax2.ogg"
+	],
+	"sound_range": 7,
+	"interaction_requires": [],
+	"color": "pink",
+	"user_required_parts": ["penis"],
+	"user_arousal": 5,
+	"user_pleasure": 3,
+	"target_required_parts": ["penis"],
+	"target_arousal": 5,
+	"target_pleasure": 3,
+	"lewd": 1
+}
