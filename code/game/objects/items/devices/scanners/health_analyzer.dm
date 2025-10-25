@@ -95,14 +95,31 @@
 	balloon_alert(user, "analyzing vitals")
 	playsound(user.loc, 'sound/items/healthanalyzer.ogg', 50)
 
+	// NOVA EDIT START - Set patient and current user for TGUI
+	current_user = user
+	patient = interacting_with
+	// NOVA EDIT END
+
 	var/readability_check = user.can_read(src) // NOVA EDIT CHANGE - Blind people can analyze again - ORIGINAL: var/readability_check = user.can_read(src) && !user.is_blind()
 	switch (scanmode)
 		if (SCANMODE_HEALTH)
+			/* // NOVA EDIT START - ORIGINAL:
 			last_scan_text = healthscan(user, M, mode, advanced, tochat = readability_check)
 			if((M.health / M.maxHealth) > CLEAN_BILL_OF_HEALTH_RATIO)
 				last_healthy_scanned = WEAKREF(M)
 			else
 				last_healthy_scanned = null
+			*/
+			if(ishuman(patient) && user.client?.prefs.read_preference(/datum/preference/toggle/health_analyzer_toggle))
+				ui_interact(user)
+				START_PROCESSING(SSobj, src)
+			else
+				last_scan_text = healthscan(user, M, mode, advanced, tochat = readability_check)
+				if((M.health / M.maxHealth) > CLEAN_BILL_OF_HEALTH_RATIO)
+					last_healthy_scanned = WEAKREF(M)
+				else
+					last_healthy_scanned = null
+			// NOVA EDIT END
 		if (SCANMODE_WOUND)
 			if(readability_check)
 				woundscan(user, M, src)
