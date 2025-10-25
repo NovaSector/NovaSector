@@ -4,12 +4,12 @@
 #define CONTEXT_BIAS "bias"
 
 #define STORY_REPETITION_DECAY_TIME (15 MINUTES)
-#define STORY_TAG_MATCH_BONUS 0.33
+#define STORY_TAG_MATCH_BONUS 0.45
 #define STORY_VOLATILITY_NEUTRAL_CHANCE 13
 #define STORY_TENSION_THRESHOLD 14
 #define THINK_TAG_BASE_MULT 1.0
 #define THINK_VOLATILITY_WEIGHT 0.6
-#define THINK_TENSION_WEIGHT 1.0
+#define THINK_TENSION_WEIGHT 0.8
 #define THINK_MOOD_WEIGHT 1.0
 #define THINK_ADAPTATION_WEIGHT 1.0
 
@@ -82,7 +82,7 @@
 
 	var/tension_norm = clamp((tension / 100.0), 0, 1)
 	var/tension_diff_norm = clamp(abs(tension - target) / 100.0, 0, 1)
-	var/mood_aggr = ctl.mood.get_threat_multiplier()
+	var/mood_aggr = ctl.mood.get_threat_multiplier() * 0.9
 	var/mood_vol = ctl.mood.get_variance_multiplier()
 	var/pace = ctl.get_effective_pace()
 	var/adapt = clamp(ctl.adaptation_factor, 0, 1)
@@ -104,14 +104,14 @@
 
 	score_good += tension_norm * THINK_TENSION_WEIGHT * good_tension_mult
 	score_good += adapt * THINK_ADAPTATION_WEIGHT * good_adapt_mult
-	score_good += mood_aggr < (0.8 * pace) ? 0.4 : 0.0
+	score_good += mood_aggr < (0.85 * pace) ? 0.7 : 0.0
 	score_good += good_base_bias
 	score_good = min(score_good, 2.0)
 
 	score_bad += (1.0 - tension_norm) * THINK_TENSION_WEIGHT * bad_tension_mult
 	score_bad += mood_aggr * THINK_MOOD_WEIGHT * 0.4
 	score_bad += threat_rel * THINK_THREAT_WEIGHT * 0.4
-	score_bad += pace * THINK_MOOD_WEIGHT * 0.25
+	score_bad += pace * THINK_MOOD_WEIGHT * 0.1
 	score_bad = min(score_bad, 2.0)
 
 	score_neutral += (1.0 - tension_diff_norm) * 0.8 * pop
@@ -140,11 +140,13 @@
 			score_good += add_jitter(0, 0.02, 0.2)
 		else
 			score_neutral += add_jitter(0, 0.02, 0.2)
+	if(tension_diff_norm <= 0.2)
+		score_neutral += add_jitter(0, 0.04, 0.2)
 
-	score_good = max(score_good + add_jitter(0, 0, 0.1), 0.06)
-	score_bad  = max(score_bad  + add_jitter(0, 0, 0.1), 0.02)
-	score_neutral = max(score_neutral + add_jitter(0, 0, 0.1), 0.02)
-	score_random  = max(score_random  + add_jitter(0, 0, 0.1), 0.0)
+	score_good = max(score_good + add_jitter(0, 0, 0.2), 0.06)
+	score_bad  = max(score_bad  + add_jitter(0, 0, 0.2), 0.02)
+	score_neutral = max(score_neutral + add_jitter(0, 0, 0.2), 0.02)
+	score_random  = max(score_random  + add_jitter(0, 0, 0.2), 0.0)
 
 	// Normalize scores to probs
 	var/total_score = score_good + score_bad + score_neutral + score_random
@@ -270,7 +272,7 @@
 		if(desired_tags && G.tags)
 			var/matches = G.tags & desired_tags
 			var/num_matches = popcount_tags(matches)
-			tag_match_bonus = num_matches * STORY_TAG_MATCH_BONUS
+			tag_match_bonus = STORY_TAG_MATCH_BONUS * num_matches
 
 		var/final_weight = max(0.1, (base_weight + priority_boost + threat_bonus + balance_bonus + tag_match_bonus - rep_penalty) * diff_adjust * adapt_reduce)
 		final_weight = add_weight_jitter(final_weight, ctl.mood.volatility)

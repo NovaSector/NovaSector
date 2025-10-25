@@ -32,7 +32,7 @@
 	category = STORY_GOAL_BAD
 	tags = STORY_TAG_ESCALATION | STORY_TAG_AFFECTS_CREW_HEALTH | STORY_TAG_WIDE_IMPACT
 
-	requierd_population = 10
+	required_population = 10
 	required_round_progress = STORY_ROUND_PROGRESSION_MID
 	requierd_threat_level = STORY_GOAL_THREAT_ELEVATED
 

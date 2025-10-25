@@ -36,20 +36,66 @@ ADMIN_VERB(storyteller_end_vote, R_ADMIN | R_DEBUG, "Storyteller - End Vote", "E
 		assets[asset_id] = path
 	..()
 
+/datum/action/storyteller_vote
+	name = "Vote for storyteller!"
+	button_icon_state = "vote"
+	show_to_observers = FALSE
 
+/datum/action/storyteller_vote/IsAvailable(feedback = FALSE)
+	return TRUE
 
+/datum/action/storyteller_vote/Grant(mob/grant_to)
+	. = ..()
+	RegisterSignal(SSstorytellers, COMSIG_STORYTELLER_VOTE_END, PROC_REF(on_vote_ended), TRUE)
+
+/datum/action/storyteller_vote/Trigger(mob/clicker, trigger_flags)
+	. = ..()
+	if(!.)
+		return
+	if(!SSstorytellers.vote_active)
+		Remove(owner)
+	var/datum/storyteller_vote_ui/ui = SSstorytellers.storyteller_vote_uis[clicker.client]
+	if (!ui)
+		ui = new(clicker.client, SSstorytellers.current_vote_duration)
+	ui.ui_interact(clicker)
+
+/datum/action/storyteller_vote/proc/on_vote_ended()
+	SIGNAL_HANDLER
+
+	UnregisterSignal(SSstorytellers, COMSIG_STORYTELLER_VOTE_END)
+	Remove(owner)
+
+/datum/action/storyteller_vote/Remove(mob/removed_from)
+	if(removed_from.persistent_client)
+		removed_from.persistent_client.player_actions -= src
+
+	else if(removed_from.ckey)
+		var/datum/persistent_client/persistent_client = GLOB.persistent_clients_by_ckey[removed_from.ckey]
+		persistent_client?.player_actions -= src
+
+	return ..()
+
+/datum/controller/subsystem/storytellers/proc/on_login(dcs, client/new_client)
+	SIGNAL_HANDLER
+	if(vote_active)
+		var/datum/action/storyteller_vote/vote_action = new()
+		vote_action.Grant(new_client.mob)
+		new_client.persistent_client.player_actions += vote_action
 
 /datum/controller/subsystem/storytellers/proc/start_vote(duration = 60 SECONDS)
 	// Clears existing UIs to prevent duplicates or stale data
 	storyteller_vote_uis = list()
 	vote_active = TRUE
-	to_chat(world, span_boldnotice("Storyteller voting has begun!"))
+	to_chat(world, span_boldnotice("Storyteller voting has started!"))
 	current_vote_duration = duration
-	for (var/client/C in GLOB.clients)
-		var/datum/storyteller_vote_ui/ui = new(C, duration)
-		ui.ui_interact(C.mob)
+	for (var/client/cln in GLOB.clients)
+		var/datum/action/storyteller_vote/vote_action = new()
+		vote_action.Grant(cln.mob)
+		vote_action.Trigger(cln.mob)
+		cln.persistent_client.player_actions += vote_action
+
 	addtimer(CALLBACK(src, PROC_REF(end_vote)), duration)
-	log_storyteller("Storyteller vote started: duration=[duration/10]s")
+	SEND_SIGNAL(src, COMSIG_STORYTELLER_VOTE_START)
 
 
 /datum/controller/subsystem/storytellers/proc/end_vote()
@@ -105,6 +151,7 @@ ADMIN_VERB(storyteller_end_vote, R_ADMIN | R_DEBUG, "Storyteller - End Vote", "E
 	var/selected_name = find_candidate_name_global(selected_id_str)
 	to_chat(world, span_boldnotice("Storyteller selected: [selected_name] at difficulty [round(avg_diff, 0.1)]."))
 	log_storyteller("Storyteller vote ended: [selected_id_str] (votes=[max_votes], diff=[avg_diff]), total votes=[total_votes]")
+	SEND_SIGNAL(src, COMSIG_STORYTELLER_VOTE_END)
 
 	if(SSticker.current_state != GAME_STATE_PLAYING)
 		return
@@ -267,19 +314,5 @@ ADMIN_VERB(storyteller_end_vote, R_ADMIN | R_DEBUG, "Storyteller - End Vote", "E
 			return TRUE
 	return FALSE
 
-
-/client/verb/reopen_storyteller_vote()
-	set name = "Reopen Storyteller Vote"
-	set category = "OOC"
-	if(!SSstorytellers.vote_active)
-		to_chat(src, span_warning("Voting has ended."))
-		return
-	var/datum/storyteller_vote_ui/ui = SSstorytellers.storyteller_vote_uis[usr.client]
-	if (world.time >= ui.vote_end_time)
-		to_chat(src, span_warning("Voting has ended."))
-		return
-	if (!ui)
-		ui = new(src, SSstorytellers.current_vote_duration)
-	ui.ui_interact(mob)
 
 

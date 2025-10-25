@@ -3,7 +3,7 @@
 		"id": "mia_chill",
 		"name": "Mia'Chill",
 		"desc": "A young Teshari explorer wandering through the stars in search of new worlds. Her calm and talkative nature brings order and balance to the chaos around her.",
-		"personality_traits": ["CAN_HELP", "LOVE_SPEAK"],
+		"personality_traits": ["CAN_HELP", "LOVE_SPEAK", "KIND"],
 		"ooc_desc": "Mia is a storyteller who nurtures the growth of the station. With her, major threats are rare — often replaced by uplifting and positive events. However, on higher difficulties, even she can turn the tides against the crew.",
 		"ooc_difficulty": "Easy",
 		"portait_path": "portraits/p_mia.png",

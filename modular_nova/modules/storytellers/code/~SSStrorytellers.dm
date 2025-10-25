@@ -108,7 +108,6 @@ SUBSYSTEM_DEF(storytellers)
 			continue
 
 		var/list/parsed = list()
-
 		parsed["name"] = istext(entry["name"]) ? entry["name"] : "Unnamed Storyteller"
 		parsed["desc"] = istext(entry["desc"]) ? entry["desc"] : "No description provided."
 		parsed["base_cost_multiplier"] = isnum(entry["base_cost_multiplier"]) ? clamp(entry["base_cost_multiplier"], 0.1, 5.0) : 1.0
@@ -166,6 +165,7 @@ SUBSYSTEM_DEF(storytellers)
 		return new_st
 
 	var/list/data = storyteller_data[id]
+	new_st.id = id
 	new_st.name = data["name"]
 	new_st.desc = data["desc"]
 	new_st.base_cost_multiplier = data["base_cost_multiplier"]
@@ -210,6 +210,17 @@ SUBSYSTEM_DEF(storytellers)
 
 	return new_st
 
+
+/datum/controller/subsystem/storytellers/proc/set_storyteller(id)
+	var/datum/storyteller/new_teller = create_storyteller_from_data(id)
+	if(!new_teller)
+		return FALSE
+	qdel(active)
+	active = new_teller
+	active.difficulty_multiplier = selected_difficulty
+	active.initialize()
+	return TRUE
+
 /datum/controller/subsystem/storytellers/fire(resumed)
 
 #ifdef UNIT_TESTS //Storyteller thinking disabled during testing, it's handle by unit test
@@ -229,11 +240,6 @@ SUBSYSTEM_DEF(storytellers)
 		AN.process(world.tick_lag)
 
 /datum/controller/subsystem/storytellers/proc/setup_game()
-
-#ifdef UNIT_TESTS // Stortyteller setup disabled during testing, it's handle by unit test
-	return TRUE
-#endif
-
 	disable_dynamic()
 	disable_ICES()
 
@@ -243,11 +249,6 @@ SUBSYSTEM_DEF(storytellers)
 	return TRUE
 
 /datum/controller/subsystem/storytellers/proc/post_setup()
-
-#ifdef UNIT_TESTS // Stortyteller setup disabled during testing, it's handle by unit test
-	return
-#endif
-
 	initialize_storyteller()
 
 /datum/controller/subsystem/storytellers/proc/disable_dynamic()
@@ -261,13 +262,6 @@ SUBSYSTEM_DEF(storytellers)
 /datum/controller/subsystem/storytellers/proc/disable_ICES()
 	SSevents.flags = SS_NO_FIRE
 	message_admins(span_bolditalic("ICES and random events were disabled by Storyteller"))
-
-
-/datum/controller/subsystem/storytellers/proc/on_login(client/new_client)
-	SIGNAL_HANDLER
-	if(vote_active)
-		var/datum/storyteller_vote_ui/ui = new(new_client, current_vote_duration)
-		INVOKE_ASYNC(ui, TYPE_PROC_REF(/datum/storyteller_vote_ui, ui_interact), new_client)
 
 /datum/controller/subsystem/storytellers/proc/register_atom_for_storyteller(atom/A)
 	if(!active)

@@ -11,8 +11,7 @@ MODULE ID: STORYTELLERS
 ### Defines:
 
 - ./code/DEFINES/~nova_defines/HELPERS/storytellers.dm
-- ./code/DEFINES/~nova_defines/storytellers_vault.dm
-- ./code/DEFINES/~nova_defines/storytellers.dm
+- ./code/DEFINES/~nova_defines/storytellers/\*
 
 ### Included files:
 

@@ -7,7 +7,7 @@
 	tags = STORY_TAG_ESCALATION
 	event_path = /datum/round_event/zzzzzt
 
-	requierd_population = 1
+	required_population = 2
 
 /datum/round_event/zzzzzt
 	var/maximum_charge = 50 KILO JOULES

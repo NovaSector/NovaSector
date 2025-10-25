@@ -14,7 +14,7 @@
 
 
 /datum/storyteller_inputs/proc/get_station_integrity()
-	return min(PERCENT(GLOB.start_state.score(station_state)), 100)
+	return station_state ? min(PERCENT(GLOB.start_state.score(station_state)), 100) : 100
 
 
 /datum/storyteller_inputs/proc/player_count()

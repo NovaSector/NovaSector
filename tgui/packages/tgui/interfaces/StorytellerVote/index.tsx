@@ -169,14 +169,14 @@ export const StorytellerVote = (props) => {
                     <LabeledList.Item label="OOC Description">
                       {current.ooc_desc || '-'}
                     </LabeledList.Item>
-                    <LabeledList.Item label="OOC Difficulty">
+                    <LabeledList.Item label="Difficulty">
                       {current.ooc_diff || '-'}
                     </LabeledList.Item>
                   </LabeledList>
                   <Divider />
                   <LabeledList>
                     <LabeledList.Item
-                      label="Difficulty multiplyer"
+                      label="Difficulty Multiplier"
                       tooltip="How much storyteller threat points will be multiplied."
                     >
                       <Stack align="center">

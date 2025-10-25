@@ -252,7 +252,7 @@ SUBSYSTEM_DEF(ticker)
 	CHECK_TICK
 	//Configure mode and assign player to antagonists
 	var/can_continue = FALSE
-	can_continue = SSstorytellers.setup_game() // NOVDA EDIT Storyteller: original can_continue = SSdynamic.select_roundstart_antagonists() //Choose antagonists
+	can_continue = SSstorytellers.setup_game() // NOVA EDIT Storyteller: original can_continue = SSdynamic.select_roundstart_antagonists() //Choose antagonists
 	CHECK_TICK
 	SEND_GLOBAL_SIGNAL(COMSIG_GLOB_PRE_JOBS_ASSIGNED, src)
 	can_continue = can_continue && SSjob.divide_occupations() //Distribute jobs
@@ -334,8 +334,9 @@ SUBSYSTEM_DEF(ticker)
 	if(!CONFIG_GET(flag/no_intercept_report))
 		GLOB.communications_controller.queue_roundstart_report()
 	*/ // NOVA EDIT REMOVAL END
+	/* // NOVA EDIT REMOVAL START - Storyteller handle it
 	GLOB.communications_controller.queue_roundstart_report() // NOVA EDIT ADDITION: Config option handled inside
-
+	*/ // NOVA EDIT REMOVAL END
 	// Queue admin logout report
 	var/roundstart_logout_timer = CONFIG_GET(number/roundstart_logout_report_time_average)
 	var/roundstart_report_variance = CONFIG_GET(number/roundstart_logout_report_time_variance)

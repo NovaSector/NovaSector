@@ -7,7 +7,7 @@
 	path_ids = list("power_outage", "fire_outbreak")
 	event_path = /datum/round_event/sabotage_machinery
 
-	requierd_population = 4
+	required_population = 4
 	required_round_progress = STORY_ROUND_PROGRESSION_EARLY
 
 
