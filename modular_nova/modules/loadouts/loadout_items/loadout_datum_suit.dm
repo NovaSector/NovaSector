@@ -1,14 +1,4 @@
 // LOADOUT ITEM DATUMS FOR THE SHOE SLOT
-
-/datum/loadout_category/suit
-	category_name = "Suit"
-	category_ui_icon = FA_ICON_VEST
-	type_to_generate = /datum/loadout_item/suit
-	tab_order = /datum/loadout_category/neck::tab_order + 1
-
-/datum/loadout_item/suit
-	abstract_type = /datum/loadout_item/suit
-
 /datum/loadout_item/suit/pre_equip_item(datum/outfit/outfit, datum/outfit/outfit_important_for_life, mob/living/carbon/human/equipper, visuals_only = FALSE) // don't bother storing in backpack, can't fit
 	if(initial(outfit_important_for_life.suit))
 		return TRUE
@@ -570,9 +560,9 @@
 	item_path = /obj/item/clothing/suit/toggle/labcoat/nova/fancy/roboticist
 	group = "Workwear"
 
-/datum/loadout_item/suit/recolorable_overalls
-	name = "Overalls"
-	item_path = /obj/item/clothing/suit/apron/overalls
+/datum/loadout_item/suit/overall
+	name = "Overalls (Recolorable)" // can't have both job palettes and player coloring, so we prefer player colors
+	loadout_flags = LOADOUT_FLAG_ALLOW_NAMING
 	group = "Workwear"
 
 /datum/loadout_item/suit/overalls_loneskirt
@@ -749,13 +739,13 @@
 /datum/loadout_item/suit/jacket/long_robe
 	name = "Long Robe"
 	item_path = /obj/item/clothing/suit/jacket/long_robe
-	can_be_reskinned = TRUE
+	loadout_flags = parent_type::loadout_flags | LOADOUT_FLAG_ALLOW_RESKIN
 	group = "Costumes"
 
 /datum/loadout_item/suit/jacket/haori
 	name = "Haori"
 	item_path = /obj/item/clothing/suit/jacket/haori
-	can_be_reskinned = TRUE
+	loadout_flags = parent_type::loadout_flags | LOADOUT_FLAG_ALLOW_RESKIN
 	group = "Costumes"
 
 /datum/loadout_item/suit/witch

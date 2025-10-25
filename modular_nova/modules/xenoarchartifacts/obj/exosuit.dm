@@ -87,7 +87,7 @@
 		carbon_mob.adjust_stutter(40 SECONDS)
 		var/obj/item/organ/ears/ears = carbon_mob.get_organ_slot(ORGAN_SLOT_EARS)
 		if(ears)
-			ears.adjustEarDamage(0, 30)
+			carbon_mob.sound_damage(0, 30)
 		carbon_mob.Paralyze(6 SECONDS)
 		if(prob(30))
 			carbon_mob.Stun(20 SECONDS)

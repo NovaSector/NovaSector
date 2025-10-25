@@ -157,7 +157,7 @@
 	name = "Mech Suit"
 	item_path = /obj/item/clothing/under/costume/mech_suit
 	group = "Costumes"
-	can_be_reskinned = TRUE
+	loadout_flags = parent_type::loadout_flags | LOADOUT_FLAG_ALLOW_RESKIN
 
 /datum/loadout_item/under/miscellaneous/cybersleek
 	name = "Modern Coat"

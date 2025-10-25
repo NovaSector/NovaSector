@@ -3,7 +3,7 @@
 /datum/loadout_item/toys/plush
 	group = "Plushies"
 	abstract_type = /datum/loadout_item/toys/plush
-	can_be_named = TRUE
+	loadout_flags = parent_type::loadout_flags | LOADOUT_FLAG_ALLOW_NAMING
 
 /datum/loadout_item/toys/plush/bee
 	name = "Bee Plushie"
