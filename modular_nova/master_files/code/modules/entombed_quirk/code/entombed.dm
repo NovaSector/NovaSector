@@ -62,6 +62,11 @@
 /datum/quirk/equipping/entombed/add_unique(client/client_source)
 	. = ..()
 	var/mob/living/carbon/human/human_holder = quirk_holder
+	// Proteans cannot use this quirk - they already have a unique modsuit
+	if(istype(human_holder.dna.species, /datum/species/protean))
+		stack_trace("Entombed quirk attempted to be applied to a Protean ([quirk_holder]) and was force-removed.")
+		qdel(src)
+		return
 	if (istype(human_holder.back, /obj/item/mod/control/pre_equipped/entombed))
 		modsuit = human_holder.back // link this up to the quirk for easy access
 

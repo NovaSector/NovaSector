@@ -13,6 +13,9 @@
 
 /datum/quirk/badback/add(client/client_source)
 	var/mob/living/carbon/human/human_holder = quirk_holder
+	// Proteans cannot use this quirk - their "back" slot is their modsuit, not a spine
+	if(istype(human_holder.dna.species, /datum/species/protean))
+		return
 	var/obj/item/storage/backpack/equipped_backpack = human_holder.back
 	if(istype(equipped_backpack))
 		quirk_holder.add_mood_event("back_pain", /datum/mood_event/back_pain)
