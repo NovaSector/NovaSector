@@ -1,6 +1,5 @@
 /datum/armament_entry/company_import/kahraman
 	category = KAHRAMAN_INDUSTRIES_NAME
-	company_bitflag = CARGO_COMPANY_KAHRAMAN
 
 // Tools that you could use the rapid fabricator for, but you're too lazy to actually do that
 
