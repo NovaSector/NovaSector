@@ -26,7 +26,7 @@
 	/// How much accumulated stun time do we subtract every second? Takes a full minute to regen off a single use :(
 	var/endlag_decay_per_second = DEFAULT_ACTIVATED_ENDLAG / 60
 	/// Increase the effect of our accumulated additional stun time by this much if space dragon has lost some rifts
-	var/exhaustion_multiplier = 2 // NOVA EDIT, old value = 5
+	var/exhaustion_multiplier = 5
 	/// List of traits we apply while the ability is ongoing, stops us from moving around and such
 	var/static/list/applied_traits = list(
 		TRAIT_IMMOBILIZED,
