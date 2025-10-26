@@ -164,6 +164,9 @@
 		rift_list -= rift
 		if(!QDELETED(rift))
 			QDEL_NULL(rift)
+	// NOVA ADDITION START, let the dragon retry
+	rift_ability = new()
+	// NOVA ADDITION END
 
 /**
  * Sets up Space Dragon's victory for completing the objectives.

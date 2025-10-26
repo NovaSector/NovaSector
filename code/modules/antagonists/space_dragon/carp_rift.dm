@@ -49,6 +49,11 @@
 	)
 	ASSERT(dragon.rift_ability == src) // Badmin protection.
 	QDEL_NULL(dragon.rift_ability) // Deletes this action when used successfully, we re-gain a new one on success later.
+	// NOVA ADDITION START, reset stats if dragon manages to retry
+	if(HAS_TRAIT(owner, TRAIT_RIFT_FAILURE))
+		REMOVE_TRAIT(owner, TRAIT_RIFT_FAILURE, REF(dragon))
+		owner.remove_movespeed_modifier(/datum/movespeed_modifier/dragon_depression)
+	// NOVA ADDITION END
 
 /**
  * # Carp Rift
