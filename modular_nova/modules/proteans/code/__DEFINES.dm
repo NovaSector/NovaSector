@@ -64,7 +64,7 @@
 ##path {\
 	max_damage = ##health; \
 	bodypart_species = SPECIES_PROTEAN; \
-	bodytype = BODYTYPE_NANO; \
+	bodytype = BODYTYPE_NANO | BODYTYPE_ROBOTIC; \
 	dmg_overlay_type = "robotic"; \
 	light_brute_msg = LIGHT_NANO_BRUTE; \
 	medium_brute_msg = MEDIUM_NANO_BRUTE; \
@@ -124,7 +124,7 @@ PROTEAN_BODYPART_DEFINE(/obj/item/bodypart/arm/right/mutant/protean, 40)
 /obj/item/bodypart/leg/right/mutant/protean
 	max_damage = 40
 	bodypart_species = SPECIES_PROTEAN
-	bodytype = BODYTYPE_NANO
+	bodytype = BODYTYPE_NANO | BODYTYPE_ROBOTIC
 	dmg_overlay_type = "robotic"
 	light_brute_msg = LIGHT_NANO_BRUTE
 	medium_brute_msg = MEDIUM_NANO_BRUTE
@@ -139,7 +139,7 @@ PROTEAN_BODYPART_DEFINE(/obj/item/bodypart/arm/right/mutant/protean, 40)
 /obj/item/bodypart/leg/left/mutant/protean
 	max_damage = 40
 	bodypart_species = SPECIES_PROTEAN
-	bodytype = BODYTYPE_NANO
+	bodytype = BODYTYPE_NANO | BODYTYPE_ROBOTIC
 	dmg_overlay_type = "robotic"
 	light_brute_msg = LIGHT_NANO_BRUTE
 	medium_brute_msg = MEDIUM_NANO_BRUTE

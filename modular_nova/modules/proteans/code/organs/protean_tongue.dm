@@ -2,6 +2,7 @@
 	name = "protean audio fabricator"
 	desc = "Millions of nanites vibrate in harmony to create the sound you hear."
 	organ_flags = ORGAN_ROBOTIC
+	modifies_speech = TRUE
 
 /obj/item/organ/tongue/cybernetic/protean/Insert(mob/living/carbon/receiver, special, movement_flags)
 	if(QDELETED(src))
@@ -11,4 +12,7 @@
 /obj/item/organ/tongue/cybernetic/protean/Initialize(mapload)
 	. = ..()
 	AddElement(/datum/element/nanite_organ)
+
+/obj/item/organ/tongue/cybernetic/protean/handle_speech(datum/source, list/speech_args)
+	speech_args[SPEECH_SPANS] |= SPAN_ROBOT
 

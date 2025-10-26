@@ -35,13 +35,22 @@
 			stack_trace("Non-human mob is in suit_sensors_list: [tracked_living_mob] ([tracked_living_mob.type])")
 			continue
 
-		// Check if they're a protean with crew sensors
+		// Check if they're wearing a protean modsuit (or are a protean themselves)
 		var/sensor_mode = SENSOR_OFF
 		var/has_sensor = NO_SENSORS
-		var/is_protean = FALSE
+		var/using_protean_sensors = FALSE
 
-		if(isprotean(tracked_human))
-			// Proteans use their modsuit's crew sensor module
+		// Check if they're wearing a protean suit on their back
+		var/obj/item/mod/control/pre_equipped/protean/worn_protean_suit = tracked_human.back
+		if(istype(worn_protean_suit))
+			// They're wearing a protean suit - use its sensors
+			for(var/obj/item/mod/module/crew_sensor/protean/sensor in worn_protean_suit.modules)
+				sensor_mode = sensor.sensor_mode
+				has_sensor = sensor.has_sensor
+				using_protean_sensors = TRUE
+				break
+		else if(isprotean(tracked_human))
+			// They ARE a protean - check their species modsuit
 			var/datum/species/protean/protean_species = tracked_human.dna?.species
 			if(protean_species?.species_modsuit)
 				var/obj/item/mod/control/pre_equipped/protean/suit = protean_species.species_modsuit
@@ -49,11 +58,12 @@
 				for(var/obj/item/mod/module/crew_sensor/protean/sensor in suit.modules)
 					sensor_mode = sensor.sensor_mode
 					has_sensor = sensor.has_sensor
-					is_protean = TRUE
+					using_protean_sensors = TRUE
 					break
 
-			// If protean doesn't have active sensors, skip them
-			if(!is_protean || has_sensor == NO_SENSORS || !sensor_mode)
+		// If using protean sensors but they're not active, skip them
+		if(using_protean_sensors)
+			if(has_sensor == NO_SENSORS || !sensor_mode)
 				continue
 		else
 			// Normal crew - check their uniform
@@ -87,7 +97,7 @@
 				entry["ijob"] = jobs[trim_assignment]
 
 		// Mark proteans as robotic for the UI
-		if (is_protean || issynthetic(tracked_human))
+		if (using_protean_sensors || issynthetic(tracked_human))
 			entry["is_robot"] = TRUE
 
 		// Broken sensors show garbage data

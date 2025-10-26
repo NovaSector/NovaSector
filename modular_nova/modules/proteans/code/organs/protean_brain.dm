@@ -78,6 +78,21 @@
 	if(!forced)
 		if(!do_after(owner, 5 SECONDS))
 			return
+
+	// Safety check: ensure suit has a valid location before transforming
+	// This handles edge cases like admin ghost spawns with backpacks
+	if(!suit.loc || (!isturf(suit.loc) && suit.loc != owner))
+		// Suit is in a weird state, try to fix it
+		var/obj/item/back_item = owner.get_item_by_slot(ITEM_SLOT_BACK)
+		if(back_item && back_item != suit)
+			// Something else is in back slot, drop it
+			owner.dropItemToGround(back_item, force = TRUE)
+		// Make sure suit is in a valid location
+		if(!suit.loc || !isturf(get_turf(suit)))
+			suit.forceMove(get_turf(owner))
+		// Try to equip the suit properly
+		owner.equip_to_slot_if_possible(suit, ITEM_SLOT_BACK, disable_warning = TRUE)
+
 	owner.visible_message(span_warning("[owner] retreats into [suit]!"))
 	owner.extinguish_mob()
 	owner.invisibility = 101
@@ -110,11 +125,19 @@
 	var/datum/storage/storage = suit.loc.atom_storage
 	if(istype(storage))
 		storage.remove_single(null, suit, get_turf(suit), TRUE)
+
+	// Determine safe exit location - MUST be a turf to avoid trapping in containers
+	var/turf/exit_turf = get_turf(suit)
+
+	// If suit is inside any other container (e.g., display case), force it out
+	if(!isturf(suit.loc))
+		suit.forceMove(exit_turf)
+
 	suit.invisibility = 101
-	new /obj/effect/temp_visual/protean_from_suit(suit.loc, owner.dir)
+	new /obj/effect/temp_visual/protean_from_suit(exit_turf, owner.dir)
 	sleep(12) //Same as above
 	suit.drop_suit()
-	owner.forceMove(suit.loc)
+	owner.forceMove(exit_turf)
 	if(owner.get_item_by_slot(ITEM_SLOT_BACK))
 		owner.dropItemToGround(owner.get_item_by_slot(ITEM_SLOT_BACK), TRUE, TRUE, TRUE)
 	owner.equip_to_slot_if_possible(suit, ITEM_SLOT_BACK, disable_warning = TRUE)
