@@ -107,11 +107,8 @@ GLOBAL_LIST_EMPTY_TYPED(interaction_instances, /datum/interaction)
 	msg = replacetext(replacetext(msg, "%TARGET_PRONOUN_THEY%", target.p_they()), "%USER_PRONOUN_THEY%", user.p_they())
 
 	if(lewd)
-		var/list/ignoring_mobs = list()
-		for(var/mob/not_interested in get_hearers_in_view(DEFAULT_MESSAGE_RANGE, user))
-			if(!not_interested.client?.prefs?.read_preference(/datum/preference/toggle/erp))
-				ignoring_mobs += not_interested
-		user.visible_message(span_purple("[user] [msg]"), ignored_mobs = ignoring_mobs)
+		user.visible_message(span_purple("[user] [msg]"))
+		user.log_message(msg, LOG_EMOTE)
 	else
 		user.manual_emote(msg)
 
