@@ -3430,7 +3430,7 @@
 	dir = 4
 	},
 /obj/machinery/camera/directional/east{
-	c_tag = "Medbay - Aft CEntral";
+	c_tag = "Medbay - Aft Central";
 	name = "medbay camera";
 	network = list("ss13","medbay")
 	},
