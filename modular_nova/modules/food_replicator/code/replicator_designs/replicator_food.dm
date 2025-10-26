@@ -19,7 +19,7 @@
 		RND_CATEGORY_INITIAL,
 		RND_CATEGORY_NRI_FOOD,
 	)
-
+/*
 /datum/design/nachos
 	name = "Foreign Colonization Ration, Side Dish"
 	id = "mexican_chips"
@@ -30,7 +30,7 @@
 		RND_CATEGORY_INITIAL,
 		RND_CATEGORY_NRI_FOOD,
 	)
-
+*/
 /datum/design/blins
 	name = "Foreign Colonization Ration, Dessert"
 	id = "slavic_crepes"
