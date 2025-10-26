@@ -1,6 +1,7 @@
 ADMIN_VERB_ONLY_CONTEXT_MENU(select_equipment, R_FUN, "Select Equipment", mob/target in world)
-	var/datum/select_equipment/ui = new(user, target)
-	ui.ui_interact(user.mob)
+	if(tgui_alert(user, "This interface is resource-intensive. Are you sure you want to open it? Tip: You can also Ctrl-click a ghost to access a lighter version.", "Server Resources Warning", list("No", "Yes", "Sorry")) == "Yes") // NOVA EDIT ADDITION
+		var/datum/select_equipment/ui = new(user, target)
+		ui.ui_interact(user.mob)
 
 /*
  * This is the datum housing the select equipment UI.
