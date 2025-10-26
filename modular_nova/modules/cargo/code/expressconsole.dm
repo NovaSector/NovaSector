@@ -12,20 +12,6 @@
 	cargo_account = ACCOUNT_CIV /// Change this later to somethin else, as this is meant to prevent runtiming
 	contraband = TRUE
 
-	/// Do not touch this unless a new company is added to the imports list.
-	var/static/list/allowed_categories = list(
-		NAKAMURA_ENGINEERING_MODSUITS_NAME,
-		BLACKSTEEL_FOUNDATION_NAME,
-		NRI_SURPLUS_COMPANY_NAME,
-		DEFOREST_MEDICAL_NAME,
-		DONK_CO_NAME,
-		KAHRAMAN_INDUSTRIES_NAME,
-		FRONTIER_EQUIPMENT_NAME,
-		SOL_DEFENSE_DEFENSE_NAME,
-		MICROSTAR_ENERGY_NAME,
-		VITEZSTVI_AMMO_NAME,
-	)
-
 	pod_type = /obj/structure/closet/supplypod/bluespacepod
 
 /obj/machinery/computer/cargo/express/ghost/Initialize(mapload)
@@ -36,37 +22,12 @@
 /obj/machinery/computer/cargo/express/ghost/on_construction(mob/user)
 	. = ..()
 	/// Should report the player that built the console to the admins, in case anything fucky happens.
-	message_admins("[ADMIN_LOOKUPFLW(usr)] Has built a ghost role imports console ([src.name]) at [AREACOORD(src)].")
+	message_admins("[ADMIN_LOOKUPFLW(usr)] Has built a ghost role express console ([src.name]) at [AREACOORD(src)].")
 
 /obj/machinery/computer/cargo/express/ghost/emag_act(mob/user, obj/item/card/emag/emag_card)
 	if(user)
 		to_chat(user, span_notice("You try to change the routing protocols, but the [src.name] displays a runtime error and reboots!"))
 	return FALSE //never let this console be emagged
-
-/obj/machinery/computer/cargo/express/ghost/packin_up(forced = FALSE) //we're the ghost role, add the company imports stuff to our express console
-	. = ..()
-
-	if(meme_pack_data["Company Imports"])
-		return
-
-	meme_pack_data["Company Imports"] = list(
-		"name" = "Company Imports",
-		"packs" = list()
-	)
-
-	for(var/armament_category in SSarmaments.entries)//babe! it's 4pm, time for the company importing logic
-		for(var/subcategory in SSarmaments.entries[armament_category][CATEGORY_ENTRY])
-			if(armament_category in allowed_categories)
-				for(var/datum/armament_entry/armament_entry as anything in SSarmaments.entries[armament_category][CATEGORY_ENTRY][subcategory])
-					meme_pack_data["Company Imports"]["packs"] += list(list(
-						"name" = "[armament_category]: [armament_entry.name]",
-						"first_item_icon" = armament_entry?.item_type.icon,
-						"first_item_icon_state" = armament_entry?.item_type.icon_state,
-						"cost" = armament_entry.cost,
-						"id" = REF(armament_entry),
-						"description" = armament_entry.description,
-						"desc" = armament_entry.description,
-					))
 
 /obj/machinery/computer/cargo/express/ghost/ui_act(action, params, datum/tgui/ui)
 	if(action == "add") // if we're generating a supply order
