@@ -83,7 +83,7 @@
 		lunchbox_dessert_choice = pick(assoc_to_values(GLOB.possible_player_lunchbox_desert_choice))
 
 	var/lunchbox_design = client_source?.prefs.read_preference(/datum/preference/choiced/lunchbox_design) || "Regular"
-	var/obj/item/storage/toolbox/lunchbox/lunchbox_base
+	var/obj/item/storage/lunchbox/lunchbox_base
 
 	lunchbox_design = lunchbox_design == "Random" ? pick(GLOB.possible_player_lunchbox_design_choice) : lunchbox_design
 	var/lunchbox_type = GLOB.possible_player_lunchbox_design_choice[lunchbox_design]
@@ -114,16 +114,16 @@
 	should_generate_icons = TRUE
 
 GLOBAL_LIST_INIT(possible_player_lunchbox_design_choice, list(
-	"Dark" = /obj/item/storage/toolbox/lunchbox/dark,
-	"Blank" = /obj/item/storage/toolbox/lunchbox/light,
-	"Nanotrasen" = /obj/item/storage/toolbox/lunchbox,
-	"Nanotrasen (Gold)" = /obj/item/storage/toolbox/lunchbox/nt_gold,
-	"Syndicate" = /obj/item/storage/toolbox/lunchbox/syndicate,
-	"Interdyne" = /obj/item/storage/toolbox/lunchbox/interdyne,
-	"SolFed" = /obj/item/storage/toolbox/lunchbox/solfed,
-	"Space" = /obj/item/storage/toolbox/lunchbox/space,
-	"Hearts" = /obj/item/storage/toolbox/lunchbox/hearts,
-	"Gold" = /obj/item/storage/toolbox/lunchbox/gold,
+	"Dark" = /obj/item/storage/lunchbox/dark,
+	"Blank" = /obj/item/storage/lunchbox/light,
+	"Nanotrasen" = /obj/item/storage/lunchbox,
+	"Nanotrasen (Gold)" = /obj/item/storage/lunchbox/nt_gold,
+	"Syndicate" = /obj/item/storage/lunchbox/syndicate,
+	"Interdyne" = /obj/item/storage/lunchbox/interdyne,
+	"SolFed" = /obj/item/storage/lunchbox/solfed,
+	"Space" = /obj/item/storage/lunchbox/space,
+	"Hearts" = /obj/item/storage/lunchbox/hearts,
+	"Gold" = /obj/item/storage/lunchbox/gold,
 ))
 
 /datum/preference/choiced/lunchbox_design/init_possible_values()
