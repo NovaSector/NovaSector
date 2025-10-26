@@ -166,6 +166,7 @@
 			QDEL_NULL(rift)
 	// NOVA ADDITION START, let the dragon retry
 	rift_ability = new()
+	rift_ability?.Grant(owner.current)
 	// NOVA ADDITION END
 
 /**
