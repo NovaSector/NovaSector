@@ -296,14 +296,14 @@
 /datum/loadout_item/accessory/webbing_vest
 	name = "Webbing - Vest"
 	item_path = /obj/item/clothing/accessory/webbing/vest
-	can_be_reskinned = TRUE
+	loadout_flags = parent_type::loadout_flags | LOADOUT_FLAG_ALLOW_RESKIN
 
 /datum/loadout_item/accessory/webbing_pouch
 	name = "Webbing - Drop Pouches"
 	item_path = /obj/item/clothing/accessory/webbing/pouch
-	can_be_reskinned = TRUE
+	loadout_flags = parent_type::loadout_flags | LOADOUT_FLAG_ALLOW_RESKIN
 
 /datum/loadout_item/accessory/webbing_pilot
 	name = "Webbing - Rigging"
 	item_path = /obj/item/clothing/accessory/webbing/pilot
-	can_be_reskinned = TRUE
+	loadout_flags = parent_type::loadout_flags | LOADOUT_FLAG_ALLOW_RESKIN
