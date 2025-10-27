@@ -58,7 +58,7 @@
 
 		// now only run expensive Enter() checks on the smaller random subset from each area
 		var/list/final_candidate_turfs = list()
-		for(var/turf/open/floor as anything in pick(candidate_turfs, min(100, length(candidate_turfs))))
+		for(var/turf/open/floor as anything in pick(candidate_turfs, min(25, length(candidate_turfs))))
 			if(floor.Enter(test_vine))
 				final_candidate_turfs += floor
 
