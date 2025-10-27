@@ -7,3 +7,4 @@
 /obj/structure/closet/crate/large/import
 	name = "heavy-duty wooden crate"
 	icon = 'modular_nova/modules/company_imports/icons/import_crate.dmi'
+	material_drop_amount = 0
