@@ -49,7 +49,7 @@
 				/obj/item/clothing/under/suit/waiter = 1,
 				/obj/item/clothing/suit/apron = 1,
 				/obj/item/clothing/suit/apron/overalls = 1,
-				/obj/item/clothing/head/costume/maidheadband = 1,
+				/obj/item/clothing/head/costume/maid_headband = 1,
 				/obj/item/clothing/under/costume/maid = 1,
 				/obj/item/clothing/under/rank/civilian/janitor/maid = 1,
 				/obj/item/clothing/accessory/maidapron = 1,
