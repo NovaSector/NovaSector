@@ -1,29 +1,29 @@
-/// Protean crew sensor module - behaves like suit sensors
+/// Crew sensor module for proteans - works just like regular suit sensors
 /obj/item/mod/module/crew_sensor/protean
 	name = "MOD crew sensor module"
 	desc = "An integrated crew monitoring system that broadcasts your vitals and location to crew monitoring consoles. \
 		Compatible with standard station crew monitoring networks."
 	icon_state = "scanner"
-	complexity = 0 // Free for proteans
+	complexity = 0 // Built into protean suits by default
 	incompatible_modules = list()
 	required_slots = list()
 
 	/// Current sensor mode (SENSOR_OFF, SENSOR_LIVING, SENSOR_VITALS, SENSOR_COORDS)
 	var/sensor_mode = SENSOR_COORDS
-	/// Whether sensors are functioning
+	/// Whether the sensors are working at all
 	var/has_sensor = HAS_SENSORS
-	/// The owner we're tracking
+	/// Who we're currently tracking
 	var/mob/living/carbon/human/tracked_owner
 
 /obj/item/mod/module/crew_sensor/protean/Initialize(mapload)
 	. = ..()
-	// Start with full sensors active
+	// Start broadcasting full tracking by default
 	sensor_mode = SENSOR_COORDS
 
 /obj/item/mod/module/crew_sensor/protean/on_install()
 	. = ..()
 	tracked_owner = mod.wearer
-	// Activate the module by default
+	// Turn it on automatically when installed
 	if(!active && mod?.wearer)
 		active = TRUE
 		on_activation(mod.wearer)
@@ -51,20 +51,20 @@
 		GLOB.suit_sensors_list -= tracked_owner
 		tracked_owner = null
 
-/// Update whether this protean is being tracked by crew sensors
+/// Update whether we're showing up on crew monitors
 /obj/item/mod/module/crew_sensor/protean/proc/update_sensor_status()
 	if(!mod?.wearer)
 		return
 
 	tracked_owner = mod.wearer
 
-	// Add to crew monitoring if sensors are active and mode is above OFF
+	// Add to crew monitoring if we're turned on and broadcasting
 	if(has_sensor > NO_SENSORS && sensor_mode > SENSOR_OFF && mod.active)
 		GLOB.suit_sensors_list |= tracked_owner
 	else
 		GLOB.suit_sensors_list -= tracked_owner
 
-/// Toggle through sensor modes
+/// Cycle through sensor modes (off -> binary -> vitals -> tracking -> off)
 /obj/item/mod/module/crew_sensor/protean/proc/toggle_sensors()
 	if(has_sensor <= NO_SENSORS)
 		return
@@ -79,7 +79,7 @@
 		if(SENSOR_COORDS)
 			set_sensor_mode(SENSOR_OFF)
 
-/// Set sensor mode to a specific value
+/// Change what info we're broadcasting
 /obj/item/mod/module/crew_sensor/protean/proc/set_sensor_mode(new_mode)
 	if(new_mode == sensor_mode)
 		return
@@ -115,12 +115,11 @@
 			var/new_mode = modes.Find(value) - 1
 			set_sensor_mode(new_mode)
 
-/// Component that allows crew monitor to read protean sensor data
-/// This is added to proteans who have the crew sensor module
+/// Component that lets crew monitors read data from protean sensors
 /datum/component/protean_crew_sensor
-	/// The protean's sensor module
+	/// The sensor module we're reading from
 	var/obj/item/mod/module/crew_sensor/protean/sensor_module
-	/// The protean we're attached to
+	/// The protean this component is attached to
 	var/mob/living/carbon/human/protean_mob
 
 /datum/component/protean_crew_sensor/Initialize(obj/item/mod/module/crew_sensor/protean/module)

@@ -1,18 +1,18 @@
 /obj/item/mod/control/pre_equipped/protean
 	name = "protean modsuit"
 	desc = "The modsuit unit of a Protean, allowing them to retract into it, or to deploy a suit that protects against various environments."
-	theme = /datum/mod_theme // Standard theme. TODO: Can be changed with standard mod armors
+	theme = /datum/mod_theme // Uses standard theme by default, can be changed by assimilating other MODsuits
 
 	applied_core = /obj/item/mod/core/protean
 	applied_cell = null // Goes off stomach
 	resistance_flags = LAVA_PROOF | FIRE_PROOF | UNACIDABLE | ACID_PROOF // funny nanite
 	/// Whether or not the wearer can undeploy parts.
 	var/modlocked = FALSE
-	/// Currently assimilated modsuit
+	/// The MODsuit that's been absorbed by the protean
 	var/obj/item/mod/control/stored_modsuit
-	/// Cached modules from assimilated suits
+	/// Modules that couldn't be installed immediately (usually storage conflicts)
 	var/list/cached_modules = list()
-	/// Stored theme from assimilated suit
+	/// The appearance theme from the absorbed MODsuit
 	var/datum/mod_theme/stored_theme
 
 /datum/mod_theme/protean
@@ -23,28 +23,16 @@
 	ADD_TRAIT(src, TRAIT_NODROP, "protean")
 	AddElement(/datum/element/strippable/protean, GLOB.strippable_human_items, TYPE_PROC_REF(/mob/living/carbon/human/, should_strip))
 
-	// Ensure storage module exists (fallback for non-outfit spawns)
+	// Make sure there's always a storage module, even if spawned outside of normal outfit system
 	var/obj/item/mod/module/storage/storage = locate() in modules
 	if(!storage)
 		storage = new()
 		install(storage, null, TRUE)
 
-/obj/item/mod/control/pre_equipped/protean/item_ctrl_click(mob/user)
-	if(!isprotean(user))
-		return ..()
-
-	// Quick-set crew sensors to tracking for protean wearers
-	var/obj/item/mod/module/crew_sensor/protean/crew_sensor = locate() in modules
-	if(crew_sensor)
-		crew_sensor.set_sensor_mode(SENSOR_COORDS)
-		balloon_alert(user, "sensors set to tracking")
-		return CLICK_ACTION_SUCCESS
-
-	return ..()
 
 
 /obj/item/mod/control/pre_equipped/protean/Destroy()
-	// Eject protean if they're inside
+	// If a protean is folded up inside, kick them out before deleting the suit
 	var/mob/living/carbon/human/protean_inside = locate(/mob/living/carbon/human) in src
 	if(protean_inside && isprotean(protean_inside))
 		protean_inside.forceMove(get_turf(src))
@@ -72,7 +60,7 @@
 
 /obj/item/mod/control/pre_equipped/protean/acid_act(acidpwr, acid_volume, acid_id)
 	. = ..()
-	if(modlocked && !isprotean(wearer) && acidpwr >= 50) // Strong acid can force unlock
+	if(modlocked && !isprotean(wearer) && acidpwr >= 50) // Strong enough acid can eat through the lock
 		visible_message(span_warning("[src]'s locking mechanisms corrode and fail!"))
 		toggle_lock(TRUE)
 		playsound(src, 'sound/items/tools/welder2.ogg', 50, TRUE)
@@ -150,7 +138,7 @@
 	return ..()
 
 /obj/item/mod/control/pre_equipped/protean/dropped(mob/user)
-	// Don't clean up if a protean is going into the suit
+	// Don't dump items if a protean is folding themselves into the suit
 	if(isprotean(user) && locate(/mob/living/carbon/human) in src)
 		return
 	return ..()
@@ -161,7 +149,7 @@
 			REMOVE_TRAIT(src, TRAIT_NODROP, "protean")
 		wearer.dropItemToGround(src, TRUE, TRUE, TRUE)
 
-/// Proteans can lock themselves on people.
+/// Lets proteans lock the suit onto someone so they can't take it off
 /obj/item/mod/control/pre_equipped/protean/proc/toggle_lock(forced = FALSE)
 	if(modlocked && !forced && !isprotean(wearer))
 		REMOVE_TRAIT(src, TRAIT_NODROP, "protean")
@@ -317,7 +305,7 @@
 			stack_trace("assimilate_modsuit: Tried to assimilate modsuit while there's already a stored modsuit. stored_modsuit: [stored_modsuit], new_modsuit: [to_assimilate]")
 		return
 
-	// Check if our storage module has items - must be empty to assimilate
+	// Make sure your storage is empty before absorbing another suit (prevents item loss)
 	if(atom_storage)
 		if(length(atom_storage.real_location?.contents))
 			to_chat(user, span_warning("Your storage module must be empty before you can assimilate another modsuit!"))
@@ -343,40 +331,43 @@
 	desc = to_assimilate.desc
 	extended_desc = to_assimilate.extended_desc
 
-	// Transfer modules - exactly like Bubberstation (install() handles the transfer via forceMove)
-	// CRITICAL: Iterate over a COPY because install() modifies the source list!
+	// Transfer all the modules from the absorbed suit to ours
+	// We copy the list first because install() modifies it as we go
 	var/list/modules_to_transfer = to_assimilate.modules.Copy()
 	for(var/obj/item/mod/module/module in modules_to_transfer)
-		// Special handling for storage - compare sizes and use the bigger one
+		// Storage modules need special handling - we compare sizes and keep the bigger one
 		if(istype(module, /obj/item/mod/module/storage))
 			var/obj/item/mod/module/storage/our_storage = locate() in modules
 			if(our_storage)
 				var/obj/item/mod/module/storage/incoming_storage = module
-				// Compare max storage space
+				// Check which storage module can hold more stuff
 				if(incoming_storage.max_combined_w_class > our_storage.max_combined_w_class)
-					// Incoming is bigger - swap to use it
+					// The new storage is bigger, so swap to it and save ours
 					cached_modules += our_storage
 					uninstall(our_storage, deleting = TRUE)
 					to_chat(user, span_notice("[incoming_storage] is larger! Swapping to it and caching your [our_storage]."))
-					// Continue to install the larger storage below
+					// Let it continue below to install the bigger storage
 				else
-					// Ours is bigger or equal - keep it
+					// Our storage is bigger or the same, so keep it and save theirs
 					cached_modules += module
 					to_chat(user, span_notice("[module] stored in reserve, keeping your current [our_storage]!"))
+					// Remove it from the list without triggering cleanup (preserves contents)
+					to_assimilate.modules -= module
+					module.mod = null
 					continue
 
-		// Try to install - install() uses forceMove() to automatically transfer the module
+		// Try to install the module into our suit
 		install(module, user, TRUE)
 
-		// Check if it actually got installed (module is now in our modules list)
+		// Check if it actually made it in (will be in our modules list if successful)
 		if(module in modules)
 			continue
 
-		// If it can't be installed and it's not removable, leave it in original suit
+		// If we can't install it and it's permanently attached, just leave it in the original suit
 		if(!module.removable)
 			continue
 
-		// Otherwise uninstall from old suit and drop to floor
+		// If we can't use it, remove it from the old suit and drop it on the ground
 		to_assimilate.uninstall(module)
 		module.forceMove(get_turf(src))
 		to_chat(user, span_warning("[module] has dropped onto the floor!"))
