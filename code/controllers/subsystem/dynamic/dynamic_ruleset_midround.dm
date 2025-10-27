@@ -593,7 +593,7 @@
 /datum/dynamic_ruleset/midround/from_ghosts/space_ninja/assign_role(datum/mind/candidate)
 	var/mob/living/carbon/human/new_ninja = candidate.current
 	new_ninja.forceMove(find_space_spawn()) // ninja antag datum needs the mob to be in place first
-	/* // NOVA EDIT REMOVAL START
+	/* // NOVA EDIT REMOVAL START 
 	randomize_human_normie(new_ninja)
 	var/new_name = "[pick(GLOB.ninja_titles)] [pick(GLOB.ninja_names)]"
 	new_ninja.name = new_name
