@@ -22,7 +22,6 @@ SUBSYSTEM_DEF(statpanels)
 		num_fires++
 		var/datum/map_config/cached = SSmap_vote.next_map_config
 
-		/* NOVA EDIT CHANGE - ORIGINAL:
 		if(isnull(SSmapping.current_map))
 			global_data = list("Loading")
 		else if(SSmapping.current_map.feedback_link)
@@ -43,34 +42,6 @@ SUBSYSTEM_DEF(statpanels)
 			"Station Time: [station_time_timestamp()]",
 			"Time Dilation: [round(SStime_track.time_dilation_current,1)]% AVG:([round(SStime_track.time_dilation_avg_fast,1)]%, [round(SStime_track.time_dilation_avg,1)]%, [round(SStime_track.time_dilation_avg_slow,1)]%)",
 		)
-		*/
-		var/real_round_time = world.timeofday - SSticker.real_round_start_time
-		global_data = list(
-			"Time Dilation: [round(SStime_track.time_dilation_current,1)]% AVG:([round(SStime_track.time_dilation_avg_fast,1)]%, [round(SStime_track.time_dilation_avg,1)]%, [round(SStime_track.time_dilation_avg_slow,1)]%)",
-		)
-		if(isnull(SSmapping.current_map))
-			global_data += "Loading"
-		else if(SSmapping.current_map.feedback_link)
-			global_data += list(list("Map: [SSmapping.current_map.map_name]", " (Feedback)", "action=openLink&link=[SSmapping.current_map.feedback_link]"))
-		else
-			global_data += "Map: [SSmapping.current_map?.map_name]"
-
-		if(SSmapping.current_map?.mapping_url)
-			global_data += list(list("same_line", " | (View in Browser)", "action=openWebMap"))
-
-		global_data += list(
-			cached ? "Next Map: [cached.map_name]" : null,
-			"Round ID: [GLOB.round_id ? GLOB.round_id : "NULL"]",
-			"Connected Players: [GLOB.clients.len]",
-			" ",
-			"OOC: [GLOB.ooc_allowed ? "Enabled" : "Disabled"]",
-			" ",
-			"Server Time: [time2text(world.timeofday, "YYYY-MM-DD hh:mm:ss")]",
-			"Station Time: [station_time_timestamp()]",
-			"Round Timer: [ROUND_TIME()]",
-			"Actual Round Timer: [time2text(real_round_time, "hh:mm:ss", 0)]"
-		)
-		// NOVA EDIT CHANGE END
 
 		if(SSshuttle.emergency)
 			var/ETA = SSshuttle.emergency.getModeStr()
