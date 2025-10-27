@@ -8889,7 +8889,6 @@
 #include "modular_nova\modules\mounted_machine_gun\code\ammobox.dm"
 #include "modular_nova\modules\mounted_machine_gun\code\mounted_machine_gun.dm"
 #include "modular_nova\modules\multicellcharger\code\multi_cell_charger.dm"
-#include "modular_nova\modules\multiserver\code\config_entry.dm"
 #include "modular_nova\modules\mutants\code\mutant_antag_datum.dm"
 #include "modular_nova\modules\mutants\code\mutant_component.dm"
 #include "modular_nova\modules\mutants\code\mutant_cure.dm"
