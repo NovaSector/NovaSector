@@ -206,7 +206,7 @@
 /datum/loadout_item/accessory/medal/glow_crystal
 	name = "Glowcrystal necklace"
 	item_path = /obj/item/clothing/accessory/nova/acc_medal/glowcrystal
-	can_be_reskinned = TRUE
+	loadout_flags = parent_type::loadout_flags | LOADOUT_FLAG_ALLOW_RESKIN
 
 /datum/loadout_item/accessory/medal/rankpin_star
 	name = "Rankpin (Star)"
