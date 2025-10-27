@@ -58,7 +58,7 @@ export const InteractionMenu = (props) => {
                     use_subtler: !use_subtler,
                   })
                 }
-                tooltip="Untick to make interactions visible to all mobs in range able to perceive them."
+                tooltip="Untick to make lewd interactions visible to all mobs in range able to perceive them."
               >
                 Use Subtler
               </Button.Checkbox>
