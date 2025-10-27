@@ -9,8 +9,9 @@
 	abstract_type = /obj/machinery/computer/cargo/express/ghost
 	circuit = /obj/item/circuitboard/computer/cargo/express/ghost
 	req_access = list(ACCESS_SYNDICATE)
-	cargo_account = ACCOUNT_CIV /// Change this later to somethin else, as this is meant to prevent runtiming
+	cargo_account = ACCOUNT_CIV /// Change this later to something else, as this is meant to prevent runtiming
 	contraband = TRUE
+	console_flag = CARGO_CONSOLE_PDA
 
 	pod_type = /obj/structure/closet/supplypod/bluespacepod
 
@@ -41,7 +42,6 @@
 	name = "Interdyne Express Supply Console"
 	greyscale_colors = COLOR_PRIDE_GREEN
 	build_path = /obj/machinery/computer/cargo/express/ghost/interdyne
-	contraband = TRUE
 
 /obj/machinery/computer/cargo/express/ghost/interdyne
 	name = "\improper Interdyne Express Supply Console"
@@ -50,14 +50,13 @@
 	circuit = /obj/item/circuitboard/computer/cargo/express/ghost/interdyne
 	req_access = list(ACCESS_SYNDICATE)
 	cargo_account = ACCOUNT_INT
-	contraband = TRUE
+	console_flag = CARGO_CONSOLE_INTERDYNE
 
 //Deep Space 2's console
 /obj/item/circuitboard/computer/cargo/express/ghost/syndicate
 	name = "Syndicate Express Supply Console"
 	greyscale_colors = CIRCUIT_COLOR_SECURITY
 	build_path = /obj/machinery/computer/cargo/express/ghost/syndicate
-	contraband = TRUE
 
 /obj/machinery/computer/cargo/express/ghost/syndicate
 	name = "\improper Syndicate Express Supply Console"
@@ -66,13 +65,13 @@
 	circuit = /obj/item/circuitboard/computer/cargo/express/ghost/syndicate
 	req_access = list(ACCESS_SYNDICATE)
 	cargo_account = ACCOUNT_DS2
+	console_flag = CARGO_CONSOLE_DS2
 
 // Tarkon Industries console
 /obj/item/circuitboard/computer/cargo/express/ghost/tarkon
 	name = "Tarkon Express Supply Console"
 	build_path = /obj/machinery/computer/cargo/express/ghost/tarkon
 	greyscale_colors = CIRCUIT_COLOR_ENGINEERING
-	contraband = TRUE
 
 /obj/machinery/computer/cargo/express/ghost/tarkon
 	name = "\improper Tarkon Express Supply Console"
@@ -81,3 +80,4 @@
 	circuit = /obj/item/circuitboard/computer/cargo/express/ghost/tarkon
 	req_access = list(ACCESS_TARKON)
 	cargo_account = ACCOUNT_TI
+	console_flag = CARGO_CONSOLE_TARKON

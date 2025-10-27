@@ -34,6 +34,10 @@
 	var/cargo_account = ACCOUNT_CAR
 	///Interface name for the ui_interact call for different subtypes.
 	var/interface_type = "Cargo"
+	// NOVA EDIT ADDITION START
+	///Flag that controls which supplies packs this console is allowed to order from.
+	var/console_flag = CARGO_CONSOLE_NT
+	// NOVA EDIT ADDITION END
 
 /obj/machinery/computer/cargo/request
 	name = "supply request console"
@@ -180,6 +184,11 @@
 
 		if(pack.contraband && !contraband)
 			continue
+
+		// NOVA EDIT ADDITION START
+		if(!(pack.console_flag & console_flag))
+			continue
+		// NOVA EDIT ADDITION END
 
 		var/obj/item/first_item = length(pack.contains) > 0 ? pack.contains[1] : null
 		packs += list(list(

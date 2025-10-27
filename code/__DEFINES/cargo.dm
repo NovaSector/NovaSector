@@ -70,3 +70,13 @@
 #define DEPARTMENTAL_ORDER_REWARD_COEFFICIENT 120
 /// Used for the power of the logarithmic value for the free crate delivery reward
 #define DEPARTMENTAL_ORDER_REWARD_EXPONENT 1.5
+
+// NOVA EDIT ADDITION START
+// Bitflags for what each supplypack is allowed to be bought from
+#define CARGO_CONSOLE_NT		(1<<0)
+#define CARGO_CONSOLE_INTERDYNE	(1<<1)
+#define CARGO_CONSOLE_TARKON	(1<<2)
+#define CARGO_CONSOLE_DS2		(1<<3)
+#define CARGO_CONSOLE_PDA		(1<<4) // Ideally, this has nothing assigned to it, as PDA's are obtainable by others and access is also easily obtainable.
+#define CARGO_CONSOLE_ALL (CARGO_CONSOLE_NT|CARGO_CONSOLE_INTERDYNE|CARGO_CONSOLE_TARKON|CARGO_CONSOLE_DS2|CARGO_CONSOLE_PDA) // Remember to update this one when a new one is added.
+// NOVA EDIT ADDITION END

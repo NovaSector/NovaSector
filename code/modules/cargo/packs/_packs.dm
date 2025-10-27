@@ -43,6 +43,10 @@
 	var/discountable = SUPPLY_PACK_NOT_DISCOUNTABLE
 	/// Is this supply pack considered unpredictable for the purposes of testing unit testing? Examples include the stock market, or miner supply crates. If true, exempts from unit testing
 	var/test_ignored = FALSE
+	// NOVA EDIT ADDITION START
+	///Flag that controls which consoles can this supply pack be ordered to.
+	var/console_flag = CARGO_CONSOLE_ALL
+	// NOVA EDIT ADDITION END
 
 /datum/supply_pack/New()
 	id = type
