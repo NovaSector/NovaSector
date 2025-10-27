@@ -275,18 +275,52 @@
 	tastes = list("sweet cheese" = 4, "pancake" = 2, "vanilla" = 1)
 	foodtypes = DAIRY | SUGAR | GRAIN | BREAKFAST
 
-/obj/item/food/colonial_course/fruit_dumplings
+/obj/item/storage/pouch/fruit_dumplings
 	name = "fruit dumplings pouch"
-	desc = "Boiled dumplings filled with seasonal fruits, ready to be topped with melted butter and breadcrumbs. The fruits vary by what the replicator determines is 'seasonally appropriate.' \
-		<br> Sweet, comforting, and surprisingly versatile - perfect for when you need a taste of something fruity and familiar."
-	food_reagents = list(
-		/datum/reagent/consumable/nutriment = 3,
-		/datum/reagent/consumable/sugar = 4,
-		/datum/reagent/consumable/nutriment/vitamin = 3,
-	)
-	trash_type = /obj/item/trash/fruit_dumplings
+	desc = "A sealed pouch containing five fruit dumplings. The fruits vary by what the replicator determines is 'seasonally appropriate.'"
+	icon = 'modular_nova/modules/food_replicator/icons/rationpack.dmi'
 	icon_state = "fruit_dumplings_pouch"
+	w_class = WEIGHT_CLASS_SMALL
+	storage_type = /datum/storage/pouch/fruit_dumplings
+
+/datum/storage/fruit_dumplings/New(atom/parent, max_slots, max_specific_storage, max_total_storage)
+	. = ..()
+	set_holdable(list(
+		/obj/item/food/colonial_course/fruit_dumpling,
+		/obj/item/food/khinkali,
+		/obj/item/food/rawkhinkali,
+	))
+
+/obj/item/storage/pouch/fruit_dumplings/Initialize(mapload)
+	. = ..()
+	atom_storage.locked = TRUE
+	for(var/i in 1 to 5)
+		new /obj/item/food/colonial_course/fruit_dumpling(src)
+
+/obj/item/storage/pouch/fruit_dumplings/attack_self(mob/user)
+	if(user)
+		if(atom_storage.locked == TRUE)
+			atom_storage.locked = FALSE
+			icon_state = "fruit_dumplings_pouch_open"
+			balloon_alert(user, "unsealed!")
+		else
+			atom_storage.locked = TRUE
+			atom_storage.close_all()
+			icon_state = "fruit_dumplings_pouch"
+			balloon_alert(user, "resealed!")
+
+/obj/item/food/colonial_course/fruit_dumpling
+	name = "fruit dumpling"
+	desc = "A boiled dumpling filled with seasonal fruit. Perfect when topped with melted butter and breadcrumbs."
+	icon = 'modular_nova/modules/food_replicator/icons/rationpack.dmi'
+	icon_state = "fruit_dumpling"
+	food_reagents = list(
+		/datum/reagent/consumable/nutriment = 1,
+		/datum/reagent/consumable/sugar = 1,
+		/datum/reagent/consumable/nutriment/vitamin = 1,
+	)
 	tastes = list("dough" = 2, "sweet fruit" = 3, "melted butter" = 1, "breadcrumbs" = 1)
+	preserved_food = FALSE
 	foodtypes = GRAIN | FRUIT | SUGAR
 
 // Beverages
@@ -407,15 +441,6 @@
 		/datum/material/plastic = HALF_SHEET_MATERIAL_AMOUNT * 0.6,
 	)
 	icon_state = "syrniki_tube_trash"
-
-/obj/item/trash/fruit_dumplings
-	name = "empty fruit dumplings pouch"
-	desc = "An empty flexible pouch that once held fruit-filled dumplings, slightly greasy from the butter coating. It's probably best to recycle it."
-	icon = 'modular_nova/modules/food_replicator/icons/rationpack.dmi'
-	custom_materials = list(
-		/datum/material/plastic = HALF_SHEET_MATERIAL_AMOUNT * 0.4,
-	)
-	icon_state = "fruit_dumplings_pouch_trash"
 
 // Other Items
 
