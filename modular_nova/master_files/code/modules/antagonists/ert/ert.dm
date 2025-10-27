@@ -37,6 +37,7 @@
 	name = "SolFed Espatier"
 	outfit = /datum/outfit/solfed/military/espatier
 	role = "Rifleman"
+	stinger_sound = 'modular_nova/master_files/sound/items/war_horn.ogg'
 
 /datum/antagonist/ert/solfed/espatier/New()
 	. = ..()
@@ -73,6 +74,7 @@
 
 	missiondesc += "<span class='warningplain'><BR><B>Your Mission</B> : [ert_team.mission.explanation_text]</span>"
 	to_chat(owner,missiondesc)
+	play_stinger()
 
 /// Grand Response variant
 /datum/antagonist/ert/solfed/grand_espatier/engineer
