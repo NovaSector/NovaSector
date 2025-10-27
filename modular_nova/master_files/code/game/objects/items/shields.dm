@@ -1,6 +1,3 @@
-/obj/item/shield/riot/tele
-	w_class = WEIGHT_CLASS_SMALL // original: WEIGHT_CLASS_NORMAL
-
 /obj/item/shield/energy/returning
 	name = "returning energy shield"
 	active_throwforce = 27 // exactly 5 hits to kill.
