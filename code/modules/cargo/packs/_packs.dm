@@ -46,6 +46,8 @@
 	// NOVA EDIT ADDITION START
 	///Flag that controls which consoles can this supply pack be ordered to.
 	var/console_flag = CARGO_CONSOLE_ALL
+	///Flag to indicate that express consoles cannot order this.
+	var/express_lock = FALSE
 	// NOVA EDIT ADDITION END
 
 /datum/supply_pack/New()

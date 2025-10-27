@@ -37,6 +37,8 @@
 	// NOVA EDIT ADDITION START
 	///Flag that controls which supplies packs this console is allowed to order from.
 	var/console_flag = CARGO_CONSOLE_NT
+	///Flag to indicate that this console can bypass the express console block.
+	var/bypass_express_lock = FALSE
 	// NOVA EDIT ADDITION END
 
 /obj/machinery/computer/cargo/request
@@ -186,6 +188,9 @@
 			continue
 
 		// NOVA EDIT ADDITION START
+		if (express && pack.express_lock && !bypass_express_lock)
+			continue
+		
 		if(!(pack.console_flag & console_flag))
 			continue
 		// NOVA EDIT ADDITION END
