@@ -325,6 +325,7 @@
 	name = "Seer Cloak (Colorable)"
 	item_path = /obj/item/clothing/neck/greyscaled/seecloak
 	group = "Cloaks and Shrouds"
+	can_be_reskinned = TRUE
 
 /datum/loadout_item/neck/matroncloak
 	name = "Matron Cloak (Colorable)"
