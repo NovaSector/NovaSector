@@ -673,7 +673,7 @@ GLOBAL_LIST_INIT(blacklisted_builds, list(
 		return
 
 	var/client_is_in_db = query_client_in_db.NextRow()
-/* NOVA EDIT REMOVAL - Original
+	/* //NOVA EDIT REMOVAL - Original
 	// If we aren't an admin, and the flag is set (the panic bunker is enabled).
 	if(CONFIG_GET(flag/panic_bunker) && !holder && !GLOB.deadmins[ckey])
 		// The amount of hours needed to bypass the panic bunker.
@@ -704,7 +704,7 @@ GLOBAL_LIST_INIT(blacklisted_builds, list(
 				qdel(query_client_in_db)
 				qdel(src)
 				return
-*/
+	*/ // NOVA EDIT REMOVAL END
 
 	if(!client_is_in_db)
 		//NOVA EDIT ADDITION BEGIN - PANICBUNKER
