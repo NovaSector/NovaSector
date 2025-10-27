@@ -1,3 +1,7 @@
+/datum/loadout_category/head
+	/// How many maximum of these can be chosen
+	max_allowed = MAX_ALLOWED_EXTRA_CLOTHES
+
 // LOADOUT ITEM DATUMS FOR THE HEAD SLOT
 
 /datum/loadout_item/head/pre_equip_item(datum/outfit/outfit, datum/outfit/outfit_important_for_life, mob/living/carbon/human/equipper, visuals_only = FALSE)

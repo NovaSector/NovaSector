@@ -5,6 +5,12 @@
 	category_ui_icon = FA_ICON_SHIRT
 	type_to_generate = /datum/loadout_item/under
 	tab_order = /datum/loadout_category/suit::tab_order + 1
+	/// How many maximum of these can be chosen
+	max_allowed = MAX_ALLOWED_EXTRA_CLOTHES
+
+/*
+*	LOADOUT ITEM DATUMS FOR THE UNDERSUIT SLOT
+*/
 
 /datum/loadout_item/under
 	abstract_type = /datum/loadout_item/under
