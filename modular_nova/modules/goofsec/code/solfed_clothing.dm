@@ -252,54 +252,21 @@ SOLFED ARMOR VALUES!
 	greyscale_config = /datum/greyscale_config/solfedribbons
 	greyscale_config_worn = /datum/greyscale_config/solfedribbons/worn
 	minimize_when_attached = TRUE
-
-/obj/item/clothing/accessory/nova/solfedribbon/rank2
-	icon_state = "/obj/item/clothing/accessory/nova/solfedribbon/rank2"
-	post_init_icon_state = "star_arr_ribbon_2"
-
-/obj/item/clothing/accessory/nova/solfedribbon/rank3
-	icon_state = "/obj/item/clothing/accessory/nova/solfedribbon/rank3"
-	post_init_icon_state = "star_sw_ribbon_1"
-
-/obj/item/clothing/accessory/nova/solfedribbon/rank4
-	icon_state = "/obj/item/clothing/accessory/nova/solfedribbon/rank4"
-	post_init_icon_state = "star_sw_ribbon_2"
-
-/obj/item/clothing/accessory/nova/solfedribbon/rank5
-	icon_state = "/obj/item/clothing/accessory/nova/solfedribbon/rank5"
-	post_init_icon_state = "star_ribbon_1"
-
-/obj/item/clothing/accessory/nova/solfedribbon/rank6
-	icon_state = "/obj/item/clothing/accessory/nova/solfedribbon/rank6"
-	post_init_icon_state = "star_ribbon_2"
-
-/obj/item/clothing/accessory/nova/solfedribbon/rank7
-	icon_state = "/obj/item/clothing/accessory/nova/solfedribbon/rank7"
-	post_init_icon_state = "star_ribbon_3"
-
-/obj/item/clothing/accessory/nova/solfedribbon/rank8
-	icon_state = "/obj/item/clothing/accessory/nova/solfedribbon/rank8"
-	post_init_icon_state = "arr_ribbon_1"
-
-/obj/item/clothing/accessory/nova/solfedribbon/rank9
-	icon_state = "/obj/item/clothing/accessory/nova/solfedribbon/rank8"
-	post_init_icon_state = "arr_ribbon_2"
-
-/obj/item/clothing/accessory/nova/solfedribbon/rank10
-	icon_state = "/obj/item/clothing/accessory/nova/solfedribbon/rank9"
-	post_init_icon_state = "arr_ribbon_3"
-
-/obj/item/clothing/accessory/nova/solfedribbon/rank11
-	icon_state = "/obj/item/clothing/accessory/nova/solfedribbon/rank10"
-	post_init_icon_state = "sw_ribbon_1"
-
-/obj/item/clothing/accessory/nova/solfedribbon/rank12
-	icon_state = "/obj/item/clothing/accessory/nova/solfedribbon/rank11"
-	post_init_icon_state = "sw_ribbon_2"
-
-/obj/item/clothing/accessory/nova/solfedribbon/rank13
-	icon_state = "/obj/item/clothing/accessory/nova/solfedribbon/rank12"
-	post_init_icon_state = "sw_ribbon_3"
+	unique_reskin = list(
+		"Default" = "star_arr_ribbon_1",
+		"Alt 1" = "star_arr_ribbon_2",
+		"Alt 2" = "star_sw_ribbon_1",
+		"Alt 3" = "star_sw_ribbon_2",
+		"Alt 4" = "star_ribbon_1",
+		"Alt 5" = "star_ribbon_2",
+		"Alt 6" = "star_ribbon_3",
+		"Alt 7" = "arr_ribbon_1",
+		"Alt 8" = "arr_ribbon_2",
+		"Alt 9" = "arr_ribbon_3",
+		"Alt 10" = "sw_ribbon_1",
+		"Alt 11" = "sw_ribbon_2",
+		"Alt 12" = "sw_ribbon_3",
+	)
 
 /obj/item/clothing/accessory/nova/acc_medal/neckpin/solfed/official
 	name = "\improper SolFed Official neckpin"
@@ -329,18 +296,6 @@ SOLFED ARMOR VALUES!
 	access_lists["[ACCESS_CENT_CAPTAIN]"] = list(
 		// Solfed has CC and station AA but this is the highest access possible so no one but feds can get it. Hopefully
 		/obj/item/clothing/accessory/nova/solfedribbon = 4,
-		/obj/item/clothing/accessory/nova/solfedribbon/rank2 = 4,
-		/obj/item/clothing/accessory/nova/solfedribbon/rank3 = 4,
-		/obj/item/clothing/accessory/nova/solfedribbon/rank4 = 4,
-		/obj/item/clothing/accessory/nova/solfedribbon/rank5 = 4,
-		/obj/item/clothing/accessory/nova/solfedribbon/rank6 = 4,
-		/obj/item/clothing/accessory/nova/solfedribbon/rank7 = 4,
-		/obj/item/clothing/accessory/nova/solfedribbon/rank8 = 4,
-		/obj/item/clothing/accessory/nova/solfedribbon/rank9 = 4,
-		/obj/item/clothing/accessory/nova/solfedribbon/rank10 = 4,
-		/obj/item/clothing/accessory/nova/solfedribbon/rank11 = 4,
-		/obj/item/clothing/accessory/nova/solfedribbon/rank12 = 4,
-		/obj/item/clothing/accessory/nova/solfedribbon/rank13 = 4,
 		/obj/item/clothing/under/solfed/officer = 4,
 		/obj/item/clothing/under/solfed/officer_lowrnk = 4,
 		/obj/item/clothing/under/solfed/official_civil = 4,
