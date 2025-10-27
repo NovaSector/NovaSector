@@ -99,9 +99,9 @@
 
 		item.on_equip_item(
 			equipped_item = equipped,
-			preference_source = preference_source,
-			preference_list = loadout_list,
+			item_details = loadout_list?[item.item_path] || list(),
 			equipper = src,
+			outfit = equipped_outfit,
 			visuals_only = visuals_only,
 		)
 

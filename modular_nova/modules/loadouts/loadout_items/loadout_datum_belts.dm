@@ -95,14 +95,14 @@
 /datum/loadout_item/belts/cin_surplus_chestrig_desert
 	name = "Belt - CIN Surplus (Desert)"
 	item_path = /obj/item/storage/belt/military/cin_surplus/desert
-	can_be_greyscale = DONT_GREYSCALE
+	loadout_flags = parent_type::loadout_flags | LOADOUT_FLAG_BLOCK_GREYSCALING
 
 /datum/loadout_item/belts/cin_surplus_chestrig_forest
 	name = "Belt - CIN Surplus (Forest)"
 	item_path = /obj/item/storage/belt/military/cin_surplus/forest
-	can_be_greyscale = DONT_GREYSCALE
+	loadout_flags = parent_type::loadout_flags | LOADOUT_FLAG_BLOCK_GREYSCALING
 
 /datum/loadout_item/belts/cin_surplus_chestrig_marine
 	name = "Belt - CIN Surplus (Marine)"
 	item_path = /obj/item/storage/belt/military/cin_surplus/marine
-	can_be_greyscale = DONT_GREYSCALE
+	loadout_flags = parent_type::loadout_flags | LOADOUT_FLAG_BLOCK_GREYSCALING
