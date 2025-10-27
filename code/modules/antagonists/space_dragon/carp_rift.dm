@@ -40,7 +40,10 @@
 	dragon.riftTimer = -1
 	new_rift.dragon = dragon
 	dragon.rift_list += new_rift
-	// NOVA ADDITION START, reset stats if dragon manages to retry
+	// NOVA ADDITION START, announce on first rift - reset stats if dragon manages to retry
+	if(!dragon.announced)
+		priority_announce("A large organic energy flux has been recorded near of [station_name()], please stand-by.", "Lifesign Alert")
+		dragon.announced = TRUE
 	if(HAS_TRAIT(owner, TRAIT_RIFT_FAILURE))
 		REMOVE_TRAIT(owner, TRAIT_RIFT_FAILURE, REF(dragon))
 		owner.remove_movespeed_modifier(/datum/movespeed_modifier/dragon_depression)

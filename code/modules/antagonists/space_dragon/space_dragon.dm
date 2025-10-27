@@ -28,6 +28,10 @@
 	var/datum/component/mind_linker/wavespeak
 	/// What areas are we allowed to place rifts in?
 	var/list/chosen_rift_areas = list()
+	// NOVA EDIT START, announce on first rift
+	/// If the space dragon has been announced to the station yet
+	var/announced = FALSE
+	// NOVA EDIT END
 
 /datum/antagonist/space_dragon/greet()
 	. = ..()
