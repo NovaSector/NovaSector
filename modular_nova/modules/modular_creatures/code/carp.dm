@@ -28,3 +28,6 @@
 
 /obj/structure/carp_rift
 	max_integrity = 500
+
+/datum/dynamic_ruleset/midround/from_ghosts/space_dragon/announce_space_dragon()
+	return
