@@ -206,7 +206,7 @@
 /datum/loadout_item/accessory/medal/glow_crystal
 	name = "Glowcrystal necklace"
 	item_path = /obj/item/clothing/accessory/nova/acc_medal/glowcrystal
-	can_be_reskinned = TRUE
+	loadout_flags = parent_type::loadout_flags | LOADOUT_FLAG_ALLOW_RESKIN
 
 /datum/loadout_item/accessory/medal/rankpin_star
 	name = "Rankpin (Star)"
@@ -280,3 +280,30 @@
 /datum/loadout_item/accessory/medal/ribbon7
 	name = "Ribbon (Two-Tone)"
 	item_path = /obj/item/clothing/accessory/nova/ribbon/ribbon_twotone
+
+/*
+* Webbings
+*/
+
+/datum/loadout_item/accessory/webbing
+	name = "Webbing - Basic"
+	item_path = /obj/item/clothing/accessory/webbing
+
+/datum/loadout_item/accessory/colonial_webbing
+	name = "Webbing - Colonial"
+	item_path = /obj/item/clothing/accessory/webbing/colonial
+
+/datum/loadout_item/accessory/webbing_vest
+	name = "Webbing - Vest"
+	item_path = /obj/item/clothing/accessory/webbing/vest
+	loadout_flags = parent_type::loadout_flags | LOADOUT_FLAG_ALLOW_RESKIN
+
+/datum/loadout_item/accessory/webbing_pouch
+	name = "Webbing - Drop Pouches"
+	item_path = /obj/item/clothing/accessory/webbing/pouch
+	loadout_flags = parent_type::loadout_flags | LOADOUT_FLAG_ALLOW_RESKIN
+
+/datum/loadout_item/accessory/webbing_pilot
+	name = "Webbing - Rigging"
+	item_path = /obj/item/clothing/accessory/webbing/pilot
+	loadout_flags = parent_type::loadout_flags | LOADOUT_FLAG_ALLOW_RESKIN

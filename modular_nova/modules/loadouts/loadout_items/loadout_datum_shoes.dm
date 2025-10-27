@@ -152,42 +152,42 @@
 /datum/loadout_item/shoes/black_sneakers
 	name = "Sneakers (Black)"
 	item_path = /obj/item/clothing/shoes/sneakers/black
-	can_be_greyscale = DONT_GREYSCALE
+	loadout_flags = parent_type::loadout_flags | LOADOUT_FLAG_BLOCK_GREYSCALING
 
 /datum/loadout_item/shoes/blue_sneakers
 	name = "Sneakers (Blue)"
 	item_path = /obj/item/clothing/shoes/sneakers/blue
-	can_be_greyscale = DONT_GREYSCALE
+	loadout_flags = parent_type::loadout_flags | LOADOUT_FLAG_BLOCK_GREYSCALING
 
 /datum/loadout_item/shoes/brown_sneakers
 	name = "Sneakers (Brown)"
 	item_path = /obj/item/clothing/shoes/sneakers/brown
-	can_be_greyscale = DONT_GREYSCALE
+	loadout_flags = parent_type::loadout_flags | LOADOUT_FLAG_BLOCK_GREYSCALING
 
 /datum/loadout_item/shoes/green_sneakers
 	name = "Sneakers (Green)"
 	item_path = /obj/item/clothing/shoes/sneakers/green
-	can_be_greyscale = DONT_GREYSCALE
+	loadout_flags = parent_type::loadout_flags | LOADOUT_FLAG_BLOCK_GREYSCALING
 
 /datum/loadout_item/shoes/orange_sneakers
 	name = "Sneakers (Orange)"
 	item_path = /obj/item/clothing/shoes/sneakers/orange
-	can_be_greyscale = DONT_GREYSCALE
+	loadout_flags = parent_type::loadout_flags | LOADOUT_FLAG_BLOCK_GREYSCALING
 
 /datum/loadout_item/shoes/purple_sneakers
 	name = "Sneakers (Purple)"
 	item_path = /obj/item/clothing/shoes/sneakers/purple
-	can_be_greyscale = DONT_GREYSCALE
+	loadout_flags = parent_type::loadout_flags | LOADOUT_FLAG_BLOCK_GREYSCALING
 
 /datum/loadout_item/shoes/white_sneakers
 	name = "Sneakers (White)"
 	item_path = /obj/item/clothing/shoes/sneakers/white
-	can_be_greyscale = DONT_GREYSCALE
+	loadout_flags = parent_type::loadout_flags | LOADOUT_FLAG_BLOCK_GREYSCALING
 
 /datum/loadout_item/shoes/yellow_sneakers
 	name = "Sneakers (Yellow)"
 	item_path = /obj/item/clothing/shoes/sneakers/yellow
-	can_be_greyscale = DONT_GREYSCALE
+	loadout_flags = parent_type::loadout_flags | LOADOUT_FLAG_BLOCK_GREYSCALING
 
 /*
 *	LEG WRAPS
