@@ -735,3 +735,28 @@
       uplink, too)
   - balance: Rebalances the TC value of most traitor uplink items
   - balance: Allows more jobs access to job-restricted traitor uplink items
+2025-10-27:
+  Arceniu:
+  - bugfix: folded interdyne flag name no longer named as folded flag of the Syndicate
+  Hatterhat:
+  - bugfix: Machetes now have a defined icon angle so they don't look so silly when
+      used in melee.
+  - balance: Mauling melees (e-tool, machete) now have a damage multiplier when used
+      to maul people.
+  - balance: The breaching hammer now has mauling instead of just kneecapping, allowing
+      it to brutalize all of a person instead of just their legs.
+  - code_imp: Some variables regarding mauling are no longer hard-coded.
+  - rscadd: Penetrating shotgun darts are now in your local seclathe or gimmick-loaded
+      ammo bench, costing some diamond to print and having a greatly reduced capacity
+      in return for punching through armor.
+  Jinshee:
+  - rscadd: Added Mantis wings, Insect (Underbelly) tail, and Thick fluff
+  tf-4:
+  - bugfix: Fixed Snowglobe burn chamber cycling
+  - bugfix: The Muur and Archangel helmets now toggle their visors properly.
+  - bugfix: Fixed a capitalisation error on a Blueshift camera name
+  - bugfix: Made brig access more consistent across multiple maps
+  - bugfix: fixed icecats being unable to open the chests added to the loot they once
+      had access to
+  - bugfix: Small pre-filled hypovials now have the right volume
+  - bugfix: Connected Serenity arrivals maint to main distro

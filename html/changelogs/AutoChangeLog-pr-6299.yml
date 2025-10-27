@@ -1,7 +1,0 @@
-author: "Hatterhat"
-delete-after: True
-changes:
-  - bugfix: "Machetes now have a defined icon angle so they don't look so silly when used in melee."
-  - balance: "Mauling melees (e-tool, machete) now have a damage multiplier when used to maul people."
-  - balance: "The breaching hammer now has mauling instead of just kneecapping, allowing it to brutalize all of a person instead of just their legs."
-  - code_imp: "Some variables regarding mauling are no longer hard-coded."

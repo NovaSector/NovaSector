@@ -1,4 +1,0 @@
-author: "tf-4"
-delete-after: True
-changes:
-  - bugfix: "fixed icecats being unable to open the chests added to the loot they once had access to"
