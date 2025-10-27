@@ -31,17 +31,31 @@
 /datum/round_event/spacevine/start()
 	var/list/turfs = list() //list of all the empty floor turfs in the hallway areas
 
-
 	if(override_turf)
 		turfs += override_turf
 	else
 		var/obj/structure/spacevine/vine = new()
-
-		for(var/area/station/hallway/area in GLOB.areas)
+		var/list/floor_candidates = list()
+		for(var/area/station/hallway/area in shuffle(GLOB.areas.Copy()))
 			for(var/turf/open/floor in area.get_turfs_from_all_zlevels())
-				if(!isopenspaceturf(floor) && floor.Enter(vine))
-					turfs += floor
+				if(isopenspaceturf(floor))
+					continue
+				floor_candidates += floor
 
+		// Enter() is expensive to call on potentially hundreds to thousands of turfs at once and can even lead to server crashes.
+		// We can pick() a subset instead and get close enough results at a fraction of the cost.
+		var/max_attempts = 25
+		var/attempts = 0
+
+		// Pick extra candidates to compensate for potential Enter() failures
+		var/list/chosen = pick_n(floor_candidates, min(max_attempts * 2, length(floor_candidates)))
+
+		for(var/turf/open/floor as anything in chosen)
+			if(attempts >= max_attempts)
+				break
+			if(floor.Enter(vine))
+				turfs += floor
+				attempts++
 		qdel(vine)
 
 	if(length(turfs)) //Pick a turf to spawn at if we can

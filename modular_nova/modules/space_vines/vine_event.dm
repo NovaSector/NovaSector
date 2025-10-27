@@ -26,6 +26,25 @@
 		event = src
 	)
 
+/proc/pick_n(list/list_to_pick, n)
+	if(!islist(list_to_pick) || !list_to_pick.len || n <= 0)
+		return list()
+
+	/// The final list that gets returned
+	var/list/result
+	/// Shuffling the list and picking the first n indices is faster in some cases
+	var/list/copy_to_shuffle
+	/// length of our list_to_pick
+	var/list_to_pick_length = list_to_pick.len
+	n = min(n, list_to_pick_length)
+
+	// Shuffle and slice the first n indices
+	copy_to_shuffle = list_to_pick.Copy()
+	shuffle(copy_to_shuffle)
+	result = copy_to_shuffle.Copy(1, n + 1)
+
+	return result
+
 /datum/round_event/spacevine/difficult/start()
 	var/list/possible_spawn_turfs = list()
 
@@ -34,7 +53,7 @@
 		return
 
 	var/obj/structure/spacevine/test_vine = new()
-	for(var/area/possible_area in GLOB.areas)
+	for(var/area/possible_area in shuffle(GLOB.areas.Copy()))
 		var/list/candidate_turfs = list()
 
 		// filter only the relevant areas
@@ -56,13 +75,19 @@
 
 			candidate_turfs += floor
 
-		// now only run expensive Enter() checks on the smaller random subset from each area
-		var/list/final_candidate_turfs = list()
-		for(var/turf/open/floor as anything in pick(candidate_turfs, min(25, length(candidate_turfs))))
-			if(floor.Enter(test_vine))
-				final_candidate_turfs += floor
+		// Enter() is expensive to call on potentially hundreds to thousands of turfs at once and can even lead to server crashes.
+		// We can pick() a subset instead and get close enough results at a fraction of the cost.
+		var/max_attempts = 25
+		var/attempts = 0
+		// Pick extra candidates to compensate for potential Enter() failures
+		var/list/final_candidate_turfs = pick_n(candidate_turfs, min(max_attempts, length(candidate_turfs)))
 
-		possible_spawn_turfs += final_candidate_turfs
+		for(var/turf/open/floor as anything in final_candidate_turfs)
+			if(attempts >= max_attempts)
+				break
+			if(floor.Enter(test_vine))
+				possible_spawn_turfs += floor
+				attempts++
 
 	qdel(test_vine)
 
