@@ -5,7 +5,7 @@
 	dupe_mode = COMPONENT_DUPE_UNIQUE
 	var/tilt_angle = 0
 	var/tilting = FALSE
-	var/maximum_tilt = 45
+	var/maximum_tilt = 10
 	var/tilt_increment = 5
 	var/matrix/original_transform
 
