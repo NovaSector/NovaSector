@@ -12,7 +12,7 @@
 	outfit.shoes = item_path
 /* // NOVA EDIT REMOVAL START
 /datum/loadout_item/shoes/sneakers
-	name = "Sneakers (Colourable)"
+	name = "Sneakers"
 	item_path = /obj/item/clothing/shoes/sneakers
 */ // NOVA EDIT REMOVAL END
 /datum/loadout_item/shoes/sandals_laced

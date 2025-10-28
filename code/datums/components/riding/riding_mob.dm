@@ -119,7 +119,8 @@
 		return COMPONENT_DRIVER_BLOCK_MOVE
 	var/mob/living/living_parent = parent
 	step(living_parent, direction)
-	var/modified_move_delay = uses_native_speed ? living_parent.cached_multiplicative_slowdown - get_cached_movespeed_modifier(living_parent.get_move_intent_slowdown()) : vehicle_move_delay
+	var/datum/movespeed_modifier/slowdown = get_cached_movespeed_modifier(living_parent.get_move_intent_slowdown())
+	var/modified_move_delay = uses_native_speed ? living_parent.cached_multiplicative_slowdown - slowdown?.multiplicative_slowdown : vehicle_move_delay
 	if(HAS_TRAIT(user, TRAIT_ROUGHRIDER)) // YEEHAW!
 		switch(HAS_TRAIT(user, TRAIT_PRIMITIVE) ? SANITY_LEVEL_GREAT : user.mob_mood?.sanity_level)
 			if(SANITY_LEVEL_GREAT)
@@ -458,6 +459,7 @@
 		COOLDOWN_START(src, pony_trot_cooldown, 500 MILLISECONDS)
 
 /datum/component/riding/creature/bear
+	vehicle_move_delay = 1.5
 
 /datum/component/riding/creature/bear/get_rider_offsets_and_layers(pass_index, mob/offsetter)
 	return list(

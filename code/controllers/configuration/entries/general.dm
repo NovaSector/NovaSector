@@ -120,8 +120,6 @@
 
 /datum/config_entry/flag/log_subtler // log subtler emotes //NOVA EDIT ADDITION
 
-/datum/config_entry/flag/log_econ // log economy actions
-
 /// log emotes
 /datum/config_entry/flag/log_emote
 
@@ -797,3 +795,7 @@
 
 /datum/config_entry/flag/generate_assets_in_init
 	default = FALSE
+
+/datum/config_entry/number/minimum_ascension_time
+	default = 0 // 1 minute
+	min_val = 0

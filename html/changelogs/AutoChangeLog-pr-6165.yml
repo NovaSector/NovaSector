@@ -1,0 +1,6 @@
+author: "OrbisAnima"
+delete-after: True
+changes:
+  - rscdel: "Legion spawner variants (Portal / Tendril) no longer leave behind infested corpse mobs, reducing unnecessary corpse accumulation on Lavaland. This will positively  impact performance."
+  - balance: "Lava fish sources now consider corpses a unique fish type, this mean they can only be fished by clients mobs, thus avoiding explosions, lighting and lobsters to fish them up. This will positively impact performance."
+  - balance: "For the above reasons, Legion regenerative cores will be needed where you needed human cadavers to do ashwalker rituals."
