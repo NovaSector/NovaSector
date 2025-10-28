@@ -27,6 +27,7 @@
 	datum/preferences/preference_source = GLOB.preference_entries_by_key[ckey],
 	visuals_only = FALSE,
 	datum/job/equipping_job,
+	allow_mechanical_loadout_items = TRUE,
 )
 	if (!preference_source)
 		equipOutfit(outfit, visuals_only) // no prefs for loadout items, but we should still equip the outfit.
@@ -57,7 +58,7 @@
 					erpbox = new(loc)
 				new item.item_path(erpbox)
 			else
-				if (!item.can_be_applied_to(src, preference_source, equipping_job))
+				if (!item.can_be_applied_to(src, preference_source, equipping_job, allow_mechanical_loadout_items))
 					continue
 				new item.item_path(briefcase)
 
@@ -71,7 +72,7 @@
 					erpbox = new(loc)
 				new item.item_path(erpbox)
 			else
-				if (!item.can_be_applied_to(src, preference_source, equipping_job))
+				if (!item.can_be_applied_to(src, preference_source, equipping_job, allow_mechanical_loadout_items))
 					continue
 
 				// Make sure the item is not overriding an important for life outfit item
@@ -99,9 +100,9 @@
 
 		item.on_equip_item(
 			equipped_item = equipped,
-			preference_source = preference_source,
-			preference_list = loadout_list,
+			item_details = loadout_list?[item.item_path] || list(),
 			equipper = src,
+			outfit = equipped_outfit,
 			visuals_only = visuals_only,
 		)
 

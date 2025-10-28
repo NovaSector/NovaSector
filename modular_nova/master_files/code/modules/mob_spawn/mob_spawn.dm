@@ -10,6 +10,8 @@
 	var/loadout_enabled = FALSE
 	/// Can we use our quirks for this role?
 	var/quirks_enabled = FALSE
+	/// Should the ghost role get mechanical loadout items (i.e weaponry)
+	var/allow_mechanical_loadout_items = FALSE
 	/// Are we limited to a certain species type? LISTED TYPE
 	var/restricted_species
 
@@ -50,7 +52,7 @@
 		post_transfer_prefs(spawned_human)
 
 	if(load_prefs && loadout_enabled)
-		spawned_human?.equip_outfit_and_loadout(outfit, spawned_mob.client.prefs)
+		spawned_human?.equip_outfit_and_loadout(outfit, spawned_mob.client.prefs, FALSE, null, allow_mechanical_loadout_items)
 	else if (!isnull(spawned_human))
 		equip(spawned_human)
 		var/mutable_appearance/character_appearance = new(spawned_human.appearance)
