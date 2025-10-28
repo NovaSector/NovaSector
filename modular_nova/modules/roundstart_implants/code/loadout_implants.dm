@@ -239,7 +239,7 @@
 			paper.throw_at(throw_target, rand(1, 3), rand(1, 2))
 			bin.total_paper--
 			papers_spat_out++
-		if(paper_count > 0)
+		if(papers_spat_out > 0)
 			owner.visible_message(
 				span_warning("[owner]'s arm suddenly spews out paper in all directions!"),
 				span_warning("Your bureaucracy implant malfunctions, spewing papers everywhere!")
