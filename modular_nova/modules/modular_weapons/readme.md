@@ -10,11 +10,11 @@ The forbidden hell-hole of god's mistakes
 
 ### Important Note:
 "Time To Down" notes:
-The following assumes no armor, no healing, and no wound immunity:
-rifles: 3-3.5s TTD
-pistols: 3.5-4s TTD
-snipers: 4s TTD
-boltactions/pumpactions/anything-you-can-fumble: use rifles
+- The following assumes no armor, no healing, and no wound immunity:
+- rifles: 3-3.5s TTD
+- pistols: 3.5-4s TTD
+- snipers: 4s TTD
+- boltactions/pumpactions/anything-you-can-fumble: use rifles
 
 Keep wound chance for stuff doing over 20 damage on the lower-end, unless it's a gimmick for specifically wound chance
 ### TG Proc Changes:
