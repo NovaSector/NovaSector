@@ -524,7 +524,7 @@
 	name = "Tall Tipped Ears"
 	icon_state = "chemlight"
 
-/datum/sprite_accessory/ears/external/shade
+/datum/sprite_accessory/ears/external/shade/
 	name = "Shade Ears"
 	icon_state = "shadekin"
 
@@ -552,10 +552,6 @@
 	name = "Shade Rings (Right)"
 	icon_state = "shadekinringsright"
 
-/datum/sprite_accessory/ears/external/shade/gradient
-	name = "Shade Gradient"
-	icon_state = "shadekingradient"
-
 /datum/sprite_accessory/ears/external/shade/smooth
 	name = "Shade Smooth"
 	icon_state = "shadekinsmooth"
@@ -564,11 +560,7 @@
 	name = "Shade Saggy"
 	icon_state = "shadekinsaggy"
 
-/datum/sprite_accessory/ears/external/shade/saggy/gradient
-	name = "Shade Saggy Gradient"
-	icon_state = "shadekinsaggygradient"
-
-/datum/sprite_accessory/ears/external/shade/short
+/datum/sprite_accessory/ears/external/shade/short/onecolor
 	name = "Shade Short"
 	icon_state = "shadekinshort"
 
@@ -587,10 +579,6 @@
 /datum/sprite_accessory/ears/external/shade/fluffy
 	name = "Shade Fluffy"
 	icon_state = "shadekinfluffy"
-
-/datum/sprite_accessory/ears/external/shade/fluffy/gradient
-	name = "Shade Fluffy Gradient"
-	icon_state = "shadekinfluffygradient"
 
 /datum/sprite_accessory/ears/external/shade/fluffy/rings
 	name = "Shade Fluffy Rings"
