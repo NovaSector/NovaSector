@@ -74,12 +74,17 @@
 				/obj/item/clothing/under/rank/civilian/janitor/maid = 5,
 				/obj/item/clothing/suit/corset = 5,
 
-				/obj/item/clothing/under/tearaway_garments = 5,
-				/obj/item/clothing/glasses/nice_goggles = 1, //easter egg, don't touch plz
-			),
+			/obj/item/clothing/under/tearaway_garments = 5,
+			/obj/item/clothing/glasses/nice_goggles = 1, //easter egg, don't touch plz
+
+			// Lustwish modsuit
+			/obj/item/mod/construction/plating/lustwish = 5,
+			/obj/item/mod/module/hypno_visor = 5,
+			/obj/item/mod/module/remote_control = 5,
 		),
-		list(
-			"name" = "Restraints",
+	),
+	list(
+		"name" = "Restraints",
 			"icon" = FA_ICON_HANDCUFFS,
 			"products" = list(
 				//Sex toys
