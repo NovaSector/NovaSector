@@ -18,6 +18,8 @@
 	organ_traits = list(TRAIT_SILICON_EMOTES_ALLOWED)
 	/// Whether or not the protean is stuck in their suit or not.
 	var/dead = FALSE
+	/// Timer ID for going into suit animation
+	var/going_into_suit_timer
 	COOLDOWN_DECLARE(message_cooldown)
 	COOLDOWN_DECLARE(refactory_cooldown)
 	COOLDOWN_DECLARE(orchestrator_cooldown)
@@ -29,7 +31,8 @@
 	handle_refactory(owner.get_organ_slot(ORGAN_SLOT_STOMACH))
 	handle_orchestrator(owner.get_organ_slot(ORGAN_SLOT_HEART))
 	// Proteans retract into their suit when they hit hard crit
-	if(owner.stat >= HARD_CRIT && !dead)
+	// Check if we're already going into suit to prevent double-execution
+	if(owner.stat >= HARD_CRIT && !dead && !timeleft(going_into_suit_timer))
 		to_chat(owner, span_red("Your fragile refactory withers away with your mass reduced to scraps. Someone will have to help you."))
 		dead = TRUE
 		owner.revive(list(HEAL_DAMAGE, HEAL_ORGANS), TRUE, TRUE) // So we dont get dead human inside of suit
@@ -39,7 +42,8 @@
 		// Start emergency recovery cycle
 		revive_timer()
 
-/obj/item/organ/brain/protean/proc/handle_refactory(obj/item/organ) // Slowly degrade
+/// Checks if protean has refactory (stomach) organ, applies damage if missing. Deals 3 brute per tick, warns every 30s.
+/obj/item/organ/brain/protean/proc/handle_refactory(obj/item/organ)
 	var/datum/species/protean/species = owner?.dna.species
 	var/obj/item/mod/control/pre_equipped/protean/suit = species.species_modsuit
 	if(owner.loc == suit)
@@ -50,7 +54,8 @@
 			to_chat(owner, span_warning("Your mass is slowly degrading without your refactory!"))
 			COOLDOWN_START(src, refactory_cooldown, 30 SECONDS)
 
-/obj/item/organ/brain/protean/proc/handle_orchestrator(obj/item/organ) // If you're missing an orchestrator, you will have trouble walking.
+/// Checks if protean has orchestrator (heart) organ, impairs movement if missing. Knocks down and applies 2x slowdown every 30s.
+/obj/item/organ/brain/protean/proc/handle_orchestrator(obj/item/organ)
 	var/datum/species/protean/species = owner?.dna.species
 	var/obj/item/mod/control/pre_equipped/protean/suit = species.species_modsuit
 	if(owner.loc == suit)
@@ -70,6 +75,7 @@
 /datum/movespeed_modifier/protean_slowdown
 	variable = TRUE
 
+/// Transforms protean into suit mode, moving them inside their modsuit. Protean is stunned but can speak/use radio. Takes 5s unless forced.
 /obj/item/organ/brain/protean/proc/go_into_suit(forced)
 	var/datum/species/protean/protean = owner.dna?.species
 	if(!istype(protean) || owner.loc == protean.species_modsuit)
@@ -102,9 +108,10 @@
 	owner.remove_status_effect(/datum/status_effect/protean_low_power_mode/low_power)
 	suit.drop_suit()
 	owner.forceMove(suit)
-	sleep(12) //Sleep is fine here because I'm not returning anything and if the brain gets deleted within 12 ticks of this being ran, we have some other serious issues.
-	owner.invisibility = initial(owner.invisibility)
+	// Use timer instead of sleep() to avoid blocking on_life() processing
+	going_into_suit_timer = addtimer(VARSET_CALLBACK(owner, invisibility, initial(owner.invisibility)), 1.2 SECONDS, TIMER_STOPPABLE)
 
+/// Transforms protean from suit mode back to humanoid form. Takes 5s, equips suit to back, applies "Freshly Reformed" debuff.
 /obj/item/organ/brain/protean/proc/leave_modsuit()
 	var/datum/species/protean/protean = owner.dna?.species
 	if(!istype(protean))
@@ -115,10 +122,6 @@
 		return
 	if(!do_after(owner, 5 SECONDS, suit, IGNORE_INCAPACITATED))
 		return
-	// NOVA EDIT: Commented out soup pot code - proc doesn't exist in NovaSector
-	// if(istype(suit.loc, /obj/item/reagent_containers/cup/soup_pot)) // If protean inside of soup pot
-	// 	var/obj/item/reagent_containers/cup/soup_pot/pot = suit.loc
-	// 	pot.remove_first_ingredient(null)
 	var/mob/living/carbon/mob = suit.loc
 	if(istype(mob))
 		mob.dropItemToGround(suit, TRUE)
@@ -135,7 +138,11 @@
 
 	suit.invisibility = 101
 	new /obj/effect/temp_visual/protean_from_suit(exit_turf, owner.dir)
-	sleep(12) //Same as above
+	// Brief delay for visual effect using timer instead of sleep()
+	addtimer(CALLBACK(src, PROC_REF(complete_exit_transformation), suit, exit_turf), 1.2 SECONDS)
+
+/// Completes the exit transformation after visual effect delay
+/obj/item/organ/brain/protean/proc/complete_exit_transformation(obj/item/mod/control/pre_equipped/protean/suit, turf/exit_turf)
 	suit.drop_suit()
 	owner.forceMove(exit_turf)
 	if(owner.get_item_by_slot(ITEM_SLOT_BACK))
@@ -149,6 +156,7 @@
 	if(!HAS_TRAIT(suit, TRAIT_NODROP))
 		ADD_TRAIT(suit, TRAIT_NODROP, "protean")
 
+/// Heals and replaces damaged limbs/organs using 6 metal sheets. Requires being in suit mode, takes 30s.
 /obj/item/organ/brain/protean/proc/replace_limbs()
 	var/obj/item/organ/stomach/protean/stomach = owner.get_organ_slot(ORGAN_SLOT_STOMACH)
 	var/obj/item/organ/eyes/robotic/protean/eyes = owner.get_organ_slot(ORGAN_SLOT_EYES)

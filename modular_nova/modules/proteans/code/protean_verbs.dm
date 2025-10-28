@@ -1,3 +1,4 @@
+/// Opens the protean modsuit UI interface. Allows access to suit modules, power, and settings.
 /mob/living/carbon/proc/protean_ui()
 	set name = "Open Suit UI"
 	set desc = "Opens your suit UI"
@@ -12,6 +13,7 @@
 		return
 	species.species_modsuit.ui_interact(src)
 
+/// Heals and replaces damaged limbs/organs. Requires 6 metal sheets and being in suit mode. Takes 30 seconds.
 /mob/living/carbon/proc/protean_heal()
 	set name = "Heal Organs and Limbs"
 	set desc = "Heals your replacable organs and limbs with 6 metal."
@@ -37,6 +39,7 @@
 
 	brain.replace_limbs()
 
+/// Locks/unlocks the modsuit on another person, preventing them from removing it. Requires their OOC consent via preferences.
 /mob/living/carbon/proc/lock_suit()
 	set name = "Lock Suit"
 	set desc = "Locks your suit on someone"
@@ -74,6 +77,7 @@
 	to_chat(src, span_notice("You [suit.modlocked ? "<b>lock</b>" : "<b>unlock</b>"] the suit [isprotean(suit.wearer) || loc == suit ? "" : "onto [suit.wearer]"]"))
 	playsound(src, 'sound/machines/click.ogg', 25)
 
+/// Toggles between humanoid and suit mode. Humanoid can move, suit mode provides protection but stuns. Takes 5 seconds.
 /mob/living/carbon/proc/suit_transformation()
 	set name = "Toggle Suit Transformation"
 	set desc = "Either leave or enter your suit."
@@ -99,6 +103,7 @@
 		else
 			balloon_alert(src, "incapacitated!")
 
+/// Toggles low power mode to conserve metal at the cost of movement speed. Cannot be used in suit mode.
 /mob/living/carbon/proc/low_power()
 	set name = "Toggle Low Power Mode"
 	set desc = "Toggle whether you are running on low power mode."
@@ -130,6 +135,7 @@
 
 // Hijacking and mounting features removed
 
+/// Sends a message through the modsuit's internal speakers to whoever is wearing it. Protean-only communication channel.
 /mob/living/carbon/proc/speak_through_modsuit()
 	set name = "Speak Through Suit"
 	set desc = "Speak to whoever is wearing your modsuit through internal speakers."
@@ -163,6 +169,7 @@
 	// Play a subtle beep to the wearer
 	playsound(suit.wearer, 'sound/machines/beep/twobeep_high.ogg', 25, FALSE, SHORT_RANGE_SOUND_EXTRARANGE)
 
+/// Ejects an assimilated modsuit, returning it and all its modules to the original owner. Takes 4 seconds.
 /mob/living/carbon/proc/eject_assimilated_modsuit()
 	set name = "Eject Assimilated Modsuit"
 	set desc = "Eject the modsuit you have assimilated, returning it to its original form."

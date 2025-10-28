@@ -63,7 +63,7 @@
 	. = ..()
 	var/mob/living/carbon/human/human_holder = quirk_holder
 	// Proteans cannot use this quirk - they already have a unique modsuit
-	if(istype(human_holder.dna.species, /datum/species/protean))
+	if(isprotean(human_holder))
 		stack_trace("Entombed quirk attempted to be applied to a Protean ([quirk_holder]) and was force-removed.")
 		qdel(src)
 		return

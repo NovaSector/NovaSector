@@ -45,7 +45,7 @@
 		// Needed to exist without dying and robot specific stuff.
 		TRAIT_NOBREATH,
 		TRAIT_ROCK_EATER,
-		TRAIT_STABLEHEART, // TODO: handle orchestrator code
+		TRAIT_STABLEHEART, // Orchestrator module handles heart/movement
 		TRAIT_NOHUNGER, // They will have metal stored in the stomach. Fuck nutrition code.
 		TRAIT_LIMBATTACHMENT,
 
@@ -73,7 +73,7 @@
 	inherent_biotypes = MOB_ROBOTIC | MOB_HUMANOID
 	reagent_flags = PROCESS_PROTEAN
 
-	/// Reference to the
+	/// Reference to the protean's integrated modsuit
 	var/obj/item/mod/control/pre_equipped/protean/species_modsuit
 
 	/// Reference to the species owner
@@ -85,6 +85,12 @@
 	race = /datum/species/protean
 
 /datum/species/protean/Destroy(force)
+	// Unregister signals before cleanup
+	if(species_modsuit)
+		UnregisterSignal(species_modsuit, COMSIG_PREQDELETED)
+	if(owner)
+		UnregisterSignal(owner, COMSIG_QDELETING)
+
 	QDEL_NULL(species_modsuit)
 	owner = null
 	. = ..()
@@ -124,6 +130,11 @@
 	else
 		equip_modsuit(gainer)
 
+	// Register signal to block non-forced deletion of the modsuit
+	RegisterSignal(species_modsuit, COMSIG_PREQDELETED, PROC_REF(on_species_modsuit_qdeleted))
+	// Register signal to handle mob deletion properly
+	RegisterSignal(owner, COMSIG_QDELETING, PROC_REF(on_mob_qdeleting))
+
 	RegisterSignal(src, COMSIG_OUTFIT_EQUIP, PROC_REF(outfit_handling))
 	RegisterSignal(owner, COMSIG_CARBON_GAIN_ORGAN, PROC_REF(organ_reject))
 	var/obj/item/mod/core/protean/core = species_modsuit.core
@@ -148,6 +159,7 @@
 		var/obj/item/organ/brain/protean/new_brain = new()
 		new_brain.Insert(gainer, special = TRUE, movement_flags = DELETE_IF_REPLACED)
 
+/// Signal handler: detects when non-protean organ is inserted and schedules its rejection. Only accepts robotic/nanomachine organs.
 /datum/species/protean/proc/organ_reject(mob/living/source, obj/item/organ/inserted)
 	SIGNAL_HANDLER
 
@@ -160,6 +172,7 @@
 		return
 	addtimer(CALLBACK(src, PROC_REF(reject_now), source, inserted), 1 SECONDS)
 
+/// Performs the actual organ rejection, removing incompatible organ and dropping it. Called by organ_reject after 1s delay.
 /datum/species/protean/proc/reject_now(mob/living/source, obj/item/organ/organ)
 
 	organ.Remove(source)
@@ -167,6 +180,20 @@
 	to_chat(source, span_danger("Your mass rejected [organ]!"))
 	organ.balloon_alert_to_viewers("rejected!", vision_distance = 1)
 
+/// Block deletion of their suit under normal circumstances, it's not removable.
+/datum/species/protean/proc/on_species_modsuit_qdeleted(datum/source, force)
+	SIGNAL_HANDLER
+	if(!force)
+		return TRUE
+
+/// Handle mob deletion - unregister signals and null the modsuit reference
+/datum/species/protean/proc/on_mob_qdeleting(datum/source)
+	SIGNAL_HANDLER
+	if(species_modsuit)
+		UnregisterSignal(species_modsuit, COMSIG_PREQDELETED)
+	species_modsuit = null
+
+/// Creates and equips a new protean modsuit to the protean's back slot. Drops any existing back item.
 /datum/species/protean/proc/equip_modsuit(mob/living/carbon/human/gainer)
 	species_modsuit = new()
 	var/obj/item/item_in_slot = gainer.get_item_by_slot(ITEM_SLOT_BACK)
@@ -176,15 +203,8 @@
 		gainer.dropItemToGround(item_in_slot, force = TRUE)
 	return gainer.equip_to_slot_if_possible(species_modsuit, ITEM_SLOT_BACK, disable_warning = TRUE)
 
-/**
- * Protean Outfit Handling and Logic ----------------------------------------
- * Proteans get really fucky with outfit logic, so I've appended a COMSIG_OUTFIT_EQUIP signal at the end of /datum/outfit/proc/equip.
- * Basically what this does, is once outfit code has been ran, it will go through the assigned outfit again.
- * It assimilates any modsuits, gives you a storage if you're missing it, and places contents into said storage.
- * Yes, this is really snowflakey but I've been bashing my head against the wall for 4 hours trying to figure this out.
- * -------------------------------------------------------------------------- */
-
-/datum/species/protean/proc/outfit_handling(datum/species/protean, datum/outfit/outfit, visuals_only) // Very snowflakey code. I'm not making outfits for every job.
+/// Signal handler for COMSIG_OUTFIT_EQUIP. Handles protean outfit logic: assimilates modsuits, ensures storage module, transfers backpack contents.
+/datum/species/protean/proc/outfit_handling(datum/species/protean, datum/outfit/outfit, visuals_only)
 	SIGNAL_HANDLER
 	var/get_a_job = istype(outfit, /datum/outfit/job)
 	var/obj/item/mod/control/suit

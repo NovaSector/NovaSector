@@ -1,26 +1,27 @@
-/////////Protean servo module////////
-//Module meant to give temporary passive buffs to wearer, gives three options with diffrent effects and shared cooldowns.
-
+/// Protean servo module - grants temporary buffs to modsuit wearer via protean-controlled abilities. Movement, medical, engineering buffs with 60s shared cooldown.
 /obj/item/mod/module/protean_servo
 	name = "protean MOD servo module"
 	desc = "A module made for use in protean MOD suits that adds new subroutines while folded. Comes with three modes, each partially takes over MOD suit's motor functions to enhance the wearer's general movement, performing medical duties or construction tasks. Due to high computing power demand, protean can only use this module while worn by someone else."
 	icon_state = "no_baton"
 	complexity = 3
 	use_energy_cost = DEFAULT_CHARGE_DRAIN
-	module_type = MODULE_TOGGLE //with this the module will automaticly deactivate if it's depowered or taken off
+	module_type = MODULE_TOGGLE
 
-//abilities that we'll be granting to Protean by activating the module
+	/// Movement enhancement ability
 	var/datum/action/cooldown/protean_servo/movement/servo_movement = new /datum/action/cooldown/protean_servo/movement
+	/// Medical enhancement ability
 	var/datum/action/cooldown/protean_servo/medical/servo_medical = new /datum/action/cooldown/protean_servo/medical
+	/// Engineering enhancement ability
 	var/datum/action/cooldown/protean_servo/engineering/servo_engineering = new /datum/action/cooldown/protean_servo/engineering
 
+/// Activates the servo module, granting buff abilities to the protean (not the wearer). Prevents protean from buffing themselves.
 /obj/item/mod/module/protean_servo/on_activation()
 	. = ..()
 
 	var/obj/item/mod/core/protean/protean_core = mod.core
 	var/mob/living/carbon/human/protean_in_suit = protean_core.linked_species.owner
 
-	if(protean_in_suit == mod.wearer) //Protean cant benefit from module they're suposed to be powering
+	if(protean_in_suit == mod.wearer)
 		playsound(src, 'sound/machines/scanner/scanbuzz.ogg', 25, TRUE, SILENCED_SOUND_EXTRARANGE)
 		to_chat(mod.wearer, span_warning("[src] needs someone else as the wearer, it can't be used on a protean."))
 		deactivate()
@@ -30,12 +31,13 @@
 	servo_medical.Grant(protean_in_suit)
 	servo_engineering.Grant(protean_in_suit)
 
+/// Deactivates the servo module, removing all buff abilities and active effects from both protean and wearer.
 /obj/item/mod/module/protean_servo/on_deactivation(display_message = TRUE, deleting = FALSE)
 	. = ..()
 	var/obj/item/mod/core/protean/protean_core = mod.core
 	var/mob/living/carbon/human/protean_in_suit = protean_core?.linked_species.owner
 
-	servo_movement.Remove(protean_in_suit) //All the cleanup, since module deactivates once out of power, this will remove granted abilities
+	servo_movement.Remove(protean_in_suit)
 	servo_medical.Remove(protean_in_suit)
 	servo_engineering.Remove(protean_in_suit)
 

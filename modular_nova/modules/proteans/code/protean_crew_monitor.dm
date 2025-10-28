@@ -35,6 +35,10 @@
 			stack_trace("Non-human mob is in suit_sensors_list: [tracked_living_mob] ([tracked_living_mob.type])")
 			continue
 
+		// Check if they're being deleted
+		if(QDELETED(tracked_human))
+			continue
+
 		// Check if they're wearing a protean modsuit (or are a protean themselves)
 		var/sensor_mode = SENSOR_OFF
 		var/has_sensor = NO_SENSORS

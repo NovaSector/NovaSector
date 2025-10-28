@@ -1,4 +1,4 @@
-/// Custom computer for protean cores - adapted from synth persocom
+/// Integrated persocom - protean's built-in virtual PDA. Requires no power, works anywhere, syncs with ID cards, accessible even in suit mode.
 /obj/item/modular_computer/pda/protean
 	name = "integrated persocom"
 	desc = "A virtual PDA interface integrated into the protean's neural core."
@@ -46,6 +46,13 @@
 		return UI_CLOSE
 
 	if(!QDELETED(brain_loc.owner))
+		// Allow protean to use perscom while in suit mode (user is the protean owner)
+		if(user == brain_loc.owner)
+			return min(
+				ui_status_only_living(user),
+				UI_INTERACTIVE,
+			)
+		// Others need to be adjacent
 		return min(
 			ui_status_user_is_abled(user, src),
 			ui_status_only_living(user),
@@ -53,7 +60,7 @@
 		)
 	return ..()
 
-/// Id card arg is optional. Leaving it null causes the id to become unpaired from the protean computer
+/// Updates the perscom's linked ID card reference. Called when protean equips/unequips ID cards, PDAs, or wallets.
 /obj/item/modular_computer/pda/protean/proc/update_id_slot(obj/item/card/id/id_card)
 	var/obj/item/organ/brain/protean/brain_loc = loc
 	if(!istype(brain_loc))
@@ -107,6 +114,7 @@
 	if(contained_id_item)
 		UnregisterSignal(contained_id_item, list(COMSIG_MOVABLE_MOVED, COMSIG_ITEM_UNSTORED))
 
+/// Handles ID slot item changes and sets up signal tracking. Supports ID cards, PDAs with cards, and wallets with cards.
 /obj/item/modular_computer/pda/protean/proc/handle_id_slot(mob/living/carbon/human/protean, obj/item/id_item)
 	if(!istype(protean))
 		return
