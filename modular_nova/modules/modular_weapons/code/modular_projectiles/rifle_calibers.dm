@@ -160,7 +160,7 @@
 /obj/projectile/bullet/strilka310/rubber
 	name = ".310 rubber bullet"
 	damage = 15
-	stamina = 55
+	stamina = 35
 	ricochets_max = 5
 	ricochet_incidence_leeway = 0
 	ricochet_chance = 130
@@ -184,7 +184,7 @@
 
 /obj/projectile/bullet/strilka310/ap
 	name = ".310 armor-piercing bullet"
-	damage = 50
+	damage = 35
 	armour_penetration = 60
 
 /*
