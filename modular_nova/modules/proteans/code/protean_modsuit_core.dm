@@ -62,3 +62,17 @@
 		if((PROTEAN_STOMACH_FULL * 0.7) to INFINITY)
 			return "good"
 
+/// Nanite slurry blood type for proteans
+/datum/blood_type/nanite_slurry
+	name = BLOOD_TYPE_NANITE_SLURRY
+	desc = "A metallic grey liquid comprised of microscopic nanomachines suspended in a conductive slurry. \
+		These nanites serve as both the protean's circulatory system and repair mechanism."
+	dna_string = "Protean Nanite Signature"
+	color = "#cccccc" // Light grey, matches nanite slurry reagent
+	reagent_type = /datum/reagent/medicine/nanite_slurry
+	restoration_chem = /datum/reagent/iron // Proteans use metal to regenerate blood
+	compatible_types = list(
+		/datum/blood_type/nanite_slurry,
+	)
+	// Nanite blood should leave DNA and cover surfaces like normal blood
+	blood_flags = BLOOD_ADD_DNA | BLOOD_COVER_ALL | BLOOD_TRANSFER_VIRAL_DATA
