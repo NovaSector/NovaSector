@@ -341,43 +341,19 @@ SUBSYSTEM_DEF(dynamic)
 	if(isnull(picked_ruleset))
 		log_dynamic("Midround ([range]): No rulesets to pick from!")
 		return FALSE
-	/* // NOVA EDIT REMOVAL START
 	message_admins("Midround ([range]): Executing [picked_ruleset.config_tag] \
 		[MIDROUND_CANCEL_HREF()] [MIDROUND_REROLL_HREF(rulesets_weighted)]")
-	*/ // NOVA EDIT REMOVAL END
 	// if we have admins online, we have a waiting period before execution to allow them to cancel or reroll
 	if(length(GLOB.admins))
-		/* // NOVA EDIT REMOVAL START
 		COOLDOWN_START(src, midround_admin_cancel_period, 15 SECONDS)
 		while(!COOLDOWN_FINISHED(src, midround_admin_cancel_period))
-		*/ // NOVA EDIT REMOVAL END
-		// NOVA EDIT ADDITION START - Multiple warnings, longer delay
-		var/total_time = 3 MINUTES
-		var/message_attempts = 2
-		var/attempts_done = 0
-		while(!COOLDOWN_FINISHED(src, midround_admin_cancel_period) || attempts_done < message_attempts)
-		// NOVA EDIT ADDITION END
 			if(midround_admin_cancel)
 				QDEL_LIST(rulesets_weighted)
 				COOLDOWN_START(src, midround_cooldown, get_ruleset_cooldown(range))
 				return FALSE
-			// NOVA EDIT ADDITION START
-			if(COOLDOWN_FINISHED(src, midround_admin_cancel_period))
-				var/next_wait = total_time / message_attempts
-				var/time_left = total_time - next_wait * attempts_done
-				message_admins("<font color='[COLOR_ADMIN_PINK]'>Dynamic Event triggering in [DisplayTimeText(time_left)]: [picked_ruleset.config_tag]. \
-					[MIDROUND_CANCEL_HREF()] | [MIDROUND_REROLL_HREF(rulesets_weighted)] </font>")
-				for(var/client/staff as anything in GLOB.admins)
-					if(staff?.prefs.read_preference(/datum/preference/toggle/comms_notification))
-						SEND_SOUND(staff, sound('sound/misc/server-ready.ogg'))
-				COOLDOWN_START(src, midround_admin_cancel_period, next_wait)
-				attempts_done += 1
-			// NOVA EDIT ADDITION END
 			if(midround_admin_reroll && length(rulesets_weighted) >= 2)
 				midround_admin_reroll = FALSE
-				// COOLDOWN_START(src, midround_admin_cancel_period, 15 SECONDS) // NOVA EDIT REMOVAL
-				COOLDOWN_RESET(src, midround_admin_cancel_period) // NOVA EDIT ADDITION
-				attempts_done = 0 // NOVA EDIT ADDITION
+				COOLDOWN_START(src, midround_admin_cancel_period, 15 SECONDS)
 				rulesets_weighted -= picked_ruleset
 				qdel(picked_ruleset)
 				picked_ruleset = pick_weight(rulesets_weighted)
@@ -386,10 +362,8 @@ SUBSYSTEM_DEF(dynamic)
 					message_admins("Rerolling Midround ([range]): Failed to pick a new ruleset, cancelling instead!")
 					midround_admin_cancel = TRUE
 					continue
-				/* // NOVA EDIT REMOVAL START
 				message_admins("Rerolling Midround ([range]): Executing [picked_ruleset.config_tag] - \
 					[length(rulesets_weighted) - 1] remaining rulesets in pool. [MIDROUND_CANCEL_HREF()] [MIDROUND_REROLL_HREF(rulesets_weighted)]")
-				*/ // NOVA EDIT REMOVAL END
 			stoplag()
 
 	// NOTE: !! THIS CAN SLEEP !!
@@ -692,7 +666,7 @@ SUBSYSTEM_DEF(dynamic)
 		log_admin("[key_name(usr)] cancelled the queued midround ruleset.")
 		return
 
-
+#ifdef TESTING
 /// Puts all repo defaults into a dynamic.toml file
 /datum/controller/subsystem/dynamic/proc/build_dynamic_toml()
 	var/data = ""
@@ -767,3 +741,4 @@ SUBSYSTEM_DEF(dynamic)
 	fdel(file(filepath))
 	text2file(data, filepath)
 	return TRUE
+#endif
