@@ -1180,9 +1180,9 @@ mutant_styles: The mutant style - taur bodytype, STYLE_TESHARI, etc. // NOVA EDI
 		if(undie_accessory)
 			var/mutable_appearance/working_shirt
 			if(dna.species.sexes && physique == FEMALE)
-				working_shirt = mutable_appearance(wear_female_version(undie_accessory.icon_state, undie_accessory.icon), layer = -BODY_LAYER)
+				working_shirt = mutable_appearance(wear_female_version(undie_accessory.icon_state, undie_accessory.icon), layer = -NOVA_UNDERWEAR_UNDERSHIRT_LAYER) // NOVA EDIT CHANGE - ORIGINAL: working_shirt = mutable_appearance(wear_female_version(undie_accessory.icon_state, undie_accessory.icon), layer = -BODY_LAYER)
 			else
-				working_shirt = mutable_appearance(undie_accessory.icon, undie_accessory.icon_state, layer = -BODY_LAYER)
+				working_shirt = mutable_appearance(undie_accessory.icon, undie_accessory.icon_state, layer = -NOVA_UNDERWEAR_UNDERSHIRT_LAYER) // NOVA EDIT CHANGE: - ORIGINAL: working_shirt = mutable_appearance(undie_accessory.icon, undie_accessory.icon_state, layer = -BODY_LAYER)
 			// NOVA EDIT ADDITION START
 			if(!undie_accessory.use_static)
 				working_shirt.color = undershirt_color
@@ -1208,7 +1208,6 @@ mutant_styles: The mutant style - taur bodytype, STYLE_TESHARI, etc. // NOVA EDI
 				if(!undie_accessory.use_static)
 					socks_overlay.color = socks_color
 				standing += socks_overlay
-
 	// NOVA EDIT ADDITION END
 
 	if(standing.len)
