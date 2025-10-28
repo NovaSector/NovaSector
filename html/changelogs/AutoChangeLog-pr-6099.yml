@@ -1,8 +1,0 @@
-author: "carpotoxin"
-delete-after: True
-changes:
-  - code_imp: "Sanitizes the traitor-uplink module"
-  - rscadd: "Adds a variety of weapons, MODsuits, MODules, ammunition, and even a species-restricted item to the uplink"
-  - rscadd: "Adds the Ansem and RPG to the OPFOR selection. (Mostly to be used in the uplink, too)"
-  - balance: "Rebalances the TC value of most traitor uplink items"
-  - balance: "Allows more jobs access to job-restricted traitor uplink items"

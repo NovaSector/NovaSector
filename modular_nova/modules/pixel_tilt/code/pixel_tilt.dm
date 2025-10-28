@@ -97,7 +97,7 @@
 	. = ..()
 	SEND_SIGNAL(user.mob, COMSIG_KB_MOB_PIXEL_TILT_UP)
 
-// Mob integration
+/// Mob integration
 /mob/proc/add_pixel_tilt_component()
 	return
 

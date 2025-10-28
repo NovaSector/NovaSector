@@ -107,7 +107,12 @@ GLOBAL_LIST_EMPTY_TYPED(interaction_instances, /datum/interaction)
 	msg = replacetext(replacetext(msg, "%TARGET_PRONOUN_THEY%", target.p_they()), "%USER_PRONOUN_THEY%", user.p_they())
 
 	if(lewd)
-		user.emote("subtler", null, msg, TRUE)
+		var/list/ignoring_mobs = list()
+		for(var/mob/not_interested in get_hearers_in_view(DEFAULT_MESSAGE_RANGE, user))
+			if(!not_interested.client?.prefs?.read_preference(/datum/preference/toggle/erp))
+				ignoring_mobs += not_interested
+		user.visible_message(span_purple("[user] [msg]"), ignored_mobs = ignoring_mobs)
+		user.log_message(msg, LOG_EMOTE)
 	else
 		user.manual_emote(msg)
 
@@ -137,7 +142,10 @@ GLOBAL_LIST_EMPTY_TYPED(interaction_instances, /datum/interaction)
 			message_admins("Deprecated sound handling for '[name]'. Correct format is a list with one entry. This message will only show once.")
 			sound_possible = list(sound_possible)
 		sound_cache = pick(sound_possible)
-		playsound(target.loc, sound_cache, 50, sound_vary, max(0, -SOUND_RANGE + sound_range))
+		if (lewd)
+			playsound_if_pref(target.loc, sound_cache, 50, sound_vary, max(0, -SOUND_RANGE + sound_range), pref_to_check = /datum/preference/toggle/erp/sounds)
+		else
+			playsound(target.loc, sound_cache, 50, sound_vary, max(0, -SOUND_RANGE + sound_range))
 
 	INVOKE_ASYNC(src, PROC_REF(apply_effects), user, target)
 

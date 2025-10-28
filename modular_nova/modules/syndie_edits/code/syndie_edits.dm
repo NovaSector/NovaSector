@@ -134,7 +134,7 @@
 	soft_type = "ds"
 
 //Maid Outfit
-/obj/item/clothing/head/costume/maidheadband/syndicate
+/obj/item/clothing/head/costume/maid_headband/syndicate
 	name = "tactical maid headband"
 	desc = "Tacticute."
 	icon_state = "syndimaid_headband"
