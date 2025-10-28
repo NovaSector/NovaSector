@@ -10,5 +10,5 @@
 
 //Reduce bleed rate by a factor of 3/4
 /datum/wound/pierce/bleed/critical/New()
-	initial_flow = round(initial_flow * (3/4), 0.01)
+	initial_flow = round(initial_flow * (1/4), 0.01)
 	return ..()
