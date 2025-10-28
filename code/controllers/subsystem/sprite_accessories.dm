@@ -61,12 +61,10 @@ SUBSYSTEM_DEF(accessories) // just 'accessories' for brevity
 	var/list/wings_open_list
 	var/list/moth_wings_list
 	var/list/moth_antennae_list
-	var/list/moth_markings_list
 	*/ //NOVA EDIT REMOVAL END
 	var/list/moth_markings_list
 	var/list/caps_list
 	var/list/pod_hair_list
-
 	// NOVA EDIT ADDITION START - Customization
 	var/list/lizard_markings_list
 	var/list/tails_list_monkey
