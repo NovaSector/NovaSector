@@ -42,7 +42,7 @@
 	handle_protean_hunger(owner, seconds_per_tick)
 
 /obj/item/organ/stomach/protean/proc/handle_protean_hunger(mob/living/carbon/human/human, seconds_per_tick)
-	if(!istype(owner.dna.species, /datum/species/protean))
+	if(!isprotean(owner))
 		return
 	if(isnull(owner.client)) // So we dont die from afk/crashing out
 		return

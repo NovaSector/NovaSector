@@ -20,7 +20,7 @@
 /datum/quirk/oversized/add(client/client_source)
 	var/mob/living/carbon/human/human_holder = quirk_holder
 	// Proteans cannot use this quirk - they have unique organs and a unique modsuit
-	if(istype(human_holder.dna.species, /datum/species/protean))
+	if(isprotean(human_holder))
 		return
 	human_holder.dna.features["body_size"] = 2
 	human_holder.maptext_height = 32 * human_holder.dna.features["body_size"] //Adjust runechat height

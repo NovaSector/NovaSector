@@ -41,7 +41,7 @@
 
 /datum/augment_item/organ/brain/cortical/apply(mob/living/carbon/human/human_holder, character_setup = FALSE, datum/preferences/prefs)
 	// Proteans cannot use cortically augmented brains - they need their protean core
-	if(istype(human_holder.dna.species, /datum/species/protean))
+	if(isprotean(human_holder))
 		return
 	return ..()
 
@@ -52,7 +52,7 @@
 
 /datum/augment_item/organ/heart/apply(mob/living/carbon/human/human_holder, character_setup = FALSE, datum/preferences/prefs)
 	// Proteans cannot replace their orchestrator module
-	if(istype(human_holder.dna.species, /datum/species/protean))
+	if(isprotean(human_holder))
 		return
 	return ..()
 
@@ -88,7 +88,7 @@
 
 /datum/augment_item/organ/liver/apply(mob/living/carbon/human/human_holder, character_setup = FALSE, datum/preferences/prefs)
 	// Proteans cannot replace their reagent catalyst
-	if(istype(human_holder.dna.species, /datum/species/protean))
+	if(isprotean(human_holder))
 		return
 	return ..()
 
@@ -111,7 +111,7 @@
 
 /datum/augment_item/organ/stomach/apply(mob/living/carbon/human/human_holder, character_setup = FALSE, datum/preferences/prefs)
 	// Proteans cannot replace their refactory
-	if(istype(human_holder.dna.species, /datum/species/protean))
+	if(isprotean(human_holder))
 		return
 	return ..()
 
@@ -139,7 +139,7 @@
 
 /datum/augment_item/organ/eyes/apply(mob/living/carbon/human/human_holder, character_setup = FALSE, datum/preferences/prefs)
 	// Proteans cannot replace their imaging nanites
-	if(istype(human_holder.dna.species, /datum/species/protean))
+	if(isprotean(human_holder))
 		return
 	return ..()
 
@@ -177,7 +177,7 @@
 
 /datum/augment_item/organ/tongue/apply(mob/living/carbon/human/human_holder, character_setup = FALSE, datum/preferences/prefs)
 	// Proteans cannot replace their audio fabricator
-	if(istype(human_holder.dna.species, /datum/species/protean))
+	if(isprotean(human_holder))
 		return
 	return ..()
 
@@ -216,7 +216,7 @@
 
 /datum/augment_item/organ/ears/apply(mob/living/carbon/human/human_holder, character_setup = FALSE, datum/preferences/prefs)
 	// Proteans cannot replace their sensory nanites
-	if(istype(human_holder.dna.species, /datum/species/protean))
+	if(isprotean(human_holder))
 		return
 	return ..()
 
