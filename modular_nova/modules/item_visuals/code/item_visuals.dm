@@ -7,13 +7,26 @@
 /obj/item/proc/do_messy(pixel_variation = 8, angle_variation = 360, duration = 0)
 	if(item_flags & NO_PIXEL_RANDOM_DROP)
 		return
-	animate(src, pixel_x = (base_pixel_x+rand(-pixel_variation,pixel_variation)), duration)
-	animate(src, pixel_y = (base_pixel_y+rand(-pixel_variation,pixel_variation)), duration)
+
+	// Undo old angle if present
+	var/matrix/our_matrix = transform
 	if(our_angle)
-		animate(src, transform = transform.Turn(-our_angle), duration)
-		our_angle = 0
-	our_angle = rand(0,angle_variation)
-	transform = transform.Turn(our_angle)
+		our_matrix = our_matrix.Turn(-our_angle)
+
+	// Pick new position + angle variation
+	var/new_x = base_pixel_x + rand(-pixel_variation, pixel_variation)
+	var/new_y = base_pixel_y + rand(-pixel_variation, pixel_variation)
+
+	our_angle = rand(0, angle_variation)
+	our_matrix = our_matrix.Turn(our_angle)
+
+	animate(src,
+		pixel_x = new_x,
+		pixel_y = new_y,
+		transform = our_matrix,
+		time = duration,
+		flags = ANIMATION_PARALLEL
+	)
 
 /obj/item/proc/undo_messy(duration = 0)
 	var/matrix/new_transform = transform
