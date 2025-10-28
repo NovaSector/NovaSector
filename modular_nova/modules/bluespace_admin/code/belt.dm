@@ -1,5 +1,5 @@
 /obj/item/storage/belt/admin
-	name = "Administrative Toolbelt"
+	name = "\improper Administrative Toolbelt"
 	desc = "Can hold a boat load of things...  Why do you have this?!"
 
 	icon = 'modular_nova/modules/bluespace_admin/icons/obj/belt.dmi'
