@@ -44,7 +44,8 @@
 	our_angle = 0
 
 /obj/item/on_thrown(mob/living/carbon/user, atom/target)
-	if((item_flags & ABSTRACT) || HAS_TRAIT(src, TRAIT_NODROP))
+	. = ..()
+	if(!.)
 		return
 	user.dropItemToGround(src, silent = TRUE)
 	if(throwforce && (HAS_TRAIT(user, TRAIT_PACIFISM)) || HAS_TRAIT(user, TRAIT_NO_THROWING))
