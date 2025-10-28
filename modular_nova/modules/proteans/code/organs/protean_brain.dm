@@ -115,10 +115,6 @@
 		return
 	if(!do_after(owner, 5 SECONDS, suit, IGNORE_INCAPACITATED))
 		return
-	// NOVA EDIT: Commented out soup pot code - proc doesn't exist in NovaSector
-	// if(istype(suit.loc, /obj/item/reagent_containers/cup/soup_pot)) // If protean inside of soup pot
-	// 	var/obj/item/reagent_containers/cup/soup_pot/pot = suit.loc
-	// 	pot.remove_first_ingredient(null)
 	var/mob/living/carbon/mob = suit.loc
 	if(istype(mob))
 		mob.dropItemToGround(suit, TRUE)
