@@ -62,6 +62,7 @@ SUBSYSTEM_DEF(statpanels)
 			cached ? "Next Map: [cached.map_name]" : null,
 			"Round ID: [GLOB.round_id ? GLOB.round_id : "NULL"]",
 			"Connected Players: [GLOB.clients.len]",
+			"Storyteller: [SSstorytellers.active ? SSstorytellers.active.name : "N/A"]",
 			" ",
 			"OOC: [GLOB.ooc_allowed ? "Enabled" : "Disabled"]",
 			" ",
