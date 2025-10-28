@@ -104,6 +104,9 @@
 /datum/supply_pack/companies/modsuits/protection_modules/emp_shield
 	contains = list(/obj/item/mod/module/emp_shield)
 
+/datum/supply_pack/companies/modsuits/protection_modules/dampener
+	contains = list(/obj/item/mod/module/projectile_dampener)
+
 // Medical Mods
 
 /datum/supply_pack/companies/modsuits/medical_modules
