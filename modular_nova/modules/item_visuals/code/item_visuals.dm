@@ -76,7 +76,7 @@
 		return
 	if(. && to_drop)
 		if(!(to_drop.item_flags & NO_PIXEL_RANDOM_DROP))
-			to_drop.do_messy(duration = 2)
+			to_drop.do_messy(duration = 0.2 SECONDS)
 
 // Robot/silicon interactions for precise item placement
 /obj/structure/table/attack_robot(mob/living/user, list/modifiers)
