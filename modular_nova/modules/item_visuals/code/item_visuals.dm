@@ -41,7 +41,7 @@
 /obj/item/onZImpact(turf/turf_fallen, levels)
 	. = ..()
 	undo_messy()
-	do_messy(duration = 4)
+	do_messy(duration = 0.4 SECONDS)
 
 /mob/put_in_hand(obj/item/item_picked, hand_index, forced = FALSE, ignore_anim = TRUE, visuals_only = FALSE)
 	. = ..()
