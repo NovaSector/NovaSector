@@ -10,6 +10,8 @@
         "%USER% thrusts %USER_PRONOUN_THEIR% penis inside %TARGET%'s mouth.",
         "%USER% uses %TARGET%'s mouth for %USER_PRONOUN_THEIR% own satisfaction."
 	],
+	"user_messages": ["<span class='purple'>You feel %TARGET%'s warm mouth and wet tongue enveloping your cock.</span>"],
+	"target_messages": ["<span class='purple'>You can taste the musky taste of %USER%'s cock in your mouth.</span>"],
 	"sound_use": 1,
 	"sound_possible": [
 		"modular_nova/modules/modular_items/lewd_items/sounds/oral1.ogg",

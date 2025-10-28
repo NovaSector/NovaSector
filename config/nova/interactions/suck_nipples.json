@@ -10,6 +10,8 @@
     	"%USER% runs %USER_PRONOUN_THEIR% tongue over %TARGET%'s areolas.",
     	"%USER% presses %USER_PRONOUN_THEIR% lips against %TARGET%'s chest."
 	],
+	"user_messages": ["<span class='purple'>Your lips are pressed against %TARGET%'s nipple.</span>"],
+	"target_messages": ["<span class='purple'>Your nipples tense up when %USER%'s lips touch them.</span>"],
 	"sound_use": 1,
 	"sound_possible": [
 		"modular_nova/modules/modular_items/lewd_items/sounds/bj6.ogg",

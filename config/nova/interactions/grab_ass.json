@@ -10,9 +10,10 @@
 		"%USER% digs %USER_PRONOUN_THEIR% fingers into %TARGET%'s butt.",
 		"%USER% checks the elasticity of %TARGET%'s gluteal muscles."
 	],
+	"user_messages": ["<span class='purple'>Your fingers rests on %TARGET%'s buttocks.</span>"],
+	"target_messages": ["<span class='purple'>You can feel %USER% touching your butt.</span>"],
 	"sound_use": 1,
-	"sound_possible": ["modular_nova/modules/emotes/sound/emotes/blush.ogg"
-],
+	"sound_possible": ["modular_nova/modules/emotes/sound/emotes/blush.ogg"],
 	"sound_range": 7,
 	"interaction_requires": ["self_hand"],
 	"color": "pink",

@@ -10,6 +10,8 @@
     	"%USER% inserts %TARGET%'s cock into %USER_PRONOUN_THEIR% ass.",
     	"%USER% rubs %TARGET%'s dick inside %USER_PRONOUN_THEIR% ass."
 	],
+	"user_messages": ["<span class='purple'>You impale yourself on %TARGET%'s cock, pushing it through your anus.</span>"],
+	"target_messages": ["<span class='purple'>Doing everything for you, %USER%'s ass slides onto your penis.</span>"],
 	"sound_use": 1,
 	"sound_possible": [
 		"modular_nova/modules/modular_items/lewd_items/sounds/bang4.ogg",

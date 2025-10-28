@@ -10,6 +10,8 @@
 		"%USER% circles %TARGET%'s fleshy rod with %USER_PRONOUN_THEIR% warm wet tongue.",
 		"%USER% runs %USER_PRONOUN_THEIR% tongue along the length of %TARGET%'s penis."
 	],
+	"user_messages": ["<span class='purple'>You lick %TARGET%'s cock with your lips and tongue.</span>"],
+	"target_messages": ["<span class='purple'>You feel %USER%'s mouth caressing your penis.</span>"],
 	"sound_use": 1,
 	"sound_possible": [
 		"modular_nova/modules/modular_items/lewd_items/sounds/bj1.ogg",

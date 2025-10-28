@@ -10,6 +10,8 @@
         "%USER% presses %USER_PRONOUN_THEIR% tongue against %TARGET%'s penis as it penetrates %USER_PRONOUN_THEIR% mouth.",
         "%USER% moves %USER_PRONOUN_THEIR% tongue in circles around %TARGET%'s penis."
 	],
+	"user_messages": ["<span class='purple'>You can taste the musky taste of %TARGET%'s cock in your mouth.</span>"],
+	"target_messages": ["<span class='purple'>You feel %USER%'s warm mouth and wet tongue enveloping your cock.</span>"],
 	"sound_use": 1,
 	"sound_possible": [
 		"modular_nova/modules/modular_items/lewd_items/sounds/oral1.ogg",

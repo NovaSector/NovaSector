@@ -10,9 +10,10 @@
     	"%USER% plays with %TARGET%'s tits.",
     	"%USER% squeezes %TARGET%'s tits."
 	],
+	"user_messages": ["<span class='purple'>Your hands touch %TARGET%'s soft chest. It feels good.</span>"],
+	"target_messages": ["<span class='purple'>%USER%'s hands are touching your tits! That's... unusual.</span>"],
 	"sound_use": 1,
-	"sound_possible": ["modular_nova/modules/emotes/sound/emotes/blush.ogg"
-],
+	"sound_possible": ["modular_nova/modules/emotes/sound/emotes/blush.ogg"],
 	"sound_range": 7,
 	"interaction_requires": ["self_hand"],
 	"color": "pink",

@@ -10,6 +10,8 @@
     	"%USER% punishes %TARGET% with a slap on the butt!",
     	"%USER% puts %USER_PRONOUN_THEIR% hand on %TARGET%'s ass!"
 	],
+	"user_messages": ["<span class='purple'>The slap of your palm shakes %TARGET%'s buttocks!</span>"],
+	"target_messages": ["<span class='purple'>Your ass feels the burning excitement of %USER%'s slap!</span>"],
 	"sound_use": 1,
 	"sound_possible": [
 		"sound/items/weapons/slap.ogg",

@@ -10,6 +10,8 @@
         "%USER% teases %TARGET%'s head and shaft with %USER_PRONOUN_THEIR% fingers.",
         "%USER% stimulates %TARGET%'s shaft with %USER_PRONOUN_THEIR% palm."
 	],
+	"user_messages": ["<span class='purple'>Your palm caresses %TARGET%'s shaft, making it harder.</span>"],
+	"target_messages": ["<span class='purple'>Your cock feels strange from %USER%'s touch.</span>"],
 	"sound_use": 1,
 	"sound_possible": [
 		"modular_nova/modules/modular_items/lewd_items/sounds/vax1.ogg",
