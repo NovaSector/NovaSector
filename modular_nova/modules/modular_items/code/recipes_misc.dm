@@ -1,5 +1,5 @@
 /datum/crafting_recipe/surplus_esword
-	result = /obj/item/melee/energy/sword/surplus
+	result = /obj/item/melee/energy/sword/surplus/improvised
 	reqs = list(
 		/obj/item/wallframe/light_switch = 1,
 		/obj/item/assembly/igniter = 1,

@@ -226,8 +226,6 @@
 
 	if(socks)
 		user.socks = initial(socks.name)
-
-
 	// NOVA EDIT ADDITION START - Underwear and bra split
 	if(bra)
 		user.bra = initial(bra.name)
@@ -357,7 +355,7 @@
 		item.add_fingerprint(user, ignoregloves = TRUE)
 	return TRUE
 
-//NOVA EDIT
+// NOVA EDIT ADDITION START
 /**
  * Copies the outfit from a human to itself.
  **/
@@ -389,8 +387,8 @@
 	if(H.belt)
 		belt = H.belt.type
 	return TRUE
-// NOVA EDIT END
 
+// NOVA EDIT ADDITION END
 /// Return a list of all the types that are required to disguise as this outfit type
 /datum/outfit/proc/get_chameleon_disguise_info()
 	var/list/types = list(uniform, suit, back, belt, gloves, shoes, head, mask, neck, ears, glasses, id, l_pocket, r_pocket, suit_store, r_hand, l_hand)
@@ -440,8 +438,7 @@
 		preload += implant_type
 	for(var/skillpath in skillchips)
 		preload += skillpath
-
-	preload -= typesof(/obj/item/clothing/under/color/random, /obj/item/camera) // NOVA EDIT - Don't preload random jumpsuit spawners that delete themselves
+	preload -= typesof(/obj/item/clothing/under/color/random, /obj/item/camera) // NOVA EDIT ADDITION - Don't preload random jumpsuit spawners that delete themselves
 
 	return preload
 
