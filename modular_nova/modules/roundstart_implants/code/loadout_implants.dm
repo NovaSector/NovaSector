@@ -238,7 +238,7 @@
 			var/throw_target = get_edge_target_turf(owner, pick(GLOB.cardinals))
 			paper.throw_at(throw_target, rand(1, 3), rand(1, 2))
 			bin.total_paper--
-			paper_count++
+			papers_spat_out++
 		if(paper_count > 0)
 			owner.visible_message(
 				span_warning("[owner]'s arm suddenly spews out paper in all directions!"),
