@@ -231,7 +231,7 @@
 			continue
 		// Spew out all the paper dramatically
 		var/papers_spat_out = 0 // how much paper have we spewed so far
-		while(bin.total_paper > 0 && paper_count < 5) // Limit to 5 papers to avoid spam
+		while(bin.total_paper > 0 && papers_spat_out < 5) // Limit to 5 papers to avoid spam
 			var/obj/item/paper/paper = new(get_turf(owner))
 			paper.pixel_x = rand(-10, 10)
 			paper.pixel_y = rand(-10, 10)
