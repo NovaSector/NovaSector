@@ -32,22 +32,22 @@
 
 /obj/item/food/colonial_course/pljeskavica
 	name = "pljeskavica"
-	desc = "A freshly-replicated Balkan-style burger featuring a minced meat patty with various vegetables and sauces between biogenerator-produced buns. \
-		<br> It looks surprisingly decent for mass-produced replicated food, with all the nutritional information printed in Pan-Slavic."
-	trash_type = /obj/item/trash/pljeskavica
+	desc = "A mass-replicated take on a Balkan-style burger. The minced protein patty, assorted veggies, and sauce are sandwiched between perfectly uniform, biogenerator-produced buns. \
+		<br> It's structurally sound and nutritionally complete, though it lacks the char of a real grill."
 	food_reagents = list(
 		/datum/reagent/consumable/nutriment = 3,
 		/datum/reagent/consumable/nutriment/protein = 9,
 		/datum/reagent/consumable/nutriment/vitamin = 4,
 	)
-	tastes = list("bun" = 2, "spiced meat" = 10, "death of veganism" = 3)
-	foodtypes = VEGETABLES | GRAIN | MEAT
+	trash_type = /obj/item/trash/pljeskavica
 	icon_state = "burger_wrapper"
+	tastes = list("spiced meat" = 3, "bun" = 2, "protein" = 1)
+	foodtypes = VEGETABLES | GRAIN | MEAT
 
 /obj/item/food/colonial_course/pierogi_ravioli
 	name = "pierogi-ravioli fusion"
-	desc = "A curious blend of Polish pierogi and Italian ravioli with a potato-cheese-mushroom filling. The fusion dish manages to be both hearty and surprisingly delicate. \
-		<br> Mass-produced yet satisfying, with the familiar comfort of Eastern European cuisine meeting Mediterranean flair."
+	desc = "A replicator-original fusion of Polish and Italian dumplings. Each pouch-shaped piece has an identical potato-cheese-mushroom filling. \
+		<br> The texture is consistently soft and the flavor is balanced, but the geometry is a tell-tale sign of its industrial origin."
 	food_reagents = list(
 		/datum/reagent/consumable/nutriment = 4,
 		/datum/reagent/consumable/nutriment/protein = 6,
@@ -58,10 +58,23 @@
 	tastes = list("dough" = 2, "potato" = 3, "cheese" = 3, "mushroom" = 2)
 	foodtypes = GRAIN | VEGETABLES | DAIRY
 
+/obj/item/food/colonial_course/pierogi_ravioli/attack_self(mob/user, modifiers)
+	if(preserved_food)
+		if(prob(20))
+			preserved_food = FALSE
+			icon_state = "[base_icon_state]_unwrapped_alt"
+			to_chat(user, span_notice("You unpackage \the [src]."))
+			to_chat(user, span_warning("<i>Wait, are they upside down?</i>"))
+			name = "upside-down [initial(name)]"
+			playsound(user.loc, 'sound/items/foodcanopen.ogg', 50)
+		else
+			return ..()
+
 /obj/item/food/colonial_course/cevapi
 	name = "cevapi sausage platter"
-	desc = "Small grilled Balkan sausages served with soft flatbread and fresh onions. The cevapi are perfectly seasoned and have that characteristic grilled texture. \
-		<br> A taste of the Balkans that's been faithfully replicated for colonial consumption."
+	desc = "Faithfully replicated small sausages, served with soft flatbread and rehydrated onions. \
+		<br> The \"grill marks\" are printed on with perfect regularity, and while the seasoning is correct, the texture is a bit more uniform than the hand-made original. \
+		A serviceable taste of the Balkans."
 	food_reagents = list(
 		/datum/reagent/consumable/nutriment = 3,
 		/datum/reagent/consumable/nutriment/protein = 8,
@@ -69,41 +82,65 @@
 	)
 	trash_type = /obj/item/trash/cevapi
 	icon_state = "cevapi_tray"
-	tastes = list("grilled sausage" = 5, "flatbread" = 3, "onions" = 2)
+	tastes = list("grilled sausage" = 3, "flatbread" = 2, "onions" = 1)
 	foodtypes = MEAT | GRAIN | VEGETABLES
+
+/obj/item/food/colonial_course/cevapi/Initialize(mapload)
+	. = ..()
+	if(prob(50))
+		icon_state = "cevapi_tray_alt"
+		base_icon_state = icon_state
 
 /obj/item/food/colonial_course/sarma
 	name = "sarma stuffed cabbage"
-	desc = "Cabbage rolls filled with spiced meat and rice, simmered in a savory tomato-based sauce. The dish is hearty and substantial, exactly what you'd expect from traditional Slavic cuisine. \
-		<br> Perfect colonial comfort food that sticks to your ribs during long shifts."
+	desc = "Hearty cabbage rolls filled with spiced protein and rice, all simmered in a savory, slightly gelatinous tomato sauce. \
+		<br> They're perfectly cylindrical and identically sized, nailing the comfort food vibe even if they lack a grandmother's touch."
 	food_reagents = list(
 		/datum/reagent/consumable/nutriment = 4,
 		/datum/reagent/consumable/nutriment/protein = 7,
 		/datum/reagent/consumable/nutriment/vitamin = 3,
 	)
 	trash_type = /obj/item/trash/sarma
-	icon_state = "golubets_package"
-	tastes = list("cabbage" = 2, "spiced meat" = 4, "rice" = 2, "savory sauce" = 2)
+	icon_state = "sarma_package"
+	tastes = list("spiced meat" = 3, "cabbage" = 2, "rice" = 2, "savory sauce" = 2)
 	foodtypes = VEGETABLES | MEAT | GRAIN
 
-/obj/item/food/colonial_course/borscht
-	name = "borscht bowl with meat"
-	desc = "Hearty beet soup with generous chunks of meat and vegetables in a rich, savory broth. The vibrant red color comes from the beets, and the aroma is deeply comforting. \
-		<br> A complete meal that's both nourishing and familiar, exactly what you need after a hard day's work."
-	food_reagents = list(
-		/datum/reagent/consumable/nutriment/soup/white_beet = 25,
-	)
-	trash_type = /obj/item/trash/borscht
-	icon_state = "borscht_cup"
-	tastes = list("beets" = 3, "meat" = 2, "vegetables" = 2, "savory broth" = 2)
-	foodtypes = VEGETABLES | MEAT
+/obj/item/reagent_containers/cup/borscht_bowl
+	name = "borscht bowl"
+	desc = "A reliably replicated classic. This hearty beet soup comes with uniform chunks of vegetables and protein in a rich, savory broth. \
+		<br> The color is vibrantly consistent and the aroma is comforting, even if the texture of the components is a bit too perfect."
+	icon = 'modular_nova/modules/food_replicator/icons/rationpack.dmi'
+	icon_state = "borscht_cup_closed"
+	base_icon_state = "borscht_cup"
+	fill_icon_thresholds = list(0,1)
+	fill_icon = 'modular_nova/modules/food_replicator/icons/rationpack.dmi'
+	initial_reagent_flags = NONE
+	list_reagents = list(/datum/reagent/consumable/nutriment/soup/white_beet = 50)
+
+/obj/item/reagent_containers/cup/borscht_bowl/update_overlays()
+	if(!is_drainable())
+		return
+	. = ..()
+
+/obj/item/reagent_containers/cup/borscht_bowl/attack_self(mob/user)
+	if(!is_drainable())
+		open_soup(user)
+		return
+	return ..()
+
+/obj/item/reagent_containers/cup/borscht_bowl/proc/open_soup(mob/user)
+	to_chat(user, "You peel back the foil of [src].")
+	icon_state = base_icon_state
+	add_container_flags(OPENCONTAINER)
+	update_appearance()
+	playsound(user.loc, 'sound/items/foodcanopen.ogg', 50)
 
 // Side Dishes
 
 /obj/item/food/colonial_course/chigirtma
 	name = "chigirtma platter"
-	desc = "A traditional Azerbaijani dish of pan-fried eggs with meat and vegetables. The eggs are fluffy and perfectly cooked, while the meat and vegetables add substance and flavor. \
-		<br> Surprisingly satisfying for replicated food, though opening the packaging requires some determination."
+	desc = "A replicator's attempt at a pan-fried egg dish. The eggs have a consistent, pleasingly fluffy texture, and the protein and vegetable pieces are evenly distributed. \
+	<br> It's a solid, satisfying plate, though it's clearly been steamed-cooked in its own tray rather than fried."
 	food_reagents = list(
 		/datum/reagent/consumable/nutriment = 3,
 		/datum/reagent/consumable/nutriment/protein = 5,
@@ -116,8 +153,9 @@
 
 /obj/item/food/colonial_course/kasha_kiev
 	name = "kasha porridge with chicken kiev"
-	desc = "A substantial combination of buckwheat porridge and breaded chicken cutlet filled with herb butter. The kasha is nutty and comforting, while the chicken kiev bursts with flavor. \
-		<br> Exactly the kind of hearty meal that keeps colonists going through tough shifts."
+	desc = "A staple of colonial ration packs. \
+		The buckwheat porridge is nutty and perfectly textured every time, while the breaded protein cutlet contains a precise burst of herb-infused butter substitute. \
+		<br> It's engineered for maximum comfort, if not culinary artistry."
 	food_reagents = list(
 		/datum/reagent/consumable/nutriment = 4,
 		/datum/reagent/consumable/nutriment/protein = 8,
@@ -125,13 +163,13 @@
 	)
 	trash_type = /obj/item/trash/kasha_kiev
 	icon_state = "kiyv_container"
-	tastes = list("buckwheat" = 3, "chicken" = 4, "herb butter" = 2, "comfort" = 1)
+	tastes = list("chicken" = 3, "buckwheat" = 2, "herb butter" = 2, "comfort" = 1)
 	foodtypes = GRAIN | MEAT | DAIRY
 
 /obj/item/food/colonial_course/pickled_vegetables
 	name = "pickled vegetable medley"
-	desc = "A mix of pickled cucumbers, cabbage, and beets that provides a tangy, crunchy contrast to heavier meals. The vegetables retain their crispness and vibrant colors. \
-		<br> The perfect accompaniment to rich colonial dishes, cutting through the heaviness with bright acidity."
+	desc = "A reliably crunchy and tangy mix of replicated pickles, cabbage, and beets. \
+		<br> The vegetables are perfectly crisp and the brine is consistently sharp, designed to cut through the heaviness of main courses. The colors are almost unnaturally vibrant."
 	food_reagents = list(
 		/datum/reagent/consumable/nutriment = 2,
 		/datum/reagent/consumable/nutriment/vitamin = 5,
@@ -139,26 +177,26 @@
 	)
 	trash_type = /obj/item/trash/pickled_vegetables
 	icon_state = "ogurets_jar"
-	tastes = list("pickles" = 3, "cabbage" = 2, "beets" = 2, "vinegar" = 1)
+	tastes = list("vinegar" = 3, "pickles" = 2, "cabbage" = 2, "beets" = 2)
 	foodtypes = VEGETABLES
 
 /obj/item/food/colonial_course/draniki
 	name = "potato pancakes with sauces"
-	desc = "Crispy potato pancakes served with both sour cream and sweet jam. The pancakes have that perfect golden-brown exterior with a soft, flavorful interior. \
-		<br> A versatile side that works equally well as breakfast, snack, or accompaniment to main courses."
+	desc = "These potato pancakes have a perfectly uniform golden-brown exterior, achieved through precise replication rather than frying. \
+		<br> They're consistently soft inside and come with portion-controlled cups of sour cream and jam. A versatile, if slightly sterile, side."
 	food_reagents = list(
 		/datum/reagent/consumable/nutriment = 4,
 		/datum/reagent/consumable/nutriment/vitamin = 3,
 	)
 	trash_type = /obj/item/trash/draniki
 	icon_state = "draniki_tray"
-	tastes = list("potato" = 4, "crispy" = 2, "sour cream" = 1, "jam" = 1)
+	tastes = list("crispy potato" = 3, "sour cream" = 1, "jam" = 1)
 	foodtypes = VEGETABLES | FRIED | DAIRY | SUGAR
 
 /obj/item/food/colonial_course/mushroom_barley
 	name = "mushroom and barley pilaf"
-	desc = "A hearty grain dish combining earthy mushrooms with nutty barley. The pilaf is substantial and flavorful, with herbs adding depth to the simple ingredients. \
-		<br> Exactly the kind of stick-to-your-ribs meal that colonial life demands."
+	desc = "A stick-to-your-ribs grain dish. The barley is always perfectly al dente and the mushroom pieces are identical in size and flavor. \
+		<br> It's a hearty, earthy, and utterly reliable side that provides bulk and nutrition with zero surprises."
 	food_reagents = list(
 		/datum/reagent/consumable/nutriment = 5,
 		/datum/reagent/consumable/nutriment/vitamin = 4,
@@ -172,8 +210,8 @@
 
 /obj/item/food/colonial_course/blins
 	name = "condensed milk crepes"
-	desc = "Russian-style crepes filled with sweet condensed milk. The crepes are thin and delicate, while the filling is irresistibly sweet and creamy. \
-		<br> Surprisingly tasty for mass-produced replicated dessert, though definitely not for those watching their sugar intake."
+	desc = "Mass-produced crepes filled with an intensely sweet, creamy condensed milk substitute. \
+		<br> The crepes are thin and roll perfectly every time, though they lack the slight variation of a hand-poured batter. A sugar rush in a standardized package."
 	food_reagents = list(
 		/datum/reagent/consumable/nutriment = 2,
 		/datum/reagent/consumable/caramel = 3,
@@ -181,7 +219,7 @@
 	)
 	trash_type = /obj/item/trash/blins
 	icon_state = "blin_package"
-	tastes = list("insane amount of sweetness" = 10, "crepes" = 3)
+	tastes = list("insane amount of sweetness" = 3, "crepes" = 2)
 	foodtypes = SUGAR | GRAIN | DAIRY | BREAKFAST
 
 /obj/item/food/colonial_course/kolache
@@ -189,8 +227,9 @@
 
 /obj/item/food/colonial_course/kolache/apricot
 	name = "apricot kolache"
-	desc = "A sweet pastry with a soft, pillowy dough filled with sweet apricot jam. The filling has just the right balance of tartness and sweetness. \
-		<br> One of five varieties in the traditional Czech pastry assortment adapted for colonial replication."
+	desc = "One of five standardized kolache varieties. \
+		The dough is consistently soft and pillowy, enveloping a precise dollop of apricot jam that has the perfect, unchanging balance of tart and sweet. \
+		<br> A testament to replicator consistency."
 	food_reagents = list(
 		/datum/reagent/consumable/nutriment = 3,
 		/datum/reagent/consumable/sugar = 4,
@@ -201,8 +240,8 @@
 
 /obj/item/food/colonial_course/kolache/strawberry
 	name = "strawberry kolache"
-	desc = "A soft pastry bun filled with vibrant strawberry jam. The berries taste surprisingly fresh for replicated filling. \
-		<br> One of five varieties in the traditional Czech pastry assortment adapted for colonial replication."
+	desc = "A perfectly round pastry bun with a vibrant, sweet strawberry filling. \
+		<br> The \"berry\" flavor is bright and consistent, though it lacks the complexity of real, seasonal fruit. A reliably sweet treat."
 	food_reagents = list(
 		/datum/reagent/consumable/nutriment = 3,
 		/datum/reagent/consumable/sugar = 4,
@@ -213,8 +252,8 @@
 
 /obj/item/food/colonial_course/kolache/blueberry
 	name = "blueberry kolache"
-	desc = "A pillowy pastry filled with rich blueberry jam. The deep purple filling peeks through the delicate dough. \
-		<br> One of five varieties in the traditional Czech pastry assortment adapted for colonial replication."
+	desc = "This kolache features a deep purple blueberry filling that always peeks through the dough in the exact same way. \
+		<br> The jam is rich and sweet, with a flavor profile that is more \"idealized blueberry\" than the real thing."
 	food_reagents = list(
 		/datum/reagent/consumable/nutriment = 3,
 		/datum/reagent/consumable/sugar = 4,
@@ -225,8 +264,8 @@
 
 /obj/item/food/colonial_course/kolache/cream_cheese
 	name = "cream cheese kolache"
-	desc = "A soft pastry filled with sweetened cream cheese. The filling is rich and creamy with just a hint of vanilla. \
-		<br> One of five varieties in the traditional Czech pastry assortment adapted for colonial replication."
+	desc = "Features a rich, sweetened cream cheese substitute filling that is impossibly smooth and creamy. \
+		<br> The hint of vanilla is always present in the same concentration, making for a decadent, if slightly artificial-tasting, pastry."
 	food_reagents = list(
 		/datum/reagent/consumable/nutriment = 3,
 		/datum/reagent/consumable/sugar = 4,
@@ -235,23 +274,23 @@
 	tastes = list("pastry" = 2, "sweet cream cheese" = 3, "vanilla" = 1)
 	foodtypes = GRAIN | SUGAR | DAIRY
 
-/obj/item/food/colonial_course/kolache/glazed_chocolate
+/obj/item/food/colonial_course/kolache/glazing
 	name = "glazed chocolate kolache"
-	desc = "A pastry bun with white glazing and chocolate filling. The combination of sweet glaze and rich chocolate is irresistible. \
-		<br> One of five varieties in the traditional Czech pastry assortment adapted for colonial replication."
+	desc = "Topped with a crackly-white sugar glaze and filled with a smooth, rich chocolate paste. \
+		<br> The contrast between sweet glaze and mild chocolate is engineered to be universally appealing, a hallmark of mass-produced confections."
 	food_reagents = list(
 		/datum/reagent/consumable/nutriment = 3,
 		/datum/reagent/consumable/sugar = 5,
 		/datum/reagent/consumable/coco = 2,
 	)
-	icon_state = "kolache_glazed_chocolate"
-	tastes = list("pastry" = 2, "chocolate" = 2, "sweet glaze" = 2, "rich" = 1)
+	icon_state = "kolache_glazing"
+	tastes = list("pastry" = 2, "chocolate" = 2, "sweet glaze" = 2)
 	foodtypes = GRAIN | SUGAR | DAIRY
 
 /obj/item/food/colonial_course/medovik
 	name = "honey-nut cake slice"
-	desc = "A cube-shaped slice of layered honey cake with nuts. The layers are thin and delicate, with just the right amount of sweetness from the honey and crunch from the nuts. \
-		<br> The geometric presentation is oddly satisfying, and the aroma is irresistibly sweet and comforting."
+	desc = "A perfectly cube-shaped slice of layered cake. The honey flavor is distinct, the cream is smooth, and the nut pieces provide a standardized crunch. \
+		<br> Its geometric perfection is a dead giveaway of its replicated origins, but it's comfortingly sweet."
 	food_reagents = list(
 		/datum/reagent/consumable/nutriment = 4,
 		/datum/reagent/consumable/sugar = 5,
@@ -263,8 +302,8 @@
 
 /obj/item/food/colonial_course/syrniki
 	name = "cheese pancakes tube"
-	desc = "Sweet pancakes made from farmer's cheese, perfect for breakfast or dessert. The syrniki are soft, slightly tangy from the cheese, and delicately sweet. \
-		<br> Meant to be served with sour cream or jam, though the tube packaging is... an interesting choice for pancake storage."
+	desc = "Soft, sweet pancakes made from a cultured protein-and-dairy blend, extruded into a convenient tube. \
+		<br> They have a pleasant tang and are perfectly edible, though the form factor and uniform texture are a far cry from pan-fried syrniki."
 	food_reagents = list(
 		/datum/reagent/consumable/nutriment = 3,
 		/datum/reagent/consumable/sugar = 3,
@@ -283,7 +322,13 @@
 	w_class = WEIGHT_CLASS_SMALL
 	storage_type = /datum/storage/pouch/fruit_dumplings
 
-/datum/storage/fruit_dumplings/New(atom/parent, max_slots, max_specific_storage, max_total_storage)
+/datum/storage/pouch/fruit_dumplings
+	max_specific_storage = WEIGHT_CLASS_SMALL
+	max_total_storage = WEIGHT_CLASS_SMALL * 5
+	max_slots = 5
+	locked = TRUE
+
+/datum/storage/pouch/fruit_dumplings/New(atom/parent, max_slots, max_specific_storage, max_total_storage)
 	. = ..()
 	set_holdable(list(
 		/obj/item/food/colonial_course/fruit_dumpling,
@@ -291,9 +336,17 @@
 		/obj/item/food/rawkhinkali,
 	))
 
-/obj/item/storage/pouch/fruit_dumplings/Initialize(mapload)
+/obj/item/storage/pouch/fruit_dumplings/update_overlays()
 	. = ..()
-	atom_storage.locked = TRUE
+	if(!atom_storage.locked)
+		var/contents_count = length(contents)
+		if(contents_count > 0)
+			// Add an overlay showing the number of items
+			var/mutable_appearance/appearance = mutable_appearance(icon, "fruit_dumpling[contents_count]")
+			. += appearance
+
+/obj/item/storage/pouch/fruit_dumplings/PopulateContents()
+	. = ..()
 	for(var/i in 1 to 5)
 		new /obj/item/food/colonial_course/fruit_dumpling(src)
 
@@ -303,23 +356,26 @@
 			atom_storage.locked = FALSE
 			icon_state = "fruit_dumplings_pouch_open"
 			balloon_alert(user, "unsealed!")
+			update_appearance()
 		else
 			atom_storage.locked = TRUE
 			atom_storage.close_all()
 			icon_state = "fruit_dumplings_pouch"
 			balloon_alert(user, "resealed!")
+			update_appearance()
 
 /obj/item/food/colonial_course/fruit_dumpling
 	name = "fruit dumpling"
-	desc = "A boiled dumpling filled with seasonal fruit. Perfect when topped with melted butter and breadcrumbs."
+	desc = "A soft, boiled dough pocket filled with a \"seasonal\" fruit puree that the replicator determines is most efficient. \
+		Topped with a dusting of butter-flavored powder and breadcrumb analogs. \
+		<br> It's a comforting, if simple and standardized, sweet bite."
 	icon = 'modular_nova/modules/food_replicator/icons/rationpack.dmi'
 	icon_state = "fruit_dumpling"
 	food_reagents = list(
 		/datum/reagent/consumable/nutriment = 1,
-		/datum/reagent/consumable/sugar = 1,
 		/datum/reagent/consumable/nutriment/vitamin = 1,
 	)
-	tastes = list("dough" = 2, "sweet fruit" = 3, "melted butter" = 1, "breadcrumbs" = 1)
+	tastes = list("sweet fruit" = 3, "dough" = 2, "melted butter" = 1, "breadcrumbs" = 1)
 	preserved_food = FALSE
 	foodtypes = GRAIN | FRUIT | SUGAR
 
@@ -344,7 +400,7 @@
 	name = "pljeskavica wrapping paper"
 	desc = "Covered in sauce smearings and smaller pieces of the dish on the inside, crumpled into a ball. It's probably best to dispose of it."
 	icon = 'modular_nova/modules/food_replicator/icons/rationpack.dmi'
-	icon_state = "borgir_trash"
+	icon_state = "burger_wrapper_trash"
 
 /obj/item/trash/cevapi
 	name = "empty cevapi tray"
@@ -370,12 +426,6 @@
 	)
 	icon_state = "sarma_pack_trash"
 
-/obj/item/trash/borscht
-	name = "empty borscht bowl"
-	desc = "An empty soup cup that once held borscht, now stained reddish-purple from the beet soup. It's probably best to dispose of it."
-	icon = 'modular_nova/modules/food_replicator/icons/rationpack.dmi'
-	icon_state = "borscht_bowl_trash"
-
 /obj/item/trash/chigirtma
 	name = "empty chigirtma tray"
 	desc = "A plastic food tray that once held an egg and meat dish, now empty except for some stubborn food particles. It's probably best to dispose of it."
@@ -383,7 +433,7 @@
 	custom_materials = list(
 		/datum/material/plastic = HALF_SHEET_MATERIAL_AMOUNT,
 	)
-	icon_state = "chigirtma_tray_trash"
+	icon_state = "chigirtma_container_trash"
 
 /obj/item/trash/kasha_kiev
 	name = "empty kasha and kiev tray"
@@ -392,7 +442,7 @@
 	custom_materials = list(
 		/datum/material/plastic = HALF_SHEET_MATERIAL_AMOUNT,
 	)
-	icon_state = "kasha_kiev_tray_trash"
+	icon_state = "kiyv_container_trash"
 
 /obj/item/trash/pickled_vegetables
 	name = "empty pickled vegetable jar"
@@ -401,7 +451,7 @@
 	custom_materials = list(
 		/datum/material/plastic = HALF_SHEET_MATERIAL_AMOUNT * 0.7,
 	)
-	icon_state = "pickle_jar_trash"
+	icon_state = "ogurets_jar_trash"
 
 /obj/item/trash/draniki
 	name = "empty draniki tray"
@@ -416,22 +466,13 @@
 	name = "empty mushroom barley bowl"
 	desc = "An empty bowl that once held mushroom and barley pilaf, with some grain particles still clinging to the sides. It's probably best to dispose of it."
 	icon = 'modular_nova/modules/food_replicator/icons/rationpack.dmi'
-	icon_state = "mushroom_barley_bowl_trash"
+	icon_state = "plov_bowl_trash"
 
 /obj/item/trash/blins
 	name = "empty crepes wrapper"
 	desc = "Empty torn wrapper that used to hold something ridiculously sweet. It's probably best to recycle it."
 	icon = 'modular_nova/modules/food_replicator/icons/rationpack.dmi'
 	icon_state = "blin_package_trash"
-
-/obj/item/trash/kolache
-	name = "empty kolache wrapper"
-	desc = "A torn wrapper that once held sweet pastries, now empty and slightly greasy. It's probably best to recycle it."
-	icon = 'modular_nova/modules/food_replicator/icons/rationpack.dmi'
-	custom_materials = list(
-		/datum/material/plastic = HALF_SHEET_MATERIAL_AMOUNT * 0.3,
-	)
-	icon_state = "kolache_wrap_trash"
 
 /obj/item/trash/syrniki
 	name = "empty cheese pancakes tube"
@@ -528,9 +569,52 @@
 			return
 
 /obj/item/storage/box/colonial_rations/PopulateContents()
-	new /obj/item/food/colonial_course/pljeskavica(src)
-	new /obj/item/food/colonial_course/chigirtma(src)
-	new /obj/item/food/colonial_course/kolache(src)
+	// Randomly pick one from each category
+	new /obj/effect/spawner/random/food_or_drink/colonial_main(src)
+	new /obj/effect/spawner/random/food_or_drink/colonial_side(src)
+	new /obj/effect/spawner/random/food_or_drink/colonial_dessert(src)
+
+	// Add standard items
 	new /obj/item/reagent_containers/cup/glass/coffee/colonial(src)
 	new /obj/item/storage/box/gum/colonial(src)
 	new /obj/item/storage/box/utensils(src)
+
+/obj/effect/spawner/random/food_or_drink/colonial_main
+	name = "replicator main course spawner"
+	icon = 'modular_nova/modules/food_replicator/icons/rationpack.dmi'
+	icon_state = "burger_wrapper_unwrapped"
+	loot = list(
+		/obj/item/food/colonial_course/pljeskavica,
+		/obj/item/food/colonial_course/pierogi_ravioli,
+		/obj/item/food/colonial_course/cevapi,
+		/obj/item/food/colonial_course/sarma,
+		/obj/item/reagent_containers/cup/borscht_bowl,
+	)
+
+/obj/effect/spawner/random/food_or_drink/colonial_side
+	name = "replicator side dish spawner"
+	icon = 'modular_nova/modules/food_replicator/icons/rationpack.dmi'
+	icon_state = "chigirtma_container_unwrapped"
+	loot = list(
+		/obj/item/food/colonial_course/chigirtma,
+		/obj/item/food/colonial_course/kasha_kiev,
+		/obj/item/food/colonial_course/pickled_vegetables,
+		/obj/item/food/colonial_course/draniki,
+		/obj/item/food/colonial_course/mushroom_barley,
+	)
+
+/obj/effect/spawner/random/food_or_drink/colonial_dessert
+	name = "replicator dessert spawner"
+	icon = 'modular_nova/modules/food_replicator/icons/rationpack.dmi'
+	icon_state = "blin_package_unwrapped"
+	loot = list(
+		/obj/item/food/colonial_course/blins,
+		/obj/item/food/colonial_course/kolache/apricot,
+		/obj/item/food/colonial_course/kolache/strawberry,
+		/obj/item/food/colonial_course/kolache/blueberry,
+		/obj/item/food/colonial_course/kolache/cream_cheese,
+		/obj/item/food/colonial_course/kolache/glazing,
+		/obj/item/food/colonial_course/medovik,
+		/obj/item/storage/pouch/fruit_dumplings,
+		/obj/item/food/colonial_course/syrniki,
+	)

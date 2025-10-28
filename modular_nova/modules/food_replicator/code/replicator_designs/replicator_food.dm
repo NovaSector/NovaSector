@@ -14,29 +14,29 @@
 	id = "slavic_burger"
 	build_type = BIOGENERATOR
 	materials = list(/datum/material/biomass = 200)
-	build_path = /obj/item/food/colonial_course/pljeskavica
+	build_path = /obj/effect/spawner/random/food_or_drink/colonial_main
 	category = list(
 		RND_CATEGORY_INITIAL,
 		RND_CATEGORY_NRI_FOOD,
 	)
-/*
+
 /datum/design/nachos
 	name = "Foreign Colonization Ration, Side Dish"
 	id = "mexican_chips"
 	build_type = BIOGENERATOR
 	materials = list(/datum/material/biomass = 150)
-	build_path = /obj/item/food/colonial_course/nachos
+	build_path = /obj/effect/spawner/random/food_or_drink/colonial_side
 	category = list(
 		RND_CATEGORY_INITIAL,
 		RND_CATEGORY_NRI_FOOD,
 	)
-*/
+
 /datum/design/blins
 	name = "Foreign Colonization Ration, Dessert"
 	id = "slavic_crepes"
 	build_type = BIOGENERATOR
 	materials = list(/datum/material/biomass = 100)
-	build_path = /obj/item/food/colonial_course/blins
+	build_path = /obj/effect/spawner/random/food_or_drink/colonial_dessert
 	category = list(
 		RND_CATEGORY_INITIAL,
 		RND_CATEGORY_NRI_FOOD,
