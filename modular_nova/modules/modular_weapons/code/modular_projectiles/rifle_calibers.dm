@@ -157,6 +157,9 @@
 	ammo_categories = AMMO_CLASS_NONE
 	harmful = FALSE
 
+/obj/projectile/bullet/strilka310
+	damage = 45 // Upstream, the crew-guns that use this have a notable delay on firing, and jam so this has to be dropped a bit
+
 /obj/projectile/bullet/strilka310/rubber
 	name = ".310 rubber bullet"
 	damage = 15
