@@ -6,6 +6,8 @@
 	var/list/datum/interaction/interactions
 	var/interact_last = 0
 	var/interact_next = 0
+	/// Whether or not we are using subtler for our interactions.
+	var/use_subtler = TRUE
 
 /datum/component/interactable/Initialize(...)
 	if(QDELETED(parent))
@@ -103,6 +105,7 @@
 	data["self"] = self.name
 	data["block_interact"] = interact_next >= world.time
 	data["interactions"] = categories
+	data["use_subtler"] = use_subtler
 
 	var/list/parts = list()
 
@@ -144,13 +147,17 @@
 	if(!ishuman(ui.user))
 		return
 
+	if(action == "toggle_subtler")
+		use_subtler = !use_subtler
+		return TRUE
+
 	if(params["interaction"])
 		var/interaction_id = params["interaction"]
 		if(GLOB.interaction_instances[interaction_id])
 			var/mob/living/carbon/human/user = locate(params["userref"])
 			if(!can_interact(GLOB.interaction_instances[interaction_id], user))
 				return FALSE
-			GLOB.interaction_instances[interaction_id].act(user, locate(params["selfref"]))
+			GLOB.interaction_instances[interaction_id].act(user, locate(params["selfref"]), use_subtler)
 			var/datum/component/interactable/interaction_component = user.GetComponent(/datum/component/interactable)
 			interaction_component.interact_last = world.time
 			interact_next = interaction_component.interact_last + INTERACTION_COOLDOWN
@@ -178,10 +185,15 @@
 			var/insert_or_attach = internal ? "insert" : "attach"
 			var/into_or_onto = internal ? "into" : "onto"
 
+			// Do not show visible_messages to people without erp prefs
+			var/list/ignoring_mobs = list()
+			for(var/mob/not_interested in get_hearers_in_view(SAMETILE_MESSAGE_RANGE, source))
+				if(!not_interested.client?.prefs?.read_preference(/datum/preference/toggle/erp))
+					ignoring_mobs += not_interested
 			if(existing_item)
-				source.visible_message(span_purple("[source.name] starts trying to remove something from [target.name]'s [item_index]."), span_purple("You start to remove [existing_item.name] from [target.name]'s [item_index]."), span_purple("You hear someone trying to remove something from someone nearby."), vision_distance = 1, ignored_mobs = list(target))
+				source.visible_message(span_purple("[source.name] starts trying to remove something from [target.name]'s [item_index]."), span_purple("You start to remove [existing_item.name] from [target.name]'s [item_index]."), span_purple("You hear someone trying to remove something from someone nearby."), vision_distance = SAMETILE_MESSAGE_RANGE, ignored_mobs = ignoring_mobs + list(target))
 			else if (new_item)
-				source.visible_message(span_purple("[source.name] starts trying to [insert_or_attach] the [new_item.name] [into_or_onto] [target.name]'s [item_index]."), span_purple("You start to [insert_or_attach] the [new_item.name] [into_or_onto] [target.name]'s [item_index]."), span_purple("You hear someone trying to [insert_or_attach] something [into_or_onto] someone nearby."), vision_distance = 1, ignored_mobs = list(target))
+				source.visible_message(span_purple("[source.name] starts trying to [insert_or_attach] the [new_item.name] [into_or_onto] [target.name]'s [item_index]."), span_purple("You start to [insert_or_attach] the [new_item.name] [into_or_onto] [target.name]'s [item_index]."), span_purple("You hear someone trying to [insert_or_attach] something [into_or_onto] someone nearby."), vision_distance = SAMETILE_MESSAGE_RANGE, ignored_mobs = ignoring_mobs + list(target))
 			if (source != target)
 				target.show_message(span_warning("[source.name] is trying to [existing_item ? "remove the [existing_item.name] [internal ? "in" : "on"]" : new_item ? "is trying to [insert_or_attach] the [new_item.name] [into_or_onto]" : span_alert("What the fuck, impossible condition? interaction_component.dm!")] your [item_index]!"))
 			if(do_after(
@@ -192,11 +204,11 @@
 				) && can_lewd_strip(source, target, item_index))
 
 				if(existing_item)
-					source.visible_message(span_purple("[source.name] removes [existing_item.name] from [target.name]'s [item_index]."), span_purple("You remove [existing_item.name] from [target.name]'s [item_index]."), span_purple("You hear someone remove something from someone nearby."), vision_distance = 1)
+					source.visible_message(span_purple("[source.name] removes [existing_item.name] from [target.name]'s [item_index]."), span_purple("You remove [existing_item.name] from [target.name]'s [item_index]."), span_purple("You hear someone remove something from someone nearby."), vision_distance = SAMETILE_MESSAGE_RANGE, ignored_mobs = ignoring_mobs)
 					target.dropItemToGround(existing_item, force = TRUE) // Force is true, cause nodrop shouldn't affect lewd items.
 					target.vars[item_index] = null
 				else if (new_item)
-					source.visible_message(span_purple("[source.name] [internal ? "inserts" : "attaches"] the [new_item.name] [into_or_onto] [target.name]'s [item_index]."), span_purple("You [insert_or_attach] the [new_item.name] [into_or_onto] [target.name]'s [item_index]."), span_purple("You hear someone [insert_or_attach] something [into_or_onto] someone nearby."), vision_distance = 1)
+					source.visible_message(span_purple("[source.name] [internal ? "inserts" : "attaches"] the [new_item.name] [into_or_onto] [target.name]'s [item_index]."), span_purple("You [insert_or_attach] the [new_item.name] [into_or_onto] [target.name]'s [item_index]."), span_purple("You hear someone [insert_or_attach] something [into_or_onto] someone nearby."), vision_distance = SAMETILE_MESSAGE_RANGE, ignored_mobs = ignoring_mobs)
 					target.vars[item_index] = new_item
 					new_item.forceMove(target)
 					new_item.lewd_equipped(target, item_index)

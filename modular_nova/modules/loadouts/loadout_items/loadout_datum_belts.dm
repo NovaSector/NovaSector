@@ -86,55 +86,23 @@
 	name = "Holster (Thigh, Colorable)"
 	item_path = /obj/item/storage/belt/holster/thigh
 
-// RIGS/WEBBING (for military larpers)
-
-/datum/loadout_item/belts/webbing
-	name = "Webbing - Basic"
-	item_path = /obj/item/storage/belt/webbing
+// RIGS (for military larpers)
 
 /datum/loadout_item/belts/cin_surplus_chestrig
-	name = "Webbing - CIN Surplus (Colorable)"
+	name = "Belt - CIN Surplus (Colorable)"
 	item_path = /obj/item/storage/belt/military/cin_surplus
 
 /datum/loadout_item/belts/cin_surplus_chestrig_desert
-	name = "Webbing - CIN Surplus (Desert)"
+	name = "Belt - CIN Surplus (Desert)"
 	item_path = /obj/item/storage/belt/military/cin_surplus/desert
-	can_be_greyscale = DONT_GREYSCALE
+	loadout_flags = parent_type::loadout_flags | LOADOUT_FLAG_BLOCK_GREYSCALING
 
 /datum/loadout_item/belts/cin_surplus_chestrig_forest
-	name = "Webbing - CIN Surplus (Forest)"
+	name = "Belt - CIN Surplus (Forest)"
 	item_path = /obj/item/storage/belt/military/cin_surplus/forest
-	can_be_greyscale = DONT_GREYSCALE
+	loadout_flags = parent_type::loadout_flags | LOADOUT_FLAG_BLOCK_GREYSCALING
 
 /datum/loadout_item/belts/cin_surplus_chestrig_marine
-	name = "Webbing - CIN Surplus (Marine)"
+	name = "Belt - CIN Surplus (Marine)"
 	item_path = /obj/item/storage/belt/military/cin_surplus/marine
-	can_be_greyscale = DONT_GREYSCALE
-
-/datum/loadout_item/belts/colonial_webbing
-	name = "Webbing - Colonial"
-	item_path = /obj/item/storage/belt/webbing/colonial
-
-/datum/loadout_item/belts/webbing_pouch
-	name = "Webbing - Drop Pouches"
-	item_path = /obj/item/storage/belt/webbing/pouch
-	can_be_reskinned = TRUE
-
-/datum/loadout_item/belts/expeditionary_chestrig_belt
-	name = "Webbing - Expeditionary"
-	item_path = /obj/item/storage/belt/military/expeditionary_corps
-
-/datum/loadout_item/belts/frontier_chestrig
-	name = "Webbing - Frontier"
-	item_path = /obj/item/storage/belt/utility/frontier_colonist
-
-/datum/loadout_item/belts/webbing_pilot
-	name = "Webbing - Rigging"
-	item_path = /obj/item/storage/belt/webbing/pilot
-	can_be_reskinned = TRUE
-
-/datum/loadout_item/belts/webbing_vest
-	name = "Webbing - Vest"
-	item_path = /obj/item/storage/belt/webbing/vest
-	can_be_reskinned = TRUE
-
+	loadout_flags = parent_type::loadout_flags | LOADOUT_FLAG_BLOCK_GREYSCALING
