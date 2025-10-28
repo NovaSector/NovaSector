@@ -16,11 +16,19 @@
 	transform = transform.Turn(our_angle)
 
 /obj/item/proc/undo_messy(duration = 0)
-	animate(src, pixel_x = base_pixel_x, duration)
-	animate(src, pixel_y = base_pixel_y, duration)
-	if(our_angle)
-		animate(src, transform = transform.Turn(-our_angle), duration)
-		our_angle = 0
+	var/matrix/new_transform = transform
+	if (our_angle)
+		new_transform = new_transform.Turn(-our_angle)
+
+	animate(src,
+		pixel_x = base_pixel_x,
+		pixel_y = base_pixel_y,
+		transform = new_transform,
+		time = duration,
+		flags = ANIMATION_PARALLEL
+	)
+
+	our_angle = 0
 
 /obj/item/on_thrown(mob/living/carbon/user, atom/target)
 	if((item_flags & ABSTRACT) || HAS_TRAIT(src, TRAIT_NODROP))
