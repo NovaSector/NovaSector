@@ -67,7 +67,7 @@
 /mob/put_in_hand(obj/item/item_picked, hand_index, forced = FALSE, ignore_anim = TRUE, visuals_only = FALSE)
 	. = ..()
 	if(. && item_picked)
-		item_picked.undo_messy(duration = 0)
+		item_picked.undo_messy(duration = 0 SECONDS)
 
 /mob/living/dropItemToGround(obj/item/to_drop, force, silent, invdrop, turf/newloc)
 	. = ..()
