@@ -30,7 +30,7 @@
 		to_chat(user, span_notice("You set [src] down gently on the ground."))
 		return
 	undo_messy()
-	do_messy(duration = 4)
+	do_messy(duration = 0.4 SECONDS)
 	return src
 
 /obj/item/after_throw(datum/callback/callback)
