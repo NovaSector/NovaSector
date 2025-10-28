@@ -1,11 +1,14 @@
 // ITEM VISUALS - Random rotation & pixel shift for items, robot interactions
 
-// Item rotation and pixel shifting
+/// Current rotation angle of the item
 /obj/item
 	var/our_angle = 0
 
+/// Randomly rotates and pixel shifts the item for a messy appearance. Has a 35% chance to actually trigger.
 /obj/item/proc/do_messy(pixel_variation = 8, angle_variation = 360, duration = 0)
 	if(item_flags & NO_PIXEL_RANDOM_DROP)
+		return
+	if(!prob(35)) // 35% chance to actually rotate - reduces visual spam
 		return
 
 	// Undo old angle if present
@@ -28,6 +31,7 @@
 		flags = ANIMATION_PARALLEL
 	)
 
+/// Unrotates and resets pixel position of the item
 /obj/item/proc/undo_messy(duration = 0)
 	var/matrix/new_transform = transform
 	if (our_angle)
@@ -43,6 +47,7 @@
 
 	our_angle = 0
 
+/// Handles throwing behavior with messy rotation
 /obj/item/on_thrown(mob/living/carbon/user, atom/target)
 	. = ..()
 	if(!.)
@@ -55,21 +60,25 @@
 	do_messy(duration = 0.4 SECONDS)
 	return src
 
+/// Additional rotation after item lands from throw
 /obj/item/after_throw(datum/callback/callback)
 	. = ..()
 	undo_messy()
 	do_messy(duration = 0.2 SECONDS)
 
+/// Rotation when item falls between z-levels
 /obj/item/onZImpact(turf/turf_fallen, levels)
 	. = ..()
 	undo_messy()
 	do_messy(duration = 0.4 SECONDS)
 
+/// Resets item rotation when picked up into hand
 /mob/put_in_hand(obj/item/item_picked, hand_index, forced = FALSE, ignore_anim = TRUE, visuals_only = FALSE)
 	. = ..()
 	if(. && item_picked)
 		item_picked.undo_messy(duration = 0 SECONDS)
 
+/// Applies messy rotation when dropping items in combat mode
 /mob/living/dropItemToGround(obj/item/to_drop, force, silent, invdrop, turf/newloc)
 	. = ..()
 	if(combat_mode == FALSE)
