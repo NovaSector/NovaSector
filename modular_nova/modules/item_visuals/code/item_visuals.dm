@@ -36,7 +36,7 @@
 /obj/item/after_throw(datum/callback/callback)
 	. = ..()
 	undo_messy()
-	do_messy(duration = 2)
+	do_messy(duration = 0.2 SECONDS)
 
 /obj/item/onZImpact(turf/turf_fallen, levels)
 	. = ..()
