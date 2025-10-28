@@ -80,7 +80,7 @@ SUBSYSTEM_DEF(research)
 	new /datum/techweb/science
 	new /datum/techweb/admin
 	new /datum/techweb/oldstation
-	new /datum/techweb/tarkon //NOVA EDIT
+	new /datum/techweb/tarkon // NOVA EDIT ADDITION
 	autosort_categories()
 	error_design = new
 	error_node = new
