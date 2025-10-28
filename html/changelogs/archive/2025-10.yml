@@ -1021,3 +1021,10 @@
       people
   tttruancy:
   - balance: Plastic flaps now resist heat better
+2025-10-28:
+  carpotoxin:
+  - rscadd: Adds a weaponry tab to the loadout, including various improvised weapons
+  - rscadd: Reverts the belt-ification of webbing accessories, they are once again
+      accessories with storage functionality
+  - bugfix: Accessory webbing now displays properly ontop of the uniform icon
+  - rscadd: Thief gloves can quietly steal accessories through the strip menu
