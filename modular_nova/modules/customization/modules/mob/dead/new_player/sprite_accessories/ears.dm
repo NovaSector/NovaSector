@@ -560,7 +560,7 @@
 	name = "Shade Saggy"
 	icon_state = "shadekinsaggy"
 
-/datum/sprite_accessory/ears/external/shade/short/onecolor
+/datum/sprite_accessory/ears/external/shade/short
 	name = "Shade Short"
 	icon_state = "shadekinshort"
 
