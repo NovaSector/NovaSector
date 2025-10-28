@@ -339,12 +339,8 @@
 	icon_state = "shadekinlongstriped_large"
 
 /datum/sprite_accessory/tails/mammal/wagging/big/shade/fluffy
-	name = "Shade Fluffy"
+	name = "Shade (Fluffy)"
 	icon_state = "bigandfluffy"
-
-/datum/sprite_accessory/tails/mammal/wagging/big/shade/fluffy/gradient
-	name = "Shade Fluffy (Gradient)"
-	icon_state = "bigandfluffygradient"
 	color_src = USE_MATRIXED_COLORS
 
 /datum/sprite_accessory/tails/mammal/wagging/big/ringtail
