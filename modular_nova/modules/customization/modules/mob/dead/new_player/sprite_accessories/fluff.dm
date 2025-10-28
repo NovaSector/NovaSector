@@ -127,3 +127,7 @@
 	name = "Teshari Mane (Top)"
 	icon_state = "teshmane_top"
 	default_color = DEFAULT_TERTIARY
+
+/datum/sprite_accessory/fluff/moth/thick
+	name = "Thick"
+	icon_state = "thick"
