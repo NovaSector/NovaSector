@@ -24,20 +24,20 @@
 	var/id_trim = null
 
 	/// Type path of item to go in uniform slot
-	var/uniform = null
+	var/obj/item/uniform = null
 
 	/// Type path of item to go in suit slot
-	var/suit = null
+	var/obj/item/suit = null
 
 	/**
 	  * Type path of item to go in suit storage slot
 	  *
 	  * (make sure it's valid for that suit)
 	  */
-	var/suit_store = null
+	var/obj/item/suit_store = null
 
 	/// Type path of item to go in back slot
-	var/back = null
+	var/obj/item/back = null
 
 	/**
 	  * list of items that should go in the backpack of the user
@@ -47,7 +47,7 @@
 	var/list/backpack_contents = null
 
 	/// Type path of item to go in belt slot
-	var/belt = null
+	var/obj/item/belt = null
 
 	/**
 	  * list of items that should go in the belt of the user
@@ -226,8 +226,6 @@
 
 	if(socks)
 		user.socks = initial(socks.name)
-
-
 	// NOVA EDIT ADDITION START - Underwear and bra split
 	if(bra)
 		user.bra = initial(bra.name)
@@ -357,7 +355,7 @@
 		item.add_fingerprint(user, ignoregloves = TRUE)
 	return TRUE
 
-//NOVA EDIT
+// NOVA EDIT ADDITION START
 /**
  * Copies the outfit from a human to itself.
  **/
@@ -389,8 +387,8 @@
 	if(H.belt)
 		belt = H.belt.type
 	return TRUE
-// NOVA EDIT END
 
+// NOVA EDIT ADDITION END
 /// Return a list of all the types that are required to disguise as this outfit type
 /datum/outfit/proc/get_chameleon_disguise_info()
 	var/list/types = list(uniform, suit, back, belt, gloves, shoes, head, mask, neck, ears, glasses, id, l_pocket, r_pocket, suit_store, r_hand, l_hand)
@@ -440,8 +438,7 @@
 		preload += implant_type
 	for(var/skillpath in skillchips)
 		preload += skillpath
-
-	preload -= typesof(/obj/item/clothing/under/color/random, /obj/item/camera) // NOVA EDIT - Don't preload random jumpsuit spawners that delete themselves
+	preload -= typesof(/obj/item/clothing/under/color/random, /obj/item/camera) // NOVA EDIT ADDITION - Don't preload random jumpsuit spawners that delete themselves
 
 	return preload
 
@@ -547,7 +544,7 @@
 	for(var/item in beltpack)
 		var/itype = text2path(item)
 		if(itype)
-			belt_contents[itype] = belt[item]
+			belt_contents[itype] = beltpack[item]
 	box = text2path(outfit_data["box"])
 	var/list/impl = outfit_data["implants"]
 	implants = list()

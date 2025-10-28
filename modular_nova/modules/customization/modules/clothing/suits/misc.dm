@@ -399,8 +399,8 @@
 /obj/item/clothing/suit/apron/overalls_loneskirt
 	name = "overalls-skirt"
 	desc = "A set of skirted overalls, a little less good at protecting thinner clothes from the elements."
-	icon = 'icons/map_icons/clothing/under/_under.dmi'
-	icon_state = "/obj/item/clothing/under/greyscale/overalls_loneskirt"
+	icon = 'icons/map_icons/clothing/suit/_suit.dmi'
+	icon_state = "/obj/item/clothing/suit/apron/overalls_loneskirt"
 	post_init_icon_state = "overalls_loneskirt"
 	greyscale_config = /datum/greyscale_config/overalls_loneskirt
 	greyscale_config_worn = /datum/greyscale_config/overalls_loneskirt/worn
