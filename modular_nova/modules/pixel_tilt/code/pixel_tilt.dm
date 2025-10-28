@@ -76,7 +76,7 @@
 			tilt_angle = 0
 	var/matrix/tilt_matrix = matrix(original_transform)
 	tilt_matrix.Turn(tilt_angle)
-	animate(owner, transform = tilt_matrix, time = 0.1 SECONDS)
+	animate(owner, transform = tilt_matrix, time = 0.1 SECONDS, flags = ANIMATION_PARALLEL)
 
 // Keybind
 /datum/keybinding/mob/pixel_tilt
