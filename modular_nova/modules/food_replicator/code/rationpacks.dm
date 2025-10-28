@@ -2,8 +2,8 @@
 	name = "undefined colonial course"
 	desc = "Something you shouldn't see. But it's edible."
 	icon = 'modular_nova/modules/food_replicator/icons/rationpack.dmi'
-	icon_state = "borgir"
-	base_icon_state = "borgir"
+	icon_state = "burger_wrapper"
+	base_icon_state = "burger_wrapper"
 	food_reagents = list(/datum/reagent/consumable/nutriment = 20)
 	tastes = list("crayon powder" = 1)
 	foodtypes = VEGETABLES | GRAIN
@@ -424,7 +424,7 @@
 	custom_materials = list(
 		/datum/material/plastic = HALF_SHEET_MATERIAL_AMOUNT * 0.5,
 	)
-	icon_state = "sarma_pack_trash"
+	icon_state = "sarma_package_trash"
 
 /obj/item/trash/chigirtma
 	name = "empty chigirtma tray"
