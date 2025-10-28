@@ -1022,9 +1022,23 @@
   tttruancy:
   - balance: Plastic flaps now resist heat better
 2025-10-28:
+  Adeheuer, vinylspiders:
+  - rscadd: Adds some new erotic interactions
+  - bugfix: Fixing vibrator.dm code
+  OrbisAnima:
+  - rscdel: Legion spawner variants (Portal / Tendril) no longer leave behind infested
+      corpse mobs, reducing unnecessary corpse accumulation on Lavaland. This will
+      positively  impact performance.
+  - balance: Lava fish sources now consider corpses a unique fish type, this mean
+      they can only be fished by clients mobs, thus avoiding explosions, lighting
+      and lobsters to fish them up. This will positively impact performance.
+  - balance: For the above reasons, Legion regenerative cores will be needed where
+      you needed human cadavers to do ashwalker rituals.
   carpotoxin:
   - rscadd: Adds a weaponry tab to the loadout, including various improvised weapons
   - rscadd: Reverts the belt-ification of webbing accessories, they are once again
       accessories with storage functionality
   - bugfix: Accessory webbing now displays properly ontop of the uniform icon
   - rscadd: Thief gloves can quietly steal accessories through the strip menu
+  vinylspiders:
+  - qol: Round ID now shows in the top byond window text
