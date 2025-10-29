@@ -151,6 +151,7 @@
 		var/mitigate_percent = 1 - (blocked / 100)
 		var/mob/living/living_guy = target
 		// make them drowsy, scaling with how much was mitigated
+		// future todo: revisit this. dizzy/mute on hit? mitigated by armor?
 		living_guy.adjust_drowsiness_up_to(6 SECONDS * mitigate_percent, 12 SECONDS)
 		// and see if we can just sleep them outright:
 		var/stamcritted_target = HAS_TRAIT_FROM(target, TRAIT_INCAPACITATED, STAMINA)
@@ -158,10 +159,12 @@
 		// if they're stamcrit, sleep them
 		if(stamcritted_target)
 			living_guy.Sleeping(10 SECONDS) // long naptime for you, buddy
+			to_chat(living_guy, span_warning("As [src] hits you, you feel the heavy burden of exhaustion quickly set in..."))
 			return
 		// or, if they're exhausted, roll to sleep them for a very short time
 		else if(prob(stamina_ratio))
 			living_guy.Sleeping(1 SECONDS * mitigate_percent) // short naptime but it throws them off something fierce
+			to_chat(living_guy, span_warning("As [src] hits you, you feel exhaustion set in."))
 			return
 
 // 4.6x30mm
