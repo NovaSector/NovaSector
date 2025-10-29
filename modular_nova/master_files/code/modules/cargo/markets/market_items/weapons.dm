@@ -116,6 +116,6 @@
 	desc = /obj/item/melee/knuckleduster::desc
 	item = /obj/item/melee/knuckleduster
 	price_min = CARGO_CRATE_VALUE * 3
-	price_max = CARGO_CRATE_VALUE * 7
+	price_max = CARGO_CRATE_VALUE * 5
 	availability_prob = 85
 	stock_max = 3
