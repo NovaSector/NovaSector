@@ -114,7 +114,13 @@
 	. = ..()
 	if(. & EMP_PROTECT_SELF || !IS_ROBOTIC_ORGAN(src))
 		return
-	if(prob(40/severity) && owner)
+	var/effect_chance = 0
+	switch(severity)
+		if(EMP_LIGHT)
+			effect_chance = 20
+		if(EMP_HEAVY)
+			effect_chance = 40
+	if(prob(effect_chance) && owner)
 		owner.visible_message(
 			span_danger("[owner]'s arc welder discharges with a shower of sparks!"),
 			span_warning("Your arc welder implant short circuits, temporarily blinding you!")
