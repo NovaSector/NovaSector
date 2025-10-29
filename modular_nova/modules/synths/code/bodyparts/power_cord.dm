@@ -22,8 +22,8 @@
 		)
 		if(active_item)
 			Retract()
-		owner.adjust_stutter(8 SECONDS / severity)
-		owner.set_jitter_if_lower(12 SECONDS / severity)
+		owner.adjust_stutter(severity == EMP_LIGHT ? 4 SECONDS  : 8 SECONDS)
+		owner.set_jitter_if_lower(severity == EMP_LIGHT ? 6 SECONDS  : 12 SECONDS)
 		do_sparks(3, TRUE, owner)
 		SEND_SIGNAL(owner, COMSIG_LIVING_MINOR_SHOCK)
 

@@ -42,13 +42,13 @@
 			do_nothing_chance = 20
 		if(EMP_HEAVY)
 			do_nothing_chance = 10
-	if(prob(do_nothing_chance)
+	if(prob(do_nothing_chance))
 		return
 	to_chat(owner, span_warning("Your vision magnification glitches erratically!"))
 	// Apply static vision overlay
 	owner.overlay_fullscreen("emp_static", /atom/movable/screen/fullscreen/flash/static)
-	addtimer(CALLBACK(owner, TYPE_PROC_REF(/mob, clear_fullscreen), "emp_static"), 1.5 SECONDS / severity)
-	owner.set_eye_blur_if_lower(3 SECONDS / severity)
+	addtimer(CALLBACK(owner, TYPE_PROC_REF(/mob, clear_fullscreen), "emp_static"), severity == EMP_LIGHT ? 0.75 SECONDS : 1.5 SECONDS)
+	owner.set_eye_blur_if_lower(severity == EMP_LIGHT ? 1.5 SECONDS : 3 SECONDS)
 
 // ARM IMPLANTS
 /obj/item/organ/cyberimp/arm/toolkit/adjuster
@@ -73,7 +73,7 @@
 		)
 		if(active_item)
 			Retract()
-		owner.set_jitter_if_lower(10 SECONDS / severity)
+		owner.set_jitter_if_lower(severity == EMP_LIGHT ? 5 SECONDS : 10 SECONDS)
 		do_sparks(2, TRUE, owner)
 		playsound(owner, 'sound/items/tools/change_drill.ogg', 40, TRUE)
 
@@ -103,8 +103,8 @@
 		)
 		if(active_item)
 			Retract()
-		owner.adjust_stutter(10 SECONDS / severity)
-		owner.set_jitter_if_lower(15 SECONDS / severity)
+		owner.adjust_stutter(severity == EMP_LIGHT ? 5 SECONDS : 10 SECONDS)
+		owner.set_jitter_if_lower(severity == EMP_LIGHT ? 7.5 SECONDS : 15 SECONDS)
 		do_sparks(5, TRUE, owner)
 
 /obj/item/organ/cyberimp/arm/toolkit/electrical_toolset/Initialize(mapload)
@@ -134,7 +134,7 @@
 		if(active_item)
 			Retract()
 		owner.flash_act(1, 1)
-		owner.set_eye_blur_if_lower(10 SECONDS / severity)
+		owner.set_eye_blur_if_lower(severity == EMP_LIGHT ? 5 SECONDS : 10 SECONDS)
 		do_sparks(5, TRUE, owner)
 		playsound(owner, 'sound/items/tools/welder.ogg', 50, TRUE)
 
@@ -164,7 +164,7 @@
 		)
 		if(active_item)
 			Retract()
-		owner.set_jitter_if_lower(15 SECONDS / severity)
+		owner.set_jitter_if_lower(severity == EMP_LIGHT ? 7.5 SECONDS : 15 SECONDS)
 		do_sparks(2, TRUE, owner)
 
 /obj/item/organ/cyberimp/arm/toolkit/emt_triage/Initialize(mapload)
@@ -253,7 +253,7 @@
 		)
 		if(active_item)
 			Retract()
-		owner.adjust_bodytemperature(10 * BODYTEMP_NORMAL / severity)
+		owner.adjust_bodytemperature(severity == EMP_LIGHT ? 10 * BODYTEMP_NORMAL  : 5 * BODYTEMP_NORMAL)
 		do_sparks(3, TRUE, owner)
 		playsound(owner, 'sound/items/tools/welder.ogg', 40, TRUE)
 
@@ -318,4 +318,4 @@
 		do_sparks(3, TRUE, owner)
 		if(active_item)
 			Retract()
-		owner.set_jitter_if_lower(8 SECONDS / severity)
+		owner.set_jitter_if_lower(severity == EMP_LIGHT ? 4 SECONDS  : 8 SECONDS)
