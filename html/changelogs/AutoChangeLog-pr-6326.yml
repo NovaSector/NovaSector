@@ -1,0 +1,5 @@
+author: "Stalkeros, Hollandaise for the sprites"
+delete-after: True
+changes:
+  - rscadd: "Adds, a LOT of new food to the food replicator. Uh, something-something, lore, new matrixes, I dunno."
+  - rscdel: "Colonial nachos are gone. Good riddance!"
