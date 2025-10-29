@@ -39,9 +39,9 @@
 	var/do_nothing_chance = 100
 	switch(severity)
 		if(EMP_LIGHT)
-			effect_chance = 20
+			do_nothing_chance = 20
 		if(EMP_HEAVY)
-			effect_chance = 10
+			do_nothing_chance = 10
 	if(prob(do_nothing_chance)
 		return
 	to_chat(owner, span_warning("Your vision magnification glitches erratically!"))
