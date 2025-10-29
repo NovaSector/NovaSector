@@ -216,7 +216,13 @@
 	. = ..()
 	if(. & EMP_PROTECT_SELF || !IS_ROBOTIC_ORGAN(src))
 		return
-	if(prob(30/severity) && owner)
+	var/effect_chance = 0
+	switch(severity)
+		if(EMP_LIGHT)
+			effect_chance = 15
+		if(EMP_HEAVY)
+			effect_chance = 30
+	if(prob(effect_chance) && owner)
 		owner.visible_message(
 			span_danger("[owner]'s thumbtip lighter sparks repeatedly!"),
 			span_warning("Your thumbtip lighter malfunctions, sparking uncontrollably!")
