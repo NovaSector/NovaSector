@@ -93,7 +93,7 @@
 
 	QDEL_NULL(species_modsuit)
 	owner = null
-	. = ..()
+	return ..()
 
 /datum/species/protean/pre_equip_species_outfit(datum/job/job, mob/living/carbon/human/equipping, visuals_only = FALSE)
 	// Ensure storage exists before job outfit is equipped
