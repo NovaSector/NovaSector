@@ -199,7 +199,7 @@
 		)
 		if(active_item)
 			Retract()
-		owner.set_jitter_if_lower(severity == EMP_LIGHT ? 10 SECONDS  : 20 SECONDS)
+		owner.set_jitter_if_lower(severity == EMP_LIGHT ? 10 SECONDS : 20 SECONDS)
 		do_sparks(3, TRUE, owner)
 		playsound(owner, 'sound/items/weapons/drill.ogg', 50, TRUE)
 
