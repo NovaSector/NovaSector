@@ -132,8 +132,6 @@
 
 	// Register signal to block non-forced deletion of the modsuit
 	RegisterSignal(species_modsuit, COMSIG_PREQDELETED, PROC_REF(on_species_modsuit_qdeleted))
-	// Register signal to handle mob deletion properly
-	RegisterSignal(owner, COMSIG_QDELETING, PROC_REF(on_mob_qdeleting))
 
 	RegisterSignal(src, COMSIG_OUTFIT_EQUIP, PROC_REF(outfit_handling))
 	RegisterSignal(owner, COMSIG_CARBON_GAIN_ORGAN, PROC_REF(organ_reject))
