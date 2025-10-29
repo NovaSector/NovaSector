@@ -130,7 +130,7 @@
 	else
 		equip_modsuit(gainer)
 
-	// Register signal to block non-forced deletion of the modsuit
+	// Register signal to block non-forced deletion of the modsuit, we do this because the species datum gets deleted -after- the worn items (e.g. the modsuit). So in order to not hang a ref we only let the species datum itself delete its modsuit.
 	RegisterSignal(species_modsuit, COMSIG_PREQDELETED, PROC_REF(on_species_modsuit_qdeleted))
 
 	RegisterSignal(src, COMSIG_OUTFIT_EQUIP, PROC_REF(outfit_handling))
