@@ -88,8 +88,6 @@
 	// Unregister signals before cleanup
 	if(species_modsuit)
 		UnregisterSignal(species_modsuit, COMSIG_PREQDELETED)
-	if(owner)
-		UnregisterSignal(owner, COMSIG_QDELETING)
 
 	QDEL_NULL(species_modsuit)
 	owner = null
