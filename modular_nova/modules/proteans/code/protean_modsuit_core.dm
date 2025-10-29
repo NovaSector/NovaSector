@@ -68,7 +68,7 @@
 	desc = "A metallic grey liquid comprised of microscopic nanomachines suspended in a conductive slurry. \
 		These nanites serve as both the protean's circulatory system and repair mechanism."
 	dna_string = "Protean Nanite Signature"
-	color = "#cccccc" // Light grey, matches nanite slurry reagent
+	color = /datum/reagent/medicine/nanite_slurry::color // Tied to nanite slurry reagent color
 	reagent_type = /datum/reagent/medicine/nanite_slurry
 	restoration_chem = /datum/reagent/iron // Proteans use metal to regenerate blood
 	compatible_types = list(

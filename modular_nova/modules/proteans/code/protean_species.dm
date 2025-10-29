@@ -76,8 +76,9 @@
 	/// Reference to the protean's integrated modsuit
 	var/obj/item/mod/control/pre_equipped/protean/species_modsuit
 
-	/// Reference to the species owner
+	/// Reference to the mob that owns this species datum
 	var/mob/living/carbon/human/owner
+	/// List of organ slots that this species can use (only accepts robotic/nanomachine organs)
 	var/list/organ_slots = list(ORGAN_SLOT_BRAIN, ORGAN_SLOT_HEART, ORGAN_SLOT_STOMACH, ORGAN_SLOT_EYES)
 	language_prefs_whitelist = list(/datum/language/monkey)
 
@@ -250,8 +251,14 @@
 	return FALSE
 
 /datum/species/protean/get_species_description()
+	return "Trillions of small machines swarm into a single crewmember. This is a Protean, a walking coherent blob of metallic mass."
+
+/datum/species/protean/get_species_lore()
 	return list(
-			"Trillions of small machines swarm into a single crewmember. This is a Protean, a walking coherent blob of metallic mass, and a churning factory that turns materials into more of itself. \
-			Proteans are unkillable. Instead, they shunt themselves away into their core when catastrophic losses to their swarm occur. Their cores also mimic the functions of a modsuit and can even assimilate more functional suits to use. \
-			Proteans only have a few vital organs, which can only be replaced via cargo. Their refactory is a miniature factory, and without it, they will face slow, agonizing degradation. Their Orchestrator is a miniature processor required for ease of movement. \
-			Proteans are an extremely fragile species, weak in combat, but a powerful aid, or a puppeteer pulling the strings.")
+		"Proteans are unkillable. Instead, they shunt themselves away into their core when catastrophic losses to their swarm occur. \
+		Their cores also mimic the functions of a modsuit and can even assimilate more functional suits to use.",
+		"Proteans only have a few vital organs, which can only be replaced via cargo. \
+		Their refactory is a miniature factory, and without it, they will face slow, agonizing degradation. \
+		Their Orchestrator is a miniature processor required for ease of movement.",
+		"Proteans are an extremely fragile species, weak in combat, but a powerful aid, or a puppeteer pulling the strings.",
+	)
