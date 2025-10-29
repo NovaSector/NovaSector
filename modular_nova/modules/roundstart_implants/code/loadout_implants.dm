@@ -253,7 +253,7 @@
 		)
 		if(active_item)
 			Retract()
-		owner.adjust_bodytemperature(severity == EMP_LIGHT ? 10 * BODYTEMP_NORMAL  : 5 * BODYTEMP_NORMAL)
+		owner.adjust_bodytemperature(severity == EMP_LIGHT ? 10 * BODYTEMP_NORMAL : 5 * BODYTEMP_NORMAL)
 		do_sparks(3, TRUE, owner)
 		playsound(owner, 'sound/items/tools/welder.ogg', 40, TRUE)
 
