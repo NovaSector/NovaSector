@@ -28,6 +28,7 @@
 	outfit = /datum/outfit/solfed/lowrank
 	role = "Auditor"
 	suicide_cry = "FOR THE FEDERATION!!!!"
+	stinger_sound = 'modular_nova/master_files/sound/items/blow_horn.ogg'
 
 /datum/antagonist/ert/solfed/social
 	outfit = /datum/outfit/solfed/social
