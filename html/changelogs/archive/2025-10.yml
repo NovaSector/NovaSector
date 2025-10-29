@@ -1022,9 +1022,42 @@
   tttruancy:
   - balance: Plastic flaps now resist heat better
 2025-10-28:
+  Adeheuer, vinylspiders:
+  - rscadd: Adds some new erotic interactions
+  - bugfix: Fixing vibrator.dm code
+  OrbisAnima:
+  - rscdel: Legion spawner variants (Portal / Tendril) no longer leave behind infested
+      corpse mobs, reducing unnecessary corpse accumulation on Lavaland. This will
+      positively  impact performance.
+  - balance: Lava fish sources now consider corpses a unique fish type, this mean
+      they can only be fished by clients mobs, thus avoiding explosions, lighting
+      and lobsters to fish them up. This will positively impact performance.
+  - balance: For the above reasons, Legion regenerative cores will be needed where
+      you needed human cadavers to do ashwalker rituals.
+  - rscadd: BlueShield weapons options were expanted to add an Energy Blue Shield.
+      It does not reflect energy proyectiles and has a block chance of 50%. It returns
+      to the user when thrown with a base range of 5, and does 27 damage (5 hits to
+      kill). And its a blue shield. Unlike with the telescopic and other transparent
+      shields, this one does stop lasers.
+  - balance: The Bokuto Type II Energy Sword was introduced. This is the slapcraft
+      Energy Sword that everyone can make with just an autolathe, with reduced blockinng
+      stats. (25% block from 50% block). The type I is still available on the black
+      market with its original stats.
+  - balance: Type I and Type II energy swords got their embeed damage reduced, now
+      they do 40 damage from 75, and their base chance to embeed was reduced by one
+      third of their original.
+  - rscadd: The telescopic shield and the projectile dampener mod are now available
+      in the Sol Fed and Nakamura mods Imports respectively.
+  RealWinterFrost:
+  - admin: BST's belt has been replaced with an adminspawned bluespace belt.
+  Stalkeros, Hollandaise for the sprites:
+  - image: Sandfox (Large) ears have been re-eared once again because I like foxes
+      actually.
   carpotoxin:
   - rscadd: Adds a weaponry tab to the loadout, including various improvised weapons
   - rscadd: Reverts the belt-ification of webbing accessories, they are once again
       accessories with storage functionality
   - bugfix: Accessory webbing now displays properly ontop of the uniform icon
   - rscadd: Thief gloves can quietly steal accessories through the strip menu
+  vinylspiders:
+  - qol: Round ID now shows in the top byond window text
