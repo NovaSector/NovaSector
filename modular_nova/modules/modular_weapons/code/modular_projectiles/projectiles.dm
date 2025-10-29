@@ -139,6 +139,31 @@
 	jostle_pain_mult = 6
 	rip_time = 1 SECONDS
 
+/obj/projectile/bullet/c10mm/downer
+	name = "10mm downer bullet"
+	damage = 45
+	damage_type = STAMINA
+	embed_type = null
+
+/obj/projectile/bullet/c10mm/downer/on_hit(atom/target, blocked = 0, pierce_hit)
+	. = ..()
+	if((blocked != 100) && isliving(target))
+		var/mitigate_percent = 1 - (blocked / 100)
+		var/mob/living/living_guy = target
+		// make them drowsy, scaling with how much was mitigated
+		living_guy.adjust_drowsiness_up_to(6 SECONDS * mitigate_percent, 12 SECONDS)
+		// and see if we can just sleep them outright:
+		var/stamcritted_target = HAS_TRAIT_FROM(target, TRAIT_INCAPACITATED, STAMINA)
+		var/stamina_ratio = (living_guy.getStaminaLoss() / living_guy.getMaxHealth()) * 50 // 100 / 2
+		// if they're stamcrit, sleep them
+		if(stamcritted_target)
+			living_guy.Sleeping(10 SECONDS) // long naptime for you, buddy
+			return
+		// or, if they're exhausted, roll to sleep them for a very short time
+		else if(prob(stamina_ratio))
+			living_guy.Sleeping(1 SECONDS * mitigate_percent) // short naptime but it throws them off something fierce
+			return
+
 // 4.6x30mm
 
 /obj/projectile/bullet/c46x30mm/rubber
