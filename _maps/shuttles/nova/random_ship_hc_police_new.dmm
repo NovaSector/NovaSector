@@ -94,6 +94,15 @@
 /obj/machinery/door/airlock/titanium,
 /turf/open/floor/iron/white,
 /area/space)
+"gG" = (
+/obj/machinery/door/window/survival_pod/left/directional/east,
+/obj/structure/window/reinforced/survival_pod/spawner/directional/south,
+/turf/open/floor/pod/dark,
+/area/space)
+"ib" = (
+/obj/machinery/power/port_gen/pacman/solid_fuel,
+/turf/open/floor/pod/dark,
+/area/space)
 "iP" = (
 /turf/template_noop,
 /area/space)
@@ -129,6 +138,11 @@
 /area/space)
 "mH" = (
 /turf/open/floor/iron/showroomfloor,
+/area/space)
+"mI" = (
+/obj/structure/window/reinforced/plasma/spawner/directional/west,
+/obj/structure/window/reinforced/plasma/spawner/directional/north,
+/turf/open/floor/engine/air,
 /area/space)
 "mN" = (
 /obj/structure/window/reinforced/survival_pod/spawner/directional/north,
@@ -209,6 +223,11 @@
 	},
 /turf/open/floor/pod/light,
 /area/space)
+"wl" = (
+/obj/machinery/door/window/survival_pod/left/directional/east,
+/obj/structure/window/reinforced/survival_pod/spawner/directional/north,
+/turf/open/floor/pod/dark,
+/area/space)
 "wO" = (
 /obj/machinery/vending/security/noaccess,
 /turf/open/floor/pod/dark,
@@ -232,6 +251,10 @@
 /obj/structure/closet/secure_closet/armory_kiboko,
 /turf/open/floor/pod/dark,
 /area/space)
+"zZ" = (
+/obj/structure/window/reinforced/survival_pod/spawner/directional/north,
+/turf/open/floor/pod/dark,
+/area/space)
 "Aj" = (
 /turf/open/floor/carpet/royalblue,
 /area/space)
@@ -248,6 +271,11 @@
 	},
 /turf/open/floor/pod/light,
 /area/space)
+"CJ" = (
+/obj/structure/window/reinforced/plasma/spawner/directional/west,
+/obj/structure/window/reinforced/plasma/spawner/directional/south,
+/turf/open/floor/engine/air,
+/area/space)
 "CO" = (
 /obj/structure/closet/firecloset,
 /turf/open/floor/plating,
@@ -256,6 +284,10 @@
 /obj/structure/window/reinforced/survival_pod/spawner/directional/south,
 /obj/structure/closet/crate/bin,
 /turf/open/floor/pod/light,
+/area/space)
+"Dl" = (
+/obj/machinery/power/smes/super/full,
+/turf/open/floor/pod/dark,
 /area/space)
 "DE" = (
 /obj/structure/table/reinforced/plastitaniumglass,
@@ -313,6 +345,10 @@
 /obj/machinery/dish_drive/bullet,
 /turf/open/floor/pod/dark,
 /area/space)
+"Ip" = (
+/obj/machinery/power/smes/connector,
+/turf/open/floor/pod/dark,
+/area/space)
 "IU" = (
 /obj/structure/closet/secure_closet/tac,
 /turf/open/floor/pod/dark,
@@ -324,6 +360,10 @@
 "Kb" = (
 /obj/structure/table,
 /turf/open/floor/carpet/royalblue,
+/area/space)
+"MQ" = (
+/obj/machinery/power/micro_reactor/bapgm,
+/turf/open/floor/pod/dark,
 /area/space)
 "Nj" = (
 /obj/structure/table/wood,
@@ -356,11 +396,21 @@
 /obj/machinery/biogenerator/food_replicator,
 /turf/open/floor/iron/kitchen,
 /area/space)
+"Qv" = (
+/obj/structure/window/reinforced/plasma/spawner/directional/south,
+/obj/structure/window/reinforced/plasma/spawner/directional/east,
+/turf/open/floor/engine/air,
+/area/space)
 "QF" = (
 /obj/machinery/suit_storage_unit/hc_police,
 /obj/structure/window/reinforced/survival_pod/spawner/directional/north,
 /obj/structure/window/reinforced/survival_pod/spawner/directional/west,
 /turf/open/floor/pod/dark,
+/area/space)
+"QN" = (
+/obj/structure/window/reinforced/plasma/spawner/directional/north,
+/obj/structure/window/reinforced/plasma/spawner/directional/east,
+/turf/open/floor/engine/air,
 /area/space)
 "Rf" = (
 /obj/structure/noticeboard/directional/north,
@@ -369,6 +419,10 @@
 /area/space)
 "Rx" = (
 /turf/closed/wall/mineral/titanium/spaceship/nodiagonal,
+/area/space)
+"RW" = (
+/obj/machinery/smesbank,
+/turf/open/floor/pod/dark,
 /area/space)
 "RX" = (
 /obj/structure/table,
@@ -390,6 +444,10 @@
 /obj/structure/drain,
 /obj/structure/curtain,
 /turf/open/floor/iron/white,
+/area/space)
+"Tt" = (
+/obj/structure/window/reinforced/survival_pod/spawner/directional/south,
+/turf/open/floor/pod/dark,
 /area/space)
 "Ui" = (
 /turf/open/floor/wood,
@@ -610,10 +668,10 @@ Rx
 Tf
 OO
 Rx
-mm
-mm
-mm
-mm
+ib
+Tt
+zZ
+MQ
 Rx
 iP
 iP
@@ -648,10 +706,10 @@ gs
 Tf
 lH
 Rx
-mm
-mm
-mm
-mm
+Rx
+gG
+wl
+Rx
 Rx
 iP
 iP
@@ -686,10 +744,10 @@ Rx
 Rx
 Rx
 Rx
+Dl
 mm
 mm
-mm
-mm
+RW
 Rx
 iP
 iP
@@ -727,7 +785,7 @@ Rx
 mm
 mm
 mm
-mm
+Ip
 Rx
 iP
 iP
@@ -762,10 +820,10 @@ bt
 bt
 bt
 Rx
+Dl
 mm
 mm
-mm
-mm
+RW
 Rx
 iP
 iP
@@ -876,10 +934,10 @@ Rx
 bt
 bt
 Rx
+af
 mm
 mm
-mm
-mm
+af
 Rx
 iP
 iP
@@ -1066,10 +1124,10 @@ Rx
 bt
 bt
 Rx
+af
 mm
 mm
-mm
-mm
+af
 Rx
 iP
 iP
@@ -1143,8 +1201,8 @@ bt
 bt
 Rx
 mm
-mm
-mm
+mI
+CJ
 mm
 Rx
 iP
@@ -1181,8 +1239,8 @@ bt
 bt
 Rx
 mm
-mm
-mm
+QN
+Qv
 mm
 Rx
 Rx
@@ -1257,8 +1315,8 @@ Rx
 Rx
 Rx
 mm
-mm
-mm
+mI
+CJ
 mm
 Rx
 iP
@@ -1295,8 +1353,8 @@ iP
 iP
 Rx
 mm
-mm
-mm
+QN
+Qv
 mm
 Rx
 iP
