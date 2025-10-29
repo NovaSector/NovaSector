@@ -184,12 +184,6 @@
 	if(!force)
 		return TRUE
 
-/// Handle mob deletion - unregister signals and null the modsuit reference
-/datum/species/protean/proc/on_mob_qdeleting(datum/source)
-	SIGNAL_HANDLER
-	if(species_modsuit)
-		UnregisterSignal(species_modsuit, COMSIG_PREQDELETED)
-	species_modsuit = null
 
 /// Creates and equips a new protean modsuit to the protean's back slot. Drops any existing back item.
 /datum/species/protean/proc/equip_modsuit(mob/living/carbon/human/gainer)
