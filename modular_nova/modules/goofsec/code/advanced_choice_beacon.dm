@@ -68,3 +68,21 @@
 /obj/item/advanced_choice_beacon/solfed/smartgunner
 	name = "Sol Federation Smartgunner Equipment Beacon"
 	desc = "A questionably authorized assortment of weapons granted to you by the federation, may god have mercy."
+/obj/item/choice_beacon/solfed
+	name = "Sol Federation Weapon Beacon"
+	desc = "A beacon that carries primary class weaponry of solfed soldiers"
+	icon = 'modular_nova/modules/modular_items/icons/remote.dmi'
+	icon_state = "solfed_firearm_beacon"
+	inhand_icon_state = "electronic"
+	company_source = "Sol Federation Primary Weaapon Requisitions"
+	company_message = span_bold("Request recieved, dropping shipment on location.")
+
+/obj/item/choice_beacon/solfed/generate_display_names()
+	var/static/list/selectable_gun_types = list(
+		"Krijgspaard Marksman Rifle Gunset" = /obj/item/storage/toolbox/guncase/nova/solfedspec/marksman,
+		"MMR Assault Rifle Gunset" = /obj/item/storage/toolbox/guncase/nova/solfedspec/mmr,
+		"Jager Trench Shotgun Gunset" = /obj/item/storage/toolbox/guncase/nova/solfedspec/jager,
+		"M64 Shotgun Gunset" = /obj/item/storage/toolbox/guncase/nova/solfedspec/m64,
+		"Renopard Rifle Gunset" = /obj/item/storage/toolbox/guncase/nova/solfedspec/renopard,
+	)
+	return selectable_gun_types
