@@ -202,11 +202,45 @@
 
 
 
+/obj/item/storage/box/solfed
+	name = "Sol Federation Frontier Deployment Box"
+	icon_state = "ghostcostuming"
+	illustration = "writing_syndie"
 
+/obj/item/storage/box/solfed/PopulateContents()
+	. = ..()
+	new /obj/item/clothing/mask/gas/alt(src)
+	new /obj/item/tank/internals/emergency_oxygen/engi(src)
+	new /obj/item/reagent_containers/hypospray/medipen(src)
+	new /obj/item/reagent_containers/hypospray/medipen(src)
+	new /obj/item/crowbar/red(src)
+	new /obj/item/knife/combat(src)
+/// Firearmms permitted
 
+/obj/item/storage/toolbox/guncase/nova/solfedspec/marksman
+	weapon_to_spawn = /obj/item/gun/ballistic/automatic/sol_classic/marksman
+	extra_to_spawn = /obj/item/ammo_box/magazine/c40sol_rifle
 
+/obj/item/storage/toolbox/guncase/nova/solfedspec/mmr
+	weapon_to_spawn = /obj/item/gun/ballistic/automatic/sol_rifle
+	extra_to_spawn = /obj/item/ammo_box/magazine/c40sol_rifle/standard
 
+/obj/item/storage/toolbox/guncase/nova/solfedspec/jager
+	weapon_to_spawn = /obj/item/gun/ballistic/shotgun/katyusha/jager
+	extra_to_spawn = /obj/item/ammo_box/magazine/jager/large/flechette
 
+/obj/item/storage/toolbox/guncase/nova/solfedspec/m64
+	weapon_to_spawn = /obj/item/gun/ballistic/shotgun/riot/sol
+	extra_to_spawn = /obj/item/ammo_box/advanced/s12gauge/magnum
+
+/obj/item/storage/toolbox/guncase/nova/solfedspec/renopard
+	weapon_to_spawn = /obj/item/gun/ballistic/automatic/sol_classic
+	extra_to_spawn = /obj/item/ammo_box/magazine/c40sol_rifle/standard
+
+/// Specialist equipment Only
+/obj/item/storage/toolbox/guncase/nova/solfedspec/grenade_launcher
+	weapon_to_spawn = /obj/item/gun/ballistic/automatic/sol_grenade_launcher
+	extra_to_spawn = /obj/item/ammo_box/magazine/c980_grenade/drum/thunderdome_shrapnel
 
 
 /// Squadleader must have good choices compared to their team

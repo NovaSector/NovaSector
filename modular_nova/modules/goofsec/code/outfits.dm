@@ -18,6 +18,7 @@
 		/obj/item/stamp/solfed,
 		/obj/item/stamp/denied,
 		/obj/item/stamp,
+		/obj/item/storage/box/solfed
 	)
 	id_trim = /datum/id_trim/solfed/official
 
@@ -92,11 +93,16 @@
 	id_trim = /datum/id_trim/solfed/espatier
 	ears = /obj/item/radio/headset/headset_solfed/espatier
 
-/datum/outfit/solfed/military/espatiers
+/datum/outfit/solfed/military/espatier
 	name = "SolFed Espatier"
 	ears = /obj/item/radio/headset/headset_solfed/espatier
 	r_pocket = /obj/item/advanced_choice_beacon/solfed
-
+	l_pocket = /obj/item/choice_beacon/solfed
+	backpack_contents = list(
+		/obj/item/choice_beacon/solfed,
+		/obj/item/choice_beacon/solfed/secondary,
+		/obj/item/storage/box/solfed
+	)
 /datum/outfit/solfed/military/espatier/grand
 	name = "Solfed Grand Response Espatier"
 
@@ -132,6 +138,7 @@
 	name = "SolFed Specialist"
 	r_pocket = /obj/item/advanced_choice_beacon/solfed/specialist
 	id_trim = /datum/id_trim/solfed/espatier/specialist
+
 /// These guys are lightly equipped, more like cannon fodder, much more than marshals, but oddly more well equipped than a marshal.
 /datum/outfit/solfed/military/odst
 	name = "SolFed Orbital Drop Trooper"
