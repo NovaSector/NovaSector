@@ -9,7 +9,13 @@
 	. = ..()
 	if(. & EMP_PROTECT_SELF || !IS_ROBOTIC_ORGAN(src))
 		return
-	if(prob(45/severity) && owner)
+	var/effect_chance = 0
+	switch(severity)
+		if(EMP_LIGHT)
+			effect_chance = 22.5
+		if(EMP_HEAVY)
+			effect_chance = 45
+	if(prob(effect_chance) && owner)
 		owner.visible_message(
 			span_danger("[owner]'s charging implant sparks and crackles!"),
 			span_warning("Your charging implant shorts out, making you twitch!")
