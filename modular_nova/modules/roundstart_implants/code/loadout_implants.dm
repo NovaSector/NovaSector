@@ -286,7 +286,13 @@
 	. = ..()
 	if(. & EMP_PROTECT_SELF || !IS_ROBOTIC_ORGAN(src))
 		return
-	if(prob(25/severity) && owner)
+	var/effect_chance = 0
+	switch(severity)
+		if(EMP_LIGHT)
+			effect_chance = 12.5
+		if(EMP_HEAVY)
+			effect_chance = 25
+	if(prob(effect_chance) && owner)
 		owner.visible_message(
 			span_danger("[owner]'s cargo implant sparks and malfunctions!"),
 			span_warning("Your cargo implant shorts out briefly!")
