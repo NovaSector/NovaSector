@@ -318,4 +318,4 @@
 		do_sparks(3, TRUE, owner)
 		if(active_item)
 			Retract()
-		owner.set_jitter_if_lower(severity == EMP_LIGHT ? 4 SECONDS  : 8 SECONDS)
+		owner.set_jitter_if_lower(severity == EMP_LIGHT ? 4 SECONDS : 8 SECONDS)
