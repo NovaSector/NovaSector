@@ -291,7 +291,7 @@
 	desc = "Only carries one tactical maid set."
 
 /obj/item/storage/backpack/duffelbag/syndie/interdyne/maidkit_sing/PopulateContents()
-	new /obj/item/clothing/head/costume/maidheadband(src)
+	new /obj/item/clothing/head/costume/maid_headband/syndicate(src)
 	new /obj/item/clothing/under/syndicate/nova/maid(src)
 	new /obj/item/clothing/gloves/combat/maid(src)
 	new /obj/item/clothing/accessory/maidcorset/syndicate(src)
