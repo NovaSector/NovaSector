@@ -138,7 +138,13 @@
 	. = ..()
 	if(. & EMP_PROTECT_SELF || !IS_ROBOTIC_ORGAN(src))
 		return
-	if(prob(35/severity) && owner)
+	var/effect_chance = 0
+	switch(severity)
+		if(EMP_LIGHT)
+			effect_chance = 17.5
+		if(EMP_HEAVY)
+			effect_chance = 35
+	if(prob(effect_chance) && owner)
 		owner.visible_message(
 			span_danger("[owner]'s razor claws extend and retract rapidly!"),
 			span_warning("Your razor claws malfunction, extending and retracting uncontrollably!")
