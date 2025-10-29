@@ -158,12 +158,12 @@
 		var/stamina_ratio = (living_guy.getStaminaLoss() / living_guy.getMaxHealth()) * 50 // 100 / 2
 		// if they're stamcrit, sleep them
 		if(stamcritted_target)
-			living_guy.Sleeping(10 SECONDS) // long naptime for you, buddy
+			living_guy.AdjustSleeping(10 SECONDS) // long naptime for you, buddy
 			to_chat(living_guy, span_warning("As [src] hits you, you feel the heavy burden of exhaustion quickly set in..."))
 			return
 		// or, if they're exhausted, roll to sleep them for a very short time
 		else if(prob(stamina_ratio))
-			living_guy.Sleeping(1 SECONDS * mitigate_percent) // short naptime but it throws them off something fierce
+			living_guy.AdjustSleeping(1 SECONDS * mitigate_percent) // short naptime but it throws them off something fierce
 			to_chat(living_guy, span_warning("As [src] hits you, you feel exhaustion set in."))
 			return
 
