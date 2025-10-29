@@ -13,6 +13,16 @@
 	outfit = /datum/outfit/centcom/asset_protection
 	role = "Officer"
 
+/datum/antagonist/ert/solfed/greet()
+	var/missiondesc =  ""
+	missiondesc += "<B><font size=5 color=red>You are NOT a Nanotrasen Employee. You serve the Sol Federation as the [name].</font></B>"
+	. = ..()
+	if (ert_team)
+		to_chat(owner, "<span class='warningplain'>The Federation is sending you to [station_name()] with the task: [ert_team.mission.explanation_text]</span>")
+	else
+		to_chat(owner, "<span class='warningplain'>The Federation is sending you to [station_name()] with the task: [ert_team.mission.explanation_text]</span>")
+	play_stinger()
+
 /datum/antagonist/ert/solfed
 	name = "SolFed Auditor"
 	outfit = /datum/outfit/solfed/lowrank
