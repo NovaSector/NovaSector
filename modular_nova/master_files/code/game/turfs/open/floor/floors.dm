@@ -1012,6 +1012,12 @@
 	merge_type = /obj/item/stack/tile/iron/white/brick_aligned_corner_inverse
 	tile_rotate_dirs = list(SOUTH, NORTH, EAST, WEST)
 
+/turf/open/floor/iron/white/pattern_1
+	icon_state = "white_pattern_2"
+	base_icon_state = "white_pattern_2"
+	icon = 'modular_nova/master_files/icons/turf/floors/floor.dmi'
+	floor_tile = /obj/item/stack/tile/iron/white/pattern_2
+
 /obj/item/stack/tile/iron/white/pattern_1
 	name = "white brick tile"
 	singular_name = "white brick tile"
