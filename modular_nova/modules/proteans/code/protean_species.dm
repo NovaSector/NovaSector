@@ -73,22 +73,43 @@
 	inherent_biotypes = MOB_ROBOTIC | MOB_HUMANOID
 	reagent_flags = PROCESS_PROTEAN
 
+	// Set robotic organs to prevent organic organ rejection
+	mutantbrain = /obj/item/organ/brain/protean
+	mutantheart = /obj/item/organ/heart/protean
+	mutantstomach = /obj/item/organ/stomach/protean
+	mutantliver = /obj/item/organ/liver/protean
+	mutanteyes = /obj/item/organ/eyes/robotic/protean
+	mutantears = /obj/item/organ/ears/cybernetic/protean
+	mutanttongue = /obj/item/organ/tongue/cybernetic/protean
+	mutantlungs = null // No lungs
+	mutantappendix = null // No appendix
+
 	/// Reference to the protean's integrated modsuit
 	var/obj/item/mod/control/pre_equipped/protean/species_modsuit
 
 	/// Reference to the mob that owns this species datum
 	var/mob/living/carbon/human/owner
-	/// List of organ slots that this species can use (only accepts robotic/nanomachine organs)
-	var/list/organ_slots = list(ORGAN_SLOT_BRAIN, ORGAN_SLOT_HEART, ORGAN_SLOT_STOMACH, ORGAN_SLOT_EYES)
+	/// List of organ slots that are CHECKED by rejection system (brain protected, heart/stomach can be replaced, eyes checked)
+	/// Organs NOT in this list are completely ignored and can be installed/removed freely
+	var/list/organ_slots = list(
+		ORGAN_SLOT_BRAIN, // Always protected - must be protean core
+		ORGAN_SLOT_HEART, // Can be replaced with any robotic heart (lose orchestrator function!)
+		ORGAN_SLOT_STOMACH, // Can be replaced with any robotic stomach (lose refactory function!)
+		ORGAN_SLOT_EYES, // Can be replaced with any robotic eyes
+		// TONGUE, EARS, VOICE, HUD, ARM_AUGS not in list = can be installed freely without checks
+	)
 	language_prefs_whitelist = list(/datum/language/monkey)
 
 /mob/living/carbon/human/species/protean
 	race = /datum/species/protean
 
 /datum/species/protean/Destroy(force)
-	// Unregister signals before cleanup
+	// Unregister all signals before cleanup
 	if(species_modsuit)
 		UnregisterSignal(species_modsuit, COMSIG_PREQDELETED)
+	if(owner)
+		UnregisterSignal(owner, COMSIG_CARBON_GAIN_ORGAN)
+	UnregisterSignal(src, COMSIG_OUTFIT_EQUIP)
 
 	QDEL_NULL(species_modsuit)
 	owner = null
@@ -100,7 +121,8 @@
 		return
 	var/obj/item/mod/module/storage/storage = locate() in species_modsuit.modules
 	if(!storage)
-		storage = new()
+		// Give proteans expanded storage by default (better than basic, not OP like bluespace)
+		storage = new /obj/item/mod/module/storage/large_capacity()
 		species_modsuit.install(storage, equipping, TRUE)
 
 /datum/species/protean/on_species_gain(mob/living/carbon/human/gainer, datum/species/old_species, pref_load, regenerate_icons = TRUE)
@@ -114,6 +136,7 @@
 
 	. = ..()
 	owner = gainer
+	gainer.bubble_icon = "machine" // Robot speech bubble
 
 	// If we have an old protean suit, reuse it instead of creating new one
 	if(old_protean_suit)
@@ -136,19 +159,21 @@
 	RegisterSignal(owner, COMSIG_CARBON_GAIN_ORGAN, PROC_REF(organ_reject))
 	var/obj/item/mod/core/protean/core = species_modsuit.core
 	core?.linked_species = src
-	gainer.verbs += /mob/living/carbon/proc/protean_ui
-	gainer.verbs += /mob/living/carbon/proc/protean_heal
-	gainer.verbs += /mob/living/carbon/proc/lock_suit
-	gainer.verbs += /mob/living/carbon/proc/suit_transformation
-	gainer.verbs += /mob/living/carbon/proc/low_power
-	gainer.verbs += /mob/living/carbon/proc/speak_through_modsuit
-	gainer.verbs += /mob/living/carbon/proc/eject_assimilated_modsuit
+	// Add protean-specific verbs (using add_verb for proper UI refresh)
+	add_verb(gainer, list(
+		/mob/living/carbon/proc/protean_heal,
+		/mob/living/carbon/proc/lock_suit,
+		/mob/living/carbon/proc/suit_transformation,
+		/mob/living/carbon/proc/low_power,
+		/mob/living/carbon/proc/speak_through_modsuit,
+		/mob/living/carbon/proc/eject_assimilated_modsuit,
+	))
 
 	// Grant shapeshifting ability
 	var/datum/action/innate/alter_form/quirk/shapeshift_action = new()
 	shapeshift_action.Grant(gainer)
 
-	// Ensure protean has correct organs (fixes quirk/preference organ replacement)
+	// Ensure protean has correct organs (fixes quirk/preference organ replacement and ghost role spawns)
 	var/obj/item/organ/brain/current_brain = gainer.get_organ_slot(ORGAN_SLOT_BRAIN)
 	if(!istype(current_brain, /obj/item/organ/brain/protean))
 		current_brain?.Remove(gainer)
@@ -156,17 +181,37 @@
 		var/obj/item/organ/brain/protean/new_brain = new()
 		new_brain.Insert(gainer, special = TRUE, movement_flags = DELETE_IF_REPLACED)
 
-/// Signal handler: detects when non-protean organ is inserted and schedules its rejection. Only accepts robotic/nanomachine organs.
+
+/// Signal handler: detects when incompatible organ is inserted and schedules its rejection.
+/// Brain MUST be protean-specific. Other organs can be ANY robotic/nanomachine organ (but will lose special functions).
 /datum/species/protean/proc/organ_reject(mob/living/source, obj/item/organ/inserted)
 	SIGNAL_HANDLER
 
 	if(isnull(source))
 		return
 	var/obj/item/organ/insert_organ = inserted
+
+	// Only check organs in our whitelist
 	if(!(insert_organ.slot in organ_slots))
 		return
+
+	// Brain MUST be protean-specific
+	if(insert_organ.slot == ORGAN_SLOT_BRAIN)
+		if(!istype(insert_organ, /obj/item/organ/brain/protean))
+			to_chat(source, span_warning("Your nanite mass rejects [insert_organ] - only a protean core can control the swarm!"))
+			addtimer(CALLBACK(src, PROC_REF(reject_now), source, inserted), 1 SECONDS)
+			return
+
+	// All other organs: accept ANY robotic/nanomachine organ, reject organic
 	if(insert_organ.organ_flags & (ORGAN_ROBOTIC | ORGAN_NANOMACHINE | ORGAN_UNREMOVABLE))
-		return
+		// Warn if replacing critical organs with non-protean versions
+		if(insert_organ.slot == ORGAN_SLOT_HEART && !istype(insert_organ, /obj/item/organ/heart/protean))
+			to_chat(source, span_warning("This heart lacks orchestrator functions - you'll suffer movement penalties!"))
+		if(insert_organ.slot == ORGAN_SLOT_STOMACH && !istype(insert_organ, /obj/item/organ/stomach/protean))
+			to_chat(source, span_warning("This stomach lacks refactory functions - you won't be able to heal or process metal!"))
+		return // Accept it
+
+	// Reject organic organs
 	addtimer(CALLBACK(src, PROC_REF(reject_now), source, inserted), 1 SECONDS)
 
 /// Performs the actual organ rejection, removing incompatible organ and dropping it. Called by organ_reject after 1s delay.
@@ -198,6 +243,27 @@
 /datum/species/protean/proc/outfit_handling(datum/species/protean, datum/outfit/outfit, visuals_only)
 	SIGNAL_HANDLER
 	var/get_a_job = istype(outfit, /datum/outfit/job)
+
+	// Ensure critical organs exist (important for midround antags that bypass normal organ generation)
+	if(!owner.get_organ_slot(ORGAN_SLOT_HEART))
+		var/obj/item/organ/heart/protean/new_heart = new()
+		new_heart.Insert(owner, special = TRUE)
+	if(!owner.get_organ_slot(ORGAN_SLOT_STOMACH))
+		var/obj/item/organ/stomach/protean/new_stomach = new()
+		new_stomach.Insert(owner, special = TRUE)
+
+	// Ensure perscom action is granted (important for midround antags)
+	var/obj/item/organ/brain/protean/brain = owner.get_organ_slot(ORGAN_SLOT_BRAIN)
+	if(brain?.internal_computer)
+		var/perscom_granted = FALSE
+		for(var/datum/action/item_action/protean/open_internal_computer/perscom in brain.actions)
+			if(perscom in owner.actions)
+				perscom_granted = TRUE
+				break
+		if(!perscom_granted)
+			for(var/datum/action/item_action/protean/open_internal_computer/perscom in brain.actions)
+				perscom.Grant(owner)
+
 	var/obj/item/mod/control/suit
 	if(ispath(outfit.back, /obj/item/mod/control))
 		var/control_path = outfit.back
@@ -210,17 +276,32 @@
 		storage = new()
 		species_modsuit.install(storage, owner, TRUE)
 
-	// Install crew sensor module if not present
-	var/obj/item/mod/module/crew_sensor/protean/crew_sensor = locate() in species_modsuit.modules
-	if(!crew_sensor)
-		crew_sensor = new()
-		species_modsuit.install(crew_sensor, owner, TRUE)
+	// Only install crew sensors and GPS for jobs, not antags
+	if(get_a_job)
+		// Install crew sensor module if not present
+		var/obj/item/mod/module/crew_sensor/protean/crew_sensor = locate() in species_modsuit.modules
+		if(!crew_sensor)
+			crew_sensor = new()
+			species_modsuit.install(crew_sensor, owner, TRUE)
 
-	// Install GPS module if not present
-	var/obj/item/mod/module/gps/protean/gps_module = locate() in species_modsuit.modules
-	if(!gps_module)
-		gps_module = new()
-		species_modsuit.install(gps_module, owner, TRUE)
+		// Install GPS module if not present
+		var/obj/item/mod/module/gps/protean/gps_module = locate() in species_modsuit.modules
+		if(!gps_module)
+			gps_module = new()
+			species_modsuit.install(gps_module, owner, TRUE)
+
+	// Handle suit_store items (like ninja katana) - create and add to storage
+	// Proteans don't have a suit slot, so we manually create the suit_store item
+	if(outfit.suit_store)
+		var/obj/item/suit_item = owner.get_item_by_slot(ITEM_SLOT_SUITSTORE)
+		if(!suit_item && ispath(outfit.suit_store)) // If not equipped, create it
+			suit_item = new outfit.suit_store(owner)
+		if(suit_item)
+			if(suit_item.loc == owner) // If it's on the mob, remove it first
+				owner.temporarilyRemoveItemFromInventory(suit_item, force = TRUE)
+			if(!storage.atom_storage?.attempt_insert(suit_item, owner, messages = FALSE))
+				suit_item.forceMove(get_turf(owner))
+				to_chat(owner, span_warning("[suit_item] couldn't fit in storage!"))
 
 	// Outfit system already equipped backpack_contents, we just add bonus iron sheets
 	if(get_a_job)
@@ -230,6 +311,17 @@
 	. = ..()
 	if(gainer)
 		UnregisterSignal(owner, COMSIG_CARBON_GAIN_ORGAN)
+		gainer.bubble_icon = initial(gainer.bubble_icon) // Restore normal speech bubble
+		// Remove protean verbs (using remove_verb for proper UI refresh)
+		remove_verb(gainer, list(
+			/mob/living/carbon/proc/protean_heal,
+			/mob/living/carbon/proc/lock_suit,
+			/mob/living/carbon/proc/suit_transformation,
+			/mob/living/carbon/proc/low_power,
+			/mob/living/carbon/proc/speak_through_modsuit,
+			/mob/living/carbon/proc/eject_assimilated_modsuit,
+		))
+	UnregisterSignal(src, COMSIG_OUTFIT_EQUIP)
 
 	// If we're changing to another protean (SAD/pref reload), don't delete the suit
 	// The new protean species will reuse it in on_species_gain

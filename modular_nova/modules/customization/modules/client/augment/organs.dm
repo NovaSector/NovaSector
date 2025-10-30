@@ -138,8 +138,8 @@
 	allowed_biotypes = MOB_ORGANIC | MOB_ROBOTIC
 
 /datum/augment_item/organ/eyes/apply(mob/living/carbon/human/human_holder, character_setup = FALSE, datum/preferences/prefs)
-	// Proteans cannot replace their imaging nanites
-	if(isprotean(human_holder))
+	// Proteans can only use robotic eyes
+	if(isprotean(human_holder) && !ispath(path, /obj/item/organ/eyes/robotic))
 		return
 	return ..()
 
@@ -176,8 +176,8 @@
 	allowed_biotypes = MOB_ORGANIC | MOB_ROBOTIC
 
 /datum/augment_item/organ/tongue/apply(mob/living/carbon/human/human_holder, character_setup = FALSE, datum/preferences/prefs)
-	// Proteans cannot replace their audio fabricator
-	if(isprotean(human_holder))
+	// Proteans can only use robotic/cybernetic tongues
+	if(isprotean(human_holder) && !(ispath(path, /obj/item/organ/tongue/robot) || ispath(path, /obj/item/organ/tongue/cybernetic)))
 		return
 	return ..()
 
@@ -215,8 +215,8 @@
 	allowed_biotypes = MOB_ORGANIC | MOB_ROBOTIC
 
 /datum/augment_item/organ/ears/apply(mob/living/carbon/human/human_holder, character_setup = FALSE, datum/preferences/prefs)
-	// Proteans cannot replace their sensory nanites
-	if(isprotean(human_holder))
+	// Proteans can only use cybernetic ears
+	if(isprotean(human_holder) && !ispath(path, /obj/item/organ/ears/cybernetic))
 		return
 	return ..()
 

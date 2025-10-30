@@ -197,14 +197,11 @@
 // Add persocom to protean brain
 /obj/item/organ/brain/protean
 	var/obj/item/modular_computer/pda/protean/internal_computer
+	actions_types = list(/datum/action/item_action/protean/open_internal_computer)
 
 /obj/item/organ/brain/protean/Initialize(mapload)
 	. = ..()
 	internal_computer = new(src)
-
-	// Properly create and add perscom action to actions list (not actions_types)
-	var/datum/action/item_action/protean/open_internal_computer/perscom_action = new(src)
-	actions += perscom_action
 
 /obj/item/organ/brain/protean/Destroy()
 	QDEL_NULL(internal_computer)

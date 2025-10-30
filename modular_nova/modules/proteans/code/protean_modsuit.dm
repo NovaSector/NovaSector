@@ -305,12 +305,6 @@
 			stack_trace("assimilate_modsuit: Tried to assimilate modsuit while there's already a stored modsuit. stored_modsuit: [stored_modsuit], new_modsuit: [to_assimilate]")
 		return
 
-	// Make sure your storage is empty before absorbing another suit (prevents item loss)
-	if(atom_storage)
-		if(length(atom_storage.real_location?.contents))
-			to_chat(user, span_warning("Your storage module must be empty before you can assimilate another modsuit!"))
-			return
-
 	if(!user?.transferItemToLoc(to_assimilate, src, forced))
 		balloon_alert(user, "stuck!")
 		return
@@ -331,29 +325,45 @@
 	desc = to_assimilate.desc
 	extended_desc = to_assimilate.extended_desc
 
+	// Extract items from BOTH storages before we do anything
+	var/list/all_items = list()
+	var/obj/item/mod/module/storage/our_storage = locate() in modules
+	var/obj/item/mod/module/storage/incoming_storage = locate() in to_assimilate.modules
+
+	// Get items from our storage
+	if(our_storage?.atom_storage?.real_location)
+		for(var/obj/item/thing in our_storage.atom_storage.real_location.contents)
+			all_items += thing
+			thing.forceMove(src) // Move items out temporarily
+
+	// Get items from incoming storage
+	if(incoming_storage?.atom_storage?.real_location)
+		for(var/obj/item/thing in incoming_storage.atom_storage.real_location.contents)
+			all_items += thing
+			thing.forceMove(src) // Move items out temporarily
+
 	// Transfer all the modules from the absorbed suit to ours
 	// We copy the list first because install() modifies it as we go
 	var/list/modules_to_transfer = to_assimilate.modules.Copy()
 	for(var/obj/item/mod/module/module in modules_to_transfer)
 		// Storage modules need special handling - we compare sizes and keep the bigger one
 		if(istype(module, /obj/item/mod/module/storage))
-			var/obj/item/mod/module/storage/our_storage = locate() in modules
 			if(our_storage)
-				var/obj/item/mod/module/storage/incoming_storage = module
+				var/obj/item/mod/module/storage/incoming_storage_module = module
 				// Check which storage module can hold more stuff
-				if(incoming_storage.max_combined_w_class > our_storage.max_combined_w_class)
-					// The new storage is bigger, so swap to it and save ours
-					cached_modules += our_storage
+				if(incoming_storage_module.max_combined_w_class > our_storage.max_combined_w_class)
+					// The new storage is bigger, so replace ours with it
+					to_chat(user, span_notice("Upgrading to [incoming_storage_module] (larger capacity)!"))
 					uninstall(our_storage, deleting = TRUE)
-					to_chat(user, span_notice("[incoming_storage] is larger! Swapping to it and caching your [our_storage]."))
+					qdel(our_storage) // Delete the old one
+					our_storage = null
 					// Let it continue below to install the bigger storage
 				else
-					// Our storage is bigger or the same, so keep it and save theirs
-					cached_modules += module
-					to_chat(user, span_notice("[module] stored in reserve, keeping your current [our_storage]!"))
-					// Remove it from the list without triggering cleanup (preserves contents)
+					// Our storage is bigger or equal, so keep it and discard theirs
+					to_chat(user, span_notice("Keeping your [our_storage], discarding incoming [module]."))
 					to_assimilate.modules -= module
 					module.mod = null
+					qdel(module) // Delete the incoming one (items already extracted above)
 					continue
 
 		// Try to install the module into our suit
@@ -371,6 +381,22 @@
 		to_assimilate.uninstall(module)
 		module.forceMove(get_turf(src))
 		to_chat(user, span_warning("[module] has dropped onto the floor!"))
+
+	// Now transfer ALL items (from both storages) into whichever storage we have (or drop them if no storage)
+	var/obj/item/mod/module/storage/final_storage = locate() in modules
+	if(length(all_items))
+		if(!final_storage?.atom_storage)
+			// No storage module? Drop everything
+			to_chat(user, span_warning("No storage module! Dropping [length(all_items)] items on the floor."))
+			for(var/obj/item/thing in all_items)
+				thing.forceMove(get_turf(user))
+		else
+			// Try to fit items in storage, drop what doesn't fit
+			to_chat(user, span_notice("Transferring [length(all_items)] items into storage..."))
+			for(var/obj/item/thing in all_items)
+				if(!final_storage.atom_storage.attempt_insert(thing, user, messages = FALSE))
+					thing.forceMove(get_turf(user))
+					to_chat(user, span_warning("[thing] couldn't fit! Dropped on floor."))
 
 	update_static_data_for_all_viewers()
 
