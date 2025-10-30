@@ -453,6 +453,7 @@ GLOBAL_LIST_INIT(possible_player_lunchbox_desert_choice, list(
 	"Nutty Pavlova Slice" = /obj/item/food/cakeslice/pavlova/nuts,
 	"Fruit Cake Slice" = /obj/item/food/cakeslice/fruit,
 	"Plum Cake Slice" = /obj/item/food/cakeslice/plum,
+	"Angel Food Cake Slice" = /obj/item/food/cakeslice/holy_cake_slice
 	"Pinapple Cream Cake Slice" = /obj/item/food/cakeslice/pineapple_cream_cake,
 	"Ice Cream Sandwich" = /obj/item/food/icecreamsandwich,
 	"Ice Cream Sandwich (Strawberry)" = /obj/item/food/strawberryicecreamsandwich,
