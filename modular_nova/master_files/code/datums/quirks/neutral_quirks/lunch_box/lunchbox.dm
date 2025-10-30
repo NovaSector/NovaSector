@@ -200,6 +200,13 @@ GLOBAL_LIST_INIT(possible_player_lunchbox_meal_choice, list(
 	"Lasagna" = /obj/item/food/lasagna,
 	"Blood Noodles" = /obj/item/food/hemophage/blood_noodles,
 	"Boat Noodles" = /obj/item/food/hemophage/blood_noodles/boat_noodles,
+	"Piru Pasta" = /obj/item/food/piru_pasta,
+	"Sirissai wrap" = /obj/item/food/sirisai_wrap,
+	"Sweet Piru Noodles" = /obj/item/food/sweet_piru_noodles,
+	"Kiri Curry" = /obj/item/food/kiri_curry,
+	"Sirisai Flatbread" = /obj/item/food/sirisai_flatbread,
+	"Stewed Muli" = /obj/item/food/stewed_muli,
+	"Suffed Muli Pod" = /obj/item/food/stuffed_muli_pod,
 ))
 
 /datum/preference/choiced/lunchbox_meal_choice/is_accessible(datum/preferences/preferences)
@@ -276,6 +283,15 @@ GLOBAL_LIST_INIT(possible_player_lunchbox_snack_choice, list(
 	"Kessen Shinju" = /obj/item/food/hemophage/blood_rice_pearl,
 	"Dinuguan" = /obj/item/food/soup/hemophage/blood_soup,
 	"Blood Curd" = /obj/item/food/hemophage/blood_curd,
+	"Piru Bread Slice" = /obj/item/food/breadslice/piru,
+	"Spiced Jerky" = /obj/item/food/spiced_jerky,
+	"Baked Kiri Fruit" = /obj/item/food/baked_kiri,
+	"Baked Muli Pod" = /obj/item/food/baked_muli,
+	"Piru Flatbread" = /obj/item/food/grilled_piru_flatbread,
+	"Sirisai Flatbread Slice" = /obj/item/food/sirisai_flatbread_slice,
+	"Bluefeather Crisps & Dip" = /obj/item/food/bluefeather_crisps_and_dip,
+	"Bluefeather Crisp" = /obj/item/food/bluefeather_crisp,
+	"Caramel Jelly Toast" = /obj/item/food/caramel_jelly_toast,
 ))
 
 /datum/preference/choiced/lunchbox_first_snack_choice/init_possible_values()
@@ -461,6 +477,7 @@ GLOBAL_LIST_INIT(possible_player_lunchbox_desert_choice, list(
 	"Matcha Mochi Balls" = /obj/item/food/vendor_snacks/mochi_ice_cream/matcha,
 	"Vanilla Mochi Balls" = /obj/item/food/vendor_snacks/mochi_ice_cream,
 	"Ti Hoeh Koe" = /obj/item/food/hemophage/blood_cake,
+	"Kiri Jelly Puff" = /obj/item/food/kiri_jellypuff,
 ))
 
 /datum/preference/choiced/lunchbox_desert_choice/init_possible_values()
