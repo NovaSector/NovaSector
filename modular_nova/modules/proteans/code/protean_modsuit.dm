@@ -286,13 +286,18 @@
 
 	return ..()
 
-/obj/item/mod/control/pre_equipped/protean/attack_hand(mob/living/user, list/modifiers)
-	// If the protean clicks their own suit while wearing it, open UI instead of trying to pick it up
+/obj/item/mod/control/pre_equipped/protean/Moved(atom/old_loc, movement_dir, forced, list/old_locs, momentum_change)
+	. = ..()
+	// Update interaction flags when equipped/unequipped to prevent dropping when hands are full
+	update_interaction_flags()
+
+/obj/item/mod/control/pre_equipped/protean/proc/update_interaction_flags()
 	var/obj/item/mod/core/protean/protean_core = core
-	if(istype(protean_core) && protean_core.linked_species?.owner == user && wearer == user)
-		ui_interact(user)
-		return TRUE
-	return ..()
+	// If worn by the protean owner, don't require hands to interact (prevents dropping when opening UI with full hands)
+	if(istype(protean_core) && protean_core.linked_species?.owner == wearer && wearer)
+		interaction_flags_click = ALLOW_RESTING
+	else
+		interaction_flags_click = NEED_DEXTERITY|NEED_HANDS|ALLOW_RESTING
 
 /obj/item/mod/control/pre_equipped/protean/proc/assimilate_theme(mob/user, plating)
 	var/obj/item/mod/construction/plating/plates = plating
