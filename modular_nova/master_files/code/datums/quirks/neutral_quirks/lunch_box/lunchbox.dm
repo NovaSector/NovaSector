@@ -198,6 +198,8 @@ GLOBAL_LIST_INIT(possible_player_lunchbox_meal_choice, list(
 	"Philly Cheesesteak" = /obj/item/food/sandwich/philly_cheesesteak,
 	"Steak" = /obj/item/food/meat/steak,
 	"Lasagna" = /obj/item/food/lasagna,
+	"Blood Noodles" = /obj/item/food/hemophage/blood_noodles,
+	"Boat Noodles" = /obj/item/food/hemophage/blood_noodles/boat_noodles,
 ))
 
 /datum/preference/choiced/lunchbox_meal_choice/is_accessible(datum/preferences/preferences)
@@ -271,6 +273,9 @@ GLOBAL_LIST_INIT(possible_player_lunchbox_snack_choice, list(
 	"Miso Soup" = /obj/item/food/vendor_tray_meal/side/miso,
 	"White Rice" = /obj/item/food/vendor_tray_meal/side/rice,
 	"Pickled Vegetables" = /obj/item/food/vendor_tray_meal/side/pickled_vegetables,
+	"Kessen Shinju" = /obj/item/food/hemophage/blood_rice_pearl,
+	"Dinuguan" = /obj/item/food/soup/hemophage/blood_soup,
+	"Blood Curd" = /obj/item/food/hemophage/blood_curd,
 ))
 
 /datum/preference/choiced/lunchbox_first_snack_choice/init_possible_values()
@@ -389,7 +394,7 @@ GLOBAL_LIST_INIT(possible_player_lunchbox_drink_choice, list(
 	"Shu-Kuoba Straight Shochu" = /obj/item/reagent_containers/cup/glass/bottle/shochu,
 	"Space Beer (Canned)" = /obj/item/reagent_containers/cup/soda_cans/beer,
 	"Rice Beer" = /obj/item/reagent_containers/cup/soda_cans/beer/rice,
-	"Silly Cone's Synthahol" = /obj/item/reagent_containers/cup/soda_cans/nova/synthanolcan
+	"Silly Cone's Synthahol" = /obj/item/reagent_containers/cup/soda_cans/nova/synthanolcan,
 ))
 
 /datum/preference/choiced/lunchbox_drink_choice/init_possible_values()
@@ -454,6 +459,7 @@ GLOBAL_LIST_INIT(possible_player_lunchbox_desert_choice, list(
 	"Space Freezy" = /obj/item/food/spacefreezy,
 	"Matcha Mochi Balls" = /obj/item/food/vendor_snacks/mochi_ice_cream/matcha,
 	"Vanilla Mochi Balls" = /obj/item/food/vendor_snacks/mochi_ice_cream,
+	"Ti Hoeh Koe" = /obj/item/food/hemophage/blood_cake,
 ))
 
 /datum/preference/choiced/lunchbox_desert_choice/init_possible_values()
