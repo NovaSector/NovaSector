@@ -123,7 +123,17 @@ GLOBAL_LIST_INIT(possible_player_lunchbox_design_choice, list(
 	"SolFed" = /obj/item/storage/lunchbox/solfed,
 	"Space" = /obj/item/storage/lunchbox/space,
 	"Hearts" = /obj/item/storage/lunchbox/hearts,
-	"Gold" = /obj/item/storage/lunchbox/gold,
+	"Heart" = /obj/item/storage/lunchbox/heart,
+	"White Heart" = /obj/item/storage/lunchbox/heart/monster,
+	"Television" = /obj/item/storage/lunchbox/tvtime,
+	"Pride" = /obj/item/storage/lunchbox/ally,
+	"Spaceship" = /obj/item/storage/lunchbox/ship,
+	"Ammunition" = /obj/item/storage/lunchbox/ammo,
+	"Cyber" = /obj/item/storage/lunchbox/cyber,
+	"Cyber (Dark)" = /obj/item/storage/lunchbox/cyber/dark,
+	"Lavaland" = /obj/item/storage/lunchbox/lavaland,
+	"Rainy" = /obj/item/storage/lunchbox/rainy,
+	"Clock" = /obj/item/storage/lunchbox/fire_clock,
 ))
 
 /datum/preference/choiced/lunchbox_design/init_possible_values()
