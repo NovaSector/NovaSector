@@ -192,6 +192,7 @@
 	name = "black polite carpet tiles"
 	singular_name = "black polite carpet tile"
 
+	icon = 'modular_nova/master_files/icons/obj/tiles.dmi'
 	icon_state = "carpet_polite_black"
 
 	turf_type = /turf/open/floor/carpet/polite
