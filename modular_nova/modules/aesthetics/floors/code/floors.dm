@@ -101,6 +101,26 @@
 		/obj/item/stack/tile/iron/sepia,
 	)
 
+/obj/item/stack/tile/iron
+	tile_reskin_types = list(
+		/obj/item/stack/tile/wood,
+		/obj/item/stack/tile/wood/large,
+		/obj/item/stack/tile/wood/tile,
+		/obj/item/stack/tile/wood/wood_1,
+		/obj/item/stack/tile/wood/wood_2,
+		/obj/item/stack/tile/wood/wood_3,
+		/obj/item/stack/tile/wood/wood_4,
+		/obj/item/stack/tile/wood/wood_5,
+		/obj/item/stack/tile/wood/wood_6,
+		/obj/item/stack/tile/wood/wood_7,
+		/obj/item/stack/tile/wood/wood_8,
+		/obj/item/stack/tile/wood/wood_9,
+		/obj/item/stack/tile/wood/wood_10,
+		/obj/item/stack/tile/wood/wood_11,
+		/obj/item/stack/tile/wood/wood_12,
+		/obj/item/stack/tile/wood/wood_13,
+	)
+
 /turf/open/indestructible/cobble
 	name = "cobblestone path"
 	desc = "A simple but beautiful path made of various sized stones."
