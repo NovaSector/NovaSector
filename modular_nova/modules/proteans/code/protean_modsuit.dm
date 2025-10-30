@@ -257,9 +257,20 @@
 		playsound(src, 'sound/machines/synth/synth_no.ogg', 100)
 		if(!do_after(user, 10 SECONDS))
 			return
+
+		// Eject assimilated modsuit before reset
+		if(stored_modsuit)
+			unassimilate_modsuit(protean_in_suit, forced = TRUE)
+			to_chat(user, span_notice("The assimilated modsuit is ejected during the reset process."))
+
 		protean_in_suit.say("Alert - Random Access Memory Reset. Current memories lost. Any interactions that were ongoing have been forgotten.", forced = TRUE)
 		protean_in_suit.log_message("has had their memory reset.", LOG_ATTACK)
 		to_chat(protean_in_suit, span_boldwarning("Your memories have been reset. You cannot remember who reset you or any of the events leading up to your reset."))
+
+		// Add blackout effect to prevent abuse
+		protean_in_suit.set_eye_blur_if_lower(80 SECONDS)
+		protean_in_suit.adjust_temp_blindness(20 SECONDS)
+
 		playsound(src, 'sound/machines/synth/synth_yes.ogg', 100)
 		playsound(src, 'sound/machines/click.ogg', 100)
 		protean_in_suit.SetSleeping(5 SECONDS)
@@ -276,6 +287,11 @@
 	return ..()
 
 /obj/item/mod/control/pre_equipped/protean/attack_hand(mob/living/user, list/modifiers)
+	// If the protean clicks their own suit while wearing it, open UI instead of trying to pick it up
+	var/obj/item/mod/core/protean/protean_core = core
+	if(istype(protean_core) && protean_core.linked_species?.owner == user && wearer == user)
+		ui_interact(user)
+		return TRUE
 	return ..()
 
 /obj/item/mod/control/pre_equipped/protean/proc/assimilate_theme(mob/user, plating)
@@ -464,8 +480,12 @@
 	desc = initial(desc)
 	extended_desc = initial(extended_desc)
 
-	if(user.can_put_in_hand(stored_modsuit, user.active_hand_index))
+	if(!forced && user.can_put_in_hand(stored_modsuit, user.active_hand_index))
 		user.put_in_hand(stored_modsuit, user.active_hand_index)
+		stored_modsuit = null
+	else
+		// If forced (pen reset) or can't put in hand, drop to floor
+		stored_modsuit.forceMove(get_turf(src))
 		stored_modsuit = null
 	update_static_data_for_all_viewers()
 
