@@ -6,4 +6,8 @@
 	if(copy_actions)
 		// for when you want to make sure the organ gets any actions from the old one
 		for(var/datum/action/action as anything in old_organ.actions)
+			// remove any existing instance of this action type
+			for(var/datum/action/existing as anything in actions)
+				if(existing.type == action.type)
+					remove_item_action(existing)
 			add_item_action(action.type)
