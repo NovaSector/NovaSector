@@ -332,8 +332,9 @@
 	stored_theme = theme // Store the old theme in cache
 	theme = to_assimilate.theme // Set new theme
 	skin = to_assimilate.skin // Inherit skin
-	complexity_max = to_assimilate.complexity_max // CRITICAL: Inherit complexity limit from assimilated suit!
 	theme.set_up_parts(src, skin) // This will properly clean up old parts and create new ones
+	// MUST set complexity_max AFTER set_up_parts(), as set_up_parts() overwrites it with theme default!
+	complexity_max = to_assimilate.complexity_max // CRITICAL: Inherit complexity limit from assimilated suit!
 	name = to_assimilate.name
 	desc = to_assimilate.desc
 	extended_desc = to_assimilate.extended_desc

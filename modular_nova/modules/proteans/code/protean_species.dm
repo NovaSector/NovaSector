@@ -273,8 +273,9 @@
 	if(ispath(outfit.back, /obj/item/mod/control))
 		var/control_path = outfit.back
 		suit = new control_path()
-		INVOKE_ASYNC(species_modsuit, TYPE_PROC_REF(/obj/item/mod/control/pre_equipped/protean, assimilate_modsuit), owner, suit, TRUE)
-		INVOKE_ASYNC(species_modsuit, TYPE_PROC_REF(/obj/item/mod/control, quick_activation))
+		// Don't use INVOKE_ASYNC - we need assimilation to complete before accessing storage!
+		species_modsuit.assimilate_modsuit(owner, suit, TRUE)
+		species_modsuit.quick_activation()
 
 	var/obj/item/mod/module/storage/storage = locate() in species_modsuit.modules // Give a storage if we don't have one.
 	if(!storage)
