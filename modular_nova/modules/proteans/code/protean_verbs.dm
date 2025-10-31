@@ -164,6 +164,10 @@
 	if(!message)
 		return
 
+	// Log the message for admin oversight
+	src.log_message("(SUIT COMMS to [key_name(suit.wearer)]): [message]", LOG_SUBTLER)
+	suit.wearer.log_message("(SUIT COMMS from [key_name(src)]): [message]", LOG_SUBTLER)
+
 	// Send the message to the wearer
 	to_chat(suit.wearer, "<span class='robot'><b>\[Suit Internal Comms\]</b> [message]</span>")
 	to_chat(src, span_notice("You broadcast through the suit's speakers: \"[message]\""))

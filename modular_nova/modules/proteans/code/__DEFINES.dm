@@ -49,9 +49,6 @@
 #define BRUTE_EXAMINE_NANO "deformation"
 #define BURN_EXAMINE_NANO "scorching"
 
-// Signal defines (COMSIG_OUTFIT_EQUIP and COMSIG_CLICK_CTRL_SHIFT are in main codebase now)
-#define COMSIG_OOC_ESCAPE "ooc_escape"
-
 /obj/item/bodypart
 	var/bodypart_species
 

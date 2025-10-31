@@ -18,7 +18,6 @@
 
 /obj/item/mod/control/pre_equipped/protean/Initialize(mapload, datum/mod_theme/new_theme, new_skin, obj/item/mod/core/new_core)
 	. = ..()
-	ADD_TRAIT(src, TRAIT_NODROP, "protean")
 	AddElement(/datum/element/strippable/protean, GLOB.strippable_human_items, TYPE_PROC_REF(/mob/living/carbon/human/, should_strip))
 
 	// Make sure there's always a storage module, even if spawned outside of normal outfit system
@@ -112,8 +111,8 @@
 
 /obj/item/mod/control/pre_equipped/protean/doStrip(mob/stripper, mob/owner) // Custom stripping code.
 	if(!isprotean(wearer)) // Strip it normally
-		REMOVE_TRAIT(src, TRAIT_NODROP, "protean") // Your ass is coming off.
 		return ..()
+	// Protean wearing their own suit - only allow emptying storage
 	var/obj/item/mod/module/storage/inventory = locate() in src.modules
 	if(!isnull(inventory))
 		src.atom_storage.remove_all()
@@ -125,17 +124,36 @@
 	stripper.balloon_alert(stripper, "can't strip a protean's suit!")
 	return ..()
 
+/obj/item/mod/control/pre_equipped/protean/attack_hand_secondary(mob/user, list/modifiers)
+	// Prevent proteans from removing their own suit from back slot
+	if(isprotean(user) && user == wearer && user.get_item_by_slot(ITEM_SLOT_BACK) == src)
+		user.balloon_alert(user, "it's part of you!")
+		return SECONDARY_ATTACK_CANCEL_ATTACK_CHAIN
+	return ..()
+
 /obj/item/mod/control/pre_equipped/protean/dropped(mob/user)
-	// Don't dump items if a protean is folding themselves into the suit
+	// Don't dump items or unset wearer if a protean is folding themselves into the suit
+	// We keep them as wearer so modules continue to work in suit mode
 	if(isprotean(user) && locate(/mob/living/carbon/human) in src)
+		// Skip the item dumping but don't call parent (which would unset wearer)
 		return
+	// Clean up all NODROP traits
+	if(HAS_TRAIT_FROM(src, TRAIT_NODROP, "protean_back"))
+		REMOVE_TRAIT(src, TRAIT_NODROP, "protean_back")
+	if(HAS_TRAIT_FROM(src, TRAIT_NODROP, "protean"))
+		REMOVE_TRAIT(src, TRAIT_NODROP, "protean")
 	return ..()
 
 /obj/item/mod/control/pre_equipped/protean/proc/drop_suit()
 	if(!QDELETED(wearer))
-		if(HAS_TRAIT(src, TRAIT_NODROP))
-			REMOVE_TRAIT(src, TRAIT_NODROP, "protean")
-		wearer.dropItemToGround(src, TRUE, TRUE, TRUE)
+		// Temporarily remove protean_back trait to allow dropping
+		if(HAS_TRAIT_FROM(src, TRAIT_NODROP, "protean_back"))
+			REMOVE_TRAIT(src, TRAIT_NODROP, "protean_back")
+		// Manually unset wearer (since dropped() won't be called normally)
+		var/mob/living/carbon/temp_wearer = wearer
+		if(wearer)
+			unset_wearer()
+		temp_wearer.dropItemToGround(src, TRUE, TRUE, TRUE)
 
 /// Lets proteans lock the suit onto someone so they can't take it off
 /obj/item/mod/control/pre_equipped/protean/proc/toggle_lock(forced = FALSE)
@@ -146,15 +164,14 @@
 /obj/item/mod/control/pre_equipped/protean/equipped(mob/user, slot, initial)
 	. = ..()
 
-	if(isprotean(user))
-		return
 	if(slot == ITEM_SLOT_BACK && user)
-		RegisterSignal(user, COMSIG_OOC_ESCAPE, PROC_REF(ooc_escape))
-		if(modlocked)
+		if(isprotean(user))
+			// Make suit unremovable from back for proteans
+			ADD_TRAIT(src, TRAIT_NODROP, "protean_back")
+		else if(modlocked)
+			// Non-protean wearing a locked suit
 			ADD_TRAIT(src, TRAIT_NODROP, "protean")
 			to_chat(user, span_warning("The suit does not seem to be able to come off..."))
-	else
-		UnregisterSignal(user, COMSIG_OOC_ESCAPE)
 
 /obj/item/mod/control/pre_equipped/protean/choose_deploy(mob/user)
 	if(!isprotean(user) && modlocked && active)
@@ -362,8 +379,11 @@
 					qdel(module) // Delete the incoming one (items already extracted above)
 					continue
 
+		// CRITICAL: Uninstall from old suit FIRST to clear module.mod reference
+		to_assimilate.uninstall(module)
+
 		// Try to install the module into our suit
-		install(module, user, TRUE)
+		install(module, user)
 
 		// Check if it actually made it in (will be in our modules list if successful)
 		if(module in modules)
@@ -373,8 +393,7 @@
 		if(!module.removable)
 			continue
 
-		// If we can't use it, remove it from the old suit and drop it on the ground
-		to_assimilate.uninstall(module)
+		// If we can't use it, drop it on the ground
 		module.forceMove(get_turf(src))
 		to_chat(user, span_warning("[module] has dropped onto the floor!"))
 
@@ -494,15 +513,6 @@
 			. += span_deadsay("[t_He] [t_has] entered stasis and [t_has] been completely unresponsive to anything for [round(((world.time - protean_in_suit.lastclienttime) / (1 MINUTES)),1)] minutes. [t_He] may snap out of it soon.")
 		if(!protean_in_suit.key)
 			. += span_deadsay("[t_He] [t_is] totally listless. The stresses of life in deep-space must have been too much for [t_him]. Any recovery is unlikely.")
-
-/obj/item/mod/control/pre_equipped/protean/proc/ooc_escape(mob/living/carbon/user)
-	SIGNAL_HANDLER
-
-	if(isprotean(wearer))
-		return
-	drop_suit()
-	if(modlocked)
-		toggle_lock(TRUE)
 
 /**
  * Protean stripping while they're in the suit.

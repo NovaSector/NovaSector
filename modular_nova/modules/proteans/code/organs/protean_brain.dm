@@ -125,6 +125,9 @@
 	owner.remove_status_effect(/datum/status_effect/protean_low_power_mode/low_power)
 	suit.drop_suit()
 	owner.forceMove(suit)
+	// Lock camera perspective to the suit
+	owner.reset_perspective(suit)
+	protean.prevent_perspective_change = TRUE
 	// Use timer instead of sleep() to avoid blocking on_life() processing
 	going_into_suit_timer = addtimer(VARSET_CALLBACK(owner, invisibility, initial(owner.invisibility)), 1.2 SECONDS, TIMER_STOPPABLE | TIMER_DELETE_ME)
 
@@ -162,6 +165,9 @@
 
 /// Completes the exit transformation after visual effect delay
 /obj/item/organ/brain/protean/proc/complete_exit_transformation(obj/item/mod/control/pre_equipped/protean/suit, turf/exit_turf)
+	var/datum/species/protean/protean = owner.dna?.species
+	if(!istype(protean))
+		return
 	suit.drop_suit()
 	owner.forceMove(exit_turf)
 	if(owner.get_item_by_slot(ITEM_SLOT_BACK))
@@ -170,6 +176,9 @@
 	suit.invisibility = initial(suit.invisibility)
 	owner.SetStun(0)
 	owner.remove_traits(TRANSFORM_TRAITS, PROTEAN_TRAIT)
+	// Restore camera perspective to the protean
+	protean.prevent_perspective_change = FALSE
+	owner.reset_perspective(owner)
 	owner.apply_status_effect(/datum/status_effect/protean_low_power_mode/reform)
 	owner.visible_message(span_warning("[owner] reforms from [suit]!"))
 	if(!HAS_TRAIT(suit, TRAIT_NODROP))

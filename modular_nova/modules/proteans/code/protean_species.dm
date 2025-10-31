@@ -167,6 +167,7 @@
 	core?.linked_species = src
 	// Add protean-specific verbs (using add_verb for proper UI refresh)
 	add_verb(gainer, list(
+		/mob/living/carbon/proc/protean_ui,
 		/mob/living/carbon/proc/protean_heal,
 		/mob/living/carbon/proc/lock_suit,
 		/mob/living/carbon/proc/suit_transformation,
@@ -318,6 +319,7 @@
 		gainer.bubble_icon = initial(gainer.bubble_icon) // Restore normal speech bubble
 		// Remove protean verbs (using remove_verb for proper UI refresh)
 		remove_verb(gainer, list(
+			/mob/living/carbon/proc/protean_ui,
 			/mob/living/carbon/proc/protean_heal,
 			/mob/living/carbon/proc/lock_suit,
 			/mob/living/carbon/proc/suit_transformation,
