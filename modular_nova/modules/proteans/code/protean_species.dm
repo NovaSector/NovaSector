@@ -83,6 +83,8 @@
 	mutanttongue = /obj/item/organ/tongue/cybernetic/protean
 	mutantlungs = null // No lungs
 	mutantappendix = null // No appendix
+	
+	language_prefs_whitelist = list(/datum/language/monkey)
 
 	/// Reference to the protean's integrated modsuit
 	var/obj/item/mod/control/pre_equipped/protean/species_modsuit
@@ -98,7 +100,8 @@
 		ORGAN_SLOT_EYES, // Can be replaced with any robotic eyes
 		// TONGUE, EARS, VOICE, HUD, ARM_AUGS not in list = can be installed freely without checks
 	)
-	language_prefs_whitelist = list(/datum/language/monkey)
+	/// The shapeshift action
+	var/datum/action/innate/alter_form/quirk/shapeshift_action = new()
 
 /mob/living/carbon/human/species/protean
 	race = /datum/species/protean
@@ -107,11 +110,13 @@
 	// Unregister all signals before cleanup
 	if(species_modsuit)
 		UnregisterSignal(species_modsuit, COMSIG_PREQDELETED)
+		QDEL_NULL(species_modsuit)
 	if(owner)
 		UnregisterSignal(owner, COMSIG_CARBON_GAIN_ORGAN)
 	UnregisterSignal(src, COMSIG_OUTFIT_EQUIP)
 
-	QDEL_NULL(species_modsuit)
+	if(shapeshift_action)
+		QDEL_NULL(shapeshift_action)
 	owner = null
 	return ..()
 
@@ -131,8 +136,6 @@
 	if(istype(old_species, /datum/species/protean))
 		var/datum/species/protean/old_protean = old_species
 		old_protean_suit = old_protean.species_modsuit
-		// Temporarily prevent deletion of the old suit
-		old_protean.species_modsuit = null
 
 	. = ..()
 	owner = gainer
@@ -170,7 +173,7 @@
 	))
 
 	// Grant shapeshifting ability
-	var/datum/action/innate/alter_form/quirk/shapeshift_action = new()
+	shapeshift_action = new
 	shapeshift_action.Grant(gainer)
 
 	// Ensure protean has correct organs (fixes quirk/preference organ replacement and ghost role spawns)
@@ -180,7 +183,6 @@
 		qdel(current_brain)
 		var/obj/item/organ/brain/protean/new_brain = new()
 		new_brain.Insert(gainer, special = TRUE, movement_flags = DELETE_IF_REPLACED)
-
 
 /// Signal handler: detects when incompatible organ is inserted and schedules its rejection.
 /// Brain MUST be protean-specific. Other organs can be ANY robotic/nanomachine organ (but will lose special functions).
@@ -227,7 +229,6 @@
 	SIGNAL_HANDLER
 	if(!force)
 		return TRUE
-
 
 /// Creates and equips a new protean modsuit to the protean's back slot. Drops any existing back item.
 /datum/species/protean/proc/equip_modsuit(mob/living/carbon/human/gainer)
@@ -322,10 +323,10 @@
 			/mob/living/carbon/proc/eject_assimilated_modsuit,
 		))
 	UnregisterSignal(src, COMSIG_OUTFIT_EQUIP)
-
-	// If we're changing to another protean (SAD/pref reload), don't delete the suit
-	// The new protean species will reuse it in on_species_gain
-	if(!istype(new_species, /datum/species/protean))
+	if(shapeshift_action)
+		QDEL_NULL(shapeshift_action)
+	// Drop assimilated modsuits
+	if(!istype(new_species, /datum/species/protean) && !QDELETED(gainer))
 		if(species_modsuit?.stored_modsuit)
 			species_modsuit.unassimilate_modsuit(owner, TRUE)
 		gainer.dropItemToGround(species_modsuit, TRUE)
