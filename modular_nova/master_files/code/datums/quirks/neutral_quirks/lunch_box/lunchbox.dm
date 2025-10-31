@@ -249,7 +249,16 @@ GLOBAL_LIST_INIT(possible_player_lunchbox_meal_choice, list(
 	"Root Rib" = /obj/item/food/burger/rootrib,
 	"Chicken Rootwich" = /obj/item/food/burger/rootchicken,
 	"Fish Rootwich" = /obj/item/food/burger/rootfish,
-	"Sloppy Moe" = /obj/item/food/burger/sloppyroot,
+	"Herby Cheese" = /obj/item/food/herby_cheese,
+	"Grilled Cheese" = /obj/item/food/grilled_cheese,
+	"Mothic Salad" = /obj/item/food/mothic_salad,
+	"Skeklitmischtpoppl" = /obj/item/food/squeaking_stir_fry,
+	"Sweet Chili Cabbage Wrap" = /obj/item/food/sweet_chili_cabbage_wrap,
+	"Ozlsettitæloskekllön Ede Pommes" = /obj/item/food/loaded_curds,
+	"Green Lasagne Slice" = /obj/item/food/green_lasagne_slice,
+	"Big Baked Rice" = /obj/item/food/big_baked_rice,
+	"Fiesa Corn Skillet" = /obj/item/food/fiesta_corn_skillet,
+	"Ratatouille" = /obj/item/food/ratatouille,
 ))
 
 /datum/preference/choiced/lunchbox_meal_choice/is_accessible(datum/preferences/preferences)
@@ -304,7 +313,7 @@ GLOBAL_LIST_INIT(possible_player_lunchbox_snack_choice, list(
 	"Lollipop" = /obj/item/food/swirl_lollipop,
 	"Mothmallow" = /obj/item/food/vendor_snacks/mothmallow,
 	"Fuel Jack" = /obj/item/food/vendor_snacks/moth_bag/fuel_jack,
-	"Engine Fodder" = /obj/item/food/vendor_snacks/moth_bag,
+	"Packaged Engine Fodder" = /obj/item/food/vendor_snacks/moth_bag,
 	"Honey Cheesecake Cube" = /obj/item/food/vendor_snacks/moth_bag/cheesecake/honey,
 	"Chocolate Cheesecake Cube" = /obj/item/food/vendor_snacks/moth_bag/cheesecake,
 	"Moffin" = /obj/item/food/vendor_tray_meal/side/moffin,
@@ -351,6 +360,13 @@ GLOBAL_LIST_INIT(possible_player_lunchbox_snack_choice, list(
 	"Patzikula" = /obj/item/food/patzikula,
 	"Tirizan Dumplings" = /obj/item/food/lizard_dumplings,
 	"Steeped Seraka Mushrooms" = /obj/item/food/steeped_mushrooms,
+	"Toasted Seeds" = /obj/item/food/toasted_seeds,
+	"Engine Fodder" = /obj/item/food/engine_fodder,
+	"Lil Baked Rice" = /obj/item/food/lil_baked_rice,
+	"Oven Baked Corn" = /obj/item/food/oven_baked_corn,
+	"Buttered Baked Corn" = /obj/item/food/buttered_baked_corns,
+	"Mozzarella Sticks" = /obj/item/food/mozzarella_sticks,
+	"Voltölpaprik" = /obj/item/food/stuffed_peppers,
 ))
 
 /datum/preference/choiced/lunchbox_first_snack_choice/init_possible_values()
