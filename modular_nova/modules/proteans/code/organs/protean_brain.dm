@@ -115,6 +115,8 @@
 
 /// Transforms protean from suit mode back to humanoid form. Takes 5s, equips suit to back, applies "Freshly Reformed" debuff.
 /obj/item/organ/brain/protean/proc/leave_modsuit()
+	if(timeleft(leaving_suit_timer))
+		return
 	var/datum/species/protean/protean = owner.dna?.species
 	if(!istype(protean))
 		return
