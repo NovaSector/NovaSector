@@ -139,7 +139,7 @@
 	suit.invisibility = 101
 	new /obj/effect/temp_visual/protean_from_suit(exit_turf, owner.dir)
 	// Brief delay for visual effect using timer instead of sleep()
-	addtimer(CALLBACK(src, PROC_REF(complete_exit_transformation), suit, exit_turf), 1.2 SECONDS)
+	leaving_suit_timer = addtimer(CALLBACK(src, PROC_REF(complete_exit_transformation), suit, exit_turf), 1.2 SECONDS, TIMER_STOPPABLE | TIMER_DELETE_ME)
 
 /// Completes the exit transformation after visual effect delay
 /obj/item/organ/brain/protean/proc/complete_exit_transformation(obj/item/mod/control/pre_equipped/protean/suit, turf/exit_turf)
