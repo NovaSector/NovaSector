@@ -21,4 +21,3 @@
 	// Open the GPS interface when activated
 	attack_self(mod.wearer)
 
-

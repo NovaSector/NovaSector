@@ -29,16 +29,14 @@
 		storage = new()
 		install(storage, null, TRUE)
 
-
-
 /obj/item/mod/control/pre_equipped/protean/Destroy()
 	// If a protean is folded up inside, kick them out before deleting the suit
 	var/mob/living/carbon/human/protean_inside = locate(/mob/living/carbon/human) in src
-	if(protean_inside && isprotean(protean_inside))
+	if(!QDELETED(protean_inside) && isprotean(protean_inside))
 		protean_inside.forceMove(get_turf(src))
 		to_chat(protean_inside, span_warning("Your suit is being destroyed! You are forcefully ejected!"))
 
-	if(stored_modsuit)
+	if(!QDELETED(stored_modsuit))
 		for(var/obj/item/mod/module/modules in cached_modules)
 			if(!modules.removable)
 				qdel(modules)
@@ -144,7 +142,7 @@
 	return ..()
 
 /obj/item/mod/control/pre_equipped/protean/proc/drop_suit()
-	if(wearer)
+	if(!QDELETED(wearer))
 		if(HAS_TRAIT(src, TRAIT_NODROP))
 			REMOVE_TRAIT(src, TRAIT_NODROP, "protean")
 		wearer.dropItemToGround(src, TRUE, TRUE, TRUE)
@@ -195,7 +193,6 @@
 		balloon_alert(user, "that button is unresponsive")
 		return FALSE
 	return ..()
-
 
 /// Protean Revivial
 
@@ -274,7 +271,6 @@
 		playsound(src, 'sound/machines/synth/synth_yes.ogg', 100)
 		playsound(src, 'sound/machines/click.ogg', 100)
 		protean_in_suit.SetSleeping(5 SECONDS)
-
 
 /obj/item/mod/control/pre_equipped/protean/ui_status(mob/user, datum/ui_state/state)
 	var/obj/item/mod/core/protean/source = core
