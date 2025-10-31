@@ -109,7 +109,7 @@
 	suit.drop_suit()
 	owner.forceMove(suit)
 	// Use timer instead of sleep() to avoid blocking on_life() processing
-	going_into_suit_timer = addtimer(VARSET_CALLBACK(owner, invisibility, initial(owner.invisibility)), 1.2 SECONDS, TIMER_STOPPABLE)
+	going_into_suit_timer = addtimer(VARSET_CALLBACK(owner, invisibility, initial(owner.invisibility)), 1.2 SECONDS, TIMER_STOPPABLE | TIMER_DELETE_ME)
 
 /// Transforms protean from suit mode back to humanoid form. Takes 5s, equips suit to back, applies "Freshly Reformed" debuff.
 /obj/item/organ/brain/protean/proc/leave_modsuit()
