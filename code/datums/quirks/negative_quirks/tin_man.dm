@@ -8,11 +8,14 @@
 	hardcore_value = 6
 	mail_goodies = list(/obj/item/storage/organbox)
 
+/datum/quirk/tin_man/is_species_appropriate(datum/species/mob_species)
+	if(istype(mob_species, /datum/species/protean)) // Proteans cannot use this quirk - they have unique organs
+		return FALSE
+	else
+		return ..()
+
 /datum/quirk/tin_man/add_unique(client/client_source)
 	var/mob/living/carbon/human/human_holder = quirk_holder
-	// Proteans cannot use this quirk - they have unique organs
-	if(isprotean(human_holder))
-		return
 	var/static/list/organ_slots = list(
 		ORGAN_SLOT_HEART = /obj/item/organ/heart/cybernetic/surplus,
 		ORGAN_SLOT_LUNGS = /obj/item/organ/lungs/cybernetic/surplus,

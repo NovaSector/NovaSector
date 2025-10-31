@@ -20,9 +20,26 @@
 	var/dead = FALSE
 	/// Timer ID for going into suit animation
 	var/going_into_suit_timer
+	/// Timer ID for leaving suit animation
+	var/leaving_suit_timer
 	COOLDOWN_DECLARE(message_cooldown)
 	COOLDOWN_DECLARE(refactory_cooldown)
 	COOLDOWN_DECLARE(orchestrator_cooldown)
+
+/obj/item/organ/brain/protean/on_mob_insert(mob/living/carbon/receiver, special, movement_flags)
+	. = ..()
+	RegisterSignal(receiver, COMSIG_LIVING_POST_FULLY_HEAL, PROC_REF(on_fully_healed))
+
+/obj/item/organ/brain/protean/on_mob_remove(mob/living/carbon/organ_owner, special, movement_flags)
+	. = ..()
+	UnregisterSignal(organ_owner, COMSIG_LIVING_POST_FULLY_HEAL)
+
+/// Handler for admin heal - forces limb replacement without metal cost or suit requirement
+/obj/item/organ/brain/protean/proc/on_fully_healed(datum/source, heal_flags)
+	SIGNAL_HANDLER
+
+	if(heal_flags & HEAL_ADMIN)
+		replace_limbs(force = TRUE)
 
 /obj/item/organ/brain/protean/on_life(seconds_per_tick, times_fired)
 	. = ..()
@@ -109,10 +126,12 @@
 	suit.drop_suit()
 	owner.forceMove(suit)
 	// Use timer instead of sleep() to avoid blocking on_life() processing
-	going_into_suit_timer = addtimer(VARSET_CALLBACK(owner, invisibility, initial(owner.invisibility)), 1.2 SECONDS, TIMER_STOPPABLE)
+	going_into_suit_timer = addtimer(VARSET_CALLBACK(owner, invisibility, initial(owner.invisibility)), 1.2 SECONDS, TIMER_STOPPABLE | TIMER_DELETE_ME)
 
 /// Transforms protean from suit mode back to humanoid form. Takes 5s, equips suit to back, applies "Freshly Reformed" debuff.
 /obj/item/organ/brain/protean/proc/leave_modsuit()
+	if(timeleft(leaving_suit_timer))
+		return
 	var/datum/species/protean/protean = owner.dna?.species
 	if(!istype(protean))
 		return
@@ -139,7 +158,7 @@
 	suit.invisibility = 101
 	new /obj/effect/temp_visual/protean_from_suit(exit_turf, owner.dir)
 	// Brief delay for visual effect using timer instead of sleep()
-	addtimer(CALLBACK(src, PROC_REF(complete_exit_transformation), suit, exit_turf), 1.2 SECONDS)
+	leaving_suit_timer = addtimer(CALLBACK(src, PROC_REF(complete_exit_transformation), suit, exit_turf), 1.2 SECONDS, TIMER_STOPPABLE | TIMER_DELETE_ME)
 
 /// Completes the exit transformation after visual effect delay
 /obj/item/organ/brain/protean/proc/complete_exit_transformation(obj/item/mod/control/pre_equipped/protean/suit, turf/exit_turf)
@@ -157,24 +176,28 @@
 		ADD_TRAIT(suit, TRAIT_NODROP, "protean")
 
 /// Heals and replaces damaged limbs/organs using 6 metal sheets. Requires being in suit mode, takes 30s.
-/obj/item/organ/brain/protean/proc/replace_limbs()
+/// If force = TRUE (admin heal), bypasses all checks and costs.
+/obj/item/organ/brain/protean/proc/replace_limbs(force = FALSE)
 	var/obj/item/organ/stomach/protean/stomach = owner.get_organ_slot(ORGAN_SLOT_STOMACH)
 	var/obj/item/organ/eyes/robotic/protean/eyes = owner.get_organ_slot(ORGAN_SLOT_EYES)
 	var/obj/item/organ/tongue/cybernetic/protean/tongue = owner.get_organ_slot(ORGAN_SLOT_TONGUE)
 	var/obj/item/organ/ears/cybernetic/protean/ears = owner.get_organ_slot(ORGAN_SLOT_EARS)
 	var/obj/item/organ/liver/protean/liver = owner.get_organ_slot(ORGAN_SLOT_LIVER)
 
-	if(stomach.metal <= PROTEAN_STOMACH_FULL * 0.6 && istype(stomach))
-		to_chat(owner, span_warning("Not enough metal to heal body!"))
-		return
-	if(!istype(owner.loc, /obj/item/mod/control))
-		to_chat(owner, span_warning("Not in the open. You must be inside your suit!"))
-		return
-	var/datum/species/protean/species = owner.dna.species
-	if(!do_after(owner, 30 SECONDS, species.species_modsuit, IGNORE_INCAPACITATED))
-		return
+	if(!force)
+		if(stomach.metal <= PROTEAN_STOMACH_FULL * 0.6 && istype(stomach))
+			to_chat(owner, span_warning("Not enough metal to heal body!"))
+			return
+		if(!istype(owner.loc, /obj/item/mod/control))
+			to_chat(owner, span_warning("Not in the open. You must be inside your suit!"))
+			return
+		var/datum/species/protean/species = owner.dna.species
+		if(!do_after(owner, 30 SECONDS, species.species_modsuit, IGNORE_INCAPACITATED))
+			return
 
-	stomach.metal = clamp(stomach.metal - (PROTEAN_STOMACH_FULL * 0.6), 0, 10)
+		stomach.metal = clamp(stomach.metal - (PROTEAN_STOMACH_FULL * 0.6), 0, 10)
+
+	// Force mode (admin heal) - no cost, instant
 	owner.fully_heal(HEAL_LIMBS)
 	if(isnull(eyes))
 		eyes = new /obj/item/organ/eyes/robotic/protean
@@ -204,6 +227,8 @@
 	else if(organ_flags & ORGAN_NANOMACHINE)
 		liver.set_organ_damage(0)
 
+/// Brings the protean back from "dead" state. Fully heals them and restores refactory function.
+/// Called after assisted or automatic recovery.
 /obj/item/organ/brain/protean/proc/revive()
 	dead = FALSE
 	playsound(owner, 'sound/machines/ping.ogg', 30)

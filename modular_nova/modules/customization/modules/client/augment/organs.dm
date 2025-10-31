@@ -38,12 +38,7 @@
 	name = "Cortically-Augmented Brain"
 	slot = AUGMENT_SLOT_BRAIN
 	path = /obj/item/organ/brain/cybernetic/cortical
-
-/datum/augment_item/organ/brain/cortical/apply(mob/living/carbon/human/human_holder, character_setup = FALSE, datum/preferences/prefs)
-	// Proteans cannot use cortically augmented brains - they need their protean core
-	if(isprotean(human_holder))
-		return
-	return ..()
+	species_blacklist = list(/datum/species/protean) // Proteans cannot use cortically augmented brains - they need their protean core
 
 //HEARTS
 /datum/augment_item/organ/heart

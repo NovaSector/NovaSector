@@ -16,11 +16,14 @@
 	associated_typepath = /datum/quirk/prosthetic_organ
 	customization_options = list(/datum/preference/choiced/prosthetic_organ)
 
+/datum/quirk/prosthetic_organ/is_species_appropriate(datum/species/mob_species)
+	if(istype(mob_species, /datum/species/protean)) // Proteans cannot use this quirk - they have unique organs
+		return FALSE
+	else
+		return ..()
+
 /datum/quirk/prosthetic_organ/add_unique(client/client_source)
 	var/mob/living/carbon/human/human_holder = quirk_holder
-	// Proteans cannot use this quirk - they have unique organs
-	if(isprotean(human_holder))
-		return
 	var/static/list/organ_slots = list(
 		ORGAN_SLOT_HEART,
 		ORGAN_SLOT_LUNGS,

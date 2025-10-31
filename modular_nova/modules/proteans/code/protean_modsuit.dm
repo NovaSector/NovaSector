@@ -10,8 +10,6 @@
 	var/modlocked = FALSE
 	/// The MODsuit that's been absorbed by the protean
 	var/obj/item/mod/control/stored_modsuit
-	/// Modules that couldn't be installed immediately (usually storage conflicts)
-	var/list/cached_modules = list()
 	/// The appearance theme from the absorbed MODsuit
 	var/datum/mod_theme/stored_theme
 
@@ -37,14 +35,6 @@
 		to_chat(protean_inside, span_warning("Your suit is being destroyed! You are forcefully ejected!"))
 
 	if(!QDELETED(stored_modsuit))
-		for(var/obj/item/mod/module/modules in cached_modules)
-			if(!modules.removable)
-				qdel(modules)
-				continue
-			modules.forceMove(get_turf(src))
-
-		cached_modules = null
-		drop_suit()
 		INVOKE_ASYNC(src, PROC_REF(unassimilate_modsuit), null, forced = TRUE)
 	return ..()
 
@@ -302,13 +292,7 @@
 	name = initial(name)
 	desc = initial(desc)
 
-	for(var/obj/item/part as anything in get_parts())
-		part.name = initial(name)
-		part.desc = initial(desc)
-		if(part.loc == src)
-			continue
-		retract(null, part, instant = TRUE)
-
+	// Don't manually retract parts - let set_up_parts() handle cleanup to avoid hard deletes
 	theme = the_theme
 	the_theme.set_up_parts(src, the_theme.default_skin)
 	update_static_data_for_all_viewers()
@@ -326,18 +310,13 @@
 		balloon_alert(user, "stuck!")
 		return
 
-	if(!forced)
-		for(var/obj/item/part as anything in get_parts())
-			if(part.loc == src)
-				continue
-			retract(null, part, instant = TRUE)
-
+	// Don't manually retract parts - let set_up_parts() handle cleanup to avoid hard deletes
 	stored_modsuit = to_assimilate
 	stored_theme = theme // Store the old theme in cache
 	theme = to_assimilate.theme // Set new theme
 	skin = to_assimilate.skin // Inherit skin
 	complexity_max = to_assimilate.complexity_max // CRITICAL: Inherit complexity limit from assimilated suit!
-	theme.set_up_parts(src, skin) // Put everything together
+	theme.set_up_parts(src, skin) // This will properly clean up old parts and create new ones
 	name = to_assimilate.name
 	desc = to_assimilate.desc
 	extended_desc = to_assimilate.extended_desc
@@ -433,11 +412,7 @@
 		if(!do_after(user, 4 SECONDS))
 			return
 
-	for(var/obj/item/part as anything in get_parts())
-		if(part.loc == src)
-			continue
-		retract(null, part, instant = TRUE)
-
+	// Don't manually retract parts - let set_up_parts() handle cleanup to avoid hard deletes
 	complexity_max = initial(complexity_max)
 
 	// Transfer all modules back to stored modsuit (EXCEPT storage - we keep ours)
@@ -459,19 +434,6 @@
 		uninstall(module)
 		to_chat(user, span_notice("[module] couldn't fit back, dropping to floor!"))
 		module.forceMove(get_turf(src))
-
-	// Restore cached storage (magnate storage) back to the original modsuit
-	for(var/obj/item/mod/module/cached in cached_modules)
-		stored_modsuit.install(cached, user, TRUE)
-
-		if(cached in stored_modsuit.modules)
-			cached_modules -= cached
-			continue
-
-		// If it failed, drop it
-		to_chat(user, span_warning("[cached] couldn't fit back, dropping to floor!"))
-		cached.forceMove(get_turf(src))
-		cached_modules -= cached
 
 	theme = stored_theme
 	stored_theme = null

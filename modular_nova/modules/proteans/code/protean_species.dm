@@ -67,6 +67,9 @@
 		// Seperate handling will be used. Proteans never truely "die". They get stuck in their suit.
 		TRAIT_NODEATH,
 
+		// Proteans have an integrated modsuit (prevents entombed quirk)
+		TRAIT_INTEGRATED_MODSUIT,
+
 		//TRAIT_VENTCRAWLER_NUDE, - A tease. If you want to give a species vent crawl. God help your soul. But I won't stop you from learning that hard lesson.
 	)
 
@@ -83,7 +86,7 @@
 	mutanttongue = /obj/item/organ/tongue/cybernetic/protean
 	mutantlungs = null // No lungs
 	mutantappendix = null // No appendix
-	
+
 	language_prefs_whitelist = list(/datum/language/monkey)
 
 	/// Reference to the protean's integrated modsuit

@@ -6,7 +6,7 @@
 
 /atom/movable/screen/alert/status_effect/protean_low_power_mode
 	name = "Low Power Mode"
-	desc = "You are running on low power mode, this slows you down but means you'll use way less material to sustain yourself"
+	desc = "You are running on low power mode. This slows you down but means you'll use way less material to sustain yourself."
 	icon = 'modular_nova/modules/proteans/icons/screen_alert.dmi'
 	icon_state = "protean_lowpower"
 

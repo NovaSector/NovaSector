@@ -74,7 +74,9 @@
 				return
 
 	species.species_modsuit.toggle_lock()
-	to_chat(src, span_notice("You [suit.modlocked ? "<b>lock</b>" : "<b>unlock</b>"] the suit [isprotean(suit.wearer) || loc == suit ? "" : "onto [suit.wearer]"]"))
+	var/action = suit.modlocked ? "lock" : "unlock"
+	var/target_suffix = (!isprotean(suit.wearer) && loc != suit) ? " onto [suit.wearer]" : ""
+	to_chat(src, span_notice("You <b>[action]</b> the suit[target_suffix]."))
 	playsound(src, 'sound/machines/click.ogg', 25)
 
 /// Toggles between humanoid and suit mode. Humanoid can move, suit mode provides protection but stuns. Takes 5 seconds.

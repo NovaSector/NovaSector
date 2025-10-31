@@ -17,11 +17,14 @@
 	/// Saves refs to the original (normal size) organs, which are on ice in nullspace in case this quirk gets removed somehow.
 	var/list/obj/item/organ/old_organs
 
+/datum/quirk/oversized/is_species_appropriate(datum/species/mob_species)
+	if(istype(mob_species, /datum/species/protean)) // Proteans cannot use this quirk - they have unique organs and a unique modsuit
+		return FALSE
+	else
+		return ..()
+
 /datum/quirk/oversized/add(client/client_source)
 	var/mob/living/carbon/human/human_holder = quirk_holder
-	// Proteans cannot use this quirk - they have unique organs and a unique modsuit
-	if(isprotean(human_holder))
-		return
 	human_holder.dna.features["body_size"] = 2
 	human_holder.maptext_height = 32 * human_holder.dna.features["body_size"] //Adjust runechat height
 	human_holder.dna.update_body_size()

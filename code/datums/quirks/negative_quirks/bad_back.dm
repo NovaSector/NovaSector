@@ -11,11 +11,14 @@
 	mail_goodies = list(/obj/item/cane)
 	var/datum/weakref/backpack
 
+/datum/quirk/badback/is_species_appropriate(datum/species/mob_species)
+	if(istype(mob_species, /datum/species/protean)) // Proteans cannot use this quirk - their "back" slot is their modsuit, not a spine
+		return FALSE
+	else
+		return ..()
+
 /datum/quirk/badback/add(client/client_source)
 	var/mob/living/carbon/human/human_holder = quirk_holder
-	// Proteans cannot use this quirk - their "back" slot is their modsuit, not a spine
-	if(istype(human_holder.dna.species, /datum/species/protean))
-		return
 	var/obj/item/storage/backpack/equipped_backpack = human_holder.back
 	if(istype(equipped_backpack))
 		quirk_holder.add_mood_event("back_pain", /datum/mood_event/back_pain)

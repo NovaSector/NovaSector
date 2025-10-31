@@ -73,6 +73,7 @@
 	medium_burn_msg = MEDIUM_NANO_BURN; \
 	heavy_burn_msg = HEAVY_NANO_BURN; \
 	damage_examines = list(BRUTE = BRUTE_EXAMINE_NANO, BURN = BURN_EXAMINE_NANO); \
+	/* Timerid of the QDEL_IN timer, which starts after the limb is dismembered through becoming damaged enough */ \
 	var/qdel_timer; \
 }
 
