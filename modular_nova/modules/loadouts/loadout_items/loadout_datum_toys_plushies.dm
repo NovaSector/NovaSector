@@ -273,9 +273,9 @@
 	name = "Securifox Plushie"
 	item_path = /obj/item/toy/plush/nova/securifox
 
-///datum/loadout_item/toys/plush/towa
-//	name = "Tiny Overwatch"
-//	item_path = /obj/item/toy/plush/nova/towa
+datum/loadout_item/toys/plush/towa
+	name = "Tiny Overwatch"
+	item_path = /obj/item/toy/plush/nova/towa
 
 /*
 *	STAFF
