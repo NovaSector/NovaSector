@@ -364,7 +364,7 @@ GLOBAL_LIST_INIT(possible_player_lunchbox_snack_choice, list(
 	"Engine Fodder" = /obj/item/food/engine_fodder,
 	"Lil Baked Rice" = /obj/item/food/lil_baked_rice,
 	"Oven Baked Corn" = /obj/item/food/oven_baked_corn,
-	"Buttered Baked Corn" = /obj/item/food/buttered_baked_corns,
+	"Buttered Baked Corn" = /obj/item/food/buttered_baked_corn,
 	"Mozzarella Sticks" = /obj/item/food/mozzarella_sticks,
 	"Voltölpaprik" = /obj/item/food/stuffed_peppers,
 ))
