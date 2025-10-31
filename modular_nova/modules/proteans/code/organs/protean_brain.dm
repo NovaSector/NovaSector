@@ -39,7 +39,7 @@
 	SIGNAL_HANDLER
 
 	if(heal_flags & HEAL_ADMIN)
-		replace_limbs(force = TRUE)
+		INVOKE_ASYNC(src, PROC_REF(replace_limbs), TRUE)
 
 /obj/item/organ/brain/protean/on_life(seconds_per_tick, times_fired)
 	. = ..()
