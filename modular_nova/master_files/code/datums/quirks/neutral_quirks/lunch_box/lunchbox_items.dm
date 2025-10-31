@@ -65,6 +65,9 @@
 /obj/item/storage/lunchbox/space
 	icon_state = "space"
 
+/obj/item/storage/lunchbox/hearts
+	icon_state = "hearts"
+
 /obj/item/storage/lunchbox/heart
 	icon_state = "heart"
 
