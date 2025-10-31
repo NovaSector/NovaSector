@@ -751,13 +751,13 @@
     default_gravity = STANDARD_GRAVITY
 
 /area/station/service/halloweenactionthing/indoors
-    name = "\improper NT-Colony-28 Interior"
+    name = "\improper NT-Colony-28 Interior Area"
     icon_state = "explored"
     requires_power = FALSE
     default_gravity = STANDARD_GRAVITY
 
 /area/station/service/halloweenactionthing/outdoors
-    name = "\improper NT-Colony-28 Interior"
+    name = "\improper NT-Colony-28 Exterior Area"
     icon_state = "explored"
     static_lighting = TRUE
     base_lighting_alpha = 50
