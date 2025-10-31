@@ -20,6 +20,8 @@
 	var/dead = FALSE
 	/// Timer ID for going into suit animation
 	var/going_into_suit_timer
+	/// Timer ID for leaving suit animation
+	var/leaving_suit_timer
 	COOLDOWN_DECLARE(message_cooldown)
 	COOLDOWN_DECLARE(refactory_cooldown)
 	COOLDOWN_DECLARE(orchestrator_cooldown)
