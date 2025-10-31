@@ -3,7 +3,7 @@
 	icon_state = "tile_corner"
 	layer = TURF_PLATING_DECAL_LAYER
 	alpha = 110
-	use_holiday_colors = TRUE
+	use_holiday_colors = FALSE
 
 /obj/effect/turf_decal/tile/neutral/tram
 	pattern = PATTERN_VERTICAL_STRIPE
@@ -169,7 +169,7 @@ TILE_DECAL_SUBTYPE_HELPER(/obj/effect/turf_decal/tile/holiday/random)
 	layer = TURF_PLATING_DECAL_LAYER
 	alpha = 110
 	icon_state = "trimline_box"
-	use_holiday_colors = TRUE
+	use_holiday_colors = FALSE
 
 /obj/effect/turf_decal/trimline/tram
 	pattern = PATTERN_VERTICAL_STRIPE
