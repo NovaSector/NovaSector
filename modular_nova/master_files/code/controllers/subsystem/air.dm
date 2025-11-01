@@ -23,7 +23,8 @@
 
 	// Filter in-place
 	for(var/i = reagent_subtypes.len; i >= 1; i--)
-		if(!(initial(reagent_subtypes[i].chemical_flags) & REAGENT_CAN_BE_SYNTHESIZED))
+		var/datum/reagent/reagent = reagent_subtypes[i]
+		if (!(initial(reagent.chemical_flags) & REAGENT_CAN_BE_SYNTHESIZED))
 			reagent_subtypes.Cut(i, i+1) // remove this entry
 
 	if(reagent_subtypes.len)
