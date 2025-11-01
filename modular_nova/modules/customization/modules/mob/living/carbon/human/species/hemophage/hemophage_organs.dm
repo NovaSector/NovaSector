@@ -96,6 +96,7 @@
 	organ_flags = ORGAN_ORGANIC | ORGAN_EDIBLE | ORGAN_TUMOR_CORRUPTED
 	liked_foodtypes = BLOODY
 	disliked_foodtypes = NONE
+	actions_types = list(/datum/action/cooldown/hemophage/drain_victim) /// The item action given to the tongue once it was corrupted.
 
 
 /obj/item/organ/tongue/hemophage/Initialize(mapload)
