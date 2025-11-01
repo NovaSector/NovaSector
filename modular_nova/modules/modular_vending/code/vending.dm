@@ -17,11 +17,11 @@
 			products[item_to_add] = products_nova[item_to_add]
 
 	if(product_categories_nova)
-		for(var/category in product_categories_nova)
+		for(var/list/category in product_categories_nova)
 			var/already_exists = FALSE
 			for(var/existing_category in product_categories)
 				if(existing_category["name"] == category["name"])
-					existing_category["products"] += category["products"]
+					existing_category["products"] |= category["products"]
 					already_exists = TRUE
 					break
 
