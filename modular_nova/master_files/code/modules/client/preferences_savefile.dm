@@ -401,7 +401,7 @@
 			save_augments[augment_name] = augment_path_string
 			continue
 		stack_trace("Attempt to migrate augment item [save_augments[augment_name]] failed!")
-		save_augments -= augment_name
+		save_augments.Remove(augment_name)
 
 	load_augments(save_augments)
 
