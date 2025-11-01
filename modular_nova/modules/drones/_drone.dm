@@ -95,15 +95,15 @@
 	
 /mob/living/basic/drone
 	initial_language_holder = /datum/language_holder/drone_nova
-// Left pocket item reference
+	/// Left pocket item reference
 	var/obj/item/l_store
-// Right pocket item reference
+	/// Right pocket item reference
 	var/obj/item/r_store
-// Poke adjustment
+	// Poke adjustment
 	response_help_simple = "pet"
-// Overrides and expands speech emote types
+	// Overrides and expands speech emote types
 	speak_emote = list("chirps", "clicks", "buzzes", "chitters", "beeps softly", "pings")
-// So that drones can do things without worrying about stuff
+	// So that drones can do things without worrying about stuff
 	shy = FALSE
 
 //
