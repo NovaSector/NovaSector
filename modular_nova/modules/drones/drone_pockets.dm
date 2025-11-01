@@ -89,10 +89,10 @@
 			update_inv_internal_storage()
 		if(ITEM_SLOT_LPOCKET)
 			l_store = equipping
-			update_inv_pockets()
+			update_pockets()
 		if(ITEM_SLOT_RPOCKET)
 			r_store = equipping
-			update_inv_pockets()
+			update_pockets()
 		else
 			to_chat(src, span_danger("You are trying to equip this item to an unsupported inventory slot!"))
 			return
