@@ -23,6 +23,21 @@
 		examine(user) // Show examine info to ghosts
 		return
 
+
+/// Returns TRUE if the user is the same player as the target,
+/// an admin ghost, or otherwise authorized to act for them.
+/mob/living/basic/drone/proc/can_user_interact_with(mob/user)
+	if(!ismob(user))
+		return FALSE
+	if(user == src)
+		return TRUE
+	if(isAdminGhostAI(user))
+		return TRUE
+	if(mind && ckey(mind.key) == user.ckey)
+		return TRUE
+
+	return FALSE
+
 /mob/living/basic/drone/attack_hand_secondary(mob/user, list/modifiers)
 	if(can_user_interact_with(user))
 		return ..()
@@ -31,14 +46,13 @@
 // Drone initialization group
 /mob/living/basic/drone/Initialize(mapload)
 	. = ..()
-// Makes signals for interaction control for pockets and stuff that didnt exist
+	// Makes signals for interaction control for pockets and stuff that didn't exist
 	RegisterSignal(src, COMSIG_CLICK, PROC_REF(handle_click), override = TRUE)
 	RegisterSignal(src, COMSIG_CLICK_CTRL, PROC_REF(on_ctrl_click))
 	RegisterSignal(src, COMSIG_CLICK_ALT, PROC_REF(handle_alt_click))
-//	RegisterSignal(src, COMSIG_MOUSEDROP_ONTO, PROC_REF(on_mousedrop))
-// Naming Scheme
+	// Naming Scheme
 	name = "[initial(name)] [rand(0,9)]-[rand(100,999)]" //So that we can identify drones from each other
-// Additional Traits
+	// Additional Traits
 	add_traits(list(
 		TRAIT_LAVA_IMMUNE,// Going to Lavaland
 		TRAIT_SPACEWALK,// No more 'admeme im stuck fix me' ahelps, thanks
@@ -52,7 +66,7 @@
 	//So that the drones can actually access everywhere and fix it
 	trim = /datum/id_trim/centcom
 
-//This is so we log all machinery interactions for drones
+// This is so we log all machinery interactions for drones
 /obj/machinery/attack_drone(mob/living/basic/drone/user, list/modifiers)
 	. = ..()
 	user.log_message("[key_name(user)] interacted with [src] at [AREACOORD(src)]", LOG_GAME)
@@ -106,11 +120,11 @@
 	// So that drones can do things without worrying about stuff
 	shy = FALSE
 
-//
-// Drone Laws and Chain of Command
-//
-// DCOA is the sub-specific chain of command that drones have to follow outside of silicon policy's demands.
-// Laws and DCOA are meant to be read In Character
+	//
+	// Drone Laws and Chain of Command
+	//
+	// DCOA is the sub-specific chain of command that drones have to follow outside of silicon policy's demands.
+	// Laws and DCOA are meant to be read In Character
 	laws = \
 		span_deconversion_message("Drone Chain of Authority - IC\n")+\
 		span_revennotice(

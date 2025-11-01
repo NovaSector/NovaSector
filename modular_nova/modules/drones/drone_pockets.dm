@@ -97,7 +97,7 @@
 			to_chat(src, span_danger("You are trying to equip this item to an unsupported inventory slot!"))
 			return
 
-	equipping.on_equipped(src, slot)
+	has_equipped(equipping, slot)
 
 /mob/living/basic/drone/doUnEquip(obj/item/item_dropping, force, newloc, no_move, invdrop = TRUE, silent = FALSE)
 	if(..())
@@ -135,7 +135,7 @@
 		return FALSE
 
 /mob/living/basic/drone/attack_hand_secondary(mob/user, list/modifiers)
-	if(user == src || isAdminGhostAI(user) || (mind && mind.key == user.key))
+	if(can_user_interact_with(user))
 		return ..()
 	return SECONDARY_ATTACK_CANCEL_ATTACK_CHAIN
 
