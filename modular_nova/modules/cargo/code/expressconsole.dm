@@ -12,8 +12,14 @@
 	cargo_account = ACCOUNT_CIV /// Change this later to somethin else, as this is meant to prevent runtiming
 	contraband = TRUE
 
-	/// Do not touch this unless a new company is added to the imports list.
-	var/static/list/allowed_categories = list(
+	/// Put only companies that is on a per console basis here in subtypes, so only specific consoles get specific companies.
+	var/list/allowed_categories = list()
+
+	pod_type = /obj/structure/closet/supplypod/bluespacepod
+
+/// Loads a seccondary list with ALL imports making this the global imports list
+/obj/machinery/computer/cargo/express/ghost/Initialize(mapload)
+	var/static/list/categories = list(
 		NAKAMURA_ENGINEERING_MODSUITS_NAME,
 		BLACKSTEEL_FOUNDATION_NAME,
 		NRI_SURPLUS_COMPANY_NAME,
@@ -27,6 +33,9 @@
 	)
 
 	pod_type = /obj/structure/closet/supplypod/bluespacepod
+
+	allowed_categories += categories
+	return ..()
 
 /obj/machinery/computer/cargo/express/ghost/Initialize(mapload)
 	. = ..()
@@ -104,6 +113,7 @@
 	req_access = list(ACCESS_SYNDICATE)
 	cargo_account = ACCOUNT_INT
 	contraband = TRUE
+	allowed_categories = list(INTERDYNE_PHARMACEUTICALS_NAME)
 
 //Deep Space 2's console
 /obj/item/circuitboard/computer/cargo/express/ghost/syndicate
@@ -117,8 +127,11 @@
 	desc = "A specialized Syndicate Express Supply Console, synced with a deepspace syndicate storage satellite, armed with a drop pod railgun for precise and accurate \
 		deliveries over long distances, no matter how remote they are located."
 	circuit = /obj/item/circuitboard/computer/cargo/express/ghost/syndicate
+	icon_screen = "tcboss"
 	req_access = list(ACCESS_SYNDICATE)
 	cargo_account = ACCOUNT_DS2
+	/// Because list is empty it wont show any interdyne pharmaceuticals stuff
+	allowed_categories = list()
 
 // Tarkon Industries console
 /obj/item/circuitboard/computer/cargo/express/ghost/tarkon
@@ -134,3 +147,4 @@
 	circuit = /obj/item/circuitboard/computer/cargo/express/ghost/tarkon
 	req_access = list(ACCESS_TARKON)
 	cargo_account = ACCOUNT_TI
+	allowed_categories = list()
