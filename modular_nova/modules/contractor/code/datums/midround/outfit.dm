@@ -4,11 +4,13 @@
 	glasses = /obj/item/clothing/glasses/night
 	mask = /obj/item/clothing/mask/neck_gaiter/syndicate
 	back = /obj/item/mod/control/pre_equipped/contractor/upgraded
-	r_pocket = /obj/item/tank/internals/emergency_oxygen/engi
+	box = /obj/item/storage/box/survival/syndie
+	r_pocket = /obj/item/tank/internals/emergency_oxygen/double
 	internals_slot = ITEM_SLOT_RPOCKET
 	belt = /obj/item/storage/belt/military
 
 	uniform = /obj/item/clothing/under/syndicate/nova/tactical
+	accessory = /obj/item/clothing/accessory/webbing/pouch/black
 	shoes = /obj/item/clothing/shoes/combat
 	gloves = /obj/item/clothing/gloves/combat
 	ears = /obj/item/radio/headset/syndicate/alt
@@ -28,13 +30,31 @@
 
 	id_trim = /datum/id_trim/chameleon/contractor
 
-/datum/outfit/contractor/pre_equip(mob/living/carbon/human/user)
+/datum/outfit/contractor/pre_equip(mob/living/carbon/human/user, visuals_only)
+	. = ..()
 	if(user.jumpsuit_style == PREF_SKIRT)
 		uniform = /obj/item/clothing/under/syndicate/nova/tactical/skirt
 
-/datum/outfit/contractor/post_equip(mob/living/carbon/human/user, visualsOnly)
+	var/obj/item/storage/medkit/suitable_medkit = /obj/item/storage/medkit/tactical_lite
+	var/cyber_limb_amount = 0
+	for(var/obj/item/bodypart/limb as anything in user.bodyparts)
+		if(limb.bodytype & BODYTYPE_ROBOTIC)
+			cyber_limb_amount += 1
+	if(issynthetic(user) || cyber_limb_amount >= 3)
+		suitable_medkit = /obj/item/storage/medkit/robotic_repair/preemo/stocked
+	//set the backpack contents
+	backpack_contents = list(
+		suitable_medkit,
+		/obj/item/storage/box/syndicate/contractor_loadout/tools,
+		/obj/item/storage/box/syndicate/contract_kit/midround,
+		/obj/item/storage/box/syndicate/contractor_loadout/stealth_contractor,
+		/obj/item/knife/combat/survival,
+		/obj/item/pinpointer/crew/contractor,
+	)
+
+/datum/outfit/contractor/post_equip(mob/living/carbon/human/user, visuals_only)
 	. = ..()
-	if(visualsOnly)
+	if(visuals_only)
 		return
 	handlebank(user)
 

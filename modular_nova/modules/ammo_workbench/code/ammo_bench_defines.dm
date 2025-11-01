@@ -19,6 +19,8 @@ unlocked in the ammo bench.
 #define AMMO_CLASS_NONE			0
 /// This ammo is nonlethal, less-lethal, or otherwise unremarkable in regards to turning men into corpses, but has some niche applications.
 #define AMMO_CLASS_NICHE_LTL	(AMMO_CATEGORY_NICHE)
+/// This ammo is nonlethal, less-lethal, or otherwise unremarkable in regards to turning men into corpses, but is meant to perform better than conventional nonlethal ammunition.
+#define AMMO_CLASS_SUPER_LTL	(AMMO_CATEGORY_SUPER)
 
 // --- Separator between less lethal classes above and lethal classes below. ---
 
