@@ -1,0 +1,4 @@
+author: "Stalkeros"
+delete-after: True
+changes:
+  - bugfix: "Upside-down pierogi-ravioli are now actually visible."
