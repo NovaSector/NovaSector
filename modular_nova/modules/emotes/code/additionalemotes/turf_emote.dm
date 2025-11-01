@@ -107,9 +107,9 @@
 		var/list/colorable = list("dust", "slime", "vines", "footprint", "pawprint", "hoofprint", "clawprint")
 		if(current_turf in colorable) //These turfs are simply colored after their owner's primary
 			if(ishumanbasic(user) || ishumanoid(user))
-				user.owned_turf.color = human_user.dna.features["skin_color"]
+				user.owned_turf.color = human_user.dna.features[FEATURE_SKIN_COLOR]
 			else
-				user.owned_turf.color = human_user.dna.features["mcolor"]
+				user.owned_turf.color = human_user.dna.features[FEATURE_MUTANT_COLOR]
 
 
 		var/list/body_part = list("tails")
