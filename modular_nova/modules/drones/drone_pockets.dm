@@ -114,7 +114,7 @@
 /mob/living/basic/drone/proc/handle_click(datum/source, atom/clicked_atom, location, control, params)
 	SIGNAL_HANDLER
 	// First check for drone-to-drone interaction restrictions
-	if(isdrone(clicked_atom) && usr != src && !isAdminGhostAI(usr) && (!mind || mind.key != usr.key))
+	if(isdrone(clicked_atom) && !can_user_interact_with(usr))
 		return FALSE
 
 	// Then handle pocket interactions if applicable
@@ -131,7 +131,7 @@
 /// Handles Alt+Click interactions with drone restrictions.
 /mob/living/basic/drone/proc/handle_alt_click(datum/source, atom/clicked_atom, location, control, params)
 	SIGNAL_HANDLER
-	if(isdrone(clicked_atom) && usr != src && !isAdminGhostAI(usr) && (!mind || mind.key != usr.key))
+	if(isdrone(clicked_atom) && !can_user_interact_with(usr))
 		return FALSE
 
 /mob/living/basic/drone/attack_hand_secondary(mob/user, list/modifiers)
@@ -152,5 +152,4 @@
 			return l_store
 		if(ITEM_SLOT_RPOCKET)
 			return r_store
-	return null
 
