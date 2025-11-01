@@ -1,0 +1,4 @@
+author: "vinylspiders"
+delete-after: True
+changes:
+  - bugfix: "fixes hemophages sometimes being able to get more than one drain action"
