@@ -1,0 +1,4 @@
+author: "trazodont"
+delete-after: True
+changes:
+  - rscadd: "cloth, durathread, wood, leather and bamboo can now be held by produce displays"
