@@ -148,6 +148,7 @@
 		user.robot_talk(message, spans, message_mods)
 	return SAYMODE_MESSAGE_HANDLED
 
+
 /datum/saymode/holopad
 	key = MODE_KEY_HOLOPAD
 	mode = MODE_HOLOPAD
