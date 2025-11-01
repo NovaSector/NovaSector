@@ -87,3 +87,16 @@
 ///Misc///
 /obj/effect/turf_decal/nova_decals/misc/handicapped
 	icon_state = "handicapped"
+
+/// Floor indicators, in case the wall signs don't do ya justice. :D
+/obj/effect/turf_decal/nova_decals/floor_indicator/arrow_topleft
+	icon_state = "arrow_topleft"
+
+/obj/effect/turf_decal/nova_decals/floor_indicator/arrow_topright
+	icon_state = "arrow_topright"
+
+/obj/effect/turf_decal/nova_decals/floor_indicator/arrow_bottomright
+	icon_state = "arrow_bottomright"
+
+/obj/effect/turf_decal/nova_decals/floor_indicator/arrow_bottomleft
+	icon_state = "arrow_bottomleft"
