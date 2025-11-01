@@ -155,6 +155,11 @@
 		/obj/item/grown,
 		/obj/item/bouquet,
 		/obj/item/clothing/head/costume/garland,
+		/obj/item/stack/sheet/cloth,
+		/obj/item/stack/sheet/durathread,
+		/obj/item/stack/sheet/leather,
+		/obj/item/stack/sheet/mineral/wood,
+		/obj/item/stack/sheet/mineral/bamboo
 	)
 	var/fancy_food = istype(item_to_check, /obj/item/food/grown) && item_to_check.slot_flags != NONE // mostly things like flowers
 	return fancy_food || is_type_in_list(item_to_check, accepted_items)

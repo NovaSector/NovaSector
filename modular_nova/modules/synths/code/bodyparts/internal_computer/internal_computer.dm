@@ -15,8 +15,8 @@
 /obj/item/modular_computer/pda/synth/Initialize(mapload)
 	. = ..()
 
-	// prevent these from being created outside of synth brains
-	if(!istype(loc, /obj/item/organ/brain/synth))
+	// prevent these from being created outside of valid brains
+	if(!istype(loc, /obj/item/organ/brain/synth) && !istype(loc, /obj/item/organ/brain/cybernetic/cortical))
 		return INITIALIZE_HINT_QDEL
 
 /obj/item/modular_computer/pda/synth/check_power_override()
@@ -29,15 +29,20 @@
 
 /datum/action/item_action/synth/open_internal_computer/Trigger(trigger_flags)
 	. = ..()
-	var/obj/item/organ/brain/synth/targetmachine = target
-	targetmachine.internal_computer.interact(owner)
+	var/obj/item/organ/brain/synth/synth_brain = target
+	if(istype(synth_brain))
+		synth_brain.internal_computer.interact(owner)
+		return
+	var/obj/item/organ/brain/cybernetic/cortical/cort_brain = target
+	if(istype(cort_brain))
+		cort_brain.internal_computer.interact(owner)
 
 /obj/item/modular_computer/pda/synth/ui_state(mob/user)
 	return GLOB.default_state
 
 /obj/item/modular_computer/pda/synth/ui_status(mob/user)
-	var/obj/item/organ/brain/synth/brain_loc = loc
-	if(!istype(brain_loc))
+	var/obj/item/organ/brain/brain_loc = loc
+	if(!(istype(brain_loc, /obj/item/organ/brain/synth) || istype(brain_loc, /obj/item/organ/brain/cybernetic/cortical)))
 		return UI_CLOSE
 
 	if(!QDELETED(brain_loc.owner))
@@ -50,12 +55,19 @@
 
 /// Id card arg is optional. Leaving it null causes the id to become unpaired from the synth computer
 /obj/item/modular_computer/pda/synth/proc/update_id_slot(obj/item/card/id/id_card)
-	var/obj/item/organ/brain/synth/brain_loc = loc
-	if(!istype(brain_loc))
+	var/obj/item/organ/brain/brain_loc = loc
+	if(!(istype(brain_loc, /obj/item/organ/brain/synth) || istype(brain_loc, /obj/item/organ/brain/cybernetic/cortical)))
 		return
-	if(isnull(brain_loc.internal_computer))
+	if(istype(brain_loc, /obj/item/organ/brain/synth))
+		var/obj/item/organ/brain/synth/synth_brain = brain_loc
+		if(isnull(synth_brain.internal_computer))
+			return
+		synth_brain.internal_computer.handle_id_slot(synth_brain.owner, id_card)
 		return
-	brain_loc.internal_computer.handle_id_slot(brain_loc.owner, id_card)
+	var/obj/item/organ/brain/cybernetic/cortical/cortical_brain = brain_loc
+	if(isnull(cortical_brain.internal_computer))
+		return
+	cortical_brain.internal_computer.handle_id_slot(cortical_brain.owner, id_card)
 
 /// Called when id slot item is unequipped from the id slot
 /obj/item/modular_computer/pda/synth/proc/on_id_item_unequipped(datum/source)
@@ -140,6 +152,7 @@
 	if(is_centcom_level(loc.z)) // Centcom is excluded because cafe
 		return NTNET_NO_SIGNAL
 
+
 /obj/item/modular_computer/pda/attack(mob/living/target_mob, mob/living/user, params)
 	var/mob/living/carbon/human/targetmachine = target_mob
 	if(!istype(targetmachine))
@@ -154,13 +167,25 @@
 				to_chat(targetmachine, span_notice("[user] establishes an SSH connection between [src] and your persocom emulation."))
 				robotbrain.internal_computer.interact(user)
 			return
+
+	// Also support cortical augmented brains
+	var/obj/item/organ/brain/cybernetic/cortical/cortbrain = targetmachine.get_organ_slot(ORGAN_SLOT_BRAIN)
+	if(istype(cortbrain))
+		if(user.zone_selected == BODY_ZONE_PRECISE_EYES)
+			balloon_alert(user, "establishing SSH login with persocom...")
+			if(do_after(user, 5 SECONDS))
+				balloon_alert(user, "connection established")
+				to_chat(targetmachine, span_notice("[user] establishes an SSH connection between [src] and your persocom emulation."))
+				cortbrain.internal_computer.interact(user)
+			return
 	return ..()
+
 
 /obj/item/modular_computer/pda/synth/get_header_data()
 	var/list/data = ..()
-	var/obj/item/organ/brain/synth/brain_loc = loc
+	var/obj/item/organ/brain/brain_loc = loc
 	// Battery level is now according to the synth charge
-	if(istype(brain_loc))
+	if(istype(brain_loc, /obj/item/organ/brain/synth) || istype(brain_loc, /obj/item/organ/brain/cybernetic/cortical))
 		var/charge_level = (brain_loc.owner.nutrition / NUTRITION_LEVEL_FULL) * 100
 		switch(charge_level)
 			if(80 to 110)

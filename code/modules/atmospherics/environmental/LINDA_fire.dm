@@ -21,6 +21,9 @@
  * is handled by the hotspot itself, specifically perform_exposure().
  */
 /turf/open/hotspot_expose(exposed_temperature, exposed_volume, soh)
+	if(exposed_temperature < TCMB)
+		exposed_temperature = TCMB
+		CRASH("[src].hotspot_expose() called with exposed_temperature < [TCMB]")
 	//NOVA EDIT ADDITION
 	if(liquids && !liquids.fire_state && liquids.check_fire(TRUE))
 		SSliquids.processing_fire[src] = TRUE
