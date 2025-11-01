@@ -154,16 +154,3 @@
 			return r_store
 	return null
 
-/// Asynchronously handles pocket item interactions when triggered by UI clicks.
-/mob/living/basic/drone/proc/async_handle_pocket_click(slot_id)
-	var/obj/item/item_in_pocket
-	if(slot_id == ITEM_SLOT_LPOCKET)
-		item_in_pocket = l_store
-	else if(slot_id == ITEM_SLOT_RPOCKET)
-		item_in_pocket = r_store
-
-	if(item_in_pocket)
-		item_in_pocket.attack_hand(src)
-		return TRUE
-
-	return FALSE
