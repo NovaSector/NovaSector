@@ -1,0 +1,5 @@
+author: "Hatterhat"
+delete-after: True
+changes:
+  - balance: "Street boxing's knockdowns on critical hits are much shorter now, and deals less stamina damage, because crits tend to chain together."
+  - balance: "Equipping knuckle dusters now gives you a melee attack's worth of click delay until your next action. If you're using dusters, commit to using knuckle dusters."
