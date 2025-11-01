@@ -103,10 +103,10 @@
 	if(..())
 		if(item_dropping == l_store)
 			l_store = null
-			update_inv_pockets()
+			update_pockets()
 		if(item_dropping == r_store)
 			r_store = null
-			update_inv_pockets()
+			update_pockets()
 		return TRUE
 	return FALSE
 
