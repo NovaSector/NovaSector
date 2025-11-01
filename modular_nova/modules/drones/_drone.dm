@@ -94,7 +94,6 @@
 	return TRUE
 	
 /mob/living/basic/drone
-// Language Holder
 	initial_language_holder = /datum/language_holder/drone_nova
 // Left pocket item reference
 	var/obj/item/l_store
