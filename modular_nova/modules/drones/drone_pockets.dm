@@ -141,7 +141,7 @@
 
 /mob/living/basic/drone/attack_ghost(mob/dead/observer/user)
 	// Only allow ghosts to access storage if they're admin or the drone's ghost
-	if(isAdminGhostAI(user) || (mind && mind.key == user.key))
+	if(can_user_interact_with(user))
 		return ..()
 	return FALSE
 
