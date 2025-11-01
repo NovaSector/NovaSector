@@ -153,6 +153,7 @@
 #define SPECIES_HEMOPHAGE "hemophage"
 #define SPECIES_FELINE_PRIMITIVE "primitive_felinid"
 #define SPECIES_ABDUCTORWEAK "abductorweak"
+#define SPECIES_GOLEMWEAK "golemweak"
 #define SPECIES_KOBOLD "kobold"
 #define SPECIES_RAMATAE "ramatan"
 #define SPECIES_INSECTOID "insectoid"
