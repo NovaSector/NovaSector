@@ -8,14 +8,7 @@
 	if(ismob(usr) && usr == src && client && hud_used)
 		var/atom/movable/screen/inventory/inv = locate() in hud_used.static_inventory
 		if(inv && (clicked_atom == inv || (istype(clicked_atom, /atom/movable/screen) && clicked_atom:name == inv.name)))
-			var/obj/item/item_in_pocket
-			if(inv.slot_id == ITEM_SLOT_LPOCKET)
-				item_in_pocket = l_store
-			else if(inv.slot_id == ITEM_SLOT_RPOCKET)
-				item_in_pocket = r_store
-
-			if(item_in_pocket)
-				item_in_pocket.attack_hand(src)
+			if(handle_pocket_click(inv.slot_id))
 				return
 
 	return ..()
