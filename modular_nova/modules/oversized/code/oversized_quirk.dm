@@ -17,6 +17,10 @@
 	/// Saves refs to the original (normal size) organs, which are on ice in nullspace in case this quirk gets removed somehow.
 	var/list/obj/item/organ/old_organs
 
+/datum/quirk/oversized/is_species_appropriate(datum/species/mob_species)
+	// Proteans can now use oversized - they get a special oversized refactory
+	return ..()
+
 /datum/quirk/oversized/add(client/client_source)
 	var/mob/living/carbon/human/human_holder = quirk_holder
 	human_holder.dna.features["body_size"] = 2

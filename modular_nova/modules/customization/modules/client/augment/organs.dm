@@ -38,11 +38,18 @@
 	name = "Cortically-Augmented Brain"
 	slot = AUGMENT_SLOT_BRAIN
 	path = /obj/item/organ/brain/cybernetic/cortical
+	species_blacklist = list(/datum/species/protean) // Proteans cannot use cortically augmented brains - they need their protean core
 
 //HEARTS
 /datum/augment_item/organ/heart
 	slot = AUGMENT_SLOT_HEART
 	allowed_biotypes = MOB_ORGANIC | MOB_ROBOTIC
+
+/datum/augment_item/organ/heart/apply(mob/living/carbon/human/human_holder, character_setup = FALSE, datum/preferences/prefs)
+	// Proteans cannot replace their orchestrator module
+	if(isprotean(human_holder))
+		return
+	return ..()
 
 /datum/augment_item/organ/heart/normal
 	name = "Organic heart"
@@ -74,6 +81,12 @@
 	slot = AUGMENT_SLOT_LIVER
 	allowed_biotypes = MOB_ORGANIC | MOB_ROBOTIC
 
+/datum/augment_item/organ/liver/apply(mob/living/carbon/human/human_holder, character_setup = FALSE, datum/preferences/prefs)
+	// Proteans cannot replace their reagent catalyst
+	if(isprotean(human_holder))
+		return
+	return ..()
+
 /datum/augment_item/organ/liver/normal
 	name = "Organic Liver"
 	path = /obj/item/organ/liver
@@ -90,6 +103,12 @@
 /datum/augment_item/organ/stomach
 	slot = AUGMENT_SLOT_STOMACH
 	allowed_biotypes = MOB_ORGANIC | MOB_ROBOTIC
+
+/datum/augment_item/organ/stomach/apply(mob/living/carbon/human/human_holder, character_setup = FALSE, datum/preferences/prefs)
+	// Proteans cannot replace their refactory
+	if(isprotean(human_holder))
+		return
+	return ..()
 
 /datum/augment_item/organ/stomach/normal
 	name = "Organic stomach"
@@ -112,6 +131,12 @@
 /datum/augment_item/organ/eyes
 	slot = AUGMENT_SLOT_EYES
 	allowed_biotypes = MOB_ORGANIC | MOB_ROBOTIC
+
+/datum/augment_item/organ/eyes/apply(mob/living/carbon/human/human_holder, character_setup = FALSE, datum/preferences/prefs)
+	// Proteans can only use robotic eyes
+	if(isprotean(human_holder) && !ispath(path, /obj/item/organ/eyes/robotic))
+		return
+	return ..()
 
 /datum/augment_item/organ/eyes/normal
 	name = "Organic eyes"
@@ -145,6 +170,12 @@
 	slot = AUGMENT_SLOT_TONGUE
 	allowed_biotypes = MOB_ORGANIC | MOB_ROBOTIC
 
+/datum/augment_item/organ/tongue/apply(mob/living/carbon/human/human_holder, character_setup = FALSE, datum/preferences/prefs)
+	// Proteans can only use robotic/cybernetic tongues
+	if(isprotean(human_holder) && !(ispath(path, /obj/item/organ/tongue/robot) || ispath(path, /obj/item/organ/tongue/cybernetic)))
+		return
+	return ..()
+
 /datum/augment_item/organ/tongue/normal
 	name = "Organic tongue"
 	path = /obj/item/organ/tongue/human
@@ -177,6 +208,12 @@
 /datum/augment_item/organ/ears
 	slot = AUGMENT_SLOT_EARS
 	allowed_biotypes = MOB_ORGANIC | MOB_ROBOTIC
+
+/datum/augment_item/organ/ears/apply(mob/living/carbon/human/human_holder, character_setup = FALSE, datum/preferences/prefs)
+	// Proteans can only use cybernetic ears
+	if(isprotean(human_holder) && !ispath(path, /obj/item/organ/ears/cybernetic))
+		return
+	return ..()
 
 /datum/augment_item/organ/ears/normal
 	name = "Organic ears"

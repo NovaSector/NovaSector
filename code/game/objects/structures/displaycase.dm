@@ -179,6 +179,11 @@
 	if(showpiece_type && !istype(new_showpiece, showpiece_type))
 		to_chat(user, span_notice("This doesn't belong in this kind of display."))
 		return TRUE
+	// NOVA EDIT START - Blacklist protean modsuits from display cases
+	if(istype(new_showpiece, /obj/item/mod/control/pre_equipped/protean))
+		to_chat(user, span_warning("[new_showpiece] refuses to be contained in [src]!"))
+		return TRUE
+	// NOVA EDIT END
 	if(user.transferItemToLoc(new_showpiece, src))
 		showpiece = new_showpiece
 		to_chat(user, span_notice("You put [new_showpiece] on display."))
