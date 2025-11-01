@@ -16,6 +16,19 @@
 	COOLDOWN_DECLARE(starving_message)
 	COOLDOWN_DECLARE(damage_delay)
 
+/obj/item/organ/stomach/protean/oversized
+	name = "massive refactory"
+	desc = "A massive nanite manufacturing plant designed for oversized proteans. RIP AND TEAR YOUR HUGE NANITES! Stores significantly more metal and processes materials faster."
+	icon_state = "refactory" // TODO: Make bigger sprite if desired
+	maxHealth = 1.5 * STANDARD_ORGAN_THRESHOLD
+	metabolism_modifier = 0.35 // 30% more efficient than normal (0.5 -> 0.35)
+	metal_max = PROTEAN_STOMACH_FULL * 1.5 // 15 metal instead of 10
+	is_oversized = TRUE
+
+/obj/item/organ/stomach/protean/oversized/Initialize(mapload)
+	. = ..()
+	metal = metal_max // Start with full capacity (15 metal)
+
 /obj/item/organ/stomach/protean/Initialize(mapload)
 	. = ..() // Call the rest of the proc
 	metal = PROTEAN_STOMACH_FULL // NOVA EDIT: Proteans spawn with full energy instead of random

@@ -28,8 +28,8 @@
 		storage = new()
 		install(storage, null, TRUE)
 
-	// Add TRAIT_NODROP to prevent proteans from ever dropping/dragging their suit (like entombed)
-	ADD_TRAIT(src, TRAIT_NODROP, SPECIES_TRAIT)
+	// Don't add TRAIT_NODROP here - it should only be added when a protean equips it
+	// This allows non-proteans to pick up and wear the suit normally
 
 /obj/item/mod/control/pre_equipped/protean/Destroy()
 	// If a protean is folded up inside, kick them out before deleting the suit
@@ -330,7 +330,13 @@
 	name = initial(name)
 	desc = initial(desc)
 
-	// Don't manually retract parts - let set_up_parts() handle cleanup to avoid hard deletes
+	// CRITICAL: Retract all parts BEFORE changing theme to prevent hard deletes
+	// set_up_parts() doesn't clean up old parts, so we must do it manually
+	if(active)
+		for(var/obj/item/part as anything in get_parts())
+			if(part.loc != src)
+				retract(user, part, instant = TRUE)
+
 	theme = the_theme
 	the_theme.set_up_parts(src, the_theme.default_skin)
 	update_static_data_for_all_viewers()
@@ -348,12 +354,19 @@
 		balloon_alert(user, "stuck!")
 		return
 
-	// Don't manually retract parts - let set_up_parts() handle cleanup to avoid hard deletes
 	stored_modsuit = to_assimilate
 	stored_theme = theme // Store the old theme in cache
+
+	// CRITICAL: Retract all parts BEFORE changing theme to prevent hard deletes
+	// set_up_parts() doesn't clean up old parts, so we must do it manually
+	if(active)
+		for(var/obj/item/part as anything in get_parts())
+			if(part.loc != src)
+				retract(user, part, instant = TRUE)
+
 	theme = to_assimilate.theme // Set new theme
 	skin = to_assimilate.skin // Inherit skin
-	theme.set_up_parts(src, skin) // This will properly clean up old parts and create new ones
+	theme.set_up_parts(src, skin) // Creates new parts (doesn't clean up old ones)
 	// MUST set complexity_max AFTER set_up_parts(), as set_up_parts() overwrites it with theme default!
 	complexity_max = to_assimilate.complexity_max // CRITICAL: Inherit complexity limit from assimilated suit!
 	name = to_assimilate.name
@@ -481,11 +494,18 @@
 		to_chat(user, span_notice("[module] couldn't fit back, dropping to floor!"))
 		module.forceMove(get_turf(src))
 
-	// Return the original storage module to the assimilated suit
+	// Return the original storage module to the assimilated suit WITH all items
 	if(cached_storage)
+		// Extract all items from protean's current storage
+		var/list/items_to_return = list()
+		if(protean_storage?.atom_storage?.real_location)
+			for(var/obj/item/thing in protean_storage.atom_storage.real_location.contents)
+				items_to_return += thing
+				thing.forceMove(src) // Move out temporarily
+
 		// Check if the cached storage is currently installed (we kept the bigger one)
 		if(cached_storage == protean_storage && cached_storage in modules)
-			// The cached storage IS the current protean storage
+			// The cached storage IS the current protean storage (CMO had bigger storage)
 			// Uninstall it from protean first WITH deleting = TRUE to prevent item dump!
 			uninstall(cached_storage, deleting = TRUE)
 
@@ -497,11 +517,28 @@
 			install(new_protean_storage, user, TRUE)
 			to_chat(user, span_notice("Returned original storage to suit, installed new expanded storage for protean."))
 		else
-			// The cached storage is NOT currently installed (we kept protean's bigger one)
-			// Protean keeps their storage with all items - CMO gets back empty storage
-			// Give back their original storage module (empty)
+			// The cached storage is NOT currently installed (protean's storage was bigger)
+			// Transfer items from protean's storage to the original cached storage, then return it
 			stored_modsuit.install(cached_storage, user, TRUE)
-			to_chat(user, span_notice("Returned original storage to suit (protean keeps items in their larger storage)."))
+
+			// Try to fit all items into the returned storage
+			var/items_transferred = 0
+			for(var/obj/item/thing in items_to_return)
+				if(cached_storage.atom_storage?.attempt_insert(thing, user, messages = FALSE))
+					items_transferred++
+				else
+					// Item doesn't fit in smaller storage, drop to floor
+					thing.forceMove(get_turf(stored_modsuit))
+					to_chat(user, span_warning("[thing] couldn't fit in returned storage, dropped on floor!"))
+
+			to_chat(user, span_notice("Returned original storage to suit with [items_transferred]/[length(items_to_return)] items."))
+
+			// Ensure protean still has their storage module (it should still be installed)
+			if(!(protean_storage in modules))
+				// Emergency: protean lost their storage, create a new one
+				var/obj/item/mod/module/storage/large_capacity/emergency_storage = new()
+				install(emergency_storage, user, TRUE)
+				to_chat(user, span_warning("Emergency: Reinstalled protean storage."))
 
 		cached_storage = null // Clear the cache
 	else
@@ -515,6 +552,13 @@
 				if(!replacement_storage.atom_storage?.attempt_insert(thing, user, messages = FALSE))
 					thing.forceMove(get_turf(stored_modsuit))
 					to_chat(user, span_warning("[thing] couldn't fit in returned storage, dropped on floor!"))
+
+	// CRITICAL: Retract all parts BEFORE changing theme back to prevent hard deletes
+	// set_up_parts() doesn't clean up old parts, so we must do it manually
+	if(active)
+		for(var/obj/item/part as anything in get_parts())
+			if(part.loc != src)
+				retract(user, part, instant = TRUE)
 
 	theme = stored_theme
 	stored_theme = null

@@ -324,6 +324,24 @@
 	if(get_a_job)
 		protean_owner.equip_to_storage(new /obj/item/stack/sheet/iron/twenty(protean_owner), ITEM_SLOT_BACK, TRUE, TRUE)
 
+/// Override to give proteans a special oversized refactory instead of normal oversized stomach
+/datum/species/protean/gain_oversized_organs(mob/living/carbon/human/human_holder, datum/quirk/oversized/oversized_quirk)
+	if(isnull(human_holder.loc))
+		return // preview characters don't need funny organs, prevents a runtime
+
+	var/obj/item/organ/stomach/protean/old_refactory = human_holder.get_organ_slot(ORGAN_SLOT_STOMACH)
+	if(old_refactory?.is_oversized) // don't override augments that are already oversized
+		return
+
+	var/obj/item/organ/stomach/protean/oversized/new_refactory = new() // RIP AND TEAR YOUR HUGE NANITES!
+	oversized_quirk.old_organs += list(old_refactory)
+
+	new_refactory.Insert(human_holder, special = TRUE)
+	to_chat(human_holder, span_warning("Your refactory expands to massive proportions!"))
+	if(old_refactory)
+		old_refactory.moveToNullspace()
+		STOP_PROCESSING(SSobj, old_refactory)
+
 /datum/species/protean/on_species_loss(mob/living/carbon/human/gainer, datum/species/new_species, pref_load)
 	. = ..()
 	if(gainer)

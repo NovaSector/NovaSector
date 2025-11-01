@@ -18,10 +18,8 @@
 	var/list/obj/item/organ/old_organs
 
 /datum/quirk/oversized/is_species_appropriate(datum/species/mob_species)
-	if(istype(mob_species, /datum/species/protean)) // Proteans cannot use this quirk - they have unique organs and a unique modsuit
-		return FALSE
-	else
-		return ..()
+	// Proteans can now use oversized - they get a special oversized refactory
+	return ..()
 
 /datum/quirk/oversized/add(client/client_source)
 	var/mob/living/carbon/human/human_holder = quirk_holder

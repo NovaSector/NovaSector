@@ -168,21 +168,30 @@
 	var/datum/species/protean/protean = owner.dna?.species
 	if(!istype(protean))
 		return
-	suit.drop_suit()
+
+	// Suit should already be on ground from enter_modsuit(), just move protean out
 	owner.forceMove(exit_turf)
-	if(owner.get_item_by_slot(ITEM_SLOT_BACK))
-		owner.dropItemToGround(owner.get_item_by_slot(ITEM_SLOT_BACK), TRUE, TRUE, TRUE)
+
+	// Clear back slot if something is there (shouldn't be, but safety check)
+	var/obj/item/back_item = owner.get_item_by_slot(ITEM_SLOT_BACK)
+	if(back_item)
+		owner.dropItemToGround(back_item, force = TRUE)
+
+	// Equip the suit to back slot
 	owner.equip_to_slot_if_possible(suit, ITEM_SLOT_BACK, disable_warning = TRUE)
 	suit.invisibility = initial(suit.invisibility)
 	owner.SetStun(0)
 	owner.remove_traits(TRANSFORM_TRAITS, PROTEAN_TRAIT)
+
 	// Restore camera perspective to the protean
 	protean.prevent_perspective_change = FALSE
 	owner.reset_perspective(owner)
 	owner.apply_status_effect(/datum/status_effect/protean_low_power_mode/reform)
 	owner.visible_message(span_warning("[owner] reforms from [suit]!"))
-	if(!HAS_TRAIT(suit, TRAIT_NODROP))
-		ADD_TRAIT(suit, TRAIT_NODROP, "protean")
+
+	// Ensure TRAIT_NODROP is set (should be set in equipped(), but double-check)
+	if(!HAS_TRAIT_FROM(suit, TRAIT_NODROP, SPECIES_TRAIT))
+		ADD_TRAIT(suit, TRAIT_NODROP, SPECIES_TRAIT)
 
 /// Heals and replaces damaged limbs/organs using 6 metal sheets. Requires being in suit mode, takes 30s.
 /// If force = TRUE (admin heal), bypasses all checks and costs.
