@@ -154,9 +154,9 @@
 		span_boldwarning(
 			"When in doubt, make an Admin Help.\n")
 	
-// So drones aren't forced to carry around a nodrop toolbox essentially, and so drones don't have to choose between a multitool and an upgraded welder
-// Adds things to hopefully reduce drones raiding atmos or engineering
-// Sets our new storage
+	// So drones aren't forced to carry around a nodrop toolbox essentially, and so drones don't have to choose between a multitool and an upgraded welder
+	// Adds things to hopefully reduce drones raiding atmos or engineering
+	// Sets our new storage
 	default_storage = /obj/item/storage/backpack/duffelbag/drone
 	
 // Then populates the drone duffelbag with our extra items
