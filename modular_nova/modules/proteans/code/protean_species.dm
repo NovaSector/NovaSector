@@ -269,18 +269,29 @@
 			for(var/datum/action/item_action/protean/open_internal_computer/perscom in brain.actions)
 				perscom.Grant(owner)
 
+	// Handle modsuit assimilation and post-setup async to prevent signal handler blocking
 	var/obj/item/mod/control/suit
 	if(ispath(outfit.back, /obj/item/mod/control))
 		var/control_path = outfit.back
 		suit = new control_path()
-		// Don't use INVOKE_ASYNC - we need assimilation to complete before accessing storage!
-		species_modsuit.assimilate_modsuit(owner, suit, TRUE)
-		species_modsuit.quick_activation()
+		// Use INVOKE_ASYNC to prevent signal handler from blocking, then chain to post-setup
+		INVOKE_ASYNC(src, PROC_REF(handle_modsuit_assimilation), owner, suit, outfit, get_a_job)
+	else
+		// No modsuit to assimilate, just do post-setup directly
+		INVOKE_ASYNC(src, PROC_REF(finish_outfit_setup), owner, outfit, get_a_job)
 
+/// Handles modsuit assimilation and activation, then chains to post-setup. Called async from outfit_handling.
+/datum/species/protean/proc/handle_modsuit_assimilation(mob/living/carbon/human/protean_owner, obj/item/mod/control/suit, datum/outfit/outfit, get_a_job)
+	species_modsuit.assimilate_modsuit(protean_owner, suit, TRUE)
+	species_modsuit.quick_activation()
+	finish_outfit_setup(protean_owner, outfit, get_a_job)
+
+/// Handles post-assimilation outfit setup: storage modules, suit_store items, and iron sheets. Called after assimilation completes.
+/datum/species/protean/proc/finish_outfit_setup(mob/living/carbon/human/protean_owner, datum/outfit/outfit, get_a_job)
 	var/obj/item/mod/module/storage/storage = locate() in species_modsuit.modules // Give a storage if we don't have one.
 	if(!storage)
 		storage = new()
-		species_modsuit.install(storage, owner, TRUE)
+		species_modsuit.install(storage, protean_owner, TRUE)
 
 	// Only install crew sensors and GPS for jobs, not antags
 	if(get_a_job)
@@ -288,30 +299,30 @@
 		var/obj/item/mod/module/crew_sensor/protean/crew_sensor = locate() in species_modsuit.modules
 		if(!crew_sensor)
 			crew_sensor = new()
-			species_modsuit.install(crew_sensor, owner, TRUE)
+			species_modsuit.install(crew_sensor, protean_owner, TRUE)
 
 		// Install GPS module if not present
 		var/obj/item/mod/module/gps/protean/gps_module = locate() in species_modsuit.modules
 		if(!gps_module)
 			gps_module = new()
-			species_modsuit.install(gps_module, owner, TRUE)
+			species_modsuit.install(gps_module, protean_owner, TRUE)
 
 	// Handle suit_store items (like ninja katana) - create and add to storage
 	// Proteans don't have a suit slot, so we manually create the suit_store item
 	if(outfit.suit_store)
-		var/obj/item/suit_item = owner.get_item_by_slot(ITEM_SLOT_SUITSTORE)
+		var/obj/item/suit_item = protean_owner.get_item_by_slot(ITEM_SLOT_SUITSTORE)
 		if(!suit_item && ispath(outfit.suit_store)) // If not equipped, create it
-			suit_item = new outfit.suit_store(owner)
+			suit_item = new outfit.suit_store(protean_owner)
 		if(suit_item)
-			if(suit_item.loc == owner) // If it's on the mob, remove it first
-				owner.temporarilyRemoveItemFromInventory(suit_item, force = TRUE)
-			if(!storage.atom_storage?.attempt_insert(suit_item, owner, messages = FALSE))
-				suit_item.forceMove(get_turf(owner))
-				to_chat(owner, span_warning("[suit_item] couldn't fit in storage!"))
+			if(suit_item.loc == protean_owner) // If it's on the mob, remove it first
+				protean_owner.temporarilyRemoveItemFromInventory(suit_item, force = TRUE)
+			if(!storage.atom_storage?.attempt_insert(suit_item, protean_owner, messages = FALSE))
+				suit_item.forceMove(get_turf(protean_owner))
+				to_chat(protean_owner, span_warning("[suit_item] couldn't fit in storage!"))
 
 	// Outfit system already equipped backpack_contents, we just add bonus iron sheets
 	if(get_a_job)
-		owner.equip_to_storage(new /obj/item/stack/sheet/iron/twenty(owner), ITEM_SLOT_BACK, TRUE, TRUE)
+		protean_owner.equip_to_storage(new /obj/item/stack/sheet/iron/twenty(protean_owner), ITEM_SLOT_BACK, TRUE, TRUE)
 
 /datum/species/protean/on_species_loss(mob/living/carbon/human/gainer, datum/species/new_species, pref_load)
 	. = ..()
