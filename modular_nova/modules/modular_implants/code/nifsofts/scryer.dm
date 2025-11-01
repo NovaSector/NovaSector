@@ -21,8 +21,6 @@
 		stack_trace("[src] ([REF(src)]) tried to create a linked scryer but it had no parent_nif!")
 	linked_scryer = new (parent_resolved)
 	linked_scryer.parent_nifsoft = WEAKREF(src)
-	if(!linked_scryer)
-		stack_trace("[src] ([REF(src)]) created with no linked scryer!")
 
 /datum/nifsoft/scryer/Destroy()
 	if(!QDELETED(linked_scryer))
