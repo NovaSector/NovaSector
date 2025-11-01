@@ -23,7 +23,6 @@
 		examine(user) // Show examine info to ghosts
 		return
 
-
 /// Returns TRUE if the user is the same player as the target,
 /// an admin ghost, or otherwise authorized to act for them.
 /mob/living/basic/drone/proc/can_user_interact_with(mob/user)
