@@ -1,3 +1,8 @@
+/// Undoes SANITIZE_PATH so we can treat these strings as typepaths again
+#define DESANITIZED_PATH(str) ( \
+    istext(str) ? "/obj/item/[replacetext(str, "-", "/")]" : null \
+)
+
 /**
  * This vending machine supports a list of items that changes based on the user/card's access.
  */
@@ -36,7 +41,6 @@
 	if(issilicon(user))
 		return // Silicons get to view all items regardless
 
-	.["product_records"] = list() // Vending machine code is bad; I hate it
 	if(!iscarbon(user))
 		return
 
@@ -45,21 +49,17 @@
 	if(onstation && !user_id && !(obj_flags & EMAGGED))
 		return
 
-	// Alright so, this is the EXACT SAME LOOP as our base proc; however we check to see if the user is allowed to purchase it first.
-	for (var/datum/data/vending_product/record in product_records)
-		if(!allow_purchase(user_id, record.product_path))
-			continue
-		var/list/data = list(
-			path = replacetext(replacetext("[record.product_path]", "/obj/item/", ""), "/", "-"),
-			name = record.name,
-			price = record.price || default_price,
-			max_amount = record.max_amount,
-			ref = REF(record)
-		)
-		.["product_records"] += list(data)
+	// Go through records and remove in place any product that user does not have access to
+	var/list/product_records = .["product_records"]
+	for(var/i = product_records.len; i >= 1; i--)
+		var/list/product_record = product_records[i]
+		if (!allow_purchase(user_id, text2path(DESANITIZED_PATH(product_record["path"]))))
+			product_records.Cut(i, i + 1)
 
 /// Check if the list of given access is allowed to purchase the given product
 /obj/machinery/vending/access/proc/allow_purchase(obj/item/card/id/user_id, product_path)
+	if(isnull(product_path))
+		return FALSE
 	if(obj_flags & EMAGGED || !onstation)
 		return TRUE
 	. = FALSE
@@ -83,3 +83,5 @@
 	access_lists["[ACCESS_ENGINEERING]"] = TRUE
 	access_lists["[ACCESS_EVA]"] = list(/obj/item/crowbar)
 	access_lists["[ACCESS_SECURITY]"] = list(/obj/item/wrench, /obj/item/gun/ballistic/revolver/mateba)
+
+#undef DESANITIZED_PATH
