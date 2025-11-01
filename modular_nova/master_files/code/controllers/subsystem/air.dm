@@ -14,7 +14,7 @@
 	chosen_goblin_reagent_drug = pick(get_synthesizable_reagent_subtypes(/datum/reagent/drug)) || /datum/reagent/consumable/salt
 	chosen_goblin_reagent_toxic = pick(get_synthesizable_reagent_subtypes(/datum/reagent/toxin)) || /datum/reagent/consumable/salt
 
-/// Returns a shuffled list of all subtypes of base_type reagent that can be synthesized.
+/// Returns a list of all subtypes of base_type reagent that can be synthesized.
 /// If none qualify, returns an empty list — caller should handle fallback.
 /proc/get_synthesizable_reagent_subtypes(base_type)
 	var/list/reagent_subtypes = subtypesof(base_type)
