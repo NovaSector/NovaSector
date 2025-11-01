@@ -1,6 +1,10 @@
 /datum/id_trim/away/tarkon
 	assignment = "P-T Deck Worker"
-	access = list(ACCESS_AWAY_GENERAL, ACCESS_WEAPONS, ACCESS_TARKON)
+	access = list(
+		ACCESS_AWAY_GENERAL,
+		ACCESS_WEAPONS,
+		ACCESS_TARKON,
+	)
 	department_color = COLOR_WHITE
 	department_state = "department"
 	subdepartment_color = COLOR_DARK_CYAN
@@ -17,7 +21,11 @@
 
 /datum/id_trim/away/tarkon/cargo
 	assignment = "P-T Cargo Personnel"
-	access = list(ACCESS_AWAY_GENERAL, ACCESS_WEAPONS, ACCESS_TARKON)
+	access = list(
+		ACCESS_AWAY_GENERAL,
+		ACCESS_WEAPONS,
+		ACCESS_TARKON,
+	)
 	department_color = COLOR_DARK_BROWN
 	department_state = "department"
 	sechud_icon_state = SECHUD_CARGO_TECHNICIAN
@@ -30,14 +38,23 @@
 
 /datum/id_trim/away/tarkon/sec
 	assignment = "P-T Port Guard"
-	access = list(ACCESS_AWAY_GENERAL, ACCESS_WEAPONS, ACCESS_TARKON)
+	access = list(
+		ACCESS_AWAY_GENERAL,
+		ACCESS_WEAPONS,
+		ACCESS_TARKON,
+	)
 	department_color = COLOR_DARK_RED
 	sechud_icon_state = SECHUD_SECURITY_OFFICER
 	trim_state = "trim_securityofficer"
 
 /datum/id_trim/away/tarkon/med
 	assignment = "P-T Trauma Medic"
-	access = list(ACCESS_MEDICAL, ACCESS_AWAY_GENERAL, ACCESS_WEAPONS, ACCESS_TARKON)
+	access = list(
+		ACCESS_MEDICAL,
+		ACCESS_AWAY_GENERAL,
+		ACCESS_WEAPONS,
+		ACCESS_TARKON,
+	)
 	department_color = COLOR_MEDICAL_BLUE
 	sechud_icon_state = SECHUD_MEDICAL_DOCTOR
 	trim_state = "trim_medicaldoctor"
@@ -60,7 +77,11 @@
 
 /datum/id_trim/away/tarkon/sci
 	assignment = "P-T Field Researcher"
-	access = list(ACCESS_AWAY_GENERAL, ACCESS_WEAPONS, ACCESS_TARKON)
+	access = list(
+		ACCESS_AWAY_GENERAL,
+		ACCESS_WEAPONS,
+		ACCESS_TARKON,
+	)
 	department_color = COLOR_SCIENCE_PINK
 	sechud_icon_state = SECHUD_SCIENTIST
 	trim_state = "trim_scientist"
@@ -71,7 +92,9 @@
 	trim = /datum/id_trim/away/tarkon/sci
 
 /datum/id_trim/away/tarkon/robo
-	access = list(ACCESS_ROBOTICS)
+	access = list(
+		ACCESS_ROBOTICS,
+	)
 
 /obj/item/card/id/away/tarkonrobo
 	name = "Tarkon Robotics Card"
@@ -82,7 +105,13 @@
 
 /datum/id_trim/away/tarkon/ensign
 	assignment = "Tarkon Ensign"
-	access = list(ACCESS_MEDICAL, ACCESS_ROBOTICS, ACCESS_AWAY_GENERAL, ACCESS_TARKON, ACCESS_WEAPONS)
+	access = list(
+		ACCESS_MEDICAL,
+		ACCESS_ROBOTICS,
+		ACCESS_AWAY_GENERAL,
+		ACCESS_TARKON,
+		ACCESS_WEAPONS,
+	)
 	department_color = COLOR_COMMAND_BLUE
 	sechud_icon_state = SECHUD_BLUESHIELD
 	trim_icon = 'modular_nova/master_files/icons/obj/card.dmi'
@@ -101,7 +130,13 @@
 
 /datum/id_trim/away/tarkon/director
 	assignment = "Tarkon Port Director"
-	access = list(ACCESS_MEDICAL, ACCESS_ROBOTICS, ACCESS_AWAY_GENERAL, ACCESS_TARKON, ACCESS_WEAPONS)
+	access = list(
+		ACCESS_MEDICAL,
+		ACCESS_ROBOTICS,
+		ACCESS_AWAY_GENERAL,
+		ACCESS_TARKON,
+		ACCESS_WEAPONS,
+	)
 	department_color = COLOR_COMMAND_BLUE
 	sechud_icon_state = SECHUD_BLUESHIELD
 	trim_state = "trim_captain"
