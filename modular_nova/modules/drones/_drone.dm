@@ -176,8 +176,6 @@
 	new /obj/item/stack/cable_coil(src)
 	new /obj/item/soap/nanotrasen(src)// Drones clean
 
-
-
 //
 // Babylon Drones
 //
