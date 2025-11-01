@@ -50,7 +50,7 @@
 		return ITEM_SLOT_RPOCKET
 	return ..()
 
-/mob/living/basic/drone/proc/update_inv_pockets()
+/mob/living/basic/drone/update_pockets()
 	if(client && hud_used)
 		var/obj/item/left_item = l_store
 		var/obj/item/right_item = r_store
