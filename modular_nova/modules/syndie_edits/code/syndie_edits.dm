@@ -143,8 +143,7 @@
 	post_init_icon_state = null
 	greyscale_config = null
 	greyscale_config_worn = null
-	greyscale_config_inhand_left = null
-	greyscale_config_inhand_right = null
+	greyscale_colors = "#88242D"
 	flags_1 = NONE
 
 /obj/item/clothing/gloves/combat/maid
