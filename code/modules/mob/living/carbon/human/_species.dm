@@ -496,124 +496,6 @@ GLOBAL_LIST_EMPTY(features_by_species)
 
 	human.living_flags &= ~STOP_OVERLAY_UPDATE_BODY_PARTS
 
-/**
- * Handles the body of a human
- *
- * Handles lipstick, having no eyes, eye color, undergarnments like underwear, undershirts, and socks, and body layers.
- * Arguments:
- * * species_human - Human, whoever we're handling the body for
- */
-/datum/species/proc/handle_body(mob/living/carbon/human/species_human)
-	species_human.remove_overlay(BODY_LAYER)
-	species_human.remove_overlay(EYES_LAYER)
-
-	if(HAS_TRAIT(species_human, TRAIT_INVISIBLE_MAN))
-		return
-
-	if(!HAS_TRAIT(species_human, TRAIT_HUSK))
-		var/obj/item/bodypart/head/noggin = species_human.get_bodypart(BODY_ZONE_HEAD)
-		if(noggin?.head_flags & HEAD_EYESPRITES)
-			// eyes (missing eye sprites get handled by the head itself, but sadly we have to do this stupid shit here, for now)
-			var/obj/item/organ/eyes/eye_organ = species_human.get_organ_slot(ORGAN_SLOT_EYES)
-			if(eye_organ)
-				eye_organ.refresh(call_update = FALSE)
-				species_human.overlays_standing[EYES_LAYER] = eye_organ.generate_body_overlay(species_human)
-				species_human.apply_overlay(EYES_LAYER)
-
-	if(HAS_TRAIT(species_human, TRAIT_NO_UNDERWEAR))
-		return
-
-	// Underwear, Undershirts & Socks
-	var/list/standing = list()
-	if(species_human.underwear && !(species_human.underwear_visibility & UNDERWEAR_HIDE_UNDIES)) // NOVA EDIT CHANGE - ORIGINAL: if(species_human.underwear)
-		var/datum/sprite_accessory/underwear/underwear = SSaccessories.underwear_list[species_human.underwear]
-		var/mutable_appearance/underwear_overlay
-		var/female_sprite_flags = FEMALE_UNIFORM_FULL // the default gender shaping
-		if(underwear)
-			// NOVA EDIT ADDITION START
-			var/icon_state = underwear.icon_state
-			if(underwear.has_digitigrade && (species_human.bodyshape & BODYSHAPE_DIGITIGRADE))
-				icon_state += "_d"
-				female_sprite_flags = FEMALE_UNIFORM_TOP_ONLY // for digi gender shaping
-			// NOVA EDIT ADDITION END
-			if(species_human.dna.species.sexes && species_human.physique == FEMALE && (underwear.gender == MALE))
-				underwear_overlay = mutable_appearance(wear_female_version(icon_state, underwear.icon, female_sprite_flags), layer = -NOVA_UNDERWEAR_UNDERSHIRT_LAYER) // NOVA EDIT CHANGE - ORIGINAL: underwear_overlay = mutable_appearance(wear_female_version(underwear.icon_state, underwear.icon, FEMALE_UNIFORM_FULL), layer = -BODY_LAYER)
-			else
-				underwear_overlay = mutable_appearance(underwear.icon, icon_state, -NOVA_UNDERWEAR_UNDERSHIRT_LAYER) // NOVA EDIT CHANGE - ORIGINAL: underwear_overlay = mutable_appearance(underwear.icon, underwear.icon_state, -BODY_LAYER)
-			if(!underwear.use_static)
-				underwear_overlay.color = species_human.underwear_color
-			standing += underwear_overlay
-
-	// NOVA EDIT ADDITION START
-	if(species_human.bra && !(species_human.underwear_visibility & UNDERWEAR_HIDE_BRA))
-		var/datum/sprite_accessory/bra/bra = SSaccessories.bra_list[species_human.bra]
-
-		if(bra)
-			var/mutable_appearance/bra_overlay
-			var/icon_state = bra.icon_state
-			bra_overlay = mutable_appearance(bra.icon, icon_state, -NOVA_BRA_SOCKS_LAYER)
-			if(!bra.use_static)
-				bra_overlay.color = species_human.bra_color
-			standing += bra_overlay
-
-	// NOVA EDIT ADDITION END
-	if(species_human.undershirt && !(species_human.underwear_visibility & UNDERWEAR_HIDE_SHIRT)) // NOVA EDIT CHANGE - ORIGINAL: if(species_human.undershirt)
-		var/datum/sprite_accessory/undershirt/undershirt = SSaccessories.undershirt_list[species_human.undershirt]
-		if(undershirt)
-			var/mutable_appearance/working_shirt
-			if(species_human.dna.species.sexes && species_human.physique == FEMALE)
-				working_shirt = mutable_appearance(wear_female_version(undershirt.icon_state, undershirt.icon), layer = -NOVA_UNDERWEAR_UNDERSHIRT_LAYER) // NOVA EDIT CHANGE - ORIGINAL: working_shirt = mutable_appearance(wear_female_version(undershirt.icon_state, undershirt.icon), layer = -BODY_LAYER)
-			else
-				working_shirt = mutable_appearance(undershirt.icon, undershirt.icon_state, layer = -NOVA_UNDERWEAR_UNDERSHIRT_LAYER) // NOVA EDIT CHANGE: - ORIGINAL: working_shirt = mutable_appearance(undershirt.icon, undershirt.icon_state, layer = -BODY_LAYER)
-			// NOVA EDIT ADDITION START
-			if(!undershirt.use_static)
-				working_shirt.color = species_human.undershirt_color
-			// NOVA EDIT ADDITION END
-			standing += working_shirt
-
-	/* // NOVA EDIT REMOVAL START - Original TG sock handling
-	if(species_human.socks && species_human.num_legs >= 2 && !(species_human.bodyshape & BODYSHAPE_DIGITIGRADE))
-		var/datum/sprite_accessory/socks/socks = SSaccessories.socks_list[species_human.socks]
-		if(socks)
-			standing += mutable_appearance(socks.icon, socks.icon_state, -BODY_LAYER)
-	*/ // NOVA EDIT REMOVAL END
-	// NOVA EDIT ADDITION START - Nova socks
-	if(species_human.socks && species_human.num_legs >= 2 && !(species_human.underwear_visibility & UNDERWEAR_HIDE_SOCKS))
-		if(!("taur" in mutant_bodyparts) || mutant_bodyparts["taur"][MUTANT_INDEX_NAME] == SPRITE_ACCESSORY_NONE)
-			var/datum/sprite_accessory/socks/socks = SSaccessories.socks_list[species_human.socks]
-			if(socks)
-				var/mutable_appearance/socks_overlay
-				var/icon_state = socks.icon_state
-				if((species_human.bodyshape & BODYSHAPE_DIGITIGRADE))
-					icon_state += "_d"
-				socks_overlay = mutable_appearance(socks.icon, icon_state, -NOVA_BRA_SOCKS_LAYER)
-				if(!socks.use_static)
-					socks_overlay.color = species_human.socks_color
-				standing += socks_overlay
-
-	// NOVA EDIT ADDITION END
-	if(standing.len)
-		species_human.overlays_standing[BODY_LAYER] = standing
-
-	species_human.apply_overlay(BODY_LAYER)
-
-/// Updates face (as of now, only eye) offsets
-/datum/species/proc/update_face_offset(mob/living/carbon/human/species_human)
-	var/list/eye_overlays = species_human.overlays_standing[EYES_LAYER]
-	species_human.remove_overlay(EYES_LAYER)
-
-	if(HAS_TRAIT(species_human, TRAIT_INVISIBLE_MAN) || HAS_TRAIT(species_human, TRAIT_HUSK) || !length(eye_overlays))
-		return
-
-	var/obj/item/bodypart/head/noggin = species_human.get_bodypart(BODY_ZONE_HEAD)
-	for (var/mutable_appearance/overlay as anything in eye_overlays)
-		overlay.pixel_w = 0
-		overlay.pixel_z = 0
-		noggin.worn_face_offset.apply_offset(overlay)
-
-	species_human.overlays_standing[EYES_LAYER] = eye_overlays
-	species_human.apply_overlay(EYES_LAYER)
-
 // This exists so sprite accessories can still be per-layer without having to include that layer's
 // number in their sprite name, which causes issues when those numbers change.
 /datum/species/proc/mutant_bodyparts_layertext(layer)
@@ -1664,7 +1546,7 @@ GLOBAL_LIST_EMPTY(features_by_species)
 /datum/species/proc/get_species_description()
 	SHOULD_CALL_PARENT(FALSE)
 
-	//stack_trace("Species [name] ([type]) did not have a description set, and is a selectable roundstart race! Override get_species_description.")
+	stack_trace("Species [name] ([type]) did not have a description set, and is a selectable roundstart race! Override get_species_description.")
 	return "No species description set, file a bug report!"
 
 /**
@@ -1678,7 +1560,7 @@ GLOBAL_LIST_EMPTY(features_by_species)
 	SHOULD_CALL_PARENT(FALSE)
 	RETURN_TYPE(/list)
 
-	//stack_trace("Species [name] ([type]) did not have lore set, and is a selectable roundstart race! Override get_species_lore.")
+	stack_trace("Species [name] ([type]) did not have lore set, and is a selectable roundstart race! Override get_species_lore.")
 	return list("No species lore set, file a bug report!")
 
 /**
@@ -2117,7 +1999,6 @@ GLOBAL_LIST_EMPTY(features_by_species)
 /datum/species/proc/replace_body(mob/living/carbon/target, datum/species/new_species)
 	new_species ||= target.dna.species //If no new species is provided, assume its src.
 	//Note for future: Potentionally add a new C.dna.species() to build a template species for more accurate limb replacement
-
 	// NOVA EDIT ADDITION START - Synth digitigrade sanitization
 	var/ignore_digi = FALSE // You can jack into this var with other checks, if you want.
 	if(issynthetic(target))
