@@ -12,6 +12,8 @@
 	var/obj/item/mod/control/stored_modsuit
 	/// The appearance theme from the absorbed MODsuit
 	var/datum/mod_theme/stored_theme
+	/// The original storage module from the assimilated suit (cached to return when unassimilating)
+	var/obj/item/mod/module/storage/cached_storage
 
 /datum/mod_theme/protean
 	name = "protean"
@@ -26,6 +28,9 @@
 		storage = new()
 		install(storage, null, TRUE)
 
+	// Add TRAIT_NODROP to prevent proteans from ever dropping/dragging their suit (like entombed)
+	ADD_TRAIT(src, TRAIT_NODROP, SPECIES_TRAIT)
+
 /obj/item/mod/control/pre_equipped/protean/Destroy()
 	// If a protean is folded up inside, kick them out before deleting the suit
 	var/mob/living/carbon/human/protean_inside = locate(/mob/living/carbon/human) in src
@@ -35,6 +40,11 @@
 
 	if(!QDELETED(stored_modsuit))
 		INVOKE_ASYNC(src, PROC_REF(unassimilate_modsuit), null, forced = TRUE)
+
+	// Clean up cached storage if it still exists
+	if(cached_storage)
+		QDEL_NULL(cached_storage)
+
 	return ..()
 
 /obj/item/mod/control/pre_equipped/protean/wrench_act(mob/living/user, obj/item/wrench)
@@ -124,12 +134,18 @@
 	stripper.balloon_alert(stripper, "can't strip a protean's suit!")
 	return ..()
 
-/obj/item/mod/control/pre_equipped/protean/attack_hand_secondary(mob/user, list/modifiers)
-	// Prevent proteans from removing their own suit from back slot
-	if(isprotean(user) && user == wearer && user.get_item_by_slot(ITEM_SLOT_BACK) == src)
-		user.balloon_alert(user, "it's part of you!")
-		return SECONDARY_ATTACK_CANCEL_ATTACK_CHAIN
-	return ..()
+/obj/item/mod/control/pre_equipped/protean/equipped(mob/user, slot, initial)
+	. = ..()
+
+	if(slot == ITEM_SLOT_BACK && user)
+		if(isprotean(user))
+			// Re-add SPECIES_TRAIT if it was removed (like entombed does after being dropped)
+			if(!HAS_TRAIT_FROM(src, TRAIT_NODROP, SPECIES_TRAIT))
+				ADD_TRAIT(src, TRAIT_NODROP, SPECIES_TRAIT)
+		else if(modlocked)
+			// Non-protean wearing a locked suit
+			ADD_TRAIT(src, TRAIT_NODROP, "protean_modlock")
+			to_chat(user, span_warning("The suit does not seem to be able to come off..."))
 
 /obj/item/mod/control/pre_equipped/protean/dropped(mob/user)
 	// Don't dump items or unset wearer if a protean is folding themselves into the suit
@@ -137,28 +153,32 @@
 	if(isprotean(user) && locate(/mob/living/carbon/human) in src)
 		// Skip the item dumping but don't call parent (which would unset wearer)
 		return
-	// Clean up all NODROP traits
-	if(HAS_TRAIT_FROM(src, TRAIT_NODROP, "protean_back"))
-		REMOVE_TRAIT(src, TRAIT_NODROP, "protean_back")
-	if(HAS_TRAIT_FROM(src, TRAIT_NODROP, "protean"))
-		REMOVE_TRAIT(src, TRAIT_NODROP, "protean")
-	return ..()
+
+	. = ..()
+	// Remove TRAIT_NODROP traits (like entombed) to allow retrieval if protean is gibbed/destroyed
+	// They will be re-added when re-equipped
+	if(HAS_TRAIT_FROM(src, TRAIT_NODROP, SPECIES_TRAIT))
+		REMOVE_TRAIT(src, TRAIT_NODROP, SPECIES_TRAIT)
+	if(HAS_TRAIT_FROM(src, TRAIT_NODROP, "protean_modlock"))
+		REMOVE_TRAIT(src, TRAIT_NODROP, "protean_modlock")
 
 /obj/item/mod/control/pre_equipped/protean/proc/drop_suit()
 	if(!QDELETED(wearer))
-		// Temporarily remove protean_back trait to allow dropping
-		if(HAS_TRAIT_FROM(src, TRAIT_NODROP, "protean_back"))
-			REMOVE_TRAIT(src, TRAIT_NODROP, "protean_back")
+		// Temporarily remove SPECIES_TRAIT to allow dropping (like entombed does)
+		if(HAS_TRAIT_FROM(src, TRAIT_NODROP, SPECIES_TRAIT))
+			REMOVE_TRAIT(src, TRAIT_NODROP, SPECIES_TRAIT)
 		// Manually unset wearer (since dropped() won't be called normally)
 		var/mob/living/carbon/temp_wearer = wearer
 		if(wearer)
 			unset_wearer()
 		temp_wearer.dropItemToGround(src, TRUE, TRUE, TRUE)
+		// Re-add the trait after dropping
+		ADD_TRAIT(src, TRAIT_NODROP, SPECIES_TRAIT)
 
 /// Lets proteans lock the suit onto someone so they can't take it off
 /obj/item/mod/control/pre_equipped/protean/proc/toggle_lock(forced = FALSE)
 	if(modlocked && !forced && !isprotean(wearer))
-		REMOVE_TRAIT(src, TRAIT_NODROP, "protean")
+		REMOVE_TRAIT(src, TRAIT_NODROP, "protean_modlock")
 	modlocked = !modlocked
 
 /obj/item/mod/control/pre_equipped/protean/equipped(mob/user, slot, initial)
@@ -166,11 +186,12 @@
 
 	if(slot == ITEM_SLOT_BACK && user)
 		if(isprotean(user))
-			// Make suit unremovable from back for proteans
-			ADD_TRAIT(src, TRAIT_NODROP, "protean_back")
+			// Re-add SPECIES_TRAIT if it was removed (like entombed does)
+			if(!HAS_TRAIT_FROM(src, TRAIT_NODROP, SPECIES_TRAIT))
+				ADD_TRAIT(src, TRAIT_NODROP, SPECIES_TRAIT)
 		else if(modlocked)
 			// Non-protean wearing a locked suit
-			ADD_TRAIT(src, TRAIT_NODROP, "protean")
+			ADD_TRAIT(src, TRAIT_NODROP, "protean_modlock")
 			to_chat(user, span_warning("The suit does not seem to be able to come off..."))
 
 /obj/item/mod/control/pre_equipped/protean/choose_deploy(mob/user)
@@ -369,15 +390,16 @@
 					// The new storage is bigger, so replace ours with it
 					to_chat(user, span_notice("Upgrading to [incoming_storage_module] (larger capacity)!"))
 					uninstall(our_storage, deleting = TRUE)
-					qdel(our_storage) // Delete the old one
+					qdel(our_storage) // Delete the old protean storage (it's ours, we can delete it)
 					our_storage = null
+					cached_storage = incoming_storage_module // Cache it so we can return it later!
 					// Let it continue below to install the bigger storage
 				else
-					// Our storage is bigger or equal, so keep it and discard theirs
-					to_chat(user, span_notice("Keeping your [our_storage], discarding incoming [module]."))
+					// Our storage is bigger or equal, so keep it and cache theirs for return
+					to_chat(user, span_notice("Keeping your [our_storage], caching incoming [module] for return."))
 					to_assimilate.modules -= module
 					module.mod = null
-					qdel(module) // Delete the incoming one (items already extracted above)
+					cached_storage = module // Cache it to return when unassimilating!
 					continue
 
 		// CRITICAL: Uninstall from old suit FIRST to clear module.mod reference
@@ -435,12 +457,16 @@
 	// Don't manually retract parts - let set_up_parts() handle cleanup to avoid hard deletes
 	complexity_max = initial(complexity_max)
 
-	// Transfer all modules back to stored modsuit (EXCEPT storage - we keep ours)
+	// Transfer all modules back to stored modsuit
 	// Make a copy because install() will modify the list
 	var/list/modules_to_return = modules.Copy()
+	var/obj/item/mod/module/storage/protean_storage = null
+
 	for(var/obj/item/mod/module/module in modules_to_return)
-		// Skip storage modules - we keep the protean's storage
+		// Storage modules need special handling
 		if(istype(module, /obj/item/mod/module/storage))
+			protean_storage = module
+			// We'll handle storage at the end after transferring all other modules
 			continue
 
 		// Try to install - install() will use forceMove() to transfer
@@ -455,6 +481,41 @@
 		to_chat(user, span_notice("[module] couldn't fit back, dropping to floor!"))
 		module.forceMove(get_turf(src))
 
+	// Return the original storage module to the assimilated suit
+	if(cached_storage)
+		// Check if the cached storage is currently installed (we kept the bigger one)
+		if(cached_storage == protean_storage && cached_storage in modules)
+			// The cached storage IS the current protean storage
+			// Uninstall it from protean first WITH deleting = TRUE to prevent item dump!
+			uninstall(cached_storage, deleting = TRUE)
+
+			// Give it back to the CMO's suit with all items intact
+			stored_modsuit.install(cached_storage, user, TRUE)
+
+			// Give protean a new expanded storage (their default type)
+			var/obj/item/mod/module/storage/large_capacity/new_protean_storage = new()
+			install(new_protean_storage, user, TRUE)
+			to_chat(user, span_notice("Returned original storage to suit, installed new expanded storage for protean."))
+		else
+			// The cached storage is NOT currently installed (we kept protean's bigger one)
+			// Protean keeps their storage with all items - CMO gets back empty storage
+			// Give back their original storage module (empty)
+			stored_modsuit.install(cached_storage, user, TRUE)
+			to_chat(user, span_notice("Returned original storage to suit (protean keeps items in their larger storage)."))
+
+		cached_storage = null // Clear the cache
+	else
+		// Fallback: if no cached storage (shouldn't happen), create a basic one for the returned suit
+		to_chat(user, span_warning("WARNING: No cached storage found, creating basic storage for returned suit."))
+		var/obj/item/mod/module/storage/replacement_storage = new()
+		stored_modsuit.install(replacement_storage, user, TRUE)
+
+		if(protean_storage?.atom_storage?.real_location)
+			for(var/obj/item/thing in protean_storage.atom_storage.real_location.contents)
+				if(!replacement_storage.atom_storage?.attempt_insert(thing, user, messages = FALSE))
+					thing.forceMove(get_turf(stored_modsuit))
+					to_chat(user, span_warning("[thing] couldn't fit in returned storage, dropped on floor!"))
+
 	theme = stored_theme
 	stored_theme = null
 	skin = initial(skin)
@@ -462,6 +523,13 @@
 	name = initial(name)
 	desc = initial(desc)
 	extended_desc = initial(extended_desc)
+
+	// Ensure protean has a storage module after restoration (set_up_parts doesn't create modules)
+	var/obj/item/mod/module/storage/final_check = locate() in modules
+	if(!final_check)
+		var/obj/item/mod/module/storage/emergency_storage = new()
+		install(emergency_storage, user, TRUE)
+		to_chat(user, span_warning("Emergency: Installed basic storage for protean (shouldn't happen, report if you see this)."))
 
 	if(!forced && user.can_put_in_hand(stored_modsuit, user.active_hand_index))
 		user.put_in_hand(stored_modsuit, user.active_hand_index)
