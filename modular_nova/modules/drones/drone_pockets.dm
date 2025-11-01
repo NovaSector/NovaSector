@@ -123,7 +123,7 @@
 		if(!LAZYACCESS(modifiers, SHIFT_CLICK))
 			var/atom/movable/screen/inventory/inv = locate() in hud_used.static_inventory
 			if(inv && (clicked_atom == inv || (istype(clicked_atom, /atom/movable/screen) && clicked_atom.name == inv.name)))
-				INVOKE_ASYNC(src, PROC_REF(async_handle_pocket_click), inv.slot_id)
+				INVOKE_ASYNC(src, PROC_REF(handle_pocket_click), inv.slot_id)
 				return TRUE
 
 	return NONE
