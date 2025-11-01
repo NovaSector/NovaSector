@@ -1,0 +1,140 @@
+/**
+ * @file Medical Scanner TGUI Styling
+ * @copyright 2025
+ * @license MIT
+ */
+
+@use '../base.scss';
+
+// Custom styling for quirks text
+.MedicalScanner__Quirks {
+  color: #42bff5;
+  font-weight: bold;
+}
+
+// Custom styling for virus labels
+.MedicalScanner__VirusLabel {
+  color: #ff6b6b;
+  font-weight: bold;
+}
+
+// Medical alerts section styling
+.MedicalScanner__medical-alerts-section {
+  .NoticeBox {
+    margin-bottom: 0.5em;
+  }
+}
+
+// Alien embryo section styling with animations
+.MedicalScanner__alien-embryo-section {
+  border: 3px solid #ff0000 !important;
+  box-shadow: 0 0 15px rgba(255, 0, 0, 0.5);
+  animation: alien-warning-pulse 2s infinite;
+}
+
+// Pulsing animation for danger elements
+@keyframes danger-pulse {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.7;
+  }
+}
+
+// Blinking animation for critical warnings
+@keyframes warning-blink {
+  0%,
+  49% {
+    opacity: 1;
+  }
+  50%,
+  100% {
+    opacity: 0.3;
+  }
+}
+
+// Danger pulse for section borders
+@keyframes alien-warning-pulse {
+  0%,
+  100% {
+    box-shadow: 0 0 15px rgba(255, 0, 0, 0.5);
+  }
+  50% {
+    box-shadow: 0 0 25px rgba(255, 0, 0, 0.8);
+  }
+}
+
+.theme-hackerman {
+  // Enhanced alien embryo styling for hackerman theme
+  .MedicalScanner__alien-embryo-section {
+    border-color: #00ff00 !important;
+    box-shadow: 0 0 20px rgba(0, 255, 0, 0.7);
+
+    .NoticeBox {
+      background-color: rgba(0, 40, 0, 0.8);
+      border-color: #00ff00;
+    }
+  }
+}
+
+// BlackNTOS theme - sleek dark interface with cyan accents
+.theme-black_ntos {
+  .MedicalScanner__alien-embryo-section {
+    background: linear-gradient(
+      135deg,
+      rgba(80, 0, 0, 0.8),
+      rgba(120, 0, 0, 0.6)
+    );
+    border: 3px solid #ff3366 !important;
+    box-shadow:
+      0 0 20px rgba(255, 51, 102, 0.6),
+      inset 0 0 20px rgba(255, 51, 102, 0.2);
+
+    .Section__title {
+      color: #ff3366;
+      animation: danger-pulse 2s infinite;
+    }
+
+    .NoticeBox {
+      background: rgba(80, 0, 0, 0.7);
+      border-color: #ff3366;
+    }
+  }
+}
+
+.theme-transparent {
+  // Default TGUI blue theme - minimal overrides
+  .Section {
+    background-color: rgba(32, 48, 64, 0.3);
+    border-color: rgba(64, 96, 128, 0.6);
+  }
+
+  .Section__title {
+    background-color: rgba(40, 60, 80, 0.5);
+    color: #88ccff;
+  }
+
+  .ProgressBar {
+    border-color: rgba(64, 96, 128, 0.8);
+  }
+
+  .Button {
+    background-color: rgba(40, 60, 80, 0.4);
+    border-color: rgba(64, 96, 128, 0.6);
+
+    &:hover {
+      background-color: rgba(50, 75, 100, 0.5);
+    }
+  }
+
+  .LabeledList__label {
+    color: #88ccff;
+  }
+
+  .Dropdown {
+    background-color: rgba(32, 48, 64, 0.9);
+    border-color: rgba(64, 96, 128, 0.6);
+  }
+}
