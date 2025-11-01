@@ -176,6 +176,10 @@
 		/mob/living/carbon/proc/eject_assimilated_modsuit,
 	))
 
+	// Show nutritional info for new proteans
+	if(!regenerate_icons) // Only show on first gain, not on respawn/transform
+		addtimer(CALLBACK(src, PROC_REF(show_nutrition_guide), gainer), 3 SECONDS)
+
 	// Grant shapeshifting ability
 	shapeshift_action = new
 	shapeshift_action.Grant(gainer)
@@ -323,6 +327,34 @@
 	// Outfit system already equipped backpack_contents, we just add bonus iron sheets
 	if(get_a_job)
 		protean_owner.equip_to_storage(new /obj/item/stack/sheet/iron/twenty(protean_owner), ITEM_SLOT_BACK, TRUE, TRUE)
+
+/// Shows new proteans a guide on material nutrition values
+/datum/species/protean/proc/show_nutrition_guide(mob/living/carbon/human/protean)
+	if(!protean || !protean.client)
+		return
+
+	var/obj/item/organ/stomach/protean/refactory = protean.get_organ_slot(ORGAN_SLOT_STOMACH)
+	var/max_capacity = refactory?.metal_max || PROTEAN_STOMACH_FULL
+	var/is_oversized = refactory?.is_oversized
+
+	to_chat(protean, "<span class='boldnotice'>You are a Protean.</span>")
+	to_chat(protean, "")
+	to_chat(protean, "• Your <span class='info'>nanite refactory</span> can consume various <span class='info'>material stacks</span> for sustenance and self-repair.")
+	to_chat(protean, "")
+	to_chat(protean, "• <span class='info'>Metal Rods</span> provide <span class='info'>0.5 metal units</span> per sheet.")
+	to_chat(protean, "")
+	to_chat(protean, "• <span class='info'>Iron</span>, <span class='info'>Steel</span>, and <span class='info'>Glass</span> provide <span class='info'>1.0 metal units</span> per sheet.")
+	to_chat(protean, "")
+	to_chat(protean, "• <span class='info'>Reinforced Glass</span> provides <span class='info'>1.5 metal units</span> per sheet.")
+	to_chat(protean, "")
+	to_chat(protean, "• <span class='info'>Plasma Glass</span> provides <span class='info'>2.0 metal units</span> per sheet.")
+	to_chat(protean, "")
+	to_chat(protean, "• <span class='info'>Plasteel</span> and other advanced alloys provide <span class='info'>3.0+ metal units</span> per sheet.")
+	to_chat(protean, "")
+	to_chat(protean, "• Higher quality materials facilitate faster <span class='info'>self-repair</span>. Your refactory can store up to <span class='info'>[max_capacity] metal units</span>.")
+	if(is_oversized)
+		to_chat(protean, "")
+		to_chat(protean, "• Your <span class='info'>massive refactory</span> consumes <span class='info'>30% less metal</span> than standard.")
 
 /// Override to give proteans a special oversized refactory instead of normal oversized stomach
 /datum/species/protean/gain_oversized_organs(mob/living/carbon/human/human_holder, datum/quirk/oversized/oversized_quirk)

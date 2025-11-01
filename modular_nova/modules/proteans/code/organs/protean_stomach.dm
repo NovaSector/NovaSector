@@ -104,25 +104,52 @@
 		COOLDOWN_RESET(src, damage_delay)
 	COOLDOWN_START(src, damage_delay, REGEN_TIME)
 
-/// Check to see if our metal storage is full.
+/// Check to see if our metal storage is full before eating materials
 /obj/item/organ/stomach/protean/proc/try_stomach_eat(mob/eater, atom/eating)
 	SIGNAL_HANDLER
 
-	if(istype(eating, /obj/item/food/golem_food))
-		var/obj/item/food/golem_food/food = eating
-		if(metal > (PROTEAN_STOMACH_FULL - 0.3) && food.owner.loc == owner)
+	// Check if eating a material stack (iron, glass, plasteel, etc.)
+	if(istype(eating, /obj/item/stack))
+		var/obj/item/stack/material = eating
+		// Only allow eating materials with RCD matter value
+		if(!material.matter_amount)
+			return
+
+		// Calculate nutritional value based on RCD matter amount
+		// matter_amount ranges from 2 (rods) to 12+ (plasteel)
+		// Convert to metal units: matter_amount / 4 = metal units per sheet
+		var/nutrition_value = material.matter_amount / 4
+
+		if(metal >= (metal_max - nutrition_value + 0.1))
 			balloon_alert(owner, "storage full!")
 			return COMSIG_CARBON_BLOCK_EAT
 
-/// If we ate a sheet of metal, add it to storage.
+/// Process eaten materials based on their RCD matter value
 /obj/item/organ/stomach/protean/after_eat(atom/edible)
-	if(istype(edible, /obj/item/food/golem_food))
-		var/obj/item/food/golem_food/food = edible
-		metal = clamp(metal + 1, 0, PROTEAN_STOMACH_FULL)
-		if(food.owner.loc != owner) // Other people feeding them will heal them.
-			owner.adjustBruteLoss(-20, forced = TRUE)
-			var/health_check = owner.health >= owner.maxHealth ? "fully healed!" : "healed!"
-			owner.balloon_alert_to_viewers("[health_check]")
+	// Handle material stacks (sheets, rods, etc.)
+	if(istype(edible, /obj/item/stack))
+		var/obj/item/stack/material = edible
+		// Only process materials with RCD matter value
+		if(!material.matter_amount)
+			return
+
+		// Calculate nutrition from RCD matter amount
+		// Iron (4) = 1 metal, Glass (4) = 1 metal, Plasteel (12) = 3 metal, etc.
+		var/nutrition_value = material.matter_amount / 4
+		var/old_metal = metal
+		metal = clamp(metal + nutrition_value, 0, metal_max)
+
+		// Calculate healing based on material value
+		var/healing_amount = nutrition_value * 20 // 20 HP per metal unit
+		owner.adjustBruteLoss(-healing_amount, forced = TRUE)
+
+		var/metal_gained = metal - old_metal
+		to_chat(owner, span_notice("You absorb [material], gaining [metal_gained] metal units. [nutrition_value > 1 ? "High quality material!" : ""]"))
+
+		if(owner.health >= owner.maxHealth)
+			owner.balloon_alert_to_viewers("fully restored!")
+		else if(healing_amount > 0)
+			owner.balloon_alert_to_viewers("nanites restored!")
 
 #undef REGEN_TIME
 

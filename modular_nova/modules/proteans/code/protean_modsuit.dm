@@ -150,7 +150,7 @@
 /obj/item/mod/control/pre_equipped/protean/dropped(mob/user)
 	// Don't dump items or unset wearer if a protean is folding themselves into the suit
 	// We keep them as wearer so modules continue to work in suit mode
-	if(isprotean(user) && locate(/mob/living/carbon/human) in src)
+	if(isprotean(user) && (locate(/mob/living/carbon/human) in src))
 		// Skip the item dumping but don't call parent (which would unset wearer)
 		return
 
@@ -503,21 +503,21 @@
 				items_to_return += thing
 				thing.forceMove(src) // Move out temporarily
 
-		// Check if the cached storage is currently installed (we kept the bigger one)
-		if(cached_storage == protean_storage && cached_storage in modules)
-			// The cached storage IS the current protean storage (CMO had bigger storage)
-			// Uninstall it from protean first WITH deleting = TRUE to prevent item dump!
+		// Check if the cached storage is currently installed (we kept the larger one during assimilation)
+		if((cached_storage == protean_storage) && (cached_storage in modules))
+			// The cached storage is currently being used by the protean
+			// Uninstall it first WITH deleting = TRUE to prevent item dump
 			uninstall(cached_storage, deleting = TRUE)
 
-			// Give it back to the CMO's suit with all items intact
+			// Return it to the unassimilated suit with all items intact
 			stored_modsuit.install(cached_storage, user, TRUE)
 
 			// Give protean a new expanded storage (their default type)
 			var/obj/item/mod/module/storage/large_capacity/new_protean_storage = new()
 			install(new_protean_storage, user, TRUE)
-			to_chat(user, span_notice("Returned original storage to suit, installed new expanded storage for protean."))
+			to_chat(user, span_notice("Returned original storage module to suit, installed new expanded storage."))
 		else
-			// The cached storage is NOT currently installed (protean's storage was bigger)
+			// The cached storage is NOT currently installed (protean's storage was larger)
 			// Transfer items from protean's storage to the original cached storage, then return it
 			stored_modsuit.install(cached_storage, user, TRUE)
 
@@ -531,7 +531,7 @@
 					thing.forceMove(get_turf(stored_modsuit))
 					to_chat(user, span_warning("[thing] couldn't fit in returned storage, dropped on floor!"))
 
-			to_chat(user, span_notice("Returned original storage to suit with [items_transferred]/[length(items_to_return)] items."))
+			to_chat(user, span_notice("Returned original storage with [items_transferred]/[length(items_to_return)] items."))
 
 			// Ensure protean still has their storage module (it should still be installed)
 			if(!(protean_storage in modules))
