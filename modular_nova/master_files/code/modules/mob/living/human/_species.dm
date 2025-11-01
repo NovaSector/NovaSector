@@ -1,3 +1,6 @@
+/datum/species
+	var/monkey_species = /datum/species/monkey // for kobolds
+
 /datum/species/proc/allows_food_preferences()
 	return TRUE
 
