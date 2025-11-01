@@ -27,7 +27,4 @@
 		if (!(initial(reagent.chemical_flags) & REAGENT_CAN_BE_SYNTHESIZED))
 			reagent_subtypes.Cut(i, i+1) // remove this entry
 
-	if(reagent_subtypes.len)
-		shuffle(reagent_subtypes)
-
 	return reagent_subtypes
