@@ -122,7 +122,7 @@
 	name = "pulse energy"
 	icon = 'modular_nova/modules/modular_weapons/icons/obj/company_and_or_faction_based/szot_dynamica/ammo.dmi'
 	icon_state = "plasma_pulse"
-	damage = 20
+	damage = 15
 	armour_penetration = 30
 	wound_bonus = 5
 	exposed_wound_bonus = 10

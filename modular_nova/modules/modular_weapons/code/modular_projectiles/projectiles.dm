@@ -37,7 +37,7 @@
 
 /obj/projectile/bullet/c38/haywire
 	name = ".38 haywire bullet"
-	damage = 30
+	damage = 20
 	ricochets_max = 0
 	embed_type = null
 	/// EMP radius when this bullet hits a target.
