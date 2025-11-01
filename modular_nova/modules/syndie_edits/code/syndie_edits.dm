@@ -140,6 +140,12 @@
 	icon_state = "syndimaid_headband"
 	icon = 'modular_nova/master_files/icons/obj/clothing/head/costume.dmi'
 	worn_icon = 'modular_nova/master_files/icons/mob/clothing/head/costume.dmi'
+	post_init_icon_state = null
+	greyscale_config = null
+	greyscale_config_worn = null
+	greyscale_config_inhand_left = null
+	greyscale_config_inhand_right = null
+	flags_1 = NONE
 
 /obj/item/clothing/gloves/combat/maid
 	name = "combat maid sleeves"
