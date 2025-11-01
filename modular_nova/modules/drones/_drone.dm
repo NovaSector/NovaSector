@@ -24,7 +24,7 @@
 		return
 
 /mob/living/basic/drone/attack_hand_secondary(mob/user, list/modifiers)
-	if(user == src || isAdminGhostAI(user) || (mind && mind.key == user.key))
+	if(can_user_interact_with(user))
 		return ..()
 	return SECONDARY_ATTACK_CANCEL_ATTACK_CHAIN
 
