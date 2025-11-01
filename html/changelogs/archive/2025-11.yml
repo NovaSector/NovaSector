@@ -1,3 +1,19 @@
 2025-11-01:
+  Hatterhat:
+  - balance: Street boxing's knockdowns on critical hits are much shorter now, and
+      deals less stamina damage, because crits tend to chain together.
+  - balance: Equipping knuckle dusters now gives you a melee attack's worth of click
+      delay until your next action. If you're using dusters, commit to using knuckle
+      dusters.
   Stalkeros:
   - bugfix: Upside-down pierogi-ravioli are now actually visible.
+  dee-dubya:
+  - rscadd: 'Adds four new plushies to the loadout: Squishy Yellow Rock, Securifox,
+      Heckun Bnuuy, and Tiny Overwatch. Credit to deedubya, bunzel, and crumpaloo
+      for the art.'
+  trazodont:
+  - rscadd: cloth, durathread, wood, leather and bamboo can now be held by produce
+      displays
+  vinylspiders:
+  - bugfix: fixes footstep sounds pref not applying in some rare cases
+  - bugfix: fixes hemophages sometimes being able to get more than one drain action
