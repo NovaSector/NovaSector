@@ -252,54 +252,21 @@ SOLFED ARMOR VALUES!
 	greyscale_config = /datum/greyscale_config/solfedribbons
 	greyscale_config_worn = /datum/greyscale_config/solfedribbons/worn
 	minimize_when_attached = TRUE
-
-/obj/item/clothing/accessory/nova/solfedribbon/rank2
-	icon_state = "/obj/item/clothing/accessory/nova/solfedribbon/rank2"
-	post_init_icon_state = "star_arr_ribbon_2"
-
-/obj/item/clothing/accessory/nova/solfedribbon/rank3
-	icon_state = "/obj/item/clothing/accessory/nova/solfedribbon/rank3"
-	post_init_icon_state = "star_sw_ribbon_1"
-
-/obj/item/clothing/accessory/nova/solfedribbon/rank4
-	icon_state = "/obj/item/clothing/accessory/nova/solfedribbon/rank4"
-	post_init_icon_state = "star_sw_ribbon_2"
-
-/obj/item/clothing/accessory/nova/solfedribbon/rank5
-	icon_state = "/obj/item/clothing/accessory/nova/solfedribbon/rank5"
-	post_init_icon_state = "star_ribbon_1"
-
-/obj/item/clothing/accessory/nova/solfedribbon/rank6
-	icon_state = "/obj/item/clothing/accessory/nova/solfedribbon/rank6"
-	post_init_icon_state = "star_ribbon_2"
-
-/obj/item/clothing/accessory/nova/solfedribbon/rank7
-	icon_state = "/obj/item/clothing/accessory/nova/solfedribbon/rank7"
-	post_init_icon_state = "star_ribbon_3"
-
-/obj/item/clothing/accessory/nova/solfedribbon/rank8
-	icon_state = "/obj/item/clothing/accessory/nova/solfedribbon/rank8"
-	post_init_icon_state = "arr_ribbon_1"
-
-/obj/item/clothing/accessory/nova/solfedribbon/rank9
-	icon_state = "/obj/item/clothing/accessory/nova/solfedribbon/rank8"
-	post_init_icon_state = "arr_ribbon_2"
-
-/obj/item/clothing/accessory/nova/solfedribbon/rank10
-	icon_state = "/obj/item/clothing/accessory/nova/solfedribbon/rank9"
-	post_init_icon_state = "arr_ribbon_3"
-
-/obj/item/clothing/accessory/nova/solfedribbon/rank11
-	icon_state = "/obj/item/clothing/accessory/nova/solfedribbon/rank10"
-	post_init_icon_state = "sw_ribbon_1"
-
-/obj/item/clothing/accessory/nova/solfedribbon/rank12
-	icon_state = "/obj/item/clothing/accessory/nova/solfedribbon/rank11"
-	post_init_icon_state = "sw_ribbon_2"
-
-/obj/item/clothing/accessory/nova/solfedribbon/rank13
-	icon_state = "/obj/item/clothing/accessory/nova/solfedribbon/rank12"
-	post_init_icon_state = "sw_ribbon_3"
+	unique_reskin = list(
+		"Default" = "star_arr_ribbon_1",
+		"Alt 1" = "star_arr_ribbon_2",
+		"Alt 2" = "star_sw_ribbon_1",
+		"Alt 3" = "star_sw_ribbon_2",
+		"Alt 4" = "star_ribbon_1",
+		"Alt 5" = "star_ribbon_2",
+		"Alt 6" = "star_ribbon_3",
+		"Alt 7" = "arr_ribbon_1",
+		"Alt 8" = "arr_ribbon_2",
+		"Alt 9" = "arr_ribbon_3",
+		"Alt 10" = "sw_ribbon_1",
+		"Alt 11" = "sw_ribbon_2",
+		"Alt 12" = "sw_ribbon_3",
+	)
 
 /obj/item/clothing/accessory/nova/acc_medal/neckpin/solfed/official
 	name = "\improper SolFed Official neckpin"
@@ -329,18 +296,6 @@ SOLFED ARMOR VALUES!
 	access_lists["[ACCESS_CENT_CAPTAIN]"] = list(
 		// Solfed has CC and station AA but this is the highest access possible so no one but feds can get it. Hopefully
 		/obj/item/clothing/accessory/nova/solfedribbon = 4,
-		/obj/item/clothing/accessory/nova/solfedribbon/rank2 = 4,
-		/obj/item/clothing/accessory/nova/solfedribbon/rank3 = 4,
-		/obj/item/clothing/accessory/nova/solfedribbon/rank4 = 4,
-		/obj/item/clothing/accessory/nova/solfedribbon/rank5 = 4,
-		/obj/item/clothing/accessory/nova/solfedribbon/rank6 = 4,
-		/obj/item/clothing/accessory/nova/solfedribbon/rank7 = 4,
-		/obj/item/clothing/accessory/nova/solfedribbon/rank8 = 4,
-		/obj/item/clothing/accessory/nova/solfedribbon/rank9 = 4,
-		/obj/item/clothing/accessory/nova/solfedribbon/rank10 = 4,
-		/obj/item/clothing/accessory/nova/solfedribbon/rank11 = 4,
-		/obj/item/clothing/accessory/nova/solfedribbon/rank12 = 4,
-		/obj/item/clothing/accessory/nova/solfedribbon/rank13 = 4,
 		/obj/item/clothing/under/solfed/officer = 4,
 		/obj/item/clothing/under/solfed/officer_lowrnk = 4,
 		/obj/item/clothing/under/solfed/official_civil = 4,
@@ -351,6 +306,72 @@ SOLFED ARMOR VALUES!
 		/obj/item/storage/box/handcuffs = 4,
 		/obj/item/storage/box/nri_flares = 16,
 	)
+
+/*
+	Encryption Keys
+*/
+
+/obj/item/encryptionkey/headset_solfed/headset_solfed
+	flags_1 = parent_type::flags_1 | NO_NEW_GAGS_PREVIEW_1
+	icon = 'icons/map_icons/items/_item.dmi'
+
+/obj/item/encryptionkey/headset_solfed/atmos
+	name = "\improper SolFed adv. atmos encryption key"
+	special_channels = RADIO_SPECIAL_CENTCOM
+	channels = list(RADIO_CHANNEL_SOLFED = 1, RADIO_CHANNEL_ENGINEERING = 1, RADIO_CHANNEL_COMMAND = 1)
+	icon_state = "/obj/item/encryptionkey/headset_solfed/atmos"
+	post_init_icon_state = "cypherkey_medical"
+	greyscale_config = /datum/greyscale_config/encryptionkey_medical
+	greyscale_colors = "#ebebeb#2b2793"
+
+/obj/item/encryptionkey/headset_solfed/sec
+	name = "\improper SolFed adv. Security encryption key"
+	special_channels = RADIO_SPECIAL_CENTCOM
+	channels = list(RADIO_CHANNEL_SOLFED = 1, RADIO_CHANNEL_SECURITY = 1, RADIO_CHANNEL_COMMAND = 1)
+	icon_state = "/obj/item/encryptionkey/headset_solfed/sec"
+	post_init_icon_state = "cypherkey_medical"
+	greyscale_config = /datum/greyscale_config/encryptionkey_medical
+	greyscale_colors = "#ebebeb#2b2793"
+
+/obj/item/encryptionkey/headset_solfed/med
+	name = "\improper SolFed adv. Medical encryption key"
+	special_channels = RADIO_SPECIAL_CENTCOM
+	channels = list(RADIO_CHANNEL_SOLFED = 1, RADIO_CHANNEL_MEDICAL = 1, RADIO_CHANNEL_COMMAND = 1)
+	icon_state = "/obj/item/encryptionkey/headset_solfed/med"
+	post_init_icon_state = "cypherkey_medical"
+	greyscale_config = /datum/greyscale_config/encryptionkey_medical
+	greyscale_colors = "#ebebeb#2b2793"
+
+/obj/item/encryptionkey/headset_solfed/squadleader
+	name = "\improper SolFed grand encryption key"
+	special_channels = RADIO_SPECIAL_CENTCOM
+	channels = list(RADIO_CHANNEL_SOLFED = 1, RADIO_CHANNEL_ENGINEERING = 1, RADIO_CHANNEL_MEDICAL = 1, RADIO_CHANNEL_SECURITY = 1, RADIO_CHANNEL_COMMAND = 1)
+	icon_state = "/obj/item/encryptionkey/headset_solfed/squadleader"
+	post_init_icon_state = "cypherkey_syndicate"
+	greyscale_config = /datum/greyscale_config/encryptionkey_syndicate
+	greyscale_colors = "#ebebeb#2b2793"
+
+/*
+	Headsets
+*/
+
+/obj/item/radio/headset/headset_solfed/atmos
+	name = "\improper SolFed adv. atmos headset"
+	desc = "A headset used by the Solar Federation response teams."
+	icon_state = "med_headset"
+	keyslot = /obj/item/encryptionkey/headset_solfed/atmos
+
+/obj/item/radio/headset/headset_solfed/sec
+	name = "\improper SolFed adv. Security headset"
+	desc = "A headset used by the Solar Federation response teams."
+	icon_state = "med_headset"
+	keyslot = /obj/item/encryptionkey/headset_solfed/sec
+
+/obj/item/radio/headset/headset_solfed/med
+	name = "\improper SolFed adv. Medical headset"
+	desc = "A headset used by the Solar Federation response teams."
+	icon_state = "med_headset"
+	keyslot = /obj/item/encryptionkey/headset_solfed/med
 
 /obj/item/radio/headset/headset_solfed/officials
 	name = "\improper SolFed Officials Headset"
@@ -364,7 +385,6 @@ SOLFED ARMOR VALUES!
 	icon_state = "com_headset_alt"
 	worn_icon_state = "com_headset_alt"
 	keyslot = /obj/item/encryptionkey/headset_solfed/sec
-	radio_talk_sound = 'modular_nova/modules/radiosound/sound/radio/security.ogg'
 
 /obj/item/radio/headset/headset_solfed/espatier/Initialize(mapload)
 	. = ..()
@@ -382,14 +402,6 @@ SOLFED ARMOR VALUES!
 	name = "\improper Solfed Espatier Squadleader Headset"
 	keyslot = /obj/item/encryptionkey/headset_solfed/squadleader
 
-/obj/item/encryptionkey/headset_solfed/squadleader
-	name = "\improper SolFed grand encryption key"
-	special_channels = RADIO_SPECIAL_CENTCOM
-	channels = list(RADIO_CHANNEL_SOLFED = 1, RADIO_CHANNEL_ENGINEERING = 1, RADIO_CHANNEL_MEDICAL = 1, RADIO_CHANNEL_SECURITY = 1, RADIO_CHANNEL_COMMAND = 1)
-	icon_state = "/obj/item/encryptionkey/headset_solfed/squadleader"
-	post_init_icon_state = "cypherkey_syndicate"
-	greyscale_config = /datum/greyscale_config/encryptionkey_syndicate
-	greyscale_colors = "#ebebeb#2b2793"
 
 /obj/item/storage/belt/military/solfed
 	name = "solfed chest rig"

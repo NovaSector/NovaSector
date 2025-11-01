@@ -58,6 +58,9 @@
 /obj/item/ammo_box/magazine/jager/large/empty
 	start_empty = TRUE
 
+/obj/item/ammo_box/magazine/jager/large/flechette
+	ammo_type = /obj/item/ammo_casing/shotgun/flechette_nova
+
 /obj/item/ammo_box/magazine/shitzu/empty
 	start_empty = TRUE
 

@@ -13,11 +13,22 @@
 	outfit = /datum/outfit/centcom/asset_protection
 	role = "Officer"
 
+/datum/antagonist/ert/solfed/greet()
+	var/missiondesc =  ""
+	missiondesc += "<B><font size=5 color=red>You are NOT a Nanotrasen Employee. You serve the Sol Federation as the [name].</font></B>"
+	. = ..()
+	if (ert_team)
+		to_chat(owner, "<span class='warningplain'>The Federation is sending you to [station_name()] with the task: [ert_team.mission.explanation_text]</span>")
+	else
+		to_chat(owner, "<span class='warningplain'>The Federation is sending you to [station_name()] with the task: [ert_team.mission.explanation_text]</span>")
+	play_stinger()
+
 /datum/antagonist/ert/solfed
 	name = "SolFed Auditor"
 	outfit = /datum/outfit/solfed/lowrank
 	role = "Auditor"
 	suicide_cry = "FOR THE FEDERATION!!!!"
+	stinger_sound = 'modular_nova/master_files/sound/items/blow_horn.ogg'
 
 /datum/antagonist/ert/solfed/social
 	outfit = /datum/outfit/solfed/social
@@ -35,8 +46,9 @@
 
 /datum/antagonist/ert/solfed/espatier
 	name = "SolFed Espatier"
-	outfit = /datum/outfit/solfed/espatier
+	outfit = /datum/outfit/solfed/military/espatier
 	role = "Rifleman"
+	stinger_sound = 'modular_nova/master_files/sound/items/war_horn.ogg'
 
 /datum/antagonist/ert/solfed/espatier/New()
 	. = ..()
@@ -44,17 +56,17 @@
 
 /datum/antagonist/ert/solfed/espatier/engineer
 	name = "SolFed Espatier Engineer"
-	outfit = /datum/outfit/solfed/espatier/engineer
+	outfit = /datum/outfit/solfed/military/espatier/engineer
 	role = "Engineer"
 
 /datum/antagonist/ert/solfed/espatier/corpsman
 	name = "SolFed Espatier Corpsman"
-	outfit = /datum/outfit/solfed/espatier/corpsman
+	outfit = /datum/outfit/solfed/military/espatier/corpsman
 	role = "Corpsman"
 
 /datum/antagonist/ert/solfed/espatier/leader
 	name = "SolFed Espatier Squad Leader"
-	outfit = /datum/outfit/solfed/espatier/squadleader
+	outfit = /datum/outfit/solfed/military/espatier/squadleader
 	role = "Squad Leader"
 	leader = TRUE
 
@@ -73,21 +85,22 @@
 
 	missiondesc += "<span class='warningplain'><BR><B>Your Mission</B> : [ert_team.mission.explanation_text]</span>"
 	to_chat(owner,missiondesc)
+	play_stinger()
 
 /// Grand Response variant
 /datum/antagonist/ert/solfed/grand_espatier/engineer
 	name = "SolFed Espatier Engineer"
-	outfit = /datum/outfit/solfed/grand_espatier/engineer
+	outfit = /datum/outfit/solfed/military/espatier/engineer/grand
 	role = "Engineer"
 
 /datum/antagonist/ert/solfed/grand_espatier/corpsman
 	name = "SolFed Espatier Corpsman"
-	outfit = /datum/outfit/solfed/grand_espatier/corpsman
+	outfit = /datum/outfit/solfed/military/espatier/corpsman/grand
 	role = "Corpsman"
 
 /datum/antagonist/ert/solfed/grand_espatier/leader
 	name = "SolFed Espatier Squad Leader"
-	outfit = /datum/outfit/solfed/grand_espatier/squadleader
+	outfit = /datum/outfit/solfed/military/espatier/squadleader/grand
 	role = "Squad Leader"
 	leader = TRUE
 

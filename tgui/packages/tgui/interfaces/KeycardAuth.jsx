@@ -69,6 +69,19 @@ export const KeycardAuth = (props) => {
                       />
                     )}
                     {/* NOVA EDIT ADDITION END */}
+                    {/* NOVA EDIT ADDITION START - SOLFED SOS*/}
+                    {!!data.allow_solfed_red_alert_flag && (
+                      <Button
+                        icon="gun"
+                        fluid
+                        disabled={data.active_alert_level <= 4} // IF NOT MORE IMPORTANT THAN RED ALERT, LOCKOUT.
+                        onClick={() => act('call-solfed-sos')}
+                        content="Activate SolFed Distress Signal"
+                        color='red'
+                        tooltip="USE IN CASE OF EMERGENCY, FALSE CALLS WILL RESULT IN PUNISHMENT, ONCE AUTHORIZED THERE IS NO GOING BACK."
+                      />
+                      )}
+                    {/* NOVA EDIT ADDITION END */}
                     <Button
                       icon="key"
                       fluid

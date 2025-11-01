@@ -22,8 +22,18 @@
 #define SECHUD_DS2_PRISONER "hud_ds2prisoner"
 //SR SolFed
 #define SECHUD_SPACE_POLICE "hudspacepolice"
-#define SECHUD_SOLFED "hudsolfed"
-#define SECHUD_SOLFED_LIASON "hudsolfedliasion"
+#define SECHUD_SOLFED "hud_solfed"
+#define SECHUD_SOLFED_MARSHALS "hud_solfed_marshal"
+#define SECHUD_SOLFED_ENGINEER "hud_solfed_engineer"
+#define SECHUD_SOLFED_MEDIC "hud_solfed_medic"
+#define SECHUD_SOLFED_ESPATIER "hud_solfed_espatier"
+#define SECHUD_SOLFED_SMARTGUNNER "hud_solfed_gunner"
+#define SECHUD_SOLFED_SPECIALIST "hud_solfed_specialist"
+#define SECHUD_SOLFED_COMMANDO "hud_solfed_commando"
+#define SECHUD_SOLFED_SQUADLEADER "hud_solfed_esatier_lead"
+#define SECHUD_SOLFED_ODST "hud_solfed_odst"
+#define SECHUD_SOLFED_LIASON "hud_solfed_liason"
+
 //SR Misc
 #define SECHUD_BARBER "hudbarber"
 #define SECHUD_SCRAMBLED "hudscrambled"
