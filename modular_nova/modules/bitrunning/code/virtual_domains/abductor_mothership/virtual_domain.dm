@@ -1,5 +1,6 @@
 /datum/lazy_template/virtual_domain/abductor_mothership
 	name = "Abductor Mothership"
+	test_only = TRUE //disables the virtual domain for players.
 	cost = BITRUNNER_COST_HIGH
 	desc = "Invade an Abductor Mothership to retrieve alien research, advanced bitrunning disks, and who knows what else. \
 	(Two Caches Available)"
