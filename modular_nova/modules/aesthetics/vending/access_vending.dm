@@ -51,15 +51,16 @@
 	if (issilicon(user)) // Silicons get to view all items regardless
 		return
 
-	var/list/product_records = .["product_records"].Copy()
-	if (!length(product_records))
+	var/list/_records = .["product_records"]
+	if (!length(_records))
 		return
 
 	// If emagged or not on station, access checks are bypassed upstream.
 	if (obj_flags & EMAGGED || !onstation)
 		return
 
-	.["product_records"].Cut()
+	var/list/product_records = _records.Copy()
+	_records.Cut()
 
 	if (!iscarbon(user))
 		return
