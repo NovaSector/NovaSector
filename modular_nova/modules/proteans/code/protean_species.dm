@@ -337,24 +337,25 @@
 	var/max_capacity = refactory?.metal_max || PROTEAN_STOMACH_FULL
 	var/is_oversized = refactory?.is_oversized
 
-	to_chat(protean, "<span class='boldnotice'>You are a Protean.</span>")
-	to_chat(protean, "")
-	to_chat(protean, "• Your <span class='info'>nanite refactory</span> can consume various <span class='info'>material stacks</span> for sustenance and self-repair.")
-	to_chat(protean, "")
-	to_chat(protean, "• <span class='info'>Metal Rods</span> provide <span class='info'>0.5 metal units</span> per sheet.")
-	to_chat(protean, "")
-	to_chat(protean, "• <span class='info'>Iron</span>, <span class='info'>Steel</span>, and <span class='info'>Glass</span> provide <span class='info'>1.0 metal units</span> per sheet.")
-	to_chat(protean, "")
-	to_chat(protean, "• <span class='info'>Reinforced Glass</span> provides <span class='info'>1.5 metal units</span> per sheet.")
-	to_chat(protean, "")
-	to_chat(protean, "• <span class='info'>Plasma Glass</span> provides <span class='info'>2.0 metal units</span> per sheet.")
-	to_chat(protean, "")
-	to_chat(protean, "• <span class='info'>Plasteel</span> and other advanced alloys provide <span class='info'>3.0+ metal units</span> per sheet.")
-	to_chat(protean, "")
-	to_chat(protean, "• Higher quality materials facilitate faster <span class='info'>self-repair</span>. Your refactory can store up to <span class='info'>[max_capacity] metal units</span>.")
+	var/list/msg = list(
+		"<span class='boldnotice'>You are a Protean.</span>",
+		"",
+		"Your <span class='info'>nanite refactory</span> can consume various <span class='info'>material stacks</span> for sustenance and self-repair.",
+		"",
+		"• <span class='info'>Metal Rods</span> provide <span class='info'>0.5 metal units</span> per sheet.")
+		"• <span class='info'>Iron</span>, <span class='info'>Steel</span>, and <span class='info'>Glass</span> provide <span class='info'>1.0 metal units</span> per sheet.")
+		"• <span class='info'>Reinforced Glass</span> provides <span class='info'>1.5 metal units</span> per sheet.")
+		"• <span class='info'>Plasma Glass</span> provides <span class='info'>2.0 metal units</span> per sheet.")
+		"• <span class='info'>Plasteel</span> and other advanced alloys provide <span class='info'>3.0+ metal units</span> per sheet."
+		"",
+		"• Higher quality materials facilitate faster <span class='info'>self-repair</span>. Your refactory can store up to <span class='info'>[max_capacity] metal units</span>.")
+		"Your refactory can store up to <span class='info'>[max_capacity]</span> metal units, and higher-quality materials speed up <span class='info'>self-repair</span>."
+	)
+
 	if(is_oversized)
-		to_chat(protean, "")
-		to_chat(protean, "• Your <span class='info'>massive refactory</span> consumes <span class='info'>30% less metal</span> than standard.")
+		msg += "Additionally, your <span class='info'>massive refactory</span> consumes <span class='info'>30% less metal</span>."
+
+	to_chat(protean, jointext(msg, "<br>"))
 
 /// Override to give proteans a special oversized refactory instead of normal oversized stomach
 /datum/species/protean/gain_oversized_organs(mob/living/carbon/human/human_holder, datum/quirk/oversized/oversized_quirk)

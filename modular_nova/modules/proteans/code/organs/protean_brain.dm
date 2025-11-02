@@ -258,15 +258,18 @@
 	balloon_alert_to_viewers("repairing")
 
 	// Notify the protean that emergency recovery has begun
-	to_chat(owner, span_userdanger("<B>EMERGENCY RECOVERY CYCLE INITIATED</B>"))
-	to_chat(owner, span_warning("Your core has detected critical damage and begun emergency protocols."))
-	to_chat(owner, span_notice("<b>Assisted Recovery:</b> If someone installs a refactory, you will recover in <b>15 seconds</b>."))
-	to_chat(owner, span_notice("<b>Auto-Recovery:</b> If left alone for <b>10-15 minutes</b>, emergency self-repair will activate."))
-	to_chat(owner, span_notice("Your modsuit is currently non-functional. You can still observe and communicate."))
+	var/list/msg = list(
+		span_userdanger("<B>EMERGENCY RECOVERY CYCLE INITIATED</B>"),
+		span_warning("Your core has detected critical damage and begun emergency protocols."),
+		span_notice("<b>Assisted Recovery:</b> If someone installs a refactory, you will recover in <b>15 seconds</b>."),
+		span_notice("<b>Auto-Recovery:</b> If left alone for <b>10-15 minutes</b>, emergency self-repair will activate."),
+		span_notice("Your modsuit is currently non-functional. You can still observe and communicate.")
+	)
+	to_chat(owner, jointext(msg, "<br>"))
 
-	addtimer(CALLBACK(src, PROC_REF(revive)), 5 MINUTES)
+	addtimer(CALLBACK(src, PROC_REF(revive)), 5 MINUTES, TIMER_STOPPABLE | TIMER_DELETE_ME)
 	// Auto self-revival after 10 minutes if unreachable
-	addtimer(CALLBACK(src, PROC_REF(check_auto_revival)), 10 MINUTES)
+	addtimer(CALLBACK(src, PROC_REF(check_auto_revival)), 10 MINUTES, TIMER_STOPPABLE | TIMER_DELETE_ME)
 
 /obj/item/organ/brain/protean/proc/check_auto_revival()
 	// If they're still dead and nobody installed a refactory, auto-revive
@@ -305,7 +308,7 @@
 	emergency_stomach.metal = 1 // Start with only 1 metal - they'll need to find more
 	emergency_stomach.Insert(owner, TRUE, DELETE_IF_REPLACED)
 
-	addtimer(CALLBACK(src, PROC_REF(revive)), 30 SECONDS) // Give them time to see the messages
+	addtimer(CALLBACK(src, PROC_REF(revive)), 30 SECONDS, TIMER_STOPPABLE | TIMER_DELETE_ME) // Give them time to see the messages
 
 /obj/effect/temp_visual/protean_to_suit
 	name = "to_suit"
