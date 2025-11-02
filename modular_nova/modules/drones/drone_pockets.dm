@@ -1,3 +1,50 @@
+// HUD elements
+/atom/movable/screen/inventory/drone_pocket
+	slot_id = null  // will be set when created
+
+/atom/movable/screen/inventory/drone_pocket/Click(location, control, params)
+	// At this point in client Click() code we have passed the 1/10 sec check and little else
+	// We don't even know if it's a middle click
+	var/mob/user = hud?.mymob
+	if(usr != user)
+		return TRUE
+	if(world.time <= user.next_move)
+		return TRUE
+	if(user.incapacitated)
+		return TRUE
+
+	if(hud?.mymob && slot_id)
+		var/obj/item/inv_item = hud.mymob.get_item_by_slot(slot_id)
+		if(inv_item)
+			return inv_item.Click(location, control, params)
+
+	usr.attack_ui(slot_id, params)
+
+// Creates HUD for Pockets
+/datum/hud/dextrous/drone/New(mob/owner)
+	. = ..()
+	var/atom/movable/screen/inventory/drone_pocket/inv_box
+
+	// Left pocket UI element
+	inv_box = new /atom/movable/screen/inventory/drone_pocket(null, src)
+	inv_box.name = "left pocket"
+	inv_box.icon = ui_style
+	inv_box.icon_state = "pocket"
+	inv_box.icon_full = "template_small"
+	inv_box.screen_loc = ui_storage1
+	inv_box.slot_id = ITEM_SLOT_LPOCKET
+	static_inventory += inv_box
+
+	// Right pocket UI element
+	inv_box = new /atom/movable/screen/inventory/drone_pocket(null, src)
+	inv_box.name = "right pocket"
+	inv_box.icon = ui_style
+	inv_box.icon_state = "pocket"
+	inv_box.icon_full = "template_small"
+	inv_box.screen_loc = ui_storage2
+	inv_box.slot_id = ITEM_SLOT_RPOCKET
+	static_inventory += inv_box
+
 // Drone pocket storage type
 /datum/storage/pockets/drone
 	max_slots = 1
@@ -11,17 +58,6 @@
 /datum/storage/pockets/drone/set_parent(atom/new_parent)
 	. = ..()
 	UnregisterSignal(new_parent, list(COMSIG_MOUSEDROP_ONTO, COMSIG_MOUSEDROPPED_ONTO))
-
-/mob/living/basic/drone/Initialize(mapload)
-	. = ..()
-	// Initialize pocket storage with restricted access
-	var/datum/storage/pockets/drone/left_pocket = new(src)
-	left_pocket.set_real_location(src, FALSE)
-	left_pocket.silent = TRUE
-
-	var/datum/storage/pockets/drone/right_pocket = new(src)
-	right_pocket.set_real_location(src, FALSE)
-	right_pocket.silent = TRUE
 
 /mob/living/basic/drone/can_equip(obj/item/target_item, slot, disable_warning = FALSE, bypass_equip_delay_self = FALSE, ignore_equipped = FALSE, indirect_action = FALSE)
 	switch(slot)
@@ -37,6 +73,14 @@
 			if(target_item.w_class > WEIGHT_CLASS_SMALL && !(target_item.slot_flags & ITEM_SLOT_POCKETS))
 				return FALSE
 			return TRUE
+	return ..()
+
+/mob/living/basic/drone/get_item_by_slot(slot_id)
+	switch(slot_id)
+		if(ITEM_SLOT_LPOCKET)
+			return l_store
+		if(ITEM_SLOT_RPOCKET)
+			return r_store
 	return ..()
 
 /mob/living/basic/drone/get_slot_by_item(obj/item/target_item)
@@ -61,95 +105,3 @@
 		if(right_item)
 			right_item.screen_loc = ui_storage2
 			client.screen += right_item
-
-/mob/living/basic/drone/equip_to_slot(obj/item/equipping, slot, initial = FALSE, redraw_mob = FALSE, indirect_action = FALSE)
-	if(!slot)
-		return
-	if(!istype(equipping))
-		return
-
-	var/index = get_held_index_of_item(equipping)
-	if(index)
-		held_items[index] = null
-	update_held_items()
-
-	if(equipping.pulledby)
-		equipping.pulledby.stop_pulling()
-
-	equipping.screen_loc = null
-	equipping.forceMove(src)
-	SET_PLANE_EXPLICIT(equipping, ABOVE_HUD_PLANE, src)
-
-	switch(slot)
-		if(ITEM_SLOT_HEAD)
-			head = equipping
-			update_worn_head()
-		if(ITEM_SLOT_DEX_STORAGE)
-			internal_storage = equipping
-			update_inv_internal_storage()
-		if(ITEM_SLOT_LPOCKET)
-			l_store = equipping
-			update_pockets()
-		if(ITEM_SLOT_RPOCKET)
-			r_store = equipping
-			update_pockets()
-		else
-			to_chat(src, span_danger("You are trying to equip this item to an unsupported inventory slot!"))
-			return
-
-	has_equipped(equipping, slot)
-
-/mob/living/basic/drone/doUnEquip(obj/item/item_dropping, force, newloc, no_move, invdrop = TRUE, silent = FALSE)
-	if(..())
-		if(item_dropping == l_store)
-			l_store = null
-			update_pockets()
-		if(item_dropping == r_store)
-			r_store = null
-			update_pockets()
-		return TRUE
-	return FALSE
-
-/// Handles general click interactions, including pocket access and drone restrictions.
-/mob/living/basic/drone/proc/handle_click(datum/source, atom/clicked_atom, location, control, params)
-	SIGNAL_HANDLER
-	// First check for drone-to-drone interaction restrictions
-	if(isdrone(clicked_atom) && !can_user_interact_with(usr))
-		return FALSE
-
-	// Then handle pocket interactions if applicable
-	if(client && hud_used)
-		var/list/modifiers = params2list(params)
-		if(!LAZYACCESS(modifiers, SHIFT_CLICK))
-			var/atom/movable/screen/inventory/inv = locate() in hud_used.static_inventory
-			if(inv && (clicked_atom == inv || (istype(clicked_atom, /atom/movable/screen) && clicked_atom.name == inv.name)))
-				INVOKE_ASYNC(src, PROC_REF(handle_pocket_click), inv.slot_id)
-				return TRUE
-
-	return NONE
-
-/// Handles Alt+Click interactions with drone restrictions.
-/mob/living/basic/drone/proc/handle_alt_click(datum/source, atom/clicked_atom, location, control, params)
-	SIGNAL_HANDLER
-	if(isdrone(clicked_atom) && !can_user_interact_with(usr))
-		return FALSE
-
-/mob/living/basic/drone/attack_hand_secondary(mob/user, list/modifiers)
-	if(can_user_interact_with(user))
-		return ..()
-	return SECONDARY_ATTACK_CANCEL_ATTACK_CHAIN
-
-/mob/living/basic/drone/attack_ghost(mob/dead/observer/user)
-	// Only allow ghosts to access storage if they're admin or the drone's ghost
-	if(can_user_interact_with(user))
-		return ..()
-	return FALSE
-
-/// Returns the item in the specified pocket slot.
-/mob/living/basic/drone/proc/get_pocket_item(slot_id)
-	switch(slot_id)
-		if(ITEM_SLOT_LPOCKET)
-			return l_store
-		if(ITEM_SLOT_RPOCKET)
-			return r_store
-
