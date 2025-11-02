@@ -33,6 +33,8 @@
 #define TRAIT_HYDRA_HEADS "hydrahead"
 /// Trait to spawn with a pet in a pet carrier (veteran only)
 #define TRAIT_PET_OWNER "pet_owner"
+/// Trait to spawn with a lunch box!
+#define TRAIT_LUNCHBOX_OWNER "lunchbox_owner"
 
 //AdditionalEmotes *turf traits
 #define TRAIT_WATER_ASPECT "water_aspect"

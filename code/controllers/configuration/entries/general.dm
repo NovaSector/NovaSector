@@ -120,8 +120,6 @@
 
 /datum/config_entry/flag/log_subtler // log subtler emotes //NOVA EDIT ADDITION
 
-/datum/config_entry/flag/log_econ // log economy actions
-
 /// log emotes
 /datum/config_entry/flag/log_emote
 

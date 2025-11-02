@@ -46,6 +46,12 @@
 		return TRUE
 	return ..()
 
+/datum/species/mutant/get_species_description()
+	return placeholder_description
+
+/datum/species/mutant/get_species_lore()
+	return list(placeholder_lore)
+
 /mob/living/carbon/human/species/mutant
 	race = /datum/species/mutant
 

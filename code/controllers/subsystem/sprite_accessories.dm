@@ -11,6 +11,7 @@ SUBSYSTEM_DEF(accessories) // just 'accessories' for brevity
 	name = "Sprite Accessories"
 	flags = SS_NO_FIRE | SS_NO_INIT
 
+	// HOLY SHIT COMPACT THIS INTO ASSOCIATED LISTS SO WE STOP ADDING VARIABLES
 	//Hairstyles
 	var/list/hairstyles_list //! stores /datum/sprite_accessory/hair indexed by name
 	var/list/hairstyles_male_list //! stores only hair names
@@ -31,7 +32,6 @@ SUBSYSTEM_DEF(accessories) // just 'accessories' for brevity
 	var/list/undershirt_list //! stores /datum/sprite_accessory/undershirt indexed by name
 	var/list/undershirt_m //! stores only undershirt name
 	var/list/undershirt_f //! stores only undershirt name
-
 	// NOVA EDIT ADDITION START - Underwear/bra split
 	var/list/bra_list
 	var/list/bra_m
@@ -63,14 +63,13 @@ SUBSYSTEM_DEF(accessories) // just 'accessories' for brevity
 	var/list/moth_antennae_list
 	*/ //NOVA EDIT REMOVAL END
 	var/list/moth_markings_list
+	var/list/caps_list
 	var/list/pod_hair_list
-
 	// NOVA EDIT ADDITION START - Customization
 	var/list/lizard_markings_list
 	var/list/tails_list_monkey
 	var/list/tails_list_xeno
 	var/list/tails_list_fish
-	var/list/caps_list
 	var/list/moth_wings_list
 
 	var/list/sprite_accessories = list()
@@ -115,7 +114,6 @@ SUBSYSTEM_DEF(accessories) // just 'accessories' for brevity
 	undershirt_list = undershirt_lists[DEFAULT_SPRITE_LIST]
 	undershirt_m = undershirt_lists[MALE_SPRITE_LIST]
 	undershirt_f = undershirt_lists[FEMALE_SPRITE_LIST]
-
 	// NOVA EDIT ADDITION START - Underwear/bra split
 	var/bra_lists = init_sprite_accessory_subtypes(/datum/sprite_accessory/bra)
 	bra_list = bra_lists[DEFAULT_SPRITE_LIST]
