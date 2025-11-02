@@ -16,6 +16,7 @@
 	mob_trait = TRAIT_UNDERSIZED
 	icon = FA_ICON_PERSON_FALLING
 	quirk_flags = QUIRK_HUMAN_ONLY|QUIRK_CHANGES_APPEARANCE
+	hidden_quirk = TRUE // PR some fixes and improvements before setting this back to FALSE!
 	/// Saves refs to the original (normal size) organs, which are on ice in nullspace in case this quirk gets removed somehow.
 	var/list/obj/item/organ/old_organs
 	var/list/undersized_traits = list(
