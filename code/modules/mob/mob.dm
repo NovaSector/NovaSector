@@ -371,6 +371,10 @@
 	for(var/mob/hearing_mob as anything in hearers)
 		if(!hearing_mob?.client)
 			continue
+		// NOVA EDIT ADDITION - Emote pref checks
+		if(pref_to_check && !hearing_mob.client?.prefs.read_preference(pref_to_check))
+			continue
+		// NOVA EDIT END
 		if(self_message && hearing_mob == src)
 			continue
 		if(audible_message_flags & EMOTE_MESSAGE && runechat_prefs_check(hearing_mob, audible_message_flags) && hearing_mob.can_hear())
