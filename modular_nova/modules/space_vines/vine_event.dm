@@ -34,7 +34,7 @@
 		return
 
 	var/obj/structure/spacevine/test_vine = new()
-	for(var/area/possible_area in shuffle(GLOB.areas.Copy()))
+	for(var/area/possible_area in shuffle(GLOB.areas))
 		var/list/candidate_turfs = list()
 
 		// filter only the relevant areas
