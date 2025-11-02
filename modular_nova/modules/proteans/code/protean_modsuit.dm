@@ -28,9 +28,6 @@
 		storage = new()
 		install(storage, null, TRUE)
 
-	// Don't add TRAIT_NODROP here - it should only be added when a protean equips it
-	// This allows non-proteans to pick up and wear the suit normally
-
 /obj/item/mod/control/pre_equipped/protean/Destroy()
 	// If a protean is folded up inside, kick them out before deleting the suit
 	var/mob/living/carbon/human/protean_inside = locate(/mob/living/carbon/human) in src
@@ -136,16 +133,7 @@
 
 /obj/item/mod/control/pre_equipped/protean/equipped(mob/user, slot, initial)
 	. = ..()
-
-	if(slot == ITEM_SLOT_BACK && user)
-		if(isprotean(user))
-			// Re-add SPECIES_TRAIT if it was removed (like entombed does after being dropped)
-			if(!HAS_TRAIT_FROM(src, TRAIT_NODROP, SPECIES_TRAIT))
-				ADD_TRAIT(src, TRAIT_NODROP, SPECIES_TRAIT)
-		else if(modlocked)
-			// Non-protean wearing a locked suit
-			ADD_TRAIT(src, TRAIT_NODROP, "protean_modlock")
-			to_chat(user, span_warning("The suit does not seem to be able to come off..."))
+	// No TRAIT_NODROP - handle unremovability via attack_hand instead
 
 /obj/item/mod/control/pre_equipped/protean/dropped(mob/user)
 	// Don't dump items or unset wearer if a protean is folding themselves into the suit
@@ -155,44 +143,32 @@
 		return
 
 	. = ..()
-	// Remove TRAIT_NODROP traits (like entombed) to allow retrieval if protean is gibbed/destroyed
-	// They will be re-added when re-equipped
-	if(HAS_TRAIT_FROM(src, TRAIT_NODROP, SPECIES_TRAIT))
-		REMOVE_TRAIT(src, TRAIT_NODROP, SPECIES_TRAIT)
-	if(HAS_TRAIT_FROM(src, TRAIT_NODROP, "protean_modlock"))
-		REMOVE_TRAIT(src, TRAIT_NODROP, "protean_modlock")
 
 /obj/item/mod/control/pre_equipped/protean/proc/drop_suit()
 	if(!QDELETED(wearer))
-		// Temporarily remove SPECIES_TRAIT to allow dropping (like entombed does)
-		if(HAS_TRAIT_FROM(src, TRAIT_NODROP, SPECIES_TRAIT))
-			REMOVE_TRAIT(src, TRAIT_NODROP, SPECIES_TRAIT)
 		// Manually unset wearer (since dropped() won't be called normally)
 		var/mob/living/carbon/temp_wearer = wearer
 		if(wearer)
 			unset_wearer()
 		temp_wearer.dropItemToGround(src, TRUE, TRUE, TRUE)
-		// Re-add the trait after dropping
-		ADD_TRAIT(src, TRAIT_NODROP, SPECIES_TRAIT)
 
 /// Lets proteans lock the suit onto someone so they can't take it off
 /obj/item/mod/control/pre_equipped/protean/proc/toggle_lock(forced = FALSE)
-	if(modlocked && !forced && !isprotean(wearer))
-		REMOVE_TRAIT(src, TRAIT_NODROP, "protean_modlock")
 	modlocked = !modlocked
 
-/obj/item/mod/control/pre_equipped/protean/equipped(mob/user, slot, initial)
-	. = ..()
-
-	if(slot == ITEM_SLOT_BACK && user)
-		if(isprotean(user))
-			// Re-add SPECIES_TRAIT if it was removed (like entombed does)
-			if(!HAS_TRAIT_FROM(src, TRAIT_NODROP, SPECIES_TRAIT))
-				ADD_TRAIT(src, TRAIT_NODROP, SPECIES_TRAIT)
-		else if(modlocked)
-			// Non-protean wearing a locked suit
-			ADD_TRAIT(src, TRAIT_NODROP, "protean_modlock")
-			to_chat(user, span_warning("The suit does not seem to be able to come off..."))
+/obj/item/mod/control/pre_equipped/protean/attack_hand_secondary(mob/user, list/modifiers)
+	if(!iscarbon(user))
+		return ..()
+	var/mob/living/carbon/human/carbon_user = user
+	// Prevent proteans from unequipping their integrated suit by clicking it
+	if(isprotean(carbon_user) && carbon_user.back == src)
+		balloon_alert(user, "integrated suit!")
+		return SECONDARY_ATTACK_CANCEL_ATTACK_CHAIN
+	// Prevent non-proteans from removing locked suits
+	if(modlocked && !isprotean(carbon_user) && carbon_user.back == src)
+		balloon_alert(user, "suit is locked!")
+		return SECONDARY_ATTACK_CANCEL_ATTACK_CHAIN
+	return ..()
 
 /obj/item/mod/control/pre_equipped/protean/choose_deploy(mob/user)
 	if(!isprotean(user) && modlocked && active)
