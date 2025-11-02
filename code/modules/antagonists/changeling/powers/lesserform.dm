@@ -36,7 +36,7 @@
 		return FALSE
 	to_chat(user, span_notice("We transform our appearance."))
 	var/datum/dna/chosen_dna = chosen_form.dna
-	var/datum/species/chosen_species = chosen_dna.species.type // NOVA EDIT CHANGE - ORIGINAL: var/datum/species/chosen_species = chosen_dna.species
+	var/datum/species/chosen_species = chosen_dna.species
 	user.humanize(species = chosen_species, instant = transform_instantly)
 
 	changeling.transform(user, chosen_form)
