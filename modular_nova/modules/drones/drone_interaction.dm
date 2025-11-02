@@ -51,7 +51,7 @@
 
 // Let them use quick equip hotkey despite being human-only
 /datum/keybinding/human/quick_equip/can_use(client/user)
-    return ..() || isdrone(user.mob)
+	return ..() || isdrone(user.mob)
 
 // Inventory interactions
 /mob/living/basic/drone/equip_to_slot(obj/item/equipping, slot, initial = FALSE, redraw_mob = FALSE, indirect_action = FALSE)
