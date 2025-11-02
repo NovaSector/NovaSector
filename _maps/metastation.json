@@ -3,6 +3,8 @@
 	"map_name": "MetaStation",
 	"map_path": "map_files/MetaStation",
 	"map_file": "MetaStation.dmm",
+	"space_ruin_levels": 0,
+	"space_empty_levels": 0,
 	"shuttles": {
 		"cargo": "cargo_nova",
 		"ferry": "ferry_fancy",
