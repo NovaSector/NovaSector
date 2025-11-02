@@ -1,6 +1,6 @@
 /// Undoes SANITIZE_PATH so we can treat these strings as typepaths again
 #define DESANITIZED_PATH(str) ( \
-    istext(str) ? "/obj/item/[replacetext(str, "-", "/")]" : null \
+	istext(str) ? "/obj/item/[replacetext(str, "-", "/")]" : null \
 )
 
 /**
