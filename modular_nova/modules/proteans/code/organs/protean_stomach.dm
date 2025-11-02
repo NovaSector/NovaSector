@@ -19,7 +19,7 @@
 /obj/item/organ/stomach/protean/oversized
 	name = "massive refactory"
 	desc = "A massive nanite manufacturing plant designed for oversized proteans. RIP AND TEAR YOUR HUGE NANITES! Stores significantly more metal and processes materials faster."
-	icon_state = "refactory" // TODO: Make bigger sprite if desired
+	icon_state = "refactory"
 	maxHealth = 1.5 * STANDARD_ORGAN_THRESHOLD
 	metabolism_modifier = 0.35 // 30% more efficient than normal (0.5 -> 0.35)
 	metal_max = PROTEAN_STOMACH_FULL * 1.5 // 15 metal instead of 10
@@ -63,7 +63,6 @@
 	// If in low power mode, don't consume any metal - they're conserving energy
 	if(owner.has_status_effect(/datum/status_effect/protean_low_power_mode/low_power))
 		return
-
 	if(metal > PROTEAN_STOMACH_FALTERING)
 		owner.remove_movespeed_modifier(/datum/movespeed_modifier/protean_slowdown)
 		var/hunger_modifier = metabolism_modifier
@@ -104,55 +103,25 @@
 		COOLDOWN_RESET(src, damage_delay)
 	COOLDOWN_START(src, damage_delay, REGEN_TIME)
 
-/// Check to see if our metal storage is full before eating materials
+/// Check to see if our metal storage is full.
 /obj/item/organ/stomach/protean/proc/try_stomach_eat(mob/eater, atom/eating)
 	SIGNAL_HANDLER
 
-	// Check if eating a material stack (iron, glass, plasteel, etc.)
-	if(istype(eating, /obj/item/stack))
-		var/obj/item/stack/material = eating
-		// Only allow eating materials with RCD matter value
-		if(!material.matter_amount)
-			return
-
-		// Calculate nutritional value based on RCD matter amount
-		// matter_amount ranges from 2 (rods) to 12+ (plasteel)
-		// Convert to metal units: matter_amount / 4 = metal units per sheet
-		var/nutrition_value = material.matter_amount / 4
-
-		if(metal >= (metal_max - nutrition_value + 0.1))
+	if(istype(eating, /obj/item/food/golem_food))
+		var/obj/item/food/golem_food/food = eating
+		if(metal > (PROTEAN_STOMACH_FULL - 0.3) && food.owner.loc == owner)
 			balloon_alert(owner, "storage full!")
 			return COMSIG_CARBON_BLOCK_EAT
 
-/// Process eaten materials based on their RCD matter value
+/// If we ate a sheet of metal, add it to storage.
 /obj/item/organ/stomach/protean/after_eat(atom/edible)
-	// Handle material stacks (sheets, rods, etc.)
-	if(istype(edible, /obj/item/stack))
-		var/obj/item/stack/material = edible
-		// Only process materials with RCD matter value
-		if(!material.matter_amount)
-			return
-
-		// Calculate nutrition from RCD matter amount
-		// Iron (4) = 1 metal, Glass (4) = 1 metal, Plasteel (12) = 3 metal, etc.
-		var/nutrition_value = material.matter_amount / 4
-		var/old_metal = metal
-		metal = clamp(metal + nutrition_value, 0, metal_max)
-
-		// Calculate healing based on material value
-		var/healing_amount = nutrition_value * 20 // 20 HP per metal unit
-		owner.adjustBruteLoss(-healing_amount, forced = TRUE)
-
-		var/metal_gained = metal - old_metal
-		to_chat(owner, span_notice("You absorb [material], gaining [metal_gained] metal units. [nutrition_value > 1 ? "High quality material!" : ""]"))
-
-		if(owner.health >= owner.maxHealth)
-			owner.balloon_alert_to_viewers("fully restored!")
-		else if(healing_amount > 0)
-			owner.balloon_alert_to_viewers("nanites restored!")
-
-	// Call parent to send COMSIG_STOMACH_AFTER_EAT signal for hemophage compatibility
-	return ..()
+	if(istype(edible, /obj/item/food/golem_food))
+		var/obj/item/food/golem_food/food = edible
+		metal = clamp(metal + 1, 0, PROTEAN_STOMACH_FULL)
+		if(food.owner.loc != owner) // Other people feeding them will heal them.
+			owner.adjustBruteLoss(-20, forced = TRUE)
+			var/health_check = owner.health >= owner.maxHealth ? "fully healed!" : "healed!"
+			owner.balloon_alert_to_viewers("[health_check]")
 
 #undef REGEN_TIME
 
