@@ -302,7 +302,7 @@
 /turf/open/floor/carpet/neon/simple/black,
 /area/ruin/powered/hermit)
 "YA" = (
-/mob/living/basic/raptor/baby_raptor/white,
+/mob/living/basic/raptor/baby/white,
 /turf/open/misc/asteroid/snow/icemoon,
 /area/icemoon/underground/explored)
 "ZO" = (
