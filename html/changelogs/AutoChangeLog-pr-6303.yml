@@ -1,4 +1,0 @@
-author: "OrbisAnima"
-delete-after: True
-changes:
-  - admin: "Places a warning check to use the more optimized ctrl-click menu on the select equipment verb"

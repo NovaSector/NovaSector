@@ -91,6 +91,8 @@
   OrbisAnima:
   - bugfix: solves an exploit that allowed users to buy goodie packs with the pda
       budget program
+  - admin: Places a warning check to use the more optimized ctrl-click menu on the
+      select equipment verb
   Pickle-Coding:
   - bugfix: Supermatter anomalies no longer drop anomaly cores.
   - bugfix: Fix supermatter flux anomalies from sm delam not emping or whatever.
