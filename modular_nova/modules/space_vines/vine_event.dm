@@ -40,7 +40,7 @@
 
 	// Shuffle and slice the first n indices
 	copy_to_shuffle = list_to_pick.Copy()
-	shuffle(copy_to_shuffle)
+	shuffle_in_place(copy_to_shuffle)
 	result = copy_to_shuffle.Copy(1, n + 1)
 
 	return result
