@@ -24,7 +24,6 @@
 			return
 
 	tongue_action = corruption_target.add_item_action(tongue_action)
-	tongue_action.Grant(corruption_target.owner)
 
 
 /datum/action/cooldown/hemophage/drain_victim
