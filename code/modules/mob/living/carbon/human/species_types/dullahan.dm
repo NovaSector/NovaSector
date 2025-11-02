@@ -254,12 +254,6 @@
 
 /obj/item/dullahan_relay/Destroy()
 	lose_hearing_sensitivity(ROUNDSTART_TRAIT)
-	if(!QDELETED(owner))
-		var/mob/living/carbon/human/human = owner
-		if(isdullahan(human))
-			var/datum/species/dullahan/dullahan_species = human.dna.species
-			dullahan_species.my_head = null
-			owner.gib(DROP_ALL_REMAINS)
 	owner = null
 	return ..()
 

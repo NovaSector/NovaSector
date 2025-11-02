@@ -409,67 +409,6 @@
 	if(self_runechat && (audible_message_flags & EMOTE_MESSAGE) && runechat_prefs_check(src, audible_message_flags))
 		create_chat_message(src, raw_message = raw_self_message, runechat_flags = audible_message_flags)
 
-// NOVA EDIT ADDITION START - ?
-/mob/proc/can_see_visible_message(atom/source)
-	if(see_invisible < source.invisibility)
-		return FALSE
-	var/turf/source_turf = get_turf(source)
-	if(source_turf != source.loc && source_turf != source)
-		if(src != source.loc)
-			return FALSE
-		return TRUE
-	if(HAS_TRAIT(src, TRAIT_HEAR_THROUGH_DARKNESS))
-		return TRUE
-	if(lighting_cutoff < LIGHTING_CUTOFF_HIGH && source_turf.is_softly_lit() && !in_range(source_turf, src))
-		return FALSE
-	return TRUE
-
-/mob/proc/can_see_runetext(atom/source, message_type, message_flags)
-	if(!(message_flags & EMOTE_MESSAGE))
-		return FALSE
-	if(!source.runechat_prefs_check(src, message_flags))
-		return FALSE
-	switch(message_type)
-		if(MSG_VISUAL)
-			return !is_blind()
-		if(MSG_AUDIBLE)
-			return can_hear()
-	return FALSE
-
-/// Handles an atom "hearing" an emote,
-/atom/movable/proc/receive_emote(atom/source, message, message_type, alt_message, alt_type, raw_message, message_flags, pref_to_check)
-	return
-
-/mob/eye/camera/ai/receive_emote(atom/source, message, message_type, alt_message, alt_type, raw_message, message_flags, pref_to_check) // NOVA EDIT
-	if(source == ai)
-		return
-	return ai?.receive_emote(source, message, message_type, alt_message, alt_type, raw_message, message_flags, pref_to_check)
-
-/obj/effect/overlay/holo_pad_hologram/receive_emote(atom/source, message, message_type, alt_message, alt_type, raw_message, message_flags, pref_to_check) // NOVA EDIT
-	if(source == Impersonation)
-		return
-	return Impersonation?.receive_emote(source, message, message_type, alt_message, alt_type, raw_message, message_flags, pref_to_check)
-
-/obj/item/dullahan_relay/receive_emote(atom/source, message, message_type, alt_message, alt_type, raw_message, message_flags, pref_to_check) // NOVA EDIT
-	if(source == owner)
-		return
-	return owner?.receive_emote(source, message, message_type, alt_message, alt_type, raw_message, message_flags, pref_to_check)
-
-/mob/receive_emote(atom/source, message, message_type, alt_message, alt_type, raw_message, message_flags, pref_to_check)
-	if(!client)
-		return
-	if(pref_to_check && !client.prefs.read_preference(pref_to_check))
-		return
-	if(message_type == MSG_VISUAL && !can_see_visible_message(source))
-		message = alt_message
-		message_type = MSG_AUDIBLE
-	if(!message)
-		return
-	if(can_see_runetext(source, message_type, message_flags))
-		create_chat_message(source, raw_message = raw_message, runechat_flags = message_flags)
-	show_message(message, message_type, alt_message, alt_type)
-// NOVA EDIT ADDITION END
-
 /// Gets a linked mob, letting atoms act as proxies for actions that rely on hearing sensitivity.
 /// For example, AIs hearing around their holopads, and dullahans hearing around their heads.
 /// Normal say messages are handled by Hear(), this is for other visible/audible messages
@@ -485,6 +424,10 @@
 /mob/get_listening_mob()
 	return src
 
+// NOVA EDIT ADDITION START - AI qol
+/mob/eye/camera/ai/get_listening_mob()
+	return ai
+// NOVA EDIT ADDITION END
 ///Returns the client runechat visible messages preference according to the message type.
 /atom/proc/runechat_prefs_check(mob/target, visible_message_flags = NONE)
 	if(!target.client?.prefs.read_preference(/datum/preference/toggle/enable_runechat))
