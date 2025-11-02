@@ -1,0 +1,5 @@
+author: "vinylspiders"
+delete-after: True
+changes:
+  - bugfix: "stops space vine spawning algorithm from crashing the server (hopefully)"
+  - bugfix: "Lunchbox quirk no longer shows up on medical scan"
