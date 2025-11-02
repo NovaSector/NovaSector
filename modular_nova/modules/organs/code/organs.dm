@@ -1,5 +1,5 @@
 /// Copy traits from one organ to another - e.g. with custom roundstart organs that should still get species traits applied.
-/obj/item/organ/proc/copy_traits_from(obj/item/organ/old_organ, copy_actions = FALSE)
+/obj/item/organ/proc/copy_traits_from(obj/item/organ/old_organ, copy_actions = TRUE)
 	if(isnull(old_organ))
 		return
 
@@ -15,4 +15,4 @@
 			if (exists)
 				continue
 
-			add_item_action(old_action)
+			add_item_action(old_action.type)
