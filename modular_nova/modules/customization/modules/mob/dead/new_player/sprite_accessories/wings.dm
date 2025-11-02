@@ -259,6 +259,11 @@
 	name = "Tiny-Feathery"
 	icon_state = "tinyfeather"
 
+/datum/sprite_accessory/wings/mammal/top/mantis
+	name = "Mantis (Top)"
+	icon_state = "mantis_top"
+	color_src = USE_MATRIXED_COLORS
+
 /*
 *	LOW WINGS
 */
