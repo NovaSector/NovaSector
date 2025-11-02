@@ -372,7 +372,7 @@
 		if(!hearing_mob?.client)
 			continue
 		// NOVA EDIT ADDITION - Emote pref checks
-		if(pref_to_check && !M.client?.prefs.read_preference(pref_to_check))
+		if(pref_to_check && !hearing_mob.client?.prefs.read_preference(pref_to_check))
 			continue
 		// NOVA EDIT END
 		if(self_message && hearing_mob == src)
