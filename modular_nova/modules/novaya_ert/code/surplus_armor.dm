@@ -204,6 +204,7 @@
 	greyscale_config_worn = /datum/greyscale_config/cin_surplus_chestrig
 	greyscale_colors = CIN_WINTER_COLORS_COMPLIMENT
 	flags_1 = IS_PLAYER_COLORABLE_1
+	storage_type = /datum/storage/loadout_belt
 
 /obj/item/storage/belt/military/cin_surplus/desert
 	icon_state = "/obj/item/storage/belt/military/cin_surplus/desert"

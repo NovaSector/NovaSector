@@ -377,8 +377,8 @@ GLOBAL_LIST_INIT(possible_snout_sensitivities, list(
 /datum/movespeed_modifier/overweight
 	multiplicative_slowdown = 0.5 //Around that of a dufflebag, enough to be impactful but not debilitating.
 
-/datum/mood_event/fat/New(mob/parent_mob, ...)
+/datum/mood_event/fat/add_effects(...)
 	. = ..()
-	if(HAS_TRAIT_FROM(parent_mob, TRAIT_OFF_BALANCE_TACKLER, QUIRK_TRAIT))
+	if(HAS_TRAIT_FROM(owner, TRAIT_OFF_BALANCE_TACKLER, QUIRK_TRAIT))
 		mood_change = 0 // They are probably used to it, no reason to be viscerally upset about it.
 		description = "<b>I'm fat.</b>"

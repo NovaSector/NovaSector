@@ -201,10 +201,6 @@ SUBSYSTEM_DEF(dbcore)
 		//wait for them all to finish
 		for(var/datum/db_query/query in queries_to_check)
 			UNTIL(query.process() || REALTIMEOFDAY > endtime)
-		// NOVA EDIT ADDITION START - SQL-based logging
-		for(var/table in queued_log_entries_by_table)
-			MassInsert(table, rows = queued_log_entries_by_table[table], duplicate_key = FALSE, ignore_errors = FALSE, warn = FALSE, async = TRUE, special_columns = null)
-		// NOVA EDIT ADDITION END
 
 		//log shutdown to the db
 		var/datum/db_query/query_round_shutdown = SSdbcore.NewQuery(
@@ -330,9 +326,9 @@ SUBSYSTEM_DEF(dbcore)
 
 	if(!Connect())
 		return
-	var/datum/db_query/query_round_initialize = SSdbcore.NewQuery(/* NOVA EDIT CHANGE - MULTISERVER */
-		"INSERT INTO [format_table_name("round")] (initialize_datetime, server_name, server_ip, server_port) VALUES (Now(), :server_name, INET_ATON(:internet_address), :port)",
-		list("server_name" = CONFIG_GET(string/serversqlname), "internet_address" = world.internet_address || "0", "port" = "[world.port]") // NOVA EDIT CHANGE - MULTISERVER
+	var/datum/db_query/query_round_initialize = SSdbcore.NewQuery(
+		"INSERT INTO [format_table_name("round")] (initialize_datetime, server_ip, server_port) VALUES (Now(), INET_ATON(:internet_address), :port)",
+		list("internet_address" = world.internet_address || "0", "port" = "[world.port]")
 	)
 	query_round_initialize.Execute(async = FALSE)
 	GLOB.round_id = "[query_round_initialize.last_insert_id]"

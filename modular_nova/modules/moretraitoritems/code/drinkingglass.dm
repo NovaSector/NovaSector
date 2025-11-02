@@ -1,13 +1,9 @@
 /obj/item/reagent_containers/cup/glass/drinkingglass/shotglass/syndicate
-	name = "shot glass"
-	desc = "A shot glass - the universal symbol for terrible decisions."
-	icon_state = "shotglass"
-	base_icon_state = "shotglass"
 	gulp_size = 50
 	amount_per_transfer_from_this = 50
 	possible_transfer_amounts = list(50)
 	volume = 50
-	reagent_flags = REFILLABLE | DRAINABLE
+	initial_reagent_flags = REFILLABLE | DRAINABLE | DUNKABLE // no transparent (go ahead. get oneshot by the 50u ultrashot idiot)
 
 /obj/item/storage/box/syndieshotglasses
 	name = "box of shot glasses"

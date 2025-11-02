@@ -121,13 +121,14 @@
 		var/id_gender = record?.gender
 		var/id_species = record?.species
 		var/id_icon = jointext(id.get_id_examine_strings(viewer), "")
+		var/id_permit = (ACCESS_WEAPONS in id.GetAccess()) ? "Authorized" : "Unauthorized" // NOVA EDIT ADDITION - Permit shown on ID
 		// Fill in some blanks for chameleon IDs to maintain the illusion of a real ID
 		if(istype(id, /obj/item/card/id/advanced/chameleon))
 			id_gender ||= gender
 			id_species ||= dna.species.name
 			id_blood_type ||= get_bloodtype()
 
-		if(istype(id, /obj/item/card/id/advanced))
+		else if(istype(id, /obj/item/card/id/advanced))
 			var/obj/item/card/id/advanced/advancedID = id
 			id_job = advancedID.trim_assignment_override || id_job
 
@@ -142,6 +143,7 @@
 			"&bull; Gender: [id_gender || "Unknown"]",
 			"&bull; Blood Type: [id_blood_type || "?"]",
 			"&bull; Species: [id_species || "Unknown"]",
+			"&bull; Weapon Permit: [id_permit || "Unknown"]", // NOVA EDIT ADDITION - Permit shown on ID
 		), "<br>")
 		id_examine += "</div>" // container
 		id_examine += "</div>" // text
@@ -1165,7 +1167,7 @@
 	var/chest_covered = FALSE
 	var/head_covered = FALSE
 	var/hands_covered = FALSE
-	for (var/obj/item/clothing/equipped in get_equipped_items())
+	for (var/obj/item/clothing/equipped in get_equipped_items(INCLUDE_ABSTRACT))
 		// We don't really have space-proof gloves, so even if we're checking them we ignore the flags
 		if ((equipped.body_parts_covered & HANDS) && num_hands >= default_num_hands)
 			hands_covered = TRUE

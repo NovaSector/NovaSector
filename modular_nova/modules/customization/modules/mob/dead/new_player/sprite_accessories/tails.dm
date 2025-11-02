@@ -338,6 +338,11 @@
 	name = "Shade (Striped)"
 	icon_state = "shadekinlongstriped_large"
 
+/datum/sprite_accessory/tails/mammal/wagging/big/shade/fluffy
+	name = "Shade (Fluffy)"
+	icon_state = "bigandfluffy"
+	color_src = USE_MATRIXED_COLORS
+
 /datum/sprite_accessory/tails/mammal/wagging/big/ringtail
 	name = "Ring Tail (Long)"
 	icon_state = "bigring_large"
@@ -516,3 +521,14 @@
 /datum/sprite_accessory/tails/fish/chonky
 	name = "Chonky (Fish Infusion)"
 
+/datum/sprite_accessory/tails/mammal/wagging/chemlight
+	name = "Striped Tail"
+	icon_state = "chemlight"
+
+/datum/sprite_accessory/tails/mammal/wagging/chemlight_alt
+	name = "Striped Tail (Alt)"
+	icon_state = "chemlight_alt"
+
+/datum/sprite_accessory/tails/mammal/insectunder
+	name = "Insect (Underbelly)"
+	icon_state = "insectunder"

@@ -35,7 +35,7 @@
 /datum/loadout_item/neck/tarkon_gauntlet
 	name = "Tarkon Confidante Gauntlet"
 	item_path = /obj/item/clothing/neck/security_cape/tarkon
-	blacklisted_roles = list(JOB_CAPTAIN, JOB_HEAD_OF_PERSONNEL, JOB_BLUESHIELD, JOB_HEAD_OF_SECURITY, JOB_RESEARCH_DIRECTOR, JOB_QUARTERMASTER, JOB_CHIEF_MEDICAL_OFFICER, JOB_CHIEF_ENGINEER, JOB_SECURITY_OFFICER, JOB_DETECTIVE, JOB_WARDEN, JOB_BLUESHIELD, JOB_CORRECTIONS_OFFICER)
+	blacklisted_roles = list(ALL_JOBS_SEC, ALL_JOBS_COM, JOB_PRISONER)
 
 /*
 *	COLLARS
@@ -131,57 +131,57 @@
 /datum/loadout_item/neck/scarf_black
 	name = "Scarf (Black)"
 	item_path = /obj/item/clothing/neck/scarf/black
-	can_be_greyscale = DONT_GREYSCALE
+	loadout_flags = parent_type::loadout_flags | LOADOUT_FLAG_BLOCK_GREYSCALING
 
 /datum/loadout_item/neck/scarf_cyan
 	name = "Scarf (Cyan)"
 	item_path = /obj/item/clothing/neck/scarf/cyan
-	can_be_greyscale = DONT_GREYSCALE
+	loadout_flags = parent_type::loadout_flags | LOADOUT_FLAG_BLOCK_GREYSCALING
 
 /datum/loadout_item/neck/scarf_dark_blue
 	name = "Scarf (Dark Blue)"
 	item_path = /obj/item/clothing/neck/scarf/darkblue
-	can_be_greyscale = DONT_GREYSCALE
+	loadout_flags = parent_type::loadout_flags | LOADOUT_FLAG_BLOCK_GREYSCALING
 
 /datum/loadout_item/neck/scarf_green
 	name = "Scarf (Green)"
 	item_path = /obj/item/clothing/neck/scarf/green
-	can_be_greyscale = DONT_GREYSCALE
+	loadout_flags = parent_type::loadout_flags | LOADOUT_FLAG_BLOCK_GREYSCALING
 
 /datum/loadout_item/neck/scarf_pink
 	name = "Scarf (Pink)"
 	item_path = /obj/item/clothing/neck/scarf/pink
-	can_be_greyscale = DONT_GREYSCALE
+	loadout_flags = parent_type::loadout_flags | LOADOUT_FLAG_BLOCK_GREYSCALING
 
 /datum/loadout_item/neck/scarf_purple
 	name = "Scarf (Purple)"
 	item_path = /obj/item/clothing/neck/scarf/purple
-	can_be_greyscale = DONT_GREYSCALE
+	loadout_flags = parent_type::loadout_flags | LOADOUT_FLAG_BLOCK_GREYSCALING
 
 /datum/loadout_item/neck/scarf_red
 	name = "Scarf (Red)"
 	item_path = /obj/item/clothing/neck/scarf/red
-	can_be_greyscale = DONT_GREYSCALE
+	loadout_flags = parent_type::loadout_flags | LOADOUT_FLAG_BLOCK_GREYSCALING
 
 /datum/loadout_item/neck/scarf_orange
 	name = "Scarf (Orange)"
 	item_path = /obj/item/clothing/neck/scarf/orange
-	can_be_greyscale = DONT_GREYSCALE
+	loadout_flags = parent_type::loadout_flags | LOADOUT_FLAG_BLOCK_GREYSCALING
 
 /datum/loadout_item/neck/scarf_yellow
 	name = "Scarf (Yellow)"
 	item_path = /obj/item/clothing/neck/scarf/yellow
-	can_be_greyscale = DONT_GREYSCALE
+	loadout_flags = parent_type::loadout_flags | LOADOUT_FLAG_BLOCK_GREYSCALING
 
 /datum/loadout_item/neck/scarf_zebra
 	name = "Scarf (Zebra)"
 	item_path = /obj/item/clothing/neck/scarf/zebra
-	can_be_greyscale = DONT_GREYSCALE
+	loadout_flags = parent_type::loadout_flags | LOADOUT_FLAG_BLOCK_GREYSCALING
 
 /datum/loadout_item/neck/scarf_christmas
 	name = "Scarf - Christmas"
 	item_path = /obj/item/clothing/neck/scarf/christmas
-	can_be_greyscale = DONT_GREYSCALE
+	loadout_flags = parent_type::loadout_flags | LOADOUT_FLAG_BLOCK_GREYSCALING
 
 /datum/loadout_item/neck/greyscale_large
 	name = "Scarf - Large  (Colorable)"
@@ -189,17 +189,17 @@
 /datum/loadout_item/neck/scarf_red_striped
 	name = "Scarf - Large (Red)"
 	item_path = /obj/item/clothing/neck/large_scarf/red
-	can_be_greyscale = DONT_GREYSCALE
+	loadout_flags = parent_type::loadout_flags | LOADOUT_FLAG_BLOCK_GREYSCALING
 
 /datum/loadout_item/neck/scarf_blue_striped
 	name = "Scarf - Large (Blue)"
 	item_path = /obj/item/clothing/neck/large_scarf/blue
-	can_be_greyscale = DONT_GREYSCALE
+	loadout_flags = parent_type::loadout_flags | LOADOUT_FLAG_BLOCK_GREYSCALING
 
 /datum/loadout_item/neck/scarf_green_striped
 	name = "Scarf - Large (Green)"
 	item_path = /obj/item/clothing/neck/large_scarf/green
-	can_be_greyscale = DONT_GREYSCALE
+	loadout_flags = parent_type::loadout_flags | LOADOUT_FLAG_BLOCK_GREYSCALING
 
 /datum/loadout_item/neck/scarf_infinity
 	name = "Scarf - Infinity"
@@ -266,9 +266,9 @@
 	item_path = /obj/item/clothing/neck/cloak/colonial
 	group = "Cloaks and Shrouds"
 
-/datum/loadout_item/neck/imperial_police_cloak
-	name = "Colonial Cloak - Imperial Police"
-	item_path = /obj/item/clothing/neck/cloak/colonial/nri_police
+/datum/loadout_item/neck/coalition_police_cloak
+	name = "Colonial Cloak - Coalition Police"
+	item_path = /obj/item/clothing/neck/cloak/colonial/hc_police
 	group = "Cloaks and Shrouds"
 
 /datum/loadout_item/neck/mantle
@@ -314,6 +314,27 @@
 /datum/loadout_item/neck/gags_veil
 	name = "Veil (Colorable)"
 	item_path = /obj/item/clothing/neck/cloak/colourable/veil
+	group = "Cloaks and Shrouds"
+
+/datum/loadout_item/neck/shortcloak
+	name = "Short Cloak (Colorable)"
+	item_path = /obj/item/clothing/neck/greyscaled
+	group = "Cloaks and Shrouds"
+
+/datum/loadout_item/neck/seecloak
+	name = "Seer Cloak (Colorable)"
+	item_path = /obj/item/clothing/neck/greyscaled/seecloak
+	group = "Cloaks and Shrouds"
+	loadout_flags = parent_type::loadout_flags | LOADOUT_FLAG_ALLOW_RESKIN
+
+/datum/loadout_item/neck/matroncloak
+	name = "Matron Cloak (Colorable)"
+	item_path = /obj/item/clothing/neck/greyscaled/matroncloak
+	group = "Cloaks and Shrouds"
+
+/datum/loadout_item/neck/xylixcloak
+	name = "Xylix Cloak (Colorable)"
+	item_path = /obj/item/clothing/neck/greyscaled/xylixcloak
 	group = "Cloaks and Shrouds"
 
 /*
@@ -392,7 +413,7 @@
 /datum/loadout_item/neck/security_gauntlet
 	name = "Security Gauntlet"
 	item_path = /obj/item/clothing/neck/security_cape/armplate
-	restricted_roles = list(JOB_WARDEN, JOB_DETECTIVE, JOB_SECURITY_OFFICER, JOB_HEAD_OF_SECURITY, JOB_CORRECTIONS_OFFICER)
+	restricted_roles = list(ALL_JOBS_SEC)
 	group = "Job-Locked"
 
 /*
