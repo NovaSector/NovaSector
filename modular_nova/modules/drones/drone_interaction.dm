@@ -12,6 +12,7 @@
 	SIGNAL_HANDLER
 	if(isdrone(clicked_atom) && !can_user_interact_with(usr))
 		return FALSE
+
 /mob/living/basic/drone/attack_hand(mob/user, list/modifiers)
 	if(isdrone(user))
 		attack_drone(user)
