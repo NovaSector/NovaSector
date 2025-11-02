@@ -23,7 +23,7 @@
 		if(action.type == tongue_action)
 			return
 
-	tongue_action = corruption_target.add_item_action(tongue_action_type)
+	tongue_action = corruption_target.add_item_action(tongue_action)
 	tongue_action.Grant(corruption_target.owner)
 
 
