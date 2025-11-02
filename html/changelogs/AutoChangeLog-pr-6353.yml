@@ -1,0 +1,5 @@
+author: "vinylspiders"
+delete-after: True
+changes:
+  - bugfix: "the autodrobe (and possibly other vending machines) will no longer display greyed out duplicates of nova products"
+  - bugfix: "access vending machines (such as the Command Outfitting Station) will now display the correct icons"
