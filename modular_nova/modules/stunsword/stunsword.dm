@@ -8,7 +8,6 @@
 	throwforce = 10
 	wound_bonus = 0
 	exposed_wound_bonus = 15
-	additional_stun_armour_penetration = 30
 
 /obj/item/melee/baton/security/stunsword/hos/loaded
 	preload_cell_type = /obj/item/stock_parts/power_store/cell/high
