@@ -12,6 +12,30 @@
 	SIGNAL_HANDLER
 	if(isdrone(clicked_atom) && !can_user_interact_with(usr))
 		return FALSE
+/mob/living/basic/drone/attack_hand(mob/user, list/modifiers)
+	if(isdrone(user))
+		attack_drone(user)
+		return
+	return ..()
+
+/mob/living/basic/drone/attack_hand_secondary(mob/user, list/modifiers)
+	if(can_user_interact_with(user))
+		return ..()
+	return SECONDARY_ATTACK_CANCEL_ATTACK_CHAIN
+
+/// Returns TRUE if the user is the same player as the target,
+/// an admin ghost, or otherwise authorized to act for them.
+/mob/living/basic/drone/proc/can_user_interact_with(mob/user)
+	if(!ismob(user))
+		return FALSE
+	if(user == src)
+		return TRUE
+	if(isAdminGhostAI(user))
+		return TRUE
+	if(mind && ckey(mind.key) == user.ckey)
+		return TRUE
+
+	return FALSE
 
 /mob/living/basic/drone/attack_hand_secondary(mob/user, list/modifiers)
 	if(can_user_interact_with(user))
