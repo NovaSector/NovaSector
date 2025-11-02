@@ -64,7 +64,7 @@
 /datum/action/cooldown/protean_servo/movement/Activate()
 	var/mob/living/carbon/protean = owner
 	var/datum/species/protean/species = protean.dna.species
-	var/obj/item/mod/control/pre_equipped/protean/suit = species.species_modsuit
+	var/obj/item/mod/control/pre_equipped/protean/suit = species.get_modsuit()
 	var/mob/living/carbon/wearer = suit.wearer
 
 	wearer.apply_status_effect(/datum/status_effect/protean_servo_movement)
@@ -80,7 +80,7 @@
 /datum/action/cooldown/protean_servo/medical/Activate()
 	var/mob/living/carbon/protean = owner
 	var/datum/species/protean/species = protean.dna.species
-	var/obj/item/mod/control/pre_equipped/protean/suit = species.species_modsuit
+	var/obj/item/mod/control/pre_equipped/protean/suit = species.get_modsuit()
 	var/mob/living/carbon/wearer = suit.wearer
 
 	wearer.apply_status_effect(/datum/status_effect/protean_servo_medical)
@@ -96,7 +96,7 @@
 /datum/action/cooldown/protean_servo/engineering/Activate()
 	var/mob/living/carbon/protean = owner
 	var/datum/species/protean/species = protean.dna.species
-	var/obj/item/mod/control/pre_equipped/protean/suit = species.species_modsuit
+	var/obj/item/mod/control/pre_equipped/protean/suit = species.get_modsuit()
 	var/mob/living/carbon/wearer = suit.wearer
 
 	wearer.apply_status_effect(/datum/status_effect/protean_servo_engineer)

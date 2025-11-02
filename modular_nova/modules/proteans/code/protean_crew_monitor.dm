@@ -54,10 +54,10 @@
 				using_protean_sensors = TRUE
 				break
 		else if(isprotean(tracked_human))
-			// They ARE a protean - check their species modsuit
-			var/datum/species/protean/protean_species = tracked_human.dna?.species
-			if(protean_species?.species_modsuit)
-				var/obj/item/mod/control/pre_equipped/protean/suit = protean_species.species_modsuit
+			// They ARE a protean - check their brain's linked modsuit
+			var/obj/item/organ/brain/protean/brain = tracked_human.get_organ_slot(ORGAN_SLOT_BRAIN)
+			if(istype(brain) && brain.linked_modsuit)
+				var/obj/item/mod/control/pre_equipped/protean/suit = brain.linked_modsuit
 				// Find the crew sensor module
 				for(var/obj/item/mod/module/crew_sensor/protean/sensor in suit.modules)
 					sensor_mode = sensor.sensor_mode

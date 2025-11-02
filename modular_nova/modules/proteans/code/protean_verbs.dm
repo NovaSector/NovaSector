@@ -8,10 +8,10 @@
 	if(!istype(species))
 		to_chat(src, span_warning("You are not a protean!"))
 		return
-	if(!species.species_modsuit)
+	if(!species.get_modsuit())
 		to_chat(src, span_warning("ERROR: Missing species modsuit! Report this bug."))
 		return
-	species.species_modsuit.ui_interact(src)
+	species.get_modsuit().ui_interact(src)
 
 /// Heals and replaces damaged limbs/organs. Requires 6 metal sheets and being in suit mode. Takes 30 seconds.
 /mob/living/carbon/proc/protean_heal()
@@ -29,10 +29,10 @@
 	if(!istype(species))
 		to_chat(src, span_warning("You are not a protean!"))
 		return
-	if(!species.species_modsuit)
+	if(!species.get_modsuit())
 		to_chat(src, span_warning("ERROR: Missing species modsuit! Report this bug."))
 		return
-	var/obj/item/mod/control/pre_equipped/protean/suit = species.species_modsuit
+	var/obj/item/mod/control/pre_equipped/protean/suit = species.get_modsuit()
 	if(incapacitated && loc != suit)
 		balloon_alert(src, "incapacitated!")
 		return
@@ -51,11 +51,11 @@
 		to_chat(src, span_warning("You are not a protean!"))
 		return
 
-	if(!species.species_modsuit)
+	if(!species.get_modsuit())
 		to_chat(src, span_warning("ERROR: Missing species modsuit! Report this bug."))
 		return
 
-	var/obj/item/mod/control/pre_equipped/protean/suit = species.species_modsuit
+	var/obj/item/mod/control/pre_equipped/protean/suit = species.get_modsuit()
 
 	if(!suit.wearer || isprotean(suit.wearer))
 		to_chat(src, span_warning("Your suit is not on someone else!"))
@@ -73,7 +73,7 @@
 				suit.wearer.balloon_alert(suit.wearer, "lock rejected!")
 				return
 
-	species.species_modsuit.toggle_lock()
+	species.get_modsuit().toggle_lock()
 	var/action = suit.modlocked ? "lock" : "unlock"
 	var/target_suffix = (!isprotean(suit.wearer) && loc != suit) ? " onto [suit.wearer]" : ""
 	to_chat(src, span_notice("You <b>[action]</b> the suit[target_suffix]."))
@@ -93,11 +93,11 @@
 	if(!istype(species))
 		to_chat(src, span_warning("You are not a protean!"))
 		return
-	if(!species.species_modsuit)
+	if(!species.get_modsuit())
 		to_chat(src, span_warning("ERROR: Missing species modsuit! Report this bug."))
 		return
 
-	if(loc == species.species_modsuit)
+	if(loc == species.get_modsuit())
 		brain.leave_modsuit()
 	else if(isturf(loc))
 		if(!incapacitated)
@@ -118,7 +118,7 @@
 	if(!istype(stomach))
 		to_chat(src, span_warning("You are missing a stomach and can't turn on low power mode"))
 		return
-	if(loc == species.species_modsuit)
+	if(loc == species.get_modsuit())
 		to_chat(src, span_notice("You can't toggle low power when in a suit form!"))
 		return
 	if(!do_after(src, 2.5 SECONDS)) // Long enough to where our stomach can process inbetween activations
@@ -128,8 +128,8 @@
 	if(istype(has_status_effect(effect), effect))
 		remove_status_effect(effect)
 	else
-		if(species.species_modsuit.active)
-			species.species_modsuit.toggle_activate(usr, TRUE)
+		if(species.get_modsuit().active)
+			species.get_modsuit().toggle_activate(usr, TRUE)
 		// Preventing low power slowdown being removed by reform cooldown
 		if(has_status_effect(/datum/status_effect/protean_low_power_mode))
 			remove_status_effect(/datum/status_effect/protean_low_power_mode)
@@ -148,11 +148,11 @@
 		to_chat(src, span_warning("You are not a protean!"))
 		return
 
-	if(!species.species_modsuit)
+	if(!species.get_modsuit())
 		to_chat(src, span_warning("ERROR: Missing species modsuit! Report this bug."))
 		return
 
-	var/obj/item/mod/control/pre_equipped/protean/suit = species.species_modsuit
+	var/obj/item/mod/control/pre_equipped/protean/suit = species.get_modsuit()
 
 	// Check if someone else is wearing the suit
 	if(!suit.wearer || isprotean(suit.wearer))
@@ -186,11 +186,11 @@
 		to_chat(src, span_warning("You are not a protean!"))
 		return
 
-	if(!species.species_modsuit)
+	if(!species.get_modsuit())
 		to_chat(src, span_warning("ERROR: Missing species modsuit! Report this bug."))
 		return
 
-	var/obj/item/mod/control/pre_equipped/protean/suit = species.species_modsuit
+	var/obj/item/mod/control/pre_equipped/protean/suit = species.get_modsuit()
 
 	if(!suit.stored_modsuit)
 		to_chat(src, span_warning("You haven't assimilated any modsuit!"))

@@ -10,12 +10,14 @@
 
 /obj/item/organ/brain/protean
 	name = "protean core"
-	desc = "An advanced positronic brain, typically found in the core of a protean."
+	desc = "An advanced positronic brain, typically found in the core of a protean. Controls the protean's modsuit and manages all transformations."
 	icon = PROTEAN_ORGAN_SPRITE
 	icon_state = "posi1"
 	zone = BODY_ZONE_CHEST
 	organ_flags = ORGAN_ROBOTIC | ORGAN_NANOMACHINE
 	organ_traits = list(TRAIT_SILICON_EMOTES_ALLOWED)
+	/// The protean's integrated modsuit (moved from species datum for proper lifecycle management)
+	var/obj/item/mod/control/pre_equipped/protean/linked_modsuit
 	/// Whether or not the protean is stuck in their suit or not.
 	var/dead = FALSE
 	/// Timer ID for going into suit animation
@@ -25,6 +27,15 @@
 	COOLDOWN_DECLARE(message_cooldown)
 	COOLDOWN_DECLARE(refactory_cooldown)
 	COOLDOWN_DECLARE(orchestrator_cooldown)
+
+/obj/item/organ/brain/protean/Destroy()
+	// Clean up modsuit reference and any lingering timers
+	if(linked_modsuit)
+		UnregisterSignal(linked_modsuit, COMSIG_PREQDELETED)
+		QDEL_NULL(linked_modsuit)
+	deltimer(going_into_suit_timer)
+	deltimer(leaving_suit_timer)
+	return ..()
 
 /obj/item/organ/brain/protean/on_mob_insert(mob/living/carbon/receiver, special, movement_flags)
 	. = ..()
@@ -61,9 +72,7 @@
 
 /// Checks if protean has refactory (stomach) organ, applies damage if missing. Deals 3 brute per tick, warns every 30s.
 /obj/item/organ/brain/protean/proc/handle_refactory(obj/item/organ)
-	var/datum/species/protean/species = owner?.dna.species
-	var/obj/item/mod/control/pre_equipped/protean/suit = species.species_modsuit
-	if(owner.loc == suit)
+	if(owner.loc == linked_modsuit)
 		return
 	if(isnull(organ) || !istype(organ, /obj/item/organ/stomach/protean))
 		owner.adjustBruteLoss(3, forced = TRUE)
@@ -73,9 +82,7 @@
 
 /// Checks if protean has orchestrator (heart) organ, impairs movement if missing. Knocks down and applies 2x slowdown every 30s.
 /obj/item/organ/brain/protean/proc/handle_orchestrator(obj/item/organ)
-	var/datum/species/protean/species = owner?.dna.species
-	var/obj/item/mod/control/pre_equipped/protean/suit = species.species_modsuit
-	if(owner.loc == suit)
+	if(owner.loc == linked_modsuit)
 		return
 	if(!COOLDOWN_FINISHED(src, orchestrator_cooldown))
 		return
@@ -94,40 +101,41 @@
 
 /// Transforms protean into suit mode, moving them inside their modsuit. Protean is stunned but can speak/use radio. Takes 5s unless forced.
 /obj/item/organ/brain/protean/proc/go_into_suit(forced)
-	var/datum/species/protean/protean = owner.dna?.species
-	if(!istype(protean) || owner.loc == protean.species_modsuit)
+	if(!linked_modsuit || owner.loc == linked_modsuit)
 		return
-	var/obj/item/mod/control/pre_equipped/protean/suit = protean.species_modsuit
+
 	if(!forced)
 		if(!do_after(owner, 5 SECONDS))
 			return
 
 	// Safety check: ensure suit has a valid location before transforming
 	// This handles edge cases like admin ghost spawns with backpacks
-	if(!suit.loc || (!isturf(suit.loc) && suit.loc != owner))
+	if(!linked_modsuit.loc || (!isturf(linked_modsuit.loc) && linked_modsuit.loc != owner))
 		// Suit is in a weird state, try to fix it
 		var/obj/item/back_item = owner.get_item_by_slot(ITEM_SLOT_BACK)
-		if(back_item && back_item != suit)
+		if(back_item && back_item != linked_modsuit)
 			// Something else is in back slot, drop it
 			owner.dropItemToGround(back_item, force = TRUE)
 		// Make sure suit is in a valid location
-		if(!suit.loc || !isturf(get_turf(suit)))
-			suit.forceMove(get_turf(owner))
+		if(!linked_modsuit.loc || !isturf(get_turf(linked_modsuit)))
+			linked_modsuit.forceMove(get_turf(owner))
 		// Try to equip the suit properly
-		owner.equip_to_slot_if_possible(suit, ITEM_SLOT_BACK, disable_warning = TRUE)
+		owner.equip_to_slot_if_possible(linked_modsuit, ITEM_SLOT_BACK, disable_warning = TRUE)
 
-	owner.visible_message(span_warning("[owner] retreats into [suit]!"))
+	owner.visible_message(span_warning("[owner] retreats into [linked_modsuit]!"))
 	owner.extinguish_mob()
 	owner.invisibility = 101
 	new /obj/effect/temp_visual/protean_to_suit(owner.loc, owner.dir)
 	owner.Stun(INFINITY, TRUE)
 	owner.add_traits(TRANSFORM_TRAITS, PROTEAN_TRAIT)
 	owner.remove_status_effect(/datum/status_effect/protean_low_power_mode/low_power)
-	suit.drop_suit()
-	owner.forceMove(suit)
+	linked_modsuit.drop_suit()
+	owner.forceMove(linked_modsuit)
 	// Lock camera perspective to the suit
-	owner.reset_perspective(suit)
-	protean.prevent_perspective_change = TRUE
+	owner.reset_perspective(linked_modsuit)
+	var/datum/species/protean/protean = owner.dna?.species
+	if(istype(protean))
+		protean.prevent_perspective_change = TRUE
 	// Use timer instead of sleep() to avoid blocking on_life() processing
 	going_into_suit_timer = addtimer(VARSET_CALLBACK(owner, invisibility, initial(owner.invisibility)), 1.2 SECONDS, TIMER_STOPPABLE | TIMER_DELETE_ME)
 
@@ -135,38 +143,35 @@
 /obj/item/organ/brain/protean/proc/leave_modsuit()
 	if(timeleft(leaving_suit_timer))
 		return
-	var/datum/species/protean/protean = owner.dna?.species
-	if(!istype(protean))
+	if(!linked_modsuit)
 		return
-	var/obj/item/mod/control/pre_equipped/protean/suit = protean.species_modsuit
 	if(dead)
 		to_chat(owner, span_warning("Your mass is destroyed. You are unable to leave."))
 		return
-	if(!do_after(owner, 5 SECONDS, suit, IGNORE_INCAPACITATED))
+	if(!do_after(owner, 5 SECONDS, linked_modsuit, IGNORE_INCAPACITATED))
 		return
-	var/mob/living/carbon/mob = suit.loc
+	var/mob/living/carbon/mob = linked_modsuit.loc
 	if(istype(mob))
-		mob.dropItemToGround(suit, TRUE)
-	var/datum/storage/storage = suit.loc.atom_storage
+		mob.dropItemToGround(linked_modsuit, TRUE)
+	var/datum/storage/storage = linked_modsuit.loc.atom_storage
 	if(istype(storage))
-		storage.remove_single(null, suit, get_turf(suit), TRUE)
+		storage.remove_single(null, linked_modsuit, get_turf(linked_modsuit), TRUE)
 
 	// Determine safe exit location - MUST be a turf to avoid trapping in containers
-	var/turf/exit_turf = get_turf(suit)
+	var/turf/exit_turf = get_turf(linked_modsuit)
 
 	// If suit is inside any other container (e.g., display case), force it out
-	if(!isturf(suit.loc))
-		suit.forceMove(exit_turf)
+	if(!isturf(linked_modsuit.loc))
+		linked_modsuit.forceMove(exit_turf)
 
-	suit.invisibility = 101
+	linked_modsuit.invisibility = 101
 	new /obj/effect/temp_visual/protean_from_suit(exit_turf, owner.dir)
 	// Brief delay for visual effect using timer instead of sleep()
-	leaving_suit_timer = addtimer(CALLBACK(src, PROC_REF(complete_exit_transformation), suit, exit_turf), 1.2 SECONDS, TIMER_STOPPABLE | TIMER_DELETE_ME)
+	leaving_suit_timer = addtimer(CALLBACK(src, PROC_REF(complete_exit_transformation), exit_turf), 1.2 SECONDS, TIMER_STOPPABLE | TIMER_DELETE_ME)
 
 /// Completes the exit transformation after visual effect delay
-/obj/item/organ/brain/protean/proc/complete_exit_transformation(obj/item/mod/control/pre_equipped/protean/suit, turf/exit_turf)
-	var/datum/species/protean/protean = owner.dna?.species
-	if(!istype(protean))
+/obj/item/organ/brain/protean/proc/complete_exit_transformation(turf/exit_turf)
+	if(!linked_modsuit)
 		return
 
 	// Suit should already be on ground from enter_modsuit(), just move protean out
@@ -178,20 +183,18 @@
 		owner.dropItemToGround(back_item, force = TRUE)
 
 	// Equip the suit to back slot
-	owner.equip_to_slot_if_possible(suit, ITEM_SLOT_BACK, disable_warning = TRUE)
-	suit.invisibility = initial(suit.invisibility)
+	owner.equip_to_slot_if_possible(linked_modsuit, ITEM_SLOT_BACK, disable_warning = TRUE)
+	linked_modsuit.invisibility = initial(linked_modsuit.invisibility)
 	owner.SetStun(0)
 	owner.remove_traits(TRANSFORM_TRAITS, PROTEAN_TRAIT)
 
 	// Restore camera perspective to the protean
-	protean.prevent_perspective_change = FALSE
+	var/datum/species/protean/protean = owner.dna?.species
+	if(istype(protean))
+		protean.prevent_perspective_change = FALSE
 	owner.reset_perspective(owner)
 	owner.apply_status_effect(/datum/status_effect/protean_low_power_mode/reform)
-	owner.visible_message(span_warning("[owner] reforms from [suit]!"))
-
-	// Ensure TRAIT_NODROP is set (should be set in equipped(), but double-check)
-	if(!HAS_TRAIT_FROM(suit, TRAIT_NODROP, SPECIES_TRAIT))
-		ADD_TRAIT(suit, TRAIT_NODROP, SPECIES_TRAIT)
+	owner.visible_message(span_warning("[owner] reforms from [linked_modsuit]!"))
 
 /// Heals and replaces damaged limbs/organs using 6 metal sheets. Requires being in suit mode, takes 30s.
 /// If force = TRUE (admin heal), bypasses all checks and costs.
@@ -209,8 +212,7 @@
 		if(!istype(owner.loc, /obj/item/mod/control))
 			to_chat(owner, span_warning("Not in the open. You must be inside your suit!"))
 			return
-		var/datum/species/protean/species = owner.dna.species
-		if(!do_after(owner, 30 SECONDS, species.species_modsuit, IGNORE_INCAPACITATED))
+		if(!do_after(owner, 30 SECONDS, linked_modsuit, IGNORE_INCAPACITATED))
 			return
 
 		stomach.metal = clamp(stomach.metal - (PROTEAN_STOMACH_FULL * 0.6), 0, 10)
@@ -286,10 +288,11 @@
 
 	// Check if anyone is nearby who could help
 	var/mob/living/nearby_help = null
-	for(var/mob/living/potential_helper in orange(7, species.species_modsuit))
-		if(potential_helper.stat == CONSCIOUS && potential_helper.client)
-			nearby_help = potential_helper
-			break
+	if(linked_modsuit)
+		for(var/mob/living/potential_helper in orange(7, linked_modsuit))
+			if(potential_helper.stat == CONSCIOUS && potential_helper.client)
+				nearby_help = potential_helper
+				break
 
 	if(nearby_help)
 		// Someone is nearby but hasn't helped - give them more time
@@ -301,7 +304,8 @@
 	to_chat(owner, span_userdanger("<B>EMERGENCY SELF-REPAIR ACTIVATED</B>"))
 	to_chat(owner, span_notice("No assistance detected within range. Fabricating minimal refactory from reserve nanite materials..."))
 	to_chat(owner, span_boldwarning("WARNING: You will recover with only 1 unit of metal. Find more immediately!"))
-	species.species_modsuit.visible_message(span_warning("[species.species_modsuit] emits a series of mechanical whirs and clicks as it begins emergency self-repair!"))
+	if(linked_modsuit)
+		linked_modsuit.visible_message(span_warning("[linked_modsuit] emits a series of mechanical whirs and clicks as it begins emergency self-repair!"))
 
 	// Create a basic refactory with minimal metal
 	var/obj/item/organ/stomach/protean/emergency_stomach = new()

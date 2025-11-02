@@ -44,9 +44,8 @@
 	UnregisterSignal(stomach_owner, COMSIG_MOB_AFTER_APPLY_DAMAGE)
 
 /obj/item/organ/stomach/protean/on_life(seconds_per_tick, times_fired)
-	var/datum/species/protean/species = owner?.dna.species
-	var/obj/item/mod/control/pre_equipped/protean/suit = species.species_modsuit
-	if(owner.loc == suit)
+	var/obj/item/organ/brain/protean/brain = owner.get_organ_slot(ORGAN_SLOT_BRAIN)
+	if(istype(brain) && owner.loc == brain.linked_modsuit)
 		return
 	/// Zero out any nutrition. We do not use hunger in this species.
 	for(var/datum/reagent/consumable/food in reagents.reagent_list)

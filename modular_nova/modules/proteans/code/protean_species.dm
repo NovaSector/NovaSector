@@ -89,10 +89,7 @@
 
 	language_prefs_whitelist = list(/datum/language/monkey)
 
-	/// Reference to the protean's integrated modsuit
-	var/obj/item/mod/control/pre_equipped/protean/species_modsuit
-
-	/// Reference to the mob that owns this species datum
+	/// Reference to the mob that owns this species datum (for signals and callbacks)
 	var/mob/living/carbon/human/owner
 	/// List of organ slots that are CHECKED by rejection system (brain protected, heart/stomach can be replaced, eyes checked)
 	/// Organs NOT in this list are completely ignored and can be installed/removed freely
@@ -109,11 +106,17 @@
 /mob/living/carbon/human/species/protean
 	race = /datum/species/protean
 
+/// Helper to get the protean's modsuit (stored on brain organ for proper lifecycle management)
+/datum/species/protean/proc/get_modsuit()
+	if(!owner)
+		return null
+	var/obj/item/organ/brain/protean/brain = owner.get_organ_slot(ORGAN_SLOT_BRAIN)
+	if(!istype(brain))
+		return null
+	return brain.linked_modsuit
+
 /datum/species/protean/Destroy(force)
-	// Unregister all signals before cleanup
-	if(species_modsuit)
-		UnregisterSignal(species_modsuit, COMSIG_PREQDELETED)
-		QDEL_NULL(species_modsuit)
+	// Modsuit cleanup now handled by brain organ's Destroy()
 	if(owner)
 		UnregisterSignal(owner, COMSIG_CARBON_GAIN_ORGAN)
 	UnregisterSignal(src, COMSIG_OUTFIT_EQUIP)
@@ -125,45 +128,54 @@
 
 /datum/species/protean/pre_equip_species_outfit(datum/job/job, mob/living/carbon/human/equipping, visuals_only = FALSE)
 	// Ensure storage exists before job outfit is equipped
-	if(!species_modsuit)
+	var/obj/item/mod/control/pre_equipped/protean/modsuit = get_modsuit()
+	if(!modsuit)
 		return
-	var/obj/item/mod/module/storage/storage = locate() in species_modsuit.modules
+	var/obj/item/mod/module/storage/storage = locate() in modsuit.modules
 	if(!storage)
 		// Give proteans expanded storage by default (better than basic, not OP like bluespace)
 		storage = new /obj/item/mod/module/storage/large_capacity()
-		species_modsuit.install(storage, equipping, TRUE)
+		modsuit.install(storage, equipping, TRUE)
 
 /datum/species/protean/on_species_gain(mob/living/carbon/human/gainer, datum/species/old_species, pref_load, regenerate_icons = TRUE)
-	// If we're switching from protean to protean (SAD/pref reload), preserve the old modsuit
+	// If we're switching from protean to protean (SAD/pref reload), preserve the old modsuit by transferring it to new brain
 	var/obj/item/mod/control/pre_equipped/protean/old_protean_suit = null
 	if(istype(old_species, /datum/species/protean))
 		var/datum/species/protean/old_protean = old_species
-		old_protean_suit = old_protean.species_modsuit
+		old_protean_suit = old_protean.get_modsuit()
 
 	. = ..()
 	owner = gainer
 	gainer.bubble_icon = "machine" // Robot speech bubble
 
-	// If we have an old protean suit, reuse it instead of creating new one
+	// Get the new brain to link the modsuit to
+	var/obj/item/organ/brain/protean/brain = gainer.get_organ_slot(ORGAN_SLOT_BRAIN)
+	if(!istype(brain))
+		stack_trace("Protean on_species_gain called but no protean brain found!")
+		return
+
+	// If we have an old protean suit, transfer it to the new brain
 	if(old_protean_suit)
-		species_modsuit = old_protean_suit
+		brain.linked_modsuit = old_protean_suit
 		// Re-equip to back slot if needed
-		if(gainer.back != species_modsuit)
+		if(gainer.back != old_protean_suit)
 			var/obj/item/item_in_slot = gainer.get_item_by_slot(ITEM_SLOT_BACK)
-			if(item_in_slot && item_in_slot != species_modsuit)
+			if(item_in_slot && item_in_slot != old_protean_suit)
 				if(HAS_TRAIT(item_in_slot, TRAIT_NODROP))
 					stack_trace("Protean modsuit forced dropped a TRAIT_NODROP item on species re-gain. Type: [item_in_slot]")
 				gainer.dropItemToGround(item_in_slot, force = TRUE)
-			gainer.equip_to_slot_if_possible(species_modsuit, ITEM_SLOT_BACK, disable_warning = TRUE)
+			gainer.equip_to_slot_if_possible(old_protean_suit, ITEM_SLOT_BACK, disable_warning = TRUE)
 	else
 		equip_modsuit(gainer)
 
-	// Register signal to block non-forced deletion of the modsuit, we do this because the species datum gets deleted -after- the worn items (e.g. the modsuit). So in order to not hang a ref we only let the species datum itself delete its modsuit.
-	RegisterSignal(species_modsuit, COMSIG_PREQDELETED, PROC_REF(on_species_modsuit_qdeleted))
+	// Register signal to block non-forced deletion of the modsuit (now on brain's modsuit)
+	var/obj/item/mod/control/pre_equipped/protean/modsuit = get_modsuit()
+	if(modsuit)
+		RegisterSignal(modsuit, COMSIG_PREQDELETED, PROC_REF(on_species_modsuit_qdeleted))
 
 	RegisterSignal(src, COMSIG_OUTFIT_EQUIP, PROC_REF(outfit_handling))
 	RegisterSignal(owner, COMSIG_CARBON_GAIN_ORGAN, PROC_REF(organ_reject))
-	var/obj/item/mod/core/protean/core = species_modsuit.core
+	var/obj/item/mod/core/protean/core = modsuit?.core
 	core?.linked_species = src
 	// Add protean-specific verbs (using add_verb for proper UI refresh)
 	add_verb(gainer, list(
@@ -235,14 +247,23 @@
 		return TRUE
 
 /// Creates and equips a new protean modsuit to the protean's back slot. Drops any existing back item.
+/// Links the new modsuit to the protean brain organ for proper lifecycle management.
 /datum/species/protean/proc/equip_modsuit(mob/living/carbon/human/gainer)
-	species_modsuit = new()
+	var/obj/item/organ/brain/protean/brain = gainer.get_organ_slot(ORGAN_SLOT_BRAIN)
+	if(!istype(brain))
+		stack_trace("equip_modsuit called on non-protean or missing protean brain!")
+		return FALSE
+
+	// Create new modsuit and link it to brain
+	var/obj/item/mod/control/pre_equipped/protean/new_modsuit = new()
+	brain.linked_modsuit = new_modsuit
+
 	var/obj/item/item_in_slot = gainer.get_item_by_slot(ITEM_SLOT_BACK)
 	if(item_in_slot)
 		if(HAS_TRAIT(item_in_slot, TRAIT_NODROP))
 			stack_trace("Protean modsuit forced dropped a TRAIT_NODROP item on species equip. Type: [item_in_slot]")
 		gainer.dropItemToGround(item_in_slot, force = TRUE)
-	return gainer.equip_to_slot_if_possible(species_modsuit, ITEM_SLOT_BACK, disable_warning = TRUE)
+	return gainer.equip_to_slot_if_possible(new_modsuit, ITEM_SLOT_BACK, disable_warning = TRUE)
 
 /// Signal handler for COMSIG_OUTFIT_EQUIP. Handles protean outfit logic: assimilates modsuits, ensures storage module, transfers backpack contents.
 /datum/species/protean/proc/outfit_handling(datum/species/protean, datum/outfit/outfit, visuals_only)
@@ -282,30 +303,37 @@
 
 /// Handles modsuit assimilation and activation, then chains to post-setup. Called async from outfit_handling.
 /datum/species/protean/proc/handle_modsuit_assimilation(mob/living/carbon/human/protean_owner, obj/item/mod/control/suit, datum/outfit/outfit, get_a_job)
-	species_modsuit.assimilate_modsuit(protean_owner, suit, TRUE)
-	species_modsuit.quick_activation()
+	var/obj/item/mod/control/pre_equipped/protean/modsuit = get_modsuit()
+	if(!modsuit)
+		return
+	modsuit.assimilate_modsuit(protean_owner, suit, TRUE)
+	modsuit.quick_activation()
 	finish_outfit_setup(protean_owner, outfit, get_a_job)
 
 /// Handles post-assimilation outfit setup: storage modules, suit_store items, and iron sheets. Called after assimilation completes.
 /datum/species/protean/proc/finish_outfit_setup(mob/living/carbon/human/protean_owner, datum/outfit/outfit, get_a_job)
-	var/obj/item/mod/module/storage/storage = locate() in species_modsuit.modules // Give a storage if we don't have one.
+	var/obj/item/mod/control/pre_equipped/protean/modsuit = get_modsuit()
+	if(!modsuit)
+		return
+
+	var/obj/item/mod/module/storage/storage = locate() in modsuit.modules // Give a storage if we don't have one.
 	if(!storage)
 		storage = new()
-		species_modsuit.install(storage, protean_owner, TRUE)
+		modsuit.install(storage, protean_owner, TRUE)
 
 	// Only install crew sensors and GPS for jobs, not antags
 	if(get_a_job)
 		// Install crew sensor module if not present
-		var/obj/item/mod/module/crew_sensor/protean/crew_sensor = locate() in species_modsuit.modules
+		var/obj/item/mod/module/crew_sensor/protean/crew_sensor = locate() in modsuit.modules
 		if(!crew_sensor)
 			crew_sensor = new()
-			species_modsuit.install(crew_sensor, protean_owner, TRUE)
+			modsuit.install(crew_sensor, protean_owner, TRUE)
 
 		// Install GPS module if not present
-		var/obj/item/mod/module/gps/protean/gps_module = locate() in species_modsuit.modules
+		var/obj/item/mod/module/gps/protean/gps_module = locate() in modsuit.modules
 		if(!gps_module)
 			gps_module = new()
-			species_modsuit.install(gps_module, protean_owner, TRUE)
+			modsuit.install(gps_module, protean_owner, TRUE)
 
 	// Handle suit_store items (like ninja katana) - create and add to storage
 	// Proteans don't have a suit slot, so we manually create the suit_store item
@@ -360,13 +388,14 @@
 	UnregisterSignal(src, COMSIG_OUTFIT_EQUIP)
 	if(shapeshift_action)
 		QDEL_NULL(shapeshift_action)
-	// Drop assimilated modsuits
+	// Drop assimilated modsuits (modsuit cleanup will be handled by brain removal)
 	if(!istype(new_species, /datum/species/protean) && !QDELETED(gainer))
-		if(species_modsuit?.stored_modsuit)
-			species_modsuit.unassimilate_modsuit(owner, TRUE)
-		gainer.dropItemToGround(species_modsuit, TRUE)
-		if(species_modsuit)
-			QDEL_NULL(species_modsuit)
+		var/obj/item/mod/control/pre_equipped/protean/modsuit = get_modsuit()
+		if(modsuit)
+			if(modsuit.stored_modsuit)
+				modsuit.unassimilate_modsuit(owner, TRUE)
+			gainer.dropItemToGround(modsuit, TRUE)
+			// Don't qdel here - let brain's Destroy() handle it for proper cleanup
 
 	owner = null
 
