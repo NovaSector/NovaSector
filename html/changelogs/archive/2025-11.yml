@@ -17,3 +17,16 @@
   vinylspiders:
   - bugfix: fixes footstep sounds pref not applying in some rare cases
   - bugfix: fixes hemophages sometimes being able to get more than one drain action
+2025-11-02:
+  Bannhammger:
+  - bugfix: character selection screen implants are now affected by EMP
+  carpotoxin:
+  - balance: Removes the space dragon's swan song phase, instead allowing them to
+      retry making a rift to recover
+  - balance: The space dragon loses less movement speed and self-stuns for less long
+      after losing an objective
+  - balance: The space dragon's rift has more integrity, from 300 up to 500 (onpar
+      with a secure crate)
+  - balance: The space dragon has 200 extra HP, from 400 to 600
+  - bugfix: The space dragon's carp got skipped when we buffed regular carp, they're
+      now stronger as is intended
