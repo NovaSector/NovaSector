@@ -37,11 +37,13 @@
 	. = ..()
 	RegisterSignal(receiver, COMSIG_CARBON_ATTEMPT_EAT, PROC_REF(try_stomach_eat))
 	RegisterSignal(receiver, COMSIG_MOB_AFTER_APPLY_DAMAGE, PROC_REF(damage_listener))
+	RegisterSignal(src, COMSIG_STOMACH_AFTER_EAT, PROC_REF(after_eat))
 
 /obj/item/organ/stomach/protean/on_mob_remove(mob/living/carbon/stomach_owner, special, movement_flags)
 	. = ..()
 	UnregisterSignal(stomach_owner, COMSIG_CARBON_ATTEMPT_EAT)
 	UnregisterSignal(stomach_owner, COMSIG_MOB_AFTER_APPLY_DAMAGE)
+	UnregisterSignal(src, COMSIG_STOMACH_AFTER_EAT)
 
 /obj/item/organ/stomach/protean/on_life(seconds_per_tick, times_fired)
 	var/datum/species/protean/species = owner?.dna.species
@@ -126,6 +128,8 @@
 
 /// Process eaten materials based on their RCD matter value
 /obj/item/organ/stomach/protean/after_eat(atom/edible)
+	SIGNAL_HANDLER
+	
 	// Handle material stacks (sheets, rods, etc.)
 	if(istype(edible, /obj/item/stack))
 		var/obj/item/stack/material = edible
