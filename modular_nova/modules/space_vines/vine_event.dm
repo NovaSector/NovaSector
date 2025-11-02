@@ -26,25 +26,6 @@
 		event = src
 	)
 
-/proc/pick_n(list/list_to_pick, n)
-	if(!islist(list_to_pick) || !list_to_pick.len || n <= 0)
-		return list()
-
-	/// The final list that gets returned
-	var/list/result
-	/// Shuffling the list and picking the first n indices is faster in some cases
-	var/list/copy_to_shuffle
-	/// length of our list_to_pick
-	var/list_to_pick_length = list_to_pick.len
-	n = min(n, list_to_pick_length)
-
-	// Shuffle and slice the first n indices
-	copy_to_shuffle = list_to_pick.Copy()
-	shuffle_in_place(copy_to_shuffle)
-	result = copy_to_shuffle.Copy(1, n + 1)
-
-	return result
-
 /datum/round_event/spacevine/difficult/start()
 	var/list/possible_spawn_turfs = list()
 
