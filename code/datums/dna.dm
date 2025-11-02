@@ -651,8 +651,11 @@ GLOBAL_LIST_INIT(total_uf_len_by_block, populate_total_uf_len_by_block())
 	// NOVA EDIT ADDITION END
 	dna.species.on_species_gain(src, old_species, pref_load, icon_update, replace_missing)
 	log_mob_tag("TAG: [tag] SPECIES: [key_name(src)] \[[mrace]\]")
-	if(old_species != dna.species) // NOVA EDIT ADDITION
-		qdel(old_species) // NOVA EDIT ADDITION
+	// NOVA EDIT ADDITION START
+	// Only delete if it's truly a species instance
+	if (old_species && old_species != new_race && !QDELETED(old_species))
+		qdel(old_species)
+	// NOVA EDIT ADDITION START
 
 /mob/living/carbon/human/set_species(datum/species/mrace, icon_update = TRUE, pref_load = FALSE, replace_missing = TRUE, override_features, override_markings, override_mutantparts) // NOVA EDIT CHANGE. ORIGINAL - /mob/living/carbon/human/set_species(datum/species/mrace, icon_update = TRUE, pref_load = FALSE, replace_missing = TRUE)
 	..()
