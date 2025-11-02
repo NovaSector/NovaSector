@@ -58,7 +58,7 @@
  * This is an alternative to creating each /obj/item/bodypart/ parent for every Protean limb.
  */
 #define PROTEAN_BODYPART_DEFINE(path, health) \
-##path {\
+##path { \
 	max_damage = ##health; \
 	bodypart_species = SPECIES_PROTEAN; \
 	bodytype = BODYTYPE_NANO | BODYTYPE_ROBOTIC; \
@@ -70,6 +70,7 @@
 	medium_burn_msg = MEDIUM_NANO_BURN; \
 	heavy_burn_msg = HEAVY_NANO_BURN; \
 	damage_examines = list(BRUTE = BRUTE_EXAMINE_NANO, BURN = BURN_EXAMINE_NANO); \
+	/* Timerid of the QDEL_IN timer, which starts after the limb is dismembered through becoming damaged enough */ \
 	/* Timerid of the QDEL_IN timer, which starts after the limb is dismembered through becoming damaged enough */ \
 	var/qdel_timer; \
 }
@@ -132,6 +133,7 @@ PROTEAN_BODYPART_DEFINE(/obj/item/bodypart/arm/right/mutant/protean, 40)
 	heavy_burn_msg = HEAVY_NANO_BRUTE
 	damage_examines = list(BRUTE = BRUTE_EXAMINE_NANO, BURN = BURN_EXAMINE_NANO)
 	digitigrade_type = /obj/item/bodypart/leg/right/mutant/protean/digitigrade
+	/// Timerid of the QDEL_IN timer, which starts after the limb is dismembered through becoming damaged enough
 	var/qdel_timer
 
 /obj/item/bodypart/leg/left/mutant/protean
@@ -147,6 +149,7 @@ PROTEAN_BODYPART_DEFINE(/obj/item/bodypart/arm/right/mutant/protean, 40)
 	heavy_burn_msg = HEAVY_NANO_BRUTE
 	damage_examines = list(BRUTE = BRUTE_EXAMINE_NANO, BURN = BURN_EXAMINE_NANO)
 	digitigrade_type = /obj/item/bodypart/leg/left/mutant/protean/digitigrade
+	/// Timerid of the QDEL_IN timer, which starts after the limb is dismembered through becoming damaged enough
 	var/qdel_timer
 
 /obj/item/bodypart/leg/right/mutant/protean/digitigrade

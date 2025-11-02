@@ -60,6 +60,12 @@
 	playsound(human_holder, 'sound/effects/alert.ogg', 25, TRUE, SILENCED_SOUND_EXTRARANGE) // OH GOD THE STRESS NOISE
 	life_support_failed = TRUE
 
+/datum/quirk/equipping/entombed/is_species_appropriate(datum/species/mob_species)
+	if(istype(mob_species, /datum/species/protean)) // Proteans already have a modsuit
+		return FALSE
+	else
+		return ..()
+
 /datum/quirk/equipping/entombed/add_unique(client/client_source)
 	. = ..()
 	var/mob/living/carbon/human/human_holder = quirk_holder
