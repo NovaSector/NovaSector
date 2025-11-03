@@ -262,6 +262,7 @@
 	icon_state = "pattern_1"
 	turf_type = /turf/open/floor/iron/pattern_1
 	merge_type = /obj/item/stack/tile/iron/pattern_1
+	tile_rotate_dirs = list(SOUTH, NORTH)
 
 /turf/open/floor/iron/pattern_2
 	icon_state = "pattern_2"
@@ -639,12 +640,13 @@
 	floor_tile = /obj/item/stack/tile/iron/dark/pattern_1
 
 /obj/item/stack/tile/iron/dark/pattern_1
-	name = "dark brick tile"
-	singular_name = "dark brick tile"
+	name = "dark diagonal brick tile"
+	singular_name = "dark diagonal brick tile"
 	icon = 'modular_nova/master_files/icons/obj/tiles.dmi'
 	icon_state = "dark_pattern_1"
 	turf_type = /turf/open/floor/iron/dark/pattern_1
 	merge_type = /obj/item/stack/tile/iron/dark/pattern_1
+	tile_rotate_dirs = list(SOUTH, NORTH)
 
 /turf/open/floor/iron/dark/pattern_2
 	icon_state = "dark_pattern_2"
@@ -1018,15 +1020,16 @@
 	icon_state = "white_pattern_1"
 	base_icon_state = "white_pattern_1"
 	icon = 'modular_nova/master_files/icons/turf/floors/floor.dmi'
-	floor_tile = /obj/item/stack/tile/iron/white/pattern_2
+	floor_tile = /obj/item/stack/tile/iron/white/pattern_1
 
 /obj/item/stack/tile/iron/white/pattern_1
-	name = "white brick tile"
-	singular_name = "white brick tile"
+	name = "white diagonal brick tile"
+	singular_name = "white diagonal brick tile"
 	icon = 'modular_nova/master_files/icons/obj/tiles.dmi'
 	icon_state = "white_pattern_1"
 	turf_type = /turf/open/floor/iron/white/pattern_1
 	merge_type = /obj/item/stack/tile/iron/white/pattern_1
+	tile_rotate_dirs = list(SOUTH, NORTH)
 
 /turf/open/floor/iron/white/pattern_2
 	icon_state = "white_pattern_2"
