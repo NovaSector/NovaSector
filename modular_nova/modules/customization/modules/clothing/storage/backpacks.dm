@@ -87,7 +87,7 @@
 
 /obj/item/storage/backpack/udc
 	name = "U.D.C."
-	desc = "A uniform dispersed carryall relieves the burden of a rear focused center of weight by allowing the wearer to shift different storage compartments along their uniform."
+	desc = "The ultra-discreet carrier apparatus relieves the burden of a rear focused center of weight by allowing the wearer to stow items inside of it's discrete, and practical storage locations."
 	icon_state = "backpack-udc"
 	inhand_icon_state = "udcpack"
 	icon = 'modular_nova/master_files/icons/obj/clothing/backpacks.dmi'
