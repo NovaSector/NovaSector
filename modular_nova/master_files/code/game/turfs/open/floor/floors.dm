@@ -277,6 +277,7 @@
 	icon_state = "pattern_2"
 	turf_type = /turf/open/floor/iron/pattern_2
 	merge_type = /obj/item/stack/tile/iron/pattern_2
+	tile_rotate_dirs = list(SOUTH, NORTH)
 
 /turf/open/floor/iron/pattern_3
 	icon_state = "pattern_3"
@@ -661,6 +662,7 @@
 	icon_state = "dark_pattern_2"
 	turf_type = /turf/open/floor/iron/dark/pattern_2
 	merge_type = /obj/item/stack/tile/iron/dark/pattern_2
+	tile_rotate_dirs = list(SOUTH, NORTH)
 
 /turf/open/floor/iron/dark/pattern_3
 	icon_state = "dark_pattern_3"
@@ -1044,6 +1046,7 @@
 	icon_state = "white_pattern_2"
 	turf_type = /turf/open/floor/iron/white/pattern_2
 	merge_type = /obj/item/stack/tile/iron/white/pattern_2
+	tile_rotate_dirs = list(SOUTH, NORTH)
 
 /turf/open/floor/iron/white/pattern_3
 	icon_state = "white_pattern_3"
