@@ -14,7 +14,7 @@
 
 /obj/projectile/bullet/c585trappiste
 	name = ".585 Trappiste bullet"
-	damage = 45
+	damage = 30
 	wound_bonus = 5 // Normal bullets are 20
 
 /obj/item/ammo_box/c585trappiste
@@ -46,8 +46,8 @@
 
 /obj/projectile/bullet/c585trappiste/incapacitator
 	name = ".585 Trappiste flathead bullet"
-	damage = 20
-	stamina = 40
+	damage = 15
+	stamina = 30
 	wound_bonus = 10
 
 	weak_against_armour = TRUE
@@ -78,7 +78,7 @@
 
 /obj/projectile/bullet/c585trappiste/incendiary
 	name = ".585 Trappiste incendiary bullet"
-	damage = 35
+	damage = 25
 
 
 /// How many firestacks the bullet should impart upon a target when impacting
