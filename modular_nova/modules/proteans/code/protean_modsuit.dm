@@ -203,13 +203,18 @@
 /obj/item/mod/control/pre_equipped/protean/tool_act(mob/living/user, obj/item/tool, list/modifiers)
 	. = ..()
 	var/obj/item/mod/core/protean/protean_core = core
-	var/obj/item/organ/brain/protean/brain = protean_core?.linked_species.owner.get_organ_slot(ORGAN_SLOT_BRAIN)
-	var/obj/item/organ/stomach/protean/refactory = protean_core.linked_species.owner.get_organ_slot(ORGAN_SLOT_STOMACH)
-	var/mob/living/carbon/human/protean_in_suit = protean_core.linked_species.owner
+	var/datum/species/protean/linked_species = protean_core?.linked_species_ref?.resolve()
+	if(protean_core && isnull(linked_species))
+		protean_core.linked_species_ref = null
+	var/obj/item/organ/brain/protean/brain = linked_species?.owner.get_organ_slot(ORGAN_SLOT_BRAIN)
+	var/obj/item/organ/stomach/protean/refactory = linked_species?.owner.get_organ_slot(ORGAN_SLOT_STOMACH)
+	var/mob/living/carbon/human/protean_in_suit = linked_species?.owner
 
 	if(brain?.dead && open && istype(tool, /obj/item/organ/stomach/protean) && do_after(user, 10 SECONDS) && !refactory)
 		var/obj/item/organ/stomach = tool
-		stomach.Insert(protean_core.linked_species.owner, TRUE, DELETE_IF_REPLACED)
+		if(isnull(linked_species))
+			return ITEM_INTERACT_BLOCKING
+		stomach.Insert(linked_species.owner, TRUE, DELETE_IF_REPLACED)
 		balloon_alert(user, "inserted!")
 		playsound(src, 'sound/machines/click.ogg', 50, TRUE, SILENCED_SOUND_EXTRARANGE)
 		// Immediate revival - no timer!
@@ -278,10 +283,13 @@
 
 /obj/item/mod/control/pre_equipped/protean/ui_status(mob/user, datum/ui_state/state)
 	var/obj/item/mod/core/protean/source = core
-	var/datum/species/protean/species = source?.linked_species
+	var/datum/species/protean/linked_species = source?.linked_species_ref?.resolve()
+	if(source && isnull(linked_species))
+		source.linked_species_ref = null
+		return ..()
 
 	// Proteans can ALWAYS access their suit UI from anywhere
-	if(species?.owner == user)
+	if(linked_species.owner == user)
 		return UI_INTERACTIVE
 
 	return ..()
@@ -294,7 +302,10 @@
 /obj/item/mod/control/pre_equipped/protean/proc/update_interaction_flags()
 	var/obj/item/mod/core/protean/protean_core = core
 	// If worn by the protean owner, don't require hands to interact (prevents dropping when opening UI with full hands)
-	if(istype(protean_core) && protean_core.linked_species?.owner == wearer && wearer)
+	var/datum/species/protean/linked_species = protean_core?.linked_species_ref?.resolve()
+	if(protean_core && isnull(linked_species))
+		protean_core.linked_species_ref = null
+	if(istype(protean_core) && linked_species?.owner == wearer && wearer)
 		interaction_flags_click = ALLOW_RESTING
 	else
 		interaction_flags_click = NEED_DEXTERITY|NEED_HANDS|ALLOW_RESTING
@@ -568,9 +579,12 @@
 /obj/item/mod/control/pre_equipped/protean/examine(mob/user)
 	. = ..()
 	var/obj/item/mod/core/protean/protean_core = core
-	var/mob/living/carbon/human/protean_in_suit = protean_core?.linked_species.owner
-	var/obj/item/organ/brain/protean/brain = protean_core?.linked_species.owner.get_organ_slot(ORGAN_SLOT_BRAIN)
-	var/obj/item/organ/stomach/protean/refactory = protean_core.linked_species.owner.get_organ_slot(ORGAN_SLOT_STOMACH)
+	var/datum/species/protean/linked_species = protean_core?.linked_species_ref?.resolve()
+	if(protean_core && isnull(linked_species))
+		protean_core.linked_species_ref = null
+	var/mob/living/carbon/human/protean_in_suit = linked_species?.owner
+	var/obj/item/organ/brain/protean/brain = linked_species?.owner.get_organ_slot(ORGAN_SLOT_BRAIN)
+	var/obj/item/organ/stomach/protean/refactory = linked_species?.owner.get_organ_slot(ORGAN_SLOT_STOMACH)
 	var/t_He = protean_in_suit.p_They()
 	var/t_him = protean_in_suit.p_them()
 	var/t_has = protean_in_suit.p_have()
@@ -624,20 +638,22 @@
 	if(!istype(suit))
 		return
 	var/obj/item/mod/core/protean/core = suit.core
-	var/datum/species/protean/species = core.linked_species
-	if(species.owner == user)
+	var/datum/species/protean/linked_species = core?.linked_species_ref?.resolve()
+	if(core && isnull(linked_species))
+		core.linked_species_ref = null
+	if(linked_species?.owner == user)
 		return
 	if(suit.wearer == source)
 		return
-	if (!isnull(should_strip_proc_path) && !call(species.owner, should_strip_proc_path)(user))
+	if (!isnull(should_strip_proc_path) && !call(linked_species.owner, should_strip_proc_path)(user))
 		return
 	suit.balloon_alert_to_viewers("stripping")
 	user.visible_message(span_warning("[user] begins to dump the contents of [source]!"))
 	ASYNC
-		var/datum/strip_menu/protean/strip_menu = LAZYACCESS(strip_menus, species.owner)
+		var/datum/strip_menu/protean/strip_menu = LAZYACCESS(strip_menus, linked_species.owner)
 		if (isnull(strip_menu))
-			strip_menu = new(species.owner, src)
-			LAZYSET(strip_menus, species.owner, strip_menu)
+			strip_menu = new(linked_species.owner, src)
+			LAZYSET(strip_menus, linked_species.owner, strip_menu)
 		strip_menu.ui_interact(user)
 
 /datum/strip_menu/protean

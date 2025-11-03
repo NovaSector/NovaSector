@@ -19,7 +19,10 @@
 	. = ..()
 
 	var/obj/item/mod/core/protean/protean_core = mod.core
-	var/mob/living/carbon/human/protean_in_suit = protean_core.linked_species.owner
+	var/datum/species/protean/linked_species = protean_core.linked_species_ref?.resolve()
+	if(isnull(linked_species))
+		protean_core.linked_species_ref = null
+	var/mob/living/carbon/human/protean_in_suit = linked_species?.owner
 
 	if(protean_in_suit == mod.wearer)
 		playsound(src, 'sound/machines/scanner/scanbuzz.ogg', 25, TRUE, SILENCED_SOUND_EXTRARANGE)
@@ -35,7 +38,10 @@
 /obj/item/mod/module/protean_servo/on_deactivation(display_message = TRUE, deleting = FALSE)
 	. = ..()
 	var/obj/item/mod/core/protean/protean_core = mod.core
-	var/mob/living/carbon/human/protean_in_suit = protean_core?.linked_species.owner
+	var/datum/species/protean/linked_species = protean_core?.linked_species_ref?.resolve()
+	if(protean_core && isnull(linked_species))
+		protean_core.linked_species_ref = null
+	var/mob/living/carbon/human/protean_in_suit = linked_species?.owner
 
 	servo_movement.Remove(protean_in_suit)
 	servo_medical.Remove(protean_in_suit)

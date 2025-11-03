@@ -5,10 +5,12 @@
 
 	/// We handle as many interactions as possible through the species datum
 	/// The species handles cleanup on this
-	var/datum/species/protean/linked_species
+	var/datum/weakref/linked_species_ref
 
 /obj/item/mod/core/protean/charge_source()
+	var/datum/species/protean/linked_species = linked_species_ref?.resolve()
 	if(isnull(linked_species))
+		linked_species_ref = null
 		return
 	if(isnull(linked_species.owner))
 		return
@@ -17,12 +19,16 @@
 /obj/item/mod/core/protean/charge_amount()
 	var/obj/item/organ/stomach/protean/stomach = charge_source()
 	if(!istype(stomach))
-		return null
+		return
+	var/datum/species/protean/linked_species = linked_species_ref?.resolve()
+	if(isnull(linked_species))
+		linked_species_ref = null
+		return
 	if(!linked_species?.owner)
-		return null
+		return
 	var/obj/item/organ/brain/protean/brain = linked_species.owner.get_organ_slot(ORGAN_SLOT_BRAIN)
 	if(!istype(brain) || brain.dead)
-		return null
+		return
 	return stomach.metal
 
 /obj/item/mod/core/protean/max_charge_amount()
@@ -39,6 +45,9 @@
 	var/obj/item/organ/stomach/protean/stomach = charge_source()
 	if(!istype(stomach))
 		return FALSE
+	var/datum/species/protean/linked_species = linked_species_ref?.resolve()
+	if(isnull(linked_species))
+		linked_species_ref = null
 	if(!linked_species?.owner)
 		return FALSE
 	var/obj/item/organ/brain/protean/brain = linked_species.owner.get_organ_slot(ORGAN_SLOT_BRAIN)

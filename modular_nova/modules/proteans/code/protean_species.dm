@@ -176,7 +176,7 @@
 	RegisterSignal(src, COMSIG_OUTFIT_EQUIP, PROC_REF(outfit_handling))
 	RegisterSignal(owner, COMSIG_CARBON_GAIN_ORGAN, PROC_REF(organ_reject))
 	var/obj/item/mod/core/protean/core = modsuit?.core
-	core?.linked_species = src
+	core?.linked_species_ref = WEAKREF(src)
 	// Add protean-specific verbs (using add_verb for proper UI refresh)
 	add_verb(gainer, list(
 		/mob/living/carbon/proc/protean_ui,
