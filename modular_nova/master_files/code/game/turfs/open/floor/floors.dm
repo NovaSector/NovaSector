@@ -408,20 +408,6 @@
 	turf_type = /turf/open/floor/iron/pattern_11
 	merge_type = /obj/item/stack/tile/iron/pattern_11
 
-/turf/open/floor/iron/pattern_12
-	icon_state = "pattern_12"
-	base_icon_state = "pattern_12"
-	icon = 'modular_nova/master_files/icons/turf/floors/floor.dmi'
-	floor_tile = /obj/item/stack/tile/iron/pattern_12
-
-/obj/item/stack/tile/iron/pattern_12
-	name = "diagonal spiraling brick pattern tile"
-	singular_name = "diagonal spiraling brick pattern tile"
-	icon = 'modular_nova/master_files/icons/obj/tiles.dmi'
-	icon_state = "pattern_12"
-	turf_type = /turf/open/floor/iron/pattern_12
-	merge_type = /obj/item/stack/tile/iron/pattern_12
-
 /*
 * DARK TILES
 */
@@ -795,20 +781,6 @@
 	turf_type = /turf/open/floor/iron/dark/pattern_11
 	merge_type = /obj/item/stack/tile/iron/dark/pattern_11
 
-/turf/open/floor/iron/dark/pattern_12
-	icon_state = "dark_pattern_12"
-	base_icon_state = "dark_pattern_12"
-	icon = 'modular_nova/master_files/icons/turf/floors/floor.dmi'
-	floor_tile = /obj/item/stack/tile/iron/dark/pattern_12
-
-/obj/item/stack/tile/iron/dark/pattern_12
-	name = "dark diagonal spiraling brick pattern tile"
-	singular_name = "dark diagonal spiraling brick pattern tile"
-	icon = 'modular_nova/master_files/icons/obj/tiles.dmi'
-	icon_state = "dark_pattern_12"
-	turf_type = /turf/open/floor/iron/dark/pattern_12
-	merge_type = /obj/item/stack/tile/iron/dark/pattern_12
-
 /*
 * WHITE TILES
 */
@@ -1180,20 +1152,6 @@
 	icon_state = "white_pattern_11"
 	turf_type = /turf/open/floor/iron/white/pattern_11
 	merge_type = /obj/item/stack/tile/iron/white/pattern_11
-
-/turf/open/floor/iron/white/pattern_12
-	icon_state = "white_pattern_12"
-	base_icon_state = "white_pattern_12"
-	icon = 'modular_nova/master_files/icons/turf/floors/floor.dmi'
-	floor_tile = /obj/item/stack/tile/iron/white/pattern_12
-
-/obj/item/stack/tile/iron/white/pattern_12
-	name = "white diagonal spiraling brick pattern tile"
-	singular_name = "white diagonal spiraling brick pattern tile"
-	icon = 'modular_nova/master_files/icons/obj/tiles.dmi'
-	icon_state = "white_pattern_12"
-	turf_type = /turf/open/floor/iron/white/pattern_12
-	merge_type = /obj/item/stack/tile/iron/white/pattern_12
 
 /*
 	Wood
