@@ -27,7 +27,10 @@
 	greyscale_config_worn = /datum/greyscale_config/antique_seecloak/worn
 	greyscale_colors = "#ffff99#4d4d4d"
 	body_parts_covered = NECK|HAND_LEFT|ARM_LEFT|CHEST
-
+	unique_reskin = list(
+		"default" = "seecloak",
+		"trimmed" = "seecloak_trimonly",
+	)
 /obj/item/clothing/neck/greyscaled/matroncloak
 	name = "Antique Matron Cloak"
 	desc = "A large antique cloak with large puffy fluff."
