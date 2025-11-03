@@ -326,7 +326,7 @@ SOLFED ARMOR VALUES!
 	machine_name = "SolfedDrobe"
 
 /obj/machinery/vending/access/solfed/build_access_list(list/access_lists)
-	access_lists["[ACCESS_CENT_CAPTAIN]"] = list(
+	access_lists[ACCESS_CENT_CAPTAIN] = list(
 		// Solfed has CC and station AA but this is the highest access possible so no one but feds can get it. Hopefully
 		/obj/item/clothing/accessory/nova/solfedribbon = 4,
 		/obj/item/clothing/accessory/nova/solfedribbon/rank2 = 4,

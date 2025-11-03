@@ -243,3 +243,25 @@
 /datum/sprite_accessory/taur/biglegs/stanced/peg
 	name = "Big Legs, Stanced Pegs"
 	icon_state = "biglegs_peg_stanced"
+
+/datum/sprite_accessory/taur/kitsune
+	name = "Kitsune"
+	icon_state = "kitsune"
+	taur_mode = STYLE_TAUR_PAW
+	can_lay_down = TRUE
+	laydown_offset = -3
+
+/datum/sprite_accessory/taur/kitsune/alt
+	name = "Kitsune (alt)"
+	icon_state = "kitsunealt"
+
+/datum/sprite_accessory/taur/chemlight
+	name = "Chemtaur"
+	icon_state = "chemtaur"
+	taur_mode = STYLE_TAUR_PAW
+	can_lay_down = TRUE
+	laydown_offset = -6
+
+/datum/sprite_accessory/taur/chemlight/alt
+	name = "Striped Canine"
+	icon_state = "chemtaur_alt"

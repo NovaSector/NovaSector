@@ -289,18 +289,19 @@
 	var/datum/team/primitive_catgirls/feline_team
 
 	antag_recipes = list(
-		/datum/crafting_recipe/boneaxe,
-		/datum/crafting_recipe/bonespear,
-		/datum/crafting_recipe/bonedagger,
 		/datum/crafting_recipe/anointing_oil,
-		/datum/crafting_recipe/handcrafted_hearthkin_armor,
 		/datum/crafting_recipe/black_pelt_bed,
-		/datum/crafting_recipe/white_pelt_bed,
+		/datum/crafting_recipe/boneaxe,
+		/datum/crafting_recipe/bonedagger,
+		/datum/crafting_recipe/bonespear,
 		/datum/crafting_recipe/frozen_breath,
-		/datum/crafting_recipe/runic_greatsword,
-		/datum/crafting_recipe/runic_greataxe,
-		/datum/crafting_recipe/runic_spear,
+		/datum/crafting_recipe/handcrafted_hearthkin_armor,
 		/datum/crafting_recipe/hearthkin_ship_fragment_inactive,
+		/datum/crafting_recipe/runic_greataxe,
+		/datum/crafting_recipe/runic_greatsword,
+		/datum/crafting_recipe/runic_spear,
+		/datum/crafting_recipe/skeleton_key,
+		/datum/crafting_recipe/white_pelt_bed,
 	)
 
 /datum/antagonist/primitive_catgirl/Destroy()

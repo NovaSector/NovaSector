@@ -2,7 +2,7 @@
 	name = "Ghost Roll Traitor"
 	config_tag = "Marauders"
 	preview_antag_datum = /datum/antagonist/traitor/marauder
-	midround_type = LIGHT_MIDROUND
+	midround_type = HEAVY_MIDROUND
 	candidate_role = "Marauder"
 	pref_flag = ROLE_MARAUDER
 	jobban_flag = ROLE_MARAUDER

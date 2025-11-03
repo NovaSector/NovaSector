@@ -87,13 +87,14 @@
 	// Now we handle silicon and/or human, order doesn't matter as both obviously can't fire.
 	// If other variants of mob/living need to be handled at some point, put them here.
 	if(issilicon(holder))
-		flavor_text = preferences.read_preference(/datum/preference/text/silicon_flavor_text)
-		flavor_text_nsfw = preferences.read_preference(/datum/preference/text/silicon_flavor_text_nsfw)
 		custom_species = "Silicon"
 		custom_species_lore = "A silicon unit, like a cyborg or pAI."
-		ooc_notes += preferences.read_preference(/datum/preference/text/ooc_notes)
-		ooc_notes_nsfw += preferences.read_preference(/datum/preference/text/ooc_notes_nsfw)
-		headshot += preferences.read_preference(/datum/preference/text/headshot/silicon)
+		if(preferences)
+			flavor_text = preferences.read_preference(/datum/preference/text/silicon_flavor_text)
+			flavor_text_nsfw = preferences.read_preference(/datum/preference/text/silicon_flavor_text_nsfw)
+			ooc_notes += preferences.read_preference(/datum/preference/text/ooc_notes)
+			ooc_notes_nsfw += preferences.read_preference(/datum/preference/text/ooc_notes_nsfw)
+			headshot += preferences.read_preference(/datum/preference/text/headshot/silicon)
 
 	if(ishuman(holder))
 		var/mob/living/carbon/human/holder_human = holder
@@ -130,7 +131,7 @@
 
 /datum/examine_panel/ui_static_data(mob/user)
 	var/list/data = list(
-		"nova_star_status" = SSplayer_ranks.is_nova_star(holder.client, admin_bypass = FALSE),
+		"nova_star_status" = !!(holder.client && SSplayer_ranks.is_nova_star(holder.client, admin_bypass = FALSE)),
 		"opt_in_colors" = GLOB.antag_opt_in_colors,
 	)
 	return data
