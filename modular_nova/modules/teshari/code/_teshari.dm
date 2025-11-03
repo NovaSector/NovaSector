@@ -47,6 +47,12 @@
 		BODY_ZONE_R_LEG = /obj/item/bodypart/leg/right/mutant/teshari,
 	)
 
+/datum/species/teshari/get_species_description()
+	return placeholder_description
+
+/datum/species/teshari/get_species_lore()
+	return list(placeholder_lore)
+
 /datum/species/teshari/get_default_mutant_bodyparts()
 	return list(
 		"tail" = list("Teshari (Default)", TRUE),

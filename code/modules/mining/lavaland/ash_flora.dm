@@ -229,12 +229,21 @@
 	seed = /obj/item/seeds/lavaland/cactus
 	wine_power = 50
 	foodtypes = FRUIT
+
+/obj/item/food/grown/ash_flora/cactus_fruit/Initialize(mapload)
+	. = ..()
+	AddElement(/datum/element/raptor_food, growth_modifier = 0.1, ability_modifier = -0.05)
+
 /obj/item/food/grown/ash_flora/seraka
 	name = "seraka cap"
 	desc = "Small, deeply flavourful mushrooms originally native to Tizira."
 	icon_state = "seraka_cap"
 	seed = /obj/item/seeds/lavaland/seraka
 	wine_power = 40
+
+/obj/item/food/grown/ash_flora/seraka/Initialize(mapload)
+	. = ..()
+	AddElement(/datum/element/raptor_food, ability_modifier = 0.1)
 
 /obj/item/food/grown/ash_flora/fireblossom
 	name = "fire blossom"
@@ -244,7 +253,12 @@
 	seed = /obj/item/seeds/lavaland/fireblossom
 	wine_power = 40
 
-//SEEDS
+/obj/item/food/grown/ash_flora/fireblossom/Initialize(mapload)
+	. = ..()
+	// Fire flowers make fireproof raptors
+	AddElement(/datum/element/raptor_food, color_chances = string_list(list(/datum/raptor_color/blue = 5)))
+
+// SEEDS
 
 /obj/item/seeds/lavaland
 	name = "lavaland seeds"
