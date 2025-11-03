@@ -16,11 +16,12 @@
 	ears = /obj/item/radio/headset/syndicate/alt
 	l_pocket = /obj/item/modular_computer/pda/contractor
 	id = /obj/item/card/id/advanced/chameleon/elite
+	// this mostly gets set in pre_equip()
 	backpack_contents = list(
 		/obj/item/storage/box/survival/syndie,
 		/obj/item/storage/box/syndicate/contract_kit/midround,
 		/obj/item/storage/box/syndicate/contractor_loadout/stealth_contractor,
-		/obj/item/knife/combat/survival,
+		/obj/item/trench_tool,
 		/obj/item/pinpointer/crew/contractor,
 	)
 
@@ -48,7 +49,7 @@
 		/obj/item/storage/box/syndicate/contractor_loadout/tools,
 		/obj/item/storage/box/syndicate/contract_kit/midround,
 		/obj/item/storage/box/syndicate/contractor_loadout/stealth_contractor,
-		/obj/item/knife/combat/survival,
+		/obj/item/trench_tool, // multipurpose! digging graves. mining rocks. caving in faces. matches survival knife for force
 		/obj/item/pinpointer/crew/contractor,
 	)
 
