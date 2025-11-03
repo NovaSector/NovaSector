@@ -1205,12 +1205,13 @@
 	floor_tile = /obj/item/stack/tile/wood/wood_2
 
 /obj/item/stack/tile/wood/wood_2
-	name = "diagonal brick"
-	singular_name = "diagonal brick"
+	name = "Wood Barrel Floor Tile"
+	singular_name = "Wood Barrel Floor Tile"
 	icon = 'modular_nova/master_files/icons/obj/tiles.dmi'
 	icon_state = "wood_2"
 	turf_type = /turf/open/floor/wood/wood_2
 	merge_type = /obj/item/stack/tile/wood/wood_2
+	tile_rotate_dirs = list(SOUTH, NORTH)
 
 /turf/open/floor/wood/wood_3
 	icon_state = "wood_3"
