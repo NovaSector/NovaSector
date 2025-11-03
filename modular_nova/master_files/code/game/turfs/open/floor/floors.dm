@@ -1229,6 +1229,7 @@
 	icon_state = "wood_5"
 	turf_type = /turf/open/floor/wood/wood_5
 	merge_type = /obj/item/stack/tile/wood/wood_5
+	tile_rotate_dirs = list(SOUTH, NORTH)
 
 /turf/open/floor/wood/wood_6
 	icon_state = "wood_6"
