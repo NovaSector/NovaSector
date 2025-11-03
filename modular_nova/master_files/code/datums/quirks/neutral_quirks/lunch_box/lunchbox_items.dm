@@ -81,7 +81,7 @@
 	icon_state = "ally"
 
 /obj/item/storage/lunchbox/ship
-	desc = "A Spessman's best friend, a beautifully packed lunch, on the side depicting a ship moving fast around a planet."
+	desc = "A Spessman's best friend: a beautifully packed lunch, on the side depicting a ship moving fast around a planet."
 	icon_state = "ship"
 
 /obj/item/storage/lunchbox/ammo
