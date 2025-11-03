@@ -268,7 +268,8 @@
 		/obj/item/stack/tile/carpet/polite/yellow/fifty = 2,
 		/obj/item/stack/tile/carpet/polite/green/fifty = 2,
 		/obj/item/stack/tile/carpet/polite/blue/fifty = 2,
-		/obj/item/stack/tile/carpet/polite/purple/fifty = 2,)
+		/obj/item/stack/tile/carpet/polite/purple/fifty = 2,
+	)
 	cost = CARGO_CRATE_VALUE * 12
 
 /*

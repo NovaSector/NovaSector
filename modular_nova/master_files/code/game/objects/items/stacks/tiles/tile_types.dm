@@ -207,7 +207,7 @@
 
 	icon_state = "carpet_polite_red"
 
-	turf_type = /turf/open/floor/carpet/polite
+	turf_type = /turf/open/floor/carpet/polite/red
 	merge_type = /obj/item/stack/tile/carpet/polite
 
 /obj/item/stack/tile/carpet/polite/red/fifty
