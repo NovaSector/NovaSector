@@ -90,7 +90,7 @@
 	internals_slot = ITEM_SLOT_RPOCKET
 	shoes = /obj/item/clothing/shoes/combat/coldres
 	gloves = /obj/item/clothing/gloves/tackler/combat
-	back = /obj/item/tank/jetpack/oxygen/harness
+	back = /obj/item/tank/jetpack/harness
 	id = /obj/item/card/id/advanced/chameleon
 
 /datum/outfit/deathmatch_loadout/syndicate_space/pre_equip(mob/living/carbon/human/user, visualsOnly = FALSE)

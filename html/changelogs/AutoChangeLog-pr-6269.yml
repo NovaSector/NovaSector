@@ -1,4 +1,0 @@
-author: "Bannhammger"
-delete-after: True
-changes:
-  - bugfix: "character selection screen implants are now affected by EMP"
