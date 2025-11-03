@@ -382,12 +382,13 @@
 	floor_tile = /obj/item/stack/tile/iron/pattern_10
 
 /obj/item/stack/tile/iron/pattern_10
-	name = "diagonal brick vertical tile"
-	singular_name = "diagonal brick vertical tile"
+	name = "Arrow Pattern Brick Tile"
+	singular_name = "Arrow Pattern Brick Tile"
 	icon = 'modular_nova/master_files/icons/obj/tiles.dmi'
 	icon_state = "pattern_10"
 	turf_type = /turf/open/floor/iron/pattern_10
 	merge_type = /obj/item/stack/tile/iron/pattern_10
+	tile_rotate_dirs = list(SOUTH, NORTH, EAST, WEST)
 
 /turf/open/floor/iron/pattern_11
 	icon_state = "pattern_11"
@@ -764,12 +765,13 @@
 	floor_tile = /obj/item/stack/tile/iron/dark/pattern_10
 
 /obj/item/stack/tile/iron/dark/pattern_10
-	name = "dark diagonal brick vertical tile"
-	singular_name = "dark diagonal brick vertical tile"
+	name = "Dark Arrow Pattern Brick Tile"
+	singular_name = "Dark Arrow Pattern Brick Tile"
 	icon = 'modular_nova/master_files/icons/obj/tiles.dmi'
 	icon_state = "dark_pattern_10"
 	turf_type = /turf/open/floor/iron/dark/pattern_10
 	merge_type = /obj/item/stack/tile/iron/dark/pattern_10
+	tile_rotate_dirs = list(SOUTH, NORTH, EAST, WEST)
 
 /turf/open/floor/iron/dark/pattern_11
 	icon_state = "dark_pattern_11"
@@ -1145,12 +1147,13 @@
 	floor_tile = /obj/item/stack/tile/iron/white/pattern_10
 
 /obj/item/stack/tile/iron/white/pattern_10
-	name = "white diagonal brick vertical tile"
-	singular_name = "white diagonal brick vertical tile"
+	name = "White Arrow Pattern Brick Tile"
+	singular_name = "White Arrow Pattern Brick Tile"
 	icon = 'modular_nova/master_files/icons/obj/tiles.dmi'
 	icon_state = "white_pattern_10"
 	turf_type = /turf/open/floor/iron/white/pattern_10
 	merge_type = /obj/item/stack/tile/iron/white/pattern_10
+	tile_rotate_dirs = list(SOUTH, NORTH, EAST, WEST)
 
 /turf/open/floor/iron/white/pattern_11
 	icon_state = "white_pattern_11"
@@ -1240,6 +1243,7 @@
 	icon_state = "wood_4"
 	turf_type = /turf/open/floor/wood/wood_4
 	merge_type = /obj/item/stack/tile/wood/wood_4
+	tile_rotate_dirs = list(SOUTH, NORTH)
 
 /turf/open/floor/wood/wood_5
 	icon_state = "wood_5"
