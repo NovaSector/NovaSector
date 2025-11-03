@@ -17,13 +17,15 @@
 	var/ready_to_fire = TRUE // Start ready. Becomes FALSE during the loading cycle.
 	var/loading_time = 30 // 3 seconds at 10 ticks per second
 	var/current_target = null
+	var/loading_in_progress = FALSE // NEW: Track if we're already in a loading sequence
 
 /obj/item/mecha_parts/mecha_equipment/weapon/ballistic/cannon/proc/spot_target(atom/target)
-	if(!target)
+	if(!target || loading_in_progress) // NEW: Check if already loading
 		return
 
 	current_target = target
 	ready_to_fire = FALSE
+	loading_in_progress = TRUE // NEW: Mark loading as in progress
 
 	// **PHASE 1: SPOTTING & AMMO SELECTION**
 	// The system acts as the Commander, identifying the target and selecting ammo.
@@ -64,10 +66,8 @@
 	// Loader's Final Callout: "READY!"
 	to_chat(chassis.occupants, "[icon2html(src, chassis.occupants)][span_notice(">&nbsp;READY!")]")
 	ready_to_fire = TRUE
+	loading_in_progress = FALSE // NEW: Loading sequence complete
 	projectile = ammo_types[current_ammo_type] // Ensure the projectile type is set *before* firing.
-
-	// Optional: If we still have a target, we can automatically shout "ON THE WAY!" when the pilot clicks again.
-	// For now, we'll let the pilot take the shot.
 
 /obj/item/mecha_parts/mecha_equipment/weapon/ballistic/cannon/action(mob/source, atom/target, list/modifiers)
 	// **FIRING SEQUENCE**
@@ -91,8 +91,7 @@
 		to_chat(chassis.occupants, "[icon2html(src, chassis.occupants)][span_danger("TARGET!")]")
 		ready_to_fire = FALSE
 		current_target = null
-		// After firing, the cannon is empty and needs a new round.
-		// You could add an automatic reload sequence here if desired, or wait for the next target click.
+		// Note: loading_in_progress remains FALSE here since we just fired
 	return fired
 
 /obj/projectile/bullet/cannon
