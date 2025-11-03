@@ -182,3 +182,7 @@
   - bugfix: access vending machines (such as the Command Outfitting Station) will
       now display the correct icons
   - bugfix: fixed hemophage tongue augments not receiving a drain ability
+2025-11-03:
+  vinylspiders:
+  - bugfix: stops space vine spawning algorithm from crashing the server (hopefully)
+  - bugfix: Lunchbox quirk no longer shows up on medical scan
