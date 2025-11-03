@@ -195,6 +195,10 @@
 			var/datum/species/dullahan/dullahan_species = human.dna.species
 			if(isobj(dullahan_species.my_head.loc))
 				var/obj/head = dullahan_species.my_head.loc
+				// NOVA EDIT ADDITION START
+				if(speech_args[SPEECH_MODS][MODE_HEADSET] || speech_args[SPEECH_MODS][RADIO_EXTENSION])
+					human.radio(message = speech_args[SPEECH_MESSAGE], message_mods = speech_args[SPEECH_MODS], spans = speech_args[SPEECH_SPANS], language = speech_args[SPEECH_LANGUAGE])
+				// NOVA EDIT ADDITION END
 				if(speech_args[SPEECH_MODS][WHISPER_MODE]) // whisper away
 					speech_args[SPEECH_SPANS] |= SPAN_ITALICS
 				head.say(speech_args[SPEECH_MESSAGE], spans = speech_args[SPEECH_SPANS], sanitize = FALSE, language = speech_args[SPEECH_LANGUAGE], message_range = speech_args[SPEECH_RANGE], message_mods = speech_args[SPEECH_MODS])
