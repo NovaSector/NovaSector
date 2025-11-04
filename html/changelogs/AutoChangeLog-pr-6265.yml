@@ -1,0 +1,4 @@
+author: "Iajret"
+delete-after: True
+changes:
+  - code_imp: "[Nova] AI and borg language holder handling have been changed a bit. If any language is missing, please notify"

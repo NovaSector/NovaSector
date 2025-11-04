@@ -1,0 +1,205 @@
+2025-11-01:
+  Hatterhat:
+  - balance: Street boxing's knockdowns on critical hits are much shorter now, and
+      deals less stamina damage, because crits tend to chain together.
+  - balance: Equipping knuckle dusters now gives you a melee attack's worth of click
+      delay until your next action. If you're using dusters, commit to using knuckle
+      dusters.
+  Stalkeros:
+  - bugfix: Upside-down pierogi-ravioli are now actually visible.
+  dee-dubya:
+  - rscadd: 'Adds four new plushies to the loadout: Squishy Yellow Rock, Securifox,
+      Heckun Bnuuy, and Tiny Overwatch. Credit to deedubya, bunzel, and crumpaloo
+      for the art.'
+  trazodont:
+  - rscadd: cloth, durathread, wood, leather and bamboo can now be held by produce
+      displays
+  vinylspiders:
+  - bugfix: fixes footstep sounds pref not applying in some rare cases
+  - bugfix: fixes hemophages sometimes being able to get more than one drain action
+2025-11-02:
+  Aliceee2ch:
+  - spellcheck: Adds missing space in gullion description.
+  - spellcheck: Birdshot plaque was decomissioned and replaced on Catwalk.
+  - qol: You can now use bow with big fingers.
+  ArcaneMusic:
+  - rscadd: Leaving a can of soda exposed to the elements at low pressure will now
+      burst.
+  ArchBTW:
+  - map: ALL - fix departmental maint access consistency
+  - map: CATWALK (MEDBAY) - add chemlab multitool, add unrestricted access helper
+      in medbay lobby, unbolt chemlab door
+  - map: CATWALK, TRAM, META - syringegun consistency (now total 2)
+  - map: CATWALK, ICEBOX - add shower soap spawn chance
+  - map: NEBULASTATION -  add unrestricted access helpers in medbay
+  - map: DELTA - fix auxiliary tool storage access consistency
+  - map: ICEBOX - move syringeguns moved into windoors
+  - map: TRAM - add pharmacy igniters
+  Bannhammger:
+  - bugfix: character selection screen implants are now affected by EMP
+  Capsandi:
+  - qol: Charlie station ghostroles call on other observers to join in the fun when
+      taken.
+  - balance: Low pressure damage has been doubled
+  FalloutFalcon:
+  - spellcheck: Lawyer and Coroner round tips now reflect how many job slots they
+      have.
+  - image: cordon icon changed to be easier for mappers to visualize
+  Fghj240:
+  - qol: Agent IDs autofill the user's current age if they have one
+  - bugfix: Agent IDs can display custom jobs upon close examination
+  - bugfix: Bioscramble effects no longer swap body parts of that can't lose limbs
+  - bugfix: Abductor heal gland no longer ejects limbs of carbons that can't lose
+      limbs
+  - rscadd: Added cybernetic cat ears
+  - code_imp: Wall-penetrating and whisper-sensitive ears now properly utilize organ
+      traits
+  - map: Added two DeForest first aid stations to the syndicate bioweapons base
+  - map: Added silver bars to the syndicate bioweapons base for grinding
+  - map: Added meat and a food processor to the syndicate bioweapons base kitchen
+  - map: The syndicate bioweapons base kitchen now contains a range
+  - map: The syndicate bioweapons base kitchen contains less flour, rice, and sugar
+  FlufflesTheDog:
+  - bugfix: Dullahans spawn with their intended organs
+  - bugfix: Dullahans can hear/see emotes
+  - bugfix: Dullahan heads properly have preferences applied to them
+  - bugfix: Dullahan heads no longer appear eyeless
+  - bugfix: Dullahans can hear things from their head regardless of if their body
+      is nearby
+  - bugfix: Dullahans can hear TTS messages
+  - bugfix: Dullahans have a TTS voice
+  - qol: Dullahans have a head in the character preview, for the sake of easier customization
+  Gboster-0:
+  - bugfix: the ore refineries now drop stacks of materials below them if they are
+      not linked to a silo instead of being sent to the shadow realm
+  Ghommie:
+  - refactor: Refactored screen alerts a little. Most should now fit the player's
+      hud style. Report any issue.
+  Melber:
+  - bugfix: Vampires suck again, I mean, they can suck any bloodtype again
+  Melbert:
+  - spellcheck: Replaced mentions of "Vey-Medical" with "DeForest Corporation"
+  - qol: Tox damage from allergic reactions is affected by tox damage modifiers
+  - refactor: Changed how allergic reactions to chem pause metabolism, report any
+      oddities
+  - rscadd: Nohitting a combat bitrunning domain rewards a higher score.
+  - qol: Vampires can drink straight outta blood bags
+  - bugfix: Blackout drunk / Split personality no longer ghosts you
+  NiklasNeighbor:
+  - refactor: refactored Lasertag equipment to use components, therefore making it
+      scalable. Please report any issues.
+  OrbisAnima:
+  - bugfix: solves an exploit that allowed users to buy goodie packs with the pda
+      budget program
+  - admin: Places a warning check to use the more optimized ctrl-click menu on the
+      select equipment verb
+  Pickle-Coding:
+  - bugfix: Supermatter anomalies no longer drop anomaly cores.
+  - bugfix: Fix supermatter flux anomalies from sm delam not emping or whatever.
+  SmArtKar:
+  - rscadd: Raptors now have a new youngling in-between growth stage
+  - balance: Mining base raptors now spawn as younglings, and can be grown up by feeding
+      them some meat or plants
+  - balance: Some of the raptor colors, such as purple, white and blue, had their
+      effects changed around
+  - balance: Raptors no longer can lavawalk by default, this has been turned into
+      blue raptors' unique ability instead
+  - balance: Raptors no longer eat projectiles aimed at their owner, but have lost
+      50 HP. Green and black raptors remain at 400 HP, and red raptors have been buffed
+      to 300 HP
+  - balance: Raptors can now heal by eating meat and lavaland plants
+  - rscdel: Icebox raptors lost their unique sprites
+  - bugfix: Dogs no longer consider all corgis to be puppies
+  - bugfix: Fixed dragging storage containers onto your hand slot sometimes behaving
+      oddly
+  - bugfix: Fixed progress bars and cogs sometimes showing offset to the side of you
+      / the mob you're interacting with
+  - bugfix: Mounts and vehicles no longer move x1.4 times as fast diagonally
+  - refactor: Rewrote the happiness component
+  Sothanforax:
+  - map: added the ministation cargo shuttle
+  SyncIt21:
+  - rscdel: Removes circuit board recipe for vend a tray. Use 5 wood to create a "display
+      case chassis" and insert a card reader to create the tray instead
+  - bugfix: posters applied on walls fall off when the wall is destroyed
+  - bugfix: player mounted tram wall frame controller falls off when the wall is destroyed
+  - bugfix: exporting seeds won't yield ridiculously large profits
+  TealSeer:
+  - bugfix: fixed neck items using belt offset
+  arbuzik456:
+  - rscadd: Added UI buttons for mech cargo module, left click to dispose first item
+      in the list and right click to select an item to drop.
+  - rscadd: Added UI button for mech fire extinguisher, left click to splash and right
+      click to refill.
+  - balance: Mech fire extinguisher module now goes on any mech, combat slips with
+      a press of a button!
+  carpotoxin:
+  - balance: Removes the space dragon's swan song phase, instead allowing them to
+      retry making a rift to recover
+  - balance: The space dragon loses less movement speed and self-stuns for less long
+      after losing an objective
+  - balance: The space dragon's rift has more integrity, from 300 up to 500 (onpar
+      with a secure crate)
+  - balance: The space dragon has 200 extra HP, from 400 to 600
+  - bugfix: The space dragon's carp got skipped when we buffed regular carp, they're
+      now stronger as is intended
+  lelandkemble:
+  - bugfix: Prevents woodfires from melting the captain's Spare ID Safe
+  - map: Meta's pipe and wire placements are more predictable
+  - bugfix: Meta's pipes and wires below library are connected again
+  - spellcheck: Examine text for soil no longer refers to it as "They"
+  - bugfix: Prevents post-slip events such as hats falling off from occurring while
+      crawling over slips.
+  loganuk:
+  - map: CATWALK - Upper level air and scrubber pipes now fixed plus a lot more routes
+      for reliability to link together, Also removed airless tiles from near arrivals
+      to stop firelock hell
+  paganiy:
+  - bugfix: Containers that appear sealed (spray bottles, hyposprays, gel cans, condiment
+      packets, inhaler cartridges) no longer spill when thrown or poured out.
+  projectkepler-ru:
+  - rscadd: True Strike is also now AP, making detective more scary and BR-38 much
+      more effective against highly armoured target
+  theselfish:
+  - spellcheck: Clown Op shoe description no longer starts with a lower case.
+  timothymtorres:
+  - rscadd: Thunder from weather will now smelt any mining ores it hits.
+  - balance: Remove thunder exploding turfs and damaging objects however mobs will
+      still be affected.
+  tontyGH:
+  - spellcheck: Repairing a brain will now have it turn a brighter shade of a more
+      accurate color.
+  tonyhawq:
+  - bugfix: fixes permanent soul binding between golf carts and riders
+  uaioy:
+  - spellcheck: wave of desperation description does not state it sleeps you anymore
+  vinylspiders:
+  - code_imp: optimizes space vine spawning to create less lag.
+  - bugfix: animal AI no longer mistakes rocks for a valid breeding partner
+  - bugfix: fixes the tactical maid headband having messed up icons
+  - bugfix: the autodrobe (and possibly other vending machines) will no longer display
+      greyed out duplicates of nova products
+  - bugfix: access vending machines (such as the Command Outfitting Station) will
+      now display the correct icons
+  - bugfix: fixed hemophage tongue augments not receiving a drain ability
+2025-11-03:
+  vinylspiders:
+  - bugfix: stops space vine spawning algorithm from crashing the server (hopefully)
+  - bugfix: Lunchbox quirk no longer shows up on medical scan
+2025-11-04:
+  FlufflesTheDog:
+  - rscadd: Golems and Dullahans are now playable, vet-locked species. Both are subject
+      to head/security related job restrictions and adjustments to make them both
+      functional and balanced to the station
+  - bugfix: Dullahans get their intended organs
+  - bugfix: Dullahans can hear emotes
+  - bugfix: Dullahan's heads are no longer randomized
+  - bugfix: Dullahans can hear things from their head even when their body is not
+      nearby
+  - qol: Dullahans appear to have a head in the character preview, for the sake of
+      being able to edit your head
+  - qol: Dullahans get a radio implant upon spawning
+  RatFromTheJungle:
+  - balance: a heavy duty rebalance of most station ballistics, raising their time
+      to down by roughly around 35%, evening out to around 3-4s to down, instead of
+      2-2.5s

@@ -1061,3 +1061,8 @@
   - rscadd: Thief gloves can quietly steal accessories through the strip menu
   vinylspiders:
   - qol: Round ID now shows in the top byond window text
+2025-10-29:
+  Stalkeros, Hollandaise for the sprites:
+  - rscadd: Adds, a LOT of new food to the food replicator. Uh, something-something,
+      lore, new matrixes, I dunno.
+  - rscdel: Colonial nachos are gone. Good riddance!

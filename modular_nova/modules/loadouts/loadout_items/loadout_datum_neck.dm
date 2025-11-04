@@ -325,6 +325,7 @@
 	name = "Seer Cloak (Colorable)"
 	item_path = /obj/item/clothing/neck/greyscaled/seecloak
 	group = "Cloaks and Shrouds"
+	loadout_flags = parent_type::loadout_flags | LOADOUT_FLAG_ALLOW_RESKIN
 
 /datum/loadout_item/neck/matroncloak
 	name = "Matron Cloak (Colorable)"
