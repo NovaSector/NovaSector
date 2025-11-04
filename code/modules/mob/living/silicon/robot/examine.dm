@@ -50,3 +50,6 @@
 	. += get_silicon_flavortext(user)
 	//NOVA EDIT ADDITION END
 	. += ..()
+
+/mob/living/silicon/robot/examine_descriptor(mob/user)
+	return "cyborg"
