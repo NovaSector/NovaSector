@@ -30,7 +30,7 @@
 #define SECHUD_SOLFED_SMARTGUNNER "hud_solfed_gunner"
 #define SECHUD_SOLFED_SPECIALIST "hud_solfed_specialist"
 #define SECHUD_SOLFED_COMMANDO "hud_solfed_commando"
-#define SECHUD_SOLFED_SQUADLEADER "hud_solfed_esatier_lead"
+#define SECHUD_SOLFED_SQUADLEADER "hud_solfed_espatier_lead"
 #define SECHUD_SOLFED_ODST "hud_solfed_odst"
 #define SECHUD_SOLFED_LIASON "hud_solfed_liason"
 

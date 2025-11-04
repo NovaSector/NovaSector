@@ -108,6 +108,7 @@
 
 /datum/outfit/solfed/military/espatier/corpsman
 	name = "SolFed Espatier (Corpsman)"
+	uniform = /obj/item/clothing/under/solfed/marines/paramedic
 	ears = /obj/item/radio/headset/headset_solfed/espatier/corpsman
 	r_pocket = /obj/item/advanced_choice_beacon/solfed/corpsman
 	id_trim = /datum/id_trim/solfed/espatier/corpsman
@@ -117,6 +118,7 @@
 
 /datum/outfit/solfed/military/espatier/engineer
 	name = "SolFed Espatier (Combat Technician)"
+	uniform = /obj/item/clothing/under/solfed/marines/engineer
 	ears = /obj/item/radio/headset/headset_solfed/espatier/engineer
 	r_pocket = /obj/item/advanced_choice_beacon/solfed/engineer
 	id_trim = /datum/id_trim/solfed/espatier/engineer
@@ -126,6 +128,7 @@
 
 /datum/outfit/solfed/military/espatier/squadleader
 	name = "SolFed Espatier (Squad Leader)"
+	uniform = /obj/item/clothing/under/solfed/marines/squadleader
 	ears = /obj/item/radio/headset/headset_solfed/espatier/squadleader
 	r_pocket = /obj/item/advanced_choice_beacon/solfed/squadleader
 	id_trim = /datum/id_trim/solfed/espatier/squadleader
@@ -136,15 +139,23 @@
 /// Only spawns on the second wave or grand response squad
 /datum/outfit/solfed/military/specialist
 	name = "SolFed Specialist"
+	uniform = /obj/item/clothing/under/solfed/marines/specialist
 	r_pocket = /obj/item/advanced_choice_beacon/solfed/specialist
 	id_trim = /datum/id_trim/solfed/espatier/specialist
 
 /// These guys are lightly equipped, more like cannon fodder, much more than marshals, but oddly more well equipped than a marshal.
 /datum/outfit/solfed/military/odst
 	name = "SolFed Orbital Drop Trooper"
+	uniform = /obj/item/clothing/under/solfed/marines/assault
 	id_trim = /datum/id_trim/solfed/espatier/odst
 
 /// When shit has gone TRULY WRONG (In reality these guys are not super strong equipment wise, but just meant to be versitille)
 /datum/outfit/solfed/military/commando
 	name = "SolFed Commando"
 	id_trim = /datum/id_trim/solfed/espatier/commando
+
+/datum/outfit/solfed/military/smartgunner
+	name = "SolFed Smartgunner"
+	uniform = /obj/item/clothing/under/solfed/marines/smartgunner
+	r_pocket = /obj/item/advanced_choice_beacon/solfed/smartgunner
+	id_trim = /datum/id_trim/solfed/espatier/smartgunner
