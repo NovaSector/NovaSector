@@ -126,6 +126,7 @@
 		part.set_armor(armor_type)
 		part.resistance_flags = resistance_flags
 		part.flags_1 |= atom_flags //flags like initialization or admin spawning are here, so we cant set, have to add
+		part.item_flags |= MODSUIT_PART // NOVA EDIT ADDITION
 		part.heat_protection = NONE
 		part.cold_protection = NONE
 		part.max_heat_protection_temperature = max_heat_protection_temperature
@@ -145,8 +146,8 @@
 		part_datum.sealed_layer = category[SEALED_LAYER]
 		part_datum.unsealed_message = category[UNSEALED_MESSAGE] || "No unseal message set! Tell a coder!"
 		part_datum.sealed_message = category[SEALED_MESSAGE] || "No seal message set! Tell a coder!"
-		part_datum.can_overslot = TRUE //NOVA EDIT CHANGE, overslottable everything - ORIGINAL: part_datum.can_overslot = category[CAN_OVERSLOT] || FALSE
-		part.clothing_flags = category[UNSEALED_CLOTHING] || NONE
+		part_datum.can_overslot = TRUE // NOVA EDIT CHANGE, overslottable everything - ORIGINAL: part_datum.can_overslot = category[CAN_OVERSLOT] || FALSE
+		part.clothing_flags = MOD_CLOTHING | (category[UNSEALED_CLOTHING] || NONE) // NOVA EDIT CHANGE - ORIGINAL: part.clothing_flags = category[UNSEALED_CLOTHING] || NONE
 		part.visor_flags = category[SEALED_CLOTHING] || NONE
 		part.flags_inv = category[UNSEALED_INVISIBILITY] || NONE
 		part.visor_flags_inv = category[SEALED_INVISIBILITY] || NONE

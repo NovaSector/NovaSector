@@ -52,6 +52,10 @@ INITIALIZE_IMMEDIATE(/mob/living/carbon/human/dummy)
 		var/obj/item/checking = items_to_check[i]
 		if(QDELETED(checking)) //Nulls in the list, depressing
 			continue
+		// NOVA EDIT ADDITION START
+		if(checking.item_flags & MODSUIT_PART) // Skip any MOD parts, which are created indirectly and should be managed by the suit itself
+			continue
+		// NOVA EDIT ADDITION END
 		if(!isitem(checking)) //What the fuck are you on
 			to_nuke += checking
 			continue
