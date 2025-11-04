@@ -74,8 +74,38 @@
 	icon = 'modular_nova/modules/modular_items/icons/remote.dmi'
 	icon_state = "solfed_firearm_beacon"
 	inhand_icon_state = "electronic"
-	company_source = "Sol Federation Primary Weaapon Requisitions"
+	company_source = "Sol Federation Weapon Requisitions"
 	company_message = span_bold("Request recieved, dropping shipment on location.")
+
+/obj/item/choice_beacon/solfed/generate_display_names()
+	var/static/list/selectable_gun_types = list(
+		"Krijgspaard Marksman Rifle Gunset" = /obj/item/storage/toolbox/guncase/nova/solfedspec/marksman,
+		"MMR Assault Rifle Gunset" = /obj/item/storage/toolbox/guncase/nova/solfedspec/mmr,
+		"Jager Trench Shotgun Gunset" = /obj/item/storage/toolbox/guncase/nova/solfedspec/jager,
+		"M64 Shotgun Gunset" = /obj/item/storage/toolbox/guncase/nova/solfedspec/m64,
+		"Renopard Rifle Gunset" = /obj/item/storage/toolbox/guncase/nova/solfedspec/renopard,
+	)
+	return selectable_gun_types
+
+/obj/item/choice_beacon/solfed/secondary
+	name = "Sol Federation Secondary Weapon Beacon"
+
+	icon_state = "solfed_firearm_beacon_secondary"
+
+/obj/item/choice_beacon/solfed/secondary/generate_display_names()
+	var/static/list/selectable_gun_types = list(
+		"Fendér Revolver Set" = /obj/item/storage/toolbox/guncase/nova/pistol/trappiste_small_case/bluvolva,
+		"Custom Hellfire Laser Rifle" = /obj/item/gun/energy/laser/hellgun/blueshield,
+		"NT20 Submachinegun Gunset" = /obj/item/storage/toolbox/guncase/nova/ntspecial/nt20,
+		"Katyusha Shotgun Gunset" = /obj/item/storage/toolbox/guncase/nova/katyusha,
+	)
+	return selectable_gun_types
+
+
+/obj/item/choice_beacon/solfed/unlocked
+	name = "Sol Federation Heavy Weapon Beacon"
+	desc = "A sol Federation Weapon's Beacon with it's protocols unlocked, granting a much heavier set of firearms"
+	icon_state = "solfed_firearm_beacon_heavy"
 
 /obj/item/choice_beacon/solfed/generate_display_names()
 	var/static/list/selectable_gun_types = list(
