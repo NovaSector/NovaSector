@@ -29,7 +29,7 @@
 	name = "\improper Bluespace Tech's belt"
 	w_class = WEIGHT_CLASS_TINY
 	storage_type = /datum/storage/debug
-	desc = "Can hold a boat load of things...  Why do you have this?!"
+	desc = "Can hold a boatload of things...  Why do you have this?!"
 	icon = 'modular_nova/modules/bluespace_admin/icons/obj/belt.dmi'
 	icon_state = "admeme_satchel"
 	worn_icon = 'modular_nova/modules/bluespace_admin/icons/mob/belt.dmi'
