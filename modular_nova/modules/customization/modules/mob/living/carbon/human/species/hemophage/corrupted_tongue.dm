@@ -6,8 +6,6 @@
 /datum/component/organ_corruption/tongue
 	corruptable_organ_type = /obj/item/organ/tongue
 	corrupted_icon_state = "tongue"
-	/// The item action given to the tongue once it was corrupted.
-	var/tongue_action_type = /datum/action/cooldown/hemophage/drain_victim
 
 
 /datum/component/organ_corruption/tongue/corrupt_organ(obj/item/organ/corruption_target)
@@ -20,10 +18,13 @@
 	corrupted_tongue.liked_foodtypes = BLOODY
 	corrupted_tongue.disliked_foodtypes = NONE
 
-	var/datum/action/tongue_action = corruption_target.add_item_action(tongue_action_type)
+	var/datum/action/cooldown/hemophage/drain_victim/tongue_action = /datum/action/cooldown/hemophage/drain_victim
+	for (var/datum/action/action as anything in corrupted_tongue.actions) // go through our actions and make sure we don't already have it
+		if(action.type == tongue_action)
+			return
 
-	if(corruption_target.owner)
-		tongue_action.Grant(corruption_target.owner)
+	tongue_action = corruption_target.add_item_action(tongue_action)
+	tongue_action.Grant(corruption_target.owner)
 
 
 /datum/action/cooldown/hemophage/drain_victim

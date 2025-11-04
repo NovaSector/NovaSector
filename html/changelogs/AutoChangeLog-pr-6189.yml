@@ -1,6 +1,0 @@
-author: "Hatterhat"
-delete-after: True
-changes:
-  - balance: "Due to a quite lucrative military surplus buyback program by SolFed, Nanotrasen has seen fit to sell back their stocks of MMR-2543-series rifles, including the 2543E assault rifles and 2543I battle rifles."
-  - balance: "In place of the now-sold-back MMR rifles, Nanotrasen has begun stocking (or restocking?) the previous-generation Veldjen-Kuiper Armories' Renpaard-d'Infanterie battle rifle and Stridjpaard-d'Elite designated marksman rifle. Find them in your local cargo console or armory."
-  - balance: "The Sindano fires faster (0.25s fire delay, matching the MMR-2543E) to give it more of its niche as a bullet hose for turning targets into perforated targets."

@@ -182,6 +182,7 @@
 
 	return SSaccessories.sprite_accessories["wings"]
 	// NOVA EDIT ADDITION END
+
 ///Update our wingsprite to the open wings variant
 /datum/bodypart_overlay/mutant/wings/functional/proc/open_wings()
 	wings_open = TRUE

@@ -56,7 +56,7 @@
 	name =".60 Strela bullet"
 	icon_state = "gaussphase"
 	speed = 2.5
-	damage = 70
+	damage = 50
 	armour_penetration = 50
 	wound_bonus = 15 // Toned back down, as it's getting alot more damage.
 	exposed_wound_bonus = 15
