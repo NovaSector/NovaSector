@@ -241,6 +241,43 @@ SOLFED ARMOR VALUES!
 	greyscale_colors = "#4d4d4d#333333#292929"
 	can_adjust = FALSE
 
+/obj/item/clothing/under/solfed/marines/squadleader
+	icon_state = "/obj/item/clothing/under/solfed/marines/squadleader"
+	post_init_icon_state = "solfed_camo_squadlead"
+	worn_icon_state = "solfed_camo_squadlead"
+	worn_icon_digi = "solfed_camo_squadlead"
+
+/obj/item/clothing/under/solfed/marines/paramedic
+	icon_state = "/obj/item/clothing/under/solfed/marines/squadleader"
+	post_init_icon_state = "solfed_camo_paramed"
+	worn_icon_state = "solfed_camo_paramed"
+	worn_icon_digi = "solfed_camo_paramed"
+
+/obj/item/clothing/under/solfed/marines/smartgunner
+	icon_state = "/obj/item/clothing/under/solfed/marines/squadleader"
+	post_init_icon_state = "solfed_camo_smartgun"
+	worn_icon_state = "solfed_camo_smartgun"
+	worn_icon_digi = "solfed_camo_smartgun"
+
+/obj/item/clothing/under/solfed/marines/specialist
+	icon_state = "/obj/item/clothing/under/solfed/marines/squadleader"
+	post_init_icon_state = "solfed_camo_specialist"
+	worn_icon_state = "solfed_camo_specialist"
+	worn_icon_digi = "solfed_camo_specialist"
+
+/obj/item/clothing/under/solfed/marines/engineer
+	icon_state = "/obj/item/clothing/under/solfed/marines/squadleader"
+	post_init_icon_state = "solfed_camo_engie"
+	worn_icon_state = "solfed_camo_engie"
+	worn_icon_digi = "solfed_camo_engie"
+
+/obj/item/clothing/under/solfed/marines/assault
+	icon_state = "/obj/item/clothing/under/solfed/marines/squadleader"
+	post_init_icon_state = "solfed_camo_assault"
+	worn_icon_state = "solfed_camo_assault"
+	worn_icon_digi = "solfed_camo_assault"
+	greyscale_colors = "#FFFFFF#CBCDD1#8C92A5"
+
 /// SolFed Accessories
 /obj/item/clothing/accessory/nova/solfedribbon
 	name = "\improper SolFed rank ribbon"
