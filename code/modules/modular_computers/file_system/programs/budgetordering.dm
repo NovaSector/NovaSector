@@ -33,6 +33,10 @@
 	var/stationcargo = TRUE
 	///The account this console processes and displays. Independent from the account the shuttle processes.
 	var/cargo_account = ACCOUNT_CAR
+	// NOVA EDIT ADDITION START
+	///Flag that controls which supplies packs this program is allowed to order from, as it emulates a particular cargo console.
+	var/console_flag = CARGO_CONSOLE_PDA
+	// NOVA EDIT ADDITION END
 
 /datum/computer_file/program/budgetorders/proc/is_visible_pack(mob/user, paccess_to_check, list/access, contraband)
 	if(HAS_SILICON_ACCESS(user)) //Borgs can't buy things.
@@ -99,7 +103,17 @@
 		if((P.hidden && (P.contraband && !contraband) || (P.special && !P.special_enabled) || P.drop_pod_only))
 			continue
 
+		// NOVA EDIT ADDITION START
+		if(!(P.console_flag & console_flag))
+			continue
+		// NOVA EDIT ADDITION END
+
 		var/obj/item/first_item = length(P.contains) > 0 ? P.contains[1] : null
+		// NOVA EDIT ADDITION START
+		if (first_item && P.auto_name)
+			P.name = first_item.name
+			P.desc = first_item.desc
+		// NOVA EDIT ADDITION END
 		data["supplies"][P.group]["packs"] += list(list(
 			"name" = P.name,
 			"cost" = P.get_cost(),
@@ -259,6 +273,7 @@
 				if(isnull(reason) || ..())
 					return
 
+			var/uses_cargo_budget = FALSE // NOVA EDIT ADDITION - boolean flag to check if we are using the cargo budget without doing excesive shenanigans.
 			if(id_card_customer?.registered_account?.account_job && !self_paid) //Find a budget to pull from
 				var/datum/bank_account/personal_department = SSeconomy.get_dep_account(id_card_customer.registered_account.account_job.paycheck_department)
 				if(!(personal_department.account_holder == "Cargo Budget"))
@@ -267,9 +282,13 @@
 						return
 					if(choice != "Cargo Budget")
 						account = personal_department
+					// NOVA EDIT ADDITION START 
+					else if (choice == "Cargo Budget") //in case the choices ever change.
+						uses_cargo_budget = TRUE
+					// NOVA EDIT ADDITION END 
 					name = id_card_customer.registered_account?.account_holder
 
-			if(pack.goody && !self_paid)
+			if((pack.goody && !pack.departamental_goody) && !self_paid) // NOVA EDIT CHANGE - ORIGINAL: if(pack.goody && !self_paid)
 				playsound(computer, 'sound/machines/buzz/buzz-sigh.ogg', 50, FALSE)
 				computer.say("ERROR: Small crates may only be purchased by private accounts.")
 				return
@@ -282,6 +301,11 @@
 			if(!requestonly && !self_paid && ishuman(usr) && !account)
 				var/obj/item/card/id/id_card = computer.stored_id?.GetID()
 				account = SSeconomy.get_dep_account(id_card?.registered_account?.account_job.paycheck_department)
+			// NOVA EDIT ADDITION START - We do this to avoid the creation of departamental Cargo Budget goody lockboxes.
+			if (uses_cargo_budget && pack.goody && pack.departamental_goody)
+				pack.goody = FALSE
+				account = null
+			// NOVA EDIT ADDITION END
 
 			var/turf/T = get_turf(computer)
 			var/datum/supply_order/SO = new(pack, name, rank, ckey, reason, account)
