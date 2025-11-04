@@ -1,7 +1,7 @@
 /datum/supply_pack/companies/mags_and_ammo
 	group = "I - Magazines and Ammo"
-	goody = TRUE
 	express_lock = TRUE
+	departamental_goody = FALSE
 	discountable = SUPPLY_PACK_NOT_DISCOUNTABLE
 
 //SolFed Mags
@@ -267,3 +267,14 @@
 /datum/supply_pack/companies/mags_and_ammo/vitezstvi/grenade_shells/phosphor
 	contains = list(/obj/item/ammo_box/c980grenade/shrapnel/phosphor)
 	access = ACCESS_WEAPONS
+
+//Blacksteel Ammo
+
+/datum/supply_pack/companies/mags_and_ammo/blacksteel
+
+/datum/supply_pack/companies/mags_and_ammo/blacksteel/quiver
+	contains = list(/obj/item/storage/bag/quiver/full)
+	name = "Quiver"
+	desc = "Holds arrows for your bow. Good, because while pocketing arrows is possible, it surely can't be pleasant. Comes with 10 arrows!"
+	cost = PAYCHECK_COMMAND * 3
+	auto_name = FALSE

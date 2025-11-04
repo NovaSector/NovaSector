@@ -29,7 +29,7 @@
 	auto_name = FALSE
 	cost = PAYCHECK_COMMAND * 5
 
-/datum/supply_pack/companies/modsuits/plating/voskhod_refit_kit
+/datum/supply_pack/companies/modsuits/mods/voskhod_refit_kit
 	contains = list(/obj/item/crafting_conversion_kit/voskhod_refit)
 	cost = CARGO_CRATE_VALUE * 6
 	access = ACCESS_WEAPONS

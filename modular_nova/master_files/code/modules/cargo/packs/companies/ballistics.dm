@@ -3,6 +3,7 @@
 	group = "I - Ballistic Weapons"
 	goody = TRUE
 	express_lock = TRUE
+	departamental_goody = FALSE
 	discountable = SUPPLY_PACK_UNCOMMON_DISCOUNTABLE
 
 // Sol Fed Weapons

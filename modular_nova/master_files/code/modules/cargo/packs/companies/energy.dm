@@ -1,8 +1,8 @@
 /datum/supply_pack/companies/energy
 	access = ACCESS_WEAPONS
 	group = "I - Energy Weapons"
-	goody = TRUE
 	express_lock = TRUE
+	departamental_goody = FALSE
 	discountable = SUPPLY_PACK_UNCOMMON_DISCOUNTABLE
 
 //Microstar weapons
