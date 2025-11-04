@@ -49,13 +49,13 @@
 	reconcile_air()
 	//Only react if the mix has changed, and don't keep updating if it hasn't
 	update = air.react(src)
-	//CalculateGasmixColor(air) // NOVA EDIT REMOVAL - Pipe gas visuals removed
+	CalculateGasmixColor(air)
 
 /datum/pipeline/proc/set_air(datum/gas_mixture/new_air)
 	if(new_air == air)
 		return
 	air = new_air
-	//CalculateGasmixColor(air) // NOVA EDIT REMOVAL - Pipe gas visuals removed
+	CalculateGasmixColor(air)
 
 ///Preps a pipeline for rebuilding, insterts it into the rebuild queue
 /datum/pipeline/proc/build_pipeline(obj/machinery/atmospherics/base)
