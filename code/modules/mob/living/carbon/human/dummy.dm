@@ -55,13 +55,13 @@ INITIALIZE_IMMEDIATE(/mob/living/carbon/human/dummy)
 		if(!isitem(checking)) //What the fuck are you on
 			to_nuke += checking
 			continue
+		// NOVA EDIT ADDITION START
+		if(checking.item_flags & DO_NOT_WARDROBE) // Skip any MOD parts, which are created indirectly and should be managed by the suit itself
+			continue
+		// NOVA EDIT ADDITION END
 
 		var/list/contents = checking.contents
 		if(length(contents))
-			// NOVA EDIT ADDITION START
-			if(checking.item_flags & MODSUIT_PART) // Skip any MOD parts, which are created indirectly and should be managed by the suit itself
-				continue
-			// NOVA EDIT ADDITION END
 			items_to_check |= contents //Please don't make an infinite loop somehow thx
 			to_nuke += checking //Goodbye
 			continue

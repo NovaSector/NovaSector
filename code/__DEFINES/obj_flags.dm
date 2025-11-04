@@ -32,7 +32,7 @@
 #define NOBLUDGEON (1<<7) // when an item has this it produces no "X has been hit by Y with Z" message in the default attackby()
 // NOVA EDIT ADDITION START
 // Flag to denote anything that is part of a modsuit
-#define MODSUIT_PART (1<<8)
+#define DO_NOT_WARDROBE (1<<8)
 // NOVA EDIT ADDITION END
 
 /**
