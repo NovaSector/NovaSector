@@ -186,3 +186,20 @@
   vinylspiders:
   - bugfix: stops space vine spawning algorithm from crashing the server (hopefully)
   - bugfix: Lunchbox quirk no longer shows up on medical scan
+2025-11-04:
+  FlufflesTheDog:
+  - rscadd: Golems and Dullahans are now playable, vet-locked species. Both are subject
+      to head/security related job restrictions and adjustments to make them both
+      functional and balanced to the station
+  - bugfix: Dullahans get their intended organs
+  - bugfix: Dullahans can hear emotes
+  - bugfix: Dullahan's heads are no longer randomized
+  - bugfix: Dullahans can hear things from their head even when their body is not
+      nearby
+  - qol: Dullahans appear to have a head in the character preview, for the sake of
+      being able to edit your head
+  - qol: Dullahans get a radio implant upon spawning
+  RatFromTheJungle:
+  - balance: a heavy duty rebalance of most station ballistics, raising their time
+      to down by roughly around 35%, evening out to around 3-4s to down, instead of
+      2-2.5s
