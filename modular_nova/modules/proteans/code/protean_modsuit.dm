@@ -40,7 +40,7 @@
 
 	// Clean up cached storage if it still exists
 	if(cached_storage)
-		QDEL_NULL(cached_storage)
+		cached_storage.Cut()
 
 	return ..()
 

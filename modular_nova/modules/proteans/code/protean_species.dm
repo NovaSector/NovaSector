@@ -171,7 +171,7 @@
 	// Register signal to block non-forced deletion of the modsuit (now on brain's modsuit)
 	var/obj/item/mod/control/pre_equipped/protean/modsuit = get_modsuit()
 	if(modsuit)
-		RegisterSignal(modsuit, COMSIG_PREQDELETED, PROC_REF(on_species_modsuit_qdeleted))
+		RegisterSignal(modsuit, COMSIG_QDELETING, PROC_REF(on_species_modsuit_qdeleted))
 
 	RegisterSignal(src, COMSIG_OUTFIT_EQUIP, PROC_REF(outfit_handling))
 	RegisterSignal(owner, COMSIG_CARBON_GAIN_ORGAN, PROC_REF(organ_reject))
@@ -240,11 +240,11 @@
 	to_chat(source, span_danger("Your mass rejected [organ]!"))
 	organ.balloon_alert_to_viewers("rejected!", vision_distance = 1)
 
-/// Block deletion of their suit under normal circumstances, it's not removable.
+/// If the suit is deleted somehow, the mob dies
 /datum/species/protean/proc/on_species_modsuit_qdeleted(datum/source, force)
 	SIGNAL_HANDLER
-	if(!force)
-		return TRUE
+	if(!QDELETED(owner))
+		qdel(owner)
 
 /// Creates and equips a new protean modsuit to the protean's back slot. Drops any existing back item.
 /// Links the new modsuit to the protean brain organ for proper lifecycle management.
