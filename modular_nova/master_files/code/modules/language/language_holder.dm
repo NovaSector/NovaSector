@@ -73,10 +73,9 @@ GLOBAL_DATUM_INIT(language_holder_adjustor, /datum/language_holder_adjustor, new
 	understood_languages = list()
 	spoken_languages = list()
 
-	/// list of [/datum/language]s (typepaths of them) with [/datum/language/var/secret] but still known by our borgs and AIs
+	/// list of [/datum/language]s (typepaths of them) with [/datum/language/var/secret] but still known by our borgs and AIs (not covered by GLOB.uncommon_roundstart_languages)
 	var/static/list/known_secret_languages = list(
 		/datum/language/beachbum,
-		/datum/language/buzzwords,
 		/datum/language/calcic,
 		/datum/language/monkey,
 		/datum/language/mushroom,
@@ -89,11 +88,11 @@ GLOBAL_DATUM_INIT(language_holder_adjustor, /datum/language_holder_adjustor, new
 	remove_all_languages() // tabula rasa. we dont need anything from TG in here
 
 	for (var/datum/language/language as anything in GLOB.all_languages)
-		if(language::secret) // should allign with all languages available to anyone from character preferences
+		if(language::secret && !(language in GLOB.uncommon_roundstart_languages)) // should align with all languages available to anyone from character preferences
 			continue
 		grant_language(language, source = LANGUAGE_ATOM)
 
-	for (var/language in known_secret_languages)
+	for (var/datum/language/language as anything in known_secret_languages)
 		grant_language(language, source = LANGUAGE_ATOM)
 
 	if(owner) // may be initialized without one, especially during init
