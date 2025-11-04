@@ -30,8 +30,6 @@ You are responsible for the testing of your content and providing proof of such 
 
 ## DEVELOPMENT FLOWCHART
 
-![image](https://i.imgur.com/aJnE4WT.png)
-
 [Modularisation Guide](./modular_nova/readme.md)
 
 ## DOWNLOADING
