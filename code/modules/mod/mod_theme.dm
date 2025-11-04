@@ -147,7 +147,7 @@
 		part_datum.unsealed_message = category[UNSEALED_MESSAGE] || "No unseal message set! Tell a coder!"
 		part_datum.sealed_message = category[SEALED_MESSAGE] || "No seal message set! Tell a coder!"
 		part_datum.can_overslot = TRUE // NOVA EDIT CHANGE, overslottable everything - ORIGINAL: part_datum.can_overslot = category[CAN_OVERSLOT] || FALSE
-		part.clothing_flags = MOD_CLOTHING | (category[UNSEALED_CLOTHING] || NONE) // NOVA EDIT CHANGE - ORIGINAL: part.clothing_flags = category[UNSEALED_CLOTHING] || NONE
+		ppart.clothing_flags = category[UNSEALED_CLOTHING] || NONE
 		part.visor_flags = category[SEALED_CLOTHING] || NONE
 		part.flags_inv = category[UNSEALED_INVISIBILITY] || NONE
 		part.visor_flags_inv = category[SEALED_INVISIBILITY] || NONE
