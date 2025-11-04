@@ -633,6 +633,14 @@
 		id_card.registered_account = offstation_bank_account
 	return
 
+/obj/item/mod/control/pre_equipped/standard/freighter_crew
+	starting_frequency = MODLINK_FREQ_SYNDICATE
+
+/obj/machinery/suit_storage_unit/freighter_crew
+	storage_type = /obj/item/tank/jetpack/harness
+	suit_type = /obj/item/mod/control/pre_equipped/standard/freighter_crew
+	mask_type = /obj/item/clothing/mask/gas/explorer
+
 //ITEMS//
 /obj/item/radio/headset/cybersun
 	keyslot = new /obj/item/encryptionkey/headset_syndicate/cybersun

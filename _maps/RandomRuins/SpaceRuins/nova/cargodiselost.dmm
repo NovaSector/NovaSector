@@ -377,8 +377,7 @@
 /area/ruin/space/has_grav/cargodise_freighter/kitchen)
 "eX" = (
 /obj/machinery/computer/order_console/mining{
-	forced_express = 1;
-	express_cost_multiplier = 1
+	forced_express = 1
 	},
 /turf/open/floor/iron/dark,
 /area/ruin/space/has_grav/cargodise_freighter/mining)
@@ -538,11 +537,7 @@
 /obj/effect/turf_decal/tile/blue/half/contrasted{
 	dir = 1
 	},
-/obj/machinery/suit_storage_unit{
-	mask_type = /obj/item/clothing/mask/gas/explorer;
-	storage_type = /obj/item/tank/jetpack/harness;
-	suit_type = /obj/item/mod/control/pre_equipped/traitor_elite
-	},
+/obj/machinery/suit_storage_unit/freighter_crew,
 /turf/open/floor/iron/dark,
 /area/ruin/space/has_grav/cargodise_freighter/bridge)
 "hT" = (
@@ -2254,9 +2249,7 @@
 /turf/open/floor/catwalk_floor/iron_dark,
 /area/ruin/space/has_grav/cargodise_freighter/primaryhall)
 "Iy" = (
-/obj/machinery/vending/medical/syndicate/cybersun{
-	req_access = null
-	},
+/obj/machinery/vending/medical/syndicate/cybersun,
 /obj/effect/turf_decal/tile/blue/anticorner/contrasted{
 	dir = 8
 	},
@@ -2663,7 +2656,7 @@
 "NQ" = (
 /obj/structure/safe,
 /obj/item/mod/module/jetpack,
-/obj/item/mod/control/pre_equipped/standard,
+/obj/item/mod/control/pre_equipped/standard/freighter_crew,
 /turf/open/floor/mineral/plastitanium,
 /area/ruin/space/has_grav/cargodise_freighter/vault)
 "NV" = (
