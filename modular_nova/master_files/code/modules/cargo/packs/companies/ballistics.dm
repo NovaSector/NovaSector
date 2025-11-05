@@ -116,33 +116,33 @@
 
 // Donk
 
-datum/supply_pack/companies/ballistics/donk
+/datum/supply_pack/companies/ballistics/donk
 	access = FALSE
 	access_view = FALSE
 	express_lock = FALSE
 	departamental_goody = TRUE
 	discountable = SUPPLY_PACK_NOT_DISCOUNTABLE
 
-datum/supply_pack/companies/ballistics/donk/foam_pistol
+/datum/supply_pack/companies/ballistics/donk/foam_pistol
 	contains = list(/obj/item/gun/ballistic/automatic/pistol/toy)
 	cost = CARGO_CRATE_VALUE * 0.5
 
-datum/supply_pack/companies/ballistics/donk/foam_shotgun
+/datum/supply_pack/companies/ballistics/donk/foam_shotgun
 	contains = list(/obj/item/gun/ballistic/shotgun/toy/riot)
 	cost = CARGO_CRATE_VALUE * 0.5
 
-datum/supply_pack/companies/ballistics/donk/foam_smg
+/datum/supply_pack/companies/ballistics/donk/foam_smg
 	contains = list(/obj/item/gun/ballistic/automatic/toy)
 	cost = CARGO_CRATE_VALUE * 1.5
 
-datum/supply_pack/companies/ballistics/donk/foam_c20
+/datum/supply_pack/companies/ballistics/donk/foam_c20
 	contains = list(/obj/item/gun/ballistic/automatic/c20r/toy/unrestricted)
 	cost = CARGO_CRATE_VALUE * 1.5
 
-datum/supply_pack/companies/ballistics/donk/foam_turret
+/datum/supply_pack/companies/ballistics/donk/foam_turret
 	contains = list(/obj/item/storage/toolbox/emergency/turret/mag_fed/toy/pre_filled)
 	cost = CARGO_CRATE_VALUE * 2
 
-datum/supply_pack/companies/ballistics/donk/foam_lmg
+/datum/supply_pack/companies/ballistics/donk/foam_lmg
 	contains = list(/obj/item/gun/ballistic/automatic/l6_saw/toy/unrestricted)
 	cost = CARGO_CRATE_VALUE * 2.5
