@@ -254,7 +254,7 @@
 					shibari_fullbody.slowdown = slow
 					shibari_fullbody.glow = glow
 					split_rope.forceMove(shibari_fullbody)
-					for(var/obj/stack/shibari_rope/rope_piece in body_rope.contents)
+					for(var/obj/item/stack/shibari_rope/rope_piece in body_rope.contents)
 						rope_piece.forceMove(shibari_fullbody)
 					shibari_fullbody.set_greyscale(list(greyscale_colors, body_rope.greyscale_colors))
 					qdel(them.w_uniform)
@@ -289,7 +289,7 @@
 					shibari_fullbody.slowdown = slow
 					shibari_fullbody.glow = glow
 					split_rope.forceMove(shibari_fullbody)
-					for(var/obj/stack/shibari_rope/rope_piece in body_rope.contents)
+					for(var/obj/item/stack/shibari_rope/rope_piece in body_rope.contents)
 						rope_piece.forceMove(shibari_fullbody)
 					shibari_fullbody.set_greyscale(list(body_rope.greyscale_colors, greyscale_colors))
 					qdel(them.w_uniform)

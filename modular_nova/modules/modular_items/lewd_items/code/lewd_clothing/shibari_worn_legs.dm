@@ -32,7 +32,7 @@
 
 
 /obj/item/clothing/shoes/shibari_legs/Destroy()
-	for(var/obj/stack/shibari_rope/rope_piece in contents)
+	for(var/obj/item/stack/shibari_rope/rope_piece in contents)
 		if(QDELETED(rope_piece))
 			continue
 		rope_piece.forceMove(get_turf(src))
