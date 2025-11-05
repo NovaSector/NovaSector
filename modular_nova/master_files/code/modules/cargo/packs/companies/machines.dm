@@ -1,6 +1,5 @@
 /datum/supply_pack/companies/machines
 	group = "I - Machines and Flatpacks"
-	goody = TRUE
 	discountable = SUPPLY_PACK_NOT_DISCOUNTABLE
 
 // Akh Frontier

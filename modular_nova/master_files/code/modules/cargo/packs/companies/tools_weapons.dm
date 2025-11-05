@@ -99,6 +99,7 @@
 
 /datum/supply_pack/companies/tools_weapons/vitezstvi/suppressor
 	contains = list(/obj/item/suppressor/standard)
+	access = ACCESS_WEAPONS
 	access_view = ACCESS_WEAPONS
 	express_lock = TRUE
 	departamental_goody = FALSE

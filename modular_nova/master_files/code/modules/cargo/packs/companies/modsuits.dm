@@ -1,6 +1,5 @@
 /datum/supply_pack/companies/modsuits
 	group = "I - Mods and Modsuits"
-	goody = TRUE
 	discountable = SUPPLY_PACK_NOT_DISCOUNTABLE
 
 // Mod Suits
@@ -30,7 +29,11 @@
 /datum/supply_pack/companies/modsuits/mods/voskhod_refit_kit
 	contains = list(/obj/item/crafting_conversion_kit/voskhod_refit)
 	cost = CARGO_CRATE_VALUE * 6
+	access = ACCESS_WEAPONS
 	access_view = ACCESS_WEAPONS
+	express_lock = TRUE
+	departamental_goody = FALSE
+	discountable = SUPPLY_PACK_NOT_DISCOUNTABLE
 
 // MOD cores & Fuel
 

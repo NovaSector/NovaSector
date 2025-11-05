@@ -1,7 +1,7 @@
 /datum/supply_pack/companies/ballistics
-	access_view = ACCESS_WEAPONS
 	group = "I - Ballistic Weapons"
-	goody = TRUE
+	access = ACCESS_WEAPONS
+	access_view = ACCESS_WEAPONS
 	express_lock = TRUE
 	departamental_goody = FALSE
 	discountable = SUPPLY_PACK_STD_DISCOUNTABLE
@@ -11,6 +11,10 @@
 
 /datum/supply_pack/companies/ballistics/sol_fed/sidearm
 	cost = CARGO_CRATE_VALUE * 2
+	access = FALSE
+	access_view = FALSE
+	express_lock = FALSE
+	departamental_goody = TRUE
 
 /datum/supply_pack/companies/ballistics/sol_fed/sidearm/eland
 	contains =list(/obj/item/gun/ballistic/revolver/sol)
@@ -78,9 +82,17 @@
 
 /datum/supply_pack/companies/ballistics/nri_surplus/shotgun_revolver
 	contains = list(/obj/item/gun/ballistic/revolver/shotgun_revolver)
+	access = FALSE
+	access_view = FALSE
+	express_lock = FALSE
+	departamental_goody = TRUE
 
 /datum/supply_pack/companies/ballistics/nri_surplus/zashch
 	contains = list(/obj/item/gun/ballistic/automatic/pistol/zashch)
+	access = FALSE
+	access_view = FALSE
+	express_lock = FALSE
+	departamental_goody = TRUE
 
 /datum/supply_pack/companies/ballistics/nri_surplus/miecz
 	contains = list(/obj/item/gun/ballistic/automatic/miecz)
@@ -105,6 +117,8 @@
 // Donk
 
 datum/supply_pack/companies/ballistics/donk
+	access = FALSE
+	access_view = FALSE
 	express_lock = FALSE
 	departamental_goody = TRUE
 	discountable = SUPPLY_PACK_NOT_DISCOUNTABLE
