@@ -73,7 +73,7 @@
 	contains = list(/obj/item/flatpacked_machine/gps_beacon)
 	desc = "A packed GPS beacon, can be deployed and anchored into the ground to \
 		provide and unobstructed homing beacon for wayward travelers across the galaxy."
-	cost = CARGO_CRATE_VALUE * 0.125
+	cost = CARGO_CRATE_VALUE * 0.2
 
 // Flatpacked, ready to deploy machines for power related activities
 

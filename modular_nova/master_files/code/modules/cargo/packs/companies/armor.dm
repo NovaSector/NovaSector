@@ -91,7 +91,7 @@
 
 /datum/supply_pack/companies/armor/sol_fed/face_shield
 	contains = list(/obj/item/sacrificial_face_shield)
-	cost = CARGO_CRATE_VALUE * 0.125
+	cost = CARGO_CRATE_VALUE * 0.2
 
 /datum/supply_pack/companies/armor/sol_fed/sacrificial_vest
 	contains = list(/obj/item/clothing/suit/armor/sf_sacrificial)

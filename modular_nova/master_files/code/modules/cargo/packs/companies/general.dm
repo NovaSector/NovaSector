@@ -44,7 +44,7 @@
 
 /datum/supply_pack/companies/general/nri_surplus/hc_flag
 	contains = list(/obj/item/sign/flag/hc)
-	cost = CARGO_CRATE_VALUE * 0.125
+	cost = CARGO_CRATE_VALUE * 0.2
 
 // Donk
 /datum/supply_pack/companies/general/donk

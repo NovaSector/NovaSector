@@ -133,7 +133,7 @@
 
 // Utility modules, general purpose stuff that really anyone might want
 /datum/supply_pack/companies/modsuits/utility_modules
-	cost = CARGO_CRATE_VALUE * 0.125
+	cost = CARGO_CRATE_VALUE * 0.2
 
 /datum/supply_pack/companies/modsuits/utility_modules/flashlight
 	contains = list(/obj/item/mod/module/flashlight)
@@ -172,7 +172,7 @@
 
 /datum/supply_pack/companies/modsuits/mobility_modules/tether
 	contains = list(/obj/item/mod/module/tether)
-	cost = CARGO_CRATE_VALUE * 0.125
+	cost = CARGO_CRATE_VALUE * 0.2
 
 /datum/supply_pack/companies/modsuits/mobility_modules/magboot
 	contains = list(/obj/item/mod/module/magboot)
@@ -198,7 +198,7 @@
 // Novelty modules, goofy stuff that's rare/unprintable, but doesn't fit in any of the above categories
 
 /datum/supply_pack/companies/modsuits/novelty_modules
-	cost = CARGO_CRATE_VALUE * 0.125
+	cost = CARGO_CRATE_VALUE * 0.2
 
 /datum/supply_pack/companies/modsuits/novelty_modules/waddle
 	contains = list(/obj/item/mod/module/waddle)

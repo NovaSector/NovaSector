@@ -271,7 +271,7 @@
 
 /datum/supply_pack/companies/mags_and_ammo/donk/foamforce_ammo/darts
 	contains = list(/obj/item/ammo_box/foambox)
-	cost = CARGO_CRATE_VALUE * 0.125
+	cost = CARGO_CRATE_VALUE * 0.2
 
 /datum/supply_pack/companies/mags_and_ammo/donk/foamforce_ammo/riot_darts
 	contains = list(/obj/item/ammo_box/foambox/riot)

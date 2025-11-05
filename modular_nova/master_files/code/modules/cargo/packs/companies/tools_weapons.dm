@@ -78,7 +78,7 @@
 
 /datum/supply_pack/companies/tools_weapons/nri_surplus/flares
 	contains = list(/obj/item/storage/box/nri_flares)
-	cost = CARGO_CRATE_VALUE * 0.125
+	cost = CARGO_CRATE_VALUE * 0.2
 
 /datum/supply_pack/companies/tools_weapons/nri_surplus/binoculars
 	contains = list(/obj/item/binoculars)

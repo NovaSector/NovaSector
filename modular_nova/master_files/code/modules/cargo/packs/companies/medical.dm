@@ -49,11 +49,11 @@
 
 /datum/supply_pack/companies/medical/first_aid/coagulant
 	contains = list(/obj/item/stack/medical/suture/coagulant)
-	cost = CARGO_CRATE_VALUE * 0.125
+	cost = CARGO_CRATE_VALUE * 0.2
 
 /datum/supply_pack/companies/medical/first_aid/suture
 	contains = list(/obj/item/stack/medical/suture)
-	cost = CARGO_CRATE_VALUE * 0.125
+	cost = CARGO_CRATE_VALUE * 0.2
 
 /datum/supply_pack/companies/medical/first_aid/medicated_sutures
 	contains = list(/obj/item/stack/medical/suture/medicated)
@@ -61,15 +61,15 @@
 
 /datum/supply_pack/companies/medical/first_aid/red_sun
 	contains = list(/obj/item/stack/medical/ointment/red_sun)
-	cost = CARGO_CRATE_VALUE * 0.125
+	cost = CARGO_CRATE_VALUE * 0.2
 
 /datum/supply_pack/companies/medical/first_aid/ointment
 	contains = list(/obj/item/stack/medical/ointment)
-	cost = CARGO_CRATE_VALUE * 0.125
+	cost = CARGO_CRATE_VALUE * 0.2
 
 /datum/supply_pack/companies/medical/first_aid/mesh
 	contains = list(/obj/item/stack/medical/mesh)
-	cost = CARGO_CRATE_VALUE * 0.125
+	cost = CARGO_CRATE_VALUE * 0.2
 
 /datum/supply_pack/companies/medical/first_aid/advanced_mesh
 	contains = list(/obj/item/stack/medical/mesh/advanced)
@@ -77,7 +77,7 @@
 
 /datum/supply_pack/companies/medical/first_aid/sterile_gauze
 	contains = list(/obj/item/stack/medical/gauze/sterilized)
-	cost = CARGO_CRATE_VALUE * 0.125
+	cost = CARGO_CRATE_VALUE * 0.2
 
 /datum/supply_pack/companies/medical/first_aid/amollin
 	contains = list(/obj/item/storage/pill_bottle/painkiller)
@@ -208,11 +208,11 @@
 
 /datum/supply_pack/companies/medical/equipment/treatment_zone_projector
 	contains = list(/obj/item/holosign_creator/medical/treatment_zone)
-	cost = CARGO_CRATE_VALUE * 0.125
+	cost = CARGO_CRATE_VALUE * 0.2
 
 /datum/supply_pack/companies/medical/equipment/health_analyzer
 	contains = list(/obj/item/healthanalyzer)
-	cost = CARGO_CRATE_VALUE * 0.125
+	cost = CARGO_CRATE_VALUE * 0.2
 
 /datum/supply_pack/companies/medical/equipment/loaded_defib
 	contains = list(/obj/item/defibrillator/loaded)
