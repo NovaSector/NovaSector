@@ -27,7 +27,7 @@
 	contains = list(/obj/item/storage/belt/utility/frontier_colonist)
 
 /datum/supply_pack/companies/apparel/kahraman/vest
-	contains = list(/obj/item/storage/belt/webbing/colonial) // remember to update me to /obj/item/clothing/accessory/webbing/colonial in the merge.
+	contains = list(/obj/item/clothing/accessory/webbing/colonial)
 
 /datum/supply_pack/companies/apparel/kahraman/medipen
 	contains = list(/obj/item/storage/pouch/cin_medipens)
