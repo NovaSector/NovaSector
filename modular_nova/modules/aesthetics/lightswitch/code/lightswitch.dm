@@ -2,6 +2,9 @@
 	/// Whether or not the area's light switch was turned off during init
 	var/light_turned_off_at_spawn
 
+/obj/machinery/light_switch
+	icon = 'modular_nova/modules/aesthetics/lightswitch/icons/lightswitch.dmi'
+
 /obj/machinery/light_switch/interact(mob/user)
 	. = ..()
 	playsound(src, 'modular_nova/modules/aesthetics/lightswitch/sound/lightswitch.ogg', 100, 1)
