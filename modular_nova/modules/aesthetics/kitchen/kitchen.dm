@@ -1,3 +1,10 @@
+/obj/machinery/microwave
+	icon = 'modular_nova/modules/aesthetics/kitchen/icons/microwave.dmi'
+
+// return to monke
+/obj/machinery/microwave/engineering
+	icon = 'icons/obj/machines/microwave.dmi'
+
 // I guess
 /obj/machinery/grill
 	icon = 'modular_nova/modules/aesthetics/kitchen/icons/kitchen.dmi'
