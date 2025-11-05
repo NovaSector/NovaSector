@@ -2,7 +2,50 @@
 	group = "I - Magazines and Ammo"
 	discountable = SUPPLY_PACK_NOT_DISCOUNTABLE
 
-//Sol Fed Mags
+// NT Mags -  These supplant the NT ones
+
+/datum/supply_pack/companies/mags_and_ammo/nt
+	cost = CARGO_CRATE_VALUE * 0.25
+
+/datum/supply_pack/companies/mags_and_ammo/nt/dumdum38
+	name = ".38 DumDum Speedloader Single-Pack"
+	desc = "Contains one speedloader of .38 DumDum ammunition, good for embedding in soft targets."
+	contains = list(/obj/item/ammo_box/speedloader/c38/dumdum)
+	auto_name = FALSE
+
+/datum/supply_pack/companies/mags_and_ammo/nt/match38
+	name = ".38 Match Grade Speedloader Single-Pack"
+	desc = "Contains one speedloader of match grade .38 ammunition, perfect for showing off trickshots."
+	contains = list(/obj/item/ammo_box/speedloader/c38/match)
+	auto_name = FALSE
+
+/datum/supply_pack/companies/mags_and_ammo/nt/rubber
+	name = ".38 Rubber Speedloader Single-Pack"
+	desc = "Contains one speedloader of bouncy rubber .38 ammunition, for when you want to bounce your shots off anything and everything."
+	cost = CARGO_CRATE_VALUE * 0.2
+	auto_name = FALSE
+	contains = list(/obj/item/ammo_box/speedloader/c38/match/bouncy)
+
+/datum/supply_pack/companies/mags_and_ammo/nt/dumdum38br
+	name = ".38 DumDum Magazine Single-Pack"
+	desc = "Contains one magazine of .38 DumDum ammunition, good for embedding in soft targets."
+	auto_name = FALSE
+	contains = list(/obj/item/ammo_box/magazine/m38/dumdum)
+
+/datum/supply_pack/companies/mags_and_ammo/nt/match38br
+	name = ".38 Match Grade Magazine Single-Pack"
+	desc = "Contains one magazine of match grade .38 ammunition, perfect for showing off trickshots."
+	auto_name = FALSE
+	contains = list(/obj/item/ammo_box/magazine/m38/match)
+
+/datum/supply_pack/companies/mags_and_ammo/nt/m38rubber
+	name = ".38 Rubber Magazine Single-Pack"
+	desc = "Contains one magazine of bouncy rubber .38 ammunition, for when you want to bounce your shots off anything and everything."
+	cost = CARGO_CRATE_VALUE * 0.2
+	auto_name = FALSE
+	contains = list(/obj/item/ammo_box/magazine/m38/match/bouncy)
+
+// Sol Fed Mags
 
 /datum/supply_pack/companies/mags_and_ammo
 	cost = CARGO_CRATE_VALUE * 0.25

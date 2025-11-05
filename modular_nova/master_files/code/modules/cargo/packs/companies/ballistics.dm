@@ -6,6 +6,48 @@
 	departamental_goody = FALSE
 	discountable = SUPPLY_PACK_STD_DISCOUNTABLE
 
+// NT Weapons
+
+/datum/supply_pack/companies/ballistics/nt
+	console_flag = CARGO_CONSOLE_NT | CARGO_CONSOLE_PDA // This is mostly for flavor, as NT ghost companies had been given a lot of absurdly powerful unique stuff and can still access to the station to get these. 
+
+/datum/supply_pack/companies/ballistics/nt/mars_single
+	name = "Colt Detective Special Single-Pack"
+	desc = "The HoS took your gun and your badge? No problem! Just pay the absurd taxation fee and you too can be reunited with the lethal power of a .38!"
+	cost = CARGO_CRATE_VALUE * 2.5
+	auto_name = FALSE
+	access = FALSE
+	access_view = FALSE
+	express_lock = FALSE
+	departamental_goody = TRUE
+	contains = list(/obj/item/gun/ballistic/revolver/c38/detective)
+
+/datum/supply_pack/companies/ballistics/nt/double_barrel
+	name = "Double-barreled Shotgun Single-Pack"
+	desc = "Lost your beloved bunny to a demonic invasion? Clown broke in and stole your beloved gun? No worries! Get a new gun as long as you can pay the absurd fees."
+	cost = CARGO_CRATE_VALUE * 2
+	auto_name = FALSE
+	access = FALSE
+	access_view = FALSE
+	express_lock = FALSE
+	departamental_goody = TRUE
+	contains = list(/obj/item/gun/ballistic/shotgun/doublebarrel)
+
+/datum/supply_pack/companies/ballistics/nt/shotgun_automatic
+	cost = CARGO_CRATE_VALUE * 5 
+	contains = list(/obj/item/gun/ballistic/shotgun/automatic/combat)
+
+/datum/supply_pack/companies/ballistics/nt/c38_super_kit
+	name = "NT/E \"Laevateinn\" Revolver Conversion Kit"
+	desc = "A set of parts for converting a .38 revolver into Nanotrasen's latest foray into magnetically-accelerated sidearms."
+	cost = CARGO_CRATE_VALUE * 1.5 // 300 cr at time of writing, 800 cr total
+	contains = list(/obj/item/crafting_conversion_kit/c38_super)
+	auto_name = FALSE
+	access = FALSE
+	access_view = FALSE
+	express_lock = FALSE
+	departamental_goody = TRUE
+
 // Sol Fed Weapons
 /datum/supply_pack/companies/ballistics/sol_fed
 
@@ -35,6 +77,13 @@
 
 /datum/supply_pack/companies/ballistics/sol_fed/longarm
 	cost = CARGO_CRATE_VALUE * 3
+
+/datum/supply_pack/companies/ballistics/sol_fed/longarm/renoster_super_kit
+	name = "Archon Systems \"KOLBEN/NACHTREIHER\" Shotgun Conversion Kit"
+	desc = "A set of parts for converting an M64 shotgun into one of Archon Combat Systems's forays into improving the shotgun's end-user experience."
+	cost = CARGO_CRATE_VALUE * 3 // 600 cr at time of writing, 1200 cr total
+	contains = list(/obj/item/crafting_conversion_kit/riot_sol_super)
+	auto_name = FALSE
 
 /datum/supply_pack/companies/ballistics/sol_fed/longarm/renoster
 	contains = list(/obj/item/gun/ballistic/shotgun/riot/sol)
