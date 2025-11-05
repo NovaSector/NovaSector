@@ -8988,6 +8988,7 @@
 #include "modular_nova\modules\paycheck_rations\code\tickets.dm"
 #include "modular_nova\modules\pet_owner\pet_owner.dm"
 #include "modular_nova\modules\pet_size\pet_size.dm"
+#include "modular_nova\modules\photocopier_module\photocopier.dm"
 #include "modular_nova\modules\pixel_shift\code\pixel_shift_component.dm"
 #include "modular_nova\modules\pixel_shift\code\pixel_shift_keybind.dm"
 #include "modular_nova\modules\pixel_shift\code\pixel_shift_mob.dm"
