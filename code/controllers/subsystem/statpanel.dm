@@ -22,7 +22,7 @@ SUBSYSTEM_DEF(statpanels)
 		num_fires++
 		var/datum/map_config/cached = SSmap_vote.next_map_config
 
-		/* NOVA EDIT CHANGE - ORIGINAL:
+		/* // NOVA EDIT REMOVAL START
 		if(isnull(SSmapping.current_map))
 			global_data = list("Loading")
 		else if(SSmapping.current_map.feedback_link)
@@ -43,7 +43,8 @@ SUBSYSTEM_DEF(statpanels)
 			"Station Time: [station_time_timestamp()]",
 			"Time Dilation: [round(SStime_track.time_dilation_current,1)]% AVG:([round(SStime_track.time_dilation_avg_fast,1)]%, [round(SStime_track.time_dilation_avg,1)]%, [round(SStime_track.time_dilation_avg_slow,1)]%)",
 		)
-		*/
+		*/ // NOVA EDIT REMOVAL END
+		// NOVA EDIT ADDITION START
 		var/real_round_time = world.timeofday - SSticker.real_round_start_time
 		global_data = list(
 			"Time Dilation: [round(SStime_track.time_dilation_current,1)]% AVG:([round(SStime_track.time_dilation_avg_fast,1)]%, [round(SStime_track.time_dilation_avg,1)]%, [round(SStime_track.time_dilation_avg_slow,1)]%)",
@@ -70,7 +71,7 @@ SUBSYSTEM_DEF(statpanels)
 			"Round Timer: [ROUND_TIME()]",
 			"Actual Round Timer: [time2text(real_round_time, "hh:mm:ss", 0)]"
 		)
-		// NOVA EDIT CHANGE END
+		// NOVA EDIT ADDITION END
 
 		if(SSshuttle.emergency)
 			var/ETA = SSshuttle.emergency.getModeStr()

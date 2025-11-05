@@ -109,7 +109,6 @@
 
 	return ..()
 
-
 /datum/bodypart_overlay/mutant/wings/moth/get_global_feature_list()
 	return SSaccessories.sprite_accessories["wings"] // NOVA EDIT CHANGE - Customization - ORIGINAL: return SSaccessories.moth_wings_list
 

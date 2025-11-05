@@ -26,6 +26,10 @@
 			product_to_category[product_key] = category
 
 	for(var/typepath in productlist)
+		// NOVA EDIT ADDITION START
+		if(typepath in excluded_products)
+			continue
+		// NOVA EDIT ADDITION END
 		var/amount = productlist[typepath]
 
 		var/obj/item/temp = typepath
