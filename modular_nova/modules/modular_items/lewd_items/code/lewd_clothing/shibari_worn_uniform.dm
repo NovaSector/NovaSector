@@ -30,8 +30,10 @@
 /obj/item/clothing/under/shibari/Destroy(force)
 	STOP_PROCESSING(SSobj, src)
 
-	for(var/obj/item in contents)
-		item.forceMove(get_turf(src))
+	for(var/obj/stack/shibari_rope/rope_piece in contents)
+		if(QDELETED(rope_piece))
+			continue
+		rope_piece.forceMove(get_turf(src))
 	if(!ishuman(loc))
 		return ..()
 	var/mob/living/carbon/human/hooman = loc
@@ -130,7 +132,7 @@
 /obj/item/clothing/under/shibari/torso/process(seconds_per_tick)
 	. = ..()
 	if(. == PROCESS_KILL)
-		return PROCESS_KILL
+		return
 	var/mob/living/carbon/human/hooman = loc
 	if(tightness == SHIBARI_TIGHTNESS_HIGH && hooman.pain < 25)
 		hooman.adjust_pain(0.6 * seconds_per_tick)
@@ -154,13 +156,13 @@
 /obj/item/clothing/under/shibari/groin/equipped(mob/living/user, slot)
 	var/mob/living/carbon/human/hooman = user
 	slowdown = hooman?.bodyshape & BODYSHAPE_TAUR ? 4 : 0
-	return..()
+	return ..()
 
 //processing stuff
 /obj/item/clothing/under/shibari/groin/process(seconds_per_tick)
 	. = ..()
 	if(. == PROCESS_KILL)
-		return PROCESS_KILL
+		return
 	var/mob/living/carbon/human/hooman = loc
 	if(tightness == SHIBARI_TIGHTNESS_LOW && hooman.pleasure < 20)
 		hooman.adjust_pleasure(0.6 * seconds_per_tick)
@@ -188,7 +190,7 @@
 /obj/item/clothing/under/shibari/full/process(seconds_per_tick)
 	. = ..()
 	if(. == PROCESS_KILL)
-		return PROCESS_KILL
+		return
 	var/mob/living/carbon/human/hooman = loc
 	if(tightness == SHIBARI_TIGHTNESS_LOW && hooman.pleasure< 20)
 		hooman.adjust_pleasure(0.6 * seconds_per_tick)

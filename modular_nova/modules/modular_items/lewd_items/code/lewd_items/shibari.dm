@@ -28,13 +28,6 @@
 	///should clothing items created by this stack glow
 	var/glow = FALSE
 
-	///Things this rope can transform into when it's tied to a person
-	var/obj/item/clothing/under/shibari/torso/shibari_body
-	var/obj/item/clothing/under/shibari/groin/shibari_groin
-	var/obj/item/clothing/under/shibari/full/shibari_fullbody
-	var/obj/item/clothing/shoes/shibari_legs/shibari_legs
-	var/obj/item/clothing/gloves/shibari_hands/shibari_hands
-
 //This part of code spawns ropes with full stack.
 /obj/item/stack/shibari_rope/full
 	amount = 5
@@ -144,7 +137,7 @@
 		span_hear("You hear ropes being tightened."))
 	if(!do_after(user, HAS_TRAIT(user, TRAIT_RIGGER) ? 20 : 60, them))
 		return
-	var/obj/item/stack/shibari_rope/split_rope = null
+	var/obj/item/stack/shibari_rope/split_rope
 	var/slow = 0
 	if(them.bodyshape & BODYSHAPE_TAUR)
 		split_rope = split_stack(null, 2)
@@ -152,14 +145,13 @@
 	else
 		split_rope = split_stack(null, 1)
 	if(split_rope)
-		shibari_groin = new(src)
+		var/obj/item/clothing/under/shibari/groin/shibari_groin = new(get_turf(src))
 		shibari_groin.slowdown = slow
 		shibari_groin.set_greyscale(greyscale_colors)
 		shibari_groin.glow = glow
 		split_rope.forceMove(shibari_groin)
 		if(them.equip_to_slot_if_possible(shibari_groin, ITEM_SLOT_ICLOTHING, TRUE, FALSE, TRUE))
 			shibari_groin.tightness = tightness
-			shibari_groin = null
 			them.visible_message(span_warning("[user] tied [them]'s groin!"),\
 				span_userdanger("[user] tied your groin!"),\
 				span_hear("You hear ropes being completely tightened."))
@@ -182,13 +174,12 @@
 		return
 	var/obj/item/stack/shibari_rope/split_rope = split_stack(null, 1)
 	if(split_rope)
-		shibari_body = new(src)
+		var/obj/item/clothing/under/shibari/torso/shibari_body = new(get_turf(src))
 		shibari_body.set_greyscale(greyscale_colors)
 		shibari_body.glow = glow
 		split_rope.forceMove(shibari_body)
 		if(them.equip_to_slot_if_possible(shibari_body, ITEM_SLOT_ICLOTHING, TRUE, FALSE, TRUE))
 			shibari_body.tightness = tightness
-			shibari_body = null
 			them.visible_message(span_warning("[user] tied [them]'s chest!"),\
 				span_userdanger("[user] tied your chest!"),\
 				span_hear("You hear ropes being completely tightened."))
@@ -206,12 +197,11 @@
 		return
 	var/obj/item/stack/shibari_rope/split_rope = split_stack(null, 1)
 	if(split_rope)
-		shibari_hands = new(src)
+		var/obj/item/clothing/gloves/shibari_hands/shibari_hands = new(get_turf(src))
 		shibari_hands.set_greyscale(greyscale_colors)
 		shibari_hands.glow = glow
 		split_rope.forceMove(shibari_hands)
 		if(them.equip_to_slot_if_possible(shibari_hands, ITEM_SLOT_GLOVES, TRUE, FALSE, TRUE))
-			shibari_hands = null
 			them.visible_message(span_warning("[user] tied [them]'s hands!"),\
 				span_userdanger("[user] tied your hands!"),\
 				span_hear("You hear ropes being completely tightened."))
@@ -233,12 +223,11 @@
 		return
 	var/obj/item/stack/shibari_rope/split_rope = split_stack(null, 1)
 	if(split_rope)
-		shibari_legs = new(src)
+		var/obj/item/clothing/shoes/shibari_legs/shibari_legs = new(get_turf(src))
 		shibari_legs.set_greyscale(greyscale_colors)
 		shibari_legs.glow = glow
 		split_rope.forceMove(shibari_legs)
 		if(them.equip_to_slot_if_possible(shibari_legs, ITEM_SLOT_FEET, TRUE, FALSE, TRUE))
-			shibari_legs = null
 			them.visible_message(span_warning("[user] tied [them]'s feet!"),\
 				span_userdanger("[user] tied your feet!"),\
 				span_hear("You hear ropes being completely tightened."))
@@ -261,12 +250,12 @@
 			if(split_rope)
 				var/obj/item/clothing/under/shibari/body_rope = them.w_uniform
 				if(body_rope.glow == split_rope.glow)
-					shibari_fullbody = new(src)
+					var/obj/item/clothing/under/shibari/full/shibari_fullbody = new(get_turf(src))
 					shibari_fullbody.slowdown = slow
 					shibari_fullbody.glow = glow
 					split_rope.forceMove(shibari_fullbody)
-					for(var/obj/thing in body_rope.contents)
-						thing.forceMove(shibari_fullbody)
+					for(var/obj/stack/shibari_rope/rope_piece in body_rope.contents)
+						rope_piece.forceMove(shibari_fullbody)
 					shibari_fullbody.set_greyscale(list(greyscale_colors, body_rope.greyscale_colors))
 					qdel(them.w_uniform)
 					if(them.equip_to_slot_if_possible(shibari_fullbody, ITEM_SLOT_ICLOTHING, TRUE, FALSE, TRUE))
@@ -286,7 +275,7 @@
 				span_hear("You hear ropes being tightened."))
 			if(!do_after(user, HAS_TRAIT(user, TRAIT_RIGGER) ? 20 : 60, them))
 				return
-			var/obj/item/stack/shibari_rope/split_rope = null
+			var/obj/item/stack/shibari_rope/split_rope
 			var/slow = 0
 			if(them.bodyshape & BODYSHAPE_TAUR)
 				split_rope = split_stack(null, 2)
@@ -296,17 +285,16 @@
 			if(split_rope)
 				var/obj/item/clothing/under/shibari/body_rope = them.w_uniform
 				if(body_rope.glow == split_rope.glow)
-					shibari_fullbody = new(src)
+					var/obj/item/clothing/under/shibari/full/shibari_fullbody = new(get_turf(src))
 					shibari_fullbody.slowdown = slow
 					shibari_fullbody.glow = glow
 					split_rope.forceMove(shibari_fullbody)
-					for(var/obj/thing in body_rope.contents)
-						thing.forceMove(shibari_fullbody)
+					for(var/obj/stack/shibari_rope/rope_piece in body_rope.contents)
+						rope_piece.forceMove(shibari_fullbody)
 					shibari_fullbody.set_greyscale(list(body_rope.greyscale_colors, greyscale_colors))
 					qdel(them.w_uniform)
 					if(them.equip_to_slot_if_possible(shibari_fullbody, ITEM_SLOT_ICLOTHING, TRUE, FALSE, TRUE))
 						shibari_fullbody.tightness = tightness
-						shibari_fullbody = null
 						them.visible_message(span_warning("[user] tied [them]'s groin!"),\
 							span_userdanger("[user] tied your groin!"),\
 							span_hear("You hear ropes being completely tightened."))
