@@ -203,3 +203,18 @@
   - balance: a heavy duty rebalance of most station ballistics, raising their time
       to down by roughly around 35%, evening out to around 3-4s to down, instead of
       2-2.5s
+2025-11-05:
+  Happyowl93:
+  - bugfix: Eyes return to their original color after DemonEye reagent leaves the
+      mob
+  Iajret:
+  - code_imp: '[Nova] AI and borg language holder handling have been changed a bit.
+      If any language is missing, please notify'
+  Jedi-Toothpaste:
+  - qol: all skirts are no longer cropped on taurs
+  RealWinterFrost:
+  - qol: Added more desserts to the lunchbox quirk
+  - qol: Added Hemophage meals to the lunchbox quirk
+  - qol: Added Teshari meals to the lunchbox quirk
+  - qol: Added Lizard meals to the lunchbox quirk
+  - image: Added new lunchbox designs for the lunchbox user quirk

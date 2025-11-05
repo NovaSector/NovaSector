@@ -1,4 +1,0 @@
-author: "Happyowl93"
-delete-after: True
-changes:
-  - bugfix: "Eyes return to their original color after DemonEye reagent leaves the mob"
