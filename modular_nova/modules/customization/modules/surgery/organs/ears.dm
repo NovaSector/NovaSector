@@ -26,4 +26,4 @@
 	return draw_color
 
 /datum/bodypart_overlay/mutant/ears/get_global_feature_list()
-	return SSaccessories.sprite_accessories["ears"]
+	return SSaccessories.sprite_accessories[FEATURE_EARS]

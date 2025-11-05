@@ -148,7 +148,7 @@
 	preference = "feature_human_ears"
 	restyle_flags = EXTERNAL_RESTYLE_FLESH
 
-	//dna_block = DNA_EARS_BLOCK // NOVA EDIT REMOVAL - Customization - We have our own system to handle DNA.
+	//dna_block = /datum/dna_block/feature/ears // NOVA EDIT REMOVAL - Customization - We have our own system to handle DNA.
 
 	bodypart_overlay = /datum/bodypart_overlay/mutant/cat_ears
 
@@ -156,14 +156,14 @@
 /datum/bodypart_overlay/mutant/cat_ears
 	layers = EXTERNAL_FRONT | EXTERNAL_BEHIND
 	color_source = ORGAN_COLOR_HAIR
-	feature_key = "ears"
+	feature_key = FEATURE_EARS
 	dyable = TRUE
 
 	/// Layer upon which we add the inner ears overlay
 	var/inner_layer = EXTERNAL_FRONT
 
 /datum/bodypart_overlay/mutant/cat_ears/get_global_feature_list()
-	return SSaccessories.sprite_accessories["ears"] // NOVA EDIT - Customization - ORIGINAL: return SSaccessories.ears_list
+	return SSaccessories.sprite_accessories[FEATURE_EARS] // NOVA EDIT - Customization - ORIGINAL: return SSaccessories.ears_list
 
 /datum/bodypart_overlay/mutant/cat_ears/can_draw_on_bodypart(obj/item/bodypart/bodypart_owner)
 	return !(bodypart_owner.owner?.obscured_slots & HIDEHAIR)

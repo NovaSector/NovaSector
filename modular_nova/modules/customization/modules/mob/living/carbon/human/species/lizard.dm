@@ -5,15 +5,15 @@
 
 /datum/species/lizard/get_default_mutant_bodyparts()
 	return list(
-		"tail" = list("Smooth", TRUE),
-		"snout" = list("Sharp + Light", TRUE),
-		"spines" = list("Long + Membrane", TRUE),
-		"frills" = list("Short", TRUE),
-		"horns" = list("Curled", TRUE),
-		"body_markings" = list("Light Belly", TRUE),
-		"legs" = list(DIGITIGRADE_LEGS,FALSE),
-		"taur" = list("None", FALSE),
-		"wings" = list("None", FALSE),
+		FEATURE_TAIL = list("Smooth", TRUE),
+		FEATURE_SNOUT = list("Sharp + Light", TRUE),
+		FEATURE_SPINES = list("Long + Membrane", TRUE),
+		FEATURE_FRILLS = list("Short", TRUE),
+		FEATURE_HORNS = list("Curled", TRUE),
+		FEATURE_MARKING_GENERIC = list("Light Belly", TRUE),
+		FEATURE_LEGS = list(DIGITIGRADE_LEGS,FALSE),
+		FEATURE_TAUR = list("None", FALSE),
+		FEATURE_WINGS = list("None", FALSE),
 	)
 
 /datum/species/lizard/get_species_description()
@@ -48,12 +48,12 @@
 
 /datum/species/lizard/ashwalker/get_default_mutant_bodyparts()
 	var/list/default_parts = ..()
-	default_parts["spines"] = list("None", TRUE)
+	default_parts[FEATURE_SPINES] = list("None", TRUE)
 	return default_parts
 
 /datum/species/lizard/silverscale/get_default_mutant_bodyparts()
 	var/list/default_parts = ..()
-	default_parts["spines"] = list("None", TRUE)
+	default_parts[FEATURE_SPINES] = list("None", TRUE)
 	return default_parts
 
 /datum/species/lizard/randomize_features()
@@ -72,18 +72,18 @@
 		if(3) //Third case, more randomisation
 			second_color = "#[random_color()]"
 			third_color = "#[random_color()]"
-	features["mcolor"] = main_color
-	features["mcolor2"] = second_color
-	features["mcolor3"] = third_color
+	features[FEATURE_MUTANT_COLOR] = main_color
+	features[FEATURE_MUTANT_COLOR_TWO] = second_color
+	features[FEATURE_MUTANT_COLOR_THREE] = third_color
 	return features
 
 /datum/species/lizard/prepare_human_for_preview(mob/living/carbon/human/lizard, lizard_color = "#009999")
-	lizard.dna.features["mcolor"] = lizard_color
-	lizard.dna.mutant_bodyparts["tail"] = list(MUTANT_INDEX_NAME = "Light Tiger", MUTANT_INDEX_COLOR_LIST = list(lizard_color, lizard_color, lizard_color))
-	lizard.dna.mutant_bodyparts["snout"] = list(MUTANT_INDEX_NAME = "Sharp + Light", MUTANT_INDEX_COLOR_LIST = list(lizard_color, lizard_color, lizard_color))
-	lizard.dna.mutant_bodyparts["horns"] = list(MUTANT_INDEX_NAME = "Simple", MUTANT_INDEX_COLOR_LIST = list(lizard_color, lizard_color, lizard_color))
-	lizard.dna.mutant_bodyparts["frills"] = list(MUTANT_INDEX_NAME = "Aquatic", MUTANT_INDEX_COLOR_LIST = list(lizard_color, lizard_color, lizard_color))
-	lizard.dna.features["legs"] = "Normal Legs"
+	lizard.dna.features[FEATURE_MUTANT_COLOR] = lizard_color
+	lizard.dna.mutant_bodyparts[FEATURE_TAIL] = list(MUTANT_INDEX_NAME = "Light Tiger", MUTANT_INDEX_COLOR_LIST = list(lizard_color, lizard_color, lizard_color))
+	lizard.dna.mutant_bodyparts[FEATURE_SNOUT] = list(MUTANT_INDEX_NAME = "Sharp + Light", MUTANT_INDEX_COLOR_LIST = list(lizard_color, lizard_color, lizard_color))
+	lizard.dna.mutant_bodyparts[FEATURE_HORNS] = list(MUTANT_INDEX_NAME = "Simple", MUTANT_INDEX_COLOR_LIST = list(lizard_color, lizard_color, lizard_color))
+	lizard.dna.mutant_bodyparts[FEATURE_FRILLS] = list(MUTANT_INDEX_NAME = "Aquatic", MUTANT_INDEX_COLOR_LIST = list(lizard_color, lizard_color, lizard_color))
+	lizard.dna.features[FEATURE_LEGS] = "Normal Legs"
 	regenerate_organs(lizard, src, visual_only = TRUE)
 	lizard.update_body(TRUE)
 
