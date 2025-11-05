@@ -1098,7 +1098,9 @@
 /area/centcom/interlink)
 "aqO" = (
 /obj/machinery/light/directional/south,
-/obj/machinery/photocopier/gratis,
+/obj/machinery/photocopier/gratis/prebuilt{
+	starting_toner = /obj/item/toner/infinite
+	},
 /turf/open/indestructible/hotelwood,
 /area/centcom/holding/cafe)
 "aqP" = (
