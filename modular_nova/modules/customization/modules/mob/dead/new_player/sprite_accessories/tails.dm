@@ -1,10 +1,8 @@
 /datum/sprite_accessory/tails
-	key = "tail"
-	generic = "Tail"
+	key = FEATURE_TAIL
 	organ_type = /obj/item/organ/tail
 	icon = 'modular_nova/master_files/icons/mob/sprite_accessory/tails.dmi'
 	relevent_layers = list(BODY_BEHIND_LAYER, BODY_FRONT_LAYER)
-	genetic = TRUE
 	/// Can we use this tail for the fluffy tail turf emote?
 	var/fluffy = FALSE
 
@@ -337,6 +335,11 @@
 /datum/sprite_accessory/tails/mammal/wagging/big/shade/striped
 	name = "Shade (Striped)"
 	icon_state = "shadekinlongstriped_large"
+
+/datum/sprite_accessory/tails/mammal/wagging/big/shade/fluffy
+	name = "Shade (Fluffy)"
+	icon_state = "bigandfluffy"
+	color_src = USE_MATRIXED_COLORS
 
 /datum/sprite_accessory/tails/mammal/wagging/big/ringtail
 	name = "Ring Tail (Long)"

@@ -607,7 +607,7 @@
 						exposed_human.skin_tone = "mixed3"
 			//take current alien color and darken it slightly
 			else if(HAS_TRAIT(exposed_human, TRAIT_MUTANT_COLORS) && !HAS_TRAIT(exposed_human, TRAIT_FIXED_MUTANT_COLORS))
-				var/list/existing_color = rgb2num(exposed_human.dna.features["mcolor"])
+				var/list/existing_color = rgb2num(exposed_human.dna.features[FEATURE_MUTANT_COLOR])
 				var/list/darkened_color = list()
 				// Reduces each part of the color by 16
 				for(var/channel in existing_color)
@@ -617,7 +617,7 @@
 				var/list/new_hsv = rgb2hsv(new_color)
 				// Can't get too dark now
 				if(new_hsv[3] >= 50)
-					exposed_human.dna.features["mcolor"] = new_color
+					exposed_human.dna.features[FEATURE_MUTANT_COLOR] = new_color
 			exposed_human.update_body(is_creating = TRUE)
 
 		if((methods & INGEST) && show_message)
@@ -641,7 +641,7 @@
 		if(HAS_TRAIT(affected_human, TRAIT_USES_SKINTONES))
 			affected_human.skin_tone = "orange"
 		else if(HAS_TRAIT(affected_human, TRAIT_MUTANT_COLORS) && !HAS_TRAIT(affected_human, TRAIT_FIXED_MUTANT_COLORS)) //Aliens with custom colors simply get turned orange
-			affected_human.dna.features["mcolor"] = "#ff8800"
+			affected_human.dna.features[FEATURE_MUTANT_COLOR] = "#ff8800"
 		affected_human.update_body(is_creating = TRUE)
 		if(SPT_PROB(3.5, seconds_per_tick))
 			if(affected_human.w_uniform)
@@ -1112,7 +1112,7 @@
 		return
 
 	for(var/datum/surgery/surgery as anything in exposed_carbon.surgeries)
-		surgery.speed_modifier = max(0.2, surgery.speed_modifier)
+		surgery.speed_modifier = min(0.8, surgery.speed_modifier)
 
 /datum/reagent/space_cleaner/sterilizine/on_burn_wound_processing(datum/wound/burn/flesh/burn_wound)
 	burn_wound.sanitization += 0.9
@@ -3242,8 +3242,7 @@
 	RegisterSignal(affected_human, COMSIG_CARBON_LOSE_ORGAN, PROC_REF(on_organ_removed))
 	var/obj/item/organ/eyes/eyes = affected_human.get_organ_slot(ORGAN_SLOT_EYES)
 	if (eyes && !IS_ROBOTIC_ORGAN(eyes))
-		prev_ignore_lighting = eyes.overlay_ignore_lighting
-		eyes.overlay_ignore_lighting = TRUE
+		ADD_TRAIT(affected_human, TRAIT_LUMINESCENT_EYES, REF(src))
 
 /datum/reagent/luminescent_fluid/on_mob_end_metabolize(mob/living/affected_mob)
 	. = ..()
@@ -3255,7 +3254,7 @@
 	affected_human.remove_eye_color(EYE_COLOR_LUMINESCENT_PRIORITY)
 	var/obj/item/organ/eyes/eyes = affected_human.get_organ_slot(ORGAN_SLOT_EYES)
 	if (eyes && !IS_ROBOTIC_ORGAN(eyes) && !overdosed)
-		eyes.overlay_ignore_lighting = prev_ignore_lighting
+		REMOVE_TRAIT(affected_human, TRAIT_LUMINESCENT_EYES, REF(src))
 
 /datum/reagent/luminescent_fluid/on_mob_life(mob/living/affected_mob, seconds_per_tick, times_fired)
 	. = ..()
@@ -3274,14 +3273,13 @@
 	SIGNAL_HANDLER
 
 	if (istype(new_eyes) && !IS_ROBOTIC_ORGAN(new_eyes))
-		prev_ignore_lighting = new_eyes.overlay_ignore_lighting
-		new_eyes.overlay_ignore_lighting = TRUE
+		ADD_TRAIT(source, TRAIT_LUMINESCENT_EYES, REF(src))
 
 /datum/reagent/luminescent_fluid/proc/on_organ_removed(mob/living/source, obj/item/organ/eyes/old_eyes)
 	SIGNAL_HANDLER
 
 	if (istype(old_eyes) && !IS_ROBOTIC_ORGAN(old_eyes) && !overdosed)
-		old_eyes.overlay_ignore_lighting = prev_ignore_lighting
+		REMOVE_TRAIT(source, TRAIT_LUMINESCENT_EYES, REF(src))
 
 /datum/reagent/luminescent_fluid/overdose_start(mob/living/affected_mob)
 	. = ..()

@@ -148,7 +148,7 @@
 /turf/closed/mineral/volcanic/lava_land_surface,
 /area/lavaland/surface/outdoors)
 "tn" = (
-/mob/living/basic/raptor/baby_raptor/red,
+/mob/living/basic/raptor/baby/red,
 /turf/open/misc/asteroid/basalt/lava_land_surface,
 /area/lavaland/surface/outdoors)
 "tA" = (

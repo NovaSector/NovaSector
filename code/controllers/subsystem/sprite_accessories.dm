@@ -11,6 +11,7 @@ SUBSYSTEM_DEF(accessories) // just 'accessories' for brevity
 	name = "Sprite Accessories"
 	flags = SS_NO_FIRE | SS_NO_INIT
 
+	// HOLY SHIT COMPACT THIS INTO ASSOCIATED LISTS SO WE STOP ADDING VARIABLES
 	//Hairstyles
 	var/list/hairstyles_list //! stores /datum/sprite_accessory/hair indexed by name
 	var/list/hairstyles_male_list //! stores only hair names
@@ -31,7 +32,6 @@ SUBSYSTEM_DEF(accessories) // just 'accessories' for brevity
 	var/list/undershirt_list //! stores /datum/sprite_accessory/undershirt indexed by name
 	var/list/undershirt_m //! stores only undershirt name
 	var/list/undershirt_f //! stores only undershirt name
-
 	// NOVA EDIT ADDITION START - Underwear/bra split
 	var/list/bra_list
 	var/list/bra_m
@@ -63,26 +63,18 @@ SUBSYSTEM_DEF(accessories) // just 'accessories' for brevity
 	var/list/moth_antennae_list
 	*/ //NOVA EDIT REMOVAL END
 	var/list/moth_markings_list
+	var/list/caps_list
 	var/list/pod_hair_list
-
 	// NOVA EDIT ADDITION START - Customization
 	var/list/lizard_markings_list
 	var/list/tails_list_monkey
 	var/list/tails_list_xeno
 	var/list/tails_list_fish
-	var/list/caps_list
 	var/list/moth_wings_list
 
 	var/list/sprite_accessories = list()
-	var/list/genetic_accessories = list()
-	var/list/generic_accessories = list()
 
 	var/list/cached_mutant_icon_files = list()
-
-	// we are loading them along with sprite_accessories, so they can't be GLOB :(
-	var/dna_total_feature_blocks = DNA_MANDATORY_COLOR_BLOCKS
-	var/list/dna_mutant_bodypart_blocks = list()
-	var/list/features_block_lengths = list()
 	// NOVA EDIT ADDITION END
 
 /datum/controller/subsystem/accessories/PreInit() // this stuff NEEDS to be set up before GLOB for preferences and stuff to work so this must go here. sorry
@@ -115,7 +107,6 @@ SUBSYSTEM_DEF(accessories) // just 'accessories' for brevity
 	undershirt_list = undershirt_lists[DEFAULT_SPRITE_LIST]
 	undershirt_m = undershirt_lists[MALE_SPRITE_LIST]
 	undershirt_f = undershirt_lists[FEMALE_SPRITE_LIST]
-
 	// NOVA EDIT ADDITION START - Underwear/bra split
 	var/bra_lists = init_sprite_accessory_subtypes(/datum/sprite_accessory/bra)
 	bra_list = bra_lists[DEFAULT_SPRITE_LIST]
@@ -125,8 +116,8 @@ SUBSYSTEM_DEF(accessories) // just 'accessories' for brevity
 
 	socks_list = init_sprite_accessory_subtypes(/datum/sprite_accessory/socks)[DEFAULT_SPRITE_LIST]
 
-	/* // NOVA EDIT REMOVAL START - Customization
 	lizard_markings_list = init_sprite_accessory_subtypes(/datum/sprite_accessory/lizard_markings, add_blank = TRUE)[DEFAULT_SPRITE_LIST]
+	/* // NOVA EDIT REMOVAL START - Customization
 	tails_list_felinid = init_sprite_accessory_subtypes(/datum/sprite_accessory/tails/felinid, add_blank = TRUE)[DEFAULT_SPRITE_LIST]
 	tails_list_lizard = init_sprite_accessory_subtypes(/datum/sprite_accessory/tails/lizard)[DEFAULT_SPRITE_LIST]
 	*/ // NOVA EDIT REMOVAL END
@@ -152,14 +143,6 @@ SUBSYSTEM_DEF(accessories) // just 'accessories' for brevity
 	// NOVA EDIT ADDITION START - Customization
 	caps_list = init_sprite_accessory_subtypes(/datum/sprite_accessory/caps, add_blank = TRUE)[DEFAULT_SPRITE_LIST]
 	moth_wings_list = init_sprite_accessory_subtypes(/datum/sprite_accessory/moth_wings)[DEFAULT_SPRITE_LIST]
-
-	features_block_lengths = list(
-		"[DNA_MUTANT_COLOR_BLOCK]" = DNA_BLOCK_SIZE_COLOR,
-		"[DNA_MUTANT_COLOR_2_BLOCK]" = DNA_BLOCK_SIZE_COLOR,
-		"[DNA_MUTANT_COLOR_3_BLOCK]" = DNA_BLOCK_SIZE_COLOR,
-		"[DNA_ETHEREAL_COLOR_BLOCK]" = DNA_BLOCK_SIZE_COLOR,
-		"[DNA_SKIN_COLOR_BLOCK]" = DNA_BLOCK_SIZE_COLOR,
-	)
 	// NOVA EDIT ADDITION END
 
 /// This proc just initializes all /datum/sprite_accessory/hair_gradient into an list indexed by gradient-style name
