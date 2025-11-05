@@ -946,6 +946,10 @@
 	dir = 4
 	},
 /obj/item/stack/cable_coil,
+/obj/item/hypospray/mkii/deluxe/cmo/combat{
+	pixel_x = -10;
+	pixel_y = 15
+	},
 /turf/open/floor/iron/dark/corner{
 	dir = 4
 	},
@@ -1739,13 +1743,13 @@
 /area/misc/operative_barracks/mission_briefing)
 "wc" = (
 /obj/structure/fluff/fake_scrubber,
-/obj/item/borg/upgrade/syndicate{
-	pixel_x = -6;
-	pixel_y = 5
-	},
 /obj/item/ai_module/syndicate{
 	pixel_y = -11;
 	pixel_x = 4
+	},
+/obj/item/borg/upgrade/transform/syndicatejack{
+	pixel_x = -6;
+	pixel_y = 6
 	},
 /turf/open/floor/iron/dark/side{
 	dir = 8

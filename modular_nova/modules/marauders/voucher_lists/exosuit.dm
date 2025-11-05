@@ -55,7 +55,7 @@
 	icon = /obj/vehicle/sealed/mecha/gygax/dark::icon
 	icon_state = /obj/vehicle/sealed/mecha/gygax/dark::icon_state
 	set_items = list(
-		/obj/vehicle/sealed/mecha/gygax/dark/loaded,
+		/obj/vehicle/sealed/mecha/gygax/dark/marauder,
 	)
 
 /datum/voucher_set/traitor/mech/marauder
@@ -64,17 +64,16 @@
 	icon = /obj/vehicle/sealed/mecha/marauder/mauler::icon
 	icon_state = /obj/vehicle/sealed/mecha/marauder/mauler::icon_state
 	set_items = list(
-		/obj/vehicle/sealed/mecha/marauder/mauler/loaded,
+		/obj/vehicle/sealed/mecha/marauder/mauler/marauder,
 	)
 
 /datum/voucher_set/traitor/mech/ripley
-	name = /obj/vehicle/sealed/mecha/ripley/deathripley/normal_clamp::name
-	description = /obj/vehicle/sealed/mecha/ripley/deathripley/normal_clamp::desc
-	icon = /obj/vehicle/sealed/mecha/ripley/deathripley/normal_clamp::icon
-	icon_state = /obj/vehicle/sealed/mecha/ripley/deathripley/normal_clamp::icon_state
+	name = /obj/vehicle/sealed/mecha/ripley/deathripley::name
+	description = /obj/vehicle/sealed/mecha/ripley/deathripley::desc
+	icon = /obj/vehicle/sealed/mecha/ripley/deathripley::icon
+	icon_state = /obj/vehicle/sealed/mecha/ripley/deathripley::icon_state
 	set_items = list(
-		/obj/vehicle/sealed/mecha/ripley/deathripley/normal_clamp,
-		/obj/item/mecha_parts/mecha_equipment/drill/diamonddrill,
+		/obj/vehicle/sealed/mecha/ripley/deathripley/marauder,
 		/obj/item/stack/sheet/animalhide/goliath_hide,
 		/obj/item/stack/sheet/animalhide/goliath_hide,
 		/obj/item/stack/sheet/animalhide/goliath_hide,
@@ -86,5 +85,5 @@
 	icon = /obj/vehicle/sealed/mecha/honker/dark::icon
 	icon_state = /obj/vehicle/sealed/mecha/honker/dark::icon_state
 	set_items = list(
-		/obj/vehicle/sealed/mecha/honker/dark/loaded,
+		/obj/vehicle/sealed/mecha/honker/dark/marauder,
 	)
