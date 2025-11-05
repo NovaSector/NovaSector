@@ -401,8 +401,6 @@
 		/obj/item/scalpel/advanced,
 		/obj/item/gun/medbeam,
 		/obj/item/reagent_containers/borghypo/syndicate,
-		/obj/item/borg/lollipop,
-		/obj/item/holosign_creator/cyborg,
 		/obj/item/borg_shapeshifter,
 		)
 	cyborg_base_icon = "synd_engi"
