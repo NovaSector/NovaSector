@@ -7459,6 +7459,7 @@
 #include "modular_nova\modules\aesthetics\guns\code\energy.dm"
 #include "modular_nova\modules\aesthetics\guns\code\guns.dm"
 #include "modular_nova\modules\aesthetics\guns\code\magazine.dm"
+#include "modular_nova\modules\aesthetics\heater\code\spaceheater.dm"
 #include "modular_nova\modules\aesthetics\implanter\implanter.dm"
 #include "modular_nova\modules\aesthetics\intercom\code\intercom.dm"
 #include "modular_nova\modules\aesthetics\keyed_doors\code\keyed_door.dm"
