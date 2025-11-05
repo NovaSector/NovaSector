@@ -7089,7 +7089,6 @@
 #include "modular_nova\master_files\code\modules\cargo\packs\companies\machines.dm"
 #include "modular_nova\master_files\code\modules\cargo\packs\companies\medical.dm"
 #include "modular_nova\master_files\code\modules\cargo\packs\companies\modsuits.dm"
-#include "modular_nova\master_files\code\modules\cargo\packs\companies\storage.dm"
 #include "modular_nova\master_files\code\modules\cargo\packs\companies\tools_weapons.dm"
 #include "modular_nova\master_files\code\modules\client\client_procs.dm"
 #include "modular_nova\master_files\code\modules\client\playtime.dm"

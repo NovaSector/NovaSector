@@ -1,14 +1,12 @@
 /datum/supply_pack/companies/modsuits
 	group = "I - Mods and Modsuits"
 	goody = TRUE
-	express_lock = TRUE
-	discountable = SUPPLY_PACK_UNCOMMON_DISCOUNTABLE
+	discountable = SUPPLY_PACK_NOT_DISCOUNTABLE
 
 // Mod Suits
 
 /datum/supply_pack/companies/modsuits/mods
-	goody = FALSE
-	express_lock = FALSE
+	discountable = SUPPLY_PACK_STD_DISCOUNTABLE
 
 /datum/supply_pack/companies/modsuits/mods/hazard_mod
 	name = "HAZARD Frontier Belt Modsuit"
@@ -17,7 +15,7 @@
 		thanks to proprietary \"not putting servos in the joints\" technology! \
 		What more could you ask for in the dead of space?"
 	auto_name = FALSE
-	cost = PAYCHECK_COMMAND * 6.5
+	cost = CARGO_CRATE_VALUE * 3.25
 
 /datum/supply_pack/companies/modsuits/mods/civilian_mod
 	name = "Civilian Miniaturized Belt Modsuit"
@@ -27,17 +25,17 @@
 		on a heavy backpack control unit, making its operation less taxing and convenient for the \
 		average user."
 	auto_name = FALSE
-	cost = PAYCHECK_COMMAND * 5
+	cost = CARGO_CRATE_VALUE * 2.5
 
 /datum/supply_pack/companies/modsuits/mods/voskhod_refit_kit
 	contains = list(/obj/item/crafting_conversion_kit/voskhod_refit)
 	cost = CARGO_CRATE_VALUE * 6
-	access = ACCESS_WEAPONS
+	access_view = ACCESS_WEAPONS
 
 // MOD cores & Fuel
 
 /datum/supply_pack/companies/modsuits/core
-	cost = PAYCHECK_COMMAND
+	cost = CARGO_CRATE_VALUE * 0.5
 
 /datum/supply_pack/companies/modsuits/core/standard
 	contains = list(/obj/item/mod/core/standard)
@@ -55,14 +53,14 @@
 // MOD plating
 
 /datum/supply_pack/companies/modsuits/plating
-	cost = PAYCHECK_COMMAND
+	cost = CARGO_CRATE_VALUE * 0.5
 	desc = "External plating used to finish a MOD control unit."
 	auto_name = FALSE
 
 /datum/supply_pack/companies/modsuits/plating/standard
 	name = "MOD Standard Plating"
 	contains = list(/obj/item/mod/construction/plating)
-	cost = PAYCHECK_CREW
+	cost = CARGO_CRATE_VALUE * 0.25
 
 /datum/supply_pack/companies/modsuits/plating/medical
 	name = "MOD Medical Plating"
@@ -79,7 +77,7 @@
 /datum/supply_pack/companies/modsuits/plating/security
 	name = "MOD Security Plating"
 	contains = list(/obj/item/mod/construction/plating/security)
-	cost = PAYCHECK_COMMAND * 2
+	cost = CARGO_CRATE_VALUE
 
 /datum/supply_pack/companies/modsuits/plating/clown
 	name = "MOD CosmoHonk (TM) Plating"
@@ -90,7 +88,7 @@
 // Protection, so shielding and whatnot
 
 /datum/supply_pack/companies/modsuits/protection_modules
-	cost = PAYCHECK_CREW
+	cost = CARGO_CRATE_VALUE * 0.25
 
 /datum/supply_pack/companies/modsuits/protection_modules/welding
 	contains = list(/obj/item/mod/module/welding)
@@ -110,7 +108,7 @@
 // Medical Mods
 
 /datum/supply_pack/companies/modsuits/medical_modules
-	cost = PAYCHECK_COMMAND
+	cost = CARGO_CRATE_VALUE * 0.5
 
 /datum/supply_pack/companies/modsuits/medical_modules/injector
 	contains = list(/obj/item/mod/module/injector)
@@ -132,7 +130,7 @@
 
 // Utility modules, general purpose stuff that really anyone might want
 /datum/supply_pack/companies/modsuits/utility_modules
-	cost = PAYCHECK_CREW * 0.5
+	cost = CARGO_CRATE_VALUE * 0.125
 
 /datum/supply_pack/companies/modsuits/utility_modules/flashlight
 	contains = list(/obj/item/mod/module/flashlight)
@@ -154,31 +152,31 @@
 
 /datum/supply_pack/companies/modsuits/utility_modules/expanded_storage
 	contains = list(/obj/item/mod/module/storage/large_capacity)
-	cost = PAYCHECK_COMMAND
+	cost = CARGO_CRATE_VALUE * 0.5
 
 /datum/supply_pack/companies/modsuits/utility_modules/retract_plates
 	contains = list(/obj/item/mod/module/plate_compression)
-	cost = PAYCHECK_COMMAND
+	cost = CARGO_CRATE_VALUE * 0.5
 
 /datum/supply_pack/companies/modsuits/utility_modules/magnetic_deploy
 	contains = list(/obj/item/mod/module/springlock/contractor)
-	cost = PAYCHECK_COMMAND * 2
+	cost = CARGO_CRATE_VALUE
 
 // Mobility modules, jetpacks and stuff
 
 /datum/supply_pack/companies/modsuits/mobility_modules
-	cost = PAYCHECK_CREW
+	cost = CARGO_CRATE_VALUE * 0.25
 
 /datum/supply_pack/companies/modsuits/mobility_modules/tether
 	contains = list(/obj/item/mod/module/tether)
-	cost = PAYCHECK_CREW * 0.5
+	cost = CARGO_CRATE_VALUE * 0.125
 
 /datum/supply_pack/companies/modsuits/mobility_modules/magboot
 	contains = list(/obj/item/mod/module/magboot)
 
 /datum/supply_pack/companies/modsuits/mobility_modules/jetpack
 	contains = list(/obj/item/mod/module/jetpack)
-	cost = PAYCHECK_COMMAND
+	cost = CARGO_CRATE_VALUE * 0.5
 
 /datum/supply_pack/companies/modsuits/mobility_modules/pathfinder
 	contains = list(/obj/item/mod/module/pathfinder)
@@ -188,16 +186,16 @@
 
 /datum/supply_pack/companies/modsuits/mobility_modules/sphere
 	contains = list(/obj/item/mod/module/sphere_transform)
-	cost = PAYCHECK_COMMAND * 2
+	cost = CARGO_CRATE_VALUE
 
 /datum/supply_pack/companies/modsuits/mobility_modules/atrocinator
 	contains = list(/obj/item/mod/module/atrocinator)
-	cost = PAYCHECK_COMMAND * 2
+	cost = CARGO_CRATE_VALUE
 
 // Novelty modules, goofy stuff that's rare/unprintable, but doesn't fit in any of the above categories
 
 /datum/supply_pack/companies/modsuits/novelty_modules
-	cost = PAYCHECK_CREW * 0.5
+	cost = CARGO_CRATE_VALUE * 0.125
 
 /datum/supply_pack/companies/modsuits/novelty_modules/waddle
 	contains = list(/obj/item/mod/module/waddle)
@@ -222,16 +220,18 @@
 
 /datum/supply_pack/companies/modsuits/novelty_modules/dart_collector
 	contains = list(/obj/item/mod/module/recycler/donk)
-	cost = PAYCHECK_COMMAND * 2
+	cost = CARGO_CRATE_VALUE
 
-/datum/supply_pack/companies/modsuits/novelty_modules/kinesis
+/datum/supply_pack/companies/modsuits/anomalock
+	discountable = SUPPLY_PACK_UNCOMMON_DISCOUNTABLE
+	cost = CARGO_CRATE_VALUE * 7.5
+
+/datum/supply_pack/companies/modsuits/anomalock/kinesis
 	contains = list(/obj/item/mod/module/anomaly_locked/kinesis/prebuilt/locked)
-	cost = PAYCHECK_COMMAND * 15
 
-/datum/supply_pack/companies/modsuits/novelty_modules/antigrav
+/datum/supply_pack/companies/modsuits/anomalock/antigrav
 	contains = list(/obj/item/mod/module/anomaly_locked/antigrav/prebuilt/locked)
-	cost = PAYCHECK_COMMAND * 15
 
-/datum/supply_pack/companies/modsuits/novelty_modules/teleporter
+/datum/supply_pack/companies/modsuits/anomalock/teleporter
 	contains = list(/obj/item/mod/module/anomaly_locked/teleporter/prebuilt/locked)
-	cost = PAYCHECK_COMMAND * 20
+	cost = CARGO_CRATE_VALUE * 10

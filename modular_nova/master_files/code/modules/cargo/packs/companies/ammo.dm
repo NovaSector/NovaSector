@@ -1,13 +1,11 @@
 /datum/supply_pack/companies/mags_and_ammo
 	group = "I - Magazines and Ammo"
-	express_lock = TRUE
-	departamental_goody = FALSE
 	discountable = SUPPLY_PACK_NOT_DISCOUNTABLE
 
-//SolFed Mags
+//Sol Fed Mags
 
 /datum/supply_pack/companies/mags_and_ammo
-	cost = PAYCHECK_CREW
+	cost = CARGO_CRATE_VALUE * 0.25
 
 /datum/supply_pack/companies/mags_and_ammo/c35_mag
 	contains = list(/obj/item/ammo_box/magazine/c35sol_pistol/starts_empty)
@@ -32,33 +30,43 @@
 
 /datum/supply_pack/companies/mags_and_ammo/sol_rifle_standard
 	contains = list(/obj/item/ammo_box/magazine/c40sol_rifle/standard/starts_empty)
-	cost = PAYCHECK_COMMAND
+	cost = CARGO_CRATE_VALUE * 0.5
 
 /datum/supply_pack/companies/mags_and_ammo/sol_grenade_standard
 	contains = list(/obj/item/ammo_box/magazine/c980_grenade/starts_empty)
-	cost = PAYCHECK_COMMAND * 2
+	cost = CARGO_CRATE_VALUE
 
 /datum/supply_pack/companies/mags_and_ammo/sol_grenade_drum
 	contains = list(/obj/item/ammo_box/magazine/c980_grenade/drum/starts_empty)
-	cost = PAYCHECK_CREW * 3
+	cost = CARGO_CRATE_VALUE * 0.75
+	access_view = ACCESS_WEAPONS
+	express_lock = TRUE
+	departamental_goody = FALSE
 
 /datum/supply_pack/companies/mags_and_ammo/jager_shotgun_regular
 	contains = list(/obj/item/ammo_box/magazine/jager/empty)
+	access_view = ACCESS_WEAPONS
+	express_lock = TRUE
+	departamental_goody = FALSE
 
 /datum/supply_pack/companies/mags_and_ammo/jager_shotgun_Large
 	contains = list(/obj/item/ammo_box/magazine/jager/large/empty)
-	cost = PAYCHECK_CREW * 3
+	cost = CARGO_CRATE_VALUE * 0.75
+	access_view = ACCESS_WEAPONS
+	express_lock = TRUE
+	departamental_goody = FALSE
 
-//NRI Mags
+// NRI Mags
+
 /datum/supply_pack/companies/mags_and_ammo/nri_surplus/
-	cost = PAYCHECK_CREW
+	cost = CARGO_CRATE_VALUE * 0.25
 
 /datum/supply_pack/companies/mags_and_ammo/nri_surplus/plasma_battery
 	contains = list(/obj/item/ammo_box/magazine/recharge/plasma_battery)
 
 /datum/supply_pack/companies/mags_and_ammo/nri_surplus/zaibas
 	contains = list(/obj/item/ammo_box/magazine/pulse/spawns_empty)
-	cost = PAYCHECK_CREW * 2
+	cost = CARGO_CRATE_VALUE * 0.5
 
 /datum/supply_pack/companies/mags_and_ammo/nri_surplus/zashch
 	contains = list(/obj/item/ammo_box/magazine/zashch/spawns_empty)
@@ -77,39 +85,12 @@
 
 /datum/supply_pack/companies/mags_and_ammo/nri_surplus/amr_magazine
 	contains = list(/obj/item/ammo_box/magazine/wylom)
-	cost = PAYCHECK_CREW * 3
+	cost = CARGO_CRATE_VALUE * 0.75
 
-// Ammo bench and the lethals disk
-
-/datum/supply_pack/companies/mags_and_ammo/vitezstvi/ammo_bench
-
-/datum/supply_pack/companies/mags_and_ammo/vitezstvi/ammo_bench/bench_itself
-	contains = list(/obj/item/flatpack/ammo_workbench)
-	cost = PAYCHECK_COMMAND * 2
-
-// basic disk
-/datum/supply_pack/companies/mags_and_ammo/vitezstvi/ammo_bench/ammo_disk
-	contains = list(/obj/item/ammo_workbench_module/lethal)
-	cost = PAYCHECK_COMMAND * 3
-
-// disk but with the bits needed for EMP/fire bullets
-/datum/supply_pack/companies/mags_and_ammo/vitezstvi/ammo_bench/ammo_disk/lethal_gimmick
-	contains = list(/obj/item/ammo_workbench_module/lethal_gimmick)
-	cost = PAYCHECK_COMMAND * 5
-
-// disk but it's got HP/AP
-/datum/supply_pack/companies/mags_and_ammo/vitezstvi/ammo_bench/ammo_disk/variant
-	contains = list(/obj/item/ammo_workbench_module/lethal_variant)
-	cost = PAYCHECK_COMMAND * 8
-
-/datum/supply_pack/companies/mags_and_ammo/vitezstvi/ammo_bench/bullet_drive
-	contains = list(/obj/item/flatpack/bullet_drive)
-	cost = PAYCHECK_COMMAND * 2
-
-// Boxes of non-shotgun ammo
+// Vitezstvi - Boxes of non-shotgun ammo
 
 /datum/supply_pack/companies/mags_and_ammo/vitezstvi/ammo_boxes
-	cost = PAYCHECK_CREW
+	cost = CARGO_CRATE_VALUE * 0.25
 
 /datum/supply_pack/companies/mags_and_ammo/vitezstvi/ammo_boxes/peacekeeper_lethal
 	contains = list(/obj/item/ammo_box/c9mm)
@@ -138,7 +119,7 @@
 /datum/supply_pack/companies/mags_and_ammo/vitezstvi/ammo_boxes/zaibas_ammo
 	contains = list(/obj/item/ammo_box/pulse_cargo_box)
 	//It's like, a lot of ammo compared to other packages; high-capacity universal ammo for all pulse plasma guns.
-	cost = PAYCHECK_COMMAND * 2
+	cost = CARGO_CRATE_VALUE
 
 /datum/supply_pack/companies/mags_and_ammo/vitezstvi/ammo_boxes/strilka_lethal
 	contains = list(/obj/item/ammo_box/c310_cargo_box)
@@ -191,7 +172,7 @@
 // Revolver speedloaders
 
 /datum/supply_pack/companies/mags_and_ammo/vitezstvi/speedloader
-	cost = PAYCHECK_CREW
+	cost = CARGO_CRATE_VALUE * 0.25
 
 /datum/supply_pack/companies/mags_and_ammo/vitezstvi/speedloader/detective_lethal
 	contains = list(/obj/item/ammo_box/speedloader/c38)
@@ -208,10 +189,10 @@
 /datum/supply_pack/companies/mags_and_ammo/vitezstvi/speedloader/c585trappiste
 	contains = list(/obj/item/ammo_box/speedloader/c585trappiste)
 
-// Shotgun boxes
+// Vitezstvi - Shotgun boxes
 
 /datum/supply_pack/companies/mags_and_ammo/vitezstvi/shot_shells
-	cost = PAYCHECK_CREW
+	cost = CARGO_CRATE_VALUE * 0.25
 
 /datum/supply_pack/companies/mags_and_ammo/vitezstvi/shot_shells/slugs
 	contains = list(/obj/item/ammo_box/advanced/s12gauge)
@@ -249,7 +230,7 @@
 // Boxes of kiboko launcher ammo
 
 /datum/supply_pack/companies/mags_and_ammo/vitezstvi/grenade_shells
-	cost = PAYCHECK_COMMAND
+	cost = CARGO_CRATE_VALUE * 0.5
 
 /datum/supply_pack/companies/mags_and_ammo/vitezstvi/grenade_shells/practice
 	contains = list(/obj/item/ammo_box/c980grenade)
@@ -262,11 +243,15 @@
 
 /datum/supply_pack/companies/mags_and_ammo/vitezstvi/grenade_shells/shrapnel
 	contains = list(/obj/item/ammo_box/c980grenade/shrapnel)
-	access = ACCESS_WEAPONS
+	access_view = ACCESS_WEAPONS
+	express_lock = TRUE
+	departamental_goody = FALSE
 
 /datum/supply_pack/companies/mags_and_ammo/vitezstvi/grenade_shells/phosphor
 	contains = list(/obj/item/ammo_box/c980grenade/shrapnel/phosphor)
-	access = ACCESS_WEAPONS
+	access_view = ACCESS_WEAPONS
+	express_lock = TRUE
+	departamental_goody = FALSE
 
 //Blacksteel Ammo
 
@@ -276,5 +261,30 @@
 	contains = list(/obj/item/storage/bag/quiver/full)
 	name = "Quiver"
 	desc = "Holds arrows for your bow. Good, because while pocketing arrows is possible, it surely can't be pleasant. Comes with 10 arrows!"
-	cost = PAYCHECK_COMMAND * 3
+	cost = CARGO_CRATE_VALUE * 1.5
 	auto_name = FALSE
+
+// Donk
+
+/datum/supply_pack/companies/mags_and_ammo/donk/foamforce_ammo
+	cost = CARGO_CRATE_VALUE * 0.25
+
+/datum/supply_pack/companies/mags_and_ammo/donk/foamforce_ammo/darts
+	contains = list(/obj/item/ammo_box/foambox)
+	cost = CARGO_CRATE_VALUE * 0.125
+
+/datum/supply_pack/companies/mags_and_ammo/donk/foamforce_ammo/riot_darts
+	contains = list(/obj/item/ammo_box/foambox/riot)
+	cost = CARGO_CRATE_VALUE * 0.75
+
+/datum/supply_pack/companies/mags_and_ammo/donk/foamforce_ammo/pistol_mag
+	contains = list(/obj/item/ammo_box/magazine/toy/pistol)
+
+/datum/supply_pack/companies/mags_and_ammo/donk/foamforce_ammo/smg_mag
+	contains = list(/obj/item/ammo_box/magazine/toy/smg)
+
+/datum/supply_pack/companies/mags_and_ammo/donk/foamforce_ammo/smgm45_mag
+	contains = list(/obj/item/ammo_box/magazine/toy/smgm45)
+
+/datum/supply_pack/companies/mags_and_ammo/donk/foamforce_ammo/m762_mag
+	contains = list(/obj/item/ammo_box/magazine/toy/m762)

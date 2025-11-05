@@ -1,13 +1,13 @@
 #define CARGO_CUT 0.05
 
 /datum/supply_pack/companies
-	access = NONE
+	access_view = NONE
 	group = "I - General"
 	goody = TRUE
 	crate_type = /obj/structure/closet/crate/large/import
 	auto_name = TRUE
 	departamental_goody = TRUE
-	discountable = SUPPLY_PACK_STD_DISCOUNTABLE
+	discountable = SUPPLY_PACK_RARE_DISCOUNTABLE
 
 // Original logic, gives 5% of the stuff people buy to cargo and leaves the gun check for pins
 /datum/supply_pack/companies/generate(atom/A, datum/bank_account/paying_account)
