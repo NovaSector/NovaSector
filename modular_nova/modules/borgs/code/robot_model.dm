@@ -385,7 +385,7 @@
 		/obj/item/melee/energy/sword/cyborg,
 		/obj/item/extinguisher,
 		/obj/item/weldingtool/electric,
-		/obj/item/borg/cyborg_omnitool/engineering,
+		/obj/item/multitool/cyborg,
 		/obj/item/crowbar/cyborg/power,
 		/obj/item/screwdriver/cyborg/power,
 		/obj/item/construction/rcd/borg/syndicate,
