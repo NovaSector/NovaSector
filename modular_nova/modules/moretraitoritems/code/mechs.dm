@@ -44,8 +44,8 @@
 /obj/vehicle/sealed/mecha/ripley/deathripley/marauder
 	equip_by_category = list(
 		MECHA_L_ARM = /obj/item/mecha_parts/mecha_equipment/hydraulic_clamp,
-		MECHA_R_ARM = /obj/item/mecha_parts/mecha_equipment/drill/diamonddrill,
-		MECHA_UTILITY = list(/obj/item/mecha_parts/mecha_equipment/radio, /obj/item/mecha_parts/mecha_equipment/repair_droid, /obj/item/mecha_parts/mecha_equipment/ejector),
+		MECHA_R_ARM = null,
+		MECHA_UTILITY = list(/obj/item/mecha_parts/mecha_equipment/radio, /obj/item/mecha_parts/mecha_equipment/drill/diamonddrill, /obj/item/mecha_parts/mecha_equipment/ejector),
 		MECHA_POWER = list(),
 		MECHA_ARMOR = list(),
 	)
