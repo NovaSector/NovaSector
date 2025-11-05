@@ -1,4 +1,5 @@
 /datum/species/lizard
+	body_markings = list()
 	mutant_bodyparts = list()
 	mutant_organs = list()
 	payday_modifier = 1.0
@@ -58,6 +59,9 @@
 
 /datum/species/lizard/randomize_features()
 	var/list/features = ..()
+	if(istype(src, /datum/species/lizard/silverscale)) // don't randomize silvercale colors
+		return features
+
 	var/main_color = "#[random_color()]"
 	var/second_color
 	var/third_color
@@ -92,7 +96,6 @@
 	inherent_traits = list(
 		TRAIT_MUTANT_COLORS,
 	)
-
 
 /datum/species/lizard/ashwalker/prepare_human_for_preview(mob/living/carbon/human/lizard, lizard_color = "#990000")
 	. = ..(lizard, lizard_color)

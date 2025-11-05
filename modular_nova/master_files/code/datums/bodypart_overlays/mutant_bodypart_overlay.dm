@@ -184,16 +184,18 @@
 		switch(sprite_datum.color_src)
 			if(USE_ONE_COLOR)
 				overlay.color = islist(draw_color) ? draw_color[i] : draw_color
-				overlay.alpha = alpha
 
 			if(USE_MATRIXED_COLORS)
-				overlay.color = islist(draw_color) ? draw_color[i] : draw_color
-				overlay.alpha = alpha
+				if (i > length(draw_color))
+					overlay.color = islist(draw_color) ? draw_color[length(draw_color)] : draw_color
+				else
+					overlay.color = islist(draw_color) ? draw_color[i] : draw_color
 				i++
 
 			else
 				overlay.color = limb?.color
-				overlay.alpha = alpha
+
+		overlay.alpha = alpha
 
 
 /**
