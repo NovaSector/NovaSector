@@ -334,8 +334,7 @@ ADMIN_VERB(cmd_controller_view_ui, R_SERVER|R_DEBUG, "Controller Overview", "Vie
 	init_stage_completed = 0
 	var/mc_started = FALSE
 
-	// to_chat(world, span_boldannounce("Initializing subsystems..."), MESSAGE_TYPE_DEBUG) // NOVA EDIT REMOVAL
-	add_startup_message("Initializing subsystems...") // NOVA EDIT CHANGE - Custom HTML Lobby Screen
+	add_startup_message("Initializing subsystems...") // NOVA EDIT CHANGE - Custom HTML Lobby Screen - ORIGINAL: to_chat(world, span_boldannounce("Initializing subsystems..."), MESSAGE_TYPE_DEBUG)
 
 	var/list/stage_sorted_subsystems = new(INITSTAGE_MAX)
 	for (var/i in 1 to INITSTAGE_MAX)
@@ -454,7 +453,6 @@ ADMIN_VERB(cmd_controller_view_ui, R_SERVER|R_DEBUG, "Controller Overview", "Vie
 			Master.StartProcessing(0)
 			add_startup_message("Clearing clutter...") //NOVA EDIT ADDITION
 
-
 	var/time = (REALTIMEOFDAY - start_timeofday) / 10
 
 
@@ -551,13 +549,10 @@ ADMIN_VERB(cmd_controller_view_ui, R_SERVER|R_DEBUG, "Controller Overview", "Vie
 			chat_warning = TRUE
 
 	var/message = "[message_prefix] [seconds] second[seconds == 1 ? "" : "s"]!"
-	// NOVA EDIT REMOVAL BEGIN -- chat_message not used anymore due to change below
-	// var/chat_message = chat_warning ? span_boldwarning(message) : span_boldannounce(message)
-	// NOVA EDIT REMOVAL END
+	//var/chat_message = chat_warning ? span_boldwarning(message) : span_boldannounce(message) // NOVA EDIT REMOVAL -- chat_message not used anymore due to change below
 
 	if(result != SS_INIT_NO_MESSAGE)
-		// to_chat(world, chat_message, MESSAGE_TYPE_DEBUG) // NOVA EDIT REMOVAL
-		add_startup_message(message, chat_warning) // NOVA EDIT ADDITION
+		add_startup_message(message, chat_warning) // NOVA EDIT CHANGE - ORIGINAL: to_chat(world, chat_message, MESSAGE_TYPE_DEBUG)
 	log_world(message)
 
 /datum/controller/master/proc/SetRunLevel(new_runlevel)

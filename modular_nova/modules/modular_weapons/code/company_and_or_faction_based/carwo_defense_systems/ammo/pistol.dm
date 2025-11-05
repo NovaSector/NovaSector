@@ -21,7 +21,7 @@
 
 /obj/projectile/bullet/c35sol
 	name = ".35 Sol Short bullet"
-	damage = 20
+	damage = 16
 
 	wound_bonus = 5 // Normal bullets are 20
 	exposed_wound_bonus = 10
@@ -58,8 +58,8 @@
 
 /obj/projectile/bullet/c35sol/incapacitator
 	name = ".35 Sol Short incapacitator bullet"
-	damage = 5
-	stamina = 30
+	damage = 3
+	stamina = 20
 
 	wound_bonus = -40
 	exposed_wound_bonus = -20
@@ -103,7 +103,7 @@
 
 /obj/projectile/bullet/c35sol/ripper
 	name = ".35 Sol ripper bullet"
-	damage = 15
+	damage = 10
 
 	weak_against_armour = TRUE
 

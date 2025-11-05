@@ -482,6 +482,9 @@
 	else if (siemens_coefficient <= 0.5)
 		.["partially insulated"] = "It is made from a poor insulator that will dampen (but not fully block) electric shocks passing through it."
 
+	if(LAZYLEN(unique_reskin) && !current_skin)
+		.["reskinnable"] = "This item is able to be reskinned! Alt-Click to do so!"
+
 /obj/item/examine_descriptor(mob/user)
 	return "item"
 
@@ -635,7 +638,7 @@
 	if(throwing)
 		throwing.finalize(FALSE)
 	if(loc == user && outside_storage)
-		if(!allow_attack_hand_drop(user) || !user.temporarilyRemoveItemFromInventory(src))
+		if(!can_mob_unequip(user) || !user.temporarilyRemoveItemFromInventory(src))
 			return
 
 	. = FALSE
@@ -645,7 +648,9 @@
 		user.dropItemToGround(src)
 		return TRUE
 
-/obj/item/proc/allow_attack_hand_drop(mob/user)
+/// Called when a mob is manually attempting to unequip the item
+/// Returning FALSE will prevent the unequip from happening
+/obj/item/proc/can_mob_unequip(mob/user)
 	return TRUE
 
 /obj/item/attack_paw(mob/user, list/modifiers)
@@ -765,7 +770,8 @@
 	item_flags &= ~IN_INVENTORY
 	UnregisterSignal(src, list(SIGNAL_ADDTRAIT(TRAIT_NO_WORN_ICON), SIGNAL_REMOVETRAIT(TRAIT_NO_WORN_ICON)))
 	SEND_SIGNAL(src, COMSIG_ITEM_DROPPED, user)
-	if(!silent)
+	SEND_SIGNAL(user, COMSIG_MOB_DROPPED_ITEM, src)
+	if(!silent && drop_sound)
 		play_drop_sound(DROP_SOUND_VOLUME)
 
 /// called just as an item is picked up (loc is not yet changed)
@@ -993,7 +999,7 @@
 
 /obj/item/proc/update_slot_icon()
 	SIGNAL_HANDLER
-	if(!ismob(loc))
+	if(!ismob(loc) || QDELETED(loc))
 		return
 	var/mob/owner = loc
 	owner.update_clothing(slot_flags | owner.get_slot_by_item(src))

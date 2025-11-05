@@ -254,12 +254,12 @@
 	// Relieve the negative moodlet
 	akula.clear_mood_event("dry_skin")
 	// The timer which will initiate above 10 wet_stacks, and call dried() once the timer runs out
-	dry_up_timer = addtimer(CALLBACK(src, PROC_REF(dried), akula), DRY_UP_TIME, TIMER_UNIQUE | TIMER_STOPPABLE)
+	dry_up_timer = addtimer(CALLBACK(src, PROC_REF(dried), akula), DRY_UP_TIME, TIMER_UNIQUE | TIMER_STOPPABLE | TIMER_DELETE_ME)
 
 /// This proc is called after a mob with the TRAIT_SLIPPERY has its related timer run out
 /datum/species/akula/proc/dried(mob/living/carbon/akula)
 	// A moodlet which will not go away until the user gets wet
-	akula.add_mood_event("dry_skin", /datum/mood_event/dry_skin)
+	akula?.add_mood_event("dry_skin", /datum/mood_event/dry_skin)
 
 /// A simple overwrite which calls parent to listen to wet_stacks
 /datum/status_effect/fire_handler/wet_stacks/tick(delta_time)

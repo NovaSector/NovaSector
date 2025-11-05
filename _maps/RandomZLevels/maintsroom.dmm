@@ -1,7 +1,7 @@
 //MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
 "aa" = (
 /obj/structure/safe/floor,
-/obj/item/gun/energy/e_gun/nuclear/rainbow,
+/obj/item/gun/energy/e_gun/nuclear,
 /turf/open/floor/iron/dark/textured,
 /area/awaymission/caves/maintsroom)
 "ab" = (
@@ -162,7 +162,7 @@
 /obj/item/trash/blins,
 /obj/item/trash/can/food/pine_nuts,
 /obj/item/trash/can/food/tuna,
-/obj/item/trash/nachos,
+/obj/item/trash/chigirtma,
 /obj/item/trash/vendor_trash/mothmallow,
 /obj/item/food/chips,
 /turf/open/floor/plating,
@@ -2099,7 +2099,7 @@
 /obj/item/stack/spacecash/c500,
 /obj/item/coin/plastic,
 /obj/structure/safe,
-/obj/item/tank/jetpack/oxygen{
+/obj/item/tank/jetpack{
 	desc = "A tank of compressed oxygen for use as propulsion in zero-gravity areas. It's blue, and has a triangle chiselled into the paint."
 	},
 /obj/item/switchblade,
@@ -6950,7 +6950,7 @@
 	pixel_y = -1
 	},
 /obj/effect/decal/cleanable/dirt,
-/obj/effect/landmark/start/hangover/closet,
+/obj/effect/landmark/start/hangover,
 /turf/open/floor/wood,
 /area/awaymission/caves/maintsroom)
 "xe" = (
@@ -13579,7 +13579,7 @@
 	},
 /area/awaymission/caves/maintsroom)
 "TP" = (
-/obj/machinery/computer/station_alert/station_only{
+/obj/machinery/computer/station_alert{
 	dir = 4
 	},
 /obj/effect/turf_decal/bot/left,
