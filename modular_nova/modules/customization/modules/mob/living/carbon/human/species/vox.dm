@@ -46,11 +46,11 @@
 
 /datum/species/vox/get_default_mutant_bodyparts()
 	return list(
-		"ears" = list("None", FALSE),
-		"tail" = list("Vox Tail", FALSE),
-		"legs" = list(DIGITIGRADE_LEGS,FALSE),
-		"snout" = list("Vox Snout", FALSE),
-		"spines" = list("Vox Bands", TRUE),
+		FEATURE_EARS = list("None", FALSE),
+		FEATURE_TAIL = list("Vox Tail", FALSE),
+		FEATURE_LEGS = list(DIGITIGRADE_LEGS,FALSE),
+		FEATURE_SNOUT = list("Vox Snout", FALSE),
+		FEATURE_SPINES = list("Vox Bands", TRUE),
 	)
 
 /datum/species/vox/pre_equip_species_outfit(datum/job/job, mob/living/carbon/human/equipping, visuals_only)
@@ -62,9 +62,9 @@
 
 /datum/species/vox/randomize_features()
 	var/list/features = ..()
-	features["mcolor"] = pick("#77DD88", "#77DDAA", "#77CCDD", "#77DDCC")
-	features["mcolor2"] = pick("#EEDD88", "#EECC88")
-	features["mcolor3"] = pick("#222222", "#44EEFF", "#44FFBB", "#8844FF", "#332233")
+	features[FEATURE_MUTANT_COLOR] = pick("#77DD88", "#77DDAA", "#77CCDD", "#77DDCC")
+	features[FEATURE_MUTANT_COLOR_TWO] = pick("#EEDD88", "#EECC88")
+	features[FEATURE_MUTANT_COLOR_THREE] = pick("#222222", "#44EEFF", "#44FFBB", "#8844FF", "#332233")
 	return features
 
 /datum/species/vox/get_random_body_markings(list/passed_features)
@@ -95,9 +95,9 @@
 	return list(placeholder_lore)
 
 /datum/species/vox/prepare_human_for_preview(mob/living/carbon/human/vox)
-	vox.dna.features["mcolor"] = "#77DD88"
-	vox.dna.features["mcolor2"] = "#EEDD88"
-	vox.dna.features["mcolor3"] = "#222222"
-	vox.dna.mutant_bodyparts["snout"] = list(MUTANT_INDEX_NAME = "Vox Snout", MUTANT_INDEX_COLOR_LIST = list("#EEDD88"))
+	vox.dna.features[FEATURE_MUTANT_COLOR] = "#77DD88"
+	vox.dna.features[FEATURE_MUTANT_COLOR_TWO] = "#EEDD88"
+	vox.dna.features[FEATURE_MUTANT_COLOR_THREE] = "#222222"
+	vox.dna.mutant_bodyparts[FEATURE_SNOUT] = list(MUTANT_INDEX_NAME = "Vox Snout", MUTANT_INDEX_COLOR_LIST = list("#EEDD88"))
 	regenerate_organs(vox, src, visual_only = TRUE)
 	vox.update_body(TRUE)

@@ -363,10 +363,11 @@ There are several things that need to be remembered:
 		var/mutable_appearance/neck_overlay = worn_item.build_worn_icon(default_layer = NECK_LAYER, default_icon_file = icon_file, override_file = mutant_override ? icon_file : null) // NOVA EDIT CHANGE
 
 		var/obj/item/bodypart/chest/my_chest = get_bodypart(BODY_ZONE_CHEST)
-		// NOVA EDIT ADDITION
+		my_chest?.worn_neck_offset?.apply_offset(neck_overlay)
+		// NOVA EDIT ADDITION START
 		if(!mutant_override)
 			my_chest?.worn_belt_offset?.apply_offset(neck_overlay)
-		// NOVA EDIT END
+		// NOVA EDIT ADDITION END
 		overlays_standing[NECK_LAYER] = neck_overlay
 
 	apply_overlay(NECK_LAYER)
