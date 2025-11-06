@@ -430,7 +430,7 @@
 		"flap",
 		"squeak",
 		)
-	squeak_override = list('modular_nova/modules/emotes/sound/emotes/mothsqueak.ogg'= 1)
+	squeak_override = list('sound/mobs/humanoids/moth/moth_chitter.ogg' = 1)
 	gender = MALE
 
 /obj/item/toy/plush/nova/donator/leaplush

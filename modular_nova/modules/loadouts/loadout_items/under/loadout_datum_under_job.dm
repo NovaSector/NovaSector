@@ -68,9 +68,14 @@
 	item_path = /obj/item/clothing/under/colonial
 	group = "Workwear"
 
-/datum/loadout_item/under/jumpsuit/imperial_police_uniform
-	name = "Colonial Police Uniform"
-	item_path = /obj/item/clothing/under/colonial/nri_police
+/datum/loadout_item/under/jumpsuit/coalition_police_uniform
+	name = "Coalition Police Uniform"
+	item_path = /obj/item/clothing/under/colonial/hc_police
+	group = "Workwear"
+
+/datum/loadout_item/under/jumpsuit/coalition_police_skirt
+	name = "Coalition Police Skirt"
+	item_path = /obj/item/clothing/under/colonial/hc_police/skirt
 	group = "Workwear"
 
 /datum/loadout_item/under/jumpsuit/utility_eng
@@ -176,7 +181,7 @@
 /datum/loadout_item/under/jumpsuit/tarkon //Not alphabetical because this is a base-entry for Tarkon blacklisted_roles
 	name = "Tarkon Deck Jumpsuit"
 	item_path = /obj/item/clothing/under/tarkon/general
-	blacklisted_roles = list(JOB_CAPTAIN, JOB_HEAD_OF_PERSONNEL, JOB_BLUESHIELD, JOB_HEAD_OF_SECURITY, JOB_RESEARCH_DIRECTOR, JOB_QUARTERMASTER, JOB_CHIEF_MEDICAL_OFFICER, JOB_CHIEF_ENGINEER, JOB_SECURITY_OFFICER, JOB_DETECTIVE, JOB_WARDEN, JOB_BLUESHIELD, JOB_CORRECTIONS_OFFICER)
+	blacklisted_roles = list(ALL_JOBS_COM, ALL_JOBS_SEC)
 	group = "Workwear"
 
 /datum/loadout_item/under/jumpsuit/tarkon/cargo
@@ -218,7 +223,7 @@
 /datum/loadout_item/under/jumpsuit/utility_com
 	name = "Command Utility Uniform"
 	item_path = /obj/item/clothing/under/rank/captain/nova/utility
-	restricted_roles = list(JOB_CAPTAIN, JOB_HEAD_OF_PERSONNEL, JOB_BLUESHIELD, JOB_HEAD_OF_SECURITY, JOB_RESEARCH_DIRECTOR, JOB_QUARTERMASTER, JOB_CHIEF_MEDICAL_OFFICER, JOB_CHIEF_ENGINEER)
+	restricted_roles = list(ALL_JOBS_COM)
 	group = "Job-Locked"
 
 //SERV
@@ -362,5 +367,5 @@
 /datum/loadout_item/under/jumpsuit/utility_sec
 	name = "Security Utility Uniform"
 	item_path = /obj/item/clothing/under/rank/security/nova/utility
-	restricted_roles = list(JOB_SECURITY_OFFICER, JOB_DETECTIVE, JOB_WARDEN, JOB_BLUESHIELD, JOB_HEAD_OF_SECURITY, JOB_CORRECTIONS_OFFICER) //i dunno about the blueshield, they're a weird combo of sec and command, thats why they arent in the loadout pr im making
+	restricted_roles = list(ALL_JOBS_SEC)
 	group = "Job-Locked"

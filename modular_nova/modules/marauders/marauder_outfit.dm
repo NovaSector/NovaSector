@@ -190,7 +190,7 @@
 	name = "maid mannequin"
 	body_type = FEMALE
 	starting_items = list(
-		/obj/item/clothing/head/costume/maidheadband/syndicate,
+		/obj/item/clothing/head/costume/maid_headband/syndicate,
 		/obj/item/clothing/under/syndicate/nova/maid,
 		/obj/item/clothing/gloves/combat/maid,
 		/obj/item/clothing/shoes/laceup,

@@ -59,9 +59,7 @@
 	zone = BODY_ZONE_HEAD
 	slot = ORGAN_SLOT_EXTERNAL_POD_HAIR
 
-	preference = "feature_mushperson_cap"
-
-	//dna_block = DNA_MUSHROOM_CAPS_BLOCK // NOVA EDIT REMOVAL - Customization - We have our own system to handle DNA.
+	//dna_block = /datum/dna_block/feature/mush_cap // NOVA EDIT REMOVAL - Customization - We have our own system to handle DNA.
 	restyle_flags = EXTERNAL_RESTYLE_PLANT
 
 	bodypart_overlay = /datum/bodypart_overlay/mutant/mushroom_cap
@@ -71,7 +69,7 @@
 /// Bodypart overlay for the mushroom cap organ
 /datum/bodypart_overlay/mutant/mushroom_cap
 	layers = EXTERNAL_ADJACENT
-	feature_key = "caps"
+	feature_key = FEATURE_MUSH_CAP
 	dyable = TRUE
 
 /datum/bodypart_overlay/mutant/mushroom_cap/get_global_feature_list()
