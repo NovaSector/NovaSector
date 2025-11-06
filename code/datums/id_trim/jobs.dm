@@ -851,9 +851,7 @@
 		ACCESS_MORGUE,
 		ACCESS_MECH_MEDICAL,
 		ACCESS_PARAMEDIC,
-		// NOVA ADDITION START
-		ACCESS_MINERAL_STOREROOM, // Moved to min access from extra
-		//
+		ACCESS_MINERAL_STOREROOM, // NOVA EDIT ADDITION - Moved from extra_access
 		)
 	extra_access = list(
 		ACCESS_BIT_DEN,
