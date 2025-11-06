@@ -659,8 +659,8 @@
 		// Check if the wearer has the interactable component (Nova interaction menu)
 		var/datum/component/interactable/interaction_component = wearer_human.GetComponent(/datum/component/interactable)
 		if(interaction_component)
-			// Open the wearer's interaction menu for the protean to use
-			interaction_component.ui_interact(user)
+			// INVOKE_ASYNC required - ui_interact can block, can't call from signal handler
+			INVOKE_ASYNC(interaction_component, TYPE_PROC_REF(/datum/component/interactable, ui_interact), user)
 			return CLICK_ACTION_SUCCESS
 		// If no interaction component, fall through to strip menu
 
@@ -674,12 +674,15 @@
 		suit.balloon_alert_to_viewers("stripping")
 		user.visible_message(span_warning("[user] begins to dump the contents of [source]!"))
 
-	ASYNC
-		var/datum/strip_menu/protean/strip_menu = LAZYACCESS(strip_menus, linked_species.owner)
-		if (isnull(strip_menu))
-			strip_menu = new(linked_species.owner, src)
-			LAZYSET(strip_menus, linked_species.owner, strip_menu)
-		strip_menu.ui_interact(user)
+	// INVOKE_ASYNC required - ui_interact can block, can't call from signal handler
+	INVOKE_ASYNC(src, PROC_REF(open_strip_menu), user, linked_species)
+
+/datum/element/strippable/protean/proc/open_strip_menu(mob/user, datum/species/protean/linked_species)
+	var/datum/strip_menu/protean/strip_menu = LAZYACCESS(strip_menus, linked_species.owner)
+	if (isnull(strip_menu))
+		strip_menu = new(linked_species.owner, src)
+		LAZYSET(strip_menus, linked_species.owner, strip_menu)
+	strip_menu.ui_interact(user)
 
 /datum/strip_menu/protean
 
