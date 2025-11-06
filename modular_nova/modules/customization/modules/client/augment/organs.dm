@@ -34,6 +34,12 @@
 /datum/augment_item/organ/brain
 	slot = AUGMENT_SLOT_BRAIN
 
+/datum/augment_item/organ/brain/apply(mob/living/carbon/human/human_holder, character_setup = FALSE, datum/preferences/prefs)
+	// Proteans cannot replace their core
+	if(isprotean(human_holder))
+		return
+	return ..()
+
 /datum/augment_item/organ/brain/cortical
 	name = "Cortically-Augmented Brain"
 	slot = AUGMENT_SLOT_BRAIN

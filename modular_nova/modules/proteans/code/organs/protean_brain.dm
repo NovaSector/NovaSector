@@ -61,6 +61,11 @@
 	// Proteans retract into their suit when they hit hard crit
 	// Check if we're already going into suit to prevent double-execution
 	if(owner.stat >= HARD_CRIT && !dead && !timeleft(going_into_suit_timer))
+		// SAFETY: Don't trigger death/suit retreat if modsuit isn't ready yet
+		// This can happen during character setup, ghost role spawns, etc.
+		if(!linked_modsuit)
+			return
+
 		// DEATHMATCH: Actually die instead of retreating into suit
 		// Only trigger in actual deathmatch (has TRAIT_NOSOFTCRIT from DEATHMATCH_TRAIT)
 		// AND they must have a stomach (if no stomach, they're already dying from on_life)

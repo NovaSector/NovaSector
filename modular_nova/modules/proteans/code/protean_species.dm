@@ -152,10 +152,20 @@
 	owner = gainer
 	gainer.bubble_icon = "machine" // Robot speech bubble
 
-	// Get the new brain to link the modsuit to
-	var/obj/item/organ/brain/protean/brain = gainer.get_organ_slot(ORGAN_SLOT_BRAIN)
+	// CRITICAL: Ensure protean has correct brain FIRST (fixes quirk/preference organ replacement and ghost role spawns)
+	// This MUST happen before any modsuit creation, as modsuit is linked to the brain
+	var/obj/item/organ/brain/current_brain = gainer.get_organ_slot(ORGAN_SLOT_BRAIN)
+	if(!istype(current_brain, /obj/item/organ/brain/protean))
+		current_brain?.Remove(gainer)
+		qdel(current_brain)
+		var/obj/item/organ/brain/protean/new_brain = new()
+		new_brain.Insert(gainer, special = TRUE, movement_flags = DELETE_IF_REPLACED)
+		current_brain = new_brain
+
+	// Get the protean brain (now guaranteed to be correct type)
+	var/obj/item/organ/brain/protean/brain = current_brain
 	if(!istype(brain))
-		stack_trace("Protean on_species_gain called but no protean brain found!")
+		stack_trace("Protean on_species_gain: Failed to create protean brain!")
 		return
 
 	// If we have an old protean suit, transfer it to the new brain
@@ -195,14 +205,6 @@
 	// Grant shapeshifting ability
 	shapeshift_action = new
 	shapeshift_action.Grant(gainer)
-
-	// Ensure protean has correct organs (fixes quirk/preference organ replacement and ghost role spawns)
-	var/obj/item/organ/brain/current_brain = gainer.get_organ_slot(ORGAN_SLOT_BRAIN)
-	if(!istype(current_brain, /obj/item/organ/brain/protean))
-		current_brain?.Remove(gainer)
-		qdel(current_brain)
-		var/obj/item/organ/brain/protean/new_brain = new()
-		new_brain.Insert(gainer, special = TRUE, movement_flags = DELETE_IF_REPLACED)
 
 /// Signal handler: detects when incompatible organ is inserted and schedules its rejection.
 /// Brain MUST be protean-specific. Other organs can be ANY robotic/nanomachine organ (but will lose special functions).
