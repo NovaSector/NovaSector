@@ -1,5 +1,0 @@
-author: "Melbert, vinylspiders"
-delete-after: True
-changes:
-  - bugfix: "Felinids will randomize their ear type properly"
-  - bugfix: "Silverscales will now have all their external bodyparts (tails, snouts, frills, etc) colored silver like they are supposed to"
