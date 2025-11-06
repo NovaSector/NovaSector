@@ -18,6 +18,14 @@
 	corrupted_tongue.liked_foodtypes = BLOODY
 	corrupted_tongue.disliked_foodtypes = NONE
 
+	var/datum/action/cooldown/hemophage/drain_victim/tongue_action = /datum/action/cooldown/hemophage/drain_victim
+	for (var/datum/action/action as anything in corrupted_tongue.actions) // go through our actions and make sure we don't already have it
+		if(action.type == tongue_action)
+			return
+
+	tongue_action = corruption_target.add_item_action(tongue_action)
+	tongue_action.Grant(corruption_target.owner)
+
 
 /datum/action/cooldown/hemophage/drain_victim
 	name = "Drain Victim"

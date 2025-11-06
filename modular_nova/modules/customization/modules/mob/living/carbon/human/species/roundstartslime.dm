@@ -232,7 +232,7 @@
 */
 /obj/item/organ/brain/slime/proc/colorize()
 	if(owner && isjellyperson(owner))
-		core_color = owner.dna.features["mcolor"]
+		core_color = owner.dna.features[FEATURE_MUTANT_COLOR]
 		add_atom_colour(core_color, FIXED_COLOUR_PRIORITY)
 
 /**
@@ -334,8 +334,8 @@
 	new_body.undershirt = "Nude" //Which undershirt the player wants
 	new_body.socks = "Nude" //Which socks the player wants
 	brainmob.stored_dna.copy_dna(new_body.dna, transfer_flags = COPY_DNA_SE|COPY_DNA_SPECIES)
-	new_body.dna.features["mcolor"] = new_body.dna.features["mcolor"]
-	new_body.dna.update_uf_block(DNA_MUTANT_COLOR_BLOCK)
+	new_body.dna.features[FEATURE_MUTANT_COLOR] = new_body.dna.features[FEATURE_MUTANT_COLOR]
+	new_body.dna.update_uf_block(FEATURE_MUTANT_COLOR)
 	new_body.real_name = new_body.dna.real_name
 	new_body.name = new_body.dna.real_name
 	new_body.updateappearance(mutcolor_update=1)
@@ -740,8 +740,8 @@
 	var/selected_skintone = GLOB.skin_tones[skintone_index]
 
 	alterer.skin_tone = selected_skintone
-	alterer.dna.features["skin_color"] = skintone2hex(selected_skintone)
-	alterer.dna.update_uf_block(DNA_SKIN_TONE_BLOCK)
+	alterer.dna.features[FEATURE_SKIN_COLOR] = skintone2hex(selected_skintone)
+	alterer.dna.update_uf_block(/datum/dna_block/feature/mutant_color/skin_color)
 	alterer.update_body(is_creating = TRUE)
 
 /**
@@ -800,21 +800,21 @@
 	)
 
 	if(color_choice == "All")
-		alterer.dna.features["mcolor"] = sanitize_hexcolor(new_mutant_colour)
-		alterer.dna.features["mcolor2"] = sanitize_hexcolor(new_mutant_colour)
-		alterer.dna.features["mcolor3"] = sanitize_hexcolor(new_mutant_colour)
-		alterer.dna.update_uf_block(DNA_MUTANT_COLOR_BLOCK)
-		alterer.dna.update_uf_block(DNA_MUTANT_COLOR_2_BLOCK)
-		alterer.dna.update_uf_block(DNA_MUTANT_COLOR_3_BLOCK)
+		alterer.dna.features[FEATURE_MUTANT_COLOR] = sanitize_hexcolor(new_mutant_colour)
+		alterer.dna.features[FEATURE_MUTANT_COLOR_TWO] = sanitize_hexcolor(new_mutant_colour)
+		alterer.dna.features[FEATURE_MUTANT_COLOR_THREE] = sanitize_hexcolor(new_mutant_colour)
+		alterer.dna.update_uf_block(/datum/dna_block/feature/mutant_color)
+		alterer.dna.update_uf_block(/datum/dna_block/feature/mutant_color/two)
+		alterer.dna.update_uf_block(/datum/dna_block/feature/mutant_color/three)
 	else
 		alterer.dna.features[color_target] = sanitize_hexcolor(new_mutant_colour)
 		switch(color_target)
-			if("mcolor")
-				alterer.dna.update_uf_block(DNA_MUTANT_COLOR_BLOCK)
-			if("mcolor2")
-				alterer.dna.update_uf_block(DNA_MUTANT_COLOR_2_BLOCK)
-			if("mcolor3")
-				alterer.dna.update_uf_block(DNA_MUTANT_COLOR_3_BLOCK)
+			if(FEATURE_MUTANT_COLOR)
+				alterer.dna.update_uf_block(/datum/dna_block/feature/mutant_color)
+			if(FEATURE_MUTANT_COLOR_TWO)
+				alterer.dna.update_uf_block(/datum/dna_block/feature/mutant_color/two)
+			if(FEATURE_MUTANT_COLOR_THREE)
+				alterer.dna.update_uf_block(/datum/dna_block/feature/mutant_color/three)
 
 	if(marking_reset == "Yes")
 		for(var/zone in alterer.dna.species.body_markings)
@@ -876,7 +876,7 @@
 			var/hair_area = tgui_alert(alterer, "Select which color you would like to change", "Hair Color Alterations", list("Hairstyle", "Facial Hair", "Both"))
 			if(!hair_area)
 				return
-			var/new_hair_color = input(alterer, "Select your new hair color", "Hair Color Alterations", alterer.dna.features["mcolor"]) as color|null
+			var/new_hair_color = input(alterer, "Select your new hair color", "Hair Color Alterations", alterer.dna.features[FEATURE_MUTANT_COLOR]) as color|null
 			if(!new_hair_color)
 				return
 
@@ -946,15 +946,16 @@
  * This can be adding (or removing) things like ears, tails, wings, et cetera.
  */
 /datum/action/innate/alter_form/proc/alter_parts(mob/living/carbon/human/alterer)
-	var/list/key_list = alterer.dna.mutant_bodyparts
-	if(CONFIG_GET(flag/disable_erp_preferences))
-		for(var/erp_part in ORGAN_ERP_LIST)
-			key_list -= erp_part
+	var/list/mutant_part_list = list()
+	for(var/datum/dna_block/feature/mutant/block as anything in subtypesof(/datum/dna_block/feature/mutant))
+		if(CONFIG_GET(flag/disable_erp_preferences) && (block::feature_key in ORGAN_ERP_LIST))
+			continue
+		mutant_part_list[block::feature_key] = block
 	var/chosen_key = tgui_input_list(
 		alterer,
 		"Select the part you want to alter",
 		"Body Part Alterations",
-		key_list,
+		mutant_part_list,
 	)
 	if(!chosen_key)
 		return
@@ -1011,7 +1012,7 @@
 			new_acc_list[MUTANT_INDEX_COLOR_LIST] = selected_sprite_accessory.get_default_color(alterer.dna.features, alterer.dna.species)
 			alterer.dna.species.mutant_bodyparts[chosen_key] = new_acc_list
 			alterer.dna.mutant_bodyparts[chosen_key] = new_acc_list.Copy()
-		alterer.dna.update_uf_block(SSaccessories.dna_mutant_bodypart_blocks[chosen_key])
+		alterer.dna.update_uf_block(mutant_part_list[chosen_key])
 	alterer.update_body_parts()
 	alterer.update_clothing(ALL) // for any clothing that has alternate versions (e.g. muzzled masks)
 
