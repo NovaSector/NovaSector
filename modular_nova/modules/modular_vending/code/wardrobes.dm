@@ -19,7 +19,7 @@
 		/obj/item/clothing/under/rank/engineering/engineer/nova/utility = 3,
 		/obj/item/clothing/under/rank/engineering/engineer/nova/hazard_chem = 3,
 		/obj/item/clothing/under/misc/overalls = 3,
-		/obj/item/clothing/suit/toggle/jacket/nova/engi = 3,
+		/obj/item/clothing/suit/toggle/jacket/nova/colorable_bomber/engi = 3,
 		/obj/item/clothing/head/utility/hardhat/orange = 2,
 		/obj/item/clothing/head/utility/hardhat/welding/orange = 2,
 		/obj/item/clothing/head/utility/hardhat/dblue = 2,
@@ -43,7 +43,7 @@
 		/obj/item/clothing/under/rank/cargo/tech/nova/turtleneck/skirt = 3,
 		/obj/item/clothing/under/rank/cargo/tech/nova/utility = 3,
 		/obj/item/clothing/under/rank/cargo/tech/nova/casualman = 3,
-		/obj/item/clothing/suit/toggle/jacket/nova/supply = 3,
+		/obj/item/clothing/suit/toggle/jacket/nova/colorable_bomber/supply = 3,
 		/obj/item/clothing/glasses/hud/gun_permit = 5, //from company imports module
 		/obj/item/storage/backpack/messenger = 3,
 	)
@@ -102,7 +102,7 @@
 		/obj/item/clothing/under/rank/rnd/scientist/nova/hlscience = 3,
 		/obj/item/clothing/under/rank/rnd/scientist/nova/utility = 3,
 		/obj/item/clothing/suit/toggle/labcoat/nova/fancy/regular = 3,
-		/obj/item/clothing/suit/toggle/jacket/nova/sci = 3,
+		/obj/item/clothing/suit/toggle/jacket/nova/colorable_bomber/sci = 3,
 		/obj/item/storage/backpack/messenger/science = 3,
 	)
 
@@ -177,7 +177,7 @@
 		/obj/item/clothing/suit/toggle/jacket/nova/det_trench/cowboyvest = 2,
 		/obj/item/storage/backpack/messenger/sec = 2,
 	)
-	premium_nova = list(/obj/item/disk/nifsoft_uploader/summoner/detective = 2)
+	premium_nova = list(/obj/item/disk/nifsoft_uploader/job/summoner/detective = 2)
 
 /obj/machinery/vending/wardrobe/law_wardrobe
 	products_nova = list(
@@ -185,25 +185,11 @@
 		/obj/item/clothing/under/suit/nova/black_really_collared/skirt = 3,
 		/obj/item/clothing/under/suit/nova/inferno = 3,
 		/obj/item/clothing/under/suit/nova/inferno/skirt = 3,
-		/obj/item/clothing/under/suit/nova/inferno/beeze = 2,
 	)
 
 /obj/machinery/vending/wardrobe/jani_wardrobe
-	premium_nova = list(/obj/item/disk/nifsoft_uploader/summoner/service = 2)
-
-/// Removes given list of products. Must be called before build_inventory() to actually prevent the records from being created.
-/obj/machinery/vending/proc/remove_products(list/paths_to_remove)
-	if(!length(paths_to_remove))
-		return
-	for(var/typepath as anything in products)
-		for(var/to_remove as anything in paths_to_remove)
-			if(ispath(typepath, to_remove))
-				products.Remove(typepath)
+	premium_nova = list(/obj/item/disk/nifsoft_uploader/job/summoner/service = 2, /obj/item/flatpack/trash_compactor = 1)
 
 /obj/machinery/vending/
 	/// list of products to exclude when building the vending machine's inventory
 	var/list/excluded_products
-
-/obj/machinery/vending/Initialize(mapload)
-	remove_products(excluded_products)
-	return ..()

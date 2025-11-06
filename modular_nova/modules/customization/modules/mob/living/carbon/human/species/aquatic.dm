@@ -25,12 +25,12 @@
 
 /datum/species/aquatic/get_default_mutant_bodyparts()
 	return list(
-		"tail" = list("Shark", TRUE),
-		"snout" = list("Shark", TRUE),
-		"horns" = list("None", FALSE),
-		"ears" = list("Hammerhead", TRUE),
-		"legs" = list("Normal Legs", FALSE),
-		"wings" = list("None", FALSE),
+		FEATURE_TAIL = list("Shark", TRUE),
+		FEATURE_SNOUT = list("Shark", TRUE),
+		FEATURE_HORNS = list("None", FALSE),
+		FEATURE_EARS = list("Hammerhead", TRUE),
+		FEATURE_LEGS = list("Normal Legs", FALSE),
+		FEATURE_WINGS = list("None", FALSE),
 	)
 
 /obj/item/organ/tongue/aquatic
@@ -64,9 +64,9 @@
 		if(5)
 			main_color = "#444444"
 			second_color = "#DDDDEE"
-	features["mcolor"] = main_color
-	features["mcolor2"] = second_color
-	features["mcolor3"] = second_color
+	features[FEATURE_MUTANT_COLOR] = main_color
+	features[FEATURE_MUTANT_COLOR_TWO] = second_color
+	features[FEATURE_MUTANT_COLOR_THREE] = second_color
 	return features
 
 /datum/species/aquatic/get_random_body_markings(list/passed_features)

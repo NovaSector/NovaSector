@@ -224,7 +224,7 @@
 		qdel(content_obj)
 		return
 
-	if(istype(content_obj, /obj/item/xenoarch/broken_item/tech))
+	if(content_obj.type == /obj/item/xenoarch/broken_item)
 		var/spawn_item = pick_weight(GLOB.tech_reward)
 		recover_item(spawn_item, content_obj)
 		return

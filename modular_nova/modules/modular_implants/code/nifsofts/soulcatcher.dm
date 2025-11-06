@@ -134,3 +134,4 @@
 /obj/item/soulcatcher_holder
 	name = "Soul Holder"
 	desc = "You probably shouldn't be seeing this..."
+	item_flags = ABSTRACT | DROPDEL

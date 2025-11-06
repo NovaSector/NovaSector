@@ -64,7 +64,7 @@
 /datum/loadout_item/accessory/armband_security
 	name = "Armband - Security Deputy"
 	item_path = /obj/item/clothing/accessory/armband/deputy
-	restricted_roles = list(JOB_HEAD_OF_SECURITY, JOB_SECURITY_OFFICER, JOB_WARDEN, JOB_DETECTIVE, JOB_CORRECTIONS_OFFICER)
+	restricted_roles = list(ALL_JOBS_SEC)
 
 /datum/loadout_item/accessory/green_pin
 	name = "Green \"Newbie\" Pin"
@@ -73,17 +73,17 @@
 /datum/loadout_item/accessory/holobadge
 	name = "Holobadge"
 	item_path = /obj/item/clothing/accessory/badge/holo
-	restricted_roles = list(JOB_SECURITY_OFFICER, JOB_DETECTIVE, JOB_WARDEN, JOB_HEAD_OF_SECURITY)
+	restricted_roles = list(ALL_JOBS_SEC)
 
 /datum/loadout_item/accessory/holobadge/blue
 	name = "Holobadge (Blue)"
 	item_path = /obj/item/clothing/accessory/badge/holo/blue
-	restricted_roles = list(JOB_SECURITY_OFFICER, JOB_DETECTIVE, JOB_WARDEN, JOB_HEAD_OF_SECURITY)
+	restricted_roles = list(ALL_JOBS_SEC)
 
 /datum/loadout_item/accessory/holobadge/lanyard
 	name = "Holobadge (Lanyard)"
 	item_path = /obj/item/clothing/accessory/badge/holo/cord
-	restricted_roles = list(JOB_SECURITY_OFFICER, JOB_DETECTIVE, JOB_WARDEN, JOB_HEAD_OF_SECURITY)
+	restricted_roles = list(ALL_JOBS_SEC)
 
 /*
 *	ARMOURLESS
@@ -121,6 +121,10 @@
 /datum/loadout_item/accessory/medal
 	abstract_type = /datum/loadout_item/accessory/medal
 	group = "Medals"
+
+/datum/loadout_item/accessory/medal/dogtags
+	name = "Dogtags"
+	item_path = /obj/item/clothing/accessory/nova/acc_medal/dogtags
 
 /datum/loadout_item/accessory/medal/shield
 	name = "Medal - Shield"
@@ -199,13 +203,10 @@
 	name = "Medal - Crown (Hollow, Bar-Ribbon)"
 	item_path = /obj/item/clothing/accessory/nova/acc_medal/crown/hollow/bar_ribbon
 
-/datum/loadout_item/accessory/medal/glow_bar
-	name = "Glowbar necklace"
-	item_path = /obj/item/clothing/accessory/nova/acc_medal/glowbar
-
 /datum/loadout_item/accessory/medal/glow_crystal
 	name = "Glowcrystal necklace"
 	item_path = /obj/item/clothing/accessory/nova/acc_medal/glowcrystal
+	loadout_flags = parent_type::loadout_flags | LOADOUT_FLAG_ALLOW_RESKIN
 
 /datum/loadout_item/accessory/medal/rankpin_star
 	name = "Rankpin (Star)"
@@ -226,7 +227,7 @@
 /datum/loadout_item/accessory/medal/cc_pin
 	name = "Neckpin - CentCom"
 	item_path = /obj/item/clothing/accessory/nova/acc_medal/neckpin/centcom
-	restricted_roles = list(JOB_NT_REP, JOB_CAPTAIN, JOB_BLUESHIELD)
+	restricted_roles = list(JOB_CAPTAIN, ALL_JOBS_CC)
 
 /datum/loadout_item/accessory/medal/nt_pin
 	name = "Neckpin - Nanotrasen"
@@ -295,14 +296,14 @@
 /datum/loadout_item/accessory/webbing_vest
 	name = "Webbing - Vest"
 	item_path = /obj/item/clothing/accessory/webbing/vest
-	can_be_reskinned = TRUE
+	loadout_flags = parent_type::loadout_flags | LOADOUT_FLAG_ALLOW_RESKIN
 
 /datum/loadout_item/accessory/webbing_pouch
 	name = "Webbing - Drop Pouches"
 	item_path = /obj/item/clothing/accessory/webbing/pouch
-	can_be_reskinned = TRUE
+	loadout_flags = parent_type::loadout_flags | LOADOUT_FLAG_ALLOW_RESKIN
 
 /datum/loadout_item/accessory/webbing_pilot
 	name = "Webbing - Rigging"
 	item_path = /obj/item/clothing/accessory/webbing/pilot
-	can_be_reskinned = TRUE
+	loadout_flags = parent_type::loadout_flags | LOADOUT_FLAG_ALLOW_RESKIN

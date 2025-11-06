@@ -247,6 +247,7 @@
 	foodtypes = MEAT | GRAIN | VEGETABLES | FRUIT | PINEAPPLE
 	w_class = WEIGHT_CLASS_SMALL
 	crafting_complexity = FOOD_COMPLEXITY_3
+	custom_materials = list(/datum/material/meat = MEATDISH_MATERIAL_AMOUNT * 1.2, /datum/material/iron = MEATDISH_MATERIAL_AMOUNT * 0.15) // NOVA EDIT ADDITION
 
 /obj/item/food/salad/ketchup_fried_rice
 	name = "ketchup fried rice"
@@ -436,6 +437,7 @@
 	foodtypes =  MEAT|GRAIN|DAIRY|FRIED
 	w_class = WEIGHT_CLASS_SMALL
 	crafting_complexity = FOOD_COMPLEXITY_3
+	custom_materials = list(/datum/material/meat = MEATDISH_MATERIAL_AMOUNT * 2.4, /datum/material/iron = MEATDISH_MATERIAL_AMOUNT * 0.3) // NOVA EDIT ADDITION
 
 /obj/item/food/king_katsu_sandwich
 	name = "\improper King Katsu sandwich"
@@ -820,6 +822,7 @@
 	foodtypes = MEAT|GRAIN|FRIED|BREAKFAST|VEGETABLES
 	w_class = WEIGHT_CLASS_SMALL
 	crafting_complexity = FOOD_COMPLEXITY_3
+	custom_materials = list(/datum/material/meat = MEATDISH_MATERIAL_AMOUNT * 2.4, /datum/material/iron = MEATDISH_MATERIAL_AMOUNT * 0.3) // NOVA EDIT ADDITION
 
 /obj/item/food/chap_hash
 	name = "chap hash"
@@ -835,6 +838,7 @@
 	foodtypes = MEAT | VEGETABLES | BREAKFAST
 	w_class = WEIGHT_CLASS_SMALL
 	crafting_complexity = FOOD_COMPLEXITY_3
+	custom_materials = list(/datum/material/meat = MEATDISH_MATERIAL_AMOUNT * 2.4, /datum/material/iron = MEATDISH_MATERIAL_AMOUNT * 0.3) // NOVA EDIT ADDITION
 
 /obj/item/food/salad/agedashi_tofu
 	name = "agedashi tofu"
@@ -1328,6 +1332,7 @@
 	foodtypes = MEAT
 	w_class = WEIGHT_CLASS_SMALL
 	crafting_complexity = FOOD_COMPLEXITY_3
+	custom_materials = list(/datum/material/meat = MEATDISH_MATERIAL_AMOUNT)
 
 // Ethereal-suitable cross-culture food
 /*	Ethereals are, as part of the uplifting process, considered as citizens of the Terran Federation.

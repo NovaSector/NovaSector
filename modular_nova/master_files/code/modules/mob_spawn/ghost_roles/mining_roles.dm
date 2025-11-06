@@ -79,6 +79,7 @@
 	outfit = /datum/outfit/interdyne_planetary_base
 	spawner_job_path = /datum/job/interdyne_planetary_base
 	loadout_enabled = TRUE
+	allow_mechanical_loadout_items = TRUE
 	quirks_enabled = TRUE
 	random_appearance = FALSE
 
@@ -143,7 +144,7 @@
 
 /datum/outfit/interdyne_planetary_base
 	name = "Interdyne Scientist"
-	id = /obj/item/card/id/advanced/chameleon
+	id = /obj/item/card/id/advanced/chameleon/elite
 	id_trim = /datum/id_trim/syndicom/nova/interdyne
 	uniform = /obj/item/clothing/under/syndicate/nova/interdyne
 	suit = /obj/item/clothing/suit/toggle/labcoat/nova/interdyne_labcoat/white
@@ -211,7 +212,7 @@
 	head = /obj/item/clothing/head/hats/syndicate/interdyne_deckofficer_black
 	suit = /obj/item/clothing/suit/armor/hos/deckofficer
 	ears = /obj/item/radio/headset/interdyne/command
-	id = /obj/item/card/id/advanced/chameleon/black/silver
+	id = /obj/item/card/id/advanced/chameleon/elite/black/silver
 	id_trim = /datum/id_trim/syndicom/nova/interdyne/deckofficer
 
 /obj/effect/mob_spawn/ghost_role/human/interdyne_planetary_base/deckofficer/Destroy()

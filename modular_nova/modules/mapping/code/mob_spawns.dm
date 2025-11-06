@@ -10,11 +10,13 @@
 	. = ..()
 	spawned_human.grant_language(/datum/language/common, source = LANGUAGE_SPAWNER)
 
+#define BM_TRADER_MIN_CASH 500
+#define BM_TRADER_MAX_CASH 2000
+
 /obj/effect/mob_spawn/ghost_role/human/blackmarket
 	name = "Black Market Trader"
 	prompt_name = "a blackmarket dealer"
 	desc = "A humming cryo pod. The machine is attempting to wake up its occupant."
-	mob_name = "a black market dealer"
 	icon = 'icons/obj/machines/sleeper.dmi'
 	icon_state = "sleeper"
 	mob_species = /datum/species/human
@@ -34,11 +36,29 @@
 	name = "Black Market Trader"
 	uniform = /obj/item/clothing/under/rank/cargo/tech
 	shoes = /obj/item/clothing/shoes/laceup
-	id = /obj/item/card/id/advanced/chameleon/black/blackmarket
+	id = /obj/item/card/id/advanced/chameleon/elite/black/blackmarket
+	l_pocket = /obj/item/shuttle_remote/bmd
 
 /datum/outfit/black_market/post_equip(mob/living/carbon/human/shady, visualsOnly)
 	handlebank(shady)
-	return ..()
+	if(shady.wear_id)
+		var/obj/item/card/id/id_card = shady.wear_id
+		if(id_card.registered_account)
+			var/datum/bank_account/bank_account = id_card.registered_account
+			bank_account.adjust_money((rand(BM_TRADER_MIN_CASH, BM_TRADER_MAX_CASH)))
+
+	. = ..()
+
+	var/obj/item/shuttle_remote/bmd/remote = shady.get_item_by_slot(ITEM_SLOT_LPOCKET)
+	if(!remote)
+		return
+	// we boldly assume only one Burst was spawned. Checking by Z-level defeats the purpose of this remote being used by latejoining BMD to retrieve stolen shuttle.
+	var/list/consoles = SSmachines.get_machines_by_type(/obj/machinery/computer/shuttle/caravan/blackmarket_burst)
+	var/obj/machinery/computer/shuttle/caravan/blackmarket_burst/console = pick(consoles)
+	if(!console || console?.remote_ref)
+		return
+	console.remote_ref = WEAKREF(remote)
+	remote.computer_ref = WEAKREF(console)
 
 /obj/item/gun/energy/laser/carbine/cybersun/black_market_trader
 	desc = "A laser gun primarily used by syndicate security guards. It fires a rapid spray of low-power plasma beams. This one seems to have had its firing pin replaced."
@@ -56,6 +76,9 @@
 		/obj/item/gun/ballistic/automatic/sol_smg/evil = 20,
 		/obj/item/gun/ballistic/shotgun/bulldog/unrestricted,
 	)
+
+#undef BM_TRADER_MIN_CASH
+#undef BM_TRADER_MAX_CASH
 
 /obj/effect/mob_spawn/ghost_role/human/ds2
 	name = "DS2 personnel"
@@ -79,6 +102,7 @@
 	computer_area = /area/ruin/space/has_grav/nova/des_two/security/prison
 	outfit = /datum/outfit/ds2/prisoner
 	spawner_job_path = /datum/job/ds2/prisoner
+	allow_mechanical_loadout_items = FALSE
 
 /obj/effect/mob_spawn/ghost_role/human/ds2/syndicate
 	name = "Syndicate Operative"
@@ -92,6 +116,7 @@
 	computer_area = /area/ruin/space/has_grav/nova/des_two/halls
 	spawner_job_path = /datum/job/ds2
 	loadout_enabled = TRUE
+	allow_mechanical_loadout_items = TRUE
 
 /obj/effect/mob_spawn/ghost_role/human/ds2/syndicate_command
 	name = "Syndicate Command Operative"
@@ -105,6 +130,7 @@
 	computer_area = /area/ruin/space/has_grav/nova/des_two/halls
 	spawner_job_path = /datum/job/ds2/command
 	loadout_enabled = TRUE
+	allow_mechanical_loadout_items = TRUE
 
 /obj/effect/mob_spawn/ghost_role/human/ds2/syndicate/special(mob/living/new_spawn)
 	. = ..()
@@ -144,6 +170,104 @@
 /obj/effect/mob_spawn/ghost_role/human/ds2/syndicate_command/admiral
 	outfit = /datum/outfit/ds2/syndicate_command/admiral
 
+/obj/effect/mob_spawn/ghost_role/robot/ds2
+	name = "\improper Syndicate Robotic Storage"
+	desc = "A suspicious specialized container marked 'cyborg storage'."
+	prompt_name = "a syndicate deepspace robot"
+	deletes_on_zero_uses_left = TRUE
+	icon = 'modular_nova/modules/ghostcafe/icons/robot_storage.dmi'
+	icon_state = "syndi_robostor"
+	anchored = TRUE
+	density = TRUE
+	uses = 1
+	you_are_text = "You are a DS-2 Cyborg!"
+	flavour_text = "You are a cyborg on a ship in deep space... what kind of hell is this?"
+	important_text = "Keep yourself to the same standards as Silicon Policy. You are not an antagonist. Adminhelp before antagonizing station crew."
+	loadout_enabled = TRUE
+	random_appearance = FALSE
+	spawner_job_path = /datum/job/ds2
+	mob_type = /mob/living/silicon/robot/model/ds2
+
+/obj/effect/mob_spawn/ghost_role/robot/ds2/special(mob/living/silicon/robot/new_spawn)
+	. = ..()
+	if(new_spawn.client)
+		new_spawn.custom_name = null
+		new_spawn.updatename(new_spawn.client)
+		new_spawn.transfer_silicon_prefs(new_spawn.client)
+		new_spawn.set_gender(new_spawn.client)
+
+/mob/living/silicon/robot/model/ds2
+	faction = list("Syndicate", ROLE_DS2)
+	bubble_icon = "syndibot"
+	req_access = list(ACCESS_SYNDICATE)
+	lawupdate = FALSE
+	scrambledcodes = TRUE
+	radio = /obj/item/radio/borg/syndicate/ghost_role
+
+/obj/item/radio/borg/syndicate/Initialize(mapload)
+	. = ..()
+	set_frequency(FREQ_SYNDICATE)
+
+/mob/living/silicon/robot/model/ds2/Initialize(mapload)
+	. = ..()
+	cell = new /obj/item/stock_parts/power_store/cell/hyper(src)
+	//This part is because the camera stays in the list, so we'll just do a check
+	if(!QDELETED(builtInCamera))
+		QDEL_NULL(builtInCamera)
+
+/mob/living/silicon/robot/model/ds2/make_laws()
+	laws = new /datum/ai_laws/syndicate_override_ds2()
+	laws.associate(src)
+
+/obj/effect/mob_spawn/ghost_role/robot/interdyne
+	name = "\improper Interdyne Robotic Storage"
+	desc = "A specialized container marked 'cyborg storage', stamped with the Interdyne Pharmaceuticals logo."
+	prompt_name = "an Interdyne Pharmaceuticals robot"
+	deletes_on_zero_uses_left = TRUE
+	icon = 'modular_nova/modules/ghostcafe/icons/robot_storage.dmi'
+	icon_state = "dyne_robostorage"
+	anchored = TRUE
+	density = TRUE
+	uses = 1
+	you_are_text = "You are an Interdyne Pharmaceuticals Cyborg!"
+	flavour_text = "You are a cyborg produced and utilized by the Interdyne Pharmaceuticals company."
+	important_text = "Keep yourself to the same standards as Silicon Policy. You are not an antagonist. Adminhelp before antagonizing station crew."
+	loadout_enabled = TRUE
+	random_appearance = FALSE
+	spawner_job_path = /datum/job/ds2
+	mob_type = /mob/living/silicon/robot/model/interdyne
+
+/obj/effect/mob_spawn/ghost_role/robot/interdyne/special(mob/living/silicon/robot/new_spawn)
+	. = ..()
+	if(new_spawn.client)
+		new_spawn.custom_name = null
+		new_spawn.updatename(new_spawn.client)
+		new_spawn.transfer_silicon_prefs(new_spawn.client)
+		new_spawn.set_gender(new_spawn.client)
+
+/mob/living/silicon/robot/model/interdyne
+	faction = list("Syndicate", ROLE_INTERDYNE_PLANETARY_BASE)
+	req_access = list(ACCESS_SYNDICATE)
+	lawupdate = FALSE
+	scrambledcodes = TRUE
+	radio = /obj/item/radio/borg/syndicate/ghost_role
+
+/obj/item/radio/borg/syndicate/Initialize(mapload)
+	. = ..()
+	set_frequency(FREQ_SYNDICATE)
+
+/mob/living/silicon/robot/model/interdyne/Initialize(mapload)
+	. = ..()
+	cell = new /obj/item/stock_parts/power_store/cell/hyper(src)
+	//This part is because the camera stays in the list, so we'll just do a check
+	if(!QDELETED(builtInCamera))
+		QDEL_NULL(builtInCamera)
+
+/mob/living/silicon/robot/model/interdyne/make_laws()
+	laws = new /datum/ai_laws/syndicate_override_interdyne()
+	laws.associate(src)
+
+
 /obj/effect/mob_spawn/ghost_role/human/hotel_staff
 	random_appearance = FALSE
 	quirks_enabled = TRUE
@@ -151,7 +275,6 @@
 
 /obj/effect/mob_spawn/ghost_role/human/hotel_staff/manager
 	name = "staff manager sleeper"
-	mob_name = "hotel staff manager"
 	outfit = /datum/outfit/hotelstaff/manager
 	you_are_text = "You are the manager of a top-of-the-line space hotel!"
 	flavour_text = "You are the manager of a top-of-the-line space hotel! Make sure the guests are looked after, the hotel is advertised, and your employees aren't slacking off!"
@@ -391,7 +514,6 @@
 	name = "freighter cryo crew pod"
 	prompt_name = "a lost cargo tech"
 	desc = "A humming cryo pod. There's a freight hauler inside."
-	mob_name = "Freighter Crew"
 	outfit = /datum/outfit/freighter_crew
 	spawner_job_path = /datum/job/freighter_crew
 	icon = 'icons/obj/machines/sleeper.dmi'
@@ -425,7 +547,6 @@
 	name = "freighter cryo excavator pod"
 	prompt_name = "a lost miner"
 	desc = "A humming cryo pod. There's an excavation worker inside."
-	mob_name = "Freighter Excavator"
 	outfit = /datum/outfit/freighter_excavator
 	spawner_job_path = /datum/job/freighter_crew
 	icon = 'icons/obj/machines/sleeper.dmi'
@@ -467,7 +588,6 @@
 	name = "freighter cryo boss pod"
 	prompt_name = "a lost Quartermaster"
 	desc = "A humming cryo pod. You see someone who looks In Charge inside."
-	mob_name = "Freighter Chief"
 	outfit = /datum/outfit/freighter_boss
 	spawner_job_path = /datum/job/freighter_crew
 	icon = 'icons/obj/machines/sleeper.dmi'
@@ -535,7 +655,7 @@
 	desc = "A perfectly generic identification card. Looks like it could use some flavor. This one looks like it belonged to someone important."
 	wildcard_slots = WILDCARD_LIMIT_SILVER
 
-/obj/item/card/id/advanced/chameleon/black/blackmarket
+/obj/item/card/id/advanced/chameleon/elite/black/blackmarket
 	name = "scuffed ID card"
 	desc = "A faded, scuffed, plastic ID card. You can make out the rank \"Deck Crewman\"."
 	trim = /datum/id_trim/away/blackmarket
@@ -575,12 +695,17 @@
 	assignment = "Hotel Security"
 	access = list(ACCESS_TWIN_NEXUS_STAFF, ACCESS_TWIN_NEXUS_MANAGER)
 
+//film studio space ruins, actors and such.
+/obj/effect/mob_spawn/ghost_role/human/actor /// Overrides the /TG/ actor pod
+	name = "Actor's cryogenics pod"
+	mob_species = null
+	quirks_enabled = TRUE
+	random_appearance = FALSE
+	loadout_enabled = TRUE
 
-//CRYO CONSOLES
-/obj/machinery/computer/cryopod/interdyne
-	radio = /obj/item/radio/headset/interdyne
-	announcement_channel = RADIO_CHANNEL_INTERDYNE
-	req_one_access = list("syndicate_leader")
-
-MAPPING_DIRECTIONAL_HELPERS(/obj/machinery/computer/cryopod/interdyne, 32)
-
+/obj/effect/mob_spawn/ghost_role/human/director
+	name = "Director's cryogenics pod"
+	mob_species = null
+	quirks_enabled = TRUE
+	random_appearance = FALSE
+	loadout_enabled = TRUE

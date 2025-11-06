@@ -18,4 +18,5 @@
 			LOCATION_HANDS,
 		),
 		flavour_text = "These will keep your mood stable until you can secure a supply of medication.",
+		notify_player = TRUE,
 	)

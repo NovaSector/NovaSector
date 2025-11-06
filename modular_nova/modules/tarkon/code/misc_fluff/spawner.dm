@@ -190,7 +190,7 @@
 	flavour_text = "On the recently reclaimed Port Tarkon, You are tasked with overlooking your crew and keeping the port up and running. (OOC note: This ghost role was not designed with Plasmamen or Vox in mind. While there are some accommodations so that they can survive, it should be noted that they were not the focal point whilst designing Port Tarkon. The closet in the middle of the room above contains the 'accommodations' for those species.)"
 	important_text = "This is Not a job ment for Non-Tarkon specific Characters. You are not to abandon Port Tarkon. Check other sleepers for alternative jobs."
 	outfit = /datum/outfit/tarkon/director
-	spawner_job_path = /datum/job/tarkon
+	spawner_job_path = /datum/job/tarkon/command
 	loadout_enabled = TRUE
 	quirks_enabled = TRUE
 	random_appearance = FALSE
@@ -204,13 +204,6 @@
 	id_trim = /datum/id_trim/away/tarkon/director
 	neck = /obj/item/clothing/neck/security_cape/tarkon
 	r_pocket = /obj/item/card/id/away/tarkonrobo
-
-/obj/machinery/computer/cryopod/tarkon
-	radio = /obj/item/radio/headset/tarkon
-	announcement_channel = RADIO_CHANNEL_TARKON
-	req_one_access = list("tarkon")
-
-MAPPING_DIRECTIONAL_HELPERS(/obj/machinery/computer/cryopod/tarkon, 32)
 
 ////////////////////// Corpse/Mob Spawners Below
 
@@ -281,7 +274,7 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/machinery/computer/cryopod/tarkon, 32)
 	visible_message(span_boldannounce("The nest rumbles violently as the entrance begins to crack and break apart!"))
 	playsound(loc,'sound/effects/tendril_destroyed.ogg', 200, FALSE, 50, TRUE, TRUE)
 	addtimer(CALLBACK(src, PROC_REF(rustle)), 5 SECONDS, TIMER_DELETE_ME)
-	do_jiggle()
+	do_jiggle_nova()
 
 /obj/structure/spawner/tarkon_xenos/common
 	name = "infested nest"

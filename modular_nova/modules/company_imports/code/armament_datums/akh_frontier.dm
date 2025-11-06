@@ -85,6 +85,7 @@
 
 /datum/armament_entry/company_import/akh_frontier/deployables/solids_generator
 	item_type = /obj/item/flatpacked_machine/fuel_generator
+	cost = PAYCHECK_COMMAND * 6
 
 /datum/armament_entry/company_import/akh_frontier/deployables/stirling_generator
 	item_type = /obj/item/flatpacked_machine/stirling_generator
@@ -92,4 +93,30 @@
 
 /datum/armament_entry/company_import/akh_frontier/deployables/rtg
 	item_type = /obj/item/flatpacked_machine/rtg
-	cost = PAYCHECK_COMMAND * 2
+	cost = PAYCHECK_COMMAND * 6
+
+/datum/armament_entry/company_import/akh_frontier/deployables/solar
+	item_type = /obj/item/flatpacked_machine/solar
+	cost = PAYCHECK_CREW
+
+/datum/armament_entry/company_import/akh_frontier/deployables/solar/titaniumglass
+	item_type = /obj/item/flatpacked_machine/solar/titaniumglass
+	cost = PAYCHECK_CREW * 2
+
+/datum/armament_entry/company_import/akh_frontier/deployables/solar/plasmaglass
+	item_type = /obj/item/flatpacked_machine/solar/plasmaglass
+	cost = PAYCHECK_CREW * 4
+
+/datum/armament_entry/company_import/akh_frontier/deployables/solar/plastitaniumglass
+	item_type = /obj/item/flatpacked_machine/solar/plastitaniumglass
+	cost = PAYCHECK_CREW * 6
+
+/datum/armament_entry/company_import/akh_frontier/deployables/solar_tracker
+	item_type = /obj/item/flatpacked_machine/solar_tracker
+	cost = PAYCHECK_CREW * 2
+
+/datum/armament_entry/company_import/akh_frontier/deployables/solar_control
+	name = "Solar Array Console Board"
+	item_type = /obj/item/circuitboard/computer/solar_control
+	description = "The circuit board for the console that controls the solar panel arrays"
+	cost = CARGO_CRATE_VALUE * 1.5 // since the circuit board can be exported for 0.75 of a CCV, we need to be careful with the price of this one.

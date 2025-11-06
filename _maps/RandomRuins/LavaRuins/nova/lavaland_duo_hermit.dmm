@@ -148,7 +148,7 @@
 /turf/closed/mineral/volcanic/lava_land_surface,
 /area/lavaland/surface/outdoors)
 "tn" = (
-/mob/living/basic/raptor/baby_raptor/red,
+/mob/living/basic/raptor/baby/red,
 /turf/open/misc/asteroid/basalt/lava_land_surface,
 /area/lavaland/surface/outdoors)
 "tA" = (
@@ -242,7 +242,7 @@
 "Dh" = (
 /obj/structure/decorative/shelf,
 /obj/item/flashlight/lantern,
-/obj/item/xenoarch/tape_measure,
+/obj/item/xenoarch,
 /obj/item/xenoarch/brush,
 /turf/open/floor/wood/large,
 /area/ruin/powered/hermit)

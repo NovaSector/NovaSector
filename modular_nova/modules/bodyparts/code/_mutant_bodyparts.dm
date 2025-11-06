@@ -21,13 +21,15 @@
 	. = ..()
 	var/mob/living/carbon/human/human_owner = new_owner
 	if(istype(human_owner) && human_owner.footstep_type)
-		footstep_type = human_owner.footstep_type
+		if(islist(human_owner.footstep_type))
+			special_footstep_sounds = human_owner.footstep_type
+		else
+			footstep_type = human_owner.footstep_type
 
 /// General mutant bodyparts. Used in most mutant species.
 /obj/item/bodypart/head/mutant
 	icon_greyscale = BODYPART_ICON_MAMMAL
 	limb_id = SPECIES_MAMMAL
-	head_flags = HEAD_ALL_FEATURES
 
 /obj/item/bodypart/chest/mutant
 	icon_greyscale = BODYPART_ICON_MAMMAL

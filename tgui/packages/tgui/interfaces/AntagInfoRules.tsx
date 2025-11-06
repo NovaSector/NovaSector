@@ -2,7 +2,7 @@
 import { Stack } from 'tgui-core/components';
 
 import { useBackend } from '../backend';
-import { Objective } from './common/Objectives';
+import type { Objective } from './common/Objectives';
 
 type Info = {
   antag_name: string;
@@ -28,7 +28,6 @@ export const Rules = (props) => {
           </Stack.Item>
         </Stack>
       );
-      break;
     case 'Drifting Contractor':
       return (
         <Stack vertical>
@@ -42,7 +41,6 @@ export const Rules = (props) => {
           </Stack.Item>
         </Stack>
       );
-      break;
     case 'Cortical Borer':
       return (
         <Stack vertical>
@@ -56,7 +54,6 @@ export const Rules = (props) => {
           </Stack.Item>
         </Stack>
       );
-      break;
     case 'Venus Human Trap':
       return (
         <Stack vertical>
@@ -70,7 +67,6 @@ export const Rules = (props) => {
           </Stack.Item>
         </Stack>
       );
-      break;
     case 'Obsessed':
       return (
         <Stack vertical>
@@ -84,7 +80,6 @@ export const Rules = (props) => {
           </Stack.Item>
         </Stack>
       );
-      break;
     case 'Revenant':
       return (
         <Stack vertical>
@@ -98,7 +93,6 @@ export const Rules = (props) => {
           </Stack.Item>
         </Stack>
       );
-      break;
     case 'Space Dragon':
       return (
         <Stack vertical>
@@ -112,7 +106,6 @@ export const Rules = (props) => {
           </Stack.Item>
         </Stack>
       );
-      break;
     case 'Space Pirate':
       return (
         <Stack vertical>
@@ -126,7 +119,6 @@ export const Rules = (props) => {
           </Stack.Item>
         </Stack>
       );
-      break;
     case 'Blob':
       return (
         <Stack vertical>
@@ -140,7 +132,6 @@ export const Rules = (props) => {
           </Stack.Item>
         </Stack>
       );
-      break;
     case 'Changeling':
       return (
         <Stack vertical>
@@ -271,6 +262,5 @@ export const Rules = (props) => {
           </Stack.Item>
         </Stack>
       );
-      break;
   }
 };

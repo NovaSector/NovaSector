@@ -153,15 +153,6 @@
 		/obj/item/mod/module/shooting_assistant,
 	)
 
-/datum/voucher_set/traitor/supplies/science/mod_module_shove_blocker
-	name = /obj/item/mod/module/shove_blocker::name
-	description = /obj/item/mod/module/shove_blocker::desc
-	icon = /obj/item/mod/module/shove_blocker::icon
-	icon_state = /obj/item/mod/module/shove_blocker::icon_state
-	set_items = list(
-		/obj/item/mod/module/shove_blocker,
-	)
-
 /datum/voucher_set/traitor/supplies/science/mod_module_visor_thermal
 	name = /obj/item/mod/module/visor/thermal::name
 	description = /obj/item/mod/module/visor/thermal::desc

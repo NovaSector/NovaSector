@@ -249,6 +249,10 @@
 	item_type = /obj/item/cautery/advanced
 	cost = PAYCHECK_COMMAND * 3
 
+/datum/armament_entry/company_import/deforest/equipment/advanced_blood_filter
+	item_type = /obj/item/blood_filter/advanced
+	cost = PAYCHECK_COMMAND * 3
+
 /datum/armament_entry/company_import/deforest/equipment/medigun_upgrade
 	item_type = /obj/item/device/custom_kit/medigun_fastcharge
 	cost = PAYCHECK_COMMAND * 2
@@ -287,8 +291,3 @@
 	name = "Qani-Laaca Sensory Computer Implant"
 	item_type = /obj/item/organ/cyberimp/sensory_enhancer
 	cost = PAYCHECK_COMMAND * 5
-
-/datum/armament_entry/company_import/deforest/cyber_implants/hackerman
-	name = "Binyat Wireless Hacking System Implant"
-	item_type = /obj/item/organ/cyberimp/hackerman_deck
-	cost = PAYCHECK_COMMAND * 10

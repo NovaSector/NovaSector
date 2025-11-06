@@ -144,6 +144,37 @@
 	icon_state = "nt_grandnaval"
 	can_adjust = FALSE
 /*
+*	Bridge Officer
+*/
+
+/obj/item/clothing/under/rank/bridge_officer
+	name = "bridge officer's jumpsuit"
+	desc = "It's a blue jumpsuit with silver markings denoting the rank of \"Bridge Officer\"."
+	icon_state = "bo_uniform"
+	icon = 'modular_nova/master_files/icons/obj/clothing/under/command.dmi'
+	worn_icon = 'modular_nova/master_files/icons/mob/clothing/under/command.dmi'
+	worn_icon_digi = 'modular_nova/master_files/icons/mob/clothing/under/command_digi.dmi'
+	sensor_mode = SENSOR_COORDS
+	random_sensor = FALSE
+
+/obj/item/clothing/under/rank/bridge_officer/skirt
+	name = "bridge officer's jumpskirt"
+	desc = "It's a blue jumpskirt with silver markings denoting the rank of \"Bridge Officer\"."
+	icon_state = "bo_skirt"
+	gets_cropped_on_taurs = FALSE
+
+/obj/item/clothing/under/rank/bridge_officer/turtle
+	name = "bridge officer's turtleneck"
+	desc = "It's a blue turtleneck with silver markings denoting the rank of \"Bridge Officer\"."
+	icon_state = "bo_turtleneck"
+
+/obj/item/clothing/under/rank/bridge_officer/turtle/skirt
+	name = "bridge officer's skirtleneck"
+	desc = "It's a blue skirtleneck with silver markings denoting the rank of \"Bridge Officer\"."
+	icon_state = "bo_skirtleneck"
+	gets_cropped_on_taurs = FALSE
+
+/*
 *	UNASSIGNED (Any head of staff)
 */
 
@@ -201,3 +232,4 @@
 	dying_key = DYE_REGISTRY_JUMPSKIRT
 	female_sprite_flags = FEMALE_UNIFORM_TOP_ONLY
 	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION_NO_NEW_ICON
+	gets_cropped_on_taurs = FALSE

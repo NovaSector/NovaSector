@@ -2663,13 +2663,6 @@
 /mob/living/basic/trooper/russian/ranged,
 /turf/open/floor/plating/abductor2,
 /area/virtual_domain)
-"Vx" = (
-/obj/structure/closet/abductor,
-/obj/item/radio/headset/abductor,
-/obj/item/clothing/under/abductor,
-/obj/item/pillow,
-/turf/open/floor/plating/abductor2,
-/area/virtual_domain)
 "Vy" = (
 /obj/machinery/computer/camera_advanced/xenobio{
 	dir = 8;
@@ -6212,7 +6205,7 @@ pI
 XL
 XL
 pI
-Vx
+zB
 AU
 pI
 pI

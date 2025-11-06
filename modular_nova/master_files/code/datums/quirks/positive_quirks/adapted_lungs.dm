@@ -15,7 +15,7 @@ GLOBAL_LIST_INIT(possible_adapted_lungs, list(
 	desc = "Your lungs have adapted to be resistant to certain atmospheric conditions, at the cost of being more vulnerable to others."
 	medical_record_text = "Patient has abnormal lungs." // this gets overwritten
 	icon = FA_ICON_WIND
-	value = 2
+	value = 0
 	/// the choice of lungs the player has selected
 	var/desired_lungs
 
@@ -31,9 +31,6 @@ GLOBAL_LIST_INIT(possible_adapted_lungs, list(
 
 	// always update lungs to respect the quirk, even if the organ isn't from roundstart
 	RegisterSignal(quirk_holder, COMSIG_CARBON_GAIN_ORGAN, PROC_REF(on_gain_organ))
-
-/datum/quirk/adapted_lungs/add(client/client_source)
-	add_adaptation()
 
 /datum/quirk/adapted_lungs/proc/on_gain_organ()
 	SIGNAL_HANDLER
@@ -57,6 +54,7 @@ GLOBAL_LIST_INIT(possible_adapted_lungs, list(
 			add_low_oxy(target_lungs)
 
 /datum/quirk/adapted_lungs/post_add()
+	add_adaptation()
 	medical_record_text = "Patient has lungs adapted to [desired_lungs] environments."
 	gain_text = span_notice("Your lungs are adapted to [desired_lungs] environments.")
 	lose_text = span_warning("Your lungs are no longer adapted to [desired_lungs] environments.")

@@ -278,30 +278,30 @@
 
 /datum/antagonist/primitive_catgirl
 	name = "\improper Icewalker"
-	job_rank = ROLE_LAVALAND // If you're ashwalker banned you should also not be playing this, other way around as well
+	pref_flag = ROLE_LAVALAND // If you're ashwalker banned you should also not be playing this, other way around as well
 	show_in_antagpanel = FALSE
 	show_to_ghosts = TRUE
-	prevent_roundtype_conversion = FALSE
 	antagpanel_category = "Icemoon Dwellers"
-	count_against_dynamic_roll_chance = FALSE
+	antag_flags = ANTAG_FAKE | ANTAG_SKIP_GLOBAL_LIST
 	show_in_roundend = FALSE
 
 	/// Tracks the antag datum's 'team' for showing in the ghost orbit menu
 	var/datum/team/primitive_catgirls/feline_team
 
 	antag_recipes = list(
-		/datum/crafting_recipe/boneaxe,
-		/datum/crafting_recipe/bonespear,
-		/datum/crafting_recipe/bonedagger,
 		/datum/crafting_recipe/anointing_oil,
-		/datum/crafting_recipe/handcrafted_hearthkin_armor,
 		/datum/crafting_recipe/black_pelt_bed,
-		/datum/crafting_recipe/white_pelt_bed,
+		/datum/crafting_recipe/boneaxe,
+		/datum/crafting_recipe/bonedagger,
+		/datum/crafting_recipe/bonespear,
 		/datum/crafting_recipe/frozen_breath,
-		/datum/crafting_recipe/runic_greatsword,
-		/datum/crafting_recipe/runic_greataxe,
-		/datum/crafting_recipe/runic_spear,
+		/datum/crafting_recipe/handcrafted_hearthkin_armor,
 		/datum/crafting_recipe/hearthkin_ship_fragment_inactive,
+		/datum/crafting_recipe/runic_greataxe,
+		/datum/crafting_recipe/runic_greatsword,
+		/datum/crafting_recipe/runic_spear,
+		/datum/crafting_recipe/skeleton_key,
+		/datum/crafting_recipe/white_pelt_bed,
 	)
 
 /datum/antagonist/primitive_catgirl/Destroy()

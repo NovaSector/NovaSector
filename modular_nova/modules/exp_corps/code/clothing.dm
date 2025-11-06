@@ -168,6 +168,7 @@
 		/obj/item/tank/internals/emergency_oxygen,
 		/obj/item/tank/internals/plasmaman,
 		/obj/item/storage/belt/holster,
+		/obj/item/storage/belt/machete,
 		)
 
 
@@ -229,7 +230,7 @@
 		if(my_eyes)
 			my_eyes.color_cutoffs = list(10, 30, 10)
 			my_eyes.flash_protect = FLASH_PROTECTION_SENSITIVE
-		current_user.add_client_colour(/datum/client_colour/glass_colour/lightgreen)
+		current_user.add_client_colour(/datum/client_colour/glass_colour/lightgreen, REF(src))
 
 /obj/item/clothing/head/helmet/expeditionary_corps/proc/disable_nv()
 	if(current_user)
@@ -237,7 +238,7 @@
 		if(my_eyes)
 			my_eyes.color_cutoffs = initial(my_eyes.color_cutoffs)
 			my_eyes.flash_protect = initial(my_eyes.flash_protect)
-		current_user.remove_client_colour(/datum/client_colour/glass_colour/lightgreen)
+		current_user.remove_client_colour(/datum/client_colour/glass_colour/lightgreen, REF(src))
 		current_user.update_sight()
 
 /obj/item/clothing/head/helmet/expeditionary_corps/click_alt(mob/user)
