@@ -11,6 +11,8 @@
 	var/fade_out_time = 0.3 SECONDS
 	/// Are images static? If yes, spawns them on the turf and makes them not change location. Otherwise they change location and pixel shift with the original.
 	var/images_are_static = TRUE
+	/// Does this echolocation cause us to go blind?
+	var/blinding = TRUE
 	/// With mobs that have this echo group in their echolocation receiver trait, we share echo images.
 	var/echo_group = null
 	/// This trait blocks us from receiving echolocation.
@@ -32,7 +34,7 @@
 	/// Cooldown for the echolocation.
 	COOLDOWN_DECLARE(cooldown_last)
 
-/datum/component/echolocation/Initialize(echo_range, cooldown_time, image_expiry_time, fade_in_time, fade_out_time, images_are_static, blocking_trait, echo_group, echo_icon, color_path, use_echo = TRUE, show_own_outline = FALSE) // NOVA EDIT CHANGE - ORIGINAL: /datum/component/echolocation/Initialize(echo_range, cooldown_time, image_expiry_time, fade_in_time, fade_out_time, images_are_static, blocking_trait, echo_group, echo_icon, color_path)
+/datum/component/echolocation/Initialize(echo_range, cooldown_time, image_expiry_time, fade_in_time, fade_out_time, images_are_static, blocking_trait, echo_group, echo_icon, color_path, blinding, use_echo = TRUE, show_own_outline = FALSE) // NOVA EDIT CHANGE - ORIGINAL: /datum/component/echolocation/Initialize(echo_range, cooldown_time, image_expiry_time, fade_in_time, fade_out_time, images_are_static, blocking_trait, echo_group, echo_icon, color_path, blinding)
 	. = ..()
 	var/mob/living/echolocator = parent
 	if(!istype(echolocator))
@@ -51,11 +53,13 @@
 		src.fade_in_time = fade_in_time
 	if(!isnull(fade_out_time))
 		src.fade_out_time = fade_out_time
+	if(!isnull(blinding))
+		src.blinding = blinding
 	if(!isnull(images_are_static))
 		src.images_are_static = images_are_static
 	if(!isnull(blocking_trait))
 		src.blocking_trait = blocking_trait
-	// NOVA ADDITION START: echolocation
+	// NOVA EDIT ADDITION START: echolocation
 	if(!isnull(show_own_outline))
 		src.show_own_outline = show_own_outline
 	// NOVA EDIT ADDITION END
@@ -63,11 +67,11 @@
 	if(ispath(color_path))
 		client_colour = echolocator.add_client_colour(color_path, src.echo_group)
 	echolocator.add_traits(list(TRAIT_ECHOLOCATION_RECEIVER, TRAIT_TRUE_NIGHT_VISION), src.echo_group) //so they see all the tiles they echolocated, even if they are in the dark
-	echolocator.become_blind(ECHOLOCATION_TRAIT)
-	// NOVA EDIT ADDITION START
-	if (use_echo) // add constructor toggle to not use the eye overlay
+	if(blinding)
+		echolocator.become_blind(ECHOLOCATION_TRAIT)
+		if (use_echo) // NOVA EDIT ADDITION - add constructor toggle to not use the eye overlay
+			echolocator.overlay_fullscreen("echo", /atom/movable/screen/fullscreen/echo, echo_icon) // NOVA EDIT CHANGE - No change except indented one tab
 		echolocator.overlay_fullscreen("echo", /atom/movable/screen/fullscreen/echo, echo_icon)
-	// NOVA EDIT ADDITION END
 	START_PROCESSING(SSfastprocess, src)
 
 /datum/component/echolocation/Destroy(force)
@@ -75,8 +79,9 @@
 	var/mob/living/echolocator = parent
 	QDEL_NULL(client_colour)
 	echolocator.remove_traits(list(TRAIT_ECHOLOCATION_RECEIVER, TRAIT_TRUE_NIGHT_VISION), echo_group)
-	echolocator.cure_blind(ECHOLOCATION_TRAIT)
-	echolocator.clear_fullscreen("echo")
+	if(blinding)
+		echolocator.cure_blind(ECHOLOCATION_TRAIT)
+		echolocator.clear_fullscreen("echo")
 	for(var/mob/living/echolocate_receiver as anything in receivers)
 		if(!echolocate_receiver.client)
 			continue
@@ -101,11 +106,19 @@
 		real_echo_range += 2
 	var/list/filtered = list()
 	var/list/seen = dview(real_echo_range, get_turf(echolocator.client?.eye || echolocator), invis_flags = echolocator.see_invisible)
-	for(var/atom/seen_atom as anything in seen)
-		if(!seen_atom.alpha)
-			continue
-		if(allowed_paths[seen_atom.type])
-			filtered += seen_atom
+	if(blinding)
+		for(var/atom/seen_atom as anything in seen)
+			if(!seen_atom.alpha)
+				continue
+			if(allowed_paths[seen_atom.type])
+				filtered += seen_atom
+	else
+		var/list/ranged_atoms = range(real_echo_range, get_turf(echolocator.client?.eye || echolocator))
+		for(var/atom/possible_atom as anything in ranged_atoms)
+			if(!possible_atom.alpha)
+				continue
+			if(allowed_paths[possible_atom.type])
+				filtered += possible_atom
 	if(!length(filtered))
 		return
 	var/current_time = "[world.time]"
@@ -128,7 +141,7 @@
 	if(images_are_static)
 		final_image.pixel_x = input.pixel_x
 		final_image.pixel_y = input.pixel_y
-	// NOVA ADDITION START: echolocation (show outlines on self)
+	// NOVA EDIT ADDITION START: echolocation (show outlines on self)
 	var/mob/living/echolocator = parent
 	if(HAS_TRAIT_FROM(input, TRAIT_ECHOLOCATION_RECEIVER, echo_group) && input != echolocator) //mark other echolocation with full white, except ourselves
 	// NOVA EDIT ADDITION END

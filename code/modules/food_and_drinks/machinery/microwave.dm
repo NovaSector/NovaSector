@@ -130,6 +130,10 @@
 		context[SCREENTIP_CONTEXT_LMB] = "[anchored ? "Unsecure" : "Install/Secure"]"
 		return CONTEXTUAL_SCREENTIP_SET
 
+	if(held_item?.atom_storage)
+		context[SCREENTIP_CONTEXT_RMB] = "Dump contents"
+		return CONTEXTUAL_SCREENTIP_SET
+
 	if(broken > NOT_BROKEN)
 		if(broken == REALLY_BROKEN && held_item?.tool_behaviour == TOOL_WIRECUTTER)
 			context[SCREENTIP_CONTEXT_LMB] = "Repair"
@@ -552,7 +556,7 @@
 
 	dirty = 0
 	update_appearance()
-	return . || TRUE
+	. |= COMPONENT_CLEANED|COMPONENT_CLEANED_GAIN_XP
 
 /obj/machinery/microwave/proc/eject()
 	var/atom/drop_loc = drop_location()
@@ -612,7 +616,7 @@
 		if(istype(potential_fooditem, /obj/item/modular_computer) && prob(75))
 			pda_failure = TRUE
 			notify_ghosts(
-				"[cooker] has overheated their PDA!",
+				"[cooker.real_name] has overheated their PDA!",
 				source = src,
 				notify_flags = NOTIFY_CATEGORY_NOFLASH,
 				header = "Hunger Games: Catching Fire",

@@ -11,6 +11,7 @@
 	base_icon_state = "condom_pack"
 	icon = 'modular_nova/modules/modular_items/lewd_items/icons/obj/lewd_items/lewd_items.dmi'
 	w_class = WEIGHT_CLASS_TINY
+	obj_flags_nova = ERP_ITEM
 	/// The current color of the condom, can be changed and affects sprite
 	var/current_color = "pink"
 
@@ -76,20 +77,20 @@
 			condom_state = "dirty"
 			if(prob(10)) //chance of condom to break on first time.
 				name = "broken condom"
-				condom_state = TRAIT_CONDOM_BROKEN
+				condom_state = "broken"
 			update_icon_state()
 			update_icon()
 
 		if("dirty")
 			name = "broken condom"
-			condom_state = TRAIT_CONDOM_BROKEN
+			condom_state = "broken"
 			update_icon_state()
 			update_icon()
 
 //When condom equipped we doing stuff
 /obj/item/clothing/sextoy/condom/lewd_equipped(mob/user, slot, initial)
 	. = ..()
-	if((slot == LEWD_SLOT_PENIS) && condom_state == "unused")
+	if((slot == ORGAN_SLOT_PENIS) && condom_state == "unused")
 		condom_state = "used"
 		update_icon_state()
 		update_icon()

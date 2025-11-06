@@ -1,7 +1,7 @@
-#define LINK_DENY "<a href='?_src_=usr;open_door=[REF(src)];user=[REF(user)];action=deny'> (Deny)</a>"
-#define LINK_OPEN "<a href='?_src_=usr;open_door=[REF(src)];user=[REF(user)];action=open'> (Open)</a>"
-#define LINK_BOLT "<a href='?_src_=usr;open_door=[REF(src)];user=[REF(user)];action=bolt'> (Bolt)</a>"
-#define LINK_SHOCK "<a href='?_src_=usr;open_door=[REF(src)];user=[REF(user)];action=shock'> (Shock)</a>"
+#define LINK_DENY "<a href='byond://?_src_=usr;open_door=[REF(src)];user=[REF(user)];action=deny'> (Deny)</a>"
+#define LINK_OPEN "<a href='byond://?_src_=usr;open_door=[REF(src)];user=[REF(user)];action=open'> (Open)</a>"
+#define LINK_BOLT "<a href='byond://?_src_=usr;open_door=[REF(src)];user=[REF(user)];action=bolt'> (Bolt)</a>"
+#define LINK_SHOCK "<a href='byond://?_src_=usr;open_door=[REF(src)];user=[REF(user)];action=shock'> (Shock)</a>"
 
 /obj/machinery/door/airlock
 	//so the AI doesn't get spammed
@@ -13,14 +13,14 @@
 	if(world.time < requesters[user.ckey] + 10 SECONDS)
 		to_chat(user, span_warning("Hold on, let the AI parse your request."))
 		return
-	
+
 	. = ..()
 
 	if(!hasPower())
 		to_chat(user, span_warning("This door isn't powered."))
 		return
 
-	src.balloon_alert(user, "AI requested!")
+	src.balloon_alert(user, "ai requested!")
 
 	for(var/mob/living/silicon/ai/AI as anything in GLOB.ai_list)
 		if(AI.stat == DEAD)
@@ -30,11 +30,11 @@
 		if(AI.deployed_shell)
 			if(!is_station_level(AI.deployed_shell.registered_z))
 				continue
-			to_chat(AI.deployed_shell, "<b><a href='?src=[REF(AI)];track=[html_encode(user.name)]'>[user]</a></b> is requesting you to open the [src] [LINK_DENY][LINK_OPEN][LINK_BOLT][LINK_SHOCK].")
+			to_chat(AI.deployed_shell, "<b><a href='byond://?src=[REF(AI)];track=[html_encode(user.name)]'>[user]</a></b> is requesting you to open the [src] [LINK_DENY][LINK_OPEN][LINK_BOLT][LINK_SHOCK].")
 			continue
 		if(!is_station_level(AI.registered_z))
 			continue
-		to_chat(AI, "<b><a href='?src=[REF(AI)];track=[html_encode(user.name)]'>[user]</a></b> is requesting you to open the [src] [LINK_DENY][LINK_OPEN][LINK_BOLT][LINK_SHOCK].")
+		to_chat(AI, "<b><a href='byond://?src=[REF(AI)];track=[html_encode(user.name)]'>[user]</a></b> is requesting you to open the [src] [LINK_DENY][LINK_OPEN][LINK_BOLT][LINK_SHOCK].")
 	requesters[user.ckey] = world.time
 
 #undef LINK_DENY

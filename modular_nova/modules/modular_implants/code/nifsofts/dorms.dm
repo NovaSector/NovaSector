@@ -1,6 +1,7 @@
 /obj/item/disk/nifsoft_uploader/dorms
 	name = "Grimoire Libidine"
 	loaded_nifsoft = /datum/nifsoft/summoner/dorms
+	obj_flags_nova = ERP_ITEM
 
 /datum/nifsoft/summoner/dorms
 	name = "Grimoire Libidine"
@@ -32,8 +33,8 @@
 					/obj/item/holosign_creator/privacy,
 
 					// Head / Mask /Neck Items
-					/obj/item/clothing/mask/ballgag,
-					/obj/item/clothing/mask/ballgag/choking,
+					/obj/item/clothing/mask/muzzle/ballgag,
+					/obj/item/clothing/mask/muzzle/ballgag/choking,
 					/obj/item/clothing/mask/muzzle/ring,
 					/obj/item/clothing/head/deprivation_helmet,
 					/obj/item/clothing/glasses/blindfold/dorms,

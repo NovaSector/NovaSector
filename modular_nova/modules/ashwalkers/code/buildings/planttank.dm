@@ -7,6 +7,8 @@
 	density = TRUE
 	///the amount of times the tank can produce-- can be increased through feeding the tank
 	var/operation_number = 0
+	/// the farm component (if it was added)
+	var/datum/component/simple_farm/connected_farm
 
 /obj/structure/plant_tank/Initialize(mapload)
 	. = ..()
@@ -26,9 +28,11 @@
 
 /obj/structure/plant_tank/item_interaction(mob/living/user, obj/item/tool, list/modifiers)
 	if(istype(tool, /obj/item/food) || istype(tool, /obj/item/stack/worm_fertilizer))
-		var/obj/item/stack/stack_item = tool
-		if(isstack(stack_item))
-			if(!stack_item.use(1))
+		if(istype(tool, /obj/item/food/tree_fruit))
+			return ..()
+
+		if(isstack(tool))
+			if(!tool.use(1))
 				return ITEM_INTERACT_BLOCKING
 
 		else
@@ -55,17 +59,15 @@
 		return ITEM_INTERACT_BLOCKING
 
 	if(istype(tool, /obj/item/stack/ore/glass))
-		var/datum/component/simple_farm/find_farm = GetComponent(/datum/component/simple_farm)
-		if(find_farm)
+		if(connected_farm)
 			balloon_alert(user, "no more [tool] required")
 			return ITEM_INTERACT_BLOCKING
 
-		var/obj/item/stack/attacking_stack = tool
-		if(!attacking_stack.use(5))
+		if(!tool.use(5))
 			balloon_alert(user, "farms require five sand")
 			return ITEM_INTERACT_BLOCKING
 
-		AddComponent(/datum/component/simple_farm, TRUE, TRUE, list(0, 12))
+		connected_farm = AddComponent(/datum/component/simple_farm, TRUE, TRUE, list(0, 12))
 		icon_state = "plant_tank_f"
 		return ITEM_INTERACT_BLOCKING
 
@@ -75,7 +77,7 @@
 	if(operation_number <= 0) //we require "fuel" to actually produce stuff
 		return
 
-	if(!locate(/obj/structure/simple_farm) in get_turf(src)) //we require a plant to process the "fuel"
+	if(!locate(/obj/structure/simple_farm) in get_turf(src) && !locate(/obj/structure/simple_tree) in get_turf(src)) //we require a plant to process the "fuel"
 		return
 
 	operation_number--

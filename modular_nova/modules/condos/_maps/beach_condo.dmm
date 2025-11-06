@@ -290,7 +290,7 @@
 /area/misc/condo)
 "Ok" = (
 /obj/structure/table/wood,
-/obj/item/reagent_containers/cup/rag{
+/obj/item/rag{
 	pixel_y = 8
 	},
 /turf/open/floor/wood/tile,

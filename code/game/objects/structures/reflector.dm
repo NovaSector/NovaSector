@@ -132,7 +132,7 @@
 
 	return ITEM_INTERACT_SUCCESS
 
-/obj/structure/reflector/attackby(obj/item/W, mob/user, params)
+/obj/structure/reflector/attackby(obj/item/W, mob/user, list/modifiers, list/attack_modifiers)
 	if(admin)
 		return
 	//Finishing the frame
@@ -292,6 +292,7 @@
 		return
 	if(!can_rotate)
 		user.balloon_alert(user, "can't rotate!")
+		ui?.close()
 		return
 	ui = SStgui.try_update_ui(user, src, ui)
 	if(!ui)

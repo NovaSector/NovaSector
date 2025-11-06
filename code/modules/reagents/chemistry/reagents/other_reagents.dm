@@ -1,6 +1,6 @@
 /datum/reagent/blood
-	data = list("viruses"=null,"blood_DNA"=null,"blood_type"=null,"resistances"=null,"trace_chem"=null,"mind"=null,"ckey"=null,"gender"=null,"real_name"=null,"cloneable"=null,"factions"=null,"quirks"=null, "monkey_origins" = FALSE) // NOVA EDIT - Rebalancing blood for Hemophages - ORIGINAL: data = list("viruses"=null,"blood_DNA"=null,"blood_type"=null,"resistances"=null,"trace_chem"=null,"mind"=null,"ckey"=null,"gender"=null,"real_name"=null,"cloneable"=null,"factions"=null,"quirks"=null)
 	name = "Blood"
+	description  = "Blood cells suspended in plasma, the most abundant of which being the hemoglobin-containing red blood cells."
 	color = "#C80000" // rgb: 200, 0, 0
 	metabolization_rate = 12.5 * REAGENTS_METABOLISM //fast rate so it disappears fast.
 	taste_description = "iron"
@@ -18,148 +18,24 @@
 	name = "glass of tomato juice"
 	desc = "Are you sure this is tomato juice?"
 
-	// FEED ME
+// FEED ME
 /datum/reagent/blood/on_hydroponics_apply(obj/machinery/hydroponics/mytray, mob/user)
 	mytray.adjust_pestlevel(rand(2, 3))
 
-/datum/reagent/blood/expose_mob(mob/living/exposed_mob, methods=TOUCH, reac_volume, show_message=TRUE, touch_protection=0)
-	. = ..()
-	if(data && data["viruses"])
-		for(var/thing in data["viruses"])
-			var/datum/disease/strain = thing
-
-			if((strain.spread_flags & DISEASE_SPREAD_SPECIAL) || (strain.spread_flags & DISEASE_SPREAD_NON_CONTAGIOUS))
-				continue
-
-			if(methods & INGEST)
-				if(!strain.has_required_infectious_organ(exposed_mob, ORGAN_SLOT_STOMACH))
-					continue
-
-				exposed_mob.ForceContractDisease(strain)
-			else if(methods & (INJECT|PATCH))
-				if(!strain.has_required_infectious_organ(exposed_mob, ORGAN_SLOT_HEART))
-					continue
-
-				exposed_mob.ForceContractDisease(strain)
-			else if((methods & (VAPOR|INHALE)) && (strain.spread_flags & DISEASE_SPREAD_CONTACT_FLUIDS))
-				if(!strain.has_required_infectious_organ(exposed_mob, ORGAN_SLOT_LUNGS))
-					continue
-
-				exposed_mob.ContactContractDisease(strain)
-			else if((methods & TOUCH) && (strain.spread_flags & DISEASE_SPREAD_CONTACT_FLUIDS))
-				exposed_mob.ContactContractDisease(strain)
-
-	if(data && data["resistances"])
-		if(methods & (INGEST|INJECT|INHALE)) //have to inject, inhale or ingest it. no curefoam/cheap curesprays
-			for(var/stuff in exposed_mob.diseases)
-				var/datum/disease/infection = stuff
-				if(infection.GetDiseaseID() in data["resistances"])
-					if(!infection.bypasses_immunity)
-						infection.cure(add_resistance = FALSE)
-
-	if(iscarbon(exposed_mob))
-		var/mob/living/carbon/exposed_carbon = exposed_mob
-		if(exposed_carbon.get_blood_id() == type && ((methods & INJECT) || ((methods & INGEST) && HAS_TRAIT(exposed_carbon, TRAIT_DRINKS_BLOOD))))
-			if(!data || !(data["blood_type"] in get_safe_blood(exposed_carbon.dna.blood_type)))
-				exposed_carbon.reagents.add_reagent(/datum/reagent/toxin, reac_volume * 0.5)
-			else
-				/* NOVA EDIT - Rebalancing blood for Hemophages - ORIGINAL:
-				exposed_carbon.blood_volume = min(exposed_carbon.blood_volume + round(reac_volume, 0.1), BLOOD_VOLUME_MAXIMUM)
-				*/ // ORIGINAL END - NOVA EDIT:
-				// We do a max() here so that being injected with monkey blood when you're past 560u doesn't reset you back to 560
-				var/max_blood_volume = data["monkey_origins"] ? max(exposed_carbon.blood_volume, BLOOD_VOLUME_NORMAL) : BLOOD_VOLUME_MAXIMUM
-
-				exposed_carbon.blood_volume = min(exposed_carbon.blood_volume + round(reac_volume, 0.1), max_blood_volume)
-				// NOVA EDIT END
-
-			exposed_carbon.reagents.remove_reagent(type, reac_volume) // Because we don't want blood to just lie around in the patient's blood, makes no sense.
-
-		// covers them and their worn equipment in blood
-		if((methods & (TOUCH|VAPOR)) && reac_volume > 3)
-			if(data["blood_DNA"] && data["blood_type"])
-				exposed_carbon.add_blood_DNA(list(data["blood_DNA"] = data["blood_type"]))
-			else
-				exposed_carbon.add_blood_DNA(list("Non-human DNA" = random_blood_type()))
-
 /datum/reagent/blood/on_new(list/data)
 	. = ..()
-	if(istype(data))
-		SetViruses(src, data)
-
-/datum/reagent/blood/on_merge(list/mix_data)
-	if(data && mix_data)
-		if(data["blood_DNA"] != mix_data["blood_DNA"])
-			data["cloneable"] = 0 //On mix, consider the genetic sampling unviable for pod cloning if the DNA sample doesn't match.
-		if(data["viruses"] || mix_data["viruses"])
-
-			var/list/mix1 = data["viruses"]
-			var/list/mix2 = mix_data["viruses"]
-
-			// Stop issues with the list changing during mixing.
-			var/list/to_mix = list()
-
-			for(var/datum/disease/advance/AD in mix1)
-				to_mix += AD
-			for(var/datum/disease/advance/AD in mix2)
-				to_mix += AD
-
-			var/datum/disease/advance/AD = Advance_Mix(to_mix)
-			if(AD)
-				var/list/preserve = list(AD)
-				for(var/D in data["viruses"])
-					if(!istype(D, /datum/disease/advance))
-						preserve += D
-				data["viruses"] = preserve
-	return 1
-
-/datum/reagent/blood/proc/get_diseases()
-	. = list()
-	if(data && data["viruses"])
-		for(var/thing in data["viruses"])
-			var/datum/disease/D = thing
-			. += D
-
-/datum/reagent/blood/expose_turf(turf/exposed_turf, reac_volume)//splash the blood all over the place
-	. = ..()
-	if(!istype(exposed_turf))
-		return
-	if(reac_volume < 3)
+	// If we were artificially created without blood data, we still want to have the blood_reagent element for exposure effects
+	if(!istype(data) || !data["blood_type"])
+		AddElement(/datum/element/blood_reagent, null, get_blood_type(BLOOD_TYPE_UNIVERSAL))
 		return
 
-	var/obj/effect/decal/cleanable/blood/bloodsplatter = locate() in exposed_turf //find some blood here
-	if(!bloodsplatter)
-		bloodsplatter = new(exposed_turf, data["viruses"])
-	if(LAZYLEN(data["viruses"]))
-		var/list/viruses_to_add = list()
-		for(var/datum/disease/virus in data["viruses"])
-			if(virus.spread_flags & DISEASE_SPREAD_CONTACT_FLUIDS)
-				viruses_to_add += virus
-		if(LAZYLEN(viruses_to_add))
-			bloodsplatter.AddComponent(/datum/component/infective, viruses_to_add)
-	if(data["blood_DNA"])
-		bloodsplatter.add_blood_DNA(list(data["blood_DNA"] = data["blood_type"]))
-
-/datum/reagent/blood/expose_obj(obj/exposed_obj, reac_volume, methods=TOUCH, show_message=TRUE)
-	. = ..()
-	if(!istype(exposed_obj))
-		return
-	if(reac_volume < 3)
+	var/datum/blood_type/blood_type = data["blood_type"]
+	if(!istype(blood_type))
 		return
 
-	if(!(methods & (VAPOR|TOUCH)))
-		return
-
-	if(LAZYLEN(data["viruses"]))
-		var/list/viruses_to_add = list()
-		for(var/datum/disease/virus in data["viruses"])
-			if(virus.spread_flags & DISEASE_SPREAD_CONTACT_FLUIDS)
-				viruses_to_add += virus
-		if(length(viruses_to_add))
-			exposed_obj.AddComponent(/datum/component/infective, viruses_to_add)
-	if(data["blood_DNA"] && data["blood_type"])
-		exposed_obj.add_blood_DNA(list(data["blood_DNA"] = data["blood_type"]))
-	else
-		exposed_obj.add_blood_DNA(list("Non-human DNA" = random_blood_type()))
+	var/blood_color = blood_type.get_color()
+	if(blood_color == BLOOD_COLOR_RED) // If the blood is default red, just use the darker red color for the reagent.
+		color = initial(color)
 
 /datum/reagent/blood/get_taste_description(mob/living/taster)
 	if(isnull(taster))
@@ -209,9 +85,10 @@
 			infection.cure(add_resistance = TRUE)
 	LAZYOR(exposed_mob.disease_resistances, data)
 
-/datum/reagent/vaccine/on_merge(list/data)
-	if(istype(data))
-		src.data |= data.Copy()
+/datum/reagent/vaccine/on_merge(list/mix_data, amount)
+	. = ..()
+	if(mix_data)
+		data |= mix_data
 
 /datum/reagent/vaccine/fungal_tb
 	name = "Vaccine (Fungal Tuberculosis)"
@@ -272,10 +149,11 @@
 	var/cool_temp = cooling_temperature
 
 	var/obj/effect/hotspot/hotspot = (locate(/obj/effect/hotspot) in exposed_turf)
-	if(hotspot && !isspaceturf(exposed_turf))
+	if(hotspot && !isspaceturf(exposed_turf)) // the water evaporates in an endothermic reaction
 		if(exposed_turf.air)
 			var/datum/gas_mixture/air = exposed_turf.air
-			air.temperature = max(min(air.temperature-(cool_temp*1000), air.temperature/cool_temp),TCMB)
+			air.temperature = min(max(min(air.temperature-(cool_temp*1000), air.temperature/cool_temp), T0C), air.temperature) // the outer min temperature check is for weird phenomena like freon combustion
+			exposed_turf.temperature = clamp(min(exposed_turf.temperature-(cool_temp*1000), exposed_turf.temperature/cool_temp), T20C, exposed_turf.temperature) // turfs normally don't go below T20C so I'll just clamp it to that in case of weird phenomena.
 			air.react(src)
 			qdel(hotspot)
 
@@ -352,6 +230,12 @@
 
 /datum/reagent/water/on_mob_life(mob/living/carbon/affected_mob, seconds_per_tick, times_fired)
 	. = ..()
+
+	var/obj/item/organ/liver/liver = affected_mob.get_organ_slot(ORGAN_SLOT_LIVER)
+	if(liver?.damage && !IS_ROBOTIC_ORGAN(liver) && !(liver.organ_flags & ORGAN_FAILING))
+		var/healing_bonus = liver.healing_factor * liver.maxHealth
+		liver.apply_organ_damage(-healing_bonus * REM * seconds_per_tick)
+
 	var/water_adaptation = HAS_TRAIT(affected_mob, TRAIT_WATER_ADAPTATION)
 	if(affected_mob.blood_volume)
 		var/blood_restored = water_adaptation ? 0.3 : 0.1
@@ -497,6 +381,8 @@
 				need_mob_update += affected_mob.adjustFireLoss(10 * REM * seconds_per_tick, updating_health = FALSE)
 		affected_mob.remove_status_effect(/datum/status_effect/jitter)
 		affected_mob.remove_status_effect(/datum/status_effect/speech/stutter)
+		for(var/datum/status_effect/eldritch_painting/eldritch_curses in affected_mob.status_effects)
+			qdel(eldritch_curses)
 		holder?.remove_reagent(type, volume) // maybe this is a little too perfect and a max() cap on the statuses would be better??
 	if(need_mob_update)
 		return UPDATE_MOB_HEALTH
@@ -721,7 +607,7 @@
 						exposed_human.skin_tone = "mixed3"
 			//take current alien color and darken it slightly
 			else if(HAS_TRAIT(exposed_human, TRAIT_MUTANT_COLORS) && !HAS_TRAIT(exposed_human, TRAIT_FIXED_MUTANT_COLORS))
-				var/list/existing_color = rgb2num(exposed_human.dna.features["mcolor"])
+				var/list/existing_color = rgb2num(exposed_human.dna.features[FEATURE_MUTANT_COLOR])
 				var/list/darkened_color = list()
 				// Reduces each part of the color by 16
 				for(var/channel in existing_color)
@@ -731,7 +617,7 @@
 				var/list/new_hsv = rgb2hsv(new_color)
 				// Can't get too dark now
 				if(new_hsv[3] >= 50)
-					exposed_human.dna.features["mcolor"] = new_color
+					exposed_human.dna.features[FEATURE_MUTANT_COLOR] = new_color
 			exposed_human.update_body(is_creating = TRUE)
 
 		if((methods & INGEST) && show_message)
@@ -755,7 +641,7 @@
 		if(HAS_TRAIT(affected_human, TRAIT_USES_SKINTONES))
 			affected_human.skin_tone = "orange"
 		else if(HAS_TRAIT(affected_human, TRAIT_MUTANT_COLORS) && !HAS_TRAIT(affected_human, TRAIT_FIXED_MUTANT_COLORS)) //Aliens with custom colors simply get turned orange
-			affected_human.dna.features["mcolor"] = "#ff8800"
+			affected_human.dna.features[FEATURE_MUTANT_COLOR] = "#ff8800"
 		affected_human.update_body(is_creating = TRUE)
 		if(SPT_PROB(3.5, seconds_per_tick))
 			if(affected_human.w_uniform)
@@ -789,11 +675,12 @@
 									"Your appendages begin morphing." = MUT_MSG_EXTENDED,
 									"You feel as though you're about to change at any moment!" = MUT_MSG_ABOUT2TURN)
 
-/datum/reagent/mutationtoxin/on_mob_life(mob/living/carbon/human/affected_mob, seconds_per_tick, times_fired)
+/datum/reagent/mutationtoxin/on_mob_life(mob/living/carbon/affected_mob, seconds_per_tick, times_fired)
 	. = ..()
-	if(!istype(affected_mob))
+	if(!ishuman(affected_mob))
 		return
-	if(!(affected_mob.dna?.species) || !(affected_mob.mob_biotypes & affected_biotype))
+	var/mob/living/carbon/affected_human = affected_mob
+	if(!(affected_human.dna?.species) || !(affected_human.mob_biotypes & affected_biotype))
 		return
 
 	if(SPT_PROB(5, seconds_per_tick))
@@ -809,14 +696,13 @@
 		for(var/i in mutationtexts)
 			if(mutationtexts[i] == filter)
 				pick_ur_fav += i
-		to_chat(affected_mob, span_warning("[pick(pick_ur_fav)]"))
+		to_chat(affected_human, span_warning("[pick(pick_ur_fav)]"))
 
 	if(current_cycle >= CYCLES_TO_TURN)
 		var/datum/species/species_type = race
-		//affected_mob.set_species(species_type) //ORIGINAL
-		affected_mob.set_species(species_type, TRUE, FALSE, null, null, null, null, TRUE) //NOVA EDIT CHANGE - CUSTOMIZATION
+		affected_human.set_species(species_type)
 		holder.del_reagent(type)
-		to_chat(affected_mob, span_warning("You've become \a [LOWER_TEXT(initial(species_type.name))]!"))
+		to_chat(affected_human, span_warning("You've become \a [LOWER_TEXT(initial(species_type.name))]!"))
 		return
 
 /datum/reagent/mutationtoxin/classic //The one from plasma on green slimes
@@ -873,22 +759,24 @@
 	taste_description = "grandma's gelatin"
 	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
 
-/datum/reagent/mutationtoxin/jelly/on_mob_life(mob/living/carbon/human/affected_mob, seconds_per_tick, times_fired)
-	if(isjellyperson(affected_mob))
-		to_chat(affected_mob, span_warning("Your jelly shifts and morphs, turning you into another subspecies!"))
-		var/species_type = pick(subtypesof(/datum/species/jelly))
-		//affected_mob.set_species(species_type) //ORIGINAL
-		affected_mob.set_species(species_type, TRUE, FALSE, null, null, null, null, TRUE, TRUE) //NOVA EDIT CHANGE - CUSTOMIZATION
-		holder.del_reagent(type)
-		return UPDATE_MOB_HEALTH
-	if(current_cycle >= CYCLES_TO_TURN) //overwrite since we want subtypes of jelly
+/datum/reagent/mutationtoxin/jelly/on_mob_life(mob/living/carbon/affected_mob, seconds_per_tick, times_fired)
+	if(!ishuman(affected_mob))
+		return ..()
+	var/mob/living/carbon/affected_human = affected_mob
+	if(isjellyperson(affected_human))
 		var/datum/species/species_type = pick(subtypesof(race))
-		//affected_mob.set_species(species_type) //ORIGINAL
-		affected_mob.set_species(species_type, TRUE, FALSE, null, null, null, null, TRUE, TRUE) //NOVA EDIT CHANGE - CUSTOMIZATION
+		affected_human.set_species(species_type)
 		holder.del_reagent(type)
-		to_chat(affected_mob, span_warning("You've become \a [initial(species_type.name)]!"))
+		to_chat(affected_human, span_warning("Your jelly shifts and morphs, turning you into another subspecies!"))
 		return UPDATE_MOB_HEALTH
-	return ..()
+	if(current_cycle < CYCLES_TO_TURN) //overwrite since we want subtypes of jelly
+		return ..()
+	var/datum/species/species_type = pick(subtypesof(race))
+	affected_human.set_species(species_type)
+	holder.del_reagent(type)
+	to_chat(affected_human, span_warning("You've become \a [initial(species_type.name)]!"))
+	return UPDATE_MOB_HEALTH
+
 
 /datum/reagent/mutationtoxin/golem
 	name = "Golem Mutation Toxin"
@@ -972,13 +860,14 @@
 	taste_description = "slime"
 	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
 
-/datum/reagent/mulligan/on_mob_life(mob/living/carbon/human/affected_mob, seconds_per_tick, times_fired)
+/datum/reagent/mulligan/on_mob_life(mob/living/carbon/affected_mob, seconds_per_tick, times_fired)
 	. = ..()
-	if (!istype(affected_mob))
+	if(!ishuman(affected_mob))
 		return
-	to_chat(affected_mob, span_warning("<b>You grit your teeth in pain as your body rapidly mutates!</b>"))
-	affected_mob.visible_message("<b>[affected_mob]</b> suddenly transforms!")
-	randomize_human_normie(affected_mob)
+	var/mob/living/carbon/human/affected_human = affected_mob
+	to_chat(affected_human, span_boldwarning("You grit your teeth in pain as your body rapidly mutates!"))
+	affected_human.visible_message("<b>[affected_human]</b> suddenly transforms!")
+	randomize_human_normie(affected_human)
 
 /datum/reagent/aslimetoxin
 	name = "Advanced Mutation Toxin"
@@ -1223,7 +1112,7 @@
 		return
 
 	for(var/datum/surgery/surgery as anything in exposed_carbon.surgeries)
-		surgery.speed_modifier = max(0.2, surgery.speed_modifier)
+		surgery.speed_modifier = min(0.8, surgery.speed_modifier)
 
 /datum/reagent/space_cleaner/sterilizine/on_burn_wound_processing(datum/wound/burn/flesh/burn_wound)
 	burn_wound.sanitization += 0.9
@@ -1236,11 +1125,6 @@
 	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
 	color = "#606060" //pure iron? let's make it violet of course
 	ph = 6
-
-/datum/reagent/iron/on_mob_life(mob/living/carbon/affected_mob, seconds_per_tick, times_fired)
-	. = ..()
-	if(affected_mob.blood_volume < BLOOD_VOLUME_NORMAL)
-		affected_mob.blood_volume += BLOOD_REGEN_FACTOR * seconds_per_tick
 
 /datum/reagent/gold
 	name = "Gold"
@@ -1324,8 +1208,15 @@
 		return
 
 	var/obj/effect/decal/cleanable/greenglow/glow = exposed_turf.spawn_unique_cleanable(/obj/effect/decal/cleanable/greenglow)
-	if(!QDELETED(glow))
-		glow.reagents.add_reagent(type, reac_volume)
+	if(QDELETED(glow))
+		return
+
+	glow.decal_reagent = type
+	var/rounded_volume = round(reac_volume, 1)
+	glow.reagent_amount = rounded_volume
+	if(glow.lazy_init_reagents()) // Decal already has reagents inited, add instead
+		glow.reagents.maximum_volume = min(glow.reagents.maximum_volume + rounded_volume, 300) // Increase reagent holder volume up to a max of 300
+		glow.reagents.add_reagent(type, rounded_volume)
 
 //Mutagenic chem side-effects.
 /datum/reagent/uranium/on_hydroponics_apply(obj/machinery/hydroponics/mytray, mob/user)
@@ -1695,21 +1586,21 @@
 /datum/reagent/nitrous_oxide/on_mob_metabolize(mob/living/affected_mob)
 	. = ..()
 	if(!HAS_TRAIT(affected_mob, TRAIT_COAGULATING)) //IF the mob does not have a coagulant in them, we add the blood mess trait to make the bleed quicker
-		ADD_TRAIT(affected_mob, TRAIT_BLOODY_MESS, type)
+		ADD_TRAIT(affected_mob, TRAIT_BLOOD_FOUNTAIN, type)
 
 /datum/reagent/nitrous_oxide/on_mob_end_metabolize(mob/living/affected_mob)
 	. = ..()
-	REMOVE_TRAIT(affected_mob, TRAIT_BLOODY_MESS, type)
+	REMOVE_TRAIT(affected_mob, TRAIT_BLOOD_FOUNTAIN, type)
 
 /datum/reagent/nitrous_oxide/on_mob_life(mob/living/carbon/affected_mob, seconds_per_tick, times_fired)
 	. = ..()
 	affected_mob.adjust_drowsiness(4 SECONDS * REM * seconds_per_tick)
 
-	if(!HAS_TRAIT(affected_mob, TRAIT_BLOODY_MESS) && !HAS_TRAIT(affected_mob, TRAIT_COAGULATING)) //So long as they do not have a coagulant, if they did not have the bloody mess trait, they do now
-		ADD_TRAIT(affected_mob, TRAIT_BLOODY_MESS, type)
+	if(!HAS_TRAIT(affected_mob, TRAIT_BLOOD_FOUNTAIN) && !HAS_TRAIT(affected_mob, TRAIT_COAGULATING)) //So long as they do not have a coagulant, if they did not have the bloody mess trait, they do now
+		ADD_TRAIT(affected_mob, TRAIT_BLOOD_FOUNTAIN, type)
 
 	else if(HAS_TRAIT(affected_mob, TRAIT_COAGULATING)) //if we find they now have a coagulant, we remove the trait
-		REMOVE_TRAIT(affected_mob, TRAIT_BLOODY_MESS, type)
+		REMOVE_TRAIT(affected_mob, TRAIT_BLOOD_FOUNTAIN, type)
 
 	if(SPT_PROB(10, seconds_per_tick))
 		affected_mob.losebreath += 2
@@ -1945,7 +1836,7 @@
 	burning_volume = 0.05 //but has a lot of hydrocarbons
 	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
 	addiction_types = null
-	default_container = /obj/effect/decal/cleanable/oil
+	default_container = /obj/effect/decal/cleanable/blood/oil
 
 /datum/reagent/stable_plasma
 	name = "Stable Plasma"
@@ -2263,6 +2154,8 @@
 	color = COLOR_GRAY
 	taste_description = "rainbows"
 	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
+	inverse_chem_val = 0.3
+	inverse_chem = /datum/reagent/inverse/colorful_reagent
 	/// Whenever this reagent can color mob limbs and organs upon exposure
 	var/can_color_mobs = TRUE
 	/// Whenever this reagent can color mob equipment when they're exposed to it externally
@@ -2446,6 +2339,8 @@
 	taste_description = "bitterness"
 	penetrates_skin = NONE
 	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
+	inverse_chem_val = 0.3
+	inverse_chem = /datum/reagent/inverse/baldium
 
 /datum/reagent/baldium/expose_mob(mob/living/exposed_mob, methods=TOUCH, reac_volume, show_message=TRUE, touch_protection = 0)
 	. = ..()
@@ -2655,45 +2550,74 @@
 	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
 
 /datum/reagent/glitter
-	name = "Generic Glitter"
-	description = "if you can see this description, contact a coder."
+	name = "Glitter"
+	description = "The herpes of arts and crafts."
+	data = list("colors" = list(COLOR_WHITE = 100))
 	color = COLOR_WHITE //pure white
 	taste_description = "plastic"
 	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
-	var/glitter_type = /obj/effect/decal/cleanable/glitter
+
+/datum/reagent/glitter/on_mob_life(mob/living/carbon/affected_mob, seconds_per_tick, times_fired)
+	. = ..()
+	if(SPT_PROB(25, seconds_per_tick))
+		affected_mob.emote("cough")
+		expose_turf(get_turf(affected_mob), 0)
 
 /datum/reagent/glitter/expose_turf(turf/exposed_turf, reac_volume)
 	. = ..()
+
 	if(!istype(exposed_turf))
 		return
-	exposed_turf.spawn_unique_cleanable(glitter_type)
+	exposed_turf.spawn_glitter(data["colors"])
 
-/datum/reagent/glitter/pink
-	name = "Pink Glitter"
-	description = "pink sparkles that get everywhere"
-	color = "#ff8080" //A light pink color
-	glitter_type = /obj/effect/decal/cleanable/glitter/pink
-	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
+/datum/reagent/glitter/on_new(data)
+	. = ..()
 
-/datum/reagent/glitter/white
-	name = "White Glitter"
-	description = "white sparkles that get everywhere"
-	glitter_type = /obj/effect/decal/cleanable/glitter/white
-	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
+	if(src.data["colors"])
+		color = pick_weight(src.data["colors"])
+	else
+		color = COLOR_WHITE
 
-/datum/reagent/glitter/blue
-	name = "Blue Glitter"
-	description = "blue sparkles that get everywhere"
-	color = "#4040FF" //A blueish color
-	glitter_type = /obj/effect/decal/cleanable/glitter/blue
-	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
+/datum/reagent/glitter/on_merge(list/mix_data, amount)
+	. = ..()
 
-/datum/reagent/glitter/confetti
+	var/prop_current = (volume-amount)/(volume)
+
+	if(mix_data)
+		data["colors"] = blend_weighted_lists(mix_data["colors"], data["colors"], prop_current)
+
+	if(data["colors"])
+		color = pick_weight(data["colors"])
+	else
+		color = COLOR_WHITE
+
+/datum/reagent/glitter/random
+	name = "Glitter (Random)"
+	// The weighted list of random color choices that can be chosen upon spawning
+	var/static/list/possible_colors = list(
+		COLOR_WHITE = 25,
+		"#ff8080" = 25,
+		"#4040ff" = 25,
+		"#ff5555" = 8,
+		"#55ff55" = 9,
+		"#5555ff" = 8,
+	)
+
+/datum/reagent/glitter/random/on_new(data)
+	src.data["colors"] = possible_colors
+	return ..()
+
+/datum/reagent/confetti
 	name = "Confetti"
 	description = "Tiny plastic flakes that are impossible to sweep up."
 	color = "#7dd87b"
-	glitter_type = /obj/effect/decal/cleanable/confetti
 	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
+
+/datum/reagent/confetti/expose_turf(turf/exposed_turf, reac_volume)
+	. = ..()
+	if(!istype(exposed_turf))
+		return
+	exposed_turf.spawn_unique_cleanable(/obj/effect/decal/cleanable/confetti)
 
 /datum/reagent/pax
 	name = "Pax"
@@ -2827,15 +2751,15 @@
 	. = ..()
 	yuck_cycle = 0 // reset vomiting
 
-/datum/reagent/yuck/on_transfer(atom/A, methods=TOUCH, trans_volume)
-	if((methods & INGEST) || !iscarbon(A))
-		return ..()
+/datum/reagent/yuck/expose_mob(mob/living/carbon/exposed_mob, methods, expose_volume, show_message, touch_protection)
+	. = ..()
+	if(!(methods & INGEST) || !iscarbon(exposed_mob))
+		return
 
-	A.reagents.remove_reagent(type, trans_volume)
-	A.reagents.add_reagent(/datum/reagent/fuel, trans_volume * 0.75)
-	A.reagents.add_reagent(/datum/reagent/water, trans_volume * 0.25)
-
-	return ..()
+	var/datum/reagents/mob_reagents = exposed_mob.reagents
+	mob_reagents.remove_reagent(type, expose_volume)
+	mob_reagents.add_reagent(/datum/reagent/fuel, expose_volume * 0.75)
+	mob_reagents.add_reagent(/datum/reagent/water, expose_volume * 0.25)
 
 //monkey powder heehoo
 /datum/reagent/monkey_powder
@@ -2914,6 +2838,8 @@
 	taste_mult = 0 // oderless and tasteless
 	metabolization_rate = 0.1 * REAGENTS_METABOLISM //20 times as long, so it's actually viable to use
 	var/time_multiplier = 1 MINUTES //1 minute per unit of gravitum on objects. Seems overpowered, but the whole thing is very niche
+	inverse_chem_val = 0.3
+	inverse_chem = /datum/reagent/inverse/gravitum
 	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
 	self_consuming = TRUE //this works on objects, so it should work on skeletons and robots too
 
@@ -3003,6 +2929,11 @@
 		need_mob_update += drinker.adjustFireLoss(-2 * REM * seconds_per_tick, updating_health = FALSE)
 		if(drinker.blood_volume < BLOOD_VOLUME_NORMAL)
 			drinker.blood_volume += 3 * REM * seconds_per_tick
+		// Slowly regulates your body temp
+		drinker.adjust_bodytemperature((drinker.get_body_temp_normal() - drinker.bodytemperature) / 5)
+		for(var/datum/reagent/reagent as anything in drinker.reagents.reagent_list)
+			if(reagent != src)
+				drinker.reagents.remove_reagent(reagent.type, 2 * reagent.purge_multiplier * REM * seconds_per_tick)
 	else
 		need_mob_update = drinker.adjustOrganLoss(ORGAN_SLOT_BRAIN, 3 * REM * seconds_per_tick, 150)
 		need_mob_update += drinker.adjustToxLoss(2 * REM * seconds_per_tick, updating_health = FALSE)
@@ -3111,17 +3042,21 @@
 
 /datum/reagent/ants/expose_turf(turf/exposed_turf, reac_volume)
 	. = ..()
-	if(!istype(exposed_turf) || isspaceturf(exposed_turf)) // Is the turf valid
+	if(!istype(exposed_turf)) // Is the turf valid
 		return
 	if((reac_volume <= 10)) // Makes sure people don't duplicate ants.
 		return
 
 	var/obj/effect/decal/cleanable/ants/pests = exposed_turf.spawn_unique_cleanable(ants_decal)
-	if(!pests)
+	if(QDELETED(pests))
 		return
 
-	var/spilled_ants = (round(reac_volume,1) - 5) // To account for ant decals giving 3-5 ants on initialize.
-	pests.reagents.add_reagent(type, spilled_ants)
+	pests.decal_reagent = type
+	var/rounded_volume = round(reac_volume, 1)
+	pests.reagent_amount = rounded_volume
+	if(pests.lazy_init_reagents()) // Decal already has reagents inited, add instead
+		pests.reagents.maximum_volume = min(pests.reagents.maximum_volume + rounded_volume, 300) // Increase reagent holder volume up to a max of 300
+		pests.reagents.add_reagent(type, rounded_volume)
 	pests.update_ant_damage()
 
 /datum/reagent/ants/fire
@@ -3307,8 +3242,7 @@
 	RegisterSignal(affected_human, COMSIG_CARBON_LOSE_ORGAN, PROC_REF(on_organ_removed))
 	var/obj/item/organ/eyes/eyes = affected_human.get_organ_slot(ORGAN_SLOT_EYES)
 	if (eyes && !IS_ROBOTIC_ORGAN(eyes))
-		prev_ignore_lighting = eyes.overlay_ignore_lighting
-		eyes.overlay_ignore_lighting = TRUE
+		ADD_TRAIT(affected_human, TRAIT_LUMINESCENT_EYES, REF(src))
 
 /datum/reagent/luminescent_fluid/on_mob_end_metabolize(mob/living/affected_mob)
 	. = ..()
@@ -3320,7 +3254,7 @@
 	affected_human.remove_eye_color(EYE_COLOR_LUMINESCENT_PRIORITY)
 	var/obj/item/organ/eyes/eyes = affected_human.get_organ_slot(ORGAN_SLOT_EYES)
 	if (eyes && !IS_ROBOTIC_ORGAN(eyes) && !overdosed)
-		eyes.overlay_ignore_lighting = prev_ignore_lighting
+		REMOVE_TRAIT(affected_human, TRAIT_LUMINESCENT_EYES, REF(src))
 
 /datum/reagent/luminescent_fluid/on_mob_life(mob/living/affected_mob, seconds_per_tick, times_fired)
 	. = ..()
@@ -3339,14 +3273,13 @@
 	SIGNAL_HANDLER
 
 	if (istype(new_eyes) && !IS_ROBOTIC_ORGAN(new_eyes))
-		prev_ignore_lighting = new_eyes.overlay_ignore_lighting
-		new_eyes.overlay_ignore_lighting = TRUE
+		ADD_TRAIT(source, TRAIT_LUMINESCENT_EYES, REF(src))
 
 /datum/reagent/luminescent_fluid/proc/on_organ_removed(mob/living/source, obj/item/organ/eyes/old_eyes)
 	SIGNAL_HANDLER
 
 	if (istype(old_eyes) && !IS_ROBOTIC_ORGAN(old_eyes) && !overdosed)
-		old_eyes.overlay_ignore_lighting = prev_ignore_lighting
+		REMOVE_TRAIT(source, TRAIT_LUMINESCENT_EYES, REF(src))
 
 /datum/reagent/luminescent_fluid/overdose_start(mob/living/affected_mob)
 	. = ..()

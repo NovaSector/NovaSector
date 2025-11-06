@@ -1,8 +1,15 @@
+/// Base handler for variant switch feedback
+/obj/item/kinetic_crusher/proc/on_variant_switch(mob/living/user)
+	to_chat(user, "You have converted your kit into the [initial(name)].")
+	playsound(get_turf(user), 'sound/items/tools/rped.ogg', 50)
+
 /obj/item/kinetic_crusher
+	light_system = OVERLAY_LIGHT_DIRECTIONAL // Adds this to overwrite the current light system for the kinetic crusher, for consistency sake.
 	/// This var is used to imitate being weilded if it's one handed
 	var/acts_as_if_wielded
-	/// AHABS_SPEAR Module Change - This var is used by retool kits when changing the crusher's projectile appearance
+	/// This var is used by retool kits when changing the crusher's projectile appearance
 	var/projectile_icon_file = 'icons/obj/weapons/guns/projectiles.dmi'
+	block_sound = 'sound/items/weapons/parry.ogg' //Added this for cases for the machete or adding the Marked One's trophy to the crusher variants.
 
 /obj/item/kinetic_crusher/machete
 	icon = 'modular_nova/modules/mining_crushers/icons/items_and_weapons.dmi'
@@ -13,27 +20,19 @@
 	worn_icon = 'modular_nova/modules/mining_crushers/icons/belt.dmi'
 	worn_icon_state = "PKMachete0"
 	name = "proto-kinetic machete"
-	desc = "Recent breakthroughs with proto-kinetic technology have led to improved designs for the early proto-kinetic crusher, namely the ability to pack all \
-		the same technology into a smaller more portable package. The machete design was chosen as to make a much easier to handle and less cumbersome frame. Of course \
-		the smaller package means that the power is not as high as the original crusher design, but the different shell makes it capable of blocking basic attacks."
-	force = 15
+	desc = "A further-developed iteration of the proto-kinetic crusher, compacting the essentials of the kinetic crusher's destabilizer unit \
+		into a package light enough to be used one-handed and capable of deflecting a blow or two, in return for losses in raw performance."
+	force = 10
+	force_wielded = 15
 	block_chance = 15
-	w_class = WEIGHT_CLASS_BULKY
 	slot_flags = ITEM_SLOT_BELT
-	throwforce = 5
-	throw_speed = 4
-	armour_penetration = 10
-	custom_materials = list(
-		/datum/material/iron=HALF_SHEET_MATERIAL_AMOUNT*1.15,
-		/datum/material/glass=HALF_SHEET_MATERIAL_AMOUNT*2,
-	)
 	hitsound = 'sound/items/weapons/bladeslice.ogg'
 	attack_verb_continuous = list(
-		"slashes",
-		"cuts",
 		"cleaves",
 		"chops",
+		"cuts",
 		"swipes",
+		"slashes",
 	)
 	attack_verb_simple = list(
 		"cleave",
@@ -42,30 +41,22 @@
 		"swipe",
 		"slash",
 	)
-
-	sharpness = SHARP_EDGED
-	actions_types = list(/datum/action/item_action/toggle_light)
-	obj_flags = NONE
-	light_system = OVERLAY_LIGHT_DIRECTIONAL
-	light_range = 5
-	light_on = FALSE
-	charged = TRUE
 	charge_time =  1 SECONDS
-	detonation_damage = 35
-	backstab_bonus = 20
+	detonation_damage = 35 // 45 damage on det, 50 wielded
+	backstab_bonus = 20 // 65 damage on backstab, 70 wielded
 	acts_as_if_wielded = TRUE
 	current_inhand_icon_state = "PKMachete"
 
 /obj/item/kinetic_crusher/machete/Initialize(mapload)
 	. = ..()
-	AddComponent(/datum/component/two_handed, \
-		force_unwielded=15, \
-		force_wielded=15, \
-	)
+	update_wielding()
 	AddComponent(/datum/component/butchering, \
 		speed = 4 SECONDS, \
 		effectiveness = 150, \
 	)
+/obj/item/kinetic_crusher/machete/update_wielding()
+	// Component that handles special behaviour for force differences between wielding and unwielding
+	AddComponent(/datum/component/two_handed, force_unwielded = 10, force_wielded = 15) // If you happen to sharpen the machete, you will increase its sharpness but until you wield it, you will not get the force values applied (consequence of one-handed use).
 
 /obj/item/kinetic_crusher/machete/update_icon_state()
 	. = ..()
@@ -81,19 +72,11 @@
 	worn_icon = 'modular_nova/modules/mining_crushers/icons/back.dmi'
 	worn_icon_state = "PKSpear0"
 	name = "proto-kinetic spear"
-	desc = "Having finally invested in better Proto-kinetic tech, research and development was able to cobble together this new proto-kinetic weapon. By compacting all the technology \
-		we were able to fit it all into a spear styled case. No longer will proto-kinetic crushers be for the most skilled and suicidal, but now they will be available to the most cautious \
-		paranoid miners, now able to enjoy the (slightly lower) power of a crusher, while maintaining a (barely) minimum safe distance."
-	force = 0
+	desc = "A further-developed iteration of the proto-kinetic crusher, with safety as less of an afterthought. A streamlined destabilizer unit along with \
+		a linear chassis enables striking at a distance, and slightly better armor penetration, at the cost of some raw performance."
+	force_wielded = 15
 	w_class = WEIGHT_CLASS_HUGE
-	slot_flags = ITEM_SLOT_BACK
-	throwforce = 5
-	throw_speed = 4
 	armour_penetration = 15
-	custom_materials = list(
-		/datum/material/iron=HALF_SHEET_MATERIAL_AMOUNT*1.15,
-		/datum/material/glass=HALF_SHEET_MATERIAL_AMOUNT*2,
-	)
 	hitsound = 'sound/items/weapons/bladeslice.ogg'
 	attack_verb_continuous = list(
 		"pierces",
@@ -103,28 +86,21 @@
 		"jabs",
 	)
 	attack_verb_simple = list(
-		"imaple",
-		"stab",
 		"pierce",
-		"jab",
+		"stab",
+		"impale",
 		"poke",
+		"jab",
 	)
-	sharpness = SHARP_EDGED
-	actions_types = list(/datum/action/item_action/toggle_light)
-	obj_flags = UNIQUE_RENAME
-	light_system = OVERLAY_LIGHT_DIRECTIONAL
 	light_range = 8
-	light_on = FALSE
-	charged = TRUE
-	charge_time =  1.5 SECONDS
-	detonation_damage = 35
-	backstab_bonus = 20
+	detonation_damage = 35 // 50 damage on det
+	backstab_bonus = 20	// 70 damage on det
 	reach = 2
 	current_inhand_icon_state = "PKSpear"
 
 /obj/item/kinetic_crusher/spear/Initialize(mapload)
 	. = ..()
-	AddComponent(/datum/component/two_handed, force_unwielded=0, force_wielded=15)
+	update_wielding()
 	AddComponent(/datum/component/butchering, \
 		speed = 6 SECONDS, \
 		effectiveness = 90, \
@@ -144,19 +120,12 @@
 	worn_icon = 'modular_nova/modules/mining_crushers/icons/back.dmi'
 	worn_icon_state = "PKHammer0"
 	name = "proto-kinetic hammer"
-	desc = "Somehow research and development managed to make the proto-kinetic crusher even bigger, allowing more parts to be fit inside and increase the power output. \
-		This increased power output allows it to surpass the power generated by the standard crusher, while also pushing back the target. Unfortunately the flat head \
-		results in backstabs being impossible."
-	force = 0
+	desc = "A further-developed iteration of the proto-kinetic crusher, designed with raw force in mind. \
+		The increased mass allows it to throw struck targets, while improved kinetic modulation increases destabilizer detonation damage, \
+		in return for losing the ability to backstab."
+	force_wielded = 20
 	w_class = WEIGHT_CLASS_HUGE
-	slot_flags = ITEM_SLOT_BACK
-	throwforce = 5
-	throw_speed = 4
 	armour_penetration = 0
-	custom_materials = list(
-		/datum/material/iron=HALF_SHEET_MATERIAL_AMOUNT*1.15,
-		/datum/material/glass=HALF_SHEET_MATERIAL_AMOUNT*2,
-	)
 	hitsound = 'sound/items/weapons/sonic_jackhammer.ogg'
 	attack_verb_continuous = list(
 		"slams",
@@ -173,21 +142,15 @@
 		"pound",
 	)
 	sharpness = NONE
-	actions_types = list(/datum/action/item_action/toggle_light)
-	obj_flags = UNIQUE_RENAME
-	light_system = OVERLAY_LIGHT_DIRECTIONAL
-	light_range = 5
-	light_on = FALSE
-	charged = TRUE
 	charge_time = 2 SECONDS
-	detonation_damage = 70
-	backstab_bonus = 0
+	detonation_damage = 70 // 90 damage on det
+	backstab_bonus = 0 // 90 damage on backstab
 	acts_as_if_wielded = FALSE
 	current_inhand_icon_state = "PKHammer"
 
 /obj/item/kinetic_crusher/hammer/Initialize(mapload)
 	. = ..()
-	AddComponent(/datum/component/two_handed, force_unwielded=0, force_wielded=20)
+	update_wielding()
 
 /obj/item/kinetic_crusher/hammer/attack(mob/living/target, mob/living/user)
 	var/relative_direction = get_cardinal_dir(src, target)
@@ -212,50 +175,44 @@
 	righthand_file = 'modular_nova/modules/mining_crushers/icons/melee_righthand.dmi'
 	worn_icon_state = "PKHammer0"
 	slot_flags = NONE
-	name = "proto-kinetic claws"
-	desc = "Truly the most compact version of the crusher ever made, it's small enough to fit in your backpack and still function as a crusher. \
-		Best used when attacking from behind, rewarding those capable of landing what we call a 'critical hit' \
-		(DISCLAIMER) The shell is made to fit over gloves, so don't try to wear it like a glove."
-	force = 5
+	name = "proto-kinetic claw"
+	desc = "A further-developed iteration of the proto-kinetic crusher, with compactness at all costs in mind. \
+		While great sacrifices in performance have been made, the destabilizer unit recharges quickly, \
+		and sympathetic resonance allows great performance on back-struck targets."
+	acts_as_if_wielded = TRUE
+	force = 10
+	force_wielded = 10
 	w_class = WEIGHT_CLASS_NORMAL
-	throwforce = 5
-	throw_speed = 4
 	armour_penetration = 0
-	custom_materials = list(
-		/datum/material/iron=HALF_SHEET_MATERIAL_AMOUNT*1.15,
-		/datum/material/glass=HALF_SHEET_MATERIAL_AMOUNT*2,
-	)
 	hitsound = 'sound/items/weapons/pierce.ogg'
 	attack_verb_continuous = list(
 		"swipes",
 		"slashes",
 		"cuts",
-		"slaps",
+		"claws",
 	)
 	attack_verb_simple = list(
 		"swipe",
 		"slash",
 		"cut",
-		"slap",
+		"claw",
 	)
 	sharpness = SHARP_POINTY
-	actions_types = list(/datum/action/item_action/toggle_light)
-	obj_flags = UNIQUE_RENAME
-	light_system = OVERLAY_LIGHT_DIRECTIONAL
 	light_range = 4
-	light_on = FALSE
-	charged = TRUE
 	charge_time = 1 SECONDS
-	detonation_damage = 5
-	backstab_bonus = 200
+	detonation_damage = 20 // 30 on det
+	backstab_bonus = 90 // 120 on backstab
+	// with style meter you can consistently hit backstabs in any direction. you shouldn't get 200+ damage hits for basically free
 	current_inhand_icon_state = "PKClaw"
+	/**
+	 * possible ideas in regards to making the claw more interesting than just backstab-focused sidegrade:
+	 * - long cooldown but mark detonations/melee hits reduce/reset cooldown?
+	 * - getting multiple detonations off one mark?
+	 */
 
 /obj/item/kinetic_crusher/claw/Initialize(mapload)
 	. = ..()
-	AddComponent(/datum/component/two_handed, \
-		force_unwielded=0, \
-		force_wielded=5, \
-	)
+	update_wielding()
 	AddComponent(/datum/component/butchering, \
 		speed = 5 SECONDS, \
 		effectiveness = 100, \

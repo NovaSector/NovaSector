@@ -51,7 +51,7 @@
 		/datum/material/plasma = HALF_SHEET_MATERIAL_AMOUNT,
 	)
 	research_icon_state = "tarkon-plating"
-	research_icon = 'modular_nova/modules/tarkon/icons/obj/mod_construct.dmi'
+	research_icon = 'modular_nova/master_files/icons/obj/clothing/modsuit/mod_construction.dmi'
 
 /datum/design/arcs
 	name = "A.R.C.S Resonator"
@@ -173,7 +173,7 @@
 	. = ..()
 	. += span_notice("You can use <b>research notes</b> on this to generate research points.")
 
-/obj/machinery/rnd/server/tarkon/attackby(obj/item/attacking_item, mob/user, params)
+/obj/machinery/rnd/server/tarkon/attackby(obj/item/attacking_item, mob/user, list/modifiers, list/attack_modifiers)
 	if(istype(attacking_item, /obj/item/research_notes) && stored_research)
 		var/obj/item/research_notes/research_notes = attacking_item
 		stored_research.add_point_list(list(TECHWEB_POINT_TYPE_GENERIC = research_notes.value))

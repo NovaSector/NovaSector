@@ -17,7 +17,7 @@
 	force = 20
 	throwforce = 10
 	wound_bonus = 5
-	bare_wound_bonus = 15
+	exposed_wound_bonus = 15
 	toolspeed = 0.375
 	demolition_mod = 0.8
 	hitsound = 'sound/items/weapons/bladeslice.ogg'
@@ -41,7 +41,7 @@
 /obj/item/melee/sickly_blade/proc/check_usability(mob/living/user)
 	return IS_HERETIC_OR_MONSTER(user)
 
-/obj/item/melee/sickly_blade/pre_attack(atom/A, mob/living/user, params)
+/obj/item/melee/sickly_blade/pre_attack(atom/target, mob/living/user, list/modifiers, list/attack_modifiers)
 	. = ..()
 	if(.)
 		return .
@@ -54,6 +54,9 @@
 	return .
 
 /obj/item/melee/sickly_blade/attack_self(mob/user)
+	var/datum/antagonist/heretic/heretic_datum = IS_HERETIC(user)
+	if(heretic_datum?.unlimited_blades)
+		return
 	if(HAS_TRAIT(user, TRAIT_ELDRITCH_ARENA_PARTICIPANT))
 		user.balloon_alert(user, "can't escape!")
 		if(escape_attempts > 2)
@@ -89,7 +92,7 @@
 	playsound(src, SFX_SHATTER, 70, TRUE) //copied from the code for smashing a glass sheet onto the ground to turn it into a shard
 	qdel(src)
 
-/obj/item/melee/sickly_blade/afterattack(atom/target, mob/user, click_parameters)
+/obj/item/melee/sickly_blade/afterattack(atom/target, mob/user, list/modifiers, list/attack_modifiers)
 	SEND_SIGNAL(user, COMSIG_HERETIC_BLADE_ATTACK, target, src)
 
 /obj/item/melee/sickly_blade/ranged_interact_with_atom(atom/interacting_with, mob/living/user, list/modifiers)
@@ -136,9 +139,7 @@
 
 	AddComponent(
 		/datum/component/bloody_spreader,\
-		blood_left = INFINITY,\
-		blood_dna = list("Unknown DNA" = "X*"),\
-		diseases = null,\
+		blood_dna = list("Alien DNA" = get_blood_type(BLOOD_TYPE_XENO)),\
 	)
 
 // Path of Void's blade
@@ -163,7 +164,7 @@
 	///If our blade is currently infused with the mansus grasp
 	var/infused = FALSE
 
-/obj/item/melee/sickly_blade/dark/afterattack(atom/target, mob/user, click_parameters)
+/obj/item/melee/sickly_blade/dark/afterattack(atom/target, mob/user, list/modifiers, list/attack_modifiers)
 	. = ..()
 	if(!infused || target == user || !isliving(target))
 		return
@@ -172,16 +173,13 @@
 	if(!heretic_datum)
 		return
 
-	//Apply our heretic mark
-	var/datum/heretic_knowledge/mark/blade_mark/mark_to_apply = heretic_datum.get_knowledge(/datum/heretic_knowledge/mark/blade_mark)
+	// Apply our heretic mark
+	var/datum/heretic_knowledge/limited_amount/starting/base_blade/mark_to_apply = heretic_datum.get_knowledge(/datum/heretic_knowledge/limited_amount/starting/base_blade)
 	if(!mark_to_apply)
 		return
 	mark_to_apply.create_mark(user, living_target)
-
-	//Remove the infusion from any blades we own (and update their sprite)
-	for(var/obj/item/melee/sickly_blade/dark/to_infuse in user.get_all_contents_type(/obj/item/melee/sickly_blade/dark))
-		to_infuse.infused = FALSE
-		to_infuse.update_appearance(UPDATE_ICON)
+	infused = FALSE
+	update_appearance(UPDATE_ICON)
 	user.update_held_items()
 
 	if(!check_behind(user, living_target))
@@ -247,7 +245,7 @@
 	throwforce = 15
 	block_chance = 35
 	wound_bonus = 25
-	bare_wound_bonus = 15
+	exposed_wound_bonus = 15
 	armour_penetration = 35
 	icon_state = "cursed_blade"
 	inhand_icon_state = "cursed_blade"

@@ -7,6 +7,7 @@ MODULE ID: NRI STUFF
 Everything mainly NRI-related, from various cosmetic clothing to guns to ERTs.
 
 ### Credits:
+
 Gandalf2k15 - Code and some icons.
 Stalkeros - Code and some icons.
 Zydras - NRI police clothing, stun gun and NRI holobarriers icons.

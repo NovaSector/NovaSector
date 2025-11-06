@@ -155,8 +155,8 @@ for further reading, please see: https://github.com/tgstation/tgstation/pull/301
 	return BRUTELOSS
 
 /obj/item/claymore/hit_reaction(mob/living/carbon/human/owner, atom/movable/hitby, attack_text = "the attack", final_block_chance = 0, damage = 0, attack_type = MELEE_ATTACK, damage_type = BRUTE)
-	if(attack_type == PROJECTILE_ATTACK || attack_type == LEAP_ATTACK)
-		final_block_chance = 0 //Don't bring a sword to a gunfight, and also you aren't going to really block someone full body tackling you with a sword
+	if(attack_type == (PROJECTILE_ATTACK || LEAP_ATTACK || OVERWHELMING_ATTACK))
+		final_block_chance = 0 //Don't bring a sword to a gunfight, and also you aren't going to really block someone full body tackling you with a sword. Or a road roller, if one happened to hit you.
 	return ..()
 
 //statistically similar to e-cutlasses
@@ -172,6 +172,10 @@ for further reading, please see: https://github.com/tgstation/tgstation/pull/301
 	throw_speed = 3
 	throw_range = 5
 	armour_penetration = 35
+
+/obj/item/claymore/cutlass/Initialize(mapload)
+	. = ..()
+	AddElement(/datum/element/cuffable_item) //closed sword guard
 
 /obj/item/claymore/cutlass/old
 	name = "old cutlass"
@@ -350,13 +354,10 @@ for further reading, please see: https://github.com/tgstation/tgstation/pull/301
 /obj/item/claymore/highlander/robot //BLOODTHIRSTY BORGS NOW COME IN PLAID
 	icon = 'icons/obj/items_cyborg.dmi'
 	icon_state = "claymore_cyborg"
-	var/mob/living/silicon/robot/robot
 
 /obj/item/claymore/highlander/robot/Initialize(mapload)
-	var/obj/item/robot_model/kiltkit = loc
-	robot = kiltkit.loc
 	. = ..()
-	if(!istype(robot))
+	if(!iscyborg(loc))
 		return INITIALIZE_HINT_QDEL
 
 /obj/item/claymore/highlander/robot/process()
@@ -419,6 +420,8 @@ for further reading, please see: https://github.com/tgstation/tgstation/pull/301
 	throw_speed = 4
 	embed_type = /datum/embedding/throwing_star
 	armour_penetration = 40
+	mob_throw_hit_sound = 'sound/items/weapons/pierce.ogg'
+	hitsound = 'sound/items/weapons/bladeslice.ogg'
 
 	w_class = WEIGHT_CLASS_SMALL
 	sharpness = SHARP_POINTY
@@ -474,6 +477,7 @@ for further reading, please see: https://github.com/tgstation/tgstation/pull/301
 
 /obj/item/carpenter_hammer/Initialize(mapload)
 	. = ..()
+	AddElement(/datum/element/kneejerk)
 	AddComponent(/datum/component/item_killsound, \
 	allowed_mobs = list(/mob/living/carbon/human), \
 	killsound = 'sound/items/weapons/hammer_death_scream.ogg', \
@@ -672,6 +676,10 @@ for further reading, please see: https://github.com/tgstation/tgstation/pull/301
 	attack_verb_continuous = list("bludgeons", "whacks", "thrashes")
 	attack_verb_simple = list("bludgeon", "whack", "thrash")
 
+/obj/item/cane/crutch/Initialize(mapload)
+	. = ..()
+	AddElement(/datum/element/cuffable_item)
+
 /obj/item/cane/crutch/examine(mob/user, thats)
 	. = ..()
 	// tacked on after the cane string
@@ -724,6 +732,7 @@ for further reading, please see: https://github.com/tgstation/tgstation/pull/301
 
 /obj/item/cane/white/Initialize(mapload)
 	. = ..()
+	AddElement(/datum/element/cuffable_item)
 	AddComponent( \
 		/datum/component/transforming, \
 		force_on = 7, \
@@ -836,100 +845,6 @@ for further reading, please see: https://github.com/tgstation/tgstation/pull/301
 	attack_verb_continuous = list("clubs", "bludgeons")
 	attack_verb_simple = list("club", "bludgeon")
 
-/obj/item/melee/chainofcommand/tailwhip
-	name = "liz o' nine tails"
-	desc = "A whip fashioned from the severed tails of lizards."
-	icon_state = "tailwhip"
-	inhand_icon_state = "tailwhip"
-	item_flags = NONE
-
-/obj/item/melee/chainofcommand/tailwhip/kitty
-	name = "cat o' nine tails"
-	desc = "A whip fashioned from the severed tails of cats."
-	icon_state = "catwhip"
-	inhand_icon_state = "catwhip"
-
-/obj/item/melee/skateboard
-	name = "skateboard"
-	desc = "A skateboard. It can be placed on its wheels and ridden, or used as a radical weapon."
-	icon = 'icons/mob/rideables/vehicles.dmi'
-	icon_state = "skateboard_held"
-	inhand_icon_state = "skateboard"
-	force = 12
-	throwforce = 4
-	w_class = WEIGHT_CLASS_NORMAL
-	attack_verb_continuous = list("smacks", "whacks", "slams", "smashes")
-	attack_verb_simple = list("smack", "whack", "slam", "smash")
-	///The vehicle counterpart for the board
-	var/board_item_type = /obj/vehicle/ridden/scooter/skateboard
-
-/obj/item/melee/skateboard/attack_self(mob/user)
-	var/obj/vehicle/ridden/scooter/skateboard/S = new board_item_type(get_turf(user))//this probably has fucky interactions with telekinesis but for the record it wasn't my fault
-	S.buckle_mob(user)
-	qdel(src)
-
-/obj/item/melee/skateboard/improvised
-	name = "improvised skateboard"
-	desc = "A jury-rigged skateboard. It can be placed on its wheels and ridden, or used as a radical weapon."
-	board_item_type = /obj/vehicle/ridden/scooter/skateboard/improvised
-
-/obj/item/melee/skateboard/pro
-	name = "skateboard"
-	desc = "An EightO brand professional skateboard. It looks sturdy and well made."
-	icon_state = "skateboard2_held"
-	inhand_icon_state = "skateboard2"
-	board_item_type = /obj/vehicle/ridden/scooter/skateboard/pro
-	custom_premium_price = PAYCHECK_COMMAND * 5
-
-/obj/item/melee/skateboard/hoverboard
-	name = "hoverboard"
-	desc = "A blast from the past, so retro!"
-	icon_state = "hoverboard_red_held"
-	inhand_icon_state = "hoverboard_red"
-	board_item_type = /obj/vehicle/ridden/scooter/skateboard/hoverboard
-	custom_premium_price = PAYCHECK_COMMAND * 5.4 //If I can't make it a meme I'll make it RAD
-
-/obj/item/melee/skateboard/hoverboard/admin
-	name = "Board Of Directors"
-	desc = "The engineering complexity of a spaceship concentrated inside of a board. Just as expensive, too."
-	icon_state = "hoverboard_nt_held"
-	inhand_icon_state = "hoverboard_nt"
-	board_item_type = /obj/vehicle/ridden/scooter/skateboard/hoverboard/admin
-
-/obj/item/melee/skateboard/holyboard
-	name = "holy skateboard"
-	desc = "A board blessed by the gods with the power to grind for our sins. Has the initials 'J.C.' on the underside."
-	icon_state = "hoverboard_holy_held"
-	inhand_icon_state = "hoverboard_holy"
-	force = 18
-	throwforce = 6
-	w_class = WEIGHT_CLASS_NORMAL
-	attack_verb_continuous = list("bashes", "crashes", "grinds", "skates")
-	attack_verb_simple = list("bash", "crash", "grind", "skate")
-	board_item_type = /obj/vehicle/ridden/scooter/skateboard/hoverboard/holyboarded
-
-/obj/item/melee/skateboard/holyboard/Initialize(mapload)
-	. = ..()
-	AddComponent(/datum/component/anti_magic, MAGIC_RESISTANCE|MAGIC_RESISTANCE_HOLY)
-	AddComponent(/datum/component/effect_remover, \
-	success_feedback = "You disrupt the magic of %THEEFFECT with %THEWEAPON.", \
-	success_forcesay = "BEGONE FOUL MAGICKS!!", \
-	tip_text = "Clear rune", \
-	on_clear_callback = CALLBACK(src, PROC_REF(on_cult_rune_removed)), \
-	effects_we_clear = list(/obj/effect/rune, /obj/effect/heretic_rune) \
-	)
-	AddElement(/datum/element/bane, target_type = /mob/living/basic/revenant, damage_multiplier = 0, added_damage = 25, requires_combat_mode = FALSE)
-
-/obj/item/melee/skateboard/holyboard/proc/on_cult_rune_removed(obj/effect/target, mob/living/user)
-	SIGNAL_HANDLER
-	if(!istype(target, /obj/effect/rune))
-		return
-
-	var/obj/effect/rune/target_rune = target
-	if(target_rune.log_when_erased)
-		user.log_message("erased [target_rune.cultist_name] rune using [src]", LOG_GAME)
-	SSshuttle.shuttle_purchase_requirements_met[SHUTTLE_UNLOCK_NARNAR] = TRUE
-
 /obj/item/melee/baseball_bat
 	name = "baseball bat"
 	desc = "There ain't a skull in the league that can withstand a swatter."
@@ -1005,7 +920,7 @@ for further reading, please see: https://github.com/tgstation/tgstation/pull/301
 	thrown_datums.Cut()
 	return ..()
 
-/obj/item/melee/baseball_bat/pre_attack(atom/movable/target, mob/living/user, params)
+/obj/item/melee/baseball_bat/pre_attack(atom/movable/target, mob/living/user, list/modifiers, list/attack_modifiers)
 	var/turf/target_turf = get_turf(target)
 	if(!target_turf)
 		return ..()
@@ -1120,6 +1035,7 @@ for further reading, please see: https://github.com/tgstation/tgstation/pull/301
 			/mob/living/basic/ant,
 			/mob/living/basic/butterfly,
 			/mob/living/basic/cockroach,
+			/mob/living/basic/cockroach/bloodroach,
 			/mob/living/basic/spider/growing/spiderling,
 			/mob/living/basic/bee,
 			/obj/effect/decal/cleanable/ants,
@@ -1131,7 +1047,7 @@ for further reading, please see: https://github.com/tgstation/tgstation/pull/301
 		))
 
 
-/obj/item/melee/flyswatter/afterattack(atom/target, mob/user, click_parameters)
+/obj/item/melee/flyswatter/afterattack(atom/target, mob/user, list/modifiers, list/attack_modifiers)
 	if(is_type_in_typecache(target, splattable))
 		to_chat(user, span_warning("You easily splat [target]."))
 		if(isliving(target))
@@ -1168,12 +1084,11 @@ for further reading, please see: https://github.com/tgstation/tgstation/pull/301
 	name = "\improper ACME Extendo-Hand"
 	desc = "A novelty extendo-hand produced by the ACME corporation. Originally designed to knock out roadrunners."
 
-/obj/item/extendohand/attack(atom/M, mob/living/carbon/human/user, params)
+/obj/item/extendohand/attack(atom/M, mob/living/carbon/human/user, list/modifiers, list/attack_modifiers)
 	var/dist = get_dist(M, user)
 	if(dist < min_reach)
 		to_chat(user, span_warning("[M] is too close to use [src] on."))
 		return
-	var/list/modifiers = params2list(params)
 	M.attack_hand(user, modifiers)
 
 /obj/item/gohei
@@ -1235,7 +1150,7 @@ for further reading, please see: https://github.com/tgstation/tgstation/pull/301
 	righthand_file = 'icons/mob/inhands/weapons/swords_righthand.dmi'
 	force = 10
 	wound_bonus = 25
-	bare_wound_bonus = 50
+	exposed_wound_bonus = 50
 	throwforce = 25
 	throw_speed = 4
 	attack_speed = CLICK_CD_HYPER_RAPID
@@ -1281,16 +1196,16 @@ for further reading, please see: https://github.com/tgstation/tgstation/pull/301
 		return TRUE
 	return FALSE
 
-/obj/item/highfrequencyblade/pre_attack(atom/A, mob/living/user, params)
+/obj/item/highfrequencyblade/pre_attack(atom/target, mob/living/user, list/modifiers, list/attack_modifiers)
 	. = ..()
 	if(.)
 		return .
 	if(!HAS_TRAIT(src, TRAIT_WIELDED))
 		return . // Default attack
-	if(isliving(A) && HAS_TRAIT(src, TRAIT_PACIFISM))
+	if(isliving(target) && HAS_TRAIT(src, TRAIT_PACIFISM))
 		return . // Default attack (ultimately nothing)
 
-	return slash(A, user, params)
+	return slash(target, user, modifiers)
 
 /// triggered on wield of two handed item
 /obj/item/highfrequencyblade/proc/on_wield(obj/item/source, mob/user)
@@ -1300,9 +1215,8 @@ for further reading, please see: https://github.com/tgstation/tgstation/pull/301
 /obj/item/highfrequencyblade/proc/on_unwield(obj/item/source, mob/user)
 	update_icon(UPDATE_ICON_STATE)
 
-/obj/item/highfrequencyblade/proc/slash(atom/target, mob/living/user, params)
+/obj/item/highfrequencyblade/proc/slash(atom/target, mob/living/user, list/modifiers)
 	user.do_attack_animation(target, "nothing")
-	var/list/modifiers = params2list(params)
 	var/damage_mod = 1
 	var/x_slashed = text2num(modifiers[ICON_X]) || ICON_SIZE_X/2 //in case we arent called by a client
 	var/y_slashed = text2num(modifiers[ICON_Y]) || ICON_SIZE_Y/2 //in case we arent called by a client
@@ -1318,7 +1232,7 @@ for further reading, please see: https://github.com/tgstation/tgstation/pull/301
 	playsound(src, 'sound/items/weapons/zapbang.ogg', 50, vary = TRUE)
 	if(isliving(target))
 		var/mob/living/living_target = target
-		living_target.apply_damage(force*damage_mod, BRUTE, sharpness = SHARP_EDGED, wound_bonus = wound_bonus, bare_wound_bonus = bare_wound_bonus, def_zone = user.zone_selected)
+		living_target.apply_damage(force*damage_mod, BRUTE, sharpness = SHARP_EDGED, wound_bonus = wound_bonus, exposed_wound_bonus = exposed_wound_bonus, def_zone = user.zone_selected)
 		log_combat(user, living_target, "slashed", src)
 		if(living_target.stat == DEAD && prob(force*damage_mod*0.5))
 			living_target.visible_message(span_danger("[living_target] explodes in a shower of gore!"), blind_message = span_hear("You hear organic matter ripping and tearing!"))
@@ -1368,7 +1282,7 @@ for further reading, please see: https://github.com/tgstation/tgstation/pull/301
 	force = 8
 	throwforce = 20
 	wound_bonus = 20
-	bare_wound_bonus = 25
+	exposed_wound_bonus = 25
 
 /obj/item/highfrequencyblade/wizard/attack_self(mob/user, modifiers)
 	if(!HAS_MIND_TRAIT(user, TRAIT_MAGICALLY_GIFTED))

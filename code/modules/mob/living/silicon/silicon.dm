@@ -1,5 +1,6 @@
 /mob/living/silicon
 	gender = NEUTER
+	abstract_type = /mob/living/silicon
 	verb_say = "states"
 	verb_ask = "queries"
 	verb_exclaim = "declares"
@@ -37,7 +38,7 @@
 
 	///Are our siliconHUDs on? TRUE for yes, FALSE for no.
 	var/sensors_on = TRUE
-	var/list/silicon_huds = list(DATA_HUD_MEDICAL_ADVANCED, DATA_HUD_SECURITY_ADVANCED, DATA_HUD_DIAGNOSTIC)
+	var/list/silicon_huds = list(TRAIT_MEDICAL_HUD, TRAIT_SECURITY_HUD, TRAIT_DIAGNOSTIC_HUD)
 
 	var/law_change_counter = 0
 	var/obj/machinery/camera/silicon/builtInCamera
@@ -82,6 +83,7 @@
 
 	add_traits(traits_to_apply, ROUNDSTART_TRAIT)
 	ADD_TRAIT(src, TRAIT_SILICON_EMOTES_ALLOWED, INNATE_TRAIT)
+	ADD_TRAIT(src, TRAIT_ANOSMIA, INNATE_TRAIT)
 	RegisterSignal(src, COMSIG_LIVING_ELECTROCUTE_ACT, PROC_REF(on_silicon_shocked))
 
 /mob/living/silicon/Destroy()
@@ -93,6 +95,16 @@
 	QDEL_NULL(modularInterface)
 	GLOB.silicon_mobs -= src
 	return ..()
+
+///Sets cyborg gender from preferences. Expects a client.
+/mob/living/silicon/proc/set_gender(client/player_client)
+	var/silicon_pronouns = player_client.prefs.read_preference(/datum/preference/choiced/silicon_gender)
+	if(silicon_pronouns == /datum/preference/choiced/silicon_gender::use_character_gender)
+		gender = player_client.prefs.read_preference(/datum/preference/choiced/gender)
+		return
+	var/silicon_gender = /datum/preference/choiced/silicon_gender::pronouns_to_genders[silicon_pronouns]
+	if(!isnull(silicon_gender))
+		gender = silicon_gender
 
 /mob/living/silicon/proc/on_silicon_shocked(datum/source, shock_damage, shock_source, siemens_coeff, flags)
 	SIGNAL_HANDLER
@@ -375,10 +387,6 @@
 /mob/living/silicon/proc/ai_roster()
 	if(!client)
 		return
-	if(world.time < client.crew_manifest_delay)
-		return
-	client.crew_manifest_delay = world.time + (1 SECONDS)
-
 	GLOB.manifest.ui_interact(src)
 
 /mob/living/silicon/proc/set_autosay() //For allowing the AI and borgs to set the radio behavior of auto announcements (state laws, arrivals).
@@ -409,15 +417,16 @@
 /mob/living/silicon/assess_threat(judgement_criteria, lasercolor = "", datum/callback/weaponcheck=null) //Secbots won't hunt silicon units
 	return -10
 
+/// Innate, toggleable silicon HUDs
+#define SILICON_HUD_TRAIT "silicon_hud"
+
 /mob/living/silicon/proc/remove_sensors()
-	for (var/hud_type in silicon_huds)
-		var/datum/atom_hud/silicon_hud = GLOB.huds[hud_type]
-		silicon_hud.hide_from(src)
+	remove_traits(silicon_huds, SILICON_HUD_TRAIT)
 
 /mob/living/silicon/proc/add_sensors()
-	for (var/hud_type in silicon_huds)
-		var/datum/atom_hud/silicon_hud = GLOB.huds[hud_type]
-		silicon_hud.show_to(src)
+	add_traits(silicon_huds, SILICON_HUD_TRAIT)
+
+#undef SILICON_HUD_TRAIT
 
 /mob/living/silicon/proc/toggle_sensors()
 	if(incapacitated)

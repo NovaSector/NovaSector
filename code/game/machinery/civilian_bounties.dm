@@ -47,7 +47,7 @@
 	///Typecast of an inserted, scanned ID card inside the console, as bounties are held within the ID card.
 	var/obj/item/card/id/inserted_scan_id
 
-/obj/machinery/computer/piratepad_control/civilian/attackby(obj/item/I, mob/living/user, params)
+/obj/machinery/computer/piratepad_control/civilian/attackby(obj/item/I, mob/living/user, list/modifiers, list/attack_modifiers)
 	if(isidcard(I))
 		if(id_insert(user, I, inserted_scan_id))
 			inserted_scan_id = I
@@ -267,14 +267,14 @@
 	var/holder_item = FALSE
 
 	if(!isidcard(card_to_insert))
-		card_to_insert = inserting_item.RemoveID()
+		card_to_insert = inserting_item.remove_id()
 		holder_item = TRUE
 
 	if(!card_to_insert || !user.transferItemToLoc(card_to_insert, src))
 		return FALSE
 
 	if(target)
-		if(holder_item && inserting_item.InsertID(target))
+		if(holder_item && inserting_item.insert_id(target))
 			playsound(src, 'sound/machines/terminal/terminal_insert_disc.ogg', 50, FALSE)
 		else
 			id_eject(user, target)
@@ -286,14 +286,12 @@
 	return TRUE
 
 ///Removes A stored ID card.
-/obj/machinery/computer/piratepad_control/civilian/proc/id_eject(mob/user, obj/target)
+/obj/machinery/computer/piratepad_control/civilian/proc/id_eject(mob/user, obj/item/target)
 	if(!target)
 		to_chat(user, span_warning("That slot is empty!"))
 		return FALSE
 	else
-		target.forceMove(drop_location())
-		if(!issilicon(user) && Adjacent(user))
-			user.put_in_hands(target)
+		try_put_in_hand(target, user)
 		user.visible_message(span_notice("[user] gets \the [target] from \the [src]."), \
 							span_notice("You get \the [target] from \the [src]."))
 		playsound(src, 'sound/machines/terminal/terminal_insert_disc.ogg', 50, FALSE)
@@ -349,7 +347,7 @@
 		var/nag_message = "[src] is unsent in [get_area(src)]."
 
 		//nag on Supply channel and reduce the speed bonus multiplier to nothing
-		var/obj/machinery/announcement_system/aas = get_announcement_system(/datum/aas_config_entry/bounty_cube_unsent, src)
+		var/obj/machinery/announcement_system/aas = get_announcement_system(/datum/aas_config_entry/bounty_cube_unsent, src, list(RADIO_CHANNEL_SUPPLY))
 		if (aas)
 			nag_message = aas.compile_config_message(/datum/aas_config_entry/bounty_cube_unsent, list("LOCATION" = get_area_name(src), "COST" = bounty_value), "Regular Message")
 			if (speed_bonus)

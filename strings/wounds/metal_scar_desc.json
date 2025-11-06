@@ -1,9 +1,7 @@
 {
 	"generic": ["general disfigurement"],
 
-	"dislocate": [
-		"some slight crookedness"
-	],
+	"dislocate": ["some slight crookedness"],
 
 	"bluntsevere": [
 		"an area of slightly crumpled metal",
@@ -15,15 +13,12 @@
 		"some heavily beaten plating"
 	],
 
-	"slashmoderate": [
-		"a very thin line of solder",
-		"a few welded cuts"
-	],
+	"slashmoderate": ["a very thin line of solder", "a few welded cuts"],
 
 	"slashsevere": [
 		"a pair of soldered cracks",
 		"an line of freshly replaced metal",
-        "some deep welds on the metal"
+		"some deep welds on the metal"
 	],
 
 	"slashcritical": [
@@ -32,10 +27,7 @@
 		"a series of deep and wide welded gashes"
 	],
 
-	"piercemoderate": [
-		"a dot of hardened solder",
-		"a dot of fresh metal"
-	],
+	"piercemoderate": ["a dot of hardened solder", "a dot of fresh metal"],
 
 	"piercesevere": [
 		"a large wad of hardened solder",

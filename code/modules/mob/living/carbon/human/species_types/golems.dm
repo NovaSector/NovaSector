@@ -26,7 +26,6 @@
 	payday_modifier = 1.0
 	siemens_coeff = 0
 	no_equip_flags = ITEM_SLOT_MASK | ITEM_SLOT_OCLOTHING | ITEM_SLOT_GLOVES | ITEM_SLOT_FEET | ITEM_SLOT_ICLOTHING | ITEM_SLOT_SUITSTORE
-	nojumpsuit = 1
 	changesource_flags = MIRROR_BADMIN | WABBAJACK | MIRROR_PRIDE | MIRROR_MAGIC
 	sexes = FALSE
 	meat = /obj/item/food/meat/slab/human/mutant/golem
@@ -86,7 +85,7 @@
 
 	to_add += list(list(
 		SPECIES_PERK_TYPE = SPECIES_POSITIVE_PERK,
-		SPECIES_PERK_ICON = "pickaxe",
+		SPECIES_PERK_ICON = "tools",
 		SPECIES_PERK_NAME = "Natural Miners",
 		SPECIES_PERK_DESC = "Golems can see dimly in the dark, sense minerals, break boulders, and mine stone with their bare hands. \
 			They can even smelt ores in an internal furnace, if their surrounding environment is hot enough.",

@@ -9,6 +9,8 @@
 		/obj/item/flashlight/seclite = 6,
 		/obj/item/restraints/legcuffs/bola/energy = 10,
 		/obj/item/clothing/gloves/tackler/security = 5,
+		/obj/item/holosign_creator/security = 2,
+		/obj/item/gun_maintenance_supplies = 2,
 		/obj/item/gun/energy/e_gun/advtaser = 3,
 	)
 	contraband = list(
@@ -17,6 +19,7 @@
 		/obj/item/melee/baton/security/stun_gun/stun_knife = 3,
 	)
 	premium = list(
+		/obj/item/ammo_workbench_module/lethal = 1,
 		/obj/item/storage/belt/security/webbing = 5,
 		/obj/item/coin/antagtoken = 1,
 		/obj/item/clothing/head/helmet/blueshirt = 3,
@@ -53,13 +56,14 @@
 				/obj/item/clothing/suit/armor/vest/secjacket = 4,
 				/obj/item/clothing/suit/hooded/wintercoat/security = 4,
 				/obj/item/clothing/suit/armor/vest = 4,
-				/obj/item/clothing/suit/toggle/jacket/nova/sec = 4,
+				/obj/item/clothing/suit/toggle/jacket/nova/colorable_bomber/sec = 4,
 				/obj/item/clothing/gloves/color/black/security = 4,
 				/obj/item/clothing/shoes/jackboots/sec = 4,
 				/obj/item/storage/backpack/security = 4,
 				/obj/item/storage/backpack/satchel/sec = 4,
 				/obj/item/storage/backpack/duffelbag/sec = 4,
 				/obj/item/storage/backpack/messenger/sec = 4,
+				/obj/item/clothing/head/costume/ushanka/sec = 4
 			),
 		),
 
@@ -72,7 +76,7 @@
 				/obj/item/clothing/head/security_cap = 4,
 				/obj/item/clothing/head/helmet/sec/white = 3,
 				/obj/item/clothing/suit/hooded/wintercoat/security/blue = 4,
-				/obj/item/clothing/suit/toggle/jacket/nova/sec/blue = 4,
+				/obj/item/clothing/suit/toggle/jacket/nova/colorable_bomber/sec/blue = 4,
 				/obj/item/clothing/suit/armor/vest/alt/sec/white = 3,
 				/obj/item/clothing/suit/armor/vest/brit = 3,
 				/obj/item/clothing/suit/armor/vest/jacket = 3,
@@ -95,7 +99,7 @@
 				/obj/item/clothing/gloves/color/black/security/blu = 4,
 				/obj/item/clothing/head/security_garrison = 4,
 				/obj/item/clothing/head/hats/warden/police/patrol = 4,
-				/obj/item/clothing/head/costume/ushanka/sec = 4,
+				/obj/item/clothing/head/costume/ushanka/sec/blue = 4,
 				/obj/item/storage/backpack/security/blue = 4,
 				/obj/item/storage/backpack/satchel/sec/blue = 4,
 				/obj/item/storage/backpack/duffelbag/sec/blue = 4,

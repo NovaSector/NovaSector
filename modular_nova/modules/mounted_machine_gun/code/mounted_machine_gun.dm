@@ -182,15 +182,15 @@
 		return
 	remove_ammo_box(user)
 
-/obj/machinery/mounted_machine_gun/attackby(obj/item/weapon, mob/user, params)
+/obj/machinery/mounted_machine_gun/attackby(obj/item/attacking_item, mob/user, list/modifiers, list/attack_modifiers)
 	. = ..()
-	if(!istype(weapon, ammo_box_type))
+	if(!istype(attacking_item, ammo_box_type))
 		return
 	if(ammo_box)
 		balloon_alert(user, "already loaded!")
 		return
-	ammo_box = weapon
-	weapon.forceMove(src)
+	ammo_box = attacking_item
+	attacking_item.forceMove(src)
 	playsound(src, 'modular_nova/modules/mounted_machine_gun/sound/insert_ammobox.ogg', 100)
 	balloon_alert(user, "ammo box inserted!")
 

@@ -302,6 +302,7 @@
 /area/shuttle/tarkon_driver)
 "JY" = (
 /obj/machinery/computer/shuttle/tarkon_driver,
+/obj/item/shuttle_remote/tarkon,
 /turf/open/floor/mineral/titanium,
 /area/shuttle/tarkon_driver)
 "Kv" = (

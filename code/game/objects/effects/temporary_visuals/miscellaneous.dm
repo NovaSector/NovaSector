@@ -1,17 +1,25 @@
 //unsorted miscellaneous temporary visuals
 /obj/effect/temp_visual/dir_setting/bloodsplatter
 	icon = 'icons/effects/blood.dmi'
+	icon_state = "splatter1"
+	base_icon_state = "splatter"
 	duration = 5
 	randomdir = FALSE
 	layer = BELOW_MOB_LAYER
 	plane = GAME_PLANE
-	var/splatter_type = "splatter"
 
-/obj/effect/temp_visual/dir_setting/bloodsplatter/Initialize(mapload, set_dir)
+// set_color arg can be either a color string or a singleton /datum/blood_type to pull the color from
+/obj/effect/temp_visual/dir_setting/bloodsplatter/Initialize(mapload, set_dir, set_color = BLOOD_COLOR_RED)
+	if(set_color)
+		var/datum/blood_type/blood_type = set_color
+		if(istype(blood_type))
+			color = blood_type.color
+		else
+			color = set_color
 	if(ISDIAGONALDIR(set_dir))
-		icon_state = "[splatter_type][pick(1, 2, 6)]"
+		icon_state = "[base_icon_state][pick(1, 2, 6)]"
 	else
-		icon_state = "[splatter_type][pick(3, 4, 5)]"
+		icon_state = "[base_icon_state][pick(3, 4, 5)]"
 	. = ..()
 	var/target_pixel_x = 0
 	var/target_pixel_y = 0
@@ -39,10 +47,7 @@
 			target_pixel_x = -16
 			target_pixel_y = -16
 			layer = ABOVE_MOB_LAYER
-	animate(src, pixel_x = target_pixel_x, pixel_y = target_pixel_y, alpha = 0, time = duration)
-
-/obj/effect/temp_visual/dir_setting/bloodsplatter/xenosplatter
-	splatter_type = "xsplatter"
+	animate(src, pixel_x = target_pixel_x, pixel_y = target_pixel_y, alpha = 0, time = duration, flags = CUBIC_EASING | EASE_OUT)
 
 /obj/effect/temp_visual/dir_setting/speedbike_trail
 	name = "speedbike trails"
@@ -183,6 +188,17 @@
 		if(EAST)
 			icon_state = "beam_splash_e"
 
+/obj/effect/temp_visual/bsa_impact
+	name = "\improper Bluespace Artillery detonation"
+	desc = "Tearing into conventional space once more, the immense energy of the beam is delivered directly into the target and its surroundings."
+	icon = 'icons/effects/96x160.dmi'
+	icon_state = "bsa_impact_ex"
+	layer = ABOVE_ALL_MOB_LAYER
+	plane = ABOVE_GAME_PLANE
+	pixel_y = -32
+	pixel_x = -32
+	duration = 10
+
 /obj/effect/temp_visual/wizard
 	name = "water"
 	icon = 'icons/mob/simple/mob.dmi'
@@ -229,8 +245,10 @@
 		setDir(mimiced_atom.dir)
 		mouse_opacity = MOUSE_OPACITY_TRANSPARENT
 
-/obj/effect/temp_visual/decoy/fading/Initialize(mapload, atom/mimiced_atom)
+/obj/effect/temp_visual/decoy/fading/Initialize(mapload, atom/mimiced_atom, start_alpha)
 	. = ..()
+	if (start_alpha)
+		alpha = start_alpha
 	animate(src, alpha = 0, time = duration)
 
 /obj/effect/temp_visual/decoy/fading/threesecond
@@ -569,7 +587,7 @@
 	playsound(loc, 'sound/items/weapons/egloves.ogg', vol = 80, vary = TRUE)
 	end()
 
-/obj/effect/constructing_effect/attackby(obj/item/weapon, mob/user, params)
+/obj/effect/constructing_effect/attackby(obj/item/weapon, mob/user, list/modifiers, list/attack_modifiers)
 	attacked(user)
 
 /obj/effect/constructing_effect/attack_hand(mob/living/user, list/modifiers)
@@ -737,7 +755,7 @@
 	name = "mech attack aoe charge"
 	icon = 'icons/effects/96x96.dmi'
 	icon_state = "mech_attack_aoe_charge"
-	duration = 1 SECONDS
+	duration = 0.5 SECONDS
 	pixel_x = -32
 	pixel_y = -32
 
@@ -756,3 +774,37 @@
 	duration = 5 MINUTES
 	pixel_x = -16
 	pixel_y = -8 //32
+
+/// Visual effect spawned when the bioscrambler scrambles your bio
+/obj/effect/temp_visual/circle_wave
+	icon = 'icons/effects/64x64.dmi'
+	icon_state = "circle_wave"
+	pixel_x = -16
+	pixel_y = -16
+	duration = 0.5 SECONDS
+	color = COLOR_LIME
+	var/max_alpha = 255
+	///How far the effect would scale in size
+	var/amount_to_scale = 2
+
+/obj/effect/temp_visual/circle_wave/Initialize(mapload)
+	transform = matrix().Scale(0.1)
+	animate(src, transform = matrix().Scale(amount_to_scale), time = duration, flags = ANIMATION_PARALLEL)
+	animate(src, alpha = max_alpha, time = duration * 0.6, flags = ANIMATION_PARALLEL)
+	animate(alpha = 0, time = duration * 0.4)
+	apply_wibbly_filters(src)
+	return ..()
+
+/obj/effect/temp_visual/circle_wave/bioscrambler
+	color = COLOR_LIME
+
+/obj/effect/temp_visual/circle_wave/bioscrambler/light
+	max_alpha = 128
+
+/obj/effect/temp_visual/circle_wave/void_conduit
+	color = COLOR_FULL_TONER_BLACK
+	duration = 12 SECONDS
+	amount_to_scale = 12
+
+/obj/effect/temp_visual/circle_wave/star_blast
+	color = COLOR_VOID_PURPLE

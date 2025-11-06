@@ -12,7 +12,7 @@
 	var/group
 
 	/// Whether or not to allow numbers in the person's name
-	var/allow_numbers = TRUE //NOVA EDIT CHANGE
+	var/allow_numbers = TRUE //NOVA EDIT CHANGE - ORIGINAL: var/allow_numbers = FALSE
 
 	/// If the highest priority job matches this, will prioritize this name in the UI
 	var/relevant_job

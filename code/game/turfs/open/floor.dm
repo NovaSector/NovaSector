@@ -51,7 +51,7 @@
 	if(target == src)
 		ScrapeAway(flags = CHANGETURF_INHERIT_AIR)
 		return TRUE
-	if(severity < EXPLODE_DEVASTATE && is_shielded())
+	if(is_explosion_shielded(severity))
 		return FALSE
 
 	if(target)
@@ -86,9 +86,13 @@
 
 	return FALSE
 
-/turf/open/floor/is_shielded()
-	for(var/obj/structure/A in contents)
-		return 1
+/turf/open/floor/is_explosion_shielded(severity)
+	if(severity >= EXPLODE_DEVASTATE)
+		return FALSE
+	for(var/obj/blocker in src)
+		if(blocker.density)
+			return TRUE
+	return FALSE
 
 /turf/open/floor/blob_act(obj/structure/blob/B)
 	return
@@ -121,25 +125,25 @@
 	W.update_appearance()
 	return W
 
-/turf/open/floor/attackby(obj/item/object, mob/living/user, params)
+/turf/open/floor/attackby(obj/item/object, mob/living/user, list/modifiers)
 	if(!object || !user)
 		return TRUE
 	. = ..()
 	if(.)
 		return .
 	if(overfloor_placed && istype(object, /obj/item/stack/tile))
-		try_replace_tile(object, user, params)
+		try_replace_tile(object, user, modifiers)
 		return TRUE
 	if(user.combat_mode && istype(object, /obj/item/stack/sheet))
 		var/obj/item/stack/sheet/sheets = object
-		return sheets.on_attack_floor(user, params)
+		return sheets.on_attack_floor(src, user, modifiers)
 	return FALSE
 
 /turf/open/floor/crowbar_act(mob/living/user, obj/item/I)
 	if(overfloor_placed && pry_tile(I, user))
 		return TRUE
 
-/turf/open/floor/proc/try_replace_tile(obj/item/stack/tile/T, mob/user, params)
+/turf/open/floor/proc/try_replace_tile(obj/item/stack/tile/T, mob/user, list/modifiers)
 	if(T.turf_type == type && T.turf_dir == dir)
 		return
 	var/obj/item/crowbar/CB = user.is_holding_tool_quality(TOOL_CROWBAR)
@@ -148,7 +152,7 @@
 	var/turf/open/floor/plating/P = pry_tile(CB, user, TRUE)
 	if(!istype(P))
 		return
-	P.attackby(T, user, params)
+	P.attackby(T, user, modifiers)
 
 /turf/open/floor/proc/pry_tile(obj/item/I, mob/user, silent = FALSE)
 	I.play_tool_sound(src, 80)

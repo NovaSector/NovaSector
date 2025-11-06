@@ -33,7 +33,7 @@
 	if(CONFIG_GET(flag/disable_lewd_items))
 		return INITIALIZE_HINT_QDEL
 
-/obj/item/clothing/mask/ballgag/Initialize(mapload)
+/obj/item/clothing/mask/muzzle/ballgag/Initialize(mapload)
 	. = ..()
 	if(CONFIG_GET(flag/disable_lewd_items))
 		return INITIALIZE_HINT_QDEL
@@ -69,11 +69,6 @@
 		return INITIALIZE_HINT_QDEL
 
 /obj/item/clothing/gloves/ball_mittens/Initialize(mapload)
-	. = ..()
-	if(CONFIG_GET(flag/disable_lewd_items))
-		return INITIALIZE_HINT_QDEL
-
-/obj/item/clothing/gloves/ball_mittens_reinforced/Initialize(mapload)
 	. = ..()
 	if(CONFIG_GET(flag/disable_lewd_items))
 		return INITIALIZE_HINT_QDEL

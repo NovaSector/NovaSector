@@ -14,7 +14,7 @@
 	new /obj/item/flashlight/glowstick(src)
 	new /obj/item/tank/internals/emergency_oxygen/double(src)
 	new /obj/item/reagent_containers/cup/glass/waterbottle(src)
-	new /obj/item/reagent_containers/blood/universal(src)
+	new /obj/item/reagent_containers/blood/o_minus(src)
 	new /obj/item/reagent_containers/syringe(src)
 	new /obj/item/storage/pill_bottle/multiver(src)
 

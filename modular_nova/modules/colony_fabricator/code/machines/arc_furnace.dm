@@ -70,7 +70,7 @@
 	var/image/furnace_front_overlay = image(icon = icon, icon_state = "[operating ? "[base_icon_state]_overlay_active" : "[base_icon_state]_overlay"]")
 	add_overlay(furnace_front_overlay)
 
-/obj/machinery/arc_furnace/attackby(obj/item/attacking_item, mob/living/user, params)
+/obj/machinery/arc_furnace/attackby(obj/item/attacking_item, mob/user, list/modifiers, list/attack_modifiers)
 	if(operating)
 		balloon_alert(user, "furnace busy")
 		return TRUE

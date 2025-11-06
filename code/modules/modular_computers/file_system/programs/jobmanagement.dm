@@ -35,7 +35,7 @@ GLOBAL_VAR_INIT(time_last_changed_position, 0)
 	if(job.job_flags & JOB_CANNOT_OPEN_SLOTS)
 		return FALSE
 	// NOVA EDIT ADDITION START
-	if(job.veteran_only)
+	if(job.nova_stars_only)
 		return FALSE
 	// NOVA EDIT ADDITION END
 	return TRUE
@@ -59,7 +59,7 @@ GLOBAL_VAR_INIT(time_last_changed_position, 0)
 
 /datum/computer_file/program/job_management/ui_act(action, params, datum/tgui/ui, datum/ui_state/state)
 	. = ..()
-	var/obj/item/card/id/user_id = computer.computer_id_slot
+	var/obj/item/card/id/user_id = computer.stored_id
 	if(!user_id || !(ACCESS_CHANGE_IDS in user_id.access))
 		return TRUE
 
@@ -111,7 +111,7 @@ GLOBAL_VAR_INIT(time_last_changed_position, 0)
 	var/list/data = list()
 
 	var/authed = FALSE
-	var/obj/item/card/id/user_id = computer.computer_id_slot
+	var/obj/item/card/id/user_id = computer.stored_id
 	if(user_id && (ACCESS_CHANGE_IDS in user_id.access))
 		authed = TRUE
 

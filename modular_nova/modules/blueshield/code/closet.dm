@@ -6,6 +6,7 @@
 	new /obj/item/clothing/suit/hooded/wintercoat/nova/blueshield(src)
 	new /obj/item/clothing/head/beret/blueshield(src)
 	new /obj/item/clothing/head/beret/blueshield/navy(src)
+	new /obj/item/clothing/head/soft/blueshield(src)
 	new /obj/item/clothing/under/rank/blueshield(src)
 	new /obj/item/clothing/under/rank/blueshield/skirt(src)
 	new /obj/item/clothing/under/rank/blueshield/turtleneck(src)
@@ -13,6 +14,11 @@
 	new /obj/item/clothing/suit/armor/vest/blueshield(src)
 	new /obj/item/clothing/suit/armor/vest/blueshield/jacket(src)
 	new /obj/item/clothing/neck/mantle/bsmantle(src)
+	new /obj/item/clothing/under/rank/blueshield/consult(src)
+	new /obj/item/clothing/under/rank/blueshield/consult/skirt(src)
+	new /obj/item/clothing/under/rank/blueshield/formal(src)
+	new /obj/item/clothing/under/rank/blueshield/russian(src)
+	new /obj/item/clothing/under/rank/blueshield/naval(src)
 
 /obj/structure/closet/secure_closet/blueshield
 	name = "blueshield's locker"
@@ -31,4 +37,5 @@
 	new /obj/item/storage/medkit/frontier/stocked(src)
 	new /obj/item/storage/bag/garment/blueshield(src)
 	new /obj/item/mod/control/pre_equipped/blueshield(src)
+	new /obj/item/mod/paint(src)
 	new /obj/item/sensor_device/blueshield(src)

@@ -1,0 +1,4 @@
+directory = "_maps/nova/diorama/"
+
+[rooms.diorama]
+modules = ["ash.dmm", "beach.dmm", "borg.dmm", "ice.dmm", "jungle.dmm", "strike.dmm", "vet.dmm"]

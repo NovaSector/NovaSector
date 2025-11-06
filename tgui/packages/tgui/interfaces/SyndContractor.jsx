@@ -50,7 +50,7 @@ export const SyndContractorContent = (props) => {
     'Awaiting response...',
     'Awaiting response...',
     'Response received, ack 4851234...',
-    'CONFIRM ACC ' + Math.round(Math.random() * 20000),
+    `CONFIRM ACC ${Math.round(Math.random() * 20000)}`,
     'Setting up private accounts...',
     'CONTRACTOR ACCOUNT CREATED',
     'Searching for available contracts...',
@@ -279,7 +279,7 @@ const ContractsTab = (props) => {
                     disabled={contract.extraction_enroute}
                     color={active && 'bad'}
                     onClick={() =>
-                      act('PRG_contract' + (active ? '_abort' : '-accept'), {
+                      act(`PRG_contract${active ? '_abort' : '-accept'}`, {
                         contract_id: contract.id,
                       })
                     }
@@ -322,7 +322,7 @@ const HubTab = (props) => {
         return (
           <Section
             key={item.name}
-            title={item.name + ' - ' + repInfo}
+            title={`${item.name} - ${repInfo}`}
             level={2}
             buttons={
               <>

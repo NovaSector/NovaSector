@@ -3,6 +3,7 @@
 	"map_name": "Blueshift",
 	"map_path": "map_files/NSVBlueshift",
 	"map_file": "Blueshift.dmm",
+	"exclude_from_ci": false,
 	"shuttles": {
 		"cargo": "cargo_nova",
 		"ferry": "ferry_nova",

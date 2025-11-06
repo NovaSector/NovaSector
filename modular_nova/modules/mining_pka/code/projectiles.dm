@@ -48,7 +48,6 @@
 /obj/projectile/kinetic/shotgun
 	name = "split kinetic force"
 	damage = 20
-	mod_mult = 0.5
 
 /obj/projectile/kinetic/glock
 	name = "light kinetic force"

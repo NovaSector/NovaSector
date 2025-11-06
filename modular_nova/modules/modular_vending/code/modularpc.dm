@@ -1,0 +1,35 @@
+/obj/machinery/vending/modularpc
+	desc = "All the parts you need for custom modular computers, personal AIs, and neurocomputing programs!"
+	products_nova = list(
+		/obj/item/disk/neuroware/reset = 2,
+		/obj/item/disk/neuroware/brain = 2,
+		/obj/item/disk/neuroware/synaptizine = 3,
+		/obj/item/disk/neuroware/psicodine = 3,
+		/obj/item/disk/neuroware/synthesizer/brass = 2,
+		/obj/item/disk/neuroware/synthesizer/guitar = 2,
+		/obj/item/disk/neuroware/synthesizer/percussion = 2,
+		/obj/item/disk/neuroware/synthesizer/piano = 2,
+		/obj/item/modular_computer/pda/ancient = 5,
+		/obj/item/modular_computer/pda/ultraslim = 5,
+		/obj/item/modular_computer/pda/ceti = 5,
+		/obj/item/modular_computer/pda/virtual = 5,
+		/obj/item/modular_computer/pda/robust = 5,
+		/obj/item/modular_computer/pda/neko = 5,
+		/obj/item/modular_computer/pda/old = 5,
+		/obj/item/modular_computer/pda/holodeck = 5,
+		/obj/item/modular_computer/pda/hologram = 5,
+		/obj/item/modular_computer/pda/tablet = 5,
+		/obj/item/modular_computer/pda/slimline = 5,
+		/obj/item/modular_computer/pda/rugged = 5,
+		/obj/item/modular_computer/pda/g3 = 5,
+		/obj/item/modular_computer/pda/holosystem = 5,
+	)
+	contraband_nova = list(
+		/obj/item/disk/neuroware/maintenance = 2,
+		/obj/item/disk/neuroware/pumpup = 2,
+		/obj/item/disk/neuroware/happiness = 2,
+		/obj/item/disk/neuroware/space_drugs = 2,
+		/obj/item/disk/neuroware/thc = 2,
+		/obj/item/disk/neuroware/mushroomhallucinogen = 2,
+		/obj/item/disk/neuroware/mindbreaker = 3,
+	)

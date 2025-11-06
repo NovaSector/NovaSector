@@ -17,6 +17,7 @@
 	hud_type = /datum/hud/guardian
 	faction = list()
 	speed = 0
+	status_flags = CANPUSH
 	maxHealth = INFINITY // The spirit itself is invincible and passes damage to its host
 	health = INFINITY
 	damage_coeff = list(BRUTE = 1, BURN = 1, TOX = 1, STAMINA = 0, OXY = 1)
@@ -88,8 +89,7 @@
 	GLOB.parasites += src
 	src.theme = theme
 	theme?.apply(src)
-	var/list/death_loot = string_list(list(/obj/item/stack/sheet/mineral/wood))
-	AddElement(/datum/element/death_drops, death_loot)
+	AddElement(/datum/element/death_drops, /obj/effect/temp_visual/guardian/phase/out)
 	AddElement(/datum/element/simple_flying)
 	AddComponent(/datum/component/basic_inhands)
 	// life link

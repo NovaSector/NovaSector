@@ -11,10 +11,7 @@
 /datum/hud/new_player/New(mob/owner)
 	. = ..()
 
-	if (!owner || !owner.client)
-		return
-
-	if (owner.client.interviewee)
+	if (!owner?.client || owner.client.interviewee)
 		return
 
 	var/list/buttons = subtypesof(/atom/movable/screen/lobby)
@@ -124,6 +121,7 @@
 /atom/movable/screen/lobby/background
 	icon = 'icons/hud/lobby/background.dmi'
 	icon_state = "background"
+	layer = LOBBY_BACKGROUND_LAYER
 	screen_loc = "TOP,CENTER:-61"
 
 /atom/movable/screen/lobby/button
@@ -669,7 +667,7 @@
 	. = ..()
 	if(!. || !usr.client.is_localhost() || !check_rights_for(usr.client, R_SERVER))
 		return
-	SEND_SOUND(hud.mymob, sound('sound/effects/splat.ogg', volume = 50))
+	SEND_SOUND(hud.mymob, sound('sound/effects/cartoon_sfx/cartoon_splat.ogg', volume = 50))
 	SSticker.start_immediately = TRUE
 	if(SSticker.current_state == GAME_STATE_STARTUP)
 		to_chat(usr, span_admin("The server is still setting up, but the round will be started as soon as possible."))
@@ -680,53 +678,72 @@
 ///Lobby screen that appears before the game has started showing how many players there are and who is ready.
 /atom/movable/screen/lobby/new_player_info
 	name = "New Player Info"
-	screen_loc = "TOP:-20,CENTER:192"
+	screen_loc = "EAST-3,CENTER:140"
 	icon = 'icons/hud/lobby/newplayer.dmi'
 	icon_state = null //we only show up when we get update appearance called, cause we need our overlay to not look bad.
 	base_icon_state = "newplayer"
-	maptext_height = 70
+	maptext_height = 75
 	maptext_width = 80
 	maptext_x = OVERLAY_X_DIFF
 	maptext_y = OVERLAY_Y_DIFF
 
+	///Boolean on whether or not we should have our static overlay, so we 'turn' the TV off when collapsing.
 	var/show_static = TRUE
+	///Static mutable appearance of a job icon we're displaying on the TV for overflow job.
+	var/static/mutable_appearance/job_overlay
 
 /atom/movable/screen/lobby/new_player_info/Initialize(mapload, datum/hud/hud_owner)
 	. = ..()
-	switch(SSticker.current_state)
-		if(GAME_STATE_PREGAME, GAME_STATE_STARTUP)
-			RegisterSignal(SSticker, COMSIG_TICKER_ENTER_SETTING_UP, PROC_REF(hide_info))
-		if(GAME_STATE_SETTING_UP)
-			RegisterSignal(SSticker, COMSIG_TICKER_ERROR_SETTING_UP, PROC_REF(show_info))
-
 	START_PROCESSING(SSnewplayer_info, src)
 	update_text()
+
+	//only go if the station trait is selected, otherwise it'll show "Assistant" every round.
+	var/datum/station_trait/overflow_job_bureaucracy/overflow_job = locate() in SSstation.station_traits
+	if(overflow_job && isnull(job_overlay))
+		var/icon/job_icon = get_job_hud_icon(SSjob.overflow_role)
+		if(isnull(job_icon))
+			stack_trace("[SSjob.overflow_role::title] was selected as the Job Overflow but has no icon!")
+		else
+			job_icon.Scale(ICON_SIZE_X / 2, ICON_SIZE_X / 2)
+			job_overlay = mutable_appearance(job_icon, offset_spokesman = src, alpha = 120, layer = src.layer+0.02)
+			var/matrix/job_matrix = matrix()
+			job_matrix.Translate(6, 14) //this is completely arbitruary just what I thought looked good.
+			job_overlay.transform = job_matrix
+
 	update_appearance(UPDATE_ICON)
 
 /atom/movable/screen/lobby/new_player_info/Destroy()
 	STOP_PROCESSING(SSnewplayer_info, src)
 	return ..()
 
-/atom/movable/screen/lobby/new_player_info/update_overlays()
+/atom/movable/screen/lobby/new_player_info/MouseEntered(location, control, params)
 	. = ..()
-	if(!always_available)
-		return .
-	. += mutable_appearance(icon, "[base_icon_state]_overlay", layer = src.layer+0.03)
-	if(show_static)
-		. += mutable_appearance(icon, "static_base", alpha = 20, layer = src.layer+0.01)
-		//we have this in a separate file because `generate_icon_alpha_mask` puts lighting even on non-existent pixels,
-		//giving the icon a weird background color.
-		var/mutable_appearance/scanline = mutable_appearance(generate_icon_alpha_mask('icons/hud/lobby/newplayer_scanline.dmi', "scanline"), alpha = 20, layer = src.layer+0.02)
-		scanline.pixel_y = OVERLAY_X_DIFF
-		scanline.pixel_x = OVERLAY_Y_DIFF
-		. += scanline
+	if(QDELETED(src) || isnull(job_overlay))
+		return
+	openToolTip(usr, src, params, title = "[SSjob.overflow_role::title] overflow", content = "The overflow for the round has been set as [SSjob.overflow_role::title].")
+
+/atom/movable/screen/lobby/new_player_info/MouseExited()
+	closeToolTip(usr)
+	return ..()
 
 /atom/movable/screen/lobby/new_player_info/update_icon_state()
 	. = ..()
-	if(!always_available)
-		icon_state = "[base_icon_state]_disabled"
-	else
-		icon_state = base_icon_state
+	icon_state = base_icon_state
+
+/atom/movable/screen/lobby/new_player_info/update_overlays()
+	. = ..()
+	. += mutable_appearance(icon, "[base_icon_state]_overlay", layer = src.layer+0.01)
+	if(!show_static)
+		return .
+	if(job_overlay)
+		. += job_overlay
+	. += mutable_appearance(icon, "static_base", alpha = 20, layer = src.layer+0.03)
+	//we have this in a separate file because `generate_icon_alpha_mask` puts lighting even on non-existent pixels,
+	//giving the icon a weird background color.
+	var/mutable_appearance/scanline = mutable_appearance(generate_icon_alpha_mask('icons/hud/lobby/newplayer_scanline.dmi', "scanline"), alpha = 20, layer = src.layer+0.04)
+	scanline.pixel_y = OVERLAY_X_DIFF
+	scanline.pixel_x = OVERLAY_Y_DIFF
+	. += scanline
 
 /atom/movable/screen/lobby/new_player_info/process(seconds_per_tick)
 	update_text()
@@ -745,33 +762,25 @@
 	update_appearance(UPDATE_ICON)
 	update_text()
 
-/atom/movable/screen/lobby/new_player_info/proc/hide_info()
-	SIGNAL_HANDLER
-
-	STOP_PROCESSING(SSnewplayer_info, src)
-	UnregisterSignal(SSticker, COMSIG_TICKER_ENTER_SETTING_UP)
-	RegisterSignal(SSticker, COMSIG_TICKER_ERROR_SETTING_UP, PROC_REF(show_info))
-	always_available = FALSE
-	update_appearance(UPDATE_ICON)
-	update_text()
-
-/atom/movable/screen/lobby/new_player_info/proc/show_info()
-	SIGNAL_HANDLER
-
-	always_available = TRUE
-	update_appearance(UPDATE_ICON)
-	update_text()
-	START_PROCESSING(SSnewplayer_info, src)
-	UnregisterSignal(SSticker, COMSIG_TICKER_ERROR_SETTING_UP)
-	RegisterSignal(SSticker, COMSIG_TICKER_ENTER_SETTING_UP, PROC_REF(hide_info))
-
 /atom/movable/screen/lobby/new_player_info/proc/update_text()
-	if(!always_available || !hud || !show_static)
+	if(!hud || !show_static)
 		maptext = null
 		return
-	var/new_maptext
 	if(!MC_RUNNING())
-		new_maptext = "<span style='text-align: center; vertical-align: middle'>Loading...</span>"
+		maptext = MAPTEXT("<span style='text-align: center; vertical-align: middle'>Loading...</span>")
+		return
+	if(SSticker.IsPostgame())
+		maptext = MAPTEXT("<span style='text-align: center; vertical-align: middle'>Game ended, <br /> \
+			restart soon</span>")
+		return
+
+	var/new_maptext
+	var/round_started = SSticker.HasRoundStarted()
+	if(round_started)
+		new_maptext = "<span style='text-align: center; vertical-align: middle'>[SSmapping.current_map.map_name]<br /> \
+			[LAZYLEN(GLOB.clients)] player\s online<br /> \
+			[ROUND_TIME()] in<br />"
+		new_maptext += "</span>"
 	else
 		var/time_remaining = SSticker.GetTimeLeft()
 		if(time_remaining > 0)
@@ -781,7 +790,7 @@
 		else
 			time_remaining = "SOON"
 
-		if(hud.mymob.client.holder)
+		if(hud.mymob.client?.holder)
 			new_maptext = "<span style='text-align: center; vertical-align: middle'>Starting in [time_remaining]<br /> \
 				[LAZYLEN(GLOB.clients)] player\s<br /> \
 				[SSticker.totalPlayersReady] players ready<br /> \

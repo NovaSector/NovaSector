@@ -30,18 +30,19 @@
 		/obj/item/clothing/under/syndicate/rus_army/cin_surplus/random_color = ITEM_WEIGHT_CLOTHING,
 		/obj/item/storage/belt/military/cin_surplus/random_color = ITEM_WEIGHT_CLOTHING,
 		/obj/item/storage/backpack/industrial/cin_surplus/random_color = ITEM_WEIGHT_CLOTHING,
-		/obj/item/clothing/under/colonial/nri_police = ITEM_WEIGHT_CLOTHING,
-		/obj/item/clothing/neck/cloak/colonial/nri_police = ITEM_WEIGHT_CLOTHING,
-		/obj/item/clothing/head/hats/colonial/nri_police = ITEM_WEIGHT_CLOTHING,
-		/obj/item/clothing/mask/gas/nri_police = ITEM_WEIGHT_CLOTHING,
-		/obj/item/clothing/mask/balaclavaadjust = ITEM_WEIGHT_CLOTHING,
+		/obj/item/clothing/under/colonial/hc_police = ITEM_WEIGHT_CLOTHING,
+		/obj/item/clothing/under/colonial/hc_police/skirt = ITEM_WEIGHT_CLOTHING,
+		/obj/item/clothing/neck/cloak/colonial/hc_police = ITEM_WEIGHT_CLOTHING,
+		/obj/item/clothing/head/hats/colonial/hc_police = ITEM_WEIGHT_CLOTHING,
+		/obj/item/clothing/mask/gas/hc_police = ITEM_WEIGHT_CLOTHING,
+		/obj/item/clothing/mask/balaclava/adjustable = ITEM_WEIGHT_CLOTHING,
 		/obj/item/clothing/gloves/tackler/combat = ITEM_WEIGHT_CLOTHING,
 		/obj/item/clothing/shoes/jackboots = ITEM_WEIGHT_CLOTHING,
 		// Armors
 		/obj/item/clothing/head/helmet/cin_surplus_helmet/random_color = ITEM_WEIGHT_ARMOR,
 		/obj/item/clothing/suit/armor/vest/cin_surplus_vest = ITEM_WEIGHT_ARMOR,
-		/obj/item/clothing/head/helmet/nri_police = ITEM_WEIGHT_ARMOR,
-		/obj/item/clothing/suit/armor/vest/nri_police = ITEM_WEIGHT_ARMOR,
+		/obj/item/clothing/head/helmet/hc_police = ITEM_WEIGHT_ARMOR,
+		/obj/item/clothing/suit/armor/vest/hc_police = ITEM_WEIGHT_ARMOR,
 		// Weapons
 		/obj/item/gun/ballistic/revolver/shotgun_revolver = ITEM_WEIGHT_GUN_COMMON,
 		/obj/item/gun/ballistic/automatic/pistol/plasma_thrower = ITEM_WEIGHT_GUN_COMMON,
@@ -60,11 +61,11 @@
 		/obj/item/ammo_box/c310_cargo_box/piercing = ITEM_WEIGHT_AMMO_BULK,
 		/obj/item/ammo_box/magazine/recharge/plasma_battery = ITEM_WEIGHT_AMMO_SINGLE,
 		/obj/item/ammo_box/magazine/miecz/spawns_empty = ITEM_WEIGHT_AMMO_SINGLE,
-		/obj/item/ammo_box/strilka310 = ITEM_WEIGHT_AMMO_SINGLE,
+		/obj/item/ammo_box/speedloader/strilka310 = ITEM_WEIGHT_AMMO_SINGLE,
 		/obj/item/ammo_box/magazine/lanca/spawns_empty = ITEM_WEIGHT_AMMO_SINGLE,
 		/obj/item/ammo_box/magazine/wylom = ITEM_WEIGHT_AMMO_SINGLE,
 		// Other items
-		/obj/item/sign/flag/nri = ITEM_WEIGHT_MISC,
+		/obj/item/sign/flag/hc = ITEM_WEIGHT_MISC,
 		/obj/item/trench_tool = ITEM_WEIGHT_MISC,
 		/obj/item/binoculars = ITEM_WEIGHT_MISC,
 		/obj/item/storage/box/nri_flares = ITEM_WEIGHT_MISC,
@@ -122,6 +123,7 @@
 		/obj/item/knife/combat/throwing = ITEM_WEIGHT_MISC_BUT_RARER,
 		/obj/item/storage/belt/machete/full = ITEM_WEIGHT_MISC_BUT_RARER,
 		/obj/item/storage/medkit/expeditionary/surplus = ITEM_WEIGHT_MISC_BUT_RARER,
+		/obj/item/mod/control/pre_equipped/jaeger_med = ITEM_WEIGHT_MISC_BUT_RARER, // where the hell did they find this one bruh
 		/obj/item/pointman_broken = ITEM_WEIGHT_GUN_RARE, // diy project for a shield that you can wield for 75 blockchance + beat people to death with
 		/obj/item/clothing/gloves/chief_engineer/expeditionary_corps = ITEM_WEIGHT_MISC_BUT_RARER, // congratulations you won (it's basically combat gloves but not quite)
 		/obj/item/modular_computer/pda/expeditionary_corps = ITEM_WEIGHT_MISC_BUT_RARER, // except for when you didn't (scammed)

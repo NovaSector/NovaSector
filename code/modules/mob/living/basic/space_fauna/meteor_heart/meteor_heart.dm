@@ -10,6 +10,7 @@
 	icon = 'icons/mob/simple/meteor_heart.dmi'
 	icon_state = "heart"
 	icon_living = "heart"
+	status_flags = NONE
 	mob_biotypes = MOB_ORGANIC
 	basic_mob_flags = DEL_ON_DEATH
 	mob_size = MOB_SIZE_HUGE
@@ -27,6 +28,7 @@
 	maximum_survivable_temperature = 1500
 	combat_mode = TRUE
 	move_resist = INFINITY // This mob IS the floor
+	damage_coeff = list(BRUTE = 1, BURN = 1, TOX = 1, STAMINA = 0, OXY = 1)
 
 	/// Looping heartbeat sound
 	var/datum/looping_sound/heartbeat/soundloop
@@ -34,8 +36,7 @@
 /mob/living/basic/meteor_heart/Initialize(mapload)
 	. = ..()
 	ADD_TRAIT(src, TRAIT_IMMOBILIZED, INNATE_TRAIT)
-	var/static/list/death_loot = list(/obj/effect/temp_visual/meteor_heart_death)
-	AddElement(/datum/element/death_drops, death_loot)
+	AddElement(/datum/element/death_drops, /obj/effect/temp_visual/meteor_heart_death)
 	AddElement(/datum/element/relay_attackers)
 
 	var/static/list/innate_actions = list(
@@ -56,12 +57,7 @@
 	soundloop.pressure_affected = FALSE
 	soundloop.start()
 
-	AddComponent(\
-		/datum/component/bloody_spreader,\
-		blood_left = INFINITY,\
-		blood_dna = list("meaty DNA" = "MT-"),\
-		diseases = null,\
-	)
+	AddComponent(/datum/component/bloody_spreader)
 
 /// Called when we get mad at something, either for attacking us or attacking the nearby area
 /mob/living/basic/meteor_heart/proc/aggro()

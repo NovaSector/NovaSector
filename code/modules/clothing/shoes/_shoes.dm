@@ -3,13 +3,13 @@
 	icon = 'icons/obj/clothing/shoes.dmi'
 	lefthand_file = 'icons/mob/inhands/clothing/shoes_lefthand.dmi'
 	righthand_file = 'icons/mob/inhands/clothing/shoes_righthand.dmi'
+	abstract_type = /obj/item/clothing/shoes
 	desc = "Comfortable-looking shoes."
 	pickup_sound = 'sound/items/handling/shoes/sneakers_pickup1.ogg'
 	drop_sound = 'sound/items/handling/shoes/sneakers_drop1.ogg'
 	equip_sound = 'sound/items/equip/sneakers_equip1.ogg'
 	sound_vary = TRUE
 	gender = PLURAL //Carn: for grammarically correct text-parsing
-	clothing_flags = CLOTHING_MOD_OVERSLOTTING
 	body_parts_covered = FEET
 	slot_flags = ITEM_SLOT_FEET
 	armor_type = /datum/armor/clothing_shoes
@@ -58,19 +58,14 @@
 	if(damaged_clothes)
 		. += mutable_appearance('icons/effects/item_damage.dmi', "damagedshoe")
 
-//NOVA EDIT REMOVAL BEGIN -DIGI_BLOODSOLE - (Moved to modular_nova/modules/digi_shoeblood/code/modules/clothing/shoes/_shoes.dm)
-/*
-/obj/item/clothing/shoes/separate_worn_overlays(mutable_appearance/standing, mutable_appearance/draw_target, isinhands = FALSE, icon_file)
+/obj/item/clothing/shoes/separate_worn_overlays(mutable_appearance/standing, mutable_appearance/draw_target, isinhands = FALSE, icon_file, mutant_styles = NONE) // NOVA EDIT CHANGE - ORIGINAL: /obj/item/clothing/shoes/separate_worn_overlays(mutable_appearance/standing, mutable_appearance/draw_target, isinhands = FALSE, icon_file)
 	. = ..()
-	if(isinhands)
+	if (isinhands)
 		return
-	if(GET_ATOM_BLOOD_DNA_LENGTH(src))
-		if(clothing_flags & LARGE_WORN_ICON)
-			. += mutable_appearance('icons/effects/64x64.dmi', "shoeblood_large")
-		else
-			. += mutable_appearance('icons/effects/blood.dmi', "shoeblood")
-*/
-//NOVA EDIT REMOVAL END
+	var/blood_overlay = get_blood_overlay("shoe", mutant_styles) // NOVA EDIT CHANGE - ORIGINAL: var/blood_overlay = get_blood_overlay("shoe")
+	if (blood_overlay)
+		. += blood_overlay
+
 /obj/item/clothing/shoes/examine(mob/user)
 	. = ..()
 
@@ -83,7 +78,7 @@
 		. += "The [fastening_type] are all knotted together."
 
 /obj/item/clothing/shoes/visual_equipped(mob/user, slot)
-	..()
+	. = ..()
 	if(offset && (slot_flags & slot))
 		user.pixel_z += offset
 		worn_y_dimension -= (offset * 2)
@@ -116,6 +111,9 @@
 	if(ismob(loc))
 		var/mob/M = loc
 		M.update_worn_shoes()
+
+/obj/item/clothing/shoes/generate_digitigrade_icons(icon/base_icon, greyscale_colors)
+	return icon(SSgreyscale.GetColoredIconByType(/datum/greyscale_config/digitigrade, greyscale_colors), "boots_worn")
 
 /**
  * adjust_laces adjusts whether our shoes (assuming they can be tied) and tied, untied, or knotted

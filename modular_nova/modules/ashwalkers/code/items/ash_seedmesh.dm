@@ -11,7 +11,7 @@
 		/obj/item/seeds/seedling/evil,
 	)
 
-/obj/item/seed_mesh/attackby(obj/item/attacking_item, mob/user, params)
+/obj/item/seed_mesh/attackby(obj/item/attacking_item, mob/user, list/modifiers, list/attack_modifiers)
 	if(istype(attacking_item, /obj/item/stack/ore/glass))
 		var/obj/item/stack/ore/ore_item = attacking_item
 		if(ore_item.points == 0)

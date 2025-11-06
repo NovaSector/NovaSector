@@ -4,7 +4,7 @@
 /obj/item/clothing/head/collectable/flatcap
 	greyscale_config_worn_vox = /datum/greyscale_config/beret/worn/vox
 
-/obj/item/clothing/head/frenchberet
+/obj/item/clothing/head/beret/frenchberet
 	greyscale_config_worn_vox = /datum/greyscale_config/beret/worn/vox
 
 /obj/item/clothing/head/flatcap
@@ -64,7 +64,7 @@
 /obj/item/clothing/head/flatcap
 	greyscale_config_worn_vox = /datum/greyscale_config/beret/worn/vox
 
-/obj/item/clothing/head/frenchberet
+/obj/item/clothing/head/beret/frenchberet
 	greyscale_config_worn_vox = /datum/greyscale_config/beret/worn/vox
 
 /obj/item/clothing/head/beret/sec/navywarden/syndicate

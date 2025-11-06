@@ -1,8 +1,6 @@
 /obj/structure/chair/shibari_stand
 	name = "shibari stand"
 	desc = "A stand for buckling people with ropes."
-	icon = 'modular_nova/modules/modular_items/lewd_items/icons/obj/lewd_structures/shibari_stand.dmi'
-	icon_state = "shibari_stand"
 	max_integrity = 75
 	layer = 4
 	item_chair = null
@@ -12,8 +10,12 @@
 	var/static/mutable_appearance/shibari_rope_overlay_behind
 	var/static/mutable_appearance/shibari_shadow_overlay = mutable_appearance('modular_nova/modules/modular_items/lewd_items/icons/obj/lewd_structures/shibari_stand.dmi', "shibari_shadow", LOW_OBJ_LAYER)
 
+	icon = 'icons/map_icons/items/_item.dmi'
+	icon_state = "/obj/structure/chair/shibari_stand"
+	post_init_icon_state = "shibari_stand"
 	greyscale_config = /datum/greyscale_config/shibari_stand
 	greyscale_colors = "#bd8fcf"
+	flags_1 = parent_type::flags_1 | NO_NEW_GAGS_PREVIEW_1
 
 	///obviously, this is for doing things to the currentmob
 	var/mob/living/carbon/human/current_mob = null
@@ -28,14 +30,16 @@
 	cut_overlay(shibari_shadow_overlay)
 	cut_overlay(shibari_rope_overlay)
 	cut_overlay(shibari_rope_overlay_behind)
-	if(ropee)
+	if(!QDELETED(ropee))
 		ropee.forceMove(get_turf(src))
+	ropee = null
 	. = ..()
-	if(current_mob)
+	if(!QDELETED(current_mob))
 		if(current_mob.handcuffed)
 			current_mob.handcuffed.dropped(current_mob)
 		current_mob.set_handcuffed(null)
 		current_mob.update_abstract_handcuffed()
+		current_mob = null
 	unbuckle_all_mobs(TRUE)
 
 //Examine changes for this structure
@@ -115,7 +119,7 @@
 			ropee.set_greyscale(rope.greyscale_colors)
 			rope.use(1)
 			add_overlay(shibari_shadow_overlay)
-			add_rope_overlays(ropee.greyscale_colors, hooman?.dna?.species?.mutant_bodyparts["taur"])
+			add_rope_overlays(ropee.greyscale_colors, hooman?.dna?.species?.mutant_bodyparts[FEATURE_TAUR])
 			buckled.visible_message(span_warning("[user] tied [buckled] to \the [src]!"),\
 				span_userdanger("[user] tied you to \the [src]!"),\
 				span_hear("You hear ropes being completely tightened."))
@@ -151,7 +155,6 @@
 			current_mob.handcuffed.forceMove(loc)
 			current_mob.handcuffed.dropped(current_mob)
 			current_mob.set_handcuffed(null)
-			current_mob.update_handcuffed()
 
 		var/obj/item/restraints/handcuffs/milker/shibari/cuffs = new (current_mob)
 		current_mob.set_handcuffed(cuffs)

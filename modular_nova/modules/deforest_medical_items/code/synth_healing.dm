@@ -121,3 +121,92 @@
 /obj/item/stack/medical/synth_repair/post_heal_effects(amount_healed, mob/living/carbon/healed_mob, mob/living/user)
 	. = ..()
 	healed_mob.reagents.add_reagent_list(grind_results)
+
+// Repairs a robotic organs directly, or during organ manipulation surgery.
+// Sprites: [@splat1125](https://github.com/splat1125)
+/obj/item/cybernetic_repair_paste
+	name = "cybernetic repair paste"
+	desc = "A repair paste applicator pen which allows for cybernetic organs to be repaired when used with organ manipulation surgery."
+	icon = 'modular_nova/modules/deforest_medical_items/icons/stack_items.dmi'
+	icon_state = "cyberpaste"
+	w_class = WEIGHT_CLASS_SMALL
+	///How much organ damage does this repair each time it is used?
+	var/repair_amount = 25
+	///How many times can this be used?
+	var/uses = 5
+
+/obj/item/cybernetic_repair_paste/examine()
+	. = ..()
+	if(uses > 0)
+		. += span_notice("It is loaded with [uses] gels.")
+	else
+		. += span_notice("It is spent.")
+
+// Attempts to repair a robotic organ via an active organ manipulation surgery.
+/obj/item/cybernetic_repair_paste/attack(mob/living/target_mob, mob/living/user)
+	if(!ishuman(target_mob))
+		return ..()
+	if(uses <= 0)
+		balloon_alert(user, "it's been used up!")
+		return ..()
+	var/obj/item/organ/target_organ = select_organ(target_mob, user)
+	if(isnull(target_organ))
+		return
+	// Ensure the user didn't move away from the target during the TGUI prompt
+	if(!user.Adjacent(target_mob))
+		return
+	if(repair_organ(target_organ, user, target_mob))
+		to_chat(target_mob, span_notice("[user] successfully repairs your [target_organ]"))
+
+// Attempts to directly repair a robotic organ item.
+/obj/item/cybernetic_repair_paste/interact_with_atom(atom/interacting_with, mob/living/user, list/modifiers)
+	. = ..()
+	if(isorgan(interacting_with) && repair_organ(interacting_with, user))
+		return ITEM_INTERACT_SUCCESS
+
+///Prompts the user to select a robotic organ in the target mob and returns it.
+///Requires the target to have an active organ manipulation surgery in its "manipulate organs" stage.
+/obj/item/cybernetic_repair_paste/proc/select_organ(mob/living/carbon/human/target_human, mob/living/user)
+	// Search for a valid organ manipulation surgery in the targeted bodyzone
+	var/datum/surgery/active_surgery = target_human.has_surgery(
+		surgery_type = /datum/surgery/organ_manipulation,
+		step_type = /datum/surgery_step/manipulate_organs,
+		target_zone = user.zone_selected,
+	)
+	if(isnull(active_surgery))
+		balloon_alert(user, "requires open surgery!")
+		return
+	var/list/obj/item/organ/cyber_organs = list()
+	for(var/obj/item/organ/organ as anything in target_human.get_organs_for_zone(user.zone_selected))
+		if(organ.organ_flags & ORGAN_ROBOTIC)
+			cyber_organs += organ
+	if(!length(cyber_organs))
+		balloon_alert(user, "lacks robotic organ!")
+		return
+	var/obj/item/organ/chosen_organ = tgui_input_list(user, "Repair which organ?", "Surgery", sort_list(cyber_organs))
+	return chosen_organ
+
+///Attempts to repair the given robotic organ, and returns TRUE if successful.
+/obj/item/cybernetic_repair_paste/proc/repair_organ(obj/item/organ/target_organ, mob/living/user, mob/living/target_mob)
+	if(uses <= 0)
+		balloon_alert(user, "it's been used up!")
+		return
+	if(target_organ.damage <= NONE)
+		balloon_alert(user, "organ isn't broken!")
+		return
+	if(!do_after(user, 5 SECONDS, target_mob))
+		balloon_alert(user, "repair cancelled!")
+		return
+
+	target_organ.apply_organ_damage(-repair_amount, required_organ_flag = ORGAN_ROBOTIC)
+	balloon_alert(user, "organ repaired")
+	to_chat(user, span_notice("You successfully repair [target_organ]."))
+	if(target_organ.damage  > NONE)
+		to_chat(user, "The [target_organ] still has some lasting system damage that can be cleared.")
+
+	uses -= 1
+	if(uses <= 0)
+		icon_state = "cyberpaste_spent"
+		to_chat(user, "The [src] runs out of gels and stops working.")
+
+	return TRUE

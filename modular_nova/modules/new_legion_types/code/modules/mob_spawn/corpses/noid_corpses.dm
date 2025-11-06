@@ -1,25 +1,37 @@
-//no ID versions of job corpses
+//no ID versions of job corpses if they spawn in lavaland/icemoon
 
-/obj/effect/mob_spawn/corpse/human/cargo_tech/noid
-	outfit = /datum/outfit/consumed_cargotech
-	icon_state = "corpsecargotech"
+/obj/effect/mob_spawn/corpse/human/cargo_tech/Initialize(mapload)
+	if(mapload && is_mining_level(z))
+		outfit = /datum/outfit/consumed_cargotech
 
-/obj/effect/mob_spawn/corpse/human/cook/noid
-	outfit = /datum/outfit/consumed_cook
-	icon_state = "corpsecook"
+	return ..()
 
-/obj/effect/mob_spawn/corpse/human/doctor/noid
-	outfit = /datum/outfit/consumed_doctor
-	icon_state = "corpsedoctor"
+/obj/effect/mob_spawn/corpse/human/cook/Initialize(mapload)
+	if(mapload && is_mining_level(z))
+		outfit = /datum/outfit/consumed_cook
 
-/obj/effect/mob_spawn/corpse/human/engineer/noid
-	outfit = /datum/outfit/consumed_engineer
-	icon_state = "corpseengineer"
+	return ..()
 
-/obj/effect/mob_spawn/corpse/human/scientist/noid
-	outfit = /datum/outfit/consumed_scientist
-	icon_state = "corpsescientist"
+/obj/effect/mob_spawn/corpse/human/doctor/Initialize(mapload)
+	if(mapload && is_mining_level(z))
+		outfit = /datum/outfit/consumed_doctor
 
-/obj/effect/mob_spawn/corpse/human/miner/noid
-	outfit = /datum/outfit/consumed_miner
-	icon_state = "corpseminer"
+	return ..()
+
+/obj/effect/mob_spawn/corpse/human/engineer/Initialize(mapload)
+	if(mapload && is_mining_level(z))
+		outfit = /datum/outfit/consumed_engineer
+
+	return ..()
+
+/obj/effect/mob_spawn/corpse/human/scientist/Initialize(mapload)
+	if(mapload && is_mining_level(z))
+		outfit = /datum/outfit/consumed_scientist
+
+	return ..()
+
+/obj/effect/mob_spawn/corpse/human/miner/Initialize(mapload)
+	if(mapload && is_mining_level(z))
+		outfit = /datum/outfit/consumed_miner
+
+	return ..()

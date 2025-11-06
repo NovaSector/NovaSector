@@ -20,6 +20,7 @@
 	mouse_opacity = MOUSE_OPACITY_TRANSPARENT
 	pixel_y = 22
 	appearance_flags = KEEP_TOGETHER
+	vis_flags = VIS_INHERIT_PLANE
 	/// The current occupant being presented
 	var/mob/living/occupant
 
@@ -254,7 +255,7 @@
 		return
 
 	if(default_deconstruction_screwdriver(user, "pod-off", "pod-off", tool))
-		update_appearance()
+		update_appearance(UPDATE_ICON)
 		return ITEM_INTERACT_SUCCESS
 
 /obj/machinery/cryo_cell/crowbar_act(mob/living/user, obj/item/tool)
@@ -319,7 +320,7 @@
 		return
 
 	if(default_change_direction_wrench(user, tool))
-		update_appearance()
+		update_appearance(UPDATE_ICON)
 		return ITEM_INTERACT_SUCCESS
 
 /obj/machinery/cryo_cell/on_changed_z_level(turf/old_turf, turf/new_turf, same_z_layer, notify_contents)
@@ -330,7 +331,7 @@
 
 /obj/machinery/cryo_cell/set_occupant(atom/movable/new_occupant)
 	. = ..()
-	update_appearance()
+	update_appearance(UPDATE_ICON)
 
 /obj/machinery/cryo_cell/RefreshParts()
 	. = ..()
@@ -364,7 +365,7 @@
 	SEND_SIGNAL(src, COMSIG_CRYO_SET_ON, active)
 	. = on
 	on = active
-	update_appearance()
+	update_appearance(UPDATE_ICON)
 
 	update_use_power(on ? ACTIVE_POWER_USE : IDLE_POWER_USE)
 	if(on) //Turned on
@@ -680,10 +681,14 @@
 
 /datum/aas_config_entry/medical_cryo_announcements/compile_announce(list/variables_map, announcement_line)
 	variables_map["AUTOEJECTING"] = variables_map["EJECTING"] ? announcement_lines_map["Autoejecting"] : ""
-	. = ..()
-	// Why double replacetext_char? Well, to handle cases where variable in the middle of sentence like "also %AUTOEJECTING this", so there will be no double spaces
-	// Yeah I am bad, at this, sorry (it should be a perfect place for regex usage, but I am weak)
-	. = trim(replacetext_char(replacetext_char(., "\[NO DATA\] ", ""), "\[NO DATA\]", ""))
+	var/list/exploded_string = splittext_char(..(), "\[NO DATA\]")
+	var/list/trimed_message = list()
+	for (var/line in exploded_string)
+		line = trim(line)
+		if (line)
+			trimed_message += line
+	// Rebuild the string without empty lines
+	. = trimed_message.Join(" ")
 
 #undef MAX_TEMPERATURE
 #undef CRYO_MULTIPLY_FACTOR

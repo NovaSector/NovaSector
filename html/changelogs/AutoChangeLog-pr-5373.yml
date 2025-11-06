@@ -1,4 +1,0 @@
-author: "Yobrocharlie"
-delete-after: True
-changes:
-  - bugfix: "fixed the heretic final boss not being where its meant to, and added a backup exit."

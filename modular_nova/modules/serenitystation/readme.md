@@ -19,39 +19,39 @@ To rerun the cutting tool move the relevant .dmi .png and .png.toml files to the
 
 ### TG Proc/File Changes:
 
-- _maps/_basemap.dm -> adds SerenityStation.dmm to the map file includes
-- code/datums/ai/basic_mobs/basic_ai_behaviors/targeting.dm -> removes aggro_range in /datum/ai_behavior/find_potential_targets
-- code/datums/map_config.dm -> added reading "allow_space_when_planetary" from the config json
-- code/game/structures/flora.dm -> added variable tree stump types
-- code/modules/unit_tests/mapload_space_verification -> made to check if planetary map allows space from the config
-- config/maps.txt -> adds SerenityStation to the map config
-- tgstation.dme -> adds new modular files to the includes
+- `_maps/_basemap.dm` -> adds SerenityStation.dmm to the map file includes
+- `code/datums/ai/basic_mobs/basic_ai_behaviors/targeting.dm` -> removes aggro_range in /datum/ai_behavior/find_potential_targets
+- `code/datums/map_config.dm` -> added reading "allow_space_when_planetary" from the config json
+- `code/game/structures/flora.dm` -> added variable tree stump types
+- `code/modules/unit_tests/mapload_space_verification` -> made to check if planetary map allows space from the config
+- `config/maps.txt` -> adds SerenityStation to the map config
+- `tgstation.dme` -> adds new modular files to the includes
 
 ### Modular File Changes:
 
-- modular_nova/modules/aesthetics/floors/icons/floors.dmi -> added mushroom turf icon
-- modular_nova/modules/automapper/code/area_spawn_subsystem.dm -> added SerenityStation to the automapper's blacklisted stations
-- modular_nova/modules/mapping/code/areas/shuttles.dm -> added the area for the planetary_ferry
-- modular_nova/modules/mapping/code/areas/station.dm -> added the areas used in the station (as these might be reused in mapping; forest-related areas are in the module's folder)
-- modular_nova/modules/mapping/code/shuttles.dm -> added map_template and computer for the planetary feery
-- modular_nova/modules/mapping/code/vgdecals.dm -> added BZ floor decals
-- modular_nova/modules/mapping/icons/areas/areas_station.dmi -> added icons for new station areas (cargo projects room, orbital areas, cyborg storage)
-- modular_nova/modules/mapping/icons/turf/decals/vgstation_decals.dmi -> added BZ floor decals
-- modular_nova/master_files/sound/ambience/mushroom -> Added ambience tracks for the Mushroom Caves.
-- modular_nova/master_files/sound/ambience/forest -> Added ambience tracks for the forest.
+- `modular_nova/modules/aesthetics/floors/icons/floors.dmi` -> added mushroom turf icon
+- `modular_nova/modules/automapper/code/area_spawn_subsystem.dm `-> added SerenityStation to the automapper's blacklisted stations
+- `modular_nova/modules/mapping/code/areas/shuttles.dm `-> added the area for the planetary_ferry
+- `modular_nova/modules/mapping/code/areas/station.dm` -> added the areas used in the station (as these might be reused in mapping; forest-related areas are in the module's folder)
+- `modular_nova/modules/mapping/code/shuttles.dm` -> added map_template and computer for the planetary feery
+- `modular_nova/modules/mapping/code/vgdecals.dm` -> added BZ floor decals
+- `modular_nova/modules/mapping/icons/areas/areas_station.dmi` -> added icons for new station areas (cargo projects room, orbital areas, cyborg storage)
+- `modular_nova/modules/mapping/icons/turf/decals/vgstation_decals.dmi` -> added BZ floor decals
+- `modular_nova/master_files/sound/ambience/mushroom` -> Added ambience tracks for the Mushroom Caves.
+- `modular_nova/master_files/sound/ambience/forest` -> Added ambience tracks for the forest.
 
 ### Defines:
 
-- code/__DEFINES/icon_smoothing.dm -> SMOOTH_GROUP_MUSHROOM
-- code/__DEFINES/~nova_defines/atmospherics.dm -> FOREST_DEFAULT_ATMOS
+- `code/__DEFINES/icon_smoothing.dm` -> SMOOTH_GROUP_MUSHROOM
+- `code/__DEFINES/~nova_defines/atmospherics.dm` -> FOREST_DEFAULT_ATMOS
 
 ### Included files that are not contained in this module:
 
-- modular_nova/master_files/code/controllers/subsystem/mapping.dm -> added proc to return is_planetary_with_space maps
-- _maps/map_files/SerenityStation/SerenityStation.dmm
-- _maps/serenitystation.json
-- _maps/shuttles/nova/planetary_planetary_ferry.dmm
-- code/__DEFINES/~nova_defines/atmospherics.dm
+- `modular_nova/master_files/code/controllers/subsystem/mapping.dm` -> added proc to return is_planetary_with_space maps
+- `_maps/map_files/SerenityStation/SerenityStation.dmm`
+- `_maps/serenitystation.json`
+- `_maps/shuttles/nova/planetary_planetary_ferry.dmm`
+- `code/__DEFINES/~nova_defines/atmospherics.dm`
 
 ### Credits:
 

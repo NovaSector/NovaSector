@@ -20,10 +20,10 @@
 /// Applies some of the universal stats from the variables above
 /datum/laser_weapon_mode/proc/apply_stats(obj/item/gun/energy/applied_gun)
 	if(length(applied_gun.ammo_type))
-		for(var/found_casing as anything in applied_gun.ammo_type)
-			applied_gun.ammo_type.Remove(found_casing)
-			qdel(found_casing)
-	applied_gun.ammo_type.Add(casing)
+		QDEL_LIST(applied_gun.ammo_type)
+	applied_gun.select = 1
+	applied_gun.ammo_type = list()
+	applied_gun.ammo_type += casing
 	applied_gun.update_ammo_types()
 	applied_gun.charge_sections = charge_sections
 	applied_gun.fire_delay = shot_delay
@@ -141,7 +141,7 @@
 	playsound(src, 'sound/items/unsheath.ogg', 25, TRUE)
 	applied_gun.force = 18
 	applied_gun.sharpness = SHARP_EDGED
-	applied_gun.bare_wound_bonus = 10
+	applied_gun.exposed_wound_bonus = 10
 	applied_gun.disabled_for_other_reasons = TRUE
 	applied_gun.attack_verb_continuous = list("slashes", "cuts")
 	applied_gun.attack_verb_simple = list("slash", "cut")
@@ -151,7 +151,7 @@
 	playsound(src, 'sound/items/sheath.ogg', 25, TRUE)
 	applied_gun.force = initial(applied_gun.force)
 	applied_gun.sharpness = initial(applied_gun.sharpness)
-	applied_gun.bare_wound_bonus = initial(applied_gun.bare_wound_bonus)
+	applied_gun.exposed_wound_bonus = initial(applied_gun.exposed_wound_bonus)
 	applied_gun.disabled_for_other_reasons = FALSE
 	applied_gun.attack_verb_continuous = initial(applied_gun.attack_verb_continuous)
 	applied_gun.attack_verb_simple = initial(applied_gun.attack_verb_simple)

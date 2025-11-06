@@ -38,6 +38,21 @@
 			movable_parent.particles.position = list(6, 12, 0)
 			movable_parent.particles.drift = generator("vector", list(0, 0.4), list(0.8, -0.2))
 
+/datum/station_alert/New(holder, list/alarm_types, list/listener_z_level, list/listener_areas, title, camera_view)
+	. = ..()
+	RegisterSignal(SSdcs, COMSIG_GLOB_CREWMEMBER_JOINED, PROC_REF(change_listener_level))
+
+/datum/station_alert/Destroy()
+	. = ..()
+	UnregisterSignal(SSdcs, COMSIG_GLOB_CREWMEMBER_JOINED)
+
+/// Signal handler for [COMSIG_GLOB_CREWMEMBER_JOINED]. Changes [/datum/alarm_listener]'s [var/list/allowed_z_levels] to our borg's Z level (which is station's Z level, as this signal only called for station crewmember)
+/datum/station_alert/proc/change_listener_level(datum/source, mob/living/new_crewmember, rank)
+	SIGNAL_HANDLER
+
+	if(new_crewmember != holder)
+		return
+	listener.allowed_z_levels = SSmapping.levels_by_trait(ZTRAIT_STATION)
 
 /mob/living/silicon/robot/proc/toggle_smoke()
 	set name = "Toggle smoke"

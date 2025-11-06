@@ -4,6 +4,7 @@ import {
   Feature,
   FeatureChoiced,
   FeatureShortTextInput,
+  FeatureTextInput,
   FeatureToggle,
 } from '../../base';
 import { FeatureDropdownInput } from '../../dropdowns';
@@ -20,7 +21,7 @@ export const entombed_mod_name: Feature<string> = {
 
 export const entombed_mod_desc: Feature<string> = {
   name: 'MODsuit Control Unit Description',
-  component: FeatureShortTextInput,
+  component: FeatureTextInput,
 };
 
 export const entombed_mod_prefix: Feature<string> = {

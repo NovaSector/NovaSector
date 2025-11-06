@@ -172,7 +172,7 @@
 
 	return COMPONENT_CANCEL_THROW
 
-/// Signal proc for [COMSIG_MOVABLE_TELEPORTED] that blocks any teleports from our locked area.
+/// Signal proc for [COMSIG_MOVABLE_TELEPORTING] that blocks any teleports from our locked area.
 /datum/status_effect/eldritch/blade/proc/on_teleport(mob/living/source, atom/destination, channel)
 	SIGNAL_HANDLER
 
@@ -182,7 +182,7 @@
 	to_chat(source, span_hypnophrase("An otherworldly force prevents your escape from [get_area_name(locked_to)]!"))
 
 	source.Stun(1 SECONDS)
-	return COMPONENT_BLOCK_TELEPORT
+	return TRUE
 
 /// Signal proc for [COMSIG_MOVABLE_MOVED] that blocks any movement out of our locked area
 /datum/status_effect/eldritch/blade/proc/on_move(mob/living/source, turf/old_loc, movement_dir, forced)
@@ -220,7 +220,7 @@
 
 /datum/status_effect/eldritch/cosmic/on_effect()
 	new teleport_effect(get_turf(owner))
-	new /obj/effect/forcefield/cosmic_field(get_turf(owner))
+	create_cosmic_field(get_turf(owner), owner)
 	do_teleport(
 		owner,
 		get_turf(cosmic_diamond),
@@ -258,12 +258,12 @@
 
 /datum/status_effect/eldritch/moon/on_apply()
 	. = ..()
-	if(owner.can_block_magic(MAGIC_RESISTANCE_MIND))
+	if(owner.can_block_magic(MAGIC_RESISTANCE_MOON))
 		return FALSE
 	ADD_TRAIT(owner, TRAIT_PACIFISM, TRAIT_STATUS_EFFECT(id))
 	owner.emote(pick("giggle", "laugh"))
 	owner.balloon_alert(owner, "you feel unable to hurt a soul!")
-	RegisterSignal (owner, COMSIG_MOB_APPLY_DAMAGE, PROC_REF(on_damaged))
+	RegisterSignal(owner, COMSIG_MOB_APPLY_DAMAGE, PROC_REF(on_damaged))
 	return TRUE
 
 /// Checks for damage so the heretic can't just attack them with another weapon whilst they are unable to fight back
@@ -292,7 +292,7 @@
 
 /datum/status_effect/eldritch/moon/on_remove()
 	. = ..()
-	UnregisterSignal (owner, COMSIG_MOB_APPLY_DAMAGE)
+	UnregisterSignal(owner, COMSIG_MOB_APPLY_DAMAGE)
 
 	// In case the trait was not removed earlier
 	REMOVE_TRAIT(owner, TRAIT_PACIFISM, TRAIT_STATUS_EFFECT(id))

@@ -4,8 +4,7 @@
 	build_path = /obj/machinery/power/rbmk2
 	req_components = list(
 		/obj/item/stack/cable_coil = 4,
-		/obj/item/stack/sheet/mineral/uranium = 4,
-		/obj/item/stack/ore/bluespace_crystal = 1,
+		/obj/item/stack/sheet/plasteel = 5,
 		/datum/stock_part/capacitor = 4,
 		/datum/stock_part/matter_bin = 2,
 		/datum/stock_part/servo = 4,

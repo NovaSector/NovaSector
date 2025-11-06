@@ -40,6 +40,14 @@
 	dragon.riftTimer = -1
 	new_rift.dragon = dragon
 	dragon.rift_list += new_rift
+	// NOVA EDIT ADDITION START, announce on first rift - reset stats if dragon manages to retry
+	if(!dragon.announced)
+		priority_announce("A large organic energy flux has been recorded near of [station_name()], please stand-by.", "Lifesign Alert")
+		dragon.announced = TRUE
+	if(HAS_TRAIT(owner, TRAIT_RIFT_FAILURE))
+		REMOVE_TRAIT(owner, TRAIT_RIFT_FAILURE, REF(dragon))
+		owner.remove_movespeed_modifier(/datum/movespeed_modifier/dragon_depression)
+	// NOVA EDIT ADDITION END
 	to_chat(owner, span_boldwarning("The rift has been summoned. Prevent the crew from destroying it at all costs!"))
 	notify_ghosts(
 		"The Space Dragon has opened a rift!",
@@ -277,6 +285,21 @@
 		set_light_color(LIGHT_COLOR_BLUE)
 		update_light()
 	return TRUE
+
+/obj/structure/carp_rift/attackby(obj/item/attacking_item, mob/user, list/modifiers, list/attack_modifiers)
+	if(HAS_TRAIT(attacking_item, TRAIT_TELEKINESIS_CONTROLLED))
+		if(user)
+			to_chat(user, span_warning("The gravitational field of [src] interferes with the telekenetic control of [user], nullifying the hit!"))
+		return FALSE
+	. = ..()
+
+/obj/structure/carp_rift/hitby(atom/movable/hit_by, skipcatch, hitpush, blocked, datum/thrownthing/throwingdatum)
+	if(HAS_TRAIT(hit_by, TRAIT_TELEKINESIS_CONTROLLED))
+		var/mob/thrower = throwingdatum.thrower.resolve()
+		if(thrower && ismob(thrower))
+			to_chat(thrower, span_warning("The gravitational field of [src] interferes with the telekenetic control of [hit_by], nullifying the hit!"))
+		return
+	. = ..()
 
 #undef CHARGE_ONGOING
 #undef CHARGE_FINALWARNING

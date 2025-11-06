@@ -6,8 +6,6 @@ ADMIN_VERB(cmd_loud_admin_say, R_NONE, "loudAsay", "Send a message to other admi
 	msg = emoji_parse(msg)
 	user.mob.log_talk(msg, LOG_ASAY)
 
-	send_asay_to_other_server(user.ckey, span_command_headset(msg))
-
 	msg = keywords_lookup(msg)
 	var/custom_asay_color = (CONFIG_GET(flag/allow_admin_asaycolor) && user.mob.client?.prefs?.read_preference(/datum/preference/color/asay_color)) ? "<font color=[user.mob.client?.prefs?.read_preference(/datum/preference/color/asay_color)]>" : "<font color='#FF4500'>"
 	msg = span_command_headset("<span class='adminsay'><span class='prefix'>ADMIN:</span> <EM>[key_name(user, 1)]</EM> [ADMIN_FLW(user.mob)]: [custom_asay_color]<span class='message linkify'>[msg]</span></span></span>[custom_asay_color ? "</font>":null]")

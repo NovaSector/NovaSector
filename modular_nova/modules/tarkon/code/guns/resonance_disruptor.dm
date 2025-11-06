@@ -65,7 +65,7 @@
 		if(idiot.has_status_effect(/datum/status_effect/resonant_link))
 			var/datum/status_effect/resonant_link/blaster = idiot.has_status_effect(/datum/status_effect/resonant_link)
 			blaster.detonate()
-			blaster.Destroy()
+			qdel(blaster)
 		else
 			var/datum/status_effect/resonant_link/connection = idiot.apply_status_effect(/datum/status_effect/resonant_link, firing_gun)
 			if(firing_gun)

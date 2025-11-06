@@ -1,6 +1,8 @@
 /datum/wound/blunt/robotic/secures_internals/critical
 	name = "Collapsed Superstructure"
 	desc = "The superstructure has totally collapsed in one or more locations, causing extreme internal oscillation with every move and massive limb dysfunction"
+	treat_text_short = "Repair surgically, start by superheating the limb until you can mold it by aggressively grabbing it and follow the tier 2 wound instructions \
+		when it's done, use gauze to reduce negative effects."
 	treat_text = "Reforming of superstructure via either RCD or manual molding, followed by typical treatment of loosened internals. \
 				To manually mold, the limb must be aggressively grabbed and welded held to it to make it malleable (though attacking it til thermal overload may be adequate) \
 				followed by firmly grasping and molding the limb with heat-resistant gloves."

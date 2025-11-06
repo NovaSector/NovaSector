@@ -110,10 +110,8 @@ export function LoadoutPage(props) {
                   placeholder="Maximum of 24 characters long"
                   width="100%"
                   maxLength={24}
-                  onChange={(_, value) => onType(value)}
-                  onInput={(_, value) => onType(value)}
-                  onEnter={(event) => {
-                    event.preventDefault();
+                  onChange={(value) => onType(value)}
+                  onEnter={() => {
                     act(`${managingPreset.toLowerCase()}_loadout_preset`, {
                       name: input,
                     });
@@ -152,7 +150,7 @@ export function LoadoutPage(props) {
           buttons={
             <Input
               width="200px"
-              onInput={(_, value) => setSearchLoadout(value)}
+              onChange={setSearchLoadout}
               placeholder="Search for an item..."
               value={searchLoadout}
             />

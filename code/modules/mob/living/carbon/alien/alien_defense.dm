@@ -66,30 +66,24 @@ In all, this is a lot like the monkey code. /N
 			var/obj/item/bodypart/affecting = get_bodypart(get_random_valid_zone(user.zone_selected))
 			apply_damage(rand(1, 3), BRUTE, affecting)
 
-/mob/living/carbon/alien/create_splatter(splatter_dir)
-	new /obj/effect/temp_visual/dir_setting/bloodsplatter/xenosplatter(get_turf(src), splatter_dir)
-
 /mob/living/carbon/alien/ex_act(severity, target, origin)
 	. = ..()
 	if(!. || QDELETED(src))
 		return FALSE
 
-	var/obj/item/organ/ears/ears = get_organ_slot(ORGAN_SLOT_EARS)
 	switch (severity)
 		if (EXPLODE_DEVASTATE)
 			gib(DROP_ALL_REMAINS)
 
 		if (EXPLODE_HEAVY)
 			take_overall_damage(60, 60)
-			if(ears)
-				ears.adjustEarDamage(30,120)
+			sound_damage(30, 240 SECONDS)
 
 		if(EXPLODE_LIGHT)
 			take_overall_damage(30,0)
 			if(prob(50))
 				Unconscious(20)
-			if(ears)
-				ears.adjustEarDamage(15,60)
+			sound_damage(15, 120 SECONDS)
 
 	return TRUE
 

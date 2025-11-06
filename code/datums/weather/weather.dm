@@ -329,19 +329,21 @@
 	if(!(mob_turf.z in impacted_z_levels))
 		return
 
-	if((immunity_type && HAS_TRAIT(mob_to_check, immunity_type)) || HAS_TRAIT(mob_to_check, TRAIT_WEATHER_IMMUNE))
+	if(!(mob_turf.loc in impacted_areas))
 		return
 
-	var/atom/loc_to_check = mob_to_check.loc
-	while(loc_to_check != mob_turf)
-		if((immunity_type && HAS_TRAIT(loc_to_check, immunity_type)) || HAS_TRAIT(loc_to_check, TRAIT_WEATHER_IMMUNE))
+	var/atom/to_check = mob_to_check
+	while(!isturf(to_check))
+		if(recursive_weather_protection_check(to_check))
 			return
-		loc_to_check = loc_to_check.loc
-
-	if(!(get_area(mob_to_check) in impacted_areas))
-		return
-
+		to_check = to_check.loc
 	return TRUE
+
+/**
+ * Returns TRUE if the atom should protect itself or its contents from weather
+ */
+/datum/weather/proc/recursive_weather_protection_check(atom/to_check)
+	return HAS_TRAIT(to_check, TRAIT_WEATHER_IMMUNE) || (immunity_type && HAS_TRAIT(to_check, immunity_type))
 
 /**
  * Returns TRUE if the turf can be affected by the weather
@@ -425,11 +427,16 @@
 		to_chat(hit_mob, span_userdanger("You've been struck by lightning!"))
 		hit_mob.electrocute_act(50, "thunder", flags = SHOCK_TESLA|SHOCK_NOGLOVES)
 
-	for(var/obj/hit_thing in weather_turf)
-		hit_thing.take_damage(20, BURN, ENERGY, FALSE)
+	for(var/obj/item/stack/ore/hit_ore in weather_turf)
+		if(QDELETED(hit_ore))
+			continue
+		// ores that get struck by thunder are smelted
+		// a bolt of lightning can reach temperatures of 30,000 Kelvin which is 5x hotter than the sun
+		hit_ore.fire_act(30000)
+
 	playsound(weather_turf, 'sound/effects/magic/lightningbolt.ogg', 100, extrarange = 10, falloff_distance = 10)
 	weather_turf.visible_message(span_danger("A thunderbolt strikes [weather_turf]!"))
-	explosion(weather_turf, light_impact_range = 1, flame_range = 1, silent = TRUE, adminlog = FALSE)
+	new /obj/effect/hotspot(weather_turf)
 
 /**
  * Updates the overlays on impacted areas

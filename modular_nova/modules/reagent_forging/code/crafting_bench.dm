@@ -27,6 +27,7 @@
 	var/list/allowed_choices = list(
 		/datum/crafting_bench_recipe/plate_helmet,
 		/datum/crafting_bench_recipe/plate_vest,
+		/datum/crafting_bench_recipe/chain_shirt,
 		/datum/crafting_bench_recipe/plate_gloves,
 		/datum/crafting_bench_recipe/plate_boots,
 		/datum/crafting_bench_recipe/ring,
@@ -147,7 +148,7 @@
 	QDEL_NULL(selected_recipe)
 	current_hits_to_completion = 0
 
-/obj/structure/reagent_crafting_bench/attackby(obj/item/attacking_item, mob/user, params)
+/obj/structure/reagent_crafting_bench/attackby(obj/item/attacking_item, mob/user, list/modifiers, list/attack_modifiers)
 	if(in_use)
 		balloon_alert(user, "already in use")
 		return
@@ -306,7 +307,7 @@
 
 	var/materials_to_transfer = list()
 	var/list/temporary_materials_list = use_or_delete_recipe_requirements(things_to_use, recipe_to_follow)
-	for(var/material as anything in temporary_materials_list)
+	for(var/material in temporary_materials_list)
 		materials_to_transfer[material] += temporary_materials_list[material]
 
 	var/obj/newly_created_thing
@@ -339,10 +340,10 @@
 /obj/structure/reagent_crafting_bench/proc/use_or_delete_recipe_requirements(list/things_to_use, datum/crafting_bench_recipe/recipe_to_follow)
 	var/list/materials_to_transfer = list()
 
-	for(var/obj/requirement_item as anything in things_to_use)
+	for(var/obj/requirement_item in things_to_use)
 		if(isstack(requirement_item))
 			var/stack_type
-			for(var/recipe_thing_to_reference as anything in recipe_to_follow.recipe_requirements)
+			for(var/recipe_thing_to_reference in recipe_to_follow.recipe_requirements)
 				if(!istype(requirement_item, recipe_thing_to_reference))
 					continue
 				stack_type = recipe_thing_to_reference
@@ -362,7 +363,7 @@
 				qdel(requirement_item)
 				continue
 
-			for(var/custom_material as anything in requirement_item.custom_materials)
+			for(var/custom_material in requirement_item.custom_materials)
 				materials_to_transfer += custom_material
 			qdel(requirement_item)
 

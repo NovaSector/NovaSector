@@ -24,10 +24,6 @@
 	. = ..()
 	AddComponent(/datum/component/wetsuit)
 
-/obj/item/clothing/under/skinsuit/Destroy()
-	. = ..()
-	qdel(GetComponent(/datum/component/wetsuit))
-
 /obj/item/clothing/head/helmet/space/skinsuit_helmet
 	name = "\improper Stardress helm"
 	desc = "A reinforced type of 'Glass' often used particularly by Azulean boarding teams, this offshoot of the ones seen in Shoredresses is built to last. \n\
@@ -43,10 +39,6 @@
 /obj/item/clothing/head/helmet/space/skinsuit_helmet/Initialize(mapload)
 	. = ..()
 	AddComponent(/datum/component/wetsuit)
-
-/obj/item/clothing/head/helmet/space/skinsuit_helmet/Destroy()
-	. = ..()
-	qdel(GetComponent(/datum/component/wetsuit))
 
 /obj/item/clothing/suit/armor/riot/skinsuit_armor
 	name = "\improper Shorebreaker plating"
@@ -80,7 +72,7 @@
 /// Pick an icon_state that matches nicer with tails if one is found on the wearer
 /obj/item/clothing/suit/armor/riot/skinsuit_armor/proc/check_tail(mob/living/carbon/human/user)
 	icon_state = base_icon_state
-	if(!user.dna.species.mutant_bodyparts["tail"])
+	if(!user.dna.species.mutant_bodyparts[FEATURE_TAIL])
 		return
 
 	icon_state = "skinsuitarmor_cutback"

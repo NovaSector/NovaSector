@@ -79,7 +79,7 @@
 				START_PROCESSING(SSpriority_effects, src)
 
 	update_particles()
-
+	SEND_SIGNAL(owner, COMSIG_LIVING_STATUS_APPLIED, src)
 	return TRUE
 
 /datum/status_effect/Destroy()
@@ -96,6 +96,7 @@
 		LAZYREMOVE(owner.status_effects, src)
 		on_remove()
 		UnregisterSignal(owner, COMSIG_LIVING_POST_FULLY_HEAL)
+		SEND_SIGNAL(owner, COMSIG_LIVING_STATUS_REMOVED, src)
 		owner = null
 	if(particle_effect)
 		QDEL_NULL(particle_effect)
@@ -131,7 +132,7 @@
 		return
 
 	if(duration != STATUS_EFFECT_PERMANENT)
-		if(duration < world.time)
+		if((duration < world.time) && !pause_expiry) // NOVA EDIT: Enhanced sleep - ORIGINAL: if(duration < world.time)
 			qdel(src)
 			return
 		update_shown_duration()
@@ -178,7 +179,7 @@
 
 /// Called before being fully removed (before on_remove)
 /// Returning FALSE will cancel removal
-/datum/status_effect/proc/before_remove()
+/datum/status_effect/proc/before_remove(...)
 	return TRUE
 
 /// Called when a status effect of status_type STATUS_EFFECT_REFRESH
@@ -213,7 +214,7 @@
 		return FALSE
 
 	duration -= seconds
-	if(duration <= world.time)
+	if((duration <= world.time) && !pause_expiry) // NOVA EDIT: Enhanced sleep - ORIGINAL: if(duration <= world.time)
 		qdel(src)
 		return TRUE
 

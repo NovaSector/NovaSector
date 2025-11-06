@@ -34,7 +34,7 @@
 	transforming.dna.copy_dna(old_dna)
 	// Makes them into the new DNA
 	transforming.visual_only_organs = TRUE // NOVA EDIT ADDITION - Customization
-	new_dna.transfer_identity(transforming)
+	new_dna.copy_dna(transforming.dna, COPY_DNA_SE|COPY_DNA_SPECIES)
 	transforming.visual_only_organs = FALSE // NOVA EDIT ADDITION - Customization
 	transforming.real_name = new_dna.real_name
 	transforming.name = transforming.get_visible_name()
@@ -47,7 +47,7 @@
 
 	if(!QDELING(owner)) // Don't really need to do appearance stuff if we're being deleted
 		transforming.visual_only_organs = TRUE // NOVA EDIT ADDITION - Customization
-		old_dna.transfer_identity(transforming)
+		old_dna.copy_dna(transforming.dna, COPY_DNA_SE|COPY_DNA_SPECIES)
 		transforming.visual_only_organs = FALSE // NOVA EDIT ADDITION - Customization
 		transforming.updateappearance(mutcolor_update = TRUE)
 		transforming.domutcheck()

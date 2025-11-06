@@ -19,6 +19,14 @@
 ///can this mob heal?
 #define BB_BASIC_MOB_HEALER "BB_basic_mob_healer"
 
+//stealing
+///chance we steal something
+#define BB_STEAL_CHANCE "steal_chance"
+///chance we develop a guilty concious and leave our stolen item behind
+#define BB_GUILTY_CONSCIOUS_CHANCE "guilty_concious_rate"
+///the item we will steal
+#define BB_ITEM_TO_STEAL "item_to_steal"
+
 ///the owner we will try to play with
 #define BB_OWNER_TARGET "BB_owner_target"
 ///the list of interactions we can have with the owner
@@ -73,6 +81,7 @@
 #define BB_BASIC_MOB_CURRENT_TARGET "BB_basic_current_target"
 #define BB_BASIC_MOB_CURRENT_TARGET_HIDING_LOCATION "BB_basic_current_target_hiding_location"
 #define BB_TARGETING_STRATEGY "targeting_strategy"
+#define BB_HUNT_TARGETING_STRATEGY "hunt_targeting_strategy"
 ///some behaviors that check current_target also set this on deep crit mobs
 #define BB_BASIC_MOB_EXECUTION_TARGET "BB_basic_execution_target"
 ///Blackboard key for a whitelist typecache of "things we can target while trying to move"
@@ -163,8 +172,8 @@
 
 ///Mob the MOD is trying to attach to
 #define BB_MOD_TARGET "BB_mod_target"
-///The implant the AI was created from
-#define BB_MOD_IMPLANT "BB_mod_implant"
+///The module the AI was created from
+#define BB_MOD_MODULE "BB_mod_module"
 ///Range for a MOD AI controller.
 #define MOD_AI_RANGE 200
 

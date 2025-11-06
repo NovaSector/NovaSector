@@ -41,3 +41,14 @@
 
 /datum/preference/numeric/voice_actor_pitch/create_default_value()
 	return 0
+
+/datum/preference/color/voice_actor_color
+	savefile_key = "voice_actor_color"
+	category = PREFERENCE_CATEGORY_MANUALLY_RENDERED
+	savefile_identifier = PREFERENCE_CHARACTER
+
+/datum/preference/color/voice_actor_color/apply_to_human()
+	return
+
+/datum/preference/color/voice_actor_color/create_default_value()
+	return process_chat_color("#[random_color()]")

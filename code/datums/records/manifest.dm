@@ -11,12 +11,17 @@ GLOBAL_DATUM_INIT(manifest, /datum/manifest, new)
 
 /// Builds the list of crew records for all crew members.
 /datum/manifest/proc/build()
+	// List of mobs we want to mass insert into the manifest table at round start
+	var/list/players_to_log = list()
 	for(var/mob/dead/new_player/readied_player as anything in GLOB.new_player_list)
 		if(readied_player.new_character)
 			log_manifest(readied_player.ckey, readied_player.new_character.mind, readied_player.new_character)
+			players_to_log[readied_player.ckey] = readied_player.new_character
 		if(ishuman(readied_player.new_character))
 			inject(readied_player.new_character, person_client = readied_player.client) // NOVA EDIT - RP Records - ORIGINAL: inject(readied_player.new_character)
 		CHECK_TICK
+	if(length(players_to_log))
+		SSblackbox.ReportRoundstartManifest(players_to_log)
 
 /// Gets the current manifest.
 /datum/manifest/proc/get_manifest()
@@ -31,6 +36,10 @@ GLOBAL_DATUM_INIT(manifest, /datum/manifest, new)
 		var/name = target.name
 		var/rank = target.rank // user-visible job
 		var/trim = target.trim // internal jobs by trim type
+		// NOVA EDIT ADDITION START - bare minimum data the station records need to possess to show up on the crew manifest
+		if((name == "Unknown") || (rank == "Unassigned" || rank == "Unknown")) // records are unassigned by default, but if edited without input becomes unknown
+			continue
+		// NOVA EDIT ADDITION END
 		var/datum/job/job = SSjob.get_job(trim)
 		if(!job || !(job.job_flags & JOB_CREW_MANIFEST) || !LAZYLEN(job.departments_list)) // In case an unlawful custom rank is added.
 			var/list/misc_list = manifest_out[DEPARTMENT_UNASSIGNED]
@@ -40,7 +49,7 @@ GLOBAL_DATUM_INIT(manifest, /datum/manifest, new)
 				"trim" = trim,
 				)
 			continue
-		for(var/department_type as anything in job.departments_list)
+		for(var/department_type in job.departments_list)
 			//Jobs under multiple departments should only be displayed if this is their first department or the command department
 			if(job.departments_list[1] != department_type && !(job.departments_bitflags & DEPARTMENT_BITFLAG_COMMAND))
 				continue
@@ -124,7 +133,7 @@ GLOBAL_DATUM_INIT(manifest, /datum/manifest, new)
 	var/datum/record/locked/lockfile = new(
 		age = person.age,
 		chrono_age = person.chrono_age, // NOVA EDIT ADDITION - Chronological age
-		blood_type = record_dna.blood_type,
+		blood_type = person.get_bloodtype()?.name || "UNKNOWN",
 		character_appearance = character_appearance,
 		dna_string = record_dna.unique_enzymes,
 		fingerprint = md5(record_dna.unique_identity),
@@ -142,14 +151,14 @@ GLOBAL_DATUM_INIT(manifest, /datum/manifest, new)
 	new /datum/record/crew(
 		age = person.age,
 		chrono_age = person.chrono_age, // NOVA EDIT ADDITION - Chronological age
-		blood_type = record_dna.blood_type,
+		blood_type = person.get_bloodtype()?.name || "UNKNOWN",
 		character_appearance = character_appearance,
 		dna_string = record_dna.unique_enzymes,
 		fingerprint = md5(record_dna.unique_identity),
 		gender = person_gender,
 		initial_rank = assignment,
 		name = person.real_name,
-		rank = chosen_assignment, // NOVA EDIT - Alt job titles - ORIGINAL: rank = assignment,
+		rank = chosen_assignment, // NOVA EDIT CHANGE - Alt job titles - ORIGINAL: rank = assignment,
 		species = record_dna.species.name,
 		trim = assignment,
 		// Crew specific
@@ -232,4 +241,3 @@ GLOBAL_DATUM_INIT(manifest, /datum/manifest, new)
 		"manifest" = get_manifest(),
 		"positions" = positions
 	)
-

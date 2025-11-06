@@ -4,6 +4,7 @@
 	icon = 'modular_nova/master_files/icons/obj/clothing/uniforms.dmi'
 	worn_icon = 'modular_nova/master_files/icons/mob/clothing/uniform.dmi'
 	icon_state = "tracksuit_blue"
+	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION
 
 /obj/item/clothing/under/tachawaiian
 	name = "orange tactical hawaiian outfit"
@@ -52,7 +53,9 @@
 	name = "\improper JUNCO megacargo pants"
 	desc = "De riguer for techno classicists, these extreme wide leg pants come back into style every \
 		now and then. This pair has generous onboard storage."
-	icon_state = "big_pants"
+	icon = 'icons/map_icons/clothing/under/_under.dmi'
+	icon_state = "/obj/item/clothing/under/pants/nova/big_pants"
+	post_init_icon_state = "big_pants"
 	greyscale_config = /datum/greyscale_config/big_pants
 	greyscale_config_worn = /datum/greyscale_config/big_pants/worn
 	greyscale_config_worn_digi = /datum/greyscale_config/big_pants/worn/digi
@@ -63,9 +66,23 @@
 /obj/item/clothing/under/pants/nova/loose_pants
 	name = "Loose pants"
 	desc = "Some loose pants with a belt that looks comfy."
-	icon_state = "loose_pants"
+	icon = 'icons/map_icons/clothing/under/_under.dmi'
+	icon_state = "/obj/item/clothing/under/pants/nova/loose_pants"
+	post_init_icon_state = "loose_pants"
 	greyscale_config = /datum/greyscale_config/loose_pants
 	greyscale_config_worn = /datum/greyscale_config/loose_pants/worn
-	greyscale_colors = "#4d4d4d#ffcc00#ff0000"
+	greyscale_colors = "#4d4d4d#666633#c0c0c0"
+	flags_1 = IS_PLAYER_COLORABLE_1
+	alternate_worn_layer = LOW_FACEMASK_LAYER
+
+/obj/item/clothing/under/pants/nova/hakama
+	name = "hakama"
+	desc = "Traditional Japanese wide-legged trousers, often worn with formal attire."
+	icon = 'icons/map_icons/clothing/under/_under.dmi'
+	icon_state = "/obj/item/clothing/under/pants/nova/hakama"
+	post_init_icon_state = "hakama"
+	greyscale_config = /datum/greyscale_config/hakama
+	greyscale_config_worn = /datum/greyscale_config/hakama/worn
+	greyscale_colors = "#292929#ffffff#ff0000"
 	flags_1 = IS_PLAYER_COLORABLE_1
 	alternate_worn_layer = LOW_FACEMASK_LAYER

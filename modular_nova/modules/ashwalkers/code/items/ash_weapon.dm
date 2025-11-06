@@ -9,13 +9,14 @@
 
 	force = 15
 	wound_bonus = 15
-	bare_wound_bonus = 10
+	exposed_wound_bonus = 10
 
 	greyscale_colors = null
 	greyscale_config = null
 	greyscale_config_inhand_left = null
 	greyscale_config_inhand_right = null
 	greyscale_config_worn = null
+	post_init_icon_state = null
 	resistance_flags = FIRE_PROOF | LAVA_PROOF
 
 /datum/crafting_recipe/ash_recipe/macahuitl

@@ -21,3 +21,5 @@
 /// Caliber used by the kinetic gun
 #define CALIBER_KINETICBALL "Kinetic Ball"
 
+/// Define used for shaded-charge weapons that have firemode-based labels on their icons
+#define SHADED_CHARGE_MODE_LABELED 2

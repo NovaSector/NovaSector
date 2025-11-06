@@ -36,3 +36,9 @@
 	light_range = 2
 	light_power = 1
 	light_color = LIGHT_COLOR_FIRE
+
+/obj/item/gun/ballistic/shotgun/automatic/combat
+	projectile_damage_multiplier = 1.35 //original 1.5
+
+/obj/item/gun/ballistic/shotgun/automatic/combat/compact
+	projectile_damage_multiplier = 1 //original 1.5

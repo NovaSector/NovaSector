@@ -34,3 +34,9 @@
 	department_name = ACCOUNT_INT_NAME
 	icon = 'modular_nova/master_files/icons/obj/budget_cards.dmi'
 	icon_state = "int_budget"
+
+/obj/item/card/id/departmental_budget/tarkon
+	department_ID = ACCOUNT_TI
+	department_name = ACCOUNT_TI_NAME
+	icon = 'modular_nova/master_files/icons/obj/budget_cards.dmi'
+	icon_state = "pt_budget"

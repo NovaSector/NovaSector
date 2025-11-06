@@ -30,11 +30,11 @@
 	return ..()
 
 /datum/action/item_action/toggle_hide_face/Trigger(trigger_flags)
-    . = ..()
-    if(!.)
-        return
-    var/obj/item/clothing/mask/target_mask = target
-    target_mask.toggle_hide_face(usr)
+	. = ..()
+	if(!.)
+		return
+	var/obj/item/clothing/mask/target_mask = target
+	target_mask.toggle_hide_face(usr)
 
 /**
  * Toggles the HIDEFACE flag on the user's mask.
