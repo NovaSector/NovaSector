@@ -1,4 +1,0 @@
-author: "vinylspiders"
-delete-after: True
-changes:
-  - bugfix: "fixes an issue where shibari ropes literally tie up game resources and prevent them from being released"
