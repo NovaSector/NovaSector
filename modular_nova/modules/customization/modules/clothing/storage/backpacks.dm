@@ -87,7 +87,7 @@
 
 /obj/item/storage/backpack/udc
 	name = "U.D.C."
-	desc = "The ultra-discreet carrier apparatus relieves the burden of a rear focused center of weight by allowing the wearer to stow items inside of it's discrete, and practical storage locations."
+	desc = "This ultra-discreet carrier apparatus relieves the burden of a rear-focused center of weight by allowing the wearer to stow items inside its discreet and practical storage compartments."
 	icon_state = "backpack-udc"
 	inhand_icon_state = "udcpack"
 	icon = 'modular_nova/master_files/icons/obj/clothing/backpacks.dmi'
