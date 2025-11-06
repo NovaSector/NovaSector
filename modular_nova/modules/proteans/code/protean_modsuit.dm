@@ -206,9 +206,11 @@
 	var/datum/species/protean/linked_species = protean_core?.linked_species_ref?.resolve()
 	if(protean_core && isnull(linked_species))
 		protean_core.linked_species_ref = null
-	var/obj/item/organ/brain/protean/brain = linked_species?.owner.get_organ_slot(ORGAN_SLOT_BRAIN)
-	var/obj/item/organ/stomach/protean/refactory = linked_species?.owner.get_organ_slot(ORGAN_SLOT_STOMACH)
-	var/mob/living/carbon/human/protean_in_suit = linked_species?.owner
+	if(!linked_species?.owner)
+		return ..()
+	var/obj/item/organ/brain/protean/brain = linked_species.owner.get_organ_slot(ORGAN_SLOT_BRAIN)
+	var/obj/item/organ/stomach/protean/refactory = linked_species.owner.get_organ_slot(ORGAN_SLOT_STOMACH)
+	var/mob/living/carbon/human/protean_in_suit = linked_species.owner
 
 	if(brain?.dead && open && istype(tool, /obj/item/organ/stomach/protean) && do_after(user, 10 SECONDS) && !refactory)
 		var/obj/item/organ/stomach = tool
@@ -582,9 +584,11 @@
 	var/datum/species/protean/linked_species = protean_core?.linked_species_ref?.resolve()
 	if(protean_core && isnull(linked_species))
 		protean_core.linked_species_ref = null
-	var/mob/living/carbon/human/protean_in_suit = linked_species?.owner
-	var/obj/item/organ/brain/protean/brain = linked_species?.owner.get_organ_slot(ORGAN_SLOT_BRAIN)
-	var/obj/item/organ/stomach/protean/refactory = linked_species?.owner.get_organ_slot(ORGAN_SLOT_STOMACH)
+	if(!linked_species?.owner)
+		return ..()
+	var/mob/living/carbon/human/protean_in_suit = linked_species.owner
+	var/obj/item/organ/brain/protean/brain = protean_in_suit.get_organ_slot(ORGAN_SLOT_BRAIN)
+	var/obj/item/organ/stomach/protean/refactory = protean_in_suit.get_organ_slot(ORGAN_SLOT_STOMACH)
 	var/t_He = protean_in_suit.p_They()
 	var/t_him = protean_in_suit.p_them()
 	var/t_has = protean_in_suit.p_have()
@@ -641,14 +645,35 @@
 	var/datum/species/protean/linked_species = core?.linked_species_ref?.resolve()
 	if(core && isnull(linked_species))
 		core.linked_species_ref = null
-	if(linked_species?.owner == user)
+
+	// Check if there's a wearer (someone wearing the protean suit)
+	if(!suit.wearer)
 		return
-	if(suit.wearer == source)
-		return
-	if (!isnull(should_strip_proc_path) && !call(linked_species.owner, should_strip_proc_path)(user))
-		return
-	suit.balloon_alert_to_viewers("stripping")
-	user.visible_message(span_warning("[user] begins to dump the contents of [source]!"))
+
+	var/is_protean_owner = (linked_species?.owner == user)
+
+	// If the protean owner is accessing while someone is wearing them,
+	// open the WEARER's interaction menu instead (Nova ERP panel)
+	if(is_protean_owner && ishuman(suit.wearer))
+		var/mob/living/carbon/human/wearer_human = suit.wearer
+		// Check if the wearer has the interactable component (Nova interaction menu)
+		var/datum/component/interactable/interaction_component = wearer_human.GetComponent(/datum/component/interactable)
+		if(interaction_component)
+			// Open the wearer's interaction menu for the protean to use
+			interaction_component.ui_interact(user)
+			return CLICK_ACTION_SUCCESS
+		// If no interaction component, fall through to strip menu
+
+	// If not the protean owner, check strip permissions
+	if(!is_protean_owner)
+		if (!isnull(should_strip_proc_path) && !call(linked_species.owner, should_strip_proc_path)(user))
+			return
+
+	// Show visual feedback (skip for protean owner since they're inside)
+	if(!is_protean_owner)
+		suit.balloon_alert_to_viewers("stripping")
+		user.visible_message(span_warning("[user] begins to dump the contents of [source]!"))
+
 	ASYNC
 		var/datum/strip_menu/protean/strip_menu = LAZYACCESS(strip_menus, linked_species.owner)
 		if (isnull(strip_menu))
@@ -659,6 +684,18 @@
 /datum/strip_menu/protean
 
 /datum/strip_menu/protean/ui_status(mob/user, datum/ui_state/state)
+	// Check if user is the protean owner (inside the suit)
+	var/obj/item/mod/control/pre_equipped/protean/suit = ui_host()
+	if(istype(suit))
+		var/obj/item/mod/core/protean/core = suit.core
+		var/datum/species/protean/linked_species = core?.linked_species_ref?.resolve()
+		if(linked_species?.owner == user)
+			// Protean owner can always use strip menu while alive
+			if(user.stat == DEAD)
+				return UI_CLOSE
+			return UI_INTERACTIVE
+
+	// Normal strip menu permissions for others
 	return min(
 		ui_status_only_living(user, owner),
 		ui_status_user_has_free_hands(user, owner),

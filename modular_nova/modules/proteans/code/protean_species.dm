@@ -117,6 +117,10 @@
 
 /datum/species/protean/Destroy(force)
 	// Modsuit cleanup now handled by brain organ's Destroy()
+	// Unregister signal from modsuit if it still exists
+	var/obj/item/mod/control/pre_equipped/protean/modsuit = get_modsuit()
+	if(modsuit)
+		UnregisterSignal(modsuit, COMSIG_QDELETING)
 	if(owner)
 		UnregisterSignal(owner, COMSIG_CARBON_GAIN_ORGAN)
 	UnregisterSignal(src, COMSIG_OUTFIT_EQUIP)

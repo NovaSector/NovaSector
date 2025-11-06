@@ -48,10 +48,11 @@
 	if(!QDELETED(brain_loc.owner))
 		// Allow protean to use perscom while in suit mode (user is the protean owner)
 		if(user == brain_loc.owner)
-			return min(
-				ui_status_only_living(user),
-				UI_INTERACTIVE,
-			)
+			// Proteans in suit mode are technically incapacitated (TRAIT_CRITICAL_CONDITION)
+			// but should still be able to use their persocom. Check only if alive.
+			if(user.stat == DEAD)
+				return UI_CLOSE
+			return UI_INTERACTIVE
 		// Others need to be adjacent
 		return min(
 			ui_status_user_is_abled(user, src),
@@ -175,7 +176,7 @@
 	var/list/data = ..()
 	var/obj/item/organ/brain/protean/brain_loc = loc
 	// Battery level is now according to the protean metal reserves
-	if(istype(brain_loc))
+	if(istype(brain_loc) && brain_loc.owner)
 		var/obj/item/organ/stomach/protean/stomach = brain_loc.owner.get_organ_slot(ORGAN_SLOT_STOMACH)
 		var/charge_level = stomach ? (stomach.metal / PROTEAN_STOMACH_FULL) * 100 : 0
 		switch(charge_level)

@@ -30,8 +30,8 @@
 
 /obj/item/organ/brain/protean/Destroy()
 	// Clean up modsuit reference and any lingering timers
+	// Note: Species handles its own signal cleanup for COMSIG_QDELETING
 	if(linked_modsuit)
-		UnregisterSignal(linked_modsuit, COMSIG_PREQDELETED)
 		QDEL_NULL(linked_modsuit)
 	deltimer(going_into_suit_timer)
 	deltimer(leaving_suit_timer)
@@ -61,6 +61,18 @@
 	// Proteans retract into their suit when they hit hard crit
 	// Check if we're already going into suit to prevent double-execution
 	if(owner.stat >= HARD_CRIT && !dead && !timeleft(going_into_suit_timer))
+		// DEATHMATCH: Actually die instead of retreating into suit
+		// Only trigger in actual deathmatch (has TRAIT_NOSOFTCRIT from DEATHMATCH_TRAIT)
+		// AND they must have a stomach (if no stomach, they're already dying from on_life)
+		if(HAS_TRAIT_FROM(owner, TRAIT_NOSOFTCRIT, DEATHMATCH_TRAIT) && owner.get_organ_slot(ORGAN_SLOT_STOMACH))
+			to_chat(owner, span_userdanger("Your nanite swarm catastrophically fails! You are dead!"))
+			dead = TRUE
+			qdel(owner.get_organ_slot(ORGAN_SLOT_STOMACH))
+			// Don't revive, don't go into suit - just die normally
+			// The deathmatch system will handle the death properly
+			return
+
+		// STATION: Normal behavior - retract into suit for revival
 		to_chat(owner, span_red("Your fragile refactory withers away with your mass reduced to scraps. Someone will have to help you."))
 		dead = TRUE
 		owner.revive(list(HEAL_DAMAGE, HEAL_ORGANS), TRUE, TRUE) // So we dont get dead human inside of suit
