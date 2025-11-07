@@ -1,6 +1,6 @@
 //Maid Outfit
 
-/obj/item/clothing/head/costume/maidheadband/syndicate/loadout_headband
+/obj/item/clothing/head/costume/maid_headband/syndicate/loadout_headband
 	name = "tactical maid headband"
 	desc = "Tacticute."
 	icon_state = "syndimaid_headband"

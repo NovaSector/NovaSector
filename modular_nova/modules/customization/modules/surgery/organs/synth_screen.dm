@@ -9,8 +9,6 @@
 	zone = BODY_ZONE_HEAD
 	slot = ORGAN_SLOT_EXTERNAL_SYNTH_SCREEN
 
-	preference = "feature_ipc_screen"
-
 	bodypart_overlay = /datum/bodypart_overlay/mutant/synth_screen
 	use_mob_sprite_as_obj_sprite = TRUE
 

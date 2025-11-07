@@ -1,18 +1,21 @@
 #define AMMO_MATS_SHOTGUN list(/datum/material/iron = SMALL_MATERIAL_AMOUNT * 4) // not quite as thick as a half-sheet
 
 #define AMMO_MATS_SHOTGUN_FLECH list(/datum/material/iron = SMALL_MATERIAL_AMOUNT * 2,\
-									/datum/material/glass = SMALL_MATERIAL_AMOUNT * 2)
+									/datum/material/glass = SMALL_MATERIAL_AMOUNT * 2,)
 
 #define AMMO_MATS_SHOTGUN_HIVE list(/datum/material/iron = SMALL_MATERIAL_AMOUNT * 2,\
 									/datum/material/plasma = SMALL_MATERIAL_AMOUNT * 1,\
-									/datum/material/silver = SMALL_MATERIAL_AMOUNT * 1)
+									/datum/material/silver = SMALL_MATERIAL_AMOUNT * 1,)
 
 #define AMMO_MATS_SHOTGUN_TIDE list(/datum/material/iron = SMALL_MATERIAL_AMOUNT * 2,\
 									/datum/material/plasma = SMALL_MATERIAL_AMOUNT * 1,\
-									/datum/material/gold = SMALL_MATERIAL_AMOUNT * 1)
+									/datum/material/gold = SMALL_MATERIAL_AMOUNT * 1,)
 
 #define AMMO_MATS_SHOTGUN_PLASMA list(/datum/material/iron = SMALL_MATERIAL_AMOUNT * 2,\
-									/datum/material/plasma = SMALL_MATERIAL_AMOUNT * 2)
+									/datum/material/plasma = SMALL_MATERIAL_AMOUNT * 2,)
+
+#define AMMO_MATS_SHOTGUN_PENDART list(/datum/material/iron = SMALL_MATERIAL_AMOUNT * 3,\
+									/datum/material/diamond = SMALL_MATERIAL_AMOUNT * 1,)
 
 /obj/item/ammo_casing/shotgun
 	icon = 'modular_nova/modules/shotgunrebalance/icons/shotshells.dmi'
@@ -23,8 +26,10 @@
 	// tg stats at time of writing: 25 damage, 30 AP
 	// buffed to 50 force, nerfed to 10 AP
 	// for some parity with old stats, except the 10 AP buff
-	damage = 50
+	damage = 30
 	armour_penetration = 10
+	wound_bonus = 5
+	exposed_wound_bonus = 10
 
 /obj/item/ammo_casing/shotgun/milspec
 	desc = "A hot-loaded 12 gauge milspec slug shell, used by various paramilitaries and mercenary forces. Probably not legal to use under corporate regulations."
@@ -36,9 +41,11 @@
 	// tg stats at time of writing: 50 damage, 30 AP (inherited from base slugs)
 	// buffed to 60 force, keeps the 30 AP to give it an edge over base, easily produced slugs
 	// also gets extra speed to give it another edge
-	damage = 60
+	damage = 25
 	armour_penetration = 30
 	speed = 1.5
+	wound_bonus = 10
+	exposed_wound_bonus = 10
 
 // THE BELOW TWO SLUGS ARE NOTED AS ADMIN ONLY AND HAVE ***EIGHTY*** WOUND BONUS. NOT BARE WOUND BONUS. FLAT WOUND BONUS.
 /obj/item/ammo_casing/shotgun/executioner
@@ -96,7 +103,7 @@
 	name = "buckshot shell"
 	icon_state = "gshell"
 	projectile_type = /obj/projectile/bullet/pellet/shotgun_buckshot
-	pellets = 12 // 5 * 12 for 60 damage if every pellet hits, we want to keep lethal shells ~50 damage
+	pellets = 8 // 5 * 12 for 40 damage if every pellet hits, we want to keep lethal shells ~35-40 damage
 	variance = 20
 
 /obj/item/ammo_casing/shotgun/buckshot/old
@@ -107,6 +114,8 @@
 /obj/projectile/bullet/pellet/shotgun_buckshot
 	damage = 5
 	weak_against_armour = TRUE
+	wound_bonus = 5
+	exposed_wound_bonus = 10
 
 /obj/item/ammo_casing/shotgun/buckshot/milspec
 	desc = "A hot-loaded 12 gauge milspec buckshot shell, used by various paramilitaries and mercenary forces. Probably not legal to use under corporate regulations."
@@ -162,6 +171,8 @@
 	damage = 5 // 8*5 = 40 damage but you've got 30 AP which basically smokes most armor
 	damage_falloff_tile = -0.1 // less falloff/longer ranges, though
 	speed = 1.3 // you can have above average projectile speed. as a treat
+	wound_bonus = 5
+	exposed_wound_bonus = 10
 	// embeds staying untouched because i think they're evil and deserve to wreak havoc
 
 /obj/item/ammo_casing/shotgun/flechette/donk
@@ -180,6 +191,14 @@
 /obj/item/ammo_casing/shotgun/dart
 	ammo_categories = AMMO_CLASS_NICHE_LTL // technically.
 
+/obj/item/ammo_casing/shotgun/dart/piercing
+	name = "piercing shotgun dart"
+	desc = "A diamond-tipped piercing dart for use in shotguns, trading capacity for penetration. Can be injected with up to 5 units of any chemical."
+	icon_state = "pcshell"
+	projectile_type = /obj/projectile/bullet/dart/piercing
+	reagent_amount = 5
+	custom_materials = AMMO_MATS_SHOTGUN_PENDART
+
 /obj/item/ammo_casing/shotgun/dart/bioterror
 	can_be_printed = FALSE // PRELOADED WITH TERROR CHEMS MAYBE LET'S NOT
 
@@ -196,14 +215,15 @@
 		especially against the likes of vox."
 	icon_state = "magshell"
 	projectile_type = /obj/projectile/bullet/pellet/shotgun_buckshot/magnum
-	pellets = 6 // Half as many pellets for twice the damage each pellet, same overall damage as buckshot
+	pellets = 4 // Half as many pellets for twice the damage each pellet, same overall damage as buckshot
 	variance = 20
 	ammo_categories = AMMO_CLASS_SUPER
 
 /obj/projectile/bullet/pellet/shotgun_buckshot/magnum
 	name = "magnum blockshot"
 	damage = 10
-	exposed_wound_bonus = 10
+	exposed_wound_bonus = 5
+	wound_bonus = 5
 	armour_penetration = 5
 	weak_against_armour = FALSE
 
@@ -218,13 +238,14 @@
 	icon_state = "expshell"
 	projectile_type = /obj/projectile/bullet/pellet/shotgun_buckshot/express
 	ammo_categories = AMMO_CLASS_SUPER
-	pellets = 15 // 4 * 15 for 60 damage, with less spread then buckshot.
+	pellets = 10 // 3 * 10 for 30 damage, with less spread then buckshot.
 	variance = 12 // Slightly less spread then buckshot
 
 /obj/projectile/bullet/pellet/shotgun_buckshot/express
 	name = "express pellet"
-	damage = 4
+	damage = 3
 	wound_bonus = 0
+	exposed_wound_bonus = 20
 
 /obj/projectile/bullet/pellet/shotgun_buckshot/express/Initialize(mapload)
 	. = ..()
