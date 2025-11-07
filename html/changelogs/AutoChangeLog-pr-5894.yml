@@ -1,0 +1,6 @@
+author: "MintMetal"
+delete-after: True
+changes:
+  - map: "increased amount of sleepers on Port Tarkon to 10"
+  - map: "added more random rooms to Port Tarkon"
+  - map: "modified Port Tarkon"
