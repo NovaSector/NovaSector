@@ -151,10 +151,6 @@
 /datum/bodypart_overlay/mutant/tail/get_base_icon_state()
 	return "[wagging ? "wagging_" : ""][sprite_datum.icon_state]" //add the wagging tag if we be wagging
 
-// NOVA EDIT ADDITION - CUSTOMIZATION
-/datum/bodypart_overlay/mutant/tail/get_global_feature_list()
-	return SSaccessories.sprite_accessories[FEATURE_TAIL]
-// NOVA EDIT ADDITION END
 /datum/bodypart_overlay/mutant/tail/can_draw_on_bodypart(obj/item/bodypart/bodypart_owner)
 	return !(bodypart_owner.owner?.obscured_slots & HIDEJUMPSUIT)
 
@@ -223,7 +219,7 @@
 ///Alien tail bodypart overlay
 /datum/bodypart_overlay/mutant/tail/xeno
 	color_source = NONE
-	feature_key = FEATURE_TAIL_XENO
+	feature_key = FEATURE_TAIL // NOVA EDIT CHANGE - CUSTOMIZATION - ORIGINAL: feature_key = FEATURE_TAIL_XENO
 	imprint_on_next_insertion = FALSE
 	/// We don't want to bother writing this in DNA, just use this appearance
 	var/default_appearance = "Xeno"

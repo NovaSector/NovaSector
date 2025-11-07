@@ -839,7 +839,7 @@
 	flexible_mismatch = FALSE
 
 /datum/preference/choiced/mutant_choice/pod_hair/init_possible_values()
-	return assoc_to_keys_features(SSaccessories.feature_list[FEATURE_POD_HAIR])
+	return assoc_to_keys_features(SSaccessories.sprite_accessories[FEATURE_POD_HAIR])
 
 /datum/preference/choiced/mutant_choice/pod_hair/icon_for(value)
 	var/static/datum/universal_icon/pod_head

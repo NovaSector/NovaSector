@@ -103,8 +103,9 @@
 	var/burnt
 
 /datum/bodypart_overlay/mutant/wings/moth/New()
-	burn_datum = fetch_sprite_datum(burn_datum)
+	. = ..()
 
+	burn_datum = fetch_sprite_datum(burn_datum)
 /datum/bodypart_overlay/mutant/wings/moth/can_draw_on_bodypart(obj/item/bodypart/bodypart_owner)
 	return !(bodypart_owner.owner?.obscured_slots & HIDEMUTWINGS) && ..() // NOVA EDIT CHANGE - ORIGINAL: return !(bodypart_owner.owner?.obscured_slots & HIDEMUTWINGS)
 

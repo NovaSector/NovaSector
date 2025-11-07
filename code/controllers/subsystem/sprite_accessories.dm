@@ -147,6 +147,10 @@ SUBSYSTEM_DEF(accessories) // just 'accessories' for brevity
 
 	for(var/path in subtypesof(prototype))
 		var/datum/sprite_accessory/accessory = new path
+		// NOVA EDIT ADDITION START - Don't put organizational types (e.g. sprite_accessory/ears/big) in the list
+		if(!accessory.name)
+			continue
+		// NOVA EDIT ADDITION END
 
 		if(accessory.icon_state)
 			returnable_list[DEFAULT_SPRITE_LIST][accessory.name] = accessory
