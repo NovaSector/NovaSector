@@ -156,10 +156,10 @@ SUBSYSTEM_DEF(shuttle)
 	while(length(pack_processing))
 		var/datum/supply_pack/pack = pack_processing[length(pack_processing)]
 		pack_processing.len--
-		//NOVA EDIT START
+		// NOVA EDIT ADDITION START
 		if(pack == /datum/supply_pack/armament)
 			continue
-		//NOVA EDIT END
+		// NOVA EDIT ADDITION END
 		if(ispath(pack, /datum/supply_pack))
 			pack = new pack
 
@@ -465,10 +465,9 @@ SUBSYSTEM_DEF(shuttle)
 			if(emergency.timeLeft(1) < emergency_call_time)
 				return
 		if(SEC_LEVEL_BLUE)
-			//if(emergency.timeLeft(1) < emergency_call_time * 0.5) ORIGINAL
-			if(emergency.timeLeft(1) < emergency_call_time * 0.6) //NOVA EDIT CHANGE - ALERTS
+			if(emergency.timeLeft(1) < emergency_call_time * 0.6) // NOVA EDIT CHANGE - ALERTS - ORIGINAL: if(emergency.timeLeft(1) < emergency_call_time * 0.5)
 				return
-		//NOVA EDIT ADDITION BEGIN - ALERTS
+		// NOVA EDIT ADDITION BEGIN - ALERTS
 		if(SEC_LEVEL_ORANGE)
 			if(emergency.timeLeft(1) < emergency_call_time * 0.4)
 				return
@@ -478,7 +477,7 @@ SUBSYSTEM_DEF(shuttle)
 		if(SEC_LEVEL_AMBER)
 			if(emergency.timeLeft(1) < emergency_call_time * 0.4)
 				return
-		//NOVA EDIT ADDITION END
+		// NOVA EDIT ADDITION END
 		else
 			if(emergency.timeLeft(1) < emergency_call_time * 0.25)
 				return
@@ -568,7 +567,7 @@ SUBSYSTEM_DEF(shuttle)
 		priority_announce(
 			text = "You have [DisplayTimeText(emergency_dock_time)] to board the emergency shuttle.",
 			title = "Hostile Environment Resolved",
-			sound = 'sound/announcer/announcement/announce_dig.ogg',
+			sound = ANNOUNCER_SHUTTLE, // NOVA EDIT CHANGE - Announcer Sounds - ORIGINAL: sound = 'sound/announcer/announcement/announce_dig.ogg',
 			sender_override = "Emergency Shuttle Uplink Alert",
 			color_override = "green",
 		)

@@ -1,11 +1,9 @@
 /datum/sprite_accessory/fluff/moth
 	icon = 'modular_nova/master_files/icons/mob/sprite_accessory/moth_fluff.dmi'
 	default_color = "#FFFFFF"
-	key = "fluff"
-	generic = "Fluff"
+	key = FEATURE_FLUFF
 	recommended_species = list(SPECIES_MOTH, SPECIES_MAMMAL, SPECIES_INSECT)
 	relevent_layers = list(BODY_ADJ_LAYER, BODY_FRONT_LAYER)
-	genetic = TRUE
 	organ_type = /obj/item/organ/fluff
 
 /datum/sprite_accessory/fluff/moth/none
