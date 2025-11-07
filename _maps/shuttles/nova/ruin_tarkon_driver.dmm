@@ -340,9 +340,6 @@
 /turf/open/floor/mineral/titanium,
 /area/shuttle/tarkon_driver)
 "Pn" = (
-/obj/machinery/power/smes/engineering{
-	input_level = 5000
-	},
 /obj/machinery/power/smes/tarkon_driver,
 /turf/open/floor/mineral/titanium,
 /area/shuttle/tarkon_driver)

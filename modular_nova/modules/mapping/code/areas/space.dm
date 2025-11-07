@@ -156,12 +156,20 @@
 	name = "P-T Sauna"
 	icon_state = "dorms"
 
+/area/ruin/space/has_grav/port_tarkon/lockerroom
+	name = "P-T Locker Storage"
+	icon_state = "dorms"
+
 /area/ruin/space/has_grav/port_tarkon/lounge
 	name = "P-T Bar Lounge"
 	icon_state = "bar"
 
 /area/ruin/space/has_grav/port_tarkon/engineering
-	name = "P-T Engineering Center"
+	name = "P-T Project Room"
+	icon_state = "engie"
+
+/area/ruin/space/has_grav/port_tarkon/backuppower
+	name = "P-T Backup Power Storage"
 	icon_state = "engie"
 
 /area/ruin/space/has_grav/port_tarkon/park
