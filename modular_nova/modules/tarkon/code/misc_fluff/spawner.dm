@@ -14,7 +14,7 @@
 	loadout_enabled = TRUE
 	quirks_enabled = TRUE
 	random_appearance = FALSE
-	computer_area = /area/ruin/space/has_grav/port_tarkon
+	computer_area = /area/ruin/space/has_grav/port_tarkon/forehall
 
 /datum/outfit/tarkon
 	name = "default port tarkon outfit"
@@ -58,6 +58,12 @@
 				back = messenger //faction messenger bag
 			if(DDUFFELBAG)
 				back = duffelbag //faction duffel bag
+			if (TPACKB)
+				return /obj/item/storage/backpack/tinypakb //tiny packs, because they kinda drippin
+			if (TPACKA)
+				return /obj/item/storage/backpack/tinypaka
+			if (TPACKC)
+				return /obj/item/storage/backpack/tinypakc //No guncase option bc ????engineering company????
 			else
 				back = backpack //faction backpack fallback incase bag pref shits bed
 
