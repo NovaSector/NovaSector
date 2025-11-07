@@ -171,6 +171,12 @@
 	<br> Well- That asside, we did get some new updated circuit boards. Industry standard gave us two sets of research constructor boards for redundancy, ,\
 	So we set the spare set in the special safe within the comms room."
 
+/obj/item/paper/fluff/ruins/tarkon/cargostore
+	name = "paper - 'Cargo Storage Room Notice'"
+	default_raw_text = "Some contracted salvagers found some interesting crates and needed to store them for a short while. ,\
+	I know we planned on making the room into our delivery room for the new express console system, however engineering have yet to complete the full-sized warehouse next to us for full storage capabilities. ,\
+	Also, Reminder to keep the express console usage only to cases where the cargo ship is out. We need to work on a reinforced light system so we dont need to replace the bulb after every launch."
+
 /obj/item/blueprints/tarkon
 	desc = "Blueprints of the Tarkon surface breaching drill and several Tarkon base designs. Red, stamped text reads \"Confidential\" on the backside of it."
 	name = "Tarkon Design Prints"
