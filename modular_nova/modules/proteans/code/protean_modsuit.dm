@@ -395,11 +395,15 @@
 					qdel(our_storage) // Delete the old protean storage (it's ours, we can delete it)
 					our_storage = null
 					cached_storage = incoming_storage_module // Cache it so we can return it later!
+					// CRITICAL: Uninstall from old suit FIRST to clean up signals and mod reference
+					// Then continue below to install the bigger storage into our suit
+					to_assimilate.uninstall(module)
 					// Let it continue below to install the bigger storage
 				else
 					// Our storage is bigger or equal, so keep it and cache theirs for return
 					to_chat(user, span_notice("Keeping your [our_storage], caching incoming [module] for return."))
-					to_assimilate.modules -= module
+					// CRITICAL: Uninstall from old suit FIRST to clean up signals and mod reference
+					to_assimilate.uninstall(module)
 					module.mod = null
 					cached_storage = module // Cache it to return when unassimilating!
 					continue
