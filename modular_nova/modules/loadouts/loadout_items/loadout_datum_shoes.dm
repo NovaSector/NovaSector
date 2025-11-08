@@ -276,13 +276,13 @@
 /datum/loadout_item/shoes/clown_shoes/pink_heels
 	name = "Pink Clown Heels"
 	item_path = /obj/item/clothing/shoes/clown_shoes/pink/heels
-	restricted_roles = list(JOB_CLOWN)
 
 /datum/loadout_item/shoes/clown_shoes/pink_heels_mute
 	name = "Pink Clown Heels (Squeakless)"
 	item_path = /obj/item/clothing/shoes/pink_clown_heels
+	restricted_roles = null
 
-/datum/loadout_item/shoes/clown_shoes/pink/heels/mute/get_item_information()
+/datum/loadout_item/shoes/clown_shoes/pink_heels_mute/get_item_information()
 	. = ..()
 	.[FA_ICON_VOLUME_MUTE] = "No Clown Effects"
 
