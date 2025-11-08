@@ -7066,6 +7066,7 @@
 #include "modular_nova\master_files\code\modules\assembly\flash.dm"
 #include "modular_nova\master_files\code\modules\asset_cache\assets\plumbing.dm"
 #include "modular_nova\master_files\code\modules\atmospherics\gasmixtures\gas_types.dm"
+#include "modular_nova\master_files\code\modules\atmospherics\machinery\pipes\pipes.dm"
 #include "modular_nova\master_files\code\modules\atmospherics\portable\canister.dm"
 #include "modular_nova\master_files\code\modules\awaymissions\zlevel.dm"
 #include "modular_nova\master_files\code\modules\bitrunning\orders\disks.dm"
