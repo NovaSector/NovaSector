@@ -642,6 +642,7 @@
 /obj/item/pen/survival,
 /obj/structure/noticeboard/directional/west,
 /obj/item/paper/fluff/ruins/tarkon/cargosafe,
+/obj/item/paper/fluff/ruins/tarkon/cargostore,
 /turf/open/floor/iron,
 /area/ruin/space/has_grav/port_tarkon/cargo)
 "cS" = (
@@ -1083,6 +1084,8 @@
 /obj/item/reagent_containers/cup/beaker/large,
 /obj/item/reagent_containers/cup/beaker/large,
 /obj/machinery/light/directional/north,
+/obj/item/reagent_containers/cup/beaker/meta,
+/obj/item/reagent_containers/cup/beaker/meta,
 /turf/open/floor/iron/white,
 /area/ruin/space/has_grav/port_tarkon/trauma)
 "eP" = (
@@ -1829,6 +1832,9 @@
 /obj/structure/safe/floor/tarkon,
 /obj/item/blueprints/tarkon,
 /obj/item/circuitboard/machine/bluespace_miner,
+/obj/item/flatpacked_machine/ore_thumper,
+/obj/item/flatpacked_machine/ore_thumper,
+/obj/item/flatpacked_machine/ore_thumper,
 /turf/open/floor/iron,
 /area/ruin/space/has_grav/port_tarkon/power1)
 "hZ" = (
@@ -3727,6 +3733,7 @@
 /obj/structure/noticeboard/directional/north,
 /obj/item/paper/fluff/ruins/tarkon/sop,
 /obj/item/paper/fluff/ruins/tarkon/detain,
+/obj/item/paper/fluff/ruins/tarkon/secsafe,
 /turf/open/floor/iron,
 /area/ruin/space/has_grav/port_tarkon/secoff)
 "pV" = (
@@ -7208,6 +7215,7 @@
 /obj/item/storage/bag/ore,
 /obj/item/storage/belt/mining,
 /obj/effect/turf_decal/tile/brown/anticorner,
+/obj/item/gun/energy/recharge/kinetic_accelerator,
 /turf/open/floor/iron,
 /area/ruin/space/has_grav/port_tarkon/mining)
 "Fx" = (
@@ -8277,10 +8285,6 @@
 	dir = 4
 	},
 /obj/structure/table/reinforced,
-/obj/item/paper{
-	default_raw_text = "There was a few shipping crates that were left unchecked. Ive emptied out the boxes they held here. Hopefully you can get them where they have to go. Under no circumstances are you to open these orders. Last thing we need is to be seen as picking sides in this conflict.";
-	name = "Shipping Report - OVERDUE"
-	},
 /obj/item/stack/spacecash/c200{
 	pixel_y = 14
 	},
@@ -10130,6 +10134,8 @@
 /obj/machinery/atmospherics/components/unary/vent_pump/on/layer4{
 	dir = 4
 	},
+/obj/item/paper/fluff/ruins/tarkon/safenote,
+/obj/structure/noticeboard/directional/west,
 /turf/open/floor/iron,
 /area/ruin/space/has_grav/port_tarkon/centerhall)
 "RD" = (
