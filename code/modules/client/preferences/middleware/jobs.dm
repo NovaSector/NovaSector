@@ -167,13 +167,12 @@
 	if (cached_unavailable_jobs[species_id])
 		return cached_unavailable_jobs[species_id]
 
-	// Build the list once
+	// Build the full list once and remember for future runs
 	var/list/unavailable = list()
 	for (var/datum/job/job as anything in SSjob.all_occupations)
 		if (job.has_banned_species(preferences, species_id))
 			unavailable += job.title
 
-	// Store in cache and return
 	cached_unavailable_jobs[species_id] = unavailable
 	return unavailable
 //NOVA EDIT ADDITION END
