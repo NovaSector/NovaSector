@@ -178,9 +178,9 @@
 	*/ // NOVA EDIT REMOVAL END
 	// NOVA EDIT ADDITION START
 	if(wings_open)
-		return SSaccessories.sprite_accessories["wings_open"]
+		return SSaccessories.sprite_accessories[FEATURE_WINGS_OPEN]
 
-	return SSaccessories.sprite_accessories["wings"]
+	return SSaccessories.sprite_accessories[FEATURE_WINGS]
 	// NOVA EDIT ADDITION END
 
 ///Update our wingsprite to the open wings variant

@@ -65,7 +65,7 @@
 /obj/effect/mob_spawn/create(mob/mob_possessor, newname, use_loadout = FALSE)
 	var/mob/living/spawned_mob = new mob_type(get_turf(src)) //living mobs only
 	name_mob(spawned_mob, newname)
-	special(spawned_mob, mob_possessor)
+	special(spawned_mob, mob_possessor, use_loadout)
 	// Only run equip logic if this is NOT a ghost_role spawner, as we already solve equip with loadout there.
 	if (!use_loadout)
 		equip(spawned_mob)
@@ -80,8 +80,8 @@
 	apply_job_traits(new_spawn) // for things in after_spawn e.g. liver traits
 	return
 
-/obj/effect/mob_spawn/ghost_role/human/special(mob/living/spawned_mob, mob/mob_possessor)
-	. = ..()
+/obj/effect/mob_spawn/ghost_role/human/special(mob/living/spawned_mob, mob/mob_possessor, use_loadout)
+	. = ..(spawned_mob, mob_possessor, use_loadout)
 	var/mob/living/carbon/human/spawned_human = spawned_mob
 	var/datum/job/spawned_job = SSjob.get_job_type(spawner_job_path)
 	spawned_human.job = spawned_job.title

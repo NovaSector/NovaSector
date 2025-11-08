@@ -69,6 +69,7 @@ GLOBAL_LIST_EMPTY(customizable_races)
 
 /datum/species/human/felinid
 	mutant_bodyparts = list()
+	mutant_organs = list()
 
 /datum/species/human/felinid/get_default_mutant_bodyparts()
 	return list(
@@ -90,7 +91,6 @@ GLOBAL_LIST_EMPTY(customizable_races)
 	return to_add
 
 /datum/species/human
-	mutant_bodyparts = list()
 	digitigrade_customization = DIGITIGRADE_OPTIONAL
 	mutant_bodyparts = list("legs" = "Normal Legs")
 
@@ -104,6 +104,7 @@ GLOBAL_LIST_EMPTY(customizable_races)
 
 /datum/species/mush
 	mutant_bodyparts = list()
+	mutant_organs = list()
 
 /datum/species/human/vampire
 	mutant_bodyparts = list()

@@ -349,6 +349,11 @@
 	item_path = /obj/item/clothing/under/costume/yukata/white
 	group = "Costumes"
 
+/datum/loadout_item/under/miscellaneous/chima_jeogori
+	name = "Chima Jeogori"
+	item_path = /obj/item/clothing/under/costume/nova/chima_jeogori
+	group = "Costumes"
+
 /*
 *	SPECIES-UNIQUE
 */
