@@ -833,8 +833,6 @@ GLOBAL_DATUM_INIT(dview_mob, /mob/dview, new)
 
 ///Makes a call in the context of a different usr. Use sparingly
 /world/proc/push_usr(mob/user_mob, datum/callback/invoked_callback, ...)
-	if(invoked_callback?.object == src)
-		CRASH("push_usr recursive self-call detected")
 	var/temp = usr
 	usr = user_mob
 	if (length(args) > 2)
