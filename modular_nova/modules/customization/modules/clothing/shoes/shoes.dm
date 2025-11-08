@@ -181,15 +181,19 @@
 	icon_state = "pink_clown_heels"
 	inhand_icon_state = null
 
-// No squeak version
+// No clown squeak version
 /obj/item/clothing/shoes/pink_clown_heels
 	name = "pink clown heels"
-	desc = "A particularly quiet pink pair of punny heels."
+	desc = "A particularly pink pair of heels."
 	icon = MODULAR_SHOES_ICON
 	worn_icon = MODULAR_SHOES_WORN_ICON
 	worn_icon_digi = 'modular_nova/master_files/icons/mob/clothing/feet_digi.dmi'
 	icon_state = "pink_clown_heels"
 	inhand_icon_state = null
+
+/obj/item/clothing/shoes/pink_clown_heels/Initialize(mapload)
+	. = ..()
+	AddComponent(/datum/component/squeak, list('modular_nova/master_files/sound/effects/heel1.ogg' = 1, 'modular_nova/master_files/sound/effects/heel2.ogg' = 1), 50)
 
 /obj/item/clothing/shoes/colorable_laceups
 	name = "laceup shoes"

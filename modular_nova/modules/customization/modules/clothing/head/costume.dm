@@ -6,14 +6,8 @@
 
 /obj/item/clothing/head/costume/nova/maid
 	name = "maid headband"
-	desc = "Maid in China."
+	desc = "Maid for you."
 	icon_state = "maid"
-
-/obj/item/clothing/head/costume/nova/pink_clown_wig
-	name = "pink clown wig"
-	desc = "A cotton candy pink wig. Comes with a round, glossy red clown nose that fastens snugly to the face."
-	icon_state = "pink_clown_wig"
-	flags_inv = HIDEHAIR
 
 /obj/item/clothing/head/costume/nova/papakha
 	name = "papakha"

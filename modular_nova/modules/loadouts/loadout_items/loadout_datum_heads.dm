@@ -494,7 +494,7 @@
 
 /datum/loadout_item/head/pink_clown_wig
 	name = "Pink Clown Wig"
-	item_path = /obj/item/clothing/head/costume/nova/pink_clown_wig
+	item_path = /obj/item/clothing/mask/gas/pink_clown_wig
 
 //Christmas
 /datum/loadout_item/head/christmas
