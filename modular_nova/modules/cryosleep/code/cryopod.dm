@@ -31,7 +31,6 @@ GLOBAL_LIST_EMPTY(valid_cryopods)
 	verb_ask = "queries"
 	verb_exclaim = "alarms"
 
-	/// NOVA MODULE EDIT: CONNECTING_COMPUTER
 	connectable = FALSE
 
 	/// Used for logging people entering cryosleep and important items they are carrying.
