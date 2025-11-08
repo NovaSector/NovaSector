@@ -174,3 +174,14 @@
 	desc = "A fancy beret designed by NT's Personnel division for their favorite head's head. This one is made out of white fabric. Fancy"
 	icon_state = "/obj/item/clothing/head/hopcap/beret/alt"
 	greyscale_colors = "#FFFFFF#88242D"
+
+/obj/item/clothing/head/beret/clown
+	name = "\improper H.O.N.K tactical beret"
+	desc = "A tactical berret to be used during the enacting of the most dangerous of pranks."
+	icon = 'modular_nova/master_files/icons/obj/clothing/head/costume.dmi'
+	worn_icon = 'modular_nova/master_files/icons/mob/clothing/head/costume.dmi'
+	icon_state = "beret_clown"
+	post_init_icon_state = null
+	greyscale_colors = null
+	greyscale_config = null
+	greyscale_config_worn = null

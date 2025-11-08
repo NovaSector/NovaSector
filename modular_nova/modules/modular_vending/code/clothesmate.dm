@@ -131,6 +131,7 @@
 				/obj/item/clothing/suit/modernwintercoatthing = 5,
 				/obj/item/clothing/suit/hooded/wintercoat/colourable = 5,
 				/obj/item/clothing/suit/apron/chef/colorable_apron = 5,
+				/obj/item/clothing/suit/suit_harness = 5,
 				/obj/item/clothing/suit/warm_coat = 5,
 				/obj/item/clothing/suit/warm_sweater = 5,
 				/obj/item/clothing/suit/heart_sweater = 5,

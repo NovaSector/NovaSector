@@ -327,6 +327,18 @@
 		/obj/item/t_scanner,
 	)
 
+/obj/item/clothing/suit/suit_harness
+	name = "suit harness"
+	desc = "A near-concealed harness meant for going over uniforms. Or lack thereof."
+	icon = 'modular_nova/master_files/icons/obj/clothing/suits.dmi'
+	icon_state = "suit_harness"
+	worn_icon = 'modular_nova/master_files/icons/mob/clothing/suit.dmi'
+	worn_icon_state = "suit_harness"
+	inhand_icon_state = null
+	body_parts_covered = NONE
+	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION_NO_NEW_ICON
+	attachment_slot_override = CHEST
+
 /obj/item/clothing/suit/warm_sweater
 	name = "warm sweater"
 	desc = "A comfortable warm-looking sweater."

@@ -495,6 +495,10 @@
 	item_path = /obj/item/clothing/suit/apron/chef/colorable_apron
 	group = "Workwear"
 
+/datum/loadout_item/suit/suit_harness
+	name = "Suit Harness"
+	item_path = /obj/item/clothing/suit/suit_harness
+
 /datum/loadout_item/suit/frontierjacket/short/medical
 	name = "Frontier Jacket - Medical (Short)"
 	item_path = /obj/item/clothing/suit/jacket/frontier_colonist/medical

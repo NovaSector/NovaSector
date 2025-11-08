@@ -111,6 +111,10 @@
 	name = "Beret - Virologist"
 	item_path = /obj/item/clothing/head/beret/medical/virologist
 
+/datum/loadout_item/head/beret_clown
+	name = "Beret - Clown"
+	item_path = /obj/item/clothing/head/beret/clown
+
 /*
 *	CAPS
 */
@@ -487,6 +491,10 @@
 /datum/loadout_item/head/maidhead2/get_item_information()
 	. = ..()
 	.[FA_ICON_EAR_DEAF] = "Behind Ears"
+
+/datum/loadout_item/head/pink_clown_wig
+	name = "Pink Clown Wig"
+	item_path = /obj/item/clothing/head/costume/nova/pink_clown_wig
 
 //Christmas
 /datum/loadout_item/head/christmas
