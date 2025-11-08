@@ -382,11 +382,22 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/machinery/computer/cryopod, 32)
 		if(current_highpriest?.resolve() == mob_occupant)
 			reset_religion()
 
+	// NOVA MODULE EDIT: PLEXAGON_SELFSERVE
+	var/obj/item/card/id/auth_card = mob_occupant.get_idcard()
+	var/off_duty_component = auth_card?.GetComponent(/datum/component/off_duty_timer)
+	var/datum/id_trim/job/plexagon_selfserve_target_trim = /datum/computer_file/program/crew_self_serve::target_trim
 	// Delete them from datacore and ghost records.
 	var/announce_rank = null
 	// It is possible to join round from ghost cafe without leaving it. So we prioritize general manifest first to avoid ghost roles announcements IC.
 	for(var/datum/record/crew/possible_target_record as anything in GLOB.manifest.general)
 		if(possible_target_record.name == occupant_name && (occupant_rank == "N/A" || possible_target_record.trim == occupant_rank))
+			announce_rank = possible_target_record.rank
+			qdel(possible_target_record)
+			break
+
+		// NOVA MODULE EDIT: PLEXAGON_SELFSERVE
+		// Off-duty crew manifest changed to Assistant trim and assignment. It doesn't work for off-duties without ID, but oh well.
+		else if(off_duty_component && possible_target_record.name == occupant_name && possible_target_record.trim == plexagon_selfserve_target_trim.assignment)
 			announce_rank = possible_target_record.rank
 			qdel(possible_target_record)
 			break
