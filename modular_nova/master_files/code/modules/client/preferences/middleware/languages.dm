@@ -70,7 +70,7 @@
 
 	for (var/language_path, language_instance in GLOB.language_datum_instances)
 		var/datum/language/language = language_instance
-		if(language.secret && isnull(species.language_prefs_whitelist) || isnull(species.language_prefs_whitelist[language.type])) // For ghostrole species who are able to speak a secret language, e.g. ashwalkers, display it.
+		if(language.secret && (isnull(species.language_prefs_whitelist) || isnull(species.language_prefs_whitelist[language_path]))) // For ghostrole species who are able to speak a secret language, e.g. ashwalkers, display it.
 			continue
 
 		if(species.always_customizable && !(language.type in lang_holder.spoken_languages)) // For the ghostrole species. We don't want ashwalkers speaking beachtongue now.
