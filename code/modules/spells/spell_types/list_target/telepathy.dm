@@ -43,7 +43,7 @@
 	var/failure_message_for_ghosts = ""
 
 	to_chat(owner, "<span class='[bold_telepathy_span]'>You transmit to [cast_on]:</span> [formatted_message]")
-	if(!cast_on.can_block_magic(antimagic_flags, charge_cost = 0)) //hear no evil
+	if(!cast_on.can_block_magic(antimagic_flags, charge_cost = 0) && !(HAS_TRAIT(cast_on, TRAIT_PSIONIC_DAMPENER))) // NOVA EDIT CHANGE - ORIGINAL: if(!cast_on.can_block_magic(antimagic_flags, charge_cost = 0)) //hear no evil
 		cast_on.balloon_alert(cast_on, "you hear a voice")
 		to_chat(cast_on, "<span class='[bold_telepathy_span]'>You hear a voice in your head...</span> [formatted_message]")
 	else

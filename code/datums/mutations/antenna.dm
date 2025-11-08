@@ -98,6 +98,13 @@
 			you are stopped by a mental blockage. It seems you've been foiled."))
 		return
 
+	//NOVA EDIT ADDITION START -  Telepathy Block Quirk
+	if(HAS_TRAIT(cast_on, TRAIT_PSIONIC_DAMPENER))
+		to_chat(owner, span_warning("As you reach into [cast_on]'s mind, \
+			you are stopped by a mental blockage."))
+		return
+	//NOVA EDIT ADDITION END
+
 	if(cast_on == owner)
 		to_chat(owner, span_warning("You plunge into your mind... Yep, it's your mind."))
 		return
