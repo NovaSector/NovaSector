@@ -229,6 +229,10 @@
   - bugfix: fixes an issue where shibari ropes literally tie up game resources and
       prevent them from being released
 2025-11-08:
+  Archemagus:
+  - bugfix: Cryopod console will no longer connect to nearby on wall computers
+  - bugfix: Time clock modular computers will not either
+  - code_imp: Added connectable var for modular PC for CONNECTING_COMPUTER module
   Hatterhat:
   - rscadd: The designs for 10mm "downer" ammunition, specifically for incapacitating
       and not killing living targets, are now being flashed onto advanced lethal variant
@@ -251,6 +255,13 @@
   - map: modified Port Tarkon
   RealWinterFrost:
   - qol: Ghost Cafe photocopier no longer runs out of toner
+  Stalkeros, Hollandaise for the sprites:
+  - qol: Food replicator, -the 'Colonial Supply Core'-, that was previously used by
+      something you might have heard of as the "NRI", has been reflavored into a piece
+      of tech, called 'Pioneer-Class Matter Resequencer' and utilised by then-colonists
+      of the Heliostatic Coalition.
+  - image: Food replicator has been also resprited.
+  - rscadd: Added a new Korean traditional dress, chima jeogori
   Yobrocharlie:
   - map: Reworked the heretic gateway to be good and not terrible.
   wivernshy:

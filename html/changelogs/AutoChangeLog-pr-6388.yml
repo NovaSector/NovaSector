@@ -1,6 +1,0 @@
-author: "Archemagus"
-delete-after: True
-changes:
-  - bugfix: "Cryopod console will no longer connect to nearby on wall computers"
-  - bugfix: "Time clock modular computers will not either"
-  - code_imp: "Added connectable var for modular PC for CONNECTING_COMPUTER module"
