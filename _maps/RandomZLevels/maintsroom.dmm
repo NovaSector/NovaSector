@@ -12154,7 +12154,6 @@
 "Pb" = (
 /obj/structure/table/wood,
 /obj/item/reagent_containers/cup/glass/mug/coco,
-/obj/item/borg/sight/meson,
 /turf/open/floor/wood,
 /area/awaymission/caves/maintsroom)
 "Pc" = (
@@ -32279,7 +32278,7 @@ jf
 GS
 GS
 GS
-uG
+lT
 uG
 uG
 Kf
