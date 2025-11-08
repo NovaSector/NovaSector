@@ -74,6 +74,11 @@
 /area/ruin/space/has_grav/port_tarkon/cargo)
 "al" = (
 /obj/machinery/firealarm/directional/east,
+/obj/structure/safe/floor/tarkon,
+/obj/item/circuitboard/machine/rdserver/tarkon,
+/obj/item/circuitboard/computer/tarkon_driver,
+/obj/item/circuitboard/machine/protolathe/tarkon,
+/obj/item/circuitboard/machine/circuit_imprinter,
 /turf/open/floor/iron/dark/smooth_large,
 /area/ruin/space/has_grav/port_tarkon/apartment)
 "an" = (
@@ -752,6 +757,9 @@
 /obj/effect/turf_decal/tile/blue/anticorner{
 	dir = 4
 	},
+/obj/structure/safe/floor/tarkon,
+/obj/item/card/id/away/tarkonrobo,
+/obj/item/shuttle_remote/tarkon,
 /turf/open/floor/iron/dark,
 /area/ruin/space/has_grav/port_tarkon/comms)
 "dq" = (
@@ -1028,11 +1036,6 @@
 /obj/effect/turf_decal/tile/blue/half{
 	dir = 4
 	},
-/obj/structure/safe/floor,
-/obj/item/circuitboard/machine/circuit_imprinter,
-/obj/item/circuitboard/machine/protolathe/tarkon,
-/obj/item/circuitboard/computer/tarkon_driver,
-/obj/item/circuitboard/machine/rdserver/tarkon,
 /obj/machinery/light/directional/east,
 /turf/open/floor/iron/dark,
 /area/ruin/space/has_grav/port_tarkon/comms)
@@ -1110,12 +1113,6 @@
 	},
 /turf/open/floor/iron,
 /area/ruin/space/has_grav/port_tarkon/centerhall)
-"eT" = (
-/obj/structure/safe/floor,
-/obj/item/gun/ballistic/shotgun/doublebarrel,
-/obj/item/crafting_conversion_kit/mosin_pro,
-/turf/open/floor/iron,
-/area/ruin/space/has_grav/port_tarkon/secoff)
 "eU" = (
 /obj/machinery/light/directional/east,
 /obj/effect/turf_decal/tile/brown/half{
@@ -1123,18 +1120,6 @@
 	},
 /turf/open/floor/iron,
 /area/ruin/space/has_grav/port_tarkon/storage)
-"eV" = (
-/obj/effect/turf_decal/tile/yellow/half{
-	dir = 1
-	},
-/obj/structure/safe/floor,
-/obj/item/flatpacked_machine/ore_thumper,
-/obj/item/flatpacked_machine/ore_thumper,
-/obj/item/flatpacked_machine/ore_thumper,
-/obj/item/flatpacked_machine/ore_thumper,
-/obj/item/pipe_dispenser/bluespace,
-/turf/open/floor/iron,
-/area/ruin/space/has_grav/port_tarkon/atmos)
 "eW" = (
 /obj/structure/flora/tree/jungle/small/style_random,
 /turf/open/floor/grass,
@@ -1242,12 +1227,6 @@
 	},
 /turf/open/floor/iron/white,
 /area/ruin/space/has_grav/port_tarkon/trauma)
-"ft" = (
-/obj/structure/safe/floor,
-/obj/item/book/granter/crafting_recipe/donk_secret_recipe,
-/obj/effect/turf_decal/tile/bar/opposingcorners,
-/turf/open/floor/iron/dark,
-/area/ruin/space/has_grav/port_tarkon/kitchen)
 "fu" = (
 /obj/machinery/atmospherics/components/unary/vent_pump/on/layer4{
 	dir = 8
@@ -1255,15 +1234,6 @@
 /obj/effect/turf_decal/tile/bar/opposingcorners,
 /turf/open/floor/iron/dark,
 /area/ruin/space/has_grav/port_tarkon/kitchen)
-"fx" = (
-/obj/structure/safe/floor,
-/obj/item/mod/module/medbeam,
-/obj/item/reagent_containers/cup/beaker/bluespace,
-/obj/item/reagent_containers/cup/beaker/meta,
-/obj/item/reagent_containers/cup/beaker/meta,
-/obj/item/reagent_containers/cup/beaker/meta,
-/turf/open/floor/iron/white,
-/area/ruin/space/has_grav/port_tarkon/trauma)
 "fy" = (
 /obj/structure/spawner/tarkon_xenos/common,
 /turf/open/floor/plating,
@@ -1856,7 +1826,7 @@
 /turf/open/misc/asteroid/airless,
 /area/ruin/space/has_grav)
 "hX" = (
-/obj/structure/safe/floor,
+/obj/structure/safe/floor/tarkon,
 /obj/item/blueprints/tarkon,
 /obj/item/circuitboard/machine/bluespace_miner,
 /turf/open/floor/iron,
@@ -5121,6 +5091,9 @@
 /obj/effect/turf_decal/tile/dark_red/half,
 /obj/machinery/airalarm/directional/south,
 /obj/effect/mapping_helpers/airalarm/all_access,
+/obj/structure/safe/floor/tarkon,
+/obj/item/crafting_conversion_kit/mosin_pro,
+/obj/item/gun/ballistic/shotgun/doublebarrel,
 /turf/open/floor/iron,
 /area/ruin/space/has_grav/port_tarkon/secoff)
 "wg" = (
@@ -6059,20 +6032,6 @@
 /obj/machinery/light_switch/directional/north,
 /turf/open/floor/plating,
 /area/ruin/space/has_grav/port_tarkon/engineering)
-"Ai" = (
-/obj/effect/turf_decal/tile/purple/half{
-	dir = 1
-	},
-/obj/structure/safe/floor,
-/obj/item/stack/sheet/mineral/diamond{
-	amount = 10
-	},
-/obj/item/stack/sheet/bluespace_crystal{
-	amount = 5
-	},
-/obj/item/mod/module/jetpack/advanced,
-/turf/open/floor/iron/dark,
-/area/ruin/space/has_grav/port_tarkon/developement)
 "Al" = (
 /obj/effect/turf_decal/trimline/blue/filled/warning{
 	dir = 1
@@ -8212,15 +8171,6 @@
 /obj/structure/marker_beacon/burgundy,
 /turf/open/misc/asteroid,
 /area/ruin/space/has_grav)
-"Jv" = (
-/obj/effect/turf_decal/tile/brown/half{
-	dir = 8
-	},
-/obj/structure/safe/floor,
-/obj/item/gun/energy/recharge/kinetic_accelerator,
-/obj/item/gun/energy/recharge/kinetic_accelerator/variant/shotgun,
-/turf/open/floor/iron,
-/area/ruin/space/has_grav/port_tarkon/mining)
 "Jw" = (
 /obj/effect/turf_decal/tile/bar/opposingcorners,
 /turf/open/floor/iron/dark,
@@ -9115,7 +9065,7 @@
 /obj/item/stack/spacecash/c10000,
 /obj/item/stack/spacecash/c10000,
 /obj/item/stack/spacecash/c10000,
-/obj/structure/safe/floor,
+/obj/structure/safe/floor/tarkon,
 /obj/item/stack/spacecash/c10000,
 /turf/open/floor/iron,
 /area/ruin/space/has_grav/port_tarkon/storage)
@@ -11752,12 +11702,15 @@
 /turf/open/floor/engine/o2,
 /area/ruin/space/has_grav/port_tarkon/atmos)
 "Yq" = (
-/obj/item/tape/ruins/tarkon/celebration,
-/obj/structure/safe/floor,
-/obj/item/reagent_containers/cup/glass/bottle/absinthe/premium,
-/obj/item/market_uplink/blackmarket,
-/turf/open/floor/iron/dark/smooth_large,
-/area/ruin/space/has_grav/port_tarkon/apartment)
+/obj/item/stack/sheet/bluespace_crystal{
+	amount = 5
+	},
+/obj/item/stack/sheet/mineral/diamond{
+	amount = 10
+	},
+/obj/structure/safe/floor/tarkon,
+/turf/open/floor/iron/dark,
+/area/ruin/space/has_grav/port_tarkon/developement)
 "Yr" = (
 /obj/structure/cable,
 /obj/effect/mapping_helpers/airlock/cyclelink_helper{
@@ -14933,7 +14886,7 @@ pM
 tW
 NV
 Lq
-yW
+Yq
 oI
 wt
 JH
@@ -15120,7 +15073,7 @@ Lq
 yW
 JY
 mZ
-Ai
+EW
 nG
 yW
 yW
@@ -15223,7 +15176,7 @@ vM
 Er
 kP
 ms
-eV
+DR
 tu
 tU
 kB
@@ -15376,7 +15329,7 @@ fR
 Fu
 LO
 XR
-fx
+QV
 Zg
 PY
 Es
@@ -17164,7 +17117,7 @@ fd
 lX
 iP
 fd
-eT
+fd
 fd
 YQ
 pl
@@ -18804,14 +18757,14 @@ fr
 pp
 Jw
 mW
-ft
+Jw
 Jw
 Jw
 VU
 QG
 Zv
 yh
-Jv
+AP
 SW
 pc
 Hb
@@ -19132,7 +19085,7 @@ yB
 Md
 SG
 Iu
-Yq
+rF
 OW
 Bo
 mq

@@ -86,6 +86,13 @@
 	But, Science reassured that they can replace it if i break it... And they gave me that circuitboard they've been stashing, Set it with the blueprints in the solar SMES safe... ,\
 	Felt like a good spot."
 
+/obj/item/paper/fluff/ruins/tarkon/safenote
+	name = "paper - 'Safe Notes'"
+	default_raw_text = "Hey crew, Engineering has informed me about several new safes installed under the flooring, They assured it was to avoid easy access via welding through the back. ,\
+	Either way, they assured me that the T-ray scanners can pick them up. While I personally trust my field managers to write propper notes for them, ,\
+	I, also personally, prefer to just know where the damned things are at the reach of the builder's stud finder. ,\
+	If you're really wanting to test the scanners out, There's a safe around the comms room lobby desk. Just leave the remote alone."
+
 /obj/item/paper/fluff/ruins/tarkon/goals
 	name = "paper - 'Tarkon Industries'"
 	default_raw_text = "<h1>Tarkon Industries Informative Guide</h1><br><br><b>We at Tarkon Industries</b> hope to create a long guided future for the average homesteader, ,\
@@ -128,7 +135,7 @@
 	name = "paper - 'Science safe notice'"
 	default_raw_text = "<b>Until further notice,</b> we are not handing out the code to the safe.<br>,\
 	<br>Whoever took the research item is getting their ass thrown to the next cleansing squad.<br>,\
-	<br>Yes, It's still in the surgery room.<br>Yes, its code has been reset."
+	<br>Yes, It's still in the disection room.<br>Yes, its code has been reset."
 
 /obj/item/paper/fluff/ruins/tarkon/cargosafe
 	name = "paper - 'Cargo safe note'"
@@ -144,6 +151,12 @@
 		<br> If it's one of our own, Well... You'll officially be on Warden duty and have to feed them. Tough shit. You can always ask them if they want thrown to the ,\
 		void with whatever they're offered, Just be warned you're on note for anything of major importance. <br><br> Lastly, You aren't to hold people that aren't wanting to be on the port. ,\
 		You may take any and every measure to make sure they dont come back if they are let out, Including dropping them in space or at the nearest station."
+
+/obj/item/paper/fluff/ruins/tarkon/secsafe
+	name = "paper- 'Tarkon Security Rundown'"
+	default_raw_text = "Hey, We've had some recent reports of bad behavior with people stealing the ship and some people having the aim of a movie villain written to die. ,\
+		Until further notice, Security is to start training on the nearby fauna, I know it sounds harsh but the space carp have been creeping in and we need stricter control. ,\
+		For the few that just cant be arsed to do such things as \"aim\", We have a shotgun aswell as some confiscated items in the security safe between the armor racks."
 
 /obj/item/paper/fluff/ruins/tarkon/arcs
 	name = "paper - 'Tarkon Industries' Advanced Resonance Control System'"
@@ -169,7 +182,7 @@
 	default_raw_text = "Heh... I couldn't handle letting those older papers go, something about them reminded me about why I jumped on this job. Even added some of the newer papers up.,\
 	The \"Safety of the future\" spiels... Now? Any dingbat can buy their own little constructor in a box... Fancy that we got one ourself, Thing has some handy designs..<br>,\
 	<br> Well- That asside, we did get some new updated circuit boards. Industry standard gave us two sets of research constructor boards for redundancy, ,\
-	So we set the spare set in the special safe within the comms room."
+	So we set the spare set in the director's quarters safe by the disposals can."
 
 /obj/item/paper/fluff/ruins/tarkon/cargostore
 	name = "paper - 'Cargo Storage Room Notice'"
@@ -180,3 +193,7 @@
 /obj/item/blueprints/tarkon
 	desc = "Blueprints of the Tarkon surface breaching drill and several Tarkon base designs. Red, stamped text reads \"Confidential\" on the backside of it."
 	name = "Tarkon Design Prints"
+
+/obj/structure/safe/floor/tarkon/Initialize(mapload)
+	. = ..()
+	AddElement(/datum/element/undertile, TRAIT_T_RAY_VISIBLE)
