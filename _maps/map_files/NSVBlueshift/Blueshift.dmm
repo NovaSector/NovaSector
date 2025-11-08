@@ -41133,7 +41133,6 @@
 /turf/open/floor/plating,
 /area/station/command/heads_quarters/captain/private)
 "hRu" = (
-/obj/item/crowbar/large/heavy,
 /turf/open/floor/plating,
 /area/station/maintenance/starboard/fore)
 "hRv" = (

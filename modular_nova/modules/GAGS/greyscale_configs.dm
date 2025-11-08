@@ -1453,6 +1453,16 @@
 	name = "Hakama (Worn)"
 	json_config = 'modular_nova/modules/GAGS/json_configs/hakama/hakama_worn.json'
 
+/datum/greyscale_config/chima_jeogori
+	name = "Chima Jeogori"
+	icon_file = 'modular_nova/modules/GAGS/icons/chima_jeogori.dmi'
+	json_config = 'modular_nova/modules/GAGS/json_configs/chima_jeogori/chima_jeogori.json'
+
+/datum/greyscale_config/chima_jeogori/worn
+	name = "Chima Jeogori (Worn)"
+	icon_file = 'modular_nova/modules/GAGS/icons/chima_jeogori_worn.dmi'
+	json_config = 'modular_nova/modules/GAGS/json_configs/chima_jeogori/chima_jeogori_worn.json'
+
 // KILT
 /datum/greyscale_config/kilt
 	name = "Kilt"
