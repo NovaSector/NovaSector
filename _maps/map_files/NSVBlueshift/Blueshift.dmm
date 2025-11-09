@@ -41132,9 +41132,6 @@
 	},
 /turf/open/floor/plating,
 /area/station/command/heads_quarters/captain/private)
-"hRu" = (
-/turf/open/floor/plating,
-/area/station/maintenance/starboard/fore)
 "hRv" = (
 /obj/machinery/light/directional/west,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
@@ -83770,7 +83767,13 @@
 /obj/structure/safe/floor{
 	name = "frozen safe"
 	},
-/obj/item/hilbertshotel,
+/obj/item/storage/fancy/cigarettes/cigars/cohiba{
+	pixel_y = 3
+	},
+/obj/item/lighter,
+/obj/effect/spawner/random/entertainment/coin,
+/obj/effect/spawner/random/entertainment/coin,
+/obj/effect/spawner/random/entertainment/coin,
 /turf/open/floor/plating/airless,
 /area/space/nearstation)
 "qaV" = (
@@ -169355,7 +169358,7 @@ kpS
 cLX
 cLX
 qgy
-hRu
+tVI
 dVy
 xgN
 baE
