@@ -654,7 +654,6 @@
 	},
 /obj/item/pen/survival,
 /obj/structure/noticeboard/directional/west,
-/obj/item/paper/fluff/ruins/tarkon/cargosafe,
 /obj/item/paper/fluff/ruins/tarkon/cargostore,
 /turf/open/floor/iron,
 /area/ruin/space/has_grav/port_tarkon/cargo)
@@ -6865,8 +6864,6 @@
 /obj/item/circuitboard/machine/circulator,
 /obj/item/circuitboard/machine/thermoelectric_generator,
 /obj/item/circuitboard/machine/powerator/tarkon,
-/obj/item/circuitboard/machine/powerator/tarkon,
-/obj/item/circuitboard/machine/powerator/tarkon,
 /obj/machinery/light/directional/north,
 /turf/open/floor/iron,
 /area/ruin/space/has_grav/port_tarkon/atmos)
@@ -9164,18 +9161,6 @@
 "Ns" = (
 /turf/closed/wall/r_wall,
 /area/ruin/space/has_grav/port_tarkon/comlobby)
-"Nt" = (
-/obj/effect/turf_decal/tile/brown/half{
-	dir = 4
-	},
-/obj/item/stack/spacecash/c10000,
-/obj/item/stack/spacecash/c10000,
-/obj/item/stack/spacecash/c10000,
-/obj/item/stack/spacecash/c10000,
-/obj/item/stack/spacecash/c10000,
-/obj/structure/safe/floor,
-/turf/open/floor/iron,
-/area/ruin/space/has_grav/port_tarkon/storage)
 "Nu" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
@@ -17824,7 +17809,7 @@ Bc
 Bc
 Bc
 Lz
-Nt
+jt
 gz
 wY
 kN
