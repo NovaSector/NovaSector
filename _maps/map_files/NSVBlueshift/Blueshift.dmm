@@ -83774,6 +83774,8 @@
 /obj/effect/spawner/random/entertainment/coin,
 /obj/effect/spawner/random/entertainment/coin,
 /obj/effect/spawner/random/entertainment/coin,
+/obj/item/v8_engine,
+/obj/item/stock_parts/power_store/cell/lead,
 /turf/open/floor/plating/airless,
 /area/space/nearstation)
 "qaV" = (
