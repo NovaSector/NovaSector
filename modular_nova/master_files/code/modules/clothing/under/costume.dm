@@ -161,6 +161,18 @@
 	icon_state = "shihakusho"
 	body_parts_covered = CHEST|GROIN|ARMS
 
+/obj/item/clothing/under/costume/nova/chima_jeogori
+	name = "chima jeogori"
+	desc = "Traditional Korean clothes, often worn as formal attire."
+	icon = 'icons/map_icons/clothing/under/costume.dmi'
+	icon_state = "/obj/item/clothing/under/costume/nova/chima_jeogori"
+	post_init_icon_state = "chima_jeogori"
+	greyscale_config = /datum/greyscale_config/chima_jeogori
+	greyscale_config_worn = /datum/greyscale_config/chima_jeogori/worn
+	greyscale_colors = "#a52f29#2ba396#545461#88242d#eeeeee"
+	alternate_worn_layer = UNDER_SUIT_LAYER
+	flags_1 = IS_PLAYER_COLORABLE_1
+
 /*
 *	CHRISTMAS CLOTHES
 */

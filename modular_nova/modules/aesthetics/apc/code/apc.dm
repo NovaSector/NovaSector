@@ -1,9 +1,3 @@
-/obj/machinery/power/apc
-	icon = 'modular_nova/modules/aesthetics/apc/icons/apc.dmi'
-
-/obj/item/wallframe/apc
-	icon = 'modular_nova/modules/aesthetics/apc/icons/apc.dmi'
-
 /obj/machinery/power/apc/update_appearance(updates = check_updates())
 	icon_update_needed = FALSE
 	if(!updates)
