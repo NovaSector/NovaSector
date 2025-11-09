@@ -112,6 +112,7 @@
 		/obj/item/restraints/handcuffs,
 		/obj/item/restraints/legcuffs/bola,
 		/obj/item/gun, // NOVA EDIT - ADDITION
+		/obj/item/clothing/mask/whistle,
 	))
 
 ///Webbing security belt
