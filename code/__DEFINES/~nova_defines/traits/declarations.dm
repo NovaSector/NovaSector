@@ -182,4 +182,6 @@
 ///Insanity trait for Reality Dissociation Syndrome (to make it easier to work with)
 #define TRAIT_INSANITY "insanity"
 
+#define NANITES_TRAIT "nanites"
+
 // END TRAIT DEFINES

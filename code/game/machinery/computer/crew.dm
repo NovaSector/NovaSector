@@ -206,9 +206,9 @@ GLOBAL_DATUM_INIT(crewmonitor, /datum/crewmonitor, new)
 		return data_by_z["[z]"]
 
 	var/list/results = list()
-	for(var/tracked_mob in GLOB.suit_sensors_list)
+	for(var/tracked_mob in GLOB.suit_sensors_list | GLOB.nanite_sensors_list) // NOVA CHANGE - NANITES
 		if(!tracked_mob)
-			stack_trace("Null entry in suit sensors list.")
+			stack_trace("Null entry in suit sensors or nanite sensors list.") // NOVA CHANGE - NANITES
 			continue
 
 		var/mob/living/tracked_living_mob = tracked_mob
@@ -225,26 +225,41 @@ GLOBAL_DATUM_INIT(crewmonitor, /datum/crewmonitor, new)
 		if(pos.z != z && (!is_station_level(pos.z) || !is_station_level(z)) && !HAS_TRAIT(tracked_living_mob, TRAIT_MULTIZ_SUIT_SENSORS))
 			continue
 
+		var/sensor_mode // NOVA ADDITION - NANITES
 		var/mob/living/carbon/human/tracked_human = tracked_living_mob
 
-		// Check their humanity.
+		// Set sensor level based on whether we're in the nanites list or the suit sensor list.
+		if(tracked_living_mob in GLOB.nanite_sensors_list) // NOVA CHANGE - NANITES
+			sensor_mode = SENSOR_COORDS
+
 		if(!ishuman(tracked_human))
 			stack_trace("Non-human mob is in suit_sensors_list: [tracked_living_mob] ([tracked_living_mob.type])")
 			continue
 
 		// Check they have a uniform
 		var/obj/item/clothing/under/uniform = tracked_human.w_uniform
-		if (!istype(uniform))
+		// NOVA CHANGE START - NANITES
+		// Check they have a uniform
+		var/obj/item/clothing/under/uniform = tracked_human.w_uniform
+		if (!sensor_mode && istype(uniform))
+			// Check if their uniform is in a compatible mode.
+			if((uniform.has_sensor == NO_SENSORS) || !uniform.sensor_mode)
+				stack_trace("Human without active suit sensors is in suit_sensors_list: [tracked_human] ([tracked_human.type]) ([uniform.type])")
+				continue
+
+			sensor_mode = uniform.sensor_mode
+		// NOVA CHANGE END - NANITES
+		else
 			stack_trace("Human without a suit sensors compatible uniform is in suit_sensors_list: [tracked_human] ([tracked_human.type]) ([uniform?.type])")
 			continue
 
-		// Check if their uniform is in a compatible mode.
+		/*/ Check if their uniform is in a compatible mode.
 		if((uniform.has_sensor == NO_SENSORS) || !uniform.sensor_mode)
 			stack_trace("Human without active suit sensors is in suit_sensors_list: [tracked_human] ([tracked_human.type]) ([uniform.type])")
 			continue
 
 		var/sensor_mode = uniform.sensor_mode
-
+		*/ //Disables this, as it will interfere, leaves it in the file for ease of maintaining if they change it NOVA EDIT NANITES
 		// The entry for this human
 		var/list/entry = list(
 			"ref" = REF(tracked_living_mob),
@@ -267,7 +282,7 @@ GLOBAL_DATUM_INIT(crewmonitor, /datum/crewmonitor, new)
 		// NOVA EDIT ADDITION END
 
 		// Broken sensors show garbage data
-		if (uniform.has_sensor == BROKEN_SENSORS)
+		if (uniform?.has_sensor == BROKEN_SENSORS)
 			entry["life_status"] = rand(0,1)
 			entry["area"] = pick_list (ION_FILE, "ionarea")
 			entry["oxydam"] = rand(0,175)
