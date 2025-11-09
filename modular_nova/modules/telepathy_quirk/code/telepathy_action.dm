@@ -70,7 +70,7 @@
 
 		blocked = TRUE
 
-		message = autopunct_bare(capitalize(tgui_input_text(owner, "What do you wish to whisper to [last_target]?", "[src]", max_length = MAX_MESSAGE_LEN)))
+		message = autopunct_bare(capitalize(tgui_input_text(owner, "What do you wish to whisper to [last_target]?", "[src]", null, max_length = MAX_MESSAGE_LEN, multiline = TRUE)))
 		if(QDELETED(src) || QDELETED(owner) || QDELETED(last_target) || !can_cast_spell())
 			blocked = FALSE
 			return
