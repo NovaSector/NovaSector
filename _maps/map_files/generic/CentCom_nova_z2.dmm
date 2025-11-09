@@ -1098,7 +1098,7 @@
 /area/centcom/interlink)
 "aqO" = (
 /obj/machinery/light/directional/south,
-/obj/machinery/photocopier/gratis,
+/obj/machinery/photocopier/gratis/nova_inf,
 /turf/open/indestructible/hotelwood,
 /area/centcom/holding/cafe)
 "aqP" = (
