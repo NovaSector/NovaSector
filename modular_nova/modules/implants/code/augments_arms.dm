@@ -24,23 +24,36 @@
 	w_class = WEIGHT_CLASS_BULKY
 	obj_flags = CONDUCTS_ELECTRICITY
 	sharpness = SHARP_EDGED
-	force = 25
+	force = 17 // Previously 25, dropped to 17 as two can attack at the same time, equaling about 34 force total.
 	armour_penetration = 20
 	item_flags = NEEDS_PERMIT //Beepers gets angry if you get caught with this.
 	hitsound = 'modular_nova/master_files/sound/weapons/bloodyslice.ogg'
 
-/obj/item/organ/internal/cyberimp/arm/armblade
+/obj/item/melee/implantarmblade/attack(mob/living/M, mob/living/user)
+	. = ..()
+	if(user.get_active_held_item() != src)
+		return
+
+	var/obj/item/some_item = user.get_inactive_held_item()
+
+	if(!istype(some_item,type))
+		return
+
+	user.do_attack_animation(M,null,some_item)
+	some_item.attack(M,user)
+
+/obj/item/organ/cyberimp/arm/toolkit/armblade
     zone = BODY_ZONE_R_ARM
     slot = ORGAN_SLOT_RIGHT_ARM_AUG
 
-/obj/item/organ/internal/cyberimp/arm/armblade/l
+/obj/item/organ/cyberimp/arm/toolkit/armblade/l
     zone = BODY_ZONE_L_ARM
     slot = ORGAN_SLOT_LEFT_ARM_AUG
 
 /obj/item/melee/implantarmblade/early
 	name = "early armblade implant"
 	desc = "A long, sharp, mantis-like blade implanted into someones arm. This is an early, outdated model with a ceramic blade, it isn't as effective as steel versions, but easier to smuggle past metal detectors."
-	force = 15 // More then the claws(but doesn't double as wire cutters), less then the razorwire and 10 less then real armblades, about equal to a survival knife
+	force = 13 // More then the claws(but doesn't double as wire cutters), less then the razorwire and 10 less then real armblades, about equal to a survival knife 26 with two
 	icon_state = "mantis_blade_early"
 
 
@@ -48,7 +61,7 @@
 	name = "energy arm blade"
 	desc = "A long mantis-like blade made entirely of blazing-hot energy. Stylish and EXTRA deadly!"
 	icon_state = "energy_mantis_blade"
-	force = 30
+	force = 20 // Two can attack at the same time, so read this as 40 force total.
 	armour_penetration = 10 //Energy isn't as good at going through armor as it is through flesh alone.
 	hitsound = 'sound/items/weapons/blade1.ogg'
 

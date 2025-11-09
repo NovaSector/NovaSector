@@ -43,10 +43,9 @@
 /obj/item/organ/cyberimp/chest/opticalcamo
 	name = "optical camo implant"
 	desc = "an implant that bends light around the host's body, rendering them nearly invisible when activated."
+	icon = 'modular_nova/modules/implants/icons/internal_HA.dmi'
+	icon_state = "internal_HA" // Stand in, new sprite soon
 	slot = ORGAN_SLOT_SPINE
-	icon_state = "imp_jetpack"
-	base_icon_state = "imp_jetpack"
-	aug_overlay = "imp_jetpack"
 	w_class = WEIGHT_CLASS_NORMAL
 
 
