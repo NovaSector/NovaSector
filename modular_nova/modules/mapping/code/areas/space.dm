@@ -191,6 +191,11 @@
 	icon_state = "science"
 	area_flags = XENOBIOLOGY_COMPATIBLE | UNIQUE_AREA
 
+/area/ruin/space/has_grav/port_tarkon/xenology //A bit beyond just normal xenobiology in scope, But basically xenobiology
+	name = "P-T Xenology Lab"
+	icon_state = "science"
+	area_flags = XENOBIOLOGY_COMPATIBLE | UNIQUE_AREA
+
 /area/ruin/space/has_grav/port_tarkon/secoff
 	name = "P-T Security Office"
 	icon_state = "security"
