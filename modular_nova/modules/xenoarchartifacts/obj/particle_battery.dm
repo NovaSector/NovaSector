@@ -91,26 +91,26 @@
 		dat += "<b>Total Power:</b> [round(inserted_battery.stored_charge, 1)]/[inserted_battery.capacity]<br><br>"
 
 		dat += "<b>Timed activation:</b> "
-		dat += "<A href='?src=[REF(src)];neg_changetime_max=-100'>--</a> "
-		dat += "<A href='?src=[REF(src)];neg_changetime=-10'>-</a> "
+		dat += "<A href='byond://?src=[REF(src)];neg_changetime_max=-100'>--</a> "
+		dat += "<A href='byond://?src=[REF(src)];neg_changetime=-10'>-</a> "
 		dat += "[time >= 1000 ? "[time/10]" : time >= 100 ? " [time/10]" : "  [time/10]" ] "
-		dat += "<A href='?src=[REF(src)];changetime=10'>+</a> "
-		dat += "<A href='?src=[REF(src)];changetime_max=100'>++</a><br>"
+		dat += "<A href='byond://?src=[REF(src)];changetime=10'>+</a> "
+		dat += "<A href='byond://?src=[REF(src)];changetime_max=100'>++</a><br>"
 
 		if(cooldown)
 			dat += "<font color=red>Cooldown in progress, please wait.</font><br><br>"
 		else if(!activated && world.time >= cooldown_to_start)
-			dat += "<A href='?src=[REF(src)];startup=1'>Start</a><br>"
-			dat += "<A href='?src=[REF(src)];startup=1;starttimer=1'>Start in timed mode</a><br><br>"
+			dat += "<A href='byond://?src=[REF(src)];startup=1'>Start</a><br>"
+			dat += "<A href='byond://?src=[REF(src)];startup=1;starttimer=1'>Start in timed mode</a><br><br>"
 		else
-			dat += "<A href='?src=[REF(src)];shutdown=1'>Shutdown emission</a><br><br>"
+			dat += "<A href='byond://?src=[REF(src)];shutdown=1'>Shutdown emission</a><br><br>"
 
-		dat += "<A href='?src=[REF(src)];ejectbattery=1'>Eject battery</a><br>"
+		dat += "<A href='byond://?src=[REF(src)];ejectbattery=1'>Eject battery</a><br>"
 	else
 		dat += "Please insert battery<br>"
 
 	dat += "<hr>"
-	dat += "<A href='?src=[REF(src)];refresh=1'>Refresh</a>"
+	dat += "<A href='byond://?src=[REF(src)];refresh=1'>Refresh</a>"
 
 	var/datum/browser/popup = new(user, "utilizer", name, 400, 500)
 	popup.set_content(dat)
