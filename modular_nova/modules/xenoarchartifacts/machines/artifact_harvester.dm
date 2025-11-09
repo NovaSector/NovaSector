@@ -220,21 +220,19 @@
 			owned_scanner.icon_state = "xenoarch_scanner_scanning"
 		say("Beginning energy harvesting")
 
-		// Mirror effect parameters into a battery-bound effect instance
-		// (Reset any prior effect ref to avoid mismatched instances)
-		if(!inserted_battery.battery_effect)
-			var/new_effect_type = harvested_effect.type
-			inserted_battery.battery_effect = null
-			var/datum/artifact_effect/new_effect = new new_effect_type(inserted_battery)
-			new_effect.maximum_charges = harvested_effect.maximum_charges
-			new_effect.release_method = harvested_effect.release_method
-			new_effect.range = harvested_effect.range
-			new_effect.trigger = harvested_effect.trigger
-			new_effect.activation_aura_cost = harvested_effect.activation_aura_cost
-			new_effect.activation_pulse_cost = harvested_effect.activation_pulse_cost
-			new_effect.activation_touch_cost = harvested_effect.activation_touch_cost
-			new_effect.log_name = harvested_effect.log_name
-			inserted_battery.battery_effect = new_effect
+		inserted_battery.battery_effect = null
+		// Duplicate the battery's effect datum
+		var/new_effect_type = harvested_effect.type
+		var/datum/artifact_effect/new_effect = new new_effect_type(inserted_battery)
+		new_effect.maximum_charges = harvested_effect.maximum_charges
+		new_effect.release_method = harvested_effect.release_method
+		new_effect.range = harvested_effect.range
+		new_effect.trigger = harvested_effect.trigger
+		new_effect.activation_aura_cost = harvested_effect.activation_aura_cost
+		new_effect.activation_pulse_cost = harvested_effect.activation_pulse_cost
+		new_effect.activation_touch_cost = harvested_effect.activation_touch_cost
+		new_effect.log_name = harvested_effect.log_name
+		inserted_battery.battery_effect = new_effect
 
 		needs_refresh = TRUE
 
