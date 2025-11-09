@@ -24,9 +24,10 @@
 	bolt_drop_sound = 'modular_nova/modules/modular_weapons/sounds/pulse_push.ogg'
 
 	burst_size = 3
-	fire_delay = 2
+	burst_delay = 0.3 SECONDS
+	fire_delay = 0.9 SECONDS
 
-	spread = 1
+	spread = 3
 	recoil = 0.5
 
 	w_class = WEIGHT_CLASS_BULKY
@@ -36,7 +37,7 @@
 		in a metastable state. When discharged, these plugs unleash their energy content in controlled pulses before shattering, providing unmatched \
 		armor penetration at the expense of sustainability. Each military-grade magazine contains enough for approximately one hundred discharges.<br>\
 		Early prototypes lacked simulated recoil, causing seasoned marksmen to overcompensate and miss shots. The solution? \
-		A kinetic feedback system that mimics the kick of a .27-54 rifle, ensuring soldiers used to ballistic weapons could transition seamlessly. \
+		A kinetic feedback system that mimics the kick of a .277 rifle, ensuring soldiers used to ballistic weapons could transition seamlessly. \
 		This 'illusion of recoil' remains a signature feature.<br><br>\
 		Developed during the Coalition's formative years, the weapon's origins are reflected in both its name and its operating principle - \
 		delivering overwhelming force in brief, devastating strikes. While standard plasma weapons remain more practical for \

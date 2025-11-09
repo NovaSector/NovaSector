@@ -24,10 +24,12 @@
 	rack_sound = 'modular_nova/modules/modular_weapons/sounds/pulse_pull.ogg'
 	bolt_drop_sound = 'modular_nova/modules/modular_weapons/sounds/pulse_push.ogg'
 
+	fire_delay = 1.2 SECONDS
+
 	spread = 2.5
 	recoil = 1
-	projectile_damage_multiplier = 2
-	projectile_speed_multiplier = 2.5
+	projectile_damage_multiplier = 1.8
+	projectile_speed_multiplier = 1.5
 
 	weapon_weight = WEAPON_HEAVY
 	internal_magazine = TRUE
@@ -52,7 +54,6 @@
 /obj/item/gun/ballistic/rifle/pulse_sniper/Initialize(mapload)
 	. = ..()
 	AddComponent(/datum/component/scope, range_modifier = 2.5)
-	// Prevent newshot() from decrementing uses for this weapon
 	// We handle ammunition consumption in shoot_live_shot()
 	// Set a special flag on any pulse casings that might be loaded
 	var/obj/item/ammo_box/magazine/internal/pulse_sniper/mag = magazine
@@ -83,32 +84,34 @@
 			. += span_warning("Not enough charge for another shot!")
 
 /obj/item/gun/ballistic/rifle/pulse_sniper/process_chamber(empty_chamber = TRUE, from_firing = TRUE, chamber_next_round = TRUE)
-	var/obj/item/ammo_casing/pulse/casing = chambered
-	if(istype(casing))
-		// Ensure suppress_use_consumption flag is set for this weapon
-		casing.suppress_use_consumption = TRUE
-		if(casing.remaining_uses < shots_per_fire)
-			// Lock the bolt back when the pulse cell doesn't have enough charge
-			bolt_locked = TRUE
-			update_icon()
-			casing.forceMove(drop_location())
-			chambered = null
-		else if(!casing.loaded_projectile && !casing.newshot())
-			// Lock the bolt back when the pulse cell fails to create a new shot
-			bolt_locked = TRUE
-			update_icon()
-			casing.forceMove(drop_location())
-			chambered = null
-		// Update HUD after processing pulse casing
-		SEND_SIGNAL(src, COMSIG_UPDATE_AMMO_HUD)
-		return
+    var/obj/item/ammo_casing/pulse/casing = chambered
+    if(istype(casing))
+        // Ensure suppress_use_consumption flag is set
+        casing.suppress_use_consumption = TRUE
 
-	..() // Handle normal ballistic casing behavior
-	// Update HUD after processing normal casing
-	SEND_SIGNAL(src, COMSIG_UPDATE_AMMO_HUD)
+        // Check if we have enough charges for another shot
+        if(casing.remaining_uses >= shots_per_fire)
+            // Create new projectile if we have enough charges
+            casing.newshot() // This will regenerate the projectile
+            SEND_SIGNAL(src, COMSIG_UPDATE_AMMO_HUD)
+            return
+
+        // Not enough charges - warn and eject if needed
+        visible_message(span_warning("[src] emits a low power warning!"))
+        playsound(src, 'sound/items/weapons/gun/general/empty_alarm.ogg', 40, TRUE)
+        if(casing_ejector || !from_firing)
+            casing.forceMove(drop_location())
+            if(!QDELETED(casing))
+                SEND_SIGNAL(casing, COMSIG_CASING_EJECTED)
+                casing.bounce_away(TRUE)
+        if(empty_chamber)
+            clear_chambered()
+
+    ..() // Handle normal ballistic casing behavior
+    SEND_SIGNAL(src, COMSIG_UPDATE_AMMO_HUD)
 
 /obj/item/gun/ballistic/rifle/pulse_sniper/handle_chamber(empty_chamber = TRUE, from_firing = TRUE, chamber_next_round = TRUE)
-	if(!semi_auto && from_firing)
+	if(from_firing)
 		return
 
 	var/obj/item/ammo_casing/pulse/casing = chambered
@@ -125,10 +128,6 @@
 		if(empty_chamber)
 			clear_chambered()
 
-	// Don't automatically chamber a new round if the bolt is locked
-	if(bolt_locked)
-		return
-
 	if(chamber_next_round && magazine?.max_ammo >= 1)
 		chamber_round()
 	// Update HUD after all chamber operations are complete
@@ -143,7 +142,7 @@
 	if(istype(casing))
 		// Ensure suppress_use_consumption flag is set for this weapon
 		casing.suppress_use_consumption = TRUE
-		return casing.remaining_uses >= shots_per_fire && casing.loaded_projectile
+		return casing.remaining_uses > 0 && casing.loaded_projectile
 	return ..() // Fall back to normal behavior for non-pulse casings
 
 /obj/item/gun/ballistic/rifle/pulse_sniper/shoot_live_shot(mob/living/user, pointblank, atom/pbtarget, message)
@@ -186,6 +185,14 @@
 			casing.suppress_use_consumption = TRUE
 	// Update HUD after loading ammo
 	SEND_SIGNAL(src, COMSIG_UPDATE_AMMO_HUD)
+
+/obj/item/gun/ballistic/rifle/pulse_sniper/before_firing(atom/target, mob/user)
+	. = ..()
+	if(chambered?.loaded_projectile)
+		var/obj/projectile/beam/laser/plasma_glob/pulse/plasma_pulse = chambered.loaded_projectile
+		if(chambered.loaded_projectile && istype(plasma_pulse))
+			plasma_pulse.armour_penetration = 10
+			plasma_pulse.secondary_armour_penetration = 10
 
 /obj/item/ammo_box/magazine/internal/pulse_sniper
 	name = "pulse sniper pseudochamber"
