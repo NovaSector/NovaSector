@@ -8,9 +8,6 @@
 	text_lose_indication = span_notice("You feel oddly exposed.")
 	instability = POSITIVE_INSTABILITY_MAJOR
 	power_coeff = 1
-	///NOVA EDIT ADDITION BEGIN
-	var/max_invisibility_alpha = 50 //Same value as station acquireable stealth module
-	///NOVA EDIT ADDITION END
 
 /datum/mutation/chameleon/on_acquiring(mob/living/carbon/human/owner)
 	. = ..()
@@ -29,17 +26,15 @@
 	/// NOVA EDIT ADDITION BEGIN
 	if(!HAS_TRAIT(owner, TRAIT_CHAMELEON_SKIN))
 		return
-	owner.alpha = max(owner.alpha - (12.5 * (GET_MUTATION_POWER(src)) * seconds_per_tick), max_invisibility_alpha)
 	/// NOVA EDIT ADDITION END
+	owner.alpha = max(owner.alpha - (12.5 * (GET_MUTATION_POWER(src)) * seconds_per_tick), 0)
+
 
 //Upgraded mutation of the base variant, used for changelings. No instability and better power_coeff
 /datum/mutation/chameleon/changeling
 	instability = 0
 	power_coeff = 2.5
 	locked = TRUE
-	///NOVA EDIT ADDITION BEGIN
-	max_invisibility_alpha = 0
-	///NOVA EDIT ADDITION END
 
 /**
  * Resets the alpha of the host to the chameleon default if they move.
