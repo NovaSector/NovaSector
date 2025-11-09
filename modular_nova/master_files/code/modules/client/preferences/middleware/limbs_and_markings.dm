@@ -33,6 +33,7 @@
 		"ears" = "Ears",
 		"eyes" = "Eyes",
 		"tongue" = "Tongue",
+		"Brain Implant" = "Brain implant",
 		"Mouth implant" = "Mouth implant",
 		"Chest implant" = "Chest implant",
 		"Left Arm implant" = "Left Arm implant",

@@ -23,3 +23,47 @@
 		chemscan(owner, owner)
 	else
 		healthscan(owner, owner, SCANNER_VERBOSE, TRUE)
+
+/obj/item/organ/cyberimp/chest/scanner/lite
+	actions_types = list(/datum/action/item_action/organ_action/use/internal_analyzer/lite)
+
+/datum/action/item_action/organ_action/use/internal_analyzer/lite
+	desc = "LMB: Health scan. Requires implanted analyzer to not be failing due to EMPs or other causes. Does not provide treatment assistance."
+
+/datum/action/item_action/organ_action/use/internal_analyzer/lite/Trigger(trigger_flags)
+	. = ..()
+	var/obj/item/organ/cyberimp/chest/scanner/our_scanner = target
+	if(our_scanner.organ_flags & ORGAN_FAILING)
+		to_chat(owner, span_warning("Your health analyzer relays an error! It can't interface with your body in its current condition!"))
+		return
+	else
+		healthscan(owner, owner, SCANNER_CONDENSED, TRUE, ADVANCED = FALSE)
+
+
+/obj/item/organ/cyberimp/chest/opticalcamo
+	name = "optical camo implant"
+	desc = "an implant that bends light around the host's body, rendering them nearly invisible when activated."
+	slot = ORGAN_SLOT_SPINE
+	icon_state = "imp_jetpack"
+	base_icon_state = "imp_jetpack"
+	aug_overlay = "imp_jetpack"
+	w_class = WEIGHT_CLASS_NORMAL
+
+
+/obj/item/organ/cyberimp/chest/opticalcamo/on_mob_insert(mob/living/carbon/organ_owner, special = FALSE, movement_flags)
+	. = ..()
+	if(organ_owner.dna.get_mutation(/datum/mutation/chameleon/implant))
+		organ_owner.dna.remove_mutation(/datum/mutation/chameleon/implant, MUTATION_SOURCE_IMPLANT)
+	else
+		organ_owner.dna.add_mutation(/datum/mutation/chameleon/implant, MUTATION_SOURCE_IMPLANT)
+	return TRUE
+
+/obj/item/organ/cyberimp/chest/opticalcamo/on_mob_remove(mob/living/carbon/organ_owner, special = FALSE, movement_flags)
+	if(organ_owner.has_dna())
+		organ_owner.dna.remove_mutation(/datum/mutation/chameleon/changeling, MUTATION_SOURCE_IMPLANT)
+	..()
+// nerfed version for the implant, sneaky breaki like
+/datum/mutation/chameleon/implant
+	instability = 0
+	power_coeff = 0.5
+	locked = TRUE
