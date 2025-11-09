@@ -43,12 +43,12 @@
 	some_item.attack(M,user)
 
 /obj/item/organ/cyberimp/arm/toolkit/armblade
-    zone = BODY_ZONE_R_ARM
-    slot = ORGAN_SLOT_RIGHT_ARM_AUG
+	zone = BODY_ZONE_R_ARM
+	slot = ORGAN_SLOT_RIGHT_ARM_AUG
 
 /obj/item/organ/cyberimp/arm/toolkit/armblade/l
-    zone = BODY_ZONE_L_ARM
-    slot = ORGAN_SLOT_LEFT_ARM_AUG
+	zone = BODY_ZONE_L_ARM
+	slot = ORGAN_SLOT_LEFT_ARM_AUG
 
 /obj/item/melee/implantarmblade/early
 	name = "early armblade implant"
@@ -78,12 +78,12 @@
 	items_to_create = list(/obj/item/melee/implantarmblade/early)
 
 /obj/item/organ/cyberimp/arm/toolkit/armblade/early
-    zone = BODY_ZONE_R_ARM
-    slot = ORGAN_SLOT_RIGHT_ARM_AUG
+	zone = BODY_ZONE_R_ARM
+	slot = ORGAN_SLOT_RIGHT_ARM_AUG
 
 /obj/item/organ/cyberimp/arm/toolkit/armblade/early/l
-    zone = BODY_ZONE_L_ARM
-    slot = ORGAN_SLOT_LEFT_ARM_AUG
+	zone = BODY_ZONE_L_ARM
+	slot = ORGAN_SLOT_LEFT_ARM_AUG
 
 /obj/item/organ/cyberimp/arm/toolkit/armblade/emag_act()
 	if(obj_flags & EMAGGED)
