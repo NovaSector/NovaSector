@@ -54,7 +54,7 @@
 /obj/item/gun/ballistic/rifle/pulse_sniper/Initialize(mapload)
 	. = ..()
 	AddComponent(/datum/component/scope, range_modifier = 2.5)
-	// We handle ammunition consumption in shoot_live_shot()
+
 	// Set a special flag on any pulse casings that might be loaded
 	var/obj/item/ammo_box/magazine/internal/pulse_sniper/mag = magazine
 	if(mag && istype(mag))
@@ -84,31 +84,30 @@
 			. += span_warning("Not enough charge for another shot!")
 
 /obj/item/gun/ballistic/rifle/pulse_sniper/process_chamber(empty_chamber = TRUE, from_firing = TRUE, chamber_next_round = TRUE)
-    var/obj/item/ammo_casing/pulse/casing = chambered
-    if(istype(casing))
-        // Ensure suppress_use_consumption flag is set
-        casing.suppress_use_consumption = TRUE
+	var/obj/item/ammo_casing/pulse/casing = chambered
+	if(istype(casing))
+		// Ensure suppress_use_consumption flag is set
+		casing.suppress_use_consumption = TRUE
 
-        // Check if we have enough charges for another shot
-        if(casing.remaining_uses >= shots_per_fire)
-            // Create new projectile if we have enough charges
-            casing.newshot() // This will regenerate the projectile
-            SEND_SIGNAL(src, COMSIG_UPDATE_AMMO_HUD)
-            return
+		// Check if we have enough charges for another shot
+		if(casing.remaining_uses >= shots_per_fire)
+			// Create new projectile if we have enough charges
+			casing.newshot()
+			SEND_SIGNAL(src, COMSIG_UPDATE_AMMO_HUD)
+			return
 
-        // Not enough charges - warn and eject if needed
-        visible_message(span_warning("[src] emits a low power warning!"))
-        playsound(src, 'sound/items/weapons/gun/general/empty_alarm.ogg', 40, TRUE)
-        if(casing_ejector || !from_firing)
-            casing.forceMove(drop_location())
-            if(!QDELETED(casing))
-                SEND_SIGNAL(casing, COMSIG_CASING_EJECTED)
-                casing.bounce_away(TRUE)
-        if(empty_chamber)
-            clear_chambered()
+		// Not enough charges - warn and eject if needed
+		visible_message(span_warning("[src] emits a low power warning!"))
+		playsound(src, 'sound/items/weapons/gun/general/empty_alarm.ogg', 40, TRUE)
+		if(casing_ejector || !from_firing)
+			casing.forceMove(drop_location())
+			if(!QDELETED(casing))
+				SEND_SIGNAL(casing, COMSIG_CASING_EJECTED)
+				casing.bounce_away(TRUE)
 
-    ..() // Handle normal ballistic casing behavior
-    SEND_SIGNAL(src, COMSIG_UPDATE_AMMO_HUD)
+	// Only call parent if we have a valid chambered casing
+	if(chambered)
+		..() // Handle normal ballistic casing behavior
 
 /obj/item/gun/ballistic/rifle/pulse_sniper/handle_chamber(empty_chamber = TRUE, from_firing = TRUE, chamber_next_round = TRUE)
 	if(from_firing)
