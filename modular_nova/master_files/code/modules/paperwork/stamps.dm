@@ -88,7 +88,7 @@
 	dye_color = DYE_QM
 
 /obj/item/stamp/warden
-	name = "Warden's rubber stamp"
+	name = "warden's rubber stamp"
 	icon = 'modular_nova/master_files/icons/obj/bureaucracy.dmi'
 	icon_state = "stamp-warden"
 	dye_color = DYE_HOS
