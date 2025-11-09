@@ -139,7 +139,6 @@
 				span_notice("[src] chimes."),
 				blind_message = span_notice("You hear something chime."),
 			)
-			interact(usr)
 	else if(activated && inserted_battery.battery_effect)
 		// make sure the effect is active
 		if(!inserted_battery.battery_effect.activated)
