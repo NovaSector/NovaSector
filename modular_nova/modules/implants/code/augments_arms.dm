@@ -439,13 +439,13 @@
 	icon = 'modular_nova/modules/implants/icons/implants.dmi'
 	icon_state = "razorwire"
 
-/obj/item/organ/internal/cyberimp/arm/razorwire
-    zone = BODY_ZONE_R_ARM
-    slot = ORGAN_SLOT_RIGHT_ARM_AUG
+/obj/item/organ/cyberimp/arm/toolkit/razorwire
+	zone = BODY_ZONE_R_ARM
+	slot = ORGAN_SLOT_RIGHT_ARM_AUG
 
-/obj/item/organ/internal/cyberimp/arm/razorwire/l
-    zone = BODY_ZONE_L_ARM
-    slot = ORGAN_SLOT_LEFT_ARM_AUG
+/obj/item/organ/cyberimp/arm/toolkit/razorwire/l
+	zone = BODY_ZONE_L_ARM
+	slot = ORGAN_SLOT_LEFT_ARM_AUG
 
 /obj/item/autosurgeon/syndicate/razorwire
 	name = "razorwire autosurgeon"
