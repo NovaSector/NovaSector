@@ -164,6 +164,7 @@
 		var/obj/machinery/artifact/possible_artifact = scanned_object
 		if(!possible_artifact)
 			say("Unable to isolate scan target.")
+			return
 		if(possible_artifact.being_used)
 			say("Cannot scan. Too much interference.")
 			playsound(src, 'sound/machines/buzz/buzz-two.ogg', 25, FALSE)
