@@ -74,11 +74,11 @@
 /area/ruin/space/has_grav/port_tarkon/cargo)
 "al" = (
 /obj/machinery/firealarm/directional/east,
-/obj/structure/safe/floor/tarkon,
 /obj/item/circuitboard/machine/rdserver/tarkon,
 /obj/item/circuitboard/computer/tarkon_driver,
 /obj/item/circuitboard/machine/protolathe/tarkon,
 /obj/item/circuitboard/machine/circuit_imprinter,
+/obj/structure/safe/floor,
 /turf/open/floor/iron/dark/smooth_large,
 /area/ruin/space/has_grav/port_tarkon/apartment)
 "an" = (
@@ -771,9 +771,9 @@
 /obj/effect/turf_decal/tile/blue/anticorner{
 	dir = 4
 	},
-/obj/structure/safe/floor/tarkon,
 /obj/item/card/id/away/tarkonrobo,
 /obj/item/shuttle_remote/tarkon,
+/obj/structure/safe/floor,
 /turf/open/floor/iron/dark,
 /area/ruin/space/has_grav/port_tarkon/comlobby)
 "dq" = (
@@ -1855,12 +1855,12 @@
 /turf/open/misc/asteroid/airless,
 /area/ruin/space/has_grav)
 "hX" = (
-/obj/structure/safe/floor/tarkon,
 /obj/item/blueprints/tarkon,
 /obj/item/circuitboard/machine/bluespace_miner,
 /obj/item/flatpacked_machine/ore_thumper,
 /obj/item/flatpacked_machine/ore_thumper,
 /obj/item/flatpacked_machine/ore_thumper,
+/obj/structure/safe/floor,
 /turf/open/floor/iron,
 /area/ruin/space/has_grav/port_tarkon/power1)
 "hZ" = (
@@ -5159,9 +5159,9 @@
 /obj/effect/turf_decal/tile/dark_red/half,
 /obj/machinery/airalarm/directional/south,
 /obj/effect/mapping_helpers/airalarm/all_access,
-/obj/structure/safe/floor/tarkon,
 /obj/item/crafting_conversion_kit/mosin_pro,
 /obj/item/gun/ballistic/shotgun/doublebarrel,
+/obj/structure/safe/floor,
 /turf/open/floor/iron,
 /area/ruin/space/has_grav/port_tarkon/secoff)
 "wg" = (
@@ -9172,8 +9172,8 @@
 /obj/item/stack/spacecash/c10000,
 /obj/item/stack/spacecash/c10000,
 /obj/item/stack/spacecash/c10000,
-/obj/structure/safe/floor/tarkon,
 /obj/item/stack/spacecash/c10000,
+/obj/structure/safe/floor,
 /turf/open/floor/iron,
 /area/ruin/space/has_grav/port_tarkon/storage)
 "Nu" = (
@@ -11841,7 +11841,7 @@
 /obj/item/stack/sheet/mineral/diamond{
 	amount = 10
 	},
-/obj/structure/safe/floor/tarkon,
+/obj/structure/safe/floor,
 /turf/open/floor/iron/dark,
 /area/ruin/space/has_grav/port_tarkon/xenology)
 "Yr" = (

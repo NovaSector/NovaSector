@@ -193,7 +193,3 @@
 /obj/item/blueprints/tarkon
 	desc = "Blueprints of the Tarkon surface breaching drill and several Tarkon base designs. Red, stamped text reads \"Confidential\" on the backside of it."
 	name = "Tarkon Design Prints"
-
-/obj/structure/safe/floor/tarkon/Initialize(mapload)
-	. = ..()
-	AddElement(/datum/element/undertile, TRAIT_T_RAY_VISIBLE)
