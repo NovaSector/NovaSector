@@ -178,10 +178,9 @@
 /obj/item/clothing/head/beret/clown
 	name = "\improper H.O.N.K tactical beret"
 	desc = "A tactical berret to be used during the enacting of the most dangerous of pranks."
-	icon = 'modular_nova/master_files/icons/obj/clothing/head/costume.dmi'
-	worn_icon = 'modular_nova/master_files/icons/mob/clothing/head/costume.dmi'
-	icon_state = "beret_clown"
-	post_init_icon_state = null
-	greyscale_colors = null
-	greyscale_config = null
-	greyscale_config_worn = null
+	icon = 'icons/map_icons/clothing/head/beret.dmi'
+	icon_state = "/obj/item/clothing/head/beret/clown"
+	post_init_icon_state = "beret_badge_clown"
+	greyscale_config = /datum/greyscale_config/beret_badge_clown
+	greyscale_config_worn = /datum/greyscale_config/beret_badge_clown/worn
+	greyscale_colors = "#ffbaff"
