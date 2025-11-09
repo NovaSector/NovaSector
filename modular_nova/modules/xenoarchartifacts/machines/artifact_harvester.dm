@@ -224,7 +224,7 @@
 		// (Reset any prior effect ref to avoid mismatched instances)
 		if(!inserted_battery.battery_effect)
 			inserted_battery.battery_effect = null
-			var/artifact_effect/new_effect = new new_effect(inserted_battery)
+			var/datum/artifact_effect/new_effect = new new_effect(inserted_battery)
 			new_effect.type = harvested_effect.type
 			new_effect.maximum_charges = harvested_effect.maximum_charges
 			new_effect.release_method = harvested_effect.release_method
