@@ -156,6 +156,20 @@
 /obj/item/mod/control/pre_equipped/protean/proc/toggle_lock(forced = FALSE)
 	modlocked = !modlocked
 
+/obj/item/mod/control/pre_equipped/protean/attack_hand(mob/user, list/modifiers)
+	if(!iscarbon(user))
+		return ..()
+	var/mob/living/carbon/human/carbon_user = user
+	// Prevent proteans from unequipping their integrated suit by left-clicking it
+	if(isprotean(carbon_user) && carbon_user.back == src)
+		balloon_alert(user, "integrated suit!")
+		return TRUE // Block the interaction
+	// Prevent non-proteans from removing locked suits
+	if(modlocked && !isprotean(carbon_user) && carbon_user.back == src)
+		balloon_alert(user, "suit is locked!")
+		return TRUE // Block the interaction
+	return ..()
+
 /obj/item/mod/control/pre_equipped/protean/attack_hand_secondary(mob/user, list/modifiers)
 	if(!iscarbon(user))
 		return ..()
@@ -168,6 +182,24 @@
 	if(modlocked && !isprotean(carbon_user) && carbon_user.back == src)
 		balloon_alert(user, "suit is locked!")
 		return SECONDARY_ATTACK_CANCEL_ATTACK_CHAIN
+	return ..()
+
+/obj/item/mod/control/pre_equipped/protean/mob_can_equip(mob/living/M, slot, disable_warning = FALSE, bypass_equip_delay_self = FALSE, ignore_equipped = FALSE, indirect_action = FALSE)
+	// Prevent proteans from equipping their integrated suit to hands (which would remove it from back)
+	if(iscarbon(M))
+		var/mob/living/carbon/human/carbon_user = M
+		if(isprotean(carbon_user) && carbon_user.back == src)
+			// If trying to equip to hands (drag removal), block it
+			if(slot & ITEM_SLOT_HANDS)
+				if(!disable_warning)
+					balloon_alert(carbon_user, "integrated suit!")
+				return FALSE
+		// Prevent non-proteans from removing locked suits
+		if(modlocked && !isprotean(carbon_user) && carbon_user.back == src)
+			if(slot & ITEM_SLOT_HANDS)
+				if(!disable_warning)
+					balloon_alert(carbon_user, "suit is locked!")
+				return FALSE
 	return ..()
 
 /obj/item/mod/control/pre_equipped/protean/choose_deploy(mob/user)
