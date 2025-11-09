@@ -110,7 +110,7 @@
 		dat += "Please insert battery<br>"
 
 	dat += "<hr>"
-	dat += "<A href='?src=[REF(src)]'>Refresh</a>"
+	dat += "<A href='?src=[REF(src)];refresh=1'>Refresh</a>"
 
 	var/datum/browser/popup = new(user, "utilizer", name, 400, 500)
 	popup.set_content(dat)
