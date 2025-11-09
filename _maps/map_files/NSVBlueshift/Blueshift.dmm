@@ -83774,7 +83774,6 @@
 	pixel_y = 3
 	},
 /obj/item/lighter,
-/obj/effect/spawner/random/entertainment/coin,
 /obj/item/stock_parts/power_store/cell/lead,
 /obj/item/v8_engine,
 /turf/open/floor/plating/airless,
