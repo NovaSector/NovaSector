@@ -154,15 +154,15 @@
 
 		// Fallback: any visible object in scanner turf
 		if(!scanned_object)
-			for(var/obj/machinery/artifact/possible_artifact in scanner_turf)
-				if(possible_artifact == owned_scanner)
+			for(var/obj/machinery/artifact/being_scanned in scanner_turf)
+				if(being_scanned == owned_scanner)
 					continue
-				if(possible_artifact.invisibility || HAS_TRAIT(possible_artifact, TRAIT_UNDERFLOOR))
+				if(being_scanned.invisibility || HAS_TRAIT(being_scanned, TRAIT_UNDERFLOOR))
 					continue
-				scanned_object = possible_artifact
+				scanned_object = being_scanned
 				break
-
-		if(!scanned_object)
+		var/obj/machinery/artifact/possible_artifact = scanned_object
+		if(!possible_artifact)
 			say("Unable to isolate scan target.")
 		if(possible_artifact.being_used)
 			say("Cannot scan. Too much interference.")
