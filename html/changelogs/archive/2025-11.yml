@@ -267,3 +267,8 @@
   wivernshy:
   - qol: Bridge Officers, Paramedics, Barbers, and Corrections Officers now have mineral
       storage access by default.
+2025-11-09:
+  Zergspower:
+  - image: adjusted multiple default icons
+  sqnztb:
+  - bugfix: pipes look less bad again.
