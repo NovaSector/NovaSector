@@ -64,5 +64,5 @@
 // nerfed version for the implant, sneaky breaki like
 /datum/mutation/chameleon/implant
 	instability = 0
-	power_coeff = 0.5
+	power_coeff = 0.3 //really goddamn slow
 	locked = TRUE
