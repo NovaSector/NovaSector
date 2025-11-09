@@ -223,9 +223,9 @@
 		// Mirror effect parameters into a battery-bound effect instance
 		// (Reset any prior effect ref to avoid mismatched instances)
 		if(!inserted_battery.battery_effect)
+			var/new_effect_type = harvested_effect.type
 			inserted_battery.battery_effect = null
-			var/datum/artifact_effect/new_effect = new new_effect(inserted_battery)
-			new_effect.type = harvested_effect.type
+			var/datum/artifact_effect/new_effect = new new_effect_type(inserted_battery)
 			new_effect.maximum_charges = harvested_effect.maximum_charges
 			new_effect.release_method = harvested_effect.release_method
 			new_effect.range = harvested_effect.range
