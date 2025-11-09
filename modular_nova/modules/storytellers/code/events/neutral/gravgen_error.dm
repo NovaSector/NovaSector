@@ -30,6 +30,8 @@
 	map_flags = EVENT_SPACE_ONLY
 
 /datum/round_event/storyteller_gravgen_malfunction
+	STORYTELLER_EVENT
+
 	var/fluctuation_cooldown = 30 SECONDS
 	var/force_strength_min = 3
 
@@ -67,7 +69,8 @@
 
 	if(!gravity_gen)
 		return // No gravity generator found, cancel the event
-
+	if(!gravity_gen.on)
+		return
 	gravity_gen_ref = WEAKREF(gravity_gen)
 
 	// Select repair methods similar to radiation leak

@@ -5,6 +5,7 @@
 	description = "Sends a coordinated raid from a hostile faction on the station"
 	story_category = STORY_GOAL_BAD | STORY_GOAL_GLOBAL
 	tags = STORY_TAG_ESCALATION | STORY_TAG_ENTITIES | STORY_TAG_AFFECTS_CREW_HEALTH | STORY_TAG_AFFECTS_INFRASTRUCTURE
+	enabled = FALSE
 
 	min_players = 15
 	requierd_threat_level = STORY_GOAL_THREAT_ELEVATED
@@ -24,6 +25,7 @@
 
 
 /datum/round_event/storyteller_raid
+	STORYTELLER_EVENT
 	allow_random = FALSE
 
 	end_when = 30

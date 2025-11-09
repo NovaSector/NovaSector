@@ -35,7 +35,7 @@
 	else
 		// Ensure fake disks still have examine text, but dont actually do anything
 		AddComponent(/datum/component/keep_me_secure)
-
+/* Nova edit removeval start
 /obj/item/disk/nuclear/proc/secured_process(last_move)
 	var/turf/new_turf = get_turf(src)
 	var/datum/round_event_control/operative/loneop = locate(/datum/round_event_control/operative) in SSevents.control
@@ -64,7 +64,7 @@
 					visible_message(span_notice("[src] sleeps soundly. Sleep tight, disky."))
 				message_admins("[src] is unsecured in [ADMIN_VERBOSEJMP(new_turf)]. The weight of Lone Operative is now [loneop.weight].")
 			log_game("[src] was left unsecured in [loc_name(new_turf)]. Weight of the Lone Operative event increased to [loneop.weight].")
-
+*/ // Nova edit end
 /obj/item/disk/nuclear/examine(mob/user)
 	. = ..()
 	if(!fake)
