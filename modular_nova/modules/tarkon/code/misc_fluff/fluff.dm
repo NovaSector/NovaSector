@@ -137,12 +137,6 @@
 	<br>Whoever took the research item is getting their ass thrown to the next cleansing squad.<br>,\
 	<br>Yes, It's still in the disection room.<br>Yes, its code has been reset."
 
-/obj/item/paper/fluff/ruins/tarkon/cargosafe
-	name = "paper - 'Cargo safe note'"
-	default_raw_text = "Hey... Director wasn't happy about bumping their head on the table trying to check funding, so we moved it into the warehouse. ,\
-		<br> Check in the owlcove by the air alarm, make sure to paint the tiling when you're finished. ,\
-		<br> P.S: 50 credits if you can write the code down"
-
 /obj/item/paper/fluff/ruins/tarkon/sop
 	name = "paper - 'Tarkon Security S.O.P'"
 	default_raw_text = "Hey there, lawman. As you might be aware, We dont have full faculties to hold prisoners for long-term storage... ,\
