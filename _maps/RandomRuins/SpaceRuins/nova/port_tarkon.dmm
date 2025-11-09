@@ -4410,6 +4410,7 @@
 /obj/machinery/shower/directional/south,
 /obj/structure/window/reinforced/tinted/spawner/directional/south,
 /obj/structure/curtain/cloth,
+/obj/item/bikehorn/rubberducky,
 /turf/open/floor/iron/white,
 /area/ruin/space/has_grav/port_tarkon/restroom)
 "tb" = (
