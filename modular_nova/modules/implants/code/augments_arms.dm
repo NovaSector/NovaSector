@@ -53,7 +53,7 @@
 /obj/item/melee/implantarmblade/early
 	name = "early armblade implant"
 	desc = "A long, sharp, mantis-like blade implanted into someones arm. This is an early, outdated model with a ceramic blade, it isn't as effective as steel versions, but easier to smuggle past metal detectors."
-	force = 13 // More then the claws(but doesn't double as wire cutters), less then the razorwire and 10 less then real armblades, about equal to a survival knife 26 with two
+	force = 12 // More then the claws(but doesn't double as wire cutters), less then the razorwire and 10 less then real armblades, about equal to a survival knife, 24 with two
 	icon_state = "mantis_blade_early"
 
 
