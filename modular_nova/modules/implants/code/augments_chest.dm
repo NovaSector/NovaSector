@@ -37,7 +37,7 @@
 		to_chat(owner, span_warning("Your health analyzer relays an error! It can't interface with your body in its current condition!"))
 		return
 	else
-		healthscan(owner, owner, SCANNER_CONDENSED, TRUE, ADVANCED = FALSE)
+		healthscan(owner, owner, SCANNER_CONDENSED, TRUE)
 
 
 /obj/item/organ/cyberimp/chest/opticalcamo
