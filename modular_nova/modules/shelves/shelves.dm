@@ -3,7 +3,7 @@
 #define DEFAULT_SHELF_VERTICAL_OFFSET 10 // Vertical pixel offset of shelving-related things. Set to 10 by default due to this leaving more of the crate on-screen to be clicked.
 
 /obj/structure/cargo_shelf //Crate shelf port from Shiptest: https://github.com/shiptest-ss13/Shiptest/pull/2374
-	name = "Cargo shelf"
+	name = "cargo shelf"
 	desc = "It's a shelf! For storing crates!"
 	icon = 'modular_nova/modules/shelves/structures.dmi'
 	icon_state = "shelf_base"
@@ -11,8 +11,11 @@
 	anchored = TRUE
 	max_integrity = 50 // Not hard to break
 
+	/// how many items the shelf can hold
 	var/capacity = DEFAULT_SHELF_CAPACITY
+	/// the delay before the shelf is truly used
 	var/use_delay = DEFAULT_SHELF_USE_DELAY
+	/// the list of contents that are currently in the shelf
 	var/list/shelf_contents
 
 /obj/structure/cargo_shelf/debug
@@ -72,10 +75,12 @@
 		shelf_contents[shelf_contents.Find(crate)] = null // Remove the reference to the crate from the list.
 		handle_visuals()
 
+/// proc to add the contents of the shelf visually to the shelf
 /obj/structure/cargo_shelf/proc/handle_visuals()
 	vis_contents = contents // It really do be that shrimple.
 	return
 
+/// proc that will attempt to add something to the contents of the shelf
 /obj/structure/cargo_shelf/proc/load(obj/structure/closet/crate/crate, mob/user)
 	var/next_free = shelf_contents.Find(null) // Find the first empty slot in the shelf.
 	if(!next_free) // If we don't find an empty slot, return early.
@@ -99,6 +104,7 @@
 		return TRUE
 	return FALSE // If the do_after() is interrupted, return FALSE!
 
+/// proc that will attempt to remove something to the contents of the shelf
 /obj/structure/cargo_shelf/proc/unload(obj/structure/closet/crate/crate, mob/user, turf/unload_turf)
 	if(!unload_turf)
 		unload_turf = get_turf(user) // If a turf somehow isn't passed into the proc, put it at the user's feet.
@@ -167,8 +173,8 @@
 	if(building)
 		return
 	building = TRUE
-	to_chat(user, span_notice("You start constructing a cargo shelf..."))
-	if(do_after(user, 50, target = user, progress=TRUE))
+	to_chat(user, span_notice("You start constructing [src]..."))
+	if(do_after(user, 5 SECONDS, target = user, progress=TRUE))
 		if(!user.temporarilyRemoveItemFromInventory(src))
 			return
 		var/obj/structure/cargo_shelf/R = new /obj/structure/cargo_shelf(get_turf(src))
