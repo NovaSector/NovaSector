@@ -7,7 +7,7 @@ GLOBAL_VAR_INIT(disposals_animals_spawned, 0)
 #define SEND_PRESSURE (0.05*ONE_ATMOSPHERE)
 
 /obj/machinery/disposal
-	icon = 'icons/obj/pipes_n_cables/disposal.dmi' //NOVA EDIT - ICON OVERRIDDEN IN AESTHETICS MODULE
+	icon = 'icons/obj/pipes_n_cables/disposal.dmi'
 	density = TRUE
 	armor_type = /datum/armor/machinery_disposal
 	max_integrity = 200
@@ -594,7 +594,7 @@ GLOBAL_VAR_INIT(disposals_animals_spawned, 0)
 		. += "dispover-handle"
 
 	if(mounted_tagger)
-		. += "tagger_mount"
+		. += mutable_appearance('icons/obj/pipes_n_cables/disposal.dmi', "tagger_mount") //NOVA EDIT: Overriding Icon file. += "tagger_mount"
 
 	//only handle is shown if no power
 	if(machine_stat & NOPOWER || panel_open)

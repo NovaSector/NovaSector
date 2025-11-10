@@ -188,6 +188,9 @@
 	)
 
 /obj/machinery/vending/wardrobe/jani_wardrobe
+	products_nova = list(
+		/obj/item/clothing/shoes/galoshes/heeled = 3,
+	)
 	premium_nova = list(/obj/item/disk/nifsoft_uploader/job/summoner/service = 2, /obj/item/flatpack/trash_compactor = 1)
 
 /obj/machinery/vending/
