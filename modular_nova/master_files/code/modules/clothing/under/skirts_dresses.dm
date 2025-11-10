@@ -280,7 +280,7 @@
 	desc = "A seductive gown purpose tailored to show off one's legs."
 	icon = 'icons/map_icons/clothing/under/_under.dmi'
 	icon_state = "/obj/item/clothing/under/midnight_gown"
-	post_init_icon_state = "midnight_side"
+	post_init_icon_state = "midnight_right"
 	greyscale_config = /datum/greyscale_config/midnight_gown
 	greyscale_config_worn = /datum/greyscale_config/midnight_gown/worn
 	greyscale_config_worn_digi = /datum/greyscale_config/midnight_gown/worn/digi
@@ -291,7 +291,8 @@
 	alternate_worn_layer = ABOVE_SHOES_LAYER
 	gets_cropped_on_taurs = FALSE
 	unique_reskin = list(
-		"Side" = "midnight_side",
+		"Right" = "midnight_right",
+		"Left" = "midnight_left",
 		"Middle" = "midnight_mid"
 	)
 
