@@ -26,7 +26,7 @@
  */
 /datum/preference/choiced/digitigrade_legs/proc/is_usable(datum/preferences/preferences)
 	var/species_type = preferences.read_preference(/datum/preference/choiced/species)
-	var/datum/species/species = new species_type
+	var/datum/species/species = GLOB.species_prototypes[species_type]
 
 	return (savefile_key in species.get_features()) \
 		&& species.digitigrade_customization == DIGITIGRADE_OPTIONAL

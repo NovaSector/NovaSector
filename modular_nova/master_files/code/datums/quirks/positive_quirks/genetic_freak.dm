@@ -5,7 +5,6 @@ GLOBAL_LIST_INIT(genetic_mutation_choice, list(
 	"Anti-Glowy" = /datum/mutation/glow/anti,
 	"Strength" = /datum/mutation/strong,
 	"Stimmed" = /datum/mutation/stimmed,
-	"Chameleon" = /datum/mutation/chameleon,
 	"Geladikinesis" = /datum/mutation/geladikinesis,
 	"Cindikinesis" = /datum/mutation/cindikinesis,
 	"Transcendent Olfaction" = /datum/mutation/olfaction,
