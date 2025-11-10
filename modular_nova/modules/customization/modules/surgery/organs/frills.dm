@@ -1,5 +1,5 @@
 /obj/item/organ/frills
-	mutantpart_key = "frills"
+	mutantpart_key = FEATURE_FRILLS
 	mutantpart_info = list(MUTANT_INDEX_NAME = "Divinity", MUTANT_INDEX_COLOR_LIST = list("#FFFFFF"))
 
 /datum/bodypart_overlay/mutant/frills
