@@ -1857,6 +1857,8 @@
 /obj/item/blueprints/tarkon,
 /obj/item/circuitboard/machine/bluespace_miner,
 /obj/structure/safe/floor,
+/obj/item/flatpacked_machine/ore_thumper,
+/obj/item/flatpacked_machine/ore_thumper,
 /turf/open/floor/iron,
 /area/ruin/space/has_grav/port_tarkon/power1)
 "hZ" = (
@@ -11316,7 +11318,7 @@
 /area/ruin/space/has_grav/port_tarkon/garden)
 "Wk" = (
 /mob/living/basic/bot/medbot/stationary{
-	name = "Fuck-up Fixer"
+	name = "Liability Remover"
 	},
 /turf/open/floor/iron,
 /area/ruin/space/has_grav/port_tarkon)
