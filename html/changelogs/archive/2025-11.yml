@@ -273,14 +273,73 @@
   sqnztb:
   - bugfix: pipes look less bad again.
 2025-11-10:
+  Hatterhat:
+  - balance: Blueshield's hellfire laser capacity reduced to 20 shots at full (from
+      25), cap's laser buffed to 20 shots at full (from 15).
+  - qol: Xenoarch rock brushing now uses balloon alerts instead of to_chats.
+  - qol: The handheld xenoarch advanced scanner now also gives the dig measurement,
+      as if you used a measuring tape on it.
+  - balance: The xenoarch intern skillchip in the goodies tab now gives you a magnifying
+      glass as well.
+  - image: The Syndicate, courtesy of Scarborough Arms, has begun issuing newer, more
+      refined models of the Ansem, Ansem/SC, and associated pistol magazines. Find
+      them in your local villain's hands.
+  Ignari-contrib:
+  - rscadd: Adds a new backpack type into the character creation menu
+  - qol: Allows better viewage of your character and display of their style.
+  Melbert:
+  - bugfix: Fix open wing sprite
+  - refactor: Refactored species unique organs slightly, particularly how they are
+      set up at game start. Report any oddities, like invisible tails or wings
   MintMetal:
   - bugfix: Tarkon Driver now don't have two SMESes on the same tile
   OrbisAnima:
   - balance: Floor safes can now be detected with t ray scanners.
+  - rscadd: Added a new quirk, Psionic Dampener, for one reason or another, you are
+      inmune to most (read, all I was able to find) forms of mental communication
+      and the mind reading antenna. This should affect telepathy from quirks, genetics,
+      slimes, xenomorphs, revenants and so on, do report any missing case! Logically,
+      its incompatible with telepath.
+  - qol: The telepathic communication power granted by the quirk or the genetic power
+      is only anonymous if THE CASTER has the mutation, not the target, no longer
+      feel the need to make it clear who you are with each message if you got the
+      quirk only, if you want to be anonymous, bother your local geneticist.
+  - qol: The telepathic action no longer show a message to the caster, making it much
+      more clear and less cluttering for the caster of the quirk. Its also now multiline,
+      like with subtler.
+  - balance: The telepathy power is no longer a neutral quirk, but a positive quirk
+      (2 points), as its effectively a long range whisper with no way to intercept
+      other than talking to ghosts with a ouija.
+  RatFromTheJungle:
+  - balance: The most severe bleed wounds make you bleed a bit more bleedingly
+  RealWinterFrost:
+  - balance: changes a maintenance safe on blueshift from starting with the hilbert
+      hotel, changed content is in the PR (6415)
+  TealSeer:
+  - server: renamed feature_human_ears and feature_human_tail to feature_cat_ears
+      and feature_cat_tail respectively
   intense-skies:
   - rscdel: ' The chameleon mutation is removed from genetic mutation quirk.'
+  moonridden, Stalkeros, OrbisAnima, PieDuck, Deadmon_Wonderland, Impedus:
+  - balance: Drones are behaving strangely, thanks to the introduction of the technology
+      scavenged from the Drone Intelligence Unit event. They have new policy and rules,
+      are considered Silicons, and have a fresh set of allowances and expectations.
+  - refactor: Removes drone_adjustments.dm, merges contents to drones.dm, updates
+      us to spans for rules and stuff. Better UI is coming later
+  - balance: Drones now float on top of lava, and can crawl through space. Biomechanical
+      evolution at work.
+  - balance: Station drone storage loadout has been revamped for modern expectations.
+  - rscadd: Station drones now have pockets!
+  sqnztb:
+  - bugfix: bitrunners can now get to the orm on blueshift.
   trazodont:
   - rscadd: police whistles can now be added to security belts
   - qol: Correctional Officers now have security bounties
   vinylspiders:
   - bugfix: fixes some bad code in xenoarch causing performance issues
+  - bugfix: fixes some broken loadout icons (capes, dutch suit)
+  - rscadd: 'adds new customization options to loadout + autodrobe: pink clown outfit,
+      gloves, wig, heels, clown beret'
+  - rscadd: adds a gear harness for the suit slot in loadout (so you don't have to
+      take up a uniform slot)
+  - rscadd: high heel galoshes can now be found in the janivendor, good luck
