@@ -325,7 +325,8 @@ GLOBAL_LIST_INIT(slime_extract_auto_activate_reactions, init_slime_auto_activate
 		if(SLIME_ACTIVATE_MAJOR)
 			user.visible_message(span_warning("[user]'s skin starts flashing intermittently..."), span_warning("Your skin starts flashing intermittently..."))
 			if(do_after(user, 2.5 SECONDS, target = user))
-				empulse(user, 1, 2)
+				empulse(user, 1, 2, emp_source = src)
+				user.log_message("triggered EMP using [src] in [AREACOORD(src)]", LOG_GAME)
 				user.visible_message(span_warning("[user]'s skin flashes!"), span_warning("Your skin flashes as you emit an electromagnetic pulse!"))
 				return 600
 
@@ -642,8 +643,8 @@ GLOBAL_LIST_INIT(slime_extract_auto_activate_reactions, init_slime_auto_activate
 /obj/item/slime_extract/rainbow/activate(mob/living/carbon/human/user, datum/species/jelly/luminescent/species, activation_type)
 	switch(activation_type)
 		if(SLIME_ACTIVATE_MINOR)
-			user.dna.features["mcolor"] = "#[pick("7F", "FF")][pick("7F", "FF")][pick("7F", "FF")]"
-			user.dna.update_uf_block(DNA_MUTANT_COLOR_BLOCK)
+			user.dna.features[FEATURE_MUTANT_COLOR] = "#[pick("7F", "FF")][pick("7F", "FF")][pick("7F", "FF")]"
+			user.dna.update_uf_block(/datum/dna_block/feature/mutant_color)
 			user.updateappearance(mutcolor_update=1)
 			species.update_glow(user)
 			to_chat(user, span_notice("You feel different..."))

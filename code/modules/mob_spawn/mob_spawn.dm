@@ -53,14 +53,14 @@
 	spawned_mob_ref = WEAKREF(spawned_mob)
 	return spawned_mob
 
-/obj/effect/mob_spawn/proc/special(mob/living/spawned_mob, mob/mob_possessor)
+/obj/effect/mob_spawn/proc/special(mob/living/spawned_mob, mob/mob_possessor, use_loadout) // NOVA EDIT CHANGE - ORIGINAL: /obj/effect/mob_spawn/proc/special(mob/living/spawned_mob)
 	SHOULD_CALL_PARENT(TRUE)
 	if(faction)
 		spawned_mob.faction = faction
 	if(ishuman(spawned_mob))
 		var/mob/living/carbon/human/spawned_human = spawned_mob
 		if(mob_species)
-			spawned_human.set_species(mob_species)
+			spawned_human.set_species(mob_species, pref_load = use_loadout) // NOVA EDIT CHANGE - ORIGINAL: spawned_human.set_species(mob_species)
 		spawned_human.dna.species.give_important_for_life(spawned_human) // for preventing plasmamen from combusting immediately upon spawning
 		spawned_human.underwear = "Nude"
 		spawned_human.undershirt = "Nude"
@@ -260,7 +260,7 @@
 	return ..()
 
 
-/obj/effect/mob_spawn/ghost_role/special(mob/living/spawned_mob, mob/mob_possessor)
+/obj/effect/mob_spawn/ghost_role/special(mob/living/spawned_mob, mob/mob_possessor, use_loadout) // NOVA EDIT CHANGE - ORIGINAL: /obj/effect/mob_spawn/ghost_role/special(mob/living/spawned_mob, mob/mob_possessor)
 	. = ..()
 	if(mob_possessor)
 		if(mob_possessor.mind)
@@ -355,6 +355,7 @@
 		spawned_human.Drain()
 	else //Because for some reason I can't track down, things are getting turned into husks even if husk = false. It's in some damage proc somewhere.
 		spawned_human.cure_husk()
+	spawned_human.job = name
 
 /obj/effect/mob_spawn/corpse/human/equip(mob/living/carbon/human/spawned_human)
 	. = ..()

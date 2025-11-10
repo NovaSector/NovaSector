@@ -47,6 +47,9 @@
 		"White" = "thigh_white",
 	)
 
+/obj/item/clothing/accessory/webbing/pouch/black
+	icon_state = "thigh_black"
+
 /obj/item/clothing/accessory/webbing/pilot
 	name = "storage rigging"
 	icon_state = "pilot_webbing1"

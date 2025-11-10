@@ -50,7 +50,7 @@
 
 /datum/sprite_accessory/blank
 	name = SPRITE_ACCESSORY_NONE
-	icon_state = "None"
+	icon_state = SPRITE_ACCESSORY_NONE
 
 ////////////////
 // Hair Masks //
@@ -1319,7 +1319,7 @@ GLOBAL_LIST_EMPTY(blended_hair_icons_cache)
 	gender = MALE
 	use_static = TRUE
 
-/* NOVA EDIT REMOVAL START - Underwear and bra split
+/* // NOVA EDIT REMOVAL START - Underwear and bra split
 //FEMALE UNDERWEAR
 /datum/sprite_accessory/underwear/female_bikini
 	name = "Bikini"
@@ -1421,7 +1421,7 @@ GLOBAL_LIST_EMPTY(blended_hair_icons_cache)
 	icon_state = "female_kinky"
 	gender = FEMALE
 	use_static = TRUE
-*/ // NOVA EDIT END
+*/ // NOVA EDIT REMOVAL END
 
 ////////////////////////////
 // Undershirt Definitions //
@@ -1618,7 +1618,7 @@ GLOBAL_LIST_EMPTY(blended_hair_icons_cache)
 	icon_state = "whiteshortsleeve"
 	gender = NEUTER
 
-/* NOVA EDIT REMOVAL START - Underwear and bra split
+/* // NOVA EDIT REMOVAL START - Underwear and bra split
 /datum/sprite_accessory/undershirt/sports_bra
 	name = "Sports Bra"
 	icon_state = "sports_bra"
@@ -1628,7 +1628,7 @@ GLOBAL_LIST_EMPTY(blended_hair_icons_cache)
 	name = "Sports Bra (Alt)"
 	icon_state = "sports_bra_alt"
 	gender = NEUTER
-*/ // NOVA EDIT END
+*/ // NOVA EDIT REMOVAL END
 
 /datum/sprite_accessory/undershirt/blueshirtsport
 	name = "Sports Shirt (Blue)"
@@ -1981,8 +1981,8 @@ GLOBAL_LIST_EMPTY(blended_hair_icons_cache)
 
 /datum/sprite_accessory/tails/monkey/default
 	name = "Monkey"
-	icon = 'modular_nova/master_files/icons/mob/sprite_accessory/tails.dmi'
-	icon_state = "monkey"
+	icon = 'icons/mob/human/species/monkey/monkey_tail.dmi'
+	icon_state = "default"
 	color_src = FALSE
 
 /datum/sprite_accessory/tails/xeno
@@ -2282,10 +2282,6 @@ GLOBAL_LIST_EMPTY(blended_hair_icons_cache)
 /datum/sprite_accessory/spines
 	icon = 'icons/mob/human/species/lizard/lizard_spines.dmi'
 	em_block = TRUE
-
-/datum/sprite_accessory/spines/none
-	name = SPRITE_ACCESSORY_NONE
-	icon_state = "none"
 
 /datum/sprite_accessory/tail_spines
 	icon = 'icons/mob/human/species/lizard/lizard_spines.dmi'
