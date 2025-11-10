@@ -195,3 +195,11 @@
 /datum/supply_pack/companies/ballistics/donk/foam_lmg
 	contains = list(/obj/item/gun/ballistic/automatic/l6_saw/toy/unrestricted)
 	cost = CARGO_CRATE_VALUE * 2.5
+
+// Blacksteel
+
+/datum/supply_pack/companies/ballistics/blacksteel
+
+/datum/supply_pack/companies/ballistics/blacksteel/longbow
+	contains = list(/obj/item/gun/ballistic/bow/longbow)
+	cost = CARGO_CRATE_VALUE * 1.5
