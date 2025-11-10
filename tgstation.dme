@@ -7346,6 +7346,7 @@
 #include "modular_nova\master_files\code\modules\pai\card.dm"
 #include "modular_nova\master_files\code\modules\paperwork\employment_contract.dm"
 #include "modular_nova\master_files\code\modules\paperwork\fax.dm"
+#include "modular_nova\master_files\code\modules\paperwork\folders_premade.dm"
 #include "modular_nova\master_files\code\modules\paperwork\paperplane.dm"
 #include "modular_nova\master_files\code\modules\paperwork\stamps.dm"
 #include "modular_nova\master_files\code\modules\power\cable.dm"
