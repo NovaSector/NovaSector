@@ -74,11 +74,6 @@
 /area/ruin/space/has_grav/port_tarkon/cargo)
 "al" = (
 /obj/machinery/firealarm/directional/east,
-/obj/item/circuitboard/machine/rdserver/tarkon,
-/obj/item/circuitboard/computer/tarkon_driver,
-/obj/item/circuitboard/machine/protolathe/tarkon,
-/obj/item/circuitboard/machine/circuit_imprinter,
-/obj/structure/safe/floor,
 /turf/open/floor/iron/dark/smooth_large,
 /area/ruin/space/has_grav/port_tarkon/apartment)
 "an" = (
@@ -97,11 +92,8 @@
 /turf/open/floor/iron,
 /area/ruin/space/has_grav/port_tarkon/centerhall)
 "aq" = (
-/obj/effect/spawner/random/food_or_drink/seed_vault,
-/obj/effect/spawner/random/food_or_drink/seed_rare,
-/obj/effect/spawner/random/food_or_drink/seed_rare,
-/obj/effect/spawner/random/food_or_drink/seed_rare,
-/obj/structure/closet/crate/hydroponics,
+/obj/structure/closet/crate/secure/weapon,
+/obj/item/firing_pin/clown,
 /turf/open/floor/iron,
 /area/ruin/space/has_grav/port_tarkon/cargo)
 "ar" = (
@@ -654,7 +646,6 @@
 	},
 /obj/item/pen/survival,
 /obj/structure/noticeboard/directional/west,
-/obj/item/paper/fluff/ruins/tarkon/cargostore,
 /turf/open/floor/iron,
 /area/ruin/space/has_grav/port_tarkon/cargo)
 "cS" = (
@@ -772,7 +763,15 @@
 	},
 /obj/item/card/id/away/tarkonrobo,
 /obj/item/shuttle_remote/tarkon,
-/obj/structure/safe/floor,
+/obj/structure/safe{
+	name = "important backups safe"
+	},
+/obj/item/circuitboard/machine/circuit_imprinter,
+/obj/item/circuitboard/machine/protolathe/tarkon,
+/obj/item/circuitboard/computer/tarkon_driver,
+/obj/item/circuitboard/machine/rdserver/tarkon,
+/obj/item/paper/fluff/ruins/tarkon/macaroni,
+/obj/item/blueprints/tarkon,
 /turf/open/floor/iron/dark,
 /area/ruin/space/has_grav/port_tarkon/comlobby)
 "dq" = (
@@ -871,11 +870,8 @@
 /area/ruin/space/has_grav/port_tarkon/centerhall)
 "dT" = (
 /obj/effect/spawner/random/medical/medkit,
-/obj/effect/spawner/random/medical/medkit_rare,
-/obj/effect/spawner/random/medical/surgery_tool_advanced,
-/obj/effect/spawner/random/medical/surgery_tool_advanced,
-/obj/effect/spawner/random/medical/surgery_tool_alien,
 /obj/structure/closet/crate/medical,
+/obj/item/storage/box/hug,
 /turf/open/floor/plating,
 /area/ruin/space/has_grav/port_tarkon/cargo)
 "dU" = (
@@ -1094,7 +1090,6 @@
 /obj/structure/table/reinforced,
 /obj/item/storage/part_replacer/cargo,
 /obj/structure/noticeboard/directional/east,
-/obj/item/paper/fluff/ruins/tarkon/scisafe,
 /obj/machinery/ecto_sniffer,
 /obj/machinery/camera/directional/east,
 /turf/open/floor/iron/dark,
@@ -1494,6 +1489,8 @@
 /obj/structure/disposalpipe/segment{
 	dir = 4
 	},
+/obj/item/shovel/spade,
+/obj/item/cultivator,
 /turf/open/floor/wood/large,
 /area/ruin/space/has_grav/port_tarkon/garden)
 "gu" = (
@@ -1561,8 +1558,6 @@
 /obj/structure/noticeboard/directional/north,
 /obj/item/paper/fluff/ruins/tarkon,
 /obj/item/paper/fluff/ruins/oldstation/generator_manual,
-/obj/item/circuitboard/machine/rtg/advanced,
-/obj/item/circuitboard/machine/tank_compressor,
 /turf/open/floor/iron,
 /area/ruin/space/has_grav/port_tarkon/atmos)
 "gJ" = (
@@ -1686,6 +1681,9 @@
 	pixel_y = 7
 	},
 /obj/effect/turf_decal/tile/dark_red/anticorner,
+/obj/item/gun/ballistic/shotgun/doublebarrel,
+/obj/structure/window/reinforced/spawner/directional/north,
+/obj/machinery/door/window/brigdoor/right/directional/west,
 /turf/open/floor/iron,
 /area/ruin/space/has_grav/port_tarkon/secoff)
 "hp" = (
@@ -1854,11 +1852,6 @@
 /turf/open/misc/asteroid/airless,
 /area/ruin/space/has_grav)
 "hX" = (
-/obj/item/blueprints/tarkon,
-/obj/item/circuitboard/machine/bluespace_miner,
-/obj/structure/safe/floor,
-/obj/item/flatpacked_machine/ore_thumper,
-/obj/item/flatpacked_machine/ore_thumper,
 /turf/open/floor/iron,
 /area/ruin/space/has_grav/port_tarkon/power1)
 "hZ" = (
@@ -2334,14 +2327,7 @@
 /turf/open/floor/iron,
 /area/ruin/space/has_grav/port_tarkon/atmos)
 "jD" = (
-/obj/effect/spawner/random/exotic/technology,
-/obj/effect/spawner/random/exotic/technology,
-/obj/item/raw_anomaly_core/random,
-/obj/item/raw_anomaly_core/random,
-/obj/effect/spawner/random/exotic/tool,
-/obj/effect/spawner/random/exotic/tool,
 /obj/effect/decal/cleanable/dirt,
-/obj/structure/closet/crate/science,
 /turf/open/floor/iron,
 /area/ruin/space/has_grav/port_tarkon/cargo)
 "jG" = (
@@ -2874,6 +2860,8 @@
 /obj/item/clothing/head/helmet,
 /obj/item/clothing/head/helmet,
 /obj/item/clothing/head/helmet,
+/obj/structure/window/reinforced/spawner/directional/east,
+/obj/machinery/door/window/brigdoor/left/directional/north,
 /turf/open/floor/iron,
 /area/ruin/space/has_grav/port_tarkon/secoff)
 "mh" = (
@@ -3769,7 +3757,6 @@
 /obj/structure/noticeboard/directional/north,
 /obj/item/paper/fluff/ruins/tarkon/sop,
 /obj/item/paper/fluff/ruins/tarkon/detain,
-/obj/item/paper/fluff/ruins/tarkon/secsafe,
 /turf/open/floor/iron,
 /area/ruin/space/has_grav/port_tarkon/secoff)
 "pV" = (
@@ -4291,11 +4278,12 @@
 /turf/open/floor/iron/dark,
 /area/ruin/space/has_grav/port_tarkon/lockerroom)
 "sp" = (
-/obj/structure/barricade/wooden/crude,
 /obj/effect/mapping_helpers/airlock/access/all/tarkon/general,
 /obj/machinery/door/airlock/mining{
 	name = "Storage Room"
 	},
+/obj/item/paper/fluff/ruins/tarkon/cargostore,
+/obj/effect/mapping_helpers/airlock_note_placer,
 /turf/open/floor/iron,
 /area/ruin/space/has_grav/port_tarkon/cargo)
 "sq" = (
@@ -5154,9 +5142,6 @@
 /obj/effect/turf_decal/tile/dark_red/half,
 /obj/machinery/airalarm/directional/south,
 /obj/effect/mapping_helpers/airalarm/all_access,
-/obj/item/crafting_conversion_kit/mosin_pro,
-/obj/item/gun/ballistic/shotgun/doublebarrel,
-/obj/structure/safe/floor,
 /turf/open/floor/iron,
 /area/ruin/space/has_grav/port_tarkon/secoff)
 "wg" = (
@@ -6846,20 +6831,9 @@
 /obj/item/electronics/tracker,
 /obj/item/stack/cable_coil,
 /obj/item/clothing/gloves/color/yellow,
-/obj/item/circuitboard/computer/atmos_control/tarkon/carbon_tank,
-/obj/item/circuitboard/computer/atmos_control/tarkon/mix_tank,
-/obj/item/circuitboard/computer/atmos_control/tarkon/nitrogen_tank,
-/obj/item/circuitboard/computer/atmos_control/tarkon/incinerator,
-/obj/item/circuitboard/computer/atmos_control/tarkon/oxygen_tank,
-/obj/item/circuitboard/computer/atmos_control/tarkon/plasma_tank,
-/obj/item/circuitboard/computer/tarkon_driver,
 /obj/effect/turf_decal/tile/yellow/half{
 	dir = 1
 	},
-/obj/item/circuitboard/machine/circulator,
-/obj/item/circuitboard/machine/circulator,
-/obj/item/circuitboard/machine/thermoelectric_generator,
-/obj/item/circuitboard/machine/powerator/tarkon,
 /obj/machinery/light/directional/north,
 /turf/open/floor/iron,
 /area/ruin/space/has_grav/port_tarkon/atmos)
@@ -7959,6 +7933,11 @@
 /area/ruin/space/has_grav/port_tarkon/cargo)
 "Ic" = (
 /obj/item/stack/rods/ten,
+/obj/structure/closet/crate/science,
+/obj/item/stack/sheet/mineral/diamond/five,
+/obj/item/stack/sheet/bluespace_crystal{
+	amount = 3
+	},
 /turf/open/floor/plating,
 /area/ruin/space/has_grav/port_tarkon/cargo)
 "Id" = (
@@ -8495,16 +8474,24 @@
 /turf/open/floor/iron/dark/smooth_large,
 /area/ruin/space/has_grav/port_tarkon/apartment)
 "Kv" = (
-/obj/machinery/power/port_gen/pacman/super{
-	name = "\improper emergency power generator";
-	time_per_sheet = 40
-	},
 /obj/effect/turf_decal/tile/yellow/half{
 	dir = 1
 	},
 /obj/machinery/camera/directional/north,
 /obj/machinery/airalarm/directional/north,
 /obj/effect/mapping_helpers/airalarm/all_access,
+/obj/structure/closet/secure_closet/tarkon/engi,
+/obj/item/circuitboard/machine/powerator/tarkon,
+/obj/item/circuitboard/computer/tarkon_driver,
+/obj/item/circuitboard/computer/atmos_control/tarkon/plasma_tank,
+/obj/item/circuitboard/computer/atmos_control/tarkon/oxygen_tank,
+/obj/item/circuitboard/computer/atmos_control/tarkon/incinerator,
+/obj/item/circuitboard/computer/atmos_control/tarkon/nitrogen_tank,
+/obj/item/circuitboard/computer/atmos_control/tarkon/mix_tank,
+/obj/item/circuitboard/computer/atmos_control/tarkon/carbon_tank,
+/obj/item/circuitboard/machine/tank_compressor,
+/obj/item/circuitboard/machine/rtg/advanced,
+/obj/item/circuitboard/machine/bluespace_miner,
 /turf/open/floor/iron,
 /area/ruin/space/has_grav/port_tarkon/atmos)
 "Kw" = (
@@ -8541,15 +8528,11 @@
 /turf/open/floor/iron/dark,
 /area/ruin/space/has_grav/port_tarkon/comlobby)
 "KB" = (
-/obj/item/gun/ballistic/rifle/boltaction/surplus,
-/obj/item/gun/ballistic/rifle/boltaction/surplus,
-/obj/item/gun/ballistic/rifle/boltaction/surplus,
-/obj/item/storage/toolbox/ammobox/full/sakhno,
-/obj/item/storage/toolbox/ammobox/full/sakhno,
-/obj/item/storage/toolbox/ammobox/full/sakhno,
-/obj/structure/closet/crate/secure/weapon{
-	name = "Surplus Firearms"
-	},
+/obj/effect/spawner/random/food_or_drink/seed_rare,
+/obj/structure/closet/crate/hydroponics,
+/obj/item/reagent_containers/cup/jerrycan/ammonia,
+/obj/item/reagent_containers/cup/jerrycan/diethylamine,
+/obj/item/seeds/shrub,
 /turf/open/floor/plating,
 /area/ruin/space/has_grav/port_tarkon/cargo)
 "KD" = (
@@ -9848,7 +9831,6 @@
 /obj/item/paper/fluff/ruins/tarkon/goals,
 /obj/item/paper/fluff/ruins/tarkon/vaulter,
 /obj/item/paper/fluff/ruins/tarkon/driverpitch,
-/obj/item/paper/fluff/ruins/tarkon/comsafe,
 /obj/item/paper/fluff/ruins/tarkon/arcs,
 /obj/item/paper/fluff/ruins/tarkon/trcd,
 /turf/open/floor/iron/dark,
@@ -11815,16 +11797,6 @@
 	},
 /turf/open/floor/engine/o2,
 /area/ruin/space/has_grav/port_tarkon/atmos)
-"Yq" = (
-/obj/item/stack/sheet/bluespace_crystal{
-	amount = 5
-	},
-/obj/item/stack/sheet/mineral/diamond{
-	amount = 10
-	},
-/obj/structure/safe/floor,
-/turf/open/floor/iron/dark,
-/area/ruin/space/has_grav/port_tarkon/xenology)
 "Yr" = (
 /obj/structure/cable,
 /obj/effect/mapping_helpers/airlock/cyclelink_helper{
@@ -11952,7 +11924,6 @@
 /obj/item/gun/ballistic/automatic/m6pdw{
 	pixel_x = -4
 	},
-/obj/structure/window/reinforced/spawner/directional/east,
 /obj/structure/window/reinforced/spawner/directional/west,
 /obj/structure/rack,
 /obj/machinery/light/directional/south,
@@ -15007,7 +14978,7 @@ pM
 tW
 NV
 Lq
-Yq
+GP
 oI
 Jm
 JH
@@ -16675,7 +16646,7 @@ zJ
 wr
 oO
 oO
-et
+JW
 fF
 fF
 fF

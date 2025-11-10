@@ -83,15 +83,16 @@
 	name = "paper - 'Engineering Report'"
 	default_raw_text = "<b>Void Damn the last crew</b><br><br>Everything was a fucking mess- There was a FUCKING <b>HOLE</b> through the hall to science!<br>,\
 	<br><b>THANKFULLY,</b> The new RCD design came in handy... I swear- They might have taken that artifact and gave me something thats arguably worse... ,\
-	But, Science reassured that they can replace it if i break it... And they gave me that circuitboard they've been stashing, Set it with the blueprints in the solar SMES safe... ,\
-	Felt like a good spot."
+	But, Science reassured that they can replace it if i break it... Dont know how i'd manage that but the reassurance is nice."
 
 /obj/item/paper/fluff/ruins/tarkon/safenote
 	name = "paper - 'Safe Notes'"
 	default_raw_text = "Hey crew, Engineering has informed me about several new safes installed under the flooring, They assured it was to avoid easy access via welding through the back. ,\
-	Either way, they assured me that the T-ray scanners can pick them up. While I personally trust my field managers to write propper notes for them, ,\
-	I, also personally, prefer to just know where the damned things are at the reach of the builder's stud finder. ,\
-	If you're really wanting to test the scanners out, There's a safe around the comms room lobby desk. Just leave the remote alone."
+	They also told me that practically every area of the port had them and they were used for some of the most asinine things. ,\
+	The safes we have are for keeping the port's most important items safe... Not as another locker. Not as some contraband stash. ,\
+	<br><br>While i absolutely hate having a giant fucking safe sitting out in the open... Its clear you guys just need more lockers and not a god damn floor safe everywhere.,\
+	The safes have been removed and melted together to make the giant thing thats now in my god damn lobby. ,\
+	<br><br>P.S. Get chains. Once we get our cargo area expanded out, we're dragging that fucking thing into the new secure storage."
 
 /obj/item/paper/fluff/ruins/tarkon/goals
 	name = "paper - 'Tarkon Industries'"
@@ -131,12 +132,6 @@
 	<br><b>Detainee:</b>Minke Arntz<br><b>Rank/Occupation:</b>Field Researcher<br><b>Reason:</b>Deconstructed an M6 to study the effects of space dust on ballistic firearms.<br>,\
 	<br><b>Detainee:</b>Renanta McCrory<br><b>Rank/Occupation:</b>Medical Surgeon<br><b>Reason:</b>Medical Malpractice, Swapped the thumbs of a patient with their big toes. Removed from Premises."
 
-/obj/item/paper/fluff/ruins/tarkon/scisafe
-	name = "paper - 'Science safe notice'"
-	default_raw_text = "<b>Until further notice,</b> we are not handing out the code to the safe.<br>,\
-	<br>Whoever took the research item is getting their ass thrown to the next cleansing squad.<br>,\
-	<br>Yes, It's still in the disection room.<br>Yes, its code has been reset."
-
 /obj/item/paper/fluff/ruins/tarkon/sop
 	name = "paper - 'Tarkon Security S.O.P'"
 	default_raw_text = "Hey there, lawman. As you might be aware, We dont have full faculties to hold prisoners for long-term storage... ,\
@@ -145,12 +140,6 @@
 		<br> If it's one of our own, Well... You'll officially be on Warden duty and have to feed them. Tough shit. You can always ask them if they want thrown to the ,\
 		void with whatever they're offered, Just be warned you're on note for anything of major importance. <br><br> Lastly, You aren't to hold people that aren't wanting to be on the port. ,\
 		You may take any and every measure to make sure they dont come back if they are let out, Including dropping them in space or at the nearest station."
-
-/obj/item/paper/fluff/ruins/tarkon/secsafe
-	name = "paper- 'Tarkon Security Rundown'"
-	default_raw_text = "Hey, We've had some recent reports of bad behavior with people stealing the ship and some people having the aim of a movie villain written to die. ,\
-		Until further notice, Security is to start training on the nearby fauna, I know it sounds harsh but the space carp have been creeping in and we need stricter control. ,\
-		For the few that just cant be arsed to do such things as \"aim\", We have a shotgun aswell as some confiscated items in the security safe between the armor racks."
 
 /obj/item/paper/fluff/ruins/tarkon/arcs
 	name = "paper - 'Tarkon Industries' Advanced Resonance Control System'"
@@ -171,12 +160,11 @@
 	<br><br><b>While we're not able to re-create the ranged capabilities or material space of the \"artifact\" we were given<b> ,\
 	We have returned it to the cargo hold of the port that has let us analyze it, along with an updated RCD model so that they may put the artifact on display rather than to use."
 
-/obj/item/paper/fluff/ruins/tarkon/comsafe
-	name = "paper - 'Command Safe Note'"
-	default_raw_text = "Heh... I couldn't handle letting those older papers go, something about them reminded me about why I jumped on this job. Even added some of the newer papers up.,\
-	The \"Safety of the future\" spiels... Now? Any dingbat can buy their own little constructor in a box... Fancy that we got one ourself, Thing has some handy designs..<br>,\
-	<br> Well- That asside, we did get some new updated circuit boards. Industry standard gave us two sets of research constructor boards for redundancy, ,\
-	So we set the spare set in the director's quarters safe by the disposals can."
+/obj/item/paper/fluff/ruins/tarkon/macaroni
+	name = "heavy paper - 'Safe Note Update'"
+	default_raw_text = "So- like a week ago the director announced the safe issue, mentioned if we wanted anything secure we had to put it in by next change cycle. ,\
+	I personally think its a bit of a gaff. So I made this note and some macaroni art to put in it."
+	desc = "A sheet of paper, oddly stained on the note side. On the backside appears to be a crude piece of macaroni art depicting a space carp and two halves of a human body."
 
 /obj/item/paper/fluff/ruins/tarkon/cargostore
 	name = "paper - 'Cargo Storage Room Notice'"

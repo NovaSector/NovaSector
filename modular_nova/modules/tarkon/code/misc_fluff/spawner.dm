@@ -325,3 +325,10 @@
 
 /obj/effect/spawner/random/exotic/technology/tarkon
 	spawn_loot_count = 1 //we just need one.
+
+/obj/structure/closet/secure_closet/tarkon //This is just so i can get an empty, tarkon-accessed engi closet... Joyous me.
+	req_access = list(ACCESS_TARKON)
+
+/obj/structure/closet/secure_closet/tarkon/engi
+	name = "Circuit Storage"
+	icon_state = "eng"
