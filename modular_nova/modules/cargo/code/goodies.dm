@@ -85,7 +85,8 @@
 			attempts at intellectual posturing, nor any actual job experience as a curator."
 	cost = PAYCHECK_CREW * 15 // 750 credits but you also theoretically print a lot of money if you consistently get/scan relics
 	contains = list(/obj/item/skillchip/xenoarch_magnifier,
-				/obj/item/glassblowing/magnifying_glass,)
+				/obj/item/glassblowing/magnifying_glass,
+			)
 
 /datum/supply_pack/goody/scratching_stone
 	name = "Scratching Stone"
