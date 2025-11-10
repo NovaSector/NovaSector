@@ -8,14 +8,14 @@
 /obj/effect/spawner/armory_spawn/mod_lasers_big,
 /obj/effect/landmark/event_spawn,
 /turf/open/floor/iron/dark/textured_large,
-/area/station/ai_monitored/security/armory)
+/area/station/security/armory)
 "p" = (
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/structure/rack/gunrack,
 /obj/effect/spawner/armory_spawn/shotguns,
 /turf/open/floor/iron/dark/textured_large,
-/area/station/ai_monitored/security/armory)
+/area/station/security/armory)
 "s" = (
 /obj/structure/rack,
 /obj/item/gun/energy/e_gun/dragnet{
@@ -29,19 +29,19 @@
 /obj/item/melee/breaching_hammer,
 /obj/item/melee/breaching_hammer,
 /turf/open/floor/iron/dark/textured_large,
-/area/station/ai_monitored/security/armory)
+/area/station/security/armory)
 "L" = (
 /obj/effect/turf_decal/bot,
 /obj/structure/rack/gunrack,
 /obj/effect/spawner/armory_spawn/smg,
 /turf/open/floor/iron/dark/textured_large,
-/area/station/ai_monitored/security/armory)
+/area/station/security/armory)
 "R" = (
 /obj/effect/turf_decal/bot,
 /obj/structure/rack/gunrack,
 /obj/effect/spawner/armory_spawn/mod_lasers_small,
 /turf/open/floor/iron/dark/textured_large,
-/area/station/ai_monitored/security/armory)
+/area/station/security/armory)
 
 (1,1,1) = {"
 a

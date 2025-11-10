@@ -401,6 +401,8 @@
 				back = /obj/item/storage/backpack/tinypaka
 			if(TPACKC)
 				back = /obj/item/storage/backpack/tinypakc
+			if(UDCPACK)
+				back = /obj/item/storage/backpack/udc
 			if(GUNCASE)
 				back = /obj/item/storage/toolbox/guncase/nova
 			// NOVA EDIT ADDITION START
