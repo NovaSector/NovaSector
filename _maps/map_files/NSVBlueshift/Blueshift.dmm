@@ -83770,7 +83770,12 @@
 /obj/structure/safe/floor{
 	name = "frozen safe"
 	},
-/obj/item/hilbertshotel,
+/obj/item/storage/fancy/cigarettes/cigars/cohiba{
+	pixel_y = 3
+	},
+/obj/item/lighter,
+/obj/item/stock_parts/power_store/cell/lead,
+/obj/item/v8_engine,
 /turf/open/floor/plating/airless,
 /area/space/nearstation)
 "qaV" = (
@@ -104612,9 +104617,6 @@
 /obj/machinery/duct,
 /turf/open/floor/iron/white,
 /area/station/medical/medbay/central)
-"tVI" = (
-/turf/open/floor/plating,
-/area/station/maintenance/starboard/fore)
 "tVW" = (
 /obj/structure/reagent_dispensers/fueltank,
 /turf/open/floor/plating,
@@ -164716,7 +164718,7 @@ yez
 rbJ
 fBz
 jId
-tVI
+hRu
 cHP
 bOO
 aVm
@@ -165492,7 +165494,7 @@ hEu
 hEu
 nYQ
 aBp
-tVI
+hRu
 wUn
 pqU
 scJ
@@ -165500,7 +165502,7 @@ mvM
 uyp
 xgH
 xnt
-tVI
+hRu
 wUn
 bvI
 ayD
@@ -166021,7 +166023,7 @@ wyA
 aqk
 dVy
 qlI
-tVI
+hRu
 fqP
 fqP
 dcL
@@ -166768,7 +166770,7 @@ xAL
 qaD
 fBz
 qHR
-tVI
+hRu
 jqr
 qtE
 mlk
@@ -166776,7 +166778,7 @@ vnp
 uRr
 dVy
 ykA
-tVI
+hRu
 mxq
 dVy
 ssv
@@ -167026,7 +167028,7 @@ gSL
 fBz
 kXG
 jPh
-tVI
+hRu
 cLX
 cLX
 cLX
@@ -167554,9 +167556,9 @@ tXC
 bXA
 xLp
 cLX
-tVI
-tVI
-tVI
+hRu
+hRu
+hRu
 dVy
 bYK
 dWN
@@ -167813,7 +167815,7 @@ fmu
 cLX
 cLX
 hPR
-tVI
+hRu
 dVy
 gPP
 pfY
@@ -169611,8 +169613,8 @@ aPz
 xLp
 cLX
 pUd
-tVI
-tVI
+hRu
+hRu
 fAV
 xvn
 nhG
@@ -169868,7 +169870,7 @@ mdl
 mUx
 cLX
 xyf
-tVI
+hRu
 dbQ
 dVy
 lar
@@ -170900,7 +170902,7 @@ wHu
 pQQ
 wPS
 gxF
-tVI
+hRu
 gxF
 gLs
 hES
@@ -171683,7 +171685,7 @@ qte
 qte
 lNh
 qte
-tVI
+hRu
 lQN
 kgl
 aVy
