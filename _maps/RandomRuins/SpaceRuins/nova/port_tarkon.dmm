@@ -117,6 +117,7 @@
 /obj/structure/closet/generic/wall{
 	pixel_x = 32
 	},
+/obj/item/tape/ruins/tarkon/celebration,
 /turf/open/floor/iron/dark/smooth_large,
 /area/ruin/space/has_grav/port_tarkon/apartment)
 "at" = (
@@ -1107,12 +1108,6 @@
 	},
 /turf/open/floor/iron,
 /area/ruin/space/has_grav/port_tarkon/centerhall)
-"eT" = (
-/obj/structure/safe/floor,
-/obj/item/gun/ballistic/shotgun/doublebarrel,
-/obj/item/crafting_conversion_kit/mosin_pro,
-/turf/open/floor/iron,
-/area/ruin/space/has_grav/port_tarkon/secoff)
 "eU" = (
 /obj/machinery/light/directional/east,
 /obj/effect/turf_decal/tile/brown/half{
@@ -1120,18 +1115,6 @@
 	},
 /turf/open/floor/iron,
 /area/ruin/space/has_grav/port_tarkon/storage)
-"eV" = (
-/obj/effect/turf_decal/tile/yellow/half{
-	dir = 1
-	},
-/obj/structure/safe/floor,
-/obj/item/flatpacked_machine/ore_thumper,
-/obj/item/flatpacked_machine/ore_thumper,
-/obj/item/flatpacked_machine/ore_thumper,
-/obj/item/flatpacked_machine/ore_thumper,
-/obj/item/pipe_dispenser/bluespace,
-/turf/open/floor/iron,
-/area/ruin/space/has_grav/port_tarkon/atmos)
 "eW" = (
 /obj/structure/flora/tree/jungle/small/style_random,
 /turf/open/floor/grass,
@@ -1252,15 +1235,6 @@
 /obj/effect/turf_decal/tile/bar/opposingcorners,
 /turf/open/floor/iron/dark,
 /area/ruin/space/has_grav/port_tarkon/kitchen)
-"fx" = (
-/obj/structure/safe/floor,
-/obj/item/mod/module/medbeam,
-/obj/item/reagent_containers/cup/beaker/bluespace,
-/obj/item/reagent_containers/cup/beaker/meta,
-/obj/item/reagent_containers/cup/beaker/meta,
-/obj/item/reagent_containers/cup/beaker/meta,
-/turf/open/floor/iron/white,
-/area/ruin/space/has_grav/port_tarkon/trauma)
 "fy" = (
 /obj/structure/spawner/tarkon_xenos/common,
 /turf/open/floor/plating,
@@ -1855,7 +1829,6 @@
 "hX" = (
 /obj/structure/safe/floor,
 /obj/item/blueprints/tarkon,
-/obj/item/circuitboard/machine/bluespace_miner,
 /turf/open/floor/iron,
 /area/ruin/space/has_grav/port_tarkon/power1)
 "hZ" = (
@@ -2330,14 +2303,7 @@
 /turf/open/floor/iron,
 /area/ruin/space/has_grav/port_tarkon/atmos)
 "jD" = (
-/obj/effect/spawner/random/exotic/technology,
-/obj/effect/spawner/random/exotic/technology,
-/obj/item/raw_anomaly_core/random,
-/obj/item/raw_anomaly_core/random,
-/obj/effect/spawner/random/exotic/tool,
-/obj/effect/spawner/random/exotic/tool,
 /obj/effect/decal/cleanable/dirt,
-/obj/structure/closet/crate/science,
 /turf/open/floor/iron,
 /area/ruin/space/has_grav/port_tarkon/cargo)
 "jG" = (
@@ -3754,6 +3720,7 @@
 /obj/structure/noticeboard/directional/north,
 /obj/item/paper/fluff/ruins/tarkon/sop,
 /obj/item/paper/fluff/ruins/tarkon/detain,
+/obj/item/crafting_conversion_kit/mosin_pro,
 /turf/open/floor/iron,
 /area/ruin/space/has_grav/port_tarkon/secoff)
 "pV" = (
@@ -6057,19 +6024,11 @@
 /turf/open/floor/plating,
 /area/ruin/space/has_grav/port_tarkon/engineering)
 "Ai" = (
-/obj/effect/turf_decal/tile/purple/half{
-	dir = 1
-	},
-/obj/structure/safe/floor,
 /obj/item/stack/sheet/mineral/diamond{
 	amount = 10
 	},
-/obj/item/stack/sheet/bluespace_crystal{
-	amount = 5
-	},
-/obj/item/mod/module/jetpack/advanced,
-/turf/open/floor/iron/dark,
-/area/ruin/space/has_grav/port_tarkon/developement)
+/turf/open/floor/plating,
+/area/ruin/space/has_grav/port_tarkon/engineering)
 "Al" = (
 /obj/effect/turf_decal/trimline/blue/filled/warning{
 	dir = 1
@@ -6299,6 +6258,11 @@
 "Bm" = (
 /obj/effect/turf_decal/tile/blue/half,
 /obj/machinery/light_switch/directional/south,
+/obj/structure/closet/crate/medical,
+/obj/item/reagent_containers/cup/beaker/meta,
+/obj/item/reagent_containers/cup/beaker/meta,
+/obj/item/reagent_containers/cup/beaker/meta,
+/obj/item/reagent_containers/cup/beaker/bluespace,
 /turf/open/floor/iron/white,
 /area/ruin/space/has_grav/port_tarkon/trauma)
 "Bn" = (
@@ -6810,13 +6774,9 @@
 /obj/effect/turf_decal/tile/yellow/half{
 	dir = 1
 	},
-/obj/item/circuitboard/machine/circulator,
-/obj/item/circuitboard/machine/circulator,
-/obj/item/circuitboard/machine/thermoelectric_generator,
-/obj/item/circuitboard/machine/powerator/tarkon,
-/obj/item/circuitboard/machine/powerator/tarkon,
 /obj/item/circuitboard/machine/powerator/tarkon,
 /obj/machinery/light/directional/north,
+/obj/item/circuitboard/machine/bluespace_miner,
 /turf/open/floor/iron,
 /area/ruin/space/has_grav/port_tarkon/atmos)
 "Du" = (
@@ -8203,14 +8163,12 @@
 /turf/open/misc/asteroid,
 /area/ruin/space/has_grav)
 "Jv" = (
-/obj/effect/turf_decal/tile/brown/half{
-	dir = 8
+/obj/structure/alien/weeds/node,
+/obj/item/stack/sheet/bluespace_crystal{
+	amount = 5
 	},
-/obj/structure/safe/floor,
-/obj/item/gun/energy/recharge/kinetic_accelerator,
-/obj/item/gun/energy/recharge/kinetic_accelerator/variant/shotgun,
-/turf/open/floor/iron,
-/area/ruin/space/has_grav/port_tarkon/mining)
+/turf/open/misc/asteroid,
+/area/ruin/space/has_grav)
 "Jw" = (
 /obj/effect/turf_decal/tile/bar/opposingcorners,
 /turf/open/floor/iron/dark,
@@ -9096,18 +9054,6 @@
 /obj/machinery/firealarm/directional/west,
 /turf/open/floor/iron/white,
 /area/ruin/space/has_grav/port_tarkon/trauma)
-"Nt" = (
-/obj/effect/turf_decal/tile/brown/half{
-	dir = 4
-	},
-/obj/item/stack/spacecash/c10000,
-/obj/item/stack/spacecash/c10000,
-/obj/item/stack/spacecash/c10000,
-/obj/item/stack/spacecash/c10000,
-/obj/structure/safe/floor,
-/obj/item/stack/spacecash/c10000,
-/turf/open/floor/iron,
-/area/ruin/space/has_grav/port_tarkon/storage)
 "Nu" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
@@ -9389,6 +9335,11 @@
 /area/ruin/space/has_grav/port_tarkon/sciencehall)
 "OE" = (
 /obj/effect/turf_decal/tile/yellow/anticorner,
+/obj/structure/rack,
+/obj/item/flatpacked_machine/ore_thumper,
+/obj/item/flatpacked_machine/ore_thumper,
+/obj/item/flatpacked_machine/ore_thumper,
+/obj/item/flatpacked_machine/ore_thumper,
 /turf/open/floor/iron,
 /area/ruin/space/has_grav/port_tarkon/atmos)
 "OF" = (
@@ -11737,13 +11688,6 @@
 	},
 /turf/open/floor/engine/o2,
 /area/ruin/space/has_grav/port_tarkon/atmos)
-"Yq" = (
-/obj/item/tape/ruins/tarkon/celebration,
-/obj/structure/safe/floor,
-/obj/item/reagent_containers/cup/glass/bottle/absinthe/premium,
-/obj/item/market_uplink/blackmarket,
-/turf/open/floor/iron/dark/smooth_large,
-/area/ruin/space/has_grav/port_tarkon/apartment)
 "Yr" = (
 /obj/structure/cable,
 /obj/effect/mapping_helpers/airlock/cyclelink_helper{
@@ -13457,7 +13401,7 @@ dq
 zi
 qS
 qS
-Tm
+Jv
 dq
 fR
 fR
@@ -15106,7 +15050,7 @@ Lq
 yW
 JY
 mZ
-Ai
+EW
 nG
 yW
 yW
@@ -15209,7 +15153,7 @@ vM
 Er
 kP
 ms
-eV
+DR
 tu
 tU
 kB
@@ -15362,7 +15306,7 @@ fR
 Fu
 LO
 XR
-fx
+QV
 Zg
 PY
 Es
@@ -17150,7 +17094,7 @@ fd
 lX
 iP
 fd
-eT
+fd
 fd
 YQ
 pl
@@ -17345,7 +17289,7 @@ SS
 QP
 QP
 QP
-QP
+Ai
 Pm
 QP
 QP
@@ -17717,7 +17661,7 @@ Bc
 Bc
 Bc
 Lz
-Nt
+jt
 gz
 wY
 kN
@@ -18797,7 +18741,7 @@ VU
 QG
 Zv
 yh
-Jv
+AP
 SW
 pc
 Hb
@@ -19118,7 +19062,7 @@ yB
 Md
 SG
 Iu
-Yq
+rF
 OW
 Bo
 mq
