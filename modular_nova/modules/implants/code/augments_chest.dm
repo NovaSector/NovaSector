@@ -48,6 +48,12 @@
 	slot = ORGAN_SLOT_SPINE
 	w_class = WEIGHT_CLASS_NORMAL
 
+/obj/item/organ/cyberimp/chest/opticalcamo/emp_act(severity)
+	. = ..()
+	if(!owner || . & EMP_PROTECT_SELF)
+		return
+	owner.adjust_confusion(rand(8 SECONDS, 11 SECONDS))
+	to_chat(owner, span_warning("Your optical camo malfunctions, leaving the room spinning!"))
 
 /obj/item/organ/cyberimp/chest/opticalcamo/on_mob_insert(mob/living/carbon/organ_owner, special = FALSE, movement_flags)
 	. = ..()
