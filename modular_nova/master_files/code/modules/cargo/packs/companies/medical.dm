@@ -1,5 +1,5 @@
 /datum/supply_pack/companies/medical
-	group = "I - Medical Supplies"
+	group = "★ Medical Supplies"
 	goody = TRUE
 	express_lock = TRUE
 	discountable = SUPPLY_PACK_NOT_DISCOUNTABLE

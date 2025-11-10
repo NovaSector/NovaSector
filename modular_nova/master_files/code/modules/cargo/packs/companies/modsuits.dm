@@ -1,5 +1,5 @@
 /datum/supply_pack/companies/modsuits
-	group = "I - Mods and Modsuits"
+	group = "★ Mods and Modsuits"
 	discountable = SUPPLY_PACK_NOT_DISCOUNTABLE
 
 // Mod Suits

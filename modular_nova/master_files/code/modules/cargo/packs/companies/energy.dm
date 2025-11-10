@@ -1,5 +1,5 @@
 /datum/supply_pack/companies/energy
-	group = "I - Energy Weapons"
+	group = "★ Energy Weapons"
 	access = ACCESS_WEAPONS
 	access_view = ACCESS_WEAPONS
 	express_lock = TRUE
@@ -88,20 +88,20 @@
 /datum/supply_pack/companies/energy/microstar/experimental_energy/xray_gun
 	contains = list(/obj/item/gun/energy/xray)
 
-//NRI Weapons
-/datum/supply_pack/companies/energy/nri_surplus
+// HC Weapons
+/datum/supply_pack/companies/energy/hc_surplus
 
-/datum/supply_pack/companies/energy/nri_surplus/plasma_thrower
+/datum/supply_pack/companies/energy/hc_surplus/plasma_thrower
 	contains = list(/obj/item/gun/ballistic/automatic/pistol/plasma_thrower)
 
-/datum/supply_pack/companies/energy/nri_surplus/plasma_marksman
+/datum/supply_pack/companies/energy/hc_surplus/plasma_marksman
 	contains = list(/obj/item/gun/ballistic/automatic/pistol/plasma_marksman)
 	access = FALSE
 	access_view = FALSE
 	express_lock = FALSE
 	departamental_goody = TRUE
 
-/datum/supply_pack/companies/energy/nri_surplus/crank_taser
+/datum/supply_pack/companies/energy/hc_surplus/crank_taser
 	contains = list(/obj/item/gun/energy/taser/crank)
 	cost = CARGO_CRATE_VALUE * 2
 	access = FALSE
@@ -109,7 +109,7 @@
 	express_lock = FALSE
 	departamental_goody = TRUE
 
-/datum/supply_pack/companies/energy/nri_surplus/stun_gun //Not a gun but it's only fair to place similar items close to each other
+/datum/supply_pack/companies/energy/hc_surplus/stun_gun //Not a gun but it's only fair to place similar items close to each other
 	contains = list(/obj/item/melee/baton/security/stun_gun/loaded)
 	cost = CARGO_CRATE_VALUE * 1.5 //Similarly live action roleplay'iy stun baton lite
 	access = FALSE
@@ -117,10 +117,10 @@
 	express_lock = FALSE
 	departamental_goody = TRUE
 
-/datum/supply_pack/companies/energy/nri_surplus/zaibas
+/datum/supply_pack/companies/energy/hc_surplus/zaibas
 	contains = list(/obj/item/gun/ballistic/automatic/pulse_rifle)
 	cost = CARGO_CRATE_VALUE * 6
 
-/datum/supply_pack/companies/energy/nri_surplus/zaibas_a
+/datum/supply_pack/companies/energy/hc_surplus/zaibas_a
 	contains = list(/obj/item/gun/ballistic/rifle/pulse_sniper)
 	cost = CARGO_CRATE_VALUE * 7

@@ -1,5 +1,5 @@
 /datum/supply_pack/companies/tools_weapons
-	group = "I - Tools & Weapons"
+	group = "★ Tools & Weapons"
 	discountable = SUPPLY_PACK_NOT_DISCOUNTABLE
 
 // Blacksteel
@@ -71,25 +71,25 @@
 	cost = CARGO_CRATE_VALUE
 	contains = list(/obj/item/shield/riot/tele)
 
-// NRI 
+// HC 
 
-/datum/supply_pack/companies/tools_weapons/nri_surplus
+/datum/supply_pack/companies/tools_weapons/hc_surplus
 	cost = CARGO_CRATE_VALUE * 0.25
 
-/datum/supply_pack/companies/tools_weapons/nri_surplus/flares
+/datum/supply_pack/companies/tools_weapons/hc_surplus/flares
 	contains = list(/obj/item/storage/box/nri_flares)
 	cost = CARGO_CRATE_VALUE * 0.3
 
-/datum/supply_pack/companies/tools_weapons/nri_surplus/binoculars
+/datum/supply_pack/companies/tools_weapons/hc_surplus/binoculars
 	contains = list(/obj/item/binoculars)
 
-/datum/supply_pack/companies/tools_weapons/nri_surplus/screwdriver_pen
+/datum/supply_pack/companies/tools_weapons/hc_surplus/screwdriver_pen
 	name = "Screwdriver Pen"
-	desc = "It's a pen that also works a screwdriver! The wonders of NRI engineering!"
+	desc = "It's a pen that also works a screwdriver! The wonders of the HC engineering!"
 	contains = list(/obj/item/pen/screwdriver)
 	auto_name = FALSE
 
-/datum/supply_pack/companies/tools_weapons/nri_surplus/trench_tool
+/datum/supply_pack/companies/tools_weapons/hc_surplus/trench_tool
 	contains = list(/obj/item/trench_tool)
 
 // Vitezstvi

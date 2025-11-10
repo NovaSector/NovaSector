@@ -1,5 +1,5 @@
 /datum/supply_pack/companies/apparel
-	group = "I - Apparel & Storage"
+	group = "★ Apparel & Storage"
 	discountable = SUPPLY_PACK_NOT_DISCOUNTABLE
 
 // Blacksteel
@@ -130,15 +130,15 @@
 	contains = list(/obj/item/storage/pouch/ammo)
 	cost = CARGO_CRATE_VALUE
 
-// NRI
+// HC
 
-/datum/supply_pack/companies/apparel/nri_surplus
+/datum/supply_pack/companies/apparel/hc_surplus
 	cost = CARGO_CRATE_VALUE * 0.25
 
-/datum/supply_pack/companies/apparel/nri_surplus/belt
+/datum/supply_pack/companies/apparel/hc_surplus/belt
 	contains = list(/obj/item/storage/belt/military/cin_surplus/random_color)
 
-/datum/supply_pack/companies/apparel/nri_surplus/backpack
+/datum/supply_pack/companies/apparel/hc_surplus/backpack
 	contains = list(/obj/item/storage/backpack/industrial/cin_surplus/random_color)
 
 // Donk

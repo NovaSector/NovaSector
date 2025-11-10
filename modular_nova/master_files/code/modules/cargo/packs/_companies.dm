@@ -2,7 +2,7 @@
 
 /datum/supply_pack/companies
 	access_view = NONE
-	group = "I - General"
+	group = "★ General"
 	goody = TRUE
 	crate_type = /obj/structure/closet/crate/large/import
 	auto_name = TRUE

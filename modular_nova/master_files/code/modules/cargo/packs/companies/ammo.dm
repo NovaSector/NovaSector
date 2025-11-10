@@ -1,5 +1,5 @@
 /datum/supply_pack/companies/mags_and_ammo
-	group = "I - Magazines and Ammo"
+	group = "★ Magazines and Ammo"
 	discountable = SUPPLY_PACK_NOT_DISCOUNTABLE
 
 // NT Mags -  These supplant the NT ones
@@ -99,38 +99,38 @@
 	express_lock = TRUE
 	departamental_goody = FALSE
 
-// NRI Mags
+// HC Mags
 
-/datum/supply_pack/companies/mags_and_ammo/nri_surplus/
+/datum/supply_pack/companies/mags_and_ammo/hc_surplus
 	cost = CARGO_CRATE_VALUE * 0.25
 
-/datum/supply_pack/companies/mags_and_ammo/nri_surplus/plasma_battery
+/datum/supply_pack/companies/mags_and_ammo/hc_surplus/plasma_battery
 	contains = list(/obj/item/ammo_box/magazine/recharge/plasma_battery)
 
-/datum/supply_pack/companies/mags_and_ammo/nri_surplus/zaibas
+/datum/supply_pack/companies/mags_and_ammo/hc_surplus/zaibas
 	contains = list(/obj/item/ammo_box/magazine/pulse/spawns_empty)
 	cost = CARGO_CRATE_VALUE * 0.5
 
-/datum/supply_pack/companies/mags_and_ammo/nri_surplus/zashch
+/datum/supply_pack/companies/mags_and_ammo/hc_surplus/zashch
 	contains = list(/obj/item/ammo_box/magazine/zashch/spawns_empty)
 
-/datum/supply_pack/companies/mags_and_ammo/nri_surplus/miecz
+/datum/supply_pack/companies/mags_and_ammo/hc_surplus/miecz
 	contains = list(/obj/item/ammo_box/magazine/miecz/spawns_empty)
 
-/datum/supply_pack/companies/mags_and_ammo/nri_surplus/napad
+/datum/supply_pack/companies/mags_and_ammo/hc_surplus/napad
 	contains = list(/obj/item/ammo_box/magazine/napad/spawns_empty)
 
-/datum/supply_pack/companies/mags_and_ammo/nri_surplus/sakhno
+/datum/supply_pack/companies/mags_and_ammo/hc_surplus/sakhno
 	contains = list(/obj/item/ammo_box/speedloader/strilka310)
 
-/datum/supply_pack/companies/mags_and_ammo/nri_surplus/lanca
+/datum/supply_pack/companies/mags_and_ammo/hc_surplus/lanca
 	contains = list(/obj/item/ammo_box/magazine/lanca/spawns_empty)
 
-/datum/supply_pack/companies/mags_and_ammo/nri_surplus/amr_magazine
+/datum/supply_pack/companies/mags_and_ammo/hc_surplus/amr_magazine
 	contains = list(/obj/item/ammo_box/magazine/wylom)
 	cost = CARGO_CRATE_VALUE * 0.75
 
-// Vitezstvi - Boxes of non-shotgun ammo
+// Vitezstv★ Boxes of non-shotgun ammo
 
 /datum/supply_pack/companies/mags_and_ammo/vitezstvi/ammo_boxes
 	cost = CARGO_CRATE_VALUE * 0.25
@@ -232,7 +232,7 @@
 /datum/supply_pack/companies/mags_and_ammo/vitezstvi/speedloader/c585trappiste
 	contains = list(/obj/item/ammo_box/speedloader/c585trappiste)
 
-// Vitezstvi - Shotgun boxes
+// Vitezstv★ Shotgun boxes
 
 /datum/supply_pack/companies/mags_and_ammo/vitezstvi/shot_shells
 	cost = CARGO_CRATE_VALUE * 0.25

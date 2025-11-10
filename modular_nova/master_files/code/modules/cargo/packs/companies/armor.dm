@@ -1,5 +1,5 @@
 /datum/supply_pack/companies/armor
-	group = "I - Armors and Uniforms"
+	group = "★ Armors and Uniforms"
 	discountable = SUPPLY_PACK_NOT_DISCOUNTABLE 
 
 // Blacksteel
@@ -105,37 +105,37 @@
 /datum/supply_pack/companies/armor/sol_fed/clothing/emt
 	contains = list(/obj/item/clothing/under/sol_emt)
 
-// NRI surplus
+// HC surplus
 
-/datum/supply_pack/companies/armor/nri_surplus
+/datum/supply_pack/companies/armor/hc_surplus
 	cost = CARGO_CRATE_VALUE * 0.5
 
-/datum/supply_pack/companies/armor/nri_surplus/space_suit
+/datum/supply_pack/companies/armor/hc_surplus/space_suit
 	name = "Voskhod-P depowered combat armor"
 	contains = list(/obj/item/clothing/suit/space/voskhod, /obj/item/clothing/head/helmet/space/voskhod)
 	desc = "An old combat modsuit with its powered components removed. Works perfectly as a hardsuit though! Includes helmet."
 	cost = CARGO_CRATE_VALUE * 2
 	auto_name = FALSE
 
-/datum/supply_pack/companies/armor/nri_surplus/clothing/helmet
+/datum/supply_pack/companies/armor/hc_surplus/clothing/helmet
 	contains = list(/obj/item/clothing/head/helmet/cin_surplus_helmet/random_color)
 
-/datum/supply_pack/companies/armor/nri_surplus/clothing/vest
+/datum/supply_pack/companies/armor/hc_surplus/clothing/vest
 	contains = list(/obj/item/clothing/suit/armor/vest/cin_surplus_vest)
 
-/datum/supply_pack/companies/armor/nri_surplus/clothing/police_jacket
+/datum/supply_pack/companies/armor/hc_surplus/clothing/police_jacket
 	contains = list(/obj/item/clothing/suit/armor/vest/hc_police_jacket)
 
-/datum/supply_pack/companies/armor/nri_surplus/clothing/police_cap
+/datum/supply_pack/companies/armor/hc_surplus/clothing/police_cap
 	contains = list(/obj/item/clothing/head/hats/colonial/hc_police)
 
-/datum/supply_pack/companies/armor/nri_surplus/clothing/police_baseball_cap
+/datum/supply_pack/companies/armor/hc_surplus/clothing/police_baseball_cap
 	contains = list(/obj/item/clothing/head/soft/hc_police)
 
-/datum/supply_pack/companies/armor/nri_surplus/clothing/police_vest
+/datum/supply_pack/companies/armor/hc_surplus/clothing/police_vest
 	contains = list(/obj/item/clothing/head/helmet/hc_police)
 
-/datum/supply_pack/companies/armor/nri_surplus/clothing/police_helmet
+/datum/supply_pack/companies/armor/hc_surplus/clothing/police_helmet
 	contains = list(/obj/item/clothing/suit/armor/vest/hc_police)
 
 // Donk

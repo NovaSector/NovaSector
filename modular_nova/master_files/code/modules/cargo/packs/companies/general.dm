@@ -1,5 +1,5 @@
 /datum/supply_pack/companies/general
-	group = "I - General"
+	group = "★ General"
 	discountable = SUPPLY_PACK_NOT_DISCOUNTABLE
 
 // Blacksteel
@@ -38,11 +38,11 @@
 /datum/supply_pack/companies/general/kahraman/fireproof_spray
 	contains = list(/obj/item/fireproof_spray)
 
-// NRI
+// HC
 
-/datum/supply_pack/companies/general/nri_surplus
+/datum/supply_pack/companies/general/hc_surplus
 
-/datum/supply_pack/companies/general/nri_surplus/hc_flag
+/datum/supply_pack/companies/general/hc_surplus/hc_flag
 	contains = list(/obj/item/sign/flag/hc)
 	cost = CARGO_CRATE_VALUE * 0.2
 

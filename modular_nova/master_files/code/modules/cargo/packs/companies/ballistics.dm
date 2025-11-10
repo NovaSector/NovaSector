@@ -1,5 +1,5 @@
 /datum/supply_pack/companies/ballistics
-	group = "I - Ballistic Weapons"
+	group = "★ Ballistic Weapons"
 	access = ACCESS_WEAPONS
 	access_view = ACCESS_WEAPONS
 	express_lock = TRUE
@@ -124,42 +124,42 @@
 	contains = list(/obj/item/gun/ballistic/automatic/sol_grenade_launcher)
 	cost = CARGO_CRATE_VALUE * 23
 
-// NRI Surplus
+// HC Surplus
 
-/datum/supply_pack/companies/ballistics/nri_surplus
+/datum/supply_pack/companies/ballistics/hc_surplus
 	cost = CARGO_CRATE_VALUE * 3
 
-/datum/supply_pack/companies/ballistics/nri_surplus/shotgun_revolver
+/datum/supply_pack/companies/ballistics/hc_surplus/shotgun_revolver
 	contains = list(/obj/item/gun/ballistic/revolver/shotgun_revolver)
 	access = FALSE
 	access_view = FALSE
 	express_lock = FALSE
 	departamental_goody = TRUE
 
-/datum/supply_pack/companies/ballistics/nri_surplus/zashch
+/datum/supply_pack/companies/ballistics/hc_surplus/zashch
 	contains = list(/obj/item/gun/ballistic/automatic/pistol/zashch)
 	access = FALSE
 	access_view = FALSE
 	express_lock = FALSE
 	departamental_goody = TRUE
 
-/datum/supply_pack/companies/ballistics/nri_surplus/miecz
+/datum/supply_pack/companies/ballistics/hc_surplus/miecz
 	contains = list(/obj/item/gun/ballistic/automatic/miecz)
 	cost = CARGO_CRATE_VALUE * 5
 
-/datum/supply_pack/companies/ballistics/nri_surplus/napad
+/datum/supply_pack/companies/ballistics/hc_surplus/napad
 	contains = list(/obj/item/gun/ballistic/automatic/napad)
 	cost = CARGO_CRATE_VALUE * 6
 
-/datum/supply_pack/companies/ballistics/nri_surplus/sakhno_rifle
+/datum/supply_pack/companies/ballistics/hc_surplus/sakhno_rifle
 	contains = list(/obj/item/gun/ballistic/rifle/boltaction)
 	cost = CARGO_CRATE_VALUE * 6
 
-/datum/supply_pack/companies/ballistics/nri_surplus/lanca
+/datum/supply_pack/companies/ballistics/hc_surplus/lanca
 	contains = list(/obj/item/gun/ballistic/automatic/lanca)
 	cost = CARGO_CRATE_VALUE * 7
 
-/datum/supply_pack/companies/ballistics/nri_surplus/anti_materiel_rifle
+/datum/supply_pack/companies/ballistics/hc_surplus/anti_materiel_rifle
 	contains = list(/obj/item/gun/ballistic/automatic/wylom)
 	cost = CARGO_CRATE_VALUE * 8
 
