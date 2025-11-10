@@ -4,13 +4,13 @@
 /area/template_noop)
 "b" = (
 /turf/closed/wall/r_wall,
-/area/station/ai_monitored/security/armory)
+/area/station/security/armory)
 "p" = (
 /obj/structure/rack,
 /obj/machinery/airalarm/directional/west,
 /obj/effect/spawner/armory_spawn/shotguns,
 /turf/open/floor/iron/dark/smooth_large,
-/area/station/ai_monitored/security/armory)
+/area/station/security/armory)
 "w" = (
 /obj/structure/rack,
 /obj/item/gun/ballistic/automatic/battle_rifle{
@@ -20,7 +20,7 @@
 /obj/item/gun/energy/ionrifle,
 /obj/item/clothing/suit/hooded/ablative,
 /turf/open/floor/iron/dark/smooth_large,
-/area/station/ai_monitored/security/armory)
+/area/station/security/armory)
 "x" = (
 /obj/machinery/requests_console/directional/north{
 	department = "Security";
@@ -33,7 +33,7 @@
 /obj/structure/rack/gunrack,
 /obj/effect/spawner/armory_spawn/mod_lasers_small,
 /turf/open/floor/iron/dark/smooth_large,
-/area/station/ai_monitored/security/armory)
+/area/station/security/armory)
 "A" = (
 /obj/structure/reagent_dispensers/wall/peppertank/directional/west,
 /obj/machinery/light/directional/west,
@@ -49,7 +49,7 @@
 /obj/structure/cable,
 /obj/machinery/power/apc/auto_name/directional/south,
 /turf/open/floor/iron/dark/smooth_large,
-/area/station/ai_monitored/security/armory)
+/area/station/security/armory)
 "F" = (
 /obj/machinery/newscaster/directional/west,
 /obj/machinery/camera/motion{
@@ -59,14 +59,14 @@
 /obj/structure/rack/gunrack,
 /obj/effect/spawner/armory_spawn/mod_lasers_big,
 /turf/open/floor/iron/dark/smooth_large,
-/area/station/ai_monitored/security/armory)
+/area/station/security/armory)
 "L" = (
 /obj/structure/table,
 /obj/item/radio/intercom/directional/west,
 /obj/machinery/light/small/directional/west,
 /obj/effect/spawner/armory_spawn/smg,
 /turf/open/floor/iron/dark/smooth_large,
-/area/station/ai_monitored/security/armory)
+/area/station/security/armory)
 
 (1,1,1) = {"
 b
