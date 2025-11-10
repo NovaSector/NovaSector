@@ -6,14 +6,14 @@
 #define CHIP_LABEL_SYNDIE "It has <b>[span_red("Cybersun Industries")]</b> laser-etched into it."
 #define CHIP_LABEL_WARD "It has <b>[span_yellow("Ward-Takahashi Manufacturing")]</b> laser-etched into it."
 #define CHIP_LABEL_ZENGHU "It has a <b>[span_pink("Zeng-Hu Pharmaceuticals")]</b> label visible on it."
-///Neuroware chips are installed into this for synthetic humanoids
+///Neuroware chips are installed into this for synthetic brains
 #define SYNTH_SLOT_NAME "persocom chip slot"
 
 ///Data chip which contextualizes drugs as "software" for synthetic brains.
 ///Like pills, but doesn't directly contain reagents, instead adds them manually.
 /obj/item/disk/neuroware
 	name = "neuroware chip"
-	special_desc = "A neuroware chip uploads neurocomputing programs to the user's brain. The recipient must have a NIF implant or be a synthetic humanoid. \
+	special_desc = "A neuroware chip uploads neurocomputing programs to the user's brain. The recipient must have a NIF implant or a synthetic brain. \
 		Neurocomputing software, also known as neuroware, are programs designed to execute their code within the synaptic connections of neural networks."
 	icon = 'modular_nova/modules/neuroware/icons/neuroware.dmi'
 	icon_state = "chip_generic"
@@ -21,10 +21,13 @@
 	greyscale_config = /datum/greyscale_config/neuroware
 	// Color of circuitboard underlay.
 	greyscale_colors = CIRCUIT_COLOR_GENERIC
+
+	///Balloon message upon successful installation.
 	var/success_message = "inserted neuroware chip"
 	///Associative list of reagent types to units. Added to the mob when the chip is used.
 	var/list/list_reagents
 	///Manufacturer label appended to examine.
+	/// For the list of available tags, see [code/__DEFINES/~nova_defines/neuroware_defines.dm]
 	var/manufacturer_tag
 	///How many deciseconds to delay when used on someone else.
 	var/external_delay = 5 SECONDS
@@ -88,7 +91,13 @@
 
 	can_overdose = !can_overdose
 
-	playsound(src, 'sound/machines/click.ogg', 50, TRUE, SILENCED_SOUND_EXTRARANGE)
+	playsound(
+		source = src,
+		soundin = 'sound/machines/click.ogg',
+		vol = HALFWAY_SOUND_VOLUME,
+		vary = TRUE,
+		extrarange = SILENCED_SOUND_EXTRARANGE
+	)
 	balloon_alert(user, "safety [can_overdose ? "disabled" : "enabled"]")
 	return TRUE
 
@@ -122,7 +131,7 @@
 			return TRUE
 	return FALSE
 
-///Installs only if the mob has a synthetic brain, unless they have a NIF implant. Returns TRUE on success.
+///Installs only if the mob has a synthetic brain or NIF implant. Returns TRUE on success.
 /obj/item/disk/neuroware/proc/try_install(mob/living/carbon/human/target, mob/living/carbon/human/user)
 	if(!ishuman(target))
 		return
@@ -132,8 +141,8 @@
 
 	var/slot_name = SYNTH_SLOT_NAME
 
-	// Check for robotic brain or presence of NIF implant
 	var/obj/item/organ/brain/owner_brain = target.get_organ_slot(ORGAN_SLOT_BRAIN)
+	// Allow install if they have either a robotic brain (synthetic, including cortical) OR a NIF
 	if(isnull(owner_brain) || !(owner_brain.organ_flags & ORGAN_ROBOTIC))
 		var/obj/item/organ/cyberimp/brain/nif/nif_implant = target.get_organ_slot(ORGAN_SLOT_BRAIN_NIF)
 		if(isnull(nif_implant) || nif_implant.broken)
@@ -173,7 +182,12 @@
 	if(!install(target, user))
 		return
 	target.balloon_alert_to_viewers(success_message)
-	playsound(target, 'sound/machines/pda_button/pda_button1.ogg', 50, TRUE)
+	playsound(
+		source = target,
+		soundin = 'sound/machines/pda_button/pda_button1.ogg',
+		vol = HALFWAY_SOUND_VOLUME,
+		vary = TRUE
+	)
 
 	// Implement side-effects from subtypes
 	after_install(target, user)
