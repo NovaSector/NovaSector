@@ -159,6 +159,10 @@
 	item_path = /obj/item/clothing/mask/gas/owl_mask
 	group = "Costumes"
 
+/datum/loadout_item/mask/pink_clown_wig
+	name = "Pink Clown Wig"
+	item_path = /obj/item/clothing/mask/gas/pink_clown_wig
+
 /datum/loadout_item/mask/paper
 	name = "Paper Mask"
 	item_path = /obj/item/clothing/mask/paper
