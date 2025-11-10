@@ -20,12 +20,10 @@
 	. = ..()
 	if(slot & (ITEM_SLOT_BELT|ITEM_SLOT_SUITSTORE))
 		START_PROCESSING(SSobj, src)
-		to_chat(world, "DEBUG holster processing started?")
 
 /obj/item/storage/belt/holster/energy/dropped(mob/user)
 	. = ..()
 	STOP_PROCESSING(SSobj, src)
-	to_chat(world, "DEBUG holster processing ended?")
 
 /obj/item/storage/belt/holster/energy/examine(mob/user)
 	. = ..()
@@ -70,32 +68,27 @@
 	if(!recharger_cell)
 		return
 	var/transferred = min(recharger_cell.charge, target_cell.used_charge(), amount)
-	to_chat(world, "DEBUG charge cell transferred: [transferred], min was between rc.c [recharger_cell.charge], tc.uc [target_cell.used_charge()], amt [amount]")
 	recharger_cell.use(target_cell.give(transferred))
+	recharger_cell.update_appearance()
 	return
 
 /obj/item/storage/belt/holster/energy/process(seconds_per_tick)
-	to_chat(world, "DEBUG holster process...")
 	if(!recharger_cell)
-		to_chat(world, "DEBUG no cell, go home.")
 		return // no cell no charge
 	for(var/obj/item/charging in contents)
 		if(istype(charging, /obj/item/stock_parts/power_store/cell))
-			to_chat(world, "DEBUG no charge ouroboros, continue")
 			continue // let's not do a charging ouroboros
 		var/obj/item/stock_parts/power_store/charging_cell = charging.get_cell()
-		to_chat(world, "DEBUG charging [charging], cell is [charging_cell]")
 		if(charging_cell)
 			if(charging_cell.charge < charging_cell.maxcharge)
 				charge_cell(charging_cell.chargerate * recharge_coeff * seconds_per_tick, charging_cell)
 				charging.update_appearance()
-
+		// the following only works on rechargable magazines that are outside of a gun
+		// todo typecache of guns with rechargable magazines to check/charge *them* while loaded
 		if(istype(charging, /obj/item/ammo_box/magazine/recharge))
-			to_chat(world, "DEBUG charging [charging] power pack!")
 			var/obj/item/ammo_box/magazine/recharge/power_pack = charging
 			for(var/charge_iterations in 1 to recharge_coeff)
 				if(power_pack.stored_ammo.len >= power_pack.max_ammo)
-					break
+					continue
 				power_pack.stored_ammo += new power_pack.ammo_type(power_pack)
 				recharger_cell.use(BASE_MACHINE_ACTIVE_CONSUMPTION * seconds_per_tick)
-			return

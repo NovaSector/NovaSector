@@ -114,7 +114,7 @@
 	))
 
 /datum/storage/holster/energy
-	max_slots = 3 // 2 guns and a cell
+	max_slots = 3 // 2 guns and a cell but the cell is handled in a weird way
 	max_limited_store = 2 // you only have 2 slots but you might as well be able to hold 2 eguns, y'know
 	max_total_storage = (WEIGHT_CLASS_NORMAL * 2) + WEIGHT_CLASS_SMALL
 
