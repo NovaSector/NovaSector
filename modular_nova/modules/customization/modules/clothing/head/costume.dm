@@ -6,7 +6,7 @@
 
 /obj/item/clothing/head/costume/nova/maid
 	name = "maid headband"
-	desc = "Maid in China."
+	desc = "Maid for you."
 	icon_state = "maid"
 
 /obj/item/clothing/head/costume/nova/papakha
