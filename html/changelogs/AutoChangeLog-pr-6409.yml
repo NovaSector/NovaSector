@@ -1,0 +1,4 @@
+author: "Hatterhat"
+delete-after: True
+changes:
+  - balance: "Blueshield's hellfire laser capacity reduced to 20 shots at full (from 25), cap's laser buffed to 20 shots at full (from 15)."

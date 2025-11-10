@@ -5,6 +5,10 @@
 	relevent_layers = list(BODY_BEHIND_LAYER, BODY_ADJ_LAYER)
 	organ_type = /obj/item/organ/spines
 
+/datum/sprite_accessory/spines/none
+	name = SPRITE_ACCESSORY_NONE
+	icon_state = "none"
+
 /datum/sprite_accessory/spines/is_hidden(mob/living/carbon/human/wearer)
 	if(wearer.w_uniform)
 		if(wearer.w_uniform.flags_inv & HIDESPINE)

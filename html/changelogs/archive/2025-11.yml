@@ -228,3 +228,59 @@
   vinylspiders:
   - bugfix: fixes an issue where shibari ropes literally tie up game resources and
       prevent them from being released
+2025-11-08:
+  Archemagus:
+  - bugfix: Cryopod console will no longer connect to nearby on wall computers
+  - bugfix: Time clock modular computers will not either
+  - code_imp: Added connectable var for modular PC for CONNECTING_COMPUTER module
+  Hatterhat:
+  - rscadd: The designs for 10mm "downer" ammunition, specifically for incapacitating
+      and not killing living targets, are now being flashed onto advanced lethal variant
+      modules around the Frontier, including those of Gorlex Marauder manufacture
+      and issue. Downer ammunition is nonlethal, inflicts a hefty chunk of stamina
+      damage, and conditionally makes exhausted targets sleep.
+  - balance: Following a series of complaints from contractors, the Syndicate has
+      updated the standard loadouts issued to their drifting contractors, who now
+      receive a proper medkit, a box of tools, and a real, actual firearm (the Ansem/SC,
+      loaded with 10mm Downer by default).
+  - balance: Drifting contractors' random item pools have been trimmed down a lot,
+      and now only receive 2 items instead of 3.
+  - balance: The contractor MOD as issued to contractors of both drifting and non-drifting
+      varieties now has flash protection, hearing protection, and night-vision suites
+      comparable to their less-stealthy bretheren. Drifting contractors also receive
+      a thermal visor.
+  MintMetal:
+  - map: increased amount of sleepers on Port Tarkon to 10
+  - map: added more random rooms to Port Tarkon
+  - map: modified Port Tarkon
+  RealWinterFrost:
+  - qol: Ghost Cafe photocopier no longer runs out of toner
+  Stalkeros, Hollandaise for the sprites:
+  - qol: Food replicator, -the 'Colonial Supply Core'-, that was previously used by
+      something you might have heard of as the "NRI", has been reflavored into a piece
+      of tech, called 'Pioneer-Class Matter Resequencer' and utilised by then-colonists
+      of the Heliostatic Coalition.
+  - image: Food replicator has been also resprited.
+  - rscadd: Added a new Korean traditional dress, chima jeogori
+  Yobrocharlie:
+  - map: Reworked the heretic gateway to be good and not terrible.
+  wivernshy:
+  - qol: Bridge Officers, Paramedics, Barbers, and Corrections Officers now have mineral
+      storage access by default.
+2025-11-09:
+  Zergspower:
+  - image: adjusted multiple default icons
+  sqnztb:
+  - bugfix: pipes look less bad again.
+2025-11-10:
+  MintMetal:
+  - bugfix: Tarkon Driver now don't have two SMESes on the same tile
+  OrbisAnima:
+  - balance: Floor safes can now be detected with t ray scanners.
+  intense-skies:
+  - rscdel: ' The chameleon mutation is removed from genetic mutation quirk.'
+  trazodont:
+  - rscadd: police whistles can now be added to security belts
+  - qol: Correctional Officers now have security bounties
+  vinylspiders:
+  - bugfix: fixes some bad code in xenoarch causing performance issues

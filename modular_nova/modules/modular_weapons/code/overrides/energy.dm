@@ -11,6 +11,9 @@
 		This pattern of laser gun became infamous for the gruesome burn wounds it caused, \
 		and was quietly pushed to the sidelines once it began to affect Allstar's reputation."
 
+/obj/item/gun/energy/laser/captain
+	ammo_type = list(/obj/item/ammo_casing/energy/laser/hellfire/blueshield) // 20 hellfires up from 15
+
 /obj/item/gun/energy/laser/carbine
 	name = "laser auto-carbine"
 	desc = "The Allstar Lasers Star Combat 1-Auto, or \"Allstar SC-1A\", \
@@ -29,7 +32,6 @@
 /obj/item/ammo_casing/energy/laser
 	e_cost = LASER_SHOTS(20, STANDARD_CELL_CHARGE)
 	// up from LASER_SHOTS(12, STANDARD_CELL_CHARGE)
-	select_name = "kill"
 
 /obj/item/ammo_casing/energy/laser/hos
 	e_cost = LASER_SHOTS(25, STANDARD_CELL_CHARGE * 1.2)
@@ -46,7 +48,6 @@
 /obj/item/ammo_casing/energy/laser/hellfire
 	e_cost = LASER_SHOTS(15, STANDARD_CELL_CHARGE)
 	// up from LASER_SHOTS(10, STANDARD_CELL_CHARGE)
-	select_name = "maim"
 
 /obj/item/ammo_casing/energy/lasergun
 	e_cost = LASER_SHOTS(25, STANDARD_CELL_CHARGE)

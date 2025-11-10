@@ -1,0 +1,5 @@
+author: "Ignari-contrib"
+delete-after: True
+changes:
+  - rscadd: "Adds a new backpack type into the character creation menu"
+  - qol: "Allows better viewage of your character and display of their style."
