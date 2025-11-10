@@ -534,7 +534,7 @@
 	var/disguise_icon_override
 	var/disguise_pixel_offset = 0
 	var/disguise_hat_offset = 0
-	/// Traits unique to this model (deadsprite, wide/dogborginess, etc.). Mirrors the definition in modular_nova\modules\borgs\code\modules\mob\living\silicon\robot\robot_model.dm
+	/// Traits unique to this model (deadsprite, wide/quadborginess, etc.). Mirrors the definition in modular_nova\modules\borgs\code\modules\mob\living\silicon\robot\robot_model.dm
 	var/list/disguise_model_features = list()
 	var/disguise_special_light_key
 	var/mob/listeningTo
@@ -597,7 +597,6 @@
 			to_chat(user, span_notice("\the [src] is recharging."))
 			return
 		var/static/list/model_icons = sort_list(list(
-			"Standard" = image(icon = 'icons/mob/silicon/robots.dmi', icon_state = "robot"),
 			"Medical" = image(icon = 'icons/mob/silicon/robots.dmi', icon_state = "medical"),
 			"Cargo" = image(icon = CYBORG_ICON_CARGO, icon_state = "cargoborg"),
 			"Engineer" = image(icon = 'icons/mob/silicon/robots.dmi', icon_state = "engineer"),
@@ -616,8 +615,6 @@
 
 		var/obj/item/robot_model/model
 		switch(model_selection)
-			if("Standard")
-				model = new /obj/item/robot_model/standard
 			if("Medical")
 				model = new /obj/item/robot_model/medical
 			if("Cargo")
@@ -722,7 +719,7 @@
 	user.bubble_icon = "robot"
 	active = TRUE
 	user.update_icons()
-	user.model.update_dogborg()
+	user.model.update_quadborg()
 	user.model.update_tallborg()
 
 	if(listeningTo == user)
@@ -747,7 +744,7 @@
 	user.bubble_icon = saved_bubble_icon
 	active = FALSE
 	user.update_icons()
-	user.model.update_dogborg()
+	user.model.update_quadborg()
 	user.model.update_tallborg()
 
 /obj/item/borg_shapeshifter/proc/disrupt(mob/living/silicon/robot/user)

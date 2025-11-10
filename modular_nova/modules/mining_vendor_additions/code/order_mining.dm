@@ -10,6 +10,9 @@
 	purchase_path = /obj/item/storage/medkit/robotic_repair/stocked
 	cost_per_order = 650 // I set this at this slightly-higher-than-normal value because the robot medkits heal brute, burn, and have a coagulent equivalent in them
 
+/datum/orderable_item/consumables/space_cash
+	purchase_path = /obj/item/stack/spacecash/c500
+
 /datum/orderable_item/interdyne
 	category_index = CATEGORY_INTERDYNE
 
@@ -29,21 +32,9 @@
 	purchase_path = /obj/item/clothing/glasses/meson/prescription
 	cost_per_order = 325
 
-/datum/orderable_item/mining/crusher/spear
-	purchase_path = /obj/item/kinetic_crusher/spear
-	cost_per_order = 1250
-
-/datum/orderable_item/mining/crusher/hammer
-	purchase_path = /obj/item/kinetic_crusher/hammer
-	cost_per_order = 1250
-
-/datum/orderable_item/mining/crusher/machete
-	purchase_path = /obj/item/kinetic_crusher/machete
-	cost_per_order = 1250
-
-/datum/orderable_item/mining/crusher/claw
-	purchase_path = /obj/item/kinetic_crusher/claw
-	cost_per_order = 1250
+/datum/orderable_item/mining/crusher
+	purchase_path = /obj/item/crusher_conversion_kit
+	cost_per_order = 650 // Completely replaces the crusher as well as every crusher variant, and is set at the default crusher's base price.
 
 /datum/orderable_item/accelerator/gun/repeater
 	purchase_path = /obj/item/gun/energy/recharge/kinetic_accelerator/variant/repeater

@@ -10,6 +10,7 @@
 	icon = 'modular_nova/modules/tribal_extended/icons/dice.dmi'
 	icon_state = "db6"
 	microwave_riggable = FALSE // You can't melt bone in the microwave
+	resistance_flags = FIRE_PROOF | LAVA_PROOF
 
 /obj/item/reagent_containers/cup/bowl/wood_bowl
 	name = "wooden bowl"

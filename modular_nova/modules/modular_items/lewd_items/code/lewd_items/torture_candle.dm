@@ -10,6 +10,7 @@
 	icon_state = "candle_pink_off"
 	base_icon_state = "candle"
 	inhand_icon_state = "candle_pink_off"
+	obj_flags_nova = ERP_ITEM
 	w_class = WEIGHT_CLASS_TINY
 	light_color = LIGHT_COLOR_FIRE
 	heat = 600
@@ -62,8 +63,8 @@
 	icon_state = "[base_icon_state]_[current_color]_[lit ? "lit" : "off"]"
 	inhand_icon_state = "[base_icon_state]_[current_color]_[lit ? "lit" : "off"]"
 
-/obj/item/bdsm_candle/attackby(obj/item/object, mob/user, params)
-	var/msg = object.ignition_effect(src, user)
+/obj/item/bdsm_candle/attackby(obj/item/attacking_item, mob/user, list/modifiers, list/attack_modifiers)
+	var/msg = attacking_item.ignition_effect(src, user)
 	update_brightness()
 	if(msg)
 		light(msg)

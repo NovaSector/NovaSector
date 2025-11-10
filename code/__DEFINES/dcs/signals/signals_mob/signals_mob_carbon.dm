@@ -23,11 +23,11 @@
 ///from base of /obj/item/bodypart/proc/can_attach_limb(): (new_limb, special) allows you to fail limb attachment
 #define COMSIG_ATTEMPT_CARBON_ATTACH_LIMB "attempt_carbon_attach_limb"
 	#define COMPONENT_NO_ATTACH (1<<0)
-///from base of /obj/item/bodypart/proc/try_attach_limb(): (new_limb, special)
+///from base of /obj/item/bodypart/proc/try_attach_limb(): (new_limb, special, lazy)
 #define COMSIG_CARBON_ATTACH_LIMB "carbon_attach_limb"
-/// Called from bodypart being attached /obj/item/bodypart/proc/try_attach_limb(mob/living/carbon/new_owner, special)
+/// Called from bodypart being attached /obj/item/bodypart/proc/try_attach_limb(mob/living/carbon/new_owner, special, lazy)
 #define COMSIG_BODYPART_ATTACHED "bodypart_attached"
-///from base of /obj/item/bodypart/proc/try_attach_limb(): (new_limb, special)
+///from base of /obj/item/bodypart/proc/try_attach_limb(): (new_limb, special, lazy)
 #define COMSIG_CARBON_POST_ATTACH_LIMB "carbon_post_attach_limb"
 ///from /obj/item/bodypart/proc/receive_damage, sent from the limb owner (limb, brute, burn)
 #define COMSIG_CARBON_LIMB_DAMAGED "carbon_limb_damaged"
@@ -60,19 +60,10 @@
 /// Called from bodypart being removed /obj/item/bodypart/proc/drop_limb(mob/living/carbon/old_owner, special, dismembered)
 #define COMSIG_BODYPART_REMOVED "bodypart_removed"
 
-///from base of mob/living/carbon/soundbang_act(): (list(intensity))
-#define COMSIG_CARBON_SOUNDBANG "carbon_soundbang"
 ///from /item/organ/proc/Insert() (/obj/item/organ/)
 #define COMSIG_CARBON_GAIN_ORGAN "carbon_gain_organ"
 ///from /item/organ/proc/Remove() (/obj/item/organ/)
 #define COMSIG_CARBON_LOSE_ORGAN "carbon_lose_organ"
-///from /mob/living/carbon/doUnEquip(obj/item/I, force, newloc, no_move, invdrop, silent)
-#define COMSIG_CARBON_EQUIP_HAT "carbon_equip_hat"
-///from /mob/living/carbon/doUnEquip(obj/item/I, force, newloc, no_move, invdrop, silent)
-#define COMSIG_CARBON_UNEQUIP_HAT "carbon_unequip_hat"
-///from /mob/living/carbon/doUnEquip(obj/item/I, force, newloc, no_move, invdrop, silent)
-#define COMSIG_CARBON_UNEQUIP_SHOECOVER "carbon_unequip_shoecover"
-#define COMSIG_CARBON_EQUIP_SHOECOVER "carbon_equip_shoecover"
 ///Called when someone attempts to cuff a carbon
 #define COMSIG_CARBON_CUFF_ATTEMPTED "carbon_attempt_cuff"
 	#define COMSIG_CARBON_CUFF_PREVENT (1<<0)
@@ -153,9 +144,6 @@
 ///from base of /mob/living/carbon/regenerate_limbs(): (excluded_limbs)
 #define COMSIG_CARBON_REGENERATE_LIMBS "living_regen_limbs"
 
-///from /atom/movable/screen/alert/give/proc/handle_transfer(): (taker, item)
-#define COMSIG_CARBON_ITEM_GIVEN "carbon_item_given"
-
 /// Sent from /mob/living/carbon/human/handle_blood(): (seconds_per_tick, times_fired)
 #define COMSIG_HUMAN_ON_HANDLE_BLOOD "human_on_handle_blood"
 	/// Return to prevent all default blood handling
@@ -180,7 +168,22 @@
 
 /// Called from /datum/species/proc/harm(): (mob/living/carbon/human/attacker, damage, attack_type, obj/item/bodypart/affecting, final_armor_block, kicking)
 #define COMSIG_HUMAN_GOT_PUNCHED "human_got_punched"
+/// Called from /datum/species/proc/harm(): (mob/living/carbon/human/attacked, damage, attack_type, obj/item/bodypart/affecting, final_armor_block, kicking)
+#define COMSIG_HUMAN_PUNCHED "human_punched"
 
 /// Called at the very end of human character setup
 /// At this point all quirks are assigned and the mob has a mind / client
 #define COMSIG_HUMAN_CHARACTER_SETUP_FINISHED "human_character_setup_finished"
+
+/// From /mob/living/carbon/proc/set_blood_type : (mob/living/carbon/user, datum/blood_type, update_cached_blood_dna_info)
+#define COMSIG_CARBON_CHANGED_BLOOD_TYPE "carbon_set_blood_type"
+
+//from base of [/obj/effect/particle_effect/fluid/smoke/proc/smoke_mob]: (seconds_per_tick)
+#define COMSIG_CARBON_EXPOSED_TO_SMOKE "carbon_exposed_to_smoke"
+
+/// From /mob/living/carbon/human/proc/update_mob_height() : (old_height)
+#define COMSIG_HUMAN_HEIGHT_UPDATED "human_height_updated"
+
+/// From /mob/living/carbon/proc/can_defib() : ()
+/// Return a defib result flag to override default defib brain check
+#define COMSIG_CARBON_DEFIB_BRAIN_CHECK "carbon_defib_brain_check"

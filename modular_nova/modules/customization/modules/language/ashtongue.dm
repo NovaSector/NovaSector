@@ -4,6 +4,11 @@
 	key = "l"
 	flags = TONGUELESS_SPEECH
 	space_chance = 70
+	sentence_chance = 0
+	between_word_sentence_chance = 10
+	between_word_space_chance = 75
+	additional_syllable_low = 0
+	additional_syllable_high = 0
 	syllables = list(
 		"za", "az", "ze", "ez", "zi", "iz", "zo", "oz", "zu", "uz", "zs", "sz",
 		"ha", "ah", "he", "eh", "hi", "ih", "ho", "oh", "hu", "uh", "hs", "sh",
@@ -23,7 +28,14 @@
 		"'ad","iir","krei","tii'","ruuk","nei","zirua","surai","lieket","miruk","ettirup","mireez","cqiek",
 		"brut","vaahk","nah'za","diierk","piut","vuurk","cs'eer","jeirk","qiruvk",
 	)
+
 	icon_state = "ashtongue"
 	icon = 'modular_nova/master_files/icons/misc/language.dmi'
 	default_priority = 90
 	secret = TRUE
+
+	mutual_understanding = list(
+	/datum/language/draconic = 70,
+	/datum/language/common = 50,
+	/datum/language/uncommon = 33,
+	)

@@ -88,16 +88,16 @@
 /obj/item/storage/bag/tray/integrated
 	name = "telescoping kitchen carrier"
 	desc = "First pioneered aboard the Mothic fleet and later utilized heavily in multi-armed species. Very useful for hauling around large amounts of food, and can rolls into a telescopic, hermetically-sealed tube for storage in the user's arm."
+	storage_type = /datum/storage/bag/tray/integrated
 
-/obj/item/storage/bag/tray/integrated/Initialize(mapload)
-	. = ..()
-	atom_storage.max_slots = 3
+/datum/storage/bag/tray/integrated
+	max_slots = 3
 
 /obj/item/lighter/integrated
 	name = "thumbtip lighter"
 	desc = "Galactic polling indicated outrageous market demand for this particular cybernetic addition - specifically a hinged false fingertip with a standard lighter housing inside, with many firms citing 'increased reproductive acquisition' as one of the primary survey results. Translated into Sol Common, this means that lighting cigarettes with your finger helps you pull. Allegedly."
 
-/obj/item/reagent_containers/cup/rag/integrated
+/obj/item/rag/integrated
 	name = "integrated cleaning chamois"
 	desc = "Guaranteed to eliminate (most) messes. This civilian-issue cybernetic enhancement comes with a lengthy waiver about foregoing any claims to fluid damage made by the device to your internal arm comparment."
 

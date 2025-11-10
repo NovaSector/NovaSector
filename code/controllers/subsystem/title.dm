@@ -1,10 +1,8 @@
-/* NOVA EDIT REMOVAL
+/* // NOVA EDIT REMOVAL START - SEE: modular_nova\modules\title_screen\code\title_screen_subsystem.dm
 SUBSYSTEM_DEF(title)
 	name = "Title Screen"
 	flags = SS_NO_FIRE
-	init_order = INIT_ORDER_TITLE
 	init_stage = INITSTAGE_EARLY
-
 	var/file_path
 	var/icon/icon
 	var/icon/previous_icon
@@ -61,12 +59,12 @@ SUBSYSTEM_DEF(title)
 	for(var/thing in GLOB.clients)
 		if(!thing)
 			continue
-		var/atom/movable/screen/splash/S = new(null, thing, FALSE)
-		S.Fade(FALSE,FALSE)
+		var/atom/movable/screen/splash/S = new(null, null, thing, FALSE)
+		S.fade(FALSE,FALSE)
 
 /datum/controller/subsystem/title/Recover()
 	icon = SStitle.icon
 	splash_turf = SStitle.splash_turf
 	file_path = SStitle.file_path
 	previous_icon = SStitle.previous_icon
-*/
+*/ // NOVA EDIT REMOVAL END

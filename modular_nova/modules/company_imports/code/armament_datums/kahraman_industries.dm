@@ -25,6 +25,9 @@
 	item_type = /obj/item/gps
 	cost = PAYCHECK_CREW
 
+/datum/armament_entry/company_import/kahraman/basic/fireproof_spray
+	item_type = /obj/item/fireproof_spray
+
 // Occupational health and safety? Never heard of her.
 
 /datum/armament_entry/company_import/kahraman/ppe
@@ -111,4 +114,4 @@
 	item_type = /obj/item/storage/belt/utility/frontier_colonist
 
 /datum/armament_entry/company_import/kahraman/storage_equipment/vest
-	item_type = /obj/item/clothing/accessory/colonial_webbing
+	item_type = /obj/item/clothing/accessory/webbing/colonial

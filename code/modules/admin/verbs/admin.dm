@@ -100,6 +100,8 @@ ADMIN_VERB(cmd_admin_check_player_exp, R_ADMIN, "Player Playtime", "View player 
 /datum/admins/proc/modify_traits(datum/D)
 	if(!D)
 		return
+	if(!check_rights(R_VAREDIT))
+		return
 
 	var/add_or_remove = input("Remove/Add?", "Trait Remove/Add") as null|anything in list("Add","Remove")
 	if(!add_or_remove)
@@ -123,7 +125,7 @@ ADMIN_VERB(cmd_admin_check_player_exp, R_ADMIN, "Player Playtime", "View player 
 		return
 	chosen_trait = available_traits[chosen_trait]
 
-	var/source = "adminabuse"
+	var/source = TRAIT_ADMIN_GRANTED
 	switch(add_or_remove)
 		if("Add") //Not doing source choosing here intentionally to make this bit faster to use, you can always vv it.
 			if(GLOB.movement_type_trait_to_flag[chosen_trait]) //include the required element.

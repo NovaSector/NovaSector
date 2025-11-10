@@ -1,6 +1,7 @@
 SUBSYSTEM_DEF(condos)
 	name = "Condos"
 	flags = SS_NO_FIRE
+	init_stage = INITSTAGE_LAST
 	/// All possible condo templates.
 	var/list/condo_templates = list()
 	/// List of active reservations we have.
@@ -11,7 +12,7 @@ SUBSYSTEM_DEF(condos)
 		/obj/item/gun/energy/laser/captain, \
 		/obj/item/gun/energy/e_gun/hos, \
 		/obj/item/hand_tele, \
-		/obj/item/tank/jetpack/oxygen/captain, \
+		/obj/item/tank/jetpack/captain, \
 		/obj/item/clothing/shoes/magboots/advance, \
 		/obj/item/blueprints, \
 		/obj/item/clothing/accessory/medal/gold/captain, \
@@ -32,7 +33,7 @@ SUBSYSTEM_DEF(condos)
 		/obj/item/mod/control/pre_equipped/research, \
 		/obj/item/mod/control/pre_equipped/rescue, \
 		/obj/item/mod/control/pre_equipped/safeguard, \
-		/obj/item/storage/belt/sabre, \
+		/obj/item/storage/belt/sheath/sabre, \
 		/obj/item/card, \
 		/obj/item/modular_computer, \
 		/obj/item/nullrod, \

@@ -5,9 +5,11 @@
 
 //Child of carpplushie because this should do everything the toy does and more
 /obj/item/toy/plush/carpplushie/dehy_carp
+	offspring_type = /obj/item/toy/plush/carpplushie
 	var/mob/owner = null //Carp doesn't attack owner, set when using in hand
 	var/mobtype = /mob/living/basic/carp //So admins can change what mob spawns via var fuckery
 	var/swelling = FALSE
+	flags_1 = parent_type::flags_1 | NO_NEW_GAGS_PREVIEW_1
 
 //Attack self
 /obj/item/toy/plush/carpplushie/dehy_carp/attack_self(mob/user)
@@ -17,9 +19,6 @@
 	to_chat(user, span_notice("You pet [src]. You swear it looks up at you."))
 	owner = user
 	RegisterSignal(owner, COMSIG_QDELETING, PROC_REF(owner_deleted))
-
-/obj/item/toy/plush/carpplushie/dehy_carp/plop(obj/item/toy/plush/Daddy)
-	return FALSE
 
 /obj/item/toy/plush/carpplushie/dehy_carp/proc/Swell()
 	if(swelling)
@@ -75,3 +74,4 @@
 
 /obj/item/toy/plush/carpplushie/dehy_carp/peaceful
 	mobtype = /mob/living/basic/carp/passive
+	flags_1 = parent_type::flags_1 | NO_NEW_GAGS_PREVIEW_1

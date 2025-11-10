@@ -12,7 +12,7 @@
 		<b>Function:</b> Allows operation of implant-locked weaponry, preventing equipment from falling into enemy hands."
 
 /obj/item/implant/emp
-	name = "emp implant"
+	name = "\improper EMP implant"
 	desc = "Triggers an EMP."
 	icon_state = "emp"
 	uses = 3
@@ -20,7 +20,7 @@
 /obj/item/implant/emp/activate()
 	. = ..()
 	uses--
-	empulse(imp_in, 3, 5)
+	empulse(imp_in, 3, 5, emp_source = src)
 	if(!uses)
 		qdel(src)
 
@@ -30,9 +30,29 @@
 	special_desc_requirement = EXAMINE_CHECK_SYNDICATE // NOVA EDIT
 	special_desc = "A Syndicate implanter used for a EMP implant" // NOVA EDIT
 
+/obj/item/implant/smoke
+	name = "smoke implant"
+	desc = "Releases a plume of smoke."
+	icon_state = "smoke"
+	uses = 3
+
+/obj/item/implant/smoke/activate()
+	. = ..()
+	uses--
+	var/datum/effect_system/fluid_spread/smoke/bad/smoke = new
+	smoke.set_up(6, holder = imp_in, location = imp_in)
+	smoke.start()
+	if(!uses)
+		qdel(src)
+
+/obj/item/implanter/smoke
+	name = "implanter (Smoke)"
+	imp_type = /obj/item/implant/smoke
+
 /obj/item/implant/radio
 	name = "internal radio implant"
 	var/obj/item/radio/radio
+	var/radio_type = /obj/item/radio // NOVA EDIT ADDITION
 	var/radio_key
 	var/subspace_transmission = FALSE
 	icon = 'icons/obj/devices/voice.dmi'
@@ -43,10 +63,10 @@
 	// needs to be GLOB.deep_inventory_state otherwise it won't open
 	radio.ui_interact(usr, state = GLOB.deep_inventory_state)
 
-/obj/item/implant/radio/Initialize(mapload)
+/obj/item/implant/radio/Initialize(mapload, radio_key_1, radio_key_2) // NOVA EDIT CHANGE - ORIGINAL: /obj/item/implant/radio/Initialize(mapload)
 	. = ..()
 
-	radio = new(src)
+	radio = new radio_type(src) // NOVA EDIT CHANGE - ORIGINAL: radio = new(src)
 	// almost like an internal headset, but without the
 	// "must be in ears to hear" restriction.
 	radio.name = "internal radio"

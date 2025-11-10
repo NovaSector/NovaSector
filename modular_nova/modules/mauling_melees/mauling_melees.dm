@@ -20,8 +20,9 @@
 	sharpness = SHARP_EDGED
 	armor_type = /datum/armor/item_knife
 	wound_bonus = 10
-	bare_wound_bonus = 20
+	exposed_wound_bonus = 20
 	tool_behaviour = TOOL_KNIFE
+	icon_angle = -45
 	/*
 	20 force, 10 wb, 20 bwb = 30, 50 against bare skin
 	compare/contrast force/wound bonuses with the captain's sabre, i guess
@@ -40,7 +41,7 @@
 	// but it's good for murdering plantpeople
 	AddElement(/datum/element/bane, mob_biotypes = MOB_PLANT, damage_multiplier = 0.5, requires_combat_mode = FALSE)
 	// Kill.
-	AddElement(/datum/element/mauling)
+	AddElement(/datum/element/mauling, swing_delay = 2 SECONDS, mauling_damage_mult = 2) // 40 force on maul
 
 /obj/item/machete/afterattack(atom/target, mob/user, click_parameters)
 	. = ..()
@@ -66,19 +67,24 @@
 	inhand_icon_state = "msheath"
 	worn_icon_state = "msheath"
 	slot_flags = ITEM_SLOT_BELT | ITEM_SLOT_BACK | ITEM_SLOT_SUITSTORE
+	storage_type = /datum/storage/machete_belt
 	/// Used for deciding the worn icon_state variant, using defines for MACHETE_BACK, MACHETE_WAIST, MACHETE_LEG.
 	var/worn_variant = MACHETE_BACK
+
+/datum/storage/machete_belt
+	max_slots = 1
+	// not a rifle but this is the sound tgmc uses
+	rustle_sound = 'modular_nova/modules/mauling_melees/sounds/rifle_draw.ogg'
+	max_specific_storage = WEIGHT_CLASS_BULKY
+	click_alt_open = FALSE
+
+/datum/storage/machete_belt/New(atom/parent, max_slots, max_specific_storage, max_total_storage)
+	. = ..()
+	set_holdable(/obj/item/machete)
 
 /obj/item/storage/belt/machete/Initialize(mapload)
 	. = ..()
 	AddElement(/datum/element/update_icon_updates_onmob)
-	atom_storage.max_slots = 1
-	// not a rifle but this is the sound tgmc uses
-	atom_storage.rustle_sound = 'modular_nova/modules/mauling_melees/sounds/rifle_draw.ogg'
-	atom_storage.max_specific_storage = WEIGHT_CLASS_BULKY
-	atom_storage.set_holdable(/obj/item/machete)
-	atom_storage.click_alt_open = FALSE
-	RegisterSignal(atom_storage, COMSIG_STORAGE_REMOVED_ITEM, PROC_REF(on_item_removed))
 
 /obj/item/storage/belt/machete/examine(mob/user)
 	. = ..()
@@ -109,12 +115,6 @@
 	new /obj/item/machete(src)
 	update_appearance()
 
-/// triggers on item removal from the scabbard - plays a draw sound, which should be the rustle sound
-/// had to snowflake it because remove rustle sounds are. never triggered in the code. funnily enough
-/obj/item/storage/belt/machete/proc/on_item_removed()
-	SIGNAL_HANDLER
-	playsound(src, atom_storage.rustle_sound, 50, TRUE, -5)
-
 /// alt rmb to change wear style
 /obj/item/storage/belt/machete/click_alt_secondary(mob/user)
 	switch(worn_variant)
@@ -135,4 +135,4 @@
 
 /obj/item/trench_tool/Initialize(mapload)
 	. = ..()
-	AddElement(/datum/element/mauling)
+	AddElement(/datum/element/mauling, swing_delay = 2 SECONDS, mauling_damage_mult = 2)

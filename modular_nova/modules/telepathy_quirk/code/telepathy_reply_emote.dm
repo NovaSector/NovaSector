@@ -6,7 +6,7 @@
 /datum/emote/living/telepathy_reply/run_emote(mob/living/user, params, type_override, intentional)
 	if (ishuman(user) && intentional)
 		var/mob/living/carbon/human/human_user = user
-		var/datum/mutation/human/telepathy/mutation = human_user.dna.get_mutation(/datum/mutation/human/telepathy)
+		var/datum/mutation/telepathy/mutation = human_user.dna.get_mutation(/datum/mutation/telepathy)
 		if (mutation)
 			var/datum/action/cooldown/spell/pointed/telepathy/tele_action = locate() in user.actions
 			// just straight up call the right-click action as is

@@ -11,6 +11,9 @@
 	desc = "A basic handheld radio that communicates with local telecommunication networks."
 	dog_fashion = /datum/dog_fashion/back
 	interaction_flags_atom = parent_type::interaction_flags_atom | INTERACT_ATOM_ALLOW_USER_LOCATION | INTERACT_ATOM_IGNORE_MOBILITY
+	sound_vary = TRUE
+	pickup_sound = SFX_GENERIC_DEVICE_PICKUP
+	drop_sound = SFX_GENERIC_DEVICE_DROP
 
 	obj_flags = CONDUCTS_ELECTRICITY
 	slot_flags = ITEM_SLOT_BELT
@@ -102,7 +105,7 @@
 	if(ispath(keyslot))
 		keyslot = new keyslot()
 	for(var/ch_name in channels)
-		secure_radio_connections[ch_name] = add_radio(src, GLOB.radiochannels[ch_name])
+		secure_radio_connections[ch_name] = add_radio(src, GLOB.default_radio_channels[ch_name])
 
 	perform_update_icon = FALSE
 	set_listening(listening)
@@ -155,7 +158,7 @@
 		special_channels = keyslot.special_channels
 
 	for(var/channel_name in channels)
-		secure_radio_connections[channel_name] = add_radio(src, GLOB.radiochannels[channel_name])
+		secure_radio_connections[channel_name] = add_radio(src, GLOB.default_radio_channels[channel_name])
 
 	if(!listening)
 		remove_radio_all(src)
@@ -169,7 +172,7 @@
 ///goes through all radio channels we should be listening for and readds them to the global list
 /obj/item/radio/proc/readd_listening_radio_channels()
 	for(var/channel_name in channels)
-		add_radio(src, GLOB.radiochannels[channel_name])
+		add_radio(src, GLOB.default_radio_channels[channel_name])
 
 	add_radio(src, frequency)
 
@@ -296,7 +299,7 @@
 		return
 	if(wires.is_cut(WIRE_TX))  // Permacell and otherwise tampered-with radios
 		return
-	if(!talking_movable.try_speak(message))
+	if(!talking_movable.try_speak(message, ignore_spam = TRUE, filterproof = TRUE))
 		return
 
 	if(use_command)
@@ -388,7 +391,7 @@
 	signal.levels = SSmapping.get_connected_levels(T)
 	signal.broadcast()
 
-/obj/item/radio/Hear(message, atom/movable/speaker, message_language, raw_message, radio_freq, list/spans, list/message_mods = list(), message_range)
+/obj/item/radio/Hear(atom/movable/speaker, message_language, raw_message, radio_freq, radio_freq_name, radio_freq_color, list/spans, list/message_mods = list(), message_range)
 	. = ..()
 	if(radio_freq || !broadcasting || get_dist(src, speaker) > canhear_range || message_mods[MODE_RELAY])
 		return
@@ -429,7 +432,7 @@
 		return TRUE
 	for(var/ch_name in channels)
 		if(channels[ch_name] & FREQ_LISTENING)
-			if(GLOB.radiochannels[ch_name] == text2num(input_frequency) || special_channels & RADIO_SPECIAL_SYNDIE)
+			if(GLOB.default_radio_channels[ch_name] == text2num(input_frequency) || special_channels & RADIO_SPECIAL_SYNDIE)
 				return TRUE
 	return FALSE
 
@@ -484,6 +487,7 @@
 	data["subspace"] = subspace_transmission
 	data["subspaceSwitchable"] = subspace_switchable
 	data["headset"] = FALSE
+	data["radio_noises"] = (user.client?.prefs.read_preference(/datum/preference/numeric/volume/sound_radio_noise))
 
 	return data
 
@@ -491,6 +495,8 @@
 	. = ..()
 	if(.)
 		return
+
+	var/mob/user = ui.user
 	switch(action)
 		if("frequency")
 			if(freqlock != RADIO_FREQENCY_UNLOCKED)
@@ -531,6 +537,15 @@
 				else
 					recalculateChannels()
 				. = TRUE
+		if("set_radio_volume")
+			if(!user.client)
+				return
+			user.client.prefs.write_preference(GLOB.preference_entries[/datum/preference/numeric/volume/sound_radio_noise], params["volume"])
+			//let them know what it'll sound like
+			//we get their read prefs instead of just taking the params beacuse write_preference is what handles ensuring
+			//there's no href exploits.
+			var/volume_modifier = (user.client.prefs.read_preference(/datum/preference/numeric/volume/sound_radio_noise))
+			SEND_SOUND(user, sound('sound/items/radio/radio_receive.ogg', volume = volume_modifier))
 
 /obj/item/radio/examine(mob/user)
 	. = ..()
@@ -630,7 +645,7 @@
 		return
 
 	for(var/ch_name in channels)
-		SSradio.remove_object(src, GLOB.radiochannels[ch_name])
+		SSradio.remove_object(src, GLOB.default_radio_channels[ch_name])
 		secure_radio_connections[ch_name] = null
 
 	if (!user.put_in_hands(keyslot))

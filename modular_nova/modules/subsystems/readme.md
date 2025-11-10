@@ -21,4 +21,3 @@ Misc subsytems that are too small for their own module.
 ### Included files that are not contained in this module:
 
 - Ticket Ping Subsystem: code/modules/admin/verbs/adminhelp.dm
-

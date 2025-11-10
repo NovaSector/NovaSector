@@ -4,6 +4,7 @@
 
 #define CLIMAX_ON_FLOOR "On the floor"
 #define CLIMAX_IN_OR_ON "Climax in or on someone"
+#define CLIMAX_OPEN_CONTAINER "Fill reagent container"
 
 /mob/living/carbon/human
 	/// Used to prevent nightmare scenarios.
@@ -18,12 +19,12 @@
 	if(refractory_period > REALTIMEOFDAY)
 		return
 	refractory_period = REALTIMEOFDAY + 30 SECONDS
-	if(has_status_effect(/datum/status_effect/climax_cooldown) || !client?.prefs?.read_preference(/datum/preference/toggle/erp/sex_toy))
+	if(has_status_effect(/datum/status_effect/climax_cooldown) || !client?.prefs?.read_preference(/datum/preference/toggle/erp))
 		return
 
 	if(HAS_TRAIT(src, TRAIT_NEVERBONER) || has_status_effect(/datum/status_effect/climax_cooldown) || (!has_vagina() && !has_penis()))
 		visible_message(span_purple("[src] twitches, trying to cum, but with no result."), \
-			span_purple("You can't have an orgasm!"))
+			span_purple("You can't have an orgasm!"), pref_to_check = /datum/preference/toggle/erp)
 		return TRUE
 
 	// Reduce pop-ups and make it slightly more frictionless (lewd).
@@ -57,45 +58,88 @@
 		var/obj/item/organ/genital/penis/penis = get_organ_slot(ORGAN_SLOT_PENIS)
 		if(!get_organ_slot(ORGAN_SLOT_TESTICLES)) //If we have no god damn balls, we can't cum anywhere... GET BALLS!
 			visible_message(span_userlove("[src] orgasms, but nothing comes out of [self_their] penis!"), \
-				span_userlove("You orgasm, it feels great, but nothing comes out of your penis!"))
+				span_userlove("You orgasm, it feels great, but nothing comes out of your penis!"), pref_to_check = /datum/preference/toggle/erp)
 
 		else if(is_wearing_condom())
-			var/obj/item/clothing/sextoy/condom/condom = get_item_by_slot(LEWD_SLOT_PENIS)
+			var/obj/item/clothing/sextoy/condom/condom = src.penis
 			condom.condom_use()
 			visible_message(span_userlove("[src] shoots [self_their] load into the [condom], filling it up!"), \
-				span_userlove("You shoot your thick load into the [condom] and it catches it all!"))
+				span_userlove("You shoot your thick load into the [condom] and it catches it all!"), pref_to_check = /datum/preference/toggle/erp)
 
 		else if(!is_bottomless() && penis.visibility_preference != GENITAL_ALWAYS_SHOW)
 			visible_message(span_userlove("[src] cums inside [self_their] clothes!"), \
-				span_userlove("You shoot your load, but you weren't naked, so you mess up your clothes!"))
+				span_userlove("You shoot your load, but you weren't naked, so you mess up your clothes!"), pref_to_check = /datum/preference/toggle/erp)
 			self_orgasm = TRUE
 
 		else
 			var/list/interactable_inrange_humans = list()
+			var/list/interactable_inrange_open_containers = list()
 
 			// Unfortunately prefs can't be checked here, because byond/tgstation moment.
 			for(var/mob/living/carbon/human/iterating_human in (view(1, src) - src))
 				interactable_inrange_humans[iterating_human.name] = iterating_human
 
+			// this should be making a list of cups(?)
+			for(var/obj/item/reagent_containers/cup/iterating_open_container in (view(1, src)))
+				if(!iterating_open_container.is_refillable() || !iterating_open_container.is_drainable())
+					continue
+				interactable_inrange_open_containers[iterating_open_container.name] = iterating_open_container
+
 			var/list/buttons = list(CLIMAX_ON_FLOOR)
 			if(interactable_inrange_humans.len)
 				buttons += CLIMAX_IN_OR_ON
+
+			if(interactable_inrange_open_containers.len)
+				buttons += CLIMAX_OPEN_CONTAINER
 
 			var/penis_climax_choice = tgui_alert(src, "Choose where to shoot your load.", "Load preference!", buttons)
 
 			var/create_cum_decal = FALSE
 
-			if(!penis_climax_choice || penis_climax_choice == CLIMAX_ON_FLOOR)
+			if(isnull(penis_climax_choice) || penis_climax_choice == CLIMAX_ON_FLOOR)
 				create_cum_decal = TRUE
 				visible_message(span_userlove("[src] shoots [self_their] sticky load onto the floor!"), \
-					span_userlove("You shoot string after string of hot cum, hitting the floor!"))
+					span_userlove("You shoot string after string of hot cum, hitting the floor!"), pref_to_check = /datum/preference/toggle/erp)
+
+			else if(penis_climax_choice == CLIMAX_OPEN_CONTAINER)
+				var/target_choice = tgui_input_list(src, "Choose a container to cum into.", "Choose target!", interactable_inrange_open_containers)
+				if(isnull(target_choice))
+					create_cum_decal = TRUE
+					visible_message(span_userlove("[src] shoots [self_their] sticky load onto the floor!"), \
+						span_userlove("You decide to just go for it, and shoot string after string of hot cum, hitting the floor!"), pref_to_check = /datum/preference/toggle/erp)
+				else
+					var/obj/item/reagent_containers/cup/target_open_container = interactable_inrange_open_containers[target_choice]
+					if(target_open_container.is_refillable() && target_open_container.is_drainable())
+						var/obj/item/organ/genital/testicles/src_testicles = src.get_organ_slot(ORGAN_SLOT_TESTICLES)
+						var/load_volume = src_testicles.genital_size * 10
+						playsound_if_pref(get_turf(src), SFX_DESECRATION, 50, TRUE, pref_to_check = /datum/preference/toggle/erp/sounds)
+						if(target_open_container.reagents.holder_full())
+							// reagent container is full
+							add_cum_splatter_floor(get_turf(target_open_container))
+							visible_message(span_userlove("[src] tries to cum into the [target_open_container], but it's already full, spilling their hot load onto the floor!"), \
+								span_userlove("You try to cum into the [target_open_container], but it's already full, so it all hits the floor instead!"), pref_to_check = /datum/preference/toggle/erp)
+						else
+							target_open_container.reagents.add_reagent(/datum/reagent/consumable/cum, load_volume)
+							if((load_volume + target_open_container.reagents.total_volume) > target_open_container.volume)
+								// the chalice overfloweth
+								add_cum_splatter_floor(get_turf(target_open_container))
+								visible_message(span_userlove("[src] shoots [self_their] sticky load into the [target_open_container], but it's so full that it overflows!"), \
+									span_userlove("You shoot string after string of hot cum into the [target_open_container], making it overflow!"), pref_to_check = /datum/preference/toggle/erp)
+							else
+								visible_message(span_userlove("[src] shoots [self_their] sticky load into the [target_open_container]!"), \
+									span_userlove("You shoot string after string of hot cum into the [target_open_container]!"), pref_to_check = /datum/preference/toggle/erp)
+					else
+						// somehow the reagents changed while we were deciding where to go
+						create_cum_decal = TRUE
+						visible_message(span_userlove("[src] shoots [self_their] sticky load onto the floor!"), \
+							span_userlove("You shoot string after string of hot cum, hitting the floor!"), pref_to_check = /datum/preference/toggle/erp)
 
 			else
 				var/target_choice = tgui_input_list(src, "Choose a person to cum in or on.", "Choose target!", interactable_inrange_humans)
 				if(!target_choice)
 					create_cum_decal = TRUE
 					visible_message(span_userlove("[src] shoots [self_their] sticky load onto the floor!"), \
-						span_userlove("You shoot string after string of hot cum, hitting the floor!"))
+						span_userlove("You shoot string after string of hot cum, hitting the floor!"), pref_to_check = /datum/preference/toggle/erp)
 				else
 					var/mob/living/carbon/human/target_human = interactable_inrange_humans[target_choice]
 					var/target_human_them = target_human.p_them()
@@ -119,14 +163,14 @@
 					if(!climax_into_choice)
 						create_cum_decal = TRUE
 						visible_message(span_userlove("[src] shoots their sticky load onto the floor!"), \
-							span_userlove("You shoot string after string of hot cum, hitting the floor!"))
+							span_userlove("You shoot string after string of hot cum, hitting the floor!"), pref_to_check = /datum/preference/toggle/erp)
 					else if(climax_into_choice == "On [target_human_them]")
 						create_cum_decal = TRUE
 						visible_message(span_userlove("[src] shoots their sticky load onto [target_human]!"), \
-							span_userlove("You shoot string after string of hot cum onto [target_human]!"))
+							span_userlove("You shoot string after string of hot cum onto [target_human]!"), pref_to_check = /datum/preference/toggle/erp)
 					else
 						visible_message(span_userlove("[src] hilts [self_their] cock into [target_human]'s [climax_into_choice], shooting cum into [target_human_them]!"), \
-							span_userlove("You hilt your cock into [target_human]'s [climax_into_choice], shooting cum into [target_human_them]!"))
+							span_userlove("You hilt your cock into [target_human]'s [climax_into_choice], shooting cum into [target_human_them]!"), pref_to_check = /datum/preference/toggle/erp)
 						to_chat(target_human, span_userlove("Your [climax_into_choice] fills with warm cum as [src] shoots [self_their] load into it."))
 
 			var/obj/item/organ/genital/testicles/testicles = get_organ_slot(ORGAN_SLOT_TESTICLES)
@@ -145,11 +189,11 @@
 	if(climax_choice == CLIMAX_VAGINA || climax_choice == CLIMAX_BOTH)
 		var/obj/item/organ/genital/vagina/vagina = get_organ_slot(ORGAN_SLOT_VAGINA)
 		if(is_bottomless() || vagina.visibility_preference == GENITAL_ALWAYS_SHOW)
-			visible_message(span_userlove("[src] twitches and moans as [p_they()] climax from their vagina!"), span_userlove("You twitch and moan as you climax from your vagina!"))
+			visible_message(span_userlove("[src] twitches and moans as [p_they()] climax from their vagina!"), span_userlove("You twitch and moan as you climax from your vagina!"), pref_to_check = /datum/preference/toggle/erp)
 			add_cum_splatter_floor(get_turf(src), female = TRUE)
 		else
 			visible_message(span_userlove("[src] cums in [self_their] underwear from [self_their] vagina!"), \
-						span_userlove("You cum in your underwear from your vagina! Eww."))
+						span_userlove("You cum in your underwear from your vagina! Eww."), pref_to_check = /datum/preference/toggle/erp)
 			self_orgasm = TRUE
 
 	apply_status_effect(/datum/status_effect/climax)
@@ -163,3 +207,4 @@
 #undef CLIMAX_BOTH
 #undef CLIMAX_ON_FLOOR
 #undef CLIMAX_IN_OR_ON
+#undef CLIMAX_OPEN_CONTAINER

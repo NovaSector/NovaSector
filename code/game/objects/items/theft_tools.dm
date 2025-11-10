@@ -88,11 +88,13 @@
 	desc = "A screwdriver with an ultra thin tip that's carefully designed to boost screwing speed."
 	icon = 'icons/obj/antags/syndicate_tools.dmi'
 	icon_state = "screwdriver_nuke"
+	post_init_icon_state = null
 	inhand_icon_state = "screwdriver_nuke"
 	toolspeed = 0.5
 	random_color = FALSE
 	greyscale_config_inhand_left = null
 	greyscale_config_inhand_right = null
+	greyscale_colors = null
 
 /obj/item/screwdriver/nuke/get_belt_overlay()
 	return mutable_appearance('icons/obj/clothing/belt_overlays.dmi', "screwdriver_nuke")
@@ -176,7 +178,7 @@
 /obj/item/nuke_core/supermatter_sliver/can_be_pulled(user, force) // no drag memes
 	return FALSE
 
-/obj/item/nuke_core/supermatter_sliver/attackby(obj/item/W, mob/living/user, params)
+/obj/item/nuke_core/supermatter_sliver/attackby(obj/item/W, mob/living/user, list/modifiers, list/attack_modifiers)
 	if(istype(W, /obj/item/hemostat/supermatter))
 		var/obj/item/hemostat/supermatter/tongs = W
 		if (tongs.sliver)
@@ -202,7 +204,7 @@
 	if(victim.incorporeal_move || HAS_TRAIT(victim, TRAIT_GODMODE)) //try to keep this in sync with supermatter's consume fail conditions
 		return ..()
 	var/mob/thrower = throwingdatum?.get_thrower()
-	if(thrower)
+	if(istype(thrower))
 		log_combat(thrower, hit_atom, "consumed", src)
 		message_admins("[src] has consumed [key_name_admin(victim)] [ADMIN_JMP(src)], thrown by [key_name_admin(thrower)].")
 		investigate_log("has consumed [key_name(victim)], thrown by [key_name(thrower)]", INVESTIGATE_ENGINE)

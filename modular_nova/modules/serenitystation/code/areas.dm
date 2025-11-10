@@ -37,6 +37,9 @@
 	/// The additional cooldown to add if the theme song is being played.
 	var/theme_song_additional_cooldown = 115 SECONDS // The song is 183 seconds long, and minimum cooldown in this area is 70 seconds.
 
+/area/forestplanet/outdoors/unexplored/deep/no_mapgen
+	map_generator = null
+
 
 /area/forestplanet/outdoors/unexplored/deep/play_ambience(mob/listener, sound/override_sound, volume)
 	var/play_theme = prob(1/6 * 100) // We handle the theme song separately because it's pretty long, and we don't want it to be cut up by another ambience track.

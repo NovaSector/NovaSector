@@ -106,7 +106,7 @@ GLOBAL_VAR(command_name)
 
 	var/config_server_name = CONFIG_GET(string/servername)
 	if(config_server_name)
-		world.name = "[config_server_name][config_server_name == GLOB.station_name ? "" : ": [html_decode(GLOB.station_name)]"]"
+		world.name = "[config_server_name][config_server_name == GLOB.station_name ? "" : ": [html_decode(GLOB.station_name)]"][GLOB.round_id ? " (Round: [GLOB.round_id])" : ""]" // NOVA EDIT CHANGE - ORIGINAL: world.name = "[config_server_name][config_server_name == GLOB.station_name ? "" : ": [html_decode(GLOB.station_name)]"]"
 	else
 		world.name = html_decode(GLOB.station_name)
 
@@ -372,6 +372,8 @@ GLOBAL_DATUM(syndicate_code_response_regex, /regex)
 			return "a blood filter"
 		if(TOOL_ROLLINGPIN)
 			return "a rolling pin"
+		if(TOOL_RUSTSCRAPER)
+			return "a rust scraper"
 		else
 			return "something... but the gods didn't set this up right (Please report this bug)"
 
@@ -393,3 +395,11 @@ GLOBAL_DATUM(syndicate_code_response_regex, /regex)
 	if(breaks.Find(given_name))
 		return FALSE
 	return TRUE
+
+/// Build a list of strings containing the numbers 1-99 as both arabic and roman numerals
+/proc/generate_number_strings()
+	var/list/L[198]
+	for(var/i in 1 to 99)
+		L += "[i]"
+		L += "\Roman[i]"
+	return L

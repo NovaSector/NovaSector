@@ -105,6 +105,7 @@ GLOBAL_LIST_INIT(robotic_styles_list, list(
 	"Morpheus Cyberkinetics" = 'modular_nova/master_files/icons/mob/augmentation/mcgipc.dmi',
 	"Bishop Cyberkinetics" = 'modular_nova/master_files/icons/mob/augmentation/bshipc.dmi',
 	"Bishop Cyberkinetics 2.0" = 'modular_nova/master_files/icons/mob/augmentation/bs2ipc.dmi',
+	"E3N AI" = 'modular_nova/master_files/icons/mob/augmentation/e3n.dmi',
 	"Hephaestus Industries" = 'modular_nova/master_files/icons/mob/augmentation/hsiipc.dmi',
 	"Hephaestus Industries 2.0" = 'modular_nova/master_files/icons/mob/augmentation/hi2ipc.dmi',
 	"Shellguard Munitions Standard Series" = 'modular_nova/master_files/icons/mob/augmentation/sgmipc.dmi',

@@ -25,6 +25,8 @@
 		"Buff" = "hypovial-buff",
 		"Custom" = "hypovial-custom",
 	)
+	/// The original icon file where our overlays reside.
+	var/original_icon = 'modular_nova/modules/hyposprays/icons/vials.dmi'
 
 /obj/item/reagent_containers/cup/vial/Initialize(mapload)
 	. = ..()
@@ -41,7 +43,7 @@
 /obj/item/reagent_containers/cup/vial/click_ctrl_shift(mob/user)
 	current_skin = null
 	icon_state = initial(icon_state)
-	icon = initial(icon)
+	icon = original_icon
 	greyscale_colors = null
 	reskin_obj(user)
 
@@ -59,6 +61,10 @@
 		menu.ui_interact(usr)
 	else
 		icon_state = unique_reskin[current_skin]
+	var/name_temp = tgui_input_text(usr, "Input a vial label!", "Rename", name)
+	if(name_temp)
+		name = name_temp
+		update_name()
 
 /obj/item/reagent_containers/cup/vial/update_overlays()
 	. = ..()
@@ -82,9 +88,9 @@
 //Fit in all hypos
 /obj/item/reagent_containers/cup/vial/small
 	name = "hypovial"
-	desc = "A small, 50u capacity vial compatible with most hyposprays."
-	volume = 50
-	possible_transfer_amounts = list(1,2,5,10,15,25,50)
+	desc = "A small, 60u capacity vial compatible with most hyposprays."
+	volume = 60
+	possible_transfer_amounts = list(5,10,15,20,30,60)
 
 /obj/item/reagent_containers/cup/vial/small/style
 	icon_state = "hypovial"
@@ -111,9 +117,9 @@
 	icon_state = "hypoviallarge"
 	fill_icon_state = "hypoviallarge_fill"
 	current_skin = "hypoviallarge"
-	desc = "A large, 100u capacity vial that fits only in the most deluxe hyposprays."
-	volume = 100
-	possible_transfer_amounts = list(1,2,5,10,20,30,40,50,100)
+	desc = "A large, 120u capacity vial that fits only in the most deluxe hyposprays."
+	volume = 120
+	possible_transfer_amounts = list(5,10,15,20,30,40,60,120)
 	type_suffix = "-l"
 
 	unique_reskin = list(
@@ -146,6 +152,49 @@
 	icon_state = "hypoviallarge-crit"
 /obj/item/reagent_containers/cup/vial/large/style/buff
 	icon_state = "hypoviallarge-buff"
+
+//Interdyne exclusive
+/obj/item/reagent_containers/cup/vial/interdyne_medium
+	name = "medium mountable hypovial"
+	icon_state = "hypovial-interdyne"
+	fill_icon_state = "hypovial-interdyne_fill"
+	current_skin = "hypovial-interdyne"
+	desc = "A medium-size, 90u capacity vial with special mounting clamps and an Interdyne stamp."
+	volume = 90
+	possible_transfer_amounts = list(1,2,5,10,15,20,30,60,90)
+	type_suffix = "-interdyne"
+
+	unique_reskin = list(
+		"Sterile" = "hypovial-interdyne",
+		"Generic" = "hypovial-interdyne-generic",
+		"Brute" = "hypovial-interdyne-brute",
+		"Burn" = "hypovial-interdyne-burn",
+		"Toxin" = "hypovial-interdyne-tox",
+		"Oxyloss" = "hypovial-interdyne-oxy",
+		"Crit" = "hypovial-interdyne-crit",
+		"Buff" = "hypovial-interdyne-buff",
+		"Custom" = "hypovial-interdyne-custom",
+	)
+
+/obj/item/reagent_containers/cup/vial/interdyne_medium/style/
+	icon_state = "hypovial-interdyne"
+
+//Styles
+/obj/item/reagent_containers/cup/vial/interdyne_medium/style/generic
+	icon_state = "hypovial-interdyne-generic"
+/obj/item/reagent_containers/cup/vial/interdyne_medium/style/brute
+	icon_state = "hypovial-interdyne-brute"
+/obj/item/reagent_containers/cup/vial/interdyne_medium/style/burn
+	icon_state = "hypovial-interdyne-burn"
+/obj/item/reagent_containers/cup/vial/interdyne_medium/style/toxin
+	icon_state = "hypovial-interdyne-tox"
+/obj/item/reagent_containers/cup/vial/interdyne_medium/style/oxy
+	icon_state = "hypovial-interdyne-oxy"
+/obj/item/reagent_containers/cup/vial/interdyne_medium/style/crit
+	icon_state = "hypovial-interdyne-crit"
+/obj/item/reagent_containers/cup/vial/interdyne_medium/style/buff
+	icon_state = "hypovial-interdyne-buff"
+
 
 //Hypos that are in the CMO's kit round start
 /obj/item/reagent_containers/cup/vial/large/deluxe
@@ -211,7 +260,7 @@
 
 /obj/item/reagent_containers/cup/vial/small/libital/Initialize(mapload)
 	. = ..()
-	reagents.add_reagent(reagent_type = /datum/reagent/medicine/c2/libital, amount = 50, added_purity = 1)
+	reagents.add_reagent(reagent_type = /datum/reagent/medicine/c2/libital, amount = volume, added_purity = 1)
 
 /obj/item/reagent_containers/cup/vial/small/lenturi
 	name = "burn hypovial (lenturi)"
@@ -219,7 +268,7 @@
 
 /obj/item/reagent_containers/cup/vial/small/lenturi/Initialize(mapload)
 	. = ..()
-	reagents.add_reagent(reagent_type = /datum/reagent/medicine/c2/lenturi, amount = 50, added_purity = 1)
+	reagents.add_reagent(reagent_type = /datum/reagent/medicine/c2/lenturi, amount = volume, added_purity = 1)
 
 /obj/item/reagent_containers/cup/vial/small/seiver
 	name = "tox hypovial (seiver)"
@@ -227,7 +276,7 @@
 
 /obj/item/reagent_containers/cup/vial/small/seiver/Initialize(mapload)
 	. = ..()
-	reagents.add_reagent(reagent_type = /datum/reagent/medicine/c2/seiver, amount = 50, reagtemp = 975, added_purity = 1)
+	reagents.add_reagent(reagent_type = /datum/reagent/medicine/c2/seiver, amount = volume, reagtemp = 975, added_purity = 1)
 
 /obj/item/reagent_containers/cup/vial/small/convermol
 	name = "tox hypovial (convermol)"
@@ -235,7 +284,7 @@
 
 /obj/item/reagent_containers/cup/vial/small/convermol/Initialize(mapload)
 	. = ..()
-	reagents.add_reagent(reagent_type = /datum/reagent/medicine/c2/convermol, amount = 50, added_purity = 1)
+	reagents.add_reagent(reagent_type = /datum/reagent/medicine/c2/convermol, amount = volume, added_purity = 1)
 
 /obj/item/reagent_containers/cup/vial/small/atropine
 	name = "crit hypovial (atropine)"
@@ -243,4 +292,4 @@
 
 /obj/item/reagent_containers/cup/vial/small/atropine/Initialize(mapload)
 	. = ..()
-	reagents.add_reagent(reagent_type = /datum/reagent/medicine/atropine, amount = 50, added_purity = 1)
+	reagents.add_reagent(reagent_type = /datum/reagent/medicine/atropine, amount = volume, added_purity = 1)

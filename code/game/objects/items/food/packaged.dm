@@ -106,6 +106,7 @@
 	tastes = list("dog food" = 5, "狗肉" = 3)
 	foodtypes = MEAT | GROSS
 	crafting_complexity = FOOD_COMPLEXITY_1
+	custom_materials = list(/datum/material/meat = MEATSLAB_MATERIAL_AMOUNT * 2)
 
 /obj/item/food/canned/envirochow/attack_animal(mob/living/simple_animal/user, list/modifiers)
 	if(!check_buffability(user))
@@ -198,6 +199,7 @@
 	tastes = list("meat" = 1)
 	foodtypes = MEAT
 	w_class = WEIGHT_CLASS_SMALL
+	custom_materials = list(/datum/material/meat = MEATDISH_MATERIAL_AMOUNT * 1.2, /datum/material/iron = MEATDISH_MATERIAL_AMOUNT * 0.15) // NOVA EDIT ADDITION - no idea why this is needed here and not upstream.
 
 /obj/item/food/chapslice/make_grillable()
 	AddComponent(/datum/component/grillable, /obj/item/food/grilled_chapslice, rand(20 SECONDS, 40 SECONDS), TRUE, TRUE)
@@ -213,6 +215,7 @@
 	tastes = list("meat" = 1)
 	foodtypes = MEAT
 	w_class = WEIGHT_CLASS_SMALL
+	custom_materials = list(/datum/material/meat = MEATDISH_MATERIAL_AMOUNT * 1.2, /datum/material/iron = MEATDISH_MATERIAL_AMOUNT * 0.15) // NOVA EDIT ADDITION - no idea why this is needed here and not upstream.
 
 // DONK DINNER: THE INNOVATIVE WAY TO GET YOUR DAILY RECOMMENDED ALLOWANCE OF SALT... AND THEN SOME!
 /obj/item/food/ready_donk

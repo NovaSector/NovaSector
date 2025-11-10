@@ -6,6 +6,7 @@
 	holosign_type = /obj/structure/holosign/privacy
 	creation_time = 0
 	max_signs = 8
+	obj_flags_nova = ERP_ITEM
 	/// Used to toggle the holosign type between normal privacy and lewd.
 	var/erp_mode = FALSE
 

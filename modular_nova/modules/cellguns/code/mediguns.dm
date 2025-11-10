@@ -56,11 +56,13 @@
 	name = "upgraded medigun cell"
 	maxcharge = 1.5 * STANDARD_CELL_CHARGE
 	chargerate = 0.08 * STANDARD_CELL_CHARGE
+	emp_damage_modifier = 5
 
 /obj/item/stock_parts/power_store/cell/medigun/experimental // This cell type is meant to be used in self charging mediguns like CMO and ERT one.
 	name = "experimental medigun cell"
 	maxcharge = 1.8 * STANDARD_CELL_CHARGE
 	chargerate = 0.1 * STANDARD_CELL_CHARGE
+	emp_damage_modifier = 5
 // End of power cells
 
 // Upgrade Kit
@@ -261,7 +263,7 @@
 
 /obj/item/weaponcell/medical/utility/hardlight_gown
 	name = "hardlight gown medicell"
-	desc = "A medicell that creates a hardlight hospital gown on the target."
+	desc = "A medicell that creates a hardlight surgical gown on the target."
 	icon_state = "gown"
 	ammo_type = /obj/item/ammo_casing/energy/medical/utility/gown
 

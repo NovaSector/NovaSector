@@ -9,7 +9,7 @@
 	var/obj/item/stock_parts/power_store/cell/charging = null
 	var/charge_rate = STANDARD_CELL_RATE //NOVA EDIT CHANGE - ORIGINAL: 0.25 * STANDARD_CELL_RATE
 
-/* OVERWRITTEN IN modular_nova\modules\aesthetics\cells\cell.dm
+/* NOVA EDIT REMOVAL - AESTHETICS - OVERWRITTEN IN modular_nova/modules/aesthetics/cells/icons/cell.dm
 /obj/machinery/cell_charger/update_overlays()
 	. = ..()
 
@@ -25,7 +25,7 @@
 	. += "ccharger-[charging.connector_type]-on"
 	if((charging.charge > 0.01) && charging.charge_light_type)
 		. += mutable_appearance('icons/obj/machines/cell_charger.dmi', "cell-[charging.charge_light_type]-o[(charging.percent() >= 99.5) ? 2 : 1]")
-*/
+NOVA EDIT END */
 
 /obj/machinery/cell_charger/examine(mob/user)
 	. = ..()
@@ -43,7 +43,7 @@
 		update_appearance()
 	return ITEM_INTERACT_SUCCESS
 
-/obj/machinery/cell_charger/attackby(obj/item/W, mob/user, params)
+/obj/machinery/cell_charger/attackby(obj/item/W, mob/user, list/modifiers, list/attack_modifiers)
 	if(istype(W, /obj/item/stock_parts/power_store/cell) && !panel_open)
 		if(machine_stat & BROKEN)
 			to_chat(user, span_warning("[src] is broken!"))
@@ -84,40 +84,38 @@
 	if(charging)
 		charging.forceMove(drop_location())
 
+/obj/machinery/cell_charger/Exited(atom/movable/gone, direction)
+	. = ..()
+	if(gone == charging)
+		charging = null
+
 /obj/machinery/cell_charger/Destroy()
 	QDEL_NULL(charging)
 	return ..()
 
-/obj/machinery/cell_charger/proc/removecell()
+/obj/machinery/cell_charger/proc/removecell(new_loc)
+	. = charging
 	charging.update_appearance()
+	charging.forceMove(new_loc)
 	charging = null
 	update_appearance()
 
 /obj/machinery/cell_charger/attack_hand(mob/user, list/modifiers)
 	. = ..()
-	if(.)
-		return
-	if(!charging)
+	if(. || !charging)
 		return
 
-	user.put_in_hands(charging)
 	charging.add_fingerprint(user)
-
 	user.visible_message(span_notice("[user] removes [charging] from [src]."), span_notice("You remove [charging] from [src]."))
-
-	removecell()
-
+	user.put_in_hands(removecell(drop_location()))
 
 /obj/machinery/cell_charger/attack_tk(mob/user)
 	if(!charging)
 		return
 
-	charging.forceMove(loc)
 	to_chat(user, span_notice("You telekinetically remove [charging] from [src]."))
-
-	removecell()
+	removecell(drop_location())
 	return COMPONENT_CANCEL_ATTACK_CHAIN
-
 
 /obj/machinery/cell_charger/attack_ai(mob/user)
 	return

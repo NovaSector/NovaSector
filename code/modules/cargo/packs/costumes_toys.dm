@@ -159,7 +159,7 @@
 					/obj/item/clothing/shoes/sneakers/black,
 					/obj/item/clothing/gloves/color/white,
 					/obj/item/clothing/mask/gas/mime,
-					/obj/item/clothing/head/frenchberet,
+					/obj/item/clothing/head/beret/frenchberet,
 					/obj/item/clothing/suit/toggle/suspenders,
 					/obj/item/reagent_containers/cup/glass/bottle/bottleofnothing,
 					/obj/item/storage/backpack/mime,
@@ -190,7 +190,7 @@
 		if(prob(50))
 			the_toy = pick_weight(GLOB.arcade_prize_pool)
 		else
-			the_toy = pick(subtypesof(/obj/item/toy/plush))
+			the_toy = /obj/effect/spawner/random/entertainment/plushie_delux
 		new the_toy(C)
 
 /datum/supply_pack/costumes_toys/wizard

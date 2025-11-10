@@ -11,17 +11,15 @@
 /datum/loadout_item/neck/insert_path_into_outfit(datum/outfit/outfit, mob/living/carbon/human/equipper, visuals_only = FALSE)
 	outfit.neck = item_path
 
-/* NOVA EDIT REMOVAL - Already exists in our loadout
 /datum/loadout_item/neck/scarf_greyscale
 	name = "Scarf (Colorable)"
 	item_path = /obj/item/clothing/neck/scarf
-*/ // NOVA REMOVAL END
 
 /datum/loadout_item/neck/greyscale_large
 	name = "Scarf (Large, Colorable)"
 	item_path = /obj/item/clothing/neck/large_scarf
 
-/* NOVA EDIT REMOVAL - Already exists in our loadout
+/* NOVA EDIT REMOVAL - Already exists in our loadout (/datum/loadout_item/neck/scarf_infinity)
 /datum/loadout_item/neck/greyscale_larger
 	name = "Scarf (Larger, Colorable)"
 	item_path = /obj/item/clothing/neck/infinity_scarf
@@ -38,7 +36,8 @@
 /datum/loadout_item/neck/necktie_loose
 	name = "Necktie (Loose)"
 	item_path = /obj/item/clothing/neck/tie/detective
-/* // NOVA EDIT REMOVAL START
+
+/* // NOVA EDIT REMOVAL START - Already exists in our loadout (/datum/loadout_item/neck/bowtie_black)
 /datum/loadout_item/neck/bowtie
 	name = "Bowtie"
 	item_path = /obj/item/clothing/neck/bowtie

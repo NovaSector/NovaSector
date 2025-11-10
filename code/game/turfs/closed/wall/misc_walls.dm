@@ -44,15 +44,14 @@
 
 /turf/closed/wall/rust
 	//SDMM supports colors, this is simply for easier mapping
-	//and should be removed on initialize
-	color = MAP_SWITCH(null, COLOR_ORANGE_BROWN)
+	WHEN_MAP(color = COLOR_ORANGE_BROWN)
 
 /turf/closed/wall/rust/Initialize(mapload)
 	. = ..()
 	AddElement(/datum/element/rust)
 
 /turf/closed/wall/heretic_rust
-	color = MAP_SWITCH(null, COLOR_GREEN_GRAY)
+	WHEN_MAP(color = COLOR_GREEN_GRAY)
 
 /turf/closed/wall/heretic_rust/Initialize(mapload)
 	. = ..()
@@ -60,8 +59,7 @@
 
 /turf/closed/wall/r_wall/rust
 	//SDMM supports colors, this is simply for easier mapping
-	//and should be removed on initialize
-	color = MAP_SWITCH(null, COLOR_ORANGE_BROWN)
+	WHEN_MAP(color = COLOR_ORANGE_BROWN)
 	base_decon_state = "rusty_r_wall"
 
 /turf/closed/wall/r_wall/rust/Initialize(mapload)
@@ -69,10 +67,7 @@
 	AddElement(/datum/element/rust)
 
 /turf/closed/wall/r_wall/heretic_rust
-	color = MAP_SWITCH(null, COLOR_GREEN_GRAY)
-	icon = 'icons/turf/walls/rusty_reinforced_wall.dmi'
-	icon_state = "rusty_reinforced_wall-0" // NOVA EDIT ADDITION - Non-wallening version
-	base_icon_state = "rusty_reinforced_wall" // NOVA EDIT ADDITION - Non-wallening version
+	WHEN_MAP(color = COLOR_GREEN_GRAY)
 
 /turf/closed/wall/r_wall/heretic_rust/Initialize(mapload)
 	. = ..()
@@ -129,3 +124,16 @@
 
 /turf/closed/wall/material/meat/airless
 	baseturfs = /turf/open/floor/material/meat/airless
+
+/turf/closed/wall/tomb
+	name = "tomb wall"
+	desc = "The carved surface of a dusty tomb. It's not clear who built this."
+	icon = 'icons/turf/walls/boss_wall.dmi'
+	icon_state = "boss_wall-0"
+	base_icon_state = "boss_wall"
+	smoothing_flags = SMOOTH_BITMASK
+	smoothing_groups = SMOOTH_GROUP_CLOSED_TURFS + SMOOTH_GROUP_BOSS_WALLS
+	canSmoothWith = SMOOTH_GROUP_BOSS_WALLS
+	turf_flags = NO_RUST
+	explosive_resistance = 50
+	baseturfs = /turf/open/misc/asteroid/basalt/airless

@@ -1,25 +1,5 @@
 // MODULAR ID TRIM ACCESS OVERRIDES GO HERE!!
 
-//(Most) of Security has inverted IDs, with custom blue-on-black icons. This is to distinguish them from their head, who has a white-on-blue icon
-/datum/id_trim/job/head_of_security
-	subdepartment_color = COLOR_ASSEMBLY_BLACK
-
-/datum/id_trim/job/warden
-	trim_icon = 'modular_nova/master_files/icons/obj/card.dmi'
-	department_color = COLOR_ASSEMBLY_BLACK
-	subdepartment_color = COLOR_ASSEMBLY_BLACK
-
-/datum/id_trim/job/security_officer
-	trim_icon = 'modular_nova/master_files/icons/obj/card.dmi'
-	department_color = COLOR_ASSEMBLY_BLACK
-	subdepartment_color = COLOR_ASSEMBLY_BLACK
-
-/datum/id_trim/job/detective
-	trim_icon = 'modular_nova/master_files/icons/obj/card.dmi'
-	department_color = COLOR_ASSEMBLY_BLACK
-	subdepartment_color = COLOR_ASSEMBLY_BLACK
-
-
 /datum/id_trim/job/chief_engineer/New()
 	. = ..()
 
@@ -55,12 +35,12 @@
 	sechud_icon_state = SECHUD_BLUESHIELD
 	extra_access = list(
 		ACCESS_BRIG,
-		ACCESS_CARGO,
 		ACCESS_COURT,
 		ACCESS_GATEWAY,
-		ACCESS_SECURITY,
 	)
 	minimal_access = list(
+		ACCESS_CARGO,
+		ACCESS_SECURITY,
 		ACCESS_ALL_PERSONAL_LOCKERS,
 		ACCESS_BRIG_ENTRANCE,
 		ACCESS_CENT_GENERAL,
@@ -140,8 +120,8 @@
 	assignment = "Corrections Officer"
 	trim_icon = 'modular_nova/master_files/icons/obj/card.dmi'
 	trim_state = "trim_corrections_officer"
-	department_color = COLOR_ASSEMBLY_BLACK
-	subdepartment_color = COLOR_ASSEMBLY_BLACK
+	department_color = COLOR_SECURITY_RED
+	subdepartment_color = COLOR_SECURITY_RED
 	sechud_icon_state = SECHUD_CORRECTIONS_OFFICER
 	extra_access = list()
 	minimal_access = list(
@@ -151,6 +131,7 @@
 		ACCESS_MAINT_TUNNELS,
 		ACCESS_SECURITY,
 		ACCESS_WEAPONS,
+		ACCESS_MINERAL_STOREROOM,
 	)
 	template_access = list(
 		ACCESS_CAPTAIN,
@@ -172,6 +153,7 @@
 		ACCESS_MAINT_TUNNELS,
 		ACCESS_SERVICE,
 		ACCESS_THEATRE,
+		ACCESS_MINERAL_STOREROOM,
 	)
 	template_access = list(
 		ACCESS_CAPTAIN,

@@ -16,6 +16,7 @@
 	desc = "A white satin shirt with some bronze rank pins at the neck."
 	name = "corrections officer's skirt"
 	icon_state = "corrections_officerw"
+	gets_cropped_on_taurs = FALSE
 
 /obj/item/clothing/under/rank/security/corrections_officer/sweater
 	desc = "A black combat sweater thrown over the standard issue shirt, perfect for wake up calls."
@@ -25,13 +26,14 @@
 
 /obj/item/clothing/under/rank/security/corrections_officer/sweater/skirt
 	icon_state = "corrections_officer_sweatw"
+	gets_cropped_on_taurs = FALSE
 
 /obj/item/radio/headset/corrections_officer
 	name = "\proper corrections officer's headset"
 	icon_state = "sec_headset"
 	keyslot = new /obj/item/encryptionkey/headset_sec
 
-/obj/item/clothing/suit/toggle/jacket/corrections_officer
+/obj/item/clothing/suit/toggle/jacket/nova/corrections_officer
 	name = "corrections officer's suit jacket"
 	desc = "A pressed and ironed suit jacket, it has light armor against stabbings. There's some rank badges on the right breast."
 	icon = 'modular_nova/master_files/icons/obj/clothing/suits.dmi'
@@ -59,7 +61,7 @@
 	new /obj/item/grenade/flashbang(src)
 	new /obj/item/assembly/flash/handheld(src)
 	new /obj/item/restraints/handcuffs(src)
-	new /obj/item/clothing/shoes/jackboots/peacekeeper(src)
+	new /obj/item/clothing/shoes/jackboots/sec(src)
 	new /obj/item/clothing/head/helmet/toggleable/riot(src)
 	new /obj/item/shield/riot(src)
 	new /obj/item/clothing/under/rank/security/corrections_officer(src)

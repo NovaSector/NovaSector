@@ -3,7 +3,7 @@
 	name = "Drifting Contractor"
 	antagpanel_category = "DriftingContractor"
 	preview_outfit = /datum/outfit/contractor_preview
-	job_rank = ROLE_DRIFTING_CONTRACTOR
+	pref_flag = ROLE_DRIFTING_CONTRACTOR
 	hud_icon = 'modular_nova/modules/contractor/icons/hud_icon.dmi'
 	antag_hud_name = "contractor"
 	antagpanel_category = ANTAG_GROUP_SYNDICATE
@@ -18,11 +18,8 @@
 	if(!ishuman(owner.current))
 		return
 	var/mob/living/carbon/human/person = owner.current
-	var/datum/outfit/outfit_to_apply = new contractor_outfit
-	if(person.jumpsuit_style == PREF_SKIRT)
-		outfit_to_apply.uniform = /obj/item/clothing/under/syndicate/nova/tactical/skirt
-	person.equipOutfit(outfit_to_apply)
 	SSquirks.AssignQuirks(person, person.client)
+	person.equipOutfit(/datum/outfit/contractor)
 	return TRUE
 
 /datum/antagonist/contractor/on_gain()

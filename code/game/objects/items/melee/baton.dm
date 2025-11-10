@@ -30,7 +30,7 @@
 	/// How much stamina damage we deal on a successful hit against a living, non-cyborg mob.
 	var/stamina_damage = 55
 	/// How much armor does our baton ignore? This operates as armour penetration, but only applies to the stun attack.
-	var/stun_armour_penetration = 15
+	var/stun_armour_penetration = 15 // pens very light / cosmetic armor
 	/// What armor does our stun attack check before delivering the attack?
 	var/armour_type_against_stun = MELEE
 	/// Chance of causing force_say() when stunning a human mob
@@ -41,12 +41,15 @@
 	var/on_stun_sound = 'sound/effects/woodhit.ogg'
 	/// The volume of the above.
 	var/on_stun_volume = 75
-	/// Do we animate the "hit" when stunning something?
-	var/stun_animation = TRUE
 	/// Whether the stun attack is logged. Only relevant for abductor batons, which have different modes.
 	var/log_stun_attack = TRUE
 	/// Boolean on whether people with chunky fingers can use this baton.
 	var/chunky_finger_usable = FALSE
+	/// Boolean, if TRUE when we harmbaton someone we will also try to stun if the baton is active / not on cooldown.
+	var/stun_on_harmbaton = FALSE
+
+	/// Text shown when trying to stun someone while the baton is on cooldown.
+	var/wait_desc = ""
 
 	/// What term do we use to describe our baton being 'ready', or the phrase to use when var/active is TRUE.
 	var/activated_word = "ready"
@@ -73,6 +76,7 @@
 	. = ..()
 
 	register_item_context()
+	add_deep_lore()
 
 /obj/item/melee/baton/add_weapon_description()
 	AddElement(/datum/element/weapon_description, attached_proc = PROC_REF(add_baton_notes))
@@ -93,40 +97,88 @@
 
 	readout += "\nThe effects of each strike can be mitigated by utilizing [span_warning("[armour_type_against_stun]")] armor."
 
-	readout += "\nIt has a stun armor-piercing capability of [span_warning("[get_stun_penetration_value()]%")]."
+	readout += "\nIt has a stun armor-piercing capability of [span_warning("[stun_armour_penetration]%")]."
 	return readout.Join("\n")
 
-/**
- * Ok, think of baton attacks like a melee attack chain:
- *
- * [/baton_attack()] comes first. It checks if the user is clumsy, if the target parried the attack and handles some messages and sounds.
- * * Depending on its return value, it'll either do a normal attack, continue to the next step or stop the attack.
- *
- * [/finalize_baton_attack()] is then called. It handles logging stuff, sound effects and calls baton_effect().
- * * The proc is also called in other situations such as stunbatons right clicking or throw impact. Basically when baton_attack()
- * * checks are either redundant or unnecessary.
- *
- * [/baton_effect()] is third in the line. It knockdowns targets, along other effects called in additional_effects_cyborg() and
- * * additional_effects_non_cyborg().
- *
- * Last but not least [/set_batoned()], which gives the target the IWASBATONED trait with REF(user) as source and then removes it
- * * after a cooldown has passed. Basically, it stops users from cheesing the cooldowns by dual wielding batons.
- *
- * TL;DR: [/baton_attack()] -> [/finalize_baton_attack()] -> [/baton_effect()] -> [/set_batoned()]
- */
-/obj/item/melee/baton/attack(mob/living/target, mob/living/user, params)
-	add_fingerprint(user)
-	var/list/modifiers = params2list(params)
-	switch(baton_attack(target, user, modifiers))
-		if(BATON_DO_NORMAL_ATTACK)
-			return ..()
-		if(BATON_ATTACKING)
-			finalize_baton_attack(target, user, modifiers)
+/obj/item/melee/baton/proc/add_deep_lore()
+	return
+
+/// Checks if we can actually USE the baton. Impure
+/obj/item/melee/baton/proc/can_baton(mob/living/target, mob/living/user)
+	PROTECTED_PROC(TRUE)
+	if(clumsy_check(user, target))
+		return FALSE
+
+	if(!chunky_finger_usable && ishuman(user))
+		var/mob/living/carbon/human/human_user = user
+		if(human_user.check_chunky_fingers() && user.is_holding(src) && !HAS_MIND_TRAIT(user, TRAIT_CHUNKYFINGERS_IGNORE_BATON))
+			balloon_alert(human_user, "fingers are too big!")
+			return FALSE
+
+	return TRUE
+
+// Stun attack
+/obj/item/melee/baton/pre_attack(atom/target, mob/living/user, list/modifiers, list/attack_modifiers)
+	. = ..()
+	if(. || !isliving(target))
+		return .
+
+	if(!can_baton(target, user))
+		return TRUE
+
+	if(!COOLDOWN_FINISHED(src, cooldown_check))
+		if(wait_desc)
+			balloon_alert(user, wait_desc)
+		return TRUE
+
+	if(HAS_TRAIT_FROM(target, TRAIT_IWASBATONED, REF(user))) //no doublebaton abuse anon!
+		target.balloon_alert(user, "can't stun yet!")
+		return TRUE
+
+	if(active)
+		// when we continue to attack, deal 0 (brute) damage (just stun)
+		SET_ATTACK_FORCE(attack_modifiers, 0)
+		MUTE_ATTACK_HITSOUND(attack_modifiers)
+		HIDE_ATTACK_MESSAGES(attack_modifiers)
+	return .
+
+// Harm attack
+/obj/item/melee/baton/pre_attack_secondary(atom/target, mob/living/user, list/modifiers, list/attack_modifiers)
+	. = ..()
+	if(. != SECONDARY_ATTACK_CALL_NORMAL || !isliving(target))
+		return .
+
+	if(!can_baton(target, user))
+		return SECONDARY_ATTACK_CANCEL_ATTACK_CHAIN
+
+	// call attack, NOT pre_attack
+	// (so we go directly to harming)
+	return SECONDARY_ATTACK_CONTINUE_CHAIN
+
+// This is where stun gets applied
+/obj/item/melee/baton/afterattack(atom/target, mob/user, list/modifiers, list/attack_modifiers)
+	if(!isliving(target) || !active || !COOLDOWN_FINISHED(src, cooldown_check) || HAS_TRAIT_FROM(target, TRAIT_IWASBATONED, REF(user)))
+		return
+	// worst check in the chain but - right click = harmbaton
+	if(LAZYACCESS(modifiers, RIGHT_CLICK) && !stun_on_harmbaton)
+		return
+
+	finalize_baton_attack(target, user, modifiers)
+
+	var/list/desc
+	if(iscyborg(target))
+		desc = get_cyborg_stun_description(target, user)
+		if(!affect_cyborg)
+			playsound(src, 'sound/effects/bang.ogg', 10, TRUE) //bonk
+	else
+		desc = get_stun_description(target, user)
+
+	if(desc)
+		target.visible_message(desc["visible"], desc["local"], visible_message_flags = ALWAYS_SHOW_SELF_MESSAGE)
 
 /obj/item/melee/baton/apply_fantasy_bonuses(bonus)
 	. = ..()
 	stamina_damage = modify_fantasy_variable("stamina_damage", stamina_damage, bonus * 4)
-
 
 /obj/item/melee/baton/remove_fantasy_bonuses(bonus)
 	stamina_damage = reset_fantasy_variable("stamina_damage", stamina_damage)
@@ -156,75 +208,20 @@
 
 	return CONTEXTUAL_SCREENTIP_SET
 
-/obj/item/melee/baton/proc/baton_attack(mob/living/target, mob/living/user, modifiers)
-	. = BATON_ATTACKING
-
-	if(clumsy_check(user, target))
-		return BATON_ATTACK_DONE
-
-	if(!chunky_finger_usable && ishuman(user))
-		var/mob/living/carbon/human/potential_chunky_finger_human = user
-		if(potential_chunky_finger_human.check_chunky_fingers() && user.is_holding(src) && !HAS_MIND_TRAIT(user, TRAIT_CHUNKYFINGERS_IGNORE_BATON))
-			balloon_alert(potential_chunky_finger_human, "fingers are too big!")
-			return BATON_ATTACK_DONE
-
-	if(!active || LAZYACCESS(modifiers, RIGHT_CLICK))
-		return BATON_DO_NORMAL_ATTACK
-
-	if(cooldown_check > world.time)
-		var/wait_desc = get_wait_description()
-		if (wait_desc)
-			to_chat(user, wait_desc)
-		return BATON_ATTACK_DONE
-
-	if(check_parried(target, user))
-		return BATON_ATTACK_DONE
-
-	if(HAS_TRAIT_FROM(target, TRAIT_IWASBATONED, REF(user))) //no doublebaton abuse anon!
-		to_chat(user, span_danger("You fumble and miss [target]!"))
-		return BATON_ATTACK_DONE
-
-	if(stun_animation)
-		user.do_attack_animation(target)
-
-	var/list/desc
-
-	if(iscyborg(target))
-		if(affect_cyborg)
-			desc = get_cyborg_stun_description(target, user)
-		else
-			desc = get_unga_dunga_cyborg_stun_description(target, user)
-			playsound(get_turf(src), 'sound/effects/bang.ogg', 10, TRUE) //bonk
-			. = BATON_ATTACK_DONE
-	else
-		desc = get_stun_description(target, user)
-
-	if(desc)
-		target.visible_message(desc["visible"], desc["local"])
-
-/obj/item/melee/baton/proc/check_parried(mob/living/carbon/human/human_target, mob/living/user)
-	if (human_target.check_block(src, 0, "[user]'s [name]", MELEE_ATTACK))
-		playsound(human_target, 'sound/items/weapons/genhit.ogg', 50, TRUE)
-		return TRUE
-	return FALSE
-
-/obj/item/melee/baton/proc/finalize_baton_attack(mob/living/target, mob/living/user, modifiers, in_attack_chain = TRUE)
-	if(!in_attack_chain && HAS_TRAIT_FROM(target, TRAIT_IWASBATONED, REF(user)))
-		return BATON_ATTACK_DONE
-
-	SEND_SIGNAL(src, COMSIG_PRE_BATON_FINALIZE_ATTACK, target, user, modifiers, in_attack_chain) // NOVA EDIT ADDITION
-	cooldown_check = world.time + cooldown
+/// Wrapper for calling "stun()" and doing relevant vfx/sfx
+/obj/item/melee/baton/proc/finalize_baton_attack(mob/living/target, mob/living/user, list/modifiers)
+	PROTECTED_PROC(TRUE)
+	COOLDOWN_START(src, cooldown_check, cooldown)
+	SEND_SIGNAL(src, COMSIG_PRE_BATON_FINALIZE_ATTACK, target, user, modifiers) // NOVA EDIT ADDITION
 	if(on_stun_sound)
-		playsound(get_turf(src), on_stun_sound, on_stun_volume, TRUE, -1)
-	if(user)
-		target.lastattacker = user.real_name
-		target.lastattackerckey = user.ckey
-		if(log_stun_attack)
-			log_combat(user, target, "stun attacked", src)
+		playsound(src, on_stun_sound, on_stun_volume, TRUE, -1)
 	if(baton_effect(target, user, modifiers) && user)
 		set_batoned(target, user, cooldown)
+		log_combat(user, target, "stunned", src.name)
 
-/obj/item/melee/baton/proc/baton_effect(mob/living/target, mob/living/user, modifiers, stun_override)
+/// The actual "stun()" of the stun baton
+/obj/item/melee/baton/proc/baton_effect(mob/living/target, mob/living/user, list/modifiers, stun_override)
+	PROTECTED_PROC(TRUE)
 	var/trait_check = HAS_TRAIT(target, TRAIT_BATON_RESISTANCE)
 	if(iscyborg(target))
 		if(!affect_cyborg)
@@ -237,8 +234,7 @@
 			var/mob/living/carbon/human/human_target = target
 			if(prob(force_say_chance))
 				human_target.force_say()
-		var/effective_armour_penetration = get_stun_penetration_value()
-		var/armour_block = target.run_armor_check(null, armour_type_against_stun, null, null, effective_armour_penetration)
+		var/armour_block = target.run_armor_check(null, armour_type_against_stun, null, null, stun_armour_penetration)
 		target.apply_damage(stamina_damage, STAMINA, blocked = armour_block)
 		if(!trait_check)
 			target.Knockdown((isnull(stun_override) ? knockdown_time : stun_override))
@@ -246,46 +242,37 @@
 	SEND_SIGNAL(target, COMSIG_MOB_BATONED, user, src)
 	return TRUE
 
-/// Description for trying to stun when still on cooldown.
-/obj/item/melee/baton/proc/get_wait_description()
-	return
-
 /// Default message for stunning a living, non-cyborg mob.
 /obj/item/melee/baton/proc/get_stun_description(mob/living/target, mob/living/user)
+	PROTECTED_PROC(TRUE)
 	. = list()
-
 	.["visible"] = span_danger("[user] knocks [target] down with [src]!")
 	.["local"] = span_userdanger("[user] knocks you down with [src]!")
 
-	return .
-
 /// Default message for stunning a cyborg.
 /obj/item/melee/baton/proc/get_cyborg_stun_description(mob/living/target, mob/living/user)
+	PROTECTED_PROC(TRUE)
 	. = list()
-
-	.["visible"] = span_danger("[user] pulses [target]'s sensors with the baton!")
-	.["local"] = span_danger("You pulse [target]'s sensors with the baton!")
-
-	return .
-
-/// Default message for trying to stun a cyborg with a baton that can't stun cyborgs.
-/obj/item/melee/baton/proc/get_unga_dunga_cyborg_stun_description(mob/living/target, mob/living/user)
-	. = list()
-
-	.["visible"] = span_danger("[user] tries to knock down [target] with [src], and predictably fails!") //look at this duuuuuude
-	.["local"] = span_userdanger("[user] tries to... knock you down with [src]?") //look at the top of his head!
-
-	return .
+	if(affect_cyborg)
+		.["visible"] = span_danger("[user] pulses [target]'s sensors with the baton!")
+		.["local"] = span_danger("You pulse [target]'s sensors with the baton!")
+	else
+		.["visible"] = span_danger("[user] tries to knock down [target] with [src], and predictably fails!") //look at this duuuuuude
+		.["local"] = span_userdanger("[user] tries to... knock you down with [src]?") //look at the top of his head!
 
 /// Contains any special effects that we apply to living, non-cyborg mobs we stun. Does not include applying a knockdown, dealing stamina damage, etc.
 /obj/item/melee/baton/proc/additional_effects_non_cyborg(mob/living/target, mob/living/user)
+	PROTECTED_PROC(TRUE)
 	return
 
 /// Contains any special effects that we apply to cyborgs we stun. Does not include flashing the cyborg's screen, hardstunning them, etc.
 /obj/item/melee/baton/proc/additional_effects_cyborg(mob/living/target, mob/living/user)
+	PROTECTED_PROC(TRUE)
 	return
 
+/// Used in marking a target as being hit by a baton
 /obj/item/melee/baton/proc/set_batoned(mob/living/target, mob/living/user, cooldown)
+	PRIVATE_PROC(TRUE)
 	if(!cooldown)
 		return
 	var/user_ref = REF(user) // avoids harddels.
@@ -295,7 +282,7 @@
 /obj/item/melee/baton/proc/clumsy_check(mob/living/user, mob/living/intented_target)
 	if(!active || !HAS_TRAIT(user, TRAIT_CLUMSY) || prob(50))
 		return FALSE
-	user.visible_message(span_danger("[user] accidentally hits [user.p_them()]self over the head with [src]! What a doofus!"), span_userdanger("You accidentally hit yourself over the head with [src]!"))
+	user.visible_message(span_danger("[user] accidentally hits [user.p_them()]self over the head with [src]! What a doofus!"), span_userdanger("You accidentally hit yourself over the head with [src]!"), visible_message_flags = ALWAYS_SHOW_SELF_MESSAGE)
 
 	if(iscyborg(user))
 		if(affect_cyborg)
@@ -303,9 +290,9 @@
 			user.Paralyze(clumsy_knockdown_time)
 			additional_effects_cyborg(user, user) // user is the target here
 			if(on_stun_sound)
-				playsound(get_turf(src), on_stun_sound, on_stun_volume, TRUE, -1)
+				playsound(src, on_stun_sound, on_stun_volume, TRUE, -1)
 		else
-			playsound(get_turf(src), 'sound/effects/bang.ogg', 10, TRUE)
+			playsound(src, 'sound/effects/bang.ogg', 10, TRUE)
 	else
 		//straight up always force say for clumsy humans
 		if(ishuman(user))
@@ -315,18 +302,11 @@
 		user.apply_damage(stamina_damage, STAMINA)
 		additional_effects_non_cyborg(user, user) // user is the target here
 		if(on_stun_sound)
-			playsound(get_turf(src), on_stun_sound, on_stun_volume, TRUE, -1)
+			playsound(src, on_stun_sound, on_stun_volume, TRUE, -1)
 
-	user.apply_damage(2*force, BRUTE, BODY_ZONE_HEAD, attacking_item = src)
-
+	user.apply_damage(2 * force, BRUTE, BODY_ZONE_HEAD, attacking_item = src)
 	log_combat(user, user, "accidentally stun attacked [user.p_them()]self due to their clumsiness", src)
-	if(stun_animation)
-		user.do_attack_animation(user)
-	return
-
-/// Handles the penetration value of our baton, called during baton_effect()
-/obj/item/melee/baton/proc/get_stun_penetration_value()
-	return stun_armour_penetration
+	user.do_attack_animation(user)
 
 /obj/item/conversion_kit
 	name = "conversion kit"
@@ -351,7 +331,7 @@
 	w_class = WEIGHT_CLASS_SMALL
 	item_flags = NONE
 	force = 0
-	bare_wound_bonus = 5
+	exposed_wound_bonus = 5
 	clumsy_knockdown_time = 15 SECONDS
 	active = FALSE
 	activated_word = "extended"
@@ -430,23 +410,22 @@
 	name = "bronze-capped telescopic baton"
 	desc = "A compact yet robust personal defense weapon. Can be concealed when folded. This one is ranked BRONZE, and thus has mediocre penetrative power."
 	icon_state = "telebaton_bronze"
-	stun_armour_penetration = 20
 
 /obj/item/melee/baton/telescopic/silver
 	name = "silver-capped telescopic baton"
 	desc = "A compact yet robust personal defense weapon. Can be concealed when folded. This one is ranked SILVER, and thus has decent penetrative power."
 	icon_state = "telebaton_silver"
-	stun_armour_penetration = 40
+	stun_armour_penetration = 30 // strong enough to pen sec armor
 
 /obj/item/melee/baton/telescopic/gold
 	name = "gold-capped telescopic baton"
 	desc = "A compact yet robust personal defense weapon. Can be concealed when folded. This one is ranked GOLD, and thus has exceptional penetrative power."
 	icon_state = "telebaton_gold"
-	stun_armour_penetration = 60
+	stun_armour_penetration = 50 // strong enough to pen syndicate modsuits
 
 /obj/item/melee/baton/telescopic/contractor_baton
 	name = "contractor baton"
-	desc = "A compact, specialised baton assigned to Syndicate contractors. Applies light electrical shocks to targets."
+	desc = "A high tech telescopic stun baton, as developed by Cybersun Industries. Delivers a precise shock to a target's central nervous system to incapacitate them."
 	icon = 'icons/obj/weapons/baton.dmi'
 	icon_state = "contractor_baton"
 	worn_icon_state = "contractor_baton"
@@ -460,9 +439,10 @@
 	cooldown = 2.5 SECONDS
 	force_say_chance = 80 //very high force say chance because it's funny
 	stamina_damage = 85
-	stun_armour_penetration = 40
+	stun_armour_penetration = 30 // strong enough to pen sec armor
 	clumsy_knockdown_time = 24 SECONDS
 	affect_cyborg = TRUE
+	wait_desc = "still charging!"
 	on_stun_sound = 'sound/items/weapons/contractor_baton/contractorbatonhit.ogg'
 	unfolded_drop_sound = 'sound/items/baton/contractor_baton_unfolded_pickup.ogg'
 	unfolded_pickup_sound = 'sound/items/baton/contractor_baton_unfolded_pickup.ogg'
@@ -471,9 +451,6 @@
 	on_sound = 'sound/items/weapons/contractorbatonextend.ogg'
 	active_force = 16
 
-/obj/item/melee/baton/telescopic/contractor_baton/get_wait_description()
-	return span_danger("The baton is still charging!")
-
 /obj/item/melee/baton/telescopic/contractor_baton/additional_effects_non_cyborg(mob/living/target, mob/living/user)
 	. = ..()
 	target.set_jitter_if_lower(40 SECONDS)
@@ -481,7 +458,7 @@
 
 /obj/item/melee/baton/security
 	name = "stun baton"
-	desc = "A stun baton for incapacitating people with."
+	desc = "The Secure Apprehension Device, as developed by Nanotrasen. Delivers a precise shock to a target's central nervous system to incapacitate them."
 	desc_controls = "Left click to stun, right click to harm."
 	icon = 'icons/obj/weapons/baton.dmi'
 	icon_state = "stunbaton"
@@ -498,14 +475,14 @@
 	force_say_chance = 50
 	stamina_damage = 60
 	armour_type_against_stun = ENERGY
-	// This value is added to our stun armour penetration when called by get_stun_penetration_value(). For giving some batons extra OOMPH.
-	var/additional_stun_armour_penetration = 0
 	knockdown_time = 5 SECONDS
 	clumsy_knockdown_time = 15 SECONDS
 	cooldown = 2.5 SECONDS
 	on_stun_sound = 'sound/items/weapons/egloves.ogg'
 	on_stun_volume = 50
 	active = FALSE
+	stun_on_harmbaton = TRUE
+	wait_desc = "still charging!"
 	activated_word = "activated"
 	context_living_rmb_active = "Harmful Stun"
 	light_range = 1.5
@@ -529,8 +506,6 @@
 	var/convertible = TRUE //if it can be converted with a conversion kit
 	///Whether or not our inhand changes when active.
 	var/active_changes_inhand = TRUE
-	///Whether or not our baton visibly changes the inhand sprite based on inserted cell
-	var/tip_changes_color = TRUE
 	///When set, inhand_icon_state defaults to this instead of base_icon_state
 	var/base_inhand_state = null
 
@@ -555,7 +530,7 @@
 /obj/item/melee/baton/security/suicide_act(mob/living/user)
 	if(cell?.charge && active)
 		user.visible_message(span_suicide("[user] is putting the live [name] in [user.p_their()] mouth! It looks like [user.p_theyre()] trying to commit suicide!"))
-		attack(user, user)
+		finalize_baton_attack(user, user)
 		return FIRELOSS
 	else
 		user.visible_message(span_suicide("[user] is shoving \the [src] down their throat! It looks like [user.p_theyre()] trying to commit suicide!"))
@@ -601,10 +576,7 @@
 	if(active)
 		icon_state = "[base_icon_state]_active"
 		if(active_changes_inhand)
-			if(tip_changes_color)
-				inhand_icon_state = "[base_inhand]_active_[get_baton_tip_color()]"
-			else
-				inhand_icon_state = "[base_inhand]_active"
+			inhand_icon_state = "[base_inhand]_active"
 		return ..()
 	if(!cell)
 		icon_state = "[base_icon_state]_nocell"
@@ -626,7 +598,7 @@
 		tool.play_tool_sound(src)
 	return TRUE
 
-/obj/item/melee/baton/security/attackby(obj/item/item, mob/user, params)
+/obj/item/melee/baton/security/attackby(obj/item/item, mob/user, list/modifiers, list/attack_modifiers)
 	if(istype(item, /obj/item/stock_parts/power_store/cell))
 		var/obj/item/stock_parts/power_store/cell/active_cell = item
 		if(cell)
@@ -666,35 +638,7 @@
 
 /// Toggles the stun baton's light
 /obj/item/melee/baton/security/proc/toggle_light()
-	set_light_color(get_baton_tip_color(TRUE))
 	set_light_on(!light_on)
-	return
-
-/// Change our baton's top color based on the contained cell.
-/obj/item/melee/baton/security/proc/get_baton_tip_color(set_light = FALSE)
-	var/tip_type_to_set
-	var/tip_light_to_set
-
-	if(cell)
-		var/chargepower = cell.maxcharge
-		var/zap_value = clamp(chargepower/STANDARD_CELL_CHARGE, 0, 100)
-		switch(zap_value)
-			if(-INFINITY to 10)
-				tip_type_to_set = "orange"
-				tip_light_to_set = LIGHT_COLOR_ORANGE
-			if(11 to 20)
-				tip_type_to_set = "red"
-				tip_light_to_set = LIGHT_COLOR_INTENSE_RED
-			if(21 to 30)
-				tip_type_to_set = "green"
-				tip_light_to_set = LIGHT_COLOR_GREEN
-			if(31 to INFINITY)
-				tip_type_to_set = "blue"
-				tip_light_to_set = LIGHT_COLOR_BLUE
-	else
-		tip_type_to_set = "orange"
-
-	return set_light ? tip_light_to_set : tip_type_to_set
 
 /obj/item/melee/baton/security/proc/turn_on(mob/user)
 	active = TRUE
@@ -729,18 +673,20 @@
 		SEND_SIGNAL(user, COMSIG_LIVING_MINOR_SHOCK)
 		deductcharge(cell_hit_cost)
 
-/// Handles prodding targets with turned off stunbatons and right clicking stun'n'bash
-/obj/item/melee/baton/security/baton_attack(mob/living/target, mob/living/user, modifiers)
+/obj/item/melee/baton/security/pre_attack(atom/target, mob/living/user, list/modifiers, list/attack_modifiers)
 	. = ..()
-	if(. != BATON_DO_NORMAL_ATTACK)
-		return
-	if(LAZYACCESS(modifiers, RIGHT_CLICK))
-		if(active && cooldown_check <= world.time && !check_parried(target, user))
-			finalize_baton_attack(target, user, modifiers, in_attack_chain = FALSE)
-	else if(!user.combat_mode)
-		target.visible_message(span_warning("[user] prods [target] with [src]. Luckily it was off."), \
-			span_warning("[user] prods you with [src]. Luckily it was off."))
-		return BATON_ATTACK_DONE
+	if(. || !isliving(target))
+		return .
+
+	if(!active && !user.combat_mode)
+		target.visible_message(
+			span_warning("[user] prods [target] with [src]. Luckily it was off."),
+			span_warning("[user] prods you with [src]. Luckily it was off."),
+			visible_message_flags = ALWAYS_SHOW_SELF_MESSAGE,
+		)
+		return TRUE
+
+	return .
 
 /obj/item/melee/baton/security/baton_effect(mob/living/target, mob/living/user, modifiers, stun_override)
 	if(iscyborg(loc))
@@ -751,13 +697,6 @@
 		return FALSE
 	stun_override = 0 //Avoids knocking people down prematurely.
 	return ..()
-
-/obj/item/melee/baton/security/get_stun_penetration_value()
-	if(cell)
-		var/chargepower = cell.maxcharge
-		var/zap_pen = clamp(chargepower/STANDARD_CELL_CHARGE, 0, 100)
-		return zap_pen + additional_stun_armour_penetration
-	return stun_armour_penetration + additional_stun_armour_penetration
 
 /*
  * After a target is hit, we apply some status effects.
@@ -780,32 +719,30 @@
 	if(!trait_check)
 		target.Knockdown(knockdown_time)
 
-/obj/item/melee/baton/security/get_wait_description()
-	return span_danger("The baton is still charging!")
-
 /obj/item/melee/baton/security/get_stun_description(mob/living/target, mob/living/user)
 	. = list()
 
 	.["visible"] = span_danger("[user] stuns [target] with [src]!")
 	.["local"] = span_userdanger("[user] stuns you with [src]!")
 
-/obj/item/melee/baton/security/get_unga_dunga_cyborg_stun_description(mob/living/target, mob/living/user)
-	. = list()
-
-	.["visible"] = span_danger("[user] tries to stun [target] with [src], and predictably fails!")
-	.["local"] = span_userdanger("[user] tries to... stun you with [src]?")
+/obj/item/melee/baton/security/get_cyborg_stun_description(mob/living/target, mob/living/user)
+	. = ..()
+	if(!affect_cyborg)
+		.["visible"] = span_danger("[user] tries to stun [target] with [src], and predictably fails!")
+		.["local"] = span_userdanger("[user] tries to... stun you with [src]?")
 
 /obj/item/melee/baton/security/throw_impact(atom/hit_atom, datum/thrownthing/throwingdatum)
 	. = ..()
-	if(!. && active && prob(throw_stun_chance) && isliving(hit_atom))
-		finalize_baton_attack(hit_atom, thrownby?.resolve(), in_attack_chain = FALSE)
+	if(!. && active && prob(throw_stun_chance) && hit_atom)
+		finalize_baton_attack(hit_atom, throwingdatum?.get_thrower())
 
 /obj/item/melee/baton/security/emp_act(severity)
 	. = ..()
 	if (!cell)
 		return
 	if (!(. & EMP_PROTECT_SELF))
-		deductcharge(STANDARD_CELL_CHARGE / severity)
+		cell.emp_act(severity)
+
 	if (cell.charge >= cell_hit_cost)
 		var/scramble_time
 		scramble_mode()
@@ -827,6 +764,44 @@
 
 /obj/item/melee/baton/security/loaded/hos
 	preload_cell_type = /obj/item/stock_parts/power_store/cell/super
+
+///Stun Sword
+/obj/item/melee/baton/security/stunsword
+	name = "\improper NT-20 'Excalibur' Stunsword"
+	desc = "It's a sword. It stuns. What more could you want?"
+	icon_state = "stunsword"
+	inhand_icon_state = "stunsword"
+	base_icon_state = "stunsword"
+	lefthand_file = 'icons/mob/inhands/64x64_lefthand.dmi'
+	righthand_file = 'icons/mob/inhands/64x64_righthand.dmi'
+	hitsound = 'sound/items/weapons/bladeslice.ogg'
+	attack_verb_continuous = list("attacks", "slashes", "slices", "tears", "lacerates", "rips", "dices", "cuts")
+	attack_verb_simple = list("attack", "slash", "slice", "tear", "lacerate", "rip", "dice", "cut")
+	inhand_x_dimension = 64
+	inhand_y_dimension = 64
+	w_class = WEIGHT_CLASS_HUGE
+	sharpness = SHARP_EDGED
+	force = 30
+	throwforce = 10
+	wound_bonus = 0
+	exposed_wound_bonus = 30
+	stun_armour_penetration = 40
+	throw_stun_chance = 60
+	convertible = FALSE
+
+	obj_flags = UNIQUE_RENAME
+	unique_reskin = list(
+		"Default" = "stunsword",
+		"Energy Stunsword" = "stunsword_energy",
+	)
+	unique_reskin_changes_inhand = TRUE
+	unique_reskin_changes_base_icon_state = TRUE
+
+/obj/item/melee/baton/security/stunsword/loaded/add_deep_lore()
+	return
+
+/obj/item/melee/baton/security/stunsword/loaded
+	preload_cell_type = /obj/item/stock_parts/power_store/cell/bluespace // 40% stun_armour_penetration
 
 //Makeshift stun baton. Replacement for stun gloves.
 /obj/item/melee/baton/security/cattleprod
@@ -850,7 +825,6 @@
 	slot_flags = ITEM_SLOT_BACK
 	convertible = FALSE
 	active_changes_inhand = FALSE
-	tip_changes_color = FALSE
 	var/obj/item/assembly/igniter/sparkler
 	///Determines whether or not we can improve the cattleprod into a new type. Prevents turning the cattleprod subtypes into different subtypes, or wasting materials on making it....another version of itself.
 	var/can_upgrade = TRUE
@@ -859,7 +833,10 @@
 	. = ..()
 	sparkler = new (src)
 
-/obj/item/melee/baton/security/cattleprod/attackby(obj/item/item, mob/user, params)//handles sticking a crystal onto a stunprod to make an improved cattleprod
+/obj/item/melee/baton/security/cattleprod/add_deep_lore()
+	return
+
+/obj/item/melee/baton/security/cattleprod/attackby(obj/item/item, mob/user, list/modifiers, list/attack_modifiers)//handles sticking a crystal onto a stunprod to make an improved cattleprod
 	if(!istype(item, /obj/item/stack))
 		return ..()
 
@@ -891,9 +868,9 @@
 	var/obj/item/melee/baton/security/cattleprod/brand_new_prod = new our_prod(user.loc)
 	user.put_in_hands(brand_new_prod)
 
-/obj/item/melee/baton/security/cattleprod/baton_effect()
+/obj/item/melee/baton/security/cattleprod/can_baton(mob/living/target, mob/living/user)
 	if(!sparkler.activate())
-		return BATON_ATTACK_DONE
+		return FALSE
 	return ..()
 
 /obj/item/melee/baton/security/cattleprod/Destroy()
@@ -916,20 +893,14 @@
 	throw_stun_chance = 99  //Have you prayed today?
 	convertible = FALSE
 	active_changes_inhand = FALSE
-	tip_changes_color = FALSE
 	custom_materials = list(/datum/material/iron = SHEET_MATERIAL_AMOUNT * 5, /datum/material/glass = SHEET_MATERIAL_AMOUNT*2, /datum/material/silver = SHEET_MATERIAL_AMOUNT*5, /datum/material/gold = SHEET_MATERIAL_AMOUNT)
 
 /obj/item/melee/baton/security/boomerang/Initialize(mapload)
 	. = ..()
-	AddComponent(/datum/component/boomerang, throw_range+2, TRUE)
+	AddComponent(/datum/component/boomerang, throw_range + 2, TRUE)
 
-/obj/item/melee/baton/security/boomerang/throw_impact(atom/hit_atom, datum/thrownthing/throwingdatum)
-	if(!active)
-		return ..()
-	var/caught = hit_atom.hitby(src, skipcatch = FALSE, hitpush = FALSE, throwingdatum = throwingdatum)
-	var/mob/thrown_by = thrownby?.resolve()
-	if(isliving(hit_atom) && !iscyborg(hit_atom) && !caught && prob(throw_stun_chance))//if they are a living creature and they didn't catch it
-		finalize_baton_attack(hit_atom, thrown_by, in_attack_chain = FALSE)
+/obj/item/melee/baton/security/boomerang/add_deep_lore()
+	return
 
 /obj/item/melee/baton/security/boomerang/loaded //Same as above, comes with a cell.
 	preload_cell_type = /obj/item/stock_parts/power_store/cell/high
@@ -1005,9 +976,9 @@
 	knockdown_time = 0.25 SECONDS
 	demolition_mod = 1.5
 	stamina_damage = 30 // 4 hit stamcrit
-	stun_armour_penetration = 30 // bronze-silver telescopic
+	stun_armour_penetration = 25 // bronze-silver telescopic
 	force = 16 // 7 hit crit
-	bare_wound_bonus = 5
+	exposed_wound_bonus = 5
 
 /obj/item/melee/baton/nunchaku/proc/randomize_state()
 	icon_state = pick(list("nunchaku", "nunchaku_x", "nunchaku_y"))
@@ -1038,3 +1009,56 @@
 		melee_attack_chain(owner, attacker, LEFT_CLICK)
 
 	return ..()
+
+// Deep Lore //
+
+/obj/item/melee/baton/security/add_deep_lore()
+	AddElement(/datum/element/examine_lore, \
+		lore_hint = span_notice("You can [EXAMINE_HINT("look closer")] to learn a little more about [src]."), \
+		lore = "The Secure Apprehension Device (sometimes referred to as the SAD in the officer training manuals) is \
+		the unholy union of a mace and a cattleprod. This nonlethal device was designed to put a stop to ruffians, \
+		scoundrels, ne'er-do-wells and criminals wherever they may rear their ugly heads.<br>\
+		<br>\
+		A symbol of Nanotrasen security forces, the stun baton is the primary tool officers employ against the \
+		unlawful scum and villainy of the Spinward and abroad. Trained to 'baton first, interrogate later', \
+		Nanotrasen security has long since earned itself a mixed reputation. Able to rapidly shut down the \
+		central nervous system of a criminal with only a few direct applications of the conductive striking head \
+		of the device, few would-be troublemakers want to find themselves on the wrong end of an officer brandishing \
+		this baton.<br>\
+		<br>\
+		TerraGov law enforcement has avoided the adoption of stun batons due to various ethical dilemmas posed by \
+		their usage, largely because of the longterm physical and mental ramifications of being struck by a human cattleprod. \
+		Citizens' rights advocacy groups protest against the proliferation of stun batons as a policing tool, \
+		arguing that they are 'inhumane' and 'authoritarian'. Nanotrasen, on the other hand, has had no such qualms \
+		when deploying stun batons as a compliance measure across all of their existing stations and facilities against \
+		unruly members of staff." \
+	)
+
+// Contractor Baton
+
+/obj/item/melee/baton/telescopic/contractor_baton/add_deep_lore()
+	AddElement(/datum/element/examine_lore, \
+		lore_hint = span_notice("You can [EXAMINE_HINT("look closer")] to learn a little more about [src]."), \
+		lore = "The Contract Acquisition Device (sometimes referred to as the CAD in encrypted correspondence) is \
+		one of the more frequently encountered examples of Cybersun Industries weaponry. Extremely similar to Nanotrasen's \
+		own Secure Apprehension Device (also simply known as the stun baton), the contractor baton is able to induce \
+		CNS disruption in a target to render them helpless. It is also capable of devastating blunt force trauma if \
+		used as a bludgeon. The contractor baton is also capable of telescopic deployment, allowing for discretion while \
+		making an approach towards a target.<br>\
+		<br>\
+		The contractor baton is famously associated with contractors, elite Cybersun field agents. While the standard \
+		agent would often be tasked with sabotage, terrorism, murder or theft, contractors have the critical task of \
+		kidnapping high value personnel. Anyone with the potential to possess classified or sensitive data about Nanotrasen \
+		security systems and devices could be a target for Cybersun. <br>\
+		<br>\
+		Extracting this information is most easily performed on living subjects. As such, the contractor baton was designed \
+		with nonlethal incapacitation in mind. However, Cybersun Industries has long since found workarounds for extracting \
+		data from the recently deceased, should the contractor find themselves with only a corpse left to send back. Death \
+		may not spare you from the machinations of Cybersun Industries if they deem you a valuable asset towards their goals.<br>\
+		<br>\
+		Nanotrasen utilizes a number of countermeasures to contractor insurgencies, such as employing selective memory wiping \
+		or falsified memory injection, the establishment of 'dummy' command staff through the artificial acceleration \
+		of otherwise incompetent but useful crewmembers (whose incompetence will often result in an acceptable degree \
+		of operational disruption), which provides convenient scapegoats in the event of a security breach as well as \
+		frequent staff turnover and reassignment." \
+	)

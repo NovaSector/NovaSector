@@ -14,7 +14,7 @@
 				//Handle job slot/tater cleanup.
 				if(src.mind.assigned_role.title == JOB_AI)
 					SSjob.FreeRole(JOB_AI)
-			src.mind.special_role = null
+			src.mind.special_roles = null
 			qdel(src)
 		else
 			return

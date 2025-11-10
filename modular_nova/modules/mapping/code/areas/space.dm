@@ -8,9 +8,6 @@
 /area/ruin/space/has_grav/powered/nova/clothing_facility
 	name = "Abandoned Research Station"
 
-/area/ruin/space/has_grav/powered/nova/luna
-	name = "Unexplored Location"
-
 /area/ruin/space/has_grav/nova/blackmarket
 	name = "Shady Market"
 
@@ -146,6 +143,30 @@
 	icon_state = "space_near"
 	default_gravity = STANDARD_GRAVITY
 	outdoors = TRUE
+
+/area/ruin/space/has_grav/port_tarkon/apartment
+	name = "P-T Command Apartment"
+	icon_state = "head_quarters"
+
+/area/ruin/space/has_grav/port_tarkon/sciencehall
+	name = "P-T Research Hall"
+	icon_state = "science"
+
+/area/ruin/space/has_grav/port_tarkon/sauna
+	name = "P-T Sauna"
+	icon_state = "dorms"
+
+/area/ruin/space/has_grav/port_tarkon/lounge
+	name = "P-T Bar Lounge"
+	icon_state = "bar"
+
+/area/ruin/space/has_grav/port_tarkon/engineering
+	name = "P-T Engineering Center"
+	icon_state = "engie"
+
+/area/ruin/space/has_grav/port_tarkon/park
+	name = "P-T Park"
+	icon_state = "garden"
 
 /**
  * DS2 Syndie Areas

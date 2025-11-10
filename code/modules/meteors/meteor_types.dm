@@ -118,7 +118,7 @@
 
 	check_examine_award(user)
 
-/obj/effect/meteor/attackby(obj/item/I, mob/user, params)
+/obj/effect/meteor/attackby(obj/item/I, mob/user, list/modifiers, list/attack_modifiers)
 	if(I.tool_behaviour == TOOL_MINING)
 		make_debris()
 		qdel(src)
@@ -376,7 +376,7 @@
 /obj/effect/meteor/emp/meteor_effect()
 	..()
 	playsound(src, 'sound/items/weapons/zapbang.ogg', 100, TRUE, -1)
-	empulse(src, 3, 8)
+	empulse(src, 3, 8, emp_source = src)
 
 //Meaty Ore
 /obj/effect/meteor/meaty
@@ -429,7 +429,7 @@
 
 /obj/effect/meteor/meaty/xeno/ram_turf(turf/T)
 	if(!isspaceturf(T))
-		new /obj/effect/decal/cleanable/xenoblood(T)
+		new /obj/effect/decal/cleanable/blood/xeno(T)
 
 //Station buster Tunguska
 /obj/effect/meteor/tunguska

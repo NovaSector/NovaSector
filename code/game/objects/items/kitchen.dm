@@ -12,6 +12,7 @@
 	icon = 'icons/obj/service/kitchen.dmi'
 	lefthand_file = 'icons/mob/inhands/equipment/kitchen_lefthand.dmi'
 	righthand_file = 'icons/mob/inhands/equipment/kitchen_righthand.dmi'
+	abstract_type = /obj/item/kitchen
 	worn_icon_state = "kitchen_tool"
 
 /obj/item/kitchen/Initialize(mapload)
@@ -37,6 +38,9 @@
 	sharpness = SHARP_POINTY
 	var/datum/reagent/forkload //used to eat omelette
 	custom_price = PAYCHECK_LOWER
+	sound_vary = TRUE
+	pickup_sound = SFX_CUTLERY_PICKUP
+	drop_sound = SFX_CUTLERY_DROP
 
 /datum/armor/kitchen_fork
 	fire = 50
@@ -76,6 +80,8 @@
 	throwforce = 0
 	custom_materials = list(/datum/material/plastic = SMALL_MATERIAL_AMOUNT * 0.8)
 	custom_price = PAYCHECK_LOWER * 1
+	pickup_sound = null
+	drop_sound = null
 
 /obj/item/kitchen/fork/plastic/Initialize(mapload)
 	. = ..()
@@ -99,6 +105,8 @@
 	attack_verb_simple = list("prod", "whiff", "scratch", "poke")
 	sharpness = SHARP_EDGED
 	custom_price = PAYCHECK_LOWER * 2
+	pickup_sound = null
+	drop_sound = null
 
 /obj/item/knife/plastic/Initialize(mapload)
 	. = ..()
@@ -166,6 +174,9 @@
 	attack_verb_simple = list("bash", "batter", "bludgeon", "thrash", "whack")
 	custom_price = PAYCHECK_CREW * 1.5
 	tool_behaviour = TOOL_ROLLINGPIN
+	sound_vary = TRUE
+	pickup_sound = SFX_ROLLING_PIN_PICKUP
+	drop_sound = SFX_ROLLING_PIN_DROP
 
 
 /obj/item/kitchen/rollingpin/illegal
@@ -177,7 +188,7 @@
 	obj_flags = CONDUCTS_ELECTRICITY
 	custom_materials = list(/datum/material/iron = SHEET_MATERIAL_AMOUNT * 1.5, /datum/material/plastic = SHEET_MATERIAL_AMOUNT * 1.5)
 	custom_price = PAYCHECK_CREW * 2
-	bare_wound_bonus = 14
+	exposed_wound_bonus = 14
 
 /obj/item/kitchen/rollingpin/suicide_act(mob/living/carbon/user)
 	user.visible_message(span_suicide("[user] begins flattening [user.p_their()] head with \the [src]! It looks like [user.p_theyre()] trying to commit suicide!"))
@@ -202,6 +213,9 @@
 	custom_price = PAYCHECK_LOWER * 2
 	tool_behaviour = TOOL_MINING
 	toolspeed = 25 // Literally 25 times worse than the base pickaxe
+	sound_vary = TRUE
+	pickup_sound = SFX_CUTLERY_PICKUP
+	drop_sound = SFX_CUTLERY_DROP
 
 	var/spoon_sip_size = 5
 
@@ -237,7 +251,7 @@
 	filled_overlay.color = mix_color_from_reagents(reagents.reagent_list)
 	. += filled_overlay
 
-/obj/item/kitchen/spoon/attack(mob/living/target_mob, mob/living/user, params)
+/obj/item/kitchen/spoon/attack(mob/living/target_mob, mob/living/user, list/modifiers, list/attack_modifiers)
 	if(!target_mob.reagents || reagents.total_volume <= 0)
 		return  ..()
 
@@ -271,7 +285,7 @@
 	reagents.trans_to(target_mob, spoon_sip_size, methods = INGEST)
 	return TRUE
 
-/obj/item/kitchen/spoon/pre_attack(atom/attacked_atom, mob/living/user, params)
+/obj/item/kitchen/spoon/pre_attack(atom/attacked_atom, mob/living/user, list/modifiers, list/attack_modifiers)
 	. = ..()
 	if(.)
 		return
@@ -291,7 +305,7 @@
 		attacked_atom.balloon_alert(user, "it's full!")
 	return TRUE
 
-/obj/item/kitchen/spoon/pre_attack_secondary(atom/attacked_atom, mob/living/user, params)
+/obj/item/kitchen/spoon/pre_attack_secondary(atom/attacked_atom, mob/living/user, list/modifiers, list/attack_modifiers)
 	. = ..()
 	if(. == SECONDARY_ATTACK_CANCEL_ATTACK_CHAIN)
 		return
@@ -316,6 +330,8 @@
 	custom_materials = list(/datum/material/plastic = SMALL_MATERIAL_AMOUNT * 1.2)
 	toolspeed = 75 // The plastic spoon takes 5 minutes to dig through a single mineral turf... It's one, continuous, breakable, do_after...
 	custom_price = PAYCHECK_LOWER * 1
+	pickup_sound = null
+	drop_sound = null
 
 /datum/armor/kitchen_spoon
 	fire = 50

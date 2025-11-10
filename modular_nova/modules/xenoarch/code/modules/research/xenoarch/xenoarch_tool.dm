@@ -1,21 +1,25 @@
 /obj/item/xenoarch
-	name = "parent dev item"
+	name = "measuring tape"
+	desc = "A measuring tape specifically produced to measure the depth that has been dug into strange rocks."
 	icon = 'modular_nova/modules/xenoarch/icons/xenoarch_items.dmi'
+	icon_state = "tape"
 
 // HAMMERS
 
 /obj/item/xenoarch/hammer
-	name = "parent dev item"
+	name = "hammer (1cm)"
+	icon_state = "hammer1"
 	desc = "A hammer that can be used to remove dirt from strange rocks."
 	tool_behaviour = TOOL_HAMMER
 	var/dig_amount = 1
-	var/dig_speed = 1 SECONDS
+	var/dig_speed = 0.5 SECONDS
 	var/advanced = FALSE
 
 /obj/item/xenoarch/hammer/examine(mob/user)
 	. = ..()
 	if(advanced)
 		. += span_notice("This is an advanced hammer. It can change its digging depth from 1 to 30. Click to change depth.")
+
 	. += span_notice("Current Digging Depth: [dig_amount]cm")
 
 /obj/item/xenoarch/hammer/attack_self(mob/user, modifiers)
@@ -23,29 +27,27 @@
 	if(!advanced)
 		to_chat(user, span_warning("This is not an advanced hammer, it cannot change its digging depth."))
 		return
+
 	var/user_choice = input(user, "Choose the digging depth. 1 to 30", "Digging Depth Selection") as null|num
 	if(!user_choice)
 		dig_amount = 1
 		dig_speed = 1
 		return
+
 	if(dig_amount <= 0)
 		dig_amount = 1
 		dig_speed = 1
 		return
+
 	var/round_dig = round(user_choice)
 	if(round_dig >= 30)
 		dig_amount = 30
 		dig_speed = 30
 		return
+
 	dig_amount = round_dig
 	dig_speed = round_dig * 0.5
 	to_chat(user, span_notice("You change the hammer's digging depth to [round_dig]cm."))
-
-/obj/item/xenoarch/hammer/cm1
-	name = "hammer (1cm)"
-	icon_state = "hammer1"
-	dig_amount = 1
-	dig_speed = 0.5 SECONDS
 
 /obj/item/xenoarch/hammer/cm2
 	name = "hammer (2cm)"
@@ -105,11 +107,6 @@
 
 // MISC.
 
-/obj/item/xenoarch/tape_measure
-	name = "measuring tape"
-	desc = "A measuring tape specifically produced to measure the depth that has been dug into strange rocks."
-	icon_state = "tape"
-
 /obj/item/xenoarch/handheld_scanner
 	name = "handheld scanner"
 	desc = "A handheld scanner for strange rocks. It tags the depths to the rock."
@@ -131,44 +128,58 @@
 /obj/item/xenoarch/handheld_recoverer/interact_with_atom(atom/interacting_with, mob/living/user, list/modifiers)
 	var/turf/target_turf = get_turf(interacting_with)
 	. = ITEM_INTERACT_SUCCESS
-	if(istype(interacting_with, /obj/item/xenoarch/broken_item/tech))
+	if(interacting_with.type == /obj/item/xenoarch/broken_item)
 		var/spawn_item = pick_weight(GLOB.tech_reward)
 		new spawn_item(target_turf)
+		user.mind?.adjust_experience(/datum/skill/archeology, 5)
 		qdel(interacting_with)
 		return
+
 	if(istype(interacting_with, /obj/item/xenoarch/broken_item/weapon))
 		var/spawn_item = pick_weight(GLOB.weapon_reward)
 		new spawn_item(target_turf)
+		user.mind?.adjust_experience(/datum/skill/archeology, 5)
 		qdel(interacting_with)
 		return
+
 	if(istype(interacting_with, /obj/item/xenoarch/broken_item/illegal))
 		var/spawn_item = pick_weight(GLOB.illegal_reward)
 		new spawn_item(target_turf)
+		user.mind?.adjust_experience(/datum/skill/archeology, 5)
 		qdel(interacting_with)
 		return
+
 	if(istype(interacting_with, /obj/item/xenoarch/broken_item/alien))
 		var/spawn_item = pick_weight(GLOB.alien_reward)
 		new spawn_item(target_turf)
+		user.mind?.adjust_experience(/datum/skill/archeology, 5)
 		qdel(interacting_with)
 		return
+
 	if(istype(interacting_with, /obj/item/xenoarch/broken_item/plant))
 		var/spawn_item = pick_weight(GLOB.plant_reward)
 		new spawn_item(target_turf)
+		user.mind?.adjust_experience(/datum/skill/archeology, 5)
 		qdel(interacting_with)
 		return
+
 	if(istype(interacting_with, /obj/item/xenoarch/broken_item/clothing))
 		var/spawn_item = pick_weight(GLOB.clothing_reward)
 		new spawn_item(target_turf)
+		user.mind?.adjust_experience(/datum/skill/archeology, 5)
 		qdel(interacting_with)
 		return
+
 	if(istype(interacting_with, /obj/item/xenoarch/broken_item/animal))
 		var/spawn_item
 		var/turf/src_turf = get_turf(src)
 		for(var/looptime in 1 to rand(1,4))
 			spawn_item = pick_weight(GLOB.animal_reward)
 			new spawn_item(src_turf)
+		user.mind?.adjust_experience(/datum/skill/archeology, 5)
 		qdel(interacting_with)
 		return
+
 	return NONE
 
 /obj/item/storage/belt/utility/xenoarch
@@ -178,23 +189,26 @@
 	icon_state = "xenoarch_belt"
 	content_overlays = FALSE
 	custom_premium_price = PAYCHECK_CREW * 2
+	storage_type = /datum/storage/xenoarch_belt
 
-/obj/item/storage/belt/utility/xenoarch/Initialize(mapload)
+/datum/storage/xenoarch_belt
+	max_total_storage = 100
+	max_slots = 15
+
+/datum/storage/xenoarch_belt/New(atom/parent, max_slots, max_specific_storage, max_total_storage)
 	. = ..()
-	atom_storage.max_total_storage = 100
-	atom_storage.max_slots = 15
-	atom_storage.set_holdable(list(
+	set_holdable(list(
 		/obj/item/xenoarch/hammer,
 		/obj/item/xenoarch/brush,
-		/obj/item/xenoarch/tape_measure,
+		/obj/item/xenoarch,
 		/obj/item/xenoarch/core_sampler,
 		/obj/item/xenoarch/handheld_scanner,
 		/obj/item/xenoarch/handheld_recoverer,
 		/obj/item/xenoarch/anomaly_stabilizer,
 		/obj/item/t_scanner/adv_mining_scanner,
 		/obj/item/mining_scanner,
-		/obj/item/gps
-		))
+		/obj/item/gps,
+	))
 
 /obj/item/storage/bag/xenoarch
 	name = "xenoarch mining satchel"
@@ -204,20 +218,22 @@
 	worn_icon_state = "satchel"
 	w_class = WEIGHT_CLASS_TINY
 	resistance_flags = FLAMMABLE
+	storage_type = /datum/storage/bag/xenoarch
 	var/insert_speed = 1 SECONDS
 	var/mob/listeningTo
 	var/range = null
 
 	var/spam_protection = FALSE //If this is TRUE, the holder won't receive any messages when they fail to pick up ore through crossing it
 
-/obj/item/storage/bag/xenoarch/Initialize(mapload)
+/datum/storage/bag/xenoarch
+	max_specific_storage = WEIGHT_CLASS_GIGANTIC
+	max_total_storage = 1000
+	max_slots = 25
+	numerical_stacking = FALSE
+
+/datum/storage/bag/xenoarch/New(atom/parent, max_slots, max_specific_storage, max_total_storage)
 	. = ..()
-	atom_storage.max_specific_storage = WEIGHT_CLASS_GIGANTIC
-	atom_storage.allow_quick_empty = TRUE
-	atom_storage.max_total_storage = 1000
-	atom_storage.max_slots = 25
-	atom_storage.numerical_stacking = FALSE
-	atom_storage.can_hold = typecacheof(list(/obj/item/xenoarch/strange_rock))
+	set_holdable(list(/obj/item/xenoarch/strange_rock))
 
 /obj/item/storage/bag/xenoarch/equipped(mob/user)
 	. = ..()
@@ -253,7 +269,7 @@
 					spam_protection = TRUE
 					continue
 	if(show_message)
-		playsound(user, SFX_RUSTLE, 50, TRUE)
+		playsound(user, storage_type.rustle_sound, 50, TRUE)
 		user.visible_message(span_notice("[user] scoops up the rocks beneath [user.p_them()]."), \
 			span_notice("You scoop up the rocks beneath you with your [name]."))
 	spam_protection = FALSE
@@ -262,10 +278,10 @@
 	name = "advanced xenoarch mining satchel"
 	icon_state = "adv_satchel"
 	insert_speed = 0.1 SECONDS
+	storage_type = /datum/storage/bag/xenoarch/adv
 
-/obj/item/storage/bag/xenoarch/adv/Initialize(mapload)
-	. = ..()
-	atom_storage.max_slots = 50
+/datum/storage/bag/xenoarch/adv
+	max_slots = 50
 
 /obj/structure/closet/xenoarch
 	name = "xenoarchaeology equipment locker"
@@ -273,7 +289,7 @@
 
 /obj/structure/closet/xenoarch/PopulateContents()
 	. = ..()
-	new /obj/item/xenoarch/hammer/cm1(src)
+	new /obj/item/xenoarch/hammer(src)
 	new /obj/item/xenoarch/hammer/cm2(src)
 	new /obj/item/xenoarch/hammer/cm3(src)
 	new /obj/item/xenoarch/hammer/cm4(src)
@@ -281,7 +297,7 @@
 	new /obj/item/xenoarch/hammer/cm6(src)
 	new /obj/item/xenoarch/hammer/cm10(src)
 	new /obj/item/xenoarch/brush(src)
-	new /obj/item/xenoarch/tape_measure(src)
+	new /obj/item/xenoarch(src)
 	new /obj/item/xenoarch/handheld_scanner(src)
 	new /obj/item/storage/bag/xenoarch(src)
 	new /obj/item/storage/belt/utility/xenoarch(src)

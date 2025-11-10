@@ -371,13 +371,13 @@
 		return FALSE
 
 	var/obj/item/clothing/sextoy/condom/condom = penis
-	return condom.condom_state == TRAIT_CONDOM_BROKEN
+	return condom.condom_state != "broken"
 
 // For handling things that don't already have handcuff handlers.
 /mob/living/carbon/human/set_handcuffed(new_value)
 	if(wear_suit && istype(wear_suit, /obj/item/clothing/suit/straight_jacket/kinky_sleepbag))
 		return FALSE
-	..()
+	return ..()
 
 /// Checks if the tail is exposed.
 /obj/item/organ/tail/proc/is_exposed()

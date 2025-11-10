@@ -98,27 +98,32 @@
 /obj/item/clothing/head/beret/sec/science
 	name = "science guard beret"
 	desc = "A robust beret with an Erlenmeyer flask emblazoned on it. Uses reinforced fabric to offer sufficient protection."
-	icon_state = "beret_badge"
+	icon_state = "/obj/item/clothing/head/beret/sec/science"
+	post_init_icon_state = "beret_badge"
 	greyscale_colors = "#8D008F#F2F2F2"
 
 /obj/item/clothing/head/beret/sec/medical
 	name = "medical officer beret"
 	desc = "A robust beret with a Medical insignia emblazoned on it. Uses reinforced fabric to offer sufficient protection."
+	icon_state = "/obj/item/clothing/head/beret/sec/medical"
 	greyscale_colors = "#16313D#F2F2F2" //Paramed blue to (mostly) match their vest (as opposed to medical white)
 
 /obj/item/clothing/head/beret/sec/engineering
 	name = "engineer officer beret"
 	desc = "A robust beret with a hazard symbol emblazoned on it. Uses reinforced fabric to offer sufficient protection."
+	icon_state = "/obj/item/clothing/head/beret/sec/engineering"
 	greyscale_colors = "#FFBC30#F2F2F2"
 
 /obj/item/clothing/head/beret/sec/cargo
 	name = "cargo officer beret"
 	desc = "A robust beret with a Crate emblazoned on it. Uses reinforced fabric to offer sufficient protection."
+	icon_state = "/obj/item/clothing/head/beret/sec/cargo"
 	greyscale_colors = "#c99840#F2F2F2"
 
 /obj/item/clothing/head/beret/sec/service
 	name = "bouncer beret"
 	desc = "A robust beret with a simple badge emblazoned on it. Uses reinforced fabric to offer sufficient protection."
+	icon_state = "/obj/item/clothing/head/beret/sec/service"
 	greyscale_colors = "#5E8F2D#F2F2F2"
 
 /*
@@ -127,8 +132,8 @@
 /obj/item/storage/belt/security/department_guard
 	icon_state = "engine"
 	worn_icon_state = "engine"
-	icon = 'modular_nova/modules/goofsec/icons/belts.dmi'
-	worn_icon = 'modular_nova/modules/goofsec/icons/belt_worn.dmi'
+	icon = 'modular_nova/modules/goofsec/icons/obj/belts.dmi'
+	worn_icon = 'modular_nova/modules/goofsec/icons/mob/belts.dmi'
 	unique_reskin = null
 
 /obj/item/storage/belt/security/department_guard/science
@@ -254,7 +259,7 @@
 		/obj/item/clothing/mask/whistle = 5,
 		/obj/item/melee/baton/security/boomerang/loaded = 1
 	)
-	job_flags = JOB_ANNOUNCE_ARRIVAL | JOB_CREW_MANIFEST | JOB_EQUIP_RANK | JOB_CREW_MEMBER | JOB_NEW_PLAYER_JOINABLE | JOB_REOPEN_ON_ROUNDSTART_LOSS | JOB_ASSIGN_QUIRKS | JOB_CAN_BE_INTERN
+	job_flags = STATION_JOB_FLAGS | JOB_ANTAG_PROTECTED
 
 /datum/outfit/job/science_guard
 	name = "Science Guard"
@@ -355,7 +360,7 @@
 		/obj/item/melee/baton/security/boomerang/loaded = 1
 	)
 
-	job_flags = JOB_ANNOUNCE_ARRIVAL | JOB_CREW_MANIFEST | JOB_EQUIP_RANK | JOB_CREW_MEMBER | JOB_NEW_PLAYER_JOINABLE | JOB_REOPEN_ON_ROUNDSTART_LOSS | JOB_ASSIGN_QUIRKS | JOB_CAN_BE_INTERN
+	job_flags = STATION_JOB_FLAGS | JOB_ANTAG_PROTECTED
 
 /datum/outfit/job/orderly
 	name = "Orderly"
@@ -450,7 +455,7 @@
 		/obj/item/clothing/mask/whistle = 5,
 		/obj/item/melee/baton/security/boomerang/loaded = 1
 	)
-	job_flags = JOB_ANNOUNCE_ARRIVAL | JOB_CREW_MANIFEST | JOB_EQUIP_RANK | JOB_CREW_MEMBER | JOB_NEW_PLAYER_JOINABLE | JOB_REOPEN_ON_ROUNDSTART_LOSS | JOB_ASSIGN_QUIRKS | JOB_CAN_BE_INTERN
+	job_flags = STATION_JOB_FLAGS | JOB_ANTAG_PROTECTED
 
 /datum/outfit/job/engineering_guard
 	name = "Engineering Guard"
@@ -551,7 +556,7 @@
 		/obj/item/clothing/mask/whistle = 5,
 		/obj/item/melee/baton/security/boomerang/loaded = 1
 	)
-	job_flags = JOB_ANNOUNCE_ARRIVAL | JOB_CREW_MANIFEST | JOB_EQUIP_RANK | JOB_CREW_MEMBER | JOB_NEW_PLAYER_JOINABLE | JOB_REOPEN_ON_ROUNDSTART_LOSS | JOB_ASSIGN_QUIRKS | JOB_CAN_BE_INTERN
+	job_flags = STATION_JOB_FLAGS | JOB_ANTAG_PROTECTED
 
 /datum/outfit/job/customs_agent
 	name = "Customs Agent"
@@ -646,7 +651,7 @@
 		/obj/item/clothing/mask/whistle = 5,
 		/obj/item/melee/baton/security/boomerang/loaded = 1
 	)
-	job_flags = JOB_ANNOUNCE_ARRIVAL | JOB_CREW_MANIFEST | JOB_EQUIP_RANK | JOB_CREW_MEMBER | JOB_NEW_PLAYER_JOINABLE | JOB_REOPEN_ON_ROUNDSTART_LOSS | JOB_ASSIGN_QUIRKS | JOB_CAN_BE_INTERN
+	job_flags = STATION_JOB_FLAGS | JOB_ANTAG_PROTECTED
 
 /datum/outfit/job/bouncer
 	name = "Bouncer"
@@ -724,8 +729,8 @@
 	. = ..()
 	icon_state = "[department_icon_state]_[icon_state]"
 
-/obj/item/melee/baton/security/loaded/departmental/baton_attack(mob/living/target, mob/living/user, modifiers)
-	if(active && !emagged && cooldown_check <= world.time)
+/obj/item/melee/baton/security/loaded/departmental/can_baton(mob/living/target, mob/living/user)
+	if(active && !emagged && COOLDOWN_FINISHED(src, cooldown_check))
 		var/area/current_area = get_area(user)
 		if(!is_type_in_list(current_area, valid_areas))
 			if(non_departmental_uses_left)
@@ -737,11 +742,11 @@
 			else
 				target.visible_message(span_warning("[user] prods [target] with [src]. Luckily, it shut off due to being in the wrong area."), \
 					span_warning("[user] prods you with [src]. Luckily, it shut off due to being in the wrong area."))
-				active = FALSE
+				turn_off()
 				balloon_alert(user, "wrong department")
 				playsound(src, SFX_SPARKS, 75, TRUE, -1)
 				update_appearance()
-				return BATON_ATTACK_DONE
+				return FALSE
 	. = ..()
 
 /obj/item/melee/baton/security/loaded/departmental/attack_self(mob/user)
@@ -914,4 +919,19 @@
 		/obj/item/clothing/suit/armor/vest/blueshirt/nova/customs_agent = 2,
 		/obj/item/clothing/glasses/hud/security = 2,
 		/obj/item/clothing/glasses/hud/gun_permit = 2,
+	), src)
+
+/obj/item/storage/bag/garment/service_guard
+	name = "\proper the service guard's garments"
+	desc = "A bag for storing extra clothes and shoes. This one belongs to the service guard."
+
+/obj/item/storage/bag/garment/service_guard/PopulateContents()
+	generate_items_inside(list(
+		/obj/item/radio/headset/headset_srv = 2,
+		/obj/item/clothing/shoes/sneakers/black = 2,
+		/obj/item/clothing/under/rank/security/officer/blueshirt/nova/bouncer = 2,
+		/obj/item/clothing/head/helmet/blueshirt/nova/guard = 2,
+		/obj/item/clothing/head/beret/sec/service = 2,
+		/obj/item/clothing/suit/armor/vest/blueshirt/nova/guard = 2,
+		/obj/item/clothing/glasses/hud/security = 2,
 	), src)

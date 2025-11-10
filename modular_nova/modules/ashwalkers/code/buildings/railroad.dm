@@ -15,10 +15,12 @@
 /obj/item/stack/rail_track/interact_with_atom(atom/interacting_with, mob/living/user, list/modifiers)
 	if(!isopenturf(interacting_with))
 		return NONE
+
 	var/turf/open/target_turf = get_turf(interacting_with)
 	var/obj/structure/railroad/check_rail = locate() in target_turf
 	if(check_rail || !use(1))
 		return NONE
+
 	to_chat(user, span_notice("You place [src] on [target_turf]."))
 	new /obj/structure/railroad(target_turf)
 	return ITEM_INTERACT_SUCCESS
@@ -32,15 +34,16 @@
 
 /obj/structure/railroad/Initialize(mapload)
 	. = ..()
-	for(var/obj/structure/railroad/rail in range(1))
-		addtimer(CALLBACK(rail, /atom/proc/update_appearance), 5)
+	for(var/obj/structure/railroad/rail in range(2))
+		rail.update_appearance()
 
 /obj/structure/railroad/Destroy()
-	. = ..()
-	for(var/obj/structure/railroad/rail in range(1))
+	for(var/obj/structure/railroad/rail in range(2))
 		if(rail == src)
 			continue
-		addtimer(CALLBACK(rail, /atom/proc/update_appearance), 5)
+
+		addtimer(CALLBACK(rail, /atom/proc/update_appearance), 1 SECONDS)
+	return ..()
 
 /obj/structure/railroad/update_appearance(updates)
 	icon_state = "rail"
@@ -49,16 +52,21 @@
 		var/obj/structure/railroad/locate_rail = locate() in get_step(src_turf, direction)
 		if(!locate_rail)
 			continue
+
 		icon_state = "[icon_state][direction]"
+
 	return ..()
 
 /obj/structure/railroad/crowbar_act(mob/living/user, obj/item/tool)
 	tool.play_tool_sound(src)
-	if(!do_after(user, 2 SECONDS, src))
-		return
+	var/skill_modifier = user.mind?.get_skill_modifier(/datum/skill/construction, SKILL_SPEED_MODIFIER)
+	if(!do_after(user, 2 SECONDS * skill_modifier * tool.toolspeed, src))
+		return ITEM_INTERACT_BLOCKING
+
 	tool.play_tool_sound(src)
 	new /obj/item/stack/rail_track(get_turf(src))
 	qdel(src)
+	return ITEM_INTERACT_SUCCESS
 
 /obj/vehicle/ridden/rail_cart
 	name = "rail cart"
@@ -70,6 +78,8 @@
 	var/mutable_appearance/railoverlay
 	/// whether there is sand in the cart
 	var/has_sand = FALSE
+	/// the farm component (if it was added)
+	var/datum/component/simple_farm/connected_farm
 
 /obj/vehicle/ridden/rail_cart/examine(mob/user)
 	. = ..()
@@ -94,17 +104,21 @@
 
 /obj/vehicle/ridden/rail_cart/update_overlays()
 	. = ..()
+	cut_overlays()
 	if(has_buckled_mobs())
 		add_overlay(railoverlay)
-	else
-		cut_overlay(railoverlay)
+
+	if(connected_farm)
+		add_overlay("dirt_overlay")
 
 /obj/vehicle/ridden/rail_cart/relaymove(mob/living/user, direction)
 	var/obj/structure/railroad/locate_rail = locate() in get_step(src, direction)
 	if(!canmove || !locate_rail)
 		return FALSE
+
 	if(is_driver(user))
 		return relaydrive(user, direction)
+
 	return FALSE
 
 /obj/vehicle/ridden/rail_cart/click_alt(mob/user)
@@ -115,24 +129,38 @@
 	. = ..()
 	atom_storage?.show_contents(user)
 
-/obj/vehicle/ridden/rail_cart/attackby(obj/item/attacking_item, mob/user, params)
+/obj/vehicle/ridden/rail_cart/attackby(obj/item/attacking_item, mob/user, list/modifiers, list/attack_modifiers)
 	if(istype(attacking_item, /obj/item/stack/ore/glass))
 		var/obj/item/stack/ore/glass/use_item = attacking_item
 		if(has_sand || !use_item.use(10))
 			return ..()
-		AddComponent(/datum/component/simple_farm, TRUE, TRUE, list(0, 16))
+
+		connected_farm = AddComponent(/datum/component/simple_farm, TRUE, TRUE, list(0, 24))
+		update_overlays()
 		has_sand = TRUE
-		RemoveElement(/datum/element/ridable)
-		return
+		max_drivers = 0
+		max_occupants = 0
+		atom_storage.remove_all(get_turf(src))
+		atom_storage.click_alt_open = FALSE
+		atom_storage.insert_on_attack = FALSE
+		atom_storage.attack_hand_interact = FALSE
+		atom_storage.locked = STORAGE_FULLY_LOCKED
+		return ITEM_INTERACT_SUCCESS
 
 	if(attacking_item.tool_behaviour == TOOL_SHOVEL)
-		var/datum/component/remove_component = GetComponent(/datum/component/simple_farm)
-		if(!remove_component)
+		if(!connected_farm)
 			return ..()
-		qdel(remove_component)
+
+		QDEL_NULL(connected_farm)
+		if(atom_storage)
+			atom_storage.click_alt_open = TRUE
+			atom_storage.insert_on_attack = TRUE
+			atom_storage.attack_hand_interact = TRUE
+			atom_storage.locked = STORAGE_NOT_LOCKED
+		update_overlays()
 		has_sand = FALSE
 		AddElement(/datum/element/ridable, /datum/component/riding/vehicle/rail_cart)
-		return
+		return ITEM_INTERACT_SUCCESS
 
 	return ..()
 
@@ -141,10 +169,12 @@
 	if(trailer)
 		remove_trailer()
 		return
+
 	for(var/direction in GLOB.cardinals)
 		var/obj/vehicle/ridden/rail_cart/locate_cart = locate() in get_step(src, direction)
 		if(!locate_cart || locate_cart.trailer == src)
 			continue
+
 		add_trailer(locate_cart)
 		break
 
@@ -154,8 +184,16 @@
 
 /datum/component/riding/vehicle/rail_cart/get_rider_offsets_and_layers(pass_index, mob/offsetter)
 	return list(
-		TEXT_NORTH = list(0, 13, OBJ_LAYER),
-		TEXT_SOUTH = list(0, 13, OBJ_LAYER),
-		TEXT_EAST =  list(0, 13, OBJ_LAYER),
-		TEXT_WEST =  list(0, 13, OBJ_LAYER),
+		TEXT_NORTH = list(0, 13),
+		TEXT_SOUTH = list(0, 13),
+		TEXT_EAST =  list(0, 13),
+		TEXT_WEST =  list(0, 13),
+	)
+
+/datum/component/riding/vehicle/rail_cart/get_parent_offsets_and_layers()
+	return list(
+		TEXT_NORTH = list(0, 0, OBJ_LAYER),
+		TEXT_SOUTH = list(0, 0, OBJ_LAYER),
+		TEXT_EAST =  list(0, 0, OBJ_LAYER),
+		TEXT_WEST =  list(0, 0, OBJ_LAYER),
 	)

@@ -12,12 +12,13 @@
 	refill_canister = /obj/item/vending_refill/wardrobe/comm_wardrobe
 	payment_department = ACCOUNT_CMD
 	light_color = COLOR_COMMAND_BLUE
+	allow_custom = TRUE
 
 /obj/item/vending_refill/wardrobe/comm_wardrobe
 	machine_name = "CommDrobe"
 
 /obj/machinery/vending/access/command/build_access_list(list/access_lists)
-	access_lists["[ACCESS_CAPTAIN]"] = list(
+	access_lists[ACCESS_CAPTAIN] = list(
 		// CAPTAIN
 		/obj/item/clothing/head/hats/caphat = 1,
 		/obj/item/clothing/head/caphat/beret = 1,
@@ -44,6 +45,7 @@
 		// BLUESHIELD
 		/obj/item/clothing/head/beret/blueshield = 1,
 		/obj/item/clothing/head/beret/blueshield/navy = 1,
+		/obj/item/clothing/head/soft/blueshield = 1,
 		/obj/item/clothing/under/rank/blueshield = 1,
 		/obj/item/clothing/under/rank/blueshield/skirt = 1,
 		/obj/item/clothing/under/rank/blueshield/turtleneck = 1,
@@ -57,7 +59,7 @@
 		/obj/item/storage/backpack/messenger/blueshield = 1,
 		/obj/item/clothing/shoes/laceup = 1,
 	)
-	access_lists["[ACCESS_HOP]"] = list( // Best head btw
+	access_lists[ACCESS_HOP] = list( // Best head btw
 		/obj/item/clothing/head/hats/hopcap = 1,
 		/obj/item/clothing/head/hopcap/beret = 1,
 		/obj/item/clothing/head/hopcap/beret/alt = 1,
@@ -78,7 +80,7 @@
 		/obj/item/storage/backpack/messenger/head_of_personnel = 1,
 		/obj/item/clothing/shoes/sneakers/brown = 1,
 	)
-	access_lists["[ACCESS_CMO]"] = list(
+	access_lists[ACCESS_CMO] = list(
 		/obj/item/clothing/head/beret/medical/cmo = 1,
 		/obj/item/clothing/head/beret/medical/cmo/alt = 1,
 		/obj/item/clothing/head/hats/imperial/cmo = 1,
@@ -90,7 +92,7 @@
 		/obj/item/clothing/neck/mantle/cmomantle = 1,
 		/obj/item/clothing/shoes/sneakers/brown = 1,
 	)
-	access_lists["[ACCESS_RD]"] = list(
+	access_lists[ACCESS_RD] = list(
 		/obj/item/clothing/head/beret/science/rd = 1,
 		/obj/item/clothing/head/beret/science/rd/alt = 1,
 		/obj/item/clothing/under/rank/rnd/research_director = 1,
@@ -104,7 +106,7 @@
 		/obj/item/clothing/suit/toggle/labcoat = 1,
 		/obj/item/clothing/shoes/sneakers/brown = 1,
 	)
-	access_lists["[ACCESS_CE]"] = list(
+	access_lists[ACCESS_CE] = list(
 		/obj/item/clothing/head/beret/engi/ce = 1,
 		/obj/item/clothing/head/hats/imperial/ce = 1,
 		/obj/item/clothing/under/rank/engineering/chief_engineer = 1,
@@ -114,23 +116,37 @@
 		/obj/item/clothing/neck/mantle/cemantle = 1,
 		/obj/item/clothing/shoes/sneakers/brown = 1,
 	)
-	access_lists["[ACCESS_HOS]"] = list(
-		/obj/item/clothing/head/hats/hos/cap = 1,
-		/obj/item/clothing/head/hats/hos/beret/navyhos = 1,
-		/obj/item/clothing/head/hats/imperial/hos = 1,
-		/obj/item/clothing/under/rank/security/head_of_security/peacekeeper = 1,
+	access_lists[ACCESS_HOS] = list(
+		/obj/item/clothing/under/rank/security/head_of_security/skirt = 1,
 		/obj/item/clothing/under/rank/security/head_of_security/alt = 1,
 		/obj/item/clothing/under/rank/security/head_of_security/alt/skirt = 1,
-		/obj/item/clothing/under/rank/security/head_of_security/nova/imperial = 1,
-		/obj/item/clothing/suit/jacket/hos/blue = 1,
+		/obj/item/clothing/under/rank/security/head_of_security/grey = 1,
 		/obj/item/clothing/under/rank/security/head_of_security/parade = 1,
+		/obj/item/clothing/under/rank/security/head_of_security/parade/female = 1,
+		/obj/item/clothing/gloves/tackler/combat = 1,
+		/obj/item/clothing/suit/armor/hos = 1,
 		/obj/item/clothing/suit/armor/hos/hos_formal = 1,
+		/obj/item/clothing/suit/armor/hos/trenchcoat/winter = 1,
+		/obj/item/clothing/suit/armor/vest/leather = 1,
+		/obj/item/clothing/glasses/hud/security/sunglasses/eyepatch = 1,
+		/obj/item/clothing/glasses/hud/security/sunglasses/gars/giga = 1,
+		/obj/item/clothing/head/hats/hos/beret = 1,
+		/obj/item/clothing/head/hats/hos/cap = 1,
+		/obj/item/clothing/mask/gas/sechailer/swat = 1,
 		/obj/item/clothing/neck/cloak/hos = 1,
-		/obj/item/clothing/neck/cloak/hos/redsec = 1,
-		/obj/item/clothing/neck/mantle/hosmantle = 1,
-		/obj/item/clothing/shoes/sneakers/brown = 1,
+		/obj/item/clothing/neck/cloak/hos/blue = 1,
+		/obj/item/clothing/suit/armor/hos/hos_formal/black = 1,
+		/obj/item/clothing/under/rank/security/head_of_security/nova = 1,
+		/obj/item/clothing/under/rank/security/head_of_security/nova/blue = 1,
+		/obj/item/clothing/under/rank/security/head_of_security/nova/formal = 1,
+		/obj/item/clothing/under/rank/security/head_of_security/nova/formal/blue = 1,
+		/obj/item/clothing/under/rank/security/head_of_security/nova/imperial = 1,
+		/obj/item/clothing/under/rank/security/head_of_security/nova/parade = 1,
+		/obj/item/clothing/under/rank/security/head_of_security/nova/parade/female = 1,
+		/obj/item/clothing/under/rank/security/head_of_security/nova/alt = 1,
+		/obj/item/clothing/under/rank/security/head_of_security/nova/alt/skirt = 1,
 	)
-	access_lists["[ACCESS_QM]"] = list(
+	access_lists[ACCESS_QM] = list(
 		/obj/item/clothing/head/beret/cargo/qm = 1,
 		/obj/item/clothing/head/beret/cargo/qm/alt = 1,
 		/obj/item/clothing/neck/cloak/qm = 1,
@@ -142,13 +158,13 @@
 		/obj/item/clothing/under/rank/cargo/qm/nova/turtleneck/skirt = 1,
 		/obj/item/clothing/suit/brownfurrich = 1,
 		/obj/item/clothing/under/rank/cargo/qm/nova/casual = 1,
-		/obj/item/clothing/suit/toggle/jacket/supply/head = 1,
+		/obj/item/clothing/suit/toggle/jacket/nova/colorable_bomber/supply/head = 1,
 		/obj/item/clothing/under/rank/cargo/qm/nova/formal = 1,
 		/obj/item/clothing/under/rank/cargo/qm/nova/formal/skirt = 1,
 		/obj/item/clothing/shoes/sneakers/brown = 1,
 	)
 
-	access_lists["[ACCESS_CENT_GENERAL]"] = list( // CC Rep Shiz
+	access_lists[ACCESS_CENT_GENERAL] = list( // CC Rep Shiz
 		/obj/item/clothing/head/nanotrasen_consultant = 1,
 		/obj/item/clothing/head/nanotrasen_consultant/beret = 1,
 		/obj/item/clothing/head/beret/centcom_formal/nt_consultant = 1,
@@ -157,9 +173,11 @@
 		/obj/item/clothing/head/hats/centhat = 1,
 		/obj/item/clothing/suit/armor/centcom_formal/nt_consultant = 1,
 		/obj/item/clothing/gloves/combat/naval/nanotrasen_consultant = 1,
+		/obj/item/clothing/under/rank/centcom/officer = 1,
+		/obj/item/clothing/under/rank/centcom/officer_skirt = 1,
 	)
 
-	access_lists["[ACCESS_COMMAND]"] = list(
+	access_lists[ACCESS_COMMAND] = list(
 		/obj/item/clothing/head/hats/imperial = 5,
 		/obj/item/clothing/head/hats/imperial/grey = 5,
 		/obj/item/clothing/head/hats/imperial/white = 2,

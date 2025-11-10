@@ -98,7 +98,7 @@
 
 	return ITEM_INTERACT_SUCCESS
 
-/obj/structure/floodlight_frame/attackby(obj/item/O, mob/user, params)
+/obj/structure/floodlight_frame/attackby(obj/item/O, mob/user, list/modifiers, list/attack_modifiers)
 	if(istype(O, /obj/item/stack/cable_coil) && state == FLOODLIGHT_NEEDS_WIRES)
 		var/obj/item/stack/S = O
 		if(S.use(5))
@@ -155,6 +155,9 @@
 	. = ..()
 	RegisterSignal(src, COMSIG_OBJ_PAINTED, TYPE_PROC_REF(/obj/machinery/power/floodlight, on_color_change))  //update light color when color changes
 	register_context()
+	if(mapload)
+		set_anchored(TRUE)
+		connect_to_network()
 
 /obj/machinery/power/floodlight/proc/on_color_change(obj/machinery/power/flood_light, mob/user, obj/item/toy/crayon/spraycan/spraycan, is_dark_color)
 	SIGNAL_HANDLER

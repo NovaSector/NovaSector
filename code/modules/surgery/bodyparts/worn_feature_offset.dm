@@ -43,6 +43,13 @@
 /// Applies the current offset to a provided overlay image
 /datum/worn_feature_offset/proc/apply_offset(image/overlay)
 	var/list/offset = get_offset()
+	// NOVA EDIT ADDITION START
+	// TODO A temporary hack until TG fixes this
+	if(feature_key == OFFSET_ACCESSORY)
+		// Reset our applied offset
+		overlay.pixel_w = 0
+		overlay.pixel_z = 0
+	// NOVA EDIT ADDITION END
 	overlay.pixel_w += offset["x"]
 	overlay.pixel_z += offset["y"]
 

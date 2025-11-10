@@ -159,7 +159,7 @@
 /turf/open/floor/mineral/plastitanium,
 /area/shuttle/syndicate/slaver)
 "gR" = (
-/obj/machinery/door/airlock/security/old{
+/obj/machinery/door/airlock/security{
 	name = "Airlock";
 	req_access = list("syndicate")
 	},
@@ -633,7 +633,7 @@
 /turf/open/floor/plating/airless,
 /area/shuttle/syndicate/slaver)
 "Dk" = (
-/obj/machinery/door/airlock/security/old{
+/obj/machinery/door/airlock/security{
 	name = "Airlock";
 	req_access = list("syndicate")
 	},
@@ -1200,7 +1200,7 @@
 /turf/open/floor/pod/dark,
 /area/shuttle/syndicate/slaver)
 "YI" = (
-/obj/machinery/door/airlock/security/old{
+/obj/machinery/door/airlock/security{
 	name = "Airlock";
 	req_access = list("syndicate")
 	},

@@ -85,6 +85,11 @@
 		/datum/reagent/water,
 		/datum/reagent/fuel,
 	)
+	// NOVA EDIT ADDITION START - Unusual biochemistry quirk
+	var/static/list/default_dispensable_reagents_nova = list(
+		/datum/reagent/manganese,
+	)
+	// NOVA EDIT ADDITION END
 
 	//NOVA EDIT CHANGE BEGIN - ORIGINAL
 	/*
@@ -153,6 +158,8 @@
 		upgrade3_reagents = default_upgrade3_reagents
 	if(upgrade3_reagents)
 		upgrade3_reagents = sort_list(upgrade3_reagents, GLOBAL_PROC_REF(cmp_reagents_asc))
+	if(dispensable_reagents)
+		dispensable_reagents += default_dispensable_reagents_nova
 	//NOVA EDIT ADDITION END
 
 	if(emagged_reagents != null && !emagged_reagents.len)
@@ -268,6 +275,8 @@
 	.["displayedUnits"] = cell.charge ? (cell.charge / power_cost) : 0
 	.["displayedMaxUnits"] = cell.maxcharge / power_cost
 	.["showpH"] = isnull(recording_recipe) ? show_ph : FALSE //virtual beakers have no ph to compute & display
+	var/obj/item/held_item = user.get_active_held_item()
+	.["hasBeakerInHand"] = held_item?.is_chem_container() || FALSE
 
 	var/list/chemicals = list()
 	var/is_hallucinating = FALSE
@@ -331,7 +340,6 @@
 			if(!recording_recipe)
 				var/reagent = GLOB.name2reagent[reagent_name]
 				if(beaker && dispensable_reagents.Find(reagent))
-
 					var/datum/reagents/holder = beaker.reagents
 					var/to_dispense = max(0, min(amount, holder.maximum_volume - holder.total_volume))
 					if(!to_dispense)
@@ -340,6 +348,7 @@
 					if(!cell.use(to_dispense * power_cost))
 						say("Not enough energy to complete operation!")
 						return
+					beaker.add_hiddenprint(ui.user)
 					holder.add_reagent(reagent, to_dispense, reagtemp = dispensed_temperature, added_purity = base_reagent_purity)
 
 					work_animation()
@@ -360,6 +369,13 @@
 			replace_beaker(ui.user)
 			return TRUE
 
+		if("insert")
+			var/obj/item/reagent_containers/container = ui.user.get_active_held_item()
+			if(container?.can_insert_container(ui.user, src))
+				replace_beaker(ui.user, container)
+
+			return TRUE
+
 		if("dispense_recipe")
 			if(!is_operational || QDELETED(cell))
 				return
@@ -375,7 +391,6 @@
 				if(!recording_recipe)
 					if(!beaker)
 						return
-
 					var/datum/reagents/holder = beaker.reagents
 					var/to_dispense = max(0, min(dispense_amount, holder.maximum_volume - holder.total_volume))
 					if(!to_dispense)
@@ -383,6 +398,7 @@
 					if(!cell.use(to_dispense * power_cost))
 						say("Not enough energy to complete operation!")
 						return
+					beaker.add_hiddenprint(ui.user)
 					holder.add_reagent(reagent, to_dispense, reagtemp = dispensed_temperature, added_purity = base_reagent_purity)
 					work_animation()
 				else
@@ -465,20 +481,19 @@
 	return ITEM_INTERACT_BLOCKING
 
 /obj/machinery/chem_dispenser/item_interaction(mob/living/user, obj/item/tool, list/modifiers)
-	if(is_reagent_container(tool) && !(tool.item_flags & ABSTRACT) && tool.is_open_container())
-		//NOVA EDIT ADDITION START - CHEMISTRY QOL
-		var/obj/item/reagent_containers/container = tool
-		if(customTransferAmount)
-			transferAmounts -= customTransferAmount
-		transferAmounts = container.possible_transfer_amounts
-		//NOVA EDIT ADDITION END
-		if(!user.transferItemToLoc(tool, src))
-			return ITEM_INTERACT_BLOCKING
-		replace_beaker(user, tool)
-		ui_interact(user)
-		return ITEM_INTERACT_SUCCESS
+	if(!tool.can_insert_container(user, src))
+		return NONE
+	//NOVA EDIT ADDITION START - CHEMISTRY QOL
+	var/obj/item/reagent_containers/container = tool
+	if(customTransferAmount)
+		transferAmounts -= customTransferAmount
+	transferAmounts = container.possible_transfer_amounts
+	//NOVA EDIT ADDITION END
+	if(!replace_beaker(user, tool))
+		return ITEM_INTERACT_BLOCKING
 
-	return NONE
+	ui_interact(user)
+	return ITEM_INTERACT_SUCCESS
 
 /obj/machinery/chem_dispenser/get_cell()
 	return cell
@@ -542,15 +557,25 @@
 		parts_rating += servo.tier
 	power_cost = max(new_power_cost, 0.1 KILO WATTS)
 
+/**
+ * Insert, remove, replace the existig beaker. Returns TRUE on success.
+ * Arguments:
+ *
+ * * mob/living/user - the player trying to replace the beaker
+ * * obj/item/reagent_containers/new_beaker - the beaker we are trying to insert, swap with existing or remove if null
+ */
 /obj/machinery/chem_dispenser/proc/replace_beaker(mob/living/user, obj/item/reagent_containers/new_beaker)
-	if(!user)
-		return FALSE
-	if(beaker)
+	if(!QDELETED(beaker))
 		try_put_in_hand(beaker, user)
-		beaker = null
-	if(new_beaker)
+	if(!QDELETED(new_beaker))
+		if(!user.transferItemToLoc(new_beaker, src))
+			update_appearance(UPDATE_OVERLAYS)
+			return FALSE
+
 		beaker = new_beaker
-	update_appearance()
+
+	update_appearance(UPDATE_OVERLAYS)
+
 	return TRUE
 
 /obj/machinery/chem_dispenser/on_deconstruction(disassembled)
@@ -865,9 +890,15 @@
 		/datum/reagent/toxin/plasma,
 		/datum/reagent/uranium,
 		/datum/reagent/consumable/liquidelectricity/enriched,
-		/datum/reagent/medicine/c2/synthflesh
+		/datum/reagent/medicine/c2/synthflesh,
 	)
+	// NOVA EDIT ADDITION START
+	var/static/list/abductor_dispensable_reagents_nova = list(
+		/datum/reagent/manganese,
+	)
+	// NOVA EDIT ADDITION END
 
 /obj/machinery/chem_dispenser/abductor/Initialize(mapload)
 	dispensable_reagents = abductor_dispensable_reagents
 	. = ..()
+	dispensable_reagents += abductor_dispensable_reagents_nova // NOVA EDIT ADDITION - After the parent call so it does not get sorted

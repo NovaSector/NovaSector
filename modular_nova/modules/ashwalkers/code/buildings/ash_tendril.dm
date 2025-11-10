@@ -2,7 +2,7 @@
 #define MEGAFAUNA_MEAT_AMOUNT 20
 
 //this is for revitalizing/preserving regen cores
-/obj/structure/lavaland/ash_walker/attackby(obj/item/attacking_item, mob/living/user, params)
+/obj/structure/lavaland/ash_walker/attackby(obj/item/attacking_item, mob/user, list/modifiers, list/attack_modifiers)
 	if(!istype(attacking_item, /obj/item/organ/monster_core/regenerative_core))
 		return ..()
 

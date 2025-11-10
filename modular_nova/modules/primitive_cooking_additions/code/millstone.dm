@@ -14,6 +14,7 @@
 		/datum/material/stone = SHEET_MATERIAL_AMOUNT  * 6,
 	)
 	drag_slowdown = 2
+
 	/// The maximum number of items this structure can store
 	var/maximum_contained_items = 10
 
@@ -34,6 +35,7 @@
 			. += span_notice("&bull; [stuff_inside[thing]] [initial(thing.name)]\s")
 
 		. += span_notice("And it can fit <b>[maximum_contained_items - length(contents)]</b> more items in it.")
+
 	else
 		. += span_notice("It can hold <b>[maximum_contained_items]</b> items, and there is nothing in it presently.")
 
@@ -86,9 +88,10 @@
 	balloon_alert_to_viewers("disassembling...")
 	if(!do_after(user, 2 SECONDS, src))
 		return
+
 	deconstruct(TRUE)
 
-/obj/structure/millstone/attackby(obj/item/attacking_item, mob/user)
+/obj/structure/millstone/attackby(obj/item/attacking_item, mob/user, list/modifiers, list/attack_modifiers)
 	if(istype(attacking_item, /obj/item/storage/bag))
 		if(length(contents) >= maximum_contained_items)
 			balloon_alert(user, "already full")
@@ -106,6 +109,7 @@
 
 		if (length(contents) >= maximum_contained_items)
 			balloon_alert(user, "filled!")
+
 		else
 			balloon_alert(user, "transferred")
 
@@ -143,14 +147,16 @@
 
 	user.adjustStaminaLoss(MILLSTONE_STAMINA_USE) // Prevents spamming it
 
-	if(!do_after(user, 5 SECONDS, target = src))
+	var/skill_modifier = user.mind?.get_skill_modifier(/datum/skill/primitive, SKILL_SPEED_MODIFIER)
+	if(!do_after(user, 5 SECONDS * skill_modifier, target = src))
 		balloon_alert_to_viewers("stopped grinding")
 		return
 
-	for(var/target_item as anything in contents)
+	for(var/target_item in contents)
 		seedify(target_item, t_max = 1)
 
 	balloon_alert_to_viewers("finished grinding")
+	user.mind?.adjust_experience(/datum/skill/primitive, 5)
 
 #undef MILLSTONE_STAMINA_MINIMUM
 #undef MILLSTONE_STAMINA_USE

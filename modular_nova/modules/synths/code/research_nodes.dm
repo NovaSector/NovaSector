@@ -7,6 +7,7 @@
 		"robotic_heal_surgery_upgrade"
 	)
 	research_costs = list(TECHWEB_POINT_TYPE_GENERIC = TECHWEB_TIER_1_POINTS)
+	announce_channels = list(RADIO_CHANNEL_SCIENCE)
 
 /datum/techweb_node/advanced_robotic_tend_wounds
 	id = TECHWEB_NODE_ROBOTIC_SURGERY_ADVANCED
@@ -17,3 +18,4 @@
 		"robotic_heal_surgery_upgrade_2"
 	)
 	research_costs = list(TECHWEB_POINT_TYPE_GENERIC = TECHWEB_TIER_1_POINTS) // less expensive than the organic surgery research equivalent since it's JUST tend wounds
+	announce_channels = list(RADIO_CHANNEL_SCIENCE)

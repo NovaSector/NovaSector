@@ -20,7 +20,7 @@ ADMIN_VERB(play_sound, R_SOUND, "Play Global Sound", "Play a sound to all connec
 	admin_sound.status = SOUND_STREAM
 	admin_sound.volume = vol
 
-	var/res = tgui_alert(user, "Show the title of this song to the players?",, list("Yes","No", "Cancel"))
+	var/res = tgui_alert(user, "Show the title of this song to the players?", "Play Sound", list("Yes", "No", "Cancel"))
 	switch(res)
 		if("Yes")
 			to_chat(world, span_boldannounce("An admin played: [sound]"), confidential = TRUE)
@@ -59,6 +59,8 @@ ADMIN_VERB(play_direct_mob_sound, R_SOUND, "Play Direct Mob Sound", "Play a soun
 		admin_sound.volume = volume
 	SEND_SOUND(target, sound)
 	BLACKBOX_LOG_ADMIN_VERB("Play Direct Mob Sound")
+
+GLOBAL_VAR_INIT(web_sound_cooldown, 0)
 
 ///Takes an input from either proc/play_web_sound or the request manager and runs it through yt-dlp and prompts the user before playing it to the server.
 /proc/web_sound(mob/user, input, credit)
@@ -102,34 +104,44 @@ ADMIN_VERB(play_direct_mob_sound, R_SOUND, "Play Direct Mob Sound", "Play a soun
 		music_extra_data["album"] = data["album"]
 		duration = data["duration"] * 1 SECONDS
 		if (duration > 10 MINUTES)
-			if((tgui_alert(user, "This song is over 10 minutes long. Are you sure you want to play it?", "Length Warning!", list("No", "Yes", "Cancel")) != "Yes"))
+			if((tgui_alert(user, "This song is over 10 minutes long. Are you sure you want to play it?", "Length Warning", list("No", "Yes", "Cancel")) != "Yes"))
 				return
-		var/res = tgui_alert(user, "Show the title of and link to this song to the players?\n[title]", "Show Info?", list("Yes", "No", "Cancel"))
-		switch(res)
+		var/include_song_data = tgui_alert(user, "Show the title of and link to this song to the players?\n[title]", "Song Info", list("Yes", "No", "Cancel"))
+		switch(include_song_data)
 			if("Yes")
 				music_extra_data["title"] = data["title"]
+				music_extra_data["artist"] = data["artist"]
 			if("No")
-				music_extra_data["link"] = "Song Link Hidden"
-				music_extra_data["title"] = "Song Title Hidden"
-				music_extra_data["artist"] = "Song Artist Hidden"
-				music_extra_data["upload_date"] = "Song Upload Date Hidden"
-				music_extra_data["album"] = "Song Album Hidden"
+				music_extra_data["link"] = "\[\[HYPERLINK BLOCKED\]\]"
+				music_extra_data["title"] = "Untitled"
+				music_extra_data["artist"] = "Unknown"
+				music_extra_data["upload_date"] = "XX.YY.ZZZZ"
+				music_extra_data["album"] = "Default"
 			if("Cancel", null)
 				return
-		var/anon = tgui_alert(user, "Display who played the song?", "Credit Yourself?", list("Yes", "No", "Cancel"))
-		switch(anon)
+		var/credit_yourself = tgui_alert(user, "Display who played the song?", "Credit Yourself", list("Yes", "No", "Cancel"))
+
+		var/list/to_chat_message = list()
+
+		switch(credit_yourself)
 			if("Yes")
-				if(res == "Yes")
-					to_chat(world, span_boldannounce("[user.key] played: [webpage_url]"), confidential = TRUE)
+				if(include_song_data == "Yes")
+					to_chat_message += span_notice("[user.ckey] played: [span_linkify(webpage_url)]")
 				else
-					to_chat(world, span_boldannounce("[user.key] played a sound"), confidential = TRUE)
+					to_chat_message += span_notice("[user.ckey] played a sound.")
 			if("No")
-				if(res == "Yes")
-					to_chat(world, span_boldannounce("An admin played: [webpage_url]"), confidential = TRUE)
+				if(include_song_data == "Yes")
+					to_chat_message += span_notice("An admin played: [span_linkify(webpage_url)]")
+				else
+					to_chat_message += span_notice("An admin played a sound.")
 			if("Cancel", null)
 				return
+
 		if(credit)
-			to_chat(world, span_boldannounce(credit), confidential = TRUE)
+			to_chat_message += span_notice("<br>[credit]")
+
+		to_chat(world, fieldset_block("Now Playing: [span_bold(music_extra_data["title"])] by [span_bold(music_extra_data["artist"])]", jointext(to_chat_message, ""), "boxed_message"))
+
 		SSblackbox.record_feedback("nested tally", "played_url", 1, list("[user.ckey]", "[input]"))
 		log_admin("[key_name(user)] played web sound: [input]")
 		message_admins("[key_name(user)] played web sound: [input]")
@@ -150,12 +162,15 @@ ADMIN_VERB(play_direct_mob_sound, R_SOUND, "Play Direct Mob Sound", "Play a soun
 			var/mob/M = m
 			var/client/C = M.client
 			if(C.prefs.read_preference(/datum/preference/numeric/volume/sound_midi))
+				// Stops playing lobby music and admin loaded music automatically.
+				SEND_SOUND(C, sound(null, channel = CHANNEL_LOBBYMUSIC))
+				SEND_SOUND(C, sound(null, channel = CHANNEL_ADMIN))
 				if(!stop_web_sounds)
 					C.tgui_panel?.play_music(web_sound_url, music_extra_data)
 				else
 					C.tgui_panel?.stop_music()
 
-	S_TIMER_COOLDOWN_START(SStimer, COOLDOWN_INTERNET_SOUND, duration)
+	CLIENT_COOLDOWN_START(GLOB, web_sound_cooldown, duration)
 
 	BLACKBOX_LOG_ADMIN_VERB("Play Internet Sound")
 
@@ -163,8 +178,8 @@ ADMIN_VERB_CUSTOM_EXIST_CHECK(play_web_sound)
 	return !!CONFIG_GET(string/invoke_youtubedl)
 
 ADMIN_VERB(play_web_sound, R_SOUND, "Play Internet Sound", "Play a given internet sound to all players.", ADMIN_CATEGORY_FUN)
-	if(S_TIMER_COOLDOWN_TIMELEFT(SStimer, COOLDOWN_INTERNET_SOUND))
-		if(tgui_alert(user, "Someone else is already playing an Internet sound! It has [DisplayTimeText(S_TIMER_COOLDOWN_TIMELEFT(SStimer, COOLDOWN_INTERNET_SOUND), 1)] remaining. \
+	if(!CLIENT_COOLDOWN_FINISHED(GLOB, web_sound_cooldown))
+		if(tgui_alert(user, "Someone else is already playing an Internet sound! It has [DisplayTimeText(CLIENT_COOLDOWN_TIMELEFT(GLOB, web_sound_cooldown), 1)] remaining. \
 		Would you like to override?", "Musicalis Interruptus", list("No","Yes")) != "Yes")
 			return
 
@@ -199,7 +214,7 @@ ADMIN_VERB(stop_sounds, R_NONE, "Stop All Playing Sounds", "Stops all playing so
 		var/client/player_client = player.client
 		player_client?.tgui_panel?.stop_music()
 
-	S_TIMER_COOLDOWN_RESET(SStimer, COOLDOWN_INTERNET_SOUND)
+	CLIENT_COOLDOWN_RESET(GLOB, web_sound_cooldown)
 	BLACKBOX_LOG_ADMIN_VERB("Stop All Playing Sounds")
 
 //world/proc/shelleo

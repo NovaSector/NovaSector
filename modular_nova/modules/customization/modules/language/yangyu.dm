@@ -4,6 +4,11 @@
 	key = "Y"
 	flags = TONGUELESS_SPEECH
 	space_chance = 70
+	sentence_chance = 0
+	between_word_sentence_chance = 10
+	between_word_space_chance = 75
+	additional_syllable_low = -1
+	additional_syllable_high = 1
 	// Entirely Chinese save for the isolated 2 "nya" style syllables. I don't want to bloat the syllable list with other mixes, but they generally sound somewhat alike.
 	syllables = list (
 		"ai", "ang", "bai", "beng", "bian", "biao", "bie", "bing", "cai", "can", "cao", "cei", "ceng", "chai", "chan", "chang",

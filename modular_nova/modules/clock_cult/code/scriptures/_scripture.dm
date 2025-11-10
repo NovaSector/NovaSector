@@ -351,7 +351,6 @@ GLOBAL_LIST_EMPTY(clock_scriptures_by_type)
 	return TRUE
 
 
-
 /datum/action/cooldown/spell/pointed/slab
 	/// The scripture datum that this spell is referring to
 	var/datum/scripture/slab/parent_scripture

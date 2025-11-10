@@ -32,24 +32,28 @@
 /**
  * Handles reacting to drinks based on their content, to see if the tumor likes what's in it or not.
  */
-/datum/component/organ_corruption/liver/proc/handle_drink(mob/living/target_mob, obj/item/reagent_containers/cup/container, mob/living/user)
+/datum/component/organ_corruption/liver/proc/handle_drink(mob/living/carbon/target_mob, obj/item/reagent_containers/cup/container, mob/living/user)
 	SIGNAL_HANDLER
 
 	if(HAS_TRAIT(target_mob, TRAIT_AGEUSIA)) // They don't taste anything, their body shouldn't react strongly to the taste of that stuff.
 		return
 
+	if(HAS_TRAIT(target_mob, TRAIT_MASQUERADE_FOOD)) // Their tumor has adapted the ability to consume normal food without violently rejecting it.
+		return
 	if(container.reagents.has_chemical_flag_nova(REAGENT_BLOOD_REGENERATING, container.reagents.total_volume * MINIMUM_BLOOD_REGENING_REAGENT_RATIO)) // At least 75% of the content of the cup needs to be something that's counting as blood-regenerating for the tumor not to freak out.
 		return
 
-	var/mob/living/carbon/body = target_mob
-	ASSERT(istype(body))
+	ASSERT(istype(target_mob))
 
-	body.set_disgust(max(body.disgust, TUMOR_DISLIKED_FOOD_DISGUST))
+	if(container.reagents.has_reagent(target_mob.dna.blood_type.restoration_chem))
+		return
 
-	to_chat(body, span_warning("That tasted awful..."))
+	target_mob.set_disgust(max(target_mob.disgust, TUMOR_DISLIKED_FOOD_DISGUST))
+
+	to_chat(target_mob, span_warning("That tasted awful..."))
 
 	// We don't lose nutrition because we don't even use nutrition as Hemopahges. It WILL however purge nearly all of what's in their stomach.
-	body.vomit(vomit_flags = HEMOPHAGE_VOMIT_FLAGS, lost_nutrition = 0, distance = 1, purge_ratio = HEMOPHAGE_VOMIT_PURGE_RATIO)
+	target_mob.vomit(vomit_flags = HEMOPHAGE_VOMIT_FLAGS, lost_nutrition = 0, distance = 1, purge_ratio = HEMOPHAGE_VOMIT_PURGE_RATIO)
 
 
 #undef MINIMUM_BLOOD_REGENING_REAGENT_RATIO

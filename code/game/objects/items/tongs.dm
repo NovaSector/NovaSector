@@ -73,7 +73,7 @@
 	tonged = null
 	update_appearance(UPDATE_ICON)
 
-/obj/item/kitchen/tongs/pre_attack(obj/item/attacked, mob/living/user, params)
+/obj/item/kitchen/tongs/pre_attack(obj/item/attacked, mob/living/user, list/modifiers, list/attack_modifiers)
 	if (!isnull(tonged) && tonged.force <= 0) // prevents tongs from giving food-weapons extra range
 		attacked.attackby(tonged, user)
 		return TRUE
@@ -81,7 +81,7 @@
 		if (COOLDOWN_FINISHED(src, clack_cooldown))
 			click_clack()
 		return ..()
-	if (!IsEdible(attacked) || attacked.w_class > WEIGHT_CLASS_NORMAL || !isnull(tonged))
+	if (!IS_EDIBLE(attacked) || attacked.w_class > WEIGHT_CLASS_NORMAL || !isnull(tonged))
 		return ..()
 	tonged = attacked
 	attacked.do_pickup_animation(src)

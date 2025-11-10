@@ -1,24 +1,3 @@
-/datum/reagent/fuel
-	process_flags = REAGENT_ORGANIC | REAGENT_SYNTHETIC
-
-/datum/reagent/fuel/oil
-	process_flags = REAGENT_ORGANIC | REAGENT_SYNTHETIC
-
-/datum/reagent/stable_plasma
-	process_flags = REAGENT_ORGANIC | REAGENT_SYNTHETIC
-
-/datum/reagent/pax
-	process_flags = REAGENT_ORGANIC | REAGENT_SYNTHETIC
-
-/datum/reagent/water
-	process_flags = REAGENT_ORGANIC | REAGENT_SYNTHETIC
-
-/datum/reagent/hellwater
-	process_flags = REAGENT_ORGANIC | REAGENT_SYNTHETIC
-
-/datum/reagent/carbondioxide
-	process_flags = REAGENT_ORGANIC | REAGENT_SYNTHETIC
-
 /datum/reagent/iron
 	chemical_flags_nova = REAGENT_BLOOD_REGENERATING
 
@@ -29,28 +8,8 @@
 	. = ..()
 
 	if(!src.data["blood_type"])
-		src.data["blood_type"] = random_blood_type() // This is so we don't get blood without a blood type spawned from something that doesn't explicitly set the blood type.
+		src.data["blood_type"] = random_human_blood_type() // This is so we don't get blood without a blood type spawned from something that doesn't explicitly set the blood type.
 
-
-/datum/reagent/stable_plasma/on_mob_life(mob/living/carbon/C)
-	if(C.mob_biotypes & MOB_ROBOTIC)
-		C.nutrition = min(C.nutrition + 5, NUTRITION_LEVEL_FULL-1)
-	..()
-
-/datum/reagent/fuel/on_mob_life(mob/living/carbon/C)
-	if(C.mob_biotypes & MOB_ROBOTIC)
-		C.nutrition = min(C.nutrition + 5, NUTRITION_LEVEL_FULL-1)
-	..()
-
-/datum/reagent/fuel/oil/on_mob_life(mob/living/carbon/C)
-	if(C.mob_biotypes & MOB_ROBOTIC && C.blood_volume < BLOOD_VOLUME_NORMAL)
-		C.blood_volume += 0.5
-	..()
-
-/datum/reagent/carbondioxide/on_mob_life(mob/living/carbon/C)
-	if(C.mob_biotypes & MOB_ROBOTIC)
-		C.nutrition = min(C.nutrition + 5, NUTRITION_LEVEL_FULL-1)
-	..()
 // Catnip
 /datum/reagent/pax/catnip
 	name = "Catnip"
@@ -93,3 +52,23 @@
 			qdel(i)
 
 #undef DERMAGEN_SCAR_FIX_AMOUNT
+
+/datum/reagent/medicine/taste_suppressor
+	name = "Taste Suppressor"
+	description = "A colorless medicine aimed to dull the sense of taste of those that consumed it, as long as it's in their system."
+	color = "#AAAAAA77"
+	metabolization_rate = 0.5 * REAGENTS_METABOLISM
+	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
+	chemical_flags_nova = REAGENT_BLOOD_REGENERATING // It has REAGENT_BLOOD_REGENERATING only because it makes it so Hemophages can safely drink it, which makes complete sense considering this is meant to suppress their tumor's reactiveness to anything that doesn't regenerate blood.
+
+
+/datum/reagent/medicine/taste_suppressor/on_mob_metabolize(mob/living/affected_mob)
+	. = ..()
+
+	ADD_TRAIT(affected_mob, TRAIT_AGEUSIA, TRAIT_REAGENT)
+
+
+/datum/reagent/medicine/taste_suppressor/on_mob_end_metabolize(mob/living/affected_mob)
+	. = ..()
+
+	REMOVE_TRAIT(affected_mob, TRAIT_AGEUSIA, TRAIT_REAGENT)

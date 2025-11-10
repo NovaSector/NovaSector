@@ -4,6 +4,11 @@
 	Originally developed on Sirisai, Schechi has made its way across the Teshari diaspora as a commonly agreed upon way for entirely different packs to communicate."
 	key = "F"
 	space_chance = 40
+	sentence_chance = 5
+	between_word_sentence_chance = 10
+	between_word_space_chance = 75
+	additional_syllable_low = 0
+	additional_syllable_high = 3
 	syllables = list(
 		"i", "ii", "si", "aci", "hi", "ni", "li", "schi", "tari",
 		"e", "she", "re", "me", "ne",  "te", "se", "le", "ai",

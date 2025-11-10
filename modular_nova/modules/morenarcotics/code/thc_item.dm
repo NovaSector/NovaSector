@@ -60,3 +60,65 @@
 	unit_name = "dab"
 	export_types = list(/obj/item/reagent_containers/hash/dabs)
 	include_subtypes = FALSE
+
+/obj/item/food/brownie/thc
+	name = "hash brownie"
+	desc = "A square slice of delicious, chewy brownie infused with THC. A favorite among cannabis enthusiasts."
+	icon = 'modular_nova/modules/morenarcotics/icons/thcsnacks.dmi'
+	icon_state = "brownieweed"
+	food_reagents = list(
+		/datum/reagent/consumable/nutriment = 5,
+		/datum/reagent/consumable/sugar = 3,
+		/datum/reagent/drug/thc = 10, // These brownies and no joke.
+	)
+
+/obj/item/storage/fancy/cigarettes/crownhaze
+	name = "\improper Crown Smoke Kings Haze"
+	desc = "Ethically sourced from the finest cannabis plants, these pre-rolls are sure to leave you feeling like royalty. Please smoke responsibly."
+	icon = 'modular_nova/modules/morenarcotics/icons/thcsnacks.dmi'
+	icon_state = "weedpack"
+	base_icon_state = "weedpack"
+	spawn_type = /obj/item/cigarette/rollie/thc
+
+/obj/item/cigarette/rollie/thc
+	list_reagents = list(/datum/reagent/drug/thc = 15)
+
+/obj/item/reagent_containers/cup/soda_cans/thc
+	name = "Orchard Green"
+	desc = "The taste of a star in liquid form. Spiked with an orange flavored THC blend, to make the day go by a little easier."
+	icon = 'modular_nova/modules/morenarcotics/icons/thcsnacks.dmi'
+	icon_state = "thcdrink"
+	list_reagents = list(/datum/reagent/consumable/space_cola = 11, /datum/reagent/consumable/orangejuice = 11, /datum/reagent/drug/thc = 8)
+	drink_type = SUGAR | FRUIT | JUNKFOOD
+
+/obj/item/food/thcgummies
+	name = "sour-apple THC gummies"
+	desc = "just a little bit too hard to chew comfortably, but with all the right flavors. This Product contains THC."
+	icon = 'modular_nova/modules/morenarcotics/icons/thcsnacks.dmi'
+	icon_state = "thcgummy"
+	bite_consumption = 1
+	food_reagents = list(
+		/datum/reagent/consumable/nutriment = 1,
+		/datum/reagent/consumable/sugar = 3,
+		/datum/reagent/drug/thc = 8,
+	)
+	junkiness = 20
+	tastes = list("cannabis" = 1, "sour... apple?" = 1, "something sweet" = 1)
+	foodtypes = FRUIT|JUNKFOOD //Fruity Twist
+	w_class = WEIGHT_CLASS_SMALL
+
+/obj/item/food/cookie/thc
+	name = "THC cookie"
+	desc = "COOKIE!!! But with a twist!"
+	icon = 'modular_nova/modules/morenarcotics/icons/thcsnacks.dmi'
+	icon_state = "thccookie"
+	bite_consumption = 1
+	food_reagents = list(
+		/datum/reagent/consumable/nutriment = 6,
+		/datum/reagent/drug/thc = 10,
+	)
+	tastes = list("cookie" = 1, "cannabis" = 1)
+	foodtypes = GRAIN | SUGAR
+	food_flags = FOOD_FINGER_FOOD
+	w_class = WEIGHT_CLASS_SMALL
+	crafting_complexity = FOOD_COMPLEXITY_2

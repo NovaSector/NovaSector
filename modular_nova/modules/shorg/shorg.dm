@@ -2,9 +2,9 @@
 	name = "\improper shorg"
 	real_name = "shorg"
 	desc = "It's an adorable mix of dog and shark with not so adorable species name - shorg."
-	icon = 'modular_nova/modules/shorg/pets.dmi'
-	held_lh = 'modular_nova/modules/shorg/pets_held_lh.dmi'
-	held_rh = 'modular_nova/modules/shorg/pets_held_rh.dmi'
+	icon = 'modular_nova/modules/shorg/icons/pets.dmi'
+	held_lh = 'modular_nova/modules/shorg/icons/pets_held_lh.dmi'
+	held_rh = 'modular_nova/modules/shorg/icons/pets_held_rh.dmi'
 	icon_state = "shorg"
 	icon_living = "shorg"
 	icon_dead = "shorg_dead"

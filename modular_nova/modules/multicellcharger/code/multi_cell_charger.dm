@@ -1,7 +1,7 @@
 /obj/machinery/cell_charger_multi
 	name = "multi-cell charging rack"
 	desc = "A cell charging rack for multiple batteries."
-	icon = 'modular_nova/modules/aesthetics/cells/cell.dmi'
+	icon = 'modular_nova/modules/aesthetics/cells/icons/cell.dmi'
 	icon_state = "cchargermulti"
 	base_icon_state = "cchargermulti"
 	use_power = IDLE_POWER_USE
@@ -29,7 +29,7 @@
 		var/mutable_appearance/charge_overlay = mutable_appearance(icon, "[base_icon_state]-o[newlevel]")
 		var/mutable_appearance/cell_overlay = mutable_appearance(icon, "[base_icon_state]-cell")
 		charge_overlay.pixel_w = 5 * (i - 1)
-		cell_overlay.pixel_z = 5 * (i - 1)
+		cell_overlay.pixel_w = 5 * (i - 1)
 		. += new /mutable_appearance(charge_overlay)
 		. += new /mutable_appearance(cell_overlay)
 
@@ -53,15 +53,15 @@
 		. += span_notice("The status display reads: Charging power: <b>[display_power(charge_rate, convert = FALSE)]</b> per cell.")
 	. += span_notice("Right click it to remove all the cells at once!")
 
-/obj/machinery/cell_charger_multi/attackby(obj/item/tool, mob/user, params)
-	if(istype(tool, /obj/item/stock_parts/power_store/cell) && !panel_open)
+/obj/machinery/cell_charger_multi/attackby(obj/item/attacking_item, mob/user, list/modifiers, list/attack_modifiers)
+	if(istype(attacking_item, /obj/item/stock_parts/power_store/cell) && !panel_open)
 		if(machine_stat & BROKEN)
 			to_chat(user, span_warning("[src] is broken!"))
 			return
 		if(!anchored)
 			to_chat(user, span_warning("[src] isn't attached to the ground!"))
 			return
-		var/obj/item/stock_parts/power_store/cell/inserting_cell = tool
+		var/obj/item/stock_parts/power_store/cell/inserting_cell = attacking_item
 		if(inserting_cell.chargerate <= 0)
 			to_chat(user, span_warning("[inserting_cell] cannot be recharged!"))
 			return
@@ -75,18 +75,18 @@
 			if(current_area.power_equip == 0) // There's no APC in this area, don't try to cheat power!
 				to_chat(user, span_warning("[src] blinks red as you try to insert the cell!"))
 				return
-			if(!user.transferItemToLoc(tool,src))
+			if(!user.transferItemToLoc(attacking_item,src))
 				return
 
-			charging_batteries += tool
+			charging_batteries += attacking_item
 			user.visible_message(span_notice("[user] inserts a cell into [src]."), span_notice("You insert a cell into [src]."))
 			update_appearance()
 	else
-		if(!charging_batteries.len && default_deconstruction_screwdriver(user, icon_state, icon_state, tool))
+		if(!charging_batteries.len && default_deconstruction_screwdriver(user, icon_state, icon_state, attacking_item))
 			return
-		if(default_deconstruction_crowbar(tool))
+		if(default_deconstruction_crowbar(attacking_item))
 			return
-		if(!charging_batteries.len && default_unfasten_wrench(user, tool))
+		if(!charging_batteries.len && default_unfasten_wrench(user, attacking_item))
 			return
 		return ..()
 

@@ -54,7 +54,7 @@
 "cu" = (
 /obj/structure/table/wood,
 /obj/item/soap/homemade,
-/obj/item/reagent_containers/cup/rag{
+/obj/item/rag{
 	pixel_y = -3
 	},
 /obj/effect/decal/cleanable/dirt/dust,
@@ -675,6 +675,12 @@
 /turf/open/floor/grass{
 	initial_gas_mix = "ICEMOON_ATMOS"
 	},
+/area/ruin/unpowered/abandoned_sacred_temple)
+"HZ" = (
+/obj/structure/table/wood/fancy/orange,
+/obj/effect/decal/cleanable/dirt/dust,
+/obj/item/hearthkin_ship_fragment_inactive,
+/turf/open/floor/wood/icemoon,
 /area/ruin/unpowered/abandoned_sacred_temple)
 "Ia" = (
 /obj/effect/turf_decal/siding/wood{
@@ -2470,7 +2476,7 @@ sV
 zL
 zL
 Fk
-Fk
+HZ
 zL
 Fk
 Fk

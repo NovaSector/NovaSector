@@ -37,14 +37,23 @@
 /mob/living/proc/get_eye_protection()
 	return 0
 
+///A easy to use proc to apply both organ damage and temporary deafness at once, so you don't have to get the ears everytime.
+/mob/living/proc/sound_damage(damage, deafen)
+	return
+
 //this returns the mob's protection against ear damage (0:no protection; 1: some ear protection; 2: has no ears)
-/mob/living/proc/get_ear_protection()
+/mob/living/proc/get_ear_protection(ignore_deafness = FALSE)
+	if(!ignore_deafness && HAS_TRAIT(src, TRAIT_DEAF))
+		return INFINITY //For all my homies that can not hear in the world
+	var/list/sig_protection = list(0)
+	SEND_SIGNAL(src, COMSIG_LIVING_GET_EAR_PROTECTION, sig_protection)
+	var/protection = sig_protection[EAR_PROTECTION_ARG]
 	var/turf/current_turf = get_turf(src)
 	var/datum/gas_mixture/environment = current_turf.return_air()
-	var/pressure = environment ? environment.return_pressure() : 0
+	var/pressure = environment?.return_pressure()
 	if(pressure < SOUND_MINIMUM_PRESSURE) //space is empty
-		return 1
-	return 0
+		protection += EAR_PROTECTION_VACUUM
+	return protection
 
 /**
  * Checks if our mob has their mouth covered.
@@ -127,7 +136,7 @@
 		def_zone = def_zone,
 		blocked = min(ARMOR_MAX_BLOCK, armor_check),  //cap damage reduction at 90%
 		wound_bonus = proj.wound_bonus,
-		bare_wound_bonus = proj.bare_wound_bonus,
+		exposed_wound_bonus = proj.exposed_wound_bonus,
 		sharpness = proj.sharpness,
 		attack_direction = get_dir(proj.starting, src),
 		attacking_item = proj,
@@ -195,6 +204,7 @@
 		return
 	. = combat_mode
 	combat_mode = new_mode
+	SEND_SIGNAL(src, COMSIG_COMBAT_MODE_TOGGLED)
 	if(hud_used?.action_intent)
 		hud_used.action_intent.update_appearance()
 	face_mouse = (client?.prefs?.read_preference(/datum/preference/toggle/face_cursor_combat_mode) && combat_mode) ? TRUE : FALSE // NOVA EDIT ADDITION
@@ -222,13 +232,11 @@
 		return ..()
 
 	var/obj/item/thrown_item = AM
-	if(thrown_item.thrownby == WEAKREF(src)) //No throwing stuff at yourself to trigger hit reactions
-		return ..()
-
-	if(check_block(AM, thrown_item.throwforce, "\the [thrown_item.name]", THROWN_PROJECTILE_ATTACK, 0, thrown_item.damtype))
-		hitpush = FALSE
-		skipcatch = TRUE
-		blocked = TRUE
+	if(throwingdatum?.get_thrower() != src) //No throwing stuff at yourself to trigger hit reactions
+		if(check_block(AM, thrown_item.throwforce, "\the [thrown_item.name]", THROWN_PROJECTILE_ATTACK, 0, thrown_item.damtype))
+			hitpush = FALSE
+			skipcatch = TRUE
+			blocked = TRUE
 
 	var/zone = get_random_valid_zone(BODY_ZONE_CHEST, 65)//Hits a random part of the body, geared towards the chest
 	var/nosell_hit = (SEND_SIGNAL(thrown_item, COMSIG_MOVABLE_IMPACT_ZONE, src, zone, blocked, throwingdatum) & MOVABLE_IMPACT_ZONE_OVERRIDE) // TODO: find a better way to handle hitpush and skipcatch for humans
@@ -239,32 +247,40 @@
 	if(blocked)
 		return SUCCESSFUL_BLOCK
 
-	var/mob/thrown_by = thrown_item.thrownby?.resolve()
-	if(thrown_by)
-		log_combat(thrown_by, src, "threw and hit", thrown_item)
-	else
-		log_combat(thrown_item, src, "hit ")
 	if(nosell_hit)
+		log_hit_combat(throwingdatum?.get_thrower(), thrown_item)
 		return ..()
-	visible_message(span_danger("[src] is hit by [thrown_item]!"), \
-					span_userdanger("You're hit by [thrown_item]!"))
+
+	visible_message(span_danger("[src] is hit by [thrown_item]!"),
+		span_userdanger("You're hit by [thrown_item]!"))
 	if(!thrown_item.throwforce)
+		log_hit_combat(throwingdatum?.get_thrower(), thrown_item)
 		return
-	var/armor = run_armor_check(zone, MELEE, "Your armor has protected your [parse_zone_with_bodypart(zone)].", "Your armor has softened hit to your [parse_zone_with_bodypart(zone)].", thrown_item.armour_penetration, "", FALSE, thrown_item.weak_against_armour)
+
+	var/armor = run_armor_check(
+		zone,
+		MELEE,
+		"Your armor has protected your [parse_zone_with_bodypart(zone)].",
+		"Your armor has softened hit to your [parse_zone_with_bodypart(zone)].",
+		thrown_item.armour_penetration,
+		"",
+		FALSE,
+		thrown_item.weak_against_armour,
+	)
 	apply_damage(thrown_item.throwforce, thrown_item.damtype, zone, armor, sharpness = thrown_item.get_sharpness(), wound_bonus = (nosell_hit * CANT_WOUND), attacking_item = thrown_item)
+	log_hit_combat(throwingdatum?.get_thrower(), thrown_item)
+
 	if(QDELETED(src)) //Damage can delete the mob.
 		return
 	if(body_position == LYING_DOWN) // physics says it's significantly harder to push someone by constantly chucking random furniture at them if they are down on the floor.
 		hitpush = FALSE
+
 	return ..()
 
-/mob/living/proc/create_splatter(splatter_dir)
-	// NOVA EDIT ADDITION START - Custom blood types
-	if(get_blood_id() == /datum/reagent/toxin/acid)
-		new /obj/effect/temp_visual/dir_setting/bloodsplatter/xenosplatter(loc, splatter_dir)
-		return
-	// NOVA EDIT ADDITION END
-	new /obj/effect/temp_visual/dir_setting/bloodsplatter(get_turf(src), splatter_dir)
+/mob/living/proc/log_hit_combat(mob/thrown_by, obj/item/thrown_item)
+	if(thrown_by)
+		return log_combat(thrown_by, src, "threw and hit", thrown_item)
+	return log_combat(thrown_item, src, "hit ")
 
 ///The core of catching thrown items, which non-carbons cannot without the help of items or abilities yet, as they've no throw mode.
 /mob/living/proc/try_catch_item(obj/item/item, skip_throw_mode_check = FALSE, try_offhand = FALSE)
@@ -428,17 +444,17 @@
 	var/armor_block = run_armor_check(user.zone_selected, MELEE, armour_penetration = user.armour_penetration)
 
 	to_chat(user, span_danger("You [user.attack_verb_simple] [src]!"))
-	log_combat(user, src, "attacked")
 	var/damage_done = apply_damage(
 		damage = damage,
 		damagetype = user.melee_damage_type,
 		def_zone = user.zone_selected,
 		blocked = armor_block,
 		wound_bonus = user.wound_bonus,
-		bare_wound_bonus = user.bare_wound_bonus,
+		exposed_wound_bonus = user.exposed_wound_bonus,
 		sharpness = user.sharpness,
 		attack_direction = get_dir(user, src),
 	)
+	log_combat(user, src, "attacked")
 	return damage_done
 
 /mob/living/attack_hand(mob/living/carbon/human/user, list/modifiers)
@@ -569,6 +585,9 @@
 		return FALSE
 	if(!(flags & SHOCK_ILLUSION))
 		adjustFireLoss(shock_damage)
+		if(getFireLoss() > 100)
+			add_shared_particles(/particles/smoke/burning)
+			addtimer(CALLBACK(src, TYPE_PROC_REF(/atom/movable, remove_shared_particles), /particles/smoke/burning), 10 SECONDS)
 	else
 		adjustStaminaLoss(shock_damage)
 	if(!(flags & SHOCK_SUPPRESS_MESSAGE))
@@ -643,8 +662,38 @@
 	return TRUE
 
 //called when the mob receives a loud bang
-/mob/living/proc/soundbang_act()
-	return FALSE
+/mob/living/proc/soundbang_act(intensity = SOUNDBANG_NORMAL, stun_pwr = 20, damage_pwr = 5, deafen_pwr = 15, ignore_deafness = FALSE, send_sound = TRUE)
+	var/protection = get_ear_protection(ignore_deafness)
+	if(protection >= intensity)
+		return FALSE
+
+	///The amplitude of the effect is reduced by sound protection, while weakness only makes it worse.
+	var/effect_amount = protection > 0 ? 1 - (protection/intensity) : 1 - protection
+	if(stun_pwr)
+		Paralyze(stun_pwr * effect_amount * 0.1)
+		Knockdown(stun_pwr * effect_amount)
+
+	var/obj/item/organ/ears/ears = get_organ_slot(ORGAN_SLOT_EARS)
+
+	. = effect_amount //how soundbanged we are
+	if(!ears || !(deafen_pwr || damage_pwr))
+		return
+
+	var/ear_damage = damage_pwr * effect_amount
+	var/deaf = deafen_pwr * effect_amount
+	sound_damage(ear_damage, deaf)
+
+	if(send_sound)
+		SEND_SOUND(src, sound('sound/items/weapons/flash_ring.ogg',0, 1, 0, 250))
+
+	if(ears.damage >= 15 && prob(ears.damage - 5))
+		to_chat(src, span_userdanger("You can't hear anything!"))
+		// Makes you deaf, enough that you need a proper source of healing, it won't self heal
+		// you need earmuffs, inacusiate, or replacement
+		ears.set_organ_damage(ears.maxHealth)
+	else if(ears.damage >= 5)
+		to_chat(src, span_warning("Your ears start to ring[ears.damage >= 15 ? " badly!":"!"]"))
+
 
 //to damage the clothes worn by a mob
 /mob/living/proc/damage_clothes(damage_amount, damage_type = BRUTE, damage_flag = 0, def_zone)
@@ -816,3 +865,15 @@
 		return SUCCESSFUL_BLOCK
 
 	return FAILED_BLOCK
+
+/mob/living/proc/hypnosis_vulnerable()
+	if(HAS_MIND_TRAIT(src, TRAIT_UNCONVERTABLE))
+		return FALSE
+	if(has_status_effect(/datum/status_effect/hallucination) || has_status_effect(/datum/status_effect/drugginess))
+		return TRUE
+	if(IsSleeping() || IsUnconscious())
+		return TRUE
+	if(HAS_TRAIT(src, TRAIT_DUMB))
+		return TRUE
+	if(mob_mood && mob_mood.sanity < SANITY_UNSTABLE)
+		return TRUE

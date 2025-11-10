@@ -9,7 +9,7 @@
 		/datum/material/silver = HALF_SHEET_MATERIAL_AMOUNT,
 	)
 	construction_time = 20 SECONDS
-	build_path = /obj/item/organ/cyberimp/arm/armblade
+	build_path = /obj/item/organ/cyberimp/arm/toolkit/armblade
 	category = list(
 		RND_CATEGORY_CYBERNETICS + RND_SUBCATEGORY_CYBERNETICS_IMPLANTS_COMBAT,
 	)
@@ -29,7 +29,7 @@
 		/datum/material/silver = HALF_SHEET_MATERIAL_AMOUNT,
 	)
 	construction_time = 30 SECONDS
-	build_path = /obj/item/organ/cyberimp/arm/razorwire
+	build_path = /obj/item/organ/cyberimp/arm/toolkit/razorwire
 	category = list(
 		RND_CATEGORY_CYBERNETICS + RND_SUBCATEGORY_CYBERNETICS_IMPLANTS_COMBAT
 	)
@@ -48,7 +48,7 @@
 		/datum/material/silver = HALF_SHEET_MATERIAL_AMOUNT,
 	)
 	construction_time = 30 SECONDS
-	build_path = /obj/item/organ/cyberimp/arm/shell_launcher
+	build_path = /obj/item/organ/cyberimp/arm/toolkit/shell_launcher
 	category = list(
 		RND_CATEGORY_CYBERNETICS + RND_SUBCATEGORY_CYBERNETICS_IMPLANTS_COMBAT
 	)
@@ -57,7 +57,7 @@
 /datum/design/cyberimp_sandy
 	name = "Qani-Laaca Sensory Computer Implant"
 	desc = "An experimental implant replacing the spine of organics. When activated, it can give a temporary boost to mental processing speed, \
-		Which many users percieve as a slowing of time and quickening of their ability to act. Due to its nature, it is incompatible with \
+		Which many users perceive as a slowing of time and quickening of their ability to act. Due to its nature, it is incompatible with \
 		system that heavily influence the user's nervous system, like the central nervous system rebooter. \
 		As a bonus effect, you are immune to the burst of heart damage that comes at the end of twitch usage, as the computer is able to regulate \
 		your heart's rhythm back to normal after its use."
@@ -108,7 +108,7 @@
 		/datum/material/silver = HALF_SHEET_MATERIAL_AMOUNT,
 	)
 	construction_time = 20 SECONDS
-	build_path = /obj/item/organ/cyberimp/arm/razor_claws
+	build_path = /obj/item/organ/cyberimp/arm/toolkit/razor_claws
 	category = list(
 		RND_CATEGORY_CYBERNETICS + RND_SUBCATEGORY_CYBERNETICS_IMPLANTS_TOOLS,
 	)
@@ -125,7 +125,7 @@
 		/datum/material/silver = HALF_SHEET_MATERIAL_AMOUNT,
 	)
 	construction_time = 20 SECONDS
-	build_path = /obj/item/organ/cyberimp/arm/mining_drill
+	build_path = /obj/item/organ/cyberimp/arm/toolkit/mining_drill
 	category = list(
 		RND_CATEGORY_CYBERNETICS + RND_SUBCATEGORY_CYBERNETICS_IMPLANTS_TOOLS,
 	)
@@ -142,28 +142,11 @@
 		/datum/material/diamond = SHEET_MATERIAL_AMOUNT,
 	)
 	construction_time = 30 SECONDS
-	build_path = /obj/item/organ/cyberimp/arm/mining_drill/diamond
+	build_path = /obj/item/organ/cyberimp/arm/toolkit/mining_drill/diamond
 	category = list(
 		RND_CATEGORY_TOOLS + RND_SUBCATEGORY_TOOLS_MINING
 	)
 	departmental_flags = DEPARTMENT_BITFLAG_MEDICAL | DEPARTMENT_BITFLAG_CARGO
-
-/datum/design/cyberimp_hacker
-	name = "Hacking Hand Implant"
-	desc = "An advanced hacking and machine modification toolkit fitted into an arm implant, designed to be installed on a subject's arm."
-	id = "ci-hacker"
-	build_type = MECHFAB
-	materials = list (
-		/datum/material/iron = SHEET_MATERIAL_AMOUNT * 2,
-		/datum/material/glass = HALF_SHEET_MATERIAL_AMOUNT,
-		/datum/material/silver = HALF_SHEET_MATERIAL_AMOUNT,
-	)
-	construction_time = 20 SECONDS
-	build_path = /obj/item/organ/cyberimp/arm/hacker
-	category = list(
-		RND_CATEGORY_CYBERNETICS + RND_SUBCATEGORY_CYBERNETICS_IMPLANTS_UTILITY,
-	)
-	departmental_flags = DEPARTMENT_BITFLAG_ENGINEERING
 
 /datum/design/cyberimp_flash
 	name = "Photon Projector Implant"
@@ -176,7 +159,7 @@
 		/datum/material/silver = HALF_SHEET_MATERIAL_AMOUNT,
 	)
 	construction_time = 20 SECONDS
-	build_path = /obj/item/organ/cyberimp/arm/flash
+	build_path = /obj/item/organ/cyberimp/arm/toolkit/flash
 	category = list(
 		RND_CATEGORY_CYBERNETICS + RND_SUBCATEGORY_CYBERNETICS_IMPLANTS_COMBAT,
 	)
@@ -194,7 +177,7 @@
 		/datum/material/plastic = SHEET_MATERIAL_AMOUNT,
 	)
 	construction_time = 20 SECONDS
-	build_path = /obj/item/organ/cyberimp/arm/botany
+	build_path = /obj/item/organ/cyberimp/arm/toolkit/botany
 	category = list(
 		RND_CATEGORY_CYBERNETICS + RND_SUBCATEGORY_CYBERNETICS_IMPLANTS_TOOLS,
 	)
@@ -266,7 +249,7 @@
 		/datum/material/silver = HALF_SHEET_MATERIAL_AMOUNT,
 	)
 	construction_time = 20 SECONDS
-	build_path = /obj/item/organ/cyberimp/arm/janitor
+	build_path = /obj/item/organ/cyberimp/arm/toolkit/janitor
 	category = list(
 		RND_CATEGORY_CYBERNETICS + RND_SUBCATEGORY_CYBERNETICS_IMPLANTS_TOOLS,
 	)
@@ -283,7 +266,7 @@
 		/datum/material/silver = HALF_SHEET_MATERIAL_AMOUNT,
 	)
 	construction_time = 10 SECONDS
-	build_path = /obj/item/organ/cyberimp/arm/lighter
+	build_path = /obj/item/organ/cyberimp/arm/toolkit/lighter
 	category = list(
 		RND_CATEGORY_CYBERNETICS + RND_SUBCATEGORY_CYBERNETICS_IMPLANTS_MISC,
 	)

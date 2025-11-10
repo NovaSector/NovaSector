@@ -4,6 +4,11 @@
 	key = "V"
 	flags = TONGUELESS_SPEECH
 	space_chance = 40
+	sentence_chance = 50
+	between_word_sentence_chance = 10
+	between_word_space_chance = 75
+	additional_syllable_low = 1
+	additional_syllable_high = 2
 	syllables = list("ti","ti","ti","hi","hi","ki","ki","ki","ki","ya","ta","ha","ka","ya", "yi", "chi","cha","kah","SKRE","AHK","EHK","RAWK","KRA","AAA","EEE","KI","II","KRI","KA")
 	icon_state = "vox-pidgin"
 	icon = 'modular_nova/master_files/icons/misc/language.dmi'

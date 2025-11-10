@@ -18,43 +18,25 @@
 	icon = 'modular_nova/master_files/icons/obj/clothing/masks.dmi'
 	icon_state = "gas_alt2"
 	worn_icon = 'modular_nova/master_files/icons/mob/clothing/mask.dmi'
+	dirt_state = "gas_wide_dirt"
 
-/obj/item/clothing/mask/gas/german
-	name = "black gas mask"
-	desc = "A black gas mask. Are you my Mummy?"
-	icon = 'modular_nova/master_files/icons/obj/clothing/masks.dmi'
-	worn_icon = 'modular_nova/master_files/icons/mob/clothing/mask.dmi'
-	icon_state = "m38_mask"
-
-/obj/item/clothing/mask/gas/hecu1
-	name = "modern gas mask"
-	desc = "MY. ASS. IS. HEAVY."
-	icon = 'modular_nova/master_files/icons/obj/clothing/masks.dmi'
-	worn_icon = 'modular_nova/master_files/icons/mob/clothing/mask.dmi'
-	icon_state = "hecu"
-
-/obj/item/clothing/mask/gas/hecu2
+/obj/item/clothing/mask/gas/hecu
 	name = "M40 gas mask"
 	desc = "A deprecated field protective mask developed during the 20th century in Sol-3. It's designed to protect from chemical agents, biological agents, and nuclear fallout particles. It does not protect the user from ammonia or from lack of oxygen, though the filter can be replaced with a tube for any air tank."
 	icon = 'modular_nova/master_files/icons/obj/clothing/masks.dmi'
 	worn_icon = 'modular_nova/master_files/icons/mob/clothing/mask.dmi'
 	worn_icon_teshari = 'modular_nova/master_files/icons/mob/clothing/species/teshari/mask.dmi'
-	icon_state = "hecu2"
-
-/obj/item/clothing/mask/gas/soviet
-	name = "soviet gas mask"
-	desc = "A white gas mask with a green filter, there's a small sticker attached saying it's not got Asbestos anymore."
-	icon = 'modular_nova/master_files/icons/obj/clothing/masks.dmi'
-	worn_icon = 'modular_nova/master_files/icons/mob/clothing/mask.dmi'
-	icon_state = "gp5_mask"
+	icon_state = "hecu"
 
 /obj/item/clothing/mask/gas/clown_colourable
 	name = "colourable clown mask"
 	desc = "The face of pure evil, now multicoloured."
-	icon_state = "gags_mask"
 	clothing_flags = MASKINTERNALS
 	flags_cover = MASKCOVERSEYES
 	resistance_flags = FLAMMABLE
+	icon = 'icons/map_icons/clothing/mask.dmi'
+	icon_state = "/obj/item/clothing/mask/gas/clown_colourable"
+	post_init_icon_state = "gags_mask"
 	greyscale_config = /datum/greyscale_config/clown_mask
 	greyscale_config_worn = /datum/greyscale_config/clown_mask/worn
 	greyscale_colors = "#FFFFFF#F20018#0000FF#00CC00"
@@ -71,12 +53,21 @@
 	flags_cover = MASKCOVERSEYES
 	resistance_flags = FLAMMABLE
 
+/obj/item/clothing/mask/gas/pink_clown_wig
+	name = "pink clown wig"
+	desc = "A cotton candy pink wig. Comes with a round, glossy red clown nose that fastens snugly to the face."
+	clothing_flags = MASKINTERNALS
+	icon = 'modular_nova/master_files/icons/obj/clothing/masks.dmi'
+	worn_icon = 'modular_nova/master_files/icons/mob/clothing/mask.dmi'
+	icon_state = "pink_clown_wig"
+	inhand_icon_state = null
+	flags_inv = HIDEHAIR
+	resistance_flags = FLAMMABLE
+
 /obj/item/clothing/mask/gas/respirator
 	name = "half mask respirator"
 	desc = "A half mask respirator that's really just a standard gas mask with the glass taken off."
-	icon = 'modular_nova/modules/GAGS/icons/masks.dmi'
 	worn_icon = 'modular_nova/modules/GAGS/icons/masks.dmi'
-	icon_state = "respirator"
 	inhand_icon_state = "sechailer"
 	w_class = WEIGHT_CLASS_SMALL
 	clothing_flags = BLOCK_GAS_SMOKE_EFFECT | MASKINTERNALS
@@ -84,6 +75,9 @@
 	flags_cover = MASKCOVERSMOUTH
 	flags_1 = IS_PLAYER_COLORABLE_1
 	greyscale_colors = "#2E3333"
+	icon = 'icons/map_icons/clothing/mask.dmi'
+	icon_state = "/obj/item/clothing/mask/gas/respirator"
+	post_init_icon_state = "respirator"
 	greyscale_config = /datum/greyscale_config/respirator
 	greyscale_config_worn = /datum/greyscale_config/respirator/worn
 	//NIGHTMARE NIGHTMARE NIGHTMARE
@@ -181,12 +175,9 @@
 
 	if(src && choice && !user.incapacitated && in_range(user,src))
 		var/mob/living/carbon/human/human_user = user
-		if(human_user.dna.species.mutant_bodyparts["snout"])
+		if(human_user.dna.species.mutant_bodyparts[FEATURE_SNOUT])
 			icon = 'modular_nova/master_files/icons/obj/clothing/masks.dmi'
 			worn_icon = 'modular_nova/master_files/icons/mob/clothing/mask_muzzled.dmi'
-			var/list/avian_snouts = list("Beak", "Big Beak", "Corvid Beak")
-			if(human_user.dna.species.mutant_bodyparts["snout"][MUTANT_INDEX_NAME] in avian_snouts)
-				icon_state = "[options[choice]]_b"
 		else
 			icon = 'modular_nova/master_files/icons/mob/clothing/species/vox/mask.dmi'
 			worn_icon = 'modular_nova/master_files/icons/mob/clothing/species/vox/mask.dmi'

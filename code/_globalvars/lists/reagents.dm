@@ -114,7 +114,7 @@ GLOBAL_LIST_INIT(plant_traits, init_plant_traits())
 	// So instead, we're gonna wing it
 	var/list/reagent_to_react_count = list()
 	for(var/datum/chemical_reaction/reaction as anything in reactions)
-		for(var/reagent_id as anything in reaction.required_reagents)
+		for(var/reagent_id in reaction.required_reagents)
 			reagent_to_react_count[reagent_id] += 1
 
 	var/list/reaction_lookup = GLOB.chemical_reactions_list_reactant_index
@@ -123,7 +123,7 @@ GLOBAL_LIST_INIT(plant_traits, init_plant_traits())
 	// Doing this separately because it relies on the loop above, and this is easier to parse
 	for(var/datum/chemical_reaction/reaction as anything in reactions)
 		var/preferred_id = null
-		for(var/reagent_id as anything in reaction.required_reagents)
+		for(var/reagent_id in reaction.required_reagents)
 			if(isnull(preferred_id))
 				preferred_id = reagent_id
 				continue
@@ -191,6 +191,10 @@ GLOBAL_LIST_INIT(plant_traits, init_plant_traits())
 	var/list/name_to_reagent = list()
 	var/list/only_names = list()
 	for (var/datum/reagent/reagent as anything in GLOB.chemical_reagents_list)
+		// NOVA EDIT ADDITION BEGIN
+		if(initial(reagent.chemical_flags) & REAGENT_NEUROWARE)
+			continue
+		// NOVA EDIT ADDITION END
 		var/name = initial(reagent.name)
 		if (length(name))
 			name_to_reagent[name] = reagent
@@ -200,5 +204,5 @@ GLOBAL_LIST_INIT(plant_traits, init_plant_traits())
 	only_names = sort_list(only_names)
 
 	//build map with sorted keys
-	for(var/name as anything in only_names)
+	for(var/name in only_names)
 		.[name] = name_to_reagent[name]

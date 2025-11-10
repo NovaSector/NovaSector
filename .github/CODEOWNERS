@@ -1,21 +1,19 @@
 # This list auto requests reviews from the specified org members
 # when a PR that modifies the file in question is opened
-# This list is alphabetized by User -> Filename KEEP IT THAT WAY
-# In the event that multiple org members are to be informed of changes
-# to the same file or dir, add them to the end under Multiple Owners
+# This list is alphabetized by User -> Filename and separated into sections for Maintainers/Contributors KEEP IT THAT WAY
+# In the event that people are to be informed of changes
+# to the same file or dir, add them to the end of under Multiple Owners
 
-# GoldenAlpharex
-/.github/workflows/ @GoldenAlpharex
-/SQL/ @GoldenAlpharex
-/tools/ @GoldenAlpharex
-/modular_nova/ @GoldenAlpharex
-/icons/ @GoldenAlpharex
+# MAINTAINERS
 
-# Jolly-66
-/tools/maplint/lints @Jolly-66
-/tools/UpdatePaths @Jolly-66
+# vinylspiders
+/.github/workflows/ @vinylspiders
+/SQL/ @vinylspiders
+/tools/ @vinylspiders
+/code/modules/tgui/ @vinylspiders
 
 # Zergspower
+
 /modular_nova/modules/borgs @Zergspower
 /modular_nova/modules/borg_buffs @Zergspower
 /modular_nova/modules/ghostcafe @Zergspower
@@ -24,12 +22,17 @@
 /modular_nova/modules/ashwalkers @Zergspower
 /modular_nova/modules/aesthetics/keyed_doors @Zergspower
 
-# Multiple Owners
+# CONTRIBUTORS
+
+# MULTIPLE OWNERS
 
 # Maptainers
-/_maps/ @Jolly-66 @Zergspower @sqnztb
-/modular_nova/modules/mapping @Jolly-66 @Zergspower @sqnztb
+
+/tools/maplint/lints @sqnztb
+/tools/UpdatePaths @sqnztb
+/_maps/ @Zergspower @sqnztb
+/modular_nova/modules/mapping @Zergspower @sqnztb
 
 # Expensive files that touching basically always cause performance problems
 ## Init times
-**/*_EXPENSIVE.dm @GoldenAlpharex
+**/*_EXPENSIVE.dm @vinylspiders

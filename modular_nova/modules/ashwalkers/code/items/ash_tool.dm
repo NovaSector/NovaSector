@@ -10,6 +10,7 @@
 	greyscale_config_inhand_left = null
 	greyscale_config_inhand_right = null
 	greyscale_config_worn = null
+	post_init_icon_state = null
 
 /datum/crafting_recipe/ash_recipe/ash_screwdriver
 	name = "Ash Screwdriver"
@@ -26,6 +27,7 @@
 	greyscale_config_inhand_left = null
 	greyscale_config_inhand_right = null
 	greyscale_config_worn = null
+	post_init_icon_state = null
 
 /datum/crafting_recipe/ash_recipe/ash_cutters
 	name = "Ash Wirecutters"
@@ -42,10 +44,27 @@
 	greyscale_config_inhand_left = null
 	greyscale_config_inhand_right = null
 	greyscale_config_worn = null
+	post_init_icon_state = null
 
 /datum/crafting_recipe/ash_recipe/ash_wrench
 	name = "Ash Wrench"
 	result = /obj/item/wrench/ashwalker
+
+/obj/item/secateurs/ashwalker
+	name = "primitive secateurs"
+	icon = 'modular_nova/modules/ashwalkers/icons/ashwalker_tools.dmi'
+	icon_state = "secateurs"
+	custom_materials = list(/datum/material/bone = SMALL_MATERIAL_AMOUNT * 1)
+
+	greyscale_colors = null
+	greyscale_config = null
+	greyscale_config_inhand_left = null
+	greyscale_config_inhand_right = null
+	greyscale_config_worn = null
+
+/datum/crafting_recipe/ash_recipe/ash_secateur
+	name = "Ash Secateur"
+	result = /obj/item/secateurs/ashwalker
 
 /obj/item/crowbar/ashwalker
 	name = "primitive crowbar"
@@ -58,6 +77,7 @@
 	greyscale_config_inhand_left = null
 	greyscale_config_inhand_right = null
 	greyscale_config_worn = null
+	post_init_icon_state = null
 
 /datum/crafting_recipe/ash_recipe/ash_crowbar
 	name = "Ash Crowbar"
@@ -75,6 +95,7 @@
 	greyscale_config_inhand_left = null
 	greyscale_config_inhand_right = null
 	greyscale_config_worn = null
+	post_init_icon_state = null
 	toolspeed = 4
 
 /datum/crafting_recipe/ash_recipe/ash_chisel
@@ -104,7 +125,7 @@
 	. = ..()
 	. += span_notice("In order to be planted, it is required to be on the mining level as well as on basalt.")
 
-/obj/item/ash_seed/proc/harm_user(mob/living/user, var/sent_message, var/damage_amount)
+/obj/item/ash_seed/proc/harm_user(mob/living/user, sent_message, damage_amount)
 	to_chat(user, span_warning(sent_message))
 	user.adjustBruteLoss(damage_amount)
 	if(!do_after(user, 4 SECONDS, target = src))

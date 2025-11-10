@@ -181,3 +181,14 @@
 	category = list(
 		RND_CATEGORY_MECHFAB_CYBORG + RND_SUBCATEGORY_MECHFAB_CYBORG_CHASSIS,
 	)
+
+/datum/design/borg_upgrade_cargo_apparatus
+	name = "Cargo Apparatus"
+	id = "borg_upgrade_cargo_apparatus"
+	build_type = MECHFAB
+	build_path = /obj/item/borg/upgrade/cargo_papermanipulator
+	materials = list(/datum/material/iron = SHEET_MATERIAL_AMOUNT*2.5)
+	construction_time = 4 SECONDS
+	category = list(
+		RND_CATEGORY_MECHFAB_CYBORG_MODULES + RND_SUBCATEGORY_MECHFAB_CYBORG_MODULES_CARGO
+	)

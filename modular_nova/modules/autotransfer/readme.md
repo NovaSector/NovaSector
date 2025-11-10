@@ -24,4 +24,5 @@ Adds an automatically called vote for the shuttle to come, timed with real time,
 - N/A
 
 ### Credits:
+
 Azarak - porting

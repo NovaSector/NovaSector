@@ -26,7 +26,7 @@
 
 //pry off plating
 /datum/surgery_step/pry_off_plating
-	name = "pry off plating"
+	name = "pry off plating (crowbar or hemostat)"
 	implements = list(
 		TOOL_CROWBAR = 100,
 		TOOL_HEMOSTAT = 10,
@@ -95,7 +95,7 @@
 
 //replace wires
 /datum/surgery_step/replace_wires
-	name = "replace wires"
+	name = "replace wires (5 cables)"
 	implements = list(/obj/item/stack/cable_coil = 100)
 	time = 2.4 SECONDS
 	var/cableamount = 5
@@ -124,7 +124,7 @@
 
 //add plating
 /datum/surgery_step/add_plating
-	name = "add plating"
+	name = "add plating (5 iron sheets)"
 	implements = list(/obj/item/stack/sheet/iron = 100)
 	time = 2.4 SECONDS
 	var/ironamount = 5

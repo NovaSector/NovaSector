@@ -301,11 +301,9 @@
 
 /obj/structure/ore_vent/ghost_mining/boss/reset_vent()
 	. = ..()
-	var/list/boss_pool = defending_mobs
-	var/old_boss = summoned_boss
-	boss_pool -= old_boss //avoid repeats.
+	var/list/boss_pool = defending_mobs.Copy()
+	boss_pool -= summoned_boss // Avoid repeats.
 	summoned_boss = pick(boss_pool)
-	boss_pool += old_boss // system stupid, need to reintroduce so no empty list. Yes, the list empties without this somehow.
 
 /obj/structure/ore_vent/ghost_mining/boss/start_wave_defense() //Stolen from original boss vent code
 	if(!COOLDOWN_FINISHED(src, wave_cooldown))

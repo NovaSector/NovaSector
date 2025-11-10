@@ -31,26 +31,24 @@ GLOBAL_LIST_EMPTY(valid_cryopods)
 	verb_ask = "queries"
 	verb_exclaim = "alarms"
 
+	connectable = FALSE
+
 	/// Used for logging people entering cryosleep and important items they are carrying.
 	var/list/frozen_crew = list()
 	/// The items currently stored in the cryopod control panel.
 	var/list/frozen_item = list()
 
-	/// This is what the announcement system uses to make announcements. Make sure to set a radio that has the channel you want to broadcast on.
-	var/obj/item/radio/headset/radio = /obj/item/radio/headset/silicon/ai
-	/// The channel to be broadcast on, valid values are the values of any of the "RADIO_CHANNEL_" defines.
-	var/announcement_channel = null // RADIO_CHANNEL_COMMON doesn't work here.
+	/// The channel to be broadcast on, works via refactored AAS machinery.
+	var/announcement_channel = RADIO_CHANNEL_COMMON
 
 MAPPING_DIRECTIONAL_HELPERS(/obj/machinery/computer/cryopod, 32)
 
 /obj/machinery/computer/cryopod/Initialize(mapload)
 	. = ..()
 	GLOB.cryopod_computers += src
-	radio = new radio(src)
 
 /obj/machinery/computer/cryopod/Destroy()
 	GLOB.cryopod_computers -= src
-	QDEL_NULL(radio)
 	return ..()
 
 /obj/machinery/computer/cryopod/update_icon_state()
@@ -123,19 +121,36 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/machinery/computer/cryopod, 32)
 		else
 			CRASH("Illegal action for ui_act: '[action]'")
 
-/obj/machinery/computer/cryopod/proc/announce(message_type, user, rank, occupant_departments_bitflags, occupant_job_radio)
+/obj/machinery/computer/cryopod/proc/announce(message_type, user, rank, datum/job/occupant_job)
 	switch(message_type)
 		if("CRYO_JOIN")
-			radio.talk_into(src, "[user][rank ? ", [rank]" : ""] has woken up from cryo storage.", announcement_channel)
+			aas_config_announce(/datum/aas_config_entry/cryopod_announcement, list(
+				"PERSON" = user,
+				"RANK" = rank,
+			), src, list(announcement_channel), "Awakening")
 		if("CRYO_LEAVE")
-			if (occupant_job_radio)
-				if (occupant_departments_bitflags & DEPARTMENT_BITFLAG_COMMAND)
-					if (occupant_job_radio != RADIO_CHANNEL_COMMAND)
-						radio.talk_into(src, "[user][rank ? ", [rank]" : ""] has been moved to cryo storage.", RADIO_CHANNEL_COMMAND)
-					radio.use_command = TRUE
-				radio.talk_into(src, "[user][rank ? ", [rank]" : ""] has been moved to cryo storage.", occupant_job_radio)
-				radio.use_command = FALSE
-			radio.talk_into(src, "[user][rank ? ", [rank]" : ""] has been moved to cryo storage.", announcement_channel)
+			var/already_announced = FALSE
+			if (occupant_job)
+				for (var/department in occupant_job.departments_list)
+					var/datum/job_department/dep = SSjob.joinable_departments_by_type[department]
+					// Announce all command staff or heads of departments in their respected radio channels.
+					if (!(dep.department_bitflags & DEPARTMENT_BITFLAG_COMMAND) && !istype(occupant_job, dep.department_head))
+						continue
+
+					aas_config_announce(/datum/aas_config_entry/cryopod_announcement, list(
+						"PERSON" = user,
+						"RANK" = rank,
+					), src, list(dep.default_radio_channel), "Removing", istype(occupant_job, dep.department_head))
+
+					// If we announced on computer's channel, don't announce again.
+					if (dep.default_radio_channel == announcement_channel)
+						already_announced = TRUE
+
+			if (!already_announced)
+				aas_config_announce(/datum/aas_config_entry/cryopod_announcement, list(
+					"PERSON" = user,
+					"RANK" = rank,
+				), src, list(announcement_channel), "Removing")
 
 // Cryopods themselves.
 /obj/machinery/cryopod
@@ -148,7 +163,7 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/machinery/computer/cryopod, 32)
 	density = TRUE
 	anchored = TRUE
 	state_open = TRUE
-	interaction_flags_mouse_drop = NEED_DEXTERITY
+	interaction_flags_mouse_drop = FORBID_TELEKINESIS_REACH
 
 	var/open_icon_state = "cryopod-open"
 	/// Whether the cryopod respects the minimum time someone has to be disconnected before they can be put into cryo by another player
@@ -158,8 +173,6 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/machinery/computer/cryopod, 32)
 
 	/// Time until despawn when a mob enters a cryopod. You cannot other people in pods unless they're catatonic.
 	var/time_till_despawn = 30 SECONDS
-	/// Cooldown for when it's now safe to try an despawn the player.
-	COOLDOWN_DECLARE(despawn_world_time)
 
 	///Weakref to our controller
 	var/datum/weakref/control_computer_weakref
@@ -168,6 +181,10 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/machinery/computer/cryopod, 32)
 	var/quiet = FALSE
 	/// Has the occupant been tucked in?
 	var/tucked = FALSE
+	/// If this cryopod should despawn the occupant to the ghost cafe
+	var/despawn_to_ghostcafe
+	/// The timerid of the cryo countdown, so we can stop it if the mob leaves the pod.
+	var/timerid
 
 /obj/machinery/cryopod/quiet
 	quiet = TRUE
@@ -190,7 +207,7 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/machinery/computer/cryopod, 32)
 	return ..()
 
 /obj/machinery/cryopod/proc/find_control_computer(urgent = FALSE)
-	for(var/cryo_console as anything in GLOB.cryopod_computers)
+	for(var/cryo_console in GLOB.cryopod_computers)
 		var/obj/machinery/computer/cryopod/console = cryo_console
 		if(get_area(console) == get_area(src))
 			control_computer_weakref = WEAKREF(console)
@@ -221,7 +238,32 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/machinery/computer/cryopod, 32)
 	if(istype(human_occupant) && human_occupant.mind)
 		human_occupant.save_individual_persistence(mob_occupant.ckey || mob_occupant.mind?.key)
 
-	COOLDOWN_START(src, despawn_world_time, time_till_despawn)
+	timerid = addtimer(CALLBACK(src, PROC_REF(initiate_despawn_occupant)), time_till_despawn, TIMER_DELETE_ME|TIMER_STOPPABLE)
+	RegisterSignal(src, COMSIG_MACHINERY_SET_OCCUPANT, PROC_REF(on_set_occupant))
+	RegisterSignal(human_occupant, COMSIG_MOB_GHOSTIZED, PROC_REF(on_occupant_ghosted))
+
+/// Called when the mob leaves the pod.
+/obj/machinery/cryopod/proc/on_set_occupant(datum/source, mob/living/new_occupant)
+	SIGNAL_HANDLER
+
+	stop_cryo_timer()
+
+/// Stop the cryo process.
+/obj/machinery/cryopod/proc/stop_cryo_timer()
+
+	if(timerid)
+		deltimer(timerid)
+		timerid = null
+
+	UnregisterSignal(src, COMSIG_MACHINERY_SET_OCCUPANT)
+
+	if(occupant)
+		UnregisterSignal(occupant, COMSIG_MOB_GHOSTIZED)
+
+/// Immediately despawn them and stop the timer when they ghost.
+/obj/machinery/cryopod/proc/on_occupant_ghosted(datum/source)
+	on_set_occupant(src)
+	initiate_despawn_occupant()
 
 /obj/machinery/cryopod/open_machine(drop = TRUE, density_to_set = FALSE)
 	..()
@@ -237,7 +279,10 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/machinery/computer/cryopod, 32)
 /obj/machinery/cryopod/relaymove(mob/user)
 	container_resist_act(user)
 
-/obj/machinery/cryopod/process()
+/// Despawn the mob. To be called via addtimer or when the mob ghosts.
+/obj/machinery/cryopod/proc/initiate_despawn_occupant()
+	stop_cryo_timer()
+
 	if(!occupant)
 		return
 
@@ -245,11 +290,11 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/machinery/computer/cryopod, 32)
 	if(mob_occupant.stat == DEAD)
 		open_machine()
 
-	if(!mob_occupant.client && COOLDOWN_FINISHED(src, despawn_world_time))
+	if(!mob_occupant.client)
 		if(!control_computer_weakref)
 			find_control_computer(urgent = TRUE)
 
-		despawn_occupant()
+	despawn_occupant()
 
 /obj/machinery/cryopod/proc/handle_objectives()
 	var/mob/living/mob_occupant = occupant
@@ -314,10 +359,9 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/machinery/computer/cryopod, 32)
 	var/mob/living/mob_occupant = occupant
 
 	var/occupant_ckey = mob_occupant.ckey || mob_occupant.mind?.key
-	var/occupant_name = mob_occupant.name
+	var/occupant_name = mob_occupant.real_name
 	var/occupant_rank = mob_occupant.mind?.assigned_role.title
-	var/occupant_departments_bitflags = mob_occupant.mind?.assigned_role.departments_bitflags
-	var/occupant_job_radio = mob_occupant.mind?.assigned_role.default_radio_channel
+	var/occupant_job = mob_occupant.mind?.assigned_role
 
 	SSjob.FreeRole(occupant_rank)
 
@@ -330,7 +374,7 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/machinery/computer/cryopod, 32)
 		// Handle tater cleanup.
 		if(LAZYLEN(mob_occupant.mind.objectives))
 			mob_occupant.mind.objectives.Cut()
-			mob_occupant.mind.special_role = null
+			mob_occupant.mind.special_roles = null
 		// Handle freeing the high priest role for the next chaplain in line
 		if(mob_occupant.mind.holy_role == HOLY_ROLE_HIGHPRIEST)
 			reset_religion()
@@ -342,7 +386,6 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/machinery/computer/cryopod, 32)
 
 	// Delete them from datacore and ghost records.
 	var/announce_rank = null
-
 	for(var/list/record in GLOB.ghost_records)
 		if(record["name"] == occupant_name)
 			announce_rank = record["rank"]
@@ -364,12 +407,12 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/machinery/computer/cryopod, 32)
 
 		// Make an announcement and log the person entering storage. If set to quiet, does not make an announcement.
 		if(!quiet)
-			control_computer.announce("CRYO_LEAVE", mob_occupant.real_name, announce_rank, occupant_departments_bitflags, occupant_job_radio)
+			control_computer.announce("CRYO_LEAVE", mob_occupant.real_name, announce_rank, occupant_job)
 
 	visible_message(span_notice("[src] hums and hisses as it moves [mob_occupant.real_name] into storage."))
 
 	for(var/obj/item/item_content as anything in mob_occupant)
-		if(!istype(item_content) || HAS_TRAIT(item_content, TRAIT_NODROP))
+		if(!istype(item_content) || HAS_TRAIT(item_content, TRAIT_NODROP) || (item_content.item_flags & ABSTRACT|DROPDEL) || (item_content.flags_1 & HOLOGRAM_1))
 			continue
 		if (issilicon(mob_occupant) && istype(item_content, /obj/item/mmi))
 			continue
@@ -384,10 +427,36 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/machinery/computer/cryopod, 32)
 		else
 			mob_occupant.transferItemToLoc(item_content, drop_location(), force = TRUE, silent = TRUE)
 
+	// Borgs will splash the ground with their beaker reagents on qdel, let's make sure this does not happen
+	if(iscyborg(occupant))
+		var/mob/living/silicon/robot/cyborg_occupant = occupant
+		var/obj/item/borg/apparatus/beaker/borg_beaker = (locate() in cyborg_occupant.model.modules) || (locate() in cyborg_occupant.held_items)
+		if(borg_beaker && borg_beaker.stored)
+			var/obj/item/reagent_containers/reagent_container = borg_beaker.stored
+			reagent_container.reagents?.clear_reagents()
+
 	GLOB.joined_player_list -= occupant_ckey
 
 	handle_objectives()
-	mob_occupant.ghostize()
+
+	// The ghost mob is needed for transporting them directly to the ghost cafe, so let's keep track of that
+	var/mob/dead/observer/occupant_ghost_mob
+	if(isnull(mob_occupant.ckey)) // they ghosted early
+		for(var/mob/dead/observer/ghost as anything in GLOB.dead_player_list) // so we must find them in the list
+			if(ghost.ckey == occupant_ckey)
+				occupant_ghost_mob = ghost
+	else
+		occupant_ghost_mob = mob_occupant.ghostize() // otherwise they're just sitting patiently in the pod waiting, ghost them
+
+	// Ghost cafe cryopods
+	if(despawn_to_ghostcafe)
+		var/obj/effect/mob_spawn/ghost_role/ghostcafe_spawner
+		if(iscyborg(mob_occupant))
+			ghostcafe_spawner = locate() in GLOB.mob_spawners[/obj/effect/mob_spawn/ghost_role/robot/ghostcafe::name]
+		else
+			ghostcafe_spawner = locate() in GLOB.mob_spawners[/obj/effect/mob_spawn/ghost_role/human/ghostcafe::name]
+		ghostcafe_spawner.create_from_ghost(occupant_ghost_mob, use_loadout = TRUE)
+
 	QDEL_NULL(occupant)
 	open_machine()
 	name = initial(name)
@@ -473,7 +542,7 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/machinery/computer/cryopod, 32)
 	else
 		visible_message(span_infoplain("[user] starts putting [target] into the cryo pod."))
 
-	to_chat(target, span_warning("<b>If you ghost, log out or close your client now, your character will shortly be permanently removed from the round.</b>"))
+	to_chat(target, span_warning("<b>If you remain in the pod for [time_till_despawn /10] seconds or ghost, your character will be permanently removed from the round.</b>"))
 
 	log_admin("[key_name(target)] entered a stasis pod.")
 	message_admins("[key_name_admin(target)] entered a stasis pod. [ADMIN_JMP(src)]")
@@ -486,16 +555,16 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/machinery/computer/cryopod, 32)
 /obj/machinery/cryopod/blob_act()
 	return // Sorta gamey, but we don't really want these to be destroyed.
 
-/obj/machinery/cryopod/attackby(obj/item/weapon, mob/living/carbon/human/user, params)
+/obj/machinery/cryopod/attackby(obj/item/attacking_item, mob/living/user, list/modifiers, list/attack_modifiers)
 	. = ..()
-	if(istype(weapon, /obj/item/bedsheet))
+	if(istype(attacking_item, /obj/item/bedsheet))
 		if(!occupant || !istype(occupant, /mob/living))
 			return
 		if(tucked)
 			to_chat(user, span_warning("[occupant.name] already looks pretty comfortable!"))
 			return
 		to_chat(user, span_notice("You tuck [occupant.name] into their pod!"))
-		qdel(weapon)
+		qdel(attacking_item)
 		user.add_mood_event("tucked", /datum/mood_event/tucked_in, occupant)
 		tucked = TRUE
 
@@ -503,11 +572,20 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/machinery/computer/cryopod, 32)
 	icon_state = state_open ? open_icon_state : base_icon_state
 	return ..()
 
+/obj/machinery/cryopod/despawn_to_ghostcafe
+	name = "Ghost Cafe Pod"
+	desc = parent_type::desc + " This one is primed to ship its occupant to the ghost cafe."
+	icon_state = "ghostcafepod-open"
+	base_icon_state = "ghostcafepod"
+	open_icon_state = "ghostcafepod-open"
+	despawn_to_ghostcafe = TRUE
+	time_till_despawn = 4 SECONDS
+
+
 /// Special wall mounted cryopod for the prison, making it easier to autospawn.
 /obj/machinery/cryopod/prison
-	icon_state = "prisonpod"
-	base_icon_state = "prisonpod"
-	open_icon_state = "prisonpod"
+	icon_state = "ghostcafepod-open"
+	base_icon_state = "ghostcafepod"
 	density = FALSE
 
 MAPPING_DIRECTIONAL_HELPERS(/obj/machinery/cryopod/prison, 18)
@@ -527,21 +605,30 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/machinery/cryopod/prison, 18)
 	/// For figuring out where the local cryopod computer is. Must be set for cryo computer announcements.
 	var/area/computer_area
 
-/obj/effect/mob_spawn/ghost_role/create(mob/mob_possessor, newname)
+/obj/effect/mob_spawn/ghost_role/create(mob/mob_possessor, newname, use_loadout = FALSE)
 	var/mob/living/spawned_mob = ..()
 	var/obj/machinery/computer/cryopod/control_computer = find_control_computer()
 
 	var/alt_name = get_spawner_outfit_name()
-	GLOB.ghost_records.Add(list(list("name" = spawned_mob.real_name, "rank" = alt_name ? alt_name : name)))
+	alt_name = alt_name ? alt_name : name
+	GLOB.ghost_records.Add(list(list("name" = spawned_mob.real_name, "rank" = alt_name)))
 	if(control_computer)
-		control_computer.announce("CRYO_JOIN", spawned_mob.real_name, name)
+		// Due ghost often have only channel, I decide to not send awakening message if we sending head announcement
+		var/datum/job/ghost_job = SSjob.get_job_type(spawner_job_path)
+		if (ghost_job.head_announce)
+			aas_config_announce(/datum/aas_config_entry/newhead, list(
+				"PERSON" = spawned_mob.real_name,
+				"RANK" = alt_name,
+			), control_computer, ghost_job.head_announce, null, TRUE)
+		else
+			control_computer.announce("CRYO_JOIN", spawned_mob.real_name, alt_name)
 
 	return spawned_mob
 
 /obj/effect/mob_spawn/ghost_role/proc/find_control_computer()
 	if(!computer_area)
 		return
-	for(var/cryo_console as anything in GLOB.cryopod_computers)
+	for(var/cryo_console in GLOB.cryopod_computers)
 		var/obj/machinery/computer/cryopod/console = cryo_console
 		var/area/area = get_area(cryo_console) // Define moment
 		if(area.type == computer_area)
@@ -561,5 +648,16 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/machinery/cryopod/prison, 18)
 
 /obj/effect/mob_spawn/ghost_role/human/lavaland_syndicate
 	computer_area = /area/ruin/syndicate_lava_base/dormitories
+
+/datum/aas_config_entry/cryopod_announcement
+	name = "Departmental Alert: Cryogenic Sleeper Announcement"
+	announcement_lines_map = list(
+		"Awakening" = "%PERSON, %RANK has woken up from cryo storage.",
+		"Removing" = "%PERSON, %RANK has been moved to cryo storage.",
+	)
+	vars_and_tooltips_map = list(
+		"PERSON" = "will be replaced with their name.",
+		"RANK" = "with their job."
+	)
 
 #undef AHELP_FIRST_MESSAGE

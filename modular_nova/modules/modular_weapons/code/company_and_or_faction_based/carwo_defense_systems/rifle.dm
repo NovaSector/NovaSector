@@ -35,12 +35,12 @@
 	suppressor_y_offset = 1
 
 	burst_size = 1
-	fire_delay = 0.2 SECONDS
+	fire_delay = 0.25 SECONDS
 	actions_types = list()
 
 	spread = 2
-	projectile_wound_bonus = 10
-	projectile_damage_multiplier = 0.75
+	projectile_wound_bonus = 0
+	projectile_damage_multiplier = 0.5
 
 	lore_blurb = "The MMR-2543 is the current standard service rifle for all branches of the Sol Federation Armed Forces.<br><br>\
 		Initially created for use by the Sagittarian Triumvirate’s military, its adoption by SolFed came a few years later. \
@@ -89,7 +89,7 @@
 
 	spawn_magazine_type = /obj/item/ammo_box/magazine/c40sol_rifle
 
-	fire_delay = 1.6 SECONDS
+	fire_delay = 0.85 SECONDS
 	burst_delay = 0.1 SECONDS
 
 	actions_types = list(/datum/action/item_action/toggle_firemode)
@@ -99,8 +99,8 @@
 
 	burst_size = 3
 	spread = 5.5
-	projectile_damage_multiplier = 1
-	projectile_wound_bonus = 3
+	projectile_damage_multiplier = 0.5
+	projectile_wound_bonus = -10
 
 	model_specific_lore = "This variant is the Infantry model, and is the primary rifle \
 		for both the SolFed Hydro Corps and Atmospheric Corps. It features excellent accuracy and durability, \
@@ -120,8 +120,8 @@
 // Machinegun based on the base Sol rifle
 
 /obj/item/gun/ballistic/automatic/sol_rifle/machinegun
-	name = "\improper Qarad Light Machinegun"
-	desc = "A hefty machine gun chambered in .40 Sol Long, commonly seen in the hands of SolFed military types. Accepts any standard SolFed rifle magazine."
+	name = "\improper Trekpaard Light Machine Gun"
+	desc = "A hefty, previous-gen machine gun chambered in .40 Sol Long, somehow still seen in the hands of SolFed military types. Accepts any standard SolFed rifle magazine."
 
 	icon_state = "qarad"
 	worn_icon_state = "qarad"
@@ -137,25 +137,38 @@
 	spread = 12.5
 	projectile_wound_bonus = -20
 
-	model_specific_lore = "This variant is the Qarad model, a conversion of the rifle into \
+	lore_blurb = /obj/item/gun/ballistic/automatic/sol_classic::lore_blurb
+
+	model_specific_lore = "This particular variant is the Trekpaard-Qarad model, a conversion of the rifle into \
 		a passable, if suboptimal, light machine gun. To support its new, fully-automatic role, \
 		the firing system was converted into a faster, open-bolt configuration, and the barrel \
 		was replaced with a heavier, heat-resistant assembly with quick-change support. \
 		These modifications, combined with a battle rifle platform not meant to be used \
-		much in full-auto to begin with, made for a relatively unwieldy weapon.<br><br>\
-		A machinegun, however, is still a machinegun, no matter how hard it is to keep on target."
+		much in full-auto to begin with, made for a relatively unwieldy weapon.<br>\
+		<br>\
+		A machine gun, however, is still a machine gun, no matter how hard it is to keep on target."
 
 /obj/item/gun/ballistic/automatic/sol_rifle/machinegun/no_mag
 	spawnwithmagazine = FALSE
 
-// Evil version of the rifle (nothing different it's just black)
+// Evil version of the rifles (nothing different it's just black)
 
 /obj/item/gun/ballistic/automatic/sol_rifle/evil
-	desc = "A heavy battle rifle, this one seems to be painted tacticool black. Accepts any standard SolFed rifle magazine."
+	desc = parent_type::desc + " This one is painted in a tacticool black."
 
 	icon_state = "infanterie_evil"
 	worn_icon_state = "infanterie_evil"
 	inhand_icon_state = "infanterie_evil"
 
 /obj/item/gun/ballistic/automatic/sol_rifle/evil/no_mag
+	spawnwithmagazine = FALSE
+
+/obj/item/gun/ballistic/automatic/sol_rifle/marksman/evil
+	desc = parent_type::desc + " This one is painted in a tacticool black."
+
+	icon_state = "elite_evil"
+	worn_icon_state = "elite_evil"
+	inhand_icon_state = "elite_evil"
+
+/obj/item/gun/ballistic/automatic/sol_rifle/marksman/evil/no_mag
 	spawnwithmagazine = FALSE

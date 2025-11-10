@@ -1,5 +1,6 @@
 /datum/wound/muscle/robotic
 	sound_effect = 'sound/effects/wounds/blood1.ogg'
+	treat_text_short = "Wrap the affected limb with gauze and tell them to rest."
 
 /datum/wound_pregen_data/muscle/robotic
 	required_limb_biostate = (BIO_METAL)

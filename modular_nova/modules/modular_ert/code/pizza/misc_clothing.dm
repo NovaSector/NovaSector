@@ -1,4 +1,4 @@
-/obj/item/clothing/suit/toggle/jacket/hoodie/pizza
+/obj/item/clothing/suit/toggle/jacket/nova/hoodie/pizza
 	name = "dogginos hoodie"
 	desc = "A hoodie often worn by the delivery boys of this intergalactically known brand of pizza."
 	greyscale_colors = "#c40000"

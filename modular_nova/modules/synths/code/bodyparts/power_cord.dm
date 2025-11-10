@@ -1,9 +1,31 @@
-/obj/item/organ/cyberimp/arm/power_cord
+/obj/item/organ/cyberimp/arm/toolkit/power_cord
 	name = "charging implant"
 	desc = "An internal power cord. Useful if you run on elecricity. Not so much otherwise."
 	items_to_create = list(/obj/item/synth_powercord)
 	zone = "l_arm"
 	cannot_confiscate = TRUE
+
+/obj/item/organ/cyberimp/arm/toolkit/power_cord/emp_act(severity)
+	. = ..()
+	if(. & EMP_PROTECT_SELF || !IS_ROBOTIC_ORGAN(src))
+		return
+	var/effect_chance = 0
+	switch(severity)
+		if(EMP_LIGHT)
+			effect_chance = 22.5
+		if(EMP_HEAVY)
+			effect_chance = 45
+	if(prob(effect_chance) && owner)
+		owner.visible_message(
+			span_danger("[owner]'s charging implant sparks and crackles!"),
+			span_warning("Your charging implant shorts out, making you twitch!")
+		)
+		if(active_item)
+			Retract()
+		owner.adjust_stutter(severity == EMP_LIGHT ? 4 SECONDS : 8 SECONDS)
+		owner.set_jitter_if_lower(severity == EMP_LIGHT ? 6 SECONDS : 12 SECONDS)
+		do_sparks(3, TRUE, owner)
+		SEND_SIGNAL(owner, COMSIG_LIVING_MINOR_SHOCK)
 
 /obj/item/synth_powercord
 	name = "power cord"
@@ -86,7 +108,7 @@
 	var/minimum_cell_charge = target_apc ? SYNTH_APC_MINIMUM_PERCENT : 0
 
 	if(!target_cell || target_cell.percent() < minimum_cell_charge)
-		user.balloon_alert(user, "APC charge low!")
+		user.balloon_alert(user, "apc charge low!")
 		return
 	var/wait = SSmachines.wait / (1 SECONDS)
 	var/energy_needed
@@ -94,7 +116,7 @@
 		// Check if the charge level of the cell is below the minimum.
 		// Prevents synths from overloading the cell.
 		if(target_cell.percent() < minimum_cell_charge)
-			user.balloon_alert(user, "APC charge low!")
+			user.balloon_alert(user, "apc charge low!")
 			break
 
 		// Attempt to drain charge from the cell.
@@ -126,3 +148,18 @@
 			user.balloon_alert(user, "fully charged")
 			break
 
+/datum/design/synth_charger
+	name = "Charging Cord Implant"
+	desc = "An internal power cord for synthetic use only. Requires connection the synthetic fuel cell to function."
+	id = "synth_charger"
+	build_type = PROTOLATHE | AWAY_LATHE | MECHFAB
+	construction_time = 4 SECONDS
+	materials = list(
+		/datum/material/iron = HALF_SHEET_MATERIAL_AMOUNT,
+		/datum/material/glass = HALF_SHEET_MATERIAL_AMOUNT,
+	)
+	build_path = /obj/item/organ/cyberimp/arm/toolkit/power_cord
+	category = list(
+		RND_SUBCATEGORY_MECHFAB_ANDROID + RND_SUBCATEGORY_MECHFAB_ANDROID_ORGANS,
+	)
+	departmental_flags = DEPARTMENT_BITFLAG_MEDICAL | DEPARTMENT_BITFLAG_SCIENCE

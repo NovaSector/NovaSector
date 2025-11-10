@@ -17,12 +17,10 @@
 	)
 
 /datum/design/xenoarch/tool/hammer
-	desc = "A hammer that can slowly remove debris on strange rocks."
-
-/datum/design/xenoarch/tool/hammer/cm1
 	name = "Hammer (cm 1)"
+	desc = "A hammer that can slowly remove debris on strange rocks."
 	id = "hammer_cm1"
-	build_path = /obj/item/xenoarch/hammer/cm1
+	build_path = /obj/item/xenoarch/hammer
 
 /datum/design/xenoarch/tool/hammer/cm2
 	name = "Hammer (cm 2)"
@@ -64,7 +62,7 @@
 	name = "Xenoarch Tape Measure"
 	desc = "A tape measure used to measure the dug depth of strange rocks."
 	id = "xenoarch_tapemeasure"
-	build_path = /obj/item/xenoarch/tape_measure
+	build_path = /obj/item/xenoarch
 
 /datum/design/xenoarch/tool/scanner
 	name = "Xenoarch Handheld Scanner"
@@ -263,6 +261,7 @@
 		"xenoarch_particles_battery",
 		"xenoarch_artifact_stabilizer",
 	)
+	announce_channels = list(RADIO_CHANNEL_SCIENCE)
 
 /datum/techweb_node/xenoarch_storage
 	id = TECHWEB_NODE_XENOARCH_STORAGE
@@ -274,6 +273,7 @@
 		"xenoarch_bag",
 	)
 	research_costs = list(TECHWEB_POINT_TYPE_GENERIC = TECHWEB_TIER_1_POINTS)
+	announce_channels = list(RADIO_CHANNEL_SCIENCE)
 
 /datum/techweb_node/xenoarch_machines
 	id = TECHWEB_NODE_XENOARCH_MACHINES
@@ -290,6 +290,7 @@
 		"radiocarbon spectrometer",
 	)
 	research_costs = list(TECHWEB_POINT_TYPE_GENERIC = TECHWEB_TIER_1_POINTS)
+	announce_channels = list(RADIO_CHANNEL_SCIENCE)
 
 /datum/techweb_node/adv_xenoarch
 	id = TECHWEB_NODE_XENOARCH_ADVANCED
@@ -306,6 +307,7 @@
 	)
 	research_costs = list(TECHWEB_POINT_TYPE_GENERIC = TECHWEB_TIER_2_POINTS)
 	required_experiments = list(/datum/experiment/scanning/points/xenoarch)
+	announce_channels = list(RADIO_CHANNEL_SCIENCE)
 
 /datum/experiment/scanning/points/xenoarch
 	name = "Advanced Xenoarchaeology Tools"

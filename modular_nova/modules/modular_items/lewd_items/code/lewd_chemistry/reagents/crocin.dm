@@ -27,7 +27,7 @@
 
 /datum/reagent/drug/aphrodisiac/crocin/life_effects(mob/living/carbon/human/exposed_mob)
 	if(prob(emote_probability))
-		exposed_mob.emote(pick(possible_aroused_emotes))
+		exposed_mob.try_lewd_autoemote(pick(possible_aroused_emotes))
 	if(prob(thought_probability))
 		var/displayed_thought = pick(possible_aroused_thoughts)
 		to_chat(exposed_mob, span_notice("[displayed_thought]"))

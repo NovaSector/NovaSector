@@ -8,15 +8,21 @@
 	var/primary_voice
 	/// The pitch of the primary voice
 	var/primary_pitch = 0
+	/// The chat color of the primary voice
+	var/primary_color = COLOR_WHITE
 	/// The secondary voice that can be swapped to/from at will
 	var/secondary_voice
 	/// The secondary voice's pitch
 	var/secondary_pitch = 0
+	/// The chat color of the secondary voice
+	var/secondary_color = COLOR_WHITE
 
 ///Sets up the voice and pitch variables.
 /datum/action/innate/alter_voice/proc/setup_second_voice(mob/actor)
 	if(!actor.client)
 		return
+	// Set up secondary color
+	secondary_color = actor.client.prefs.read_preference(/datum/preference/color/voice_actor_color)
 	// Set up secondary pitch
 	secondary_pitch = actor.client.prefs.read_preference(/datum/preference/numeric/voice_actor_pitch)
 	// Set up secondary voice
@@ -43,11 +49,14 @@
 		to_chat(owner, span_userdanger("You can't remember your second voice at the moment. (Please consider reporting this on github!)"))
 		return
 	active = !active
+	var/mob/living/carbon/human/owner_human = owner
 	if(active)
+		owner_human.apply_preference_chat_color(secondary_color)
 		owner.voice = secondary_voice
 		owner.pitch = secondary_pitch
 		to_chat(owner, span_green("You are now voice acting."))
 	else
+		owner_human.apply_preference_chat_color(primary_color)
 		owner.voice = primary_voice
 		owner.pitch = primary_pitch
 		to_chat(owner, span_green("You have stopped voice acting."))
@@ -58,6 +67,8 @@
 	. = ..()
 	if(grant_to != owner)
 		return
+	// Set up primary runechat color
+	primary_color = grant_to.chat_color
 	// Set up primary pitch
 	if(SStts.pitch_enabled)
 		primary_pitch = grant_to.pitch

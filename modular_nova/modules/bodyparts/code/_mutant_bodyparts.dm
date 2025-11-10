@@ -8,9 +8,6 @@
 	/// What is our normal limb ID? used for squashing legs.
 	var/base_limb_id = SPECIES_MAMMAL
 
-/obj/item/bodypart/proc/check_mutant_compatability()
-	return
-
 /obj/item/bodypart/leg/right
 	/// This is used in digitigrade legs, when this leg is swapped out with the digitigrade version.
 	var/digitigrade_type = /obj/item/bodypart/leg/right/digitigrade
@@ -24,13 +21,15 @@
 	. = ..()
 	var/mob/living/carbon/human/human_owner = new_owner
 	if(istype(human_owner) && human_owner.footstep_type)
-		footstep_type = human_owner.footstep_type
+		if(islist(human_owner.footstep_type))
+			special_footstep_sounds = human_owner.footstep_type
+		else
+			footstep_type = human_owner.footstep_type
 
 /// General mutant bodyparts. Used in most mutant species.
 /obj/item/bodypart/head/mutant
 	icon_greyscale = BODYPART_ICON_MAMMAL
 	limb_id = SPECIES_MAMMAL
-	head_flags = HEAD_ALL_FEATURES
 
 /obj/item/bodypart/chest/mutant
 	icon_greyscale = BODYPART_ICON_MAMMAL
@@ -65,20 +64,10 @@
 
 /obj/item/bodypart/leg/left/digitigrade
 	icon_greyscale = BODYPART_ICON_MAMMAL
-	limb_id = "digitigrade"
 	bodyshape = parent_type::bodyshape | BODYSHAPE_DIGITIGRADE
-	base_limb_id = "digitigrade"
-
-/obj/item/bodypart/leg/left/digitigrade/update_limb(dropping_limb = FALSE, is_creating = FALSE)
-	. = ..()
-	check_mutant_compatability()
+	base_limb_id = BODYPART_ID_DIGITIGRADE
 
 /obj/item/bodypart/leg/right/digitigrade
 	icon_greyscale = BODYPART_ICON_MAMMAL
-	limb_id = "digitigrade"
 	bodyshape = parent_type::bodyshape | BODYSHAPE_DIGITIGRADE
-	base_limb_id = "digitigrade"
-
-/obj/item/bodypart/leg/right/digitigrade/update_limb(dropping_limb = FALSE, is_creating = FALSE)
-	. = ..()
-	check_mutant_compatability()
+	base_limb_id = BODYPART_ID_DIGITIGRADE

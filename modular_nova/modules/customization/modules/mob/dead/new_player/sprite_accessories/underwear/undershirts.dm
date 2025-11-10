@@ -133,3 +133,14 @@
 	icon_state = "babydoll"
 	gender = FEMALE
 	use_static = FALSE
+
+//These are just copies of a bra sprite-accessory, but they layer over other bras instead.
+/datum/sprite_accessory/undershirt/fishnet_sleeves
+	name = "Fishnet - Sleeved (Greyscale)"
+	icon_state = "fishnet_sleeves_alt"
+	use_static = FALSE
+
+/datum/sprite_accessory/undershirt/fishnet_base
+	name = "Fishnet - Sleeveless (Greyscale)"
+	icon_state = "fishnet_body_alt"
+	use_static = FALSE

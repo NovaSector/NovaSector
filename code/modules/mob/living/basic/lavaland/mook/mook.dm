@@ -22,8 +22,8 @@
 	speed = 5
 	pixel_x = -16
 	base_pixel_x = -16
-	pixel_y = -16
-	base_pixel_y = -16
+	pixel_z = -16
+	base_pixel_z = -16
 
 	///the state of combat we are in
 	var/attack_state = MOOK_ATTACK_NEUTRAL
@@ -150,7 +150,7 @@
 
 	. += ore_overlay
 
-/mob/living/basic/mining/mook/throw_at(atom/target, range, speed, mob/thrower, spin=1, diagonals_first = 0, datum/callback/callback, force, gentle = FALSE, quickstart = TRUE)
+/mob/living/basic/mining/mook/throw_at(atom/target, range, speed, mob/thrower, spin=1, diagonals_first = 0, datum/callback/callback, force, gentle = FALSE, quickstart = TRUE, throw_type_path = /datum/thrownthing)
 	change_combatant_state(state = MOOK_ATTACK_ACTIVE)
 	return ..()
 
@@ -256,6 +256,10 @@
 	held_guitar = new(src)
 	ai_controller.set_blackboard_key(BB_SONG_INSTRUMENT, held_guitar)
 	update_appearance()
+
+/mob/living/basic/mining/mook/worker/bard/Destroy(force)
+	QDEL_NULL(held_guitar)
+	. = ..()
 
 /mob/living/basic/mining/mook/worker/tribal_chief
 	name = "tribal chief"

@@ -56,6 +56,7 @@
 /datum/sprite_accessory/underwear/boyshorts_alt
 	name = "Boyshorts (Alt)"
 	icon_state = "boyshorts_alt"
+	has_digitigrade = TRUE
 	gender = FEMALE
 
 //Panties

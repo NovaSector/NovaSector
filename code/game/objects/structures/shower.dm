@@ -121,13 +121,6 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/machinery/shower, (-16))
 
 	return TRUE
 
-//NOVA EDIT ADDITION
-/obj/machinery/shower/plunger_act(obj/item/plunger/P, mob/living/user, reinforced)
-	if(do_after(user, 3 SECONDS, src))
-		reagents.remove_all(reagents.total_volume)
-		balloon_alert(user, "reservoir emptied")
-//NOVA EDIT END
-
 /obj/machinery/shower/analyzer_act(mob/living/user, obj/item/tool)
 	. = ..()
 
@@ -135,7 +128,17 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/machinery/shower, (-16))
 	to_chat(user, span_notice("The water temperature seems to be [current_temperature]."))
 	return TRUE
 
-/obj/machinery/shower/attackby(obj/item/tool, mob/user, params)
+/obj/machinery/shower/plunger_act(obj/item/plunger/attacking_plunger, mob/living/user, reinforced)
+	user.balloon_alert_to_viewers("furiously plunging...", "plunging shower...")
+	if(!do_after(user, 3 SECONDS, target = src))
+		return TRUE
+	user.balloon_alert_to_viewers("finished plunging")
+	reagents.expose(get_turf(src), TOUCH) //splash on the floor
+	reagents.clear_reagents()
+	begin_processing()
+	return TRUE
+
+/obj/machinery/shower/attackby(obj/item/tool, mob/user, list/modifiers, list/attack_modifiers)
 	if(istype(tool, /obj/item/stock_parts/water_recycler))
 		if(has_water_reclaimer)
 			to_chat(user, span_warning("There is already has a water recycler installed."))
@@ -249,7 +252,7 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/machinery/shower, (-16))
 /obj/machinery/shower/proc/on_exited(datum/source, atom/movable/exiter)
 	SIGNAL_HANDLER
 
-	if(!isliving(exiter))
+	if(!iscarbon(exiter))
 		return
 
 	var/obj/machinery/shower/locate_new_shower = locate() in get_turf(exiter)
@@ -271,8 +274,9 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/machinery/shower, (-16))
 	var/mob/living/living_target = target
 	check_heat(living_target)
 
-	living_target.apply_status_effect(/datum/status_effect/washing_regen, shower_reagent)
-	living_target.add_mood_event("shower", /datum/mood_event/shower, shower_reagent)
+	if(iscarbon(living_target))
+		living_target.apply_status_effect(/datum/status_effect/washing_regen, shower_reagent)
+		living_target.add_mood_event("shower", /datum/mood_event/shower, shower_reagent)
 
 /**
  * Toggle whether shower is actually on and outputting water.
@@ -303,7 +307,7 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/machinery/shower, (-16))
 		if(isopenturf(loc))
 			var/turf/open/tile = loc
 			tile.MakeSlippery(TURF_WET_WATER, min_wet_time = 5 SECONDS, wet_time_to_add = 1 SECONDS)
-		for(var/mob/living/showerer in loc)
+		for(var/mob/living/carbon/showerer in loc)
 			showerer.remove_status_effect(/datum/status_effect/washing_regen)
 	return TRUE
 
@@ -385,7 +389,7 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/machinery/shower, (-16))
 	. = ..()
 	AddComponent(/datum/component/simple_rotation)
 
-/obj/structure/showerframe/attackby(obj/item/tool, mob/living/user, params)
+/obj/structure/showerframe/attackby(obj/item/tool, mob/living/user, list/modifiers, list/attack_modifiers)
 	if(istype(tool, /obj/item/stock_parts/water_recycler))
 		qdel(tool)
 		var/obj/machinery/shower/shower = new(loc, REVERSE_DIR(dir), TRUE)

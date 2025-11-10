@@ -16,7 +16,12 @@
 SUBSYSTEM_DEF(armaments)
 	name = "Armaments"
 	flags = SS_NO_FIRE
-	init_order = INIT_ORDER_ARMAMENTS
+	dependencies = list(
+		/datum/controller/subsystem/atoms,
+	) // Needs to be between atoms and default so it runs before gun companies
+	dependents = list(
+		/datum/controller/subsystem/market,
+	)
 
 	var/list/entries
 

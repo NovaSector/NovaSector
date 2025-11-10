@@ -81,7 +81,7 @@
 		return // No change
 	var/atom/movable/speaker = parent
 	var/msg = get_warning_message()
-	var/obj/machinery/announcement_system/aas = get_announcement_system(/datum/aas_config_entry/weather, speaker)
+	var/obj/machinery/announcement_system/aas = get_announcement_system(/datum/aas_config_entry/weather, speaker, list(RADIO_CHANNEL_SUPPLY))
 	// Active AAS will override default announcement lines
 	if (aas)
 		msg = aas.compile_config_message(/datum/aas_config_entry/weather, list(), !is_weather_dangerous ? 4 : warning_level + 1)
@@ -123,7 +123,7 @@
 
 
 	for(var/datum/weather/check_weather as anything in SSweather.processing)
-		if(!check_weather.barometer_predictable || check_weather.stage == WIND_DOWN_STAGE || check_weather.stage == END_STAGE)
+		if(!(check_weather.weather_flags & WEATHER_BAROMETER) || check_weather.stage == WIND_DOWN_STAGE || check_weather.stage == END_STAGE)
 			continue
 		for (var/mining_level in mining_z_levels)
 			if(mining_level in check_weather.impacted_z_levels)
@@ -154,12 +154,12 @@
 	warning_level = WEATHER_ALERT_IMMINENT_OR_ACTIVE
 
 	for(var/datum/weather/check_weather as anything in SSweather.processing)
-		if(!check_weather.barometer_predictable || check_weather.stage == WIND_DOWN_STAGE || check_weather.stage == END_STAGE)
+		if(!(check_weather.weather_flags & WEATHER_BAROMETER) || check_weather.stage == WIND_DOWN_STAGE || check_weather.stage == END_STAGE)
 			continue
 		var/list/mining_z_levels = SSmapping.levels_by_trait(ZTRAIT_MINING)
 		for(var/mining_level in mining_z_levels)
 			if(mining_level in check_weather.impacted_z_levels)
-				is_weather_dangerous = !check_weather.aesthetic
+				is_weather_dangerous = (check_weather.weather_flags & FUNCTIONAL_WEATHER)
 				return
 
 /datum/component/weather_announcer/proc/on_examine(atom/radio, mob/examiner, list/examine_texts)
@@ -188,6 +188,14 @@
 		"Safe" = "No risk expected from incoming weather front.",
 	)
 
+/datum/aas_config_entry/weather/act_up()
+	. = ..()
+	if (.)
+		return
+
+	// 10% chance to turn off weather broadcast entirely
+	if (prob(10))
+		enabled = FALSE
 
 #undef WEATHER_ALERT_CLEAR
 #undef WEATHER_ALERT_INCOMING

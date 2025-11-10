@@ -328,7 +328,7 @@
 		if("deny")
 			if(!check_rights(R_ADMIN))
 				return
-			var/denied_reason = tgui_input_text(usr, "Denial Reason", "Enter a reason for denying this application:", max_length = MAX_NAME_LEN)
+			var/denied_reason = tgui_input_text(usr, "Denial Reason", "Enter a reason for denying this application:", max_length = MAX_MESSAGE_LEN)
 			// Checking to see if the user is spamming the button, async and all.
 			if((status == OPFOR_STATUS_DENIED) || !denied_reason)
 				return
@@ -823,7 +823,7 @@
 	send_system_message("Weak against armor: [initial(processed_item.weak_against_armour) ? "Yes" : "No"]")
 	send_system_message("Damage type: [initial(processed_item.damtype)]")
 	send_system_message("Wound bonus: [initial(processed_item.wound_bonus)]")
-	send_system_message("Bare wound bonus: [initial(processed_item.bare_wound_bonus)]")
+	send_system_message("Bare wound bonus: [initial(processed_item.exposed_wound_bonus)]")
 	send_system_message("Force: [initial(processed_item.force)]")
 
 /datum/opposing_force/proc/unlock_equipment(mob/user)
@@ -940,7 +940,7 @@
 
 						if(\
 						!equipment["equipment_parent_category"]|| !(equipment["equipment_parent_category"] in SSopposing_force.equipment_list)\
-						 || !equipment["equipment_parent_type"] || !ispath(text2path(equipment["equipment_parent_type"]), /datum/opposing_force_equipment))
+							|| !equipment["equipment_parent_type"] || !ispath(text2path(equipment["equipment_parent_type"]), /datum/opposing_force_equipment))
 							continue
 
 						// creates a new selected equipment datum using a type gotten from the given equipment type via SSopposing_force.equipment_list
@@ -1001,21 +1001,6 @@
 
 	fdel(to_write_file)
 
-
-/datum/action/opfor
-	name = "Open Opposing Force Panel"
-	button_icon_state = "round_end"
-
-/datum/action/opfor/Trigger(trigger_flags)
-	. = ..()
-	if(!.)
-		return
-	owner.opposing_force()
-
-/datum/action/opfor/IsAvailable(feedback = FALSE)
-	if(!target)
-		return FALSE
-	return ..()
 
 /obj/effect/statclick/opfor_specific
 	var/datum/opposing_force/opfor

@@ -17,9 +17,11 @@
 	var/step_change = 0.5
 
 /obj/item/mod/module/springlock/on_install()
+	. = ..()
 	mod.activation_step_time *= step_change
 
 /obj/item/mod/module/springlock/on_uninstall(deleting = FALSE)
+	. = ..()
 	mod.activation_step_time /= step_change
 
 /obj/item/mod/module/springlock/on_part_activation()
@@ -52,7 +54,7 @@
 	set_off = TRUE
 
 ///Calls snap_signal() when exposed to a reagent via VAPOR, PATCH or TOUCH
-/obj/item/mod/module/springlock/proc/on_wearer_exposed(atom/source, list/reagents, datum/reagents/source_reagents, methods, volume_modifier, show_message)
+/obj/item/mod/module/springlock/proc/on_wearer_exposed(atom/source, list/reagents, datum/reagents/source_reagents, methods, show_message)
 	SIGNAL_HANDLER
 
 	if(!(methods & (VAPOR|PATCH|TOUCH)))
@@ -134,12 +136,12 @@
 	QDEL_NULL(rave_screen)
 	return ..()
 
-/obj/item/mod/module/visor/rave/on_activation()
+/obj/item/mod/module/visor/rave/on_activation(mob/activator)
 	rave_screen = mod.wearer.add_client_colour(/datum/client_colour/rave, REF(src))
 	rave_screen.update_color(rainbow_order[rave_number])
 	music_player.start_music(mod.wearer)
 
-/obj/item/mod/module/visor/rave/on_deactivation(display_message = TRUE, deleting = FALSE)
+/obj/item/mod/module/visor/rave/on_deactivation(mob/activator, display_message = TRUE, deleting = FALSE)
 	QDEL_NULL(rave_screen)
 	if(isnull(music_player.active_song_sound))
 		return
@@ -149,18 +151,22 @@
 		return
 	SEND_SOUND(mod.wearer, sound('sound/machines/terminal/terminal_off.ogg', volume = 50, channel = CHANNEL_JUKEBOX))
 
-/obj/item/mod/module/visor/rave/generate_worn_overlay(mutable_appearance/standing)
+/obj/item/mod/module/visor/rave/generate_worn_overlay(obj/item/source, mutable_appearance/standing)
+	. = ..()
+	if (!.)
+		return
+
 	var/mutable_appearance/visor_overlay = mod.get_visor_overlay(standing)
 	visor_overlay.appearance_flags |= RESET_COLOR
 	if (!isnull(music_player.active_song_sound))
 		visor_overlay.color = rainbow_order[rave_number]
-	return list(visor_overlay)
+	. += visor_overlay
 
 /obj/item/mod/module/visor/rave/on_active_process(seconds_per_tick)
 	rave_number++
 	if(rave_number > length(rainbow_order))
 		rave_number = 1
-	mod.wearer.update_clothing(mod.slot_flags)
+	update_clothing_slots()
 	rave_screen.update_color(rainbow_order[rave_number])
 
 /obj/item/mod/module/visor/rave/get_configuration()
@@ -193,7 +199,7 @@
 	cooldown_time = 30 SECONDS
 	required_slots = list(ITEM_SLOT_OCLOTHING|ITEM_SLOT_ICLOTHING)
 
-/obj/item/mod/module/tanner/on_use()
+/obj/item/mod/module/tanner/on_use(mob/activator)
 	playsound(src, 'sound/machines/microwave/microwave-end.ogg', 50, TRUE)
 	var/datum/reagents/holder = new()
 	holder.add_reagent(/datum/reagent/spraytan, 10)
@@ -217,7 +223,7 @@
 	var/blowing_time = 10 SECONDS
 	var/oxygen_damage = 20
 
-/obj/item/mod/module/balloon/on_use()
+/obj/item/mod/module/balloon/on_use(mob/activator)
 	if(!do_after(mod.wearer, blowing_time, target = mod))
 		return FALSE
 	mod.wearer.adjustOxyLoss(oxygen_damage)
@@ -241,7 +247,7 @@
 	/// The total number of sheets created by this MOD. The more sheets, them more likely they set on fire.
 	var/num_sheets_dispensed = 0
 
-/obj/item/mod/module/paper_dispenser/on_use()
+/obj/item/mod/module/paper_dispenser/on_use(mob/activator)
 	if(!do_after(mod.wearer, 1 SECONDS, target = mod))
 		return FALSE
 
@@ -310,27 +316,34 @@
 	/// If you use the module on a planetary turf, you fly up. To the sky.
 	var/you_fucked_up = FALSE
 
-/obj/item/mod/module/atrocinator/on_activation()
+/obj/item/mod/module/atrocinator/on_activation(mob/activator)
+	// Auto-unbuckle anyone being carried to avoid lag issues
+	if(length(mod.wearer.buckled_mobs))
+		mod.wearer.visible_message("As [mod.wearer] flips, [mod.wearer.buckled_mobs[1]] flies off of [mod.wearer.p_their()] back!")
+		mod.wearer.unbuckle_all_mobs()
+
 	playsound(src, 'sound/effects/curse/curseattack.ogg', 50)
 	mod.wearer.AddElement(/datum/element/forced_gravity, NEGATIVE_GRAVITY)
 	RegisterSignal(mod.wearer, COMSIG_MOVABLE_MOVED, PROC_REF(check_upstairs))
 	RegisterSignal(mod.wearer, COMSIG_MOB_SAY, PROC_REF(on_talk))
+	RegisterSignal(mod.wearer, COMSIG_MOVABLE_PREBUCKLE, PROC_REF(on_someone_buckled))
 	ADD_TRAIT(mod.wearer, TRAIT_SILENT_FOOTSTEPS, REF(src))
 	passtable_on(mod.wearer, REF(src))
 	check_upstairs() //todo at some point flip your screen around
 
-/obj/item/mod/module/atrocinator/deactivate(display_message = TRUE, deleting = FALSE)
+/obj/item/mod/module/atrocinator/deactivate(mob/activator, display_message = TRUE, deleting = FALSE)
 	if(you_fucked_up && !deleting)
-		to_chat(mod.wearer, span_danger("It's too late."))
+		to_chat(activator, span_danger("It's too late."))
 		return FALSE
 	return ..()
 
-/obj/item/mod/module/atrocinator/on_deactivation(display_message = TRUE, deleting = FALSE)
+/obj/item/mod/module/atrocinator/on_deactivation(mob/activator, display_message = TRUE, deleting = FALSE)
 	if(!deleting)
 		playsound(src, 'sound/effects/curse/curseattack.ogg', 50)
 	qdel(mod.wearer.RemoveElement(/datum/element/forced_gravity, NEGATIVE_GRAVITY))
 	UnregisterSignal(mod.wearer, COMSIG_MOVABLE_MOVED)
 	UnregisterSignal(mod.wearer, COMSIG_MOB_SAY)
+	UnregisterSignal(mod.wearer, COMSIG_MOVABLE_PREBUCKLE)
 	step_count = 0
 	REMOVE_TRAIT(mod.wearer, TRAIT_SILENT_FOOTSTEPS, REF(src))
 	passtable_off(mod.wearer, REF(src))
@@ -342,6 +355,16 @@
 	SIGNAL_HANDLER
 
 	if(you_fucked_up || mod.wearer.has_gravity() > NEGATIVE_GRAVITY)
+		return
+
+	// Prevent infinite loops when being fireman carried - Stack trace if it does
+	if(mod.wearer.buckled)
+		stack_trace("Atrocinator user is buckled despite protections - this shouldn't happen!")
+		return
+
+	// Prevent infinite loops when carrying someone - Stack trace if it does
+	if(length(mod.wearer.buckled_mobs))
+		stack_trace("Atrocinator user is carrying someone despite protections - this shouldn't happen!")
 		return
 
 	var/turf/open/current_turf = get_turf(mod.wearer)
@@ -377,6 +400,14 @@
 /obj/item/mod/module/atrocinator/proc/on_talk(datum/source, list/speech_args)
 	SIGNAL_HANDLER
 	speech_args[SPEECH_SPANS] |= "upside_down"
+
+/// Prevent someone from being buckled to the wearer while atrocinator is active
+/obj/item/mod/module/atrocinator/proc/on_someone_buckled(datum/source, mob/living/buckled_mob, mob/living/buckler)
+	SIGNAL_HANDLER
+	balloon_alert(buckler, "[buckler == mod.wearer ? "you're" : "they're"] upside down!")
+	return COMPONENT_BLOCK_BUCKLE
+
+
 
 /obj/item/mod/module/recycler/donk/safe
 	name = "MOD foam dart recycler module"

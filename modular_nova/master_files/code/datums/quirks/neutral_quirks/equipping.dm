@@ -21,36 +21,38 @@
 		var/item = new item_path(carbon_holder.loc)
 		var/success = FALSE
 		// Checking for nodrop and seeing if there's an empty slot
-		for (var/slot as anything in all_items[item_path])
+		for (var/slot in all_items[item_path])
 			success = force_equip_item(carbon_holder, item, slot, check_item = FALSE)
 			if (success)
 				break
 		// Checking for nodrop
-		for (var/slot as anything in all_items[item_path])
+		for (var/slot in all_items[item_path])
 			success = force_equip_item(carbon_holder, item, slot)
 			if (success)
 				break
 
 		if ((item_path in forced_items) && !success)
 			// Checking for nodrop failed, shove it into the first available slot, even if it has nodrop
-			for (var/slot as anything in all_items[item_path])
+			for (var/slot in all_items[item_path])
 				success = force_equip_item(carbon_holder, item, slot, FALSE)
 				if (success)
 					break
 		equipped_items[item] = success
-	for (var/item as anything in equipped_items)
+	for (var/item in equipped_items)
 		on_equip_item(item, equipped_items[item])
 
 /datum/quirk/equipping/proc/force_equip_item(mob/living/carbon/target, obj/item/item, slot, check_nodrop = TRUE, check_item = TRUE)
 	var/obj/item/item_in_slot = target.get_item_by_slot(slot)
-	if (check_item && item_in_slot)
+	if (!check_item)
+		if (target.equip_to_slot_if_possible(item, slot, disable_warning = TRUE) || target.equip_to_storage(item, slot, indirect_action = TRUE))
+			return TRUE
+	else if (item_in_slot)
 		if (check_nodrop && HAS_TRAIT(item_in_slot, TRAIT_NODROP))
 			return FALSE
 		target.dropItemToGround(item_in_slot, force = TRUE)
 		force_dropped_items += item_in_slot
 		RegisterSignal(item_in_slot, COMSIG_QDELETING, PROC_REF(dropped_items_cleanup))
-
-	return target.equip_to_slot_if_possible(item, slot, disable_warning = TRUE) // this should never not work tbh
+	return target.equip_to_slot_if_possible(item, slot, disable_warning = TRUE)
 
 /datum/quirk/equipping/proc/dropped_items_cleanup(obj/item/source)
 	SIGNAL_HANDLER

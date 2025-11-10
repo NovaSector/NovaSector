@@ -1,6 +1,3 @@
-/// Organ flag for organs of hemophage origin, or organs that have since been infected by an hemophage's tumor.
-#define ORGAN_TUMOR_CORRUPTED (1<<12) // Not taking chances, hopefully this number remains good for a little while.
-
 /// We have a pulsating tumor, it's active.
 #define PULSATING_TUMOR_ACTIVE 0
 /// We have a pulsating tumor, it's dormant.
@@ -8,6 +5,8 @@
 /// We don't have a pulsating tumor.
 #define PULSATING_TUMOR_MISSING 2
 
+/// Hemophages spawn with 60% of the maximum blood capacity
+#define BLOOD_VOLUME_ROUNDSTART_HEMOPHAGE BLOOD_VOLUME_MAXIMUM * (1 - 0.40)
 /// Minimum amount of blood that you can reach via blood regeneration, regeneration will stop below this.
 #define MINIMUM_VOLUME_FOR_REGEN (BLOOD_VOLUME_BAD + 1) // We do this to avoid any jankiness, and because we want to ensure that they don't fall into a state where they're constantly passing out in a locker.
 /// Vomit flags for hemophages who eat food
@@ -16,3 +15,7 @@
 #define HEMOPHAGE_VOMIT_PURGE_RATIO 0.95
 /// How much disgust we're at after eating/drinking something the tumor doesn't like.
 #define TUMOR_DISLIKED_FOOD_DISGUST DISGUST_LEVEL_GROSS + 15
+/// How much blood do Hemophages normally lose per second (visible effect is every two seconds, so twice this value).
+#define NORMAL_HEMOPHAGE_BLOOD_DRAIN 0.05
+/// The bleed mod for how much bloodloss will occur from all instances
+#define HEMOPHAGE_BLEED_MOD 1.2

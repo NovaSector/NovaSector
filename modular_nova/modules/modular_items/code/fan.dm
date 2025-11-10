@@ -19,7 +19,7 @@
 
 /obj/machinery/nova/fan/Destroy()
 	air_update_turf(TRUE, FALSE)
-	. = ..()
+	return ..()
 
 /obj/machinery/nova/fan/self_powered/on_deconstruction(disassembled)
 	new /obj/item/stack/sheet/iron(drop_location(), 5)

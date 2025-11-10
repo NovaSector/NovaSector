@@ -10,7 +10,7 @@ Adds digitigrade bloody soles overlays.
 
 ### TG Proc Changes:
 
-- ./code/modules/clothing/shoes/_shoes.dm > /obj/item/clothing/shoes/worn_overlays()
+- `./code/modules/clothing/shoes/_shoes.dm` > /obj/item/clothing/shoes/worn_overlays()
 - ./code/datums/components/bloodysoles.dm > /datum/component/bloodysoles/feet/Initialize()
 - ./code/datums/components/bloodysoles.dm > /datum/component/bloodysoles/feet/on_step_blood()
 
@@ -27,4 +27,5 @@ Adds digitigrade bloody soles overlays.
 - N/A
 
 ### Credits:
+
 Seris02 - Porting of sprites/Some code

@@ -4,6 +4,30 @@
 	quirks_enabled = TRUE // ghost role quirks
 	random_appearance = FALSE // ghost role prefs
 
+/// Maintsroom lost
+
+/obj/effect/mob_spawn/ghost_role/human/maintsroom
+	name = "chamenos"
+	prompt_name = "A being stuck in between two spaces"
+	you_are_text = "You wake up. Your hideout is intact with stuff you gathered yesterday, you are safe but you get a gut feeling that once you leave your hideout you cannot come back. Maybe you should go explore, be wary of the red lights."
+	flavour_text = "You've been stuck in the Maintsrooms for longer than you can remember, and this place has changed you. Is it madness, insanity, or an infection? Or are you an eldritch being, a monster who was born/created/manifested here? Survival will be challenging, and the Maintsrooms are a very hostile environment, so anything surviving here should have a believable reason to."
+	important_text = "YOU ARE NOT HOSTILE YOU SHOULD NOT BE KILLING PEOPLE/CREW IN GENERAL, unless you have admin permission or good IC justification to do so."
+	loadout_enabled = TRUE
+	quirks_enabled = TRUE // ghost role quirks
+	random_appearance = FALSE // ghost role prefs
+	deletes_on_zero_uses_left = TRUE
+
+/obj/effect/mob_spawn/ghost_role/human/heretic
+	name = "Security Agent"
+	prompt_name = "Become a mysterious agent?"
+	you_are_text = "You are an agent for a mysterious clandestine group and the facility you worked for recently got evacuated and you were told to not go in and to prevent other people from going in, you know better than to mess with your boss."
+	flavour_text = "You are tasked with maintaining the security of the facility and the people still left inside. You are to not let anybody in but to maintain the front of the resort but tell them the beach is closed, but do your best to still service people as if this was a resort."
+	important_text = "You can, and should kill people if they try and get past the wooden barricades and security barrier, however if when you catch them theyre already past the security barrier you are to kill yourself instead, if you kill anybody you are to tend their body then make their death look like an accident and then throw them back through the gateway DO NOT RR PEOPLE OR HIDE THEIR BODIES IN ANY CIRCUMSTANCES, do not loot people either even if its their weapon in the heat of combat, go into this ghost role with the mindset that you are an npc."
+	loadout_enabled = TRUE
+	quirks_enabled = TRUE // ghost role quirks
+	random_appearance = FALSE // ghost role prefs
+	deletes_on_zero_uses_left = TRUE
+
 /// Beach Dome
 
 /obj/effect/mob_spawn/ghost_role/human/beach
@@ -45,7 +69,7 @@
 // OUTFITS
 
 /datum/outfit/lavaland_syndicate/comms
-	uniform = /obj/item/clothing/under/rank/security/nova/utility/redsec/syndicate
+	uniform = /obj/item/clothing/under/rank/security/nova/utility/syndicate
 	ears = /obj/item/radio/headset/interdyne/comms
 
 /datum/outfit/lavaland_syndicate/comms/space
@@ -66,6 +90,7 @@
 	outfit = /datum/outfit/interdyne_planetary_base
 	spawner_job_path = /datum/job/interdyne_planetary_base
 	loadout_enabled = TRUE
+	allow_mechanical_loadout_items = TRUE
 	quirks_enabled = TRUE
 	random_appearance = FALSE
 
@@ -84,23 +109,25 @@
 	prompt_name = "an Interdyne shaft miner"
 	you_are_text = "You are a shaft miner, employed in an Interdyne research facility developing biological weapons."
 	outfit = /datum/outfit/interdyne_planetary_base/shaftminer
+	spawner_job_path = /datum/job/interdyne_planetary_base/mining
 
 /obj/effect/mob_spawn/ghost_role/human/interdyne_planetary_base/shaftminer/ice
 	outfit = /datum/outfit/interdyne_planetary_base/shaftminer/ice
 	computer_area = /area/ruin/interdyne_planetary_base/main/dorms
 	flavour_text = "Interdyne middle management has relayed that Nanotrasen is actively mining in this sector. A deal with the Syndicate remains, but their starship has left the system, leaving our quantum pad without a purpose. Continue your research as best you can, and try to keep out of trouble."
-	spawner_job_path = /datum/job/interdyne_planetary_base_icebox
+	spawner_job_path = /datum/job/interdyne_planetary_base_icebox/mining
 
 /obj/effect/mob_spawn/ghost_role/human/interdyne_planetary_base/deck_officer
 	name = "Interdyne Deck Officer"
 	prompt_name = "an Interdyne deck officer"
 	you_are_text = "You are a Deck Officer, employed in an Interdyne research facility developing biological weapons."
 	outfit = /datum/outfit/interdyne_planetary_base/shaftminer/deckofficer
+	spawner_job_path = /datum/job/interdyne_planetary_base/command
 
 /obj/effect/mob_spawn/ghost_role/human/interdyne_planetary_base/deck_officer/ice
 	computer_area = /area/ruin/interdyne_planetary_base/main/dorms
 	flavour_text = "Interdyne middle management has relayed that Nanotrasen is actively mining in this sector. A deal with the Syndicate remains, but their starship has left the system, leaving our quantum pad without a purpose. Continue your research as best you can, and try to keep out of trouble."
-	spawner_job_path = /datum/job/interdyne_planetary_base_icebox
+	spawner_job_path = /datum/job/interdyne_planetary_base_icebox/command
 
 
 
@@ -128,12 +155,12 @@
 
 /datum/outfit/interdyne_planetary_base
 	name = "Interdyne Scientist"
-	id = /obj/item/card/id/advanced/chameleon
+	id = /obj/item/card/id/advanced/chameleon/elite
 	id_trim = /datum/id_trim/syndicom/nova/interdyne
 	uniform = /obj/item/clothing/under/syndicate/nova/interdyne
 	suit = /obj/item/clothing/suit/toggle/labcoat/nova/interdyne_labcoat/white
 	head = /obj/item/clothing/head/beret/medical/nova/interdyne
-	back = /obj/item/storage/backpack/virology
+	back = /obj/item/storage/backpack/interdyne
 	backpack_contents = list(
 		/obj/item/storage/box/survival/interdyne=1,
 		/obj/item/storage/box/nif_ghost_box/ghost_role=1,
@@ -196,7 +223,7 @@
 	head = /obj/item/clothing/head/hats/syndicate/interdyne_deckofficer_black
 	suit = /obj/item/clothing/suit/armor/hos/deckofficer
 	ears = /obj/item/radio/headset/interdyne/command
-	id = /obj/item/card/id/advanced/chameleon/black/silver
+	id = /obj/item/card/id/advanced/chameleon/elite/black/silver
 	id_trim = /datum/id_trim/syndicom/nova/interdyne/deckofficer
 
 /obj/effect/mob_spawn/ghost_role/human/interdyne_planetary_base/deckofficer/Destroy()
@@ -244,7 +271,7 @@
 /obj/structure/closet/l3closet/interdyne
 	name = "Interdyne level 3 biohazard gear closet"
 
-/obj/structure/closet/l3closet/virology/PopulateContents()
+/obj/structure/closet/l3closet/interdyne/PopulateContents()
 	new /obj/item/storage/bag/bio(src)
 	new /obj/item/clothing/suit/bio_suit/interdyne(src)
 	new /obj/item/clothing/head/bio_hood/interdyne(src)

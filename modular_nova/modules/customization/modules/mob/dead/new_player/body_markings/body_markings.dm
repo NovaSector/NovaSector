@@ -195,6 +195,13 @@
 	affected_bodyparts = HEAD
 	always_color_customizable = TRUE
 
+/datum/body_marking/other/sclera
+	name = "Sclera"
+	icon_state = "sclera"
+	default_color = "#FF0000"
+	affected_bodyparts = HEAD
+	always_color_customizable = TRUE
+
 /datum/body_marking/other/anime_inner
 	name = "Anime Eyes (Inner)"
 	icon_state = "anime_inner"
@@ -212,8 +219,33 @@
 /datum/body_marking/other/claws
 	name = "Claw Tips"
 	icon_state = "claws"
-	affected_bodyparts = HAND_LEFT | HAND_RIGHT
+	affected_bodyparts = HAND_LEFT | HAND_RIGHT | LEG_RIGHT | LEG_LEFT
 	gendered = FALSE
+
+/datum/body_marking/other/harpy_upper
+	name = "Harpy Upper Legs"
+	icon_state = "harpy_upper"
+	affected_bodyparts = LEG_RIGHT | LEG_LEFT
+	gendered = FALSE
+
+/datum/body_marking/other/harpy_lower
+	name = "Harpy Lower Legs"
+	icon_state = "harpy_lower"
+	affected_bodyparts = LEG_RIGHT | LEG_LEFT
+	gendered = FALSE
+
+/datum/body_marking/other/harpy_claws
+	name = "Harpy Claws"
+	icon_state = "harpy_claws"
+	affected_bodyparts = LEG_RIGHT | LEG_LEFT
+	gendered = FALSE
+
+/datum/body_marking/other/critter_legs
+	name = "Critter Legs"
+	icon_state = "critterleg"
+	affected_bodyparts = LEG_RIGHT | LEG_LEFT
+	gendered = FALSE
+
 
 /datum/body_marking/other/splotches
 	name = "Splotches"
@@ -277,6 +309,22 @@
 	affected_bodyparts = CHEST | ARM_RIGHT | ARM_LEFT
 	gendered = FALSE
 
+/datum/body_marking/other/sixnips
+	name = "Six Nips"
+	icon_state = "nips"
+	affected_bodyparts = CHEST
+	gendered = FALSE
+
+/datum/body_marking/other/chemlight
+	name = "Bands and Stripes"
+	icon_state = "chemlight"
+	affected_bodyparts = ARM_LEFT | ARM_RIGHT | HAND_LEFT | HAND_RIGHT | LEG_RIGHT | LEG_LEFT
+
+/datum/body_marking/other/back_stripe
+	name = "Back Stripe"
+	icon_state = "backstripe"
+	affected_bodyparts = HEAD | CHEST
+
 /datum/body_marking/secondary
 	icon = 'modular_nova/master_files/icons/mob/body_markings/secondary_markings.dmi'
 	default_color = DEFAULT_SECONDARY
@@ -322,6 +370,12 @@
 	icon_state = "teshari_feathers_female"
 	recommended_species = list(SPECIES_TESHARI)
 	affected_bodyparts = HEAD | CHEST | ARM_LEFT | ARM_RIGHT | HAND_LEFT | HAND_RIGHT | LEG_RIGHT | LEG_LEFT
+
+/datum/body_marking/secondary/teshari_lashes
+	name = "Teshari Lashes"
+	icon_state = "teshari_lashes"
+	recommended_species = list(SPECIES_TESHARI)
+	affected_bodyparts = HEAD
 
 /datum/body_marking/secondary/tajaran
 	name = "Tajaran"
@@ -564,6 +618,26 @@
 	icon_state = "plain"
 	affected_bodyparts = HEAD | CHEST | ARM_LEFT | ARM_RIGHT | HAND_LEFT | HAND_RIGHT | LEG_RIGHT | LEG_LEFT
 
+/datum/body_marking/secondary/upper_limb
+	name = "Upper Limb"
+	icon_state = "upper_limb"
+	affected_bodyparts = ARM_LEFT | ARM_RIGHT | LEG_RIGHT | LEG_LEFT
+
+/datum/body_marking/secondary/lower_limb
+	name = "Lower Limb"
+	icon_state = "lower_limb"
+	affected_bodyparts = ARM_LEFT | ARM_RIGHT | LEG_RIGHT | LEG_LEFT
+
+/datum/body_marking/secondary/insectoid
+	name = "Insectoid"
+	icon_state = "insect"
+	affected_bodyparts = CHEST
+
+/datum/body_marking/secondary/bellyoutline
+	name = "Belly Outline"
+	icon_state = "chembelly_trim"
+	affected_bodyparts = CHEST
+
 /datum/body_marking/tertiary
 	icon = 'modular_nova/master_files/icons/mob/body_markings/tertiary_markings.dmi'
 	default_color = DEFAULT_TERTIARY
@@ -699,6 +773,15 @@
 	icon_state = "lbelly"
 	affected_bodyparts = CHEST
 
+/datum/body_marking/tertiary/insectoid
+	name = "Insectoid Trim"
+	icon_state = "insect_trim"
+	affected_bodyparts = CHEST | ARM_LEFT | ARM_RIGHT | LEG_LEFT | LEG_RIGHT
+
+/datum/body_marking/tertiary/chemlight
+	name = "Bands and Stripes (Alt)"
+	icon_state = "chem_light"
+	affected_bodyparts = ARM_LEFT | ARM_RIGHT | HAND_LEFT | HAND_RIGHT | LEG_RIGHT | LEG_LEFT
 
 /datum/body_marking/tattoo
 	icon = 'modular_nova/master_files/icons/mob/body_markings/tattoo_markings.dmi'

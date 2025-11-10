@@ -92,12 +92,11 @@
 		. += "reactor_sniffer_panel"
 
 /obj/machinery/rbmk2_sniffer/Destroy()
-	. = ..()
-
 	for(var/obj/machinery/power/rbmk2/reactor as anything in linked_reactors)
 		unlink_reactor(desired_reactor = reactor)
 
 	QDEL_NULL(stored_radio)
+	return ..()
 
 /obj/machinery/rbmk2_sniffer/screwdriver_act(mob/living/user, obj/item/attack_item)
 	if(default_deconstruction_screwdriver(user, icon_state, icon_state, attack_item))

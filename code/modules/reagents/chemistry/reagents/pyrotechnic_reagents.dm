@@ -163,11 +163,12 @@
 	self_consuming = TRUE
 	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
 
-/datum/reagent/phlogiston/expose_mob(mob/living/exposed_mob, methods=TOUCH, reac_volume)
+/datum/reagent/phlogiston/expose_mob(mob/living/exposed_mob, methods=TOUCH, reac_volume, show_message = TRUE, touch_protection = 0)
 	. = ..()
 	exposed_mob.adjust_fire_stacks(1)
-	var/burndmg = max(0.3*exposed_mob.fire_stacks, 0.3)
-	exposed_mob.adjustFireLoss(burndmg, 0)
+	var/burndmg = max(0.3*exposed_mob.fire_stacks * (1 - touch_protection), 0.3)
+	if(burndmg)
+		exposed_mob.adjustFireLoss(burndmg, 0)
 	exposed_mob.ignite_mob()
 
 /datum/reagent/phlogiston/on_mob_life(mob/living/carbon/metabolizer, seconds_per_tick, times_fired)
@@ -312,17 +313,19 @@
 	addtimer(TRAIT_CALLBACK_REMOVE(fish, TRAIT_FISH_ELECTROGENESIS, type), fish.feeding_frequency * 0.75, TIMER_UNIQUE|TIMER_OVERRIDE)
 	return TRUE
 
-/datum/reagent/teslium/on_mob_metabolize(mob/living/carbon/human/affected_mob)
+/datum/reagent/teslium/on_mob_metabolize(mob/living/carbon/affected_mob)
 	. = ..()
-	if(!istype(affected_mob))
+	if(!ishuman(affected_mob))
 		return
-	affected_mob.physiology.siemens_coeff *= 2
+	var/mob/living/carbon/human/affected_human = affected_mob
+	affected_human.physiology.siemens_coeff *= 2
 
-/datum/reagent/teslium/on_mob_end_metabolize(mob/living/carbon/human/affected_mob)
+/datum/reagent/teslium/on_mob_end_metabolize(mob/living/carbon/affected_mob)
 	. = ..()
-	if(!istype(affected_mob))
+	if(!ishuman(affected_mob))
 		return
-	affected_mob.physiology.siemens_coeff *= 0.5
+	var/mob/living/carbon/human/affected_human = affected_mob
+	affected_human.physiology.siemens_coeff *= 0.5
 
 /datum/reagent/teslium/energized_jelly
 	name = "Energized Jelly"

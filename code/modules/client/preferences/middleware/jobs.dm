@@ -25,6 +25,10 @@
 		return FALSE
 
 	preferences.character_preview_view?.update_body()
+	// NOVA EDIT ADDITION START
+	if(!SSticker.HasRoundStarted())
+		SEND_SIGNAL(user, COMSIG_JOB_PREF_UPDATED)
+	// NOVA EDIT ADDITION END
 
 	return TRUE
 
@@ -42,6 +46,8 @@
 		return FALSE
 
 	preferences.alt_job_titles[job_title] = new_job_title
+	if(!SSticker.HasRoundStarted())
+		SEND_SIGNAL(user, COMSIG_JOB_PREF_UPDATED)
 
 	return TRUE
 // NOVA EDIT ADDITION END
@@ -75,7 +81,7 @@
 		jobs[job.title] = list(
 			"description" = job.description,
 			"department" = department_name,
-			"veteran" = job.veteran_only, // NOVA EDIT
+			"nova_star" = job.nova_stars_only, // NOVA EDIT
 			"alt_titles" = job.alt_titles, // NOVA EDIT
 		)
 
@@ -101,8 +107,8 @@
 /datum/preference_middleware/jobs/get_ui_static_data(mob/user)
 	var/list/data = list()
 	// NOVA EDIT
-	if(SSplayer_ranks.is_veteran(user.client))
-		data["is_veteran"] = TRUE
+	if(SSplayer_ranks.is_nova_star(user.client))
+		data["is_nova_star"] = TRUE
 	// NOVA EDIT END
 	var/list/required_job_playtime = get_required_job_playtime(user)
 	if (!isnull(required_job_playtime))
@@ -154,12 +160,19 @@
 //NOVA EDIT ADDITION BEGIN - CHECKING FOR INCOMPATIBLE SPECIES
 //This returns a list of jobs that are unavailable for the player's current species
 /datum/preference_middleware/jobs/proc/get_unavailable_jobs_for_species()
-	var/list/data = list()
+	var/static/list/cached_unavailable_jobs = list()
+	var/datum/species/species = preferences.read_preference(/datum/preference/choiced/species)
+	var/species_id = species::id
 
+	if (cached_unavailable_jobs[species_id])
+		return cached_unavailable_jobs[species_id]
+
+	// Build the full list once and remember for future runs
+	var/list/unavailable = list()
 	for (var/datum/job/job as anything in SSjob.all_occupations)
-		if (job.has_banned_species(preferences))
-			data += job.title
+		if (job.has_banned_species(preferences, species_id))
+			unavailable += job.title
 
-	return data
-
+	cached_unavailable_jobs[species_id] = unavailable
+	return unavailable
 //NOVA EDIT ADDITION END

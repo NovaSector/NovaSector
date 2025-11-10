@@ -70,6 +70,15 @@
 	stock_max = 5
 	availability_prob = 75
 
+/datum/market_item/weapon/ultranif
+	name = "Blood Steal NIFsoft"
+	desc = "Reverse-engineered nanite template smuggled through so many customs and bounty hunters you're lucky to even see one. Won't go for cheap - it took us too much to get them."
+	item = /obj/item/disk/nifsoft_uploader/mil_grade/blood_steal
+	price_min = CARGO_CRATE_VALUE * 12
+	price_max = CARGO_CRATE_VALUE * 24
+	availability_prob = 40
+	stock_max = 2
+
 // Makes this even more expensive
 /datum/market_item/weapon/dimensional_bomb
 	price_min = CARGO_CRATE_VALUE * 180
@@ -82,7 +91,7 @@
 	price_min = CARGO_CRATE_VALUE * 3
 	price_max = CARGO_CRATE_VALUE * 6
 	availability_prob = 40
-	stock_max = 2
+	stock_max = 3
 
 /datum/market_item/weapon/milspec_slugs
 	name = "Mil-Spec Slug Box"
@@ -91,4 +100,13 @@
 	price_min = CARGO_CRATE_VALUE * 3
 	price_max = CARGO_CRATE_VALUE * 6
 	availability_prob = 40
-	stock_max = 2
+	stock_max = 3
+
+/datum/market_item/weapon/ammobench_lethal_super
+	name = "Ammo Fabricator Advanced Lethal Authentication Module"
+	desc = "A Gorlex Marauders-modified ammunition fabricator module, loaded with the authentication keys for causing lots and lots of problems."
+	item = /obj/item/ammo_workbench_module/lethal_super/evil
+	price_min = CARGO_CRATE_VALUE * 10
+	price_max = CARGO_CRATE_VALUE * 20
+	availability_prob = 20
+	stock_max = 1

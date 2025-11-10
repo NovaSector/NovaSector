@@ -1,6 +1,8 @@
 #define WAND_OPEN "open"
 #define WAND_BOLT "bolt"
 #define WAND_EMERGENCY "emergency"
+#define WAND_SHOCK "shock"
+#define WAND_DEPOWER "depower"
 
 /obj/item/door_remote
 	icon_state = "remote"
@@ -12,6 +14,8 @@
 	name = "control wand"
 	desc = "A remote for controlling a set of airlocks."
 	w_class = WEIGHT_CLASS_TINY
+	drop_sound = 'sound/items/door_remote/door_remote_drop1.ogg'
+	pickup_sound = 'sound/items/door_remote/door_remote_pick_up1.ogg'
 
 	var/department = "civilian"
 	var/mode = WAND_OPEN
@@ -26,11 +30,15 @@
 	var/static/list/area/restricted_areas = list(
 		/area/station/command/bridge, 									/*so Captain's remote isn't totally useless*/
 		/area/station/security, 										/*so antag RD/HoP/QM/CMO can't easily screw up the brig doors*/
-		/area/station/ai_monitored/command/nuke_storage, 				/*aka Vault since it's QM's special thing*/
-		/area/station/ai_monitored/turret_protected/ai,					// these are areas exclusive to RD
-		/area/station/ai_monitored/turret_protected/ai_upload_foyer,	// but sometimes mappers might misconfig
-		/area/station/ai_monitored/turret_protected/ai_upload,			// their doors with our several dozen access helpers
+		/area/station/command/vault, 									/*aka Vault since it's QM's special thing*/
+		/area/station/ai/satellite/chamber,	// these are areas exclusive to RD
+		/area/station/ai/upload,			// but sometimes mappers might misconfig their doors with our several dozen access helpers
 	)
+	COOLDOWN_DECLARE(shock_cooldown)
+	/// sound played when mode is switched
+	var/mode_switch_sound = SFX_REMOTE_MODE_SWITCH
+	/// sound played when an action is done
+	var/action_sound = SFX_REMOTE_ACTION
 
 /obj/item/door_remote/Initialize(mapload)
 	. = ..()
@@ -50,17 +58,35 @@
 			return TRUE
 	return FALSE
 
+/obj/item/door_remote/emag_act(mob/user, obj/item/card/emag/emag_card)
+	. = ..()
+	if(obj_flags & EMAGGED)
+		return FALSE
+	balloon_alert(user, "restricted functions unlocked")
+	obj_flags |= EMAGGED
+	update_icon_state()
+	return TRUE
+
 /obj/item/door_remote/attack_self(mob/user)
-	var/static/list/ops = list(WAND_OPEN = "Open Door", WAND_BOLT = "Toggle Bolts", WAND_EMERGENCY = "Toggle Emergency Access")
+	var/static/list/ops = list(WAND_OPEN = "Open Door", WAND_BOLT = "Toggle Bolts", WAND_EMERGENCY = "Toggle Emergency Access", WAND_SHOCK = "Shock Door", WAND_DEPOWER = "Depower Door")
 	switch(mode)
 		if(WAND_OPEN)
 			mode = WAND_BOLT
 		if(WAND_BOLT)
 			mode = WAND_EMERGENCY
 		if(WAND_EMERGENCY)
+			if(!(obj_flags & EMAGGED))
+				mode = WAND_OPEN
+			else
+				mode = WAND_SHOCK
+		if(WAND_SHOCK)
+			mode = WAND_DEPOWER
+		if(WAND_DEPOWER)
 			mode = WAND_OPEN
 	update_icon_state()
 	balloon_alert(user, "mode: [ops[mode]]")
+	if(mode_switch_sound)
+		playsound(src, mode_switch_sound, 50, TRUE)
 
 /obj/item/door_remote/interact_with_atom(atom/interacting_with, mob/living/user, list/modifiers)
 	if(!istype(interacting_with, /obj/machinery/door) && !isturf(interacting_with))
@@ -94,15 +120,14 @@
 	// doesn't need a domain because their specific high-security areas aren't on anyone else's trim but cap
 
 /obj/item/door_remote/research_director
-	name = "research director's door remote"
+	name = "research door remote"
 	desc = "A remote for controlling a set of airlocks. This one is slightly misshapen, as if squeezed by a person possessing ludicrous strength."
 	department = "sci"
 	region_access = REGION_RESEARCH
 	owner_trim = /datum/id_trim/job/research_director
 	our_domain = list(
-		/area/station/ai_monitored/turret_protected/ai,
-		/area/station/ai_monitored/turret_protected/ai_upload_foyer,
-		/area/station/ai_monitored/turret_protected/ai_upload,
+		/area/station/ai/satellite/chamber,
+		/area/station/ai/upload,
 	)
 
 /obj/item/door_remote/head_of_security
@@ -115,15 +140,15 @@
 	our_domain = list(	/area/station/security	)
 
 /obj/item/door_remote/quartermaster
-	name = "quartermaster's door remote"
+	name = "cargo door remote"
 	desc = "Remotely controls airlocks. This remote has additional Vault access. Despite that, holding it makes you feel insecure for some reason."
 	department = "cargo"
 	region_access = REGION_SUPPLY
 	owner_trim = /datum/id_trim/job/quartermaster
-	our_domain = list( /area/station/ai_monitored/command/nuke_storage )
+	our_domain = list( /area/station/command/vault )
 
 /obj/item/door_remote/chief_medical_officer
-	name = "chief medical officer's door remote"
+	name = "medical door remote"
 	desc = "A remote for controlling a set of airlocks. It has the overpowering odor of blood and, despite its medical insignia,\
 		has absolutely no accompanying odor of disinfectant."
 	department = "med"
@@ -131,7 +156,7 @@
 	owner_trim = /datum/id_trim/job/chief_medical_officer
 
 /obj/item/door_remote/head_of_personnel
-	name = "head of personnel's door remote"
+	name = "service door remote"
 	desc = "A remote for controlling a set of airlocks. This one smells like printer ink, and fills its holder with the urge\
 		to mysteriously vanish."
 	department = "civilian"
@@ -140,6 +165,8 @@
 
 /obj/item/door_remote/ranged_interact_with_atom(atom/interacting_with, mob/living/user, list/modifiers)
 	var/obj/machinery/door/door
+	if(action_sound)
+		playsound(src, action_sound, 50, TRUE)
 
 	if (istype(interacting_with, /obj/machinery/door))
 		door = interacting_with
@@ -176,6 +203,7 @@
 				door.open()
 			else
 				door.close()
+
 		if (WAND_BOLT)
 			if (!istype(airlock))
 				interacting_with.balloon_alert(user, "only airlocks!")
@@ -187,6 +215,7 @@
 			else
 				airlock.bolt()
 				log_combat(user, airlock, "bolted", src)
+
 		if (WAND_EMERGENCY)
 			if (!istype(airlock))
 				interacting_with.balloon_alert(user, "only airlocks!")
@@ -195,17 +224,43 @@
 			airlock.emergency = !airlock.emergency
 			airlock.update_appearance(UPDATE_ICON)
 
+		if (WAND_SHOCK)
+			if (!istype(airlock))
+				interacting_with.balloon_alert(user, "only airlocks!")
+				return ITEM_INTERACT_BLOCKING
+			if (!COOLDOWN_FINISHED(src, shock_cooldown))
+				interacting_with.balloon_alert(user, "shock pulse resetting!")
+				return ITEM_INTERACT_BLOCKING
+			if (airlock.isElectrified())
+				interacting_with.balloon_alert(user, "already electrified!")
+			else
+				airlock.set_electrified(MACHINE_DEFAULT_ELECTRIFY_TIME, user)
+				COOLDOWN_START(src, shock_cooldown, 10 SECONDS)
+
+		if (WAND_DEPOWER)
+			if (!istype(airlock))
+				interacting_with.balloon_alert(user, "only airlocks!")
+				return ITEM_INTERACT_BLOCKING
+			// First hit disrupts main power, backup comes back in ten seconds, if you stick around you can hit backup for 60 more seconds of downtime.
+			if (!airlock.main_power_timer)
+				airlock.loseMainPower()
+			else if (!airlock.backup_power_time)
+				airlock.loseBackupPower()
+
 	return ITEM_INTERACT_SUCCESS
 
 /obj/item/door_remote/update_icon_state()
 	var/icon_state_mode
-	switch(mode)
-		if(WAND_OPEN)
-			icon_state_mode = "open"
-		if(WAND_BOLT)
-			icon_state_mode = "bolt"
-		if(WAND_EMERGENCY)
-			icon_state_mode = "emergency"
+	if(!(obj_flags & EMAGGED))
+		switch(mode)
+			if(WAND_OPEN)
+				icon_state_mode = "open"
+			if(WAND_BOLT)
+				icon_state_mode = "bolt"
+			if(WAND_EMERGENCY)
+				icon_state_mode = "emergency"
+	else
+		icon_state_mode = "emergency"
 
 	icon_state = "[base_icon_state]_[department]_[icon_state_mode]"
 	return ..()
@@ -213,3 +268,5 @@
 #undef WAND_OPEN
 #undef WAND_BOLT
 #undef WAND_EMERGENCY
+#undef WAND_SHOCK
+#undef WAND_DEPOWER
