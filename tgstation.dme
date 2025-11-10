@@ -7594,6 +7594,7 @@
 #include "modular_nova\modules\better_vox\code\vox_clothing.dm"
 #include "modular_nova\modules\better_vox\code\vox_species.dm"
 #include "modular_nova\modules\better_vox\code\vox_sprite_accessories.dm"
+#include "modular_nova\modules\bitey_quirk\code\bitey_quirk.dm"
 #include "modular_nova\modules\bitrunning\code\anchor.dm"
 #include "modular_nova\modules\bitrunning\code\antag_datum.dm"
 #include "modular_nova\modules\bitrunning\code\disks.dm"
