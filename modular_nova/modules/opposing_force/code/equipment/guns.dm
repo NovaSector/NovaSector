@@ -1,22 +1,22 @@
 /datum/opposing_force_equipment/ranged
 	category = OPFOR_EQUIPMENT_CATEGORY_RANGED
 
-/datum/opposing_force_equipment/ranged/renoster
-	name = "Renoster Shotgun"
-	description = "A twelve guage shotgun with an eight shell capacity underneath."
-	item_type = /obj/item/storage/toolbox/guncase/nova/opfor/renoster
+/datum/opposing_force_equipment/ranged/riot_sol
+	name = "M64 Shotgun"
+	description = "A case with a twelve gauge shotgun with an eight shell capacity underneath, and two 15-shell boxes of buckshot."
+	item_type = /obj/item/storage/toolbox/guncase/nova/opfor/riot_sol
 
-/obj/item/storage/toolbox/guncase/nova/opfor/renoster/PopulateContents()
+/obj/item/storage/toolbox/guncase/nova/opfor/riot_sol/PopulateContents()
 	new /obj/item/gun/ballistic/shotgun/riot/sol/evil(src)
 	new /obj/item/ammo_box/advanced/s12gauge/buckshot(src)
 	new /obj/item/ammo_box/advanced/s12gauge/buckshot(src)
 
-/datum/opposing_force_equipment/ranged/infanteria
-	name = "Carwo-Cawil Battle Rifle"
-	description = "A heavy battle rifle, this one seems to be painted tacticool black. Accepts any standard SolFed rifle magazine."
-	item_type = /obj/item/storage/toolbox/guncase/nova/opfor/infanteria
+/datum/opposing_force_equipment/ranged/sol_rifle
+	name = "MMR-2543E Assault Rifle"
+	description = "A case featuring a tacticool black and red heavy assault rifle, and two magazines. Accepts any standard SolFed rifle magazine."
+	item_type = /obj/item/storage/toolbox/guncase/nova/opfor/sol_rifle
 
-/obj/item/storage/toolbox/guncase/nova/opfor/infanteria/PopulateContents()
+/obj/item/storage/toolbox/guncase/nova/opfor/sol_rifle/PopulateContents()
 	new /obj/item/gun/ballistic/automatic/sol_rifle/evil(src)
 	new /obj/item/ammo_box/magazine/c40sol_rifle/standard(src)
 	new /obj/item/ammo_box/magazine/c40sol_rifle/standard(src)
@@ -239,8 +239,8 @@
 
 /obj/item/storage/toolbox/guncase/nova/pistol/opfor/syndie_revolver/PopulateContents()
 	new /obj/item/gun/ballistic/revolver/badass(src)
-	new /obj/item/ammo_box/a357(src)
-	new /obj/item/ammo_box/a357(src)
+	new /obj/item/ammo_box/speedloader/c357(src)
+	new /obj/item/ammo_box/speedloader/c357(src)
 
 /datum/opposing_force_equipment/ranged_stealth/ocelot
 	name = "Colt Peacemaker revolver"
@@ -250,8 +250,35 @@
 
 /obj/item/storage/toolbox/guncase/nova/pistol/opfor/ocelot/PopulateContents()
 	new /obj/item/gun/ballistic/revolver/ocelot(src)
-	new /obj/item/ammo_box/a357/peacemaker(src)
-	new /obj/item/ammo_box/a357/peacemaker(src)
+	new /obj/item/ammo_box/speedloader/c357/peacemaker(src)
+	new /obj/item/ammo_box/speedloader/c357/peacemaker(src)
+
+/datum/opposing_force_equipment/ranged_stealth/ansem
+	name = "Ansem Pistol Case"
+	description = "A small, easily concealable handgun that uses 10mm auto rounds in 8-round magazines and is compatible \
+			with suppressors. Comes with three spare magazines."
+	item_type = /obj/item/storage/toolbox/guncase/nova/pistol/opfor/ansem
+
+/obj/item/gun/ballistic/automatic/pistol/clandestine/unrestricted
+	pin = /obj/item/firing_pin
+
+/obj/item/storage/toolbox/guncase/nova/pistol/opfor/ansem/PopulateContents()
+	new /obj/item/gun/ballistic/automatic/pistol/clandestine/unrestricted(src)
+	new /obj/item/ammo_box/magazine/m10mm(src)
+	new /obj/item/ammo_box/magazine/m10mm(src)
+
+/datum/opposing_force_equipment/ranged/rpg
+	name = "Dardo-RE Rocket Propelled Grenade Launcher"
+	description = "A reusable rocket propelled grenade launcher preloaded with a low-yield 84mm HE round. \
+			Guaranteed to take your target out with a bang, or your money back! Comes with a bouquet of additional rockets!"
+	item_type = /obj/item/storage/toolbox/guncase/nova/opfor/rpg
+
+/obj/item/gun/ballistic/rocketlauncher/unrestricted
+	pin = /obj/item/firing_pin
+
+/obj/item/storage/toolbox/guncase/nova/opfor/rpg/PopulateContents()
+	new /obj/item/gun/ballistic/rocketlauncher/unrestricted(src)
+	new /obj/item/ammo_box/rocket(src)
 
 //foamforce
 /datum/opposing_force_equipment/ranged_stealth/foamforce_smg

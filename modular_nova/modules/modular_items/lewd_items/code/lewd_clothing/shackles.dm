@@ -15,6 +15,7 @@
 	greyscale_config_worn_taur_hoof = /datum/greyscale_config/dorms_shackles/worn/taur_hoof
 	greyscale_config_worn_taur_snake = /datum/greyscale_config/dorms_shackles/worn/taur_snake
 	flags_1 = IS_PLAYER_COLORABLE_1
+	obj_flags_nova = ERP_ITEM
 	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION
 	equip_delay_self = 1 SECONDS
 	strip_delay = 2 SECONDS

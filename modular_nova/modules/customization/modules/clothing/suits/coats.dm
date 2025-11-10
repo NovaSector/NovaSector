@@ -162,14 +162,41 @@
 	flags_1 = IS_PLAYER_COLORABLE_1
 	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION_NO_NEW_ICON
 
-/obj/item/clothing/suit/jacket/white_robe
-	name = "white robe"
-	desc = "A white long robe."
-	icon_state = "white_robe"
-	icon = 'modular_nova/master_files/icons/obj/clothing/suits/jacket.dmi'
-	worn_icon = 'modular_nova/master_files/icons/mob/clothing/suits/jacket.dmi'
+/obj/item/clothing/suit/jacket/long_robe
+	name = "long robe"
+	desc = "A long robe."
+	icon = 'icons/map_icons/clothing/suit/_suit.dmi'
+	icon_state = "/obj/item/clothing/suit/jacket/long_robe"
+	post_init_icon_state = "long_robe"
+	greyscale_config = /datum/greyscale_config/long_robe
+	greyscale_config_worn = /datum/greyscale_config/long_robe/worn
+	greyscale_colors = "#ffffff#b0c5ff"
+	flags_1 = IS_PLAYER_COLORABLE_1
 	body_parts_covered = CHEST|ARMS
 	cold_protection = CHEST|ARMS
+	unique_reskin = list(
+		"Regular" = "long_robe",
+		"Transparent" = "transparent_long_robe",
+	)
+
+/obj/item/clothing/suit/jacket/haori
+	name = "gradient haori"
+	desc = "A traditional Japanese jacket with a beautiful gradient design."
+	icon = 'icons/map_icons/clothing/suit/_suit.dmi'
+	icon_state = "/obj/item/clothing/suit/jacket/haori"
+	post_init_icon_state = "haori"
+	greyscale_config = /datum/greyscale_config/haori
+	greyscale_config_worn = /datum/greyscale_config/haori/worn
+	greyscale_colors = "#ffffff#3b3b3b"
+	flags_1 = IS_PLAYER_COLORABLE_1
+	body_parts_covered = CHEST|ARMS
+	cold_protection = CHEST|ARMS
+	unique_reskin = list(
+		"Gradient" = "haori",
+		"Split" = "split_haori",
+		"Transparent Gradient" = "transparent_haori",
+		"Transparent Split" = "transparent_split_haori",
+	)
 
 /obj/item/clothing/suit/varsity
 	name = "varsity jacket"

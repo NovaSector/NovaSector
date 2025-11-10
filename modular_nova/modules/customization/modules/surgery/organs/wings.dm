@@ -20,7 +20,7 @@
 	color_source = ORGAN_COLOR_OVERRIDE
 
 /datum/bodypart_overlay/mutant/wings/get_global_feature_list()
-	return SSaccessories.sprite_accessories["wings"]
+	return SSaccessories.sprite_accessories[FEATURE_WINGS]
 
 //TODO: Well you know what this flight stuff is a bit complicated and hardcoded, this is enough for now
 
@@ -219,9 +219,9 @@
 
 /datum/bodypart_overlay/mutant/wings/functional/locked/get_global_feature_list()
 	if(wings_open)
-		return SSaccessories.sprite_accessories["wings_open"]
+		return SSaccessories.sprite_accessories[FEATURE_WINGS_OPEN]
 
-	return SSaccessories.sprite_accessories["wings_functional"]
+	return SSaccessories.sprite_accessories[FEATURE_WINGS_FUNCTIONAL]
 
 
 // We need to overwrite this because all of these wings are locked.

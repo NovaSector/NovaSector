@@ -55,6 +55,8 @@
 	var/max_reagent_volume = 25
 	/// Are we currently wet?
 	var/wet = FALSE
+	/// So we don't runtime whenever certain things check for this
+	var/clothing_flags = NONE
 
 
 /obj/item/towel/Initialize(mapload)

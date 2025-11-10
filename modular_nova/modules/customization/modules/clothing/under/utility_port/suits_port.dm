@@ -209,3 +209,16 @@
 	greyscale_colors = "#2d3a46#ffcc66#eaeaea"
 	flags_1 = IS_PLAYER_COLORABLE_1
 	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION_NO_NEW_ICON
+
+/obj/item/clothing/suit/nova/sweater
+	name = "big sweater"
+	desc = "A big'ol sweater with an equally big ribbon bow! Makes for an improvised blanket with how huge this thing is"
+	icon = 'icons/map_icons/clothing/suit/_suit.dmi'
+	icon_state = "/obj/item/clothing/suit/nova/sweater"
+	post_init_icon_state = "sweater"
+	body_parts_covered = CHEST|ARMS
+	greyscale_config = /datum/greyscale_config/sweater_nova_1
+	greyscale_config_worn = /datum/greyscale_config/sweater_nova_1/worn
+	greyscale_colors = "#2d3a46#ffcc66"
+	flags_1 = IS_PLAYER_COLORABLE_1
+	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION_NO_NEW_ICON

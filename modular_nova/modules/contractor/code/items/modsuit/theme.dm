@@ -10,6 +10,7 @@
 		A small tag hangs off of it, reading 'Property of the Gorlex Marauders, with assistance from Cybersun Industries. \
 		All rights reserved, tampering with suit will void warranty.'"
 	default_skin = "contractor"
+	complexity_max = DEFAULT_MAX_COMPLEXITY + 5
 	armor_type = /datum/armor/mod_theme_contractor
 	resistance_flags = FIRE_PROOF
 	atom_flags = PREVENT_CONTENTS_EXPLOSION_1
@@ -17,7 +18,7 @@
 	siemens_coefficient = 0
 	slowdown_deployed = 0
 	ui_theme = "syndicate"
-	inbuilt_modules = list(/obj/item/mod/module/chameleon/contractor)
+	inbuilt_modules = list(/obj/item/mod/module/chameleon/contractor, /obj/item/mod/module/welding/syndicate, /obj/item/mod/module/night, /obj/item/mod/module/hearing_protection,)
 	allowed_suit_storage = list(
 		/obj/item/flashlight,
 		/obj/item/tank/internals,
@@ -71,9 +72,9 @@
 	melee = 40
 	bullet = 50
 	laser = 35
-	energy = 35
-	bomb = 40
+	energy = 40
+	bomb = 30
 	bio = 100
-	fire = 80
+	fire = 90
 	acid = 90
 	wound = 25

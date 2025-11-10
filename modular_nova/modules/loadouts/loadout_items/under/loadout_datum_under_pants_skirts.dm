@@ -114,6 +114,16 @@
 	item_path = /obj/item/clothing/under/pants/nova/loose_pants
 	group = "Casualwear"
 
+/datum/loadout_item/under/miscellaneous/hakama
+	name = "Hakama"
+	item_path = /obj/item/clothing/under/pants/nova/hakama
+	group = "Casualwear"
+
+/datum/loadout_item/under/miscellaneous/double_skirt_dress
+	name = "Double Skirt Dress"
+	item_path = /obj/item/clothing/under/pants/nova/double_skirt_dress
+	group = "Casualwear"
+
 /datum/loadout_item/under/miscellaneous/slacks
 	name = "Pants - Slacks"
 	item_path = /obj/item/clothing/under/pants/slacks
@@ -143,37 +153,37 @@
 	name = "Shorts (Red)"
 	item_path = /obj/item/clothing/under/shorts/red
 	group = "Casualwear"
-	can_be_greyscale = DONT_GREYSCALE
+	loadout_flags = parent_type::loadout_flags | LOADOUT_FLAG_BLOCK_GREYSCALING
 
 /datum/loadout_item/under/miscellaneous/green_short
 	name = "Shorts (Green)"
 	item_path = /obj/item/clothing/under/shorts/green
 	group = "Casualwear"
-	can_be_greyscale = DONT_GREYSCALE
+	loadout_flags = parent_type::loadout_flags | LOADOUT_FLAG_BLOCK_GREYSCALING
 
 /datum/loadout_item/under/miscellaneous/blue_short
 	name = "Shorts (Blue)"
 	item_path = /obj/item/clothing/under/shorts/blue
 	group = "Casualwear"
-	can_be_greyscale = DONT_GREYSCALE
+	loadout_flags = parent_type::loadout_flags | LOADOUT_FLAG_BLOCK_GREYSCALING
 
 /datum/loadout_item/under/miscellaneous/black_short
 	name = "Shorts (Black)"
 	item_path = /obj/item/clothing/under/shorts/black
 	group = "Casualwear"
-	can_be_greyscale = DONT_GREYSCALE
+	loadout_flags = parent_type::loadout_flags | LOADOUT_FLAG_BLOCK_GREYSCALING
 
 /datum/loadout_item/under/miscellaneous/grey_short
 	name = "Shorts (Grey)"
 	item_path = /obj/item/clothing/under/shorts/grey
 	group = "Casualwear"
-	can_be_greyscale = DONT_GREYSCALE
+	loadout_flags = parent_type::loadout_flags | LOADOUT_FLAG_BLOCK_GREYSCALING
 
 /datum/loadout_item/under/miscellaneous/purple_short
 	name = "Shorts (Purple)"
 	item_path = /obj/item/clothing/under/shorts/purple
 	group = "Casualwear"
-	can_be_greyscale = DONT_GREYSCALE
+	loadout_flags = parent_type::loadout_flags | LOADOUT_FLAG_BLOCK_GREYSCALING
 
 /datum/loadout_item/under/miscellaneous/jeanshorts
 	name = "Shorts - Jean (Colorable)"
@@ -236,14 +246,10 @@
 	group = "Casualwear"
 
 /datum/loadout_item/under/miscellaneous/sweater
-	name = "Turtleneck (Cableknit)" //Different than the Suit item ("Sweater")!!
+	name = "Cableknit Sweater" //Different than the Suit item ("Sweater")!!
 	item_path = /obj/item/clothing/under/sweater
 	group = "Casualwear"
-
-/datum/loadout_item/under/miscellaneous/keyhole
-	name = "Turtleneck (Keyhole)"
-	item_path = /obj/item/clothing/under/sweater/keyhole
-	group = "Casualwear"
+	loadout_flags = parent_type::loadout_flags | LOADOUT_FLAG_ALLOW_RESKIN
 
 /datum/loadout_item/under/jumpsuit/turtleneck
 	name = "Turtleneck w/ Pants"

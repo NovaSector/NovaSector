@@ -100,8 +100,6 @@
 	icon = 'modular_nova/master_files/icons/donator/obj/custom.dmi'
 	icon_state = "infcloak"
 	worn_icon = 'modular_nova/master_files/icons/donator/mob/clothing/custom_w.dmi'
-	w_class = WEIGHT_CLASS_SMALL
-	body_parts_covered = CHEST|GROIN|LEGS|ARMS
 	supports_variations_flags = NONE
 
 // Donation reward
@@ -708,8 +706,6 @@
 	icon = 'modular_nova/master_files/icons/donator/obj/custom.dmi'
 	icon_state = "infcloak"
 	worn_icon = 'modular_nova/master_files/icons/donator/mob/clothing/custom_w.dmi'
-	w_class = WEIGHT_CLASS_SMALL
-	body_parts_covered = CHEST|GROIN|LEGS|ARMS
 
 // Donation reward for inferno707
 /obj/item/clothing/neck/inferno_collar
@@ -955,18 +951,11 @@
 	icon = 'modular_nova/master_files/icons/donator/obj/clothing/masks.dmi'
 	worn_icon = 'modular_nova/master_files/icons/donator/mob/clothing/mask.dmi'
 	icon_state = "yoni"
-	w_class = WEIGHT_CLASS_SMALL
-	tint = 0
-	flags_cover = MASKCOVERSMOUTH | MASKCOVERSEYES | PEPPERPROOF
 	visor_flags_cover = MASKCOVERSMOUTH | MASKCOVERSEYES | PEPPERPROOF
-	clothing_flags = VOICEBOX_DISABLED | MASKINTERNALS | BLOCK_GAS_SMOKE_EFFECT | GAS_FILTERING
-	use_radio_beeps_tts = TRUE
+	clothing_flags = parent_type::clothing_flags | VOICEBOX_DISABLED
 	flags_inv = NONE
-
-/obj/item/clothing/mask/gas/CMCP_mask/Initialize(mapload)
-	. = ..()
-	var/obj/item/clothing/mask/gas/sechailer/sechailer_type = /obj/item/clothing/mask/gas/sechailer
-	voice_filter = initial(sechailer_type.voice_filter)
+	use_radio_beeps_tts = TRUE
+	voice_filter = /obj/item/clothing/mask/gas/sechailer::voice_filter
 
 // Donation reward for Koruu
 /obj/item/clothing/mask/gas/signalis_gaiter
@@ -975,20 +964,13 @@
 	icon = 'modular_nova/master_files/icons/donator/obj/clothing/masks.dmi'
 	worn_icon = 'modular_nova/master_files/icons/donator/mob/clothing/mask.dmi'
 	icon_state = "siggaiter"
-	w_class = WEIGHT_CLASS_SMALL
-	tint = 0
 	actions_types = list(/datum/action/item_action/adjust)
-	flags_cover = MASKCOVERSMOUTH | MASKCOVERSEYES | PEPPERPROOF
 	visor_flags_cover = MASKCOVERSMOUTH | MASKCOVERSEYES | PEPPERPROOF
-	clothing_flags = VOICEBOX_DISABLED | MASKINTERNALS | BLOCK_GAS_SMOKE_EFFECT | GAS_FILTERING
-	use_radio_beeps_tts = TRUE
+	clothing_flags = parent_type::clothing_flags | VOICEBOX_DISABLED
 	flags_inv = NONE
 	interaction_flags_click = NEED_DEXTERITY
-
-/obj/item/clothing/mask/gas/signalis_gaiter/Initialize(mapload)
-	. = ..()
-	var/obj/item/clothing/mask/gas/sechailer/sechailer_type = /obj/item/clothing/mask/gas/sechailer
-	voice_filter = initial(sechailer_type.voice_filter)
+	use_radio_beeps_tts = TRUE
+	voice_filter = /obj/item/clothing/mask/gas/sechailer::voice_filter
 
 /obj/item/clothing/mask/gas/signalis_gaiter/attack_self(mob/user)
 	adjust_visor(user)
@@ -1063,12 +1045,8 @@
 	icon = 'modular_nova/master_files/icons/donator/obj/clothing/masks.dmi'
 	worn_icon = 'modular_nova/master_files/icons/donator/mob/clothing/mask.dmi'
 	icon_state = "psychomalice"
-	w_class = WEIGHT_CLASS_SMALL
-	tint = 0
-	flags_inv = HIDEEARS|HIDEEYES|HIDESNOUT|HIDEFACIALHAIR
-	flags_cover = MASKCOVERSMOUTH | MASKCOVERSEYES | PEPPERPROOF
 	visor_flags_cover = MASKCOVERSMOUTH | MASKCOVERSEYES | PEPPERPROOF
-	clothing_flags = VOICEBOX_DISABLED | MASKINTERNALS | BLOCK_GAS_SMOKE_EFFECT | GAS_FILTERING
+	clothing_flags = parent_type::clothing_flags | VOICEBOX_DISABLED
 	interaction_flags_click = NEED_DEXTERITY
 	/// Whether or not the mask is currently being layered over (or under!) hair. FALSE/null means the mask is layered over the hair (this is how it starts off).
 	var/wear_hair_over
@@ -2005,7 +1983,7 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/structure/sign/poster/contraband/korpstech, 32)
 		message = span_warning("[src]'s delicate fabric is shredded by [washer]! How terrible!")
 		sound_effect_path = 'sound/effects/cloth_rip.ogg'
 		sound_effect_volume = 30
-		for (var/zone as anything in cover_flags2body_zones(body_parts_covered))
+		for (var/zone in cover_flags2body_zones(body_parts_covered))
 			take_damage_zone(zone, limb_integrity * 1.1, BRUTE) // fucking shreds it
 
 	var/turf/our_turf = get_turf(src)
@@ -2469,8 +2447,17 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/structure/sign/poster/contraband/korpstech, 32)
 	worn_icon_state = "ecologist_claw"
 	icon = 'modular_nova/master_files/icons/donator/obj/clothing/gloves.dmi'
 	worn_icon = 'modular_nova/master_files/icons/donator/mob/clothing/hands.dmi'
-// Kaynite Donor Items
 
+/obj/item/clothing/suit/admiral_coat
+	name = "admiral's coat"
+	desc = "A robust and imposing looking Sol-naval coat made out of genuine Europan thresher leather. It provides a durable yet comfortable layer, lined with icewolf fur to protect from the bitter cold and ingrained armored padding to protect from the bitter assistants."
+	icon_state = "hosnavyzec"
+	worn_icon_state = "hosnavyzec"
+	icon = 'modular_nova/master_files/icons/donator/obj/clothing/suits.dmi'
+	worn_icon = 'modular_nova/master_files/icons/donator/mob/clothing/suit.dmi'
+	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION_NO_NEW_ICON
+
+// Kaynite Donor Items
 /obj/item/clothing/suit/hooded/merctac_hoodie
 	name = "\improper MercTac hoodie"
 	desc = "A custom tailored hoodie with rash guard, and a sleeveless option for the opposite arm. \

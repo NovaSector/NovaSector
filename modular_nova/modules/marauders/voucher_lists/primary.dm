@@ -2,26 +2,26 @@
 
 // guns
 /datum/voucher_set/traitor/primary_weapon/c20r
-	name = /obj/item/gun/ballistic/automatic/c20r::name
-	description = /obj/item/gun/ballistic/automatic/c20r::desc
-	icon = /obj/item/gun/ballistic/automatic/c20r::icon
-	icon_state = /obj/item/gun/ballistic/automatic/c20r::icon_state
+	name = /obj/item/gun/ballistic/automatic/c20r/unrestricted::name
+	description = /obj/item/gun/ballistic/automatic/c20r/unrestricted::desc
+	icon = /obj/item/gun/ballistic/automatic/c20r/unrestricted::icon
+	icon_state = /obj/item/gun/ballistic/automatic/c20r/unrestricted::icon_state
 	set_items = list(
-		/obj/item/gun/ballistic/automatic/c20r,
+		/obj/item/gun/ballistic/automatic/c20r/unrestricted,
 		/obj/item/ammo_box/magazine/smgm45,
 		/obj/item/ammo_box/magazine/smgm45,
 		/obj/item/suppressor,
 	)
 
 /datum/voucher_set/traitor/primary_weapon/syndi_revolver
-	name = /obj/item/gun/ballistic/revolver/badass/nuclear::name
-	description = /obj/item/gun/ballistic/revolver/badass/nuclear::desc
-	icon = /obj/item/gun/ballistic/revolver/badass/nuclear::icon
-	icon_state = /obj/item/gun/ballistic/revolver/badass/nuclear::icon_state
+	name = /obj/item/gun/ballistic/revolver/badass::name
+	description = /obj/item/gun/ballistic/revolver/badass::desc
+	icon = /obj/item/gun/ballistic/revolver/badass::icon
+	icon_state = /obj/item/gun/ballistic/revolver/badass::icon_state
 	set_items = list(
-		/obj/item/gun/ballistic/revolver/badass/nuclear,
-		/obj/item/ammo_box/a357,
-		/obj/item/ammo_box/a357,
+		/obj/item/gun/ballistic/revolver/badass,
+		/obj/item/ammo_box/speedloader/c357,
+		/obj/item/ammo_box/speedloader/c357,
 	)
 
 /datum/voucher_set/traitor/primary_weapon/stechkin

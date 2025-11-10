@@ -89,8 +89,8 @@
 	icon_state = /obj/item/gun/ballistic/revolver/c38::icon_state
 	set_items = list(
 		/obj/item/gun/ballistic/revolver/c38,
-		/obj/item/ammo_box/c38,
-		/obj/item/ammo_box/c38,
+		/obj/item/ammo_box/speedloader/c38,
+		/obj/item/ammo_box/speedloader/c38,
 	)
 
 /datum/voucher_set/traitor/secondary_weapon/defenestreur

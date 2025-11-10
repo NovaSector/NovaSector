@@ -6,7 +6,7 @@
 	roundend_category = "changelings"
 	antagpanel_category = "Changeling"
 	pref_flag = ROLE_CHANGELING
-	antag_moodlet = /datum/mood_event/focused
+	antag_moodlet = /datum/mood_event/ling
 	antag_hud_name = "changeling"
 	hijack_speed = 0.5
 	ui_name = "AntagInfoChangeling"
@@ -828,7 +828,7 @@
 	for(var/obj/item/bodypart/limb as anything in user.bodyparts)
 		limb.update_limb(is_creating = TRUE)
 
-	user.updateappearance(mutcolor_update = TRUE, eyeorgancolor_update = TRUE) // NOVA EDIT CHANGE - ORIGINAL: user.updateappearance(mutcolor_update = TRUE)
+	user.updateappearance(mutcolor_update = TRUE)
 	user.domutcheck()
 
 	// Get rid of any scars from previous Changeling-ing
@@ -926,7 +926,7 @@
 	user.name = user.get_visible_name()
 	current_profile = chosen_profile
 	// NOVA EDIT START
-	user.updateappearance(mutcolor_update = TRUE, eyeorgancolor_update = TRUE)
+	user.updateappearance(mutcolor_update = TRUE)
 	user.regenerate_icons()
 	user.name = user.get_visible_name()
 	user.blooper = null

@@ -60,10 +60,34 @@
 	)
 
 /obj/item/storage/belt/holster
-	desc = "A rather plain but still cool looking holster that can hold a handgun, and some ammo."
+	desc = "A rather plain but still cool looking holster that can hold a handgun and some ammo."
 
 /datum/storage/holster
 	max_slots = 3
+
+/datum/storage/holster/New(atom/parent, max_slots, max_specific_storage, max_total_storage, rustle_sound, remove_rustle_sound, list/holdables)
+	. = ..()
+	if(length(holdables))
+		set_holdable(holdables)
+		return
+
+	set_holdable(list(
+		/obj/item/gun/ballistic/automatic/pistol,
+		/obj/item/gun/ballistic/revolver,
+		/obj/item/gun/energy/e_gun/mini,
+		/obj/item/gun/energy/disabler,
+		/obj/item/gun/energy/dueling,
+		/obj/item/food/grown/banana,
+		/obj/item/gun/energy/laser/thermal,
+		/obj/item/gun/ballistic/rifle/boltaction, //fits if you make it an obrez
+		/obj/item/gun/energy/laser/captain,
+		/obj/item/gun/energy/e_gun/hos,
+		// NOVA EDIT ADDITION START
+		/obj/item/ammo_box/magazine, // Just magazine, because the sec-belt can hold these aswell
+		/obj/item/ammo_box/speedloader,
+		/obj/item/gun/energy/recharge/kinetic_accelerator/variant/glock,
+		// NOVA EDIT ADDITION END
+	))
 
 /obj/item/storage/belt/holster/detective
 	name = "detective's holster"
@@ -71,6 +95,33 @@
 
 /datum/storage/holster/detective
 	max_slots = 4
+
+/datum/storage/holster/detective/New(atom/parent, max_slots, max_specific_storage, max_total_storage, rustle_sound, remove_rustle_sound, list/holdables)
+	holdables = list(
+		/obj/item/gun/ballistic/automatic/pistol,
+		/obj/item/ammo_box/magazine/m9mm, // Pistol magazines.
+		/obj/item/ammo_box/magazine/m9mm_aps,
+		/obj/item/ammo_box/magazine/m10mm,
+		/obj/item/ammo_box/magazine/m45,
+		/obj/item/ammo_box/magazine/m50,
+		/obj/item/gun/ballistic/revolver,
+		/obj/item/ammo_box/speedloader, // Speedloaders, which includes stripper clips on a technicality.
+		/obj/item/ammo_box/magazine/toy/pistol,
+		/obj/item/gun/energy/e_gun/mini,
+		/obj/item/gun/energy/disabler,
+		/obj/item/gun/energy/dueling,
+		/obj/item/gun/energy/laser/thermal,
+		/obj/item/gun/energy/laser/captain,
+		/obj/item/gun/energy/e_gun/hos,
+		/obj/item/gun/ballistic/rifle/boltaction, //fits if you make it an obrez
+		// NOVA EDIT ADDITION START
+		/obj/item/ammo_box/magazine,
+		/obj/item/food/grown/banana,
+		/obj/item/gun/energy/recharge/kinetic_accelerator/variant/glock,
+		// NOVA EDIT ADDITION END
+	)
+
+	return ..()
 
 ///Enables you to quickdraw weapons from security holsters
 /datum/storage/holster/open_storage(mob/to_show, can_reach_target)
@@ -81,7 +132,7 @@
 		show_contents(to_show)
 		return
 
-	if(!to_show.CanReach(resolve_parent))
+	if(!resolve_parent.IsReachableBy(to_show))
 		resolve_parent.balloon_alert(to_show, "can't reach!")
 		return FALSE
 

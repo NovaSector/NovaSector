@@ -80,8 +80,8 @@
 
 		if(KIT_GUN)
 			new /obj/item/gun/ballistic/revolver(src) // 13 tc
-			new /obj/item/ammo_box/a357(src) // 4tc
-			new /obj/item/ammo_box/a357(src)
+			new /obj/item/ammo_box/speedloader/c357(src) // 4tc
+			new /obj/item/ammo_box/speedloader/c357(src)
 			new /obj/item/storage/belt/holster/chameleon(src) // 1 tc
 			new /obj/item/card/emag/doorjack(src) // 3 tc replaced the emag with the doorjack
 			new /obj/item/grenade/c4(src) // 1 tc
@@ -755,7 +755,7 @@
 	new spess_suit(src) // Above allows me to get the helmet from a variable on the object
 	var/obj/item/clothing/head/helmet/space/syndicate/spess_helmet = GLOB.syndicate_space_suits_to_helmets[spess_suit]
 	new spess_helmet(src) // 4 TC for the space gear
-	new /obj/item/tank/jetpack/oxygen/harness(src) // They kinda need this to fly to the cruiser.
+	new /obj/item/tank/jetpack/harness(src) // They kinda need this to fly to the cruiser.
 	// Tacticool gear
 	new /obj/item/clothing/shoes/combat(src)
 	new /obj/item/clothing/under/syndicate(src)

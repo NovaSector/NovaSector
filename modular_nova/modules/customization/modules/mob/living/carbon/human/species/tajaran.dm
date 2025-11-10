@@ -28,10 +28,10 @@
 
 /datum/species/tajaran/get_default_mutant_bodyparts()
 	return list(
-		"tail" = list("Cat (Big)", TRUE),
-		"snout" = list("Mammal, Short", TRUE),
-		"ears" = list("Cat, Alert", TRUE),
-		"legs" = list("Normal Legs", FALSE),
+		FEATURE_TAIL = list("Cat (Big)", TRUE),
+		FEATURE_SNOUT = list("Mammal, Short", TRUE),
+		FEATURE_EARS = list("Cat, Alert", TRUE),
+		FEATURE_LEGS = list("Normal Legs", FALSE),
 	)
 
 /obj/item/organ/tongue/cat/tajaran
@@ -61,9 +61,9 @@
 		if(5)
 			main_color = "#DDCC99"
 			second_color = "#DDCCAA"
-	features["mcolor"] = main_color
-	features["mcolor2"] = second_color
-	features["mcolor3"] = second_color
+	features[FEATURE_MUTANT_COLOR] = main_color
+	features[FEATURE_MUTANT_COLOR_TWO] = second_color
+	features[FEATURE_MUTANT_COLOR_THREE] = second_color
 	return features
 
 /datum/species/tajaran/get_random_body_markings(list/passed_features)
@@ -84,12 +84,12 @@
 	var/main_color = "#AA9988"
 	var/second_color = "#AAAA99"
 
-	cat.dna.features["mcolor"] = main_color
-	cat.dna.features["mcolor2"] = second_color
-	cat.dna.features["mcolor3"] = second_color
-	cat.dna.mutant_bodyparts["snout"] = list(MUTANT_INDEX_NAME = "Mammal, Short", MUTANT_INDEX_COLOR_LIST = list(main_color, main_color, main_color))
-	cat.dna.mutant_bodyparts["tail"] = list(MUTANT_INDEX_NAME = "Cat", MUTANT_INDEX_COLOR_LIST = list(second_color, main_color, main_color))
-	cat.dna.mutant_bodyparts["ears"] = list(MUTANT_INDEX_NAME = "Cat, Alert", MUTANT_INDEX_COLOR_LIST = list(main_color, second_color, second_color))
+	cat.dna.features[FEATURE_MUTANT_COLOR] = main_color
+	cat.dna.features[FEATURE_MUTANT_COLOR_TWO] = second_color
+	cat.dna.features[FEATURE_MUTANT_COLOR_THREE] = second_color
+	cat.dna.mutant_bodyparts[FEATURE_SNOUT] = list(MUTANT_INDEX_NAME = "Mammal, Short", MUTANT_INDEX_COLOR_LIST = list(main_color, main_color, main_color))
+	cat.dna.mutant_bodyparts[FEATURE_TAIL] = list(MUTANT_INDEX_NAME = "Cat", MUTANT_INDEX_COLOR_LIST = list(second_color, main_color, main_color))
+	cat.dna.mutant_bodyparts[FEATURE_EARS] = list(MUTANT_INDEX_NAME = "Cat, Alert", MUTANT_INDEX_COLOR_LIST = list(main_color, second_color, second_color))
 	regenerate_organs(cat, src, visual_only = TRUE)
 	cat.update_body(TRUE)
 

@@ -11,6 +11,7 @@
 	equip_sound = 'sound/items/equip/toolbelt_equip.ogg'
 	drop_sound = 'sound/items/handling/toolbelt_drop.ogg'
 	slot_flags = ITEM_SLOT_BELT
+	obj_flags_nova = ERP_ITEM
 	breakouttime = 3 SECONDS
 	flags_1 = IS_PLAYER_COLORABLE_1
 

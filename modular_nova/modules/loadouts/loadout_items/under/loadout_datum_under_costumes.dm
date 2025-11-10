@@ -157,7 +157,7 @@
 	name = "Mech Suit"
 	item_path = /obj/item/clothing/under/costume/mech_suit
 	group = "Costumes"
-	can_be_reskinned = TRUE
+	loadout_flags = parent_type::loadout_flags | LOADOUT_FLAG_ALLOW_RESKIN
 
 /datum/loadout_item/under/miscellaneous/cybersleek
 	name = "Modern Coat"
@@ -347,6 +347,11 @@
 /datum/loadout_item/under/miscellaneous/yukata/white
 	name = "Yukata (White)"
 	item_path = /obj/item/clothing/under/costume/yukata/white
+	group = "Costumes"
+
+/datum/loadout_item/under/miscellaneous/chima_jeogori
+	name = "Chima Jeogori"
+	item_path = /obj/item/clothing/under/costume/nova/chima_jeogori
 	group = "Costumes"
 
 /*

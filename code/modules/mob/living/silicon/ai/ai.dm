@@ -81,15 +81,21 @@
 	//They aren't given a c_tag so they don't show up in camera consoles
 	builtInCamera = new(src)
 
+	var/static/list/alert_areas
+	if(isnull(alert_areas))
+		alert_areas = (GLOB.the_station_areas + typesof(/area/mine))
+	if(is_station_level(z))
+		alert_control = new(src, list(ALARM_ATMOS, ALARM_FIRE, ALARM_POWER, ALARM_CAMERA, ALARM_BURGLAR, ALARM_MOTION), SSmapping.levels_by_trait(ZTRAIT_STATION), alert_areas, camera_view = TRUE)
+	else
+		alert_control = new(src, list(ALARM_ATMOS, ALARM_FIRE, ALARM_POWER, ALARM_CAMERA, ALARM_BURGLAR, ALARM_MOTION), (SSmapping.levels_by_trait(ZTRAIT_STATION) + z), alert_areas, camera_view = TRUE)
+	RegisterSignal(alert_control.listener, COMSIG_ALARM_LISTENER_TRIGGERED, PROC_REF(alarm_triggered))
+	RegisterSignal(alert_control.listener, COMSIG_ALARM_LISTENER_CLEARED, PROC_REF(alarm_cleared))
+
 	ai_tracking_tool = new(src)
 	RegisterSignal(ai_tracking_tool, COMSIG_TRACKABLE_TRACKING_TARGET, PROC_REF(on_track_target))
 	RegisterSignal(ai_tracking_tool, COMSIG_TRACKABLE_GLIDE_CHANGED, PROC_REF(tracked_glidesize_changed))
 
 	add_traits(list(TRAIT_PULL_BLOCKED, TRAIT_AI_ACCESS, TRAIT_HANDS_BLOCKED, TRAIT_CAN_GET_AI_TRACKING_MESSAGE, TRAIT_LOUD_BINARY), INNATE_TRAIT)
-
-	alert_control = new(src, list(ALARM_ATMOS, ALARM_FIRE, ALARM_POWER, ALARM_CAMERA, ALARM_BURGLAR, ALARM_MOTION), list(z), camera_view = TRUE)
-	RegisterSignal(alert_control.listener, COMSIG_ALARM_LISTENER_TRIGGERED, PROC_REF(alarm_triggered))
-	RegisterSignal(alert_control.listener, COMSIG_ALARM_LISTENER_CLEARED, PROC_REF(alarm_cleared))
 
 	//Heads up to other binary chat listeners that a new AI is online and listening to Binary.
 	if(announce_init_to_others && !is_centcom_level(z)) //Skip new syndicate AIs and also new AIs on centcom Z
@@ -138,6 +144,7 @@
 	QDEL_NULL(malf_picker)
 	QDEL_NULL(doomsday_device)
 	QDEL_NULL(robot_control)
+	QDEL_NULL(status_display_picker)
 	QDEL_NULL(aiMulti)
 	QDEL_NULL(alert_control)
 	QDEL_NULL(ai_tracking_tool)
@@ -189,7 +196,9 @@
 		var/emote_choice = player_client.prefs.read_preference(/datum/preference/choiced/ai_emote_display)
 
 		if(emote_choice == "Random")
-			emote_choice = pick(GLOB.ai_status_display_emotes)
+			if(!length(GLOB.ai_status_display_all_options))
+				init_ai_status_display_options()
+			emote_choice = pick(GLOB.ai_status_display_all_options)
 
 		apply_emote_display(emote_choice)
 
@@ -202,29 +211,28 @@
 /mob/living/silicon/ai/verb/pick_icon()
 	set category = "AI Commands"
 	set name = "Set AI Core Display"
+	set desc = "Choose what appears on your AI core display"
+
 	if(incapacitated)
-		return
-	icon = initial(icon)
-	icon_state = "ai"
-	cut_overlays()
-	var/list/iconstates = GLOB.ai_core_display_screens
-	for(var/option in iconstates)
-		if(option == "Random")
-			iconstates[option] = image(icon = src.icon, icon_state = "ai-random")
-			continue
-		if(option == "Portrait")
-			iconstates[option] = image(icon = src.icon, icon_state = "ai-portrait")
-			continue
-		iconstates[option] = image(icon = src.icon, icon_state = resolve_ai_icon(option))
-
-	view_core()
-	var/ai_core_icon = show_radial_menu(src, src , iconstates, radius = 42)
-
-	if(!ai_core_icon || incapacitated)
+		to_chat(src, span_warning("You cannot access the core display controls in your current state."))
 		return
 
-	display_icon_override = ai_core_icon
-	set_core_display_icon(ai_core_icon)
+	if(!core_display_picker)
+		core_display_picker = new(src)
+	core_display_picker.ui_interact(src)
+
+/mob/living/silicon/ai/verb/pick_status_display()
+	set category = "AI Commands"
+	set name = "Set AI Status Display"
+	set desc = "Choose what appears on status displays around the station"
+
+	if(incapacitated)
+		to_chat(src, span_warning("You cannot access the status display controls in your current state."))
+		return
+
+	if(!status_display_picker)
+		status_display_picker = new(src)
+	status_display_picker.ui_interact(src)
 
 /mob/living/silicon/ai/get_status_tab_items()
 	. = ..()
@@ -782,7 +790,7 @@
 	var/obj/structure/ai_core/new_core = new /obj/structure/ai_core/deactivated(loc, posibrain_inside)//Spawns a deactivated terminal at AI location.
 	new_core.circuit.battery = battery
 	ai_restore_power()//So the AI initially has power.
-	control_disabled = TRUE //Can't control things remotely if you're stuck in a card!
+	set_control_disabled(TRUE) //Can't control things remotely if you're stuck in a card!
 	radio_enabled = FALSE //No talking on the built-in radio for you either!
 	forceMove(card)
 	card.AI = src
@@ -805,20 +813,20 @@
 	var/list/viewscale = getviewsize(client.view)
 	return get_dist(src, A) <= max(viewscale[1]*0.5,viewscale[2]*0.5)
 
-/mob/living/silicon/ai/proc/relay_speech(message, atom/movable/speaker, datum/language/message_language, raw_message, radio_freq, list/spans, list/message_mods = list())
+/mob/living/silicon/ai/proc/relay_speech(atom/movable/speaker, datum/language/message_language, raw_message, radio_freq, list/spans, list/message_mods = list())
 	var/raw_translation = translate_language(speaker, message_language, raw_message, spans, message_mods)
 	var/atom/movable/source = speaker.GetSource() || speaker // is the speaker virtual/radio
 	var/treated_message = source.generate_messagepart(raw_translation, spans, message_mods)
 
 	var/start = "Relayed Speech: "
-	var/namepart
-	var/list/stored_name = list(null)
-	SEND_SIGNAL(speaker, COMSIG_MOVABLE_MESSAGE_GET_NAME_PART, stored_name, FALSE)
-	namepart = stored_name[NAME_PART_INDEX] || "[speaker.GetVoice()]"
+	var/namepart = speaker.get_message_voice()
 	var/hrefpart = "<a href='byond://?src=[REF(src)];track=[html_encode(namepart)]'>"
 	var/jobpart = "Unknown"
 
-	if(!HAS_TRAIT(speaker, TRAIT_UNKNOWN)) //don't fetch the speaker's job in case they have something that conseals their identity completely
+	// if voice is concealed, job is concealed
+	// on the other hand we don't care about TRAIT_UNKNOWN_APPEARANCE
+	// (AI can associate voice -> name -> crew record -> job)
+	if(!HAS_TRAIT(speaker, TRAIT_UNKNOWN_VOICE))
 		if (isliving(speaker))
 			var/mob/living/living_speaker = speaker
 			if(living_speaker.job)
@@ -1093,11 +1101,14 @@
 	. = ..()
 	.[/datum/job/ai::title] = minutes
 
-/mob/living/silicon/ai/GetVoice()
-	. = ..()
-	if(ai_voicechanger && ai_voicechanger.changing_voice)
+/mob/living/silicon/ai/get_voice(add_id_name)
+	if(ai_voicechanger?.changing_voice)
 		return ai_voicechanger.say_name
-	return
+	return ..()
+
+/mob/living/silicon/ai/proc/set_control_disabled(control_disabled)
+	SEND_SIGNAL(src, COMSIG_SILICON_AI_SET_CONTROL_DISABLED, control_disabled)
+	src.control_disabled = control_disabled
 
 #undef HOLOGRAM_CHOICE_CHARACTER
 #undef CHARACTER_TYPE_SELF

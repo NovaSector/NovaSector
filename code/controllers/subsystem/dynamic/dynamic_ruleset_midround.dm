@@ -407,6 +407,9 @@
 /datum/dynamic_ruleset/midround/from_ghosts/blob/false_alarm()
 	priority_announce("Confirmed outbreak of level 5 biohazard aboard [station_name()]. All personnel must contain the outbreak.", "Biohazard Alert", ANNOUNCER_OUTBREAK5)
 
+	// Set status displays to biohazard alert even for false alarm
+	send_status_display_biohazard_alert()
+
 /datum/dynamic_ruleset/midround/from_ghosts/xenomorph
 	name = "Alien Infestation"
 	config_tag = "Xenomorph"
@@ -590,24 +593,15 @@
 /datum/dynamic_ruleset/midround/from_ghosts/space_ninja/assign_role(datum/mind/candidate)
 	var/mob/living/carbon/human/new_ninja = candidate.current
 	new_ninja.forceMove(find_space_spawn()) // ninja antag datum needs the mob to be in place first
+	/* // NOVA EDIT REMOVAL START 
 	randomize_human_normie(new_ninja)
 	var/new_name = "[pick(GLOB.ninja_titles)] [pick(GLOB.ninja_names)]"
 	new_ninja.name = new_name
 	new_ninja.real_name = new_name
+	*/ // NOVA EDIT REMOVAL END
 	new_ninja.dna.update_dna_identity() // ninja antag datum needs dna to be set first
 	candidate.add_antag_datum(/datum/antagonist/ninja)
-	// NOVA EDIT ADDITION BEGIN: Preference Ninjas
-	var/loadme = tgui_input_list(new_ninja, "Do you wish to load your character slot?", "Load Character?", list("Yes!", "No, I want to be random!"), default = "No, I want to be random!", timeout = 60 SECONDS)
-	var/codename
-	if(loadme != "Yes!")
-		return
-	new_ninja.client?.prefs?.safe_transfer_prefs_to(new_ninja)
-	codename = tgui_input_text(new_ninja.client, "What should your codename be?", "Agent Name", "[pick("Master", "Legendary", "Agent", "Shinobi", "Ninja")] [new_ninja.dna.species.name]", 42, FALSE, TRUE, 300 SECONDS)
-	codename ? codename : (codename = "[pick("Master", "Legendary", "Agent", "Shinobi", "Ninja")] [new_ninja.dna.species.name]")
-	new_ninja.name = codename
-	new_ninja.real_name = codename
-	new_ninja.dna.update_dna_identity()
-	// NOVA EDIT ADDITION END: Preference Ninjas
+	prompt_namechange(new_ninja, new_ninja.client) // NOVA EDIT ADDITION
 
 /datum/dynamic_ruleset/midround/from_ghosts/revenant
 	name = "Revenant"
@@ -667,7 +661,7 @@
 	candidate_role = "Changeling"
 	pref_flag = ROLE_CHANGELING_MIDROUND
 	jobban_flag = ROLE_CHANGELING
-	ruleset_flags = RULESET_INVADER
+	ruleset_flags = RULESET_INVADER|RULESET_VARIATION
 	weight = 5
 	min_pop = 15
 	max_antag_cap = 1
@@ -678,6 +672,21 @@
 
 /datum/dynamic_ruleset/midround/from_ghosts/space_changeling/assign_role(datum/mind/candidate)
 	generate_changeling_meteor(candidate)
+
+/datum/dynamic_ruleset/midround/from_ghosts/space_changeling/mass
+	name = "Mass Space Changelings"
+	config_tag = "Mass Changelings"
+	midround_type = HEAVY_MIDROUND
+	min_pop = 25
+	min_antag_cap = 2
+	max_antag_cap = 3
+	repeatable_weight_decrease = 4
+	weight = list(
+		DYNAMIC_TIER_LOW = 0,
+		DYNAMIC_TIER_LOWMEDIUM = 3,
+		DYNAMIC_TIER_MEDIUMHIGH = 4,
+		DYNAMIC_TIER_HIGH = 5,
+	)
 
 /datum/dynamic_ruleset/midround/from_ghosts/paradox_clone
 	name = "Paradox Clone"
@@ -690,21 +699,28 @@
 	min_pop = 10
 	max_antag_cap = 1
 	signup_atom_appearance = /obj/effect/bluespace_stream
+	/// Chance of getting another clone for the price of free
+	var/bonus_clone_chance = 20
+
+/datum/dynamic_ruleset/midround/from_ghosts/paradox_clone/New(list/dynamic_config)
+	. = ..()
+	max_antag_cap += prob(bonus_clone_chance)
 
 /datum/dynamic_ruleset/midround/from_ghosts/paradox_clone/can_be_selected()
 	return ..() && !isnull(find_clone()) && !isnull(find_maintenance_spawn(atmos_sensitive = TRUE, require_darkness = FALSE))
 
+/datum/dynamic_ruleset/midround/from_ghosts/paradox_clone/create_execute_args()
+	return list(find_clone())
+
 /datum/dynamic_ruleset/midround/from_ghosts/paradox_clone/create_ruleset_body()
 	return // handled by assign_role() entirely
 
-/datum/dynamic_ruleset/midround/from_ghosts/paradox_clone/assign_role(datum/mind/candidate)
-	var/mob/living/carbon/human/good_version = find_clone()
+/datum/dynamic_ruleset/midround/from_ghosts/paradox_clone/assign_role(datum/mind/candidate, mob/living/carbon/human/good_version)
 	var/mob/living/carbon/human/bad_version = good_version.make_full_human_copy(find_maintenance_spawn(atmos_sensitive = TRUE, require_darkness = FALSE))
 	candidate.transfer_to(bad_version, force_key_move = TRUE)
 
 	var/datum/antagonist/paradox_clone/antag = candidate.add_antag_datum(/datum/antagonist/paradox_clone)
-	antag.original_ref = WEAKREF(good_version.mind)
-	antag.setup_clone()
+	antag.setup_clone(good_version.mind)
 
 	playsound(bad_version, 'sound/items/weapons/zapbang.ogg', 30, TRUE)
 	bad_version.put_in_hands(new /obj/item/storage/toolbox/mechanical()) //so they dont get stuck in maints
@@ -1066,6 +1082,7 @@
 	false_alarm_able = TRUE
 	pref_flag = ROLE_SLEEPER_AGENT
 	jobban_flag = ROLE_TRAITOR
+	ruleset_flags = RULESET_VARIATION
 	weight = 10
 	min_pop = 3
 	blacklisted_roles = list(
@@ -1079,6 +1096,22 @@
 	priority_announce(
 		"Attention crew, it appears that someone on your station has hijacked your telecommunications and broadcasted an unknown signal.",
 		"[command_name()] High-Priority Update",
+	)
+
+/datum/dynamic_ruleset/midround/from_living/traitor/mass
+	name = "Mass Traitors"
+	config_tag = "Mass Traitors"
+	midround_type = HEAVY_MIDROUND
+	min_pop = 15
+	min_antag_cap = 2
+	max_antag_cap = 4
+	repeatable_weight_decrease = 8
+	blacklisted_roles = list()
+	weight = list(
+		DYNAMIC_TIER_LOW = 0,
+		DYNAMIC_TIER_LOWMEDIUM = 3,
+		DYNAMIC_TIER_MEDIUMHIGH = 8,
+		DYNAMIC_TIER_HIGH = 10,
 	)
 
 /datum/dynamic_ruleset/midround/from_living/malf_ai

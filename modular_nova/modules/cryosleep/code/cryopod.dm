@@ -31,6 +31,8 @@ GLOBAL_LIST_EMPTY(valid_cryopods)
 	verb_ask = "queries"
 	verb_exclaim = "alarms"
 
+	connectable = FALSE
+
 	/// Used for logging people entering cryosleep and important items they are carrying.
 	var/list/frozen_crew = list()
 	/// The items currently stored in the cryopod control panel.
@@ -205,7 +207,7 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/machinery/computer/cryopod, 32)
 	return ..()
 
 /obj/machinery/cryopod/proc/find_control_computer(urgent = FALSE)
-	for(var/cryo_console as anything in GLOB.cryopod_computers)
+	for(var/cryo_console in GLOB.cryopod_computers)
 		var/obj/machinery/computer/cryopod/console = cryo_console
 		if(get_area(console) == get_area(src))
 			control_computer_weakref = WEAKREF(console)
@@ -626,7 +628,7 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/machinery/cryopod/prison, 18)
 /obj/effect/mob_spawn/ghost_role/proc/find_control_computer()
 	if(!computer_area)
 		return
-	for(var/cryo_console as anything in GLOB.cryopod_computers)
+	for(var/cryo_console in GLOB.cryopod_computers)
 		var/obj/machinery/computer/cryopod/console = cryo_console
 		var/area/area = get_area(cryo_console) // Define moment
 		if(area.type == computer_area)

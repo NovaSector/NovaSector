@@ -8,8 +8,12 @@
 	if(connectable)
 		AddComponent(/datum/component/connectable_computer)
 
+/obj/machinery/modular_computer
+	///Determines if the computer can connect to other computers (no time clock, etc.)
+	var/connectable = TRUE
+
 /obj/machinery/modular_computer/Initialize(mapload)
 	. = ..()
 
-	// Modular consoles all have the same case.
-	AddComponent(/datum/component/connectable_computer)
+	if(connectable)
+		AddComponent(/datum/component/connectable_computer)

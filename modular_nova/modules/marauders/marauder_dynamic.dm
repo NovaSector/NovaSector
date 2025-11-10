@@ -2,7 +2,7 @@
 	name = "Ghost Roll Traitor"
 	config_tag = "Marauders"
 	preview_antag_datum = /datum/antagonist/traitor/marauder
-	midround_type = LIGHT_MIDROUND
+	midround_type = HEAVY_MIDROUND
 	candidate_role = "Marauder"
 	pref_flag = ROLE_MARAUDER
 	jobban_flag = ROLE_MARAUDER
@@ -102,29 +102,6 @@
 	map = null
 	spawnpoint = null
 	QDEL_NULL(reservation)
-
-/datum/dynamic_ruleset/midround/from_ghosts/marauder/proc/prompt_namechange(mob/living/player, client/player_client)
-	var/old_name = player.real_name
-	player.playsound_local(player, 'sound/machines/terminal/terminal_prompt.ogg', 50, FALSE)
-	if(player_client)
-		window_flash(player_client)
-	switch(tgui_alert(
-			player,
-			"Do you wish to take on an alias?",
-			"Change Name?",
-			list("Operative alias", "Random alias", "Keep current name"),
-			1 MINUTES,
-		))
-		if("Operative alias")
-			player.fully_replace_character_name(player.real_name, "[player_client?.prefs?.read_preference(/datum/preference/name/operative_alias)]")
-			player.playsound_local(player, 'sound/machines/terminal/terminal_prompt_confirm.ogg', 50, FALSE)
-			message_admins("[ADMIN_LOOKUPFLW(player)] has taken on [player.p_their()] operative alias, [player.p_their()] previous name was [old_name].")
-		if("Random alias")
-			player.fully_replace_character_name(player.real_name, "[pick(GLOB.operative_aliases)] [syndicate_name()]")
-			player.playsound_local(player, 'sound/machines/terminal/terminal_prompt_confirm.ogg', 50, FALSE)
-			message_admins("[ADMIN_LOOKUPFLW(player)] has taken on a random name, [player.p_their()] previous name was [old_name].")
-		else
-			player.playsound_local(player, 'sound/machines/terminal/terminal_prompt_deny.ogg', 50, FALSE)
 
 /// load the shuttle, we don't trust lazy_load with this
 /datum/dynamic_ruleset/midround/from_ghosts/marauder/proc/load_shuttle()

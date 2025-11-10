@@ -56,11 +56,13 @@
 	name = "upgraded medigun cell"
 	maxcharge = 1.5 * STANDARD_CELL_CHARGE
 	chargerate = 0.08 * STANDARD_CELL_CHARGE
+	emp_damage_modifier = 5
 
 /obj/item/stock_parts/power_store/cell/medigun/experimental // This cell type is meant to be used in self charging mediguns like CMO and ERT one.
 	name = "experimental medigun cell"
 	maxcharge = 1.8 * STANDARD_CELL_CHARGE
 	chargerate = 0.1 * STANDARD_CELL_CHARGE
+	emp_damage_modifier = 5
 // End of power cells
 
 // Upgrade Kit
