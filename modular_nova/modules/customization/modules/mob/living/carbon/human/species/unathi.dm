@@ -25,14 +25,14 @@
 
 /datum/species/unathi/get_default_mutant_bodyparts()
 	return list(
-		"ears" = list("None", FALSE),
-		"tail" = list("Smooth", TRUE),
-		"snout" = list("Sharp + Light", TRUE),
-		"spines" = list("None", FALSE),
-		"frills" = list("None", FALSE),
-		"horns" = list("Curled", FALSE),
-		"body_markings" = list("Smooth Belly", TRUE),
-		"legs" = list("Normal Legs", FALSE),
+		FEATURE_EARS = list("None", FALSE),
+		FEATURE_TAIL = list("Smooth", TRUE),
+		FEATURE_SNOUT = list("Sharp + Light", TRUE),
+		FEATURE_SPINES = list("None", FALSE),
+		FEATURE_FRILLS = list("None", FALSE),
+		FEATURE_HORNS = list("Curled", FALSE),
+		FEATURE_MARKING_GENERIC = list("Smooth Belly", TRUE),
+		FEATURE_LEGS = list("Normal Legs", FALSE),
 	)
 
 /obj/item/organ/tongue/unathi
@@ -63,9 +63,9 @@
 		if(5)
 			main_color = "#33BB11"
 			second_color = "#339911"
-	features["mcolor"] = main_color
-	features["mcolor2"] = second_color
-	features["mcolor3"] = second_color
+	features[FEATURE_MUTANT_COLOR] = main_color
+	features[FEATURE_MUTANT_COLOR_TWO] = second_color
+	features[FEATURE_MUTANT_COLOR_THREE] = second_color
 	return features
 
 /datum/species/unathi/get_species_description()

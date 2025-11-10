@@ -22,7 +22,7 @@
 	// without external aid (earmuffs, drugs)
 
 	/// Resistance against loud noises
-	var/bang_protect = 0
+	var/bang_protect = EAR_PROTECTION_NONE
 	/// Multiplier for both long term and short term ear damage
 	var/damage_multiplier = 1
 
@@ -145,10 +145,9 @@
 	visual = TRUE
 	damage_multiplier = 2
 
-	preference = "feature_human_ears"
 	restyle_flags = EXTERNAL_RESTYLE_FLESH
 
-	//dna_block = DNA_EARS_BLOCK // NOVA EDIT REMOVAL - Customization - We have our own system to handle DNA.
+	//dna_block = /datum/dna_block/feature/accessory/ears // NOVA EDIT REMOVAL - Customization - We have our own system to handle DNA.
 
 	bodypart_overlay = /datum/bodypart_overlay/mutant/cat_ears
 
@@ -156,14 +155,11 @@
 /datum/bodypart_overlay/mutant/cat_ears
 	layers = EXTERNAL_FRONT | EXTERNAL_BEHIND
 	color_source = ORGAN_COLOR_HAIR
-	feature_key = "ears"
+	feature_key = FEATURE_EARS
 	dyable = TRUE
 
 	/// Layer upon which we add the inner ears overlay
 	var/inner_layer = EXTERNAL_FRONT
-
-/datum/bodypart_overlay/mutant/cat_ears/get_global_feature_list()
-	return SSaccessories.sprite_accessories["ears"] // NOVA EDIT - Customization - ORIGINAL: return SSaccessories.ears_list
 
 /datum/bodypart_overlay/mutant/cat_ears/can_draw_on_bodypart(obj/item/bodypart/bodypart_owner)
 	return !(bodypart_owner.owner?.obscured_slots & HIDEHAIR)
@@ -280,7 +276,7 @@
 	name = "volume-adjusting cybernetic ears"
 	icon_state = "ears-c-u"
 	desc = "Advanced cybernetic ears capable of dampening loud noises to protect their user."
-	bang_protect = 1
+	bang_protect = EAR_PROTECTION_NORMAL
 	damage_multiplier = 0.5
 
 // "X-ray ears" that let you hear through walls

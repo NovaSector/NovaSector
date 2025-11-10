@@ -111,6 +111,10 @@
 	name = "Beret - Virologist"
 	item_path = /obj/item/clothing/head/beret/medical/virologist
 
+/datum/loadout_item/head/beret_clown
+	name = "Beret - Clown"
+	item_path = /obj/item/clothing/head/beret/clown
+
 /*
 *	CAPS
 */
