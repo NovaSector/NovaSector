@@ -1,14 +1,14 @@
 // Bitey quirk - allows toggling bite attacks without needing Feline Traits
 /datum/action/innate/toggle_bite
-	name = "Toggle Bite"
+	name = "Go Feral"
 	desc = "Toggle whether you bite instead of doing unarmed attacks."
 	button_icon = 'icons/mob/actions/actions_items.dmi'
 	button_icon_state = "feral_mode_off"
 	check_flags = AB_CHECK_CONSCIOUS
+	var/list/ability_name = list("Go Feral", "Bite the Hand that Feeds", "Unleash Id", "Activate Catbrain", "Gremlin Mode", "Nom Mode", "Dehumanize Yourself", "Misbehave")
 
 /datum/action/innate/toggle_bite/New(Target)
 	..()
-	var/list/ability_name = list("Toggle Bite", "Bite Mode", "Chomp Toggle", "Nom Mode")
 	name = pick(ability_name)
 
 /datum/action/innate/toggle_bite/Activate()
@@ -21,10 +21,12 @@
 		to_chat(human_owner, span_warning("You need a head to bite!"))
 		return
 
-	// Enable bite mode - set sharpness, increase damage to match punches, and add trait
+	// Enable bite mode - match cat tongue bonuses: +4/+7 damage, +10 effectiveness, +0.5 pummeling, sharpness
+	head.unarmed_damage_low += 4
+	head.unarmed_damage_high += 7
+	head.unarmed_effectiveness += 10
+	head.unarmed_pummeling_bonus += 0.5
 	head.unarmed_sharpness = SHARP_EDGED
-	head.unarmed_damage_low = 5
-	head.unarmed_damage_high = 10
 	ADD_TRAIT(human_owner, TRAIT_FERAL_BITER, QUIRK_TRAIT)
 
 	active = TRUE
@@ -42,12 +44,14 @@
 	if(!head)
 		return
 
-	// Check if they have a cat tongue that would keep the modifications
+	// Check if cat tongue is keeping these bonuses active
 	var/obj/item/organ/tongue/cat/cat_tongue = human_owner.get_organ_slot(ORGAN_SLOT_TONGUE)
 	if(!istype(cat_tongue) || !cat_tongue.feral_mode)
+		head.unarmed_damage_low -= 4
+		head.unarmed_damage_high -= 7
+		head.unarmed_effectiveness -= 10
+		head.unarmed_pummeling_bonus -= 0.5
 		head.unarmed_sharpness = NONE
-		head.unarmed_damage_low = 1
-		head.unarmed_damage_high = 3
 
 	REMOVE_TRAIT(human_owner, TRAIT_FERAL_BITER, QUIRK_TRAIT)
 
@@ -79,20 +83,24 @@
 	bite_action.Grant(human_holder)
 
 /datum/quirk/bitey/remove()
-	if(bite_action)
-		bite_action.Remove(quirk_holder)
-		QDEL_NULL(bite_action)
-
 	// Make sure to restore bite mode if it was active
 	var/mob/living/carbon/human/human_holder = quirk_holder
 	if(ishuman(human_holder))
 		// Check if this is from the bitey quirk (not from cat tongue)
 		var/obj/item/organ/tongue/cat/cat_tongue = human_holder.get_organ_slot(ORGAN_SLOT_TONGUE)
 		if(!istype(cat_tongue) || !cat_tongue.feral_mode)
-			var/obj/item/bodypart/head/head = human_holder.get_bodypart(BODY_ZONE_HEAD)
-			if(head)
-				head.unarmed_sharpness = NONE
-				head.unarmed_damage_low = 1
-				head.unarmed_damage_high = 3
-			REMOVE_TRAIT(human_holder, TRAIT_FERAL_BITER, QUIRK_TRAIT)
+			// Check if bite mode was active (trait is present)
+			if(HAS_TRAIT(human_holder, TRAIT_FERAL_BITER))
+				var/obj/item/bodypart/head/head = human_holder.get_bodypart(BODY_ZONE_HEAD)
+				if(head)
+					head.unarmed_damage_low -= 4
+					head.unarmed_damage_high -= 7
+					head.unarmed_effectiveness -= 10
+					head.unarmed_pummeling_bonus -= 0.5
+					head.unarmed_sharpness = NONE
+				REMOVE_TRAIT(human_holder, TRAIT_FERAL_BITER, QUIRK_TRAIT)
+
+	if(bite_action)
+		bite_action.Remove(quirk_holder)
+		QDEL_NULL(bite_action)
 
