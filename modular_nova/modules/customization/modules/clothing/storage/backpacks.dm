@@ -86,7 +86,7 @@
 	resistance_flags = FIRE_PROOF
 
 /obj/item/storage/backpack/udc
-	name = "U.D.C."
+	name = "\improper U.D.C."
 	desc = "This ultra-discreet carrier apparatus relieves the burden of a rear-focused center of weight by allowing the wearer to stow items inside its discreet and practical storage compartments."
 	icon_state = "backpack-udc"
 	inhand_icon_state = "udcpack"
