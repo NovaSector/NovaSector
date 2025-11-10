@@ -26,7 +26,6 @@
 		/obj/item/stack/sheet/runed_metal = 0.2,
 		/obj/item/stack/telecrystal = 0.1,
 		/obj/item/stack/ore/bluespace_crystal = 0.1,
-		/obj/machinery/artifact/bluespace_crystal = 0.1,
 		/obj/item/hypernoblium_crystal = 0.1,
 	)
 

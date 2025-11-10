@@ -70,51 +70,6 @@
 	id = "xenoarch_handscanner"
 	build_path = /obj/item/xenoarch/handheld_scanner
 
-/datum/design/xenoarch/tool/stabilizer
-	name = "Xenoarch Artifact Stabilizer"
-	desc = "An outdated tech to stabilize boulders."
-	id = "xenoarch_artifact_stabilizer"
-	build_path = /obj/item/xenoarch/anomaly_stabilizer
-
-/datum/design/xenoarch/tool/core_sampler
-	name = "Core Sampler"
-	desc = "An outdated way to take a sample of rocks and dirt."
-	id = "xenoarch_core_sampler"
-	build_path = /obj/item/xenoarch/core_sampler
-
-/datum/design/xenoarch/tool/particles_battery
-	name = "Exotic particles power battery"
-	desc = "A battery, that can collect exotic particles and release them later, if used properly."
-	id = "xenoarch_particles_battery"
-	build_path = /obj/item/xenoarch/particles_battery
-	materials = list(
-		/datum/material/iron = HALF_SHEET_MATERIAL_AMOUNT,
-		/datum/material/plasma = HALF_SHEET_MATERIAL_AMOUNT,
-		/datum/material/bluespace = SMALL_MATERIAL_AMOUNT,
-	)
-
-/datum/design/xenoarch/tool/xenoarch_utilizer
-	name = "Exotic particles power utilizer"
-	desc = "A device used to discharge exotic particle batteries."
-	id = "xenoarch_utilizer"
-	build_path = /obj/item/xenoarch/xenoarch_utilizer
-	materials = list(
-		/datum/material/iron = HALF_SHEET_MATERIAL_AMOUNT,
-		/datum/material/plasma = HALF_SHEET_MATERIAL_AMOUNT,
-	)
-
-/datum/design/xenoarch/tool/wave_scanner_backpack
-	name = "Wave scanner backpack"
-	desc = "An outdated way to find exotic particles."
-	id = "xenoarch_wave_scanner"
-	build_path = /obj/item/xenoarch/wave_scanner_backpack
-	materials = list(
-		/datum/material/iron = SHEET_MATERIAL_AMOUNT*2,
-		/datum/material/glass = HALF_SHEET_MATERIAL_AMOUNT,
-		/datum/material/plasma = SHEET_MATERIAL_AMOUNT,
-		/datum/material/bluespace = SMALL_MATERIAL_AMOUNT,
-	)
-
 /datum/design/xenoarch/tool/advanced
 	materials = list(
 		/datum/material/iron = HALF_SHEET_MATERIAL_AMOUNT,
@@ -124,7 +79,6 @@
 	category = list(
 		RND_CATEGORY_TOOLS + RND_SUBCATEGORY_TOOLS_XENOARCH_ADVANCED,
 	)
-
 
 /datum/design/xenoarch/tool/advanced/scanner
 	name = "Xenoarch Advanced Handheld Scanner"
@@ -209,30 +163,6 @@
 	id = "xeno_recoverer"
 	build_path = /obj/item/circuitboard/machine/xenoarch_machine/xenoarch_recoverer
 
-/datum/design/board/xenoarch/artifact_analyzer
-	name = "Machine Design (Artifact Analyzer)"
-	desc = "Allows for the construction of circuit boards used to build a new xenoarch artifact analyzer."
-	id = "artifact_analyzer"
-	build_path = /obj/item/circuitboard/machine/artifact_analyser
-
-/datum/design/board/xenoarch/radiocarbon_spectrometer
-	name = "Machine Design (Radiocarbon spectrometer)"
-	desc = "Allows for the construction of circuit boards used to build a new xenoarch radiocarbon spectrometer."
-	id = "radiocarbon spectrometer"
-	build_path = /obj/item/circuitboard/machine/radiocarbon_spectrometer
-
-/datum/design/board/xenoarch/artifact_harvester
-	name = "Machine Design (Exotic Particle Harvester)"
-	desc = "Allows for the construction of circuit boards used to build a new xenoarch exotic particle harvester."
-	id = "artifact_harvester"
-	build_path = /obj/item/circuitboard/machine/artifact_harvester
-
-/datum/design/board/xenoarch/artifact_scanpad
-	name = "Machine Design (Artifact Scanpad)"
-	desc = "Allows for the construction of circuit boards used to build a new xenoarch artifact scanpad."
-	id = "artifact_scanpad"
-	build_path = /obj/item/circuitboard/machine/artifact_scanpad
-
 /datum/design/board/xenoarch/digger
 	name = "Machine Design (Xenoarch Digger)"
 	desc = "Allows for the construction of circuit boards used to build a new xenoarch digger."
@@ -256,10 +186,6 @@
 		"xenoarch_utilizer",
 		"xenoarch_tapemeasure",
 		"xenoarch_handscanner",
-		"xenoarch_wave_scanner",
-		"xenoarch_core_sampler",
-		"xenoarch_particles_battery",
-		"xenoarch_artifact_stabilizer",
 	)
 	announce_channels = list(RADIO_CHANNEL_SCIENCE)
 
@@ -284,10 +210,6 @@
 		"xeno_researcher",
 		"xeno_scanner",
 		"xeno_recoverer",
-		"artifact_analyzer",
-		"artifact_scanpad",
-		"artifact_harvester",
-		"radiocarbon spectrometer",
 	)
 	research_costs = list(TECHWEB_POINT_TYPE_GENERIC = TECHWEB_TIER_1_POINTS)
 	announce_channels = list(RADIO_CHANNEL_SCIENCE)
