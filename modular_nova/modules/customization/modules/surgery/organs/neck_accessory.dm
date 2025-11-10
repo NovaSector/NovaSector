@@ -3,7 +3,7 @@
 	desc = "It goes on the neck."
 	icon_state = "random_fly_1"
 
-	mutantpart_key = "neck_accessory"
+	mutantpart_key = FEATURE_NECK_ACCESSORY
 	mutantpart_info = list(MUTANT_INDEX_NAME = "Sylveon Neck Bow", MUTANT_INDEX_COLOR_LIST = list("#FFFFFF", "#FFFFFF", "#FFFFFF")) // Change the default here whenever we get something else than this donator-only one.
 
 	zone = BODY_ZONE_CHEST
@@ -13,7 +13,7 @@
 	bodypart_overlay = /datum/bodypart_overlay/mutant/neck_accessory
 
 /datum/bodypart_overlay/mutant/neck_accessory
-	feature_key = "neck_accessory"
+	feature_key = FEATURE_NECK_ACCESSORY
 	layers = EXTERNAL_FRONT | EXTERNAL_ADJACENT
 	color_source = ORGAN_COLOR_OVERRIDE
 

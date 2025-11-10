@@ -78,12 +78,15 @@
 	contains = list(/obj/item/paper_bin)
 
 /datum/supply_pack/goody/xenoarch_intern
-	name = "Xenoarchaeology Intern Skillchip"
-	desc = "A skillchip with all the information required to start dabbling in the fine art of interpreting xenoarchaeological finds. \
-			Does not come with actual xenoarchaeological tools, nor the ability to actually make anyone pay attention to one's \
+	name = "Xenoarchaeology Intern Skillchip Set"
+	desc = "A skillchip with all the information required to start dabbling in the fine art of interpreting xenoarchaeological finds, \
+			and a magnifying glass for actually analyzing your finds. \
+			Does not come with actual excavation tools, nor the ability to actually make anyone pay attention to one's \
 			attempts at intellectual posturing, nor any actual job experience as a curator."
-	cost = PAYCHECK_CREW * 35 // 1750 credit goody? do bounties
-	contains = list(/obj/item/skillchip/xenoarch_magnifier)
+	cost = PAYCHECK_CREW * 15 // 750 credits but you also theoretically print a lot of money if you consistently get/scan relics
+	contains = list(/obj/item/skillchip/xenoarch_magnifier,
+				/obj/item/glassblowing/magnifying_glass,
+			)
 
 /datum/supply_pack/goody/scratching_stone
 	name = "Scratching Stone"
