@@ -35,7 +35,7 @@
 
 /datum/storage/security_belt/handle_enter(datum/source, obj/item/arrived)
 	. = ..()
-	if(is_type_in_list(arrived, limited_hold_types))
+	if(is_type_in_list(arrived, limited_hold_types) && arrived.w_class > WEIGHT_CLASS_SMALL) // weight class check for small guns/telebatons
 		limited_held++
 
 /datum/storage/security_belt/handle_exit(datum/source, obj/item/gone)

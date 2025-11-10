@@ -42,8 +42,8 @@
 /obj/item/storage/belt/security/webbing
 	unique_reskin = list(
 		"Basic Variant" = list(
-			RESKIN_ICON_STATE = "security",
-			RESKIN_WORN_ICON_STATE = "security"
+			RESKIN_ICON_STATE = "securitywebbing",
+			RESKIN_WORN_ICON_STATE = "securitywebbing"
 		),
 		"Red Variant" = list(
 			RESKIN_ICON = 'modular_nova/master_files/icons/obj/clothing/belts.dmi',
@@ -64,6 +64,32 @@
 
 /datum/storage/holster
 	max_slots = 3
+	max_total_storage = WEIGHT_CLASS_NORMAL + (WEIGHT_CLASS_SMALL * 2) // gun and 2 ammo
+	// following "one gun per storage" is taken from secbelts, see modular_nova\master_files\code\game\objects\items\storage\belt.dm
+	// shhhould this be a component?
+	var/list/limited_hold_types = list(
+		/obj/item/gun,
+	)
+	/// how many restricted items do we already have stored in this belt
+	var/limited_held = 0
+	/// how many restricted items do we want to keep, at maximum, in this belt
+	var/max_limited_store = 1
+
+/datum/storage/holster/handle_enter(datum/source, obj/item/arrived)
+	. = ..()
+	if(is_type_in_list(arrived, limited_hold_types))
+		limited_held++
+
+/datum/storage/holster/handle_exit(datum/source, obj/item/gone)
+	. = ..()
+	if(is_type_in_list(gone, limited_hold_types))
+		limited_held = max(limited_held - 1, 0)
+
+/datum/storage/holster/can_insert(obj/item/to_insert, mob/user, messages, force)
+	. = ..()
+	if(is_type_in_list(to_insert, limited_hold_types) && (limited_held >= max_limited_store))
+		user.balloon_alert(user, "no suitable space!")
+		return FALSE
 
 /datum/storage/holster/New(atom/parent, max_slots, max_specific_storage, max_total_storage, rustle_sound, remove_rustle_sound, list/holdables)
 	. = ..()
@@ -74,19 +100,38 @@
 	set_holdable(list(
 		/obj/item/gun/ballistic/automatic/pistol,
 		/obj/item/gun/ballistic/revolver,
-		/obj/item/gun/energy/e_gun/mini,
+		/obj/item/gun/energy/e_gun, // covers e_gun/mini, e_gun/hos,
+		/obj/item/gun/energy/laser, // covers laser/captain, laser/thermal
 		/obj/item/gun/energy/disabler,
 		/obj/item/gun/energy/dueling,
 		/obj/item/food/grown/banana,
-		/obj/item/gun/energy/laser/thermal,
 		/obj/item/gun/ballistic/rifle/boltaction, //fits if you make it an obrez
-		/obj/item/gun/energy/laser/captain,
-		/obj/item/gun/energy/e_gun/hos,
 		// NOVA EDIT ADDITION START
 		/obj/item/ammo_box/magazine, // Just magazine, because the sec-belt can hold these aswell
 		/obj/item/ammo_box/speedloader,
 		/obj/item/gun/energy/recharge/kinetic_accelerator/variant/glock,
 		// NOVA EDIT ADDITION END
+	))
+
+/datum/storage/holster/energy
+	max_slots = 3 // 2 guns and a cell
+	max_limited_store = 2 // you only have 2 slots but you might as well be able to hold 2 eguns, y'know
+	max_total_storage = (WEIGHT_CLASS_NORMAL * 2) + WEIGHT_CLASS_SMALL
+
+/datum/storage/holster/energy/New(atom/parent, max_slots, max_specific_storage, max_total_storage, rustle_sound, remove_rustle_sound, list/holdables)
+	. = ..()
+	set_holdable(list(
+		/obj/item/gun/energy/e_gun, // covers e_gun/mini, e_gun/hos,
+		/obj/item/gun/energy/laser, // covers laser/captain, laser/thermal
+		/obj/item/gun/energy/disabler,
+		/obj/item/gun/energy/dueling,
+		/obj/item/food/grown/banana,
+		/obj/item/gun/energy/recharge/ebow,
+		// nova specifics from here on
+		/obj/item/gun/ballistic/automatic/pistol/plasma_marksman,
+		/obj/item/gun/ballistic/automatic/pistol/plasma_thrower,
+		/obj/item/ammo_box/magazine/recharge/plasma_battery,
+		/obj/item/gun/energy/recharge/kinetic_accelerator/variant/glock,
 	))
 
 /obj/item/storage/belt/holster/detective
@@ -95,33 +140,27 @@
 
 /datum/storage/holster/detective
 	max_slots = 4
+	max_total_storage = WEIGHT_CLASS_NORMAL + (WEIGHT_CLASS_SMALL * 3) // gun and 2 ammo
 
 /datum/storage/holster/detective/New(atom/parent, max_slots, max_specific_storage, max_total_storage, rustle_sound, remove_rustle_sound, list/holdables)
-	holdables = list(
+	. = ..()
+	set_holdable(list(
 		/obj/item/gun/ballistic/automatic/pistol,
-		/obj/item/ammo_box/magazine/m9mm, // Pistol magazines.
-		/obj/item/ammo_box/magazine/m9mm_aps,
-		/obj/item/ammo_box/magazine/m10mm,
-		/obj/item/ammo_box/magazine/m45,
-		/obj/item/ammo_box/magazine/m50,
 		/obj/item/gun/ballistic/revolver,
+		/obj/item/ammo_box/magazine, // covers all the old magazines (m9mm, m9mm_aps, m10mm, m45, m50)
+		// though realistically someone could consider just hand-adding every pistol magazine. including the nova-specific ones.
 		/obj/item/ammo_box/speedloader, // Speedloaders, which includes stripper clips on a technicality.
 		/obj/item/ammo_box/magazine/toy/pistol,
-		/obj/item/gun/energy/e_gun/mini,
+		/obj/item/gun/energy/e_gun, // covers e_gun/mini, e_gun/hos,
+		/obj/item/gun/energy/laser, // covers laser/captain, laser/thermal
 		/obj/item/gun/energy/disabler,
 		/obj/item/gun/energy/dueling,
-		/obj/item/gun/energy/laser/thermal,
-		/obj/item/gun/energy/laser/captain,
-		/obj/item/gun/energy/e_gun/hos,
 		/obj/item/gun/ballistic/rifle/boltaction, //fits if you make it an obrez
 		// NOVA EDIT ADDITION START
-		/obj/item/ammo_box/magazine,
 		/obj/item/food/grown/banana,
 		/obj/item/gun/energy/recharge/kinetic_accelerator/variant/glock,
 		// NOVA EDIT ADDITION END
-	)
-
-	return ..()
+	))
 
 ///Enables you to quickdraw weapons from security holsters
 /datum/storage/holster/open_storage(mob/to_show, can_reach_target)
