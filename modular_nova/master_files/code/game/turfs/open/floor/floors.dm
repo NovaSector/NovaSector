@@ -386,8 +386,8 @@
 	floor_tile = /obj/item/stack/tile/iron/pattern_10
 
 /obj/item/stack/tile/iron/pattern_10
-	name = "Arrow Pattern Brick Tile"
-	singular_name = "Arrow Pattern Brick Tile"
+	name = "arrow pattern brick tile"
+	singular_name = "arrow pattern brick tile"
 	icon = 'modular_nova/master_files/icons/obj/tiles.dmi'
 	icon_state = "pattern_10"
 	turf_type = /turf/open/floor/iron/pattern_10
@@ -759,8 +759,8 @@
 	floor_tile = /obj/item/stack/tile/iron/dark/pattern_10
 
 /obj/item/stack/tile/iron/dark/pattern_10
-	name = "Dark Arrow Pattern Brick Tile"
-	singular_name = "Dark Arrow Pattern Brick Tile"
+	name = "dark arrow pattern brick tile"
+	singular_name = "dark arrow pattern brick tile"
 	icon = 'modular_nova/master_files/icons/obj/tiles.dmi'
 	icon_state = "dark_pattern_10"
 	turf_type = /turf/open/floor/iron/dark/pattern_10
@@ -1131,8 +1131,8 @@
 	floor_tile = /obj/item/stack/tile/iron/white/pattern_10
 
 /obj/item/stack/tile/iron/white/pattern_10
-	name = "White Arrow Pattern Brick Tile"
-	singular_name = "White Arrow Pattern Brick Tile"
+	name = "white arrow pattern brick tile"
+	singular_name = "white arrow pattern brick tile"
 	icon = 'modular_nova/master_files/icons/obj/tiles.dmi'
 	icon_state = "white_pattern_10"
 	turf_type = /turf/open/floor/iron/white/pattern_10
@@ -1179,8 +1179,8 @@
 	floor_tile = /obj/item/stack/tile/wood/wood_2
 
 /obj/item/stack/tile/wood/wood_2
-	name = "Wood Barrel Floor Tile"
-	singular_name = "Wood Barrel Floor Tile"
+	name = "wood barrel floor tile"
+	singular_name = "wood barrel floor tile"
 	icon = 'modular_nova/master_files/icons/obj/tiles.dmi'
 	icon_state = "wood_2"
 	turf_type = /turf/open/floor/wood/wood_2
@@ -1194,8 +1194,8 @@
 	floor_tile = /obj/item/stack/tile/wood/wood_3
 
 /obj/item/stack/tile/wood/wood_3
-	name = "Alternating Wood Corners Floor Tile"
-	singular_name = "Alternating Wood Floor Tile"
+	name = "alternating wood corners floor tile"
+	singular_name = "alternating wood floor tile"
 	icon = 'modular_nova/master_files/icons/obj/tiles.dmi'
 	icon_state = "wood_3"
 	turf_type = /turf/open/floor/wood/wood_3
@@ -1208,8 +1208,8 @@
 	floor_tile = /obj/item/stack/tile/wood/wood_4
 
 /obj/item/stack/tile/wood/wood_4
-	name = "Alternating Wood Boards"
-	singular_name = "Alternating Wood Boards"
+	name = "alternating wood boards"
+	singular_name = "alternating wood boards"
 	icon = 'modular_nova/master_files/icons/obj/tiles.dmi'
 	icon_state = "wood_4"
 	turf_type = /turf/open/floor/wood/wood_4
@@ -1223,8 +1223,8 @@
 	floor_tile = /obj/item/stack/tile/wood/wood_5
 
 /obj/item/stack/tile/wood/wood_5
-	name = "Diagonal Wooden Boards"
-	singular_name = "Diagonal Wooden Boards"
+	name = "diagonal wooden boards"
+	singular_name = "diagonal wooden boards"
 	icon = 'modular_nova/master_files/icons/obj/tiles.dmi'
 	icon_state = "wood_5"
 	turf_type = /turf/open/floor/wood/wood_5
@@ -1238,8 +1238,8 @@
 	floor_tile = /obj/item/stack/tile/wood/wood_6
 
 /obj/item/stack/tile/wood/wood_6
-	name = "Wooden Boards"
-	singular_name = "Wooden Board"
+	name = "wooden boards"
+	singular_name = "wooden board"
 	icon = 'modular_nova/master_files/icons/obj/tiles.dmi'
 	icon_state = "wood_6"
 	turf_type = /turf/open/floor/wood/wood_6
@@ -1252,8 +1252,8 @@
 	floor_tile = /obj/item/stack/tile/wood/wood_7
 
 /obj/item/stack/tile/wood/wood_7
-	name = "Wood Crosshatch Floor Tiles"
-	singular_name = "Wood Crosshatch Floor Tile"
+	name = "wood crosshatch floor tiles"
+	singular_name = "wood crosshatch floor tile"
 	icon = 'modular_nova/master_files/icons/obj/tiles.dmi'
 	icon_state = "wood_7"
 	turf_type = /turf/open/floor/wood/wood_7
@@ -1266,8 +1266,8 @@
 	floor_tile = /obj/item/stack/tile/wood/wood_8
 
 /obj/item/stack/tile/wood/wood_8
-	name = "Square Wood Tiles"
-	singular_name = "Square Wood Tile"
+	name = "square wood tiles"
+	singular_name = "square wood tile"
 	icon = 'modular_nova/master_files/icons/obj/tiles.dmi'
 	icon_state = "wood_8"
 	turf_type = /turf/open/floor/wood/wood_8
@@ -1281,8 +1281,8 @@
 
 
 /obj/item/stack/tile/wood/wood_9
-	name = "Wood Arrow Pattern Tiles"
-	singular_name = "Wood Arrow Pattern Tile"
+	name = "wood arrow pattern tiles"
+	singular_name = "wood arrow pattern tile"
 	icon = 'modular_nova/master_files/icons/obj/tiles.dmi'
 	icon_state = "wood_9"
 	turf_type = /turf/open/floor/wood/wood_9
@@ -1296,8 +1296,8 @@
 	floor_tile = /obj/item/stack/tile/wood/wood_10
 
 /obj/item/stack/tile/wood/wood_10
-	name = "Modified Wood Parquet Tiles"
-	singular_name = "Modified Wood Parquet Tile"
+	name = "modified wood parquet tiles"
+	singular_name = "modified wood parquet tile"
 	icon = 'modular_nova/master_files/icons/obj/tiles.dmi'
 	icon_state = "wood_10"
 	turf_type = /turf/open/floor/wood/wood_10
@@ -1310,8 +1310,8 @@
 	floor_tile = /obj/item/stack/tile/wood/wood_11
 
 /obj/item/stack/tile/wood/wood_11
-	name = "Wood Spiral Tiles"
-	singular_name = "Wood Spiral Tile"
+	name = "wood spiral tiles"
+	singular_name = "wood spiral tile"
 	icon = 'modular_nova/master_files/icons/obj/tiles.dmi'
 	icon_state = "wood_11"
 	turf_type = /turf/open/floor/wood/wood_11
@@ -1324,8 +1324,8 @@
 	floor_tile = /obj/item/stack/tile/wood/wood_12
 
 /obj/item/stack/tile/wood/wood_12
-	name = "Centered Woof Tiles"
-	singular_name = "Centered Woof Tile"
+	name = "centered woof tiles"
+	singular_name = "centered woof tile"
 	icon = 'modular_nova/master_files/icons/obj/tiles.dmi'
 	icon_state = "wood_12"
 	turf_type = /turf/open/floor/wood/wood_12
@@ -1338,8 +1338,8 @@
 	floor_tile = /obj/item/stack/tile/wood/wood_13
 
 /obj/item/stack/tile/wood/wood_13
-	name = "Hexagon Wood Tiles"
-	singular_name = "Hexagon Wood Tile"
+	name = "hexagon wood tiles"
+	singular_name = "hexagon wood tile"
 	icon = 'modular_nova/master_files/icons/obj/tiles.dmi'
 	icon_state = "wood_13"
 	turf_type = /turf/open/floor/wood/wood_13
