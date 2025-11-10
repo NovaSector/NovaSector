@@ -13,7 +13,7 @@
 	return FALSE
 
 /obj/item/organ/snout
-	mutantpart_key = "snout"
+	mutantpart_key = FEATURE_SNOUT
 	mutantpart_info = list(MUTANT_INDEX_NAME = "None", MUTANT_INDEX_COLOR_LIST = list("#FFFFFF", "#FFFFFF", "#FFFFFF"))
 	external_bodyshapes = NONE // We don't actually want this to have  by default, since some of them don't apply that.
 
@@ -40,9 +40,11 @@
 /obj/item/organ/snout/top
 	bodypart_overlay = /datum/bodypart_overlay/mutant/snout/top
 
+/datum/bodypart_overlay/mutant/snout/get_global_feature_list()
+	return SSaccessories.sprite_accessories[FEATURE_SNOUT]
+
 /datum/bodypart_overlay/mutant/snout/top
 	layers = EXTERNAL_FRONT
-
 
 /obj/item/organ/snout/top_adj
 	bodypart_overlay = /datum/bodypart_overlay/mutant/snout/top_adj

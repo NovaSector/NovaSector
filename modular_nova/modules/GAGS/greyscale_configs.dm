@@ -46,12 +46,29 @@
 	name = "Beret With Fancy Badge (Worn)"
 	json_config = 'modular_nova/modules/GAGS/json_configs/beret/beret_badge_fancy_worn.json'
 
+/datum/greyscale_config/beret_badge_clown
+	name = "Beret With Clown Badge"
+	icon_file = 'modular_nova/modules/GAGS/icons/beret.dmi'
+	json_config = 'modular_nova/modules/GAGS/json_configs/beret/beret_badge_clown.json'
+
+/datum/greyscale_config/beret_badge_clown/worn
+	name = "Beret With Clown Badge (Worn)"
+	json_config = 'modular_nova/modules/GAGS/json_configs/beret/beret_badge_clown_worn.json'
+
 /datum/greyscale_config/beret_badge_fancy/worn/vox
-	name = "Beret With Fancy Badge (Worn, Vox)"
+	name = "Beret With Clown Badge (Worn, Vox)"
 	icon_file = 'modular_nova/modules/GAGS/icons/beret_vox.dmi'
 
 /datum/greyscale_config/beret_badge_fancy/worn/teshari
 	name = "Beret With Fancy Badge (Worn, Teshari)"
+	icon_file = 'modular_nova/modules/GAGS/icons/beret_teshari.dmi'
+
+/datum/greyscale_config/beret_badge_clown/worn/vox
+	name = "Beret With Fancy Badge (Worn, Vox)"
+	icon_file = 'modular_nova/modules/GAGS/icons/beret_vox.dmi'
+
+/datum/greyscale_config/beret_badge_clown/worn/teshari
+	name = "Beret With Clown Badge (Worn, Teshari)"
 	icon_file = 'modular_nova/modules/GAGS/icons/beret_teshari.dmi'
 
 

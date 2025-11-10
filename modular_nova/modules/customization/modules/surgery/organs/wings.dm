@@ -3,7 +3,7 @@
 	desc = "A pair of wings. Those may or may not allow you to fly... or at the very least flap."
 	zone = BODY_ZONE_CHEST
 	slot = ORGAN_SLOT_WINGS
-	mutantpart_key = "wings"
+	mutantpart_key = FEATURE_WINGS
 	mutantpart_info = list(MUTANT_INDEX_NAME = "Bat", MUTANT_INDEX_COLOR_LIST = list("#335533"))
 	///Whether the wings should grant flight on insertion.
 	var/unconditional_flight
@@ -203,7 +203,6 @@
 	name = "megamoth wings"
 	desc = "A pair of horrifyingly large, fuzzy wings. They look strong enough to lift you up in the air."
 	mutantpart_info = list(MUTANT_INDEX_NAME = "Megamoth", MUTANT_INDEX_COLOR_LIST = list("#FFFFFF"))
-
 
 /datum/bodypart_overlay/mutant/wings/functional
 	color_source = ORGAN_COLOR_INHERIT
