@@ -86,3 +86,4 @@
 	greyscale_colors = "#292929#ffffff#ff0000"
 	flags_1 = IS_PLAYER_COLORABLE_1
 	alternate_worn_layer = LOW_FACEMASK_LAYER
+

@@ -359,6 +359,10 @@
 	name = "Waiter's Suit"
 	item_path = /obj/item/clothing/under/suit/waiter
 
+/datum/loadout_item/under/formal/midnight_gown
+	name = "Midnight Gown"
+	item_path = /obj/item/clothing/under/midnight_gown
+
 /*
 *	erp_item
 */
