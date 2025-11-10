@@ -272,3 +272,15 @@
   - image: adjusted multiple default icons
   sqnztb:
   - bugfix: pipes look less bad again.
+2025-11-10:
+  MintMetal:
+  - bugfix: Tarkon Driver now don't have two SMESes on the same tile
+  OrbisAnima:
+  - balance: Floor safes can now be detected with t ray scanners.
+  intense-skies:
+  - rscdel: ' The chameleon mutation is removed from genetic mutation quirk.'
+  trazodont:
+  - rscadd: police whistles can now be added to security belts
+  - qol: Correctional Officers now have security bounties
+  vinylspiders:
+  - bugfix: fixes some bad code in xenoarch causing performance issues
