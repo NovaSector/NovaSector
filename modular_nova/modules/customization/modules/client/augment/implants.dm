@@ -35,7 +35,7 @@
 	slot = AUGMENT_SLOT_LEFT_ARM_IMPLANT
 
 /datum/augment_item/implant/l_arm/mantis_blade_left
-	name = "Left Arm Mantis Blade"
+	name = "Left Obsolete Mantis Blade"
 	cost = 8
 	path = /obj/item/organ/cyberimp/arm/toolkit/armblade/early/l
 
@@ -103,7 +103,7 @@
 	slot = AUGMENT_SLOT_RIGHT_ARM_IMPLANT
 
 /datum/augment_item/implant/r_arm/mantis_blade_right
-	name = "Right Arm Mantis Blade"
+	name = "Right Obsolete Mantis Blade"
 	cost = 8
 	path = /obj/item/organ/cyberimp/arm/toolkit/armblade/early
 
