@@ -96,18 +96,20 @@
 	if(QDELETED(to_link) || to_link.stat == DEAD)
 		return FALSE
 
-	/* ORIGINAL CODE
+	/* NOVA EDIT REMOVAL START
 	if(HAS_TRAIT(to_link, TRAIT_MINDSHIELD)) // Mindshield implant - no dice
 		return FALSE
 	if(to_link.can_block_magic(MAGIC_RESISTANCE_MIND, charge_cost = 0))
 		return FALSE
-	*/ //ORIGINAL CODE END
-	//NOVA EDIT START
+	*/ // NOVA EDIT REMOVAL END
+	//NOVA EDIT ADDITION START
 	if(HAS_TRAIT(to_link, TRAIT_MINDSHIELD) && linking_protection) // Mindshield implant - no dice
 		return FALSE
 	if(to_link.can_block_magic(MAGIC_RESISTANCE_MIND, charge_cost = 0) && linking_protection)
 		return FALSE
-	//NOVA EDIT END
+	if(HAS_TRAIT(to_link, TRAIT_PSIONIC_DAMPENER) && linking_protection) // Telepathy blocker quirk
+		return FALSE
+	//NOVA EDIT ADDITION END
 	if(linked_mobs[to_link])
 		return FALSE
 

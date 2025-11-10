@@ -5,7 +5,7 @@
 	name = "moth wings"
 	desc = "Spread your wings and FLOOOOAAAAAT!"
 
-	// dna_block = /datum/dna_block/feature/moth_wing // NOVA EDIT REMOVAL - Customization
+	// dna_block = /datum/dna_block/feature/accessory/moth_wing // NOVA EDIT REMOVAL - Customization
 
 	bodypart_overlay = /datum/bodypart_overlay/mutant/wings/moth
 	restyle_flags = EXTERNAL_RESTYLE_FLESH
@@ -103,13 +103,9 @@
 	var/burnt
 
 /datum/bodypart_overlay/mutant/wings/moth/New()
+	. = ..()
+
 	burn_datum = fetch_sprite_datum(burn_datum)
-
-	return ..()
-
-/datum/bodypart_overlay/mutant/wings/moth/get_global_feature_list()
-	return SSaccessories.sprite_accessories[FEATURE_WINGS] // NOVA EDIT CHANGE - Customization - ORIGINAL: return SSaccessories.moth_wings_list
-
 /datum/bodypart_overlay/mutant/wings/moth/can_draw_on_bodypart(obj/item/bodypart/bodypart_owner)
 	return !(bodypart_owner.owner?.obscured_slots & HIDEMUTWINGS) && ..() // NOVA EDIT CHANGE - ORIGINAL: return !(bodypart_owner.owner?.obscured_slots & HIDEMUTWINGS)
 
