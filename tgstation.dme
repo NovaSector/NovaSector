@@ -7255,7 +7255,6 @@
 #include "modular_nova\master_files\code\modules\mapfluff\ruins\spaceruin_code\oldstation\oldstation_cytology.dm"
 #include "modular_nova\master_files\code\modules\mining\ash_flora\mushroom_leaf.dm"
 #include "modular_nova\master_files\code\modules\mining\boulder_processing\boulder_types.dm"
-#include "modular_nova\master_files\code\modules\mining\boulder_processing\brm.dm"
 #include "modular_nova\master_files\code\modules\mining\equipment\explorer_gear.dm"
 #include "modular_nova\master_files\code\modules\mining\equipment\monster_organs\monster_organ.dm"
 #include "modular_nova\master_files\code\modules\mob\login.dm"
