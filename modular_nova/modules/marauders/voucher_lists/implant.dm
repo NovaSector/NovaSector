@@ -213,15 +213,6 @@
 		/obj/item/implanter/freedom,
 	)
 
-/datum/voucher_set/traitor/implant/stealth
-	name = /obj/item/implant/stealth::name
-	description = /obj/item/implant/stealth::desc
-	icon = /obj/structure/closet/cardboard/agent::icon
-	icon_state = /obj/structure/closet/cardboard/agent::icon_state
-	set_items = list(
-		/obj/item/implanter/stealth,
-	)
-
 //organ replacemenet
 /datum/voucher_set/traitor/implant/nutriment_plus
 	name = /obj/item/organ/cyberimp/chest/nutriment/plus::name
