@@ -1,8 +1,0 @@
-author: "moonridden, Stalkeros, OrbisAnima, PieDuck, Deadmon_Wonderland, Impedus"
-delete-after: True
-changes:
-  - balance: "Drones are behaving strangely, thanks to the introduction of the technology scavenged from the Drone Intelligence Unit event. They have new policy and rules, are considered Silicons, and have a fresh set of allowances and expectations."
-  - refactor: "Removes drone_adjustments.dm, merges contents to drones.dm, updates us to spans for rules and stuff. Better UI is coming later"
-  - balance: "Drones now float on top of lava, and can crawl through space. Biomechanical evolution at work."
-  - balance: "Station drone storage loadout has been revamped for modern expectations."
-  - rscadd: "Station drones now have pockets!"

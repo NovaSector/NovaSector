@@ -1,7 +1,0 @@
-author: "vinylspiders"
-delete-after: True
-changes:
-  - bugfix: "fixes some broken loadout icons (capes, dutch suit)"
-  - rscadd: "adds new customization options to loadout + autodrobe: pink clown outfit, gloves, wig, heels, clown beret"
-  - rscadd: "adds a gear harness for the suit slot in loadout (so you don't have to take up a uniform slot)"
-  - rscadd: "high heel galoshes can now be found in the janivendor, good luck"
