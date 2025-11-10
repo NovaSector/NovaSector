@@ -162,6 +162,7 @@
 /datum/loadout_item/mask/pink_clown_wig
 	name = "Pink Clown Wig"
 	item_path = /obj/item/clothing/mask/gas/pink_clown_wig
+	group = "Costumes"
 
 /datum/loadout_item/mask/paper
 	name = "Paper Mask"

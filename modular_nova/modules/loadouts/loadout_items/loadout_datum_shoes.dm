@@ -281,6 +281,7 @@
 	name = "Pink Clown Heels (No Clown Effects)"
 	item_path = /obj/item/clothing/shoes/pink_clown_heels
 	restricted_roles = null
+	group = "Costumes"
 
 /datum/loadout_item/shoes/clown_shoes/pink_heels_mute/get_item_information()
 	. = ..()
