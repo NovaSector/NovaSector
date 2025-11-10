@@ -44,7 +44,7 @@
 	name = "optical camo implant"
 	desc = "an implant that bends light around the host's body, rendering them nearly invisible when activated."
 	icon = 'modular_nova/modules/implants/icons/chest_modular.dmi'
-	icon_state = "opticalcamo" // Stand in, new sprite soon
+	icon_state = "opticalcamo"
 	slot = ORGAN_SLOT_SPINE
 	w_class = WEIGHT_CLASS_NORMAL
 
