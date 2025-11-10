@@ -8754,6 +8754,9 @@
 /obj/effect/mapping_helpers/airalarm/syndicate_access,
 /obj/machinery/atmospherics/components/unary/vent_pump/on/layer4,
 /obj/item/circuitboard/machine/powerator/syndicate,
+/obj/item/circuitboard/machine/bluespace_miner{
+	pixel_y = 2
+	},
 /turf/open/floor/iron/dark/textured_large,
 /area/ruin/space/has_grav/nova/des_two/bridge/vault)
 "LJ" = (
