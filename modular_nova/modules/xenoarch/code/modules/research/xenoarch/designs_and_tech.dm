@@ -183,7 +183,6 @@
 		"hammer_cm6",
 		"hammer_cm10",
 		"xenoarch_brush",
-		"xenoarch_utilizer",
 		"xenoarch_tapemeasure",
 		"xenoarch_handscanner",
 	)
