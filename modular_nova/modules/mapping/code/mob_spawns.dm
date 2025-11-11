@@ -451,7 +451,7 @@
 	r_pocket = /obj/item/flashlight/seclite
 	implants = list(
 		/obj/item/implant/weapons_auth,
-		/obj/item/implant/kaza_ruk
+		/obj/item/implant/krav_maga
 		)
 
 /datum/outfit/ds2/syndicate_command/corporateliaison

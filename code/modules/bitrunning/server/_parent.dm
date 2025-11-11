@@ -145,16 +145,17 @@
 	return ..()
 
 
-/obj/machinery/quantum_server/item_interaction(mob/living/user, obj/item/tool, list/modifiers)
-	if(!istype(tool, /obj/item/bitrunning_debug))
-		return NONE
+/obj/machinery/quantum_server/attackby(obj/item/weapon, mob/user, list/modifiers, list/attack_modifiers)
+	. = ..()
 
-	balloon_alert(user, "*hacker voice* i'm in")
+	if(!istype(weapon, /obj/item/bitrunning_debug))
+		return
+
 	obj_flags |= EMAGGED
 	glitch_chance = 0.5
 	capacitor_coefficient = 0.1
 	points = 100
-	return ITEM_INTERACT_SUCCESS
+
 
 /obj/machinery/quantum_server/crowbar_act(mob/living/user, obj/item/crowbar)
 	. = NONE

@@ -12,7 +12,7 @@
 	barefootstep = FOOTSTEP_SAND
 	clawfootstep = FOOTSTEP_SAND
 	heavyfootstep = FOOTSTEP_GENERIC_HEAVY
-	tiled_turf = FALSE
+	tiled_dirt = FALSE
 	rust_resistance = RUST_RESISTANCE_ORGANIC
 
 /turf/open/misc/dirt/station

@@ -47,7 +47,7 @@ export const UsersScreen = () => {
   });
 
   return (
-    <Section scrollable fill>
+    <Section scrollable height="320px">
       {!!crashing && (
         <Modal width="300px" align="center">
           <Blink time={500} interval={500}>
@@ -59,9 +59,7 @@ export const UsersScreen = () => {
         <Table.Row>
           <Table.Cell bold>
             <Stack>
-              <Stack.Item grow fontSize="14px">
-                Account
-              </Stack.Item>
+              <Stack.Item>Account</Stack.Item>
               <Stack.Item>
                 <SortButton
                   sorting={accountNameSorting}
@@ -73,9 +71,7 @@ export const UsersScreen = () => {
           </Table.Cell>
           <Table.Cell bold>
             <Stack>
-              <Stack.Item grow fontSize="14px">
-                Balance
-              </Stack.Item>
+              <Stack.Item>Balance</Stack.Item>
               <Stack.Item>
                 <SortButton
                   sorting={balanceSorting}
@@ -87,9 +83,7 @@ export const UsersScreen = () => {
           </Table.Cell>
           <Table.Cell bold>
             <Stack>
-              <Stack.Item grow fontSize="14px">
-                Assignment
-              </Stack.Item>
+              <Stack.Item>Job</Stack.Item>
               <Stack.Item>
                 <SortButton
                   sorting={jobSorting}
@@ -99,12 +93,8 @@ export const UsersScreen = () => {
               </Stack.Item>
             </Stack>
           </Table.Cell>
-          <Table.Cell bold fontSize="14px">
-            Pay
-          </Table.Cell>
-          <Table.Cell bold fontSize="14px">
-            Advances
-          </Table.Cell>
+          <Table.Cell bold>Pay</Table.Cell>
+          <Table.Cell bold>Advances</Table.Cell>
         </Table.Row>
         {accountsSorted.map((account, index) => (
           <Table.Row
@@ -120,12 +110,10 @@ export const UsersScreen = () => {
             </Table.Cell>
             <Table.Cell className="Accounting__TableCellSides">
               <NumberInput
-                fluid
                 value={account.modifier}
                 minValue={min_pay_mod}
                 maxValue={max_pay_mod}
                 step={0.05}
-                format={(value) => `${(value * 100).toFixed(1)}%`}
                 onChange={(value) =>
                   act('change_pay_mod', {
                     account_id: account.id,
@@ -136,10 +124,10 @@ export const UsersScreen = () => {
             </Table.Cell>
             <Table.Cell className="Accounting__TableCellSides">
               <Stack>
+                <Stack.Item>{account.num_advances}</Stack.Item>
                 <Stack.Item>
                   <Button
-                    ml={0.5}
-                    mr={0.5}
+                    ml={2}
                     height="12px"
                     width="12px"
                     fontSize="8px"
@@ -153,7 +141,6 @@ export const UsersScreen = () => {
                     +
                   </Button>
                 </Stack.Item>
-                <Stack.Item>{account.num_advances}</Stack.Item>
               </Stack>
             </Table.Cell>
           </Table.Row>

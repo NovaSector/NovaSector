@@ -451,7 +451,7 @@
 	species_exception = list(/datum/species/golem)
 
 /datum/armor/wintercoat_science
-	bio = 10
+	bomb = 10
 	fire = 20
 
 /obj/item/clothing/head/hooded/winterhood/science
@@ -461,7 +461,7 @@
 
 // Research Director
 /datum/armor/winterhood_science
-	bio = 10
+	bomb = 10
 	fire = 20
 
 /obj/item/clothing/suit/hooded/wintercoat/science/rd

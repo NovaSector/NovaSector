@@ -191,8 +191,8 @@
 		damage_deflection = AIRLOCK_DAMAGE_DEFLECTION_R
 
 	prepare_huds()
-	var/datum/atom_hud/data/diagnostic/diag_hud = GLOB.huds[DATA_HUD_DIAGNOSTIC]
-	diag_hud.add_atom_to_hud(src)
+	for(var/datum/atom_hud/data/diagnostic/diag_hud in GLOB.huds)
+		diag_hud.add_atom_to_hud(src)
 
 	diag_hud_set_electrified()
 
@@ -326,8 +326,8 @@
 		close_others.Cut()
 	QDEL_NULL(note)
 	QDEL_NULL(seal)
-	var/datum/atom_hud/data/diagnostic/diag_hud = GLOB.huds[DATA_HUD_DIAGNOSTIC]
-	diag_hud.remove_atom_from_hud(src)
+	for(var/datum/atom_hud/data/diagnostic/diag_hud in GLOB.huds)
+		diag_hud.remove_atom_from_hud(src)
 	return ..()
 
 /obj/machinery/door/airlock/Exited(atom/movable/gone, direction)
@@ -521,10 +521,7 @@
 /obj/machinery/door/airlock/proc/is_secure()
 	return (security_level > 0)
 
-/**
- * Checks if this door would be affected by any currently active RETA grants
- * If a grant is active, return the authorized department
- */
+/// Checks if this door would be affected by any currently active RETA grants
 /obj/machinery/door/airlock/proc/has_active_reta_access()
 	if(!CONFIG_GET(flag/reta_enabled))
 		return FALSE
@@ -542,11 +539,11 @@
 
 			for(var/required_access in req_access)
 				if(required_access in origin_dept_access)
-					return target_dept
+					return TRUE
 
 			for(var/required_access in req_one_access)
 				if(required_access in origin_dept_access)
-					return target_dept
+					return TRUE
 
 	return FALSE
 
@@ -758,10 +755,6 @@
 			. += "It looks a bit stronger."
 		else
 			. += "It looks very robust."
-
-	var/active_reta = has_active_reta_access()
-	if(active_reta)
-		. += span_nicegreen("Emergency Temporary Access is enabled for [EXAMINE_HINT(active_reta)].")
 
 	if(issilicon(user) && !(machine_stat & BROKEN))
 		. += span_notice("Shift-click [src] to [ density ? "open" : "close"] it.")
@@ -1371,9 +1364,10 @@
 	set_airlock_state(AIRLOCK_OPENING, animated = TRUE, force_type = forced)
 	var/transparent_delay = animation_segment_delay(AIRLOCK_OPENING_TRANSPARENT)
 	sleep(transparent_delay)
-	set_opacity(FALSE)
+	set_opacity(0)
 	if(multi_tile)
 		filler.set_opacity(FALSE)
+	update_freelook_sight()
 	var/passable_delay = animation_segment_delay(AIRLOCK_OPENING_PASSABLE) - transparent_delay
 	sleep(passable_delay)
 	set_density(FALSE)
@@ -1460,6 +1454,7 @@
 		set_opacity(TRUE)
 		if(multi_tile)
 			filler.set_opacity(TRUE)
+	update_freelook_sight()
 	var/close_delay = animation_segment_delay(AIRLOCK_CLOSING_FINISHED) - unpassable_delay - opaque_delay
 	sleep(close_delay)
 	set_airlock_state(AIRLOCK_CLOSED, animated = FALSE)

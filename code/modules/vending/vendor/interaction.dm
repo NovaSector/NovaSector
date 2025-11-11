@@ -98,10 +98,7 @@
 			break
 
 /obj/machinery/vending/item_interaction(mob/living/user, obj/item/attack_item, list/modifiers)
-	. = ..()
-	if(. & ITEM_INTERACT_ANY_BLOCKER)
-		return .
-
+	. = NONE
 	if(panel_open && is_wire_tool(attack_item))
 		wires.interact(user)
 		return ITEM_INTERACT_SUCCESS

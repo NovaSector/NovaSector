@@ -19,7 +19,7 @@
 	var/currentcolor = LIGHT_COLOR_CYAN
 	///var to prevent changing color on certain admin spawn only tiles
 	var/can_modify_colour = TRUE
-	tiled_turf = FALSE
+	tiled_dirt = FALSE
 	///icons for radial menu
 	var/static/list/lighttile_designs
 	///used for light floors that cycle colours

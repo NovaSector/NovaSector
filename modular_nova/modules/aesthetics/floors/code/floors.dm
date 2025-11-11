@@ -111,7 +111,7 @@
 	barefootstep = FOOTSTEP_HARD_BAREFOOT
 	clawfootstep = FOOTSTEP_HARD_CLAW
 	heavyfootstep = FOOTSTEP_GENERIC_HEAVY
-	tiled_turf = FALSE
+	tiled_dirt = FALSE
 
 /turf/open/indestructible/cobble/side
 	icon_state = "cobble_side"

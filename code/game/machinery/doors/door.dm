@@ -98,6 +98,7 @@
 		set_bounds()
 		set_filler()
 		update_overlays()
+	update_freelook_sight()
 	air_update_turf(TRUE, TRUE)
 	register_context()
 	if(elevator_mode)
@@ -162,6 +163,7 @@
 		layer = initial(layer)
 
 /obj/machinery/door/Destroy()
+	update_freelook_sight()
 	if(elevator_mode)
 		GLOB.elevator_doors -= src
 	if(spark_system)
@@ -512,7 +514,7 @@
 	operating = TRUE
 	use_energy(active_power_usage)
 	run_animation(DOOR_OPENING_ANIMATION)
-	set_opacity(FALSE)
+	set_opacity(0)
 	var/passable_delay = animation_segment_delay(DOOR_OPENING_PASSABLE)
 	SLEEP_NOT_DEL(passable_delay)
 	set_density(FALSE)
@@ -521,9 +523,10 @@
 	SLEEP_NOT_DEL(open_delay)
 	layer = initial(layer)
 	update_appearance()
-	set_opacity(FALSE)
+	set_opacity(0)
 	operating = FALSE
 	air_update_turf(TRUE, FALSE)
+	update_freelook_sight()
 	if(autoclose)
 		autoclose_in(DOOR_CLOSE_WAIT)
 	return TRUE
@@ -559,9 +562,10 @@
 	SLEEP_NOT_DEL(close_delay)
 	update_appearance()
 	if(visible && !glass)
-		set_opacity(TRUE)
+		set_opacity(1)
 	operating = FALSE
 	air_update_turf(TRUE, TRUE)
+	update_freelook_sight()
 
 	if(!can_crush)
 		return TRUE
@@ -619,6 +623,10 @@
 
 /obj/machinery/door/proc/hasPower()
 	return !(machine_stat & NOPOWER)
+
+/obj/machinery/door/proc/update_freelook_sight()
+	if(!glass && GLOB.cameranet)
+		GLOB.cameranet.updateVisibility(src, 0)
 
 /obj/machinery/door/block_superconductivity() // All non-glass airlocks block heat, this is intended.
 	if(opacity || heat_proof)

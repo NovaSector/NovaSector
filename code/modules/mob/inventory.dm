@@ -382,13 +382,11 @@
 //for when the item will be immediately placed in a loc other than the ground
 /mob/proc/transferItemToLoc(obj/item/I, newloc = null, force = FALSE, silent = TRUE, animated = null)
 	. = doUnEquip(I, force, newloc, FALSE, silent = silent)
-	if(!.)
-		return
-	// This proc wears a lot of hats for moving items around in different ways,
-	// so we assume unhandled cases for checking to animate can safely be handled
-	// with the same logic we handle animating putting items in container (container on your person isn't animated)
+	//This proc wears a lot of hats for moving items around in different ways,
+	//so we assume unhandled cases for checking to animate can safely be handled
+	//with the same logic we handle animating putting items in container (container on your person isn't animated)
 	if(isnull(animated))
-		// If the item's ultimate location is us, we don't animate putting it wherever
+		//if the item's ultimate location is us, we don't animate putting it wherever
 		animated = !(get(newloc, /mob) == src)
 	if(animated)
 		I.do_pickup_animation(newloc, src)

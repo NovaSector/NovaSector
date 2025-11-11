@@ -69,7 +69,7 @@
 
 /datum/opposing_force_equipment/martial_art/kravmaga
 	name = "Krav Maga Implanter"
-	item_type = /obj/item/implanter/kaza_ruk
+	item_type = /obj/item/implanter/krav_maga
 	description = "No need for gloves! This handy implanter teaches you everything you need to know about Krav Maga."
 
 /datum/opposing_force_equipment/martial_art/wrestling

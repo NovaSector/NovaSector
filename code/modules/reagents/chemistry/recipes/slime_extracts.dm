@@ -264,12 +264,7 @@
 	reaction_tags = REACTION_TAG_EASY | REACTION_TAG_SLIME | REACTION_TAG_DANGEROUS
 
 /datum/chemical_reaction/slime/slimeoverload/on_reaction(datum/reagents/holder, datum/equilibrium/reaction, created_volume)
-	var/turf/turf = get_turf(holder.my_atom)
-	var/lastkey = holder.my_atom.fingerprintslast
-	empulse(get_turf(holder.my_atom), 3, 5, emp_source = src)
-	if(lastkey)
-		var/mob/toucher = get_mob_by_key(lastkey)
-		toucher.log_message("triggered EMP reaction at [AREACOORD(turf)].", LOG_GAME, log_globally = FALSE)
+	empulse(get_turf(holder.my_atom), 3, 5)
 	..()
 
 /datum/chemical_reaction/slime/slimecell

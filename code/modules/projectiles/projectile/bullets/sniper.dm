@@ -50,7 +50,7 @@
 	if(issilicon(target)) //also especially good against borgs
 		var/mob/living/silicon/borg_boy = target
 		borg_boy.apply_damage(damage, BRUTE)
-	empulse(target, emp_radius, emp_radius, emp_source = src)
+	empulse(target, emp_radius, emp_radius)
 
 /obj/projectile/bullet/p50/incendiary
 	name =".50 BMG incendiary bullet"

@@ -61,7 +61,7 @@
 	if(isnull(held_item) || (held_item.item_flags & ABSTRACT) || (held_item.flags_1 & HOLOGRAM_1))
 		return
 
-	if(held_item.is_chem_container())
+	if(is_reagent_container(held_item))
 		if(QDELETED(beaker1))
 			context[SCREENTIP_CONTEXT_LMB] = "Insert input beaker"
 		else
@@ -146,22 +146,26 @@
 		cms_coefficient /= laser.tier
 
 /obj/machinery/chem_mass_spec/item_interaction(mob/living/user, obj/item/item, list/modifiers)
-	if(processing_reagents)
-		balloon_alert(user, "still processing!")
-		return ITEM_INTERACT_BLOCKING
-
-	if(!item.can_insert_container(user, src))
+	if((item.item_flags & ABSTRACT) || (item.flags_1 & HOLOGRAM_1) || !can_interact(user) || !user.can_perform_action(src, FORBID_TELEKINESIS_REACH))
 		return NONE
 
-	var/is_right_clicking = LAZYACCESS(modifiers, RIGHT_CLICK)
-	if(!replace_beaker(user, !is_right_clicking, item))
-		return ITEM_INTERACT_BLOCKING
+	if(is_reagent_container(item) && item.is_open_container())
+		if(processing_reagents)
+			balloon_alert(user, "still processing!")
+			return ITEM_INTERACT_BLOCKING
 
-	to_chat(user, span_notice("You add [item] to [is_right_clicking ? "output" : "input"] slot."))
-	update_appearance()
-	ui_interact(user)
+		var/obj/item/reagent_containers/beaker = item
+		if(!user.transferItemToLoc(beaker, src))
+			return ITEM_INTERACT_BLOCKING
 
-	return ITEM_INTERACT_SUCCESS
+		var/is_right_clicking = LAZYACCESS(modifiers, RIGHT_CLICK)
+		replace_beaker(user, !is_right_clicking, beaker)
+		to_chat(user, span_notice("You add [beaker] to [is_right_clicking ? "output" : "input"] slot."))
+		update_appearance()
+		ui_interact(user)
+		return ITEM_INTERACT_SUCCESS
+
+	return NONE
 
 /obj/machinery/chem_mass_spec/wrench_act(mob/living/user, obj/item/tool)
 	. = ITEM_INTERACT_BLOCKING
@@ -218,7 +222,7 @@
 	return smallest ? FLOOR(result, 50) : CEILING(result, 50)
 
 /*
- * Replaces a beaker in the machine, either input or output. Returns TRUE on success.
+ * Replaces a beaker in the machine, either input or output
  * Arguments
  *
  * * user - The one bonking the machine
@@ -231,29 +235,17 @@
 	if(is_input) //replace input beaker
 		if(!QDELETED(beaker1))
 			try_put_in_hand(beaker1, user)
-		if(!QDELETED(new_beaker))
-			if(!user.transferItemToLoc(new_beaker, src))
-				update_appearance(UPDATE_OVERLAYS)
-				return FALSE
-
-			beaker1 = new_beaker
-			lower_mass_range = calculate_mass(smallest = TRUE)
-			upper_mass_range = calculate_mass(smallest = FALSE)
-			estimate_time()
+		beaker1 = new_beaker
+		lower_mass_range = calculate_mass(smallest = TRUE)
+		upper_mass_range = calculate_mass(smallest = FALSE)
+		estimate_time()
 	else //replace output beaker
 		if(!QDELETED(beaker2))
 			try_put_in_hand(beaker2, user)
-		if(!QDELETED(new_beaker))
-			if(!user.transferItemToLoc(new_beaker, src))
-				update_appearance(UPDATE_OVERLAYS)
-				return FALSE
+		beaker2 = new_beaker
+		log.Cut()
 
-			beaker2 = new_beaker
-			log.Cut()
-
-	update_appearance(UPDATE_OVERLAYS)
-
-	return TRUE
+	update_appearance()
 
 ///Computes time to purity reagents
 /obj/machinery/chem_mass_spec/proc/estimate_time()
@@ -295,8 +287,6 @@
 	.["processing"] = processing_reagents
 	.["eta"] = delay_time - progress_time
 	.["peakHeight"] = 0
-	var/obj/item/held_item = user.get_active_held_item()
-	.["hasBeakerInHand"] = held_item?.is_chem_container() || FALSE
 
 	//input reagents
 	var/list/beaker1Data = null
@@ -434,20 +424,6 @@
 
 		if("eject2")
 			replace_beaker(ui.user, FALSE)
-			return TRUE
-
-		if("insert1")
-			var/obj/item/reagent_containers/container = ui.user.get_active_held_item()
-			if(container?.can_insert_container(ui.user, src))
-				replace_beaker(ui.user, TRUE, container)
-
-			return TRUE
-
-		if("insert2")
-			var/obj/item/reagent_containers/container = ui.user.get_active_held_item()
-			if(container?.can_insert_container(ui.user, src))
-				replace_beaker(ui.user, FALSE, container)
-
 			return TRUE
 
 /obj/machinery/chem_mass_spec/click_alt(mob/living/user)

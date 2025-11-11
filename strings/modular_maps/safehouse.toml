@@ -18,9 +18,6 @@ modules = ["ice.dmm"]
 [rooms.lavaland_boss]
 modules = ["lavaland_boss.dmm"]
 
-[rooms.maintsafe]
-modules = ["maintsafe.dmm"]
-
 [rooms.mine]
 modules = ["mine.dmm"]
 

@@ -196,7 +196,7 @@ const PaperPublishing = (props) => {
               icon="info-circle"
             />
             {' Cooperation: '}
-            <BlockQuote>{gains[coopIndex]}</BlockQuote>
+            <BlockQuote>{gains[coopIndex - 1]}</BlockQuote>
           </Stack.Item>
           <Stack.Item grow>
             <Button
@@ -204,7 +204,7 @@ const PaperPublishing = (props) => {
               icon="info-circle"
             />
             {' Funding: '}
-            <BlockQuote>{gains[fundingIndex]}</BlockQuote>
+            <BlockQuote>{gains[fundingIndex - 1]}</BlockQuote>
           </Stack.Item>
         </Stack>
         <br />
@@ -245,10 +245,10 @@ const PaperBrowser = (props) => {
             <LabeledList.Item label="Yield">
               <LabeledList>
                 <LabeledList.Item label="Cooperation">
-                  {paper.gains[coopIndex]}
+                  {paper.gains[coopIndex - 1]}
                 </LabeledList.Item>
                 <LabeledList.Item label="Funding">
-                  {paper.gains[fundingIndex]}
+                  {paper.gains[fundingIndex - 1]}
                 </LabeledList.Item>
               </LabeledList>
             </LabeledList.Item>
@@ -308,10 +308,10 @@ const PartnersBrowser = (props) => {
             {relations[partner.path]}
           </LabeledList.Item>
           <LabeledList.Item label="Cooperation Bonus">
-            {`${partner.multipliers[coopIndex]}x`}
+            {`${partner.multipliers[coopIndex - 1]}x`}
           </LabeledList.Item>
           <LabeledList.Item label="Funding Bonus">
-            {`${partner.multipliers[fundingIndex]}x`}
+            {`${partner.multipliers[fundingIndex - 1]}x`}
           </LabeledList.Item>
           <LabeledList.Item label="Accepted Experiments">
             {partner.acceptedExperiments.map((experiment_name) => (

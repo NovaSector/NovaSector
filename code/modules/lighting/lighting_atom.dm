@@ -84,8 +84,6 @@
 		AddElement(/datum/element/light_blocking)
 	else
 		RemoveElement(/datum/element/light_blocking)
-	// Change in opacity could change camera visibility
-	SScameras.update_visibility(src)
 
 /turf/set_opacity(new_opacity)
 	. = ..()

@@ -68,9 +68,9 @@
 #define TANK_MERGE_OVERPRESSURE "tank_overpressure"
 // Indices for the reaction_results returned by explosion_information()
 /// Reactions that have happened in the tank.
-#define TANK_RESULTS_REACTION "results_reaction"
+#define TANK_RESULTS_REACTION 1
 /// Additional information of the tank.
-#define TANK_RESULTS_MISC "results_misc"
+#define TANK_RESULTS_MISC 2
 
 /// Color used by omni-color pipes
 #define ATMOS_COLOR_OMNI COLOR_VERY_LIGHT_GRAY
