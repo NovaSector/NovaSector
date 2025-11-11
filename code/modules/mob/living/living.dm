@@ -2118,6 +2118,8 @@ GLOBAL_LIST_EMPTY(fire_appearances)
 
 /// Proc used to handle the fullscreen overlay updates, realistically meant for the reset_perspective() proc.
 /mob/living/proc/update_fullscreen()
+	if(!client)
+		return
 	if(client.eye && client.eye != src)
 		var/atom/client_eye = client.eye
 		client_eye.get_remote_view_fullscreens(src)

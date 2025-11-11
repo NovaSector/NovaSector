@@ -321,9 +321,9 @@
 	if(!modsuit)
 		return
 
-	var/obj/item/mod/module/storage/storage = locate() in modsuit.modules // Give a storage if we don't have one.
+	var/obj/item/mod/module/storage/storage = locate() in modsuit.modules // Give an extended storage if we don't have one.
 	if(!storage)
-		storage = new()
+		storage = new /obj/item/mod/module/storage/large_capacity()
 		modsuit.install(storage, protean_owner, TRUE)
 
 	// Only install crew sensors and GPS for jobs, not antags

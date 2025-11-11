@@ -19,10 +19,14 @@
 	. = ..()
 
 	var/obj/item/mod/core/protean/protean_core = mod.core
-	var/datum/species/protean/linked_species = protean_core.linked_species_ref?.resolve()
-	if(isnull(linked_species))
+	var/datum/species/protean/linked_species = protean_core?.linked_species_ref?.resolve()
+	if(protean_core && isnull(linked_species))
 		protean_core.linked_species_ref = null
-	var/mob/living/carbon/human/protean_in_suit = linked_species?.owner
+	// Safety check: ensure owner exists before accessing
+	if(!linked_species?.owner)
+		deactivate()
+		return
+	var/mob/living/carbon/human/protean_in_suit = linked_species.owner
 
 	if(protean_in_suit == mod.wearer)
 		playsound(src, 'sound/machines/scanner/scanbuzz.ogg', 25, TRUE, SILENCED_SOUND_EXTRARANGE)
@@ -41,11 +45,12 @@
 	var/datum/species/protean/linked_species = protean_core?.linked_species_ref?.resolve()
 	if(protean_core && isnull(linked_species))
 		protean_core.linked_species_ref = null
-	var/mob/living/carbon/human/protean_in_suit = linked_species?.owner
-
-	servo_movement.Remove(protean_in_suit)
-	servo_medical.Remove(protean_in_suit)
-	servo_engineering.Remove(protean_in_suit)
+	// Safety check: ensure owner exists before accessing
+	if(linked_species?.owner)
+		var/mob/living/carbon/human/protean_in_suit = linked_species.owner
+		servo_movement.Remove(protean_in_suit)
+		servo_medical.Remove(protean_in_suit)
+		servo_engineering.Remove(protean_in_suit)
 
 	mod.wearer.remove_status_effect(/datum/status_effect/protean_servo_movement)
 	mod.wearer.remove_status_effect(/datum/status_effect/protean_servo_medical)
@@ -69,8 +74,12 @@
 
 /datum/action/cooldown/protean_servo/movement/Activate()
 	var/mob/living/carbon/protean = owner
-	var/datum/species/protean/species = protean.dna.species
+	var/datum/species/protean/species = protean.dna?.species
+	if(!istype(species))
+		return
 	var/obj/item/mod/control/pre_equipped/protean/suit = species.get_modsuit()
+	if(!suit?.wearer)
+		return
 	var/mob/living/carbon/wearer = suit.wearer
 
 	wearer.apply_status_effect(/datum/status_effect/protean_servo_movement)
@@ -85,8 +94,12 @@
 
 /datum/action/cooldown/protean_servo/medical/Activate()
 	var/mob/living/carbon/protean = owner
-	var/datum/species/protean/species = protean.dna.species
+	var/datum/species/protean/species = protean.dna?.species
+	if(!istype(species))
+		return
 	var/obj/item/mod/control/pre_equipped/protean/suit = species.get_modsuit()
+	if(!suit?.wearer)
+		return
 	var/mob/living/carbon/wearer = suit.wearer
 
 	wearer.apply_status_effect(/datum/status_effect/protean_servo_medical)
@@ -101,8 +114,12 @@
 
 /datum/action/cooldown/protean_servo/engineering/Activate()
 	var/mob/living/carbon/protean = owner
-	var/datum/species/protean/species = protean.dna.species
+	var/datum/species/protean/species = protean.dna?.species
+	if(!istype(species))
+		return
 	var/obj/item/mod/control/pre_equipped/protean/suit = species.get_modsuit()
+	if(!suit?.wearer)
+		return
 	var/mob/living/carbon/wearer = suit.wearer
 
 	wearer.apply_status_effect(/datum/status_effect/protean_servo_engineer)

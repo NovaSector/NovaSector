@@ -300,6 +300,12 @@
 /obj/item/mod/module/proc/on_uninstall(deleting = FALSE)
 	SHOULD_CALL_PARENT(TRUE)
 
+	// NOVA EDIT: Safety check to prevent "Cannot execute null.get_part_from_slot()" runtime errors
+	// mod might be null if module is being uninstalled from a destroyed/invalid modsuit
+	// This can occur during protean assimilation/unassimilation or other edge cases
+	if(!mod)
+		return
+
 	if (mask_worn_overlay)
 		for (var/obj/item/part as anything in mod.get_parts(all = TRUE))
 			UnregisterSignal(part, COMSIG_ITEM_GET_SEPARATE_WORN_OVERLAYS)
@@ -310,7 +316,8 @@
 		return
 
 	var/obj/item/part = mod.get_part_from_slot(required_slots[1])
-	UnregisterSignal(part, COMSIG_ITEM_GET_SEPARATE_WORN_OVERLAYS)
+	if(part)
+		UnregisterSignal(part, COMSIG_ITEM_GET_SEPARATE_WORN_OVERLAYS)
 
 /// Called when the MODsuit is activated
 /obj/item/mod/module/proc/on_part_activation()
