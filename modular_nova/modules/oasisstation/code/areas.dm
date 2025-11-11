@@ -144,6 +144,14 @@
 	name = "\improper Orbital Dorms Room 3"
 	icon_state = "room3"
 
+/area/station/commons/dorms/orbital/room4
+	name = "\improper Orbital Dorms Room 4"
+	icon_state = "room4"
+
+/area/station/commons/dorms/orbital/room5
+	name = "\improper Orbital Dorms Room 5"
+	icon_state = "room1"
+
 /area/station/command/heads_quarters/blueshield/armoury
 	name = "\improper Blueshield Command Center"
 
