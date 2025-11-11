@@ -469,6 +469,7 @@
 	basic_modules = list(
 		/obj/item/assembly/flash/cyborg,
 		/obj/item/gun/energy/disabler/cyborg,
+		/obj/item/borg/stun,
 		/obj/item/restraints/handcuffs/cable/zipties,
 		/obj/item/melee/energy/sword/cyborg,
 		/obj/item/gun/energy/printer,
@@ -477,7 +478,6 @@
 		/obj/item/borg/cyborg_omnitool/medical,
 		/obj/item/borg/cyborg_omnitool/medical,
 		/obj/item/reagent_containers/borghypo/syndicate,
-		/obj/item/emergency_bed/silicon,
 		/obj/item/shockpaddles/syndicate/cyborg,
 		/obj/item/borg/cyborg_omnitool/engineering,
 		/obj/item/borg/cyborg_omnitool/engineering,
