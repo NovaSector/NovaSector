@@ -58,7 +58,7 @@
 		/obj/vehicle/sealed/mecha/gygax/dark/marauder,
 	)
 
-/datum/voucher_set/traitor/mech/marauder
+/datum/voucher_set/traitor/mech/mauler
 	name = /obj/vehicle/sealed/mecha/marauder/mauler::name
 	description = /obj/vehicle/sealed/mecha/marauder/mauler::desc
 	icon = /obj/vehicle/sealed/mecha/marauder/mauler::icon

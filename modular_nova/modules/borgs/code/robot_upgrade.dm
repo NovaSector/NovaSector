@@ -435,6 +435,9 @@
 	icon_state = "module_illegal"
 	new_model = /obj/item/robot_model/syndicatejack
 
+/obj/item/borg/upgrade/transform/syndicatejack/marauder
+	new_model = /obj/item/robot_model/syndicatejack/marauder
+
 /// Dominatrix time
 /obj/item/borg/upgrade/dominatrixmodule
 	name = "borg dominatrix module"

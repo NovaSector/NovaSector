@@ -19,7 +19,7 @@
 	. = ..()
 	max_ammo()
 
-// Marauder
+// Mauler
 /obj/vehicle/sealed/mecha/marauder/mauler/marauder
 	equip_by_category = list(
 		MECHA_L_ARM = /obj/item/mecha_parts/mecha_equipment/weapon/ballistic/lmg,
@@ -57,7 +57,7 @@
 	servo = new /obj/item/stock_parts/servo/femto(src)
 	update_part_values()
 
-// Honk
+// Honker
 /obj/vehicle/sealed/mecha/honker/dark/marauder
 	equip_by_category = list(
 		MECHA_L_ARM = /obj/item/mecha_parts/mecha_equipment/weapon/ballistic/launcher/punching_glove,

@@ -382,14 +382,18 @@
 	name = "Syndicate"
 	basic_modules = list(
 		/obj/item/assembly/flash/cyborg,
-		/obj/item/melee/energy/sword/cyborg,
 		/obj/item/extinguisher,
 		/obj/item/weldingtool/electric,
 		/obj/item/multitool/cyborg,
 		/obj/item/crowbar/cyborg/power,
 		/obj/item/screwdriver/cyborg/power,
 		/obj/item/construction/rcd/borg/syndicate,
+		/obj/item/lightreplacer,
+		/obj/item/stack/sheet/iron,
+		/obj/item/stack/sheet/glass,
 		/obj/item/borg/apparatus/sheet_manipulator,
+		/obj/item/stack/rods/cyborg,
+		/obj/item/stack/tile/iron,
 		/obj/item/stack/cable_coil,
 		/obj/item/restraints/handcuffs/cable/zipties,
 		/obj/item/stack/medical/gauze,
@@ -401,6 +405,9 @@
 		/obj/item/scalpel/advanced,
 		/obj/item/gun/medbeam,
 		/obj/item/reagent_containers/borghypo/syndicate,
+		/obj/item/borg/lollipop,
+		/obj/item/holosign_creator/cyborg,
+		/obj/item/stamp/chameleon,
 		/obj/item/borg_shapeshifter,
 		)
 	cyborg_base_icon = "synd_engi"
@@ -456,6 +463,27 @@
 	var/mob/living/silicon/robot/syndicatejack = loc
 	syndicatejack.scrambledcodes = FALSE // Friends with the AI again
 	return ..()
+
+//marauder subtype
+/obj/item/robot_model/syndicatejack/marauder
+	basic_modules = list(
+		/obj/item/assembly/flash/cyborg,
+		/obj/item/gun/energy/disabler/cyborg,
+		/obj/item/restraints/handcuffs/cable/zipties,
+		/obj/item/melee/energy/sword/cyborg,
+		/obj/item/gun/energy/printer,
+		/obj/item/card/emag,
+		/obj/item/borg_shapeshifter,
+		/obj/item/borg/cyborg_omnitool/medical,
+		/obj/item/borg/cyborg_omnitool/medical,
+		/obj/item/reagent_containers/borghypo/syndicate,
+		/obj/item/emergency_bed/silicon,
+		/obj/item/shockpaddles/syndicate/cyborg,
+		/obj/item/borg/cyborg_omnitool/engineering,
+		/obj/item/borg/cyborg_omnitool/engineering,
+		/obj/item/construction/rcd/borg/syndicate,
+		/obj/item/extinguisher/mini,
+		)
 
 //NINJA
 /obj/item/robot_model/ninja
