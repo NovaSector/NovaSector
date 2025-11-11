@@ -1,8 +1,12 @@
 /obj/item/storage/belt/holster/energy
 	desc = "A rather plain pair of shoulder holsters with insulated padding and a slow wireless recharger inside. \
 		Designed to hold energy weaponry."
+	/// The cell we're draining from to act as an on-the-go recharger.
 	var/obj/item/stock_parts/power_store/cell/recharger_cell
+	/// The multiplier for charge rate (see its usage in device/weapon rechargers)
 	var/recharge_coeff = 1
+	/// The multiplier for rechargable magazines' charge rate.
+	var/recharge_magazine_coeff = 1
 
 /obj/item/storage/belt/holster/energy/thermal
 	desc = "A rather plain pair of shoulder holsters with a bit of insulated padding and a slow wireless recharger inside. \
@@ -72,6 +76,13 @@
 	recharger_cell.update_appearance()
 	return
 
+/obj/item/storage/belt/holster/energy/proc/charge_mag(obj/item/ammo_box/magazine/recharge/power_pack, seconds_per_tick)
+	for(var/charge_iterations in 1 to recharge_magazine_coeff)
+		if(power_pack.stored_ammo.len >= power_pack.max_ammo)
+			continue
+		power_pack.stored_ammo += new power_pack.ammo_type(power_pack)
+		recharger_cell.use(BASE_MACHINE_ACTIVE_CONSUMPTION * seconds_per_tick)
+
 /obj/item/storage/belt/holster/energy/process(seconds_per_tick)
 	if(!recharger_cell)
 		return // no cell no charge
@@ -79,16 +90,19 @@
 		if(istype(charging, /obj/item/stock_parts/power_store/cell))
 			continue // let's not do a charging ouroboros
 		var/obj/item/stock_parts/power_store/charging_cell = charging.get_cell()
+		// if we got a cell that we can recharge in our contents (presumably a gun)
 		if(charging_cell)
 			if(charging_cell.charge < charging_cell.maxcharge)
 				charge_cell(charging_cell.chargerate * recharge_coeff * seconds_per_tick, charging_cell)
 				charging.update_appearance()
-		// the following only works on rechargable magazines that are outside of a gun
-		// todo typecache of guns with rechargable magazines to check/charge *them* while loaded
+		// alternatively, if it's a rechargable magazine (out of a gun)
 		if(istype(charging, /obj/item/ammo_box/magazine/recharge))
-			var/obj/item/ammo_box/magazine/recharge/power_pack = charging
-			for(var/charge_iterations in 1 to recharge_coeff)
-				if(power_pack.stored_ammo.len >= power_pack.max_ammo)
-					continue
-				power_pack.stored_ammo += new power_pack.ammo_type(power_pack)
-				recharger_cell.use(BASE_MACHINE_ACTIVE_CONSUMPTION * seconds_per_tick)
+			charge_mag(charging, seconds_per_tick)
+		// or if it's a gun with a rechargable magazine
+		if(istype(charging, /obj/item/gun/ballistic))
+			var/obj/item/gun/ballistic/shooty = charging
+			if(!istype(shooty.magazine, /obj/item/ammo_box/magazine/recharge))
+				return
+			charge_mag(shooty.magazine, seconds_per_tick)
+			if(!shooty.chambered)
+				shooty.chamber_round()
