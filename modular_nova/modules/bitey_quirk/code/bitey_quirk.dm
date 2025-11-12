@@ -18,7 +18,7 @@
 
 	var/obj/item/bodypart/head/head = human_owner.get_bodypart(BODY_ZONE_HEAD)
 	if(isnull(head))
-		to_chat(human_owner, span_warning("You need a head to bite!"))
+		to_chat(human_owner, span_warning("You need a head in order to bite!"))
 		return
 
 	// Enable bite mode - match cat tongue bonuses: +4/+7 damage, +10 effectiveness, +0.5 pummeling, sharpness
