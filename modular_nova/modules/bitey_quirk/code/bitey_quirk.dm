@@ -22,11 +22,13 @@
 		return
 
 	// Enable bite mode - match cat tongue bonuses: +4/+7 damage, +10 effectiveness, +0.5 pummeling, sharpness
-	head.unarmed_damage_low += 4
-	head.unarmed_damage_high += 7
-	head.unarmed_effectiveness += 10
-	head.unarmed_pummeling_bonus += 0.5
-	head.unarmed_sharpness = SHARP_EDGED
+	// Check if cat tongue is present, so we do not stack bonuses, and register to organ signals in case our tongues change while this is active
+	var/obj/item/organ/tongue/cat/cat_tongue = human_owner.get_organ_slot(ORGAN_SLOT_TONGUE)
+	if(!istype(cat_tongue))
+		add_bite_bonuses(head)
+		RegisterSignal(human_owner, COMSIG_CARBON_GAIN_ORGAN, PROC_REF(check_added_organ))
+	else
+		RegisterSignal(human_owner, COMSIG_CARBON_LOSE_ORGAN, PROC_REF(check_removed_organ))
 	ADD_TRAIT(human_owner, TRAIT_FERAL_BITER, REF(src))
 
 	active = TRUE
