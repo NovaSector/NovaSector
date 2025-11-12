@@ -1,0 +1,6 @@
+author: "Archemagus"
+delete-after: True
+changes:
+  - bugfix: "Cryo pod will report borgs job instead of [NO DATA]"
+  - bugfix: "Cryo pod SHOULD stop reporting crew members by ghost role titles... No guaranties though."
+  - qol: "Cryo pod will announce punched out crew jobs correctly."
