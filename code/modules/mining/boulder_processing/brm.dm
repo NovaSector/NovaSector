@@ -153,7 +153,7 @@
 	// NOVA EDIT ADDITION START
 	var/area/teleport_area = get_area(src)
 	if (!is_type_in_typecache(teleport_area, allowed_areas_to_work))
-		balloon_alert(user, "invalid area of use!")
+		balloon_alert(user, "can't use this here!")
 		return FALSE
 	// NOVA EDIT ADDITION END
 	if(!COOLDOWN_FINISHED(src, manual_teleport_cooldown))
@@ -224,7 +224,7 @@
 	// NOVA EDIT ADDITION START
 	var/area/teleport_area = get_area(src)
 	if (!is_type_in_typecache(teleport_area, allowed_areas_to_work))
-		balloon_alert(user, "invalid area of use!")
+		balloon_alert(user, "can't use this here!")
 		return FALSE
 	// NOVA EDIT ADDITION END
 	if(panel_open)
