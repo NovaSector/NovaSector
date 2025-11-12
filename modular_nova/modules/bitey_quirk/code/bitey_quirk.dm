@@ -60,8 +60,53 @@
 	to_chat(human_owner, span_notice("You will make unarmed attacks normally."))
 	build_all_button_icons()
 
-/datum/action/innate/toggle_bite/is_action_active(atom/movable/screen/movable/action_button/current_button)
-	return active
+/datum/action/innate/toggle_bite/Destroy(force)
+	if(HAS_TRAIT_FROM(owner, TRAIT_FERAL_BITER, REF(src))
+		Deactivate()
+	return ..()
+
+/// When organ is added, if it's a cat tongue and we are active with bonuses then remove them
+/datum/action/innate/toggle_bite/proc/check_added_organ(mob/living/carbon/human/recipient, obj/item/organ/organ_gained)
+	SIGNAL_HANDLER
+	
+	if(!active || !bite_bonuses_applied)
+		return
+	var/obj/item/bodypart/head/head = recipient.get_bodypart(BODY_ZONE_HEAD)
+	if(isnull(head))
+		return
+	if(istype(organ_gained, /obj/item/organ/tongue/cat))
+		remove_bite_bonuses(head)
+
+/// When an organ is lost, if it's a cat tongue and we are active without bonuses then add them
+/datum/action/innate/toggle_bite/proc/check_removed_organ(mob/living/carbon/human/loser, obj/item/organ/organ_lost)
+	SIGNAL_HANDLER
+
+	if(!active)
+		return
+	var/obj/item/bodypart/head/head = loser.get_bodypart(BODY_ZONE_HEAD)
+	if(isnull(head))
+		return
+	if(active && istype(organ_lost, /obj/item/organ/tongue/cat))
+		add_bite_bonuses(head)
+
+/// Apply the bite bonuses to the mob's head
+/datum/action/innate/toggle_bite/proc/add_bite_bonuses(obj/item/bodypart/head/head)
+	head.unarmed_damage_low += 4
+	head.unarmed_damage_high += 7
+	head.unarmed_effectiveness += 10
+	head.unarmed_pummeling_bonus += 0.5
+	head.unarmed_sharpness = SHARP_EDGED
+	bite_bonuses_applied = TRUE
+
+/// Remove the bite bonuses from the mob's head
+/datum/action/innate/toggle_bite/proc/remove_bite_bonuses(obj/item/bodypart/head/head)
+	if(bite_bonuses_applied)
+		head.unarmed_damage_low -= 4
+		head.unarmed_damage_high -= 7
+		head.unarmed_effectiveness -= 10
+		head.unarmed_pummeling_bonus -= 0.5
+		head.unarmed_sharpness = NONE
+		bite_bonuses_applied = FALSE
 
 /datum/quirk/bitey
 	name = "Bitey"
