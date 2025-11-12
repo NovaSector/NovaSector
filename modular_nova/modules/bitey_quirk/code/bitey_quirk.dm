@@ -40,6 +40,7 @@
 	build_all_button_icons()
 
 /datum/action/innate/toggle_bite/Deactivate()
+	UnregisterSignal(owner, list(COMSIG_CARBON_GAIN_ORGAN, COMSIG_CARBON_LOSE_ORGAN))
 	var/mob/living/carbon/human/human_owner = owner
 	if(!ishuman(human_owner))
 		return
