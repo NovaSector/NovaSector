@@ -1,0 +1,4 @@
+author: "carpotoxin"
+delete-after: True
+changes:
+  - qol: "Midround roles now poll for candidates for 1 minute, instead of 30 seconds."
