@@ -160,6 +160,18 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/machinery/computer/security/telescreen/traitor_
 	GLOB.traitor_start += loc
 	return INITIALIZE_HINT_QDEL
 
+//misc objects
+/obj/structure/showcase/syndicate_communications_console
+	name = /obj/machinery/computer/communications/syndicate::name
+	desc = /obj/machinery/computer/communications/syndicate::desc
+	icon = /obj/machinery/computer::icon
+	icon_state = /obj/machinery/computer::icon_state
+
+/obj/structure/showcase/syndicate_communications_console/Initialize(mapload)
+	. = ..()
+	add_overlay("commsyndie")
+	add_overlay("syndie_key")
+
 //areas
 /area/misc/operative_barracks
 	name = "Aft Operative Barracks"

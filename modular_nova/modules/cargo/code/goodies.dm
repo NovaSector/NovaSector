@@ -232,6 +232,49 @@
 	name = "Kinaris White Trim Regal Carpet"
 	contains = list(/obj/item/stack/tile/carpet/kinaris/black/whitetrim/fifty)
 
+/datum/supply_pack/goody/carpet/polite
+	name = "Polite Black Carpet"
+	contains = list(/obj/item/stack/tile/carpet/polite/fifty)
+	cost = CARGO_CRATE_VALUE * 3.5
+
+/datum/supply_pack/goody/carpet/polite/red
+	name = "Polite Red Carpet"
+	contains = list(/obj/item/stack/tile/carpet/polite/red/fifty)
+
+/datum/supply_pack/goody/carpet/polite/orange
+	name = "Polite Orange Carpet"
+	contains = list(/obj/item/stack/tile/carpet/polite/orange/fifty)
+
+/datum/supply_pack/goody/carpet/polite/yellow
+	name = "Polite Yellow Carpet"
+	contains = list(/obj/item/stack/tile/carpet/polite/yellow/fifty)
+
+/datum/supply_pack/goody/carpet/polite/green
+	name = "Polite Green Carpet"
+	contains = list(/obj/item/stack/tile/carpet/polite/green/fifty)
+
+/datum/supply_pack/goody/carpet/polite/blue
+	name = "Polite Blue Carpet"
+	contains = list(/obj/item/stack/tile/carpet/polite/blue/fifty)
+
+/datum/supply_pack/goody/carpet/polite/purple
+	name = "Polite Purple Carpet"
+	contains = list(/obj/item/stack/tile/carpet/polite/purple/fifty)
+
+/datum/supply_pack/goody/carpet/polite/crate
+	name = "Polite Carpet Crate"
+	desc = "Plasteel floor tiles getting on your nerves? This 100 units stack of each soft carpet will tie any room together."
+	contains = list(
+		/obj/item/stack/tile/carpet/polite/fifty = 2,
+		/obj/item/stack/tile/carpet/polite/red/fifty = 2,
+		/obj/item/stack/tile/carpet/polite/orange/fifty = 2,
+		/obj/item/stack/tile/carpet/polite/yellow/fifty = 2,
+		/obj/item/stack/tile/carpet/polite/green/fifty = 2,
+		/obj/item/stack/tile/carpet/polite/blue/fifty = 2,
+		/obj/item/stack/tile/carpet/polite/purple/fifty = 2,
+	)
+	cost = CARGO_CRATE_VALUE * 12
+
 /*
 * NIF STUFF
 */

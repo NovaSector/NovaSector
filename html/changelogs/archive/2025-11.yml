@@ -537,3 +537,16 @@
       remove a trait to/from every living mob.
   - bugfix: fixes an oversight where the wardrobe system tries to delete modsuit parts
       when stashing the modsuit
+2025-11-11:
+  Zenitheevee:
+  - bugfix: Makes the tarkon join announcer work again
+  - bugfix: Cleans up some spawn text that needed removed when i made tarkon plasmaman/vox
+      friendly
+  - map: Adds/Recontextualizes some tarkon notes
+  - map: Moves cryo-pods to cryo storage
+  - map: Removed some tarkon safes
+  - map: Relocated some tarkon safe rewards
+  - map: Renamed/Broke up some tarkon areas
+2025-11-12:
+  trazodont:
+  - bugfix: fixes placement of microwave and grinder on blueshift perma
