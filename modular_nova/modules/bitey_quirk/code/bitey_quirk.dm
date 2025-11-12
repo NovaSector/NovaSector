@@ -10,8 +10,8 @@
 	var/bite_bonuses_applied = FALSE
 
 /datum/action/innate/toggle_bite/New(Target)
-	..()
 	name = pick(ability_name)
+	return ..()
 
 /datum/action/innate/toggle_bite/Activate()
 	var/mob/living/carbon/human/human_owner = owner
@@ -49,8 +49,7 @@
 	if(isnull(head))
 		return
 
-	if(bite_bonuses_applied)
-		remove_bite_bonuses(head)
+	remove_bite_bonuses(head)
 
 	REMOVE_TRAIT(human_owner, TRAIT_FERAL_BITER, REF(src))
 
