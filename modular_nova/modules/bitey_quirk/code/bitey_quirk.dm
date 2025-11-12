@@ -49,14 +49,8 @@
 	if(!head)
 		return
 
-	// Check if cat tongue is keeping these bonuses active
-	var/obj/item/organ/tongue/cat/cat_tongue = human_owner.get_organ_slot(ORGAN_SLOT_TONGUE)
-	if(!istype(cat_tongue) || !cat_tongue.feral_mode)
-		head.unarmed_damage_low -= 4
-		head.unarmed_damage_high -= 7
-		head.unarmed_effectiveness -= 10
-		head.unarmed_pummeling_bonus -= 0.5
-		head.unarmed_sharpness = NONE
+	if(bite_bonuses_applied)
+		remove_bite_bonuses(head)
 
 	REMOVE_TRAIT_FROM(human_owner, TRAIT_FERAL_BITER, REF(src))
 
