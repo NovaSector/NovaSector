@@ -257,7 +257,7 @@
 		question = "Looking for volunteers to become [span_notice(readable_poll_role)] for [span_danger(name)]",
 		// check_jobban = list(ROLE_SYNDICATE, jobban_flag || pref_flag), // Not necessary, handled in trim_candidates()
 		// role = pref_flag, // Not necessary, handled in trim_candidates()
-		poll_time = 1 MINUTES, // NOVA EDIT, old code: poll_time = 30 SECONDS,
+		poll_time = 1 MINUTES, // NOVA EDIT CHANGE - ORIGINAL: poll_time = 30 SECONDS,
 		alert_pic = signup_atom_appearance,
 		role_name_text = readable_poll_role,
 	)
