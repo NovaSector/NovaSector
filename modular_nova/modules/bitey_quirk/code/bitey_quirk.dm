@@ -55,7 +55,7 @@
 		head.unarmed_pummeling_bonus -= 0.5
 		head.unarmed_sharpness = NONE
 
-	REMOVE_TRAIT(human_owner, TRAIT_FERAL_BITER, QUIRK_TRAIT)
+	REMOVE_TRAIT_FROM(human_owner, TRAIT_FERAL_BITER, REF(src))
 
 	active = FALSE
 	background_icon_state = "bg_default"
