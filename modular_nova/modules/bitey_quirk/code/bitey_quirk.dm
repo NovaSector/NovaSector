@@ -46,7 +46,7 @@
 		return
 
 	var/obj/item/bodypart/head/head = human_owner.get_bodypart(BODY_ZONE_HEAD)
-	if(!head)
+	if(isnull(head))
 		return
 
 	if(bite_bonuses_applied)
