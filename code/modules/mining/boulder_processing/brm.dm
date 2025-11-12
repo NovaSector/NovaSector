@@ -33,7 +33,9 @@
 	COOLDOWN_DECLARE(batch_start_cooldown)
 	// NOVA EDIT ADDITION START
 	/// Defines which areas this machine is allowed to operate. By default only the station but done this way in case its needed to be varedited by an admin. DO NOT ALLOW THIS FOR THE GHOST ROLES.
-	var/allowed_areas_to_work = list(/area/station)
+	var/static/list/allowed_areas_to_work = typecacheof(list(
+		/area/station,
+	))
 	// NOVA EDIT ADDITION END
 
 /obj/machinery/brm/Initialize(mapload)
