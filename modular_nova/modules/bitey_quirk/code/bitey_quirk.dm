@@ -49,10 +49,9 @@
 	if(isnull(head))
 		return
 
-	if(bite_bonuses_applied)
-		remove_bite_bonuses(head)
+	remove_bite_bonuses(head)
 
-	REMOVE_TRAIT_FROM(human_owner, TRAIT_FERAL_BITER, REF(src))
+	REMOVE_TRAIT(human_owner, TRAIT_FERAL_BITER, REF(src))
 
 	active = FALSE
 	background_icon_state = "bg_default"
@@ -61,7 +60,7 @@
 	build_all_button_icons()
 
 /datum/action/innate/toggle_bite/Destroy(force)
-	if(HAS_TRAIT_FROM(owner, TRAIT_FERAL_BITER, REF(src))
+	if(HAS_TRAIT_FROM(owner, TRAIT_FERAL_BITER, REF(src)))
 		Deactivate()
 	return ..()
 
