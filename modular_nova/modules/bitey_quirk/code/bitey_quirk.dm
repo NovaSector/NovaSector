@@ -6,6 +6,8 @@
 	button_icon_state = "feral_mode_off"
 	check_flags = AB_CHECK_CONSCIOUS
 	var/list/ability_name = list("Go Feral", "Bite the Hand that Feeds", "Unleash Id", "Activate Catbrain", "Gremlin Mode", "Nom Mode", "Dehumanize Yourself", "Misbehave")
+	/// Whether or not bite bonuses were applied (so we don't stack with cat tongues)
+	var/bite_bonuses_applied = FALSE
 
 /datum/action/innate/toggle_bite/New(Target)
 	..()
