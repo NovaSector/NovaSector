@@ -27,7 +27,7 @@
 	head.unarmed_effectiveness += 10
 	head.unarmed_pummeling_bonus += 0.5
 	head.unarmed_sharpness = SHARP_EDGED
-	ADD_TRAIT(human_owner, TRAIT_FERAL_BITER, QUIRK_TRAIT)
+	ADD_TRAIT(human_owner, TRAIT_FERAL_BITER, REF(src))
 
 	active = TRUE
 	background_icon_state = "bg_default_on"
