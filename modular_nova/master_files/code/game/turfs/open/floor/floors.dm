@@ -1325,7 +1325,7 @@
 
 /obj/item/stack/tile/wood/wood_12
 	name = "centered woof tiles"
-	singular_name = "centered woof tile"
+	singular_name = "centered wood tile"
 	icon = 'modular_nova/master_files/icons/obj/tiles.dmi'
 	icon_state = "wood_12"
 	turf_type = /turf/open/floor/wood/wood_12
