@@ -151,7 +151,8 @@
 	PRIVATE_PROC(TRUE)
 
 	// NOVA EDIT ADDITION START
-	if (!is_type_in_typecache(get_area(src), allowed_areas_to_work))
+	var/area/teleport_area = get_area(src)
+	if (!is_type_in_typecache(teleport_area, allowed_areas_to_work))
 		balloon_alert(user, "invalid area of use!")
 		return FALSE
 	// NOVA EDIT ADDITION END
@@ -221,7 +222,8 @@
 	PRIVATE_PROC(TRUE)
 
 	// NOVA EDIT ADDITION START
-	if (!is_type_in_typecache(get_area(src), allowed_areas_to_work))
+	var/area/teleport_area = get_area(src)
+	if (!is_type_in_typecache(teleport_area, allowed_areas_to_work))
 		balloon_alert(user, "invalid area of use!")
 		return FALSE
 	// NOVA EDIT ADDITION END
