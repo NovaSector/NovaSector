@@ -52,7 +52,7 @@
 	if(bite_bonuses_applied)
 		remove_bite_bonuses(head)
 
-	REMOVE_TRAIT_FROM(human_owner, TRAIT_FERAL_BITER, REF(src))
+	REMOVE_TRAIT(human_owner, TRAIT_FERAL_BITER, REF(src))
 
 	active = FALSE
 	background_icon_state = "bg_default"
@@ -61,14 +61,14 @@
 	build_all_button_icons()
 
 /datum/action/innate/toggle_bite/Destroy(force)
-	if(HAS_TRAIT_FROM(owner, TRAIT_FERAL_BITER, REF(src))
+	if(HAS_TRAIT_FROM(owner, TRAIT_FERAL_BITER, REF(src)))
 		Deactivate()
 	return ..()
 
 /// When organ is added, if it's a cat tongue and we are active with bonuses then remove them
 /datum/action/innate/toggle_bite/proc/check_added_organ(mob/living/carbon/human/recipient, obj/item/organ/organ_gained)
 	SIGNAL_HANDLER
-	
+
 	if(!active || !bite_bonuses_applied)
 		return
 	var/obj/item/bodypart/head/head = recipient.get_bodypart(BODY_ZONE_HEAD)
@@ -76,6 +76,9 @@
 		return
 	if(istype(organ_gained, /obj/item/organ/tongue/cat))
 		remove_bite_bonuses(head)
+		// Switch to listening for organ loss since we now have a cat tongue
+		UnregisterSignal(recipient, COMSIG_CARBON_GAIN_ORGAN)
+		RegisterSignal(recipient, COMSIG_CARBON_LOSE_ORGAN, PROC_REF(check_removed_organ))
 
 /// When an organ is lost, if it's a cat tongue and we are active without bonuses then add them
 /datum/action/innate/toggle_bite/proc/check_removed_organ(mob/living/carbon/human/loser, obj/item/organ/organ_lost)
@@ -86,8 +89,11 @@
 	var/obj/item/bodypart/head/head = loser.get_bodypart(BODY_ZONE_HEAD)
 	if(isnull(head))
 		return
-	if(active && istype(organ_lost, /obj/item/organ/tongue/cat))
+	if(istype(organ_lost, /obj/item/organ/tongue/cat))
 		add_bite_bonuses(head)
+		// Switch to listening for organ gain since we no longer have a cat tongue
+		UnregisterSignal(loser, COMSIG_CARBON_LOSE_ORGAN)
+		RegisterSignal(loser, COMSIG_CARBON_GAIN_ORGAN, PROC_REF(check_added_organ))
 
 /// Apply the bite bonuses to the mob's head
 /datum/action/innate/toggle_bite/proc/add_bite_bonuses(obj/item/bodypart/head/head)
@@ -123,10 +129,36 @@
 	if(!ishuman(human_holder))
 		return
 
+	// Check if they have a cat tongue - if so, remove this quirk (felinids already have this ability)
+	var/obj/item/organ/tongue/cat/cat_tongue = human_holder.get_organ_slot(ORGAN_SLOT_TONGUE)
+	if(istype(cat_tongue))
+		human_holder.remove_quirk(/datum/quirk/bitey)
+		return
+
 	bite_action = new(human_holder)
 	bite_action.Grant(human_holder)
+	// Register signal to check if they get a cat tongue implanted later
+	RegisterSignal(human_holder, COMSIG_CARBON_GAIN_ORGAN, PROC_REF(check_cat_tongue_gained))
 
 /datum/quirk/bitey/remove()
+	UnregisterSignal(quirk_holder, COMSIG_CARBON_GAIN_ORGAN)
 	if(bite_action)
 		QDEL_NULL(bite_action)
+
+/// Check if a cat tongue was gained - if so, remove this quirk
+/datum/quirk/bitey/proc/check_cat_tongue_gained(mob/living/carbon/human/recipient, obj/item/organ/organ_gained)
+	SIGNAL_HANDLER
+
+	if(istype(organ_gained, /obj/item/organ/tongue/cat))
+		recipient.remove_quirk(/datum/quirk/bitey)
+
+// NOVA EDIT - Prevent cat tongue from stacking with bitey quirk
+/datum/action/item_action/organ_action/go_feral/do_effect(trigger_flags)
+	var/obj/item/organ/tongue/cat/cat_tongue = target
+	// Check if trying to enable feral mode and TRAIT_FERAL_BITER already exists from another source
+	// If so, don't toggle to prevent stacking
+	if(!cat_tongue.feral_mode && HAS_TRAIT_NOT_FROM(cat_tongue.owner, TRAIT_FERAL_BITER, REF(cat_tongue)))
+		return FALSE
+
+	return ..()
 
