@@ -83,24 +83,6 @@
 	bite_action.Grant(human_holder)
 
 /datum/quirk/bitey/remove()
-	// Make sure to restore bite mode if it was active
-	var/mob/living/carbon/human/human_holder = quirk_holder
-	if(ishuman(human_holder))
-		// Check if this is from the bitey quirk (not from cat tongue)
-		var/obj/item/organ/tongue/cat/cat_tongue = human_holder.get_organ_slot(ORGAN_SLOT_TONGUE)
-		if(!istype(cat_tongue) || !cat_tongue.feral_mode)
-			// Check if bite mode was active (trait is present)
-			if(HAS_TRAIT(human_holder, TRAIT_FERAL_BITER))
-				var/obj/item/bodypart/head/head = human_holder.get_bodypart(BODY_ZONE_HEAD)
-				if(head)
-					head.unarmed_damage_low -= 4
-					head.unarmed_damage_high -= 7
-					head.unarmed_effectiveness -= 10
-					head.unarmed_pummeling_bonus -= 0.5
-					head.unarmed_sharpness = NONE
-				REMOVE_TRAIT(human_holder, TRAIT_FERAL_BITER, QUIRK_TRAIT)
-
 	if(bite_action)
-		bite_action.Remove(quirk_holder)
 		QDEL_NULL(bite_action)
 
