@@ -19,7 +19,12 @@
 				/obj/item/clothing/mask/gas/clownbald = 1,
 				/obj/item/clothing/mask/gas/clown_colourable = 1,
 				/obj/item/clothing/head/costume/jesteralt = 1,
+				/obj/item/clothing/mask/gas/pink_clown_wig = 5,
+				/obj/item/clothing/head/beret/clown = 5,
 				/obj/item/clothing/under/rank/civilian/clown/jesteralt = 1,
+				/obj/item/clothing/under/rank/civilian/clown/pink_clown_outfit = 5,
+				/obj/item/clothing/shoes/clown_shoes/pink/heels = 5,
+				/obj/item/clothing/gloves/pink_clown = 5,
 			),
 		),
 		list(

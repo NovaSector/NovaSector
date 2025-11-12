@@ -82,7 +82,6 @@
 	key = FEATURE_WINGS_OPEN
 	color_src = USE_ONE_COLOR
 
-
 /datum/sprite_accessory/wings_open/is_hidden(mob/living/carbon/human/wearer)
 	if(!wearer.w_uniform && !wearer.wear_suit)
 		return FALSE
@@ -300,11 +299,12 @@
 */
 
 /datum/sprite_accessory/wings/moth
-	icon = 'modular_nova/master_files/icons/mob/sprite_accessory/moth_wings.dmi' // Needs new icon to suit new naming convention
+	icon = 'icons/mob/human/species/moth/moth_wings.dmi' // Needs new icon to suit new naming convention
 	default_color = "#FFFFFF"
 	recommended_species = list(SPECIES_MOTH, SPECIES_MAMMAL, SPECIES_INSECT) // Mammals too, I guess. They wont get flight though, see the wing organs for that logic
 	organ_type = /obj/item/organ/wings/moth
-	relevent_layers = list(BODY_BEHIND_LAYER, BODY_FRONT_LAYER)
+	feature_key_override = FEATURE_MOTH_WINGS
+	color_src = USE_ONE_COLOR
 
 /datum/sprite_accessory/wings/moth/none
 	name = SPRITE_ACCESSORY_NONE

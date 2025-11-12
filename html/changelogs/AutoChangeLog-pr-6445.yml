@@ -1,0 +1,4 @@
+author: "vinylspiders"
+delete-after: True
+changes:
+  - bugfix: "reskin icons will no longer show as error in the loadout reskin selection menu"

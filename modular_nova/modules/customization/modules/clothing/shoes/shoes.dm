@@ -172,6 +172,29 @@
 	worn_icon = MODULAR_SHOES_WORN_ICON
 	icon_state = "pink_clown_shoes"
 
+/obj/item/clothing/shoes/clown_shoes/pink/heels
+	name = "pink clown heels"
+	desc = "A particularly pink pair of punny heels."
+	icon = MODULAR_SHOES_ICON
+	worn_icon = MODULAR_SHOES_WORN_ICON
+	worn_icon_digi = 'modular_nova/master_files/icons/mob/clothing/feet_digi.dmi'
+	icon_state = "pink_clown_heels"
+	inhand_icon_state = null
+
+// No clown squeak version
+/obj/item/clothing/shoes/pink_clown_heels
+	name = "pink clown heels"
+	desc = "A particularly pink pair of heels."
+	icon = MODULAR_SHOES_ICON
+	worn_icon = MODULAR_SHOES_WORN_ICON
+	worn_icon_digi = 'modular_nova/master_files/icons/mob/clothing/feet_digi.dmi'
+	icon_state = "pink_clown_heels"
+	inhand_icon_state = null
+
+/obj/item/clothing/shoes/pink_clown_heels/Initialize(mapload)
+	. = ..()
+	AddComponent(/datum/component/squeak, list('modular_nova/master_files/sound/effects/heel1.ogg' = 1, 'modular_nova/master_files/sound/effects/heel2.ogg' = 1), 50)
+
 /obj/item/clothing/shoes/colorable_laceups
 	name = "laceup shoes"
 	desc = "These don't seem to come pre-polished, how saddening."
@@ -246,3 +269,12 @@
 	greyscale_colors = "#FFFFFF"
 	body_parts_covered = FALSE
 	flags_1 = IS_PLAYER_COLORABLE_1
+
+/obj/item/clothing/shoes/galoshes/heeled
+	name = "heeled galoshes"
+	desc = "A pair of yellow rubber heels, designed to prevent slipping on wet surfaces. These are even harder to walk in than normal heels."
+	icon_state = "galoshes_heeled"
+	icon = MODULAR_SHOES_ICON
+	worn_icon = MODULAR_SHOES_WORN_ICON
+	worn_icon_digi = 'modular_nova/master_files/icons/mob/clothing/feet_digi.dmi'
+	custom_premium_price = PAYCHECK_CREW * 3
