@@ -39,6 +39,7 @@ export const MESSAGE_TYPE_ADMINLOG = 'adminlog';
 export const MESSAGE_TYPE_ATTACKLOG = 'attacklog';
 export const MESSAGE_TYPE_DEBUG = 'debug';
 export const MESSAGE_TYPE_MENTOR = 'mentor'; // NOVA EDIT ADDITION
+export const MESSAGE_TYPE_SUBTLE = 'subtle'; // NOVA EDIT ADDITION
 
 // Metadata for each message type
 export const MESSAGE_TYPES = [
@@ -107,6 +108,12 @@ export const MESSAGE_TYPES = [
     name: 'Combat Log',
     description: 'Urist McTraitor has stabbed you with a knife!',
     selector: '.danger',
+  },
+  {
+    type: MESSAGE_TYPE_SUBTLE, // NOVA EDIT
+    name: 'Subtle',
+    description: 'Subtle and Subtler actions.',
+    selector: '.subtle, .subtler',
   },
   {
     type: MESSAGE_TYPE_UNKNOWN,
