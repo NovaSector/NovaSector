@@ -10,8 +10,8 @@
 	var/bite_bonuses_applied = FALSE
 
 /datum/action/innate/toggle_bite/New(Target)
-	..()
 	name = pick(ability_name)
+	. = ..()
 
 /datum/action/innate/toggle_bite/Activate()
 	var/mob/living/carbon/human/human_owner = owner
