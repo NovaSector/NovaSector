@@ -60,7 +60,7 @@
 	build_all_button_icons()
 
 /datum/action/innate/toggle_bite/Destroy(force)
-	if(HAS_TRAIT_FROM(owner, TRAIT_FERAL_BITER, REF(src)))
+	if(owner && HAS_TRAIT_FROM(owner, TRAIT_FERAL_BITER, REF(src)))
 		Deactivate()
 	return ..()
 
