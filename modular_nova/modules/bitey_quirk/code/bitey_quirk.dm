@@ -82,7 +82,7 @@
  */
 /datum/action/innate/toggle_bite/Destroy(force)
 	// Make sure we clean up properly if we're being deleted while active
-	if(HAS_TRAIT_FROM(owner, TRAIT_FERAL_BITER, REF(src)))
+	if(owner && HAS_TRAIT_FROM(owner, TRAIT_FERAL_BITER, REF(src)))
 		Deactivate()
 	return ..()
 
