@@ -17,7 +17,7 @@
 		return
 
 	var/obj/item/bodypart/head/head = human_owner.get_bodypart(BODY_ZONE_HEAD)
-	if(!head)
+	if(isnull(head))
 		to_chat(human_owner, span_warning("You need a head to bite!"))
 		return
 
