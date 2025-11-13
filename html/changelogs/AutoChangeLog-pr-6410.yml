@@ -1,4 +1,0 @@
-author: "sqnztb"
-delete-after: True
-changes:
-  - qol: "Soulcatchers now support room descriptions of 2048 characters, up from 280."
