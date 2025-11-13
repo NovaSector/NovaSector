@@ -1543,10 +1543,10 @@
 /obj/machinery/door/airlock/proc/finish_emag_act()
 	if(QDELETED(src))
 		return FALSE
-	set_machine_stat(machine_stat & ~MAINT)
 	operating = FALSE
 	if(!open())
 		set_airlock_state(AIRLOCK_CLOSED)
+	set_machine_stat(machine_stat & ~MAINT)
 	obj_flags |= EMAGGED
 	feedback = FALSE
 	locked = TRUE
