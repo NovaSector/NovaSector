@@ -550,3 +550,32 @@
 2025-11-12:
   trazodont:
   - bugfix: fixes placement of microwave and grinder on blueshift perma
+2025-11-13:
+  Archemagus:
+  - bugfix: Cryo pod will report borgs job instead of [NO DATA]
+  - bugfix: Cryo pod SHOULD stop reporting crew members by ghost role titles... No
+      guaranties though.
+  - qol: Cryo pod will announce punched out crew jobs correctly.
+  OrbisAnima:
+  - balance: the BRM now only works in station areas.
+  RealWinterFrost:
+  - image: added many new floor sprites to nova sector! check them out with an Iron
+      floor tile or wood floor tile!
+  carpotoxin:
+  - qol: Midround roles now poll for candidates for 1 minute, instead of 30 seconds.
+  - bugfix: The Marauder antag mechs are now T4 parts instead of T1.
+  - bugfix: The Marauder antag's free cyborg module is a unique Syndicate Cyborg Jack
+      instead of Illegal Modules
+  - bugfix: The Marauder antag's broken crew tracker console is instead a listening
+      post console
+  - rscadd: The Marauder antag can get an additional mech, the Mauler
+  - rscadd: Adds the cybersun laser carbine to the Marauder's secondary weapons listing
+  - balance: The Marauder antag gets a free empty combat hypospray
+  - balance: The Syndicate Cyborg Jack uplink item no longer requires emagging
+  sqnztb:
+  - qol: Soulcatchers now support room descriptions of 2048 characters, up from 280.
+  trazodont:
+  - rscadd: Warden's now have their own stamp for paperwork
+  vinylspiders:
+  - bugfix: reskin icons will no longer show as error in the loadout reskin selection
+      menu
