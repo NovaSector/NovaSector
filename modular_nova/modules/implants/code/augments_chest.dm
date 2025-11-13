@@ -65,7 +65,7 @@
 
 /obj/item/organ/cyberimp/chest/opticalcamo/on_mob_remove(mob/living/carbon/organ_owner, special = FALSE, movement_flags)
 	if(organ_owner.has_dna())
-		organ_owner.dna.remove_mutation(/datum/mutation/chameleon/changeling, MUTATION_SOURCE_IMPLANT)
+		organ_owner.dna.remove_mutation(/datum/mutation/chameleon/implant, MUTATION_SOURCE_IMPLANT)
 	..()
 // nerfed version for the implant, sneaky breaki like
 /datum/mutation/chameleon/implant
