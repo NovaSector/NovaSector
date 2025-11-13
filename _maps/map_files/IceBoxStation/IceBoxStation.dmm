@@ -16616,7 +16616,7 @@
 /turf/open/floor/iron,
 /area/station/hallway/primary/central/fore)
 "eCR" = (
-/obj/structure/no_effect_signpost{
+/obj/structure/signpost{
 	desc = "Now, where to go from here? That's a timeless question."
 	},
 /turf/open/misc/asteroid/snow/icemoon,
@@ -18564,7 +18564,7 @@
 /turf/closed/wall/r_wall,
 /area/station/ai/satellite/interior)
 "fep" = (
-/obj/structure/no_effect_signpost,
+/obj/structure/signpost,
 /turf/open/misc/asteroid/snow/icemoon,
 /area/icemoon/underground/explored)
 "fez" = (
