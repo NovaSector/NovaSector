@@ -78,12 +78,15 @@
 	contains = list(/obj/item/paper_bin)
 
 /datum/supply_pack/goody/xenoarch_intern
-	name = "Xenoarchaeology Intern Skillchip"
-	desc = "A skillchip with all the information required to start dabbling in the fine art of interpreting xenoarchaeological finds. \
-			Does not come with actual xenoarchaeological tools, nor the ability to actually make anyone pay attention to one's \
+	name = "Xenoarchaeology Intern Skillchip Set"
+	desc = "A skillchip with all the information required to start dabbling in the fine art of interpreting xenoarchaeological finds, \
+			and a magnifying glass for actually analyzing your finds. \
+			Does not come with actual excavation tools, nor the ability to actually make anyone pay attention to one's \
 			attempts at intellectual posturing, nor any actual job experience as a curator."
-	cost = PAYCHECK_CREW * 35 // 1750 credit goody? do bounties
-	contains = list(/obj/item/skillchip/xenoarch_magnifier)
+	cost = PAYCHECK_CREW * 15 // 750 credits but you also theoretically print a lot of money if you consistently get/scan relics
+	contains = list(/obj/item/skillchip/xenoarch_magnifier,
+				/obj/item/glassblowing/magnifying_glass,
+			)
 
 /datum/supply_pack/goody/scratching_stone
 	name = "Scratching Stone"
@@ -228,6 +231,49 @@
 /datum/supply_pack/goody/carpet/kinaris/black/whitetrim
 	name = "Kinaris White Trim Regal Carpet"
 	contains = list(/obj/item/stack/tile/carpet/kinaris/black/whitetrim/fifty)
+
+/datum/supply_pack/goody/carpet/polite
+	name = "Polite Black Carpet"
+	contains = list(/obj/item/stack/tile/carpet/polite/fifty)
+	cost = CARGO_CRATE_VALUE * 3.5
+
+/datum/supply_pack/goody/carpet/polite/red
+	name = "Polite Red Carpet"
+	contains = list(/obj/item/stack/tile/carpet/polite/red/fifty)
+
+/datum/supply_pack/goody/carpet/polite/orange
+	name = "Polite Orange Carpet"
+	contains = list(/obj/item/stack/tile/carpet/polite/orange/fifty)
+
+/datum/supply_pack/goody/carpet/polite/yellow
+	name = "Polite Yellow Carpet"
+	contains = list(/obj/item/stack/tile/carpet/polite/yellow/fifty)
+
+/datum/supply_pack/goody/carpet/polite/green
+	name = "Polite Green Carpet"
+	contains = list(/obj/item/stack/tile/carpet/polite/green/fifty)
+
+/datum/supply_pack/goody/carpet/polite/blue
+	name = "Polite Blue Carpet"
+	contains = list(/obj/item/stack/tile/carpet/polite/blue/fifty)
+
+/datum/supply_pack/goody/carpet/polite/purple
+	name = "Polite Purple Carpet"
+	contains = list(/obj/item/stack/tile/carpet/polite/purple/fifty)
+
+/datum/supply_pack/goody/carpet/polite/crate
+	name = "Polite Carpet Crate"
+	desc = "Plasteel floor tiles getting on your nerves? This 100 units stack of each soft carpet will tie any room together."
+	contains = list(
+		/obj/item/stack/tile/carpet/polite/fifty = 2,
+		/obj/item/stack/tile/carpet/polite/red/fifty = 2,
+		/obj/item/stack/tile/carpet/polite/orange/fifty = 2,
+		/obj/item/stack/tile/carpet/polite/yellow/fifty = 2,
+		/obj/item/stack/tile/carpet/polite/green/fifty = 2,
+		/obj/item/stack/tile/carpet/polite/blue/fifty = 2,
+		/obj/item/stack/tile/carpet/polite/purple/fifty = 2,
+	)
+	cost = CARGO_CRATE_VALUE * 12
 
 /*
 * NIF STUFF
