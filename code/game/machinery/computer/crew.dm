@@ -236,8 +236,6 @@ GLOBAL_DATUM_INIT(crewmonitor, /datum/crewmonitor, new)
 			stack_trace("Non-human mob is in suit_sensors_list: [tracked_living_mob] ([tracked_living_mob.type])")
 			continue
 
-		// Check they have a uniform
-		var/obj/item/clothing/under/uniform = tracked_human.w_uniform
 		// NOVA CHANGE START - NANITES
 		// Check they have a uniform
 		var/obj/item/clothing/under/uniform = tracked_human.w_uniform
