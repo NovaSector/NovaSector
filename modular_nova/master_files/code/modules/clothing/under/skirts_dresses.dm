@@ -288,6 +288,7 @@
 	flags_1 = IS_PLAYER_COLORABLE_1
 	female_sprite_flags = FEMALE_UNIFORM_TOP_ONLY
 	body_parts_covered = CHEST|GROIN|LEGS
+	can_adjust = FALSE
 	alternate_worn_layer = ABOVE_SHOES_LAYER
 	gets_cropped_on_taurs = FALSE
 	unique_reskin = list(
