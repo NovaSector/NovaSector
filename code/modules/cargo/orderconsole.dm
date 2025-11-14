@@ -196,11 +196,6 @@
 		// NOVA EDIT ADDITION END
 
 		var/obj/item/first_item = length(pack.contains) > 0 ? pack.contains[1] : null
-		// NOVA EDIT ADDITION START
-		if (first_item && pack.auto_name)
-			pack.name = first_item.name
-			pack.desc = first_item.desc
-		// NOVA EDIT ADDITION END
 		packs += list(list(
 			"name" = pack.name,
 			"cost" = pack.get_cost() * get_discount(),
