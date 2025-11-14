@@ -67,8 +67,8 @@
 		if(!user || user.stat != CONSCIOUS || user.loc != crate || crate.loc != src)
 			return // If the user is in a strange condition, return early.
 		visible_message(span_warning("[crate] falls off of [src]!"),
-						span_notice("You manage to knock [crate] free of [src]"),
-						span_notice("You hear a thud."))
+			span_notice("You manage to knock [crate] free of [src]"),
+			span_notice("You hear a thud."))
 		crate.forceMove(drop_location()) // Drop the crate onto the shelf,
 		crates_stored--
 		step_rand(crate, 1) // Then try to push it somewhere.
