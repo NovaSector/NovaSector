@@ -59,8 +59,7 @@
 
 /obj/item/organ/cyberimp/chest/opticalcamo/on_mob_insert(mob/living/carbon/organ_owner, special = FALSE, movement_flags)
 	. = ..()
-	. = ..()
-	if(isnull(organ_owner.has_dna())
+	if(isnull(organ_owner.has_dna()))
 		return
 	if(organ_owner.dna.get_mutation(/datum/mutation/chameleon/implant)) // admin-granted maybe?
 		organ_owner.dna.remove_mutation(/datum/mutation/chameleon/implant)
