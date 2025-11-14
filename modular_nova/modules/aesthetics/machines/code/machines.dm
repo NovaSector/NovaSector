@@ -1,3 +1,5 @@
+// Hopefully this folder tree can help organize our various asthetics files
+
 /obj/machinery/turretid
 	icon = 'modular_nova/modules/aesthetics/machines/icons/turret_control.dmi'
 	icon_state = "control"
