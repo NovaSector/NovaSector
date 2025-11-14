@@ -96,7 +96,7 @@
 		crate.forceMove(src) // Insert the crate into the shelf.
 		crates_stored++
 		crate.pixel_y = DEFAULT_SHELF_VERTICAL_OFFSET * (next_free - 1) // Adjust the vertical offset of the crate to look like it's on the shelf.
-		if(next_free >= 3) // If we're at or above three, we'll be on the way to going off the tile we're on. This allows mobs to be below the crate when this happens.
+		if(crates_stored >= 3) // If we're at or above three, we'll be on the way to going off the tile we're on. This allows mobs to be below the crate when this happens.
 			crate.layer = ABOVE_MOB_LAYER + 0.02 * (next_free - 1)
 		else
 			crate.layer = BELOW_OBJ_LAYER + 0.02 * (next_free - 1) // Adjust the layer of the crate to look like it's in the shelf.
@@ -154,10 +154,10 @@
 	. = ..()
 	if(!isliving(user))
 		return
-	if(istype(drop_atom, /turf/open) && istype(loc, /obj/structure/cargo_shelf))
+	if(istype(over, /turf/open) && istype(loc, /obj/structure/cargo_shelf))
 		var/obj/structure/cargo_shelf/shelf = loc
-		shelf.unload(src, user, drop_atom) // If we're being dropped onto a turf, and we're inside of a crate shelf, unload.
-	else if(istype(drop_atom, /obj/structure/cargo_shelf) && isturf(loc))
+		shelf.unload(src, user, over) // If we're being dropped onto a turf, and we're inside of a crate shelf, unload.
+	else if(istype(over, /obj/structure/cargo_shelf) && isturf(loc))
 		var/obj/structure/cargo_shelf/shelf = drop_atom
 		shelf.load(src, user) // If we're being dropped onto a crate shelf, and we're in a turf, load.
 
