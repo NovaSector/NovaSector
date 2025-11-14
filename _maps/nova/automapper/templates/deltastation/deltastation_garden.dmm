@@ -2,7 +2,7 @@
 "a" = (
 /obj/machinery/hydroponics/constructable,
 /turf/open/floor/grass,
-/area/template_noop)
+/area/station/service/hydroponics/garden)
 "i" = (
 /turf/template_noop,
 /area/template_noop)
@@ -22,23 +22,23 @@
 /obj/structure/table/wood,
 /obj/item/plant_analyzer,
 /turf/open/floor/iron,
-/area/template_noop)
+/area/station/service/hydroponics/garden)
 "n" = (
 /obj/item/radio/intercom/directional/east,
 /obj/machinery/hydroponics/constructable,
 /turf/open/floor/grass,
-/area/template_noop)
+/area/station/service/hydroponics/garden)
 "o" = (
 /obj/machinery/light/small/directional/south,
 /obj/machinery/newscaster/directional/south,
 /obj/machinery/hydroponics/constructable,
 /turf/open/floor/grass,
-/area/template_noop)
+/area/station/service/hydroponics/garden)
 "S" = (
 /obj/machinery/airalarm/directional/east,
 /obj/machinery/hydroponics/constructable,
 /turf/open/floor/grass,
-/area/template_noop)
+/area/station/service/hydroponics/garden)
 "T" = (
 /obj/machinery/light_switch/directional/north{
 	pixel_x = -8
@@ -46,19 +46,19 @@
 /obj/machinery/light/small/directional/north,
 /obj/machinery/hydroponics/constructable,
 /turf/open/floor/grass,
-/area/template_noop)
+/area/station/service/hydroponics/garden)
 "Y" = (
 /obj/machinery/vending/hydroseeds,
 /turf/open/floor/iron/half{
 	dir = 8
 	},
-/area/template_noop)
+/area/station/service/hydroponics/garden)
 "Z" = (
 /obj/machinery/vending/hydronutrients,
 /turf/open/floor/iron/half{
 	dir = 8
 	},
-/area/template_noop)
+/area/station/service/hydroponics/garden)
 
 (1,1,1) = {"
 i

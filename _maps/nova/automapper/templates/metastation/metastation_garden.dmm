@@ -7,16 +7,16 @@
 /obj/structure/disposalpipe/segment,
 /obj/machinery/hydroponics/constructable,
 /turf/open/floor/grass,
-/area/template_noop)
+/area/station/service/hydroponics/garden)
 "E" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/machinery/hydroponics/constructable,
 /turf/open/floor/grass,
-/area/template_noop)
+/area/station/service/hydroponics/garden)
 "R" = (
 /obj/machinery/hydroponics/constructable,
 /turf/open/floor/grass,
-/area/template_noop)
+/area/station/service/hydroponics/garden)
 
 (1,1,1) = {"
 a

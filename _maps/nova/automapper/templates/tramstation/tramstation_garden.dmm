@@ -9,12 +9,12 @@
 	},
 /obj/machinery/vending/hydronutrients,
 /turf/open/floor/iron,
-/area/template_noop)
+/area/station/service/hydroponics/garden)
 "k" = (
 /obj/machinery/light/directional/south,
 /obj/machinery/hydroponics/constructable,
 /turf/open/floor/grass,
-/area/template_noop)
+/area/station/service/hydroponics/garden)
 "n" = (
 /obj/effect/turf_decal/trimline/neutral/filled/line{
 	dir = 9
@@ -22,11 +22,11 @@
 /obj/machinery/airalarm/directional/west,
 /obj/machinery/vending/hydroseeds,
 /turf/open/floor/iron,
-/area/template_noop)
+/area/station/service/hydroponics/garden)
 "v" = (
 /obj/machinery/hydroponics/constructable,
 /turf/open/floor/grass,
-/area/template_noop)
+/area/station/service/hydroponics/garden)
 "K" = (
 /obj/item/crowbar,
 /obj/item/storage/bag/plants,
@@ -40,7 +40,7 @@
 /obj/structure/table/wood,
 /obj/item/reagent_containers/cup/watering_can,
 /turf/open/floor/iron,
-/area/template_noop)
+/area/station/service/hydroponics/garden)
 
 (1,1,1) = {"
 n
