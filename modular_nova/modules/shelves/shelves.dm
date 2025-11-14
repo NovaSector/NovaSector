@@ -15,15 +15,14 @@
 	var/capacity = DEFAULT_SHELF_CAPACITY
 	/// the delay before the shelf is truly used
 	var/use_delay = DEFAULT_SHELF_USE_DELAY
-	/// the list of contents that are currently in the shelf
-	var/list/shelf_contents
+	/// how many crates are currently stored in the shelf
+	var/crates_stored = 0
 
 /obj/structure/cargo_shelf/debug
 	capacity = 12
 
 /obj/structure/cargo_shelf/Initialize(mapload)
 	. = ..()
-	shelf_contents = new/list(capacity) // Initialize our shelf's contents list, this will be used later.
 	var/stack_layer // This is used to generate the sprite layering of the shelf pieces.
 	var/stack_offset // This is used to generate the vertical offset of the shelf pieces.
 	for(var/i in 1 to (capacity - 1))
@@ -32,24 +31,26 @@
 		else
 			stack_layer  = BELOW_OBJ_LAYER + (0.02 * i) - 0.01 // Make each shelf piece render above the last, but below the crate that should be on it.
 		stack_offset = DEFAULT_SHELF_VERTICAL_OFFSET * i // Make each shelf piece physically above the last.
-		overlays += image(icon = 'modular_nova/modules/shelves/structures.dmi', icon_state = "shelf_stack", layer = stack_layer, pixel_y = stack_offset)
+		var/mutable_appearance/shelf_overlay = mutable_appearance('modular_nova/modules/shelves/structures.dmi', "shelf_stack", layer = stack_layer)
+		shelf_overlay.pixel_y = stack_offset
+		overlays += shelf_overlay
 	return
 
 /obj/structure/cargo_shelf/Destroy()
-	for(var/obj/structure/closet/crate/crate in shelf_contents)
-		crate.forceMove(loc)
-	shelf_contents = null
+	for(var/obj/structure/closet/crate/crate in contents)
+		if(!QDELETED(crate))
+			crate.forceMove(drop_location())
 	return ..()
 
 /obj/structure/cargo_shelf/examine(mob/user)
 	. = ..()
 	. += span_notice("There are some <b>bolts</b> holding [src] together.")
-	if(shelf_contents.Find(null)) // If there's an empty space in the shelf, let the examiner know.
+	if(crates_stored < capacity) // If there's an empty space in the shelf, let the examiner know.
 		. += span_notice("You could <b>drag and drop</b> a crate into [src].")
-	if(contents.len) // If there are any crates in the shelf, let the examiner know.
+	if(crates_stored) // If there are any crates in the shelf, let the examiner know.
 		. += span_notice("You could <b>drag and drop</b> a crate out of [src].")
 		. += span_notice("[src] contains:")
-		for(var/obj/structure/closet/crate/crate in shelf_contents)
+		for(var/obj/structure/closet/crate/crate in contents)
 			. += "	[icon2html(crate, user)] [crate]"
 
 /obj/structure/cargo_shelf/attackby(obj/item/item, mob/living/user, params)
@@ -69,10 +70,10 @@
 						span_notice("You manage to knock [crate] free of [src]"),
 						span_notice("You hear a thud."))
 		crate.forceMove(drop_location()) // Drop the crate onto the shelf,
+		crates_stored--
 		step_rand(crate, 1) // Then try to push it somewhere.
 		crate.layer = initial(crate.layer) // Reset the crate back to having the default layer, otherwise we might get strange interactions.
 		crate.pixel_y = initial(crate.pixel_y) // Reset the crate back to having no offset, otherwise it will be floating.
-		shelf_contents[shelf_contents.Find(crate)] = null // Remove the reference to the crate from the list.
 		handle_visuals()
 
 /// proc to add the contents of the shelf visually to the shelf
@@ -82,19 +83,18 @@
 
 /// proc that will attempt to add something to the contents of the shelf
 /obj/structure/cargo_shelf/proc/load(obj/structure/closet/crate/crate, mob/user)
-	var/next_free = shelf_contents.Find(null) // Find the first empty slot in the shelf.
-	if(!next_free) // If we don't find an empty slot, return early.
+	if(crates_stored >= capacity) // If we don't find an empty slot, return early.
 		balloon_alert(user, "shelf full!")
 		return FALSE
 	if(do_after(user, use_delay, target = crate))
-		if(shelf_contents[next_free] != null)
+		if(crates_stored >= capacity)
 			return FALSE // Something has been added to the shelf while we were waiting, abort!
 		if(crate.opened) // If the crate is open, try to close it.
 			if(!crate.close())
 				return FALSE // If we fail to close it, don't load it into the shelf.
 		crate.interaction_flags_atom |= INTERACT_ATOM_MOUSEDROP_IGNORE_ADJACENT // We can't trust the mouse pull adjacency check
-		shelf_contents[next_free] = crate // Insert a reference to the crate into the free slot.
 		crate.forceMove(src) // Insert the crate into the shelf.
+		crates_stored++
 		crate.pixel_y = DEFAULT_SHELF_VERTICAL_OFFSET * (next_free - 1) // Adjust the vertical offset of the crate to look like it's on the shelf.
 		if(next_free >= 3) // If we're at or above three, we'll be on the way to going off the tile we're on. This allows mobs to be below the crate when this happens.
 			crate.layer = ABOVE_MOB_LAYER + 0.02 * (next_free - 1)
@@ -112,12 +112,12 @@
 		unload_turf.balloon_alert(user, "no room!")
 		return FALSE
 	if(do_after(user, use_delay, target = crate))
-		if(!shelf_contents.Find(crate))
+		if(!locate(crate) in src)
 			return FALSE // If something has happened to the crate while we were waiting, abort!
 		crate.layer = initial(crate.layer) // Reset the crate back to having the default layer, otherwise we might get strange interactions.
 		crate.pixel_y = initial(crate.pixel_y) // Reset the crate back to having no offset, otherwise it will be floating.
 		crate.forceMove(unload_turf)
-		shelf_contents[shelf_contents.Find(crate)] = null // We do this instead of removing it from the list to preserve the order of the shelf.
+		crates_stored--
 		crate.interaction_flags_atom &= ~INTERACT_ATOM_MOUSEDROP_IGNORE_ADJACENT
 		handle_visuals()
 		return TRUE
@@ -125,10 +125,11 @@
 
 /obj/structure/cargo_shelf/atom_deconstruct(disassembled = TRUE)
 	var/turf/dump_turf = drop_location()
-	for(var/obj/structure/closet/crate/crate in shelf_contents)
+	for(var/obj/structure/closet/crate/crate in contents)
 		crate.layer = initial(crate.layer) // Reset the crates back to default visual state
 		crate.pixel_y = initial(crate.pixel_y)
 		crate.forceMove(dump_turf)
+		crates_stored--
 		step(crate, pick(GLOB.alldirs)) // Shuffle the crates around as though they've fallen down.
 		crate.SpinAnimation(rand(4,7), 1) // Spin the crates around a little as they fall. Randomness is applied so it doesn't look weird.
 		switch(pick(1, 1, 1, 1, 2, 2, 3)) // Randomly pick whether to do nothing, open the crate, or break it open.
@@ -143,29 +144,25 @@
 			if(3) // Break that crate!
 				crate.visible_message(span_warning("[crate] falls apart!"))
 				crate.deconstruct()
-		shelf_contents[shelf_contents.Find(crate)] = null
 	if(!(flags_1 & NO_DEBRIS_AFTER_DECONSTRUCTION))
 		density = FALSE
 		var/obj/item/rack_parts/cargo_shelf/newparts = new(loc)
 		transfer_fingerprints_to(newparts)
 	return ..()
 
-/obj/structure/closet/crate/mouse_drop_dragged(atom/drop_atom, src_location, over_location)
+/obj/structure/closet/crate/mouse_drop_dragged(atom/over, mob/user, src_location, over_location, params)
 	. = ..()
-	var/mob/living/user = usr
-//	if(!isliving(user))
-//		return // Ghosts busted.
-//	if(!isturf(user.loc) || user.incapacitated || user.body_position == LYING_DOWN)
-//		return // If the user is in a weird state, don't bother trying.
-	if(istype(drop_atom, /turf/open) && istype(loc, /obj/structure/cargo_shelf) && user.Adjacent(drop_atom))
+	if(!isliving(user))
+		return
+	if(istype(drop_atom, /turf/open) && istype(loc, /obj/structure/cargo_shelf))
 		var/obj/structure/cargo_shelf/shelf = loc
-		return shelf.unload(src, user, drop_atom) // If we're being dropped onto a turf, and we're inside of a crate shelf, unload.
-	if(istype(drop_atom, /obj/structure/cargo_shelf) && isturf(loc) && user.Adjacent(src))
+		shelf.unload(src, user, drop_atom) // If we're being dropped onto a turf, and we're inside of a crate shelf, unload.
+	else if(istype(drop_atom, /obj/structure/cargo_shelf) && isturf(loc))
 		var/obj/structure/cargo_shelf/shelf = drop_atom
-		return shelf.load(src, user) // If we're being dropped onto a crate shelf, and we're in a turf, load.
+		shelf.load(src, user) // If we're being dropped onto a crate shelf, and we're in a turf, load.
 
 /obj/item/rack_parts/cargo_shelf
-	name = "Cargo shelf parts"
+	name = "cargo shelf parts"
 	icon = 'modular_nova/modules/shelves/structures.dmi'
 	icon_state = "rack_parts"
 	desc = "Parts of a cargo shelf, for storing crates."
@@ -177,12 +174,16 @@
 	to_chat(user, span_notice("You start constructing [src]..."))
 	if(do_after(user, 5 SECONDS, target = user, progress=TRUE))
 		if(!user.temporarilyRemoveItemFromInventory(src))
+			building = FALSE
 			return
-		var/obj/structure/cargo_shelf/R = new /obj/structure/cargo_shelf(get_turf(src))
-		user.visible_message("<span class='notice'>[user] assembles \a [R].\
-			</span>", span_notice("You assemble \a [R]."))
-		R.add_fingerprint(user)
+		var/obj/structure/cargo_shelf/rack = new /obj/structure/cargo_shelf(get_turf(src))
+		user.visible_message(
+			span_notice("[user] assembles \a [rack]."),
+			span_notice("You assemble \a [rack]."),
+		)
+		rack.add_fingerprint(user)
 		qdel(src)
+		return
 	building = FALSE
 
 /obj/structure/cargo_shelf/atom_deconstruct(disassembled = TRUE)
