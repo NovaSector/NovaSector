@@ -14,3 +14,6 @@
 		righthand_file = 'modular_nova/modules/aesthetics/tools/icons/tools_righthand.dmi'
 		lefthand_file = 'modular_nova/modules/aesthetics/tools/icons/tools_lefthand.dmi'
 	return ..()
+
+/obj/item/inducer
+	icon = 'modular_nova/modules/aesthetics/tools/icons/tools.dmi'

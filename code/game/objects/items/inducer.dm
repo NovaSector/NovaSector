@@ -1,4 +1,4 @@
-/obj/item/inducer
+/obj/item/inducer // NOVA OVERRIDE - modular_nova\modules\aesthetics\tools\code\tools.dm
 	name = "inducer"
 	desc = "A tool for inductively charging internal power cells and batteries."
 	icon = 'icons/obj/tools.dmi'
