@@ -92,11 +92,11 @@
 		crate.interaction_flags_atom |= INTERACT_ATOM_MOUSEDROP_IGNORE_ADJACENT // We can't trust the mouse pull adjacency check
 		crate.forceMove(src) // Insert the crate into the shelf.
 		crates_stored++
-		crate.pixel_y = DEFAULT_SHELF_VERTICAL_OFFSET * (next_free - 1) // Adjust the vertical offset of the crate to look like it's on the shelf.
+		crate.pixel_y = DEFAULT_SHELF_VERTICAL_OFFSET * (crates_stored - 1) // Adjust the vertical offset of the crate to look like it's on the shelf.
 		if(crates_stored >= 3) // If we're at or above three, we'll be on the way to going off the tile we're on. This allows mobs to be below the crate when this happens.
-			crate.layer = ABOVE_MOB_LAYER + 0.02 * (next_free - 1)
+			crate.layer = ABOVE_MOB_LAYER + 0.02 * (crates_stored - 1)
 		else
-			crate.layer = BELOW_OBJ_LAYER + 0.02 * (next_free - 1) // Adjust the layer of the crate to look like it's in the shelf.
+			crate.layer = BELOW_OBJ_LAYER + 0.02 * (crates_stored - 1) // Adjust the layer of the crate to look like it's in the shelf.
 		handle_visuals()
 		return TRUE
 	return FALSE // If the do_after() is interrupted, return FALSE!
