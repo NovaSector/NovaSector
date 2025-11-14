@@ -9,6 +9,8 @@
 	icon_state = "internal_HA"
 	actions_types = list(/datum/action/item_action/organ_action/use/internal_analyzer)
 	w_class = WEIGHT_CLASS_SMALL
+	/// Whether or not we have the chemical scan feature
+	var/has_chem_scan = TRUE
 
 /datum/action/item_action/organ_action/use/internal_analyzer
 	desc = "LMB: Health scan. RMB: Chemical scan. Requires implanted analyzer to not be failing due to EMPs or other causes. Does not provide treatment assistance."
@@ -42,7 +44,7 @@
 
 /obj/item/organ/cyberimp/chest/opticalcamo
 	name = "optical camo implant"
-	desc = "an implant that bends light around the host's body, rendering them nearly invisible when activated."
+	desc = "An implant that bends light around the host's body, rendering them nearly invisible when activated."
 	icon = 'modular_nova/modules/implants/icons/chest_modular.dmi'
 	icon_state = "opticalcamo"
 	slot = ORGAN_SLOT_SPINE
@@ -57,16 +59,18 @@
 
 /obj/item/organ/cyberimp/chest/opticalcamo/on_mob_insert(mob/living/carbon/organ_owner, special = FALSE, movement_flags)
 	. = ..()
-	if(organ_owner.dna.get_mutation(/datum/mutation/chameleon/implant))
-		organ_owner.dna.remove_mutation(/datum/mutation/chameleon/implant, MUTATION_SOURCE_IMPLANT)
-	else
-		organ_owner.dna.add_mutation(/datum/mutation/chameleon/implant, MUTATION_SOURCE_IMPLANT)
-	return TRUE
+	. = ..()
+	if(isnull(organ_owner.has_dna())
+		return
+	if(organ_owner.dna.get_mutation(/datum/mutation/chameleon/implant)) // admin-granted maybe?
+		organ_owner.dna.remove_mutation(/datum/mutation/chameleon/implant)
+	organ_owner.dna.add_mutation(/datum/mutation/chameleon/implant, MUTATION_SOURCE_IMPLANT)
 
 /obj/item/organ/cyberimp/chest/opticalcamo/on_mob_remove(mob/living/carbon/organ_owner, special = FALSE, movement_flags)
+	. = ..()
 	if(organ_owner.has_dna())
 		organ_owner.dna.remove_mutation(/datum/mutation/chameleon/implant, MUTATION_SOURCE_IMPLANT)
-	..()
+
 // nerfed version for the implant, sneaky breaki like
 /datum/mutation/chameleon/implant
 	instability = 0

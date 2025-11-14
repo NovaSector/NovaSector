@@ -57,7 +57,6 @@
 	armour_penetration = 5
 	icon_state = "mantis_blade_early"
 
-
 /obj/item/melee/implantarmblade/energy
 	name = "energy arm blade"
 	desc = "A long mantis-like blade made entirely of blazing-hot energy. Stylish and EXTRA deadly!"
