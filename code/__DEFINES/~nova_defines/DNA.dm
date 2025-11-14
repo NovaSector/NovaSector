@@ -114,8 +114,6 @@
 #define FEATURE_NECK_ACCESSORY "neck_acc"
 #define FEATURE_GHOUL_COLOR "ghoulcolor"
 #define FEATURE_WINGS_FUNCTIONAL "wings_functional"
-#define FEATURE_WINGS_OPEN "wings_open"
-
 #define FEATURE_PENIS "penis"
 #define FEATURE_WOMB "womb"
 #define FEATURE_VAGINA "vagina"

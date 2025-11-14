@@ -1,6 +1,0 @@
-author: "Hatterhat"
-delete-after: True
-changes:
-  - qol: "Xenoarch rock brushing now uses balloon alerts instead of to_chats."
-  - qol: "The handheld xenoarch advanced scanner now also gives the dig measurement, as if you used a measuring tape on it."
-  - balance: "The xenoarch intern skillchip in the goodies tab now gives you a magnifying glass as well."

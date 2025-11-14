@@ -1,7 +1,0 @@
-author: "OrbisAnima"
-delete-after: True
-changes:
-  - rscadd: "Added a new quirk, Psionic Dampener, for one reason or another, you are inmune to most (read, all I was able to find) forms of mental communication and the mind reading antenna. This should affect telepathy from quirks, genetics, slimes, xenomorphs, revenants and so on, do report any missing case! Logically, its incompatible with telepath."
-  - qol: "The telepathic communication power granted by the quirk or the genetic power is only anonymous if THE CASTER has the mutation, not the target, no longer feel the need to make it clear who you are with each message if you got the quirk only, if you want to be anonymous, bother your local geneticist."
-  - qol: "The telepathic action no longer show a message to the caster, making it much more clear and less cluttering for the caster of the quirk. Its also now multiline, like with subtler."
-  - balance: "The telepathy power is no longer a neutral quirk, but a positive quirk (2 points), as its effectively a long range whisper with no way to intercept other than talking to ghosts with a ouija."

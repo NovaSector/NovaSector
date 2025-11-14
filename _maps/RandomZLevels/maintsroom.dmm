@@ -7802,7 +7802,7 @@
 /obj/effect/turf_decal/stripes/line{
 	dir = 4
 	},
-/obj/item/implanter/krav_maga,
+/obj/item/implanter/kaza_ruk,
 /turf/open/floor/engine{
 	slowdown = 2
 	},

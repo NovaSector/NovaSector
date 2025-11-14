@@ -6,7 +6,7 @@
 	icon = 'icons/obj/machines/sleeper.dmi'
 	icon_state = "sleeper"
 	you_are_text = "You are a member of Tarkon Industries, recently assigned to a recently recovered asset known as Port Tarkon. Your supervisors are the Ensign and Site Director."
-	flavour_text = "On the recently reclaimed Port Tarkon, You are tasked to help finish construction and carry on any tasks given by the site director. It may be best to look at your departmental noteboard. (OOC note: This ghost role was not designed with Plasmamen or Vox in mind. While there are some accommodations so that they can survive, it should be noted that they were not the focal point whilst designing Port Tarkon. The closet in the middle of the room above contains the 'accommodations' for those species.)"
+	flavour_text = "On the recently reclaimed Port Tarkon, You are tasked to help finish construction and carry on any tasks given by the site director. It may be best to look at your departmental noteboard."
 	important_text = "You are not to abandon Port Tarkon. Check other sleepers for alternative jobs. Listen to the Site Director and Ensign."
 	outfit = /datum/outfit/tarkon
 	faction = list(FACTION_TARKON)
@@ -58,6 +58,12 @@
 				back = messenger //faction messenger bag
 			if(DDUFFELBAG)
 				back = duffelbag //faction duffel bag
+			if (TPACKB)
+				return /obj/item/storage/backpack/tinypakb //tiny packs, because they kinda drippin
+			if (TPACKA)
+				return /obj/item/storage/backpack/tinypaka
+			if (TPACKC)
+				return /obj/item/storage/backpack/tinypakc //No guncase option bc ????engineering company????
 			else
 				back = backpack //faction backpack fallback incase bag pref shits bed
 
@@ -168,7 +174,7 @@
 	icon = 'icons/obj/machines/sleeper.dmi'
 	icon_state = "sleeper-o"
 	you_are_text = "You were tasked by Tarkon Industries to Port Tarkon as a low-level command member. Your superior is the site director."
-	flavour_text = "Second in command, you are usually tasked with outward missions with other Tarkon members while the site director stays at the port. (OOC note: This ghost role was not designed with Plasmamen or Vox in mind. While there are some accommodations so that they can survive, it should be noted that they were not the focal point whilst designing Port Tarkon. The closet in the middle of the room above contains the 'accommodations' for those species.)"
+	flavour_text = "Second in command, you are usually tasked with outward missions with other Tarkon members while the site director stays at the port. "
 	important_text = "This is Not a job ment for Non-Tarkon specific Characters. You are not to abandon Port Tarkon without reason. You are allowed to travel within available Z-levels and to the station, and are allowed to hold exploration parties."
 	outfit = /datum/outfit/tarkon/ensign
 	spawner_job_path = /datum/job/tarkon
@@ -187,14 +193,13 @@
 	icon = 'icons/obj/machines/sleeper.dmi'
 	icon_state = "sleeper"
 	you_are_text = "You are a newly assigned Site Director for Port Tarkon. Your superiors are none except the will of yourself and Tarkon Industries."
-	flavour_text = "On the recently reclaimed Port Tarkon, You are tasked with overlooking your crew and keeping the port up and running. (OOC note: This ghost role was not designed with Plasmamen or Vox in mind. While there are some accommodations so that they can survive, it should be noted that they were not the focal point whilst designing Port Tarkon. The closet in the middle of the room above contains the 'accommodations' for those species.)"
+	flavour_text = "On the recently reclaimed Port Tarkon, You are tasked with overlooking your crew and keeping the port up and running."
 	important_text = "This is Not a job ment for Non-Tarkon specific Characters. You are not to abandon Port Tarkon. Check other sleepers for alternative jobs."
 	outfit = /datum/outfit/tarkon/director
 	spawner_job_path = /datum/job/tarkon/command
 	loadout_enabled = TRUE
 	quirks_enabled = TRUE
 	random_appearance = FALSE
-	computer_area = /area/ruin/space/has_grav/port_tarkon
 
 /datum/outfit/tarkon/director //Look at me, I'm the director now.
 	name = "Port Tarkon Directors Outfit"
@@ -320,3 +325,10 @@
 
 /obj/effect/spawner/random/exotic/technology/tarkon
 	spawn_loot_count = 1 //we just need one.
+
+/obj/structure/closet/secure_closet/tarkon //This is just so i can get an empty, tarkon-accessed engi closet... Joyous me.
+	req_access = list(ACCESS_TARKON)
+
+/obj/structure/closet/secure_closet/tarkon/engi
+	name = "Circuit Storage"
+	icon_state = "eng"

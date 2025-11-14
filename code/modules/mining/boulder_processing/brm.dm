@@ -31,6 +31,12 @@
 	COOLDOWN_DECLARE(manual_teleport_cooldown)
 	/// Cooldown used for automatic teleportation after processing boulders_processing_max number of boulders.
 	COOLDOWN_DECLARE(batch_start_cooldown)
+	// NOVA EDIT ADDITION START
+	/// Defines which areas this machine is allowed to operate. By default only the station but done this way in case its needed to be varedited by an admin. DO NOT ALLOW THIS FOR THE GHOST ROLES.
+	var/static/list/allowed_areas_to_work = typecacheof(list(
+		/area/station,
+	))
+	// NOVA EDIT ADDITION END
 
 /obj/machinery/brm/Initialize(mapload)
 	. = ..()
@@ -144,6 +150,12 @@
 /obj/machinery/brm/proc/handle_teleport_conditions(mob/user)
 	PRIVATE_PROC(TRUE)
 
+	// NOVA EDIT ADDITION START
+	var/area/teleport_area = get_area(src)
+	if (!is_type_in_typecache(teleport_area, allowed_areas_to_work))
+		balloon_alert(user, "can't use this here!")
+		return FALSE
+	// NOVA EDIT ADDITION END
 	if(!COOLDOWN_FINISHED(src, manual_teleport_cooldown))
 		return FALSE
 	if(panel_open)
@@ -209,6 +221,12 @@
 /obj/machinery/brm/proc/toggle_auto_on(mob/user)
 	PRIVATE_PROC(TRUE)
 
+	// NOVA EDIT ADDITION START
+	var/area/teleport_area = get_area(src)
+	if (!is_type_in_typecache(teleport_area, allowed_areas_to_work))
+		balloon_alert(user, "can't use this here!")
+		return FALSE
+	// NOVA EDIT ADDITION END
 	if(panel_open)
 		balloon_alert(user, "close panel first!")
 		return

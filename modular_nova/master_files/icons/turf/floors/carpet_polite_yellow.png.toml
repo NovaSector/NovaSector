@@ -1,2 +1,2 @@
-output_name = "rusty_wall"
+output_name = "carpet_polite_yellow"
 template = "bitmask/diagonal_32x32.toml"
