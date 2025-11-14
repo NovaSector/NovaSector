@@ -138,6 +138,18 @@
 /datum/supply_pack/companies/armor/hc_surplus/clothing/police_helmet
 	contains = list(/obj/item/clothing/suit/armor/vest/hc_police)
 
+/datum/supply_pack/companies/armor/hc_surplus/clothing/police_uniform
+	contains = list(/obj/item/clothing/under/colonial/hc_police)
+
+/datum/supply_pack/companies/armor/hc_surplus/clothing/police_skirt
+	contains = list(/obj/item/clothing/under/colonial/hc_police/skirt)
+
+/datum/supply_pack/companies/armor/hc_surplus/clothing/police_cloak
+	contains = list(/obj/item/clothing/neck/cloak/colonial/hc_police)
+
+/datum/supply_pack/companies/armor/hc_surplus/clothing/police_suit_jacket
+	contains = list(/obj/item/clothing/suit/armor/vest/hc_police_jacket/suit)
+
 // Donk
 /datum/supply_pack/companies/armor/donk
 	cost = CARGO_CRATE_VALUE * 0.25
