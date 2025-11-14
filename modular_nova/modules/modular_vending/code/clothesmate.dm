@@ -102,6 +102,7 @@
 				/obj/item/clothing/under/dress/nova/flower = 5,
 				/obj/item/clothing/under/dress/nova/strapless = 5,
 				/obj/item/clothing/under/dress/nova/pentagram = 5,
+				/obj/item/clothing/under/dress/nova/midnight_gown = 5,
 				/obj/item/clothing/suit/varsity = 5,
 				/obj/item/clothing/suit/toggle/jacket/nova = 5,
 				/obj/item/clothing/suit/toggle/jacket/nova/flannel/gags = 5,
@@ -142,7 +143,6 @@
 				/obj/item/clothing/suit/crop_jacket/sleeveless/long = 5,
 				/obj/item/clothing/suit/big_jacket = 5,
 				/obj/item/clothing/suit/dagger_mantle = 5,
-				/obj/item/clothing/under/dress/nova/midnight_gown = 5,
 			),
 		),
 
