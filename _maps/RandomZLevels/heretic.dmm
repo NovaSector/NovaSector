@@ -7400,7 +7400,7 @@
 /turf/open/floor/iron/small,
 /area/awaymission/caves/heretic_laboratory)
 "WQ" = (
-/mob/living/basic/heretic_summon/star_gazer/contained,
+/mob/living/basic/rabbit,
 /turf/open/floor/wood,
 /area/awaymission/caves/heretic_laboratory_clean)
 "WR" = (
@@ -14201,7 +14201,7 @@ Ry
 Gr
 fl
 Gu
-WQ
+KT
 KT
 KT
 KT
@@ -14717,7 +14717,7 @@ fl
 Gs
 zT
 Gs
-KT
+WQ
 KT
 KT
 wN

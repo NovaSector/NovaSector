@@ -90,7 +90,7 @@
 /obj/machinery/computer/pod/old/mass_driver_controller/feeder
 	id = "MASSDRIVER_HERETIC"
 
-/mob/living/basic/heretic_summon/star_gazer/contained
+/mob/living/basic/heretic_summon/star_gazer/contained //leaving this here because I dont know how to stop it from spamming d-chat, this creature is meant to give players a unique RP oppourtunity however i cant figure out how to stop it from spamming d-chat, if you can figure out how then either please make a pr or tell me how.
 	name = "The Fylakismenos"
 	desc = "A creature that was tasked to watch over the stars, Now its tasked with watching its cell decay."
 	speed = -0.2
