@@ -155,7 +155,7 @@
 		var/obj/structure/cargo_shelf/shelf = loc
 		shelf.unload(src, user, over) // If we're being dropped onto a turf, and we're inside of a crate shelf, unload.
 	else if(istype(over, /obj/structure/cargo_shelf) && isturf(loc))
-		var/obj/structure/cargo_shelf/shelf = drop_atom
+		var/obj/structure/cargo_shelf/shelf = over
 		shelf.load(src, user) // If we're being dropped onto a crate shelf, and we're in a turf, load.
 
 /obj/item/rack_parts/cargo_shelf
