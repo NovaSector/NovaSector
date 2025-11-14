@@ -5723,10 +5723,6 @@
 	pixel_y = 8;
 	pixel_x = 2
 	},
-/obj/item/circuitboard/machine/circuit_imprinter/offstation{
-	pixel_y = 10;
-	pixel_x = 4
-	},
 /turf/open/floor/catwalk_floor/iron_dark,
 /area/ruin/interdyne_planetary_base/main/vault)
 "UN" = (
