@@ -14,3 +14,5 @@
 
 /obj/item/inducer
 	icon = 'modular_nova/modules/aesthetics/tools/icons/tools.dmi'
+/obj/item/screwdriver/power
+	icon = 'modular_nova/modules/aesthetics/tools/icons/tools.dmi'
