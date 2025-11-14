@@ -96,7 +96,7 @@
 	speed = -0.2
 	maxHealth = 2000
 	health = 2000
-	begging_timer = 1000000000 ///this is bad practice but I dont want to touch heretic code
+	begging_timer = 1000000 ///this is bad practice but I dont want to touch heretic code
 	obj_damage = 400
 	armour_penetration = 20
 	melee_damage_lower = 30
