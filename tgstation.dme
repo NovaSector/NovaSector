@@ -8440,6 +8440,7 @@
 #include "modular_nova\modules\mapping\code\fluff.dm"
 #include "modular_nova\modules\mapping\code\frozenwake.dm"
 #include "modular_nova\modules\mapping\code\furniture.dm"
+#include "modular_nova\modules\mapping\code\ghostrole_shields.dm"
 #include "modular_nova\modules\mapping\code\holocall.dm"
 #include "modular_nova\modules\mapping\code\icemoon.dm"
 #include "modular_nova\modules\mapping\code\interdyne.dm"
