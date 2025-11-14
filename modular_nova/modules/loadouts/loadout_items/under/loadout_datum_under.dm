@@ -361,7 +361,7 @@
 
 /datum/loadout_item/under/formal/midnight_gown
 	name = "Midnight Gown"
-	item_path = /obj/item/clothing/under/midnight_gown
+	item_path = /obj/item/clothing/under/dress/nova/midnight_gown
 	loadout_flags = parent_type::loadout_flags | LOADOUT_FLAG_ALLOW_RESKIN
 
 /*

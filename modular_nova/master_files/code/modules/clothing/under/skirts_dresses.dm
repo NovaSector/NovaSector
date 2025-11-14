@@ -275,7 +275,7 @@
 		"Heart" = "giant_scarf_heart",
 	)
 
-/obj/item/clothing/under/midnight_gown
+/obj/item/clothing/under/dress/nova/midnight_gown
 	name = "midnight gown"
 	desc = "A seductive gown purpose tailored to show off one's legs."
 	icon = 'icons/map_icons/clothing/under/_under.dmi'
@@ -287,6 +287,7 @@
 	greyscale_colors = "#1D253B"
 	flags_1 = IS_PLAYER_COLORABLE_1
 	female_sprite_flags = FEMALE_UNIFORM_TOP_ONLY
+	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION
 	body_parts_covered = CHEST|GROIN|LEGS
 	can_adjust = FALSE
 	alternate_worn_layer = ABOVE_SHOES_LAYER

@@ -142,7 +142,7 @@
 				/obj/item/clothing/suit/crop_jacket/sleeveless/long = 5,
 				/obj/item/clothing/suit/big_jacket = 5,
 				/obj/item/clothing/suit/dagger_mantle = 5,
-				/obj/item/clothing/under/midnight_gown = 5,
+				/obj/item/clothing/under/dress/nova/midnight_gown = 5,
 			),
 		),
 
