@@ -107,4 +107,3 @@
 		/datum/action/cooldown/spell/conjure/cosmic_expansion,
 		/datum/action/cooldown/spell/pointed/projectile/star_blast,
 	)
-	beg_for_ghost = 0
