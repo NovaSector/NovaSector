@@ -278,8 +278,8 @@
 /obj/item/clothing/under/dress/nova/midnight_gown
 	name = "midnight gown"
 	desc = "A seductive gown purpose tailored to show off one's legs."
-	icon = 'icons/map_icons/clothing/under/_under.dmi'
-	icon_state = "/obj/item/clothing/under/midnight_gown"
+	icon = 'icons/map_icons/clothing/under/dress.dmi'
+	icon_state = "/obj/item/clothing/under/dress/nova/midnight_gown"
 	post_init_icon_state = "midnight_right"
 	greyscale_config = /datum/greyscale_config/midnight_gown
 	greyscale_config_worn = /datum/greyscale_config/midnight_gown/worn
