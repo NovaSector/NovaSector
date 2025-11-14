@@ -579,3 +579,21 @@
   vinylspiders:
   - bugfix: reskin icons will no longer show as error in the loadout reskin selection
       menu
+2025-11-14:
+  Jureiia:
+  - rscadd: Added a new midnight gown dress.
+  MintMetal:
+  - bugfix: Fixed some issues on SerenityStation.
+  RatFromTheJungle:
+  - balance: The bowie knife sheath is normal-sized now, rejoice!
+  Stalkeros:
+  - map: I stole a microwave from Void Raptor. The one blocking Public Garden's maintenance.
+  Yobrocharlie:
+  - bugfix: fixed the p90 bringing the server to its knees, removing it.
+  Zenitheevee:
+  - map: Adds A Single Wire To The Tarkon Driver So The Smes Stops Shitting Itself
+  Zergspower:
+  - rscadd: Ghost shield to the BMT Role, the stasis shield will keep you nice and
+      cozy inside until you wake up without worrying about your ship being stolen!
+  - bugfix: Xenomorphs are once against spaceproof, woe be upon ye tiders
+  - bugfix: milsim has their turrets returned
