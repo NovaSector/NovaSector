@@ -214,7 +214,6 @@
 		/obj/item/flatpack/ammo_workbench,
 		/obj/item/ammo_workbench_module/lethal,
 		/obj/item/ammo_workbench_module/gimmick,
-		/obj/item/ammo_workbench_reboot = 2,
 	)
 	crate_name = "ammunition workbench starter crate"
 
@@ -707,8 +706,8 @@
 
 /datum/supply_pack/organic/lavalandsamples
 	name = "Planetary Flora Samples"
-	desc = "A box of samples taken from the surface of Lavaland. Requires Hydroponics access to open."
-	cost = CARGO_CRATE_VALUE * 6
+	desc = "A box of samples taken from the surface of Lavaland. Resold to you - yes, you! - at a premium. Requires Hydroponics access to open."
+	cost = CARGO_CRATE_VALUE * 36
 	access_view = ACCESS_HYDROPONICS
 	contains = list(
 		/obj/item/seeds/lavaland/polypore,
@@ -785,3 +784,36 @@
 
 /datum/supply_pack/imports/error
 	cost = CARGO_CRATE_VALUE * 400 // 20k is a lot on TG, it's not as much here. Upped to 80k
+
+/datum/supply_pack/misc/ancient_paperwork
+	name = "Unfiled Paperwork"
+	desc = "Hey, we've apparently got a backlog of paperwork here. It's pretty bad. \
+		If you guys could pay the shuttle guys to look the other way, and help us fill it out so we can file this stuff away, \
+		it'll look a lot nicer on our quarterly reports... which means we can justify putting a few extra credits in your budget. \
+		Thanks. For your convenience, we've repacked it into a single large folder. Be careful with it."
+	cost = CARGO_CRATE_VALUE * 5
+	/*
+	one properly stamped paperwork is CARGO_CRATE_VALUE * 4.
+	however, because getting stamps capital S Sucks, requiring IC interaction (or stamp theft),
+	it's probably fine for it to be decently profitable?
+	5 paperworks for 20 crates (4000cr), initial cost of 5 crates (1000cr), profit of 15 crates (3000cr)
+	*/
+	contains = list(
+		/obj/item/folder/ancient_paperwork/five,
+	)
+
+/*
+* ACCESS OVERWRITES
+*/
+
+/datum/supply_pack/engineering/portagrav
+	access_view = NONE
+
+/datum/supply_pack/engineering/powergamermitts
+	access_view = NONE
+
+/datum/supply_pack/engineering/pacman
+	access_view = NONE
+
+/datum/supply_pack/engineering/tools
+	access_view = NONE

@@ -69,70 +69,35 @@ GLOBAL_DATUM_INIT(language_holder_adjustor, /datum/language_holder_adjustor, new
 	)
 
 /// Modularized the Cyborg and AI language_holder, add here the languages that you want them to be able to speak and understand.
-/datum/language_holder/synthetic
-	understood_languages = list(
-		/datum/language/common = list(LANGUAGE_ATOM),
-		/datum/language/uncommon = list(LANGUAGE_ATOM),
-		/datum/language/akulan = list(LANGUAGE_ATOM),
-		/datum/language/beachbum = list(LANGUAGE_ATOM),
-		/datum/language/buzzwords = list(LANGUAGE_ATOM),
-		/datum/language/calcic = list(LANGUAGE_ATOM),
-		/datum/language/canilunzt = list(LANGUAGE_ATOM),
-		/datum/language/draconic = list(LANGUAGE_ATOM),
-		/datum/language/gutter = list(LANGUAGE_ATOM),
-		/datum/language/kobold = list(LANGUAGE_ATOM),
-		/datum/language/machine = list(LANGUAGE_ATOM),
-		/datum/language/moffic = list(LANGUAGE_ATOM),
-		/datum/language/monkey = list(LANGUAGE_ATOM),
-		/datum/language/mushroom = list(LANGUAGE_ATOM),
-		/datum/language/nekomimetic = list(LANGUAGE_ATOM),
-		/datum/language/panslavic = list(LANGUAGE_ATOM),
-		/datum/language/schechi = list(LANGUAGE_ATOM),
-		/datum/language/shadowtongue = list(LANGUAGE_ATOM),
-		/datum/language/siiktajr = list(LANGUAGE_ATOM),
-		/datum/language/skrell = list(LANGUAGE_ATOM),
-		/datum/language/slime = list(LANGUAGE_ATOM),
-		/datum/language/spacer = list(LANGUAGE_ATOM),
-		/datum/language/spinwarder = list(LANGUAGE_ATOM),
-		/datum/language/sylvan = list(LANGUAGE_ATOM),
-		/datum/language/terrum = list(LANGUAGE_ATOM),
-		/datum/language/voltaic = list(LANGUAGE_ATOM),
-		/datum/language/vox = list(LANGUAGE_ATOM),
-		/datum/language/xerxian = list(LANGUAGE_ATOM),
-		/datum/language/yangyu = list(LANGUAGE_ATOM),
-	)
-	spoken_languages = list(
-		/datum/language/common = list(LANGUAGE_ATOM),
-		/datum/language/uncommon = list(LANGUAGE_ATOM),
-		/datum/language/akulan = list(LANGUAGE_ATOM),
-		/datum/language/beachbum = list(LANGUAGE_ATOM),
-		/datum/language/buzzwords = list(LANGUAGE_ATOM),
-		/datum/language/calcic = list(LANGUAGE_ATOM),
-		/datum/language/canilunzt = list(LANGUAGE_ATOM),
-		/datum/language/draconic = list(LANGUAGE_ATOM),
-		/datum/language/gutter = list(LANGUAGE_ATOM),
-		/datum/language/kobold = list(LANGUAGE_ATOM),
-		/datum/language/machine = list(LANGUAGE_ATOM),
-		/datum/language/moffic = list(LANGUAGE_ATOM),
-		/datum/language/monkey = list(LANGUAGE_ATOM),
-		/datum/language/mushroom = list(LANGUAGE_ATOM),
-		/datum/language/nekomimetic = list(LANGUAGE_ATOM),
-		/datum/language/panslavic = list(LANGUAGE_ATOM),
-		/datum/language/schechi = list(LANGUAGE_ATOM),
-		/datum/language/shadowtongue = list(LANGUAGE_ATOM),
-		/datum/language/siiktajr = list(LANGUAGE_ATOM),
-		/datum/language/skrell = list(LANGUAGE_ATOM),
-		/datum/language/slime = list(LANGUAGE_ATOM),
-		/datum/language/spacer = list(LANGUAGE_ATOM),
-		/datum/language/spinwarder = list(LANGUAGE_ATOM),
-		/datum/language/sylvan = list(LANGUAGE_ATOM),
-		/datum/language/terrum = list(LANGUAGE_ATOM),
-		/datum/language/voltaic = list(LANGUAGE_ATOM),
-		/datum/language/vox = list(LANGUAGE_ATOM),
-		/datum/language/xerxian = list(LANGUAGE_ATOM),
-		/datum/language/yangyu = list(LANGUAGE_ATOM),
+/datum/language_holder/synthetic/silicon
+	understood_languages = list()
+	spoken_languages = list()
+
+	/// list of [/datum/language]s (typepaths of them) with [/datum/language/var/secret] but still known by our borgs and AIs (not covered by GLOB.uncommon_roundstart_languages)
+	var/static/list/known_secret_languages = list(
+		/datum/language/beachbum,
+		/datum/language/calcic,
+		/datum/language/monkey,
+		/datum/language/mushroom,
+		/datum/language/nekomimetic,
+		/datum/language/shadowtongue,
 	)
 
+/datum/language_holder/synthetic/silicon/New(atom/new_owner)
+	. = ..()
+	remove_all_languages() // tabula rasa. we dont need anything from TG in here
+
+	for (var/datum/language/language as anything in GLOB.all_languages)
+		if(language::secret && !(language in GLOB.uncommon_roundstart_languages)) // should align with all languages available to anyone from character preferences
+			continue
+		grant_language(language, source = LANGUAGE_ATOM)
+
+	for (var/datum/language/language as anything in known_secret_languages)
+		grant_language(language, source = LANGUAGE_ATOM)
+
+	if(owner) // may be initialized without one, especially during init
+		get_selected_language()
+
 /datum/language_holder/drone_nova
-	understood_languages = list(/datum/language/drone = list(LANGUAGE_ATOM), /datum/language/common = list(LANGUAGE_ATOM))
-	spoken_languages = list(/datum/language/drone = list(LANGUAGE_ATOM))
+	understood_languages = list(/datum/language/machine = list(LANGUAGE_ATOM), /datum/language/common = list(LANGUAGE_ATOM))
+	spoken_languages = list(/datum/language/machine = list(LANGUAGE_ATOM))

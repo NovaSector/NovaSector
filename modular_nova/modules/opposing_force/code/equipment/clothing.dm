@@ -65,7 +65,7 @@
 /obj/item/storage/backpack/duffelbag/syndie/maid/PopulateContents() //by far the weakest bundle
 	new /obj/item/clothing/under/syndicate/nova/maid(src)
 	new /obj/item/clothing/gloves/combat/maid(src)
-	new /obj/item/clothing/head/costume/maidheadband/syndicate(src)
+	new /obj/item/clothing/head/costume/maid_headband/syndicate(src)
 	new /obj/item/clothing/shoes/laceup(src)
 	new /obj/item/radio/headset/syndicate/alt(src)
 	new /obj/item/card/id/advanced/chameleon(src)
@@ -168,7 +168,7 @@
 	new /obj/item/radio/headset/headset_cent/impostorsr(src)
 	new /obj/item/clothing/glasses/sunglasses(src)
 	new /obj/item/clipboard(src)
-	new /obj/item/card/id/advanced/chameleon/impostorsr(src) //this thing has bridge access, and no one knows about that
+	new /obj/item/card/id/advanced/chameleon/elite/impostorsr(src) //this thing has bridge access, and no one knows about that
 	new /obj/item/stamp/centcom(src)
 	new /obj/item/clothing/gloves/combat(src)
 

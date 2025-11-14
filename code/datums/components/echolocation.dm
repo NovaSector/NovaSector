@@ -59,7 +59,7 @@
 		src.images_are_static = images_are_static
 	if(!isnull(blocking_trait))
 		src.blocking_trait = blocking_trait
-	// NOVA ADDITION START: echolocation
+	// NOVA EDIT ADDITION START: echolocation
 	if(!isnull(show_own_outline))
 		src.show_own_outline = show_own_outline
 	// NOVA EDIT ADDITION END
@@ -133,7 +133,7 @@
 
 /datum/component/echolocation/proc/show_image(image/input_appearance, atom/input, current_time)
 	var/image/final_image = image(input_appearance)
-	//final_image.layer += FOV_EFFECT_LAYER
+	final_image.layer += EFFECTS_LAYER
 	final_image.plane = FULLSCREEN_PLANE
 	final_image.loc = images_are_static ? get_turf(input) : input
 	final_image.dir = input.dir
@@ -141,7 +141,7 @@
 	if(images_are_static)
 		final_image.pixel_x = input.pixel_x
 		final_image.pixel_y = input.pixel_y
-	// NOVA ADDITION START: echolocation (show outlines on self)
+	// NOVA EDIT ADDITION START: echolocation (show outlines on self)
 	var/mob/living/echolocator = parent
 	if(HAS_TRAIT_FROM(input, TRAIT_ECHOLOCATION_RECEIVER, echo_group) && input != echolocator) //mark other echolocation with full white, except ourselves
 	// NOVA EDIT ADDITION END

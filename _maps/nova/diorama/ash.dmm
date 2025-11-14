@@ -7,29 +7,29 @@
 	pixel_y = -17;
 	pixel_x = -13
 	},
-/turf/open/misc/asteroid/basalt/lava,
+/turf/open/floor/fakebasalt,
 /area/centcom/interlink)
 "g" = (
 /obj/structure/flora/rock/pile/style_random,
-/turf/open/misc/asteroid/basalt/lava,
+/turf/open/floor/fakebasalt,
 /area/centcom/interlink)
 "h" = (
 /obj/structure/marker_beacon/teal,
-/turf/open/misc/asteroid/basalt/lava,
+/turf/open/floor/fakebasalt,
 /area/centcom/interlink)
 "j" = (
 /obj/structure/window/reinforced/survival_pod/indestructible/spawner/directional/north,
-/turf/open/misc/asteroid/basalt/lava,
+/turf/open/floor/fakebasalt,
 /area/centcom/interlink)
 "k" = (
 /obj/structure/window/reinforced/survival_pod/indestructible/spawner/directional/west,
 /obj/structure/window/reinforced/survival_pod/indestructible/spawner/directional/south,
-/turf/open/misc/asteroid/basalt/lava,
+/turf/open/floor/fakebasalt,
 /area/centcom/interlink)
 "n" = (
 /obj/structure/window/reinforced/survival_pod/indestructible/spawner/directional/east,
 /obj/structure/window/reinforced/survival_pod/indestructible/spawner/directional/south,
-/turf/open/misc/asteroid/basalt/lava,
+/turf/open/floor/fakebasalt,
 /area/centcom/interlink)
 "t" = (
 /obj/modular_map_connector,
@@ -39,49 +39,49 @@
 /turf/template_noop,
 /area/template_noop)
 "v" = (
-/turf/open/lava/smooth/lava_land_surface,
+/turf/open/lava/smooth,
 /area/centcom/interlink)
 "x" = (
 /obj/structure/window/reinforced/survival_pod/indestructible/spawner/directional/south,
-/turf/open/misc/asteroid/basalt/lava,
+/turf/open/floor/fakebasalt,
 /area/centcom/interlink)
 "y" = (
 /obj/structure/marker_beacon/teal,
 /obj/structure/window/reinforced/survival_pod/indestructible/spawner/directional/north,
-/turf/open/misc/asteroid/basalt/lava,
+/turf/open/floor/fakebasalt,
 /area/centcom/interlink)
 "z" = (
 /obj/structure/window/reinforced/survival_pod/indestructible/spawner/directional/west,
-/turf/open/misc/asteroid/basalt/lava,
+/turf/open/floor/fakebasalt,
 /area/centcom/interlink)
 "H" = (
 /obj/structure/window/reinforced/survival_pod/indestructible/spawner/directional/north,
 /obj/structure/window/reinforced/survival_pod/indestructible/spawner/directional/west,
-/turf/open/misc/asteroid/basalt/lava,
+/turf/open/floor/fakebasalt,
 /area/centcom/interlink)
 "I" = (
 /obj/structure/flora/ash/fireblossom,
 /obj/structure/window/reinforced/survival_pod/indestructible/spawner/directional/west,
-/turf/open/misc/asteroid/basalt/lava,
+/turf/open/floor/fakebasalt,
 /area/centcom/interlink)
 "J" = (
 /obj/structure/window/reinforced/survival_pod/indestructible/spawner/directional/east,
-/turf/open/misc/asteroid/basalt/lava,
+/turf/open/floor/fakebasalt,
 /area/centcom/interlink)
 "N" = (
 /obj/structure/flora/rock/style_random,
 /obj/structure/window/reinforced/survival_pod/indestructible/spawner/directional/west,
-/turf/open/misc/asteroid/basalt/lava,
+/turf/open/floor/fakebasalt,
 /area/centcom/interlink)
 "R" = (
 /obj/structure/flora/rock/style_random,
 /obj/structure/window/reinforced/survival_pod/indestructible/spawner/directional/east,
 /obj/structure/window/reinforced/survival_pod/indestructible/spawner/directional/north,
-/turf/open/misc/asteroid/basalt/lava,
+/turf/open/floor/fakebasalt,
 /area/centcom/interlink)
 "U" = (
 /obj/structure/flora/ash/fireblossom,
-/turf/open/misc/asteroid/basalt/lava,
+/turf/open/floor/fakebasalt,
 /area/centcom/interlink)
 
 (1,1,1) = {"

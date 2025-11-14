@@ -1,11 +1,12 @@
-import { BooleanLike } from 'tgui-core/react';
+import type { BooleanLike } from 'tgui-core/react';
 
-import { sendAct } from '../../backend';
-import {
+import type { sendAct } from '../../backend';
+import type {
   LoadoutCategory,
   LoadoutList,
+  typePath,
 } from './CharacterPreferences/loadout/base';
-import { Gender } from './preferences/gender';
+import type { Gender } from './preferences/gender';
 
 export enum Food {
   Alcohol = 'ALCOHOL',
@@ -42,6 +43,7 @@ export type Name = {
   can_randomize: BooleanLike;
   explanation: string;
   group: string;
+  prefixes?: string[]; // NOVA EDIT ADDITION - Drone Prefixes
 };
 
 export type Species = {
@@ -146,6 +148,16 @@ export type QuirkInfo = {
   points_enabled: boolean;
 };
 
+export type Personality = {
+  name: string;
+  description: string;
+  pos_gameplay_description: string | null;
+  neg_gameplay_description: string | null;
+  neut_gameplay_description: string | null;
+  path: typePath;
+  groups: string[] | null;
+};
+
 export enum RandomSetting {
   AntagOnly = 1,
   Disabled = 2,
@@ -247,7 +259,11 @@ export type PreferencesMenuData = {
   // NOVA EDIT END
   keybindings: Record<string, string[]>;
   overflow_role: string;
+  default_quirk_balance: number;
   selected_quirks: string[];
+  selected_personalities: typePath[] | null;
+  max_personalities: number;
+  mood_enabled: BooleanLike;
   species_disallowed_quirks: string[];
 
   antag_bans?: string[];
@@ -269,6 +285,10 @@ export type ServerData = {
     types: Record<string, Name>;
   };
   quirks: QuirkInfo;
+  personality: {
+    personalities: Personality[];
+    personality_incompatibilities: Record<string, string[]>;
+  };
   random: {
     randomizable: string[];
   };

@@ -30,5 +30,29 @@
 			"blend_mode": "overlay",
 			"color_ids": [1]
 		}
+	],
+	"cleavage_sweater": [
+		{
+			"type": "icon_state",
+			"icon_state": "cleavage_mob",
+			"blend_mode": "overlay",
+			"color_ids": [1]
+		}
+	],
+	"cleavage_sweater_d": [
+		{
+			"type": "icon_state",
+			"icon_state": "cleavage_mob_d",
+			"blend_mode": "overlay",
+			"color_ids": [1]
+		}
+	],
+	"croptop_sweater": [
+		{
+			"type": "icon_state",
+			"icon_state": "croptop_mob",
+			"blend_mode": "overlay",
+			"color_ids": [1]
+		}
 	]
 }

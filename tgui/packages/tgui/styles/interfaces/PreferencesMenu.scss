@@ -178,19 +178,23 @@ $department_map: (
           border: var(--border-thickness-medium)
             outset
             hsla(60, 100%, 39.2%, 1);
-          border-bottom: 0; // NOVA EDIT
+          border-bottom: 0; // NOVA EDIT ADDITION
 
           &:first-child {
             border-top: var(--border-thickness-medium)
               outset
               hsla(60, 100%, 39.2%, 1);
           }
-
-          // NOVA EDIT ADDITION START -- Taking the second last because last is {children}
-          &:nth-last-child(2) {
+          // NOVA EDIT ADDITION START
+          &:nth-last-child(1) {
             border-bottom: 3px solid rgba(200, 200, 0, 1);
           }
           // NOVA EDIT ADDITION END
+          /* // NOVA EDIT REMOVAL START
+          .job-name {
+            font-size: 17px;
+          }
+            */ // NOVA EDIT REMOVAL END
         }
       }
 

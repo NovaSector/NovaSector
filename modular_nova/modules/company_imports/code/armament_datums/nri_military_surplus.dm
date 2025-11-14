@@ -34,35 +34,38 @@
 	cost = PAYCHECK_COMMAND
 
 /datum/armament_entry/company_import/nri_surplus/clothing/police_uniform
-	item_type = /obj/item/clothing/under/colonial/nri_police
+	item_type = /obj/item/clothing/under/colonial/hc_police
+
+/datum/armament_entry/company_import/nri_surplus/clothing/police_skirt
+	item_type = /obj/item/clothing/under/colonial/hc_police/skirt
 
 /datum/armament_entry/company_import/nri_surplus/clothing/police_cloak
-	item_type = /obj/item/clothing/neck/cloak/colonial/nri_police
+	item_type = /obj/item/clothing/neck/cloak/colonial/hc_police
 
 /datum/armament_entry/company_import/nri_surplus/clothing/police_jacket
-	item_type = /obj/item/clothing/suit/armor/vest/nri_police_jacket
+	item_type = /obj/item/clothing/suit/armor/vest/hc_police_jacket
 
 /datum/armament_entry/company_import/nri_surplus/clothing/police_suit_jacket
-	item_type = /obj/item/clothing/suit/armor/vest/nri_police_jacket/suit
+	item_type = /obj/item/clothing/suit/armor/vest/hc_police_jacket/suit
 	description = "A black uniform jacket with Zvirdnyan Colonial Militia's signature white rectangle on its right sleeve and backside. \
 	Letters inside the collar usually read the wearer's rank and internal kink. The jacket is of exceptional quality."
 
 /datum/armament_entry/company_import/nri_surplus/clothing/police_cap
-	item_type = /obj/item/clothing/head/hats/colonial/nri_police
+	item_type = /obj/item/clothing/head/hats/colonial/hc_police
 
 /datum/armament_entry/company_import/nri_surplus/clothing/police_baseball_cap
-	item_type = /obj/item/clothing/head/soft/nri_police
+	item_type = /obj/item/clothing/head/soft/hc_police
 
 /datum/armament_entry/company_import/nri_surplus/clothing/police_mask
-	item_type = /obj/item/clothing/mask/gas/nri_police
+	item_type = /obj/item/clothing/mask/gas/hc_police
 	cost = PAYCHECK_COMMAND
 
 /datum/armament_entry/company_import/nri_surplus/clothing/police_vest
-	item_type = /obj/item/clothing/head/helmet/nri_police
+	item_type = /obj/item/clothing/head/helmet/hc_police
 	cost = PAYCHECK_COMMAND
 
 /datum/armament_entry/company_import/nri_surplus/clothing/police_helmet
-	item_type = /obj/item/clothing/suit/armor/vest/nri_police
+	item_type = /obj/item/clothing/suit/armor/vest/hc_police
 	cost = PAYCHECK_COMMAND
 
 // Random surplus store tier stuff, flags, old rations, multitools you'll never use, so on
@@ -101,8 +104,8 @@
 	item_type = /obj/item/reagent_containers/cup/glass/waterbottle/large/protozine
 	cost = CARGO_CRATE_VALUE
 
-/datum/armament_entry/company_import/nri_surplus/misc/nri_flag
-	item_type = /obj/item/sign/flag/nri
+/datum/armament_entry/company_import/nri_surplus/misc/hc_flag
+	item_type = /obj/item/sign/flag/hc
 	cost = PAYCHECK_CREW * 0.5
 
 /datum/armament_entry/company_import/nri_surplus/firearm
@@ -135,6 +138,11 @@
 	cost = PAYCHECK_COMMAND * 10
 	restricted = TRUE
 
+/datum/armament_entry/company_import/nri_surplus/firearm/zaibas
+	item_type = /obj/item/gun/ballistic/automatic/pulse_rifle
+	cost = PAYCHECK_COMMAND * 12
+	restricted = TRUE
+
 /datum/armament_entry/company_import/nri_surplus/firearm/napad
 	item_type = /obj/item/gun/ballistic/automatic/napad
 	cost = PAYCHECK_COMMAND * 12
@@ -147,6 +155,11 @@
 
 /datum/armament_entry/company_import/nri_surplus/firearm/lanca
 	item_type = /obj/item/gun/ballistic/automatic/lanca
+	cost = PAYCHECK_COMMAND * 14
+	restricted = TRUE
+
+/datum/armament_entry/company_import/nri_surplus/firearm/zaibas_a
+	item_type = /obj/item/gun/ballistic/rifle/pulse_sniper
 	cost = PAYCHECK_COMMAND * 14
 	restricted = TRUE
 
@@ -168,11 +181,15 @@
 /datum/armament_entry/company_import/nri_surplus/firearm_ammo/miecz
 	item_type = /obj/item/ammo_box/magazine/miecz/spawns_empty
 
+/datum/armament_entry/company_import/nri_surplus/firearm_ammo/zaibas
+	item_type = /obj/item/ammo_box/magazine/pulse/spawns_empty
+	cost = PAYCHECK_CREW * 2
+
 /datum/armament_entry/company_import/nri_surplus/firearm_ammo/napad
 	item_type = /obj/item/ammo_box/magazine/napad/spawns_empty
 
 /datum/armament_entry/company_import/nri_surplus/firearm_ammo/sakhno
-	item_type = /obj/item/ammo_box/strilka310
+	item_type = /obj/item/ammo_box/speedloader/strilka310
 
 /datum/armament_entry/company_import/nri_surplus/firearm_ammo/lanca
 	item_type = /obj/item/ammo_box/magazine/lanca/spawns_empty

@@ -57,13 +57,13 @@
 			tertiary_color = "#F5E2EE"
 
 	var/list/features = list()
-	features["mcolor"] = main_color
-	features["mcolor2"] = secondary_color
-	features["mcolor3"] = tertiary_color
+	features[FEATURE_MUTANT_COLOR] = main_color
+	features[FEATURE_MUTANT_COLOR_TWO] = secondary_color
+	features[FEATURE_MUTANT_COLOR_THREE] = tertiary_color
 	//clear mutant parts
 	for(var/feature in user.dna.mutant_bodyparts)
-		if(feature == "tail")
-			user.dna.mutant_bodyparts[feature] = list(MUTANT_INDEX_NAME = "Akula", MUTANT_INDEX_COLOR_LIST = list(features["mcolor"], features["mcolor2"], features["mcolor3"]))
+		if(feature == FEATURE_TAIL)
+			user.dna.mutant_bodyparts[feature] = list(MUTANT_INDEX_NAME = "Akula", MUTANT_INDEX_COLOR_LIST = list(features[FEATURE_MUTANT_COLOR], features[FEATURE_MUTANT_COLOR_TWO], features[FEATURE_MUTANT_COLOR_THREE]))
 			continue
 		user.dna.mutant_bodyparts[feature] = null
 	//generate the species
@@ -71,7 +71,7 @@
 	user.set_hairstyle("Bald", update = FALSE)
 	user.hardset_dna(newfeatures = features)
 	user.dna.species.body_markings = assemble_body_markings_from_set(GLOB.body_marking_sets["Akula"], features, /datum/species/akula)
-	user.dna.features["legs"] = "Normal Legs"
+	user.dna.features[FEATURE_LEGS] = "Normal Legs"
 	user.dna.species.regenerate_organs(user, /datum/species/akula, visual_only = FALSE)
 	user.update_body(TRUE)
 
@@ -90,7 +90,7 @@
 	internals_slot = ITEM_SLOT_RPOCKET
 	shoes = /obj/item/clothing/shoes/combat/coldres
 	gloves = /obj/item/clothing/gloves/tackler/combat
-	back = /obj/item/tank/jetpack/oxygen/harness
+	back = /obj/item/tank/jetpack/harness
 	id = /obj/item/card/id/advanced/chameleon
 
 /datum/outfit/deathmatch_loadout/syndicate_space/pre_equip(mob/living/carbon/human/user, visualsOnly = FALSE)

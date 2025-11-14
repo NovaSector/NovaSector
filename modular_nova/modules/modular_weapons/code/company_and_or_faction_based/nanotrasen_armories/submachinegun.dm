@@ -12,8 +12,8 @@ This is a Blueshield weapon. It's for the Blueshield. If this ends up in Cargo I
 	inhand_icon_state = "c20r"
 	selector_switch_icon = TRUE
 	accepted_magazine_type = /obj/item/ammo_box/magazine/smgm45
-	fire_delay = 1.6
-	burst_size = 3
+	fire_delay = 1.5
+	burst_size = 2 // 30 damage a burst at 1.5s delay is about 3.5s
 	pin = /obj/item/firing_pin
 	mag_display = TRUE
 	mag_display_ammo = TRUE
@@ -43,11 +43,18 @@ This is a Blueshield weapon. It's for the Blueshield. If this ends up in Cargo I
 	if(!chambered && empty_indicator) //this is duplicated due to a layering issue with the select fire icon.
 		. += "[icon_state]_empty"
 
+/obj/item/gun/ballistic/automatic/nt20/Initialize(mapload)
+	. = ..()
+	update_appearance()
+
 /obj/item/storage/toolbox/guncase/nova/ntspecial/nt20
 	name = "\improper Nanotrasen Armories \"NT20\" gunset"
 	weapon_to_spawn = /obj/item/gun/ballistic/automatic/nt20
 	extra_to_spawn = /obj/item/ammo_box/magazine/smgm45
 
-/obj/item/gun/ballistic/automatic/nt20/Initialize(mapload)
+/obj/item/storage/toolbox/guncase/nova/ntspecial/nt20/PopulateContents()
 	. = ..()
-	update_appearance()
+	new /obj/item/crafting_conversion_kit/reclaimer_reverse(src)
+
+/obj/item/gun/ballistic/automatic/nt20/empty
+	spawnwithmagazine = FALSE

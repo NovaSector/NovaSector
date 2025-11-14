@@ -29,3 +29,11 @@
 /datum/design/rped/New()
 	. = ..()
 	build_type |= COLONY_FABRICATOR
+
+/datum/design/basic_battery/New()
+	. = ..()
+	build_type |= COLONY_FABRICATOR
+
+/datum/design/super_battery/New()
+	. = ..()
+	build_type |= COLONY_FABRICATOR

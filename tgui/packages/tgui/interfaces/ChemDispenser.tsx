@@ -7,12 +7,12 @@ import {
   ProgressBar,
   Section,
 } from 'tgui-core/components';
-import { BooleanLike } from 'tgui-core/react';
+import type { BooleanLike } from 'tgui-core/react';
 import { toTitleCase } from 'tgui-core/string';
 
 import { useBackend } from '../backend';
 import { Window } from '../layouts';
-import { Beaker, BeakerDisplay } from './common/BeakerDisplay';
+import { type Beaker, BeakerDisplay } from './common/BeakerDisplay';
 
 type DispensableReagent = {
   title: string;
@@ -38,12 +38,13 @@ type Data = {
   recordingRecipe: string[];
   recipeReagents: string[];
   beaker: TransferableBeaker;
+  hasBeakerInHand: BooleanLike;
 };
 
 export const ChemDispenser = (props) => {
   const { act, data } = useBackend<Data>();
   const recording = !!data.recordingRecipe;
-  const { recipeReagents = [], recipes = [], beaker } = data;
+  const { recipeReagents = [], recipes = [], beaker, hasBeakerInHand } = data;
   const [showPhCol, setShowPhCol] = useState(false);
 
   const beakerTransferAmounts = beaker ? beaker.transferAmounts : [];
@@ -195,7 +196,7 @@ export const ChemDispenser = (props) => {
                 textColor={showPhCol ? chemical.pHCol : chemical.color}
                 width="129.5px"
                 lineHeight={1.75}
-                tooltip={'pH: ' + chemical.pH}
+                tooltip={`pH: ${chemical.pH}`}
                 style={{
                   textShadow: '1px 1px 0 black',
                 }}
@@ -233,12 +234,38 @@ export const ChemDispenser = (props) => {
             </Button>
           ))}
         >
-          <BeakerDisplay
-            beaker={beaker}
-            title_label={recording && 'Virtual beaker'}
-            replace_contents={recordedContents}
-            showpH={data.showpH}
-          />
+          {beaker || recording ? (
+            <BeakerDisplay
+              beaker={beaker}
+              title_label={recording && 'Virtual beaker'}
+              replace_contents={recordedContents}
+              showpH={data.showpH}
+            />
+          ) : (
+            <Box
+              style={{
+                display: 'flex',
+                justifyContent: 'space-between',
+                alignItems: 'center',
+              }}
+            >
+              <Box color="label">No beaker loaded.</Box>
+              <Button
+                icon="eject"
+                onClick={() => act('insert')}
+                style={{
+                  opacity: data.hasBeakerInHand ? 1 : 0.5,
+                }}
+                tooltip={
+                  !data.hasBeakerInHand &&
+                  'You need to hold a container in your hand'
+                }
+                tooltipPosition="left-start"
+              >
+                Insert
+              </Button>
+            </Box>
+          )}
         </Section>
       </Window.Content>
     </Window>

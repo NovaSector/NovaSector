@@ -1,12 +1,10 @@
 
 /obj/machinery/computer
-	var/clicksound = SFX_KEYBOARD
-	var/clickvol = 40
+	/// The time the next keyboard clicksound is allowed to be played at
 	var/next_clicksound
 
 /obj/machinery/computer/interact(mob/user, special_state)
 	. = ..()
-	if(clicksound && world.time > next_clicksound && isliving(user))
+	if(world.time > next_clicksound && isliving(user))
 		next_clicksound = world.time + 5
-		playsound(src, get_sfx_nova(clicksound), clickvol)
-
+		playsound(src, SFX_KEYBOARD, 40)

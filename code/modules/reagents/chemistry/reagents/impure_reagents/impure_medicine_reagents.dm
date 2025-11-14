@@ -588,20 +588,20 @@ Basically, we fill the time between now and 2s from now with hands based off the
 	if(!affected_carbon.dna)
 		return
 	var/list/speech_options = list(
-		/datum/mutation/human/swedish,
-		/datum/mutation/human/unintelligible,
-		/datum/mutation/human/stoner,
-		/datum/mutation/human/medieval,
-		/datum/mutation/human/wacky,
-		/datum/mutation/human/piglatin,
-		/datum/mutation/human/nervousness,
-		/datum/mutation/human/mute,
+		/datum/mutation/swedish,
+		/datum/mutation/unintelligible,
+		/datum/mutation/stoner,
+		/datum/mutation/medieval,
+		/datum/mutation/wacky,
+		/datum/mutation/piglatin,
+		/datum/mutation/nervousness,
+		/datum/mutation/mute,
 		)
 	speech_options = shuffle(speech_options)
 	for(var/option in speech_options)
-		if(affected_carbon.dna.get_mutation(option))
+		if(affected_carbon.dna.get_mutation(option, MUTATION_SOURCE_MANNITOIL))
 			continue
-		affected_carbon.dna.add_mutation(option)
+		affected_carbon.dna.add_mutation(option, MUTATION_SOURCE_MANNITOIL)
 		speech_option = option
 		return
 
@@ -610,7 +610,7 @@ Basically, we fill the time between now and 2s from now with hands based off the
 	if(!iscarbon(affected_mob))
 		return
 	var/mob/living/carbon/carbon = affected_mob
-	carbon.dna?.remove_mutation(speech_option)
+	carbon.dna?.remove_mutation(speech_option, MUTATION_SOURCE_MANNITOIL)
 
 /datum/reagent/inverse/neurine
 	name = "Neruwhine"
@@ -662,16 +662,16 @@ Basically, we fill the time between now and 2s from now with hands based off the
 		)
 
 		traumalist -= abstracttraumas
-		for (var/type as anything in forbiddentraumas)
+		for (var/type in forbiddentraumas)
 			traumalist -= typesof(type)
-		for (var/type as anything in forbiddensubtypes)
+		for (var/type in forbiddensubtypes)
 			traumalist -= subtypesof(type)
 
 	traumalist = shuffle(traumalist)
 	var/obj/item/organ/brain/brain = affected_mob.get_organ_slot(ORGAN_SLOT_BRAIN)
 	for(var/trauma in traumalist)
-		if(brain.brain_gain_trauma(trauma, TRAUMA_RESILIENCE_MAGIC))
-			temp_trauma = trauma
+		temp_trauma = brain.brain_gain_trauma(trauma, TRAUMA_RESILIENCE_MAGIC)
+		if(temp_trauma)
 			return
 
 /datum/reagent/inverse/neurine/on_mob_delete(mob/living/carbon/affected_mob)
@@ -680,7 +680,8 @@ Basically, we fill the time between now and 2s from now with hands based off the
 		return
 	if(istype(temp_trauma, /datum/brain_trauma/special/imaginary_friend))//Good friends stay by you, no matter what
 		return
-	affected_mob.cure_trauma_type(temp_trauma, resilience = TRAUMA_RESILIENCE_MAGIC)
+	qdel(temp_trauma)
+	temp_trauma = null
 
 /datum/reagent/inverse/corazargh
 	name = "Corazargh" //It's what you yell! Though, if you've a better name feel free. Also an homage to an older chem
@@ -955,7 +956,7 @@ Basically, we fill the time between now and 2s from now with hands based off the
 		return
 
 	for(var/datum/surgery/surgery as anything in exposed_carbon.surgeries)
-		surgery.speed_modifier = max(0.3, surgery.speed_modifier)
+		surgery.speed_modifier = min(0.7, surgery.speed_modifier)
 
 /datum/reagent/inverse/krokodil/on_mob_life(mob/living/carbon/affected_mob, seconds_per_tick, times_fired)
 	. = ..()
@@ -1255,7 +1256,7 @@ Basically, we fill the time between now and 2s from now with hands based off the
 	var/picked_color = pick(random_color_list)
 	var/color_filter = color_transition_filter(picked_color, SATURATION_OVERRIDE)
 	if (can_color_clothing && (methods & (TOUCH|VAPOR|INHALE)))
-		var/include_flags = INCLUDE_HELD|INCLUDE_ACCESSORIES
+		var/include_flags = INCLUDE_HELD|INCLUDE_ACCESSORIES|INCLUDE_PROSTHETICS|INCLUDE_ABSTRACT
 		if (methods & (VAPOR|INHALE) || touch_protection >= 1)
 			include_flags |= INCLUDE_POCKETS
 		for (var/obj/item/to_color in exposed_mob.get_equipped_items(include_flags))

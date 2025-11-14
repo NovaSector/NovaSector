@@ -1,0 +1,118 @@
+{
+	"jacket": [
+		{
+			"type": "icon_state",
+			"icon_state": "coat_base",
+			"blend_mode": "overlay",
+			"color_ids": [1]
+		},
+		{
+			"type": "icon_state",
+			"icon_state": "coat_fluff",
+			"blend_mode": "overlay",
+			"color_ids": [2]
+		},
+		{
+			"type": "icon_state",
+			"icon_state": "coat_stripe_default",
+			"blend_mode": "overlay",
+			"color_ids": [3]
+		},
+		{
+			"type": "icon_state",
+			"icon_state": "coat_string",
+			"blend_mode": "overlay",
+			"color_ids": [4]
+		}
+	],
+	"jacket_t": [
+		{
+			"type": "icon_state",
+			"icon_state": "coat_base",
+			"blend_mode": "overlay",
+			"color_ids": [1]
+		},
+		{
+			"type": "icon_state",
+			"icon_state": "coat_fluff",
+			"blend_mode": "overlay",
+			"color_ids": [2]
+		},
+		{
+			"type": "icon_state",
+			"icon_state": "coat_stripe_default",
+			"blend_mode": "overlay",
+			"color_ids": [3]
+		},
+		{
+			"type": "icon_state",
+			"icon_state": "coat_string",
+			"blend_mode": "overlay",
+			"color_ids": [4]
+		}
+	],
+	"jacket_armband": [
+		{
+			"type": "icon_state",
+			"icon_state": "coat_base",
+			"blend_mode": "overlay",
+			"color_ids": [1]
+		},
+		{
+			"type": "icon_state",
+			"icon_state": "coat_fluff",
+			"blend_mode": "overlay",
+			"color_ids": [2]
+		},
+		{
+			"type": "icon_state",
+			"icon_state": "coat_stripe_default",
+			"blend_mode": "overlay",
+			"color_ids": [3]
+		},
+		{
+			"type": "icon_state",
+			"icon_state": "coat_string",
+			"blend_mode": "overlay",
+			"color_ids": [4]
+		},
+		{
+			"type": "icon_state",
+			"icon_state": "coat_stripe_accent",
+			"blend_mode": "overlay",
+			"color_ids": [3]
+		}
+	],
+	"jacket_armband_t": [
+		{
+			"type": "icon_state",
+			"icon_state": "coat_base",
+			"blend_mode": "overlay",
+			"color_ids": [1]
+		},
+		{
+			"type": "icon_state",
+			"icon_state": "coat_fluff",
+			"blend_mode": "overlay",
+			"color_ids": [2]
+		},
+		{
+			"type": "icon_state",
+			"icon_state": "coat_stripe_default",
+			"blend_mode": "overlay",
+			"color_ids": [3]
+		},
+		{
+			"type": "icon_state",
+			"icon_state": "coat_string",
+			"blend_mode": "overlay",
+			"color_ids": [4]
+		},
+		{
+			"type": "icon_state",
+			"icon_state": "coat_stripe_accent",
+			"blend_mode": "overlay",
+			"color_ids": [3]
+		}
+	]
+}

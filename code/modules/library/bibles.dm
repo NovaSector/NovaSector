@@ -168,10 +168,10 @@ GLOBAL_LIST_INIT(bibleitemstates, list(
 
 	switch(icon_state)
 		if("honk1")
-			user.dna.add_mutation(/datum/mutation/human/clumsy)
+			user.dna.add_mutation(/datum/mutation/clumsy, MUTATION_SOURCE_CLOWN_CLUMSINESS)
 			user.equip_to_slot_or_del(new /obj/item/clothing/mask/gas/clown_hat(user), ITEM_SLOT_MASK)
 		if("honk2")
-			user.dna.add_mutation(/datum/mutation/human/clumsy)
+			user.dna.add_mutation(/datum/mutation/clumsy, MUTATION_SOURCE_CLOWN_CLUMSINESS)
 			user.equip_to_slot_or_del(new /obj/item/clothing/mask/gas/clown_hat(user), ITEM_SLOT_MASK)
 		if("insuls")
 			var/obj/item/clothing/gloves/color/fyellow/insuls = new
@@ -235,7 +235,7 @@ GLOBAL_LIST_INIT(bibleitemstates, list(
 	built_in_his_image.add_mood_event("blessing", /datum/mood_event/blessing)
 	return BLESSING_SUCCESS
 
-/obj/item/book/bible/attack(mob/living/target_mob, mob/living/carbon/human/user, params, heal_mode = TRUE)
+/obj/item/book/bible/attack(mob/living/target_mob, mob/living/carbon/human/user, list/modifiers, list/attack_modifiers, heal_mode = TRUE)
 	if(!ISADVANCEDTOOLUSER(user))
 		balloon_alert(user, "not dextrous enough!")
 		return
@@ -393,7 +393,7 @@ GLOBAL_LIST_INIT(bibleitemstates, list(
 	if(uses)
 		return "Read"
 
-/obj/item/book/bible/syndicate/attack(mob/living/target_mob, mob/living/carbon/human/user, params, heal_mode = TRUE)
+/obj/item/book/bible/syndicate/attack(mob/living/target_mob, mob/living/carbon/human/user,  list/modifiers, list/attack_modifiers, heal_mode = TRUE)
 	if(!user.combat_mode)
 		return ..()
-	return ..(target_mob, user, heal_mode = FALSE)
+	return ..(target_mob, user, modifiers, attack_modifiers, heal_mode = FALSE)

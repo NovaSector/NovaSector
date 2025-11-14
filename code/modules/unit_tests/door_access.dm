@@ -76,7 +76,7 @@
 	var/mob/living/carbon/human/consistent/subject = allocate(__IMPLIED_TYPE__, run_loc_floor_top_right)
 	var/obj/machinery/door/airlock/instant/door = allocate(__IMPLIED_TYPE__, run_loc_floor_bottom_left)
 	door.interaction_flags_machine |= INTERACT_MACHINE_OFFLINE
-	subject.dna.add_mutation(/datum/mutation/human/telekinesis, list(INNATE_TRAIT)) // NOVA EDIT CHANGE - Change path until mutation rework comes through, ORIGINAL: /datum/mutation/telekinesis
+	subject.dna.add_mutation(/datum/mutation/telekinesis, list(INNATE_TRAIT))
 	subject.equipOutfit(/datum/outfit/job/assistant/consistent)
 
 	var/obj/item/card/id/advanced/keycard = subject.wear_id

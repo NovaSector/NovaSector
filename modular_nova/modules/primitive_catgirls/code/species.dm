@@ -21,7 +21,7 @@
 	mutanttongue = /obj/item/organ/tongue/cat/primitive
 
 	species_language_holder = /datum/language_holder/primitive_felinid
-	language_prefs_whitelist = list(/datum/language/primitive_catgirl)
+	language_prefs_whitelist = list(/datum/language/primitive_catgirl = TRUE)
 
 	bodytemp_normal = 270 // If a normal human gets hugged by one it's gonna feel cold
 	bodytemp_heat_damage_limit = 283 // To them normal station atmos would be sweltering
@@ -41,12 +41,8 @@
 	var/mob/living/carbon/human/hearthkin = new_primitive
 	if(!istype(hearthkin))
 		return
-	hearthkin.dna.add_mutation(/datum/mutation/human/olfaction, MUT_NORMAL)
-	hearthkin.dna.activate_mutation(/datum/mutation/human/olfaction)
-
-	// >mfw I take mutadone and my nose clogs
-	var/datum/mutation/human/olfaction/mutation = locate() in hearthkin.dna.mutations
-	mutation.mutadone_proof = TRUE
+	hearthkin.dna.add_mutation(/datum/mutation/olfaction, MUTATION_SOURCE_SPECIES_INNATE)
+	var/datum/mutation/olfaction/mutation = locate() in hearthkin.dna.mutations
 	mutation.instability = 0
 
 /datum/species/human/felinid/primitive/on_species_loss(mob/living/carbon/former_primitive, datum/species/new_species, pref_load)
@@ -54,7 +50,7 @@
 	var/mob/living/carbon/human/hearthkin = former_primitive
 	if(!istype(hearthkin))
 		return
-	hearthkin.dna.remove_mutation(/datum/mutation/human/olfaction)
+	hearthkin.dna.remove_mutation(/datum/mutation/olfaction, MUTATION_SOURCE_SPECIES_INNATE)
 
 /datum/species/human/felinid/primitive/prepare_human_for_preview(mob/living/carbon/human/human_for_preview)
 	human_for_preview.hairstyle = "Blunt Bangs Alt"
@@ -63,8 +59,8 @@
 
 	human_for_preview.update_body_parts()
 
-	human_for_preview.dna.species.mutant_bodyparts["tail"] = list(MUTANT_INDEX_NAME = "Cat", MUTANT_INDEX_COLOR_LIST = list(human_for_preview.hair_color))
-	human_for_preview.dna.species.mutant_bodyparts["ears"] = list(MUTANT_INDEX_NAME = "Cat", MUTANT_INDEX_COLOR_LIST = list(human_for_preview.hair_color))
+	human_for_preview.dna.species.mutant_bodyparts[FEATURE_TAIL] = list(MUTANT_INDEX_NAME = "Cat", MUTANT_INDEX_COLOR_LIST = list(human_for_preview.hair_color))
+	human_for_preview.dna.species.mutant_bodyparts[FEATURE_EARS ] = list(MUTANT_INDEX_NAME = "Cat", MUTANT_INDEX_COLOR_LIST = list(human_for_preview.hair_color))
 
 	human_for_preview.update_body_parts()
 	human_for_preview.update_body(is_creating = TRUE)

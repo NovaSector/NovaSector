@@ -32,7 +32,7 @@
 	return values
 
 /datum/preference/choiced/species/apply_to_human(mob/living/carbon/human/target, value, datum/preferences/prefs)
-	target.set_species(value, FALSE, TRUE, prefs?.features.Copy(), prefs?.mutant_bodyparts.Copy(), prefs?.body_markings.Copy()) // NOVA EDIT CHANGE - Customization - ORIGINAL: target.set_species(value, icon_update = FALSE, pref_load = TRUE)
+	target.set_species(value, FALSE, TRUE, TRUE, prefs?.features.Copy(), prefs?.mutant_bodyparts.Copy(), prefs?.body_markings.Copy()) // NOVA EDIT CHANGE - Customization - ORIGINAL: target.set_species(value, icon_update = FALSE, pref_load = TRUE)
 
 	//NOVA EDIT ADDITION
 	target.dna.update_body_size()
@@ -47,7 +47,7 @@
 /datum/preference/choiced/species/compile_constant_data()
 	var/list/data = list()
 
-	for (var/species_id in (get_selectable_species() + get_customizable_races())) //NOVA EDIT CHANGE
+	for (var/species_id in (get_selectable_species() + get_customizable_races())) // NOVA EDIT CHANGE - ORIGINAL: for (var/species_id in get_selectable_species())
 		var/species_type = GLOB.species_list[species_id]
 		var/datum/species/species = GLOB.species_prototypes[species_type]
 

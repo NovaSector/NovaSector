@@ -107,7 +107,7 @@
 	)
 
 /datum/species/jelly/prepare_human_for_preview(mob/living/carbon/human/human)
-	human.dna.features["mcolor"] = COLOR_PINK
+	human.dna.features[FEATURE_MUTANT_COLOR] = COLOR_PINK
 	human.hairstyle = "Bob Hair 2"
 	human.hair_color = COLOR_PINK
 	human.update_body(is_creating = TRUE)
@@ -303,13 +303,12 @@
 	var/mob/living/carbon/human/spare = new /mob/living/carbon/human(H.loc)
 
 	spare.underwear = "Nude"
-	H.dna.transfer_identity(spare, transfer_SE=1)
-	spare.dna.features["mcolor"] = "#[pick("7F", "FF")][pick("7F", "FF")][pick("7F", "FF")]"
-	spare.dna.update_uf_block(DNA_MUTANT_COLOR_BLOCK)
+	H.dna.copy_dna(spare.dna, COPY_DNA_SE|COPY_DNA_SPECIES|COPY_DNA_MUTATIONS)
+	spare.dna.features[FEATURE_MUTANT_COLOR] = "#[pick("7F", "FF")][pick("7F", "FF")][pick("7F", "FF")]"
+	spare.dna.update_uf_block(/datum/dna_block/feature/mutant_color)
 	spare.real_name = spare.dna.real_name
 	spare.name = spare.dna.real_name
 	spare.updateappearance(mutcolor_update=1)
-	spare.domutcheck()
 	spare.Move(get_step(H.loc, pick(NORTH,SOUTH,EAST,WEST)))
 
 	H.blood_volume *= 0.45
@@ -372,7 +371,7 @@
 			continue
 
 		var/list/L = list()
-		L["htmlcolor"] = body.dna.features["mcolor"]
+		L["htmlcolor"] = body.dna.features[FEATURE_MUTANT_COLOR]
 		L["area"] = get_area_name(body, TRUE)
 		var/stat = "error"
 		switch(body.stat)
@@ -542,7 +541,7 @@
 /datum/species/jelly/luminescent/proc/update_glow(mob/living/carbon/human/glowie, intensity)
 	if(intensity)
 		glow_intensity = intensity
-	glow.set_light_range_power_color(glow_intensity, glow_intensity, glowie.dna.features["mcolor"])
+	glow.set_light_range_power_color(glow_intensity, glow_intensity, glowie.dna.features[FEATURE_MUTANT_COLOR])
 
 /datum/action/innate/integrate_extract
 	name = "Integrate Extract"
@@ -730,6 +729,11 @@
 	if(recipient.can_block_magic(MAGIC_RESISTANCE_MIND, charge_cost = 0))
 		to_chat(telepath, span_warning("As you reach into [recipient]'s mind, you are stopped by a mental blockage. It seems you've been foiled."))
 		return
+	//NOVA EDIT ADDITION START -  Telepathy Block Quirk
+	if(HAS_TRAIT(recipient, TRAIT_PSIONIC_DAMPENER))
+		to_chat(telepath, span_warning("As you reach into [recipient]'s mind, you are stopped by a mental blockage."))
+		return
+	//NOVA EDIT ADDITION END
 	log_directed_talk(telepath, recipient, msg, LOG_SAY, "slime telepathy")
 	to_chat(recipient, "[span_notice("You hear an alien voice in your head... ")]<font color=#008CA2>[msg]</font>")
 	to_chat(telepath, span_notice("You telepathically said: \"[msg]\" to [recipient]"))

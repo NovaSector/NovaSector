@@ -449,7 +449,7 @@
 /area/ruin/space/has_grav/waypoint)
 "wu" = (
 /obj/machinery/power/shuttle_engine/heater,
-/turf/closed/wall/r_wall/syndicate,
+/turf/closed/wall/r_wall/plastitanium/syndicate,
 /area/ruin/space/has_grav/waypoint)
 "wB" = (
 /turf/closed/wall,
@@ -1093,7 +1093,7 @@
 /turf/template_noop,
 /area/ruin/space)
 "YT" = (
-/turf/closed/wall/r_wall/syndicate,
+/turf/closed/wall/r_wall/plastitanium/syndicate,
 /area/ruin/space/has_grav/waypoint)
 "Zm" = (
 /obj/effect/decal/cleanable/blood/gibs/down,

@@ -29,13 +29,13 @@
 	lose_text = span_notice("You suddenly remember how languages work.")
 
 /datum/brain_trauma/severe/aphasia/on_gain()
-	owner.add_blocked_language(subtypesof(/datum/language) - /datum/language/aphasia, LANGUAGE_APHASIA)
+	owner.add_blocked_language(subtypesof(/datum/language) - /datum/language/aphasia, source = LANGUAGE_APHASIA)
 	owner.grant_language(/datum/language/aphasia, source = LANGUAGE_APHASIA)
 	. = ..()
 
 /datum/brain_trauma/severe/aphasia/on_lose()
 	if(!QDELING(owner))
-		owner.remove_blocked_language(subtypesof(/datum/language), LANGUAGE_APHASIA)
+		owner.remove_blocked_language(subtypesof(/datum/language), source = LANGUAGE_APHASIA)
 		owner.remove_language(/datum/language/aphasia, source = LANGUAGE_APHASIA)
 
 	..()
@@ -356,7 +356,7 @@
 		stealables += potential_stealable
 
 	for(var/obj/item/stealable as anything in shuffle(stealables))
-		if(!owner.CanReach(stealable, view_only = TRUE) || stealable.IsObscured())
+		if(!stealable.IsReachableBy(owner) || stealable.IsObscured())
 			continue
 		// Try to do a raw click on the item with one of our empty hands, to pick it up (duh)
 		owner.log_message("attempted to pick up (kleptomania)", LOG_ATTACK, color = "orange")

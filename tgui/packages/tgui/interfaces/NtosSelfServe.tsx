@@ -1,3 +1,4 @@
+// THIS IS A NOVA SECTOR UI FILE
 import { Button, NoticeBox, Section, Stack } from 'tgui-core/components';
 
 import { useBackend } from '../backend';
@@ -45,7 +46,7 @@ const SelfServePage = (props) => {
 
   return (
     <Section
-      title={authIDName ? 'Welcome, ' + authIDName : 'Please Insert Your ID'}
+      title={authIDName ? `Welcome, ${authIDName}` : 'Please Insert Your ID'}
     >
       {authIDName && (
         <Stack wrap="wrap">
