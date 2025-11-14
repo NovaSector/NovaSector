@@ -53,13 +53,10 @@
 		for(var/obj/structure/closet/crate/crate in contents)
 			. += "	[icon2html(crate, user)] [crate]"
 
-/obj/structure/cargo_shelf/attackby(obj/item/item, mob/living/user, params)
-	if (item.tool_behaviour == TOOL_WRENCH && !(flags_1 & NO_DEBRIS_AFTER_DECONSTRUCTION))
-		item.play_tool_sound(src)
-		if(do_after(user, 3 SECONDS, target = src))
-			deconstruct(TRUE)
-			return TRUE
-	return ..()
+/obj/structure/cargo_shelf/wrench_act_secondary(mob/living/user, obj/item/tool)
+	tool.play_tool_sound(src)
+	deconstruct(TRUE)
+	return ITEM_INTERACT_SUCCESS
 
 /obj/structure/cargo_shelf/relay_container_resist_act(mob/living/user, obj/structure/closet/crate)
 	to_chat(user, span_notice("You begin attempting to knock [crate] out of [src]"))
