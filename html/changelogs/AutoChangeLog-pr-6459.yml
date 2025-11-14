@@ -1,6 +1,0 @@
-author: "Zergspower"
-delete-after: True
-changes:
-  - rscadd: "Ghost shield to the BMT Role, the stasis shield will keep you nice and cozy inside until you wake up without worrying about your ship being stolen!"
-  - bugfix: "Xenomorphs are once against spaceproof, woe be upon ye tiders"
-  - bugfix: "milsim has their turrets returned"

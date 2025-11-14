@@ -1,4 +1,0 @@
-author: "Yobrocharlie"
-delete-after: True
-changes:
-  - bugfix: "fixed the p90 bringing the server to its knees, removing it."
