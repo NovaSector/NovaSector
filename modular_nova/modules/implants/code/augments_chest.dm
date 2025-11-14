@@ -42,37 +42,3 @@
 	else
 		healthscan(owner, owner, SCANNER_CONDENSED, TRUE)
 
-
-/obj/item/organ/cyberimp/chest/opticalcamo
-	name = "optical camo implant"
-	desc = "An implant that bends light around the host's body, rendering them nearly invisible when activated."
-	icon = 'modular_nova/modules/implants/icons/chest_modular.dmi'
-	icon_state = "opticalcamo"
-	slot = ORGAN_SLOT_SPINE
-	w_class = WEIGHT_CLASS_NORMAL
-
-/obj/item/organ/cyberimp/chest/opticalcamo/emp_act(severity)
-	. = ..()
-	if(!owner || . & EMP_PROTECT_SELF)
-		return
-	owner.adjust_confusion(rand(8 SECONDS, 11 SECONDS))
-	to_chat(owner, span_warning("Your optical camo malfunctions, leaving the room spinning!"))
-
-/obj/item/organ/cyberimp/chest/opticalcamo/on_mob_insert(mob/living/carbon/organ_owner, special = FALSE, movement_flags)
-	. = ..()
-	if(isnull(organ_owner.has_dna()))
-		return
-	if(organ_owner.dna.get_mutation(/datum/mutation/chameleon/implant)) // admin-granted maybe?
-		organ_owner.dna.remove_mutation(/datum/mutation/chameleon/implant)
-	organ_owner.dna.add_mutation(/datum/mutation/chameleon/implant, MUTATION_SOURCE_IMPLANT)
-
-/obj/item/organ/cyberimp/chest/opticalcamo/on_mob_remove(mob/living/carbon/organ_owner, special = FALSE, movement_flags)
-	. = ..()
-	if(organ_owner.has_dna())
-		organ_owner.dna.remove_mutation(/datum/mutation/chameleon/implant, MUTATION_SOURCE_IMPLANT)
-
-// nerfed version for the implant, sneaky breaki like
-/datum/mutation/chameleon/implant
-	instability = 0
-	power_coeff = 0.3 //really goddamn slow
-	locked = TRUE
