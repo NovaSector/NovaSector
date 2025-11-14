@@ -7476,6 +7476,7 @@
 #include "modular_nova\modules\aesthetics\kitchen\kitchen.dm"
 #include "modular_nova\modules\aesthetics\lights\code\lighting.dm"
 #include "modular_nova\modules\aesthetics\lightswitch\code\lightswitch.dm"
+#include "modular_nova\modules\aesthetics\machines\code\machines.dm"
 #include "modular_nova\modules\aesthetics\morgue\code\morgue.dm"
 #include "modular_nova\modules\aesthetics\plants\plants.dm"
 #include "modular_nova\modules\aesthetics\plasticflaps\code\plasticflaps.dm"
