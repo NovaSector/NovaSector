@@ -1,0 +1,4 @@
+author: "RatFromTheJungle"
+delete-after: True
+changes:
+  - bugfix: "the miniskirt no longer has two wild-and-free pixels floating off to the side"
