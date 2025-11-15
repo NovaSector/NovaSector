@@ -19,6 +19,13 @@
 	worn_icon_state = "emt"
 	armor_type = /datum/armor/clothing_under/rank_medical
 
+// SolFed 911 EMT Uniform
+/obj/item/clothing/under/solfed/sol_emt/emergencymed
+	name = "\improper SolFed emergency paramedic uniform"
+	desc = "An official Sol Federation emergency response uniform, denoting members of their paramedical Trauma Teams and protecting them from viral or chemical hazards."
+	icon_state = "medrescue"
+	worn_icon_state = "medrescue"
+
 // Peacekeeper Jumpsuit
 /obj/item/clothing/under/solfed/sol_peacekeeper
 	name = "sol peacekeeper uniform"
@@ -34,12 +41,6 @@
 	desc = "An official Sol Federation emergency response uniform, denoting members of their Station Breach Control teams and protecting them from atmospheric or fire hazards."
 	icon_state = "atmosrescue"
 	armor_type = /datum/armor/clothing_under/atmos_adv
-
-// SolFed 911 EMT Uniform
-/obj/item/clothing/under/solfed/emergencymed
-	name = "\improper SolFed emergency paramedic uniform"
-	desc = "An official Sol Federation emergency response uniform, denoting members of their paramedical Trauma Teams and protecting them from viral or chemical hazards."
-	icon_state = "medrescue"
 
 // Federation Officer (Official)
 /obj/item/clothing/under/solfed/officer
