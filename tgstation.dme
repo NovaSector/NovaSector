@@ -7078,6 +7078,7 @@
 #include "modular_nova\master_files\code\modules\bitrunning\orders\tech.dm"
 #include "modular_nova\master_files\code\modules\buildmode\bm_mode.dm"
 #include "modular_nova\master_files\code\modules\buildmode\submodes\offercontrol.dm"
+#include "modular_nova\master_files\code\modules\cargo\coupon.dm"
 #include "modular_nova\master_files\code\modules\cargo\goodies.dm"
 #include "modular_nova\master_files\code\modules\cargo\bounties\destwo.dm"
 #include "modular_nova\master_files\code\modules\cargo\bounties\destwo_engie.dm"
