@@ -62,8 +62,7 @@
 /datum/reagent/drug/demoneye/on_mob_end_metabolize(mob/living/carbon/human/our_guy)
 	. = ..()
 
-	our_guy.eye_color_left = user_left_eye_color
-	our_guy.eye_color_right = user_right_eye_color
+	our_guy.set_eye_color(user_left_eye_color,user_right_eye_color)
 	our_guy.update_body()
 
 	our_guy.sound_environment_override = NONE

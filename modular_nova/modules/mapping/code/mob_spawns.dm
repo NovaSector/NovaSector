@@ -102,6 +102,7 @@
 	computer_area = /area/ruin/space/has_grav/nova/des_two/security/prison
 	outfit = /datum/outfit/ds2/prisoner
 	spawner_job_path = /datum/job/ds2/prisoner
+	allow_mechanical_loadout_items = FALSE
 
 /obj/effect/mob_spawn/ghost_role/human/ds2/syndicate
 	name = "Syndicate Operative"
@@ -115,6 +116,7 @@
 	computer_area = /area/ruin/space/has_grav/nova/des_two/halls
 	spawner_job_path = /datum/job/ds2
 	loadout_enabled = TRUE
+	allow_mechanical_loadout_items = TRUE
 
 /obj/effect/mob_spawn/ghost_role/human/ds2/syndicate_command
 	name = "Syndicate Command Operative"
@@ -128,6 +130,7 @@
 	computer_area = /area/ruin/space/has_grav/nova/des_two/halls
 	spawner_job_path = /datum/job/ds2/command
 	loadout_enabled = TRUE
+	allow_mechanical_loadout_items = TRUE
 
 /obj/effect/mob_spawn/ghost_role/human/ds2/syndicate/special(mob/living/new_spawn)
 	. = ..()
@@ -448,7 +451,7 @@
 	r_pocket = /obj/item/flashlight/seclite
 	implants = list(
 		/obj/item/implant/weapons_auth,
-		/obj/item/implant/krav_maga
+		/obj/item/implant/kaza_ruk
 		)
 
 /datum/outfit/ds2/syndicate_command/corporateliaison

@@ -51,15 +51,57 @@
 	name = "Turret Factory"
 	ambientsounds = list('sound/ambience/maintenance/ambimaint.ogg','sound/ambience/maintenance/ambimaint1.ogg','sound/ambience/maintenance/ambimaint3.ogg', 'sound/ambience/maintenance/ambimaint5.ogg', 'sound/ambience/maintenance/ambimaint6.ogg')
 
-//Port Tarkon
-
+//// Port Tarkon
+// outside
 /area/ruin/space/has_grav/outdoors
 	outdoors = TRUE
+
+/area/solars/tarkon
+	name = "P-T Solar Array"
+	icon_state = "space_near"
+	default_gravity = STANDARD_GRAVITY
+	outdoors = TRUE
+
+// crew/service areas
 
 /area/ruin/space/has_grav/port_tarkon
 	name = "P-T Cryo-Storage"
 	icon = 'icons/area/areas_station.dmi'
 	icon_state = "cryo"
+
+/area/ruin/space/has_grav/port_tarkon/kitchen
+	name = "P-T Kitchen"
+	icon_state = "cafeteria"
+
+/area/ruin/space/has_grav/port_tarkon/garden
+	name = "P-T Garden"
+	icon_state = "garden"
+
+/area/ruin/space/has_grav/port_tarkon/toolstorage
+	name = "P-T Tool Storage"
+	icon_state = "tool_storage"
+
+/area/ruin/space/has_grav/port_tarkon/dorms
+	name = "P-T Dorms"
+	icon_state = "dorms"
+
+/area/ruin/space/has_grav/port_tarkon/sauna
+	name = "P-T Sauna"
+	icon_state = "dorms"
+
+/area/ruin/space/has_grav/port_tarkon/lockerroom
+	name = "P-T Locker Storage"
+	icon_state = "locker"
+
+/area/ruin/space/has_grav/port_tarkon/lounge
+	name = "P-T Bar Lounge"
+	icon_state = "bar"
+
+/area/ruin/space/has_grav/port_tarkon/restroom
+	name = "P-T Washroom"
+	icon_state = "laundry_room"
+
+// Halls
 
 /area/ruin/space/has_grav/port_tarkon/afthall
 	name = "P-T Aft Hallway"
@@ -77,42 +119,46 @@
 	name = "P-T Port Hallway"
 	icon_state = "porthall"
 
-/area/ruin/space/has_grav/port_tarkon/trauma
-	name = "P-T Trauma Center"
-	icon_state = "med_central"
-
-/area/ruin/space/has_grav/port_tarkon/developement
-	name = "P-T Developement Center"
-	icon_state = "science"
-	area_flags = XENOBIOLOGY_COMPATIBLE | UNIQUE_AREA
-
-/area/ruin/space/has_grav/port_tarkon/comms
-	name = "P-T Communication Center"
-	icon_state = "command"
-
-/area/ruin/space/has_grav/port_tarkon/power1
-	name = "P-T Solar Control"
-	icon_state = "engine"
-
 /area/ruin/space/has_grav/port_tarkon/centerhall
 	name = "P-T Central Hallway"
 	icon_state = "centralhall"
 
-/area/ruin/space/has_grav/port_tarkon/secoff
-	name = "P-T Security Office"
-	icon_state = "security"
+/area/ruin/space/has_grav/port_tarkon/sciencehall
+	name = "P-T Research Hall"
+	icon_state = "science"
+
+/area/ruin/space/has_grav/port_tarkon/medhall
+	name = "P-T Medical Hall"
+	icon_state = "med_central"
+
+// Engineering
 
 /area/ruin/space/has_grav/port_tarkon/atmos
 	name = "P-T Atmospheric Center"
 	icon_state = "atmos"
 
-/area/ruin/space/has_grav/port_tarkon/kitchen
-	name = "P-T Kitchen"
-	icon_state = "cafeteria"
+/area/ruin/space/has_grav/port_tarkon/power1
+	name = "P-T Solar Control"
+	icon_state = "engine"
 
-/area/ruin/space/has_grav/port_tarkon/garden
-	name = "P-T Garden"
-	icon_state = "garden"
+/area/ruin/space/has_grav/port_tarkon/backuppower
+	name = "P-T Backup Power Storage"
+	icon_state = "engie"
+
+// Command
+
+/area/ruin/space/has_grav/port_tarkon/comms
+	name = "P-T Communication Center"
+	icon_state = "command"
+
+/area/ruin/space/has_grav/port_tarkon/comlobby
+	name = "P-T Communications Lobby"
+	icon_state = "command"
+
+/area/ruin/space/has_grav/port_tarkon/apartment
+	name = "P-T Director's Apartment"
+	icon_state = "head_quarters"
+// Cargo
 
 /area/ruin/space/has_grav/port_tarkon/cargo
 	name = "P-T Cargo Center"
@@ -126,23 +172,37 @@
 	name = "P-T Warehouse"
 	icon_state = "cargo_warehouse"
 
-/area/ruin/space/has_grav/port_tarkon/toolstorage
-	name = "P-T Tool Storage"
-	icon_state = "tool_storage"
+/area/ruin/space/has_grav/port_tarkon/cargoexpand
+	name = "P-T Project Room"
+	icon_state = "engie"
 
-/area/ruin/space/has_grav/port_tarkon/observ
-	name = "P-T Observatory"
-	icon_state = "crew_quarters"
+// Lesser Departments
 
-/area/ruin/space/has_grav/port_tarkon/dorms
-	name = "P-T Dorms"
-	icon_state = "dorms"
+/area/ruin/space/has_grav/port_tarkon/trauma
+	name = "P-T Trauma Center"
+	icon_state = "medbay"
 
-/area/solars/tarkon
-	name = "P-T Solar Array"
-	icon_state = "space_near"
-	default_gravity = STANDARD_GRAVITY
-	outdoors = TRUE
+/area/ruin/space/has_grav/port_tarkon/morgue
+	name = "P-T Morgue"
+	icon_state = "morgue"
+
+/area/ruin/space/has_grav/port_tarkon/developement
+	name = "P-T Developement Center"
+	icon_state = "science"
+	area_flags = XENOBIOLOGY_COMPATIBLE | UNIQUE_AREA
+
+/area/ruin/space/has_grav/port_tarkon/xenology //A bit beyond just normal xenobiology in scope, But basically xenobiology
+	name = "P-T Xenology Lab"
+	icon_state = "science"
+	area_flags = XENOBIOLOGY_COMPATIBLE | UNIQUE_AREA
+
+/area/ruin/space/has_grav/port_tarkon/secoff
+	name = "P-T Security Office"
+	icon_state = "security"
+
+/area/ruin/space/has_grav/port_tarkon/park
+	name = "P-T Park"
+	icon_state = "garden"
 
 /**
  * DS2 Syndie Areas

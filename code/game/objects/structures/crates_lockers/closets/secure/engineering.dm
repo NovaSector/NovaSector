@@ -102,6 +102,7 @@
 	new /obj/item/clothing/head/utility/hardhat/welding/atmos(src)
 	new /obj/item/clothing/glasses/meson/engine/tray(src)
 	new /obj/item/extinguisher/advanced(src)
+	new /obj/item/summon_beacon/gas_miner(src) // NOVA EDIT ADDITION
 
 /obj/structure/closet/secure_closet/atmospherics/populate_contents_immediate()
 	. = ..()

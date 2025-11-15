@@ -33,8 +33,8 @@
 
 /datum/species/skrell/get_default_mutant_bodyparts()
 	return list(
-		"ears" = list("None", FALSE),
-		"skrell_hair" = list("Short", TRUE),
+		FEATURE_EARS = list("None", FALSE),
+		FEATURE_SKRELL_HAIR = list("Short", TRUE),
 	)
 
 /datum/species/skrell/get_species_description()
@@ -61,20 +61,19 @@
 			main_color = "#22BBFF"
 		if(6)
 			main_color = "#2266FF"
-	features["mcolor"] = main_color
-	features["mcolor2"] = main_color
-	features["mcolor3"] = main_color
+	features[FEATURE_MUTANT_COLOR] = main_color
+	features[FEATURE_MUTANT_COLOR_TWO] = main_color
+	features[FEATURE_MUTANT_COLOR_THREE] = main_color
 	return features
 
 /datum/species/skrell/prepare_human_for_preview(mob/living/carbon/human/skrell)
 	var/skrell_color = "#22BBFF"
-	skrell.dna.features["mcolor"] = skrell_color
-	skrell.dna.features["mcolor2"] = skrell_color
-	skrell.dna.features["mcolor3"] = skrell_color
-	skrell.dna.mutant_bodyparts["skrell_hair"] = list(MUTANT_INDEX_NAME = "Long", MUTANT_INDEX_COLOR_LIST = list(skrell_color, skrell_color, skrell_color))
+	skrell.dna.features[FEATURE_MUTANT_COLOR] = skrell_color
+	skrell.dna.features[FEATURE_MUTANT_COLOR_TWO] = skrell_color
+	skrell.dna.features[FEATURE_MUTANT_COLOR_THREE] = skrell_color
+	skrell.dna.mutant_bodyparts[FEATURE_SKRELL_HAIR] = list(MUTANT_INDEX_NAME = "Long", MUTANT_INDEX_COLOR_LIST = list(skrell_color, skrell_color, skrell_color))
 	regenerate_organs(skrell, src, visual_only = TRUE)
 	skrell.update_body(TRUE)
-
 
 /obj/item/organ/tongue/skrell
 	name = "internal vocal sacs"
@@ -141,7 +140,6 @@
 	cold_level_2_damage = COLD_GAS_DAMAGE_LEVEL_2
 	cold_level_3_damage = COLD_GAS_DAMAGE_LEVEL_3
 	cold_damage_type = BRUTE
-
 
 	hot_message = "You can't stand the searing heat with every breath you take!"
 	heat_level_1_threshold = 318

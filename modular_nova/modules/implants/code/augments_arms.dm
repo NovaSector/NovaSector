@@ -134,6 +134,28 @@
 	extend_sound = 'sound/items/unsheath.ogg'
 	retract_sound = 'sound/items/sheath.ogg'
 
+/obj/item/organ/cyberimp/arm/toolkit/razor_claws/emp_act(severity)
+	. = ..()
+	if(. & EMP_PROTECT_SELF || !IS_ROBOTIC_ORGAN(src))
+		return
+	var/effect_chance = 0
+	switch(severity)
+		if(EMP_LIGHT)
+			effect_chance = 17.5
+		if(EMP_HEAVY)
+			effect_chance = 35
+	if(prob(effect_chance) && owner)
+		owner.visible_message(
+			span_danger("[owner]'s razor claws extend and retract rapidly!"),
+			span_warning("Your razor claws malfunction, extending and retracting uncontrollably!")
+		)
+		if(active_item)
+			Retract()
+		do_sparks(2, TRUE, owner)
+		playsound(owner, 'sound/items/unsheath.ogg', 50, TRUE)
+		addtimer(CALLBACK(src, TYPE_PROC_REF(/atom, playsound), owner, 'sound/items/sheath.ogg', 50, TRUE), 0.3 SECONDS)
+		addtimer(CALLBACK(src, TYPE_PROC_REF(/atom, playsound), owner, 'sound/items/unsheath.ogg', 50, TRUE), 0.6 SECONDS)
+
 /// bespoke subtypes for augs menu since it's a bit wonky
 /obj/item/organ/cyberimp/arm/toolkit/razor_claws/right_arm
 	zone = BODY_ZONE_R_ARM
@@ -159,6 +181,27 @@
 	aug_icon = 'modular_nova/modules/implants/icons/implants_onmob.dmi'
 	aug_overlay = "steel"
 	hand_state = FALSE
+
+/obj/item/organ/cyberimp/arm/toolkit/mining_drill/emp_act(severity)
+	. = ..()
+	if(. & EMP_PROTECT_SELF || !IS_ROBOTIC_ORGAN(src))
+		return
+	var/effect_chance = 0
+	switch(severity)
+		if(EMP_LIGHT)
+			effect_chance = 20
+		if(EMP_HEAVY)
+			effect_chance = 40
+	if(prob(effect_chance) && owner)
+		owner.visible_message(
+			span_danger("[owner]'s drill implant whirs and spins erratically!"),
+			span_warning("Your drill implant malfunctions, spinning wildly and making your whole arm shake!")
+		)
+		if(active_item)
+			Retract()
+		owner.set_jitter_if_lower(severity == EMP_LIGHT ? 10 SECONDS : 20 SECONDS)
+		do_sparks(3, TRUE, owner)
+		playsound(owner, 'sound/items/weapons/drill.ogg', 50, TRUE)
 
 /obj/item/organ/cyberimp/arm/toolkit/mining_drill/right_arm //You know the drill.
 	zone = BODY_ZONE_R_ARM

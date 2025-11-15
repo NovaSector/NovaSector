@@ -15,6 +15,7 @@
 		"stamp-nri" = 'modular_nova/master_files/icons/stamp_icons/large_stamp-nri.png',
 		"stamp-solfed" = 'modular_nova/master_files/icons/stamp_icons/large_stamp-solfed.png',
 		"stamp-tarkon" = 'modular_nova/master_files/icons/stamp_icons/large_stamp-tarkon.png',
+		"stamp-warden" = 'modular_nova/master_files/icons/stamp_icons/large_stamp-warden.png',
 		// NOVA EDIT ADDITION: END
 		"stamp-clown" = 'icons/stamp_icons/large_stamp-clown.png',
 		"stamp-deny" = 'icons/stamp_icons/large_stamp-deny.png',

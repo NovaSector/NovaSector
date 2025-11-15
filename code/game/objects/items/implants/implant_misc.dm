@@ -20,7 +20,7 @@
 /obj/item/implant/emp/activate()
 	. = ..()
 	uses--
-	empulse(imp_in, 3, 5)
+	empulse(imp_in, 3, 5, emp_source = src)
 	if(!uses)
 		qdel(src)
 
@@ -52,6 +52,7 @@
 /obj/item/implant/radio
 	name = "internal radio implant"
 	var/obj/item/radio/radio
+	var/radio_type = /obj/item/radio // NOVA EDIT ADDITION
 	var/radio_key
 	var/subspace_transmission = FALSE
 	icon = 'icons/obj/devices/voice.dmi'
@@ -62,10 +63,10 @@
 	// needs to be GLOB.deep_inventory_state otherwise it won't open
 	radio.ui_interact(usr, state = GLOB.deep_inventory_state)
 
-/obj/item/implant/radio/Initialize(mapload)
+/obj/item/implant/radio/Initialize(mapload, radio_key_1, radio_key_2) // NOVA EDIT CHANGE - ORIGINAL: /obj/item/implant/radio/Initialize(mapload)
 	. = ..()
 
-	radio = new(src)
+	radio = new radio_type(src) // NOVA EDIT CHANGE - ORIGINAL: radio = new(src)
 	// almost like an internal headset, but without the
 	// "must be in ears to hear" restriction.
 	radio.name = "internal radio"
