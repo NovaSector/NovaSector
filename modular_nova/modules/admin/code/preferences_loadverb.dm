@@ -72,8 +72,8 @@ ADMIN_VERB(import_preferences, R_ADMIN, "Import Preferences", "Upload a characte
 		return
 
 	// Enforce minimum savefile version
-	// Returns the version number if valid, otherwise returns negative
-	if(user.prefs.check_savedata_version(json_tree) < 0)
+	// Returns -2 if version is below minimum
+	if(user.prefs.check_savedata_version(json_tree) == -2)
 		var/savefile_version = json_tree["version"]
 		log_admin("Failed to parse json savefile: Version ([savefile_version]) is below minimum")
 		to_chat(user, span_warning("Failed to parse json savefile: Version ([savefile_version]) is below minimum"))
