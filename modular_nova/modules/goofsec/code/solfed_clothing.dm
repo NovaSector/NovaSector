@@ -11,6 +11,14 @@
 	has_sensor = HAS_SENSORS
 	sensor_mode = SENSOR_COORDS
 
+// Peacekeeper Jumpsuit
+/obj/item/clothing/under/solfed/sol_peacekeeper
+	name = "sol peacekeeper uniform"
+	desc = "A military-grade uniform with military grade comfort (none at all), often seen on \
+		SolFed's various peacekeeping forces, and usually alongside a blue helmet."
+	icon_state = "peacekeeper"
+	worn_icon_state = "peacekeeper"
+
 // EMT jumpsuit
 /obj/item/clothing/under/solfed/sol_emt
 	name = "sol emergency medical uniform"
@@ -26,20 +34,12 @@
 	icon_state = "medrescue"
 	worn_icon_state = "medrescue"
 
-// Peacekeeper Jumpsuit
-/obj/item/clothing/under/solfed/sol_peacekeeper
-	name = "sol peacekeeper uniform"
-	desc = "A military-grade uniform with military grade comfort (none at all), often seen on \
-		SolFed's various peacekeeping forces, and usually alongside a blue helmet."
-	icon_state = "peacekeeper"
-	worn_icon_state = "peacekeeper"
-	armor_type = /datum/armor/clothing_under/rank_security
-
 // SolFed 911 Atmos Uniform
 /obj/item/clothing/under/solfed/emergencyfire
 	name = "\improper SolFed emergency atmospherics uniform"
 	desc = "An official Sol Federation emergency response uniform, denoting members of their Station Breach Control teams and protecting them from atmospheric or fire hazards."
 	icon_state = "atmosrescue"
+	worn_icon_state = "atmosrescue"
 	armor_type = /datum/armor/clothing_under/atmos_adv
 
 // Federation Officer (Official)
