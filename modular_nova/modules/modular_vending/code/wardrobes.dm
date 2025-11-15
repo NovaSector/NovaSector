@@ -188,21 +188,11 @@
 	)
 
 /obj/machinery/vending/wardrobe/jani_wardrobe
+	products_nova = list(
+		/obj/item/clothing/shoes/galoshes/heeled = 3,
+	)
 	premium_nova = list(/obj/item/disk/nifsoft_uploader/job/summoner/service = 2, /obj/item/flatpack/trash_compactor = 1)
-
-/// Removes given list of products. Must be called before build_inventory() to actually prevent the records from being created.
-/obj/machinery/vending/proc/remove_products(list/paths_to_remove)
-	if(!length(paths_to_remove))
-		return
-	for(var/typepath in products)
-		for(var/to_remove in paths_to_remove)
-			if(ispath(typepath, to_remove))
-				products.Remove(typepath)
 
 /obj/machinery/vending/
 	/// list of products to exclude when building the vending machine's inventory
 	var/list/excluded_products
-
-/obj/machinery/vending/Initialize(mapload)
-	remove_products(excluded_products)
-	return ..()

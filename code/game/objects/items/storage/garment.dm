@@ -102,7 +102,7 @@
 	new /obj/item/clothing/head/hats/warden/drill(src)
 	// new /obj/item/clothing/head/beret/sec/navywarden(src) NOVA EDIT - Moved to /obj/item/storage/bag/garment/warden/blue
 	new /obj/item/clothing/under/rank/security/warden/skirt(src)
-	new /obj/item/clothing/gloves/krav_maga/sec(src)
+	new /obj/item/clothing/gloves/kaza_ruk/sec(src)
 	new /obj/item/clothing/glasses/hud/security/sunglasses(src)
 	new /obj/item/clothing/mask/gas/sechailer(src)
 	// NOVA EDIT ADDITION START - EXTRA GOODIES

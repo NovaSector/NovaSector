@@ -285,7 +285,7 @@
 		),
 	)
 
-/obj/item/clothing/gloves/krav_maga/sec
+/obj/item/clothing/gloves/kaza_ruk/sec
 	uses_advanced_reskins = TRUE
 	unique_reskin = list(
 		"Red Variant" = list(

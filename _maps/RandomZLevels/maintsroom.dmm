@@ -2099,7 +2099,7 @@
 /obj/item/stack/spacecash/c500,
 /obj/item/coin/plastic,
 /obj/structure/safe,
-/obj/item/tank/jetpack/oxygen{
+/obj/item/tank/jetpack{
 	desc = "A tank of compressed oxygen for use as propulsion in zero-gravity areas. It's blue, and has a triangle chiselled into the paint."
 	},
 /obj/item/switchblade,
@@ -7802,7 +7802,7 @@
 /obj/effect/turf_decal/stripes/line{
 	dir = 4
 	},
-/obj/item/implanter/krav_maga,
+/obj/item/implanter/kaza_ruk,
 /turf/open/floor/engine{
 	slowdown = 2
 	},

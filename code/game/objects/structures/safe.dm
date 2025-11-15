@@ -305,7 +305,7 @@ FLOOR SAFES
 
 /obj/structure/safe/floor/Initialize(mapload)
 	. = ..()
-	AddElement(/datum/element/undertile)
+	AddElement(/datum/element/undertile, TRAIT_T_RAY_VISIBLE) // NOVA EDIT CHANGE - ORIGINAL: AddElement(/datum/element/undertile)
 
 /obj/structure/safe/floor/open
 	open = TRUE
