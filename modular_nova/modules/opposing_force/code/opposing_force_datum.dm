@@ -89,9 +89,9 @@
 	mind_reference = null
 	SSopposing_force.remove_opfor(src)
 	QDEL_LIST(objectives)
-	QDEL_LIST(admin_chat)
-	QDEL_LIST(modification_log)
 	QDEL_NULL(stat_button)
+	admin_chat.Cut()
+	modification_log.Cut()
 	return ..()
 
 /datum/opposing_force/Topic(href, list/href_list)
