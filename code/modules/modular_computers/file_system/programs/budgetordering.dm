@@ -280,12 +280,12 @@
 					var/choice = tgui_alert(usr, "Which department are you requesting this for?", "Choose request department", list("Cargo Budget", "[personal_department.account_holder]"))
 					if(!choice)
 						return
-					if(choice != "Cargo Budget")
-						account = personal_department
 					// NOVA EDIT ADDITION START 
-					else if (choice == "Cargo Budget") //in case the choices ever change.
+					if (choice == "Cargo Budget") //in case the choices ever change.
 						uses_cargo_budget = TRUE
 					// NOVA EDIT ADDITION END 
+					else // NOVA EDIT CHANGE - ORIGINAL: if(choice != "Cargo Budget")
+						account = personal_department
 					name = id_card_customer.registered_account?.account_holder
 
 			if((pack.goody && !pack.departamental_goody) && !self_paid) // NOVA EDIT CHANGE - ORIGINAL: if(pack.goody && !self_paid)
