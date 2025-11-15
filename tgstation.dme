@@ -9203,6 +9203,7 @@
 #include "modular_nova\modules\SEVA_suit\code\seva_obj.dm"
 #include "modular_nova\modules\SEVA_suit\code\suit_voucher.dm"
 #include "modular_nova\modules\shadow\code\bodyparts.dm"
+#include "modular_nova\modules\shadow\code\buffs.dm"
 #include "modular_nova\modules\shadow\code\event.dm"
 #include "modular_nova\modules\shadow\code\organs.dm"
 #include "modular_nova\modules\shadow\code\species.dm"
