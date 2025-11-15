@@ -153,7 +153,6 @@ SOLFED ARMOR VALUES!
 /obj/item/clothing/head/helmet/solfed/attack_self(mob/living/user)
 	toggle_helmet_light(user)
 
-// SolFed flak jacket, for marshals
 /obj/item/clothing/suit/armor/vest/sol
 	name = "'Gordyn' flak vest"
 	desc = "A light armored jacket common on SolFed personnel who need armor, but find a full vest \
