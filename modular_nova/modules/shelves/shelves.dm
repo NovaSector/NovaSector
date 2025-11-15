@@ -2,7 +2,7 @@
 #define DEFAULT_SHELF_VERTICAL_OFFSET 10 // Vertical pixel offset of shelving-related things. Set to 10 by default due to this leaving more of the crate on-screen to be clicked.
 
 /obj/structure/cargo_shelf //Crate shelf port from Shiptest: https://github.com/shiptest-ss13/Shiptest/pull/2374
-	name = "cargo shelf"
+	name = "crate shelf"
 	desc = "It's a shelf! For storing crates!"
 	icon = 'modular_nova/modules/shelves/structures.dmi'
 	icon_state = "shelf_base"
@@ -185,10 +185,10 @@
 	vis_contents -= crate
 
 /obj/item/rack_parts/cargo_shelf
-	name = "cargo shelf parts"
+	name = "crate shelf parts"
 	icon = 'modular_nova/modules/shelves/structures.dmi'
 	icon_state = "rack_parts"
-	desc = "Parts of a cargo shelf, for storing crates."
+	desc = "Parts of a crate shelf, for storing crates."
 
 /obj/item/rack_parts/cargo_shelf/attack_self(mob/user)
 	if(building)
