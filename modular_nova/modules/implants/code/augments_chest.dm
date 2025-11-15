@@ -54,6 +54,7 @@
 	var/on = FALSE
 	var/bumpoff = TRUE
 	var/stealth_alpha = 35
+	var/poison_amount = 3
 
 /obj/item/organ/cyberimp/chest/opticalcamo/ui_action_click()
 	toggle()
@@ -117,4 +118,13 @@
 	if(!projectile.is_hostile_projectile())
 		return
 	unstealth(source)
+
+/obj/item/organ/cyberimp/chest/opticalcamo/emp_act(severity)
+	. = ..()
+	if(!owner || . & EMP_PROTECT_SELF)
+		return
+	owner.reagents.add_reagent(/datum/reagent/drug/saturnx, poison_amount / severity)
+	owner.adjust_confusion(rand(8 SECONDS, 11 SECONDS))
+	to_chat(owner, span_warning("Your skin tingles, and the room feels like it's spinning!"))
+	deactivate()
 
