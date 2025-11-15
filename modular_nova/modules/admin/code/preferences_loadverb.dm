@@ -5,6 +5,10 @@ ADMIN_VERB(import_preferences, R_ADMIN, "Import Preferences", "Upload a characte
 
 	player_key = ckey(player_key)
 
+	// Prevent empty ckey after whitespace was stripped
+	if(!length(player_key))
+		return
+
 	// Prevent spelling mistakes
 	var/confirmation = tgui_alert(user, "Import preferences for \"[player_key]\"?", "Import Preferences", list("Confirm", "Cancel"))
 	if(confirmation != "Confirm")
@@ -64,7 +68,15 @@ ADMIN_VERB(import_preferences, R_ADMIN, "Import Preferences", "Upload a characte
 	// Duck typecheck to ensure the JSON is a tgstation save file
 	if(!json_tree.Find("version"))
 		log_admin("Failed to parse json savefile: Version property is missing")
-		message_admins("Failed to parse json savefile: Version property is missing")
+		to_chat(user, span_warning("Failed to parse json savefile: Version property is missing"))
+		return
+
+	// Enforce minimum savefile version
+	// Returns the version number if valid, otherwise returns negative
+	if(user.prefs.check_savedata_version(json_tree) < 0)
+		var/savefile_version = json_tree["version"]
+		log_admin("Failed to parse json savefile: Version ([savefile_version]) is below minimum")
+		to_chat(user, span_warning("Failed to parse json savefile: Version ([savefile_version]) is below minimum"))
 		return
 
 	// Backup and delete the existing savefile if it exists
@@ -82,6 +94,8 @@ ADMIN_VERB(import_preferences, R_ADMIN, "Import Preferences", "Upload a characte
 			fcopy(savefile_path, importbac_path)
 		// Delete the existing savefile
 		fdel(savefile_path)
+		// Delete migration backup saveile
+		// Avoids an edge case where load_preferences() reverts to a stale backup file
 		fdel("[savefile_path].updatebac")
 
 	// Save the new file as text
