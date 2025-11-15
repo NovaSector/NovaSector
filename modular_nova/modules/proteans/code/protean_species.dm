@@ -91,6 +91,8 @@
 
 	/// Reference to the mob that owns this species datum (for signals and callbacks)
 	var/mob/living/carbon/human/owner
+	/// Prevent camera perspective from changing when protean is in suit mode
+	var/prevent_perspective_change = FALSE
 	/// List of organ slots that are CHECKED by rejection system (brain protected, heart/stomach can be replaced, eyes checked)
 	/// Organs NOT in this list are completely ignored and can be installed/removed freely
 	var/list/organ_slots = list(
@@ -117,13 +119,12 @@
 
 /datum/species/protean/Destroy(force)
 	// Modsuit cleanup now handled by brain organ's Destroy()
-	// Unregister signal from modsuit if it still exists
-	var/obj/item/mod/control/pre_equipped/protean/modsuit = get_modsuit()
-	if(modsuit)
-		UnregisterSignal(modsuit, COMSIG_QDELETING)
+	// Signals clean themselves up automatically on datum destroy, no need to manually unregister
 	if(owner)
-		UnregisterSignal(owner, COMSIG_CARBON_GAIN_ORGAN)
-	UnregisterSignal(src, COMSIG_OUTFIT_EQUIP)
+		// Clean up component if it exists (prevents memory leaks)
+		var/datum/component/protean_modsuit_storage/stored = owner.GetComponent(/datum/component/protean_modsuit_storage)
+		if(stored)
+			qdel(stored)
 
 	if(shapeshift_action)
 		QDEL_NULL(shapeshift_action)
@@ -142,11 +143,31 @@
 		modsuit.install(storage, equipping, TRUE)
 
 /datum/species/protean/on_species_gain(mob/living/carbon/human/gainer, datum/species/old_species, pref_load, regenerate_icons = TRUE)
+	// Remove entombed quirk if somehow applied (admin spawns, race conditions, etc.)
+	if(gainer.has_quirk(/datum/quirk/equipping/entombed))
+		var/datum/quirk/equipping/entombed/entombed_quirk = gainer.get_quirk(/datum/quirk/equipping/entombed)
+		if(entombed_quirk)
+			to_chat(gainer, span_warning("Your integrated modsuit conflicts with the Entombed quirk. Removing it."))
+			gainer.remove_quirk(entombed_quirk.type)
+
+	// Check for stored modsuit from previous transformation (e.g., monkey -> protean)
+	// Store modsuit reference on mob component to persist across species changes
+	var/datum/component/protean_modsuit_storage/stored = gainer.GetComponent(/datum/component/protean_modsuit_storage)
+	var/obj/item/mod/control/pre_equipped/protean/preserved_modsuit = null
+	if(stored && stored.stored_modsuit && !QDELETED(stored.stored_modsuit))
+		preserved_modsuit = stored.stored_modsuit
+		// Clean up the component
+		qdel(stored)
+
 	// If we're switching from protean to protean (SAD/pref reload), preserve the old modsuit by transferring it to new brain
 	var/obj/item/mod/control/pre_equipped/protean/old_protean_suit = null
 	if(istype(old_species, /datum/species/protean))
 		var/datum/species/protean/old_protean = old_species
 		old_protean_suit = old_protean.get_modsuit()
+
+	// Use preserved modsuit if available (from monkey transformation), otherwise use old protean suit
+	if(!old_protean_suit && preserved_modsuit)
+		old_protean_suit = preserved_modsuit
 
 	. = ..()
 	owner = gainer
@@ -205,6 +226,10 @@
 	// Grant shapeshifting ability
 	shapeshift_action = new
 	shapeshift_action.Grant(gainer)
+
+	// Show spawn summary for new proteans (not when reloading preferences or transforming from protean)
+	if(!pref_load && !istype(old_species, /datum/species/protean))
+		INVOKE_ASYNC(src, PROC_REF(show_spawn_summary), gainer)
 
 /// Signal handler: detects when incompatible organ is inserted and schedules its rejection.
 /// Brain MUST be protean-specific. Other organs can be ANY robotic/nanomachine organ (but will lose special functions).
@@ -376,6 +401,15 @@
 		STOP_PROCESSING(SSobj, old_refactory)
 
 /datum/species/protean/on_species_loss(mob/living/carbon/human/gainer, datum/species/new_species, pref_load)
+	// Preserve modsuit reference when transforming to non-protean species (e.g., monkey)
+	// Store it on the mob temporarily so we can restore it when transforming back
+	var/obj/item/mod/control/pre_equipped/protean/modsuit = get_modsuit()
+	if(modsuit && !istype(new_species, /datum/species/protean) && !QDELETED(modsuit))
+		// Store modsuit reference on the mob so it persists across species changes
+		// This prevents duplication when transforming to monkey and back
+		if(!gainer.GetComponent(/datum/component/protean_modsuit_storage))
+			gainer.AddComponent(/datum/component/protean_modsuit_storage, modsuit)
+
 	. = ..()
 	if(gainer)
 		UnregisterSignal(owner, COMSIG_CARBON_GAIN_ORGAN)
@@ -394,12 +428,14 @@
 	if(shapeshift_action)
 		QDEL_NULL(shapeshift_action)
 	// Drop assimilated modsuits (modsuit cleanup will be handled by brain removal)
+	// Don't drop modsuit if we're storing it for later restoration (monkey transformation)
 	if(!istype(new_species, /datum/species/protean) && !QDELETED(gainer))
-		var/obj/item/mod/control/pre_equipped/protean/modsuit = get_modsuit()
-		if(!QDELETED(modsuit))
-			if(modsuit.stored_modsuit)
-				modsuit.unassimilate_modsuit(owner, TRUE)
-			gainer.dropItemToGround(modsuit, TRUE)
+		var/obj/item/mod/control/pre_equipped/protean/modsuit_to_drop = get_modsuit()
+		// Only drop if we're not preserving it for restoration
+		if(!QDELETED(modsuit_to_drop) && !gainer.GetComponent(/datum/component/protean_modsuit_storage))
+			if(modsuit_to_drop.stored_modsuit)
+				modsuit_to_drop.unassimilate_modsuit(owner, TRUE)
+			gainer.dropItemToGround(modsuit_to_drop, TRUE)
 			// Don't qdel here - let brain's Destroy() handle it for proper cleanup
 
 	owner = null
@@ -424,3 +460,46 @@
 		Their Orchestrator is a miniature processor required for ease of movement.",
 		"Proteans are an extremely fragile species, weak in combat, but a powerful aid, or a puppeteer pulling the strings.",
 	)
+
+/// Component to store modsuit reference across species changes (prevents duplication when transforming to monkey and back)
+/datum/component/protean_modsuit_storage
+	var/obj/item/mod/control/pre_equipped/protean/stored_modsuit
+
+/datum/component/protean_modsuit_storage/Initialize(obj/item/mod/control/pre_equipped/protean/modsuit)
+	. = ..()
+	if(!istype(parent, /mob/living/carbon/human))
+		return COMPONENT_INCOMPATIBLE
+	stored_modsuit = modsuit
+
+/datum/component/protean_modsuit_storage/Destroy()
+	stored_modsuit = null
+	return ..()
+
+/// Show informative spawn summary about race, healing, and organs
+/datum/species/protean/proc/show_spawn_summary(mob/living/carbon/human/protean)
+	// Wait a moment for everything to initialize
+	sleep(1 SECOND)
+
+	var/list/summary = list(
+		span_boldnotice("=== PROTEAN RACE INFORMATION ==="),
+		span_notice("You are a Protean - a swarm of nanites in humanoid form."),
+		"",
+		span_boldnotice("Vital Organs:"),
+		span_notice("• Brain (Core): Controls your modsuit and transformations. Cannot be replaced."),
+		span_notice("• Heart (Orchestrator): Required for movement. Without it, you'll be slowed and knocked down."),
+		span_notice("• Stomach (Refactory): Processes metal and heals you. Without it, you'll slowly degrade."),
+		"",
+		span_boldnotice("Healing:"),
+		span_notice("• Use 'Protean Heal' verb to repair limbs (requires 6 metal, must be in suit mode)."),
+		span_notice("• Eat metal sheets to restore your metal reserves (stored in stomach)."),
+		span_notice("• When critically damaged, you'll retreat into your modsuit for safety."),
+		"",
+		span_boldnotice("Your Modsuit:"),
+		span_notice("• Press 'Suit Transformation' to enter/exit your modsuit."),
+		span_notice("• You can assimilate other modsuits to gain their appearance and modules."),
+		span_notice("• Your modsuit is integrated and cannot be removed normally."),
+		"",
+		span_warning("Remember: You are fragile but versatile. Use your abilities wisely!")
+	)
+
+	to_chat(protean, jointext(summary, "<br>"))

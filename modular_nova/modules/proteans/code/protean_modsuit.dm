@@ -160,6 +160,14 @@
 		item_flags &= ~ABSTRACT
 
 /obj/item/mod/control/pre_equipped/protean/dropped(mob/user)
+	// If wearer died and protean is getting off, ensure parts are properly retracted
+	// This fixes the retract parts bug when protean gets off a dead person
+	if(wearer && wearer.stat == DEAD && isprotean(user) && user != wearer)
+		// Force retract all parts before dropping
+		for(var/obj/item/part in get_parts())
+			if(part.loc != src)
+				retract(user, part, instant = TRUE)
+
 	// Remove TRAIT_NODROP when dropped (like entombed does - allows retrieval if gibbed)
 	REMOVE_TRAIT(src, TRAIT_NODROP, SPECIES_TRAIT)
 
@@ -185,6 +193,19 @@
 
 	if(over_object == user && iscarbon(user))
 		var/mob/living/carbon/carbon_user = user
+
+		// If dragging own mod to self (protean owner), equip to back instead of picking up
+		var/obj/item/mod/core/protean/protean_core = core
+		var/datum/species/protean/linked_species = protean_core?.linked_species_ref?.resolve()
+		if(linked_species?.owner == user && isprotean(user))
+			// Try to equip to back slot
+			if(user.equip_to_slot_if_possible(src, ITEM_SLOT_BACK, disable_warning = TRUE))
+				return CLICK_ACTION_SUCCESS
+			// If back slot is full, open storage instead
+			var/obj/item/mod/module/storage/storage = locate() in modules
+			if(storage && storage.atom_storage)
+				storage.atom_storage.ui_interact(user)
+				return CLICK_ACTION_SUCCESS
 
 		// If already equipped to this user, allow normal unequip behavior
 		if(carbon_user.get_item_by_slot(ITEM_SLOT_BACK) == src)
@@ -368,6 +389,18 @@
 	. = ..()
 	// Update interaction flags when equipped/unequipped to prevent dropping when hands are full
 	update_interaction_flags()
+	// Fix camera perspective if protean is inside and modsuit is moved/thrown
+	fix_camera_perspective()
+
+/// Fix camera perspective when modsuit is moved/thrown (prevents camera from following person)
+/obj/item/mod/control/pre_equipped/protean/proc/fix_camera_perspective()
+	// If protean is inside, ensure camera is locked to modsuit
+	var/mob/living/carbon/human/protean_inside = locate(/mob/living/carbon/human) in src
+	if(protean_inside && isprotean(protean_inside))
+		var/datum/species/protean/protean_species = protean_inside.dna?.species
+		if(istype(protean_species))
+			protean_species.prevent_perspective_change = TRUE
+			protean_inside.reset_perspective(src)
 
 /// Override on_exit to prevent the protean core from being uninstalled
 /// The protean core is integrated and must never be removed

@@ -40,10 +40,13 @@
 /obj/item/organ/brain/protean/on_mob_insert(mob/living/carbon/receiver, special, movement_flags)
 	. = ..()
 	RegisterSignal(receiver, COMSIG_LIVING_POST_FULLY_HEAL, PROC_REF(on_fully_healed))
+	// Register signal for rejuvenate to prevent body separation
+	RegisterSignal(receiver, COMSIG_LIVING_REVIVE, PROC_REF(on_rejuvenate))
 
 /obj/item/organ/brain/protean/on_mob_remove(mob/living/carbon/organ_owner, special, movement_flags)
 	. = ..()
 	UnregisterSignal(organ_owner, COMSIG_LIVING_POST_FULLY_HEAL)
+	UnregisterSignal(organ_owner, COMSIG_LIVING_REVIVE)
 
 /// Handler for admin heal - forces limb replacement without metal cost or suit requirement
 /obj/item/organ/brain/protean/proc/on_fully_healed(datum/source, heal_flags)
@@ -267,11 +270,42 @@
 /// Brings the protean back from "dead" state. Fully heals them and restores refactory function.
 /// Called after assisted or automatic recovery.
 /obj/item/organ/brain/protean/proc/revive()
+	// Safety check before reviving - ensure protean has valid body
+	if(!check_revival_safety())
+		to_chat(owner, span_warning("Your body is too damaged to reform. You need assistance."))
+		return
+
 	dead = FALSE
 	playsound(owner, 'sound/machines/ping.ogg', 30)
 	to_chat(owner, span_warning("You have regained all your mass!"))
 	owner.fully_heal()
 	owner.remove_traits(list(TRAIT_CRITICAL_CONDITION))
+
+/// Check if revival is safe (prevents reviving without body)
+/obj/item/organ/brain/protean/proc/check_revival_safety()
+	if(!owner || QDELETED(owner))
+		return FALSE
+	if(!linked_modsuit || QDELETED(linked_modsuit))
+		return FALSE
+	// Check if owner's body is still valid (not deleted)
+	if(!owner.loc)
+		return FALSE
+	return TRUE
+
+/// Handler for rejuvenate - prevents body separation from mod
+/obj/item/organ/brain/protean/proc/on_rejuvenate(datum/source, full_heal_flags)
+	SIGNAL_HANDLER
+	// Ensure modsuit stays equipped after rejuvenate
+	if(linked_modsuit && owner)
+		// If modsuit is not on back, re-equip it
+		if(owner.get_item_by_slot(ITEM_SLOT_BACK) != linked_modsuit)
+			var/obj/item/back_item = owner.get_item_by_slot(ITEM_SLOT_BACK)
+			if(back_item)
+				owner.dropItemToGround(back_item, force = TRUE)
+			owner.equip_to_slot_if_possible(linked_modsuit, ITEM_SLOT_BACK, disable_warning = TRUE)
+		// Ensure camera perspective is correct
+		if(owner.loc == linked_modsuit)
+			owner.reset_perspective(linked_modsuit)
 
 /obj/item/organ/brain/protean/proc/revive_timer()
 	balloon_alert_to_viewers("repairing")

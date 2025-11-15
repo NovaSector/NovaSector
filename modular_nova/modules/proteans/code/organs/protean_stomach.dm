@@ -31,7 +31,7 @@
 
 /obj/item/organ/stomach/protean/Initialize(mapload)
 	. = ..() // Call the rest of the proc
-	metal = PROTEAN_STOMACH_FULL // NOVA EDIT: Proteans spawn with full energy instead of random
+	metal = PROTEAN_STOMACH_FULL // Proteans spawn with full energy instead of random
 
 /obj/item/organ/stomach/protean/on_mob_insert(mob/living/carbon/receiver, special, movement_flags)
 	. = ..()
