@@ -20,7 +20,187 @@
 		},
 		{
 			"type": "icon_state",
-			"icon_state": "belt",
+			"icon_state": "uniform_belt",
+			"blend_mode": "overlay"
+		}
+	],
+	"solfed_camo_squadlead": [
+		{
+			"type": "icon_state",
+			"icon_state": "camo_clr1",
+			"blend_mode": "overlay",
+			"color_ids": [ 1 ]
+		},
+		{
+			"type": "icon_state",
+			"icon_state": "camo_clr2",
+			"blend_mode": "overlay",
+			"color_ids": [ 2 ]
+		},
+		{
+			"type": "icon_state",
+			"icon_state": "camo_clr3",
+			"blend_mode": "overlay",
+			"color_ids": [ 3 ]
+		},
+		{
+			"type": "icon_state",
+			"icon_state": "uniform_belt",
+			"blend_mode": "overlay"
+		},
+		{
+			"type": "icon_state",
+			"icon_state": "uniform_trim_squadlead",
+			"blend_mode": "overlay"
+		}
+	],
+	"solfed_camo_engie": [
+		{
+			"type": "icon_state",
+			"icon_state": "camo_clr1",
+			"blend_mode": "overlay",
+			"color_ids": [ 1 ]
+		},
+		{
+			"type": "icon_state",
+			"icon_state": "camo_clr2",
+			"blend_mode": "overlay",
+			"color_ids": [ 2 ]
+		},
+		{
+			"type": "icon_state",
+			"icon_state": "camo_clr3",
+			"blend_mode": "overlay",
+			"color_ids": [ 3 ]
+		},
+		{
+			"type": "icon_state",
+			"icon_state": "uniform_belt",
+			"blend_mode": "overlay"
+		},
+		{
+			"type": "icon_state",
+			"icon_state": "uniform_trim_engi",
+			"blend_mode": "overlay"
+		}
+	],
+	"solfed_camo_paramed": [
+		{
+			"type": "icon_state",
+			"icon_state": "camo_clr1",
+			"blend_mode": "overlay",
+			"color_ids": [ 1 ]
+		},
+		{
+			"type": "icon_state",
+			"icon_state": "camo_clr2",
+			"blend_mode": "overlay",
+			"color_ids": [ 2 ]
+		},
+		{
+			"type": "icon_state",
+			"icon_state": "camo_clr3",
+			"blend_mode": "overlay",
+			"color_ids": [ 3 ]
+		},
+		{
+			"type": "icon_state",
+			"icon_state": "uniform_belt",
+			"blend_mode": "overlay"
+		},
+		{
+			"type": "icon_state",
+			"icon_state": "uniform_trim_paramed",
+			"blend_mode": "overlay"
+		}
+	],
+	"solfed_camo_smartgun": [
+		{
+			"type": "icon_state",
+			"icon_state": "camo_clr1",
+			"blend_mode": "overlay",
+			"color_ids": [ 1 ]
+		},
+		{
+			"type": "icon_state",
+			"icon_state": "camo_clr2",
+			"blend_mode": "overlay",
+			"color_ids": [ 2 ]
+		},
+		{
+			"type": "icon_state",
+			"icon_state": "camo_clr3",
+			"blend_mode": "overlay",
+			"color_ids": [ 3 ]
+		},
+		{
+			"type": "icon_state",
+			"icon_state": "uniform_belt",
+			"blend_mode": "overlay"
+		},
+		{
+			"type": "icon_state",
+			"icon_state": "uniform_trim_smartgun",
+			"blend_mode": "overlay"
+		}
+	],
+	"solfed_camo_specialist": [
+		{
+			"type": "icon_state",
+			"icon_state": "camo_clr1",
+			"blend_mode": "overlay",
+			"color_ids": [ 1 ]
+		},
+		{
+			"type": "icon_state",
+			"icon_state": "camo_clr2",
+			"blend_mode": "overlay",
+			"color_ids": [ 2 ]
+		},
+		{
+			"type": "icon_state",
+			"icon_state": "camo_clr3",
+			"blend_mode": "overlay",
+			"color_ids": [ 3 ]
+		},
+		{
+			"type": "icon_state",
+			"icon_state": "uniform_belt",
+			"blend_mode": "overlay"
+		},
+		{
+			"type": "icon_state",
+			"icon_state": "uniform_trim_specialist",
+			"blend_mode": "overlay"
+		}
+	],
+	"solfed_camo_assault": [
+		{
+			"type": "icon_state",
+			"icon_state": "camo_clr1",
+			"blend_mode": "overlay",
+			"color_ids": [ 1 ]
+		},
+		{
+			"type": "icon_state",
+			"icon_state": "camo_clr2",
+			"blend_mode": "overlay",
+			"color_ids": [ 2 ]
+		},
+		{
+			"type": "icon_state",
+			"icon_state": "camo_clr3",
+			"blend_mode": "overlay",
+			"color_ids": [ 3 ]
+		},
+		{
+			"type": "icon_state",
+			"icon_state": "uniform_belt",
+			"blend_mode": "overlay"
+		},
+		{
+			"type": "icon_state",
+			"icon_state": "uniform_trim_shoulders",
 			"blend_mode": "overlay"
 		}
 	]
