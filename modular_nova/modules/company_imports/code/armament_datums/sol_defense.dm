@@ -9,10 +9,10 @@
 	cost = PAYCHECK_CREW
 
 /datum/armament_entry/company_import/sol_defense/clothing/peacekeeper
-	item_type = /obj/item/clothing/under/sol_peacekeeper
+	item_type = /obj/item/clothing/under/solfed/sol_peacekeeper
 
 /datum/armament_entry/company_import/sol_defense/clothing/emt
-	item_type = /obj/item/clothing/under/sol_emt
+	item_type = /obj/item/clothing/under/solfed/sol_emt
 
 /datum/armament_entry/company_import/sol_defense/clothing/hecu_mask
 	item_type = /obj/item/clothing/mask/gas/hecu
