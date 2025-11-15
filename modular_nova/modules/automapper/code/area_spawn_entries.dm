@@ -118,6 +118,6 @@
 	desired_atom = /obj/effect/landmark/start/bridge_officer
 
 /datum/area_spawn/cargo_shelves_warehouse
-	target_areas = list(area/station/cargo/warehouse)
+	target_areas = list(/area/station/cargo/warehouse)
 	desired_atom = /obj/item/rack_parts/cargo_shelf
 	amount_to_spawn = 3
