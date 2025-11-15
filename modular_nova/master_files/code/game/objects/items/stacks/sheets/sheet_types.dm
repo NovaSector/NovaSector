@@ -35,6 +35,7 @@ GLOBAL_LIST_INIT(nova_metal_recipes, list(
 	new/datum/stack_recipe("anvil", /obj/structure/reagent_anvil, 10, time = 2 SECONDS, crafting_flags = CRAFT_CHECK_DENSITY | CRAFT_ONE_PER_TURF | CRAFT_ON_SOLID_GROUND, category = CAT_TOOLS),
 	new/datum/stack_recipe("forge", /obj/structure/reagent_forge, 10, time = 2 SECONDS, crafting_flags = CRAFT_CHECK_DENSITY | CRAFT_ONE_PER_TURF | CRAFT_ON_SOLID_GROUND, category = CAT_TOOLS),
 	new/datum/stack_recipe("throwing wheel", /obj/structure/throwing_wheel, 10, time = 2 SECONDS, crafting_flags = CRAFT_CHECK_DENSITY | CRAFT_ONE_PER_TURF | CRAFT_ON_SOLID_GROUND, category = CAT_TOOLS),
+	new/datum/stack_recipe("crate shelf parts", /obj/item/rack_parts/cargo_shelf, 4, category = CAT_FURNITURE), \
 ))
 
 GLOBAL_LIST_INIT(nova_metal_airlock_recipes, list(
