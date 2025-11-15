@@ -18,4 +18,4 @@
 
 	accepted_magazine_type = /obj/item/ammo_box/magazine/smartgun_drum/vasili
 	/// Just so fellow rescue teams cannot be shot
-	iff_factions = list("sol-federation","ert")
+	iff_factions = list("sol-fed")
