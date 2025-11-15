@@ -57,6 +57,7 @@ ADMIN_VERB(import_preferences, R_ADMIN, "Import Preferences", "Upload a characte
 		json_tree = json_decode(new_save)
 	catch(var/exception/err)
 		log_admin("Failed to parse json savefile: [err]")
+		log_runtime("Failed to parse json savefile: [err]")
 		to_chat(user, span_warning("Failed to parse json savefile: [err]"))
 		return
 
