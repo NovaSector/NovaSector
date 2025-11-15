@@ -176,7 +176,7 @@
 	starting_items = list(
 		/obj/item/clothing/head/helmet/sf_peacekeeper,
 		/obj/item/clothing/mask/gas/hecu,
-		/obj/item/clothing/under/sol_peacekeeper,
+		/obj/item/clothing/under/solfed/sol_peacekeeper,
 		/obj/item/clothing/suit/armor/sf_peacekeeper,
 		/obj/item/storage/belt/military/cin_surplus,
 		/obj/item/clothing/gloves/frontier_colonist,

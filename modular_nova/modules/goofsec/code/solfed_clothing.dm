@@ -1,33 +1,4 @@
-// Peacekeeper jumpsuit
-/obj/item/clothing/under/sol_peacekeeper
-	name = "sol peacekeeper uniform"
-	desc = "A military-grade uniform with military grade comfort (none at all), often seen on \
-		SolFed's various peacekeeping forces, and usually alongside a blue helmet."
-	icon = 'modular_nova/modules/goofsec/icons/obj/uniforms.dmi'
-	icon_state = "peacekeeper"
-	worn_icon = 'modular_nova/modules/goofsec/icons/mob/uniforms.dmi'
-	worn_icon_digi = 'modular_nova/modules/goofsec/icons/mob/uniforms_digi.dmi'
-	worn_icon_state = "peacekeeper"
-	armor_type = /datum/armor/clothing_under/rank_security
-	inhand_icon_state = null
-	has_sensor = HAS_SENSORS
-	random_sensor = FALSE
-
-// EMT jumpsuit
-/obj/item/clothing/under/sol_emt
-	name = "sol emergency medical uniform"
-	desc = "A copy of SolFed's peacekeeping uniform, recolored and re-built with paramedics in mind."
-	icon = 'modular_nova/modules/goofsec/icons/obj/uniforms.dmi'
-	icon_state = "emt"
-	worn_icon = 'modular_nova/modules/goofsec/icons/mob/uniforms.dmi'
-	worn_icon_digi = 'modular_nova/modules/goofsec/icons/mob/uniforms_digi.dmi'
-	worn_icon_state = "emt"
-	armor_type = /datum/armor/clothing_under/rank_medical
-	inhand_icon_state = null
-	has_sensor = HAS_SENSORS
-	random_sensor = FALSE
-
-// SolFed 911 Marshal Uniform
+// SolFed 911 Marshal Uniform | The root of all things good aand evil
 /obj/item/clothing/under/solfed
 	name = "\improper SolFed marshal's uniform"
 	desc = "A modernization of the SolFed's peacekeeping uniform, modernized and refurbished to feel fashionable yet functional in its new modern setting, tailored for federal personnel."
@@ -38,7 +9,24 @@
 	inhand_icon_state = null
 	armor_type = /datum/armor/clothing_under/rank_security
 	has_sensor = HAS_SENSORS
-	random_sensor = FALSE
+	sensor_mode = SENSOR_COORDS
+
+// EMT jumpsuit
+/obj/item/clothing/under/solfed/sol_emt
+	name = "sol emergency medical uniform"
+	desc = "A copy of SolFed's peacekeeping uniform, recolored and re-built with paramedics in mind."
+	icon_state = "emt"
+	worn_icon_state = "emt"
+	armor_type = /datum/armor/clothing_under/rank_medical
+
+// Peacekeeper Jumpsuit
+/obj/item/clothing/under/solfed/sol_peacekeeper
+	name = "sol peacekeeper uniform"
+	desc = "A military-grade uniform with military grade comfort (none at all), often seen on \
+		SolFed's various peacekeeping forces, and usually alongside a blue helmet."
+	icon_state = "peacekeeper"
+	worn_icon_state = "peacekeeper"
+	armor_type = /datum/armor/clothing_under/rank_security
 
 // SolFed 911 Atmos Uniform
 /obj/item/clothing/under/solfed/emergencyfire

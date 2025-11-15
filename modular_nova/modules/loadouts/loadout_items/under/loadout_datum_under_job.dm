@@ -160,12 +160,12 @@
 
 /datum/loadout_item/under/jumpsuit/sol_emt
 	name = "Sol Emergency Medical Uniform"
-	item_path = /obj/item/clothing/under/sol_emt
+	item_path = /obj/item/clothing/under/solfed/sol_emt
 	group = "Workwear"
 
 /datum/loadout_item/under/jumpsuit/sol_peacekeeper
 	name = "Sol Peacekeeper Uniform"
-	item_path = /obj/item/clothing/under/sol_peacekeeper
+	item_path = /obj/item/clothing/under/solfed/sol_peacekeeper
 	group = "Workwear"
 
 /datum/loadout_item/under/jumpsuit/utility
