@@ -20,6 +20,11 @@
 	cost = 4
 	path = /obj/item/organ/cyberimp/chest/nutriment
 
+/datum/augment_item/implant/chest/optical_camo
+	name = "Optical Camouflage Implant"
+	cost = 9
+	path = /obj/item/organ/cyberimp/chest/opticalcamo
+
 /datum/augment_item/implant/chest/internal_health_analyzer/lite
 	name = "Internal Health Analyzer"
 	cost = 6
