@@ -50,29 +50,71 @@
 	icon_state = "opticalcamo"
 	slot = ORGAN_SLOT_SPINE
 	w_class = WEIGHT_CLASS_NORMAL
+	actions_types = list(/datum/action/item_action/organ_action/toggle)
+	var/on = FALSE
+	var/bumpoff = TRUE
+	var/stealth_alpha = 35
 
-/obj/item/organ/cyberimp/chest/opticalcamo/emp_act(severity)
-	. = ..()
-	if(!owner || . & EMP_PROTECT_SELF)
+/obj/item/organ/cyberimp/chest/opticalcamo/ui_action_click()
+	toggle()
+
+/obj/item/organ/cyberimp/chest/opticalcamo/Remove(mob/living/carbon/owner, special, movement_flags)
+	if(on)
+		deactivate(silent = TRUE)
+	..()
+
+/obj/item/organ/cyberimp/chest/opticalcamo/proc/toggle(silent = FALSE)
+	if(on)
+		deactivate()
+	else
+		activate()
+
+/obj/item/organ/cyberimp/chest/opticalcamo/proc/activate(silent = FALSE)
+	if(on)
 		return
-	owner.adjust_confusion(rand(8 SECONDS, 11 SECONDS))
-	to_chat(owner, span_warning("Your optical camo malfunctions, leaving the room spinning!"))
-
-/obj/item/organ/cyberimp/chest/opticalcamo/on_mob_insert(mob/living/carbon/organ_owner, special = FALSE, movement_flags)
-	. = ..()
-	if(isnull(organ_owner.has_dna()))
+	if(organ_flags & ORGAN_FAILING)
+		if(!silent)
+			to_chat(owner, span_warning("Your optical camo seems to be broken!"))
 		return
-	if(organ_owner.dna.get_mutation(/datum/mutation/chameleon/implant)) // admin-granted maybe?
-		organ_owner.dna.remove_mutation(/datum/mutation/chameleon/implant)
-	organ_owner.dna.add_mutation(/datum/mutation/chameleon/implant, MUTATION_SOURCE_IMPLANT)
+	if(bumpoff)
+		RegisterSignal(owner, COMSIG_LIVING_MOB_BUMP, PROC_REF(unstealth))
+	RegisterSignal(owner, COMSIG_LIVING_UNARMED_ATTACK, PROC_REF(on_unarmed_attack))
+	RegisterSignal(owner, COMSIG_ATOM_BULLET_ACT, PROC_REF(on_bullet_act))
+	RegisterSignals(owner, list(COMSIG_MOB_ITEM_ATTACK, COMSIG_ATOM_ATTACKBY, COMSIG_ATOM_ATTACK_HAND, COMSIG_ATOM_HITBY, COMSIG_ATOM_HULK_ATTACK, COMSIG_ATOM_ATTACK_PAW, COMSIG_CARBON_CUFF_ATTEMPTED), PROC_REF(unstealth))
+	animate(owner, alpha = stealth_alpha, time = 5 SECONDS)
+	on = TRUE
+	if(!silent)
+		to_chat(owner, span_notice("You turn your optical camo on."))
 
-/obj/item/organ/cyberimp/chest/opticalcamo/on_mob_remove(mob/living/carbon/organ_owner, special = FALSE, movement_flags)
-	. = ..()
-	if(organ_owner.has_dna())
-		organ_owner.dna.remove_mutation(/datum/mutation/chameleon/implant, MUTATION_SOURCE_IMPLANT)
+/obj/item/organ/cyberimp/chest/opticalcamo/proc/deactivate(silent = FALSE)
+	if(!on)
+		return
+	if(bumpoff)
+		UnregisterSignal(owner, COMSIG_LIVING_MOB_BUMP)
+	UnregisterSignal(owner, list(COMSIG_LIVING_UNARMED_ATTACK, COMSIG_MOB_ITEM_ATTACK, COMSIG_ATOM_ATTACKBY, COMSIG_ATOM_ATTACK_HAND, COMSIG_ATOM_BULLET_ACT, COMSIG_ATOM_HITBY, COMSIG_ATOM_HULK_ATTACK, COMSIG_ATOM_ATTACK_PAW, COMSIG_CARBON_CUFF_ATTEMPTED))
+	animate(owner, alpha = 255, time = 1.5 SECONDS)
+	on = FALSE
+	if(!silent)
+		to_chat(owner, span_notice("You turn your optical camo off."))
 
-// nerfed version for the implant, sneaky breaki like
-/datum/mutation/chameleon/implant
-	instability = 0
-	power_coeff = 0.3 //really goddamn slow
-	locked = TRUE
+/obj/item/organ/cyberimp/chest/opticalcamo/proc/unstealth(datum/source)
+	SIGNAL_HANDLER
+
+	to_chat(owner, span_warning("[src] gets discharged from contact!"))
+	do_sparks(2, TRUE, src)
+	deactivate()
+
+/obj/item/organ/cyberimp/chest/opticalcamo/proc/on_unarmed_attack(datum/source, atom/target)
+	SIGNAL_HANDLER
+
+	if(!isliving(target))
+		return
+	unstealth(source)
+
+/obj/item/organ/cyberimp/chest/opticalcamo/proc/on_bullet_act(datum/source, obj/projectile/projectile)
+	SIGNAL_HANDLER
+
+	if(!projectile.is_hostile_projectile())
+		return
+	unstealth(source)
+
