@@ -41,9 +41,7 @@
 	UnregisterSignal(human, COMSIG_MOB_FLASH_OVERRIDE_CHECK)
 
 /datum/species/shadow/check_roundstart_eligible()
-	if(check_holidays(HALLOWEEN))
-		return TRUE
-	return ..()
+	return TRUE
 
 /datum/species/shadow/get_physical_attributes()
 	return "These cursed creatures heal in the dark, but suffer in the light much more heavily. Their eyes let them see in the dark as though it were day."
