@@ -2281,6 +2281,58 @@ TREK
 	name = "SolFed Camo (Worn, Digi)"
 	icon_file = 'modular_nova/modules/goofsec/icons/mob/uniforms_digi.dmi'
 
+/datum/greyscale_config/solfed_civ_hoodie
+	name = "Fed Civilian Hoodie"
+	icon_file = 'modular_nova/modules/goofsec/icons/obj/uniforms.dmi'
+	json_config = 'modular_nova/modules/GAGS/json_configs/solfed/uniform/civilian/hoodie.json'
+
+/datum/greyscale_config/solfed_civ_hoodie/worn
+	name = "Fed Civilian Hoodie (Worn)"
+	icon_file = 'modular_nova/modules/goofsec/icons/mob/uniforms.dmi'
+
+/datum/greyscale_config/solfed_civ_hoodie/worn/digi
+	name = "Fed Civilian Hoodie (Worn, Digi)"
+	icon_file = 'modular_nova/modules/goofsec/icons/mob/uniforms_digi.dmi'
+
+/datum/greyscale_config/solfed_civ_puffy
+	name = "Fed Civilian Puffer"
+	icon_file = 'modular_nova/modules/goofsec/icons/obj/uniforms.dmi'
+	json_config = 'modular_nova/modules/GAGS/json_configs/solfed/uniform/civilian/puffy.json'
+
+/datum/greyscale_config/solfed_civ_puffy/worn
+	name = "Fed Civilian Puffer (Worn)"
+	icon_file = 'modular_nova/modules/goofsec/icons/mob/uniforms.dmi'
+
+/datum/greyscale_config/solfed_civ_puffy/worn/digi
+	name = "Fed Civilian Puffer (Worn, Digi)"
+	icon_file = 'modular_nova/modules/goofsec/icons/mob/uniforms_digi.dmi'
+
+/datum/greyscale_config/solfed_civ_regular
+	name = "Fed Civilian Regular"
+	icon_file = 'modular_nova/modules/goofsec/icons/obj/uniforms.dmi'
+	json_config = 'modular_nova/modules/GAGS/json_configs/solfed/uniform/civilian/regular.json'
+
+/datum/greyscale_config/solfed_civ_regular/worn
+	name = "Fed Civilian Regular (Worn)"
+	icon_file = 'modular_nova/modules/goofsec/icons/mob/uniforms.dmi'
+
+/datum/greyscale_config/solfed_civ_regular/worn/digi
+	name = "Fed Civilian Regular (Worn, Digi)"
+	icon_file = 'modular_nova/modules/goofsec/icons/mob/uniforms_digi.dmi'
+
+/datum/greyscale_config/solfed_civ_twopart
+	name = "Fed Civilian Two Part"
+	icon_file = 'modular_nova/modules/goofsec/icons/obj/uniforms.dmi'
+	json_config = 'modular_nova/modules/GAGS/json_configs/solfed/uniform/civilian/twopart.json'
+
+/datum/greyscale_config/solfed_civ_twopart/worn
+	name = "Fed Civilian Two Part (Worn)"
+	icon_file = 'modular_nova/modules/goofsec/icons/mob/uniforms.dmi'
+
+/datum/greyscale_config/solfed_civ_twopart/worn/digi
+	name = "Fed Civilian Two Part (Worn, Digi)"
+	icon_file = 'modular_nova/modules/goofsec/icons/mob/uniforms_digi.dmi'
+
 /datum/greyscale_config/vestcam
 	name = "SolFed Vest Camo"
 	icon_file = 'modular_nova/modules/goofsec/icons/obj/suits.dmi'
@@ -2313,8 +2365,6 @@ TREK
 /datum/greyscale_config/solfed_goggles/worn
 	name = "SolFed Goggles (Worn)"
 	icon_file = 'modular_nova/modules/goofsec/icons/mob/hats.dmi'
-
-/// Content of PR #5835
 
 /// Turtlenecks
 /datum/greyscale_config/turtlenecks

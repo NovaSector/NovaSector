@@ -66,6 +66,49 @@
 	desc = "A uniform worn by officials of the Sol Federation's Social Services Division."
 	icon_state = "solfed_social"
 
+/obj/item/clothing/under/solfed/civilian
+	name = "SolFed Civilian Uniform"
+	desc = "A standard civilian outfit for any fresh spacetiding citizen of the great Sol Federation..."
+	icon = 'icons/map_icons/clothing/under/_under.dmi'
+
+	icon_state = "/obj/item/clothing/under/solfed/civilian"
+	post_init_icon_state = "uniform"
+	worn_icon_state = "uniform"
+	worn_icon_digi = "uniform"
+
+	armor_type = null
+	greyscale_colors = "#41579A#39393F"
+	greyscale_config = /datum/greyscale_config/solfed_civ_regular
+	greyscale_config_worn = /datum/greyscale_config/solfed_civ_regular/worn
+	greyscale_config_worn_digi = /datum/greyscale_config/solfed_civ_regular/worn/digi
+	can_adjust = FALSE
+
+	unique_reskin = list(
+		"default" = "uniform",
+		"puffy pants" = "uniform_alt_1",
+	)
+
+/obj/item/clothing/under/solfed/civilian/hoodie
+	name = "SolFed Civilian Hoodie"
+	icon_state = "/obj/item/clothing/under/solfed/civilian/hoodie"
+	greyscale_config = /datum/greyscale_config/solfed_civ_hoodie
+	greyscale_config_worn = /datum/greyscale_config/solfed_civ_hoodie/worn
+	greyscale_config_worn_digi = /datum/greyscale_config/solfed_civ_hoodie/worn/digi
+
+/obj/item/clothing/under/solfed/civilian/puffy
+	name = "SolFed Civilian Puffy Uniform"
+	icon_state = "/obj/item/clothing/under/solfed/civilian/puffy"
+	greyscale_config = /datum/greyscale_config/solfed_civ_puffy
+	greyscale_config_worn = /datum/greyscale_config/solfed_civ_puffy/worn
+	greyscale_config_worn_digi = /datum/greyscale_config/solfed_civ_puffy/worn/digi
+
+/obj/item/clothing/under/solfed/civilian/twopart
+	name = "SolFed Civilian Two Part Uniform"
+	icon_state = "/obj/item/clothing/under/solfed/civilian/twopart"
+	greyscale_config = /datum/greyscale_config/solfed_civ_twopart
+	greyscale_config_worn = /datum/greyscale_config/solfed_civ_twopart/worn
+	greyscale_config_worn_digi = /datum/greyscale_config/solfed_civ_twopart/worn/digi
+
 /*
 
 SOLFED ARMOR VALUES!
