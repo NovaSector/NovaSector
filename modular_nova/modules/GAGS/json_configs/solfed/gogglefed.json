@@ -8,6 +8,11 @@
 		},
 		{
 			"type": "icon_state",
+			"icon_state": "goggles_strap",
+			"blend_mode": "overlay"
+		},
+		{
+			"type": "icon_state",
 			"icon_state": "goggles_glass",
 			"blend_mode": "overlay"
 		}
