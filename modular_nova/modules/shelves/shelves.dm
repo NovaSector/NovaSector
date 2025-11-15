@@ -32,10 +32,7 @@
 	return
 
 /obj/structure/cargo_shelf/Destroy()
-	var/turf/drop_location = drop_location()
-	for(var/obj/structure/closet/crate/crate in contents)
-		if(!QDELETED(crate))
-			remove_crate(crate, drop_location)
+	spill_contents()
 	return ..()
 
 /obj/structure/cargo_shelf/examine(mob/user)
@@ -94,6 +91,15 @@
 	return TRUE
 
 /obj/structure/cargo_shelf/atom_deconstruct(disassembled = TRUE)
+	spill_contents()
+	if(!disassembled)
+		return ..()
+
+	var/obj/item/rack_parts/cargo_shelf/newparts = new(loc)
+	transfer_fingerprints_to(newparts)
+
+/// Fling crates around and open/break some of them in the process
+/obj/structure/cargo_shelf/proc/spill_contents()
 	var/turf/dump_turf = drop_location()
 	for(var/obj/structure/closet/crate/crate in contents)
 		remove_crate(crate, dump_turf)
@@ -107,14 +113,10 @@
 					crate.visible_message(span_warning("[crate]'s lid falls open!"))
 				else // If we somehow fail to open the crate, just break it instead!
 					crate.visible_message(span_warning("[crate] falls apart!"))
-					crate.deconstruct()
+					crate.deconstruct(FALSE)
 			if(3) // Break that crate!
 				crate.visible_message(span_warning("[crate] falls apart!"))
-				crate.deconstruct()
-	density = FALSE
-	var/obj/item/rack_parts/cargo_shelf/newparts = new(loc)
-	transfer_fingerprints_to(newparts)
-	return ..()
+				crate.deconstruct(FALSE)
 
 /obj/structure/closet/crate/mouse_drop_dragged(atom/over, mob/user, src_location, over_location, params)
 	. = ..()
