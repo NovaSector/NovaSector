@@ -1,0 +1,4 @@
+author: "FlufflesTheDog"
+delete-after: True
+changes:
+  - bugfix: "Manually sleeping with indefinite duration can once again be resisted out of"
