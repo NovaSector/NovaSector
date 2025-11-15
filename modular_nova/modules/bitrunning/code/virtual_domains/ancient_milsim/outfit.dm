@@ -1,7 +1,7 @@
 /datum/outfit/solfed_bitrun
 	name = "Bitrunning SolFed Marine"
 
-	uniform = /obj/item/clothing/under/sol_peacekeeper
+	uniform = /obj/item/clothing/under/solfed/sol_peacekeeper
 	head = null
 	mask = /obj/item/clothing/mask/neck_gaiter
 	gloves = /obj/item/clothing/gloves/frontier_colonist
