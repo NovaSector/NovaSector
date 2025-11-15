@@ -1,9 +1,8 @@
 /datum/species/shadow
-	sexes = TRUE
-
 	mutantheart = /obj/item/organ/heart/nightmare
 	mutantlungs = /obj/item/organ/lungs
 	digitigrade_customization = DIGITIGRADE_OPTIONAL
+	sexes = TRUE
 
 	inherent_traits = list(
 		TRAIT_ADVANCEDTOOLUSER,

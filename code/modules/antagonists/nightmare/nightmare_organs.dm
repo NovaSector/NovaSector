@@ -25,15 +25,9 @@
 	our_jaunt = new(brain_owner)
 	our_jaunt.Grant(brain_owner)
 
-	// NOVA EDIT ADDITION START - remove this redundant snowflake
-	terrorize_spell = new(src)
-	terrorize_spell.Grant(brain_owner)
-	// NOVA EDIT ADDITION END
-	/* NOVA EDIT REMOVAL START
 	if(brain_owner.mind?.has_antag_datum(/datum/antagonist/nightmare)) //Only a TRUE NIGHTMARE is worthy of using this ability
 		terrorize_spell = new(src)
 		terrorize_spell.Grant(brain_owner)
-	NOVA EDIT REMOVAL END */
 
 /obj/item/organ/brain/shadow/nightmare/on_mob_remove(mob/living/carbon/brain_owner)
 	. = ..()
