@@ -93,3 +93,9 @@
 		var/obj/item/organ/eyes/eyes = blinker.get_organ_slot(ORGAN_SLOT_EYES)
 		eyes?.blink()
 		CHECK_TICK
+
+/datum/config_entry/number/savefile_backup_limit
+	default = 16
+
+/datum/config_entry/number/savefile_upload_limit
+	default = 2000
