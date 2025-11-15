@@ -153,13 +153,15 @@ SOLFED ARMOR VALUES!
 /obj/item/clothing/head/helmet/solfed/attack_self(mob/living/user)
 	toggle_helmet_light(user)
 
+// SolFed flak jacket, for civilian use
 /obj/item/clothing/suit/armor/vest/sol
 	name = "'Gordyn' flak vest"
 	desc = "A light armored jacket common on SolFed personnel who need armor, but find a full vest \
 		too impractical or unneeded."
-	icon = 'modular_nova/modules/goofsec/icons/obj/uniforms.dmi'
+	icon = 'modular_nova/modules/goofsec/icons/obj/suits.dmi'
 	icon_state = "flak"
-	worn_icon = 'modular_nova/modules/goofsec/icons/mob/uniforms.dmi'
+	worn_icon = 'modular_nova/modules/goofsec/icons/mob/suits.dmi'
+	worn_icon_digi = 'modular_nova/modules/goofsec/icons/mob/suits_digi.dmi'
 	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION_NO_NEW_ICON
 	dog_fashion = null
 
