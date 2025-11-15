@@ -1,4 +1,0 @@
-author: "Diltyrr"
-delete-after: True
-changes:
-  - bugfix: "fixed an issue that turned donator pets into unmovable sprites."
