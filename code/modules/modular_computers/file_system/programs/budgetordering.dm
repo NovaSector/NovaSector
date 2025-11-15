@@ -109,11 +109,6 @@
 		// NOVA EDIT ADDITION END
 
 		var/obj/item/first_item = length(P.contains) > 0 ? P.contains[1] : null
-		// NOVA EDIT ADDITION START
-		if (first_item && P.auto_name)
-			P.name = first_item.name
-			P.desc = first_item.desc
-		// NOVA EDIT ADDITION END
 		data["supplies"][P.group]["packs"] += list(list(
 			"name" = P.name,
 			"cost" = P.get_cost(),
