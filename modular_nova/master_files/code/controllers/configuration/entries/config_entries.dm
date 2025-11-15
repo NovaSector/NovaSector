@@ -94,8 +94,10 @@
 		eyes?.blink()
 		CHECK_TICK
 
+///The maximum number of allowed savefile backups per player
 /datum/config_entry/number/savefile_backup_limit
 	default = 16
 
+///The maximum file size allowed by savefile uploading, in kilobytes
 /datum/config_entry/number/savefile_upload_limit
 	default = 2000
