@@ -44,7 +44,7 @@
 		. += span_notice("You could <b>drag and drop</b> a crate out of [src].")
 		. += span_notice("[src] contains:")
 		for(var/obj/structure/closet/crate/crate in contents)
-			. += "	[icon2html(crate, user)] [crate]"
+			. += span_notice("[icon2html(crate, user)] \A [crate]")
 
 /obj/structure/cargo_shelf/wrench_act_secondary(mob/living/user, obj/item/tool)
 	tool.play_tool_sound(src)
