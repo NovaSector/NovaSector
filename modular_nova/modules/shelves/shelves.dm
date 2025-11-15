@@ -72,7 +72,9 @@
 		return FALSE
 	if(!instant && !do_after(user, use_delay, target = crate))
 		return FALSE // If the do_after() is interrupted, return FALSE!
-	return add_crate(crate, y_offset)
+	crate.add_fingerprint(user)
+	add_crate(crate, y_offset)
+	return TRUE
 
 
 /// proc that will attempt to remove something to the contents of the shelf
@@ -82,12 +84,14 @@
 	if(!unload_turf.Enter(crate)) // If moving the crate from the shelf to the desired turf would bump, don't do it! Thanks Kapu1178 for the help here. - Generic DM
 		unload_turf.balloon_alert(user, "no room!")
 		return FALSE
-	if(do_after(user, use_delay, target = crate))
-		if(!locate(crate) in src)
-			return FALSE // If something has happened to the crate while we were waiting, abort!
-		remove_crate(crate, unload_turf)
-		return TRUE
-	return FALSE  // If the do_after() is interrupted, return FALSE!
+	if(!do_after(user, use_delay, target = crate))
+		return FALSE
+	if(!locate(crate) in src)
+		return FALSE // If something has happened to the crate while we were waiting, abort!
+
+	remove_crate(crate, unload_turf)
+	crate.add_fingerprint(user)
+	return TRUE
 
 /obj/structure/cargo_shelf/atom_deconstruct(disassembled = TRUE)
 	var/turf/dump_turf = drop_location()
@@ -135,8 +139,8 @@
 		var/obj/structure/cargo_shelf/source_shelf = loc
 		var/obj/structure/cargo_shelf/destination_shelf = over
 
-		source_shelf.unload(src, user, destination_shelf)
-		destination_shelf.load(src, user, y_offset, instant = TRUE)
+		if(source_shelf.unload(src, user, destination_shelf))
+			destination_shelf.load(src, user, y_offset, instant = TRUE)
 		return
 
 	// -----------------------------------------
