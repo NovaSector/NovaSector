@@ -75831,9 +75831,7 @@
 "oyB" = (
 /obj/structure/table,
 /obj/structure/cable,
-/obj/machinery/microwave{
-	pixel_y = 8
-	},
+/obj/machinery/microwave,
 /turf/open/floor/iron/dark,
 /area/station/security/prison/mess)
 "oyC" = (
@@ -81984,9 +81982,7 @@
 "pKc" = (
 /obj/effect/turf_decal/bot,
 /obj/structure/table,
-/obj/machinery/reagentgrinder{
-	pixel_y = 8
-	},
+/obj/machinery/reagentgrinder,
 /turf/open/floor/iron/dark,
 /area/station/security/prison/mess)
 "pKd" = (

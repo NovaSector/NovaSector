@@ -45,19 +45,10 @@
 	if(preference != "species")
 		return
 	preferences.languages = list()
-	var/species_type = preferences.read_preference(/datum/preference/choiced/species)
-	var/datum/species/species = new species_type()
-	var/datum/language_holder/lang_holder = new species.species_language_holder()
-	for(var/language in preferences.get_adjusted_language_holder())
-		preferences.languages[language] = LANGUAGE_SPOKEN
-	qdel(lang_holder)
-	qdel(species)
-
+	var/datum/species/species_type = preferences.read_preference(/datum/preference/choiced/species)
+	var/datum/language_holder/lang_holder = GLOB.prototype_language_holders[species_type::species_language_holder]
 	for(var/language in lang_holder.spoken_languages)
 		preferences.languages[language] = LANGUAGE_SPOKEN
-
-	qdel(lang_holder)
-	qdel(species)
 
 /datum/preference_middleware/languages/get_ui_data(mob/user)
 	if(length(name_to_language) != length(GLOB.all_languages))
@@ -66,9 +57,9 @@
 	var/list/data = list()
 
 	var/max_languages = preferences.all_quirks.Find(TRAIT_LINGUIST) ? MAX_LANGUAGES_LINGUIST : MAX_LANGUAGES_NORMAL
-	var/species_type = preferences.read_preference(/datum/preference/choiced/species)
-	var/datum/species/species = new species_type()
-	var/datum/language_holder/lang_holder = preferences.get_adjusted_language_holder()
+	var/datum/species/species_type = preferences.read_preference(/datum/preference/choiced/species)
+	var/datum/species/species = GLOB.species_prototypes[species_type]
+	var/datum/language_holder/lang_holder = GLOB.prototype_language_holders[species.species_language_holder]
 	if(!preferences.languages || !preferences.languages.len || (preferences.languages && preferences.languages.len > max_languages)) // Too many languages, or no languages.
 		preferences.languages = list()
 		for(var/language in lang_holder.spoken_languages)
@@ -77,10 +68,9 @@
 	var/list/selected_languages = list()
 	var/list/unselected_languages = list()
 
-	for (var/language_name in GLOB.all_languages)
-		var/datum/language/language = GLOB.language_datum_instances[language_name]
-
-		if(language.secret && !(language.type in species.language_prefs_whitelist)) // For ghostrole species who are able to speak a secret language, e.g. ashwalkers, display it.
+	for (var/language_path, language_instance in GLOB.language_datum_instances)
+		var/datum/language/language = language_instance
+		if(language.secret && (isnull(species.language_prefs_whitelist) || isnull(species.language_prefs_whitelist[language_path]))) // For ghostrole species who are able to speak a secret language, e.g. ashwalkers, display it.
 			continue
 
 		if(species.always_customizable && !(language.type in lang_holder.spoken_languages)) // For the ghostrole species. We don't want ashwalkers speaking beachtongue now.
@@ -98,9 +88,6 @@
 				"name" = language.name,
 				"icon" = sanitize_css_class_name(language.name)
 			))
-
-	qdel(lang_holder)
-	qdel(species)
 
 	data["total_language_points"] = max_languages
 	data["selected_languages"] = selected_languages

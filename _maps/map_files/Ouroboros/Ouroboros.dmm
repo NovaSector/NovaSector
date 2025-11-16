@@ -4537,8 +4537,8 @@
 /turf/open/floor/engine,
 /area/station/engineering/supermatter/room)
 "bpN" = (
-/obj/machinery/hydroponics/soil,
 /obj/machinery/airalarm/directional/south,
+/obj/machinery/hydroponics/constructable,
 /turf/open/floor/grass,
 /area/station/service/hydroponics/garden)
 "bpO" = (
@@ -12330,7 +12330,7 @@
 /turf/open/floor/carpet/green,
 /area/station/hallway/secondary/exit/departure_lounge)
 "dHo" = (
-/obj/machinery/hydroponics/soil,
+/obj/machinery/hydroponics/constructable,
 /turf/open/floor/grass,
 /area/station/service/hydroponics/garden)
 "dHr" = (
@@ -19698,11 +19698,11 @@
 /turf/open/floor/iron/dark/diagonal,
 /area/station/security/lockers)
 "fMC" = (
-/obj/machinery/hydroponics/soil,
 /obj/item/cultivator{
 	pixel_y = -12
 	},
 /obj/machinery/firealarm/directional/north,
+/obj/machinery/hydroponics/constructable,
 /turf/open/floor/grass,
 /area/station/service/hydroponics/garden)
 "fMJ" = (
@@ -32350,15 +32350,7 @@
 /turf/open/floor/iron/dark/corner,
 /area/station/hallway/secondary/recreation)
 "jso" = (
-/obj/structure/table/glass,
-/obj/item/storage/bag/plants/portaseeder{
-	pixel_y = 12
-	},
-/obj/item/storage/bag/plants{
-	pixel_y = 5
-	},
-/obj/item/crowbar,
-/obj/item/hatchet,
+/obj/machinery/vending/hydroseeds,
 /turf/open/floor/iron,
 /area/station/service/hydroponics/garden)
 "jsz" = (
@@ -33986,6 +33978,9 @@
 /obj/effect/turf_decal/siding/wood{
 	dir = 4
 	},
+/obj/item/storage/bag/plants/portaseeder,
+/obj/item/hatchet,
+/obj/item/crowbar,
 /turf/open/floor/iron,
 /area/station/service/hydroponics/garden)
 "jQW" = (
@@ -58584,29 +58579,13 @@
 /turf/open/floor/iron/dark,
 /area/station/maintenance/starboard/fore)
 "qTi" = (
-/obj/structure/table/glass,
-/obj/item/reagent_containers/spray/pestspray{
-	pixel_x = 6;
-	pixel_y = 9
-	},
-/obj/item/reagent_containers/spray/plantbgone{
-	pixel_y = 7;
-	pixel_x = -8
-	},
-/obj/item/reagent_containers/cup/bottle/nutrient/ez{
-	pixel_x = 6;
-	pixel_y = 4
-	},
-/obj/item/reagent_containers/cup/bottle/nutrient/rh{
-	pixel_x = -6;
-	pixel_y = 4
-	},
 /obj/effect/turf_decal/trimline/neutral/line{
 	dir = 4
 	},
 /obj/effect/turf_decal/siding/wood{
 	dir = 4
 	},
+/obj/machinery/vending/hydronutrients,
 /turf/open/floor/iron,
 /area/station/service/hydroponics/garden)
 "qTy" = (
@@ -65686,8 +65665,8 @@
 /turf/open/floor/iron/white,
 /area/station/medical/storage)
 "sXX" = (
-/obj/machinery/hydroponics/soil,
 /obj/machinery/light/warm/directional/north,
+/obj/machinery/hydroponics/constructable,
 /turf/open/floor/grass,
 /area/station/service/hydroponics/garden)
 "sYb" = (
@@ -66719,12 +66698,6 @@
 	},
 /turf/open/floor/iron/dark/smooth_large,
 /area/station/command/bridge)
-"tmU" = (
-/obj/machinery/hydroponics/soil,
-/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
-/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
-/turf/open/floor/grass,
-/area/station/service/hydroponics/garden)
 "tne" = (
 /obj/machinery/atmospherics/pipe/smart/simple/supply/visible,
 /obj/machinery/meter,
@@ -83649,9 +83622,9 @@
 /turf/open/floor/engine,
 /area/station/engineering/atmos)
 "ygR" = (
-/obj/machinery/hydroponics/soil,
 /obj/machinery/light/warm/directional/south,
 /obj/machinery/newscaster/directional/south,
+/obj/machinery/hydroponics/constructable,
 /turf/open/floor/grass,
 /area/station/service/hydroponics/garden)
 "yhc" = (
@@ -188014,7 +187987,7 @@ kKf
 kKf
 fZM
 xXe
-tmU
+vWA
 bZE
 sNm
 dHo

@@ -659,7 +659,7 @@
 			f = user.filters[start+i]
 			animate(f, offset=f:offset, time=0, loop=3, flags=ANIMATION_PARALLEL)
 			animate(offset=f:offset-1, time=rand()*20+10)
-		if (do_after(user, 5 SECONDS, target=user) && user.cell.use(activationCost))
+		if (do_after(user, 5 SECONDS, target=user) && (!activationCost || user.cell.use(activationCost)))
 			playsound(src, 'sound/effects/bamf.ogg', 100, TRUE, -6)
 			to_chat(user, span_notice("You are now disguised."))
 			activate(user)
@@ -696,7 +696,7 @@
 	return TRUE
 
 /obj/item/borg_shapeshifter/process()
-	if (user && !user.cell?.use(activationUpkeep))
+	if (user && activationUpkeep && !user.cell?.use(activationUpkeep))
 		disrupt(user)
 	else
 		return PROCESS_KILL
