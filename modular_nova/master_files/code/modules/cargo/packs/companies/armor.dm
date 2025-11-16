@@ -169,6 +169,3 @@
 /datum/supply_pack/companies/armor/donk/fake_syndie_suit
 	contains = list(/obj/item/storage/box/fakesyndiesuit)
 
-
-
-
