@@ -107,7 +107,6 @@
 		if(!(P.console_flag & console_flag))
 			continue
 		// NOVA EDIT ADDITION END
-
 		var/obj/item/first_item = length(P.contains) > 0 ? P.contains[1] : null
 		data["supplies"][P.group]["packs"] += list(list(
 			"name" = P.name,
