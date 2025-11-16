@@ -194,7 +194,6 @@
 		if(!(pack.console_flag & console_flag))
 			continue
 		// NOVA EDIT ADDITION END
-
 		var/obj/item/first_item = length(pack.contains) > 0 ? pack.contains[1] : null
 		packs += list(list(
 			"name" = pack.name,
