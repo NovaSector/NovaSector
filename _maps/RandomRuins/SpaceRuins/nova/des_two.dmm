@@ -3348,6 +3348,7 @@
 /obj/effect/mapping_helpers/apc/syndicate_access,
 /obj/effect/mapping_helpers/apc/cell_10k,
 /obj/structure/table,
+/obj/item/storage/toolbox/syndicate,
 /turf/open/floor/iron/dark,
 /area/ruin/space/has_grav/nova/des_two/engineering)
 "nY" = (
