@@ -358,6 +358,7 @@
 /obj/effect/turf_decal/siding/dark{
 	dir = 10
 	},
+/obj/structure/sign/flag/syndicate/directional/south,
 /turf/open/floor/carpet/red,
 /area/ruin/space/has_grav/nova/des_two/bridge/admiral)
 "bB" = (
@@ -2878,6 +2879,15 @@
 /obj/effect/spawner/random/maintenance/three,
 /obj/effect/spawner/random/medical/medkit,
 /obj/structure/closet/crate/wooden,
+/obj/item/sign/flag/syndicate{
+	pixel_y = 6
+	},
+/obj/item/sign/flag/syndicate{
+	pixel_y = 6
+	},
+/obj/item/sign/flag/syndicate{
+	pixel_y = 6
+	},
 /turf/open/floor/iron/dark/textured_large,
 /area/ruin/space/has_grav/nova/des_two/cargo/storage)
 "mh" = (
@@ -2916,6 +2926,7 @@
 "mt" = (
 /obj/machinery/light/cold/directional/west,
 /obj/effect/turf_decal/trimline/dark_red/filled/warning,
+/obj/structure/sign/flag/syndicate/directional/west,
 /turf/open/floor/iron/dark/textured_large,
 /area/ruin/space/has_grav/nova/des_two/cargo)
 "mv" = (
@@ -3791,6 +3802,7 @@
 /obj/effect/turf_decal/trimline/dark_green/corner{
 	dir = 4
 	},
+/obj/structure/sign/flag/syndicate/directional/east,
 /turf/open/floor/iron/dark/brick_aligned_half_vertical{
 	dir = 8
 	},
@@ -4176,6 +4188,9 @@
 /obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer2,
 /obj/effect/turf_decal/siding/dark{
 	dir = 1
+	},
+/obj/item/sign/flag/syndicate{
+	pixel_y = 6
 	},
 /turf/open/floor/carpet/donk,
 /area/ruin/space/has_grav/nova/des_two/bridge/cl)
@@ -5029,6 +5044,7 @@
 	dir = 4
 	},
 /obj/machinery/light/cold/directional/south,
+/obj/structure/sign/flag/syndicate/directional/south,
 /turf/open/floor/iron/dark/smooth_large,
 /area/ruin/space/has_grav/nova/des_two/halls)
 "vC" = (
@@ -6361,6 +6377,7 @@
 /obj/effect/turf_decal/siding/wood{
 	dir = 8
 	},
+/obj/structure/sign/flag/syndicate/directional/south,
 /turf/open/floor/mineral/plastitanium/red,
 /area/ruin/space/has_grav/nova/des_two/bridge/admiral)
 "BJ" = (
@@ -7942,6 +7959,10 @@
 	},
 /obj/effect/turf_decal/siding/dark{
 	dir = 5
+	},
+/obj/item/sign/flag/syndicate{
+	pixel_x = 1;
+	pixel_y = 12
 	},
 /turf/open/floor/carpet/red,
 /area/ruin/space/has_grav/nova/des_two/bridge/admiral)
@@ -9601,6 +9622,12 @@
 /obj/item/reagent_containers/blood/o_minus,
 /turf/open/floor/iron/dark/textured_large,
 /area/ruin/space/has_grav/nova/des_two/cargo)
+"Ph" = (
+/obj/structure/sign/flag/syndicate/directional/west,
+/turf/open/floor/iron/dark/brick_aligned_half_vertical{
+	dir = 4
+	},
+/area/ruin/space/has_grav/nova/des_two/halls)
 "Pi" = (
 /obj/machinery/computer/atmos_alert,
 /obj/effect/turf_decal/trimline/dark_red/line,
@@ -9662,6 +9689,10 @@
 /obj/effect/spawner/random/engineering/tool,
 /obj/effect/spawner/random/engineering/toolbox,
 /turf/open/floor/iron/dark/diagonal,
+/area/ruin/space/has_grav/nova/des_two/cargo)
+"Pz" = (
+/obj/structure/sign/flag/syndicate/directional/east,
+/turf/open/floor/iron/dark/textured_large,
 /area/ruin/space/has_grav/nova/des_two/cargo)
 "PB" = (
 /turf/open/floor/iron,
@@ -9861,6 +9892,7 @@
 /obj/machinery/atmospherics/components/unary/vent_pump/on/layer4{
 	dir = 8
 	},
+/obj/structure/sign/flag/syndicate/directional/east,
 /turf/open/floor/iron/dark/brick_aligned_half_vertical{
 	dir = 8
 	},
@@ -10530,6 +10562,15 @@
 	dir = 1
 	},
 /area/ruin/space/has_grav/nova/des_two/cargo/hangar)
+"To" = (
+/obj/effect/turf_decal/stripes/red/line{
+	dir = 8
+	},
+/obj/structure/sign/flag/syndicate/directional/west,
+/turf/open/floor/iron/dark/brick_aligned_half_vertical{
+	dir = 4
+	},
+/area/ruin/space/has_grav/nova/des_two/halls)
 "Tq" = (
 /obj/machinery/photocopier/prebuilt,
 /obj/machinery/atmospherics/components/unary/vent_pump/on/layer4{
@@ -11069,6 +11110,7 @@
 	name = "A totally real syndicate grenade prototype"
 	},
 /obj/machinery/light/cold/directional/south,
+/obj/structure/sign/flag/syndicate/directional/south,
 /turf/open/floor/iron/dark/smooth_large,
 /area/ruin/space/has_grav/nova/des_two/halls)
 "VE" = (
@@ -13180,7 +13222,7 @@ SL
 MV
 MV
 Di
-MV
+Ph
 MV
 MV
 iU
@@ -13195,7 +13237,7 @@ Qx
 SW
 Ja
 xw
-Ja
+To
 Ja
 AT
 li
@@ -14968,7 +15010,7 @@ Ev
 TU
 gh
 mr
-Rv
+Pz
 TU
 IZ
 gd
