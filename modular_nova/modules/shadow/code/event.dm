@@ -108,7 +108,7 @@ GLOBAL_LIST_INIT(nightmare_presets_hair_female, list(
 			feature_list[FEATURE_SNOUT] = feature_index.Copy()
 
 	// straightens your legs and steals your snout
-	prob(NIGHTMARE_DEMIHUMAN_PROB)
+	if(prob(NIGHTMARE_DEMIHUMAN_PROB))
 		body.dna.features[FEATURE_LEGS] = NORMAL_LEGS
 		feature_index[MUTANT_INDEX_NAME] = /datum/sprite_accessory/snouts/none::name
 		feature_list[FEATURE_SNOUT] = feature_index.Copy()
