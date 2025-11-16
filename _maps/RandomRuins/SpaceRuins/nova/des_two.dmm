@@ -28,7 +28,7 @@
 /obj/effect/turf_decal/siding/wood/corner{
 	dir = 8
 	},
-/turf/open/floor/wood/parquet,
+/turf/open/floor/wood/wood_5,
 /area/ruin/space/has_grav/nova/des_two/service/diner)
 "ah" = (
 /obj/structure/table/reinforced,
@@ -942,7 +942,7 @@
 /obj/effect/turf_decal/siding/wood{
 	dir = 1
 	},
-/turf/open/floor/wood/parquet,
+/turf/open/floor/wood/wood_5,
 /area/ruin/space/has_grav/nova/des_two/service/diner)
 "dN" = (
 /obj/machinery/light/cold/directional/east,
@@ -3505,7 +3505,7 @@
 /area/ruin/space/has_grav/nova/des_two/research)
 "oL" = (
 /obj/effect/turf_decal/siding/wood,
-/turf/open/floor/wood/parquet,
+/turf/open/floor/wood/wood_5,
 /area/ruin/space/has_grav/nova/des_two/service/diner)
 "oP" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
@@ -3690,7 +3690,7 @@
 /obj/structure/disposalpipe/segment{
 	dir = 4
 	},
-/turf/open/floor/wood/parquet,
+/turf/open/floor/wood/wood_5,
 /area/ruin/space/has_grav/nova/des_two/service/diner)
 "pv" = (
 /obj/machinery/power/apc/auto_name/directional/east,
@@ -3959,7 +3959,7 @@
 /obj/structure/disposalpipe/segment{
 	dir = 4
 	},
-/turf/open/floor/wood/parquet,
+/turf/open/floor/wood/wood_5,
 /area/ruin/space/has_grav/nova/des_two/service/diner)
 "qI" = (
 /obj/machinery/door/airlock/grunge{
@@ -4297,7 +4297,7 @@
 /turf/open/floor/plating,
 /area/ruin/space/has_grav/nova/des_two/engineering)
 "sn" = (
-/turf/open/floor/wood/parquet,
+/turf/open/floor/wood/wood_5,
 /area/ruin/space/has_grav/nova/des_two/service/diner)
 "sq" = (
 /turf/open/floor/iron/dark/textured_large,
@@ -4745,7 +4745,7 @@
 /obj/effect/turf_decal/siding/wood{
 	dir = 4
 	},
-/turf/open/floor/wood/parquet,
+/turf/open/floor/wood/wood_5,
 /area/ruin/space/has_grav/nova/des_two/service/diner)
 "uf" = (
 /obj/effect/turf_decal/tile/dark_red/half{
@@ -4894,7 +4894,7 @@
 /obj/effect/turf_decal/siding/wood{
 	dir = 8
 	},
-/turf/open/floor/wood/parquet,
+/turf/open/floor/wood/wood_5,
 /area/ruin/space/has_grav/nova/des_two/service/diner)
 "uQ" = (
 /obj/machinery/light_switch/directional/north,
@@ -5326,7 +5326,7 @@
 /obj/effect/turf_decal/siding/wood{
 	dir = 10
 	},
-/turf/open/floor/wood/parquet,
+/turf/open/floor/wood/wood_5,
 /area/ruin/space/has_grav/nova/des_two/service/diner)
 "wF" = (
 /obj/item/storage/belt/security/webbing/ds,
@@ -6203,7 +6203,7 @@
 /obj/structure/disposalpipe/junction/flip{
 	dir = 8
 	},
-/turf/open/floor/wood/parquet,
+/turf/open/floor/wood/wood_5,
 /area/ruin/space/has_grav/nova/des_two/service/diner)
 "AL" = (
 /obj/structure/cable,
@@ -7388,7 +7388,7 @@
 /obj/structure/disposalpipe/segment{
 	dir = 10
 	},
-/turf/open/floor/wood/parquet,
+/turf/open/floor/wood/wood_5,
 /area/ruin/space/has_grav/nova/des_two/service/diner)
 "FH" = (
 /obj/effect/turf_decal/trimline/dark_green/warning{
@@ -7889,7 +7889,7 @@
 /obj/structure/disposalpipe/segment{
 	dir = 4
 	},
-/turf/open/floor/wood/parquet,
+/turf/open/floor/wood/wood_5,
 /area/ruin/space/has_grav/nova/des_two/service/diner)
 "HJ" = (
 /obj/machinery/light/cold/directional/north,
@@ -8713,7 +8713,7 @@
 /obj/effect/turf_decal/siding/wood{
 	dir = 5
 	},
-/turf/open/floor/wood/parquet,
+/turf/open/floor/wood/wood_5,
 /area/ruin/space/has_grav/nova/des_two/service/diner)
 "Lc" = (
 /obj/effect/turf_decal/siding/dark{
@@ -9595,7 +9595,7 @@
 /obj/effect/turf_decal/siding/wood{
 	dir = 9
 	},
-/turf/open/floor/wood/parquet,
+/turf/open/floor/wood/wood_5,
 /area/ruin/space/has_grav/nova/des_two/service/diner)
 "OP" = (
 /obj/machinery/atmospherics/components/unary/vent_pump/on/layer4{
@@ -10881,7 +10881,7 @@
 /obj/effect/turf_decal/siding/wood{
 	dir = 6
 	},
-/turf/open/floor/wood/parquet,
+/turf/open/floor/wood/wood_5,
 /area/ruin/space/has_grav/nova/des_two/service/diner)
 "Ul" = (
 /obj/machinery/light/warm/directional/north,
@@ -11041,7 +11041,7 @@
 /obj/effect/turf_decal/siding/wood{
 	dir = 1
 	},
-/turf/open/floor/wood/parquet,
+/turf/open/floor/wood/wood_5,
 /area/ruin/space/has_grav/nova/des_two/service/diner)
 "UW" = (
 /obj/structure/cable,
