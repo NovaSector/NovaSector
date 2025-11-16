@@ -48,7 +48,7 @@
 	actions_types = list(/datum/action/item_action/organ_action/toggle)
 	var/on = FALSE
 	var/bumpoff = TRUE
-	var/stealth_alpha = 35
+	var/stealth_alpha = 40
 	var/poison_amount = 3
 
 /obj/item/organ/cyberimp/chest/opticalcamo/ui_action_click()
