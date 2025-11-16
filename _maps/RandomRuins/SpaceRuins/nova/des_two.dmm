@@ -489,7 +489,7 @@
 /obj/effect/mapping_helpers/airlock/unres{
 	dir = 8
 	},
-/obj/effect/mapping_helpers/airlock/access/all/syndicate/general,
+/obj/effect/mapping_helpers/airlock/access/all/syndicate/leader,
 /turf/open/floor/grass,
 /area/ruin/space/has_grav/nova/des_two/security)
 "cf" = (
@@ -9030,7 +9030,8 @@
 /obj/structure/table/reinforced/plastitaniumglass,
 /obj/machinery/button/door/directional/north{
 	name = "Mech Bay Access";
-	id = "ds2robotics"
+	id = "ds2robotics";
+	req_access = list("syndicate")
 	},
 /turf/open/floor/iron/half,
 /area/ruin/space/has_grav/nova/des_two/research/robotics)
