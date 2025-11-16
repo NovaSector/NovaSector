@@ -6260,7 +6260,7 @@
 /obj/machinery/door/airlock/hatch{
 	name = "DS-2 Hangar Bay"
 	},
-/obj/effect/mapping_helpers/airlock/access/all/syndicate/general,
+/obj/effect/mapping_helpers/airlock/access/all/syndicate/leader,
 /turf/open/floor/iron/dark/textured_large,
 /area/ruin/space/has_grav/nova/des_two/cargo)
 "Bg" = (
@@ -6288,6 +6288,9 @@
 /obj/structure/disposalpipe/segment,
 /obj/effect/turf_decal/trimline/brown/warning{
 	dir = 1
+	},
+/obj/machinery/button/door/directional/west{
+	id = "ds2cargohold"
 	},
 /turf/open/floor/iron/dark/textured_large,
 /area/ruin/space/has_grav/nova/des_two/cargo)
@@ -9810,6 +9813,9 @@
 /area/ruin/space/has_grav/nova/des_two/service/changing_room)
 "PZ" = (
 /obj/effect/turf_decal/trimline/brown/warning,
+/obj/machinery/button/door/directional/east{
+	id = "ds2cargohold"
+	},
 /turf/open/floor/iron/dark/brick_aligned_corner_vertical{
 	dir = 1
 	},
@@ -10975,14 +10981,14 @@
 /turf/open/floor/iron/dark/textured_large,
 /area/ruin/space/has_grav/nova/des_two/cargo)
 "Vb" = (
-/obj/machinery/door/airlock/hatch{
-	name = "DS-2 Hangar Bay"
-	},
-/obj/effect/mapping_helpers/airlock/access/all/syndicate/general,
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/structure/disposalpipe/segment,
+/obj/machinery/door/poddoor/shutters{
+	id = "ds2cargohold";
+	name = "Cargo Hold"
+	},
 /turf/open/floor/iron/dark/textured_large,
 /area/ruin/space/has_grav/nova/des_two/cargo)
 "Vc" = (
