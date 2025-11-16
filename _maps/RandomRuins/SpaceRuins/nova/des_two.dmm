@@ -1790,6 +1790,7 @@
 	dir = 1
 	},
 /obj/effect/turf_decal/trimline/dark_red/warning,
+/obj/structure/closet/l3closet/scientist,
 /turf/open/floor/iron/dark/side{
 	dir = 1
 	},
@@ -3078,6 +3079,7 @@
 /obj/structure/sign/painting/library{
 	pixel_x = -30
 	},
+/obj/structure/table/wood,
 /turf/open/floor/iron/dark/textured_large,
 /area/ruin/space/has_grav/nova/des_two/service/library)
 "na" = (
@@ -5752,7 +5754,7 @@
 /turf/open/floor/iron/dark/textured_large,
 /area/ruin/space/has_grav/nova/des_two/service/library)
 "yK" = (
-/obj/machinery/vending/games,
+/obj/structure/bookcase/random/adult,
 /turf/open/floor/iron/dark/textured_large,
 /area/ruin/space/has_grav/nova/des_two/service/library)
 "yL" = (
@@ -9449,6 +9451,11 @@
 "Ov" = (
 /obj/structure/cable,
 /obj/machinery/firealarm/directional/west,
+/obj/structure/table/wood,
+/obj/machinery/computer/libraryconsole/bookmanagement{
+	pixel_y = 7;
+	dir = 4
+	},
 /turf/open/floor/iron/dark/textured_large,
 /area/ruin/space/has_grav/nova/des_two/service/library)
 "Ow" = (
@@ -11746,10 +11753,6 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /turf/open/floor/carpet/red,
 /area/ruin/space/has_grav/nova/des_two/service/diner)
-"Yg" = (
-/obj/structure/closet/l3closet/scientist,
-/turf/open/floor/iron/half,
-/area/ruin/space/has_grav/nova/des_two/research/robotics)
 "Yn" = (
 /obj/machinery/atmospherics/pipe/smart/manifold/green/hidden{
 	dir = 8
@@ -13681,7 +13684,7 @@ jR
 Dl
 Jw
 Jw
-Yg
+ww
 Hn
 uG
 lz
