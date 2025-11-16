@@ -1,6 +1,31 @@
-/// shadows can now lose limbs, take wounds and lose blood - because of this, we'll need them to regenerate those
+#define SHADOW_BLOOD_REGEN 5
+#define SHADOW_CURE_LIMB_PROB 20
+#define SHADOW_CURE_WOUND_PROB 33
+
+// remove the basic alert - only nightmares get their more important alert / bullet dodge
+/datum/status_effect/shadow
+	alert_type = NONE
+
+// shadows can now lose limbs, take wounds and lose blood - because of this, we'll need them to regenerate those
 /datum/status_effect/shadow/regeneration/heal_owner()
 	. = ..()
-	// limbs #1
-	// wounds #2
-	// bloodlevel #3
+	if (!iscarbon(owner))
+		return
+	var/mob/living/carbon/carbon_owner = owner
+	if (carbon_owner.blood_volume < BLOOD_VOLUME_NORMAL)
+		carbon_owner.blood_volume += SHADOW_BLOOD_REGEN
+	if (prob(SHADOW_CURE_LIMB_PROB))
+		if (length(carbon_owner.get_missing_limbs()))
+			carbon_owner.regenerate_limb(pick(carbon_owner.get_missing_limbs()), dismembered_by_copy = carbon_owner.body_zone_dismembered_by?.Copy())
+			to_chat(carbon_owner, span_nicegreen("You regenerate one of your missing limbs."))
+			playsound(carbon_owner, 'sound/effects/wounds/pierce1.ogg', 80, TRUE)
+	if (prob(SHADOW_CURE_WOUND_PROB))
+		if (length(carbon_owner.all_wounds))
+			var/datum/wound/wound = pick(carbon_owner.all_wounds)
+			wound.remove_wound()
+			to_chat(carbon_owner, span_nicegreen("You cure one of your wounds."))
+			playsound(carbon_owner, 'sound//effects/wounds/splatter.ogg', 80, TRUE)
+
+#undef SHADOW_BLOOD_REGEN
+#undef SHADOW_CURE_LIMB_PROB
+#undef SHADOW_CURE_WOUND_PROB

@@ -1,6 +1,23 @@
 #define NIGHTMARE_DODGE_FILTER "nightmare_dodge_filter"
 #define NIGHTMARE_DODGE_BLUR "nightmare_dodge_blur"
 
+// grant this spell regardless of nightmare traitor datum, because this brain is exclusive to the nightmare - who is already traitor only
+/obj/item/organ/brain/shadow/nightmare/on_mob_insert(mob/living/carbon/nightmare)
+	. = ..()
+	if(isnull(terrorize_spell))
+		terrorize_spell = new(src)
+		terrorize_spell.Grant(nightmare)
+
+// adds a strong wound, limb and blood regeneration status effect when it is dark
+/obj/item/organ/brain/shadow/on_life(seconds_per_tick, times_fired)
+	. = ..()
+	var/turf/owner_turf = owner.loc
+	if(!isturf(owner_turf))
+		return
+	var/light_amount = owner_turf.get_lumcount()
+	if (light_amount < SHADOW_SPECIES_LIGHT_THRESHOLD) // read 'modular_nova\modules\shadow\code\buffs.dm'
+		owner.apply_status_effect(/datum/status_effect/shadow/regeneration)
+
 // add a filter effect when the bullets are dodged, for clarity and coolness. thanks paxil
 /datum/status_effect/shadow/nightmare/dodge_bullets(mob/living/carbon/human/nightmare, obj/projectile/hitting_projectile, def_zone)
 	. = ..()
@@ -13,7 +30,7 @@
 		list(
 			"name" = NIGHTMARE_DODGE_BLUR,
 			"priority" = 2,
-			"params" = bloom_filter(threshold = COLOR_BLACK, size = 1, offset = 1, alpha = 200),
+			"params" = drop_shadow_filter(size = 1, color = COLOR_BLACK),
 		)
 	))
 	addtimer(CALLBACK(nightmare, TYPE_PROC_REF(/datum, remove_filter), list(NIGHTMARE_DODGE_FILTER, NIGHTMARE_DODGE_BLUR)), 0.5 SECONDS)
@@ -24,10 +41,3 @@
 // glowing red eyes like in the description
 /obj/item/organ/eyes/shadow
 	is_emissive = TRUE
-
-// grant this spell regardless of nightmare traitor datum, because this brain is exclusive to the nightmare - who is already traitor only
-/obj/item/organ/brain/shadow/nightmare/on_mob_insert(mob/living/carbon/nightmare)
-	. = ..()
-	if(isnull(terrorize_spell))
-		terrorize_spell = new(src)
-		terrorize_spell.Grant(nightmare)

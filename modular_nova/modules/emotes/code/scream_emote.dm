@@ -10,6 +10,8 @@
 			return pick(selected_scream.female_screamsounds)
 		else
 			return pick(selected_scream.male_screamsounds)
+	if(is_species(user, /datum/species/shadow))
+		return 'sound/mobs/humanoids/shadow/shadow_wail.ogg'
 	if(ismonkey(user))
 		return 'modular_nova/modules/emotes/sound/voice/scream_monkey.ogg'
 	if (isdrone(user))

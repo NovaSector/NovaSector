@@ -68,6 +68,7 @@ GLOBAL_LIST_INIT(nightmare_presets, list(
 	body.set_hair_gradient_style(/datum/sprite_accessory/gradient/wavy_spike::name, update = FALSE)
 	body.set_haircolor(NIGHTMARE_COLOR_DARK, update = FALSE)
 	body.set_hair_gradient_color(NIGHTMARE_COLOR_RED, update = FALSE)
+	body.set_facial_hairstyle(/datum/sprite_accessory/facial_hair/shaved::name, update = FALSE)
 	body.update_body_parts_head_only()
 
 	/*
@@ -114,7 +115,7 @@ GLOBAL_LIST_INIT(nightmare_presets, list(
 				/datum/sprite_accessory/ears/external/big/bunny_large::name,
 				/datum/sprite_accessory/ears/external/big/hare_large::name,
 			)
-			feature_index[MUTANT_INDEX_COLOR_LIST] = list(NIGHTMARE_COLOR_DARK, NIGHTMARE_COLOR_DARK, NIGHTMARE_COLOR_RED)
+			feature_index[MUTANT_INDEX_COLOR_LIST] = list(NIGHTMARE_COLOR_DARK, NIGHTMARE_COLOR_LIGHT, NIGHTMARE_COLOR_RED)
 			feature_list[FEATURE_EARS] = feature_index.Copy()
 			//snout
 			feature_index[MUTANT_INDEX_NAME] = pick(
