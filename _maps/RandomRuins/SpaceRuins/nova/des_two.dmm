@@ -3818,6 +3818,7 @@
 	dir = 8
 	},
 /obj/machinery/status_display/department_balance/destwo/directional/east,
+/obj/structure/tank_dispenser/oxygen,
 /turf/open/floor/iron/dark/textured_large,
 /area/ruin/space/has_grav/nova/des_two/cargo)
 "qi" = (
@@ -4409,6 +4410,27 @@
 	dir = 4
 	},
 /area/ruin/space/has_grav/nova/des_two/service/diner)
+"sQ" = (
+/obj/item/tank/internals/plasmaman/belt{
+	pixel_x = -6
+	},
+/obj/item/tank/internals/plasmaman/belt{
+	pixel_x = 3
+	},
+/obj/item/tank/internals/nitrogen/belt{
+	pixel_x = -6
+	},
+/obj/item/tank/internals/nitrogen/belt,
+/obj/item/tank/internals/nitrogen/belt{
+	pixel_x = 6
+	},
+/obj/item/clothing/mask/breath,
+/obj/item/clothing/mask/breath,
+/obj/item/clothing/mask/breath,
+/obj/item/clothing/mask/breath,
+/obj/structure/rack/shelf,
+/turf/open/floor/iron/dark,
+/area/ruin/space/has_grav/nova/des_two/cargo)
 "sT" = (
 /obj/machinery/door/firedoor,
 /obj/machinery/door/airlock/service/glass{
@@ -7259,6 +7281,18 @@
 	},
 /turf/open/floor/iron/dark/smooth_large,
 /area/ruin/space/has_grav/nova/des_two/research/robotics)
+"Fo" = (
+/obj/structure/table,
+/obj/item/storage/box/stockparts/deluxe{
+	pixel_y = 2;
+	pixel_x = -8
+	},
+/obj/item/storage/box/stockparts/deluxe{
+	pixel_y = 2;
+	pixel_x = 8
+	},
+/turf/open/floor/iron/dark,
+/area/ruin/space/has_grav/nova/des_two/research)
 "Fp" = (
 /obj/structure/closet/radiation,
 /turf/open/floor/iron/dark/brick,
@@ -8373,6 +8407,10 @@
 	},
 /turf/open/floor/wood/parquet,
 /area/ruin/space/has_grav/nova/des_two/service/lounge)
+"JQ" = (
+/obj/structure/closet/crate/freezer/sansufentanyl,
+/turf/open/floor/iron/dark/textured_large,
+/area/ruin/space/has_grav/nova/des_two/cargo)
 "JR" = (
 /obj/machinery/light/warm/directional/south,
 /obj/machinery/computer/turbine_computer{
@@ -9694,8 +9732,26 @@
 /turf/open/floor/iron/dark/diagonal,
 /area/ruin/space/has_grav/nova/des_two/cargo)
 "Pz" = (
-/obj/structure/sign/flag/syndicate/directional/east,
-/turf/open/floor/iron/dark/textured_large,
+/obj/structure/sign/flag/syndicate/directional/south{
+	pixel_x = -16
+	},
+/obj/structure/rack/shelf,
+/obj/item/tank/internals/emergency_oxygen/double{
+	pixel_x = -2;
+	pixel_y = 3
+	},
+/obj/item/clothing/mask/gas/alt{
+	pixel_x = -2
+	},
+/obj/item/tank/internals/emergency_oxygen/double{
+	pixel_x = 6
+	},
+/obj/item/clothing/mask/gas/alt{
+	pixel_x = 6;
+	pixel_y = -3
+	},
+/obj/machinery/status_display/department_balance/destwo/directional/east,
+/turf/open/floor/iron/dark/textured_half,
 /area/ruin/space/has_grav/nova/des_two/cargo)
 "PB" = (
 /turf/open/floor/iron,
@@ -10052,8 +10108,6 @@
 /obj/effect/spawner/random/maintenance/two,
 /obj/structure/closet/crate,
 /obj/effect/spawner/random/engineering/tool,
-/obj/item/storage/box/stockparts/deluxe,
-/obj/item/storage/box/stockparts/deluxe,
 /turf/open/floor/iron/dark/diagonal,
 /area/ruin/space/has_grav/nova/des_two/cargo)
 "Rk" = (
@@ -11031,7 +11085,8 @@
 /turf/open/floor/catwalk_floor/iron_dark,
 /area/ruin/space/has_grav/nova/des_two/service/diner)
 "Vo" = (
-/obj/structure/frame/machine/secured,
+/obj/structure/table,
+/obj/item/storage/box/skillchips/science,
 /turf/open/floor/iron/dark,
 /area/ruin/space/has_grav/nova/des_two/research)
 "Vp" = (
@@ -13564,7 +13619,7 @@ kH
 Sj
 lz
 DW
-Vo
+Fo
 Vo
 KI
 SV
@@ -14556,7 +14611,7 @@ et
 BA
 Rv
 Rv
-Rv
+JQ
 UA
 wQ
 Vw
@@ -14951,7 +15006,7 @@ UX
 qf
 gh
 Rv
-Rv
+sQ
 TU
 IZ
 gd
