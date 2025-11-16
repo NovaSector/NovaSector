@@ -3525,7 +3525,9 @@
 /turf/open/floor/mineral/plastitanium/red,
 /area/ruin/space/has_grav/nova/des_two/security)
 "oS" = (
-/obj/machinery/door/window/survival_pod/left/directional/west,
+/obj/machinery/door/window/survival_pod/left/directional/west{
+	req_access = list("syndicate_leader")
+	},
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /turf/open/floor/mineral/plastitanium/red,
@@ -3769,6 +3771,14 @@
 /obj/effect/mapping_helpers/airlock/access/all/syndicate/general,
 /turf/open/floor/catwalk_floor/iron_dark,
 /area/ruin/space/has_grav/nova/des_two/engineering)
+"pN" = (
+/obj/effect/spawner/structure/window/reinforced/plasma/plastitanium,
+/obj/structure/cable,
+/obj/machinery/door/poddoor/preopen{
+	id = "break-room"
+	},
+/turf/open/floor/plating,
+/area/ruin/space/has_grav/nova/des_two/service/diner)
 "pO" = (
 /obj/structure/safe,
 /obj/item/storage/box/syndie_kit/chameleon/ghostcafe{
@@ -4375,7 +4385,7 @@
 /area/ruin/space/has_grav/nova/des_two/research)
 "sL" = (
 /obj/machinery/door/poddoor/preopen{
-	id = "ds2-breakroom"
+	id = "ds2-break-room"
 	},
 /obj/effect/spawner/structure/window/reinforced/plasma/plastitanium,
 /turf/open/floor/plating,
@@ -6139,10 +6149,10 @@
 	},
 /area/ruin/space/has_grav/nova/des_two/halls)
 "Az" = (
-/obj/effect/spawner/structure/window/reinforced/plasma/plastitanium,
 /obj/machinery/door/poddoor/preopen{
-	id = "ds2-hydroponics"
+	id = "ds2-hydroponics-room"
 	},
+/obj/effect/spawner/structure/window/reinforced/plasma/plastitanium,
 /turf/open/floor/plating,
 /area/ruin/space/has_grav/nova/des_two/service/hydroponics)
 "AA" = (
@@ -7887,6 +7897,12 @@
 	color = "#3d3c38";
 	dir = 8
 	},
+/obj/machinery/button/door/directional/east{
+	desc = "To keep your food away from the carp.";
+	id = "ds2-break-room";
+	name = "Diner Blast Door Control";
+	req_access = list("syndicate")
+	},
 /turf/open/floor/carpet/red,
 /area/ruin/space/has_grav/nova/des_two/service/diner)
 "HL" = (
@@ -8978,6 +8994,12 @@
 /obj/machinery/firealarm/directional/north,
 /obj/effect/turf_decal/siding/dark{
 	dir = 5
+	},
+/obj/machinery/button/door/directional/east{
+	desc = "To keep your food away from the carp.";
+	id = "ds2-hydroponics-room";
+	name = "Diner Blast Door Control";
+	req_access = list("syndicate")
 	},
 /turf/open/floor/iron/white/diagonal,
 /area/ruin/space/has_grav/nova/des_two/service/hydroponics)
@@ -15294,7 +15316,7 @@ Jc
 gT
 bn
 bn
-bn
+pN
 gT
 gT
 gT
