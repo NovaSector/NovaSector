@@ -2,7 +2,7 @@
 #define SHADOW_CURE_LIMB_PROB 20
 #define SHADOW_CURE_WOUND_PROB 33
 
-// remove the basic alert - only nightmares get their more important alert / bullet dodge
+// no basic alert - only nightmares get their more important alert about bullet dodge. this removes redundant / info bombardment
 /datum/status_effect/shadow
 	alert_type = NONE
 
