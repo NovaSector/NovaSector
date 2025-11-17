@@ -14,26 +14,27 @@
 #define NIGHTMARE_COLOR_LIGHT "#565656"
 #define NIGHTMARE_COLOR_RED "#5a3c3c"
 /// probability the preset gets transmorgified into a demi-human
-#define NIGHTMARE_DEMIHUMAN_PROB 33
+#define NIGHTMARE_DEMIHUMAN_PROB 50
 
 GLOBAL_LIST_INIT(nightmare_presets, list(
 	"fox",
 	"bunny",
+	"lizard",
+	"carp",
+	"drider",
 ))
 
 GLOBAL_LIST_INIT(nightmare_presets_hair_male, list(
 	/datum/sprite_accessory/hair/comet::name,
-	/datum/sprite_accessory/hair/nofade::name,
-	/datum/sprite_accessory/hair/undercutleft::name,
+	/datum/sprite_accessory/hair/nova/ponytail_short::name,
+	/datum/sprite_accessory/hair/nova/sabitsuki::name,
+	/datum/sprite_accessory/hair/nova/dave::name,
 )) //clear the list and add "Afro" for admin abuse
 
 GLOBAL_LIST_INIT(nightmare_presets_hair_female, list(
 	/datum/sprite_accessory/hair/nova/simple_short::name,
 	/datum/sprite_accessory/hair/nova/newyou::name,
-	/datum/sprite_accessory/hair/nova/cottonalt::name,
 	/datum/sprite_accessory/hair/longemo::name,
-	/datum/sprite_accessory/hair/ponytail7::name,
-	/datum/sprite_accessory/hair/doublebun::name,
 	/datum/sprite_accessory/hair/nova/simple::name,
 ))
 
@@ -60,7 +61,7 @@ GLOBAL_LIST_INIT(nightmare_presets_hair_female, list(
 	body.update_body_parts_head_only()
 
 	/// an associated list holding the feature keys and their indexed data
-	var/list/feature_list = list()
+	var/list/features_list = list()
 	/// temporary cache of the data to index onto the aforementioned keys
 	var/list/feature_index = list()
 	//	now we build the features from GLOB.nightmare_presets, this block is very big.
@@ -75,52 +76,87 @@ GLOBAL_LIST_INIT(nightmare_presets_hair_female, list(
 				/datum/sprite_accessory/tails/mammal/wagging/vulpkanin/fox/ann::name,
 			)
 			feature_index[MUTANT_INDEX_COLOR_LIST] = list(NIGHTMARE_COLOR_DARK, NIGHTMARE_COLOR_RED, NIGHTMARE_COLOR_LIGHT)
-			feature_list[FEATURE_TAIL] = feature_index.Copy()
+			features_list[FEATURE_TAIL] = feature_index.Copy()
 			feature_index[MUTANT_INDEX_NAME] = pick(
 				/datum/sprite_accessory/ears/external/vulpkanin/fox::name,
 				/datum/sprite_accessory/ears/external/big/sandfox_large::name,
 			)
 			feature_index[MUTANT_INDEX_COLOR_LIST] = list(NIGHTMARE_COLOR_DARK, NIGHTMARE_COLOR_RED, NIGHTMARE_COLOR_LIGHT)
-			feature_list[FEATURE_EARS] = feature_index.Copy()
+			features_list[FEATURE_EARS] = feature_index.Copy()
 			feature_index[MUTANT_INDEX_NAME] = pick(
 				/datum/sprite_accessory/snouts/mammal/tajaran/scanidalt::name,
 				/datum/sprite_accessory/snouts/mammal/leporid::name,
 			)
 			feature_index[MUTANT_INDEX_COLOR_LIST] = list(NIGHTMARE_COLOR_LIGHT, NIGHTMARE_COLOR_DARK, NIGHTMARE_COLOR_DARK)
-			feature_list[FEATURE_SNOUT] = feature_index.Copy()
+			features_list[FEATURE_SNOUT] = feature_index.Copy()
 
 		if("bunny")
-			feature_index[MUTANT_INDEX_NAME] = pick(
-				/datum/sprite_accessory/tails/mammal/wagging/rabbit/alt::name,
-			)
+			feature_index[MUTANT_INDEX_NAME] = /datum/sprite_accessory/tails/mammal/wagging/rabbit/alt::name
 			feature_index[MUTANT_INDEX_COLOR_LIST] = list(NIGHTMARE_COLOR_DARK, NIGHTMARE_COLOR_RED, NIGHTMARE_COLOR_LIGHT)
-			feature_list[FEATURE_TAIL] = feature_index.Copy()
+			features_list[FEATURE_TAIL] = feature_index.Copy()
 			feature_index[MUTANT_INDEX_NAME] = pick(
 				/datum/sprite_accessory/ears/external/big/bunny_large::name,
 				/datum/sprite_accessory/ears/external/big/hare_large::name,
 			)
 			feature_index[MUTANT_INDEX_COLOR_LIST] = list(NIGHTMARE_COLOR_DARK, NIGHTMARE_COLOR_LIGHT, NIGHTMARE_COLOR_RED)
-			feature_list[FEATURE_EARS] = feature_index.Copy()
+			features_list[FEATURE_EARS] = feature_index.Copy()
+			feature_index[MUTANT_INDEX_NAME] = /datum/sprite_accessory/snouts/mammal/leporid::name
+			feature_index[MUTANT_INDEX_COLOR_LIST] = list(NIGHTMARE_COLOR_LIGHT, NIGHTMARE_COLOR_DARK, NIGHTMARE_COLOR_DARK)
+			features_list[FEATURE_SNOUT] = feature_index.Copy()
+
+		if("lizard")
 			feature_index[MUTANT_INDEX_NAME] = pick(
-				/datum/sprite_accessory/snouts/mammal/leporid::name,
+				/datum/sprite_accessory/tails/lizard/short/twotone::name,
+				/datum/sprite_accessory/tails/mammal/wagging/snake_stripe_alt::name,
 			)
-			feature_index[MUTANT_INDEX_COLOR_LIST] = list(NIGHTMARE_COLOR_LIGHT, NIGHTMARE_COLOR_LIGHT, NIGHTMARE_COLOR_DARK)
-			feature_list[FEATURE_SNOUT] = feature_index.Copy()
+			feature_index[MUTANT_INDEX_COLOR_LIST] = list(NIGHTMARE_COLOR_DARK, NIGHTMARE_COLOR_RED, NIGHTMARE_COLOR_LIGHT)
+			features_list[FEATURE_TAIL] = feature_index.Copy()
+			feature_index[MUTANT_INDEX_NAME] = pick(
+				/datum/sprite_accessory/horns/drake::name,
+				/datum/sprite_accessory/horns/lifted::name,
+			)
+			feature_index[MUTANT_INDEX_COLOR_LIST] = list(NIGHTMARE_COLOR_DARK, NIGHTMARE_COLOR_LIGHT, NIGHTMARE_COLOR_RED)
+			features_list[FEATURE_HORNS] = feature_index.Copy()
+			feature_index[MUTANT_INDEX_NAME] = /datum/sprite_accessory/snouts/round::name
+			feature_index[MUTANT_INDEX_COLOR_LIST] = list(NIGHTMARE_COLOR_LIGHT, NIGHTMARE_COLOR_DARK, NIGHTMARE_COLOR_DARK)
+			features_list[FEATURE_SNOUT] = feature_index.Copy()
+
+		if("carp")
+			feature_index[MUTANT_INDEX_NAME] = /datum/sprite_accessory/tails/mammal/wagging/akula::name
+			feature_index[MUTANT_INDEX_COLOR_LIST] = list(NIGHTMARE_COLOR_LIGHT, NIGHTMARE_COLOR_RED, NIGHTMARE_COLOR_RED)
+			features_list[FEATURE_TAIL] = feature_index.Copy()
+			feature_index[MUTANT_INDEX_NAME] = /datum/sprite_accessory/ears/mutant/ramatae/sharp::name
+			feature_index[MUTANT_INDEX_COLOR_LIST] = list(NIGHTMARE_COLOR_DARK, NIGHTMARE_COLOR_RED, NIGHTMARE_COLOR_LIGHT)
+			features_list[FEATURE_EARS] = feature_index.Copy()
+			feature_index[MUTANT_INDEX_NAME] = /datum/sprite_accessory/snouts/mammal/ramatae::name
+			feature_index[MUTANT_INDEX_COLOR_LIST] = list(NIGHTMARE_COLOR_LIGHT, NIGHTMARE_COLOR_DARK, NIGHTMARE_COLOR_DARK)
+			features_list[FEATURE_SNOUT] = feature_index.Copy()
+
+		if("drider") // you thought finding a nightmare in maintenance couldn't get worse?
+			feature_index[MUTANT_INDEX_NAME] = /datum/sprite_accessory/taur/drider::name
+			feature_index[MUTANT_INDEX_COLOR_LIST] = list(NIGHTMARE_COLOR_LIGHT, NIGHTMARE_COLOR_RED, NIGHTMARE_COLOR_RED)
+			features_list[FEATURE_TAUR] = feature_index.Copy()
+			feature_index[MUTANT_INDEX_NAME] = /datum/sprite_accessory/snouts/mammal/top/fmandibles::name
+			feature_index[MUTANT_INDEX_COLOR_LIST] = list(NIGHTMARE_COLOR_DARK, NIGHTMARE_COLOR_RED, NIGHTMARE_COLOR_LIGHT)
+			features_list[FEATURE_SNOUT] = feature_index.Copy()
+			feature_index[MUTANT_INDEX_NAME] = /datum/sprite_accessory/ears/external/antenna_simple1::name
+			feature_index[MUTANT_INDEX_COLOR_LIST] = list(NIGHTMARE_COLOR_DARK, NIGHTMARE_COLOR_DARK, NIGHTMARE_COLOR_DARK)
+			features_list[FEATURE_EARS] = feature_index.Copy()
 
 	// straightens your legs and steals your snout
 	if(prob(NIGHTMARE_DEMIHUMAN_PROB))
 		body.dna.features[FEATURE_LEGS] = NORMAL_LEGS
 		feature_index[MUTANT_INDEX_NAME] = /datum/sprite_accessory/snouts/none::name
-		feature_list[FEATURE_SNOUT] = feature_index.Copy()
+		features_list[FEATURE_SNOUT] = feature_index.Copy()
 
 	// we register the features, but we don't need to update the body
 	// this happens later, in assign_role()
-	for(var/feature in feature_list)
-		body.dna.species.mutant_bodyparts[feature] = feature_list[feature]
-		body.dna.mutant_bodyparts[feature] = feature_list[feature]
+	for(var/feature in features_list)
+		body.dna.species.mutant_bodyparts[feature] = features_list[feature]
+		body.dna.mutant_bodyparts[feature] = features_list[feature]
 
 	// garbage
-	feature_list.Cut()
+	features_list.Cut()
 	feature_index.Cut()
 
 	// deliver the masterpiece
