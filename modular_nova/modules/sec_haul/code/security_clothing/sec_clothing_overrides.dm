@@ -74,6 +74,8 @@
 	var/limited_held = 0
 	/// how many restricted items do we want to keep, at maximum, in this belt
 	var/max_limited_store = 1
+	rustle_sound = 'modular_nova/modules/sec_haul/sound/holsterin.ogg'
+	remove_rustle_sound = 'modular_nova/modules/sec_haul/sound/holsterout.ogg'
 
 /datum/storage/holster/handle_enter(datum/source, obj/item/arrived)
 	. = ..()
@@ -83,6 +85,7 @@
 /datum/storage/holster/handle_exit(datum/source, obj/item/gone)
 	. = ..()
 	if(is_type_in_list(gone, limited_hold_types))
+		playsound(parent, 'modular_nova/modules/sec_haul/sound/holsterout.ogg', 50, rustle_vary, -5)
 		limited_held = max(limited_held - 1, 0)
 
 /datum/storage/holster/can_insert(obj/item/to_insert, mob/user, messages, force)
@@ -117,6 +120,18 @@
 	max_slots = 3 // 2 guns and a cell but the cell is handled in a weird way
 	max_limited_store = 2 // you only have 2 slots but you might as well be able to hold 2 eguns, y'know
 	max_total_storage = (WEIGHT_CLASS_NORMAL * 2) + WEIGHT_CLASS_SMALL
+	/// Typecache of things we can charge. If anything we insert is of these types, start processing our parent for charging.
+	var/static/list/charge_typecache = typecacheof(list(
+		/obj/item/gun/energy,
+		/obj/item/ammo_box/magazine/recharge,
+		/obj/item/gun/ballistic/automatic/pistol/plasma_marksman,
+		/obj/item/gun/ballistic/automatic/pistol/plasma_thrower,
+	))
+	/// Typecache of things we ignore when doing an empty check. Because of how get_all_contents and variants includes the source, includes the holster type itself.
+	var/static/list/empty_check_typecache = typecacheof(list(
+		/obj/item/storage/belt/holster/energy,
+		/obj/item/stock_parts/power_store/cell,
+	))
 
 /datum/storage/holster/energy/New(atom/parent, max_slots, max_specific_storage, max_total_storage, rustle_sound, remove_rustle_sound, list/holdables)
 	. = ..()
@@ -128,11 +143,33 @@
 		/obj/item/food/grown/banana,
 		/obj/item/gun/energy/recharge/ebow,
 		// nova specifics from here on
+		/obj/item/gun/energy/modular_laser_rifle,
 		/obj/item/gun/ballistic/automatic/pistol/plasma_marksman,
 		/obj/item/gun/ballistic/automatic/pistol/plasma_thrower,
 		/obj/item/ammo_box/magazine/recharge/plasma_battery,
 		/obj/item/gun/energy/recharge/kinetic_accelerator/variant/glock,
 	))
+
+/datum/storage/holster/energy/onegun
+	max_slots = 2 // 1 gun and 1 cell
+	max_limited_store = 1 // as above, 1 gun
+	max_total_storage = WEIGHT_CLASS_NORMAL + WEIGHT_CLASS_SMALL
+
+/datum/storage/holster/energy/handle_enter(datum/source, obj/item/arrived)
+	. = ..()
+	// if the inserted item is in the chargable typecache, start processing
+	if(is_type_in_typecache(arrived, charge_typecache))
+		START_PROCESSING(SSobj, parent)
+
+/datum/storage/holster/energy/handle_exit(datum/source, obj/item/gone)
+	. = ..()
+	// if whatever's left is not in the charging typecache (e.g. the cell), do nothing
+	if(!is_type_in_typecache(gone, charge_typecache))
+		return
+	// if we still have things in here, assume we're still capable of charging things
+	if(length(parent.get_all_contents_ignoring(empty_check_typecache)))
+		return
+	STOP_PROCESSING(SSobj, parent)
 
 /obj/item/storage/belt/holster/detective
 	name = "detective's holster"
@@ -182,8 +219,6 @@
 	if(!gun_to_draw)
 		return ..()
 	resolve_parent.add_fingerprint(to_show)
-	attempt_remove(gun_to_draw, get_turf(to_show))
-	playsound(resolve_parent, 'modular_nova/modules/sec_haul/sound/holsterout.ogg', 50, TRUE, -5)
 	INVOKE_ASYNC(to_show, TYPE_PROC_REF(/mob, put_in_hands), gun_to_draw)
 	to_show.visible_message(span_warning("[to_show] draws [gun_to_draw] from [resolve_parent]!"), span_notice("You draw [gun_to_draw] from [resolve_parent]."))
 

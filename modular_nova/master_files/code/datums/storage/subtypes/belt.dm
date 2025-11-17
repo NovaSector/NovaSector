@@ -35,7 +35,7 @@
 
 /datum/storage/security_belt/handle_enter(datum/source, obj/item/arrived)
 	. = ..()
-	if(is_type_in_list(arrived, limited_hold_types) && arrived.w_class > WEIGHT_CLASS_SMALL) // weight class check for small guns/telebatons
+	if(is_type_in_list(arrived, limited_hold_types) && (arrived.w_class > WEIGHT_CLASS_SMALL)) // weight class check for small guns/telebatons
 		limited_held++
 
 /datum/storage/security_belt/handle_exit(datum/source, obj/item/gone)
@@ -45,7 +45,7 @@
 
 /datum/storage/security_belt/can_insert(obj/item/to_insert, mob/user, messages, force)
 	. = ..()
-	if(is_type_in_list(to_insert, limited_hold_types) && (limited_held >= max_limited_store))
+	if(is_type_in_list(to_insert, limited_hold_types) && (limited_held >= max_limited_store) && (to_insert.w_class > WEIGHT_CLASS_SMALL))
 		user.balloon_alert(user, "no suitable space!")
 		return FALSE
 
