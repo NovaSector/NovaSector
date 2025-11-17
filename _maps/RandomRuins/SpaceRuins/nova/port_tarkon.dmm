@@ -2967,7 +2967,6 @@
 	dir = 8
 	},
 /obj/machinery/recharger,
-/obj/machinery/firealarm/directional/west,
 /obj/machinery/light/directional/west,
 /turf/open/floor/iron,
 /area/ruin/space/has_grav/port_tarkon/secoff)
@@ -4828,6 +4827,12 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /turf/open/floor/iron/dark,
 /area/ruin/space/has_grav/port_tarkon/xenology)
+"uU" = (
+/obj/effect/turf_decal/tile/dark_red/half{
+	dir = 4
+	},
+/turf/open/floor/iron,
+/area/ruin/space/has_grav/port_tarkon/secoff)
 "uV" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
@@ -5468,7 +5473,7 @@
 /obj/effect/turf_decal/tile/dark_red/half{
 	dir = 8
 	},
-/obj/structure/extinguisher_cabinet/directional/west,
+/obj/machinery/firealarm/directional/west,
 /turf/open/floor/iron,
 /area/ruin/space/has_grav/port_tarkon/secoff)
 "xp" = (
@@ -7042,6 +7047,13 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /turf/open/floor/iron/dark,
 /area/ruin/space/has_grav/port_tarkon/developement)
+"Ei" = (
+/obj/effect/turf_decal/tile/dark_red/half{
+	dir = 8
+	},
+/obj/structure/extinguisher_cabinet/directional/west,
+/turf/open/floor/iron,
+/area/ruin/space/has_grav/port_tarkon/secoff)
 "Ej" = (
 /obj/machinery/airalarm/directional/south,
 /obj/effect/mapping_helpers/airalarm/all_access,
@@ -16992,8 +17004,8 @@ qc
 fJ
 mw
 xn
+Ei
 AO
-pl
 ep
 Wq
 Lf
@@ -17084,8 +17096,8 @@ mQ
 WD
 fd
 fd
+fd
 nq
-pl
 ep
 QP
 SS
@@ -17176,8 +17188,8 @@ iP
 fd
 fd
 fd
+fd
 YQ
-pl
 ep
 QP
 Yf
@@ -17268,8 +17280,8 @@ mQ
 fd
 fd
 fd
+fd
 mf
-pl
 ep
 ep
 ep
@@ -17360,9 +17372,9 @@ fP
 GY
 wa
 kV
+fd
 wf
 pl
-fR
 fR
 fR
 fR
@@ -17452,9 +17464,9 @@ Sb
 jS
 pl
 BA
+uU
 ho
 pl
-fR
 fR
 LK
 fR
