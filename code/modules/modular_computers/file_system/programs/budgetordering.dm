@@ -33,10 +33,6 @@
 	var/stationcargo = TRUE
 	///The account this console processes and displays. Independent from the account the shuttle processes.
 	var/cargo_account = ACCOUNT_CAR
-	// NOVA EDIT ADDITION START
-	///Flag that controls which supplies packs this program is allowed to order from, as it emulates a particular cargo console.
-	var/console_flag = CARGO_CONSOLE_PDA
-	// NOVA EDIT ADDITION END
 
 /datum/computer_file/program/budgetorders/proc/is_visible_pack(mob/user, paccess_to_check, list/access, contraband)
 	if(HAS_SILICON_ACCESS(user)) //Borgs can't buy things.
