@@ -5946,11 +5946,6 @@
 /obj/structure/alien/weeds/node,
 /turf/open/floor/iron/white,
 /area/ruin/space/has_grav/port_tarkon/medhall)
-"zk" = (
-/obj/machinery/camera/directional/west,
-/obj/structure/cable/layer3,
-/turf/open/floor/plating,
-/area/ruin/space/has_grav/port_tarkon/cargoexpand)
 "zl" = (
 /obj/structure/window/reinforced/spawner/directional/west,
 /turf/open/floor/plating,
@@ -7422,6 +7417,11 @@
 /obj/structure/disposalpipe/segment,
 /turf/open/floor/iron,
 /area/ruin/space/has_grav/port_tarkon/centerhall)
+"FY" = (
+/obj/machinery/camera/directional/west,
+/obj/structure/cable/layer3,
+/turf/open/floor/plating,
+/area/ruin/space/has_grav/port_tarkon/cargoexpand)
 "Ga" = (
 /turf/closed/wall,
 /area/ruin/space/has_grav/port_tarkon)
@@ -15067,10 +15067,10 @@ kB
 gq
 st
 kB
-fR
-fR
-kN
-kN
+tH
+tH
+tH
+wq
 wq
 CP
 fb
@@ -15159,9 +15159,9 @@ kB
 Yp
 lc
 kB
-fR
+tH
 Uf
-kN
+Sg
 wq
 wq
 wq
@@ -16264,7 +16264,7 @@ lD
 Wr
 ep
 dS
-zk
+FY
 md
 CD
 Id
