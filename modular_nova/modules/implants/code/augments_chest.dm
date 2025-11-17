@@ -48,7 +48,7 @@
 	actions_types = list(/datum/action/item_action/organ_action/toggle)
 	var/on = FALSE
 	var/bumpoff = TRUE
-	var/stealth_alpha = 40
+	var/stealth_alpha = 45
 	var/poison_amount = 3
 
 /obj/item/organ/cyberimp/chest/opticalcamo/ui_action_click()
@@ -77,7 +77,7 @@
 	RegisterSignal(owner, COMSIG_LIVING_UNARMED_ATTACK, PROC_REF(on_unarmed_attack))
 	RegisterSignal(owner, COMSIG_ATOM_BULLET_ACT, PROC_REF(on_bullet_act))
 	RegisterSignals(owner, list(COMSIG_MOB_ITEM_ATTACK, COMSIG_ATOM_ATTACKBY, COMSIG_ATOM_ATTACK_HAND, COMSIG_ATOM_HITBY, COMSIG_ATOM_HULK_ATTACK, COMSIG_ATOM_ATTACK_PAW, COMSIG_CARBON_CUFF_ATTEMPTED), PROC_REF(unstealth))
-	animate(owner, alpha = stealth_alpha, time = 5 SECONDS)
+	animate(owner, alpha = stealth_alpha, time = 15 SECONDS)
 	on = TRUE
 	if(!silent)
 		to_chat(owner, span_notice("You turn your optical camo on."))
