@@ -75,18 +75,8 @@
 /datum/supply_pack/companies/energy/microstar/experimental_energy
 	cost = CARGO_CRATE_VALUE * 3
 
-/datum/supply_pack/companies/energy/microstar/experimental_energy/hellfire
-	contains = list(/obj/item/gun/energy/laser/hellgun)
-	access = FALSE
-	access_view = FALSE
-	express_lock = FALSE
-	departamental_goody = TRUE
-
 /datum/supply_pack/companies/energy/microstar/experimental_energy/ion_carbine
 	contains = list(/obj/item/gun/energy/ionrifle/carbine)
-
-/datum/supply_pack/companies/energy/microstar/experimental_energy/xray_gun
-	contains = list(/obj/item/gun/energy/xray)
 
 // HC Weapons
 /datum/supply_pack/companies/energy/hc_surplus
