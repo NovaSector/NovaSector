@@ -306,7 +306,7 @@
 /obj/machinery/atmospherics/components/unary/portables_connector{
 	dir = 8
 	},
-/obj/structure/cable/multilayer/connected,
+/obj/structure/cable/layer3,
 /turf/open/floor/iron/dark,
 /area/ruin/space/has_grav/port_tarkon/atmos)
 "bk" = (
@@ -525,7 +525,7 @@
 /area/ruin/space/has_grav/port_tarkon/lockerroom)
 "co" = (
 /obj/machinery/power/smes,
-/obj/structure/cable,
+/obj/structure/cable/multilayer/connected,
 /turf/open/floor/iron/dark,
 /area/ruin/space/has_grav/port_tarkon/atmos)
 "cp" = (
