@@ -2620,6 +2620,9 @@
 "kX" = (
 /obj/structure/cable,
 /obj/machinery/light/directional/south,
+/obj/effect/turf_decal/stripes{
+	dir = 1
+	},
 /turf/open/floor/engine,
 /area/ruin/space/has_grav/port_tarkon/atmos)
 "la" = (
@@ -6692,12 +6695,10 @@
 /turf/closed/wall,
 /area/ruin/space/has_grav/port_tarkon/lockerroom)
 "CK" = (
-/obj/effect/turf_decal/stripes/line{
-	dir = 4
+/obj/effect/turf_decal/stripes{
+	dir = 1
 	},
-/obj/effect/turf_decal/stripes/line{
-	dir = 8
-	},
+/obj/effect/turf_decal/stripes,
 /obj/machinery/door/poddoor/incinerator_atmos_main,
 /turf/open/floor/engine/vacuum,
 /area/ruin/space/has_grav/port_tarkon/atmos)
