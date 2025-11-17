@@ -2871,9 +2871,9 @@
 /turf/open/floor/iron,
 /area/ruin/space/has_grav/port_tarkon)
 "md" = (
-/obj/machinery/camera/directional/west,
-/obj/structure/alien/resin/wall,
 /obj/structure/cable/layer3,
+/obj/machinery/light/broken/directional/west,
+/obj/structure/alien/resin/wall,
 /turf/open/floor/plating,
 /area/ruin/space/has_grav/port_tarkon/cargoexpand)
 "mf" = (
@@ -2968,6 +2968,7 @@
 	},
 /obj/machinery/recharger,
 /obj/machinery/light/directional/west,
+/obj/machinery/firealarm/directional/west,
 /turf/open/floor/iron,
 /area/ruin/space/has_grav/port_tarkon/secoff)
 "mx" = (
@@ -4827,12 +4828,6 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /turf/open/floor/iron/dark,
 /area/ruin/space/has_grav/port_tarkon/xenology)
-"uU" = (
-/obj/effect/turf_decal/tile/dark_red/half{
-	dir = 4
-	},
-/turf/open/floor/iron,
-/area/ruin/space/has_grav/port_tarkon/secoff)
 "uV" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
@@ -5473,7 +5468,7 @@
 /obj/effect/turf_decal/tile/dark_red/half{
 	dir = 8
 	},
-/obj/machinery/firealarm/directional/west,
+/obj/structure/extinguisher_cabinet/directional/west,
 /turf/open/floor/iron,
 /area/ruin/space/has_grav/port_tarkon/secoff)
 "xp" = (
@@ -5951,6 +5946,11 @@
 /obj/structure/alien/weeds/node,
 /turf/open/floor/iron/white,
 /area/ruin/space/has_grav/port_tarkon/medhall)
+"zk" = (
+/obj/machinery/camera/directional/west,
+/obj/structure/cable/layer3,
+/turf/open/floor/plating,
+/area/ruin/space/has_grav/port_tarkon/cargoexpand)
 "zl" = (
 /obj/structure/window/reinforced/spawner/directional/west,
 /turf/open/floor/plating,
@@ -6657,9 +6657,9 @@
 /turf/open/floor/iron/white,
 /area/ruin/space/has_grav/port_tarkon/medhall)
 "CD" = (
-/obj/structure/alien/resin/wall,
-/obj/structure/cable/layer3,
 /obj/structure/cable/layer1,
+/obj/structure/cable/layer3,
+/obj/structure/alien/resin/wall,
 /turf/open/floor/plating,
 /area/ruin/space/has_grav/port_tarkon/cargoexpand)
 "CF" = (
@@ -7047,13 +7047,6 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /turf/open/floor/iron/dark,
 /area/ruin/space/has_grav/port_tarkon/developement)
-"Ei" = (
-/obj/effect/turf_decal/tile/dark_red/half{
-	dir = 8
-	},
-/obj/structure/extinguisher_cabinet/directional/west,
-/turf/open/floor/iron,
-/area/ruin/space/has_grav/port_tarkon/secoff)
 "Ej" = (
 /obj/machinery/airalarm/directional/south,
 /obj/effect/mapping_helpers/airalarm/all_access,
@@ -7963,11 +7956,10 @@
 /turf/open/floor/plating,
 /area/ruin/space/has_grav/port_tarkon/cargo)
 "Id" = (
-/obj/machinery/light/broken/directional/west,
 /obj/machinery/airalarm/directional/west,
 /obj/effect/mapping_helpers/airalarm/all_access,
-/obj/structure/alien/resin/wall,
 /obj/structure/cable/layer1,
+/obj/structure/alien/resin/wall,
 /turf/open/floor/plating,
 /area/ruin/space/has_grav/port_tarkon/cargoexpand)
 "Ie" = (
@@ -8031,8 +8023,9 @@
 /turf/open/floor/iron/white,
 /area/ruin/space/has_grav/port_tarkon/park)
 "It" = (
-/turf/closed/wall/r_wall/rust,
-/area/ruin/space/has_grav/port_tarkon/atmos)
+/obj/structure/grille,
+/turf/closed/wall/r_wall,
+/area/ruin/space/has_grav/port_tarkon/cargoexpand)
 "Iu" = (
 /obj/machinery/atmospherics/components/unary/vent_pump/on/layer4{
 	dir = 4
@@ -14982,9 +14975,9 @@ fF
 fF
 fF
 fF
-fF
-fR
-LK
+pS
+pS
+pS
 pS
 hW
 io
@@ -15074,10 +15067,10 @@ kB
 gq
 st
 kB
-It
-pS
-pS
-pS
+fR
+fR
+kN
+kN
 wq
 CP
 fb
@@ -15166,7 +15159,7 @@ kB
 Yp
 lc
 kB
-It
+fR
 Uf
 kN
 wq
@@ -16177,7 +16170,7 @@ Kt
 Kt
 Kt
 VM
-fF
+ep
 ep
 ep
 ep
@@ -16190,8 +16183,8 @@ ep
 ep
 ep
 ep
-ep
 fR
+LK
 fR
 fR
 wq
@@ -16269,20 +16262,20 @@ ef
 Om
 lD
 Wr
-fF
 ep
 dS
+zk
 md
 CD
 Id
 tK
-QP
 QP
 qX
 Kg
 QP
 QP
 ep
+LK
 fR
 LK
 wq
@@ -16361,8 +16354,7 @@ Rc
 kB
 Ki
 Ms
-kB
-ep
+It
 tK
 Pm
 QP
@@ -16375,6 +16367,7 @@ Pm
 Lf
 QP
 ep
+LK
 fR
 LK
 wq
@@ -16453,8 +16446,7 @@ iE
 kB
 Ou
 Gl
-kB
-ep
+It
 EM
 Ez
 QP
@@ -16467,8 +16459,9 @@ QP
 QP
 QP
 ep
+LK
 fR
-fR
+wq
 wq
 wq
 wq
@@ -16545,9 +16538,8 @@ jO
 kB
 YN
 OV
-kB
-ep
-Ad
+It
+QP
 QP
 QP
 QP
@@ -16560,6 +16552,7 @@ QP
 DS
 ep
 fR
+wq
 wq
 wq
 wq
@@ -16637,7 +16630,6 @@ fF
 Ij
 fF
 fF
-fF
 ep
 Yl
 QP
@@ -16651,6 +16643,7 @@ QP
 Pm
 QP
 go
+kN
 wq
 wq
 wq
@@ -16729,7 +16722,6 @@ pl
 tH
 tH
 tH
-tH
 ep
 QP
 lz
@@ -16743,6 +16735,7 @@ GV
 QP
 QP
 go
+kN
 wq
 wq
 wq
@@ -16821,9 +16814,8 @@ pl
 tH
 tH
 tH
-tH
 ep
-QP
+Ad
 QP
 ge
 GV
@@ -16835,6 +16827,7 @@ QP
 QP
 QP
 go
+kN
 kN
 wq
 wq
@@ -16913,7 +16906,6 @@ pl
 pl
 pl
 pl
-pl
 ep
 QP
 Pm
@@ -16927,6 +16919,7 @@ fy
 QP
 jw
 ep
+fR
 kN
 wq
 wq
@@ -17004,7 +16997,6 @@ qc
 fJ
 mw
 xn
-Ei
 AO
 ep
 Wq
@@ -17019,6 +17011,7 @@ QP
 Pm
 QP
 go
+kN
 kN
 wq
 wq
@@ -17096,7 +17089,6 @@ mQ
 WD
 fd
 fd
-fd
 nq
 ep
 QP
@@ -17111,6 +17103,7 @@ QP
 QP
 QP
 go
+kN
 kN
 kN
 wq
@@ -17188,7 +17181,6 @@ iP
 fd
 fd
 fd
-fd
 YQ
 ep
 QP
@@ -17203,6 +17195,7 @@ Yf
 II
 QP
 go
+kN
 kN
 kN
 wq
@@ -17280,7 +17273,6 @@ mQ
 fd
 fd
 fd
-fd
 mf
 ep
 ep
@@ -17296,7 +17288,8 @@ ep
 ep
 ep
 fR
-fR
+kN
+kN
 wq
 wq
 wq
@@ -17372,9 +17365,9 @@ fP
 GY
 wa
 kV
-fd
 wf
 pl
+fR
 fR
 fR
 fR
@@ -17464,9 +17457,9 @@ Sb
 jS
 pl
 BA
-uU
 ho
 pl
+fR
 fR
 LK
 fR
