@@ -141,7 +141,7 @@
 	if(!(owner.dna.species.id == SPECIES_SHADOW || owner.dna.species.id == SPECIES_NIGHTMARE))
 		var/mob/living/carbon/old_owner = owner
 		Remove(owner, HEART_SPECIAL_SHADOWIFY)
-		old_owner.set_species(/datum/species/shadow)
+	//	old_owner.set_species(/datum/species/shadow) NOVA EDIT REMOVAL - not necessary
 		Insert(old_owner, HEART_SPECIAL_SHADOWIFY)
 		to_chat(owner, span_userdanger("You feel the shadows invade your skin, leaping into the center of your chest! You're alive!"))
 		SEND_SOUND(owner, sound('sound/effects/ghost.ogg'))
