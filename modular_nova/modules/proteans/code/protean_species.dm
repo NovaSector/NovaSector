@@ -478,7 +478,7 @@
 /// Show informative spawn summary about race, healing, and organs
 /datum/species/protean/proc/show_spawn_summary(mob/living/carbon/human/protean)
 	// Wait a moment for everything to initialize
-	sleep(1 SECOND)
+	sleep(1 SECONDS)
 
 	var/list/summary = list(
 		span_boldnotice("=== PROTEAN RACE INFORMATION ==="),
