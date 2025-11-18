@@ -597,3 +597,29 @@
       cozy inside until you wake up without worrying about your ship being stolen!
   - bugfix: Xenomorphs are once against spaceproof, woe be upon ye tiders
   - bugfix: milsim has their turrets returned
+2025-11-15:
+  Diltyrr:
+  - bugfix: fixed an issue that turned donator pets into unmovable sprites.
+  FlufflesTheDog:
+  - bugfix: Ghost cafe borg's chameleon module is functional again
+  - code_imp: Fix compilation on 516.1670+
+  - bugfix: Loadout items can have custom descriptions again
+  - bugfix: Manually sleeping with indefinite duration can once again be resisted
+      out of
+  - bugfix: AI can hear LOOC through their remote view again.
+  RatFromTheJungle:
+  - bugfix: the miniskirt no longer has two wild-and-free pixels floating off to the
+      side
+  sqnztb:
+  - rscadd: TG core maps have new automapper templates for the public garden - dirt
+      piles are swapped to proper trays.
+  sunnyaries:
+  - sound: Subtle now has a sound notification alongside subtler
+  - qol: Subtle/r now have a TG chat filter
+  - rscadd: Subtle/r now have unique chat colours
+  vinylspiders, RatFromTheJungle:
+  - rscadd: Adds 'cargo shelves' which let you store crates on them, for the obvious
+      uses.
+2025-11-16:
+  Stalkeros *nod2:
+  - rscadd: Adds nodnod emote. *nod2
