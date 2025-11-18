@@ -22,3 +22,6 @@
 
 /obj/item/wrench
 	icon = 'modular_nova/modules/aesthetics/tools/icons/tools.dmi'
+
+/obj/item/wrench/combat
+	icon = 'icons/obj/tools.dmi'
