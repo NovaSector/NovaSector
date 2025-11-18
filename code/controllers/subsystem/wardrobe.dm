@@ -213,7 +213,7 @@ SUBSYSTEM_DEF(wardrobe)
 
 /// Take an existing object, and insert it into our storage
 /// If we can't or won't take it, it's deleted. You do not own this object after passing it in
-/datum/controller/subsystem/wardrobe/proc/stash_object(obj/item/object)
+/datum/controller/subsystem/wardrobe/proc/stash_object(obj/item/object, restocking = FALSE)
 	var/object_type = object.type
 	// Don't restock blacklisted items, instead just delete them
 	if(restocking && is_type_in_typecache(object_type, restock_blacklist))

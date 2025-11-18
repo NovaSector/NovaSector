@@ -91,8 +91,6 @@
 
 	/// Reference to the mob that owns this species datum (for signals and callbacks)
 	var/mob/living/carbon/human/owner
-	/// Prevent camera perspective from changing when protean is in suit mode
-	var/prevent_perspective_change = FALSE
 	/// List of organ slots that are CHECKED by rejection system (brain protected, heart/stomach can be replaced, eyes checked)
 	/// Organs NOT in this list are completely ignored and can be installed/removed freely
 	var/list/organ_slots = list(
