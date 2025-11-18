@@ -225,6 +225,11 @@
 		internal_computer.handle_id_slot(brain_owner)
 		internal_computer.clear_id_slot_signals(brain_owner.wear_id)
 
+/// Called when a linked modsuit is qdeleted, so we can clear its ref
+/obj/item/organ/brain/protean/proc/on_linked_modsuit_qdeleting(datum/source)
+	SIGNAL_HANDLER
+	linked_modsuit = null
+
 /obj/item/organ/brain/protean/proc/on_equip_signal(datum/source, obj/item/item, slot)
 	SIGNAL_HANDLER
 	if(isnull(internal_computer))

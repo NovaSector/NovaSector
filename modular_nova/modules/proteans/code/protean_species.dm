@@ -190,6 +190,7 @@
 	// If we have an old protean suit, transfer it to the new brain
 	if(old_protean_suit)
 		brain.linked_modsuit = old_protean_suit
+		brain.RegisterSignal(old_protean_suit, COMSIG_QDELETING, TYPE_PROC_REF(/obj/item/organ/brain/protean, on_linked_modsuit_qdeleting), override = TRUE)
 		// Re-equip to back slot if needed
 		if(gainer.back != old_protean_suit)
 			var/obj/item/item_in_slot = gainer.get_item_by_slot(ITEM_SLOT_BACK)
@@ -285,6 +286,7 @@
 	// Create new modsuit and link it to brain
 	var/obj/item/mod/control/pre_equipped/protean/new_modsuit = new()
 	brain.linked_modsuit = new_modsuit
+	brain.RegisterSignal(new_modsuit, COMSIG_QDELETING, TYPE_PROC_REF(/obj/item/organ/brain/protean, on_linked_modsuit_qdeleting))
 
 	var/obj/item/item_in_slot = gainer.get_item_by_slot(ITEM_SLOT_BACK)
 	if(item_in_slot)
