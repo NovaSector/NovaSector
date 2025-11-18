@@ -30,10 +30,10 @@ GLOBAL_LIST_INIT(reagent_containers, list(
 		/obj/item/reagent_containers/cup/tube
 	),
 	CAT_PILLS = typecacheof(list(
-		/obj/item/reagent_containers/pill/style
+		/obj/item/reagent_containers/applicator/pill/style
 	)),
 	CAT_PATCHES = typecacheof(list(
-		/obj/item/reagent_containers/pill/patch/style
+		/obj/item/reagent_containers/applicator/patch/style
 	)),
 	// NOVA EDIT ADDITION START
 	CAT_HYPOS = typecacheof(list(
@@ -58,13 +58,15 @@ GLOBAL_LIST_INIT(chemical_reagents_list, init_chemical_reagent_list())
 GLOBAL_LIST(chemical_reactions_results_lookup_list)
 /// list of all reagents that are parent types used to define a bunch of children - but aren't used themselves as anything.
 GLOBAL_LIST(fake_reagent_blacklist)
-/// Turfs metalgen cant touch
+/// Turfs metalgen can't touch
 GLOBAL_LIST_INIT(blacklisted_metalgen_types, typecacheof(list(
 	/turf/closed/indestructible, //indestructible turfs should be indestructible, metalgen transmutation to plasma allows them to be destroyed
 	/turf/open/indestructible
 )))
 /// Map of reagent names to its datum path
 GLOBAL_LIST_INIT(name2reagent, build_name2reagentlist())
+/// list of all plan traits
+GLOBAL_LIST_INIT(plant_traits, init_plant_traits())
 
 /// Initialises all /datum/reagent into a list indexed by reagent id
 /proc/init_chemical_reagent_list()
@@ -112,7 +114,7 @@ GLOBAL_LIST_INIT(name2reagent, build_name2reagentlist())
 	// So instead, we're gonna wing it
 	var/list/reagent_to_react_count = list()
 	for(var/datum/chemical_reaction/reaction as anything in reactions)
-		for(var/reagent_id as anything in reaction.required_reagents)
+		for(var/reagent_id in reaction.required_reagents)
 			reagent_to_react_count[reagent_id] += 1
 
 	var/list/reaction_lookup = GLOB.chemical_reactions_list_reactant_index
@@ -121,7 +123,7 @@ GLOBAL_LIST_INIT(name2reagent, build_name2reagentlist())
 	// Doing this separately because it relies on the loop above, and this is easier to parse
 	for(var/datum/chemical_reaction/reaction as anything in reactions)
 		var/preferred_id = null
-		for(var/reagent_id as anything in reaction.required_reagents)
+		for(var/reagent_id in reaction.required_reagents)
 			if(isnull(preferred_id))
 				preferred_id = reagent_id
 				continue
@@ -185,10 +187,14 @@ GLOBAL_LIST_INIT(name2reagent, build_name2reagentlist())
 /proc/build_name2reagentlist()
 	. = list()
 
-	//build map with keys stored seperatly
+	//build map with keys stored separately
 	var/list/name_to_reagent = list()
 	var/list/only_names = list()
 	for (var/datum/reagent/reagent as anything in GLOB.chemical_reagents_list)
+		// NOVA EDIT ADDITION BEGIN
+		if(initial(reagent.chemical_flags) & REAGENT_NEUROWARE)
+			continue
+		// NOVA EDIT ADDITION END
 		var/name = initial(reagent.name)
 		if (length(name))
 			name_to_reagent[name] = reagent
@@ -198,5 +204,5 @@ GLOBAL_LIST_INIT(name2reagent, build_name2reagentlist())
 	only_names = sort_list(only_names)
 
 	//build map with sorted keys
-	for(var/name as anything in only_names)
+	for(var/name in only_names)
 		.[name] = name_to_reagent[name]

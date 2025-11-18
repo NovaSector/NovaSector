@@ -1,6 +1,7 @@
 /datum/surgery/advanced/bioware/cortex_folding
 	name = "Cortex Folding"
 	desc = "A surgical procedure which modifies the cerebral cortex into a complex fold, giving space to non-standard neural patterns."
+	surgery_flags = SURGERY_MORBID_CURIOSITY
 	possible_locs = list(BODY_ZONE_HEAD)
 	steps = list(
 		/datum/surgery_step/incise,
@@ -30,7 +31,7 @@
 	)
 
 /datum/surgery/advanced/bioware/cortex_folding/can_start(mob/user, mob/living/carbon/target)
-	var/obj/item/organ/internal/brain/target_brain = target.get_organ_slot(ORGAN_SLOT_BRAIN)
+	var/obj/item/organ/brain/target_brain = target.get_organ_slot(ORGAN_SLOT_BRAIN)
 	if(!target_brain)
 		return FALSE
 	return ..()

@@ -21,7 +21,7 @@
 	sharpness = SHARP_EDGED
 	attack_verb_continuous = "eviscerates"
 	attack_verb_simple = "eviscerate"
-	attack_sound = 'sound/weapons/bladeslice.ogg'
+	attack_sound = 'sound/items/weapons/bladeslice.ogg'
 	attack_vis_effect = ATTACK_EFFECT_SLASH
 	gold_core_spawnable = HOSTILE_SPAWN
 	limb_destroyer = TRUE
@@ -56,11 +56,11 @@
 	)
 	ai_movement = /datum/ai_movement/jps/bot
 	planning_subtrees = list(
+		/datum/ai_planning_subtree/escape_captivity,
 		/datum/ai_planning_subtree/simple_find_target,
 		/datum/ai_planning_subtree/targeted_mob_ability/exenterate,
 		/datum/ai_planning_subtree/respond_to_summon,
 		/datum/ai_planning_subtree/find_patrol_beacon,
-		/datum/ai_planning_subtree/manage_unreachable_list,
 	)
 	max_target_distance = AI_BOT_PATH_LENGTH
 	///keys to be reset when the bot is reseted
@@ -103,13 +103,13 @@
 		return FALSE
 	caster.Shake(1.4, 0.8, 0.3 SECONDS)
 	caster.visible_message(span_danger("[caster] shakes violently!"))
-	playsound(caster, 'sound/weapons/drill.ogg', 120 , TRUE)
+	playsound(caster, 'sound/items/weapons/drill.ogg', 120 , TRUE)
 	slash_em(caster)
 	StartCooldown(cooldown_time)
 
 /datum/action/cooldown/mob_cooldown/exenterate/proc/slash_em(atom/caster)
 	for(var/mob/living/victim in range(ability_range, caster))
-		if(faction_check(victim.faction, immune_factions) && owner.CanReach(victim))
+		if(faction_check(victim.faction, immune_factions) && victim.IsReachableBy(owner))
 			continue
 		to_chat(caster, span_warning("You slice [victim]!"))
 		to_chat(victim, span_warning("You are cut by [caster]'s blades!"))

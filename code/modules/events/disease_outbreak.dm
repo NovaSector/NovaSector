@@ -115,6 +115,7 @@
 			/datum/disease/flu,
 			/datum/disease/fluspanish,
 			/datum/disease/magnitis,
+			/datum/disease/weightlessness,
 			/// And here are some that will never roll for real, just to mess around.
 			/datum/disease/death_sandwich_poisoning,
 			/datum/disease/dna_retrovirus,
@@ -124,6 +125,9 @@
 		var/datum/disease/fake_virus = pick(virus_candidates)
 		illness_type = initial(fake_virus.name)
 	priority_announce("Confirmed outbreak of level 7 viral biohazard aboard [station_name()]. All personnel must contain the outbreak.", "[illness_type] Alert", ANNOUNCER_OUTBREAK7)
+
+	// Set status displays to biohazard alert
+	send_status_display_biohazard_alert()
 
 /datum/round_event/disease_outbreak/setup()
 	announce_when = ADV_ANNOUNCE_DELAY
@@ -142,7 +146,7 @@
 		virus_candidates += list(/datum/disease/beesease, /datum/disease/brainrot, /datum/disease/fluspanish)
 
 		//The wacky ones
-		virus_candidates += list(/datum/disease/magnitis, /datum/disease/anxiety)
+		virus_candidates += list(/datum/disease/magnitis, /datum/disease/anxiety, /datum/disease/weightlessness)
 
 		//The rest of the diseases either aren't conventional "diseases" or are too unique/extreme to be considered for a normal event
 		virus_type = pick(virus_candidates)

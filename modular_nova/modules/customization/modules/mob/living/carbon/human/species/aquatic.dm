@@ -10,7 +10,7 @@
 	)
 	inherent_biotypes = MOB_ORGANIC|MOB_HUMANOID
 	mutant_bodyparts = list()
-	mutanttongue = /obj/item/organ/internal/tongue/aquatic
+	mutanttongue = /obj/item/organ/tongue/aquatic
 	payday_modifier = 1.0
 	changesource_flags = MIRROR_BADMIN | WABBAJACK | MIRROR_MAGIC | MIRROR_PRIDE | ERT_SPAWN | RACE_SWAP | SLIME_EXTRACT
 	examine_limb_id = SPECIES_AKULA
@@ -25,19 +25,22 @@
 
 /datum/species/aquatic/get_default_mutant_bodyparts()
 	return list(
-		"tail" = list("Shark", TRUE),
-		"snout" = list("Shark", TRUE),
-		"horns" = list("None", FALSE),
-		"ears" = list("Hammerhead", TRUE),
-		"legs" = list("Normal Legs", FALSE),
-		"wings" = list("None", FALSE),
+		FEATURE_TAIL = list("Shark", TRUE),
+		FEATURE_SNOUT = list("Shark", TRUE),
+		FEATURE_HORNS = list("None", FALSE),
+		FEATURE_EARS = list("Hammerhead", TRUE),
+		FEATURE_LEGS = list("Normal Legs", FALSE),
+		FEATURE_WINGS = list("None", FALSE),
 	)
 
-/obj/item/organ/internal/tongue/aquatic
+/obj/item/organ/tongue/aquatic
 	liked_foodtypes = SEAFOOD | MEAT | FRUIT | GORE
 	disliked_foodtypes = CLOTH | GROSS
 	toxic_foodtypes = TOXIC
 
+/obj/item/organ/tongue/aquatic/Initialize(mapload)
+	. = ..()
+	AddComponent(/datum/component/bubble_icon_override, "fish", BUBBLE_ICON_PRIORITY_ORGAN)
 
 /datum/species/aquatic/randomize_features(mob/living/carbon/human/human_mob)
 	var/list/features = ..()
@@ -61,9 +64,9 @@
 		if(5)
 			main_color = "#444444"
 			second_color = "#DDDDEE"
-	features["mcolor"] = main_color
-	features["mcolor2"] = second_color
-	features["mcolor3"] = second_color
+	features[FEATURE_MUTANT_COLOR] = main_color
+	features[FEATURE_MUTANT_COLOR_TWO] = second_color
+	features[FEATURE_MUTANT_COLOR_THREE] = second_color
 	return features
 
 /datum/species/aquatic/get_random_body_markings(list/passed_features)

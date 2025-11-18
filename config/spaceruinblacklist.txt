@@ -20,6 +20,9 @@
 #_maps/RandomRuins/SpaceRuins/caravanambush.dmm
 #_maps/RandomRuins/SpaceRuins/clericden.dmm
 #_maps/RandomRuins/SpaceRuins/clownplanet.dmm
+#_maps/RandomRuins/SpaceRuins/commsbuoy_lowtech.dmm
+#_maps/RandomRuins/SpaceRuins/commsbuoy_nt.dmm
+#_maps/RandomRuins/SpaceRuins/commsbuoy_pirate.dmm
 #_maps/RandomRuins/SpaceRuins/crashedclownship.dmm
 #_maps/RandomRuins/SpaceRuins/crashedship.dmm
 #_maps/RandomRuins/SpaceRuins/cyborg_mothership.dmm
@@ -38,6 +41,7 @@
 #_maps/RandomRuins/SpaceRuins/dj_station.dmm
 #_maps/RandomRuins/SpaceRuins/emptyshell.dmm
 #_maps/RandomRuins/SpaceRuins/fasttravel.dmm
+_maps/RandomRuins/SpaceRuins/film_studio.dmm
 #_maps/RandomRuins/SpaceRuins/forgottenship.dmm
 #_maps/RandomRuins/SpaceRuins/garbagetruck1.dmm
 #_maps/RandomRuins/SpaceRuins/garbagetruck2.dmm
@@ -83,6 +87,7 @@ _maps/RandomRuins/SpaceRuins/spacehotel.dmm
 #_maps/RandomRuins/SpaceRuins/waystation.dmm
 #_maps/RandomRuins/SpaceRuins/whiteshipdock.dmm
 #_maps/RandomRuins/SpaceRuins/whiteshipruin_box.dmm
+#_maps/RandomRuins/SpaceRuins/dragoontomb.dmm
 
 ##Custom Ruins
 #_maps/RandomRuins/SpaceRuins/nova/alientoollab.dmm
@@ -94,13 +99,13 @@ _maps/RandomRuins/SpaceRuins/spacehotel.dmm
 #_maps/RandomRuins/SpaceRuins/nova/derelictferry.dmm
 #_maps/RandomRuins/SpaceRuins/nova/des_two.dmm
 #_maps/RandomRuins/SpaceRuins/nova/drones_derelict.dmm
+#_maps/RandomRuins/SpaceRuins/nova/film_studio.dmm
 #_maps/RandomRuins/SpaceRuins/nova/ghostship.dmm
 #_maps/RandomRuins/SpaceRuins/nova/luna.dmm
 #_maps/RandomRuins/SpaceRuins/nova/piratefort.dmm
 #_maps/RandomRuins/SpaceRuins/nova/port_tarkon.dmm
 #_maps/RandomRuins/SpaceRuins/nova/posterpandamonium.dmm
 #_maps/RandomRuins/SpaceRuins/nova/prisonshuttle.dmm
-#_maps/RandomRuins/SpaceRuins/nova/salvagepost.dmm
 #_maps/RandomRuins/SpaceRuins/nova/scrapeheap.dmm
 #_maps/RandomRuins/SpaceRuins/nova/shuttle8532.dmm
 #_maps/RandomRuins/SpaceRuins/nova/shuttlescrap.dmm

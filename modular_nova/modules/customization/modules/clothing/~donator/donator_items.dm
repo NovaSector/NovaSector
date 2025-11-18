@@ -32,20 +32,20 @@
 	icon_state = "switchblade"
 	base_icon_state = "switchblade"
 	desc = "A sharp, concealable, spring-loaded comb."
-	hitsound = 'sound/weapons/genhit.ogg'
+	hitsound = 'sound/items/weapons/genhit.ogg'
 	resistance_flags = FIRE_PROOF
 	var/extended = FALSE
 
 /obj/item/hairbrush/switchblade/Initialize(mapload)
 	. = ..()
-	AddElement(/datum/element/update_icon_updates_onmob, ITEM_SLOT_HANDS)
+	AddElement(/datum/element/update_icon_updates_onmob)
 
 ///This is called when you transform it
 /obj/item/hairbrush/switchblade/attack_self(mob/user, modifiers)
 	extended = !extended
 	icon_state = "switchblade[extended ? "_on" : ""]"
 
-	playsound(user || src, 'sound/weapons/batonextend.ogg', 30, TRUE)
+	playsound(user || src, 'sound/items/weapons/batonextend.ogg', 30, TRUE)
 
 
 /// This makes it so you have to extend it.
@@ -69,6 +69,18 @@
 #define EXTEND_ANTENNA	3
 #define SLAP_SIDE		4
 
+//Donation reward for Thedragmeme, avalible to craft publicly
+/datum/crafting_recipe/stellar_bouquet
+	name = "stellar bouquet"
+	result = /obj/item/bouquet/stellar
+	reqs = list(
+		/obj/item/food/grown/poppy/lily = 2,
+		/obj/item/food/grown/rose = 2,
+		/obj/item/food/grown/poppy/geranium = 2,
+		/obj/item/stack/sheet/mineral/silver = 1,
+	)
+	category = CAT_ENTERTAINMENT
+
 /obj/item/donator/transponder
 	name = "broken Helian transponder"
 	desc = "Used by Helians to communicate with their mothership, the screen is cracked and its edges scuffed. This one has seen better days."
@@ -91,9 +103,8 @@
 
 /obj/item/donator/transponder/Destroy()
 	if(sparks)
-		qdel(sparks)
-	sparks = null
-	. = ..()
+		QDEL_NULL(sparks)
+	return ..()
 
 /obj/item/donator/transponder/attack_self(mob/user)
 	if(QDELETED(src) || (next_activate > world.time))
@@ -290,7 +301,6 @@
 /obj/item/instrument/piano_synth/headphones/catear_headphone
 	name = "Cat-Ear Headphones"
 	desc = "Merch of their Electric Guitarist Demi Galgan from the Singularity Shredders. It's heavily customizable and even comes with a holographic tail!"
-	icon_state = "catear_headphone"
 	worn_icon = 'modular_nova/modules/GAGS/icons/head/catear_headphone.dmi'
 	lefthand_file = 'modular_nova/modules/GAGS/icons/head/catear_headphone_inhand.dmi'
 	righthand_file = 'modular_nova/modules/GAGS/icons/head/catear_headphone_inhand.dmi'
@@ -299,6 +309,9 @@
 	var/catTailToggled = FALSE
 	instrument_range = 1
 	greyscale_colors = "#FFFFFF#FFFFFF"
+	icon = 'icons/map_icons/items/_item.dmi'
+	icon_state = "/obj/item/instrument/piano_synth/headphones/catear_headphone"
+	post_init_icon_state = "catear_headphone"
 	greyscale_config = /datum/greyscale_config/catear_headphone
 	greyscale_config_worn = /datum/greyscale_config/catear_headphone/worn
 	greyscale_config_inhand_left = /datum/greyscale_config/catear_headphone_inhand_left
@@ -380,3 +393,153 @@
 	))
 	return ..()
 
+// donation reward for Bonkai, the funny jumper
+/obj/item/mod/skin_applier/jumper
+	name = "\improper PA-4 MK-7 J.S supply crate"
+	desc = "A crate made mostly of titanium with handles on the side to carry. It seems to be pressure sealed and the lid seems to be hydraulically assisted. The inside of the crate opens up and folds out to display an entire toolkit with all the essentials to convert most armor into a Mark 7 PA-7 Variant Jump suit. This crate seems to have the emblem relating to a certain Commando... Perhaps you should return it to the owner where you found it, if you can even lift it."
+	icon = 'modular_nova/master_files/icons/donator/obj/custom.dmi'
+	lefthand_file = 'modular_nova/master_files/icons/donator/mob/inhands/donator_left.dmi'
+	righthand_file = 'modular_nova/master_files/icons/donator/mob/inhands/donator_right.dmi'
+	icon_state = "jumper-box"
+	skin = "jumper"
+
+/obj/item/mod/skin_applier/jumper/pre_attack(atom/attacked_atom, mob/living/user, params)
+	if(!istype(attacked_atom, /obj/item/mod/control/pre_equipped/security))
+		return ..()
+	var/obj/item/mod/control/mod = attacked_atom
+	mod.theme.variants += list("jumper" = list(
+		MOD_ICON_OVERRIDE = 'modular_nova/master_files/icons/donator/obj/clothing/modsuit.dmi',
+		MOD_WORN_ICON_OVERRIDE = 'modular_nova/master_files/icons/donator/mob/clothing/modsuit.dmi',
+		/obj/item/clothing/head/mod = list(
+			UNSEALED_LAYER = HEAD_LAYER,
+			UNSEALED_CLOTHING = SNUG_FIT,
+			UNSEALED_COVER = HEADCOVERSEYES|PEPPERPROOF,
+			UNSEALED_INVISIBILITY = HIDEHAIR|HIDEEYES|HIDESNOUT,
+			SEALED_CLOTHING = THICKMATERIAL|STOPSPRESSUREDAMAGE,
+			SEALED_INVISIBILITY =  HIDEFACIALHAIR|HIDEMASK|HIDEEARS|HIDEEYES|HIDEFACE|HIDEHAIR|HIDESNOUT,
+			SEALED_COVER = HEADCOVERSMOUTH|HEADCOVERSEYES|PEPPERPROOF,
+			UNSEALED_MESSAGE = HELMET_UNSEAL_MESSAGE,
+			SEALED_MESSAGE = HELMET_SEAL_MESSAGE,
+		),
+		/obj/item/clothing/suit/mod = list(
+			UNSEALED_CLOTHING = THICKMATERIAL,
+			SEALED_CLOTHING = STOPSPRESSUREDAMAGE,
+			SEALED_INVISIBILITY = HIDEJUMPSUIT|HIDETAIL,
+			UNSEALED_MESSAGE = CHESTPLATE_UNSEAL_MESSAGE,
+			SEALED_MESSAGE = CHESTPLATE_SEAL_MESSAGE,
+		),
+		/obj/item/clothing/gloves/mod = list(
+			UNSEALED_CLOTHING = THICKMATERIAL,
+			SEALED_CLOTHING = STOPSPRESSUREDAMAGE,
+			CAN_OVERSLOT = TRUE,
+			UNSEALED_MESSAGE = GAUNTLET_UNSEAL_MESSAGE,
+			SEALED_MESSAGE = GAUNTLET_SEAL_MESSAGE,
+		),
+		/obj/item/clothing/shoes/mod = list(
+			UNSEALED_CLOTHING = THICKMATERIAL,
+			SEALED_CLOTHING = STOPSPRESSUREDAMAGE,
+			CAN_OVERSLOT = TRUE,
+			UNSEALED_MESSAGE = BOOT_UNSEAL_MESSAGE,
+			SEALED_MESSAGE = BOOT_SEAL_MESSAGE,
+		),
+	))
+	return ..()
+
+/obj/item/clothing/head/cone_of_shame
+	name = "collar cone"
+	desc = "A protective guard used to prevent infections. Its advertisement claims it is: \"used to prevent unnecessary scratching, biting or licking of wounds to better facilitate healing. Works on people and pets alike!\" You question its efficacy, while also feeling a mild sense of shame while wearing it."
+	base_icon_state = "cone"
+	icon_state = "cone"
+	worn_icon_state = "cone_close"
+	icon = 'modular_nova/master_files/icons/donator/obj/clothing/hats.dmi'
+	worn_icon = 'modular_nova/master_files/icons/donator/mob/clothing/head.dmi'
+	alternate_worn_layer = ABOVE_BODY_FRONT_HEAD_LAYER - 0.1
+	slot_flags = parent_type::slot_flags | ITEM_SLOT_NECK
+	dog_fashion = /datum/dog_fashion/head/cone
+	var/toggle_state = "close"
+
+/obj/item/clothing/head/cone_of_shame/click_alt(mob/user)
+	if(toggle_state == "open")
+		toggle_state = "close"
+	else
+		toggle_state = "open"
+
+	balloon_alert(user, "[toggle_state == "open" ? "opened" : "closed"]")
+	update_icon(UPDATE_ICON_STATE)
+
+	var/mob/living/wearer = loc
+	if(!istype(wearer))
+		return CLICK_ACTION_SUCCESS
+
+	var/equipped_slot = wearer.get_slot_by_item(src)
+	if(equipped_slot & slot_flags)
+		wearer.update_clothing(equipped_slot)
+	return CLICK_ACTION_SUCCESS
+
+/obj/item/clothing/head/cone_of_shame/equipped(mob/living/user, slot)
+	if(slot & slot_flags)
+		update_layer(user)
+		RegisterSignal(user, COMSIG_ATOM_POST_DIR_CHANGE, PROC_REF(on_dir_change))
+	return ..()
+
+/obj/item/clothing/head/cone_of_shame/dropped(mob/user)
+	if(user.get_slot_by_item(src) & slot_flags)
+		UnregisterSignal(user, COMSIG_ATOM_POST_DIR_CHANGE)
+	return ..()
+
+/obj/item/clothing/head/cone_of_shame/proc/on_dir_change(mob/wearer, old_dir, new_dir)
+	SIGNAL_HANDLER
+	var/old_south = old_dir == SOUTH
+	var/new_south = new_dir == SOUTH
+	if(old_south == new_south)
+		return // either still facing south or still not facing south
+	update_layer(wearer)
+
+/obj/item/clothing/head/cone_of_shame/proc/update_layer(mob/wearer)
+	// renders behind hair only when facing exactly south, and above pretty much anything on the head any other direction
+	// diagonals render as east/west first so only need the exact cardinal
+	if(wearer.dir == SOUTH)
+		alternate_worn_layer = HAIR_LAYER + 0.1
+	else
+		alternate_worn_layer = ABOVE_BODY_FRONT_HEAD_LAYER - 0.1
+	wearer.update_clothing(wearer.get_slot_by_item(src))
+
+/obj/item/clothing/head/cone_of_shame/update_icon_state()
+	worn_icon_state = "[base_icon_state]_[toggle_state]"
+	return ..()
+
+// Kaynite Donor Item
+/obj/item/storage/backpack/merctac_backpack
+	name = "\improper Xplore Go! bag"
+	desc = "A versatile, single strap backpack from the survival outfitter Xplore. A 20 litre pack coupled with a detachable thermal water bottle and O2 cannister, for trekking amongst the stars."
+	icon_state = "xplore_go_bag"
+	icon = 'modular_nova/master_files/icons/donator/obj/clothing/back.dmi'
+	worn_icon = 'modular_nova/master_files/icons/donator/mob/clothing/back.dmi'
+	inhand_icon_state = "backpack"
+
+// Latinfishy & HollandaiseSauce Donor Item
+/obj/item/device/custom_kit/ak105
+	name = "\improper AK-105 modernization kit"
+	desc = "Old gun parts to convert the Miezc into an AK-105."
+	from_obj = /obj/item/gun/ballistic/automatic/miecz
+	to_obj = /obj/item/gun/ballistic/automatic/miecz/ak105
+
+/obj/item/gun/ballistic/automatic/miecz/ak105
+	name = "\improper AK-105 SBR"
+	desc = "A light-weight assault rifle modernized to be chambered in .27-54 Cesarzowa with a high rate of fire."
+	lore_blurb = "An ancient design that has routes in the old sol nation of the Russian Federation, this rifle has been heavily modified with a modified barrel for extended firefights \
+		alongside a modified grip allowing it to be used most form of combat gloves alongside being able to have a good grip with wet hands, the stock has been swapped for a completely \
+		polymer design giving it a good form."
+	icon = 'modular_nova/master_files/icons/donator/obj/guns48x.dmi'
+	icon_state = "ak105sbr"
+	worn_icon = 'modular_nova/master_files/icons/donator/mob/worn/weapons.dmi'
+	worn_icon_state = "ak105sbr"
+	lefthand_file = 'modular_nova/master_files/icons/donator/mob/inhands/donator_left.dmi'
+	righthand_file = 'modular_nova/master_files/icons/donator/mob/inhands/donator_right.dmi'
+	inhand_icon_state = "ak105sbr"
+	suppressor_x_offset = 7
+	suppressor_y_offset = 0
+
+/obj/item/gun/ballistic/automatic/miecz/ak105/no_mag 
+	//Made this one for completion, the thing is, the kit doesnt affect no_mag, so, the day we change the paradigm of the miecz to spawn with no_mag, likely we want this one. (alternatively we do somethiing better thhan to use subtypes.)
+	spawnwithmagazine = FALSE

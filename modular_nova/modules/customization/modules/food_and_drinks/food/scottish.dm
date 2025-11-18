@@ -7,7 +7,7 @@
 		/datum/reagent/consumable/nutriment = 50,
 		/datum/reagent/consumable/nutriment/vitamin = 25
 	)
-	foodtypes = MEAT | GRAIN
+	foodtypes = MEAT | GRAIN | VEGETABLES
 	crafting_complexity = FOOD_COMPLEXITY_4
 
 /obj/item/food/snacks/store/bread/haggis/make_processable()
@@ -68,7 +68,7 @@
 	foodtypes = MEAT | BREAKFAST | FRIED
 	crafting_complexity = FOOD_COMPLEXITY_3
 
-/obj/item/food/sausage/make_processable()
+/obj/item/food/sausage/battered/make_processable()
 	AddElement(/datum/element/processable, TOOL_KNIFE, /obj/item/food/salami, 6, 3 SECONDS, table_required = TRUE,  screentip_verb = "Slice")
 
 /obj/item/food/cookie/shortbread
@@ -81,5 +81,5 @@
 		/datum/reagent/consumable/sugar = 6
 	)
 	tastes = list("sugary dough" = 1)
-	foodtypes = GRAIN | JUNKFOOD | SUGAR
+	foodtypes = GRAIN | JUNKFOOD | DAIRY | SUGAR
 	crafting_complexity = FOOD_COMPLEXITY_2

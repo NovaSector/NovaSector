@@ -143,8 +143,6 @@
 
 /// Looks across the station for items that are pirate specific exports
 /obj/machinery/loot_locator/proc/find_random_loot()
-	if(!GLOB.exports_list.len)
-		setupExports()
 	var/list/possible_loot = list()
 	for(var/datum/export/pirate/possible_export in GLOB.exports_list)
 		possible_loot += possible_export
@@ -264,7 +262,7 @@
 	data["status_report"] = status_report
 	return data
 
-/obj/machinery/computer/piratepad_control/ui_act(action, params)
+/obj/machinery/computer/piratepad_control/ui_act(action, list/params, datum/tgui/ui, datum/ui_state/state)
 	. = ..()
 	if(.)
 		return
@@ -367,7 +365,7 @@
 		///there are still licing mobs inside that item. Stop, don't sell it ffs.
 		if(locate(/mob/living) in item_on_pad.get_all_contents())
 			continue
-		export_item_and_contents(item_on_pad, apply_elastic = FALSE, dry_run = dry_run, delete_unsold = FALSE, external_report = report, ignore_typecache = nosell_typecache)
+		export_item_and_contents(item_on_pad, apply_elastic = FALSE, dry_run = dry_run, delete_unsold = FALSE, external_report = report, ignore_typecache = nosell_typecache, export_markets = list(EXPORT_MARKET_STATION, EXPORT_MARKET_PIRACY))
 	return report
 
 /// Prepares to sell the items on the pad
@@ -401,6 +399,10 @@
 	pad.icon_state = pad.idle_state
 	deltimer(sending_timer)
 
+/datum/export/pirate
+	abstract_type = /datum/export/pirate
+	sales_market = EXPORT_MARKET_PIRACY
+
 /// Attempts to find the thing on station
 /datum/export/pirate/proc/find_loot()
 	return
@@ -418,8 +420,7 @@
 	if(head_mobs.len)
 		return pick(head_mobs)
 
-/datum/export/pirate/ransom/get_cost(atom/movable/exported_item)
-	var/mob/living/carbon/human/ransomee = exported_item
+/datum/export/pirate/ransom/get_base_cost(mob/living/carbon/human/ransomee)
 	if(ransomee.stat != CONSCIOUS || !ransomee.mind || HAS_TRAIT(ransomee.mind, TRAIT_HAS_BEEN_KIDNAPPED)) //mint condition only
 		return 0
 	else if(FACTION_PIRATE in ransomee.faction) //can't ransom your fellow pirates to CentCom!
@@ -438,7 +439,7 @@
 	var/mob_cost = get_cost(sold_item)
 	sold_item.process_capture(mob_cost, mob_cost * 1.2)
 	do_sparks(8, FALSE, sold_item)
-	playsound(picked_turf, 'sound/weapons/emitter2.ogg', 25, TRUE)
+	playsound(picked_turf, 'sound/items/weapons/emitter2.ogg', 25, TRUE)
 	sold_item.flash_act()
 	sold_item.adjust_confusion(10 SECONDS)
 	sold_item.adjust_dizzy(10 SECONDS)
@@ -469,18 +470,20 @@
 
 /datum/export/pirate/cash
 	cost = 1
-	unit_name = "bills"
+	k_hit_percentile = 0.1 / MAX_STACK_SIZE
+	unit_name = "bill"
 	export_types = list(/obj/item/stack/spacecash)
 
-/datum/export/pirate/cash/get_amount(obj/exported_item)
-	var/obj/item/stack/spacecash/cash = exported_item
-	return ..() * cash.amount * cash.value
+/datum/export/pirate/cash/get_amount(obj/item/stack/spacecash/cash)
+	return cash.amount
+
+/datum/export/pirate/cash/get_base_cost(obj/item/stack/spacecash/cash)
+	return cash.value
 
 /datum/export/pirate/holochip
 	cost = 1
 	unit_name = "holochip"
 	export_types = list(/obj/item/holochip)
 
-/datum/export/pirate/holochip/get_cost(atom/movable/exported_item)
-	var/obj/item/holochip/chip = exported_item
+/datum/export/pirate/holochip/get_base_cost(obj/item/holochip/chip)
 	return chip.credits

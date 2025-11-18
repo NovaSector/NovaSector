@@ -51,9 +51,9 @@
 	check_mode = TRICOLOR_NO_CHECK
 
 /datum/preference/tri_color/mutant_colors/apply_to_human(mob/living/carbon/human/target, value)
-	target.dna.features["mcolor"] = sanitize_hexcolor(value[1])
-	target.dna.features["mcolor2"] = sanitize_hexcolor(value[2])
-	target.dna.features["mcolor3"] = sanitize_hexcolor(value[3])
+	target.dna.features[FEATURE_MUTANT_COLOR] = sanitize_hexcolor(value[1])
+	target.dna.features[FEATURE_MUTANT_COLOR_TWO] = sanitize_hexcolor(value[2])
+	target.dna.features[FEATURE_MUTANT_COLOR_THREE] = sanitize_hexcolor(value[3])
 
 /datum/preference/toggle/eye_emissives
 	savefile_key = "eye_emissives"
@@ -64,7 +64,7 @@
 /datum/preference/toggle/eye_emissives/apply_to_human(mob/living/carbon/human/target, value, datum/preferences/preferences)
 	value = value && preferences && is_allowed(preferences)
 
-	var/obj/item/organ/internal/eyes/eyes_organ = target.get_organ_by_type(/obj/item/organ/internal/eyes)
+	var/obj/item/organ/eyes/eyes_organ = target.get_organ_by_type(/obj/item/organ/eyes)
 	target.emissive_eyes = value
 	if (istype(eyes_organ))
 		eyes_organ.is_emissive = value
@@ -474,6 +474,7 @@
 	generate_icons = TRUE
 	crop_area = list(11, 22, 21, 32) // We want just the head.
 	greyscale_color = DEFAULT_SYNTH_SCREEN_COLOR
+	flexible_mismatch = FALSE
 
 /datum/preference/choiced/mutant_choice/ipc_screen/is_part_enabled(datum/preferences/preferences)
 	return TRUE
@@ -495,7 +496,6 @@
 
 	return ..()
 
-
 /datum/preference/color/mutant/ipc_screen_color
 	category = PREFERENCE_CATEGORY_SUPPLEMENTAL_FEATURES
 	savefile_identifier = PREFERENCE_CHARACTER
@@ -510,31 +510,38 @@
 	check_mode = TRICOLOR_CHECK_ACCESSORY
 	type_to_check = /datum/preference/choiced/mutant_choice/ipc_screen
 
+/datum/preference/toggle/emissive/ipc_screen_emissive/is_accessible(datum/preferences/preferences)
+	if (!..(preferences))
+		return FALSE
+	if(preferences.read_preference(type_to_check))
+		var/datum/preference/choiced/mutant_choice/ipc_screen/ipc_screen_pref = GLOB.preference_entries[type_to_check]
+		return ipc_screen_pref.is_accessible(preferences) // check if the associated type is even accessible
+
 /// IPC Antennas
+
+/datum/preference/toggle/mutant_toggle/synth_antenna
+	savefile_key = "ipc_antenna_toggle"
+	relevant_mutant_bodypart = MUTANT_SYNTH_ANTENNA
 
 /datum/preference/choiced/mutant_choice/synth_antenna
 	savefile_key = "feature_ipc_antenna"
 	relevant_mutant_bodypart = MUTANT_SYNTH_ANTENNA
 	default_accessory_type = /datum/sprite_accessory/antenna/none
-
-/datum/preference/choiced/mutant_choice/synth_antenna/is_part_enabled(datum/preferences/preferences)
-	return TRUE
+	type_to_check = /datum/preference/toggle/mutant_toggle/synth_antenna
 
 /datum/preference/tri_color/synth_antenna
 	category = PREFERENCE_CATEGORY_SECONDARY_FEATURES
 	savefile_identifier = PREFERENCE_CHARACTER
 	savefile_key = "ipc_antenna_color"
 	relevant_mutant_bodypart = MUTANT_SYNTH_ANTENNA
-	check_mode = TRICOLOR_CHECK_ACCESSORY
-	type_to_check = /datum/preference/choiced/mutant_choice/synth_antenna
+	type_to_check = /datum/preference/toggle/mutant_toggle/synth_antenna
 
 /datum/preference/tri_bool/synth_antenna_emissive
 	category = PREFERENCE_CATEGORY_SECONDARY_FEATURES
 	savefile_identifier = PREFERENCE_CHARACTER
 	savefile_key = "ipc_antenna_emissive"
 	relevant_mutant_bodypart = MUTANT_SYNTH_ANTENNA
-	check_mode = TRICOLOR_CHECK_ACCESSORY
-	type_to_check = /datum/preference/choiced/mutant_choice/synth_antenna
+	type_to_check = /datum/preference/toggle/mutant_toggle/synth_antenna
 
 /// IPC Chassis
 
@@ -548,6 +555,7 @@
 	generate_icons = TRUE
 	crop_area = list(8, 8, 24, 24) // We want just the body.
 	greyscale_color = DEFAULT_SYNTH_PART_COLOR
+	flexible_mismatch = FALSE
 
 /datum/preference/choiced/mutant_choice/synth_chassis/generate_icon_state(datum/sprite_accessory/sprite_accessory, original_icon_state)
 	// If this isn't the right type, we have much bigger problems.
@@ -582,6 +590,7 @@
 	generate_icons = TRUE
 	crop_area = list(11, 22, 21, 32) // We want just the head.
 	greyscale_color = DEFAULT_SYNTH_PART_COLOR
+	flexible_mismatch = FALSE
 
 /datum/preference/choiced/mutant_choice/synth_head/generate_icon_state(datum/sprite_accessory/sprite_accessory, original_icon_state)
 	// If this isn't the right type, we have much bigger problems.
@@ -642,8 +651,8 @@
 	if(preferences.read_preference(/datum/preference/toggle/allow_mismatched_parts))
 		return TRUE
 
-	var/datum/species/species = preferences.read_preference(/datum/preference/choiced/species)
-	species = new species
+	var/species_type = preferences.read_preference(/datum/preference/choiced/species)
+	var/datum/species/species = GLOB.species_prototypes[species_type]
 
 	return (savefile_key in species.get_features())
 
@@ -827,30 +836,27 @@
 	default_accessory_type = /datum/sprite_accessory/pod_hair/ivy
 	should_generate_icons = TRUE
 	generate_icons = TRUE
+	flexible_mismatch = FALSE
 
 /datum/preference/choiced/mutant_choice/pod_hair/init_possible_values()
-	var/list/values = list()
+	return assoc_to_keys_features(SSaccessories.sprite_accessories[FEATURE_POD_HAIR])
 
-	var/icon/pod_head = icon('icons/mob/human/bodyparts_greyscale.dmi', "pod_head_m")
-	pod_head.Blend(COLOR_GREEN, ICON_MULTIPLY)
-
-	for (var/pod_name in SSaccessories.pod_hair_list)
-		var/datum/sprite_accessory/pod_hair/pod_hair = SSaccessories.pod_hair_list[pod_name]
-		if(pod_hair.locked)
-			continue
-		var/icon/icon_with_hair = new(pod_head)
-		var/icon/icon_front_hair = icon(pod_hair.icon, "m_pod_hair_[pod_hair.icon_state]_FRONT_OVER_HAIR")
-		var/icon/icon_front = icon(pod_hair.icon, "m_pod_hair_[pod_hair.icon_state]_FRONT_OVER")
-		icon_front.Blend(COLOR_MAGENTA, ICON_MULTIPLY)
-		icon_front_hair.Blend(COLOR_VIBRANT_LIME, ICON_MULTIPLY)
-		icon_front_hair.Blend(icon_front, ICON_OVERLAY)
-		icon_with_hair.Blend(icon_front_hair, ICON_OVERLAY)
-		icon_with_hair.Scale(64, 64)
-		icon_with_hair.Crop(15, 64, 15 + 31, 64 - 31)
-
-		values[pod_hair.name] = icon_with_hair
-
-	return values
+/datum/preference/choiced/mutant_choice/pod_hair/icon_for(value)
+	var/static/datum/universal_icon/pod_head
+	if(isnull(pod_head))
+		pod_head = uni_icon('icons/mob/human/bodyparts_greyscale.dmi', "pod_head_m")
+		pod_head.blend_color(COLOR_GREEN, ICON_MULTIPLY)
+	var/datum/sprite_accessory/pod_hair/pod_hair = SSaccessories.feature_list[FEATURE_POD_HAIR][value]
+	var/datum/universal_icon/icon_with_hair = pod_head.copy()
+	var/datum/universal_icon/icon_front_hair = uni_icon(pod_hair.icon, "m_pod_hair_[pod_hair.icon_state]_FRONT_OVER_HAIR")
+	var/datum/universal_icon/icon_front = uni_icon(pod_hair.icon, "m_pod_hair_[pod_hair.icon_state]_FRONT_OVER")
+	icon_front.blend_color(COLOR_MAGENTA, ICON_MULTIPLY)
+	icon_front_hair.blend_color(COLOR_VIBRANT_LIME, ICON_MULTIPLY)
+	icon_front_hair.blend_icon(icon_front, ICON_OVERLAY)
+	icon_with_hair.blend_icon(icon_front_hair, ICON_OVERLAY)
+	icon_with_hair.crop(10, 19, 22, 31)
+	icon_with_hair.scale(32, 32)
+	return icon_with_hair
 
 /datum/preference/choiced/mutant_choice/pod_hair/is_part_enabled(datum/preferences/preferences)
 	return TRUE

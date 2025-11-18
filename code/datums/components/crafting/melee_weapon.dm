@@ -33,14 +33,57 @@
 	time = 4 SECONDS
 	category = CAT_WEAPON_MELEE
 
+/datum/crafting_recipe/stunsword
+	name = "\improper NT-20 'Excalibur' Stunsword"
+	result = /obj/item/melee/baton/security/stunsword
+	reqs = list(
+		/obj/item/claymore = 1,
+		/obj/item/melee/baton/security = 1
+	)
+	blacklist = list(
+		/obj/item/claymore/cutlass,
+		/obj/item/claymore/cutlass/old,
+		/obj/item/claymore/carrot,
+		/obj/item/claymore/shortsword,
+		/obj/item/claymore/highlander,
+		/obj/item/claymore/weak,
+		/obj/item/claymore/weak/ceremonial,
+		/obj/item/claymore/highlander/robot
+	)
+	tool_behaviors = list(TOOL_WELDER)
+	time = 10 SECONDS
+	category = CAT_WEAPON_MELEE
+
+/datum/crafting_recipe/stunswordalt
+	name = "\improper NT-20 'Excalibur' Stunsword"
+	result = /obj/item/melee/baton/security/stunsword
+	reqs = list(
+		/obj/item/katana = 1,
+		/obj/item/melee/baton/security = 1,
+	)
+	tool_behaviors = list(TOOL_WELDER)
+	time = 10 SECONDS
+	category = CAT_WEAPON_MELEE
+
+/datum/crafting_recipe/stunswordalt2
+	name = "\improper NT-20 'Excalibur' Stunsword"
+	result = /obj/item/melee/baton/security/stunsword
+	reqs = list(
+		/obj/item/melee/sabre = 1,
+		/obj/item/melee/baton/telescopic/contractor_baton = 1,
+	)
+	tool_behaviors = list(TOOL_WELDER)
+	time = 10 SECONDS
+	category = CAT_WEAPON_MELEE
+
 /datum/crafting_recipe/tailclub
 	name = "Tail Club"
 	result = /obj/item/tailclub
 	reqs = list(
-		/obj/item/organ/external/tail/lizard = 1,
+		/obj/item/organ/tail/lizard = 1,
 		/obj/item/stack/sheet/iron = 1,
 	)
-	blacklist = list(/obj/item/organ/external/tail/lizard/fake)
+	blacklist = list(/obj/item/organ/tail/lizard/fake)
 	time = 4 SECONDS
 	category = CAT_WEAPON_MELEE
 
@@ -55,18 +98,16 @@
 	category = CAT_WEAPON_MELEE
 
 /datum/crafting_recipe/balloon_mallet/check_requirements(mob/user, list/collected_requirements)
-	. = ..()
-	if(HAS_TRAIT(user, TRAIT_BALLOON_SUTRA))
-		return TRUE
+	return HAS_TRAIT(user, TRAIT_BALLOON_SUTRA)
 
 /datum/crafting_recipe/tailwhip
 	name = "Liz O' Nine Tails"
 	result = /obj/item/melee/chainofcommand/tailwhip
 	reqs = list(
-		/obj/item/organ/external/tail/lizard = 1,
+		/obj/item/organ/tail/lizard = 1,
 		/obj/item/stack/cable_coil = 1,
 	)
-	blacklist = list(/obj/item/organ/external/tail/lizard/fake)
+	blacklist = list(/obj/item/organ/tail/lizard/fake)
 	time = 4 SECONDS
 	category = CAT_WEAPON_MELEE
 
@@ -74,7 +115,7 @@
 	name = "Cat O' Nine Tails"
 	result = /obj/item/melee/chainofcommand/tailwhip/kitty
 	reqs = list(
-		/obj/item/organ/external/tail/cat = 1,
+		/obj/item/organ/tail/cat = 1,
 		/obj/item/stack/cable_coil = 1,
 	)
 	time = 4 SECONDS
@@ -100,7 +141,6 @@
 		/obj/item/shard = 1,
 		/obj/item/stack/rods = 1,
 	)
-	parts = list(/obj/item/shard = 1)
 	time = 4 SECONDS
 	category = CAT_WEAPON_MELEE
 
@@ -200,4 +240,16 @@
 		/obj/item/grown/log/steel = 2,
 	)
 	time = 8 SECONDS
+	category = CAT_WEAPON_MELEE
+
+/datum/crafting_recipe/sm_sword
+	name = "Supermatter Sword"
+	result = /obj/item/melee/supermatter_sword
+	reqs = list(
+		/obj/item/assembly/signaler/anomaly/vortex = (MAX_CORES_VORTEX - 1),
+	)
+	machinery = list(
+		/obj/machinery/power/supermatter_crystal/small = CRAFTING_MACHINERY_CONSUME,
+	)
+	time = 120 SECONDS
 	category = CAT_WEAPON_MELEE

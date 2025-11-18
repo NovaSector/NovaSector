@@ -1,3 +1,8 @@
+/datum/species/ethereal/on_species_gain(mob/living/carbon/human/new_ethereal, datum/species/old_species, pref_load, regenerate_icons)
+	. = ..()
+	var/datum/action/sing_tones/sing_action = new
+	sing_action.Grant(new_ethereal)
+
 /datum/species/ethereal/create_pref_unique_perks()
 	var/list/to_add = list()
 
@@ -13,6 +18,12 @@
 			SPECIES_PERK_ICON = "lightbulb",
 			SPECIES_PERK_NAME = "Disco Ball",
 			SPECIES_PERK_DESC = "Ethereals passively generate their own light.",
+		),
+		list(
+			SPECIES_PERK_TYPE = SPECIES_POSITIVE_PERK,
+			SPECIES_PERK_ICON = "music",
+			SPECIES_PERK_NAME = "Musical Discharger",
+			SPECIES_PERK_DESC = "Ethereals can sing musical tones using their electric discharger.",
 		),
 		list(
 			SPECIES_PERK_TYPE = SPECIES_NEUTRAL_PERK,

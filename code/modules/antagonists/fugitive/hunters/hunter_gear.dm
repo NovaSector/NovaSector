@@ -134,6 +134,7 @@
 	icon_state = "bouncy_castle"
 	anchored = TRUE
 	density = TRUE
+	layer = OBJ_LAYER
 
 /obj/structure/bouncy_castle/Initialize(mapload, mob/gored)
 	. = ..()
@@ -147,21 +148,17 @@
 		max_blood = INFINITY,\
 	)
 
-	AddComponent(/datum/component/bloody_spreader,\
-		blood_left = INFINITY,\
-		blood_dna = list("meaty DNA" = "MT-"),\
-		diseases = null,\
-	)
+	AddComponent(/datum/component/bloody_spreader)
 
 /obj/structure/bouncy_castle/play_attack_sound(damage_amount, damage_type = BRUTE, damage_flag = 0)
 	switch(damage_type)
 		if(BRUTE)
 			if(damage_amount)
-				playsound(src, 'sound/effects/attackblob.ogg', 50, TRUE)
+				playsound(src, 'sound/effects/blob/attackblob.ogg', 50, TRUE)
 			else
-				playsound(src, 'sound/weapons/tap.ogg', 50, TRUE)
+				playsound(src, 'sound/items/weapons/tap.ogg', 50, TRUE)
 		if(BURN)
-			playsound(src, 'sound/items/welder.ogg', 100, TRUE)
+			playsound(src, 'sound/items/tools/welder.ogg', 100, TRUE)
 
 /obj/item/paper/crumpled/fluff/fortune_teller
 	name = "scribbled note"
@@ -221,7 +218,7 @@
 
 /obj/item/radio/headset/psyker/Initialize(mapload)
 	. = ..()
-	AddComponent(/datum/component/wearertargeting/earprotection, list(ITEM_SLOT_EARS))
+	AddComponent(/datum/component/wearertargeting/earprotection)
 
 /obj/item/radio/headset/psyker/equipped(mob/living/user, slot)
 	. = ..()

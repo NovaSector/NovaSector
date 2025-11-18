@@ -1,5 +1,4 @@
 // THIS IS A NOVA SECTOR UI FILE
-import { useBackend } from '../backend';
 import {
   BlockQuote,
   Box,
@@ -9,7 +8,9 @@ import {
   Input,
   LabeledList,
   Section,
-} from '../components';
+} from 'tgui-core/components';
+
+import { useBackend } from '../backend';
 import { Window } from '../layouts';
 
 export const NifSoulPoem = (props) => {
@@ -50,14 +51,14 @@ export const NifSoulPoem = (props) => {
             <LabeledList.Item label={'Display Name'}>
               <Input
                 value={name_to_send}
-                onInput={(e, value) => act('change_name', { new_name: value })}
+                onChange={(value) => act('change_name', { new_name: value })}
                 width="100%"
               />
             </LabeledList.Item>
             <LabeledList.Item label={'Message'}>
               <Input
                 value={text_to_send}
-                onInput={(e, value) =>
+                onChange={(value) =>
                   act('change_message', { new_message: value })
                 }
                 width="100%"

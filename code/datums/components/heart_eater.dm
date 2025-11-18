@@ -6,23 +6,23 @@
 	/// Remember last heart we ate and reset bites_taken counter if we start eat new one
 	var/datum/weakref/last_heart_we_ate
 	/// List of all mutations allowed to get.
-	var/static/list/datum/mutation/human/mutations_list = list(
-		/datum/mutation/human/adaptation/cold,
-		/datum/mutation/human/adaptation/heat,
-		/datum/mutation/human/adaptation/pressure,
-		/datum/mutation/human/adaptation/thermal,
-		/datum/mutation/human/chameleon,
-		/datum/mutation/human/cryokinesis,
-		/datum/mutation/human/cryokinesis/pyrokinesis,
-		/datum/mutation/human/dwarfism,
-		/datum/mutation/human/geladikinesis/ash,
-		/datum/mutation/human/insulated,
-		/datum/mutation/human/telekinesis,
-		/datum/mutation/human/telepathy,
-		/datum/mutation/human/thermal,
-		/datum/mutation/human/tongue_spike,
-		/datum/mutation/human/webbing,
-		/datum/mutation/human/xray,
+	var/static/list/datum/mutation/mutations_list = list(
+		/datum/mutation/adaptation/cold,
+		/datum/mutation/adaptation/heat,
+		/datum/mutation/adaptation/pressure,
+		/datum/mutation/adaptation/thermal,
+		/datum/mutation/chameleon,
+		/datum/mutation/cryokinesis,
+		/datum/mutation/pyrokinesis,
+		/datum/mutation/dwarfism,
+		/datum/mutation/cindikinesis,
+		/datum/mutation/insulated,
+		/datum/mutation/telekinesis,
+		/datum/mutation/telepathy,
+		/datum/mutation/thermal,
+		/datum/mutation/tongue_spike,
+		/datum/mutation/webbing,
+		/datum/mutation/xray,
 	)
 
 /datum/component/heart_eater/Initialize(...)
@@ -44,13 +44,13 @@
 /datum/component/heart_eater/proc/prepare_species(mob/living/carbon/human/eater)
 	if(eater.get_liked_foodtypes() & GORE)
 		return
-	var/obj/item/organ/internal/tongue/eater_tongue = eater.get_organ_slot(ORGAN_SLOT_TONGUE)
+	var/obj/item/organ/tongue/eater_tongue = eater.get_organ_slot(ORGAN_SLOT_TONGUE)
 	if(!eater_tongue)
 		return
 	eater_tongue.disliked_foodtypes &= ~GORE
 	eater_tongue.liked_foodtypes |= GORE
 
-/datum/component/heart_eater/proc/on_species_change(mob/living/carbon/human/eater, datum/species/new_species, datum/species/old_species)
+/datum/component/heart_eater/proc/on_species_change(mob/living/carbon/human/eater, datum/species/new_species, datum/species/old_species, pref_load, regenerate_icons)
 	SIGNAL_HANDLER
 
 	eater.dna?.species?.damage_modifier += remember_modifier
@@ -62,10 +62,10 @@
 
 	if(get_area(eater) == GLOB.areas_by_type[/area/centcom/wizard_station])
 		return
-	if(!istype(what_we_ate, /obj/item/organ/internal/heart))
+	if(!istype(what_we_ate, /obj/item/organ/heart))
 		return
-	var/obj/item/organ/internal/heart/we_ate_heart = what_we_ate
-	var/obj/item/organ/internal/heart/previous_heart = last_heart_we_ate?.resolve()
+	var/obj/item/organ/heart/we_ate_heart = what_we_ate
+	var/obj/item/organ/heart/previous_heart = last_heart_we_ate?.resolve()
 	if(we_ate_heart == previous_heart)
 		return
 	if (!HAS_TRAIT(we_ate_heart, TRAIT_USED_ORGAN))
@@ -94,8 +94,8 @@
 
 ///Not Perfect heart give random mutation.
 /datum/component/heart_eater/proc/not_perfect_heart(mob/living/carbon/human/eater)
-	var/datum/mutation/human/new_mutation
-	var/list/datum/mutation/human/shuffle_mutation_list = shuffle(mutations_list)
+	var/datum/mutation/new_mutation
+	var/list/datum/mutation/shuffle_mutation_list = shuffle(mutations_list)
 	for(var/mutation_in_list in shuffle_mutation_list)
 		if(is_type_in_list(mutation_in_list, eater.dna.mutations))
 			continue
@@ -104,7 +104,7 @@
 	if(isnull(new_mutation))
 		healing_heart(eater)
 		return
-	eater.dna.add_mutation(new_mutation)
+	eater.dna.add_mutation(new_mutation, MUTATION_SOURCE_HEART_EATER)
 	healing_heart(eater)
 	to_chat(eater, span_warning("This heart is not right for you. You now have [new_mutation.name] mutation."))
 

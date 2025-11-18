@@ -43,7 +43,6 @@
 
 // Adds the funny projector to medical borgs
 
-/obj/item/robot_model/medical/New(loc, ...)
-	. = ..()
-	var/obj/item/holosign_creator/medical/treatment_zone/new_holosign = new(src)
-	basic_modules.Add(new_holosign)
+/obj/item/robot_model/medical/Initialize(mapload)
+	basic_modules += /obj/item/holosign_creator/medical/treatment_zone
+	return ..()

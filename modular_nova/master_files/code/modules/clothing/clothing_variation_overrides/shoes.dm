@@ -6,6 +6,23 @@
 	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION_NO_NEW_ICON
 
 /**
- * NONE(Squash)
- * Clothing that does not have a digitigrade version, and thus will squash legs to fit.
+ * SUBTYPE WITH NEW ICON
+ * Clothing that has a digitigrade version, but its parent was set to something else earlier in this file or elsewhere entirely.
  */
+/obj/item/clothing/shoes/combat
+	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION
+
+/obj/item/clothing/shoes/jackboots
+	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION
+
+/obj/item/clothing/shoes/workboots
+	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION
+
+/obj/item/clothing/shoes/russian
+	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION
+
+/obj/item/clothing/shoes/winterboots
+	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION
+
+/obj/item/clothing/shoes/sneakers
+	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION

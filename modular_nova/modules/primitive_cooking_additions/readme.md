@@ -6,18 +6,18 @@ Adds several ways to cook and prepare foods without the use of powered machines
 
 ### TG Proc/File Changes:
 
--   N/A
+- N/A
 
 ### Defines:
 
--   N/A
+- N/A
 
 ### Master file additions
 
--   N/A
+- N/A
 
 ### Included files that are not contained in this module:
 
--   N/A
+- N/A
 
 ### Credits:

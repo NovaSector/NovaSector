@@ -1,8 +1,8 @@
 // THIS IS A NOVA SECTOR UI FILE
-import { classes } from 'common/react';
+import { Button, Icon, Section, Table, Tooltip } from 'tgui-core/components';
+import { classes } from 'tgui-core/react';
 
 import { useBackend } from '../backend';
-import { Button, Icon, Section, Table, Tooltip } from '../components';
 import { Window } from '../layouts';
 
 const commandJobs = [
@@ -23,7 +23,7 @@ export const RecordManifest = (props) => {
     <Window title="All crew with information" width={450} height={500}>
       <Window.Content scrollable>
         {Object.entries(manifest).map(([dept, crew]) => (
-          <Section className={'CrewManifest--' + dept} key={dept} title={dept}>
+          <Section className={`CrewManifest--${dept}`} key={dept} title={dept}>
             <Table>
               {Object.entries(crew).map(([crewIndex, crewMember]) => (
                 <Table.Row key={crewIndex}>

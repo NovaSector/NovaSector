@@ -16,14 +16,14 @@
 	desired_atom = /mob/living/basic/pet/poppy
 
 // Structures
-/datum/area_spawn/blueshield_locker
-	target_areas = list(/area/station/command/heads_quarters/captain, /area/station/command/bridge, /area/station/command/corporate_dock, /area/station/command/meeting_room, /area/station/command/gateway)
-	desired_atom = /obj/structure/closet/secure_closet/blueshield
-	mode = AREA_SPAWN_MODE_HUG_WALL
-
 /datum/area_spawn/command_drobe
 	target_areas = list(/area/station/command/meeting_room, /area/station/command/meeting_room/council, /area/station/command/bridge)
 	desired_atom = /obj/machinery/vending/access/command
+	mode = AREA_SPAWN_MODE_HUG_WALL
+
+/datum/area_spawn/blueshield_locker
+	target_areas = list(/area/station/command/heads_quarters/captain, /area/station/command/bridge, /area/station/command/corporate_dock, /area/station/command/meeting_room, /area/station/command/gateway)
+	desired_atom = /obj/structure/closet/secure_closet/blueshield
 	mode = AREA_SPAWN_MODE_HUG_WALL
 
 /datum/area_spawn/ammo_workbench
@@ -112,3 +112,12 @@
 		/area/station/engineering/break_room,
 	)
 	desired_atom = /obj/effect/landmark/start/telecomms_specialist
+
+/datum/area_spawn/bridge_officer_landmark
+	target_areas = list(/area/station/command/bridge)
+	desired_atom = /obj/effect/landmark/start/bridge_officer
+
+/datum/area_spawn/cargo_shelves_warehouse
+	target_areas = list(/area/station/cargo/warehouse)
+	desired_atom = /obj/item/rack_parts/cargo_shelf
+	amount_to_spawn = 3

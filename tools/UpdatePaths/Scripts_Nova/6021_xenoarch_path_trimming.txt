@@ -1,0 +1,2 @@
+/obj/item/xenoarch/hammer/cm1 : /obj/item/xenoarch/hammer{@OLD}
+/obj/item/xenoarch/tape_measure : /obj/item/xenoarch{@OLD}

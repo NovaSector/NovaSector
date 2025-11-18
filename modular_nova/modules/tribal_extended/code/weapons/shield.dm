@@ -12,3 +12,4 @@
 	w_class = WEIGHT_CLASS_BULKY
 	shield_break_sound = 'sound/effects/bang.ogg'
 	shield_break_leftover = /obj/item/stack/sheet/animalhide/goliath_hide
+	resistance_flags = FIRE_PROOF | LAVA_PROOF

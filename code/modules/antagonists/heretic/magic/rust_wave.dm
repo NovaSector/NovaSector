@@ -8,16 +8,16 @@
 	overlay_icon_state = "bg_heretic_border"
 	button_icon = 'icons/mob/actions/actions_ecult.dmi'
 	button_icon_state = "entropic_plume"
-	sound = 'sound/magic/forcewall.ogg'
+	sound = 'sound/effects/magic/forcewall.ogg'
 
 	school = SCHOOL_FORBIDDEN
 	cooldown_time = 30 SECONDS
 
-	invocation = "'NTR'P'C PL'M'"
+	invocation = "'NTR'P'C PL'M!"
 	invocation_type = INVOCATION_WHISPER
 	spell_requirements = NONE
 
-	cone_levels = 5
+	cone_levels = 6
 	respect_density = TRUE
 
 /datum/action/cooldown/spell/cone/staggered/entropic_plume/cast(atom/cast_on)
@@ -34,7 +34,7 @@
 	if(victim.can_block_magic(antimagic_flags) || IS_HERETIC_OR_MONSTER(victim) || victim == caster)
 		return
 	victim.apply_status_effect(/datum/status_effect/amok)
-	victim.apply_status_effect(/datum/status_effect/cloudstruck, level * 1 SECONDS)
+	victim.apply_status_effect(/datum/status_effect/cloudstruck, 5 SECONDS)
 	victim.adjust_disgust(100)
 
 /datum/action/cooldown/spell/cone/staggered/entropic_plume/calculate_cone_shape(current_level)
@@ -78,7 +78,7 @@
 	school = SCHOOL_FORBIDDEN
 	cooldown_time = 35 SECONDS
 
-	invocation = "SPR'D TH' WO'D"
+	invocation = "SPR'D TH' W'D."
 	invocation_type = INVOCATION_WHISPER
 	spell_requirements = NONE
 
@@ -90,7 +90,7 @@
 	alpha = 180
 	damage = 30
 	damage_type = TOX
-	hitsound = 'sound/weapons/punch3.ogg'
+	hitsound = 'sound/items/weapons/punch3.ogg'
 	trigger_range = 0
 	ignored_factions = list(FACTION_HERETIC)
 	range = 15
@@ -98,7 +98,7 @@
 
 /obj/projectile/magic/aoe/rust_wave/Moved(atom/old_loc, movement_dir, forced, list/old_locs, momentum_change = TRUE)
 	. = ..()
-	playsound(src, 'sound/items/welder.ogg', 75, TRUE)
+	playsound(src, 'sound/items/tools/welder.ogg', 75, TRUE)
 	var/list/turflist = list()
 	var/turf/T1
 	turflist += get_turf(src)
@@ -119,4 +119,4 @@
 
 /obj/projectile/magic/aoe/rust_wave/short
 	range = 7
-	speed = 2
+	speed = 0.5

@@ -2,13 +2,14 @@
  * Double-Bladed Energy Swords - Cheridan
  */
 /obj/item/dualsaber
+	name = "double-bladed energy sword"
+	desc = "Handle with care."
 	icon = 'icons/obj/weapons/transforming_energy.dmi'
 	icon_state = "dualsaber0"
 	inhand_icon_state = "dualsaber0"
+	icon_angle = -45
 	lefthand_file = 'icons/mob/inhands/weapons/swords_lefthand.dmi'
 	righthand_file = 'icons/mob/inhands/weapons/swords_righthand.dmi'
-	name = "double-bladed energy sword"
-	desc = "Handle with care."
 	force = 3
 	throwforce = 5
 	throw_speed = 3
@@ -24,14 +25,12 @@
 	attack_verb_continuous = list("attacks", "slashes", "stabs", "slices", "tears", "lacerates", "rips", "dices", "cuts")
 	attack_verb_simple = list("attack", "slash", "stab", "slice", "tear", "lacerate", "rip", "dice", "cut")
 	block_chance = 75
-	block_sound = 'sound/weapons/block_blade.ogg'
+	block_sound = 'sound/items/weapons/block_blade.ogg'
 	max_integrity = 200
 	armor_type = /datum/armor/item_dualsaber
 	resistance_flags = FIRE_PROOF
 	wound_bonus = -10
-	bare_wound_bonus = 20
-	special_desc_requirement = EXAMINE_CHECK_SYNDICATE_TOY // NOVA EDIT
-	special_desc = "A double bladed energy sword employed by the Syndicate in raids" // NOVA EDIT
+	exposed_wound_bonus = 20
 	demolition_mod = 1.5 //1.5x damage to objects, robots, etc.
 	item_flags = NO_BLOOD_ON_ITEM
 	var/w_class_on = WEIGHT_CLASS_BULKY
@@ -49,8 +48,8 @@
 	AddComponent(/datum/component/two_handed, \
 		force_unwielded = force, \
 		force_wielded = two_hand_force, \
-		wieldsound = 'sound/weapons/saberon.ogg', \
-		unwieldsound = 'sound/weapons/saberoff.ogg', \
+		wieldsound = 'sound/items/weapons/saberon.ogg', \
+		unwieldsound = 'sound/items/weapons/saberoff.ogg', \
 		wield_callback = CALLBACK(src, PROC_REF(on_wield)), \
 		unwield_callback = CALLBACK(src, PROC_REF(on_unwield)), \
 	)
@@ -61,8 +60,11 @@
 	if(user && HAS_TRAIT(user, TRAIT_HULK))
 		to_chat(user, span_warning("You lack the grace to wield this!"))
 		return COMPONENT_TWOHANDED_BLOCK_WIELD
+	if(HAS_TRAIT_FROM(src, TRAIT_NODROP, HAND_REPLACEMENT_TRAIT))
+		to_chat(user, span_warning("You can't seem to hold [src] properly!"))
+		return COMPONENT_TWOHANDED_BLOCK_WIELD
 	update_weight_class(w_class_on)
-	hitsound = 'sound/weapons/blade1.ogg'
+	hitsound = 'sound/items/weapons/blade1.ogg'
 	START_PROCESSING(SSobj, src)
 	set_light_on(TRUE)
 
@@ -75,7 +77,9 @@
 	set_light_on(FALSE)
 
 /obj/item/dualsaber/get_sharpness()
-	return HAS_TRAIT(src, TRAIT_WIELDED) && sharpness
+	if (!HAS_TRAIT(src, TRAIT_WIELDED))
+		return NONE
+	return ..()
 
 /obj/item/dualsaber/update_icon_state()
 	icon_state = inhand_icon_state = HAS_TRAIT(src, TRAIT_WIELDED) ? "dualsaber[saber_color][HAS_TRAIT(src, TRAIT_WIELDED)]" : "dualsaber0"
@@ -86,7 +90,7 @@
 		user.visible_message(span_suicide("[user] begins spinning way too fast! It looks like [user.p_theyre()] trying to commit suicide!"))
 
 		var/obj/item/bodypart/head/myhead = user.get_bodypart(BODY_ZONE_HEAD)//stole from chainsaw code
-		var/obj/item/organ/internal/brain/B = user.get_organ_slot(ORGAN_SLOT_BRAIN)
+		var/obj/item/organ/brain/B = user.get_organ_slot(ORGAN_SLOT_BRAIN)
 		B.organ_flags &= ~ORGAN_VITAL //this cant possibly be a good idea
 		var/randdir
 		for(var/i in 1 to 24)//like a headless chicken!
@@ -164,6 +168,9 @@
 	if(attack_type == LEAP_ATTACK)
 		final_block_chance -= 50 //We are particularly bad at blocking someone JUMPING at us..
 
+	if(attack_type == OVERWHELMING_ATTACK)
+		final_block_chance = 0 //Far too small to block these kinds of attacks.
+
 	return ..()
 
 /obj/item/dualsaber/process()
@@ -187,7 +194,7 @@
 		var/mob/living/carbon/C = user
 		if(C.wear_mask)
 			in_mouth = ", barely missing [user.p_their()] nose"
-	. = span_warning("[user] swings [user.p_their()] [name][in_mouth]. [user.p_They()] light[user.p_s()] [A.loc == user ? "[user.p_their()] [A.name]" : A] in the process.")
+	. = span_rose("[user] swings [user.p_their()] [name][in_mouth]. [user.p_They()] light[user.p_s()] [A.loc == user ? "[user.p_their()] [A.name]" : A] in the process.")
 	playsound(loc, hitsound, get_clamped_volume(), TRUE, -1)
 	add_fingerprint(user)
 	// Light your candles while spinning around the room
@@ -205,7 +212,7 @@
 /obj/item/dualsaber/purple
 	possible_colors = list("purple")
 
-/obj/item/dualsaber/attackby(obj/item/W, mob/user, params)
+/obj/item/dualsaber/attackby(obj/item/W, mob/user, list/modifiers, list/attack_modifiers)
 	if(W.tool_behaviour == TOOL_MULTITOOL)
 		if(!hacked)
 			hacked = TRUE

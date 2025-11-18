@@ -1,5 +1,5 @@
 /datum/design/nifsoft_remover
-	name = "Lopland 'Wrangler' NIF-Cutter"
+	name = "Nanotrasen 'Wrangler' NIF-Cutter"
 	desc = "A small device that lets the user remove NIFSofts from a NIF user."
 	id = "nifsoft_remover"
 	build_type = PROTOLATHE | AWAY_LATHE
@@ -19,7 +19,7 @@
 	desc = "A NIFSoft datadisk containing the Automatic Appraisal NIFsoft."
 	id = "nifsoft_money_sense"
 	build_type = PROTOLATHE | AWAY_LATHE
-	build_path = /obj/item/disk/nifsoft_uploader/money_sense
+	build_path = /obj/item/disk/nifsoft_uploader/job/money_sense
 	materials = list(
 		/datum/material/iron = SHEET_MATERIAL_AMOUNT,
 		/datum/material/silver = HALF_SHEET_MATERIAL_AMOUNT,
@@ -61,6 +61,70 @@
 	)
 	departmental_flags = DEPARTMENT_BITFLAG_SCIENCE | DEPARTMENT_BITFLAG_SERVICE | DEPARTMENT_BITFLAG_MEDICAL
 
+/datum/design/nif_detective_tools
+	name = "Grimoire Vacholiere NIFSoft"
+	desc = "A NIFSoft datadisk containing the Grimoire Vacholiere NIFSoft."
+	id = "nif_detective_tools"
+	build_type = PROTOLATHE | AWAY_LATHE
+	build_path = /obj/item/disk/nifsoft_uploader/job/summoner/detective
+	materials = list(
+		/datum/material/diamond = SMALL_MATERIAL_AMOUNT,
+		/datum/material/gold = HALF_SHEET_MATERIAL_AMOUNT,
+		/datum/material/uranium = HALF_SHEET_MATERIAL_AMOUNT,
+	)
+	category = list(
+		RND_CATEGORY_TOOLS + RND_SUBCATEGORY_TOOLS_SECURITY,
+	)
+	departmental_flags = DEPARTMENT_BITFLAG_SECURITY
+
+/datum/design/nif_surgery_tools
+	name = "Grimoire Asclepius NIFSoft"
+	desc = "A NIFSoft datadisk containing the Grimoire Asclepius NIFSoft."
+	id = "nif_surgery_tools"
+	build_type = PROTOLATHE | AWAY_LATHE
+	build_path = /obj/item/disk/nifsoft_uploader/job/summoner/surgery
+	materials = list(
+		/datum/material/diamond = SMALL_MATERIAL_AMOUNT,
+		/datum/material/gold = HALF_SHEET_MATERIAL_AMOUNT,
+		/datum/material/uranium = HALF_SHEET_MATERIAL_AMOUNT,
+	)
+	category = list(
+		RND_CATEGORY_TOOLS + RND_SUBCATEGORY_TOOLS_MEDICAL,
+	)
+	departmental_flags = DEPARTMENT_BITFLAG_MEDICAL
+
+/datum/design/nif_service_tools
+	name = "Grimoire Hestia NIFSoft"
+	desc = "A NIFSoft datadisk containing the Grimoire Hestia NIFSoft."
+	id = "nif_service_tools"
+	build_type = PROTOLATHE | AWAY_LATHE
+	build_path = /obj/item/disk/nifsoft_uploader/job/summoner/service
+	materials = list(
+		/datum/material/diamond = SMALL_MATERIAL_AMOUNT,
+		/datum/material/gold = HALF_SHEET_MATERIAL_AMOUNT,
+		/datum/material/uranium = HALF_SHEET_MATERIAL_AMOUNT,
+	)
+	category = list(
+		RND_CATEGORY_TOOLS + RND_SUBCATEGORY_TOOLS_SERVICE,
+	)
+	departmental_flags = DEPARTMENT_BITFLAG_SERVICE
+
+/datum/design/nif_general_tools
+	name = "Grimoire Opera NIFSoft"
+	desc = "A NIFSoft datadisk containing the Grimoire Opera NIFSoft."
+	id = "nif_general_tools"
+	build_type = PROTOLATHE | AWAY_LATHE
+	build_path = /obj/item/disk/nifsoft_uploader/summoner/tools
+	materials = list(
+		/datum/material/diamond = SMALL_MATERIAL_AMOUNT,
+		/datum/material/gold = HALF_SHEET_MATERIAL_AMOUNT,
+		/datum/material/uranium = HALF_SHEET_MATERIAL_AMOUNT,
+	)
+	category = list(
+		RND_CATEGORY_TOOLS,
+	)
+	departmental_flags = ALL
+
 /datum/design/nifsoft_hud
 	build_type = PROTOLATHE | AWAY_LATHE
 	materials = list(
@@ -76,42 +140,42 @@
 	name = "Medical HUD NIFSoft"
 	desc = "A NIFSoft datadisk containing the Medical HUD NIFsoft."
 	id = "nifsoft_hud_medical"
-	build_path = /obj/item/disk/nifsoft_uploader/med_hud
+	build_path = /obj/item/disk/nifsoft_uploader/job/med_hud
 	departmental_flags = DEPARTMENT_BITFLAG_MEDICAL
 
 /datum/design/nifsoft_hud/security
 	name = "Security HUD NIFSoft"
 	desc = "A NIFSoft datadisk containing the Security HUD NIFsoft."
 	id = "nifsoft_hud_security"
-	build_path = /obj/item/disk/nifsoft_uploader/sec_hud
+	build_path = /obj/item/disk/nifsoft_uploader/job/sec_hud
 	departmental_flags = DEPARTMENT_BITFLAG_SECURITY
 
 /datum/design/nifsoft_hud/cargo
 	name = "Permit HUD NIFSoft"
 	desc = "A NIFSoft datadisk containing the Permit HUD NIFsoft."
 	id = "nifsoft_hud_cargo"
-	build_path = /obj/item/disk/nifsoft_uploader/permit_hud
+	build_path = /obj/item/disk/nifsoft_uploader/job/permit_hud
 	departmental_flags = DEPARTMENT_BITFLAG_CARGO
 
 /datum/design/nifsoft_hud/diagnostic
 	name = "Diagnostic HUD NIFSoft"
 	desc = "A NIFSoft datadisk containing the Diagnostic HUD NIFsoft."
 	id = "nifsoft_hud_diagnostic"
-	build_path = /obj/item/disk/nifsoft_uploader/diag_hud
+	build_path = /obj/item/disk/nifsoft_uploader/job/diag_hud
 	departmental_flags = DEPARTMENT_BITFLAG_SCIENCE
 
 /datum/design/nifsoft_hud/science
 	name = "Science HUD NIFSoft"
 	desc = "A NIFSoft datadisk containing the Science HUD NIFsoft."
 	id = "nifsoft_hud_science"
-	build_path = /obj/item/disk/nifsoft_uploader/sci_hud
+	build_path = /obj/item/disk/nifsoft_uploader/job/sci_hud
 	departmental_flags = DEPARTMENT_BITFLAG_SCIENCE | DEPARTMENT_BITFLAG_SERVICE | DEPARTMENT_BITFLAG_MEDICAL
 
 /datum/design/nifsoft_hud/meson
 	name = "Meson HUD NIFSoft"
 	desc = "A NIFSoft datadisk containing the Meson HUD NIFsoft."
 	id = "nifsoft_hud_meson"
-	build_path = /obj/item/disk/nifsoft_uploader/meson_hud
+	build_path = /obj/item/disk/nifsoft_uploader/job/meson_hud
 	departmental_flags = DEPARTMENT_BITFLAG_CARGO | DEPARTMENT_BITFLAG_ENGINEERING
 
 /datum/design/nif_hud_kit

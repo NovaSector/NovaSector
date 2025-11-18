@@ -1,5 +1,5 @@
 /datum/preferences/proc/render_new_preview_appearance(mob/living/carbon/human/dummy/mannequin, show_job_clothes = TRUE)
-	var/datum/job/no_job = SSjob.GetJobType(/datum/job/unassigned)
+	var/datum/job/no_job = SSjob.get_job_type(/datum/job/unassigned)
 	var/datum/job/preview_job = get_highest_priority_job() || no_job
 	mannequin.dna.mutant_bodyparts = list()
 
@@ -34,7 +34,7 @@
 		if(PREVIEW_PREF_NAKED)
 			mannequin.underwear_visibility = UNDERWEAR_HIDE_UNDIES | UNDERWEAR_HIDE_SHIRT | UNDERWEAR_HIDE_SOCKS | UNDERWEAR_HIDE_BRA
 			for(var/organ_key in list(ORGAN_SLOT_VAGINA, ORGAN_SLOT_PENIS, ORGAN_SLOT_BREASTS, ORGAN_SLOT_ANUS))
-				var/obj/item/organ/external/genital/gent = mannequin.get_organ_slot(organ_key)
+				var/obj/item/organ/genital/gent = mannequin.get_organ_slot(organ_key)
 				if(gent)
 					gent.aroused = AROUSAL_NONE
 					gent.update_sprite_suffix()
@@ -42,7 +42,7 @@
 		if(PREVIEW_PREF_NAKED_AROUSED)
 			mannequin.underwear_visibility = UNDERWEAR_HIDE_UNDIES | UNDERWEAR_HIDE_SHIRT | UNDERWEAR_HIDE_SOCKS | UNDERWEAR_HIDE_BRA
 			for(var/organ_key in list(ORGAN_SLOT_VAGINA, ORGAN_SLOT_PENIS, ORGAN_SLOT_BREASTS, ORGAN_SLOT_ANUS))
-				var/obj/item/organ/external/genital/gent = mannequin.get_organ_slot(organ_key)
+				var/obj/item/organ/genital/gent = mannequin.get_organ_slot(organ_key)
 				if(gent)
 					gent.aroused = AROUSAL_FULL
 					gent.update_sprite_suffix()
@@ -52,7 +52,7 @@
 	if(SSquirks?.initialized)
 		// And yes we need to clean all the quirk datums every time
 		mannequin.cleanse_quirk_datums()
-		for(var/quirk_name as anything in all_quirks)
+		for(var/quirk_name in all_quirks)
 			var/datum/quirk/quirk_type = SSquirks.quirks[quirk_name]
 			if(!(initial(quirk_type.quirk_flags) & QUIRK_CHANGES_APPEARANCE))
 				continue

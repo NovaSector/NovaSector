@@ -58,7 +58,7 @@ GLOBAL_VAR_INIT(normal_ooc_colour, "#002eb8")
 
 	msg = emoji_parse(msg)
 
-	if(SSticker.HasRoundStarted() && (msg[1] in list(".",";",":","#") || findtext_char(msg, "say", 1, 5)))
+	if(SSticker.HasRoundStarted() && ((msg[1] in list(".",";",":","#")) || findtext_char(msg, "say", 1, 5)))
 		if(tgui_alert(usr,"Your message \"[raw_msg]\" looks like it was meant for in game communication, say it in OOC?", "Meant for OOC?", list("Yes", "No")) != "Yes")
 			return
 
@@ -66,7 +66,7 @@ GLOBAL_VAR_INIT(normal_ooc_colour, "#002eb8")
 		if(handle_spam_prevention(msg,MUTE_OOC))
 			return
 		if(findtext(msg, "byond://"))
-			to_chat(src, span_boldannounce("<B>Advertising other servers is not allowed.</B>"))
+			to_chat(src, span_boldannounce("Advertising other servers is not allowed."))
 			log_admin("[key_name(src)] has attempted to advertise in OOC: [msg]")
 			message_admins("[key_name_admin(src)] has attempted to advertise in OOC: [msg]")
 			return
@@ -79,9 +79,6 @@ GLOBAL_VAR_INIT(normal_ooc_colour, "#002eb8")
 
 	var/keyname = key
 
-	if(CONFIG_GET(flag/enable_cross_server_ooc)) //NOVA EDIT ADDITION
-		send_ooc_to_other_server(ckey, msg) //NOVA EDIT ADDITION
-
 	if(prefs.unlock_content)
 		if(prefs.toggles & MEMBER_PUBLIC)
 			keyname = "<font color='[prefs.read_preference(/datum/preference/color/ooc_color) || GLOB.normal_ooc_colour]'>[icon2html('icons/ui/chat/member_content.dmi', world, "blag")][keyname]</font>"
@@ -91,7 +88,7 @@ GLOBAL_VAR_INIT(normal_ooc_colour, "#002eb8")
 			keyname = "<font color='[prefs.read_preference(/datum/preference/color/ooc_color) || GLOB.normal_ooc_colour]'>[icon2html('modular_nova/master_files/icons/donator/donator_chat_icon.dmi', world, "nova_logo")][keyname]</font>"
 	// NOVA EDIT ADDITION END
 	if(prefs.hearted)
-		var/datum/asset/spritesheet/sheet = get_asset_datum(/datum/asset/spritesheet/chat)
+		var/datum/asset/spritesheet_batched/sheet = get_asset_datum(/datum/asset/spritesheet_batched/chat)
 		keyname = "[sheet.icon_tag("emoji-heart")][keyname]"
 
 	//The linkify span classes and linkify=TRUE below make ooc text get clickable chat href links if you pass in something resembling a url
@@ -177,7 +174,7 @@ ADMIN_VERB(reset_ooc_color, R_FUN, "Reset Player OOC Color", "Returns player OOC
 /client/verb/admin_notice()
 	set name = "Adminnotice"
 	set category = "Admin"
-	set desc ="Check the admin notice if it has been set"
+	set desc = "Check the admin notice if it has been set"
 
 	if(GLOB.admin_notice)
 		to_chat(src, "[span_boldnotice("Admin Notice:")]\n \t [GLOB.admin_notice]")
@@ -264,7 +261,7 @@ ADMIN_VERB(reset_ooc_color, R_FUN, "Reset Player OOC Color", "Returns player OOC
 	// Check if the list is empty
 	if(!length(players))
 		// Express that there are no players we can ignore in chat
-		to_chat(src, "<span class='infoplain'>There are no other players you can ignore!</span>")
+		to_chat(src, span_infoplain("There are no other players you can ignore!"))
 
 		// Stop running
 		return
@@ -285,7 +282,7 @@ ADMIN_VERB(reset_ooc_color, R_FUN, "Reset Player OOC Color", "Returns player OOC
 	// Check if the selected player is on our ignore list
 	if(selection in prefs.ignoring)
 		// Express that the selected player is already on our ignore list in chat
-		to_chat(src, "<span class='infoplain'>You are already ignoring [selection]!</span>")
+		to_chat(src, span_infoplain("You are already ignoring [selection]!"))
 
 		// Stop running
 		return
@@ -297,7 +294,7 @@ ADMIN_VERB(reset_ooc_color, R_FUN, "Reset Player OOC Color", "Returns player OOC
 	prefs.save_preferences()
 
 	// Express that we've ignored the selected player in chat
-	to_chat(src, "<span class='infoplain'>You are now ignoring [selection] on the OOC channel.</span>")
+	to_chat(src, span_infoplain("You are now ignoring [selection] on the OOC channel."))
 
 // Unignore verb
 /client/verb/select_unignore()
@@ -308,7 +305,7 @@ ADMIN_VERB(reset_ooc_color, R_FUN, "Reset Player OOC Color", "Returns player OOC
 	// Check if we've ignored any players
 	if(!length(prefs.ignoring))
 		// Express that we haven't ignored any players in chat
-		to_chat(src, "<span class='infoplain'>You haven't ignored any players!</span>")
+		to_chat(src, span_infoplain("You haven't ignored any players!"))
 
 		// Stop running
 		return
@@ -323,7 +320,7 @@ ADMIN_VERB(reset_ooc_color, R_FUN, "Reset Player OOC Color", "Returns player OOC
 	// Check if the selected player is not on our ignore list
 	if(!(selection in prefs.ignoring))
 		// Express that the selected player is not on our ignore list in chat
-		to_chat(src, "<span class='infoplain'>You are not ignoring [selection]!</span>")
+		to_chat(src, span_infoplain("You are not ignoring [selection]!"))
 
 		// Stop running
 		return
@@ -335,7 +332,7 @@ ADMIN_VERB(reset_ooc_color, R_FUN, "Reset Player OOC Color", "Returns player OOC
 	prefs.save_preferences()
 
 	// Express that we've unignored the selected player in chat
-	to_chat(src, "<span class='infoplain'>You are no longer ignoring [selection] on the OOC channel.</span>")
+	to_chat(src, span_infoplain("You are no longer ignoring [selection] on the OOC channel."))
 
 /client/proc/show_previous_roundend_report()
 	set name = "Your Last Round"
@@ -370,6 +367,13 @@ ADMIN_VERB(reset_ooc_color, R_FUN, "Reset Player OOC Color", "Returns player OOC
 
 	var/list/map_size = splittext(sizes["mapwindow.size"], "x")
 
+	var/split_size = splittext(sizes["mainwindow.split.size"], "x")
+	var/split_width = text2num(split_size[1])
+
+	// Window is minimized, we can't get proper data so return to avoid division by 0
+	if (!split_width)
+		return
+
 	// Gets the type of zoom we're currently using from our view datum
 	// If it's 0 we do our pixel calculations based off the size of the mapwindow
 	// If it's not, we already know how big we want our window to be, since zoom is the exact pixel ratio of the map
@@ -377,7 +381,7 @@ ADMIN_VERB(reset_ooc_color, R_FUN, "Reset Player OOC Color", "Returns player OOC
 
 	var/desired_width = 0
 	if(zoom_value)
-		desired_width = round(view_size[1] * zoom_value * world.icon_size)
+		desired_width = round(view_size[1] * zoom_value * ICON_SIZE_X)
 	else
 
 		// Looks like we expect mapwindow.size to be "ixj" where i and j are numbers.
@@ -390,9 +394,6 @@ ADMIN_VERB(reset_ooc_color, R_FUN, "Reset Player OOC Color", "Returns player OOC
 	if (text2num(map_size[1]) == desired_width)
 		// Nothing to do
 		return
-
-	var/split_size = splittext(sizes["mainwindow.split.size"], "x")
-	var/split_width = text2num(split_size[1])
 
 	// Avoid auto-resizing the statpanel and chat into nothing.
 	desired_width = min(desired_width, split_width - 300)
@@ -424,12 +425,11 @@ ADMIN_VERB(reset_ooc_color, R_FUN, "Reset Player OOC Color", "Returns player OOC
 
 /// Attempt to automatically fit the viewport, assuming the user wants it
 /client/proc/attempt_auto_fit_viewport()
-	if (!prefs.read_preference(/datum/preference/toggle/auto_fit_viewport))
+	if (!prefs?.read_preference(/datum/preference/toggle/auto_fit_viewport))
 		return
+	// No need to attempt to fit the viewport on non-initialized clients as they'll auto-fit viewport right before finishing init
 	if(fully_created)
 		INVOKE_ASYNC(src, VERB_REF(fit_viewport))
-	else //Delayed to avoid wingets from Login calls.
-		addtimer(CALLBACK(src, VERB_REF(fit_viewport), 1 SECONDS))
 
 /client/verb/policy()
 	set name = "Show Policy"
@@ -439,7 +439,7 @@ ADMIN_VERB(reset_ooc_color, R_FUN, "Reset Player OOC Color", "Returns player OOC
 	//Collect keywords
 	var/list/keywords = mob.get_policy_keywords()
 	var/header = get_policy(POLICY_VERB_HEADER)
-	var/list/policytext = list(header,"<hr>")
+	var/list/policytext = list(header)
 	var/anything = FALSE
 	for(var/keyword in keywords)
 		var/p = get_policy(keyword)
@@ -450,7 +450,9 @@ ADMIN_VERB(reset_ooc_color, R_FUN, "Reset Player OOC Color", "Returns player OOC
 	if(!anything)
 		policytext += "No related rules found."
 
-	usr << browse(policytext.Join(""),"window=policy")
+	var/datum/browser/browser = new(usr, "policy", "Server Policy", 600, 500)
+	browser.set_content(policytext.Join(""))
+	browser.open()
 
 /client/verb/fix_stat_panel()
 	set name = "Fix Stat Panel"
@@ -466,3 +468,73 @@ ADMIN_VERB(reset_ooc_color, R_FUN, "Reset Player OOC Color", "Returns player OOC
 	ASSERT(prefs, "User attempted to export preferences while preferences were null!") // what the fuck
 
 	prefs.savefile.export_json_to_client(usr, ckey)
+
+/client/verb/map_vote_tally_count()
+	set name = "Show Map Vote Tallies"
+	set desc = "View the current map vote tally counts."
+	set category = "Server"
+	to_chat(mob, SSmap_vote.tally_printout)
+
+
+/client/verb/linkforumaccount()
+	set category = "OOC"
+	set name = "Link Forum Account"
+	set desc = "Validates your byond account to your forum account. Required to post on the forums."
+
+	var/uri = CONFIG_GET(string/forum_link_uri)
+	if(!uri)
+		to_chat(src, span_warning("This feature is disabled."))
+		return
+
+	if (!SSdbcore.Connect())
+		to_chat(src, span_danger("No connection to the database."))
+		return
+
+	if  (is_guest_key(ckey))
+		to_chat(src, span_danger("Guests can not link accounts."))
+		return
+
+	var/token = generate_account_link_token()
+
+	var/datum/db_query/query_set_token = SSdbcore.NewQuery("INSERT INTO phpbb.tg_byond_oauth_tokens (`token`, `key`) VALUES (:token, :key)", list("token" = token, "key" = key))
+	if(!query_set_token.Execute())
+		to_chat(src, span_danger("Failed to insert account link token into database, please try again later."))
+		qdel(query_set_token)
+		return
+
+	qdel(query_set_token)
+
+	to_chat(src, "Now opening a window to login to your forum account, your account will automatically be linked the moment you log in. If this window doesn't load, Please go to <a href=\"[uri]?token=[token]\">[uri]?token=[token]</a> - This link will expire in 30 minutes.")
+	src << link("[uri]?token=[token]")
+
+/client/proc/generate_account_link_token()
+	var/static/entropychain
+	if (!entropychain)
+		if (fexists("data/entropychain.txt"))
+			entropychain = file2text("entropychain.txt")
+		else
+			entropychain = "LOL THERE IS NO ENTROPY #HEATDEATH"
+	else if (prob(rand(1,15)))
+		text2file("data/entropychain.txt", entropychain)
+
+	var/datum/db_query/query_get_token = SSdbcore.NewQuery("SELECT [random_string()], [random_string()]", list(random_string_args(entropychain), random_string_args(entropychain)))
+
+	if(!query_get_token.Execute())
+		to_chat(src, span_danger("Failed to get random string token from database. (Error #1)"))
+		qdel(query_get_token)
+		return
+
+	if(!query_get_token.NextRow())
+		to_chat(src, span_danger("Could not locate your token in the database. (Error #2)"))
+		qdel(query_get_token)
+		return
+
+	entropychain = "[query_get_token.item[2]]"
+	return query_get_token.item[1]
+
+
+/client/proc/random_string()
+	return "SHA2(CONCAT(RAND(),UUID(),?,RAND(),UUID()), 512)"
+
+/client/proc/random_string_args(entropychain)
+	return "[entropychain][GUID()][rand()*rand(999999)][world.time][GUID()][rand()*rand(999999)][world.timeofday][GUID()][rand()*rand(999999)][world.realtime][GUID()][rand()*rand(999999)][time2text(world.timeofday)][GUID()][rand()*rand(999999)][world.tick_usage][computer_id][address][ckey][key][GUID()][rand()*rand(999999)]"

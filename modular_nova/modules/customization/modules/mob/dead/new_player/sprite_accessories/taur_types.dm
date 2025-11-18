@@ -4,12 +4,12 @@
  * Returns STYLE_TAUR_* or NONE.
  */
 /mob/living/carbon/human/proc/get_taur_mode()
-	var/taur_mutant_bodypart = dna.species.mutant_bodyparts["taur"]
+	var/taur_mutant_bodypart = dna.species.mutant_bodyparts[FEATURE_TAUR]
 	if(!taur_mutant_bodypart)
 		return NONE
 
 	var/bodypart_name = taur_mutant_bodypart[MUTANT_INDEX_NAME]
-	var/datum/sprite_accessory/taur/taur = SSaccessories.sprite_accessories["taur"][bodypart_name]
+	var/datum/sprite_accessory/taur/taur = SSaccessories.sprite_accessories[FEATURE_TAUR][bodypart_name]
 	if(!taur)
 		return NONE
 
@@ -17,22 +17,25 @@
 
 /datum/sprite_accessory/taur
 	icon = 'modular_nova/master_files/icons/mob/sprite_accessory/taur.dmi'
-	key = "taur"
-	generic = "Taur Type"
+	key = FEATURE_TAUR
 	color_src = USE_MATRIXED_COLORS
 	dimension_x = 64
 	center = TRUE
 	relevent_layers = list(BODY_FRONT_LAYER, BODY_ADJ_LAYER, BODY_FRONT_UNDER_CLOTHES, ABOVE_BODY_FRONT_HEAD_LAYER)
-	genetic = TRUE
-	organ_type = /obj/item/organ/external/taur_body/horselike // horselike by default, dont forget to override if you make another bodytype
+	organ_type = /obj/item/organ/taur_body/horselike // horselike by default, dont forget to override if you make another bodytype
 	flags_for_organ = SPRITE_ACCESSORY_HIDE_SHOES
 	/// Must be a single specific tauric suit variation bitflag. Don't do FLAG_1|FLAG_2
 	var/taur_mode = NONE
 	/// Must be a single specific tauric suit variation bitflag. Don't do FLAG_1|FLAG_2
 	var/alt_taur_mode = NONE
 
+	/// If we can lay down. For types with no loaf sprite this should be set to FALSE.
+	var/can_lay_down = FALSE
+	/// The offset we get from laying down. Negative values move us down
+	var/laydown_offset = 0
+
 /datum/sprite_accessory/taur/is_hidden(mob/living/carbon/human/target)
-	var/obj/item/organ/external/taur_body/taur_body = target.get_organ_slot(ORGAN_SLOT_EXTERNAL_TAUR)
+	var/obj/item/organ/taur_body/taur_body = target.get_organ_slot(ORGAN_SLOT_EXTERNAL_TAUR)
 	if (taur_body?.hide_self)
 		return TRUE
 
@@ -60,7 +63,6 @@
 
 	return FALSE
 
-
 /datum/sprite_accessory/taur/none
 	name = SPRITE_ACCESSORY_NONE
 	dimension_x = 32
@@ -75,37 +77,47 @@
 	taur_mode = STYLE_TAUR_HOOF
 	alt_taur_mode = STYLE_TAUR_PAW
 	color_src = USE_ONE_COLOR
+	can_lay_down = TRUE
+	laydown_offset = -3
 
 /datum/sprite_accessory/taur/cow/spotted
 	name = "Cow (Spotted)"
 	icon_state = "cow_spotted"
 	color_src = USE_MATRIXED_COLORS
+	can_lay_down = FALSE
 
 /datum/sprite_accessory/taur/deer
 	name = "Deer"
 	icon_state = "deer"
 	taur_mode = STYLE_TAUR_HOOF
 	alt_taur_mode = STYLE_TAUR_PAW
-	organ_type = /obj/item/organ/external/taur_body/horselike/deer
+	organ_type = /obj/item/organ/taur_body/horselike/deer
+	can_lay_down = TRUE
+	laydown_offset = -4
 
 /datum/sprite_accessory/taur/drake
 	name = "Drake"
 	icon_state = "drake"
 	taur_mode = STYLE_TAUR_PAW
+	can_lay_down = TRUE
+	laydown_offset = -3
 
 /datum/sprite_accessory/taur/drake/old
 	name = "Drake (Old)"
 	icon_state = "drake_old"
+	can_lay_down = FALSE
 
 /datum/sprite_accessory/taur/tarantula
 	name = "Tarantula"
 	icon_state = "tarantula"
-	organ_type = /obj/item/organ/external/taur_body/spider
+	organ_type = /obj/item/organ/taur_body/spider
+	can_lay_down = TRUE
+	laydown_offset = -3
 
 /datum/sprite_accessory/taur/drider
 	name = "Drider"
 	icon_state = "drider"
-	organ_type = /obj/item/organ/external/taur_body/spider
+	organ_type = /obj/item/organ/taur_body/spider
 
 /datum/sprite_accessory/taur/eevee
 	name = "Eevee"
@@ -117,12 +129,19 @@
 	icon_state = "horse"
 	taur_mode = STYLE_TAUR_HOOF
 	alt_taur_mode = STYLE_TAUR_PAW
+	can_lay_down = TRUE
+	laydown_offset = -3
 
 /datum/sprite_accessory/taur/naga
 	name = "Naga"
 	icon_state = "naga"
 	taur_mode = STYLE_TAUR_SNAKE
-	organ_type = /obj/item/organ/external/taur_body/serpentine
+	organ_type = /obj/item/organ/taur_body/serpentine
+
+/datum/sprite_accessory/taur/naga/fat
+	name = "Naga, Fat"
+	icon_state = "nagafat"
+	taur_mode = STYLE_TAUR_SNAKE
 
 /datum/sprite_accessory/taur/naga/striped
 	name = "Naga, Striped"
@@ -138,18 +157,30 @@
 	name = "Otie"
 	icon_state = "otie"
 	taur_mode = STYLE_TAUR_PAW
+	can_lay_down = TRUE
+	laydown_offset = -4
 
 /datum/sprite_accessory/taur/pede
 	name = "Scolipede"
 	icon_state = "pede"
 	taur_mode = STYLE_TAUR_PAW
 
+/datum/sprite_accessory/taur/centipede
+	name = "Centipede"
+	icon_state = "centipede"
+	taur_mode = STYLE_TAUR_SNAKE
+	organ_type = /obj/item/organ/taur_body/centipede
+
+/datum/sprite_accessory/taur/centipede/synth
+	name = "Centipede (Synth)"
+	organ_type = /obj/item/organ/taur_body/centipede/synth
+
 /datum/sprite_accessory/taur/tentacle
 	name = "Tentacle"
 	icon_state = "tentacle"
 	taur_mode = STYLE_TAUR_SNAKE
 	color_src = USE_ONE_COLOR
-	organ_type = /obj/item/organ/external/taur_body/tentacle
+	organ_type = /obj/item/organ/taur_body/tentacle
 
 /datum/sprite_accessory/taur/tentacle/alt
 	name = "Tentacle, Alt"
@@ -161,31 +192,35 @@
 	name = "Canine"
 	icon_state = "canine"
 	taur_mode = STYLE_TAUR_PAW
+	can_lay_down = TRUE
+	laydown_offset = -3
 
 /datum/sprite_accessory/taur/feline
 	name = "Feline"
 	icon_state = "feline"
 	taur_mode = STYLE_TAUR_PAW
+	can_lay_down = TRUE
+	laydown_offset = -4
 
 /datum/sprite_accessory/taur/goop
 	name = "Goop"
 	icon_state = "goop"
 	taur_mode = STYLE_TAUR_SNAKE
 	color_src = USE_ONE_COLOR
-	organ_type = /obj/item/organ/external/taur_body/blob
+	organ_type = /obj/item/organ/taur_body/blob
 
 /datum/sprite_accessory/taur/slime
 	name = "Slime"
 	icon_state = "slime"
 	taur_mode = STYLE_TAUR_SNAKE
 	color_src = USE_ONE_COLOR
-	organ_type = /obj/item/organ/external/taur_body/blob
+	organ_type = /obj/item/organ/taur_body/blob
 
 /datum/sprite_accessory/taur/biglegs
 	name = "Big Legs"
 	icon_state = "biglegs"
 	taur_mode = STYLE_TAUR_PAW
-	organ_type = /obj/item/organ/external/taur_body/anthro
+	organ_type = /obj/item/organ/taur_body/anthro
 
 /datum/sprite_accessory/taur/biglegs/stanced
 	name = "Big Legs, Stanced"
@@ -198,3 +233,33 @@
 /datum/sprite_accessory/taur/biglegs/stanced/bird
 	name = "Big Legs, Stanced Bird"
 	icon_state = "biglegs_bird_stanced"
+
+/datum/sprite_accessory/taur/biglegs/peg
+	name = "Big Legs, Pegs"
+	icon_state = "biglegs_peg"
+
+/datum/sprite_accessory/taur/biglegs/stanced/peg
+	name = "Big Legs, Stanced Pegs"
+	icon_state = "biglegs_peg_stanced"
+
+/datum/sprite_accessory/taur/kitsune
+	name = "Kitsune"
+	icon_state = "kitsune"
+	taur_mode = STYLE_TAUR_PAW
+	can_lay_down = TRUE
+	laydown_offset = -3
+
+/datum/sprite_accessory/taur/kitsune/alt
+	name = "Kitsune (alt)"
+	icon_state = "kitsunealt"
+
+/datum/sprite_accessory/taur/chemlight
+	name = "Chemtaur"
+	icon_state = "chemtaur"
+	taur_mode = STYLE_TAUR_PAW
+	can_lay_down = TRUE
+	laydown_offset = -6
+
+/datum/sprite_accessory/taur/chemlight/alt
+	name = "Striped Canine"
+	icon_state = "chemtaur_alt"

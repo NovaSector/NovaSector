@@ -1,4 +1,4 @@
-/obj/item/gun/energy/ionrifle // NOVA EDIT - ICON OVERRIDDEN IN AESTHETICS MODULE
+/obj/item/gun/energy/ionrifle //NOVA EDIT - ICON OVERRIDDEN IN AESTHETICS MODULE
 	name = "ion rifle"
 	desc = "A man-portable anti-armor weapon designed to disable mechanical threats at range."
 	icon_state = "ionrifle"
@@ -95,7 +95,7 @@
 	can_charge = FALSE
 	gun_flags = NOT_A_REAL_GUN
 	heat = 3800
-	usesound = list('sound/items/welder.ogg', 'sound/items/welder2.ogg')
+	usesound = list('sound/items/tools/welder.ogg', 'sound/items/tools/welder2.ogg')
 	tool_behaviour = TOOL_WELDER
 	toolspeed = 0.7 //plasmacutters can be used as welders, and are faster than standard welders
 
@@ -106,7 +106,7 @@
 		speed = 2.5 SECONDS, \
 		effectiveness = 105, \
 		bonus_modifier = 0, \
-		butcher_sound = 'sound/weapons/plasma_cutter.ogg', \
+		butcher_sound = 'sound/items/weapons/plasma_cutter.ogg', \
 	)
 	AddElement(/datum/element/tool_flash, 1)
 
@@ -141,7 +141,7 @@
 
 // Can we weld? Plasma cutter does not use charge continuously.
 // Amount cannot be defaulted to 1: most of the code specifies 0 in the call.
-/obj/item/gun/energy/plasmacutter/tool_use_check(mob/living/user, amount)
+/obj/item/gun/energy/plasmacutter/tool_use_check(mob/living/user, amount, heat_required)
 	if(QDELETED(cell))
 		balloon_alert(user, "no cell inserted!")
 		return FALSE
@@ -150,6 +150,9 @@
 	// Alternately it'll need to drain amount*charge_weld every period, which is either obscene or makes it free for other uses
 	if(amount ? cell.charge < PLASMA_CUTTER_CHARGE_WELD * amount : cell.charge < PLASMA_CUTTER_CHARGE_WELD)
 		balloon_alert(user, "not enough charge!")
+		return FALSE
+	if(heat < heat_required)
+		to_chat(user, span_warning("[src] is not hot enough to complete this task!"))
 		return FALSE
 
 	return TRUE
@@ -357,18 +360,72 @@
 		return FALSE
 	return ..()
 
+/**
+-----------------Tesla Cannon--------------------------------
+
+An advanced weapon that provides extremely high dps output at pinpoint accuracy due to its hitscan nature.
+
+Due to its normal w_class when folded it is suitable as a heavy reinforcement weapon, since the cell drains very quickly when firing.
+
+The power level is somewhat tempered by several drawbacks such as research requirements, anomalock, two handed firing requirement, and insultation providing damage reduction.
+
+it is often confused with the mech weapon of the same name, since it is a bit more obscure despite being very powerful. Formerly called the tesla revolver.
+**/
 /obj/item/gun/energy/tesla_cannon
 	name = "tesla cannon"
+	icon = 'icons/obj/weapons/guns/wide_guns.dmi'
 	icon_state = "tesla"
-	inhand_icon_state = "tesla"
-	desc = "A gun that shoots balls of \"tesla\", whatever that is."
+	lefthand_file = 'icons/mob/inhands/weapons/64x_guns_left.dmi'
+	righthand_file = 'icons/mob/inhands/weapons/64x_guns_right.dmi'
+	inhand_icon_state = null //null so we build the correct inhand.
+	desc = "A high voltage flux projector prototype created using the latest advancements in the anomaly science.\n\nThe anomalous nature of the flux core allows the tesla arc to be guided from the electrode to the target without being diverted to stray conductors outside the target field."
+	SET_BASE_VISUAL_PIXEL(-8, 0)
 	ammo_type = list(/obj/item/ammo_casing/energy/tesla_cannon)
+	inhand_x_dimension = 64
 	shaded_charge = TRUE
+	charge_sections = 2
+	display_empty =  FALSE
 	weapon_weight = WEAPON_HEAVY
+	w_class = WEIGHT_CLASS_BULKY
+	///if our stpck is extended and we are ready to fire.
+	var/ready_to_fire = FALSE
 
 /obj/item/gun/energy/tesla_cannon/Initialize(mapload)
 	. = ..()
-	AddComponent(/datum/component/automatic_fire, 0.1 SECONDS)
+	AddComponent(/datum/component/automatic_fire, autofire_shot_delay =  100 MILLISECONDS, firing_sound_loop = /datum/looping_sound/tesla_cannon)
+
+/obj/item/gun/energy/tesla_cannon/can_trigger_gun(mob/living/user, akimbo_usage)
+	if(ready_to_fire)
+		return ..()
+	//If we have charge, but the stock is folded, do sparks.
+	if(can_shoot())
+		balloon_alert(user, "electricity arcing to stock!")
+
+		if(prob(75)) //fake sparks to cut on spark spam
+			playsound(user, 'sound/effects/sparks/sparks1.ogg', 50, TRUE)
+		else
+			do_sparks(3, FALSE, user)
+	return FALSE
+
+/obj/item/gun/energy/tesla_cannon/attack_self(mob/living/user)
+	. = ..()
+	if(ready_to_fire)
+		w_class = WEIGHT_CLASS_NORMAL
+		ready_to_fire = FALSE
+		icon_state = "tesla"
+		playsound(user, 'sound/items/weapons/gun/tesla/squeak_latch.ogg', 100)
+
+	else
+		playsound(user, 'sound/items/weapons/gun/tesla/click_creak.ogg', 100)
+		if(!do_after(user, 1.5 SECONDS))
+			return
+		w_class = WEIGHT_CLASS_BULKY
+		ready_to_fire = TRUE
+		icon_state = "tesla_unfolded"
+		playsound(user, 'sound/items/weapons/gun/tesla/squeak_latch.ogg', 100)
+
+	update_appearance()
+	balloon_alert_to_viewers("[ready_to_fire ? "unfolded" : "folded"] stock")
 
 /obj/item/gun/energy/marksman_revolver
 	name = "marksman revolver"
@@ -376,7 +433,7 @@
 	icon = 'icons/obj/weapons/guns/ballistic.dmi'
 	icon_state = "revolver"
 	ammo_type = list(/obj/item/ammo_casing/energy/marksman)
-	fire_sound = 'sound/weapons/gun/revolver/shot_alt.ogg'
+	fire_sound = 'sound/items/weapons/gun/revolver/shot_alt.ogg'
 	automatic_charge_overlays = FALSE
 	/// How many coins we can have at a time. Set to 0 for infinite
 	var/max_coins = 4
@@ -428,7 +485,7 @@
 	playsound(user.loc, 'sound/effects/coin2.ogg', 50, TRUE)
 	user.visible_message(span_warning("[user] flips a coin towards [target]!"), span_danger("You flip a coin towards [target]!"))
 	var/obj/projectile/bullet/coin/new_coin = new(get_turf(user), target_turf, user)
-	new_coin.preparePixelProjectile(target_turf, user)
+	new_coin.aim_projectile(target_turf, user)
 	new_coin.fire()
 	return ITEM_INTERACT_SUCCESS
 
@@ -437,7 +494,7 @@
 	desc = "A competitive design to the tesla cannon, that instead of charging latent electrons, releases energy into photons. Eye protection is recommended."
 	icon_state = "photon"
 	inhand_icon_state = "tesla"
-	fire_sound = 'sound/weapons/lasercannonfire.ogg'
+	fire_sound = 'sound/items/weapons/lasercannonfire.ogg'
 	ammo_type = list(/obj/item/ammo_casing/energy/photon)
 	shaded_charge = TRUE
 	weapon_weight = WEAPON_HEAVY

@@ -14,6 +14,9 @@
 	description = "Contains all of the colony fabricator's flatpack machine designs."
 	design_ids = list(
 		"flatpack_solar_panel",
+		"flatpack_solar_panel_titaniumglass",
+		"flatpack_solar_panel_plasmaglass",
+		"flatpack_solar_panel_plastitaniumglass",
 		"flatpack_solar_tracker",
 		"flatpack_arc_furnace",
 		"flatpack_colony_fab",
@@ -23,6 +26,7 @@
 		"flatpack_rtg",
 		"flatpack_thermo",
 		"flatpack_ore_silo",
+		"flatpack_bsc",
 		"flatpack_turbine_team_fortress_two",
 		"flatpack_bootleg_teg",
 	)
@@ -63,14 +67,45 @@
 	build_type = COLONY_FABRICATOR
 	materials = list(
 		/datum/material/iron = SHEET_MATERIAL_AMOUNT * 1.5,
-		/datum/material/glass = SHEET_MATERIAL_AMOUNT * 1,
+		/datum/material/glass = SHEET_MATERIAL_AMOUNT * 2,
 	)
 	build_path = /obj/item/flatpacked_machine/solar
 	category = list(
 		RND_CATEGORY_INITIAL,
 		FABRICATOR_CATEGORY_FLATPACK_MACHINES + FABRICATOR_SUBCATEGORY_POWER,
 	)
-	construction_time = 5 SECONDS
+	construction_time = 4 SECONDS
+
+/datum/design/flatpack_solar_panel/titaniumglass
+	name = "Titanium Flat-Packed Solar Panel"
+	id = "flatpack_solar_panel_titaniumglass"
+	materials = list(
+		/datum/material/iron = SHEET_MATERIAL_AMOUNT * 1.5,
+		/datum/material/glass = SHEET_MATERIAL_AMOUNT * 2,
+		/datum/material/titanium = SHEET_MATERIAL_AMOUNT,
+	)
+	build_path = /obj/item/flatpacked_machine/solar/titaniumglass
+
+/datum/design/flatpack_solar_panel/plasmaglass
+	name = "Plasma Flat-Packed Solar Panel"
+	id = "flatpack_solar_panel_plasmaglass"
+	materials = list(
+		/datum/material/iron = SHEET_MATERIAL_AMOUNT * 1.5,
+		/datum/material/glass = SHEET_MATERIAL_AMOUNT * 2,
+		/datum/material/plasma = SHEET_MATERIAL_AMOUNT,
+	)
+	build_path = /obj/item/flatpacked_machine/solar/plasmaglass
+
+/datum/design/flatpack_solar_panel/plastitaniumglass
+	name = "Plastitanium Flat-Packed Solar Panel"
+	id = "flatpack_solar_panel_plastitaniumglass"
+	materials = list(
+		/datum/material/iron = SHEET_MATERIAL_AMOUNT * 1.5,
+		/datum/material/glass = SHEET_MATERIAL_AMOUNT * 2,
+		/datum/material/plasma = SHEET_MATERIAL_AMOUNT,
+		/datum/material/titanium = SHEET_MATERIAL_AMOUNT,
+	)
+	build_path = /obj/item/flatpacked_machine/solar/plastitaniumglass
 
 /datum/design/flatpack_solar_tracker
 	name = "Flat-Packed Solar Tracker"
@@ -146,9 +181,9 @@
 // PACMAN generator but epic!!
 
 /datum/design/flatpack_solids_generator
-	name = "Flat-Packed S.O.F.I.E. Generator"
-	desc = "A deployable plasma-burning generator capable of outperforming even upgraded P.A.C.M.A.N. type generators, \
-		at expense of creating hot carbon dioxide exhaust."
+	name = "Flat-Packed A.W Generator"
+	desc = "A deployable uranium micro-generator capable of outperforming even upgraded P.A.C.M.A.N. type generators, \
+		at expense of outputting radiation, and steaming water vapor."
 	id = "flatpack_fuel_generator"
 	build_type = COLONY_FABRICATOR
 	materials = list(
@@ -164,19 +199,19 @@
 	)
 	construction_time = 30 SECONDS
 
-// Buildable RTG that is quite radioactive
+// Buildable RTG that is quite explosive
 
 /datum/design/flatpack_rtg
 	name = "Flat-Packed Radioisotope Thermoelectric Generator"
 	desc = "A deployable radioisotope generator capable of producing a practically free trickle of power. \
-		Free if you can tolerate the radiation that the machine makes while deployed, that is."
+		It's improved radiation shielding and stabilizing agents left it inert, if volatile."
 	id = "flatpack_rtg"
 	build_type = COLONY_FABRICATOR
 	materials = list(
-		/datum/material/iron = SHEET_MATERIAL_AMOUNT * 15,
+		/datum/material/iron = SHEET_MATERIAL_AMOUNT * 5,
 		/datum/material/uranium = SHEET_MATERIAL_AMOUNT * 5,
-		/datum/material/plasma = HALF_SHEET_MATERIAL_AMOUNT,
-		/datum/material/gold = HALF_SHEET_MATERIAL_AMOUNT,
+		/datum/material/plasma = SHEET_MATERIAL_AMOUNT * 5,
+		/datum/material/gold = SHEET_MATERIAL_AMOUNT,
 	)
 	build_path = /obj/item/flatpacked_machine/rtg
 	category = list(
@@ -223,13 +258,29 @@
 	)
 	construction_time = 1 MINUTES
 
+// Orebox but auto-pickup boulders in a tile like an ORM
+
+/datum/design/flatpack_bsc
+	name = "Compressed BSC Refinery Box"
+	desc = "An upgrade to a normal orebox. Lavaproof, Fireproof, and auto-receive boulders into stable storage."
+	id = "flatpack_bsc"
+	build_type = COLONY_FABRICATOR
+	materials = list(
+		/datum/material/iron = SHEET_MATERIAL_AMOUNT * 5,
+		/datum/material/plasma = SHEET_MATERIAL_AMOUNT * 3,
+		/datum/material/titanium = SHEET_MATERIAL_AMOUNT * 3
+	)
+	build_path = /obj/item/flatpacked_machine/boulder_collector
+	category = list(
+		RND_CATEGORY_INITIAL,
+		FABRICATOR_CATEGORY_FLATPACK_MACHINES + FABRICATOR_SUBCATEGORY_MATERIALS,
+	)
+	construction_time = 30 SECONDS
+
 // Wind turbine, produces tiny amounts of power when placed outdoors in an atmosphere, but makes significantly more if there's a storm in that area
 
 /datum/design/flatpack_turbine_team_fortress_two
 	name = "Flat-Packed Miniature Wind Turbine"
-	desc = "A deployable fabricator capable of producing other flat-packed machines and other special equipment tailored for \
-		rapidly constructing functional structures given resources and power. While it cannot be upgraded, it can be repacked \
-		and moved to any location you see fit. This one makes specialized engineering designs and tools."
 	id = "flatpack_turbine_team_fortress_two"
 	build_type = COLONY_FABRICATOR
 	materials = list(

@@ -2,14 +2,14 @@
 /datum/antagonist/voidwalker
 	name = "\improper Voidwalker"
 	antagpanel_category = ANTAG_GROUP_ABOMINATIONS
-	job_rank = ROLE_VOIDWALKER
+	pref_flag = ROLE_VOIDWALKER
+
 	show_in_antagpanel = TRUE
 	antagpanel_category = "Voidwalker"
 	show_name_in_check_antagonists = TRUE
 	show_to_ghosts = TRUE
 	ui_name = "AntagInfoVoidwalker"
 	suicide_cry = "FOR THE VOID!!"
-	preview_outfit = /datum/outfit/voidwalker
 
 /datum/antagonist/voidwalker/greet()
 	. = ..()
@@ -18,29 +18,18 @@
 /datum/antagonist/voidwalker/on_gain()
 	. = ..()
 
-	var/mob/living/carbon/human/body = owner.current
-	if(ishuman(body))
-		body.set_species(/datum/species/voidwalker)
-
 	forge_objectives()
 
-/datum/antagonist/voidwalker/on_removal()
-	var/mob/living/carbon/human/body = owner.current
-	if(ishuman(body))
-		body.set_species(/datum/species/human)
-
-	return ..()
+/datum/antagonist/voidwalker/get_preview_icon()
+	var/mob/living/basic/voidwalker/walker_type = /mob/living/basic/voidwalker
+	var/icon/icon = icon(walker_type::icon, walker_type::icon_state)
+	icon.Crop(5, 18, 30, 44)
+	return finish_preview_icon(icon)
 
 /datum/antagonist/voidwalker/forge_objectives()
 	var/datum/objective/voidwalker_objective/objective = new
 	objective.owner = owner
 	objectives += objective
-
-/datum/outfit/voidwalker
-	name = "Voidwalker (Preview only)"
-
-/datum/outfit/voidwalker/post_equip(mob/living/carbon/human/human, visualsOnly)
-	human.set_species(/datum/species/voidwalker)
 
 /datum/objective/voidwalker_objective
 
@@ -50,10 +39,11 @@
 		"They must see what you have seen. They must walk where you have walked. Bring them to the void and show them the truth. The dead cannot know what you know.",
 		"Recover what you have lost. Bring your children into the inky black and return them to your flock.",
 	)
-	if(prob(20))
-		explanation_text += "Man I fucking love glass."
 	explanation_text = pick(explanation_texts)
+
+	if(prob(5))
+		explanation_text = "Man I fucking love glass."
 	..()
 
 /datum/objective/voidwalker_objective/check_completion()
-	return owner.current.stat != DEAD
+	return owner.current && owner.current.stat != DEAD

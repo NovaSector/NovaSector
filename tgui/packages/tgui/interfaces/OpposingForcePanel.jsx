@@ -1,8 +1,5 @@
 // THIS IS A NOVA SECTOR UI FILE
-import { round } from 'common/math';
 import { useState } from 'react';
-
-import { useBackend } from '../backend';
 import {
   Box,
   Button,
@@ -16,7 +13,10 @@ import {
   Stack,
   Tabs,
   TextArea,
-} from '../components';
+} from 'tgui-core/components';
+import { round } from 'tgui-core/math';
+
+import { useBackend } from '../backend';
 import { Window } from '../layouts';
 
 export const OpposingForcePanel = (props) => {
@@ -25,7 +25,7 @@ export const OpposingForcePanel = (props) => {
   const { admin_mode, creator_ckey, owner_antag, opt_in_enabled } = data;
   return (
     <Window
-      title={'Opposing Force: ' + creator_ckey}
+      title={`Opposing Force: ${creator_ckey}`}
       width={585}
       height={840}
       theme={owner_antag ? 'syndicate' : 'admin'}
@@ -128,7 +128,7 @@ export const OpposingForceTab = (props) => {
         <Section
           title={
             handling_admin
-              ? 'Control - Handling Admin: ' + handling_admin
+              ? `Control - Handling Admin:  ${handling_admin}`
               : 'Control'
           }
         >
@@ -245,11 +245,13 @@ export const OpposingForceTab = (props) => {
       <Stack.Item>
         <Section title="Backstory">
           <TextArea
+            expensive
             disabled={!can_edit}
             height="100px"
+            fluid
             value={backstory}
             placeholder="Provide a description of why you want to do bad things. Include specifics such as what lead upto the events that made you want to do bad things, think of it as though you were your character, react appropriately. If you don't have any ideas, check the #player-shared-opfors channel for some. (2000 char limit)"
-            onChange={(_e, value) =>
+            onChange={(value) =>
               act('set_backstory', {
                 backstory: value,
               })
@@ -348,10 +350,10 @@ export const OpposingForceObjectives = (props) => {
                   <Stack.Item>
                     <Input
                       disabled={!can_edit}
-                      width="100%"
+                      fluid
                       placeholder="blank objective"
                       value={selectedObjective.title}
-                      onChange={(e, value) =>
+                      onChange={(value) =>
                         act('set_objective_title', {
                           objective_ref: selectedObjective.ref,
                           title: value,
@@ -375,7 +377,7 @@ export const OpposingForceObjectives = (props) => {
                       format={(value) => round(value)}
                       minValue={0}
                       maxValue={500}
-                      onDrag={(e, value) =>
+                      onChange={(e, value) =>
                         act('set_objective_intensity', {
                           objective_ref: selectedObjective.ref,
                           new_intensity_level: value,
@@ -463,11 +465,12 @@ export const OpposingForceObjectives = (props) => {
                   </Stack.Item>
                   <Stack.Item>
                     <TextArea
+                      expensive
                       fluid
                       disabled={!can_edit}
                       height="85px"
                       value={selectedObjective.description}
-                      onChange={(e, value) =>
+                      onChange={(value) =>
                         act('set_objective_description', {
                           objective_ref: selectedObjective.ref,
                           new_desciprtion: value,
@@ -489,10 +492,12 @@ export const OpposingForceObjectives = (props) => {
                   </Stack.Item>
                   <Stack.Item>
                     <TextArea
+                      expensive
                       disabled={!can_edit}
                       height="85px"
+                      fluid
                       value={selectedObjective.justification}
-                      onChange={(e, value) =>
+                      onChange={(value) =>
                         act('set_objective_justification', {
                           objective_ref: selectedObjective.ref,
                           new_justification: value,
@@ -541,11 +546,11 @@ export const EquipmentTab = (props) => {
                     buttons={
                       <>
                         <NumberInput
-                          animated
                           value={equipment.count}
+                          step={1}
                           minValue={1}
                           maxValue={5}
-                          onChange={(e, value) =>
+                          onChange={(value) =>
                             act('set_equipment_count', {
                               selected_equipment_ref: equipment.ref,
                               new_equipment_count: value,
@@ -581,7 +586,7 @@ export const EquipmentTab = (props) => {
                   width="100%"
                   placeholder="Reason for item"
                   value={equipment.reason}
-                  onChange={(e, value) =>
+                  onChange={(value) =>
                     act('set_equipment_reason', {
                       selected_equipment_ref: equipment.ref,
                       new_equipment_reason: value,
@@ -656,7 +661,7 @@ export const AdminChatTab = (props) => {
           selfClear
           placeholder="Send a message or command using '/'"
           mt={1}
-          onEnter={(e, value) =>
+          onEnter={(value) =>
             act('send_message', {
               message: value,
             })
@@ -810,7 +815,7 @@ export const AdminTab = (props) => {
           ) : (
             objectives.map((objective, index) => (
               <Section
-                title={index + 1 + '. ' + objective.title}
+                title={`${index + 1}. ${objective.title}`}
                 key={objective.id}
               >
                 <Stack vertical>

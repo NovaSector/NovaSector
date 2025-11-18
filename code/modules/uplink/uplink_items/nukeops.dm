@@ -52,7 +52,8 @@
 		Note: This bundle is not at a discount. You can purchase all of these items separately. You do not NEED these items, but most operatives fail WITHOUT at \
 		least SOME of these items. More experienced operatives can do without."
 	item = /obj/item/storage/box/syndie_kit/core_gear
-	cost = 22 //freedom 5, doormag 3, c-4 1, stimpack 5, shield modsuit module 8
+	//The cost for the core kit is always equivalent to the combined costs of the included items
+	cost = (/datum/uplink_item/device_tools/doorjack::cost + /datum/uplink_item/implants/freedom::cost + /datum/uplink_item/explosives/c4::cost + /datum/uplink_item/device_tools/stimpack::cost +	/datum/uplink_item/suits/energy_shield::cost)
 	limited_stock = 1
 	cant_discount = TRUE
 	purchasable_from = UPLINK_SERIOUS_OPS
@@ -83,6 +84,21 @@
 	desc = "An additional 8-round slug magazine for use with the Bulldog shotgun. \
 		Now 8 times less likely to shoot your pals."
 	item = /obj/item/ammo_box/magazine/m12g/slug
+	purchasable_from = parent_type::purchasable_from | UPLINK_SPY
+
+/datum/uplink_item/ammo_nuclear/basic/flechette
+	name = "12g Flechette Shells (Bulldog)"
+	desc = "An alternative 8-round flechette magazine for use in the Bulldog shotgun. \
+		Getting stopped by armor? Why not flechette? Turn meat and kevlar to tatters!"
+	item = /obj/item/ammo_box/magazine/m12g/flechette
+	purchasable_from = parent_type::purchasable_from | UPLINK_SPY
+
+/datum/uplink_item/ammo_nuclear/basic/donk
+	name = "12g Donk Co. 'Donk Spike' Flechette Magazine Box (Bulldog)"
+	desc = "A whole box of 8-round Donk Co. 'Donk Spike' flechette magazines for use in the \
+		Bulldog shotgun. Sponsored by the Donk Corporation! A whole box of these magazines for \
+		the price of one purchase! WARNING: DO NOT SNIFF THE MAGAZINES!"
+	item = /obj/item/storage/box/syndie_kit/shotgun_surplus
 	purchasable_from = parent_type::purchasable_from | UPLINK_SPY
 
 /datum/uplink_item/ammo_nuclear/incendiary/dragon
@@ -178,7 +194,7 @@
 
 /datum/uplink_item/weapon_kits/medium_cost/sword_and_board
 	name = "Energy Shield and Sword Case (Very Hard)"
-	desc = "A case containing an energy sword and energy shield. Paired together, it provides considerable defensive power without lethal potency. \
+	desc = "A case containing an energy sword and energy shield. Paired together, it provides considerable defensive power without compromising lethal potency. \
 		Perfect for the enterprising nuclear knight. Comes with a medieval helmet for your MODsuit!"
 	item = /obj/item/storage/toolbox/guncase/sword_and_board
 
@@ -194,15 +210,15 @@
 
 /datum/uplink_item/weapon_kits/medium_cost/revolvercase
 	name = "Syndicate Revolver Case (Moderate)"
-	desc = "Waffle Co.'s modernized Syndicate revolver. Fires 7 brutal rounds of .357 Magnum. \
-		A classic operative weapon, brought to the modern era. Comes with 3 additional speedloaders of .357."
+	desc = "Waffle Corp's modernized Syndicate revolver. Fires 7 brutal rounds of .357 Magnum. \
+		A classic operative weapon, improved for the modern era. Comes with 3 additional speedloaders of .357."
 	item = /obj/item/storage/toolbox/guncase/revolver
 
 /datum/uplink_item/ammo_nuclear/basic/revolver
 	name = ".357 Speed Loader (Revolver)"
 	desc = "A speed loader that contains seven additional .357 Magnum rounds; usable with the Syndicate revolver. \
-		For when you really need a lot of things dead. Operatives get a discount from most of our agents!"
-	item = /obj/item/ammo_box/a357
+		For when you really need a lot of things dead. Unlike field agents, operatives get a premium price for their speedloaders!"
+	item = /obj/item/ammo_box/speedloader/c357
 	purchasable_from = parent_type::purchasable_from | UPLINK_SPY
 
 /datum/uplink_item/ammo_nuclear/special/revolver/phasic
@@ -210,7 +226,7 @@
 	desc = "A speed loader that contains seven additional .357 Magnum phasic rounds; usable with the Syndicate revolver. \
 		These bullets are made from an experimental alloy, 'Ghost Lead', that allows it to pass through almost any non-organic material. \
 		The name is a misnomer. It doesn't contain any lead whatsoever!"
-	item = /obj/item/ammo_box/a357/phasic
+	item = /obj/item/ammo_box/speedloader/c357/phasic
 	purchasable_from = parent_type::purchasable_from | UPLINK_SPY
 
 /datum/uplink_item/ammo_nuclear/special/revolver/heartseeker
@@ -218,7 +234,7 @@
 	desc = "A speed loader that contains seven additional .357 Magnum heartseeker rounds; usable with the Syndicate revolver. \
 		Able to veer straight into targets! Don't miss a shot with heartseeker! As seen in the hit NTFlik horror-space western film, Forget-Me-Not!	\
 		Brought to you by Roseus Galactic!"
-	item = /obj/item/ammo_box/a357/heartseeker
+	item = /obj/item/ammo_box/speedloader/c357/heartseeker
 	cost = 3
 	purchasable_from = parent_type::purchasable_from | UPLINK_SPY
 
@@ -228,7 +244,7 @@
 /datum/uplink_item/weapon_kits/medium_cost/rawketlawnchair
 	name = "Dardo-RE Rocket Propelled Grenade Launcher (Hard)"
 	desc = "A reusable rocket propelled grenade launcher preloaded with a low-yield 84mm HE round. \
-		Guaranteed to send your target out with a bang or your money back! Comes with a bouquet of additional rockets!"
+		Guaranteed to take your target out with a bang, or your money back! Comes with a bouquet of additional rockets!"
 	item = /obj/item/storage/toolbox/guncase/rocketlauncher
 
 /datum/uplink_item/ammo_nuclear/basic/rocket
@@ -291,8 +307,8 @@
 
 /datum/uplink_item/weapon_kits/high_cost/carbine
 	name = "M-90gl Carbine Case (Hard)"
-	desc = "A fully-loaded, specialized three-round burst carbine that fires .223 ammunition from a 30 round magazine \
-		with a 40mm underbarrel grenade launcher. Use secondary-fire to fire the grenade launcher. Comes with two spare magazines \
+	desc = "A fully-loaded, specialized three-round burst carbine that fires .223 ammunition from a 30 round magazine.\
+		Comes with a 40mm underbarrel grenade launcher. Use secondary-fire to fire the grenade launcher. Also comes with two spare magazines \
 		and a box of 40mm rubber slugs."
 	item = /obj/item/storage/toolbox/guncase/m90gl
 
@@ -320,7 +336,7 @@
 
 /datum/uplink_item/weapon_kits/high_cost/sniper
 	name = "Anti-Materiel Sniper Rifle Briefcase (Hard)"
-	desc = "An outdated, but still extremely powerful anti-material sniper rifle. Fires .50 BMG cartridges from a 6 round magazine. \
+	desc = "An outdated, but still extremely powerful anti-materiel sniper rifle. Fires .50 BMG cartridges from a 6 round magazine. \
 		Can be fitted with a suppressor. If anyone asks how that even works, tell them it's Nanotrasen's fault. Comes with \
 		3 spare magazines; 2 regular magazines and 1 disruptor magazine. Also comes with a suit and tie."
 	item = /obj/item/storage/briefcase/sniper
@@ -374,9 +390,11 @@
 
 /datum/uplink_item/weapon_kits/surplus_smg
 	name = "Surplus Smart-SMG (Flukie)"
-	desc = "An outdated smart-SMG with limited stopping power, however it's bullets will gradually track towards whatever \
-		the gun was shot at. This does require you to actually aim at the person you are shooting at before firing, but \
-		surely a highly trained operative such as yourself can manage that."
+	desc = "A failed experimental 'smart gun'. The use of .160 rocket propelled projectiles resulted in reduced stopping power \
+		but increased overally accuracy so long as the shooter vaguely aimed towards their target. The relative increase in \
+		operator effort from absurd recoil contradicted advertized advantages, resulting in poor market performance. However, \
+		there sure are a lots still lying around in poorly secured warehouses. So we took them. And now you can have them. \
+		If you REALLY want it. All I'm saying is: good luck."
 	item = /obj/item/gun/ballistic/automatic/smartgun
 	cost = 2
 	purchasable_from = UPLINK_SERIOUS_OPS
@@ -392,18 +410,18 @@
 // Explosives and Grenades
 // ~~ Grenades ~~
 
-/datum/uplink_item/explosives/grenades
+/datum/uplink_item/explosives/military_grade
 	cost = 15
 	surplus = 35
 	purchasable_from = UPLINK_ALL_SYNDIE_OPS
 
-/datum/uplink_item/explosives/grenades/buzzkill
+/datum/uplink_item/explosives/military_grade/buzzkill
 	name = "Buzzkill Grenade Box"
 	desc = "A box with three grenades that release a swarm of angry bees upon activation. These bees indiscriminately attack friend or foe \
 		with random toxins. Courtesy of the BLF and Tiger Cooperative."
 	item = /obj/item/storage/box/syndie_kit/bee_grenades
 
-/datum/uplink_item/explosives/grenades/virus_grenade
+/datum/uplink_item/explosives/military_grade/virus_grenade
 	name = "Fungal Tuberculosis Grenade Box"
 	desc = "A primed bio-grenade packed into a compact box. Comes with five Bio Virus Antidote Kit (BVAK) \
 		autoinjectors for rapid application on up to two targets each, a syringe, and a bottle containing \
@@ -411,11 +429,43 @@
 	item = /obj/item/storage/box/syndie_kit/tuberculosisgrenade
 	restricted = TRUE
 
-/datum/uplink_item/explosives/grenades/viscerators
+/datum/uplink_item/explosives/military_grade/viscerators
 	name = "Viscerator Delivery Grenade Box"
 	desc = "A box containing unique grenades that deploys a swarm of viscerators upon activation, which will chase down and shred \
 		any non-operatives in the area."
 	item = /obj/item/storage/box/syndie_kit/manhack_grenades
+
+/datum/uplink_item/explosives/military_grade/frag_grenade
+	name = "Frag Grenade Box"
+	desc = "A box containing 7 frag grenades. Simple. Destructive."
+	item = /obj/item/storage/box/syndie_kit/frag_grenades
+	cost = 5
+	purchasable_from = UPLINK_SERIOUS_OPS
+
+/datum/uplink_item/explosives/military_grade/x4
+	name = "Composition X-4"
+	desc = "Similar to C4, but with a stronger blast that is directional instead of circular. X-4 can be placed on a solid surface, such as a wall or window, \
+		and it will blast through the wall, injuring anything on the opposite side, while being safer to the user. For when you want a controlled explosion that \
+		leaves a wider, deeper, hole."
+	item = /obj/item/grenade/c4/x4
+	cost = 2
+
+/datum/uplink_item/explosives/military_grade/syndicate_minibomb
+	name = "Syndicate Minibomb"
+	desc = "The minibomb is a grenade with a five-second fuse. Upon detonation, it will create a small hull breach \
+			in addition to dealing high amounts of damage to nearby personnel."
+	item = /obj/item/grenade/syndieminibomb
+	cost = 2
+	purchasable_from = UPLINK_SERIOUS_OPS
+
+/datum/uplink_item/explosives/military_grade/pizza_bomb
+	name = "Pizza Bomb"
+	desc = "A pizza box with a bomb cunningly attached to the lid. The timer needs to be set by opening the box; afterwards, \
+			opening the box again will trigger the detonation after the timer has elapsed. Comes with free pizza, for you or your target!\
+			Cybersun Industries would like to remind you that eating pizza in the middle of a delicate infiltration operation is not recommened, \
+			and that there are no guarantees that the pizza is safe from any explosive contaminants."
+	item = /obj/item/pizzabox/bomb
+	cost = 2
 
 // ~~ Grenadier's Belt Kit ~~
 
@@ -427,7 +477,7 @@
 
 // ~~ Detonator: In case you lose the old one ~~
 
-/datum/uplink_item/explosives/syndicate_detonator
+/datum/uplink_item/explosives/military_grade/syndicate_detonator
 	name = "Syndicate Detonator"
 	desc = "The Syndicate detonator is a companion device to the Syndicate bomb. Simply press the included button \
 		and an encrypted radio frequency will instruct all live Syndicate bombs to detonate. \
@@ -435,7 +485,44 @@
 		the blast radius before using the detonator."
 	item = /obj/item/syndicatedetonator
 	cost = 1
-	purchasable_from = UPLINK_ALL_SYNDIE_OPS
+
+/datum/uplink_item/explosives/military_grade/c4bag
+	name = "Bag of C-4 explosives"
+	desc = "Because sometimes quantity is quality. Contains 10 C-4 plastic explosives."
+	item = /obj/item/storage/backpack/duffelbag/syndie/c4
+	cost = 5 // 50% discount!
+
+/datum/uplink_item/explosives/military_grade/x4bag
+	name = "Bag of X-4 explosives"
+	desc = "For when you didn't bring the bunker buster to your latest operation. Contains 10 X-4 shaped plastic explosives."
+	item = /obj/item/storage/backpack/duffelbag/syndie/x4
+	cost = 10 // 50% discount!
+
+/datum/uplink_item/explosives/military_grade/syndicate_bomb
+	name = "Syndicate Bomb"
+	desc = "The Syndicate bomb is a fearsome device capable of massive destruction. It has an adjustable timer, \
+		with a minimum of %MIN_BOMB_TIMER seconds, and can be bolted to the floor with a wrench to prevent \
+		movement. The bomb is bulky and cannot be moved; upon ordering this item, a smaller beacon will be \
+		transported to you that will teleport the actual bomb to it upon activation. Note that this bomb can \
+		be defused, and some crew may attempt to do so. \
+		The bomb core can be pried out and manually detonated with other explosives."
+	item = /obj/item/sbeacondrop/bomb
+	cost = 8
+
+/datum/uplink_item/explosives/military_grade/syndicate_bomb/New()
+	. = ..()
+	desc = replacetext(desc, "%MIN_BOMB_TIMER", SYNDIEBOMB_MIN_TIMER_SECONDS)
+
+/datum/uplink_item/explosives/military_grade/syndicate_bomb/emp
+	name = "Syndicate EMP Bomb"
+	desc = "A variation of the syndicate bomb designed to produce a large EMP effect."
+	item = /obj/item/sbeacondrop/emp
+	cost = 6
+
+/datum/uplink_item/explosives/military_grade/syndicate_bomb/emp/New()
+	. = ..()
+	if(HAS_TRAIT(SSstation, STATION_TRAIT_CYBERNETIC_REVOLUTION))
+		cost *= 2
 
 // Support (Borgs and Reinforcements)
 
@@ -574,15 +661,15 @@
 // ~~ Mech Support ~~
 
 /datum/uplink_item/mech/support_bag
-	name = "Mech Support Kit Bag"
-	desc = "A duffel bag containing ammo for four full reloads of the scattershotm which is equipped on standard Dark Gygax and Mauler exosuits. Also comes with some support equipment for maintaining the mech, including tools and an inducer."
-	item = /obj/item/storage/backpack/duffelbag/syndie/ammo/mech
+	name = "Dark Gygax Support Duffel Bag"
+	desc = "A duffel bag containing ammo for isx full reloads of the scattershot exosuit weapon, which is equipped on standard Dark Gygax exosuits. Also comes with some support equipment for maintaining the mech, including tools and an inducer."
+	item = /obj/item/storage/backpack/duffelbag/syndie/ammo/darkgygax
 	cost = 4
 	purchasable_from = UPLINK_SERIOUS_OPS
 
 /datum/uplink_item/mech/support_bag/mauler
-	name = "Mauler Ammo Bag"
-	desc = "A duffel bag containing ammo for three full reloads of the LMG, scattershot carbine, and SRM-8 missile laucher that are equipped on a standard Mauler exosuit."
+	name = "Mauler Support Duffel Bag"
+	desc = "A duffel bag containing ammo for three full reloads of the LMG and SRM-8 missile launcher that are equipped on a standard Mauler exosuit. Also comes with some support equipment for maintaining the mech, including tools and an inducer."
 	item = /obj/item/storage/backpack/duffelbag/syndie/ammo/mauler
 	cost = 6
 	purchasable_from = UPLINK_SERIOUS_OPS
@@ -601,7 +688,9 @@
 		along with slurred speech, aggression, and the ability to infect others with this agent."
 	item = /obj/item/storage/box/syndie_kit/romerol
 	cost = 25
-	purchasable_from = UPLINK_ALL_SYNDIE_OPS
+	population_minimum = TRAITOR_POPULATION_LOWPOP
+	progression_minimum = 30 MINUTES
+	purchasable_from = UPLINK_ALL_SYNDIE_OPS | UPLINK_TRAITORS // Don't give this to spies
 	cant_discount = TRUE
 
 // Modsuits
@@ -634,6 +723,7 @@
 	item = /obj/item/mod/module/injector
 	cost = 2
 	purchasable_from = (UPLINK_ALL_SYNDIE_OPS | UPLINK_SPY)
+	uplink_item_flags = NONE
 
 /datum/uplink_item/suits/holster
 	name = "MODsuit Holster Module"
@@ -641,6 +731,7 @@
 	item = /obj/item/mod/module/holster
 	cost = 2
 	purchasable_from = (UPLINK_ALL_SYNDIE_OPS | UPLINK_SPY)
+	uplink_item_flags = NONE
 
 /datum/uplink_item/device_tools/medgun_mod
 	name = "Medbeam Gun Module"
@@ -798,7 +889,7 @@
 	category = /datum/uplink_category/base_keys
 	surplus = 0
 	purchasable_from = UPLINK_NUKE_OPS
-	cost = 15
+	cost = 5
 	cant_discount = TRUE
 
 /datum/uplink_item/base_keys/bomb_key
@@ -806,6 +897,7 @@
 	desc = "Do you fancy yourself an explosives expert? If so, then consider yourself lucky! With this special Authorization Key, \
 		you can blow those corpo suits away with your very own home-made explosive devices. Made in your local firebase's \
 		very own Ordnance Laboratory! *The Syndicate is not responsible for injuries or deaths sustained while utilizing the lab."
+	cost = 30
 	item = /obj/item/keycard/syndicate_bomb
 
 /datum/uplink_item/base_keys/bio_key
@@ -832,7 +924,13 @@
 		pocket during this morning's briefing. He's been looking for it since. Take it, get into the fridge, and cook up whatever \
 		you need before he gets back. And remember: DON'T TELL ANYONE! -M.T"
 	item = /obj/item/keycard/syndicate_fridge
-	cost = 5
+	purchasable_from = UPLINK_CLOWN_OPS | UPLINK_NUKE_OPS
+
+/datum/uplink_item/base_keys/custodial_key
+	name = "Syndicate Custodial Access Card"
+	desc = "Your workplace dirty? No problem! with this card you gain access to the custodial. Containing a janitorial cart \
+	with some janitorial supplies and an canister of water vapour."
+	item = /obj/item/keycard/syndicate_custodial
 	purchasable_from = UPLINK_CLOWN_OPS | UPLINK_NUKE_OPS
 
 // Hats

@@ -140,6 +140,8 @@
 	var/no_charge = FALSE
 	/// Used for apc helper called full_charge to make apc's charge at 100% meter.
 	var/full_charge = FALSE
+	///When did the apc generate last malf ai processing time.
+	COOLDOWN_DECLARE(malf_ai_pt_generation)
 	armor_type = /datum/armor/power_apc
 
 /datum/armor/power_apc
@@ -151,31 +153,39 @@
 	fire = 90
 	acid = 50
 
-/obj/machinery/power/apc/Initialize(mapload, ndir)
+/obj/machinery/power/apc/get_save_vars()
 	. = ..()
+	if(!auto_name)
+		. -= NAMEOF(src, name)
+	. += NAMEOF(src, opened)
+	. += NAMEOF(src, coverlocked)
+	. += NAMEOF(src, lighting)
+	. += NAMEOF(src, equipment)
+	. += NAMEOF(src, environ)
+
+	. += NAMEOF(src, cell_type)
+	if(cell_type)
+		start_charge = cell.charge / cell.maxcharge // only used in Initialize() so direct edit is fine
+		. += NAMEOF(src, start_charge)
+
+	// TODO save the wire data but need to include states for cute wires, signalers attached to wires, etc.
+	//. += NAMEOF(src, shorted)
+	//. += NAMEOF(src, locked)
+	return .
+
+/obj/machinery/power/apc/Initialize(mapload)
+	. = ..()
+	setDir(dir)
 	//APCs get added to their own processing tasks for the machines subsystem.
 	if (!(datum_flags & DF_ISPROCESSING))
 		datum_flags |= DF_ISPROCESSING
 		SSmachines.processing_apcs += src
 
-	//Pixel offset its appearance based on its direction
-	dir = ndir
-	switch(dir)
-		if(NORTH)
-			offset_old = pixel_y
-			pixel_y = APC_PIXEL_OFFSET
-		if(SOUTH)
-			offset_old = pixel_y
-			pixel_y = -APC_PIXEL_OFFSET
-		if(EAST)
-			offset_old = pixel_x
-			pixel_x = APC_PIXEL_OFFSET
-		if(WEST)
-			offset_old = pixel_x
-			pixel_x = -APC_PIXEL_OFFSET
-
+	var/image/hud_image = image(icon = 'icons/mob/huds/hud.dmi', icon_state = "apc_hacked")
+	hud_image.pixel_w = pixel_x
+	hud_image.pixel_z = pixel_y
 	hud_list = list(
-		MALF_APC_HUD = image(icon = 'icons/mob/huds/hud.dmi', icon_state = "apc_hacked", pixel_x = src.pixel_x, pixel_y = src.pixel_y)
+		MALF_APC_HUD = hud_image
 	)
 
 	//Assign it to its area. If mappers already assigned an area string fast load the area from it else get the current area
@@ -223,7 +233,6 @@
 	register_context()
 	addtimer(CALLBACK(src, PROC_REF(update)), 0.5 SECONDS)
 	RegisterSignal(SSdcs, COMSIG_GLOB_GREY_TIDE, PROC_REF(grey_tide))
-	RegisterSignal(src, COMSIG_HIT_BY_SABOTEUR, PROC_REF(on_saboteur))
 	update_appearance()
 
 	var/static/list/hovering_mob_typechecks = list(
@@ -237,12 +246,11 @@
 
 	AddElement(/datum/element/contextual_screentip_bare_hands, rmb_text = "Toggle interface lock")
 	AddElement(/datum/element/contextual_screentip_mob_typechecks, hovering_mob_typechecks)
-	find_and_hang_on_wall()
+	if(mapload)
+		find_and_hang_on_wall()
 
 /obj/machinery/power/apc/Destroy()
 	if(malfai)
-		if(operating)
-			malfai.malf_picker.processing_time = clamp(malfai.malf_picker.processing_time - 10, 0, 1000)
 		malfai.hacked_apcs -= src
 		malfai = null
 	disconnect_from_area()
@@ -255,12 +263,27 @@
 		disconnect_terminal()
 	return ..()
 
-/obj/machinery/power/apc/proc/on_saboteur(datum/source, disrupt_duration)
-	SIGNAL_HANDLER
+/obj/machinery/power/apc/setDir(newdir)
+	. = ..()
+	switch(newdir)
+		if(NORTH)
+			offset_old = pixel_y
+			pixel_y = APC_PIXEL_OFFSET
+		if(SOUTH)
+			offset_old = pixel_y
+			pixel_y = -APC_PIXEL_OFFSET
+		if(EAST)
+			offset_old = pixel_x
+			pixel_x = APC_PIXEL_OFFSET
+		if(WEST)
+			offset_old = pixel_x
+			pixel_x = -APC_PIXEL_OFFSET
 
+/obj/machinery/power/apc/on_saboteur(datum/source, disrupt_duration)
+	. = ..()
 	disrupt_duration *= 0.1 // so, turns out, failure timer is in seconds, not deciseconds; without this, disruptions last 10 times as long as they probably should
 	energy_fail(disrupt_duration)
-	return COMSIG_SABOTEUR_SUCCESS
+	return TRUE
 
 /obj/machinery/power/apc/on_set_is_operational(old_value)
 	update_area_power_usage(!old_value)
@@ -340,8 +363,6 @@
 /obj/machinery/power/apc/atom_break(damage_flag)
 	. = ..()
 	if(.)
-		if(malfai && operating)
-			malfai.malf_picker.processing_time = clamp(malfai.malf_picker.processing_time - 10, 0, 1000)
 		operating = FALSE
 		if(occupier)
 			malfvacate(TRUE)
@@ -422,20 +443,26 @@
 	say("Remote access detected.[locked ? " Interface unlocked." : ""]")
 	to_chat(remote_control_user, span_danger("[icon2html(src, remote_control_user)] Connected to [src]."))
 	if(locked)
-		playsound(src, 'sound/machines/terminal_on.ogg', 25, FALSE)
+		playsound(src, 'sound/machines/terminal/terminal_on.ogg', 25, FALSE)
 		locked = FALSE
-	playsound(src, 'sound/machines/terminal_alert.ogg', 50, FALSE)
+	playsound(src, 'sound/machines/terminal/terminal_alert.ogg', 50, FALSE)
 	update_appearance()
 
-/obj/machinery/power/apc/proc/disconnect_remote_access()
+/**
+ * Disconnects anyone using this APC via an APC control console and locks the interface.
+ * arguments:
+ * mute - whether the APC should announce the disconnection locally
+ */
+/obj/machinery/power/apc/proc/disconnect_remote_access(mute = FALSE)
 	// nothing to disconnect from
 	if(isnull(remote_control_user))
 		return
 	locked = TRUE
-	say("Remote access canceled. Interface locked.")
 	to_chat(remote_control_user, span_danger("[icon2html(src, remote_control_user)] Disconnected from [src]."))
-	playsound(src, 'sound/machines/terminal_off.ogg', 25, FALSE)
-	playsound(src, 'sound/machines/terminal_alert.ogg', 50, FALSE)
+	if(!mute)
+		say("Remote access canceled. Interface locked.")
+		playsound(src, 'sound/machines/terminal/terminal_off.ogg', 25, FALSE)
+		playsound(src, 'sound/machines/terminal/terminal_alert.ogg', 50, FALSE)
 	update_appearance()
 	remote_control_user = null
 
@@ -444,16 +471,17 @@
 	if(!QDELETED(remote_control_user) && user == remote_control_user)
 		. = UI_INTERACTIVE
 
-/obj/machinery/power/apc/ui_act(action, params)
+/obj/machinery/power/apc/ui_act(action, list/params, datum/tgui/ui, datum/ui_state/state)
 	. = ..()
+	var/mob/user = ui.user
 
-	if(. || !can_use(usr, 1) || (locked && !HAS_SILICON_ACCESS(usr) && !failure_timer && action != "toggle_nightshift"))
+	if(. || !can_use(user, 1) || (locked && !HAS_SILICON_ACCESS(user) && !failure_timer && action != "toggle_nightshift"))
 		return
 	switch(action)
 		if("lock")
-			if(HAS_SILICON_ACCESS(usr))
+			if(HAS_SILICON_ACCESS(user))
 				if((obj_flags & EMAGGED) || (machine_stat & (BROKEN|MAINT)) || remote_control_user)
-					to_chat(usr, span_warning("The APC does not respond to the command!"))
+					to_chat(user, span_warning("The APC does not respond to the command!"))
 				else
 					locked = !locked
 					update_appearance()
@@ -462,10 +490,10 @@
 			coverlocked = !coverlocked
 			. = TRUE
 		if("breaker")
-			toggle_breaker(usr)
+			toggle_breaker(user)
 			. = TRUE
 		if("toggle_nightshift")
-			toggle_nightshift_lights(usr)
+			toggle_nightshift_lights(user)
 			. = TRUE
 		if("charge")
 			chargemode = !chargemode
@@ -488,17 +516,17 @@
 				update()
 			. = TRUE
 		if("overload")
-			if(HAS_SILICON_ACCESS(usr))
+			if(HAS_SILICON_ACCESS(user))
 				overload_lighting()
 				. = TRUE
 		if("hack")
-			if(get_malf_status(usr))
-				malfhack(usr)
+			if(get_malf_status(user))
+				malfhack(user)
 		if("occupy")
-			if(get_malf_status(usr))
-				malfoccupy(usr)
+			if(get_malf_status(user))
+				malfoccupy(user)
 		if("deoccupy")
-			if(get_malf_status(usr))
+			if(get_malf_status(user))
 				malfvacate()
 		if("reboot")
 			failure_timer = 0
@@ -507,13 +535,11 @@
 			update()
 		if("emergency_lighting")
 			emergency_lights = !emergency_lights
-			for (var/list/zlevel_turfs as anything in area.get_zlevel_turf_lists())
-				for(var/turf/area_turf as anything in zlevel_turfs)
-					for(var/obj/machinery/light/area_light in area_turf)
-						if(!initial(area_light.no_low_power)) //If there was an override set on creation, keep that override
-							area_light.no_low_power = emergency_lights
-							INVOKE_ASYNC(area_light, TYPE_PROC_REF(/obj/machinery/light/, update), FALSE)
-					CHECK_TICK
+			for(var/obj/machinery/light/area_light as anything in get_lights())
+				if(!initial(area_light.no_low_power)) //If there was an override set on creation, keep that override
+					area_light.no_low_power = emergency_lights
+					INVOKE_ASYNC(area_light, TYPE_PROC_REF(/obj/machinery/light/, update), FALSE)
+				CHECK_TICK
 	return TRUE
 
 /obj/machinery/power/apc/ui_close(mob/user)
@@ -521,25 +547,38 @@
 	if(user == remote_control_user)
 		disconnect_remote_access()
 
+/// Returns a list of lights powered/controlled by src
+/obj/machinery/power/apc/proc/get_lights()
+	var/list/lights = list()
+	for(var/list/zlevel_turfs as anything in area.get_zlevel_turf_lists())
+		for(var/turf/area_turf as anything in zlevel_turfs)
+			for(var/obj/machinery/light/found_light in area_turf)
+				lights += found_light
+	return lights
+
 /**
  * APC early processing. This gets processed after any other machine on the powernet does.
  * This adds up the total static power usage for the apc's area, then draw that power usage from the grid or APC cell.
  */
 /obj/machinery/power/apc/proc/early_process()
-	if(cell && cell.charge < cell.maxcharge)
+	if(!QDELETED(cell) && cell.charge < cell.maxcharge)
 		last_charging = charging
 		charging = APC_NOT_CHARGING
 	if(isnull(area))
 		return
 
 	var/total_static_energy_usage = 0
-	total_static_energy_usage += APC_CHANNEL_IS_ON(lighting) * area.energy_usage[AREA_USAGE_STATIC_LIGHT]
-	total_static_energy_usage += APC_CHANNEL_IS_ON(equipment) * area.energy_usage[AREA_USAGE_STATIC_EQUIP]
-	total_static_energy_usage += APC_CHANNEL_IS_ON(environ) * area.energy_usage[AREA_USAGE_STATIC_ENVIRON]
+	if(operating)
+		total_static_energy_usage += APC_CHANNEL_IS_ON(lighting) * area.energy_usage[AREA_USAGE_STATIC_LIGHT]
+		total_static_energy_usage += APC_CHANNEL_IS_ON(equipment) * area.energy_usage[AREA_USAGE_STATIC_EQUIP]
+		total_static_energy_usage += APC_CHANNEL_IS_ON(environ) * area.energy_usage[AREA_USAGE_STATIC_ENVIRON]
 	area.clear_usage()
 
 	if(total_static_energy_usage) //Use power from static power users.
-		draw_energy(total_static_energy_usage)
+		var/grid_used = min(terminal?.surplus(), total_static_energy_usage)
+		terminal?.add_load(grid_used)
+		if(total_static_energy_usage > grid_used && !QDELETED(cell))
+			cell.use(total_static_energy_usage - grid_used, force = TRUE)
 
 /obj/machinery/power/apc/proc/late_process(seconds_per_tick)
 	if(icon_update_needed)
@@ -553,15 +592,25 @@
 		force_update = TRUE
 		return
 
-	if(obj_flags & EMAGGED || malfai)
+	if((obj_flags & EMAGGED) || malfai)
 		hacked_flicker_counter = hacked_flicker_counter - 1
 		if(hacked_flicker_counter <= 0)
 			flicker_hacked_icon()
 
+	if(malfai && COOLDOWN_FINISHED(src, malf_ai_pt_generation) && cell.use(60 KILO JOULES) > 0 && malfai.malf_picker.processing_time < MALF_MAX_PP) // Over time generation of malf points for the ai controlling it, costs a bit of power
+		COOLDOWN_START(src, malf_ai_pt_generation, 30 SECONDS)
+		malfai.malf_picker.processing_time += 1
+
 	//dont use any power from that channel if we shut that power channel off
-	lastused_light = APC_CHANNEL_IS_ON(lighting) ? area.energy_usage[AREA_USAGE_LIGHT] + area.energy_usage[AREA_USAGE_STATIC_LIGHT] : 0
-	lastused_equip = APC_CHANNEL_IS_ON(equipment) ? area.energy_usage[AREA_USAGE_EQUIP] + area.energy_usage[AREA_USAGE_STATIC_EQUIP] : 0
-	lastused_environ = APC_CHANNEL_IS_ON(environ) ? area.energy_usage[AREA_USAGE_ENVIRON] + area.energy_usage[AREA_USAGE_STATIC_ENVIRON] : 0
+	if(operating)
+		lastused_light = APC_CHANNEL_IS_ON(lighting) ? area.energy_usage[AREA_USAGE_LIGHT] + area.energy_usage[AREA_USAGE_STATIC_LIGHT] : 0
+		lastused_equip = APC_CHANNEL_IS_ON(equipment) ? area.energy_usage[AREA_USAGE_EQUIP] + area.energy_usage[AREA_USAGE_STATIC_EQUIP] : 0
+		lastused_environ = APC_CHANNEL_IS_ON(environ) ? area.energy_usage[AREA_USAGE_ENVIRON] + area.energy_usage[AREA_USAGE_STATIC_ENVIRON] : 0
+	else
+		lastused_light = 0
+		lastused_equip = 0
+		lastused_environ = 0
+
 	lastused_charge = charging == APC_CHARGING ? area.energy_usage[AREA_USAGE_APC_CHARGE] : 0
 
 	lastused_total = lastused_light + lastused_equip + lastused_environ + lastused_charge
@@ -694,16 +743,14 @@
 /obj/machinery/power/apc/proc/overload_lighting()
 	if(!operating || shorted)
 		return
-	if(cell && cell.use(0.02 * STANDARD_CELL_CHARGE))
+	if(cell && cell.use(0.02 * STANDARD_BATTERY_CHARGE))
 		INVOKE_ASYNC(src, PROC_REF(break_lights))
 
 /obj/machinery/power/apc/proc/break_lights()
-	for (var/list/zlevel_turfs as anything in area.get_zlevel_turf_lists())
-		for(var/turf/area_turf as anything in zlevel_turfs)
-			for(var/obj/machinery/light/breaked_light in area_turf)
-				breaked_light.on = TRUE
-				breaked_light.break_light_tube()
-				stoplag()
+	for(var/obj/machinery/light/breaked_light as anything in get_lights())
+		breaked_light.on = TRUE
+		breaked_light.break_light_tube()
+		CHECK_TICK
 
 /obj/machinery/power/apc/should_atmos_process(datum/gas_mixture/air, exposed_temperature)
 	return (exposed_temperature > 2000)
@@ -760,21 +807,6 @@
 /// Returns the cell's current charge.
 /obj/machinery/power/apc/proc/charge()
 	return cell.charge
-
-/// Draws energy from the connected grid. When there isn't enough surplus energy from the grid, draws the rest of the demand from its cell. Returns the energy used.
-/obj/machinery/power/apc/proc/draw_energy(amount)
-	var/grid_used = min(terminal?.surplus(), amount)
-	terminal?.add_load(grid_used)
-	if(QDELETED(cell))
-		return grid_used
-	var/cell_used = 0
-	if(amount > grid_used)
-		cell_used += cell.use(amount - grid_used, force = TRUE)
-	return grid_used + cell_used
-
-/// Draws power from the connected grid. When there isn't enough surplus energy from the grid, draws the rest of the demand from its cell. Returns the energy used.
-/obj/machinery/power/apc/proc/draw_power(amount)
-	return draw_energy(power_to_energy(amount))
 
 /*Power module, used for APC construction*/
 /obj/item/electronics/apc

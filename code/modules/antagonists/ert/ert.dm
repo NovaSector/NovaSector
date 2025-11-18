@@ -11,9 +11,8 @@
 	antag_moodlet = /datum/mood_event/focused
 	antagpanel_category = ANTAG_GROUP_ERT
 	suicide_cry = "FOR NANOTRASEN!!"
-	count_against_dynamic_roll_chance = FALSE
 	// Not 'true' antags, this disables certain interactions that assume the owner is a baddie
-	antag_flags = FLAG_FAKE_ANTAG
+	antag_flags = ANTAG_FAKE|ANTAG_SKIP_GLOBAL_LIST
 	var/datum/team/ert/ert_team
 	var/leader = FALSE
 	var/datum/outfit/outfit = /datum/outfit/centcom/ert/security
@@ -37,6 +36,14 @@
 		equipERT()
 	owner?.current.faction |= FACTION_ERT // NOVA EDIT ADDITION
 	. = ..()
+
+/datum/antagonist/ert/apply_innate_effects(mob/living/mob_override)
+	var/mob/living/carbon/human/officer = mob_override || owner.current
+	ADD_TRAIT(officer, TRAIT_DESENSITIZED, REF(src))
+
+/datum/antagonist/ert/remove_innate_effects(mob/living/mob_override)
+	var/mob/living/carbon/human/officer = mob_override || owner.current
+	REMOVE_TRAIT(officer, TRAIT_DESENSITIZED, REF(src))
 
 /datum/antagonist/ert/get_team()
 	return ert_team
@@ -123,7 +130,7 @@
 
 /datum/antagonist/ert/deathsquad/leader
 	name = "Deathsquad Officer"
-	outfit = /datum/outfit/centcom/death_commando
+	outfit = /datum/outfit/centcom/death_commando/officer
 	role = "Officer"
 
 /datum/antagonist/ert/medic/inquisitor
@@ -131,14 +138,14 @@
 
 /datum/antagonist/ert/medic/inquisitor/on_gain()
 	. = ..()
-	owner.holy_role = HOLY_ROLE_PRIEST
+	owner.set_holy_role(HOLY_ROLE_PRIEST)
 
 /datum/antagonist/ert/security/inquisitor
 	outfit = /datum/outfit/centcom/ert/security/inquisitor
 
 /datum/antagonist/ert/security/inquisitor/on_gain()
 	. = ..()
-	owner.holy_role = HOLY_ROLE_PRIEST
+	owner.set_holy_role(HOLY_ROLE_PRIEST)
 
 /datum/antagonist/ert/chaplain
 	role = "Chaplain"
@@ -149,14 +156,14 @@
 
 /datum/antagonist/ert/chaplain/on_gain()
 	. = ..()
-	owner.holy_role = HOLY_ROLE_PRIEST
+	owner.set_holy_role(HOLY_ROLE_PRIEST)
 
 /datum/antagonist/ert/commander/inquisitor
 	outfit = /datum/outfit/centcom/ert/commander/inquisitor
 
 /datum/antagonist/ert/commander/inquisitor/on_gain()
 	. = ..()
-	owner.holy_role = HOLY_ROLE_PRIEST
+	owner.set_holy_role(HOLY_ROLE_PRIEST)
 
 /datum/antagonist/ert/intern
 	name = "CentCom Intern"
@@ -234,11 +241,17 @@
 	var/mob/living/carbon/human/H = owner.current
 	if(!istype(H))
 		return
+
 	if(isplasmaman(H))
-		H.equipOutfit(plasmaman_outfit)
-		H.open_internals(H.get_item_for_held_index(2))
+		H.dna.species.outfit_important_for_life = plasmaman_outfit
+
+	H.dna.species.give_important_for_life(H)
 	H.equipOutfit(outfit)
 
+	if(isplasmaman(H))
+		var/obj/item/mod/control/our_modsuit = locate() in H.get_equipped_items()
+		if(our_modsuit)
+			our_modsuit.install(new /obj/item/mod/module/plasma_stabilizer)
 
 /datum/antagonist/ert/greet()
 	if(!ert_team)
@@ -286,3 +299,13 @@
 	name = "Frontier Militia General"
 	outfit = /datum/outfit/centcom/militia/general
 	role = "General"
+
+/datum/antagonist/ert/medical_commander
+	role = "Chief EMT"
+	outfit = /datum/outfit/centcom/ert/medical_commander
+	plasmaman_outfit = /datum/outfit/plasmaman/medical_commander
+
+/datum/antagonist/ert/medical_technician
+	role = "Emergency Medical Technician"
+	outfit = /datum/outfit/centcom/ert/medical_technician
+	plasmaman_outfit = /datum/outfit/plasmaman/medical_technician

@@ -129,10 +129,14 @@
 		fallback_greyscale_colors = color_list.Join("")
 
 	// Finally, render with GAGs
-	var/icon/final_icon = SSgreyscale.GetColoredIconByType(get_custom_worn_config_fallback(item_slot, item), fallback_greyscale_colors)
+	var/icon/final_icon = new(SSgreyscale.GetColoredIconByType(get_custom_worn_config_fallback(item_slot, item), fallback_greyscale_colors))
 	// Duplicate to the specific icon_state and set.
 	final_icon.Insert(final_icon, icon_state = human_icon_state) // include the expected icon_state
 	// Cache the clean copy.
 	set_custom_worn_icon_cached(human_icon, human_icon_state, item.greyscale_colors || "x", final_icon)
 
 	return final_icon
+/// Change return value to override default MOD module overlay icon file
+/datum/species/proc/get_custom_mod_module_icon()
+	return
+

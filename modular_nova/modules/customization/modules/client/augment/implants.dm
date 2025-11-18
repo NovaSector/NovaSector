@@ -1,11 +1,11 @@
 /datum/augment_item/implant
 	category = AUGMENT_CATEGORY_IMPLANTS
 
-/datum/augment_item/implant/apply(mob/living/carbon/human/H, character_setup = FALSE, datum/preferences/prefs)
+/datum/augment_item/implant/apply(mob/living/carbon/human/organ_receiver, character_setup = FALSE, datum/preferences/prefs)
 	if(character_setup)
 		return
-	var/obj/item/organ/new_organ = new path()
-	new_organ.Insert(H,FALSE,FALSE)
+	var/obj/item/organ/new_organ = new path
+	new_organ.Insert(organ_receiver, special = FALSE, movement_flags = DELETE_IF_REPLACED)
 
 //BRAIN IMPLANTS
 /datum/augment_item/implant/brain
@@ -18,125 +18,133 @@
 /datum/augment_item/implant/chest/nutriment_pump
 	name = "Nutriment Pump"
 	cost = 4
-	path = /obj/item/organ/internal/cyberimp/chest/nutriment
+	path = /obj/item/organ/cyberimp/chest/nutriment
 
 //LEFT ARM IMPLANTS
 /datum/augment_item/implant/l_arm
 	slot = AUGMENT_SLOT_LEFT_ARM_IMPLANT
 
+/datum/augment_item/implant/l_arm/charging_implant
+	name = "Left Charging Cord Implant"
+	path = /obj/item/organ/cyberimp/arm/toolkit/power_cord/left_arm
+
 /datum/augment_item/implant/l_arm/civilian_lighter
 	name = "Left Thumbtip Lighter"
 	cost = 2
-	path = /obj/item/organ/internal/cyberimp/arm/civilian_lighter/left_arm
+	path = /obj/item/organ/cyberimp/arm/toolkit/civilian_lighter/left_arm
 
 /datum/augment_item/implant/l_arm/razor_claws
-    name = "Left Razor Claws (Knife + Wirecutters)"
-    cost = 4
-    path = /obj/item/organ/internal/cyberimp/arm/razor_claws/left_arm
+	name = "Left Razor Claws (Knife + Wirecutters)"
+	cost = 4
+	path = /obj/item/organ/cyberimp/arm/toolkit/razor_claws/left_arm
 
 /datum/augment_item/implant/l_arm/adjuster
 	name = "Left Adjuster Implant (Screwdriver + Wrench)"
 	cost = 4
-	path = /obj/item/organ/internal/cyberimp/arm/adjuster/left_arm
+	path = /obj/item/organ/cyberimp/arm/toolkit/adjuster/left_arm
 
 /datum/augment_item/implant/l_arm/bureaucracy
 	name = "Left Bureaucrat's 'Jacent' Toolset Implant (4-colour Pen + Small Paper Bin + Approve/Deny Stamps)"
 	cost = 4
-	path = /obj/item/organ/internal/cyberimp/arm/bureaucracy/left_arm
+	path = /obj/item/organ/cyberimp/arm/toolkit/bureaucracy/left_arm
 
 /datum/augment_item/implant/l_arm/cargo
 	name = "Left FTU 'Deckhand' toolset implant (Universal Scanner + Boxcutter)"
 	cost = 4
-	path = /obj/item/organ/internal/cyberimp/arm/cargo/left_arm
+	path = /obj/item/organ/cyberimp/arm/toolkit/cargo/left_arm
 
 /datum/augment_item/implant/l_arm/civilian_barstaff
 	name = "Left Waitstaff's Toolset Implant (Serving Tray + Rag)"
 	cost = 4
-	path = /obj/item/organ/internal/cyberimp/arm/civilian_barstaff/left_arm
+	path = /obj/item/organ/cyberimp/arm/toolkit/civilian_barstaff/left_arm
 
 /datum/augment_item/implant/l_arm/emt_triage
 	name = "Left Triage Actuator Implant (Drapes + Retractor + Hemostat)"
 	cost = 6
-	path = /obj/item/organ/internal/cyberimp/arm/emt_triage/left_arm
+	path = /obj/item/organ/cyberimp/arm/toolkit/emt_triage/left_arm
 
 /datum/augment_item/implant/l_arm/blacksteel_forging
 	name = "Left Blacksteel 'Starforge' Toolset Implant (Forging Hammer + Tongs + Bellows)"
 	cost = 6
-	path = /obj/item/organ/internal/cyberimp/arm/blacksteel_forging/left_arm
+	path = /obj/item/organ/cyberimp/arm/toolkit/blacksteel_forging/left_arm
 
 /datum/augment_item/implant/l_arm/arc_welder
 	name = "Left Shipbreaker's Toolset Implant (Arc Welder + Crowbar + Wrench)"
 	cost = 6
-	path = /obj/item/organ/internal/cyberimp/arm/arc_welder/left_arm
+	path = /obj/item/organ/cyberimp/arm/toolkit/arc_welder/left_arm
 
 /datum/augment_item/implant/l_arm/electrical_toolset
 	name = "Left Electrical Toolset Implant (Screwdriver + Multitool + Wirecutters)"
 	cost = 8
-	path = /obj/item/organ/internal/cyberimp/arm/electrical_toolset/left_arm
+	path = /obj/item/organ/cyberimp/arm/toolkit/electrical_toolset/left_arm
 
 /datum/augment_item/implant/l_arm/mining_drill
 	name = "Left Daiba Masterworks 'Burrower' Drill"
 	cost = 8
-	path = /obj/item/organ/internal/cyberimp/arm/mining_drill/left_arm
+	path = /obj/item/organ/cyberimp/arm/toolkit/mining_drill/left_arm
 
 //RIGHT ARM IMPLANTS
 /datum/augment_item/implant/r_arm
 	slot = AUGMENT_SLOT_RIGHT_ARM_IMPLANT
 
+/datum/augment_item/implant/r_arm/charging_implant
+	name = "Right Charging Cord Implant"
+	path = /obj/item/organ/cyberimp/arm/toolkit/power_cord/right_arm
+
 /datum/augment_item/implant/r_arm/civilian_lighter
 	name = "Right Thumbtip Lighter"
 	cost = 2
-	path = /obj/item/organ/internal/cyberimp/arm/civilian_lighter/right_arm
+	path = /obj/item/organ/cyberimp/arm/toolkit/civilian_lighter/right_arm
 
 /datum/augment_item/implant/r_arm/razor_claws
-    name = "Right Razor Claws (Knife + Wirecutters)"
-    cost = 4
-    path = /obj/item/organ/internal/cyberimp/arm/razor_claws/right_arm
+	name = "Right Razor Claws (Knife + Wirecutters)"
+	cost = 4
+	path = /obj/item/organ/cyberimp/arm/toolkit/razor_claws/right_arm
 
 /datum/augment_item/implant/r_arm/adjuster
 	name = "Right Adjuster Implant (Screwdriver + Wrench)"
 	cost = 4
-	path = /obj/item/organ/internal/cyberimp/arm/adjuster/right_arm
+	path = /obj/item/organ/cyberimp/arm/toolkit/adjuster/right_arm
 
 /datum/augment_item/implant/r_arm/bureaucracy
 	name = "Right Bureaucrat's 'Jacent' Toolset Implant (4-colour Pen + Small Paper Bin + Approve/Deny Stamps)"
 	cost = 4
-	path = /obj/item/organ/internal/cyberimp/arm/bureaucracy/right_arm
+	path = /obj/item/organ/cyberimp/arm/toolkit/bureaucracy/right_arm
 
 /datum/augment_item/implant/r_arm/cargo
 	name = "Right FTU 'Deckhand' toolset implant (Universal Scanner + Boxcutter)"
 	cost = 4
-	path = /obj/item/organ/internal/cyberimp/arm/cargo/right_arm
+	path = /obj/item/organ/cyberimp/arm/toolkit/cargo/right_arm
 
 /datum/augment_item/implant/r_arm/civilian_barstaff
 	name = "Right Waitstaff's Toolset Implant (Serving Tray + Rag)"
 	cost = 4
-	path = /obj/item/organ/internal/cyberimp/arm/civilian_barstaff/right_arm
+	path = /obj/item/organ/cyberimp/arm/toolkit/civilian_barstaff/right_arm
 
 /datum/augment_item/implant/r_arm/emt_triage
 	name = "Right Triage Actuator Implant (Drapes + Retractor + Hemostat)"
 	cost = 6
-	path = /obj/item/organ/internal/cyberimp/arm/emt_triage/right_arm
+	path = /obj/item/organ/cyberimp/arm/toolkit/emt_triage/right_arm
 
 /datum/augment_item/implant/r_arm/blacksteel_forging
 	name = "Right Blacksteel 'Starforge' Toolset Implant (Forging Hammer + Tongs + Bellows)"
 	cost = 6
-	path = /obj/item/organ/internal/cyberimp/arm/blacksteel_forging/right_arm
+	path = /obj/item/organ/cyberimp/arm/toolkit/blacksteel_forging/right_arm
 
 /datum/augment_item/implant/r_arm/arc_welder
 	name = "Right Shipbreaker's Toolset Implant (Arc Welder + Crowbar + Wrench)"
 	cost = 6
-	path = /obj/item/organ/internal/cyberimp/arm/arc_welder/right_arm
+	path = /obj/item/organ/cyberimp/arm/toolkit/arc_welder/right_arm
 
 /datum/augment_item/implant/r_arm/electrical_toolset
 	name = "Right Electrical Toolset Implant (Screwdriver + Multitool + Wirecutters)"
 	cost = 8
-	path = /obj/item/organ/internal/cyberimp/arm/electrical_toolset/right_arm
+	path = /obj/item/organ/cyberimp/arm/toolkit/electrical_toolset/right_arm
 
 /datum/augment_item/implant/r_arm/mining_drill
 	name = "Right Daiba Masterworks 'Burrower' Drill"
 	cost = 8
-	path = /obj/item/organ/internal/cyberimp/arm/mining_drill/right_arm
+	path = /obj/item/organ/cyberimp/arm/toolkit/mining_drill/right_arm
 
 //EYES IMPLANTS
 /datum/augment_item/implant/eyes
@@ -149,4 +157,9 @@
 /datum/augment_item/implant/mouth/breathing_tube
 	name = "Breathing Tube"
 	cost = 2
-	path = /obj/item/organ/internal/cyberimp/mouth/breathing_tube
+	path = /obj/item/organ/cyberimp/mouth/breathing_tube
+
+/datum/augment_item/implant/mouth/breathing_tube/hidden
+	name = "Integrated Breathing Tube (Hidden)"
+	cost = 2
+	path = /obj/item/organ/cyberimp/mouth/breathing_tube/hidden

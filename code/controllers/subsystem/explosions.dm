@@ -7,7 +7,6 @@ GLOBAL_LIST_EMPTY(explosions)
 
 SUBSYSTEM_DEF(explosions)
 	name = "Explosions"
-	init_order = INIT_ORDER_EXPLOSIONS
 	priority = FIRE_PRIORITY_EXPLOSIONS
 	wait = 1
 	flags = SS_TICKER|SS_NO_INIT
@@ -46,7 +45,7 @@ SUBSYSTEM_DEF(explosions)
 
 
 /datum/controller/subsystem/explosions/stat_entry(msg)
-	msg += "C:{"
+	msg += "\n  Cost:{"
 	msg += "LT:[round(cost_lowturf,1)]|"
 	msg += "MT:[round(cost_medturf,1)]|"
 	msg += "HT:[round(cost_highturf,1)]|"
@@ -60,7 +59,7 @@ SUBSYSTEM_DEF(explosions)
 
 	msg += "} "
 
-	msg += "AMT:{"
+	msg += "\n  Count:{"
 	msg += "LT:[lowturf.len]|"
 	msg += "MT:[medturf.len]|"
 	msg += "HT:[highturf.len]|"
@@ -73,7 +72,7 @@ SUBSYSTEM_DEF(explosions)
 	msg += "TO:[throwturf.len]"
 	msg += "HTO:[held_throwturf.len]"
 
-	msg += "} "
+	msg += "}"
 	return ..()
 
 /datum/controller/subsystem/explosions/proc/is_exploding()
@@ -234,6 +233,17 @@ ADMIN_VERB(check_bomb_impacts, R_DEBUG, "Check Bomb Impact", "See what the effec
  * - explosion_arc: The angle of the arc covered by a directional explosion (if 360 the explosion is non-directional.)
  */
 /datum/controller/subsystem/explosions/proc/explode(atom/origin, devastation_range = 0, heavy_impact_range = 0, light_impact_range = 0, flame_range = null, flash_range = null, adminlog = TRUE, ignorecap = FALSE, silent = FALSE, smoke = FALSE, protect_epicenter = FALSE, atom/explosion_cause = null, explosion_direction = 0, explosion_arc = 360)
+	// NOVA EDIT ADDITION START - Ghost cafe areas have their range clamped to prevent damage
+	var/area/bomb_area = get_area(origin)
+	if(bomb_area && (bomb_area.type in GLOB.ghost_cafe_areas))
+		devastation_range = 0
+		heavy_impact_range = 0
+		light_impact_range = 0
+		flame_range = 0
+		flash_range = 0
+		protect_epicenter = TRUE
+		adminlog = FALSE
+	// NOVA EDIT ADDITION END
 	var/list/arguments = list(
 		EXARG_KEY_ORIGIN = origin,
 		EXARG_KEY_DEV_RANGE = devastation_range,
@@ -352,7 +362,7 @@ ADMIN_VERB(check_bomb_impacts, R_DEBUG, "Check Bomb Impact", "See what the effec
 			who_did_it = "\[Projectile firer: [ADMIN_LOOKUPFLW(fired_projectile.firer)]\]"
 			who_did_it_game_log = "\[Projectile firer: [key_name(fired_projectile.firer)]\]"
 		else
-			who_did_it = "\[Projectile firer: [ADMIN_LOOKUPFLW(fired_projectile.firer.fingerprintslast)]\]"
+			who_did_it = "\[Projectile firer: [ADMIN_LOOKUPFLW(fired_projectile.firer?.fingerprintslast)]\]"
 			who_did_it_game_log = "\[Projectile firer: [key_name(fired_projectile.firer.fingerprintslast)]\]"
 	// Otherwise if the explosion cause is an atom, try get the fingerprints.
 	else if(istype(explosion_cause))
@@ -360,8 +370,8 @@ ADMIN_VERB(check_bomb_impacts, R_DEBUG, "Check Bomb Impact", "See what the effec
 		who_did_it_game_log = key_name(explosion_cause.fingerprintslast)
 
 	if(adminlog)
-		message_admins("Explosion with size (Devast: [devastation_range], Heavy: [heavy_impact_range], Light: [light_impact_range], Flame: [flame_range]) in [ADMIN_VERBOSEJMP(epicenter)]. Possible cause: [explosion_cause]. Last fingerprints: [who_did_it].")
-		log_game("Explosion with size ([devastation_range], [heavy_impact_range], [light_impact_range], [flame_range]) in [loc_name(epicenter)].  Possible cause: [explosion_cause]. Last fingerprints: [who_did_it_game_log].")
+		message_admins("Explosion with size (Devast: [devastation_range], Heavy: [heavy_impact_range], Light: [light_impact_range], Flame: [flame_range], Flash: [flash_range]) in [ADMIN_VERBOSEJMP(epicenter)]. Possible cause: [explosion_cause]. Last fingerprints: [who_did_it].")
+		log_game("Explosion with size ([devastation_range], [heavy_impact_range], [light_impact_range], [flame_range], [flash_range]) in [loc_name(epicenter)].  Possible cause: [explosion_cause]. Last fingerprints: [who_did_it_game_log].")
 
 	var/x0 = epicenter.x
 	var/y0 = epicenter.y
@@ -453,7 +463,6 @@ ADMIN_VERB(check_bomb_impacts, R_DEBUG, "Check Bomb Impact", "See what the effec
 				SSexplosions.medturf += explode
 			if(EXPLODE_LIGHT)
 				SSexplosions.lowturf += explode
-
 		//NOVA EDIT ADDITION
 		for(var/obj/machinery/light/iterating_light in explode)
 			iterating_light.start_flickering()
@@ -469,8 +478,9 @@ ADMIN_VERB(check_bomb_impacts, R_DEBUG, "Check Bomb Impact", "See what the effec
 				throwingturf[1] = max_range - dist
 				throwingturf[2] = epicenter
 				throwingturf[3] = max_range
+				throwingturf[4] = severity
 		else
-			explode.explosion_throw_details = list(max_range - dist, epicenter, max_range)
+			explode.explosion_throw_details = list(max_range - dist, epicenter, max_range, severity)
 			held_throwturf += explode
 
 
@@ -526,9 +536,10 @@ ADMIN_VERB(check_bomb_impacts, R_DEBUG, "Check Bomb Impact", "See what the effec
  * - [creaking_sound][/sound]: The sound that plays when the station creaks during the explosion.
  * - [hull_creaking_sound][/sound]: The sound that plays when the station creaks after the explosion.
  */
-/datum/controller/subsystem/explosions/proc/shake_the_room(turf/epicenter, near_distance, far_distance, quake_factor, echo_factor, creaking, sound/near_sound = sound(get_sfx(SFX_EXPLOSION)), sound/far_sound = sound('sound/effects/explosionfar.ogg'), sound/echo_sound = sound('sound/effects/explosion_distant.ogg'), sound/creaking_sound = sound(get_sfx(SFX_EXPLOSION_CREAKING)), hull_creaking_sound = sound(get_sfx(SFX_HULL_CREAKING)))
+/datum/controller/subsystem/explosions/proc/shake_the_room(turf/epicenter, near_distance, far_distance, quake_factor, echo_factor, creaking, sound/near_sound = sound(get_sfx(SFX_EXPLOSION)), sound/far_sound = sound('sound/effects/explosion/explosionfar.ogg'), sound/echo_sound = sound('sound/effects/explosion/explosion_distant.ogg'), sound/creaking_sound = sound(get_sfx(SFX_EXPLOSION_CREAKING)), hull_creaking_sound = sound(get_sfx(SFX_HULL_CREAKING)))
 	var/frequency = get_rand_frequency()
 	var/blast_z = epicenter.z
+	var/area/epicenter_area = get_area(epicenter)
 	if(isnull(creaking)) // Autoset creaking.
 		var/on_station = SSmapping.level_trait(epicenter.z, ZTRAIT_STATION)
 		if(on_station && prob((quake_factor * QUAKE_CREAK_PROB) + (echo_factor * ECHO_CREAK_PROB))) // Huge explosions are near guaranteed to make the station creak and whine, smaller ones might.
@@ -564,7 +575,7 @@ ADMIN_VERB(check_bomb_impacts, R_DEBUG, "Check Bomb Impact", "See what the effec
 				base_shake_amount = max(base_shake_amount, quake_factor * 3, 0) // Devastating explosions rock the station and ground
 				shake_camera(listener, FAR_SHAKE_DURATION, min(base_shake_amount, FAR_SHAKE_CAP))
 
-		else if(!isspaceturf(listener_turf) && echo_factor) // Big enough explosions echo through the hull.
+		else if(!isspaceturf(listener_turf) && !(!(epicenter_area.type in GLOB.the_station_areas) && SSmapping.is_planetary()) && echo_factor) // Big enough explosions echo through the hull. Except on planetary maps if the epicenter is not on the station's area.
 			var/echo_volume
 			if(quake_factor)
 				echo_volume = 60
@@ -639,23 +650,27 @@ ADMIN_VERB(check_bomb_impacts, R_DEBUG, "Check Bomb Impact", "See what the effec
 		// top left to one before top right
 		if(highest_y <= max_y)
 			candidates += block(
-				locate(max(lowest_x, 1), highest_y, our_z),
-				locate(min(highest_x - 1, max_x), highest_y, our_z))
+				lowest_x, highest_y, our_z,
+				highest_x - 1, highest_y, our_z
+			)
 		// top right to one before bottom right
 		if(highest_x <= max_x)
 			candidates += block(
-				locate(highest_x, min(highest_y, max_y), our_z),
-				locate(highest_x, max(lowest_y + 1, 1), our_z))
+				highest_x, highest_y, our_z,
+				highest_x, lowest_y + 1, our_z
+			)
 		// bottom right to one before bottom left
 		if(lowest_y >= 1)
 			candidates += block(
-				locate(min(highest_x, max_x), lowest_y, our_z),
-				locate(max(lowest_x + 1, 1), lowest_y, our_z))
+				highest_x, lowest_y, our_z,
+				lowest_x + 1, lowest_y, our_z
+			)
 		// bottom left to one before top left
 		if(lowest_x >= 1)
 			candidates += block(
-				locate(lowest_x, max(lowest_y, 1), our_z),
-				locate(lowest_x, min(highest_y - 1, max_y), our_z))
+				lowest_x, lowest_y, our_z,
+				lowest_x, highest_y - 1, our_z
+			)
 
 	if(!do_directional)
 		outlist += candidates
@@ -702,10 +717,8 @@ ADMIN_VERB(check_bomb_impacts, R_DEBUG, "Check Bomb Impact", "See what the effec
 		timer = TICK_USAGE_REAL
 		var/list/flame_turf = flameturf
 		flameturf = list()
-		for(var/thing in flame_turf)
-			if(thing)
-				var/turf/T = thing
-				new /obj/effect/hotspot(T) //Mostly for ambience!
+		for(var/turf/T in flame_turf)
+			new /obj/effect/hotspot(T) //Mostly for ambience!
 		cost_flameturf = MC_AVERAGE(cost_flameturf, TICK_DELTA_TO_MS(TICK_USAGE_REAL - timer))
 
 		if (low_turf.len || med_turf.len || high_turf.len)
@@ -759,19 +772,28 @@ ADMIN_VERB(check_bomb_impacts, R_DEBUG, "Check Bomb Impact", "See what the effec
 			var/turf/explode = thing
 			var/list/details = explode.explosion_throw_details
 			explode.explosion_throw_details = null
-			if (length(details) != 3)
+			if (length(details) != 4)
 				continue
 			var/throw_range = details[1]
 			var/turf/center = details[2]
 			var/max_range = details[3]
-			for(var/atom/movable/A in explode)
-				if(QDELETED(A))
+			var/severity = details[4]
+			var/required_resist = 0
+			switch(severity)
+				if(EXPLODE_DEVASTATE) // The jump from "very strong" to "overpowering" is intentional, more stuff should be thrown by point-blank explosions
+					required_resist = MOVE_FORCE_OVERPOWERING
+				if(EXPLODE_HEAVY)
+					required_resist = MOVE_FORCE_VERY_STRONG
+				if(EXPLODE_LIGHT)
+					required_resist = MOVE_FORCE_STRONG
+			for(var/atom/movable/movable as anything in explode)
+				if(QDELETED(movable))
 					continue
-				if(!A.anchored && A.move_resist != INFINITY)
+				if(!movable.anchored && movable.move_resist < required_resist)
 					// We want to have our distance matter, but we do want to bias to a lot of throw, for the vibe
 					var/atom_throw_range = rand(throw_range, max_range) + max_range * 0.3
-					var/turf/throw_at = get_ranged_target_turf_direct(A, center, atom_throw_range, 180) // Throw 180 degrees away from the explosion source
-					A.throw_at(throw_at, atom_throw_range, EXPLOSION_THROW_SPEED, quickstart = FALSE)
+					var/turf/throw_at = get_ranged_target_turf_direct(movable, center, atom_throw_range, 180) // Throw 180 degrees away from the explosion source
+					movable.throw_at(throw_at, atom_throw_range, EXPLOSION_THROW_SPEED, quickstart = FALSE)
 		cost_throwturf = MC_AVERAGE(cost_throwturf, TICK_DELTA_TO_MS(TICK_USAGE_REAL - timer))
 
 	currentpart = SSEXPLOSIONS_TURFS

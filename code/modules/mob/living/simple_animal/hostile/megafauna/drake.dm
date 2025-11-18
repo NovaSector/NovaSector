@@ -36,7 +36,7 @@
 	maxHealth = 2500
 	attack_verb_continuous = "chomps"
 	attack_verb_simple = "chomp"
-	attack_sound = 'sound/magic/demon_attack1.ogg'
+	attack_sound = 'sound/effects/magic/demon_attack1.ogg'
 	attack_vis_effect = ATTACK_EFFECT_BITE
 	icon = 'icons/mob/simple/lavaland/96x96megafauna.dmi'
 	icon_state = "dragon"
@@ -56,10 +56,12 @@
 	base_pixel_x = -32
 	maptext_height = 64
 	maptext_width = 64
-	crusher_loot = list(/obj/structure/closet/crate/necropolis/dragon/crusher)
 	loot = list(/obj/structure/closet/crate/necropolis/dragon)
+	crusher_loot = /obj/structure/closet/crate/necropolis/dragon/crusher
+	replace_crusher_drop = TRUE
 	butcher_results = list(/obj/item/stack/ore/diamond = 5, /obj/item/stack/sheet/sinew = 5, /obj/item/stack/sheet/bone = 30)
 	guaranteed_butcher_results = list(/obj/item/stack/sheet/animalhide/ashdrake = 10)
+	initial_language_holder = /datum/language_holder/lizard/hear_common
 	var/swooping = NONE
 	var/player_cooldown = 0
 	gps_name = "Fiery Signal"
@@ -67,7 +69,7 @@
 	crusher_achievement_type = /datum/award/achievement/boss/drake_crusher
 	score_achievement_type = /datum/award/score/drake_score
 	death_message = "collapses into a pile of bones, its flesh sloughing away."
-	death_sound = 'sound/magic/demon_dies.ogg'
+	death_sound = 'sound/effects/magic/demon_dies.ogg'
 	footstep_type = FOOTSTEP_MOB_HEAVY
 	summon_line = "ROOOOOOOOAAAAAAAAAAAR!"
 	/// Fire cone ability
@@ -212,9 +214,9 @@
 
 /obj/effect/temp_visual/lava_warning/proc/fall(reset_time)
 	var/turf/T = get_turf(src)
-	playsound(T,'sound/magic/fleshtostone.ogg', 80, TRUE)
+	playsound(T,'sound/effects/magic/fleshtostone.ogg', 80, TRUE)
 	sleep(duration)
-	playsound(T,'sound/magic/fireball.ogg', 200, TRUE)
+	playsound(T,'sound/effects/magic/fireball.ogg', 200, TRUE)
 
 	for(var/mob/living/L in T.contents - owner)
 		if(istype(L, /mob/living/simple_animal/hostile/megafauna/dragon))
@@ -237,7 +239,7 @@
 	desc = "An ash drakes true flame."
 	name = "Fire Barrier"
 	icon = 'icons/effects/fire.dmi'
-	icon_state = "1"
+	icon_state = "light"
 	anchored = TRUE
 	opacity = FALSE
 	density = TRUE
@@ -281,7 +283,7 @@
 
 /obj/effect/temp_visual/target/proc/fall(list/flame_hit)
 	var/turf/T = get_turf(src)
-	playsound(T,'sound/magic/fleshtostone.ogg', 80, TRUE)
+	playsound(T,'sound/effects/magic/fleshtostone.ogg', 80, TRUE)
 	new /obj/effect/temp_visual/fireball(T)
 	sleep(duration)
 	if(ismineralturf(T))
@@ -311,7 +313,9 @@
 	mouse_opacity = MOUSE_OPACITY_ICON
 	damage_coeff = list(BRUTE = 1, BURN = 1, TOX = 1, STAMINA = 0, OXY = 1)
 	loot = list()
-	crusher_loot = list()
+	crusher_loot = null
+	achievement_type = null
+	score_achievement_type = null
 	butcher_results = list(/obj/item/stack/ore/diamond = 5, /obj/item/stack/sheet/sinew = 5, /obj/item/stack/sheet/bone = 30)
 	attack_action_types = list()
 
@@ -325,8 +329,6 @@
 	. = ..()
 	lava_swoop?.enraged = FALSE // In case taking damage caused us to start deleting ourselves
 
-/mob/living/simple_animal/hostile/megafauna/dragon/lesser/grant_achievement(medaltype,scoretype)
-	return
 
 #undef DRAKE_ENRAGED
 #undef SWOOP_DAMAGEABLE

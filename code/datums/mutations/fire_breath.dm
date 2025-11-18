@@ -1,4 +1,4 @@
-/datum/mutation/human/firebreath
+/datum/mutation/firebreath
 	name = "Fire Breath"
 	desc = "An ancient mutation that gives lizards breath of fire."
 	quality = POSITIVE
@@ -11,7 +11,7 @@
 	energy_coeff = 1
 	power_coeff = 1
 
-/datum/mutation/human/firebreath/modify()
+/datum/mutation/firebreath/setup()
 	. = ..()
 	var/datum/action/cooldown/spell/cone/staggered/fire_breath/to_modify = .
 	if(!istype(to_modify)) // null or invalid
@@ -29,7 +29,7 @@
 	name = "Fire Breath"
 	desc = "You breathe a cone of fire directly in front of you."
 	button_icon_state = "fireball0"
-	sound = 'sound/magic/demon_dies.ogg' //horrifying lizard noises
+	sound = 'sound/effects/magic/demon_dies.ogg' //horrifying lizard noises
 
 	school = SCHOOL_EVOCATION
 	cooldown_time = 40 SECONDS

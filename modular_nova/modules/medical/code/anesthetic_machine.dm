@@ -66,7 +66,7 @@
 		return FALSE
 	visible_message(span_notice("[user] retracts [attached_mask] back into [src]."))
 
-/obj/machinery/anesthetic_machine/attackby(obj/item/attacking_item, mob/user, params)
+/obj/machinery/anesthetic_machine/attackby(obj/item/attacking_item, mob/user, list/modifiers, list/attack_modifiers)
 	if(!istype(attacking_item, /obj/item/tank))
 		return ..()
 
@@ -229,5 +229,5 @@
 /obj/item/anesthetic_machine_kit/attack_self(mob/user)
 	new /obj/machinery/anesthetic_machine(user.loc)
 
-	playsound(get_turf(user), 'sound/weapons/circsawhit.ogg', 50, TRUE)
+	playsound(get_turf(user), 'sound/items/weapons/circsawhit.ogg', 50, TRUE)
 	qdel(src)

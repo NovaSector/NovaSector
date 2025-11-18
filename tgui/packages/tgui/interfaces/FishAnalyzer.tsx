@@ -1,8 +1,4 @@
-import { createSearch } from 'common/string';
 import { useState } from 'react';
-import { BooleanLike } from 'tgui-core/react';
-
-import { useBackend } from '../backend';
 import {
   Box,
   Button,
@@ -13,7 +9,11 @@ import {
   ProgressBar,
   Section,
   Stack,
-} from '../components';
+} from 'tgui-core/components';
+import type { BooleanLike } from 'tgui-core/react';
+import { createSearch } from 'tgui-core/string';
+
+import { useBackend } from '../backend';
 import { Window } from '../layouts';
 
 type FishData = {
@@ -84,14 +84,10 @@ export const FishAnalyzer = (props) => {
                   autoFocus
                   position="relative"
                   mt={0.5}
-                  bottom="5%"
                   height="20px"
-                  width="150px"
                   placeholder="Search Fish..."
                   value={searchText}
-                  onInput={(e, value) => {
-                    setSearchText(value);
-                  }}
+                  onChange={setSearchText}
                   fluid
                 />
               </Section>
@@ -183,7 +179,7 @@ const FishItem = (props) => {
                           tooltip={
                             <Stack vertical>
                               <Stack.Item>
-                                Inheritance: {trait.trait_inherit}
+                                Inheritance: {trait.trait_inherit}%
                               </Stack.Item>
                               <Stack.Item>{trait.trait_desc}</Stack.Item>
                             </Stack>
@@ -216,7 +212,7 @@ const FishItem = (props) => {
                 Hunger:{' '}
                 <ProgressBar
                   width="95%"
-                  value={fish.fish_hunger / 100}
+                  value={fish.fish_hunger}
                   ranges={{
                     good: [0.9, Infinity],
                     average: [0.5, 0.9],

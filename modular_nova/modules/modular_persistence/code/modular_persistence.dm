@@ -15,14 +15,20 @@ GLOBAL_LIST_INIT(modular_persistence_ignored_vars, list(
 	"tag",
 	"type",
 	"parent_type",
-	"owner",
+	"owner_brain",
 	"vars",
 	"stored_character_slot_index",
 ))
 
-/obj/item/organ/internal/brain
+/obj/item/organ/brain
 	/// The modular persistence data for a character.
 	var/datum/modular_persistence/modular_persistence
+
+/obj/item/organ/brain/Destroy(force)
+	if(!QDELETED(modular_persistence))
+		qdel(modular_persistence)
+	modular_persistence = null
+	return ..()
 
 /// Saves the contents of the modular persistence datum for the player's client to their file.
 /datum/controller/subsystem/persistence/proc/save_modular_persistence()
@@ -30,7 +36,7 @@ GLOBAL_LIST_INIT(modular_persistence_ignored_vars, list(
 		player.save_individual_persistence()
 
 /// Loads the contents of the player's modular_persistence file to their character.
-/datum/controller/subsystem/persistence/proc/load_modular_persistence(obj/item/organ/internal/brain/brain)
+/datum/controller/subsystem/persistence/proc/load_modular_persistence(obj/item/organ/brain/brain)
 	if(!brain)
 		return FALSE
 
@@ -51,27 +57,31 @@ GLOBAL_LIST_INIT(modular_persistence_ignored_vars, list(
 	/// The owner's character slot index.
 	var/stored_character_slot_index
 
-/datum/modular_persistence/New(obj/item/organ/internal/brain/brain, list/persistence_data)
+/datum/modular_persistence/New(obj/item/organ/brain/brain, list/persistence_data)
 	owner_brain = WEAKREF(brain)
 	. = ..()
 
-	var/obj/item/organ/internal/brain/our_brain = owner_brain?.resolve()
+	var/obj/item/organ/brain/our_brain = owner_brain?.resolve()
 	if(!our_brain)
 		owner_brain = null
 		return
 
-	RegisterSignal(our_brain, COMSIG_QDELETING, PROC_REF(on_brain_deleted))
 	stored_character_slot_index = our_brain.owner.mind?.original_character_slot_index
 
 	if(!persistence_data)
 		return
 
 	for(var/var_name in vars)
+		if(var_name in GLOB.modular_persistence_ignored_vars)
+			continue
+
 		var/var_entry = persistence_data[var_name]
 
 		if(var_entry)
 			vars[var_name] = var_entry
-
+	if(findtext(nif_path, "/obj/item/organ/internal"))
+		var/trimmed_nif_path = copytext(nif_path, length("/obj/item/organ/internal") + 1)
+		nif_path = "/obj/item/organ[trimmed_nif_path]"
 	if(!our_brain.owner)
 		CRASH("Tried to load modular persistence on a brain with no owner! How did this happen?! (\ref[brain], [brain.brainmob?.ckey], [brain])")
 
@@ -82,16 +92,11 @@ GLOBAL_LIST_INIT(modular_persistence_ignored_vars, list(
 	owner_brain = null
 	return ..()
 
-/datum/modular_persistence/proc/on_brain_deleted(datum/source)
-	SIGNAL_HANDLER
-
-	qdel(src)
-
 // On a base datum, this should be empty, at a glance.
 /datum/modular_persistence/proc/serialize_contents_to_list()
 	var/list/returned_list = list()
 
-	var/obj/item/organ/internal/brain/our_brain = owner_brain?.resolve()
+	var/obj/item/organ/brain/our_brain = owner_brain?.resolve()
 	if(!our_brain)
 		owner_brain = null
 		return
@@ -111,8 +116,8 @@ GLOBAL_LIST_INIT(modular_persistence_ignored_vars, list(
 	return returned_list
 
 /// Saves the held persistence data to where it needs to go.
-/datum/modular_persistence/proc/save_data(var/ckey)
-	var/obj/item/organ/internal/brain/our_brain = owner_brain?.resolve()
+/datum/modular_persistence/proc/save_data(ckey)
+	var/obj/item/organ/brain/our_brain = owner_brain?.resolve()
 	if(!our_brain)
 		owner_brain = null
 		return
@@ -135,7 +140,7 @@ GLOBAL_LIST_INIT(modular_persistence_ignored_vars, list(
 	return TRUE
 
 /// Saves the persistence data for the owner.
-/mob/living/carbon/human/proc/save_individual_persistence(var/ckey)
-	var/obj/item/organ/internal/brain/brain = get_organ_slot(ORGAN_SLOT_BRAIN)
+/mob/living/carbon/human/proc/save_individual_persistence(ckey)
+	var/obj/item/organ/brain/brain = get_organ_slot(ORGAN_SLOT_BRAIN)
 
 	return brain?.modular_persistence?.save_data(ckey)

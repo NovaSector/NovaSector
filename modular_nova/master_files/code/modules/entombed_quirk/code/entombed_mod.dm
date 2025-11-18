@@ -9,12 +9,11 @@
 	max_heat_protection_temperature = FIRE_SUIT_MAX_TEMP_PROTECT
 	siemens_coefficient = 0
 	complexity_max = DEFAULT_MAX_COMPLEXITY - 5
-	charge_drain = DEFAULT_CHARGE_DRAIN
-	slowdown_inactive = 2.5 // very slow because the quirk infers you rely on this to move/exist
-	slowdown_active = 0.95
+	charge_drain = DEFAULT_CHARGE_DRAIN / 2
+	slowdown_deployed = 0.95
 	inbuilt_modules = list(
 		/obj/item/mod/module/joint_torsion/entombed,
-		/obj/item/mod/module/storage,
+		/obj/item/mod/module/storage/large_capacity,
 	)
 	allowed_suit_storage = list(
 		/obj/item/tank/internals,
@@ -37,7 +36,7 @@
 	desc = "Your adaptation to life in this MODsuit shell allows you to ambulate in such a way that your movements recharge the suit's internal batteries slightly, but only while under the effect of gravity."
 	removable = FALSE
 	complexity = 0
-	power_per_step = DEFAULT_CHARGE_DRAIN * 0.4
+	power_per_step = DEFAULT_CHARGE_DRAIN * 0.6
 
 /obj/item/mod/module/plasma_stabilizer/entombed
 	name = "colony-stabilized interior seal"
@@ -69,7 +68,8 @@
 	if (!host_suit)
 		//if we have no host suit, we shouldn't exist, so delete
 		host = null
-		qdel(parent)
+		if(!QDELETED(parent))
+			qdel(parent)
 		return
 
 	var/obj/item/clothing/piece = parent
@@ -78,7 +78,7 @@
 
 /obj/item/mod/module/anomaly_locked/antigrav/entombed
 	name = "assistive anti-gravity ambulator"
-	desc = "An obligatory addition from the NanoTrasen science division as part of the Space Disabilities Act, this augmentation allows your suit to project a limited anti-gravity field to aid in your ambulation around the station for both general use and emergencies. It is powered by a tiny sliver of a gravitational anomaly core, inextricably linked to the power systems that keep you alive. Warning: not rated for EMP protection."
+	desc = "An obligatory addition from the Nanotrasen science division as part of the Space Disabilities Act, this augmentation allows your suit to project a limited anti-gravity field to aid in your ambulation around the station for both general use and emergencies. It is powered by a tiny sliver of a gravitational anomaly core, inextricably linked to the power systems that keep you alive. Warning: not rated for EMP protection."
 	complexity = 1
 	allow_flags = MODULE_ALLOW_INACTIVE // the suit is never off, so this just allows this to be used w/o being parts-deployed for cosmetic reasons
 	removable = FALSE
@@ -110,7 +110,7 @@
 	who.balloon_alert(who, "can't strip a fused MODsuit!")
 	return ..()
 
-/obj/item/mod/control/pre_equipped/entombed/retract(mob/user, obj/item/part)
+/obj/item/mod/control/pre_equipped/entombed/retract(mob/user, obj/item/part, instant)
 	if (ishuman(user))
 		var/mob/living/carbon/human/human_user = user
 		var/datum/quirk/equipping/entombed/tomb_quirk = human_user.get_quirk(/datum/quirk/equipping/entombed)
@@ -119,7 +119,7 @@
 			if (istype(part, /obj/item/clothing)) // make sure it's a modsuit piece and not a module, we retract those too
 				if (!istype(part, /obj/item/clothing/head/mod)) // they can only retract the helmet, them's the sticks
 					human_user.balloon_alert(human_user, "part is fused to you - can't retract!")
-					playsound(src, 'sound/machines/scanbuzz.ogg', 25, TRUE, SILENCED_SOUND_EXTRARANGE)
+					playsound(src, 'sound/machines/scanner/scanbuzz.ogg', 25, TRUE, SILENCED_SOUND_EXTRARANGE)
 					return
 	return ..()
 
@@ -130,7 +130,7 @@
 		//if we're deploy_locked, just disable this functionality entirely
 		if (tomb_quirk && tomb_quirk.deploy_locked)
 			human_user.balloon_alert(human_user, "you can only retract your helmet, and only manually!")
-			playsound(src, 'sound/machines/scanbuzz.ogg', 25, TRUE, SILENCED_SOUND_EXTRARANGE)
+			playsound(src, 'sound/machines/scanner/scanbuzz.ogg', 25, TRUE, SILENCED_SOUND_EXTRARANGE)
 			return
 	return ..()
 

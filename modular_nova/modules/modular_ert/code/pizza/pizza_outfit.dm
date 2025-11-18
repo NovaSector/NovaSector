@@ -1,8 +1,8 @@
 /datum/outfit/centcom/ert/pizza //da pizza for you and me
 	name = "Pizza Delivery Boy"
 	id = /obj/item/card/id/advanced/centcom/ert
-	suit = /obj/item/clothing/suit/toggle/jacket/hoodie/pizza
-	glasses = /obj/item/clothing/glasses/regular/betterunshit
+	suit = /obj/item/clothing/suit/toggle/jacket/nova/hoodie/pizza
+	glasses = /obj/item/clothing/glasses/regular/modern
 	head = /obj/item/clothing/head/soft/red
 	mask = /obj/item/clothing/mask/fakemoustache/italian
 	uniform = /obj/item/clothing/under/pizza

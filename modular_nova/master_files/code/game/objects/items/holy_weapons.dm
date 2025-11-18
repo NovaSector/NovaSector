@@ -50,7 +50,7 @@
 	body_parts_covered = HEAD
 	flags_inv = HIDEFACE|HIDEHAIR|HIDEEARS
 	flags_cover = HEADCOVERSEYES
-	armor_type = /datum/armor/helmet_chaplain
+	armor_type = /datum/armor/chaplainsuit_armor
 
 /obj/item/storage/box/holy/narsian
 	name = "ancient kit"
@@ -169,7 +169,7 @@
 	slot_flags = ITEM_SLOT_BELT
 	sharpness = SHARP_EDGED
 	w_class = WEIGHT_CLASS_NORMAL
-	hitsound = 'sound/weapons/bladeslice.ogg'
+	hitsound = 'sound/items/weapons/bladeslice.ogg'
 	attack_verb_continuous = list("attacks", "slashes", "stabs", "slices", "tears", "lacerates", "rips", "dices", "rends")
 	attack_verb_simple = list("attack", "slash", "stab", "slice", "tear", "lacerate", "rip", "dice", "rend")
 

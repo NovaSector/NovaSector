@@ -9,14 +9,19 @@
 	use_power = FALSE
 	circuit = null
 	resistance_flags = FIRE_PROOF
+
 	/// Whether it's currently cooking
 	var/operating
+
 	/// Lid position
 	var/open
+
 	/// Cauldron max capacity
 	var/max_n_of_items = 10
+
 	/// Ingredients - may only contain /atom/movables
 	var/list/ingredients = list()
+
 	/// When this is the nth ingredient, whats its pixel_x?
 	var/list/ingredient_shifts_x = list(
 		-1,
@@ -26,6 +31,7 @@
 		-3,
 		0,
 	)
+
 	/// When this is the nth ingredient, whats its pixel_y?
 	var/list/ingredient_shifts_y = list(
 		7,
@@ -61,11 +67,14 @@
 			if(isstack(i))
 				var/obj/item/stack/item_stack = i
 				items_counts[item_stack.name] += item_stack.amount
+
 			else
 				var/atom/movable/single_item = i
 				items_counts[single_item.name]++
+
 		for(var/item in items_counts)
 			. += span_notice("- [items_counts[item]]x [item].")
+
 	else
 		. += span_notice("\The [src] is empty.")
 
@@ -77,6 +86,7 @@
 			if(!(itemized_ingredient.item_flags & NO_PIXEL_RANDOM_DROP))
 				itemized_ingredient.pixel_x = itemized_ingredient.base_pixel_x + rand(-6, 6)
 				itemized_ingredient.pixel_y = itemized_ingredient.base_pixel_y + rand(-5, 6)
+
 	return ..()
 
 /obj/machinery/cauldron/on_deconstruction(disassembled)
@@ -120,8 +130,8 @@
 			CAULDRON_INGREDIENT_OVERLAY_SIZE / icon_dimensions["height"],
 		)
 
-		ingredient_overlay.pixel_x = ingredient_shifts_x[(ingredient_count % ingredient_shifts_x.len) + 1]
-		ingredient_overlay.pixel_y = ingredient_shifts_y[(ingredient_count % ingredient_shifts_y.len) + 1]
+		ingredient_overlay.pixel_w = ingredient_shifts_x[(ingredient_count % ingredient_shifts_x.len) + 1]
+		ingredient_overlay.pixel_z = ingredient_shifts_y[(ingredient_count % ingredient_shifts_y.len) + 1]
 		ingredient_overlay.layer = FLOAT_LAYER
 		ingredient_overlay.plane = FLOAT_PLANE
 		ingredient_overlay.blend_mode = BLEND_INSET_OVERLAY
@@ -135,6 +145,7 @@
 
 	if(open)
 		lid_icon_state = "cauldron_lid_open"
+
 	else
 		lid_icon_state = "cauldron_lid_closed"
 
@@ -151,6 +162,7 @@
 /obj/machinery/cauldron/update_icon_state()
 	if(operating)
 		icon_state = "cauldron_back_cooking"
+
 	else
 		icon_state = "cauldron_back_off"
 
@@ -159,66 +171,76 @@
 /obj/machinery/cauldron/wrench_act(mob/living/user, obj/item/tool)
 	if(default_unfasten_wrench(user, tool))
 		update_appearance()
+
 	return ITEM_INTERACT_SUCCESS
 
 /obj/machinery/cauldron/crowbar_act(mob/living/user, obj/item/tool)
 	user.balloon_alert_to_viewers("disassembling...")
 	if(!tool.use_tool(src, user, 2 SECONDS, volume = 100))
 		return
+
 	new /obj/item/stack/sheet/mineral/stone(drop_location(), 5) // Made with stone instead of iron so that it doesn't outbalance microwaves on station
 	deconstruct(TRUE)
 	return ITEM_INTERACT_SUCCESS
 
-/obj/machinery/cauldron/attackby(obj/item/item, mob/living/user, params)
+/obj/machinery/cauldron/item_interaction(mob/living/user, obj/item/tool, list/modifiers)
 	if(operating)
-		return
+		return ITEM_INTERACT_BLOCKING
 
 	if(!anchored)
-		if(IS_EDIBLE(item))
+		if(IS_EDIBLE(tool))
 			balloon_alert(user, "not secured!")
 			return TRUE
-		return ..()
+		return ITEM_INTERACT_SUCCESS
 
-	if(istype(item, /obj/item/storage))
-		var/obj/item/storage/tray = item
+	if(istype(tool, /obj/item/storage))
+		var/obj/item/storage/tray = tool
 		var/loaded = 0
 
-		if(!istype(item, /obj/item/storage/bag/tray))
+		if(!istype(tool, /obj/item/storage/bag/tray))
 			// Non-tray dumping requires a do_after
-			to_chat(user, span_notice("You start dumping out the contents of [item] into [src]..."))
-			if(!do_after(user, 2 SECONDS, target = tray))
-				return
+			to_chat(user, span_notice("You start dumping out the contents of [tool] into [src]..."))
+			var/skill_modifier = user.mind?.get_skill_modifier(/datum/skill/primitive, SKILL_SPEED_MODIFIER)
+			if(!do_after(user, 2 SECONDS * skill_modifier, target = tray))
+				return ITEM_INTERACT_BLOCKING
 
 		for(var/obj/tray_item in tray.contents)
 			if(!IS_EDIBLE(tray_item))
 				continue
+
 			if(ingredients.len >= max_n_of_items)
 				balloon_alert(user, "it's full!")
-				return TRUE
+				return ITEM_INTERACT_BLOCKING
+
 			if(tray.atom_storage.attempt_remove(tray_item, src))
 				loaded++
 				ingredients += tray_item
+
 		if(loaded)
 			open()
 			to_chat(user, span_notice("You insert [loaded] items into \the [src]."))
+			user.mind?.adjust_experience(/datum/skill/primitive, 2)
 			update_appearance()
-		return
 
-	if(item.w_class <= WEIGHT_CLASS_NORMAL && !istype(item, /obj/item/storage) && !user.combat_mode)
+		return ITEM_INTERACT_BLOCKING
+
+	if(tool.w_class <= WEIGHT_CLASS_NORMAL && !istype(tool, /obj/item/storage) && !user.combat_mode)
 		if(ingredients.len >= max_n_of_items)
 			balloon_alert(user, "it's full!")
-			return TRUE
-		if(!user.transferItemToLoc(item, src))
+			return ITEM_INTERACT_BLOCKING
+
+		if(!user.transferItemToLoc(tool, src))
 			balloon_alert(user, "it's stuck to your hand!")
-			return FALSE
+			return ITEM_INTERACT_BLOCKING
 
-		ingredients += item
+		ingredients += tool
 		open()
-		user.visible_message(span_notice("[user] adds \a [item] to \the [src]."), span_notice("You add [item] to \the [src]."))
+		user.visible_message(span_notice("[user] adds \a [tool] to \the [src]."), span_notice("You add [tool] to \the [src]."))
+		user.mind?.adjust_experience(/datum/skill/primitive, 2)
 		update_appearance()
-		return
+		return ITEM_INTERACT_BLOCKING
 
-	return ..()
+	return ITEM_INTERACT_SUCCESS
 
 /obj/machinery/cauldron/attack_hand_secondary(mob/user, list/modifiers)
 	if(user.can_perform_action(src))
@@ -236,14 +258,17 @@
 	if(!anchored)
 		balloon_alert(user, "not secured!")
 		return
+
 	if(operating || !user.can_perform_action(src))
 		return
 
 	if(!length(ingredients))
 		if(isAI(user))
 			examine(user)
+
 		else
 			balloon_alert(user, "it's empty!")
+
 		return
 
 	var/choice = show_radial_menu(user, src, radial_options, require_near = TRUE)
@@ -252,14 +277,17 @@
 	if(!anchored)
 		balloon_alert(user, "not secured!")
 		return
+
 	if(operating || !user.can_perform_action(src))
 		return
 
 	switch(choice)
 		if("eject")
 			eject()
+
 		if("cook")
 			cook(user)
+
 		if("examine")
 			examine(user)
 
@@ -271,6 +299,7 @@
 	var/atom/drop_loc = drop_location()
 	for(var/atom/movable/movable_ingredient as anything in ingredients)
 		movable_ingredient.forceMove(drop_loc)
+
 	open()
 
 /**
@@ -305,6 +334,7 @@
 	if(cycles <= 0 || !length(ingredients))
 		loop_finish(cooker)
 		return
+
 	cycles--
 	addtimer(CALLBACK(src, PROC_REF(cook_loop), cycles, wait, cooker), wait)
 

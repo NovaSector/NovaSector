@@ -398,7 +398,7 @@
 	dir = 4
 	},
 /obj/effect/decal/cleanable/dirt,
-/obj/effect/decal/cleanable/oil,
+/obj/effect/decal/cleanable/blood/oil,
 /turf/open/floor/plating,
 /area/shuttle/pirate)
 "bf" = (
@@ -407,7 +407,6 @@
 	},
 /obj/effect/decal/cleanable/dirt,
 /obj/machinery/turretid{
-	icon_state = "control_kill";
 	lethal = 1;
 	locked = 0;
 	pixel_y = -24;
@@ -567,9 +566,7 @@
 /turf/open/floor/iron,
 /area/shuttle/pirate)
 "bH" = (
-/obj/machinery/vending/boozeomat/all_access{
-	onstation = 0
-	},
+/obj/machinery/vending/boozeomat,
 /obj/effect/turf_decal/tile/bar/opposingcorners,
 /turf/open/floor/iron,
 /area/shuttle/pirate)

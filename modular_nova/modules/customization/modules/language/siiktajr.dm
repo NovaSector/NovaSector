@@ -5,6 +5,10 @@
 	flags = TONGUELESS_SPEECH
 	sentence_chance = 9
 	space_chance = 60
+	between_word_sentence_chance = 10
+	between_word_space_chance = 50
+	additional_syllable_low = 1
+	additional_syllable_high = 2
 	syllables = list(
 		"aa","ai","ar","au","e","ee","ei","et","rr","rr","ta","tten","for","får","grr","grå","grrå","gra","grår","gär","grii",
 		"grri","dra","haak","häi","hain","hal","hii","hel","hie","hää","ja","jaa","juu","jy","jä","jääs","ka","kai",

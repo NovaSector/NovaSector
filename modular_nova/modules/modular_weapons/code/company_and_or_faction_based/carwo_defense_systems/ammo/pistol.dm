@@ -9,6 +9,7 @@
 	icon_state = "35sol"
 
 	caliber = CALIBER_SOL35SHORT
+	ammo_stack_type = /obj/item/ammo_box/magazine/ammo_stack/c35_sol
 	projectile_type = /obj/projectile/bullet/c35sol
 
 
@@ -20,10 +21,10 @@
 
 /obj/projectile/bullet/c35sol
 	name = ".35 Sol Short bullet"
-	damage = 25
+	damage = 16
 
-	wound_bonus = 10 // Normal bullets are 20
-	bare_wound_bonus = 20
+	wound_bonus = 5 // Normal bullets are 20
+	exposed_wound_bonus = 10
 
 
 /obj/item/ammo_box/c35sol
@@ -52,15 +53,16 @@
 
 	projectile_type = /obj/projectile/bullet/c35sol/incapacitator
 	harmful = FALSE
+	ammo_categories = AMMO_CLASS_NONE
 
 
 /obj/projectile/bullet/c35sol/incapacitator
 	name = ".35 Sol Short incapacitator bullet"
-	damage = 5
-	stamina = 30
+	damage = 3
+	stamina = 20
 
 	wound_bonus = -40
-	bare_wound_bonus = -20
+	exposed_wound_bonus = -20
 
 	weak_against_armour = TRUE
 
@@ -97,25 +99,24 @@
 	projectile_type = /obj/projectile/bullet/c35sol/ripper
 
 	custom_materials = AMMO_MATS_RIPPER
-	advanced_print_req = TRUE
-
+	ammo_categories = AMMO_CLASS_PLUS
 
 /obj/projectile/bullet/c35sol/ripper
 	name = ".35 Sol ripper bullet"
-	damage = 15
+	damage = 10
 
 	weak_against_armour = TRUE
 
 	sharpness = SHARP_EDGED
 
 	wound_bonus = 20
-	bare_wound_bonus = 20
+	exposed_wound_bonus = 20
 
-	embed_type = /datum/embed_data/c35sol_ripper
+	embed_type = /datum/embedding/c35sol_ripper
 
 	embed_falloff_tile = -15
 
-/datum/embed_data/c35sol_ripper
+/datum/embedding/c35sol_ripper
 	embed_chance = 75
 	fall_chance = 3
 	jostle_chance = 4
@@ -132,3 +133,52 @@
 	icon_state = "35box_shrapnel"
 
 	ammo_type = /obj/item/ammo_casing/c35sol/ripper
+
+// .35 Sol flash, similar to Polaris code flash ammo for pistols.
+
+/obj/item/ammo_casing/c35sol/flash
+	name = ".35 Sol Short flash bullet casing"
+	desc = "A SolFed standard caseless less-lethal pistol round. Creates a small, pyrotechnic flash on hit; insufficient to overload cyborgs."
+
+	icon_state = "35sol_flash"
+
+	projectile_type = /obj/projectile/bullet/c35sol/flash
+	harmful = FALSE
+	ammo_categories = AMMO_CLASS_NONE
+
+/obj/projectile/bullet/c35sol/flash
+	name = ".35 Sol Short flash bullet"
+	damage = 5
+
+	shrapnel_type = null
+	sharpness = NONE
+	embed_data = null
+
+/obj/projectile/bullet/c35sol/flash/on_hit(atom/target, blocked, pierce_hit)
+	. = ..()
+	do_sparks(rand(1, 4), FALSE, src)
+	if(isliving(target))
+		var/mob/living/flashed_living = target
+		flashed_living.ignite_mob() // lmao
+		if(flashed_living.flash_act(intensity = 1, affect_silicon = TRUE, length = 1 SECONDS))
+			flashed_living.set_confusion_if_lower(2 SECONDS)
+			flashed_living.adjustStaminaLoss(rand(30, 35))
+
+/obj/item/ammo_box/c35sol/flash
+	name = "ammo box (.35 Sol Short flash)"
+	desc = "A box of .35 Sol Short pistol rounds, holds twenty-four rounds. The orange stripe indicates this should hold flash ammunition, which poses an incendiary risk."
+
+	icon_state = "35box_flash"
+
+	ammo_type = /obj/item/ammo_casing/c35sol/flash
+
+/obj/item/ammo_box/speedloader/c35sol
+	name = "speed loader (.35 Sol Short)"
+	desc = "Designed to quickly reload eight-chamber .35 Sol Short revolvers."
+	icon = 'modular_nova/modules/modular_weapons/icons/obj/company_and_or_faction_based/carwo_defense_systems/ammo.dmi'
+	icon_state = "sl35sol"
+	ammo_type = /obj/item/ammo_casing/c35sol
+	max_ammo = 8
+	caliber = CALIBER_SOL35SHORT
+	ammo_band_icon = "+sl35_band"
+	ammo_band_color = null

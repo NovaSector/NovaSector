@@ -46,7 +46,7 @@
 		.["message"] = "Invalid target rank provided."
 		return
 
-	target_rank = capitalize(target_rank)
+	target_rank = full_capitalize(replacetext(target_rank, "_", " "))
 
 	var/desired_rank_status = !!text2num(input["desired_rank_status"])
 

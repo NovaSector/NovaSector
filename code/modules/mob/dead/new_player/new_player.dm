@@ -22,8 +22,8 @@
 
 /mob/dead/new_player/Initialize(mapload)
 	if(client && SSticker.state == GAME_STATE_STARTUP)
-		var/atom/movable/screen/splash/S = new(null, client, TRUE, TRUE)
-		S.Fade(TRUE)
+		var/atom/movable/screen/splash/fade_out = new(null, null, client, TRUE)
+		fade_out.fade(TRUE)
 
 	if(length(GLOB.newplayer_start))
 		forceMove(pick(GLOB.newplayer_start))
@@ -92,14 +92,16 @@
 	else
 		to_chat(src, span_notice("Teleporting failed. Ahelp an admin please"))
 		stack_trace("There's no freaking observer landmark available on this map or you're making observers before the map is initialised")
-	observer.key = key
+
+	observer.PossessByPlayer(key)
 	observer.client = client
 	observer.set_ghost_appearance()
 	if(observer.client && observer.client.prefs)
 		observer.real_name = observer.client.prefs.read_preference(/datum/preference/name/real_name)
 		observer.name = observer.real_name
 		observer.client.init_verbs()
-		observer.client.player_details.time_of_death = world.time
+		observer.persistent_client.time_of_death = world.time
+
 	observer.update_appearance()
 	observer.stop_sound_channel(CHANNEL_LOBBYMUSIC)
 	deadchat_broadcast(" has observed.", "<b>[observer.real_name]</b>", follow_target = observer, turf_target = get_turf(observer), message_type = DEADCHAT_DEATHRATTLE)
@@ -122,8 +124,8 @@
 		if(JOB_UNAVAILABLE_SLOTFULL)
 			return "[jobtitle] is already filled to capacity."
 		//NOVA EDIT ADDITION
-		if(JOB_NOT_VETERAN)
-			return "You need to be veteran to join as [jobtitle]."
+		if(JOB_NOT_NOVA_STAR)
+			return "You need to be Nova star to join as [jobtitle]."
 		if(JOB_UNAVAILABLE_QUIRK)
 			return "[jobtitle] is restricted due to your selected quirks."
 		if(JOB_UNAVAILABLE_LANGUAGE)
@@ -143,7 +145,7 @@
 	return GENERIC_JOB_UNAVAILABLE_ERROR
 
 /mob/dead/new_player/proc/IsJobUnavailable(rank, latejoin = FALSE)
-	var/datum/job/job = SSjob.GetJob(rank)
+	var/datum/job/job = SSjob.get_job(rank)
 	if(!(job.job_flags & JOB_NEW_PLAYER_JOINABLE))
 		return JOB_UNAVAILABLE_GENERIC
 	if((job.current_positions >= job.total_positions) && job.total_positions != -1)
@@ -167,8 +169,8 @@
 		return JOB_UNAVAILABLE_LANGUAGE
 	if(job.has_banned_quirk(client.prefs))
 		return JOB_UNAVAILABLE_QUIRK
-	if(job.veteran_only && !SSplayer_ranks.is_veteran(client))
-		return JOB_NOT_VETERAN
+	if(job.nova_stars_only && !SSplayer_ranks.is_nova_star(client))
+		return JOB_NOT_NOVA_STAR
 	if(job.has_banned_species(client.prefs))
 		return JOB_UNAVAILABLE_SPECIES
 	//NOVA EDIT END
@@ -178,7 +180,7 @@
 /mob/dead/new_player/proc/AttemptLateSpawn(rank)
 	// Check that they're picking someone new for new character respawning
 	if(CONFIG_GET(flag/allow_respawn) == RESPAWN_FLAG_NEW_CHARACTER)
-		if("[client.prefs.default_slot]" in client.player_details.joined_as_slots)
+		if("[client.prefs.default_slot]" in persistent_client.joined_as_slots)
 			tgui_alert(usr, "You already have played this character in this round!")
 			return FALSE
 
@@ -199,9 +201,9 @@
 	SSticker.queued_players -= src
 	SSticker.queue_delay = 4
 
-	var/datum/job/job = SSjob.GetJob(rank)
+	var/datum/job/job = SSjob.get_job(rank)
 
-	if(!SSjob.AssignRole(src, job, TRUE))
+	if(!SSjob.assign_role(src, job, TRUE))
 		tgui_alert(usr, "There was an unexpected error putting you into your requested job. If you cannot join with any job, you should contact an admin.")
 		return FALSE
 
@@ -215,18 +217,18 @@
 		CRASH("Failed to create a character for latejoin.")
 	transfer_character()
 
-	SSjob.EquipRank(character, job, character.client)
+	SSjob.equip_rank(character, job, character.client)
 	job.after_latejoin_spawn(character)
 
 	#define IS_NOT_CAPTAIN 0
 	#define IS_ACTING_CAPTAIN 1
 	#define IS_FULL_CAPTAIN 2
 	var/is_captain = IS_NOT_CAPTAIN
-	var/captain_sound = 'sound/misc/notice2.ogg'
+	var/captain_sound = 'sound/announcer/notice/notice2.ogg'
 	// If we already have a captain, are they a "Captain" rank and are we allowing multiple of them to be assigned?
 	if(is_captain_job(job))
 		is_captain = IS_FULL_CAPTAIN
-		captain_sound = ANNOUNCER_DEPARTMENTAL // NOVA EDIT CHANGE - Announcer Sounds
+		captain_sound = ANNOUNCER_DEPARTMENTAL // NOVA EDIT CHANGE - Announcer Sounds - ORIGINAL: captain_sound = 'sound/announcer/announcement/announce.ogg'
 	// If we don't have an assigned cap yet, check if this person qualifies for some from of captaincy.
 	else if(!SSjob.assigned_captain && ishuman(character) && SSjob.chain_of_command[rank] && !is_banned_from(character.ckey, list(JOB_CAPTAIN)))
 		is_captain = IS_ACTING_CAPTAIN
@@ -261,21 +263,19 @@
 
 	GLOB.joined_player_list += character.ckey
 
-	if(CONFIG_GET(flag/allow_latejoin_antagonists) && humanc) //Borgs aren't allowed to be antags. Will need to be tweaked if we get true latejoin ais.
-		if(SSshuttle.emergency)
-			switch(SSshuttle.emergency.mode)
-				if(SHUTTLE_RECALL, SHUTTLE_IDLE)
-					SSdynamic.make_antag_chance(humanc)
-				if(SHUTTLE_CALL)
-					if(SSshuttle.emergency.timeLeft(1) > initial(SSshuttle.emergency_call_time)*0.5)
-						SSdynamic.make_antag_chance(humanc)
+	if(CONFIG_GET(flag/allow_latejoin_antagonists) && !EMERGENCY_PAST_POINT_OF_NO_RETURN && humanc) //Borgs aren't allowed to be antags. Will need to be tweaked if we get true latejoin ais.
+		SSdynamic.on_latejoin(humanc)
 
-	if((job.job_flags & JOB_ASSIGN_QUIRKS) && humanc && CONFIG_GET(flag/roundstart_traits))
-		SSquirks.AssignQuirks(humanc, humanc.client)
+	if(humanc)
+		if(job.job_flags & JOB_ASSIGN_QUIRKS)
+			if(CONFIG_GET(flag/roundstart_traits))
+				SSquirks.AssignQuirks(humanc, humanc.client)
+		else // clear any personalities the prefs added since our job clearly does not want them
+			humanc.clear_personalities()
 
 	if(humanc) // Quirks may change manifest datapoints, so inject only after assigning quirks
-		GLOB.manifest.inject(humanc, humanc.client) // NOVA EDIT - RP Records - ORIGINAL: GLOB.manifest.inject(humanc)
-
+		GLOB.manifest.inject(humanc, person_client = humanc.client) // NOVA EDIT - RP Records - ORIGINAL: GLOB.manifest.inject(humanc)
+		SEND_SIGNAL(humanc, COMSIG_HUMAN_CHARACTER_SETUP_FINISHED)
 	var/area/station/arrivals = GLOB.areas_by_type[/area/station/hallway/secondary/entry]
 	if(humanc && arrivals && !arrivals.power_environ) //arrivals depowered
 		humanc.put_in_hands(new /obj/item/crowbar/large/emergency(get_turf(humanc))) //if hands full then just drops on the floor
@@ -283,12 +283,12 @@
 
 	// NOVA EDIT ADDITION START
 	if(humanc)
-		var/list/loadout = loadout_list_to_datums(humanc.client?.prefs?.read_preference(/datum/preference/loadout))
+		var/list/loadout = humanc.client?.get_loadout_datums()
 		for(var/datum/loadout_item/item as anything in loadout)
 			if (item.restricted_roles && length(item.restricted_roles) && !(job.title in item.restricted_roles))
 				continue
 			item.post_equip_item(humanc.client?.prefs, humanc)
-	// NOVA EDIT END
+	// NOVA EDIT ADDITION END
 
 /mob/dead/new_player/proc/AddEmploymentContract(mob/living/carbon/human/employee)
 	//TODO:  figure out a way to exclude wizards/nukeops/demons from this.
@@ -305,10 +305,8 @@
 
 	mind.active = FALSE //we wish to transfer the key manually
 	var/mob/living/spawning_mob = mind.assigned_role.get_spawn_mob(client, destination)
-	if(QDELETED(src) || !client)
+	if(QDELETED(src) || !HAS_CONNECTED_PLAYER(src))
 		return // Disconnected while checking for the appearance ban.
-
-
 
 	if(!isAI(spawning_mob)) // Unfortunately there's still snowflake AI code out there.
 		// transfer_to sets mind to null
@@ -317,7 +315,7 @@
 		preserved_mind.transfer_to(spawning_mob) //won't transfer key since the mind is not active
 		preserved_mind.set_original_character(spawning_mob)
 
-	LAZYADD(client.player_details.joined_as_slots, "[client.prefs.default_slot]")
+	LAZYADD(persistent_client.joined_as_slots, "[client.prefs.default_slot]")
 	client.init_verbs()
 	. = spawning_mob
 	new_character = .
@@ -327,7 +325,7 @@
 	. = new_character
 	if(!.)
 		return
-	new_character.key = key //Manually transfer the key to log them in,
+	new_character.PossessByPlayer(key) //Manually transfer the key to log them in,
 	new_character.stop_sound_channel(CHANNEL_LOBBYMUSIC)
 	var/area/joined_area = get_area(new_character.loc)
 	if(joined_area)
@@ -339,10 +337,6 @@
 /mob/dead/new_player/proc/ViewManifest()
 	if(!client)
 		return
-	if(world.time < client.crew_manifest_delay)
-		return
-	client.crew_manifest_delay = world.time + (1 SECONDS)
-
 	GLOB.manifest.ui_interact(src)
 
 /mob/dead/new_player/Move()
@@ -353,23 +347,24 @@
 // Prevents "antag rolling" by setting antag prefs on, all jobs to never, and "return to lobby if preferences not available"
 // Doing so would previously allow you to roll for antag, then send you back to lobby if you didn't get an antag role
 // This also does some admin notification and logging as well, as well as some extra logic to make sure things don't go wrong
-/mob/dead/new_player/proc/check_preferences()
+/mob/dead/new_player/proc/check_job_preferences(warn = TRUE)
 	if(!client)
 		return FALSE //Not sure how this would get run without the mob having a client, but let's just be safe.
 	if(client.prefs.read_preference(/datum/preference/choiced/jobless_role) != RETURNTOLOBBY)
 		return TRUE
 	// If they have antags enabled, they're potentially doing this on purpose instead of by accident. Notify admins if so.
-	var/has_antags = FALSE
-	if(client.prefs.be_special.len > 0)
-		has_antags = TRUE
+	var/has_antags = length(client.prefs.be_special) > 0
 	if(client.prefs.job_preferences.len == 0)
-		if(!ineligible_for_roles)
-			to_chat(src, span_danger("You have no jobs enabled, along with return to lobby if job is unavailable. This makes you ineligible for any round start role, please update your job preferences."))
-		ineligible_for_roles = TRUE
+		if(warn)
+			to_chat(src, span_danger("You have no jobs enabled, along with return to lobby if job is unavailable. \
+				This makes you ineligible for any round start role, please update your job preferences."))
 		ready = PLAYER_NOT_READY
 		if(has_antags)
-			log_admin("[src.ckey] has no jobs enabled, return to lobby if job is unavailable enabled and [client.prefs.be_special.len] antag preferences enabled. The player has been forcefully returned to the lobby.")
-			message_admins("[src.ckey] has no jobs enabled, return to lobby if job is unavailable enabled and [client.prefs.be_special.len] antag preferences enabled. This is an old antag rolling technique. The player has been asked to update their job preferences and has been forcefully returned to the lobby.")
+			log_admin("[src.ckey] has no jobs enabled, return to lobby if job is unavailable enabled and [client.prefs.be_special.len] \
+				antag preferences enabled. The player has been forcefully returned to the lobby.")
+			message_admins("[src.ckey] has no jobs enabled, return to lobby if job is unavailable enabled and [client.prefs.be_special.len] \
+				antag preferences enabled. This is an old antag rolling technique. The player has been asked to update their job preferences \
+				and has been forcefully returned to the lobby.")
 		return FALSE //This is the only case someone should actually be completely blocked from antag rolling as well
 	return TRUE
 
@@ -414,5 +409,12 @@
 	create_mob_hud()
 	to_chat(new_player, span_info("Lobby Menu HUD reset. You may reset the HUD again in <b>[DisplayTimeText(RESET_HUD_INTERVAL)]</b>."))
 	hud_used.show_hud(hud_used.hud_version)
+
+///Auto deadmins an admin when they click to toggle the ready button or join game button in the menu
+/mob/dead/new_player/proc/auto_deadmin_on_ready_or_latejoin()
+	if(!client?.holder) //If they aren't an admin we dont care
+		return TRUE
+	if(CONFIG_GET(flag/auto_deadmin_on_ready_or_latejoin) || (client.prefs.read_preference(/datum/preference/toggle/auto_deadmin_on_ready_or_latejoin)) || (client.prefs?.toggles & DEADMIN_ALWAYS))
+		return client.holder.auto_deadmin()
 
 #undef RESET_HUD_INTERVAL

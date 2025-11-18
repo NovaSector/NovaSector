@@ -27,6 +27,6 @@
 
 		)
 	return pick(
-		'sound/voice/human/manlaugh1.ogg',
-		'sound/voice/human/manlaugh2.ogg',
+		'sound/mobs/humanoids/human/laugh/manlaugh1.ogg',
+		'sound/mobs/humanoids/human/laugh/manlaugh2.ogg',
 	)

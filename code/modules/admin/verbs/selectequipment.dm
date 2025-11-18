@@ -1,4 +1,8 @@
 ADMIN_VERB_ONLY_CONTEXT_MENU(select_equipment, R_FUN, "Select Equipment", mob/target in world)
+	// NOVA EDIT ADDITION START
+	if(tgui_alert(user, "This interface is resource-intensive. Are you sure you want to open it? Tip: You can also Ctrl-click a ghost to access a lighter version.", "Server Resources Warning", list("No", "Yes", "Sorry")) != "Yes")
+		return
+	// NOVA EDIT ADDITION END
 	var/datum/select_equipment/ui = new(user, target)
 	ui.ui_interact(user.mob)
 
@@ -45,7 +49,7 @@ ADMIN_VERB_ONLY_CONTEXT_MENU(select_equipment, R_FUN, "Select Equipment", mob/ta
 		ui.set_autoupdate(FALSE)
 
 /datum/select_equipment/ui_state(mob/user)
-	return GLOB.admin_state
+	return ADMIN_STATE(R_FUN)
 
 /datum/select_equipment/ui_status(mob/user, datum/ui_state/state)
 	if(QDELETED(target_mob))
@@ -88,7 +92,7 @@ ADMIN_VERB_ONLY_CONTEXT_MENU(select_equipment, R_FUN, "Select Equipment", mob/ta
 
 /datum/select_equipment/proc/make_outfit_entries(category="General", list/outfit_list)
 	var/list/entries = list()
-	for(var/path as anything in outfit_list)
+	for(var/path in outfit_list)
 		var/datum/outfit/outfit = path
 		entries += list(outfit_entry(category, path, initial(outfit.name)))
 	return entries
@@ -107,7 +111,9 @@ ADMIN_VERB_ONLY_CONTEXT_MENU(select_equipment, R_FUN, "Select Equipment", mob/ta
 
 	var/icon/dummysprite = get_flat_human_icon(null,
 		dummy_key = dummy_key,
-		outfit_override = selected_outfit)
+		outfit_override = selected_outfit,
+		no_anim = TRUE,
+	)
 	data["icon64"] = icon2base64(dummysprite)
 	data["name"] = target_mob
 
@@ -213,7 +219,7 @@ ADMIN_VERB_ONLY_CONTEXT_MENU(select_equipment, R_FUN, "Select Equipment", mob/ta
 	for(var/obj/item/item in human_target.get_equipped_items(includes_flags))
 		qdel(item)
 
-	var/obj/item/organ/internal/brain/human_brain = human_target.get_organ_slot(BRAIN)
+	var/obj/item/organ/brain/human_brain = human_target.get_organ_slot(BRAIN)
 	human_brain.destroy_all_skillchips() // get rid of skillchips to prevent runtimes
 
 	if(dresscode != "Naked")

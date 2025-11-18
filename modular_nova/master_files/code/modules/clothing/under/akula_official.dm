@@ -14,11 +14,13 @@
 		Due to being constructed for comfort and flash rather than practicality, the technology used in Shoredresses to hydrate the wearer could not be implemented; \
 		only a mount for a Shoredress's helm."
 	icon_state = "oldblood"
+	supports_variations_flags = CLOTHING_DIGITIGRADE_MASK
 
 /obj/item/clothing/under/rank/azulean/old_blood/skirt
 	name = "\improper Agurkrral Oldblood's royal regalia"
 	icon_state = "oldblood_skirt"
 	female_sprite_flags = FEMALE_UNIFORM_TOP_ONLY
+	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION_NO_NEW_ICON
 
 /obj/item/clothing/under/rank/azulean/upstart
 	name = "\improper Agurkrral Upstart's noble getup"
@@ -28,8 +30,10 @@
 		Due to being constructed for a degree of expendability, the technology used in Shoredresses to hydrate the wearer is \
 		an extremely rare sight in these outfits; only the mount for a Shoredress's helm."
 	icon_state = "upstart"
+	supports_variations_flags = CLOTHING_DIGITIGRADE_MASK
 
 /obj/item/clothing/under/rank/azulean/upstart/skirt
 	name = "\improper Agurkrral Upstart's noble getup"
 	icon_state = "upstart_skirt"
 	female_sprite_flags = FEMALE_UNIFORM_TOP_ONLY
+	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION_NO_NEW_ICON

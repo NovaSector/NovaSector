@@ -85,9 +85,9 @@
 		data["card_name"] = inserted_card.name
 
 	data["armaments_list"] = list()
-	for(var/armament_category as anything in SSarmaments.entries)
+	for(var/armament_category in SSarmaments.entries)
 		var/list/armament_subcategories = list()
-		for(var/subcategory as anything in SSarmaments.entries[armament_category][CATEGORY_ENTRY])
+		for(var/subcategory in SSarmaments.entries[armament_category][CATEGORY_ENTRY])
 			var/list/subcategory_items = list()
 			for(var/datum/armament_entry/armament_entry as anything in SSarmaments.entries[armament_category][CATEGORY_ENTRY][subcategory])
 				if(products && !(armament_entry.type in products))
@@ -122,8 +122,9 @@
 
 	return data
 
-/datum/component/armament/ui_act(action, list/params)
+/datum/component/armament/ui_act(action, list/params, datum/tgui/ui, datum/ui_state/state)
 	. = ..()
+	var/mob/user = ui.user
 	if(.)
 		return
 
@@ -132,14 +133,14 @@
 			var/check = check_item(params["armament_ref"])
 			if(!check)
 				return
-			select_armament(usr, check)
+			select_armament(user, check)
 		if("buy_ammo")
 			var/check = check_item(params["armament_ref"])
 			if(!check)
 				return
-			buy_ammo(usr, check, params["quantity"])
+			buy_ammo(user, check, params["quantity"])
 		if("eject_card")
-			eject_card(usr)
+			eject_card(user)
 
 /datum/component/armament/proc/buy_ammo(mob/user, datum/armament_entry/armament_entry, quantity = 1)
 	if(!armament_entry.magazine)
@@ -177,7 +178,7 @@
 	user.put_in_hands(inserted_card)
 	inserted_card = null
 	to_chat(user, span_notice("Card ejected!"))
-	playsound(src, 'sound/machines/terminal_insert_disc.ogg', 70)
+	playsound(src, 'sound/machines/terminal/terminal_insert_disc.ogg', 70)
 
 /datum/component/armament/proc/select_armament(mob/user, datum/armament_entry/armament_entry)
 	if(!inserted_card)

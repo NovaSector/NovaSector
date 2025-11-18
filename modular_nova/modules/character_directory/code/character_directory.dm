@@ -1,6 +1,8 @@
 GLOBAL_DATUM(character_directory, /datum/character_directory)
 GLOBAL_LIST_EMPTY(name_to_appearance)
 #define READ_PREFS(target, pref) (target.client?.prefs?.read_preference(/datum/preference/pref))
+///Helper macro for directory ads' preview views
+#define CHAR_DIRECTORY_ASSIGNED_VIEW(user_ckey) "preview_[user_ckey]_char_directory_records"
 
 // We want players to be able to decide whether they show up in the directory or not
 /datum/preference/toggle/show_in_directory
@@ -88,43 +90,49 @@ GLOBAL_LIST_EMPTY(name_to_appearance)
 // This is a global singleton. Keep in mind that all operations should occur on user, not src.
 /datum/character_directory
 	/// The character preview views for the UI.
-	var/list/atom/movable/screen/map_view/char_preview/character_preview_views = list()
+	var/list/atom/movable/screen/map_view/char_preview/directory/character_preview_views = list()
 	/// For when a character starts off viewing a specific character's ad
 	var/list/start_viewing_ad = list()
 
 /datum/character_directory/Destroy(force)
 	for(var/ckey in character_preview_views)
-		var/atom/movable/screen/map_view/char_preview/preview = character_preview_views[ckey]
-		var/mob/user = get_mob_by_ckey(ckey)
-		if(user)
-			user.client?.screen_maps -= preview
+		var/atom/movable/screen/map_view/char_preview/directory/preview = character_preview_views[ckey]
 		qdel(preview)
 	return ..()
 
+/atom/movable/screen/map_view/char_preview/directory
+	/// Tracks a ref to the client ckey, for the character directory
+	var/client_ckey
+
+/atom/movable/screen/map_view/char_preview/directory/Destroy(force)
+	GLOB.character_directory?.character_preview_views -= client_ckey
+
+	return ..()
+
 /// Makes a managed character preview view for a specific user
-/datum/character_directory/proc/create_character_preview_view(mob/user)
-	var/assigned_view = "preview_[user.ckey]_[REF(src)]_directory"
+/datum/character_directory/proc/create_character_preview_view(mob/user, datum/tgui_window/window)
+	var/assigned_view = CHAR_DIRECTORY_ASSIGNED_VIEW(user.ckey)
 
 	// sometimes--e.g. if you have a ui open and you observe--you can end up with a stuck map_view, which leads to subsequent previews not rendering.
 	// let's clear those out, we always want a new one when calling this proc anyway.
 	var/old_view = user.client?.screen_maps[assigned_view]
 	if(old_view)
-		character_preview_views -= old_view
-		user.client.screen_maps -= old_view
 		qdel(old_view)
 
-	var/atom/movable/screen/map_view/char_preview/new_view = new(null)
+	var/atom/movable/screen/map_view/char_preview/directory/new_view = new(null)
+	new_view.client_ckey = user.ckey
 	new_view.generate_view(assigned_view)
-	new_view.display_to(user)
+	new_view.display_to(user, window)
+	character_preview_views[user.ckey] = new_view
 	return new_view
 
 /// Takes a record and updates the character preview view to match it.
-/datum/character_directory/proc/update_preview(mob/user, assigned_view, mutable_appearance/appearance)
+/datum/character_directory/proc/update_preview(mob/user, assigned_view, mutable_appearance/appearance, datum/tgui_window/window)
 	var/mutable_appearance/preview = new(appearance)
-	preview.transform = matrix() // This is so scaled mobs aren't just getting cut off for being too big
 
-	var/atom/movable/screen/map_view/char_preview/old_view = user.client?.screen_maps[assigned_view]?[1]
+	var/atom/movable/screen/map_view/char_preview/directory/old_view = user.client?.screen_maps[assigned_view]?[1]
 	if(!old_view)
+		create_character_preview_view(user, window)
 		return
 
 	old_view.appearance = preview.appearance
@@ -135,15 +143,14 @@ GLOBAL_LIST_EMPTY(name_to_appearance)
 /datum/character_directory/ui_interact(mob/user, datum/tgui/ui)
 	ui = SStgui.try_update_ui(user, src, ui)
 	if(!ui)
-		character_preview_views[user.ckey] = create_character_preview_view(user)
 		ui = new(user, src, "NovaCharacterDirectory", "Character Directory")
 		ui.set_autoupdate(FALSE)
 		ui.open()
 
 /datum/character_directory/ui_close(mob/user)
-	var/atom/movable/screen/map_view/char_preview/old_preview = character_preview_views[user.ckey]
-	user.client?.screen_maps -= old_preview
-	character_preview_views -= user.ckey
+	var/atom/movable/screen/map_view/char_preview/directory/old_preview = character_preview_views[user.ckey]
+	if(QDELETED(old_preview))
+		return
 	qdel(old_preview)
 
 // We want this information to update any time the player updates their preferences, not just when the panel is refreshed
@@ -162,7 +169,7 @@ GLOBAL_LIST_EMPTY(name_to_appearance)
 		data["personalHypnoTag"] = READ_PREFS(user, choiced/erp_status_hypno)
 		data["prefsOnly"] = TRUE
 
-	data["assignedView"] = "preview_[user.ckey]_[REF(src)]_directory"
+	data["assignedView"] = CHAR_DIRECTORY_ASSIGNED_VIEW(user.ckey)
 	data["canOrbit"] = isobserver(user)
 	// for when we want to start off with a search term filled in automatically
 	var/autofill_search_term = start_viewing_ad[user.ckey]
@@ -173,21 +180,23 @@ GLOBAL_LIST_EMPTY(name_to_appearance)
 	return data
 
 /datum/character_directory/ui_static_data(mob/user)
-	. = ..()
-	var/list/data = .
+	var/list/data = list()
 
 	// These are the variables we're trying to display in the directory
 	var/list/directory_mobs = list()
 	var/name
 	var/species
 	var/ooc_notes
+	var/ooc_notes_nsfw
 	var/flavor_text
+	var/flavor_text_nsfw
 	var/attraction
 	var/gender
 	var/erp
 	var/vore
 	var/noncon
 	var/hypno
+	var/nova_star_status
 	var/character_ad
 	var/headshot
 	var/ref
@@ -207,22 +216,23 @@ GLOBAL_LIST_EMPTY(name_to_appearance)
 		if(ishuman(mob))
 			var/mob/living/carbon/human/human = mob
 			//If someone is obscured without flavor text visible, we don't want them on the Directory.
-			if((human.wear_mask && (human.wear_mask.flags_inv & HIDEFACE)) || (human.head && (human.head.flags_inv & HIDEFACE)) || (HAS_TRAIT(human, TRAIT_UNKNOWN)))
+			if((human.wear_mask && (human.wear_mask.flags_inv & HIDEFACE)) || (human.head && (human.head.flags_inv & HIDEFACE)) || (HAS_TRAIT(human, TRAIT_UNKNOWN_APPEARANCE)))
 				continue
 			//Display custom species, otherwise show base species instead
-			species = (READ_PREFS(human, text/custom_species)) || "Unset"
+			species = human.dna.features["custom_species"] || "Unset"
 			if(species == "Unset")
 				species = "[human.dna.species.name]"
-			//Load standard flavor text preference
-			flavor_text = READ_PREFS(human, text/flavor_text) || ""
-			headshot = human.dna.features["headshot"] || ""
+			flavor_text = human.dna.features[EXAMINE_DNA_FLAVOR_TEXT] || ""
+			flavor_text_nsfw = human.dna.features[EXAMINE_DNA_FLAVOR_TEXT_NSFW] || ""
+			headshot = human.dna.features[EXAMINE_DNA_HEADSHOT] || ""
 		else if(issilicon(mob))
 			var/mob/living/silicon/silicon = mob
 			//If the target is a silicon, we want it to show its brain as its species
 			species = READ_PREFS(silicon, choiced/brain_type)
 			//Load silicon flavor text in place of normal flavor text
 			flavor_text = READ_PREFS(silicon, text/silicon_flavor_text) || ""
-			headshot = READ_PREFS(silicon, text/headshot) || ""
+			flavor_text_nsfw = READ_PREFS(silicon, text/silicon_flavor_text_nsfw) || ""
+			headshot = READ_PREFS(silicon, text/headshot/silicon) || ""
 		// Don't show if they are not a human or a silicon
 		else
 			continue
@@ -238,6 +248,8 @@ GLOBAL_LIST_EMPTY(name_to_appearance)
 		hypno = READ_PREFS(mob, choiced/erp_status_hypno) || "Ask"
 		character_ad = READ_PREFS(mob, text/character_ad) || ""
 		ooc_notes = READ_PREFS(mob, text/ooc_notes) || ""
+		ooc_notes_nsfw = READ_PREFS(mob, text/ooc_notes_nsfw) || ""
+		nova_star_status = mob.client && SSplayer_ranks.is_nova_star(mob.client, admin_bypass = FALSE)
 		// And finally, we want to get the mob's name, taking into account disguised names.
 		name = mob.real_name ? mob.name : mob.real_name
 
@@ -246,14 +258,17 @@ GLOBAL_LIST_EMPTY(name_to_appearance)
 			"appearance_name" = mob.real_name,
 			"species" = species,
 			"ooc_notes" = ooc_notes,
+			"ooc_notes_nsfw" = ooc_notes_nsfw,
 			"attraction" = attraction,
 			"gender" = gender,
 			"erp" = erp,
 			"vore" = vore,
 			"noncon" = noncon,
 			"hypno" = hypno,
+			"nova_star_status" = nova_star_status,
 			"character_ad" = character_ad,
 			"flavor_text" = flavor_text,
+			"flavor_text_nsfw" = flavor_text_nsfw,
 			"headshot" = headshot,
 			"ref" = ref
 		)))
@@ -276,7 +291,7 @@ GLOBAL_LIST_EMPTY(name_to_appearance)
 		if("refresh")
 			// This is primarily to stop malicious users from trying to lag the server by spamming this verb
 			if(!COOLDOWN_FINISHED(user.client, char_directory_cooldown))
-				to_chat(user, "<span class='warning'>Please wait before refreshing the directory again.</span>")
+				to_chat(user, span_warning("Please wait before refreshing the directory again."))
 				return
 			COOLDOWN_START(user.client, char_directory_cooldown, 10)
 			update_static_data(user, ui)
@@ -291,5 +306,8 @@ GLOBAL_LIST_EMPTY(name_to_appearance)
 			ghost.reset_perspective(null)
 			return TRUE
 		if("view_character")
-			update_preview(usr, params["assigned_view"], GLOB.name_to_appearance[params["name"]])
+			update_preview(usr, params["assigned_view"], GLOB.name_to_appearance[params["name"]], ui.window)
 			return TRUE
+
+#undef READ_PREFS
+#undef CHAR_DIRECTORY_ASSIGNED_VIEW

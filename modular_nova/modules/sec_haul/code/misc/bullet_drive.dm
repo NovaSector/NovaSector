@@ -10,7 +10,7 @@
 	binrange = 10
 
 /obj/item/circuitboard/machine/dish_drive/bullet
-	name = "Bullet Drive (Machine Board)"
+	name = "Bullet Drive"
 	greyscale_colors = CIRCUIT_COLOR_SERVICE
 	build_path = /obj/machinery/dish_drive/bullet
 	req_components = list(
@@ -29,7 +29,7 @@
 	if(!bin)
 		if(manual)
 			visible_message(span_warning("[src] buzzes. There are no disposal bins in range!"))
-			playsound(src, 'sound/machines/buzz-sigh.ogg', 50, TRUE)
+			playsound(src, 'sound/machines/buzz/buzz-sigh.ogg', 50, TRUE)
 		return
 	var/disposed = 0
 	for(var/obj/item/ammo_casing/A in dish_drive_contents)
@@ -40,8 +40,8 @@
 			disposed++
 	if(disposed)
 		visible_message(span_notice("[src] [pick("whooshes", "bwooms", "fwooms", "pshooms")] and demoleculizes [disposed] stored item\s into the nearby void."))
-		playsound(src, 'sound/items/pshoom.ogg', 50, TRUE)
-		playsound(bin, 'sound/items/pshoom.ogg', 50, TRUE)
+		playsound(src, 'sound/items/pshoom/pshoom.ogg', 50, TRUE)
+		playsound(bin, 'sound/items/pshoom/pshoom.ogg', 50, TRUE)
 		flick("synthesizer_beam", src)
 	else
 		visible_message(span_notice("There are no disposable items in [src]!"))
@@ -61,7 +61,11 @@
 				LAZYADD(dish_drive_contents, I)
 				visible_message(span_notice("[src] beams up [I]!"))
 				I.moveToNullspace()
-				playsound(src, 'sound/items/pshoom.ogg', 50, TRUE)
+				playsound(src, 'sound/items/pshoom/pshoom.ogg', 50, TRUE)
 				flick("synthesizer_beam", src)
 			else
 				step_towards(I, src)
+
+/obj/item/flatpack/bullet_drive
+	name = "flatpacked bullet drive"
+	board = /obj/item/circuitboard/machine/dish_drive/bullet

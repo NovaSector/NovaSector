@@ -1,3 +1,14 @@
+/// Examine Panel headshot
+#define EXAMINE_DNA_HEADSHOT "headshot"
+/// Examine Panel flavor text
+#define EXAMINE_DNA_FLAVOR_TEXT "flavor_text"
+/// Examine Panel NSFW flavor text—requires you to click a tab to see
+#define EXAMINE_DNA_FLAVOR_TEXT_NSFW "flavor_text_nsfw"
+/// Examine Panel OOC notes
+#define EXAMINE_DNA_OOC_NOTES "ooc_notes"
+/// Examine Panel NSFW ooc notes—requires you to click a tab to see
+#define EXAMINE_DNA_OOC_NOTES_NSFW "ooc_notes_nsfw"
+
 //We start from 30 to not interfere with TG species defines, should they add more
 /// We're using all three mutcolor features for our skin coloration
 #define MUTCOLOR_MATRIXED	30
@@ -46,7 +57,7 @@
 
 /// Organ slot external
 #define ORGAN_SLOT_EXTERNAL_CAP "cap"
-#define ORGAN_SLOT_EXTERNAL_EARS "ears_external" // I hate having to do this, hopefully I'll be able to remove this soon with an external ears refactor.
+#define ORGAN_SLOT_EXTERNAL_EARS "ears_external"
 #define ORGAN_SLOT_EXTERNAL_FLUFF "fluff"
 #define ORGAN_SLOT_EXTERNAL_HEAD_ACCESSORY "head_accessory"
 #define ORGAN_SLOT_EXTERNAL_MOTH_MARKINGS "moth_markings"
@@ -69,14 +80,14 @@
 
 //In inches
 #define PENIS_MIN_GIRTH PENIS_MIN_LENGTH
-#define PENIS_MAX_GIRTH 20
+#define PENIS_MAX_GIRTH 35
 /// for non oversized mobs with a 'normal' body size
 #define PENIS_MAX_GIRTH_NORMAL_SIZED 15
 #define PENIS_DEFAULT_GIRTH 5 // a lil big but not by much
 #define PENIS_MIN_LENGTH 1
-#define PENIS_MAX_LENGTH 36
+#define PENIS_MAX_LENGTH 86
 /// for non oversized mobs with a 'normal' body size
-#define PENIS_MAX_LENGTH_NORMAL_SIZED 20
+#define PENIS_MAX_LENGTH_NORMAL_SIZED 25
 #define PENIS_DEFAULT_LENGTH 6 //still a lil long but not insane
 
 #define TESTICLES_MIN_SIZE 0
@@ -89,13 +100,34 @@
 #define SHEATH_SLIT	"Slit"
 #define SHEATH_MODES list(SHEATH_NONE, SHEATH_NORMAL, SHEATH_SLIT)
 
+#define FEATURE_MUTANT_COLOR_TWO "mcolor2"
+#define FEATURE_MUTANT_COLOR_THREE "mcolor3"
+#define FEATURE_MARKING_GENERIC "body_markings"
+#define FEATURE_TAIL "tail"
+#define FEATURE_TAUR "taur"
+#define FEATURE_SKIN_COLOR "skin_color"
+#define FEATURE_XENODORSAL "xenodorsal"
+#define FEATURE_XENOHEAD "xenohead"
+#define FEATURE_SKRELL_HAIR "skrell_hair"
+#define FEATURE_FLUFF "fluff"
+#define FEATURE_HEAD_ACCESSORY "head_acc"
+#define FEATURE_NECK_ACCESSORY "neck_acc"
+#define FEATURE_GHOUL_COLOR "ghoulcolor"
+#define FEATURE_WINGS_FUNCTIONAL "wings_functional"
+#define FEATURE_PENIS "penis"
+#define FEATURE_WOMB "womb"
+#define FEATURE_VAGINA "vagina"
+#define FEATURE_TESTICLES "testicles"
+#define FEATURE_BREASTS "breasts"
+#define FEATURE_ANUS "anus"
+
 #define MANDATORY_FEATURE_LIST list(\
 	"mcolor" = "#FFFFBB",\
 	"mcolor2" = "#FFFFBB",\
 	"mcolor3" = "#FFFFBB",\
 	"ethcolor" = "#FFCCCC",\
 	"skin_color" = "#FFEEDD",\
-	"flavor_text" = "",\
+	EXAMINE_DNA_FLAVOR_TEXT = "",\
 	"breasts_size" = 1,\
 	"breasts_lactation" = FALSE,\
 	"penis_size" = 13,\
@@ -141,6 +173,11 @@
 #define SPECIES_TESHARI "teshari"
 #define SPECIES_HEMOPHAGE "hemophage"
 #define SPECIES_FELINE_PRIMITIVE "primitive_felinid"
+#define SPECIES_ABDUCTORWEAK "abductorweak"
+#define SPECIES_GOLEMWEAK "golemweak"
+#define SPECIES_KOBOLD "kobold"
+#define SPECIES_RAMATAE "ramatan"
+#define SPECIES_INSECTOID "insectoid"
 
 #define SPECIES_MUTANT "mutant"
 #define SPECIES_MUTANT_INFECTIOUS "infectious_mutant"
@@ -149,3 +186,4 @@
 
 // Leaving this here because it's used for bodyparts, like SPECIES_X are, but since taurs aren't a species... Named it LIMBS instead.
 #define LIMBS_TAUR "taur"
+#define LIMBS_HARPY "harpy"

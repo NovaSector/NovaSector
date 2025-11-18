@@ -22,7 +22,7 @@
 	/// Maximum efficient heat difference, at what heat difference does more difference stop meaning anything for power?
 	var/max_efficient_heat_difference = 8000
 	/// Maximum power output from this machine
-	var/max_power_output = 100 KILO WATTS
+	var/max_power_output = 150 KILO WATTS
 	/// How much power the generator is currently making
 	var/current_power_generation
 	/// Our looping fan sound that we play when turned on
@@ -125,6 +125,7 @@
 
 /obj/item/flatpacked_machine/stirling_generator
 	name = "flat-packed stirling generator"
+	desc = /obj/machinery/power/stirling_generator::desc
 	icon = 'modular_nova/modules/colony_fabricator/icons/stirling_generator/packed_machines.dmi'
 	icon_state = "stirling"
 	type_to_deploy = /obj/machinery/power/stirling_generator

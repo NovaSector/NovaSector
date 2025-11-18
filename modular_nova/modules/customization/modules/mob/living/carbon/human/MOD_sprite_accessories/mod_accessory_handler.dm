@@ -1,7 +1,7 @@
 // This DMI holds all of the overlayable textures for MODs
 #define HARDLIGHT_DMI 'modular_nova/modules/customization/modules/mob/living/carbon/human/MOD_sprite_accessories/icons/MOD_mask.dmi'
 
-/obj/item/mod/control/seal_part(obj/item/clothing/part, is_sealed)
+/obj/item/mod/control/seal_part(obj/item/clothing/part, is_sealed, no_activation = FALSE)
 	. = ..()
 	if(activating)
 		return
@@ -9,17 +9,17 @@
 	update_external_organs_modsuit_status(is_sealed && active)
 	wearer.update_body_parts(TRUE)
 
-/obj/item/mod/control/finish_activation(is_on)
+/obj/item/mod/control/control_activation(is_on)
 	. = ..()
 	update_external_organs_modsuit_status(is_on)
 	wearer.update_body_parts(TRUE)
 
-/obj/item/mod/control/deploy(mob/user, obj/item/part)
+/obj/item/mod/control/deploy(mob/user, obj/item/part, instant = FALSE)
 	. = ..()
 	update_external_organs_modsuit_status(active)
 	wearer.update_body_parts(TRUE)
 
-/obj/item/mod/control/retract(mob/user, obj/item/part)
+/obj/item/mod/control/retract(mob/user, obj/item/part, instant = FALSE)
 	. = ..()
 	update_external_organs_modsuit_status(FALSE)
 	wearer.update_body_parts(TRUE)
@@ -30,8 +30,9 @@
 	if(!wearer?.organs)
 		return
 
-	for(var/obj/item/organ/external/to_update in wearer.organs)
-		to_update.bodypart_overlay.set_modsuit_status(status)
+	for(var/obj/item/organ/to_update in wearer.organs)
+		if(to_update.organ_flags & ORGAN_EXTERNAL)
+			to_update.bodypart_overlay.set_modsuit_status(status)
 
 
 // Tail hardlight
@@ -217,6 +218,27 @@
 		var/icon/MOD_texture = icon(HARDLIGHT_DMI, "[mod_theme.hardlight_theme]")
 		special_icon.Blend("#fff", ICON_ADD)
 		special_icon.Blend(MOD_texture, ICON_MULTIPLY)
+		return special_icon
+
+// Skrell hair hardlight
+/datum/sprite_accessory/skrell_hair
+	use_custom_mod_icon = TRUE
+
+/datum/sprite_accessory/skrell_hair/get_custom_mod_icon(mob/living/carbon/human/wearer, mutable_appearance/appearance_to_use = null)
+	if(wearer?.head && istype(wearer.head, /obj/item/clothing/head/mod))
+		var/obj/item/mod/control/modsuit_control = wearer.back
+		if(!istype(modsuit_control))
+			return
+		var/datum/mod_theme/mod_theme = modsuit_control.theme
+
+		if(!modsuit_control.active || !mod_theme.hardlight)
+			return
+
+		var/icon/special_icon = appearance_to_use ? icon(appearance_to_use.icon, appearance_to_use.icon_state) : icon(icon, icon_state)
+		var/icon/MOD_texture = icon(HARDLIGHT_DMI, "[mod_theme.hardlight_theme]")
+		special_icon.Blend("#fff", ICON_ADD)
+		special_icon.Blend(MOD_texture, ICON_MULTIPLY)
+
 		return special_icon
 
 #undef HARDLIGHT_DMI

@@ -1,6 +1,6 @@
 /mob/living/basic/sheep
 	name = "sheep"
-	desc = "Known for their soft wool and use in sacrifical rituals. Big fan of grass."
+	desc = "Known for their soft wool and use in sacrificial rituals. Big fan of grass."
 	icon = 'icons/mob/simple/sheep.dmi'
 	icon_state = "sheep"
 	icon_dead = "sheep_dead"
@@ -18,7 +18,7 @@
 	response_harm_simple = "kick"
 	attack_verb_continuous = "kicks"
 	attack_verb_simple = "kick"
-	attack_sound = 'sound/weapons/punch1.ogg'
+	attack_sound = 'sound/items/weapons/punch1.ogg'
 	attack_vis_effect = ATTACK_EFFECT_KICK
 	health = 50
 	maxHealth = 50
@@ -40,7 +40,7 @@
 		item_generation_wait = 3 MINUTES, \
 		item_reduction_time = 30 SECONDS, \
 		item_harvest_time = 5 SECONDS, \
-		item_harvest_sound = 'sound/surgery/scalpel1.ogg', \
+		item_harvest_sound = 'sound/items/handling/surgery/scalpel1.ogg', \
 	)
 	AddElement(/datum/element/ai_retaliate)
 	RegisterSignal(src, COMSIG_LIVING_CULT_SACRIFICED, PROC_REF(on_sacrificed))
@@ -83,7 +83,7 @@
 	blackboard = list(
 		BB_TARGETING_STRATEGY = /datum/targeting_strategy/basic,
 	)
-	ai_traits = STOP_MOVING_WHEN_PULLED
+	ai_traits = PASSIVE_AI_FLAGS
 	ai_movement = /datum/ai_movement/basic_avoidance
 	idle_behavior = /datum/idle_behavior/idle_random_walk
 	planning_subtrees = list(

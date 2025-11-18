@@ -95,7 +95,7 @@
 		"eat",
 		"fin slap",
 		)
-	squeak_override = list('sound/weapons/bite.ogg' = 1)
+	squeak_override = list('sound/items/weapons/bite.ogg' = 1)
 
 //Other donation reward for Razurath
 /obj/item/toy/plush/nova/donator/plushie_razurath/second
@@ -257,7 +257,7 @@
 		"squirt",
 		"soap",
 		)
-	squeak_override = list('sound/machines/twobeep.ogg' = 1)
+	squeak_override = list('sound/machines/beep/twobeep.ogg' = 1)
 
 /*
 * Plushies beyond this did not have "Donation reward for:" when moved to this file.
@@ -299,23 +299,6 @@
 		)
 	squeak_override = list('modular_nova/modules/emotes/sound/emotes/twobeep.ogg' = 1)
 
-/obj/item/toy/plush/nova/donator/tree_ferret
-	name = "tree ferret plushy"
-	desc = "This plush will always put on a smile to make your day as bright as the sun. \
-			Hugging him makes you feel warm and fuzzy. Comes with plush chemical vials to fix your non emotional traumas too!"
-	icon_state = "plushie_sels"
-	attack_verb_continuous = list(
-		"hugs",
-		"cackles at",
-		"health analyzes",
-		)
-	attack_verb_simple = list(
-		"hug",
-		"cackle at",
-		"health analyze",
-		)
-	squeak_override = list('sound/effects/crunchybushwhack1.ogg' = 1)
-
 /obj/item/toy/plush/nova/donator/zapp
 	name = "Lil' Zapp"
 	desc = "An authentic piece of primo Pwr Game merchandise! \
@@ -333,9 +316,9 @@
 		"nuzzle",
 		)
 	squeak_override = list(
-		'sound/effects/can_open1.ogg' = 1,
-		'sound/effects/can_open2.ogg' = 1,
-		'sound/effects/can_open3.ogg' = 1,
+		'sound/items/can/can_open1.ogg' = 1,
+		'sound/items/can/can_open2.ogg' = 1,
+		'sound/items/can/can_open3.ogg' = 1,
 		)
 	///the list that is chosen from depending on gaming skill
 	var/static/list/skill_response = list(
@@ -357,11 +340,11 @@
 		"Cut it out, or I'm telling chat!",
 	)
 
-/obj/item/toy/plush/nova/donator/zapp/attackby(obj/item/attacking_item, mob/living/user, params)
+/obj/item/toy/plush/nova/donator/zapp/attackby(obj/item/attacking_item, mob/user, list/modifiers, list/attack_modifiers)
 	. = ..()
 	say(pick(hit_response))
 
-/obj/item/toy/plush/nova/donator/zapp/attack(mob/living/target, mob/living/user, params)
+/obj/item/toy/plush/nova/donator/zapp/attack(mob/living/target_mob, mob/living/user, list/modifiers, list/attack_modifiers)
 	. = ..()
 	say(pick(hit_response))
 
@@ -374,9 +357,9 @@
 		skill_level = (max(6, skill_level))
 	say(skill_response[skill_level])
 	if(skill_level == 7)
-		playsound(src_turf, 'sound/effects/can_pop.ogg', 80, TRUE)
+		playsound(src_turf, 'sound/items/can/can_pop.ogg', 80, TRUE)
 		new /obj/effect/abstract/liquid_turf/pwr_gamr(src_turf)
-		playsound(src_turf, 'sound/effects/bubbles.ogg', 50, TRUE)
+		playsound(src_turf, 'sound/effects/bubbles/bubbles.ogg', 50, TRUE)
 		qdel(src)
 
 //Keeping the Zapp related stuff together for organization purposes
@@ -447,7 +430,7 @@
 		"flap",
 		"squeak",
 		)
-	squeak_override = list('modular_nova/modules/emotes/sound/emotes/mothsqueak.ogg'= 1)
+	squeak_override = list('sound/mobs/humanoids/moth/moth_chitter.ogg' = 1)
 	gender = MALE
 
 /obj/item/toy/plush/nova/donator/leaplush
@@ -540,7 +523,7 @@
 		"slap",
 		"challenge",
 		)
-	squeak_override = list('sound/weapons/slap.ogg' = 1)
+	squeak_override = list('sound/items/weapons/slap.ogg' = 1)
 
 /obj/item/toy/plush/nova/donator/seaduplush
 	name = "sneed plushie"
@@ -557,8 +540,8 @@
 		"sword",
 		)
 	squeak_override = list(
-		'modular_nova/modules/emotes/sound/emotes/synth_yes.ogg' = 1,
-		'modular_nova/modules/emotes/sound/emotes/synth_no.ogg' = 1,
+		'sound/machines/synth/synth_yes.ogg' = 1,
+		'sound/machines/synth/synth_no.ogg' = 1,
 		)
 
 /obj/item/toy/plush/nova/donator/lizzyplush
@@ -655,9 +638,9 @@
 		"weld",
 		)
 	squeak_override = list(
-		'sound/items/screwdriver.ogg' = 1,
-		'sound/items/drill_use.ogg' = 1,
-		'sound/items/welder.ogg' = 1,
+		'sound/items/tools/screwdriver.ogg' = 1,
+		'sound/items/tools/drill_use.ogg' = 1,
+		'sound/items/tools/welder.ogg' = 1,
 		)
 
 /obj/item/toy/plush/nova/donator/glitch_synth
@@ -674,7 +657,7 @@
 		"hug",
 		"health analyze",
 		)
-	squeak_override = list('sound/machines/twobeep_high.ogg' = 1)
+	squeak_override = list('sound/machines/beep/twobeep_high.ogg' = 1)
 
 /obj/item/toy/plush/nova/donator/boom_bird
 	name = "boom bird plushie"
@@ -723,7 +706,7 @@
 		"detain",
 		"taze",
 		)
-	squeak_override = list('modular_nova/modules/emotes/sound/emotes/female/female_sneeze.ogg' = 1)
+	squeak_override = list('sound/mobs/humanoids/human/sneeze/female_sneeze1.ogg' = 1)
 
 /obj/item/toy/plush/nova/donator/xixi
 	name = "familiar looking harpy plushie"
@@ -751,7 +734,7 @@
 	desc = "It reminds you of a very, very, very huggable bee."
 	icon_state = "plushie_rubi"
 	gender = FEMALE
-	squeak_override = list('sound/weapons/thudswoosh.ogg' = 1)
+	squeak_override = list('sound/items/weapons/thudswoosh.ogg' = 1)
 	attack_verb_continuous = list("hugs")
 	attack_verb_simple = list("hug")
 
@@ -782,6 +765,32 @@
 	squeak_override = list('modular_nova/modules/emotes/sound/voice/merp.ogg' = 1)
 	young = FALSE
 
+/obj/item/toy/plush/nova/donator/delphic_synth
+	name = "surgery synth plushie"
+	desc = "A plush in the shape of a familiar white synthetic with toggleable holographic wings. It even comes complete with real fake blood stains and a functional mini-syringe! Dont think too hard about how safe it is..."
+	icon_state = "plushie_delphi"
+	squeak_override = list('modular_nova/modules/emotes/sound/emotes/dwoop.ogg' = 1)
+	attack_verb_continuous = list(
+		"lobotomizes",
+		"appendectomys",
+		"transplants",
+		"amputates",
+		"vivisects",
+		"vasotomys",
+		"myotomys",
+		"angioectomys",
+	)
+	attack_verb_simple = list(
+		"lobotomize",
+		"appendectomy",
+		"transplant",
+		"amputate",
+		"vivisect",
+		"vasotomy",
+		"myotomy",
+		"angioectomy",
+	)
+
 /obj/item/toy/plush/nova/donator/chunko
 	name = "chunko fop"
 	desc = "A soulless creature that haunts your dreams."
@@ -794,7 +803,7 @@
 	)
 	COOLDOWN_DECLARE(chunko_cooldown)
 
-/obj/item/toy/plush/nova/donator/chunko/attackby()
+/obj/item/toy/plush/nova/donator/chunko/attackby(obj/item/attacking_item, mob/user, list/modifiers, list/attack_modifiers)
 	. = ..()
 	if(!COOLDOWN_FINISHED(src, chunko_cooldown))
 		return
@@ -827,7 +836,7 @@
 		"pet",
 		)
 	squeak_override = list(
-		'sound/creatures/mousesqueek.ogg' = 1,
+		'sound/mobs/non-humanoids/mouse/mousesqueek.ogg' = 1,
 		'modular_nova/modules/emotes/sound/voice/mothsqueak.ogg' = 1,
 		)
 	responses = list(
@@ -863,7 +872,7 @@
 		"pet",
 		)
 	squeak_override = list(
-		'sound/creatures/mousesqueek.ogg' = 1,
+		'sound/mobs/non-humanoids/mouse/mousesqueek.ogg' = 1,
 		'modular_nova/modules/emotes/sound/voice/mothsqueak.ogg' = 1,
 		)
 	// All lowercase messages are intentional
@@ -899,9 +908,9 @@
 		"smoke",
 		)
 	squeak_override = list(
-		'modular_nova/modules/emotes/sound/emotes/female/female_cough_3.ogg' = 1,
-		'modular_nova/modules/emotes/sound/emotes/female/female_cough_2.ogg' = 1,
-		'modular_nova/modules/emotes/sound/emotes/female/female_cough_1.ogg' = 1,
+		'sound/mobs/humanoids/human/cough/female_cough1.ogg' = 1,
+		'sound/mobs/humanoids/human/cough/female_cough2.ogg' = 1,
+		'sound/mobs/humanoids/human/cough/female_cough3.ogg' = 1,
 		)
 	responses = list(
 		"The human body can survive three weeks without skiiiiiiiiiiin.",
@@ -909,3 +918,22 @@
 		"Yeeeessss?", "Helloooooo.",
 		"Don't be such a baby, ribs grow baaaaaaaaaack.",
 		)
+
+// Donation reward for bonkaitheroris
+/obj/item/toy/plush/nova/donator/commandant
+	name = "commandant plushie"
+	desc = "From Cenion's Marketing Team: a cute plushie! A Plushie! Plooshi? Jamlet? Creature!"
+	icon_state = "plushie_commandant"
+	inhand_icon_state = "plushie_commandant"
+	lefthand_file = 'modular_nova/master_files/icons/donator/mob/inhands/donator_left.dmi'
+	righthand_file = 'modular_nova/master_files/icons/donator/mob/inhands/donator_right.dmi'
+	attack_verb_continuous = list(
+		"hugs",
+		"squishes",
+		"baps",
+	)
+	attack_verb_simple = list(
+		"hug",
+		"squish",
+		"bap",
+	)

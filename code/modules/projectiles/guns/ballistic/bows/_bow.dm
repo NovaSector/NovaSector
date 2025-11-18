@@ -8,8 +8,8 @@
 	icon_state = "bow"
 	inhand_icon_state = "bow"
 	base_icon_state = "bow"
-	load_sound = 'sound/weapons/gun/general/ballistic_click.ogg'
-	fire_sound = 'sound/weapons/gun/bow/bow_fire.ogg'
+	load_sound = 'sound/items/weapons/gun/general/ballistic_click.ogg'
+	fire_sound = 'sound/items/weapons/gun/bow/bow_fire.ogg'
 	accepted_magazine_type = /obj/item/ammo_box/magazine/internal/bow
 	force = 15
 	pinless = TRUE
@@ -22,6 +22,7 @@
 	bolt_type = BOLT_TYPE_NO_BOLT
 	click_on_low_ammo = FALSE
 	must_hold_to_load = TRUE
+	trigger_guard = TRIGGER_GUARD_ALLOW_ALL
 	/// whether the bow is drawn back
 	var/drawn = FALSE
 
@@ -71,7 +72,7 @@
 		return
 	balloon_alert(user, "[drawn ? "string released" : "string drawn"]")
 	drawn = !drawn
-	playsound(src, 'sound/weapons/gun/bow/bow_draw.ogg', 25, TRUE)
+	playsound(src, 'sound/items/weapons/gun/bow/bow_draw.ogg', 25, TRUE)
 	update_appearance()
 
 /obj/item/gun/ballistic/bow/try_fire_gun(atom/target, mob/living/user, params)
@@ -93,7 +94,7 @@
 	if(slot != ITEM_SLOT_HANDS && chambered)
 		balloon_alert(user, "the arrow falls out!")
 		if(drawn)
-			playsound(src, 'sound/weapons/gun/bow/bow_fire.ogg', 25, TRUE)
+			playsound(src, 'sound/items/weapons/gun/bow/bow_fire.ogg', 25, TRUE)
 		drop_arrow()
 
 
@@ -105,7 +106,7 @@
 	if(ismob(loc) || !chambered)
 		return
 	if(drawn)
-		playsound(src, 'sound/weapons/gun/bow/bow_fire.ogg', 25, TRUE)
+		playsound(src, 'sound/items/weapons/gun/bow/bow_fire.ogg', 25, TRUE)
 	drop_arrow()
 
 /obj/item/gun/ballistic/bow/shoot_with_empty_chamber(mob/living/user)

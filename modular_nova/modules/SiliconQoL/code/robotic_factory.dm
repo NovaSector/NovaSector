@@ -55,7 +55,7 @@
 
 /obj/machinery/transformer_rp/Destroy()
 	QDEL_NULL(countdown)
-	. = ..()
+	return ..()
 
 /obj/machinery/transformer_rp/update_icon_state()
 	. = ..()
@@ -102,7 +102,7 @@
 		return FALSE
 
 	var/mob/living/silicon/robot/cyborg = new /mob/living/silicon/robot(loc)
-	cyborg.key = target_ghost.key
+	cyborg.PossessByPlayer(target_ghost.key)
 	cyborg.set_connected_ai(master_ai)
 	cyborg.lawsync()
 	cyborg.lawupdate = TRUE

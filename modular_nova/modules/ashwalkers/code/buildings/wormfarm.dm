@@ -69,64 +69,72 @@
 
 	return ..()
 
-/obj/structure/wormfarm/attackby(obj/item/attacking_item, mob/user, params)
+/obj/structure/wormfarm/item_interaction(mob/living/user, obj/item/tool, list/modifiers)
 	//we want to check for worms first because they are a type of food as well...
-	if(istype(attacking_item, /obj/item/food/bait/worm))
+	if(istype(tool, /obj/item/food/bait/worm))
 		if(current_worm >= max_worm)
 			balloon_alert(user, "too many worms in the barrel")
-			return
+			return ITEM_INTERACT_BLOCKING
 
-		qdel(attacking_item)
+		qdel(tool)
 		balloon_alert(user, "worm released into barrel")
 		current_worm++
-		return
+		return ITEM_INTERACT_BLOCKING
 
 	//if it aint a worm, lets check for any other food items
-	if(istype(attacking_item, /obj/item/food))
+	if(istype(tool, /obj/item/food))
 		if(in_use)
 			balloon_alert(user, "currently in use")
-			return
+			return ITEM_INTERACT_BLOCKING
 		in_use = TRUE
 
 		balloon_alert(user, "feeding the worms")
-		if(!do_after(user, 1 SECONDS, src))
+		var/skill_modifier = user.mind?.get_skill_modifier(/datum/skill/primitive, SKILL_SPEED_MODIFIER)
+		if(!do_after(user, 1 SECONDS * skill_modifier, src))
 			balloon_alert(user, "stopped feeding the worms")
 			in_use = FALSE
-			return
+			return ITEM_INTERACT_BLOCKING
 
 		// if someone has built multiple worm farms, I want to make sure they can't just use one singular piece of food for more than one barrel
-		if(!attacking_item)
+		if(!tool)
 			in_use = FALSE
-			return
+			return ITEM_INTERACT_BLOCKING
 
-		qdel(attacking_item)
+		qdel(tool)
 		balloon_alert(user, "feeding complete, check back later")
 
 		current_food++
+		user.mind?.adjust_experience(/datum/skill/primitive, 2)
+		if(prob(user.mind?.get_skill_modifier(/datum/skill/primitive, SKILL_PROBS_MODIFIER)))
+			current_food += 2
 
 		in_use = FALSE
-		return
+		return ITEM_INTERACT_BLOCKING
 
-	if(istype(attacking_item, /obj/item/storage/bag/plants))
+	if(istype(tool, /obj/item/storage/bag/plants))
 		if(in_use)
 			balloon_alert(user, "currently in use")
-			return
+			return ITEM_INTERACT_BLOCKING
 		in_use = TRUE
 
 		balloon_alert(user, "feeding the worms")
-		for(var/obj/item/food/selected_food in attacking_item.contents)
-			if(!do_after(user, 1 SECONDS, src))
+		var/skill_modifier = user.mind?.get_skill_modifier(/datum/skill/primitive, SKILL_SPEED_MODIFIER)
+		for(var/obj/item/food/selected_food in tool.contents)
+			if(!do_after(user, 1 SECONDS * skill_modifier, src))
 				in_use = FALSE
-				return
+				return ITEM_INTERACT_BLOCKING
 
 			qdel(selected_food)
 			current_food++
+			user.mind?.adjust_experience(/datum/skill/primitive, 2)
+			if(prob(user.mind?.get_skill_modifier(/datum/skill/primitive, SKILL_PROBS_MODIFIER)))
+				current_food += 2
 
 		in_use = FALSE
-		return
+		return ITEM_INTERACT_BLOCKING
 
 	//it wasn't a worm, or a piece of food
-	return ..()
+	return ITEM_INTERACT_SUCCESS
 
 //produced by feeding worms food and can be ground up for plant nutriment or used directly on ash farming
 /obj/item/stack/worm_fertilizer

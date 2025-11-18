@@ -185,11 +185,13 @@
 	desc = "Some shavings from a tall mushroom. With enough, might serve as a bowl."
 	icon = 'icons/obj/mining_zones/ash_flora.dmi'
 	icon_state = "mushroom_shavings"
+	abstract_type = /obj/item/food/grown/ash_flora
 	w_class = WEIGHT_CLASS_TINY
 	resistance_flags = FLAMMABLE
 	max_integrity = 100
 	seed = /obj/item/seeds/lavaland/polypore
 	wine_power = 20
+	foodtypes = VEGETABLES
 
 /obj/item/food/grown/ash_flora/Initialize(mapload)
 	. = ..()
@@ -197,9 +199,6 @@
 	pixel_y = base_pixel_y + rand(-4, 4)
 
 /obj/item/food/grown/ash_flora/shavings //So we can't craft bowls from everything.
-	special_desc_requirement = EXAMINE_CHECK_JOB //NOVA EDIT
-	special_desc_jobs = list("Botanist") //NOVA EDIT
-	special_desc = "You feel this flora would be unwise to consume while already full." //NOVA EDIT
 	grind_results = list(/datum/reagent/toxin/mushroom_powder = 5)
 
 /obj/item/food/grown/ash_flora/mushroom_leaf
@@ -208,9 +207,6 @@
 	icon_state = "mushroom_leaf"
 	seed = /obj/item/seeds/lavaland/porcini
 	wine_power = 40
-	special_desc_requirement = EXAMINE_CHECK_JOB //NOVA EDIT
-	special_desc_jobs = list("Botanist") //NOVA EDIT
-	special_desc = "This flora is nutritious and healthy to eat, though slightly laced with nicotine." //NOVA EDIT
 
 /obj/item/food/grown/ash_flora/mushroom_cap
 	name = "mushroom cap"
@@ -218,9 +214,6 @@
 	icon_state = "mushroom_cap"
 	seed = /obj/item/seeds/lavaland/inocybe
 	wine_power = 70
-	special_desc_requirement = EXAMINE_CHECK_JOB //NOVA EDIT
-	special_desc_jobs = list("Botanist") //NOVA EDIT
-	special_desc = "This flora is poisonous and hallucinogenic." //NOVA EDIT
 
 /obj/item/food/grown/ash_flora/mushroom_stem
 	name = "mushroom stem"
@@ -228,9 +221,6 @@
 	icon_state = "mushroom_stem"
 	seed = /obj/item/seeds/lavaland/ember
 	wine_power = 60
-	special_desc_requirement = EXAMINE_CHECK_JOB //NOVA EDIT
-	special_desc_jobs = list("Botanist") //NOVA EDIT
-	special_desc = "This flora contains psychoactive drugs and will also make you glow." //NOVA EDIT
 
 /obj/item/food/grown/ash_flora/cactus_fruit
 	name = "cactus fruit"
@@ -238,9 +228,11 @@
 	icon_state = "cactus_fruit"
 	seed = /obj/item/seeds/lavaland/cactus
 	wine_power = 50
-	special_desc_requirement = EXAMINE_CHECK_JOB //NOVA EDIT
-	special_desc_jobs = list("Botanist") //NOVA EDIT
-	special_desc = "This flora is very nutritious and medicinal." //NOVA EDIT
+	foodtypes = FRUIT
+
+/obj/item/food/grown/ash_flora/cactus_fruit/Initialize(mapload)
+	. = ..()
+	AddElement(/datum/element/raptor_food, growth_modifier = 0.1, ability_modifier = -0.05)
 
 /obj/item/food/grown/ash_flora/seraka
 	name = "seraka cap"
@@ -248,6 +240,10 @@
 	icon_state = "seraka_cap"
 	seed = /obj/item/seeds/lavaland/seraka
 	wine_power = 40
+
+/obj/item/food/grown/ash_flora/seraka/Initialize(mapload)
+	. = ..()
+	AddElement(/datum/element/raptor_food, ability_modifier = 0.1)
 
 /obj/item/food/grown/ash_flora/fireblossom
 	name = "fire blossom"
@@ -257,7 +253,12 @@
 	seed = /obj/item/seeds/lavaland/fireblossom
 	wine_power = 40
 
-//SEEDS
+/obj/item/food/grown/ash_flora/fireblossom/Initialize(mapload)
+	. = ..()
+	// Fire flowers make fireproof raptors
+	AddElement(/datum/element/raptor_food, color_chances = string_list(list(/datum/raptor_color/blue = 5)))
+
+// SEEDS
 
 /obj/item/seeds/lavaland
 	name = "lavaland seeds"
@@ -390,7 +391,7 @@
 	name = "Mushroom Bowl"
 	result = /obj/item/reagent_containers/cup/bowl/mushroom_bowl
 	reqs = list(/obj/item/food/grown/ash_flora/shavings = 5)
-	time = 30
+	time = 3 SECONDS
 	category = CAT_CONTAINERS
 
 /obj/item/reagent_containers/cup/bowl/mushroom_bowl

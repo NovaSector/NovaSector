@@ -1,9 +1,16 @@
 /**
- * NO NEW ICON
- * Clothing that do not require a new icon to function correctly, think, big jackets.
+ * /obj/item/clothing/head defaults to:
+ * supports_variations_flags = CLOTHING_SNOUTED_VARIATION
  */
 
-/obj/item/clothing/head/costume/festive
+/**
+ * NO NEW ICON
+ * Clothing that do not require a new icon to function correctly.
+ * Small hats that don't reach the snout, or large helmets that more than obscure the face.
+ */
+
+//This one covers a lot of niche TG hats that just rest on the top of the head, i.e. the captain's hat
+/obj/item/clothing/head/hats
 	supports_variations_flags = CLOTHING_SNOUTED_VARIATION_NO_NEW_ICON
 
 /obj/item/clothing/head/helmet/gladiator
@@ -18,25 +25,13 @@
 /obj/item/clothing/head/hooded/explorer
 	supports_variations_flags = CLOTHING_SNOUTED_VARIATION_NO_NEW_ICON
 
-/obj/item/clothing/head/hats/warden
-	supports_variations_flags = CLOTHING_SNOUTED_VARIATION_NO_NEW_ICON
-
 /obj/item/clothing/head/wizard/red
 	supports_variations_flags = CLOTHING_SNOUTED_VARIATION_NO_NEW_ICON
 
 /obj/item/clothing/head/wizard
 	supports_variations_flags = CLOTHING_SNOUTED_VARIATION_NO_NEW_ICON
 
-/obj/item/clothing/head/hats/hos
-	supports_variations_flags = CLOTHING_SNOUTED_VARIATION_NO_NEW_ICON
-
-/obj/item/clothing/head/hats/caphat
-	supports_variations_flags = CLOTHING_SNOUTED_VARIATION_NO_NEW_ICON
-
 /obj/item/clothing/head/costume/crown
-	supports_variations_flags = CLOTHING_SNOUTED_VARIATION_NO_NEW_ICON
-
-/obj/item/clothing/head/hats/hopcap
 	supports_variations_flags = CLOTHING_SNOUTED_VARIATION_NO_NEW_ICON
 
 /obj/item/clothing/head/utility/hardhat
@@ -75,16 +70,10 @@
 /obj/item/clothing/head/fedora
 	supports_variations_flags = CLOTHING_SNOUTED_VARIATION_NO_NEW_ICON
 
-/obj/item/clothing/head/hats/tophat
-	supports_variations_flags = CLOTHING_SNOUTED_VARIATION_NO_NEW_ICON
-
 /obj/item/clothing/head/costume/rabbitears
 	supports_variations_flags = CLOTHING_SNOUTED_VARIATION_NO_NEW_ICON
 
 /obj/item/clothing/head/costume/mailman
-	supports_variations_flags = CLOTHING_SNOUTED_VARIATION_NO_NEW_ICON
-
-/obj/item/clothing/head/hats/centhat
 	supports_variations_flags = CLOTHING_SNOUTED_VARIATION_NO_NEW_ICON
 
 /obj/item/clothing/head/costume/nursehat
@@ -100,9 +89,6 @@
 	supports_variations_flags = CLOTHING_SNOUTED_VARIATION_NO_NEW_ICON
 
 /obj/item/clothing/head/costume/scarecrow_hat
-	supports_variations_flags = CLOTHING_SNOUTED_VARIATION_NO_NEW_ICON
-
-/obj/item/clothing/head/hats/intern
 	supports_variations_flags = CLOTHING_SNOUTED_VARIATION_NO_NEW_ICON
 
 /obj/item/clothing/head/helmet/blueshirt
@@ -199,8 +185,26 @@
 
 /**
  * NEW ICON
- * Clothing that has a muzzled version, but its parent was set to something else earlier in this file or elsewhere entirely.
+ * Clothing that has a snouted version, but needs re-defined because its parent was set to something else.
  */
+
+/obj/item/clothing/head/utility/hardhat/welding/atmos
+	supports_variations_flags = CLOTHING_SNOUTED_VARIATION | CLOTHING_SNOUTED_VOX_VARIATION
+
+
+/**
+ * INVENTORY FLAGS
+ * While not strictly a variation override, this applies to showing mutant ears or snouts.
+ */
+
+/obj/item/clothing/head/costume/sombrero
+	flags_inv = HIDEHAIR | SHOWSPRITEEARS
+
+/obj/item/clothing/head/wig
+	flags_inv = HIDEHAIR | SHOWSPRITEEARS
+
+/obj/item/clothing/head/mothcap
+	flags_inv = HIDEHAIR | SHOWSPRITEEARS
 
 //Chaplain
 //TG's got some unsorted items under this category... just in case they change it lets make sure they stay together for updating

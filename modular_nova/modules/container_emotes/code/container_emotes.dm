@@ -53,7 +53,7 @@
 		to_chat(user, span_danger("You are not within anything!")) // If user is banned from chat, emotes, or the user is not within anything (ex. a locker) return.
 		return FALSE //im keeping this to_chat because this seems like a really common use case and i dont want to annoy players
 	else if(!params) // User didn't put anything after *exme when using the say hotkey, or just used the emote raw? Open a window.
-		container_emote = tgui_input_text(user, "What would you like to emote?", "Container Emote" , null, MAX_MESSAGE_LEN, TRUE, TRUE, 0)
+		container_emote = tgui_input_text(user, "What would you like to emote?", "Container Emote", max_length = MAX_MESSAGE_LEN, multiline = TRUE)
 		if(!container_emote)
 			return FALSE
 		var/list/choices = list("Visible","Audible")
@@ -82,7 +82,7 @@
 
 	var/space = should_have_space_before_emote(html_decode(container_emote)[1]) ? " " : ""
 
-	container_message = ("[user.say_emphasis(container_message)]")
+	container_message = ("[user.apply_message_emphasis(container_message)]")
 
 	var/atom/picked_loc
 	if (!length(locs_we_can_use))

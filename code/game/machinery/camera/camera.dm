@@ -70,7 +70,7 @@
 	var/alarm_on = FALSE
 	///How many times this camera has been EMP'ed consecutively, will reset back to 0 when fixed.
 	var/emped
-	///Boolean on whether the AI can even turn on this camera's light- borg caneras dont have one, for example.
+	///Boolean on whether the AI can even turn on this camera's light- borg cameras dont have one, for example.
 	var/internal_light = TRUE
 	///Number of AIs watching this camera with lights on, used for icons.
 	var/in_use_lights = 0
@@ -85,7 +85,7 @@
 
 	var/list/datum/weakref/localMotionTargets = list()
 	var/detectTime = 0
-	var/area/station/ai_monitored/area_motion = null
+	var/datum/motion_group/area_motion = null
 	var/alarm_delay = 30 // Don't forget, there's another 3 seconds in queueAlarm()
 
 MAPPING_DIRECTIONAL_HELPERS(/obj/machinery/camera, 0)
@@ -103,22 +103,19 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/machinery/camera/xray, 0)
 	fire = 90
 	acid = 50
 
-/obj/machinery/camera/Initialize(mapload, ndir, building)
+/obj/machinery/camera/Initialize(mapload)
 	. = ..()
-
-	if(building)
-		setDir(ndir)
 
 	for(var/network_name in network)
 		network -= network_name
 		network += LOWER_TEXT(network_name)
 
-	GLOB.cameranet.cameras += src
+	SScameras.cameras += src
 
 	myarea = get_room_area()
 
 	if(camera_enabled)
-		GLOB.cameranet.addCamera(src)
+		SScameras.add_camera_to_chunk(src)
 		LAZYADD(myarea.cameras, src)
 #ifdef MAP_TEST
 		update_appearance()
@@ -130,16 +127,14 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/machinery/camera/xray, 0)
 #endif
 
 	alarm_manager = new(src)
-	find_and_hang_on_wall(directional = TRUE, \
-		custom_drop_callback = CALLBACK(src, PROC_REF(deconstruct), FALSE))
-
-	RegisterSignal(src, COMSIG_HIT_BY_SABOTEUR, PROC_REF(on_saboteur))
+	if(mapload)
+		find_and_hang_on_wall()
 
 /obj/machinery/camera/Destroy(force)
 	if(can_use())
 		toggle_cam(null, 0) //kick anyone viewing out and remove from the camera chunks
-	GLOB.cameranet.removeCamera(src)
-	GLOB.cameranet.cameras -= src
+	SScameras.remove_camera_from_chunk(src)
+	SScameras.cameras -= src
 	cancelCameraAlarm()
 	if(isarea(myarea))
 		LAZYREMOVE(myarea.cameras, src)
@@ -183,8 +178,8 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/machinery/camera/xray, 0)
 	SIGNAL_HANDLER
 	proximity_monitor = null
 
-/obj/machinery/camera/proc/set_area_motion(area/A)
-	area_motion = A
+/obj/machinery/camera/proc/set_area_motion(datum/motion_group/group)
+	area_motion = group
 	create_prox_monitor()
 
 /obj/machinery/camera/examine(mob/user)
@@ -224,7 +219,7 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/machinery/camera/xray, 0)
 	if(!prob(150 / severity))
 		return
 	network = list()
-	GLOB.cameranet.removeCamera(src)
+	SScameras.remove_camera_from_chunk(src)
 	set_machine_stat(machine_stat | EMPED)
 	set_light(0)
 	emped++ //Increase the number of consecutive EMP's
@@ -235,11 +230,11 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/machinery/camera/xray, 0)
 			M.reset_perspective(null)
 			to_chat(M, span_warning("The screen bursts into static!"))
 
-/obj/machinery/camera/proc/on_saboteur(datum/source, disrupt_duration)
-	SIGNAL_HANDLER
+/obj/machinery/camera/on_saboteur(datum/source, disrupt_duration)
+	. = ..()
 	//lasts twice as much so we don't have to constantly shoot cameras just to be S T E A L T H Y
 	emp_act(EMP_LIGHT, reset_time = disrupt_duration * 2)
-	return COMSIG_SABOTEUR_SUCCESS
+	return TRUE
 
 /obj/machinery/camera/proc/post_emp_reset(thisemp, previous_network)
 	if(QDELETED(src))
@@ -251,7 +246,7 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/machinery/camera/xray, 0)
 	set_machine_stat(machine_stat & ~EMPED)
 	update_appearance()
 	if(can_use())
-		GLOB.cameranet.addCamera(src)
+		SScameras.add_camera_to_chunk(src)
 	emped = 0 //Resets the consecutive EMP count
 	addtimer(CALLBACK(src, PROC_REF(cancelCameraAlarm)), 10 SECONDS)
 
@@ -264,14 +259,14 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/machinery/camera/xray, 0)
 
 /obj/machinery/camera/proc/setViewRange(num = 7)
 	src.view_range = num
-	GLOB.cameranet.updateVisibility(src, 0)
+	SScameras.update_visibility(src)
 
 /obj/machinery/camera/proc/shock(mob/living/user)
 	if(!istype(user))
 		return
 	user.electrocute_act(10, src)
 
-/obj/machinery/camera/singularity_pull(S, current_size)
+/obj/machinery/camera/singularity_pull(atom/singularity, current_size)
 	if (camera_enabled && current_size >= STAGE_FIVE) // If the singulo is strong enough to pull anchored objects and the camera is still active, turn off the camera as it gets ripped off the wall.
 		toggle_cam(null, 0)
 	return ..()
@@ -341,7 +336,7 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/machinery/camera/xray, 0)
 /obj/machinery/camera/proc/toggle_cam(mob/user, displaymessage = TRUE)
 	camera_enabled = !camera_enabled
 	if(can_use())
-		GLOB.cameranet.addCamera(src)
+		SScameras.add_camera_to_chunk(src)
 		if (isturf(loc))
 			myarea = get_area(src)
 			LAZYADD(myarea.cameras, src)
@@ -349,12 +344,10 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/machinery/camera/xray, 0)
 			myarea = null
 	else
 		set_light(0)
-		GLOB.cameranet.removeCamera(src)
+		SScameras.remove_camera_from_chunk(src)
 		if (isarea(myarea))
 			LAZYREMOVE(myarea.cameras, src)
 	// We are not guarenteed that the camera will be on a turf. account for that
-	var/turf/our_turf = get_turf(src)
-	GLOB.cameranet.updateChunk(our_turf.x, our_turf.y, our_turf.z)
 	var/change_msg = "deactivates"
 	if(camera_enabled)
 		change_msg = "reactivates"
@@ -368,7 +361,7 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/machinery/camera/xray, 0)
 		else
 			visible_message(span_danger("\The [src] [change_msg]!"))
 
-		playsound(src, 'sound/items/wirecutter.ogg', 100, TRUE)
+		playsound(src, 'sound/items/tools/wirecutter.ogg', 100, TRUE)
 	update_appearance() //update Initialize() if you remove this.
 
 	// now disconnect anyone using the camera
@@ -394,6 +387,8 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/machinery/camera/xray, 0)
 		return FALSE
 	return TRUE
 
+/// Returns a list of turfs in this camera's view.
+/// This includes turfs that are "obscured by darkness" from the camera's POV.
 /obj/machinery/camera/proc/can_see()
 	var/list/see = null
 	var/turf/pos = get_turf(src)
@@ -402,26 +397,22 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/machinery/camera/xray, 0)
 	var/check_higher = directly_above && istransparentturf(directly_above) && (pos != get_highest_turf(pos))
 
 	if(isXRay())
-		see = range(view_range, pos)
+		see = RANGE_TURFS(view_range, pos)
 	else
-		see = get_hear(view_range, pos)
+		see = get_hear_turfs(view_range, pos)
+
 	if(check_lower || check_higher)
 		// Haha datum var access KILL ME
-		for(var/turf/seen in see)
+		for(var/turf/seen as anything in see)
 			if(check_lower)
-				var/turf/visible = seen
-				while(visible && istransparentturf(visible))
-					var/turf/below = GET_TURF_BELOW(visible)
-					for(var/turf/adjacent in range(1, below))
-						see += adjacent
-						see += adjacent.contents
-					visible = below
+				var/turf/below = GET_TURF_BELOW(seen)
+				while(below && istransparentturf(below))
+					see += RANGE_TURFS(1, below)
+					below = GET_TURF_BELOW(below)
 			if(check_higher)
 				var/turf/above = GET_TURF_ABOVE(seen)
 				while(above && istransparentturf(above))
-					for(var/turf/adjacent in range(1, above))
-						see += adjacent
-						see += adjacent.contents
+					see += RANGE_TURFS(1, above)
 					above = GET_TURF_ABOVE(above)
 	return see
 
@@ -446,3 +437,11 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/machinery/camera/xray, 0)
 	else
 		user.clear_sight(SEE_TURFS|SEE_MOBS|SEE_OBJS)
 	return TRUE
+
+///Called when the camera starts being watched on a camera console.
+/obj/machinery/camera/proc/on_start_watching()
+	return
+
+///Called when the camera stops being watched on a camera console.
+/obj/machinery/camera/proc/on_stop_watching()
+	return

@@ -1,5 +1,6 @@
 /// Buffs and heals the target while standing on rust.
 /datum/element/leeching_walk
+	var/healing_multiplier = 1.0 // How much healing to do
 
 /datum/element/leeching_walk/Attach(datum/target)
 	. = ..()
@@ -24,9 +25,8 @@
 	var/turf/mover_turf = get_turf(source)
 	if(HAS_TRAIT(mover_turf, TRAIT_RUSTY))
 		ADD_TRAIT(source, TRAIT_BATON_RESISTANCE, type)
-		return
-
-	REMOVE_TRAIT(source, TRAIT_BATON_RESISTANCE, type)
+	else
+		REMOVE_TRAIT(source, TRAIT_BATON_RESISTANCE, type)
 
 /**
  * Signal proc for [COMSIG_LIVING_LIFE].
@@ -43,15 +43,26 @@
 
 	// Heals all damage + Stamina
 	var/need_mob_update = FALSE
-	need_mob_update += source.adjustBruteLoss(-3, updating_health = FALSE)
-	need_mob_update += source.adjustFireLoss(-3, updating_health = FALSE)
-	need_mob_update += source.adjustToxLoss(-3, updating_health = FALSE, forced = TRUE) // Slimes are people to
-	need_mob_update += source.adjustOxyLoss(-1.5, updating_health = FALSE)
-	need_mob_update += source.adjustStaminaLoss(-10, updating_stamina = FALSE)
+	var/delta_time = DELTA_WORLD_TIME(SSmobs) * 0.5 // SSmobs.wait is 2 secs, so this should be halved.
+	need_mob_update += source.adjustBruteLoss(-3 * delta_time * healing_multiplier, updating_health = FALSE)
+	need_mob_update += source.adjustFireLoss(-3 * delta_time * healing_multiplier, updating_health = FALSE)
+	need_mob_update += source.adjustToxLoss(-3 * delta_time * healing_multiplier, updating_health = FALSE, forced = TRUE) // Slimes are people too
+	need_mob_update += source.adjustOxyLoss(-1.5 * delta_time * healing_multiplier, updating_health = FALSE)
+	need_mob_update += source.adjustStaminaLoss(-10 * delta_time * healing_multiplier, updating_stamina = FALSE)
 	if(need_mob_update)
 		source.updatehealth()
+		new /obj/effect/temp_visual/heal(get_turf(source), COLOR_BROWN)
 	// Reduces duration of stuns/etc
-	source.AdjustAllImmobility(-0.5 SECONDS)
+	source.AdjustAllImmobility((-0.5 SECONDS) * delta_time)
 	// Heals blood loss
 	if(source.blood_volume < BLOOD_VOLUME_NORMAL)
-		source.blood_volume += 2.5 * seconds_per_tick
+		source.blood_volume += 2.5 * delta_time
+	// Slowly regulates your body temp
+	source.adjust_bodytemperature((source.get_body_temp_normal() - source.bodytemperature) / 5)
+
+/datum/element/leeching_walk/minor
+	healing_multiplier = 0.5
+
+// Minor variant which heals slightly less and no baton resistance
+/datum/element/leeching_walk/minor/on_move(mob/source, atom/old_loc, dir, forced, list/old_locs)
+	return

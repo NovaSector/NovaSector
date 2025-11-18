@@ -26,6 +26,8 @@
 	new /obj/item/ammo_box/magazine/m9mm_aps(src)
 	new /obj/item/storage/bag/garment/station_admiral(src)
 	new /obj/item/radio/headset/interdyne/command(src)
+	new /obj/item/card/id/departmental_budget/ds2(src)
+	new /obj/item/storage/lockbox/medal/nova/synd(src)
 
 /obj/structure/closet/secure_closet/des_two/maa_locker
 	icon_door = "warden"
@@ -53,8 +55,7 @@
 /obj/item/storage/bag/garment/master_arms/PopulateContents()
 	new /obj/item/clothing/accessory/medal/silver/maa_medal(src)
 	new /obj/item/clothing/suit/armor/vest/warden/syndicate(src)
-	new /obj/item/clothing/under/rank/security/nova/utility/redsec/syndicate(src)
-	new /obj/item/clothing/under/suit/nova/helltaker(src)
+	new /obj/item/clothing/under/rank/security/nova/utility/syndicate(src)
 	new /obj/item/clothing/suit/armor/hos/maa_greatcoat(src)
 	new /obj/item/clothing/head/beret/sec/navywarden/syndicate(src)
 	new /obj/item/clothing/head/hats/hos/beret/syndicate(src)
@@ -89,7 +90,6 @@
 /obj/item/storage/bag/garment/corprate_liaison/PopulateContents()
 	new /obj/item/clothing/under/syndicate/nova/baseball(src)
 	new /obj/item/clothing/under/rank/captain/nova/utility/syndicate(src)
-	new /obj/item/clothing/under/suit/nova/helltaker(src)
 	new /obj/item/clothing/neck/chaplain/black/cl_cloak(src)
 	new /obj/item/clothing/head/hats/hos/beret/syndicate(src)
 	new /obj/item/clothing/glasses/sunglasses(src)
@@ -97,9 +97,9 @@
 /obj/structure/closet/secure_closet/des_two/cl_locker/PopulateContents()
 	..()
 
-	new /obj/item/card/id/advanced/chameleon/black(src)
-	new /obj/item/card/id/advanced/chameleon/black(src)
-	new /obj/item/card/id/advanced/chameleon/black(src)
+	new /obj/item/card/id/advanced/chameleon/elite/black(src)
+	new /obj/item/card/id/advanced/chameleon/elite/black(src)
+	new /obj/item/card/id/advanced/chameleon/elite/black(src)
 	new /obj/item/encryptionkey/headset_syndicate/interdyne(src)
 	new /obj/item/encryptionkey/headset_syndicate/interdyne(src)
 	new /obj/item/encryptionkey/headset_syndicate/interdyne(src)
@@ -121,5 +121,7 @@
 	new /obj/item/storage/toolbox/guncase/nova/pistol/opfor/rapid_syringe(src)
 	new /obj/item/binoculars(src)
 	new /obj/item/clothing/head/hats/syndicate/interdyne_deckofficer_white(src)
-	new /obj/item/clothing/suit/toggle/labcoat/nova/rd/deckofficer(src)
+	new /obj/item/clothing/suit/toggle/labcoat/nova/fancy/rd/deckofficer(src)
 	new /obj/item/modular_computer/pda/chameleon(src)
+	new /obj/item/card/id/departmental_budget/interdyne(src)
+	new /obj/item/storage/hypospraykit/cmo/interdyne(src)

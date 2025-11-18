@@ -3,14 +3,14 @@
 /datum/supply_pack/materials/glass_fifty
 	name = "50 Glass Sheets"
 	desc = "Let some nice light in with fifty glass sheets!"
-	cost = CARGO_CRATE_VALUE * 2
+	cost = CARGO_CRATE_VALUE * 3
 	contains = list(/obj/item/stack/sheet/glass/fifty)
 	crate_name = "glass sheets crate"
 
 /datum/supply_pack/materials/iron_fifty
 	name = "50 Iron Sheets"
 	desc = "Any construction project begins with a good stack of fifty iron sheets!"
-	cost = CARGO_CRATE_VALUE * 2
+	cost = CARGO_CRATE_VALUE * 2.5
 	contains = list(/obj/item/stack/sheet/iron/fifty)
 	crate_name = "iron sheets crate"
 

@@ -43,7 +43,7 @@
 
 	//get message text, limit its length.and clean/escape html
 	if(!msg)
-		msg = tgui_input_text(src, "Message:", "Private message")
+		msg = tgui_input_text(src, "Message:", "Private message", max_length = MAX_MESSAGE_LEN)
 
 		if(!msg)
 			if (is_mentor(whom))

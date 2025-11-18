@@ -6,3 +6,4 @@
 	icon_dead = "dobbydead"
 	icon_living = "dobber"
 	gender = MALE
+	gold_core_spawnable = FRIENDLY_SPAWN

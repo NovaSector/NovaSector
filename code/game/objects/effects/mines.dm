@@ -65,6 +65,9 @@
 	if(triggered || !isturf(loc) || iseffect(on_who) || !armed)
 		return FALSE
 
+	if(on_who.anchored || HAS_TRAIT(on_who, TRAIT_WALLMOUNTED))
+		return FALSE
+
 	var/mob/living/living_mob
 	if(ismob(on_who))
 		if(!isliving(on_who)) //no ghosties.
@@ -275,7 +278,7 @@
 	if(active)
 		return
 
-	playsound(src, 'sound/weapons/armbomb.ogg', 70, TRUE)
+	playsound(src, 'sound/items/weapons/armbomb.ogg', 70, TRUE)
 	to_chat(user, span_warning("You arm \the [src], causing it to shake! It will deploy in 3 seconds."))
 	active = TRUE
 	addtimer(CALLBACK(src, PROC_REF(deploy_mine)), 3 SECONDS)

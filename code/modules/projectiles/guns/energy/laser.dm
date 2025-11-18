@@ -20,6 +20,12 @@
 		/datum/element/slapcrafting,\
 		slapcraft_recipes = slapcraft_recipe_list,\
 	)
+/obj/item/gun/energy/laser/add_seclight_point()
+	AddComponent(/datum/component/seclite_attachable, \
+		light_overlay_icon = 'icons/obj/weapons/guns/flashlights.dmi', \
+		light_overlay = "flight", \
+		overlay_x = 18, \
+		overlay_y = 12)
 
 /obj/item/gun/energy/laser/practice
 	name = "practice laser gun"
@@ -53,6 +59,9 @@
 	ammo_type = list(/obj/item/ammo_casing/energy/lasergun/carbine/cybersun)
 	spread = 14
 	pin = /obj/item/firing_pin/implant/pindicate
+
+/obj/item/gun/energy/laser/carbine/cybersun/unrestricted
+	pin = /obj/item/firing_pin
 
 /obj/item/gun/energy/laser/carbine/practice
 	name = "practice laser carbine"
@@ -141,7 +150,7 @@
 /obj/item/ammo_casing/energy/laser/accelerator
 	projectile_type = /obj/projectile/beam/laser/accelerator
 	select_name = "accelerator"
-	fire_sound = 'sound/weapons/lasercannonfire.ogg'
+	fire_sound = 'sound/items/weapons/lasercannonfire.ogg'
 
 /obj/projectile/beam/laser/accelerator
 	name = "accelerator laser"
@@ -151,11 +160,11 @@
 	var/size_per_tile = 0.1
 	var/max_scale = 4
 
-/obj/projectile/beam/laser/accelerator/Range()
+/obj/projectile/beam/laser/accelerator/reduce_range()
 	..()
 	damage += 7
-	transform = 0
-	transform *= min(1 + (decayedRange - range) * size_per_tile, max_scale)
+	transform = matrix()
+	transform *= min(1 + (maximum_range - range) * size_per_tile, max_scale)
 
 ///X-ray gun
 

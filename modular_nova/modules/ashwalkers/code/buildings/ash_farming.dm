@@ -31,27 +31,39 @@
 /datum/component/simple_farm/proc/check_attack(datum/source, obj/item/attacking_item, mob/user)
 	SIGNAL_HANDLER
 
+	if(istype(attacking_item, /obj/item/food/tree_fruit))
+		var/obj/structure/simple_farm/locate_farm = locate() in get_turf(atom_parent)
+		var/obj/structure/simple_tree/locate_tree = locate() in get_turf(atom_parent)
+
+		if(one_per_turf && (locate_farm || locate_tree))
+			atom_parent.balloon_alert_to_viewers("cannot plant more things here!")
+			return
+
+		locate_tree = new(get_turf(atom_parent), atom_parent)
+		user.mind?.adjust_experience(/datum/skill/primitive, 5)
+		locate_tree.pixel_y = (pixel_shift[2] - 8)
+		locate_tree.layer = atom_parent.layer + 0.01
+		attacking_item.forceMove(locate_tree)
+		atom_parent.balloon_alert_to_viewers("tree has been planted!")
+
 	//if its a seed, lets try to plant
 	if(istype(attacking_item, /obj/item/seeds))
 		var/obj/structure/simple_farm/locate_farm = locate() in get_turf(atom_parent)
+		var/obj/structure/simple_tree/locate_tree = locate() in get_turf(atom_parent)
 
-		if(one_per_turf && locate_farm)
-			atom_parent.balloon_alert_to_viewers("cannot plant more seeds here!")
+		if(one_per_turf && (locate_farm || locate_tree))
+			atom_parent.balloon_alert_to_viewers("cannot plant more things here!")
 			return
 
-		locate_farm = new(get_turf(atom_parent))
+		locate_farm = new(get_turf(atom_parent), atom_parent)
+		user.mind?.adjust_experience(/datum/skill/primitive, 5)
 		locate_farm.pixel_x = pixel_shift[1]
 		locate_farm.pixel_y = pixel_shift[2]
 		locate_farm.layer = atom_parent.layer + 0.1
-		if(ismovable(atom_parent))
-			var/atom/movable/movable_parent = atom_parent
-			locate_farm.glide_size = movable_parent.glide_size
 		attacking_item.forceMove(locate_farm)
 		locate_farm.planted_seed = attacking_item
-		locate_farm.attached_atom = atom_parent
 		atom_parent.balloon_alert_to_viewers("seed has been planted!")
 		locate_farm.update_appearance()
-		locate_farm.late_setup()
 
 /**
  * check_examine is meant to listen for the COMSIG_ATOM_EXAMINE signal, where it will put additional information in the examine
@@ -88,10 +100,19 @@
 	//the cooldown between each harvest
 	COOLDOWN_DECLARE(harvest_timer)
 
-/obj/structure/simple_farm/Initialize(mapload)
+/obj/structure/simple_farm/Initialize(mapload, atom/attaching_atom)
 	. = ..()
 	START_PROCESSING(SSobj, src)
 	COOLDOWN_START(src, harvest_timer, harvest_cooldown)
+
+	if(attaching_atom)
+		attached_atom = attaching_atom
+		if(!ismovable(attached_atom))
+			return
+
+		var/atom/movable/moving_atom = attached_atom
+		src.glide_size = moving_atom.glide_size
+		RegisterSignal(attached_atom, COMSIG_MOVABLE_MOVED, PROC_REF(move_plant))
 
 /obj/structure/simple_farm/Destroy()
 	STOP_PROCESSING(SSobj, src)
@@ -147,59 +168,67 @@
 
 	COOLDOWN_START(src, harvest_timer, harvest_cooldown)
 	create_harvest()
+	user.mind?.adjust_experience(/datum/skill/primitive, 2)
 	update_appearance()
 	return ..()
 
-/obj/structure/simple_farm/attackby(obj/item/attacking_item, mob/user, params)
+/obj/structure/simple_farm/item_interaction(mob/living/user, obj/item/tool, list/modifiers)
 	//if its a shovel or knife, dismantle
-	if(attacking_item.tool_behaviour == TOOL_SHOVEL || attacking_item.tool_behaviour == TOOL_KNIFE)
+	if(tool.tool_behaviour == TOOL_SHOVEL || tool.tool_behaviour == TOOL_KNIFE)
 		var/turf/src_turf = get_turf(src)
 		src_turf.balloon_alert_to_viewers("the plant crumbles!")
-		Destroy()
-		return
+		qdel(src)
+		return ITEM_INTERACT_BLOCKING
 
-	if(istype(attacking_item, /obj/item/storage/bag/plants))
+	if(istype(tool, /obj/item/storage/bag/plants))
 		if(!COOLDOWN_FINISHED(src, harvest_timer))
-			return
+			return ITEM_INTERACT_BLOCKING
 
 		COOLDOWN_START(src, harvest_timer, harvest_cooldown)
-		create_harvest(attacking_item, user)
+		create_harvest(tool, user)
+		user.mind?.adjust_experience(/datum/skill/primitive, 2)
 		update_appearance()
-		return
+		return ITEM_INTERACT_BLOCKING
 
-	var/obj/item/stack/use_item = attacking_item
+	var/obj/item/stack/use_item = tool
 	if(istype(use_item) && !use_item.tool_use_check(1))
-		return
+		return ITEM_INTERACT_BLOCKING
 
 	//if its sinew, lower the cooldown
 	if(istype(use_item, /obj/item/stack/sheet/sinew))
 		if(decrease_cooldown(user))
 			use_item.use(1)
-		return
+			user.mind?.adjust_experience(/datum/skill/primitive, 2)
+
+		return ITEM_INTERACT_BLOCKING
 
 	//if its goliath hide, increase the amount dropped
 	if(istype(use_item, /obj/item/stack/sheet/animalhide/goliath_hide))
 		if(increase_yield(user))
 			use_item.use(1)
-		return
+			user.mind?.adjust_experience(/datum/skill/primitive, 2)
+
+		return ITEM_INTERACT_BLOCKING
 
 	if(istype(use_item, /obj/item/stack/worm_fertilizer))
 		var/cooldown_improved = decrease_cooldown(user, silent = TRUE)
 		var/yield_improved = increase_yield(user, silent = TRUE)
 		if (cooldown_improved || yield_improved)
 			use_item.use(1)
+			user.mind?.adjust_experience(/datum/skill/primitive, 2)
 			balloon_alert(user, "fertilized")
+
 		else
 			balloon_alert(user, "already fertilized!")
-		return
 
+		return ITEM_INTERACT_BLOCKING
 
 	return ..()
 
 /**
  * a proc that will increase the amount of items the crop could produce (at a maximum of 6, from base of 3)
  */
-/obj/structure/simple_farm/proc/increase_yield(mob/user, var/silent = FALSE)
+/obj/structure/simple_farm/proc/increase_yield(mob/user, silent = FALSE)
 	if(max_harvest >= 6)
 		if(!silent)
 			balloon_alert(user, "plant is at maximum yield")
@@ -216,7 +245,7 @@
 /**
  * a proc that will decrease the amount of time it takes to be ready for harvest (at a maximum of 30 seconds, from a base of 1 minute)
  */
-/obj/structure/simple_farm/proc/decrease_cooldown(mob/user, var/silent = FALSE)
+/obj/structure/simple_farm/proc/decrease_cooldown(mob/user, silent = FALSE)
 	if(harvest_cooldown <= 30 SECONDS)
 		if(!silent)
 			balloon_alert(user, "already at maximum growth speed!")
@@ -233,23 +262,20 @@
 	return TRUE
 
 /**
- * used during the component so that it can move when it's attached atom moves
- */
-/obj/structure/simple_farm/proc/late_setup()
-	if(!ismovable(attached_atom))
-		return
-	RegisterSignal(attached_atom, COMSIG_MOVABLE_MOVED, PROC_REF(move_plant))
-
-/**
  * a simple proc to forcemove the plant on top of the movable atom its attached to
  */
 /obj/structure/simple_farm/proc/move_plant()
+	SIGNAL_HANDLER
+
+	if(QDELETED(attached_atom))
+		return
+
 	forceMove(get_turf(attached_atom))
 
 /**
  * will create a harvest of the seeds product, with a chance to create a mutated version
  */
-/obj/structure/simple_farm/proc/create_harvest(var/obj/item/storage/bag/plants/plant_bag, var/mob/user)
+/obj/structure/simple_farm/proc/create_harvest(obj/item/storage/bag/plants/plant_bag, mob/user)
 	if(!planted_seed)
 		return
 

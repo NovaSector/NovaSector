@@ -7,17 +7,18 @@ import {
   ProgressBar,
   Section,
 } from 'tgui-core/components';
-import { BooleanLike } from 'tgui-core/react';
+import type { BooleanLike } from 'tgui-core/react';
 import { toTitleCase } from 'tgui-core/string';
 
 import { useBackend } from '../backend';
 import { Window } from '../layouts';
-import { Beaker, BeakerDisplay } from './common/BeakerDisplay';
+import { type Beaker, BeakerDisplay } from './common/BeakerDisplay';
 
 type DispensableReagent = {
   title: string;
   id: string;
   pH: number;
+  color: string;
   pHCol: string;
 };
 
@@ -37,13 +38,14 @@ type Data = {
   recordingRecipe: string[];
   recipeReagents: string[];
   beaker: TransferableBeaker;
+  hasBeakerInHand: BooleanLike;
 };
 
 export const ChemDispenser = (props) => {
   const { act, data } = useBackend<Data>();
   const recording = !!data.recordingRecipe;
-  const { recipeReagents = [], recipes = [], beaker } = data;
-  const [hasCol, setHasCol] = useState(false);
+  const { recipeReagents = [], recipes = [], beaker, hasBeakerInHand } = data;
+  const [showPhCol, setShowPhCol] = useState(false);
 
   const beakerTransferAmounts = beaker ? beaker.transferAmounts : [];
   const recordedContents =
@@ -84,8 +86,8 @@ export const ChemDispenser = (props) => {
                 icon="cog"
                 tooltip="Color code the reagents by pH"
                 tooltipPosition="bottom-start"
-                selected={hasCol}
-                onClick={() => setHasCol(!hasCol)}
+                selected={showPhCol}
+                onClick={() => setShowPhCol(!showPhCol)}
               />
             </>
           }
@@ -191,17 +193,15 @@ export const ChemDispenser = (props) => {
               <Button
                 key={chemical.id}
                 icon="tint"
+                textColor={showPhCol ? chemical.pHCol : chemical.color}
                 width="129.5px"
                 lineHeight={1.75}
-                tooltip={'pH: ' + chemical.pH}
+                tooltip={`pH: ${chemical.pH}`}
+                style={{
+                  textShadow: '1px 1px 0 black',
+                }}
                 backgroundColor={
-                  recipeReagents.includes(chemical.id)
-                    ? hasCol
-                      ? 'black'
-                      : 'green'
-                    : hasCol
-                      ? chemical.pHCol
-                      : 'default'
+                  recipeReagents.includes(chemical.id) ? 'green' : 'default'
                 }
                 onClick={() =>
                   act('dispense', {
@@ -209,7 +209,14 @@ export const ChemDispenser = (props) => {
                   })
                 }
               >
-                {chemical.title}
+                <span
+                  style={{
+                    color: 'white',
+                    textShadow: 'none',
+                  }}
+                >
+                  {chemical.title}
+                </span>
               </Button>
             ))}
           </Box>
@@ -227,12 +234,38 @@ export const ChemDispenser = (props) => {
             </Button>
           ))}
         >
-          <BeakerDisplay
-            beaker={beaker}
-            title_label={recording && 'Virtual beaker'}
-            replace_contents={recordedContents}
-            showpH={data.showpH}
-          />
+          {beaker || recording ? (
+            <BeakerDisplay
+              beaker={beaker}
+              title_label={recording && 'Virtual beaker'}
+              replace_contents={recordedContents}
+              showpH={data.showpH}
+            />
+          ) : (
+            <Box
+              style={{
+                display: 'flex',
+                justifyContent: 'space-between',
+                alignItems: 'center',
+              }}
+            >
+              <Box color="label">No beaker loaded.</Box>
+              <Button
+                icon="eject"
+                onClick={() => act('insert')}
+                style={{
+                  opacity: data.hasBeakerInHand ? 1 : 0.5,
+                }}
+                tooltip={
+                  !data.hasBeakerInHand &&
+                  'You need to hold a container in your hand'
+                }
+                tooltipPosition="left-start"
+              >
+                Insert
+              </Button>
+            </Box>
+          )}
         </Section>
       </Window.Content>
     </Window>

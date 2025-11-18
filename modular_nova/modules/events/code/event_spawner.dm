@@ -126,11 +126,11 @@
 				else
 					equipped.forceMove(get_turf(H))
 
-	if(gets_loadout)
-		var/list/loadout = loadout_list_to_datums(H.client?.prefs?.read_preference(/datum/preference/loadout))
+	if(gets_loadout && !isnull(H.client?.prefs))
+		var/list/loadout = H.client.get_loadout_datums()
 		for(var/datum/loadout_item/item as anything in loadout)
 			item.post_equip_item(H.client?.prefs, H)
-
+			//H.dna.add_mutation(/datum/mutation/race, MUTATION_SOURCE_ACTIVATED) // awful hack but adding mutations breaks char previews
 	//Override access of the ID card here
 	var/obj/item/card/id/ID
 	if(length(access_override))

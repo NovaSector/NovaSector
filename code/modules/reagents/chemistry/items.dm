@@ -33,7 +33,7 @@
 		user.put_in_active_hand(page)
 		to_chat(user, span_notice("You take [page] out of \the [src]."))
 		number_of_pages--
-		playsound(user.loc, 'sound/items/poster_ripped.ogg', 50, TRUE)
+		playsound(user.loc, 'sound/items/poster/poster_ripped.ogg', 50, TRUE)
 		add_fingerprint(user)
 		if(!number_of_pages)
 			icon_state = "pHbooklet_empty"
@@ -57,7 +57,7 @@
 	user.put_in_active_hand(P)
 	to_chat(user, span_notice("You take [P] out of \the [src]."))
 	number_of_pages--
-	playsound(user.loc, 'sound/items/poster_ripped.ogg', 50, TRUE)
+	playsound(user.loc, 'sound/items/poster/poster_ripped.ogg', 50, TRUE)
 	add_fingerprint(user)
 	if(!number_of_pages)
 		icon_state = "pHbookletEmpty"
@@ -124,15 +124,24 @@
 	out_message += "Chemicals found in [interacting_with.name]:</b>\n"
 	if(cont.reagents.is_reacting)
 		out_message += "[span_warning("A reaction appears to be occuring currently.")]<span class='notice'>\n"
-	for(var/datum/reagent/reagent in cont.reagents.reagent_list)
+	for(var/datum/reagent/reagent as anything in cont.reagents.reagent_list) // bloodtyping if blood present in container
+		var/blood_info = null
+		if(reagent.data)
+			var/blood = reagent.data["blood_type"]
+			if(istype(blood, /datum/blood_type))
+				var/datum/blood_type/blood_type = blood
+				var/type = blood_type.get_type()
+				blood_info = "[blood_type.get_blood_name()] [type ? "(type: [type])" : ""]"
+			else if(blood)
+				blood_info = "[reagent.name] (type: [blood])"
 		if(reagent.purity < reagent.inverse_chem_val && reagent.inverse_chem) //If the reagent is impure
 			var/datum/reagent/inverse_reagent = GLOB.chemical_reagents_list[reagent.inverse_chem]
 			out_message += "[span_warning("Inverted reagent detected: ")]<span class='notice'><b>[round(reagent.volume, 0.01)]u of [inverse_reagent.name]</b>, <b>Purity:</b> [round(1 - reagent.purity, 0.000001)*100]%, [(scanmode?"[(inverse_reagent.overdose_threshold?"<b>Overdose:</b> [inverse_reagent.overdose_threshold]u, ":"")]<b>Base pH:</b> [initial(inverse_reagent.ph)], <b>Current pH:</b> [reagent.ph].":"<b>Current pH:</b> [reagent.ph].")]\n"
 		else
-			out_message += "<b>[round(reagent.volume, 0.01)]u of [reagent.name]</b>, <b>Purity:</b> [round(reagent.purity, 0.000001)*100]%, [(scanmode?"[(reagent.overdose_threshold?"<b>Overdose:</b> [reagent.overdose_threshold]u, ":"")]<b>Base pH:</b> [initial(reagent.ph)], <b>Current pH:</b> [reagent.ph].":"<b>Current pH:</b> [reagent.ph].")]\n"
+			out_message += "<b>[round(reagent.volume, CHEMICAL_VOLUME_ROUNDING)]u of [blood_info || reagent.name]</b>, <b>Purity:</b> [round(reagent.purity, 0.000001)*100]%, [(scanmode?"[(reagent.overdose_threshold?"<b>Overdose:</b> [reagent.overdose_threshold]u, ":"")]<b>Base pH:</b> [initial(reagent.ph)], <b>Current pH:</b> [reagent.ph].":"<b>Current pH:</b> [reagent.ph].")]\n"
 		if(scanmode)
 			out_message += "<b>Analysis:</b> [reagent.description]\n"
-	to_chat(user, examine_block(span_notice("[out_message.Join()]")))
+	to_chat(user, boxed_message(span_notice("[out_message.Join()]")))
 	desc = "An electrode attached to a small circuit box that will display details of a solution. Can be toggled to provide a description of each of the reagents. The screen currently displays detected vol: [round(cont.volume, 0.01)] detected pH:[round(cont.reagents.ph, 0.1)]."
 	return ITEM_INTERACT_SUCCESS
 
@@ -159,14 +168,14 @@
 	if(reagent_type)
 		reagents.add_reagent(reagent_type, 15)
 
-/obj/item/burner/attackby(obj/item/I, mob/living/user, params)
+/obj/item/burner/attackby(obj/item/I, mob/living/user, list/modifiers, list/attack_modifiers)
 	. = ..()
 	if(is_reagent_container(I))
 		if(lit)
 			var/obj/item/reagent_containers/container = I
 			container.reagents.expose_temperature(get_temperature())
 			to_chat(user, span_notice("You heat up the [I] with the [src]."))
-			playsound(user.loc, 'sound/chemistry/heatdam.ogg', 50, TRUE)
+			playsound(user.loc, 'sound/effects/chemistry/heatdam.ogg', 50, TRUE)
 			return
 		else if(I.is_drainable()) //Transfer FROM it TO us. Special code so it only happens when flame is off.
 			var/obj/item/reagent_containers/container = I
@@ -193,7 +202,7 @@
 		var/obj/item/reagent_containers/container = interacting_with
 		container.reagents.expose_temperature(get_temperature())
 		user.visible_message(span_notice("[user] heats up [src]."), span_notice("You heat up [src]."))
-		playsound(user, 'sound/chemistry/heatdam.ogg', 50, TRUE)
+		playsound(user, 'sound/effects/chemistry/heatdam.ogg', 50, TRUE)
 		return ITEM_INTERACT_SUCCESS
 
 	else if(isitem(interacting_with))
@@ -216,7 +225,7 @@
 	if(lit)
 		force = 5
 		damtype = BURN
-		hitsound = 'sound/items/welder.ogg'
+		hitsound = 'sound/items/tools/welder.ogg'
 		attack_verb_continuous = string_list(list("burns", "singes"))
 		attack_verb_simple = string_list(list("burn", "singe"))
 		START_PROCESSING(SSobj, src)

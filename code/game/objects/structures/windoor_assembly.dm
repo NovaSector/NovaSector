@@ -8,7 +8,7 @@
 	anchored = FALSE
 	density = FALSE
 	dir = NORTH
-	obj_flags = CAN_BE_HIT | BLOCKS_CONSTRUCTION_DIR
+	obj_flags = CAN_BE_HIT | BLOCKS_CONSTRUCTION_DIR | UNIQUE_RENAME | RENAME_NO_DESC
 	set_dir_on_move = FALSE
 	can_atmos_pass = ATMOS_PASS_PROC
 
@@ -97,7 +97,7 @@
 		leaving.Bump(src)
 		return COMPONENT_ATOM_BLOCK_EXIT
 
-/obj/structure/windoor_assembly/attackby(obj/item/W, mob/user, params)
+/obj/structure/windoor_assembly/attackby(obj/item/W, mob/user, list/modifiers, list/attack_modifiers)
 	//I really should have spread this out across more states but thin little windoors are hard to sprite.
 	add_fingerprint(user)
 	switch(state)
@@ -251,31 +251,17 @@
 					electronics = null
 					ae.forceMove(drop_location())
 
-			else if(IS_WRITING_UTENSIL(W))
-				var/t = tgui_input_text(user, "Enter the name for the door", "Windoor Renaming", created_name, MAX_NAME_LEN)
-				if(!t)
-					return
-				if(!in_range(src, usr) && loc != usr)
-					return
-				created_name = t
-				return
-
-
-
 			//Crowbar to complete the assembly, Step 7 complete.
 			else if(W.tool_behaviour == TOOL_CROWBAR)
 				if(!electronics)
 					to_chat(usr, span_warning("The assembly is missing electronics!"))
 					return
-				user << browse(null, "window=windoor_access")
 				user.visible_message(span_notice("[user] pries the windoor into the frame."),
 					span_notice("You start prying the windoor into the frame..."))
 
 				if(W.use_tool(src, user, 40, volume=100) && electronics)
 					set_density(TRUE) //Shouldn't matter but just incase
-
 					to_chat(user, span_notice("You finish the windoor."))
-
 					finish_door()
 
 			else
@@ -324,7 +310,7 @@
 	if(created_name)
 		windoor.name = created_name
 	else if(electronics.passed_name)
-		windoor.name = electronics.passed_name
+		windoor.name = sanitize(electronics.passed_name)
 	if(electronics.one_access)
 		windoor.req_one_access = electronics.accesses
 	else
@@ -370,3 +356,10 @@
 
 	update_appearance()
 	return
+
+/obj/structure/windoor_assembly/nameformat(input, user)
+	created_name = input
+	return input
+
+/obj/structure/windoor_assembly/rename_reset()
+	created_name = initial(created_name)

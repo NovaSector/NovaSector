@@ -40,6 +40,14 @@
 	suffix = "icemoon_underground_abandoned_icewalker_den.dmm"
 	allow_duplicates = FALSE
 
+/datum/map_template/ruin/icemoon/underground/nova/duo_hermit
+	name = "Ice-ruin Duo Hermit"
+	id = "icemoon-duo-hermit"
+	description = "A place of shelter for a duet of hermits, scraping by to live another day."
+	prefix = "_maps/RandomRuins/IceRuins/nova/"
+	suffix = "icemoon_duo_hermit.dmm"
+	allow_duplicates = FALSE
+
 /datum/map_template/ruin/icemoon/underground/nova/abandoned_sacred_temple
 	name = "Sacred Temple"
 	id = "abandoned-sacred-temple"
@@ -47,6 +55,26 @@
 	prefix = "_maps/RandomRuins/IceRuins/nova/"
 	suffix = "icemoon_underground_abandoned_sacred_temple.dmm"
 	allow_duplicates = FALSE
+
+/datum/map_template/ruin/icemoon/underground/nova/ice_boss_vent
+	name = "Ice-Ruin Frozen Rite Location"
+	id = "ice_r_boss_vent"
+	description = "They believed sacrifices could give more rewards. They were not prepared for the felling of their hubris."
+	prefix = "_maps/RandomRuins/IceRuins/nova/"
+	suffix = "icemoon_underground_boss_vent.dmm"
+	allow_duplicates = FALSE
+	cost = 0
+	mineral_cost = 1
+
+/datum/map_template/ruin/icemoon/underground/nova/ice_elite_vent
+	name = "Ice-Ruin Frozen Well Location"
+	id = "ice_r_elite_vent"
+	description = "Jimmy never fell in the well. But it wasn't Jimmy that walked away"
+	prefix = "_maps/RandomRuins/IceRuins/nova/"
+	suffix = "icemoon_underground_elite_vent.dmm"
+	allow_duplicates = FALSE
+	cost = 0
+	mineral_cost = 1
 
 //Code for the Abandoned Sacred Temple
 /obj/structure/statue/hearthkin/odin
@@ -61,11 +89,20 @@
 	default_raw_text = "<i>I refuse to believe we're reduced to this- to sacrifice our own in hopes of our gods taking pity and rescuing us. We've lost too many already... I regret not joining with the rest. But I won't sit here and wait for my turn to be sacrificed, moping about like some sort of useless bastard. Me, my husband, and my sibling Halko will soon make our move, once the grand priest goes to sleep.</i>"
 
 /obj/item/paper/crumpled/bloody/fluff/stations/lavaland/sacred_temple/ui_status(mob/user, datum/ui_state/state)
-    if(!user.has_language(/datum/language/primitive_catgirl))
-        to_chat(user, span_warning("This seems to be in a language you do not understand!"))
-        return UI_CLOSE
+	if(!user.has_language(/datum/language/primitive_catgirl))
+		to_chat(user, span_warning("This seems to be in a language you do not understand!"))
+		return UI_CLOSE
 
-    . = ..()
+	. = ..()
+
+//declaration for the Frozenwake ruin, the rest can be found in modular_nova\modules\mapping\code\frozenwake.dm
+/datum/map_template/ruin/icemoon/underground/nova/frozenwake
+	name = "frozenwake"
+	id = "frozenwake"
+	description = "A forgotten Hearthkin shrine buried in ice and silence, where ancient runes whisper of a fallen light and a long-awaited return."
+	prefix = "_maps/RandomRuins/IceRuins/nova/"
+	suffix = "icemoon_underground_frozenwake.dmm"
+	allow_duplicates = FALSE
 
 /*----- Above Ground -----*/
 ////// Yes, I know the "Above Ground" Is very limited in space. This is a... ~17x17? ruin.
@@ -75,4 +112,21 @@
 	description = "A ramshackle research bunker for geological survey on the icemoon. Its inhabitants, however, forgot to scrub their turret's AI after an electrical event."
 	prefix = "_maps/RandomRuins/IceRuins/nova/"
 	suffix = "icemoon_surface_turretbunker.dmm"
+	allow_duplicates = FALSE
+
+/datum/map_template/ruin/icemoon/nova/snow_geosite
+	name = "Ice-Ruin Surface Geological Site"
+	id = "snow_geosite"
+	description = "A mishap during geological site testing ended a poor man's life. Anyways, Roll a d10 to loot the body."
+	prefix = "_maps/RandomRuins/IceRuins/nova/"
+	suffix = "icemoon_surface_geosite.dmm"
+	allow_duplicates = FALSE
+
+/datum/map_template/ruin/icemoon/nova/anchor_buoy
+	name = "Ice-Ruin Surface Anchor Buoy"
+	id = "nova-anchor-buoy-icemoon-1"
+	description = "A little one-way-launch navigation beacon for the charting of unexplored tundra."
+	suffix = "icemoon_beacon.dmm"
+	cost = 0
+	always_place = TRUE
 	allow_duplicates = FALSE

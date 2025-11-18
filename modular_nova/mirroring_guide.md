@@ -2,13 +2,13 @@
 
 This guide will help you in pulling Pull requests from TG and adding them into a PR to be merged here in Nova.
 
-## *DO NOTE ALL OF THIS SHOULD BE DONE ON A FORK OF NOVA's REPO, IF YOU DIRECTLY CLONED THE REPO YOU WILL NOT BE ABLE TO DO THIS*
+## _DO NOTE ALL OF THIS SHOULD BE DONE ON A FORK OF NOVA's REPO, IF YOU DIRECTLY CLONED THE REPO YOU WILL NOT BE ABLE TO DO THIS_
 
 ## Required Software
 
 [Git-Scm](https://git-scm.com/) - This is required to basically do anything Git related. Comes with a commandline that is capable of doing everything. If you would prefer to use a GUI, you will want to use Fork or a combination of commandline + Github Desktop (see below). Git does come with a rather basic barebones GUI out of the box but that will not be covered here.
 
-### *(Optional)*
+### _(Optional)_
 
 [Git-Fork](https://git-fork.com/) - A really good GUI client, will be used is the second part of the tutorial for the faster method of doing the mirroring, It has a useful GUI, the only downside is it costs money, which is a one time payment fee, whereas the commandline is free just slower.
 
@@ -17,7 +17,8 @@ This guide will help you in pulling Pull requests from TG and adding them into a
 ## Getting started
 
 Start by opening the git bash and navigating to your repo directory.
-* (use `cd name_of_folder` to navigate, you can use tab for autocomplete to make it go faster). When you arrive in the right place it should look something like this. ![image](https://github.com/user-attachments/assets/97532c25-fce0-43da-a451-32ce7195fa19) My current branch is 'Guide' so that's why it says '(Guide)'.
+
+- (use `cd name_of_folder` to navigate, you can use tab for autocomplete to make it go faster). When you arrive in the right place it should look something like this. ![image](https://github.com/user-attachments/assets/97532c25-fce0-43da-a451-32ce7195fa19) My current branch is 'Guide' so that's why it says '(Guide)'.
 
 Once in there, add tgstation as a remote if you do not already have that done on your fork. Simply run the following command:
 
@@ -59,11 +60,11 @@ You would want to scroll down to the bottom of the page and look for the merge c
 
 ### Singular commit cherry pick
 
-1) Simply click on the abbreviated hash link (the `281dac4` shown in the example above), and in the url address bar copy full version of the hash just after /commit/
-In this example it should be `281dac4ed0e2976cdecb4777c93a19bc9b787db4`
+1. Simply click on the abbreviated hash link (the `281dac4` shown in the example above), and in the url address bar copy full version of the hash just after /commit/
+   In this example it should be `281dac4ed0e2976cdecb4777c93a19bc9b787db4`
 
-2) To grab this singular commit, assuming the previous steps have been completed you would just need to run the following command:
-`git cherry-pick -m 1 281dac4ed0e2976cdecb4777c93a19bc9b787db4`
+2. To grab this singular commit, assuming the previous steps have been completed you would just need to run the following command:
+   `git cherry-pick -m 1 281dac4ed0e2976cdecb4777c93a19bc9b787db4`
 
 **That is for a singular commit**. To do a range of commits, you need to find a second hash. Repeat step 1) to find a second commit (See below for example)
 
@@ -84,7 +85,7 @@ Now that you have both the starting and ending commit hashes, simply run the fol
 
 `git cherry-pick -m 1 281dac4ed0e2976cdecb4777c93a19bc9b787db4^..66bc14224557ad041d4a146cf1bb079994740787`
 
-**NOTE: The *first* hash in the command -must- be the oldest commit, or else the command will just silently fail.**
+**NOTE: The _first_ hash in the command -must- be the oldest commit, or else the command will just silently fail.**
 The `^` is also important, omitting that will cause commit `A` to be not included itself. Which for our purposes you don't generally want.
 
 ### Pushing the changes to your remote
@@ -147,7 +148,6 @@ On the side panel where it lists remotes, click on the filter button with the to
 **It is recommended to pin the tgstation master branch to the left panel so you can easily click the filter button (to the right of the pin button) when you need to. Clear branch filter is Ctrl+Shift+A, use this to quickly swap between tg's commits and your own branches**
 ![image](https://github.com/user-attachments/assets/233baa7e-7615-4c5e-ba45-0c59e5045654)
 
-
 ![Screenshot](http://files.byondhome.com/SomeRandomOwl/Fork_8L4ULsFpcP.png)
 
 And then from the main view, simply hold Ctrl and click on the PR + its changelog for each and every Pull Request you wish to copy over to Nova. Right click on one and then click on 'Cherry-pick...' and then click 'Cherry Pick `n` commits' on the resulting dialog.
@@ -156,3 +156,11 @@ And then from the main view, simply hold Ctrl and click on the PR + its changelo
 ![Screenshot2](http://files.byondhome.com/SomeRandomOwl/Fork_08HRCEw9cF.png)
 
 Then from there, you can simply push changes and either fix any conflicts or errors, and then use Fork, Github Desktop, or go to github to make your Pull Request to NovaSector.
+
+On your downstream repo if you are merging a Mirror/batch Pull Request that contains multiple commits it is recommended to use the "Create a Merge Commit", aka "Merge Pull Request" option instead of "Squash and Merge", to preserve the commit history.
+
+![418799841-a0ede384-d3d9-462f-a41f-4108734bb894](https://github.com/user-attachments/assets/0f4786d6-ba17-4529-87e0-d8ca87dee321)
+
+![418800033-39a658d0-d85b-454b-945d-8e77d6b032a9](https://github.com/user-attachments/assets/bef06860-1c7b-4057-affa-99f37b5e0630)
+
+(Note: the "Rebase and Merge" option may also be used, at your own preference. Both will keep the commit history intact but have their own advantages/disadvantages. We exclusively use Merge commits here on Nova).

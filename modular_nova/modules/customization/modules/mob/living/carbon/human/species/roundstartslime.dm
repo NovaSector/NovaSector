@@ -8,14 +8,13 @@
 	mutant_bodyparts = list()
 	hair_alpha = 160 //a notch brighter so it blends better.
 	facial_hair_alpha = 160
-	mutantliver = /obj/item/organ/internal/liver/slime
-	mutantstomach = /obj/item/organ/internal/stomach/slime
-	mutantbrain = /obj/item/organ/internal/brain/slime
-	mutantears = /obj/item/organ/internal/ears/jelly
+	mutantliver = /obj/item/organ/liver/slime
+	mutantstomach = /obj/item/organ/stomach/slime
+	mutantbrain = /obj/item/organ/brain/slime
+	mutantears = /obj/item/organ/ears/jelly
 	inherent_traits = list(
 		TRAIT_MUTANT_COLORS,
 		TRAIT_TOXINLOVER,
-		TRAIT_NOBLOOD,
 		TRAIT_EASYDISMEMBER,
 	)
 	/// Ability to allow them to shapeshift their body around.
@@ -27,7 +26,7 @@
 	/// Ability to allow them to turn their core's GPS on or off.
 	var/datum/action/innate/core_signal/core_signal
 
-/datum/species/jelly/on_species_gain(mob/living/carbon/new_jellyperson, datum/species/old_species, pref_load)
+/datum/species/jelly/on_species_gain(mob/living/carbon/new_jellyperson, datum/species/old_species, pref_load, regenerate_icons)
 	. = ..()
 	if(ishuman(new_jellyperson))
 		alter_form = new
@@ -64,11 +63,14 @@
 	)
 
 /datum/species/jelly/gain_oversized_organs(mob/living/carbon/human/human_holder, datum/quirk/oversized/oversized_quirk)
-	var/obj/item/organ/internal/brain/slime/oversized/new_slime_brain = new
-	var/obj/item/organ/internal/stomach/slime/oversized/new_slime_stomach = new //YOU LOOK HUGE! THAT MUST MEAN YOU HAVE HUGE golgi apparatus! RIP AND TEAR YOUR HUGE golgi apparatus!
+	if(isnull(human_holder.loc))
+		return // preview characters don't need funny organs, prevents a runtime
 
-	var/obj/item/organ/internal/brain/slime/old_brain = human_holder.get_organ_slot(ORGAN_SLOT_BRAIN)
-	var/obj/item/organ/internal/stomach/slime/old_stomach = human_holder.get_organ_slot(ORGAN_SLOT_STOMACH)
+	var/obj/item/organ/brain/slime/oversized/new_slime_brain = new
+	var/obj/item/organ/stomach/slime/oversized/new_slime_stomach = new //YOU LOOK HUGE! THAT MUST MEAN YOU HAVE HUGE golgi apparatus! RIP AND TEAR YOUR HUGE golgi apparatus!
+
+	var/obj/item/organ/brain/slime/old_brain = human_holder.get_organ_slot(ORGAN_SLOT_BRAIN)
+	var/obj/item/organ/stomach/slime/old_stomach = human_holder.get_organ_slot(ORGAN_SLOT_STOMACH)
 	oversized_quirk.old_organs = list(
 		old_brain,
 		old_stomach,
@@ -77,55 +79,92 @@
 	// To prevent ghosting. We have to do this manually here because TG has replace_into() hardcoded to qdel the old brain no matter what and there is no way around it.
 	old_brain.Remove(human_holder, special = TRUE, movement_flags = NO_ID_TRANSFER)
 
-	if(new_slime_brain.Insert(human_holder, special = TRUE, movement_flags = NO_ID_TRANSFER))
-		to_chat(human_holder, span_warning("Your massive core pulses with bioelectricity!"))
-		if(old_brain)
-			old_brain.moveToNullspace()
-			STOP_PROCESSING(SSobj, old_brain)
+	new_slime_brain.Insert(human_holder, special = TRUE, movement_flags = NO_ID_TRANSFER)
+	to_chat(human_holder, span_warning("Your massive core pulses with bioelectricity!"))
+	if(old_brain)
+		old_brain.moveToNullspace()
+		STOP_PROCESSING(SSobj, old_brain)
 	if(old_stomach.is_oversized) // don't override augments that are already oversized
 		oversized_quirk.old_organs -= old_stomach
 		qdel(new_slime_stomach)
 		return
-	if(new_slime_stomach.Insert(human_holder, special = TRUE))
-		to_chat(human_holder, span_warning("You feel your massive golgi apparatus squish!"))
-		if(old_stomach)
-			old_stomach.moveToNullspace()
-			STOP_PROCESSING(SSobj, old_stomach)
+	new_slime_stomach.Insert(human_holder, special = TRUE)
+	to_chat(human_holder, span_warning("You feel your massive golgi apparatus squish!"))
+	if(old_stomach)
+		old_stomach.moveToNullspace()
+		STOP_PROCESSING(SSobj, old_stomach)
 
-/obj/item/organ/internal/eyes/jelly
+/obj/item/organ/eyes/jelly
 	name = "photosensitive eyespots"
 	zone = BODY_ZONE_CHEST
-	organ_flags = ORGAN_UNREMOVABLE
+	organ_flags = ORGAN_ORGANIC | ORGAN_UNREMOVABLE
 
-/obj/item/organ/internal/eyes/roundstartslime
+/obj/item/organ/eyes/roundstartslime
 	name = "photosensitive eyespots"
 	zone = BODY_ZONE_CHEST
-	organ_flags = ORGAN_UNREMOVABLE
+	organ_flags = ORGAN_ORGANIC | ORGAN_UNREMOVABLE
 
-/obj/item/organ/internal/ears/jelly
+/obj/item/organ/ears/jelly
 	name = "core audiosomes"
 	zone = BODY_ZONE_CHEST
-	organ_flags = ORGAN_UNREMOVABLE
+	organ_flags = ORGAN_ORGANIC | ORGAN_UNREMOVABLE
 
-/obj/item/organ/internal/tongue/jelly
+/obj/item/organ/tongue/jelly
 	zone = BODY_ZONE_CHEST
-	organ_flags = ORGAN_UNREMOVABLE
+	organ_flags = ORGAN_ORGANIC | ORGAN_UNREMOVABLE
 
-/obj/item/organ/internal/lungs/slime
+/obj/item/organ/lungs/slime
 	zone = BODY_ZONE_CHEST
-	organ_flags = ORGAN_UNREMOVABLE
+	organ_flags = ORGAN_ORGANIC | ORGAN_UNREMOVABLE
 
-/obj/item/organ/internal/liver/slime
+/obj/item/organ/liver/slime
 	name = "endoplasmic reticulum"
 	zone = BODY_ZONE_CHEST
-	organ_flags = ORGAN_UNREMOVABLE
+	organ_flags = ORGAN_ORGANIC | ORGAN_UNREMOVABLE
 
-/obj/item/organ/internal/stomach/slime
+// CHEMICAL HANDLING
+// Here's where slimes heal off plasma and where they hate drinking water.
+/obj/item/organ/liver/slime/handle_chemical(mob/living/carbon/organ_owner, datum/reagent/chem, seconds_per_tick, times_fired)
+	. = ..()
+	if(. & COMSIG_MOB_STOP_REAGENT_TICK)
+		return
+	// slimes use plasma to fix wounds, and if they have enough blood, organs
+	var/static/list/organs_we_mend = list(
+		ORGAN_SLOT_BRAIN,
+		ORGAN_SLOT_LUNGS,
+		ORGAN_SLOT_LIVER,
+		ORGAN_SLOT_STOMACH,
+		ORGAN_SLOT_EYES,
+		ORGAN_SLOT_EARS,
+	)
+	if(chem.type == /datum/reagent/toxin/plasma || chem.type == /datum/reagent/toxin/hot_ice)
+		for(var/datum/wound/iter_wound as anything in organ_owner.all_wounds)
+			iter_wound.on_xadone(4 * REM * seconds_per_tick)
+			organ_owner.reagents.remove_reagent(chem.type, min(chem.volume * 0.22, 10))
+		if(organ_owner.blood_volume > BLOOD_VOLUME_SLIME_SPLIT)
+			organ_owner.adjustOrganLoss(
+			pick(organs_we_mend),
+			- 2 * seconds_per_tick,
+		)
+		if(SPT_PROB(5, seconds_per_tick))
+			to_chat(organ_owner, span_purple("Your body's thirst for plasma is quenched, your inner and outer membrane using it to regenerate."))
+
+	if(chem.type == /datum/reagent/water)
+		if (HAS_TRAIT(organ_owner, TRAIT_SLIME_HYDROPHOBIA) || HAS_TRAIT(organ_owner, TRAIT_WATER_BREATHING))
+			return
+
+		organ_owner.blood_volume -= 3 * seconds_per_tick
+		organ_owner.reagents.remove_reagent(chem.type, min(chem.volume * 0.22, 10))
+		if(SPT_PROB(1, seconds_per_tick))
+			to_chat(organ_owner, span_warning("The water starts to weaken and adulterate your insides!"))
+		return COMSIG_MOB_STOP_REAGENT_TICK
+
+/obj/item/organ/stomach/slime
 	name = "golgi apparatus"
 	zone = BODY_ZONE_CHEST
-	organ_flags = ORGAN_UNREMOVABLE
+	organ_flags = ORGAN_ORGANIC | ORGAN_UNREMOVABLE
 
-/obj/item/organ/internal/brain/slime
+/obj/item/organ/brain/slime
 	name = "core"
 	desc = "The central core of a slimeperson, technically their 'extract.' Where the cytoplasm, membrane, and organelles come from; perhaps this is also a mitochondria?"
 	zone = BODY_ZONE_CHEST
@@ -143,25 +182,26 @@
 	throw_speed = 0.5
 	resistance_flags = INDESTRUCTIBLE | FIRE_PROOF | LAVA_PROOF | UNACIDABLE | ACID_PROOF | FREEZE_PROOF
 
-/obj/item/organ/internal/brain/slime/Initialize(mapload, mob/living/carbon/organ_owner, list/examine_list)
+/obj/item/organ/brain/slime/Initialize(mapload, mob/living/carbon/organ_owner, list/examine_list)
 	. = ..()
+	AddComponent(/datum/component/bubble_icon_override, "slime", BUBBLE_ICON_PRIORITY_ORGAN)
 	colorize()
 
-/obj/item/organ/internal/brain/slime/examine()
+/obj/item/organ/brain/slime/examine()
 	. = ..()
 	if(gps_active)
 		. += span_notice("A dim light lowly pulsates from the center of the core, indicating an outgoing signal from a tracking microchip.")
 		. += span_red("You could probably snuff that out.")
 	. += span_hypnophrase("You remember that pouring plasma on it, if it's non-embodied, would make it regrow one.")
 
-/obj/item/organ/internal/brain/slime/attack_self(mob/living/user) // Allows a player (presumably an antag) to deactivate the GPS signal on a slime core
+/obj/item/organ/brain/slime/attack_self(mob/living/user) // Allows a player (presumably an antag) to deactivate the GPS signal on a slime core
 	if(!(gps_active))
 		return
 	user.visible_message(span_warning("[user] begins jamming [user.p_their()] hand into a slime core! Slime goes everywhere!"),
 	span_notice("You jam your hand into the core, feeling for the densest point! Your arm is covered in slime!"),
 	span_notice("You hear an obscene squelching sound.")
 	)
-	playsound(user, 'sound/surgery/organ1.ogg', 80, TRUE)
+	playsound(user, 'sound/items/handling/surgery/organ1.ogg', 80, TRUE)
 
 	if(!do_after(user, 30 SECONDS, src))
 		user.visible_message(span_warning("[user]'s hand slips out of the core before [user.p_they()] can cause any harm!'"),
@@ -177,30 +217,28 @@
 	gps_active = FALSE
 	qdel(GetComponent(/datum/component/gps))
 
-/obj/item/organ/internal/brain/slime/Insert(mob/living/carbon/organ_owner, special = FALSE, movement_flags)
+/obj/item/organ/brain/slime/on_mob_insert(mob/living/carbon/organ_owner, special = FALSE, movement_flags)
 	. = ..()
-	if(!.)
-		return
 	colorize()
 	core_ejected = FALSE
 	RegisterSignal(organ_owner, COMSIG_LIVING_DEATH, PROC_REF(on_slime_death))
 
-/obj/item/organ/internal/brain/slime/on_mob_remove(mob/living/carbon/organ_owner)
+/obj/item/organ/brain/slime/on_mob_remove(mob/living/carbon/organ_owner)
 	. = ..()
 	UnregisterSignal(organ_owner, COMSIG_LIVING_DEATH)
 
 /**
 * Colors the slime's core (their brain) the same as their first mutant color.
 */
-/obj/item/organ/internal/brain/slime/proc/colorize()
+/obj/item/organ/brain/slime/proc/colorize()
 	if(owner && isjellyperson(owner))
-		core_color = owner.dna.features["mcolor"]
+		core_color = owner.dna.features[FEATURE_MUTANT_COLOR]
 		add_atom_colour(core_color, FIXED_COLOUR_PRIORITY)
 
 /**
 * Handling for tracking when the slime in question dies (except through gibbing), which then segues into the core ejection proc.
 */
-/obj/item/organ/internal/brain/slime/proc/on_slime_death(mob/living/victim, gibbed)
+/obj/item/organ/brain/slime/proc/on_slime_death(mob/living/victim, gibbed)
 	SIGNAL_HANDLER
 	UnregisterSignal(victim, COMSIG_LIVING_DEATH)
 
@@ -215,7 +253,7 @@
 * CORE EJECTION PROC -
 * Makes it so that when a slime dies, their core ejects and their body is qdel'd.
 */
-/obj/item/organ/internal/brain/slime/proc/core_ejection(mob/living/victim, new_stat, turf/loc_override)
+/obj/item/organ/brain/slime/proc/core_ejection(mob/living/victim, new_stat, turf/loc_override)
 	if(core_ejected)
 		return
 	core_ejected = TRUE
@@ -230,7 +268,7 @@
 	new death_melt_type(death_loc, victim.dir)
 
 	do_steam_effects(get_turf(victim))
-	playsound(victim, 'sound/effects/blobattack.ogg', 80, TRUE)
+	playsound(victim, 'sound/effects/blob/blobattack.ogg', 80, TRUE)
 
 	if(gps_active) // adding the gps signal if they have activated the ability
 		AddComponent(/datum/component/gps, "[victim]'s Core")
@@ -241,7 +279,7 @@
 /**
 * Procs the ethereal jaunt liquid effect when the slime dissolves on death.
 */
-/obj/item/organ/internal/brain/slime/proc/do_steam_effects(turf/loc)
+/obj/item/organ/brain/slime/proc/do_steam_effects(turf/loc)
 	var/datum/effect_system/steam_spread/steam = new()
 	steam.set_up(10, FALSE, loc)
 	steam.start()
@@ -250,93 +288,131 @@
 * CHECK FOR REPAIR SECTION
 * Makes it so that when a slime's core has plasma poured on it, it builds a new body and moves the brain into it.
 */
-/obj/item/organ/internal/brain/slime/check_for_repair(obj/item/item, mob/user)
-	if(damage && item.is_drainable() && item.reagents.has_reagent(/datum/reagent/toxin/plasma) && item.reagents.get_reagent_amount(/datum/reagent/toxin/plasma) >= 100 && (organ_flags & ORGAN_ORGANIC)) //attempt to heal the brain
-
-		user.visible_message(span_notice("[user] starts to slowly pour the contents of [item] onto [src]. It seems to bubble and roil, beginning to stretch its cytoskeleton outwards..."), span_notice("You start to slowly pour the contents of [item] onto [src]. It seems to bubble and roil, beginning to stretch its membrane outwards..."))
-		if(!do_after(user, 60 SECONDS, src))
-			to_chat(user, span_warning("You failed to pour the contents of [item] onto [src]!"))
-			return TRUE
-
-		user.visible_message(span_notice("[user] pours the contents of [item] onto [src], causing it to form a proper cytoplasm and outer membrane."), span_notice("You pour the contents of [item] onto [src], causing it to form a proper cytoplasm and outer membrane."))
-		item.reagents.clear_reagents() //removes the whole shit
-		set_organ_damage(-maxHealth) //fully heals the brain
-
-		if(gps_active) // making sure the gps signal is removed if it's active on revival
-			gps_active = FALSE
-			qdel(GetComponent(/datum/component/gps))
-
-		//we have the plasma. we can rebuild them.
-		if(isnull(brainmob))
-			user.balloon_alert("This brain is not a viable candidate for repair!")
-			return TRUE
-		if(isnull(brainmob.stored_dna))
-			user.balloon_alert("This brain does not contain any dna!")
-			return TRUE
-		if(isnull(brainmob.client))
-			user.balloon_alert("This brain does not contain a mind!")
-			return TRUE
-		var/mob/living/carbon/human/new_body = new /mob/living/carbon/human(src.loc)
-
-		brainmob.client?.prefs?.safe_transfer_prefs_to(new_body)
-		new_body.underwear = "Nude"
-		new_body.bra = "Nude"
-		new_body.undershirt = "Nude" //Which undershirt the player wants
-		new_body.socks = "Nude" //Which socks the player wants
-		brainmob.stored_dna.transfer_identity(new_body, transfer_SE=1)
-		new_body.dna.features["mcolor"] = new_body.dna.features["mcolor"]
-		new_body.dna.update_uf_block(DNA_MUTANT_COLOR_BLOCK)
-		new_body.real_name = new_body.dna.real_name
-		new_body.name = new_body.dna.real_name
-		new_body.updateappearance(mutcolor_update=1)
-		new_body.domutcheck()
-		new_body.forceMove(get_turf(src))
-		new_body.blood_volume = BLOOD_VOLUME_SAFE+60
-		REMOVE_TRAIT(new_body, TRAIT_NO_TRANSFORM, REF(src))
-		SSquirks.AssignQuirks(new_body, brainmob.client)
-		src.replace_into(new_body)
-		for(var/obj/item/bodypart/bodypart as anything in new_body.bodyparts)
-			if(!istype(bodypart, /obj/item/bodypart/chest))
-				bodypart.drop_limb()
-				continue
-		new_body.visible_message(span_warning("[new_body]'s torso \"forms\" from [new_body.p_their()] core, yet to form the rest."))
-		to_chat(owner, span_purple("Your torso fully forms out of your core, yet to form the rest."))
-		brainmob.mind.transfer_to(new_body)
+/obj/item/organ/brain/slime/check_for_repair(obj/item/item, mob/user)
+	if(!item.is_drainable() || item.reagents.get_reagent_amount(/datum/reagent/toxin/plasma) < 100)
+		return FALSE
+	user.visible_message(
+		span_notice("[user] starts to slowly pour the contents of [item] onto [src]. It seems to bubble and roil, beginning to stretch its cytoskeleton outwards..."),
+		span_notice("You start to slowly pour the contents of [item] onto [src]. It seems to bubble and roil, beginning to stretch its membrane outwards...")
+	)
+	brainmob?.notify_revival("You are being revived!", sound = null, source = src) // no sound since it's a whopping 60 second wait time after this
+	if(!do_after(user, 60 SECONDS, src))
+		to_chat(user, span_warning("You failed to pour the contents of [item] onto [src]!"))
 		return TRUE
-	return FALSE
 
+	user.visible_message(
+		span_notice("[user] pours the contents of [item] onto [src], causing it to form a proper cytoplasm and outer membrane."),
+		span_notice("You pour the contents of [item] onto [src], causing it to form a proper cytoplasm and outer membrane.")
+	)
+	item.reagents.clear_reagents() //removes the whole shit
+	if(isnull(brainmob))
+		user.balloon_alert(user, "brain is not a viable candidate for repair!")
+		return TRUE
+
+	brainmob.grab_ghost()
+	if(isnull(brainmob.stored_dna))
+		user.balloon_alert(user, "brain does not contain any dna!")
+		return TRUE
+	if(isnull(brainmob.client))
+		user.balloon_alert(user, "brain does not contain a mind!")
+		return TRUE
+	regenerate()
+	return TRUE
+
+/obj/item/organ/brain/slime/proc/regenerate()
+	//we have the plasma. we can rebuild them.
+	set_organ_damage(-maxHealth) //fully heals the brain
+	if(gps_active) // making sure the gps signal is removed if it's active on revival
+		gps_active = FALSE
+		qdel(GetComponent(/datum/component/gps))
+
+	var/mob/living/carbon/human/new_body = new /mob/living/carbon/human(src.loc)
+
+	brainmob.client?.prefs?.safe_transfer_prefs_to(new_body)
+	new_body.underwear = "Nude"
+	new_body.bra = "Nude"
+	new_body.undershirt = "Nude" //Which undershirt the player wants
+	new_body.socks = "Nude" //Which socks the player wants
+	brainmob.stored_dna.copy_dna(new_body.dna, transfer_flags = COPY_DNA_SE|COPY_DNA_SPECIES)
+	new_body.dna.features[FEATURE_MUTANT_COLOR] = new_body.dna.features[FEATURE_MUTANT_COLOR]
+	new_body.dna.update_uf_block(FEATURE_MUTANT_COLOR)
+	new_body.real_name = new_body.dna.real_name
+	new_body.name = new_body.dna.real_name
+	new_body.updateappearance(mutcolor_update=1)
+	new_body.domutcheck()
+	new_body.forceMove(get_turf(src))
+	new_body.blood_volume = BLOOD_VOLUME_SAFE+60
+	SSquirks.AssignQuirks(new_body, brainmob.client)
+	src.replace_into(new_body)
+	for(var/obj/item/bodypart/bodypart as anything in new_body.bodyparts)
+		if(!istype(bodypart, /obj/item/bodypart/chest))
+			bodypart.drop_limb()
+			continue
+	new_body.visible_message(span_warning("[new_body]'s torso \"forms\" from [new_body.p_their()] core, yet to form the rest."))
+	to_chat(owner, span_purple("Your torso fully forms out of your core, yet to form the rest."))
+	return TRUE
 
 // HEALING SECTION
-// Handles passive healing and water damage.
+// Handles passive healing and water damage for slimes and water-breathing variants.
 /datum/species/jelly/spec_life(mob/living/carbon/human/slime, seconds_per_tick, times_fired)
 	. = ..()
+
+	// Skip if unconscious
 	if(slime.stat != CONSCIOUS)
 		return
 
 	var/healing = TRUE
 
+	// Get wetness effect if it exists
 	var/datum/status_effect/fire_handler/wet_stacks/wetness = locate() in slime.status_effects
+	var/wetness_amount = 0
+	if(istype(wetness))
+		wetness_amount = wetness.stacks
+
+	// Skip if hydrophobic
 	if(HAS_TRAIT(slime, TRAIT_SLIME_HYDROPHOBIA))
 		return
-	if(istype(wetness) && wetness.stacks > (DAMAGE_WATER_STACKS))
-		slime.blood_volume -= 2 * seconds_per_tick
-		if(SPT_PROB(25, seconds_per_tick))
-			slime.visible_message(span_danger("[slime]'s form begins to lose cohesion, seemingly diluting with the water!"), span_warning("The water starts to dilute your body, dry it off!"))
 
-	if(istype(wetness) && wetness.stacks > (REGEN_WATER_STACKS))
-		healing = FALSE
-		if(SPT_PROB(1, seconds_per_tick))
-			to_chat(slime, span_warning("You can't pull your body together and regenerate with water inside it!"))
-			slime.blood_volume -= 1 * seconds_per_tick
+	// Determine if water-breathing logic should be inverted
+	var/inverted = HAS_TRAIT(slime, TRAIT_WATER_BREATHING)
+	var/blood_units_to_lose = 0
+	
+	if(inverted)
+		// Water-breathing slimes: damaged when dry, heal only when wet
+		if(wetness_amount <= REGEN_WATER_STACKS) 
+			blood_units_to_lose = 2 * seconds_per_tick
+			healing = FALSE
+			if(SPT_PROB(25, seconds_per_tick))
+				slime.visible_message(
+					span_danger("[slime]'s form begins to lose cohesion, seemingly drying out!"),
+					span_warning("Your body loses cohesion as it dries, only immersion can restore it!"),
+				)
+		
+	else 
+		// Normal slimes: damaged when too wet, cannot heal if too wet
+		if(wetness_amount > DAMAGE_WATER_STACKS)
+			blood_units_to_lose += 2 * seconds_per_tick
+			if(SPT_PROB(25, seconds_per_tick))
+				slime.visible_message(
+					span_danger("[slime]'s form begins to lose cohesion, seemingly diluting with the water!"),
+					span_warning("The water starts to dilute your body, dry it off!"),
+				)
+		if(wetness_amount > REGEN_WATER_STACKS) 
+			healing = FALSE
+			blood_units_to_lose += 1 * seconds_per_tick
+			if(SPT_PROB(1, seconds_per_tick))
+				to_chat(slime, span_warning("You can't pull your body together and regenerate with water inside it!"))
 
+	slime.blood_volume -= blood_units_to_lose
+
+	// PASSIVE HEALING
 	if(slime.blood_volume >= BLOOD_VOLUME_NORMAL && healing)
-		if(HAS_TRAIT(slime, TRAIT_SLIME_HYDROPHOBIA))
-			return
 		if(slime.stat != CONSCIOUS)
 			return
 		slime.heal_overall_damage(brute = 1.5 * seconds_per_tick, burn = 1.5 * seconds_per_tick, required_bodytype = BODYTYPE_ORGANIC)
 		slime.adjustOxyLoss(-1 * seconds_per_tick)
-
+		if(slime.health < slime.maxHealth)
+			new /obj/effect/temp_visual/heal(get_turf(slime), COLOR_EFFECT_HEAL_RED)
 
 /**
 * SLIME CLEANING ABILITY -
@@ -378,19 +454,19 @@
 
 /datum/status_effect/slime_washing/tick(seconds_between_ticks, seconds_per_tick)
 	if(ishuman(owner))
-		var/mob/living/carbon/human/slime = owner
-		for(var/obj/item/slime_items in slime.get_equipped_items(INCLUDE_ACCESSORIES | INCLUDE_HELD))
-			slime_items.wash(CLEAN_WASH)
-			slime.wash(CLEAN_WASH)
-		if((slime.wear_suit?.body_parts_covered | slime.w_uniform?.body_parts_covered | slime.shoes?.body_parts_covered) & FEET)
+		var/mob/living/carbon/human/slime_person = owner
+
+		slime_person.wash(CLEAN_WASH) // Wash ourselves and all uncovered clothing
+
+		if((slime_person.wear_suit?.body_parts_covered | slime_person.w_uniform?.body_parts_covered | slime_person.shoes?.body_parts_covered) & FEET)
 			return
 		else
-			var/turf/open/open_turf = get_turf(slime)
+			var/turf/open/open_turf = get_turf(slime_person)
 			if(istype(open_turf))
 				open_turf.wash(CLEAN_WASH)
 				return TRUE
 			if(SPT_PROB(5, seconds_per_tick))
-				slime.adjust_nutrition((rand(5,25)))
+				slime_person.adjust_nutrition((rand(5,25)))
 
 /datum/status_effect/slime_washing/get_examine_text()
 	return span_notice("[owner.p_Their()] outer layer is pulling in grime, filth sinking inside of [owner.p_their()] body and vanishing.")
@@ -449,44 +525,6 @@
 /datum/status_effect/slime_hydrophobia/get_examine_text()
 	return span_notice("[owner.p_They()] is oozing out an oily coating onto [owner.p_their()] outer membrane, water rolling right off.")
 
-// CHEMICAL HANDLING
-// Here's where slimes heal off plasma and where they hate drinking water.
-
-/datum/species/jelly/handle_chemical(datum/reagent/chem, mob/living/carbon/human/slime, seconds_per_tick, times_fired)
-	. = ..()
-	if(. & COMSIG_MOB_STOP_REAGENT_CHECK)
-		return
-	// slimes use plasma to fix wounds, and if they have enough blood, organs
-	var/static/list/organs_we_mend = list(
-		ORGAN_SLOT_BRAIN,
-		ORGAN_SLOT_LUNGS,
-		ORGAN_SLOT_LIVER,
-		ORGAN_SLOT_STOMACH,
-		ORGAN_SLOT_EYES,
-		ORGAN_SLOT_EARS,
-	)
-	if(chem.type == /datum/reagent/toxin/plasma || chem.type == /datum/reagent/toxin/hot_ice)
-		for(var/datum/wound/iter_wound as anything in slime.all_wounds)
-			iter_wound.on_xadone(4 * REM * seconds_per_tick)
-			slime.reagents.remove_reagent(chem.type, min(chem.volume * 0.22, 10))
-		if(slime.blood_volume > BLOOD_VOLUME_SLIME_SPLIT)
-			slime.adjustOrganLoss(
-			pick(organs_we_mend),
-			- 2 * seconds_per_tick,
-		)
-		if(SPT_PROB(5, seconds_per_tick))
-			to_chat(slime, span_purple("Your body's thirst for plasma is quenched, your inner and outer membrane using it to regenerate."))
-
-	if(chem.type == /datum/reagent/water)
-		if(HAS_TRAIT(slime, TRAIT_SLIME_HYDROPHOBIA))
-			return
-
-		slime.blood_volume -= 3 * seconds_per_tick
-		slime.reagents.remove_reagent(chem.type, min(chem.volume * 0.22, 10))
-		if(SPT_PROB(1, seconds_per_tick))
-			to_chat(slime, span_warning("The water starts to weaken and adulterate your insides!"))
-		return COMSIG_MOB_STOP_REAGENT_CHECK
-
 /datum/species/jelly/get_species_description()
 	return placeholder_description
 
@@ -501,8 +539,8 @@
 	heatmod = 1
 	specific_alpha = 155
 	markings_alpha = 130 //This is set lower than the other so that the alpha values don't stack on top of each other so much
-	mutanteyes = /obj/item/organ/internal/eyes/roundstartslime
-	mutanttongue = /obj/item/organ/internal/tongue/jelly
+	mutanteyes = /obj/item/organ/eyes/roundstartslime
+	mutanttongue = /obj/item/organ/tongue/jelly
 
 	bodypart_overrides = list( //Overriding jelly bodyparts
 		BODY_ZONE_L_ARM = /obj/item/bodypart/arm/left/jelly/slime/roundstart,
@@ -702,8 +740,8 @@
 	var/selected_skintone = GLOB.skin_tones[skintone_index]
 
 	alterer.skin_tone = selected_skintone
-	alterer.dna.features["skin_color"] = skintone2hex(selected_skintone)
-	alterer.dna.update_uf_block(DNA_SKIN_TONE_BLOCK)
+	alterer.dna.features[FEATURE_SKIN_COLOR] = skintone2hex(selected_skintone)
+	alterer.dna.update_uf_block(/datum/dna_block/feature/mutant_color/skin_color)
 	alterer.update_body(is_creating = TRUE)
 
 /**
@@ -762,21 +800,21 @@
 	)
 
 	if(color_choice == "All")
-		alterer.dna.features["mcolor"] = sanitize_hexcolor(new_mutant_colour)
-		alterer.dna.features["mcolor2"] = sanitize_hexcolor(new_mutant_colour)
-		alterer.dna.features["mcolor3"] = sanitize_hexcolor(new_mutant_colour)
-		alterer.dna.update_uf_block(DNA_MUTANT_COLOR_BLOCK)
-		alterer.dna.update_uf_block(DNA_MUTANT_COLOR_2_BLOCK)
-		alterer.dna.update_uf_block(DNA_MUTANT_COLOR_3_BLOCK)
+		alterer.dna.features[FEATURE_MUTANT_COLOR] = sanitize_hexcolor(new_mutant_colour)
+		alterer.dna.features[FEATURE_MUTANT_COLOR_TWO] = sanitize_hexcolor(new_mutant_colour)
+		alterer.dna.features[FEATURE_MUTANT_COLOR_THREE] = sanitize_hexcolor(new_mutant_colour)
+		alterer.dna.update_uf_block(/datum/dna_block/feature/mutant_color)
+		alterer.dna.update_uf_block(/datum/dna_block/feature/mutant_color/two)
+		alterer.dna.update_uf_block(/datum/dna_block/feature/mutant_color/three)
 	else
 		alterer.dna.features[color_target] = sanitize_hexcolor(new_mutant_colour)
 		switch(color_target)
-			if("mcolor")
-				alterer.dna.update_uf_block(DNA_MUTANT_COLOR_BLOCK)
-			if("mcolor2")
-				alterer.dna.update_uf_block(DNA_MUTANT_COLOR_2_BLOCK)
-			if("mcolor3")
-				alterer.dna.update_uf_block(DNA_MUTANT_COLOR_3_BLOCK)
+			if(FEATURE_MUTANT_COLOR)
+				alterer.dna.update_uf_block(/datum/dna_block/feature/mutant_color)
+			if(FEATURE_MUTANT_COLOR_TWO)
+				alterer.dna.update_uf_block(/datum/dna_block/feature/mutant_color/two)
+			if(FEATURE_MUTANT_COLOR_THREE)
+				alterer.dna.update_uf_block(/datum/dna_block/feature/mutant_color/three)
 
 	if(marking_reset == "Yes")
 		for(var/zone in alterer.dna.species.body_markings)
@@ -838,7 +876,7 @@
 			var/hair_area = tgui_alert(alterer, "Select which color you would like to change", "Hair Color Alterations", list("Hairstyle", "Facial Hair", "Both"))
 			if(!hair_area)
 				return
-			var/new_hair_color = input(alterer, "Select your new hair color", "Hair Color Alterations", alterer.dna.features["mcolor"]) as color|null
+			var/new_hair_color = input(alterer, "Select your new hair color", "Hair Color Alterations", alterer.dna.features[FEATURE_MUTANT_COLOR]) as color|null
 			if(!new_hair_color)
 				return
 
@@ -901,22 +939,23 @@
 			alter_parts(alterer)
 
 	alterer.mutant_renderkey = "" //Just in case
-	alterer.update_mutant_bodyparts()
+	alterer.update_body_parts()
 
 /**
  * Alter parts lets you adjust mutant bodyparts
  * This can be adding (or removing) things like ears, tails, wings, et cetera.
  */
 /datum/action/innate/alter_form/proc/alter_parts(mob/living/carbon/human/alterer)
-	var/list/key_list = alterer.dna.mutant_bodyparts
-	if(CONFIG_GET(flag/disable_erp_preferences))
-		for(var/erp_part in ORGAN_ERP_LIST)
-			key_list -= erp_part
+	var/list/mutant_part_list = list()
+	for(var/datum/dna_block/feature/mutant/block as anything in subtypesof(/datum/dna_block/feature/mutant))
+		if(CONFIG_GET(flag/disable_erp_preferences) && (block::feature_key in ORGAN_ERP_LIST))
+			continue
+		mutant_part_list[block::feature_key] = block
 	var/chosen_key = tgui_input_list(
 		alterer,
 		"Select the part you want to alter",
 		"Body Part Alterations",
-		key_list,
+		mutant_part_list,
 	)
 	if(!chosen_key)
 		return
@@ -973,8 +1012,8 @@
 			new_acc_list[MUTANT_INDEX_COLOR_LIST] = selected_sprite_accessory.get_default_color(alterer.dna.features, alterer.dna.species)
 			alterer.dna.species.mutant_bodyparts[chosen_key] = new_acc_list
 			alterer.dna.mutant_bodyparts[chosen_key] = new_acc_list.Copy()
-		alterer.dna.update_uf_block(SSaccessories.dna_mutant_bodypart_blocks[chosen_key])
-	alterer.update_mutant_bodyparts()
+		alterer.dna.update_uf_block(mutant_part_list[chosen_key])
+	alterer.update_body_parts()
 	alterer.update_clothing(ALL) // for any clothing that has alternate versions (e.g. muzzled masks)
 
 /**
@@ -1019,13 +1058,13 @@
 		return
 	switch(dna_alteration)
 		if("Breasts Lactation")
-			var/obj/item/organ/external/genital/breasts/melons = alterer.get_organ_slot(ORGAN_SLOT_BREASTS)
+			var/obj/item/organ/genital/breasts/melons = alterer.get_organ_slot(ORGAN_SLOT_BREASTS)
 			alterer.dna.features["breasts_lactation"] = !alterer.dna.features["breasts_lactation"]
 			melons.lactates = alterer.dna.features["breasts_lactation"]
 			alterer.balloon_alert(alterer, "[alterer.dna.features["breasts_lactation"] ? "lactating" : "not lactating"]")
 
 		if("Breasts Size")
-			var/obj/item/organ/external/genital/breasts/melons = alterer.get_organ_slot(ORGAN_SLOT_BREASTS)
+			var/obj/item/organ/genital/breasts/melons = alterer.get_organ_slot(ORGAN_SLOT_BREASTS)
 			var/new_size = tgui_input_list(
 				alterer,
 				"Choose your character's breasts size:",
@@ -1038,7 +1077,7 @@
 			melons.set_size(alterer.dna.features["breasts_size"])
 
 		if("Penis Girth")
-			var/obj/item/organ/external/genital/penis/sausage = alterer.get_organ_slot(ORGAN_SLOT_PENIS)
+			var/obj/item/organ/genital/penis/sausage = alterer.get_organ_slot(ORGAN_SLOT_PENIS)
 			var/max_girth = PENIS_MAX_GIRTH
 			if(alterer.dna.features["penis_size"] >= max_girth)
 				max_girth = alterer.dna.features["penis_size"]
@@ -1054,7 +1093,7 @@
 				sausage.girth = alterer.dna.features["penis_girth"]
 
 		if("Penis Length")
-			var/obj/item/organ/external/genital/penis/wang = alterer.get_organ_slot(ORGAN_SLOT_PENIS)
+			var/obj/item/organ/genital/penis/wang = alterer.get_organ_slot(ORGAN_SLOT_PENIS)
 			var/new_length = tgui_input_number(
 				alterer,
 				"Choose your penis length:\n([PENIS_MIN_LENGTH]-[PENIS_MAX_LENGTH] inches)",
@@ -1071,7 +1110,7 @@
 			wang.set_size(alterer.dna.features["penis_size"])
 
 		if("Penis Sheath")
-			var/obj/item/organ/external/genital/penis/schlong = alterer.get_organ_slot(ORGAN_SLOT_PENIS)
+			var/obj/item/organ/genital/penis/schlong = alterer.get_organ_slot(ORGAN_SLOT_PENIS)
 			var/new_sheath = tgui_input_list(
 				alterer,
 				"Choose your penis sheath",
@@ -1087,7 +1126,7 @@
 			alterer.balloon_alert(alterer, "[alterer.dna.features["penis_taur_mode"] ? "using taur penis" : "not using taur penis"]")
 
 		if("Testicles Size")
-			var/obj/item/organ/external/genital/testicles/avocados = alterer.get_organ_slot(ORGAN_SLOT_TESTICLES)
+			var/obj/item/organ/genital/testicles/avocados = alterer.get_organ_slot(ORGAN_SLOT_TESTICLES)
 			var/new_size = tgui_input_list(
 				alterer,
 				"Choose your character's testicles size:",
@@ -1113,7 +1152,7 @@
 
 /datum/action/innate/core_signal/Activate()
 	var/mob/living/carbon/human/slime = owner
-	var/obj/item/organ/internal/brain/slime/core = slime.get_organ_slot(ORGAN_SLOT_BRAIN)
+	var/obj/item/organ/brain/slime/core = slime.get_organ_slot(ORGAN_SLOT_BRAIN)
 	if(slime_restricted && !isjellyperson(slime))
 		return
 	if(core.gps_active)

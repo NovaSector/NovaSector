@@ -2,6 +2,8 @@
 	/// How much power would this item use?
 	var/power_use_amount = POWER_CELL_USE_NORMAL
 
+	/// Worn overlay will be shifted by this along x axis
+	var/worn_x_offset = 0
 
 /// Use the power of an attached component that posesses power handling, will return the signal bitflag.
 /obj/item/proc/item_use_power(use_amount, mob/user, check_only)

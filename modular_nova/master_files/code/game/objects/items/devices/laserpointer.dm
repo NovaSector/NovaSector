@@ -24,8 +24,8 @@
 		return
 	return ..()
 
-/obj/item/laser_pointer/attackby(obj/item/attack_item, mob/user, params)
-	if(istype(attack_item, /obj/item/stock_parts/micro_laser) || istype(attack_item, /obj/item/stack/ore/bluespace_crystal))
+/obj/item/laser_pointer/attackby(obj/item/attacking_item, mob/user, list/modifiers, list/attack_modifiers)
+	if(istype(attacking_item, /obj/item/stock_parts/micro_laser) || istype(attacking_item, /obj/item/stack/ore/bluespace_crystal))
 		if(!upgradable)
 			balloon_alert(user, "can't upgrade integrated parts!")
 			return

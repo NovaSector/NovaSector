@@ -9,13 +9,8 @@
 		return TRUE
 	if(result_bitflags & COMPONENT_OBJ_DISALLOW) // override all other checks
 		return FALSE
-	if(!isnull(accessor) && HAS_TRAIT(accessor, TRAIT_ALWAYS_NO_ACCESS))
-		return FALSE
-	//check if it doesn't require any access at all
-	if(check_access(null))
-		return TRUE
 	if(isnull(accessor)) //likely a TK user.
-		return FALSE
+		return check_access(null)
 	if(isAdminGhostAI(accessor))
 		//Access can't stop the abuse
 		return TRUE
@@ -25,6 +20,9 @@
 		return TRUE
 	if(attempted_access & ACCESS_DISALLOWED)
 		return FALSE
+	//check if it doesn't require any access at all
+	if(check_access(null))
+		return TRUE
 	if(HAS_SILICON_ACCESS(accessor))
 		if(ispAI(accessor))
 			return FALSE
@@ -81,8 +79,8 @@
 /obj/item/proc/GetID()
 	return null
 
-/obj/item/proc/RemoveID()
+/obj/item/proc/remove_id()
 	return null
 
-/obj/item/proc/InsertID()
+/obj/item/proc/insert_id()
 	return FALSE

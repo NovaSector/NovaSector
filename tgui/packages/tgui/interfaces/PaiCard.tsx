@@ -1,7 +1,3 @@
-import { decodeHtmlEntities } from 'common/string';
-
-import { BooleanLike } from '../../common/react';
-import { useBackend } from '../backend';
 import {
   BlockQuote,
   Box,
@@ -10,7 +6,11 @@ import {
   NoticeBox,
   Section,
   Stack,
-} from '../components';
+} from 'tgui-core/components';
+import type { BooleanLike } from 'tgui-core/react';
+import { decodeHtmlEntities } from 'tgui-core/string';
+
+import { useBackend } from '../backend';
 import { Window } from '../layouts';
 
 type Data = {
@@ -36,6 +36,7 @@ type Pai = {
   name: string;
   transmit: BooleanLike;
   receive: BooleanLike;
+  leashed: BooleanLike;
   range: number;
   leash_enabled: BooleanLike; // NOVA EDIT ADDITION
 };
@@ -163,6 +164,7 @@ const PaiOptions = (props) => {
       name,
       transmit,
       receive,
+      leashed,
       range,
       leash_enabled /* NOVA EDIT ADDITION */,
     },
@@ -196,44 +198,35 @@ const PaiOptions = (props) => {
             Toggle
           </Button>
         </LabeledList.Item>
-        {/* NOVA EDIT ADDITION START */}
-        {!emagged && (
-          <LabeledList.Item label="Holoform Leashed">
-            <Button
-              icon={leash_enabled ? 'toggle-off' : 'toggle-on'}
-              onClick={() => act('toggle_leash')}
-              selected={leash_enabled}
-              tooltip="Whether or not the holoform is able to roam freely outside of its range."
-            >
-              Toggle
-            </Button>
-          </LabeledList.Item>
-        )}
-        {/* NOVA EDIT ADDITION END */}
+        <LabeledList.Item label="Leash">
+          <Button
+            icon={leashed ? 'toggle-on' : 'toggle-off'}
+            onClick={() => act('toggle_leash')}
+            selected={leashed}
+          >
+            {leashed ? 'Unleash' : 'Leash'}
+          </Button>
+        </LabeledList.Item>
         <LabeledList.Item label="Holoform Range">
-          {emagged ? (
-            '∞'
-          ) : (
-            <Stack>
-              <Stack.Item>
-                <Button
-                  icon="fa-circle-minus"
-                  onClick={() => act('decrease_range')}
-                  /* NOVA EDIT CHANGE ORIGINAL: disabled={range === range_max} */
-                  disabled={!leash_enabled || range === range_min}
-                />
-              </Stack.Item>
-              <Stack.Item mt={0.5}>{range}</Stack.Item>
-              <Stack.Item>
-                <Button
-                  icon="fa-circle-plus"
-                  onClick={() => act('increase_range')}
-                  /* NOVA EDIT CHANGE ORIGINAL: disabled={range === range_max} */
-                  disabled={!leash_enabled || range === range_max}
-                />
-              </Stack.Item>
-            </Stack>
-          )}
+          <Stack>
+            <Stack.Item>
+              <Button
+                icon="fa-circle-minus"
+                onClick={() => act('decrease_range')}
+                /* NOVA EDIT CHANGE ORIGINAL: disabled={range === range_max} */
+                disabled={!leash_enabled || range === range_min}
+              />
+            </Stack.Item>
+            <Stack.Item mt={0.5}>{range}</Stack.Item>
+            <Stack.Item>
+              <Button
+                icon="fa-circle-plus"
+                onClick={() => act('increase_range')}
+                /* NOVA EDIT CHANGE ORIGINAL: disabled={range === range_max} */
+                disabled={!leash_enabled || range === range_max}
+              />
+            </Stack.Item>
+          </Stack>
         </LabeledList.Item>
         <LabeledList.Item label="Transmit">
           <Button

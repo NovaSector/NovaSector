@@ -71,7 +71,7 @@
 	balloon_alert(user, "no quantum pad data found!")
 	return NONE
 
-/obj/machinery/quantumpad/attackby(obj/item/weapon, mob/user, params)
+/obj/machinery/quantumpad/attackby(obj/item/weapon, mob/user, list/modifiers, list/attack_modifiers)
 	if(default_deconstruction_screwdriver(user, "qpad-idle-open", "qpad-idle", weapon))
 		return
 
@@ -92,8 +92,10 @@
 	return ..()
 
 /obj/machinery/quantumpad/interact(mob/user, obj/machinery/quantumpad/target_pad = linked_pad)
-	if(!target_pad || QDELETED(target_pad))
-		if(!map_pad_link_id || !initMappedLink())
+	if(QDELETED(target_pad))
+		if(map_pad_link_id && initMappedLink())
+			target_pad = linked_pad
+		else
 			to_chat(user, span_warning("Target pad not found!"))
 			return
 	//NOVA EDIT ADDITION
@@ -138,7 +140,7 @@
 /obj/machinery/quantumpad/proc/doteleport(mob/user = null, obj/machinery/quantumpad/target_pad = linked_pad)
 	if(!target_pad)
 		return
-	playsound(get_turf(src), 'sound/weapons/flash.ogg', 25, TRUE)
+	playsound(get_turf(src), 'sound/items/weapons/flash.ogg', 25, TRUE)
 	teleporting = TRUE
 
 	addtimer(CALLBACK(src, PROC_REF(teleport_contents), user, target_pad), teleport_speed)
@@ -162,9 +164,9 @@
 	target_pad.sparks()
 
 	flick("qpad-beam", src)
-	playsound(get_turf(src), 'sound/weapons/emitter2.ogg', 25, TRUE)
+	playsound(get_turf(src), 'sound/items/weapons/emitter2.ogg', 25, TRUE)
 	flick("qpad-beam", target_pad)
-	playsound(get_turf(target_pad), 'sound/weapons/emitter2.ogg', 25, TRUE)
+	playsound(get_turf(target_pad), 'sound/items/weapons/emitter2.ogg', 25, TRUE)
 	for(var/atom/movable/ROI in get_turf(src))
 		if(QDELETED(ROI))
 			continue //sleeps in CHECK_TICK
@@ -248,5 +250,3 @@
 			failed.set_output(COMPONENT_SIGNAL)
 			return
 		attached_pad.doteleport(target_pad = attached_pad.linked_pad)
-
-

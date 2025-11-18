@@ -9,7 +9,7 @@
 	)
 	inherent_biotypes = MOB_ORGANIC|MOB_HUMANOID
 	mutant_bodyparts = list()
-	mutanttongue = /obj/item/organ/internal/tongue/unathi
+	mutanttongue = /obj/item/organ/tongue/unathi
 	payday_modifier = 1.0
 	changesource_flags = MIRROR_BADMIN | WABBAJACK | MIRROR_MAGIC | MIRROR_PRIDE | ERT_SPAWN | RACE_SWAP | SLIME_EXTRACT
 	examine_limb_id = SPECIES_LIZARD
@@ -25,16 +25,17 @@
 
 /datum/species/unathi/get_default_mutant_bodyparts()
 	return list(
-		"tail" = list("Smooth", TRUE),
-		"snout" = list("Sharp + Light", TRUE),
-		"spines" = list("None", FALSE),
-		"frills" = list("None", FALSE),
-		"horns" = list("Curled", FALSE),
-		"body_markings" = list("Smooth Belly", TRUE),
-		"legs" = list("Normal Legs", FALSE),
+		FEATURE_EARS = list("None", FALSE),
+		FEATURE_TAIL = list("Smooth", TRUE),
+		FEATURE_SNOUT = list("Sharp + Light", TRUE),
+		FEATURE_SPINES = list("None", FALSE),
+		FEATURE_FRILLS = list("None", FALSE),
+		FEATURE_HORNS = list("Curled", FALSE),
+		FEATURE_MARKING_GENERIC = list("Smooth Belly", TRUE),
+		FEATURE_LEGS = list("Normal Legs", FALSE),
 	)
 
-/obj/item/organ/internal/tongue/unathi
+/obj/item/organ/tongue/unathi
 	liked_foodtypes = GORE | MEAT | SEAFOOD | NUTS
 	disliked_foodtypes = GRAIN | DAIRY | CLOTH | GROSS
 	toxic_foodtypes = TOXIC
@@ -62,9 +63,9 @@
 		if(5)
 			main_color = "#33BB11"
 			second_color = "#339911"
-	features["mcolor"] = main_color
-	features["mcolor2"] = second_color
-	features["mcolor3"] = second_color
+	features[FEATURE_MUTANT_COLOR] = main_color
+	features[FEATURE_MUTANT_COLOR_TWO] = second_color
+	features[FEATURE_MUTANT_COLOR_THREE] = second_color
 	return features
 
 /datum/species/unathi/get_species_description()

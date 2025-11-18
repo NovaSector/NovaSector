@@ -1,5 +1,5 @@
-/obj/item/organ/internal/stomach/synth
-	name = "synthetic bio-reactor"
+/obj/item/organ/stomach/synth
+	name = "synthetic fuel cell"
 	icon = 'modular_nova/master_files/icons/obj/surgery.dmi'
 	icon_state = "stomach-ipc"
 	w_class = WEIGHT_CLASS_NORMAL
@@ -8,10 +8,10 @@
 	maxHealth = 1 * STANDARD_ORGAN_THRESHOLD
 	zone = "chest"
 	slot = "stomach"
-	desc = "A specialised mini reactor, for synthetic use only. Has a low-power mode to ensure baseline functions. Without this, synthetics are unable to stay powered."
+	desc = "A mini electrochemical reactor, for synthetic use only. Converts the chemical energy of a fuel into electricity to power synthetic bodies. Has a low-power mode to ensure baseline functions. Without this, synthetics are unable to stay powered."
 	organ_flags = ORGAN_ROBOTIC | ORGAN_SYNTHETIC_FROM_SPECIES
 
-/obj/item/organ/internal/stomach/synth/emp_act(severity)
+/obj/item/organ/stomach/synth/emp_act(severity)
 	. = ..()
 
 	if(!owner || . & EMP_PROTECT_SELF)
@@ -32,8 +32,8 @@
 			to_chat(owner, span_warning("Alert: Minor battery discharge!"))
 
 /datum/design/synth_stomach
-	name = "Synthetic Bio-Reactor"
-	desc = "A specialised mini reactor, for synthetic use only. Has a low-power mode to ensure baseline functions. Without this, synthetics are unable to stay powered."
+	name = "Synthetic Fuel Cell"
+	desc = "A mini electrochemical reactor, for synthetic use only. Converts the chemical energy of a fuel into electricity to power synthetic bodies. Has a low-power mode to ensure baseline functions. Without this, synthetics are unable to stay powered."
 	id = "synth_stomach"
 	build_type = PROTOLATHE | AWAY_LATHE | MECHFAB
 	construction_time = 4 SECONDS
@@ -41,22 +41,22 @@
 		/datum/material/iron = HALF_SHEET_MATERIAL_AMOUNT,
 		/datum/material/glass = HALF_SHEET_MATERIAL_AMOUNT,
 	)
-	build_path = /obj/item/organ/internal/stomach/synth
+	build_path = /obj/item/organ/stomach/synth
 	category = list(
 		RND_SUBCATEGORY_MECHFAB_ANDROID + RND_SUBCATEGORY_MECHFAB_ANDROID_ORGANS,
 	)
 	departmental_flags = DEPARTMENT_BITFLAG_MEDICAL | DEPARTMENT_BITFLAG_SCIENCE
 
-/obj/item/organ/internal/stomach/synth/Insert(mob/living/carbon/receiver, special, movement_flags)
+/obj/item/organ/stomach/synth/on_mob_insert(mob/living/carbon/receiver, special, movement_flags)
 	. = ..()
 	RegisterSignal(receiver, COMSIG_PROCESS_BORGCHARGER_OCCUPANT, PROC_REF(on_borg_charge))
 
-/obj/item/organ/internal/stomach/synth/Remove(mob/living/carbon/stomach_owner, special)
+/obj/item/organ/stomach/synth/on_mob_remove(mob/living/carbon/stomach_owner, special)
 	. = ..()
 	UnregisterSignal(stomach_owner, COMSIG_PROCESS_BORGCHARGER_OCCUPANT)
 
 ///Handles charging the synth from borg chargers
-/obj/item/organ/internal/stomach/synth/proc/on_borg_charge(datum/source, datum/callback/charge_cell, seconds_per_tick)
+/obj/item/organ/stomach/synth/proc/on_borg_charge(datum/source, datum/callback/charge_cell, seconds_per_tick)
 	SIGNAL_HANDLER
 
 	if(owner.nutrition >= NUTRITION_LEVEL_FULL)

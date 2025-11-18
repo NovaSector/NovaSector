@@ -1,7 +1,15 @@
 // THIS IS A NOVA SECTOR UI FILE
-import { BooleanLike, classes } from '../../common/react';
+import {
+  Box,
+  Button,
+  Divider,
+  Flex,
+  Section,
+  Stack,
+} from 'tgui-core/components';
+import { BooleanLike, classes } from 'tgui-core/react';
+
 import { useBackend } from '../backend';
-import { Box, Button, Divider, Flex, Section, Stack } from '../components';
 import { Window } from '../layouts';
 
 type Data = {

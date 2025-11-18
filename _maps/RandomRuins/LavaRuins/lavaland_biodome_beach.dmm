@@ -320,9 +320,9 @@
 /area/ruin/powered/beach)
 "hO" = (
 /obj/structure/table/wood,
-/obj/item/reagent_containers/pill/lsd,
-/obj/item/reagent_containers/pill/lsd,
-/obj/item/reagent_containers/pill/lsd,
+/obj/item/reagent_containers/applicator/pill/lsd,
+/obj/item/reagent_containers/applicator/pill/lsd,
+/obj/item/reagent_containers/applicator/pill/lsd,
 /turf/open/floor/wood,
 /area/ruin/powered/beach)
 "hS" = (
@@ -344,7 +344,7 @@
 /area/ruin/powered/beach)
 "jc" = (
 /obj/structure/table/wood,
-/obj/item/reagent_containers/pill/morphine,
+/obj/item/reagent_containers/applicator/pill/morphine,
 /obj/item/storage/fancy/donut_box,
 /turf/open/floor/wood,
 /area/ruin/powered/beach)
@@ -405,6 +405,10 @@
 	},
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer4,
 /turf/open/floor/plating,
+/area/ruin/powered/beach)
+"mv" = (
+/obj/effect/spawner/message_in_a_bottle/low_prob,
+/turf/open/misc/beach/coast,
 /area/ruin/powered/beach)
 "mw" = (
 /obj/structure/flora/coconuts,
@@ -511,9 +515,9 @@
 /area/ruin/powered/beach)
 "qy" = (
 /obj/structure/table/wood,
-/obj/item/reagent_containers/pill/zoom,
-/obj/item/reagent_containers/pill/zoom,
-/obj/item/reagent_containers/pill/zoom,
+/obj/item/reagent_containers/applicator/pill/zoom,
+/obj/item/reagent_containers/applicator/pill/zoom,
+/obj/item/reagent_containers/applicator/pill/zoom,
 /turf/open/floor/wood,
 /area/ruin/powered/beach)
 "qF" = (
@@ -690,9 +694,9 @@
 /area/ruin/powered/beach)
 "zm" = (
 /obj/structure/table/wood,
-/obj/item/reagent_containers/pill/morphine,
-/obj/item/reagent_containers/pill/morphine,
-/obj/item/reagent_containers/pill/morphine,
+/obj/item/reagent_containers/applicator/pill/morphine,
+/obj/item/reagent_containers/applicator/pill/morphine,
+/obj/item/reagent_containers/applicator/pill/morphine,
 /turf/open/floor/wood,
 /area/ruin/powered/beach)
 "zv" = (
@@ -985,6 +989,7 @@
 	dir = 1
 	},
 /obj/machinery/light/directional/south,
+/obj/effect/spawner/message_in_a_bottle/low_prob,
 /turf/open/misc/beach/coast/corner{
 	dir = 8
 	},
@@ -1140,7 +1145,7 @@
 /obj/structure/table,
 /obj/item/book/manual/wiki/barman_recipes,
 /obj/item/reagent_containers/cup/glass/shaker,
-/obj/item/reagent_containers/cup/rag,
+/obj/item/rag,
 /obj/machinery/light/small/directional/west,
 /turf/open/floor/wood,
 /area/ruin/powered/beach)
@@ -1338,7 +1343,7 @@
 /area/ruin/powered/beach)
 "Wd" = (
 /obj/structure/table/wood,
-/obj/item/reagent_containers/pill/happy,
+/obj/item/reagent_containers/applicator/pill/happy,
 /obj/item/toy/figure/bartender{
 	pixel_x = -8;
 	pixel_y = -1
@@ -1990,7 +1995,7 @@ bG
 bL
 VI
 VI
-yT
+mv
 pz
 Eu
 pz

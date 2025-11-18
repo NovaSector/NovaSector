@@ -19,7 +19,7 @@
 	icon_state = "punchcard_1"
 	punches = 1 // GBP_PUNCH_REWARD credits by default
 
-/obj/item/gbp_punchcard/attackby(obj/item/attacking_item, mob/user, params)
+/obj/item/gbp_punchcard/attackby(obj/item/attacking_item, mob/user, list/modifiers, list/attack_modifiers)
 	. = ..()
 	if(istype(attacking_item, /obj/item/gbp_puncher))
 		if(!COOLDOWN_FINISHED(src, gbp_punch_cooldown))
@@ -57,7 +57,7 @@
 	default_unfasten_wrench(user, tool)
 	return ITEM_INTERACT_SUCCESS
 
-/obj/machinery/gbp_redemption/attackby(obj/item/attacking_item, mob/user, params)
+/obj/machinery/gbp_redemption/attackby(obj/item/attacking_item, mob/user, list/modifiers, list/attack_modifiers)
 	if(default_deconstruction_screwdriver(user, "gbp_machine_open", "gbp_machine", attacking_item))
 		return
 
@@ -71,7 +71,7 @@
 		var/obj/item/gbp_punchcard/punchcard = attacking_item
 		var/amount_to_reward = punchcard.punches * GBP_PUNCH_REWARD
 		if(!punchcard.punches)
-			playsound(src, 'sound/machines/scanbuzz.ogg', 100)
+			playsound(src, 'sound/machines/scanner/scanbuzz.ogg', 100)
 			say("You can't redeem an unpunched card!")
 			return
 
@@ -88,7 +88,7 @@
 			return
 
 		if(!card_used.registered_account || !istype(card_used.registered_account.account_job, /datum/job/assistant))
-			playsound(src, 'sound/machines/scanbuzz.ogg', 100)
+			playsound(src, 'sound/machines/scanner/scanbuzz.ogg', 100)
 			say("You cannot redeem a punchcard without a valid assistant bank account!")
 			return
 

@@ -1,11 +1,9 @@
 /datum/sprite_accessory/xenodorsal
 	icon = 'modular_nova/master_files/icons/mob/sprite_accessory/xeno_parts.dmi'
-	generic = "Dorsal Spines"
-	key = "xenodorsal"
+	key = FEATURE_XENODORSAL
 	color_src = USE_ONE_COLOR
 	relevent_layers = list(BODY_BEHIND_LAYER, BODY_FRONT_LAYER)
-	genetic = TRUE
-	organ_type = /obj/item/organ/external/xenodorsal
+	organ_type = /obj/item/organ/xenodorsal
 
 /datum/sprite_accessory/xenodorsal/none
 	name = SPRITE_ACCESSORY_NONE
@@ -44,11 +42,9 @@
 //HEADS
 /datum/sprite_accessory/xenohead
 	icon = 'modular_nova/master_files/icons/mob/sprite_accessory/xeno_parts.dmi'
-	generic = "Caste Head"
-	key = "xenohead"
+	key = FEATURE_XENOHEAD
 	relevent_layers = list(BODY_ADJ_LAYER)
-	genetic = TRUE
-	organ_type = /obj/item/organ/external/xenohead
+	organ_type = /obj/item/organ/xenohead
 
 /datum/sprite_accessory/xenohead/none
 	name = SPRITE_ACCESSORY_NONE

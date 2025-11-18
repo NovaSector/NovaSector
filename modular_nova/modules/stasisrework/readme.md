@@ -10,11 +10,11 @@ Makes stasis beds have a lid when they're active.
 
 ### TG Proc Changes:
 
- - N/A
+- N/A
 
 ### Defines:
 
- - N/A
+- N/A
 
 ### Master file additions
 
@@ -25,6 +25,7 @@ Makes stasis beds have a lid when they're active.
 - N/A
 
 ### Credits:
+
 Baystation12 - Concept for the bodybag
 TGstation - Stasis Bed code and sleeper code
 FlamingLily - Jerryrigging the stasis bed code into a stasis bodybag and frankenstining sleeper and stasis bed code together

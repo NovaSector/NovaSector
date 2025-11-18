@@ -115,13 +115,13 @@
 	if(in_range(user, src) || isobserver(user))
 		. += span_notice("The status display reads: Malfunction probability reduced by <b>[malfunction_probability_coeff]%</b>.<br>Cooldown interval between experiments at <b>[resetTime*0.1]</b> seconds.")
 
-/obj/machinery/rnd/experimentor/attackby(obj/item/weapon, mob/living/user, params)
+/obj/machinery/rnd/experimentor/attackby(obj/item/weapon, mob/living/user, list/modifiers, list/attack_modifiers)
 	if(user.combat_mode)
 		return ..()
 	if(!is_insertion_ready(user))
 		return ..()
 	if(!user.transferItemToLoc(weapon, src))
-		to_chat(user, span_warning("\The [weapon] is stuck to your hand, you cannot put it in the [name]!"))
+		to_chat(user, span_warning("\The [weapon] is stuck to your hand, you cannot put it in \the [src]!"))
 		return TRUE
 	loaded_item = weapon
 	to_chat(user, span_notice("You add [weapon] to the machine."))
@@ -166,7 +166,7 @@
 
 	return data
 
-/obj/machinery/rnd/experimentor/ui_act(action, list/params)
+/obj/machinery/rnd/experimentor/ui_act(action, list/params, datum/tgui/ui, datum/ui_state/state)
 	. = ..()
 	if(.)
 		return
@@ -339,7 +339,7 @@
 			throwSmoke(loc)
 		else if(prob(EFFECT_PROB_MEDIUM * (100 - malfunction_probability_coeff) * 0.01))
 			visible_message(span_warning("[src] melts [exp_on], ionizing the air around it!"))
-			empulse(loc, 4, 6)
+			empulse(loc, 4, 6, emp_source = src)
 			investigate_log("Experimentor has generated an Electromagnetic Pulse.", INVESTIGATE_EXPERIMENTOR)
 			ejectItem(TRUE)
 	////////////////////////////////////////////////////////////////////////////////////////////////
@@ -363,7 +363,7 @@
 				visible_message(span_danger("[src] dangerously overheats, launching a flaming fuel orb!"))
 				investigate_log("Experimentor has launched a <font color='red'>fireball</font> at [M]!", INVESTIGATE_EXPERIMENTOR)
 				var/obj/projectile/magic/fireball/FB = new /obj/projectile/magic/fireball(start)
-				FB.preparePixelProjectile(MT, start)
+				FB.aim_projectile(MT, start)
 				FB.fire()
 		else if(prob(EFFECT_PROB_LOW * (100 - malfunction_probability_coeff) * 0.01))
 			visible_message(span_danger("[src] malfunctions, melting [exp_on] and releasing a burst of flame!"))
@@ -758,7 +758,7 @@
 
 /obj/item/relic/proc/scrambliticus(mob/user)
 	new /obj/effect/temp_visual/circle_wave/bioscrambler/light(get_turf(src))
-	playsound(src, 'sound/magic/cosmic_energy.ogg', vol = 50, vary = TRUE)
+	playsound(src, 'sound/effects/magic/cosmic_energy.ogg', vol = 50, vary = TRUE)
 	for(var/mob/living/carbon/nearby in range(2, get_turf(src))) //needs get_turf() to work
 		nearby.bioscramble(name)
 		playsound(nearby, SFX_SPARKS, rand(25,50), TRUE, SHORT_RANGE_SOUND_EXTRARANGE)
@@ -778,30 +778,21 @@
 		user.electrocute_act(15, src, flags = SHOCK_NOGLOVES)
 	playsound(user, SFX_SPARKS, rand(25,50), TRUE, SHORT_RANGE_SOUND_EXTRARANGE)
 
-	var/list/chargeable_batteries = list()
-	for(var/obj/item/stock_parts/power_store/C in user.get_all_contents())
-		if(C.charge < (C.maxcharge * 0.95)) // otherwise the PDA always gets recharged
-			chargeable_batteries |= C
+	var/list/chargeable_items = user.get_all_cells(max_percent = 0.95) // otherwise the PDA always gets recharged
 
 	lightning_fx(user, stunner)
 	var/recharges = rand(1, 2)
-	if(!length(chargeable_batteries))
+	if(!length(chargeable_items))
 		to_chat(user, span_notice("You have a strange feeling for a moment, but then it passes."))
 		return
-	for(var/obj/item/stock_parts/power_store/to_charge as anything in chargeable_batteries)
-		if(!recharges)
-			return
+	while(length(chargeable_items) && recharges)
 		recharges--
-		to_charge = pick(chargeable_batteries)
+		var/obj/item/to_charge_base = pick_n_take(chargeable_items)
+		var/obj/item/stock_parts/power_store/to_charge = chargeable_items[to_charge_base]
 		to_charge.charge = to_charge.maxcharge
-		// The device powered by the cell is assumed to be its location.
-		var/obj/device = to_charge.loc
-		// If it's not an object, or the loc's assigned power_store isn't the cell, undo.
-		if(!istype(device) || (device.get_cell() != to_charge))
-			device = to_charge
-		device.update_appearance(UPDATE_ICON|UPDATE_OVERLAYS)
-		to_chat(user, span_notice("[device] feels energized!"))
-		lightning_fx(device, 0.8 SECONDS)
+		to_charge_base.update_appearance(UPDATE_ICON|UPDATE_OVERLAYS)
+		to_chat(user, span_notice("[to_charge_base] feels energized!"))
+		lightning_fx(to_charge_base, 0.8 SECONDS)
 
 /obj/item/relic/proc/lightning_fx(atom/shocker, time)
 	var/lightning = mutable_appearance('icons/effects/effects.dmi', "electricity3", layer = ABOVE_MOB_LAYER)
@@ -828,7 +819,6 @@
 	var/datum/dimension_theme/shifter = SSmaterials.dimensional_themes[new_theme_path]
 	for(var/turf/shiftee in range(1, user))
 		shifter.apply_theme(shiftee, show_effect = TRUE)
-	qdel(shifter)
 	// prevent *total* spam conversion
 	min_cooldown += 2 SECONDS
 	max_cooldown += 2 SECONDS

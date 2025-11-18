@@ -15,14 +15,13 @@
 	inherent_traits = list(
 		TRAIT_MUTANT_COLORS,
 		TRAIT_TOXINLOVER,
-		TRAIT_NOBLOOD,
 	)
-	mutanttongue = /obj/item/organ/internal/tongue/jelly
-	mutantlungs = /obj/item/organ/internal/lungs/slime
-	mutanteyes = /obj/item/organ/internal/eyes/jelly
+	mutanttongue = /obj/item/organ/tongue/jelly
+	mutantlungs = /obj/item/organ/lungs/slime
+	mutanteyes = /obj/item/organ/eyes/jelly
 	mutantheart = null
 	meat = /obj/item/food/meat/slab/human/mutant/slime
-	exotic_blood = /datum/reagent/toxin/slimejelly
+	exotic_bloodtype = BLOOD_TYPE_TOX
 	blood_deficiency_drain_rate = JELLY_REGEN_RATE + BLOOD_DEFICIENCY_MODIFIER
 	coldmod = 6   // = 3x cold damage
 	heatmod = 0.5 // = 1/4x heat damage
@@ -43,7 +42,7 @@
 	)
 	var/datum/action/innate/regenerate_limbs/regenerate_limbs
 
-/datum/species/jelly/on_species_gain(mob/living/carbon/new_jellyperson, datum/species/old_species, pref_load)
+/datum/species/jelly/on_species_gain(mob/living/carbon/new_jellyperson, datum/species/old_species, pref_load, regenerate_icons)
 	. = ..()
 	if(ishuman(new_jellyperson))
 		regenerate_limbs = new
@@ -65,13 +64,13 @@
 		return HANDLE_BLOOD_HANDLED
 
 	if(slime.blood_volume <= 0)
-		slime.blood_volume += JELLY_REGEN_RATE_EMPTY * seconds_per_tick
+		slime.blood_volume += JELLY_REGEN_RATE_EMPTY * slime.physiology.blood_regen_mod * seconds_per_tick
 		slime.adjustBruteLoss(2.5 * seconds_per_tick)
 		to_chat(slime, span_danger("You feel empty!"))
 
 	if(slime.blood_volume < BLOOD_VOLUME_NORMAL)
 		if(slime.nutrition >= NUTRITION_LEVEL_STARVING)
-			slime.blood_volume += JELLY_REGEN_RATE * seconds_per_tick
+			slime.blood_volume += JELLY_REGEN_RATE * slime.physiology.blood_regen_mod * seconds_per_tick
 			if(slime.blood_volume <= BLOOD_VOLUME_LOSE_NUTRITION) // don't lose nutrition if we are above a certain threshold, otherwise slimes on IV drips will still lose nutrition
 				slime.adjust_nutrition(-1.25 * seconds_per_tick)
 
@@ -97,7 +96,7 @@
 	consumed_limb.drop_limb()
 	to_chat(H, span_userdanger("Your [consumed_limb] is drawn back into your body, unable to maintain its shape!"))
 	qdel(consumed_limb)
-	H.blood_volume += 65 //NOVA EDIT - CHANGE - ORIGINAL: 20 - This is because losing a limb now costs them 60 blood, so this refunds it with a pinch extra so it doesn't. Y'know. Kill you.
+	H.blood_volume += 65 * H.physiology.blood_regen_mod //NOVA EDIT CHANGE - This is because losing a limb now costs them 60 blood, so this refunds it with a pinch extra so it doesn't. Y'know. Kill you. - ORIGINAL: H.blood_volume += 20 * H.physiology.blood_regen_mod
 
 /datum/species/jelly/get_species_description()
 	return "Jellypeople are a strange and alien species with three eyes, made entirely out of gel."
@@ -108,21 +107,22 @@
 	)
 
 /datum/species/jelly/prepare_human_for_preview(mob/living/carbon/human/human)
-	human.dna.features["mcolor"] = COLOR_PINK
+	human.dna.features[FEATURE_MUTANT_COLOR] = COLOR_PINK
 	human.hairstyle = "Bob Hair 2"
 	human.hair_color = COLOR_PINK
 	human.update_body(is_creating = TRUE)
 
-// Slimes have both TRAIT_NOBLOOD and an exotic bloodtype set, so they need to be handled uniquely here.
+// Unique handling for slime blood here, it's got some unique properties that warrant a more detailed desc.
 // They may not be roundstart but in the unlikely event they become one might as well not leave a glaring issue open.
 /datum/species/jelly/create_pref_blood_perks()
 	var/list/to_add = list()
+	var/datum/blood_type/blood_type = get_blood_type(exotic_bloodtype)
 
 	to_add += list(list(
 		SPECIES_PERK_TYPE = SPECIES_NEUTRAL_PERK,
 		SPECIES_PERK_ICON = "tint",
 		SPECIES_PERK_NAME = "Jelly Blood",
-		SPECIES_PERK_DESC = "[plural_form] don't have blood, but instead have toxic [initial(exotic_blood.name)]! \
+		SPECIES_PERK_DESC = "[plural_form] don't have blood, but instead have toxic [initial(blood_type.reagent_type.name)]! \
 			Jelly is extremely important, as losing it will cause you to lose limbs. Having low jelly will make medical treatment very difficult.",
 	))
 
@@ -178,7 +178,7 @@
 	plural_form = "Slimepeople"
 	id = SPECIES_SLIMEPERSON
 	changesource_flags = MIRROR_BADMIN | WABBAJACK | MIRROR_PRIDE | RACE_SWAP | ERT_SPAWN | SLIME_EXTRACT
-	mutanteyes = /obj/item/organ/internal/eyes
+	mutanteyes = /obj/item/organ/eyes
 	var/datum/action/innate/split_body/slime_split
 	var/list/mob/living/carbon/bodies
 	var/datum/action/innate/swap_body/swap_body
@@ -209,7 +209,7 @@
 	UnregisterSignal(C, COMSIG_LIVING_DEATH)
 	..()
 
-/datum/species/jelly/slime/on_species_gain(mob/living/carbon/C, datum/species/old_species)
+/datum/species/jelly/slime/on_species_gain(mob/living/carbon/C, datum/species/old_species, pref_load, regenerate_icons)
 	..()
 	if(ishuman(C))
 		slime_split = new
@@ -303,13 +303,12 @@
 	var/mob/living/carbon/human/spare = new /mob/living/carbon/human(H.loc)
 
 	spare.underwear = "Nude"
-	H.dna.transfer_identity(spare, transfer_SE=1)
-	spare.dna.features["mcolor"] = "#[pick("7F", "FF")][pick("7F", "FF")][pick("7F", "FF")]"
-	spare.dna.update_uf_block(DNA_MUTANT_COLOR_BLOCK)
+	H.dna.copy_dna(spare.dna, COPY_DNA_SE|COPY_DNA_SPECIES|COPY_DNA_MUTATIONS)
+	spare.dna.features[FEATURE_MUTANT_COLOR] = "#[pick("7F", "FF")][pick("7F", "FF")][pick("7F", "FF")]"
+	spare.dna.update_uf_block(/datum/dna_block/feature/mutant_color)
 	spare.real_name = spare.dna.real_name
 	spare.name = spare.dna.real_name
 	spare.updateappearance(mutcolor_update=1)
-	spare.domutcheck()
 	spare.Move(get_step(H.loc, pick(NORTH,SOUTH,EAST,WEST)))
 
 	H.blood_volume *= 0.45
@@ -372,7 +371,7 @@
 			continue
 
 		var/list/L = list()
-		L["htmlcolor"] = body.dna.features["mcolor"]
+		L["htmlcolor"] = body.dna.features[FEATURE_MUTANT_COLOR]
 		L["area"] = get_area_name(body, TRUE)
 		var/stat = "error"
 		switch(body.stat)
@@ -412,7 +411,7 @@
 
 	return data
 
-/datum/action/innate/swap_body/ui_act(action, params)
+/datum/action/innate/swap_body/ui_act(action, list/params, datum/tgui/ui, datum/ui_state/state)
 	. = ..()
 	if(.)
 		return
@@ -462,16 +461,13 @@
 	if(!can_swap(dupe)) //sanity check
 		return
 	if(M.current.stat == CONSCIOUS)
-		M.current.visible_message("<span class='notice'>[M.current] \
-			stops moving and starts staring vacantly into space.</span>",
+		M.current.visible_message(span_notice("[M.current] stops moving and starts staring vacantly into space."),
 			span_notice("You stop moving this body..."))
 	else
 		to_chat(M.current, span_notice("You abandon this body..."))
 	M.current.transfer_quirk_datums(dupe)
 	M.transfer_to(dupe)
-	dupe.visible_message("<span class='notice'>[dupe] blinks and looks \
-		around.</span>",
-		span_notice("...and move this one instead."))
+	dupe.visible_message(span_notice("[dupe] blinks and looks around."), span_notice("...and move this one instead."))
 
 
 ///////////////////////////////////LUMINESCENTS//////////////////////////////////////////
@@ -491,7 +487,7 @@
 		BODY_ZONE_R_LEG = /obj/item/bodypart/leg/right/jelly/luminescent,
 		BODY_ZONE_CHEST = /obj/item/bodypart/chest/jelly/luminescent,
 	)
-	mutanteyes = /obj/item/organ/internal/eyes
+	mutanteyes = /obj/item/organ/eyes
 	/// How strong is our glow
 	var/glow_intensity = LUMINESCENT_DEFAULT_GLOW
 	/// Internal dummy used to glow (very cool)
@@ -514,7 +510,7 @@
 	QDEL_LIST(luminescent_actions)
 	return ..()
 
-/datum/species/jelly/luminescent/on_species_gain(mob/living/carbon/new_jellyperson, datum/species/old_species)
+/datum/species/jelly/luminescent/on_species_gain(mob/living/carbon/new_jellyperson, datum/species/old_species, pref_load, regenerate_icons)
 	. = ..()
 	glow = new_jellyperson.mob_light(light_type = /obj/effect/dummy/lighting_obj/moblight/species)
 	update_glow(new_jellyperson)
@@ -531,7 +527,7 @@
 
 	var/datum/action/innate/use_extract/major/extract_major = new(src)
 	extract_major.Grant(new_jellyperson)
-	luminescent_actions += integrate_extract
+	luminescent_actions += extract_major
 
 /datum/species/jelly/luminescent/on_species_loss(mob/living/carbon/C)
 	. = ..()
@@ -545,7 +541,7 @@
 /datum/species/jelly/luminescent/proc/update_glow(mob/living/carbon/human/glowie, intensity)
 	if(intensity)
 		glow_intensity = intensity
-	glow.set_light_range_power_color(glow_intensity, glow_intensity, glowie.dna.features["mcolor"])
+	glow.set_light_range_power_color(glow_intensity, glow_intensity, glowie.dna.features[FEATURE_MUTANT_COLOR])
 
 /datum/action/innate/integrate_extract
 	name = "Integrate Extract"
@@ -680,7 +676,7 @@
 	return "Stargazers can link others' minds with their own, creating a private communication channel. \
 		Most things that are toxic heal them, but most things that prevent toxicity damage them!"
 
-/datum/species/jelly/stargazer/on_species_gain(mob/living/carbon/grant_to, datum/species/old_species)
+/datum/species/jelly/stargazer/on_species_gain(mob/living/carbon/grant_to, datum/species/old_species, pref_load, regenerate_icons)
 	. = ..()
 	project_action = new(src)
 	project_action.Grant(grant_to)
@@ -724,7 +720,7 @@
 	var/mob/living/recipient = tgui_input_list(telepath, "Choose a telepathic message recipient", "Telepathy", sort_names(recipient_options))
 	if(isnull(recipient) || telepath.stat == DEAD || !is_species(telepath, /datum/species/jelly/stargazer))
 		return
-	var/msg = tgui_input_text(telepath, title = "Telepathy")
+	var/msg = tgui_input_text(telepath, title = "Telepathy", max_length = MAX_MESSAGE_LEN)
 	if(isnull(msg) || telepath.stat == DEAD || !is_species(telepath, /datum/species/jelly/stargazer))
 		return
 	if(!(recipient in oview(telepath)))
@@ -733,6 +729,11 @@
 	if(recipient.can_block_magic(MAGIC_RESISTANCE_MIND, charge_cost = 0))
 		to_chat(telepath, span_warning("As you reach into [recipient]'s mind, you are stopped by a mental blockage. It seems you've been foiled."))
 		return
+	//NOVA EDIT ADDITION START -  Telepathy Block Quirk
+	if(HAS_TRAIT(recipient, TRAIT_PSIONIC_DAMPENER))
+		to_chat(telepath, span_warning("As you reach into [recipient]'s mind, you are stopped by a mental blockage."))
+		return
+	//NOVA EDIT ADDITION END
 	log_directed_talk(telepath, recipient, msg, LOG_SAY, "slime telepathy")
 	to_chat(recipient, "[span_notice("You hear an alien voice in your head... ")]<font color=#008CA2>[msg]</font>")
 	to_chat(telepath, span_notice("You telepathically said: \"[msg]\" to [recipient]"))

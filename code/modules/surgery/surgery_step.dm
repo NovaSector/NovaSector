@@ -9,7 +9,7 @@
 	var/implement_type = null //the current type of implement used. This has to be stored, as the actual typepath of the tool may not match the list type.
 	var/accept_hand = FALSE //does the surgery step require an open hand? If true, ignores implements. Compatible with accept_any_item.
 	var/accept_any_item = FALSE //does the surgery step accept any item? If true, ignores implements. Compatible with require_hand.
-	var/time = 10 //how long does the step take?
+	var/time = 1 SECONDS //how long does the step take?
 	var/repeatable = FALSE //can this step be repeated? Make shure it isn't last step, or else the surgeon will be stuck in the loop
 	var/list/chems_needed = list()  //list of chems needed to complete the step. Even on success, the step will have no effect if there aren't the chems required in the mob.
 	var/require_all_chems = TRUE    //any on the list or all on the list?
@@ -79,7 +79,6 @@
 
 	return FALSE
 
-#define SURGERY_SPEEDUP_AREA 0.5 // NOVA EDIT Addition - reward for doing surgery in surgery
 #define SURGERY_SLOWDOWN_CAP_MULTIPLIER 2.5 //increase to make surgery slower but fail less, and decrease to make surgery faster but fail more
 ///Modifier given to surgery speed for dissected bodies.
 #define SURGERY_SPEED_DISSECTION_MODIFIER 0.8
@@ -87,26 +86,39 @@
 #define SURGERY_SPEED_MORBID_CURIOSITY 0.7
 ///Modifier given to patients with TRAIT_ANALGESIA
 #define SURGERY_SPEED_TRAIT_ANALGESIA 0.8
+#define SURGERY_SPEED_CALM_ENVIRONMENT 0.8 // NOVA EDIT ADDITION - Modifier given to surgery when done in calm areas (no other humans around)
 
 /datum/surgery_step/proc/initiate(mob/living/user, mob/living/target, target_zone, obj/item/tool, datum/surgery/surgery, try_to_fail = FALSE)
 	// Only followers of Asclepius have the ability to use Healing Touch and perform miracle feats of surgery.
 	// Prevents people from performing multiple simultaneous surgeries unless they're holding a Rod of Asclepius.
 
-	surgery.step_in_progress = TRUE
-	var/speed_mod = 1
-	var/fail_prob = 0//100 - fail_prob = success_prob
-	var/advance = FALSE
+	var/interaction_key = HAS_TRAIT(user, TRAIT_HIPPOCRATIC_OATH) ? target : DOAFTER_SOURCE_SURGERY
+	if(DOING_INTERACTION(user, interaction_key))
+		user.balloon_alert(user, "already doing surgery!")
+		return FALSE
+
+	// NOVA EDIT ADDITION START - Makes it so you cannot operate on people in turned on Stasis Beds
+	if(target.buckled)
+		var/obj/machinery/stasis/stasis_bed = target.buckled
+		if(istype(stasis_bed) && stasis_bed.stasis_enabled)
+			to_chat(user, span_warning("[target] cannot be operated in the [target.buckled] while it is turned on!"))
+			surgery.step_in_progress = FALSE
+			return FALSE
+	// NOVA EDIT ADDITION END
 
 	if(!chem_check(target))
 		user.balloon_alert(user, "missing [LOWER_TEXT(get_chem_list())]!")
 		to_chat(user, span_warning("[target] is missing the [LOWER_TEXT(get_chem_list())] required to perform this surgery step!"))
-		surgery.step_in_progress = FALSE
 		return FALSE
 
 	if(preop(user, target, target_zone, tool, surgery) == SURGERY_STEP_FAIL)
 		update_surgery_mood(target, SURGERY_STATE_FAILURE)
-		surgery.step_in_progress = FALSE
 		return FALSE
+
+	surgery.step_in_progress = TRUE
+	var/speed_mod = 1
+	var/fail_prob = 0//100 - fail_prob = success_prob
+	var/advance = FALSE
 
 	update_surgery_mood(target, SURGERY_STATE_STARTED)
 	play_preop_sound(user, target, target_zone, tool, surgery) // Here because most steps overwrite preop
@@ -122,17 +134,33 @@
 
 	if(HAS_TRAIT(target, TRAIT_ANALGESIA))
 		speed_mod *= SURGERY_SPEED_TRAIT_ANALGESIA
+		to_chat(user, span_notice("You are able to work faster due to the patient's calm attitude!")) // NOVA EDIT ADDITION - Better feedback for the use of analgesia
 
 	var/implement_speed_mod = 1
 	if(implement_type) //this means it isn't a require hand or any item step.
 		implement_speed_mod = implements[implement_type] / 100.0
 
-	speed_mod /= (get_location_modifier(target) * (1 + surgery.speed_modifier) * implement_speed_mod) * target.mob_surgery_speed_mod
+	//multiply speed_mod by sterilizer modifier
+	speed_mod *= surgery.speed_modifier
+
+	speed_mod /= (get_location_modifier(target) * implement_speed_mod) * target.mob_surgery_speed_mod
 	var/modded_time = time * speed_mod
 
 
-	fail_prob = min(max(0, modded_time - (time * SURGERY_SLOWDOWN_CAP_MULTIPLIER)),99)//if modded_time > time * modifier, then fail_prob = modded_time - time*modifier. starts at 0, caps at 99
-	modded_time = min(modded_time, time * SURGERY_SLOWDOWN_CAP_MULTIPLIER)//also if that, then cap modded_time at time*modifier
+	fail_prob = max(0, modded_time - (time * SURGERY_SLOWDOWN_CAP_MULTIPLIER)) //if modded_time > time * modifier, then fail_prob = modded_time - time*modifier
+
+	var/list/user_modifiers = list(0, 1)
+	SEND_SIGNAL(user, COMSIG_LIVING_INITIATE_SURGERY_STEP, user, target, target_zone, tool, surgery, src, user_modifiers)
+	fail_prob += user_modifiers[FAIL_PROB_INDEX]
+	modded_time *= user_modifiers[SPEED_MOD_INDEX]
+
+	var/list/target_modifiers = list(0, 1)
+	SEND_SIGNAL(target, COMSIG_LIVING_SURGERY_STEP_INITIATED_ON, user, target, target_zone, tool, surgery, src, target_modifiers)
+	fail_prob += target_modifiers[FAIL_PROB_INDEX]
+	modded_time *= target_modifiers[SPEED_MOD_INDEX]
+
+	fail_prob = min(max(0, fail_prob),99) // clamp fail_prob between 0 and 99
+	modded_time = min(modded_time, time * SURGERY_SLOWDOWN_CAP_MULTIPLIER)// cap modded_time at time*modifier
 
 	// NOVA EDIT REMOVAL START - Cyborgs are no longer immune to surgery speedups.
 	if(iscyborg(user))//any immunities to surgery slowdown should go in this check.
@@ -141,24 +169,25 @@
 
 	var/was_sleeping = (target.stat != DEAD && target.IsSleeping())
 
-	// NOVA EDIT ADDITION START - reward for doing surgery on calm patients, and for using surgery rooms(ie. surgerying alone)
-	if(was_sleeping || HAS_TRAIT(target, TRAIT_ANALGESIA) || target.stat == DEAD)
-		modded_time *= SURGERY_SPEEDUP_AREA
-		to_chat(user, span_notice("You are able to work faster due to the patient's calm attitude!"))
-	var/quiet_enviromnent = TRUE
+	// NOVA EDIT ADDITION START - reward for doing surgery on a calm environment (no other humans around)
+	var/quiet_environment = TRUE
 	for(var/mob/living/carbon/human/loud_people in view(3, target))
 		if(loud_people != user && loud_people != target)
-			quiet_enviromnent = FALSE
+			quiet_environment = FALSE
 			break
-	if(quiet_enviromnent)
-		modded_time *= SURGERY_SPEEDUP_AREA
+	if(quiet_environment)
+		modded_time *= SURGERY_SPEED_CALM_ENVIRONMENT
 		to_chat(user, span_notice("You are able to work faster due to the quiet environment!"))
 	// NOVA EDIT ADDITION END
-	if(do_after(user, modded_time, target = target, interaction_key = user.has_status_effect(/datum/status_effect/hippocratic_oath) ? target : DOAFTER_SOURCE_SURGERY)) //If we have the hippocratic oath, we can perform one surgery on each target, otherwise we can only do one surgery in total.
+
+	if(do_after(user, modded_time, target = target, interaction_key = interaction_key)) //If we have the hippocratic oath, we can perform one surgery on each target, otherwise we can only do one surgery in total.
 
 		if((prob(100-fail_prob) || (iscyborg(user) && !silicons_obey_prob)) && !try_to_fail)
 			if(success(user, target, target_zone, tool, surgery))
-				update_surgery_mood(target, SURGERY_STATE_SUCCESS)
+				if((tool && tool.item_flags & CRUEL_IMPLEMENT) || (accept_hand && surgery.surgery_flags & SURGERY_MORBID_CURIOSITY && HAS_MIND_TRAIT(user, TRAIT_MORBID)))
+					update_surgery_mood(target, SURGERY_STATE_FAILURE)
+				else
+					update_surgery_mood(target, SURGERY_STATE_SUCCESS)
 				play_success_sound(user, target, target_zone, tool, surgery)
 				advance = TRUE
 		else
@@ -179,7 +208,7 @@
 
 	surgery.step_in_progress = FALSE
 	return advance
-#undef SURGERY_SPEEDUP_AREA // NOVA EDIT ADDITION
+#undef SURGERY_SPEED_CALM_ENVIRONMENT // NOVA EDIT ADDITION
 
 /**
  * Handles updating the mob's mood depending on the surgery states.
@@ -191,12 +220,17 @@
 		CRASH("Not passed a target, how did we get here?")
 	if(!surgery_effects_mood)
 		return
-	if(HAS_TRAIT(target, TRAIT_ANALGESIA))
-		target.clear_mood_event(SURGERY_MOOD_CATEGORY) //incase they gained the trait mid-surgery. has the added side effect that if someone has a bad surgical memory/mood and gets drunk & goes back to surgery, they'll forget they hated it, which is kinda funny imo.
+	// Determine how drunk our patient is
+	var/drunken_patient = target.get_drunk_amount()
+	// Create a probability to ignore the pain based on drunkenness level
+	var/drunken_ignorance_probability = clamp(drunken_patient, 0, 90)
+
+	if(HAS_TRAIT(target, TRAIT_ANALGESIA) || drunken_patient && prob(drunken_ignorance_probability))
+		target.clear_mood_event(SURGERY_MOOD_CATEGORY) //incase they gained the trait mid-surgery (or became drunk). has the added side effect that if someone has a bad surgical memory/mood and gets drunk & goes back to surgery, they'll forget they hated it, which is kinda funny imo.
 		target.add_mood_event("mild_surgery", /datum/mood_event/mild_surgery) // NOVA EDIT ADDITION - Adds additional mood effects to surgeries
 		return
 	if(target.stat >= UNCONSCIOUS)
-		var/datum/mood_event/surgery/target_mood_event = target.mob_mood.mood_events[SURGERY_MOOD_CATEGORY]
+		var/datum/mood_event/surgery/target_mood_event = target.mob_mood?.mood_events[SURGERY_MOOD_CATEGORY]
 		if(!target_mood_event || target_mood_event.surgery_completed) //don't give sleeping mobs trauma. that said, if they fell asleep mid-surgery after already getting the bad mood, lets make sure they wake up to a (hopefully) happy memory.
 			return
 	target.add_mood_event("severe_surgery", /datum/mood_event/severe_surgery) // NOVA EDIT ADDITION - Adds additional mood effects to surgeries
@@ -221,8 +255,6 @@
 	)
 
 /datum/surgery_step/proc/play_preop_sound(mob/user, mob/living/carbon/target, target_zone, obj/item/tool, datum/surgery/surgery)
-	if(!preop_sound)
-		return
 	var/sound_file_use
 	if(islist(preop_sound))
 		for(var/typepath in preop_sound)//iterate and assign subtype to a list, works best if list is arranged from subtype first and parent last
@@ -231,7 +263,9 @@
 				break
 	else
 		sound_file_use = preop_sound
-	playsound(get_turf(target), sound_file_use, 75, TRUE, falloff_exponent = 12, falloff_distance = 1)
+	if(!sound_file_use)
+		return
+	playsound(target, sound_file_use, 75, TRUE, falloff_exponent = 12, falloff_distance = 1)
 
 /datum/surgery_step/proc/success(mob/user, mob/living/target, target_zone, obj/item/tool, datum/surgery/surgery, default_display_results = TRUE)
 	SEND_SIGNAL(user, COMSIG_MOB_SURGERY_STEP_SUCCESS, src, target, target_zone, tool, surgery, default_display_results)
@@ -243,6 +277,11 @@
 			span_notice("[user] succeeds!"),
 			span_notice("[user] finishes."),
 		)
+	if(ishuman(user))
+		var/mob/living/carbon/human/surgeon = user
+		surgeon.add_blood_DNA_to_items(target.get_blood_dna_list(), ITEM_SLOT_GLOVES)
+	else
+		user.add_mob_blood(target)
 	return TRUE
 
 /datum/surgery_step/proc/play_success_sound(mob/user, mob/living/carbon/target, target_zone, obj/item/tool, datum/surgery/surgery)
@@ -306,9 +345,11 @@
 /datum/surgery_step/proc/check_morbid_curiosity(mob/user, obj/item/tool, datum/surgery/surgery)
 	if(!(surgery.surgery_flags & SURGERY_MORBID_CURIOSITY))
 		return FALSE
-	if(tool && !(tool.item_flags & CRUEL_IMPLEMENT))
-		return FALSE
 	if(!HAS_MIND_TRAIT(user, TRAIT_MORBID))
+		return FALSE
+	if(!tool && accept_hand)
+		return TRUE
+	if(tool && !(tool.item_flags & CRUEL_IMPLEMENT))
 		return FALSE
 	return TRUE
 
@@ -334,8 +375,13 @@
  * * mechanical_surgery - Boolean flag that represents if a surgery step is done on a mechanical limb (therefore does not force scream)
  */
 /datum/surgery_step/proc/display_pain(mob/living/target, pain_message, mechanical_surgery = FALSE)
+	// Determine how drunk our patient is
+	var/drunken_patient = target.get_drunk_amount()
+	// Create a probability to ignore the pain based on drunkenness level
+	var/drunken_ignorance_probability = clamp(drunken_patient, 0, 90)
+
 	if(target.stat < UNCONSCIOUS)
-		if(HAS_TRAIT(target, TRAIT_ANALGESIA))
+		if(HAS_TRAIT(target, TRAIT_ANALGESIA) || drunken_patient && prob(drunken_ignorance_probability))
 			if(!pain_message)
 				return
 			to_chat(target, span_notice("You feel a dull, numb sensation as your body is surgically operated on."))

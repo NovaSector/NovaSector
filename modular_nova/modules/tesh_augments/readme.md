@@ -1,5 +1,5 @@
-/*
-teshari_ cybernetics
+/_
+teshari\_ cybernetics
 all done by aKhromatopsia
 that's all
-*/
+_/

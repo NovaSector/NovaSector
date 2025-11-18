@@ -93,6 +93,15 @@
 	price_min = PAYCHECK_CREW * 8
 	price_max = PAYCHECK_CREW * 14
 
+/datum/market_item/misc/voskhod_refit
+	name = "Voskhod refit kit"
+	desc = "A shipping, holding, medical, security and many other fee-free case of thingamabobs one can use to turn their ancient steel-plated space suit into a less ancient modular space suit."
+	item = /obj/item/crafting_conversion_kit/voskhod_refit
+	price_min = CARGO_CRATE_VALUE * 4
+	price_max = CARGO_CRATE_VALUE * 5.75
+	stock_max = 3
+	availability_prob = 25
+
 /datum/market_item/misc/holywater
 	desc = "The Spinward Independent Magicians assume no responsibility for the holy (or unholiness) of this magical reagent."
 	price_min = PAYCHECK_CREW
@@ -125,12 +134,6 @@
 /datum/market_item/misc/fish
 	name = "Case of Smuggled Fish"
 	desc = "What makes these fish such hot products? We'd have to kill you if we told you."
-
-/datum/market_item/misc/giant_wrench_parts
-	name = "Comically-Large Wrench Parts"
-	desc = "They're searching every broadband transmission for the name of this wrench, alright? You're mad if you assemble this thing. Mad, we tell you."
-	price_min = PAYCHECK_CREW * 4
-	price_max = PAYCHECK_CREW * 8
 
 // TOOLS
 /datum/market_item/tool/caravan_wrench
@@ -215,3 +218,10 @@
 /datum/market_item/weapon/fisher
 	price_min = PAYCHECK_CREW * 4
 	price_max = PAYCHECK_CREW * 8
+
+/datum/market_item/weapon/giant_wrench_parts
+	name = "Comically-Large Wrench Parts"
+	desc = "They're searching every broadband transmission for the name of this wrench, alright? You're mad if you assemble this thing. Mad, we tell you."
+	price_min = PAYCHECK_CREW * 4
+	price_max = PAYCHECK_CREW * 8
+

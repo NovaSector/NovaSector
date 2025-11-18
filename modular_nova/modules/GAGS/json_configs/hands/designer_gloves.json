@@ -1,0 +1,10 @@
+{
+	"designer": [
+		{
+			"type": "icon_state",
+			"icon_state": "designer",
+			"blend_mode": "overlay",
+			"color_ids": [1]
+		}
+	]
+}

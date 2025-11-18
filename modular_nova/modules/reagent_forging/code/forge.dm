@@ -189,7 +189,7 @@
 	QDEL_NULL(particles)
 	if(used_tray)
 		QDEL_NULL(used_tray)
-	. = ..()
+	return ..()
 
 /obj/structure/reagent_forge/update_appearance(updates)
 	. = ..()
@@ -421,9 +421,9 @@
 			minimum_target_temperature = 25 // This won't matter except in a few cases here, but we still need to cover those few cases
 			forge_level = FORGE_LEVEL_LEGENDARY
 
-	playsound(src, 'sound/weapons/parry.ogg', 50, TRUE) // Play a feedback sound to really let players know we just did an upgrade
+	playsound(src, 'sound/items/weapons/parry.ogg', 50, TRUE) // Play a feedback sound to really let players know we just did an upgrade
 
-/obj/structure/reagent_forge/attackby(obj/item/attacking_item, mob/living/user, params)
+/obj/structure/reagent_forge/attackby(obj/item/attacking_item, mob/user, list/modifiers, list/attack_modifiers)
 	if(!used_tray && istype(attacking_item, /obj/item/plate/oven_tray))
 		add_tray_to_forge(user, attacking_item)
 		return TRUE
@@ -615,7 +615,7 @@
 	attacking_weapon.color = mix_color_from_reagents(attacking_weapon.reagents.reagent_list)
 	balloon_alert_to_viewers("imbued [attacking_weapon]")
 	user.mind.adjust_experience(/datum/skill/smithing, 60)
-	playsound(src, 'sound/magic/demon_consume.ogg', 50, TRUE)
+	playsound(src, 'sound/effects/magic/demon_consume.ogg', 50, TRUE)
 	in_use = FALSE
 	return TRUE
 
@@ -665,7 +665,7 @@
 	attacking_clothing.color = mix_color_from_reagents(attacking_clothing.reagents.reagent_list)
 	balloon_alert_to_viewers("imbued [attacking_clothing]")
 	user.mind.adjust_experience(/datum/skill/smithing, 60)
-	playsound(src, 'sound/magic/demon_consume.ogg', 50, TRUE)
+	playsound(src, 'sound/effects/magic/demon_consume.ogg', 50, TRUE)
 	in_use = FALSE
 	return TRUE
 
@@ -687,7 +687,7 @@
 	balloon_alert_to_viewers("setting [ceramic_item]")
 
 	if(!do_after(user, ceramic_speed, target = src))
-		fail_message("stopped setting [ceramic_item]")
+		fail_message(user, "stopped setting [ceramic_item]")
 		return
 
 	balloon_alert(user, "finished setting [ceramic_item]")
@@ -872,7 +872,7 @@
 			material_list[GET_MATERIAL_REF(search_stack.material_type)] = SHEET_MATERIAL_AMOUNT
 
 		else
-			for(var/material as anything in search_stack.custom_materials)
+			for(var/material in search_stack.custom_materials)
 				material_list[material] = SHEET_MATERIAL_AMOUNT
 
 		if(!search_stack.use(1))

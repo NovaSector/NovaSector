@@ -1,15 +1,20 @@
+#define ALERT_COEFF_NOVA 1.5 // 1.5x the default value, normally 10 minutes, which give us 15 minutes.
+
 /**
  * Contains some overrides and our sec levels.
  */
 
 /datum/security_level/green
 	sound = 'modular_nova/modules/alerts/sound/security_levels/green.ogg'
+	shuttle_call_time_mod = ALERT_COEFF_NOVA
 
 /datum/security_level/blue
 	sound = 'modular_nova/modules/alerts/sound/security_levels/blue.ogg'
+	shuttle_call_time_mod = ALERT_COEFF_NOVA
 
 /datum/security_level/red
 	sound = 'modular_nova/modules/alerts/sound/security_levels/red.ogg'
+	shuttle_call_time_mod = ALERT_COEFF_NOVA
 
 /datum/security_level/delta
 	announcement_color = "pink"
@@ -18,6 +23,7 @@
 	sound = 'modular_nova/modules/alerts/sound/security_levels/delta.ogg'
 	looping_sound = 'modular_nova/modules/alerts/sound/misc/alarm_delta.ogg'
 	looping_sound_interval = 8 SECONDS
+	shuttle_call_time_mod = ALERT_COEFF_NOVA
 
 
 /**
@@ -27,6 +33,7 @@
  */
 /datum/security_level/violet
 	name = "violet"
+	name_shortform = "VLT"
 	announcement_color = "purple"
 	number_level = SEC_LEVEL_VIOLET
 	status_display_icon_state = "violetalert"
@@ -34,7 +41,7 @@
 	lowering_to_configuration_key = /datum/config_entry/string/alert_violet_downto
 	elevating_to_configuration_key = /datum/config_entry/string/alert_violet_upto
 	sound = 'modular_nova/modules/alerts/sound/security_levels/violet.ogg'
-	shuttle_call_time_mod = 0.75
+	shuttle_call_time_mod = ALERT_COEFF_NOVA
 
 /**
  * Orange
@@ -43,6 +50,7 @@
  */
 /datum/security_level/orange
 	name = "orange"
+	name_shortform = "ORNG"
 	announcement_color = "orange"
 	number_level = SEC_LEVEL_ORANGE
 	status_display_icon_state = "orangealert"
@@ -50,7 +58,7 @@
 	lowering_to_configuration_key = /datum/config_entry/string/alert_orange_downto
 	elevating_to_configuration_key = /datum/config_entry/string/alert_orange_upto
 	sound = 'modular_nova/modules/alerts/sound/security_levels/orange.ogg'
-	shuttle_call_time_mod = 0.75
+	shuttle_call_time_mod = ALERT_COEFF_NOVA
 
 /**
  * Amber
@@ -60,6 +68,7 @@
 
 /datum/security_level/amber
 	name = "amber"
+	name_shortform = "AMBR"
 	announcement_color = "yellow"
 	number_level = SEC_LEVEL_AMBER
 	status_display_icon_state = "amberalert"
@@ -67,8 +76,27 @@
 	lowering_to_configuration_key = /datum/config_entry/string/alert_amber_downto
 	elevating_to_configuration_key = /datum/config_entry/string/alert_amber_upto
 	sound = 'modular_nova/modules/alerts/sound/security_levels/amber.ogg'
-	shuttle_call_time_mod = 0.5
+	shuttle_call_time_mod = ALERT_COEFF_NOVA
 
+/**
+ * Epsilon
+ *
+ * Centcom Emergency Intervention
+ */
+
+/datum/security_level/epsilon
+	name = "epsilon"
+	name_shortform = "ε"
+	announcement_color = "purple"
+	number_level = SEC_LEVEL_EPSILON
+	status_display_icon_state = "epsilonalert"
+	fire_alarm_light_color = COLOR_BIOLUMINESCENCE_PURPLE
+	lowering_to_configuration_key = /datum/config_entry/string/alert_epsilon_downto
+	elevating_to_configuration_key = /datum/config_entry/string/alert_epsilon_upto
+	shuttle_call_time_mod = ALERT_COEFF_NOVA
+	sound = 'modular_nova/modules/alerts/sound/security_levels/epsilon.ogg'
+	looping_sound = 'modular_nova/modules/alerts/sound/security_levels/epsilon_loop.ogg'
+	looping_sound_interval = 15 SECONDS
 
 /**
  * Gamma
@@ -77,12 +105,35 @@
  */
 /datum/security_level/gamma
 	name = "gamma"
+	name_shortform = "γ"
 	announcement_color = "pink"
 	number_level = SEC_LEVEL_GAMMA
 	status_display_icon_state = "gammaalert"
 	fire_alarm_light_color = COLOR_ASSEMBLY_PURPLE
-	elevating_to_configuration_key = /datum/config_entry/string/alert_gamma
-	shuttle_call_time_mod = 0.25
+	lowering_to_configuration_key = /datum/config_entry/string/alert_gamma_downto
+	elevating_to_configuration_key = /datum/config_entry/string/alert_gamma_upto
+	shuttle_call_time_mod = ALERT_COEFF_NOVA
 	sound = 'modular_nova/modules/alerts/sound/security_levels/gamma_alert.ogg'
 	looping_sound = 'modular_nova/modules/alerts/sound/security_levels/gamma_alert.ogg'
 	looping_sound_interval = 13 SECONDS
+
+/**
+ * Epsilon
+ *
+ * Solfed Military Takeover
+ */
+
+/datum/security_level/federal
+	name = "federal"
+	name_shortform = "FED"
+	announcement_color = "blue"
+	number_level = SEC_LEVEL_FEDERAL
+	status_display_icon_state = "federalalert"
+	fire_alarm_light_color = COLOR_THEME_GLASS
+	elevating_to_configuration_key = /datum/config_entry/string/alert_federal
+	sound = 'modular_nova/modules/alerts/sound/security_levels/gamma_alert.ogg'
+	looping_sound = 'modular_nova/modules/alerts/sound/security_levels/gamma_alert.ogg'
+	looping_sound_interval = 13 SECONDS
+	shuttle_call_time_mod = ALERT_COEFF_NOVA
+
+#undef ALERT_COEFF_NOVA

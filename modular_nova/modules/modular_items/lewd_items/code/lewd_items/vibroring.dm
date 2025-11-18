@@ -21,7 +21,7 @@
 /obj/item/clothing/sextoy/vibroring/attack_self(mob/user)
 	toy_on = !toy_on
 	to_chat(user, span_notice("You turn the vibroring [toy_on ? "on. Brrrr..." : "off."]"))
-	play_lewd_sound(user, toy_on ? 'sound/weapons/magin.ogg' : 'sound/weapons/magout.ogg', 40, TRUE)
+	playsound_if_pref(user, toy_on ? 'sound/items/weapons/magin.ogg' : 'sound/items/weapons/magout.ogg', 40, TRUE)
 	update_icon_state()
 	update_icon()
 	switch(toy_on)
@@ -80,7 +80,7 @@
 	var/mob/living/carbon/human/user = loc
 	if(!user || !istype(user))
 		return PROCESS_KILL
-	var/obj/item/organ/external/genital/testicles/balls = user.get_organ_slot(ORGAN_SLOT_PENIS)
+	var/obj/item/organ/genital/testicles/balls = user.get_organ_slot(ORGAN_SLOT_PENIS)
 	if(!toy_on || !balls)
 		return
 	user.adjust_arousal(1 * seconds_per_tick)

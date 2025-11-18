@@ -1,10 +1,12 @@
 /obj/item/encryptionkey/headset_faction
 	name = "faction radio encryption key"
-	icon_state = "cypherkey_cargo"
 	channels = list(RADIO_CHANNEL_FACTION = 1)
+	icon = 'icons/map_icons/items/_item.dmi'
+	icon_state = "/obj/item/encryptionkey/headset_faction"
+	post_init_icon_state = "cypherkey_cargo"
 	greyscale_config = /datum/greyscale_config/encryptionkey_cargo
 	greyscale_colors = "#49241a#dca01b"
-	independent = TRUE
+	special_channels = RADIO_SPECIAL_CENTCOM
 
 /obj/item/radio/headset/headset_faction
 	name = "faction radio headset"

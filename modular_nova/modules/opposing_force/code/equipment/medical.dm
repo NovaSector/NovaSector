@@ -13,6 +13,13 @@
 	name = "Stimulant Medipen"
 	item_type = /obj/item/reagent_containers/hypospray/medipen/stimulants
 
+/datum/opposing_force_equipment/medical/romerol
+	name = "Romerol Kit"
+	description = "A highly experimental bioterror agent which creates dormant nodules to be etched into the grey matter of the brain. \
+		On death, these nodules take control of the dead body, causing limited revivification, \
+		along with slurred speech, aggression, and the ability to infect others with this agent."
+	item_type = /obj/item/storage/box/syndie_kit/romerol
+
 /datum/opposing_force_equipment/medical/cheese_kit
 	name = "Civil Defense Medical Kit"
 	item_type = /obj/item/storage/medkit/civil_defense/stocked

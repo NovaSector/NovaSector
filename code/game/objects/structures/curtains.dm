@@ -22,7 +22,8 @@
 	// see-through curtains should let emissives shine through
 	if(!opaque_closed)
 		blocks_emissive = EMISSIVE_BLOCK_NONE
-	return ..()
+	. = ..()
+	ADD_TRAIT(src, TRAIT_INVERTED_DEMOLITION, INNATE_TRAIT)
 
 /obj/structure/curtain/proc/toggle()
 	open = !open
@@ -75,17 +76,17 @@
 /obj/structure/curtain/atom_deconstruct(disassembled = TRUE)
 	new /obj/item/stack/sheet/cloth (loc, 2)
 	new /obj/item/stack/sheet/plastic (loc, 2)
-	new /obj/item/stack/rods (loc, 1)
+	new /obj/item/stack/rods (loc)
 
 /obj/structure/curtain/play_attack_sound(damage_amount, damage_type = BRUTE, damage_flag = 0)
 	switch(damage_type)
 		if(BRUTE)
 			if(damage_amount)
-				playsound(src.loc, 'sound/weapons/slash.ogg', 80, TRUE)
+				playsound(src.loc, 'sound/items/weapons/slash.ogg', 80, TRUE)
 			else
-				playsound(loc, 'sound/weapons/tap.ogg', 50, TRUE)
+				playsound(loc, 'sound/items/weapons/tap.ogg', 50, TRUE)
 		if(BURN)
-			playsound(loc, 'sound/items/welder.ogg', 80, TRUE)
+			playsound(loc, 'sound/items/tools/welder.ogg', 80, TRUE)
 
 /obj/structure/curtain/bounty
 	icon_type = "bounty"
@@ -109,7 +110,7 @@
 
 /obj/structure/curtain/cloth/atom_deconstruct(disassembled = TRUE)
 	new /obj/item/stack/sheet/cloth (loc, 4)
-	new /obj/item/stack/rods (loc, 1)
+	new /obj/item/stack/rods (loc)
 
 /obj/structure/curtain/cloth/fancy
 	icon_type = "cur_fancy"

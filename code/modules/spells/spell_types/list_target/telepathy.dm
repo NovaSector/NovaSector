@@ -22,7 +22,7 @@
 	if(. & SPELL_CANCEL_CAST)
 		return
 
-	message = tgui_input_text(owner, "What do you wish to whisper to [cast_on]?", "[src]")
+	message = tgui_input_text(owner, "What do you wish to whisper to [cast_on]?", "[src]", max_length = MAX_MESSAGE_LEN)
 	if(QDELETED(src) || QDELETED(owner) || QDELETED(cast_on) || !can_cast_spell())
 		return . | SPELL_CANCEL_CAST
 
@@ -43,12 +43,12 @@
 	var/failure_message_for_ghosts = ""
 
 	to_chat(owner, "<span class='[bold_telepathy_span]'>You transmit to [cast_on]:</span> [formatted_message]")
-	if(!cast_on.can_block_magic(antimagic_flags, charge_cost = 0)) //hear no evil
+	if(!cast_on.can_block_magic(antimagic_flags, charge_cost = 0) && !(HAS_TRAIT(cast_on, TRAIT_PSIONIC_DAMPENER))) // NOVA EDIT CHANGE - ORIGINAL: if(!cast_on.can_block_magic(antimagic_flags, charge_cost = 0)) //hear no evil
 		cast_on.balloon_alert(cast_on, "you hear a voice")
 		to_chat(cast_on, "<span class='[bold_telepathy_span]'>You hear a voice in your head...</span> [formatted_message]")
 	else
 		owner.balloon_alert(owner, "transmission blocked!")
-		to_chat(owner, "<span class='warning'>Something has blocked your transmission!</span>")
+		to_chat(owner, span_warning("Something has blocked your transmission!"))
 		failure_message_for_ghosts = "<span class='[bold_telepathy_span]'> (blocked by antimagic)</span>"
 
 	for(var/mob/dead/ghost as anything in GLOB.dead_mob_list)

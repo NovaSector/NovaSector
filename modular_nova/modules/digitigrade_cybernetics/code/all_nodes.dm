@@ -10,6 +10,7 @@
 		"digitigrade_cyber_r_leg",
 	)
 	research_costs = list(TECHWEB_POINT_TYPE_GENERIC = TECHWEB_TIER_1_POINTS)
+	announce_channels = list(RADIO_CHANNEL_SCIENCE, RADIO_CHANNEL_MEDICAL)
 
 
 /datum/techweb_node/adv_digitigrade_cyber
@@ -22,3 +23,4 @@
 		"digitigrade_advanced_r_leg",
 	)
 	research_costs = list(TECHWEB_POINT_TYPE_GENERIC = TECHWEB_TIER_1_POINTS)
+	announce_channels = list(RADIO_CHANNEL_SCIENCE)

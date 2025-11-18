@@ -1,5 +1,5 @@
 /// How many jobs have bounties, minus the random civ bounties. PLEASE INCREASE THIS NUMBER AS MORE DEPTS ARE ADDED TO BOUNTIES.
-#define MAXIMUM_BOUNTY_JOBS 14
+#define MAXIMUM_BOUNTY_JOBS 24 // NOVA EDIT CHANGE - ORIGINAL: MAXIMUM_BOUNTY_JOBS 14
 
 /datum/bounty
 	var/name
@@ -19,26 +19,26 @@
 			D.adjust_money(reward * SSeconomy.bounty_modifier)
 		claimed = TRUE
 
-/// If an item sent in the cargo shuttle can satisfy the bounty.
+/// If an item in question can satisfy the bounty.
 /datum/bounty/proc/applies_to(obj/O)
 	return FALSE
 
-/// Called when an object is shipped on the cargo shuttle.
+/// Called when an object is sent on the bounty pad.
 /datum/bounty/proc/ship(obj/O)
 	return
 
 /** Returns a new bounty of random type, but does not add it to GLOB.bounties_list.
  *
- * *Guided determines what specific catagory of bounty should be chosen.
+ * * Category determines what specific catagory of bounty should be chosen.
  */
-/proc/random_bounty(guided = 0)
+/proc/random_bounty(category = 0)
 	var/bounty_num
 	var/chosen_type
 	var/bounty_succeeded = FALSE
 	var/datum/bounty/item/bounty_ref
 	while(!bounty_succeeded)
-		if(guided && (guided != CIV_JOB_RANDOM))
-			bounty_num = guided
+		if(category && (category != CIV_JOB_RANDOM))
+			bounty_num = category
 		else
 			bounty_num = rand(1, MAXIMUM_BOUNTY_JOBS)
 		switch(bounty_num)
@@ -79,11 +79,32 @@
 				chosen_type = pick(subtypesof(/datum/bounty/item/atmospherics))
 			if(CIV_JOB_BITRUN)
 				chosen_type = pick(subtypesof(/datum/bounty/item/bitrunning))
+			// NOVA EDIT ADDITION START - GHOST BOUNTIES #5738
+			if(DS2_JOB_ENFORCER)
+				chosen_type = pick(subtypesof(/datum/bounty/item/ds2))
+			if(DS2_JOB_ENGINEER)
+				chosen_type = pick(subtypesof(/datum/bounty/item/ds2_engie) + subtypesof(/datum/bounty/item/ds2))
+			if(DS2_JOB_SERVICE)
+				chosen_type = pick(subtypesof(/datum/bounty/item/shared_chef) + subtypesof(/datum/bounty/reagent/shared_chef) + subtypesof(/datum/bounty/item/shared_botany) + subtypesof(/datum/bounty/item/ds2))
+			if(DS2_JOB_MECHANICAL)
+				chosen_type = pick(subtypesof(/datum/bounty/item/mech) + subtypesof(/datum/bounty/item/sharedxenoarch) + subtypesof(/datum/bounty/item/ds2))
+			if(DS2_JOB_COMMAND)
+				chosen_type = pick(subtypesof(/datum/bounty/item/ds2) + subtypesof(/datum/bounty/item/shared_chef) + subtypesof(/datum/bounty/reagent/shared_chef) + subtypesof(/datum/bounty/item/ds2))
+			if(DYNE_JOB_MINING)
+				chosen_type = pick(subtypesof(/datum/bounty/item/mining) + subtypesof(/datum/bounty/item/sharedxenoarch) + subtypesof(/datum/bounty/item/shared_chef) + subtypesof(/datum/bounty/reagent/shared_chef))
+			if(DYNE_JOB_SCIENCE)
+				chosen_type = pick(subtypesof(/datum/bounty/item/interdyne_med) + subtypesof(/datum/bounty/item/interdyne_slime) + subtypesof(/datum/bounty/interdyne_pill/simple_pill) + subtypesof(/datum/bounty/interdyne_reagent/chemical_simple) + subtypesof(/datum/bounty/interdyne_reagent/chemical_complex) + subtypesof(/datum/bounty/item/shared_chef) + subtypesof(/datum/bounty/reagent/shared_chef))
+			if(DYNE_JOB_COMMAND)
+				chosen_type = pick(subtypesof(/datum/bounty/item/interdyne_med) + subtypesof(/datum/bounty/item/interdyne_slime) + subtypesof(/datum/bounty/interdyne_pill/simple_pill) + subtypesof(/datum/bounty/interdyne_reagent/chemical_simple) + subtypesof(/datum/bounty/interdyne_reagent/chemical_complex) + subtypesof(/datum/bounty/item/shared_chef) + subtypesof(/datum/bounty/reagent/shared_chef) + subtypesof(/datum/bounty/item/mining) + subtypesof(/datum/bounty/item/sharedxenoarch))
+			if(TARKON_JOB_CREW)
+				chosen_type = pick(subtypesof(/datum/bounty/item/tarkon) + subtypesof(/datum/bounty/item/sharedxenoarch) + subtypesof(/datum/bounty/item/shared_chef) + subtypesof(/datum/bounty/reagent/shared_chef))
+			if(TARKON_JOB_COMMAND)
+				chosen_type = pick(subtypesof(/datum/bounty/item/tarkon) + subtypesof(/datum/bounty/item/sharedxenoarch) + subtypesof(/datum/bounty/item/shared_chef) + subtypesof(/datum/bounty/reagent/shared_chef))
+			// NOVA EDIT ADDITION END #5738
 		bounty_ref = new chosen_type
 		if(bounty_ref.can_get())
 			bounty_succeeded = TRUE
 		else
 			qdel(bounty_ref)
 	return bounty_ref
-
 #undef MAXIMUM_BOUNTY_JOBS

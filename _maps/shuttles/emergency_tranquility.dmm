@@ -453,7 +453,7 @@
 /area/shuttle/escape)
 "jb" = (
 /obj/machinery/barsign/all_access/directional/north,
-/obj/machinery/vending/boozeomat/all_access,
+/obj/machinery/vending/boozeomat,
 /turf/open/floor/stone,
 /area/shuttle/escape)
 "jl" = (
@@ -920,7 +920,7 @@
 /turf/open/floor/wood,
 /area/shuttle/escape)
 "rK" = (
-/obj/machinery/vending/wallmed/directional/south,
+/obj/machinery/wall_healer/free/directional/south,
 /turf/open/floor/iron/chapel,
 /area/shuttle/escape)
 "rL" = (
@@ -1072,7 +1072,7 @@
 /turf/open/floor/stone,
 /area/shuttle/escape)
 "vx" = (
-/obj/machinery/vending/wallmed/directional/north,
+/obj/machinery/wall_healer/free/directional/north,
 /turf/open/floor/catwalk_floor,
 /area/shuttle/escape)
 "vy" = (
@@ -1370,7 +1370,7 @@
 	dir = 9
 	},
 /mob/living/basic/bot/cleanbot,
-/obj/machinery/vending/wallmed/directional/south,
+/obj/machinery/wall_healer/free/directional/south,
 /turf/open/floor/wood,
 /area/shuttle/escape)
 "Ac" = (
@@ -1597,7 +1597,7 @@
 	pixel_x = 6;
 	pixel_y = 9
 	},
-/obj/item/reagent_containers/cup/rag{
+/obj/item/rag{
 	pixel_x = -2
 	},
 /turf/open/floor/sepia,
@@ -2530,7 +2530,7 @@
 /obj/effect/turf_decal/tile/blue/opposingcorners,
 /obj/structure/table,
 /obj/item/lazarus_injector,
-/obj/item/surgery_tray/full,
+/obj/effect/spawner/surgery_tray/full,
 /obj/item/clothing/gloves/latex/nitrile{
 	pixel_y = 4
 	},

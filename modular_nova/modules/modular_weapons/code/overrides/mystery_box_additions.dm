@@ -1,12 +1,15 @@
 GLOBAL_LIST_INIT(nova_special_firearms, list(
 	/obj/item/storage/toolbox/guncase/nova/carwo_large_case/thunderdome_kiboko,
 	/obj/item/storage/toolbox/guncase/nova/carwo_large_case/thunderdome_kiboko/evil,
+	/obj/item/storage/toolbox/guncase/nova/boarder,
 	/obj/item/gun/ballistic/automatic/sol_rifle,
 	/obj/item/gun/ballistic/automatic/sol_rifle/evil,
 	/obj/item/gun/ballistic/automatic/sol_rifle/marksman,
+	/obj/item/gun/ballistic/automatic/sol_rifle/marksman/evil,
 	/obj/item/gun/ballistic/automatic/sol_rifle/machinegun,
 	/obj/item/gun/ballistic/shotgun/riot/sol/thunderdome,
 	/obj/item/gun/ballistic/shotgun/riot/sol/evil/thunderdome,
+	/obj/item/gun/ballistic/shotgun/riot/sol/super/plus,
 	/obj/item/gun/ballistic/automatic/sol_smg,
 	/obj/item/gun/ballistic/automatic/sol_smg/evil,
 	/obj/item/gun/energy/modular_laser_rifle,
@@ -22,7 +25,7 @@ GLOBAL_LIST_INIT(nova_special_firearms, list(
 	/obj/item/gun/ballistic/automatic/pistol/trappiste,
 	/obj/item/gun/ballistic/revolver/sol,
 	/obj/item/gun/ballistic/revolver/takbok,
-	/obj/item/gun/ballistic/rifle/boltaction/sporterized,
+	/obj/item/gun/ballistic/rifle/sporterized,
 	/obj/item/gun/ballistic/automatic/xhihao_smg,
 ))
 

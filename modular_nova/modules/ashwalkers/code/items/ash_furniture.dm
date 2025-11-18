@@ -1,4 +1,4 @@
-// Ashwalker Exclusive Bed
+// Ashwalker Bed
 /obj/structure/bed/double/thatch
 	name = "thatch bed"
 	desc = "A rustic bed, made from thatch."
@@ -11,9 +11,7 @@
 	max_integrity = 100
 	integrity_failure = 0.35
 	max_buckled_mobs = 2
-	// What material this bed is made of
 	build_stack_type = /obj/item/stack/tile/grass/thatch
-	// How many mats to drop when deconstructed
 	build_stack_amount = 4
 
 /obj/structure/bed/double/thatch/atom_deconstruct(disassembled = TRUE)
@@ -24,7 +22,7 @@
 	name = "Thatch Bed"
 	category = CAT_FURNITURE
 	//recipe given to ashwalkers as part of their spawner/team setting
-	crafting_flags = CRAFT_CHECK_DENSITY | CRAFT_MUST_BE_LEARNED | CRAFT_ONE_PER_TURF | CRAFT_ON_SOLID_GROUND
+	crafting_flags = CRAFT_CHECK_DENSITY | CRAFT_ONE_PER_TURF | CRAFT_ON_SOLID_GROUND
 
 	reqs = list(
 		/obj/item/stack/tile/grass/thatch = 4,

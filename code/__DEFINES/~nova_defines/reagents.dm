@@ -1,8 +1,13 @@
 /// This reagent is useful for blood regeneration. Useful for Hemophages.
 #define REAGENT_BLOOD_REGENERATING (1<<0)
 
+///This reagent represents a neuroware program. Used in chemical_flags.
+#define REAGENT_NEUROWARE (REAGENT_INVISIBLE | 1<<12)
+
 ///Amount of synthflesh required to unhusk someone
-#define SYNTHFLESH_LING_UNHUSK_AMOUNT 200
+#define SYNTHFLESH_LING_UNHUSK_AMOUNT 120
+#define SYNTHFLESH_LING_UNHUSK_MAX 200
+#define REZADONE_LING_UNHUSK_AMOUNT 10
 
 //used by chem masters and pill presses
 // The categories of reagent packaging

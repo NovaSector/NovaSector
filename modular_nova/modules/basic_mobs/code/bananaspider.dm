@@ -47,18 +47,3 @@
 /obj/item/food/deadbanana_spider/Initialize(mapload)
 	. = ..()
 	AddComponent(/datum/component/slippery, 20)
-
-/mob/living/basic/spider/giant/badnana_spider
-	name = "badnana spider"
-	desc = "WHY WOULD GOD ALLOW THIS?!"
-	icon = 'modular_nova/master_files/icons/mob/newmobs.dmi'
-	icon_state = "badnanaspider" // created by Coldstorm on the Skyrat Discord
-	icon_living = "badnanaspider"
-	icon_dead = "badnanaspider_d"
-	maxHealth = 40
-	health = 40
-	melee_damage_lower = 5
-	melee_damage_upper = 5
-	speed = -0.5
-	faction = list(FACTION_SPIDER)
-

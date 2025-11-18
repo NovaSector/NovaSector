@@ -1,20 +1,24 @@
-/datum/job
+// At some point upstream should make it a thing
+/datum/job_department
 	var/default_radio_channel = null
-/datum/job/chief_medical_officer
-	default_radio_channel = RADIO_CHANNEL_MEDICAL
-/datum/job/chief_engineer
-	default_radio_channel = RADIO_CHANNEL_ENGINEERING
-/datum/job/head_of_security
+
+/datum/job_department/command
+	default_radio_channel = RADIO_CHANNEL_COMMAND
+
+/datum/job_department/security
 	default_radio_channel = RADIO_CHANNEL_SECURITY
-/datum/job/head_of_personnel
-	default_radio_channel = RADIO_CHANNEL_SERVICE
-/datum/job/research_director
+
+/datum/job_department/engineering
+	default_radio_channel = RADIO_CHANNEL_ENGINEERING
+
+/datum/job_department/medical
+	default_radio_channel = RADIO_CHANNEL_MEDICAL
+
+/datum/job_department/science
 	default_radio_channel = RADIO_CHANNEL_SCIENCE
-/datum/job/quartermaster
+
+/datum/job_department/cargo
 	default_radio_channel = RADIO_CHANNEL_SUPPLY
-/datum/job/captain
-	default_radio_channel = RADIO_CHANNEL_COMMAND
-/datum/job/blueshield
-	default_radio_channel = RADIO_CHANNEL_COMMAND
-/datum/job/nanotrasen_consultant
-	default_radio_channel = RADIO_CHANNEL_COMMAND
+
+/datum/job_department/service
+	default_radio_channel = RADIO_CHANNEL_SERVICE

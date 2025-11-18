@@ -30,6 +30,16 @@ Buildable meters
 	///Initial direction of the created pipe (either made from the RPD or after unwrenching the pipe)
 	var/p_init_dir = SOUTH
 
+/obj/item/pipe/on_craft_completion(list/components, datum/crafting_recipe/current_recipe, atom/crafter)
+	. = ..()
+	if(!istype(current_recipe, /datum/crafting_recipe/spec_pipe))
+		return
+	var/datum/crafting_recipe/spec_pipe/pipe_recipe = current_recipe
+	pipe_type = pipe_recipe.pipe_type
+	pipe_color = ATMOS_COLOR_OMNI
+	setDir(crafter.dir)
+	update()
+
 /obj/item/pipe/directional
 	RPD_type = PIPE_UNARY
 /obj/item/pipe/directional/he_junction
@@ -96,7 +106,7 @@ Buildable meters
 /obj/item/pipe/quaternary/pipe/crafted/Initialize(mapload, _pipe_type, _dir, obj/machinery/atmospherics/make_from, device_color, device_init_dir = SOUTH)
 	. = ..()
 	pipe_type = /obj/machinery/atmospherics/pipe/smart
-	pipe_color = COLOR_VERY_LIGHT_GRAY
+	pipe_color = ATMOS_COLOR_OMNI
 	p_init_dir = ALL_CARDINALS
 	setDir(SOUTH)
 	update()
@@ -134,7 +144,7 @@ Buildable meters
 	return ..()
 
 /obj/item/pipe/proc/make_from_existing(obj/machinery/atmospherics/make_from)
-	p_init_dir = make_from.initialize_directions
+	p_init_dir = make_from.get_init_directions()
 	setDir(make_from.dir)
 	pipename = make_from.name
 	add_atom_colour(make_from.color, FIXED_COLOUR_PRIORITY)
@@ -175,7 +185,7 @@ Buildable meters
 	set name = "Invert Pipe"
 	set src in view(1)
 
-	if ( usr.incapacitated() )
+	if ( usr.incapacitated )
 		return
 
 	do_a_flip()
@@ -261,7 +271,7 @@ Buildable meters
 
 	wrench.play_tool_sound(src)
 	user.visible_message( \
-		"[user] fastens \the [src].", \
+		span_notice("[user] fastens \the [src]."), \
 		span_notice("You fasten \the [src]."), \
 		span_hear("You hear ratcheting."))
 
@@ -448,7 +458,7 @@ Buildable meters
 
 	new /obj/machinery/meter/turf(loc, piping_layer)
 	S.play_tool_sound(src)
-	to_chat(user, span_notice("You fasten the meter to the [loc.name]."))
+	to_chat(user, span_notice("You fasten the meter to \the [loc]."))
 	qdel(src)
 
 /obj/item/pipe_meter/dropped()

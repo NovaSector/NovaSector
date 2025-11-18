@@ -1,6 +1,7 @@
 // THIS IS A NOVA SECTOR UI FILE
+import { Box, Button, Section, Stack } from 'tgui-core/components';
+
 import { useBackend } from '../backend';
-import { Box, Button, Section, Stack } from '../components';
 import { Window } from '../layouts';
 
 let palette;
@@ -560,7 +561,7 @@ const MilkingMachineContent = (props) => {
 const modeButtonStates = (Name, data, palette) => {
   const { act } = useBackend();
   let ModeNameCapital = capitalize(data.mode);
-  let action = 'set' + Name + 'Mode';
+  let action = `set${Name}Mode`;
 
   if (
     data.mobName !== null &&
@@ -638,7 +639,7 @@ const organButtonStates = (Name, data, palette) => {
   } else {
     OrganNameCapital = '';
   }
-  let action = 'set' + Name;
+  let action = `set${Name}`;
 
   if (
     OrganNameCapital !== Name &&

@@ -1,16 +1,14 @@
 /datum/map_generator/cave_generator/forest
 	weighted_open_turf_types = list(/turf/open/misc/asteroid/forest = 1)
 	weighted_closed_turf_types = list(/turf/closed/mineral/random/forest = 1)
-	flora_spawn_chance = 35
-	initial_closed_chance = 53
-	birth_limit = 5
-	death_limit = 4
-	smoothing_iterations = 10
+	flora_spawn_chance = 25
+	smoothing_iterations = 15
+
+	mob_spawn_chance = 0.75
 
 	weighted_mob_spawn_list = list(
 		/mob/living/basic/deer/mining = 50,
 		/mob/living/basic/mining/megadeer = 15,
-		/mob/living/basic/mining/goldgrub = 1,
 	)
 
 	weighted_flora_spawn_list = list(

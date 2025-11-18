@@ -4,7 +4,7 @@
 	examine_limb_id = SPECIES_GHOUL
 	can_have_genitals = FALSE //WHY WOULD YOU WANT TO FUCK ONE OF THESE THINGS?
 	mutant_bodyparts = list("ghoulcolor" = "Tan Necrotic")
-	mutanttongue = /obj/item/organ/internal/tongue/ghoul
+	mutanttongue = /obj/item/organ/tongue/ghoul
 	inherent_traits = list(
 		TRAIT_ADVANCEDTOOLUSER,
 		TRAIT_RADIMMUNE,
@@ -33,22 +33,23 @@
 
 /datum/species/ghoul/get_default_mutant_bodyparts()
 	return list(
-		"tail" = list("None", FALSE),
-		"ears" = list("None", FALSE),
-		"legs" = list("Normal Legs", FALSE),
+		FEATURE_EARS = list("None", FALSE),
+		FEATURE_TAIL = list("None", FALSE),
+		FEATURE_EARS = list("None", FALSE),
+		FEATURE_LEGS = list("Normal Legs", FALSE),
 	)
 
 /proc/proof_ghoul_features(list/inFeatures)
 	// Missing Defaults in DNA? Randomize!
-	if(inFeatures["ghoulcolor"] == null || inFeatures["ghoulcolor"] == "")
-		inFeatures["ghoulcolor"] = GLOB.color_list_ghoul[pick(GLOB.color_list_ghoul)]
+	if(inFeatures[FEATURE_GHOUL_COLOR] == null || inFeatures[FEATURE_GHOUL_COLOR] == "")
+		inFeatures[FEATURE_GHOUL_COLOR] = GLOB.color_list_ghoul[pick(GLOB.color_list_ghoul)]
 
 /datum/species/proc/set_ghoul_color(mob/living/carbon/human/human_ghoul)
 	return // Do Nothing
 
 /datum/species/ghoul/set_ghoul_color(mob/living/carbon/human/human_ghoul)
 	// Called on Assign, or on Color Change (or any time proof_ghoul_features() is used)
-	fixed_mut_color = human_ghoul.dna.features["ghoulcolor"]
+	fixed_mut_color = human_ghoul.dna.features[FEATURE_GHOUL_COLOR]
 
 /mob/living/carbon/proc/ReassignForeignBodyparts()
 	var/obj/item/bodypart/head = get_bodypart(BODY_ZONE_HEAD)
@@ -87,7 +88,7 @@
 		limb.replace_limb(src, TRUE)
 		qdel(right_leg)
 
-/datum/species/ghoul/on_species_gain(mob/living/carbon/new_ghoul, datum/species/old_species, pref_load)
+/datum/species/ghoul/on_species_gain(mob/living/carbon/new_ghoul, datum/species/old_species, pref_load, regenerate_icons)
 	// Missing Defaults in DNA? Randomize!
 	proof_ghoul_features(new_ghoul.dna.features)
 
@@ -156,7 +157,7 @@
 			if (istype(I, /obj/item/food/meat/slab))
 				user.put_in_hands(I)
 
-			new /obj/effect/temp_visual/dir_setting/bloodsplatter(target.loc, target.dir)
+			new /obj/effect/temp_visual/dir_setting/bloodsplatter(target.loc, target.dir, target.dna.blood_type.color)
 			target.add_splatter_floor(target.loc)
 			target.bleed(60)
 

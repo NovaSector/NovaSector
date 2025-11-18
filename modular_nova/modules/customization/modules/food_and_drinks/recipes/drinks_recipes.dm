@@ -56,8 +56,8 @@
 	mix_message = "The liquid starts swirling, before forming a pink cloud that dissipates in the air."
 
 /datum/chemical_reaction/drink/strawberry_daiquiri
-	results = list(/datum/reagent/consumable/ethanol/strawberry_daiquiri = 7)
-	required_reagents = list(/datum/reagent/consumable/ethanol/rum = 2, /datum/reagent/consumable/limejuice = 1, /datum/reagent/consumable/sugar = 1, /datum/reagent/consumable/berryjuice = 2, /datum/reagent/consumable/ice = 1)
+	results = list(/datum/reagent/consumable/ethanol/strawberry_daiquiri = 3)
+	required_reagents = list(/datum/reagent/consumable/ethanol/daiquiri = 2, /datum/reagent/consumable/berryjuice = 1)
 
 /datum/chemical_reaction/drink/miami_vice
 	results = list(/datum/reagent/consumable/ethanol/miami_vice = 2)
@@ -108,6 +108,12 @@
 /datum/chemical_reaction/drink/quadruple_sec/cityofsin
 	results = list(/datum/reagent/consumable/ethanol/quadruple_sec/cityofsin = 4)
 	required_reagents = list(/datum/reagent/consumable/ethanol/vodka = 2, /datum/reagent/consumable/ethanol/champagne = 1, /datum/reagent/consumable/berryjuice = 1)
+
+/datum/chemical_reaction/drink/cringe_weaver
+	results = list(/datum/reagent/consumable/ethanol/cringe_weaver = 10)
+	required_reagents = list(/datum/reagent/toxin/formaldehyde = 6, /datum/reagent/consumable/ethanol/fringe_weaver = 3, /datum/reagent/consumable/ice = 1) //9 'form'adelhyde, ice
+	mix_message = "The mix swells and turns a sickeningly pungent green, filling the air with a tangible miasma of cringe."
+	mix_sound = 'sound/effects/wounds/sizzle2.ogg'
 
 /datum/chemical_reaction/drink/blizzard_brew
 	results = list(/datum/reagent/consumable/ethanol/blizzard_brew = 3)

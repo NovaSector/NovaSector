@@ -13,7 +13,7 @@
 	can_adjust = FALSE
 
 //Related files:
-// modular_nova\modules\Syndie_edits\code\syndie_edits.dm (this has the Overalls and non-Uniforms)
+// modular_nova\modules\syndie_edits\code\syndie_edits.dm (this has the Overalls and non-Uniforms)
 // modular_nova\modules\novaya_ert\code\uniform.dm (NRI uniform(s))
 
 /*
@@ -124,22 +124,16 @@
 	female_sprite_flags = FEMALE_UNIFORM_TOP_ONLY
 	dying_key = DYE_REGISTRY_JUMPSKIRT
 	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION_NO_NEW_ICON
+	gets_cropped_on_taurs = FALSE
 
 /obj/item/clothing/under/syndicate/nova/overalls/unarmoured/examine_more(mob/user)
 	. = ..()
 	. += span_notice("The armor has been removed from the fabric.")
 
-/obj/item/clothing/mask/gas/sechailer/half_mask
+/obj/item/clothing/mask/neck_gaiter/syndicate/tacticool
 	name = "tacticool neck gaiter"
-	desc = "A black techwear mask. Its low-profile design contrasts with the edge. Has a small respirator to be used with internals."
-	actions_types = list(/datum/action/item_action/adjust)
-	alternate_worn_layer = BODY_FRONT_UNDER_CLOTHES
-	icon_state = "half_mask"
-	icon = 'modular_nova/master_files/icons/obj/clothing/masks.dmi'
-	worn_icon = 'modular_nova/master_files/icons/mob/clothing/mask.dmi'
-	unique_death = 'modular_nova/master_files/sound/effects/hacked.ogg'
-	voice_filter = null
-	use_radio_beeps_tts = FALSE
+	desc = "A techwear mask. Its low-profile design contrasts with the edge. Has a small respirator to be used with internals."
+	flags_1 = parent_type::flags_1 | NO_NEW_GAGS_PREVIEW_1
 
 /*
 *	TACTICAL (Real)
@@ -174,6 +168,7 @@
 	female_sprite_flags = FEMALE_UNIFORM_TOP_ONLY
 	dying_key = DYE_REGISTRY_JUMPSKIRT
 	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION_NO_NEW_ICON
+	gets_cropped_on_taurs = FALSE
 	unique_reskin = list(
 		RESKIN_SYNDIE = "syndicate_red_skirt",
 		RESKIN_CHARCOAL = "syndicate_skirt"

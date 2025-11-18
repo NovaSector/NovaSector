@@ -1,16 +1,18 @@
 /obj/effect/appearance_clone
 
-/obj/effect/appearance_clone/New(loc, atom/A) //Intentionally not Initialize(), to make sure the clone assumes the intended appearance in time for the camera getFlatIcon.
-	if(istype(A))
-		appearance = A.appearance
-		dir = A.dir
-		if(ismovable(A))
-			var/atom/movable/AM = A
-			step_x = AM.step_x
-			step_y = AM.step_y
-	. = ..()
+/obj/effect/appearance_clone/New(loc, atom/our_atom) //Intentionally not Initialize(), to make sure the clone assumes the intended appearance in time for the camera getFlatIcon.
+	if(!istype(our_atom))
+		return ..()
+	if(!isopenspaceturf(our_atom))
+		appearance = our_atom.appearance
+	dir = our_atom.dir
+	if(ismovable(our_atom))
+		var/atom/movable/our_movable = our_atom
+		step_x = our_movable.step_x
+		step_y = our_movable.step_y
+	return ..()
 
-#define PHYSICAL_POSITION(atom) ((atom.y * world.icon_size) + (atom.pixel_y))
+#define PHYSICAL_POSITION(atom) ((atom.y * ICON_SIZE_Y) + (atom.pixel_y))
 
 /obj/item/camera/proc/camera_get_icon(list/turfs, turf/center, psize_x = 96, psize_y = 96, datum/turf_reservation/clone_area, size_x, size_y, total_x, total_y)
 	var/list/atoms = list()
@@ -42,10 +44,12 @@
 				lighting_overlay.underlays += backdrop
 				lighting_overlay.blend_mode = BLEND_MULTIPLY
 				lighting += lighting_overlay
-			for(var/i in T.contents)
-				var/atom/A = i
-				if(!A.invisibility || (see_ghosts && isobserver(A)))
-					atoms += new /obj/effect/appearance_clone(newT, A)
+			for(var/atom/found_atom as anything in T.contents)
+				if(HAS_TRAIT(found_atom, TRAIT_INVISIBLE_TO_CAMERA))
+					if(see_ghosts)
+						atoms += new /obj/effect/appearance_clone(newT, found_atom)
+				else if(!found_atom.invisibility || (see_ghosts && isobserver(found_atom)))
+					atoms += new /obj/effect/appearance_clone(newT, found_atom)
 		skip_normal = TRUE
 		wipe_atoms = TRUE
 		center = locate(cloned_center_x, cloned_center_y, bottom_left.z)
@@ -62,7 +66,7 @@
 				lighting += lighting_overlay
 			for(var/atom/movable/A in T)
 				if(A.invisibility)
-					if(!(see_ghosts && isobserver(A)))
+					if(!(see_ghosts && (isobserver(A) || HAS_TRAIT(A, TRAIT_INVISIBLE_TO_CAMERA))))
 						continue
 				atoms += A
 			CHECK_TICK
@@ -99,8 +103,8 @@
 
 	if(!skip_normal) //these are not clones
 		for(var/atom/A in sorted)
-			var/xo = (A.x - center.x) * world.icon_size + A.pixel_x + xcomp
-			var/yo = (A.y - center.y) * world.icon_size + A.pixel_y + ycomp
+			var/xo = (A.x - center.x) * ICON_SIZE_X + A.pixel_x + xcomp
+			var/yo = (A.y - center.y) * ICON_SIZE_Y + A.pixel_y + ycomp
 			if(ismovable(A))
 				var/atom/movable/AM = A
 				xo += AM.step_x
@@ -116,9 +120,9 @@
 				CHECK_TICK
 				continue
 			// Center of the image in X
-			var/xo = (clone.x - center.x) * world.icon_size + clone.pixel_x + xcomp + clone.step_x
+			var/xo = (clone.x - center.x) * ICON_SIZE_X + clone.pixel_x + xcomp + clone.step_x
 			// Center of the image in Y
-			var/yo = (clone.y - center.y) * world.icon_size + clone.pixel_y + ycomp + clone.step_y
+			var/yo = (clone.y - center.y) * ICON_SIZE_Y + clone.pixel_y + ycomp + clone.step_y
 
 			if(clone.transform) // getFlatIcon doesn't give a snot about transforms.
 				var/datum/decompose_matrix/decompose = clone.transform.decompose()
@@ -141,12 +145,6 @@
 
 			res.Blend(img, blendMode2iconMode(clone.blend_mode), xo, yo)
 			CHECK_TICK
-
-	if(!silent)
-		if(istype(custom_sound)) //This is where the camera actually finishes its exposure.
-			playsound(loc, custom_sound, 75, TRUE, -3)
-		else
-			playsound(loc, pick('sound/items/polaroid1.ogg', 'sound/items/polaroid2.ogg'), 75, TRUE, -3)
 
 	if(wipe_atoms)
 		QDEL_LIST(atoms)

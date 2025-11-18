@@ -4,7 +4,7 @@ https://github.com/Skyrat-SS13/Skyrat-tg/pull/4211
 
 MODULE ID: hydra
 
-### Description: 
+### Description:
 
 - Adds a baseline sprite file, sprite override files, and mechanics for supporting three voices per person
 
@@ -25,5 +25,6 @@ MODULE ID: hydra
 - N/A
 
 ### Credits:
+
 - Yawet330 - Code
 - C0rva1r - Sprites and base idea

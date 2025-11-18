@@ -1,12 +1,12 @@
 /datum/nifsoft/hud
 	name = "Scrying Lens"
-	program_desc = "An umbrella term for all sorts of NIFsofts dealing with heads-up displays, this sort of technology dates back almost to the beginning of NIFsoft development. These 'softs are commonly used in the civilian field for integration with all sorts of activities; piloting, swordplay, scientific research, or even AI copiloting for important social interactions. While normally the nanomachines involved in the program's operation are used as a sort of artificial contact lens over the user's visual organs, NanoTrasen regulations have bid these particular forks to instead integrate with glasses the user's already wearing."
-	compatible_nifs = list(/obj/item/organ/internal/cyberimp/brain/nif/standard)
+	program_desc = "An umbrella term for all sorts of NIFsofts dealing with heads-up displays, this sort of technology dates back almost to the beginning of NIFsoft development. These 'softs are commonly used in the civilian field for integration with all sorts of activities; piloting, swordplay, scientific research, or even AI copiloting for important social interactions. While normally the nanomachines involved in the program's operation are used as a sort of artificial contact lens over the user's visual organs, Nanotrasen regulations have bid these particular forks to instead integrate with glasses the user's already wearing."
+	compatible_nifs = list(/obj/item/organ/cyberimp/brain/nif/standard)
 	active_mode = TRUE
 	active_cost = 0.5
 	ui_icon = "eye"
 	/// Do we need to check if the user is wearing compatible eyewear?
-	var/eyewear_check = TRUE
+	var/eyewear_check = FALSE
 	/// What kind of HUD are we adding when the NIFSoft is activated?
 	var/hud_type
 	/// What are the HUD traits we are adding when the NIFSoft is activated?
@@ -17,13 +17,13 @@
 /// Attemps to add the hud variables from the NIFSoft to the user.
 /datum/nifsoft/hud/proc/add_huds()
 	if(hud_type)
-		var/datum/atom_hud/our_hud = GLOB.huds[hud_type]
-		our_hud.show_to(linked_mob)
+		var/datum/atom_hud/hud = GLOB.huds[hud_type]
+		hud.show_to(linked_mob)
 
 	for(var/trait in hud_traits)
-		ADD_TRAIT(linked_mob, trait, GLASSES_TRAIT)
+		ADD_TRAIT(linked_mob, trait, TRAIT_NIFSOFT)
 
-	for(var/trait as anything in added_eyewear_traits)
+	for(var/trait in added_eyewear_traits)
 		ADD_TRAIT(linked_mob, trait, TRAIT_NIFSOFT)
 
 	linked_mob.update_sight()
@@ -36,7 +36,6 @@
 
 	for(var/trait in hud_traits)
 		REMOVE_TRAIT(linked_mob, trait, TRAIT_NIFSOFT)
-
 	for(var/trait in added_eyewear_traits)
 		REMOVE_TRAIT(linked_mob, trait, TRAIT_NIFSOFT)
 
@@ -99,7 +98,6 @@
 /datum/nifsoft/hud/job/medical
 	name = "Medical Scrying Lens"
 	ui_icon = "staff-snake"
-	hud_type = DATA_HUD_MEDICAL_ADVANCED
 	hud_traits = list(TRAIT_MEDICAL_HUD)
 
 /datum/nifsoft/hud/job/diagnostic
@@ -110,13 +108,12 @@
 /datum/nifsoft/hud/job/security
 	name = "Security Scrying Lens"
 	ui_icon = "shield"
-	hud_type = DATA_HUD_SECURITY_ADVANCED
 	hud_traits = list(TRAIT_SECURITY_HUD)
 
 /datum/nifsoft/hud/job/cargo_tech
 	name = "Permit Scrying Lens"
 	ui_icon = "gun"
-	hud_type = DATA_HUD_PERMIT
+	hud_traits = list(TRAIT_PERMIT_HUD)
 
 /datum/nifsoft/hud/job/science
 	name = "Science Scrying Lens"
@@ -132,27 +129,27 @@
 // UPLOADER DISKS
 //
 
-/obj/item/disk/nifsoft_uploader/med_hud
+/obj/item/disk/nifsoft_uploader/job/med_hud
 	name = "Medical Scrying Lens"
 	loaded_nifsoft = /datum/nifsoft/hud/job/medical
 
-/obj/item/disk/nifsoft_uploader/diag_hud
+/obj/item/disk/nifsoft_uploader/job/diag_hud
 	name = "Diagnostic Scrying Lens"
 	loaded_nifsoft = /datum/nifsoft/hud/job/diagnostic
 
-/obj/item/disk/nifsoft_uploader/sec_hud
+/obj/item/disk/nifsoft_uploader/job/sec_hud
 	name = "Security Scrying Lens"
 	loaded_nifsoft = /datum/nifsoft/hud/job/security
 
-/obj/item/disk/nifsoft_uploader/permit_hud
+/obj/item/disk/nifsoft_uploader/job/permit_hud
 	name = "Permit Scrying Lens"
 	loaded_nifsoft = /datum/nifsoft/hud/job/cargo_tech
 
-/obj/item/disk/nifsoft_uploader/sci_hud
+/obj/item/disk/nifsoft_uploader/job/sci_hud
 	name = "Science Scrying Lens"
 	loaded_nifsoft = /datum/nifsoft/hud/job/science
 
-/obj/item/disk/nifsoft_uploader/meson_hud
+/obj/item/disk/nifsoft_uploader/job/meson_hud
 	name = "Meson Scrying Lens"
 	loaded_nifsoft = /datum/nifsoft/hud/job/meson
 

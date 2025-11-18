@@ -1,6 +1,7 @@
 /datum/surgery/advanced/pacify
 	name = "Pacification"
 	desc = "A surgical procedure which permanently inhibits the aggression center of the brain, making the patient unwilling to cause direct harm."
+	surgery_flags = SURGERY_MORBID_CURIOSITY
 	possible_locs = list(BODY_ZONE_HEAD)
 	steps = list(
 		/datum/surgery_step/incise,
@@ -26,7 +27,7 @@
 
 /datum/surgery/advanced/pacify/can_start(mob/user, mob/living/carbon/target)
 	. = ..()
-	var/obj/item/organ/internal/brain/target_brain = target.get_organ_slot(ORGAN_SLOT_BRAIN)
+	var/obj/item/organ/brain/target_brain = target.get_organ_slot(ORGAN_SLOT_BRAIN)
 	if(!target_brain)
 		return FALSE
 
@@ -37,10 +38,10 @@
 		TOOL_SCREWDRIVER = 35,
 		/obj/item/pen = 15,
 	)
-	time = 40
-	preop_sound = 'sound/surgery/hemostat1.ogg'
-	success_sound = 'sound/surgery/hemostat1.ogg'
-	failure_sound = 'sound/surgery/organ2.ogg'
+	time = 4 SECONDS
+	preop_sound = 'sound/items/handling/surgery/hemostat1.ogg'
+	success_sound = 'sound/items/handling/surgery/hemostat1.ogg'
+	failure_sound = 'sound/items/handling/surgery/organ2.ogg'
 
 /datum/surgery_step/pacify/mechanic
 	name = "delete aggression programming (multitool)"

@@ -1,4 +1,4 @@
-/obj/structure/sink/attackby(obj/item/attacking_item, mob/living/user, params)
+/obj/structure/sink/attackby(obj/item/attacking_item, mob/user, list/modifiers, list/attack_modifiers)
 	if(busy)
 		to_chat(user, span_warning("Someone's already washing here!"))
 		return

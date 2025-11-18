@@ -77,9 +77,10 @@
 	icon_state = "serviettepack_4"
 	base_icon_state = "serviettepack"
 	icon = 'modular_nova/modules/modular_items/lewd_items/icons/obj/lewd_items/lewd_items.dmi'
+	w_class = WEIGHT_CLASS_SMALL
+	obj_flags_nova = ERP_ITEM
 	/// A count of how many serviettes are left in the pack
 	var/number_remaining = 4
-	w_class = WEIGHT_CLASS_SMALL
 
 /obj/item/serviette_pack/update_icon_state()
 	. = ..()

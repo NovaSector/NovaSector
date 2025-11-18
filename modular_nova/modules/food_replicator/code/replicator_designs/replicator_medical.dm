@@ -6,7 +6,7 @@
 	build_path = /obj/item/storage/pouch/cin_medkit
 	category = list(
 		RND_CATEGORY_INITIAL,
-		RND_CATEGORY_NRI_MEDICAL,
+		RND_CATEGORY_HC_MEDICAL,
 	)
 
 /datum/design/medipouch
@@ -17,7 +17,18 @@
 	build_path = /obj/item/storage/pouch/cin_medipens
 	category = list(
 		RND_CATEGORY_INITIAL,
-		RND_CATEGORY_NRI_MEDICAL,
+		RND_CATEGORY_HC_MEDICAL,
+	)
+
+/datum/design/genpouch
+	name = "Empty General Purpose Pouch"
+	id = "slavic_genpouch"
+	build_type = BIOGENERATOR
+	materials = list(/datum/material/biomass = 250)
+	build_path = /obj/item/storage/pouch/cin_general
+	category = list(
+		RND_CATEGORY_INITIAL,
+		RND_CATEGORY_HC_MEDICAL,
 	)
 
 /datum/design/sutures
@@ -28,7 +39,7 @@
 	build_path = /obj/item/stack/medical/suture/bloody
 	category = list(
 		RND_CATEGORY_INITIAL,
-		RND_CATEGORY_NRI_MEDICAL,
+		RND_CATEGORY_HC_MEDICAL,
 	)
 
 /datum/design/mesh
@@ -39,7 +50,7 @@
 	build_path = /obj/item/stack/medical/mesh/bloody
 	category = list(
 		RND_CATEGORY_INITIAL,
-		RND_CATEGORY_NRI_MEDICAL,
+		RND_CATEGORY_HC_MEDICAL,
 	)
 
 /datum/design/bruise_patch
@@ -47,10 +58,10 @@
 	id = "slavic_bruise"
 	build_type = BIOGENERATOR
 	materials = list(/datum/material/biomass = 250)
-	build_path = /obj/item/reagent_containers/pill/patch/libital
+	build_path = /obj/item/reagent_containers/applicator/patch/libital
 	category = list(
 		RND_CATEGORY_INITIAL,
-		RND_CATEGORY_NRI_MEDICAL,
+		RND_CATEGORY_HC_MEDICAL,
 	)
 
 /datum/design/burn_patch
@@ -58,10 +69,10 @@
 	id = "slavic_burn"
 	build_type = BIOGENERATOR
 	materials = list(/datum/material/biomass = 250)
-	build_path = /obj/item/reagent_containers/pill/patch/aiuri
+	build_path = /obj/item/reagent_containers/applicator/patch/aiuri
 	category = list(
 		RND_CATEGORY_INITIAL,
-		RND_CATEGORY_NRI_MEDICAL,
+		RND_CATEGORY_HC_MEDICAL,
 	)
 
 /datum/design/gauze
@@ -72,7 +83,7 @@
 	build_path = /obj/item/stack/medical/gauze
 	category = list(
 		RND_CATEGORY_INITIAL,
-		RND_CATEGORY_NRI_MEDICAL,
+		RND_CATEGORY_HC_MEDICAL,
 	)
 
 /datum/design/epi_pill
@@ -80,10 +91,10 @@
 	id = "slavic_epi"
 	build_type = BIOGENERATOR
 	materials = list(/datum/material/biomass = 75)
-	build_path = /obj/item/reagent_containers/pill/epinephrine
+	build_path = /obj/item/reagent_containers/applicator/pill/epinephrine
 	category = list(
 		RND_CATEGORY_INITIAL,
-		RND_CATEGORY_NRI_MEDICAL,
+		RND_CATEGORY_HC_MEDICAL,
 	)
 
 /datum/design/conv_pill
@@ -91,10 +102,10 @@
 	id = "slavic_conv"
 	build_type = BIOGENERATOR
 	materials = list(/datum/material/biomass = 75)
-	build_path = /obj/item/reagent_containers/pill/convermol
+	build_path = /obj/item/reagent_containers/applicator/pill/convermol
 	category = list(
 		RND_CATEGORY_INITIAL,
-		RND_CATEGORY_NRI_MEDICAL,
+		RND_CATEGORY_HC_MEDICAL,
 	)
 
 /datum/design/multiver_pill
@@ -102,12 +113,12 @@
 	id = "slavic_multiver"
 	build_type = BIOGENERATOR
 	materials = list(/datum/material/biomass = 75)
-	build_path = /obj/item/reagent_containers/pill/multiver
+	build_path = /obj/item/reagent_containers/applicator/pill/multiver
 	category = list(
 		RND_CATEGORY_INITIAL,
-		RND_CATEGORY_NRI_MEDICAL,
+		RND_CATEGORY_HC_MEDICAL,
 	)
 
-#undef RND_CATEGORY_NRI_FOOD
-#undef RND_CATEGORY_NRI_MEDICAL
-#undef RND_CATEGORY_NRI_CLOTHING
+#undef RND_CATEGORY_HC_FOOD
+#undef RND_CATEGORY_HC_MEDICAL
+#undef RND_CATEGORY_HC_CLOTHING

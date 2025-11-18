@@ -1,7 +1,6 @@
-import { BooleanLike } from 'common/react';
+import type { BooleanLike } from 'tgui-core/react';
 
 export type CargoData = {
-  amount_by_name: Record<string, number> | undefined;
   app_cost?: number;
   away: BooleanLike;
   can_approve_requests: BooleanLike;
@@ -31,11 +30,21 @@ export type Supply = {
   access: BooleanLike;
   cost: number;
   desc: string;
+  first_item_icon: string | null;
+  first_item_icon_state: string | null;
   goody: BooleanLike;
   id: string;
   name: string;
   small_item: BooleanLike;
   contraband: BooleanLike;
+  contains: SupplyItem[];
+};
+
+type SupplyItem = {
+  name: string;
+  icon: string | null;
+  icon_state: string | null;
+  amount: number;
 };
 
 type CartEntry = {
@@ -55,5 +64,6 @@ type Request = {
   id: string;
   object: string;
   orderer: string;
+  account: string;
   reason: string;
 };

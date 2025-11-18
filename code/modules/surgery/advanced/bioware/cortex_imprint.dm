@@ -1,6 +1,7 @@
 /datum/surgery/advanced/bioware/cortex_imprint
 	name = "Cortex Imprint"
 	desc = "A surgical procedure which modifies the cerebral cortex into a redundant neural pattern, making the brain able to bypass impediments caused by minor brain traumas."
+	surgery_flags = SURGERY_MORBID_CURIOSITY
 	possible_locs = list(BODY_ZONE_HEAD)
 	steps = list(
 		/datum/surgery_step/incise,
@@ -31,7 +32,7 @@
 	)
 
 /datum/surgery/advanced/bioware/cortex_imprint/can_start(mob/user, mob/living/carbon/target)
-	var/obj/item/organ/internal/brain/target_brain = target.get_organ_slot(ORGAN_SLOT_BRAIN)
+	var/obj/item/organ/brain/target_brain = target.get_organ_slot(ORGAN_SLOT_BRAIN)
 	if(!target_brain)
 		return FALSE
 	return ..()

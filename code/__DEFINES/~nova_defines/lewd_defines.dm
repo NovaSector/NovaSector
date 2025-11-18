@@ -29,4 +29,14 @@
 #define BREAST_SIZE_N "N"
 #define BREAST_SIZE_O "O"
 #define BREAST_SIZE_P "P"
+#define BREAST_SIZE_HUGE "Huge"
+#define BREAST_SIZE_GIGANTIC "Gigantic"
+#define BREAST_SIZE_ENORMOUS "Enormous"
+#define BREAST_SIZE_MASSIVE "Massive"
+#define BREAST_SIZE_IMPOSSIBLE "Impossible"
 #define BREAST_SIZE_BEYOND_MEASUREMENT "beyond measurement"
+
+// Shibari stuff
+#define SHIBARI_TIGHTNESS_LOW 1
+#define SHIBARI_TIGHTNESS_MED 2
+#define SHIBARI_TIGHTNESS_HIGH 3

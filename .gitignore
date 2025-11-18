@@ -2,6 +2,8 @@
 
 # Local overrides--you can use this to change the config for your dev environment (like setting up SQL) without worrying about committing it
 /config/dev_overrides.txt
+/config/dev_preferences.json
+/config/dev_preferences.json.updatebac
 
 #Ignore everything in datafolder and subdirectories
 /data/**/*
@@ -180,6 +182,15 @@ Temporary Items
 /tools/MapAtmosFixer/MapAtmosFixer/bin/*
 /tools/CreditsTool/bin/*
 /tools/CreditsTool/obj/*
+/tools/Tgstation.DiscordDiscussions/.vs/*
+/tools/Tgstation.DiscordDiscussions/bin/*
+/tools/Tgstation.DiscordDiscussions/obj/*
+/tools/Tgstation.DiscordDiscussions/Properties/launchSettings.json
+/tools/Tgstation.PRAnnouncer/.vs/*
+/tools/Tgstation.PRAnnouncer/bin/*
+/tools/Tgstation.PRAnnouncer/obj/*
+/tools/Tgstation.PRAnnouncer/Properties/launchSettings.json
+/tools/Tgstation.PRAnnouncer/appsettings.*.json
 
 #GitHub Atom
 .atom-build.json
@@ -250,3 +261,4 @@ define_sanity_output.txt
 
 # Running OpenDream locally
 tgstation.json
+rust_g64.dll

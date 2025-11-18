@@ -71,10 +71,8 @@
 	cleanspeed = 2.8 SECONDS //janitor gets this
 	uses = 300
 
-/obj/item/soap/nanotrasen/cyborg
-
 /obj/item/soap/deluxe
-	desc = "A deluxe Waffle Co. brand bar of soap. Smells of high-class luxury."
+	desc = "A deluxe Waffle Corporation brand bar of soap. Smells of high-class luxury."
 	grind_results = list(/datum/reagent/consumable/aloejuice = 10, /datum/reagent/lye = 10)
 	icon_state = "soapdeluxe"
 	inhand_icon_state = "soapdeluxe"
@@ -127,7 +125,7 @@
 /obj/item/soap/proc/should_clean(datum/cleaning_source, atom/atom_to_clean, mob/living/cleaner)
 	. = CLEAN_ALLOWED
 	if(!check_allowed_items(atom_to_clean))
-		. |= CLEAN_NO_XP
+		. |= CLEAN_NO_XP|CLEAN_NO_WASH
 
 /**
  * Decrease the number of uses the bar of soap has.
@@ -153,6 +151,9 @@
 	to_chat(user, span_warning("[src] crumbles into tiny bits!"))
 	qdel(src)
 
+/obj/item/soap/nanotrasen/cyborg
+	name = "built-in soap"
+
 /obj/item/soap/nanotrasen/cyborg/noUses(mob/user)
 	to_chat(user, span_warning("[src] has ran out of chemicals! Head to a recharger to refill it."))
 
@@ -160,9 +161,6 @@
 	if(uses <= 0)
 		return CLEAN_BLOCKED
 	return ..()
-
-/obj/item/soap/storage_insert_on_interaction(datum/storage, atom/storage_holder, mob/living/user)
-	return !user.combat_mode  // only cleans a storage item if on combat
 
 /*
  * Bike Horns
@@ -212,7 +210,7 @@
 	desc = "Damn son, where'd you find this?"
 	icon_state = "air_horn"
 	worn_icon_state = "horn_air"
-	sound_file = 'sound/items/airhorn2.ogg'
+	sound_file = 'sound/items/airhorn/airhorn2.ogg'
 
 /datum/crafting_recipe/airhorn
 	name = "Air Horn"

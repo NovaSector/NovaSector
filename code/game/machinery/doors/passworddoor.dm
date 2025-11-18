@@ -20,7 +20,7 @@
 	/// Sound used upon closing.
 	var/door_close = 'sound/machines/blastdoor.ogg'
 	/// Sound used upon denying.
-	var/door_deny = 'sound/machines/buzz-sigh.ogg'
+	var/door_deny = 'sound/machines/buzz/buzz-sigh.ogg'
 
 /obj/machinery/door/password/voice
 	voice_activated = TRUE
@@ -44,7 +44,7 @@
 /obj/machinery/door/password/get_save_vars()
 	return ..() + NAMEOF(src, password)
 
-/obj/machinery/door/password/Hear(message, atom/movable/speaker, message_language, raw_message, radio_freq, list/spans, list/message_mods = list(), message_range)
+/obj/machinery/door/password/Hear(atom/movable/speaker, message_language, raw_message, radio_freq, radio_freq_name, radio_freq_color, list/spans, list/message_mods = list(), message_range)
 	. = ..()
 	if(!density || !voice_activated || radio_freq)
 		return
@@ -103,7 +103,7 @@
 			playsound(src, door_deny, 30, TRUE)
 
 /obj/machinery/door/password/proc/ask_for_pass(mob/user)
-	var/guess = tgui_input_text(user, "Enter the password", "Password")
+	var/guess = tgui_input_text(user, "Enter the password", "Password", max_length = MAX_MESSAGE_LEN)
 	if(guess == password)
 		return TRUE
 	return FALSE

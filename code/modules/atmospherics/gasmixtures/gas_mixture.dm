@@ -87,16 +87,14 @@ GLOBAL_LIST_INIT(gaslist_cache, init_gaslist_cache())
 /datum/gas_mixture/proc/heat_capacity(data = MOLES)
 	var/list/cached_gases = gases
 	. = 0
-	for(var/id in cached_gases)
-		var/gas_data = cached_gases[id]
+	for(var/_id, gas_data in cached_gases)
 		. += gas_data[data] * gas_data[GAS_META][META_GAS_SPECIFIC_HEAT]
 
 /// Same as above except vacuums return HEAT_CAPACITY_VACUUM
 /datum/gas_mixture/turf/heat_capacity(data = MOLES)
 	var/list/cached_gases = gases
 	. = 0
-	for(var/id in cached_gases)
-		var/gas_data = cached_gases[id]
+	for(var/_id, gas_data in cached_gases)
 		. += gas_data[data] * gas_data[GAS_META][META_GAS_SPECIFIC_HEAT]
 	if(!.)
 		. += HEAT_CAPACITY_VACUUM //we want vacuums in turfs to have the same heat capacity as space
@@ -451,16 +449,17 @@ GLOBAL_LIST_INIT(gaslist_cache, init_gaslist_cache())
 	//thermal energy of the system (self and sharer) is unchanged
 
 ///Compares sample to self to see if within acceptable ranges that group processing may be enabled
+///Takes the gas index to read from as a second arg (either MOLES or ARCHIVE)
 ///Returns: a string indicating what check failed, or "" if check passes
-/datum/gas_mixture/proc/compare(datum/gas_mixture/sample)
+/datum/gas_mixture/proc/compare(datum/gas_mixture/sample, index)
 	var/list/sample_gases = sample.gases //accessing datum vars is slower than proc vars
 	var/list/cached_gases = gases
 	var/moles_sum = 0
 
 	for(var/id in cached_gases | sample_gases) // compare gases from either mixture
 		// Yes this is actually fast. I too hate it here
-		var/gas_moles = cached_gases[id]?[MOLES] || 0
-		var/sample_moles = sample_gases[id]?[MOLES] || 0
+		var/gas_moles = cached_gases[id]?[index] || 0
+		var/sample_moles = sample_gases[id]?[index] || 0
 		// Brief explanation. We are much more likely to not pass this first check then pass the first and fail the second
 		// Because of this, double calculating the delta is FASTER then inserting it into a var
 		if(abs(gas_moles - sample_moles) > MINIMUM_MOLES_DELTA_TO_MOVE)
@@ -470,8 +469,12 @@ GLOBAL_LIST_INIT(gaslist_cache, init_gaslist_cache())
 		moles_sum += gas_moles
 
 	if(moles_sum > MINIMUM_MOLES_DELTA_TO_MOVE) //Don't consider temp if there's not enough mols
-		if(abs(temperature - sample.temperature) > MINIMUM_TEMPERATURE_DELTA_TO_SUSPEND)
-			return "temp"
+		if(index == ARCHIVE)
+			if(abs(temperature_archived - sample.temperature_archived) > MINIMUM_TEMPERATURE_DELTA_TO_SUSPEND)
+				return "temp"
+		else
+			if(abs(temperature - sample.temperature) > MINIMUM_TEMPERATURE_DELTA_TO_SUSPEND)
+				return "temp"
 
 	return ""
 
@@ -503,7 +506,7 @@ GLOBAL_LIST_INIT(gaslist_cache, init_gaslist_cache())
 		return
 
 	//Fuck you
-	if(cached_gases[/datum/gas/hypernoblium] && cached_gases[/datum/gas/hypernoblium][MOLES] >= REACTION_OPPRESSION_THRESHOLD && temperature > 20)
+	if(cached_gases[/datum/gas/hypernoblium] && cached_gases[/datum/gas/hypernoblium][MOLES] >= REACTION_OPPRESSION_THRESHOLD && temperature > REACTION_OPPRESSION_MIN_TEMP)
 		return STOP_REACTIONS
 
 	reaction_results = new
@@ -547,7 +550,7 @@ GLOBAL_LIST_INIT(gaslist_cache, init_gaslist_cache())
 
 /**
  * Counts how much pressure will there be if we impart MOLAR_ACCURACY amounts of our gas to the output gasmix.
- * We do all of this without actually transferring it so dont worry about it changing the gasmix.
+ * We do all of this without actually transferring it so don't worry about it changing the gasmix.
  * Returns: Resulting pressure (number).
  * Args:
  * - output_air (gasmix).
@@ -562,10 +565,10 @@ GLOBAL_LIST_INIT(gaslist_cache, init_gaslist_cache())
  * Args:
  * - output_air. The gas mix we want to pump to.
  * - target_pressure. The target pressure we want.
- * - ignore_temperature. Returns a cheaper form of gas calculation, useful if the temperature difference between the two gasmixes is low or nonexistant.
+ * - ignore_temperature. Returns a cheaper form of gas calculation, useful if the temperature difference between the two gasmixes is low or nonexistent.
  */
 /datum/gas_mixture/proc/gas_pressure_calculate(datum/gas_mixture/output_air, target_pressure, ignore_temperature = FALSE)
-	// So we dont need to iterate the gaslist multiple times.
+	// So we don't need to iterate the gaslist multiple times.
 	var/our_moles = total_moles()
 	var/output_moles = output_air.total_moles()
 	var/output_pressure = output_air.return_pressure()
@@ -721,3 +724,43 @@ GLOBAL_LIST_INIT(gaslist_cache, init_gaslist_cache())
 
 	output_air.merge(removed)
 	return TRUE
+
+/**
+ * Calls for electrolyzer_reaction reactions on the gas_mixture.
+ * Arguments:
+ * * working_power - working_power to use for the electrolyzer_reaction reactions.
+ * * electrolyzer_args - electrolysis arguments to use for the electrolyzer_reaction reactions.
+ */
+/datum/gas_mixture/proc/electrolyze(working_power = 0, electrolyzer_args = list())
+	for(var/reaction in GLOB.electrolyzer_reactions)
+		var/datum/electrolyzer_reaction/current_reaction = GLOB.electrolyzer_reactions[reaction]
+
+		if(!current_reaction.reaction_check(air_mixture = src, electrolyzer_args = electrolyzer_args))
+			continue
+
+		current_reaction.react(air_mixture = src, working_power = working_power, electrolyzer_args = electrolyzer_args)
+
+	garbage_collect()
+
+/// Convert a gas mixture to a string (ie. "o2=22;n2=82;TEMP=180")
+/// Rounds all temperature and gases to 0.01 and skips any gases less than that amount
+/datum/gas_mixture/proc/to_string()
+	var/list/cached_gases = gases
+	var/rounded_temp = round(temperature, 0.01)
+
+	var/list/atmos_contents = list()
+	var/temperature_str = "TEMP=[num2text(rounded_temp)]"
+
+	if(!length(cached_gases) || total_moles() < 0.01)
+		return temperature_str
+
+	for(var/gas_path in cached_gases)
+		var/gas_moles = cached_gases[gas_path][MOLES]
+		var/gas_id = cached_gases[gas_path][GAS_META][META_GAS_ID]
+
+		gas_moles = round(gas_moles, 0.01)
+		if(gas_moles >= 0.01)
+			atmos_contents += "[gas_id]=[num2text(gas_moles)]"
+
+	atmos_contents += temperature_str
+	return atmos_contents.Join(";")

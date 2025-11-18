@@ -1,11 +1,3 @@
-// Alters nicotine withdrawal
-/datum/addiction/nicotine
-	name = "nicotine"
-	withdrawal_stage_messages = list("Feel like having a smoke...", "I really need a smoke now...", "I can't take it, I really need a smoke now!")
-
-	medium_withdrawal_moodlet = /datum/mood_event/nicotine_withdrawal_moderate
-	severe_withdrawal_moodlet = /datum/mood_event/nicotine_withdrawal_severe
-
 /datum/addiction/nicotine/proc/trigger_random_side_effect(mob/living/carbon/affected_carbon, seconds_per_tick, strength = 1)
 	switch(rand(1, 4))
 		if(1)

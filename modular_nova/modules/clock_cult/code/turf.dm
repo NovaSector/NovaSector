@@ -6,7 +6,7 @@
 	baseturfs = /turf/open/indestructible/reebe_void
 	planetary_atmos = TRUE
 	bullet_bounce_sound = null //forever falling
-	tiled_dirt = FALSE
+	tiled_turf = FALSE
 
 
 /turf/open/indestructible/reebe_void/Initialize(mapload)
@@ -48,6 +48,6 @@
 /turf/open/indestructible/reebe_void/spawning/lattices/Initialize(mapload)
 	. = ..()
 	if(mapload)
-		if(prob(95))
+		if(prob(95) && !(locate(/obj/structure/lattice) in loc)) // Don't try putting a lattice where one already exists or we can get runtimes
 			new /obj/structure/lattice(src)
 

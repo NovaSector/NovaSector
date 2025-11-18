@@ -7,7 +7,7 @@
 		<b>not much quicker than unpowered tools</b>."
 	icon = 'modular_nova/modules/colony_fabricator/icons/tools.dmi'
 	icon_state = "drill"
-	belt_icon_state = null
+	inside_belt_icon_state = null
 	inhand_icon_state = "drill"
 	worn_icon_state = "drill"
 	lefthand_file = 'icons/mob/inhands/equipment/tools_lefthand.dmi'
@@ -23,8 +23,8 @@
 	throw_range = 3
 	attack_verb_continuous = list("drills", "screws", "jabs", "whacks")
 	attack_verb_simple = list("drill", "screw", "jab", "whack")
-	hitsound = 'sound/items/drill_hit.ogg'
-	usesound = 'sound/items/drill_use.ogg'
+	hitsound = 'sound/items/tools/drill_hit.ogg'
+	usesound = 'sound/items/tools/drill_use.ogg'
 	w_class = WEIGHT_CLASS_SMALL
 	toolspeed = 1
 	random_color = FALSE
@@ -32,6 +32,7 @@
 	greyscale_config_belt = null
 	greyscale_config_inhand_left = null
 	greyscale_config_inhand_right = null
+	post_init_icon_state = null
 	/// Used on Initialize, how much time to cut cable restraints and zipties.
 	var/snap_time_weak_handcuffs = 0 SECONDS
 	/// Used on Initialize, how much time to cut real handcuffs. Null means it can't.
@@ -83,13 +84,13 @@
 		if("Screwdriver")
 			tool_behaviour = TOOL_SCREWDRIVER
 			sharpness = SHARP_POINTY
-	playsound(src, 'sound/items/change_drill.ogg', 50, vary = TRUE)
+	playsound(src, 'sound/items/tools/change_drill.ogg', 50, vary = TRUE)
 	update_appearance(UPDATE_ICON)
 
 /obj/item/screwdriver/omni_drill/proc/check_menu(mob/user)
 	if(!istype(user))
 		return FALSE
-	if(user.incapacitated() || !user.Adjacent(src))
+	if(user.incapacitated || !user.Adjacent(src))
 		return FALSE
 	return TRUE
 
@@ -103,6 +104,7 @@
 	icon_state = "prybar"
 	toolspeed = 1.3
 	force_opens = TRUE
+	custom_premium_price = PAYCHECK_COMMAND * 5
 	custom_materials = list(
 		/datum/material/iron = SHEET_MATERIAL_AMOUNT * 1.75,
 		/datum/material/titanium = HALF_SHEET_MATERIAL_AMOUNT,

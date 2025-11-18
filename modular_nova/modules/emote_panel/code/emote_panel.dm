@@ -38,6 +38,7 @@
 		/mob/living/proc/emote_laugh,
 		/mob/living/proc/emote_look,
 		/mob/living/proc/emote_nod,
+		/mob/living/proc/emote_nodnod,
 		/mob/living/proc/emote_point,
 		/mob/living/proc/emote_pout,
 		/mob/living/proc/emote_scream,
@@ -237,7 +238,7 @@
 			available_emotes += human_emotes
 			var/mob/living/carbon/human/current_mob = src
 			// Checking if can wag tail
-			var/obj/item/organ/external/tail/tail = current_mob.get_organ_slot(ORGAN_SLOT_EXTERNAL_TAIL)
+			var/obj/item/organ/tail/tail = current_mob.get_organ_slot(ORGAN_SLOT_EXTERNAL_TAIL)
 			if(!(tail?.wag_flags & WAG_ABLE))
 				available_emotes -= /mob/living/carbon/human/proc/emote_wag
 			// Checking if has wings
@@ -391,6 +392,11 @@
 	set name = "~ Nod"
 	set category = "Emotes"
 	usr.emote("nod", intentional = TRUE)
+
+/mob/living/proc/emote_nodnod()
+	set name = "~ Nodnod"
+	set category = "Emotes"
+	usr.emote("nod2", intentional = TRUE)
 
 /mob/living/proc/emote_point()
 	set name = "~ Point"
@@ -701,7 +707,7 @@
 /mob/living/proc/emote_hiss1()
 	set name = "> Hiss"
 	set category = "Emotes+"
-	usr.emote("hiss1", intentional = TRUE)
+	usr.emote("hiss", intentional = TRUE)
 
 /mob/living/proc/emote_chitter()
 	set name = "> Chitter"

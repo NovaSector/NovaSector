@@ -17,7 +17,10 @@
 	armor_type = /datum/armor/hooded_seva
 	resistance_flags = FIRE_PROOF
 	transparent_protection = HIDEJUMPSUIT
-	allowed = list(/obj/item/flashlight, /obj/item/tank/internals, /obj/item/resonator, /obj/item/mining_scanner, /obj/item/t_scanner/adv_mining_scanner, /obj/item/gun/energy/recharge/kinetic_accelerator, /obj/item/pickaxe)
+
+/obj/item/clothing/suit/hooded/seva/Initialize(mapload)
+	. = ..()
+	allowed = GLOB.mining_suit_allowed
 
 /datum/armor/hooded_seva
 	melee = 20
@@ -55,5 +58,6 @@
 	worn_icon = 'modular_nova/master_files/icons/mob/clothing/mask.dmi'
 	worn_icon_teshari = 'modular_nova/master_files/icons/mob/clothing/species/teshari/mask.dmi'
 	icon_state = "seva"
+	dirt_state = "gas_wide_dirt"
 	resistance_flags = FIRE_PROOF
 	flags_inv = HIDEFACIALHAIR|HIDEFACE|HIDEEYES|HIDEEARS|HIDEHAIR|HIDESNOUT

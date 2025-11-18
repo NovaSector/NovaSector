@@ -10,7 +10,7 @@
 	stutter = 20 SECONDS
 	embed_type = null
 	hitsound = 'sound/effects/meteorimpact.ogg'
-	hitsound_wall = 'sound/weapons/sonic_jackhammer.ogg'
+	hitsound_wall = 'sound/items/weapons/sonic_jackhammer.ogg'
 	/// If our cannonball hits something, it reduces the damage by this value.
 	var/damage_decrease_on_hit = 10
 	/// This is the cutoff point of our cannonball, so that it stops piercing past this value.
@@ -57,7 +57,7 @@
 	damage = 15 //very low
 
 /obj/projectile/bullet/cannonball/emp/on_hit(atom/target, blocked = 0, pierce_hit)
-	empulse(src, 4, 10)
+	empulse(src, 4, 10, emp_source = src)
 	. = ..()
 
 /obj/projectile/bullet/cannonball/biggest_one

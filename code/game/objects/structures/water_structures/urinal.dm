@@ -16,7 +16,7 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/structure/urinal, 32)
 	. = ..()
 	if(mapload)
 		hidden_item = new /obj/item/food/urinalcake(src)
-	find_and_hang_on_wall()
+		find_and_hang_on_wall()
 
 /obj/structure/urinal/Exited(atom/movable/gone, direction)
 	. = ..()
@@ -51,7 +51,7 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/structure/urinal, 32)
 		return
 	return ..()
 
-/obj/structure/urinal/attackby(obj/item/attacking_item, mob/user, params)
+/obj/structure/urinal/attackby(obj/item/attacking_item, mob/user, list/modifiers, list/attack_modifiers)
 	if(exposed)
 		if(hidden_item)
 			to_chat(user, span_warning("There is already something in the drain enclosure!"))

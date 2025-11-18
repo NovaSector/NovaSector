@@ -5,10 +5,13 @@
 	icon_state = "anthill"
 	density = TRUE
 	anchored = TRUE
+
 	/// If the farm is occupied by ants
 	var/has_ants = FALSE
+
 	/// the chance for the farm to get ants
 	var/ant_chance = 0
+
 	/// the list of ore-y stuff that ants can drag up from deep within their nest
 	var/list/ore_list = list(
 		/obj/item/stack/ore/iron = 20,
@@ -22,6 +25,7 @@
 		/obj/item/stack/ore/uranium = 3,
 		/obj/item/stack/ore/gold = 3,
 	)
+
 	// The cooldown between each worm "breeding"
 	COOLDOWN_DECLARE(ant_timer)
 
@@ -69,30 +73,37 @@
 	if(!has_ants)
 		. += span_notice("To add ants, feed the farm some <b>food</b>.")
 
-/obj/structure/antfarm/attackby(obj/item/attacking_item, mob/user, params)
-	if(istype(attacking_item, /obj/item/food))
+/obj/structure/antfarm/item_interaction(mob/living/user, obj/item/tool, list/modifiers)
+	if(istype(tool, /obj/item/food))
 		if(has_ants)
 			balloon_alert(user, "ants block the way!")
-			return
+			return ITEM_INTERACT_BLOCKING
 
-		qdel(attacking_item)
+		qdel(tool)
 		balloon_alert(user, "food has been placed")
+		user.mind?.adjust_experience(/datum/skill/primitive, 2)
 		ant_chance++
-		return
+		if(prob(user.mind?.get_skill_modifier(/datum/skill/primitive, SKILL_PROBS_MODIFIER)))
+			ant_chance++
+		return ITEM_INTERACT_BLOCKING
 
-	if(istype(attacking_item, /obj/item/storage/bag/plants))
+	if(istype(tool, /obj/item/storage/bag/plants))
 		if(has_ants)
 			balloon_alert(user, "ants block the way!")
-			return
+			return ITEM_INTERACT_BLOCKING
 
 		balloon_alert(user, "feeding the ants")
-		for(var/obj/item/food/selected_food in attacking_item.contents)
-			if(has_ants || !do_after(user, 0.5 SECONDS, src))
-				return
+		for(var/obj/item/food/selected_food in tool.contents)
+			var/skill_modifier = user.mind?.get_skill_modifier(/datum/skill/primitive, SKILL_SPEED_MODIFIER)
+			if(has_ants || !do_after(user, 1 SECONDS * skill_modifier, src))
+				return ITEM_INTERACT_BLOCKING
 
+			user.mind?.adjust_experience(/datum/skill/primitive, 2)
 			qdel(selected_food)
 			ant_chance++
+			if(prob(user.mind?.get_skill_modifier(/datum/skill/primitive, SKILL_PROBS_MODIFIER)))
+				ant_chance++
 
-		return
+		return ITEM_INTERACT_BLOCKING
 
-	return ..()
+	return ITEM_INTERACT_SUCCESS

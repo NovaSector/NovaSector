@@ -22,10 +22,9 @@
 // Twitch drug, makes the takers of it faster and able to dodge bullets while in their system, to potentially bad side effects
 /datum/reagent/drug/twitch
 	name = "TWitch"
-	description = "A drug originally developed by and for plutonians to assist them during raids. \
-		Does not see wide use due to the whole reality-disassociation and heart disease thing afterwards. \
-		Can be intentionally overdosed to increase the drug's effects"
-	reagent_state = LIQUID
+	description = "A drug originally developed by and for Plutonians to assist them during raids. \
+		Does not see wide use, due to the whole reality-disassociation and acute heart disease thing afterwards. \
+		Can be intentionally overdosed to increase the drug's effects."
 	color = "#c22a44"
 	taste_description = "television static"
 	metabolization_rate = 0.65 * REAGENTS_METABOLISM
@@ -33,7 +32,7 @@
 	overdose_threshold = 15
 	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
 	addiction_types = list(/datum/addiction/stimulants = 20)
-	process_flags = REAGENT_ORGANIC | REAGENT_SYNTHETIC
+	process_flags = REAGENT_ORGANIC
 	/// How much time has the drug been in them?
 	var/constant_dose_time = 0
 	/// What type of span class do we change heard speech to?
@@ -46,7 +45,7 @@
 	. = ..()
 
 	our_guy.add_movespeed_modifier(/datum/movespeed_modifier/reagent/twitch)
-	our_guy.next_move_modifier -= 0.3 // For the duration of this you move and attack faster
+	our_guy.next_move_modifier *= 0.7 // For the duration of this you move and attack faster
 
 	our_guy.sound_environment_override = SOUND_ENVIRONMENT_DIZZY
 
@@ -54,6 +53,10 @@
 
 	RegisterSignal(our_guy, COMSIG_MOVABLE_MOVED, PROC_REF(on_movement))
 	RegisterSignal(our_guy, COMSIG_MOVABLE_HEAR, PROC_REF(distort_hearing))
+	if(!HAS_TRAIT(our_guy, TRAIT_RELAYING_ATTACKER))
+		our_guy.AddElement(/datum/element/relay_attackers)
+	RegisterSignal(our_guy, COMSIG_ATOM_WAS_ATTACKED, PROC_REF(on_attacked))
+	RegisterSignal(our_guy, COMSIG_ATOM_PREHITBY, PROC_REF(on_hitby))
 
 	if(!our_guy.hud_used)
 		return
@@ -76,7 +79,7 @@
 	. = ..()
 
 	our_guy.remove_movespeed_modifier(/datum/movespeed_modifier/reagent/twitch)
-	our_guy.next_move_modifier += (overdosed ? 0.5 : 0.3)
+	our_guy.next_move_modifier /= (overdosed ? 0.49 : 0.7)
 
 	our_guy.sound_environment_override = NONE
 
@@ -86,6 +89,9 @@
 	UnregisterSignal(our_guy, COMSIG_MOVABLE_HEAR)
 	if(overdosed)
 		UnregisterSignal(our_guy, COMSIG_ATOM_PRE_BULLET_ACT)
+	UnregisterSignal(our_guy, COMSIG_ATOM_WAS_ATTACKED)
+	UnregisterSignal(our_guy, COMSIG_ATOM_PREHITBY)
+	our_guy.RemoveElement(/datum/element/relay_attackers)
 
 	if(constant_dose_time < CONSTANT_DOSE_SAFE_LIMIT) // Anything less than this and you'll come out fiiiine, aside from a big hit of stamina damage
 		if(!(our_guy.mob_biotypes & MOB_ROBOTIC))
@@ -125,24 +131,54 @@
 	game_plane_master_controller.remove_filter(TWITCH_SCREEN_FILTER)
 	game_plane_master_controller.remove_filter(TWITCH_SCREEN_BLUR)
 
+/// Signal sent by the relay_attackers element. If the attacker was too close for comfort (in melee range), apply a stagger.
+/datum/reagent/drug/twitch/proc/on_attacked(mob/source, mob/attacker, attack_flags)
+	SIGNAL_HANDLER
+	if(!isliving(source))
+		return
+	var/mob/living/our_guy = source
+	if(get_dist(attacker, source) <= 1)
+		our_guy.visible_message(span_warning("[our_guy] is thrown off-balance by [attacker], staggering them badly!"),
+		span_warning("Being struck by [attacker] in such close range while TWitched staggers you!"),
+		span_warning("You hear the sound of someone being hit by something up close, and a subsequent loss of footing."))
+		our_guy.adjust_staggered_up_to(STAGGERED_SLOWDOWN_LENGTH * 2, STAGGERED_SLOWDOWN_LENGTH * 4) // staggers for +6 seconds, caps at 12
+
+/// Signal sent by COMSIG_ATOM_PREHITBY (from being hit with a thrown item). If someone hits you with a thrown, apply a stagger.
+/datum/reagent/drug/twitch/proc/on_hitby(atom/target, atom/movable/hit_atom, datum/thrownthing/throwingdatum)
+	SIGNAL_HANDLER
+	if(!isliving(target))
+		return
+	var/mob/living/our_guy = target
+	if(!isitem(hit_atom))
+		return
+	var/obj/item/hit_item = hit_atom
+	if(!hit_item.throwforce)
+		return
+	our_guy.visible_message(span_warning("[our_guy] is thrown off-balance by [hit_atom], staggering them!"),
+	span_warning("Being struck by [hit_atom] while TWitched staggers you!"),
+	span_warning("You hear the sound of someone being hit by something, and a subsequent loss of footing."))
+	our_guy.adjust_staggered_up_to(STAGGERED_SLOWDOWN_LENGTH, STAGGERED_SLOWDOWN_LENGTH) // staggers for +3 seconds, caps at 3
 
 /// Leaves an afterimage behind the mob when they move
 /datum/reagent/drug/twitch/proc/on_movement(mob/living/carbon/our_guy, atom/old_loc)
 	SIGNAL_HANDLER
 	new /obj/effect/temp_visual/decoy/twitch_afterimage(old_loc, our_guy)
 
-
 /// Tries to dodge incoming bullets if we aren't disabled for any reasons
 /datum/reagent/drug/twitch/proc/dodge_bullets(mob/living/carbon/human/source, obj/projectile/hitting_projectile, def_zone)
 	SIGNAL_HANDLER
 
-	if(HAS_TRAIT(source, TRAIT_INCAPACITATED))
+	if(HAS_TRAIT(source, TRAIT_INCAPACITATED)) // if downed, no bullet dodge
+		return NONE
+	if(source.get_timed_status_effect_duration(/datum/status_effect/staggered)) // if staggered, no bullet dodge
+		return NONE
+	if(source.legcuffed) // if legcuffed, no bullet dodge
 		return NONE
 	source.visible_message(
 		span_danger("[source] effortlessly dodges [hitting_projectile]!"),
 		span_userdanger("You effortlessly evade [hitting_projectile]!"),
 	)
-	playsound(source, pick('sound/weapons/bulletflyby.ogg', 'sound/weapons/bulletflyby2.ogg', 'sound/weapons/bulletflyby3.ogg'), 75, TRUE)
+	playsound(source, pick('sound/items/weapons/bulletflyby.ogg', 'sound/items/weapons/bulletflyby2.ogg', 'sound/items/weapons/bulletflyby3.ogg'), 75, TRUE)
 	source.add_filter(TWITCH_BLUR_EFFECT, 2, gauss_blur_filter(5))
 	addtimer(CALLBACK(source, TYPE_PROC_REF(/datum, remove_filter), TWITCH_BLUR_EFFECT), 0.5 SECONDS)
 	return COMPONENT_BULLET_PIERCED
@@ -174,7 +210,7 @@
 
 	RegisterSignal(our_guy, COMSIG_ATOM_PRE_BULLET_ACT, PROC_REF(dodge_bullets))
 
-	our_guy.next_move_modifier -= 0.2 // Overdosing makes you a liiitle faster but you know has some really bad consequences
+	our_guy.next_move_modifier *= 0.7 // Overdosing makes you a liiitle faster but you know has some really bad consequences
 
 	if(!our_guy.hud_used)
 		return

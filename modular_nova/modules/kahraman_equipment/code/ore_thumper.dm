@@ -203,7 +203,7 @@
 	var/nearby_ore = 0
 	var/is_there_a_thumper_too = FALSE
 	for(var/turf/nearby_turf in orange(ore_spawn_range, src))
-		for(var/ore as anything in nearby_turf.contents)
+		for(var/ore in nearby_turf.contents)
 			if(istype(ore, /obj/item/stack/ore))
 				nearby_ore += 1
 				continue
@@ -254,6 +254,7 @@
 // Item for deploying ore thumpers
 /obj/item/flatpacked_machine/ore_thumper
 	name = "flat-packed ore thumper"
+	desc = /obj/machinery/power/colony_ore_thumper::desc
 	icon = 'modular_nova/modules/kahraman_equipment/icons/ore_thumper_item.dmi'
 	icon_state = "thumper_packed"
 	type_to_deploy = /obj/machinery/power/colony_ore_thumper

@@ -16,6 +16,7 @@
 	metabolization_rate = 0.25
 	life_pref_datum = /datum/preference/toggle/erp/breast_enlargement
 	overdose_pref_datum = /datum/preference/toggle/erp
+	chemical_flags = REAGENT_ORGANIC | REAGENT_SYNTHETIC
 
 	/// Words for the breasts when huge.
 	var/static/list/words_for_bigger = list(
@@ -113,7 +114,7 @@
 * suppress_chat - whether or not to display a message in chat
 * NOTE: this function doesn't get called often enough to warrant suppressing chat, hence the var's omission
 */
-/datum/reagent/drug/aphrodisiac/succubus_milk/growth_to_chat(mob/living/carbon/human/exposed_mob, obj/item/organ/external/genital/breasts/mob_breasts = exposed_mob?.get_organ_slot(ORGAN_SLOT_BREASTS))
+/datum/reagent/drug/aphrodisiac/succubus_milk/growth_to_chat(mob/living/carbon/human/exposed_mob, obj/item/organ/genital/breasts/mob_breasts = exposed_mob?.get_organ_slot(ORGAN_SLOT_BREASTS))
 
 	if(!mob_breasts)
 		return

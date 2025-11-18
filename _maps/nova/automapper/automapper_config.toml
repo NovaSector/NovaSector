@@ -75,6 +75,14 @@ required_map = "MetaStation.dmm"
 coordinates = [163, 155, 1]
 trait_name = "Station"
 
+# Metastation Public Garden
+[templates.metastation_garden]
+map_files = ["metastation_garden.dmm"]
+directory = "_maps/nova/automapper/templates/metastation/"
+required_map = "MetaStation.dmm"
+coordinates = [141, 149, 1]
+trait_name = "Station"
+
 # DELTASTATION MAP EDITS
 # Deltastation Arrivals
 [templates.deltastation_arrivals]
@@ -124,6 +132,14 @@ required_map = "DeltaStation2.dmm"
 coordinates = [84, 109, 1]
 trait_name = "Station"
 
+# Deltastation Public Garden
+[templates.deltastation_garden]
+map_files = ["deltastation_garden.dmm"]
+directory = "_maps/nova/automapper/templates/deltastation/"
+required_map = "DeltaStation2.dmm"
+coordinates = [151, 175, 1]
+trait_name = "Station"
+
 # ICEBOX MAP EDITS
 # Icebox Arrivals
 [templates.icebox_arrivals]
@@ -162,7 +178,7 @@ trait_name = "Station"
 map_files = ["icebox_ntrep_office.dmm"]
 directory = "_maps/nova/automapper/templates/icebox/"
 required_map = "IceBoxStation.dmm"
-coordinates = [92, 118, 2]
+coordinates = [92, 120, 2]
 trait_name = "Station"
 
 # Icebox HoP Maint
@@ -203,6 +219,14 @@ map_files = ["icebox_ranch.dmm"]
 directory = "_maps/nova/automapper/templates/icebox/"
 required_map = "IceBoxStation.dmm"
 coordinates = [57, 82, 2]
+trait_name = "Station"
+
+# Icebox Public Garden
+[templates.icebox_garden]
+map_files = ["icebox_garden.dmm"]
+directory = "_maps/nova/automapper/templates/icebox/"
+required_map = "IceBoxStation.dmm"
+coordinates = [59, 143, 3]
 trait_name = "Station"
 
 # TRAMSTATION MAP EDITS
@@ -254,126 +278,12 @@ required_map = "tramstation.dmm"
 coordinates = [118, 75, 1]
 trait_name = "Station"
 
-# BIRDSHOT MAP EDITS
-# Birdshot Arrivals
-[templates.birdshot_arrivals]
-map_files = ["birdshot_arrivals.dmm"]
-directory = "_maps/nova/automapper/templates/birdshot/"
-required_map = "birdshot.dmm"
-coordinates = [136, 61, 1]
-trait_name = "Station"
-
-# Birdshot Armory
-[templates.birdshot_armory]
-map_files = ["birdshot_armory.dmm"]
-directory = "_maps/nova/automapper/templates/birdshot/"
-required_map = "birdshot.dmm"
-coordinates = [51, 106, 1]
-trait_name = "Station"
-
-# Birdshot Cryo
-[templates.birdshot_cryo]
-map_files = ["birdshot_cryo.dmm"]
-directory = "_maps/nova/automapper/templates/birdshot/"
-required_map = "birdshot.dmm"
-coordinates = [142, 84, 1]
-trait_name = "Station"
-
-# Birdshot Barber
-[templates.birdshot_barber]
-map_files = ["birdshot_barber.dmm"]
-directory = "_maps/nova/automapper/templates/birdshot/"
-required_map = "birdshot.dmm"
-coordinates = [118, 145, 1]
-trait_name = "Station"
-
-# Birdshot NTC Office
-[templates.birdshot_ntrep_office]
-map_files = ["birdshot_ntrep_office.dmm"]
-directory = "_maps/nova/automapper/templates/birdshot/"
-required_map = "birdshot.dmm"
-coordinates = [91, 143, 1]
-trait_name = "Station"
-
-# Birdshot ERT Bay
-[templates.birdshot_ert_bay]
-map_files = ["birdshot_ert_bay.dmm"]
-directory = "_maps/nova/automapper/templates/birdshot/"
-required_map = "birdshot.dmm"
-coordinates = [188, 72, 1]
-trait_name = "Station"
-
-# Birdshot Supermatter Chamber
-[templates.birdshot_supermatter]
-map_files = ["birdshot_supermatter.dmm"]
-directory = "_maps/nova/automapper/templates/birdshot/"
-required_map = "birdshot.dmm"
-coordinates = [67, 207, 1]
-trait_name = "Station"
-
-# NORTHSTAR MAP EDITS
-# Northstar Cryo
-[templates.northstar_cryo]
-map_files = ["northstar_cryo.dmm"]
-directory = "_maps/nova/automapper/templates/northstar/"
-required_map = "north_star.dmm"
-coordinates = [130, 114, 3]
-trait_name = "Station"
-
-# Northstar Dorms
-[templates.northstar_dorms]
-map_files = ["northstar_dorms.dmm"]
-directory = "_maps/nova/automapper/templates/northstar/"
-required_map = "north_star.dmm"
-coordinates = [137, 132, 3]
-trait_name = "Station"
-
-# Northstar Arrivals
-[templates.northstar_arrivals]
-map_files = ["northstar_arrivals.dmm"]
-directory = "_maps/nova/automapper/templates/northstar/"
-required_map = "north_star.dmm"
-coordinates = [90, 100, 1]
-trait_name = "Station"
-
-# Northstar ERT Bay
-[templates.northstar_ert_bay]
-map_files = ["northstar_ert_bay.dmm"]
-directory = "_maps/nova/automapper/templates/northstar/"
-required_map = "north_star.dmm"
-coordinates = [54, 118, 2]
-trait_name = "Station"
-
-# Northstar Barber
-[templates.northstar_barber]
-map_files = ["northstar_barber.dmm"]
-directory = "_maps/nova/automapper/templates/northstar/"
-required_map = "north_star.dmm"
-coordinates = [105, 117, 2]
-trait_name = "Station"
-
-# Northstar Armory
-[templates.northstar_armory]
-map_files = ["northstar_armory.dmm"]
-directory = "_maps/nova/automapper/templates/northstar/"
-required_map = "north_star.dmm"
-coordinates = [121, 109, 4]
-trait_name = "Station"
-
-# Northstar NTR Office
-[templates.northstar_ntrep_office]
-map_files = ["northstar_ntrep_office.dmm"]
-directory = "_maps/nova/automapper/templates/northstar/"
-required_map = "north_star.dmm"
-coordinates = [150, 114, 3]
-trait_name = "Station"
-
-# Northstar Supermatter Chamber
-[templates.northstar_supermatter]
-map_files = ["northstar_supermatter.dmm"]
-directory = "_maps/nova/automapper/templates/northstar/"
-required_map = "north_star.dmm"
-coordinates = [171, 129, 1]
+# Tramstation Public Garden
+[templates.tramstation_garden]
+map_files = ["tramstation_garden.dmm"]
+directory = "_maps/nova/automapper/templates/tramstation/"
+required_map = "tramstation.dmm"
+coordinates = [46, 109, 2]
 trait_name = "Station"
 
 # Lavaland NE Ashwalker Fortress
@@ -433,6 +343,22 @@ required_map = "wawastation.dmm"
 coordinates = [83, 92, 1]
 trait_name = "Station"
 
+# Wawastation TG-shenanigan removals.
+[templates.wawastation_asteroidbluecell]
+map_files = ["wawastation_asteroidbluecell.dmm"]
+directory = "_maps/nova/automapper/templates/wawastation/"
+required_map = "wawastation.dmm"
+coordinates = [142, 95, 2]
+trait_name = "Station"
+
+# Wawastation Public Garden
+[templates.wawastation_garden]
+map_files = ["wawastation_garden.dmm"]
+directory = "_maps/nova/automapper/templates/wawastation/"
+required_map = "wawastation.dmm"
+coordinates = [79, 82, 1]
+trait_name = "Station"
+
 # SNOWGLOBE STATION MAP EDITS
 # Icecats Camp Lower Level - Snowglobe
 [templates.snowglobe_icecats_lower]
@@ -448,4 +374,108 @@ map_files = ["icemoon_underground_icewalker_upper.dmm"]
 directory = "_maps/RandomRuins/IceRuins/nova/"
 required_map = "snowglobe.dmm"
 coordinates = [202, 16, 2]
+trait_name = "Station"
+
+# Nebulastation Barber
+[templates.nebulastation_barber]
+map_files = ["nebulastation_barber.dmm"]
+directory = "_maps/nova/automapper/templates/nebulastation/"
+required_map = "NebulaStation.dmm"
+coordinates = [132, 113, 2]
+trait_name = "Station"
+
+# Nebulastation Cryo
+[templates.nebulastation_cryo]
+map_files = ["nebulastation_cryo.dmm"]
+directory = "_maps/nova/automapper/templates/nebulastation/"
+required_map = "NebulaStation.dmm"
+coordinates = [112, 122, 1]
+trait_name = "Station"
+
+# Nebulastation Armory
+[templates.nebulastation_armory]
+map_files = ["nebulastation_armory.dmm"]
+directory = "_maps/nova/automapper/templates/nebulastation/"
+required_map = "NebulaStation.dmm"
+coordinates = [161, 116, 1]
+trait_name = "Station"
+
+# Nebulastation Arrivals
+[templates.nebulastation_arrivals]
+map_files = ["nebulastation_arrivals.dmm"]
+directory = "_maps/nova/automapper/templates/nebulastation/"
+required_map = "NebulaStation.dmm"
+coordinates = [122, 122, 2]
+trait_name = "Station"
+
+# Nebulastation NT Rep Office
+[templates.nebulastation_ntrep_office]
+map_files = ["nebulastation_ntrep_office.dmm"]
+directory = "_maps/nova/automapper/templates/nebulastation/"
+required_map = "NebulaStation.dmm"
+coordinates = [110, 116, 2]
+trait_name = "Station"
+
+# Nebulastation Supermatter (The Button)
+[templates.nebulastation_supermatter]
+map_files = ["nebulastation_supermatter.dmm"]
+directory = "_maps/nova/automapper/templates/nebulastation/"
+required_map = "NebulaStation.dmm"
+coordinates = [116, 95, 1]
+trait_name = "Station"
+
+# Nebulastation Public Garden
+[templates.nebula_garden]
+map_files = ["nebulastation_garden.dmm"]
+directory = "_maps/nova/automapper/templates/nebulastation/"
+required_map = "NebulaStation.dmm"
+coordinates = [141, 117, 2]
+trait_name = "Station"
+
+#Catwalkstation Supermatter
+[templates.catwalkstation_supermatter]
+map_files = ["catwalkstation_supermatter.dmm"]
+directory = "_maps/nova/automapper/templates/catwalkstation/"
+required_map = "CatwalkStation_2023.dmm"
+coordinates = [172, 163, 1]
+trait_name = "Station"
+
+#Catwalkstation NTRep Office
+[templates.catwalkstation_ntrep_office]
+map_files = ["catwalkstation_ntrep_office.dmm"]
+directory = "_maps/nova/automapper/templates/catwalkstation/"
+required_map = "CatwalkStation_2023.dmm"
+coordinates = [114, 150, 1]
+trait_name = "Station"
+
+#Catwalkstation Arrivals
+[templates.catwalkstation_arrivals]
+map_files = ["catwalkstation_arrivals.dmm"]
+directory = "_maps/nova/automapper/templates/catwalkstation/"
+required_map = "CatwalkStation_2023.dmm"
+coordinates = [120, 66, 1]
+trait_name = "Station"
+
+#Catwalkstation Cryo
+[templates.catwalkstation_cryo]
+map_files = ["catwalkstation_cryo.dmm"]
+directory = "_maps/nova/automapper/templates/catwalkstation/"
+required_map = "CatwalkStation_2023.dmm"
+coordinates = [132, 149, 1]
+trait_name = "Station"
+
+#Catwalkstation Armory
+[templates.catwalkstation_armory]
+map_files = ["catwalkstation_armory.dmm"]
+directory = "_maps/nova/automapper/templates/catwalkstation/"
+required_map = "CatwalkStation_2023.dmm"
+coordinates = [68, 129, 2]
+trait_name = "Station"
+
+#Catwalkstation Barber
+[templates.catwalkstation_barber]
+map_files = ["catwalkstation_barber.dmm"]
+directory = "_maps/nova/automapper/templates/catwalkstation/"
+required_map = "CatwalkStation_2023.dmm"
+coordinates = [99, 135, 1]
 trait_name = "Station"

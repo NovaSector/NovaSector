@@ -1,0 +1,22 @@
+{
+	"version": 1,
+	"map_name": "MetaStation (Event Mode)",
+	"map_path": "map_files/MetaStation",
+	"map_file": "MetaStation.dmm",
+	"space_ruin_levels": 0,
+	"space_empty_levels": 0,
+	"shuttles": {
+		"cargo": "cargo_nova",
+		"ferry": "ferry_fancy",
+		"whiteship": "whiteship_meta",
+		"emergency": "emergency_meta"
+	},
+	"job_changes": {
+		"Cook": {
+			"additional_cqc_areas": [
+				"/area/station/service/bar",
+				"/area/station/commons/lounge"
+			]
+		}
+	}
+}

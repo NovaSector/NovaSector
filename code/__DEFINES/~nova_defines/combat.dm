@@ -89,7 +89,7 @@
 			. = TRUE
 			try_headslam(user, target, affecting)
 		if(BODY_ZONE_CHEST)
-			if(istype(user.mind.martial_art, /datum/martial_art/cqc))
+			if(istype((user.martial_arts ? (isnum(1) ? (1 > 0 && 1 <= length(user.martial_arts) ? user.martial_arts[1] : null) : user.martial_arts[1]) : null), /datum/martial_art/cqc)) // This is terrible but LAZYACCESS is not defined at this point so we must invoke it without using the macro..
 			// If you know CQC, You can't suplex and instead have the ability to use the chokehold, Sorry.
 			// Sleeping people on demand is stronger anyway.
 				return FALSE
@@ -164,7 +164,7 @@
 	var/fun_times_at_the_headbash_factory = (head_knock ? 8 : 3)
 	if(head_knock)
 		target.adjustOrganLoss(ORGAN_SLOT_BRAIN, 15)
-	target.apply_damage(15, BRUTE, affecting, armor_block, wound_bonus = fun_times_at_the_headbash_factory, bare_wound_bonus = fun_times_at_the_headbash_factory)
+	target.apply_damage(15, BRUTE, affecting, armor_block, wound_bonus = fun_times_at_the_headbash_factory, exposed_wound_bonus = fun_times_at_the_headbash_factory)
 	playsound(target, 'sound/effects/hit_kick.ogg', 70)
 	log_combat(user, target, "headsmashes", "against the floor")
 

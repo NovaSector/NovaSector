@@ -18,7 +18,6 @@
 		TRAIT_RADIMMUNE,
 		TRAIT_SNOWSTORM_IMMUNE, // Shared with plasma river... but I guess if you can survive a plasma river a blizzard isn't a big deal
 		TRAIT_UNHUSKABLE,
-		TRAIT_BOULDER_BREAKER,
 	)
 	mutantheart = null
 	mutantlungs = null
@@ -27,7 +26,6 @@
 	payday_modifier = 1.0
 	siemens_coeff = 0
 	no_equip_flags = ITEM_SLOT_MASK | ITEM_SLOT_OCLOTHING | ITEM_SLOT_GLOVES | ITEM_SLOT_FEET | ITEM_SLOT_ICLOTHING | ITEM_SLOT_SUITSTORE
-	nojumpsuit = 1
 	changesource_flags = MIRROR_BADMIN | WABBAJACK | MIRROR_PRIDE | MIRROR_MAGIC
 	sexes = FALSE
 	meat = /obj/item/food/meat/slab/human/mutant/golem
@@ -36,13 +34,13 @@
 	bodytemp_heat_damage_limit = BODYTEMP_HEAT_LAVALAND_SAFE
 	bodytemp_cold_damage_limit = BODYTEMP_COLD_ICEBOX_SAFE
 
-	mutant_organs = list(/obj/item/organ/internal/adamantine_resonator)
-	mutanteyes = /obj/item/organ/internal/eyes/golem
-	mutantbrain = /obj/item/organ/internal/brain/golem
-	mutanttongue = /obj/item/organ/internal/tongue/golem
-	mutantstomach = /obj/item/organ/internal/stomach/golem
-	mutantliver = /obj/item/organ/internal/liver/golem
-	mutantappendix = /obj/item/organ/internal/appendix/golem
+	mutant_organs = list(/obj/item/organ/adamantine_resonator)
+	mutanteyes = /obj/item/organ/eyes/golem
+	mutantbrain = /obj/item/organ/brain/golem
+	mutanttongue = /obj/item/organ/tongue/golem
+	mutantstomach = /obj/item/organ/stomach/golem
+	mutantliver = /obj/item/organ/liver/golem
+	mutantappendix = /obj/item/organ/appendix/golem
 	bodypart_overrides = list(
 		BODY_ZONE_L_ARM = /obj/item/bodypart/arm/left/golem,
 		BODY_ZONE_R_ARM = /obj/item/bodypart/arm/right/golem,
@@ -87,7 +85,7 @@
 
 	to_add += list(list(
 		SPECIES_PERK_TYPE = SPECIES_POSITIVE_PERK,
-		SPECIES_PERK_ICON = "pickaxe",
+		SPECIES_PERK_ICON = "tools",
 		SPECIES_PERK_NAME = "Natural Miners",
 		SPECIES_PERK_DESC = "Golems can see dimly in the dark, sense minerals, break boulders, and mine stone with their bare hands. \
 			They can even smelt ores in an internal furnace, if their surrounding environment is hot enough.",

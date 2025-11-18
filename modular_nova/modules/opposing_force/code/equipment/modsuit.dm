@@ -22,7 +22,7 @@
 	item_type = /obj/item/mod/control/pre_equipped/ninja
 
 /datum/opposing_force_equipment/modsuit/corporate
-	name = "CentComm's Corporate"
+	name = "CentCom's Corporate"
 	description = "An even more costly version of the Magnate model, the corporate suit is a thermally insulated, anti-corrosion coated suit for high-ranking CentCom Officers, deploying pristine protective armor and	advanced actuators, feeling practically weightless when turned on."
 	item_type = /obj/item/mod/control/pre_equipped/corporate
 
@@ -36,13 +36,13 @@
 	description = "The flagship version of the Nakamura Engineering industrial model, and their latest product.	Combining all the features of their other industrial model suits inside, with blast resistance almost approaching some EOD suits, the outside has been coated with a white polish rumored to be a corporate secret."
 	item_type = /obj/item/mod/control/pre_equipped/advanced
 
-/datum/opposing_force_equipment/modsuit/nri
-	name = "NRI's Frontline"
-	item_type = /obj/item/mod/control/pre_equipped/frontline/ert
+/datum/opposing_force_equipment/modsuit/hc
+	name = "HC's Voskhod"
+	item_type = /obj/item/mod/control/pre_equipped/voskhod/ancient_milsim
 
-/datum/opposing_force_equipment/modsuit/nri_police
-	name = "NRI's Policing"
-	item_type = /obj/item/mod/control/pre_equipped/policing
+/datum/opposing_force_equipment/modsuit/hc_patrol
+	name = "ZCM's Rim-World Inspector"
+	item_type = /obj/item/mod/control/pre_equipped/rim_inspector
 
 /datum/opposing_force_equipment/modsuit/infiltrator
 	name = "MI13's Infiltrator"
@@ -83,9 +83,6 @@
 
 /datum/opposing_force_equipment/modsuit_modules/cloak_mod
 	item_type = /obj/item/mod/module/stealth/ninja
-
-/datum/opposing_force_equipment/modsuit_modules/armor_booster
-	item_type = /obj/item/mod/module/armor_booster
 
 /datum/opposing_force_equipment/modsuit_modules/magnetic_harness
 	item_type = /obj/item/mod/module/magnetic_harness

@@ -53,6 +53,11 @@
 	desc = "You've killed HOW many?"
 	database_id = WENDIGO_SCORE
 
+/datum/award/score/thething_score
+	name = "The Thing Killed"
+	desc = "You've killed HOW many?"
+	database_id = THETHING_SCORE
+
 /// NOVA EDIT ADDITION START: Ancient Robot Megafauna Port from Paradise
 /datum/award/score/ancient_robot
 	name = "Ancient Robots Killed"

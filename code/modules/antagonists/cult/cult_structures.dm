@@ -1,7 +1,7 @@
 // Cult buildings!
 /obj/structure/destructible/cult
 	icon = 'icons/obj/antags/cult/structures.dmi'
-	break_sound = 'sound/hallucinations/veryfar_noise.ogg'
+	break_sound = 'sound/effects/hallucinations/veryfar_noise.ogg'
 	density = TRUE
 	anchored = TRUE
 	light_power = 2
@@ -19,12 +19,11 @@
 	cult_team = null
 	return ..()
 
-/obj/structure/destructible/cult/Initialize(mapload)
+/obj/structure/destructible/cult/on_craft_completion(list/components, datum/crafting_recipe/current_recipe, atom/crafter)
 	. = ..()
-	RegisterSignal(src, COMSIG_ATOM_CONSTRUCTED, PROC_REF(on_constructed))
-
-/obj/structure/destructible/cult/proc/on_constructed(datum/source, mob/builder)
-	SIGNAL_HANDLER
+	if(!ismob(crafter))
+		return
+	var/mob/living/builder = crafter
 	var/datum/antagonist/cult/cultist = builder.mind?.has_antag_datum(/datum/antagonist/cult, TRUE)
 	cult_team = cultist?.get_team()
 
@@ -137,7 +136,7 @@
 
 /*
  * Set up and populate our list of options.
- * Overriden by subtypes.
+ * Overridden by subtypes.
  *
  * The list of options is a associated list of format:
  *   item_name = list(
@@ -172,7 +171,12 @@
 
 	var/list/choices = list()
 	for(var/item in options)
-		choices[item] = options[item][PREVIEW_IMAGE]
+		var/datum/radial_menu_choice/cultitem = new()
+		cultitem.name = item
+		cultitem.info = span_cult_italic(options[item][RADIAL_DESC])
+		cultitem.image = options[item][PREVIEW_IMAGE]
+		cultitem.tooltip_theme = "cult"
+		choices[item] = cultitem
 
 	var/picked_choice = show_radial_menu(
 		user,
@@ -181,7 +185,7 @@
 		custom_check = CALLBACK(src, PROC_REF(check_menu), user),
 		require_near = TRUE,
 		tooltips = TRUE,
-		)
+	)
 
 	if(!picked_choice)
 		return
@@ -201,7 +205,7 @@
  * Returns TRUE if the user is a living mob that is a cultist and is not incapacitated.
  */
 /obj/structure/destructible/cult/item_dispenser/proc/check_menu(mob/user)
-	return isliving(user) && is_cultist_check(user) && !user.incapacitated()
+	return isliving(user) && is_cultist_check(user) && !user.incapacitated
 
 // Spooky looking door used in gateways. Or something.
 /obj/effect/gateway
@@ -215,5 +219,5 @@
 /obj/effect/gateway/singularity_act()
 	return
 
-/obj/effect/gateway/singularity_pull()
+/obj/effect/gateway/singularity_pull(atom/singularity, current_size)
 	return

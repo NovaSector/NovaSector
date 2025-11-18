@@ -12,11 +12,9 @@ Ports satchel and duffel bag of holding from Skyrat13
 
 - N/A
 
-
 ### Defines:
 
 - N/A
-
 
 ### Master file additions
 
@@ -25,7 +23,6 @@ Ports satchel and duffel bag of holding from Skyrat13
 ### Included files that are not contained in this module:
 
 - N/A
-
 
 ### Credits:
 

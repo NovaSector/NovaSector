@@ -124,7 +124,7 @@
 
 /obj/structure/destructible/clockwork/gear_base/technologists_lectern/ui_assets(mob/user)
 	return list(
-		get_asset_datum(/datum/asset/spritesheet/research_designs),
+		get_asset_datum(/datum/asset/spritesheet_batched/research_designs),
 	)
 
 /obj/structure/destructible/clockwork/gear_base/technologists_lectern/ui_data(mob/user)
@@ -295,10 +295,10 @@
 
 	AddComponent(/datum/component/brass_spreader, range = 6)
 
-	playsound(target_turf, 'modular_nova/modules/clock_cult/sound/machinery/ark_deathrattle.ogg', 80, FALSE, pressure_affected = FALSE)
+	playsound(target_turf, 'sound/machines/clockcult/ark_deathrattle.ogg', 80, FALSE, pressure_affected = FALSE)
 	research_sigil = new(target_turf)
 	send_clock_message(null, "A research ritual has begun in [get_area(src)], ensure nobody stops it until it is completed in [DisplayTimeText(selected_research.time_to_research)]!", msg_ghosts = FALSE)
-	notify_ghosts("[owner] has begun a research ritual in [get_area(src)]",
+	notify_ghosts("[owner.real_name] has begun a research ritual in [get_area(src)]",
 		source = src,
 		notify_flags = NOTIFY_CATEGORY_NOFLASH,
 		header = "Research ritual"

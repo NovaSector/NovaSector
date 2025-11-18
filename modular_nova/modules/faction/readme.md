@@ -22,6 +22,6 @@ This adds a set of content introducing a new faction, including their own access
 
 - N/A
 
-
 ### Credits:
+
 Azarak

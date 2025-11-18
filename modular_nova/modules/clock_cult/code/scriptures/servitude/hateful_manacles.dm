@@ -21,7 +21,7 @@
 		target_carbon.balloon_alert(invoker, "already restrained!")
 		return FALSE
 
-	playsound(target_carbon, 'sound/weapons/handcuffs.ogg', 30, TRUE, -2)
+	playsound(target_carbon, 'sound/items/weapons/handcuffs.ogg', 30, TRUE, -2)
 	target_carbon.visible_message(span_danger("[invoker] forms a well of energy around [target_carbon], brass appearing at their wrists!"),\
 						span_userdanger("[invoker] is trying to restrain you!"))
 
@@ -32,7 +32,6 @@
 		return FALSE
 
 	target_carbon.handcuffed = new /obj/item/restraints/handcuffs/clockwork(target_carbon)
-	target_carbon.update_handcuffed()
 	log_combat(invoker, target_carbon, "handcuffed")
 
 	return TRUE

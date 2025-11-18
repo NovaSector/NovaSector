@@ -66,7 +66,7 @@
 			else if(organ.organ_flags & ORGAN_ORGANIC)
 				organic_bodytypes += 0.02
 
-	return list(
+	return alist(
 		BODYPART_SCORE_ORGANIC = organic_bodytypes,
 		BODYPART_SCORE_SILICON = silicon_bodytypes,
 		BODYPART_SCORE_OTHER_BODYTYPES = other_bodytypes,
@@ -76,7 +76,7 @@
 
 /datum/quirk/transhumanist/proc/calculate_bodypart_score()
 	SIGNAL_HANDLER
-	var/list/score = get_bodypart_score(quirk_holder)
+	var/alist/score = get_bodypart_score(quirk_holder)
 	var/organic_bodytypes = score[BODYPART_SCORE_ORGANIC]
 	var/silicon_bodytypes = score[BODYPART_SCORE_SILICON]
 	var/other_bodytypes = score[BODYPART_SCORE_OTHER_BODYTYPES]
@@ -127,20 +127,20 @@
 	else if(isorgan(new_part))
 		var/obj/item/organ/new_organ = new_part
 		old_part = human_holder.get_organ_slot(new_organ.slot)
-		if(new_organ.Insert(human_holder, special = TRUE))
-			old_part.moveToNullspace()
-			STOP_PROCESSING(SSobj, old_part)
-			slot_string = new_organ.name
+		new_organ.Insert(human_holder, special = TRUE)
+		old_part.moveToNullspace()
+		STOP_PROCESSING(SSobj, old_part)
+		slot_string = new_organ.name
 
 /datum/quirk/transhumanist/post_add()
 	if(!slot_string)
 		return
 	if(isbodypart(old_part))
-		to_chat(quirk_holder, span_boldannounce("Your [slot_string] has been replaced with a robotic limb. You need to use a welding tool and cables to repair it, instead of sutures and regenerative meshes."))
+		to_chat(quirk_holder, span_bolddanger("Your [slot_string] has been replaced with a robotic limb. You need to use a welding tool and cables to repair it, instead of sutures and regenerative meshes."))
 	else if (old_part.name == "eyes")
-		to_chat(quirk_holder, span_boldannounce("You replaced your eyes with flashlights, not cameras. You can't see a thing!"))
+		to_chat(quirk_holder, span_bolddanger("You replaced your eyes with flashlights, not cameras. You can't see a thing!"))
 	else if (isorgan(old_part))
-		to_chat(quirk_holder, span_boldannounce("Your [slot_string] brings you one step closer to silicon perfection, but you feel you're not quite there yet."))
+		to_chat(quirk_holder, span_bolddanger("Your [slot_string] brings you one step closer to silicon perfection, but you feel you're not quite there yet."))
 
 /datum/quirk/transhumanist/remove()
 	if(isnull(old_part))
@@ -177,7 +177,7 @@
 			continue
 
 		if(iscarbon(target))
-			var/list/score = get_bodypart_score(target, limbs_only = TRUE)
+			var/alist/score = get_bodypart_score(target, limbs_only = TRUE)
 			// For an average human, they'll need 2 augmented limbs to not get counted as an organic nor a silicon.
 			// If some monstrosity has 20-30 organic limbs, they'll likely need more.
 			if(score[BODYPART_SCORE_OVERALL] < 1)

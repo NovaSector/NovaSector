@@ -10,7 +10,10 @@
 /obj/item/clothing/suit/toggle/chef
 	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION_NO_NEW_ICON
 
-/obj/item/clothing/suit/jacket/det_suit
+/obj/item/clothing/suit/toggle/jacket/trenchcoat
+	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION_NO_NEW_ICON
+
+/obj/item/clothing/suit/toggle/jacket/det_trench
 	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION_NO_NEW_ICON
 
 /obj/item/clothing/suit/toggle/lawyer
@@ -167,6 +170,9 @@
 /obj/item/clothing/suit/hooded/techpriest
 	supports_variations_flags = NONE
 
+/obj/item/clothing/suit/hooded/explorer/syndicate
+	supports_variations_flags = NONE
+
 /**
  * SUBTYPE WITH NEW ICON
  * Clothing that has a digitigrade version, but its parent was set to something else earlier in this file or elsewhere entirely.
@@ -201,6 +207,9 @@
 /obj/item/clothing/suit/armor/riot
 	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION
 
+/obj/item/clothing/suit/hooded/explorer
+	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION
+
 //Chaplain Suits
 //TG neglected to sort between legged and robed, so we'll have to just manually set each one
 /obj/item/clothing/suit/chaplainsuit/armor/studentuni
@@ -218,3 +227,13 @@
 /obj/item/clothing/suit/chaplainsuit/shrinehand
 	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION //Prevents a few glaring missing pixels
 //End Chaplain Suits
+
+/**
+ * SUBTYPE WITH MASK ICON
+ * Clothing that needs the leg part of the sprite to be auto-generated using GAGS, but its parent was set to something else earlier.
+ */
+/obj/item/clothing/under/ethereal_tunic
+	supports_variations_flags = CLOTHING_DIGITIGRADE_MASK
+
+/obj/item/clothing/under/trek/q
+	supports_variations_flags = CLOTHING_DIGITIGRADE_MASK

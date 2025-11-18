@@ -8,7 +8,7 @@
 	button_icon_state = "linked_minds"
 
 /datum/action/innate/clockcult/comm/Activate()
-	var/input = tgui_input_text(usr, "Message to tell to the other followers.", "Voice of Cogs")
+	var/input = tgui_input_text(usr, "Message to tell to the other followers.", "Voice of Cogs", max_length = MAX_MESSAGE_LEN)
 	if(!input || !IsAvailable())
 		return
 

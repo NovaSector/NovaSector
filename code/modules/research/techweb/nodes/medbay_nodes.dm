@@ -29,6 +29,11 @@
 		"dropper",
 		"pillbottle",
 		"xlarge_beaker",
+		"organ_jar",
+		"jerrycan",
+		"reflex_hammer",
+		"blood_scanner",
+		"suit_sensor",
 	)
 	experiments_to_unlock = list(
 		/datum/experiment/autopsy/human,
@@ -45,6 +50,8 @@
 	prereq_ids = list(TECHWEB_NODE_MEDBAY_EQUIP)
 	design_ids = list(
 		"med_spray_bottle",
+		"inhaler",
+		"inhaler_canister",
 		"medigel",
 		"medipen_refiller",
 		"soda_dispenser",
@@ -60,6 +67,7 @@
 		"fluid_ducts",
 	)
 	research_costs = list(TECHWEB_POINT_TYPE_GENERIC = TECHWEB_TIER_1_POINTS)
+	announce_channels = list(RADIO_CHANNEL_MEDICAL)
 
 /datum/techweb_node/medbay_equip_adv
 	id = TECHWEB_NODE_MEDBAY_EQUIP_ADV
@@ -76,15 +84,18 @@
 		"defibmount",
 		"medicalbed_emergency",
 		"piercesyringe",
+		"diode_disk_healing",
+		"diode_disk_sanity",
 	)
 	research_costs = list(TECHWEB_POINT_TYPE_GENERIC = TECHWEB_TIER_3_POINTS)
 	required_experiments = list(/datum/experiment/scanning/reagent/haloperidol)
+	announce_channels = list(RADIO_CHANNEL_MEDICAL)
 
 /datum/techweb_node/cryostasis
 	id = TECHWEB_NODE_CRYOSTASIS
 	display_name = "Cryostasis"
 	description = "The result of clown accidentally drinking a chemical, now repurposed for safely preserving crew members in suspended animation."
-	prereq_ids = list(TECHWEB_NODE_FUSION)
+	prereq_ids = list(TECHWEB_NODE_MEDBAY_EQUIP_ADV, TECHWEB_NODE_FUSION)
 	design_ids = list(
 		"cryotube",
 		"mech_sleeper",
@@ -94,3 +105,4 @@
 	)
 	research_costs = list(TECHWEB_POINT_TYPE_GENERIC = TECHWEB_TIER_4_POINTS)
 	discount_experiments = list(/datum/experiment/scanning/reagent/cryostylane = TECHWEB_TIER_4_POINTS)
+	announce_channels = list(RADIO_CHANNEL_MEDICAL)

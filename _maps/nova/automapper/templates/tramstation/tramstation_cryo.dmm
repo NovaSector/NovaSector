@@ -78,7 +78,6 @@
 /obj/effect/turf_decal/trimline/neutral/filled/line{
 	dir = 1
 	},
-/obj/machinery/bluespace_vendor/directional/north,
 /turf/open/floor/iron,
 /area/station/commons/fitness/recreation)
 "n" = (
@@ -144,7 +143,7 @@
 /obj/effect/turf_decal/tile/blue{
 	dir = 8
 	},
-/obj/machinery/vending/autodrobe/all_access,
+/obj/machinery/vending/autodrobe,
 /turf/open/floor/iron/cafeteria,
 /area/station/commons/dorms/laundry)
 "v" = (
@@ -206,6 +205,7 @@
 	dir = 8
 	},
 /obj/structure/closet/wardrobe/white,
+/obj/machinery/firealarm/directional/east,
 /turf/open/floor/iron/cafeteria,
 /area/station/commons/dorms/laundry)
 "F" = (
@@ -246,7 +246,7 @@
 /obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer2{
 	dir = 4
 	},
-/obj/machinery/time_clock/directional/west,
+/obj/machinery/modular_computer/preset/time_clock/directional/west,
 /turf/open/floor/iron/dark,
 /area/station/common/cryopods)
 "M" = (

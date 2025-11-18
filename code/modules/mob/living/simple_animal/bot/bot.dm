@@ -12,7 +12,6 @@
 	hud_possible = list(DIAG_STAT_HUD, DIAG_BOT_HUD, DIAG_HUD, DIAG_BATT_HUD, DIAG_PATH_HUD = HUD_LIST_LIST)
 	maxbodytemp = INFINITY
 	minbodytemp = 0
-	has_unlimited_silicon_privilege = TRUE
 	sentience_type = SENTIENCE_ARTIFICIAL
 	status_flags = NONE //no default canpush
 	pass_flags = PASSFLAPS
@@ -95,7 +94,7 @@
 	var/turf/nearest_beacon_loc
 
 	///The type of data HUD the bot uses. Diagnostic by default.
-	var/data_hud_type = DATA_HUD_DIAGNOSTIC
+	var/data_hud_type = TRAIT_DIAGNOSTIC_HUD
 	var/datum/atom_hud/data/bot_path/private/path_hud
 	var/path_image_icon = 'icons/mob/silicon/aibots.dmi'
 	var/path_image_icon_state = "path_indicator"
@@ -118,8 +117,8 @@
 	if(client) //Player bots do not have modes, thus the override. Also an easy way for PDA users/AI to know when a bot is a player.
 		return paicard ? "<b>pAI Controlled</b>" : "<b>Autonomous</b>"
 	if(!(bot_mode_flags & BOT_MODE_ON))
-		return "<span class='bad'>Inactive</span>"
-	return "<span class='average'>[mode]</span>"
+		return span_bad("Inactive")
+	return span_average("[mode]")
 
 /**
  * Returns a status string about the bot's current status, if it's moving, manually controlled, or idle.
@@ -164,6 +163,8 @@
 /mob/living/simple_animal/bot/Initialize(mapload)
 	. = ..()
 	GLOB.bots_list += src
+	add_traits(list(TRAIT_SILICON_ACCESS, TRAIT_REAGENT_SCANNER, TRAIT_UNOBSERVANT), INNATE_TRAIT)
+	LoadComponent(/datum/component/bloodysoles/bot)
 
 	path_hud = new /datum/atom_hud/data/bot_path/private()
 	for(var/hud in path_hud.hud_icons) // You get to see your own path
@@ -182,16 +183,15 @@
 
 	//Adds bot to the diagnostic HUD system
 	prepare_huds()
-	for(var/datum/atom_hud/data/diagnostic/diag_hud in GLOB.huds)
-		diag_hud.add_atom_to_hud(src)
+	var/datum/atom_hud/data/diagnostic/diag_hud = GLOB.huds[DATA_HUD_DIAGNOSTIC]
+	diag_hud.add_atom_to_hud(src)
 	diag_hud_set_bothealth()
 	diag_hud_set_botstat()
 	diag_hud_set_botmode()
 
 	//If a bot has its own HUD (for player bots), provide it.
 	if(!isnull(data_hud_type))
-		var/datum/atom_hud/datahud = GLOB.huds[data_hud_type]
-		datahud.show_to(src)
+		ADD_TRAIT(src, data_hud_type, INNATE_TRAIT)
 	if(path_hud)
 		path_hud.add_atom_to_hud(src)
 		path_hud.show_to(src)
@@ -232,14 +232,19 @@
 	if (can_announce)
 		COOLDOWN_START(src, offer_ghosts_cooldown, 30 SECONDS)
 
+	if (user)
+		log_silicon("[key_name(user)] enabled sapience for [src] ([initial(src.name)])") // Not technically a silicon but who is counting
+
 /// Disables this bot from being possessed by ghosts
 /mob/living/simple_animal/bot/proc/disable_possession(mob/user)
+	if (user)
+		log_silicon("[key_name(user)] disabled sapience for [src] ([initial(src.name)])")
 	can_be_possessed = FALSE
 	qdel(GetComponent(/datum/component/ghost_direct_control))
 	if (isnull(key))
 		return
 	if (user)
-		log_combat(user, src, "ejected from [initial(src.name)] control.")
+		log_combat(user, src, "ejected [key_name(src)] from control of [src] ([initial(src.name)]).")
 	to_chat(src, span_warning("You feel yourself fade as your personality matrix is reset!"))
 	ghostize(can_reenter_corpse = FALSE)
 	playsound(src, 'sound/machines/ping.ogg', 30, TRUE)
@@ -334,21 +339,21 @@
 			. += "[src]'s parts look very loose!"
 	else
 		. += "[src] is in pristine condition."
-	. += span_notice("Its maintenance panel is [bot_cover_flags & BOT_COVER_MAINTS_OPEN ? "open" : "closed"].")
+	. += span_notice("[p_Their()] maintenance panel is [bot_cover_flags & BOT_COVER_MAINTS_OPEN ? "open" : "closed"].")
 	. += span_info("You can use a <b>screwdriver</b> to [bot_cover_flags & BOT_COVER_MAINTS_OPEN ? "close" : "open"] it.")
 	if(bot_cover_flags & BOT_COVER_MAINTS_OPEN)
-		. += span_notice("Its control panel is [bot_cover_flags & BOT_COVER_LOCKED ? "locked" : "unlocked"].")
+		. += span_notice("[p_Their()] control panel is [bot_cover_flags & BOT_COVER_LOCKED ? "locked" : "unlocked"].")
 		var/is_sillycone = HAS_SILICON_ACCESS(user)
 		if(!(bot_cover_flags & BOT_COVER_EMAGGED) && (is_sillycone || user.Adjacent(src)))
-			. += span_info("Alt-click [is_sillycone ? "" : "or use your ID on "]it to [bot_cover_flags & BOT_COVER_LOCKED ? "un" : ""]lock its control panel.")
+			. += span_info("Alt-click [is_sillycone ? "" : "or use your ID on "]it to [bot_cover_flags & BOT_COVER_LOCKED ? "un" : ""]lock [p_their()] control panel.")
 	if(paicard)
-		. += span_notice("It has a pAI device installed.")
+		. += span_notice("[p_They()] has a pAI device installed.")
 		if(!(bot_cover_flags & BOT_COVER_MAINTS_OPEN))
 			. += span_info("You can use a <b>hemostat</b> to remove it.")
 
 /mob/living/simple_animal/bot/adjustHealth(amount, updating_health = TRUE, forced = FALSE)
 	if(amount > 0 && prob(10))
-		new /obj/effect/decal/cleanable/oil(loc)
+		new /obj/effect/decal/cleanable/blood/oil(loc)
 	return ..()
 
 /mob/living/simple_animal/bot/updatehealth()
@@ -378,9 +383,9 @@
 
 	if(HAS_TRAIT(src, TRAIT_COMMISSIONED) && COOLDOWN_FINISHED(src, next_salute_check))
 		COOLDOWN_START(src, next_salute_check, BOT_COMMISSIONED_SALUTE_DELAY)
-		for(var/mob/living/simple_animal/bot/B in view(5, src))
-			if(!HAS_TRAIT(B, TRAIT_COMMISSIONED) && B.bot_mode_flags & BOT_MODE_ON)
-				manual_emote("performs an elaborate salute for [src]!")
+		for(var/mob/living/simple_animal/bot/nearby_bot in view(5, src))
+			if(!HAS_TRAIT(nearby_bot, TRAIT_COMMISSIONED) && nearby_bot.bot_mode_flags & BOT_MODE_ON)
+				manual_emote("performs an elaborate salute for [nearby_bot]!")
 				break
 
 	switch(mode) //High-priority overrides are processed first. Bots can do nothing else while under direct command.
@@ -456,7 +461,7 @@
 		user.visible_message(span_notice("[user] repairs [src]!"),span_notice("You repair [src]."))
 		return ITEM_INTERACT_SUCCESS
 
-/mob/living/simple_animal/bot/attackby(obj/item/attacking_item, mob/living/user, params)
+/mob/living/simple_animal/bot/attackby(obj/item/attacking_item, mob/living/user, list/modifiers, list/attack_modifiers)
 	if(attacking_item.GetID())
 		unlock_with_id(user)
 		return
@@ -541,7 +546,7 @@
 	else if(message_mods[RADIO_EXTENSION] == MODE_DEPARTMENT)
 		internal_radio.talk_into(src, message, message_mods[RADIO_EXTENSION], spans, language, message_mods)
 		return REDUCE_RANGE
-	else if(message_mods[RADIO_EXTENSION] in GLOB.radiochannels)
+	else if(message_mods[RADIO_EXTENSION] in GLOB.default_radio_channels)
 		internal_radio.talk_into(src, message, message_mods[RADIO_EXTENSION], spans, language, message_mods)
 		return REDUCE_RANGE
 
@@ -686,8 +691,8 @@ Pass a positive integer as an argument to override a bot's default speed.
 	if(mode != BOT_SUMMON && mode != BOT_RESPONDING)
 		access_card.set_access(prev_access)
 
-/mob/living/simple_animal/bot/proc/call_bot(caller, turf/waypoint, message = TRUE)
-	if(isAI(caller) && calling_ai && calling_ai != src) //Prevents an override if another AI is controlling this bot.
+/mob/living/simple_animal/bot/proc/call_bot(summoner, turf/waypoint, message = TRUE)
+	if(isAI(summoner) && calling_ai && calling_ai != src) //Prevents an override if another AI is controlling this bot.
 		return FALSE
 
 	bot_reset() //Reset a bot before setting it to call mode.
@@ -696,7 +701,7 @@ Pass a positive integer as an argument to override a bot's default speed.
 	//Easier then building the list ourselves. I'm sorry.
 	var/static/obj/item/card/id/all_access = new /obj/item/card/id/advanced/gold/captains_spare()
 	set_path(get_path_to(src, waypoint, max_distance=200, access = all_access.GetAccess()))
-	calling_ai = caller //Link the AI to the bot!
+	calling_ai = summoner //Link the AI to the bot!
 	ai_waypoint = waypoint
 
 	if(path?.len) //Ensures that a valid path is calculated!
@@ -706,7 +711,7 @@ Pass a positive integer as an argument to override a bot's default speed.
 		access_card.set_access(REGION_ACCESS_ALL_STATION) //Give the bot all-access while under the AI's command.
 		if(client)
 			reset_access_timer_id = addtimer(CALLBACK (src, PROC_REF(bot_reset)), 60 SECONDS, TIMER_UNIQUE|TIMER_OVERRIDE|TIMER_STOPPABLE) //if the bot is player controlled, they get the extra access for a limited time
-			to_chat(src, span_notice("[span_big("Priority waypoint set by [icon2html(calling_ai, src)] <b>[caller]</b>. Proceed to <b>[end_area]</b>.")]<br>[path.len-1] meters to destination. You have been granted additional door access for 60 seconds."))
+			to_chat(src, span_notice("[span_big("Priority waypoint set by [icon2html(calling_ai, src)] <b>[summoner]</b>. Proceed to <b>[end_area]</b>.")]<br>[path.len-1] meters to destination. You have been granted additional door access for 60 seconds."))
 		if(message)
 			to_chat(calling_ai, span_notice("[icon2html(src, calling_ai)] [name] called to [end_area]. [path.len-1] meters to destination."))
 		pathset = TRUE
@@ -976,13 +981,13 @@ Pass a positive integer as an argument to override a bot's default speed.
 	return data
 
 // Actions received from TGUI
-/mob/living/simple_animal/bot/ui_act(action, params)
+/mob/living/simple_animal/bot/ui_act(action, list/params, datum/tgui/ui, datum/ui_state/state)
 	. = ..()
 	if(.)
 		return
-	var/mob/user = usr
+	var/mob/user = ui.user
 	if(!allowed(user))
-		to_chat(usr, span_warning("Access denied."))
+		to_chat(user, span_warning("Access denied."))
 		return
 
 	if(action == "lock")
@@ -1002,38 +1007,38 @@ Pass a positive integer as an argument to override a bot's default speed.
 		if("airplane")
 			bot_mode_flags ^= BOT_MODE_REMOTE_ENABLED
 		if("hack")
-			if(!HAS_SILICON_ACCESS(usr))
+			if(!HAS_SILICON_ACCESS(user))
 				return
 			if(!(bot_cover_flags & BOT_COVER_EMAGGED))
 				bot_cover_flags |= (BOT_COVER_EMAGGED|BOT_COVER_HACKED|BOT_COVER_LOCKED)
-				to_chat(usr, span_warning("You overload [src]'s [hackables]."))
-				message_admins("Safety lock of [ADMIN_LOOKUPFLW(src)] was disabled by [ADMIN_LOOKUPFLW(usr)] in [ADMIN_VERBOSEJMP(src)]")
-				usr.log_message("disabled safety lock of [src]", LOG_GAME)
+				to_chat(user, span_warning("You overload [src]'s [hackables]."))
+				message_admins("Safety lock of [ADMIN_LOOKUPFLW(src)] was disabled by [ADMIN_LOOKUPFLW(user)] in [ADMIN_VERBOSEJMP(src)]")
+				user.log_message("disabled safety lock of [src]", LOG_GAME)
 				bot_reset()
 				to_chat(src, span_userdanger("(#$*#$^^( OVERRIDE DETECTED"))
 				to_chat(src, span_boldnotice(get_emagged_message()))
 				return
 			if(!(bot_cover_flags & BOT_COVER_HACKED))
-				to_chat(usr, span_boldannounce("You fail to repair [src]'s [hackables]."))
+				to_chat(user, span_bolddanger("You fail to repair [src]'s [hackables]."))
 				return
 			bot_cover_flags &= ~(BOT_COVER_EMAGGED|BOT_COVER_HACKED)
-			to_chat(usr, span_notice("You reset the [src]'s [hackables]."))
-			usr.log_message("re-enabled safety lock of [src]", LOG_GAME)
+			to_chat(user, span_notice("You reset the [src]'s [hackables]."))
+			user.log_message("re-enabled safety lock of [src]", LOG_GAME)
 			bot_reset()
 			to_chat(src, span_userdanger("Software restored to standard."))
 			to_chat(src, span_boldnotice(possessed_message))
 		if("eject_pai")
 			if(!paicard)
 				return
-			to_chat(usr, span_notice("You eject [paicard] from [initial(src.name)]."))
-			ejectpai(usr)
+			to_chat(user, span_notice("You eject [paicard] from [initial(src.name)]."))
+			ejectpai(user)
 		if("toggle_personality")
 			if (can_be_possessed)
-				disable_possession(usr)
+				disable_possession(user)
 			else
-				enable_possession(usr)
+				enable_possession(user)
 		if("rename")
-			rename(usr)
+			rename(user)
 
 /mob/living/simple_animal/bot/update_icon_state()
 	icon_state = "[isnull(base_icon_state) ? initial(icon_state) : base_icon_state][get_bot_flag(bot_mode_flags, BOT_MODE_ON)]"
@@ -1097,7 +1102,7 @@ Pass a positive integer as an argument to override a bot's default speed.
 	if(mind && paicard.pai)
 		mind.transfer_to(paicard.pai)
 	else if(paicard.pai)
-		paicard.pai.key = key
+		paicard.pai.PossessByPlayer(key)
 	else
 		ghostize(FALSE) // The pAI card that just got ejected was dead.
 	key = null
@@ -1156,11 +1161,7 @@ Pass a positive integer as an argument to override a bot's default speed.
 	var/list/path_images = active_hud_list[DIAG_PATH_HUD]
 	LAZYCLEARLIST(path_images)
 	if(length(newpath))
-		var/mutable_appearance/path_image = new /mutable_appearance()
-		path_image.icon = path_image_icon
-		path_image.icon_state = path_image_icon_state
-		path_image.layer = BOT_PATH_LAYER
-		path_image.appearance_flags = RESET_COLOR|RESET_TRANSFORM
+		var/mutable_appearance/path_image = mutable_appearance(path_image_icon, path_image_icon_state, BOT_PATH_LAYER, appearance_flags = RESET_COLOR|RESET_TRANSFORM|KEEP_APART)
 		path_image.color = path_image_color
 		for(var/i in 1 to newpath.len)
 			var/turf/T = newpath[i]
@@ -1209,9 +1210,6 @@ Pass a positive integer as an argument to override a bot's default speed.
 
 /mob/living/simple_animal/bot/rust_heretic_act()
 	adjustBruteLoss(400)
-
-/mob/living/simple_animal/bot/spawn_gibs(drop_bitflags = NONE)
-	new /obj/effect/gibspawner/robot(drop_location(), src)
 
 /mob/living/simple_animal/bot/get_hit_area_message(input_area)
 	// we just get hit, there's no complexity for hitting an arm (if it exists) or anything.

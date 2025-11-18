@@ -56,6 +56,7 @@
 /datum/sprite_accessory/underwear/boyshorts_alt
 	name = "Boyshorts (Alt)"
 	icon_state = "boyshorts_alt"
+	has_digitigrade = TRUE
 	gender = FEMALE
 
 //Panties
@@ -117,7 +118,6 @@
 	name = "Panties - Lingerie"
 	icon_state = "panties_kinky"
 	gender = FEMALE
-	use_static = TRUE
 
 /datum/sprite_accessory/underwear/female_commie
 	name = "Panties - Commie"
@@ -204,7 +204,6 @@
 /datum/sprite_accessory/underwear/chastbelt
 	name = "Chastity Belt"
 	icon_state = "chastbelt"
-	use_static = TRUE
 	erp_accessory = TRUE
 
 /datum/sprite_accessory/underwear/chastcage

@@ -27,6 +27,7 @@
 	datum/preferences/preference_source = GLOB.preference_entries_by_key[ckey],
 	visuals_only = FALSE,
 	datum/job/equipping_job,
+	allow_mechanical_loadout_items = TRUE,
 )
 	if (!preference_source)
 		equipOutfit(outfit, visuals_only) // no prefs for loadout items, but we should still equip the outfit.
@@ -43,7 +44,8 @@
 
 	var/override_preference = preference_source.read_preference(/datum/preference/choiced/loadout_override_preference)
 
-	var/list/loadout_list = preference_source?.read_preference(/datum/preference/loadout)
+	var/list/loadout_entries = preference_source.read_preference(/datum/preference/loadout)
+	var/list/loadout_list = loadout_entries[preference_source.read_preference(/datum/preference/loadout_index)]
 	var/list/loadout_datums = loadout_list_to_datums(loadout_list)
 	var/obj/item/storage/briefcase/empty/briefcase
 	var/obj/item/storage/box/erp/erpbox
@@ -56,7 +58,7 @@
 					erpbox = new(loc)
 				new item.item_path(erpbox)
 			else
-				if (!item.can_be_applied_to(src, preference_source, equipping_job))
+				if (!item.can_be_applied_to(src, preference_source, equipping_job, allow_mechanical_loadout_items))
 					continue
 				new item.item_path(briefcase)
 
@@ -70,7 +72,7 @@
 					erpbox = new(loc)
 				new item.item_path(erpbox)
 			else
-				if (!item.can_be_applied_to(src, preference_source, equipping_job))
+				if (!item.can_be_applied_to(src, preference_source, equipping_job, allow_mechanical_loadout_items))
 					continue
 
 				// Make sure the item is not overriding an important for life outfit item
@@ -79,7 +81,7 @@
 					item.insert_path_into_outfit(equipped_outfit, src, visuals_only, override_preference)
 		equipOutfit(equipped_outfit, visuals_only)
 
-	var/list/new_contents = isnull(briefcase) ? get_all_gear() : briefcase.contents
+	var/list/new_contents = isnull(briefcase) ? get_all_gear() : briefcase.get_all_contents()
 
 	for(var/datum/loadout_item/item as anything in loadout_datums)
 		if(item.restricted_roles && equipping_job && !(equipping_job.title in item.restricted_roles))
@@ -98,9 +100,9 @@
 
 		item.on_equip_item(
 			equipped_item = equipped,
-			preference_source = preference_source,
-			preference_list = loadout_list,
+			item_details = loadout_list?[item.item_path] || list(),
 			equipper = src,
+			outfit = equipped_outfit,
 			visuals_only = visuals_only,
 		)
 
@@ -133,7 +135,8 @@
  * equipping_job - The job that's being applied.
  */
 /mob/living/silicon/robot/proc/equip_outfit_and_loadout(datum/outfit/outfit, datum/preferences/preference_source = GLOB.preference_entries_by_key[ckey], visuals_only = FALSE, datum/job/equipping_job)
-	var/list/loadout_datums = loadout_list_to_datums(preference_source?.read_preference(/datum/preference/loadout))
+	var/list/loadout_entries = preference_source.read_preference(/datum/preference/loadout)
+	var/list/loadout_datums = loadout_list_to_datums(loadout_entries[preference_source.read_preference(/datum/preference/loadout_index)])
 	for (var/datum/loadout_item/head/item in loadout_datums)
 		if (!item.can_be_applied_to(src, preference_source, equipping_job))
 			continue
@@ -218,7 +221,7 @@
 	balloon_alert(user, "picking up hat...")
 	if (!do_after(user, 3 SECONDS, src))
 		return
-	if (QDELETED(src) || !Adjacent(user) || user.incapacitated())
+	if (QDELETED(src) || !Adjacent(user) || user.incapacitated)
 		return
 	user.place_on_head(src)
 	balloon_alert(user, "picked up hat")
@@ -235,7 +238,7 @@
 	balloon_alert(user, "dropping hat...")
 	if (!do_after(user, 3 SECONDS, src))
 		return
-	if (QDELETED(src) || !Adjacent(user) || user.incapacitated() || isnull(hat))
+	if (QDELETED(src) || !Adjacent(user) || user.incapacitated || isnull(hat))
 		return
 	hat.forceMove(get_turf(src))
 	hat = null

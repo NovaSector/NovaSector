@@ -4,6 +4,7 @@
 	icon = 'modular_nova/modules/tribal_extended/icons/ammo.dmi'
 	icon_state = "ashenarrow"
 	projectile_type = /obj/projectile/bullet/arrow/ash
+	resistance_flags = FIRE_PROOF | LAVA_PROOF
 
 /obj/item/ammo_casing/arrow/bone
 	name = "bone arrow"
@@ -11,6 +12,7 @@
 	icon = 'modular_nova/modules/tribal_extended/icons/ammo.dmi'
 	icon_state = "bonearrow"
 	projectile_type = /obj/projectile/bullet/arrow/bone
+	resistance_flags = FIRE_PROOF | LAVA_PROOF
 
 /obj/item/ammo_casing/arrow/bronze
 	name = "bronze arrow"

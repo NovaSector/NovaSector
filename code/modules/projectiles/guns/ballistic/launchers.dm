@@ -1,13 +1,13 @@
 //KEEP IN MIND: These are different from gun/grenadelauncher. These are designed to shoot premade rocket and grenade projectiles, not flashbangs or chemistry casings etc.
 //Put handheld rocket launchers here if someone ever decides to make something so hilarious ~Paprika
 
-/obj/item/gun/ballistic/revolver/grenadelauncher//this is only used for underbarrel grenade launchers at the moment, but admins can still spawn it if they feel like being assholes
-	desc = "A break-operated grenade launcher."
+/obj/item/gun/ballistic/revolver/grenadelauncher
 	name = "grenade launcher"
+	desc = "A break-operated grenade launcher."
 	icon_state = "dshotgun_sawn"
 	inhand_icon_state = "gun"
 	accepted_magazine_type = /obj/item/ammo_box/magazine/internal/grenadelauncher
-	fire_sound = 'sound/weapons/gun/general/grenade_launch.ogg'
+	fire_sound = 'sound/items/weapons/gun/general/grenade_launch.ogg'
 	w_class = WEIGHT_CLASS_NORMAL
 	pin = /obj/item/firing_pin/implant/pindicate
 	bolt_type = BOLT_TYPE_NO_BOLT
@@ -15,10 +15,32 @@
 /obj/item/gun/ballistic/revolver/grenadelauncher/unrestricted
 	pin = /obj/item/firing_pin
 
-/obj/item/gun/ballistic/revolver/grenadelauncher/attackby(obj/item/A, mob/user, params)
+/obj/item/gun/ballistic/revolver/grenadelauncher/attackby(obj/item/A, mob/user, list/modifiers, list/attack_modifiers)
 	..()
 	if(istype(A, /obj/item/ammo_box) || isammocasing(A))
 		chamber_round()
+
+/obj/item/gun/ballistic/revolver/grenadelauncher/underbarrel
+	name = "underbarrel grenade launcher"
+	spawn_blacklisted = TRUE
+	pin = null
+
+/obj/item/gun/ballistic/revolver/grenadelauncher/underbarrel/Initialize(mapload)
+	. = ..()
+	var/obj/item/gun/gun = loc
+	if (!istype(gun))
+		return INITIALIZE_HINT_QDEL
+	pin = gun.pin
+	RegisterSignal(gun, COMSIG_GUN_PIN_INSERTED, PROC_REF(on_pin_inserted))
+	RegisterSignal(gun, COMSIG_GUN_PIN_REMOVED, PROC_REF(on_pin_removed))
+
+/obj/item/gun/ballistic/revolver/grenadelauncher/underbarrel/proc/on_pin_inserted(obj/item/gun/source, obj/item/firing_pin/new_pin, mob/living/user)
+	SIGNAL_HANDLER
+	pin = new_pin
+
+/obj/item/gun/ballistic/revolver/grenadelauncher/underbarrel/proc/on_pin_removed(obj/item/gun/source, obj/item/firing_pin/old_pin, mob/living/user)
+	SIGNAL_HANDLER
+	pin = null
 
 /obj/item/gun/ballistic/revolver/grenadelauncher/cyborg
 	desc = "A 6-shot grenade launcher."
@@ -35,7 +57,7 @@
 	name = "gyrojet pistol"
 	desc = "A prototype pistol designed to fire self propelled rockets."
 	icon_state = "gyropistol"
-	fire_sound = 'sound/weapons/gun/general/grenade_launch.ogg'
+	fire_sound = 'sound/items/weapons/gun/general/grenade_launch.ogg'
 	accepted_magazine_type = /obj/item/ammo_box/magazine/m75
 	burst_size = 1
 	fire_delay = 0
@@ -53,7 +75,7 @@
 	worn_icon_state = "rocketlauncher"
 	SET_BASE_PIXEL(-8, 0)
 	accepted_magazine_type = /obj/item/ammo_box/magazine/internal/rocketlauncher
-	fire_sound = 'sound/weapons/gun/general/rocket_launch.ogg'
+	fire_sound = 'sound/items/weapons/gun/general/rocket_launch.ogg'
 	slot_flags = ITEM_SLOT_BACK
 	w_class = WEIGHT_CLASS_BULKY
 	can_suppress = FALSE
@@ -92,7 +114,7 @@
 	. = ..()
 	if(!.)
 		return
-	magazine.get_round(FALSE) //Hack to clear the mag after it's fired
+	magazine.get_round() //Hack to clear the mag after it's fired
 
 /obj/item/gun/ballistic/rocketlauncher/attack_self_tk(mob/user)
 	return //too difficult to remove the rocket with TK

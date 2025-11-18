@@ -54,7 +54,7 @@
 "cu" = (
 /obj/structure/table/wood,
 /obj/item/soap/homemade,
-/obj/item/reagent_containers/cup/rag{
+/obj/item/rag{
 	pixel_y = -3
 	},
 /obj/effect/decal/cleanable/dirt/dust,
@@ -98,7 +98,7 @@
 "dM" = (
 /obj/effect/decal/cleanable/dirt/dust,
 /obj/effect/decal/cleanable/cobweb/cobweb2,
-/turf/open/floor/mineral/gold,
+/turf/open/floor/mineral/gold/icemoon,
 /area/ruin/unpowered/abandoned_sacred_temple)
 "dO" = (
 /obj/effect/turf_decal/siding/wood,
@@ -114,7 +114,7 @@
 /obj/effect/decal/cleanable/dirt/dust,
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/cobweb,
-/turf/open/floor/mineral/gold,
+/turf/open/floor/mineral/gold/icemoon,
 /area/ruin/unpowered/abandoned_sacred_temple)
 "eE" = (
 /obj/effect/turf_decal/siding/wood{
@@ -277,7 +277,7 @@
 "kN" = (
 /obj/effect/turf_decal/siding/wood,
 /obj/effect/decal/cleanable/dirt/dust,
-/turf/open/floor/mineral/gold,
+/turf/open/floor/mineral/gold/icemoon,
 /area/ruin/unpowered/abandoned_sacred_temple)
 "kO" = (
 /obj/effect/turf_decal/weather/snow/corner{
@@ -345,7 +345,7 @@
 /area/ruin/unpowered/abandoned_sacred_temple)
 "nf" = (
 /obj/effect/decal/cleanable/dirt/dust,
-/turf/open/floor/mineral/gold,
+/turf/open/floor/mineral/gold/icemoon,
 /area/ruin/unpowered/abandoned_sacred_temple)
 "nX" = (
 /obj/structure/spacevine{
@@ -379,7 +379,7 @@
 "pk" = (
 /obj/effect/decal/cleanable/dirt/dust,
 /obj/structure/wall_torch/spawns_lit/directional/north,
-/turf/open/floor/mineral/gold,
+/turf/open/floor/mineral/gold/icemoon,
 /area/ruin/unpowered/abandoned_sacred_temple)
 "pu" = (
 /obj/effect/turf_decal/siding/wood{
@@ -399,7 +399,7 @@
 	dir = 1
 	},
 /obj/effect/decal/cleanable/dirt/dust,
-/turf/open/floor/mineral/gold,
+/turf/open/floor/mineral/gold/icemoon,
 /area/ruin/unpowered/abandoned_sacred_temple)
 "qm" = (
 /obj/effect/turf_decal/siding/wood{
@@ -676,6 +676,12 @@
 	initial_gas_mix = "ICEMOON_ATMOS"
 	},
 /area/ruin/unpowered/abandoned_sacred_temple)
+"HZ" = (
+/obj/structure/table/wood/fancy/orange,
+/obj/effect/decal/cleanable/dirt/dust,
+/obj/item/hearthkin_ship_fragment_inactive,
+/turf/open/floor/wood/icemoon,
+/area/ruin/unpowered/abandoned_sacred_temple)
 "Ia" = (
 /obj/effect/turf_decal/siding/wood{
 	dir = 4
@@ -756,7 +762,7 @@
 	dir = 8
 	},
 /obj/effect/decal/cleanable/dirt/dust,
-/turf/open/floor/mineral/gold,
+/turf/open/floor/mineral/gold/icemoon,
 /area/ruin/unpowered/abandoned_sacred_temple)
 "Mi" = (
 /obj/effect/decal/cleanable/dirt/dust,
@@ -887,8 +893,7 @@
 "PS" = (
 /obj/effect/decal/cleanable/dirt/dust,
 /obj/structure/statue/hearthkin/odin{
-	anchored = 1;
-	can_be_unanchored = 1
+	anchored = 1
 	},
 /turf/open/floor/stone/icemoon,
 /area/ruin/unpowered/abandoned_sacred_temple)
@@ -988,7 +993,7 @@
 "SX" = (
 /obj/effect/turf_decal/siding/wood/corner,
 /obj/effect/decal/cleanable/dirt/dust,
-/turf/open/floor/mineral/gold,
+/turf/open/floor/mineral/gold/icemoon,
 /area/ruin/unpowered/abandoned_sacred_temple)
 "Tb" = (
 /obj/structure/flora/bush/fullgrass/style_random,
@@ -2471,7 +2476,7 @@ sV
 zL
 zL
 Fk
-Fk
+HZ
 zL
 Fk
 Fk

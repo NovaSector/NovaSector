@@ -50,9 +50,7 @@ GLOBAL_LIST_EMPTY(hivemind_users)
 		QDEL_NULL(keyboard_action)
 
 	if(linked_keyboard)
-		qdel(linked_keyboard)
-
-	linked_keyboard = null
+		QDEL_NULL(linked_keyboard)
 
 	for(var/datum/component/mind_linker/active_linking/nif/hivemind as anything in network_list)
 		hivemind.linked_mobs -= linked_mob
@@ -61,7 +59,7 @@ GLOBAL_LIST_EMPTY(hivemind_users)
 		to_chat(hivemind_owner, span_abductor("[linked_mob] has left your Hivemind."))
 		to_chat(linked_mob, span_abductor("You have left [hivemind_owner]'s Hivemind."))
 
-	qdel(user_network)
+	QDEL_NULL(user_network)
 	return ..()
 
 /datum/nifsoft/hivemind/activate()
@@ -256,8 +254,8 @@ GLOBAL_LIST_EMPTY(hivemind_users)
 /obj/item/hivemind_keyboard
 	name = "Hivemind Interface Device"
 	desc = "A holographic gesture controller, hooked to hand and finger signals of the user's own choice. This is paired with the Hivemind program itself, used as a means of filtering out unwanted thoughts from being added to the network, ensuring that only intentional thoughts of communication can go through."
-	icon = 'icons/obj/devices/remote.dmi'
-	icon_state = "generic_delivery"
+	icon = 'modular_nova/modules/modular_items/icons/remote.dmi'
+	icon_state = "hivemind_remote"
 	lefthand_file = 'icons/mob/inhands/items/devices_lefthand.dmi'
 	righthand_file = 'icons/mob/inhands/items/devices_righthand.dmi'
 	inhand_icon_state = "electronic"
@@ -277,7 +275,7 @@ GLOBAL_LIST_EMPTY(hivemind_users)
 /obj/item/hivemind_keyboard/proc/send_message(mob/living/carbon/human/user)
 	var/mob/living/carbon/human/kebyoard_owner = source_user
 	var/mob/living/carbon/human/network_owner = connected_network.parent
-	var/message = tgui_input_text(user, "Enter a message to transmit.", "[connected_network.network_name] Telepathy")
+	var/message = tgui_input_text(user, "Enter a message to transmit.", "[connected_network.network_name] Telepathy", max_length = MAX_MESSAGE_LEN)
 	if(!message || QDELETED(src) || QDELETED(user) || user.stat == DEAD)
 		return
 
@@ -285,7 +283,7 @@ GLOBAL_LIST_EMPTY(hivemind_users)
 		to_chat(user, span_warning("The link seems to have been severed."))
 		return
 
-	var/datum/asset/spritesheet/sheet = get_asset_datum(/datum/asset/spritesheet/chat)
+	var/datum/asset/spritesheet_batched/sheet = get_asset_datum(/datum/asset/spritesheet_batched/chat)
 	var/tag = sheet.icon_tag("nif-phone")
 	var/hivemind_icon = ""
 

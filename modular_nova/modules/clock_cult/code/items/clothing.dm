@@ -118,7 +118,7 @@
 	previous_alpha = wearer.alpha
 	animate(wearer, alpha = 90, time = 3 SECONDS)
 	apply_wibbly_filters(wearer)
-	ADD_TRAIT(wearer, TRAIT_UNKNOWN, CLOTHING_TRAIT)
+	wearer.add_traits(list(TRAIT_UNKNOWN_APPEARANCE, TRAIT_UNKNOWN_VOICE), REF(src))
 
 
 /// Un-apply the effects of the cloak, returning the wearer to normal
@@ -127,7 +127,7 @@
 	do_sparks(3, FALSE, wearer)
 	remove_wibbly_filters(wearer)
 	animate(wearer, alpha = previous_alpha, time = 3 SECONDS)
-	REMOVE_TRAIT(wearer, TRAIT_UNKNOWN, CLOTHING_TRAIT)
+	wearer.remove_traits(list(TRAIT_UNKNOWN_APPEARANCE, TRAIT_UNKNOWN_VOICE), REF(src))
 
 
 /obj/item/clothing/glasses/clockwork

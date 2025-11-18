@@ -8,7 +8,7 @@
 		/obj/item = 10,
 	) // 10% success with any sharp item.
 	time = 2.4 SECONDS
-	preop_sound = 'sound/items/wirecutter.ogg'
+	preop_sound = 'sound/items/tools/wirecutter.ogg'
 
 /datum/surgery_step/cut_wires/preop(mob/user, mob/living/carbon/target, target_zone, obj/item/tool, datum/surgery/surgery)
 	display_results(
@@ -26,13 +26,13 @@
 
 //pry off plating
 /datum/surgery_step/pry_off_plating
-	name = "pry off plating"
+	name = "pry off plating (crowbar or hemostat)"
 	implements = list(
 		TOOL_CROWBAR = 100,
 		TOOL_HEMOSTAT = 10,
 	)
 	time = 2.4 SECONDS
-	preop_sound = 'sound/items/crowbar.ogg'
+	preop_sound = 'sound/items/tools/crowbar.ogg'
 
 /datum/surgery_step/pry_off_plating/success(mob/user, mob/living/carbon/target, target_zone, obj/item/tool, datum/surgery/surgery)
 	do_sparks(rand(5, 9), FALSE, target.loc)
@@ -54,7 +54,7 @@
 		TOOL_WELDER = 100,
 	)
 	time = 2.4 SECONDS
-	preop_sound = 'sound/items/welder.ogg'
+	preop_sound = 'sound/items/tools/welder.ogg'
 
 /datum/surgery_step/weld_plating/tool_check(mob/user, obj/item/tool)
 	if(implement_type == TOOL_WELDER && !tool.use_tool(user, user, 0, volume=50, amount=1))
@@ -77,7 +77,7 @@
 		TOOL_WELDER = 100,
 	)
 	time = 2.4 SECONDS
-	preop_sound = 'sound/items/welder.ogg'
+	preop_sound = 'sound/items/tools/welder.ogg'
 
 /datum/surgery_step/weld_plating/tool_check(mob/user, obj/item/tool)
 	if(implement_type == TOOL_WELDER && !tool.use_tool(user, user, 0, volume=50, amount=1))
@@ -95,7 +95,7 @@
 
 //replace wires
 /datum/surgery_step/replace_wires
-	name = "replace wires"
+	name = "replace wires (5 cables)"
 	implements = list(/obj/item/stack/cable_coil = 100)
 	time = 2.4 SECONDS
 	var/cableamount = 5
@@ -124,7 +124,7 @@
 
 //add plating
 /datum/surgery_step/add_plating
-	name = "add plating"
+	name = "add plating (5 iron sheets)"
 	implements = list(/obj/item/stack/sheet/iron = 100)
 	time = 2.4 SECONDS
 	var/ironamount = 5

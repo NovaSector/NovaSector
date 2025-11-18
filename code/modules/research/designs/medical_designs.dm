@@ -59,6 +59,17 @@
 	build_path = /obj/item/reagent_containers/cup/beaker/plastic
 	departmental_flags = DEPARTMENT_BITFLAG_MEDICAL | DEPARTMENT_BITFLAG_SCIENCE
 
+/datum/design/organ_jar
+	name = "Organ Jar"
+	id = "organ_jar"
+	build_type = PROTOLATHE | AWAY_LATHE
+	materials = list(/datum/material/glass = HALF_SHEET_MATERIAL_AMOUNT*2.5, /datum/material/plastic =SHEET_MATERIAL_AMOUNT * 1.5)
+	category = list(
+		RND_CATEGORY_EQUIPMENT + RND_SUBCATEGORY_EQUIPMENT_CHEMISTRY
+	)
+	build_path = /obj/item/reagent_containers/cup/beaker/organ_jar
+	departmental_flags = DEPARTMENT_BITFLAG_MEDICAL | DEPARTMENT_BITFLAG_SCIENCE
+
 /datum/design/meta_beaker
 	name = "Metamaterial Beaker"
 	id = "meta_beaker"
@@ -116,6 +127,30 @@
 		RND_CATEGORY_EQUIPMENT + RND_SUBCATEGORY_EQUIPMENT_CHEMISTRY
 	)
 	departmental_flags = DEPARTMENT_BITFLAG_MEDICAL | DEPARTMENT_BITFLAG_SCIENCE
+
+/datum/design/inhaler
+	name = "Inhaler"
+	desc = "A small device capable of administering short bursts of aerosolized chemicals. Requires a canister to function."
+	id = "inhaler"
+	build_path = /obj/item/inhaler/medical
+	build_type = PROTOLATHE | AWAY_LATHE
+	materials = list(/datum/material/plastic = SHEET_MATERIAL_AMOUNT * 0.1)
+	category = list(
+		RND_CATEGORY_EQUIPMENT + RND_SUBCATEGORY_EQUIPMENT_MEDICAL
+	)
+	departmental_flags = DEPARTMENT_BITFLAG_MEDICAL
+
+/datum/design/inhaler_canister
+	name = "Inhaler Canister"
+	desc = "A small canister filled with aerosolized reagents for use in a inhaler."
+	id = "inhaler_canister"
+	build_path = /obj/item/reagent_containers/inhaler_canister
+	build_type = PROTOLATHE | AWAY_LATHE
+	materials = list(/datum/material/iron = SHEET_MATERIAL_AMOUNT * 0.2)
+	category = list(
+		RND_CATEGORY_EQUIPMENT + RND_SUBCATEGORY_EQUIPMENT_MEDICAL
+	)
+	departmental_flags = DEPARTMENT_BITFLAG_MEDICAL
 
 /datum/design/bluespacebodybag
 	name = "Bluespace Body Bag"
@@ -381,6 +416,24 @@
 	)
 	departmental_flags = DEPARTMENT_BITFLAG_MEDICAL
 
+/datum/design/flesh_reshapers
+	name = "Flesh Reshaper"
+	desc = "Reshape those external features!"
+	id = "fleshreshaper"
+	build_path = /obj/item/flesh_shears
+	build_type = PROTOLATHE | AWAY_LATHE
+	materials = list(/datum/material/iron = SHEET_MATERIAL_AMOUNT * 1, /datum/material/silver =SHEET_MATERIAL_AMOUNT * 1)
+	category = list(
+		RND_CATEGORY_TOOLS + RND_SUBCATEGORY_TOOLS_MEDICAL_ADVANCED
+	)
+	departmental_flags = DEPARTMENT_BITFLAG_SCIENCE
+
+/datum/design/flesh_reshapers/medical // slight variant with different color palette
+	name = "Medical Flesh Reshaper"
+	id = "fleshreshapermed"
+	build_path = /obj/item/flesh_shears/medical
+	departmental_flags = DEPARTMENT_BITFLAG_MEDICAL
+
 /////////////////////////////////////////
 //////////Cybernetic Implants////////////
 /////////////////////////////////////////
@@ -392,7 +445,7 @@
 	build_type = PROTOLATHE | AWAY_LATHE | MECHFAB
 	construction_time = 3.5 SECONDS
 	materials = list(/datum/material/iron = SMALL_MATERIAL_AMOUNT*6, /datum/material/glass = SMALL_MATERIAL_AMOUNT*2.5)
-	build_path = /obj/item/organ/internal/cyberimp/mouth/breathing_tube
+	build_path = /obj/item/organ/cyberimp/mouth/breathing_tube
 	category = list(
 		RND_CATEGORY_CYBERNETICS + RND_SUBCATEGORY_CYBERNETICS_IMPLANTS_HEALTH
 	)
@@ -409,7 +462,7 @@
 		/datum/material/silver = HALF_SHEET_MATERIAL_AMOUNT * 1.5,
 	)
 	construction_time = 2 SECONDS
-	build_path = /obj/item/organ/internal/cyberimp/arm/surgery
+	build_path = /obj/item/organ/cyberimp/arm/toolkit/surgery
 	category = list(
 		RND_CATEGORY_CYBERNETICS + RND_SUBCATEGORY_CYBERNETICS_IMPLANTS_UTILITY
 	)
@@ -426,7 +479,7 @@
 		/datum/material/silver = HALF_SHEET_MATERIAL_AMOUNT * 1.5,
 	)
 	construction_time = 2 SECONDS
-	build_path = /obj/item/organ/internal/cyberimp/arm/toolset
+	build_path = /obj/item/organ/cyberimp/arm/toolkit/toolset
 	category = list(
 		RND_CATEGORY_CYBERNETICS + RND_SUBCATEGORY_CYBERNETICS_IMPLANTS_UTILITY
 	)
@@ -444,7 +497,7 @@
 		/datum/material/silver =SMALL_MATERIAL_AMOUNT*5,
 		/datum/material/gold =SMALL_MATERIAL_AMOUNT*5,
 	)
-	build_path = /obj/item/organ/internal/cyberimp/eyes/hud/medical
+	build_path = /obj/item/organ/cyberimp/eyes/hud/medical
 	category = list(
 		RND_CATEGORY_CYBERNETICS + RND_SUBCATEGORY_CYBERNETICS_IMPLANTS_UTILITY
 	)
@@ -462,7 +515,7 @@
 		/datum/material/silver = SMALL_MATERIAL_AMOUNT*7.5,
 		/datum/material/gold = SMALL_MATERIAL_AMOUNT*7.5,
 	)
-	build_path = /obj/item/organ/internal/cyberimp/eyes/hud/security
+	build_path = /obj/item/organ/cyberimp/eyes/hud/security
 	category = list(
 		RND_CATEGORY_CYBERNETICS + RND_SUBCATEGORY_CYBERNETICS_IMPLANTS_UTILITY
 	)
@@ -480,7 +533,7 @@
 		/datum/material/silver = SMALL_MATERIAL_AMOUNT*6,
 		/datum/material/gold = SMALL_MATERIAL_AMOUNT*6,
 	)
-	build_path = /obj/item/organ/internal/cyberimp/eyes/hud/diagnostic
+	build_path = /obj/item/organ/cyberimp/eyes/hud/diagnostic
 	category = list(
 		RND_CATEGORY_CYBERNETICS + RND_SUBCATEGORY_CYBERNETICS_IMPLANTS_UTILITY
 	)
@@ -502,7 +555,7 @@
 		/datum/material/diamond = HALF_SHEET_MATERIAL_AMOUNT,
 		/datum/material/bluespace = HALF_SHEET_MATERIAL_AMOUNT,
 	)
-	build_path = /obj/item/organ/internal/eyes/robotic/xray
+	build_path = /obj/item/organ/eyes/robotic/xray
 	category = list(
 		RND_CATEGORY_CYBERNETICS + RND_SUBCATEGORY_CYBERNETICS_ORGANS_COMBAT
 	)
@@ -511,7 +564,7 @@
 /datum/design/cyberimp_xray/moth
 	name = "Moth X-ray Eyes"
 	id = "ci-xray-moth"
-	build_path = /obj/item/organ/internal/eyes/robotic/xray/moth
+	build_path = /obj/item/organ/eyes/robotic/xray/moth
 
 /datum/design/cyberimp_thermals
 	name = "Thermal Eyes"
@@ -527,7 +580,7 @@
 		/datum/material/plasma =HALF_SHEET_MATERIAL_AMOUNT,
 		/datum/material/diamond =SHEET_MATERIAL_AMOUNT,
 	)
-	build_path = /obj/item/organ/internal/eyes/robotic/thermals
+	build_path = /obj/item/organ/eyes/robotic/thermals
 	category = list(
 		RND_CATEGORY_CYBERNETICS + RND_SUBCATEGORY_CYBERNETICS_ORGANS_COMBAT
 	)
@@ -536,7 +589,7 @@
 /datum/design/cyberimp_thermals/moth
 	name = "Moth Thermal Eyes"
 	id = "ci-thermals-moth"
-	build_path = /obj/item/organ/internal/eyes/robotic/thermals/moth
+	build_path = /obj/item/organ/eyes/robotic/thermals/moth
 
 /datum/design/cyberimp_antidrop
 	name = "Anti-Drop Implant"
@@ -550,7 +603,7 @@
 		/datum/material/silver = SMALL_MATERIAL_AMOUNT*4,
 		/datum/material/gold = SMALL_MATERIAL_AMOUNT*4,
 	)
-	build_path = /obj/item/organ/internal/cyberimp/brain/anti_drop
+	build_path = /obj/item/organ/cyberimp/brain/anti_drop
 	category = list(
 		RND_CATEGORY_CYBERNETICS + RND_SUBCATEGORY_CYBERNETICS_IMPLANTS_COMBAT
 	)
@@ -568,7 +621,7 @@
 		/datum/material/silver =SMALL_MATERIAL_AMOUNT*5,
 		/datum/material/gold =HALF_SHEET_MATERIAL_AMOUNT,
 	)
-	build_path = /obj/item/organ/internal/cyberimp/brain/anti_stun
+	build_path = /obj/item/organ/cyberimp/brain/anti_stun
 	category = list(
 		RND_CATEGORY_CYBERNETICS + RND_SUBCATEGORY_CYBERNETICS_IMPLANTS_COMBAT
 	)
@@ -586,9 +639,26 @@
 		/datum/material/gold=SMALL_MATERIAL_AMOUNT*3,
 		/datum/material/diamond =SMALL_MATERIAL_AMOUNT*5,
 	)
-	build_path = /obj/item/organ/internal/cyberimp/chest/spine
+	build_path = /obj/item/organ/cyberimp/chest/spine
 	category = list(
 		RND_CATEGORY_CYBERNETICS + RND_SUBCATEGORY_CYBERNETICS_IMPLANTS_HEALTH
+	)
+	departmental_flags = DEPARTMENT_BITFLAG_MEDICAL
+
+/datum/design/cyberimp_connector
+	name = "CNS Skillchip Connector Implant"
+	desc = "This cybernetic adds a port to the back of your head, where you can remove or add skillchips at will."
+	id = "ci-connector"
+	build_type = PROTOLATHE | AWAY_LATHE | MECHFAB
+	construction_time = 6 SECONDS
+	materials = list(
+		/datum/material/iron = SMALL_MATERIAL_AMOUNT*6,
+		/datum/material/glass = SMALL_MATERIAL_AMOUNT*6,
+		/datum/material/titanium = SMALL_MATERIAL_AMOUNT*3,
+	)
+	build_path = /obj/item/organ/cyberimp/brain/connector
+	category = list(
+		RND_CATEGORY_CYBERNETICS + RND_SUBCATEGORY_CYBERNETICS_IMPLANTS_MISC
 	)
 	departmental_flags = DEPARTMENT_BITFLAG_MEDICAL
 
@@ -603,7 +673,7 @@
 		/datum/material/glass =SMALL_MATERIAL_AMOUNT*5,
 		/datum/material/gold =SMALL_MATERIAL_AMOUNT*5,
 	)
-	build_path = /obj/item/organ/internal/cyberimp/chest/nutriment
+	build_path = /obj/item/organ/cyberimp/chest/nutriment
 	category = list(
 		RND_CATEGORY_CYBERNETICS + RND_SUBCATEGORY_CYBERNETICS_IMPLANTS_HEALTH
 	)
@@ -621,7 +691,7 @@
 		/datum/material/gold =SMALL_MATERIAL_AMOUNT*5,
 		/datum/material/uranium = SMALL_MATERIAL_AMOUNT*7.5,
 	)
-	build_path = /obj/item/organ/internal/cyberimp/chest/nutriment/plus
+	build_path = /obj/item/organ/cyberimp/chest/nutriment/plus
 	category = list(
 		RND_CATEGORY_CYBERNETICS + RND_SUBCATEGORY_CYBERNETICS_IMPLANTS_HEALTH
 	)
@@ -639,7 +709,7 @@
 		/datum/material/gold =SMALL_MATERIAL_AMOUNT * 3,
 		/datum/material/uranium =SMALL_MATERIAL_AMOUNT*5,
 	)
-	build_path = /obj/item/organ/internal/cyberimp/chest/reviver
+	build_path = /obj/item/organ/cyberimp/chest/reviver
 	category = list(
 		RND_CATEGORY_CYBERNETICS + RND_SUBCATEGORY_CYBERNETICS_IMPLANTS_HEALTH
 	)
@@ -657,7 +727,7 @@
 		/datum/material/silver =HALF_SHEET_MATERIAL_AMOUNT,
 		/datum/material/diamond =HALF_SHEET_MATERIAL_AMOUNT,
 	)
-	build_path = /obj/item/organ/internal/cyberimp/chest/thrusters
+	build_path = /obj/item/organ/cyberimp/chest/thrusters
 	category = list(
 		RND_CATEGORY_CYBERNETICS + RND_SUBCATEGORY_CYBERNETICS_IMPLANTS_UTILITY
 	)
@@ -772,7 +842,7 @@
 	build_type = PROTOLATHE | AWAY_LATHE | MECHFAB
 	construction_time = 4 SECONDS
 	materials = list(/datum/material/iron =SMALL_MATERIAL_AMOUNT*5, /datum/material/glass =SMALL_MATERIAL_AMOUNT*5)
-	build_path = /obj/item/organ/internal/liver/cybernetic
+	build_path = /obj/item/organ/liver/cybernetic
 	category = list(
 		RND_CATEGORY_CYBERNETICS + RND_SUBCATEGORY_CYBERNETICS_ORGANS_1
 	)
@@ -783,7 +853,7 @@
 	desc = "A cybernetic liver."
 	id = "cybernetic_liver_tier2"
 	materials = list(/datum/material/iron =SMALL_MATERIAL_AMOUNT*5, /datum/material/glass =SMALL_MATERIAL_AMOUNT*5)
-	build_path = /obj/item/organ/internal/liver/cybernetic/tier2
+	build_path = /obj/item/organ/liver/cybernetic/tier2
 	category = list(
 		RND_CATEGORY_CYBERNETICS + RND_SUBCATEGORY_CYBERNETICS_ORGANS_2
 	)
@@ -795,7 +865,7 @@
 	id = "cybernetic_liver_tier3"
 	construction_time = 5 SECONDS
 	materials = list(/datum/material/iron =SMALL_MATERIAL_AMOUNT*5, /datum/material/glass =SMALL_MATERIAL_AMOUNT*5, /datum/material/silver=SMALL_MATERIAL_AMOUNT*5)
-	build_path = /obj/item/organ/internal/liver/cybernetic/tier3
+	build_path = /obj/item/organ/liver/cybernetic/tier3
 	category = list(
 		RND_CATEGORY_CYBERNETICS + RND_SUBCATEGORY_CYBERNETICS_ORGANS_3
 	)
@@ -808,7 +878,7 @@
 	build_type = PROTOLATHE | AWAY_LATHE | MECHFAB
 	construction_time = 4 SECONDS
 	materials = list(/datum/material/iron =SMALL_MATERIAL_AMOUNT*5, /datum/material/glass =SMALL_MATERIAL_AMOUNT*5)
-	build_path = /obj/item/organ/internal/heart/cybernetic
+	build_path = /obj/item/organ/heart/cybernetic
 	category = list(
 		RND_CATEGORY_CYBERNETICS + RND_SUBCATEGORY_CYBERNETICS_ORGANS_1
 	)
@@ -819,7 +889,7 @@
 	desc = "A cybernetic heart."
 	id = "cybernetic_heart_tier2"
 	materials = list(/datum/material/iron =SMALL_MATERIAL_AMOUNT*5, /datum/material/glass =SMALL_MATERIAL_AMOUNT*5)
-	build_path = /obj/item/organ/internal/heart/cybernetic/tier2
+	build_path = /obj/item/organ/heart/cybernetic/tier2
 	category = list(
 		RND_CATEGORY_CYBERNETICS + RND_SUBCATEGORY_CYBERNETICS_ORGANS_2
 	)
@@ -831,7 +901,7 @@
 	id = "cybernetic_heart_tier3"
 	construction_time = 5 SECONDS
 	materials = list(/datum/material/iron =SMALL_MATERIAL_AMOUNT*5, /datum/material/glass =SMALL_MATERIAL_AMOUNT*5, /datum/material/silver=SMALL_MATERIAL_AMOUNT*5)
-	build_path = /obj/item/organ/internal/heart/cybernetic/tier3
+	build_path = /obj/item/organ/heart/cybernetic/tier3
 	category = list(
 		RND_CATEGORY_CYBERNETICS + RND_SUBCATEGORY_CYBERNETICS_ORGANS_3
 	)
@@ -848,7 +918,7 @@
 		/datum/material/titanium = SHEET_MATERIAL_AMOUNT * 5,
 		/datum/material/diamond = SHEET_MATERIAL_AMOUNT,
 	)
-	build_path = /obj/item/organ/internal/heart/cybernetic/anomalock
+	build_path = /obj/item/organ/heart/cybernetic/anomalock
 	category = list(
 		RND_CATEGORY_EQUIPMENT + RND_SUBCATEGORY_EQUIPMENT_SCIENCE
 	)
@@ -861,7 +931,7 @@
 	build_type = PROTOLATHE | AWAY_LATHE | MECHFAB
 	construction_time = 4 SECONDS
 	materials = list(/datum/material/iron =SMALL_MATERIAL_AMOUNT*5, /datum/material/glass =SMALL_MATERIAL_AMOUNT*5)
-	build_path = /obj/item/organ/internal/lungs/cybernetic
+	build_path = /obj/item/organ/lungs/cybernetic
 	category = list(
 		RND_CATEGORY_CYBERNETICS + RND_SUBCATEGORY_CYBERNETICS_ORGANS_1
 	)
@@ -872,7 +942,7 @@
 	desc = "A pair of cybernetic lungs."
 	id = "cybernetic_lungs_tier2"
 	materials = list(/datum/material/iron =SMALL_MATERIAL_AMOUNT*5, /datum/material/glass =SMALL_MATERIAL_AMOUNT*5)
-	build_path = /obj/item/organ/internal/lungs/cybernetic/tier2
+	build_path = /obj/item/organ/lungs/cybernetic/tier2
 	category = list(
 		RND_CATEGORY_CYBERNETICS + RND_SUBCATEGORY_CYBERNETICS_ORGANS_2
 	)
@@ -884,7 +954,7 @@
 	id = "cybernetic_lungs_tier3"
 	construction_time = 5 SECONDS
 	materials = list(/datum/material/iron =SMALL_MATERIAL_AMOUNT*5, /datum/material/glass =SMALL_MATERIAL_AMOUNT*5, /datum/material/silver =SMALL_MATERIAL_AMOUNT*5)
-	build_path = /obj/item/organ/internal/lungs/cybernetic/tier3
+	build_path = /obj/item/organ/lungs/cybernetic/tier3
 	category = list(
 		RND_CATEGORY_CYBERNETICS + RND_SUBCATEGORY_CYBERNETICS_ORGANS_3
 	)
@@ -897,7 +967,7 @@
 	build_type = PROTOLATHE | AWAY_LATHE | MECHFAB
 	construction_time = 4 SECONDS
 	materials = list(/datum/material/iron =SMALL_MATERIAL_AMOUNT*5, /datum/material/glass =SMALL_MATERIAL_AMOUNT*5)
-	build_path = /obj/item/organ/internal/stomach/cybernetic
+	build_path = /obj/item/organ/stomach/cybernetic
 	category = list(
 		RND_CATEGORY_CYBERNETICS + RND_SUBCATEGORY_CYBERNETICS_ORGANS_1
 	)
@@ -908,7 +978,7 @@
 	desc = "A cybernetic stomach."
 	id = "cybernetic_stomach_tier2"
 	materials = list(/datum/material/iron =SMALL_MATERIAL_AMOUNT*5, /datum/material/glass =SMALL_MATERIAL_AMOUNT*5)
-	build_path = /obj/item/organ/internal/stomach/cybernetic/tier2
+	build_path = /obj/item/organ/stomach/cybernetic/tier2
 	category = list(
 		RND_CATEGORY_CYBERNETICS + RND_SUBCATEGORY_CYBERNETICS_ORGANS_2
 	)
@@ -920,7 +990,7 @@
 	id = "cybernetic_stomach_tier3"
 	construction_time = 5 SECONDS
 	materials = list(/datum/material/iron =SMALL_MATERIAL_AMOUNT*5, /datum/material/glass =SMALL_MATERIAL_AMOUNT*5, /datum/material/silver =SMALL_MATERIAL_AMOUNT*5)
-	build_path = /obj/item/organ/internal/stomach/cybernetic/tier3
+	build_path = /obj/item/organ/stomach/cybernetic/tier3
 	category = list(
 		RND_CATEGORY_CYBERNETICS + RND_SUBCATEGORY_CYBERNETICS_ORGANS_3
 	)
@@ -933,7 +1003,7 @@
 	build_type = PROTOLATHE | AWAY_LATHE | MECHFAB
 	construction_time = 3 SECONDS
 	materials = list(/datum/material/iron = SMALL_MATERIAL_AMOUNT*2.5, /datum/material/glass = SMALL_MATERIAL_AMOUNT*4)
-	build_path = /obj/item/organ/internal/ears/cybernetic
+	build_path = /obj/item/organ/ears/cybernetic
 	category = list(
 		RND_CATEGORY_CYBERNETICS + RND_SUBCATEGORY_CYBERNETICS_ORGANS_1
 	)
@@ -950,7 +1020,7 @@
 		/datum/material/glass = SMALL_MATERIAL_AMOUNT*5,
 		/datum/material/silver = SMALL_MATERIAL_AMOUNT*5,
 	)
-	build_path = /obj/item/organ/internal/ears/cybernetic/upgraded
+	build_path = /obj/item/organ/ears/cybernetic/upgraded
 	category = list(
 		RND_CATEGORY_CYBERNETICS + RND_SUBCATEGORY_CYBERNETICS_ORGANS_2
 	)
@@ -967,7 +1037,24 @@
 		/datum/material/glass = SMALL_MATERIAL_AMOUNT*5,
 		/datum/material/silver = SMALL_MATERIAL_AMOUNT*5,
 	)
-	build_path = /obj/item/organ/internal/ears/cybernetic/whisper
+	build_path = /obj/item/organ/ears/cybernetic/whisper
+	category = list(
+		RND_CATEGORY_CYBERNETICS + RND_SUBCATEGORY_CYBERNETICS_ORGANS_3
+	)
+	departmental_flags = DEPARTMENT_BITFLAG_MEDICAL
+
+/datum/design/cybernetic_ears_volume
+	name = "Volume-adjusting Cybernetic Ears"
+	desc = "A pair of volume-adjusting cybernetic ears"
+	id = "cybernetic_ears_volume"
+	build_type = PROTOLATHE | AWAY_LATHE | MECHFAB
+	construction_time = 4 SECONDS
+	materials = list(
+			/datum/material/iron = SMALL_MATERIAL_AMOUNT*5,
+			/datum/material/glass = SMALL_MATERIAL_AMOUNT*5,
+			/datum/material/silver = SMALL_MATERIAL_AMOUNT*5,
+	)
+	build_path = /obj/item/organ/ears/cybernetic/volume
 	category = list(
 		RND_CATEGORY_CYBERNETICS + RND_SUBCATEGORY_CYBERNETICS_ORGANS_3
 	)
@@ -984,11 +1071,41 @@
 		/datum/material/glass = SMALL_MATERIAL_AMOUNT*5,
 		/datum/material/silver = SMALL_MATERIAL_AMOUNT*5,
 	)
-	build_path = /obj/item/organ/internal/ears/cybernetic/xray
+	build_path = /obj/item/organ/ears/cybernetic/xray
 	category = list(
 		RND_CATEGORY_CYBERNETICS + RND_SUBCATEGORY_CYBERNETICS_ORGANS_3
 	)
 	departmental_flags = DEPARTMENT_BITFLAG_MEDICAL
+
+/datum/design/cybernetic_ears/cat
+	name = "Basic Cybernetic Cat Ears"
+	desc = "A basic pair of cybernetic cat ears"
+	id = "cybernetic_ears_cat"
+	build_path = /obj/item/organ/ears/cat/cybernetic
+
+/datum/design/cybernetic_ears_u/cat
+	name = "Cybernetic Cat Ears"
+	desc = "A pair of cybernetic cat ears"
+	id = "cybernetic_ears_u_cat"
+	build_path = /obj/item/organ/ears/cat/cybernetic/upgraded
+
+/datum/design/cybernetic_ears_whisper/cat
+	name = "Whisper-sensitive Cybernetic Cat Ears"
+	desc = "A pair of whisper-sensitive cybernetic cat ears"
+	id = "cybernetic_ears_whisper_cat"
+	build_path = /obj/item/organ/ears/cat/cybernetic/whisper
+
+/datum/design/cybernetic_ears_volume/cat
+	name = "Volume-adjusting Cybernetic Cat Ears"
+	desc = "A pair of volume-adjusting cybernetic cat ears"
+	id = "cybernetic_ears_volume_cat"
+	build_path = /obj/item/organ/ears/cat/cybernetic/volume
+
+/datum/design/cybernetic_ears_xray/cat
+	name = "Wall-penetrating Cybernetic Cat Ears"
+	desc = "A pair of wall-penetrating cybernetic cat ears"
+	id = "cybernetic_ears_xray_cat"
+	build_path = /obj/item/organ/ears/cat/cybernetic/xray
 
 /datum/design/cybernetic_eyes
 	name = "Basic Cybernetic Eyes"
@@ -997,7 +1114,7 @@
 	build_type = PROTOLATHE | AWAY_LATHE | MECHFAB
 	construction_time = 3 SECONDS
 	materials = list(/datum/material/iron = SMALL_MATERIAL_AMOUNT*2.5, /datum/material/glass = SMALL_MATERIAL_AMOUNT*4)
-	build_path = /obj/item/organ/internal/eyes/robotic/basic
+	build_path = /obj/item/organ/eyes/robotic/basic
 	category = list(
 		RND_CATEGORY_CYBERNETICS + RND_SUBCATEGORY_CYBERNETICS_ORGANS_1
 	)
@@ -1006,13 +1123,13 @@
 /datum/design/cybernetic_eyes/moth
 	name = "Basic Cybernetic Moth Eyes"
 	id = "cybernetic_eyes_moth"
-	build_path = /obj/item/organ/internal/eyes/robotic/basic/moth
+	build_path = /obj/item/organ/eyes/robotic/basic/moth
 
 /datum/design/cybernetic_eyes/improved
 	name = "Cybernetic Eyes"
 	desc = "A pair of cybernetic eyes."
 	id = "cybernetic_eyes_improved"
-	build_path = /obj/item/organ/internal/eyes/robotic
+	build_path = /obj/item/organ/eyes/robotic
 	category = list(
 		RND_CATEGORY_CYBERNETICS + RND_SUBCATEGORY_CYBERNETICS_ORGANS_2
 	)
@@ -1021,7 +1138,7 @@
 /datum/design/cybernetic_eyes/improved/moth
 	name = "Cybernetic Moth Eyes"
 	id = "cybernetic_eyes_improved_moth"
-	build_path = /obj/item/organ/internal/eyes/robotic/moth
+	build_path = /obj/item/organ/eyes/robotic/moth
 
 /datum/design/cyberimp_welding
 	name = "Welding Shield Eyes"
@@ -1030,7 +1147,7 @@
 	build_type = PROTOLATHE | AWAY_LATHE | MECHFAB
 	construction_time = 4 SECONDS
 	materials = list(/datum/material/iron = SMALL_MATERIAL_AMOUNT*6, /datum/material/glass = SMALL_MATERIAL_AMOUNT*4)
-	build_path = /obj/item/organ/internal/eyes/robotic/shield
+	build_path = /obj/item/organ/eyes/robotic/shield
 	category = list(
 		RND_CATEGORY_CYBERNETICS + RND_SUBCATEGORY_CYBERNETICS_ORGANS_3
 	)
@@ -1039,7 +1156,7 @@
 /datum/design/cyberimp_welding/moth
 	name = "Welding Shield Moth Eyes"
 	id = "ci-welding-moth"
-	build_path = /obj/item/organ/internal/eyes/robotic/shield/moth
+	build_path = /obj/item/organ/eyes/robotic/shield/moth
 
 /datum/design/cyberimp_gloweyes
 	name = "Luminescent Eyes"
@@ -1048,7 +1165,7 @@
 	build_type = PROTOLATHE | AWAY_LATHE | MECHFAB
 	construction_time = 4 SECONDS
 	materials = list(/datum/material/iron = SMALL_MATERIAL_AMOUNT*6, /datum/material/glass =HALF_SHEET_MATERIAL_AMOUNT)
-	build_path = /obj/item/organ/internal/eyes/robotic/glow
+	build_path = /obj/item/organ/eyes/robotic/glow
 	category = list(
 		RND_CATEGORY_CYBERNETICS + RND_SUBCATEGORY_CYBERNETICS_ORGANS_3
 	)
@@ -1057,7 +1174,7 @@
 /datum/design/cyberimp_gloweyes/moth
 	name = "Luminescent Moth Eyes"
 	id = "ci-gloweyes-moth"
-	build_path = /obj/item/organ/internal/eyes/robotic/glow/moth
+	build_path = /obj/item/organ/eyes/robotic/glow/moth
 
 /////////////////////
 ///Surgery Designs///
@@ -1066,7 +1183,6 @@
 /datum/design/surgery
 	name = "Surgery Design"
 	desc = "what"
-	id = "surgery_parent"
 	research_icon = 'icons/obj/medical/surgery_ui.dmi'
 	research_icon_state = "surgery_any"
 	var/surgery

@@ -9,12 +9,13 @@
 	damaged_dmi = 'icons/turf/floors.dmi'
 	icon_state = "asteroid"
 	base_icon_state = "asteroid"
+	turf_flags = IS_SOLID
 
 	footstep = FOOTSTEP_SAND
 	barefootstep = FOOTSTEP_SAND
 	clawfootstep = FOOTSTEP_SAND
 	heavyfootstep = FOOTSTEP_GENERIC_HEAVY
-	rust_resistance = RUST_RESISTANCE_ORGANIC
+	rust_resistance = RUST_RESISTANCE_BASIC
 	/// Base turf type to be created by the tunnel
 	var/turf_type = /turf/open/misc/asteroid
 			/// Whether this turf has different icon states
@@ -59,7 +60,7 @@
 /turf/open/misc/asteroid/ex_act(severity, target)
 	return FALSE
 
-/turf/open/misc/asteroid/attackby(obj/item/attack_item, mob/user, params)
+/turf/open/misc/asteroid/attackby(obj/item/attack_item, mob/user, list/modifiers)
 	. = ..()
 	if(.)
 		return TRUE
@@ -287,7 +288,7 @@ GLOBAL_LIST_EMPTY(dug_up_basalt)
 
 //Used in SnowCabin.dm
 /turf/open/misc/asteroid/snow/snow_cabin
-	temperature = 180
+	temperature = ICEBOX_MIN_TEMPERATURE
 
 /turf/open/misc/asteroid/snow/atmosphere
 	initial_gas_mix = FROZEN_ATMOS

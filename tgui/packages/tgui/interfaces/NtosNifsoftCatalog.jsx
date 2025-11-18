@@ -1,5 +1,4 @@
 // THIS IS A NOVA SECTOR UI FILE
-import { useBackend, useSharedState } from '../backend';
 import {
   BlockQuote,
   Box,
@@ -10,7 +9,9 @@ import {
   LabeledList,
   Section,
   Tabs,
-} from '../components';
+} from 'tgui-core/components';
+
+import { useBackend, useSharedState } from '../backend';
 import { NtosWindow } from '../layouts';
 
 export const NtosNifsoftCatalog = (props) => {
@@ -70,7 +71,7 @@ const ProductCategory = (props) => {
               title={
                 <span>
                   {<Icon name={product.ui_icon} />}
-                  {' ' + product.name}
+                  {` ${product.name}`}
                 </span>
               }
               fill={false}

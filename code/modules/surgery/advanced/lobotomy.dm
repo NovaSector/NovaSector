@@ -1,6 +1,7 @@
 /datum/surgery/advanced/lobotomy
 	name = "Lobotomy"
 	desc = "An invasive surgical procedure which guarantees removal of almost all brain traumas, but might cause another permanent trauma in return."
+	surgery_flags = SURGERY_MORBID_CURIOSITY
 	possible_locs = list(BODY_ZONE_HEAD)
 	steps = list(
 		/datum/surgery_step/incise,
@@ -28,7 +29,7 @@
 	. = ..()
 	if(!.)
 		return FALSE
-	var/obj/item/organ/internal/brain/target_brain = target.get_organ_slot(ORGAN_SLOT_BRAIN)
+	var/obj/item/organ/brain/target_brain = target.get_organ_slot(ORGAN_SLOT_BRAIN)
 	if(!target_brain)
 		return FALSE
 	return TRUE
@@ -42,10 +43,10 @@
 		/obj/item/shard = 25,
 		/obj/item = 20,
 	)
-	time = 100
-	preop_sound = 'sound/surgery/scalpel1.ogg'
-	success_sound = 'sound/surgery/scalpel2.ogg'
-	failure_sound = 'sound/surgery/organ2.ogg'
+	time = 10 SECONDS
+	preop_sound = 'sound/items/handling/surgery/scalpel1.ogg'
+	success_sound = 'sound/items/handling/surgery/scalpel2.ogg'
+	failure_sound = 'sound/items/handling/surgery/organ2.ogg'
 	surgery_effects_mood = TRUE
 
 /datum/surgery_step/lobotomize/mechanic
@@ -102,7 +103,7 @@
 	return ..()
 
 /datum/surgery_step/lobotomize/failure(mob/user, mob/living/carbon/target, target_zone, obj/item/tool, datum/surgery/surgery)
-	var/obj/item/organ/internal/brain/target_brain = target.get_organ_slot(ORGAN_SLOT_BRAIN)
+	var/obj/item/organ/brain/target_brain = target.get_organ_slot(ORGAN_SLOT_BRAIN)
 	if(target_brain)
 		display_results(
 			user,

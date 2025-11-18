@@ -1,8 +1,11 @@
 //Module - borgs
-//Defines for dogborgs and stuff
+//Defines for quadborgs and stuff
 #define ROBOT_REST_NORMAL 1
 #define ROBOT_REST_SITTING 2
 #define ROBOT_REST_BELLY_UP 3
+#define ROBOT_REST_SLEEP 4
+#define ROBOT_REST_NORMAL_ALT 5
+#define ROBOT_REST_SITTING_ALT 6
 
 #define SKIN_FEATURES "skin_features" //for the new system of borg making
 

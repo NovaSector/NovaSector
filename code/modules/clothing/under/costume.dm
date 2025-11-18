@@ -8,7 +8,7 @@
 	icon_state = "roman"
 	inhand_icon_state = "armor"
 	can_adjust = FALSE
-	strip_delay = 100
+	strip_delay = 10 SECONDS
 	resistance_flags = NONE
 
 /obj/item/clothing/under/costume/jabroni
@@ -31,29 +31,34 @@
 	icon_state = "griffin"
 	can_adjust = FALSE
 
-/obj/item/clothing/under/costume/schoolgirl
-	name = "blue schoolgirl uniform"
+/obj/item/clothing/under/costume/seifuku
+	name = "schoolgirl uniform"
 	desc = "It's just like one of my Japanese animes!"
-	icon_state = "schoolgirl"
-	inhand_icon_state = null
+	greyscale_colors = "#942737#4A518D#EBEBEB"
+	icon = 'icons/map_icons/clothing/under/costume.dmi'
+	icon_state = "/obj/item/clothing/under/costume/seifuku"
+	post_init_icon_state = "seifuku"
+	greyscale_config_inhand_left = /datum/greyscale_config/seifuku_inhands_left
+	greyscale_config_inhand_right = /datum/greyscale_config/seifuku_inhands_right
+	inhand_icon_state = "seifuku"
+	greyscale_config = /datum/greyscale_config/seifuku
+	greyscale_config_worn = /datum/greyscale_config/seifuku/worn
+	flags_1 = IS_PLAYER_COLORABLE_1
 	body_parts_covered = CHEST|GROIN|ARMS
 	female_sprite_flags = FEMALE_UNIFORM_TOP_ONLY
-	can_adjust = FALSE
+	alternate_worn_layer = UNDER_SUIT_LAYER
 
-/obj/item/clothing/under/costume/schoolgirl/red
-	name = "red schoolgirl uniform"
-	icon_state = "schoolgirlred"
-	inhand_icon_state = null
+/obj/item/clothing/under/costume/seifuku/red
+	icon_state = "/obj/item/clothing/under/costume/seifuku/red"
+	greyscale_colors = "#3F4453#BB2E2E#EBEBEB"
 
-/obj/item/clothing/under/costume/schoolgirl/green
-	name = "green schoolgirl uniform"
-	icon_state = "schoolgirlgreen"
-	inhand_icon_state = null
+/obj/item/clothing/under/costume/seifuku/teal
+	icon_state = "/obj/item/clothing/under/costume/seifuku/teal"
+	greyscale_colors = "#942737#2BA396#EBEBEB"
 
-/obj/item/clothing/under/costume/schoolgirl/orange
-	name = "orange schoolgirl uniform"
-	icon_state = "schoolgirlorange"
-	inhand_icon_state = null
+/obj/item/clothing/under/costume/seifuku/tan
+	icon_state = "/obj/item/clothing/under/costume/seifuku/tan"
+	greyscale_colors = "#87502E#B9A56A#EBEBEB"
 
 /obj/item/clothing/under/costume/pirate
 	name = "pirate outfit"
@@ -110,17 +115,22 @@
 /obj/item/clothing/under/costume/maid
 	name = "maid costume"
 	desc = "Maid in China."
-	icon_state = "maid"
+	greyscale_colors = "#494955#EEEEEE"
+	icon = 'icons/map_icons/clothing/under/costume.dmi'
+	icon_state = "/obj/item/clothing/under/costume/maid"
+	post_init_icon_state = "maid"
+	greyscale_config = /datum/greyscale_config/maid
+	greyscale_config_worn = /datum/greyscale_config/maid/worn
+	greyscale_config_inhand_left = /datum/greyscale_config/maid_inhands_left
+	greyscale_config_inhand_right = /datum/greyscale_config/maid_inhands_right
 	inhand_icon_state = "maid"
+	flags_1 = IS_PLAYER_COLORABLE_1
 	body_parts_covered = CHEST|GROIN
 	female_sprite_flags = FEMALE_UNIFORM_TOP_ONLY
 	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION_NO_NEW_ICON
+	alternate_worn_layer = UNDER_SUIT_LAYER
 	can_adjust = FALSE
-
-/obj/item/clothing/under/costume/maid/Initialize(mapload)
-	. = ..()
-	var/obj/item/clothing/accessory/maidcorset/A = new (src)
-	attach_accessory(A)
+	clothing_flags = parent_type::clothing_flags | CARP_STYLE_FACTOR //weebs are gonna love this
 
 /obj/item/clothing/under/costume/geisha
 	name = "geisha suit"
@@ -128,6 +138,7 @@
 	icon_state = "geisha"
 	body_parts_covered = CHEST|GROIN|ARMS
 	can_adjust = FALSE
+	clothing_flags = parent_type::clothing_flags | CARP_STYLE_FACTOR
 
 /obj/item/clothing/under/costume/yukata
 	name = "black yukata"
@@ -136,6 +147,8 @@
 	body_parts_covered = CHEST|GROIN|ARMS
 	can_adjust = FALSE
 	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION_NO_NEW_ICON
+	clothing_flags = parent_type::clothing_flags | CARP_STYLE_FACTOR
+	female_sprite_flags = FEMALE_UNIFORM_TOP_ONLY
 
 /obj/item/clothing/under/costume/yukata/green
 	name = "green yukata"
@@ -155,6 +168,8 @@
 	body_parts_covered = CHEST|GROIN|ARMS
 	can_adjust = FALSE
 	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION_NO_NEW_ICON
+	clothing_flags = parent_type::clothing_flags | CARP_STYLE_FACTOR
+	female_sprite_flags = FEMALE_UNIFORM_TOP_ONLY
 
 /obj/item/clothing/under/costume/kimono/red
 	name = "red kimono"
@@ -176,7 +191,7 @@
 
 /obj/item/clothing/under/costume/sailor
 	name = "sailor suit"
-	desc = "Skipper's in the wardroom drinkin gin'."
+	desc = "Skipper's in the wardroom drinkin' gin."
 	icon_state = "sailor"
 	inhand_icon_state = "b_suit"
 	can_adjust = FALSE
@@ -288,7 +303,7 @@
 	worn_icon = 'icons/mob/clothing/under/security.dmi'
 	alt_covers_chest = TRUE
 	armor_type = /datum/armor/clothing_under/costume_russian_officer
-	strip_delay = 50
+	strip_delay = 5 SECONDS
 	sensor_mode = SENSOR_COORDS
 	random_sensor = FALSE
 	can_adjust = FALSE
@@ -307,34 +322,42 @@
 	species_exception = list(/datum/species/golem)
 	can_adjust = TRUE
 	alt_covers_chest = TRUE
+	clothing_flags = parent_type::clothing_flags | CARP_STYLE_FACTOR
 
 /obj/item/clothing/under/costume/buttondown/slacks
-	name = "buttondown shirt with slacks"
-	desc = "A fancy buttondown shirt with slacks."
-	icon_state = "buttondown_slacks"
+	name = "button-down shirt with slacks"
+	desc = "A fancy button-down shirt with slacks."
+	icon = 'icons/map_icons/clothing/under/costume.dmi'
+	icon_state = "/obj/item/clothing/under/costume/buttondown/slacks"
+	post_init_icon_state = "buttondown_slacks"
 	greyscale_config = /datum/greyscale_config/buttondown_slacks
 	greyscale_config_worn = /datum/greyscale_config/buttondown_slacks/worn
-	greyscale_config_worn_digi = /datum/greyscale_config/buttondown_slacks/worn/digi //NOVA EDIT ADDITION - DigiGreyscale
+	greyscale_config_worn_digi = /datum/greyscale_config/buttondown_slacks/worn/digi //NOVA EDIT ADDITION - Mutant Greyscale
 	greyscale_colors = "#EEEEEE#EE8E2E#222227#D8D39C"
 	flags_1 = IS_PLAYER_COLORABLE_1
 
 /obj/item/clothing/under/costume/buttondown/slacks/service //preset one to be a formal white shirt and black pants
+	icon_state = "/obj/item/clothing/under/costume/buttondown/slacks/service"
 	greyscale_colors = "#EEEEEE#CBDBFC#17171B#222227"
 
 /obj/item/clothing/under/costume/buttondown/shorts
-	name = "buttondown shirt with shorts"
-	desc = "A fancy buttondown shirt with shorts."
-	icon_state = "buttondown_shorts"
+	name = "button-down shirt with shorts"
+	desc = "A fancy button-down shirt with shorts."
+	icon = 'icons/map_icons/clothing/under/costume.dmi'
+	icon_state = "/obj/item/clothing/under/costume/buttondown/shorts"
+	post_init_icon_state = "buttondown_shorts"
 	greyscale_config = /datum/greyscale_config/buttondown_shorts
 	greyscale_config_worn = /datum/greyscale_config/buttondown_shorts/worn
-	greyscale_config_worn_digi = /datum/greyscale_config/buttondown_shorts/worn/digi //NOVA EDIT ADDITION - DigiGreyscale
+	greyscale_config_worn_digi = /datum/greyscale_config/buttondown_shorts/worn/digi //NOVA EDIT ADDITION - Mutant Greyscale
 	greyscale_colors = "#EEEEEE#EE8E2E#222227#D8D39C"
 	flags_1 = IS_PLAYER_COLORABLE_1
 
 /obj/item/clothing/under/costume/buttondown/skirt
-	name = "buttondown shirt with skirt"
-	desc = "A fancy buttondown shirt with skirt."
-	icon_state = "buttondown_skirt"
+	name = "button-down shirt with skirt"
+	desc = "A fancy button-down shirt with skirt."
+	icon = 'icons/map_icons/clothing/under/costume.dmi'
+	icon_state = "/obj/item/clothing/under/costume/buttondown/skirt"
+	post_init_icon_state = "buttondown_skirt"
 	greyscale_config = /datum/greyscale_config/buttondown_skirt
 	greyscale_config_worn = /datum/greyscale_config/buttondown_skirt/worn
 	greyscale_colors = "#EEEEEE#EE8E2E#222227#D8D39C"
@@ -344,6 +367,7 @@
 	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION_NO_NEW_ICON
 
 /obj/item/clothing/under/costume/buttondown/skirt/service //preset one to be a formal white shirt and black skirt
+	icon_state = "/obj/item/clothing/under/costume/buttondown/skirt/service"
 	greyscale_colors = "#EEEEEE#CBDBFC#17171B#222227"
 
 /obj/item/clothing/under/costume/jackbros
@@ -361,11 +385,13 @@
 
 /obj/item/clothing/under/costume/football_suit
 	name = "football uniform"
-	icon_state = "football_suit"
+	icon = 'icons/map_icons/clothing/under/costume.dmi'
+	icon_state = "/obj/item/clothing/under/costume/football_suit"
+	post_init_icon_state = "football_suit"
 	can_adjust = FALSE
 	greyscale_config = /datum/greyscale_config/football_suit
 	greyscale_config_worn = /datum/greyscale_config/football_suit/worn
-	greyscale_config_worn_digi = /datum/greyscale_config/football_suit/worn/digi //NOVA EDIT ADDITION - DigiGreyscale
+	greyscale_config_worn_digi = /datum/greyscale_config/football_suit/worn/digi //NOVA EDIT ADDITION - Mutant Greyscale
 	greyscale_colors = "#D74722"
 	flags_1 = IS_PLAYER_COLORABLE_1
 
@@ -375,6 +401,7 @@
 	icon_state = "SwagOutfit"
 	inhand_icon_state = null
 	can_adjust = FALSE
+	clothing_flags = parent_type::clothing_flags | CARP_STYLE_FACTOR
 
 /obj/item/clothing/under/costume/referee
 	name = "referee uniform"
@@ -420,9 +447,11 @@
 	can_adjust = FALSE
 
 /obj/item/clothing/under/costume/gi
-	name = "Martial Artist Gi"
+	name = "martial gi"
 	desc = "Assistant, nukie, whatever. You can beat anyone; it's called hard work!"
-	icon_state = "martial_arts_gi"
+	icon = 'icons/map_icons/clothing/under/costume.dmi'
+	icon_state = "/obj/item/clothing/under/costume/gi"
+	post_init_icon_state = "martial_arts_gi"
 	greyscale_config = /datum/greyscale_config/gi
 	greyscale_config_worn = /datum/greyscale_config/gi/worn
 	greyscale_colors = "#f1eeee#000000"
@@ -430,6 +459,7 @@
 	inhand_icon_state = null
 	female_sprite_flags = NO_FEMALE_UNIFORM
 	can_adjust = FALSE
+	clothing_flags = parent_type::clothing_flags | CARP_STYLE_FACTOR
 
 /obj/item/clothing/under/costume/gi/Initialize(mapload)
 	. = ..()
@@ -437,21 +467,22 @@
 	update_icon(UPDATE_OVERLAYS)
 
 /obj/item/clothing/under/costume/gi/goku
-	name = "Sacred Gi"
+	name = "sacred gi"
 	desc = "Created by a man who touched the hearts and lives of many."
-	icon_state = "martial_arts_gi_goku"
+	icon_state = "/obj/item/clothing/under/costume/gi/goku"
+	post_init_icon_state = "martial_arts_gi_goku"
 	greyscale_colors = "#f89925#3e6dd7"
 
 /obj/item/clothing/under/costume/traditional
-	name = "Traditional Suit"
-	desc = "A full, vibrantly coloured suit. Likely with traditional purposes. Maybe the colours represent a familly, clan, or rank, who knows."
+	name = "traditional suit"
+	desc = "A full, vibrantly coloured suit. Likely with traditional purposes. Maybe the colours represent a family, clan, or rank, who knows."
 	icon_state = "tradition"
 	inhand_icon_state = null
 	female_sprite_flags = NO_FEMALE_UNIFORM
 	can_adjust = FALSE
 
 /obj/item/clothing/under/costume/loincloth
-	name = "Leather Loincloth"
+	name = "leather loincloth"
 	desc = "Just a piece of leather to cover private areas. Itchy to the touch. Whoever made this must have been desperate, or savage."
 	icon_state = "loincloth"
 	inhand_icon_state = null
@@ -467,20 +498,21 @@
 	worn_icon = 'icons/mob/clothing/under/syndicate.dmi'
 	icon_state = "henchmen"
 	inhand_icon_state = null
+	can_adjust = FALSE
 	body_parts_covered = CHEST|GROIN|LEGS|FEET|ARMS|HANDS|HEAD
 	flags_inv = HIDEGLOVES|HIDESHOES|HIDEEARS|HIDEEYES|HIDEHAIR
 
 /obj/item/clothing/under/costume/gamberson
-	name = "re-enactor's Gamberson"
-	desc = "A colorful set of clothes made to look like a medieval gamberson."
+	name = "re-enactor's gambeson"
+	desc = "A colorful set of clothes made to look like a medieval gambeson."
 	icon_state = "gamberson"
 	inhand_icon_state = null
 	female_sprite_flags = NO_FEMALE_UNIFORM
 	can_adjust = FALSE
 
 /obj/item/clothing/under/costume/gamberson/military
-	name = "swordsman's Gamberson"
-	desc = "A padded medieval gamberson. Has enough woolen layers to dull a strike from any small weapon."
+	name = "swordsman's gambeson"
+	desc = "A padded medieval gambeson. Has enough woolen layers to dull a strike from any small weapon."
 	armor_type = /datum/armor/clothing_under/rank_security
 	has_sensor = NO_SENSORS
 

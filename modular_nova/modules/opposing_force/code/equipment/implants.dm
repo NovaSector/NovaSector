@@ -134,3 +134,19 @@
 /datum/opposing_force_equipment/implants_illegal/flash
 	name = "Flash Arm Implant"
 	item_type = /obj/item/autosurgeon/syndicate/flash
+
+/datum/opposing_force_equipment/implants_illegal/blood_steal_nif
+	name = "Blood Steal NIFsoft"
+	item_type = /obj/item/disk/nifsoft_uploader/mil_grade/blood_steal
+
+/datum/opposing_force_equipment/implants_illegal/thermal_nif
+	name = "Thermal Lens NIFsoft"
+	item_type = /obj/item/disk/nifsoft_uploader/mil_grade/thermal
+
+/datum/opposing_force_equipment/implants_illegal/tools_nif
+	name = "Grimoire Opera NIFsoft"
+	item_type = /obj/item/disk/nifsoft_uploader/summoner/tools
+
+/datum/opposing_force_equipment/implants_illegal/surgery_nif
+	name = "Grimoire Asclepius NIFsoft"
+	item_type = /obj/item/disk/nifsoft_uploader/job/summoner/surgery

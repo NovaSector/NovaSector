@@ -48,9 +48,6 @@
 	// Determines if the player has undergone TGUI preferences migration, if so, this will prevent constant loading.
 	var/tgui_prefs_migration = TRUE
 
-	/// A photo of the character, visible on close examine
-	var/headshot = ""
-
 	/// An assoc list of food types to liked or dislike values. If null or empty, default species tastes are used instead on application.
 	/// If a food doesn't exist in this list, it uses the default value.
 	var/list/food_preferences = list()
@@ -71,14 +68,14 @@
 	else if (SA.color_src == USE_ONE_COLOR)
 		shown_colors = 1
 	if((allow_advanced_colors || SA.always_color_customizable) && shown_colors)
-		dat += "<a href='?src=[REF(src)];key=[key];preference=reset_color;task=change_bodypart'>R</a>"
-	dat += "<a href='?src=[REF(src)];key=[key];preference=change_name;task=change_bodypart'>[acc_name]</a>"
+		dat += "<a href='byond://?src=[REF(src)];key=[key];preference=reset_color;task=change_bodypart'>R</a>"
+	dat += "<a href='byond://?src=[REF(src)];key=[key];preference=change_name;task=change_bodypart'>[acc_name]</a>"
 	if(allow_advanced_colors || SA.always_color_customizable)
 		if(shown_colors)
 			dat += "<BR>"
 			var/list/colorlist = mutant_bodyparts[key][MUTANT_INDEX_COLOR_LIST]
 			for(var/i in 1 to shown_colors)
-				dat += " <a href='?src=[REF(src)];key=[key];color_index=[i];preference=change_color;task=change_bodypart'><span class='color_holder_box' style='background-color:["#[colorlist[i]]"]'></span></a>"
+				dat += " <a href='byond://?src=[REF(src)];key=[key];color_index=[i];preference=change_color;task=change_bodypart'><span class='color_holder_box' style='background-color:["#[colorlist[i]]"]'></span></a>"
 	return dat
 
 /datum/preferences/proc/reset_colors()
@@ -94,21 +91,10 @@
 			var/datum/body_marking/BM = GLOB.body_markings[key]
 			bml[key] = BM.get_default_color(features, pref_species)
 
-/// This helper proc gets the current species language holder and does any post-processing that's required in one easy to track place.
-/// This proc should *always* be edited or used when modifying or getting the default languages of a player controlled, unrestricted species, to prevent any errant conflicts.
-/datum/preferences/proc/get_adjusted_language_holder()
-	var/datum/species/species = read_preference(/datum/preference/choiced/species)
-	species = new species()
-	var/datum/language_holder/language_holder = new species.species_language_holder()
-
-	// Do language post procesing here. Used to house our foreigner functionality.
-	// I saw little reason to remove this proc, considering it makes code using this a little easier to read.
-
-	return language_holder
-
 /// Tries to get the topmost language of the language holder. Should be the species' native language, and if it isn't, you should pester a coder.
 /datum/preferences/proc/try_get_common_language()
-	var/datum/language_holder/language_holder = get_adjusted_language_holder()
+	var/datum/species/species_type = read_preference(/datum/preference/choiced/species)
+	var/datum/language_holder/language_holder = GLOB.prototype_language_holders[species_type::species_language_holder]
 	var/language = language_holder.spoken_languages[1]
 	return language
 

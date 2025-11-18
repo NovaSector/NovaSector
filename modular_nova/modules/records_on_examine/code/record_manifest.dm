@@ -22,7 +22,7 @@
 		var/name = crew_record.name
 		var/rank = crew_record.rank
 //		var/truerank = crew_record.truerank
-		var/datum/job/job = SSjob.GetJob(rank)
+		var/datum/job/job = SSjob.get_job(rank)
 
 		if(!job || !(job.job_flags & JOB_CREW_MANIFEST) || !LAZYLEN(job.departments_list) && (!exploitables_empty)) // In case an unlawful custom rank is added.
 			var/list/exp_misc_list = exp_manifest_out[DEPARTMENT_UNASSIGNED]
@@ -34,7 +34,7 @@
 			)
 			continue
 
-		for(var/department_type as anything in job.departments_list)
+		for(var/department_type in job.departments_list)
 			var/datum/job_department/department = departments_by_type[department_type]
 
 			if(!department)

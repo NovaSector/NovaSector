@@ -30,6 +30,10 @@
 	inhand_icon_state = "sec-case"
 	icon_state = "briefcase_secure_black"
 
+/obj/item/storage/briefcase/secure/digital_storage
+	desc = "It's made of AUTHENTIC digital metal and has a price-tag still attached. Its owner must be a real professional."
+	icon_state = "briefcase_secure_black"
+
 /obj/item/storage/briefcase/secure/attack_self(mob/user)
 	. = ..()
 	update_appearance()

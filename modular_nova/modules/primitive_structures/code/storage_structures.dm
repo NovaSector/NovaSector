@@ -21,7 +21,7 @@
 	if(!LAZYACCESS(modifiers, ICON_X) || !LAZYACCESS(modifiers, ICON_Y))
 		return
 
-	dropping.pixel_x = clamp(text2num(LAZYACCESS(modifiers, ICON_X)) - 16, -(world.icon_size / 3), world.icon_size / 3)
+	dropping.pixel_x = clamp(text2num(LAZYACCESS(modifiers, ICON_X)) - 16, -(ICON_SIZE_X / 3), ICON_SIZE_X / 3)
 	dropping.pixel_y = text2num(LAZYACCESS(modifiers, ICON_Y)) > 16 ? 10 : -4
 
 /obj/structure/rack/wooden/wrench_act_secondary(mob/living/user, obj/item/tool)
@@ -155,6 +155,11 @@
 		/obj/item/grown,
 		/obj/item/bouquet,
 		/obj/item/clothing/head/costume/garland,
+		/obj/item/stack/sheet/cloth,
+		/obj/item/stack/sheet/durathread,
+		/obj/item/stack/sheet/leather,
+		/obj/item/stack/sheet/mineral/wood,
+		/obj/item/stack/sheet/mineral/bamboo
 	)
 	var/fancy_food = istype(item_to_check, /obj/item/food/grown) && item_to_check.slot_flags != NONE // mostly things like flowers
 	return fancy_food || is_type_in_list(item_to_check, accepted_items)

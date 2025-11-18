@@ -14,6 +14,10 @@
 /datum/armament_entry/company_import/sol_defense/clothing/emt
 	item_type = /obj/item/clothing/under/sol_emt
 
+/datum/armament_entry/company_import/sol_defense/clothing/hecu_mask
+	item_type = /obj/item/clothing/mask/gas/hecu
+	cost = PAYCHECK_COMMAND
+
 // Armor vests for protecting against bullets
 
 /datum/armament_entry/company_import/sol_defense/armor
@@ -33,11 +37,21 @@
 	item_type = /obj/item/clothing/suit/armor/sf_peacekeeper
 
 /datum/armament_entry/company_import/sol_defense/armor/flak_jacket
-	item_type = /obj/item/clothing/suit/armor/vest/det_suit/sol
+	item_type = /obj/item/clothing/suit/armor/vest/sol
 
 /datum/armament_entry/company_import/sol_defense/armor/slim_vest
 	name = "type I vest"
 	item_type = /obj/item/clothing/suit/armor/vest
+
+/datum/armament_entry/company_import/sol_defense/armor/combat_boots
+	name = "Combat Boots"
+	cost = PAYCHECK_CREW * 4
+	item_type = /obj/item/clothing/shoes/combat
+
+/datum/armament_entry/company_import/sol_defense/armor/tele_shield
+	name = "Telescopic Shield"
+	cost = PAYCHECK_CREW * 4
+	item_type = /obj/item/shield/riot/tele
 
 /datum/armament_entry/company_import/sol_defense/armor_hardened
 	subcategory = "Hardened Armor"
@@ -73,23 +87,81 @@
 	subcategory = "Weapon Cases"
 
 /datum/armament_entry/company_import/sol_defense/case/trappiste
-	item_type = /obj/item/storage/toolbox/guncase/nova/pistol/trappiste_small_case/empty
+	item_type = /obj/item/storage/toolbox/guncase/nova/pistol/trappiste_small_case
 	cost = PAYCHECK_COMMAND
 
 /datum/armament_entry/company_import/sol_defense/case/carwo
-	item_type = /obj/item/storage/toolbox/guncase/nova/carwo_large_case/empty
+	item_type = /obj/item/storage/toolbox/guncase/nova/carwo_large_case
+	cost = PAYCHECK_COMMAND * 2
+
+/datum/armament_entry/company_import/sol_defense/case/nanotrasen_pistol
+	item_type = /obj/item/storage/toolbox/guncase/nova/ntcase/pistol
+	cost = PAYCHECK_COMMAND
+
+/datum/armament_entry/company_import/sol_defense/case/nanotrasen
+	item_type = /obj/item/storage/toolbox/guncase/nova/ntcase
+	cost = PAYCHECK_COMMAND * 2
+
+/datum/armament_entry/company_import/sol_defense/case/solfed_pistol
+	item_type = /obj/item/storage/toolbox/guncase/nova/solfed/pistol
+	cost = PAYCHECK_COMMAND
+
+/datum/armament_entry/company_import/sol_defense/case/solfed
+	item_type = /obj/item/storage/toolbox/guncase/nova/solfed
+	cost = PAYCHECK_COMMAND * 2
+
+/datum/armament_entry/company_import/sol_defense/case/redcase_pistol
+	item_type = /obj/item/storage/toolbox/guncase/nova/red/pistol
+	cost = PAYCHECK_COMMAND
+
+/datum/armament_entry/company_import/sol_defense/case/redcase
+	item_type = /obj/item/storage/toolbox/guncase/nova/red
+	cost = PAYCHECK_COMMAND * 2
+
+/datum/armament_entry/company_import/sol_defense/case/bluecase_pistol
+	item_type = /obj/item/storage/toolbox/guncase/nova/blue/pistol
+	cost = PAYCHECK_COMMAND
+
+/datum/armament_entry/company_import/sol_defense/case/bluecase
+	item_type = /obj/item/storage/toolbox/guncase/nova/blue
+	cost = PAYCHECK_COMMAND * 2
+
+/datum/armament_entry/company_import/sol_defense/case/purplecase_pistol
+	item_type = /obj/item/storage/toolbox/guncase/nova/purple/pistol
+	cost = PAYCHECK_COMMAND
+
+/datum/armament_entry/company_import/sol_defense/case/purplecase
+	item_type = /obj/item/storage/toolbox/guncase/nova/purple
+	cost = PAYCHECK_COMMAND * 2
+
+/datum/armament_entry/company_import/sol_defense/case/orangecase_pistol
+	item_type = /obj/item/storage/toolbox/guncase/nova/orange/pistol
+	cost = PAYCHECK_COMMAND
+
+/datum/armament_entry/company_import/sol_defense/case/orangecase
+	item_type = /obj/item/storage/toolbox/guncase/nova/orange
+	cost = PAYCHECK_COMMAND * 2
+
+/datum/armament_entry/company_import/sol_defense/case/greencase_pistol
+	item_type = /obj/item/storage/toolbox/guncase/nova/green/pistol
+	cost = PAYCHECK_COMMAND
+
+/datum/armament_entry/company_import/sol_defense/case/greencase
+	item_type = /obj/item/storage/toolbox/guncase/nova/green
 	cost = PAYCHECK_COMMAND * 2
 
 /datum/armament_entry/company_import/sol_defense/sidearm
 	subcategory = "Sidearms"
+	cost = PAYCHECK_COMMAND * 4
 
 /datum/armament_entry/company_import/sol_defense/sidearm/eland
 	item_type = /obj/item/gun/ballistic/revolver/sol
-	cost = PAYCHECK_COMMAND * 4
 
 /datum/armament_entry/company_import/sol_defense/sidearm/wespe
 	item_type = /obj/item/gun/ballistic/automatic/pistol/sol
-	cost = PAYCHECK_COMMAND * 4
+
+/datum/armament_entry/company_import/sol_defense/sidearm/type207
+	item_type = /obj/item/gun/ballistic/automatic/pistol/type207
 
 /datum/armament_entry/company_import/sol_defense/sidearm/skild
 	item_type = /obj/item/gun/ballistic/automatic/pistol/trappiste
@@ -103,39 +175,47 @@
 
 /datum/armament_entry/company_import/sol_defense/longarm
 	subcategory = "Longarms"
+	cost = PAYCHECK_COMMAND * 6
 	restricted = TRUE
 
 /datum/armament_entry/company_import/sol_defense/longarm/renoster
 	item_type = /obj/item/gun/ballistic/shotgun/riot/sol
-	cost = PAYCHECK_COMMAND * 6
 
 /datum/armament_entry/company_import/sol_defense/longarm/sindano
 	item_type = /obj/item/gun/ballistic/automatic/sol_smg
-	cost = PAYCHECK_COMMAND * 6
+
+/datum/armament_entry/company_import/sol_defense/longarm/type213
+	item_type = /obj/item/gun/ballistic/automatic/type213
+
+/datum/armament_entry/company_import/sol_defense/longarm/br38
+	item_type = /obj/item/gun/ballistic/automatic/battle_rifle
+	cost = PAYCHECK_COMMAND * 8
 
 /datum/armament_entry/company_import/sol_defense/longarm/elite
-	item_type = /obj/item/gun/ballistic/automatic/sol_rifle/marksman
+	item_type = /obj/item/gun/ballistic/automatic/sol_classic/marksman
 	cost = PAYCHECK_COMMAND * 12
 
 /datum/armament_entry/company_import/sol_defense/longarm/bogseo
 	item_type = /obj/item/gun/ballistic/automatic/xhihao_smg
 	cost = PAYCHECK_COMMAND * 10
-	contraband = TRUE
+
+/datum/armament_entry/company_import/sol_defense/longarm/jager
+	item_type = /obj/item/gun/ballistic/shotgun/katyusha/jager
+	cost = PAYCHECK_COMMAND * 16
 
 /datum/armament_entry/company_import/sol_defense/longarm/infanterie
-	item_type = /obj/item/gun/ballistic/automatic/sol_rifle
+	item_type = /obj/item/gun/ballistic/automatic/sol_classic
 	cost = PAYCHECK_COMMAND * 14
-	contraband = TRUE
 
-/datum/armament_entry/company_import/sol_defense/longarm/outomaties
+/* //
+datum/armament_entry/company_import/sol_defense/longarm/outomaties
 	item_type = /obj/item/gun/ballistic/automatic/sol_rifle/machinegun
 	cost = PAYCHECK_COMMAND * 23
-	contraband = TRUE
+*/ //Commented out due to a severe lack of balance regarding it.
 
 /datum/armament_entry/company_import/sol_defense/longarm/kiboko
 	item_type = /obj/item/gun/ballistic/automatic/sol_grenade_launcher
 	cost = PAYCHECK_COMMAND * 46
-	contraband = TRUE
 
 /datum/armament_entry/company_import/sol_defense/magazines
 	subcategory = "Magazines"
@@ -153,6 +233,15 @@
 /datum/armament_entry/company_import/sol_defense/magazines/sol_rifle_short
 	item_type = /obj/item/ammo_box/magazine/c40sol_rifle/starts_empty
 
+/datum/armament_entry/company_import/sol_defense/magazines/br38
+	item_type = /obj/item/ammo_box/magazine/m38/empty
+
+/datum/armament_entry/company_import/sol_defense/magazines/kineticballs
+	item_type = /obj/item/ammo_box/magazine/kineticballs/starts_empty
+
+/datum/armament_entry/company_import/sol_defense/magazines/kineticballsbig
+	item_type = /obj/item/ammo_box/magazine/kineticballsbig/starts_empty
+
 /datum/armament_entry/company_import/sol_defense/magazines/sol_rifle_standard
 	item_type = /obj/item/ammo_box/magazine/c40sol_rifle/standard/starts_empty
 	cost = PAYCHECK_COMMAND
@@ -164,4 +253,14 @@
 /datum/armament_entry/company_import/sol_defense/magazines/sol_grenade_drum
 	item_type = /obj/item/ammo_box/magazine/c980_grenade/drum/starts_empty
 	cost = PAYCHECK_CREW * 3
-	contraband = TRUE
+	restricted = TRUE
+
+/datum/armament_entry/company_import/sol_defense/magazines/jager_shotgun_regular
+	item_type = /obj/item/ammo_box/magazine/jager/empty
+	cost = PAYCHECK_CREW
+	restricted = TRUE
+
+/datum/armament_entry/company_import/sol_defense/magazines/jager_shotgun_Large
+	item_type = /obj/item/ammo_box/magazine/jager/large/empty
+	cost = PAYCHECK_CREW * 3
+	restricted = TRUE

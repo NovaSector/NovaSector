@@ -38,21 +38,23 @@
 	desc = "A classy silver screwdriver with an alien alloy tip, it works almost as well as the real thing. There's a sticker attached declaring that it needs updating from 'the latest samples'."
 	icon = 'modular_nova/modules/mapping/icons/obj/items/advancedtools.dmi'
 	icon_state = "screwdriver_a"
+	post_init_icon_state = null
 	inhand_icon_state = "screwdriver_nuke"
-	usesound = 'sound/items/pshoom.ogg'
+	usesound = 'sound/items/pshoom/pshoom.ogg'
 	toolspeed = 0.2
 	random_color = FALSE
 	greyscale_colors = null
 	greyscale_config = null
 	greyscale_config_inhand_left = null
 	greyscale_config_inhand_right = null
+	post_init_icon_state = null
 
 //CROWBAR//
 /obj/item/crowbar/advanced
 	name = "advanced crowbar"
 	desc = "A scientist's almost successful reproduction of an abductor's crowbar, it uses the same technology combined with a handle that can't quite hold it."
 	icon = 'modular_nova/modules/mapping/icons/obj/items/advancedtools.dmi'
-	usesound = 'sound/weapons/sonic_jackhammer.ogg'
+	usesound = 'sound/items/weapons/sonic_jackhammer.ogg'
 	icon_state = "crowbar"
 	toolspeed = 0.2
 

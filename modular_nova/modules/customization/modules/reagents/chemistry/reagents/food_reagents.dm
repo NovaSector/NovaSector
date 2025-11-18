@@ -32,3 +32,10 @@
 	taste_mult = 3
 	taste_description = "potent seasoning"
 	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
+
+/datum/reagent/consumable/starfruit_juice
+	name = "Starfruit Juice"
+	description = "The raw essence of a starfruit."
+	color = "#6d3890"
+	taste_description = "lush cosmic sugar"
+	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED

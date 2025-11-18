@@ -5,7 +5,7 @@
 	/// The currently selected VOX Announcer voice.
 	var/vox_type = VOX_BMS
 	/// The list of available VOX Announcer voices to choose from.
-	var/list/vox_voices = list(VOX_HL, VOX_NORMAL, VOX_BMS)
+	var/list/vox_voices = list(VOX_HL, VOX_NORMAL, VOX_BMS, VOX_MIL) // NOVA EDIT CHANGE - ORIGINAL: var/list/vox_voices = list(VOX_HL, VOX_NORMAL, VOX_BMS)
 	/// The VOX word(s) that were previously inputed.
 	var/vox_word_string
 
@@ -27,7 +27,7 @@
 	set desc = "Switch your VOX announcement voice!"
 	set category = "AI Commands"
 
-	if(incapacitated())
+	if(incapacitated)
 		return
 	var/selection = tgui_input_list(src, "Please select a new VOX voice:", "VOX VOICE", vox_voices)
 	if(selection == null)
@@ -42,7 +42,7 @@
 	set desc = "Display the list of recently pressed vox lines."
 	set category = "AI Commands"
 
-	if(incapacitated())
+	if(incapacitated)
 		return
 
 	to_chat(src, vox_word_string)

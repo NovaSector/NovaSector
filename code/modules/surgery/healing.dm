@@ -41,9 +41,9 @@
 		TOOL_WIRECUTTER = 60,
 		/obj/item/pen = 55)
 	repeatable = TRUE
-	time = 25
-	success_sound = 'sound/surgery/retractor2.ogg'
-	failure_sound = 'sound/surgery/organ2.ogg'
+	time = 2.5 SECONDS
+	success_sound = 'sound/items/handling/surgery/retractor2.ogg'
+	failure_sound = 'sound/items/handling/surgery/organ2.ogg'
 	var/brutehealing = 0
 	var/burnhealing = 0
 	var/brute_multiplier = 0 //multiplies the damage that the patient has. if 0 the patient wont get any additional healing from the damage he has.
@@ -330,7 +330,7 @@
 	burnhealing = 3
 	brute_multiplier = 0.07
 	burn_multiplier = 0.07
-	time = 10
+	time = 1 SECONDS
 
 /datum/surgery_step/heal/combo/upgraded
 	brutehealing = 3

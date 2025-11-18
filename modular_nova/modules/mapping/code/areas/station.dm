@@ -37,6 +37,11 @@
 	icon = 'modular_nova/modules/mapping/icons/areas/areas_station.dmi'
 	icon_state = "blueshield"
 
+//Bridge Officer area
+/area/station/command/heads_quarters/bridge_officer
+	name = "Bridge Officer Quarters"
+	icon = 'modular_nova/modules/mapping/icons/areas/areas_station.dmi'
+	icon_state = "nt_rep"
 /*
  * Department areas
  */
@@ -653,10 +658,6 @@
 	name = "Primary Service Stairwell"
 	icon_state = "primaryhall"
 
-/area/station/commons/cafealps
-	name = "Cafe Alps"
-	icon_state = "cafeteria"
-
 /area/station/commons/arrivalsshop
 	name = "Gift Shop"
 	icon_state = "vacant_commissary"
@@ -684,6 +685,10 @@
 /area/station/service/quietroom
 	name = "Quiet Room"
 	icon_state = "theatre"
+
+/area/station/common/shipyardlobby
+	name = "Shipyard Lobby"
+	icon_state = "mining"
 
 /area/station/cargo/miningstairs
 	name = "Mining Stairwell"

@@ -45,6 +45,8 @@
 	icon_state = "amr_bullet"
 	caliber = CALIBER_60STRELA
 	projectile_type = /obj/projectile/bullet/p60strela
+	custom_materials = AMMO_MATS_HEAVY
+	ammo_stack_type = /obj/item/ammo_box/magazine/ammo_stack/c60_strela
 
 /obj/item/ammo_casing/p60strela/Initialize(mapload)
 	. = ..()
@@ -53,11 +55,11 @@
 /obj/projectile/bullet/p60strela // The funny thing is, these are wild but you only get three of them a magazine
 	name =".60 Strela bullet"
 	icon_state = "gaussphase"
-	speed = 0.4
+	speed = 2.5
 	damage = 50
 	armour_penetration = 50
-	wound_bonus = 20
-	bare_wound_bonus = 30
+	wound_bonus = 15 // Toned back down, as it's getting alot more damage.
+	exposed_wound_bonus = 15
 	demolition_mod = 1.8
 	/// How much damage we add to things that are weak to this bullet
 	var/anti_materiel_damage_addition = 30

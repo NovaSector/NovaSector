@@ -26,7 +26,7 @@ no power level overlay is currently in the overlays list.
 /obj/machinery/field/generator
 	name = "field generator"
 	desc = "A large thermal battery that projects a high amount of energy when powered."
-	icon = 'icons/obj/machines/field_generator.dmi' //ICON OVERRIDDEN IN NOVA AESTHETICS - SEE MODULE
+	icon = 'icons/obj/machines/field_generator.dmi' //NOVA EDIT - ICON OVERRIDDEN IN AESTHETICS MODULE
 	icon_state = "Field_Gen"
 	anchored = FALSE
 	density = TRUE
@@ -252,7 +252,7 @@ no power level overlay is currently in the overlays list.
 		check_power_level()
 		return TRUE
 	else
-		visible_message(span_danger("The [name] shuts down!"), span_hear("You hear something shutting down."))
+		visible_message(span_danger("\The [src] shuts down!"), span_hear("You hear something shutting down."))
 		turn_off()
 		investigate_log("ran out of power and DEACTIVATED.", INVESTIGATE_ENGINE)
 		power = 0
@@ -376,7 +376,7 @@ no power level overlay is currently in the overlays list.
 	if(connected_gens.len < 2)
 		return
 	var/connected_gen_counter
-	for(connected_gen_counter = 1; connected_gen_counter < connected_gens.len, connected_gen_counter++)
+	for(connected_gen_counter = 1; connected_gen_counter < connected_gens.len; connected_gen_counter++)
 
 		var/list/connected_gen_list = ((connected_gens[connected_gen_counter].connected_gens & connected_gens[connected_gen_counter+1].connected_gens)^src)
 		if(!connected_gen_list.len)

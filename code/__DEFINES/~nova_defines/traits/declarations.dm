@@ -15,6 +15,7 @@
 #define TRAIT_EXCITABLE "wagwag" //Will wag when patted!
 #define TRAIT_OXYIMMUNE	"oxyimmune" // Immune to oxygen damage, ideally give this to all non-breathing species or bad stuff will happen
 #define TRAIT_AFFECTION_AVERSION "affection_aversion" // No more dogborg licking. "Dogborg bad" is no longer a personality
+#define TRAIT_SENSITIVE_HEARING "sensitive_hearing" // Teshari hearing, but as a quirk
 #define TRAIT_PERSONALSPACE "personalspace" // Block/counter-attack ass-slaps
 #define TRAIT_QUICKREFLEXES "quickreflexes" // Counters hugs and headpats
 #define TRAIT_MOOD_NOEXAMINE "mood_noexamine" // Can't assess your own mood
@@ -32,6 +33,10 @@
 #define TRAIT_HYDRA_HEADS "hydrahead"
 /// Trait to spawn with a pet in a pet carrier (veteran only)
 #define TRAIT_PET_OWNER "pet_owner"
+/// Trait to spawn with a lunch box!
+#define TRAIT_LUNCHBOX_OWNER "lunchbox_owner"
+/// Trait used to block telepathy types (Genetics, Xenomorph, Revenant, Slime. Ideally should be all.)
+#define TRAIT_PSIONIC_DAMPENER "psionic_dampener"
 
 //AdditionalEmotes *turf traits
 #define TRAIT_WATER_ASPECT "water_aspect"
@@ -46,6 +51,9 @@
 /// One can breath under water, you get me?
 #define TRAIT_WATER_BREATHING "water_breathing"
 
+/// Trait to assign to pets who've already had a space treat to prevent double-feeding
+#define TRAIT_PET_SPACE_TREAT "space_pet_treat"
+
 /// The trait which Akulas inherit, for their species mechanic revolving around wet_stacks
 #define TRAIT_SLICK_SKIN "slick_skin"
 /// The trait which is applied when a `slick skin` trait haver actually gets wet_stacks
@@ -54,6 +62,9 @@
 /// When someone is fixing electrical damage, this trait is set and prevents the wound from worsening.
 // We use a trait to avoid erronous setting of a variable to false if two people are repairing and one stops.
 #define TRAIT_ELECTRICAL_DAMAGE_REPAIRING "electrical_damage_repairing"
+
+// unusual biochemistry quirk
+#define TRAIT_UNUSUAL_BIOCHEMISTRY "unusual_biochemistry"
 
 // felinid traits
 #define TRAIT_FELINE "feline_aspect"
@@ -73,6 +84,12 @@
 /// The trait that determines if someone has the oversized quirk.
 #define TRAIT_OVERSIZED "trait_oversized"
 
+/// The trait that allows taurs to lay down (loaf)
+#define TRAIT_TAUR_LOAF "taur-laydown"
+
+/// The trait accompanying the "Heavyset" quirk.
+#define TRAIT_HEAVYSET "trait_heavyset"
+
 /// The trait that determines if someone has the system shock quirk.
 #define TRAIT_SYSTEM_SHOCK "trait_system_shock"
 
@@ -81,13 +98,6 @@
 
 /// Cargo Loader trait
 #define TRAIT_TRASHMAN "trait_trashman"
-
-/// Trait source for xeno innate abilities
-#define TRAIT_XENO_INNATE "xeno_innate"
-/// Trait source for something added BY a xeno ability
-#define TRAIT_XENO_ABILITY_GIVEN "xeno_ability_given"
-/// Determines if something can receive healing from a xeno
-#define TRAIT_XENO_HEAL_AURA "trait_xeno_heal_aura"
 
 /// Trait that was granted by a reagent.
 #define TRAIT_REAGENT "reagent"
@@ -139,6 +149,9 @@
 #define TRAIT_R_SMALL "small_chassis"
 /// Any model that has a custom front panel
 #define TRAIT_R_UNIQUEPANEL "unique_openpanel"
+/// Any model that has extra rest options
+#define TRAIT_RESTING_ALTS "extra_resting_alts"
+
 
 // Lewd traits
 #define TRAIT_MASOCHISM "masochism"
@@ -156,12 +169,19 @@
 
 #define TRAIT_STRAPON "strapon"
 
-#define TRAIT_CONDOM_BROKEN "broken"
-
 /// If clothing can also be damaged by piercing wound checks, instead of JUST slashes and burns
 #define TRAIT_CLOTHES_DAMAGED_BY_PIERCING "clothing_damaged_by_piercing"
 
 /// If a slimeperson is currently protecting themselves from water
 #define TRAIT_SLIME_HYDROPHOBIA "slime_hydrophobia"
+
+//For the hemophage quirk that allows hemophages to eat/drink normal food/drink.
+#define TRAIT_MASQUERADE_FOOD "masquerade_food"
+
+/// Trait given while using /datum/action/cooldown/mob_cooldown/abdoment_pound
+#define TRAIT_ABDOMEN_POUND "abdoment_pound"
+
+///Insanity trait for Reality Dissociation Syndrome (to make it easier to work with)
+#define TRAIT_INSANITY "insanity"
 
 // END TRAIT DEFINES

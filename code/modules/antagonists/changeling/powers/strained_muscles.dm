@@ -21,7 +21,7 @@
 	else
 		user.remove_movespeed_modifier(/datum/movespeed_modifier/strained_muscles)
 		to_chat(user, span_notice("Our muscles relax."))
-		if(stacks >= 10)
+		if(stacks >= 5) // NOVA EDIT CHANGE - 5, instead of 10, means it only lasts half as long (instead of like, 50 seconds straight) - ORIGINAL: if(stacks >= 10)
 			to_chat(user, span_danger("We collapse in exhaustion."))
 			user.Paralyze(60)
 			user.emote("gasp")

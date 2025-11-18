@@ -15,7 +15,7 @@
 	required_atoms = list(/mob/living/carbon/human = 1)
 	cost = 0
 	priority = MAX_KNOWLEDGE_PRIORITY // Should be at the top
-	route = PATH_START
+	is_starting_knowledge = TRUE
 	research_tree_icon_path = 'icons/effects/eldritch.dmi'
 	research_tree_icon_state = "eye_close"
 	research_tree_icon_frame = 1
@@ -31,13 +31,13 @@
 	var/list/return_timers
 	/// Evil organs we can put in people
 	var/static/list/grantable_organs = list(
-		/obj/item/organ/internal/appendix/corrupt,
-		/obj/item/organ/internal/eyes/corrupt,
-		/obj/item/organ/internal/heart/corrupt,
-		/obj/item/organ/internal/liver/corrupt,
-		/obj/item/organ/internal/lungs/corrupt,
-		/obj/item/organ/internal/stomach/corrupt,
-		/obj/item/organ/internal/tongue/corrupt,
+		/obj/item/organ/appendix/corrupt,
+		/obj/item/organ/eyes/corrupt,
+		/obj/item/organ/heart/corrupt,
+		/obj/item/organ/liver/corrupt,
+		/obj/item/organ/lungs/corrupt,
+		/obj/item/organ/stomach/corrupt,
+		/obj/item/organ/tongue/corrupt,
 	)
 
 /datum/heretic_knowledge/hunt_and_sacrifice/Destroy(force)
@@ -66,7 +66,7 @@
 		CRASH("Failed to lazy load heretic sacrifice template!")
 
 /datum/heretic_knowledge/hunt_and_sacrifice/recipe_snowflake_check(mob/living/user, list/atoms, list/selected_atoms, turf/loc)
-	var/datum/antagonist/heretic/heretic_datum = IS_HERETIC(user)
+	var/datum/antagonist/heretic/heretic_datum = GET_HERETIC(user)
 	// First we have to check if the heretic has a Living Heart.
 	// You may wonder why we don't straight up prevent them from invoking the ritual if they don't have one -
 	// Hunt and sacrifice should always be invokable for clarity's sake, even if it'll fail immediately.
@@ -75,7 +75,7 @@
 		return FALSE
 
 	// We've got no targets set, let's try to set some.
-	// If we recently failed to aquire targets, we will be unable to aquire any.
+	// If we recently failed to acquire targets, we will be unable to acquire any.
 	if(!LAZYLEN(heretic_datum.sac_targets))
 		atoms += user
 		return TRUE
@@ -99,7 +99,7 @@
 	return FALSE
 
 /datum/heretic_knowledge/hunt_and_sacrifice/on_finished_recipe(mob/living/user, list/selected_atoms, turf/loc)
-	var/datum/antagonist/heretic/heretic_datum = IS_HERETIC(user)
+	var/datum/antagonist/heretic/heretic_datum = GET_HERETIC(user)
 	// Force it to work if the sacrifice is a cultist, even if there's no targets.
 	var/mob/living/carbon/human/sac = selected_atoms[1]
 	if(!LAZYLEN(heretic_datum.sac_targets) && !IS_CULTIST(sac))
@@ -196,11 +196,11 @@
  * Arguments
  * * user - the mob doing the sacrifice (a heretic)
  * * selected_atoms - a list of all atoms chosen. Should be (at least) one human.
- * * loc - the turf the sacrifice is occuring on
+ * * loc - the turf the sacrifice is occurring on
  */
 /datum/heretic_knowledge/hunt_and_sacrifice/proc/sacrifice_process(mob/living/user, list/selected_atoms, turf/loc)
 
-	var/datum/antagonist/heretic/heretic_datum = IS_HERETIC(user)
+	var/datum/antagonist/heretic/heretic_datum = GET_HERETIC(user)
 	var/mob/living/carbon/human/sacrifice = locate() in selected_atoms
 	if(!sacrifice)
 		CRASH("[type] sacrifice_process didn't have a human in the atoms list. How'd it make it so far?")
@@ -214,15 +214,15 @@
 
 	var/feedback = "Your patrons accept your offer"
 	var/sac_job_flag = sacrifice.mind?.assigned_role?.job_flags | sacrifice.last_mind?.assigned_role?.job_flags
-	var/datum/antagonist/cult/cultist_datum = IS_CULTIST(sacrifice)
+	var/datum/antagonist/cult/cultist_datum = GET_CULTIST(sacrifice)
 	// Heads give 3 points, cultists give 1 point (and a special reward), normal sacrifices give 2 points.
 	heretic_datum.total_sacrifices++
 	if((sac_job_flag & JOB_HEAD_OF_STAFF))
-		heretic_datum.knowledge_points += 3
+		heretic_datum.adjust_knowledge_points(3)
 		heretic_datum.high_value_sacrifices++
 		feedback += " <i>graciously</i>"
 	if(cultist_datum)
-		heretic_datum.knowledge_points += 1
+		heretic_datum.adjust_knowledge_points(1)
 		grant_reward(user, sacrifice, loc)
 		// easier to read
 		var/rewards_given = heretic_datum.rewards_given
@@ -230,7 +230,7 @@
 		if(prob(min(15 * rewards_given)) && (rewards_given <= 5))
 			for(var/datum/mind/mind as anything in cultist_datum.cult_team.members)
 				if(mind.current)
-					SEND_SOUND(mind.current, 'sound/magic/clockwork/narsie_attack.ogg')
+					SEND_SOUND(mind.current, 'sound/effects/magic/clockwork/narsie_attack.ogg')
 					var/message = span_narsie("A vile heretic has ") + \
 					span_cult_large(span_hypnophrase("sacrificed")) + \
 					span_narsie(" one of our own. Destroy and sacrifice the infidel before it claims more!")
@@ -241,7 +241,7 @@
 			to_chat(user, non_flavor_warning)
 		return
 	else
-		heretic_datum.knowledge_points += 2
+		heretic_datum.adjust_knowledge_points(2)
 
 	to_chat(user, span_hypnophrase("[feedback]."))
 	if(!begin_sacrifice(sacrifice))
@@ -256,7 +256,7 @@
 	// Visible and audible encouragement!
 	to_chat(user, span_big(span_hypnophrase("A servant of the Sanguine Apostate!")))
 	to_chat(user, span_hierophant("Your patrons are rapturous!"))
-	playsound(sacrifice, 'sound/magic/disintegrate.ogg', 75, TRUE)
+	playsound(sacrifice, 'sound/effects/magic/disintegrate.ogg', 75, TRUE)
 
 	// Drop all items and splatter them around messily.
 	var/list/dustee_items = sacrifice.unequip_everything()
@@ -267,7 +267,7 @@
 	sacrifice.dust(TRUE, TRUE)
 
 	// Increase reward counter
-	var/datum/antagonist/heretic/antag = IS_HERETIC(user)
+	var/datum/antagonist/heretic/antag = GET_HERETIC(user)
 	antag.rewards_given++
 
 	// Cool effect for the rune as well as the item
@@ -288,8 +288,8 @@
 		return
 	// Remove the outline, we don't need it anymore.
 	rune?.remove_filter("reward_outline")
-	playsound(loc, 'sound/magic/repulse.ogg', 75, TRUE)
-	var/datum/antagonist/heretic/heretic_datum = IS_HERETIC(user)
+	playsound(loc, 'sound/effects/magic/repulse.ogg', 75, TRUE)
+	var/datum/antagonist/heretic/heretic_datum = GET_HERETIC(user)
 	ASSERT(heretic_datum)
 	// This list will be almost identical to unlocked_heretic_items, with the same keys, the difference being the values will be 1 to 5.
 	var/list/rewards = heretic_datum.unlocked_heretic_items.Copy()
@@ -340,14 +340,8 @@
 	var/turf/destination = get_turf(destination_landmark)
 
 	sac_target.visible_message(span_danger("[sac_target] begins to shudder violenty as dark tendrils begin to drag them into thin air!"))
-	sac_target.set_handcuffed(new /obj/item/restraints/handcuffs/energy/cult(sac_target))
-	sac_target.update_handcuffed()
-
-	if(sac_target.legcuffed)
-		sac_target.legcuffed.forceMove(sac_target.drop_location())
-		sac_target.legcuffed.dropped(sac_target)
-		sac_target.legcuffed = null
-		sac_target.update_worn_legcuffs()
+	sac_target.equip_to_slot_or_del(new /obj/item/restraints/handcuffs/cult, ITEM_SLOT_HANDCUFFED, indirect_action = TRUE)
+	sac_target.dropItemToGround(sac_target.legcuffed, TRUE)
 
 	sac_target.adjustOrganLoss(ORGAN_SLOT_BRAIN, 85, 150)
 	sac_target.do_jitter_animation()
@@ -396,7 +390,7 @@
 	curse_organs(sac_target)
 
 	// Send 'em to the destination. If the teleport fails, just disembowel them and stop the chain
-	if(!destination || !do_teleport(sac_target, destination, asoundin = 'sound/magic/repulse.ogg', asoundout = 'sound/magic/blind.ogg', no_effects = TRUE, channel = TELEPORT_CHANNEL_MAGIC, forced = TRUE))
+	if(!destination || !do_teleport(sac_target, destination, asoundin = 'sound/effects/magic/repulse.ogg', asoundout = 'sound/effects/magic/blind.ogg', no_effects = TRUE, channel = TELEPORT_CHANNEL_MAGIC, forced = TRUE))
 		disembowel_target(sac_target)
 		return
 
@@ -410,6 +404,8 @@
 
 	to_chat(sac_target, span_big(span_hypnophrase("Unnatural forces begin to claw at your every being from beyond the veil.")))
 
+	playsound(sac_target, 'sound/music/antag/heretic/heretic_sacrifice.ogg', 50, FALSE) // play theme
+
 	sac_target.apply_status_effect(/datum/status_effect/unholy_determination, SACRIFICE_REALM_DURATION)
 	addtimer(CALLBACK(src, PROC_REF(after_target_wakes), sac_target), SACRIFICE_SLEEP_DURATION * 0.5) // Begin the minigame
 
@@ -420,25 +416,18 @@
 /datum/heretic_knowledge/hunt_and_sacrifice/proc/curse_organs(mob/living/carbon/human/sac_target)
 	var/usable_organs = grantable_organs.Copy()
 	if (isplasmaman(sac_target))
-		usable_organs -= /obj/item/organ/internal/lungs/corrupt // Their lungs are already more cursed than anything I could give them
+		usable_organs -= /obj/item/organ/lungs/corrupt // Their lungs are already more cursed than anything I could give them
 
 	var/total_implant = rand(2, 4)
-	var/gave_any = FALSE
 
 	for (var/i in 1 to total_implant)
 		if (!length(usable_organs))
-			break
+			return
 		var/organ_path = pick_n_take(usable_organs)
-		var/obj/item/organ/internal/to_give = new organ_path
-		if (!to_give.Insert(sac_target))
-			qdel(to_give)
-		else
-			gave_any = TRUE
+		var/obj/item/organ/to_give = new organ_path
+		to_give.Insert(sac_target)
 
-	if (!gave_any)
-		return
-
-	new /obj/effect/gibspawner/human/bodypartless(get_turf(sac_target))
+	new /obj/effect/gibspawner/human/bodypartless(get_turf(sac_target), sac_target)
 	sac_target.visible_message(span_boldwarning("Several organs force themselves out of [sac_target]!"))
 
 /**
@@ -513,10 +502,11 @@
 	sac_target.remove_status_effect(/datum/status_effect/necropolis_curse)
 	sac_target.remove_status_effect(/datum/status_effect/unholy_determination)
 	sac_target.reagents?.del_reagent(/datum/reagent/inverse/helgrasp/heretic)
+	sac_target.uncuff()
 	sac_target.clear_mood_event("shadow_realm")
 	if(IS_HERETIC(sac_target))
 		var/datum/antagonist/heretic/victim_heretic = sac_target.mind?.has_antag_datum(/datum/antagonist/heretic)
-		victim_heretic.knowledge_points -= 3
+		victim_heretic.adjust_knowledge_points(-3)
 
 	// Wherever we end up, we sure as hell won't be able to explain
 	sac_target.adjust_timed_status_effect(40 SECONDS, /datum/status_effect/speech/slurring/heretic)
@@ -530,13 +520,13 @@
 		return
 
 	// Teleport them to a random safe coordinate on the station z level.
-	var/turf/open/floor/safe_turf = get_safe_random_station_turf()
+	var/turf/open/floor/safe_turf = get_safe_random_station_turf_equal_weight()
 	var/obj/effect/landmark/observer_start/backup_loc = locate(/obj/effect/landmark/observer_start) in GLOB.landmarks_list
 	if(!safe_turf)
 		safe_turf = get_turf(backup_loc)
 		stack_trace("[type] - return_target was unable to find a safe turf for [sac_target] to return to. Defaulting to observer start turf.")
 
-	if(!do_teleport(sac_target, safe_turf, asoundout = 'sound/magic/blind.ogg', no_effects = TRUE, channel = TELEPORT_CHANNEL_MAGIC, forced = TRUE))
+	if(!do_teleport(sac_target, safe_turf, asoundout = 'sound/effects/magic/blind.ogg', no_effects = TRUE, channel = TELEPORT_CHANNEL_MAGIC, forced = TRUE))
 		safe_turf = get_turf(backup_loc)
 		sac_target.forceMove(safe_turf)
 		stack_trace("[type] - return_target was unable to teleport [sac_target] to the observer start turf. Forcemoving.")
@@ -643,7 +633,7 @@
 		span_userdanger("Your organs are violently pulled out of your chest by shadowy hands!")
 	)
 
-	new /obj/effect/gibspawner/human/bodypartless(get_turf(sac_target))
+	new /obj/effect/gibspawner/human/bodypartless(get_turf(sac_target), sac_target)
 
 #undef SACRIFICE_SLEEP_DURATION
 #undef SACRIFICE_REALM_DURATION

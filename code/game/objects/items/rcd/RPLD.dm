@@ -12,6 +12,9 @@
 	banned_upgrades = RCD_ALL_UPGRADES & ~RCD_UPGRADE_SILO_LINK
 	matter = 200
 	max_matter = 200
+	drop_sound = 'sound/items/handling/tools/rcd_drop.ogg'
+	pickup_sound = 'sound/items/handling/tools/rcd_pickup.ogg'
+	sound_vary = TRUE
 
 	///category of design selected
 	var/selected_category
@@ -96,10 +99,6 @@
 	UnregisterSignal(user, COMSIG_MOUSE_SCROLL_ON)
 	return ..()
 
-/obj/item/construction/plumbing/cyborg_unequip(mob/user)
-	UnregisterSignal(user, COMSIG_MOUSE_SCROLL_ON)
-	return ..()
-
 /obj/item/construction/plumbing/attack_self(mob/user)
 	. = ..()
 	ui_interact(user)
@@ -117,7 +116,7 @@
 
 /obj/item/construction/plumbing/ui_assets(mob/user)
 	return list(
-		get_asset_datum(/datum/asset/spritesheet/plumbing),
+		get_asset_datum(/datum/asset/spritesheet_batched/plumbing),
 	)
 
 /obj/item/construction/plumbing/ui_static_data(mob/user)
@@ -160,6 +159,8 @@
 	return data
 
 /obj/item/construction/plumbing/handle_ui_act(action, params, datum/tgui/ui, datum/ui_state/state)
+	playsound(src, SFX_TOOL_SWITCH, 20, TRUE)
+
 	switch(action)
 		if("color")
 			var/color = params["paint_color"]
@@ -185,8 +186,6 @@
 			blueprint = design
 			blueprint_changed = TRUE
 
-			playsound(src, 'sound/effects/pop.ogg', 50, vary = FALSE)
-
 	return TRUE
 
 
@@ -207,13 +206,13 @@
 	var/is_allowed = TRUE
 	if(!checkResource(cost, user) || !(is_allowed = canPlace(destination)))
 		if(!is_allowed)
-			balloon_alert(user, "turf is blocked!")
+			balloon_alert(user, "tile is blocked!")
 		return FALSE
 	if(!build_delay(user, cost, target = destination))
 		return FALSE
 	if(!checkResource(cost, user) || !(is_allowed = canPlace(destination)))
 		if(!is_allowed)
-			balloon_alert(user, "turf is blocked!")
+			balloon_alert(user, "tile is blocked!")
 		return FALSE
 
 	if(!useResource(cost, user))
@@ -251,6 +250,8 @@
 	. = ..()
 	if(. & ITEM_INTERACT_ANY_BLOCKER)
 		return .
+	if(HAS_TRAIT(interacting_with, TRAIT_COMBAT_MODE_SKIP_INTERACTION))
+		return NONE
 
 	for(var/category_name in plumbing_design_types)
 		var/list/designs = plumbing_design_types[category_name]
@@ -264,7 +265,12 @@
 				balloon_alert(user, "unanchor first!")
 				return ITEM_INTERACT_BLOCKING
 			if(do_after(user, 2 SECONDS, target = interacting_with))
-				machine_target.deconstruct() //Let's not substract matter
+				var/design_cost = designs[machine_target.type]
+				var/to_return = min(design_cost, max_matter - matter) // Give back matter was used to create smth
+				if(to_return < design_cost)
+					balloon_alert(user, "storage full!")
+				matter += to_return
+				machine_target.deconstruct()
 				playsound(src, 'sound/machines/click.ogg', 50, TRUE) //this is just such a great sound effect
 			return ITEM_INTERACT_SUCCESS
 
@@ -292,7 +298,7 @@
 
 /obj/item/construction/plumbing/proc/mouse_wheeled(mob/source, atom/A, delta_x, delta_y, params)
 	SIGNAL_HANDLER
-	if(source.incapacitated(IGNORE_RESTRAINTS|IGNORE_STASIS))
+	if(INCAPACITATED_IGNORING(source, INCAPABLE_RESTRAINTS|INCAPABLE_STASIS))
 		return
 	if(delta_y == 0)
 		return

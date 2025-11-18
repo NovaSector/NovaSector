@@ -5,7 +5,17 @@
 	priority = PREFERENCE_PRIORITY_NAMES // Apply after species, cause that's super important.
 
 /datum/preference/choiced/brain_type/init_possible_values()
-	return list(ORGAN_PREF_POSI_BRAIN, ORGAN_PREF_MMI_BRAIN, ORGAN_PREF_CIRCUIT_BRAIN)
+	return list(
+		ORGAN_PREF_POSI_BRAIN,
+		ORGAN_PREF_MMI_BRAIN,
+		ORGAN_PREF_CIRCUIT_BRAIN,
+		ORGAN_PREF_HYPERBOARD_BRAIN,
+		ORGAN_PREF_LIMAENGINE_BRAIN,
+		ORGAN_PREF_DISKBRAIN_BRAIN,
+		ORGAN_PREF_NEUROBOARD_BRAIN,
+		ORGAN_PREF_CONDENSED_BRAIN,
+		ORGAN_PREF_CYBERDECK_BRAIN,
+	)
 
 /datum/preference/choiced/brain_type/create_default_value()
 	return ORGAN_PREF_POSI_BRAIN
@@ -14,8 +24,8 @@
 	if(!issynthetic(target))
 		return
 
-	var/obj/item/organ/internal/brain/new_brain = target.prefs_get_brain_to_use(value)
-	var/obj/item/organ/internal/brain/old_brain = target.get_organ_slot(ORGAN_SLOT_BRAIN)
+	var/obj/item/organ/brain/new_brain = target.prefs_get_brain_to_use(value)
+	var/obj/item/organ/brain/old_brain = target.get_organ_slot(ORGAN_SLOT_BRAIN)
 
 	if(!new_brain || new_brain == old_brain.type)
 		return
@@ -26,6 +36,7 @@
 
 	new_brain.modular_persistence = old_brain.modular_persistence
 	old_brain.modular_persistence = null
+	new_brain.modular_persistence?.owner_brain = WEAKREF(new_brain)
 
 	new_brain.Insert(target, movement_flags = DELETE_IF_REPLACED)
 

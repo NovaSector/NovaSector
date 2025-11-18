@@ -12,7 +12,10 @@
 
 /// If the company policy currently forbids flashbangs during green alert
 /obj/item/grenade/flashbang/proc/is_currently_forbidden(mob/user)
-	if(!CONFIG_GET(flag/flashbangs_forbidden_during_green) || SSsecurity_level.get_current_level_as_number() != SEC_LEVEL_GREEN)
+	if(!CONFIG_GET(flag/flashbangs_forbidden_during_green))
+		return FALSE
+
+	if(SSsecurity_level.get_current_level_as_number() != SEC_LEVEL_GREEN)
 		return FALSE
 
 	if(!(user.mind?.assigned_role.departments_bitflags & (DEPARTMENT_BITFLAG_SECURITY|DEPARTMENT_BITFLAG_COMMAND)))
@@ -53,7 +56,7 @@
 	// build list of alt titles + base titles. We have to do this because the pda's saved_job uses the alt_title string instead of the job datum.
 	var/list/base_title_by_alt_title = list()
 	for(var/job_title in crew_to_alert)
-		var/datum/job/job_datum = SSjob.GetJob(job_title)
+		var/datum/job/job_datum = SSjob.get_job(job_title)
 		for(var/alt_job_title in job_datum.alt_titles)
 			base_title_by_alt_title[alt_job_title] = job_title
 
@@ -68,7 +71,7 @@
 			continue
 
 		var/datum/signal/subspace/messaging/tablet_message/signal = new(source, list(
-			"fakename" = "NanoTrasen Corp Alerts",
+			"fakename" = "Nanotrasen Corp Alerts",
 			"fakejob" = "Flashbang Watchdog",
 			"message" = message,
 			"targets" = list(messenger),
@@ -95,7 +98,7 @@
 	if(ismecha(user_mob.loc))
 		return
 
-	if(user_mob.incapacitated())
+	if(user_mob.incapacitated)
 		return
 
 	var/obj/item/held_item = user_mob.get_active_held_item()

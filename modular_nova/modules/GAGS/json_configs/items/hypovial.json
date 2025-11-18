@@ -9,7 +9,7 @@
 			"type": "icon_state",
 			"icon_state": "hypovial-body",
 			"blend_mode": "overlay",
-			"color_ids": [ 1 ]
+			"color_ids": [1]
 		}
 	],
 	"hypoviallarge": [
@@ -22,7 +22,20 @@
 			"type": "icon_state",
 			"icon_state": "hypoviallarge-body",
 			"blend_mode": "overlay",
-			"color_ids": [ 1 ]
+			"color_ids": [1]
+		}
+	],
+	"hypovial-interdyne": [
+		{
+			"type": "icon_state",
+			"icon_state": "hypovial-interdyne-glass",
+			"blend_mode": "overlay"
+		},
+		{
+			"type": "icon_state",
+			"icon_state": "hypovial-interdyne-body",
+			"blend_mode": "overlay",
+			"color_ids": [1]
 		}
 	]
 }

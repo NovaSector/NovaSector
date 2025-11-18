@@ -5,16 +5,33 @@
 	overlay_icon_state = "bg_heretic_border"
 	button_icon = 'icons/mob/actions/actions_ecult.dmi'
 	button_icon_state = "corrode"
-	sound = 'sound/items/welder.ogg'
+	sound = 'sound/items/tools/welder.ogg'
 
 	school = SCHOOL_FORBIDDEN
 	cooldown_time = 30 SECONDS
 
-	invocation = "A'GRSV SPR'D"
+	invocation = "A'GRSV SPR'D."
 	invocation_type = INVOCATION_WHISPER
 	spell_requirements = NONE
 
 	aoe_radius = 2
+
+/datum/action/cooldown/spell/aoe/rust_conversion/before_cast(atom/cast_on)
+	. = ..()
+	if(. & SPELL_CANCEL_CAST)
+		return
+
+	return SPELL_NO_IMMEDIATE_COOLDOWN
+
+/datum/action/cooldown/spell/aoe/rust_conversion/after_cast(atom/cast_on)
+	. = ..()
+	var/datum/status_effect/heretic_passive/rust/rust_passive = owner.has_status_effect(/datum/status_effect/heretic_passive/rust)
+	if(!rust_passive)
+		StartCooldown(cooldown_time)
+		return
+
+	var/new_cooldown = 35 SECONDS - (rust_passive.passive_level * 5 SECONDS)
+	StartCooldown(new_cooldown)
 
 /datum/action/cooldown/spell/aoe/rust_conversion/get_things_to_cast_on(atom/center)
 

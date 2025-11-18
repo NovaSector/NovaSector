@@ -4,7 +4,7 @@ MODULE ID: XENOARCH
 
 ### Description:
 
-Xenoarch: Archaeology based around foreign bodies. Dig up encased relics of a time long past (or dig up our garbage on accident). 
+Xenoarch: Archaeology based around foreign bodies. Dig up encased relics of a time long past (or dig up our garbage on accident).
 
 ### TG Proc Changes:
 

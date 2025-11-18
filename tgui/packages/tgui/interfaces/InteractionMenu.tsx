@@ -1,5 +1,4 @@
 // THIS IS A NOVA SECTOR UI FILE
-import { useBackend } from '../backend';
 import {
   Box,
   Button,
@@ -8,7 +7,10 @@ import {
   NoticeBox,
   Section,
   Stack,
-} from '../components';
+  LabeledList,
+} from 'tgui-core/components';
+
+import { useBackend } from '../backend';
 import { Window } from '../layouts';
 
 class Interaction {
@@ -21,6 +23,7 @@ class Interaction {
   ref_self;
   ref_user;
   block_interact;
+  use_subtler;
 }
 
 class LewdSlot {
@@ -40,14 +43,32 @@ export const InteractionMenu = (props) => {
     ref_self,
     ref_user,
     block_interact,
+    use_subtler = false,
   } = data;
 
   return (
-    <Window width={500} height={600} title={'Interact - ' + self}>
+    <Window width={500} height={600} title={`Interact - ${self}`}>
       <Window.Content scrollable>
+        <Section>
+          <LabeledList>
+              <Button.Checkbox
+                checked={use_subtler}
+                onClick={() =>
+                  act('toggle_subtler', {
+                    use_subtler: !use_subtler,
+                  })
+                }
+                tooltip="Untick to make lewd interactions visible to all mobs in range able to perceive them."
+              >
+                Use Subtler
+              </Button.Checkbox>
+          </LabeledList>
+        </Section>
+
         {(block_interact && <NoticeBox>Unable to Interact</NoticeBox>) || (
           <NoticeBox>Able to Interact</NoticeBox>
         )}
+
         <Stack fill vertical>
           <Section key="interactions">
             {categories.map((category) => (
@@ -68,6 +89,7 @@ export const InteractionMenu = (props) => {
                             interaction: interaction,
                             selfref: ref_self,
                             userref: ref_user,
+                            use_subtler,
                           })
                         }
                       >
@@ -80,6 +102,7 @@ export const InteractionMenu = (props) => {
             ))}
           </Section>
         </Stack>
+
         {lewd_slots.length > 0 ? (
           <Section key="item_slots" title={'Lewd Slots'}>
             <Stack fill>
@@ -105,7 +128,7 @@ export const InteractionMenu = (props) => {
                       >
                         {element.img ? (
                           <img
-                            src={'data:image/png;base64,' + element.img}
+                            src={`data:image/png;base64,${element.img}`}
                             style={{
                               width: '100%',
                               height: '100%',

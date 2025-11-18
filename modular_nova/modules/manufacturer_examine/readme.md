@@ -21,4 +21,5 @@ Tells you what company made what item this component is attached to, originally 
 - N/A
 
 ### Credits:
+
 Zonespace - Did the whole manufacturer thing originally I think

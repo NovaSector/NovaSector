@@ -1,10 +1,8 @@
 /datum/sprite_accessory/tails
-	key = "tail"
-	generic = "Tail"
-	organ_type = /obj/item/organ/external/tail
+	key = FEATURE_TAIL
+	organ_type = /obj/item/organ/tail
 	icon = 'modular_nova/master_files/icons/mob/sprite_accessory/tails.dmi'
 	relevent_layers = list(BODY_BEHIND_LAYER, BODY_FRONT_LAYER)
-	genetic = TRUE
 	/// Can we use this tail for the fluffy tail turf emote?
 	var/fluffy = FALSE
 
@@ -36,8 +34,8 @@
 
 /datum/sprite_accessory/tails/lizard
 	icon = 'modular_nova/master_files/icons/mob/sprite_accessory/tails.dmi'
-	recommended_species = list(SPECIES_LIZARD, SPECIES_LIZARD_ASH, SPECIES_MAMMAL, SPECIES_UNATHI, SPECIES_LIZARD_SILVER)
-	organ_type = /obj/item/organ/external/tail/lizard
+	recommended_species = list(SPECIES_LIZARD, SPECIES_LIZARD_ASH, SPECIES_MAMMAL, SPECIES_UNATHI, SPECIES_LIZARD_SILVER, SPECIES_KOBOLD, SPECIES_LIZARD)
+	organ_type = /obj/item/organ/tail/lizard
 
 /datum/sprite_accessory/tails/lizard/short/twotone
 	name = "Short (Two-Tone)"
@@ -46,27 +44,36 @@
 
 /datum/sprite_accessory/tails/human
 	recommended_species = list(SPECIES_HUMAN, SPECIES_SYNTH, SPECIES_FELINE, SPECIES_MAMMAL, SPECIES_GHOUL)
-	organ_type = /obj/item/organ/external/tail/cat
+	organ_type = /obj/item/organ/tail/cat
 
-/datum/sprite_accessory/tails/human/cat
+/datum/sprite_accessory/tails/felinid/cat
 	icon = 'modular_nova/master_files/icons/mob/sprite_accessory/tails.dmi'
 	icon_state = "cat"
 	color_src = USE_ONE_COLOR
+	recommended_species = list(SPECIES_HUMAN, SPECIES_SYNTH, SPECIES_FELINE, SPECIES_MAMMAL, SPECIES_GHOUL)
+	organ_type = /obj/item/organ/tail/cat
+
+/datum/sprite_accessory/tails/human/monkeyColorable
+	icon = 'modular_nova/master_files/icons/mob/sprite_accessory/tails.dmi'
+	icon_state = "monkey_colorable"
+	recommended_species = list(SPECIES_HUMAN, SPECIES_SYNTH, SPECIES_FELINE, SPECIES_MAMMAL, SPECIES_MONKEY, SPECIES_GHOUL)
+	color_src = USE_ONE_COLOR
+	name = "Monkey Colorable"
 
 /datum/sprite_accessory/tails/monkey/default
 	icon = 'modular_nova/master_files/icons/mob/sprite_accessory/tails.dmi'
 	icon_state = "monkey"
 	recommended_species = list(SPECIES_HUMAN, SPECIES_SYNTH, SPECIES_FELINE, SPECIES_MAMMAL, SPECIES_MONKEY, SPECIES_GHOUL)
-	organ_type = /obj/item/organ/external/tail/monkey
+	organ_type = /obj/item/organ/tail/monkey
 
 /datum/sprite_accessory/tails/mammal
 	icon_state = "none"
 	recommended_species = list(SPECIES_MAMMAL,SPECIES_HUMAN, SPECIES_SYNTH, SPECIES_HUMANOID, SPECIES_GHOUL)
-	organ_type = /obj/item/organ/external/tail/fluffy/no_wag
+	organ_type = /obj/item/organ/tail/fluffy/no_wag
 	color_src = USE_MATRIXED_COLORS
 
 /datum/sprite_accessory/tails/mammal/wagging
-	organ_type = /obj/item/organ/external/tail/fluffy
+	organ_type = /obj/item/organ/tail/fluffy
 	flags_for_organ = SPRITE_ACCESSORY_WAG_ABLE
 
 /datum/sprite_accessory/tails/mammal/wagging/akula
@@ -174,6 +181,10 @@
 	name = "Fox (Alt 2)"
 	icon_state = "fox3"
 
+/datum/sprite_accessory/tails/mammal/wagging/vulpkanin/fox/ann
+	name = "Fox (Alt 3)"
+	icon_state = "foxann"
+
 /datum/sprite_accessory/tails/mammal/wagging/guilmon
 	name = "Guilmon"
 	icon_state = "guilmon"
@@ -200,6 +211,12 @@
 /datum/sprite_accessory/tails/mammal/wagging/queeninsect
 	name = "Queen Insect"
 	icon_state = "queeninsect"
+
+/datum/sprite_accessory/tails/mammal/insectoid
+	name = "Insectoid"
+	icon_state = "insectoid"
+	color_src = USE_ONE_COLOR
+	default_color = DEFAULT_PRIMARY
 
 /datum/sprite_accessory/tails/mammal/wagging/kangaroo
 	name = "Kangaroo"
@@ -231,6 +248,10 @@
 	name = "Kitsune (Tamamo)"
 	icon_state = "9sune"
 
+/datum/sprite_accessory/tails/mammal/wagging/kitsune/ann
+	name = "Kitsune (Ann)"
+	icon_state = "kitsuann"
+
 /datum/sprite_accessory/tails/mammal/wagging/lab
 	name = "Labrador"
 	icon_state = "lab"
@@ -255,6 +276,10 @@
 /datum/sprite_accessory/tails/mammal/wagging/otie
 	name = "Otusian"
 	icon_state = "otie"
+
+/datum/sprite_accessory/tails/mammal/wagging/otter
+	name = "Otter"
+	icon_state = "otter"
 
 /datum/sprite_accessory/tails/mammal/plug
 	name = "Plug"
@@ -310,6 +335,11 @@
 /datum/sprite_accessory/tails/mammal/wagging/big/shade/striped
 	name = "Shade (Striped)"
 	icon_state = "shadekinlongstriped_large"
+
+/datum/sprite_accessory/tails/mammal/wagging/big/shade/fluffy
+	name = "Shade (Fluffy)"
+	icon_state = "bigandfluffy"
+	color_src = USE_MATRIXED_COLORS
 
 /datum/sprite_accessory/tails/mammal/wagging/big/ringtail
 	name = "Ring Tail (Long)"
@@ -394,6 +424,26 @@
 	name = "Tentacle"
 	icon_state = "tentacle"
 
+/datum/sprite_accessory/tails/mammal/acrador
+	name = "Acrador (Narrow)"
+	icon_state = "acrador_1"
+
+/datum/sprite_accessory/tails/mammal/acrador/normal
+	name = "Acrador (Medium)"
+	icon_state = "acrador_2"
+
+/datum/sprite_accessory/tails/mammal/acrador/big
+	name = "Acrador (Big)"
+	icon_state = "acrador_3"
+
+/datum/sprite_accessory/tails/mammal/wagging/acrador
+	name = "Acrador (Narrow and Long)"
+	icon_state = "acrador_4"
+
+/datum/sprite_accessory/tails/mammal/wagging/acrador/femine_very_long
+	name = "Acrador (Narrow and Very Long)"
+	icon_state = "acrador_5"
+
 /*
 *	TESHARI
 */
@@ -443,3 +493,46 @@
 /datum/sprite_accessory/tails/mammal/black_jackal
 	name = "Black-backed Jackal"
 	icon_state = "blackjackal"
+
+/datum/sprite_accessory/tails/mammal/wagging/gecko
+	name = "Gecko"
+	icon_state = "gecko"
+
+/datum/sprite_accessory/tails/mammal/wagging/chemlight
+	name = "Striped Tail"
+	icon_state = "chemlight"
+
+/datum/sprite_accessory/tails/mammal/wagging/chemlight_alt
+	name = "Striped Tail (Alt)"
+	icon_state = "chemlight_alt"
+
+/datum/sprite_accessory/tails/mammal/insectunder
+	name = "Insect (Underbelly)"
+	icon_state = "insectunder"
+
+// TG Fish infusion tails
+/datum/sprite_accessory/tails/fish
+	recommended_species = list(SPECIES_AKULA, SPECIES_AQUATIC)
+	color_src = USE_ONE_COLOR
+	feature_key_override = FEATURE_TAIL_FISH
+
+/datum/sprite_accessory/tails/fish/simple
+	name = "Simple (Fish Infusion)"
+
+/datum/sprite_accessory/tails/fish/crescent
+	name = "Crescent (Fish Infusion)"
+
+/datum/sprite_accessory/tails/fish/long
+	name = "Long (Fish Infusion)"
+
+/datum/sprite_accessory/tails/fish/shark
+	name = "Shark (Fish Infusion)"
+
+/datum/sprite_accessory/tails/fish/chonky
+	name = "Chonky (Fish Infusion)"
+
+/datum/sprite_accessory/tails/xeno
+	feature_key_override = FEATURE_TAIL_XENO
+
+/datum/sprite_accessory/tails/xeno/queen
+	locked = TRUE

@@ -1,10 +1,11 @@
 /// Hydraulic Pump Surgery
 /datum/surgery/hydraulic_maintenance
 	name = "Hydraulic Pump Maintenance"
-	requires_bodypart_type = BODYTYPE_ROBOTIC
+	desc = "A mechanical surgery procedure designed to repair an androids internal hydraulic pump."
 	surgery_flags = SURGERY_REQUIRE_RESTING | SURGERY_REQUIRE_LIMB | SURGERY_REQUIRES_REAL_LIMB
 	steps = list(
 		/datum/surgery_step/mechanic_open,
+		/datum/surgery_step/open_hatch,
 		/datum/surgery_step/mechanic_unwrench,
 		/datum/surgery_step/pry_off_plating,
 		/datum/surgery_step/prepare_electronics,
@@ -14,13 +15,24 @@
 	)
 	target_mobtypes = list(/mob/living/carbon/human)
 	possible_locs = list(BODY_ZONE_CHEST)
-	desc = "A mechanical surgery procedure designed to repair an androids internal hydraulic pump."
+	organ_to_manipulate = ORGAN_SLOT_HEART
+	requires_bodypart_type = BODYTYPE_ROBOTIC
+	requires_organ_type = /obj/item/organ/heart/synth
+	requires_organ_flags = ORGAN_ROBOTIC
+	requires_organ_damage = 10
 
-/datum/surgery/hydraulic_maintenance/can_start(mob/user, mob/living/carbon/target)
-	var/obj/item/organ/internal/heart/hydraulic_pump = target.get_organ_slot(ORGAN_SLOT_HEART)
-	if(isnull(hydraulic_pump) || !issynthetic(target) || hydraulic_pump.damage < 10)
-		return FALSE
-	return ..()
+// Subtype for synthetic humanoids with organic bodyparts
+/datum/surgery/hydraulic_maintenance/hybrid
+	steps = list(
+		/datum/surgery_step/incise,
+		/datum/surgery_step/retract_skin,
+		/datum/surgery_step/saw,
+		/datum/surgery_step/clamp_bleeders,
+		/datum/surgery_step/prepare_electronics,
+		/datum/surgery_step/hydraulic/repair,
+		/datum/surgery_step/close,
+	)
+	requires_bodypart_type = BODYTYPE_ORGANIC
 
 /datum/surgery_step/hydraulic/repair
 	name = "tighten seals (screwdriver or wrench)"
@@ -30,8 +42,8 @@
 		TOOL_WIRECUTTER = 35,
 		/obj/item/stack/package_wrap = 15,
 	)
-	preop_sound = 'sound/items/ratchet_slow.ogg'
-	success_sound = 'sound/machines/doorclick.ogg'
+	preop_sound = 'sound/effects/bodyfall/bodyfall1.ogg'
+	success_sound = 'sound/machines/airlock/doorclick.ogg'
 
 /datum/surgery_step/hydraulic/repair/preop(mob/user, mob/living/carbon/target, target_zone, obj/item/tool, datum/surgery/surgery)
 	display_results(
@@ -45,7 +57,7 @@
 
 /datum/surgery_step/hydraulic/repair/success(mob/user, mob/living/carbon/target, target_zone, obj/item/tool, datum/surgery/surgery, default_display_results = FALSE)
 	var/mob/living/carbon/human/patient = target
-	var/obj/item/organ/internal/heart/hydraulic = patient.get_organ_slot(ORGAN_SLOT_HEART)
+	var/obj/item/organ/heart/hydraulic = patient.get_organ_slot(ORGAN_SLOT_HEART)
 	patient.setOrganLoss(ORGAN_SLOT_HEART, 0) // adjustOrganLoss didnt work here without runtimes spamming, setting to 0 as synths have no natural organ decay/regeneration
 	if(hydraulic.organ_flags & ORGAN_EMP)
 		hydraulic.organ_flags &= ~ORGAN_EMP

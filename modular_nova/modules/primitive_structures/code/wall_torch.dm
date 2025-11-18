@@ -49,14 +49,14 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/structure/wall_torch, 28)
 	desc = mounted_torch ? "A simple torch mounted to the wall, for lighting and such." : "A simple torch mount, torches go here."
 
 
-/obj/structure/wall_torch/attackby(obj/item/used_item, mob/living/user, params)
+/obj/structure/wall_torch/attackby(obj/item/attacking_item, mob/user, list/modifiers, list/attack_modifiers)
 	if(!mounted_torch)
-		if(!istype(used_item, /obj/item/flashlight/flare/torch))
+		if(!istype(attacking_item, /obj/item/flashlight/flare/torch))
 			return ..()
 
-		mounted_torch = used_item
-		RegisterSignal(used_item, COMSIG_QDELETING, PROC_REF(remove_torch))
-		used_item.forceMove(src)
+		mounted_torch = attacking_item
+		RegisterSignal(attacking_item, COMSIG_QDELETING, PROC_REF(remove_torch))
+		attacking_item.forceMove(src)
 		update_appearance(UPDATE_NAME | UPDATE_DESC)
 
 		if(mounted_torch.light_on)
@@ -68,7 +68,7 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/structure/wall_torch, 28)
 
 		return
 
-	if(!burning && used_item.get_temperature())
+	if(!burning && attacking_item.get_temperature())
 		light_it_up()
 	else
 		return ..()

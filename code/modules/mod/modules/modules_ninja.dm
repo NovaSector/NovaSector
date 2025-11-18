@@ -13,13 +13,13 @@
 	use_energy_cost = DEFAULT_CHARGE_DRAIN * 10
 	incompatible_modules = list(/obj/item/mod/module/stealth)
 	cooldown_time = 5 SECONDS
-	required_slots = list(ITEM_SLOT_BACK|ITEM_SLOT_BELT)
+	required_slots = list(ITEM_SLOT_HEAD|ITEM_SLOT_MASK, ITEM_SLOT_OCLOTHING|ITEM_SLOT_ICLOTHING, ITEM_SLOT_GLOVES, ITEM_SLOT_FEET)
 	/// Whether or not the cloak turns off on bumping.
 	var/bumpoff = TRUE
 	/// The alpha applied when the cloak is on.
 	var/stealth_alpha = 50
 
-/obj/item/mod/module/stealth/on_activation()
+/obj/item/mod/module/stealth/on_activation(mob/activator)
 	if(bumpoff)
 		RegisterSignal(mod.wearer, COMSIG_LIVING_MOB_BUMP, PROC_REF(unstealth))
 	RegisterSignal(mod.wearer, COMSIG_LIVING_UNARMED_ATTACK, PROC_REF(on_unarmed_attack))
@@ -28,7 +28,7 @@
 	animate(mod.wearer, alpha = stealth_alpha, time = 1.5 SECONDS)
 	drain_power(use_energy_cost)
 
-/obj/item/mod/module/stealth/on_deactivation(display_message = TRUE, deleting = FALSE)
+/obj/item/mod/module/stealth/on_deactivation(mob/activator, display_message = TRUE, deleting = FALSE)
 	if(bumpoff)
 		UnregisterSignal(mod.wearer, COMSIG_LIVING_MOB_BUMP)
 	UnregisterSignal(mod.wearer, list(COMSIG_LIVING_UNARMED_ATTACK, COMSIG_MOB_ITEM_ATTACK, COMSIG_ATOM_ATTACKBY, COMSIG_ATOM_ATTACK_HAND, COMSIG_ATOM_BULLET_ACT, COMSIG_ATOM_HITBY, COMSIG_ATOM_HULK_ATTACK, COMSIG_ATOM_ATTACK_PAW, COMSIG_CARBON_CUFF_ATTEMPTED))
@@ -71,11 +71,14 @@
 	use_energy_cost = DEFAULT_CHARGE_DRAIN * 5
 	cooldown_time = 3 SECONDS
 
-/obj/item/mod/module/stealth/ninja/on_activation()
-	ADD_TRAIT(mod.wearer, TRAIT_SILENT_FOOTSTEPS, MOD_TRAIT)
 
-/obj/item/mod/module/stealth/ninja/on_deactivation(display_message = TRUE, deleting = FALSE)
-	REMOVE_TRAIT(mod.wearer, TRAIT_SILENT_FOOTSTEPS, MOD_TRAIT)
+/obj/item/mod/module/stealth/ninja/on_activation(mob/activator)
+	. = ..()
+	ADD_TRAIT(mod.wearer, TRAIT_SILENT_FOOTSTEPS, REF(src))
+
+/obj/item/mod/module/stealth/ninja/on_deactivation(mob/activator, display_message = TRUE, deleting = FALSE)
+	. = ..()
+	REMOVE_TRAIT(mod.wearer, TRAIT_SILENT_FOOTSTEPS, REF(src))
 
 ///Camera Vision - Prevents flashes, blocks tracking.
 /obj/item/mod/module/welding/camera_vision
@@ -90,12 +93,20 @@
 	overlay_state_inactive = null
 	required_slots = list(ITEM_SLOT_HEAD|ITEM_SLOT_EYES|ITEM_SLOT_MASK)
 
-/obj/item/mod/module/welding/camera_vision/on_suit_activation()
-	. = ..()
+/obj/item/mod/module/welding/camera_vision/on_part_activation()
 	RegisterSignal(mod.wearer, COMSIG_LIVING_CAN_TRACK, PROC_REF(can_track))
+	var/obj/item/clothing/head_cover = mod.get_part_from_slot(ITEM_SLOT_HEAD) || mod.get_part_from_slot(ITEM_SLOT_MASK) || mod.get_part_from_slot(ITEM_SLOT_EYES)
+	if(istype(head_cover))
+		//this is a screen that displays an image, so flash sensitives can use this to protect against flashes.
+		head_cover.flash_protect = FLASH_PROTECTION_WELDER_HYPER_SENSITIVE
 
-/obj/item/mod/module/welding/camera_vision/on_suit_deactivation(deleting = FALSE)
-	. = ..()
+
+/obj/item/mod/module/welding/camera_vision/on_part_deactivation(deleting = FALSE)
+	if(deleting)
+		return
+	var/obj/item/clothing/head_cover = mod.get_part_from_slot(ITEM_SLOT_HEAD) || mod.get_part_from_slot(ITEM_SLOT_MASK) || mod.get_part_from_slot(ITEM_SLOT_EYES)
+	if(istype(head_cover))
+		head_cover.flash_protect = initial(head_cover.flash_protect)
 	UnregisterSignal(mod.wearer, COMSIG_LIVING_CAN_TRACK)
 
 /obj/item/mod/module/welding/camera_vision/proc/can_track(datum/source, mob/user)
@@ -129,10 +140,10 @@
 	/// How many times the module has been used to force open doors.
 	var/door_hack_counter = 0
 
-/obj/item/mod/module/hacker/on_suit_activation()
+/obj/item/mod/module/hacker/on_part_activation()
 	RegisterSignal(mod.wearer, COMSIG_LIVING_UNARMED_ATTACK, PROC_REF(hack))
 
-/obj/item/mod/module/hacker/on_suit_deactivation(deleting = FALSE)
+/obj/item/mod/module/hacker/on_part_deactivation(deleting = FALSE)
 	UnregisterSignal(mod.wearer, COMSIG_LIVING_UNARMED_ATTACK)
 
 /obj/item/mod/module/hacker/proc/hack(mob/living/carbon/human/source, atom/target, proximity, modifiers)
@@ -170,17 +181,17 @@
 	/// The accepted typepath we can link to.
 	var/accepted_type = /obj/item/energy_katana
 
-/obj/item/mod/module/weapon_recall/on_suit_activation()
-	mod.wearer.add_traits(list(TRAIT_NOGUNS, TRAIT_TOSS_GUN_HARD), MOD_TRAIT)
+/obj/item/mod/module/weapon_recall/on_part_activation()
+	mod.wearer.add_traits(list(TRAIT_NOGUNS, TRAIT_TOSS_GUN_HARD), REF(src))
 
-/obj/item/mod/module/weapon_recall/on_suit_deactivation(deleting = FALSE)
-	mod.wearer.remove_traits(list(TRAIT_NOGUNS, TRAIT_TOSS_GUN_HARD), MOD_TRAIT)
+/obj/item/mod/module/weapon_recall/on_part_deactivation(deleting = FALSE)
+	mod.wearer.remove_traits(list(TRAIT_NOGUNS, TRAIT_TOSS_GUN_HARD), REF(src))
 
 /obj/item/mod/module/weapon_recall/on_use()
 	if(!linked_weapon)
 		var/obj/item/weapon_to_link = mod.wearer.is_holding_item_of_type(accepted_type)
 		if(!weapon_to_link)
-			balloon_alert(mod.wearer, "can't locate weapon!")
+			balloon_alert(mod.wearer, "no linked weapon!")
 			return
 		set_weapon(weapon_to_link)
 		balloon_alert(mod.wearer, "[linked_weapon.name] linked")
@@ -189,7 +200,7 @@
 		balloon_alert(mod.wearer, "already on self!")
 		return
 	var/distance = get_dist(mod.wearer, linked_weapon)
-	var/in_view = (linked_weapon in view(mod.wearer))
+	var/in_view = (linked_weapon in view(mod.wearer)) && !(linked_weapon in get_turf(mod.wearer))
 	if(!in_view && !drain_power(use_energy_cost * distance))
 		balloon_alert(mod.wearer, "not enough charge!")
 		return
@@ -276,9 +287,9 @@
 	use_energy_cost = DEFAULT_CHARGE_DRAIN * 10
 	cooldown_time = 8 SECONDS
 
-/obj/item/mod/module/emp_shield/pulse/on_use()
+/obj/item/mod/module/emp_shield/pulse/on_use(mob/activator)
 	playsound(src, 'sound/effects/empulse.ogg', 60, TRUE)
-	empulse(src, heavy_range = 4, light_range = 6)
+	empulse(src, heavy_range = 4, light_range = 6, emp_source = src)
 	drain_power(use_energy_cost)
 
 /// Ninja Status Readout - Like the normal status display (see the base type), but with a clock.
@@ -291,6 +302,7 @@
 		and even useful information such as their overall health and wellness. This one comes with a clock that calibrates to the \
 		local system time, and an operational ID number display. The vital monitor's speaker has been removed."
 	display_time = TRUE
+	sensor_boost = FALSE
 	death_sound = null
 	death_sound_volume = null
 
@@ -310,7 +322,7 @@
 	/// List of all energy nets this module made.
 	var/list/energy_nets = list()
 
-/obj/item/mod/module/energy_net/on_suit_deactivation(deleting)
+/obj/item/mod/module/energy_net/on_part_deactivation(deleting)
 	for(var/obj/structure/energy_net/net as anything in energy_nets)
 		net.atom_destruction(ENERGY)
 
@@ -321,9 +333,9 @@
 	if(IS_SPACE_NINJA(mod.wearer) && isliving(target))
 		mod.wearer.say("Get over here!", forced = type)
 	var/obj/projectile/net = new /obj/projectile/energy_net(mod.wearer.loc, src)
-	net.preparePixelProjectile(target, mod.wearer)
+	net.aim_projectile(target, mod.wearer)
 	net.firer = mod.wearer
-	playsound(src, 'sound/weapons/punchmiss.ogg', 25, TRUE)
+	playsound(src, 'sound/items/weapons/punchmiss.ogg', 25, TRUE)
 	INVOKE_ASYNC(net, TYPE_PROC_REF(/obj/projectile, fire))
 	drain_power(use_energy_cost)
 
@@ -341,8 +353,8 @@
 	icon = 'icons/obj/clothing/modsuit/mod_modules.dmi'
 	damage = 0
 	range = 9
-	hitsound = 'sound/items/fultext_deploy.ogg'
-	hitsound_wall = 'sound/items/fultext_deploy.ogg'
+	hitsound = 'sound/items/fulton/fultext_deploy.ogg'
+	hitsound_wall = 'sound/items/fulton/fultext_deploy.ogg'
 	/// Reference to the beam following the projectile.
 	var/line
 	/// Reference to the energy net module.
@@ -408,7 +420,7 @@
 		return FALSE
 	return ..()
 
-/obj/item/mod/module/adrenaline_boost/on_use()
+/obj/item/mod/module/adrenaline_boost/on_use(mob/activator)
 	if(IS_SPACE_NINJA(mod.wearer))
 		mod.wearer.say(pick_list_replacements(NINJA_FILE, "lines"), forced = type)
 	to_chat(mod.wearer, span_notice("You have used the adrenaline boost."))
@@ -420,9 +432,11 @@
 	addtimer(CALLBACK(src, PROC_REF(boost_aftereffects), mod.wearer), 7 SECONDS)
 
 /obj/item/mod/module/adrenaline_boost/on_install()
+	. = ..()
 	RegisterSignal(mod, COMSIG_ATOM_ITEM_INTERACTION, PROC_REF(try_boost))
 
 /obj/item/mod/module/adrenaline_boost/on_uninstall(deleting = FALSE)
+	. = ..()
 	UnregisterSignal(mod, COMSIG_ATOM_ITEM_INTERACTION)
 
 /obj/item/mod/module/adrenaline_boost/proc/try_boost(source, mob/user, obj/item/attacking_item)

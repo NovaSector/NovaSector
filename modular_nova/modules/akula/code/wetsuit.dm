@@ -20,8 +20,6 @@
 /datum/component/wetsuit/proc/apply_wetsuit_status_effect(obj/item/source, mob/living/user, slot)
 	if(slot == ITEM_SLOT_HANDS)
 		return FALSE
-	if(!HAS_TRAIT(user, TRAIT_SLICK_SKIN))
-		return FALSE
 
 	user.apply_status_effect(/datum/status_effect/grouped/wetsuit, REF(source))
 
@@ -33,9 +31,9 @@
 /datum/status_effect/grouped/wetsuit
 	id = "wetsuit"
 	alert_type = null
-	tick_interval = 10 SECONDS
+	tick_interval = 5 SECONDS
 
 /datum/status_effect/grouped/wetsuit/tick(seconds_between_ticks)
-	owner.set_wet_stacks(STATUS_EFFECT_STACKS)
+	owner.set_wet_stacks(stacks = STATUS_EFFECT_STACKS, remove_fire_stacks = FALSE)
 
 #undef STATUS_EFFECT_STACKS

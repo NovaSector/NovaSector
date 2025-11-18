@@ -53,22 +53,22 @@
 	description = "A box of hornet's nest shotgun shells, a less-lethal pellet spread that bounces towards targets off of walls."
 	item_type = /obj/item/ammo_box/advanced/s12gauge/beehive
 
-/datum/opposing_force_equipment/ammo_exotic/stardust
-	description = "A box of stardust shotgun shells, a less-lethal spread of embedding electrodes that tire targets that move."
+/datum/opposing_force_equipment/ammo_exotic/lighting
+	description = "A box of lighting shotgun shells, a less-lethal cable similar to the taser, with its own power battery to disable and reduce the target."
 	item_type = /obj/item/ammo_box/advanced/s12gauge/antitide
 
 /datum/opposing_force_equipment/ammo_exotic/a357phasic
 	description = "A speedloader of .357 that ignores structure collision at the cost of some damage."
 	admin_note = "Bullets ignore walls, has a damage penalty."
-	item_type = /obj/item/ammo_box/a357/phasic
+	item_type = /obj/item/ammo_box/speedloader/c357/phasic
 
 /datum/opposing_force_equipment/ammo_exotic/a357heartseeker
 	description = "A speedloader of .357 with homing capabilities."
-	item_type = /obj/item/ammo_box/a357/heartseeker
+	item_type = /obj/item/ammo_box/speedloader/c357/heartseeker
 
 /datum/opposing_force_equipment/ammo_exotic/a357peacemaker
 	description = "A speedloader of .357 that have their impact lessened to highten the odds for ricochet shots."
-	item_type = /obj/item/ammo_box/a357/peacemaker
+	item_type = /obj/item/ammo_box/speedloader/c357/peacemaker
 
 /datum/opposing_force_equipment/ammo_exotic/ap45
 	description = "An smg magazine of armour piercing .45, used by the c20-r."

@@ -35,6 +35,8 @@
 	generic_canpass = FALSE
 	hud_possible = list(DIAG_STAT_HUD, DIAG_BATT_HUD, DIAG_MECH_HUD, DIAG_TRACK_HUD, DIAG_CAMERA_HUD)
 	mouse_pointer = 'icons/effects/mouse_pointers/mecha_mouse.dmi'
+	/// Significantly heavier than humans
+	inertia_force_weight = 5
 	///How much energy the mech will consume each time it moves. this is the current active energy consumed
 	var/step_energy_drain = 0.008 * STANDARD_CELL_CHARGE
 	///How much energy we drain each time we mechpunch someone
@@ -54,7 +56,7 @@
 	/// Keeps track of the mech's servo motor
 	var/obj/item/stock_parts/servo/servo
 	///Contains flags for the mecha
-	var/mecha_flags = CAN_STRAFE | IS_ENCLOSED | HAS_LIGHTS | MMI_COMPATIBLE
+	var/mecha_flags = CAN_STRAFE | IS_ENCLOSED | HAS_LIGHTS | MMI_COMPATIBLE | BEACON_TRACKABLE | AI_COMPATIBLE | BEACON_CONTROLLABLE
 
 	///Spark effects are handled by this datum
 	var/datum/effect_system/spark_spread/spark_system
@@ -88,8 +90,6 @@
 
 	///Bitflags for internal damage
 	var/internal_damage = NONE
-	/// damage amount above which we can take internal damages
-	var/internal_damage_threshold = 15
 	/// % chance for internal damage to occur
 	var/internal_damage_probability = 20
 	/// list of possibly dealt internal damage for this mech type
@@ -134,12 +134,12 @@
 	///Whether our steps are silent due to no gravity
 	var/step_silent = FALSE
 	///Sound played when the mech moves
-	var/stepsound = 'sound/mecha/mechstep.ogg'
+	var/stepsound = 'sound/vehicles/mecha/mechstep.ogg'
 	///Sound played when the mech walks
-	var/turnsound = 'sound/mecha/mechturn.ogg'
+	var/turnsound = 'sound/vehicles/mecha/mechturn.ogg'
 	///Sounds for types of melee attack
-	var/brute_attack_sound = 'sound/weapons/punch4.ogg'
-	var/burn_attack_sound = 'sound/items/welder.ogg'
+	var/brute_attack_sound = 'sound/items/weapons/punch4.ogg'
+	var/burn_attack_sound = 'sound/items/tools/welder.ogg'
 	var/tox_attack_sound = 'sound/effects/spray2.ogg'
 	///Sound on wall destroying
 	var/destroy_wall_sound = 'sound/effects/meteorimpact.ogg'
@@ -229,7 +229,6 @@
 	ui_view.generate_view("mech_view_[REF(src)]")
 	RegisterSignal(src, COMSIG_MOVABLE_MOVED, PROC_REF(on_move))
 	RegisterSignal(src, COMSIG_LIGHT_EATER_ACT, PROC_REF(on_light_eater))
-	RegisterSignal(src, COMSIG_HIT_BY_SABOTEUR, PROC_REF(on_saboteur))
 
 	spark_system = new
 	spark_system.set_up(2, 0, src)
@@ -250,8 +249,8 @@
 	log_message("[src.name] created.", LOG_MECHA)
 	GLOB.mechas_list += src //global mech list
 	prepare_huds()
-	for(var/datum/atom_hud/data/diagnostic/diag_hud in GLOB.huds)
-		diag_hud.add_atom_to_hud(src)
+	var/datum/atom_hud/data/diagnostic/diag_hud = GLOB.huds[DATA_HUD_DIAGNOSTIC]
+	diag_hud.add_atom_to_hud(src)
 	diag_hud_set_mechhealth()
 	diag_hud_set_mechcell()
 	diag_hud_set_mechstat()
@@ -302,12 +301,12 @@
 	QDEL_NULL(spark_system)
 	QDEL_NULL(smoke_system)
 	QDEL_NULL(ui_view)
-	QDEL_NULL(trackers)
+	QDEL_LIST(trackers)
 	QDEL_NULL(chassis_camera)
 
 	GLOB.mechas_list -= src //global mech list
-	for(var/datum/atom_hud/data/diagnostic/diag_hud in GLOB.huds)
-		diag_hud.remove_atom_from_hud(src) //YEET
+	var/datum/atom_hud/data/diagnostic/diag_hud = GLOB.huds[DATA_HUD_DIAGNOSTIC]
+	diag_hud.remove_atom_from_hud(src) //YEET
 	return ..()
 
 ///Add parts on mech spawning. Skipped in manual construction.
@@ -318,8 +317,7 @@
 	servo = new /obj/item/stock_parts/servo(src)
 	update_part_values()
 
-/obj/vehicle/sealed/mecha/CheckParts(list/parts_list)
-	. = ..()
+/obj/vehicle/sealed/mecha/proc/locate_parts()
 	cell = locate(/obj/item/stock_parts/power_store) in contents
 	diag_hud_set_mechcell()
 	scanmod = locate(/obj/item/stock_parts/scanning_module) in contents
@@ -340,11 +338,12 @@
 				ai.investigate_log("has been gibbed by having their mech destroyed.", INVESTIGATE_DEATHS)
 				ai.gib(DROP_ALL_REMAINS) //No wreck, no AI to recover
 			else
-				mob_exit(ai,silent = TRUE, forced = TRUE) // so we dont ghost the AI
+				mob_exit(ai, silent = TRUE, forced = TRUE) // so we dont ghost the AI
 			continue
-		mob_exit(occupant, forced = TRUE)
-		if(!isbrain(occupant)) // who would win.. 1 brain vs 1 sleep proc..
-			occupant.SetSleeping(destruction_sleep_duration)
+		else
+			mob_exit(occupant, forced = TRUE)
+			if(!isbrain(occupant)) // who would win.. 1 brain vs 1 sleep proc..
+				occupant.SetSleeping(destruction_sleep_duration)
 
 	if(wreckage)
 		var/obj/structure/mecha_wreckage/WR = new wreckage(loc, unlucky_ai)
@@ -376,7 +375,7 @@
 /obj/vehicle/sealed/mecha/proc/set_safety(mob/user)
 	weapons_safety = !weapons_safety
 	if(!safety_sound_custom)
-		SEND_SOUND(user, sound('sound/machines/beep.ogg', volume = 25))
+		SEND_SOUND(user, sound('sound/machines/beep/beep.ogg', volume = 25))
 	balloon_alert(user, "equipment [weapons_safety ? "safe" : "ready"]")
 	set_mouse_pointer()
 	SEND_SIGNAL(src, COMSIG_MECH_SAFETIES_TOGGLE, user, weapons_safety)
@@ -417,6 +416,81 @@
 	initialize_controller_action_type(/datum/action/vehicle/sealed/mecha/mech_view_stats, VEHICLE_CONTROL_SETTINGS)
 	initialize_controller_action_type(/datum/action/vehicle/sealed/mecha/strafe, VEHICLE_CONTROL_DRIVE)
 
+/obj/vehicle/sealed/mecha/add_occupant(mob/M, control_flags, forced)
+	if(..())
+		generate_equipment_actions(M)
+
+/obj/vehicle/sealed/mecha/remove_occupant(mob/M)
+	remove_all_equipment_actions(M)
+	return ..()
+
+///Generates action buttons for all eligible equipment and grants them to the occupant with VEHICLE_CONTROL_SETTINGS flag.
+/obj/vehicle/sealed/mecha/proc/generate_equipment_actions(mob/occupant)
+	if(!(occupant in occupants) || !(occupants[occupant] & VEHICLE_CONTROL_SETTINGS))
+		return
+	for(var/obj/item/mecha_parts/mecha_equipment/equipment in flat_equipment)
+		if(!is_equipment_valid_for_action(equipment))
+			continue
+
+		grant_equipment_action(occupant, equipment)
+
+///Removes all equipment actions from a specific occupant.
+/obj/vehicle/sealed/mecha/proc/remove_all_equipment_actions(mob/occupant)
+	var/list/actions = LAZYACCESS(occupant_actions, occupant)
+	if(!actions)
+		return
+
+	for(var/equipment_type in actions)
+		if(!ispath(equipment_type, /obj/item/mecha_parts/mecha_equipment))
+			continue
+
+		remove_action_type_from_mob(equipment_type, occupant)
+
+/**
+ * Grants a specific equipment action to an occupant.
+ * Creates a new action, sets up the chassis and equipment references, and grants it to the mob.
+ */
+/obj/vehicle/sealed/mecha/proc/grant_equipment_action(mob/occupant, obj/item/mecha_parts/mecha_equipment/equipment)
+	var/datum/action/vehicle/sealed/mecha/equipment/action = new equipment.action_type // We cannot use grant_action_type_to_mob() because:
+	action.set_chassis(src) 									  					  // 1. grant_action_type_to_mob() works with a single predefined action type
+	action.set_equipment(equipment) 							 					 // 2. We create unique action instances for each equipment with specific equipment references
+
+	action.Grant(occupant)
+	LAZYINITLIST(occupant_actions[occupant])
+	// Use equipment type as actiontype for remove_action_type_from_mob() compatibility
+	occupant_actions[occupant][equipment.type] = action
+
+/**
+ * Called when equipment is attached to the mecha.
+ * Grants equipment actions to current occupants with VEHICLE_CONTROL_SETTINGS flag.
+ */
+/obj/vehicle/sealed/mecha/proc/on_equipment_attach(obj/item/mecha_parts/mecha_equipment/equipment)
+	if(!is_equipment_valid_for_action(equipment))
+		return
+
+	for(var/mob/occupant in occupants)
+		if(!(occupants[occupant] & VEHICLE_CONTROL_SETTINGS))
+			continue
+		grant_equipment_action(occupant, equipment)
+
+/**
+ * Called when equipment is detached from the mecha.
+ * Removes equipment actions from all current occupants.
+ */
+/obj/vehicle/sealed/mecha/proc/on_equipment_detach(obj/item/mecha_parts/mecha_equipment/equipment)
+	for(var/mob/occupant in occupants)
+		remove_action_type_from_mob(equipment.type, occupant)
+
+/// Create actions only for equipment that can be toggled or triggered, excluding air tanks.
+/obj/vehicle/sealed/mecha/proc/is_equipment_valid_for_action(obj/item/mecha_parts/mecha_equipment/equipment)
+	if(!(equipment.can_be_toggled || equipment.can_be_triggered))
+		return FALSE
+
+	if(istype(equipment, /obj/item/mecha_parts/mecha_equipment/air_tank)) // this thing has its own button
+		return FALSE
+
+	return TRUE
+
 /obj/vehicle/sealed/mecha/proc/get_mecha_occupancy_state()
 	if((mecha_flags & SILICON_PILOT) && silicon_icon_state)
 		return silicon_icon_state
@@ -430,8 +504,7 @@
 	if(phase_state)
 		flick(phase_state, src)
 	var/turf/destination_turf = get_step(loc, movement_dir)
-	var/area/destination_area = destination_turf.loc
-	if(destination_area.area_flags & NOTELEPORT || SSmapping.level_trait(destination_turf.z, ZTRAIT_NOPHASE))
+	if(!check_teleport_valid(src, destination_turf) || SSmapping.level_trait(destination_turf.z, ZTRAIT_NOPHASE))
 		return FALSE
 	return TRUE
 
@@ -453,9 +526,6 @@
 	update_energy_drain()
 
 	if(capacitor)
-		var/datum/armor/stock_armor = get_armor_by_type(armor_type)
-		var/initial_energy = stock_armor.get_rating(ENERGY)
-		set_armor_rating(ENERGY, initial_energy + (capacitor.rating * 5))
 		overclock_temp_danger = initial(overclock_temp_danger) * capacitor.rating
 	else
 		overclock_temp_danger = initial(overclock_temp_danger)
@@ -586,7 +656,7 @@
 
 /obj/vehicle/sealed/mecha/proc/process_occupants(seconds_per_tick)
 	for(var/mob/living/occupant as anything in occupants)
-		if(!(mecha_flags & IS_ENCLOSED) && occupant?.incapacitated()) //no sides mean it's easy to just sorta fall out if you're incapacitated.
+		if(!(mecha_flags & IS_ENCLOSED) && occupant?.incapacitated) //no sides mean it's easy to just sorta fall out if you're incapacitated.
 			mob_exit(occupant, randomstep = TRUE) //bye bye
 			continue
 		if(cell && cell.maxcharge)
@@ -658,7 +728,7 @@
 	if(phasing)
 		balloon_alert(user, "not while [phasing]!")
 		return
-	if(user.incapacitated())
+	if(user.incapacitated)
 		return
 	if(!get_charge())
 		return
@@ -819,7 +889,7 @@
 
 		balloon_alert(occupant, "cabin [cabin_sealed ? "sealed" : "unsealed"]")
 	log_message("Cabin [cabin_sealed ? "sealed" : "unsealed"].", LOG_MECHA)
-	playsound(src, 'sound/machines/airlock.ogg', 50, TRUE)
+	playsound(src, 'sound/machines/airlock/airlock.ogg', 50, TRUE)
 
 /// Special light eater handling
 /obj/vehicle/sealed/mecha/proc/on_light_eater(obj/vehicle/sealed/source, datum/light_eater)
@@ -832,11 +902,11 @@
 		remove_action_type_from_mob(/datum/action/vehicle/sealed/mecha/mech_toggle_lights, occupant)
 	return COMPONENT_BLOCK_LIGHT_EATER
 
-/obj/vehicle/sealed/mecha/proc/on_saboteur(datum/source, disrupt_duration)
-	SIGNAL_HANDLER
-	if(mecha_flags &= HAS_LIGHTS && light_on)
+/obj/vehicle/sealed/mecha/on_saboteur(datum/source, disrupt_duration)
+	. = ..()
+	if((mecha_flags & HAS_LIGHTS) && light_on)
 		set_light_on(FALSE)
-		return COMSIG_SABOTEUR_SUCCESS
+		return TRUE
 
 /// Apply corresponding accesses
 /obj/vehicle/sealed/mecha/proc/update_access()

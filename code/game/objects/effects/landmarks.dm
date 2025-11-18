@@ -11,7 +11,7 @@
 /obj/effect/landmark/singularity_act()
 	return
 
-/obj/effect/landmark/singularity_pull()
+/obj/effect/landmark/singularity_pull(atom/singularity, current_size)
 	return
 
 INITIALIZE_IMMEDIATE(/obj/effect/landmark)
@@ -317,6 +317,11 @@ INITIALIZE_IMMEDIATE(/obj/effect/landmark/start/new_player)
 	GLOB.newplayer_start += loc
 	return INITIALIZE_HINT_QDEL
 
+/obj/effect/landmark/start/pun_pun
+	name = JOB_PUN_PUN
+	icon = 'icons/mob/human/human.dmi'
+	icon_state = "monkey"
+
 /obj/effect/landmark/latejoin
 	name = "JoinLate"
 
@@ -546,7 +551,7 @@ INITIALIZE_IMMEDIATE(/obj/effect/landmark/start/new_player)
 				continue
 			hangover_debris += new /obj/item/reagent_containers/cup/glass/bottle/beer/almost_empty(turf_to_spawn_on)
 
-///Spawns the mob with some drugginess/drunkeness, and some disgust.
+///Spawns the mob with some drugginess/drunkenness, and some disgust.
 /obj/effect/landmark/start/hangover/proc/make_hungover(mob/hangover_mob)
 	if(!iscarbon(hangover_mob))
 		return
@@ -561,22 +566,14 @@ INITIALIZE_IMMEDIATE(/obj/effect/landmark/start/new_player)
 		return
 
 /obj/effect/landmark/start/hangover/JoinPlayerHere(mob/joining_mob, buckle)
-	. = ..()
-	make_hungover(joining_mob)
-
-/obj/effect/landmark/start/hangover/closet
-	name = "hangover spawn closet"
-	icon_state = "hangover_spawn_closet"
-
-/obj/effect/landmark/start/hangover/closet/JoinPlayerHere(mob/joining_mob, buckle)
+	var/mob/created_joining_mob = ..()
+	make_hungover(created_joining_mob)
 	for(var/obj/structure/closet/closet in get_turf(src))
 		if(closet.opened)
 			continue
-		joining_mob.forceMove(closet)
-		make_hungover(joining_mob)
-		return
-
-	return ..() //Call parent as fallback
+		created_joining_mob.forceMove(closet)
+		return created_joining_mob
+	return created_joining_mob
 
 //Landmark that creates destinations for the navigate verb to path to
 /obj/effect/landmark/navigate_destination

@@ -94,7 +94,7 @@
 /obj/machinery/mineral/processing_unit_console/ui_data(mob/user)
 	return processing_machine.ui_data()
 
-/obj/machinery/mineral/processing_unit_console/ui_act(action, list/params)
+/obj/machinery/mineral/processing_unit_console/ui_act(action, list/params, datum/tgui/ui, datum/ui_state/state)
 	. = ..()
 	if(.)
 		return
@@ -248,7 +248,7 @@
 		on = FALSE
 	else
 		var/out = get_step(src, output_dir)
-		materials.retrieve_sheets(sheets_to_remove, mat, out)
+		materials.retrieve_stack(sheets_to_remove, mat, out)
 
 /obj/machinery/mineral/processing_unit/proc/smelt_alloy(seconds_per_tick = 2)
 	var/datum/design/alloy = stored_research.isDesignResearchedID(selected_alloy) //check if it's a valid design

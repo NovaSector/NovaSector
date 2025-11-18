@@ -1,15 +1,13 @@
-//THIS FILE HAS BEEN EDITED BY NOVA EDIT
-
-/obj/structure/dresser//NOVA EDIT - ICON OVERRIDDEN BY AESTHETICS - SEE MODULE
+/obj/structure/dresser
 	name = "dresser"
 	desc = "A nicely-crafted wooden dresser. It's filled with lots of undies."
-	icon = 'icons/obj/fluff/general.dmi'
+	icon = 'icons/obj/fluff/general.dmi' //NOVA EDIT - ICON OVERRIDDEN IN AESTHETICS MODULE
 	icon_state = "dresser"
 	resistance_flags = FLAMMABLE
 	density = TRUE
 	anchored = TRUE
 
-/obj/structure/dresser/attackby(obj/item/I, mob/user, params)
+/obj/structure/dresser/attackby(obj/item/I, mob/user, list/modifiers, list/attack_modifiers)
 	if(I.tool_behaviour == TOOL_WRENCH)
 		to_chat(user, span_notice("You begin to [anchored ? "unwrench" : "wrench"] [src]."))
 		if(I.use_tool(src, user, 20, volume=50))

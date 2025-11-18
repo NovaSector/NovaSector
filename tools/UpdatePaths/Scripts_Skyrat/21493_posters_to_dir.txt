@@ -1,37 +1,5 @@
 # Converts SR specific posters to dir
 
-# NRI
-
-/obj/structure/sign/poster/contraband/nri_rations{pixel_y = 32} : /obj/structure/sign/poster/contraband/nri_rations/directional/north{@OLD;pixel_y=@SKIP}
-/obj/structure/sign/poster/contraband/nri_rations{pixel_y = -32} : /obj/structure/sign/poster/contraband/nri_rations/directional/south{@OLD;pixel_y=@SKIP}
-/obj/structure/sign/poster/contraband/nri_rations{pixel_x = 32} : /obj/structure/sign/poster/contraband/nri_rations/directional/east{@OLD;pixel_x=@SKIP}
-/obj/structure/sign/poster/contraband/nri_rations{pixel_x = -32} : /obj/structure/sign/poster/contraband/nri_rations/directional/west{@OLD;pixel_x=@SKIP}
-
-/obj/structure/sign/poster/contraband/nri_text{pixel_y = 32} : /obj/structure/sign/poster/contraband/nri_text/directional/north{@OLD;pixel_y=@SKIP}
-/obj/structure/sign/poster/contraband/nri_text{pixel_y = -32} : /obj/structure/sign/poster/contraband/nri_text/directional/south{@OLD;pixel_y=@SKIP}
-/obj/structure/sign/poster/contraband/nri_text{pixel_x = 32} : /obj/structure/sign/poster/contraband/nri_text/directional/east{@OLD;pixel_x=@SKIP}
-/obj/structure/sign/poster/contraband/nri_text{pixel_x = -32} : /obj/structure/sign/poster/contraband/nri_text/directional/west{@OLD;pixel_x=@SKIP}
-
-/obj/structure/sign/poster/contraband/nri_voskhod{pixel_y = 32} : /obj/structure/sign/poster/contraband/nri_voskhod/directional/north{@OLD;pixel_y=@SKIP}
-/obj/structure/sign/poster/contraband/nri_voskhod{pixel_y = -32} : /obj/structure/sign/poster/contraband/nri_voskhod/directional/south{@OLD;pixel_y=@SKIP}
-/obj/structure/sign/poster/contraband/nri_voskhod{pixel_x = 32} : /obj/structure/sign/poster/contraband/nri_voskhod/directional/east{@OLD;pixel_x=@SKIP}
-/obj/structure/sign/poster/contraband/nri_voskhod{pixel_x = -32} : /obj/structure/sign/poster/contraband/nri_voskhod/directional/west{@OLD;pixel_x=@SKIP}
-
-/obj/structure/sign/poster/contraband/nri_pistol{pixel_y = 32} : /obj/structure/sign/poster/contraband/nri_pistol/directional/north{@OLD;pixel_y=@SKIP}
-/obj/structure/sign/poster/contraband/nri_pistol{pixel_y = -32} : /obj/structure/sign/poster/contraband/nri_pistol/directional/south{@OLD;pixel_y=@SKIP}
-/obj/structure/sign/poster/contraband/nri_pistol{pixel_x = 32} : /obj/structure/sign/poster/contraband/nri_pistol/directional/east{@OLD;pixel_x=@SKIP}
-/obj/structure/sign/poster/contraband/nri_pistol{pixel_x = -32} : /obj/structure/sign/poster/contraband/nri_pistol/directional/west{@OLD;pixel_x=@SKIP}
-
-/obj/structure/sign/poster/contraband/nri_engineer{pixel_y = 32} : /obj/structure/sign/poster/contraband/nri_engineer/directional/north{@OLD;pixel_y=@SKIP}
-/obj/structure/sign/poster/contraband/nri_engineer{pixel_y = -32} : /obj/structure/sign/poster/contraband/nri_engineer/directional/south{@OLD;pixel_y=@SKIP}
-/obj/structure/sign/poster/contraband/nri_engineer{pixel_x = 32} : /obj/structure/sign/poster/contraband/nri_engineer/directional/east{@OLD;pixel_x=@SKIP}
-/obj/structure/sign/poster/contraband/nri_engineer{pixel_x = -32} : /obj/structure/sign/poster/contraband/nri_engineer/directional/west{@OLD;pixel_x=@SKIP}
-
-/obj/structure/sign/poster/contraband/nri_radar{pixel_y = 32} : /obj/structure/sign/poster/contraband/nri_radar/directional/north{@OLD;pixel_y=@SKIP}
-/obj/structure/sign/poster/contraband/nri_radar{pixel_y = -32} : /obj/structure/sign/poster/contraband/nri_radar/directional/south{@OLD;pixel_y=@SKIP}
-/obj/structure/sign/poster/contraband/nri_radar{pixel_x = 32} : /obj/structure/sign/poster/contraband/nri_radar/directional/east{@OLD;pixel_x=@SKIP}
-/obj/structure/sign/poster/contraband/nri_radar{pixel_x = -32} : /obj/structure/sign/poster/contraband/nri_radar/directional/west{@OLD;pixel_x=@SKIP}
-
 # Custom Contraband
 
 /obj/structure/sign/poster/contraband/syndicate_medical{pixel_y = 32} : /obj/structure/sign/poster/contraband/syndicate_medical/directional/north{@OLD;pixel_y=@SKIP}

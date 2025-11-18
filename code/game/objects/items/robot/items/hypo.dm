@@ -56,19 +56,22 @@
 		/datum/reagent/consumable/berryjuice, /datum/reagent/consumable/cherryjelly, /datum/reagent/consumable/coffee,\
 		/datum/reagent/consumable/cream, /datum/reagent/consumable/dr_gibb, /datum/reagent/consumable/grenadine,\
 		/datum/reagent/consumable/ice, /datum/reagent/consumable/lemon_lime, /datum/reagent/consumable/limejuice,\
-		/datum/reagent/consumable/lemonjuice, /datum/reagent/consumable/menthol, /datum/reagent/consumable/nothing,\
-		/datum/reagent/consumable/milk, /datum/reagent/consumable/orangejuice, /datum/reagent/consumable/peachjuice,\
-		/datum/reagent/consumable/pineapplejuice, /datum/reagent/consumable/pwr_game, /datum/reagent/consumable/shamblers,\
-		/datum/reagent/consumable/sodawater, /datum/reagent/consumable/sol_dry, /datum/reagent/consumable/soymilk,\
-		/datum/reagent/consumable/space_cola, /datum/reagent/consumable/spacemountainwind, /datum/reagent/consumable/space_up,\
-		/datum/reagent/consumable/tea, /datum/reagent/consumable/tomatojuice, /datum/reagent/consumable/tonic,\
-		/datum/reagent/consumable/vinegar, /datum/reagent/water,\
-		/datum/reagent/consumable/ethanol/ale, /datum/reagent/consumable/ethanol/applejack, /datum/reagent/consumable/ethanol/beer,\
-		/datum/reagent/consumable/ethanol/champagne, /datum/reagent/consumable/ethanol/cognac, /datum/reagent/consumable/ethanol/creme_de_coconut,\
-		/datum/reagent/consumable/ethanol/creme_de_cacao, /datum/reagent/consumable/ethanol/creme_de_menthe, /datum/reagent/consumable/ethanol/gin,\
-		/datum/reagent/consumable/ethanol/kahlua, /datum/reagent/consumable/ethanol/rum, /datum/reagent/consumable/ethanol/sake,\
-		/datum/reagent/consumable/ethanol/tequila, /datum/reagent/consumable/ethanol/triple_sec, /datum/reagent/consumable/ethanol/vermouth,\
-		/datum/reagent/consumable/ethanol/vodka, /datum/reagent/consumable/ethanol/whiskey, /datum/reagent/consumable/ethanol/wine\
+		/datum/reagent/consumable/lemonjuice, /datum/reagent/consumable/melon_soda, /datum/reagent/consumable/menthol,\
+		/datum/reagent/consumable/milk, /datum/reagent/consumable/nothing, /datum/reagent/consumable/orangejuice,\
+		/datum/reagent/consumable/peachjuice, /datum/reagent/consumable/pineapplejuice, /datum/reagent/consumable/pwr_game,\
+		/datum/reagent/consumable/shamblers, /datum/reagent/consumable/sodawater, /datum/reagent/consumable/sol_dry,\
+		/datum/reagent/consumable/soymilk, /datum/reagent/consumable/space_cola, /datum/reagent/consumable/spacemountainwind,\
+		/datum/reagent/consumable/space_up, /datum/reagent/consumable/tea, /datum/reagent/consumable/tomatojuice,\
+		/datum/reagent/consumable/tonic, /datum/reagent/consumable/vinegar, /datum/reagent/water,\
+		/datum/reagent/consumable/ethanol/absinthe, /datum/reagent/consumable/ethanol/ale, /datum/reagent/consumable/ethanol/applejack,\
+		/datum/reagent/consumable/ethanol/beer, /datum/reagent/consumable/ethanol/champagne, /datum/reagent/consumable/ethanol/coconut_rum,\
+		/datum/reagent/consumable/ethanol/cognac, /datum/reagent/consumable/ethanol/creme_de_coconut, /datum/reagent/consumable/ethanol/creme_de_cacao,\
+		/datum/reagent/consumable/ethanol/creme_de_menthe, /datum/reagent/consumable/ethanol/curacao, /datum/reagent/consumable/ethanol/gin,\
+		/datum/reagent/consumable/ethanol/hcider, /datum/reagent/consumable/ethanol/kahlua, /datum/reagent/consumable/ethanol/beer/maltliquor,\
+		/datum/reagent/consumable/ethanol/navy_rum, /datum/reagent/consumable/ethanol/rice_beer, /datum/reagent/consumable/ethanol/rum,\
+		/datum/reagent/consumable/ethanol/sake, /datum/reagent/consumable/ethanol/tequila, /datum/reagent/consumable/ethanol/triple_sec,\
+		/datum/reagent/consumable/ethanol/vermouth, /datum/reagent/consumable/ethanol/vodka, /datum/reagent/consumable/ethanol/whiskey,\
+		/datum/reagent/consumable/ethanol/wine, /datum/reagent/consumable/ethanol/yuyake,\
 	)
 #define EXPANDED_SERVICE_REAGENTS list(\
 	/datum/reagent/consumable/blackpepper,\
@@ -90,6 +93,9 @@
 		/datum/reagent/toxin/fakebeer,\
 		/datum/reagent/consumable/ethanol/fernet,\
 )
+
+#define REAGENT_CONTAINER_INTERNAL "internal_beaker"
+#define REAGENT_CONTAINER_BEVAPPARATUS "beverage_apparatus"
 
 ///Borg Hypospray
 /obj/item/reagent_containers/borghypo
@@ -170,32 +176,36 @@
 					cyborg.cell.use(charge_cost)
 					stored_reagents.add_reagent(reagent_to_regen, 5, reagtemp = dispensed_temperature, no_react = TRUE)
 
-/obj/item/reagent_containers/borghypo/attack(mob/living/carbon/injectee, mob/user)
-	if(!istype(injectee))
-		return
+/obj/item/reagent_containers/borghypo/interact_with_atom(atom/interacting_with, mob/living/user, list/modifiers)
+	if(!iscarbon(interacting_with))
+		return NONE
+	var/mob/living/carbon/injectee = interacting_with
 	if(!selected_reagent)
 		balloon_alert(user, "no reagent selected!")
-		return
+		return ITEM_INTERACT_BLOCKING
 	if(!stored_reagents.has_reagent(selected_reagent.type, amount_per_transfer_from_this))
 		balloon_alert(user, "not enough [selected_reagent.name]!")
-		return
+		return ITEM_INTERACT_BLOCKING
 
-	if(injectee.try_inject(user, user.zone_selected, injection_flags = INJECT_TRY_SHOW_ERROR_MESSAGE | (bypass_protection ? INJECT_CHECK_PENETRATE_THICK : 0)))
-		// This is the in-between where we're storing the reagent we're going to inject the injectee with
-		// because we cannot specify a singular reagent to transfer in trans_to
-		var/datum/reagents/hypospray_injector = new()
-		stored_reagents.remove_reagent(selected_reagent.type, amount_per_transfer_from_this)
-		hypospray_injector.add_reagent(selected_reagent.type, amount_per_transfer_from_this, reagtemp = dispensed_temperature, no_react = TRUE)
-
-		to_chat(injectee, span_warning("You feel a tiny prick!"))
-		to_chat(user, span_notice("You inject [injectee] with the injector ([selected_reagent.name])."))
-
-		if(injectee.reagents)
-			hypospray_injector.trans_to(injectee, amount_per_transfer_from_this, transferred_by = user, methods = INJECT)
-			balloon_alert(user, "[amount_per_transfer_from_this] unit\s injected")
-			log_combat(user, injectee, "injected", src, "(CHEMICALS: [selected_reagent])")
-	else
+	if(!injectee.try_inject(user, user.zone_selected, injection_flags = INJECT_TRY_SHOW_ERROR_MESSAGE | (bypass_protection ? INJECT_CHECK_PENETRATE_THICK : 0)))
 		balloon_alert(user, "[injectee.parse_zone_with_bodypart(user.zone_selected)] is blocked!")
+		return ITEM_INTERACT_BLOCKING
+
+	// This is the in-between where we're storing the reagent we're going to inject the injectee with
+	// because we cannot specify a singular reagent to transfer in trans_to
+	var/datum/reagents/hypospray_injector = new()
+	stored_reagents.remove_reagent(selected_reagent.type, amount_per_transfer_from_this)
+	hypospray_injector.add_reagent(selected_reagent.type, amount_per_transfer_from_this, reagtemp = dispensed_temperature, no_react = TRUE)
+
+	to_chat(injectee, span_warning("You feel a tiny prick!"))
+	to_chat(user, span_notice("You inject [injectee] with the injector ([selected_reagent.name])."))
+	user.changeNext_move(CLICK_CD_MELEE)
+
+	if(injectee.reagents)
+		hypospray_injector.trans_to(injectee, amount_per_transfer_from_this, transferred_by = user, methods = INJECT)
+		balloon_alert(user, "[amount_per_transfer_from_this] unit\s injected")
+		log_combat(user, injectee, "injected", src, "(CHEMICALS: [selected_reagent])")
+	return ITEM_INTERACT_SUCCESS
 
 /obj/item/reagent_containers/borghypo/ui_interact(mob/user, datum/tgui/ui)
 	ui = SStgui.try_update_ui(user, src, ui)
@@ -206,12 +216,11 @@
 /obj/item/reagent_containers/borghypo/ui_data(mob/user)
 	var/list/available_reagents = list()
 	for(var/datum/reagent/reagent in stored_reagents.reagent_list)
-		if(reagent)
-			available_reagents.Add(list(list(
-				"name" = reagent.name,
-				"volume" = round(reagent.volume, 0.01) - 1,
-				"description" = reagent.description,
-			))) // list in a list because Byond merges the first list...
+		available_reagents.Add(list(list(
+			"name" = reagent.name,
+			"volume" = round(reagent.volume, 0.01) - 1,
+			"description" = reagent.description,
+		))) // list in a list because Byond merges the first list...
 
 	var/data = list()
 	data["theme"] = tgui_theme
@@ -223,7 +232,7 @@
 /obj/item/reagent_containers/borghypo/attack_self(mob/user)
 	ui_interact(user)
 
-/obj/item/reagent_containers/borghypo/ui_act(action, params)
+/obj/item/reagent_containers/borghypo/ui_act(action, list/params, datum/tgui/ui, datum/ui_state/state)
 	. = ..()
 	if(.)
 		return
@@ -329,12 +338,34 @@ NOVA EDIT REMOVAL END */
 	dispensed_temperature = WATER_MATTERSTATE_CHANGE_TEMP //Water stays wet, ice stays ice
 	default_reagent_types = BASE_SERVICE_REAGENTS
 	expanded_reagent_types = EXPANDED_SERVICE_REAGENTS
+	var/reagent_search_container = REAGENT_CONTAINER_BEVAPPARATUS
 
 /obj/item/reagent_containers/borghypo/borgshaker/ui_interact(mob/user, datum/tgui/ui)
 	ui = SStgui.try_update_ui(user, src, ui)
 	if(!ui)
 		ui = new(user, src, "BorgShaker", name)
 		ui.open()
+
+/obj/item/reagent_containers/borghypo/borgshaker/ui_act(action, params)
+	. = ..()
+	if(.)
+		return
+	var/mob/living/silicon/robot/user = usr
+	switch(action)
+		if("reaction_lookup")
+			if(!iscyborg(usr))
+				return
+			if (reagent_search_container == REAGENT_CONTAINER_BEVAPPARATUS)
+				var/obj/item/borg/apparatus/beaker/service/beverage_apparatus = (locate() in user.model.modules) || (locate() in user.held_items)
+				if (!isnull(beverage_apparatus) && !isnull(beverage_apparatus.stored))
+					beverage_apparatus.stored.reagents.ui_interact(user)
+			else if (reagent_search_container == REAGENT_CONTAINER_INTERNAL)
+				var/obj/item/reagent_containers/cup/beaker/large/internal_beaker = (locate() in user.model.modules) || (locate() in user.held_items)
+				if (!isnull(internal_beaker))
+					internal_beaker.reagents.ui_interact(user)
+		if ("set_preferred_container")
+			reagent_search_container = params["value"]
+	return TRUE
 
 /obj/item/reagent_containers/borghypo/borgshaker/ui_data(mob/user)
 	var/list/drink_reagents = list()
@@ -358,10 +389,18 @@ NOVA EDIT REMOVAL END */
 	data["sodas"] = drink_reagents
 	data["alcohols"] = alcohol_reagents
 	data["selectedReagent"] = selected_reagent?.name
-	return data
+	data["reagentSearchContainer"] = reagent_search_container
 
-/obj/item/reagent_containers/borghypo/borgshaker/attack(mob/M, mob/user)
-	return //Can't inject stuff with a shaker, can we? //not with that attitude
+	if(iscyborg(user))
+		var/mob/living/silicon/robot/cyborg = user
+		var/obj/item/borg/apparatus/beaker/service/beverage_apparatus = (locate() in cyborg.model.modules) || (locate() in cyborg.held_items)
+
+		if (isnull(beverage_apparatus))
+			to_chat(user, span_warning("This unit has no beverage apparatus. This shouldn't be possible. Delete yourself, NOW!"))
+			data["apparatusHasItem"] = FALSE
+		else
+			data["apparatusHasItem"] = !isnull(beverage_apparatus.stored)
+	return data
 
 /obj/item/reagent_containers/borghypo/borgshaker/interact_with_atom(atom/interacting_with, mob/living/user, list/modifiers)
 	if(!interacting_with.is_refillable())
@@ -408,12 +447,11 @@ NOVA EDIT REMOVAL END */
 /obj/item/reagent_containers/borghypo/condiment_synthesizer/ui_data(mob/user)
 	var/list/condiments = list()
 	for(var/datum/reagent/reagent in stored_reagents.reagent_list)
-		if(reagent)
-			condiments.Add(list(list(
-				"name" = reagent.name,
-				"volume" = round(reagent.volume, 0.01) - 1,
-				"description" = reagent.description,
-			))) // list in a list because Byond merges the first list...
+		condiments.Add(list(list(
+			"name" = reagent.name,
+			"volume" = round(reagent.volume, 0.01) - 1,
+			"description" = reagent.description,
+		))) // list in a list because Byond merges the first list...
 
 	var/data = list()
 	data["theme"] = tgui_theme
@@ -422,9 +460,6 @@ NOVA EDIT REMOVAL END */
 	data["reagents"] = condiments
 	data["selectedReagent"] = selected_reagent?.name
 	return data
-
-/obj/item/reagent_containers/borghypo/condiment_synthesizer/attack(mob/M, mob/user)
-	return
 
 /obj/item/reagent_containers/borghypo/condiment_synthesizer/interact_with_atom(atom/interacting_with, mob/living/user, list/modifiers)
 	if(!interacting_with.is_refillable())
@@ -456,6 +491,8 @@ NOVA EDIT REMOVAL END */
 	dispensed_temperature = WATER_MATTERSTATE_CHANGE_TEMP
 	default_reagent_types = HACKED_SERVICE_REAGENTS
 
+#undef REAGENT_CONTAINER_INTERNAL
+#undef REAGENT_CONTAINER_BEVAPPARATUS
 #undef BASE_MEDICAL_REAGENTS
 #undef EXPANDED_MEDICAL_REAGENTS
 #undef HACKED_MEDICAL_REAGENTS

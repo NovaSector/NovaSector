@@ -1,5 +1,6 @@
 /obj/item/food/grown/mushroom
 	name = "mushroom"
+	abstract_type = /obj/item/food/grown/mushroom
 	// This is a prototype that should never be spawned
 	// but we'll default it to SOME seed if it does end up spawning just so we don't runtime horribly
 	seed = /obj/item/seeds/chanter
@@ -197,7 +198,7 @@
 	desc = "<I>Cantharellus Cibarius</I>: These jolly yellow little shrooms sure look tasty!"
 	icon_state = "chanterelle"
 
-/obj/item/food/grown/mushroom/chanterelle/attackby(obj/item/I, mob/user, params)
+/obj/item/food/grown/mushroom/chanterelle/attackby(obj/item/I, mob/user, list/modifiers, list/attack_modifiers)
 	if(!istype(I, /obj/item/kitchen/spoon))
 		return ..()
 	if(seed.potency < 95)
@@ -205,11 +206,11 @@
 
 	to_chat(user, span_notice("You hollow up the chanterelle with [I]."))
 	remove_item_from_storage(user)
-	qdel(src)
 	if(seed.resistance_flags & FIRE_PROOF)
 		user.put_in_hands(new /obj/item/clothing/head/wizard/chanterelle/fr())
 	else
 		user.put_in_hands(new /obj/item/clothing/head/wizard/chanterelle())
+	qdel(src)
 
 //Jupiter Cup
 /obj/item/seeds/chanter/jupitercup

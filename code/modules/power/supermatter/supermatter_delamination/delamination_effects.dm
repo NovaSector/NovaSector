@@ -1,3 +1,5 @@
+#define DELAM_MAX_DEVASTATION 17.5
+
 // These are supposed to be discrete effects so we can tell at a glance what does each override
 // of [/datum/sm_delam/proc/delaminate] does.
 // Please keep them discrete and give them proper, descriptive function names.
@@ -25,18 +27,25 @@
 			continue
 
 		//Hilariously enough, running into a closet should make you get hit the hardest.
-		var/hallucination_amount = max(100 SECONDS, min(600 SECONDS, DETONATION_HALLUCINATION * sqrt(1 / (get_dist(victim, src) + 1))))
+		//duration between min and max, calculated by distance from the supermatter and size of the delam explosion
+		var/hallucination_amount = LERP(DETONATION_HALLUCINATION_MIN, DETONATION_HALLUCINATION_MAX, 1 - get_dist(victim, sm) / 128) * LERP(0.75, 1.25, calculate_explosion(sm) * 0.5 / DELAM_MAX_DEVASTATION)
 		victim.adjust_hallucinations(hallucination_amount)
 
 	for(var/mob/victim as anything in GLOB.player_list)
 		var/turf/victim_turf = get_turf(victim)
 		if(!is_valid_z_level(victim_turf, sm_turf))
 			continue
-		victim.playsound_local(victim_turf, 'sound/magic/charge.ogg')
+		victim.playsound_local(victim_turf, 'sound/effects/magic/charge.ogg')
 		if(victim.z == 0) //victim is inside an object, this is to maintain an old bug turned feature with lockers n shit i guess. tg issue #69687
-			to_chat(victim, span_boldannounce("You hold onto \the [victim.loc] as hard as you can, as reality distorts around you. You feel safe."))
+			var/message = ""
+			var/location = victim.loc
+			if(istype(location, /obj/structure/disposalholder)) // sometimes your loc can be a disposalsholder when you're inside a disposals type, so let's just pass a message that makes sense.
+				message = "You hear a lot of rattling in the disposal pipes around you as reality itself distorts. Yet, you feel safe."
+			else
+				message = "You hold onto \the [victim.loc] as hard as you can, as reality distorts around you. You feel safe."
+			to_chat(victim, span_bolddanger(message))
 			continue
-		to_chat(victim, span_boldannounce("You feel reality distort for a moment..."))
+		to_chat(victim, span_bolddanger("You feel reality distort for a moment..."))
 		if (isliving(victim))
 			var/mob/living/living_victim = victim
 			living_victim.add_mood_event("delam", /datum/mood_event/delam)
@@ -69,19 +78,19 @@
 
 /// Explodes
 /datum/sm_delam/proc/effect_explosion(obj/machinery/power/supermatter_crystal/sm)
-	var/explosion_power = sm.explosion_power
-	var/power_scaling = sm.gas_heat_power_generation
 	var/turf/sm_turf = get_turf(sm)
-	//Dear mappers, balance the sm max explosion radius to 17.5, 37, 39, 41
 	explosion(origin = sm_turf,
-		devastation_range = explosion_power * max(power_scaling, 0.205) * 0.5,
-		heavy_impact_range = explosion_power * max(power_scaling, 0.205) + 2,
-		light_impact_range = explosion_power * max(power_scaling, 0.205) + 4,
-		flash_range = explosion_power * max(power_scaling, 0.205) + 6,
+		devastation_range = calculate_explosion(sm) * 0.5, // max 17.5
+		heavy_impact_range = calculate_explosion(sm) + 2, // max 37
+		light_impact_range = calculate_explosion(sm) + 4, // max 39
+		flash_range = calculate_explosion(sm) + 6, //max 41
 		adminlog = TRUE,
 		ignorecap = TRUE
 	)
 	return TRUE
+
+/datum/sm_delam/proc/calculate_explosion(obj/machinery/power/supermatter_crystal/sm)
+	return sm.explosion_power * max(sm.gas_heat_power_generation, 0.205)
 
 /// Spawns a scrung and eat the SM.
 /datum/sm_delam/proc/effect_singulo(obj/machinery/power/supermatter_crystal/sm)
@@ -134,7 +143,7 @@
 		priority_announce(
 			text = "Fatal error occurred in emergency shuttle uplink during transit. Unable to reestablish connection.",
 			title = "Shuttle Failure",
-			sound = ANNOUNCER_SHUTTLE, // NOVA EDIT CHANGE - Announcer Sounds - ORIGINAL: sound = 'sound/misc/announce_dig.ogg',
+			sound = ANNOUNCER_SHUTTLE, // NOVA EDIT CHANGE - Announcer Sounds - ORIGINAL: sound =  'sound/announcer/announcement/announce_dig.ogg',
 			sender_override = "Emergency Shuttle Uplink Alert",
 			color_override = "grey",
 		)
@@ -155,9 +164,9 @@
 	for(var/mob/player as anything in GLOB.player_list)
 		if(!isdead(player))
 			var/mob/living/living_player = player
-			to_chat(player, span_boldannounce("Everything around you is resonating with a powerful energy. This can't be good."))
+			to_chat(player, span_bolddanger("Everything around you is resonating with a powerful energy. This can't be good."))
 			living_player.add_mood_event("cascade", /datum/mood_event/cascade)
-		SEND_SOUND(player, 'sound/magic/charge.ogg')
+		SEND_SOUND(player, 'sound/effects/magic/charge.ogg')
 
 /datum/sm_delam/proc/effect_emergency_state()
 	if(SSsecurity_level.get_current_level_as_number() != SEC_LEVEL_DELTA)
@@ -222,3 +231,5 @@
 			spawn_location = pick_n_take(possible_spawns)
 		while(get_dist(spawn_location, avoid) < 30)
 		new /obj/crystal_mass(get_turf(spawn_location))
+
+#undef DELAM_MAX_DEVASTATION

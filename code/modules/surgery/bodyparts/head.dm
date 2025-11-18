@@ -18,9 +18,10 @@
 	grind_results = null
 	is_dimorphic = TRUE
 	unarmed_attack_verbs = list("bite", "chomp")
+	unarmed_attack_verbs_continuous = list("bites", "chomps")
 	unarmed_attack_effect = ATTACK_EFFECT_BITE
-	unarmed_attack_sound = 'sound/weapons/bite.ogg'
-	unarmed_miss_sound = 'sound/weapons/bite.ogg'
+	unarmed_attack_sound = 'sound/items/weapons/bite.ogg'
+	unarmed_miss_sound = 'sound/items/weapons/bite.ogg'
 	unarmed_damage_low = 1 // Yeah, biteing is pretty weak, blame the monkey super-nerf
 	unarmed_damage_high = 3
 	unarmed_effectiveness = 0
@@ -33,7 +34,7 @@
 	/// Replacement name
 	var/real_name = ""
 	/// Flags related to appearance, such as hair, lips, etc
-	var/head_flags = HEAD_ALL_FEATURES
+	var/head_flags = HEAD_DEFAULT_FEATURES
 
 	/// Hair style
 	var/hairstyle = "Bald"
@@ -43,6 +44,8 @@
 	var/hair_alpha = 255
 	/// Is the hair currently hidden by something?
 	var/hair_hidden = FALSE
+	/// Lazy initialized hashset of all hair mask types that should be applied
+	var/list/hair_masks
 
 	///Facial hair style
 	var/facial_hairstyle = "Shaved"
@@ -111,7 +114,7 @@
 /obj/item/bodypart/head/examine(mob/user)
 	. = ..()
 	if(show_organs_on_examine && IS_ORGANIC_LIMB(src))
-		var/obj/item/organ/internal/brain/brain = locate(/obj/item/organ/internal/brain) in src
+		var/obj/item/organ/brain/brain = locate(/obj/item/organ/brain) in src
 		if(!brain)
 			. += span_info("The brain has been removed from [src].")
 		else if(brain.suicided || (brain.brainmob && HAS_TRAIT(brain.brainmob, TRAIT_SUICIDED)))
@@ -128,13 +131,13 @@
 		else
 			. += span_info("It's completely lifeless.")
 
-		if(!(locate(/obj/item/organ/internal/eyes) in src))
+		if(!(locate(/obj/item/organ/eyes) in src))
 			. += span_info("[real_name]'s eyes have been removed.")
 
-		if(!(locate(/obj/item/organ/internal/ears) in src))
+		if(!(locate(/obj/item/organ/ears) in src))
 			. += span_info("[real_name]'s ears have been removed.")
 
-		if(!(locate(/obj/item/organ/internal/tongue) in src))
+		if(!(locate(/obj/item/organ/tongue) in src))
 			. += span_info("[real_name]'s tongue has been removed.")
 
 /obj/item/bodypart/head/can_dismember(obj/item/item)
@@ -149,7 +152,7 @@
 /obj/item/bodypart/head/drop_organs(mob/user, violent_removal)
 	if(user)
 		user.visible_message(span_warning("[user] saws [src] open and pulls out a brain!"), span_notice("You saw [src] open and pull out a brain."))
-	var/obj/item/organ/internal/brain/brain = locate(/obj/item/organ/internal/brain) in src
+	var/obj/item/organ/brain/brain = locate(/obj/item/organ/brain) in src
 	if(brain && violent_removal && prob(90)) //ghetto surgery can damage the brain.
 		to_chat(user, span_warning("[brain] was damaged in the process!"))
 		brain.set_organ_damage(brain.maxHealth)
@@ -168,69 +171,86 @@
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-/obj/item/bodypart/head/get_limb_icon(dropped)
+/obj/item/bodypart/head/get_limb_icon(dropped, mob/living/carbon/update_on)
 	. = ..()
-
 	. += get_hair_and_lips_icon(dropped)
 	// We need to get the eyes if we are dropped (ugh)
-	if(dropped)
-		var/obj/item/organ/internal/eyes/eyes = locate(/obj/item/organ/internal/eyes) in src
-		// This is a bit of copy/paste code from eyes.dm:generate_body_overlay
-		if(eyes?.eye_icon_state && (head_flags & HEAD_EYESPRITES))
-			var/image/eye_left = image('icons/mob/human/human_face.dmi', "[eyes.eye_icon_state]_l", -BODY_LAYER, SOUTH)
-			var/image/eye_right = image('icons/mob/human/human_face.dmi', "[eyes.eye_icon_state]_r", -BODY_LAYER, SOUTH)
-			if(head_flags & HEAD_EYECOLOR)
-				if(eyes.eye_color_left)
-					eye_left.color = eyes.eye_color_left
-				if(eyes.eye_color_right)
-					eye_right.color = eyes.eye_color_right
-			if(eyes.overlay_ignore_lighting)
-				eye_left.overlays += emissive_appearance(eye_left.icon, eye_left.icon_state, src, alpha = eye_left.alpha)
-				eye_right.overlays += emissive_appearance(eye_right.icon, eye_right.icon_state, src, alpha = eye_right.alpha)
-			else if(blocks_emissive != EMISSIVE_BLOCK_NONE)
-				var/atom/location = loc || owner || src
-				eye_left.overlays += emissive_blocker(eye_left.icon, eye_left.icon_state, location, alpha = eye_left.alpha)
-				eye_right.overlays += emissive_blocker(eye_right.icon, eye_right.icon_state, location, alpha = eye_right.alpha)
+	if(!dropped)
+		return
+
+	var/obj/item/organ/eyes/eyes = locate(/obj/item/organ/eyes) in src
+	if(!eyes)
+		if (!(head_flags & HEAD_EYEHOLES))
+			return
+		var/image/no_eyes = image('icons/mob/human/human_face.dmi', "eyes_missing", -EYES_LAYER, SOUTH)
+		worn_face_offset?.apply_offset(no_eyes)
+		. += no_eyes
+		return
+
+	if(!eyes.eye_icon_state || !(head_flags & HEAD_EYESPRITES))
+		return
+
+	// This is a bit of copy/paste code from eyes.dm:generate_body_overlay
+	var/image/eye_left = image('icons/mob/human/human_face.dmi', "[eyes.eye_icon_state]_l", -EYES_LAYER, SOUTH)
+	var/image/eye_right = image('icons/mob/human/human_face.dmi', "[eyes.eye_icon_state]_r", -EYES_LAYER, SOUTH)
+	if(head_flags & HEAD_EYECOLOR)
+		if(eyes.eye_color_left)
+			eye_left.color = eyes.eye_color_left
+		if(eyes.eye_color_right)
+			eye_right.color = eyes.eye_color_right
+
+	var/list/emissive_overlays = eyes.get_emissive_overlays(eye_left, eye_right, src)
+	if(length(emissive_overlays))
+		eye_left.overlays += image(emissive_overlays[1], dir = SOUTH)
+		eye_right.overlays += image(emissive_overlays[2], dir = SOUTH)
+	else if(blocks_emissive != EMISSIVE_BLOCK_NONE)
+		eye_left.overlays += image(emissive_blocker(eye_left.icon, eye_left.icon_state, src, alpha = eye_left.alpha), dir = SOUTH)
+		eye_right.overlays += image(emissive_blocker(eye_right.icon, eye_right.icon_state, src, alpha = eye_right.alpha), dir = SOUTH)
+
+	if(worn_face_offset)
+		worn_face_offset.apply_offset(eye_left)
+		worn_face_offset.apply_offset(eye_right)
+		// NOVA EDIT ADDITION START - Customization (Emissives and synths)
+		if(eyes.eye_icon_state == "None")
+			eye_left.alpha = 0
+			eye_right.alpha = 0
+
+		if (eyes.is_emissive) // Because it was done all weird up there.
+			var/mutable_appearance/emissive_left = emissive_appearance(eye_left.icon, eye_left.icon_state, src, -BODY_LAYER, eye_left.alpha)
+			var/mutable_appearance/emissive_right = emissive_appearance(eye_right.icon, eye_right.icon_state, src, -BODY_LAYER, eye_right.alpha)
+
+			emissive_left.appearance_flags &= ~RESET_TRANSFORM
+			emissive_right.appearance_flags &= ~RESET_TRANSFORM
+
 			if(worn_face_offset)
-				worn_face_offset.apply_offset(eye_left)
-				worn_face_offset.apply_offset(eye_right)
+				worn_face_offset.apply_offset(emissive_right)
+				worn_face_offset.apply_offset(emissive_left)
 
-			// NOVA EDIT ADDITION START - Customization (Emissives and synths)
-			if(eyes.eye_icon_state == "None")
-				eye_left.alpha = 0
-				eye_right.alpha = 0
+			eye_left.overlays += emissive_left
+			eye_right.overlays += emissive_right
+		// NOVA EDIT ADDITION END
 
-			if (eyes.is_emissive) // Because it was done all weird up there.
-				var/mutable_appearance/emissive_left = emissive_appearance(eye_left.icon, eye_left.icon_state, src, -BODY_LAYER, eye_left.alpha)
-				var/mutable_appearance/emissive_right = emissive_appearance(eye_right.icon, eye_right.icon_state, src, -BODY_LAYER, eye_right.alpha)
-
-				emissive_left.appearance_flags &= ~RESET_TRANSFORM
-				emissive_right.appearance_flags &= ~RESET_TRANSFORM
-
-				if(worn_face_offset)
-					worn_face_offset.apply_offset(emissive_right)
-					worn_face_offset.apply_offset(emissive_left)
-
-				eye_left.overlays += emissive_left
-				eye_right.overlays += emissive_right
-
-			// NOVA EDIT END
-
-			. += eye_left
-			. += eye_right
-		else if(!eyes && (head_flags & HEAD_EYEHOLES))
-			var/image/no_eyes = image('icons/mob/human/human_face.dmi', "eyes_missing", -BODY_LAYER, SOUTH)
-			worn_face_offset?.apply_offset(no_eyes)
-			. += no_eyes
-
-	return
+	. += eye_left
+	. += eye_right
 
 /obj/item/bodypart/head/Initialize(mapload)
 	. = ..()
 	AddElement(/datum/element/toy_talk)
 
-/obj/item/bodypart/head/GetVoice()
+/obj/item/bodypart/head/get_voice(add_id_name)
 	return "The head of [real_name]"
+
+/obj/item/bodypart/head/update_bodypart_damage_state()
+	if (head_flags & HEAD_NO_DISFIGURE)
+		return ..()
+
+	var/old_states = brutestate + burnstate
+	. = ..()
+	var/new_states = brutestate + burnstate
+	if(new_states >= HUMAN_DISFIGURATION_HEAD_DAMAGE_STATES)
+		add_bodypart_trait(TRAIT_DISFIGURED)
+	else if(old_states >= HUMAN_DISFIGURATION_HEAD_DAMAGE_STATES)
+		remove_bodypart_trait(TRAIT_DISFIGURED)
 
 /obj/item/bodypart/head/monkey
 	icon = 'icons/mob/human/species/monkey/bodyparts.dmi'
@@ -245,6 +265,19 @@
 	is_dimorphic = FALSE
 	head_flags = HEAD_LIPS|HEAD_DEBRAIN
 
+/obj/item/bodypart/head/monkey/Initialize(mapload)
+	worn_head_offset = new(
+		attached_part = src,
+		feature_key = OFFSET_HEAD,
+		offset_y = list("south" = 1),
+	)
+	worn_glasses_offset = new(
+		attached_part = src,
+		feature_key = OFFSET_GLASSES,
+		offset_y = list("south" = 1),
+	)
+	return ..()
+
 /obj/item/bodypart/head/alien
 	icon = 'icons/mob/human/species/alien/bodyparts.dmi'
 	icon_static = 'icons/mob/human/species/alien/bodyparts.dmi'
@@ -256,6 +289,7 @@
 	px_y = 0
 	bodypart_flags = BODYPART_UNREMOVABLE
 	max_damage = LIMB_MAX_HP_ALIEN_CORE
+	burn_modifier = LIMB_ALIEN_BURN_DAMAGE_MULTIPLIER
 	bodytype = BODYTYPE_ALIEN | BODYTYPE_ORGANIC
 	bodyshape = BODYSHAPE_HUMANOID
 
@@ -270,4 +304,5 @@
 	px_y = 0
 	bodypart_flags = BODYPART_UNREMOVABLE
 	max_damage = LIMB_MAX_HP_ALIEN_LARVA
+	burn_modifier = LIMB_ALIEN_BURN_DAMAGE_MULTIPLIER
 	bodytype = BODYTYPE_LARVA_PLACEHOLDER | BODYTYPE_ORGANIC

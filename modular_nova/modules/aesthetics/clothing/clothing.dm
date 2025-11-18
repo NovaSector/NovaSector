@@ -9,10 +9,11 @@
 	//TG's is ugly as sin, until it's updated we have our own
 
 /*
-*	SHOES
+*	HANDS
 */
 
-/obj/item/clothing/shoes/workboots/old
-	worn_icon = 'modular_nova/master_files/icons/mob/clothing/feet.dmi'
-	icon = 'modular_nova/master_files/icons/obj/clothing/shoes.dmi'
-	icon_state = "workbootsold"
+/obj/item/clothing/gloves/combat
+	icon = 'modular_nova/master_files/icons/obj/clothing/gloves.dmi'
+	worn_icon = 'modular_nova/master_files/icons/mob/clothing/hands.dmi'
+	icon_state = "combat"
+	worn_icon_teshari = TESHARI_HANDS_ICON

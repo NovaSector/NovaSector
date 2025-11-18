@@ -1,51 +1,78 @@
 #define AMMO_MATS_SHOTGUN list(/datum/material/iron = SMALL_MATERIAL_AMOUNT * 4) // not quite as thick as a half-sheet
 
 #define AMMO_MATS_SHOTGUN_FLECH list(/datum/material/iron = SMALL_MATERIAL_AMOUNT * 2,\
-									/datum/material/glass = SMALL_MATERIAL_AMOUNT * 2)
+									/datum/material/glass = SMALL_MATERIAL_AMOUNT * 2,)
 
 #define AMMO_MATS_SHOTGUN_HIVE list(/datum/material/iron = SMALL_MATERIAL_AMOUNT * 2,\
 									/datum/material/plasma = SMALL_MATERIAL_AMOUNT * 1,\
-									/datum/material/silver = SMALL_MATERIAL_AMOUNT * 1)
+									/datum/material/silver = SMALL_MATERIAL_AMOUNT * 1,)
 
 #define AMMO_MATS_SHOTGUN_TIDE list(/datum/material/iron = SMALL_MATERIAL_AMOUNT * 2,\
 									/datum/material/plasma = SMALL_MATERIAL_AMOUNT * 1,\
-									/datum/material/gold = SMALL_MATERIAL_AMOUNT * 1)
+									/datum/material/gold = SMALL_MATERIAL_AMOUNT * 1,)
 
 #define AMMO_MATS_SHOTGUN_PLASMA list(/datum/material/iron = SMALL_MATERIAL_AMOUNT * 2,\
-									/datum/material/plasma = SMALL_MATERIAL_AMOUNT * 2)
+									/datum/material/plasma = SMALL_MATERIAL_AMOUNT * 2,)
+
+#define AMMO_MATS_SHOTGUN_PENDART list(/datum/material/iron = SMALL_MATERIAL_AMOUNT * 3,\
+									/datum/material/diamond = SMALL_MATERIAL_AMOUNT * 1,)
 
 /obj/item/ammo_casing/shotgun
 	icon = 'modular_nova/modules/shotgunrebalance/icons/shotshells.dmi'
 	desc = "A 12 gauge iron slug."
 	custom_materials = AMMO_MATS_SHOTGUN
 
-// THE BELOW TWO SLUGS ARE NOTED AS ADMINONLY AND HAVE ***EIGHTY*** WOUND BONUS. NOT BARE WOUND BONUS. FLAT WOUND BONUS.
+/obj/projectile/bullet/shotgun_slug
+	// tg stats at time of writing: 25 damage, 30 AP
+	// buffed to 50 force, nerfed to 10 AP
+	// for some parity with old stats, except the 10 AP buff
+	damage = 30
+	armour_penetration = 10
+	wound_bonus = 5
+	exposed_wound_bonus = 10
+
+/obj/item/ammo_casing/shotgun/milspec
+	desc = "A hot-loaded 12 gauge milspec slug shell, used by various paramilitaries and mercenary forces. Probably not legal to use under corporate regulations."
+	icon_state = "mblshell"
+	ammo_categories = AMMO_CLASS_SUPER
+	custom_materials = AMMO_MATS_HEAVY_FAST
+
+/obj/projectile/bullet/shotgun_slug/milspec
+	// tg stats at time of writing: 50 damage, 30 AP (inherited from base slugs)
+	// buffed to 60 force, keeps the 30 AP to give it an edge over base, easily produced slugs
+	// also gets extra speed to give it another edge
+	damage = 25
+	armour_penetration = 30
+	speed = 1.5
+	wound_bonus = 10
+	exposed_wound_bonus = 10
+
+// THE BELOW TWO SLUGS ARE NOTED AS ADMIN ONLY AND HAVE ***EIGHTY*** WOUND BONUS. NOT BARE WOUND BONUS. FLAT WOUND BONUS.
 /obj/item/ammo_casing/shotgun/executioner
 	name = "expanding shotgun slug"
 	desc = "A 12 gauge fragmenting slug purpose-built to annihilate flesh on impact."
-	can_be_printed = FALSE // noted as adminonly in code/modules/projectiles/projectile/bullets/shotgun.dm.
+	can_be_printed = FALSE // noted as admin only in code/modules/projectiles/projectile/bullets/shotgun.dm.
 
 /obj/item/ammo_casing/shotgun/pulverizer
 	name = "pulverizer shotgun slug"
 	desc = "A 12 gauge uranium slug purpose-built to break bones on impact."
-	can_be_printed = FALSE // noted as adminonly in code/modules/projectiles/projectile/bullets/shotgun.dm
+	can_be_printed = FALSE // noted as admin only in code/modules/projectiles/projectile/bullets/shotgun.dm
+
+/obj/item/ammo_casing/shotgun/beanbag
+	harmful = FALSE
+	ammo_categories = AMMO_CLASS_NONE
 
 /obj/item/ammo_casing/shotgun/incendiary
-	name = "incendiary slug"
-	desc = "A 12 gauge magnesium slug meant for \"setting shit on fire and looking cool while you do it\".\
-	<br><br>\
-	<i>INCENDIARY: Leaves a trail of fire when shot, sets targets aflame.</i>"
-	advanced_print_req = TRUE
+	desc = "A 12 gauge shotgun slug coated with incendiary material.\
+		<br><br>\
+		<i>INCENDIARY: Sets targets aflame. Leaves a flaming trail when shot.</i>"
+	ammo_categories = AMMO_CLASS_NICHE
 	custom_materials = AMMO_MATS_SHOTGUN_PLASMA
 
-/obj/item/ammo_casing/shotgun/techshell
-	can_be_printed = FALSE // techshell... casing! so not really usable on its own but if you're gonna make these go raid a seclathe.
-
-/obj/item/ammo_casing/shotgun/improvised
-	can_be_printed = FALSE // this is literally made out of scrap why would you use this if you have a perfectly good ammolathe
-
-/obj/item/ammo_casing/shotgun/dart/bioterror
-	can_be_printed = FALSE // PRELOADED WITH TERROR CHEMS MAYBE LET'S NOT
+/obj/item/ammo_casing/shotgun/incendiary/no_trail
+	desc = "A 12 gauge shotgun slug coated with incendiary material.\
+		<br><br>\
+		<i>PRECISION INCENDIARY: Sets targets aflame. Does not leave a flaming trail when shot.</i>"
 
 /obj/item/ammo_casing/shotgun/dragonsbreath
 	can_be_printed = FALSE // techshell. assumed intended balance being a pain to assemble
@@ -56,60 +83,132 @@
 	can_be_printed = FALSE // comment out if you want rocket tag shotgun ammo being printable
 
 /obj/item/ammo_casing/shotgun/meteorslug
-	name = "meteor slug"
+	name = "meteorslug shell"
 	desc = "A 12 gauge shell rigged with CMC technology which launches a heap of matter with great force when fired.\
-	<br><br>\
-	<i>METEOR: Fires a meteor-like projectile that knocks back movable objects like people and airlocks.</i>"
-	can_be_printed = FALSE // techshell. assumed intended balance being a pain to assemble
-
-/obj/item/ammo_casing/shotgun/frag12
-	name = "FRAG-12 slug"
-	desc = "A 12 gauge shell containing high explosives designed for defeating some barriers and light vehicles, disrupting IEDs, or intercepting assistants.\
-	<br><br>\
-	<i>HIGH EXPLOSIVE: Explodes on impact.</i>"
+		<br><br>\
+		<i>METEOR: Fires a meteor-like projectile that knocks back movable objects like people and airlocks.</i>"
 	can_be_printed = FALSE // techshell. assumed intended balance being a pain to assemble
 
 /obj/item/ammo_casing/shotgun/pulseslug
 	can_be_printed = FALSE // techshell. assumed intended balance being a pain to assemble
 
-/obj/item/ammo_casing/shotgun/laserslug
+/obj/item/ammo_casing/shotgun/frag12
+	name = "FRAG-12 slug"
+	desc = "A 12 gauge shell containing high explosives designed for defeating some barriers and light vehicles, disrupting IEDs, or intercepting assistants.\
+		<br><br>\
+		<i>HIGH EXPLOSIVE: Explodes on impact.</i>"
 	can_be_printed = FALSE // techshell. assumed intended balance being a pain to assemble
-
-/obj/item/ammo_casing/shotgun/ion
-	can_be_printed = FALSE // techshell. assumed intended balance being a pain to assemble
-
-/obj/item/ammo_casing/shotgun/incapacitate
-	name = "hornet's nest shell"
-	desc = "A 12 gauge shell filled with some kind of material that excels at incapacitating targets. Contains a lot of pellets, \
-	sacrificing individual pellet strength for sheer stopping power in what's best described as \"spitting distance\".\
-	<br><br>\
-	<i>HORNET'S NEST: Fire an overwhelming amount of projectiles in a single shot.</i>"
-	can_be_printed = FALSE
 
 /obj/item/ammo_casing/shotgun/buckshot
 	name = "buckshot shell"
-	desc = "A 12 gauge buckshot shell."
 	icon_state = "gshell"
 	projectile_type = /obj/projectile/bullet/pellet/shotgun_buckshot
-	pellets = 8 // 8 * 6 for 48 damage if every pellet hits, we want to keep lethal shells ~50 damage
-	variance = 25
+	pellets = 8 // 5 * 12 for 40 damage if every pellet hits, we want to keep lethal shells ~35-40 damage
+	variance = 20
+
+/obj/item/ammo_casing/shotgun/buckshot/old
+	name = "old buckshot shell"
+	desc = "A 12 gauge buckshot shell. Improper storage makes using this a questionable prospect, at best."
+	can_be_printed = FALSE // it's just not good
 
 /obj/projectile/bullet/pellet/shotgun_buckshot
-	name = "buckshot pellet"
-	damage = 6
+	damage = 5
+	weak_against_armour = TRUE
+	wound_bonus = 5
+	exposed_wound_bonus = 10
+
+/obj/item/ammo_casing/shotgun/buckshot/milspec
+	desc = "A hot-loaded 12 gauge milspec buckshot shell, used by various paramilitaries and mercenary forces. Probably not legal to use under corporate regulations."
+	icon_state = "mgshell"
+	variance = 15
+	ammo_categories = AMMO_CLASS_SUPER
+	custom_materials = AMMO_MATS_HEAVY_FAST
+
+/obj/projectile/bullet/pellet/shotgun_buckshot/milspec
+	damage = 6 // 6 * 12 = 72
+	damage_falloff_tile = -0.1
+	wound_falloff_tile = -0.25
+	speed = 1.5
+	armour_penetration = 5
+	weak_against_armour = FALSE // lmao
 
 /obj/item/ammo_casing/shotgun/rubbershot
-	name = "rubber shot"
-	desc = "A shotgun casing filled with densely-packed rubber balls, used to incapacitate crowds from a distance."
+	name = "rubber shot shell"
+	desc = "A shotgun casing filled with dense rubber balls, used to incapacitate crowds from a distance."
 	icon_state = "rshell"
 	projectile_type = /obj/projectile/bullet/pellet/shotgun_rubbershot
 	pellets = 6 // 6 * 10 for 60 stamina damage, + some small amount of brute, we want to keep less lethal shells ~60
-	variance = 20
+	variance = 27
+	ammo_categories = AMMO_CLASS_NONE
 	harmful = FALSE
 
 /obj/projectile/bullet/pellet/shotgun_rubbershot
 	stamina = 10
+	speed = 1
+	weak_against_armour = TRUE
 
+/obj/item/ammo_casing/shotgun/incapacitate
+	name = "incapacitator shell"
+	desc = "A 12 gauge shell filled with some kind of material that excels at incapacitating targets. Contains a lot of pellets, \
+		sacrificing individual pellet strength for sheer stopping power in what's best described as \"spitting distance\".\
+		<br><br>\
+		<i>INCAPACITATOR: Fire an overwhelming amount of projectiles in a single shot.</i>"
+	// 12 pellets * 6 stam per pellet = 72 stam
+	// but it's also got 25 variance so you're either in spitting distance or missing
+	ammo_categories = AMMO_CLASS_NICHE_LTL
+	harmful = FALSE
+
+/obj/item/ammo_casing/shotgun/flechette
+	name = "shredder flechette shell"
+	desc = "A 12 gauge flechette shell that specializes in cutting through armor and embedding like hell."
+	ammo_categories = AMMO_CLASS_SUPER // i mean with exotic tech you get to print this for free anyway
+	// Points-cost is gone, this may need additional balance.
+	// Why didn't these already use flechette materials though??
+	custom_materials = AMMO_MATS_SHOTGUN_FLECH
+
+/obj/projectile/bullet/pellet/flechette
+	name = "shredder flechette"
+	damage = 5 // 8*5 = 40 damage but you've got 30 AP which basically smokes most armor
+	damage_falloff_tile = -0.1 // less falloff/longer ranges, though
+	speed = 1.3 // you can have above average projectile speed. as a treat
+	wound_bonus = 5
+	exposed_wound_bonus = 10
+	// embeds staying untouched because i think they're evil and deserve to wreak havoc
+
+/obj/item/ammo_casing/shotgun/flechette/donk
+	ammo_categories = AMMO_CLASS_NONE
+
+/obj/item/ammo_casing/shotgun/ion
+	can_be_printed = FALSE // techshell. assumed intended balance being a pain to assemble
+
+/obj/item/ammo_casing/shotgun/scatterlaser
+	ammo_categories = AMMO_CLASS_NICHE // it's techy okay.
+
+/obj/item/ammo_casing/shotgun/techshell
+	can_be_printed = FALSE // techshell... casing! so not really usable on its own but if you're gonna make these go raid a seclathe.
+	// then again since it doesn't have any defined projectile you're not printing it anyway.
+
+/obj/item/ammo_casing/shotgun/dart
+	ammo_categories = AMMO_CLASS_NICHE_LTL // technically.
+
+/obj/item/ammo_casing/shotgun/dart/piercing
+	name = "piercing shotgun dart"
+	desc = "A diamond-tipped piercing dart for use in shotguns, trading capacity for penetration. Can be injected with up to 5 units of any chemical."
+	icon_state = "pcshell"
+	projectile_type = /obj/projectile/bullet/dart/piercing
+	reagent_amount = 5
+	custom_materials = AMMO_MATS_SHOTGUN_PENDART
+
+/obj/item/ammo_casing/shotgun/dart/bioterror
+	can_be_printed = FALSE // PRELOADED WITH TERROR CHEMS MAYBE LET'S NOT
+
+/obj/item/ammo_casing/shotgun/breacher
+	ammo_categories = AMMO_CLASS_NICHE_LTL
+	can_be_printed = FALSE
+	// on one hand, 1k damage against airlocks. and mechs. and borgs.
+	// on the other hand like 5 damage against everyone else lmao
+
+// everything beyond this point is nova content
 /obj/item/ammo_casing/shotgun/magnum
 	name = "magnum blockshot shell"
 	desc = "A 12 gauge shell that fires fewer, larger pellets than buckshot. A favorite of SolFed anti-piracy enforcers, \
@@ -118,12 +217,15 @@
 	projectile_type = /obj/projectile/bullet/pellet/shotgun_buckshot/magnum
 	pellets = 4 // Half as many pellets for twice the damage each pellet, same overall damage as buckshot
 	variance = 20
-	advanced_print_req = TRUE
+	ammo_categories = AMMO_CLASS_SUPER
 
 /obj/projectile/bullet/pellet/shotgun_buckshot/magnum
-	name = "magnum blockshot pellet"
-	damage = 12
-	wound_bonus = 10
+	name = "magnum blockshot"
+	damage = 10
+	exposed_wound_bonus = 5
+	wound_bonus = 5
+	armour_penetration = 5
+	weak_against_armour = FALSE
 
 /obj/projectile/bullet/pellet/shotgun_buckshot/magnum/Initialize(mapload)
 	. = ..()
@@ -135,38 +237,40 @@
 		openly near teshari, for reasons you would be personally blessed to not know at least some of."
 	icon_state = "expshell"
 	projectile_type = /obj/projectile/bullet/pellet/shotgun_buckshot/express
-	pellets = 12 // 1.3x The pellets for 0.6x the damage, same overall damage as buckshot
-	variance = 30 // Slightly wider spread than buckshot
+	ammo_categories = AMMO_CLASS_SUPER
+	pellets = 10 // 3 * 10 for 30 damage, with less spread then buckshot.
+	variance = 12 // Slightly less spread then buckshot
 
 /obj/projectile/bullet/pellet/shotgun_buckshot/express
-	name = "express buckshot pellet"
-	damage = 4
+	name = "express pellet"
+	damage = 3
 	wound_bonus = 0
+	exposed_wound_bonus = 20
 
 /obj/projectile/bullet/pellet/shotgun_buckshot/express/Initialize(mapload)
 	. = ..()
 	transform = transform.Scale(0.75, 0.75)
 
-/obj/item/ammo_casing/shotgun/flechette
-	name = "flechette shell"
+/obj/item/ammo_casing/shotgun/flechette_nova
+	name = "ripper flechette shell"
 	desc = "A 12 gauge flechette shell that specializes in ripping unarmored targets apart."
 	icon_state = "fshell"
-	projectile_type = /obj/projectile/bullet/pellet/shotgun_buckshot/flechette
+	projectile_type = /obj/projectile/bullet/pellet/shotgun_buckshot/flechette_nova
 	pellets = 8 //8 x 6 = 48 Damage Potential
-	variance = 25
+	variance = 15
+	ammo_categories = AMMO_CLASS_PLUS
 	custom_materials = AMMO_MATS_SHOTGUN_FLECH
-	advanced_print_req = TRUE
 
-/obj/projectile/bullet/pellet/shotgun_buckshot/flechette
-	name = "flechette"
+/obj/projectile/bullet/pellet/shotgun_buckshot/flechette_nova
+	name = "ripper flechette"
 	icon = 'modular_nova/modules/shotgunrebalance/icons/projectiles.dmi'
 	icon_state = "flechette"
 	damage = 6
-	wound_bonus = 10
-	bare_wound_bonus = 20
+	wound_bonus = 0
+	exposed_wound_bonus = 15
 	sharpness = SHARP_EDGED //Did you knew flechettes fly sideways into people
 
-/obj/projectile/bullet/pellet/shotgun_buckshot/flechette/Initialize(mapload)
+/obj/projectile/bullet/pellet/shotgun_buckshot/flechette_nova/Initialize(mapload)
 	. = ..()
 	SpinAnimation()
 
@@ -178,10 +282,10 @@
 	projectile_type = /obj/projectile/bullet/pellet/shotgun_buckshot/beehive
 	pellets = 4
 	variance = 15
-	fire_sound = 'sound/weapons/taser.ogg'
+	fire_sound = 'sound/items/weapons/taser.ogg'
 	harmful = FALSE
 	custom_materials = AMMO_MATS_SHOTGUN_HIVE
-	advanced_print_req = TRUE
+	ammo_categories = AMMO_CLASS_NICHE_LTL
 
 /obj/projectile/bullet/pellet/shotgun_buckshot/beehive
 	name = "hornet flechette"
@@ -189,10 +293,10 @@
 	icon_state = "hornet"
 	damage = 4
 	stamina = 15
-	damage_falloff_tile = 0.1
-	stamina_falloff_tile = 0.1
+	damage_falloff_tile = -0.1
+	stamina_falloff_tile = -0.1
 	wound_bonus = -5
-	bare_wound_bonus = 5
+	exposed_wound_bonus = 5
 	wound_falloff_tile = 0
 	sharpness = NONE
 	ricochets_max = 5
@@ -205,50 +309,18 @@
 
 /obj/item/ammo_casing/shotgun/antitide
 	name = "stardust shell"
-	desc = "A highly experimental shell filled with nanite electrodes that will embed themselves in soft targets. The electrodes are charged from kinetic movement which means moving targets will get punished more."
+	desc = "A highly experimental shell filled with nanite electrodes that form a much bigger electrode on launch, \
+		forming a cable back to the shell itself and acting much like a taser. Unlimited power!"
 	icon_state = "lasershell"
-	projectile_type = /obj/projectile/bullet/pellet/shotgun_buckshot/antitide
-	pellets = 8 // 8 * 7 for 56 stamina damage, plus whatever the embedded shells do
-	variance = 30
+	projectile_type = /obj/projectile/energy/electrode
 	harmful = FALSE
-	fire_sound = 'sound/weapons/taser.ogg'
+	fire_sound = 'sound/items/weapons/taser.ogg'
 	custom_materials = AMMO_MATS_SHOTGUN_TIDE
-	advanced_print_req = TRUE
-
-/obj/projectile/bullet/pellet/shotgun_buckshot/antitide
-	name = "electrode"
-	icon = 'modular_nova/modules/shotgunrebalance/icons/projectiles.dmi'
-	icon_state = "stardust"
-	damage = 2
-	stamina = 8
-	damage_falloff_tile = 0.2
-	stamina_falloff_tile = 0.3
-	wound_bonus = 0
-	bare_wound_bonus = 0
-	stutter = 3 SECONDS
-	jitter = 5 SECONDS
-	eyeblur = 1 SECONDS
-	sharpness = NONE
-	range = 8
-	embed_type = /datum/embed_data/shotgun_buckshot/antitide
-
-/datum/embed_data/shotgun_buckshot/antitide
-	embed_chance = 70
-	pain_chance = 25
-	fall_chance = 15
-	jostle_chance = 80
-	ignore_throwspeed_threshold = TRUE
-	pain_stam_pct = 0.9
-	pain_mult = 2
-	rip_time = 1 SECONDS
-
-/obj/projectile/bullet/pellet/shotgun_buckshot/antitide/on_range()
-	do_sparks(1, TRUE, src)
-	..()
+	ammo_categories = AMMO_CLASS_NICHE_LTL
 
 /obj/item/ammo_casing/shotgun/hunter
 	name = "hunter slug shell"
-	desc = "A 12 gauge slug shell that fires specially designed slugs that deal extra damage to the local planetary fauna"
+	desc = "A 12 gauge slug shell that fires specially designed slugs that deal extra damage to local fauna."
 	icon_state = "huntershell"
 	projectile_type = /obj/projectile/bullet/shotgun_slug/hunter
 
@@ -279,18 +351,16 @@
 	. = ..()
 	AddElement(/datum/element/bane, mob_biotypes = MOB_BEAST, damage_multiplier = 5)
 
-/obj/projectile/bullet/pellet/shotgun_improvised
-	weak_against_armour = TRUE // We will not have Improvised are Better 2.0
-
 /obj/item/ammo_casing/shotgun/honkshot
 	name = "confetti shell"
-	desc = "A 12 gauge buckshot shell thats been filled to the brim with confetti, yippie!"
+	desc = "A 12 gauge buckshot shell thats been filled to the brim with confetti. Yippie!"
 	icon_state = "honkshell"
 	projectile_type = /obj/projectile/bullet/honkshot
-	pellets = 12
+	pellets = 19 // The most crucial buff.
 	variance = 35
 	fire_sound = 'sound/items/bikehorn.ogg'
 	harmful = FALSE
+	ammo_categories = AMMO_CLASS_NONE
 
 /obj/projectile/bullet/honkshot
 	name = "confetti"

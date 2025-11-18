@@ -19,11 +19,12 @@
 	///Can be removed from the gun using tools or replaced by a pin with force_replace
 	var/pin_removable = TRUE
 	var/obj/item/gun/gun
+	var/default_pin_auth = TRUE
 
-/obj/item/firing_pin/New(newloc)
-	..()
-	if(isgun(newloc))
-		gun = newloc
+/obj/item/firing_pin/Destroy()
+	if(gun)
+		gun_remove()
+	return ..()
 
 /obj/item/firing_pin/interact_with_atom(atom/interacting_with, mob/living/user, list/modifiers)
 	if(!isgun(interacting_with))
@@ -58,19 +59,26 @@
 	balloon_alert(user, "authentication checks overridden")
 	return TRUE
 
-/obj/item/firing_pin/proc/gun_insert(mob/living/user, obj/item/gun/G)
-	gun = G
+/obj/item/firing_pin/proc/gun_insert(mob/living/user, obj/item/gun/new_gun)
+	gun = new_gun
 	forceMove(gun)
 	gun.pin = src
+	SEND_SIGNAL(gun, COMSIG_GUN_PIN_INSERTED, src, user)
 	return TRUE
 
 /obj/item/firing_pin/proc/gun_remove(mob/living/user)
 	gun.pin = null
+	SEND_SIGNAL(gun, COMSIG_GUN_PIN_REMOVED, src, user)
 	gun = null
 	return
 
 /obj/item/firing_pin/proc/pin_auth(mob/living/user)
-	return TRUE
+	var/result = SEND_SIGNAL(user, COMSIG_LIVING_FIRING_PIN_CHECK, src)
+	if(result & ALLOW_FIRE)
+		return TRUE
+	if(result & BLOCK_FIRE)
+		return FALSE
+	return default_pin_auth
 
 /obj/item/firing_pin/proc/auth_fail(mob/living/user)
 	if(user)
@@ -165,9 +173,9 @@
 			return TRUE //The clown op leader antag datum isn't a subtype of the normal clown op antag datum.
 	return FALSE
 
-/obj/item/firing_pin/clown/ultra/gun_insert(mob/living/user, obj/item/gun/G)
+/obj/item/firing_pin/clown/ultra/gun_insert(mob/living/user, obj/item/gun/new_gun)
 	..()
-	G.clumsy_check = FALSE
+	new_gun.clumsy_check = FALSE
 
 /obj/item/firing_pin/clown/ultra/gun_remove(mob/living/user)
 	gun.clumsy_check = initial(gun.clumsy_check)
@@ -244,14 +252,15 @@
 	if(pin_owner)
 		. += span_notice("This firing pin is currently authorized to pay into the account of [pin_owner.account_holder].")
 
-/obj/item/firing_pin/paywall/gun_insert(mob/living/user, obj/item/gun/G)
+/obj/item/firing_pin/paywall/gun_insert(mob/living/user, obj/item/gun/new_gun)
 	if(!pin_owner)
-		to_chat(user, span_warning("ERROR: Please swipe valid identification card before installing firing pin!"))
-		user.put_in_hands(src)
+		if(isnull(user))
+			forceMove(new_gun.drop_location())
+		else
+			to_chat(user, span_warning("ERROR: Please swipe valid identification card before installing firing pin!"))
+			user.put_in_hands(src)
 		return FALSE
-	gun = G
-	forceMove(gun)
-	gun.pin = src
+	..()
 	if(multi_payment)
 		gun.desc += span_notice(" This [gun.name] has a per-shot cost of [payment_amount] credit[( payment_amount > 1 ) ? "s" : ""].")
 		return TRUE
@@ -260,10 +269,10 @@
 
 
 /obj/item/firing_pin/paywall/gun_remove(mob/living/user)
-	gun.desc = initial(desc)
+	gun.desc = gun::desc
 	..()
 
-/obj/item/firing_pin/paywall/attackby(obj/item/M, mob/living/user, params)
+/obj/item/firing_pin/paywall/attackby(obj/item/M, mob/living/user, list/modifiers, list/attack_modifiers)
 	if(isidcard(M))
 		var/obj/item/card/id/id = M
 		if(!id.registered_account)
@@ -335,7 +344,7 @@
 // Explorer Firing Pin- Prevents use on station Z-Level, so it's justifiable to give Explorers guns that don't suck.
 /obj/item/firing_pin/explorer
 	name = "outback firing pin"
-	desc = "A firing pin used by the austrailian defense force, retrofit to prevent weapon discharge on the station."
+	desc = "A firing pin used by the Australian defense force, retrofit to prevent weapon discharge on the station."
 	icon_state = "firing_pin_explorer"
 	fail_message = "cannot fire while on station, mate!"
 
@@ -351,28 +360,22 @@
 	name = "laser tag firing pin"
 	desc = "A recreational firing pin, used in laser tag units to ensure users have their vests on."
 	fail_message = "suit check failed!"
-	var/obj/item/clothing/suit/suit_requirement = null
-	var/tagcolor = ""
+	default_pin_auth = FALSE
+	var/tagcolor = LASERTAG_TEAM_NEUTRAL
 
-/obj/item/firing_pin/tag/pin_auth(mob/living/user)
-	if(ishuman(user))
-		var/mob/living/carbon/human/M = user
-		if(istype(M.wear_suit, suit_requirement))
-			return TRUE
+/obj/item/firing_pin/tag/auth_fail(mob/living/user)
+	. = ..()
 	to_chat(user, span_warning("You need to be wearing [tagcolor] laser tag armor!"))
-	return FALSE
 
 /obj/item/firing_pin/tag/red
 	name = "red laser tag firing pin"
 	icon_state = "firing_pin_red"
-	suit_requirement = /obj/item/clothing/suit/redtag
-	tagcolor = "red"
+	tagcolor = LASERTAG_TEAM_RED
 
 /obj/item/firing_pin/tag/blue
 	name = "blue laser tag firing pin"
 	icon_state = "firing_pin_blue"
-	suit_requirement = /obj/item/clothing/suit/bluetag
-	tagcolor = "blue"
+	tagcolor = LASERTAG_TEAM_BLUE
 
 /obj/item/firing_pin/monkey
 	name = "monkeylock firing pin"
@@ -384,9 +387,3 @@
 		playsound(src, SFX_SCREECH, 75, TRUE)
 		return FALSE
 	return TRUE
-
-/obj/item/firing_pin/Destroy()
-	if(gun)
-		gun.pin = null
-		gun = null
-	return ..()

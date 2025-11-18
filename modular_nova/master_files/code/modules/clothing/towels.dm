@@ -55,6 +55,8 @@
 	var/max_reagent_volume = 25
 	/// Are we currently wet?
 	var/wet = FALSE
+	/// So we don't runtime whenever certain things check for this
+	var/clothing_flags = NONE
 
 
 /obj/item/towel/Initialize(mapload)
@@ -194,7 +196,7 @@
 	change_towel_shape(user, LOWER_TEXT(choice))
 
 
-/obj/item/towel/attackby(obj/item/attacking_item, mob/user, params)
+/obj/item/towel/attackby(obj/item/attacking_item, mob/user, list/modifiers, list/attack_modifiers)
 	. = ..()
 
 	if(!(attacking_item.tool_behaviour == TOOL_WIRECUTTER || attacking_item.get_sharpness()))

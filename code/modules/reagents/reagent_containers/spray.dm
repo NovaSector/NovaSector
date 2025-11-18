@@ -8,7 +8,7 @@
 	lefthand_file = 'icons/mob/inhands/equipment/custodial_lefthand.dmi'
 	righthand_file = 'icons/mob/inhands/equipment/custodial_righthand.dmi'
 	item_flags = NOBLUDGEON
-	reagent_flags = OPENCONTAINER
+	initial_reagent_flags = OPENCONTAINER | NO_SPLASH
 	slot_flags = ITEM_SLOT_BELT
 	throwforce = 0
 	w_class = WEIGHT_CLASS_SMALL
@@ -25,6 +25,11 @@
 	volume = 250
 	possible_transfer_amounts = list(5,10)
 	var/spray_sound = 'sound/effects/spray2.ogg'
+	reagent_container_liquid_sound = SFX_DEFAULT_LIQUID_SLOSH
+
+/obj/item/reagent_containers/spray/Initialize(mapload, vol)
+	. = ..()
+	AddElement(/datum/element/reagents_item_heatable)
 
 /obj/item/reagent_containers/spray/ranged_interact_with_atom(atom/interacting_with, mob/living/user, list/modifiers)
 	return try_spray(interacting_with, user) ? ITEM_INTERACT_SUCCESS : ITEM_INTERACT_BLOCKING
@@ -34,6 +39,9 @@
 	// However it can be completely removed when these objects are updated to use the new interaction system
 	// (because the desired effect will just work out of the box)
 	if(istype(interacting_with, /obj/structure/sink) || istype(interacting_with, /obj/structure/mop_bucket/janitorialcart) || istype(interacting_with, /obj/machinery/hydroponics))
+		return NONE
+	// Always skip on storage and tables
+	if(HAS_TRAIT(interacting_with, TRAIT_COMBAT_MODE_SKIP_INTERACTION))
 		return NONE
 
 	return try_spray(interacting_with, user) ? ITEM_INTERACT_SUCCESS : ITEM_INTERACT_BLOCKING
@@ -66,7 +74,7 @@
 
 	playsound(src, spray_sound, 50, TRUE, -6)
 	user.changeNext_move(CLICK_CD_RANGE * 2)
-	user.newtonian_move(get_dir(target, user))
+	user.newtonian_move(get_angle(target, user))
 	return TRUE
 
 /// Handles creating a chem puff that travels towards the target atom, exposing reagents to everything it hits on the way.
@@ -128,33 +136,11 @@
 		current_range = spray_range
 	to_chat(user, span_notice("You switch the nozzle setting to [stream_mode ? "\"stream\"":"\"spray\""]."))
 
-/obj/item/reagent_containers/spray/attackby(obj/item/I, mob/user, params)
-	var/hotness = I.get_temperature()
-	if(hotness && reagents)
-		reagents.expose_temperature(hotness)
-		to_chat(user, span_notice("You heat [name] with [I]!"))
-
-	//Cooling method
-	if(istype(I, /obj/item/extinguisher))
-		var/obj/item/extinguisher/extinguisher = I
-		if(extinguisher.safety)
-			return
-		if (extinguisher.reagents.total_volume < 1)
-			to_chat(user, span_warning("\The [extinguisher] is empty!"))
-			return
-		var/cooling = (0 - reagents.chem_temp) * extinguisher.cooling_power * 2
-		reagents.expose_temperature(cooling)
-		to_chat(user, span_notice("You cool the [name] with the [I]!"))
-		playsound(loc, 'sound/effects/extinguish.ogg', 75, TRUE, -3)
-		extinguisher.reagents.remove_all(1)
-
-	return ..()
-
 /obj/item/reagent_containers/spray/verb/empty()
 	set name = "Empty Spray Bottle"
 	set category = "Object"
 	set src in usr
-	if(usr.incapacitated())
+	if(usr.incapacitated)
 		return
 	if (tgui_alert(usr, "Are you sure you want to empty that?", "Empty Bottle:", list("Yes", "No")) != "Yes")
 		return
@@ -229,8 +215,8 @@
 	stream_range = 4
 	amount_per_transfer_from_this = 5
 	list_reagents = list(/datum/reagent/consumable/condensedcapsaicin = 50)
-	pickup_sound = 'sound/items/pepper_spray_pick_up.ogg'
-	drop_sound = 'sound/items/pepper_spray_drop.ogg'
+	pickup_sound = 'sound/items/handling/pepper_spray/pepper_spray_pick_up.ogg'
+	drop_sound = 'sound/items/handling/pepper_spray/pepper_spray_drop.ogg'
 
 /obj/item/reagent_containers/spray/pepper/empty //for protolathe printing
 	list_reagents = null
@@ -264,14 +250,14 @@
 ///Subtype used for the lavaland clown ruin.
 /obj/item/reagent_containers/spray/waterflower/superlube
 	name = "clown flower"
-	desc = "A delightly devilish flower... you got a feeling where this is going."
+	desc = "A delightfully devilish flower... you've got a feeling where this is going."
 	icon = 'icons/obj/medical/chemical.dmi'
 	icon_state = "clownflower"
 	volume = 30
 	list_reagents = list(/datum/reagent/lube/superlube = 30)
 
 /obj/item/reagent_containers/spray/waterflower/cyborg
-	reagent_flags = NONE
+	initial_reagent_flags = NONE
 	volume = 100
 	list_reagents = list(/datum/reagent/water = 100)
 	var/generate_amount = 5
@@ -356,7 +342,7 @@
 	inhand_icon_state = "chemsprayer_janitor"
 	lefthand_file = 'icons/mob/inhands/weapons/guns_lefthand.dmi'
 	righthand_file = 'icons/mob/inhands/weapons/guns_righthand.dmi'
-	reagent_flags = NONE
+	initial_reagent_flags = NONE
 	list_reagents = list(/datum/reagent/space_cleaner = 1000)
 	volume = 1000
 	amount_per_transfer_from_this = 5
@@ -388,8 +374,8 @@
 	lefthand_file = 'icons/mob/inhands/items_lefthand.dmi'
 	righthand_file = 'icons/mob/inhands/items_righthand.dmi'
 	w_class = WEIGHT_CLASS_TINY
-	reagent_flags = NONE
-	list_reagents = list(/datum/reagent/glitter/confetti = 15)
+	initial_reagent_flags = NONE
+	list_reagents = list(/datum/reagent/confetti = 15)
 	volume = 15
 	amount_per_transfer_from_this = 5
 	can_toggle_range = FALSE
@@ -397,6 +383,8 @@
 	current_range = 2
 	spray_range = 2
 	spray_sound = 'sound/effects/snap.ogg'
+	possible_transfer_amounts = list(5)
+	reagent_container_liquid_sound = null
 
 /obj/item/reagent_containers/spray/chemsprayer/party/spray(atom/A, mob/user)
 	. = ..()

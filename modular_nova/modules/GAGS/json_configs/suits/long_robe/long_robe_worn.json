@@ -1,0 +1,30 @@
+{
+	"transparent_long_robe": [
+		{
+			"type": "icon_state",
+			"icon_state": "transparent_long_robe",
+			"blend_mode": "overlay",
+			"color_ids": [1]
+		},
+		{
+			"type": "icon_state",
+			"icon_state": "transparent_long_robe_detail",
+			"blend_mode": "overlay",
+			"color_ids": [2]
+		}
+	],
+	"long_robe": [
+		{
+			"type": "icon_state",
+			"icon_state": "long_robe",
+			"blend_mode": "overlay",
+			"color_ids": [1]
+		},
+		{
+			"type": "icon_state",
+			"icon_state": "long_robe_detail",
+			"blend_mode": "overlay",
+			"color_ids": [2]
+		}
+	]
+}

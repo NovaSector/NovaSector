@@ -12,9 +12,10 @@
 
 /datum/preference/choiced/glasses/icon_for(value)
 	if (value == "Random")
-		return icon('icons/effects/random_spawners.dmi', "questionmark")
+		return uni_icon('icons/effects/random_spawners.dmi', "questionmark")
 	else
-		return icon('icons/obj/clothing/glasses.dmi', "glasses_[LOWER_TEXT(value)]")
+		var/obj/item/clothing/glasses/selected_type = GLOB.nearsighted_glasses[value] // NOVA EDIT ADDITION
+		return uni_icon(selected_type::icon, selected_type::icon_state) // NOVA EDIT CHANGE - Original: return uni_icon('icons/obj/clothing/glasses.dmi', "glasses_[LOWER_TEXT(value)]")
 
 /datum/preference/choiced/glasses/is_accessible(datum/preferences/preferences)
 	if (!..(preferences))

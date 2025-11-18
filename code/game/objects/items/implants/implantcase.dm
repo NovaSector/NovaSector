@@ -1,10 +1,10 @@
 /**
  * Item used to store implants. Can be renamed with a pen. Implants are moved between those and implanters when a mob uses an implanter on a case.
  */
-/obj/item/implantcase//NOVA EDIT - ICON OVERRIDDEN BY AESTHETICS - SEE MODULE
+/obj/item/implantcase
 	name = "implant case"
 	desc = "A glass case containing an implant."
-	icon = 'icons/obj/medical/syringe.dmi'
+	icon = 'icons/obj/medical/syringe.dmi' //NOVA EDIT - ICON OVERRIDDEN IN AESTHETICS MODULE
 	icon_state = "implantcase-0"
 	inhand_icon_state = "implantcase"
 	lefthand_file = 'icons/mob/inhands/equipment/medical_lefthand.dmi'
@@ -13,6 +13,7 @@
 	throw_range = 5
 	w_class = WEIGHT_CLASS_TINY
 	custom_materials = list(/datum/material/glass= SMALL_MATERIAL_AMOUNT * 5)
+	obj_flags = UNIQUE_RENAME | RENAME_NO_DESC
 	///the implant within the case
 	var/obj/item/implant/imp = null
 	///Type of implant this will spawn as imp upon being spawned
@@ -35,18 +36,8 @@
 	icon_state = "implantcase-[imp ? imp.implant_color : 0]"
 	return ..()
 
-/obj/item/implantcase/attackby(obj/item/used_item, mob/living/user, params)
-	if(IS_WRITING_UTENSIL(used_item))
-		if(!user.can_write(used_item))
-			return
-		var/new_name = tgui_input_text(user, "What would you like the label to be?", name, max_length = MAX_NAME_LEN)
-		if((user.get_active_held_item() != used_item) || !user.can_perform_action(src))
-			return
-		if(new_name)
-			name = "implant case - '[new_name]'"
-		else
-			name = "implant case"
-	else if(istype(used_item, /obj/item/implanter))
+/obj/item/implantcase/attackby(obj/item/used_item, mob/living/user, list/modifiers, list/attack_modifiers)
+	if(istype(used_item, /obj/item/implanter))
 		var/obj/item/implanter/used_implanter = used_item
 		if(used_implanter.imp && !imp)
 			//implanter to case implant transfer
@@ -67,6 +58,8 @@
 	else
 		return ..()
 
+/obj/item/implantcase/nameformat(input, user)
+	return "implant case[input?  " - '[input]'" : null]"
 
 ///An implant case that spawns with a tracking implant, as well as an appropriate name and description.
 /obj/item/implantcase/tracking

@@ -11,7 +11,8 @@
 	icon_state = "sigilvitality"
 	density = FALSE
 	alpha = 90
-	layer = SIGIL_LAYER
+	plane = FLOOR_PLANE
+	layer = RUNE_LAYER
 	/// How long you stand on the sigil before affect is applied
 	var/effect_stand_time = 0
 	/// The atom/movable that this is currently affecting

@@ -2,21 +2,6 @@
 	category = FRONTIER_EQUIPMENT_NAME
 	company_bitflag = CARGO_COMPANY_FRONTIER_EQUIPMENT
 
-// Tools that you could use the rapid fabricator for, but you're too lazy to actually do that
-
-/datum/armament_entry/company_import/akh_frontier/basic
-	subcategory = "Hand-Held Equipment"
-	cost = PAYCHECK_COMMAND
-
-/datum/armament_entry/company_import/akh_frontier/basic/omni_drill
-	item_type = /obj/item/screwdriver/omni_drill
-
-/datum/armament_entry/company_import/akh_frontier/basic/arc_welder
-	item_type = /obj/item/weldingtool/electric/arc_welder
-
-/datum/armament_entry/company_import/akh_frontier/basic/compact_drill
-	item_type = /obj/item/pickaxe/drill/compact
-
 // Flatpacked fabricator and related upgrades
 
 /datum/armament_entry/company_import/akh_frontier/deployables_fab
@@ -24,8 +9,7 @@
 
 /datum/armament_entry/company_import/akh_frontier/deployables_fab/rapid_construction_fabricator
 	item_type = /obj/item/flatpacked_machine
-	cost = CARGO_CRATE_VALUE * 8
-	restricted = TRUE
+	cost = CARGO_CRATE_VALUE * 6
 
 /datum/armament_entry/company_import/akh_frontier/deployables_fab/foodricator
 	item_type = /obj/item/flatpacked_machine/organics_ration_printer
@@ -55,6 +39,12 @@
 	item_type = /obj/item/flatpacked_machine/sustenance_machine
 	cost = PAYCHECK_COMMAND * 2
 
+/datum/armament_entry/company_import/akh_frontier/appliances/biogenerator
+	item_type = /obj/item/flatpacked_machine/organics_printer
+	description = "An advanced machine seen in frontier outposts and colonies capable of turning organic plant matter into \
+		reagents and items of use that a fabricator can't typically make."
+	cost = CARGO_CRATE_VALUE * 3
+
 // Flatpacked, ready to deploy machines
 
 /datum/armament_entry/company_import/akh_frontier/deployables_misc
@@ -70,6 +60,19 @@
 /datum/armament_entry/company_import/akh_frontier/deployables_misc/recycler
 	item_type = /obj/item/flatpacked_machine/recycler
 
+/datum/armament_entry/company_import/akh_frontier/deployables_misc/ore_thumper
+	item_type = /obj/item/flatpacked_machine/ore_thumper
+	description = "A frame with a heavy block of metal suspended atop a pipe. \
+		Must be deployed outdoors and given a wired power connection. \
+		Forces pressurized gas into the ground which brings up buried resources."
+	cost = CARGO_CRATE_VALUE * 5
+
+/datum/armament_entry/company_import/akh_frontier/deployables_misc/gps_beacon
+	item_type = /obj/item/flatpacked_machine/gps_beacon
+	description = "A packed GPS beacon, can be deployed and anchored into the ground to \
+		provide and unobstructed homing beacon for wayward travelers across the galaxy."
+	cost = PAYCHECK_LOWER
+
 // Flatpacked, ready to deploy machines for power related activities
 
 /datum/armament_entry/company_import/akh_frontier/deployables
@@ -82,6 +85,7 @@
 
 /datum/armament_entry/company_import/akh_frontier/deployables/solids_generator
 	item_type = /obj/item/flatpacked_machine/fuel_generator
+	cost = PAYCHECK_COMMAND * 6
 
 /datum/armament_entry/company_import/akh_frontier/deployables/stirling_generator
 	item_type = /obj/item/flatpacked_machine/stirling_generator
@@ -89,5 +93,30 @@
 
 /datum/armament_entry/company_import/akh_frontier/deployables/rtg
 	item_type = /obj/item/flatpacked_machine/rtg
-	cost = PAYCHECK_COMMAND * 2
-	restricted = TRUE
+	cost = PAYCHECK_COMMAND * 6
+
+/datum/armament_entry/company_import/akh_frontier/deployables/solar
+	item_type = /obj/item/flatpacked_machine/solar
+	cost = PAYCHECK_CREW
+
+/datum/armament_entry/company_import/akh_frontier/deployables/solar/titaniumglass
+	item_type = /obj/item/flatpacked_machine/solar/titaniumglass
+	cost = PAYCHECK_CREW * 2
+
+/datum/armament_entry/company_import/akh_frontier/deployables/solar/plasmaglass
+	item_type = /obj/item/flatpacked_machine/solar/plasmaglass
+	cost = PAYCHECK_CREW * 4
+
+/datum/armament_entry/company_import/akh_frontier/deployables/solar/plastitaniumglass
+	item_type = /obj/item/flatpacked_machine/solar/plastitaniumglass
+	cost = PAYCHECK_CREW * 6
+
+/datum/armament_entry/company_import/akh_frontier/deployables/solar_tracker
+	item_type = /obj/item/flatpacked_machine/solar_tracker
+	cost = PAYCHECK_CREW * 2
+
+/datum/armament_entry/company_import/akh_frontier/deployables/solar_control
+	name = "Solar Array Console Board"
+	item_type = /obj/item/circuitboard/computer/solar_control
+	description = "The circuit board for the console that controls the solar panel arrays"
+	cost = CARGO_CRATE_VALUE * 1.5 // since the circuit board can be exported for 0.75 of a CCV, we need to be careful with the price of this one.

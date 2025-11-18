@@ -112,14 +112,14 @@
 	proj.firer = user
 	proj.fired_from = user
 	proj.fire((dir2angle(user.dir) + rand(-projectile_aim_radius, projectile_aim_radius)))
-	playsound(src, 'sound/weapons/effects/batreflect.ogg', 25, TRUE)
+	playsound(src, 'sound/items/weapons/effects/batreflect.ogg', 25, TRUE)
 	//get rid of what we just launched to let projectile_drop spawn a new one
 	qdel(src)
 
 /obj/projectile/bullet/hair_tie
 	icon = 'modular_nova/modules/salon/icons/items.dmi'
 	icon_state = "hairtie"
-	hitsound = 'sound/weapons/genhit.ogg'
+	hitsound = 'sound/items/weapons/genhit.ogg'
 	damage = 0 //its just about the knockdown
 	sharpness = NONE
 	shrapnel_type = NONE //no embedding pls
@@ -133,17 +133,3 @@
 	stamina = 30
 	eyeblur = 2 SECONDS
 	jitter = 8 SECONDS
-
-/datum/design/plastic_hair_tie
-	name = "Plastic Hair Tie"
-	id = "plastic_hair_tie"
-	build_type = PROTOLATHE | AWAY_LATHE | AUTOLATHE | COLONY_FABRICATOR
-	materials = list(
-		/datum/material/plastic = HALF_SHEET_MATERIAL_AMOUNT,
-	)
-	build_path = /obj/item/clothing/head/hair_tie/plastic_beads
-	category = list(
-		RND_CATEGORY_INITIAL,
-		RND_CATEGORY_EQUIPMENT + RND_SUBCATEGORY_EQUIPMENT_SERVICE,
-	)
-	departmental_flags = DEPARTMENT_BITFLAG_SERVICE

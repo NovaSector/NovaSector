@@ -7,6 +7,7 @@
 	icon = 'icons/obj/service/janitor.dmi'
 	icon_state = "broom0"
 	base_icon_state = "broom"
+	icon_angle = 135
 	lefthand_file = 'icons/mob/inhands/equipment/custodial_lefthand.dmi'
 	righthand_file = 'icons/mob/inhands/equipment/custodial_righthand.dmi'
 	force = 8
@@ -102,13 +103,6 @@
 	for (var/obj/item/garbage in items_to_sweep)
 		garbage.Move(new_item_loc, sweep_dir)
 
-	playsound(current_item_loc, 'sound/weapons/thudswoosh.ogg', 30, TRUE, -1)
-
-/obj/item/pushbroom/cyborg
-	name = "cyborg push broom"
-
-/obj/item/pushbroom/cyborg/Initialize(mapload)
-	. = ..()
-	ADD_TRAIT(src, TRAIT_NODROP, CYBORG_ITEM_TRAIT)
+	playsound(current_item_loc, 'sound/items/weapons/thudswoosh.ogg', 30, TRUE, -1)
 
 #undef BROOM_PUSH_LIMIT

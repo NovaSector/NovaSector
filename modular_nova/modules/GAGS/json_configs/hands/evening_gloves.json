@@ -1,0 +1,10 @@
+{
+	"evening": [
+		{
+			"type": "icon_state",
+			"icon_state": "evening",
+			"blend_mode": "overlay",
+			"color_ids": [1]
+		}
+	]
+}

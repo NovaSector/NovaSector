@@ -63,6 +63,7 @@
 
 /obj/item/clothing/under/rank/security/head_of_security/skirt
 	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION_NO_NEW_ICON
+	gets_cropped_on_taurs = FALSE
 
 /obj/item/clothing/under/rank/security/head_of_security/alt/skirt
 	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION_NO_NEW_ICON
@@ -73,6 +74,7 @@
 	gets_cropped_on_taurs = FALSE
 
 /obj/item/clothing/under/rank/prisoner/skirt
+	greyscale_config_worn_digi = null
 	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION_NO_NEW_ICON
 	gets_cropped_on_taurs = FALSE
 
@@ -197,6 +199,39 @@
 /obj/item/clothing/under/changeling
 	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION_NO_NEW_ICON
 
+/obj/item/clothing/under/rank/rnd/research_director/alt/skirt
+	gets_cropped_on_taurs = FALSE
+
+/obj/item/clothing/under/costume/buttondown/skirt
+	gets_cropped_on_taurs = FALSE
+
+/obj/item/clothing/under/costume/buttondown/skirt/service
+	gets_cropped_on_taurs = FALSE
+
+/obj/item/clothing/under/rank/centcom/officer_skirt
+	gets_cropped_on_taurs = FALSE
+
+/obj/item/clothing/under/rank/centcom/officer_skirt/replica
+	gets_cropped_on_taurs = FALSE
+
+/obj/item/clothing/under/rank/centcom/centcom_skirt //idk why there are multiple of the same skirt, but here we are.
+	gets_cropped_on_taurs = FALSE
+
+/obj/item/clothing/under/rank/civilian/lawyer/galaxy/skirt
+	gets_cropped_on_taurs = FALSE
+
+/obj/item/clothing/under/rank/civilian/lawyer/galaxy/red
+	gets_cropped_on_taurs = FALSE
+
+/obj/item/clothing/under/rank/engineering/chief_engineer/turtleneck/skirt
+	gets_cropped_on_taurs = FALSE
+
+/obj/item/clothing/under/rank/medical/coroner/skirt
+	gets_cropped_on_taurs = FALSE
+
+/obj/item/clothing/under/rank/medical/chief_medical_officer/turtleneck/skirt
+	gets_cropped_on_taurs = FALSE
+
 /**
  * NONE(Squash)
  * Clothing that does not have a digitigrade version, and thus will squash legs to fit.
@@ -213,16 +248,48 @@
 	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION
 
 /obj/item/clothing/under/color
+	greyscale_config_worn_digi = /datum/greyscale_config/jumpsuit/worn/digi
 	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION
 
 /obj/item/clothing/under/suit/waiter
 	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION
 
 /obj/item/clothing/under/rank/prisoner
+	greyscale_config_worn_digi = /datum/greyscale_config/jumpsuit/prison/worn/digi
 	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION
 
 /obj/item/clothing/under/rank/security/officer
 	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION
 
 /obj/item/clothing/under/rank/medical/scrubs
+	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION
+
+/obj/item/clothing/under/dress/striped
+	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION
+
+/obj/item/clothing/under/dress/skirt/plaid
+	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION
+
+/obj/item/clothing/under/rank/civilian/clown/jester
+	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION
+
+/obj/item/clothing/under/rank/civilian/clown/jesteralt
+	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION
+
+/obj/item/clothing/under/syndicate/combat
+	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION
+
+/obj/item/clothing/under/syndicate/sniper
+	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION
+
+/obj/item/clothing/under/syndicate/bloodred
+	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION
+
+/obj/item/clothing/under/syndicate/camo
+	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION
+
+/obj/item/clothing/under/syndicate/soviet
+	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION
+
+/obj/item/clothing/under/syndicate/rus_army
 	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION

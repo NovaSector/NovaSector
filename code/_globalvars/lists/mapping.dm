@@ -93,6 +93,13 @@ GLOBAL_LIST_INIT(alldirs, list(
 	SOUTHWEST,
 ))
 
+GLOBAL_LIST_INIT(cardinal_angles, list(
+	"[NORTH]" = 0,
+	"[SOUTH]" = 180,
+	"[EAST]" = 90,
+	"[WEST]" = 270,
+))
+
 /// list of all landmarks created
 GLOBAL_LIST_EMPTY(landmarks_list)
 /// list of all job spawn points created
@@ -128,6 +135,11 @@ GLOBAL_LIST_EMPTY(deathsquadspawn)
 GLOBAL_LIST_EMPTY(emergencyresponseteamspawn)
 GLOBAL_LIST_EMPTY(ruin_landmarks)
 GLOBAL_LIST_EMPTY(bar_areas)
+GLOBAL_LIST_EMPTY(mining_center) // For determining vent size ranked lists, epicenters for comparison goes here.
+
+// NOVA ADDITIONS START
+GLOBAL_LIST_EMPTY(traitor_start)
+// NOVA ADDITIONS END
 
 /// List of all the maps that have been cached for /proc/load_map
 GLOBAL_LIST_EMPTY(cached_maps)
@@ -140,6 +152,8 @@ GLOBAL_LIST_EMPTY(areas)
 GLOBAL_LIST_EMPTY(sortedAreas)
 /// An association from typepath to area instance. Only includes areas with `unique` set.
 GLOBAL_LIST_EMPTY_TYPED(areas_by_type, /area)
+/// A list of player-created areas.
+GLOBAL_LIST_EMPTY_TYPED(custom_areas, /area)
 
 GLOBAL_LIST_EMPTY(all_abstract_markers)
 

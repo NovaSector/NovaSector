@@ -1,4 +1,4 @@
-/datum/mutation/human/geladikinesis
+/datum/mutation/geladikinesis
 	name = "Geladikinesis"
 	desc = "Allows the user to concentrate moisture and sub-zero forces into snow."
 	quality = POSITIVE
@@ -20,7 +20,7 @@
 	delete_old = FALSE
 	delete_on_failure = FALSE
 
-/datum/mutation/human/cryokinesis
+/datum/mutation/cryokinesis
 	name = "Cryokinesis"
 	desc = "Draws negative energy from the sub-zero void to freeze surrounding temperatures at subject's will."
 	quality = POSITIVE //upsides and downsides
@@ -37,6 +37,7 @@
 	button_icon_state = "icebeam"
 	base_icon_state = "icebeam"
 	active_overlay_icon_state = "bg_spell_border_active_blue"
+	cast_range = 9
 	cooldown_time = 16 SECONDS
 	spell_requirements = NONE
 	antimagic_flags = NONE
