@@ -121,7 +121,7 @@
 			"id" = order.id,
 			"amount" = 1,
 			"orderer" = order.orderer,
-			"paid" = !!order.paying_account?.add_to_accounts, //number of orders purchased privatly
+			"paid" = !isnull(order.paying_account), //number of orders purchased privatly
 			"dep_order" = !!order.department_destination, //number of orders purchased by a department
 			"can_be_cancelled" = order.can_be_cancelled,
 		))
@@ -184,7 +184,7 @@
 		// NOVA EDIT ADDITION START
 		if (express && pack.express_lock && !bypass_express_lock)
 			continue
-		
+
 		if(!(pack.console_flag & console_flag))
 			continue
 		// NOVA EDIT ADDITION END
@@ -279,7 +279,7 @@
 				if(!dept_choice)
 					return
 				if(dept_choice == "Cargo Budget")
-					personal_department = SSeconomy.get_dep_account(cargo_account)
+					personal_department = null
 					uses_cargo_budget = TRUE // NOVA EDIT ADDITION
 
 	if((!self_paid && (pack.goody && !pack.departamental_goody))) // NOVA EDIT CHANGE - ORIGINAL: if(pack.goody && !self_paid)
@@ -312,15 +312,13 @@
 				break
 
 		var/datum/supply_order/order = new(
-			pack = pack ,
+			pack = pack,
 			orderer = name,
 			orderer_rank = rank,
 			orderer_ckey = ckey,
 			reason = reason,
 			paying_account = account,
 			coupon = applied_coupon,
-			department_destination = reason ? TRUE : FALSE, // Hijacking reason as a way to determine if an order's requested from at least one budget
-			charge_on_purchase = TRUE, // NOVA EDIT ADDITION
 		)
 		working_list += order
 
