@@ -67,6 +67,8 @@
 	var/block_chance = 50
 	/// This mob will not attack mobs randomly if not in anger, the time doubles as a check for anger
 	var/anger_timer_id = null
+	replace_crusher_drop = TRUE // prevents people from butchering him for duping chests
+	del_on_death = TRUE
 
 /mob/living/simple_animal/hostile/megafauna/gladiator/Initialize(mapload)
 	. = ..()
@@ -88,6 +90,10 @@
 			if(!(friend_or_foe_ref in introduced) && (friend_or_foe.stat != DEAD))
 				introduction(friend_or_foe)
 				break
+
+/mob/living/simple_animal/hostile/megafauna/gladiator/drop_loot(drop_loc)
+	new /obj/structure/dead_gladiator(loc)
+	. = ..()
 
 /mob/living/simple_animal/hostile/megafauna/gladiator/Found(atom/A)
 	//We only attack when pissed off
@@ -527,6 +533,26 @@
 				INVOKE_ASYNC(src, PROC_REF(teleport), target)
 				INVOKE_ASYNC(src, PROC_REF(stomp))
 				ranged_cooldown += 1 SECONDS
+
+/obj/structure/dead_gladiator
+	name = "solemn remains"
+	desc = "An ancient miner lost to time, chosen and changed by the Necropolis, encased in a suit of armor. Only a chosen few can match his speed and strength... \
+		and it appears someone or something has. Unearthly energies bind the body to its place of defeat, and you cannot move it."
+	icon = 'modular_nova/modules/gladiator/icons/markedone.dmi'
+	icon_state = "marked_dying"
+	gender = MALE
+	pixel_x = -32
+	pixel_y = -9
+	base_pixel_x = -32
+	base_pixel_y = -9
+	anchored = TRUE
+	density = FALSE
+	resistance_flags = LAVA_PROOF | FIRE_PROOF | UNACIDABLE | INDESTRUCTIBLE
+	var/gps_name = "Fading Signal"
+
+/obj/structure/dead_gladiator/Initialize(mapload)
+	. = ..()
+	AddComponent(/datum/component/gps, gps_name)
 
 #undef MARKED_ONE_STUN_DURATION
 #undef MARKED_ONE_ANGER_DURATION
