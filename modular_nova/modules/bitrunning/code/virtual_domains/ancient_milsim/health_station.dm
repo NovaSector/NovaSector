@@ -38,9 +38,9 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/machinery/health_station, 32)
 	. = ..()
 	if(mapload)
 		charge_amount = max_charge_amount
+		find_and_hang_on_atom()
 	else
 		charge_amount = 0
-	find_and_hang_on_wall(TRUE)
 	addtimer(CALLBACK(src, PROC_REF(charge)), charge_rate)
 
 /obj/machinery/health_station/update_appearance(updates = ALL)

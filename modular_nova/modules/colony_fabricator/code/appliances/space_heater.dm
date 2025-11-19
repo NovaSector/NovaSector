@@ -16,7 +16,8 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/machinery/space_heater/wall_mounted, 29)
 
 /obj/machinery/space_heater/wall_mounted/Initialize(mapload)
 	. = ..()
-	find_and_hang_on_wall()
+	if(mapload)
+		find_and_hang_on_atom()
 	AddElement(/datum/element/manufacturer_examine, COMPANY_FRONTIER)
 	RemoveElement(/datum/element/elevation, pixel_shift = 8) //they're on the wall, you can't climb this
 	RemoveElement(/datum/element/climbable)

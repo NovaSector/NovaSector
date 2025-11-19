@@ -1598,6 +1598,16 @@
 	},
 /turf/open/floor/iron/edge,
 /area/mine/living_quarters)
+"iO" = (
+/obj/structure/railing/corner{
+	dir = 4
+	},
+/obj/effect/turf_decal/sand/plating/volcanic,
+/obj/structure/sign/directions/lavaland/directional/north{
+	pixel_y = 40
+	},
+/turf/open/floor/plating/lavaland_atmos,
+/area/lavaland/surface/outdoors)
 "iX" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/chair/sofa/bench{
@@ -1969,6 +1979,23 @@
 	},
 /turf/open/floor/iron/checker,
 /area/mine/cafeteria)
+"kO" = (
+/obj/effect/turf_decal/trimline/yellow/filled/arrow_ccw{
+	dir = 8
+	},
+/obj/effect/turf_decal/trimline/red/filled/arrow_ccw{
+	dir = 8
+	},
+/obj/effect/turf_decal/trimline/yellow/filled/mid_joiner{
+	dir = 8
+	},
+/obj/effect/turf_decal/trimline/red/filled/mid_joiner{
+	dir = 8
+	},
+/turf/open/floor/iron/dark/textured_edge{
+	dir = 8
+	},
+/area/mine/production)
 "kR" = (
 /obj/structure/chair{
 	dir = 4
@@ -3040,6 +3067,12 @@
 	},
 /turf/open/floor/iron/dark,
 /area/mine/laborcamp/security)
+"pA" = (
+/obj/structure/sign/directions/lavaland/directional/west{
+	pixel_x = 0
+	},
+/turf/closed/wall,
+/area/mine/cafeteria)
 "pB" = (
 /obj/machinery/biogenerator,
 /obj/effect/turf_decal/trimline/green/filled/line{
@@ -3210,6 +3243,10 @@
 	},
 /turf/open/misc/asteroid/basalt/lava_land_surface,
 /area/lavaland/surface/outdoors)
+"qt" = (
+/obj/structure/sign/directions/supply/directional/east,
+/turf/closed/wall,
+/area/mine/living_quarters)
 "qw" = (
 /obj/structure/bed,
 /obj/effect/decal/cleanable/dirt,
@@ -3563,6 +3600,13 @@
 	},
 /turf/open/floor/iron/dark,
 /area/mine/mechbay)
+"sY" = (
+/obj/structure/sign/directions/security/directional/west{
+	pixel_y = -7;
+	pixel_x = 0
+	},
+/turf/closed/wall,
+/area/lavaland/surface/outdoors)
 "tc" = (
 /obj/structure/bed{
 	dir = 4
@@ -3660,6 +3704,12 @@
 /obj/item/radio/intercom/directional/east,
 /turf/open/floor/iron/white/smooth_corner,
 /area/mine/medical)
+"tD" = (
+/obj/structure/sign/directions/dorms/directional/west{
+	pixel_x = 0
+	},
+/turf/closed/wall,
+/area/mine/maintenance/production)
 "tE" = (
 /turf/open/floor/iron/smooth,
 /area/mine/laborcamp)
@@ -4349,6 +4399,12 @@
 /obj/effect/turf_decal/tile/blue/fourcorners,
 /turf/open/floor/iron,
 /area/mine/cafeteria)
+"xL" = (
+/obj/structure/sign/directions/evac/directional/south{
+	pixel_y = 0
+	},
+/turf/closed/wall,
+/area/mine/production)
 "xN" = (
 /obj/effect/mapping_helpers/airlock/cyclelink_helper{
 	dir = 8
@@ -4780,6 +4836,19 @@
 	},
 /turf/open/misc/hay/lavaland,
 /area/lavaland/surface/outdoors)
+"Aw" = (
+/obj/machinery/door/airlock/external/glass{
+	name = "Mining External Airlock"
+	},
+/obj/effect/mapping_helpers/airlock/cyclelink_helper_multi{
+	cycle_id = "lavaland_living_west"
+	},
+/obj/structure/sign/directions/security/directional/west{
+	pixel_y = -7;
+	pixel_x = 0
+	},
+/turf/open/floor/iron/textured_large,
+/area/mine/cafeteria)
 "Ax" = (
 /obj/item/pickaxe,
 /obj/effect/mob_spawn/corpse/human/miner,
@@ -4868,6 +4937,11 @@
 /obj/structure/railing/corner,
 /turf/open/misc/asteroid/basalt/lava_land_surface,
 /area/lavaland/surface/outdoors)
+"Bj" = (
+/obj/effect/spawner/structure/window/reinforced,
+/obj/structure/sign/directions/evac/directional/east,
+/turf/open/floor/plating,
+/area/mine/lounge)
 "Bs" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
@@ -5037,19 +5111,6 @@
 /obj/effect/turf_decal/trimline/brown/filled/warning,
 /turf/open/floor/iron/dark,
 /area/mine/mechbay)
-"CI" = (
-/obj/structure/sign/directions/supply/directional/east{
-	pixel_x = null;
-	pixel_y = -24
-	},
-/obj/structure/disposalpipe/segment{
-	dir = 4
-	},
-/obj/effect/turf_decal/trimline/blue/filled/line,
-/turf/open/floor/iron/edge{
-	dir = 1
-	},
-/area/mine/living_quarters)
 "CM" = (
 /obj/effect/turf_decal/trimline/yellow/filled/arrow_ccw{
 	dir = 8
@@ -5738,6 +5799,17 @@
 	dir = 4
 	},
 /area/mine/eva)
+"Hr" = (
+/obj/machinery/computer/shuttle/mining/common,
+/obj/machinery/camera/autoname/directional/north{
+	network = list("mine")
+	},
+/obj/effect/turf_decal/trimline/blue/filled/line{
+	dir = 5
+	},
+/obj/machinery/light/small/directional/north,
+/turf/open/floor/iron,
+/area/mine/lounge)
 "Hs" = (
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/plating,
@@ -6127,21 +6199,6 @@
 	},
 /turf/open/lava/smooth/lava_land_surface,
 /area/lavaland/surface/outdoors)
-"JA" = (
-/obj/machinery/computer/shuttle/mining/common,
-/obj/structure/sign/directions/evac/directional/east{
-	pixel_x = 0;
-	pixel_y = 24
-	},
-/obj/machinery/camera/autoname/directional/north{
-	network = list("mine")
-	},
-/obj/effect/turf_decal/trimline/blue/filled/line{
-	dir = 5
-	},
-/obj/machinery/light/small/directional/north,
-/turf/open/floor/iron,
-/area/mine/lounge)
 "JB" = (
 /obj/structure/stone_tile/slab/cracked{
 	dir = 5
@@ -6784,21 +6841,6 @@
 	},
 /turf/open/floor/iron/checker,
 /area/mine/cafeteria)
-"MQ" = (
-/obj/structure/railing/corner{
-	dir = 4
-	},
-/obj/structure/sign/directions/security/directional/west{
-	pixel_x = 32;
-	pixel_y = -8
-	},
-/obj/structure/sign/directions/lavaland/directional/north{
-	pixel_x = 32;
-	pixel_y = 8
-	},
-/obj/effect/turf_decal/sand/plating/volcanic,
-/turf/open/floor/plating/lavaland_atmos,
-/area/lavaland/surface/outdoors)
 "MS" = (
 /turf/open/floor/carpet/executive,
 /area/mine/lounge)
@@ -7567,21 +7609,6 @@
 "RD" = (
 /turf/closed/wall,
 /area/mine/maintenance/labor)
-"RF" = (
-/obj/structure/railing/corner{
-	dir = 1
-	},
-/obj/structure/sign/directions/security/directional/west{
-	pixel_x = 0;
-	pixel_y = 24
-	},
-/obj/structure/sign/directions/lavaland/directional/west{
-	pixel_x = 0;
-	pixel_y = 32
-	},
-/obj/effect/turf_decal/sand/plating/volcanic,
-/turf/open/floor/plating/lavaland_atmos,
-/area/lavaland/surface/outdoors)
 "RG" = (
 /obj/machinery/door/airlock/public/glass{
 	id_tag = "cellblock1";
@@ -8634,27 +8661,6 @@
 /obj/item/seeds/apple,
 /turf/open/floor/iron/dark,
 /area/mine/laborcamp)
-"XM" = (
-/obj/structure/sign/directions/evac/directional/south{
-	pixel_x = -32;
-	pixel_y = 0
-	},
-/obj/effect/turf_decal/trimline/yellow/filled/arrow_ccw{
-	dir = 8
-	},
-/obj/effect/turf_decal/trimline/red/filled/arrow_ccw{
-	dir = 8
-	},
-/obj/effect/turf_decal/trimline/yellow/filled/mid_joiner{
-	dir = 8
-	},
-/obj/effect/turf_decal/trimline/red/filled/mid_joiner{
-	dir = 8
-	},
-/turf/open/floor/iron/dark/textured_edge{
-	dir = 8
-	},
-/area/mine/production)
 "XP" = (
 /obj/structure/stone_tile/cracked,
 /obj/structure/stone_tile/block{
@@ -8930,14 +8936,6 @@
 /obj/item/soap,
 /turf/open/floor/iron/freezer,
 /area/mine/living_quarters)
-"Zx" = (
-/obj/structure/sign/directions/dorms/directional/west{
-	pixel_x = 0;
-	pixel_y = 24
-	},
-/obj/effect/turf_decal/sand/plating/volcanic,
-/turf/open/floor/plating/lavaland_atmos,
-/area/lavaland/surface/outdoors)
 "Zy" = (
 /obj/structure/railing/corner/end/flip{
 	dir = 4
@@ -35188,7 +35186,7 @@ VK
 VK
 VK
 Nf
-MQ
+rG
 BP
 ol
 pU
@@ -35445,8 +35443,8 @@ aj
 aj
 aj
 aj
-FH
-rG
+sY
+iO
 ol
 aj
 aj
@@ -37244,8 +37242,8 @@ zH
 kY
 kY
 Tc
-kY
-RF
+pA
+vd
 NL
 aj
 aj
@@ -37501,7 +37499,7 @@ te
 dz
 px
 DI
-oS
+Aw
 BP
 ol
 aj
@@ -42124,7 +42122,7 @@ iu
 iu
 iN
 ix
-iu
+qt
 Zw
 UD
 iu
@@ -42380,7 +42378,7 @@ Nt
 pI
 zf
 Up
-CI
+ix
 iu
 iu
 iu
@@ -43160,7 +43158,7 @@ pU
 tF
 tF
 pU
-SP
+Bj
 ti
 DZ
 FD
@@ -43418,7 +43416,7 @@ tF
 aj
 aj
 Zq
-JA
+Hr
 wp
 zF
 Zq
@@ -44948,8 +44946,8 @@ FX
 FX
 nm
 iY
-nm
-Zx
+tD
+BP
 Yq
 aj
 aj
@@ -47267,7 +47265,7 @@ jw
 fA
 NU
 Le
-NU
+xL
 Le
 NU
 BP
@@ -47524,7 +47522,7 @@ rv
 TJ
 RW
 vC
-XM
+kO
 CM
 lM
 Ec
