@@ -786,7 +786,7 @@
 /datum/antagonist/heretic/roundend_report()
 	var/list/parts = list()
 
-	//var/succeeded = TRUE // NOVA EDIT REMOVAL
+	//var/succeeded = TRUE // NOVA EDIT REMOVAL - No greentext
 
 	parts += printplayer(owner)
 	parts += "<b>Sacrifices Made:</b> [total_sacrifices]"
@@ -794,14 +794,13 @@
 	if(length(objectives))
 		var/count = 1
 		for(var/datum/objective/objective as anything in objectives)
-			// NOVA EDIT START - No greentext
+			// NOVA EDIT REMOVAL START - No greentext
 			/*
 			if(!objective.check_completion())
 				succeeded = FALSE
-			parts += "<b>Objective #[count]</b>: [objective.explanation_text] [objective.get_roundend_success_suffix()]"
 			*/
-			parts += "<b>Objective #[count]</b>: [objective.explanation_text]"
-			// NOVA EDIT END - No greentext
+			// NOVA EDIT REMOVAL END - No greentext
+			parts += "<b>Objective #[count]</b>: [objective.explanation_text] [objective.get_roundend_success_suffix()]"
 			count++
 	// NOVA EDIT START - No greentext
 	/*

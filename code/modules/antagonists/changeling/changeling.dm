@@ -1049,29 +1049,26 @@
 
 /datum/antagonist/changeling/roundend_report()
 	var/list/parts = list()
-
-	// NOVA EDIT REMOVAL START
+	// NOVA EDIT REMOVAL START - No greentext
 	/*
 	var/changeling_win = TRUE
 	if(!owner.current)
 		changeling_win = FALSE
 	*/
-	// NOVA EDIT REMOVAL END
-
+	// NOVA EDIT REMOVAL END - No greentext
 	parts += printplayer(owner)
 	parts += "<b>Genomes Extracted:</b> [absorbed_count]<br>"
 
 	if(objectives.len)
 		var/count = 1
 		for(var/datum/objective/objective in objectives)
-			// NOVA EDIT START - No greentext
+			// NOVA EDIT REMOVAL START - No greentext
 			/*
 			if(!objective.check_completion())
 				changeling_win = FALSE
-			parts += "<b>Objective #[count]</b>: [objective.explanation_text] [objective.get_roundend_success_suffix()]"
 			*/
-			parts += "<b>Objective #[count]</b>: [objective.explanation_text]"
-			// NOVA EDIT END - No greentext
+			// NOVA EDIT REMOVAL END - No greentext
+			parts += "<b>Objective #[count]</b>: [objective.explanation_text] [objective.get_roundend_success_suffix()]"
 			count++
 
 	// NOVA EDIT REMOVAL START - No greentext

@@ -420,17 +420,25 @@ GLOBAL_LIST_EMPTY(wizard_spellbook_purchases_by_key)
 		parts += "<br><B>Grand Rituals completed:</B> [ritual.times_completed]<br>"
 
 	var/count = 1
-	var/wizardwin = TRUE
+	//var/wizardwin = TRUE  // NOVA EDIT REMOVAL - No greentext
 	for(var/datum/objective/objective in objectives)
+		// NOVA EDIT REMOVAL START - No greentext
+		/*
 		if(!objective.check_completion())
 			wizardwin = FALSE
+		*/
+		// NOVA EDIT REMOVAL END - No greentext
 		parts += "<B>Objective #[count]</B>: [objective.explanation_text] [objective.get_roundend_success_suffix()]"
 		count++
 
+	// NOVA EDIT REMOVAL START - No greentext
+	/*
 	if(wizardwin)
 		parts += span_greentext("The wizard was successful!")
 	else
 		parts += span_redtext("The wizard has failed!")
+	*/
+	// NOVA EDIT REMOVAL END - No greentext
 
 	var/list/purchases = list()
 	for(var/list/log as anything in GLOB.wizard_spellbook_purchases_by_key[owner.key])

@@ -109,14 +109,18 @@
 
 /datum/team/cult/roundend_report()
 	var/list/parts = list()
-	var/victory = check_cult_victory()
+	//var/victory = check_cult_victory() // NOVA EDIT REMOVAL - No greentext
 
+	// NOVA EDIT REMOVAL START - No greentext
+	/*
 	if(victory == CULT_NARSIE_KILLED) // Epic failure, you summoned your god and then someone killed it.
 		parts += "<span class='redtext big'>Nar'sie has been killed! The cult will haunt the universe no longer!</span>"
 	else if(victory)
 		parts += "<span class='greentext big'>The cult has succeeded! Nar'Sie has snuffed out another torch in the void!</span>"
 	else
 		parts += "<span class='redtext big'>The staff managed to stop the cult! Dark words and heresy are no match for Nanotrasen's finest!</span>"
+	*/
+	// NOVA EDIT REMOVAL END - No greentext
 
 	if(objectives.len)
 		parts += "<b>The cultists' objectives were:</b>"

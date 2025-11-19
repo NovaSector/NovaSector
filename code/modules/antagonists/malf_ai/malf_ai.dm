@@ -237,7 +237,7 @@
 /datum/antagonist/malf_ai/roundend_report()
 	var/list/result = list()
 
-	//var/malf_ai_won = TRUE // NOVA EDIT REMOVAL
+	//var/malf_ai_won = TRUE // NOVA EDIT REMOVAL - No greentext
 
 	result += printplayer(owner)
 
@@ -245,19 +245,18 @@
 	if(objectives.len) //If the traitor had no objectives, don't need to process this.
 		var/count = 1
 		for(var/datum/objective/objective in objectives)
-			// NOVA EDIT START - No greentext
+			// NOVA EDIT REMOVAL START - No greentext
 			/*
 			if(!objective.check_completion())
 				malf_ai_won = FALSE
-			objectives_text += "<br><B>Objective #[count]</B>: [objective.explanation_text] [objective.get_roundend_success_suffix()]"
 			*/
-			objectives_text += "<br><B>Objective #[count]</B>: [objective.explanation_text]"
-			// NOVA EDIT END - No greentext
+			// NOVA EDIT REMOVAL END - No greentext
+			objectives_text += "<br><B>Objective #[count]</B>: [objective.explanation_text] [objective.get_roundend_success_suffix()]"
 			count++
 
 	result += objectives_text
 
-	// NOVA EDIT REMOVAL START
+	// NOVA EDIT REMOVAL  - No greentext
 	/*
 	var/special_role_text = LOWER_TEXT(name)
 
@@ -268,7 +267,7 @@
 		if(owner.current)
 			SEND_SOUND(owner.current, 'sound/ambience/misc/ambifailure.ogg')
 	*/
-
+	// NOVA EDIT REMOVAL END - No greentext
 	return result.Join("<br>")
 
 /datum/antagonist/malf_ai/get_preview_icon()
