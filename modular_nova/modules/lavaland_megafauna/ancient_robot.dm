@@ -53,7 +53,7 @@ Difficulty: Hard
 	maxHealth = 3000
 	attack_verb_simple = "shocks"
 	attack_verb_continuous = "zaps"
-	attack_sound = 'sound/machines/defib_zap.ogg'
+	attack_sound = 'sound/machines/defib/defib_zap.ogg'
 	attack_vis_effect = ATTACK_EFFECT_MECHFIRE
 	atmos_requirements = null
 	icon = 'modular_nova/modules/lavaland_megafauna/icons/64x64megafauna.dmi'
@@ -227,7 +227,7 @@ Difficulty: Hard
 		charge(delay = 9)
 		charge(delay = 6)
 		charge(delay = 3)
-	recovery_time = world.time + 15
+	recovery_time = world.time + 9
 
 /mob/living/simple_animal/hostile/megafauna/ancient_robot/proc/charge(atom/chargeat = target, delay = 5, chargepast = 2)
 	if(!chargeat)
@@ -395,21 +395,20 @@ Difficulty: Hard
 		var/time_to_use = 25 SECONDS
 		switch(mode)
 			if(BLUESPACE)
-				var/obj/effect/anomaly/bluespace/A = new(spot, time_to_use, FALSE)
-				A.teleport_distance = 10
-				A.teleport_range = 10
-				A.allow_detonate = FALSE
+				var/obj/effect/anomaly/bluespace/Anomaly = new(spot, time_to_use, FALSE)
+				Anomaly.teleport_distance = 10
+				Anomaly.teleport_range = 10
+				Anomaly.allow_detonate = FALSE
 			if(GRAV)
-				var/obj/effect/anomaly/grav/A = new(spot, time_to_use, FALSE, FALSE)
-				A.boing = 2
+				var/obj/effect/anomaly/grav/Anomaly = new(spot, time_to_use, FALSE, FALSE)
+				Anomaly.boing = 2
 			if(PYRO)
-				var/obj/effect/anomaly/pyro/A = new(spot, time_to_use, FALSE)
-				A.releasedelay = 5
-				A.allow_detonate = FALSE
+				var/obj/effect/anomaly/pyro/Anomaly = new(spot, time_to_use, FALSE)
+				Anomaly.releasedelay = 5
+				Anomaly.allow_detonate = FALSE
 			if(FLUX)
-				var/obj/effect/anomaly/flux/A = new(spot, time_to_use, FALSE)
-				A.explosive = FALSE
-				A.canshock = TRUE
+				var/obj/effect/anomaly/flux/Anomaly = new(spot, time_to_use, FALSE)
+				Anomaly.canshock = TRUE
 			if(VORTEX)
 				new /obj/effect/anomaly/bhole(spot, time_to_use, FALSE)
 		anomalies++
@@ -442,7 +441,7 @@ Difficulty: Hard
 	say(pick("OTZKMXOZE LGORAXK, YKRL JKYZXAIZ GIZOBK", "RUYY IKXZGOT, KTMGMKOTM XKIUBKXE JKTOGR", "VUCKX IUXKY 8-12 HXKGINKJ, UBKXRUGJOTM XKSGOTOTM IUXKY", "KXXUX KXXUX KXXUX KXXUX KXX-", "-ROQK ZKGXY OT XGOT- - -ZOSK ZU JOK"))
 	visible_message("<span class='biggerdanger'>[src] begins to overload it's core. It is going to explode!</span>")
 	walk(src, 0)
-	playsound(src,'sound/machines/alarm.ogg', 100, FALSE, 5)
+	playsound(src,'sound/machines/hypertorus/HFR_critical_explosion.ogg', 60, FALSE, 5)
 	addtimer(CALLBACK(src, PROC_REF(kaboom)), 10 SECONDS)
 
 /mob/living/simple_animal/hostile/megafauna/ancient_robot/proc/kaboom()
@@ -586,7 +585,7 @@ Difficulty: Hard
 	minbodytemp = 0
 	check_friendly_fire = 1
 	ranged = TRUE
-	projectilesound = 'sound/weapons/gun/hmg/hmg.ogg'
+	projectilesound = 'sound/items/weapons/gun/hmg/hmg.ogg'
 	projectiletype = /obj/projectile/ancient_robot_bullet
 	attack_verb_continuous = "stomps on"
 	attack_verb_simple = "stomps"
@@ -629,7 +628,7 @@ Difficulty: Hard
 	QDEL_NULL(leg_part)
 	return ..()
 
-/mob/living/simple_animal/hostile/ancient_robot_leg/Life(seconds, times_fired)
+/mob/living/simple_animal/hostile/ancient_robot_leg/Life(seconds_per_tick = SSMOBS_DT, times_fired)
 	..()
 	health_and_snap_check(TRUE)
 
@@ -637,7 +636,7 @@ Difficulty: Hard
 	if(core.stat == CONSCIOUS && !core.target && core.AIStatus != AI_OFF && !core.client)
 		if(P.firer && get_dist(core, P.firer) <= core.aggro_vision_range)
 			core.FindTarget(list(P.firer), 1)
-		core.Goto(P.starting, core.move_to_delay, 3)
+		core.Goto(P.starting, core.move_to_delay, 2)
 	..()
 
 /mob/living/simple_animal/hostile/ancient_robot_leg/death(gibbed)
@@ -806,7 +805,7 @@ Difficulty: Hard
 
 /obj/effect/temp_visual/target/ancient/fall(list/flame_hit)
 	var/turf/current_loc = get_turf(src)
-	playsound(current_loc,'sound/magic/fleshtostone.ogg', 80, TRUE)
+	playsound(current_loc,'sound/effects/magic/fleshtostone.ogg', 80, TRUE)
 	new /obj/effect/temp_visual/fireball/rock(current_loc)
 	SLEEP_CHECK_DEATH(duration,src)
 	if(ismineralturf(current_loc))
