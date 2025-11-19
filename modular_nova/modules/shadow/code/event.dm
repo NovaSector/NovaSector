@@ -11,13 +11,16 @@
 
 /// colors for preset style accessories
 #define NIGHTMARE_COLOR_DARK "#363232"
+#define NIGHTMARE_COLOR_DARKER "#1b1a1a"
 #define NIGHTMARE_COLOR_LIGHT "#565656"
 #define NIGHTMARE_COLOR_RED "#5a3c3c"
+#define NIGHTMARE_COLOR_REDDER "#4e2b2b"
 /// probability the preset gets transmorgified into a demi-human
 #define NIGHTMARE_DEMIHUMAN_PROB 50
 
 // only bloodthirsty animals please
 GLOBAL_LIST_INIT(nightmare_presets, list(
+	"humanoid",
 	"bat",
 	"bunny", //nighthare
 	"lizard",
@@ -56,8 +59,8 @@ GLOBAL_LIST_INIT(nightmare_presets_hair_female, list(
 
 	body.set_hairstyle((body.physique == MALE) ? pick(GLOB.nightmare_presets_hair_male) : pick(GLOB.nightmare_presets_hair_female), update = FALSE)
 	body.set_hair_gradient_style(/datum/sprite_accessory/gradient/wavy_spike::name, update = FALSE)
-	body.set_haircolor(NIGHTMARE_COLOR_DARK, update = FALSE)
-	body.set_hair_gradient_color(NIGHTMARE_COLOR_RED, update = FALSE)
+	body.set_haircolor(NIGHTMARE_COLOR_DARKER, update = FALSE)
+	body.set_hair_gradient_color(NIGHTMARE_COLOR_REDDER, update = FALSE)
 	body.set_facial_hairstyle(/datum/sprite_accessory/facial_hair/shaved::name, update = FALSE)
 	body.update_body_parts_head_only()
 
@@ -70,6 +73,9 @@ GLOBAL_LIST_INIT(nightmare_presets_hair_female, list(
 	//	but keep it as tidy as can be - follow the existing formatting and commenting.
 	var/preset = pick(GLOB.nightmare_presets)
 	switch(preset)
+
+		if("humanoid") //normal ass
+			body.dna.features[FEATURE_LEGS] = NORMAL_LEGS
 
 		if("bat")
 			feature_index[MUTANT_INDEX_NAME] = pick(
@@ -96,7 +102,7 @@ GLOBAL_LIST_INIT(nightmare_presets_hair_female, list(
 			feature_index[MUTANT_INDEX_COLOR_LIST] = list(NIGHTMARE_COLOR_DARK, NIGHTMARE_COLOR_LIGHT, NIGHTMARE_COLOR_LIGHT)
 			features_list[FEATURE_TAIL] = feature_index.Copy()
 			feature_index[MUTANT_INDEX_NAME] = /datum/sprite_accessory/ears/external/big/hare_large::name
-			feature_index[MUTANT_INDEX_COLOR_LIST] = list(NIGHTMARE_COLOR_DARK, NIGHTMARE_COLOR_DARK, NIGHTMARE_COLOR_RED)
+			feature_index[MUTANT_INDEX_COLOR_LIST] = list(NIGHTMARE_COLOR_LIGHT, NIGHTMARE_COLOR_DARK, NIGHTMARE_COLOR_RED)
 			features_list[FEATURE_EARS] = feature_index.Copy()
 			feature_index[MUTANT_INDEX_NAME] = /datum/sprite_accessory/snouts/mammal/leporid::name
 			feature_index[MUTANT_INDEX_COLOR_LIST] = list(NIGHTMARE_COLOR_LIGHT, NIGHTMARE_COLOR_DARK, NIGHTMARE_COLOR_DARK)
@@ -129,7 +135,7 @@ GLOBAL_LIST_INIT(nightmare_presets_hair_female, list(
 
 		if("drider") // you thought finding a nightmare in maintenance couldn't get worse?
 			feature_index[MUTANT_INDEX_NAME] = /datum/sprite_accessory/taur/drider::name
-			feature_index[MUTANT_INDEX_COLOR_LIST] = list(NIGHTMARE_COLOR_LIGHT, NIGHTMARE_COLOR_RED, NIGHTMARE_COLOR_RED)
+			feature_index[MUTANT_INDEX_COLOR_LIST] = list(NIGHTMARE_COLOR_LIGHT, NIGHTMARE_COLOR_REDDER, NIGHTMARE_COLOR_RED)
 			features_list[FEATURE_TAUR] = feature_index.Copy()
 			feature_index[MUTANT_INDEX_NAME] = /datum/sprite_accessory/snouts/mammal/top/fmandibles::name
 			feature_index[MUTANT_INDEX_COLOR_LIST] = list(NIGHTMARE_COLOR_DARK, NIGHTMARE_COLOR_RED, NIGHTMARE_COLOR_LIGHT)
@@ -159,7 +165,9 @@ GLOBAL_LIST_INIT(nightmare_presets_hair_female, list(
 
 
 #undef NIGHTMARE_COLOR_DARK
+#undef NIGHTMARE_COLOR_DARKER
 #undef NIGHTMARE_COLOR_LIGHT
 #undef NIGHTMARE_COLOR_RED
+#undef NIGHTMARE_COLOR_REDDER
 
 #undef NIGHTMARE_DEMIHUMAN_PROB

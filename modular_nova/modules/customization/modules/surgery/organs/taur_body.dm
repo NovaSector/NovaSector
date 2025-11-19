@@ -160,7 +160,7 @@
 		old_left_leg.moveToNullspace()
 	new_left_leg.replace_limb(receiver, special = TRUE)
 	new_left_leg.bodytype |= (BODYTYPE_TAUR | old_left_leg.bodytype)
-	new_left_leg.bodypart_effects = length(old_left_leg.bodypart_effects) ? old_left_leg.bodypart_effects.Copy() : null
+	new_left_leg.bodypart_effects = old_left_leg.bodypart_effects?.Copy()
 
 	new_right_leg.bodyshape |= external_bodyshapes
 	if(old_right_leg)
@@ -168,7 +168,7 @@
 		old_right_leg.moveToNullspace()
 	new_right_leg.replace_limb(receiver, special = TRUE)
 	new_right_leg.bodytype |= (BODYTYPE_TAUR | old_right_leg.bodytype)
-	new_right_leg.bodypart_effects = length(old_right_leg.bodypart_effects) ? old_right_leg.bodypart_effects.Copy() : null
+	new_right_leg.bodypart_effects = old_right_leg.bodypart_effects?.Copy()
 
 	. = ..()
 

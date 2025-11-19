@@ -7,7 +7,7 @@
 	// we only need master of the house
 	actions_types = list(/datum/action/cooldown/hemophage/master_of_the_house)
 	// no love is to be found in a heart so twisted
-	food_reagents = list(/datum/reagent/consumable/nutriment/organ_tissue = 5)
+	food_reagents = /obj/item/organ/heart/nightmare::food_reagents
 	/// how many life ticks in the dark the owner has been dead for. Used for nightmare respawns
 	var/respawn_progress = 0
 	/// the armblade granted to the host of this heart
@@ -50,9 +50,9 @@
 /obj/item/organ/heart/hemophage/shadow/on_death(seconds_per_tick, times_fired)
 	if(!owner)
 		return
-	var/turf/T = get_turf(owner)
-	if(istype(T))
-		var/light_amount = T.get_lumcount()
+	var/turf/owner_turf = get_turf(owner)
+	if(istype(owner_turf))
+		var/light_amount = owner_turf.get_lumcount()
 		if(light_amount < SHADOW_SPECIES_LIGHT_THRESHOLD)
 			respawn_progress += seconds_per_tick SECONDS
 			playsound(owner, 'sound/effects/singlebeat.ogg', 40, TRUE)
