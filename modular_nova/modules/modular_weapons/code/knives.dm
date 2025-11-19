@@ -4,7 +4,7 @@
 /obj/item/knife/bowie
 	name = "\improper Bowie knife"
 	desc = "A frontiersman's classic, closer to a shortsword than a knife. It boasts a full-tanged build, a brass handguard and pommel, a wicked sharp point, and a large, heavy blade, It's almost everything you could want in a knife, besides portability."
-	icon = 'modular_nova\modules\modular_weapons\icons\obj\bowie.dmi'
+	icon = 'modular_nova/modules/modular_weapons/icons/obj/bowie.dmi'
 	icon_state = "bowiehand"
 	inhand_icon_state = "bowiehand"
 	lefthand_file = 'modular_nova/modules/modular_weapons/icons/mob/inhands/bowie_lefthand.dmi'
