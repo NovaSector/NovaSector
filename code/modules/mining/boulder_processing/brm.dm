@@ -35,6 +35,7 @@
 	/// Defines which areas this machine is allowed to operate. By default only the station but done this way in case its needed to be varedited by an admin. DO NOT ALLOW THIS FOR THE GHOST ROLES.
 	var/static/list/allowed_areas_to_work = typecacheof(list(
 		/area/station,
+		/area/mine,
 	))
 	// NOVA EDIT ADDITION END
 
