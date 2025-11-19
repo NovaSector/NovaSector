@@ -1,0 +1,5 @@
+author: "Hatterhat"
+delete-after: True
+changes:
+  - balance: "The Gorlex Marauders have redoubled efforts to reduce pilfering from their ammo workbench module resupply shipments, effectively taking the marauder advanced lethal ammo workbench module off the frontier's black markets."
+  - balance: "Shotgun shells have been adjusted, with the most drastic change being on shotgun slugs, going from 30 damage 10 AP to 35 damage 30 AP, giving them more of an anti-armor niche. Some other shotguns may have been touched, see PR 6371 for details as they come along."
