@@ -1,0 +1,4 @@
+author: "RatFromTheJungle"
+delete-after: True
+changes:
+  - balance: "roundstart slimes now heal at a rate of 0.6 brute per tick, and 0.5 burn, instead of 1.5 of both"
