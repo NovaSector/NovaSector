@@ -1,0 +1,8 @@
+author: "OrbisAnima"
+delete-after: True
+changes:
+  - rscadd: "Adds Cargo imports content to regular cargo. Had to adjust some prices due to automatic checks noticing potential infinite money schemes. Coupons now work with them though!"
+  - balance: "Unified single packs inside the new cargo imports. Made the detective revolver, its upgrade, and the bartender shotgun unique to NT, both for flavor and as an example of implementation. Removed the forge items in imports as the forging kit is already available."
+  - rscdel: "Removes Cargo Imports. Also removes the forging equipment from cargo imports, as the regular cargo system includes a crate with the same stuff."
+  - code_imp: " Adds support to the cargo base system for departamental goodies, blacklisting items to factions, blocking items from being express ordered (and express consoles that allow you to bypass that!), autonaming of cargo packs based on the first item if enabled, improved maintability of cargo imports content.  Also normalizes all prices to cargo crate value."
+  - rscdel: "Removed the Hellgun and the Xray gun from cargo, you can still make them using the tech and following the recipe from security."
