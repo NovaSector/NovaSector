@@ -536,8 +536,9 @@
 
 /obj/structure/dead_gladiator
 	name = "solemn remains"
-	desc = "An ancient miner lost to time, chosen and changed by the Necropolis, encased in a suit of armor. Only a chosen few can match his speed and strength... \
-		and it appears someone or something has. Unearthly energies bind the body to its place of defeat, and you cannot move it."
+	desc = "An ancient miner lost to time, chosen and changed by the Necropolis, encased in a suit of armor. Only a chosen few \
+	can match his speed and strength... and it appears someone or something has. Unearthly energies bind the body to its place \
+	of defeat, and you cannot move it."
 	icon = 'modular_nova/modules/gladiator/icons/markedone.dmi'
 	icon_state = "marked_dying"
 	gender = MALE
