@@ -9,7 +9,7 @@
 	))
 
 /datum/computer_file/program/nt_pay/_pay(token, money_to_send, mob/user)
-	if(is_type_in_list(get_area(user), areas_blacklist))
+	if(is_type_in_typecache(get_area(user), areas_blacklist))
 		to_chat(user, span_notice("You cannot send virtual money to real accounts."))
 		return 0 // 0 is the error code for this, so we send 0 to let it know it has an error.
 
