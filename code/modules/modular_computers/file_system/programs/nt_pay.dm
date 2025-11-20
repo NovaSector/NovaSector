@@ -180,7 +180,7 @@
 	payment_amount.set_output(money_received)
 	payment_received.set_output(COMPONENT_SIGNAL)
 
-#undef NT_PAY_STATUS_NO_ACCOUNT
+// #undef NT_PAY_STATUS_NO_ACCOUNT // NOVA EDIT REMOVAL - used in modular_nova/master_files/code/modules/modular_computers/file_system/programs/nt_pay.dm
 #undef NT_PAY_STATUS_DEPT_ACCOUNT
 #undef NT_PAY_STATUS_INVALID_TOKEN
 #undef NT_PAY_SATUS_SENDER_IS_RECEIVER
