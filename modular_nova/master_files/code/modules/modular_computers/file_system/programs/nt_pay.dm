@@ -6,7 +6,7 @@
 		/area/lavaland/surface/outdoors/virtual_domain,
 		/area/ruin/space/virtual_domain,
 		/area/space/virtual_domain,
-	)
+	))
 
 /datum/computer_file/program/nt_pay/_pay(token, money_to_send, mob/user)
 	if(is_type_in_list(get_area(user), areas_blacklist))
