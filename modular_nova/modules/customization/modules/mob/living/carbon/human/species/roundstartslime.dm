@@ -3,6 +3,9 @@
 #define DAMAGE_WATER_STACKS 5
 /// This is the level of waterstacks that prevent a slimeperson from regenerating, doing minimal bloodloss in the process.
 #define REGEN_WATER_STACKS 1
+// For their passive healing
+#define SPECIES_SLIME_PASSIVE_REGEN_BRUTE 0.6
+#define SPECIES_SLIME_PASSIVE_REGEN_BURN 0.5
 
 /datum/species/jelly
 	mutant_bodyparts = list()
@@ -409,7 +412,7 @@
 	if(slime.blood_volume >= BLOOD_VOLUME_NORMAL && healing)
 		if(slime.stat != CONSCIOUS)
 			return
-		slime.heal_overall_damage(brute = 1.5 * seconds_per_tick, burn = 1.5 * seconds_per_tick, required_bodytype = BODYTYPE_ORGANIC)
+		slime.heal_overall_damage(brute = SPECIES_SLIME_PASSIVE_REGEN_BRUTE * seconds_per_tick, burn = SPECIES_SLIME_PASSIVE_REGEN_BURN * seconds_per_tick, required_bodytype = BODYTYPE_ORGANIC)
 		slime.adjustOxyLoss(-1 * seconds_per_tick)
 		if(slime.health < slime.maxHealth)
 			new /obj/effect/temp_visual/heal(get_turf(slime), COLOR_EFFECT_HEAL_RED)
@@ -1165,3 +1168,5 @@
 #undef SLIME_ACTIONS_ICON_FILE
 #undef DAMAGE_WATER_STACKS
 #undef REGEN_WATER_STACKS
+#undef SPECIES_SLIME_PASSIVE_REGEN_BRUTE
+#undef SPECIES_SLIME_PASSIVE_REGEN_BURN

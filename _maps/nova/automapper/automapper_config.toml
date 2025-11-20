@@ -75,6 +75,14 @@ required_map = "MetaStation.dmm"
 coordinates = [163, 155, 1]
 trait_name = "Station"
 
+# Metastation Public Garden
+[templates.metastation_garden]
+map_files = ["metastation_garden.dmm"]
+directory = "_maps/nova/automapper/templates/metastation/"
+required_map = "MetaStation.dmm"
+coordinates = [141, 149, 1]
+trait_name = "Station"
+
 # DELTASTATION MAP EDITS
 # Deltastation Arrivals
 [templates.deltastation_arrivals]
@@ -122,6 +130,14 @@ map_files = ["deltastation_supermatter.dmm"]
 directory = "_maps/nova/automapper/templates/deltastation/"
 required_map = "DeltaStation2.dmm"
 coordinates = [84, 109, 1]
+trait_name = "Station"
+
+# Deltastation Public Garden
+[templates.deltastation_garden]
+map_files = ["deltastation_garden.dmm"]
+directory = "_maps/nova/automapper/templates/deltastation/"
+required_map = "DeltaStation2.dmm"
+coordinates = [151, 175, 1]
 trait_name = "Station"
 
 # ICEBOX MAP EDITS
@@ -205,6 +221,14 @@ required_map = "IceBoxStation.dmm"
 coordinates = [57, 82, 2]
 trait_name = "Station"
 
+# Icebox Public Garden
+[templates.icebox_garden]
+map_files = ["icebox_garden.dmm"]
+directory = "_maps/nova/automapper/templates/icebox/"
+required_map = "IceBoxStation.dmm"
+coordinates = [59, 143, 3]
+trait_name = "Station"
+
 # TRAMSTATION MAP EDITS
 # Tramstation Arrivals
 [templates.tramstation_arrivals]
@@ -252,6 +276,14 @@ map_files = ["tramstation_supermatter.dmm"]
 directory = "_maps/nova/automapper/templates/tramstation/"
 required_map = "tramstation.dmm"
 coordinates = [118, 75, 1]
+trait_name = "Station"
+
+# Tramstation Public Garden
+[templates.tramstation_garden]
+map_files = ["tramstation_garden.dmm"]
+directory = "_maps/nova/automapper/templates/tramstation/"
+required_map = "tramstation.dmm"
+coordinates = [46, 109, 2]
 trait_name = "Station"
 
 # Lavaland NE Ashwalker Fortress
@@ -319,6 +351,14 @@ required_map = "wawastation.dmm"
 coordinates = [142, 95, 2]
 trait_name = "Station"
 
+# Wawastation Public Garden
+[templates.wawastation_garden]
+map_files = ["wawastation_garden.dmm"]
+directory = "_maps/nova/automapper/templates/wawastation/"
+required_map = "wawastation.dmm"
+coordinates = [79, 82, 1]
+trait_name = "Station"
+
 # SNOWGLOBE STATION MAP EDITS
 # Icecats Camp Lower Level - Snowglobe
 [templates.snowglobe_icecats_lower]
@@ -382,6 +422,14 @@ map_files = ["nebulastation_supermatter.dmm"]
 directory = "_maps/nova/automapper/templates/nebulastation/"
 required_map = "NebulaStation.dmm"
 coordinates = [116, 95, 1]
+trait_name = "Station"
+
+# Nebulastation Public Garden
+[templates.nebula_garden]
+map_files = ["nebulastation_garden.dmm"]
+directory = "_maps/nova/automapper/templates/nebulastation/"
+required_map = "NebulaStation.dmm"
+coordinates = [141, 117, 2]
 trait_name = "Station"
 
 #Catwalkstation Supermatter

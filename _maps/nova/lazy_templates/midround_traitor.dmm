@@ -460,12 +460,14 @@
 /turf/open/floor/mineral/titanium/tiled,
 /area/misc/operative_barracks/armoury)
 "hk" = (
-/obj/structure/sign/poster/contraband/c20r/directional/north,
 /obj/effect/turf_decal/siding/thinplating_new{
 	dir = 4
 	},
 /obj/effect/turf_decal/siding/thinplating_new{
 	dir = 8
+	},
+/obj/item/target/syndicate{
+	pixel_y = 28
 	},
 /turf/open/floor/mineral/titanium/tiled,
 /area/misc/operative_barracks/armoury)
@@ -910,6 +912,7 @@
 	pixel_y = 4;
 	pixel_x = -2
 	},
+/obj/structure/sign/poster/contraband/c20r/directional/north,
 /turf/open/floor/circuit/red,
 /area/misc/operative_barracks/armoury)
 "mJ" = (
@@ -946,6 +949,10 @@
 	dir = 4
 	},
 /obj/item/stack/cable_coil,
+/obj/item/hypospray/mkii/deluxe/cmo/combat{
+	pixel_x = -10;
+	pixel_y = 15
+	},
 /turf/open/floor/iron/dark/corner{
 	dir = 4
 	},
@@ -1012,14 +1019,18 @@
 /area/misc/operative_barracks/mission_briefing)
 "nE" = (
 /obj/structure/mecha_wreckage/phazon,
-/obj/effect/decal/cleanable/glass/plastitanium/screws,
 /obj/item/mecha_parts/mecha_equipment/thrusters/ion,
 /obj/effect/decal/cleanable/glass,
 /obj/item/mecha_parts/mecha_equipment/radio,
 /obj/item/mecha_parts/mecha_equipment/air_tank/full,
-/obj/structure/sign/poster/contraband/dancing_honk/directional/south,
 /obj/effect/turf_decal/siding/thinplating_new/dark{
 	dir = 8
+	},
+/obj/item/mecha_parts/mecha_equipment/armor/antiproj_armor_booster,
+/obj/item/mecha_ammo/lmg,
+/obj/item/mecha_parts/mecha_equipment/thrusters/ion,
+/obj/item/mecha_parts/mecha_equipment/weapon/ballistic/lmg{
+	pixel_y = -7
 	},
 /turf/open/floor/iron/dark/side{
 	dir = 8
@@ -1134,6 +1145,20 @@
 /obj/effect/turf_decal/siding/thinplating_new/corner{
 	dir = 1
 	},
+/obj/item/ammo_casing/c10mm{
+	dir = 5;
+	pixel_y = 4;
+	pixel_x = 9
+	},
+/obj/item/ammo_casing/c10mm{
+	pixel_x = 4;
+	pixel_y = -2;
+	dir = 9
+	},
+/obj/item/ammo_casing/c10mm{
+	pixel_x = -5;
+	pixel_y = 4
+	},
 /turf/open/floor/mineral/titanium/tiled,
 /area/misc/operative_barracks/armoury)
 "oZ" = (
@@ -1234,7 +1259,7 @@
 	},
 /obj/structure/fake_stairs/directional/south{
 	color = "#7F7F7F";
-	name = "airstair"
+	name = "airstairs"
 	},
 /obj/structure/cable,
 /turf/open/floor/plating,
@@ -1255,6 +1280,10 @@
 /obj/effect/spawner/surgery_tray/full,
 /obj/structure/fluff/fake_camera{
 	dir = 5
+	},
+/obj/item/reagent_containers/medigel/sterilizine{
+	pixel_x = -11;
+	pixel_y = 16
 	},
 /turf/open/floor/iron/showroomfloor,
 /area/misc/operative_barracks/surgery)
@@ -1457,8 +1486,9 @@
 /obj/machinery/door/window/brigdoor/left/directional/west,
 /obj/structure/table/reinforced,
 /obj/structure/fluff/fake_firedoor,
-/obj/machinery/dish_drive/bullet,
-/obj/item/storage/pouch/ammo,
+/obj/item/storage/toolbox/ammobox{
+	pixel_y = 5
+	},
 /turf/open/floor/iron/dark/smooth_large,
 /area/misc/operative_barracks/armoury)
 "sW" = (
@@ -1628,6 +1658,7 @@
 /obj/effect/turf_decal/box,
 /obj/structure/rack,
 /obj/item/gun/energy/plasmacutter,
+/obj/item/storage/pouch/ammo,
 /turf/open/floor/mineral/titanium/tiled,
 /area/misc/operative_barracks/armoury)
 "uO" = (
@@ -1732,15 +1763,23 @@
 	currentcolor = "#E1E17D"
 	},
 /area/misc/operative_barracks/mission_briefing)
-"wc" = (
-/obj/structure/fluff/fake_scrubber,
-/obj/item/borg/upgrade/syndicate{
-	pixel_x = -6;
+"vV" = (
+/obj/effect/turf_decal/siding/thinplating_new/light,
+/obj/item/clothing/gloves/latex/nitrile{
+	pixel_x = 7;
 	pixel_y = 5
 	},
+/turf/open/floor/mineral/titanium/tiled/white,
+/area/misc/operative_barracks/surgery)
+"wc" = (
+/obj/structure/fluff/fake_scrubber,
 /obj/item/ai_module/syndicate{
 	pixel_y = -11;
 	pixel_x = 4
+	},
+/obj/item/borg/upgrade/transform/syndicatejack/marauder{
+	pixel_x = -7;
+	pixel_y = 6
 	},
 /turf/open/floor/iron/dark/side{
 	dir = 8
@@ -1955,6 +1994,7 @@
 	pixel_x = -8;
 	pixel_y = 19
 	},
+/obj/structure/sign/poster/contraband/dancing_honk/directional/south,
 /turf/open/floor/circuit/green,
 /area/misc/operative_barracks/robotics)
 "yA" = (
@@ -2329,11 +2369,11 @@
 /area/misc/operative_barracks)
 "Ee" = (
 /obj/structure/table/optable,
+/obj/machinery/defibrillator_mount/directional/south,
 /obj/item/autosurgeon/syndicate{
 	pixel_x = -3;
 	pixel_y = 9
 	},
-/obj/machinery/defibrillator_mount/directional/south,
 /turf/open/floor/iron/showroomfloor,
 /area/misc/operative_barracks/surgery)
 "Er" = (
@@ -2890,6 +2930,21 @@
 	},
 /turf/open/floor/plating,
 /area/misc/operative_barracks/hangar)
+"Lc" = (
+/obj/effect/mapping_helpers/wall_dent{
+	pixel_x = 9;
+	pixel_y = 7
+	},
+/obj/effect/mapping_helpers/wall_dent{
+	pixel_x = -12;
+	pixel_y = 3
+	},
+/obj/effect/mapping_helpers/wall_dent{
+	pixel_x = -9;
+	pixel_y = 8
+	},
+/turf/closed/wall/r_wall/plastitanium/syndicate,
+/area/misc/operative_barracks/robotics)
 "Ls" = (
 /obj/machinery/rnd/production/protolathe/department/security,
 /obj/machinery/light/small/directional/south,
@@ -3462,9 +3517,6 @@
 /turf/open/floor/plating,
 /area/misc/operative_barracks/hangar)
 "Ux" = (
-/obj/machinery/computer/crew/syndie{
-	dir = 1
-	},
 /obj/item/disk/nuclear/fake{
 	pixel_x = -19;
 	pixel_y = 9
@@ -3473,6 +3525,13 @@
 /obj/structure/fluff/fake_camera,
 /obj/effect/turf_decal/tile/dark_red{
 	dir = 8
+	},
+/obj/machinery/computer/message_monitor{
+	dir = 1
+	},
+/obj/item/paper/monitorkey{
+	pixel_y = 5;
+	pixel_x = 6
 	},
 /turf/open/floor/mineral/plastitanium,
 /area/misc/operative_barracks/mission_briefing)
@@ -3640,7 +3699,7 @@
 	element_type = /datum/element/voucher_redeemer;
 	element_args = list(/obj/item/paper/paperslip/corporate/syndicate/traitor, /datum/voucher_set/traitor/voucher_trade, 0, 'sound/machines/card_slide.ogg')
 	},
-/obj/structure/showcase/fakeid,
+/obj/structure/showcase/syndicate_communications_console,
 /turf/open/floor/mineral/plastitanium/red,
 /area/misc/operative_barracks/mission_briefing)
 "VZ" = (
@@ -4639,7 +4698,7 @@ aC
 vy
 vx
 nE
-xU
+Lc
 hk
 oU
 uL
@@ -5033,7 +5092,7 @@ UD
 wv
 re
 Qj
-ar
+vV
 Ee
 SA
 wL
