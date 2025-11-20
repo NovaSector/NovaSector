@@ -102,6 +102,7 @@
 	computer_area = /area/ruin/space/has_grav/nova/des_two/security/prison
 	outfit = /datum/outfit/ds2/prisoner
 	spawner_job_path = /datum/job/ds2/prisoner
+	allow_mechanical_loadout_items = FALSE
 
 /obj/effect/mob_spawn/ghost_role/human/ds2/syndicate
 	name = "Syndicate Operative"
@@ -115,6 +116,7 @@
 	computer_area = /area/ruin/space/has_grav/nova/des_two/halls
 	spawner_job_path = /datum/job/ds2
 	loadout_enabled = TRUE
+	allow_mechanical_loadout_items = TRUE
 
 /obj/effect/mob_spawn/ghost_role/human/ds2/syndicate_command
 	name = "Syndicate Command Operative"
@@ -128,6 +130,7 @@
 	computer_area = /area/ruin/space/has_grav/nova/des_two/halls
 	spawner_job_path = /datum/job/ds2/command
 	loadout_enabled = TRUE
+	allow_mechanical_loadout_items = TRUE
 
 /obj/effect/mob_spawn/ghost_role/human/ds2/syndicate/special(mob/living/new_spawn)
 	. = ..()
@@ -185,8 +188,16 @@
 	spawner_job_path = /datum/job/ds2
 	mob_type = /mob/living/silicon/robot/model/ds2
 
+/obj/effect/mob_spawn/ghost_role/robot/ds2/special(mob/living/silicon/robot/new_spawn)
+	. = ..()
+	if(new_spawn.client)
+		new_spawn.custom_name = null
+		new_spawn.updatename(new_spawn.client)
+		new_spawn.transfer_silicon_prefs(new_spawn.client)
+		new_spawn.set_gender(new_spawn.client)
+
 /mob/living/silicon/robot/model/ds2
-	faction = list(ROLE_DS2)
+	faction = list("Syndicate", ROLE_DS2)
 	bubble_icon = "syndibot"
 	req_access = list(ACCESS_SYNDICATE)
 	lawupdate = FALSE
@@ -199,7 +210,7 @@
 
 /mob/living/silicon/robot/model/ds2/Initialize(mapload)
 	. = ..()
-	cell = new /obj/item/stock_parts/power_store/cell/hyper(src, 30000)
+	cell = new /obj/item/stock_parts/power_store/cell/hyper(src)
 	//This part is because the camera stays in the list, so we'll just do a check
 	if(!QDELETED(builtInCamera))
 		QDEL_NULL(builtInCamera)
@@ -226,8 +237,16 @@
 	spawner_job_path = /datum/job/ds2
 	mob_type = /mob/living/silicon/robot/model/interdyne
 
+/obj/effect/mob_spawn/ghost_role/robot/interdyne/special(mob/living/silicon/robot/new_spawn)
+	. = ..()
+	if(new_spawn.client)
+		new_spawn.custom_name = null
+		new_spawn.updatename(new_spawn.client)
+		new_spawn.transfer_silicon_prefs(new_spawn.client)
+		new_spawn.set_gender(new_spawn.client)
+
 /mob/living/silicon/robot/model/interdyne
-	faction = list(ROLE_INTERDYNE_PLANETARY_BASE)
+	faction = list("Syndicate", ROLE_INTERDYNE_PLANETARY_BASE)
 	req_access = list(ACCESS_SYNDICATE)
 	lawupdate = FALSE
 	scrambledcodes = TRUE
@@ -239,7 +258,7 @@
 
 /mob/living/silicon/robot/model/interdyne/Initialize(mapload)
 	. = ..()
-	cell = new /obj/item/stock_parts/power_store/cell/hyper(src, 30000)
+	cell = new /obj/item/stock_parts/power_store/cell/hyper(src)
 	//This part is because the camera stays in the list, so we'll just do a check
 	if(!QDELETED(builtInCamera))
 		QDEL_NULL(builtInCamera)
@@ -432,7 +451,7 @@
 	r_pocket = /obj/item/flashlight/seclite
 	implants = list(
 		/obj/item/implant/weapons_auth,
-		/obj/item/implant/krav_maga
+		/obj/item/implant/kaza_ruk
 		)
 
 /datum/outfit/ds2/syndicate_command/corporateliaison

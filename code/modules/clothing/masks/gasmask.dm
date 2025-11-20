@@ -19,6 +19,10 @@ GLOBAL_LIST_INIT(clown_mask_options, list(
 	flags_cover = MASKCOVERSEYES | MASKCOVERSMOUTH | PEPPERPROOF
 	resistance_flags = NONE
 	voice_filter = "lowpass=f=750,volume=2"
+	sound_vary = TRUE
+	pickup_sound = SFX_GAS_MASK_PICKUP
+	drop_sound = SFX_GAS_MASK_DROP
+	equip_sound = SFX_GAS_MASK_EQUIP
 	///Max numbers of installable filters
 	var/max_filters = 1
 	///List to keep track of each filter
@@ -393,11 +397,11 @@ GLOBAL_LIST_INIT(clown_mask_options, list(
 	if(src && choice && !user.incapacitated && in_range(user,src))
 		// NOVA EDIT ADDITION START - More mask variations
 		var/mob/living/carbon/human/human_user = user
-		if(human_user.dna.species.mutant_bodyparts["snout"])
+		if(human_user.dna.species.mutant_bodyparts[FEATURE_SNOUT])
 			icon = 'modular_nova/master_files/icons/obj/clothing/masks.dmi'
 			worn_icon = 'modular_nova/master_files/icons/mob/clothing/mask_muzzled.dmi'
 			var/list/avian_snouts = list("Beak", "Big Beak", "Corvid Beak")
-			if(human_user.dna.species.mutant_bodyparts["snout"][MUTANT_INDEX_NAME] in avian_snouts)
+			if(human_user.dna.species.mutant_bodyparts[FEATURE_SNOUT][MUTANT_INDEX_NAME] in avian_snouts)
 				icon_state = "[options[choice]]_b"
 		else
 			icon = 'icons/obj/clothing/masks.dmi'

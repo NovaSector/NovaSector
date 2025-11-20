@@ -24,15 +24,15 @@
 
 /datum/species/insect/get_default_mutant_bodyparts()
 	return list(
-		"tail" = list("None", FALSE),
-		"snout" = list("None", FALSE),
-		"horns" = list("None", FALSE),
-		"ears" = list("None", FALSE),
-		"legs" = list("Normal Legs", FALSE),
-		"taur" = list("None", FALSE),
-		"fluff" = list("None", FALSE),
-		"wings" = list("Bee", FALSE),
-		"moth_antennae" = list("None", FALSE),
+		FEATURE_TAIL = list("None", FALSE),
+		FEATURE_SNOUT = list("None", FALSE),
+		FEATURE_HORNS = list("None", FALSE),
+		FEATURE_EARS = list("None", FALSE),
+		FEATURE_LEGS = list("Normal Legs", FALSE),
+		FEATURE_TAUR = list("None", FALSE),
+		FEATURE_FLUFF = list("None", FALSE),
+		FEATURE_WINGS = list("Bee", FALSE),
+		FEATURE_MOTH_ANTENNAE = list("None", FALSE),
 	)
 
 /datum/species/insect/get_species_description()
@@ -44,9 +44,9 @@
 /datum/species/insect/prepare_human_for_preview(mob/living/carbon/human/human)
 	var/main_color = "#644b07"
 	var/secondary_color = "#9b9b9b"
-	human.dna.features["mcolor"] = main_color
-	human.dna.features["mcolor2"] = secondary_color
-	human.dna.features["mcolor3"] = secondary_color
-	human.dna.species.body_markings["head"] = list("Insect Antennae" = list("#644b07", 0))
+	human.dna.features[FEATURE_MUTANT_COLOR] = main_color
+	human.dna.features[FEATURE_MUTANT_COLOR_TWO] = secondary_color
+	human.dna.features[FEATURE_MUTANT_COLOR_THREE] = secondary_color
+	human.dna.species.body_markings[BODY_ZONE_HEAD] = list("Insect Antennae" = list("#644b07", 0))
 	regenerate_organs(human, src, visual_only = TRUE)
 	human.update_body(TRUE)

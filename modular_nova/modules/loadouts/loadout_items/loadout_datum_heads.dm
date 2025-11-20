@@ -18,12 +18,8 @@
 */
 
 /datum/loadout_item/head/wrussian
-	name = "Papakha (Black)"
+	name = "Papakha (Recolorable)"
 	item_path = /obj/item/clothing/head/costume/nova/papakha
-
-/datum/loadout_item/head/wrussianw
-	name = "Papakha (White)"
-	item_path = /obj/item/clothing/head/costume/nova/papakha/white
 
 /datum/loadout_item/head/standalone_hood
 	name = "Standalone Hood"
@@ -40,32 +36,32 @@
 /datum/loadout_item/head/black_beanie
 	name = "Beanie (Black)"
 	item_path = /obj/item/clothing/head/beanie/black
-	can_be_greyscale = DONT_GREYSCALE
+	loadout_flags = parent_type::loadout_flags | LOADOUT_FLAG_BLOCK_GREYSCALING
 
 /datum/loadout_item/head/dark_blue_beanie
 	name = "Beanie (Dark Blue)"
 	item_path = /obj/item/clothing/head/beanie/darkblue
-	can_be_greyscale = DONT_GREYSCALE
+	loadout_flags = parent_type::loadout_flags | LOADOUT_FLAG_BLOCK_GREYSCALING
 
 /datum/loadout_item/head/orange_beanie
 	name = "Beanie (Orange)"
 	item_path = /obj/item/clothing/head/beanie/orange
-	can_be_greyscale = DONT_GREYSCALE
+	loadout_flags = parent_type::loadout_flags | LOADOUT_FLAG_BLOCK_GREYSCALING
 
 /datum/loadout_item/head/red_beanie
 	name = "Beanie (Red)"
 	item_path = /obj/item/clothing/head/beanie/red
-	can_be_greyscale = DONT_GREYSCALE
+	loadout_flags = parent_type::loadout_flags | LOADOUT_FLAG_BLOCK_GREYSCALING
 
 /datum/loadout_item/head/yellow_beanie
 	name = "Beanie (Yellow)"
 	item_path = /obj/item/clothing/head/beanie/yellow
-	can_be_greyscale = DONT_GREYSCALE
+	loadout_flags = parent_type::loadout_flags | LOADOUT_FLAG_BLOCK_GREYSCALING
 
 /datum/loadout_item/head/christmas_beanie
 	name = "Beanie - Christmas"
 	item_path = /obj/item/clothing/head/beanie/christmas
-	can_be_greyscale = DONT_GREYSCALE
+	loadout_flags = parent_type::loadout_flags | LOADOUT_FLAG_BLOCK_GREYSCALING
 
 /*
 *	BERETS
@@ -115,6 +111,10 @@
 	name = "Beret - Virologist"
 	item_path = /obj/item/clothing/head/beret/medical/virologist
 
+/datum/loadout_item/head/beret_clown
+	name = "Beret - Clown"
+	item_path = /obj/item/clothing/head/beret/clown
+
 /*
 *	CAPS
 */
@@ -149,9 +149,15 @@
 	item_path = /obj/item/clothing/head/soft/frontier_colonist/medic
 
 /datum/loadout_item/head/tarkon
-	name = "Cap - Tarkon Welder"
+	name = "Tarkon Welder"
 	item_path = /obj/item/clothing/head/utility/welding/hat
-	blacklisted_roles = list(JOB_CAPTAIN, JOB_HEAD_OF_PERSONNEL, JOB_BLUESHIELD, JOB_HEAD_OF_SECURITY, JOB_RESEARCH_DIRECTOR, JOB_QUARTERMASTER, JOB_CHIEF_MEDICAL_OFFICER, JOB_CHIEF_ENGINEER, JOB_SECURITY_OFFICER, JOB_DETECTIVE, JOB_WARDEN, JOB_BLUESHIELD, JOB_CORRECTIONS_OFFICER)
+	blacklisted_roles = list(ALL_JOBS_SEC, ALL_JOBS_COM, JOB_PRISONER)
+	group = "Job-Locked"
+
+/datum/loadout_item/head/welder
+	name = "Regular Welder"
+	item_path = /obj/item/clothing/head/utility/welding
+	blacklisted_roles = list(JOB_PRISONER)
 
 /*
 *	FEDORAS
@@ -470,7 +476,7 @@
 
 /datum/loadout_item/head/tactical_headband
 	name = "Maid Headband - Tactical"
-	item_path = /obj/item/clothing/head/costume/maidheadband/syndicate/loadout_headband
+	item_path = /obj/item/clothing/head/costume/maid_headband/syndicate/loadout_headband
 	group = "Costumes"
 
 /datum/loadout_item/head/maidhead/get_item_information()
@@ -479,7 +485,7 @@
 
 /datum/loadout_item/head/maidhead2
 	name = "Maid Headband - Frilly"
-	item_path = /obj/item/clothing/head/costume/maidheadband
+	item_path = /obj/item/clothing/head/costume/maid_headband
 	group = "Costumes"
 
 /datum/loadout_item/head/maidhead2/get_item_information()
@@ -700,55 +706,55 @@
 /datum/loadout_item/head/officerberet
 	name = "Security Beret"
 	item_path = /obj/item/clothing/head/beret/sec/nova
-	restricted_roles = list(JOB_SECURITY_OFFICER, JOB_HEAD_OF_SECURITY, JOB_WARDEN)
+	restricted_roles = list(ALL_JOBS_SEC)
 	group = "Job-Locked"
 
 /datum/loadout_item/head/navyblueofficerberet
 	name = "Security Beret (Navy Blue)"
 	item_path = /obj/item/clothing/head/beret/sec/navyofficer
-	restricted_roles = list(JOB_SECURITY_OFFICER, JOB_HEAD_OF_SECURITY, JOB_WARDEN)
+	restricted_roles = list(ALL_JOBS_SEC)
 	group = "Job-Locked"
 
 /datum/loadout_item/head/officercap
 	name = "Security Cap"
 	item_path = /obj/item/clothing/head/security_cap
-	restricted_roles = list(JOB_SECURITY_OFFICER, JOB_HEAD_OF_SECURITY, JOB_WARDEN)
+	restricted_roles = list(ALL_JOBS_SEC)
 	group = "Job-Locked"
 
 /datum/loadout_item/head/officergarrisoncap
 	name = "Security Cap - Garrison"
 	item_path = /obj/item/clothing/head/security_garrison
-	restricted_roles = list(JOB_SECURITY_OFFICER, JOB_HEAD_OF_SECURITY, JOB_WARDEN)
+	restricted_roles = list(ALL_JOBS_SEC)
 	group = "Job-Locked"
 
 /datum/loadout_item/head/officerpatrolcap
 	name = "Security Cap - Patrol"
 	item_path = /obj/item/clothing/head/hats/warden/police/patrol
-	restricted_roles = list(JOB_SECURITY_OFFICER, JOB_HEAD_OF_SECURITY, JOB_WARDEN)
+	restricted_roles = list(ALL_JOBS_SEC)
 	group = "Job-Locked"
 
 /datum/loadout_item/head/cowboyhat_sec
 	name = "Security Cattleman Hat"
 	item_path = /obj/item/clothing/head/cowboy/nova/cattleman/sec
-	restricted_roles = list(JOB_WARDEN, JOB_DETECTIVE, JOB_SECURITY_OFFICER, JOB_HEAD_OF_SECURITY, JOB_CORRECTIONS_OFFICER)
+	restricted_roles = list(ALL_JOBS_SEC)
 	group = "Job-Locked"
 
 /datum/loadout_item/head/cowboyhat_secwide
 	name = "Security Cattleman Hat - Wide-Brimmed"
 	item_path = /obj/item/clothing/head/cowboy/nova/cattleman/wide/sec
-	restricted_roles = list(JOB_WARDEN, JOB_DETECTIVE, JOB_SECURITY_OFFICER, JOB_HEAD_OF_SECURITY, JOB_CORRECTIONS_OFFICER)
+	restricted_roles = list(ALL_JOBS_SEC)
 	group = "Job-Locked"
 
 /datum/loadout_item/head/ushanka/sec
 	name = "Security Ushanka"
 	item_path = /obj/item/clothing/head/costume/ushanka/sec
-	restricted_roles = list(JOB_WARDEN, JOB_DETECTIVE, JOB_SECURITY_OFFICER, JOB_HEAD_OF_SECURITY, JOB_CORRECTIONS_OFFICER)
+	restricted_roles = list(ALL_JOBS_SEC)
 	group = "Job-Locked"
 
-/datum/loadout_item/head/cybergoggles	//Cyberpunk-P.I. Outfit
+/datum/loadout_item/head/cybergoggles //Cyberpunk-P.I. Outfit
 	name = "Detective's Type-34P Forensics Headwear"
 	item_path = /obj/item/clothing/head/fedora/det_hat/cybergoggles
-	restricted_roles = list(JOB_WARDEN, JOB_DETECTIVE, JOB_SECURITY_OFFICER, JOB_HEAD_OF_SECURITY, JOB_CORRECTIONS_OFFICER)
+	restricted_roles = list(ALL_JOBS_SEC)
 	group = "Job-Locked"
 
 /datum/loadout_item/head/detfedora

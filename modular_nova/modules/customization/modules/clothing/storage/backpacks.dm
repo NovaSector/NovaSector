@@ -84,3 +84,13 @@
 	lefthand_file = 'modular_nova/master_files/icons/mob/inhands/clothing/backpack_lefthand.dmi'
 	righthand_file = 'modular_nova/master_files/icons/mob/inhands/clothing/backpack_righthand.dmi'
 	resistance_flags = FIRE_PROOF
+
+/obj/item/storage/backpack/udc
+	name = "\improper U.D.C."
+	desc = "This ultra-discreet carrier apparatus relieves the burden of a rear-focused center of weight by allowing the wearer to stow items inside its discreet and practical storage compartments."
+	icon_state = "backpack-udc"
+	inhand_icon_state = "udcpack"
+	icon = 'modular_nova/master_files/icons/obj/clothing/backpacks.dmi'
+	worn_icon = 'modular_nova/master_files/icons/mob/clothing/back.dmi'
+	lefthand_file = 'modular_nova/master_files/icons/mob/inhands/clothing/backpack_lefthand.dmi'
+	righthand_file = 'modular_nova/master_files/icons/mob/inhands/clothing/backpack_righthand.dmi'

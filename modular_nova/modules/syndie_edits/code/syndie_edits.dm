@@ -86,12 +86,12 @@
 	worn_icon = 'modular_nova/master_files/icons/mob/clothing/hands.dmi'
 	icon_state = "combat"
 
-/obj/item/clothing/gloves/krav_maga/combatglovesplus
+/obj/item/clothing/gloves/kaza_ruk/combatglovesplus
 	icon = 'modular_nova/master_files/icons/obj/clothing/gloves.dmi'
 	worn_icon = 'modular_nova/master_files/icons/mob/clothing/hands.dmi'
 	icon_state = "combat"
 
-/obj/item/clothing/gloves/krav_maga/combatglovesplus/maa
+/obj/item/clothing/gloves/kaza_ruk/combatglovesplus/maa
 	name = "master at arms' combat gloves"
 	desc = "A set of combat gloves plus emblazoned with red knuckles, showing dedication to the trade while also hiding any blood left after use."
 	icon_state = "maagloves"
@@ -134,12 +134,17 @@
 	soft_type = "ds"
 
 //Maid Outfit
-/obj/item/clothing/head/costume/maidheadband/syndicate
+/obj/item/clothing/head/costume/maid_headband/syndicate
 	name = "tactical maid headband"
 	desc = "Tacticute."
 	icon_state = "syndimaid_headband"
 	icon = 'modular_nova/master_files/icons/obj/clothing/head/costume.dmi'
 	worn_icon = 'modular_nova/master_files/icons/mob/clothing/head/costume.dmi'
+	post_init_icon_state = null
+	greyscale_config = null
+	greyscale_config_worn = null
+	greyscale_colors = "#88242D#591A2A"
+	flags_1 = NONE
 
 /obj/item/clothing/gloves/combat/maid
 	name = "combat maid sleeves"

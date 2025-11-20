@@ -112,7 +112,7 @@
 	dir = 1
 	},
 /obj/effect/turf_decal/trimline/red/line,
-/obj/effect/landmark/start/hangover/closet,
+/obj/effect/landmark/start/hangover,
 /obj/machinery/status_display/evac/directional/north,
 /turf/open/floor/iron,
 /area/station/service/barber)
@@ -133,7 +133,7 @@
 	},
 /obj/effect/turf_decal/trimline/red/corner,
 /obj/machinery/airalarm/directional/west,
-/obj/effect/landmark/start/hangover/closet,
+/obj/effect/landmark/start/hangover,
 /turf/open/floor/iron,
 /area/station/service/barber)
 "D" = (
