@@ -102,7 +102,7 @@
 	beakers += beaker_one
 	beakers += beaker_two
 
-/obj/item/mecha_parts/mecha_equipment/weapon/ballistic/launcher/solfed_teargas/proj_init(obj/item/grenade/chem_grenade/teargas/grenade, mob/usr)
+/obj/item/mecha_parts/mecha_equipment/weapon/ballistic/launcher/solfed_teargas/proj_init(obj/item/grenade/chem_grenade/teargas/grenade)
 	var/turf/tar_turf = get_turf(src)
 	message_admins("[ADMIN_LOOKUPFLW(usr)] fired a [grenade] in [ADMIN_VERBOSEJMP(tar_turf)]")
 	usr.log_message("fired a [grenade] in [AREACOORD(tar_turf)].", LOG_GAME)
@@ -152,7 +152,7 @@
 	var/det_time = 10
 	detachable = FALSE
 
-/obj/item/mecha_parts/mecha_equipment/weapon/ballistic/launcher/solfed_napalm/proj_init(obj/item/grenade/chem_grenade/solfed/napalm/grenade, mob/usr)
+/obj/item/mecha_parts/mecha_equipment/weapon/ballistic/launcher/solfed_napalm/proj_init(obj/item/grenade/chem_grenade/solfed/napalm/grenade)
 	var/turf/tar_turf = get_turf(src)
 	message_admins("[ADMIN_LOOKUPFLW(usr)] fired a [grenade] in [ADMIN_VERBOSEJMP(tar_turf)]")
 	usr.log_message("fired a [grenade] in [AREACOORD(tar_turf)].", LOG_GAME)

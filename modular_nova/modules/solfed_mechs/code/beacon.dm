@@ -190,18 +190,41 @@ GLOBAL_DATUM(mech_drop_alert_handler, /datum/mech_drop_alert_handler)
 /obj/item/mecha_summon_remote/proc/solfed_mech_drop_announcement()
 	var/list/mech_types = GLOB.mech_drop_alert_handler.get_visible_mech_types()
 	if (!mech_types.len)
-		return // No visible mechs
+		return
 
 	var/location_name = GLOB.mech_drop_alert_handler.get_announcement_location()
 	if (!location_name)
-		return // All beacons are in CentCom or invalid areas — suppress announcement
+		return
 
 	var/text
 	if (mech_types.len == 1)
-		var/mech_name = initial(mech_types[1].name)
+		// Cast the first element to a mech type so we can access its initial name
+		var/typepath = mech_types[1]
+		var/obj/vehicle/sealed/mecha/mech_type = typepath
+		var/mech_name = initial(mech_type.name)
+
 		text = "Inbound SolFed mech of type [mech_name] detected. Estimated landing site: [location_name]. All personnel are advised to clear the drop zone."
 	else
-		text = "Multiple SolFed mech signatures detected on orbital approach, inbound toward [location_name]. Estimated impact in 30 seconds. Evacuation recommended."
+		// Build a readable list of names for multiple mechs
+		var/list/mech_names = list()
+		for (var/typepath in mech_types)
+			var/obj/vehicle/sealed/mecha/mech_type = typepath
+			mech_names += initial(mech_type.name)
+
+		var/names_str
+		if (mech_names.len == 2)
+			names_str = "[mech_names[1]] and [mech_names[2]]"
+		else
+			names_str = ""
+			for (var/i = 1; i <= mech_names.len; i++)
+				if (i == 1)
+					names_str = "[mech_names[i]]"
+				else if (i == mech_names.len)
+					names_str = "[names_str], and [mech_names[i]]"
+				else
+					names_str = "[names_str], [mech_names[i]]"
+
+		text = "Multiple SolFed mech signatures ([names_str]) detected on orbital approach, inbound toward [location_name]. Estimated impact in 30 seconds. Evacuation recommended."
 
 	var/sound_to_play = ANNOUNCER_HC_POLICE
 	if (prob(1))
