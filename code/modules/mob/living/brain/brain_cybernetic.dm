@@ -4,6 +4,7 @@
 	icon_state = "brain-c"
 	organ_flags = ORGAN_ROBOTIC | ORGAN_VITAL
 	failing_desc = "seems to be broken, and will not work without repairs."
+	shade_color = null
 
 /obj/item/organ/brain/cybernetic/brain_damage_examine()
 	if(suicided)
@@ -52,8 +53,16 @@
 	. = ..()
 	if(. & EMP_PROTECT_SELF)
 		return
-	switch(severity) // Hard cap on brain damage from EMP
+	switch(severity)
 		if (EMP_HEAVY)
-			apply_organ_damage(20, BRAIN_DAMAGE_SEVERE)
+			//apply_organ_damage(20, BRAIN_DAMAGE_SEVERE) // NOVA EDIT REMOVAL
+			// NOVA EDIT ADDITION START
+			to_chat(owner, span_boldwarning("You feel [pick("like your brain is being fried", "a sharp pain in your head")]!")) //default alert text for emps
+			apply_organ_damage((20*emp_dmg_mult), emp_dmg_max) //implement cap
+			// NOVA EDIT ADDITION END
 		if (EMP_LIGHT)
-			apply_organ_damage(10, BRAIN_DAMAGE_MILD)
+			//apply_organ_damage(10, BRAIN_DAMAGE_MILD) // NOVA EDIT REMOVAL
+			// NOVA EDIT ADDITION START
+			to_chat(owner, span_warning("You feel [pick("disoriented", "confused", "dizzy")].")) //default alert text for emps
+			apply_organ_damage((10*emp_dmg_mult), emp_dmg_max) //implement cap
+			// NOVA EDIT ADDITION END

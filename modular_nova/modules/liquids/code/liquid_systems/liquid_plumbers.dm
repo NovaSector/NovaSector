@@ -347,7 +347,7 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/machinery/plumbing/floor_pump/output/on/supply/
 	pixel_x = 5
 	pixel_y = 5
 
-/obj/machinery/duct/supply/Initialize(mapload)
+/obj/machinery/duct/supply/Initialize(mapload, no_anchor, color_of_duct = null, layer_of_duct = null, force_connects, force_ignore_colors)
 	pixel_x = 0
 	pixel_y = 0
 	. = ..()
@@ -359,7 +359,7 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/machinery/plumbing/floor_pump/output/on/supply/
 	pixel_x = -5
 	pixel_y = -5
 
-/obj/machinery/duct/waste/Initialize(mapload)
+/obj/machinery/duct/waste/Initialize(mapload, no_anchor, color_of_duct = null, layer_of_duct = null, force_connects, force_ignore_colors)
 	pixel_x = 0
 	pixel_y = 0
 	. = ..()

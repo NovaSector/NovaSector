@@ -113,7 +113,7 @@
 
 ///Returns TRUE if overdose would occur upon install(), overwise returns FALSE.
 /obj/item/disk/neuroware/proc/check_overdose(mob/living/carbon/human/target, list/reagent_list)
-	for(var/reagent_type as anything in reagent_list)
+	for(var/reagent_type in reagent_list)
 		var/datum/reagent/existing_reagent = target.has_reagent(reagent_type)
 		if(!existing_reagent || existing_reagent.overdose_threshold == 0)
 			continue
@@ -131,7 +131,8 @@
 		return
 	var/obj/item/organ/brain/owner_brain = target.get_organ_slot(ORGAN_SLOT_BRAIN)
 	var/obj/item/organ/cyberimp/brain/nif/is_nif_user = target.get_organ_by_type(/obj/item/organ/cyberimp/brain/nif)
-	if(isnull(owner_brain) || !(owner_brain.organ_flags & ORGAN_ROBOTIC) || !is_nif_user)
+	// Allow install if they have either a robotic brain (synthetic, including cortical) OR a NIF
+	if(isnull(owner_brain) || (!(owner_brain.organ_flags & ORGAN_ROBOTIC) && !is_nif_user))
 		balloon_alert(user, "synthetic brain or NIF required!")
 		return
 	if(is_lewd && !(target.client?.prefs.read_preference(/datum/preference/toggle/erp/aphro)))

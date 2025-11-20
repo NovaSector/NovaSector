@@ -930,7 +930,9 @@ h2.alert {
 }
 
 .drone {
-  color: hsl(60, 0.8%, 51.4%);
+  color: hsl(60 100% 50%);
+  background-color: hsl(287 62% 36%);
+  font-style: italic;
 }
 
 .monkey {
@@ -946,12 +948,8 @@ h2.alert {
 }
 
 .upside_down {
-  display: inline;
-  -moz-transform: scale(-1, -1);
-  -webkit-transform: scale(-1, -1);
-  -o-transform: scale(-1, -1);
-  -ms-transform: scale(-1, -1);
-  transform: scale(-1, -1);
+  transform: rotate(180deg);
+  display: inline-block;
 }
 
 .connectionClosed,
@@ -1316,6 +1314,12 @@ $border-width-px: $border-width * 1px;
   color: #507294;
   font-weight: bold;
 }
+.subtle {
+  color: #000099;
+}
+.subtler {
+  color: #4a00b3;
+}
 
 .crossooc {
   color: #9f6efc;
@@ -1349,6 +1353,11 @@ $border-width-px: $border-width * 1px;
 
 .cyan {
   color: #0ea1e6;
+  font-weight: bold;
+}
+
+.horizonblue {
+  color: #7ca2b8;
   font-weight: bold;
 }
 

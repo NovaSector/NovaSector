@@ -101,8 +101,8 @@
 /obj/structure/displaycase/proc/trigger_alarm()
 	if(!alert)
 		return
-	//var/area/alarmed = get_area(src) NOVA EDIT REMOVAL
-	//alarmed.burglaralert(src) NOVA EDIT REMOVAL
+	var/area/alarmed = get_area(src)
+	alarmed.burglaralert(src)
 
 	alarm_manager.send_alarm(ALARM_BURGLAR)
 	addtimer(CALLBACK(alarm_manager, TYPE_PROC_REF(/datum/alarm_handler, clear_alarm), ALARM_BURGLAR), 1 MINUTES)

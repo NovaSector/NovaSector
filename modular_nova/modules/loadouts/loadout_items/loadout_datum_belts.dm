@@ -68,17 +68,13 @@
 	name = "Fannypack (Yellow)"
 	item_path = /obj/item/storage/belt/fannypack/yellow
 
-/datum/loadout_item/belts/thigh_satchel
-	name = "Thigh Satchel"
-	item_path = /obj/item/storage/belt/thigh_satchel
-
 /datum/loadout_item/belts/lantern
 	name = "Lantern"
 	item_path = /obj/item/flashlight/lantern
 
-/datum/loadout_item/belts/candle_box
-	name = "Candle Box"
-	item_path = /obj/item/storage/fancy/candle_box
+/datum/loadout_item/belts/thigh_satchel
+	name = "Thigh Satchel"
+	item_path = /obj/item/storage/belt/thigh_satchel
 
 // HOLSTERS
 
@@ -90,32 +86,23 @@
 	name = "Holster (Thigh, Colorable)"
 	item_path = /obj/item/storage/belt/holster/thigh
 
-// RIGS/WEBBING (for military larpers)
+// RIGS (for military larpers)
 
 /datum/loadout_item/belts/cin_surplus_chestrig
-	name = "Chest Rig - CIN Surplus (Colorable)"
+	name = "Belt - CIN Surplus (Colorable)"
 	item_path = /obj/item/storage/belt/military/cin_surplus
 
 /datum/loadout_item/belts/cin_surplus_chestrig_desert
-	name = "Chest Rig - CIN Surplus (Desert)"
+	name = "Belt - CIN Surplus (Desert)"
 	item_path = /obj/item/storage/belt/military/cin_surplus/desert
-	can_be_greyscale = DONT_GREYSCALE
+	loadout_flags = parent_type::loadout_flags | LOADOUT_FLAG_BLOCK_GREYSCALING
 
 /datum/loadout_item/belts/cin_surplus_chestrig_forest
-	name = "Chest Rig - CIN Surplus (Forest)"
+	name = "Belt - CIN Surplus (Forest)"
 	item_path = /obj/item/storage/belt/military/cin_surplus/forest
-	can_be_greyscale = DONT_GREYSCALE
+	loadout_flags = parent_type::loadout_flags | LOADOUT_FLAG_BLOCK_GREYSCALING
 
 /datum/loadout_item/belts/cin_surplus_chestrig_marine
-	name = "Chest Rig - CIN Surplus (Marine)"
+	name = "Belt - CIN Surplus (Marine)"
 	item_path = /obj/item/storage/belt/military/cin_surplus/marine
-	can_be_greyscale = DONT_GREYSCALE
-
-/datum/loadout_item/belts/expeditionary_chestrig_belt
-	name = "Chest Rig - Expeditionary"
-	item_path = /obj/item/storage/belt/military/expeditionary_corps
-
-/datum/loadout_item/belts/frontier_chestrig
-	name = "Chest Rig - Frontier"
-	item_path = /obj/item/storage/belt/utility/frontier_colonist
-
+	loadout_flags = parent_type::loadout_flags | LOADOUT_FLAG_BLOCK_GREYSCALING

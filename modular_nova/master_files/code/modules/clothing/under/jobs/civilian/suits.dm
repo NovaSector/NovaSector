@@ -191,6 +191,7 @@
 	name = "inferno suitskirt"
 	icon_state = "modeus"
 	obj_flags = UNIQUE_RENAME
+	gets_cropped_on_taurs = FALSE
 	unique_reskin = list(
 		"Lust" = "modeus",
 		"Sloth" = "pande",

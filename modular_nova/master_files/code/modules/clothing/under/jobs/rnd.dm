@@ -1,24 +1,3 @@
-/obj/item/clothing/under/rank/rnd
-	worn_icon_digi = 'modular_nova/master_files/icons/mob/clothing/under/rnd_digi.dmi'
-
-/obj/item/clothing/under/rank/rnd/research_director/alt
-	greyscale_config_worn_digi = /datum/greyscale_config/buttondown_slacks/worn/digi
-
-/obj/item/clothing/under/rank/rnd/scientist/nova
-	icon = 'modular_nova/master_files/icons/obj/clothing/under/rnd.dmi'
-	worn_icon = 'modular_nova/master_files/icons/mob/clothing/under/rnd.dmi'
-	icon_state = null //debug item
-
-/obj/item/clothing/under/rank/rnd/roboticist/nova
-	icon = 'modular_nova/master_files/icons/obj/clothing/under/rnd.dmi'
-	worn_icon = 'modular_nova/master_files/icons/mob/clothing/under/rnd.dmi'
-	icon_state = null //debug item
-
-/obj/item/clothing/under/rank/rnd/research_director/nova
-	icon = 'modular_nova/master_files/icons/obj/clothing/under/rnd.dmi'
-	worn_icon = 'modular_nova/master_files/icons/mob/clothing/under/rnd.dmi'
-	icon_state = null //debug item
-
 /*
  *	GENETICIST (TO-DO)
  *  Add geneticist icons!!!
@@ -60,6 +39,19 @@
 	icon_state = "hl_scientist"
 	can_adjust = FALSE
 
+/obj/item/clothing/under/rank/rnd/scientist/nova
+	icon = 'modular_nova/master_files/icons/obj/clothing/under/rnd.dmi'
+	worn_icon = 'modular_nova/master_files/icons/mob/clothing/under/rnd.dmi'
+	icon_state = null //debug item
+
+/*
+ *	ROBOTICIST
+ */
+/obj/item/clothing/under/rank/rnd/roboticist/nova
+	icon = 'modular_nova/master_files/icons/obj/clothing/under/rnd.dmi'
+	worn_icon = 'modular_nova/master_files/icons/mob/clothing/under/rnd.dmi'
+	icon_state = null //debug item
+
 /*
  *	RESEARCH DIRECTOR
  */
@@ -67,3 +59,14 @@
 	desc = "An off-white naval suit over black pants, with a rank badge denoting the Officer of the Internal Science Division. It's a peaceful life."
 	name = "research director's naval jumpsuit"
 	icon_state = "imprd"
+
+/obj/item/clothing/under/rank/rnd/research_director/nova
+	icon = 'modular_nova/master_files/icons/obj/clothing/under/rnd.dmi'
+	worn_icon = 'modular_nova/master_files/icons/mob/clothing/under/rnd.dmi'
+	icon_state = null //debug item
+
+/obj/item/clothing/under/rank/rnd/research_director/alt
+	greyscale_config_worn_digi = /datum/greyscale_config/buttondown_slacks/worn/digi
+
+/obj/item/clothing/under/rank/rnd
+	worn_icon_digi = 'modular_nova/master_files/icons/mob/clothing/under/rnd_digi.dmi'

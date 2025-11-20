@@ -38,6 +38,7 @@
 
 /datum/armament_entry/company_import/vitezstvi/accessory/suppressor
 	item_type = /obj/item/suppressor/standard
+	restricted = TRUE
 
 /datum/armament_entry/company_import/vitezstvi/accessory/seclight
 	item_type = /obj/item/flashlight/seclite
@@ -149,13 +150,19 @@
 	cost = PAYCHECK_CREW
 
 /datum/armament_entry/company_import/vitezstvi/speedloader/detective_lethal
-	item_type = /obj/item/ammo_box/c38
+	item_type = /obj/item/ammo_box/speedloader/c38
 
 /datum/armament_entry/company_import/vitezstvi/speedloader/detective_dumdum
-	item_type = /obj/item/ammo_box/c38/dumdum
+	item_type = /obj/item/ammo_box/speedloader/c38/dumdum
 
 /datum/armament_entry/company_import/vitezstvi/speedloader/detective_bouncy
-	item_type = /obj/item/ammo_box/c38/match
+	item_type = /obj/item/ammo_box/speedloader/c38/match
+
+/datum/armament_entry/company_import/vitezstvi/speedloader/c35sol
+	item_type = /obj/item/ammo_box/speedloader/c35sol
+
+/datum/armament_entry/company_import/vitezstvi/speedloader/c585trappiste
+	item_type = /obj/item/ammo_box/speedloader/c585trappiste
 
 // Shotgun boxes
 

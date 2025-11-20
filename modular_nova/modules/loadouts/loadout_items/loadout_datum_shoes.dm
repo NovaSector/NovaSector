@@ -25,7 +25,7 @@
 
 /datum/loadout_item/shoes/kim
 	name = "Aerostatic Shoes"
-	item_path = /obj/item/clothing/shoes/kim
+	item_path = /obj/item/clothing/shoes/jackboots/kim
 
 /datum/loadout_item/shoes/high_heels
 	name = "High Heels"
@@ -67,6 +67,10 @@
 /datum/loadout_item/shoes/sportshoes
 	name = "Sport Shoes"
 	item_path = /obj/item/clothing/shoes/sports
+
+/datum/loadout_item/shoes/sport_boots
+	name = "Sport Boots"
+	item_path = /obj/item/clothing/shoes/sport_boots
 
 /*
 *	BOOTS
@@ -148,42 +152,42 @@
 /datum/loadout_item/shoes/black_sneakers
 	name = "Sneakers (Black)"
 	item_path = /obj/item/clothing/shoes/sneakers/black
-	can_be_greyscale = DONT_GREYSCALE
+	loadout_flags = parent_type::loadout_flags | LOADOUT_FLAG_BLOCK_GREYSCALING
 
 /datum/loadout_item/shoes/blue_sneakers
 	name = "Sneakers (Blue)"
 	item_path = /obj/item/clothing/shoes/sneakers/blue
-	can_be_greyscale = DONT_GREYSCALE
+	loadout_flags = parent_type::loadout_flags | LOADOUT_FLAG_BLOCK_GREYSCALING
 
 /datum/loadout_item/shoes/brown_sneakers
 	name = "Sneakers (Brown)"
 	item_path = /obj/item/clothing/shoes/sneakers/brown
-	can_be_greyscale = DONT_GREYSCALE
+	loadout_flags = parent_type::loadout_flags | LOADOUT_FLAG_BLOCK_GREYSCALING
 
 /datum/loadout_item/shoes/green_sneakers
 	name = "Sneakers (Green)"
 	item_path = /obj/item/clothing/shoes/sneakers/green
-	can_be_greyscale = DONT_GREYSCALE
+	loadout_flags = parent_type::loadout_flags | LOADOUT_FLAG_BLOCK_GREYSCALING
 
 /datum/loadout_item/shoes/orange_sneakers
 	name = "Sneakers (Orange)"
 	item_path = /obj/item/clothing/shoes/sneakers/orange
-	can_be_greyscale = DONT_GREYSCALE
+	loadout_flags = parent_type::loadout_flags | LOADOUT_FLAG_BLOCK_GREYSCALING
 
 /datum/loadout_item/shoes/purple_sneakers
 	name = "Sneakers (Purple)"
 	item_path = /obj/item/clothing/shoes/sneakers/purple
-	can_be_greyscale = DONT_GREYSCALE
+	loadout_flags = parent_type::loadout_flags | LOADOUT_FLAG_BLOCK_GREYSCALING
 
 /datum/loadout_item/shoes/white_sneakers
 	name = "Sneakers (White)"
 	item_path = /obj/item/clothing/shoes/sneakers/white
-	can_be_greyscale = DONT_GREYSCALE
+	loadout_flags = parent_type::loadout_flags | LOADOUT_FLAG_BLOCK_GREYSCALING
 
 /datum/loadout_item/shoes/yellow_sneakers
 	name = "Sneakers (Yellow)"
 	item_path = /obj/item/clothing/shoes/sneakers/yellow
-	can_be_greyscale = DONT_GREYSCALE
+	loadout_flags = parent_type::loadout_flags | LOADOUT_FLAG_BLOCK_GREYSCALING
 
 /*
 *	LEG WRAPS
@@ -253,7 +257,7 @@
 /datum/loadout_item/shoes/jackboots_sec_blue
 	name = "Security Jackboots (Blue)"
 	item_path = /obj/item/clothing/shoes/jackboots/sec/blue
-	restricted_roles = list(JOB_SECURITY_OFFICER, JOB_WARDEN, JOB_HEAD_OF_SECURITY)
+	restricted_roles = list(ALL_JOBS_SEC)
 	group = "Job-Locked"
 
 /datum/loadout_item/shoes/clown_shoes
@@ -268,6 +272,20 @@
 /datum/loadout_item/shoes/clown_shoes/pink
 	name = "Pink Clown Shoes"
 	item_path = /obj/item/clothing/shoes/clown_shoes/pink
+
+/datum/loadout_item/shoes/clown_shoes/pink_heels
+	name = "Pink Clown Heels"
+	item_path = /obj/item/clothing/shoes/clown_shoes/pink/heels
+
+/datum/loadout_item/shoes/clown_shoes/pink_heels_mute
+	name = "Pink Clown Heels (No Clown Effects)"
+	item_path = /obj/item/clothing/shoes/pink_clown_heels
+	restricted_roles = null
+	group = "Costumes"
+
+/datum/loadout_item/shoes/clown_shoes/pink_heels_mute/get_item_information()
+	. = ..()
+	.[FA_ICON_VOLUME_MUTE] = "No Clown Effects"
 
 /*
 *	erp_item
