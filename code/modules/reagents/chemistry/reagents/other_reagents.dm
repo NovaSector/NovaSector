@@ -299,8 +299,8 @@
 /datum/wound/burn/flesh/on_saltwater(reac_volume)
 	// Similar but better stats from normal salt.
 	sanitization += VALUE_PER(0.6, 30) * reac_volume
-	infestation -= max(VALUE_PER(0.5, 30) * reac_volume, 0)
-	infestation_rate += VALUE_PER(0.07, 30) * reac_volume
+	infection -= max(VALUE_PER(0.5, 30) * reac_volume, 0)
+	infection_rate += VALUE_PER(0.07, 30) * reac_volume
 	to_chat(victim, span_notice("The salt water splashes over [LOWER_TEXT(src)], soaking up the... miscellaneous fluids. It feels somewhat better afterwards."))
 	return
 
@@ -571,7 +571,7 @@
 /datum/reagent/spraytan/expose_mob(mob/living/exposed_mob, methods=TOUCH, reac_volume, show_message = TRUE, touch_protection = 0)
 	. = ..()
 	if(ishuman(exposed_mob))
-		if(methods & (PATCH|VAPOR) && touch_protection >= 1)
+		if(methods & (PATCH|VAPOR) && touch_protection < 1)
 			var/mob/living/carbon/human/exposed_human = exposed_mob
 			if(HAS_TRAIT(exposed_human, TRAIT_USES_SKINTONES))
 				switch(exposed_human.skin_tone)
@@ -607,7 +607,7 @@
 						exposed_human.skin_tone = "mixed3"
 			//take current alien color and darken it slightly
 			else if(HAS_TRAIT(exposed_human, TRAIT_MUTANT_COLORS) && !HAS_TRAIT(exposed_human, TRAIT_FIXED_MUTANT_COLORS))
-				var/list/existing_color = rgb2num(exposed_human.dna.features["mcolor"])
+				var/list/existing_color = rgb2num(exposed_human.dna.features[FEATURE_MUTANT_COLOR])
 				var/list/darkened_color = list()
 				// Reduces each part of the color by 16
 				for(var/channel in existing_color)
@@ -617,7 +617,7 @@
 				var/list/new_hsv = rgb2hsv(new_color)
 				// Can't get too dark now
 				if(new_hsv[3] >= 50)
-					exposed_human.dna.features["mcolor"] = new_color
+					exposed_human.dna.features[FEATURE_MUTANT_COLOR] = new_color
 			exposed_human.update_body(is_creating = TRUE)
 
 		if((methods & INGEST) && show_message)
@@ -641,7 +641,7 @@
 		if(HAS_TRAIT(affected_human, TRAIT_USES_SKINTONES))
 			affected_human.skin_tone = "orange"
 		else if(HAS_TRAIT(affected_human, TRAIT_MUTANT_COLORS) && !HAS_TRAIT(affected_human, TRAIT_FIXED_MUTANT_COLORS)) //Aliens with custom colors simply get turned orange
-			affected_human.dna.features["mcolor"] = "#ff8800"
+			affected_human.dna.features[FEATURE_MUTANT_COLOR] = "#ff8800"
 		affected_human.update_body(is_creating = TRUE)
 		if(SPT_PROB(3.5, seconds_per_tick))
 			if(affected_human.w_uniform)

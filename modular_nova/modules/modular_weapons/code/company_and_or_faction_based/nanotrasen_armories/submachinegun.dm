@@ -12,8 +12,8 @@ This is a Blueshield weapon. It's for the Blueshield. If this ends up in Cargo I
 	inhand_icon_state = "c20r"
 	selector_switch_icon = TRUE
 	accepted_magazine_type = /obj/item/ammo_box/magazine/smgm45
-	fire_delay = 1.6
-	burst_size = 3
+	fire_delay = 1.5
+	burst_size = 2 // 30 damage a burst at 1.5s delay is about 3.5s
 	pin = /obj/item/firing_pin
 	mag_display = TRUE
 	mag_display_ammo = TRUE

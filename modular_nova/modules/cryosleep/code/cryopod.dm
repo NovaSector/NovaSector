@@ -31,6 +31,8 @@ GLOBAL_LIST_EMPTY(valid_cryopods)
 	verb_ask = "queries"
 	verb_exclaim = "alarms"
 
+	connectable = FALSE
+
 	/// Used for logging people entering cryosleep and important items they are carrying.
 	var/list/frozen_crew = list()
 	/// The items currently stored in the cryopod control panel.
@@ -382,20 +384,36 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/machinery/computer/cryopod, 32)
 		if(current_highpriest?.resolve() == mob_occupant)
 			reset_religion()
 
+	var/obj/item/card/id/auth_card = mob_occupant.get_idcard()
+	var/off_duty_component = auth_card?.GetComponent(/datum/component/off_duty_timer)
+	var/datum/id_trim/job/plexagon_selfserve_target_trim = /datum/computer_file/program/crew_self_serve::target_trim
 	// Delete them from datacore and ghost records.
 	var/announce_rank = null
-	for(var/list/record in GLOB.ghost_records)
-		if(record["name"] == occupant_name)
-			announce_rank = record["rank"]
-			GLOB.ghost_records.Remove(list(record))
+	// It is possible to join round from ghost cafe without leaving it. So we prioritize general manifest first to avoid ghost roles announcements IC.
+	for(var/datum/record/crew/possible_target_record as anything in GLOB.manifest.general)
+		if (possible_target_record.name != occupant_name)
+			continue
+
+		var/match_rank = occupant_rank == "N/A" || possible_target_record.trim == occupant_rank
+		// Off-duty crew manifest changed to Assistant trim and assignment. It doesn't work for off-duties without ID, but oh well.
+		var/match_offduty = off_duty_component && possible_target_record.trim == plexagon_selfserve_target_trim.assignment
+
+		if(match_rank || match_offduty)
+			announce_rank = possible_target_record.rank
+			qdel(possible_target_record)
 			break
 
 	if(!announce_rank) // No need to loop over all of those if we already found it beforehand.
-		for(var/datum/record/crew/possible_target_record as anything in GLOB.manifest.general)
-			if(possible_target_record.name == occupant_name && (occupant_rank == "N/A" || possible_target_record.trim == occupant_rank))
-				announce_rank = possible_target_record.rank
-				qdel(possible_target_record)
+		for(var/list/record as anything in GLOB.ghost_records)
+			if(record["name"] == occupant_name)
+				announce_rank = record["rank"]
+				GLOB.ghost_records -= record
 				break
+
+	// Borgs job var is null for some reason, and they are not in records, so we handle them separately.
+	if (iscyborg(occupant))
+		var/mob/living/silicon/robot/borg = occupant
+		announce_rank = "[borg.designation] Cyborg"
 
 	var/obj/machinery/computer/cryopod/control_computer = control_computer_weakref?.resolve()
 	if(!control_computer)

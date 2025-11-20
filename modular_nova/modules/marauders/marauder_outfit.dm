@@ -171,14 +171,15 @@
 	)
 
 /obj/structure/mannequin/operative_barracks/sol_militant
-	name = "\improper Sol militant mannequin"
+	name = "\improper SolFed espatier mannequin"
 	desc = "They'll never know what hit 'em."
 	starting_items = list(
 		/obj/item/clothing/head/helmet/sf_peacekeeper,
 		/obj/item/clothing/mask/gas/hecu,
-		/obj/item/clothing/under/sol_peacekeeper,
-		/obj/item/clothing/suit/armor/sf_peacekeeper,
-		/obj/item/storage/belt/military/cin_surplus,
+		/obj/item/clothing/neck/mantle/solfed,
+		/obj/item/clothing/under/solfed,
+		/obj/item/clothing/suit/armor/vest/sol,
+		/obj/item/storage/belt/military/solfed,
 		/obj/item/clothing/gloves/frontier_colonist,
 		/obj/item/clothing/shoes/jackboots/frontier_colonist,
 		/obj/item/storage/toolbox/guncase/nova/solfed,

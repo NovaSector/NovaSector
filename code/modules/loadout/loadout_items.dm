@@ -285,6 +285,13 @@ GLOBAL_LIST_INIT(all_loadout_categories, init_loadout_categories())
 		equipped_item.name = trim(item_details[INFO_NAMED], PREVENT_CHARACTER_TRIM_LOSS(MAX_NAME_LEN))
 		ADD_TRAIT(equipped_item, TRAIT_WAS_RENAMED, "Loadout")
 
+		// NOVA EDIT ADDITION START
+		equipped_item.on_loadout_custom_named()
+	if((loadout_flags & LOADOUT_FLAG_ALLOW_NAMING) && item_details?[INFO_DESCRIBED] && !visuals_only)
+		equipped_item.desc = item_details[INFO_DESCRIBED]
+		ADD_TRAIT(equipped_item, TRAIT_WAS_RENAMED, "Loadout")
+		equipped_item.on_loadout_custom_described()
+		// NOVA EDIT ADDITION END
 	if((loadout_flags & LOADOUT_FLAG_ALLOW_RESKIN) && item_details?[INFO_RESKIN])
 		var/skin_chosen = item_details[INFO_RESKIN]
 		if(skin_chosen in equipped_item.unique_reskin)
@@ -406,7 +413,7 @@ GLOBAL_LIST_INIT(all_loadout_categories, init_loadout_categories())
 		UNTYPED_LIST_ADD(reskins, list(
 			"name" = skin,
 			"tooltip" = skin,
-			"skin_icon_state" = cached_reskin_options[skin],
+			"skin_icon_state" = ((loadout_flags & LOADOUT_FLAG_GREYSCALING_ALLOWED) && !(loadout_flags & LOADOUT_FLAG_JOB_GREYSCALING)) ? item_path::icon_state : cached_reskin_options[skin], // NOVA EDIT CHANGE - Get rid of the error icons - ORIGINAL: "skin_icon_state" = cached_reskin_options[skin]
 		))
 
 	return reskins

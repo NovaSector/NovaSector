@@ -19,9 +19,8 @@
 
 /obj/item/hhmirror/fullmagic/New()
 	if(!choosable_races.len)
-		for(var/speciestype in subtypesof(/datum/species))
-			var/datum/species/iterated_species = new speciestype()
-			if(!(iterated_species.id in races_blacklist))
+		for(var/datum/species/iterated_species as anything in subtypesof(/datum/species))
+			if(!(iterated_species::id in races_blacklist))
 				choosable_races += iterated_species.id
 	..()
 
@@ -66,17 +65,17 @@
 
 				if(new_s_tone)
 					human_user.skin_tone = new_s_tone
-					human_user.dna.update_ui_block(DNA_SKIN_TONE_BLOCK)
+					human_user.dna.update_ui_block(/datum/dna_block/identity/skin_tone)
 
 			#define MIN_MCOLOR_VALUE 50
 
 			if(HAS_TRAIT(human_user, TRAIT_MUTANT_COLORS) && !HAS_TRAIT(human_user, TRAIT_FIXED_MUTANT_COLORS))
-				var/new_mutantcolor = input(user, "Choose your skin color:", "Race change", human_user.dna.features["mcolor"]) as color|null
+				var/new_mutantcolor = input(user, "Choose your skin color:", "Race change", human_user.dna.features[FEATURE_MUTANT_COLOR]) as color|null
 				if(new_mutantcolor)
 					var/mutantcolor_hsv = rgb2hsv(new_mutantcolor)
 
 					if(mutantcolor_hsv[3] >= MIN_MCOLOR_VALUE) // mutantcolors must be bright
-						human_user.dna.features["mcolor"] = sanitize_hexcolor(new_mutantcolor)
+						human_user.dna.features[FEATURE_MUTANT_COLOR] = sanitize_hexcolor(new_mutantcolor)
 
 					else
 						to_chat(human_user, span_notice("Invalid color. Your color is not bright enough."))
@@ -104,7 +103,7 @@
 					to_chat(human_user, span_notice("Whoa man, you feel like a man!"))
 				else
 					return
-			human_user.dna.update_ui_block(DNA_GENDER_BLOCK)
+			human_user.dna.update_ui_block(/datum/dna_block/identity/gender)
 			human_user.update_body()
 			human_user.update_mutations_overlay() // (hulk male/female)
 
@@ -118,12 +117,12 @@
 				var/new_hair_color = input(human_user, "Choose your hair color", "Hair Color", human_user.hair_color) as color|null
 				if(new_hair_color)
 					human_user.hair_color = sanitize_hexcolor(new_hair_color)
-					human_user.dna.update_ui_block(DNA_HAIR_COLOR_BLOCK)
+					human_user.dna.update_ui_block(/datum/dna_block/identity/hair_color)
 				if(human_user.gender == "male")
 					var/new_face_color = input(human_user, "Choose your facial hair color", "Hair Color", human_user.facial_hair_color) as color|null
 					if(new_face_color)
 						human_user.facial_hair_color = sanitize_hexcolor(new_face_color)
-						human_user.dna.update_ui_block(DNA_FACIAL_HAIR_COLOR_BLOCK)
+						human_user.dna.update_ui_block(/datum/dna_block/identity/facial_color)
 				human_user.update_body_parts()
 
 		if(BODY_ZONE_PRECISE_EYES)
@@ -131,10 +130,8 @@
 			if(!user.can_perform_action(src, FORBID_TELEKINESIS_REACH))
 				return TRUE
 			if(new_eye_color)
-				human_user.eye_color_left = sanitize_hexcolor(new_eye_color)
-				human_user.eye_color_right = sanitize_hexcolor(new_eye_color)
-				human_user.dna.update_ui_block(DNA_EYE_COLOR_LEFT_BLOCK)
-				human_user.dna.update_ui_block(DNA_EYE_COLOR_RIGHT_BLOCK)
+				human_user.set_eye_color(sanitize_hexcolor(new_eye_color))
+				human_user.dna.update_ui_block(/datum/dna_block/identity/eye_colors)
 				human_user.update_body()
 
 /obj/item/hhmirror/wracemagic
@@ -188,7 +185,7 @@
 						to_chat(human_user, span_notice("Whoa man, you feel like a man!"))
 					else
 						return
-				human_user.dna.update_ui_block(DNA_GENDER_BLOCK)
+				human_user.dna.update_ui_block(/datum/dna_block/identity/gender)
 				human_user.update_body()
 				human_user.update_mutations_overlay() // (hulk male/female)
 
@@ -202,12 +199,12 @@
 					var/new_hair_color = input(human_user, "Choose your hair color", "Hair Color", human_user.hair_color) as color|null
 					if(new_hair_color)
 						human_user.hair_color = sanitize_hexcolor(new_hair_color)
-						human_user.dna.update_ui_block(DNA_HAIR_COLOR_BLOCK)
+						human_user.dna.update_ui_block(/datum/dna_block/identity/hair_color)
 					if(human_user.gender == "male")
 						var/new_face_color = input(human_user, "Choose your facial hair color", "Hair Color", human_user.facial_hair_color) as color|null
 						if(new_face_color)
 							human_user.facial_hair_color = sanitize_hexcolor(new_face_color)
-							human_user.dna.update_ui_block(DNA_FACIAL_HAIR_COLOR_BLOCK)
+							human_user.dna.update_ui_block(/datum/dna_block/identity/facial_color)
 					human_user.update_body_parts()
 
 			if(BODY_ZONE_PRECISE_EYES)
@@ -216,8 +213,7 @@
 					return TRUE
 				if(new_eye_color)
 					human_user.set_eye_color(sanitize_hexcolor(new_eye_color))
-					human_user.dna.update_ui_block(DNA_EYE_COLOR_LEFT_BLOCK)
-					human_user.dna.update_ui_block(DNA_EYE_COLOR_RIGHT_BLOCK)
+					human_user.dna.update_ui_block(/datum/dna_block/identity/eye_colors)
 					human_user.update_body()
 		charges--
 	if(charges == 0)

@@ -428,6 +428,10 @@
 /mob/get_listening_mob()
 	return src
 
+// NOVA EDIT ADDITION START - AI qol
+/mob/eye/camera/ai/get_listening_mob()
+	return ai
+// NOVA EDIT ADDITION END
 ///Returns the client runechat visible messages preference according to the message type.
 /atom/proc/runechat_prefs_check(mob/target, visible_message_flags = NONE)
 	if(!target.client?.prefs.read_preference(/datum/preference/toggle/enable_runechat))
