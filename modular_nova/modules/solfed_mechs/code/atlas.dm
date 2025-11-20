@@ -52,3 +52,15 @@
 	icon = 'modular_nova/modules/solfed_mechs/icons/solfed_mechs.dmi'
 	icon_state = "atlas-broken"
 	welder_salvage = list(/obj/item/stack/sheet/iron, /obj/item/stack/rods)
+
+/obj/vehicle/sealed/mecha/solfed/atlas/moved_inside(mob/living/carbon/human/human)
+	. = ..()
+	if(!.)
+		return
+	ADD_TRAIT(human, TRAIT_MEDICAL_HUD, VEHICLE_TRAIT)
+	ADD_TRAIT(human, TRAIT_DIAGNOSTIC_HUD, VEHICLE_TRAIT)
+
+/obj/vehicle/sealed/mecha/solfed/atlas/remove_occupant(mob/living/carbon/human/human)
+	REMOVE_TRAIT(human, TRAIT_MEDICAL_HUD, VEHICLE_TRAIT)
+	REMOVE_TRAIT(human, TRAIT_DIAGNOSTIC_HUD, VEHICLE_TRAIT)
+	return ..()

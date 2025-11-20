@@ -280,12 +280,10 @@
 	new_mecha.initialize_controller_action_type(/datum/action/vehicle/sealed/mecha/solfed_toggle_welding, VEHICLE_CONTROL_SETTINGS)
 
 /obj/item/mecha_parts/mecha_equipment/solfed_welder/detach(atom/moveto)
-	. = ..()
 	chassis?.destroy_controller_action_type(/datum/action/vehicle/sealed/mecha/solfed_toggle_welding, VEHICLE_CONTROL_SETTINGS)
 	return ..()
 
 /obj/item/mecha_parts/mecha_equipment/solfed_welder/Destroy()
-	. = ..()
 	chassis?.destroy_controller_action_type(/datum/action/vehicle/sealed/mecha/solfed_toggle_welding, VEHICLE_CONTROL_SETTINGS)
 	return ..()
 
@@ -296,7 +294,7 @@
 	desc = "Switches between main and alternate welding modes."
 
 /datum/action/vehicle/sealed/mecha/solfed_toggle_welding/Trigger(mob/clicker, trigger_flags)
-	var/obj/item/mecha_parts/mecha_equipment/solfed_welder/welder = locate(/obj/item/mecha_parts/mecha_equipment/solfed_welder) in chassis.equip_by_category[MECHA_WEAPON]
+	var/obj/item/mecha_parts/mecha_equipment/solfed_welder/welder = locate(/obj/item/mecha_parts/mecha_equipment/solfed_welder) in chassis.contents
 	welder.welding = !welder.welding
 	if(welder.welding)
 		button_icon_state = "welder_on"

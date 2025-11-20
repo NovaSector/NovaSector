@@ -36,48 +36,45 @@ GLOBAL_DATUM(mech_drop_alert_handler, /datum/mech_drop_alert_handler)
 
 
 /obj/item/mecha_summon_remote
-	name = "Orbital Drop Beacon"
-	desc = "A throwable beacon that designates a SolFed mech drop zone."
+	name = "mech drop beacon"
+	desc = "base for solfed mech beacons, (yell at whoever gave you this one.)"
 	icon = 'modular_nova/modules/solfed_mechs/icons/grenades.dmi'
 	icon_state = "mech_beacon"
 	///What mech should this beacon spawn?
 	var/spawn_type
 	///Has it been activated yet?
 	var/activated = FALSE
+	///When was it triggered
+	var/activation_time = null
 
 /obj/item/mecha_summon_remote/Initialize(mapload)
 	. = ..()
 	transform = matrix(0.6, MATRIX_SCALE)
 
-/obj/item/mecha_summon_remote/aegis/Initialize(mapload)
-	. = ..()
+/obj/item/mecha_summon_remote/aegis
 	name = "Aegis Orbital Deployment Beacon"
-	desc = desc + " Calls for the deployment of a riot-control mech. Rumored to have been field-tested in Sector 7G."
+	desc = "A throwable beacon that designates a SolFed mech drop zone. Calls for the deployment of a riot-control mech. Rumored to have been field-tested in Sector 7G."
 	spawn_type = /obj/vehicle/sealed/mecha/solfed/aegis
 
-/obj/item/mecha_summon_remote/atlas/Initialize(mapload)
-	. = ..()
+/obj/item/mecha_summon_remote/atlas
 	name = "Atlas Orbital Deployment Beacon"
-	desc = desc + " Calls in a support mech based on terraforming schematics from a defunct, ethically dubious conglomerate."
+	desc = "A throwable beacon that designates a SolFed mech drop zone. Calls in a support mech based on terraforming schematics from a defunct, ethically dubious conglomerate."
 	spawn_type = /obj/vehicle/sealed/mecha/solfed/atlas
 
-/obj/item/mecha_summon_remote/hermes/Initialize(mapload)
-	. = ..()
+/obj/item/mecha_summon_remote/hermes
 	name = "Hermes Orbital Deployment Beacon"
-	desc = desc + "Summons a recon mech inspired by a prototype courier drone known for vanishing from radar—codenamed HMX-2001."
+	desc = "A throwable beacon that designates a SolFed mech drop zone. Summons a recon mech inspired by a prototype courier drone known for vanishing from radar—codenamed HMX-2001."
 	spawn_type = /obj/vehicle/sealed/mecha/solfed/hermes
 
-/obj/item/mecha_summon_remote/prometheus/Initialize(mapload)
-	. = ..()
-	name = "Prometheus Orbital Deployment Beacon"
-	desc = desc + "Deploys a walking inferno armed with napalm mortars. Deployment logs include: “Do not taunt Prometheus.”"
-	spawn_type = /obj/vehicle/sealed/mecha/solfed/prometheus
+/obj/item/mecha_summon_remote/prometheus
+    name = "Prometheus Orbital Deployment Beacon"
+    desc = "A throwable beacon that designates a SolFed mech drop zone. Deploys a breach-assault mech equipped with incendiary ordnance. Engineers joke that Prometheus is 'hot-headed' in more ways than one."
+    spawn_type = /obj/vehicle/sealed/mecha/solfed/prometheus
 
-/obj/item/mecha_summon_remote/thanatos/Initialize(mapload)
-	. = ..()
-	name = "Thanatos Orbital Deployment Beacon"
-	desc = desc + "Authorizes launch of a mech designed for overwhelming firepower and existential dread. Silence protocol mandatory."
-	spawn_type = /obj/vehicle/sealed/mecha/solfed/thanatos
+/obj/item/mecha_summon_remote/thanatos
+    name = "Thanatos Orbital Deployment Beacon"
+    desc = "A throwable beacon that designates a SolFed mech drop zone. Authorizes launch of a heavy assault mech optimized for suppression fire. Nicknamed 'Thanatos' after a design committee insisted it sounded cooler than 'Model-X.'"
+    spawn_type = /obj/vehicle/sealed/mecha/solfed/thanatos
 
 /obj/effect/temp_visual/solfed_drop_warning
 	name = "Orbital Drop Beacon"
@@ -130,6 +127,8 @@ GLOBAL_DATUM(mech_drop_alert_handler, /datum/mech_drop_alert_handler)
 	if(do_after(user, 1 SECONDS, user))
 		icon_state = "mech_beacon_on"
 		activated = TRUE
+		activation_time = world.time
+		desc = "[desc]\nThis one is active, a blue light beams up from its top."
 		say(pick(
 			"Orbital drop beacon activated. Recommend throwing unless you enjoy being crushed.",
 			"Deployment sequence initiated. Toss me unless you're feeling brave.",
@@ -145,6 +144,16 @@ GLOBAL_DATUM(mech_drop_alert_handler, /datum/mech_drop_alert_handler)
 			addtimer(CALLBACK(src, PROC_REF(solfed_mech_drop_announcement)), 100)
 	else
 		return FALSE
+
+/obj/item/mecha_summon_remote/examine(mob/user)
+	. = ..()
+	if(activated)
+		var/time_left = max(0, round(((activation_time + 30 SECONDS) - world.time) / 10, 1))
+		var/message = "The countdown on its screen shows: [time_left] seconds."
+		if(length(.) > 0 && .[length(.)])
+			. += ""
+
+		. += span_notice(message)
 
 ///Spawns a warning holosign on the floor then summons a drop pod containing a mech and using the sprite of the mech it contains.
 /obj/item/mecha_summon_remote/proc/trigger_drop(mob/user)
