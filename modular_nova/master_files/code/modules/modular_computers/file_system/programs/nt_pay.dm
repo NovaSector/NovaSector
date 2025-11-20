@@ -9,7 +9,8 @@
 	))
 
 /datum/computer_file/program/nt_pay/_pay(token, money_to_send, mob/user)
-	if(is_type_in_typecache(get_area(user), areas_blacklist))
+	var/user_area = get_area(user)
+	if(is_type_in_typecache(user_area, areas_blacklist))
 		to_chat(user, span_notice("You cannot send virtual money to real accounts."))
 		return NT_PAY_STATUS_NO_ACCOUNT
 
