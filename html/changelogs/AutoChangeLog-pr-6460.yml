@@ -1,4 +1,0 @@
-author: "Yobrocharlie"
-delete-after: True
-changes:
-  - bugfix: "stops the flay from moving the barriers, and cleans up code."
