@@ -429,6 +429,7 @@
 #include "code\__DEFINES\~nova_defines\automapper.dm"
 #include "code\__DEFINES\~nova_defines\banning.dm"
 #include "code\__DEFINES\~nova_defines\barsigns.dm"
+#include "code\__DEFINES\~nova_defines\cargo.dm"
 #include "code\__DEFINES\~nova_defines\cargo_import_companies.dm"
 #include "code\__DEFINES\~nova_defines\cells.dm"
 #include "code\__DEFINES\~nova_defines\chat.dm"
