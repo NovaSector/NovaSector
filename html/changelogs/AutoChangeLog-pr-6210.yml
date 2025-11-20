@@ -1,0 +1,6 @@
+author: "RealWinterFrost"
+delete-after: True
+changes:
+  - image: "Updates the DS-2 borg spawner to have a syndicate design."
+  - image: "Updates DS-2 lockers to have a unique design"
+  - map: "Overhauled DS-2"
