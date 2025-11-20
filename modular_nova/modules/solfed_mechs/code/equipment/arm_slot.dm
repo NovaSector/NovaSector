@@ -182,7 +182,7 @@
 	randomspread = 1
 	projectile_delay = 0.5
 	harmful = TRUE
-	ammo_type = MECHA_AMMO_HMG
+	ammo_type = MECHA_AMMO_LMG
 	fire_sound = 'sound/items/weapons/gun/hmg/hmg.ogg'
 	detachable = FALSE
 
@@ -215,7 +215,7 @@
 	projectiles_per_shot = 2
 	variance = 3
 	harmful = TRUE
-	ammo_type = MECHA_AMMO_CARBINE
+	ammo_type = MECHA_AMMO_LMG
 	fire_sound = 'sound/items/weapons/gun/general/heavy_shot_suppressed.ogg'
 	detachable = FALSE
 
