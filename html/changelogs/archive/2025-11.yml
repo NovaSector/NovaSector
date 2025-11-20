@@ -623,3 +623,55 @@
 2025-11-16:
   Stalkeros *nod2:
   - rscadd: Adds nodnod emote. *nod2
+2025-11-19:
+  intense-skies:
+  - spellcheck: Improved the grammar on the nod2 emote
+2025-11-20:
+  BasilTamaya:
+  - balance: Nanotrasen's Research and Development efforts now gives our mining silicon
+      assets the use of a kinetic crusher for their basic equipment.
+  Hardly:
+  - bugfix: Kobold's language prefix has been changed from conflicting ",k" to ",O"
+  Hatterhat:
+  - balance: The Gorlex Marauders have redoubled efforts to reduce pilfering from
+      their ammo workbench module resupply shipments, effectively taking the marauder
+      advanced lethal ammo workbench module off the frontier's black markets.
+  - balance: Shotgun shells have been adjusted, with the most drastic change being
+      on shotgun slugs, going from 30 damage 10 AP to 35 damage 30 AP, giving them
+      more of an anti-armor niche. Some other shotguns may have been touched, see
+      PR 6371 for details as they come along.
+  - balance: The Sakhno SKS's damage multiplier was moved to 0.8x, up from 0.5x.
+  OrbisAnima:
+  - bugfix: fixed an issue with the brm not working on icebox unless it was moved
+      to cargo
+  - rscadd: Adds Cargo imports content to regular cargo. Had to adjust some prices
+      due to automatic checks noticing potential infinite money schemes. Coupons now
+      work with them though!
+  - balance: Unified single packs inside the new cargo imports. Made the detective
+      revolver, its upgrade, and the bartender shotgun unique to NT, both for flavor
+      and as an example of implementation. Removed the forge items in imports as the
+      forging kit is already available.
+  - rscdel: Removes Cargo Imports. Also removes the forging equipment from cargo imports,
+      as the regular cargo system includes a crate with the same stuff.
+  - code_imp: ' Adds support to the cargo base system for departamental goodies, blacklisting
+      items to factions, blocking items from being express ordered (and express consoles
+      that allow you to bypass that!), autonaming of cargo packs based on the first
+      item if enabled, improved maintability of cargo imports content.  Also normalizes
+      all prices to cargo crate value.'
+  - rscdel: Removed the Hellgun and the Xray gun from cargo, you can still make them
+      using the tech and following the recipe from security.
+  - rscdel: Removes the abductor mothership until its mantained and its code updated.
+  - balance: Interdyne has lost its contract with the Free Golems, and thus they no
+      longer have access to their wares in the interdyne mining console.
+  RatFromTheJungle:
+  - balance: roundstart slimes now heal at a rate of 0.6 brute per tick, and 0.5 burn,
+      instead of 1.5 of both
+  RealWinterFrost:
+  - map: added a offstation proto board and circuit imprinter for interdyne
+  - map: shifted some boards in the vault as to make it not look like its falling
+      off the dang table.
+  - image: Updates the DS-2 borg spawner to have a syndicate design.
+  - image: Updates DS-2 lockers to have a unique design
+  - map: Overhauled DS-2
+  Yobrocharlie:
+  - bugfix: stops the flay from moving the barriers, and cleans up code.

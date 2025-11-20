@@ -5709,16 +5709,19 @@
 /obj/structure/table/reinforced,
 /obj/item/folder/syndicate/red/secretformula,
 /obj/item/circuitboard/computer/ghostpad/interdyne{
-	pixel_x = 2;
+	pixel_x = -4;
 	pixel_y = 2
 	},
 /obj/item/circuitboard/machine/ghostpad/interdyne{
-	pixel_x = 4;
+	pixel_x = -2;
 	pixel_y = 4
 	},
 /obj/item/circuitboard/computer/cargo/express/ghost/interdyne{
-	pixel_x = 6;
 	pixel_y = 6
+	},
+/obj/item/circuitboard/machine/protolathe/offstation{
+	pixel_y = 8;
+	pixel_x = 2
 	},
 /turf/open/floor/catwalk_floor/iron_dark,
 /area/ruin/interdyne_planetary_base/main/vault)

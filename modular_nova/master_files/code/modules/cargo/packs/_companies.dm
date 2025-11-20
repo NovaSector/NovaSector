@@ -1,10 +1,16 @@
 #define CARGO_CUT 0.05
 
-/datum/supply_pack/armament
+/datum/supply_pack/companies
+	access_view = NONE
+	group = "★ General"
 	goody = TRUE
 	crate_type = /obj/structure/closet/crate/large/import
+	auto_name = TRUE
+	departamental_goody = TRUE
+	discountable = SUPPLY_PACK_RARE_DISCOUNTABLE
 
-/datum/supply_pack/armament/generate(atom/A, datum/bank_account/paying_account)
+// Original logic, gives 5% of the stuff people buy to cargo and leaves the gun check for pins
+/datum/supply_pack/companies/generate(atom/A, datum/bank_account/paying_account)
 	. = ..()
 	var/datum/bank_account/cargo_dep = SSeconomy.get_dep_account(ACCOUNT_CAR)
 	cargo_dep.account_balance += round(cost * CARGO_CUT)
