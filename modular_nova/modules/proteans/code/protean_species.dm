@@ -202,11 +202,7 @@
 	else
 		equip_modsuit(gainer)
 
-	// Register signal to block non-forced deletion of the modsuit (now on brain's modsuit)
 	var/obj/item/mod/control/pre_equipped/protean/modsuit = get_modsuit()
-	if(modsuit)
-		RegisterSignal(modsuit, COMSIG_QDELETING, PROC_REF(on_species_modsuit_qdeleted))
-
 	RegisterSignal(src, COMSIG_OUTFIT_EQUIP, PROC_REF(outfit_handling))
 	RegisterSignal(owner, COMSIG_CARBON_GAIN_ORGAN, PROC_REF(organ_reject))
 	var/obj/item/mod/core/protean/core = modsuit?.core
