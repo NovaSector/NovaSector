@@ -264,7 +264,7 @@
 	var/list/working_list = SSshuttle.shopping_list
 	var/reason = ""
 	var/datum/bank_account/personal_department
-	var/uses_cargo_budget = FALSE // NOVA EDIT ADDITION - boolean flag to check if we are using the cargo budget without doing excesive shenanigans.
+	var/uses_cargo_budget = FALSE // NOVA EDIT ADDITION - boolean flag to check if we are using the cargo budget without doing excessive shenanigans.
 	if(requestonly && !self_paid && (!pack.goody || pack.departamental_goody)) // NOVA EDIT CHANGE - should never have a dept goodie thats not a goody. ORIGINAL: if(requestonly && !self_paid && !pack.goody)
 		working_list = SSshuttle.request_list
 		reason = tgui_input_text(user, "Reason", name, max_length = MAX_MESSAGE_LEN)
