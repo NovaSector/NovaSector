@@ -1,6 +1,6 @@
 /datum/computer_file/program/nt_pay
 	///List of areas from where you cannot pay from. Done to block bitrunners to send money to their accounts.
-	var/areas_blacklist = list(
+	var/static/list/areas_blacklist =  typecacheof(list(
 		/area/virtual_domain,
 		/area/icemoon/underground/explored/virtual_domain,
 		/area/lavaland/surface/outdoors/virtual_domain,
