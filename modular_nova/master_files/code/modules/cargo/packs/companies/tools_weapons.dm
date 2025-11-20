@@ -37,7 +37,7 @@
 /datum/supply_pack/companies/tools_weapons/blacksteel/blade/shamshir_sabre
 	contains = list(/obj/item/storage/belt/sheath/sabre/cargo)
 	name = "authentic shamshir sabre"
-	desc = "An expertly crafted historical human sword once used by the Persians. Includes sheat!"
+	desc = "An expertly crafted historical human sword once used by the Persians. Includes sheath!"
 	cost = CARGO_CRATE_VALUE
 	auto_name = FALSE
 
