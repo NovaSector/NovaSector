@@ -67,14 +67,14 @@ GLOBAL_DATUM(mech_drop_alert_handler, /datum/mech_drop_alert_handler)
 	spawn_type = /obj/vehicle/sealed/mecha/solfed/hermes
 
 /obj/item/mecha_summon_remote/prometheus
-    name = "Prometheus Orbital Deployment Beacon"
-    desc = "A throwable beacon that designates a SolFed mech drop zone. Deploys a breach-assault mech equipped with incendiary ordnance. Engineers joke that Prometheus is 'hot-headed' in more ways than one."
-    spawn_type = /obj/vehicle/sealed/mecha/solfed/prometheus
+	name = "Prometheus Orbital Deployment Beacon"
+	desc = "A throwable beacon that designates a SolFed mech drop zone. Deploys a breach-assault mech equipped with incendiary ordnance. Engineers joke that Prometheus is 'hot-headed' in more ways than one."
+	spawn_type = /obj/vehicle/sealed/mecha/solfed/prometheus
 
 /obj/item/mecha_summon_remote/thanatos
-    name = "Thanatos Orbital Deployment Beacon"
-    desc = "A throwable beacon that designates a SolFed mech drop zone. Authorizes launch of a heavy assault mech optimized for suppression fire. Nicknamed 'Thanatos' after a design committee insisted it sounded cooler than 'Model-X.'"
-    spawn_type = /obj/vehicle/sealed/mecha/solfed/thanatos
+	name = "Thanatos Orbital Deployment Beacon"
+	desc = "A throwable beacon that designates a SolFed mech drop zone. Authorizes launch of a heavy assault mech optimized for suppression fire. Nicknamed 'Thanatos' after a design committee insisted it sounded cooler than 'Model-X.'"
+	spawn_type = /obj/vehicle/sealed/mecha/solfed/thanatos
 
 /obj/effect/temp_visual/solfed_drop_warning
 	name = "Orbital Drop Beacon"

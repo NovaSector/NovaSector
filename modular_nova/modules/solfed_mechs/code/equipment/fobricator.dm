@@ -182,7 +182,7 @@
 		source_atom = user,
 		ignore_atoms = list(/obj/item, /obj/effect),
 		type_list = TRUE))
-		balloon_alert(user, "Something is on the tile!")
+		balloon_alert(user, "something is on the tile!")
 		return FALSE
 
 	// Rule 3: Plating can only be built on openspace
