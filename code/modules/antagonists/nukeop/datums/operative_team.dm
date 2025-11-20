@@ -23,7 +23,8 @@
 /datum/team/nuclear/roundend_report()
 	var/list/parts = list()
 	parts += span_header("[syndicate_name] Operatives:")
-
+// NOVA EDIT REMOVAL START - No greentext
+/*
 	switch(get_result())
 		if(NUKE_RESULT_FLUKE)
 			parts += "<span class='redtext big'>Humiliating Syndicate Defeat</span>"
@@ -61,7 +62,8 @@
 		else
 			parts += "<span class='neutraltext big'>Neutral Victory</span>"
 			parts += "<B>Mission aborted!</B>"
-
+*/
+// NOVA EDIT REMOVAL END - No greentext
 	var/text = span_header("<br>The syndicate operatives were:")
 	var/purchases = ""
 	var/TC_uses = 0
