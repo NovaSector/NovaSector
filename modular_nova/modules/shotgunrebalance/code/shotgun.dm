@@ -23,11 +23,10 @@
 	custom_materials = AMMO_MATS_SHOTGUN
 
 /obj/projectile/bullet/shotgun_slug
-	// tg stats at time of writing: 25 damage, 30 AP
-	// buffed to 50 force, nerfed to 10 AP
-	// for some parity with old stats, except the 10 AP buff
-	damage = 30
-	armour_penetration = 10
+	// tg stats at time of writing: 25 damage, 30 AP, 0 wound bonus, 15 exposed wound bonus
+	// adjustment: +10 damage, to 35, +5 wound bonus, -5 wound bonus (still total 15 wound bonus). keeps the 30 AP to give it an actual niche
+	// wound bonuses still generally favor hitting people in bare limbs for wounds
+	damage = 35
 	wound_bonus = 5
 	exposed_wound_bonus = 10
 
@@ -39,13 +38,14 @@
 
 /obj/projectile/bullet/shotgun_slug/milspec
 	// tg stats at time of writing: 50 damage, 30 AP (inherited from base slugs)
-	// buffed to 60 force, keeps the 30 AP to give it an edge over base, easily produced slugs
-	// also gets extra speed to give it another edge
-	damage = 25
+	// adjustment: -5 damage (still +10 from base slugs), +0.25 speed (tiles/sec?), +10 wound bonus, -10 exposed wound bonus (still 15 total wound bonus)
+	// frankly I think leaving it at 50 would be fine because crewside milspecs should be dead with the same PR this comment is in
+	// *shrug
+	damage = 45
 	armour_penetration = 30
 	speed = 1.5
 	wound_bonus = 10
-	exposed_wound_bonus = 10
+	exposed_wound_bonus = 5
 
 // THE BELOW TWO SLUGS ARE NOTED AS ADMIN ONLY AND HAVE ***EIGHTY*** WOUND BONUS. NOT BARE WOUND BONUS. FLAT WOUND BONUS.
 /obj/item/ammo_casing/shotgun/executioner
@@ -113,7 +113,6 @@
 
 /obj/projectile/bullet/pellet/shotgun_buckshot
 	damage = 5
-	weak_against_armour = TRUE
 	wound_bonus = 5
 	exposed_wound_bonus = 10
 
@@ -125,12 +124,11 @@
 	custom_materials = AMMO_MATS_HEAVY_FAST
 
 /obj/projectile/bullet/pellet/shotgun_buckshot/milspec
-	damage = 6 // 6 * 12 = 72
+	damage = 6 // 6 * 8 = 48
 	damage_falloff_tile = -0.1
 	wound_falloff_tile = -0.25
 	speed = 1.5
 	armour_penetration = 5
-	weak_against_armour = FALSE // lmao
 
 /obj/item/ammo_casing/shotgun/rubbershot
 	name = "rubber shot shell"
@@ -145,7 +143,6 @@
 /obj/projectile/bullet/pellet/shotgun_rubbershot
 	stamina = 10
 	speed = 1
-	weak_against_armour = TRUE
 
 /obj/item/ammo_casing/shotgun/incapacitate
 	name = "incapacitator shell"
@@ -167,16 +164,21 @@
 	custom_materials = AMMO_MATS_SHOTGUN_FLECH
 
 /obj/projectile/bullet/pellet/flechette
+	// tg stats at time of writing: 2 damage, 8 pellets, 30 AP, -0.2 damage falloff 1.2 speed (base projectiles at 1.25), 5 wound bonus, 5 exposed wound bonus
+	// adjustments: +2.5 damage per pellet (4*8=32 pb damage), damage falloff taken to -0.1, exposed wound buffed +5 to 10
+	// pellets, but specialized for AP/embeds. not as good for raw damage but more for making people regret running
 	name = "shredder flechette"
-	damage = 5 // 8*5 = 40 damage but you've got 30 AP which basically smokes most armor
-	damage_falloff_tile = -0.1 // less falloff/longer ranges, though
-	speed = 1.3 // you can have above average projectile speed. as a treat
+	damage = 4
+	damage_falloff_tile = -0.1
+	speed = 1.35 // you can have above average projectile speed. as a treat
 	wound_bonus = 5
 	exposed_wound_bonus = 10
-	// embeds staying untouched because i think they're evil and deserve to wreak havoc
+
+/datum/embedding/bullet/flechette
+	embed_chance = 40 // +15 from tg base (25 embed chance)
 
 /obj/item/ammo_casing/shotgun/flechette/donk
-	ammo_categories = AMMO_CLASS_NONE
+	ammo_categories = AMMO_CLASS_NONE // i mean technically it's lethal or lethal gimmick but... it's a microplastic injection
 
 /obj/item/ammo_casing/shotgun/ion
 	can_be_printed = FALSE // techshell. assumed intended balance being a pain to assemble

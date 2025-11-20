@@ -7,7 +7,7 @@
 	pref_flag = ROLE_MARAUDER
 	jobban_flag = ROLE_MARAUDER
 	ruleset_flags = RULESET_INVADER
-	weight = list(
+	weight = alist(
 		DYNAMIC_TIER_LOW = 4,
 		DYNAMIC_TIER_LOWMEDIUM = 4,
 		DYNAMIC_TIER_MEDIUMHIGH = 6,

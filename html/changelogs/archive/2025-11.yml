@@ -597,3 +597,56 @@
       cozy inside until you wake up without worrying about your ship being stolen!
   - bugfix: Xenomorphs are once against spaceproof, woe be upon ye tiders
   - bugfix: milsim has their turrets returned
+2025-11-15:
+  Diltyrr:
+  - bugfix: fixed an issue that turned donator pets into unmovable sprites.
+  FlufflesTheDog:
+  - bugfix: Ghost cafe borg's chameleon module is functional again
+  - code_imp: Fix compilation on 516.1670+
+  - bugfix: Loadout items can have custom descriptions again
+  - bugfix: Manually sleeping with indefinite duration can once again be resisted
+      out of
+  - bugfix: AI can hear LOOC through their remote view again.
+  RatFromTheJungle:
+  - bugfix: the miniskirt no longer has two wild-and-free pixels floating off to the
+      side
+  sqnztb:
+  - rscadd: TG core maps have new automapper templates for the public garden - dirt
+      piles are swapped to proper trays.
+  sunnyaries:
+  - sound: Subtle now has a sound notification alongside subtler
+  - qol: Subtle/r now have a TG chat filter
+  - rscadd: Subtle/r now have unique chat colours
+  vinylspiders, RatFromTheJungle:
+  - rscadd: Adds 'cargo shelves' which let you store crates on them, for the obvious
+      uses.
+2025-11-16:
+  Stalkeros *nod2:
+  - rscadd: Adds nodnod emote. *nod2
+2025-11-19:
+  intense-skies:
+  - spellcheck: Improved the grammar on the nod2 emote
+2025-11-20:
+  BasilTamaya:
+  - balance: Nanotrasen's Research and Development efforts now gives our mining silicon
+      assets the use of a kinetic crusher for their basic equipment.
+  Hatterhat:
+  - balance: The Gorlex Marauders have redoubled efforts to reduce pilfering from
+      their ammo workbench module resupply shipments, effectively taking the marauder
+      advanced lethal ammo workbench module off the frontier's black markets.
+  - balance: Shotgun shells have been adjusted, with the most drastic change being
+      on shotgun slugs, going from 30 damage 10 AP to 35 damage 30 AP, giving them
+      more of an anti-armor niche. Some other shotguns may have been touched, see
+      PR 6371 for details as they come along.
+  OrbisAnima:
+  - bugfix: fixed an issue with the brm not working on icebox unless it was moved
+      to cargo
+  RatFromTheJungle:
+  - balance: roundstart slimes now heal at a rate of 0.6 brute per tick, and 0.5 burn,
+      instead of 1.5 of both
+  RealWinterFrost:
+  - map: added a offstation proto board and circuit imprinter for interdyne
+  - map: shifted some boards in the vault as to make it not look like its falling
+      off the dang table.
+  Yobrocharlie:
+  - bugfix: stops the flay from moving the barriers, and cleans up code.
