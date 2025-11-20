@@ -57,7 +57,6 @@
 #define MECHA_SNOWFLAKE_ID_ORE_SCANNER "orescanner_snowflake"
 #define MECHA_SNOWFLAKE_ID_CLAW "lawclaw_snowflake"
 #define MECHA_SNOWFLAKE_ID_RCD "rcd_snowflake"
-#define MECHA_SNOWFLAKE_ID_WELDER "welder_snowflake"
 
 #define MECHA_AMMO_INCENDIARY "Incendiary bullet"
 #define MECHA_AMMO_BUCKSHOT "Buckshot shell"
@@ -69,14 +68,12 @@
 #define MECHA_AMMO_PUNCHING_GLOVE "Punching glove"
 #define MECHA_AMMO_BANANA_PEEL "Banana peel"
 #define MECHA_AMMO_MOUSETRAP "Mousetrap"
-#define MECHA_AMM_TEARGAS "Teargas canister"
+#define MECHA_AMMO_TEARGAS "Teargas canister"
 #define MECHA_AMMO_RUBBER "Rubber bullet"
 #define MECHA_AMMO_TEARGAS "Teargas grenade"
 #define MECHA_AMMO_SIEGE "Sabot slug"
 #define MECHA_AMMO_EMP "EMP pulse cell"
-#define MECHA_AMMO_CARBINE "Carbine round"
 #define MECHA_AMMO_NAPALM "Incendiary mortar shell"
-#define MECHA_AMMO_HMG "HMG round"
 
 /// Values to determine the effects on a mech should it suffer an EMP
 #define MECH_EMP_DAMAGE_LOWER 100
