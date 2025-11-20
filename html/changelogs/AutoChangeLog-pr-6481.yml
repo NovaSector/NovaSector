@@ -1,0 +1,4 @@
+author: "Hatterhat"
+delete-after: True
+changes:
+  - balance: "The Sakhno SKS's damage multiplier was moved to 0.8x, up from 0.5x."
