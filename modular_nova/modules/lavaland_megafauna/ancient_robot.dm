@@ -63,8 +63,8 @@ Difficulty: Hard
 	friendly_verb_continuous = "stares down"
 	speak_emote = list("BUZZES")
 	armour_penetration = 50
-	melee_damage_lower = 20
-	melee_damage_upper = 25
+	melee_damage_lower = 30
+	melee_damage_upper = 40
 	melee_damage_type = BURN //Legs do the stomping, this is just a shock
 	speed = 5
 	move_to_delay = 5
@@ -102,7 +102,7 @@ Difficulty: Hard
 
 /mob/living/simple_animal/hostile/megafauna/ancient_robot/Initialize(mapload, mob/living/ancient) //We spawn and move them to clear out area for the legs, rather than risk the legs getting put in a wall
 	. = ..()
-	add_traits(list(TRAIT_LAVA_IMMUNE, TRAIT_ASHSTORM_IMMUNE, TRAIT_BOMBIMMUNE), INNATE_TRAIT)
+	add_traits(list(TRAIT_LAVA_IMMUNE, TRAIT_ASHSTORM_IMMUNE, TRAIT_BOMBIMMUNE, TRAIT_RESISTLOWPRESSURE,TRAIT_RESISTHIGHPRESSURE, TRAIT_RESISTCOLD, TRAIT_RESISTHEAT), INNATE_TRAIT)
 	TR = new /mob/living/simple_animal/hostile/ancient_robot_leg(loc, src, TOP_RIGHT)
 	TL = new /mob/living/simple_animal/hostile/ancient_robot_leg(loc, src, TOP_LEFT)
 	BR = new /mob/living/simple_animal/hostile/ancient_robot_leg(loc, src, BOTTOM_RIGHT)
@@ -117,8 +117,8 @@ Difficulty: Hard
 		if(PYRO)
 			desc += " You see flames burning around it."
 		if(FLUX) // Main attack is shock, so flux makes it stronger
-			melee_damage_lower = 25
-			melee_damage_upper = 40
+			melee_damage_lower = 40
+			melee_damage_upper = 60
 			desc += " It seems to overflow with energy."
 		if(VORTEX)
 			desc += " You see space bend and distort around it."
@@ -361,15 +361,15 @@ Difficulty: Hard
 					new /obj/effect/temp_visual/lava_warning(around,18 SECONDS)
 				volcanos++
 		if(FLUX)
-			for(var/mob/living/carbon/human/H in view(7, src))
-				var/turf/T = get_turf(H)
-				var/turf/S = get_turf(src)
-				if(!S || !T)
+			for(var/mob/living/carbon/human/Human in view(7, src))
+				var/turf/turf = get_turf(Human)
+				var/turf/source = get_turf(src)
+				if(!source || !turf)
 					return
-				var/obj/projectile/energy/tesla_bolt/O = new /obj/projectile/energy/tesla_bolt(S)
-				O.yo = T.y - S.y
-				O.xo = T.x - S.x
-				O.fire()
+				var/obj/projectile/energy/tesla_bolt/bolt = new /obj/projectile/energy/tesla_bolt(source)
+				bolt.yo = turf.y - source.y
+				bolt.xo = turf.x - source.x
+				bolt.fire()
 		if(VORTEX)
 			visible_message("<span class='danger'>[src] begins vibrate rapidly. It's causing an earthquake!</span>")
 			for(var/turf/turf in range(16,get_turf(target)))
@@ -384,10 +384,10 @@ Difficulty: Hard
 	say(pick("JKVRUEOTM XGC VUCKX", "KXXUX OT GTUSGRE IUTZGOTSKTZ", "YZGHOROZE OT OTYZGHOROZE OT YZGHOROZE OT OTYZGH-"))
 	var/list/turfs = list()
 	var/anomalies = 0
-	for(var/turf/T in view(7, src))
-		if(T.density)
+	for(var/turf/view in view(7, src))
+		if(view.density)
 			continue
-		turfs += T
+		turfs += view
 	var/amount = 5
 	while(anomalies < amount && length(turfs))
 		var/turf/spot = pick(turfs)
@@ -415,13 +415,13 @@ Difficulty: Hard
 	return
 
 /mob/living/simple_animal/hostile/megafauna/ancient_robot/proc/throw_rock(turf/spot, mob/target)
-	var/turf/T = get_turf(target)
-	if(!spot || !T)
+	var/turf/turf = get_turf(target)
+	if(!spot || !turf)
 		return
-	var/obj/projectile/ancient_robot_rock/O = new /obj/projectile/ancient_robot_rock(spot)
-	O.yo = T.y - spot.y
-	O.xo = T.x - spot.x
-	O.fire()
+	var/obj/projectile/ancient_robot_rock/rock = new /obj/projectile/ancient_robot_rock(spot)
+	rock.yo = turf.y - spot.y
+	rock.xo = turf.x - spot.x
+	rock.fire()
 
 // To make this fight harder, it scales it's attacks based on number of players, or as injured. Capped lower on station.
 /mob/living/simple_animal/hostile/megafauna/ancient_robot/proc/calculate_extra_player_anger()
@@ -431,7 +431,7 @@ Difficulty: Hard
 		if(stat == DEAD)
 			continue
 		anger++
-	if(health <= health / 2)
+	if(health <= maxHealth / 2)
 		anger += 3
 		speed = 2
 	cap = (is_station_level(loc.z) ? EXTRA_PLAYER_ANGER_STATION_CAP : EXTRA_PLAYER_ANGER_NORMAL_CAP)
@@ -441,7 +441,7 @@ Difficulty: Hard
 	say(pick("OTZKMXOZE LGORAXK, YKRL JKYZXAIZ GIZOBK", "RUYY IKXZGOT, KTMGMKOTM XKIUBKXE JKTOGR", "VUCKX IUXKY 8-12 HXKGINKJ, UBKXRUGJOTM XKSGOTOTM IUXKY", "KXXUX KXXUX KXXUX KXXUX KXX-", "-ROQK ZKGXY OT XGOT- - -ZOSK ZU JOK"))
 	visible_message("<span class='biggerdanger'>[src] begins to overload it's core. It is going to explode!</span>")
 	walk(src, 0)
-	playsound(src,'sound/machines/hypertorus/HFR_critical_explosion.ogg', 60, FALSE, 5)
+	playsound(src,'sound/machines/hypertorus/HFR_critical_explosion.ogg', 100, FALSE, 25)
 	addtimer(CALLBACK(src, PROC_REF(kaboom)), 10 SECONDS)
 
 /mob/living/simple_animal/hostile/megafauna/ancient_robot/proc/kaboom()
@@ -544,25 +544,25 @@ Difficulty: Hard
 		leg_walking_controler(Dir)
 		if(charging)
 			if(mode == PYRO)
-				var/turf/C = get_turf(src)
-				new /obj/effect/temp_visual/lava_warning(C, 18 SECONDS)
+				var/turf/charging = get_turf(src)
+				new /obj/effect/temp_visual/lava_warning(charging, 18 SECONDS)
 				for(var/turf/T in range (1,src))
 					var/obj/effect/hotspot/hotspot
 					hotspot.temperature = 1000
 					hotspot.light_color = LIGHT_COLOR_HALOGEN
 					T.hotspot_expose(700,50,1)
 			if(mode == VORTEX)
-				var/turf/T = get_turf(src)
-				for(var/atom/A in T)
-					A.ex_act(2) //Body is immune to explosions of this strength.
-				T.ex_act(3)
+				var/turf/turf = get_turf(src)
+				for(var/atom/vortex in turf)
+					vortex.ex_act(2) //Body is immune to explosions of this strength.
+					turf.ex_act(3)
 			if(mode == CRYO)
-				var/turf/open/S = get_turf(src)
-				S.MakeSlippery(TURF_WET_ICE, rand(25, 35 SECONDS))
-				for(var/turf/T in range (1, src))
-					for(var/mob/living/carbon/C in T.contents)
-						C.bodytemperature = max(0, C.bodytemperature - 300) //Take a chill pill.
-						C.apply_status_effect(/datum/status_effect/freon/watcher) // 0.8 seconds of no moving, should be funny.
+				var/turf/open/ground = get_turf(src)
+				ground.MakeSlippery(TURF_WET_ICE, rand(25, 35 SECONDS))
+				for(var/turf/turf in range (1, src))
+					for(var/mob/living/carbon/carbon in turf.contents)
+						carbon.bodytemperature = max(0, carbon.bodytemperature - 500) //Take a chill pill.
+						carbon.apply_status_effect(/datum/status_effect/freon/watcher) // 0.8 seconds of no moving, should be funny.
 
 	beam.forceMove(get_turf(src))
 	return ..()
@@ -581,7 +581,6 @@ Difficulty: Hard
 	maxHealth = INFINITY //it's fine trust me
 	health = INFINITY
 	faction = list("mining", "boss") // No attacking your leg
-	weather_immunities = list("lava","ash")
 	minbodytemp = 0
 	check_friendly_fire = 1
 	ranged = TRUE
@@ -603,7 +602,14 @@ Difficulty: Hard
 	robust_searching = TRUE
 	ranged_ignores_vision = TRUE
 	stat_attack = UNCONSCIOUS
+	minbodytemp = 0
 	maxbodytemp = INFINITY
+	atmos_requirements = null
+	weather_immunities = list(
+		TRAIT_LAVA_IMMUNE,
+		TRAIT_ASHSTORM_IMMUNE,
+	)
+
 	var/range = 3
 	var/mob/living/simple_animal/hostile/megafauna/ancient_robot/core = null
 	var/fake_max_hp = 300
@@ -615,7 +621,7 @@ Difficulty: Hard
 
 /mob/living/simple_animal/hostile/ancient_robot_leg/Initialize(mapload, mob/living/ancient, who)
 	. = ..()
-	ADD_TRAIT(src, TRAIT_NO_FLOATING_ANIM, INNATE_TRAIT)
+	add_traits(list(TRAIT_NO_FLOATING_ANIM, TRAIT_LAVA_IMMUNE, TRAIT_ASHSTORM_IMMUNE, TRAIT_BOMBIMMUNE, TRAIT_RESISTLOWPRESSURE,TRAIT_RESISTHIGHPRESSURE, TRAIT_RESISTCOLD, TRAIT_RESISTHEAT), INNATE_TRAIT)
 	if(!ancient)
 		qdel(src) //no
 	core = ancient
