@@ -30,7 +30,7 @@
 /datum/supply_pack/companies/tools_weapons/blacksteel/blade/bowie_knife
 	contains = list(/obj/item/storage/belt/bowie_sheath)
 	cost = CARGO_CRATE_VALUE
-	desc = "A frontiersman's classic, closer to a shortsword than a knife. Comes with a sheat."
+	desc = "A frontiersman's classic, closer to a shortsword than a knife. Comes with a sheath."
 	name = "Bowie Knife"
 	auto_name = FALSE
 
