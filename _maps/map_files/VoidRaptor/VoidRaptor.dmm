@@ -1588,6 +1588,7 @@
 "awR" = (
 /obj/structure/table/wood,
 /obj/effect/decal/cleanable/dirt,
+/obj/structure/spider/stickyweb,
 /turf/open/floor/wood,
 /area/station/maintenance/rus_gambling)
 "awZ" = (
@@ -1771,6 +1772,7 @@
 /obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer2{
 	dir = 8
 	},
+/obj/structure/spider/stickyweb,
 /turf/open/floor/wood,
 /area/station/maintenance/rus_gambling)
 "azr" = (
@@ -3403,6 +3405,8 @@
 "aWR" = (
 /obj/structure/light_construct/directional/south,
 /obj/effect/decal/cleanable/dirt,
+/obj/structure/spider/stickyweb,
+/mob/living/basic/spider/giant/tangle,
 /turf/open/floor/wood,
 /area/station/maintenance/rus_gambling)
 "aWS" = (
@@ -3887,6 +3891,7 @@
 	},
 /area/station/cargo/miningdock)
 "bcY" = (
+/obj/structure/spider/stickyweb,
 /turf/open/floor/wood,
 /area/station/maintenance/rus_gambling)
 "bdb" = (
@@ -4062,13 +4067,7 @@
 /area/station/security/lockers)
 "bfi" = (
 /obj/structure/table/wood,
-/obj/item/folder/ancient_paperwork{
-	pixel_x = 6
-	},
-/obj/item/folder/ancient_paperwork{
-	pixel_y = -1;
-	pixel_x = -5
-	},
+/obj/structure/spider/stickyweb,
 /turf/open/floor/wood,
 /area/station/maintenance/rus_gambling)
 "bfB" = (
@@ -6278,6 +6277,7 @@
 /obj/structure/light_construct/directional/north,
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/spawner/random/entertainment/musical_instrument,
+/obj/structure/spider/stickyweb,
 /turf/open/floor/wood,
 /area/station/maintenance/rus_gambling)
 "bRn" = (
@@ -10838,6 +10838,7 @@
 /obj/structure/chair/stool/directional/north{
 	pixel_y = 6
 	},
+/obj/structure/spider/stickyweb,
 /turf/open/floor/wood,
 /area/station/maintenance/rus_gambling)
 "djI" = (
@@ -12766,6 +12767,7 @@
 /obj/machinery/atmospherics/components/unary/vent_pump/on/layer4,
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/cable,
+/obj/structure/spider/stickyweb,
 /turf/open/floor/wood,
 /area/station/maintenance/rus_gambling)
 "dLk" = (
@@ -16484,6 +16486,7 @@
 "eKx" = (
 /obj/effect/landmark/blobstart,
 /obj/effect/landmark/event_spawn,
+/obj/structure/spider/stickyweb,
 /turf/open/floor/wood,
 /area/station/maintenance/rus_gambling)
 "eKU" = (
@@ -18384,6 +18387,7 @@
 /obj/structure/table/wood,
 /obj/machinery/chem_dispenser/drinks,
 /obj/effect/decal/cleanable/blood/old,
+/obj/structure/spider/stickyweb,
 /turf/open/floor/wood,
 /area/station/maintenance/rus_gambling)
 "fos" = (
@@ -19459,7 +19463,7 @@
 /area/station/command/cc_dock)
 "fFf" = (
 /obj/effect/mapping_helpers/broken_floor,
-/mob/living/basic/trooper/syndicate/melee,
+/obj/structure/spider/stickyweb,
 /turf/open/floor/wood,
 /area/station/maintenance/rus_gambling)
 "fFg" = (
@@ -20087,10 +20091,9 @@
 /turf/open/floor/carpet/blue,
 /area/station/command/bridge)
 "fRh" = (
-/obj/structure/chair/sofa/left/brown{
-	dir = 4
-	},
 /obj/effect/decal/cleanable/dirt,
+/obj/structure/spider/stickyweb,
+/mob/living/basic/spider/giant/tarantula,
 /turf/open/floor/wood,
 /area/station/maintenance/rus_gambling)
 "fRi" = (
@@ -20581,6 +20584,7 @@
 /area/station/service/hydroponics)
 "fYs" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/structure/spider/stickyweb,
 /turf/open/floor/wood,
 /area/station/maintenance/rus_gambling)
 "fYF" = (
@@ -22692,7 +22696,8 @@
 	},
 /area/station/science/auxlab)
 "gDf" = (
-/obj/structure/table/wood,
+/obj/structure/spider/stickyweb,
+/mob/living/basic/spider/giant/tarantula,
 /turf/open/floor/wood,
 /area/station/maintenance/rus_gambling)
 "gDp" = (
@@ -28536,9 +28541,9 @@
 /turf/open/floor/iron/white/smooth_edge,
 /area/station/medical/storage)
 "ikN" = (
-/obj/structure/chair/sofa/left/brown{
-	dir = 8
-	},
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/structure/spider/stickyweb,
+/mob/living/basic/spider/giant/breacher,
 /turf/open/floor/wood,
 /area/station/maintenance/rus_gambling)
 "ila" = (
@@ -29111,6 +29116,7 @@
 /area/station/science/xenobiology)
 "irO" = (
 /obj/machinery/vending/boozeomat,
+/obj/structure/spider/stickyweb,
 /turf/open/floor/wood,
 /area/station/maintenance/rus_gambling)
 "irQ" = (
@@ -29813,6 +29819,7 @@
 /area/station/command/heads_quarters/captain/private)
 "iAj" = (
 /obj/effect/decal/cleanable/dirt,
+/obj/structure/spider/stickyweb,
 /turf/open/floor/wood,
 /area/station/maintenance/rus_gambling)
 "iAk" = (
@@ -36764,6 +36771,8 @@
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/cable,
 /obj/machinery/power/apc/auto_name/directional/north,
+/obj/effect/decal/cleanable/cobweb,
+/obj/structure/spider/stickyweb,
 /turf/open/floor/wood,
 /area/station/maintenance/rus_gambling)
 "kwX" = (
@@ -37366,6 +37375,7 @@
 "kDz" = (
 /obj/structure/light_construct/directional/south,
 /obj/structure/rack,
+/obj/structure/spider/stickyweb,
 /turf/open/floor/wood,
 /area/station/maintenance/rus_gambling)
 "kDA" = (
@@ -38670,8 +38680,9 @@
 /turf/open/floor/iron/smooth,
 /area/station/science/ordnance/storage)
 "kVo" = (
-/obj/structure/table/wood/poker,
 /obj/effect/decal/cleanable/dirt,
+/obj/structure/spider/stickyweb,
+/obj/structure/spider/stickyweb/sealed/reflector,
 /turf/open/floor/wood,
 /area/station/maintenance/rus_gambling)
 "kVs" = (
@@ -44160,7 +44171,7 @@
 	pixel_y = 24
 	},
 /obj/effect/mapping_helpers/broken_floor,
-/mob/living/basic/trooper/syndicate/melee,
+/obj/structure/spider/stickyweb,
 /turf/open/floor/wood,
 /area/station/maintenance/rus_gambling)
 "muZ" = (
@@ -44891,8 +44902,8 @@
 /turf/open/floor/iron/freezer,
 /area/station/medical/chemistry)
 "mFR" = (
-/obj/structure/table/wood,
-/obj/structure/sign/poster/contraband/communist_state/directional/east,
+/obj/structure/spider/stickyweb,
+/mob/living/basic/spider/giant/tank,
 /turf/open/floor/wood,
 /area/station/maintenance/rus_gambling)
 "mGv" = (
@@ -48157,6 +48168,7 @@
 	pixel_x = 2;
 	pixel_y = 4
 	},
+/obj/structure/spider/stickyweb,
 /turf/open/floor/wood,
 /area/station/maintenance/rus_gambling)
 "nzC" = (
@@ -48589,9 +48601,8 @@
 /turf/open/floor/catwalk_floor/iron_smooth,
 /area/station/science/research/abandoned)
 "nGX" = (
-/obj/structure/chair/sofa/right/brown{
-	dir = 8
-	},
+/obj/structure/spider/stickyweb,
+/mob/living/basic/spider/giant/breacher,
 /turf/open/floor/wood,
 /area/station/maintenance/rus_gambling)
 "nGY" = (
@@ -50827,6 +50838,7 @@
 	spawn_loot_count = 2;
 	spawn_random_offset = 1
 	},
+/obj/structure/spider/stickyweb,
 /turf/open/floor/wood,
 /area/station/maintenance/rus_gambling)
 "olE" = (
@@ -50899,6 +50911,7 @@
 	},
 /obj/structure/cable,
 /obj/structure/barricade/wooden/crude,
+/obj/structure/spider/stickyweb/sealed/reflector,
 /turf/open/floor/catwalk_floor/iron_smooth,
 /area/station/maintenance/rus_gambling)
 "omT" = (
@@ -55717,6 +55730,7 @@
 	pixel_y = 6
 	},
 /obj/effect/decal/cleanable/blood/old,
+/obj/structure/spider/stickyweb,
 /turf/open/floor/wood,
 /area/station/maintenance/rus_gambling)
 "pBu" = (
@@ -60250,7 +60264,7 @@
 /area/station/medical/virology)
 "qLu" = (
 /obj/effect/decal/cleanable/blood/old,
-/mob/living/basic/trooper/syndicate/melee/sword,
+/obj/structure/spider/stickyweb,
 /turf/open/floor/wood,
 /area/station/maintenance/rus_gambling)
 "qLy" = (
@@ -65772,11 +65786,9 @@
 /turf/open/floor/iron/dark/smooth_large,
 /area/station/command/eva)
 "sqd" = (
-/obj/structure/chair/sofa/right/brown{
-	dir = 4
-	},
 /obj/effect/mapping_helpers/broken_floor,
 /obj/effect/decal/cleanable/dirt,
+/obj/structure/spider/stickyweb,
 /turf/open/floor/wood,
 /area/station/maintenance/rus_gambling)
 "sqo" = (
@@ -66082,13 +66094,6 @@
 	},
 /turf/open/floor/wood,
 /area/station/service/lawoffice)
-"svj" = (
-/obj/structure/chair/stool/directional/north{
-	pixel_y = 6
-	},
-/mob/living/basic/trooper/syndicate/melee,
-/turf/open/floor/wood,
-/area/station/maintenance/rus_gambling)
 "svC" = (
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/iron/smooth,
@@ -70790,6 +70795,7 @@
 "tDO" = (
 /obj/structure/table/wood,
 /obj/machinery/chem_dispenser/drinks/beer,
+/obj/structure/spider/stickyweb,
 /turf/open/floor/wood,
 /area/station/maintenance/rus_gambling)
 "tDW" = (
@@ -77518,6 +77524,7 @@
 "vxA" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/effect/mapping_helpers/broken_floor,
+/obj/structure/spider/stickyweb,
 /turf/open/floor/wood,
 /area/station/maintenance/rus_gambling)
 "vxF" = (
@@ -80195,8 +80202,8 @@
 /turf/open/floor/carpet,
 /area/station/security/detectives_office)
 "wkm" = (
-/obj/effect/mapping_helpers/broken_floor,
-/turf/open/floor/wood,
+/obj/structure/spider/stickyweb/sealed/reflector,
+/turf/closed/wall,
 /area/station/maintenance/rus_gambling)
 "wkK" = (
 /obj/effect/turf_decal/trimline/yellow/filled/line,
@@ -80738,6 +80745,7 @@
 	spawn_loot_count = 3
 	},
 /obj/structure/rack,
+/obj/structure/spider/stickyweb,
 /turf/open/floor/wood,
 /area/station/maintenance/rus_gambling)
 "wsg" = (
@@ -81907,6 +81915,7 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/cable,
+/obj/structure/spider/stickyweb,
 /turf/open/floor/wood,
 /area/station/maintenance/rus_gambling)
 "wGQ" = (
@@ -83563,9 +83572,9 @@
 /turf/open/floor/iron/smooth,
 /area/station/maintenance/port)
 "xiF" = (
-/obj/structure/table/wood/poker,
-/obj/effect/spawner/random/entertainment/deck,
 /obj/effect/decal/cleanable/blood/old,
+/obj/structure/spider/stickyweb,
+/obj/structure/spider/stickyweb/sealed/reflector,
 /turf/open/floor/wood,
 /area/station/maintenance/rus_gambling)
 "xiI" = (
@@ -126026,10 +126035,10 @@ clP
 qGT
 jpR
 jpR
-ykh
+wkm
 omI
-ykh
-ykh
+wkm
+wkm
 iNV
 iNV
 iNV
@@ -126542,7 +126551,7 @@ cqI
 fRh
 sqd
 vxA
-bcY
+mFR
 ykh
 qSF
 dBK
@@ -127054,7 +127063,7 @@ mLy
 qGT
 cqI
 nGX
-ikN
+bcY
 fYs
 wse
 ykh
@@ -127569,7 +127578,7 @@ ykh
 jpR
 bRl
 awR
-fYs
+ikN
 bcY
 ykh
 aqi
@@ -127824,10 +127833,10 @@ kvb
 pzh
 ykh
 olD
-bcY
-wkm
+gDf
+fFf
 azq
-wkm
+fFf
 ykh
 qSF
 oZW
@@ -128081,8 +128090,8 @@ nuL
 vRf
 ykh
 tDO
-wkm
-gDf
+fFf
+bfi
 djz
 iAj
 ykh
@@ -128596,8 +128605,8 @@ mLy
 ykh
 irO
 bcY
-mFR
-svj
+bfi
+djz
 iAj
 ykh
 wtQ
@@ -128851,11 +128860,11 @@ ePH
 wqd
 mLy
 ykh
-ykh
-ykh
-ykh
-ykh
-ykh
+wkm
+wkm
+wkm
+wkm
+wkm
 ykh
 tuq
 tuq

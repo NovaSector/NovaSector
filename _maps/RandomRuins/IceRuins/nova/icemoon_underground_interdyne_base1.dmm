@@ -2449,19 +2449,19 @@
 /turf/open/floor/iron/dark/textured_large,
 /area/ruin/interdyne_planetary_base/med)
 "gI" = (
-/obj/item/storage/box/stockparts/deluxe{
-	pixel_x = -6;
-	pixel_y = 11
-	},
-/obj/item/storage/box/stockparts/deluxe{
-	pixel_x = 8;
-	pixel_y = 5
-	},
 /obj/item/mmi/posibrain/syndie/interdyne,
 /obj/item/storage/box/beakers/bluespace,
 /obj/structure/table/glass/plasmaglass,
 /obj/item/storage/part_replacer/bluespace{
 	pixel_y = -12
+	},
+/obj/item/storage/box/stockparts/basic{
+	pixel_x = 9;
+	pixel_y = 10
+	},
+/obj/item/storage/box/stockparts/basic{
+	pixel_y = 10;
+	pixel_x = -8
 	},
 /turf/open/floor/iron/dark/textured_large,
 /area/ruin/interdyne_planetary_base/science)
@@ -2645,6 +2645,7 @@
 	},
 /obj/item/circuitboard/computer/bountypad,
 /obj/item/circuitboard/machine/bountypad,
+/obj/structure/rack/shelf,
 /turf/open/floor/iron/dark/textured_large,
 /area/ruin/interdyne_planetary_base/main/vault)
 "hi" = (
@@ -2798,9 +2799,6 @@
 /turf/open/floor/iron/dark/textured_large,
 /area/ruin/interdyne_planetary_base/main)
 "hF" = (
-/obj/machinery/syndicatebomb/self_destruct{
-	anchored = 1
-	},
 /obj/effect/turf_decal/stripes/red/box,
 /turf/open/floor/iron/dark/textured_large,
 /area/ruin/interdyne_planetary_base/main/vault)
@@ -3666,9 +3664,7 @@
 /obj/structure/sign/painting/library{
 	pixel_x = 32
 	},
-/obj/machinery/modular_computer/preset/curator{
-	dir = 8
-	},
+/obj/structure/table/wood,
 /turf/open/floor/wood,
 /area/ruin/interdyne_planetary_base/main/dorms/lib)
 "jO" = (

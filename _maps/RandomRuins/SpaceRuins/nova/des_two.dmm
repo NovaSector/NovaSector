@@ -560,16 +560,6 @@
 /area/ruin/space/has_grav/nova/des_two/service/lounge)
 "ct" = (
 /obj/structure/rack/shelf,
-/obj/item/circuitboard/machine/xenoarch_machine/xenoarch_researcher{
-	pixel_y = -6
-	},
-/obj/item/circuitboard/machine/xenoarch_machine/xenoarch_digger{
-	pixel_y = -3
-	},
-/obj/item/circuitboard/machine/xenoarch_machine/xenoarch_recoverer,
-/obj/item/circuitboard/machine/xenoarch_machine/xenoarch_scanner{
-	pixel_y = 3
-	},
 /turf/open/floor/iron/dark,
 /area/ruin/space/has_grav/nova/des_two/research)
 "cw" = (
@@ -7300,10 +7290,6 @@
 	pixel_y = 2;
 	pixel_x = -8
 	},
-/obj/item/storage/box/stockparts/deluxe{
-	pixel_y = 2;
-	pixel_x = 8
-	},
 /turf/open/floor/iron/dark,
 /area/ruin/space/has_grav/nova/des_two/research)
 "Fp" = (
@@ -9661,17 +9647,15 @@
 /area/ruin/space/has_grav/nova/des_two/engineering)
 "Pd" = (
 /obj/structure/rack/shelf,
-/obj/item/stock_parts/power_store/cell/lead{
-	pixel_x = -4;
-	pixel_y = -8
-	},
-/obj/item/stock_parts/power_store/cell/lead{
-	pixel_x = 4;
-	pixel_y = -6
-	},
-/obj/item/stock_parts/power_store/cell/lead,
 /obj/structure/extinguisher_cabinet/directional/east,
 /obj/machinery/light/cold/directional/east,
+/obj/item/stock_parts/power_store/cell/super,
+/obj/item/stock_parts/power_store/cell/super{
+	pixel_x = -7
+	},
+/obj/item/stock_parts/power_store/cell/super{
+	pixel_y = 10
+	},
 /turf/open/floor/iron/dark,
 /area/ruin/space/has_grav/nova/des_two/research)
 "Pg" = (
@@ -10001,13 +9985,6 @@
 	dir = 4
 	},
 /area/ruin/space/has_grav/nova/des_two/halls)
-"Qy" = (
-/obj/machinery/modular_computer/preset/curator,
-/obj/effect/turf_decal/siding/wood{
-	dir = 9
-	},
-/turf/open/floor/wood/parquet,
-/area/ruin/space/has_grav/nova/des_two/service/lounge)
 "Qz" = (
 /obj/structure/closet/emcloset,
 /obj/machinery/firealarm/directional/south,
@@ -14403,7 +14380,7 @@ iD
 iR
 go
 Jc
-Qy
+cs
 JO
 JO
 yu

@@ -292,7 +292,6 @@
 /obj/structure/safe,
 /obj/item/implanter/storage,
 /obj/item/stack/spacecash/c10000,
-/obj/item/stack/spacecash/c10000,
 /obj/item/stack/sheet/mineral/diamond{
 	amount = 15
 	},
@@ -673,9 +672,10 @@
 /turf/open/floor/engine,
 /area/ruin/space/has_grav/powered)
 "wG" = (
-/obj/structure/table/wood,
-/obj/item/raw_anomaly_core/random,
-/turf/open/floor/wood,
+/obj/machinery/porta_turret/syndicate/energy{
+	faction = list("pirate")
+	},
+/turf/closed/indestructible/syndicate,
 /area/ruin/space/has_grav/powered)
 "wL" = (
 /obj/effect/turf_decal/trimline/dark_red/filled/end{
@@ -788,8 +788,6 @@
 	amount = 10
 	},
 /obj/item/stack/sheet/plastic/five,
-/obj/item/stack/spacecash/c1000,
-/obj/item/stack/spacecash/c1000,
 /obj/effect/turf_decal/tile/brown/full,
 /obj/structure/closet/crate/secure/cargo,
 /turf/open/floor/iron/dark,
@@ -1000,8 +998,6 @@
 "Gf" = (
 /obj/effect/turf_decal/bot,
 /obj/structure/closet/crate/secure,
-/obj/item/retractor/alien,
-/obj/item/scalpel/alien,
 /obj/effect/turf_decal/tile/brown/full,
 /turf/open/floor/iron/dark,
 /area/ruin/space/has_grav/powered)
@@ -1209,11 +1205,8 @@
 /area/ruin/space/has_grav/powered)
 "Qr" = (
 /obj/effect/turf_decal/bot,
-/obj/structure/closet/crate/secure,
-/obj/item/raw_anomaly_core/random,
-/obj/item/raw_anomaly_core/random,
-/obj/item/raw_anomaly_core/random,
 /obj/effect/turf_decal/tile/brown/full,
+/obj/structure/closet/crate/secure,
 /turf/open/floor/iron/dark,
 /area/ruin/space/has_grav/powered)
 "Qw" = (
@@ -1358,8 +1351,6 @@
 	amount = 8
 	},
 /obj/item/stack/sheet/mineral/plasma/thirty,
-/obj/item/stack/spacecash/c1000,
-/obj/item/stack/spacecash/c1000,
 /obj/effect/turf_decal/tile/brown/full,
 /obj/structure/closet/crate/secure/cargo,
 /turf/open/floor/iron/dark,
@@ -1947,7 +1938,7 @@ Js
 Js
 Js
 Js
-ih
+wG
 ih
 ih
 ih
@@ -2055,12 +2046,12 @@ ih
 ih
 ih
 ih
+wG
 ih
 ih
 ih
 ih
-ih
-ih
+wG
 ih
 FL
 ih
@@ -2098,7 +2089,7 @@ Rx
 Re
 ET
 Zz
-wG
+Iy
 ih
 Qw
 zk
@@ -2489,7 +2480,7 @@ ih
 Zs
 ih
 ih
-ih
+wG
 ih
 Zs
 ih
@@ -2514,7 +2505,7 @@ vX
 vX
 vX
 vX
-ih
+wG
 Fd
 wv
 Fd
@@ -2628,7 +2619,7 @@ ih
 nj
 ih
 ih
-ih
+wG
 vW
 ih
 vX

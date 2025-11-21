@@ -39,8 +39,15 @@
 /obj/structure/extinguisher_cabinet/directional/west,
 /turf/open/floor/carpet,
 /area/ruin/space/has_grav/whiteship/box)
+"bE" = (
+/obj/effect/turf_decal/siding/yellow{
+	dir = 1
+	},
+/obj/machinery/suit_storage_unit/open,
+/turf/open/floor/iron/shuttle/cargo,
+/area/ruin/space/has_grav/whiteship/box)
 "bN" = (
-/obj/machinery/suit_storage_unit/mining/eva,
+/obj/machinery/suit_storage_unit/medical,
 /turf/open/floor/mineral/titanium/tiled/white,
 /area/ruin/space/has_grav/whiteship/box)
 "bT" = (
@@ -1063,7 +1070,7 @@
 /turf/closed/wall/mineral/titanium/nodiagonal,
 /area/ruin/space/has_grav/whiteship/box)
 "HT" = (
-/obj/machinery/suit_storage_unit/standard_unit,
+/obj/machinery/suit_storage_unit/open,
 /turf/open/floor/mineral/titanium/tiled/white,
 /area/ruin/space/has_grav/whiteship/box)
 "HW" = (
@@ -2223,7 +2230,7 @@ lS
 Ov
 ji
 HR
-Xp
+bE
 nL
 nL
 Px

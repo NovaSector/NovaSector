@@ -1203,22 +1203,19 @@
 	pixel_x = 5;
 	pixel_y = -6
 	},
-/obj/item/storage/box/stockparts/deluxe,
-/obj/item/storage/box/stockparts/deluxe,
 /obj/structure/closet/crate,
 /obj/item/storage/toolbox/mechanical,
 /obj/item/stack/sheet/glass/fifty,
 /obj/item/circuitboard/machine/protolathe/offstation,
 /obj/effect/spawner/random/engineering/toolbox,
 /obj/item/circuitboard/machine/circuit_imprinter/department,
-/obj/item/circuitboard/machine/rtg/advanced,
-/obj/item/circuitboard/machine/rtg/advanced,
-/obj/item/circuitboard/machine/rtg/advanced,
 /obj/item/folded_navigation_gigabeacon,
 /obj/structure/cable,
 /obj/item/circuitboard/computer/powermonitor,
 /obj/item/circuitboard/machine/biogenerator/food_replicator,
 /obj/item/flatpacked_machine,
+/obj/item/storage/box/stockparts/basic,
+/obj/item/storage/box/stockparts/basic,
 /turf/open/floor/plating,
 /area/ruin/space/has_grav/cargodise_freighter/utility)
 "ty" = (
@@ -1719,8 +1716,6 @@
 	},
 /obj/effect/spawner/random/exotic/technology,
 /obj/effect/spawner/random/exotic/technology,
-/obj/item/raw_anomaly_core/random,
-/obj/item/raw_anomaly_core/random,
 /obj/item/raw_anomaly_core/random,
 /obj/effect/spawner/random/exotic/tool,
 /obj/effect/spawner/random/exotic/tool,

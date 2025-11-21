@@ -1161,9 +1161,7 @@
 	dir = 8
 	},
 /obj/structure/table/reinforced,
-/obj/item/disk/design_disk/bepis,
-/obj/item/stack/spacecash/c1000,
-/obj/item/raw_anomaly_core/random,
+/obj/effect/spawner/random/entertainment/money_large,
 /turf/open/floor/iron/airless,
 /area/ruin/space/has_grav/shuttle8532researchbay)
 "yV" = (
