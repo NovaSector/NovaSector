@@ -115,7 +115,7 @@
 /datum/techweb_node/scythe_t2
 	id = TECHWEB_NODE_SCYTHE_2
 	display_name = "Scythe (Tier 2)"
-	description = "Improved scythe for efficient culling"
+	description = "Further improved scythe for efficient culling."
 	prereq_ids = list(TECHWEB_NODE_SCYTHE_1)
 	design_ids = list(
 		"scythet2",
