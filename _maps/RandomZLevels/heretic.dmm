@@ -681,7 +681,6 @@
 /turf/open/floor/iron/small,
 /area/awaymission/caves/heretic_laboratory_clean)
 "fl" = (
-/obj/structure/projected_forcefield,
 /obj/effect/oneway,
 /turf/open/floor/mineral/titanium,
 /area/awaymission/caves/heretic_laboratory_clean)
@@ -2045,7 +2044,6 @@
 /turf/open/floor/iron/pool/cobble/corner,
 /area/awaymission/caves/heretic_laboratory_clean)
 "nD" = (
-/obj/structure/projected_forcefield,
 /obj/effect/oneway{
 	dir = 8
 	},
@@ -3519,7 +3517,6 @@
 /turf/open/misc/dirt/jungle,
 /area/awaymission/beach/heretic)
 "wN" = (
-/obj/structure/projected_forcefield,
 /obj/effect/oneway{
 	dir = 1
 	},
@@ -4638,7 +4635,6 @@
 /turf/open/floor/engine,
 /area/awaymission/caves/heretic_laboratory)
 "Ey" = (
-/obj/structure/projected_forcefield,
 /obj/effect/oneway{
 	dir = 4
 	},
@@ -4926,6 +4922,10 @@
 /mob/living/basic/bot/medbot/mysterious,
 /obj/effect/blessing,
 /turf/open/floor/iron/small,
+/area/awaymission/caves/heretic_laboratory_clean)
+"Gr" = (
+/obj/structure/projected_forcefield,
+/turf/open/floor/mineral/titanium,
 /area/awaymission/caves/heretic_laboratory_clean)
 "Gs" = (
 /obj/structure/table/wood/fancy,
@@ -7400,10 +7400,7 @@
 /turf/open/floor/iron/small,
 /area/awaymission/caves/heretic_laboratory)
 "WQ" = (
-/mob/living/basic/heretic_summon/star_gazer{
-	desc = "A creature that has been tasked to watch over the stars, Now its tasked with watching its cell decay.";
-	name = "The Fylakismenos"
-	},
+/mob/living/basic/heretic_summon/star_gazer/contained,
 /turf/open/floor/wood,
 /area/awaymission/caves/heretic_laboratory_clean)
 "WR" = (
@@ -13432,12 +13429,12 @@ Ry
 Ry
 nV
 mC
-Ry
-Ry
-Ry
-Ry
-Ry
-Ry
+Gr
+Gr
+Gr
+Gr
+Gr
+Gr
 aR
 BE
 Ry
@@ -13944,7 +13941,7 @@ Ry
 Ry
 Ry
 Ry
-Ry
+Gr
 fl
 hd
 RT
@@ -13953,7 +13950,7 @@ KT
 KT
 SI
 wN
-Ry
+Gr
 Ry
 Ry
 Ry
@@ -14201,16 +14198,16 @@ Ry
 Ry
 Ry
 Ry
-Ry
+Gr
 fl
 Gu
-WQ
+KT
 KT
 KT
 KT
 rU
 wN
-Ry
+Gr
 Ry
 Ry
 Ry
@@ -14458,16 +14455,16 @@ Ry
 Ry
 Ry
 Ry
-Ry
+Gr
 fl
 hK
 KT
-KT
+WQ
 KT
 KT
 im
 wN
-Ry
+Gr
 Ry
 Ry
 Ry
@@ -14715,7 +14712,7 @@ Ry
 Ry
 Ry
 Ry
-Ry
+Gr
 fl
 Gs
 zT
@@ -14724,7 +14721,7 @@ KT
 KT
 KT
 wN
-Ry
+Gr
 Ry
 Ry
 Ry
@@ -14972,7 +14969,7 @@ Ry
 Ry
 Ry
 Ry
-Ry
+Gr
 fl
 KT
 qU
@@ -14981,7 +14978,7 @@ rt
 KT
 KT
 wN
-Ry
+Gr
 Ry
 Ry
 Ry
@@ -15229,7 +15226,7 @@ Ry
 Ry
 Ry
 Ry
-Ry
+Gr
 fl
 KT
 KG
@@ -15238,7 +15235,7 @@ XY
 KT
 SI
 wN
-Ry
+Gr
 Ry
 Ry
 Ry
@@ -15745,12 +15742,12 @@ Ry
 Ry
 OJ
 Wo
-Ry
-Ry
-Uj
-Uj
-Ry
-Ry
+Gr
+Gr
+Gr
+Gr
+Gr
+Gr
 dS
 UD
 Ry
