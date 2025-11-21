@@ -45,8 +45,8 @@
 	maxHealth = 4000 //for contrast, bubblegum and the colossus both have 2500 health
 	movement_type = GROUND
 	mouse_opacity = MOUSE_OPACITY_OPAQUE
-	loot = list(/obj/structure/closet/crate/necropolis/gladiator)
-	crusher_loot = list(/obj/structure/closet/crate/necropolis/gladiator/crusher)
+	loot = list(/obj/structure/closet/crate/necropolis/gladiator, /obj/structure/dead_gladiator)
+	crusher_loot = list(/obj/structure/closet/crate/necropolis/gladiator/crusher, /obj/structure/dead_gladiator)
 	/// Boss phase, from 1 to 3
 	var/phase = MARKED_ONE_FIRST_PHASE
 	/// People we have introduced ourselves to - WEAKREF list
@@ -90,10 +90,6 @@
 			if(!(friend_or_foe_ref in introduced) && (friend_or_foe.stat != DEAD))
 				introduction(friend_or_foe)
 				break
-
-/mob/living/simple_animal/hostile/megafauna/gladiator/drop_loot(drop_loc)
-	new /obj/structure/dead_gladiator(loc)
-	. = ..()
 
 /mob/living/simple_animal/hostile/megafauna/gladiator/Found(atom/A)
 	//We only attack when pissed off
@@ -537,8 +533,8 @@
 /obj/structure/dead_gladiator
 	name = "solemn remains"
 	desc = "An ancient miner lost to time, chosen and changed by the Necropolis, encased in a suit of armor. Only a chosen few \
-	can match his speed and strength... and it appears someone or something has. Unearthly energies bind the body to its place \
-	of defeat, and you cannot move it."
+		can match his speed and strength... and it appears someone or something has. Unearthly energies bind the body to its place \
+		of defeat, and you cannot move it."
 	icon = 'modular_nova/modules/gladiator/icons/markedone.dmi'
 	icon_state = "marked_dying"
 	gender = MALE
@@ -549,6 +545,7 @@
 	anchored = TRUE
 	density = FALSE
 	resistance_flags = LAVA_PROOF | FIRE_PROOF | UNACIDABLE | INDESTRUCTIBLE
+	/// Name of the GPS signal we set when this structure initializes.
 	var/gps_name = "Fading Signal"
 
 /obj/structure/dead_gladiator/Initialize(mapload)
