@@ -329,11 +329,6 @@
 	},
 /turf/open/floor/iron/dark,
 /area/ruin/space/has_grav/cargodise_freighter/quarters)
-"ev" = (
-/obj/structure/lattice,
-/mob,
-/turf/template_noop,
-/area/template_noop)
 "ex" = (
 /obj/machinery/door/airlock/survival_pod/glass,
 /obj/structure/fans/tiny,
@@ -2993,7 +2988,6 @@
 /obj/effect/spawner/random/medical/medkit_rare,
 /obj/effect/spawner/random/medical/surgery_tool_advanced,
 /obj/effect/spawner/random/medical/surgery_tool_advanced,
-/obj/effect/spawner/random/medical/surgery_tool_alien,
 /turf/open/floor/iron/dark,
 /area/ruin/space/has_grav/cargodise_freighter/cargo)
 "TZ" = (
@@ -3972,7 +3966,7 @@ Gh
 Gh
 Gh
 JQ
-ev
+Ef
 Ef
 Ef
 Yr

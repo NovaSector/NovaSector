@@ -197,6 +197,12 @@
 "fw" = (
 /turf/template_noop,
 /area/template_noop)
+"fF" = (
+/obj/machinery/porta_turret/syndicate/energy/heavy{
+	faction = list("hostile")
+	},
+/turf/closed/indestructible/titanium/nodiagonal,
+/area/ruin/space/has_grav/powered/nova/scrapheap)
 "fU" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/turf_decal/trimline/brown/filled/corner,
@@ -221,9 +227,6 @@
 /obj/item/disk/design_disk/bepis,
 /obj/item/disk/design_disk/bepis,
 /obj/effect/decal/cleanable/dirt,
-/obj/item/raw_anomaly_core/random,
-/obj/item/raw_anomaly_core/random,
-/obj/item/raw_anomaly_core/random,
 /obj/effect/turf_decal/tile/brown/full,
 /turf/open/floor/iron/dark,
 /area/ruin/space/has_grav/powered/nova/scrapheap)
@@ -272,6 +275,13 @@
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/spawner/random/trash/grime,
 /obj/effect/turf_decal/trimline/blue/filled/line,
+/turf/open/floor/iron/dark,
+/area/ruin/space/has_grav/powered/nova/scrapheap)
+"hd" = (
+/obj/effect/turf_decal/bot_red,
+/obj/effect/turf_decal/tile/brown/full,
+/obj/effect/spawner/random/turretassembly,
+/obj/structure/rack,
 /turf/open/floor/iron/dark,
 /area/ruin/space/has_grav/powered/nova/scrapheap)
 "hz" = (
@@ -339,7 +349,6 @@
 "iT" = (
 /obj/structure/table,
 /obj/item/disk/design_disk/bepis,
-/obj/effect/spawner/random/medical/surgery_tool_advanced,
 /obj/effect/spawner/random/medical/surgery_tool_advanced,
 /turf/open/floor/iron/white/smooth_half,
 /area/ruin/space/has_grav/powered/nova/scrapheap)
@@ -445,10 +454,10 @@
 /turf/open/floor/iron/dark,
 /area/ruin/space/has_grav/powered/nova/scrapheap)
 "lU" = (
-/obj/structure/table,
-/obj/effect/spawner/random/engineering/material_rare,
-/obj/effect/spawner/random/engineering/material_rare,
-/turf/open/floor/iron,
+/obj/effect/turf_decal/bot_red,
+/obj/effect/turf_decal/tile/brown/full,
+/obj/structure/rack,
+/turf/open/floor/iron/dark,
 /area/ruin/space/has_grav/powered/nova/scrapheap)
 "mj" = (
 /obj/machinery/stasis,
@@ -544,7 +553,6 @@
 /obj/machinery/light/broken/directional/west,
 /obj/structure/closet/crate/radiation,
 /obj/effect/turf_decal/bot,
-/obj/effect/spawner/random/engineering/material_rare,
 /obj/effect/spawner/random/engineering/material_rare,
 /obj/effect/turf_decal/tile/brown/full,
 /turf/open/floor/iron/dark,
@@ -740,11 +748,11 @@
 /turf/open/floor/iron/dark,
 /area/ruin/space/has_grav/powered/nova/scrapheap)
 "uX" = (
-/obj/structure/closet/crate/secure/loot,
 /obj/effect/turf_decal/bot_red,
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/window/reinforced/spawner/directional/west,
 /obj/effect/turf_decal/tile/brown/full,
+/obj/structure/rack,
 /turf/open/floor/iron/dark,
 /area/ruin/space/has_grav/powered/nova/scrapheap)
 "vc" = (
@@ -806,7 +814,6 @@
 /obj/structure/closet/crate/secure/gear,
 /obj/effect/turf_decal/bot,
 /obj/effect/decal/cleanable/dirt,
-/obj/item/storage/toolbox/syndicate,
 /obj/item/switchblade,
 /obj/effect/turf_decal/tile/brown/full,
 /turf/open/floor/iron/dark,
@@ -1227,10 +1234,10 @@
 /turf/open/floor/plating,
 /area/ruin/space/has_grav/powered/nova/scrapheap)
 "Gd" = (
-/obj/structure/closet/crate/secure/loot,
 /obj/effect/turf_decal/bot_red,
 /obj/structure/window/reinforced/spawner/directional/west,
 /obj/effect/turf_decal/tile/brown/full,
+/obj/structure/closet/crate/secure/tradership_cargo_very_valuable,
 /turf/open/floor/iron/dark,
 /area/ruin/space/has_grav/powered/nova/scrapheap)
 "Gf" = (
@@ -1274,7 +1281,6 @@
 "Hk" = (
 /obj/structure/closet/crate/radiation,
 /obj/effect/turf_decal/bot,
-/obj/effect/spawner/random/engineering/material_rare,
 /obj/effect/spawner/random/engineering/material_rare,
 /obj/effect/turf_decal/tile/brown/full,
 /turf/open/floor/iron/dark,
@@ -1617,6 +1623,7 @@
 /area/ruin/space/has_grav/powered/nova/scrapheap)
 "Pe" = (
 /obj/machinery/light/broken/directional/north,
+/obj/item/storage/toolbox/syndicate,
 /turf/open/floor/iron,
 /area/ruin/space/has_grav/powered/nova/scrapheap)
 "Pq" = (
@@ -1851,6 +1858,12 @@
 "We" = (
 /turf/closed/indestructible/titanium,
 /area/ruin/space/has_grav/powered/nova/scrapheap)
+"Wm" = (
+/obj/effect/turf_decal/bot_red,
+/obj/effect/turf_decal/tile/brown/full,
+/obj/structure/closet/crate/secure/tradership_cargo_valuable,
+/turf/open/floor/iron/dark,
+/area/ruin/space/has_grav/powered/nova/scrapheap)
 "Wx" = (
 /obj/machinery/light/small/red/directional/south,
 /obj/structure/reagent_dispensers/watertank,
@@ -2072,7 +2085,7 @@ cA
 cA
 Up
 KQ
-lU
+EN
 oJ
 CU
 cA
@@ -2834,7 +2847,7 @@ Ou
 Ou
 Ou
 EU
-Ou
+fF
 EU
 Ou
 Ou
@@ -2866,9 +2879,9 @@ kc
 Gp
 vY
 Ou
-Qo
+Wm
 tJ
-Qo
+lU
 Ou
 zH
 Ou
@@ -2895,7 +2908,7 @@ Nb
 Ou
 Qo
 JI
-Qo
+hd
 Ou
 Ou
 We
