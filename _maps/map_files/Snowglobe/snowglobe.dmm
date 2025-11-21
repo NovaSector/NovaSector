@@ -5104,7 +5104,7 @@
 	},
 /area/station/hallway/primary/forestarboardhall)
 "bpi" = (
-/obj/structure/no_effect_signpost,
+/obj/structure/signpost,
 /turf/open/misc/asteroid/snow/icemoon,
 /area/icemoon/underground/explored)
 "bpz" = (
