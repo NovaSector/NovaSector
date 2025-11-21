@@ -48,7 +48,7 @@
 	flags_1 = IS_PLAYER_COLORABLE_1
 
 /obj/item/clothing/under/costume/dutch
-	icon = 'icons/map_icons/clothing/under/_under.dmi'
+	icon = 'icons/map_icons/clothing/under/costume.dmi'
 	icon_state = "/obj/item/clothing/under/costume/dutch"
 	post_init_icon_state = "dutchsuit"
 	greyscale_config = /datum/greyscale_config/dutch_outfit
@@ -56,6 +56,13 @@
 	greyscale_config_worn_digi = /datum/greyscale_config/dutch_outfit/worn/digi
 	greyscale_colors = "#333333#f8f8f8#ff0000#ffcc00"
 	flags_1 = IS_PLAYER_COLORABLE_1
+
+/obj/item/clothing/under/costume/dutch/syndicate
+	post_init_icon_state = null
+	greyscale_config = null
+	greyscale_config_worn = null
+	greyscale_config_worn_digi = null
+	greyscale_colors = null
 
 /obj/item/clothing/suit/costume/pg
 	icon = 'icons/map_icons/clothing/suit/costume.dmi'
@@ -67,7 +74,7 @@
 	flags_1 = IS_PLAYER_COLORABLE_1
 
 /obj/item/clothing/suit/chaplainsuit/monkrobeeast
-	icon = 'icons/map_icons/clothing/suit/costume.dmi'
+	icon = 'icons/map_icons/clothing/suit/_suit.dmi'
 	icon_state = "/obj/item/clothing/suit/chaplainsuit/monkrobeeast"
 	post_init_icon_state = "monkrobeeast"
 	greyscale_config = /datum/greyscale_config/monkrobeeast
@@ -160,6 +167,18 @@
 	desc = "A traditional ancient Earth Japanese Shihakusho."
 	icon_state = "shihakusho"
 	body_parts_covered = CHEST|GROIN|ARMS
+
+/obj/item/clothing/under/costume/nova/chima_jeogori
+	name = "chima jeogori"
+	desc = "Traditional Korean clothes, often worn as formal attire."
+	icon = 'icons/map_icons/clothing/under/costume.dmi'
+	icon_state = "/obj/item/clothing/under/costume/nova/chima_jeogori"
+	post_init_icon_state = "chima_jeogori"
+	greyscale_config = /datum/greyscale_config/chima_jeogori
+	greyscale_config_worn = /datum/greyscale_config/chima_jeogori/worn
+	greyscale_colors = "#a52f29#2ba396#545461#88242d#eeeeee"
+	alternate_worn_layer = UNDER_SUIT_LAYER
+	flags_1 = IS_PLAYER_COLORABLE_1
 
 /*
 *	CHRISTMAS CLOTHES

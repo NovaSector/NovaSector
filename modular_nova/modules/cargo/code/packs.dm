@@ -706,8 +706,8 @@
 
 /datum/supply_pack/organic/lavalandsamples
 	name = "Planetary Flora Samples"
-	desc = "A box of samples taken from the surface of Lavaland. Requires Hydroponics access to open."
-	cost = CARGO_CRATE_VALUE * 6
+	desc = "A box of samples taken from the surface of Lavaland. Resold to you - yes, you! - at a premium. Requires Hydroponics access to open."
+	cost = CARGO_CRATE_VALUE * 36
 	access_view = ACCESS_HYDROPONICS
 	contains = list(
 		/obj/item/seeds/lavaland/polypore,
@@ -790,7 +790,7 @@
 	desc = "Hey, we've apparently got a backlog of paperwork here. It's pretty bad. \
 		If you guys could pay the shuttle guys to look the other way, and help us fill it out so we can file this stuff away, \
 		it'll look a lot nicer on our quarterly reports... which means we can justify putting a few extra credits in your budget. \
-		Thanks."
+		Thanks. For your convenience, we've repacked it into a single large folder. Be careful with it."
 	cost = CARGO_CRATE_VALUE * 5
 	/*
 	one properly stamped paperwork is CARGO_CRATE_VALUE * 4.
@@ -799,5 +799,21 @@
 	5 paperworks for 20 crates (4000cr), initial cost of 5 crates (1000cr), profit of 15 crates (3000cr)
 	*/
 	contains = list(
-		/obj/item/folder/ancient_paperwork = 5
+		/obj/item/folder/ancient_paperwork/five,
 	)
+
+/*
+* ACCESS OVERWRITES
+*/
+
+/datum/supply_pack/engineering/portagrav
+	access_view = NONE
+
+/datum/supply_pack/engineering/powergamermitts
+	access_view = NONE
+
+/datum/supply_pack/engineering/pacman
+	access_view = NONE
+
+/datum/supply_pack/engineering/tools
+	access_view = NONE

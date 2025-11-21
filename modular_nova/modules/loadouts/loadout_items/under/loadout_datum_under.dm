@@ -4,7 +4,7 @@
 	category_name = "Undersuit"
 	category_ui_icon = FA_ICON_SHIRT
 	type_to_generate = /datum/loadout_item/under
-	tab_order = /datum/loadout_category/suit::tab_order + 1
+	tab_order = /datum/loadout_category/suits::tab_order + 1
 
 /datum/loadout_item/under
 	abstract_type = /datum/loadout_item/under
@@ -47,7 +47,7 @@
 /datum/loadout_item/under/jumpsuit/random
 	name = "  Jumpsuit - Random"
 	item_path = /obj/item/clothing/under/color/random
-	can_be_greyscale = DONT_GREYSCALE
+	loadout_flags = parent_type::loadout_flags | LOADOUT_FLAG_BLOCK_GREYSCALING
 
 /datum/loadout_item/under/jumpsuit/random/get_item_information()
 	. = ..()
@@ -64,7 +64,7 @@
 /datum/loadout_item/under/jumpsuit/random_skirt
 	name = " Jumpskirt - Random"
 	item_path = /obj/item/clothing/under/color/jumpskirt/random
-	can_be_greyscale = DONT_GREYSCALE
+	loadout_flags = parent_type::loadout_flags | LOADOUT_FLAG_BLOCK_GREYSCALING
 
 /datum/loadout_item/under/jumpsuit/random_skirt/get_item_information()
 	. = ..()
@@ -97,7 +97,7 @@
 /datum/loadout_item/under/miscellaneous/giant_scarf
 	name = "Giant Scarf"
 	item_path = /obj/item/clothing/under/dress/nova/giant_scarf
-	can_be_reskinned = TRUE
+	loadout_flags = parent_type::loadout_flags | LOADOUT_FLAG_ALLOW_RESKIN
 
 /datum/loadout_item/under/miscellaneous/playsuit
 	name = "Playsuit (Recolorable)"
@@ -223,12 +223,12 @@
 /datum/loadout_item/under/formal/inferno
 	name = "Inferno Suit"
 	item_path = /obj/item/clothing/under/suit/nova/inferno
-	can_be_reskinned = TRUE
+	loadout_flags = parent_type::loadout_flags | LOADOUT_FLAG_ALLOW_RESKIN
 
 /datum/loadout_item/under/formal/inferno_skirt
 	name = "Inferno Suitskirt"
 	item_path = /obj/item/clothing/under/suit/nova/inferno/skirt
-	can_be_reskinned = TRUE
+	loadout_flags = parent_type::loadout_flags | LOADOUT_FLAG_ALLOW_RESKIN
 
 /datum/loadout_item/under/formal/black_lawyer_suit
 	name = "Lawyer Suit (Black)"
@@ -265,27 +265,27 @@
 /datum/loadout_item/under/formal/pencil/burgandy
 	name = "Pencilskirt (Burgundy)"
 	item_path = /obj/item/clothing/under/suit/nova/pencil/burgundy
-	can_be_greyscale = DONT_GREYSCALE
+	loadout_flags = parent_type::loadout_flags | LOADOUT_FLAG_BLOCK_GREYSCALING
 
 /datum/loadout_item/under/formal/pencil/charcoal
 	name = "Pencilskirt (Charcoal)"
 	item_path = /obj/item/clothing/under/suit/nova/pencil/charcoal
-	can_be_greyscale = DONT_GREYSCALE
+	loadout_flags = parent_type::loadout_flags | LOADOUT_FLAG_BLOCK_GREYSCALING
 
 /datum/loadout_item/under/formal/pencil/green
 	name = "Pencilskirt (Green)"
 	item_path = /obj/item/clothing/under/suit/nova/pencil/green
-	can_be_greyscale = DONT_GREYSCALE
+	loadout_flags = parent_type::loadout_flags | LOADOUT_FLAG_BLOCK_GREYSCALING
 
 /datum/loadout_item/under/formal/pencil/navy
 	name = "Pencilskirt (Navy)"
 	item_path = /obj/item/clothing/under/suit/nova/pencil/navy
-	can_be_greyscale = DONT_GREYSCALE
+	loadout_flags = parent_type::loadout_flags | LOADOUT_FLAG_BLOCK_GREYSCALING
 
 /datum/loadout_item/under/formal/pencil/tan
 	name = "Pencilskirt (Tan)"
 	item_path = /obj/item/clothing/under/suit/nova/pencil/tan
-	can_be_greyscale = DONT_GREYSCALE
+	loadout_flags = parent_type::loadout_flags | LOADOUT_FLAG_BLOCK_GREYSCALING
 
 /datum/loadout_item/under/formal/pencil/noshirt
 	name = "Pencilskirt - Shirtless"
@@ -358,6 +358,11 @@
 /datum/loadout_item/under/formal/waiter
 	name = "Waiter's Suit"
 	item_path = /obj/item/clothing/under/suit/waiter
+
+/datum/loadout_item/under/formal/midnight_gown
+	name = "Midnight Gown"
+	item_path = /obj/item/clothing/under/dress/nova/midnight_gown
+	loadout_flags = parent_type::loadout_flags | LOADOUT_FLAG_ALLOW_RESKIN
 
 /*
 *	erp_item

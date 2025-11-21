@@ -22,7 +22,7 @@
 	icon = 'modular_nova/modules/knives/icons/bowiepocket.dmi'
 	icon_state = "bowiesheath"
 	slot_flags = ITEM_SLOT_POCKETS
-	w_class = WEIGHT_CLASS_BULKY
+	w_class = WEIGHT_CLASS_NORMAL
 	resistance_flags = FLAMMABLE
 	interaction_flags_click = NEED_DEXTERITY
 	storage_type = /datum/storage/bowie

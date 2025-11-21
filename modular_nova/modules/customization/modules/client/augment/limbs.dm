@@ -14,6 +14,8 @@
 		var/obj/item/bodypart/new_limb = path
 		var/body_zone = initial(new_limb.body_zone)
 		var/obj/item/bodypart/old_limb = augmented.get_bodypart(body_zone)
+		if(isnull(old_limb))
+			return body_zone
 
 		if(old_limb.limb_id != BODYPART_ID_DIGITIGRADE || supports_digitigrade == FALSE) //Retain digitigrade status
 			old_limb.limb_id = initial(new_limb.limb_id)

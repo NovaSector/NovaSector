@@ -7,13 +7,11 @@
 */
 /datum/sprite_accessory/wings
 	icon = 'icons/mob/human/species/wings.dmi'
-	generic = "Wings"
-	key = "wings"
+	key = FEATURE_WINGS
 	color_src = USE_ONE_COLOR
 	recommended_species = list(SPECIES_HUMAN, SPECIES_SYNTH, SPECIES_FELINE, SPECIES_LIZARD, SPECIES_MAMMAL)
 	organ_type = /obj/item/organ/wings
 	relevent_layers = list(BODY_BEHIND_LAYER, BODY_FRONT_LAYER, BODY_ADJ_LAYER)
-	genetic = TRUE
 
 /datum/sprite_accessory/wings/is_hidden(mob/living/carbon/human/wearer)
 	if(!wearer.w_uniform && !wearer.wear_suit)
@@ -59,21 +57,21 @@
 	locked = FALSE
 
 /datum/sprite_accessory/wings/fly
-	key = "wings_functional"
+	key = FEATURE_WINGS_FUNCTIONAL
 
 /datum/sprite_accessory/wings/megamoth
 	color_src = USE_ONE_COLOR
 	default_color = "#FFFFFF"
-	key = "wings_functional"
+	key = FEATURE_WINGS_FUNCTIONAL
 
 /datum/sprite_accessory/wings/mothra
-	key = "wings_functional"
+	key = FEATURE_WINGS_FUNCTIONAL
 
 /datum/sprite_accessory/wings/robotic
 	locked = FALSE
 
 /datum/sprite_accessory/wings/skeleton
-	key = "wings_functional"
+	key = FEATURE_WINGS_FUNCTIONAL
 
 /datum/sprite_accessory/wings/dragon
 	color_src = USE_ONE_COLOR
@@ -81,9 +79,8 @@
 
 
 /datum/sprite_accessory/wings_open
-	key = "wings_open"
+	key = FEATURE_WINGS_OPEN
 	color_src = USE_ONE_COLOR
-
 
 /datum/sprite_accessory/wings_open/is_hidden(mob/living/carbon/human/wearer)
 	if(!wearer.w_uniform && !wearer.wear_suit)
@@ -144,7 +141,6 @@
 /datum/sprite_accessory/wings/mammal/dragon/synth
 	name = "Dragon (Synthetic)"
 	icon_state = "dragonsynth"
-	genetic = FALSE
 
 /datum/sprite_accessory/wings/mammal/dragon/mechanical
 	name = "Dragon (Mechanical)"
@@ -259,6 +255,11 @@
 	name = "Tiny-Feathery"
 	icon_state = "tinyfeather"
 
+/datum/sprite_accessory/wings/mammal/top/mantis
+	name = "Mantis (Top)"
+	icon_state = "mantis_top"
+	color_src = USE_MATRIXED_COLORS
+
 /*
 *	LOW WINGS
 */
@@ -298,11 +299,12 @@
 */
 
 /datum/sprite_accessory/wings/moth
-	icon = 'modular_nova/master_files/icons/mob/sprite_accessory/moth_wings.dmi' // Needs new icon to suit new naming convention
+	icon = 'icons/mob/human/species/moth/moth_wings.dmi' // Needs new icon to suit new naming convention
 	default_color = "#FFFFFF"
 	recommended_species = list(SPECIES_MOTH, SPECIES_MAMMAL, SPECIES_INSECT) // Mammals too, I guess. They wont get flight though, see the wing organs for that logic
 	organ_type = /obj/item/organ/wings/moth
-	relevent_layers = list(BODY_BEHIND_LAYER, BODY_FRONT_LAYER)
+	feature_key_override = FEATURE_MOTH_WINGS
+	color_src = USE_ONE_COLOR
 
 /datum/sprite_accessory/wings/moth/none
 	name = SPRITE_ACCESSORY_NONE

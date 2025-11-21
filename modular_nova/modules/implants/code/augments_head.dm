@@ -143,8 +143,6 @@
 		/obj/machinery/computer/emergency_shuttle,
 		/obj/machinery/recycler,
 		/obj/item/circuitboard/machine/recycler,
-		/obj/machinery/fishing_portal_generator,
-		/obj/item/circuitboard/machine/fishing_portal_generator,
 		/obj/item/organ/cyberimp/arm/toolkit/armblade,
 	)
 	/// How far away we can hack things

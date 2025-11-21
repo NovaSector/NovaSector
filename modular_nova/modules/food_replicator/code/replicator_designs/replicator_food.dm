@@ -6,7 +6,7 @@
 	build_path = /obj/item/storage/box/colonial_rations
 	category = list(
 		RND_CATEGORY_INITIAL,
-		RND_CATEGORY_NRI_FOOD,
+		RND_CATEGORY_HC_FOOD,
 	)
 
 /datum/design/pljeskavica
@@ -14,10 +14,10 @@
 	id = "slavic_burger"
 	build_type = BIOGENERATOR
 	materials = list(/datum/material/biomass = 200)
-	build_path = /obj/item/food/colonial_course/pljeskavica
+	build_path = /obj/effect/spawner/random/food_or_drink/colonial_main
 	category = list(
 		RND_CATEGORY_INITIAL,
-		RND_CATEGORY_NRI_FOOD,
+		RND_CATEGORY_HC_FOOD,
 	)
 
 /datum/design/nachos
@@ -25,10 +25,10 @@
 	id = "mexican_chips"
 	build_type = BIOGENERATOR
 	materials = list(/datum/material/biomass = 150)
-	build_path = /obj/item/food/colonial_course/nachos
+	build_path = /obj/effect/spawner/random/food_or_drink/colonial_side
 	category = list(
 		RND_CATEGORY_INITIAL,
-		RND_CATEGORY_NRI_FOOD,
+		RND_CATEGORY_HC_FOOD,
 	)
 
 /datum/design/blins
@@ -36,10 +36,10 @@
 	id = "slavic_crepes"
 	build_type = BIOGENERATOR
 	materials = list(/datum/material/biomass = 100)
-	build_path = /obj/item/food/colonial_course/blins
+	build_path = /obj/effect/spawner/random/food_or_drink/colonial_dessert
 	category = list(
 		RND_CATEGORY_INITIAL,
-		RND_CATEGORY_NRI_FOOD,
+		RND_CATEGORY_HC_FOOD,
 	)
 
 ///Despite being in the medical.dm file, it's still used to fill your hunger up, as such, technically, is food.
@@ -51,7 +51,7 @@
 	build_path = /obj/item/reagent_containers/hypospray/medipen/glucose
 	category = list(
 		RND_CATEGORY_INITIAL,
-		RND_CATEGORY_NRI_FOOD,
+		RND_CATEGORY_HC_FOOD,
 	)
 
 /datum/design/spork
@@ -62,7 +62,7 @@
 	build_path = /obj/item/storage/box/utensils
 	category = list(
 		RND_CATEGORY_INITIAL,
-		RND_CATEGORY_NRI_FOOD,
+		RND_CATEGORY_HC_FOOD,
 	)
 
 /datum/design/bubblegum
@@ -73,7 +73,7 @@
 	build_path = /obj/item/storage/box/gum/colonial
 	category = list(
 		RND_CATEGORY_INITIAL,
-		RND_CATEGORY_NRI_FOOD,
+		RND_CATEGORY_HC_FOOD,
 	)
 
 /datum/design/cup
@@ -84,7 +84,7 @@
 	build_path = /obj/item/reagent_containers/cup/glass/coffee/colonial/empty
 	category = list(
 		RND_CATEGORY_INITIAL,
-		RND_CATEGORY_NRI_FOOD,
+		RND_CATEGORY_HC_FOOD,
 	)
 
 /datum/design/tea
@@ -95,7 +95,7 @@
 	make_reagent = /datum/reagent/consumable/powdered_tea
 	category = list(
 		RND_CATEGORY_INITIAL,
-		RND_CATEGORY_NRI_FOOD,
+		RND_CATEGORY_HC_FOOD,
 	)
 
 /datum/design/coffee
@@ -106,7 +106,7 @@
 	make_reagent = /datum/reagent/consumable/powdered_coffee
 	category = list(
 		RND_CATEGORY_INITIAL,
-		RND_CATEGORY_NRI_FOOD,
+		RND_CATEGORY_HC_FOOD,
 	)
 
 /datum/design/cocoa
@@ -117,7 +117,7 @@
 	make_reagent = /datum/reagent/consumable/powdered_coco
 	category = list(
 		RND_CATEGORY_INITIAL,
-		RND_CATEGORY_NRI_FOOD,
+		RND_CATEGORY_HC_FOOD,
 	)
 
 /datum/design/lemonade
@@ -128,7 +128,7 @@
 	make_reagent = /datum/reagent/consumable/powdered_lemonade
 	category = list(
 		RND_CATEGORY_INITIAL,
-		RND_CATEGORY_NRI_FOOD,
+		RND_CATEGORY_HC_FOOD,
 	)
 
 /datum/design/replicator_sugar
@@ -139,7 +139,7 @@
 	make_reagent = /datum/reagent/consumable/sugar
 	category = list(
 		RND_CATEGORY_INITIAL,
-		RND_CATEGORY_NRI_FOOD,
+		RND_CATEGORY_HC_FOOD,
 	)
 
 /datum/design/powdered_milk
@@ -150,7 +150,7 @@
 	make_reagent = /datum/reagent/consumable/powdered_milk
 	category = list(
 		RND_CATEGORY_INITIAL,
-		RND_CATEGORY_NRI_FOOD,
+		RND_CATEGORY_HC_FOOD,
 	)
 
 /datum/design/water
@@ -161,5 +161,5 @@
 	make_reagent = /datum/reagent/water
 	category = list(
 		RND_CATEGORY_INITIAL,
-		RND_CATEGORY_NRI_FOOD,
+		RND_CATEGORY_HC_FOOD,
 	)

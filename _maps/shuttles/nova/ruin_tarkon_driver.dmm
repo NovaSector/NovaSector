@@ -339,13 +339,6 @@
 /obj/machinery/suit_storage_unit/industrial/tarkon,
 /turf/open/floor/mineral/titanium,
 /area/shuttle/tarkon_driver)
-"Pn" = (
-/obj/machinery/power/smes/engineering{
-	input_level = 5000
-	},
-/obj/machinery/power/smes/tarkon_driver,
-/turf/open/floor/mineral/titanium,
-/area/shuttle/tarkon_driver)
 "Qe" = (
 /obj/structure/rack/shelf,
 /obj/effect/spawner/random/engineering/material,
@@ -659,7 +652,7 @@ tV
 LG
 eP
 Vt
-Pn
+eP
 GN
 Cv
 "}

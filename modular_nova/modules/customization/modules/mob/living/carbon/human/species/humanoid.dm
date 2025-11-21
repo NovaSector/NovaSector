@@ -15,14 +15,13 @@
 
 /datum/species/humanoid/get_default_mutant_bodyparts()
 	return list(
-		"ears" = list("None", FALSE),
-		"tail" = list("None", FALSE),
-		"snout" = list("None", FALSE),
-		"ears" = list("None", FALSE),
-		"legs" = list("Normal Legs", FALSE),
-		"wings" = list("None", FALSE),
-		"taur" = list("None", FALSE),
-		"horns" = list("None", FALSE),
+		FEATURE_TAIL = list("None", FALSE),
+		FEATURE_SNOUT = list("None", FALSE),
+		FEATURE_EARS = list("None", FALSE),
+		FEATURE_LEGS = list("Normal Legs", FALSE),
+		FEATURE_WINGS = list("None", FALSE),
+		FEATURE_TAUR = list("None", FALSE),
+		FEATURE_HORNS = list("None", FALSE),
 	)
 
 /datum/species/humanoid/get_species_description()
@@ -34,10 +33,10 @@
 /datum/species/humanoid/prepare_human_for_preview(mob/living/carbon/human/human)
 	var/main_color = "#722011"
 	var/secondary_color = "#161616"
-	human.dna.features["mcolor"] = main_color
-	human.dna.features["mcolor2"] = main_color
-	human.dna.features["mcolor3"] = main_color
-	human.dna.mutant_bodyparts["horns"] = list(MUTANT_INDEX_NAME = "Curled", MUTANT_INDEX_COLOR_LIST = list(secondary_color, secondary_color, secondary_color))
+	human.dna.features[FEATURE_MUTANT_COLOR] = main_color
+	human.dna.features[FEATURE_MUTANT_COLOR_TWO] = main_color
+	human.dna.features[FEATURE_MUTANT_COLOR_THREE] = main_color
+	human.dna.mutant_bodyparts[FEATURE_HORNS] = list(MUTANT_INDEX_NAME = "Curled", MUTANT_INDEX_COLOR_LIST = list(secondary_color, secondary_color, secondary_color))
 	human.hairstyle = "Cornrows"
 	human.hair_color = "#2b2b2b"
 	regenerate_organs(human, src, visual_only = TRUE)

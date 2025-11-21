@@ -1,9 +1,9 @@
 /datum/computer_file/program/budgetorders
 	filename = "orderapp"
-	filedesc = "NT IRN"
+	filedesc = "NT Shopping Network"
 	downloader_category = PROGRAM_CATEGORY_SUPPLY
 	program_open_overlay = "request"
-	extended_desc = "Nanotrasen Internal Requisition Network interface for supply purchasing using a department budget account."
+	extended_desc = "Nanotrasen Shopping Network interface for purchasing supplies from the cargo catalogue using a department budget account."
 	program_flags = PROGRAM_ON_NTNET_STORE | PROGRAM_REQUIRES_NTNET
 	can_run_on_flags = PROGRAM_LAPTOP | PROGRAM_PDA
 	size = 10
@@ -62,23 +62,27 @@
 	var/list/data = list()
 	data["location"] = SSshuttle.supply.getStatusText()
 	data["department"] = "Cargo"
+
 	var/datum/bank_account/buyer = SSeconomy.get_dep_account(cargo_account)
 	var/obj/item/card/id/id_card = computer.stored_id?.GetID()
 	if(id_card?.registered_account)
+		buyer = SSeconomy.get_dep_account(id_card?.registered_account.account_job.paycheck_department)
 		if((ACCESS_COMMAND in id_card.access))
 			requestonly = FALSE
-			buyer = SSeconomy.get_dep_account(id_card.registered_account.account_job.paycheck_department)
 			can_approve_requests = TRUE
+			// If buyer is a departmental budget, replaces "Cargo" with that budget - we're not using the cargo budget here
+			data["department"] = "[buyer.account_holder] Requisitions"
 		else
 			requestonly = TRUE
 			can_approve_requests = FALSE
-		if(ACCESS_COMMAND in id_card.access)
-			// If buyer is a departmental budget, replaces "Cargo" with that budget - we're not using the cargo budget here
-			data["department"] = addtext(buyer.account_holder, " Requisitions")
 	else
 		requestonly = TRUE
 	if(buyer)
 		data["points"] = buyer.account_balance
+	// To recap above because it's kind of a mess, here's all the options:
+		//Head of staff ID card: Can approve, buy, and make purchases using their own departmental budgets.
+		//ID card, not a head of staff: can request items from cargo using departmental budget.
+		//No ID card, can request items from cargo using the cargo budget.
 
 	//Otherwise static data, that is being applied in ui_data as the crates visible and buyable are not static, and are determined by inserted ID.
 	data["requestonly"] = requestonly
@@ -95,6 +99,10 @@
 		if((P.hidden && (P.contraband && !contraband) || (P.special && !P.special_enabled) || P.drop_pod_only))
 			continue
 
+		// NOVA EDIT ADDITION START
+		if(!(P.console_flag & console_flag))
+			continue
+		// NOVA EDIT ADDITION END
 		var/obj/item/first_item = length(P.contains) > 0 ? P.contains[1] : null
 		data["supplies"][P.group]["packs"] += list(list(
 			"name" = P.name,
@@ -160,7 +168,8 @@
 			"cost" = pack.get_cost(),
 			"orderer" = order.orderer,
 			"reason" = order.reason,
-			"id" = order.id
+			"id" = order.id,
+			"account" = order.paying_account?.account_holder || "Cargo Department"
 		))
 	data["amount_by_name"] = amount_by_name
 
@@ -219,25 +228,31 @@
 			var/name = "*None Provided*"
 			var/rank = "*None Provided*"
 			var/ckey = usr.ckey
+			var/mob/living/carbon/human/hwoman
 			if(ishuman(usr))
-				var/mob/living/carbon/human/H = usr
-				name = H.get_authentification_name()
-				rank = H.get_assignment(hand_first = TRUE)
+				hwoman = usr
+				rank = hwoman.get_assignment(hand_first = TRUE)
 			else if(issilicon(usr))
 				name = usr.real_name
 				rank = "Silicon"
 
-			var/datum/bank_account/account
+			// Our account that we want to end up paying with. Defaults to the cargo budget!
+			var/datum/bank_account/account = SSeconomy.get_dep_account(ACCOUNT_CAR)
+			// Our ID card that we want to pull from for identification. Modifies either name, account, or neither depending on function.
+			var/obj/item/card/id/id_card_customer = computer.stored_id?.GetID()
+			if(!id_card_customer)
+				id_card_customer = hwoman?.get_idcard(TRUE) //Grab from hands/mob if there's no id_card slot to prioritize.
+			name = id_card_customer?.registered_account.account_holder
+
 			if(self_paid)
-				var/mob/living/carbon/human/H = usr
-				var/obj/item/card/id/id_card = H.get_idcard(TRUE)
-				if(!istype(id_card))
+				if(!istype(id_card_customer))
 					computer.say("No ID card detected.")
 					return
-				if(IS_DEPARTMENTAL_CARD(id_card))
-					computer.say("[id_card] cannot be used to make purchases.")
+				if(IS_DEPARTMENTAL_CARD(id_card_customer))
+					computer.say("[id_card_customer] cannot be used to make purchases.")
 					return
-				account = id_card.registered_account
+				account = id_card_customer.registered_account
+				name = id_card_customer.registered_account.account_holder
 				if(!istype(account))
 					computer.say("Invalid bank account.")
 					return
@@ -248,7 +263,22 @@
 				if(isnull(reason) || ..())
 					return
 
-			if(pack.goody && !self_paid)
+			var/uses_cargo_budget = FALSE // NOVA EDIT ADDITION - boolean flag to check if we are using the cargo budget without doing excesive shenanigans.
+			if(id_card_customer?.registered_account?.account_job && !self_paid) //Find a budget to pull from
+				var/datum/bank_account/personal_department = SSeconomy.get_dep_account(id_card_customer.registered_account.account_job.paycheck_department)
+				if(!(personal_department.account_holder == "Cargo Budget"))
+					var/choice = tgui_alert(usr, "Which department are you requesting this for?", "Choose request department", list("Cargo Budget", "[personal_department.account_holder]"))
+					if(!choice)
+						return
+					// NOVA EDIT ADDITION START 
+					if (choice == "Cargo Budget") //in case the choices ever change.
+						uses_cargo_budget = TRUE
+					// NOVA EDIT ADDITION END 
+					else // NOVA EDIT CHANGE - ORIGINAL: if(choice != "Cargo Budget")
+						account = personal_department
+					name = id_card_customer.registered_account?.account_holder
+
+			if((pack.goody && !pack.departamental_goody) && !self_paid) // NOVA EDIT CHANGE - ORIGINAL: if(pack.goody && !self_paid)
 				playsound(computer, 'sound/machines/buzz/buzz-sigh.ogg', 50, FALSE)
 				computer.say("ERROR: Small crates may only be purchased by private accounts.")
 				return
@@ -261,6 +291,11 @@
 			if(!requestonly && !self_paid && ishuman(usr) && !account)
 				var/obj/item/card/id/id_card = computer.stored_id?.GetID()
 				account = SSeconomy.get_dep_account(id_card?.registered_account?.account_job.paycheck_department)
+			// NOVA EDIT ADDITION START - We do this to avoid the creation of departamental Cargo Budget goody lockboxes.
+			if (uses_cargo_budget && pack.goody && pack.departamental_goody)
+				pack.goody = FALSE
+				account = null
+			// NOVA EDIT ADDITION END
 
 			var/turf/T = get_turf(computer)
 			var/datum/supply_order/SO = new(pack, name, rank, ckey, reason, account)
@@ -271,6 +306,7 @@
 				SSshuttle.shopping_list += SO
 				if(self_paid)
 					computer.say("Order processed. The price will be charged to [account.account_holder]'s bank account on delivery.")
+			playsound(computer, 'sound/effects/coin2.ogg', 40, TRUE)
 			. = TRUE
 		if("remove")
 			var/id = text2num(params["id"])
@@ -309,16 +345,6 @@
 		if("toggleprivate")
 			self_paid = !self_paid
 			. = TRUE
-		//NOVA EDIT START
-		if("company_import_window")
-			var/datum/component/armament/company_imports/gun_comp = computer.GetComponent(/datum/component/armament/company_imports)
-			if(!gun_comp)
-				computer.AddComponent(/datum/component/armament/company_imports, subtypesof(/datum/armament_entry/company_import), 0)
-			gun_comp = computer.GetComponent(/datum/component/armament/company_imports)
-			gun_comp.parent_prog ||= src
-			gun_comp.ui_interact(usr)
-			. = TRUE
-		//NOVA EDIT END
 	if(.)
 		post_signal(cargo_shuttle)
 
