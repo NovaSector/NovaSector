@@ -96,19 +96,21 @@
 	if(!recharger_cell)
 		return // no cell no charge
 	for(var/obj/item/charging in contents)
-		if(!is_type_in_typecache(charging, /datum/storage/holster/energy::charge_typecache))
-			continue // let's not do a charging ouroboros
-		var/obj/item/stock_parts/power_store/charging_cell = charging.get_cell()
-		// if we have a cell that we can recharge in our contents (presumably a gun)
-		if(charging_cell)
-			if(charging_cell.charge < charging_cell.maxcharge)
-				charge_cell(charging_cell.chargerate * recharge_coeff * seconds_per_tick, charging_cell)
-				charging.update_appearance()
+		// if it's an energy gun...
+		if(istype(charging, /obj/item/gun/energy))
+			var/obj/item/gun/energy/charge_gun = charging
+			if(!charge_gun.can_charge)
+				continue
+			var/obj/item/stock_parts/power_store/charging_cell = charge_gun.get_cell()
+			if(charging_cell)
+				if(charging_cell.charge < charging_cell.maxcharge)
+					charge_cell(charging_cell.chargerate * recharge_coeff * seconds_per_tick, charging_cell)
+					charge_gun.update_appearance()
 		// alternatively, if it's a rechargable magazine (out of a gun)
-		if(istype(charging, /obj/item/ammo_box/magazine/recharge))
+		else if(istype(charging, /obj/item/ammo_box/magazine/recharge))
 			charge_mag(charging, seconds_per_tick)
 		// or if it's a gun with a rechargable magazine
-		if(istype(charging, /obj/item/gun/ballistic))
+		else if(istype(charging, /obj/item/gun/ballistic))
 			var/obj/item/gun/ballistic/shooty = charging
 			if(!istype(shooty.magazine, /obj/item/ammo_box/magazine/recharge))
 				continue
