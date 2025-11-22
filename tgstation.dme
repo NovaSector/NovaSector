@@ -6971,6 +6971,7 @@
 #include "modular_nova\master_files\code\datums\wounds\slash.dm"
 #include "modular_nova\master_files\code\game\atoms.dm"
 #include "modular_nova\master_files\code\game\sound.dm"
+#include "modular_nova\master_files\code\game\area\areas\away_content.dm"
 #include "modular_nova\master_files\code\game\area\areas\ruins\lavaland.dm"
 #include "modular_nova\master_files\code\game\atom\_atom.dm"
 #include "modular_nova\master_files\code\game\atom\atom_examine.dm"
