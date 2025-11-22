@@ -4,6 +4,7 @@
 	requires_power = FALSE
 	static_lighting = TRUE
 	area_flags = NOTELEPORT
+	area_flags_mapping = NONE
 
 /area/awaymission/caves/maintsroom/deeper
 	name = "deeper"
