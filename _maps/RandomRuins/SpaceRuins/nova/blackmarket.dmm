@@ -5,6 +5,12 @@
 /obj/effect/turf_decal/bot_white/right,
 /turf/open/floor/iron/dark/textured_large,
 /area/ruin/space/has_grav/nova/blackmarket)
+"aO" = (
+/obj/machinery/door/poddoor/blackmarket_trader{
+	id = "bmt_control"
+	},
+/turf/open/floor/iron/smooth,
+/area/ruin/space/has_grav/nova/blackmarket)
 "cc" = (
 /obj/machinery/quantumpad,
 /obj/structure/sign/poster/official/pda_ad/directional/north,
@@ -75,8 +81,13 @@
 /turf/open/floor/iron/dark/textured_large,
 /area/ruin/space/has_grav/nova/blackmarket)
 "fa" = (
-/obj/effect/spawner/random/vending/colavend,
-/turf/open/floor/iron/smooth,
+/obj/effect/spawner/random/engineering/atmospherics_portable,
+/obj/effect/turf_decal/bot_white,
+/obj/machinery/light/red/dim/directional/west,
+/obj/machinery/door/poddoor/blackmarket_trader{
+	id = "bmt_control"
+	},
+/turf/open/floor/iron/dark/textured_large,
 /area/ruin/space/has_grav/nova/blackmarket)
 "fi" = (
 /obj/effect/turf_decal/bot_white,
@@ -111,24 +122,26 @@
 "hk" = (
 /obj/structure/table,
 /obj/machinery/microwave,
+/obj/machinery/door/poddoor/blackmarket_trader{
+	id = "bmt_control"
+	},
 /turf/open/floor/iron/dark/textured_large,
 /area/ruin/space/has_grav/nova/blackmarket)
 "ht" = (
 /obj/structure/table,
+/obj/effect/spawner/random/food_or_drink/dinner{
+	pixel_y = 5
+	},
 /obj/effect/spawner/random/food_or_drink/booze{
 	pixel_x = -9;
 	pixel_y = -7
 	},
-/obj/effect/spawner/random/food_or_drink/refreshing_beverage{
-	pixel_x = -4;
-	pixel_y = 5
+/obj/effect/spawner/random/food_or_drink/booze{
+	pixel_x = -1;
+	pixel_y = -13
 	},
-/obj/effect/spawner/random/food_or_drink/three_course_meal,
-/obj/effect/spawner/random/food_or_drink/refreshing_beverage{
-	pixel_x = 8;
-	pixel_y = 11
-	},
-/turf/open/floor/iron/smooth_large,
+/obj/structure/sign/calendar/directional/west,
+/turf/open/floor/iron/dark/textured_large,
 /area/ruin/space/has_grav/nova/blackmarket)
 "hv" = (
 /obj/effect/turf_decal/stripes/asteroid/line{
@@ -238,6 +251,28 @@
 /obj/structure/lattice/catwalk,
 /turf/open/misc/asteroid/airless,
 /area/ruin/space/has_grav/nova/blackmarket)
+"mE" = (
+/obj/structure/table,
+/obj/machinery/coffeemaker{
+	pixel_y = 13
+	},
+/obj/item/reagent_containers/cup/coffeepot{
+	pixel_x = -5;
+	pixel_y = 3
+	},
+/obj/item/coffee_cartridge/bootleg{
+	pixel_x = 9;
+	pixel_y = 4
+	},
+/obj/item/coffee_cartridge/bootleg{
+	pixel_x = 8
+	},
+/obj/structure/sign/poster/contraband/random/directional/east,
+/obj/machinery/door/poddoor/blackmarket_trader{
+	id = "bmt_control"
+	},
+/turf/open/floor/iron/dark/textured_large,
+/area/ruin/space/has_grav/nova/blackmarket)
 "mH" = (
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/iron/smooth_half{
@@ -280,6 +315,15 @@
 /obj/effect/turf_decal/bot_white,
 /turf/open/floor/iron/dark/textured_large,
 /area/ruin/space/has_grav/nova/blackmarket)
+"ow" = (
+/obj/machinery/light/warm/directional/south,
+/obj/structure/rack,
+/obj/effect/spawner/random/mod/maint,
+/obj/machinery/door/poddoor/blackmarket_trader{
+	id = "bmt_control"
+	},
+/turf/open/floor/iron/smooth,
+/area/ruin/space/has_grav/nova/blackmarket)
 "oT" = (
 /obj/structure/extinguisher_cabinet/directional/north,
 /obj/machinery/button/door/directional/west{
@@ -289,6 +333,14 @@
 	},
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/iron/smooth_corner,
+/area/ruin/space/has_grav/nova/blackmarket)
+"oY" = (
+/obj/effect/spawner/random/structure/crate_loot,
+/obj/effect/turf_decal/bot_white,
+/obj/machinery/door/poddoor/blackmarket_trader{
+	id = "bmt_control"
+	},
+/turf/open/floor/iron/dark/textured_large,
 /area/ruin/space/has_grav/nova/blackmarket)
 "qt" = (
 /obj/effect/spawner/random/structure/chair_maintenance{
@@ -319,11 +371,10 @@
 /turf/open/floor/circuit,
 /area/ruin/space/has_grav/nova/blackmarket)
 "sb" = (
-/obj/structure/rack,
-/obj/effect/spawner/random/engineering/material,
-/obj/item/stack/sheet/glass/fifty,
-/obj/item/stack/sheet/iron/fifty,
-/turf/open/floor/iron/smooth,
+/obj/machinery/door/poddoor/blackmarket_trader{
+	id = "bmt_control"
+	},
+/turf/closed/mineral/random,
 /area/ruin/space/has_grav/nova/blackmarket)
 "so" = (
 /obj/structure/cable,
@@ -341,22 +392,11 @@
 /turf/open/floor/iron/dark/textured_large,
 /area/ruin/space/has_grav/nova/blackmarket)
 "tC" = (
-/obj/structure/table,
-/obj/machinery/coffeemaker{
-	pixel_y = 13
+/obj/effect/turf_decal/bot_white,
+/obj/structure/reagent_dispensers/fueltank/large,
+/obj/machinery/door/poddoor/blackmarket_trader{
+	id = "bmt_control"
 	},
-/obj/item/reagent_containers/cup/coffeepot{
-	pixel_x = -5;
-	pixel_y = 3
-	},
-/obj/item/coffee_cartridge/bootleg{
-	pixel_x = 9;
-	pixel_y = 4
-	},
-/obj/item/coffee_cartridge/bootleg{
-	pixel_x = 8
-	},
-/obj/structure/sign/poster/contraband/random/directional/east,
 /turf/open/floor/iron/dark/textured_large,
 /area/ruin/space/has_grav/nova/blackmarket)
 "tI" = (
@@ -389,16 +429,11 @@
 /turf/open/floor/iron/dark/textured_large,
 /area/ruin/space/has_grav/nova/blackmarket)
 "tP" = (
-/obj/structure/table,
-/obj/effect/spawner/random/food_or_drink/donkpockets{
-	pixel_y = 5
+/obj/effect/spawner/random/vending/colavend,
+/obj/machinery/door/poddoor/blackmarket_trader{
+	id = "bmt_control"
 	},
-/obj/effect/spawner/random/food_or_drink/donkpockets{
-	pixel_y = 9
-	},
-/obj/machinery/light/dim/directional/north,
-/obj/structure/sign/warning/yes_smoking/circle/directional/north,
-/turf/open/floor/iron/dark/textured_large,
+/turf/open/floor/iron/smooth,
 /area/ruin/space/has_grav/nova/blackmarket)
 "tV" = (
 /obj/machinery/button/door/directional/west{
@@ -435,12 +470,24 @@
 /turf/open/floor/iron/dark/textured_large,
 /area/ruin/space/has_grav/nova/blackmarket)
 "vh" = (
-/obj/structure/rack,
-/obj/effect/spawner/random/engineering/flashlight{
-	pixel_y = 13
+/obj/structure/table,
+/obj/effect/spawner/random/food_or_drink/booze{
+	pixel_x = -9;
+	pixel_y = -7
 	},
-/obj/effect/spawner/random/engineering/material_rare,
-/turf/open/floor/iron/smooth,
+/obj/effect/spawner/random/food_or_drink/refreshing_beverage{
+	pixel_x = -4;
+	pixel_y = 5
+	},
+/obj/effect/spawner/random/food_or_drink/three_course_meal,
+/obj/effect/spawner/random/food_or_drink/refreshing_beverage{
+	pixel_x = 8;
+	pixel_y = 11
+	},
+/obj/machinery/door/poddoor/blackmarket_trader{
+	id = "bmt_control"
+	},
+/turf/open/floor/iron/smooth_large,
 /area/ruin/space/has_grav/nova/blackmarket)
 "vj" = (
 /obj/effect/turf_decal/bot_white,
@@ -461,6 +508,17 @@
 /obj/structure/window/reinforced/spawner/directional/east,
 /obj/structure/sign/warning/vacuum/directional/west,
 /turf/open/misc/asteroid/airless,
+/area/ruin/space/has_grav/nova/blackmarket)
+"vA" = (
+/obj/structure/rack,
+/obj/effect/spawner/random/engineering/flashlight{
+	pixel_y = 13
+	},
+/obj/effect/spawner/random/engineering/material_rare,
+/obj/machinery/door/poddoor/blackmarket_trader{
+	id = "bmt_control"
+	},
+/turf/open/floor/iron/smooth,
 /area/ruin/space/has_grav/nova/blackmarket)
 "vU" = (
 /obj/effect/spawner/random/structure/steam_vent,
@@ -509,22 +567,18 @@
 /obj/structure/extinguisher_cabinet/directional/east,
 /turf/open/floor/iron/smooth_large,
 /area/ruin/space/has_grav/nova/blackmarket)
+"zf" = (
+/obj/structure/cable,
+/obj/machinery/door/poddoor/blackmarket_trader{
+	id = "bmt_control"
+	},
+/turf/open/floor/iron/smooth_large,
+/area/ruin/space/has_grav/nova/blackmarket)
 "zu" = (
-/obj/structure/table,
-/obj/effect/spawner/random/food_or_drink/dinner{
-	pixel_y = 5
+/obj/machinery/door/poddoor/blackmarket_trader{
+	id = "bmt_control"
 	},
-/obj/effect/spawner/random/food_or_drink/booze{
-	pixel_x = -9;
-	pixel_y = -7
-	},
-/obj/effect/spawner/random/food_or_drink/booze{
-	pixel_x = -1;
-	pixel_y = -13
-	},
-/obj/structure/sign/calendar/directional/west,
-/obj/item/storage/box/nif_ghost_box/ghost_role,
-/turf/open/floor/iron/dark/textured_large,
+/turf/closed/wall/r_wall,
 /area/ruin/space/has_grav/nova/blackmarket)
 "zM" = (
 /obj/structure/table,
@@ -573,8 +627,18 @@
 /turf/open/floor/catwalk_floor/iron_dark,
 /area/ruin/space/has_grav/nova/blackmarket)
 "Bo" = (
-/obj/effect/turf_decal/delivery/white,
-/obj/machinery/door/airlock/service,
+/obj/structure/table,
+/obj/effect/spawner/random/food_or_drink/donkpockets{
+	pixel_y = 5
+	},
+/obj/effect/spawner/random/food_or_drink/donkpockets{
+	pixel_y = 9
+	},
+/obj/machinery/light/dim/directional/north,
+/obj/structure/sign/warning/yes_smoking/circle/directional/north,
+/obj/machinery/door/poddoor/blackmarket_trader{
+	id = "bmt_control"
+	},
 /turf/open/floor/iron/dark/textured_large,
 /area/ruin/space/has_grav/nova/blackmarket)
 "BG" = (
@@ -629,11 +693,14 @@
 /turf/open/floor/iron/smooth,
 /area/ruin/space/has_grav/nova/blackmarket)
 "Er" = (
-/obj/effect/turf_decal/bot_white,
-/obj/effect/spawner/random/engineering/canister,
-/obj/machinery/light/red/dim/directional/north,
-/obj/structure/extinguisher_cabinet/directional/north,
-/turf/open/floor/iron/dark/textured_large,
+/obj/structure/rack,
+/obj/effect/spawner/random/engineering/material,
+/obj/item/stack/sheet/glass/fifty,
+/obj/item/stack/sheet/iron/fifty,
+/obj/machinery/door/poddoor/blackmarket_trader{
+	id = "bmt_control"
+	},
+/turf/open/floor/iron/smooth,
 /area/ruin/space/has_grav/nova/blackmarket)
 "EE" = (
 /obj/effect/turf_decal/stripes/line{
@@ -673,6 +740,14 @@
 	},
 /turf/open/floor/iron/dark/textured_large,
 /area/ruin/space/has_grav/nova/blackmarket)
+"FH" = (
+/obj/effect/spawner/structure/window/reinforced,
+/obj/structure/cable,
+/obj/machinery/door/poddoor/blackmarket_trader{
+	id = "bmt_control"
+	},
+/turf/open/floor/plating,
+/area/ruin/space/has_grav/nova/blackmarket)
 "Hq" = (
 /obj/structure/trash_pile,
 /obj/effect/turf_decal/stripes/asteroid/line{
@@ -687,6 +762,16 @@
 "HJ" = (
 /obj/structure/extinguisher_cabinet/directional/north,
 /turf/open/floor/iron/smooth,
+/area/ruin/space/has_grav/nova/blackmarket)
+"Id" = (
+/obj/effect/turf_decal/bot_white,
+/obj/effect/spawner/random/engineering/canister,
+/obj/machinery/light/red/dim/directional/north,
+/obj/structure/extinguisher_cabinet/directional/north,
+/obj/machinery/door/poddoor/blackmarket_trader{
+	id = "bmt_control"
+	},
+/turf/open/floor/iron/dark/textured_large,
 /area/ruin/space/has_grav/nova/blackmarket)
 "IF" = (
 /obj/effect/turf_decal/bot_white,
@@ -730,11 +815,17 @@
 /turf/open/floor/iron/dark/textured_large,
 /area/ruin/space/has_grav/nova/blackmarket)
 "JC" = (
-/obj/structure/fluff/metalpole/end{
-	dir = 4
+/obj/machinery/door/poddoor/blackmarket_trader{
+	id = "bmt_control"
 	},
 /turf/template_noop,
 /area/template_noop)
+"JF" = (
+/obj/machinery/button/door/indestructible/blackmarket_trader{
+	pixel_y = -24
+	},
+/turf/open/floor/iron/smooth_large,
+/area/ruin/space/has_grav/nova/blackmarket)
 "JI" = (
 /obj/machinery/door/airlock/maintenance_hatch,
 /turf/open/floor/iron/dark/textured_large,
@@ -842,10 +933,10 @@
 /turf/open/floor/plating,
 /area/ruin/space/has_grav/nova/blackmarket)
 "OR" = (
-/obj/effect/spawner/random/engineering/atmospherics_portable,
-/obj/effect/turf_decal/bot_white,
-/obj/machinery/light/red/dim/directional/west,
-/turf/open/floor/iron/dark/textured_large,
+/obj/machinery/door/poddoor/blackmarket_trader{
+	id = "bmt_control"
+	},
+/turf/closed/wall,
 /area/ruin/space/has_grav/nova/blackmarket)
 "Pd" = (
 /obj/effect/spawner/random/structure/closet_private,
@@ -863,9 +954,12 @@
 /turf/open/floor/iron/dark/textured_large,
 /area/ruin/space/has_grav/nova/blackmarket)
 "PW" = (
-/obj/structure/rack,
-/obj/effect/spawner/random/engineering/material_cheap,
-/turf/open/floor/iron/smooth,
+/obj/effect/turf_decal/delivery/white,
+/obj/machinery/door/airlock/service,
+/obj/machinery/door/poddoor/blackmarket_trader{
+	id = "bmt_control"
+	},
+/turf/open/floor/iron/dark/textured_large,
 /area/ruin/space/has_grav/nova/blackmarket)
 "Qd" = (
 /obj/effect/turf_decal/shuttle/exploration/typhon,
@@ -891,9 +985,12 @@
 /turf/open/floor/plating,
 /area/ruin/space/has_grav/nova/blackmarket)
 "QY" = (
-/obj/effect/turf_decal/bot_white,
-/obj/structure/reagent_dispensers/fueltank/large,
-/turf/open/floor/iron/dark/textured_large,
+/obj/structure/rack,
+/obj/effect/spawner/random/engineering/material_cheap,
+/obj/machinery/door/poddoor/blackmarket_trader{
+	id = "bmt_control"
+	},
+/turf/open/floor/iron/smooth,
 /area/ruin/space/has_grav/nova/blackmarket)
 "Rv" = (
 /obj/effect/turf_decal/delivery/white,
@@ -908,10 +1005,13 @@
 /turf/open/floor/iron/dark/textured_large,
 /area/ruin/space/has_grav/nova/blackmarket)
 "SC" = (
-/obj/machinery/light/warm/directional/south,
-/obj/structure/rack,
-/obj/effect/spawner/random/mod/maint,
-/turf/open/floor/iron/smooth,
+/obj/effect/turf_decal/delivery/white,
+/obj/machinery/door/airlock/service,
+/obj/structure/cable,
+/obj/machinery/door/poddoor/blackmarket_trader{
+	id = "bmt_control"
+	},
+/turf/open/floor/iron/dark/textured_large,
 /area/ruin/space/has_grav/nova/blackmarket)
 "SI" = (
 /obj/structure/cable,
@@ -926,10 +1026,14 @@
 /turf/open/floor/iron/dark/textured_large,
 /area/ruin/space/has_grav/nova/blackmarket)
 "SS" = (
-/obj/effect/spawner/random/structure/crate_loot,
-/obj/effect/turf_decal/bot_white,
-/turf/open/floor/iron/dark/textured_large,
-/area/ruin/space/has_grav/nova/blackmarket)
+/obj/structure/fluff/metalpole/end{
+	dir = 4
+	},
+/obj/machinery/door/poddoor/blackmarket_trader{
+	id = "bmt_control"
+	},
+/turf/template_noop,
+/area/template_noop)
 "Te" = (
 /obj/structure/table,
 /obj/machinery/light/warm/directional/south,
@@ -1070,26 +1174,27 @@ lp
 lp
 lp
 lp
-lp
-hO
-hO
-hO
-hO
-Hy
-YG
-YG
-YG
-lp
-lp
-lp
-lp
-YG
-YG
-Hy
-hO
-hO
-hO
-hO
+JC
+JC
+JC
+JC
+JC
+JC
+JC
+JC
+JC
+JC
+JC
+JC
+JC
+JC
+JC
+JC
+JC
+JC
+JC
+JC
+JC
 lp
 lp
 lp
@@ -1105,28 +1210,29 @@ lp
 lp
 lp
 lp
+JC
+JC
+hO
+hO
+hO
+hO
+Hy
+YG
+YG
+YG
 lp
+lp
+lp
+lp
+YG
+YG
+Hy
 hO
 hO
 hO
 hO
-hO
-hO
-hO
-YY
-YY
-YY
-YY
-YY
-YY
-YY
-hO
-hO
-hO
-hO
-hO
-hO
-hO
+JC
+JC
 lp
 lp
 lp
@@ -1136,7 +1242,44 @@ lp
 lp
 lp
 lp
+JC
+JC
+JC
+JC
+JC
+JC
+hO
+hO
+hO
+hO
+hO
+hO
+hO
+YY
+YY
+YY
+YY
+YY
+YY
+YY
+hO
+hO
+hO
+hO
+hO
+hO
+hO
+JC
+JC
 lp
+lp
+"}
+(4,1,1) = {"
+lp
+JC
+JC
+JC
+JC
 hO
 hO
 hO
@@ -1164,48 +1307,50 @@ hO
 hO
 hO
 hO
-lp
-lp
-"}
-(4,1,1) = {"
-lp
-lp
-hO
-hO
-hO
-hO
-hO
-hO
-hO
-hO
-hO
-hO
-hO
-hO
-hO
-hO
-hO
-hO
-hd
-fB
-fB
-fB
-hd
-hO
-hO
-hO
-hO
-hO
-hO
-hO
-hO
-hO
+JC
 lp
 lp
 "}
 (5,1,1) = {"
 lp
+JC
+hO
+hO
+hO
+hO
+hO
+hO
+hO
+hO
+hO
+hO
+hO
+sb
+sb
+sb
+sb
+sb
+zu
+FH
+fB
+fB
+hd
+hO
+hO
+hO
+hO
+hO
+hO
+hO
+hO
+hO
+JC
+JC
 lp
+"}
+(6,1,1) = {"
+lp
+JC
 hO
 hO
 hO
@@ -1217,7 +1362,7 @@ hd
 hd
 hd
 hd
-hd
+zu
 hd
 hd
 hd
@@ -1237,11 +1382,12 @@ hO
 hO
 hO
 hO
+JC
 lp
 "}
-(6,1,1) = {"
+(7,1,1) = {"
 lp
-lp
+JC
 hO
 hO
 hO
@@ -1253,18 +1399,18 @@ VG
 hd
 xz
 AY
-fa
+tP
 Zh
 VF
 mP
-ht
+vh
 Zh
-tP
+Bo
 LL
 KL
 Zh
 Pd
-zu
+ht
 FG
 hd
 hd
@@ -1273,11 +1419,12 @@ hd
 hO
 hO
 hO
+JC
 lp
 "}
-(7,1,1) = {"
-lp
-lp
+(8,1,1) = {"
+JC
+JC
 hO
 hO
 hO
@@ -1289,13 +1436,13 @@ io
 hd
 HJ
 eV
-io
-Bo
+aO
+PW
 eV
 AX
 KQ
-Sq
-KQ
+SC
+zf
 KV
 KQ
 Sq
@@ -1309,10 +1456,11 @@ hd
 hd
 hO
 hO
+JC
 lp
 "}
-(8,1,1) = {"
-lp
+(9,1,1) = {"
+JC
 hO
 hO
 hO
@@ -1325,13 +1473,13 @@ DU
 hd
 CB
 eV
-PW
+QY
 Zh
 KI
 KQ
-yS
+JF
 Zh
-tC
+mE
 yS
 OA
 Zh
@@ -1345,10 +1493,11 @@ Bm
 hd
 hO
 hO
-lp
+JC
+JC
 "}
-(9,1,1) = {"
-lp
+(10,1,1) = {"
+JC
 hO
 hO
 hO
@@ -1361,13 +1510,13 @@ yT
 hd
 zS
 IL
-SC
+ow
 Zh
 iF
 VX
 Fa
 Zh
-Zh
+OR
 qD
 Zh
 Zh
@@ -1382,9 +1531,10 @@ hd
 hO
 hO
 hO
+JC
 "}
-(10,1,1) = {"
-lp
+(11,1,1) = {"
+JC
 hO
 hO
 hO
@@ -1397,13 +1547,13 @@ io
 mZ
 UH
 eV
-sb
-Zh
-Zh
-Zh
-Zh
-Zh
 Er
+Zh
+Zh
+Zh
+Zh
+Zh
+Id
 eV
 rb
 Zh
@@ -1418,9 +1568,10 @@ hd
 hO
 hO
 hO
+JC
 "}
-(11,1,1) = {"
-lp
+(12,1,1) = {"
+JC
 YG
 hO
 hO
@@ -1433,13 +1584,13 @@ MX
 hd
 io
 eV
-vh
-hd
-QY
-SS
+vA
+zu
+tC
+oY
+fa
 OR
-Zh
-Zh
+OR
 vU
 Zh
 Zh
@@ -1454,9 +1605,10 @@ hd
 hd
 hO
 hO
+JC
 "}
-(12,1,1) = {"
-lp
+(13,1,1) = {"
+JC
 YG
 hO
 hO
@@ -1490,9 +1642,10 @@ IF
 hd
 hO
 hO
+JC
 "}
-(13,1,1) = {"
-lp
+(14,1,1) = {"
+JC
 YG
 hO
 hO
@@ -1526,9 +1679,10 @@ hd
 hd
 hd
 hO
+JC
 "}
-(14,1,1) = {"
-lp
+(15,1,1) = {"
+JC
 YG
 hO
 hO
@@ -1562,9 +1716,10 @@ Qu
 ve
 hd
 hO
+JC
 "}
-(15,1,1) = {"
-lp
+(16,1,1) = {"
+JC
 YG
 YG
 YG
@@ -1598,10 +1753,11 @@ fu
 qY
 hd
 hO
+JC
 "}
-(16,1,1) = {"
-lp
-lp
+(17,1,1) = {"
+JC
+JC
 YG
 hO
 hO
@@ -1634,11 +1790,12 @@ Qu
 mg
 hd
 hO
+JC
 "}
-(17,1,1) = {"
+(18,1,1) = {"
 lp
-lp
-lp
+JC
+JC
 hO
 hO
 hO
@@ -1670,11 +1827,12 @@ hd
 hd
 hd
 hO
+JC
 "}
-(18,1,1) = {"
+(19,1,1) = {"
 lp
 lp
-lp
+JC
 hO
 hO
 hO
@@ -1706,11 +1864,12 @@ hO
 hO
 hO
 hO
+JC
 "}
-(19,1,1) = {"
+(20,1,1) = {"
 lp
 lp
-lp
+JC
 hO
 hO
 hO
@@ -1742,11 +1901,12 @@ hO
 hO
 hO
 hO
+JC
 "}
-(20,1,1) = {"
+(21,1,1) = {"
 lp
 lp
-lp
+JC
 YG
 hO
 hO
@@ -1778,12 +1938,13 @@ hO
 hO
 hO
 hO
+JC
 "}
-(21,1,1) = {"
+(22,1,1) = {"
 lp
 lp
-lp
-lp
+JC
+JC
 hO
 hO
 hO
@@ -1814,13 +1975,14 @@ hO
 hO
 hO
 YG
+JC
 "}
-(22,1,1) = {"
+(23,1,1) = {"
 lp
 lp
 lp
-lp
-lp
+JC
+JC
 hO
 hO
 hO
@@ -1849,14 +2011,15 @@ hO
 hO
 hO
 hO
-lp
+JC
+JC
 "}
-(23,1,1) = {"
+(24,1,1) = {"
 lp
 lp
 lp
 lp
-lp
+JC
 hO
 hO
 hO
@@ -1885,14 +2048,15 @@ hO
 hO
 hO
 hO
+JC
 lp
 "}
-(24,1,1) = {"
+(25,1,1) = {"
 lp
 lp
 lp
 lp
-lp
+JC
 hO
 hO
 hO
@@ -1920,16 +2084,17 @@ hO
 hO
 hO
 hO
-lp
+JC
+JC
 lp
 "}
-(25,1,1) = {"
+(26,1,1) = {"
 lp
 lp
 lp
 lp
-lp
-lp
+JC
+JC
 hO
 hO
 hO
@@ -1955,17 +2120,18 @@ hO
 hO
 hO
 hO
-lp
+JC
+JC
 lp
 lp
 "}
-(26,1,1) = {"
+(27,1,1) = {"
 lp
 lp
 lp
 lp
 lp
-lp
+JC
 YG
 YG
 hO
@@ -1988,45 +2154,10 @@ hQ
 hd
 hd
 hO
-lp
-lp
-lp
-lp
-lp
-lp
-"}
-(27,1,1) = {"
-lp
-lp
-lp
-lp
-lp
-lp
-lp
-lp
-lp
-nL
-lp
-lp
-WS
-lp
 JC
-lp
-lp
 JC
-lp
-lp
-lp
 JC
-lp
-lp
 JC
-lp
-nL
-lp
-lp
-lp
-lp
 lp
 lp
 lp
@@ -2037,6 +2168,52 @@ lp
 lp
 lp
 lp
+JC
+JC
+JC
+JC
+nL
+lp
+lp
+WS
+JC
+SS
+JC
+JC
+SS
+JC
+JC
+JC
+SS
+JC
+JC
+SS
+JC
+nL
+JC
+JC
+lp
+lp
+lp
+lp
+lp
+lp
+"}
+(29,1,1) = {"
+lp
+lp
+lp
+lp
+lp
+lp
+lp
+lp
+JC
+JC
+JC
+JC
+JC
+JC
 lp
 lp
 lp
@@ -2048,17 +2225,9 @@ lp
 lp
 lp
 lp
-lp
-lp
-lp
-lp
-lp
-lp
-lp
-lp
-lp
-lp
-lp
+JC
+JC
+JC
 lp
 lp
 lp

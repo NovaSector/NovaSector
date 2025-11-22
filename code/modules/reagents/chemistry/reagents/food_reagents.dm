@@ -993,7 +993,7 @@
 /datum/reagent/consumable/liquidelectricity/enriched/on_mob_life(mob/living/carbon/affected_mob, seconds_per_tick, times_fired)
 	. = ..()
 	if(isethereal(affected_mob))
-		affected_mob.blood_volume += 1 * seconds_per_tick
+		affected_mob.adjust_blood_volume(1 * seconds_per_tick)
 	// NOVA EDIT ADDITION BEGIN - Allow enriched liquid electricity to safely recharge synths
 	else if(can_fuel_synth(affected_mob))
 		return
