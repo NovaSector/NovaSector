@@ -4,15 +4,16 @@
 /area/template_noop)
 "r" = (
 /obj/effect/turf_decal/stripes/red/box,
-/obj/structure/sign/delam_procedure/directional/east{
-	pixel_y = -28
-	},
+/obj/structure/sign/delam_procedure/directional/south,
 /turf/open/floor/engine,
 /area/station/engineering/supermatter/room)
 "w" = (
 /obj/machinery/atmospherics/components/unary/delam_scram/directional/west,
 /turf/template_noop,
 /area/station/engineering/supermatter)
+"F" = (
+/turf/closed/wall/r_wall,
+/area/template_noop)
 "R" = (
 /turf/closed/wall/r_wall,
 /area/station/engineering/supermatter)
@@ -24,7 +25,7 @@
 (1,1,1) = {"
 a
 r
-a
+F
 "}
 (2,1,1) = {"
 a
