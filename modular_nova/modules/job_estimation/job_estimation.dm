@@ -2,19 +2,6 @@
 /datum/config_entry/flag/show_job_estimation
 	default = TRUE
 
-/datum/preference/toggle/ready_job
-	savefile_key = "ready_job"
-	savefile_identifier = PREFERENCE_PLAYER
-	category = PREFERENCE_CATEGORY_GAME_PREFERENCES
-	default_value = TRUE
-
-/datum/preference/toggle/ready_job/apply_to_human(mob/living/carbon/human/target, value, /datum/preferences/preferences)
-	return FALSE
-
-/datum/preference/toggle/ready_job/apply_to_client_updated(client/client, value)
-	. = ..()
-	SSstatpanels.update_job_estimation(ckey = client.ckey)
-
 /datum/controller/subsystem/statpanels
 	/// The assoc list of job estimations keyed to player ref
 	var/list/player_ready_data = list()
@@ -58,23 +45,19 @@
 		return
 
 	var/display
-	// people who have opted out of giving their name will show up as 'a mysterious [job title here]', unless they're command or AI
-	if(!prefs.read_preference(/datum/preference/toggle/ready_job) && !(player_job.departments_bitflags & (DEPARTMENT_BITFLAG_COMMAND)) && title != JOB_AI)
-		display = "a mysterious"
-	else
-		// If the job the player is selecting has a special name, that name should be displayed in the menu, otherwise it should use the normal name
-		switch(title)
-			if(JOB_AI)
-				display = prefs.read_preference(/datum/preference/name/ai)
-			if(JOB_CLOWN)
-				display = prefs.read_preference(/datum/preference/name/clown)
-			if(JOB_CYBORG)
-				display = prefs.read_preference(/datum/preference/name/cyborg)
-			if(JOB_MIME)
-				display = prefs.read_preference(/datum/preference/name/mime)
-			else
-				display = prefs.read_preference(/datum/preference/name/real_name)
-		display += " as"
+
+	switch(title)
+		if(JOB_AI)
+			display = prefs.read_preference(/datum/preference/name/ai)
+		if(JOB_CLOWN)
+			display = prefs.read_preference(/datum/preference/name/clown)
+		if(JOB_CYBORG)
+			display = prefs.read_preference(/datum/preference/name/cyborg)
+		if(JOB_MIME)
+			display = prefs.read_preference(/datum/preference/name/mime)
+		else
+			display = prefs.read_preference(/datum/preference/name/real_name)
+	display += " as"
 
 	var/player_ref = REF(player)
 	if(isnull(display) || isnull(player_ref))
