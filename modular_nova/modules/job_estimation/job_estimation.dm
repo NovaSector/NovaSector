@@ -22,19 +22,23 @@
 	var/list/command_player_ready_data = list()
 
 /// Returns the list of job estimation strings that get output to the stat panel. First to ready up get listed first. Command roles get displayed before all the rest.
-/datum/controller/subsystem/statpanels/proc/get_job_estimation()
+/datum/controller/subsystem/statpanels/proc/get_job_estimation(mob/dead/recipient)
 	var/list/job_estimation = list(
 		"",
 		"------------------",
 		"Job Estimation:",
 		"",
 	)
-
+	var/is_admin = check_rights(R_ADMIN)
 	for(var/player_ref in command_player_ready_data)
 		job_estimation += command_player_ready_data[player_ref]
+		if(is_admin)
+			job_estimation += "<a href='byond://?priv_msg=[recipient.ckey]'> ([recipient.ckey]) PM</a>"
 
 	for(var/player_ref in player_ready_data)
 		job_estimation += player_ready_data[player_ref]
+		if(is_admin)
+			job_estimation += "<a href='byond://?priv_msg=[recipient.ckey]'> ([recipient.ckey]) PM</a>"
 
 	return job_estimation
 
