@@ -71,7 +71,6 @@
 		echolocator.become_blind(ECHOLOCATION_TRAIT)
 		if (use_echo) // NOVA EDIT ADDITION - add constructor toggle to not use the eye overlay
 			echolocator.overlay_fullscreen("echo", /atom/movable/screen/fullscreen/echo, echo_icon) // NOVA EDIT CHANGE - No change except indented one tab
-		echolocator.overlay_fullscreen("echo", /atom/movable/screen/fullscreen/echo, echo_icon)
 	START_PROCESSING(SSfastprocess, src)
 
 /datum/component/echolocation/Destroy(force)
