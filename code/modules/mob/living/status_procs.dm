@@ -395,7 +395,7 @@
 	if(S)
 		S.duration = max(amount, S.duration)
 	else if(amount > 0 || amount == STATUS_EFFECT_PERMANENT) // NOVA EDIT CHANGE: Enhanced sleep - ORIGINAL: else if(amount > 0)
-		S = apply_status_effect(/datum/status_effect/incapacitating/sleeping, amount)
+		S = apply_status_effect(/datum/status_effect/incapacitating/sleeping, amount, is_voluntary) // NOVA EDIT CHANGE - voluntary arg - Original: S = apply_status_effect(/datum/status_effect/incapacitating/sleeping, amount)
 	return S
 
 /mob/living/proc/SetSleeping(amount)

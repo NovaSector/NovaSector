@@ -1,2 +1,2 @@
 /datum/supply_pack/service/survivalknives
-	special = TRUE
+	express_lock = TRUE

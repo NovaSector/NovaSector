@@ -1,4 +1,0 @@
-author: "vinylspiders, RatFromTheJungle"
-delete-after: True
-changes:
-  - rscadd: "Adds 'cargo shelves' which let you store crates on them, for the obvious uses."
