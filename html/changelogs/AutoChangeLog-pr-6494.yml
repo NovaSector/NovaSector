@@ -1,0 +1,5 @@
+author: "Hardly, Vinylspiders"
+delete-after: True
+changes:
+  - bugfix: "Tier 3 Scythe now requires lesser scythe to be researched"
+  - spellcheck: "Gives scythe techs less vague descriptions"
