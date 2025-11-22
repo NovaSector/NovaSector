@@ -518,15 +518,6 @@
 
 //CAPES
 
-/datum/greyscale_config/robe_cape
-	name = "Robe Cape"
-	icon_file = 'modular_nova/modules/GAGS/icons/cape.dmi'
-	json_config = 'modular_nova/modules/GAGS/json_configs/cloak/robe_cape.json'
-
-/datum/greyscale_config/robe_cape/worn
-	name = "Robe Cape (Worn)"
-	icon_file = 'modular_nova/modules/GAGS/icons/cape_worn.dmi'
-
 /datum/greyscale_config/long_cape
 	name = "Long Cape"
 	icon_file = 'modular_nova/modules/GAGS/icons/cape.dmi'
@@ -1378,6 +1369,19 @@
 /datum/greyscale_config/mini_skirt/worn
 	name = "Mini Skirt (Worn)"
 	icon_file = 'modular_nova/master_files/icons/mob/clothing/under/skirts_dresses.dmi'
+
+/datum/greyscale_config/midnight_gown
+	name = "Midnight Gown"
+	icon_file = 'modular_nova/master_files/icons/obj/clothing/under/skirts_dresses.dmi'
+	json_config = 'modular_nova/modules/GAGS/json_configs/pants_shorts_skirts_dresses/midnight_gown.json'
+
+/datum/greyscale_config/midnight_gown/worn
+	name = "Midnight Gown (Worn)"
+	icon_file = 'modular_nova/master_files/icons/mob/clothing/under/skirts_dresses.dmi'
+
+/datum/greyscale_config/midnight_gown/worn/digi
+	name = "Midnight Gown (Worn, Digi)"
+	icon_file = 'modular_nova/master_files/icons/mob/clothing/under/skirts_dresses_digi.dmi'
 
 // COSTUMES
 

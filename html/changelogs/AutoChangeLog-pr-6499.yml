@@ -1,0 +1,4 @@
+author: "RealWinterFrost"
+delete-after: True
+changes:
+  - bugfix: "[DS-2] Fixes DS-2 Map issue involving the diner blast doors not closing properly"
