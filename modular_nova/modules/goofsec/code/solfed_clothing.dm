@@ -42,45 +42,66 @@
 	worn_icon_state = "atmosrescue"
 	armor_type = /datum/armor/clothing_under/atmos_adv
 
-// Federation Officer (Official)
-/obj/item/clothing/under/solfed/officer
-	name = "\improper SolFed high-ranking official uniform"
-	desc = "A uniform worn by high ranking officials of the Sol Federation Armed Forces."
-	icon_state = "solfed_official"
-
-// Federation Enlisted (Non Marine | Official)
-/obj/item/clothing/under/solfed/officer_lowrnk
-	name = "\improper SolFed low-ranking official uniform"
-	desc = "A uniform worn by low ranking officials of the Sol Federation Armed Forces."
-	icon_state = "solfed_enl"
-
-// Federation Civil Services Official
-/obj/item/clothing/under/solfed/official_civil
-	name = "\improper SolFed civil services uniform"
+///Federation Officials Uniforms (Identified by stripe and band) || Similar to Civ, but Armored
+/obj/item/clothing/under/solfed/official
+	name = "\improper SolFed Official Uniform"
 	desc = "A uniform worn by officials of the Sol Federation's Civil Services Division."
-	icon_state = "solfed_civil"
 
-// Federation Social Services Official
-/obj/item/clothing/under/solfed/official_social
-	name = "\improper SolFed social services uniform"
-	desc = "A uniform worn by officials of the Sol Federation's Social Services Division."
-	icon_state = "solfed_social"
+	icon = 'icons/map_icons/clothing/under/_under.dmi'
+	icon_state = "/obj/item/clothing/under/solfed/official"
+	post_init_icon_state = "uniform"
 
-/obj/item/clothing/under/solfed/civilian
+	greyscale_colors = "#41579A#39393F"
+	greyscale_config = /datum/greyscale_config/solfed_off_reg
+	greyscale_config_worn = /datum/greyscale_config/solfed_off_reg/worn
+	greyscale_config_worn_digi = /datum/greyscale_config/solfed_off_reg/worn/digi
+
+	can_adjust = FALSE
+
+/obj/item/clothing/under/solfed/official/hoodie
+	icon = 'icons/map_icons/clothing/under/_under.dmi'
+	icon_state = "/obj/item/clothing/under/solfed/official/hoodie"
+
+	greyscale_config = /datum/greyscale_config/solfed_off_hoodie
+	greyscale_config_worn = /datum/greyscale_config/solfed_off_hoodie/worn
+	greyscale_config_worn_digi = /datum/greyscale_config/solfed_off_hoodie/worn/digi
+
+/obj/item/clothing/under/solfed/official/puffy
+	icon = 'icons/map_icons/clothing/under/_under.dmi'
+	icon_state = "/obj/item/clothing/under/solfed/official/puffy"
+
+	greyscale_config = /datum/greyscale_config/solfed_off_puffy
+	greyscale_config_worn = /datum/greyscale_config/solfed_off_puffy/worn
+	greyscale_config_worn_digi = /datum/greyscale_config/solfed_off_puffy/worn/digi
+
+/obj/item/clothing/under/solfed/official/twopart
+	icon = 'icons/map_icons/clothing/under/_under.dmi'
+	icon_state = "/obj/item/clothing/under/solfed/official/twopart"
+
+	greyscale_config = /datum/greyscale_config/solfed_off_twopart
+	greyscale_config_worn = /datum/greyscale_config/solfed_off_twopart/worn
+	greyscale_config_worn_digi = /datum/greyscale_config/solfed_off_twopart/worn/digi
+
+
+
+
+
+///Civilian Variants of the SolFed Officials (Lacking Armbands, Patches, Stripes)
+/obj/item/clothing/under/solfed/civil
 	name = "SolFed Civilian Uniform"
 	desc = "A standard civilian outfit for any fresh spacetiding citizen of the great Sol Federation..."
+
 	icon = 'icons/map_icons/clothing/under/_under.dmi'
-
-	icon_state = "/obj/item/clothing/under/solfed/civilian"
+	icon_state = "/obj/item/clothing/under/solfed/civil"
 	post_init_icon_state = "uniform"
-	worn_icon_state = "uniform"
-	worn_icon_digi = "uniform"
 
-	armor_type = null
 	greyscale_colors = "#41579A#39393F"
-	greyscale_config = /datum/greyscale_config/solfed_civ_regular
-	greyscale_config_worn = /datum/greyscale_config/solfed_civ_regular/worn
-	greyscale_config_worn_digi = /datum/greyscale_config/solfed_civ_regular/worn/digi
+	greyscale_config = /datum/greyscale_config/solfed_civ_reg
+	greyscale_config_worn = /datum/greyscale_config/solfed_civ_reg/worn
+	greyscale_config_worn_digi = /datum/greyscale_config/solfed_civ_reg/worn/digi
+
+	armor_type = /datum/armor/none
+
 	can_adjust = FALSE
 
 	unique_reskin = list(
@@ -88,23 +109,26 @@
 		"puffy pants" = "uniform_alt_1",
 	)
 
-/obj/item/clothing/under/solfed/civilian/hoodie
+/obj/item/clothing/under/solfed/civil/hoodie
 	name = "SolFed Civilian Hoodie"
 	icon_state = "/obj/item/clothing/under/solfed/civilian/hoodie"
+
 	greyscale_config = /datum/greyscale_config/solfed_civ_hoodie
 	greyscale_config_worn = /datum/greyscale_config/solfed_civ_hoodie/worn
 	greyscale_config_worn_digi = /datum/greyscale_config/solfed_civ_hoodie/worn/digi
 
-/obj/item/clothing/under/solfed/civilian/puffy
+/obj/item/clothing/under/solfed/civil/puffy
 	name = "SolFed Civilian Puffy Uniform"
 	icon_state = "/obj/item/clothing/under/solfed/civilian/puffy"
+
 	greyscale_config = /datum/greyscale_config/solfed_civ_puffy
 	greyscale_config_worn = /datum/greyscale_config/solfed_civ_puffy/worn
 	greyscale_config_worn_digi = /datum/greyscale_config/solfed_civ_puffy/worn/digi
 
-/obj/item/clothing/under/solfed/civilian/twopart
+/obj/item/clothing/under/solfed/civil/twopart
 	name = "SolFed Civilian Two Part Uniform"
 	icon_state = "/obj/item/clothing/under/solfed/civilian/twopart"
+
 	greyscale_config = /datum/greyscale_config/solfed_civ_twopart
 	greyscale_config_worn = /datum/greyscale_config/solfed_civ_twopart/worn
 	greyscale_config_worn_digi = /datum/greyscale_config/solfed_civ_twopart/worn/digi

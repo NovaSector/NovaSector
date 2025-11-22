@@ -1,0 +1,60 @@
+{
+	"uniform": [
+		{
+			"type": "icon_state",
+			"icon_state": "uniform_shirt_reg",
+			"blend_mode": "overlay",
+			"color_ids": [1]
+		},
+		{
+			"type": "icon_state",
+			"icon_state": "uniform_belt",
+			"blend_mode": "overlay"
+		},
+		{
+			"type": "icon_state",
+			"icon_state": "uniform_trim_stripe_blk",
+			"blend_mode": "overlay"
+		},
+		{
+			"type": "icon_state",
+			"icon_state": "uniform_trim_armbands",
+			"blend_mode": "overlay"
+		},
+		{
+			"type": "icon_state",
+			"icon_state": "uniform_pants_reg",
+			"blend_mode": "overlay",
+			"color_ids": [2]
+		}
+	],
+	"uniform_alt_1": [
+		{
+			"type": "icon_state",
+			"icon_state": "uniform_shirt_reg",
+			"blend_mode": "overlay",
+			"color_ids": [1]
+		},
+		{
+			"type": "icon_state",
+			"icon_state": "uniform_belt",
+			"blend_mode": "overlay"
+		},
+		{
+			"type": "icon_state",
+			"icon_state": "uniform_trim_stripe_blk",
+			"blend_mode": "overlay"
+		},
+		{
+			"type": "icon_state",
+			"icon_state": "uniform_trim_armbands",
+			"blend_mode": "overlay"
+		},
+		{
+			"type": "icon_state",
+			"icon_state": "uniform_pants_puffy",
+			"blend_mode": "overlay",
+			"color_ids": [2]
+		}
+	]
+}

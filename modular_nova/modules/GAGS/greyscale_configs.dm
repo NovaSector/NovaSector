@@ -2281,6 +2281,19 @@ TREK
 	name = "SolFed Camo (Worn, Digi)"
 	icon_file = 'modular_nova/modules/goofsec/icons/mob/uniforms_digi.dmi'
 
+/datum/greyscale_config/solfed_civ_reg
+	name = "Fed Civilian Regular"
+	icon_file = 'modular_nova/modules/goofsec/icons/obj/uniforms.dmi'
+	json_config = 'modular_nova/modules/GAGS/json_configs/solfed/uniform/civilian/standard.json'
+
+/datum/greyscale_config/solfed_civ_reg/worn
+	name = "Fed Civilian Regular (Worn)"
+	icon_file = 'modular_nova/modules/goofsec/icons/mob/uniforms.dmi'
+
+/datum/greyscale_config/solfed_civ_reg/worn/digi
+	name = "Fed Civilian Regular (Worn, Digi)"
+	icon_file = 'modular_nova/modules/goofsec/icons/mob/uniforms_digi.dmi'
+
 /datum/greyscale_config/solfed_civ_hoodie
 	name = "Fed Civilian Hoodie"
 	icon_file = 'modular_nova/modules/goofsec/icons/obj/uniforms.dmi'
@@ -2307,19 +2320,6 @@ TREK
 	name = "Fed Civilian Puffer (Worn, Digi)"
 	icon_file = 'modular_nova/modules/goofsec/icons/mob/uniforms_digi.dmi'
 
-/datum/greyscale_config/solfed_civ_regular
-	name = "Fed Civilian Regular"
-	icon_file = 'modular_nova/modules/goofsec/icons/obj/uniforms.dmi'
-	json_config = 'modular_nova/modules/GAGS/json_configs/solfed/uniform/civilian/regular.json'
-
-/datum/greyscale_config/solfed_civ_regular/worn
-	name = "Fed Civilian Regular (Worn)"
-	icon_file = 'modular_nova/modules/goofsec/icons/mob/uniforms.dmi'
-
-/datum/greyscale_config/solfed_civ_regular/worn/digi
-	name = "Fed Civilian Regular (Worn, Digi)"
-	icon_file = 'modular_nova/modules/goofsec/icons/mob/uniforms_digi.dmi'
-
 /datum/greyscale_config/solfed_civ_twopart
 	name = "Fed Civilian Two Part"
 	icon_file = 'modular_nova/modules/goofsec/icons/obj/uniforms.dmi'
@@ -2332,6 +2332,60 @@ TREK
 /datum/greyscale_config/solfed_civ_twopart/worn/digi
 	name = "Fed Civilian Two Part (Worn, Digi)"
 	icon_file = 'modular_nova/modules/goofsec/icons/mob/uniforms_digi.dmi'
+
+/datum/greyscale_config/solfed_off_reg
+	name = "SolFed Official Uniform"
+	icon_file = 'modular_nova/modules/goofsec/icons/obj/uniforms.dmi'
+	json_config = 'modular_nova/modules/GAGS/json_configs/solfed/uniform/official/standard.json'
+
+/datum/greyscale_config/solfed_off_reg/worn
+	name = "SolFed Official Uniform (Worn)"
+	icon_file = 'modular_nova/modules/goofsec/icons/mob/uniforms.dmi'
+
+/datum/greyscale_config/solfed_off_reg/worn/digi
+	name = "SolFed Official Uniform (Worn, Digi)"
+	icon_file = 'modular_nova/modules/goofsec/icons/mob/uniforms_digi.dmi'
+
+/datum/greyscale_config/solfed_off_hoodie
+	name = "SolFed Official Uniform"
+	icon_file = 'modular_nova/modules/goofsec/icons/obj/uniforms.dmi'
+	json_config = 'modular_nova/modules/GAGS/json_configs/solfed/uniform/official/hoodie.json'
+
+/datum/greyscale_config/solfed_off_hoodie/worn
+	name = "SolFed Official Uniform (Worn)"
+	icon_file = 'modular_nova/modules/goofsec/icons/mob/uniforms.dmi'
+
+/datum/greyscale_config/solfed_off_hoodie/worn/digi
+	name = "SolFed Official Uniform (Worn, Digi)"
+	icon_file = 'modular_nova/modules/goofsec/icons/mob/uniforms_digi.dmi'
+
+/datum/greyscale_config/solfed_off_puffy
+	name = "SolFed Official Uniform"
+	icon_file = 'modular_nova/modules/goofsec/icons/obj/uniforms.dmi'
+	json_config = 'modular_nova/modules/GAGS/json_configs/solfed/uniform/official/puffy.json'
+
+/datum/greyscale_config/solfed_off_puffy/worn
+	name = "SolFed Official Uniform (Worn)"
+	icon_file = 'modular_nova/modules/goofsec/icons/mob/uniforms.dmi'
+
+/datum/greyscale_config/solfed_off_puffy/worn/digi
+	name = "SolFed Official Uniform (Worn, Digi)"
+	icon_file = 'modular_nova/modules/goofsec/icons/mob/uniforms_digi.dmi'
+
+/datum/greyscale_config/solfed_off_twopart
+	name = "SolFed Official Uniform"
+	icon_file = 'modular_nova/modules/goofsec/icons/obj/uniforms.dmi'
+	json_config = 'modular_nova/modules/GAGS/json_configs/solfed/uniform/official/twopart.json'
+
+/datum/greyscale_config/solfed_off_twopart/worn
+	name = "SolFed Official Uniform (Worn)"
+	icon_file = 'modular_nova/modules/goofsec/icons/mob/uniforms.dmi'
+
+/datum/greyscale_config/solfed_off_twopart/worn/digi
+	name = "SolFed Official Uniform (Worn, Digi)"
+	icon_file = 'modular_nova/modules/goofsec/icons/mob/uniforms_digi.dmi'
+
+
 
 /datum/greyscale_config/vestcam
 	name = "SolFed Vest Camo"
