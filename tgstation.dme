@@ -7055,6 +7055,7 @@
 #include "modular_nova\master_files\code\modules\admin\transform.dm"
 #include "modular_nova\master_files\code\modules\antagonists\_common\antag_datum.dm"
 #include "modular_nova\master_files\code\modules\antagonists\_common\antag_team.dm"
+#include "modular_nova\master_files\code\modules\antagonists\abductors\abductor.dm"
 #include "modular_nova\master_files\code\modules\antagonists\ashwalker\ashwalker.dm"
 #include "modular_nova\master_files\code\modules\antagonists\changeling\changeling.dm"
 #include "modular_nova\master_files\code\modules\antagonists\changeling\powers\tiny_prick.dm"
