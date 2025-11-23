@@ -15,7 +15,7 @@
 	bonus_value = 15
 
 /obj/item/crusher_trophy/gladiator/effect_desc()
-	return "the crusher to have a <b>[bonus_value]%</b> chance to block incoming attacks."
+	return "the crusher to have a <b>[bonus_value]%</b> chance to block incoming attacks"
 
 /obj/item/crusher_trophy/gladiator/add_to(obj/item/kinetic_crusher/incomingchance, mob/living/user)
 	. = ..()

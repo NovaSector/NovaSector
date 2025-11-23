@@ -518,15 +518,6 @@
 
 //CAPES
 
-/datum/greyscale_config/robe_cape
-	name = "Robe Cape"
-	icon_file = 'modular_nova/modules/GAGS/icons/cape.dmi'
-	json_config = 'modular_nova/modules/GAGS/json_configs/cloak/robe_cape.json'
-
-/datum/greyscale_config/robe_cape/worn
-	name = "Robe Cape (Worn)"
-	icon_file = 'modular_nova/modules/GAGS/icons/cape_worn.dmi'
-
 /datum/greyscale_config/long_cape
 	name = "Long Cape"
 	icon_file = 'modular_nova/modules/GAGS/icons/cape.dmi'
