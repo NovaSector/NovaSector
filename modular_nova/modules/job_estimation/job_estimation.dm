@@ -33,14 +33,12 @@
 	)
 	var/is_admin = check_rights_for(recipient.client, R_ADMIN)
 	for(var/player_ref, player_data in command_player_ready_data)
-		job_estimation += player_data[INDEX_PLAYER_DATA]
-		if(is_admin)
-			job_estimation += " ([player_data[INDEX_PLAYER_CKEY]])"
+		job_estimation += "[player_data[INDEX_PLAYER_DATA]][is_admin ? " ([player_data[INDEX_PLAYER_CKEY]])" : ""]"
 
 	for(var/player_ref, player_data in player_ready_data)
 		job_estimation += player_data[INDEX_PLAYER_DATA]
 		if(is_admin)
-			job_estimation += " ([player_data[INDEX_PLAYER_CKEY]])"
+			job_estimation += "[player_data[INDEX_PLAYER_DATA]][is_admin ? " ([player_data[INDEX_PLAYER_CKEY]])" : ""]"
 
 	return job_estimation
 #undef INDEX_PLAYER_DATA
