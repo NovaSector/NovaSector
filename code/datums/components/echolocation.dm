@@ -69,9 +69,11 @@
 	echolocator.add_traits(list(TRAIT_ECHOLOCATION_RECEIVER, TRAIT_TRUE_NIGHT_VISION), src.echo_group) //so they see all the tiles they echolocated, even if they are in the dark
 	if(blinding)
 		echolocator.become_blind(ECHOLOCATION_TRAIT)
-		if (use_echo) // NOVA EDIT ADDITION - add constructor toggle to not use the eye overlay
-			echolocator.overlay_fullscreen("echo", /atom/movable/screen/fullscreen/echo, echo_icon) // NOVA EDIT CHANGE - No change except indented one tab
-		echolocator.overlay_fullscreen("echo", /atom/movable/screen/fullscreen/echo, echo_icon)
+		//echolocator.overlay_fullscreen("echo", /atom/movable/screen/fullscreen/echo, echo_icon) // NOVA EDIT REMOVAL
+		// NOVA EDIT ADDITION START - add constructor toggle to not use the eye overlay
+		if (use_echo)
+			echolocator.overlay_fullscreen("echo", /atom/movable/screen/fullscreen/echo, echo_icon)
+		// NOVA EDIT ADDITION END
 	START_PROCESSING(SSfastprocess, src)
 
 /datum/component/echolocation/Destroy(force)
