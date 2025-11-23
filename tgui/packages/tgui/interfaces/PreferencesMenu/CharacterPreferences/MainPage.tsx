@@ -739,7 +739,7 @@ export function MainPage(props: MainPageProps) {
             {prefPageContents}
           </Stack>
         </Stack.Item>
-        {/* NOVA EDIT ADDITOIN END: Swappable pref menus */}
+        {/* NOVA EDIT ADDITION END: Swappable pref menus */}
       </Stack>
     </>
   );
