@@ -247,16 +247,10 @@
 
 /datum/antagonist/space_dragon/roundend_report()
 	var/list/parts = list()
-	//var/datum/objective/summon_carp/S = locate() in objectives // NOVA EDIT REMOVAL - No greentext
-	// NOVA EDIT REMOVAL START - No greentext
-	/*
+	var/datum/objective/summon_carp/S = locate() in objectives
 	if(S.check_completion())
 		parts += "<span class='redtext big'>The [name] has succeeded! Station space has been reclaimed by the space carp!</span>"
-	*/
-	// NOVA EDIT REMOVAL END - No greentext
 	parts += printplayer(owner)
-	// NOVA EDIT REMOVAL START - No greentext
-	/*
 	var/objectives_complete = TRUE
 	if(objectives.len)
 		parts += printobjectives(objectives)
@@ -268,8 +262,7 @@
 		parts += "<span class='greentext big'>The [name] was successful!</span>"
 	else
 		parts += "<span class='redtext big'>The [name] has failed!</span>"
-	*/
-	// NOVA EDIT REMOVAL END - No greentext
+
 	if(length(carp))
 		parts += span_header("<br>The [name] was assisted by:")
 		parts += "<ul class='playerlist'>"

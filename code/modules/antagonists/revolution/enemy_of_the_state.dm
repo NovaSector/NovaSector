@@ -44,12 +44,10 @@
 
 	//needs to complete only one objective, not all
 
-	//var/option_chosen = FALSE // NOVA EDIT REMOVAL - No greentext
-	//var/badass = FALSE // NOVA EDIT REMOVAL - No greentext
+	var/option_chosen = FALSE
+	var/badass = FALSE
 	if(objectives.len)
 		report += printobjectives(objectives)
-	// NOVA EDIT REMOVAL START - No greentext
-	/*
 		for(var/datum/objective/objective in objectives)
 			if(objective.check_completion())
 				option_chosen = TRUE
@@ -66,6 +64,5 @@
 			report += "<B>[name] has survived as an exile!</B>"
 	else
 		report += "<span class='redtext big'>The [name] has failed!</span>"
-	*/
-	// NOVA EDIT REMOVAL END - No greentext
+
 	return report.Join("<br>")

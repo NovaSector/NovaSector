@@ -158,17 +158,13 @@
 
 	report += "<b>[printplayer(owner)]</b>"
 
-	//var/objectives_complete = TRUE // NOVA EDIT REMOVAL - No greentext
+	var/objectives_complete = TRUE
 	if(objectives.len)
 		report += printobjectives(objectives)
-	// NOVA EDIT REMOVAL START  - No greentext
-	/*
 		for(var/datum/objective/objective in objectives)
 			if(!objective.check_completion())
 				objectives_complete = FALSE
 				break
-	*/
-	// NOVA EDIT REMOVAL END  - No greentext
 	if(trauma)
 		if(trauma.total_time_creeping > 0)
 			report += span_greentext("The [name] spent a total of [DisplayTimeText(trauma.total_time_creeping)] being near [trauma.obsession]!")
@@ -176,14 +172,12 @@
 			report += span_redtext("The [name] did not go near their obsession the entire round! That's extremely impressive!")
 	else
 		report += span_redtext("The [name] had no trauma attached to their antagonist ways! Either it bugged out or an admin incorrectly gave this good samaritan antag and it broke! You might as well show yourself!!")
-	// NOVA EDIT REMOVAL START - No greentext
-	/*
+
 	if(objectives.len == 0 || objectives_complete)
 		report += "<span class='greentext big'>The [name] was successful!</span>"
 	else
 		report += "<span class='redtext big'>The [name] has failed!</span>"
-	*/
-	// NOVA EDIT REMOVAL END - No greentext
+
 	return report.Join("<br>")
 
 //////////////////////////////////////////////////

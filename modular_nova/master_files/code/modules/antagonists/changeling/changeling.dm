@@ -29,6 +29,20 @@
 /datum/antagonist/changeling/forge_objectives()
 	return
 
+/datum/antagonist/changeling/roundend_report()
+	var/list/parts = list()
+
+	parts += printplayer(owner)
+	parts += "<b>Genomes Extracted:</b> [absorbed_count]<br>"
+
+	if(objectives.len)
+		var/count = 1
+		for(var/datum/objective/objective in objectives)
+			parts += "<b>Objective #[count]</b>: [objective.explanation_text]"
+			count++
+
+	return parts.Join("<br>")
+
 /datum/changeling_profile
 	/// The bra worn by the profile source
 	var/bra
