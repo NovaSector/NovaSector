@@ -1,0 +1,4 @@
+author: "Stalkeros"
+delete-after: True
+changes:
+  - bugfix: "You can no longer crowbar open the fog of war."
