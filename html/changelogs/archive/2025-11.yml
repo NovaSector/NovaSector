@@ -809,3 +809,9 @@
   trazodont:
   - map: adds visitation shutter control button to icebox perma
   - map: moved metastation security locker room apc
+2025-11-23:
+  Hardly:
+  - image: Resprites Duster
+  RealWinterFrost:
+  - bugfix: '[DS-2] Fixes DS-2 Map issue involving the diner blast doors not closing
+      properly'
