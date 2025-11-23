@@ -116,9 +116,6 @@
 
 	if(length(objectives))
 		report += printobjectives(objectives)
-		for(var/datum/objective/objective in objectives)
-			if(istype(objective, /datum/objective/cyborg_hijack))
-				continue
 
 	return report.Join("<br>")
 
