@@ -6,7 +6,6 @@
 
 	report += "<b>[printplayer(owner)]</b>"
 
-	var/objectives_complete = TRUE
 	if(objectives.len)
 		report += printobjectives(objectives)
 
