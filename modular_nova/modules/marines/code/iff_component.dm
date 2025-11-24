@@ -9,6 +9,9 @@
 
 /datum/component/iff/RegisterWithParent()
 	RegisterSignal(parent, COMSIG_GUN_FIRED, PROC_REF(handle_iff))
+	
+/datum/component/iff/UnregisterFromParent()
+	UnregisterSignal(parent, COMSIG_GUN_FIRED)
 
 /datum/component/iff/proc/handle_iff(obj/item/gun/gun)
 	SIGNAL_HANDLER
