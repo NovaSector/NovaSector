@@ -63,8 +63,8 @@
 		span_notice("[user] completes the surgery on [target]'s [brain_type]."),
 	)
 
-	var/datum/status_effect/neuroware/neuro_status = target.has_status_effect(/datum/status_effect/neuroware)
-	if(!isnull(neuro_status))
+	// Remove all neuroware
+	if(!isnull(target.has_status_effect(/datum/status_effect/neuroware)))
 		target.balloon_alert_to_viewers("neuroware reset")
 		for(var/datum/reagent/reagent as anything in target.reagents.reagent_list)
 			if(reagent.chemical_flags & REAGENT_NEUROWARE)
