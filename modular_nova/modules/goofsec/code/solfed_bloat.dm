@@ -63,14 +63,14 @@
 	greyscale_colors = "#ffe81d"
 
 /// Multi-Cam pattern
-/obj/item/clothing/under/solfed/marines/winter
+/obj/item/clothing/under/solfed/espatiers/winter
 	greyscale_colors = "#eaeaea#5f5f5f#969696"
 
-/obj/item/clothing/under/solfed/marines/forest
+/obj/item/clothing/under/solfed/espatiers/forest
 	greyscale_colors = "#008000#663300#333333"
 
-/obj/item/clothing/under/solfed/marines/ocean
+/obj/item/clothing/under/solfed/espatiers/ocean
 	greyscale_colors = "#53638f#374c75#145779"
 
-/obj/item/clothing/under/solfed/marines/desert
+/obj/item/clothing/under/solfed/espatiers/desert
 	greyscale_colors = "#e8dd9b#d6c76d#afa984"
