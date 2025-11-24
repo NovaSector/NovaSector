@@ -46,10 +46,10 @@
 	slot = ORGAN_SLOT_SPINE
 	w_class = WEIGHT_CLASS_NORMAL
 	actions_types = list(/datum/action/item_action/organ_action/toggle)
-	var/on = FALSE
-	var/bumpoff = TRUE
-	var/stealth_alpha = 45
-	var/poison_amount = 3
+	var/on = FALSE /// Whether the implant is active or not
+	var/bumpoff = TRUE /// Controls if getting 'bumped' or doing disallowed actions (shooting, hitting, etc) disables the implant
+	var/stealth_alpha = 45 /// Controls the alpha of the use
+	var/poison_amount = 3 /// The amount of poison you get from each emp_act
 
 /obj/item/organ/cyberimp/chest/opticalcamo/ui_action_click()
 	toggle()
@@ -114,6 +114,7 @@
 	if(!silent)
 		to_chat(owner, span_notice("You turn your optical camo off."))
 
+/// Handles removing their stealth when bump-off is triggered
 /obj/item/organ/cyberimp/chest/opticalcamo/proc/unstealth(datum/source)
 	SIGNAL_HANDLER
 
