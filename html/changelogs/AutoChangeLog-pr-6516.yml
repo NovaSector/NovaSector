@@ -1,0 +1,4 @@
+author: "vinylspiders"
+delete-after: True
+changes:
+  - admin: "job estimation panel now shows ckeys of players readied (for admins only)"

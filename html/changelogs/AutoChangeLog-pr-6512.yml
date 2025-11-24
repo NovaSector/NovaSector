@@ -1,4 +1,0 @@
-author: "Neocloudy"
-delete-after: True
-changes:
-  - bugfix: "[NOVA] The Echolocation quirk's \"Display echo overlay\" preference now works again."
