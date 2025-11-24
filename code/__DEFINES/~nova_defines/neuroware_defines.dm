@@ -52,7 +52,7 @@
 /mob/living/proc/is_neuroware_compatible()
 	return FALSE
 
-/mob/living/carbon/proc/is_neuroware_compatible()
+/mob/living/carbon/is_neuroware_compatible()
 	var/obj/item/organ/brain/owner_brain = get_organ_slot(ORGAN_SLOT_BRAIN)
 	if(isnull(owner_brain))
 		return FALSE
