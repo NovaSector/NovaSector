@@ -1,0 +1,5 @@
+author: "RatFromTheJungle"
+delete-after: True
+changes:
+  - rscadd: "Added three new implants to the loadout, worse-off mantis blades, and a really-bad health scanner!"
+  - balance: "Mantis blades now attack automatically if there's another in your off-hand, something-something cyberpsycho (they have been nerfed slightly in individual damage to compensate.)"
