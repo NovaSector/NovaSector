@@ -8265,6 +8265,7 @@
 #include "modular_nova\modules\GAGS\nsfw\uniforms.dm"
 #include "modular_nova\modules\ghost_mining\code\boulder_collector.dm"
 #include "modular_nova\modules\ghost_mining\code\ghost_vent.dm"
+#include "modular_nova\modules\ghost_mining\code\linked_retrieval_matrix.dm"
 #include "modular_nova\modules\ghostcafe\code\dusts_on_catatonia.dm"
 #include "modular_nova\modules\ghostcafe\code\dusts_on_leaving_area.dm"
 #include "modular_nova\modules\ghostcafe\code\ghost_cafe_items.dm"

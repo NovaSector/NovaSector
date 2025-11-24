@@ -12,6 +12,7 @@
 	var/turf/input_turf = null
 	/// Determines if this orebox needs to pick up items yet
 	var/needs_item_input = FALSE
+	var/available_boulders = list()
 	var/repacked_type = /obj/item/flatpacked_machine/boulder_collector
 	var/perpetual = FALSE //If it breaks, will it drop its compressed form? Used for gulag
 
@@ -24,6 +25,18 @@
 	. = ..()
 	AddElement(/datum/element/repackable, repacked_type, 5 SECONDS)
 
+/obj/structure/ore_box/boulder_collector/multitool_act(mob/living/user, obj/item/multitool/I)
+	I.set_buffer(src)
+	balloon_alert(user, "saved to multitool buffer")
+	return ITEM_INTERACT_SUCCESS
+
+/obj/structure/ore_box/boulder_collector/dump_box_contents()
+	var/drop = drop_location()
+	for(var/obj/item/weapon in src)
+		weapon.forceMove(drop)
+		if(istype(weapon, /obj/item/boulder))
+			available_boulders -= WEAKREF(weapon)
+
 /obj/structure/ore_box/add_context(atom/source, list/context, obj/item/held_item, mob/user)
 	. = NONE
 	if(isnull(held_item))
@@ -33,6 +46,9 @@
 		context[SCREENTIP_CONTEXT_LMB] = "[anchored ? "Loosen" : "Anchor"]"
 	if(held_item.tool_behaviour == TOOL_CROWBAR)
 		context[SCREENTIP_CONTEXT_LMB] = "Deconstruct"
+		return CONTEXTUAL_SCREENTIP_SET
+	if(held_item.tool_behaviour == TOOL_MULTITOOL)
+		context[SCREENTIP_CONTEXT_LMB] = "Add To Buffer"
 		return CONTEXTUAL_SCREENTIP_SET
 	else if(istype(held_item, /obj/item/stack/ore) || istype(held_item, /obj/item/boulder))
 		context[SCREENTIP_CONTEXT_LMB] = "Insert Item"
@@ -121,6 +137,7 @@
 		var/obj/item/boulder/mine_now = target_boulder
 		mine_now.forceMove(src) //Pull the boulder into storage
 		SSore_generation.available_boulders -= mine_now //Decouple the boulder from the network. Cant be stolen
+		available_boulders += WEAKREF(mine_now)
 	return
 
 /obj/structure/ore_box/boulder_collector/attackby(obj/item/attacking_item, mob/user, list/modifiers, list/attack_modifiers)
@@ -128,6 +145,7 @@
 		var/obj/item/boulder/mine_now = attacking_item
 		SSore_generation.available_boulders -= mine_now
 		user.transferItemToLoc(attacking_item, src)
+		available_boulders += WEAKREF(mine_now)
 	else
 		return ..()
 
