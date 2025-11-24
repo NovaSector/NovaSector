@@ -54,11 +54,12 @@
 /obj/item/organ/cyberimp/chest/opticalcamo/ui_action_click()
 	toggle()
 
-/obj/item/organ/cyberimp/chest/opticalcamo/Remove(mob/living/carbon/owner, special, movement_flags)
+/obj/item/organ/cyberimp/chest/opticalcamo/on_mob_remove(mob/living/carbon/organ_owner)
 	if(on)
 		deactivate(silent = TRUE)
-	..()
+	return ..()
 
+/// Activates or deactivates the implant
 /obj/item/organ/cyberimp/chest/opticalcamo/proc/toggle(silent = FALSE)
 	if(on)
 		deactivate()
@@ -76,7 +77,17 @@
 		RegisterSignal(owner, COMSIG_LIVING_MOB_BUMP, PROC_REF(unstealth))
 	RegisterSignal(owner, COMSIG_LIVING_UNARMED_ATTACK, PROC_REF(on_unarmed_attack))
 	RegisterSignal(owner, COMSIG_ATOM_BULLET_ACT, PROC_REF(on_bullet_act))
-	RegisterSignals(owner, list(COMSIG_MOB_ITEM_ATTACK, COMSIG_ATOM_ATTACKBY, COMSIG_ATOM_ATTACK_HAND, COMSIG_ATOM_HITBY, COMSIG_ATOM_HULK_ATTACK, COMSIG_ATOM_ATTACK_PAW, COMSIG_CARBON_CUFF_ATTEMPTED), PROC_REF(unstealth))
+	RegisterSignals(owner, 
+		list(
+			COMSIG_MOB_ITEM_ATTACK,
+			COMSIG_ATOM_ATTACKBY,
+			COMSIG_ATOM_ATTACK_HAND,
+			COMSIG_ATOM_HITBY,
+			COMSIG_ATOM_HULK_ATTACK,
+			COMSIG_ATOM_ATTACK_PAW,
+			COMSIG_CARBON_CUFF_ATTEMPTED
+		), PROC_REF(unstealth)
+	)
 	animate(owner, alpha = stealth_alpha, time = 15 SECONDS)
 	on = TRUE
 	if(!silent)
@@ -87,7 +98,17 @@
 		return
 	if(bumpoff)
 		UnregisterSignal(owner, COMSIG_LIVING_MOB_BUMP)
-	UnregisterSignal(owner, list(COMSIG_LIVING_UNARMED_ATTACK, COMSIG_MOB_ITEM_ATTACK, COMSIG_ATOM_ATTACKBY, COMSIG_ATOM_ATTACK_HAND, COMSIG_ATOM_BULLET_ACT, COMSIG_ATOM_HITBY, COMSIG_ATOM_HULK_ATTACK, COMSIG_ATOM_ATTACK_PAW, COMSIG_CARBON_CUFF_ATTEMPTED))
+	UnregisterSignal(owner, list(
+		COMSIG_LIVING_UNARMED_ATTACK,
+		COMSIG_MOB_ITEM_ATTACK,
+		COMSIG_ATOM_ATTACKBY,
+		COMSIG_ATOM_ATTACK_HAND,
+		COMSIG_ATOM_BULLET_ACT,
+		COMSIG_ATOM_HITBY,
+		COMSIG_ATOM_HULK_ATTACK,
+		COMSIG_ATOM_ATTACK_PAW,
+		COMSIG_CARBON_CUFF_ATTEMPTED
+	))
 	animate(owner, alpha = 255, time = 1.5 SECONDS)
 	on = FALSE
 	if(!silent)
