@@ -1634,9 +1634,7 @@
 /obj/structure/sink{
 	pixel_y = 15
 	},
-/obj/structure/mirror{
-	pixel_y = 28
-	},
+/obj/structure/mirror/directional/north,
 /turf/open/floor/iron/white/textured_large,
 /area/awaymission/beach/heretic)
 "kH" = (
@@ -1817,10 +1815,7 @@
 	pixel_y = 1;
 	pixel_x = 13
 	},
-/obj/structure/mirror{
-	pixel_x = 29;
-	pixel_y = -3
-	},
+/obj/structure/mirror/directional/east,
 /turf/open/floor/iron/white,
 /area/awaymission/beach/heretic)
 "md" = (
@@ -7357,10 +7352,8 @@
 /obj/structure/sink{
 	pixel_y = 15
 	},
-/obj/structure/mirror{
-	pixel_y = 28
-	},
 /obj/machinery/light/small/directional/east,
+/obj/structure/mirror/directional/north,
 /turf/open/floor/iron/white/textured_large,
 /area/awaymission/caves/heretic_laboratory_clean)
 "WD" = (
@@ -18360,7 +18353,7 @@ KB
 Gi
 iP
 KB
-bq
+mI
 bq
 Af
 yO
@@ -18617,7 +18610,7 @@ KB
 qp
 Xu
 qv
-mI
+bq
 bq
 gv
 Gv

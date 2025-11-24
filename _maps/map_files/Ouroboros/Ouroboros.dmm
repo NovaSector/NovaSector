@@ -114,8 +114,8 @@
 /obj/item/bedsheet/brown,
 /obj/machinery/button/curtain{
 	id = "Cell1Privacy";
-	pixel_x = 24;
-	pixel_y = 24
+	pixel_y = 24;
+	dir = 1
 	},
 /turf/open/floor/iron/dark,
 /area/station/security/prison)
@@ -1385,7 +1385,8 @@
 /area/station/science/genetics)
 "avJ" = (
 /obj/structure/sign/painting/library{
-	pixel_x = 32
+	pixel_x = 32;
+	dir = 4
 	},
 /obj/machinery/light/warm/directional/east,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
@@ -14835,10 +14836,11 @@
 /turf/open/floor/iron,
 /area/station/security/prison)
 "eog" = (
-/obj/structure/sign/painting/library{
-	pixel_y = 32
-	},
 /obj/structure/chair/wood,
+/obj/structure/sign/painting/library{
+	pixel_y = 32;
+	dir = 1
+	},
 /turf/open/floor/carpet/green,
 /area/station/service/library)
 "eoj" = (
@@ -15585,11 +15587,12 @@
 /turf/open/misc/asteroid/moon/airless,
 /area/station/asteroid)
 "eAg" = (
-/obj/structure/sign/painting/library{
-	pixel_y = 32
-	},
 /obj/machinery/light/warm/directional/north,
 /obj/structure/chair/wood,
+/obj/structure/sign/painting/library{
+	pixel_y = 32;
+	dir = 1
+	},
 /turf/open/floor/carpet/green,
 /area/station/service/library)
 "eAx" = (
@@ -20713,7 +20716,8 @@
 	},
 /obj/machinery/button/ignition/incinerator/ordmix{
 	pixel_x = 6;
-	pixel_y = 35
+	pixel_y = 35;
+	dir = 1
 	},
 /obj/effect/turf_decal/stripes/corner{
 	dir = 1
@@ -26889,7 +26893,8 @@
 "hQU" = (
 /obj/structure/bookcase/random/adult,
 /obj/structure/sign/painting/library{
-	pixel_x = -32
+	pixel_x = -32;
+	dir = 8
 	},
 /turf/open/floor/wood,
 /area/station/service/library/lounge)
@@ -26924,7 +26929,8 @@
 	dir = 4
 	},
 /obj/structure/sign/painting/library{
-	pixel_y = 32
+	pixel_y = 32;
+	dir = 1
 	},
 /obj/structure/reagent_dispensers/water_cooler,
 /obj/effect/turf_decal/bot,
@@ -27181,7 +27187,8 @@
 	},
 /obj/structure/noticeboard/directional/north,
 /obj/structure/sign/painting/library_secure{
-	pixel_x = 32
+	pixel_x = 32;
+	dir = 4
 	},
 /turf/open/floor/carpet/green,
 /area/station/service/library/lounge)
@@ -27382,7 +27389,6 @@
 /obj/effect/landmark/start/prisoner,
 /obj/machinery/button/curtain{
 	id = "Cell2Privacy";
-	pixel_x = 24;
 	pixel_y = -24
 	},
 /obj/item/bedsheet/brown,
@@ -32698,6 +32704,12 @@
 	uses = 10
 	},
 /obj/machinery/airalarm/directional/north,
+/obj/item/radio/intercom/directional/west{
+	freerange = 1;
+	listening = 0;
+	name = "Custom Channel";
+	pixel_x = -27
+	},
 /turf/open/floor/circuit,
 /area/station/ai/satellite/chamber)
 "jxM" = (
@@ -36859,8 +36871,8 @@
 /obj/item/bedsheet/brown,
 /obj/machinery/button/curtain{
 	id = "Cell3Privacy";
-	pixel_x = 24;
-	pixel_y = 24
+	pixel_y = 24;
+	dir = 1
 	},
 /turf/open/floor/iron/dark,
 /area/station/security/prison)
@@ -37504,7 +37516,8 @@
 /obj/effect/turf_decal/box,
 /obj/machinery/button/curtain{
 	id = "frontbarbercurtains";
-	pixel_x = 24
+	pixel_x = 24;
+	dir = 4
 	},
 /obj/machinery/door/firedoor/border_only,
 /obj/structure/disposalpipe/trunk{
@@ -40368,7 +40381,8 @@
 /area/station/medical/pharmacy)
 "lDX" = (
 /obj/structure/sign/painting/library{
-	pixel_y = 32
+	pixel_y = 32;
+	dir = 4
 	},
 /obj/machinery/atmospherics/components/unary/vent_pump/on/layer4,
 /obj/structure/chair/wood{
@@ -43066,12 +43080,6 @@
 	listening = 0;
 	name = "Common Channel"
 	},
-/obj/item/radio/intercom/directional/north{
-	freerange = 1;
-	listening = 0;
-	name = "Custom Channel";
-	pixel_x = 27
-	},
 /turf/open/floor/circuit,
 /area/station/ai/satellite/chamber)
 "msn" = (
@@ -45264,7 +45272,8 @@
 	pixel_y = -32
 	},
 /obj/structure/sign/painting/library{
-	pixel_x = -32
+	pixel_x = -32;
+	dir = 8
 	},
 /obj/item/flashlight/lamp/green{
 	pixel_y = 3;
@@ -46766,7 +46775,8 @@
 	dir = 4
 	},
 /obj/structure/sign/painting/library{
-	pixel_x = -32
+	pixel_x = -32;
+	dir = 8
 	},
 /turf/open/floor/carpet/green,
 /area/station/service/library)
@@ -48307,7 +48317,8 @@
 /area/station/hallway/secondary/command)
 "nQw" = (
 /obj/structure/sign/painting/library{
-	pixel_x = 32
+	pixel_x = 32;
+	dir = 4
 	},
 /obj/item/kirbyplants/organic/plant22,
 /turf/open/floor/carpet/green,
@@ -48527,9 +48538,9 @@
 /area/station/hallway/secondary/service)
 "nTG" = (
 /obj/effect/turf_decal/tile/green,
-/obj/item/radio/intercom/directional/south,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/item/radio/intercom/directional/south,
 /turf/open/floor/iron/dark/corner{
 	dir = 8
 	},
@@ -48855,7 +48866,8 @@
 /obj/structure/table/wood,
 /obj/effect/mapping_helpers/broken_floor,
 /obj/structure/sign/painting/library{
-	pixel_y = 32
+	pixel_y = 32;
+	dir = 1
 	},
 /turf/open/floor/wood,
 /area/station/maintenance/aft/greater)
@@ -62435,6 +62447,12 @@
 /obj/machinery/ai_slipper{
 	uses = 10
 	},
+/obj/item/radio/intercom/directional/east{
+	freerange = 1;
+	listening = 0;
+	name = "Custom Channel";
+	pixel_x = 27
+	},
 /turf/open/floor/circuit,
 /area/station/ai/satellite/chamber)
 "scu" = (
@@ -63181,7 +63199,8 @@
 "snD" = (
 /obj/structure/table/wood,
 /obj/structure/sign/painting/library{
-	pixel_x = -32
+	pixel_x = -32;
+	dir = 8
 	},
 /obj/item/flashlight/lamp/green{
 	pixel_y = 15;
@@ -68807,7 +68826,8 @@
 /area/station/science/ordnance/testlab)
 "tVP" = (
 /obj/structure/sign/painting/library{
-	pixel_x = 32
+	pixel_x = 32;
+	dir = 4
 	},
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
@@ -69336,7 +69356,8 @@
 	dir = 4
 	},
 /obj/structure/sign/painting/library{
-	pixel_x = -32
+	pixel_x = -32;
+	dir = 8
 	},
 /turf/open/floor/carpet/green,
 /area/station/service/library)
@@ -70538,12 +70559,6 @@
 /area/station/maintenance/starboard/greater)
 "uuH" = (
 /obj/effect/landmark/start/ai/secondary,
-/obj/item/radio/intercom/directional/north{
-	freerange = 1;
-	listening = 0;
-	name = "Custom Channel";
-	pixel_x = -27
-	},
 /obj/item/radio/intercom/directional/west{
 	freerange = 1;
 	listening = 0;
@@ -75775,7 +75790,8 @@
 "vRA" = (
 /obj/machinery/button/crematorium{
 	id = "crematoriumChapel";
-	pixel_x = 25
+	pixel_x = 25;
+	dir = 4
 	},
 /obj/machinery/camera/directional/east{
 	c_tag = "Chapel - Crematorium"
@@ -78204,7 +78220,8 @@
 /area/station/maintenance/aft/greater)
 "wze" = (
 /obj/structure/sign/painting/library{
-	pixel_x = 32
+	pixel_x = 32;
+	dir = 4
 	},
 /obj/structure/chair/sofa/left/brown{
 	dir = 8
@@ -81240,7 +81257,8 @@
 "xuS" = (
 /obj/effect/mapping_helpers/broken_floor,
 /obj/structure/sign/painting/library{
-	pixel_y = 32
+	pixel_y = 32;
+	dir = 1
 	},
 /turf/open/floor/wood,
 /area/station/maintenance/aft/greater)
@@ -83487,7 +83505,8 @@
 	},
 /obj/machinery/button/curtain{
 	id = "backbarbercurtains";
-	pixel_x = 24
+	pixel_x = 24;
+	dir = 4
 	},
 /obj/structure/closet,
 /turf/open/floor/wood/large,
@@ -109311,7 +109330,7 @@ tgp
 xaP
 lKS
 lYh
-nTG
+tur
 hDR
 klY
 kTN
@@ -109568,7 +109587,7 @@ bmk
 pNq
 bZc
 hKI
-tur
+nTG
 dIb
 bsS
 hDR
