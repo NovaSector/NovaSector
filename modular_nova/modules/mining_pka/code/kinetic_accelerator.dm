@@ -4,6 +4,8 @@
 /obj/item/gun/energy/recharge/kinetic_accelerator/variant/Initialize(mapload)
 	. = ..()
 	if(type == /obj/item/gun/energy/recharge/kinetic_accelerator/variant) // we don't want these prototypes to exist
+		if(pin)
+			QDEL_NULL(pin)
 		return INITIALIZE_HINT_QDEL
 
 /obj/item/gun/energy/recharge/kinetic_accelerator/variant/attackby(obj/item/attacking_item, mob/user, list/modifiers, list/attack_modifiers)
