@@ -18,7 +18,6 @@
 	name = "deepspace"
 	default_skin = "deepspace"
 	ui_theme = "syndicate"
-	armor_type = /datum/armor/mod_theme_syndicate
 	variants = list(
 		"deepspace" = list(
 			MOD_ICON_OVERRIDE = 'modular_nova/master_files/icons/obj/clothing/modsuit/mod_clothing.dmi',
@@ -165,8 +164,6 @@
 /datum/mod_theme/elite/admiral
 	name = "admiral"
 	default_skin = "admiral"
-	ui_theme = "syndicate"
-	armor_type = /datum/armor/mod_theme_elite
 	variants = list(
 		"admiral" = list(
 			MOD_ICON_OVERRIDE = 'modular_nova/master_files/icons/obj/clothing/modsuit/mod_clothing.dmi',
