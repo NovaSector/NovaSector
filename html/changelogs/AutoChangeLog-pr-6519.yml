@@ -1,4 +1,0 @@
-author: "vinylspiders"
-delete-after: True
-changes:
-  - qol: "breaks up prefs menu features section into two tabs: 'Character Visuals' and 'Character Profile'"
