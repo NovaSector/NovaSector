@@ -21,7 +21,7 @@
 	equip_by_category = list(
 		MECHA_L_ARM = /obj/item/mecha_parts/mecha_equipment/solfed_welder,
 		MECHA_R_ARM = /obj/item/mecha_parts/mecha_equipment/medical/mechmedbeam/solfed,
-		MECHA_UTILITY = list(/obj/item/mecha_parts/mecha_equipment/radio, /obj/item/mecha_parts/mecha_equipment/air_tank/full, /obj/item/mecha_parts/mecha_equipment/thrusters/ion, /obj/item/mecha_parts/mecha_equipment/repair_droid, /obj/item/mecha_parts/mecha_equipment/kinetic_dampener, /obj/item/mecha_parts/mecha_equipment/utility/solfed_3d_printer),
+		MECHA_UTILITY = list(/obj/item/mecha_parts/mecha_equipment/radio, /obj/item/mecha_parts/mecha_equipment/air_tank/full, /obj/item/mecha_parts/mecha_equipment/thrusters/ion, /obj/item/mecha_parts/mecha_equipment/repair_droid, /obj/item/mecha_parts/mecha_equipment/kinetic_dampener, /obj/item/mecha_parts/mecha_equipment/utility/fob_3d_printer),
 		MECHA_POWER = list(/obj/item/mecha_parts/mecha_equipment/generator),
 		MECHA_ARMOR = list(/obj/item/mecha_parts/mecha_equipment/armor/anticcw_armor_booster),
 	)

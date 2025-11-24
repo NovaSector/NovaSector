@@ -1,4 +1,4 @@
-/obj/item/mecha_parts/mecha_equipment/utility/solfed_3d_printer
+/obj/item/mecha_parts/mecha_equipment/utility/fob_3d_printer
 	name = "FOBricator Module"
 	desc = "A deployable structure printer for SolFed field mechs. Allows fabrication of tactical infrastructure."
 	icon = 'icons/obj/machines/lathes.dmi'
@@ -66,7 +66,7 @@
 		)
 	)
 
-/obj/item/mecha_parts/mecha_equipment/utility/solfed_3d_printer/attach(obj/vehicle/sealed/mecha/new_mecha, attach_right)
+/obj/item/mecha_parts/mecha_equipment/utility/fob_3d_printer/attach(obj/vehicle/sealed/mecha/new_mecha, attach_right)
 	. = ..()
 	new_mecha.initialize_controller_action_type(/datum/action/vehicle/sealed/mecha/solfed_3d_printer_open_menu, VEHICLE_CONTROL_EQUIPMENT)
 	new_mecha.initialize_controller_action_type(/datum/action/vehicle/sealed/mecha/toggle_cablelay, VEHICLE_CONTROL_EQUIPMENT)
@@ -88,7 +88,7 @@
 	desc = "Deploy SolFed field structures."
 
 /datum/action/vehicle/sealed/mecha/solfed_3d_printer_open_menu/Trigger(mob/user, trigger_flags)
-	var/obj/item/mecha_parts/mecha_equipment/utility/solfed_3d_printer/printer = locate(/obj/item/mecha_parts/mecha_equipment/utility/solfed_3d_printer) in chassis.equip_by_category[MECHA_UTILITY]
+	var/obj/item/mecha_parts/mecha_equipment/utility/fob_3d_printer/printer = locate(/obj/item/mecha_parts/mecha_equipment/utility/fob_3d_printer) in chassis.equip_by_category[MECHA_UTILITY]
 	if (!printer)
 		to_chat(user, "No printer module detected.")
 		return
@@ -111,7 +111,7 @@
 	desc = "Automatically lays cable while moving across valid tiles."
 
 /datum/action/vehicle/sealed/mecha/toggle_cablelay/Trigger(mob/clicker, trigger_flags)
-	var/obj/item/mecha_parts/mecha_equipment/utility/solfed_3d_printer/printer = locate(/obj/item/mecha_parts/mecha_equipment/utility/solfed_3d_printer) in chassis.equip_by_category[MECHA_UTILITY]
+	var/obj/item/mecha_parts/mecha_equipment/utility/fob_3d_printer/printer = locate(/obj/item/mecha_parts/mecha_equipment/utility/fob_3d_printer) in chassis.equip_by_category[MECHA_UTILITY]
 	if (!printer)
 		to_chat(clicker, "No cable-laying module detected.")
 		return
@@ -121,7 +121,7 @@
 	build_all_button_icons()
 	to_chat(clicker, "Cable-laying mode [printer.cablelay_mode ? "enabled" : "disabled"].")
 
-/obj/item/mecha_parts/mecha_equipment/utility/solfed_3d_printer/Move(newloc, dir)
+/obj/item/mecha_parts/mecha_equipment/utility/fob_3d_printer/Move(newloc, dir)
 	. = ..()
 	if(!cablelay_mode)
 		return
@@ -158,7 +158,7 @@
 	if(!chassis)
 		return
 
-	var/obj/item/mecha_parts/mecha_equipment/utility/solfed_3d_printer/printer = locate(/obj/item/mecha_parts/mecha_equipment/utility/solfed_3d_printer) in chassis.flat_equipment
+	var/obj/item/mecha_parts/mecha_equipment/utility/fob_3d_printer/printer = locate(/obj/item/mecha_parts/mecha_equipment/utility/fob_3d_printer) in chassis.flat_equipment
 	var/list/choices = list()
 	for(var/typepath in printer.printables)
 		var/name = printer.printables[typepath]["name"]
@@ -171,7 +171,7 @@
 	printer.deploy_structure(user, choices[choice])
 
 ///Check if the item the mech is trying to build fits at the location targetted.
-/obj/item/mecha_parts/mecha_equipment/utility/solfed_3d_printer/proc/can_build_here(turf/target_turf, typepath, atom/movable/user = null)
+/obj/item/mecha_parts/mecha_equipment/utility/fob_3d_printer/proc/can_build_here(turf/target_turf, typepath, atom/movable/user = null)
 	// Rule 1: Must be a valid turf and not a closed one
 	if(!isturf(target_turf) || istype(target_turf, /turf/closed))
 		return FALSE
@@ -192,7 +192,7 @@
 	return TRUE
 
 ///Provided there's space and the mecha has enough power, create a structure one step in front of the mech.
-/obj/item/mecha_parts/mecha_equipment/utility/solfed_3d_printer/proc/deploy_structure(mob/user, typepath)
+/obj/item/mecha_parts/mecha_equipment/utility/fob_3d_printer/proc/deploy_structure(mob/user, typepath)
 	var/data = printables[typepath]
 	if(!data)
 		return
