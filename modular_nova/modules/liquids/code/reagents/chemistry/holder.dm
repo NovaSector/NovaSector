@@ -21,7 +21,7 @@
 		if((reagent.process_flags & REAGENT_SYNTHETIC))
 			// SYNTHETIC-oriented neuroware can only affect robotic brains, or organic brains with a NIF implant
 			if(reagent.chemical_flags & REAGENT_NEUROWARE)
-				return is_neuroware_compatible(human_processor)
+				return human_processor.is_neuroware_compatible()
 			if(processor_flags & PROCESS_SYNTHETIC)
 				return TRUE
 			// Human isn't synthetic species, requires synth liver to process synth reagents
