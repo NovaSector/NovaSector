@@ -815,3 +815,10 @@
   RealWinterFrost:
   - bugfix: '[DS-2] Fixes DS-2 Map issue involving the diner blast doors not closing
       properly'
+2025-11-24:
+  Neocloudy:
+  - bugfix: '[NOVA] The Echolocation quirk''s "Display echo overlay" preference now
+      works again.'
+  Stalkeros:
+  - bugfix: You can no longer crowbar open the fog of war.
+  - bugfix: Chima jeogori now crops properly on female characters.
