@@ -25,7 +25,7 @@
 	)
 
 	var/list/organs_to_process = list(
-		"brain" = "Brain", //NOVA EDIT
+		"brain" = "Brain",
 		"heart" = "Heart",
 		"lungs" = "Lungs",
 		"liver" = "Liver",
