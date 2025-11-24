@@ -1,0 +1,7 @@
+author: "A.C.M.O."
+delete-after: True
+changes:
+  - qol: "Organic crew now require a functional NIF implant in order to use Neuroware chips."
+  - bugfix: "Fixed a bug that was allowing incompatible mobs to use Neuroware chips."
+  - bugfix: "Fixed a bug that was preventing the NGesic Neuroware chip from adding its status effect."
+  - bugfix: "Fixed a bug that was causing the NGesic neuroware to instead install AnaSynthic."
