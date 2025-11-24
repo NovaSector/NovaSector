@@ -142,10 +142,12 @@
 /obj/item/gun/ballistic/shotgun/automatic/ubsg/give_gun_safeties()
 	return
 
+/// When inserting a pin into the gun to which we are attached, inserts the same pin into this gun
 /obj/item/gun/ballistic/shotgun/automatic/ubsg/proc/on_pin_inserted(obj/item/gun/source, obj/item/firing_pin/new_pin, mob/living/user)
 	SIGNAL_HANDLER
 	pin = new_pin
 
+/// When removing a pin from the gun to which we are attached, removes the pin in this gun as well
 /obj/item/gun/ballistic/shotgun/automatic/ubsg/proc/on_pin_removed(obj/item/gun/source, obj/item/firing_pin/old_pin, mob/living/user)
 	SIGNAL_HANDLER
 	pin = null
