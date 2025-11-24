@@ -6,7 +6,7 @@
 	name = "Antique Short Cloak"
 	desc = "An antique, fluffy shortcloak... not sure why it's so puffy and short."
 
-	icon = 'modular_nova/master_files/icons/mob/clothing/neck.dmi'
+	icon = 'icons/map_icons/clothing/neck.dmi'
 	icon_state = "/obj/item/clothing/neck/greyscaled"
 
 	post_init_icon_state = "shortcloak"
