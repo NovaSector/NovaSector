@@ -570,7 +570,7 @@
 				render_block += "<span class='notice ml-2'>[round(reagent.volume, 0.001)] units of [reagent.name][reagent.overdosed ? "</span> - [span_bolddanger("OVERDOSING")]" : ".</span>"]<br>"
 
 		// NOVA EDIT ADDITION BEGIN - Neuroware
-		if(is_neuroware_compatible(target))
+		if(target.is_neuroware_compatible())
 			if(length(neuroware_list))
 				render_list += "<span class='notice ml-1'>Subject contains the following neuroware in their brain:</span><br>"
 				render_list += jointext(neuroware_list + "<br>", "")

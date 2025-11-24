@@ -49,13 +49,16 @@
 
 ///Returns TRUE if the given mob can metabolize neuroware reagents. Returns FALSE otherwise.
 ///Neuroware requires a robotic brain, or any brain combined with a functional NIF.
-/proc/is_neuroware_compatible(mob/living/carbon/target_carbon)
-	var/obj/item/organ/brain/owner_brain = target_carbon.get_organ_slot(ORGAN_SLOT_BRAIN)
+/mob/living/proc/is_neuroware_compatible()
+	return FALSE
+
+/mob/living/carbon/proc/is_neuroware_compatible()
+	var/obj/item/organ/brain/owner_brain = get_organ_slot(ORGAN_SLOT_BRAIN)
 	if(isnull(owner_brain))
 		return FALSE
 	if(owner_brain.organ_flags & ORGAN_ROBOTIC)
 		return TRUE
-	var/obj/item/organ/cyberimp/brain/nif/nif_implant = target_carbon.get_organ_slot(ORGAN_SLOT_BRAIN_NIF)
+	var/obj/item/organ/cyberimp/brain/nif/nif_implant = get_organ_slot(ORGAN_SLOT_BRAIN_NIF)
 	if(!isnull(nif_implant) && !nif_implant.broken)
 		return TRUE
 	return FALSE
