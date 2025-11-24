@@ -693,7 +693,7 @@ export function MainPage(props: MainPageProps) {
         {/* ORIGINAL: <Stack.Item grow basis={0}> */}
         <Stack.Item grow basis={0} ml="4px">
           <Stack vertical fill>
-            {/* NOVA EDIT REMOVAL:
+            {/* NOVA EDIT REMOVAL START
              <PreferenceList
               randomizations={getRandomization(
                 contextualPreferences,
@@ -713,7 +713,7 @@ export function MainPage(props: MainPageProps) {
               preferences={nonContextualPreferences}
               maxHeight="auto"
             />
-            */
+            */ // NOVA EDIT REMOVAL END
             }
             {/* NOVA EDIT ADDITION BEGIN: Swappable pref menus */}
             <Stack>
