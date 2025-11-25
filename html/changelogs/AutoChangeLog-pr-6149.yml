@@ -1,4 +1,0 @@
-author: "OrbisAnima"
-delete-after: True
-changes:
-  - rscdel: "Removes the Shockwave PKA due to its ability to solo megafauna in 9 seconds, and trivialize blobs."

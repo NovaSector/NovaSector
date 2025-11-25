@@ -1026,3 +1026,36 @@
       of a round
   - qol: 'breaks up prefs menu features section into two tabs: ''Character Visuals''
       and ''Character Profile'''
+2025-11-25:
+  Cat:
+  - balance: Bartender's wardrobe vendor starts with a service plumbing constructor
+  FalloutFalcon:
+  - code_imp: generic helpers and defines for validating file extenstion
+  - refactor: the jukebox has had some improvements in how it validates the sound
+      file. hopefully none of your funny songs disappear.
+  - admin: command_report_menu will let you set ANY sound file type for the sound
+      it plays.
+  - admin: Admins can now manage jukebox songs in game
+  - server: Jukebox songs length are now set automatically, update your jukebox configs!
+  JohnFulpWillard:
+  - bugfix: Headslugs are now small.
+  LT3:
+  - bugfix: Fixed a few under clothing items inheriting incorrect armor values
+  OrbisAnima:
+  - rscdel: Removes the Shockwave PKA due to its ability to solo megafauna in 9 seconds,
+      and trivialize blobs.
+  - qol: We solved the issue with the Central Command Auto Doc machines sneaking in
+      appendixes in people that had theirs removed. Make sure to update your medical
+      profiles (Quirks) to set that you survived your appendix removal, and we will
+      handle the rest.
+  Y0SH1M4S73R:
+  - sound: Squid tongues have a distinctive effect on your text-to-speech voice.
+  Zergspower:
+  - qol: Made lightmode LOOC text darker, enables LOOC Runetext by default
+  alien3301:
+  - qol: Kaza Ruk has balloon alerts when switching attacks
+  lelandkemble:
+  - bugfix: Ghosts can no longer try and fail to admire aquariums.
+  - bugfix: xenobio console potions work again
+  vinylspiders, Wallemations:
+  - image: space heaters got a model replacement, from stick heaters to box heaters
