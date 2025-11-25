@@ -8,7 +8,6 @@
 	circuit = null
 	heating_energy = parent_type::heating_energy * 2
 	efficiency = parent_type::efficiency * 2
-	display_panel = TRUE
 	cell = null
 	/// What this repacks into when it's wrenched off a wall
 	var/repacked_type = /obj/item/wallframe/wall_heater
