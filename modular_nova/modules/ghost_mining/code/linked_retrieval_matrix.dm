@@ -10,8 +10,8 @@
 /obj/machinery/lrm
 	name = "Linked Retrieval Matrix"
 	desc = "A teleportation matrix used to retrieve boulders from linked Boulder Stabilizing Collector boxes."
-	icon = 'icons/obj/machines/mining_machines.dmi'
-	icon_state = "brm"
+	icon = 'modular_nova/modules/ghost_mining/icons/lrm.dmi'
+	icon_state = "lrm"
 	active_power_usage = BASE_MACHINE_ACTIVE_CONSUMPTION * 0.5
 	circuit = /obj/item/circuitboard/machine/lrm
 	processing_flags = START_PROCESSING_MANUALLY
@@ -62,9 +62,8 @@
 	. = ..()
 	var/rock_count = 0
 	for(var/datum/weakref/num_collector in linked_bscs)
-		for(var/collector_to_check in 1 to length(linked_bscs))
-			var/obj/structure/ore_box/boulder_collector/collector = num_collector?.resolve()
-			rock_count += length(collector.available_boulders)
+		var/obj/structure/ore_box/boulder_collector/collector = num_collector?.resolve()
+		rock_count += length(collector.available_boulders)
 
 	var/link_count = length(linked_bscs)
 
@@ -326,7 +325,7 @@
 		return LRM_NO_BOULDER
 
 	//pick & spawn the boulder
-	flick("brm-flash", src)
+	flick("lrm-flash", src)
 	playsound(src, toggled_on ? 'sound/machines/mining/auto_teleport.ogg' : 'sound/machines/mining/manual_teleport.ogg', 50, TRUE, SHORT_RANGE_SOUND_EXTRARANGE)
 
 	var/datum/weakref/collector_ref = pick(holding_boxes)
