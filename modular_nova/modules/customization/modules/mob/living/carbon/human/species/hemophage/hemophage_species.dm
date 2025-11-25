@@ -13,17 +13,9 @@
 		TRAIT_VIRUSIMMUNE,
 		TRAIT_LITERATE,
 		TRAIT_DRINKS_BLOOD,
-		TRAIT_MUTANT_COLORS,
+		TRAIT_USES_SKINTONES,
 	)
 	inherent_biotypes = MOB_HUMANOID | MOB_ORGANIC
-	bodypart_overrides = list(
-		BODY_ZONE_HEAD = /obj/item/bodypart/head/mhuman,
-		BODY_ZONE_CHEST = /obj/item/bodypart/chest/mhuman,
-		BODY_ZONE_L_ARM = /obj/item/bodypart/arm/left/mhuman,
-		BODY_ZONE_R_ARM = /obj/item/bodypart/arm/right/mhuman,
-		BODY_ZONE_L_LEG = /obj/item/bodypart/leg/left/mhuman,
-		BODY_ZONE_R_LEG = /obj/item/bodypart/leg/right/mhuman,
-	)
 	exotic_bloodtype = BLOOD_TYPE_UNIVERSAL
 	mutantheart = /obj/item/organ/heart/hemophage
 	mutantliver = /obj/item/organ/liver/hemophage
@@ -123,10 +115,9 @@
 
 
 /datum/species/hemophage/prepare_human_for_preview(mob/living/carbon/human/human)
-	var/main_color = "#e8b59b"
+	human.skin_tone = "albino"
 	human.hair_color = "#1d1d1d"
 	human.hairstyle = "Pompadour (Big)"
-	human.dna.features[FEATURE_MUTANT_COLOR] = main_color
 	regenerate_organs(human, src, visual_only = TRUE)
 	human.update_body(TRUE)
 
