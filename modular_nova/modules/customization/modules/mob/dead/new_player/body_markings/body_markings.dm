@@ -111,6 +111,12 @@
 	affected_bodyparts = HEAD
 //you're welcome -- iska
 
+/datum/body_marking/other/slime_mouth
+	name = "Slime Mouth"
+	icon_state = "slime_mouth"
+	default_color = "#CCCCCC"
+	affected_bodyparts = HEAD
+
 /datum/body_marking/other/nose_blemish
 	name = "Nose Blemish"
 	icon_state = "nose_blemish"
