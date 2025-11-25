@@ -203,18 +203,6 @@
 		turret.setState(enabled, lethal, shoot_cyborgs)
 	update_appearance()
 
-/* Nova Removal - Take Upstream | This breaks the fuckin console from appearing properly, cause there is no _off or underscored variant of the base icon
-/obj/machinery/turretid/update_icon_state()
-	if(machine_stat & NOPOWER)
-		icon_state = "[base_icon_state]_off"
-		return ..()
-	if (enabled)
-		icon_state = "[base_icon_state]_[lethal ? "kill" : "stun"]"
-		return ..()
-	icon_state = "[base_icon_state]_standby"
-	return ..()
-*/
-
 /obj/item/wallframe/turret_control
 	name = "turret control frame"
 	desc = "Used for building turret control panels."
