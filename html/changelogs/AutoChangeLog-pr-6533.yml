@@ -1,0 +1,4 @@
+author: "OrbisAnima"
+delete-after: True
+changes:
+  - qol: "We solved the issue with the Central Command Auto Doc machines sneaking in appendixes in people that had theirs removed. Make sure to update your medical profiles (Quirks) to set that you survived your appendix removal, and we will handle the rest."
