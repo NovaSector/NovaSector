@@ -104,7 +104,7 @@
 	default_color = "#CCCCCC"
 	affected_bodyparts = HEAD
 
-/datum/body_marking/other/monster_white2
+/datum/body_marking/other/monster_mouth_white2
 	name = "Monster Mouth (White, eye-compatible)"
 	icon_state = "monster_white2"
 	default_color = "#CCCCCC"
