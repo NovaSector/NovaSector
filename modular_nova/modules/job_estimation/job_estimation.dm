@@ -20,6 +20,8 @@
 	var/list/player_ready_data = list()
 	/// The assoc list of job estimation data keyed to player ref (for command players only). data format: list(estimation_string, ckey)
 	var/list/command_player_ready_data = list()
+	/// The assoc list of job estimation data keyed to player ref (for assistant players only). data format: list(estimation_string, ckey)
+	var/list/assistant_player_ready_data = list()
 
 #define INDEX_PLAYER_DATA 1
 #define INDEX_PLAYER_CKEY 2
@@ -36,6 +38,9 @@
 		job_estimation += "[player_data[INDEX_PLAYER_DATA]][is_admin ? " ([player_data[INDEX_PLAYER_CKEY]])" : ""]"
 
 	for(var/player_ref, player_data in player_ready_data)
+		job_estimation += "[player_data[INDEX_PLAYER_DATA]][is_admin ? " ([player_data[INDEX_PLAYER_CKEY]])" : ""]"
+
+	for(var/player_ref, player_data in assistant_ready_data)
 		job_estimation += "[player_data[INDEX_PLAYER_DATA]][is_admin ? " ([player_data[INDEX_PLAYER_CKEY]])" : ""]"
 
 	return job_estimation
@@ -57,10 +62,6 @@
 		return
 
 	var/title = player_job.title
-	// If the readied player has selected a miscellaneous job (Assistant, or Prisoner), they shouldn't be displayed
-	if(title == JOB_ASSISTANT || title == JOB_PRISONER)
-		return
-
 	var/display
 	// people who have opted out of giving their name will show up as 'a mysterious [job title here]', unless they're command or AI
 	if(!prefs.read_preference(/datum/preference/toggle/ready_job) && !(player_job.departments_bitflags & (DEPARTMENT_BITFLAG_COMMAND)) && title != JOB_AI)
@@ -89,8 +90,10 @@
 	// If our player is a member of Command or a Silicon, we want to sort them to the top of the list. Otherwise, just add them to the end of the list.
 	if(player_job.departments_bitflags & (DEPARTMENT_BITFLAG_COMMAND | DEPARTMENT_BITFLAG_SILICON))
 		command_player_ready_data[player_ref] = list(job_estimation_text, player.ckey)
-	else
+	else if(!(player_job.departments_bitflags & DEPARTMENT_BITFLAG_ASSISTANT))
 		player_ready_data[player_ref] = list(job_estimation_text, player.ckey)
+	else
+		assistant_player_ready_data[player_ref] = list(job_estimation_text, player.ckey) // Assistants go last
 
 	RegisterSignal(player, COMSIG_JOB_PREF_UPDATED, PROC_REF(on_client_changes_job))
 
@@ -104,6 +107,9 @@
 
 	if(length(command_player_ready_data))
 		command_player_ready_data -= player_ref
+
+	if(length(assistant_player_ready_data))
+		assistant_player_ready_data -= player_ref
 
 	UnregisterSignal(player, list(COMSIG_JOB_PREF_UPDATED))
 
