@@ -34,13 +34,13 @@
 		"",
 	)
 	var/is_admin = check_rights_for(recipient.client, R_ADMIN)
-	for(var/player_ref, player_data in command_player_ready_data)
+	for(var/player_ref, player_data in command_player_ready_data) // Command first
 		job_estimation += "[player_data[INDEX_PLAYER_DATA]][is_admin ? " ([player_data[INDEX_PLAYER_CKEY]])" : ""]"
 
 	for(var/player_ref, player_data in player_ready_data)
 		job_estimation += "[player_data[INDEX_PLAYER_DATA]][is_admin ? " ([player_data[INDEX_PLAYER_CKEY]])" : ""]"
 
-	for(var/player_ref, player_data in assistant_ready_data)
+	for(var/player_ref, player_data in assistant_ready_data) // Assistants last
 		job_estimation += "[player_data[INDEX_PLAYER_DATA]][is_admin ? " ([player_data[INDEX_PLAYER_CKEY]])" : ""]"
 
 	return job_estimation
@@ -87,13 +87,14 @@
 
 	/// The string as it appears in the stat panel
 	var/job_estimation_text = "* [display] [player.client?.prefs.alt_job_titles?[title] || title]"
-	// If our player is a member of Command or a Silicon, we want to sort them to the top of the list. Otherwise, just add them to the end of the list.
+	// If our player is a member of Command or a Silicon, we want to sort them to the top of the list. Otherwise, just add them to the end of the list. 
+	// Assistants show up after everyone else.
 	if(player_job.departments_bitflags & (DEPARTMENT_BITFLAG_COMMAND | DEPARTMENT_BITFLAG_SILICON))
 		command_player_ready_data[player_ref] = list(job_estimation_text, player.ckey)
-	else if(!(player_job.departments_bitflags & DEPARTMENT_BITFLAG_ASSISTANT))
+	else if(player_job.departments_bitflags & DEPARTMENT_BITFLAG_ASSISTANT)
 		player_ready_data[player_ref] = list(job_estimation_text, player.ckey)
 	else
-		assistant_player_ready_data[player_ref] = list(job_estimation_text, player.ckey) // Assistants go last
+		assistant_player_ready_data[player_ref] = list(job_estimation_text, player.ckey)
 
 	RegisterSignal(player, COMSIG_JOB_PREF_UPDATED, PROC_REF(on_client_changes_job))
 
