@@ -1,10 +1,11 @@
 /area/misc/condo
 	name = "Condo"
-	icon = 'icons/area/areas_ruins.dmi'
-	icon_state = "hilbertshotel"
+	icon = 'modular_nova/modules/condos/icons/area.dmi'
+	icon_state = "condo"
 	requires_power = FALSE
 	default_gravity = STANDARD_GRAVITY
 	area_flags = NOTELEPORT | HIDDEN_AREA | UNLIMITED_FISHING
+	area_flags_mapping = NONE
 	static_lighting = TRUE
 	mood_bonus = /area/centcom/holding::mood_bonus
 	mood_message = /area/centcom/holding::mood_message

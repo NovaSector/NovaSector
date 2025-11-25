@@ -23,6 +23,12 @@
 	return TRUE
 
 
+/datum/emote/living/nodnod
+	key = "nod2"
+	key_third_person = "nod2s"
+	message = "nods twice."
+	message_param = "nods twice at %t."
+
 /datum/emote/living/blush
 	sound = 'modular_nova/modules/emotes/sound/emotes/blush.ogg'
 
@@ -134,13 +140,9 @@
 	vary = TRUE
 	sound = 'modular_nova/modules/emotes/sound/voice/weh.ogg'
 
-/datum/emote/living/mothsqueak
+/datum/emote/living/carbon/msqueak
 	key = "msqueak"
-	key_third_person = "lets out a tiny squeak"
-	message = "lets out a tiny squeak!"
-	emote_type = EMOTE_AUDIBLE
 	vary = TRUE
-	sound = 'modular_nova/modules/emotes/sound/voice/mothsqueak.ogg'
 
 /datum/emote/living/mousesqueak
 	key = "squeak"
@@ -197,17 +199,13 @@
 	else
 		return 'modular_nova/modules/emotes/sound/emotes/hiss.ogg'
 
-/datum/emote/living/chitter
-	key = "chitter"
-	key_third_person = "chitters"
-	message = "chitters!"
-	emote_type = EMOTE_AUDIBLE
+/datum/emote/living/carbon/mchitter
 	mob_type_allowed_typecache = list(/mob/living/carbon, /mob/living/silicon/pai)
 	vary = TRUE
 
-/datum/emote/living/chitter/get_sound(mob/living/user)
+/datum/emote/living/carbon/mchitter/get_sound(mob/living/user)
 	if(ismoth(user))
-		return 'modular_nova/modules/emotes/sound/emotes/mothchitter.ogg'
+		return 'sound/mobs/humanoids/moth/moth_chitter.ogg'
 	else
 		return 'sound/mobs/non-humanoids/insect/chitter.ogg'
 

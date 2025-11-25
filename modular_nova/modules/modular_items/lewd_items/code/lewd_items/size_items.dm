@@ -9,6 +9,7 @@
 	greyscale_config = /datum/greyscale_config/thin_collar/tagged
 	greyscale_config_worn = /datum/greyscale_config/thin_collar/tagged/worn
 	flags_1 = IS_PLAYER_COLORABLE_1
+	obj_flags_nova = ERP_ITEM
 	/// Have we given the user the warning message yet?
 	var/warning_given = FALSE
 	/// The `temporary_size` component we have attached to the wearer.

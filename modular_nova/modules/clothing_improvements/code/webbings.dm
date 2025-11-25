@@ -1,9 +1,10 @@
 /obj/item/clothing/accessory/webbing
 	name = "webbing"
 	desc = "A sturdy mess of synthetic belts and buckles, ready to share your burden."
-	icon = 'modular_nova/modules/clothing_improvements/icons/clothing.dmi'
-	worn_icon = 'modular_nova/modules/clothing_improvements/icons/clothing_worn.dmi'
+	icon = 'modular_nova/master_files/icons/obj/clothing/accessories.dmi'
+	worn_icon = 'modular_nova/master_files/icons/mob/clothing/accessories.dmi'
 	icon_state = "webbing"
+	minimize_when_attached = FALSE
 	attachment_slot = NONE
 
 /datum/storage/pockets/webbing
@@ -38,7 +39,6 @@
 
 /obj/item/clothing/accessory/webbing/pouch
 	name = "drop pouches"
-	gender = PLURAL
 	desc = "A robust pair of drop pouches with good capacity, ready to share your burdens."
 	icon_state = "thigh_brown"
 	unique_reskin = list(
@@ -46,6 +46,9 @@
 		"Black" = "thigh_black",
 		"White" = "thigh_white",
 	)
+
+/obj/item/clothing/accessory/webbing/pouch/black
+	icon_state = "thigh_black"
 
 /obj/item/clothing/accessory/webbing/pilot
 	name = "storage rigging"

@@ -7,6 +7,7 @@
 	greyscale_colors = "#eeeeee"
 	uses = 4
 	is_lewd = TRUE
+	obj_flags_nova = ERP_ITEM
 
 /obj/item/disk/neuroware/pentacamphor
 	name = "\improper Nobido Xtreme neuroware"
@@ -17,6 +18,7 @@
 	greyscale_colors = "#474747"
 	uses = 4
 	is_lewd = TRUE
+	obj_flags_nova = ERP_ITEM
 
 /obj/item/disk/neuroware/crocin
 	name = "\improper EroStim neuroware"
@@ -27,6 +29,7 @@
 	greyscale_colors = "#784abc"
 	uses = 4
 	is_lewd = TRUE
+	obj_flags_nova = ERP_ITEM
 
 /obj/item/disk/neuroware/hexacrocin
 	name = "\improper EroStim Deluxe neuroware"
@@ -37,3 +40,4 @@
 	greyscale_colors = CIRCUIT_COLOR_SECURITY
 	uses = 4
 	is_lewd = TRUE
+	obj_flags_nova = ERP_ITEM

@@ -1,0 +1,111 @@
+//MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
+"a" = (
+/obj/machinery/hydroponics/constructable,
+/turf/open/floor/grass,
+/area/station/service/hydroponics/garden)
+"i" = (
+/turf/template_noop,
+/area/template_noop)
+"l" = (
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/item/hatchet{
+	pixel_x = 7;
+	pixel_y = 5
+	},
+/obj/item/shovel/spade{
+	pixel_y = 4
+	},
+/obj/item/cultivator{
+	pixel_x = -8;
+	pixel_y = 2
+	},
+/obj/structure/table/wood,
+/obj/item/plant_analyzer,
+/turf/open/floor/iron,
+/area/station/service/hydroponics/garden)
+"n" = (
+/obj/item/radio/intercom/directional/east,
+/obj/machinery/hydroponics/constructable,
+/turf/open/floor/grass,
+/area/station/service/hydroponics/garden)
+"o" = (
+/obj/machinery/light/small/directional/south,
+/obj/machinery/newscaster/directional/south,
+/obj/machinery/hydroponics/constructable,
+/turf/open/floor/grass,
+/area/station/service/hydroponics/garden)
+"S" = (
+/obj/machinery/airalarm/directional/east,
+/obj/machinery/hydroponics/constructable,
+/turf/open/floor/grass,
+/area/station/service/hydroponics/garden)
+"T" = (
+/obj/machinery/light_switch/directional/north{
+	pixel_x = -8
+	},
+/obj/machinery/light/small/directional/north,
+/obj/machinery/hydroponics/constructable,
+/turf/open/floor/grass,
+/area/station/service/hydroponics/garden)
+"Y" = (
+/obj/machinery/vending/hydroseeds,
+/turf/open/floor/iron/half{
+	dir = 8
+	},
+/area/station/service/hydroponics/garden)
+"Z" = (
+/obj/machinery/vending/hydronutrients,
+/turf/open/floor/iron/half{
+	dir = 8
+	},
+/area/station/service/hydroponics/garden)
+
+(1,1,1) = {"
+i
+i
+i
+i
+i
+"}
+(2,1,1) = {"
+i
+i
+i
+i
+i
+"}
+(3,1,1) = {"
+i
+i
+Y
+i
+a
+"}
+(4,1,1) = {"
+i
+i
+l
+i
+o
+"}
+(5,1,1) = {"
+i
+i
+Z
+i
+a
+"}
+(6,1,1) = {"
+T
+i
+i
+i
+i
+"}
+(7,1,1) = {"
+i
+S
+n
+i
+i
+"}

@@ -7,7 +7,7 @@ GLOBAL_VAR_INIT(disposals_animals_spawned, 0)
 #define SEND_PRESSURE (0.05*ONE_ATMOSPHERE)
 
 /obj/machinery/disposal
-	icon = 'icons/obj/pipes_n_cables/disposal.dmi' //NOVA EDIT - ICON OVERRIDDEN IN AESTHETICS MODULE
+	icon = 'icons/obj/pipes_n_cables/disposal.dmi'
 	density = TRUE
 	armor_type = /datum/armor/machinery_disposal
 	max_integrity = 200
@@ -172,6 +172,7 @@ GLOBAL_VAR_INIT(disposals_animals_spawned, 0)
 	var/rat_cap = CONFIG_GET(number/ratcap)
 	if (LAZYLEN(SSmobs.cheeserats) < rat_cap && prob(33))
 		var/mob/living/basic/mouse/new_subject = new(king.drop_location())
+		ADD_TRAIT(new_subject, TRAIT_SPAWNED_MOB, INNATE_TRAIT)
 		playsound(new_subject, 'sound/mobs/non-humanoids/mouse/mousesqueek.ogg', 100)
 		visible_message(span_warning("[new_subject] climbs out of [src]!"))
 
@@ -560,7 +561,7 @@ GLOBAL_VAR_INIT(disposals_animals_spawned, 0)
 /obj/machinery/disposal/bin/hitby(atom/movable/AM, skipcatch, hitpush, blocked, datum/thrownthing/throwingdatum)
 	if(isitem(AM) && AM.CanEnterDisposals())
 		var/mob/thrower = throwingdatum?.get_thrower()
-		if((thrower && HAS_TRAIT(thrower, TRAIT_THROWINGARM)) || prob(75))
+		if((istype(thrower) && HAS_TRAIT(thrower, TRAIT_THROWINGARM)) || prob(75))
 			AM.forceMove(src)
 			visible_message(span_notice("[AM] lands in [src]."))
 			update_appearance()
@@ -593,7 +594,7 @@ GLOBAL_VAR_INIT(disposals_animals_spawned, 0)
 		. += "dispover-handle"
 
 	if(mounted_tagger)
-		. += "tagger_mount"
+		. += mutable_appearance('icons/obj/pipes_n_cables/disposal.dmi', "tagger_mount") //NOVA EDIT: Overriding Icon file. += "tagger_mount"
 
 	//only handle is shown if no power
 	if(machine_stat & NOPOWER || panel_open)

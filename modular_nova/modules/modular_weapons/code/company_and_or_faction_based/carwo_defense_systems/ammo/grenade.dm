@@ -31,6 +31,7 @@
 
 	harmful = FALSE //Erm, technically
 	ammo_categories = AMMO_CLASS_NONE
+	ammo_stack_type = /obj/item/ammo_box/magazine/ammo_stack/c980
 
 
 /obj/item/ammo_casing/c980grenade/fire_casing(atom/target, mob/living/user, params, distro, quiet, zone_override, spread, atom/fired_from)
@@ -39,7 +40,8 @@
 		loaded_projectile.range = firing_launcher.target_range
 	else if(istype(fired_from, /obj/item/gun/ballistic/shotgun/shell_launcher))
 		loaded_projectile.range = 5
-
+	else if(istype(fired_from, /obj/item/gun/ballistic/pump_launcher/c980))
+		loaded_projectile.range = get_dist(user, target)
 	. = ..()
 
 

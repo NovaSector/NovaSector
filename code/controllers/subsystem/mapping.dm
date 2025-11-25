@@ -425,7 +425,6 @@ Used by the AI doomsday and the self-destruct nuke.
 
 	SSautomapper.preload_templates_from_toml(files) // NOVA EDIT ADDITION - We need to load our templates AFTER the Z level exists, otherwise, there is no z level to preload.
 	var/turf_blacklist = SSautomapper.get_turf_blacklists(files) // NOVA EDIT ADDITION - We use blacklisted turfs to carve out places for our templates.
-
 	// load the maps
 	for (var/P in parsed_maps)
 		var/datum/parsed_map/pm = P
@@ -440,7 +439,7 @@ Used by the AI doomsday and the self-destruct nuke.
 		SSautomapper.load_templates_from_cache(files)
 	// NOVA EDIT ADDITION END
 	if(!silent)
-		add_startup_message("Loaded [name] in [(REALTIMEOFDAY - start_time)/10]s!") //NOVA EDIT CHANGE
+		add_startup_message("Loaded [name] in [(REALTIMEOFDAY - start_time)/10]s!") // NOVA EDIT CHANGE - ORIGINAL: INIT_ANNOUNCE("Loaded [name] in [(REALTIMEOFDAY - start_time)/10]s!")
 	return parsed_maps
 
 /datum/controller/subsystem/mapping/proc/loadWorld()
@@ -495,7 +494,7 @@ GLOBAL_LIST_EMPTY(the_station_areas)
 /// Generates the global station area list, filling it with typepaths of unique areas found on the station Z.
 /datum/controller/subsystem/mapping/proc/generate_station_area_list()
 	for(var/area/station/station_area in GLOB.areas)
-		if (!(station_area.area_flags & UNIQUE_AREA))
+		if (!(station_area.area_flags_mapping & UNIQUE_AREA))
 			continue
 		if (is_station_level(station_area.z))
 			GLOB.the_station_areas += station_area.type

@@ -5,6 +5,7 @@
 	equip_sound = 'modular_nova/modules/modular_items/lewd_items/sounds/bang1.ogg'
 	drop_sound = 'modular_nova/modules/modular_items/lewd_items/sounds/bang2.ogg'
 	pickup_sound =  'sound/items/handling/cloth/cloth_pickup1.ogg'
+	obj_flags_nova = ERP_ITEM
 	/// This is used to decide what lewd slot a toy should be able to be inserted into.
 	/// The currently accepted defines are all prefixes with LEWD_SLOT_, and there is one for each lewd organ.
 	/// See code/__DEFINES/~nova_defines/inventory.dm for the full list.

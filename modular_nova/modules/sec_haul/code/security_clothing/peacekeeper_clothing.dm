@@ -51,7 +51,7 @@
 	worn_icon = 'modular_nova/master_files/icons/mob/clothing/hands.dmi'
 	icon_state = "black_blue_gripper_gloves"
 
-/obj/item/clothing/gloves/krav_maga/sec/peacekeeper
+/obj/item/clothing/gloves/kaza_ruk/sec/peacekeeper
 	name = "peacekeeper krav maga gloves"
 	desc = "These gloves can teach you to perform Krav Maga using nanochips."
 	icon = 'modular_nova/master_files/icons/obj/clothing/gloves.dmi'

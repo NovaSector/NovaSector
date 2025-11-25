@@ -5,24 +5,24 @@
 
 	used_capacity = 380
 	storedinfo = list(
-		1 = "<span class='game say'><span class='name'>The universal recorder</span> <span class='message'>says, \"<span class='tape_recorder '>Recording started.</span>\"</span></span>",
-		2 = "<span class='game say'><span class='name'>Officer ???</span> <span class='message'>says, \"<span class=' '>... Yeesh... It's good we got here when we did...</span>\"</span></span>",
-		3 = "<span class='game say'><span class='name'>Janitor ???</span> <span class='message'>sighs, \"<span class=' '>Could have done sooner... Bloke got at me while i went to repaint the stripe on the floor</span>\"</span></span>",
-		4 = "<span class='game say'><span class='name'>Officer ???</span> <span class='message'>sighs, \"<span class=' '>I still need to talk to the Defense Director about marking the safe code... It's better than in the cell, And the shutters are nice...</span>\"</span></span>",
-		5 = "<span class='game say'><span class='name'>Janitor ???</span> <span class='message'>scoffs, \"<span class=' '>Yeah, Another set of shutter tracks i'll have to clean out so they dont jam up...</span>\"</span></span>",
-		6 = "<span class='game say'><span class='name'>Officer ???</span> <span class='message'>grumbles, \"<span class=' '>If you dont like bucket work, You could go with the mining crew</span>\"</span></span>",
-		7 = "<span class='game say'><span class='name'>Janitor ???</span> <span class='message'>groans, \"<span class=' '>... Atleast it wouldn't be one of the directors cleansing squads. One of the ensigns who got slammed to it started some maddened babbling about \"returning\" something.</span>\"</span></span>",
-		8 = "<span class='game say'><span class='name'>The universal recorder</span> <span class='message'>says, \"<span class='tape_recorder '>Recording stopped.</span>\"</span></span>"
+		"<span class='game say'><span class='name'>The universal recorder</span> <span class='message'>says, \"<span class='tape_recorder '>Recording started.</span>\"</span></span>",
+		"<span class='game say'><span class='name'>Officer ???</span> <span class='message'>says, \"<span class=' '>... Yeesh... It's good we got here when we did...</span>\"</span></span>",
+		"<span class='game say'><span class='name'>Janitor ???</span> <span class='message'>sighs, \"<span class=' '>Could have done sooner... Bloke got at me while i went to repaint the stripe on the floor</span>\"</span></span>",
+		"<span class='game say'><span class='name'>Officer ???</span> <span class='message'>sighs, \"<span class=' '>I still need to talk to the Defense Director about marking the safe code... It's better than in the cell, And the shutters are nice...</span>\"</span></span>",
+		"<span class='game say'><span class='name'>Janitor ???</span> <span class='message'>scoffs, \"<span class=' '>Yeah, Another set of shutter tracks i'll have to clean out so they dont jam up...</span>\"</span></span>",
+		"<span class='game say'><span class='name'>Officer ???</span> <span class='message'>grumbles, \"<span class=' '>If you dont like bucket work, You could go with the mining crew</span>\"</span></span>",
+		"<span class='game say'><span class='name'>Janitor ???</span> <span class='message'>groans, \"<span class=' '>... Atleast it wouldn't be one of the directors cleansing squads. One of the ensigns who got slammed to it started some maddened babbling about \"returning\" something.</span>\"</span></span>",
+		"<span class='game say'><span class='name'>The universal recorder</span> <span class='message'>says, \"<span class='tape_recorder '>Recording stopped.</span>\"</span></span>"
 	)
 	timestamp = list(
-		1 = 0,
-		2 = 30,
-		3 = 130,
-		4 = 180,
-		5 = 230,
-		6 = 280,
-		7 = 330,
-		8 = 380
+		0 SECONDS,
+		3 SECONDS,
+		13 SECONDS,
+		18 SECONDS,
+		23 SECONDS,
+		28 SECONDS,
+		33 SECONDS,
+		38 SECONDS,
 	)
 
 /obj/item/tape/ruins/tarkon/safe	//Two talk about weird things in the tunnels - shouldn't be in the game yet
@@ -31,24 +31,24 @@
 
 	used_capacity = 380
 	storedinfo = list(
-		1 = "<span class='game say'><span class='name'>The universal recorder</span> <span class='message'>says, \"<span class='tape_recorder '>Recording started.</span>\"</span></span>",
-		2 = "<span class='game say'><span class='name'>Foreman ???</span> <span class='message'>sighs, \"<span class=' '>Right... Research near finish? Need to stash this back between the solar batteries before I sleep..</span>\"</span></span>",
-		3 = "<span class='game say'><span class='name'>Science Lead ???</span> <span class='message'>says, \"<span class=' '>We're getting the atmospheric scans done... It's definitely an odd find.</span>\"</span></span>",
-		4 = "<span class='game say'><span class='name'>Foreman ???</span> <span class='message'>grumbles, \"<span class=' '>We've been finding some weird stuff in those tunnels.. It's a shame the machines framing was broken.</span>\"</span></span>",
-		5 = "<span class='game say'><span class='name'>Science Lead ???</span> <span class='message'>pauses then sighs out, \"<span class=' '>Yeah... Best we could figure from the wreckage was some sort of AI system.. its wiring looked almost organic though-</span>\"</span></span>",
-		6 = "<span class='game say'><span class='name'>Foreman ???</span> <span class='message'>scoffs, \"<span class=' '>... An- AI?</span>\"</span></span>",
-		7 = "<span class='game say'><span class='name'>Science Lead ???</span> <span class='message'>quips, \"<span class=' '>Yes... We have some possible leads to what it- Ah... The scan finished.. I'll forward the notes about that AI to the Defense Director, Right now I need to compile these readings...</span>\"</span></span>",
-		8 = "<span class='game say'><span class='name'>The universal recorder</span> <span class='message'>says, \"<span class='tape_recorder '>Recording stopped.</span>\"</span></span>"
+		"<span class='game say'><span class='name'>The universal recorder</span> <span class='message'>says, \"<span class='tape_recorder '>Recording started.</span>\"</span></span>",
+		"<span class='game say'><span class='name'>Foreman ???</span> <span class='message'>sighs, \"<span class=' '>Right... Research near finish? Need to stash this back between the solar batteries before I sleep..</span>\"</span></span>",
+		"<span class='game say'><span class='name'>Science Lead ???</span> <span class='message'>says, \"<span class=' '>We're getting the atmospheric scans done... It's definitely an odd find.</span>\"</span></span>",
+		"<span class='game say'><span class='name'>Foreman ???</span> <span class='message'>grumbles, \"<span class=' '>We've been finding some weird stuff in those tunnels.. It's a shame the machines framing was broken.</span>\"</span></span>",
+		"<span class='game say'><span class='name'>Science Lead ???</span> <span class='message'>pauses then sighs out, \"<span class=' '>Yeah... Best we could figure from the wreckage was some sort of AI system.. its wiring looked almost organic though-</span>\"</span></span>",
+		"<span class='game say'><span class='name'>Foreman ???</span> <span class='message'>scoffs, \"<span class=' '>... An- AI?</span>\"</span></span>",
+		"<span class='game say'><span class='name'>Science Lead ???</span> <span class='message'>quips, \"<span class=' '>Yes... We have some possible leads to what it- Ah... The scan finished.. I'll forward the notes about that AI to the Defense Director, Right now I need to compile these readings...</span>\"</span></span>",
+		"<span class='game say'><span class='name'>The universal recorder</span> <span class='message'>says, \"<span class='tape_recorder '>Recording stopped.</span>\"</span></span>"
 	)
 	timestamp = list(
-		1 = 0,
-		2 = 30,
-		3 = 130,
-		4 = 180,
-		5 = 230,
-		6 = 280,
-		7 = 330,
-		8 = 380
+		0 SECONDS,
+		3 SECONDS,
+		13 SECONDS,
+		18 SECONDS,
+		23 SECONDS,
+		28 SECONDS,
+		33 SECONDS,
+		38 SECONDS,
 	)
 
 /obj/item/tape/ruins/tarkon/celebration	//A tape recorded by the ensign during the mid-construction celebration.
@@ -57,24 +57,24 @@
 
 	used_capacity = 380
 	storedinfo = list(
-		1 = "<span class='game say'><span class='name'>The universal recorder</span> <span class='message'>says, \"<span class='tape_recorder '>Recording started.</span>\"</span></span>",
-		2 = "<span class='game say'><span class=' '>Drinks can be heard clinking together, busy chatter of a party drowning out most noises</span></span>",
-		3 = "<span class='game say'><span class='name'>Ensign ???</span> <span class='message'>says, \"<span class=' '>Hey, HEY! Everyone! Shut up for a toast!</span>\"</span></span>",
-		4 = "<span class='game say'><span class='message'>The boistrous cheering can be heard slowly calming down to an eerie silence.</span></span>",
-		5 = "<span class='game say'><span class='name'>Ensign ???</span> <span class='message'>clears their throat then starts to announce, \"<span class=' '>As you've all known.. It's been years since this project started... Bright minds and talented engineers hand in hand working on this project...</span>\"</span></span>",
-		6 = "<span class='game say'><span class='name'>Ensign ???</span> <span class='message'>says pointedly, \"<span class=' '>And after five long years, Tarkon Industries has had its first success. The driver finding a suitable asteroid, And making its mark known by carving out the current docking bay for our transport.</span>\"</span></span>",
-		7 = "<span class='game say'><span class='name'>Ensign ???</span> <span class='message'>announces, \"<span class=' '>Yesterday, We've worked, Toiled in the rock and sand of what is our new home... But today! We celebrate, For Tarkons first success, And for a bright future in the next century! The Twenty-Sixth century is looking bright for us!</span>\"</span></span>",
-		8 = "<span class='game say'><span class='name'>The universal recorder</span> <span class='message'>says, \"<span class='tape_recorder '>Recording stopped.</span>\"</span></span>"
+		"<span class='game say'><span class='name'>The universal recorder</span> <span class='message'>says, \"<span class='tape_recorder '>Recording started.</span>\"</span></span>",
+		"<span class='game say'><span class=' '>Drinks can be heard clinking together, busy chatter of a party drowning out most noises</span></span>",
+		"<span class='game say'><span class='name'>Ensign ???</span> <span class='message'>says, \"<span class=' '>Hey, HEY! Everyone! Shut up for a toast!</span>\"</span></span>",
+		"<span class='game say'><span class='message'>The boistrous cheering can be heard slowly calming down to an eerie silence.</span></span>",
+		"<span class='game say'><span class='name'>Ensign ???</span> <span class='message'>clears their throat then starts to announce, \"<span class=' '>As you've all known.. It's been years since this project started... Bright minds and talented engineers hand in hand working on this project...</span>\"</span></span>",
+		"<span class='game say'><span class='name'>Ensign ???</span> <span class='message'>says pointedly, \"<span class=' '>And after five long years, Tarkon Industries has had its first success. The driver finding a suitable asteroid, And making its mark known by carving out the current docking bay for our transport.</span>\"</span></span>",
+		"<span class='game say'><span class='name'>Ensign ???</span> <span class='message'>announces, \"<span class=' '>Yesterday, We've worked, Toiled in the rock and sand of what is our new home... But today! We celebrate, For Tarkons first success, And for a bright future in the next century! The Twenty-Sixth century is looking bright for us!</span>\"</span></span>",
+		"<span class='game say'><span class='name'>The universal recorder</span> <span class='message'>says, \"<span class='tape_recorder '>Recording stopped.</span>\"</span></span>"
 	)
 	timestamp = list(
-		1 = 0,
-		2 = 30,
-		3 = 130,
-		4 = 180,
-		5 = 230,
-		6 = 280,
-		7 = 330,
-		8 = 380
+		0 SECONDS,
+		3 SECONDS,
+		13 SECONDS,
+		18 SECONDS,
+		23 SECONDS,
+		28 SECONDS,
+		33 SECONDS,
+		38 SECONDS,
 	)
 
 /* ----------------- Fluff/Paper ----------------- */
@@ -83,8 +83,16 @@
 	name = "paper - 'Engineering Report'"
 	default_raw_text = "<b>Void Damn the last crew</b><br><br>Everything was a fucking mess- There was a FUCKING <b>HOLE</b> through the hall to science!<br>,\
 	<br><b>THANKFULLY,</b> The new RCD design came in handy... I swear- They might have taken that artifact and gave me something thats arguably worse... ,\
-	But, Science reassured that they can replace it if i break it... And they gave me that circuitboard they've been stashing, Set it with the blueprints in the solar SMES safe... ,\
-	Felt like a good spot."
+	But, Science reassured that they can replace it if i break it... Dont know how i'd manage that but the reassurance is nice."
+
+/obj/item/paper/fluff/ruins/tarkon/safenote
+	name = "paper - 'Safe Notes'"
+	default_raw_text = "Hey crew, Engineering has informed me about several new safes installed under the flooring, They assured it was to avoid easy access via welding through the back. ,\
+	They also told me that practically every area of the port had them and they were used for some of the most asinine things. ,\
+	The safes we have are for keeping the port's most important items safe... Not as another locker. Not as some contraband stash. ,\
+	<br><br>While i absolutely hate having a giant fucking safe sitting out in the open... Its clear you guys just need more lockers and not a god damn floor safe everywhere.,\
+	The safes have been removed and melted together to make the giant thing thats now in my god damn lobby. ,\
+	<br><br>P.S. Get chains. Once we get our cargo area expanded out, we're dragging that fucking thing into the new secure storage."
 
 /obj/item/paper/fluff/ruins/tarkon/goals
 	name = "paper - 'Tarkon Industries'"
@@ -124,18 +132,6 @@
 	<br><b>Detainee:</b>Minke Arntz<br><b>Rank/Occupation:</b>Field Researcher<br><b>Reason:</b>Deconstructed an M6 to study the effects of space dust on ballistic firearms.<br>,\
 	<br><b>Detainee:</b>Renanta McCrory<br><b>Rank/Occupation:</b>Medical Surgeon<br><b>Reason:</b>Medical Malpractice, Swapped the thumbs of a patient with their big toes. Removed from Premises."
 
-/obj/item/paper/fluff/ruins/tarkon/scisafe
-	name = "paper - 'Science safe notice'"
-	default_raw_text = "<b>Until further notice,</b> we are not handing out the code to the safe.<br>,\
-	<br>Whoever took the research item is getting their ass thrown to the next cleansing squad.<br>,\
-	<br>Yes, It's still in the surgery room.<br>Yes, its code has been reset."
-
-/obj/item/paper/fluff/ruins/tarkon/cargosafe
-	name = "paper - 'Cargo safe note'"
-	default_raw_text = "Hey... Director wasn't happy about bumping their head on the table trying to check funding, so we moved it into the warehouse. ,\
-		<br> Check in the owlcove by the air alarm, make sure to paint the tiling when you're finished. ,\
-		<br> P.S: 50 credits if you can write the code down"
-
 /obj/item/paper/fluff/ruins/tarkon/sop
 	name = "paper - 'Tarkon Security S.O.P'"
 	default_raw_text = "Hey there, lawman. As you might be aware, We dont have full faculties to hold prisoners for long-term storage... ,\
@@ -164,12 +160,17 @@
 	<br><br><b>While we're not able to re-create the ranged capabilities or material space of the \"artifact\" we were given<b> ,\
 	We have returned it to the cargo hold of the port that has let us analyze it, along with an updated RCD model so that they may put the artifact on display rather than to use."
 
-/obj/item/paper/fluff/ruins/tarkon/comsafe
-	name = "paper - 'Command Safe Note'"
-	default_raw_text = "Heh... I couldn't handle letting those older papers go, something about them reminded me about why I jumped on this job. Even added some of the newer papers up.,\
-	The \"Safety of the future\" spiels... Now? Any dingbat can buy their own little constructor in a box... Fancy that we got one ourself, Thing has some handy designs..<br>,\
-	<br> Well- That asside, we did get some new updated circuit boards. Industry standard gave us two sets of research constructor boards for redundancy, ,\
-	So we set the spare set in the special safe within the comms room."
+/obj/item/paper/fluff/ruins/tarkon/macaroni
+	name = "heavy paper - 'Safe Note Update'"
+	default_raw_text = "So- like a week ago the director announced the safe issue, mentioned if we wanted anything secure we had to put it in by next change cycle. ,\
+	I personally think its a bit of a gaff. So I made this note and some macaroni art to put in it."
+	desc = "A sheet of paper, oddly stained on the note side. On the backside appears to be a crude piece of macaroni art depicting a space carp and two halves of a human body."
+
+/obj/item/paper/fluff/ruins/tarkon/cargostore
+	name = "paper - 'Cargo Storage Room Notice'"
+	default_raw_text = "Some contracted salvagers found some interesting crates and needed to store them for a short while. ,\
+	I know we planned on making the room into our delivery room for the new express console system, however engineering have yet to complete the full-sized warehouse next to us for full storage capabilities. ,\
+	Also, Reminder to keep the express console usage only to cases where the cargo ship is out. We need to work on a reinforced light system so we dont need to replace the bulb after every launch."
 
 /obj/item/blueprints/tarkon
 	desc = "Blueprints of the Tarkon surface breaching drill and several Tarkon base designs. Red, stamped text reads \"Confidential\" on the backside of it."

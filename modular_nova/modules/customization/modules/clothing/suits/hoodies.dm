@@ -106,3 +106,12 @@
 	icon_state = "/obj/item/clothing/suit/toggle/jacket/nova/hoodie/branded/smw"
 	post_init_icon_state = "hoodie_SMW"
 	greyscale_colors = "#313131#ffffff"
+
+/obj/item/clothing/suit/jacket/bomber
+	icon = 'icons/map_icons/clothing/suit/_suit.dmi'
+	icon_state = "/obj/item/clothing/suit/jacket/bomber"
+	post_init_icon_state = "bomberjacket"
+	greyscale_config = /datum/greyscale_config/tg_bomberjacket
+	greyscale_config_worn = /datum/greyscale_config/tg_bomberjacket/worn
+	greyscale_colors = "#806253#D6C8B4"
+	flags_1 = IS_PLAYER_COLORABLE_1

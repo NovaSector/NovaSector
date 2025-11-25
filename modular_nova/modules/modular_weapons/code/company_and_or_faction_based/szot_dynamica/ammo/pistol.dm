@@ -10,6 +10,7 @@
 
 	caliber = CALIBER_CESARZOWA
 	projectile_type = /obj/projectile/bullet/c27_54cesarzowa
+	ammo_stack_type = /obj/item/ammo_box/magazine/ammo_stack/c27_54cesarzowa
 
 /obj/item/ammo_casing/c27_54cesarzowa/Initialize(mapload)
 	. = ..()
@@ -18,7 +19,7 @@
 
 /obj/projectile/bullet/c27_54cesarzowa
 	name = ".27-54 Cesarzowa piercing bullet"
-	damage = 20
+	damage = 15
 	armour_penetration = 30
 	wound_bonus = -20
 	exposed_wound_bonus = 20 // if we're hitting exposed, the negative should be canceled by the exposure? maybe? probably.
@@ -51,8 +52,8 @@
 
 /obj/projectile/bullet/c27_54cesarzowa/rubber
 	name = ".27-54 Cesarzowa rubber bullet"
-	stamina = 20
-	damage = 10
+	stamina = 18
+	damage = 5
 	weak_against_armour = TRUE
 	wound_bonus = -30
 	exposed_wound_bonus = -10

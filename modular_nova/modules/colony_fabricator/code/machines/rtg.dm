@@ -2,10 +2,11 @@
 	name = "High-Temperature Self-Contained Reaction Generator"
 	desc = "The ultimate in 'middle of nowhere' power generation. Unlike standard RTGs, this particular \
 		design of generator uses a volatile compound reacting with unstable elements to create a constant trickle of power \
-		There's a label on the side reminding operators that the contents are under heavy pressure, and that impacts should be avoided at all costs."
+		There's a label on the side reminding operators that the contents are under heavy pressure, and that impacts should be avoided at all costs. \
+		It has a yellow radioactive warning, minor radiation posibility. Do not store tomatos nearby."
 	icon = 'modular_nova/modules/colony_fabricator/icons/machines.dmi'
 	circuit = null
-	power_gen = 15 KILO WATTS // 50% more efficient as a Plastitanium Solar
+	power_gen = 15 KILO WATTS // 50% more than a t4 solar or winded turbine.
 	max_integrity = 40
 	/// What we turn into when we are repacked
 	var/repacked_type = /obj/item/flatpacked_machine/rtg
@@ -13,6 +14,7 @@
 /obj/machinery/power/rtg/portable/Initialize(mapload)
 	. = ..()
 	AddElement(/datum/element/repackable, repacked_type, 2 SECONDS)
+	AddElement(/datum/element/radioactive, 1, RAD_LIGHT_INSULATION, URANIUM_IRRADIATION_CHANCE * 0.5, URANIUM_RADIATION_MINIMUM_EXPOSURE_TIME * 7)
 	AddElement(/datum/element/manufacturer_examine, COMPANY_FRONTIER)
 	if(!mapload)
 		flick("rtg_deploy", src)
@@ -48,7 +50,7 @@
 	type_to_deploy = /obj/machinery/power/rtg/portable
 	custom_materials = list(
 		/datum/material/iron = SHEET_MATERIAL_AMOUNT * 5,
-		/datum/material/uranium = SHEET_MATERIAL_AMOUNT * 5,
+		/datum/material/uranium = SHEET_MATERIAL_AMOUNT,
 		/datum/material/plasma = SHEET_MATERIAL_AMOUNT * 5,
 		/datum/material/gold = SHEET_MATERIAL_AMOUNT,
 	)

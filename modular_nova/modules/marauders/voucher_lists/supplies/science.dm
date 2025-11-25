@@ -1,8 +1,8 @@
 /datum/voucher_set/traitor/supplies/science
 
 /datum/voucher_set/traitor/supplies/science/posibrain
-	name = /obj/item/mmi/posibrain/circuit/disk/syndie::name
-	description = /obj/item/mmi/posibrain/circuit/disk/syndie::desc
+	name = "Syndicate positronic brain"
+	description = "A device to download a Syndicate silicon companion, can be stuffed into a cyborg or mech."
 	icon = /obj/item/mmi/posibrain/circuit/disk/syndie::icon
 	icon_state = /obj/item/mmi/posibrain/circuit/disk/syndie::icon_state
 	set_items = list(
@@ -151,15 +151,6 @@
 	icon_state = /obj/item/mod/module/shooting_assistant::icon_state
 	set_items = list(
 		/obj/item/mod/module/shooting_assistant,
-	)
-
-/datum/voucher_set/traitor/supplies/science/mod_module_shove_blocker
-	name = /obj/item/mod/module/shove_blocker::name
-	description = /obj/item/mod/module/shove_blocker::desc
-	icon = /obj/item/mod/module/shove_blocker::icon
-	icon_state = /obj/item/mod/module/shove_blocker::icon_state
-	set_items = list(
-		/obj/item/mod/module/shove_blocker,
 	)
 
 /datum/voucher_set/traitor/supplies/science/mod_module_visor_thermal

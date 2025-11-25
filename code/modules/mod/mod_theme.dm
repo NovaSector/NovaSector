@@ -173,6 +173,7 @@
 		// NOVA EDIT ADDITION END
 		part.icon_state = "[skin]-[part.base_icon_state][mod.get_part_datum(part).sealed ? "-sealed" : ""]"
 		mod.wearer?.update_clothing(part.slot_flags)
+	mod.wearer?.refresh_obscured()
 
 /datum/armor/mod_theme
 	melee = 10
@@ -646,6 +647,7 @@
 		/obj/item/storage/pill_bottle,
 		/obj/item/storage/bag/chemistry,
 		/obj/item/storage/bag/bio,
+		/obj/item/crowbar/power/paramedic,
 	)
 	variants = list(
 		"medical" = list(

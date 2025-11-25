@@ -30,67 +30,52 @@
 		"Midnight Hunter" = "c38rail_midnight_scope",
 	)
 
-	/// Is this revolver amped? Used instead of toggling a fire selector. Amped Laevateinns gain increased damage and projectile velocity in return for firerate and recoil.
-	var/amped = FALSE
-	/// Base damage multiplier of the revolver.
-	var/base_damage_mult = 1
-	/// Base projectile speed multiplier of the revolver.
-	var/base_speed_mult = 1
-	/// Base fire delay of the revolver.
-	var/base_fire_delay = NONE // uses base click delay
 	/// Base fire sound of the revolver.
 	var/base_fire_sound = 'sound/items/weapons/gun/revolver/shot_alt.ogg'
 	/// Base recoil of the revolver.
 	var/base_recoil = NONE
-	/// Amped damage multiplier of the revolver.
-	var/amped_damage_mult = 1.2
-	/// Amped projectile speed multiplier of the revolver.
-	var/amped_speed_mult = 1.5
-	/// Amped fire delay of the revolver.
-	var/amped_fire_delay = CLICK_CD_RANGE * 2 // this actually becomes CLICK_CD_MELEE.
 	/// Amped fire sound of the revolver.
 	var/amped_fire_sound = 'sound/items/weapons/thermalpistol.ogg'
 	/// Amped recoil of the revolver.
 	var/amped_recoil = 0.5
-	actions_types = list(/datum/action/item_action/toggle_38rev_barrel)
-
-/obj/item/gun/ballistic/revolver/c38/super/give_manufacturer_examine()
-	AddElement(/datum/element/manufacturer_examine, COMPANY_NANOTRASEN)
 
 /obj/item/gun/ballistic/revolver/c38/super/Initialize(mapload)
 	. = ..()
 	AddComponent(/datum/component/scope, range_modifier = 2)
+	AddComponent(\
+		/datum/component/gun_booster, \
+		booster_action = /datum/action/item_action/booster/c38super, \
+		base_damage_mult = 1, \
+		base_speed_mult = 1, \
+		base_fire_delay = NONE, \
+		amped_damage_mult = 1.2, \
+		amped_speed_mult = 1.2, \
+		amped_fire_delay = (CLICK_CD_RANGE*2), \
+	)
+	RegisterSignal(src, COMSIG_GUN_BOOSTER_TOGGLED, PROC_REF(on_booster_toggle))
 
-/obj/item/gun/ballistic/revolver/c38/super/update_overlays()
-	. = ..()
+/obj/item/gun/ballistic/revolver/c38/super/Destroy(force)
+	UnregisterSignal(src, COMSIG_GUN_BOOSTER_TOGGLED)
+	return ..()
+
+/obj/item/gun/ballistic/revolver/c38/super/give_manufacturer_examine()
+	AddElement(/datum/element/manufacturer_examine, COMPANY_NANOTRASEN)
+
+/obj/item/gun/ballistic/revolver/c38/super/proc/on_booster_toggle(datum/component/source, mob/user, amped)
+	SIGNAL_HANDLER
 	if(amped)
-		. += "[initial(icon_state)]_charge"
-
-/obj/item/gun/ballistic/revolver/c38/super/ui_action_click(mob/user, actiontype)
-	if(istype(actiontype, /datum/action/item_action/toggle_38rev_barrel))
-		toggle_amp(user)
-	else
-		..()
-
-/obj/item/gun/ballistic/revolver/c38/super/proc/toggle_amp(mob/user)
-	amped = !amped
-	if(amped)
-		projectile_damage_multiplier = amped_damage_mult
-		projectile_speed_multiplier = amped_speed_mult
-		fire_delay = amped_fire_delay
 		fire_sound = amped_fire_sound
 		recoil = amped_recoil
 		balloon_alert(user, "barrel amped")
 	else
-		projectile_damage_multiplier = base_damage_mult
-		projectile_speed_multiplier = base_speed_mult
-		fire_delay = base_fire_delay
 		fire_sound = base_fire_sound
 		recoil = base_recoil
 		balloon_alert(user, "barrel de-amped")
-	playsound(user, 'sound/items/weapons/empty.ogg', 100, TRUE)
-	update_appearance()
-	update_item_action_buttons()
+
+/datum/action/item_action/booster/c38super
+	button_icon = 'modular_nova/modules/modular_weapons/icons/obj/company_and_or_faction_based/nanotrasen_armories/ballistic.dmi'
+	button_icon_state = "revboost"
+	name = "Toggle Revolver Barrel Charger"
 
 /obj/item/gun/ballistic/revolver/c38/super/empty
 	spawn_magazine_type = /obj/item/ammo_box/magazine/internal/cylinder/rev38/empty

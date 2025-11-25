@@ -1024,7 +1024,9 @@ em {
 }
 
 .drone {
-  color: hsl(60, 0.8%, 51.4%);
+  color: hsl(60, 100%, 50%);
+  background-color: hsl(287 62% 36%);
+  font-style: italic;
 }
 
 .monkey {
@@ -1040,12 +1042,8 @@ em {
 }
 
 .upside_down {
-  display: inline;
-  -moz-transform: scale(-1, -1);
-  -webkit-transform: scale(-1, -1);
-  -o-transform: scale(-1, -1);
-  -ms-transform: scale(-1, -1);
-  transform: scale(-1, -1);
+  transform: rotate(180deg);
+  display: inline-block;
 }
 
 .connectionClosed,
@@ -1431,6 +1429,12 @@ $border-width-px: $border-width * 1px;
 .rlooc {
   color: #b09448;
 }
+.subtle {
+  color: #abc6ec;
+}
+.subtler {
+  color: #e2c1ff;
+}
 
 .userlove {
   color: #ff1493;
@@ -1471,6 +1475,11 @@ $border-width-px: $border-width * 1px;
 
 .cyan {
   color: #0ea1e6;
+  font-weight: bold;
+}
+
+.horizonblue {
+  color: #7ca2b8;
   font-weight: bold;
 }
 

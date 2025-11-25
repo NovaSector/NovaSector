@@ -4,6 +4,7 @@
 	icon = 'modular_nova/modules/modular_items/lewd_items/icons/obj/lewd_items/lewd_pills.dmi'
 	icon_state = "crocin"
 	list_reagents = list(/datum/reagent/drug/aphrodisiac/crocin = 10)
+	obj_flags_nova = ERP_ITEM
 
 /obj/item/reagent_containers/applicator/pill/hexacrocin
 	name = "hexacrocin pill (10u)"
@@ -11,6 +12,7 @@
 	icon = 'modular_nova/modules/modular_items/lewd_items/icons/obj/lewd_items/lewd_pills.dmi'
 	icon_state = "hexacrocin"
 	list_reagents = list(/datum/reagent/drug/aphrodisiac/crocin/hexacrocin = 10)
+	obj_flags_nova = ERP_ITEM
 
 /obj/item/reagent_containers/applicator/pill/dopamine
 	name = "dopamine pill (5u)"
@@ -18,6 +20,7 @@
 	icon = 'modular_nova/modules/modular_items/lewd_items/icons/obj/lewd_items/lewd_pills.dmi'
 	icon_state = "dopamine"
 	list_reagents = list(/datum/reagent/drug/aphrodisiac/dopamine = 5)
+	obj_flags_nova = ERP_ITEM
 
 /obj/item/reagent_containers/applicator/pill/camphor
 	name = "camphor pill (10u)"
@@ -25,6 +28,7 @@
 	icon = 'modular_nova/modules/modular_items/lewd_items/icons/obj/lewd_items/lewd_pills.dmi'
 	icon_state = "camphor"
 	list_reagents = list(/datum/reagent/drug/aphrodisiac/camphor = 10)
+	obj_flags_nova = ERP_ITEM
 
 /obj/item/reagent_containers/applicator/pill/pentacamphor
 	name = "pentacamphor pill (10u)"
@@ -32,3 +36,4 @@
 	icon = 'modular_nova/modules/modular_items/lewd_items/icons/obj/lewd_items/lewd_pills.dmi'
 	icon_state = "pentacamphor"
 	list_reagents = list(/datum/reagent/drug/aphrodisiac/camphor/pentacamphor = 10)
+	obj_flags_nova = ERP_ITEM
