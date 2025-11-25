@@ -34,7 +34,7 @@
 		"",
 	)
 	var/is_admin = check_rights_for(recipient.client, R_ADMIN)
-	for(var/player_ref, player_data in command_player_ready_data) // Command first
+	for(var/player_ref, player_data in command_player_ready_data) // Command and silicons first
 		job_estimation += "[player_data[INDEX_PLAYER_DATA]][is_admin ? " ([player_data[INDEX_PLAYER_CKEY]])" : ""]"
 
 	for(var/player_ref, player_data in player_ready_data)
@@ -92,9 +92,9 @@
 	if(player_job.departments_bitflags & (DEPARTMENT_BITFLAG_COMMAND | DEPARTMENT_BITFLAG_SILICON))
 		command_player_ready_data[player_ref] = list(job_estimation_text, player.ckey)
 	else if(player_job.departments_bitflags & DEPARTMENT_BITFLAG_ASSISTANT)
-		player_ready_data[player_ref] = list(job_estimation_text, player.ckey)
-	else
 		assistant_player_ready_data[player_ref] = list(job_estimation_text, player.ckey)
+	else
+		player_ready_data[player_ref] = list(job_estimation_text, player.ckey)
 
 	RegisterSignal(player, COMSIG_JOB_PREF_UPDATED, PROC_REF(on_client_changes_job))
 
