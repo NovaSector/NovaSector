@@ -7675,6 +7675,7 @@
 #include "modular_nova\modules\bodyparts\code\ghoul_bodyparts.dm"
 #include "modular_nova\modules\bodyparts\code\golem_bodyparts.dm"
 #include "modular_nova\modules\bodyparts\code\harpy_bodyparts.dm"
+#include "modular_nova\modules\bodyparts\code\humanoid_bodyparts.dm"
 #include "modular_nova\modules\bodyparts\code\human_bodyparts.dm"
 #include "modular_nova\modules\bodyparts\code\insect_bodyparts.dm"
 #include "modular_nova\modules\bodyparts\code\insectoid_bodyparts.dm"

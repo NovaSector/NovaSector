@@ -670,29 +670,3 @@
 	. = ..()
 	ADD_TRAIT(src, TRAIT_IGNORED_BY_LIVING_FLESH, BODYPART_TRAIT)
 	AddElement(/datum/element/living_limb_initialiser)
-
-// MUTANT HUMAN PART OVERRIDES - HEMOPHAGE AND HUMANOID SPRITE OVERRIDES//
-
-/obj/item/bodypart/head/mhuman
-	icon_greyscale = BODYPART_ICON_HUMANOID
-	limb_id = SPECIES_MUTANT_HUMAN
-
-/obj/item/bodypart/chest/mhuman
-	icon_greyscale = BODYPART_ICON_HUMANOID
-	limb_id = SPECIES_MUTANT_HUMAN
-
-/obj/item/bodypart/arm/left/mhuman
-	icon_greyscale = BODYPART_ICON_MAMMAL
-	limb_id = SPECIES_MAMMAL
-
-/obj/item/bodypart/arm/right/mhuman
-	icon_greyscale = BODYPART_ICON_MAMMAL
-	limb_id = SPECIES_MAMMAL
-
-/obj/item/bodypart/leg/left/mhuman
-	icon_greyscale = BODYPART_ICON_HUMANOID
-	limb_id = SPECIES_MUTANT_HUMAN
-
-/obj/item/bodypart/leg/right/mhuman
-	icon_greyscale = BODYPART_ICON_HUMANOID
-	limb_id = SPECIES_MUTANT_HUMAN
