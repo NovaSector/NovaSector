@@ -40,7 +40,7 @@
 	for(var/player_ref, player_data in player_ready_data)
 		job_estimation += "[player_data[INDEX_PLAYER_DATA]][is_admin ? " ([player_data[INDEX_PLAYER_CKEY]])" : ""]"
 
-	for(var/player_ref, player_data in assistant_ready_data) // Assistants last
+	for(var/player_ref, player_data in assistant_player_ready_data) // Assistants last
 		job_estimation += "[player_data[INDEX_PLAYER_DATA]][is_admin ? " ([player_data[INDEX_PLAYER_CKEY]])" : ""]"
 
 	return job_estimation
