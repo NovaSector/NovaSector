@@ -48,12 +48,12 @@
 	)
 
 /datum/voucher_set/traitor/secondary_weapon/cybersun_laser
-	name = /obj/item/gun/energy/laser/carbine/cybersun::name
-	description = /obj/item/gun/energy/laser/carbine/cybersun::desc
-	icon = /obj/item/gun/energy/laser/carbine/cybersun::icon
-	icon_state = /obj/item/gun/energy/laser/carbine/cybersun::icon_state
+	name = /obj/item/gun/energy/laser/cybersun::name
+	description = /obj/item/gun/energy/laser/cybersun::desc
+	icon = /obj/item/gun/energy/laser/cybersun::icon
+	icon_state = /obj/item/gun/energy/laser/cybersun::icon_state
 	set_items = list(
-		/obj/item/gun/energy/laser/carbine/cybersun/unrestricted,
+		/obj/item/gun/energy/laser/cybersun/unrestricted,
 		/obj/item/storage/box/syndie_kit/recharger,
 	)
 

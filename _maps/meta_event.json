@@ -11,6 +11,7 @@
 		"whiteship": "whiteship_meta",
 		"emergency": "emergency_meta"
 	},
+	"exclude_from_ci": true,
 	"job_changes": {
 		"Cook": {
 			"additional_cqc_areas": [

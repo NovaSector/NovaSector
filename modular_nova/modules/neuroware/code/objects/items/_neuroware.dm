@@ -6,25 +6,28 @@
 #define CHIP_LABEL_SYNDIE "It has <b>[span_red("Cybersun Industries")]</b> laser-etched into it."
 #define CHIP_LABEL_WARD "It has <b>[span_yellow("Ward-Takahashi Manufacturing")]</b> laser-etched into it."
 #define CHIP_LABEL_ZENGHU "It has a <b>[span_pink("Zeng-Hu Pharmaceuticals")]</b> label visible on it."
-///Neuroware chips are installed into this
-#define NEURO_SLOT_NAME "persocom chip slot"
+///Neuroware chips are installed into this for synthetic brains
+#define SYNTH_SLOT_NAME "persocom chip slot"
 
 ///Data chip which contextualizes drugs as "software" for synthetic brains.
 ///Like pills, but doesn't directly contain reagents, instead adds them manually.
 /obj/item/disk/neuroware
 	name = "neuroware chip"
-	special_desc = "A neuroware chip uploads neurocomputing programs to the user's brain. The recipient must be a synthetic humanoid. \
-		Neurocomputing software, also known as neuroware, are programs designed to execute their code within the synaptic connections of artificial neural networks."
+	special_desc = "A neuroware chip uploads neurocomputing programs to the user's brain. The recipient must have a NIF implant or a synthetic brain. \
+		Neurocomputing software, also known as neuroware, are programs designed to execute their code within the synaptic connections of neural networks."
 	icon = 'modular_nova/modules/neuroware/icons/neuroware.dmi'
 	icon_state = "chip_generic"
 	post_init_icon_state = "chip_generic"
 	greyscale_config = /datum/greyscale_config/neuroware
 	// Color of circuitboard underlay.
 	greyscale_colors = CIRCUIT_COLOR_GENERIC
+
+	///Balloon message upon successful installation.
 	var/success_message = "inserted neuroware chip"
 	///Associative list of reagent types to units. Added to the mob when the chip is used.
 	var/list/list_reagents
 	///Manufacturer label appended to examine.
+	/// For the list of available tags, see [code/__DEFINES/~nova_defines/neuroware_defines.dm]
 	var/manufacturer_tag
 	///How many deciseconds to delay when used on someone else.
 	var/external_delay = 5 SECONDS
@@ -88,7 +91,13 @@
 
 	can_overdose = !can_overdose
 
-	playsound(src, 'sound/machines/click.ogg', 50, TRUE, SILENCED_SOUND_EXTRARANGE)
+	playsound(
+		source = src,
+		soundin = 'sound/machines/click.ogg',
+		vol = HALFWAY_SOUND_VOLUME,
+		vary = TRUE,
+		extrarange = SILENCED_SOUND_EXTRARANGE
+	)
 	balloon_alert(user, "safety [can_overdose ? "disabled" : "enabled"]")
 	return TRUE
 
@@ -111,7 +120,7 @@
 /obj/item/disk/neuroware/proc/after_install(mob/living/carbon/human/target, mob/living/carbon/human/user)
 	return
 
-///Returns TRUE if overdose would occur upon install(), overwise returns FALSE.
+///Returns TRUE if overdose would occur upon install(), otherwise returns FALSE.
 /obj/item/disk/neuroware/proc/check_overdose(mob/living/carbon/human/target, list/reagent_list)
 	for(var/reagent_type in reagent_list)
 		var/datum/reagent/existing_reagent = target.has_reagent(reagent_type)
@@ -122,40 +131,47 @@
 			return TRUE
 	return FALSE
 
-///Installs only if the mob has a synthetic brain, unless they got a nif
+///Installs only if the mob has a synthetic brain or NIF implant. Returns TRUE on success.
 /obj/item/disk/neuroware/proc/try_install(mob/living/carbon/human/target, mob/living/carbon/human/user)
 	if(!ishuman(target))
 		return
 	if(uses == 0)
 		balloon_alert(user, "it's been used up!")
 		return
+
+	var/slot_name = SYNTH_SLOT_NAME
+
 	var/obj/item/organ/brain/owner_brain = target.get_organ_slot(ORGAN_SLOT_BRAIN)
-	var/obj/item/organ/cyberimp/brain/nif/is_nif_user = target.get_organ_by_type(/obj/item/organ/cyberimp/brain/nif)
 	// Allow install if they have either a robotic brain (synthetic, including cortical) OR a NIF
-	if(isnull(owner_brain) || (!(owner_brain.organ_flags & ORGAN_ROBOTIC) && !is_nif_user))
-		balloon_alert(user, "synthetic brain or NIF required!")
-		return
+	if(isnull(owner_brain) || !(owner_brain.organ_flags & ORGAN_ROBOTIC))
+		var/obj/item/organ/cyberimp/brain/nif/nif_implant = target.get_organ_slot(ORGAN_SLOT_BRAIN_NIF)
+		if(isnull(nif_implant) || nif_implant.broken)
+			balloon_alert(user, "synthetic brain or NIF required!")
+			return
+		// Target lacks a robotic brain, so use the NIF
+		slot_name = "[nif_implant] slot"
+
 	if(is_lewd && !(target.client?.prefs.read_preference(/datum/preference/toggle/erp/aphro)))
 		balloon_alert(user, "installation failed!")
 		return
 
 	if(target != user)
 		target.visible_message(
-			span_danger("[user] tries to force [src] into [target]'s [NEURO_SLOT_NAME]!"),
-			span_userdanger("[user] tries to force [src] into your [NEURO_SLOT_NAME]!")
+			span_danger("[user] tries to force [src] into [target]'s [slot_name]!"),
+			span_userdanger("[user] tries to force [src] into your [slot_name]!")
 		)
 		if(target.is_blind())
-			to_chat(target, span_userdanger("You feel something being inserted into your [NEURO_SLOT_NAME]!"))
+			to_chat(target, span_userdanger("You feel something being inserted into your [slot_name]!"))
 		if(external_delay > 0)
 			user.balloon_alert_to_viewers("inserting chip...")
 			if(!do_after(user, 5 SECONDS, target))
 				return
 		target.visible_message(
-			span_danger("[user] forces [src] into [target]'s [NEURO_SLOT_NAME]!"),
-			span_userdanger("[user] forces [src] into your [NEURO_SLOT_NAME]!")
+			span_danger("[user] forces [src] into [target]'s [slot_name]!"),
+			span_userdanger("[user] forces [src] into your [slot_name]!")
 		)
 		if(target.is_blind())
-			to_chat(target, span_userdanger("Something was inserted into your [NEURO_SLOT_NAME]!"))
+			to_chat(target, span_userdanger("Something was inserted into your [slot_name]!"))
 
 	// Prevent reagent overdose if safety is enabled
 	if(length(list_reagents) && !can_overdose && check_overdose(target, list_reagents))
@@ -166,7 +182,12 @@
 	if(!install(target, user))
 		return
 	target.balloon_alert_to_viewers(success_message)
-	playsound(target, 'sound/machines/pda_button/pda_button1.ogg', 50, TRUE)
+	playsound(
+		source = target,
+		soundin = 'sound/machines/pda_button/pda_button1.ogg',
+		vol = HALFWAY_SOUND_VOLUME,
+		vary = TRUE
+	)
 
 	// Implement side-effects from subtypes
 	after_install(target, user)
@@ -198,4 +219,4 @@
 #undef CHIP_LABEL_SYNDIE
 #undef CHIP_LABEL_WARD
 #undef CHIP_LABEL_ZENGHU
-#undef NEURO_SLOT_NAME
+#undef SYNTH_SLOT_NAME

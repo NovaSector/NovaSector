@@ -14,4 +14,4 @@
 	// Can be used on the target instantly
 	external_delay = 0
 	special_desc_requirement = EXAMINE_CHECK_SYNDICATE
-	special_desc = "This Syndicate neuroware chip contains CrypSys, a package of ransomware viruses targeting synthetic humanoids. Designed to temporarily render the target mute, immobile, and unconscious."
+	special_desc = "This Syndicate neuroware chip contains CrypSys, a package of debilitating neurocomputing viruses and ransomware. Designed to temporarily render the target mute, immobile, and unconscious."

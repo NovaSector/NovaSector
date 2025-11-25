@@ -165,7 +165,7 @@
 		if(!use_reverb || sound_to_use.environment == SOUND_ENVIRONMENT_NONE)
 			sound_to_use.echo ||= new /list(18)
 			sound_to_use.echo[3] = -1300 //Room setting, 0 means normal reverb // NOVA EDIT CHANGE - ORIGINAL: sound_to_use.echo[3] = -10000
-			sound_to_use.echo[4] = -1300 //RoomHF setting, 0 means normal reverb. //N OVA EDIT CHANGE - ORIGINAL: sound_to_use.echo[4] = -10000
+			sound_to_use.echo[4] = -1300 //RoomHF setting, 0 means normal reverb. // NOVA EDIT CHANGE - ORIGINAL: sound_to_use.echo[4] = -10000
 
 	// Apply user-specific volume modifier, if necessary
 	if(ispath(volume_preference) && client.prefs)

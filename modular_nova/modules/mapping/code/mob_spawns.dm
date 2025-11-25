@@ -60,7 +60,7 @@
 	console.remote_ref = WEAKREF(remote)
 	remote.computer_ref = WEAKREF(console)
 
-/obj/item/gun/energy/laser/carbine/cybersun/black_market_trader
+/obj/item/gun/energy/laser/cybersun/black_market_trader
 	desc = "A laser gun primarily used by syndicate security guards. It fires a rapid spray of low-power plasma beams. This one seems to have had its firing pin replaced."
 	pin = /obj/item/firing_pin
 
@@ -68,7 +68,7 @@
 	name = "black market trader weapon spawner"
 	icon_state = "pistol"
 	loot = list(
-		/obj/item/gun/energy/laser/carbine/cybersun/black_market_trader = 80,
+		/obj/item/gun/energy/laser/cybersun/black_market_trader = 80,
 		/obj/item/gun/energy/e_gun/old = 50,
 		/obj/item/gun/ballistic/shotgun/automatic/combat = 50,
 		/obj/item/gun/ballistic/automatic/pistol/contraband = 30,

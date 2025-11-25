@@ -4,6 +4,7 @@
 	requires_power = FALSE
 	static_lighting = TRUE
 	area_flags = NOTELEPORT
+	area_flags_mapping = NONE
 	default_gravity = 1
 
 /area/awaymission/caves/heretic_laboratory
@@ -11,6 +12,7 @@
 	requires_power = FALSE
 	static_lighting = TRUE
 	area_flags = NOTELEPORT
+	area_flags_mapping = NONE
 	default_gravity = 1
 
 /area/awaymission/caves/heretic_laboratory_clean
@@ -19,6 +21,7 @@
 	requires_power = FALSE
 	static_lighting = TRUE
 	area_flags = NOTELEPORT
+	area_flags_mapping = NONE
 	default_gravity = 1
 
 #define HERETIC_LINE_1 "heretic_1"

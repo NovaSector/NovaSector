@@ -299,14 +299,6 @@
 	},
 /turf/open/floor/iron/dark/brick,
 /area/ruin/space/has_grav/nova/des_two/engineering)
-"bn" = (
-/obj/effect/spawner/structure/window/reinforced/plasma/plastitanium,
-/obj/structure/cable,
-/obj/machinery/door/poddoor/preopen{
-	id = "diner-view"
-	},
-/turf/open/floor/plating,
-/area/ruin/space/has_grav/nova/des_two/service/diner)
 "bp" = (
 /obj/structure/chair/plastic{
 	dir = 4
@@ -3772,11 +3764,11 @@
 /turf/open/floor/catwalk_floor/iron_dark,
 /area/ruin/space/has_grav/nova/des_two/engineering)
 "pN" = (
-/obj/effect/spawner/structure/window/reinforced/plasma/plastitanium,
 /obj/structure/cable,
 /obj/machinery/door/poddoor/preopen{
-	id = "break-room"
+	id = "diner-view"
 	},
+/obj/effect/spawner/structure/window/reinforced/plasma/plastitanium,
 /turf/open/floor/plating,
 /area/ruin/space/has_grav/nova/des_two/service/diner)
 "pO" = (
@@ -15314,8 +15306,8 @@ iD
 iD
 Jc
 gT
-bn
-bn
+pN
+pN
 pN
 gT
 gT

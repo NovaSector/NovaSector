@@ -178,12 +178,12 @@
 	// Husk detection
 	if(HAS_TRAIT(target, TRAIT_HUSK))
 		if(advanced)
-			if(HAS_TRAIT_FROM(target, TRAIT_HUSK, BURN))
-				render_list += "<span class='alert ml-1'>Subject has been husked by [conditional_tooltip("severe burns", "Tend burns and apply a de-husking agent, such as [/datum/reagent/medicine/c2/synthflesh::name].", tochat)].</span><br>"
-			else if (HAS_TRAIT_FROM(target, TRAIT_HUSK, CHANGELING_DRAIN))
-				render_list += "<span class='alert ml-1'>Subject has been husked by [conditional_tooltip("desiccation", "Perform blood transfusion and apply a de-husking agent such as [/datum/reagent/medicine/c2/synthflesh::name]. Full restoration will require more than usual.", tochat)].</span><br>" // NOVA EDIT - CHANGE. ORIGINAL: render_list += "<span class='alert ml-1'>Subject has been husked by [conditional_tooltip("desiccation", "Irreparable. Under normal circumstances, revival can only proceed via brain transplant.", tochat)].</span><br>"
-			else
+			if(HAS_TRAIT_FROM(target, TRAIT_HUSK, CHANGELING_DRAIN))
+				render_list += "<span class='alert ml-1'>Subject has been husked by [conditional_tooltip("desiccation", "Perform blood transfusion and apply a de-husking agent such as [/datum/reagent/medicine/c2/synthflesh::name]. Full restoration will require more than usual.", tochat)].</span><br>" // NOVA EDIT CHANGE - ORIGINAL: render_list += "<span class='alert ml-1'>Subject has been husked by [conditional_tooltip("desiccation", "Irreparable. Under normal circumstances, revival can only proceed via brain transplant.", tochat)].</span><br>"
+			else if(!HAS_TRAIT_FROM(target, TRAIT_HUSK, BURN)) // prioritize showing unknown causes over burns
 				render_list += "<span class='alert ml-1'>Subject has been husked by mysterious causes.</span><br>"
+			else
+				render_list += "<span class='alert ml-1'>Subject has been husked by [conditional_tooltip("severe burns", "Tend burns and apply a de-husking agent, such as [/datum/reagent/medicine/c2/synthflesh::name].", tochat)].</span><br>"
 
 		else
 			render_list += "<span class='alert ml-1'>Subject has been husked.</span><br>"
@@ -571,13 +571,12 @@
 				render_block += "<span class='notice ml-2'>[round(reagent.volume, 0.001)] units of [reagent.name][reagent.overdosed ? "</span> - [span_bolddanger("OVERDOSING")]" : ".</span>"]<br>"
 
 		// NOVA EDIT ADDITION BEGIN - Neuroware
-		if(!length(neuroware_list))
-			var/obj/item/organ/brain/owner_brain = target.get_organ_slot(ORGAN_SLOT_BRAIN)
-			if(!isnull(owner_brain) && (owner_brain.organ_flags & ORGAN_ROBOTIC))
+		if(target.is_neuroware_compatible())
+			if(length(neuroware_list))
+				render_list += "<span class='notice ml-1'>Subject contains the following neuroware in their brain:</span><br>"
+				render_list += jointext(neuroware_list + "<br>", "")
+			else
 				render_list += "<span class='notice ml-1'>Subject contains no neuroware in their brain.</span><br>"
-		else
-			render_list += "<span class='notice ml-1'>Subject contains the following neuroware in their brain:</span><br>"
-			render_list += jointext(neuroware_list + "<br>", "")
 		// NOVA EDIT ADDITION END
 		if(!length(render_block)) //If no VISIBLY DISPLAYED reagents are present, we report as if there is nothing.
 			render_list += "<span class='notice ml-1'>Subject contains no reagents in their [LOWER_TEXT(target.get_bloodtype()?.get_blood_name()) || "blood"]stream.</span><br>"

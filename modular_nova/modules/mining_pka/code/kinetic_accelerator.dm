@@ -4,6 +4,8 @@
 /obj/item/gun/energy/recharge/kinetic_accelerator/variant/Initialize(mapload)
 	. = ..()
 	if(type == /obj/item/gun/energy/recharge/kinetic_accelerator/variant) // we don't want these prototypes to exist
+		if(pin)
+			QDEL_NULL(pin)
 		return INITIALIZE_HINT_QDEL
 
 /obj/item/gun/energy/recharge/kinetic_accelerator/variant/attackby(obj/item/attacking_item, mob/user, list/modifiers, list/attack_modifiers)
@@ -102,23 +104,6 @@
 /obj/item/gun/energy/recharge/kinetic_accelerator/variant/glock/add_bayonet_point()
 	return
 
-/obj/item/gun/energy/recharge/kinetic_accelerator/variant/shockwave
-	name = "proto-kinetic shockwave"
-	desc = parent_type::desc + " This variant produces a shockwave that surrounds the user with kinetic energy."
-	special_desc = "This proto-kinetic design will slam the ground, creating a shockwave around the user, with the same power as the base PKA.\
-	The only downside is the lowered mod capacity, the lack of range it offers, and the higher cooldown, but its pretty good for clearing rocks. \
-	Quite frankly, we have no idea how the Mining Research and Development team came up with this one, all we know is that alot of beer was involved."
-	icon = 'modular_nova/modules/mining_pka/icons/pka.dmi'
-	icon_state = "kineticshockwave"
-	base_icon_state = "kineticshockwave"
-	inhand_icon_state = "kineticgun"
-	ammo_type = list(/obj/item/ammo_casing/energy/kinetic/shockwave)
-	max_mod_capacity = 65
-	randomspread = 0
-
-/obj/item/gun/energy/recharge/kinetic_accelerator/variant/shockwave/add_bayonet_point()
-	return
-
 /obj/item/gun/energy/recharge/kinetic_accelerator/variant/nomod/m79
 	name = "proto-kinetic grenade launcher"
 	desc = parent_type::desc + " This variant launches mining charges, using the kinetic energy to propel them."
@@ -136,9 +121,3 @@
 
 /obj/item/gun/energy/recharge/kinetic_accelerator/variant/nomod/m79/add_bayonet_point()
 	return
-
-//Shockwave process_fire override to prevent Point Blank, we shoot towards the edge of the direction of the user, like with jumpboots.
-
-/obj/item/gun/energy/recharge/kinetic_accelerator/variant/shockwave/process_fire(atom/target, mob/living/user, message = TRUE, params = null, zone_override = "", bonus_spread = 0)
-	target = get_edge_target_turf(user, user.dir)
-	return ..()

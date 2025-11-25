@@ -37,7 +37,7 @@
 	. += span_notice(CRANK_MESSAGE)
 
 // X ray laser gun
-/obj/item/gun/energy/xray/Initialize(mapload)
+/obj/item/gun/energy/laser/xray/Initialize(mapload)
 	. = ..()
 	AddComponent( \
 		/datum/component/crank_recharge, \
@@ -49,7 +49,7 @@
 		charge_move = IGNORE_USER_LOC_CHANGE, \
 	)
 
-/obj/item/gun/energy/xray/examine(mob/user)
+/obj/item/gun/energy/laser/xray/examine(mob/user)
 	. = ..()
 	. += span_notice(CRANK_MESSAGE)
 
