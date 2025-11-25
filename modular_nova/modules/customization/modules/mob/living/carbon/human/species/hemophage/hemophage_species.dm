@@ -33,13 +33,6 @@
 	examine_limb_id = SPECIES_HUMAN
 	skinned_type = /obj/item/stack/sheet/animalhide/human
 
-// MUTANT COLOR OVERRIDE
-/datum/species/hemophage/New()
-	inherent_traits |= list(
-		TRAIT_MUTANT_COLORS,
-	)
-	. = ..()
-
 /datum/species/hemophage/allows_food_preferences()
 	return FALSE
 
@@ -134,8 +127,6 @@
 	human.hair_color = "#1d1d1d"
 	human.hairstyle = "Pompadour (Big)"
 	human.dna.features[FEATURE_MUTANT_COLOR] = main_color
-	human.dna.features[FEATURE_MUTANT_COLOR_TWO] = main_color
-	human.dna.features[FEATURE_MUTANT_COLOR_THREE] = main_color
 	regenerate_organs(human, src, visual_only = TRUE)
 	human.update_body(TRUE)
 
