@@ -280,6 +280,39 @@
 
 	ammo_type = /obj/item/ammo_casing/c980grenade/riot
 
+// .980 kinetic concussive grenade (throw people around. ruin interior decorations. maybe actually give someone a concussion.)
+/obj/item/ammo_casing/c980grenade/concussive
+	name = ".980 Tydhouer kinetic concussive grenade"
+	desc = "A large grenade shell that will detonate at a range given to it by the gun that fires it. Creates a kinetic shockwave optimized for \
+		throwing things around, including people, and disorienting people via pressure wave."
+
+	icon_state = "980_concussive"
+	ammo_categories = AMMO_CLASS_NICHE
+	projectile_type = /obj/projectile/bullet/c980grenade/concussive
+
+
+/obj/projectile/bullet/c980grenade/concussive
+	name = ".980 Tydhouer kinetic concussive grenade"
+
+/obj/projectile/bullet/c980grenade/concussive/fuse_activation(atom/target)
+	playsound(src, 'modular_nova/modules/modular_weapons/sounds/grenade_burst.ogg', 50, TRUE, -3)
+	playsound(src, 'sound/effects/smoke.ogg', 50, TRUE, -3)
+	var/datum/effect_system/fluid_spread/smoke/chem/smoke = new()
+	smoke.chemholder.add_reagent(/datum/reagent/consumable/condensedcapsaicin, 10)
+	smoke.set_up(GRENADE_SMOKE_RANGE, holder = src, location = src)
+	smoke.start()
+
+
+/obj/item/ammo_box/c980grenade/concussive
+	name = "ammo box (.980 Tydhouer kinetic concussive)"
+	desc = "A box of four .980 Tydhouer concussive grenades. Instructions on the box indicate these are \
+		kinetic concussive rounds that generate a wave of force that debilitates those in its blast radius. \
+		A disclaimer notes that these may cause "
+
+	icon_state = "980box_conc"
+
+	ammo_type = /obj/item/ammo_casing/c980grenade/riot
+
 #undef AMMO_MATS_GRENADE
 #undef AMMO_MATS_GRENADE_SHRAPNEL
 #undef AMMO_MATS_GRENADE_INCENDIARY
