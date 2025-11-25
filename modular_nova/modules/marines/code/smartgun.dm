@@ -37,7 +37,7 @@
 /obj/item/gun/ballistic/automatic/smart_machine_gun/Initialize(mapload)
 	. = ..()
 	AddComponent(/datum/component/automatic_fire, fire_delay)
-	AddComponent(/datum/component/iff, iff_factions)
+	AddComponent(/datum/component/identify_friend_foe, iff_factions)
 
 	AddElement(/datum/element/update_icon_updates_onmob)
 
