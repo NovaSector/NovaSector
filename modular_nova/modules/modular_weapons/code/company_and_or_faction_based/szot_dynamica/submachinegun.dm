@@ -44,7 +44,7 @@
 	weapon a logistical nightmare. The magazine's simple, angular construction ensures it snags on every doorframe, equipment webbing, \
 	and stray thought its user might have. A notorious quirk in the manual of arms requires the charging handle to be locked in a specific \
 	loading notch before inserting a fresh magazine; failure to do so means the spring pressure of fifty rounds makes racking the slide a \
-	feat of strength typically associated with loading capital ship coilguns. <br><br> \
+	feat of strength typically associated with loading capital ship railguns. <br><br> \
 	It is the weapon of choice for budget-conscious militias, underworld enforcers who prioritize intimidation over finesse, and \
 	security details who are more concerned with the upfront cost on a spreadsheet than the long-term chiropractic bills of their personnel. \
 	It is a blunt instrument that fires smaller blunt instruments, a testament to the fact that sometimes, the cheapest solution is also the \
