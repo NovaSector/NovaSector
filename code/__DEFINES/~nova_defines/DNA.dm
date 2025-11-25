@@ -157,6 +157,7 @@
 #define SPECIES_AQUATIC "aquatic"
 #define SPECIES_DWARF "dwarf"
 #define SPECIES_HUMANOID "humanoid"
+#define SPECIES_MUTANT_HUMAN "mhuman"
 #define SPECIES_INSECT "insect"
 #define SPECIES_MAMMAL "mammal"
 #define SPECIES_PODPERSON_WEAK "podweak"
