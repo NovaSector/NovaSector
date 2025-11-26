@@ -141,11 +141,11 @@
 /turf/open/floor/iron/shuttle/exploration/hazard,
 /area/misc/condo)
 "fn" = (
-/turf/open/space/mirage,
+/turf/open/floor/fakespace,
 /area/misc/condo)
 "fs" = (
 /obj/item/toy/plush/carpplushie,
-/turf/open/space/mirage,
+/turf/open/floor/fakespace,
 /area/misc/condo)
 "gr" = (
 /obj/effect/turf_decal/trimline/dark_blue/filled/line{
@@ -284,7 +284,7 @@
 /area/misc/condo)
 "mM" = (
 /obj/structure/lattice,
-/turf/open/space/mirage,
+/turf/open/floor/fakespace,
 /area/misc/condo)
 "nZ" = (
 /obj/effect/turf_decal/siding/wood/end,
