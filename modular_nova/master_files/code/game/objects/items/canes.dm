@@ -1,3 +1,4 @@
+/// Gives this the same effect as a crutch
 /obj/item/cane/movement_support_add(mob/living/user)
  	. = ..()
 	RegisterSignal(user, COMSIG_LIVING_LIMBLESS_SLOWDOWN, PROC_REF(handle_cane_slowdown))
