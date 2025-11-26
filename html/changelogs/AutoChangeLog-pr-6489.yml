@@ -1,0 +1,4 @@
+author: "RatFromTheJungle"
+delete-after: True
+changes:
+  - code_imp: "The round-end report no longer auto- opens magically! Click the button that appears in the top left instead to open it."
