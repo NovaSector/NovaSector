@@ -138,7 +138,7 @@
 				if(is_visual && viewer.is_blind())
 					continue
 				// NOVA EDIT ADDITION START - Pref checked emotes
-				if(!pref_check_emote(viewer))
+				if((emote_type & EMOTE_LEWD) && !pref_check_emote(viewer))
 					continue
 				// NOVA EDIT ADDITION END
 			if(user.runechat_prefs_check(viewer, EMOTE_MESSAGE))
@@ -207,7 +207,7 @@
 	if(hologram)
 		if(is_important)
 			for(var/mob/living/viewer in viewers(world.view, hologram))
-				if(!pref_check_emote(viewer))
+				if((emote_type & EMOTE_LEWD) && !pref_check_emote(viewer))
 					continue
 				to_chat(viewer, msg)
 		else if(is_visual && is_audible)
@@ -244,7 +244,7 @@
 			if(!(get_chat_toggles(ghost.client) & CHAT_GHOSTSIGHT))
 				continue
 			// NOVA EDIT ADDITION START - Pref checked emotes
-			if(!pref_check_emote(ghost))
+			if((emote_type & EMOTE_LEWD) && !pref_check_emote(ghost))
 				continue
 			// NOVA EDIT ADDITION END
 			to_chat(ghost, span_emote("[FOLLOW_LINK(ghost, user)] [dchatmsg]"))
