@@ -165,7 +165,6 @@
 	in a set direction. It is plated in Tarkon-coloured panels."
 	icon_state = "orebox_t"
 	repacked_type = /obj/item/flatpacked_machine/boulder_collector/tarkon
-	perpetual = TRUE //So we dont lose it during resets, if we're making it a mapping-based tool
 
 /obj/structure/ore_box/boulder_collector/nt
 	name = "NT BSC Refinery Box"
