@@ -1,5 +1,5 @@
 /obj/item/gun/ballistic/rifle/pulse_sniper
-	name = "\improper M/PR-15 'Žaibas-Aštrus' sniper rifle"
+	name = "\improper M/PR-16 'Žaibas-Aštrus' sniper rifle"
 	desc = "A sniper variant of the Žaibas plasma pulse projector, modified for precision long-range engagements. \
 	Uses a specialized chamber-loading system that consumes three charges per shot."
 
@@ -36,7 +36,7 @@
 	/// Number of charges consumed per shot
 	var/shots_per_fire = 3
 
-	lore_blurb = "The PR-15 variant sacrifices the PR-14's high capacity for unparalleled precision at extreme ranges. Where the standard model \
+	lore_blurb = "The PR-16 variant sacrifices the PR-15's high capacity for unparalleled precision at extreme ranges. Where the standard model \
 	fires rapid pulses, the \"Aštrus\" variant, -'sharp'-, draws three charges per shot to create a hyper-concentrated beam that can defeat even \
 	advanced composite armors at over a kilometer. <br><br> \
 	Development as XM/PR-15 revealed the standard pulse cells couldn't maintain the energy density needed for precision shots. The solution was \
@@ -45,7 +45,7 @@
 	The manual bolt action was a controversial addition that almost killed the project. However, Coalition marksmen reported that the \
 	cycling process allowed for better shot placement and thermal management during extended engagements. The chambered cell provides immediate \
 	feedback on remaining shots - when the charge drops below three projector shots' worth, the bolt automatically locks open. \
-	Issued only to elite reconnaissance and anti-materiel teams, the PR-15 has become the weapon of choice for dealing with hardened targets at \
+	Issued only to elite reconnaissance and anti-materiel teams, the PR-16 has become the weapon of choice for dealing with hardened targets at \
 	distances where conventional rifles would be useless."
 
 /obj/item/gun/ballistic/rifle/pulse_sniper/give_manufacturer_examine()

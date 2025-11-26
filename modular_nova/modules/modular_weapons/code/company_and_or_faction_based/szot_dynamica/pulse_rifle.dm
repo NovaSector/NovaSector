@@ -1,5 +1,5 @@
 /obj/item/gun/ballistic/automatic/pulse_rifle
-	name = "\improper M/PR-14 'Žaibas' plasma pulse projector"
+	name = "\improper M/PR-15 'Žaibas' plasma pulse projector"
 	desc = "An advanced energy weapon that uses high-capacity plasma pulse cells. Fires in 3-round bursts."
 
 	icon = 'modular_nova/modules/modular_weapons/icons/obj/company_and_or_faction_based/szot_dynamica/guns_48.dmi'
@@ -31,7 +31,7 @@
 
 	w_class = WEIGHT_CLASS_BULKY
 	weapon_weight = WEAPON_HEAVY
-	lore_blurb = "The M/PR-14 represents the Coalition's solution to the eternal logistical problem: how much ammunition can one soldier carry? \
+	lore_blurb = "The M/PR-15 represents the Coalition's solution to the eternal logistical problem: how much ammunition can one soldier carry? \
 	While plasma pistols solved the sidearm question, battle rifles still required troops to hump kilograms of brass and propellant. \
 	The answer was the plasma pulse cell - a disposable, hyper-dense energy storage unit that shaves microscopic amounts of tungsten \
 	into each plasma burst, creating projectiles that behave like .277 caliber HEAT rounds. <br><br> \
@@ -45,7 +45,7 @@
 	The kinetic feedback system from the M/PP-8 was scaled up to mimic the kick of a .277 rifle, ensuring soldiers used to \
 	ballistic weapons could transition seamlessly. Coalition shock troops value its ability to punch through fortifications and powered armor with equal ease. <br><br> \
 	The weapon's aesthetic was a deliberate departure from Coalition norms. Its sleek, blackened ferritic casing; rounded yet sharp lines; and imposing, \
-	oversized magazine were designed for psychological impact as much as function. The strategy worked too well; the PR-14's menacing silhouette \
+	oversized magazine were designed for psychological impact as much as function. The strategy worked too well; the PR-15's menacing silhouette \
 	became so culturally ubiquitous that it single-handedly replaced the many centuries-old stereotype of \
 	the \"villain with a stamped-receiver, wood-stocked assault rifle\" in popular media, becoming the new de-facto \"bad guy's gun\" in films \
 	and video games for a generation."

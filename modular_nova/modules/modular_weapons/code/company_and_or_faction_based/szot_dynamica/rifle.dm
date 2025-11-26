@@ -51,7 +51,7 @@
 	straddles the line between submachine gun and compact rifle. <br><br> \
 	Chambered for the purpose-built .27-54 Cesarzowa caseless cartridge, the Miecz was engineered for reliability above all else. \
 	Its operating system is a sealed, short-stroke piston that can cycle everything from high-purity military propellant to re-pressed frontier \
-	smokeless powder caked with lubricant and dust. This legendary tolerance for abuse is why, despite being officially replaced by the M/PR-14 \
+	smokeless powder caked with lubricant and dust. This legendary tolerance for abuse is why, despite being officially replaced by the M/PR-15 \
 	in frontline service, it remains ubiquitous on the frontier, in colonial militias, and in the hands of security contractors who can't always \
 	guarantee a supply of pristine plasma cells. <br><br> \
 	Its design philosophy is brutally simple: basic, high-visibility glow-sights for fast target acquisition in dimly-lit corridors; \
