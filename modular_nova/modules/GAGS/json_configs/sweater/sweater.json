@@ -14,5 +14,21 @@
 			"blend_mode": "overlay",
 			"color_ids": [1]
 		}
+	],
+	"cleavage_sweater": [
+		{
+			"type": "icon_state",
+			"icon_state": "cleavage_obj",
+			"blend_mode": "overlay",
+			"color_ids": [1]
+		}
+	],
+	"croptop_sweater": [
+		{
+			"type": "icon_state",
+			"icon_state": "croptop_obj",
+			"blend_mode": "overlay",
+			"color_ids": [1]
+		}
 	]
 }

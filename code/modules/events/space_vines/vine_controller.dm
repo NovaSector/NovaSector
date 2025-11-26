@@ -3,9 +3,11 @@ GLOBAL_LIST_INIT(vine_mutations_list, init_vine_mutation_list())
 
 /proc/init_vine_mutation_list()
 	var/list/mutation_list = list()
-	init_subtypes(/datum/spacevine_mutation/, mutation_list)
-	for(var/datum/spacevine_mutation/mutation as anything in mutation_list)
+
+	for(var/datum/spacevine_mutation/subtype as anything in valid_subtypesof(/datum/spacevine_mutation))
+		var/datum/spacevine_mutation/mutation = new subtype
 		mutation_list[mutation] = IDEAL_MAX_SEVERITY - mutation.severity // the ideal maximum potency is used for weighting
+
 	return mutation_list
 
 /datum/spacevine_controller
@@ -75,6 +77,11 @@ GLOBAL_LIST_INIT(vine_mutations_list, init_vine_mutation_list())
 	growth_queue += vine
 	vines += vine
 	vine.master = src
+	// NOVA ADDITION START - Vine floor
+	if(rand(1, 3) <= 1 && is_space_or_openspace(location))
+		if(!locate(/obj/structure/lattice) in location)
+			location.ChangeTurf(/turf/open/floor/plating/kudzu, flags = CHANGETURF_INHERIT_AIR)
+	// NOVA ADDITION END
 	for(var/mutation_type in muts)
 		for(var/datum/spacevine_mutation/mutation in GLOB.vine_mutations_list)
 			if(istype(mutation, mutation_type))

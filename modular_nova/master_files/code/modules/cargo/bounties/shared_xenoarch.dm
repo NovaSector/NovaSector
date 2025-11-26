@@ -31,8 +31,9 @@
 	reward = CARGO_CRATE_VALUE * 6
 	required_count = 5
 	wanted_types = list(
-		/obj/item/xenoarch/broken_item/tech
+		/obj/item/xenoarch/broken_item
 	)
+	include_subtypes = FALSE
 
 /datum/bounty/item/sharedxenoarch/fossil_weapon
 	name = "Weapons Through Time"

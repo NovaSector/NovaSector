@@ -10,7 +10,7 @@
 
 	caliber = CALIBER_SOL40LONG
 	projectile_type = /obj/projectile/bullet/c40sol
-
+	ammo_stack_type = /obj/item/ammo_box/magazine/ammo_stack/c40_sol
 
 /obj/item/ammo_casing/c40sol/Initialize(mapload)
 	. = ..()
@@ -20,7 +20,7 @@
 
 /obj/projectile/bullet/c40sol
 	name = ".40 Sol Long bullet"
-	damage = 35
+	damage = 27
 
 	wound_bonus = 5
 	exposed_wound_bonus = 10
@@ -53,14 +53,13 @@
 	projectile_type = /obj/projectile/bullet/c40sol/fragmentation
 
 	ammo_categories = AMMO_CLASS_NONE // it's. on a technicality
-	print_cost = 0
 	harmful = FALSE
 
 
 /obj/projectile/bullet/c40sol/fragmentation
 	name = ".40 Sol Long fragmentation bullet"
-	damage = 15
-	stamina = 30
+	damage = 10
+	stamina = 26
 
 	weak_against_armour = TRUE
 
@@ -106,7 +105,6 @@
 
 	ammo_categories = AMMO_CLASS_PLUS
 	custom_materials = AMMO_MATS_AP
-	print_cost = 2
 
 /obj/projectile/bullet/c40sol/pierce
 	name = ".40 Sol match bullet"
@@ -115,7 +113,7 @@
 
 	speed = 2
 
-	damage = 25
+	damage = 20
 	armour_penetration = 20
 
 	wound_bonus = -30
@@ -165,13 +163,12 @@
 
 	ammo_categories = AMMO_CLASS_NICHE
 	custom_materials = AMMO_MATS_TEMP
-	print_cost = 2
 
 /obj/projectile/bullet/c40sol/incendiary
 	name = ".40 Sol Long incendiary bullet"
 	icon_state = "redtrac"
 
-	damage = 25
+	damage = 18
 
 	/// How many firestacks the bullet should impart upon a target when impacting
 	var/firestacks_to_give = 1

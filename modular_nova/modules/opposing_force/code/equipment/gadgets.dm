@@ -3,7 +3,7 @@
 
 /datum/opposing_force_equipment/gadget/agentcard
 	name = "Agent Card"
-	item_type = /obj/item/card/id/advanced/chameleon
+	item_type = /obj/item/card/id/advanced/chameleon/elite
 	description = "A highly advanced chameleon ID card. Touch this card on another ID card or player to choose which accesses to copy. Has special magnetic properties which force it to the front of wallets."
 
 /datum/opposing_force_equipment/gadget/chameleonheadsetdeluxe

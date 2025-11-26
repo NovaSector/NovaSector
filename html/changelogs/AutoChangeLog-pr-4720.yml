@@ -1,0 +1,5 @@
+author: "A.C.M.O."
+delete-after: True
+changes:
+  - admin: "Added the Upload Character Preferences command for admins."
+  - admin: "Added the Toggle Admin Stasis command for admins."

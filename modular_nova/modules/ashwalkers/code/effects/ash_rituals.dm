@@ -191,13 +191,13 @@
 	name = "Incite Megafauna"
 	desc = "Causes a horrible, unrecognizable sound that will attract the large fauna from around the planet."
 	required_components = list(
-		"north" = /mob/living/carbon/human,
+		"north" = /obj/item/organ/monster_core/regenerative_core,
 		"south" = /obj/item/ash_seed/tendril,
-		"east" = /mob/living/carbon/human,
-		"west" = /mob/living/carbon/human,
+		"east" = /obj/item/organ/monster_core/regenerative_core,
+		"west" = /obj/item/organ/monster_core/regenerative_core,
 	)
 	consumed_components = list(
-		/mob/living/carbon/human,
+		/obj/item/organ/monster_core/regenerative_core,
 		/obj/item/ash_seed/tendril,
 	)
 
@@ -240,13 +240,12 @@
 	name = "Ashen Age Ceremony"
 	desc = "Those who partake in the ceremony and are ready will age, increasing their value to the kin."
 	required_components = list(
-		"north" = /mob/living/carbon/human,
+		"north" = /obj/item/organ/monster_core/regenerative_core,
 		"south" = /obj/item/organ/monster_core/regenerative_core,
 		"east" = /obj/item/stack/sheet/bone,
 		"west" = /obj/item/stack/sheet/sinew,
 	)
 	consumed_components = list(
-		/mob/living/carbon/human,
 		/obj/item/organ/monster_core/regenerative_core,
 		/obj/item/stack/sheet/bone,
 		/obj/item/stack/sheet/sinew,

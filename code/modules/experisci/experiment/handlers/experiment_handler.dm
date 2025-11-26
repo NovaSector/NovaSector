@@ -124,13 +124,11 @@
 		if(!(config_flags & EXPERIMENT_CONFIG_SILENT_FAIL))
 			to_chat(user, span_notice("You do not have an experiment selected!"))
 		return
-	var/skill_modifier = user.mind?.get_skill_modifier(/datum/skill/research, SKILL_SPEED_MODIFIER) // NOVA EDIT CHANGE - ORIGINAL: if(!(config_flags & EXPERIMENT_CONFIG_IMMEDIATE_ACTION) && !do_after(user, 1 SECONDS, target = target))
-	if(!(config_flags & EXPERIMENT_CONFIG_IMMEDIATE_ACTION) && !do_after(user, 1 SECONDS * skill_modifier, target = target)) //NOVA EDIT: Research Skill
+	if(!(config_flags & EXPERIMENT_CONFIG_IMMEDIATE_ACTION) && !do_after(user, 1 SECONDS, target = target))
 		return
 	if(action_experiment(source, target))
 		playsound(user, 'sound/machines/ping.ogg', 25)
 		to_chat(user, span_notice("You scan [target]."))
-		user.mind?.adjust_experience(/datum/skill/research, 2) //NOVA EDIT ADDITION: Research Skill
 	else if(!(config_flags & EXPERIMENT_CONFIG_SILENT_FAIL))
 		playsound(user, 'sound/machines/buzz/buzz-sigh.ogg', 25)
 		to_chat(user, span_notice("[target] is not related to your currently selected experiment."))
@@ -164,20 +162,6 @@
 	if (action_experiment(source, target))
 		playsound(source, 'sound/machines/ping.ogg', 25)
 		source.say("New unique autopsy successfully catalogued.")
-
-
-/**
- * Announces a message to all experiment handlers
- *
- * Arguments:
- * * message - The message to announce
- */
-/datum/component/experiment_handler/proc/announce_message_to_all(message)
-	for(var/datum/component/experiment_handler/experi_handler as anything in GLOB.experiment_handlers)
-		if(experi_handler.linked_web != linked_web)
-			continue
-		var/atom/movable/experi_parent = experi_handler.parent
-		experi_parent.say(message)
 
 /**
  * Announces a message to this experiment handler
@@ -294,16 +278,23 @@
  * * experiment - The experiment to check
  */
 /datum/component/experiment_handler/proc/can_select_experiment(datum/experiment/experiment)
+	// Check that this experiment is visible currently
+	if (!(experiment in linked_web?.available_experiments))
+		return FALSE
+
+	return is_compatible_experiment(experiment)
+
+/**
+ * Checks if an experiment could be selected by the handler if it were available in the linked web.
+ * Basically, it skips the available_experiments check, unlike can_select_experiment.
+ */
+/datum/component/experiment_handler/proc/is_compatible_experiment(datum/experiment/experiment)
 	// Check that this experiments has no disallowed traits
 	if (experiment.traits & disallowed_traits)
 		return FALSE
 
 	// Check against the list of allowed experimentors
 	if (length(experiment.allowed_experimentors) && !is_type_in_list(parent, experiment.allowed_experimentors))
-		return FALSE
-
-	// Check that this experiment is visible currently
-	if (!(experiment in linked_web?.available_experiments))
 		return FALSE
 
 	// Check that this experiment type isn't blacklisted

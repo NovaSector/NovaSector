@@ -1,14 +1,4 @@
 // LOADOUT ITEM DATUMS FOR THE SHOE SLOT
-
-/datum/loadout_category/suit
-	category_name = "Suit"
-	category_ui_icon = FA_ICON_VEST
-	type_to_generate = /datum/loadout_item/suit
-	tab_order = /datum/loadout_category/neck::tab_order + 1
-
-/datum/loadout_item/suit
-	abstract_type = /datum/loadout_item/suit
-
 /datum/loadout_item/suit/pre_equip_item(datum/outfit/outfit, datum/outfit/outfit_important_for_life, mob/living/carbon/human/equipper, visuals_only = FALSE) // don't bother storing in backpack, can't fit
 	if(initial(outfit_important_for_life.suit))
 		return TRUE
@@ -44,6 +34,10 @@
 /datum/loadout_item/suit/hawaiian_shirt
 	name = "Hawaiian Shirt"
 	item_path = /obj/item/clothing/suit/costume/hawaiian
+
+/datum/loadout_item/suit/overcoat
+	name = "Overcoat (Colorable)"
+	item_path = /obj/item/clothing/suit/nova/overcoat
 
 /datum/loadout_item/suit/wellwornshirt
 	name = "Oversized Shirt"
@@ -89,6 +83,10 @@
 	name = "Suspenders (Colorable)"
 	item_path = /obj/item/clothing/suit/toggle/suspenders
 
+/datum/loadout_item/suit/big_sweater
+	name = "Big Sweater (Colorable)"
+	item_path = /obj/item/clothing/suit/nova/sweater
+
 /*
 *	WINTER COATS
 */
@@ -124,6 +122,10 @@
 /datum/loadout_item/suit/winter_coat_greyscale
 	name = "Winter Coat - Tailored (Colorable)"
 	item_path = /obj/item/clothing/suit/hooded/wintercoat/custom
+
+/datum/loadout_item/suit/winter_coat_fancy
+	name = "Winter Coat - Trenchcoat (Colorable)"
+	item_path = /obj/item/clothing/suit/nova/furred_trenchcoat
 
 //Job Winter Coats (Don't want to alphabetize these mixed with the other wintercoats)
 /datum/loadout_item/suit/coat_atmos
@@ -399,23 +401,23 @@
 
 /datum/loadout_item/suit/offdep_jacket
 	name = "Work Jacket - Off-Department"
-	item_path = /obj/item/clothing/suit/toggle/jacket/nova/assistant
+	item_path = /obj/item/clothing/suit/toggle/jacket/nova/colorable_bomber
 
 /datum/loadout_item/suit/engi_jacket
 	name = "Work Jacket - Engineering"
-	item_path = /obj/item/clothing/suit/toggle/jacket/nova/engi
+	item_path = /obj/item/clothing/suit/toggle/jacket/nova/colorable_bomber/engi
 
 /datum/loadout_item/suit/sci_jacket
 	name = "Work Jacket - Science"
-	item_path = /obj/item/clothing/suit/toggle/jacket/nova/sci
+	item_path = /obj/item/clothing/suit/toggle/jacket/nova/colorable_bomber/sci
 
 /datum/loadout_item/suit/med_jacket
 	name = "Work Jacket - Medbay"
-	item_path = /obj/item/clothing/suit/toggle/jacket/nova/med
+	item_path = /obj/item/clothing/suit/toggle/jacket/nova/colorable_bomber/med
 
 /datum/loadout_item/suit/supply_jacket
 	name = "Work Jacket - Supply"
-	item_path = /obj/item/clothing/suit/toggle/jacket/nova/supply
+	item_path = /obj/item/clothing/suit/toggle/jacket/nova/colorable_bomber/supply
 
 /*
 *	HOODIES
@@ -493,6 +495,11 @@
 	item_path = /obj/item/clothing/suit/apron/chef/colorable_apron
 	group = "Workwear"
 
+/datum/loadout_item/suit/gear_harness
+	name = "Gear Harness (Suit)"
+	item_path = /obj/item/clothing/under/misc/nova/gear_harness/suit
+	group = "Workwear"
+
 /datum/loadout_item/suit/frontierjacket/short/medical
 	name = "Frontier Jacket - Medical (Short)"
 	item_path = /obj/item/clothing/suit/jacket/frontier_colonist/medical
@@ -558,9 +565,14 @@
 	item_path = /obj/item/clothing/suit/toggle/labcoat/nova/fancy/roboticist
 	group = "Workwear"
 
-/datum/loadout_item/suit/recolorable_overalls
-	name = "Overalls"
-	item_path = /obj/item/clothing/suit/apron/overalls
+/datum/loadout_item/suit/overall
+	name = "Overalls (Recolorable)" // can't have both job palettes and player coloring, so we prefer player colors
+	loadout_flags = LOADOUT_FLAG_ALLOW_NAMING
+	group = "Workwear"
+
+/datum/loadout_item/suit/overalls_loneskirt
+	name = "Overalls Skirt"
+	item_path = /obj/item/clothing/suit/apron/overalls_loneskirt
 	group = "Workwear"
 
 //Religious Clothing (Workwear for Chaplain. Better sorted here than in Costumes)
@@ -728,9 +740,17 @@
 	item_path = /obj/item/clothing/suit/costume/whitedress
 	group = "Costumes"
 
-/datum/loadout_item/suit/white_robe
-	name = "White Robe"
-	item_path = /obj/item/clothing/suit/jacket/white_robe
+
+/datum/loadout_item/suit/jacket/long_robe
+	name = "Long Robe"
+	item_path = /obj/item/clothing/suit/jacket/long_robe
+	loadout_flags = parent_type::loadout_flags | LOADOUT_FLAG_ALLOW_RESKIN
+	group = "Costumes"
+
+/datum/loadout_item/suit/jacket/haori
+	name = "Haori"
+	item_path = /obj/item/clothing/suit/jacket/haori
+	loadout_flags = parent_type::loadout_flags | LOADOUT_FLAG_ALLOW_RESKIN
 	group = "Costumes"
 
 /datum/loadout_item/suit/witch
@@ -794,49 +814,49 @@
 /datum/loadout_item/suit/british_jacket
 	name = "Security British Coat"
 	item_path = /obj/item/clothing/suit/british_officer
-	restricted_roles = list(JOB_WARDEN, JOB_DETECTIVE, JOB_SECURITY_OFFICER, JOB_HEAD_OF_SECURITY, JOB_CORRECTIONS_OFFICER)
+	restricted_roles = list(ALL_JOBS_SEC)
 	group = "Job-Locked"
 
 /datum/loadout_item/suit/navybluejacketofficer
 	name = "Security Formal Jacket (Navy Blue)"
 	item_path = /obj/item/clothing/suit/jacket/officer/blue
-	restricted_roles = list(JOB_WARDEN, JOB_DETECTIVE, JOB_SECURITY_OFFICER, JOB_HEAD_OF_SECURITY, JOB_CORRECTIONS_OFFICER)
+	restricted_roles = list(ALL_JOBS_SEC)
 	group = "Job-Locked"
 
 /datum/loadout_item/suit/brit
 	name = "Security High Vis Armored Vest"
 	item_path = /obj/item/clothing/suit/armor/vest/brit
-	restricted_roles = list(JOB_HEAD_OF_SECURITY, JOB_SECURITY_OFFICER, JOB_WARDEN, JOB_DETECTIVE, JOB_CORRECTIONS_OFFICER)
+	restricted_roles = list(ALL_JOBS_SEC)
 	group = "Job-Locked"
 
 /datum/loadout_item/suit/highvis_jacket
 	name = "Security High-Vis Jacket"
 	item_path = /obj/item/clothing/suit/armor/vest/jacket
-	restricted_roles = list(JOB_WARDEN, JOB_DETECTIVE, JOB_SECURITY_OFFICER, JOB_HEAD_OF_SECURITY, JOB_CORRECTIONS_OFFICER)
+	restricted_roles = list(ALL_JOBS_SEC)
 	group = "Job-Locked"
 
 /datum/loadout_item/suit/highvis_jacket/badge
 	name = "Security High-Vis Jacket - Badged"
 	item_path = /obj/item/clothing/suit/armor/vest/jacket/badge
-	restricted_roles = list(JOB_WARDEN, JOB_DETECTIVE, JOB_SECURITY_OFFICER, JOB_HEAD_OF_SECURITY, JOB_CORRECTIONS_OFFICER)
+	restricted_roles = list(ALL_JOBS_SEC)
 	group = "Job-Locked"
 
 /datum/loadout_item/suit/security_wintercoat
 	name = "Security Winter Jacket"
 	item_path = /obj/item/clothing/suit/hooded/wintercoat/security
-	restricted_roles = list(JOB_WARDEN, JOB_DETECTIVE, JOB_SECURITY_OFFICER, JOB_HEAD_OF_SECURITY, JOB_CORRECTIONS_OFFICER)
+	restricted_roles = list(ALL_JOBS_SEC)
 	group = "Job-Locked"
 
 /datum/loadout_item/suit/security_wintercoat_blue
 	name = "Security Winter Coat (Blue)"
 	item_path = /obj/item/clothing/suit/hooded/wintercoat/security/blue
-	restricted_roles = list(JOB_WARDEN, JOB_DETECTIVE, JOB_SECURITY_OFFICER, JOB_HEAD_OF_SECURITY, JOB_CORRECTIONS_OFFICER)
+	restricted_roles = list(ALL_JOBS_SEC)
 	group = "Job-Locked"
 
 /datum/loadout_item/suit/security_jacket
 	name = "Security Work Jacket"
 	item_path = /obj/item/clothing/suit/toggle/jacket/nova/sec
-	restricted_roles = list(JOB_WARDEN, JOB_DETECTIVE, JOB_SECURITY_OFFICER, JOB_HEAD_OF_SECURITY) //Not giving this one to COs because it's actually better than the one they spawn with
+	restricted_roles = list(ALL_JOBS_SEC)
 	group = "Job-Locked"
 
 //Detective

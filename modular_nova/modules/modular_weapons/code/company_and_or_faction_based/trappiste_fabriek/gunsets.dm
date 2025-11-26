@@ -14,4 +14,10 @@
 /obj/item/storage/toolbox/guncase/nova/pistol/trappiste_small_case/takbok
 	name = "\improper Trappiste 'Takbok' gunset"
 	weapon_to_spawn = /obj/item/gun/ballistic/revolver/takbok
-	extra_to_spawn = /obj/item/ammo_box/c585trappiste
+	extra_to_spawn = /obj/item/ammo_box/speedloader/c585trappiste
+
+// Gunset for the Blueshield Revolver
+/obj/item/storage/toolbox/guncase/nova/pistol/trappiste_small_case/bluvolva
+	name = "\improper Trappiste 'Fendér' gunset"
+	weapon_to_spawn = /obj/item/gun/ballistic/revolver/bluvolva
+	extra_to_spawn = /obj/item/ammo_box/speedloader/c585trappiste

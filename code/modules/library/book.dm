@@ -119,7 +119,7 @@
 
 	user.add_mood_event("book_nerd", /datum/mood_event/book_nerd)
 	user.mind.book_titles_read[starting_title] = TRUE
-	user.mind?.adjust_experience(/datum/skill/language, check_reading_exp(user)) // NOVA EDIT ADDITION - you'd need to read 150 books to get to legendary...
+	user.mind?.adjust_experience(/datum/skill/language, 15) // NOVA EDIT ADDITION - you'd need to read 150 books to get to legendary...
 
 /obj/item/book/attack_self(mob/user)
 	if(!can_read_book(user))
@@ -139,7 +139,7 @@
 /// Checks for whether we can vandalize this book, to ensure we still can after each input.
 /// Uses to_chat over balloon alerts to give more detailed information as to why.
 /obj/item/book/proc/can_vandalize(mob/living/user, obj/item/tool)
-	if(!user.can_perform_action(src) || !user.can_write(tool))
+	if(!user.can_perform_action(src) || !user.can_write(tool, TRUE))
 		return FALSE
 	if(user.is_blind())
 		to_chat(user, span_warning("As you are trying to write on the book, you suddenly feel very stupid!"))

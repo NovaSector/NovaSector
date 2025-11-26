@@ -15,7 +15,7 @@
 	canSmoothWith = SMOOTH_GROUP_SHUTTLE_PARTS + SMOOTH_GROUP_AIRLOCK + SMOOTH_GROUP_TITANIUM_WALLS
 
 /turf/closed/indestructible/titanium/nodiagonal
-	icon = 'icons/turf/walls/shuttle_wall.dmi'
-	icon_state = "map-shuttle_nd"
+	icon = MAP_SWITCH('icons/turf/walls/shuttle_wall.dmi', 'icons/turf/walls/misc_wall.dmi')
+	icon_state = MAP_SWITCH("shuttle_wall-0", "shuttle_nd")
 	base_icon_state = "shuttle_wall"
 	smoothing_flags = SMOOTH_BITMASK

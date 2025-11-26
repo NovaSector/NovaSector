@@ -35,7 +35,7 @@
 		/obj/item/gun/ballistic/automatic/nt20 = list(PAYCHECK_CREW * 2000, INFINITY),
 		/obj/item/ammo_box/magazine/smgm45 = list(PAYCHECK_CREW * 10, INFINITY),
 		/obj/item/gun/ballistic/revolver/golden = list(PAYCHECK_CREW * 800, INFINITY),
-		/obj/item/ammo_box/a357 = list(PAYCHECK_CREW * 800, INFINITY),
+		/obj/item/ammo_box/speedloader/c357 = list(PAYCHECK_CREW * 800, INFINITY),
 
 	)
 	///The initial products that the trader buys
@@ -77,7 +77,7 @@
 		/obj/item/gun/energy/temperature/security = list(PAYCHECK_CREW * 200, INFINITY, ""),
 		/obj/item/gun/energy/tesla_cannon = list(PAYCHECK_CREW * 25, INFINITY, ""),
 		/obj/item/gun/energy/wormhole_projector/core_inserted = list(PAYCHECK_CREW * 200, INFINITY, ""),
-		/obj/item/gun/energy/xray = list(PAYCHECK_CREW * 20, INFINITY, ""),
+		/obj/item/gun/energy/laser/xray = list(PAYCHECK_CREW * 20, INFINITY, ""),
 	)
 	///The speech data of the trader
 	say_phrases = list(

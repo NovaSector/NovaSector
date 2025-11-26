@@ -154,8 +154,8 @@
 
 
 /obj/item/clothing/shoes/winterboots/christmas
-	name = "red christmas boots"
-	desc = "A pair of fluffy red christmas boots!"
+	name = "christmas boots"
+	desc = "A pair of fluffy christmas boots!"
 	greyscale_colors = "#cc0f0f#c4c2c2"
 	icon = 'icons/map_icons/clothing/shoes.dmi'
 	icon_state = "/obj/item/clothing/shoes/winterboots/christmas"
@@ -165,17 +165,35 @@
 	greyscale_config_worn_digi = /datum/greyscale_config/boots/christmasboots/worn/digi
 	flags_1 = IS_PLAYER_COLORABLE_1
 
-/obj/item/clothing/shoes/winterboots/christmas/green
-	name = "green christmas boots"
-	desc = "A pair of fluffy green christmas boots!"
-	greyscale_colors = "#1a991a#c4c2c2"
-
 /obj/item/clothing/shoes/clown_shoes/pink
 	name = "pink clown shoes"
 	desc = "A particularly pink pair of punny shoes."
 	icon = MODULAR_SHOES_ICON
 	worn_icon = MODULAR_SHOES_WORN_ICON
 	icon_state = "pink_clown_shoes"
+
+/obj/item/clothing/shoes/clown_shoes/pink/heels
+	name = "pink clown heels"
+	desc = "A particularly pink pair of punny heels."
+	icon = MODULAR_SHOES_ICON
+	worn_icon = MODULAR_SHOES_WORN_ICON
+	worn_icon_digi = 'modular_nova/master_files/icons/mob/clothing/feet_digi.dmi'
+	icon_state = "pink_clown_heels"
+	inhand_icon_state = null
+
+// No clown squeak version
+/obj/item/clothing/shoes/pink_clown_heels
+	name = "pink clown heels"
+	desc = "A particularly pink pair of heels."
+	icon = MODULAR_SHOES_ICON
+	worn_icon = MODULAR_SHOES_WORN_ICON
+	worn_icon_digi = 'modular_nova/master_files/icons/mob/clothing/feet_digi.dmi'
+	icon_state = "pink_clown_heels"
+	inhand_icon_state = null
+
+/obj/item/clothing/shoes/pink_clown_heels/Initialize(mapload)
+	. = ..()
+	AddComponent(/datum/component/squeak, list('modular_nova/master_files/sound/effects/heel1.ogg' = 1, 'modular_nova/master_files/sound/effects/heel2.ogg' = 1), 50)
 
 /obj/item/clothing/shoes/colorable_laceups
 	name = "laceup shoes"
@@ -225,6 +243,20 @@
 	greyscale_config_worn_vox = /datum/greyscale_config/boots/worn/oldvox
 	flags_1 = IS_PLAYER_COLORABLE_1
 
+
+/obj/item/clothing/shoes/sport_boots
+	name = "sport boots"
+	desc = "A pair of comfortable athletic boots suitable for running and sports activities."
+	worn_icon = MODULAR_SHOES_WORN_ICON
+	greyscale_colors = "#292929#ffffff#ff9900"
+	icon = 'icons/map_icons/clothing/shoes.dmi'
+	icon_state = "/obj/item/clothing/shoes/sport_boots"
+	post_init_icon_state = "sport_boots"
+	greyscale_config = /datum/greyscale_config/sport_boots
+	greyscale_config_worn = /datum/greyscale_config/sport_boots/worn
+	greyscale_config_worn_digi = /datum/greyscale_config/sport_boots/worn/digi
+	flags_1 = IS_PLAYER_COLORABLE_1
+
 /obj/item/clothing/shoes/wraps/cloth
 	name = "cloth foot wraps"
 	desc = "Boxer tape or bandages wrapped like a mummy, all left up to the choice of the wearer."
@@ -237,3 +269,12 @@
 	greyscale_colors = "#FFFFFF"
 	body_parts_covered = FALSE
 	flags_1 = IS_PLAYER_COLORABLE_1
+
+/obj/item/clothing/shoes/galoshes/heeled
+	name = "heeled galoshes"
+	desc = "A pair of yellow rubber heels, designed to prevent slipping on wet surfaces. These are even harder to walk in than normal heels."
+	icon_state = "galoshes_heeled"
+	icon = MODULAR_SHOES_ICON
+	worn_icon = MODULAR_SHOES_WORN_ICON
+	worn_icon_digi = 'modular_nova/master_files/icons/mob/clothing/feet_digi.dmi'
+	custom_premium_price = PAYCHECK_CREW * 3

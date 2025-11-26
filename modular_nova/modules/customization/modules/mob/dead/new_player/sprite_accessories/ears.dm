@@ -1,10 +1,8 @@
 /datum/sprite_accessory/ears
-	key = "ears"
-	generic = "Ears"
+	key = FEATURE_EARS
 	organ_type = /obj/item/organ/ears_external
 	relevent_layers = list(BODY_BEHIND_LAYER, BODY_ADJ_LAYER, BODY_FRONT_LAYER)
 	color_src = USE_MATRIXED_COLORS
-	genetic = TRUE
 
 /datum/sprite_accessory/ears/is_hidden(mob/living/carbon/human/wearer)
 	if(!wearer.head)
@@ -519,3 +517,75 @@
 /datum/sprite_accessory/ears/external/hawk
 	name = "Hawk"
 	icon_state = "hawk"
+
+/datum/sprite_accessory/ears/external/big/chemlight
+	name = "Tall Tipped Ears"
+	icon_state = "chemlight"
+
+/datum/sprite_accessory/ears/external/shade/
+	name = "Shade Ears"
+	icon_state = "shadekin"
+
+/datum/sprite_accessory/ears/external/shade/band
+	name = "Shade Bandaged"
+	icon_state = "shadekinbands"
+
+/datum/sprite_accessory/ears/external/shade/band/left
+	name = "Shade Bandaged (Left)"
+	icon_state = "shadekinbandleft"
+
+/datum/sprite_accessory/ears/external/shade/band/right
+	name = "Shade Bandaged (Right)"
+	icon_state = "shadekinbandright"
+
+/datum/sprite_accessory/ears/external/shade/rings
+	name = "Shade Rings"
+	icon_state = "shadekinrings"
+
+/datum/sprite_accessory/ears/external/shade/rings/left
+	name = "Shade Rings (Left)"
+	icon_state = "shadekinringsleft"
+
+/datum/sprite_accessory/ears/external/shade/rings/right
+	name = "Shade Rings (Right)"
+	icon_state = "shadekinringsright"
+
+/datum/sprite_accessory/ears/external/shade/smooth
+	name = "Shade Smooth"
+	icon_state = "shadekinsmooth"
+
+/datum/sprite_accessory/ears/external/shade/saggy
+	name = "Shade Saggy"
+	icon_state = "shadekinsaggy"
+
+/datum/sprite_accessory/ears/external/shade/short
+	name = "Shade Short"
+	icon_state = "shadekinshort"
+
+/datum/sprite_accessory/ears/external/shade/short/rings
+	name = "Shade Short Rings"
+	icon_state = "shadekinshortrings"
+
+/datum/sprite_accessory/ears/external/shade/short/rings/left
+	name = "Shade Short Rings (Left)"
+	icon_state = "shadekinshortringsleft"
+
+/datum/sprite_accessory/ears/external/shade/short/rings/right
+	name = "Shade Short Rings (Right)"
+	icon_state = "shadekinshortringsright"
+
+/datum/sprite_accessory/ears/external/shade/fluffy
+	name = "Shade Fluffy"
+	icon_state = "shadekinfluffy"
+
+/datum/sprite_accessory/ears/external/shade/fluffy/rings
+	name = "Shade Fluffy Rings"
+	icon_state = "shadekinfluffyrings"
+
+/datum/sprite_accessory/ears/external/shade/fluffy/rings/left
+	name = "Shade Fluffy Rings (Left)"
+	icon_state = "shadekinfluffyringsleft"
+
+/datum/sprite_accessory/ears/external/shade/fluffy/rings/right
+	name = "Shade Fluffy Rings (Right)"
+	icon_state = "shadekinfluffyringsright"

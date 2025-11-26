@@ -50,13 +50,16 @@
 
 	var/space = should_have_space_before_emote(html_decode(subtle_emote)[1]) ? " " : ""
 
-	subtle_message = span_emote("<b>[user]</b>[space]<i>[user.apply_message_emphasis(subtle_message)]</i>")
+	subtle_message = span_subtle("<b>[user]</b>[space]<i>[user.apply_message_emphasis(subtle_message)]</i>")
 
 	var/list/viewers = get_hearers_in_view(SUBTLE_ONE_TILE, user)
 
 	var/obj/effect/overlay/holo_pad_hologram/hologram = GLOB.hologram_impersonators[user]
 	if(hologram)
 		viewers |= get_hearers_in_view(SUBTLE_ONE_TILE, hologram)
+	for(var/obj/item/dullahan_relay/dullahan in viewers)
+		viewers -= dullahan
+		viewers += dullahan.owner
 
 	for(var/obj/effect/overlay/holo_pad_hologram/iterating_hologram in viewers)
 		if(iterating_hologram?.Impersonation?.client)
@@ -64,10 +67,15 @@
 
 	for(var/mob/ghost as anything in GLOB.dead_mob_list)
 		if((ghost.client?.prefs.chat_toggles & CHAT_GHOSTSIGHT) && !(ghost in viewers))
-			ghost.show_message(subtle_message)
+			to_chat(ghost, "[FOLLOW_LINK(ghost, user)] [subtle_message]")
 
 	for(var/mob/receiver in viewers)
 		receiver.show_message(subtle_message, alt_msg = subtle_message)
+		// Optional sound notification
+		if(!isobserver(receiver))
+			var/datum/preferences/prefs = receiver.client?.prefs
+			if(prefs && prefs.read_preference(/datum/preference/toggle/subtler_sound))
+				receiver.playsound_local(get_turf(receiver), 'sound/effects/achievement/beeps_jingle.ogg', 50)
 
 	return TRUE
 
@@ -110,6 +118,10 @@
 		in_view -= GLOB.dead_mob_list
 		in_view.Remove(user)
 
+		for(var/obj/item/dullahan_relay/dullahan in in_view)
+			in_view -= dullahan
+			if(user != dullahan.owner)
+				in_view += dullahan.owner
 		for(var/mob/mob in in_view) // Filters out the AI eye and clientless mobs.
 			if(!istype(mob, /mob/eye/camera/ai))
 				continue
@@ -142,7 +154,7 @@
 
 	var/space = should_have_space_before_emote(html_decode(subtler_emote)[1]) ? " " : ""
 
-	subtler_message = span_emote("<b>[user]</b>[space]<i>[user.apply_message_emphasis(subtler_message)]</i>")
+	subtler_message = span_subtler("<b>[user]</b>[space]<i>[user.apply_message_emphasis(subtler_message)]</i>")
 
 	if(istype(target, /mob))
 		var/mob/target_mob = target
@@ -172,6 +184,9 @@
 		for(var/obj/effect/overlay/holo_pad_hologram/holo in ghostless)
 			if(holo?.Impersonation?.client)
 				ghostless |= holo.Impersonation
+		for(var/obj/item/dullahan_relay/dullahan in ghostless)
+			ghostless -= dullahan
+			ghostless += dullahan.owner
 
 		for(var/mob/receiver in ghostless)
 			receiver.show_message(subtler_message, alt_msg = subtler_message)

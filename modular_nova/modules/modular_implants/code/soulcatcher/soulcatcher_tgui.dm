@@ -106,7 +106,7 @@
 			return TRUE
 
 		if("redescribe_room")
-			var/new_room_desc = tgui_input_text(user,"Choose a new description for the room", name, target_room.room_description, max_length = MAX_DESC_LEN, multiline = TRUE)
+			var/new_room_desc = tgui_input_text(user,"Choose a new description for the room", name, target_room.room_description, max_length = MAX_MESSAGE_LEN, multiline = TRUE)
 			if(!new_room_desc)
 				return FALSE
 
@@ -119,6 +119,7 @@
 
 		if("toggle_joinable")
 			ghost_joinable = !ghost_joinable
+			update_joinability()
 			return TRUE
 
 		if("toggle_approval")
@@ -245,6 +246,10 @@
 
 			remove_self()
 			return TRUE
+
+/// Called when something alters the joinability of a soulcatcher
+/datum/component/soulcatcher/proc/update_joinability()
+	SEND_GLOBAL_SIGNAL(COMSIG_SOULCATCHER_UPDATE_JOINABILITY)
 
 /datum/component/soulcatcher_user/New()
 	. = ..()

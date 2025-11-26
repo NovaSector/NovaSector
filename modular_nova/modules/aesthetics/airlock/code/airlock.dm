@@ -58,7 +58,9 @@
 	var/frame_state
 	var/light_state = AIRLOCK_LIGHT_POWERON
 	var/pre_light_color
-	switch(airlock_state)
+	if(machine_stat & MAINT) // in the process of being emagged
+		frame_state = AIRLOCK_FRAME_CLOSED
+	else switch(airlock_state)
 		if(AIRLOCK_CLOSED)
 			frame_state = AIRLOCK_FRAME_CLOSED
 			if(locked)
@@ -66,6 +68,9 @@
 				pre_light_color = AIRLOCK_BOLTS_LIGHT_COLOR
 			else if(emergency)
 				light_state = AIRLOCK_LIGHT_EMERGENCY
+				pre_light_color = AIRLOCK_EMERGENCY_LIGHT_COLOR
+			else if (has_active_reta_access())
+				light_state = AIRLOCK_LIGHT_RETA
 				pre_light_color = AIRLOCK_EMERGENCY_LIGHT_COLOR
 			else if(fire_active)
 				light_state = AIRLOCK_LIGHT_FIRE
@@ -91,6 +96,9 @@
 			else if(emergency)
 				light_state = AIRLOCK_LIGHT_EMERGENCY
 				pre_light_color = AIRLOCK_EMERGENCY_LIGHT_COLOR
+			else if (has_active_reta_access())
+				light_state = AIRLOCK_LIGHT_RETA
+				pre_light_color = AIRLOCK_EMERGENCY_LIGHT_COLOR
 			else if(fire_active)
 				light_state = AIRLOCK_LIGHT_FIRE
 				pre_light_color = AIRLOCK_FIRE_LIGHT_COLOR
@@ -111,7 +119,7 @@
 	else
 		. += get_airlock_overlay("fill_[frame_state + fill_state_suffix]", icon, src, em_block = TRUE)
 
-	if(lights && hasPower() && has_environment_lights)
+	if(feedback && hasPower() && has_environment_lights)
 		. += get_airlock_overlay("lights_[light_state]", overlays_file, src, em_block = FALSE)
 		. += emissive_appearance(overlays_file, "lights_[light_state]", src, alpha = src.alpha)
 

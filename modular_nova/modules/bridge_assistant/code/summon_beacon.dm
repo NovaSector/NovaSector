@@ -1,4 +1,7 @@
 /obj/item/choice_beacon/job_locker/bridge_officer
+	icon = 'modular_nova/modules/modular_items/icons/remote.dmi'
+	icon_state = "ba_beacon"
+	inhand_icon_state = "electronic"
 	locker_path = list(/obj/structure/closet/secure_closet/bridge_officer)
 
 /obj/structure/closet/secure_closet/bridge_officer
@@ -26,7 +29,7 @@
 	desc = "A bag for storing extra clothes and shoes. This one belongs to the Bridge Officer."
 
 /obj/item/storage/bag/garment/bridge_officer/PopulateContents()
-	new /obj/item/clothing/suit/toggle/jacket/nova/bridge_officer(src)
+	new /obj/item/clothing/suit/toggle/jacket/nova/colorable_bomber/bridge_officer(src)
 	new /obj/item/clothing/suit/nova/bridge_officer/goth(src)
 	new /obj/item/clothing/under/rank/bridge_officer(src)
 	new /obj/item/clothing/under/rank/bridge_officer/skirt(src)
@@ -36,7 +39,8 @@
 /obj/item/choice_beacon/coffee
 	name = "coffeemaker beacon"
 	desc = "Summons coffee, because who can function without it?"
-	icon_state = "sb_delivery"
+	icon = 'modular_nova/modules/modular_items/icons/remote.dmi'
+	icon_state = "coffee_beacon"
 	inhand_icon_state = "sb_delivery"
 	company_source = "Piccionaia Home Appliances"
 	company_message = span_bold("Please enjoy your Piccionaia Home Appliances Impressa Modello 5 Coffeemaker, from our premium product line. You little sycophant, you.")

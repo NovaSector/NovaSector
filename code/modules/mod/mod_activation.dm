@@ -86,13 +86,10 @@
 	if(part_datum.can_overslot)
 		var/obj/item/overslot = wearer.get_item_by_slot(part.slot_flags)
 		/* // NOVA EDIT REMOVAL START
-		if(overslot && istype(overslot, /obj/item/clothing))
-			var/obj/item/clothing/clothing = overslot
-			if(clothing.clothing_flags & CLOTHING_MOD_OVERSLOTTING)
-			if(!HAS_TRAIT(overslot, TRAIT_NODROP))
-				part_datum.overslotting = overslot
-				wearer.transferItemToLoc(overslot, part, force = TRUE)
-				RegisterSignal(part, COMSIG_ATOM_EXITED, PROC_REF(on_overslot_exit))
+		if(istype(overslot, /obj/item/clothing))
+			part_datum.overslotting = overslot
+			wearer.transferItemToLoc(overslot, part, force = TRUE)
+			RegisterSignal(part, COMSIG_ATOM_EXITED, PROC_REF(on_overslot_exit))
 		*/ // NOVA EDIT REMOVAL END
 		// NOVA EDIT ADDITION START
 		if(overslot && !HAS_TRAIT(overslot, TRAIT_NODROP))
@@ -282,7 +279,7 @@
 		part.alternate_worn_layer = part_datum.unsealed_layer
 	update_speed()
 	wearer.update_clothing(part.slot_flags | slot_flags)
-	wearer.update_obscured_slots(part.visor_flags_inv)
+	wearer.refresh_obscured()
 	if((part.clothing_flags & (MASKINTERNALS|HEADINTERNALS)) && wearer.invalid_internals())
 		wearer.cutoff_internals()
 	SEND_SIGNAL(src, COMSIG_MOD_PART_SEALED, part_datum)

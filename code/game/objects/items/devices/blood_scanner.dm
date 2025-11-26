@@ -7,7 +7,7 @@
 	worn_icon_state = "healthanalyzer"
 	lefthand_file = 'icons/mob/inhands/equipment/medical_lefthand.dmi'
 	righthand_file = 'icons/mob/inhands/equipment/medical_righthand.dmi'
-	desc = "This Me-Lo Tech branded medical device"
+	desc = "This Me-Lo Tech branded medical device can detect abnormalities in blood flow or composition. There is a button on the side which scans the patient's blood for common medicines."
 	obj_flags = CONDUCTS_ELECTRICITY
 	item_flags = NOBLUDGEON
 	slot_flags = ITEM_SLOT_BELT
@@ -62,7 +62,7 @@
 	render_list += "<span class='notice ml-1'>Blood Type: [scanned_person?.dna?.blood_type]</span>\n"
 	if(oxy_loss > 50)//if they have knockout levels of suffocation damage
 		render_list += "<span class='danger ml-1'>Warning: Hypoxic blood oxygen levels.</span>\n"
-	if(scanned_person.blood_volume <= BLOOD_VOLUME_SAFE)
+	if(scanned_person.get_blood_volume(apply_modifiers = TRUE) <= BLOOD_VOLUME_SAFE)
 		render_list += "<span class='danger ml-1'>Warning: Dangerously low blood flow.</span>\n"
 	if(tox_loss > 10)
 		render_list += "<span class='danger ml-1'>Warning: Toxic buildup detected in bloodstream.</span>\n"

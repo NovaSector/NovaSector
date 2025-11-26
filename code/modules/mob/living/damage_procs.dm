@@ -370,11 +370,10 @@
 		amount = -amount
 		if(HAS_TRAIT(src, TRAIT_TOXIMMUNE)) //Prevents toxin damage, but not healing
 			amount = min(amount, 0)
-		if(blood_volume)
-			if(amount > 0)
-				blood_volume = max(blood_volume - (5 * amount), 0)
-			else
-				blood_volume = max(blood_volume - amount, 0)
+		if(amount > 0)
+			adjust_blood_volume(-5 * amount)
+		else
+			adjust_blood_volume(-amount)
 
 	else if(!forced && HAS_TRAIT(src, TRAIT_TOXIMMUNE)) //Prevents toxin damage, but not healing
 		amount = min(amount, 0)
@@ -441,7 +440,7 @@
 /mob/living/proc/setOrganLoss(slot, amount, maximum, required_organ_flag)
 	return
 
-/mob/living/proc/get_organ_loss(slot)
+/mob/living/proc/get_organ_loss(slot, required_organ_flag)
 	return
 
 /mob/living/proc/getStaminaLoss()

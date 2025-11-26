@@ -41,7 +41,6 @@
 	update_icon_state()
 	update_icon()
 
-
 /obj/item/storage/hypospraykit/Destroy()
 	// a large block to stop the CI Gods smiting us & taking extra steps to try and force the CMO hypo to drop smartly
 	var/atom/drop_loc = drop_location(src)
@@ -74,13 +73,23 @@
 		"oxy" = image(icon = src.icon, icon_state = "oxy-mini"),
 		"advanced" = image(icon = src.icon, icon_state = "advanced-mini"),
 		"buffs" = image(icon = src.icon, icon_state = "buffs-mini"),
-		"custom" = image(icon = src.icon, icon_state = "standard-gags-mini"))
+		"custom" = image(icon = src.icon, icon_state = "standard-gags-mini"),
+		"interdyne-firstaid" = image(icon = src.icon, icon_state = "interdyne-firstaid-mini"),
+		"interdyne-brute" = image(icon = src.icon, icon_state = "interdyne-brute-mini"),
+		"interdyne-burn" = image(icon = src.icon, icon_state = "interdyne-burn-mini"),
+		"interdyne-toxin" = image(icon = src.icon, icon_state = "interdyne-toxin-mini"),
+		"interdyne-oxy" = image(icon = src.icon, icon_state = "interdyne-oxy-mini"),
+		"interdyne-advanced" = image(icon = src.icon, icon_state = "interdyne-advanced-mini"),
+		"interdyne-buffs" = image(icon = src.icon, icon_state = "interdyne-buffs-mini"),
+		"interdyne-custom" = image(icon = src.icon, icon_state = "interdyne-gags-mini"))
 	case_designs_xl = list(
 		"cmo" = image(icon = src.icon, icon_state = "cmo-mini"),
 		"emt" = image(icon = src.icon, icon_state = "emt-mini"),
 		"tactical" = image(icon = src.icon, icon_state = "tactical-mini"),
 		"deluxe-custom" = image(icon = src.icon, icon_state = "deluxe-gags-normal-mini"),
-		"tactical-custom" = image(icon = src.icon, icon_state = "deluxe-gags-tactical-mini"))
+		"tactical-custom" = image(icon = src.icon, icon_state = "deluxe-gags-tactical-mini"),
+		"interdyne-deluxe" = image(icon = src.icon, icon_state = "interdyne-deluxe-mini"),
+		"interdyne-deluxe-custom" = image(icon = src.icon, icon_state = "interdyne-deluxe-gags-mini"))
 
 /obj/item/storage/hypospraykit/update_overlays()
 	. = ..()
@@ -178,6 +187,21 @@
 /obj/item/storage/hypospraykit/empty
 	empty = TRUE
 
+/// Interdyne hypokits: mostly for style, but preloaded with goodies.
+/obj/item/storage/hypospraykit/interdyne
+	icon_state = "interdyne-firstaid-mini"
+	current_case = "interdyne-firstaid"
+
+/obj/item/storage/hypospraykit/interdyne/PopulateContents()
+	if(empty)
+		return
+	new /obj/item/hypospray/mkii/interdyne(src)
+	for(var/ticker in 1 to 7)
+		new /obj/item/reagent_containers/cup/vial/interdyne_medium/style/buff(src)
+
+/obj/item/storage/hypospraykit/interdyne/empty
+	empty = TRUE
+
 /// Deluxe hypokit: more storage, but you can't pocket it.
 /obj/item/storage/hypospraykit/cmo
 	name = "deluxe hypospray kit"
@@ -231,6 +255,21 @@
 	new /obj/item/reagent_containers/cup/vial/large/advcrit(src)
 	new /obj/item/reagent_containers/cup/vial/large/advomni(src)
 	new /obj/item/reagent_containers/cup/vial/large/numbing(src)
+
+/// Interdyne deluxe hypokits: mostly for style, but preloaded with goodies.
+/obj/item/storage/hypospraykit/cmo/interdyne
+	icon_state = "interdyne-deluxe-mini"
+	current_case = "interdyne-deluxe"
+
+/obj/item/storage/hypospraykit/cmo/interdyne/PopulateContents()
+	if(empty)
+		return
+	new /obj/item/hypospray/mkii/interdyne/deckoff(src)
+	for(var/ticker in 1 to 21)
+		new /obj/item/reagent_containers/cup/vial/interdyne_medium/style/buff(src)
+
+/obj/item/storage/hypospraykit/cmo/interdyne/empty
+	empty = TRUE
 
 /// Boxes of empty hypovials, coming in every style.
 /obj/item/storage/box/vials

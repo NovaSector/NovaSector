@@ -22,6 +22,14 @@
 	cost = 2
 	surplus = 50
 
+/datum/uplink_item/device_tools/tactical_medkit
+	name = "combat first aid kit"
+	desc = "An medkit meant for combat support, it contains. Two medicated sutures and mesh, Gauze, Advanced health analyzer, And as last atropine medipen"
+	item = /obj/item/storage/medkit/tactical_lite
+	cost = 3
+	surplus = 72
+	purchasable_from = UPLINK_TRAITORS
+
 /datum/uplink_item/device_tools/surgery_syndie
 	name = "Full Syndicate Surgery Medkit"
 	desc = "The Syndicate surgery medkit is a toolkit containing all surgery tools, surgical drapes, \
@@ -51,7 +59,6 @@
 	item = /obj/item/book/bible/syndicate
 	cost = 5
 
-/* // NOVA EDIT REMOVAL START
 /datum/uplink_item/device_tools/tram_remote
 	name = "Tram Remote Control"
 	desc = "When linked to a tram's on board computer systems, this device allows the user to manipulate the controls remotely. \
@@ -59,7 +66,6 @@
 		Perfect for running someone over in the name of a tram malfunction!"
 	item = /obj/item/assembly/control/transport/remote
 	cost = 2
-*/ // NOVA EDIT REMOVAL END
 
 /datum/uplink_item/device_tools/thermal
 	name = "Thermal Imaging Glasses"
@@ -78,7 +84,6 @@
 	cost = 1
 	surplus = 20
 
-/* // NOVA EDIT REMOVAL
 /datum/uplink_item/device_tools/briefcase_launchpad
 	name = "Briefcase Launchpad"
 	desc = "A briefcase containing a launchpad, a device able to teleport items and people to and from targets up to eight tiles away from the briefcase. \
@@ -86,7 +91,6 @@
 	surplus = 0
 	item = /obj/item/storage/briefcase/launchpad
 	cost = 6
-*/ // NOVA EDIT REMOVAL END
 
 /datum/uplink_item/device_tools/syndicate_teleporter
 	name = "Experimental Syndicate Teleporter"
@@ -189,7 +193,6 @@
 	cost = 3
 	purchasable_from = ~UPLINK_ALL_SYNDIE_OPS
 
-/* NOVA EDIT REMOVAL - It's laggy and doesn't really add much roleplay value
 /datum/uplink_item/device_tools/suspiciousphone
 	name = "Protocol CRAB-17 Phone"
 	desc = "The Protocol CRAB-17 Phone, a phone borrowed from an unknown third party, it can be used to crash the space market, funneling the losses of the crew to your bank account.\
@@ -198,7 +201,6 @@
 	restricted = TRUE
 	cost = 7
 	limited_stock = 1
-*/ // NOVA EDIT REMOVAL END
 
 /datum/uplink_item/device_tools/binary
 	name = "Binary Translator Key"
@@ -272,6 +274,7 @@
 	progression_minimum = 20 MINUTES
 	item = /obj/item/powersink
 	cost = 11
+	limited_stock = 1
 
 /datum/uplink_item/device_tools/syndicate_contacts
 	name = "Polarized Contact Lenses"

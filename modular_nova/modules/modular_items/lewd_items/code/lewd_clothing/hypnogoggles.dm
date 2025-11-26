@@ -9,6 +9,7 @@
 	greyscale_config = /datum/greyscale_config/hypnogoggles
 	greyscale_config_worn = /datum/greyscale_config/hypnogoggles/worn
 	flags_1 = IS_PLAYER_COLORABLE_1
+	obj_flags_nova = ERP_ITEM
 	/// The hypnotic codephrase. Default always required otherwise things break.
 	var/codephrase = "Obey."
 

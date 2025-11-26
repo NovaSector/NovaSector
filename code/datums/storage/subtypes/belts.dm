@@ -2,7 +2,7 @@
 /datum/storage/utility_belt
 	max_total_storage = 21
 
-/datum/storage/utility_belt/New(atom/parent, max_slots, max_specific_storage, max_total_storage)
+/datum/storage/utility_belt/New(atom/parent, max_slots, max_specific_storage, max_total_storage, rustle_sound, remove_rustle_sound)
 	. = ..()
 	set_holdable(GLOB.tool_items + list(
 		/obj/item/clothing/gloves,
@@ -16,7 +16,7 @@
 /datum/storage/medical_belt
 	max_total_storage = 21
 
-/datum/storage/medical_belt/New(atom/parent, max_slots, max_specific_storage, max_total_storage)
+/datum/storage/medical_belt/New(atom/parent, max_slots, max_specific_storage, max_total_storage, rustle_sound, remove_rustle_sound)
 	. = ..()
 	set_holdable(list(
 		/obj/item/bikehorn/rubberducky,
@@ -75,6 +75,7 @@
 		/obj/item/flesh_shears,
 		/obj/item/blood_scanner,
 		/obj/item/reflexhammer,
+		/obj/item/crowbar/power/paramedic,
 		// NOVA EDIT ADDITION START
 		/obj/item/clothing/suit/toggle/labcoat/nova/surgical_gown,
 		/obj/item/hypospray/mkii,
@@ -92,7 +93,7 @@
 	open_sound_vary = TRUE
 	rustle_sound = null
 
-/datum/storage/security_belt/New(atom/parent, max_slots, max_specific_storage, max_total_storage)
+/datum/storage/security_belt/New(atom/parent, max_slots, max_specific_storage, max_total_storage, rustle_sound, remove_rustle_sound)
 	. = ..()
 	set_holdable(list(
 		/obj/item/ammo_box,
@@ -111,6 +112,7 @@
 		/obj/item/restraints/handcuffs,
 		/obj/item/restraints/legcuffs/bola,
 		/obj/item/gun, // NOVA EDIT - ADDITION
+		/obj/item/clothing/mask/whistle, // NOVA EDIT - ADDITION
 	))
 
 ///Webbing security belt
@@ -122,7 +124,7 @@
 	max_slots = 6
 	max_total_storage = 20
 
-/datum/storage/mining_belt/New(atom/parent, max_slots, max_specific_storage, max_total_storage)
+/datum/storage/mining_belt/New(atom/parent, max_slots, max_specific_storage, max_total_storage, rustle_sound, remove_rustle_sound)
 	. = ..()
 	set_holdable(list(
 		/obj/item/analyzer,
@@ -174,7 +176,7 @@
 /datum/storage/soulstone_belt
 	max_slots = 6
 
-/datum/storage/soulstone_belt/New(atom/parent, max_slots, max_specific_storage, max_total_storage)
+/datum/storage/soulstone_belt/New(atom/parent, max_slots, max_specific_storage, max_total_storage, rustle_sound, remove_rustle_sound)
 	. = ..()
 	set_holdable(/obj/item/soulstone)
 
@@ -182,7 +184,7 @@
 /datum/storage/champion_belt
 	max_slots = 1
 
-/datum/storage/champion_belt/New(atom/parent, max_slots, max_specific_storage, max_total_storage)
+/datum/storage/champion_belt/New(atom/parent, max_slots, max_specific_storage, max_total_storage, rustle_sound, remove_rustle_sound)
 	. = ..()
 	set_holdable(/obj/item/clothing/mask/luchador)
 
@@ -194,7 +196,7 @@
 /datum/storage/military_belt/snack
 	max_slots = 6
 
-/datum/storage/military_belt/snack/New(atom/parent, max_slots, max_specific_storage, max_total_storage)
+/datum/storage/military_belt/snack/New(atom/parent, max_slots, max_specific_storage, max_total_storage, rustle_sound, remove_rustle_sound)
 	. = ..()
 	set_holdable(list(
 		/obj/item/food,
@@ -212,7 +214,7 @@
 	max_total_storage = 60
 	max_specific_storage = WEIGHT_CLASS_BULKY
 
-/datum/storage/grenade_belt/New(atom/parent, max_slots, max_specific_storage, max_total_storage)
+/datum/storage/grenade_belt/New(atom/parent, max_slots, max_specific_storage, max_total_storage, rustle_sound, remove_rustle_sound)
 	. = ..()
 	set_holdable(list(
 		/obj/item/food/grown/cherry_bomb,
@@ -229,7 +231,7 @@
 /datum/storage/wands_belt
 	max_slots = 7
 
-/datum/storage/wands_belt/New(atom/parent, max_slots, max_specific_storage, max_total_storage)
+/datum/storage/wands_belt/New(atom/parent, max_slots, max_specific_storage, max_total_storage, rustle_sound, remove_rustle_sound)
 	. = ..()
 	set_holdable(/obj/item/gun/magic/wand)
 
@@ -237,7 +239,7 @@
 /datum/storage/janitor_belt
 	max_slots = 6
 
-/datum/storage/janitor_belt/New(atom/parent, max_slots, max_specific_storage, max_total_storage)
+/datum/storage/janitor_belt/New(atom/parent, max_slots, max_specific_storage, max_total_storage, rustle_sound, remove_rustle_sound)
 	. = ..()
 	set_holdable(list(
 		/obj/item/access_key,
@@ -271,7 +273,7 @@
 	allow_quick_gather = TRUE
 	allow_quick_empty = TRUE
 
-/datum/storage/bandolier_belt/New(atom/parent, max_slots, max_specific_storage, max_total_storage)
+/datum/storage/bandolier_belt/New(atom/parent, max_slots, max_specific_storage, max_total_storage, rustle_sound, remove_rustle_sound)
 	. = ..()
 	set_holdable(list(
 		/obj/item/ammo_casing/strilka310,
@@ -293,7 +295,7 @@
 	max_specific_storage = WEIGHT_CLASS_BULKY
 	click_alt_open = FALSE
 
-/datum/storage/sabre_belt/New(atom/parent, max_slots, max_specific_storage, max_total_storage)
+/datum/storage/sabre_belt/New(atom/parent, max_slots, max_specific_storage, max_total_storage, rustle_sound, remove_rustle_sound)
 	. = ..()
 	set_holdable(/obj/item/melee/sabre)
 
@@ -304,15 +306,25 @@
 	max_specific_storage = WEIGHT_CLASS_BULKY
 	click_alt_open = FALSE
 
-/datum/storage/green_sabre_belt/New(atom/parent, max_slots, max_specific_storage, max_total_storage)
+/datum/storage/green_sabre_belt/New(atom/parent, max_slots, max_specific_storage, max_total_storage, rustle_sound, remove_rustle_sound)
 	. = ..()
 	set_holdable(/obj/item/melee/parsnip_sabre)
+
+/datum/storage/gladius_belt
+	max_slots = 1
+	do_rustle = FALSE
+	max_specific_storage = WEIGHT_CLASS_BULKY
+	click_alt_open = FALSE
+
+/datum/storage/gladius_belt/New(atom/parent, max_slots, max_specific_storage, max_total_storage, rustle_sound, remove_rustle_sound)
+	. = ..()
+	set_holdable(/obj/item/claymore/gladius)
 
 ///Plant belt
 /datum/storage/plant_belt
 	max_slots = 6
 
-/datum/storage/plant_belt/New(atom/parent, max_slots, max_specific_storage, max_total_storage)
+/datum/storage/plant_belt/New(atom/parent, max_slots, max_specific_storage, max_total_storage, rustle_sound, remove_rustle_sound)
 	. = ..()
 	set_holdable(list(
 		/obj/item/cultivator,
@@ -335,10 +347,10 @@
 /datum/storage/unfathomable_curio
 	max_total_storage = 21
 
-/datum/storage/unfathomable_curio/New(atom/parent, max_slots, max_specific_storage, max_total_storage)
+/datum/storage/unfathomable_curio/New(atom/parent, max_slots, max_specific_storage, max_total_storage, rustle_sound, remove_rustle_sound)
 	. = ..()
 	set_holdable(list(
-		/obj/item/ammo_box/strilka310/lionhunter,
+		/obj/item/ammo_box/speedloader/strilka310/lionhunter,
 		/obj/item/heretic_labyrinth_handbook,
 		/obj/item/bodypart, // Bodyparts are often used in rituals.
 		/obj/item/clothing/neck/eldritch_amulet,

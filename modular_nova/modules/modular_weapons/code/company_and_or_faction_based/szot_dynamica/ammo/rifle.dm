@@ -46,7 +46,7 @@
 	caliber = CALIBER_60STRELA
 	projectile_type = /obj/projectile/bullet/p60strela
 	custom_materials = AMMO_MATS_HEAVY
-	print_cost = 2
+	ammo_stack_type = /obj/item/ammo_box/magazine/ammo_stack/c60_strela
 
 /obj/item/ammo_casing/p60strela/Initialize(mapload)
 	. = ..()
@@ -56,7 +56,7 @@
 	name =".60 Strela bullet"
 	icon_state = "gaussphase"
 	speed = 2.5
-	damage = 70
+	damage = 50
 	armour_penetration = 50
 	wound_bonus = 15 // Toned back down, as it's getting alot more damage.
 	exposed_wound_bonus = 15

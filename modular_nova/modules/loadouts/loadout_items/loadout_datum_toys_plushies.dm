@@ -3,7 +3,7 @@
 /datum/loadout_item/toys/plush
 	group = "Plushies"
 	abstract_type = /datum/loadout_item/toys/plush
-	can_be_named = TRUE
+	loadout_flags = parent_type::loadout_flags | LOADOUT_FLAG_ALLOW_NAMING
 
 /datum/loadout_item/toys/plush/bee
 	name = "Bee Plushie"
@@ -60,10 +60,6 @@
 /datum/loadout_item/toys/plush/bubble
 	name = "Bubblegum Plushie"
 	item_path = /obj/item/toy/plush/bubbleplush
-
-/datum/loadout_item/toys/plush/goat
-	name = "Strange Goat Plushie"
-	item_path = /obj/item/toy/plush/goatplushie
 
 /datum/loadout_item/toys/plush/human
 	name = "Human Plushie"
@@ -132,6 +128,14 @@
 /datum/loadout_item/toys/plush/whitecat
 	name = "White Cat Plushie"
 	item_path = /obj/item/toy/plush/nova/cat/white
+
+/datum/loadout_item/toys/plush/fkinbnuuy
+	name = "Heckin Bnuuy"
+	item_path = /obj/item/toy/plush/nova/fkinbnuuy
+
+/datum/loadout_item/toys/plush/funniyellowrock
+	name = "Squishy Yellow Rock"
+	item_path = /obj/item/toy/plush/nova/funniyellowrock
 
 /*
 *	DONATOR
@@ -233,10 +237,6 @@
 	name = "Edgy Bird Plushie"
 	item_path = /obj/item/toy/plush/nova/donator/edgy_bird
 
-/datum/loadout_item/toys/plush/tree_ferret
-	name = "Tree Ferret Plushie"
-	item_path = /obj/item/toy/plush/nova/donator/tree_ferret
-
 /datum/loadout_item/toys/plush/xixi
 	name = "Familiar Harpy Plushie"
 	item_path = /obj/item/toy/plush/nova/donator/xixi
@@ -268,6 +268,14 @@
 /datum/loadout_item/toys/plush/plush_janiborg
 	name = "Friendly Janiborg Plush"
 	item_path = /obj/item/toy/plush/nova/donator/plush_janiborg
+
+/datum/loadout_item/toys/plush/securifox
+	name = "Securifox Plushie"
+	item_path = /obj/item/toy/plush/nova/securifox
+
+/datum/loadout_item/toys/plush/towa
+	name = "Tiny Overwatch"
+	item_path = /obj/item/toy/plush/nova/towa
 
 /*
 *	STAFF

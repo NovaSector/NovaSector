@@ -3,13 +3,14 @@
 	desc = "Go ahead, wind it up to charge it."
 	icon = 'modular_nova/modules/new_cells/icons/power.dmi'
 	icon_state = "crankcell"
+	charge_light_type = "old"
+	emp_damage_modifier = 0.5
 	/// how much each crank will give the cell charge
 	var/crank_amount = STANDARD_CELL_CHARGE * 0.1
 	/// how fast it takes to crank to get the crank_amount
 	var/crank_speed = 1 SECONDS
 	/// how much gets discharged every process
 	var/discharge_amount = STANDARD_CELL_CHARGE * 0.01
-	charge_light_type = "old"
 
 /obj/item/stock_parts/power_store/cell/crank/examine(mob/user)
 	. = ..()

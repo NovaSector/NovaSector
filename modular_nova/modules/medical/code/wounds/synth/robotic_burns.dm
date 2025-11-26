@@ -3,7 +3,7 @@
 /datum/wound_pregen_data/burnt_metal
 	abstract = TRUE
 	required_limb_biostate = BIO_METAL
-	required_wounding_types = list(WOUND_BURN)
+	required_wounding_type = WOUND_BURN
 	wound_series = WOUND_SERIES_METAL_BURN_OVERHEAT
 
 /datum/wound_pregen_data/burnt_metal/generate_scar_priorities()
@@ -148,12 +148,12 @@
 	if (victim)
 		QDEL_NULL(mob_glow)
 		UnregisterSignal(victim, COMSIG_MOB_AFTER_APPLY_DAMAGE)
-		UnregisterSignal(victim, COMSIG_ATOM_AFTER_EXPOSE_REAGENTS)
+		UnregisterSignal(victim, COMSIG_ATOM_EXPOSE_REAGENTS)
 	if (new_victim)
 		mob_glow = new_victim.mob_light(light_range, light_power, light_color)
 		mob_glow.set_light_on(TRUE)
 		RegisterSignal(new_victim, COMSIG_MOB_AFTER_APPLY_DAMAGE, PROC_REF(victim_attacked))
-		RegisterSignal(new_victim, COMSIG_ATOM_AFTER_EXPOSE_REAGENTS, PROC_REF(victim_exposed_to_reagents))
+		RegisterSignal(new_victim, COMSIG_ATOM_EXPOSE_REAGENTS, PROC_REF(victim_exposed_to_reagents))
 
 	return ..()
 

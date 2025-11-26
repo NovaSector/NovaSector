@@ -1,4 +1,5 @@
 /datum/quirk/insanity
+	mob_trait = TRAIT_INSANITY
 	mail_goodies = list(/obj/item/storage/pill_bottle/lsdpsych/quirk)
 	species_quirks = list(/datum/species/synthetic = /datum/quirk/insanity/synth)
 	///The medication given when the quirk is added

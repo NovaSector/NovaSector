@@ -92,7 +92,7 @@
 	var/list/transfer_volumes = list()
 	// Calculate proportional transfer volumes per reagent
 	// Account for reagents with insufficient and excess volumes
-	for(var/reagent_type as anything in target_reagents)
+	for(var/reagent_type in target_reagents)
 		var/datum/reagent/reagent = target_reagents[reagent_type]
 		var/distributed_volume = round(reagent.volume / possible_transfer_volume, CHEMICAL_QUANTISATION_LEVEL)
 		transfer_volumes[reagent.type] = round(empty_volume * distributed_volume, CHEMICAL_QUANTISATION_LEVEL)

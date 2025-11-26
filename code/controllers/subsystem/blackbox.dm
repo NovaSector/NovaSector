@@ -43,18 +43,12 @@ SUBSYSTEM_DEF(blackbox)
 		return
 	var/playercount = LAZYLEN(GLOB.player_list)
 	var/admincount = GLOB.admins.len
-	/* // NOVA EDIT CHANGE - MULTISERVER - ORIGINAL:
 	var/datum/db_query/query_record_playercount = SSdbcore.NewQuery({"
 		INSERT INTO [format_table_name("legacy_population")] (playercount, admincount, time, server_ip, server_port, round_id)
 		VALUES (:playercount, :admincount, NOW(), INET_ATON(:server_ip), :server_port, :round_id)
-	*/
-	var/datum/db_query/query_record_playercount = SSdbcore.NewQuery({"
-		INSERT INTO [format_table_name("legacy_population")] (playercount, admincount, time, server_name, server_ip, server_port, round_id)
-		VALUES (:playercount, :admincount, NOW(), :server_name, INET_ATON(:server_ip), :server_port, :round_id)
 	"}, list(
 		"playercount" = playercount,
 		"admincount" = admincount,
-		"server_name" = CONFIG_GET(string/serversqlname), // NOVA EDIT ADDITION - MULTISERVER
 		"server_ip" = world.internet_address || "0",
 		"server_port" = "[world.port]",
 		"round_id" = GLOB.round_id,
@@ -339,19 +333,14 @@ Versioning
 	if(!SSdbcore.Connect())
 		return
 
-/* NOVA EDIT CHANGE - MULTISERVER - ORIGINAL:
 	var/datum/db_query/query_report_death = SSdbcore.NewQuery({"
 		INSERT INTO [format_table_name("death")] (pod, x_coord, y_coord, z_coord, mapname, server_ip, server_port, round_id, tod, job, special, name, byondkey, laname, lakey, bruteloss, fireloss, brainloss, oxyloss, toxloss, staminaloss, last_words, suicide)
 		VALUES (:pod, :x_coord, :y_coord, :z_coord, :map, INET_ATON(:internet_address), :port, :round_id, NOW(), :job, :special, :name, :key, :laname, :lakey, :brute, :fire, :brain, :oxy, :tox, :stamina, :last_words, :suicide)
-*/
-	var/datum/db_query/query_report_death = SSdbcore.NewQuery({"
-		INSERT INTO [format_table_name("death")] (pod, x_coord, y_coord, z_coord, mapname, server_name, server_ip, server_port, round_id, tod, job, special, name, byondkey, laname, lakey, bruteloss, fireloss, brainloss, oxyloss, toxloss, staminaloss, last_words, suicide)
-		VALUES (:pod, :x_coord, :y_coord, :z_coord, :map, :server_name, INET_ATON(:internet_address), :port, :round_id, NOW(), :job, :special, :name, :key, :laname, :lakey, :brute, :fire, :brain, :oxy, :tox, :clone, :stamina, :last_words, :suicide)
 	"}, list(
 		"name" = L.real_name,
 		"key" = L.ckey,
 		"job" = L.mind.assigned_role.title,
-		"special" = L.mind.special_role,
+		"special" = jointext(L.mind.get_special_roles(), " | "),
 		"pod" = get_area_name(L, TRUE),
 		"laname" = L.lastattacker,
 		"lakey" = L.lastattackerckey,
@@ -367,7 +356,6 @@ Versioning
 		"last_words" = L.last_words,
 		"suicide" = did_they_suicide,
 		"map" = SSmapping.current_map.map_name,
-		"server_name" = CONFIG_GET(string/serversqlname),  // NOVA EDIT ADDITION - MULTISERVER
 		"internet_address" = world.internet_address || "0",
 		"port" = "[world.port]",
 		"round_id" = GLOB.round_id,
@@ -431,7 +419,7 @@ Versioning
 /datum/controller/subsystem/blackbox/proc/ReportRoundstartManifest(list/characters)
 	var/list/query_rows = list()
 	var/list/special_columns = list("server_ip" = "INET_ATON(?)")
-	for(var/mob_ckey as anything in characters)
+	for(var/mob_ckey in characters)
 		var/mob/living/new_character = characters[mob_ckey]
 		query_rows += list(list(
 			"server_ip" = world.internet_address || 0,
@@ -440,7 +428,7 @@ Versioning
 			"ckey" = mob_ckey,
 			"character_name" = new_character.real_name,
 			"job" = new_character.mind?.assigned_role?.title,
-			"special" = new_character.mind?.special_role,
+			"special" = english_list(new_character.mind?.get_special_roles(), nothing_text = "NONE"),
 			"latejoin" = 0,
 		))
 	SSdbcore.MassInsert(format_table_name("manifest"), query_rows, special_columns = special_columns)

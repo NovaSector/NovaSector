@@ -25,6 +25,7 @@
 	)
 
 	var/list/organs_to_process = list(
+		"brain" = "Brain",
 		"heart" = "Heart",
 		"lungs" = "Lungs",
 		"liver" = "Liver",
@@ -32,6 +33,7 @@
 		"ears" = "Ears",
 		"eyes" = "Eyes",
 		"tongue" = "Tongue",
+		"Brain Implant" = "Brain implant",
 		"Mouth implant" = "Mouth implant",
 		"Chest implant" = "Chest implant",
 		"Left Arm implant" = "Left Arm implant",
