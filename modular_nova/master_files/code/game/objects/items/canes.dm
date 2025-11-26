@@ -2,9 +2,9 @@
 
 /obj/item/cane/movement_support_add(mob/living/user)
  	. = ..()
-		RegisterSignal(user, COMSIG_LIVING_LIMBLESS_SLOWDOWN, PROC_REF(handle_cane_slowdown))
-		user.update_usable_leg_status()
-		return TRUE
+	RegisterSignal(user, COMSIG_LIVING_LIMBLESS_SLOWDOWN, PROC_REF(handle_cane_slowdown))
+	user.update_usable_leg_status()
+	return TRUE
 
 /obj/item/cane/movement_support_del(mob/living/user)
 	. = ..()
