@@ -64,7 +64,7 @@
 
 		briefcase.name = "[preference_source.read_preference(/datum/preference/name/real_name)]'s travel suitcase"
 		equipOutfit(equipped_outfit, visuals_only)
-		put_in_hands(briefcase)
+		INVOKE_ASYNC(src, PROC_REF(put_in_hands), briefcase)
 	else
 		for(var/datum/loadout_item/item as anything in loadout_datums)
 			if (erp_enabled && item.erp_box == TRUE)
