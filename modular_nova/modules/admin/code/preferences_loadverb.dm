@@ -120,4 +120,4 @@ ADMIN_VERB(import_preferences, R_ADMIN, "Import Preferences", "Upload a characte
 	log_admin("Kicked [player_key] to complete preference file importing.")
 	message_admins("Kicked [player_key] to complete preference file importing.")
 	// Delayed kick to give chat messages time to be delivered
-	QDEL_IN(target_client, 2)
+	QDEL_IN(target_client, 0.2 SECONDS)
