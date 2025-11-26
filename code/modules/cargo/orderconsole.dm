@@ -281,8 +281,12 @@
 				if(dept_choice == "Cargo Budget")
 					personal_department = null
 					uses_cargo_budget = TRUE // NOVA EDIT ADDITION
+			// NOVA EDIT ADDITION START
+			else
+				uses_cargo_budget = TRUE // NOVA EDIT ADDITION
+			// NOVA EDIT ADDITION END
 
-	if((!self_paid && (pack.goody && !pack.departamental_goody))) // NOVA EDIT CHANGE - ORIGINAL: if(pack.goody && !self_paid)
+	if((pack.goody && (!pack.departamental_goody || uses_cargo_budget)) && (!self_paid || !requestonly)) // NOVA EDIT CHANGE - ORIGINAL: if(pack.goody && !self_paid)
 		playsound(src, 'sound/machines/buzz/buzz-sigh.ogg', 50, FALSE)
 		say("ERROR: Small crates may only be purchased by private accounts.")
 		return
@@ -297,8 +301,9 @@
 		account = personal_department
 		// NOVA EDIT ADDITION START
 		if ((uses_cargo_budget || !requestonly) && pack.goody && pack.departamental_goody)
-			pack.goody = FALSE
-			account = null
+			playsound(src, 'sound/machines/buzz/buzz-sigh.ogg', 50, FALSE)
+			say("ERROR: Small crates may only be purchased by private accounts.")
+			return
 		// NOVA EDIT ADDITION END
 
 	amount = clamp(amount, 1, CARGO_MAX_ORDER - similar_count)

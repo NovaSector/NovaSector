@@ -36,8 +36,8 @@
 
 /obj/item/gun/ballistic/automatic/smart_machine_gun/Initialize(mapload)
 	. = ..()
-
 	AddComponent(/datum/component/automatic_fire, fire_delay)
+	AddComponent(/datum/component/identify_friend_foe, iff_factions)
 
 	AddElement(/datum/element/update_icon_updates_onmob)
 
@@ -76,11 +76,11 @@
 		return
 	return ..()
 
-/obj/item/gun/ballistic/automatic/smart_machine_gun/attackby(obj/item/attacking_item, mob/user, list/modifiers, list/attack_modifiers)
-	if(!cover_open && istype(attacking_item, accepted_magazine_type))
+/obj/item/gun/ballistic/automatic/smart_machine_gun/item_interaction(mob/living/user, obj/item/tool, list/modifiers)
+	if(!cover_open && istype(tool, accepted_magazine_type))
 		to_chat(user, span_warning("[src]'s dust cover prevents a magazine from being fit."))
-		return
-	..()
+		return ITEM_INTERACT_BLOCKING
+	return ..()
 
 /obj/item/gun/ballistic/automatic/smart_machine_gun/update_overlays()
 	. = ..()
@@ -88,13 +88,14 @@
 
 /obj/item/gun/ballistic/automatic/smart_machine_gun/unrestricted
 	pin = /obj/item/firing_pin
+
 // Magazine itself
 
 /obj/item/ammo_box/magazine/smartgun_drum
 	name = "smartgun drum (10x28mm caseless)"
 	icon = 'modular_nova/modules/marines/icons/items/ammo.dmi'
 	icon_state = "smartgun_drum"
-	ammo_type = /obj/item/ammo_casing/smart/a10x28
+	ammo_type = /obj/item/ammo_casing/a10x28
 	caliber = "a10x28"
 	max_ammo = 500
 	multiple_sprites = AMMO_BOX_FULL_EMPTY
@@ -102,54 +103,35 @@
 
 // Smart ammo casings
 
-/obj/item/ammo_casing/smart
-
-/obj/item/ammo_casing/smart/Initialize(mapload)
-	. = ..()
-	RegisterSignal(src, COMSIG_CHAMBERED_BULLET_FIRE, PROC_REF(iff_transfer))
-
-/obj/item/ammo_casing/smart/proc/iff_transfer(datum/source, list/iff_factions)
-	SIGNAL_HANDLER
-
-	if(istype(loaded_projectile, /obj/projectile/bullet/smart))
-		var/obj/projectile/bullet/smart/smart_proj = loaded_projectile
-		smart_proj.ignored_factions = iff_factions.Copy()
-
-/obj/item/ammo_casing/smart
+/obj/item/ammo_casing/a10x28
 	firing_effect_type = null
 
-/obj/item/ammo_casing/smart/Initialize(mapload)
+/obj/item/ammo_casing/a10x28/Initialize(mapload)
 	. = ..()
 	AddElement(/datum/element/caseless)
 
-/obj/item/ammo_casing/smart/fire_casing(atom/target, mob/living/user, params, distro, quiet, zone_override, spread, atom/fired_from)
-	if (!..()) //failed firing
-		return FALSE
-	if(istype(fired_from, /obj/item/gun))
-		var/obj/item/gun/shot_from = fired_from
-		if(shot_from.chambered == src)
-			shot_from.chambered = null //Nuke it. Nuke it now.
-	qdel(src)
-	return TRUE
-
-/obj/item/ammo_casing/smart/update_icon_state()
+/obj/item/ammo_casing/a10x28/update_icon_state()
 	. = ..()
 	icon_state = "[initial(icon_state)]"
 
-/obj/item/ammo_casing/smart/a10x28
+/obj/item/ammo_casing/a10x28
 	name = "10x28mm bullet"
 	desc = "A 10x28m caseless bullet."
 	icon_state = "762-casing"
 	caliber = "a10x28"
-	projectile_type = /obj/projectile/bullet/smart/a10x28
+	projectile_type = /obj/projectile/bullet/a10x28
 
 // Smart bullets
 
-/obj/projectile/bullet/smart
+/obj/projectile/bullet/a10x28
 	ignore_direct_target = TRUE
 
-/obj/projectile/bullet/smart/a10x28 // utter peashooter, but it has 6000rpm
+/obj/projectile/bullet/a10x28 // utter peashooter, but it has 6000rpm
 	name = "10x28mm bullet"
 	damage = 6
 	wound_bonus = -5
 	wound_falloff_tile = -1
+	embed_type = /datum/embedding/bullet/a10x28
+
+/datum/embedding/bullet/a10x28
+	embed_chance = 1 // Just a little

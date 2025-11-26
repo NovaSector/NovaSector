@@ -1,4 +1,0 @@
-author: "Hatterhat"
-delete-after: True
-changes:
-  - bugfix: "Telecomms specialists now actually count as engineering jobs for loadout purposes. This means they can get loadout mesons now."
