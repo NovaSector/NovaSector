@@ -16,7 +16,7 @@
 	category = CAT_CLOTHING
 
 /datum/crafting_recipe/charge_holster/New()
-	..()
+	. = ..()
 	blacklist |= subtypesof(/obj/item/storage/belt/holster) - list(/obj/item/storage/belt/holster/thigh)
 	blacklist |= subtypesof(/obj/item/stock_parts/capacitor)
 

@@ -82,19 +82,22 @@
 	var/transferred = min(recharger_cell.charge, target_cell.used_charge(), amount)
 	recharger_cell.use(target_cell.give(transferred))
 	recharger_cell.update_appearance()
-	return
+	return transferred
 
 /// Attempt to refill a target magazine `power_pack`, using power based on `seconds_per_tick`, draining from our (presumably inserted) `recharger_cell`.
 /obj/item/storage/belt/holster/energy/proc/charge_mag(obj/item/ammo_box/magazine/recharge/power_pack, seconds_per_tick)
+	var/used_charge = 0
 	for(var/charge_iterations in 1 to recharge_magazine_coeff)
 		if(power_pack.stored_ammo.len >= power_pack.max_ammo)
 			continue
 		power_pack.stored_ammo += new power_pack.ammo_type(power_pack)
-		recharger_cell.use(BASE_MACHINE_ACTIVE_CONSUMPTION * seconds_per_tick)
+		used_charge += recharger_cell.use(BASE_MACHINE_ACTIVE_CONSUMPTION * seconds_per_tick)
+	return used_charge
 
 /obj/item/storage/belt/holster/energy/process(seconds_per_tick)
 	if(!recharger_cell)
 		return // no cell no charge
+	var/charge_given = 0
 	for(var/obj/item/charging in contents)
 		// if it's an energy gun...
 		if(istype(charging, /obj/item/gun/energy))
@@ -104,19 +107,22 @@
 			var/obj/item/stock_parts/power_store/charging_cell = charge_gun.get_cell()
 			if(charging_cell)
 				if(charging_cell.charge < charging_cell.maxcharge)
-					charge_cell(charging_cell.chargerate * recharge_coeff * seconds_per_tick, charging_cell)
+					charge_given += charge_cell(charging_cell.chargerate * recharge_coeff * seconds_per_tick, charging_cell) || 0
 					charge_gun.update_appearance()
 		// alternatively, if it's a rechargable magazine (out of a gun)
 		else if(istype(charging, /obj/item/ammo_box/magazine/recharge))
-			charge_mag(charging, seconds_per_tick)
+			charge_given += charge_mag(charging, seconds_per_tick) || 0
 		// or if it's a gun with a rechargable magazine
 		else if(istype(charging, /obj/item/gun/ballistic))
 			var/obj/item/gun/ballistic/shooty = charging
 			if(!istype(shooty.magazine, /obj/item/ammo_box/magazine/recharge))
 				continue
-			charge_mag(shooty.magazine, seconds_per_tick)
+			charge_given += charge_mag(shooty.magazine, seconds_per_tick) || 0
 			if(!shooty.chambered)
 				shooty.chamber_round()
+				continue
+	if(!charge_given)
+		STOP_PROCESSING(SSobj, src) // Nothing is left to charge, we can stop trying
 
 // desc adjustments
 
