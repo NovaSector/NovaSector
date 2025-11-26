@@ -1,5 +1,5 @@
 /obj/item/gun/ballistic/rifle/pulse_sniper
-	name = "\improper M/PR-16 'Žaibas-Aštrus' sniper rifle"
+	name = "\improper M/PR-16 'Žaibas-Aštrus' Sniper Rifle"
 	desc = "A sniper variant of the Žaibas plasma pulse projector, modified for precision long-range engagements. \
 	Uses a specialized chamber-loading system that consumes three charges per shot."
 

@@ -1,5 +1,5 @@
 /obj/item/gun/ballistic/automatic/pulse_rifle
-	name = "\improper M/PR-15 'Žaibas' plasma pulse projector"
+	name = "\improper M/PR-15 'Žaibas' Plasma Pulse Projector"
 	desc = "An advanced energy weapon that uses high-capacity plasma pulse cells. Fires in 3-round bursts."
 
 	icon = 'modular_nova/modules/modular_weapons/icons/obj/company_and_or_faction_based/szot_dynamica/guns_48.dmi'
