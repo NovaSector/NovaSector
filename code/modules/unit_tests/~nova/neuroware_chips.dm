@@ -9,7 +9,7 @@
 * 4. Neuroware chips are incompatible with humans using a broken/non-functional NIF implant.
 */
 /datum/unit_test/neuroware_chips/Run()
-	// Pause natural mob life so it can be handled entirely by the test
+	// Pause natural mob life so reagents don't metabolize before assertions
 	SSmobs.pause()
 
 	// Fetch all neuroware chip subtypes
@@ -28,13 +28,11 @@
 
 		// Setup default synthetic humanoid
 		var/mob/living/carbon/human/species/synth/test_robot = EASY_ALLOCATE()
-
 		// Installation should succeed on a compatible synthetic humanoid
 		var/install_status = test_chip.try_install(test_robot, test_robot)
 		TEST_ASSERT_EQUAL(install_status, TRUE, "\"[test_chip.type]/proc/try_install()\" should return TRUE when used on synthetic humanoid.")
 
 		// Ensure the reagents were added successfully
-		test_robot.Life(SSMOBS_DT)
 		for(var/reagent_type in test_chip.list_reagents)
 			TEST_ASSERT(test_robot.has_reagent(reagent_type), "\"[reagent_type]\" is missing when its presence is expected after using \"[test_chip.type]\" on synthetic humanoid.")
 
@@ -47,7 +45,6 @@
 		TEST_ASSERT_EQUAL(install_status, null, "\"[test_chip.type]/proc/try_install()\" should return null when used on default human.")
 
 		// Ensure the reagents weren't added
-		test_robot.Life(SSMOBS_DT)
 		for(var/reagent_type in test_chip.list_reagents)
 			TEST_ASSERT(!lab_rat.has_reagent(reagent_type), "\"[reagent_type]\" is present when it's expected to be missing after using \"[test_chip.type]\" on default human.")
 
@@ -62,7 +59,6 @@
 		TEST_ASSERT_EQUAL(install_status, TRUE, "\"[test_chip.type]/proc/try_install()\" should return TRUE when used on human with NIF implant.")
 
 		// Ensure the reagents were added
-		lab_rat.Life(SSMOBS_DT)
 		for(var/reagent_type in test_chip.list_reagents)
 			TEST_ASSERT(lab_rat.has_reagent(reagent_type), "\"[reagent_type]\" is missing when its presence is expected after using \"[test_chip.type]\" on human with NIF implant.")
 
@@ -79,7 +75,6 @@
 		TEST_ASSERT_EQUAL(install_status, null, "\"[test_chip.type]/proc/try_install()\" should return null when used on human with a broken NIF implant.")
 
 		// Ensure the reagents weren't added
-		lab_rat.Life(SSMOBS_DT)
 		for(var/reagent_type in test_chip.list_reagents)
 			TEST_ASSERT(!lab_rat.has_reagent(reagent_type), "\"[reagent_type]\" is present when it's expected to be missing after using \"[test_chip.type]\" on human with broken NIF implant.")
 
