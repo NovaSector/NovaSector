@@ -2,7 +2,7 @@
 
 /obj/effect/mob_spawn/ghost_role/human/hermit
 	quirks_enabled = TRUE // ghost role quirks
-	random_appearance = FALSE // ghost role prefs
+	allow_custom_character = GHOSTROLE_TAKE_PREFS_APPEARANCE // ghost role prefs
 
 /// Maintsroom lost
 
@@ -14,7 +14,7 @@
 	important_text = "YOU ARE NOT HOSTILE YOU SHOULD NOT BE KILLING PEOPLE/CREW IN GENERAL, unless you have admin permission or good IC justification to do so."
 	loadout_enabled = TRUE
 	quirks_enabled = TRUE // ghost role quirks
-	random_appearance = FALSE // ghost role prefs
+	allow_custom_character = GHOSTROLE_TAKE_PREFS_APPEARANCE // ghost role prefs
 	deletes_on_zero_uses_left = TRUE
 
 /obj/effect/mob_spawn/ghost_role/human/heretic
@@ -25,35 +25,35 @@
 	important_text = "You can, and should kill people if they try and get past the wooden barricades and security barrier, however if when you catch them theyre already past the security barrier you are to kill yourself instead, if you kill anybody you are to tend their body then make their death look like an accident and then throw them back through the gateway DO NOT RR PEOPLE OR HIDE THEIR BODIES IN ANY CIRCUMSTANCES, do not loot people either even if its their weapon in the heat of combat, go into this ghost role with the mindset that you are an npc."
 	loadout_enabled = TRUE
 	quirks_enabled = TRUE // ghost role quirks
-	random_appearance = FALSE // ghost role prefs
+	allow_custom_character = GHOSTROLE_TAKE_PREFS_APPEARANCE // ghost role prefs
 	deletes_on_zero_uses_left = TRUE
 
 /// Beach Dome
 
 /obj/effect/mob_spawn/ghost_role/human/beach
 	quirks_enabled = TRUE
-	random_appearance = FALSE
+	allow_custom_character = GHOSTROLE_TAKE_PREFS_APPEARANCE
 
 /// Space Bar
 
 /obj/effect/mob_spawn/ghost_role/human/bartender
 	quirks_enabled = TRUE
-	random_appearance = FALSE
+	allow_custom_character = GHOSTROLE_TAKE_PREFS_APPEARANCE
 
 /// Preserved Terrarium
 
 /obj/effect/mob_spawn/ghost_role/human/seed_vault
 	restricted_species = list(/datum/species/pod)
 	quirks_enabled = TRUE
-	random_appearance = FALSE
+	allow_custom_character = GHOSTROLE_TAKE_PREFS_APPEARANCE
 
 /// Ashwalker Camp
 
 /obj/effect/mob_spawn/ghost_role/human/ash_walker
 	restricted_species = list(/datum/species/lizard/ashwalker)
-	random_appearance = FALSE
+	allow_custom_character = GHOSTROLE_TAKE_PREFS_APPEARANCE
 
-/obj/effect/mob_spawn/ghost_role/human/ash_walker/special(mob/living/carbon/human/spawned_human)
+/obj/effect/mob_spawn/ghost_role/human/ash_walker/special(mob/living/carbon/human/spawned_human, mob/mob_possessor, apply_prefs)
 	spawned_human.fully_replace_character_name(null, spawned_human.generate_random_mob_name(TRUE))
 	quirks_enabled = TRUE // ghost role quirks
 	. = ..()
@@ -64,7 +64,7 @@
 	outfit = /datum/outfit/lavaland_syndicate/comms/space
 	loadout_enabled = TRUE
 	quirks_enabled = TRUE
-	random_appearance = FALSE
+	allow_custom_character = GHOSTROLE_TAKE_PREFS_APPEARANCE
 
 // OUTFITS
 
@@ -92,11 +92,11 @@
 	loadout_enabled = TRUE
 	allow_mechanical_loadout_items = TRUE
 	quirks_enabled = TRUE
-	random_appearance = FALSE
+	allow_custom_character = GHOSTROLE_TAKE_PREFS_APPEARANCE
 
-/obj/effect/mob_spawn/ghost_role/human/interdyne_planetary_base/special(mob/living/new_spawn)
+/obj/effect/mob_spawn/ghost_role/human/interdyne_planetary_base/special(mob/living/spawned_mob, mob/mob_possessor, apply_prefs)
 	. = ..()
-	new_spawn.grant_language(/datum/language/codespeak, source = LANGUAGE_SPAWNER)
+	spawned_mob.grant_language(/datum/language/codespeak, source = LANGUAGE_SPAWNER)
 
 /obj/effect/mob_spawn/ghost_role/human/interdyne_planetary_base/ice
 	outfit = /datum/outfit/interdyne_planetary_base/ice

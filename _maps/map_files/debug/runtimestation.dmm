@@ -155,15 +155,6 @@
 	},
 /turf/open/floor/iron,
 /area/station/engineering/atmos)
-"bd" = (
-/obj/structure/table,
-/obj/item/weldingtool/experimental,
-/obj/item/inducer,
-/obj/item/storage/belt/utility/chief/full,
-/obj/machinery/power/apc/auto_name/directional/west,
-/obj/structure/cable,
-/turf/open/floor/iron,
-/area/station/engineering/main)
 "bf" = (
 /obj/machinery/suit_storage_unit/captain,
 /turf/open/floor/iron,
@@ -959,22 +950,6 @@
 /obj/item/storage/part_replacer/bluespace/tier4,
 /turf/open/floor/iron,
 /area/station/cargo/bitrunning/den)
-"fM" = (
-/obj/structure/sign/directions/supply{
-	dir = 4;
-	pixel_x = 32
-	},
-/obj/structure/sign/directions/engineering{
-	dir = 1;
-	pixel_x = 32;
-	pixel_y = 7
-	},
-/obj/structure/sign/directions/evac{
-	pixel_x = 32;
-	pixel_y = -7
-	},
-/turf/open/floor/iron,
-/area/station/hallway/secondary/entry)
 "fO" = (
 /turf/open/floor/iron,
 /area/station/hallway/secondary/exit/departure_lounge)
@@ -983,34 +958,11 @@
 /obj/machinery/keycard_auth/wall_mounted/directional/north,
 /turf/open/floor/iron,
 /area/station/hallway/secondary/exit/departure_lounge)
-"fQ" = (
-/obj/machinery/computer/communications,
-/obj/machinery/status_display/evac{
-	pixel_y = 32
-	},
-/turf/open/floor/iron,
-/area/station/hallway/secondary/exit/departure_lounge)
 "fS" = (
 /obj/machinery/power/apc/auto_name/directional/north,
 /obj/structure/cable,
 /turf/open/floor/iron,
 /area/station/hallway/secondary/exit/departure_lounge)
-"fX" = (
-/obj/structure/sign/directions/supply{
-	dir = 4;
-	pixel_x = -32
-	},
-/obj/structure/sign/directions/engineering{
-	dir = 1;
-	pixel_x = -32;
-	pixel_y = 7
-	},
-/obj/structure/sign/directions/evac{
-	pixel_x = -32;
-	pixel_y = -7
-	},
-/turf/open/floor/plating,
-/area/station/commons/storage/primary)
 "fY" = (
 /obj/machinery/light/directional/west,
 /obj/structure/cable,
@@ -1034,22 +986,6 @@
 /obj/effect/spawner/structure/window/reinforced,
 /turf/open/floor/plating,
 /area/station/hallway/secondary/exit/departure_lounge)
-"gg" = (
-/obj/structure/sign/directions/supply{
-	dir = 4;
-	pixel_x = 32
-	},
-/obj/structure/sign/directions/engineering{
-	dir = 1;
-	pixel_x = 32;
-	pixel_y = 7
-	},
-/obj/structure/sign/directions/evac{
-	pixel_x = 32;
-	pixel_y = -7
-	},
-/turf/open/floor/plating,
-/area/station/commons/storage/primary)
 "gi" = (
 /obj/structure/table,
 /obj/item/storage/toolbox/syndicate,
@@ -1111,6 +1047,22 @@
 /obj/item/paper/guides/jobs/security/labor_camp,
 /turf/open/floor/iron,
 /area/station/security/brig)
+"gY" = (
+/obj/structure/sign/directions/supply{
+	dir = 4;
+	pixel_x = -32
+	},
+/obj/structure/sign/directions/engineering{
+	dir = 1;
+	pixel_x = -32;
+	pixel_y = 7
+	},
+/obj/structure/sign/directions/evac{
+	pixel_x = -32;
+	pixel_y = -7
+	},
+/turf/open/floor/plating,
+/area/station/commons/storage/primary)
 "hm" = (
 /obj/machinery/airalarm/directional/west,
 /obj/effect/mapping_helpers/airalarm/unlocked,
@@ -1248,6 +1200,13 @@
 /obj/structure/cable,
 /turf/open/floor/iron,
 /area/station/engineering/main)
+"mn" = (
+/obj/machinery/computer/communications,
+/obj/machinery/status_display/evac{
+	pixel_y = 32
+	},
+/turf/open/floor/iron,
+/area/station/hallway/secondary/exit/departure_lounge)
 "mC" = (
 /turf/open/floor/iron/dark,
 /area/station/medical/medbay)
@@ -1783,6 +1742,14 @@
 	},
 /turf/open/floor/iron,
 /area/station/hallway/secondary/exit/departure_lounge)
+"AK" = (
+/obj/machinery/camera/autoname/directional/east,
+/obj/effect/turf_decal/stripes/line{
+	dir = 1
+	},
+/obj/structure/cable,
+/turf/open/floor/iron,
+/area/station/commons/storage/primary)
 "Bp" = (
 /obj/machinery/light/directional/west,
 /obj/effect/turf_decal/stripes/line{
@@ -1817,7 +1784,7 @@
 /area/station/command/bridge)
 "BG" = (
 /obj/structure/table,
-/obj/item/ammo_box/c10mm,
+/obj/item/ammo_box/c9mm,
 /obj/item/gun/ballistic/automatic/pistol,
 /turf/open/floor/iron,
 /area/station/command/bridge)
@@ -2153,14 +2120,6 @@
 	},
 /turf/open/floor/iron,
 /area/station/commons/storage/primary)
-"JV" = (
-/obj/machinery/camera/autoname/directional/east,
-/obj/effect/turf_decal/stripes/line{
-	dir = 1
-	},
-/obj/structure/cable,
-/turf/open/floor/iron,
-/area/station/commons/storage/primary)
 "Kg" = (
 /obj/machinery/door/airlock/external/glass/ruin,
 /obj/structure/cable,
@@ -2227,6 +2186,15 @@
 /obj/machinery/vending/subtype_vendor,
 /turf/open/floor/iron,
 /area/station/medical/chemistry)
+"LV" = (
+/obj/structure/table,
+/obj/item/weldingtool/experimental,
+/obj/item/inducer,
+/obj/item/storage/belt/utility/full/powertools,
+/obj/machinery/power/apc/auto_name/directional/west,
+/obj/structure/cable,
+/turf/open/floor/iron,
+/area/station/engineering/main)
 "LW" = (
 /obj/effect/turf_decal/stripes/line,
 /turf/open/floor/iron,
@@ -2315,6 +2283,22 @@
 /obj/machinery/rnd/production/protolathe/department,
 /turf/open/floor/iron,
 /area/station/science)
+"Oe" = (
+/obj/structure/sign/directions/supply{
+	dir = 4;
+	pixel_x = 32
+	},
+/obj/structure/sign/directions/engineering{
+	dir = 1;
+	pixel_x = 32;
+	pixel_y = 7
+	},
+/obj/structure/sign/directions/evac{
+	pixel_x = 32;
+	pixel_y = -7
+	},
+/turf/open/floor/plating,
+/area/station/commons/storage/primary)
 "Ot" = (
 /obj/machinery/power/apc/auto_name/directional/west,
 /obj/structure/cable,
@@ -2566,6 +2550,22 @@
 	},
 /turf/open/floor/iron,
 /area/station/cargo/miningoffice)
+"Te" = (
+/obj/structure/sign/directions/supply{
+	dir = 4;
+	pixel_x = 32
+	},
+/obj/structure/sign/directions/engineering{
+	dir = 1;
+	pixel_x = 32;
+	pixel_y = 7
+	},
+/obj/structure/sign/directions/evac{
+	pixel_x = 32;
+	pixel_y = -7
+	},
+/turf/open/floor/iron,
+/area/station/hallway/secondary/entry)
 "Tj" = (
 /obj/machinery/door/poddoor,
 /turf/open/floor/engine,
@@ -6007,7 +6007,7 @@ eh
 eh
 eF
 HW
-fM
+Te
 eh
 eh
 eh
@@ -7387,7 +7387,7 @@ Zz
 dp
 dl
 dl
-fX
+gY
 dE
 dB
 dl
@@ -7464,7 +7464,7 @@ aA
 We
 Ma
 aS
-bd
+LV
 bo
 aj
 hD
@@ -8224,7 +8224,7 @@ dJ
 dJ
 kf
 cS
-fQ
+mn
 fO
 fO
 fO
@@ -8491,8 +8491,8 @@ dB
 dx
 dl
 dl
-gg
-JV
+Oe
+AK
 zY
 dl
 dl

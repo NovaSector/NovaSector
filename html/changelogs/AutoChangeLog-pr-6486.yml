@@ -1,4 +1,0 @@
-author: "Hatterhat"
-delete-after: True
-changes:
-  - bugfix: "The Marked One is no longer butcherable when killed with a crusher to drop two chests instead of one."
