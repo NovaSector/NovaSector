@@ -571,13 +571,12 @@
 				render_block += "<span class='notice ml-2'>[round(reagent.volume, 0.001)] units of [reagent.name][reagent.overdosed ? "</span> - [span_bolddanger("OVERDOSING")]" : ".</span>"]<br>"
 
 		// NOVA EDIT ADDITION BEGIN - Neuroware
-		if(!length(neuroware_list))
-			var/obj/item/organ/brain/owner_brain = target.get_organ_slot(ORGAN_SLOT_BRAIN)
-			if(!isnull(owner_brain) && (owner_brain.organ_flags & ORGAN_ROBOTIC))
+		if(target.is_neuroware_compatible())
+			if(length(neuroware_list))
+				render_list += "<span class='notice ml-1'>Subject contains the following neuroware in their brain:</span><br>"
+				render_list += jointext(neuroware_list + "<br>", "")
+			else
 				render_list += "<span class='notice ml-1'>Subject contains no neuroware in their brain.</span><br>"
-		else
-			render_list += "<span class='notice ml-1'>Subject contains the following neuroware in their brain:</span><br>"
-			render_list += jointext(neuroware_list + "<br>", "")
 		// NOVA EDIT ADDITION END
 		if(!length(render_block)) //If no VISIBLY DISPLAYED reagents are present, we report as if there is nothing.
 			render_list += "<span class='notice ml-1'>Subject contains no reagents in their [LOWER_TEXT(target.get_bloodtype()?.get_blood_name()) || "blood"]stream.</span><br>"

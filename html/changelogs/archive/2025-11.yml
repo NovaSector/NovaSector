@@ -816,9 +816,293 @@
   - bugfix: '[DS-2] Fixes DS-2 Map issue involving the diner blast doors not closing
       properly'
 2025-11-24:
+  A.C.M.O.:
+  - qol: Organic crew now require a functional NIF implant in order to use Neuroware
+      chips.
+  - bugfix: Fixed a bug that was allowing incompatible mobs to use Neuroware chips.
+  - bugfix: Fixed a bug that was preventing the NGesic Neuroware chip from adding
+      its status effect.
+  - bugfix: Fixed a bug that was causing the NGesic neuroware to instead install AnaSynthic.
+  Aliceee2ch:
+  - balance: Adv. parts and adv. surgery experiments are now discounts, instead of
+      requirements.
+  - balance: Plasmamen not catching in fire anymore from the slightest wind blow on
+      their envirosuits.
+  - spellcheck: Items that block contents/wires from EMPs now showed up as only "partially
+      EMP blocking" objects in examine menu.
+  ArchBTW:
+  - balance: Increase Captain's Sabre damage [15->20]
+  - rscdel: Removes the limit for how many times you can emag an emag (6->127 max)
+  Dmeto:
+  - map: Replaces rocks on the public mining path on Lavaland with correct subtype.
+  Ezel:
+  - balance: Cmo no longer starts with a advanced health analyzer
+  FalloutFalcon:
+  - refactor: refactors some attack-chain code relating to xenobio potions and items
+  Fghj240:
+  - rscadd: Added 2 new virus symptoms
+  - balance: NT Frontier can purchase and refund researched techweb nodes.
+  Ghommie:
+  - bugfix: Fixed some fishes trying to eat other (bigger) fish while not hungry.
+      Also a nit with purple sludgefish being a bit too rare.
+  - bugfix: Fixes fish analyzers not working with held or equipped fish or aquariums
+      (not in your backpack).
+  - balance: Fish analyzers and operating computers no longer announce completed experiments
+      that they aren't compatible with.
+  - balance: the ping sound from using fishing lures should be a smidge louder and
+      can be heard from more than 1 tile away.
+  - qol: Examining fish tanks (the item) when they're almost full will warn you about
+      it.
+  Hatterhat:
+  - bugfix: Telecomms specialists now actually count as engineering jobs for loadout
+      purposes. This means they can get loadout mesons now.
+  - bugfix: Makarov gun/ammo cases (the ones with the evil red S and the evidence
+      disposal bomb) no longer require you to be stunned to arm the evidence disposal
+      bomb.
+  - bugfix: Alien welders, as befitting their nature of being Wacky Advanced Tools,
+      no longer sear your eyeballs if you don't have eye protection.
+  JohnFulpWillard:
+  - qol: There's a keybind (default is Ctrl+X, rebindable) for the drop hotkey to
+      drop where your mouse is (similar to SS14).
+  - bugfix: Medbeams are no longer considered guns (for beepsky and honorbound Chaplains).
+  - rscadd: The horrific necktie can now become sentient.
+  Melbert:
+  - qol: Monkeys will avoid stepping over glass tables
+  - rscadd: Adds emagged apc hallucination
+  - bugfix: Partial language understanding now correctly has a higher chance of translating
+      more common words.
+  - qol: Aphasia got slightly more words to work with
+  - balance: Facehuggers now apply a 1 second stun when initially applied
+  - balance: Facehuggers now apply a 20 second confusion effect
+  - balance: Facehugger knockdown duration has been doubled (to 10 seconds)
+  - balance: While your face is covered by a facehugger, you are forced to whisper
+  - bugfix: Glowing bloody footprints looks less weird
+  - bugfix: Fixes borg RCD
+  - qol: Other forms of being husked are now reported before burns
+  - spellcheck: Some Coveralls
+  - rscdel: 'Catwalk med: Removed 1 of 2 first aid stations'
+  - qol: 'Catwalk med: Adds some newscasters'
+  - bugfix: Confusion does things again
   Neocloudy:
   - bugfix: '[NOVA] The Echolocation quirk''s "Display echo overlay" preference now
       works again.'
+  Pickle-Coding:
+  - bugfix: Fixes welding fuel being ignited by kisses.
+  RatFromTheJungle:
+  - rscadd: Added three new implants to the loadout, worse-off mantis blades, and
+      a really-bad health scanner!
+  - balance: Mantis blades now attack automatically if there's another in your off-hand,
+      something-something cyberpsycho (they have been nerfed slightly in individual
+      damage to compensate.)
+  SapphicOverload:
+  - bugfix: Fixed cracked HFR parts not being able to leak moderator gases.
+  - code_imp: The HFR now processes at the same rate as other atmos machinery.
+  SmArtKar:
+  - bugfix: Fixed blood emissives rendering below disposals pipes and other floor
+      objects
+  - code_imp: Improved borg hypo reagent handling
+  - bugfix: Fixed mobs not actually befriending their lazarus reviver, and losing
+      all previous friends upon revival
+  - bugfix: Echolocation no longer displays pipes and other invisible objects
+  - bugfix: Fixed a duplicate signal registration in station trait lobby button code
+  - bugfix: Fixed swimming not draining stamina or wetting/extinguishing players
+  - bugfix: Clearing centcom podbays no longer deletes ghosts and runtimes upon doing
+      so
+  - image: Cybernetic cat ears now have unique sprites and emissives
+  - bugfix: Fixed purple raptors being unusable by winged species
+  SpaceSmithers:
+  - map: Added a virtual gymnasium to the holodeck.
   Stalkeros:
   - bugfix: You can no longer crowbar open the fog of war.
   - bugfix: Chima jeogori now crops properly on female characters.
+  SyncIt21:
+  - bugfix: clicking on a turf containing a grill with a rcd in window mode will complete
+      the grill
+  - bugfix: clicking on a turf containing a girder with a rcd in turf/wall mode will
+      complete the girder
+  - bugfix: RCD, RLD, RTD & RPLD now uses material only after action is successful
+  - bugfix: exosuit RCD uses charge without silo link
+  - bugfix: deconstruct sound fx plays for borg rcd & rtd
+  - bugfix: mech HUD always updates like when charged via inducer
+  - bugfix: Chiral inversion buffer now converts multiple reagents
+  - bugfix: Chiral inversion buffer can now be transferred into another reagent holder
+      if no conversion took place instead of just evaporating
+  - bugfix: dropper, bottles & syringes now won't display messages like 0u of reagent
+      transferred
+  SyncIt21, JohnFulpWillard:
+  - bugfix: budget ordering console correctly differentiates between private & department
+      orders.
+  - bugfix: budget ordering console checkout cart displays correct Private/Department
+      order text amounts.
+  TealSeer:
+  - bugfix: fixed placing wall signs at diagonals allowing you to duplicate them
+  - bugfix: fixed grilled cheese sandwich grilling into grilled cheese sandwich
+  Thunder12345:
+  - code_imp: Converted some gun related variables to use time defines, make an issue
+      report if anything shoots abnormally fast/slow.
+  Time-Green:
+  - bugfix: Blobs can spawn blobbernauts again
+  UwUMacaroniTime:
+  - balance: Nerfed cyborg hypospray across the board, notably refilling chems 20%
+      slower.
+  afonamo:
+  - bugfix: binary sensors no longer report exact consciousness status to crew monitor.
+  - bugfix: crew monitor sort by name now respects ascending vs. descending sorting.
+  - qol: crew monitor sort by vitals now properly treats those with binary sensors
+      as either fully healthy or dead.
+  alien3301:
+  - qol: Captain's fountain pen writes in black
+  dwinters99:
+  - code_imp: Puce
+  hry-gh:
+  - bugfix: chat storage should load more reliably
+  - server: server operators can now properly disable the iframe chat storage solution
+      by unsetting the STORAGE_CDN_IFRAME config
+  ibexgoetia:
+  - image: Resprited the Plague Doctor's costume.
+  jokypoky:
+  - balance: Voidwalkers are immune to hardstuns again.
+  lelandkemble:
+  - bugfix: Several things that turn you into a random animal will no longer turn
+      you into a spriteless penguin.
+  - bugfix: You can no longer duplicate DNA for the DNA vault objective by scanning
+      yourself on several probes at once.
+  loganuk:
+  - map: CATWALK - Bridge - New location and new layout, now feels impressive and
+      should be better for those scenes that take places there, bit more gravitas,
+      it also contains an escape route behind 2x high security doors, or could it
+      be an attack route in?
+  - map: CATWALK - Command Meeting Area - Now is a more central location, no point
+      having meetings on the bridge itself, have them in the meeting room with some
+      style
+  - map: CATWALK - HOP Office - Made larger and a few things re-arranged to work and
+      make sense, extra security features and re-decoration
+  - map: CATWALK - Command Area - Extra anti tider measures, fixing of access and
+      wiring/air - Some of the screens/wall mounts have been moved and fixed - Avoiding
+      duplicate wallmounts
+  - map: CATWALK - Captain Office - Re-arranged and a few broken things fixed, the
+      door to the public hallway has been removed, Security shutters have been added
+      for extra protection
+  - map: CATWALK - Gateway - Re-decorated and tweaked a little
+  - map: CATWALK - Public Area - New chill out area to replace the weird judge/holding
+      cell, generic for now but also a space for players to take apart easily and
+      build new things, NT even threw in a water cooler
+  - map: CATWALK - Hallways - New floor tiles featuring the dreaded catwalks, A more
+      central landmark to identify when in the central area, may be divisive opinion
+      wise. A few layout changes and tweaks
+  - map: CATWALK - EVA - Security doors on jetpacks/magboots now working, one was
+      free access the other was missing + room re-decorated + shutters tweaked
+  - map: CATWALK - Arrivals - Extra lights and a bit of extra signage to indicate
+      direction for new arrivals unfamiliar with the station
+  mcbalaam:
+  - bugfix: Turret controls should have a carcass again
+  mikederkan:
+  - qol: Welding protection now prevents Maintenance Adapted eyes from burning in
+      the light.
+  necromanceranne:
+  - rscadd: Three variants of the laser gun; Carbine (replacing the existing one),
+      Pistol and Rifle! Find it (possibly) in your armory today!
+  - balance: The armory laser guns might be different variants of the laser gun, rather
+      than always being the standard. The standard is the same as ever, even if it
+      looks different.
+  - rscadd: If you care, the sovl version is available as a goodie. And in the hands
+      of pirates...
+  - spellcheck: Lore! LORE FOR LASER GUNS! LOOOORE! Examine laser guns closely and
+      you might learn more about them.
+  - balance: The new set of laser guns come with brand new sprites.
+  timothymtorres:
+  - bugfix: Fix lattice deconstruction to update space areas
+  - qol: Add direction helpers for burned subtypes of lights
+  trickyfox-inc:
+  - rscadd: Added centcom officer's access (cent_officer)
+  - rscadd: Added mapping helpers for cent_officer and cent_specops access
+  - map: Changed access on the administrative office doors (cent_officer)
+  vinylspiders:
+  - admin: job estimation panel now shows ckeys of players readied (for admins only)
+  - bugfix: you can no longer send money from virtualspace to a real account
+  - code_imp: adds a flag for virtual areas so they can easily be checked, as well
+      as an easy helper proc, 'is_area_virtual(your_area)'
+  - bugfix: fixes an where modsuits would accumulate in nullspace over the course
+      of a round
+  - qol: 'breaks up prefs menu features section into two tabs: ''Character Visuals''
+      and ''Character Profile'''
+2025-11-25:
+  Cat:
+  - balance: Bartender's wardrobe vendor starts with a service plumbing constructor
+  FalloutFalcon:
+  - code_imp: generic helpers and defines for validating file extenstion
+  - refactor: the jukebox has had some improvements in how it validates the sound
+      file. hopefully none of your funny songs disappear.
+  - admin: command_report_menu will let you set ANY sound file type for the sound
+      it plays.
+  - admin: Admins can now manage jukebox songs in game
+  - server: Jukebox songs length are now set automatically, update your jukebox configs!
+  JohnFulpWillard:
+  - bugfix: Headslugs are now small.
+  LT3:
+  - bugfix: Fixed a few under clothing items inheriting incorrect armor values
+  OrbisAnima:
+  - rscdel: Removes the Shockwave PKA due to its ability to solo megafauna in 9 seconds,
+      and trivialize blobs.
+  - qol: We solved the issue with the Central Command Auto Doc machines sneaking in
+      appendixes in people that had theirs removed. Make sure to update your medical
+      profiles (Quirks) to set that you survived your appendix removal, and we will
+      handle the rest.
+  Y0SH1M4S73R:
+  - sound: Squid tongues have a distinctive effect on your text-to-speech voice.
+  Zergspower:
+  - qol: Made lightmode LOOC text darker, enables LOOC Runetext by default
+  alien3301:
+  - qol: Kaza Ruk has balloon alerts when switching attacks
+  lelandkemble:
+  - bugfix: Ghosts can no longer try and fail to admire aquariums.
+  - bugfix: xenobio console potions work again
+  vinylspiders, Wallemations:
+  - image: space heaters got a model replacement, from stick heaters to box heaters
+2025-11-27:
+  A.C.M.O.:
+  - admin: Added the Upload Character Preferences command for admins.
+  - admin: Added the Toggle Admin Stasis command for admins.
+  Aliceee2ch:
+  - image: Various beakers now have own inhands sprites.
+  Fghj240:
+  - rscadd: Netpods can now scan their occupants to create more accurate bit avatars
+  Hardly:
+  - image: Added Monster Mouth 2 as a head marking
+  Hatterhat:
+  - bugfix: The blood-drunk miner's corpse now properly appears and fades away again.
+  Kocma-san:
+  - bugfix: fixed that M44A underbarrel grenade launchers and shotguns cannot be reloaded
+  - code_imp: smol improvement to the marines gear code
+  Melbert:
+  - bugfix: Pirates will no longer randomly spawn as human
+  - bugfix: Servant Golems have numbered names again
+  - refactor: Refactored ghost spawns (like spider eggs or pirate spawners), report
+      any oddities
+  - admin: Adds "roleplay reminder" button to player panel
+  OrbisAnima:
+  - bugfix: Due to incompatibilities with  intergalactic trade [we had bugs], Cargo
+      imports will no longer be able to be ordered directly from the cargo budget,
+      unless the express consoles are used, as it was previously stipulated with other
+      Goody types imports. [Lots of bugs, and avoiding future bugs, we tried.]
+  RatFromTheJungle:
+  - code_imp: The round-end report no longer auto- opens magically! Click the button
+      that appears in the top left instead to open it.
+  Thunder12345:
+  - bugfix: The captain suit costume (green suit) no longer has the same armour as
+      real captain outfits.
+  alien3301:
+  - balance: The warden starts with a bandolier in their locker
+  lelandkemble:
+  - map: Catwalk Abandoned Kitchen APC powered by default
+  - bugfix: cyborg RTD works again
+  - admin: Admins get powertool belts in their special outfits.
+  san7890:
+  - refactor: The Cult of Nar'Sie realized that they were installing the mirrors on
+      their mirror shields the wrong way around, thus altering the makeup of their
+      mirror clones health, damage, and re-replicability.
+  - refactor: In response to the recent updates in clone magic, Nanotrasen's Stealth
+      Reactive Armor should now generate more convincing clones.
+  vinylspiders:
+  - bugfix: fixes a bug that caused you to need to wear shoes in order to gain any
+      defensive benefit from the sleeping carp martial art style
