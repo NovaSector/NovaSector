@@ -237,9 +237,7 @@
 				'modular_nova/modules/modular_items/lewd_items/sounds/bang3.ogg',
 				'modular_nova/modules/modular_items/lewd_items/sounds/bang4.ogg',
 				'modular_nova/modules/modular_items/lewd_items/sounds/bang5.ogg',
-				'modular_nova/modules/modular_items/lewd_items/sounds/bang6.ogg'
-				), 60, TRUE
-			)
+				'modular_nova/modules/modular_items/lewd_items/sounds/bang6.ogg'), 60, TRUE)
 
 		if(BODY_ZONE_HEAD, BODY_ZONE_PRECISE_MOUTH, BODY_ZONE_PRECISE_EYES)
 			if(target_mob.is_mouth_covered())
@@ -263,9 +261,7 @@
 				'modular_nova/modules/modular_items/lewd_items/sounds/bang3.ogg',
 				'modular_nova/modules/modular_items/lewd_items/sounds/bang4.ogg',
 				'modular_nova/modules/modular_items/lewd_items/sounds/bang5.ogg',
-				'modular_nova/modules/modular_items/lewd_items/sounds/bang6.ogg'
-				), 40, TRUE
-			)
+				'modular_nova/modules/modular_items/lewd_items/sounds/bang6.ogg'), 40, TRUE)
 
 		else
 			if(!target_mob.is_bottomless())
@@ -288,6 +284,4 @@
 				'modular_nova/modules/modular_items/lewd_items/sounds/bang3.ogg',
 				'modular_nova/modules/modular_items/lewd_items/sounds/bang4.ogg',
 				'modular_nova/modules/modular_items/lewd_items/sounds/bang5.ogg',
-				'modular_nova/modules/modular_items/lewd_items/sounds/bang6.ogg'
-				), 100, TRUE
-			)
+				'modular_nova/modules/modular_items/lewd_items/sounds/bang6.ogg'), 100, TRUE)
