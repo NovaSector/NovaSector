@@ -1130,6 +1130,7 @@
 	ai_controller = /datum/ai_controller/monkey
 
 /mob/living/carbon/human/species
+	abstract_type = /mob/living/carbon/human/species
 	var/race = null
 	var/use_random_name = TRUE
 
