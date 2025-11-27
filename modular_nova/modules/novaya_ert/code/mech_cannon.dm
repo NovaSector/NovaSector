@@ -1,7 +1,8 @@
 /obj/item/mecha_parts/mecha_equipment/weapon/ballistic/cannon
 	name = "\improper M/FC-8 \"Forge\" Fabrication Cannon"
-	desc = "A heavy 76mm cannon for mechs, integrated with an onboard nanoforge. It fabricates specialized rounds on-demand from a generic fodder canister, \
-	allowing for sustained fire support without conventional ammunition logistics. The system automatically identifies targets and selects the optimal round type."
+	desc = "A heavy 76mm cannon for mechs, integrated with an onboard nanoforge. It fabricates specialized rounds on-demand from a generic \
+	fodder canister, allowing for sustained fire support without conventional ammunition logistics. The system automatically identifies \
+	targets and selects the optimal round type."
 	icon = 'modular_nova/modules/novaya_ert/icons/mech.dmi'
 	icon_state = "mecha_cannon"
 	equip_cooldown = 3 SECONDS
@@ -153,7 +154,10 @@
 	speed = 2.5
 	armour_penetration = 50 //we go clean through
 	max_pierces = 1 //we go clean through
-	anti_armour_damage = 175 //we go clean through
+	projectile_piercing = PASSMOB|PASSVEHICLE
+	projectile_phasing = ~(PASSMOB|PASSVEHICLE)
+	phasing_ignore_direct_target = TRUE
+	anti_armour_damage = 105 //we go clean through
 
 /obj/projectile/bullet/tank_cannon/sabot/on_hit(atom/target, blocked, pierce_hit)
 	. = ..()
@@ -162,4 +166,4 @@
 		M.take_damage(anti_armour_damage)
 	if(issilicon(target))
 		var/mob/living/silicon/S = target
-		S.take_overall_damage(anti_armour_damage*0.75, anti_armour_damage*0.25)
+		S.take_overall_damage(anti_armour_damage)
