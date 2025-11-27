@@ -108,7 +108,7 @@ GLOBAL_LIST_EMPTY_TYPED(interaction_instances, /datum/interaction)
 
 	if(lewd)
 		if(use_subtler)
-			user.emote("subtler", null, msg, TRUE)
+			user.emote("subtler", m_type = /datum/emote/living/subtler::emote_type | EMOTE_LEWD, message = msg, intentional = TRUE)
 		else
 			var/list/ignoring_mobs = list()
 			for(var/mob/not_interested in get_hearers_in_view(DEFAULT_MESSAGE_RANGE, user))

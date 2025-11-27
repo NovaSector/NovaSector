@@ -8,8 +8,9 @@
 
 // Can we play this emote to viewers?
 /datum/emote/proc/pref_check_emote(mob/user, client/client, preference)
+	. = TRUE
 	if(isnull(pref_to_check) && isnull(preference))
-		return TRUE
+		return
 
 	var/client/user_client = client || user.client
 	if(user_client && !user_client.prefs.read_preference(pref_to_check || preference))
