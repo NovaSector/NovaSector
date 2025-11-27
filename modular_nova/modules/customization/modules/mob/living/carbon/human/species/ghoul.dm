@@ -33,23 +33,23 @@
 
 /datum/species/ghoul/get_default_mutant_bodyparts()
 	return list(
-		"ears" = list("None", FALSE),
-		"tail" = list("None", FALSE),
-		"ears" = list("None", FALSE),
-		"legs" = list("Normal Legs", FALSE),
+		FEATURE_EARS = list("None", FALSE),
+		FEATURE_TAIL = list("None", FALSE),
+		FEATURE_EARS = list("None", FALSE),
+		FEATURE_LEGS = list("Normal Legs", FALSE),
 	)
 
 /proc/proof_ghoul_features(list/inFeatures)
 	// Missing Defaults in DNA? Randomize!
-	if(inFeatures["ghoulcolor"] == null || inFeatures["ghoulcolor"] == "")
-		inFeatures["ghoulcolor"] = GLOB.color_list_ghoul[pick(GLOB.color_list_ghoul)]
+	if(inFeatures[FEATURE_GHOUL_COLOR] == null || inFeatures[FEATURE_GHOUL_COLOR] == "")
+		inFeatures[FEATURE_GHOUL_COLOR] = GLOB.color_list_ghoul[pick(GLOB.color_list_ghoul)]
 
 /datum/species/proc/set_ghoul_color(mob/living/carbon/human/human_ghoul)
 	return // Do Nothing
 
 /datum/species/ghoul/set_ghoul_color(mob/living/carbon/human/human_ghoul)
 	// Called on Assign, or on Color Change (or any time proof_ghoul_features() is used)
-	fixed_mut_color = human_ghoul.dna.features["ghoulcolor"]
+	fixed_mut_color = human_ghoul.dna.features[FEATURE_GHOUL_COLOR]
 
 /mob/living/carbon/proc/ReassignForeignBodyparts()
 	var/obj/item/bodypart/head = get_bodypart(BODY_ZONE_HEAD)

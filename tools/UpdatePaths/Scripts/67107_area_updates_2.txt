@@ -72,10 +72,10 @@
 /area/ai_monitored/turret_protected/ai_upload_foyer : /area/station/ai_monitored/turret_protected/ai_upload_foyer
 /area/ai_monitored/turret_protected/ai : /area/station/ai_monitored/turret_protected/ai
 /area/ai_monitored/turret_protected/aisat : /area/station/ai_monitored/turret_protected/aisat
-/area/ai_monitored/turret_protected/aisat/atmos : /area/station/ai_monitored/turret_protected/aisat/atmos
-/area/ai_monitored/turret_protected/aisat/foyer : /area/station/ai_monitored/turret_protected/aisat/foyer
-/area/ai_monitored/turret_protected/aisat/service : /area/station/ai_monitored/turret_protected/aisat/service
-/area/ai_monitored/turret_protected/aisat/hallway : /area/station/ai_monitored/turret_protected/aisat/hallway
+/area/ai_monitored/turret_protected/aisat/atmos : /area/station/ai/satellite/atmos
+/area/ai_monitored/turret_protected/aisat/foyer : /area/station/ai/satellite/foyer
+/area/ai_monitored/turret_protected/aisat/service : /area/station/ai/satellite/service
+/area/ai_monitored/turret_protected/aisat/hallway : /area/station/ai/satellite/hallway
 /area/ai_monitored/turret_protected/aisat/maint : /area/station/ai_monitored/turret_protected/aisat/maint
 /area/ai_monitored/turret_protected/aisat_interior : /area/station/ai_monitored/turret_protected/aisat_interior
 /area/ai_monitored/turret_protected/ai_sat_ext_as : /area/station/ai_monitored/turret_protected/ai_sat_ext_as

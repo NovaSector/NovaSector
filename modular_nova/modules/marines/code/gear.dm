@@ -20,7 +20,6 @@
 
 /obj/item/gun/ballistic/automatic/ar/modular/m44a/Initialize(mapload)
 	. = ..()
-
 	AddComponent(/datum/component/automatic_fire, fire_delay)
 
 /obj/item/gun/ballistic/automatic/ar/modular/m44a/give_manufacturer_examine()
@@ -50,7 +49,7 @@
 	name = ".300 caseless bullet"
 	damage = 13
 	armour_penetration = 30 //gonna actually kill the brit that made this var require a U in armor
-	embed_data = null
+	embed_type = null // Oh, I love the 600 rantimes just from these things, simply because I called marines ert...
 	shrapnel_type = null
 
 /obj/item/gun/ballistic/automatic/ar/modular/m44a/scoped
@@ -62,19 +61,6 @@
 /obj/item/gun/ballistic/automatic/ar/modular/m44a/scoped/Initialize(mapload)
 	. = ..()
 	AddComponent(/datum/component/scope, range_modifier = 2.2)
-
-/obj/item/gun/ballistic/shotgun/automatic/ubsg
-	name = "\improper M2 auto-shotgun underbarrel"
-	desc = "This shouldn't be heeere!"
-	can_suppress = FALSE
-	accepted_magazine_type = /obj/item/ammo_box/magazine/internal/shot/ubsg
-
-/obj/item/gun/ballistic/shotgun/automatic/ubsg/give_gun_safeties()
-	return
-
-/obj/item/ammo_box/magazine/internal/shot/ubsg
-	max_ammo = 3
-	ammo_type = /obj/item/ammo_casing/shotgun/buckshot
 
 /obj/item/gun/ballistic/automatic/ar/modular/m44a/shotgun
 	name = "\improper NT M44ASG Pulse Rifle"
@@ -101,8 +87,7 @@
 /obj/item/gun/ballistic/automatic/ar/modular/m44a/shotgun/item_interaction(mob/living/user, obj/item/tool, list/modifiers)
 	if(isammocasing(tool))
 		if(istype(tool, underbarrel.magazine.ammo_type))
-			underbarrel.attackby(tool, user, modifiers)
-			underbarrel.attack_self(user)
+			underbarrel.item_interaction(user, tool, modifiers)
 		return ITEM_INTERACT_BLOCKING
 	return ..()
 
@@ -112,11 +97,11 @@
 	icon_state = "m44a_gl"
 	inhand_icon_state = "m44a_gl"
 	/// Underbarrel grenade launcher reference
-	var/obj/item/gun/ballistic/revolver/grenadelauncher/underbarrel
+	var/obj/item/gun/ballistic/revolver/grenadelauncher/underbarrel/underbarrel
 
 /obj/item/gun/ballistic/automatic/ar/modular/m44a/grenadelauncher/Initialize(mapload)
 	. = ..()
-	underbarrel = new /obj/item/gun/ballistic/revolver/grenadelauncher/unrestricted(src)
+	underbarrel = new(src)
 	update_appearance()
 
 /obj/item/gun/ballistic/automatic/ar/modular/m44a/grenadelauncher/Destroy()
@@ -131,7 +116,42 @@
 /obj/item/gun/ballistic/automatic/ar/modular/m44a/grenadelauncher/item_interaction(mob/living/user, obj/item/tool, list/modifiers)
 	if(isammocasing(tool))
 		if(istype(tool, underbarrel.magazine.ammo_type))
-			underbarrel.attackby(tool, user, modifiers)
-			underbarrel.attack_self(user)
+			underbarrel.item_interaction(user, tool, modifiers)
 		return ITEM_INTERACT_BLOCKING
 	return ..()
+
+// Underbarrel shotgun
+
+/obj/item/gun/ballistic/shotgun/automatic/ubsg
+	name = "\improper M2 auto-shotgun underbarrel"
+	desc = "This shouldn't be heeere!"
+	can_suppress = FALSE
+	spawn_blacklisted = TRUE
+	pin = null
+	accepted_magazine_type = /obj/item/ammo_box/magazine/internal/shot/ubsg
+
+/obj/item/gun/ballistic/shotgun/automatic/ubsg/Initialize(mapload)
+	. = ..()
+	var/obj/item/gun/gun = loc
+	if (!istype(gun))
+		return INITIALIZE_HINT_QDEL
+	pin = gun.pin
+	RegisterSignal(gun, COMSIG_GUN_PIN_INSERTED, PROC_REF(on_pin_inserted))
+	RegisterSignal(gun, COMSIG_GUN_PIN_REMOVED, PROC_REF(on_pin_removed))
+
+/obj/item/gun/ballistic/shotgun/automatic/ubsg/give_gun_safeties()
+	return
+
+/// When inserting a pin into the gun to which we are attached, inserts the same pin into this gun
+/obj/item/gun/ballistic/shotgun/automatic/ubsg/proc/on_pin_inserted(obj/item/gun/source, obj/item/firing_pin/new_pin, mob/living/user)
+	SIGNAL_HANDLER
+	pin = new_pin
+
+/// When removing a pin from the gun to which we are attached, removes the pin in this gun as well
+/obj/item/gun/ballistic/shotgun/automatic/ubsg/proc/on_pin_removed(obj/item/gun/source, obj/item/firing_pin/old_pin, mob/living/user)
+	SIGNAL_HANDLER
+	pin = null
+
+/obj/item/ammo_box/magazine/internal/shot/ubsg
+	max_ammo = 3
+	ammo_type = /obj/item/ammo_casing/shotgun/buckshot
