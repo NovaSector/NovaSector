@@ -42,6 +42,6 @@
 			explosion(target, light_impact_range = 1, flash_range = 1, explosion_cause = src)
 		return
 
-/obj/projectile/ion/solfed
-	name = "solfed ion bolt"
+/obj/projectile/ion/small
+	name = "small ion bolt"
 	emp_radius = 0

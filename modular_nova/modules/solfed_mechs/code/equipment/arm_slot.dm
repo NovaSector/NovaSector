@@ -191,7 +191,7 @@
 	desc = "An advanced electromagnetic pulse cannon developed for Hermes-class recon mechs. Fires precision EMP bursts capable of disabling electronics and lightly shielded systems."
 	icon_state = "mecha_ion"
 	equip_cooldown = 20
-	projectile = /obj/projectile/ion/solfed
+	projectile = /obj/projectile/ion/small
 	projectiles = 12
 	projectiles_cache = 12
 	projectiles_cache_max = 48
