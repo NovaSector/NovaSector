@@ -4,8 +4,8 @@
 /datum/supply_pack/service/minerkit
 	desc = "All the miners died too fast? Assistant wants to get a taste of life off-station? \
 		Either way, this kit is the best way to turn a regular crewman into an ore-producing, \
-		monster-slaying machine. Contains meson goggles, a pickaxe, advanced mining scanner, \
-		 ore bag, gasmask, and explorer suit."
+		monster-slaying machine. Contains meson goggles, a seclite, automatic mining scanner, \
+		ore bag, knife, PKA, SEVA mask, and SEVA suit."
 	access = NONE
 	access_view = NONE
 	crate_type = /obj/structure/closet/crate/cargo/mining
