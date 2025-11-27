@@ -1,4 +1,0 @@
-author: "RatFromTheJungle"
-delete-after: True
-changes:
-  - balance: "a heavy duty rebalance of most station ballistics, raising their time to down by roughly around 35%, evening out to around 3-4s to down, instead of 2-2.5s"

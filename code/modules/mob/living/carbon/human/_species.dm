@@ -219,14 +219,14 @@ GLOBAL_LIST_EMPTY(features_by_species)
 	for(var/species_type in subtypesof(/datum/species))
 		var/datum/species/species = GLOB.species_prototypes[species_type]
 		if(species.check_roundstart_eligible())
-			selectable_species += species.id
+			selectable_species[species.id] = TRUE // NOVA EDIT CHANGE - Make assoc for fast lookup - ORIGINAL: selectable_species += species.id
 			var/datum/language_holder/temp_holder = GLOB.prototype_language_holders[species.species_language_holder]
 			for(var/datum/language/spoken_language as anything in temp_holder.understood_languages)
 				GLOB.uncommon_roundstart_languages |= spoken_language
 
 	GLOB.uncommon_roundstart_languages -= /datum/language/common
 	if(!selectable_species.len)
-		selectable_species += SPECIES_HUMAN
+		selectable_species[SPECIES_HUMAN] = TRUE // NOVA EDIT CHANGE - ORIGINAL: selectable_species += SPECIES_HUMAN
 
 	return selectable_species
 
@@ -360,8 +360,7 @@ GLOBAL_LIST_EMPTY(features_by_species)
  * Normalizes blood in a human if it is excessive. If it is above BLOOD_VOLUME_NORMAL, this will clamp it to that value. It will not give the human more blodo than they have less than this value.
  */
 /datum/species/proc/normalize_blood(mob/living/carbon/human/blood_possessing_human)
-	var/normalized_blood_values = max(blood_possessing_human.blood_volume, 0, BLOOD_VOLUME_NORMAL)
-	blood_possessing_human.blood_volume = normalized_blood_values
+	blood_possessing_human.set_blood_volume(min(blood_possessing_human.get_blood_volume(), BLOOD_VOLUME_NORMAL))
 
 /**
  * Proc called when a carbon becomes this species.
@@ -539,7 +538,7 @@ GLOBAL_LIST_EMPTY(features_by_species)
 
 	var/list/new_features = list()
 	var/static/list/organs_to_randomize = list()
-	for(var/obj/item/organ/organ_path as anything in mutant_organs)
+	for(var/obj/item/organ/organ_path as anything in get_organs())
 		if(!organ_path.bodypart_overlay)
 			continue
 		var/overlay_path = initial(organ_path.bodypart_overlay)
@@ -1433,21 +1432,17 @@ GLOBAL_LIST_EMPTY(features_by_species)
 		return cached_features
 
 	var/list/features = list()
+	var/list/mut_organs = get_organs()
 
 	for (var/preference_type in GLOB.preference_entries)
 		var/datum/preference/preference = GLOB.preference_entries[preference_type]
 		if ( \
 			(preference.relevant_inherent_trait in inherent_traits) \
-			|| (preference.relevant_external_organ in get_mut_organs()) \
+			|| (preference.relevant_organ in mut_organs) \
 			|| (preference.relevant_head_flag && check_head_flags(preference.relevant_head_flag)) \
 			|| (preference.relevant_body_markings in body_markings) \
 		)
 			features += preference.savefile_key
-
-	for (var/obj/item/organ/organ_type as anything in mutant_organs)
-		var/preference = initial(organ_type.preference)
-		if (!isnull(preference))
-			features += preference
 
 	GLOB.features_by_species[type] = features
 
@@ -1495,7 +1490,8 @@ GLOBAL_LIST_EMPTY(features_by_species)
 /datum/species/proc/get_hiss_sound(mob/living/carbon/human/human)
 	return
 
-/datum/species/proc/get_mut_organs(include_brain = TRUE)
+/// Returns a list of all organ typepaths this species probably has
+/datum/species/proc/get_organs(include_brain = TRUE)
 	var/list/mut_organs = list()
 	mut_organs += mutant_organs
 	if (include_brain)
@@ -1512,7 +1508,7 @@ GLOBAL_LIST_EMPTY(features_by_species)
 	return mut_organs
 
 /datum/species/proc/get_types_to_preload()
-	return get_mut_organs(FALSE)
+	return get_organs(FALSE)
 
 
 /**
@@ -2013,7 +2009,7 @@ GLOBAL_LIST_EMPTY(features_by_species)
 	// NOVA EDIT END
 
 	var/list/final_bodypart_overrides = new_species.bodypart_overrides.Copy()
-	if(!ignore_digi && ((new_species.digitigrade_customization == DIGITIGRADE_OPTIONAL && target.dna.features["legs"] == DIGITIGRADE_LEGS) || new_species.digitigrade_customization == DIGITIGRADE_FORCED)) //if((new_species.digitigrade_customization == DIGITIGRADE_OPTIONAL && target.dna.features["legs"] == DIGITIGRADE_LEGS) || new_species.digitigrade_customization == DIGITIGRADE_FORCED) // NOVA EDIT - Digitigrade customization - ORIGINAL
+	if(!ignore_digi && ((new_species.digitigrade_customization == DIGITIGRADE_OPTIONAL && target.dna.features[FEATURE_LEGS] == DIGITIGRADE_LEGS) || new_species.digitigrade_customization == DIGITIGRADE_FORCED)) //if((new_species.digitigrade_customization == DIGITIGRADE_OPTIONAL && target.dna.features[FEATURE_LEGS] == DIGITIGRADE_LEGS) || new_species.digitigrade_customization == DIGITIGRADE_FORCED) // NOVA EDIT - Digitigrade customization - ORIGINAL
 		/* NOVA EDIT - Digitigrade customization - ORIGINAL:
 		final_bodypart_overrides[BODY_ZONE_R_LEG] = /obj/item/bodypart/leg/right/digitigrade
 		final_bodypart_overrides[BODY_ZONE_L_LEG] = /obj/item/bodypart/leg/left/digitigrade
@@ -2074,7 +2070,7 @@ GLOBAL_LIST_EMPTY(features_by_species)
 	ASSERT(!isnull(for_mob))
 	switch(hair_color_mode)
 		if(USE_MUTANT_COLOR)
-			return for_mob.dna.features["mcolor"]
+			return for_mob.dna.features[FEATURE_MUTANT_COLOR]
 		if(USE_FIXED_MUTANT_COLOR)
 			return fixed_mut_color
 
@@ -2091,7 +2087,7 @@ GLOBAL_LIST_EMPTY(features_by_species)
 				continue
 
 			var/datum/bodypart_overlay/simple/body_marking/overlay = new markings_type()
-			overlay.set_appearance(accessory_name, hooman.dna.features["mcolor"])
+			overlay.set_appearance(accessory_name, hooman.dna.features[FEATURE_MUTANT_COLOR])
 			people_part.add_bodypart_overlay(overlay)
 
 		qdel(markings)

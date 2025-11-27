@@ -14,7 +14,7 @@
 // This is the original NIF that other NIFs are based on.
 /obj/item/organ/cyberimp/brain/nif
 	name = "Nanite Implant Framework"
-	desc = "A brain implant that infuses the user with nanites."
+	desc = "A brain implant that infuses the user with nanites, and exposes a neuroware chip slot."
 	icon = 'modular_nova/modules/modular_implants/icons/obj/nifs.dmi'
 	icon_state = "base_nif"
 	w_class = WEIGHT_CLASS_NORMAL
