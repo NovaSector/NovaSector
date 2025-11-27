@@ -1,5 +1,7 @@
+#define MECHA_AMMO_CANNON "Cannon fodder"
+
 /obj/item/mecha_parts/mecha_equipment/weapon/ballistic/cannon
-	name = "\improper M/FC-8 \"Forge\" Fabrication Cannon"
+	name = "\improper M/FC-8-LF \"Forge\" Fabrication Cannon"
 	desc = "A heavy 76mm cannon for mechs, integrated with an onboard nanoforge. It fabricates specialized rounds on-demand from a generic \
 	fodder canister, allowing for sustained fire support without conventional ammunition logistics. The system automatically identifies \
 	targets and selects the optimal round type."
@@ -12,6 +14,7 @@
 	projectiles_cache = 24
 	projectiles_cache_max = 24
 	harmful = TRUE
+	ammo_type = MECHA_AMMO_CANNON
 	///Currently selected ammo type, as per identification procedure.
 	var/current_ammo_type
 	///Currently selected target for the ID procedure.
@@ -167,3 +170,13 @@
 	if(issilicon(target))
 		var/mob/living/silicon/S = target
 		S.take_overall_damage(anti_armour_damage)
+
+/obj/item/mecha_ammo/cannon
+	name = "fabricator canister container"
+	desc = "A container of fabricator 'fodder' canisters for use with exosuit weapons."
+	icon = 'modular_nova/modules/novaya_ert/icons/mech.dmi'
+	icon_state = "fodder"
+	rounds = 24
+	ammo_type = MECHA_AMMO_CANNON
+
+#undef MECHA_AMMO_CANNON
