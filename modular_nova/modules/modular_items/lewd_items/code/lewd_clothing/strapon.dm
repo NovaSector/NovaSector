@@ -56,9 +56,8 @@
 		populate_strapon_types()
 
 /obj/item/clothing/strapon/Destroy(force)
-	if(!QDELETED(strapon_item))
-		qdel(strapon_item)
-	strapon_item = null
+	if(strapon_item)
+		QDEL_NULL(strapon_item)
 	return ..()
 
 // shitcode here, please improve if you can. Genitals overlapping with strapon, doesn't cool!
@@ -86,7 +85,7 @@
 	var/obj/item/organ/genital/penis/affected_penis = affected_mob.get_organ_slot(ORGAN_SLOT_PENIS)
 	var/obj/item/organ/genital/testicles/affected_testicles = affected_mob.get_organ_slot(ORGAN_SLOT_TESTICLES)
 
-	if(!QDELETED(src) && !QDELETED(strapon_item))
+	if(!QDELETED(src) || !QDELETED(strapon_item))
 		strapon_item.forceMove(src)
 
 	affected_vagina?.visibility_preference = GENITAL_HIDDEN_BY_CLOTHES
@@ -178,7 +177,7 @@
 	inhand_icon_state = "nothing"
 	force = 0
 	throwforce = 0
-	item_flags = ABSTRACT | HAND_ITEM | DROPDEL
+	item_flags = ABSTRACT | HAND_ITEM
 	/// The type, determined by the clothing item
 	var/strapon_type = "human"
 
