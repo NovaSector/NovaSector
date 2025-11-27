@@ -1059,3 +1059,50 @@
   - bugfix: xenobio console potions work again
   vinylspiders, Wallemations:
   - image: space heaters got a model replacement, from stick heaters to box heaters
+2025-11-27:
+  A.C.M.O.:
+  - admin: Added the Upload Character Preferences command for admins.
+  - admin: Added the Toggle Admin Stasis command for admins.
+  Aliceee2ch:
+  - image: Various beakers now have own inhands sprites.
+  Fghj240:
+  - rscadd: Netpods can now scan their occupants to create more accurate bit avatars
+  Hardly:
+  - image: Added Monster Mouth 2 as a head marking
+  Hatterhat:
+  - bugfix: The blood-drunk miner's corpse now properly appears and fades away again.
+  Kocma-san:
+  - bugfix: fixed that M44A underbarrel grenade launchers and shotguns cannot be reloaded
+  - code_imp: smol improvement to the marines gear code
+  Melbert:
+  - bugfix: Pirates will no longer randomly spawn as human
+  - bugfix: Servant Golems have numbered names again
+  - refactor: Refactored ghost spawns (like spider eggs or pirate spawners), report
+      any oddities
+  - admin: Adds "roleplay reminder" button to player panel
+  OrbisAnima:
+  - bugfix: Due to incompatibilities with  intergalactic trade [we had bugs], Cargo
+      imports will no longer be able to be ordered directly from the cargo budget,
+      unless the express consoles are used, as it was previously stipulated with other
+      Goody types imports. [Lots of bugs, and avoiding future bugs, we tried.]
+  RatFromTheJungle:
+  - code_imp: The round-end report no longer auto- opens magically! Click the button
+      that appears in the top left instead to open it.
+  Thunder12345:
+  - bugfix: The captain suit costume (green suit) no longer has the same armour as
+      real captain outfits.
+  alien3301:
+  - balance: The warden starts with a bandolier in their locker
+  lelandkemble:
+  - map: Catwalk Abandoned Kitchen APC powered by default
+  - bugfix: cyborg RTD works again
+  - admin: Admins get powertool belts in their special outfits.
+  san7890:
+  - refactor: The Cult of Nar'Sie realized that they were installing the mirrors on
+      their mirror shields the wrong way around, thus altering the makeup of their
+      mirror clones health, damage, and re-replicability.
+  - refactor: In response to the recent updates in clone magic, Nanotrasen's Stealth
+      Reactive Armor should now generate more convincing clones.
+  vinylspiders:
+  - bugfix: fixes a bug that caused you to need to wear shoes in order to gain any
+      defensive benefit from the sleeping carp martial art style
