@@ -13,11 +13,12 @@
 	VAR_FINAL/capacity = 3
 	/// the delay before the shelf is truly used
 	var/use_delay = DEFAULT_SHELF_USE_DELAY
-	/// how many crates are currently stored in the shelf
-	var/crates_stored = 0
+	/// List of which crates are stored where, to keep track of occupied slots
+	var/list/crates_stored
 
 /obj/structure/cargo_shelf/Initialize(mapload)
 	. = ..()
+	crates_stored = new /list(3)
 	var/stack_layer // This is used to generate the sprite layering of the shelf pieces.
 	var/stack_offset // This is used to generate the vertical offset of the shelf pieces.
 	for(var/i in 1 to (capacity - 1))
@@ -38,9 +39,9 @@
 /obj/structure/cargo_shelf/examine(mob/user)
 	. = ..()
 	. += span_notice("There are some <b>bolts</b> holding [src] together.")
-	if(crates_stored < capacity) // If there's an empty space in the shelf, let the examiner know.
+	if(length(crates_stored) < capacity) // If there's an empty space in the shelf, let the examiner know.
 		. += span_notice("You could <b>drag and drop</b> a crate into [src].")
-	if(crates_stored) // If there are any crates in the shelf, let the examiner know.
+	if(length(crates_stored)) // If there are any crates in the shelf, let the examiner know.
 		. += span_notice("You could <b>drag and drop</b> a crate out of [src].")
 		. += span_notice("[src] contains:")
 		for(var/obj/structure/closet/crate/crate in contents)
@@ -60,11 +61,11 @@
 			span_notice("You manage to knock [crate] free of [src]"),
 			span_notice("You hear a thud."))
 		remove_crate(crate, drop_location())
-		step_rand(crate, 1) // Then try to push it somewhere.
+		random_step(crate, 1, 20) // Then try to push it somewhere.
 
 /// proc that will attempt to add something to the contents of the shelf
 /obj/structure/cargo_shelf/proc/load(obj/structure/closet/crate/crate, mob/user, y_offset, instant)
-	if(crates_stored >= capacity) // If we don't find an empty slot, return early.
+	if(length(crates_stored) >= capacity) // If we don't find an empty slot, return early.
 		balloon_alert(user, "shelf full!")
 		return FALSE
 	if(!instant && !do_after(user, use_delay, target = crate))
@@ -73,12 +74,11 @@
 	add_crate(crate, y_offset)
 	return TRUE
 
-
 /// proc that will attempt to remove something to the contents of the shelf
 /obj/structure/cargo_shelf/proc/unload(obj/structure/closet/crate/crate, mob/user, turf/unload_turf)
 	if(!unload_turf)
 		unload_turf = get_turf(user) // If a turf somehow isn't passed into the proc, put it at the user's feet.
-	if(!unload_turf.Enter(crate)) // If moving the crate from the shelf to the desired turf would bump, don't do it! Thanks Kapu1178 for the help here. - Generic DM
+	if(!unload_turf.is_blocked_turf())
 		unload_turf.balloon_alert(user, "no room!")
 		return FALSE
 	if(!do_after(user, use_delay, target = crate))
@@ -103,7 +103,7 @@
 	var/turf/dump_turf = drop_location()
 	for(var/obj/structure/closet/crate/crate in contents)
 		remove_crate(crate, dump_turf)
-		step(crate, pick(GLOB.alldirs)) // Shuffle the crates around as though they've fallen down.
+		random_step(crate, 1, 20) // Shuffle the crates around as though they've fallen down.
 		crate.SpinAnimation(rand(4,7), 1) // Spin the crates around a little as they fall. Randomness is applied so it doesn't look weird.
 		switch(pick(1, 1, 1, 1, 2, 2, 3)) // Randomly pick whether to do nothing, open the crate, or break it open.
 			if(1) // Believe it or not, this does nothing.
@@ -155,24 +155,32 @@
 
 /// Adds a crate to the shelf
 /obj/structure/cargo_shelf/proc/add_crate(obj/structure/closet/crate/crate, y_offset)
-	if(crates_stored >= capacity)
+	if(length(crates_stored) >= capacity)
 		return FALSE // Something has been added to the shelf while we were waiting, abort!
 	if(crate.opened) // If the crate is open, try to close it.
 		if(!crate.close())
 			return FALSE // If we fail to close it, don't load it into the shelf.
-	crate.interaction_flags_atom |= INTERACT_ATOM_MOUSEDROP_IGNORE_ADJACENT // We can't trust the mouse pull adjacency check
-	crate.forceMove(src) // Insert the crate into the shelf.
-	crates_stored++
 	// Where the crate gets placed is based on where on the icon we mousedragged
 	if (y_offset <= 12)
+		if(crates_stored[1])
+			return FALSE
 		crate.pixel_y = DEFAULT_SHELF_VERTICAL_OFFSET * 0
 		crate.layer = BELOW_OBJ_LAYER
+		crates_stored[1] = REF(crate)
 	else if (y_offset <= 21)
+		if(crates_stored[2])
+			return FALSE
 		crate.pixel_y = DEFAULT_SHELF_VERTICAL_OFFSET * 1
 		crate.layer = BELOW_OBJ_LAYER + 0.02
+		crates_stored[2] = REF(crate)
 	else
+		if(crates_stored[3])
+			return FALSE
 		crate.pixel_y = DEFAULT_SHELF_VERTICAL_OFFSET * 2
 		crate.layer = ABOVE_MOB_LAYER + 0.02
+		crates_stored[3] = REF(crate)
+	crate.interaction_flags_atom |= INTERACT_ATOM_MOUSEDROP_IGNORE_ADJACENT // We can't trust the mouse pull adjacency check
+	crate.forceMove(src) // Insert the crate into the shelf.
 	vis_contents += crate
 
 /// Removes a crate from the shelf
@@ -180,7 +188,7 @@
 	crate.layer = initial(crate.layer) // Reset the crate back to having the default layer, otherwise we might get strange interactions.
 	crate.pixel_y = initial(crate.pixel_y) // Reset the crate back to having no offset, otherwise it will be floating.
 	crate.forceMove(unload_turf)
-	crates_stored--
+	crates_stored -= REF(crate)
 	crate.interaction_flags_atom &= ~INTERACT_ATOM_MOUSEDROP_IGNORE_ADJACENT
 	vis_contents -= crate
 
