@@ -128,4 +128,3 @@
 	new /obj/item/modular_computer/pda/chameleon(src)
 	new /obj/item/card/id/departmental_budget/interdyne(src)
 	new /obj/item/storage/hypospraykit/cmo/interdyne(src)
-
