@@ -152,6 +152,7 @@
 	damage = 45 //we go clean through
 	speed = 2.5
 	armour_penetration = 50 //we go clean through
+	max_pierces = 1 //we go clean through
 	anti_armour_damage = 175 //we go clean through
 
 /obj/projectile/bullet/tank_cannon/sabot/on_hit(atom/target, blocked, pierce_hit)
