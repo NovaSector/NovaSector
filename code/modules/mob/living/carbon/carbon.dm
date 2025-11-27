@@ -1361,4 +1361,6 @@
 
 /mob/living/carbon/get_bloodtype()
 	RETURN_TYPE(/datum/blood_type)
+	if(!CAN_HAVE_BLOOD(src))
+		return
 	return dna?.blood_type
