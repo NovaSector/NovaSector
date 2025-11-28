@@ -47,6 +47,7 @@ jobs:
           private_key: ${{ secrets.APP_PRIVATE_KEY }}
 
       - name: Run Tgstation.DiscordDiscussions
+        shell: bash
         run: |
           CMD="dotnet discord_discussions_bins/Tgstation.DiscordDiscussions.dll \
             ${{ steps.app-token-generation.outputs.token }} \
