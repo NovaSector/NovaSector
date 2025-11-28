@@ -59,11 +59,11 @@ jobs:
             ${{ github.event.action == 'reopened' && 'true' || 'false' }} \
             ${{ vars.DISCORD_JOIN_LINK }}"
 
-          if [ -n "${{ vars.DISCORD_DISCUSSIONS_TAG_ID }}" ]; then
+          if [ "${{ vars.DISCORD_DISCUSSIONS_TAG_ID }}" != "" ]; then
             CMD="$CMD '${{ vars.DISCORD_DISCUSSIONS_TAG_ID }}'"
           fi
 
-          echo "Running: $CMD"
+          echo "::notice file=workflow.sh,line=1::CMD=$CMD"
           $CMD
         env:
           GITHUB_PULL_REQUEST_TITLE: ${{ github.event.pull_request.title }}
