@@ -178,15 +178,14 @@
  */
 /datum/round_event_control/dynamic_tweak
 	max_occurrences = 0
-	weight = LOW_EVENT_FREQ
-
+	weight = VERY_LOW_EVENT_FREQ
 /**
  * Medical
  *
  */
 /datum/round_event_control/disease_outbreak
 	max_occurrences = 2
-	min_players = 25
+	min_players = 20
 	weight = HIGH_EVENT_FREQ
 	intensity_restriction = TRUE
 
@@ -331,7 +330,7 @@
  */
 /datum/round_event_control/mice_migration
 	max_occurrences = 1
-	weight = LOW_EVENT_FREQ
+	weight = MED_EVENT_FREQ
 
 /**
  * Moldies
@@ -379,19 +378,19 @@
  */
 /datum/round_event_control/vent_clog
 	max_occurrences = 1
-	weight = MED_EVENT_FREQ
+	weight = HIGH_EVENT_FREQ
 
 /datum/round_event_control/vent_clog/major
 	max_occurrences = 1
-	weight = MED_EVENT_FREQ
+	weight = HIGH_EVENT_FREQ
 
 /datum/round_event_control/vent_clog/critical
 	max_occurrences = 1
-	weight = LOW_EVENT_FREQ
+	weight = MED_EVENT_FREQ
 
 /datum/round_event_control/vent_clog/strange
 	max_occurrences = 1
-	weight = LOW_EVENT_FREQ
+	weight = MED_EVENT_FREQ
 
 /**
  * Scrubber Overflow
