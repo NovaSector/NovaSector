@@ -139,10 +139,12 @@
 	datum/language/language,
 	list/message_mods = list()
 )
+	/* //NOVA EDIT REMOVAL BEGIN - Drones speaking Robot instead of drone talk
 	if(isdrone(user))
 		var/mob/living/basic/drone/drone_user = user
 		drone_user.drone_chat(message, spans, message_mods)
-	else if(user.binarycheck())
+	*/ //NOVA EDIT REMOVAL END
+	if(user.binarycheck())
 		user.robot_talk(message, spans, message_mods)
 	return SAYMODE_MESSAGE_HANDLED
 

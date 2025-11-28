@@ -179,3 +179,21 @@
 		var/obj/item/wirebrush/brush = new (cyborg.model)
 		cyborg.model.basic_modules += brush
 		cyborg.model.add_module(brush, FALSE, TRUE)
+
+// Kinetic Crusher for Mining Borg
+/obj/item/kinetic_crusher/robot
+	name = "mining cyborg kinetic-crusher"
+	desc = "A tool fixed to a sillicon's actuators that hold a proto-kinetic crusher."
+	acts_as_if_wielded = TRUE
+	force = 20
+
+/obj/item/robot_model/miner/Initialize(mapload)
+	basic_modules += /obj/item/kinetic_crusher/robot
+	return ..()
+
+/obj/item/kinetic_crusher/robot/Initialize(mapload)
+	. = ..()
+	force = force_wielded
+
+/obj/item/kinetic_crusher/robot/update_wielding()
+	return

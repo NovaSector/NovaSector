@@ -1,6 +1,6 @@
 /obj/item/gun/energy/laser
 	name = "laser carbine"
-	desc = "The Allstar Lasers Star Combat 1, or \"Allstar SC-1\",\
+	desc = "The Allstar Lasers Star Combat 1, or \"Allstar SC-1\", \
 		is a basic, energy-based laser carbine that fires concentrated beams of light which pass through glass and thin metal."
 	w_class = WEIGHT_CLASS_NORMAL
 
@@ -10,6 +10,9 @@
 		is a relic of a weapon, built before Allstar began installing regulators on their laser weaponry. \
 		This pattern of laser gun became infamous for the gruesome burn wounds it caused, \
 		and was quietly pushed to the sidelines once it began to affect Allstar's reputation."
+
+/obj/item/gun/energy/laser/captain
+	ammo_type = list(/obj/item/ammo_casing/energy/laser/hellfire/blueshield) // 20 hellfires up from 15
 
 /obj/item/gun/energy/laser/carbine
 	name = "laser auto-carbine"
@@ -27,16 +30,24 @@
 	custom_price = PAYCHECK_CREW * 5
 
 /obj/item/ammo_casing/energy/laser
-	projectile_type = /obj/projectile/beam/laser
 	e_cost = LASER_SHOTS(20, STANDARD_CELL_CHARGE)
 	// up from LASER_SHOTS(12, STANDARD_CELL_CHARGE)
-	select_name = "kill"
+
+/obj/item/ammo_casing/energy/laser/hos
+	e_cost = LASER_SHOTS(25, STANDARD_CELL_CHARGE * 1.2)
+	// up from LASER_SHOTS(12, STANDARD_CELL_CHARGE * 1.2)
+
+/obj/item/ammo_casing/energy/disabler/hos
+	e_cost = LASER_SHOTS(25, STANDARD_CELL_CHARGE * 1.2)
+	// up from LASER_SHOTS(20, STANDARD_CELL_CHARGE * 1.2)
+
+/obj/item/ammo_casing/energy/ion/hos
+	e_cost = LASER_SHOTS(5, STANDARD_CELL_CHARGE * 1.2)
+	// up from LASER_SHOTS(4, STANDARD_CELL_CHARGE * 1.2)
 
 /obj/item/ammo_casing/energy/laser/hellfire
-	projectile_type = /obj/projectile/beam/laser/hellfire
-	e_cost = LASER_SHOTS(20, STANDARD_CELL_CHARGE)
+	e_cost = LASER_SHOTS(15, STANDARD_CELL_CHARGE)
 	// up from LASER_SHOTS(10, STANDARD_CELL_CHARGE)
-	select_name = "maim"
 
 /obj/item/ammo_casing/energy/lasergun
 	e_cost = LASER_SHOTS(25, STANDARD_CELL_CHARGE)

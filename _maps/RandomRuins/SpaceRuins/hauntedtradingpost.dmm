@@ -1425,12 +1425,6 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer4,
 /turf/open/floor/carpet/orange,
 /area/ruin/space/has_grav/hauntedtradingpost/public/corridor)
-"mh" = (
-/obj/item/circuitboard/machine/vendatray{
-	pixel_y = 15
-	},
-/turf/open/floor/carpet/orange,
-/area/ruin/space/has_grav/hauntedtradingpost/public)
 "mn" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer4,
 /obj/machinery/airalarm/directional/south,
@@ -1942,7 +1936,7 @@
 /turf/template_noop,
 /area/template_noop)
 "qY" = (
-/obj/item/tank/jetpack/oxygen/security{
+/obj/item/tank/jetpack/security{
 	name = "red jetpack (oxygen)"
 	},
 /obj/item/tank/internals/oxygen/red,
@@ -2104,7 +2098,7 @@
 /obj/structure/table/reinforced/plastitaniumglass,
 /obj/effect/spawner/random/exotic/technology,
 /obj/effect/mapping_helpers/apc/syndicate_access,
-/obj/item/gun/energy/laser/carbine/cybersun,
+/obj/item/gun/energy/laser/cybersun,
 /obj/effect/mapping_helpers/apc/full_charge,
 /obj/machinery/power/apc/auto_name/directional/south{
 	cable_layer = 1
@@ -6751,7 +6745,7 @@ tl
 Ht
 uZ
 eE
-mh
+Ip
 He
 TY
 RX

@@ -1,6 +1,6 @@
 //Maid Outfit
 
-/obj/item/clothing/head/costume/maidheadband/syndicate/loadout_headband
+/obj/item/clothing/head/costume/maid_headband/syndicate/loadout_headband
 	name = "tactical maid headband"
 	desc = "Tacticute."
 	icon_state = "syndimaid_headband"
@@ -19,7 +19,7 @@
 	desc = "A 'tactical' skirtleneck fashioned to the likeness of a maid outfit"
 	has_sensor = HAS_SENSORS
 	icon_state = "syndimaid"
-	armor_type = /datum/armor/clothing_under/none
+	armor_type = /datum/armor/clothing_under
 	female_sprite_flags = FEMALE_UNIFORM_TOP_ONLY
 	dying_key = DYE_REGISTRY_JUMPSKIRT
 	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION_NO_NEW_ICON

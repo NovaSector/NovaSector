@@ -6,7 +6,7 @@
 	name = "Antique Short Cloak"
 	desc = "An antique, fluffy shortcloak... not sure why it's so puffy and short."
 
-	icon = 'modular_nova/master_files/icons/mob/clothing/neck.dmi'
+	icon = 'icons/map_icons/clothing/neck.dmi'
 	icon_state = "/obj/item/clothing/neck/greyscaled"
 
 	post_init_icon_state = "shortcloak"
@@ -27,7 +27,10 @@
 	greyscale_config_worn = /datum/greyscale_config/antique_seecloak/worn
 	greyscale_colors = "#ffff99#4d4d4d"
 	body_parts_covered = NECK|HAND_LEFT|ARM_LEFT|CHEST
-
+	unique_reskin = list(
+		"default" = "seecloak",
+		"trimmed" = "seecloak_trimonly",
+	)
 /obj/item/clothing/neck/greyscaled/matroncloak
 	name = "Antique Matron Cloak"
 	desc = "A large antique cloak with large puffy fluff."

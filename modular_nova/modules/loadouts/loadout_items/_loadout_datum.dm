@@ -45,6 +45,8 @@
 	var/nova_stars_only
 	/// Whether the item requires a specific season in order to be available
 	var/required_season = null
+	/// Is the loadout item a mechanical item? If so, it will be blocked by 'allow_mechanical_loadout_items' under some circumstances
+	var/mechanical_item = FALSE
 	/// If the item won't appear when the ERP config is disabled
 	var/erp_item = FALSE
 	/// If the item goes into the special erp box
@@ -92,15 +94,20 @@
  *
  * Returns `TRUE` if `target` is allowed to receive this item, `FALSE` if not.
  */
-/datum/loadout_item/proc/can_be_applied_to(mob/living/target, datum/preferences/preference_source, datum/job/equipping_job, silent = FALSE)
+/datum/loadout_item/proc/can_be_applied_to(mob/living/target, datum/preferences/preference_source, datum/job/equipping_job, allow_mechanical_loadout_items = TRUE)
 	var/client/client = preference_source.parent
+	if(!allow_mechanical_loadout_items && !equipping_job  && mechanical_item)
+		if(client)
+			to_chat(target, span_warning("You were unable to get a loadout item ([initial(item_path.name)]) due to being a non-whitelisted ghostrole!"))
+		return FALSE
+
 	if(restricted_roles && equipping_job && !(equipping_job.title in restricted_roles))
-		if(client && !silent)
+		if(client)
 			to_chat(target, span_warning("You were unable to get a loadout item ([initial(item_path.name)]) due to job restrictions!"))
 		return FALSE
 
 	if(blacklisted_roles && equipping_job && (equipping_job.title in blacklisted_roles))
-		if(client && !silent)
+		if(client)
 			to_chat(target, span_warning("You were unable to get a loadout item ([initial(item_path.name)]) due to job blacklists!"))
 		return FALSE
 
@@ -108,22 +115,22 @@
 		var/mob/living/carbon/carbon_target = target
 		var/datum/dna/dna = carbon_target.dna
 		if(!istype(dna) || (restricted_species && !(dna.species.id in restricted_species)))
-			if(client && !silent)
+			if(client)
 				to_chat(target, span_warning("You were unable to get a loadout item ([initial(item_path.name)]) due to species restrictions!"))
 			return FALSE
 
 	if(donator_only && !SSplayer_ranks.is_donator(client))
-		if(client && !silent)
+		if(client)
 			to_chat(target, span_warning("You were unable to get a loadout item ([initial(item_path.name)]) due to not being a donator!"))
 		return FALSE
 
 	if(nova_stars_only && !SSplayer_ranks.is_nova_star(client))
-		if(client && !silent)
+		if(client)
 			to_chat(target, span_warning("You were unable to get a loadout item ([initial(item_path.name)]) due to not being a Nova star!"))
 		return FALSE
 
 	if(LAZYLEN(ckeywhitelist) && !(client?.ckey in ckeywhitelist))
-		if(client && !silent)
+		if(client)
 			to_chat(target, span_warning("You were unable to get a loadout item ([initial(item_path.name)]) due to not being apart of its CKEY whitelist!"))
 		return FALSE
 
@@ -133,7 +140,7 @@
 /datum/loadout_item/get_ui_buttons()
 	var/list/buttons = ..()
 
-	if(can_be_named)
+	if(loadout_flags & LOADOUT_FLAG_ALLOW_NAMING)
 		UNTYPED_LIST_ADD(buttons, list(
 			"label" = "Change description",
 			"act_key" = "set_description",
@@ -156,7 +163,7 @@
 
 
 /datum/loadout_item/handle_loadout_action(datum/preference_middleware/loadout/manager, mob/user, action, params)
-	if(action == "set_description" && can_be_named)
+	if(action == "set_description" && (loadout_flags & LOADOUT_FLAG_ALLOW_NAMING))
 		return set_description(manager, user)
 
 	return ..()

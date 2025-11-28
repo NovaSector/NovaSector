@@ -185,3 +185,23 @@
 /datum/augment_item/organ/ears/cybernetic
 	name = "Cybernetic ears"
 	path = /obj/item/organ/ears/cybernetic
+
+/// Cyber cat ears - Cosmetic types for augments only
+
+/obj/item/organ/ears/cat/cybernetic/blue
+	bodypart_overlay = /datum/bodypart_overlay/mutant/cat_ears/cybernetic/blue
+
+/obj/item/organ/ears/cat/cybernetic/green
+	bodypart_overlay = /datum/bodypart_overlay/mutant/cat_ears/cybernetic/blue
+
+/datum/augment_item/organ/ears/cybernetic/cat
+	name = "Cybernetic cat ears"
+	path = /obj/item/organ/ears/cat/cybernetic
+
+/datum/augment_item/organ/ears/cybernetic/cat/blue
+	name = "Cybernetic cat ears (blue)"
+	path = /obj/item/organ/ears/cat/cybernetic/blue
+
+/datum/augment_item/organ/ears/cybernetic/cat/green
+	name = "Cybernetic cat ears (green)"
+	path = /obj/item/organ/ears/cat/cybernetic/green

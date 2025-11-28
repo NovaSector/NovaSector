@@ -7,7 +7,7 @@
 	zone = BODY_ZONE_PRECISE_GROIN
 	slot = ORGAN_SLOT_EXTERNAL_TAIL
 
-	//dna_block = DNA_TAIL_BLOCK // NOVA EDIT REMOVAL - Customization - We have our own system to handle DNA.
+	//dna_block = /datum/dna_block/feature/accessory/tail // NOVA EDIT REMOVAL - Customization - We have our own system to handle DNA.
 	restyle_flags = EXTERNAL_RESTYLE_FLESH
 
 	// defaults to cat, but the parent type shouldn't be created regardless
@@ -66,11 +66,11 @@
 	tail_spines_overlay = new
 	tail_spines_overlay.tail_spine_key = tail_spine_key
 	// NOVA EDIT ADDITION START
-	if(!bodypart.owner.dna.mutant_bodyparts["spines"])
-		bodypart.owner.dna.mutant_bodyparts["spines"] = list(MUTANT_INDEX_NAME = "None", MUTANT_INDEX_COLOR_LIST = list("#886600", "#886600", "#886600"))
+	if(!bodypart.owner.dna.mutant_bodyparts[FEATURE_SPINES])
+		bodypart.owner.dna.mutant_bodyparts[FEATURE_SPINES] = list(MUTANT_INDEX_NAME = "None", MUTANT_INDEX_COLOR_LIST = list("#886600", "#886600", "#886600"))
 	// NOVA EDIT ADDITION END
-	var/feature_name = bodypart.owner.dna.mutant_bodyparts["spines"][MUTANT_INDEX_NAME] // NOVA EDIT CHANGE - ORIGINAL: var/feature_name = bodypart.owner.dna.features["spines"] //tail spines don't live in DNA, but share feature names with regular spines
-	tail_spines_overlay.set_appearance_from_dna(bodypart.owner.dna, feature_name, feature_key = "spines") // NOVA EDIT CHANGE - ORIGINAL: tail_spines_overlay.set_appearance_from_name(feature_name)
+	var/feature_name = bodypart.owner.dna.mutant_bodyparts[FEATURE_SPINES][MUTANT_INDEX_NAME] // NOVA EDIT CHANGE - ORIGINAL: var/feature_name = bodypart.owner.dna.features[FEATURE_SPINES] //tail spines don't live in DNA, but share feature names with regular spines
+	tail_spines_overlay.set_appearance_from_dna(bodypart.owner.dna, feature_name, feature_key = FEATURE_SPINES) // NOVA EDIT CHANGE - ORIGINAL: tail_spines_overlay.set_appearance_from_name(feature_name)
 	bodypart.add_bodypart_overlay(tail_spines_overlay)
 
 /// If we have a tail spines overlay, delete it
@@ -151,16 +151,11 @@
 /datum/bodypart_overlay/mutant/tail/get_base_icon_state()
 	return "[wagging ? "wagging_" : ""][sprite_datum.icon_state]" //add the wagging tag if we be wagging
 
-// NOVA EDIT ADDITION - CUSTOMIZATION
-/datum/bodypart_overlay/mutant/tail/get_global_feature_list()
-	return SSaccessories.sprite_accessories["tail"]
-// NOVA EDIT ADDITION END
 /datum/bodypart_overlay/mutant/tail/can_draw_on_bodypart(obj/item/bodypart/bodypart_owner)
 	return !(bodypart_owner.owner?.obscured_slots & HIDEJUMPSUIT)
 
 /obj/item/organ/tail/cat
 	name = "tail"
-	preference = "feature_human_tail"
 
 	bodypart_overlay = /datum/bodypart_overlay/mutant/tail/cat
 	restyle_flags = EXTERNAL_RESTYLE_FLESH
@@ -172,15 +167,11 @@
 
 ///Cat tail bodypart overlay
 /datum/bodypart_overlay/mutant/tail/cat
-	feature_key = "tail" // NOVA EDIT - Customization - ORIGINAL: feature_key = "tail_cat"
+	feature_key = FEATURE_TAIL // NOVA EDIT - Customization - ORIGINAL: feature_key = FEATURE_TAIL_CAT
 	// color_source = ORGAN_COLOR_HAIR // NOVA EDIT REMOVAL
-
-/datum/bodypart_overlay/mutant/tail/cat/get_global_feature_list()
-	return SSaccessories.sprite_accessories["tail"] // NOVA EDIT CHANGE - ORIGINAL: return SSaccessories.tails_list_felinid
 
 /obj/item/organ/tail/monkey
 	name = "monkey tail"
-	preference = "feature_monkey_tail"
 	icon_state = "severedmonkeytail"
 	dna_block = null
 	bodypart_overlay = /datum/bodypart_overlay/mutant/tail/monkey
@@ -188,10 +179,7 @@
 ///Monkey tail bodypart overlay
 /datum/bodypart_overlay/mutant/tail/monkey
 	color_source = NONE
-	feature_key = "tail" // NOVA EDIT - Customization - ORIGINAL: feature_key = "tail_monkey"
-
-/datum/bodypart_overlay/mutant/tail/monkey/get_global_feature_list()
-	return SSaccessories.tails_list_monkey
+	feature_key = FEATURE_TAIL // NOVA EDIT - Customization - ORIGINAL: feature_key = FEATURE_TAIL_MONKEY
 
 /obj/item/organ/tail/xeno
 	name = "alien tail"
@@ -231,7 +219,7 @@
 ///Alien tail bodypart overlay
 /datum/bodypart_overlay/mutant/tail/xeno
 	color_source = NONE
-	feature_key = "tail_xeno"
+	feature_key = FEATURE_TAIL // NOVA EDIT CHANGE - CUSTOMIZATION - ORIGINAL: feature_key = FEATURE_TAIL_XENO
 	imprint_on_next_insertion = FALSE
 	/// We don't want to bother writing this in DNA, just use this appearance
 	var/default_appearance = "Xeno"
@@ -239,9 +227,6 @@
 /datum/bodypart_overlay/mutant/tail/xeno/New()
 	. = ..()
 	set_appearance_from_name(default_appearance)
-
-/datum/bodypart_overlay/mutant/tail/xeno/get_global_feature_list()
-	return SSaccessories.tails_list_xeno
 
 /datum/bodypart_overlay/mutant/tail/xeno/randomize_appearance()
 	set_appearance_from_name(default_appearance)
@@ -252,19 +237,15 @@
 /obj/item/organ/tail/lizard
 	name = "lizard tail"
 	desc = "A severed lizard tail. Somewhere, no doubt, a lizard hater is very pleased with themselves."
-	preference = "feature_lizard_tail"
 
 	bodypart_overlay = /datum/bodypart_overlay/mutant/tail/lizard
 
 	wag_flags = WAG_ABLE
-	//dna_block = DNA_LIZARD_TAIL_BLOCK // NOVA EDIT REMOVAL - Customization - We have our own system to handle DNA.
+	//dna_block = /datum/dna_block/feature/accessory/tail_lizard// NOVA EDIT REMOVAL - Customization - We have our own system to handle DNA.
 
 ///Lizard tail bodypart overlay datum
 /datum/bodypart_overlay/mutant/tail/lizard
-	feature_key = "tail" // NOVA EDIT - Customization - ORIGINAL: feature_key = "tail_lizard"
-
-/datum/bodypart_overlay/mutant/tail/lizard/get_global_feature_list()
-	return SSaccessories.sprite_accessories["tail"] // NOVA EDIT - Customization - ORIGINAL: return SSaccessories.tails_list_lizard
+	feature_key = FEATURE_TAIL // NOVA EDIT - Customization - ORIGINAL: feature_key = FEATURE_TAIL_LIZARD
 
 /obj/item/organ/tail/lizard/fake
 	name = "fabricated lizard tail"
@@ -273,14 +254,11 @@
 ///Bodypart overlay for tail spines. Handled by the tail - has no actual organ associated.
 /datum/bodypart_overlay/mutant/tail_spines
 	layers = EXTERNAL_ADJACENT|EXTERNAL_BEHIND
-	feature_key = "tailspines"
+	feature_key = FEATURE_TAILSPINES
 	///Spines wag when the tail does
 	var/wagging = FALSE
 	/// Key for tail spine states, depends on the shape of the tail. Defined in the tail sprite datum.
 	var/tail_spine_key = NONE
-
-/datum/bodypart_overlay/mutant/tail_spines/get_global_feature_list()
-	return SSaccessories.sprite_accessories["tailspines"] // NOVA EDIT CHANGE - ORIGINAL: return SSaccessories.tail_spines_list
 
 /datum/bodypart_overlay/mutant/tail_spines/get_base_icon_state()
 	return (!isnull(tail_spine_key) ? "[tail_spine_key]_" : "") + (wagging ? "wagging_" : "") + sprite_datum.icon_state // Select the wagging state if appropriate

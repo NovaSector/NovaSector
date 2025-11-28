@@ -303,8 +303,7 @@
 	var/healed_amount = owner.heal_overall_damage(2, 2, updating_health = FALSE)
 	healed_amount += owner.adjustOxyLoss(-2, FALSE)
 	healed_amount += owner.adjustToxLoss(-2, FALSE, TRUE)
-	if(!HAS_TRAIT(owner, TRAIT_NOBLOOD))
-		owner.blood_volume += 2.5
+	owner.adjust_blood_volume(2.5)
 	if(!iscarbon(owner))
 		return
 	var/mob/living/carbon/carbon_eater = owner
@@ -415,6 +414,8 @@
 /datum/status_effect/heretic_passive/moon/on_apply()
 	. = ..()
 	var/obj/item/organ/brain/our_brain = owner.get_organ_slot(ORGAN_SLOT_BRAIN)
+	if(!our_brain)
+		return
 	ADD_TRAIT(our_brain, TRAIT_BRAIN_TRAUMA_IMMUNITY, REF(src))
 	owner.AddElement(/datum/element/relay_attackers)
 	RegisterSignal(owner, COMSIG_ATOM_WAS_ATTACKED, PROC_REF(on_attacked))
@@ -450,6 +451,8 @@
 
 /datum/status_effect/heretic_passive/moon/on_remove()
 	var/obj/item/organ/brain/our_brain = owner.get_organ_slot(ORGAN_SLOT_BRAIN)
+	if(!our_brain)
+		return ..()
 	REMOVE_TRAIT(our_brain, TRAIT_BRAIN_TRAUMA_IMMUNITY, REF(src))
 	REMOVE_TRAIT(owner, TRAIT_SLEEPIMMUNE, REF(src))
 	UnregisterSignal(owner, COMSIG_ATOM_WAS_ATTACKED)
@@ -532,8 +535,7 @@
 	var/stun_reduction = 0.5 * passive_level * delta_time
 	source.AdjustAllImmobility(-stun_reduction)
 	// Heals blood loss
-	if(source.blood_volume < BLOOD_VOLUME_NORMAL)
-		source.blood_volume += 2.5 * delta_time
+	source.adjust_blood_volume(2.5 * delta_time, maximum = BLOOD_VOLUME_NORMAL)
 	for(var/datum/reagent/reagent as anything in source.reagents.reagent_list)
 		source.reagents.remove_reagent(reagent.type, 2 * reagent.purge_multiplier * REM * seconds_per_tick)
 
