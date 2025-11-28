@@ -14,7 +14,7 @@
 	name = "Shaft Miner Access Kit"
 	desc = "You want to recruit more miners and the HoP is too busy to make new cards? \
 		Fear not, this kit contains a mining ID card and a mining headset!."
-	cost = CARGO_CRATE_VALUE
+	cost = CARGO_CRATE_VALUE * 1.4
 	access = ACCESS_QM
 	access_view = ACCESS_MINING_STATION
 	contains = list(/obj/item/encryptionkey/headset_mining, /obj/item/card/id/advanced/mining)
