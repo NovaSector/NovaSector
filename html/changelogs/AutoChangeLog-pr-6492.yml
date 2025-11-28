@@ -1,4 +1,0 @@
-author: "Hardly"
-delete-after: True
-changes:
-  - bugfix: "Kobold's language prefix has been changed from conflicting \",k\" to \",O\""

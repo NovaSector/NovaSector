@@ -38,7 +38,6 @@
 				/obj/item/clothing/neck/tesharian_mantle = 5,
 				/obj/item/clothing/neck/long_cape = 5,
 				/obj/item/clothing/neck/wide_cape = 5,
-				/obj/item/clothing/neck/robe_cape = 5,
 				/obj/item/clothing/glasses/regular/modern = 5,
 				/obj/item/clothing/glasses/regular/thin = 5,
 				/obj/item/clothing/glasses/hud/ar/projector = 5,
