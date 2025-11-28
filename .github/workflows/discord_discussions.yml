@@ -64,7 +64,7 @@ jobs:
             CMD="$CMD '${{ vars.DISCORD_DISCUSSIONS_TAG_ID }}'"
           fi
 
-          echo "::notice file=workflow.sh,line=1::CMD=$CMD"
+          echo "Running: $CMD"
           $CMD
         env:
           GITHUB_PULL_REQUEST_TITLE: ${{ github.event.pull_request.title }}
