@@ -1,174 +1,315 @@
-/datum/armament_entry/company_import/interdyne
-	category = INTERDYNE_PHARMACEUTICALS_NAME
-	offstation = TRUE
-	// Defines what is the default cost. (If a subcategory cost is not defined it will assume this value)
-	cost = PAYCHECK_COMMAND * 5
+/datum/supply_pack/companies/medical/interdyne
+	access = ACCESS_SYNDICATE
+	access_view = ACCESS_SYNDICATE
+	express_lock = FALSE
+	departamental_goody = FALSE
+	discountable = SUPPLY_PACK_NOT_DISCOUNTABLE
+	console_flag = CARGO_CONSOLE_INTERDYNE
+	crate_type = /obj/structure/closet/crate/secure/syndicate/interdyne
+	auto_name = FALSE
+	crate_name = "Interdyne Medical Crate"
 
-/datum/armament_entry/company_import/interdyne/solo
-	subcategory = "individual products"
-	cost = PAYCHECK_COMMAND * 3
+/datum/supply_pack/companies/medical/interdyne/defibrillators
+	name = "Interdyne Defibrillator Crate"
+	desc = "Specially made Interdyne Pharmaceuticals Defibrillators, Designed to shock even through modsuits with enough voltages to bring patients \
+	back from the dead."
+	cost = CARGO_CRATE_VALUE * 4
+	contains = list(/obj/item/defibrillator/compact/combat/loaded/interdyne)
 
-/datum/armament_entry/company_import/interdyne/solo/defib
-	item_type = /obj/item/defibrillator/compact/combat/loaded/interdyne
-	cost = PAYCHECK_COMMAND * 4
+/datum/supply_pack/companies/medical/interdyne/hypospray_kit
+	name = "Interdyne Hypospray Kit"
+	desc = "A specially made hypospray kit, designedd with proprietary technology and the patient first, this kit will make any doctor and patient happy!"
+	cost = CARGO_CRATE_VALUE * 4
+	contains = list(/obj/item/storage/hypospraykit/interdyne)
 
-/datum/armament_entry/company_import/interdyne/solo/hypospray
-	item_type = /obj/item/storage/hypospraykit/interdyne
-	cost = PAYCHECK_COMMAND * 8
+/datum/supply_pack/companies/medical/interdyne/hypospray_kit_bulk
+	name = "Interdyne Hypospray Kit"
+	desc = "Multi pack of Specially made interdyne hypospray kits, designed with proprietary technology and the patient first, this set of hyposprays will \
+	make any doctor and patient happy!"
+	cost = CARGO_CRATE_VALUE * 11.5
+	contains = list(/obj/item/storage/hypospraykit/interdyne = 3)
 
-/datum/armament_entry/company_import/interdyne/solo/evilchems
-	item_type = /obj/item/storage/box/evilmeds/interdyne
-	cost = PAYCHECK_COMMAND * 8
+/datum/supply_pack/companies/medical/interdyne/premium_meds
+	name = "Interdyne Premium Medicines"
+	desc = "A specially curated box of various advanced medicines designed for frontier activity, by doctors for doctors!"
+	cost = CARGO_CRATE_VALUE * 8
+	contains = list(/obj/item/storage/box/evilmeds/interdyne)
 
-/datum/armament_entry/company_import/interdyne/solo/nvgs
-	item_type = /obj/item/clothing/glasses/hud/health/night/science
+/datum/supply_pack/companies/medical/interdyne/premium_meds_bulk
+	name = "Multi Pack of Interdyne Premium Medicines"
+	desc = "A set of sspecially curated box of various advanced medicines designed for frontier activity, by doctors for doctors!"
+	contains = list(/obj/item/storage/box/evilmeds/interdyne = 3)
+	cost = CARGO_CRATE_VALUE * 22
 
-/datum/armament_entry/company_import/interdyne/solo/computer
+/datum/supply_pack/companies/medical/interdyne/nvg_medhugs
+	name = "Night Vision Medhuds Crate"
+	desc = "A box of state of the art medical night vision goggles, designed to assure medical staff can operate and see IN THE DARK!"
+	contains = list(/obj/item/clothing/glasses/hud/health/night/science = 3)
+	cost = CARGO_CRATE_VALUE * 10
+
+/datum/supply_pack/companies/medical/interdyne/powerator
+	name = "Interdyne Powerator"
+	desc = "Connected to the interdyne budget card! Good for generating profits with the use of power!"
+	contains = list(/obj/item/circuitboard/machine/powerator/interdyne)
+	cost = CARGO_CRATE_VALUE * 75
+
+/datum/supply_pack/companies/medical/interdyne/emptysmallkit
+	name = "Empty Small Interdyne Kits"
+	desc = "Ever needed a few empty kits? Not sure why you would, but we're here for it!"
+	contains = list(/obj/item/storage/pouch/medical/firstaid/interdyne/empty = 3,)
+	cost = CARGO_CRATE_VALUE * 1.5
+
+/datum/supply_pack/companies/medical/interdyne/emptymediumkit
+	name = "Empty Interdyne Kits"
+	desc = "Ever needed a few empty kits? Not sure why you would, but we're here for it!"
+	contains = list(/obj/item/storage/medkit/tactical/premium/interdyne/medium/empty = 3,)
+	cost = CARGO_CRATE_VALUE * 1.5
+
+/datum/supply_pack/companies/medical/interdyne/emptylargekit
+	name = "Empty Large Interdyne Kits"
+	desc = "Ever needed a few empty kits? Not sure why you would, but we're here for it!"
+	contains = list(/obj/item/storage/medkit/tactical/premium/interdyne/empty = 3,)
+	cost = CARGO_CRATE_VALUE * 1.5
+
+/datum/supply_pack/companies/medical/interdyne/doctorkit
+	name = "Interdyne Doctor Kit"
+	desc = "A surgical kit designed for surgical aid, made by doctors for doctors!"
+	contains = list(/obj/item/storage/medkit/tactical/premium/interdyne )
+	cost = CARGO_CRATE_VALUE * 5
+
+/datum/supply_pack/companies/medical/interdyne/doctorkit_bulk
+	name = "Interdyne Doctor Kits"
+	desc = "Multiple surgical trauma kits, made by doctors, for doctors."
+	contains = list(/obj/item/storage/medkit/tactical/premium/interdyne = 3 )
+	cost = CARGO_CRATE_VALUE * 13.5
+
+/datum/supply_pack/companies/medical/interdyne/traumakit
+	name = "Interdyne Doctor Kit"
+	desc = "A surgical kit designed for surgical aid, made by doctors for doctors!"
+	contains = list(/obj/item/storage/medkit/tactical/premium/interdyne )
+	cost = CARGO_CRATE_VALUE * 4
+
+/datum/supply_pack/companies/medical/interdyne/traumakit_bulk
+	name = "Interdyne Doctor Kits"
+	desc = "Multiple surgical trauma kits, made by doctors, for doctors."
+	contains = list(/obj/item/storage/medkit/tactical/premium/interdyne = 3 )
+	cost = CARGO_CRATE_VALUE * 11.5
+
+/datum/supply_pack/companies/medical/interdyne/medium_kit
+	name = "Interdyne Doctor Kits"
+	desc = "Multiple surgical trauma kits, made by doctors, for doctors."
+	contains = list(/obj/item/storage/medkit/tactical/premium/interdyne/medium)
+	cost = CARGO_CRATE_VALUE * 3.5
+
+/datum/supply_pack/companies/medical/interdyne/medium_kit_bulk
+	name = "Interdyne Doctor Kits"
+	desc = "Multiple surgical trauma kits, made by doctors, for doctors."
+	contains = list(/obj/item/storage/medkit/tactical/premium/interdyne/medium = 3)
+	cost = CARGO_CRATE_VALUE * 9
+
+/datum/supply_pack/companies/medical/interdyne/medium_kit_surgical
+	name = "Interdyne Doctor Kits"
+	desc = "Multiple surgical trauma kits, made by doctors, for doctors."
+	contains = list(/obj/item/storage/medkit/tactical/premium/interdyne/medium/surgical)
+	cost = CARGO_CRATE_VALUE * 3.5
+
+/datum/supply_pack/companies/medical/interdyne/medium_kit_surgical_bulk
+	name = "Interdyne Doctor Kits"
+	desc = "Multiple surgical trauma kits, made by doctors, for doctors."
+	contains = list(/obj/item/storage/medkit/tactical/premium/interdyne/medium/surgical = 3)
+	cost = CARGO_CRATE_VALUE * 9
+
+/datum/supply_pack/companies/medical/interdyne/medium_kit_oxytoxloss
+	name = "Interdyne Doctor Kits"
+	desc = "Multiple surgical trauma kits, made by doctors, for doctors."
+	contains = list(/obj/item/storage/medkit/tactical/premium/interdyne/medium/Tox_Oxy)
+	cost = CARGO_CRATE_VALUE * 3.5
+
+/datum/supply_pack/companies/medical/interdyne/medium_kit_oxytoxloss_bulk
+	name = "Interdyne Doctor Kits"
+	desc = "Multiple surgical trauma kits, made by doctors, for doctors."
+	contains = list(/obj/item/storage/medkit/tactical/premium/interdyne/medium/Tox_Oxy = 3)
+	cost = CARGO_CRATE_VALUE * 9
+
+/datum/supply_pack/companies/medical/interdyne/firstaidkit
+	name = "Interdyne First Aid Kit"
+	desc = "Multiple surgical trauma kits, made by doctors, for doctors."
+	contains = list(/obj/item/storage/pouch/medical/firstaid/interdyne)
+	cost = CARGO_CRATE_VALUE * 2.75
+
+/datum/supply_pack/companies/medical/interdyne/firstaidkit_bulk
+	name = "Interdyne First Aid Kit"
+	desc = "Multiple surgical trauma kits, made by doctors, for doctors."
+	contains = list(/obj/item/storage/pouch/medical/firstaid/interdyne = 3)
+	cost = CARGO_CRATE_VALUE * 8
+
+/datum/supply_pack/companies/medical/interdyne/firstaidburnkit
+	name = "Interdyne First Aid Kit"
+	desc = "Multiple surgical trauma kits, made by doctors, for doctors."
+	contains = list(/obj/item/storage/pouch/medical/firstaid/interdyne/burn)
+	cost = CARGO_CRATE_VALUE * 2.75
+
+/datum/supply_pack/companies/medical/interdyne/firstaidburnkit_bulk
+	name = "Interdyne First Aid Kit"
+	desc = "Multiple surgical trauma kits, made by doctors, for doctors."
+	contains = list(/obj/item/storage/pouch/medical/firstaid/interdyne/burn = 3)
+	cost = CARGO_CRATE_VALUE * 8
+
+/datum/supply_pack/companies/medical/interdyne/firstaidbrutekit
+	name = "Interdyne First Aid Kit"
+	desc = "Multiple surgical trauma kits, made by doctors, for doctors."
+	contains = list(/obj/item/storage/pouch/medical/firstaid/interdyne/brute)
+	cost = CARGO_CRATE_VALUE * 2.75
+
+/datum/supply_pack/companies/medical/interdyne/firstaidbrutekit_bulk
+	name = "Interdyne First Aid Kit"
+	desc = "Multiple surgical trauma kits, made by doctors, for doctors."
+	contains = list(/obj/item/storage/pouch/medical/firstaid/interdyne/brute = 3)
+	cost = CARGO_CRATE_VALUE * 8
+
+/datum/supply_pack/companies/medical/interdyne/firstaidtoxinkit
+	name = "Interdyne First Aid Kit"
+	desc = "Multiple surgical trauma kits, made by doctors, for doctors."
+	contains = list(/obj/item/storage/pouch/medical/firstaid/interdyne/toxin)
+	cost = CARGO_CRATE_VALUE * 2.75
+
+/datum/supply_pack/companies/medical/interdyne/firstaidtoxinkit_bulk
+	name = "Interdyne First Aid Kit"
+	desc = "Multiple surgical trauma kits, made by doctors, for doctors."
+	contains = list(/obj/item/storage/pouch/medical/firstaid/interdyne/toxin = 3)
+	cost = CARGO_CRATE_VALUE * 8
+
+/datum/supply_pack/companies/medical/interdyne/firstaidoxykit
+	name = "Interdyne First Aid Kit"
+	desc = "Multiple surgical trauma kits, made by doctors, for doctors."
+	contains = list(/obj/item/storage/pouch/medical/firstaid/interdyne/oxygen)
+	cost = CARGO_CRATE_VALUE * 2.75
+
+/datum/supply_pack/companies/medical/interdyne/firstaidoxykit_bulk
+	name = "Interdyne First Aid Kit"
+	desc = "Multiple surgical trauma kits, made by doctors, for doctors."
+	contains = list(/obj/item/storage/pouch/medical/firstaid/interdyne/oxygen = 3)
+	cost = CARGO_CRATE_VALUE * 8
+
+/datum/supply_pack/companies/medical/interdyne/biohazard_box
+	name = "Interdyne Biohazard Response Box"
+	desc = "Multiple surgical trauma kits, made by doctors, for doctors."
+	contains = list(
+		/obj/item/clothing/suit/bio_suit/interdyne = 3,
+		/obj/item/clothing/head/bio_hood/interdyne = 3,
+		/obj/item/reagent_containers/cup/jerrycan/space_cleaner = 2,
+		/obj/item/reagent_containers/spray/cleaner = 3,
+		/obj/item/tank/internals/oxygen = 3,
+		)
+	cost = CARGO_CRATE_VALUE * 10
+
+/*
+	Apparrel & Storages
+	"Its a crime to look this good."
+*/
+
+/datum/supply_pack/companies/apparel/interdyne
+	access = ACCESS_SYNDICATE
+	access_view = ACCESS_SYNDICATE
+	express_lock = FALSE
+	departamental_goody = FALSE
+	discountable = SUPPLY_PACK_NOT_DISCOUNTABLE
+	console_flag = CARGO_CONSOLE_INTERDYNE
+	crate_type = /obj/structure/closet/crate/secure/syndicate/interdyne
+	auto_name = FALSE
+	// This is so its ambiguous upon a glance.
+	crate_name = "Interdyne Morale Support Crate"
+
+/datum/supply_pack/companies/apparel/interdyne/guncasebig
+	name = "Large Interdyne Guncase"
+	desc = "A gun case for all your munitions based needs... Completely legal... I promise..."
+	contains = list(/obj/item/storage/toolbox/guncase/nova/interdyne)
+	cost = CARGO_CRATE_VALUE
+
+/datum/supply_pack/companies/apparel/interdyne/guncasesmall
+	name = "Small Interdyne Guncase"
+	desc = "A gun case for all your munitions based needs... Completely legal... I promise..."
+	contains = list(/obj/item/storage/toolbox/guncase/nova/interdyne/pistol)
+	cost = CARGO_CRATE_VALUE * 0.5
+
+/datum/supply_pack/companies/apparel/interdyne/guncasebig_special
+	name = "Large Interdyne Black Guncase"
+	desc = "A gun case for all your munitions based needs... Completely legal... I promise..."
+	contains = list(/obj/item/storage/toolbox/guncase/nova/interdynespec)
+	cost = CARGO_CRATE_VALUE
+
+/datum/supply_pack/companies/apparel/interdyne/guncasesmall_special
+	name = "Small Interdyne Black Guncase"
+	desc = "A gun case for all your munitions based needs... Completely legal... I promise..."
+	contains = list(/obj/item/storage/toolbox/guncase/nova/interdynespec/pistol)
+	cost = CARGO_CRATE_VALUE * 0.5
+
+/datum/supply_pack/companies/apparel/interdyne/maidset
+	name = "Morale Boosting Maid Outfit"
+	desc = "A morale boosting, kevlar lined, maid outfit, guarenteed to boost the morale of either you or your fellow personnel around you, SLIGHTLY!"
+	contains = list(/obj/item/storage/backpack/duffelbag/syndie/interdyne/maidkit_sing)
+	cost = CARGO_CRATE_VALUE * 5
+
+/datum/supply_pack/companies/apparel/interdyne/maidset_bulk
+	name = "Pack of Morale Boosting Maid Outfit"
+	desc = "What's better than one morale boosting, kevlar lined, maid outfit, guarenteed to boost the morale of either you or your fellow personnel around you only SLIGHTLY? THREE OF THEM!"
+	contains = list(/obj/item/storage/backpack/duffelbag/syndie/interdyne/maidkit_sing = 3)
+	cost = CARGO_CRATE_VALUE * 14.5
+
+/*
+	SCIFI NERD CONTENT
+*/
+
+/datum/supply_pack/companies/modsuits/interdyne
+	access = ACCESS_SYNDICATE
+	access_view = ACCESS_SYNDICATE
+	express_lock = FALSE
+	departamental_goody = FALSE
+	discountable = SUPPLY_PACK_NOT_DISCOUNTABLE
+	console_flag = CARGO_CONSOLE_INTERDYNE
+	crate_type = /obj/structure/closet/crate/secure/syndicate/interdyne
+	auto_name = FALSE
+	crate_name = "Interdyne Modular Suit Technology Crate"
+
+/datum/supply_pack/companies/modsuits/interdyne/modsuit
+	name = "Pack of Morale Boosting Maid Outfit"
+	desc = "What's better than one morale boosting, kevlar lined, maid outfit, guarenteed to boost the morale of either you or your fellow personnel around you only SLIGHTLY? THREE OF THEM!"
+	contains = list(/obj/item/mod/control/pre_equipped/interdyne/nerfed)
+	cost = CARGO_CRATE_VALUE * 25
+
+/datum/supply_pack/companies/modsuits/interdyne/surg_processor
 	name = "Preloaded Surgical processor"
-	item_type = /obj/item/mod/module/surgical_processor/preloaded
-	cost = PAYCHECK_COMMAND * 4
+	desc = "A preloaded surgical processor, loaded with many different surgeries, built for areas without adequate scientific capabilities or studies!"
+	contains = list(/obj/item/mod/module/surgical_processor/preloaded)
+	cost = CARGO_CRATE_VALUE * 4
 
-/datum/armament_entry/company_import/interdyne/solo/powerator
-	item_type = /obj/item/circuitboard/machine/powerator/interdyne
-	cost = PAYCHECK_COMMAND * 50
+/datum/supply_pack/companies/modsuits/interdyne/surg_processor_bulks
+	name = "Preloaded Surgical processor"
+	desc = "A set of preloaded surgical processors, loaded with many different surgeries, built for areas without adequate scientific capabilities or studies!"
+	contains = list(/obj/item/mod/module/surgical_processor/preloaded = 3)
+	cost = CARGO_CRATE_VALUE * 10
 
-/datum/armament_entry/company_import/interdyne/solo/emptysmallkit
-	name = "Empty Small Interdyne Kit"
-	item_type = /obj/item/storage/medkit/tactical/premium/interdyne/empty
-	cost = PAYCHECK_COMMAND * 0.5
 
-/datum/armament_entry/company_import/interdyne/solo/emptymedium
-	name = "Empty Medium Interdyne Kit"
-	item_type = /obj/item/storage/medkit/tactical/premium/interdyne/medium/empty
-	cost = PAYCHECK_COMMAND * 0.5
 
-/datum/armament_entry/company_import/interdyne/solo/emptylarge
-	name = "Empty Large Interdyne Kit"
-	item_type = /obj/item/storage/medkit/tactical/premium/interdyne/empty
-	cost = PAYCHECK_COMMAND * 0.5
 
-/* Figure out price or to keep
-/datum/armament_entry/company_import/interdyne/solo/emagsurgerey
-	item_type = /obj/item/autosurgeon/syndicate/emaggedsurgerytoolset
-	cost = PAYCHECK_COMMAND * 8
-*/
 
-/datum/armament_entry/company_import/interdyne/solo/guncasebig
-	item_type = /obj/item/storage/toolbox/guncase/nova/interdyne
-	cost = PAYCHECK_COMMAND
-
-/datum/armament_entry/company_import/interdyne/solo/guncasesmall
-	item_type = /obj/item/storage/toolbox/guncase/nova/interdyne/pistol
-	cost = PAYCHECK_COMMAND * 0.5
-
-/datum/armament_entry/company_import/interdyne/solo/guncasebigspec
-	item_type = /obj/item/storage/toolbox/guncase/nova/interdynespec
-	cost = PAYCHECK_COMMAND
-
-/datum/armament_entry/company_import/interdyne/solo/guncasesmallspec
-	item_type = /obj/item/storage/toolbox/guncase/nova/interdynespec/pistol
-	cost = PAYCHECK_COMMAND * 0.5
 
 /*
-*** Large Kits
+	Anything AI/Borg/Machine
 */
+/datum/supply_pack/companies/machines/interdyne
+	access = ACCESS_SYNDICATE
+	access_view = ACCESS_SYNDICATE
+	express_lock = FALSE
+	departamental_goody = FALSE
+	discountable = SUPPLY_PACK_NOT_DISCOUNTABLE
+	console_flag = CARGO_CONSOLE_INTERDYNE
+	crate_type = /obj/structure/closet/crate/secure/syndicate/interdyne
+	auto_name = FALSE
+	crate_name = "Interdyne Technology Crate"
 
-/datum/armament_entry/company_import/interdyne/largekit
-	subcategory = "Large kits"
-	cost = PAYCHECK_COMMAND * 5
-
-/datum/armament_entry/company_import/interdyne/largekit/doctorkit
-	item_type = /obj/item/storage/medkit/tactical/premium/interdyne
-	cost = PAYCHECK_COMMAND * 5
-
-/datum/armament_entry/company_import/interdyne/largekit/traumakit
-	item_type = /obj/item/storage/medkit/tactical/premium/interdyne/trauma
-	cost = PAYCHECK_COMMAND * 4
-
-/datum/armament_entry/company_import/interdyne/largekit/maid_sing
-	item_type = /obj/item/storage/backpack/duffelbag/syndie/interdyne/maidkit_sing
-	cost = PAYCHECK_COMMAND * 5
-
-/*
-*** Medium Kits
-*/
-
-/datum/armament_entry/company_import/interdyne/mediumkits
-	subcategory = "Medium Kits"
-	cost = PAYCHECK_COMMAND * 3.5
-
-/datum/armament_entry/company_import/interdyne/mediumkits/standard
-	item_type = /obj/item/storage/medkit/tactical/premium/interdyne/medium
-
-/datum/armament_entry/company_import/interdyne/mediumkits/surgery
-	item_type = /obj/item/storage/medkit/tactical/premium/interdyne/medium/surgical
-
-/datum/armament_entry/company_import/interdyne/mediumkits/oxytox
-	item_type = /obj/item/storage/medkit/tactical/premium/interdyne/medium/Tox_Oxy
-
-/*
-*** Small Kits
-*/
-
-/datum/armament_entry/company_import/interdyne/smallkit
-	subcategory = "Small First Aid Kits"
-	cost = PAYCHECK_COMMAND * 2.75
-
-/datum/armament_entry/company_import/interdyne/smallkit/generalkit
-	item_type = /obj/item/storage/pouch/medical/firstaid/interdyne
-
-/datum/armament_entry/company_import/interdyne/smallkit/burnkit
-	item_type = /obj/item/storage/pouch/medical/firstaid/interdyne/burn
-
-/datum/armament_entry/company_import/interdyne/smallkit/brutekit
-	item_type = /obj/item/storage/pouch/medical/firstaid/interdyne/brute
-
-/datum/armament_entry/company_import/interdyne/smallkit/toxinkit
-	item_type = /obj/item/storage/pouch/medical/firstaid/interdyne/toxin
-	cost = PAYCHECK_COMMAND * 4.5
-
-/datum/armament_entry/company_import/interdyne/smallkit/oxygenkit
-	item_type = /obj/item/storage/pouch/medical/firstaid/interdyne/oxygen
-
-// Modsuit mods that CAN be found in the uplinks
-/datum/armament_entry/company_import/interdyne/mods
-	subcategory = "Modsuits & Modules"
-	cost = PAYCHECK_COMMAND * 15
-
-/datum/armament_entry/company_import/interdyne/mods/modsuit
-	item_type = /obj/item/mod/control/pre_equipped/interdyne/nerfed
-	cost = PAYCHECK_COMMAND * 25
-
-/datum/armament_entry/company_import/interdyne/ai
-	subcategory = "Artificial Intelligence"
-	cost = PAYCHECK_COMMAND * 10
-
-/datum/armament_entry/company_import/interdyne/ai/mmi
-	item_type = /obj/item/mmi/syndie/interdyne
-
-/datum/armament_entry/company_import/interdyne/ai/modsuit
-	item_type = /obj/item/mmi/posibrain/syndie/interdyne
-
-/datum/armament_entry/company_import/interdyne/crates
-	subcategory = "Crates & Large Shipments"
-	cost = PAYCHECK_COMMAND * 10
-
-/datum/armament_entry/company_import/interdyne/crates/biohazard
-	item_type = /obj/structure/closet/crate/secure/syndicate/interdyne/biohazard
-	cost = PAYCHECK_COMMAND * 5
-
-/datum/armament_entry/company_import/interdyne/crates/maid
-	item_type = /obj/structure/closet/crate/secure/syndicate/interdyne/maid
-	cost = PAYCHECK_COMMAND * 10
-
-/datum/armament_entry/company_import/interdyne/crates/smallkit
-	item_type = /obj/structure/closet/crate/secure/syndicate/interdyne/smallkits
-	cost = PAYCHECK_COMMAND * 13.5
-
-/datum/armament_entry/company_import/interdyne/crates/traumakit
-	item_type = /obj/structure/closet/crate/secure/syndicate/interdyne/premium
-	cost = PAYCHECK_COMMAND * 9.6
-
-/datum/armament_entry/company_import/interdyne/crates/doctorkit
-	item_type = /obj/structure/closet/crate/secure/syndicate/interdyne/doctorbox
-	cost = PAYCHECK_COMMAND * 10
+/datum/supply_pack/companies/machines/interdyne/mmi
+	name = "Pack of Morale Boosting Maid Outfit"
+	desc = "What's better than one morale boosting, kevlar lined, maid outfit, guarenteed to boost the morale of either you or your fellow personnel around you only SLIGHTLY? THREE OF THEM!"
+	contains = list(/obj/item/mmi/syndie/interdyne)
+	cost = CARGO_CRATE_VALUE * 5
