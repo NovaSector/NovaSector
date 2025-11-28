@@ -91,6 +91,7 @@
 		return FALSE
 	if(istype(unload_turf) && unload_turf.is_blocked_turf()) // make sure we still are able to put it here
 		unload_turf.balloon_alert(user, "no room!")
+		return FALSE
 	if(!locate(crate) in src)
 		return FALSE // If something has happened to the crate while we were waiting, abort!
 
