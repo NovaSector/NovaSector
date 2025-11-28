@@ -7630,6 +7630,7 @@
 #include "modular_nova\modules\bitrunning\code\flair.dm"
 #include "modular_nova\modules\bitrunning\code\help_beacon.dm"
 #include "modular_nova\modules\bitrunning\code\loot.dm"
+#include "modular_nova\modules\bitrunning\code\loot_crate.dm"
 #include "modular_nova\modules\bitrunning\code\mobs.dm"
 #include "modular_nova\modules\bitrunning\code\outfit.dm"
 #include "modular_nova\modules\bitrunning\code\server.dm"
