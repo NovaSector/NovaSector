@@ -135,7 +135,7 @@
 	// 1) Unloading from shelf to turf
 	// -----------------------------------------
 	if (istype(over, /turf/open) && istype(loc, /obj/structure/cargo_shelf))
-		if(get_dist(user, loc) > 1)
+		if(get_dist(user, over_location) > 1)
 			balloon_alert(user, "too far!")
 			return
 		var/obj/structure/cargo_shelf/shelf = loc
