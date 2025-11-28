@@ -224,25 +224,25 @@
 	name = "Large Interdyne Guncase"
 	desc = "A gun case for all your munitions based needs... Completely legal... I promise..."
 	contains = list(/obj/item/storage/toolbox/guncase/nova/interdyne)
-	cost = CARGO_CRATE_VALUE
+	cost = CARGO_CRATE_VALUE * 2
 
 /datum/supply_pack/companies/apparel/interdyne/guncasesmall
 	name = "Small Interdyne Guncase"
 	desc = "A gun case for all your munitions based needs... Completely legal... I promise..."
 	contains = list(/obj/item/storage/toolbox/guncase/nova/interdyne/pistol)
-	cost = CARGO_CRATE_VALUE * 0.5
+	cost = CARGO_CRATE_VALUE * 1.5
 
 /datum/supply_pack/companies/apparel/interdyne/guncasebig_special
 	name = "Large Interdyne Black Guncase"
 	desc = "A gun case for all your munitions based needs... Completely legal... I promise..."
 	contains = list(/obj/item/storage/toolbox/guncase/nova/interdynespec)
-	cost = CARGO_CRATE_VALUE
+	cost = CARGO_CRATE_VALUE * 2
 
 /datum/supply_pack/companies/apparel/interdyne/guncasesmall_special
 	name = "Small Interdyne Black Guncase"
 	desc = "A gun case for all your munitions based needs... Completely legal... I promise..."
 	contains = list(/obj/item/storage/toolbox/guncase/nova/interdynespec/pistol)
-	cost = CARGO_CRATE_VALUE * 0.5
+	cost = CARGO_CRATE_VALUE * 1.5
 
 /datum/supply_pack/companies/apparel/interdyne/maidset
 	name = "Morale Boosting Maid Outfit"
@@ -288,11 +288,6 @@
 	desc = "A set of preloaded surgical processors, loaded with many different surgeries, built for areas without adequate scientific capabilities or studies!"
 	contains = list(/obj/item/mod/module/surgical_processor/preloaded = 3)
 	cost = CARGO_CRATE_VALUE * 10
-
-
-
-
-
 
 /*
 	Anything AI/Borg/Machine
