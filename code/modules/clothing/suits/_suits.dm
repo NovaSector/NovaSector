@@ -33,11 +33,11 @@
 
 	// NOVA EDIT ADDITION START - TAUR-FULLBODY SUITS
 	if(mutant_styles & STYLE_TAUR_ALL)
-		if (worn_icon_taur_snake)
+		if((mutant_styles & STYLE_TAUR_SNAKE) && worn_icon_taur_snake)
 			worn_x_offset = -16
-		else if (worn_icon_taur_paw)
+		else if ((mutant_styles & STYLE_TAUR_PAW) && worn_icon_taur_paw)
 			worn_x_offset = -16
-		else if (worn_icon_taur_hoof)
+		else if ((mutant_styles & STYLE_TAUR_HOOF) && worn_icon_taur_hoof)
 			worn_x_offset = -16
 	else
 		worn_x_offset = 0

@@ -4,7 +4,7 @@
  * Returns STYLE_TAUR_* or NONE.
  */
 /mob/living/carbon/human/proc/get_taur_mode()
-	var/taur_mutant_bodypart = dna.species.mutant_bodyparts[FEATURE_TAUR]
+	var/taur_mutant_bodypart = dna.mutant_bodyparts[FEATURE_TAUR]
 	if(!taur_mutant_bodypart)
 		return NONE
 
