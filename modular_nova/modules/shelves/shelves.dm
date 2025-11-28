@@ -18,7 +18,7 @@
 
 /obj/structure/cargo_shelf/Initialize(mapload)
 	. = ..()
-	crates_stored = new /list(3)
+	crates_stored = new /list(capacity)
 	var/stack_layer // This is used to generate the sprite layering of the shelf pieces.
 	var/stack_offset // This is used to generate the vertical offset of the shelf pieces.
 	for(var/i in 1 to (capacity - 1))
@@ -39,9 +39,9 @@
 /obj/structure/cargo_shelf/examine(mob/user)
 	. = ..()
 	. += span_notice("There are some <b>bolts</b> holding [src] together.")
-	if(length(crates_stored) < capacity) // If there's an empty space in the shelf, let the examiner know.
+	if(crate_count() < capacity) // If there's an empty space in the shelf, let the examiner know.
 		. += span_notice("You could <b>drag and drop</b> a crate into [src].")
-	if(length(crates_stored)) // If there are any crates in the shelf, let the examiner know.
+	if(crate_count()) // If there are any crates in the shelf, let the examiner know.
 		. += span_notice("You could <b>drag and drop</b> a crate out of [src].")
 		. += span_notice("[src] contains:")
 		for(var/obj/structure/closet/crate/crate in contents)
@@ -61,11 +61,19 @@
 			span_notice("You manage to knock [crate] free of [src]"),
 			span_notice("You hear a thud."))
 		remove_crate(crate, drop_location())
-		random_step(crate, 1, 20) // Then try to push it somewhere.
+		random_step(crate, 2, 20) // Then try to push it somewhere.
+
+/// Spits out how many crates are currently stored, counting the non nulls
+/obj/structure/cargo_shelf/proc/crate_count()
+	var/count = 0
+	for(var/crate in crates_stored)
+		if(crate)
+			count++
+	return count
 
 /// proc that will attempt to add something to the contents of the shelf
 /obj/structure/cargo_shelf/proc/load(obj/structure/closet/crate/crate, mob/user, y_offset, instant)
-	if(length(crates_stored) >= capacity) // If we don't find an empty slot, return early.
+	if(crate_count() >= capacity) // If we don't find an empty slot, return early.
 		balloon_alert(user, "shelf full!")
 		return FALSE
 	if(!instant && !do_after(user, use_delay, target = crate))
@@ -76,13 +84,13 @@
 
 /// proc that will attempt to remove something to the contents of the shelf
 /obj/structure/cargo_shelf/proc/unload(obj/structure/closet/crate/crate, mob/user, turf/unload_turf)
-	if(!unload_turf)
-		unload_turf = get_turf(user) // If a turf somehow isn't passed into the proc, put it at the user's feet.
-	if(!unload_turf.is_blocked_turf())
+	if(istype(unload_turf) && unload_turf.is_blocked_turf())
 		unload_turf.balloon_alert(user, "no room!")
 		return FALSE
 	if(!do_after(user, use_delay, target = crate))
 		return FALSE
+	if(istype(unload_turf) && unload_turf.is_blocked_turf()) // make sure we still are able to put it here
+		unload_turf.balloon_alert(user, "no room!")
 	if(!locate(crate) in src)
 		return FALSE // If something has happened to the crate while we were waiting, abort!
 
@@ -103,7 +111,7 @@
 	var/turf/dump_turf = drop_location()
 	for(var/obj/structure/closet/crate/crate in contents)
 		remove_crate(crate, dump_turf)
-		random_step(crate, 1, 20) // Shuffle the crates around as though they've fallen down.
+		random_step(crate, 2, 20) // Shuffle the crates around as though they've fallen down.
 		crate.SpinAnimation(rand(4,7), 1) // Spin the crates around a little as they fall. Randomness is applied so it doesn't look weird.
 		switch(pick(1, 1, 1, 1, 2, 2, 3)) // Randomly pick whether to do nothing, open the crate, or break it open.
 			if(1) // Believe it or not, this does nothing.
@@ -127,6 +135,9 @@
 	// 1) Unloading from shelf to turf
 	// -----------------------------------------
 	if (istype(over, /turf/open) && istype(loc, /obj/structure/cargo_shelf))
+		if(get_dist(user, loc) > 1)
+			balloon_alert(user, "too far!")
+			return
 		var/obj/structure/cargo_shelf/shelf = loc
 		shelf.unload(src, user, over)
 		return
@@ -155,7 +166,7 @@
 
 /// Adds a crate to the shelf
 /obj/structure/cargo_shelf/proc/add_crate(obj/structure/closet/crate/crate, y_offset)
-	if(length(crates_stored) >= capacity)
+	if(crate_count() >= capacity)
 		return FALSE // Something has been added to the shelf while we were waiting, abort!
 	if(crate.opened) // If the crate is open, try to close it.
 		if(!crate.close())
@@ -188,7 +199,10 @@
 	crate.layer = initial(crate.layer) // Reset the crate back to having the default layer, otherwise we might get strange interactions.
 	crate.pixel_y = initial(crate.pixel_y) // Reset the crate back to having no offset, otherwise it will be floating.
 	crate.forceMove(unload_turf)
-	crates_stored -= REF(crate)
+	for(var/slot in 1 to length(crates_stored)) // don't remove from the list, instead set the appropriate slot to null
+		if(crates_stored[slot] == REF(crate))
+			crates_stored[slot] = null
+			break
 	crate.interaction_flags_atom &= ~INTERACT_ATOM_MOUSEDROP_IGNORE_ADJACENT
 	vis_contents -= crate
 
