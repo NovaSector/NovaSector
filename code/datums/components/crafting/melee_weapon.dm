@@ -49,13 +49,13 @@
 		/obj/item/claymore/weak,
 		/obj/item/claymore/weak/ceremonial,
 		/obj/item/claymore/highlander/robot,
-		// NOVA ADD BEGIN - blacklisting our common weapons
-		// katana and sabre's can be found in modular_nova/modules/modular_weapons/code/melee.dm
+		// NOVA ADDITION BEGIN - blacklisting our common weapons
+		// katana and sabres can be found in modular_nova/modules/modular_weapons/code/melee.dm
 		/obj/item/claymore/dragonslayer,
 		/obj/item/claymore/weak/weaker,
 		/obj/item/claymore/cutlass/luna,
 		/obj/item/claymore/bone,
-		// NOVA ADD END
+		// NOVA ADDITION END
 	)
 	tool_behaviors = list(TOOL_WELDER)
 	time = 10 SECONDS
