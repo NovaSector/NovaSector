@@ -57,10 +57,10 @@
  * Enabled: Disable from config.
  */
 /datum/round_event_control/alien_infestation
-	max_occurrences = 1
+	max_occurrences = 0
 	intensity_restriction = TRUE
 	weight = MED_EVENT_FREQ
-	min_players = 85
+	min_players = 999
 	intensity_restriction = TRUE
 
 
