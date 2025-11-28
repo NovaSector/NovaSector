@@ -78,38 +78,38 @@
 	cost = CARGO_CRATE_VALUE * 13.5
 
 /datum/supply_pack/companies/medical/interdyne/large_traumakit
-	name = "Interdyne Doctor Kit"
-	desc = "A trauma kit designed for immediate mmedical aid, made by doctors for doctors!"
+	name = "Interdyne Large Trauma Kits"
+	desc = "A trauma kit designed for immediate medical aid, made by doctors for doctors!"
 	contains = list(/obj/item/storage/medkit/tactical/premium/interdyne )
 	cost = CARGO_CRATE_VALUE * 5
 
 /datum/supply_pack/companies/medical/interdyne/large_traumakit_bulk
-	name = "Multi Pack of Interdyne Doctor Kits"
-	desc = "A pack of trauma kits designed for immediate mmedical aid, made by doctors for doctors!"
+	name = "Multi Pack of Interdyne Large Trauma Kits"
+	desc = "A pack of trauma kits designed for immediate medical aid, made by doctors for doctors!"
 	contains = list(/obj/item/storage/medkit/tactical/premium/interdyne = 3 )
 	cost = CARGO_CRATE_VALUE * 13.5
 
 /datum/supply_pack/companies/medical/interdyne/medium_kit
-	name = "Interdyne Doctor Kits"
-	desc = "Multiple surgical trauma kits, made by doctors, for doctors."
+	name = "Interdyne Medical Kit"
+	desc = "A standard medical kit designed around various traumas, made by doctors, for doctors."
 	contains = list(/obj/item/storage/medkit/tactical/premium/interdyne/medium)
 	cost = CARGO_CRATE_VALUE * 3.5
 
 /datum/supply_pack/companies/medical/interdyne/medium_kit_bulk
-	name = "Multi Pack of Interdyne Large First Aid Kits"
-	desc = "Multiple surgical trauma kits, made by doctors, for doctors."
+	name = "Multi Pack of Interdyne Medical Kit"
+	desc = "A pack of standard medical kit designed around various traumas, made by doctors, for doctors."
 	contains = list(/obj/item/storage/medkit/tactical/premium/interdyne/medium = 3)
 	cost = CARGO_CRATE_VALUE * 9
 
 /datum/supply_pack/companies/medical/interdyne/medium_kit_surgical
-	name = "Interdyne Doctor Kits"
-	desc = "Multiple surgical trauma kits, made by doctors, for doctors."
+	name = "Interdyne Surgical Kit"
+	desc = "A surgical kit, made by doctors, for doctors."
 	contains = list(/obj/item/storage/medkit/tactical/premium/interdyne/medium/surgical)
 	cost = CARGO_CRATE_VALUE * 3.5
 
 /datum/supply_pack/companies/medical/interdyne/medium_kit_surgical_bulk
-	name = "Multi Pack of Interdyne Doctor Kits"
-	desc = "Multiple surgical trauma kits, made by doctors, for doctors."
+	name = "Multi Pack of Interdyne Surgical Kit"
+	desc = "Multiple surgical kits, made by doctors, for doctors."
 	contains = list(/obj/item/storage/medkit/tactical/premium/interdyne/medium/surgical = 3)
 	cost = CARGO_CRATE_VALUE * 9
 
