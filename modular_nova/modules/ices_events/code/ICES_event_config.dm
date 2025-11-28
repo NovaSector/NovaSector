@@ -172,6 +172,13 @@
 	weight = LOW_EVENT_FREQ
 	intensity_restriction = TRUE
 
+/**
+ * Dynamic Tweak
+ *
+ */
+/datum/round_event_control/dynamic_tweak
+	max_occurrences = 0
+	weight = LOW_EVENT_FREQ
 
 /**
  * Medical
@@ -179,13 +186,13 @@
  */
 /datum/round_event_control/disease_outbreak
 	max_occurrences = 2
-	min_players = 45
+	min_players = 25
 	weight = HIGH_EVENT_FREQ
 	intensity_restriction = TRUE
 
 /datum/round_event_control/disease_outbreak/advanced
 	max_occurrences = 1
-	min_players = 45
+	min_players = 25
 	weight = MED_EVENT_FREQ
 	intensity_restriction = TRUE
 
@@ -194,7 +201,7 @@
 	weight = LOW_EVENT_FREQ
 
 /datum/round_event_control/heart_attack
-	max_occurrences = 1
+	max_occurrences = 4
 	weight = MED_EVENT_FREQ
 
 /**
@@ -351,7 +358,7 @@
 
 /datum/round_event_control/portal_storm_narsie
 	max_occurrences = 1
-	weight = LOW_EVENT_FREQ
+	weight = MED_EVENT_FREQ
 
 /**
  * Radiation
@@ -359,7 +366,7 @@
  * Disabled: Unintutivie design and incompatibility with this server
  */
 /datum/round_event_control/radiation_leak
-	max_occurrences = 1
+	max_occurrences = 2
 	weight = MED_EVENT_FREQ
 
 /datum/round_event_control/radiation_storm
@@ -444,11 +451,11 @@
  */
 /datum/round_event_control/stray_cargo
 	max_occurrences = 3
-	weight = LOW_EVENT_FREQ
+	weight = MED_EVENT_FREQ
 
 /datum/round_event_control/stray_cargo/syndicate
 	max_occurrences = 3
-	weight = MED_EVENT_FREQ
+	weight = HIGH_EVENT_FREQ
 
 /**
  * Supermatter Surge
