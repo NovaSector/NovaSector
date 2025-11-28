@@ -60,7 +60,7 @@ jobs:
             ${{ vars.DISCORD_JOIN_LINK }}"
 
           if [ -n "${{ vars.DISCORD_DISCUSSIONS_TAG_ID }}" ]; then
-            CMD="$CMD ${{ vars.DISCORD_DISCUSSIONS_TAG_ID }}"
+            CMD="$CMD '${{ vars.DISCORD_DISCUSSIONS_TAG_ID }}'"
           fi
 
           echo "Running: $CMD"
