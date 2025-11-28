@@ -9,6 +9,7 @@
 		/obj/item/clothing/under/rank/medical/scrubs/nova/white = 4,
 		/obj/item/clothing/under/rank/medical/doctor/nova/utility = 4,
 		/obj/item/clothing/under/rank/medical/doctor/nurse = 4,
+		/obj/item/clothing/under/rank/medical/doctor/nurse/seriouser = 4,
 		/obj/item/clothing/suit/toggle/labcoat/medical = 4,
 		/obj/item/storage/backpack/messenger/med = 4,
 	)
