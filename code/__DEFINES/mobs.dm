@@ -217,7 +217,7 @@
 #define BODYPART_ID_PEG "peg"
 
 
-//See: datum/species/var/digitigrade_customization
+//See: datum/species/var/digitigrade_customizatio
 ///The species does not have digitigrade legs in generation.
 #define DIGITIGRADE_NEVER 0
 ///The species can have digitigrade legs in generation
