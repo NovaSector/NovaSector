@@ -81,6 +81,7 @@ export const NovaCharacterDirectory = (props) => {
     personalVoreTag,
     personalNonconTag,
     personalHypnoTag,
+    personalTruthOrDareTag,
     assignedView,
     startViewing,
   } = data;

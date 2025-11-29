@@ -167,6 +167,7 @@ GLOBAL_LIST_EMPTY(name_to_appearance)
 		data["personalVoreTag"] = READ_PREFS(user, choiced/erp_status_v)
 		data["personalNonconTag"] = READ_PREFS(user, choiced/erp_status_nc)
 		data["personalHypnoTag"] = READ_PREFS(user, choiced/erp_status_hypno)
+		data["personalTruthOrDareTag"] = READ_PREFS(user, choiced/accepts_unsolicited_truth_or_dare)
 		data["prefsOnly"] = TRUE
 
 	data["assignedView"] = CHAR_DIRECTORY_ASSIGNED_VIEW(user.ckey)
