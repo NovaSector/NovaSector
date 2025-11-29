@@ -1,15 +1,15 @@
 // THIS IS A NOVA SECTOR UI FILE
 import {
   CheckboxInput,
-  type Feature,
-  type FeatureChoiced,
-  type FeatureChoicedServerData,
+  Feature,
+  FeatureChoiced,
+  FeatureChoicedServerData,
   FeatureNumberInput,
-  type FeatureNumeric,
-  type FeatureToggle,
+  FeatureNumeric,
+  FeatureToggle,
   FeatureTriBoolInput,
   FeatureTriColorInput,
-  type FeatureValueProps,
+  FeatureValueProps,
 } from '../../base';
 import { FeatureDropdownInput } from '../../dropdowns';
 
@@ -234,10 +234,5 @@ export const erp_status_pref_hypnosis: FeatureChoiced = {
 
 export const erp_status_pref_mechanics: FeatureChoiced = {
   name: 'ERP Mechanical Status',
-  component: FeatureDropdownInput,
-};
-
-export const accepts_random_td: FeatureChoiced = {
-  name: 'Accepts Random Truth or Dare Requests?',
   component: FeatureDropdownInput,
 };
