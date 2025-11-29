@@ -225,6 +225,9 @@
 
 ///Create the explosion on the rocket drop location.
 /obj/effect/temp_visual/swarm_rocket_fall/proc/do_explosion()
+	if(QDELETED(src))
+		return
+
 	playsound(src, 'sound/items/weapons/minebot_rocket.ogg', 100, FALSE)
 
 	explosion(src,

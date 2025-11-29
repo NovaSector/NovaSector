@@ -86,7 +86,6 @@ GLOBAL_DATUM(mech_drop_alert_handler, /datum/mech_drop_alert_handler)
 /obj/structure/closet/supplypod/mech_drop
 	name = "SolFed Mech Drop Pod"
 	desc = "A specialized orbital pod used to deliver SolFed mechs directly to the station surface."
-	icon = 'modular_nova/modules/solfed_mechs/icons/solfed_mechs.dmi'
 	bluespace = TRUE
 	create_sparks = FALSE
 	effectStealth = TRUE
