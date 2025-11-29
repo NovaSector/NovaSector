@@ -221,15 +221,10 @@
 		time = duration,
 		easing = EASE_IN)
 	fingerprintslast = src
-	addtimer(CALLBACK(src, PROC_REF(do_explosion)), duration)
 
-///Create the explosion on the rocket drop location.
-/obj/effect/temp_visual/swarm_rocket_fall/proc/do_explosion()
-	if(QDELETED(src))
-		return
-
+//explode where the rocket is deleted.
+/obj/effect/temp_visual/swarm_rocket_fall/Destroy()
 	playsound(src, 'sound/items/weapons/minebot_rocket.ogg', 100, FALSE)
-
 	explosion(src,
 		devastation_range = -1,
 		heavy_impact_range = -1,
@@ -239,6 +234,7 @@
 		adminlog = TRUE,
 		smoke = TRUE,
 		explosion_cause = src)
+	return ..()
 
 ///Animates rockets firing up from the mech and create the tracking circles before initialising their tracking loop.
 /obj/item/mecha_parts/mecha_equipment/swarm_rocket_pod/proc/fire_rocket(atom/movable/target)
