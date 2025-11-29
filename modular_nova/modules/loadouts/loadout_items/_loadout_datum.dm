@@ -96,7 +96,7 @@
  *
  * Returns `TRUE` if `target` is allowed to receive this item, `FALSE` if not.
  */
-/datum/loadout_item/proc/can_be_applied_to(mob/living/target, datum/preferences/preference_source, datum/job/equipping_job, allow_mechanical_loadout_items = TRUE)
+/datum/loadout_item/proc/can_be_applied_to(mob/living/target, datum/preferences/preference_source, datum/job/equipping_job, allow_mechanical_loadout_items = TRUE, visuals_only)
 	var/client/client = preference_source.parent
 
 	// mechanical restrictions come first
@@ -108,10 +108,14 @@
 		var/title = equipping_job.title
 
 		if(restricted_roles && !(title in restricted_roles))
-			return message_client(client, target, "job restrictions")
+			if(!visuals_only)
+				message_client(client, target, "job restrictions")
+			return FALSE
 
 		if(blacklisted_roles && (title in blacklisted_roles))
-			return message_client(client, target, "job blacklist")
+			if(!visuals_only)
+				message_client(client, target, "job blacklist")
+			return FALSE
 
 	// species restrictions
 	if(iscarbon(target))
@@ -123,20 +127,30 @@
 		var/spec = dna.species.id
 
 		if(species_whitelist && !(spec in species_whitelist))
-			return message_client(client, target, "species restrictions")
+			if(!visuals_only)
+				message_client(client, target, "species restrictions")
+			return FALSE
 		else if(species_blacklist && (spec in species_blacklist))
-			return message_client(client, target, "species restrictions")
+			if(!visuals_only)
+				message_client(client, target, "species restrictions")
+			return FALSE
 
 	// donor/star
 	if(donator_only && !SSplayer_ranks.is_donator(client))
-		return message_client(client, target, "donator")
+		if(!visuals_only)
+			message_client(client, target, "donator")
+		return FALSE
 
 	if(nova_stars_only && !SSplayer_ranks.is_nova_star(client))
-		return message_client(client, target, "Nova star")
+		if(!visuals_only)
+			message_client(client, target, "Nova star")
+		return FALSE
 
 	// ckey restrictions
 	if(LAZYLEN(ckeywhitelist) && !(client?.ckey in ckeywhitelist))
-		return message_client(client, target, "CKEY whitelist")
+		if(!visuals_only)
+			message_client(client, target, "CKEY whitelist")
+		return FALSE
 
 	return TRUE
 
