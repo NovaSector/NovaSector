@@ -1026,3 +1026,92 @@
       of a round
   - qol: 'breaks up prefs menu features section into two tabs: ''Character Visuals''
       and ''Character Profile'''
+2025-11-25:
+  Cat:
+  - balance: Bartender's wardrobe vendor starts with a service plumbing constructor
+  FalloutFalcon:
+  - code_imp: generic helpers and defines for validating file extenstion
+  - refactor: the jukebox has had some improvements in how it validates the sound
+      file. hopefully none of your funny songs disappear.
+  - admin: command_report_menu will let you set ANY sound file type for the sound
+      it plays.
+  - admin: Admins can now manage jukebox songs in game
+  - server: Jukebox songs length are now set automatically, update your jukebox configs!
+  JohnFulpWillard:
+  - bugfix: Headslugs are now small.
+  LT3:
+  - bugfix: Fixed a few under clothing items inheriting incorrect armor values
+  OrbisAnima:
+  - rscdel: Removes the Shockwave PKA due to its ability to solo megafauna in 9 seconds,
+      and trivialize blobs.
+  - qol: We solved the issue with the Central Command Auto Doc machines sneaking in
+      appendixes in people that had theirs removed. Make sure to update your medical
+      profiles (Quirks) to set that you survived your appendix removal, and we will
+      handle the rest.
+  Y0SH1M4S73R:
+  - sound: Squid tongues have a distinctive effect on your text-to-speech voice.
+  Zergspower:
+  - qol: Made lightmode LOOC text darker, enables LOOC Runetext by default
+  alien3301:
+  - qol: Kaza Ruk has balloon alerts when switching attacks
+  lelandkemble:
+  - bugfix: Ghosts can no longer try and fail to admire aquariums.
+  - bugfix: xenobio console potions work again
+  vinylspiders, Wallemations:
+  - image: space heaters got a model replacement, from stick heaters to box heaters
+2025-11-27:
+  A.C.M.O.:
+  - admin: Added the Upload Character Preferences command for admins.
+  - admin: Added the Toggle Admin Stasis command for admins.
+  Aliceee2ch:
+  - image: Various beakers now have own inhands sprites.
+  Fghj240:
+  - rscadd: Netpods can now scan their occupants to create more accurate bit avatars
+  Hardly:
+  - image: Added Monster Mouth 2 as a head marking
+  Hatterhat:
+  - bugfix: The blood-drunk miner's corpse now properly appears and fades away again.
+  Kocma-san:
+  - bugfix: fixed that M44A underbarrel grenade launchers and shotguns cannot be reloaded
+  - code_imp: smol improvement to the marines gear code
+  Melbert:
+  - bugfix: Pirates will no longer randomly spawn as human
+  - bugfix: Servant Golems have numbered names again
+  - refactor: Refactored ghost spawns (like spider eggs or pirate spawners), report
+      any oddities
+  - admin: Adds "roleplay reminder" button to player panel
+  OrbisAnima:
+  - bugfix: Due to incompatibilities with  intergalactic trade [we had bugs], Cargo
+      imports will no longer be able to be ordered directly from the cargo budget,
+      unless the express consoles are used, as it was previously stipulated with other
+      Goody types imports. [Lots of bugs, and avoiding future bugs, we tried.]
+  RatFromTheJungle:
+  - code_imp: The round-end report no longer auto- opens magically! Click the button
+      that appears in the top left instead to open it.
+  RealWinterFrost:
+  - image: Changed APCs to be a mixed style of old Nova/Eris & /TG/ Standard
+  - image: Changed the looks of the jaws of life so they are distinct from eachother
+      and its selected mode is more visually noticable (Accessibility)
+  - image: Updated the designs of the inducer to look like a handheld power cable
+      instead of a grenade launcher
+  - image: Updated the turret controller to be actually appearing and overhauled its
+      design
+  - image: Return of the glorious, beautiful, magnificent king, the wrenches.
+  Thunder12345:
+  - bugfix: The captain suit costume (green suit) no longer has the same armour as
+      real captain outfits.
+  alien3301:
+  - balance: The warden starts with a bandolier in their locker
+  lelandkemble:
+  - map: Catwalk Abandoned Kitchen APC powered by default
+  - bugfix: cyborg RTD works again
+  - admin: Admins get powertool belts in their special outfits.
+  san7890:
+  - refactor: The Cult of Nar'Sie realized that they were installing the mirrors on
+      their mirror shields the wrong way around, thus altering the makeup of their
+      mirror clones health, damage, and re-replicability.
+  - refactor: In response to the recent updates in clone magic, Nanotrasen's Stealth
+      Reactive Armor should now generate more convincing clones.
+  vinylspiders:
+  - bugfix: fixes a bug that caused you to need to wear shoes in order to gain any
+      defensive benefit from the sleeping carp martial art style
