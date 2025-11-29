@@ -99,9 +99,6 @@
 	use_custom_worn_icon_cached()
 	var/icon/cached_icon = get_custom_worn_icon_cached(human_icon, human_icon_state, greyscale_key)
 	if(cached_icon)
-		if(!(human_icon_state in icon_states(cached_icon)))
-			cached_icon = icon(cached_icon)
-			cached_icon.Insert(cached_icon, icon_state = human_icon_state) // include the expected icon_state
 		return cached_icon
 
 	// Get GAGs config

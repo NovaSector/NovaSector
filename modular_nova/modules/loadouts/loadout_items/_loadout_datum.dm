@@ -38,7 +38,9 @@
 	/// If set, is a list of job names of which can't get the loadout item
 	var/list/blacklisted_roles
 	/// If set, is a list of species which can get the loadout item
-	var/list/restricted_species
+	var/list/species_whitelist
+	/// If set, is a list of species which can't get the loadout item
+	var/list/species_blacklist
 	/// Whether the item is restricted to supporters
 	var/donator_only
 	/// Whether the item is restricted to Nova stars.
@@ -90,7 +92,7 @@
 
 /**
  * Called before a loadout item is given to a mob, making sure that they're
- * elligible to receive it, based on all of that item's restrictions, if any.
+ * eligible to receive it, based on all of that item's restrictions, if any.
  *
  * Returns `TRUE` if `target` is allowed to receive this item, `FALSE` if not.
  */
@@ -114,7 +116,9 @@
 	if(iscarbon(target))
 		var/mob/living/carbon/carbon_target = target
 		var/datum/dna/dna = carbon_target.dna
-		if(!istype(dna) || (restricted_species && !(dna.species.id in restricted_species)))
+		if(isnull(DNA))
+			return FALSE
+		if(species_whitelist && !(dna.species.id in species_whitelist) || (blacklisted_species && (dna.species.id in blacklisted_species)))
 			if(client)
 				to_chat(target, span_warning("You were unable to get a loadout item ([initial(item_path.name)]) due to species restrictions!"))
 			return FALSE
@@ -155,7 +159,7 @@
 	formatted_item["ckey_whitelist"] = ckeywhitelist
 	formatted_item["restricted_roles"] = restricted_roles
 	formatted_item["blacklisted_roles"] = blacklisted_roles
-	formatted_item["restricted_species"] = restricted_species
+	formatted_item["species_whitelist"] = species_whitelist
 	formatted_item["donator_only"] = donator_only
 	formatted_item["nova_stars_only"] = nova_stars_only
 
