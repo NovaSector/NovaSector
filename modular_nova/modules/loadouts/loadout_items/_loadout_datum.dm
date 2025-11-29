@@ -98,48 +98,53 @@
  */
 /datum/loadout_item/proc/can_be_applied_to(mob/living/target, datum/preferences/preference_source, datum/job/equipping_job, allow_mechanical_loadout_items = TRUE)
 	var/client/client = preference_source.parent
-	if(!allow_mechanical_loadout_items && !equipping_job  && mechanical_item)
-		if(client)
-			to_chat(target, span_warning("You were unable to get a loadout item ([initial(item_path.name)]) due to being a non-whitelisted ghostrole!"))
-		return FALSE
 
-	if(restricted_roles && equipping_job && !(equipping_job.title in restricted_roles))
-		if(client)
-			to_chat(target, span_warning("You were unable to get a loadout item ([initial(item_path.name)]) due to job restrictions!"))
-		return FALSE
+	// mechanical restrictions come first
+	if(!allow_mechanical_loadout_items && !equipping_job && mechanical_item)
+		return message_client(client, target, "this ghost role not allowing it")
 
-	if(blacklisted_roles && equipping_job && (equipping_job.title in blacklisted_roles))
-		if(client)
-			to_chat(target, span_warning("You were unable to get a loadout item ([initial(item_path.name)]) due to job blacklists!"))
-		return FALSE
+	// job restrictions
+	if(equipping_job)
+		var/title = equipping_job.title
 
+		if(restricted_roles && !(title in restricted_roles))
+			return message_client(client, target, "job restrictions")
+
+		if(blacklisted_roles && (title in blacklisted_roles))
+			return message_client(client, target, "job blacklist")
+
+	// species restrictions
 	if(iscarbon(target))
-		var/mob/living/carbon/carbon_target = target
-		var/datum/dna/dna = carbon_target.dna
-		if(isnull(dna))
-			return FALSE
-		if(species_whitelist && !(dna.species.id in species_whitelist) || (species_blacklist && (dna.species.id in species_blacklist)))
-			if(client)
-				to_chat(target, span_warning("You were unable to get a loadout item ([initial(item_path.name)]) due to species restrictions!"))
+		var/mob/living/carbon/carbon_mob = target
+		var/datum/dna/dna = carbon_mob.dna
+		if(!dna)
 			return FALSE
 
+		var/spec = dna.species.id
+
+		if(species_whitelist && !(spec in species_whitelist))
+			return message_client(client, target, "species restrictions")
+		else if(species_blacklist && (spec in species_blacklist))
+			return message_client(client, target, "species restrictions")
+
+	// donor/star
 	if(donator_only && !SSplayer_ranks.is_donator(client))
-		if(client)
-			to_chat(target, span_warning("You were unable to get a loadout item ([initial(item_path.name)]) due to not being a donator!"))
-		return FALSE
+		return message_client(client, target, "donator")
 
 	if(nova_stars_only && !SSplayer_ranks.is_nova_star(client))
-		if(client)
-			to_chat(target, span_warning("You were unable to get a loadout item ([initial(item_path.name)]) due to not being a Nova star!"))
-		return FALSE
+		return message_client(client, target, "Nova star")
 
+	// ckey restrictions
 	if(LAZYLEN(ckeywhitelist) && !(client?.ckey in ckeywhitelist))
-		if(client)
-			to_chat(target, span_warning("You were unable to get a loadout item ([initial(item_path.name)]) due to not being apart of its CKEY whitelist!"))
-		return FALSE
+		return message_client(client, target, "CKEY whitelist")
 
 	return TRUE
 
+/// Tells the client we couldn't equip their item
+/datum/loadout_item/proc/message_client(client, target, msg)
+	if(client)
+		to_chat(target, span_warning("You were unable to get a loadout item ([initial(item_path.name)]) due to [msg]!"))
+	return FALSE
 
 /datum/loadout_item/get_ui_buttons()
 	var/list/buttons = ..()
