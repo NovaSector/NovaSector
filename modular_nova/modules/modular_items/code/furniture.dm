@@ -13,10 +13,6 @@
 	build_stack_type = /obj/item/stack/sheet/leather
 	build_stack_amount = 4
 
-/obj/structure/bed/double/pelt/atom_deconstruct(disassembled = TRUE)
-	. = ..()
-	new /obj/item/stack/sheet/mineral/wood(loc, build_stack_amount)
-
 /datum/crafting_recipe/synth_white_pelt_bed
 	name = "Synthetic White Pelts Bed"
 	category = CAT_FURNITURE
