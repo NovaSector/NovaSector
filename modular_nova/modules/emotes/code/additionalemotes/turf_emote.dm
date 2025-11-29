@@ -179,4 +179,4 @@
 	UnregisterSignal(user, COMSIG_MOVABLE_MOVED)
 
 	var/obj/owned_turf = user.owned_turf
-	INVOKE_ASYNC(owned_turf, /obj/structure/mark_turf/proc/turf_check, user)
+	INVOKE_ASYNC(owned_turf, TYPE_PROC_REF(/obj/structure/mark_turf, turf_check), user)

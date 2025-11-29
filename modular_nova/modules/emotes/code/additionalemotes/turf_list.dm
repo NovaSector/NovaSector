@@ -175,9 +175,10 @@
 			return
 
 /obj/structure/mark_turf/proc/turf_check(mob/living/user) //This gets called when a player leaves their turf
-	if(user.owned_turf.name == "tail") // no trail
+	var/owner_turf_name = user.owned_turf.name
+	if(owner_turf_name == "tail") // no trail
 		QDEL_NULL(src)
-	if(long_trail[user.owned_turf.name])
+	if(owner_turf_name in long_trail)
 		QDEL_IN(src, 150 SECONDS)
 		user.owned_turf = null
 	else

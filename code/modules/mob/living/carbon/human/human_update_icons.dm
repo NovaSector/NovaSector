@@ -1029,17 +1029,17 @@ mutant_styles: The mutant style - taur bodytype, STYLE_TESHARI, etc. // NOVA EDI
 
 	// NOVA EDIT ADDITION START - Taur-friendly uniforms and suits
 	var/using_taur_variant = FALSE
-	if (isnull(override_file))
-		if (mutant_styles & STYLE_TAUR_ALL)
-			if ((mutant_styles & STYLE_TAUR_SNAKE) && worn_icon_taur_snake)
-				override_file = worn_icon_taur_snake
-				using_taur_variant = TRUE
-			else if ((mutant_styles & STYLE_TAUR_PAW) && worn_icon_taur_paw)
-				override_file = worn_icon_taur_paw
-				using_taur_variant = TRUE
-			else if ((mutant_styles & STYLE_TAUR_HOOF) && worn_icon_taur_hoof)
-				override_file = worn_icon_taur_hoof
-				using_taur_variant = TRUE
+	var/is_for_taur = mutant_styles & STYLE_TAUR_ALL
+	if (isnull(override_file) && is_for_taur)
+		if ((mutant_styles & STYLE_TAUR_SNAKE) && worn_icon_taur_snake)
+			override_file = worn_icon_taur_snake
+			using_taur_variant = TRUE
+		else if ((mutant_styles & STYLE_TAUR_PAW) && worn_icon_taur_paw)
+			override_file = worn_icon_taur_paw
+			using_taur_variant = TRUE
+		else if ((mutant_styles & STYLE_TAUR_HOOF) && worn_icon_taur_hoof)
+			override_file = worn_icon_taur_hoof
+			using_taur_variant = TRUE
 	// NOVA EDIT ADDITION END
 	//Find a valid icon_state from variables+arguments
 	var/t_state = override_state || (isinhands ? inhand_icon_state : worn_icon_state) || icon_state
@@ -1069,7 +1069,7 @@ mutant_styles: The mutant style - taur bodytype, STYLE_TESHARI, etc. // NOVA EDI
 			greyscale_colors = greyscale_colors,
 		)
 	// NOVA EDIT ADDITION START - Taur-friendly uniforms and suits
-	if (!using_taur_variant)
+	if (is_for_taur && !using_taur_variant)
 		building_icon = wear_taur_version(t_state, building_icon || icon(file2use, t_state), female_uniform, greyscale_colors)
 	// NOVA EDIT ADDITION END
 	if(building_icon)
