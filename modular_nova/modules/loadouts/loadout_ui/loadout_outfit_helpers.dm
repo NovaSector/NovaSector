@@ -72,7 +72,7 @@
 					erpbox = new(loc)
 				new item.item_path(erpbox)
 			else
-				if (!item.can_be_applied_to(src, preference_source, equipping_job, allow_mechanical_loadout_items), visuals_only)
+				if (!item.can_be_applied_to(src, preference_source, equipping_job, allow_mechanical_loadout_items, visuals_only))
 					continue
 
 				// Make sure the item is not overriding an important for life outfit item
