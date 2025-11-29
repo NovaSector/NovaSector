@@ -67,6 +67,8 @@
 	var/block_chance = 50
 	/// This mob will not attack mobs randomly if not in anger, the time doubles as a check for anger
 	var/anger_timer_id = null
+	/// The cooldown between intros so we don't just spam it
+	var/next_intro_scan = 0
 	replace_crusher_drop = TRUE // prevents people from butchering him for duping chests
 	del_on_death = TRUE
 
@@ -82,14 +84,22 @@
 	. = ..()
 	if(stat >= DEAD)
 		return
+
+	if(anger_timer_id)
+		return
+
+	if(world.time < next_intro_scan)
+		return
+
 	/// Try introducing ourselvess to people while not pissed off
-	if(!anger_timer_id)
-		/// Yes, i am calling view on life! I don't think i can avoid this!
-		for(var/mob/living/friend_or_foe in (view(4, src)-src))
-			var/datum/weakref/friend_or_foe_ref = WEAKREF(friend_or_foe)
-			if(!(friend_or_foe_ref in introduced) && (friend_or_foe.stat != DEAD))
-				introduction(friend_or_foe)
-				break
+	/// Yes, i am calling view on life! I don't think i can avoid this!
+	for(var/mob/living/friend_or_foe in get_hearers_in_view(4, src))
+		if(friend_or_foe == src || friend_or_foe.stat == DEAD)
+			continue
+		var/datum/weakref/friend_or_foe_ref = WEAKREF(friend_or_foe)
+		if(!(friend_or_foe_ref in introduced))
+			introduction(friend_or_foe)
+			break
 
 /mob/living/simple_animal/hostile/megafauna/gladiator/Found(atom/A)
 	//We only attack when pissed off
@@ -229,7 +239,7 @@
 									"I'll give you the first hit.",
 								)
 			INVOKE_ASYNC(src, TYPE_PROC_REF(/atom/movable, say), message = pick(human_messages))
-			introduced |= WEAKREF(target)
+			introduced[WEAKREF(target)] = TRUE
 		else if(targetspecies.id == SPECIES_LIZARD_ASH)
 			var/static/list/ashie_messages = list(
 									"Foolishness, ash walker!",
@@ -239,7 +249,7 @@
 								)
 
 			INVOKE_ASYNC(src, TYPE_PROC_REF(/atom/movable, say), message = pick(ashie_messages), language = /datum/language/ashtongue)
-			introduced |= WEAKREF(target)
+			introduced[WEAKREF(target)] = TRUE
 			get_angry()
 			GiveTarget(target)
 		else
@@ -251,13 +261,13 @@
 									"For the necropolis!"
 									)
 			INVOKE_ASYNC(src, TYPE_PROC_REF(/atom/movable, say), message = pick(other_humanoid_messages))
-			introduced |= WEAKREF(target)
+			introduced[WEAKREF(target)] = TRUE
 			get_angry()
 			GiveTarget(target)
 	else
 		//simplemobs beware
 		INVOKE_ASYNC(src, TYPE_PROC_REF(/atom/movable, say), "It's berserkin' time!")
-		introduced |= WEAKREF(target)
+	next_intro_scan = world.time + 10 SECONDS
 
 /// Checks against the Marked One's current health and updates his phase accordingly. Uses variable shitcode to make sure his phase updates only ever happen *once*
 /mob/living/simple_animal/hostile/megafauna/gladiator/proc/update_phase()
