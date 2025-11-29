@@ -88,7 +88,7 @@
 	for (var/launch_index in 1 to selected_targets.len)
 		var/target = selected_targets[launch_index]
 		var/launch_delay = launch_index * 2
-		addtimer(CALLBACK(src, PROC_REF(fire_rocket), target), launch_delay)
+		addtimer(CALLBACK(src, PROC_REF(fire_rocket), target, source), launch_delay)
 
 	TIMER_COOLDOWN_START(chassis, COOLDOWN_MECHA_EQUIPMENT(type), equip_cooldown)
 	SEND_SIGNAL(source, COMSIG_MOB_USED_MECH_EQUIPMENT, chassis)
@@ -118,24 +118,31 @@
 	icon = 'icons/mob/actions/actions_items.dmi'
 	icon_state = "sniper_zoom"
 	layer = ABOVE_MOB_LAYER
-	///The actual target the tracker is trying to get to.
+	///What is the tracked target
 	var/atom/movable/target
-	///Is it still tracking or not.
+	///Is the tracker still tracking
 	var/tracking = TRUE
-	///Delay between tracker movement
+	///How long should the tracker wait between moves
 	var/move_delay = 5
-	///How many time is the tracker allowed to move before having to stop and fire the rocket regardless of location.
+	///How many moves is the tracker allowed to do.
 	var/max_moves = 7
-	///How many moves has the tracker made until now.
+	///How many moves has the tracke done
 	var/move_count = 0
-	///Who fired it, for admin logging of the subsequent explosion
+	///Who spawned the tracker.
 	var/mob/firer
+	///Tracking timer id for cleanup
+	var/list/timer_ids = list()
 
 /obj/effect/swarm_rocket_tracker/Initialize(mapload)
 	. = ..()
 	addtimer(CALLBACK(src, PROC_REF(step_or_drop)), move_delay)
 
-///Check if the targetting icon has moves left and isn't on the target tile, if so, creep toward its target. If not, drops a rocket from the sky on the location. Also avoids walls.
+/obj/effect/swarm_rocket_tracker/Destroy()
+    // cancel all outstanding timers before deletion
+    for(var/id in timer_ids)
+        deltimer(id)
+    return ..()
+
 /obj/effect/swarm_rocket_tracker/proc/step_or_drop()
 	if (!target || !target.loc)
 		qdel(src)
@@ -143,8 +150,8 @@
 
 	if (!tracking)
 		var/turf/fall_location = get_turf(src)
-		var/obj/effect/temp_visual/swarm_rocket_fall/rocket = new /obj/effect/temp_visual/swarm_rocket_fall(fall_location)
-		rocket.fingerprintslast = firer
+		var/obj/effect/temp_visual/swarm_rocket_fall/rocket = new(fall_location)
+		rocket.fingerprintslast = firer  // attribution
 		qdel(src)
 		return
 
@@ -153,7 +160,7 @@
 
 	if (current_tile == target_tile || ++move_count >= max_moves)
 		tracking = FALSE
-		addtimer(CALLBACK(src, PROC_REF(step_or_drop)), move_delay)
+		timer_ids += addtimer(CALLBACK(src, PROC_REF(step_or_drop)), move_delay, TIMER_STOPPABLE)
 		return
 
 	var/angle_to_target = get_angle(src, target)
@@ -164,20 +171,16 @@
 		addtimer(CALLBACK(src, PROC_REF(step_or_drop)), move_delay)
 		return
 
-	// Animate from current to next tile
 	var/pixel_offset_x = (next_tile.x - current_tile.x) * 32
 	var/pixel_offset_y = (next_tile.y - current_tile.y) * 32
 	animate(src, pixel_x = pixel_offset_x, pixel_y = pixel_offset_y, time = move_delay)
+	timer_ids += addtimer(CALLBACK(src, PROC_REF(commit_step), next_tile), move_delay, TIMER_STOPPABLE)
 
-	// After animation, move and reset offset
-	addtimer(CALLBACK(src, PROC_REF(commit_step), next_tile), move_delay)
-
-///Actually moves the targetting tracker after the animation played.
 /obj/effect/swarm_rocket_tracker/proc/commit_step(turf/new_loc)
 	forceMove(new_loc)
 	pixel_x = 0
 	pixel_y = 0
-	addtimer(CALLBACK(src, PROC_REF(step_or_drop)), move_delay)
+	timer_ids += addtimer(CALLBACK(src, PROC_REF(step_or_drop)), move_delay, TIMER_STOPPABLE)
 
 /obj/effect/temp_visual/swarm_rocket_rise
 	name = "Swarm Micro-Rocket"
@@ -204,12 +207,9 @@
 	icon = 'icons/obj/weapons/guns/projectiles.dmi'
 	icon_state = "84mm-heap"
 	duration = 14
-	///radius of the rocket's explosion
 	var/explosion_radius = 1
 	pixel_y = 120
-	///size the rocket starts off at
 	var/start_scale = 1.0
-	///minumum size for the rocket icon when animated
 	var/end_scale = 0.4
 
 /obj/effect/temp_visual/swarm_rocket_fall/Initialize(mapload)
@@ -220,10 +220,9 @@
 		pixel_y = 0,
 		time = duration,
 		easing = EASE_IN)
-	fingerprintslast = src
 
-//explode where the rocket is deleted.
 /obj/effect/temp_visual/swarm_rocket_fall/Destroy()
+	// Explosion payload occurs exactly when the temp_visual is being cleaned up by duration
 	playsound(src, 'sound/items/weapons/minebot_rocket.ogg', 100, FALSE)
 	explosion(src,
 		devastation_range = -1,
@@ -237,15 +236,18 @@
 	return ..()
 
 ///Animates rockets firing up from the mech and create the tracking circles before initialising their tracking loop.
-/obj/item/mecha_parts/mecha_equipment/swarm_rocket_pod/proc/fire_rocket(atom/movable/target)
+/obj/item/mecha_parts/mecha_equipment/swarm_rocket_pod/proc/fire_rocket(atom/movable/target, mob/living/source)
 	if (!target)
 		return
+	var/turf/chassis_turf = get_turf(chassis)
+	if (!chassis_turf)
+		return
 
-	var/obj/effect/temp_visual/swarm_rocket_rise/rocket = new(get_turf(chassis))
+	var/obj/effect/temp_visual/swarm_rocket_rise/rocket = new(chassis_turf)
 	rocket.pixel_x = rand(-12, 12)
 
-	var/obj/effect/swarm_rocket_tracker/tracker = new(get_turf(chassis))
-	tracker.firer = usr
+	var/obj/effect/swarm_rocket_tracker/tracker = new(chassis_turf)
+	tracker.firer = source
 	tracker.target = target
 
 	var/drop_delay = 2 SECONDS
