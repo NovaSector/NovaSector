@@ -5,7 +5,7 @@
 	color_src = USE_MATRIXED_COLORS
 
 /datum/sprite_accessory/ears/is_hidden(mob/living/carbon/human/wearer)
-	var/obj/item/clothing/head/worn_head = wearer.head
+	var/obj/item/clothing/head/mod/worn_head = wearer.head
 	if(isnull(worn_head))
 		return FALSE
 
@@ -14,7 +14,7 @@
 		return TRUE
 
 	// Exception for MODs
-	if(istype(worn_head, /obj/item/clothing/head/mod))
+	if(istype(worn_head))
 		return FALSE
 
 	// Hide accessory if flagged to do so
