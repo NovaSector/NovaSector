@@ -22,7 +22,7 @@
 	// without external aid (earmuffs, drugs)
 
 	/// Resistance against loud noises
-	var/bang_protect = 0
+	var/bang_protect = EAR_PROTECTION_NONE
 	/// Multiplier for both long term and short term ear damage
 	var/damage_multiplier = 1
 
@@ -147,7 +147,7 @@
 
 	restyle_flags = EXTERNAL_RESTYLE_FLESH
 
-	//dna_block = /datum/dna_block/feature/ears // NOVA EDIT REMOVAL - Customization - We have our own system to handle DNA.
+	//dna_block = /datum/dna_block/feature/accessory/ears // NOVA EDIT REMOVAL - Customization - We have our own system to handle DNA.
 
 	bodypart_overlay = /datum/bodypart_overlay/mutant/cat_ears
 
@@ -160,9 +160,6 @@
 
 	/// Layer upon which we add the inner ears overlay
 	var/inner_layer = EXTERNAL_FRONT
-
-/datum/bodypart_overlay/mutant/cat_ears/get_global_feature_list()
-	return SSaccessories.sprite_accessories[FEATURE_EARS] // NOVA EDIT - Customization - ORIGINAL: return SSaccessories.ears_list
 
 /datum/bodypart_overlay/mutant/cat_ears/can_draw_on_bodypart(obj/item/bodypart/bodypart_owner)
 	return !(bodypart_owner.owner?.obscured_slots & HIDEHAIR)
@@ -194,10 +191,9 @@
 	desc = "A basic cybernetic organ designed to mimic the operation of ears."
 	damage_multiplier = 2.4
 	bodypart_overlay = /datum/bodypart_overlay/mutant/cat_ears/cybernetic
-	sprite_accessory_override = /datum/sprite_accessory/ears/cat
+	sprite_accessory_override = /datum/sprite_accessory/ears/cat/cybernetic
 	organ_flags = ORGAN_ROBOTIC
 	failing_desc = "seems to be broken."
-
 
 /obj/item/organ/ears/cat/cybernetic/upgraded
 	name = "cybernetic cat ears"
@@ -218,6 +214,7 @@
 	desc = "Allows the user to more easily hear whispers. The user becomes extremely vulnerable to loud noises, however."
 	damage_multiplier = 3 // 4 would be excessive
 	organ_traits = list(TRAIT_GOOD_HEARING)
+	bodypart_overlay = /datum/bodypart_overlay/mutant/cat_ears/cybernetic/green
 
 /obj/item/organ/ears/cat/cybernetic/xray
 	name = "wall-penetrating cybernetic cat ears"
@@ -225,10 +222,37 @@
 	desc = "Through the power of modern feline engineering, allows the user to hear speech through walls. The user becomes extremely vulnerable to loud noises, however."
 	damage_multiplier = 3 // As above, 4 would be excessive
 	organ_traits = list(TRAIT_XRAY_HEARING)
+	bodypart_overlay = /datum/bodypart_overlay/mutant/cat_ears/cybernetic/blue
 
 /datum/bodypart_overlay/mutant/cat_ears/cybernetic
 	color_source = null
 	dyable = FALSE
+	/// Color of the inner ear
+	var/inner_color = "#F0004A"
+
+/datum/bodypart_overlay/mutant/cat_ears/cybernetic/get_image(image_layer, obj/item/bodypart/limb)
+	if (image_layer != bitflag_to_layer(inner_layer))
+		return ..()
+	var/mutable_appearance/ear_holder = ..()
+	var/mutable_appearance/inner = ear_holder.overlays[2]
+	inner.color = inner_color
+	return ear_holder
+
+/datum/bodypart_overlay/mutant/cat_ears/cybernetic/get_overlay(layer, obj/item/bodypart/limb)
+	if (layer != inner_layer)
+		return ..()
+	var/list/all_images = ..()
+	//var/mutable_appearance/ear_holder = all_images[1] // NOVA EDIT REMOVAL - Our ear overlays are done differently, see /datum/bodypart_overlay/mutant/get_images()
+	var/mutable_appearance/inner = all_images[2] // NOVA EDIT CHANGE - ORIGINAL: var/mutable_appearance/inner = ear_holder.overlays[2]
+	inner.color = inner_color // NOVA EDIT ADDITION - We do not actually call get_image, instead we call get_singular_image(). This works fine here though.
+	all_images += emissive_appearance(inner.icon, inner.icon_state, limb, layer = inner.layer, alpha = inner.alpha * 0.75)
+	return all_images
+
+/datum/bodypart_overlay/mutant/cat_ears/cybernetic/green
+	inner_color = "#0079EA"
+
+/datum/bodypart_overlay/mutant/cat_ears/cybernetic/blue
+	inner_color = "#00D844"
 
 /obj/item/organ/ears/ghost
 	name = "ghost ears"
@@ -279,7 +303,7 @@
 	name = "volume-adjusting cybernetic ears"
 	icon_state = "ears-c-u"
 	desc = "Advanced cybernetic ears capable of dampening loud noises to protect their user."
-	bang_protect = 1
+	bang_protect = EAR_PROTECTION_NORMAL
 	damage_multiplier = 0.5
 
 // "X-ray ears" that let you hear through walls

@@ -1,0 +1,4 @@
+author: "vinylspiders"
+delete-after: True
+changes:
+  - rscadd: "assistants and prisoners will show up at the bottom of the job estimation now"

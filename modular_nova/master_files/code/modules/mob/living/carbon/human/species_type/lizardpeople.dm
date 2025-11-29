@@ -43,7 +43,7 @@ Lizard subspecies: ASHWALKERS
 */
 
 /datum/species/lizard/ashwalker/
-	language_prefs_whitelist = list(/datum/language/ashtongue)
+	language_prefs_whitelist = list(/datum/language/ashtongue = TRUE)
 
 /datum/species/lizard/ashwalker/create_pref_language_perk()
 	var/list/to_add = list()

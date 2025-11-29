@@ -48,7 +48,7 @@
 	flags_1 = IS_PLAYER_COLORABLE_1
 
 /obj/item/clothing/under/costume/dutch
-	icon = 'icons/map_icons/clothing/under/_under.dmi'
+	icon = 'icons/map_icons/clothing/under/costume.dmi'
 	icon_state = "/obj/item/clothing/under/costume/dutch"
 	post_init_icon_state = "dutchsuit"
 	greyscale_config = /datum/greyscale_config/dutch_outfit
@@ -56,6 +56,13 @@
 	greyscale_config_worn_digi = /datum/greyscale_config/dutch_outfit/worn/digi
 	greyscale_colors = "#333333#f8f8f8#ff0000#ffcc00"
 	flags_1 = IS_PLAYER_COLORABLE_1
+
+/obj/item/clothing/under/costume/dutch/syndicate
+	post_init_icon_state = null
+	greyscale_config = null
+	greyscale_config_worn = null
+	greyscale_config_worn_digi = null
+	greyscale_colors = null
 
 /obj/item/clothing/suit/costume/pg
 	icon = 'icons/map_icons/clothing/suit/costume.dmi'
@@ -170,6 +177,7 @@
 	greyscale_config = /datum/greyscale_config/chima_jeogori
 	greyscale_config_worn = /datum/greyscale_config/chima_jeogori/worn
 	greyscale_colors = "#a52f29#2ba396#545461#88242d#eeeeee"
+	female_sprite_flags = FEMALE_UNIFORM_TOP_ONLY
 	alternate_worn_layer = UNDER_SUIT_LAYER
 	flags_1 = IS_PLAYER_COLORABLE_1
 

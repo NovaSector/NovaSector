@@ -70,7 +70,7 @@
 
 		blocked = TRUE
 
-		message = autopunct_bare(capitalize(tgui_input_text(owner, "What do you wish to whisper to [last_target]?", "[src]", max_length = MAX_MESSAGE_LEN)))
+		message = autopunct_bare(capitalize(tgui_input_text(owner, "What do you wish to whisper to [last_target]?", "[src]", null, max_length = MAX_MESSAGE_LEN, multiline = TRUE)))
 		if(QDELETED(src) || QDELETED(owner) || QDELETED(last_target) || !can_cast_spell())
 			blocked = FALSE
 			return
@@ -85,8 +85,7 @@
 	. = ..()
 	owner.visible_message(
 		span_warning("[owner]'s attention locks onto [cast_on]."),
-		span_warning("[owner]'s attention locks onto you!"),
-		ignored_mobs = owner
+		ignored_mobs = owner,
 	)
 	send_thought(owner, cast_on, message)
 
@@ -99,11 +98,11 @@
 	// flub a runechat chat message, do something with the language later
 	if(owner.client?.prefs.read_preference(/datum/preference/toggle/enable_runechat))
 		owner.create_chat_message(owner, owner.get_selected_language(), message, list("italics"))
-	if(!target.can_block_magic(antimagic_flags, charge_cost = 0) && target.client) //make sure we've got a client before we bother sending anything
+	if(!target.can_block_magic(antimagic_flags, charge_cost = 0) && target.client && !(HAS_TRAIT(target, TRAIT_PSIONIC_DAMPENER))) //make sure we've got a client before we bother sending anything
 		//different messaging if the target has the telepathy mutation themselves themselves
-		if (ishuman(target))
-			var/mob/living/carbon/human/human_target = target
-			var/datum/mutation/telepathy/tele_mut = human_target.dna.get_mutation(/datum/mutation/telepathy)
+		if (ishuman(caster))
+			var/mob/living/carbon/human/human_caster = caster
+			var/datum/mutation/telepathy/tele_mut = human_caster.dna.get_mutation(/datum/mutation/telepathy)
 
 			if (tele_mut)
 				to_chat(target, span_boldnotice("A psychic presence resounds in your mind: \"[span_purple(message)]\""))
