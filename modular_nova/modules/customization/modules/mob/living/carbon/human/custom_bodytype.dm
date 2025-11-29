@@ -63,7 +63,7 @@
 	var/static/list/states_cache = list() // cache these so we are not calling the expensive icon_states proc.
 	// If already set (possibly by us, or manually, use it.)
 	var/icon/final_icon = get_custom_worn_icon(item_slot, item)
-	if(final_icon)
+	if(final_icon && icon_exists(final_icon, item.worn_icon_state || item.icon_state)) // TODO: UNIT TEST teshari_worn_icon beforehand
 		return final_icon
 
 	// Else check if in custom icon.
