@@ -585,7 +585,8 @@
 		if(40 to INFINITY)
 			combined_msg += span_danger("You feel very unwell!")
 
-	var/oxy = getOxyLoss() + (losebreath * 4) + (blood_volume < BLOOD_VOLUME_NORMAL ? ((BLOOD_VOLUME_NORMAL - blood_volume) * 0.1) : 0) + (HAS_TRAIT(src, TRAIT_SELF_AWARE) ? 0 : (rand(-3, 0) * 5))
+	var/cached_blood_volume = get_blood_volume(apply_modifiers = TRUE)
+	var/oxy = getOxyLoss() + (losebreath * 4) + (cached_blood_volume < BLOOD_VOLUME_NORMAL ? ((BLOOD_VOLUME_NORMAL - cached_blood_volume) * 0.1) : 0) + (HAS_TRAIT(src, TRAIT_SELF_AWARE) ? 0 : (rand(-3, 0) * 5))
 	switch(oxy)
 		if(10 to 20)
 			combined_msg += span_danger("You feel lightheaded.")
@@ -728,3 +729,10 @@
 	if (HAS_TRAIT(src, TRAIT_IGNORE_FIRE_PROTECTION))
 		no_protection = TRUE
 	fire_handler.harm_human(seconds_per_tick, no_protection)
+
+/mob/living/carbon/human/expose_reagents(list/reagents, datum/reagents/source, methods, volume_modifier, show_message)
+	if(external || internal)
+		methods &= ~INHALE
+		if(methods == NONE)
+			return
+	return ..()
