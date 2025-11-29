@@ -116,9 +116,9 @@
 	if(iscarbon(target))
 		var/mob/living/carbon/carbon_target = target
 		var/datum/dna/dna = carbon_target.dna
-		if(isnull(DNA))
+		if(isnull(dna))
 			return FALSE
-		if(species_whitelist && !(dna.species.id in species_whitelist) || (blacklisted_species && (dna.species.id in blacklisted_species)))
+		if(species_whitelist && !(dna.species.id in species_whitelist) || (species_blacklist && (dna.species.id in species_blacklist)))
 			if(client)
 				to_chat(target, span_warning("You were unable to get a loadout item ([initial(item_path.name)]) due to species restrictions!"))
 			return FALSE
