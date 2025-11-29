@@ -10,7 +10,7 @@
 	/// Render key for mutant bodyparts, utilized to reduce the amount of re-rendering
 	var/mutant_renderkey = ""
 	/// A list of mutant parts the human is trying to hide, read from `mutant_renderkey`
-	var/list/try_hide_mutant_parts
+	var/list/try_hide_mutant_parts = list()
 	/// The Examine Panel datum for the mob.
 	var/datum/examine_panel/mob_examine_panel
 	// Whether or not the human has emissive eyes
