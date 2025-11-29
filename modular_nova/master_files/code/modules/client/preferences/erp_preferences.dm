@@ -322,29 +322,3 @@
 
 /datum/preference/choiced/erp_status_hypno/apply_to_human(mob/living/carbon/human/target, value, datum/preferences/preferences)
 	return FALSE
-
-/datum/preference/choiced/accepts_unsolicited_truth_or_dare
-	category = PREFERENCE_CATEGORY_NON_CONTEXTUAL
-	savefile_identifier = PREFERENCE_CHARACTER
-	savefile_key = "accepts_random_td"
-
-/datum/preference/choiced/accepts_unsolicited_truth_or_dare/init_possible_values()
-	return list("No", "Yes - SFW Only", "Yes - NSFW Truths Only", "Yes - NSFW Truths and Dares")
-
-/datum/preference/choiced/accepts_unsolicited_truth_or_dare/create_default_value()
-	return "No"
-
-/datum/preference/choiced/accepts_unsolicited_truth_or_dare/apply_to_human(mob/living/carbon/human/target, value, datum/preferences/preferences)
-	return FALSE
-
-/datum/preference/choiced/accepts_unsolicited_truth_or_dare/is_accessible(datum/preferences/preferences)
-	if (!..(preferences))
-		return FALSE
-
-/datum/preference/choiced/accepts_unsolicited_truth_or_dare/deserialize(input, datum/preferences/preferences)
-	if(CONFIG_GET(flag/disable_erp_preferences))
-		return "No"
-
-	if(!preferences.read_preference(/datum/preference/toggle/master_erp_preferences))
-		return "No"
-	return ..()

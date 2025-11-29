@@ -7159,6 +7159,7 @@
 #include "modular_nova\master_files\code\modules\client\preferences\sensitive_snout.dm"
 #include "modular_nova\master_files\code\modules\client\preferences\sounds.dm"
 #include "modular_nova\master_files\code\modules\client\preferences\tgui_prefs_migration.dm"
+#include "modular_nova\master_files\code\modules\client\preferences\truth_or_dare.dm"
 #include "modular_nova\master_files\code\modules\client\preferences\underwear_color.dm"
 #include "modular_nova\master_files\code\modules\client\preferences\voice.dm"
 #include "modular_nova\master_files\code\modules\client\preferences\middleware\food.dm"

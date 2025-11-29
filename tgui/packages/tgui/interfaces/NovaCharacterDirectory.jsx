@@ -22,7 +22,7 @@ import { CharacterPreview } from './common/CharacterPreview';
 const formatURLs = (text) => {
   if (!text) return;
   const parts = [];
-  let regex = /https?:\/\/[^\s/$.?#].[^\s]*/gi;
+  const regex = /https?:\/\/[^\s/$.?#].[^\s]*/gi;
   let lastIndex = 0;
 
   text.replace(regex, (url, index) => {
@@ -154,6 +154,9 @@ export const NovaCharacterDirectory = (props) => {
                 </LabeledList.Item>
                 <LabeledList.Item label="Noncon">
                   <Button fluid>{personalNonconTag}</Button>
+                </LabeledList.Item>
+                <LabeledList.Item label="Truth or Dare">
+                  <Button fluid>{personalTruthOrDareTag}</Button>
                 </LabeledList.Item>
               </LabeledList>
             </Section>
@@ -298,6 +301,9 @@ const ViewCharacter = (props) => {
                         </LabeledList.Item>
                         <LabeledList.Item label="Hypnosis">
                           {overlay.hypno}
+                        </LabeledList.Item>
+                        <LabeledList.Item label="Truth or Dare">
+                          {overlay.truthordare}
                         </LabeledList.Item>
                         <LabeledList.Item label="Noncon">
                           {overlay.noncon}
@@ -497,6 +503,14 @@ const CharacterDirectoryList = (props) => {
             Hypno
           </SortButton>
           <SortButton
+            id="truthordare"
+            sortId={sortId}
+            sortOrder={sortOrder}
+            onClick={handleSort}
+          >
+            Truth or Dare
+          </SortButton>
+          <SortButton
             id="noncon"
             sortId={sortId}
             sortOrder={sortOrder}
@@ -535,6 +549,7 @@ const CharacterDirectoryList = (props) => {
             <Table.Cell>{character.erp}</Table.Cell>
             <Table.Cell>{character.vore}</Table.Cell>
             <Table.Cell>{character.hypno}</Table.Cell>
+            <Table.Cell>{character.truthordare}</Table.Cell>
             <Table.Cell>{character.noncon}</Table.Cell>
             <Table.Cell collapsing textAlign="right">
               <Button
