@@ -60,8 +60,7 @@
 		visible_message(span_warning("[crate] falls off of [src]!"),
 			span_notice("You manage to knock [crate] free of [src]"),
 			span_notice("You hear a thud."))
-		var/scatter_turf = pick(get_spill_locations(3)) // Try to push it somewhere
-		remove_crate(crate, scatter_turf)
+		remove_crate(crate, get_spill_location(3)) // Try to push it somewhere
 
 /// Spits out how many crates are currently stored, counting the non nulls
 /obj/structure/cargo_shelf/proc/crate_count()
@@ -110,8 +109,7 @@
 /// Fling crates around and open/break some of them in the process
 /obj/structure/cargo_shelf/proc/spill_contents()
 	for(var/obj/structure/closet/crate/crate in contents)
-		var/dump_turf = pick(get_spill_locations(3)) // Shuffle the crates around as though they've fallen down.
-		remove_crate(crate, dump_turf)
+		remove_crate(crate, get_spill_location(2)) // Shuffle the crates around as though they've fallen down.
 		crate.SpinAnimation(rand(4,7), 1) // Spin the crates around a little as they fall. Randomness is applied so it doesn't look weird.
 		if(prob(75))
 			continue
@@ -122,10 +120,10 @@
 			crate.visible_message(span_warning("[crate]'s lid falls open!"))
 
 // Returns a valid list of open turfs to scatter crates
-/obj/structure/cargo_shelf/proc/get_spill_locations(radius)
+/obj/structure/cargo_shelf/proc/get_spill_location(radius)
 	var/list/buckets = new /list(radius+1)
-	for(var/turf/turf_in_view in view(radius, get_turf(src)))
-		var/distance = get_dist(get_turf(src), turf_in_view)
+	for(var/turf/turf_in_view in range(radius, get_turf(src)))
+		var/distance = max(get_dist(get_turf(src), turf_in_view), 1)
 		if(isclosedturf(turf_in_view))
 			continue
 		if(!islist(buckets[distance]))
@@ -138,16 +136,12 @@
 		buckets[distance] += turf_in_view
 
 	// now return the first non-empty ring
-	for(var/i = 0 to radius)
+	for(var/i = 1 to radius)
 		if(islist(buckets[i]) && length(buckets[i]))
-			return buckets[i]
-
-	// if absolutely nothing passed the filters, fallback to everything
-	// flat list of rings (lazy)
-	var/list/fallback = list()
-	for(var/i = 0 to radius)
-		if(islist(buckets[i]))
-			fallback += buckets[i]
+			if(length(buckets[i]) == 1) // if it's just the same turf as the shelf try other options first
+				continue
+			return pick(buckets[i])
+	return get_turf(src) // fallback on source turf
 
 /obj/structure/closet/crate/mouse_drop_dragged(atom/over, mob/user, src_location, over_location, params)
 	. = ..()
