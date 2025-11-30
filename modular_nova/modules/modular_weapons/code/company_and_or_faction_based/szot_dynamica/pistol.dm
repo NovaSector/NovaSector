@@ -21,18 +21,18 @@
 	spread = 15
 
 	lore_blurb = "The M/PP-7 began as as a prototype - a proof-of-concept weaponization of industrial plasma cutters by Dr. Anya Volkova, \
-	a materials scientist who noticed that mining-grade plasma emitters could maintain coherent streams at ranges far beyond their \
-	intended use. Her breakthrough was the reconfigurable magnetic bottle that could both contain plasma for storage and shape it into \
-	a projectile upon firing. <br><br>\
-	Early prototypes used disposable gas canisters, but Volkova's team developed the rechargeable crystalline matrix cell that could \
-	be \"refilled\" with raw plasma by being re-energized with conventional electricity. This made the weapon logistically superior to \
-	ballistic sidearms - troops could recharge cells from vehicle power or field generators rather than carrying heavy ammunition. \
-	The \"Słońce\" designation came from the weapon's tendency to spray plasma in an wide, intimidating arc rather than precise beams. \
-	Initial field tests showed poor performance against armor as the plasma would splash and adhere rather than penetrate. The final \
-	production model added a rapid-pulse magnetic agitator that makes the plasma \"drill\" through surfaces, solving the armor problem \
-	at the cost of making the spread even less predictable. <br><br>\
-	Standard issue for vehicle crews and support personnel who need volume of fire over precision. The distinctive roaring report and \
-	visible plasma trails make it excellent for crowd control - few things are more intimidating than a wall of searing star-stuff coming your way."
+		a materials scientist who noticed that mining-grade plasma emitters could maintain coherent streams at ranges far beyond their \
+		intended use. Her breakthrough was the reconfigurable magnetic bottle that could both contain plasma for storage and shape it into \
+		a projectile upon firing. <br><br>\
+		Early prototypes used disposable gas canisters, but Volkova's team developed the rechargeable crystalline matrix cell that could \
+		be \"refilled\" with raw plasma by being re-energized with conventional electricity. This made the weapon logistically superior to \
+		ballistic sidearms - troops could recharge cells from vehicle power or field generators rather than carrying heavy ammunition. \
+		The \"Słońce\" designation came from the weapon's tendency to spray plasma in an wide, intimidating arc rather than precise beams. \
+		Initial field tests showed poor performance against armor as the plasma would splash and adhere rather than penetrate. The final \
+		production model added a rapid-pulse magnetic agitator that makes the plasma \"drill\" through surfaces, solving the armor problem \
+		at the cost of making the spread even less predictable. <br><br>\
+		Standard issue for vehicle crews and support personnel who need volume of fire over precision. The distinctive roaring report and \
+		visible plasma trails make it excellent for crowd control - few things are more intimidating than a wall of searing star-stuff coming your way."
 
 /obj/item/gun/ballistic/automatic/pistol/plasma_thrower/Initialize(mapload)
 	. = ..()
@@ -141,18 +141,18 @@
 	custom_premium_price = PAYCHECK_COMMAND * 6
 
 	lore_blurb = "If a weapon could be described as \"aggressively adequate,\" it would be the Zashchitnik. It has no formal military designation because it \
-	was never submitted for one; it exists in a bureaucratic gray area between a civilian sidearm and an industrial tool, dreamed up by a team of junior \
-	engineers whose names were lost to interdepartmental paperwork (though their profit-sharing bonuses remain quite healthy).<br><br> \
-	The design philosophy is one of brutalist minimalism: take the cheapest, most abundant material (sheet steel), and the most common, \
-	public domain, easiest-to-manufacture pistol cartridge (10mm Auto), and assemble them with the tolerance of a cargo container. \
-	The result is a pistol that is less a precision instrument and more a shaped weight that occasionally expels projectiles. \
-	It is famously, almost pathologically, durable. Dropping it from a shuttle bay door might dent the deck plating, but the \
-	Zashch will be fine. Its primary selling point, aside from a price tag that borders on charitable, is that it will almost \
-	certainly outlive its owner.<br><br> \
-	The trade-off for this indestructibility is a shooting experience compared to \"wrestling a malfunctioning industrial press.\" \
-	The trigger pull is long, gritty, and measured in kilograms. The sheer mass of the reciprocating slide gives it a fire delay that feels geological. \
-	It is the handgun for the user who values the 'idea' of having a gun, -a tangible, heavy, indisputable object to signify \"I am armed\"-, \
-	over the practicalities of actually aiming and firing it with any semblance of speed or grace. It is the cheapskate's cannon, a monument to \"good enough.\""
+		was never submitted for one; it exists in a bureaucratic gray area between a civilian sidearm and an industrial tool, dreamed up by a team of junior \
+		engineers whose names were lost to interdepartmental paperwork (though their profit-sharing bonuses remain quite healthy).<br><br> \
+		The design philosophy is one of brutalist minimalism: take the cheapest, most abundant material (sheet steel), and the most common, \
+		public domain, easiest-to-manufacture pistol cartridge (10mm Auto), and assemble them with the tolerance of a cargo container. \
+		The result is a pistol that is less a precision instrument and more a shaped weight that occasionally expels projectiles. \
+		It is famously, almost pathologically, durable. Dropping it from a shuttle bay door might dent the deck plating, but the \
+		Zashch will be fine. Its primary selling point, aside from a price tag that borders on charitable, is that it will almost \
+		certainly outlive its owner.<br><br> \
+		The trade-off for this indestructibility is a shooting experience compared to \"wrestling a malfunctioning industrial press.\" \
+		The trigger pull is long, gritty, and measured in kilograms. The sheer mass of the reciprocating slide gives it a fire delay that feels geological. \
+		It is the handgun for the user who values the 'idea' of having a gun, -a tangible, heavy, indisputable object to signify \"I am armed\"-, \
+		over the practicalities of actually aiming and firing it with any semblance of speed or grace. It is the cheapskate's cannon, a monument to \"good enough.\""
 
 /obj/item/gun/ballistic/automatic/pistol/zashch/give_manufacturer_examine()
 	AddElement(/datum/element/manufacturer_examine, COMPANY_SZOT)

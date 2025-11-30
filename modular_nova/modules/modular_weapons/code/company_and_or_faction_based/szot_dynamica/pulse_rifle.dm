@@ -32,23 +32,23 @@
 	w_class = WEIGHT_CLASS_BULKY
 	weapon_weight = WEAPON_HEAVY
 	lore_blurb = "The M/PR-15 represents the Coalition's solution to the eternal logistical problem: how much ammunition can one soldier carry? \
-	While plasma pistols solved the sidearm question, battle rifles still required troops to hump kilograms of brass and propellant. \
-	The answer was the plasma pulse cell - a disposable, hyper-dense energy storage unit that shaves microscopic amounts of tungsten \
-	into each plasma burst, creating projectiles that behave like .277 caliber HEAT rounds. <br><br> \
-	Developed as XM/PR-12 through XM/PR-14 over eight years, the \"Žaibas\" uses crystalline compression \"plugs\" that store plasma \
-	in metastable states. When discharged, these plugs unleash their energy in controlled pulses before shattering. \
-	Each military-grade magazine contains enough for approximately one hundred discharges. <br><br> \
-	The most controversial feature is the non-ejecting casing system. Pulse cells remain chambered until completely \
-	depleted, reducing mechanical complexity and preventing lost cells in combat. This does mean reloading requires manually clearing \
-	a partially-spent cell, but troops appreciate not having to police their brass under fire. <br><br> \
-	Standard testing revealed an unusual problem: veteran marksmen consistently overcompensated for non-existent recoil. \
-	The kinetic feedback system from the M/PP-8 was scaled up to mimic the kick of a .277 rifle, ensuring soldiers used to \
-	ballistic weapons could transition seamlessly. Coalition shock troops value its ability to punch through fortifications and powered armor with equal ease. <br><br> \
-	The weapon's aesthetic was a deliberate departure from Coalition norms. Its sleek, blackened ferritic casing; rounded yet sharp lines; and imposing, \
-	oversized magazine were designed for psychological impact as much as function. The strategy worked too well; the PR-15's menacing silhouette \
-	became so culturally ubiquitous that it single-handedly replaced the many centuries-old stereotype of \
-	the \"villain with a stamped-receiver, wood-stocked assault rifle\" in popular media, becoming the new de-facto \"bad guy's gun\" in films \
-	and video games for a generation."
+		While plasma pistols solved the sidearm question, battle rifles still required troops to hump kilograms of brass and propellant. \
+		The answer was the plasma pulse cell - a disposable, hyper-dense energy storage unit that shaves microscopic amounts of tungsten \
+		into each plasma burst, creating projectiles that behave like .277 caliber HEAT rounds. <br><br> \
+		Developed as XM/PR-12 through XM/PR-14 over eight years, the \"Žaibas\" uses crystalline compression \"plugs\" that store plasma \
+		in metastable states. When discharged, these plugs unleash their energy in controlled pulses before shattering. \
+		Each military-grade magazine contains enough for approximately one hundred discharges. <br><br> \
+		The most controversial feature is the non-ejecting casing system. Pulse cells remain chambered until completely \
+		depleted, reducing mechanical complexity and preventing lost cells in combat. This does mean reloading requires manually clearing \
+		a partially-spent cell, but troops appreciate not having to police their brass under fire. <br><br> \
+		Standard testing revealed an unusual problem: veteran marksmen consistently overcompensated for non-existent recoil. \
+		The kinetic feedback system from the M/PP-8 was scaled up to mimic the kick of a .277 rifle, ensuring soldiers used to \
+		ballistic weapons could transition seamlessly. Coalition shock troops value its ability to punch through fortifications and powered armor with equal ease. <br><br> \
+		The weapon's aesthetic was a deliberate departure from Coalition norms. Its sleek, blackened ferritic casing; rounded yet sharp lines; and imposing, \
+		oversized magazine were designed for psychological impact as much as function. The strategy worked too well; the PR-15's menacing silhouette \
+		became so culturally ubiquitous that it single-handedly replaced the many centuries-old stereotype of \
+		the \"villain with a stamped-receiver, wood-stocked assault rifle\" in popular media, becoming the new de-facto \"bad guy's gun\" in films \
+		and video games for a generation."
 
 /obj/item/gun/ballistic/automatic/pulse_rifle/give_manufacturer_examine()
 	AddElement(/datum/element/manufacturer_examine, COMPANY_SZOT)
