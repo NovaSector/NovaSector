@@ -1,0 +1,4 @@
+author: "OrbisAnima"
+delete-after: True
+changes:
+  - balance: ".585 speed loaders are small sized now, as originally intended."
