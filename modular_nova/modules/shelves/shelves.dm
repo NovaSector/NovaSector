@@ -123,7 +123,7 @@
 
 // Returns a valid list of open turfs to scatter crates
 /obj/structure/cargo_shelf/proc/get_spill_locations(radius)
-	var/list/buckets[radius+1]
+	var/list/buckets = new /list(radius+1)
 	for(var/turf/turf_in_view in view(radius, get_turf(src)))
 		var/distance = get_dist(get_turf(src), turf_in_view)
 		if(isclosedturf(turf_in_view))
