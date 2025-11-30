@@ -156,10 +156,10 @@
 	var/list/render_list = list()
 
 	// Damage specifics
-	var/oxy_loss = target.getOxyLoss()
-	var/tox_loss = target.getToxLoss()
-	var/fire_loss = target.getFireLoss()
-	var/brute_loss = target.getBruteLoss()
+	var/oxy_loss = target.get_oxy_loss()
+	var/tox_loss = target.get_tox_loss()
+	var/fire_loss = target.get_fire_loss()
+	var/brute_loss = target.get_brute_loss()
 	var/mob_status = (!target.appears_alive() ? span_alert("<b>Deceased</b>") : "<b>[round(target.health / target.maxHealth, 0.01) * 100]% healthy</b>")
 
 	if(HAS_TRAIT(target, TRAIT_FAKEDEATH) && target.stat != DEAD)
@@ -188,9 +188,9 @@
 		else
 			render_list += "<span class='alert ml-1'>Subject has been husked.</span><br>"
 
-	if(target.getStaminaLoss())
+	if(target.get_stamina_loss())
 		if(advanced)
-			render_list += "<span class='alert ml-1'>Fatigue level: [target.getStaminaLoss()]%.</span><br>"
+			render_list += "<span class='alert ml-1'>Fatigue level: [target.get_stamina_loss()]%.</span><br>"
 		else
 			render_list += "<span class='alert ml-1'>Subject appears to be suffering from fatigue.</span><br>"
 
@@ -571,13 +571,12 @@
 				render_block += "<span class='notice ml-2'>[round(reagent.volume, 0.001)] units of [reagent.name][reagent.overdosed ? "</span> - [span_bolddanger("OVERDOSING")]" : ".</span>"]<br>"
 
 		// NOVA EDIT ADDITION BEGIN - Neuroware
-		if(!length(neuroware_list))
-			var/obj/item/organ/brain/owner_brain = target.get_organ_slot(ORGAN_SLOT_BRAIN)
-			if(!isnull(owner_brain) && (owner_brain.organ_flags & ORGAN_ROBOTIC))
+		if(target.is_neuroware_compatible())
+			if(length(neuroware_list))
+				render_list += "<span class='notice ml-1'>Subject contains the following neuroware in their brain:</span><br>"
+				render_list += jointext(neuroware_list + "<br>", "")
+			else
 				render_list += "<span class='notice ml-1'>Subject contains no neuroware in their brain.</span><br>"
-		else
-			render_list += "<span class='notice ml-1'>Subject contains the following neuroware in their brain:</span><br>"
-			render_list += jointext(neuroware_list + "<br>", "")
 		// NOVA EDIT ADDITION END
 		if(!length(render_block)) //If no VISIBLY DISPLAYED reagents are present, we report as if there is nothing.
 			render_list += "<span class='notice ml-1'>Subject contains no reagents in their [LOWER_TEXT(target.get_bloodtype()?.get_blood_name()) || "blood"]stream.</span><br>"
@@ -732,7 +731,7 @@
 		show_emotion(AID_EMOTION_HAPPY)
 
 /obj/item/healthanalyzer/simple/proc/violence_damage(mob/living/user)
-	user.adjustBruteLoss(4)
+	user.adjust_brute_loss(4)
 
 /obj/item/healthanalyzer/simple/interact_with_atom(atom/interacting_with, mob/living/user, list/modifiers)
 	if(!isliving(interacting_with))
@@ -800,7 +799,7 @@
 	scan_for_what = "diseases"
 
 /obj/item/healthanalyzer/simple/disease/violence_damage(mob/living/user)
-	user.adjustBruteLoss(1)
+	user.adjust_brute_loss(1)
 	user.reagents.add_reagent(/datum/reagent/toxin, rand(1, 3))
 
 /obj/item/healthanalyzer/simple/disease/do_the_scan(mob/living/carbon/scanning, mob/living/user)

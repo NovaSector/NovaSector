@@ -14,19 +14,24 @@
 		return
 
 	var/mob/living/living_crosser = crosser
-	living_crosser.adjustBruteLoss(-MUTATION_HEAL_AMOUNT_CROSS)
-	living_crosser.adjustFireLoss(-MUTATION_HEAL_AMOUNT_CROSS)
-	living_crosser.adjustToxLoss(-MUTATION_HEAL_AMOUNT_CROSS)
+	var/need_mob_update
+	need_mob_update += living_crosser.adjust_brute_loss(-MUTATION_HEAL_AMOUNT_CROSS, updating_health = FALSE)
+	need_mob_update += living_crosser.adjust_fire_loss(-MUTATION_HEAL_AMOUNT_CROSS, updating_health = FALSE)
+	need_mob_update += living_crosser.adjust_tox_loss(-MUTATION_HEAL_AMOUNT_CROSS, updating_health = FALSE)
+	if(need_mob_update)
+		living_crosser.updatehealth()
 
 /datum/spacevine_mutation/flesh_mending/on_eat(obj/structure/spacevine/vine_object, mob/living/eater)
 	if(!isliving(eater))
 		return
 
 	var/mob/living/living_eater = eater
-	living_eater.adjustBruteLoss(-MUTATION_HEAL_AMOUNT_EAT)
-	living_eater.adjustFireLoss(-MUTATION_HEAL_AMOUNT_EAT)
-	living_eater.adjustToxLoss(-MUTATION_HEAL_AMOUNT_EAT)
-
+	var/need_mob_update
+	need_mob_update += living_eater.adjust_brute_loss(-MUTATION_HEAL_AMOUNT_EAT, updating_health = FALSE)
+	need_mob_update += living_eater.adjust_fire_loss(-MUTATION_HEAL_AMOUNT_EAT, updating_health = FALSE)
+	need_mob_update += living_eater.adjust_tox_loss(-MUTATION_HEAL_AMOUNT_EAT, updating_health = FALSE)
+	if(need_mob_update)
+		living_eater.updatehealth()
 
 // Will prevent the vine from opening doors
 /datum/spacevine_mutation/domesticated

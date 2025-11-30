@@ -24,7 +24,7 @@
 	///json key to crew names, the last part ("fish" in "Cometfish")
 	var/name_endings = "generic_endings"
 
-/obj/effect/mob_spawn/ghost_role/human/ship_crew/special(mob/living/spawned_mob, mob/mob_possessor)
+/obj/effect/mob_spawn/ghost_role/human/ship_crew/special(mob/living/spawned_mob, mob/mob_possessor, apply_prefs)
 	. = ..()
 	spawned_mob.fully_replace_character_name(spawned_mob.real_name, generate_crew_name(spawned_mob.gender))
 	spawned_mob.mind.add_antag_datum(/datum/antagonist/ship_crew)
@@ -34,7 +34,7 @@
 	var/endings = strings(PIRATE_NAMES_FILE, name_endings)
 	return "[rank ? rank + " " : ""][pick(beggings)][pick(endings)]"
 
-/obj/effect/mob_spawn/ghost_role/human/ship_crew/create(mob/mob_possessor, newname)
+/obj/effect/mob_spawn/ghost_role/human/ship_crew/create(mob/mob_possessor, newname, apply_prefs)
 	if(fluff_spawn)
 		new fluff_spawn(drop_location())
 	return ..()
