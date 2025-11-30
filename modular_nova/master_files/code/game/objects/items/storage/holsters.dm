@@ -6,7 +6,7 @@
 	/// The multiplier for charge rate (see its usage in device/weapon rechargers)
 	var/recharge_coeff = 1
 	/// The multiplier for rechargable magazines' charge rate.
-	var/recharge_magazine_coeff = 1
+	VAR_FINAL/recharge_magazine_coeff = 1
 
 /obj/item/storage/belt/holster/energy/onegun
 	name = "high-output energy shoulder holster"
@@ -21,10 +21,6 @@
 	it might not be terribly offensive compared to the rest of crewside. Caveat emptor, though.
 	- Hatterhat, 11/16/2025
 	*/
-
-/obj/item/storage/belt/holster/energy/Initialize(mapload)
-	. = ..()
-	RegisterSignal(src, COMSIG_ATOM_EXITED, PROC_REF(on_item_removed))
 
 /obj/item/storage/belt/holster/energy/examine(mob/user)
 	. = ..()
@@ -65,10 +61,11 @@
 	unregister_cell()
 	return ITEM_INTERACT_SUCCESS
 
-/// In the event that, somehow, our recharger cell is removed without a screwdriver act, unregister and unanchor our recharger cell.
-/obj/item/storage/belt/holster/energy/proc/on_item_removed(datum/source, obj/item/gone, direction)
+// In the event that, somehow, our recharger cell is removed without a screwdriver act, unregister and unanchor our recharger cell.
+/obj/item/storage/belt/holster/energy/Exited(atom/movable/gone, direction)
 	if(gone == recharger_cell)
 		unregister_cell()
+	return ..()
 
 /// Unregister and unanchor our recharger cell.
 /obj/item/storage/belt/holster/energy/proc/unregister_cell()
