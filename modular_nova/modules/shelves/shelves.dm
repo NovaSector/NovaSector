@@ -60,7 +60,7 @@
 		visible_message(span_warning("[crate] falls off of [src]!"),
 			span_notice("You manage to knock [crate] free of [src]"),
 			span_notice("You hear a thud."))
-		remove_crate(crate, get_spill_location(3)) // Try to push it somewhere
+		forceMove(crate, get_spill_location(2)) // Try to push it somewhere
 
 /// Spits out how many crates are currently stored, counting the non nulls
 /obj/structure/cargo_shelf/proc/crate_count()
@@ -94,7 +94,7 @@
 	if(!locate(crate) in src)
 		return FALSE // If something has happened to the crate while we were waiting, abort!
 
-	remove_crate(crate, unload_turf)
+	forceMove(crate, unload_turf)
 	crate.add_fingerprint(user)
 	return TRUE
 
@@ -109,7 +109,7 @@
 /// Fling crates around and open/break some of them in the process
 /obj/structure/cargo_shelf/proc/spill_contents()
 	for(var/obj/structure/closet/crate/crate in contents)
-		remove_crate(crate, get_spill_location(2)) // Shuffle the crates around as though they've fallen down.
+		crate.foreceMove(get_spill_location(2)) // Shuffle the crates around as though they've fallen down.
 		crate.SpinAnimation(rand(4,7), 1) // Spin the crates around a little as they fall. Randomness is applied so it doesn't look weird.
 		if(prob(75))
 			continue
@@ -215,13 +215,15 @@
 /obj/structure/cargo_shelf/proc/remove_crate(obj/structure/closet/crate/crate, turf/unload_turf)
 	crate.layer = initial(crate.layer) // Reset the crate back to having the default layer, otherwise we might get strange interactions.
 	crate.pixel_y = initial(crate.pixel_y) // Reset the crate back to having no offset, otherwise it will be floating.
-	crate.forceMove(unload_turf)
 	for(var/slot in 1 to length(crates_stored)) // don't remove from the list, instead set the appropriate slot to null
 		if(crates_stored[slot] == REF(crate))
 			crates_stored[slot] = null
 			break
 	crate.interaction_flags_atom &= ~INTERACT_ATOM_MOUSEDROP_IGNORE_ADJACENT
 	vis_contents -= crate
+
+/obj/structure/cargo_shelf/Exited(atom/movable/gone, direction)
+	remove_crate(obj/structure/closet/crate/crate, turf/unload_turf)
 
 /obj/item/rack_parts/cargo_shelf
 	name = "crate shelf parts"
