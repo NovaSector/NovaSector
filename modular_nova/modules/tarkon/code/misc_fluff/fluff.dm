@@ -175,7 +175,7 @@
 /obj/item/paper/fluff/ruins/tarkon/enginote
 	name = "paper - 'Engineering Notice'"
 	default_raw_text = "I'm wrote this note for two reasons. First, you need to know about project room cabels - the red cable in project room goes to SMESES INPUT and blue to SMESES OUTPUT. ,\
-	Second, something was screeching from the project room yesterday, so I weld the airlock shut. PLEASE don't go in there unarmed. I don't really know what's in there."
+		Second, something was screeching from the project room yesterday, so I weld the airlock shut. PLEASE don't go in there unarmed. I don't really know what's in there."
 
 /obj/item/blueprints/tarkon
 	desc = "Blueprints of the Tarkon surface breaching drill and several Tarkon base designs. Red, stamped text reads \"Confidential\" on the backside of it."
