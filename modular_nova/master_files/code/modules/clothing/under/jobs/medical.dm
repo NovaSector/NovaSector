@@ -2,22 +2,19 @@
 	worn_icon_digi = 'modular_nova/master_files/icons/mob/clothing/under/medical_digi.dmi'
 
 /obj/item/clothing/under/rank/medical/doctor/nurse
+	can_adjust = FALSE
 	icon = 'modular_nova/master_files/icons/obj/clothing/under/medical.dmi'
 	worn_icon = 'modular_nova/master_files/icons/mob/clothing/under/medical.dmi'
-	unique_reskin = list(
-		"Flowing" = list(
-			RESKIN_ICON = 'modular_nova/master_files/icons/obj/clothing/under/medical.dmi',
-			RESKIN_ICON_STATE = "nursesuit",
-			RESKIN_WORN_ICON = 'modular_nova/master_files/icons/mob/clothing/under/medical.dmi',
-			RESKIN_WORN_ICON_STATE = "nursesuit",
-		),
-		"Tight" = list(
-			RESKIN_ICON = 'modular_nova/master_files/icons/obj/clothing/under/medical.dmi',
-			RESKIN_ICON_STATE = "nursesuit_alt",
-			RESKIN_WORN_ICON = 'modular_nova/master_files/icons/mob/clothing/under/medical.dmi',
-			RESKIN_WORN_ICON_STATE = "nursesuit_alt",
-		),
-	)
+	worn_icon_digi = 'modular_nova/master_files/icons/mob/clothing/under/medical_digi.dmi'
+	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION
+
+/obj/item/clothing/under/rank/medical/doctor/nurse/seriouser
+	can_adjust = FALSE
+	icon_state = "nursesuit_alt"
+	icon = 'modular_nova/master_files/icons/obj/clothing/under/medical.dmi'
+	worn_icon = 'modular_nova/master_files/icons/mob/clothing/under/medical.dmi'
+	worn_icon_digi = 'modular_nova/master_files/icons/mob/clothing/under/medical_digi.dmi'
+	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION
 
 /obj/item/clothing/under/rank/medical/doctor/nova
 	icon = 'modular_nova/master_files/icons/obj/clothing/under/medical.dmi'
@@ -26,7 +23,6 @@
 /obj/item/clothing/under/syndicate/scrubs
 	worn_icon_digi = 'modular_nova/master_files/icons/mob/clothing/under/medical_digi.dmi'
 	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION
-
 
 /obj/item/clothing/under/rank/medical/scrubs/nova
 	icon = 'modular_nova/master_files/icons/obj/clothing/under/medical.dmi'
