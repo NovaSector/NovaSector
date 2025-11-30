@@ -138,10 +138,10 @@
 	addtimer(CALLBACK(src, PROC_REF(step_or_drop)), move_delay)
 
 /obj/effect/swarm_rocket_tracker/Destroy()
-    // cancel all outstanding timers before deletion
-    for(var/id in timer_ids)
-        deltimer(id)
-    return ..()
+	// cancel all outstanding timers before deletion
+	for(var/id in timer_ids)
+		deltimer(id)
+	return ..()
 
 /obj/effect/swarm_rocket_tracker/proc/step_or_drop()
 	if (!target || !target.loc)
