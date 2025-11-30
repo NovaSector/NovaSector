@@ -60,8 +60,8 @@
 		visible_message(span_warning("[crate] falls off of [src]!"),
 			span_notice("You manage to knock [crate] free of [src]"),
 			span_notice("You hear a thud."))
-		remove_crate(crate, drop_location())
-		random_step(crate, 2, 20) // Then try to push it somewhere.
+		var/scatter_turf = pick(get_spill_locations(3)) // Try to push it somewhere
+		remove_crate(crate, scatter_turf)
 
 /// Spits out how many crates are currently stored, counting the non nulls
 /obj/structure/cargo_shelf/proc/crate_count()
@@ -111,21 +111,45 @@
 /obj/structure/cargo_shelf/proc/spill_contents()
 	var/turf/dump_turf = drop_location()
 	for(var/obj/structure/closet/crate/crate in contents)
+		var/dump_turf = pick(get_spill_locations(3)) // Shuffle the crates around as though they've fallen down.
 		remove_crate(crate, dump_turf)
-		random_step(crate, 2, 20) // Shuffle the crates around as though they've fallen down.
 		crate.SpinAnimation(rand(4,7), 1) // Spin the crates around a little as they fall. Randomness is applied so it doesn't look weird.
-		switch(pick(1, 1, 1, 1, 2, 2, 3)) // Randomly pick whether to do nothing, open the crate, or break it open.
-			if(1) // Believe it or not, this does nothing.
+		if(prob(75))
+			continue
+		else
+			if(crate.welded || crate.locked)
 				continue
-			if(2) // Open the crate!
-				if(crate.open()) // Break some open, cause a little chaos.
-					crate.visible_message(span_warning("[crate]'s lid falls open!"))
-				else // If we somehow fail to open the crate, just break it instead!
-					crate.visible_message(span_warning("[crate] falls apart!"))
-					crate.deconstruct(FALSE)
-			if(3) // Break that crate!
-				crate.visible_message(span_warning("[crate] falls apart!"))
-				crate.deconstruct(FALSE)
+			crate.open(force = TRUE) // Break some open, cause a little chaos.
+			crate.visible_message(span_warning("[crate]'s lid falls open!"))
+
+// Returns a valid list of open turfs to scatter crates
+/obj/structure/cargo_shelf/proc/get_spill_locations(radius)
+	var/list/buckets[radius+1]
+	for(var/turf/turf_in_view in view(radius, get_turf(src)))
+		if(!distance)
+			continue
+		if(isclosedturf(turf_in_view))
+			continue
+		if(!islist(buckets[d]))
+			buckets[d] = list()
+		if(isgroundlessturf(turf_in_view) && !GET_TURF_BELOW(turf_in_view))
+			continue
+		if(turf_in_view.is_blocked_turf(exclude_mobs = TRUE))
+			continue
+
+		buckets[d] += turf_in_view
+
+	// now return the first non-empty ring
+	for(var/i = 0 to radius)
+		if(islist(buckets[i]) && length(buckets[i]))
+			return buckets[i]
+
+	// if absolutely nothing passed the filters, fallback to everything
+	// flat list of rings (lazy)
+	var/list/fallback = list()
+	for(var/i = 0 to radius)
+		if(islist(buckets[i]))
+			fallback += buckets[i]
 
 /obj/structure/closet/crate/mouse_drop_dragged(atom/over, mob/user, src_location, over_location, params)
 	. = ..()
