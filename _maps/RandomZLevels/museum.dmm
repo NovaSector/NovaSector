@@ -265,15 +265,6 @@
 /obj/effect/decal/cleanable/dirt/dust,
 /turf/open/floor/iron/dark,
 /area/awaymission/museum/cafeteria)
-"ck" = (
-/obj/effect/turf_decal/tile/neutral/opposingcorners,
-/obj/effect/turf_decal/siding/dark_blue/corner{
-	dir = 1
-	},
-/obj/structure/table,
-/obj/item/food/sandwich/grilled_cheese,
-/turf/open/floor/iron/dark,
-/area/awaymission/museum)
 "cm" = (
 /obj/machinery/door/airlock/grunge,
 /obj/structure/barricade/wooden/crude,
@@ -740,6 +731,17 @@
 	dir = 1
 	},
 /area/awaymission/museum)
+"fK" = (
+/obj/effect/turf_decal/tile/neutral/fourcorners,
+/obj/structure/sign/painting{
+	pixel_y = 32;
+	persistence_id = "museumgate";
+	dir = 1
+	},
+/obj/machinery/light/floor,
+/obj/effect/decal/cleanable/dirt/dust,
+/turf/open/floor/iron/dark,
+/area/awaymission/museum)
 "fT" = (
 /obj/structure/broken_flooring/corner/always_floorplane{
 	dir = 1
@@ -915,16 +917,6 @@
 	},
 /turf/open/floor/iron,
 /area/awaymission/museum)
-"hz" = (
-/obj/effect/turf_decal/tile/neutral/fourcorners,
-/obj/structure/sign/painting{
-	pixel_y = 32;
-	persistence_id = "museumgate";
-	dir = 1
-	},
-/obj/machinery/light/floor,
-/turf/open/floor/iron/dark,
-/area/awaymission/museum)
 "hA" = (
 /obj/effect/turf_decal/tile/neutral/opposingcorners,
 /obj/effect/turf_decal/siding/dark_blue{
@@ -1051,6 +1043,23 @@
 /obj/machinery/light/warm/directional/west,
 /turf/open/floor/iron/dark,
 /area/awaymission/museum)
+"iF" = (
+/obj/effect/turf_decal/sand/plating,
+/obj/effect/turf_decal/stripes/asteroid/line{
+	dir = 1
+	},
+/turf/open/indestructible/plating,
+/area/awaymission/museum)
+"iI" = (
+/obj/effect/turf_decal/tile/neutral/fourcorners,
+/obj/structure/sign/painting{
+	pixel_y = 32;
+	persistence_id = "museumgate";
+	dir = 1
+	},
+/obj/machinery/light/floor,
+/turf/open/floor/iron/dark,
+/area/awaymission/museum)
 "iJ" = (
 /obj/effect/decal/cleanable/dirt/dust,
 /obj/structure/toilet/museum{
@@ -1117,13 +1126,6 @@
 "jf" = (
 /mob/living/basic/mothroach,
 /turf/open/floor/wood/large,
-/area/awaymission/museum)
-"jh" = (
-/obj/effect/turf_decal/sand/plating,
-/obj/effect/turf_decal/stripes/asteroid/line{
-	dir = 1
-	},
-/turf/open/indestructible/plating,
 /area/awaymission/museum)
 "jm" = (
 /mob/living/basic/mothroach,
@@ -1751,6 +1753,15 @@
 /obj/structure/fluff/fake_vent,
 /turf/open/floor/iron,
 /area/awaymission/museum)
+"oe" = (
+/obj/effect/turf_decal/tile/neutral/opposingcorners,
+/obj/effect/turf_decal/siding/dark_blue/corner{
+	dir = 1
+	},
+/obj/structure/table,
+/obj/item/food/sandwich/grilled_cheese,
+/turf/open/floor/iron/dark,
+/area/awaymission/museum)
 "of" = (
 /obj/effect/puzzle_poddoor_open{
 	icon = 'icons/effects/mapping_helpers.dmi';
@@ -1922,17 +1933,6 @@
 /obj/machinery/light/small/dim/directional/east,
 /obj/effect/turf_decal/box,
 /turf/open/floor/iron/white/textured_large,
-/area/awaymission/museum)
-"pJ" = (
-/obj/effect/turf_decal/tile/neutral/fourcorners,
-/obj/structure/sign/painting{
-	pixel_y = 32;
-	persistence_id = "museumgate";
-	dir = 1
-	},
-/obj/machinery/light/floor,
-/obj/effect/decal/cleanable/dirt/dust,
-/turf/open/floor/iron/dark,
 /area/awaymission/museum)
 "pL" = (
 /obj/item/clothing/suit/costume/bronze,
@@ -4348,6 +4348,11 @@
 	},
 /turf/open/floor/iron,
 /area/awaymission/museum)
+"Jh" = (
+/obj/machinery/light/floor,
+/obj/structure/plaque/static_plaque/golden/commission/kilo,
+/turf/open/floor/mineral/gold,
+/area/awaymission/museum)
 "Jj" = (
 /mob/living/basic/mothroach,
 /turf/open/floor/mineral/gold,
@@ -5368,11 +5373,6 @@
 	puzzle_id = "museum_right_wing"
 	},
 /turf/open/floor/iron/white/small,
-/area/awaymission/museum)
-"Tr" = (
-/obj/structure/plaque/static_plaque/golden/commission/kilo,
-/obj/machinery/light/floor,
-/turf/open/floor/mineral/gold,
 /area/awaymission/museum)
 "Tt" = (
 /obj/structure/holosign/barrier/engineering,
@@ -30287,7 +30287,7 @@ re
 re
 fe
 hM
-jh
+iF
 ro
 Fi
 DU
@@ -32864,7 +32864,7 @@ QU
 sd
 Xt
 FK
-pJ
+fK
 VS
 zg
 qj
@@ -33635,7 +33635,7 @@ re
 re
 re
 FK
-pJ
+fK
 lb
 uY
 uY
@@ -35177,7 +35177,7 @@ re
 re
 re
 FK
-hz
+iI
 aa
 qj
 uY
@@ -35948,7 +35948,7 @@ Vz
 PP
 Qo
 FK
-hz
+iI
 WX
 RC
 uY
@@ -39036,7 +39036,7 @@ uY
 tD
 GV
 Lw
-Tr
+Jh
 Lw
 ud
 lb
@@ -40330,7 +40330,7 @@ lf
 bV
 nw
 bV
-ck
+oe
 FK
 re
 re
