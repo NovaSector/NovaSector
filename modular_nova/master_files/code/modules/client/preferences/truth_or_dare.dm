@@ -6,7 +6,7 @@
 	savefile_key = "accepts_random_td"
 
 /datum/preference/choiced/accepts_unsolicited_truth_or_dare/init_possible_values()
-	return list("No", "Yes - SFW Only", "Yes - NSFW Truths Only", "Yes - NSFW Truths and Dares")
+	return list("No", "Yes - Varies/Ask", "Yes - SFW Only", "Yes - NSFW Truths Only", "Yes - NSFW Truths and Dares")
 
 /datum/preference/choiced/accepts_unsolicited_truth_or_dare/create_default_value()
 	return "No"

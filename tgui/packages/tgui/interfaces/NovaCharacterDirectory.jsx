@@ -303,7 +303,7 @@ const ViewCharacter = (props) => {
                           {overlay.hypno}
                         </LabeledList.Item>
                         <LabeledList.Item label="Truth or Dare">
-                          {overlay.truthordare}
+                          {overlay.truth_or_dare}
                         </LabeledList.Item>
                         <LabeledList.Item label="Noncon">
                           {overlay.noncon}
@@ -503,7 +503,7 @@ const CharacterDirectoryList = (props) => {
             Hypno
           </SortButton>
           <SortButton
-            id="truthordare"
+            id="truth_or_dare"
             sortId={sortId}
             sortOrder={sortOrder}
             onClick={handleSort}
@@ -549,7 +549,7 @@ const CharacterDirectoryList = (props) => {
             <Table.Cell>{character.erp}</Table.Cell>
             <Table.Cell>{character.vore}</Table.Cell>
             <Table.Cell>{character.hypno}</Table.Cell>
-            <Table.Cell>{character.truthordare}</Table.Cell>
+            <Table.Cell>{character.truth_or_dare}</Table.Cell>
             <Table.Cell>{character.noncon}</Table.Cell>
             <Table.Cell collapsing textAlign="right">
               <Button
