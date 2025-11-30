@@ -68,17 +68,17 @@
 	projectile_wound_bonus = 20 // base projectile has -20 wound bonus, this brings it back up to 0. burns are pretty schnasty though
 
 	lore_blurb = "Where the PP-7 sprayed plasma, the PP-8 precision-pours it. Developed as a field prototype to get dubbed as XM/PP-7A \
-	after frontline commanders requested a plasma sidearm for reconnaissance and special operations teams who needed to engage at longer ranges. <br><br>\
-	The \"Gwiazda\" uses the same rechargeable cells as its sibling but completely reworks the magnetic emitter. \
-	Instead of a wide dispersal chamber, it features a long, progressively-tightening magnetic coil that squeezes the plasma into \
-	a dense, stable sphere. The result is a projectile that maintains cohesion over hundreds of meters rather than dissipating into harmless glitter \
-	after fifty. <br><br>\
-	Early testers complained the weapon felt \"dead\" in hand - the lack of recoil from the massless projectiles made traditional marksmanship \
-	techniques useless. The solution was a clever haptic feedback system that simulates the kick of a .27-54 cartridge, allowing experienced \
-	shooters to use their existing muscle memory. This \"ghost recoil\" remains controversial but effective. <br><br>\
-	Adopted by military police, shipboard security, and designated marksmen who need the logistical benefits of plasma weapons \
-	but can't sacrifice accuracy. The improved magnetic bottle also reduces plasma waste, giving each charge 20% more efficiency than the PP-7 \
-	at the cost of a much slower cycle rate."
+		after frontline commanders requested a plasma sidearm for reconnaissance and special operations teams who needed to engage at longer ranges. <br><br>\
+		The \"Gwiazda\" uses the same rechargeable cells as its sibling but completely reworks the magnetic emitter. \
+		Instead of a wide dispersal chamber, it features a long, progressively-tightening magnetic coil that squeezes the plasma into \
+		a dense, stable sphere. The result is a projectile that maintains cohesion over hundreds of meters rather than dissipating into harmless glitter \
+		after fifty. <br><br>\
+		Early testers complained the weapon felt \"dead\" in hand - the lack of recoil from the massless projectiles made traditional marksmanship \
+		techniques useless. The solution was a clever haptic feedback system that simulates the kick of a .27-54 cartridge, allowing experienced \
+		shooters to use their existing muscle memory. This \"ghost recoil\" remains controversial but effective. <br><br>\
+		Adopted by military police, shipboard security, and designated marksmen who need the logistical benefits of plasma weapons \
+		but can't sacrifice accuracy. The improved magnetic bottle also reduces plasma waste, giving each charge 20% more efficiency than the PP-7 \
+		at the cost of a much slower cycle rate."
 
 /obj/item/gun/ballistic/automatic/pistol/plasma_marksman/give_manufacturer_examine()
 	AddElement(/datum/element/manufacturer_examine, COMPANY_SZOT)
@@ -99,22 +99,22 @@
 	spread = 15
 
 	lore_blurb = "The \"Bóbr\" is less a formal military design and more an artifact of frontier desperation that somehow found \
-	its way into serial production. Classified as a Prototype Model (PM) despite its widespread availability, the RS-1 represents \
-	the absolute limit of how far a century-old revolver mechanism can be scaled up. <br><br>\
-	The concept was born on the roughest frontier outposts, where gunsmiths, faced with a dire lack of specialized ammunition, \
-	began boring out old, heavy-framed pistols to accept readily available 12-gauge shotgun shells. Szot Dynamica's engineers, in a \
-	rare moment of pragmatic (or cynical) design, took this jury-rigged concept and refined it into a production weapon. \
-	The result is a four-shot cylinder of pure, unadulterated brute force, chambered for a cartridge that was obsolete for \
-	military use two centuries prior. <br><br>\
-	Its place in the modern era is one of pure utility. While a soldier might be issued a plasma pistol; a freighter pilot, \
-	a prospector, or a colonist on a shoestring budget can own a Bóbr. Its ammunition is universally available, \
-	easily reloaded with primitive tools, and effective for everything from hunting game to deterring megafauna to close-quarters \
-	defense. The trade-offs are severe: punishing recoil that makes accurate follow-up shots a myth, a comically large and \
-	cumbersome frame, and a cylinder gap that blasts superheated gas and unburnt powder onto anything nearby. <br><br>\
-	It is the antithesis of the Coalition's sleek, logistically streamlined future. It is heavy, loud, inefficient, and brutally simple. \
-	But in the vast, lonely stretches of space where cells can't be recharged and supply lines are a dream, the ability to stuff whatever \
-	you can find, -rock salt, flechettes, or a solid slug-, into a massive cartridge and have it go \"boom\" every single time has a certain \
-	timeless appeal. It's not a weapon of war; it's a tool of survival."
+		its way into serial production. Classified as a Prototype Model (PM) despite its widespread availability, the RS-1 represents \
+		the absolute limit of how far a century-old revolver mechanism can be scaled up. <br><br>\
+		The concept was born on the roughest frontier outposts, where gunsmiths, faced with a dire lack of specialized ammunition, \
+		began boring out old, heavy-framed pistols to accept readily available 12-gauge shotgun shells. Szot Dynamica's engineers, in a \
+		rare moment of pragmatic (or cynical) design, took this jury-rigged concept and refined it into a production weapon. \
+		The result is a four-shot cylinder of pure, unadulterated brute force, chambered for a cartridge that was obsolete for \
+		military use two centuries prior. <br><br>\
+		Its place in the modern era is one of pure utility. While a soldier might be issued a plasma pistol; a freighter pilot, \
+		a prospector, or a colonist on a shoestring budget can own a Bóbr. Its ammunition is universally available, \
+		easily reloaded with primitive tools, and effective for everything from hunting game to deterring megafauna to close-quarters \
+		defense. The trade-offs are severe: punishing recoil that makes accurate follow-up shots a myth, a comically large and \
+		cumbersome frame, and a cylinder gap that blasts superheated gas and unburnt powder onto anything nearby. <br><br>\
+		It is the antithesis of the Coalition's sleek, logistically streamlined future. It is heavy, loud, inefficient, and brutally simple. \
+		But in the vast, lonely stretches of space where cells can't be recharged and supply lines are a dream, the ability to stuff whatever \
+		you can find, -rock salt, flechettes, or a solid slug-, into a massive cartridge and have it go \"boom\" every single time has a certain \
+		timeless appeal. It's not a weapon of war; it's a tool of survival."
 
 /obj/item/gun/ballistic/revolver/shotgun_revolver/give_manufacturer_examine()
 	AddElement(/datum/element/manufacturer_examine, COMPANY_SZOT)
