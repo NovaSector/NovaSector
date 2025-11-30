@@ -126,18 +126,16 @@
 		var/distance = max(get_dist(get_turf(src), turf_in_view), 1)
 		if(isclosedturf(turf_in_view))
 			continue
-		if(!islist(buckets[distance]))
-			buckets[distance] = list()
 		if(isgroundlessturf(turf_in_view) && !GET_TURF_BELOW(turf_in_view))
 			continue
 		if(turf_in_view.is_blocked_turf(exclude_mobs = TRUE))
 			continue
 
-		buckets[distance] += turf_in_view
+		LAZYADD(buckets[distance], turf_in_view)
 
 	// now return the first non-empty ring
 	for(var/i = 1 to radius)
-		if(islist(buckets[i]) && length(buckets[i]))
+		if(LAZYLEN(buckets[i]))
 			if(length(buckets[i]) == 1) // if it's just the same turf as the shelf try other options first
 				continue
 			return pick(buckets[i])
