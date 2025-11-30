@@ -108,5 +108,6 @@
 	ammo_type = /obj/item/ammo_casing/c585trappiste
 	max_ammo = 6
 	caliber = CALIBER_585TRAPPISTE
+	w_class = WEIGHT_CLASS_SMALL
 	ammo_band_icon = "+sl585_band"
 	ammo_band_color = null

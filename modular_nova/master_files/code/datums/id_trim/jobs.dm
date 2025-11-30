@@ -1,5 +1,10 @@
 // MODULAR ID TRIM ACCESS OVERRIDES GO HERE!!
 
+/datum/id_trim/job/medical_doctor/New()
+	. = ..()
+
+	extra_access  |= ACCESS_MORGUE_SECURE
+
 /datum/id_trim/job/chief_engineer/New()
 	. = ..()
 

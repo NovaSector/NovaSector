@@ -7,6 +7,14 @@
 		TRAIT_LITERATE,
 		TRAIT_MUTANT_COLORS,
 	)
+	bodypart_overrides = list(
+		BODY_ZONE_HEAD = /obj/item/bodypart/head/humanoid,
+		BODY_ZONE_CHEST = /obj/item/bodypart/chest/humanoid,
+		BODY_ZONE_L_ARM = /obj/item/bodypart/arm/left/humanoid,
+		BODY_ZONE_R_ARM = /obj/item/bodypart/arm/right/humanoid,
+		BODY_ZONE_L_LEG = /obj/item/bodypart/leg/left/humanoid,
+		BODY_ZONE_R_LEG = /obj/item/bodypart/leg/right/humanoid,
+	)
 	inherent_biotypes = MOB_ORGANIC|MOB_HUMANOID
 	mutant_bodyparts = list()
 	changesource_flags = MIRROR_BADMIN | WABBAJACK | MIRROR_MAGIC | MIRROR_PRIDE | ERT_SPAWN | RACE_SWAP | SLIME_EXTRACT

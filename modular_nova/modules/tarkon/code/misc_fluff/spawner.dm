@@ -13,7 +13,7 @@
 	spawner_job_path = /datum/job/tarkon
 	loadout_enabled = TRUE
 	quirks_enabled = TRUE
-	random_appearance = FALSE
+	allow_custom_character = GHOSTROLE_TAKE_PREFS_APPEARANCE
 	computer_area = /area/ruin/space/has_grav/port_tarkon
 
 /datum/outfit/tarkon
@@ -199,7 +199,7 @@
 	spawner_job_path = /datum/job/tarkon/command
 	loadout_enabled = TRUE
 	quirks_enabled = TRUE
-	random_appearance = FALSE
+	allow_custom_character = GHOSTROLE_TAKE_PREFS_APPEARANCE
 
 /datum/outfit/tarkon/director //Look at me, I'm the director now.
 	name = "Port Tarkon Directors Outfit"

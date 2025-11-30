@@ -342,8 +342,6 @@
 	name = "feathered serenity hood"
 	icon_state = "paddedhoodalt"
 
-/datum/armor/clothing_under/none
-
 /obj/item/clothing/shoes/jackboots/heel
 	name = "high-heeled jackboots"
 	desc = "Almost like regular jackboots... why are they on a high heel?"

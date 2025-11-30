@@ -1,7 +1,3 @@
-/obj/effect/mob_spawn
-	/// Do we use a random appearance for this role?
-	var/random_appearance = TRUE
-
 /obj/effect/mob_spawn/ghost_role
 	/// set this to make the spawner use the outfit.name instead of its name var for things like cryo announcements and ghost records
 	/// modifying the actual name during the game will cause issues with the GLOB.mob_spawners associative list
@@ -15,26 +11,14 @@
 	/// Are we limited to a certain species type? LISTED TYPE
 	var/restricted_species
 
-/obj/effect/mob_spawn/ghost_role/create(mob/mob_possessor, newname, use_loadout = FALSE)
-	var/load_prefs = FALSE
-	//if we can load our own appearance and it's not restricted, try
-	if(!random_appearance && mob_possessor?.client)
-		//if we have gotten to this point, they have already waived their species pref.-- they were told they need to use the specific species already
-		if((restricted_species && (mob_possessor?.client?.prefs?.read_preference(/datum/preference/choiced/species) in restricted_species)) || !restricted_species)
-			if(use_loadout)
-				load_prefs = TRUE
-			else
-				var/appearance_choice = tgui_alert(mob_possessor, "Use currently loaded character preferences?", "Appearance Type", list("Yes", "No"))
-				if(appearance_choice == "Yes")
-					load_prefs = TRUE
-
-	var/mob/living/spawned_mob = ..(mob_possessor, newname, load_prefs)
+/obj/effect/mob_spawn/ghost_role/create(mob/mob_possessor, newname, apply_prefs)
+	var/mob/living/spawned_mob = ..(mob_possessor, newname, apply_prefs)
 
 	var/mob/living/carbon/human/spawned_human
 	if (istype(spawned_mob, /mob/living/carbon/human))
 		spawned_human = spawned_mob
 
-		if(!load_prefs)
+		if(!apply_prefs)
 			var/datum/language_holder/holder = spawned_human.get_language_holder()
 			holder.get_selected_language() //we need this here so a language starts off selected
 			post_transfer_prefs(spawned_human)
@@ -51,25 +35,13 @@
 
 		post_transfer_prefs(spawned_human)
 
-	if(load_prefs && loadout_enabled)
+	if(apply_prefs && loadout_enabled)
 		spawned_human?.equip_outfit_and_loadout(outfit, spawned_mob.client.prefs, FALSE, null, allow_mechanical_loadout_items)
 	else if (!isnull(spawned_human))
 		equip(spawned_human)
 		var/mutable_appearance/character_appearance = new(spawned_human.appearance)
 		GLOB.name_to_appearance[spawned_human.real_name] = character_appearance // Cache this for Character Directory
 
-	return spawned_mob
-
-/// This edit would cause somewhat ugly diffs, so I'm just replacing it.
-/// Original proc in code/modules/mob_spawn/mob_spawn.dm ~line 39.
-/obj/effect/mob_spawn/create(mob/mob_possessor, newname, use_loadout = FALSE)
-	var/mob/living/spawned_mob = new mob_type(get_turf(src)) //living mobs only
-	name_mob(spawned_mob, newname)
-	special(spawned_mob, mob_possessor, use_loadout)
-	// Only run equip logic if this is NOT a ghost_role spawner, as we already solve equip with loadout there.
-	if (!use_loadout)
-		equip(spawned_mob)
-	spawned_mob_ref = WEAKREF(spawned_mob)
 	return spawned_mob
 
 // Anything that can potentially be overwritten by transferring prefs must go in this proc
@@ -80,8 +52,8 @@
 	apply_job_traits(new_spawn) // for things in after_spawn e.g. liver traits
 	return
 
-/obj/effect/mob_spawn/ghost_role/human/special(mob/living/spawned_mob, mob/mob_possessor, use_loadout)
-	. = ..(spawned_mob, mob_possessor, use_loadout)
+/obj/effect/mob_spawn/ghost_role/human/special(mob/living/spawned_mob, mob/mob_possessor, apply_prefs)
+	. = ..(spawned_mob, mob_possessor, apply_prefs)
 	var/mob/living/carbon/human/spawned_human = spawned_mob
 	var/datum/job/spawned_job = SSjob.get_job_type(spawner_job_path)
 	spawned_human.job = spawned_job.title

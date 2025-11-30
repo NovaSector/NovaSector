@@ -79,7 +79,7 @@
 	// snowflakey but vox legs weird.
 	if(item_slot == LOADOUT_ITEM_SHOES)
 		var/obj/item/bodypart/leg = bodypart_overrides[BODY_ZONE_L_LEG] || bodypart_overrides[BODY_ZONE_R_LEG]
-		if(initial(leg?.limb_id) != "digitigrade")
+		if(initial(leg?.limb_id) != BODYPART_ID_DIGITIGRADE)
 			// normal legs, use normal human shoes
 			return DEFAULT_SHOES_FILE
 

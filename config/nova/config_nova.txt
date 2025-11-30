@@ -168,3 +168,10 @@ MISSING_WHITELIST_MESSAGE "\nThis server requires you to be whitelisted in order
 
 #If enabled, /human mobs will no longer occasionally blink
 #DISABLE_BLINKING
+
+## Maximum number of allowed savefile backups per player
+SAVEFILE_BACKUP_LIMIT 16
+
+## Maximum file size allowed by savefile uploading, in kilobytes
+## Default limit is 2000
+SAVEFILE_UPLOAD_LIMIT 2000

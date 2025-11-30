@@ -145,5 +145,5 @@
 	owner.reagents.add_reagent(/datum/reagent/drug/saturnx, poison_amount / severity)
 	owner.adjust_confusion(rand(8 SECONDS, 11 SECONDS))
 	to_chat(owner, span_warning("Your skin tingles, and the room feels like it's spinning!"))
-	deactivate()
+	unstealth()
 

@@ -26,6 +26,14 @@
 /datum/crafting_recipe/food/powercrepe
 	blacklist = list(/obj/item/melee/sabre/cargo)
 
+// Prevents our common weapons from being used to easily craft stunswords
+// Claymore blacklists can be found in code\datums\components\crafting\melee_weapon.dm
+/datum/crafting_recipe/stunswordalt
+	blacklist = list(/obj/item/katana/weak/curator)
+
+/datum/crafting_recipe/stunswordalt2
+	blacklist = list(/obj/item/melee/sabre/cargo)
+
 /obj/item/melee/baton
 	/// For use with jousting. For each usable jousting tile, increase the stamina damage of the jousting hit by this much.
 	var/stamina_damage_per_jousting_tile = 2

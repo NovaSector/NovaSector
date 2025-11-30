@@ -19,25 +19,25 @@
 	flavour_text = "Who could have thought? This awesome local cafe accepts cyborgs too!"
 	mob_type = /mob/living/silicon/robot/model/roleplay
 	loadout_enabled = TRUE
-	random_appearance = FALSE
+	allow_custom_character = GHOSTROLE_TAKE_PREFS_APPEARANCE
 
-/obj/effect/mob_spawn/ghost_role/robot/ghostcafe/special(mob/living/silicon/robot/new_spawn)
+/obj/effect/mob_spawn/ghost_role/robot/ghostcafe/special(mob/living/silicon/robot/spawned_robot, mob/mob_possessor, apply_prefs)
 	. = ..()
-	if(new_spawn.client)
-		new_spawn.custom_name = null
-		new_spawn.updatename(new_spawn.client)
-		new_spawn.transfer_silicon_prefs(new_spawn.client)
-		new_spawn.gender = NEUTER
+	if(spawned_robot.client)
+		spawned_robot.custom_name = null
+		spawned_robot.updatename(spawned_robot.client)
+		spawned_robot.transfer_silicon_prefs(spawned_robot.client)
+		spawned_robot.gender = NEUTER
 		var/area/A = get_area(src)
-		//new_spawn.AddElement(/datum/element/ghost_role_eligibility, free_ghosting = TRUE) SKYRAT PORT -- Needs to be completely rewritten
-		new_spawn.AddElement(/datum/element/dusts_on_catatonia)
-		new_spawn.AddElement(/datum/element/dusts_on_leaving_area, list(A.type) + GLOB.ghost_cafe_areas)
-		new_spawn.RegisterSignal(new_spawn, COMSIG_MOVABLE_USING_RADIO, TYPE_PROC_REF(/mob/living, on_using_radio))
-		ADD_TRAIT(new_spawn, TRAIT_SIXTHSENSE, TRAIT_GHOSTROLE)
-		ADD_TRAIT(new_spawn, TRAIT_FREE_GHOST, TRAIT_GHOSTROLE)
-		to_chat(new_spawn,span_warning("<b>Ghosting is free!</b>"))
-		var/datum/action/toggle_dead_chat_mob/D = new(new_spawn)
-		D.Grant(new_spawn)
+		//spawned_robot.AddElement(/datum/element/ghost_role_eligibility, free_ghosting = TRUE) SKYRAT PORT -- Needs to be completely rewritten
+		spawned_robot.AddElement(/datum/element/dusts_on_catatonia)
+		spawned_robot.AddElement(/datum/element/dusts_on_leaving_area, list(A.type) + GLOB.ghost_cafe_areas)
+		spawned_robot.RegisterSignal(spawned_robot, COMSIG_MOVABLE_USING_RADIO, TYPE_PROC_REF(/mob/living, on_using_radio))
+		ADD_TRAIT(spawned_robot, TRAIT_SIXTHSENSE, TRAIT_GHOSTROLE)
+		ADD_TRAIT(spawned_robot, TRAIT_FREE_GHOST, TRAIT_GHOSTROLE)
+		to_chat(spawned_robot,span_warning("<b>Ghosting is free!</b>"))
+		var/datum/action/toggle_dead_chat_mob/D = new(spawned_robot)
+		D.Grant(spawned_robot)
 
 /obj/effect/mob_spawn/ghost_role/human/ghostcafe
 	name = "Cafe Sleeper"
@@ -51,23 +51,23 @@
 	outfit = /datum/outfit/ghostcafe
 	you_are_text = "You are a Cafe Visitor!"
 	flavour_text = "You are off-duty and have decided to visit your favourite cafe. Enjoy yourself."
-	random_appearance = FALSE
+	allow_custom_character = GHOSTROLE_TAKE_PREFS_APPEARANCE
 	loadout_enabled = TRUE
 	quirks_enabled = TRUE
 
-/obj/effect/mob_spawn/ghost_role/human/ghostcafe/special(mob/living/carbon/human/new_spawn)
+/obj/effect/mob_spawn/ghost_role/human/ghostcafe/special(mob/living/spawned_human, mob/mob_possessor, apply_prefs)
 	. = ..()
-	if(new_spawn.client)
+	if(spawned_human.client)
 		var/area/A = get_area(src)
-		new_spawn.AddElement(/datum/element/dusts_on_catatonia)
-		new_spawn.AddElement(/datum/element/dusts_on_leaving_area, list(A.type) + GLOB.ghost_cafe_areas)
-		new_spawn.RegisterSignal(new_spawn, COMSIG_MOVABLE_USING_RADIO, TYPE_PROC_REF(/mob/living, on_using_radio))
-		ADD_TRAIT(new_spawn, TRAIT_SIXTHSENSE, TRAIT_GHOSTROLE)
-		ADD_TRAIT(new_spawn, TRAIT_FREE_GHOST, TRAIT_GHOSTROLE)
-		ADD_TRAIT(new_spawn, TRAIT_NOBREATH, TRAIT_GHOSTROLE)
-		to_chat(new_spawn,span_warning("<b>Ghosting is free!</b>"))
-		var/datum/action/toggle_dead_chat_mob/dchat_toggle_ability = new(new_spawn)
-		dchat_toggle_ability.Grant(new_spawn)
+		spawned_human.AddElement(/datum/element/dusts_on_catatonia)
+		spawned_human.AddElement(/datum/element/dusts_on_leaving_area, list(A.type) + GLOB.ghost_cafe_areas)
+		spawned_human.RegisterSignal(spawned_human, COMSIG_MOVABLE_USING_RADIO, TYPE_PROC_REF(/mob/living, on_using_radio))
+		ADD_TRAIT(spawned_human, TRAIT_SIXTHSENSE, TRAIT_GHOSTROLE)
+		ADD_TRAIT(spawned_human, TRAIT_FREE_GHOST, TRAIT_GHOSTROLE)
+		ADD_TRAIT(spawned_human, TRAIT_NOBREATH, TRAIT_GHOSTROLE)
+		to_chat(spawned_human,span_warning("<b>Ghosting is free!</b>"))
+		var/datum/action/toggle_dead_chat_mob/dchat_toggle_ability = new(spawned_human)
+		dchat_toggle_ability.Grant(spawned_human)
 
 /mob/living/proc/on_using_radio(atom/movable/talking_movable)
 	SIGNAL_HANDLER

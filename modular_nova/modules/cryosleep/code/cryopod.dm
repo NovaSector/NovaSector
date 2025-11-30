@@ -471,7 +471,7 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/machinery/computer/cryopod, 32)
 			ghostcafe_spawner = locate() in GLOB.mob_spawners[/obj/effect/mob_spawn/ghost_role/robot/ghostcafe::name]
 		else
 			ghostcafe_spawner = locate() in GLOB.mob_spawners[/obj/effect/mob_spawn/ghost_role/human/ghostcafe::name]
-		ghostcafe_spawner.create_from_ghost(occupant_ghost_mob, use_loadout = TRUE)
+		ghostcafe_spawner.create_from_ghost(occupant_ghost_mob, apply_prefs = TRUE)
 
 	QDEL_NULL(occupant)
 	open_machine()
@@ -621,7 +621,7 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/machinery/cryopod/prison, 18)
 	/// For figuring out where the local cryopod computer is. Must be set for cryo computer announcements.
 	var/area/computer_area
 
-/obj/effect/mob_spawn/ghost_role/create(mob/mob_possessor, newname, use_loadout = FALSE)
+/obj/effect/mob_spawn/ghost_role/create(mob/mob_possessor, newname, apply_prefs)
 	var/mob/living/spawned_mob = ..()
 	var/obj/machinery/computer/cryopod/control_computer = find_control_computer()
 

@@ -25,7 +25,6 @@
 	examine_limb_id = SPECIES_HUMAN
 	skinned_type = /obj/item/stack/sheet/animalhide/human
 
-
 /datum/species/hemophage/allows_food_preferences()
 	return FALSE
 

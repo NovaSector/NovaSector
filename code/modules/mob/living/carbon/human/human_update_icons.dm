@@ -396,7 +396,7 @@ There are several things that need to be remembered:
 
 		if((bodyshape & BODYSHAPE_DIGITIGRADE) && (worn_item.supports_variations_flags & CLOTHING_DIGITIGRADE_VARIATION))
 			var/obj/item/bodypart/leg = src.get_bodypart(BODY_ZONE_L_LEG)
-			if(leg.limb_id == "digitigrade" || leg.bodyshape & BODYSHAPE_DIGITIGRADE)//Snowflakey and bad. But it makes it look consistent.
+			if(leg.limb_id == BODYPART_ID_DIGITIGRADE || leg.bodyshape & BODYSHAPE_DIGITIGRADE)//Snowflakey and bad. But it makes it look consistent.
 				icon_file = worn_item.worn_icon_digi || DIGITIGRADE_SHOES_FILE // NOVA EDIT CHANGE
 				mutant_override = TRUE // NOVA EDIT ADDITION
 		if(!mutant_override && bodyshape & BODYSHAPE_CUSTOM)

@@ -272,8 +272,12 @@
 					if(dept_choice == "Cargo Budget")
 						personal_department = null
 						uses_cargo_budget = TRUE // NOVA EDIT ADDITION
+				// NOVA EDIT ADDITION START
+				else
+					uses_cargo_budget = TRUE // NOVA EDIT ADDITION
+				// NOVA EDIT ADDITION END
 
-			if((pack.goody && !pack.departamental_goody) && !self_paid) // NOVA EDIT CHANGE - ORIGINAL: if(pack.goody && !self_paid)
+			if((pack.goody && (!pack.departamental_goody || uses_cargo_budget)) && !self_paid) // NOVA EDIT CHANGE - ORIGINAL: if(pack.goody && !self_paid)
 				playsound(computer, 'sound/machines/buzz/buzz-sigh.ogg', 50, FALSE)
 				computer.say("ERROR: Small crates may only be purchased by private accounts.")
 				return
@@ -285,11 +289,6 @@
 
 			if(!self_paid)
 				account = personal_department
-			// NOVA EDIT ADDITION START - We do this to avoid the creation of departamental Cargo Budget goody lockboxes.
-			if (uses_cargo_budget && pack.goody && pack.departamental_goody)
-				pack.goody = FALSE
-				account = null
-			// NOVA EDIT ADDITION END
 
 			var/turf/T = get_turf(computer)
 			var/datum/supply_order/SO = new(pack, name, rank, ckey, reason, account)

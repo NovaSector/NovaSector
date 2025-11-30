@@ -8,7 +8,7 @@
 	flavour_text = "Servers are throwing intrusion errors - you are here to fix the problem. \
 	Running from your own servers, you have the ability to revive your colleagues without the fear of being tossed out."
 	important_text = "Stalling for long enough will also allow us to recoup the costs. Complete denial is still preferable."
-	random_appearance = FALSE
+	allow_custom_character = GHOSTROLE_TAKE_PREFS_APPEARANCE
 
 /obj/effect/mob_spawn/ghost_role/human/virtual_domain/syndie/proc/apply_pref_alias(mob/living/carbon/human/spawned_human)
 	var/pref_alias = spawned_human.client?.prefs?.read_preference(/datum/preference/name/hacker_alias)
@@ -18,7 +18,7 @@
 	var/random_alias = pick(GLOB.hacker_aliases)
 	spawned_human.fully_replace_character_name(spawned_human.real_name, "[random_alias]")
 
-/obj/effect/mob_spawn/ghost_role/human/virtual_domain/syndie/special(mob/living/carbon/human/spawned_human)
+/obj/effect/mob_spawn/ghost_role/human/virtual_domain/syndie/special(mob/living/carbon/human/spawned_human, mob/mob_possessor, apply_prefs)
 	. = ..()
 	var/datum/action/cooldown/spell/home_network/norton = new(spawned_human)
 	norton.Grant(spawned_human)
