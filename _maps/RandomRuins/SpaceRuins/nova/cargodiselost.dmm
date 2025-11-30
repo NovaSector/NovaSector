@@ -1022,6 +1022,18 @@
 	},
 /turf/open/floor/iron/dark,
 /area/ruin/space/has_grav/cargodise_freighter/primaryhall)
+"pO" = (
+/obj/structure/closet/crate/science{
+	req_access = list("science");
+	name = "Delivery - Nanotrasen Science Division"
+	},
+/obj/effect/spawner/random/exotic/technology,
+/obj/effect/spawner/random/exotic/technology,
+/obj/item/raw_anomaly_core/random,
+/obj/effect/spawner/random/exotic/tool,
+/obj/effect/spawner/random/exotic/tool,
+/turf/open/floor/iron/dark,
+/area/ruin/space/has_grav/cargodise_freighter/cargo)
 "pW" = (
 /obj/machinery/ammo_workbench/unlocked,
 /turf/open/floor/mineral/plastitanium/red,
@@ -1196,28 +1208,6 @@
 "th" = (
 /turf/open/floor/iron/dark,
 /area/ruin/space/has_grav/cargodise_freighter/kitchen)
-"ti" = (
-/obj/item/stack/sheet/iron/twenty,
-/obj/item/circuitboard/machine/ore_silo,
-/obj/item/circuitboard/machine/ore_redemption{
-	pixel_x = 5;
-	pixel_y = -6
-	},
-/obj/structure/closet/crate,
-/obj/item/storage/toolbox/mechanical,
-/obj/item/stack/sheet/glass/fifty,
-/obj/item/circuitboard/machine/protolathe/offstation,
-/obj/effect/spawner/random/engineering/toolbox,
-/obj/item/circuitboard/machine/circuit_imprinter/department,
-/obj/item/folded_navigation_gigabeacon,
-/obj/structure/cable,
-/obj/item/circuitboard/computer/powermonitor,
-/obj/item/circuitboard/machine/biogenerator/food_replicator,
-/obj/item/flatpacked_machine,
-/obj/item/storage/box/stockparts/basic,
-/obj/item/storage/box/stockparts/basic,
-/turf/open/floor/plating,
-/area/ruin/space/has_grav/cargodise_freighter/utility)
 "ty" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
@@ -1442,6 +1432,15 @@
 /obj/structure/closet/firecloset/wall{
 	pixel_x = 26
 	},
+/turf/open/floor/iron/dark,
+/area/ruin/space/has_grav/cargodise_freighter/cargo)
+"wV" = (
+/obj/structure/closet/crate/medical,
+/obj/effect/spawner/random/medical/medkit,
+/obj/effect/spawner/random/medical/medkit,
+/obj/effect/spawner/random/medical/medkit_rare,
+/obj/effect/spawner/random/medical/surgery_tool_advanced,
+/obj/effect/spawner/random/medical/surgery_tool_advanced,
 /turf/open/floor/iron/dark,
 /area/ruin/space/has_grav/cargodise_freighter/cargo)
 "wX" = (
@@ -1709,18 +1708,6 @@
 /obj/structure/closet/freighterammo,
 /turf/open/floor/mineral/plastitanium/red,
 /area/ruin/space/has_grav/cargodise_freighter/vault)
-"AE" = (
-/obj/structure/closet/crate/science{
-	req_access = list("science");
-	name = "Delivery - Nanotrasen Science Division"
-	},
-/obj/effect/spawner/random/exotic/technology,
-/obj/effect/spawner/random/exotic/technology,
-/obj/item/raw_anomaly_core/random,
-/obj/effect/spawner/random/exotic/tool,
-/obj/effect/spawner/random/exotic/tool,
-/turf/open/floor/iron/dark,
-/area/ruin/space/has_grav/cargodise_freighter/cargo)
 "AN" = (
 /turf/open/floor/plating/airless,
 /area/ruin/space/has_grav/cargodise_freighter/exterior)
@@ -1909,10 +1896,6 @@
 /obj/machinery/door/firedoor/closed,
 /turf/open/floor/iron/dark,
 /area/ruin/space/has_grav/cargodise_freighter/primaryhall)
-"Ef" = (
-/obj/structure/lattice,
-/turf/template_noop,
-/area/template_noop)
 "Ej" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
@@ -2047,6 +2030,28 @@
 	},
 /turf/open/floor/wood,
 /area/ruin/space/has_grav/cargodise_freighter/quarters)
+"FX" = (
+/obj/item/stack/sheet/iron/twenty,
+/obj/item/circuitboard/machine/ore_silo,
+/obj/item/circuitboard/machine/ore_redemption{
+	pixel_x = 5;
+	pixel_y = -6
+	},
+/obj/structure/closet/crate,
+/obj/item/storage/toolbox/mechanical,
+/obj/item/stack/sheet/glass/fifty,
+/obj/item/circuitboard/machine/protolathe/offstation,
+/obj/effect/spawner/random/engineering/toolbox,
+/obj/item/circuitboard/machine/circuit_imprinter/department,
+/obj/item/folded_navigation_gigabeacon,
+/obj/structure/cable,
+/obj/item/circuitboard/computer/powermonitor,
+/obj/item/circuitboard/machine/biogenerator/food_replicator,
+/obj/item/flatpacked_machine,
+/obj/item/storage/box/stockparts/basic,
+/obj/item/storage/box/stockparts/basic,
+/turf/open/floor/plating,
+/area/ruin/space/has_grav/cargodise_freighter/utility)
 "Gg" = (
 /turf/closed/wall/r_wall/plastitanium/syndicate/nodiagonal,
 /area/ruin/space/has_grav/cargodise_freighter/kitchen)
@@ -2656,6 +2661,10 @@
 /obj/item/mod/control/pre_equipped/standard,
 /turf/open/floor/mineral/plastitanium,
 /area/ruin/space/has_grav/cargodise_freighter/vault)
+"NS" = (
+/obj/structure/lattice,
+/turf/template_noop,
+/area/space/nearstation)
 "NV" = (
 /turf/closed/wall/r_wall/plastitanium/syndicate/nodiagonal,
 /area/ruin/space/has_grav/cargodise_freighter/quarters)
@@ -2976,15 +2985,6 @@
 /obj/item/kirbyplants/random,
 /turf/open/floor/wood/parquet,
 /area/ruin/space/has_grav/cargodise_freighter/bridge)
-"TU" = (
-/obj/structure/closet/crate/medical,
-/obj/effect/spawner/random/medical/medkit,
-/obj/effect/spawner/random/medical/medkit,
-/obj/effect/spawner/random/medical/medkit_rare,
-/obj/effect/spawner/random/medical/surgery_tool_advanced,
-/obj/effect/spawner/random/medical/surgery_tool_advanced,
-/turf/open/floor/iron/dark,
-/area/ruin/space/has_grav/cargodise_freighter/cargo)
 "TZ" = (
 /turf/open/floor/iron/dark/smooth_half{
 	dir = 1
@@ -3599,7 +3599,7 @@ Gh
 Gh
 Gh
 Gh
-Ef
+NS
 Gh
 Tg
 AN
@@ -3611,7 +3611,7 @@ AN
 AN
 Tg
 Gh
-Ef
+NS
 Gh
 Gh
 Gh
@@ -3640,7 +3640,7 @@ Gh
 Gh
 Gh
 Gh
-Ef
+NS
 Gh
 mb
 Yf
@@ -3652,7 +3652,7 @@ Yf
 Yf
 Tg
 Gh
-Ef
+NS
 Gh
 Gh
 Gh
@@ -3681,7 +3681,7 @@ Gh
 nU
 OT
 Gh
-Ef
+NS
 Gh
 mb
 vP
@@ -3693,7 +3693,7 @@ ax
 yv
 mb
 Gh
-Ef
+NS
 Gh
 KS
 UH
@@ -3935,7 +3935,7 @@ ok
 SP
 Bl
 wQ
-ti
+FX
 Nr
 NE
 Dn
@@ -3961,9 +3961,9 @@ Gh
 Gh
 Gh
 JQ
-Ef
-Ef
-Ef
+NS
+NS
+NS
 Yr
 Yr
 OF
@@ -3985,9 +3985,9 @@ NE
 NE
 NE
 NE
-Ef
-Ef
-Ef
+NS
+NS
+NS
 JQ
 Gh
 Gh
@@ -4149,9 +4149,9 @@ lH
 lH
 lH
 lH
-Ef
-Ef
-Ef
+NS
+NS
+NS
 JQ
 Gh
 Gh
@@ -4231,8 +4231,8 @@ xX
 xX
 VR
 lH
-Ef
-Ef
+NS
+NS
 JQ
 Gh
 Gh
@@ -4249,8 +4249,8 @@ Gh
 Gh
 Gh
 JQ
-Ef
-Ef
+NS
+NS
 Gg
 Gg
 Gg
@@ -4308,7 +4308,7 @@ lH
 HO
 xX
 xX
-AE
+pO
 xX
 YL
 Wl
@@ -4351,7 +4351,7 @@ xX
 LW
 Ii
 xX
-TU
+wV
 Wl
 nu
 Gh
@@ -4477,8 +4477,8 @@ xX
 xX
 iE
 lH
-Ef
-Ef
+NS
+NS
 JQ
 Gh
 Gh
@@ -4559,9 +4559,9 @@ Hv
 Hv
 Hv
 Hv
-Ef
-Ef
-Ef
+NS
+NS
+NS
 JQ
 Gh
 Gh
@@ -4863,8 +4863,8 @@ Gh
 Gh
 Gh
 JQ
-Ef
-Ef
+NS
+NS
 Gg
 Gg
 Gg
@@ -4887,9 +4887,9 @@ EI
 UB
 UB
 UB
-Ef
-Ef
-Ef
+NS
+NS
+NS
 JQ
 Gh
 Gh
@@ -5296,8 +5296,8 @@ Sx
 FW
 Ck
 NV
-Ef
-Ef
+NS
+NS
 JQ
 Gh
 Gh
@@ -5460,7 +5460,7 @@ kX
 Ze
 kX
 kX
-Ef
+NS
 JQ
 Gh
 Gh
@@ -5486,7 +5486,7 @@ Gh
 Gh
 Gh
 JQ
-Ef
+NS
 kX
 wx
 xE
@@ -5649,8 +5649,8 @@ Gh
 Gh
 Gh
 JQ
-Ef
-Ef
+NS
+NS
 kX
 ao
 hT
@@ -5743,7 +5743,7 @@ mf
 kX
 Zk
 Gh
-Ef
+NS
 Gh
 Gh
 vH
@@ -5784,7 +5784,7 @@ dy
 kX
 Gh
 Gh
-Ef
+NS
 vH
 vH
 vH

@@ -42,8 +42,8 @@
 /obj/item/storage/belt/security/webbing
 	unique_reskin = list(
 		"Basic Variant" = list(
-			RESKIN_ICON_STATE = "security",
-			RESKIN_WORN_ICON_STATE = "security"
+			RESKIN_ICON_STATE = "securitywebbing",
+			RESKIN_WORN_ICON_STATE = "securitywebbing"
 		),
 		"Red Variant" = list(
 			RESKIN_ICON = 'modular_nova/master_files/icons/obj/clothing/belts.dmi',
@@ -64,30 +64,73 @@
 
 /datum/storage/holster
 	max_slots = 3
+	max_total_storage = WEIGHT_CLASS_NORMAL + (WEIGHT_CLASS_SMALL * 2) // gun and 2 ammo
+	// following "one gun per storage" is taken from secbelts, see modular_nova\master_files\code\game\objects\items\storage\belt.dm
+	// shhhould this be a component?
+	var/list/limited_hold_types = list(
+		/obj/item/gun,
+	)
+	/// how many restricted items do we already have stored in this belt
+	var/limited_held = 0
+	/// how many restricted items do we want to keep, at maximum, in this belt
+	var/max_limited_store = 1
+	rustle_sound = 'modular_nova/modules/sec_haul/sound/holsterin.ogg'
+	remove_rustle_sound = 'modular_nova/modules/sec_haul/sound/holsterout.ogg'
 
-/datum/storage/holster/New(atom/parent, max_slots, max_specific_storage, max_total_storage, rustle_sound, remove_rustle_sound, list/holdables)
+/datum/storage/holster/handle_enter(datum/source, obj/item/arrived)
 	. = ..()
-	if(length(holdables))
-		set_holdable(holdables)
-		return
+	if(is_type_in_list(arrived, limited_hold_types))
+		limited_held++
 
-	set_holdable(list(
-		/obj/item/gun/ballistic/automatic/pistol,
-		/obj/item/gun/ballistic/revolver,
-		/obj/item/gun/energy/e_gun/mini,
-		/obj/item/gun/energy/disabler,
-		/obj/item/gun/energy/dueling,
-		/obj/item/food/grown/banana,
-		/obj/item/gun/energy/laser/thermal,
-		/obj/item/gun/ballistic/rifle/boltaction, //fits if you make it an obrez
-		/obj/item/gun/energy/laser/captain,
-		/obj/item/gun/energy/e_gun/hos,
-		// NOVA EDIT ADDITION START
-		/obj/item/ammo_box/magazine, // Just magazine, because the sec-belt can hold these aswell
-		/obj/item/ammo_box/speedloader,
-		/obj/item/gun/energy/recharge/kinetic_accelerator/variant/glock,
-		// NOVA EDIT ADDITION END
+/datum/storage/holster/handle_exit(datum/source, obj/item/gone)
+	. = ..()
+	if(is_type_in_list(gone, limited_hold_types))
+		playsound(parent, 'modular_nova/modules/sec_haul/sound/holsterout.ogg', 50, rustle_vary, -5)
+		limited_held = max(limited_held - 1, 0)
+
+/datum/storage/holster/can_insert(obj/item/to_insert, mob/user, messages, force)
+	. = ..()
+	if(is_type_in_list(to_insert, limited_hold_types) && (limited_held >= max_limited_store))
+		user.balloon_alert(user, "no suitable space!")
+		return FALSE
+
+/datum/storage/holster/energy
+	max_slots = 3 // 2 guns and a cell but the cell is handled in a weird way
+	max_limited_store = 2 // you only have 2 slots but you might as well be able to hold 2 eguns, y'know
+	max_total_storage = (WEIGHT_CLASS_NORMAL * 2) + WEIGHT_CLASS_SMALL
+	/// Typecache of things we can charge. If anything we insert is of these types, start processing our parent for charging.
+	var/static/list/charge_typecache = typecacheof(list(
+		/obj/item/gun/energy,
+		/obj/item/ammo_box/magazine/recharge,
+		/obj/item/gun/ballistic/automatic/pistol/plasma_marksman,
+		/obj/item/gun/ballistic/automatic/pistol/plasma_thrower,
 	))
+	/// Typecache of things we ignore when doing an empty check. Because of how get_all_contents and variants includes the source, includes the holster type itself.
+	var/static/list/empty_check_typecache = typecacheof(list(
+		/obj/item/storage/belt/holster/energy,
+		/obj/item/stock_parts/power_store/cell,
+	))
+
+/datum/storage/holster/energy/onegun
+	max_slots = 2 // 1 gun and 1 cell
+	max_limited_store = 1 // as above, 1 gun
+	max_total_storage = WEIGHT_CLASS_NORMAL + WEIGHT_CLASS_SMALL
+
+/datum/storage/holster/energy/handle_enter(datum/source, obj/item/arrived)
+	. = ..()
+	// if the inserted item is in the chargable typecache, start processing
+	if(is_type_in_typecache(arrived, charge_typecache))
+		START_PROCESSING(SSobj, parent)
+
+/datum/storage/holster/energy/handle_exit(datum/source, obj/item/gone)
+	. = ..()
+	// if whatever's left is not in the charging typecache (e.g. the cell), do nothing
+	if(!is_type_in_typecache(gone, charge_typecache))
+		return
+	// if we still have things in here, assume we're still capable of charging things
+	if(length(parent.get_all_contents_ignoring(empty_check_typecache)))
+		return
+	STOP_PROCESSING(SSobj, parent)
 
 /obj/item/storage/belt/holster/detective
 	name = "detective's holster"
@@ -95,33 +138,7 @@
 
 /datum/storage/holster/detective
 	max_slots = 4
-
-/datum/storage/holster/detective/New(atom/parent, max_slots, max_specific_storage, max_total_storage, rustle_sound, remove_rustle_sound, list/holdables)
-	holdables = list(
-		/obj/item/gun/ballistic/automatic/pistol,
-		/obj/item/ammo_box/magazine/m9mm, // Pistol magazines.
-		/obj/item/ammo_box/magazine/m9mm_aps,
-		/obj/item/ammo_box/magazine/m10mm,
-		/obj/item/ammo_box/magazine/m45,
-		/obj/item/ammo_box/magazine/m50,
-		/obj/item/gun/ballistic/revolver,
-		/obj/item/ammo_box/speedloader, // Speedloaders, which includes stripper clips on a technicality.
-		/obj/item/ammo_box/magazine/toy/pistol,
-		/obj/item/gun/energy/e_gun/mini,
-		/obj/item/gun/energy/disabler,
-		/obj/item/gun/energy/dueling,
-		/obj/item/gun/energy/laser/thermal,
-		/obj/item/gun/energy/laser/captain,
-		/obj/item/gun/energy/e_gun/hos,
-		/obj/item/gun/ballistic/rifle/boltaction, //fits if you make it an obrez
-		// NOVA EDIT ADDITION START
-		/obj/item/ammo_box/magazine,
-		/obj/item/food/grown/banana,
-		/obj/item/gun/energy/recharge/kinetic_accelerator/variant/glock,
-		// NOVA EDIT ADDITION END
-	)
-
-	return ..()
+	max_total_storage = WEIGHT_CLASS_NORMAL + (WEIGHT_CLASS_SMALL * 3) // gun and 3 ammo
 
 ///Enables you to quickdraw weapons from security holsters
 /datum/storage/holster/open_storage(mob/to_show, can_reach_target)
@@ -143,8 +160,6 @@
 	if(!gun_to_draw)
 		return ..()
 	resolve_parent.add_fingerprint(to_show)
-	attempt_remove(gun_to_draw, get_turf(to_show))
-	playsound(resolve_parent, 'modular_nova/modules/sec_haul/sound/holsterout.ogg', 50, TRUE, -5)
 	INVOKE_ASYNC(to_show, TYPE_PROC_REF(/mob, put_in_hands), gun_to_draw)
 	to_show.visible_message(span_warning("[to_show] draws [gun_to_draw] from [resolve_parent]!"), span_notice("You draw [gun_to_draw] from [resolve_parent]."))
 

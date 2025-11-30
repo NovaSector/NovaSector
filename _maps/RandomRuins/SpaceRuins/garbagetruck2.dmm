@@ -133,13 +133,6 @@
 /obj/effect/spawner/random/engineering/tank,
 /turf/open/floor/plating,
 /area/ruin/space/has_grav/garbagetruck/medicalwaste)
-"mZ" = (
-/obj/machinery/airalarm{
-	pixel_y = 25
-	},
-/obj/structure/cable,
-/turf/open/floor/catwalk_floor/iron,
-/area/ruin/space/has_grav/garbagetruck/medicalwaste)
 "nW" = (
 /obj/item/storage/box/disks{
 	pixel_x = -7;
@@ -215,6 +208,13 @@
 "sU" = (
 /obj/structure/lattice/catwalk,
 /turf/template_noop,
+/area/ruin/space/has_grav/garbagetruck/medicalwaste)
+"tu" = (
+/obj/machinery/airalarm{
+	pixel_y = 25
+	},
+/obj/structure/cable,
+/turf/open/floor/catwalk_floor/iron,
 /area/ruin/space/has_grav/garbagetruck/medicalwaste)
 "tI" = (
 /obj/structure/tank_holder/anesthetic,
@@ -596,6 +596,10 @@
 /obj/item/stamp/denied,
 /turf/open/floor/plating,
 /area/ruin/space/has_grav/garbagetruck/medicalwaste)
+"RL" = (
+/obj/machinery/power/shuttle_engine/propulsion,
+/turf/template_noop,
+/area/space/nearstation)
 "RT" = (
 /obj/structure/frame/machine,
 /obj/item/shard,
@@ -648,10 +652,6 @@
 	},
 /turf/open/floor/plating,
 /area/ruin/space/has_grav/garbagetruck/medicalwaste)
-"VL" = (
-/obj/machinery/power/shuttle_engine/propulsion,
-/turf/template_noop,
-/area/template_noop)
 "VV" = (
 /obj/effect/decal/cleanable/blood/gibs/robot_debris/up,
 /obj/structure/frame/computer,
@@ -703,7 +703,7 @@ sU
 sU
 sU
 qC
-VL
+RL
 gh
 gh
 gh
@@ -811,7 +811,7 @@ Pd
 xj
 Zi
 qC
-mZ
+tu
 OA
 gr
 CJ
@@ -945,7 +945,7 @@ sU
 sU
 LG
 qC
-VL
+RL
 gh
 gh
 gh
