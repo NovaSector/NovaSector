@@ -119,7 +119,7 @@
 			crate.open(force = TRUE) // Break some open, cause a little chaos.
 			crate.visible_message(span_warning("[crate]'s lid falls open!"))
 
-// Returns a valid list of open turfs to scatter crates
+// Returns a valid open turf to scatter crates
 /obj/structure/cargo_shelf/proc/get_spill_location(radius)
 	var/list/buckets = new /list(radius+1)
 	for(var/turf/turf_in_view in range(radius, get_turf(src)))
