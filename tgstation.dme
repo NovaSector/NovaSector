@@ -6966,8 +6966,6 @@
 #include "modular_nova\master_files\code\datums\records\manifest.dm"
 #include "modular_nova\master_files\code\datums\records\record.dm"
 #include "modular_nova\master_files\code\datums\station_traits\negative_traits.dm"
-#include "modular_nova\master_files\code\datums\storage\storage.dm"
-#include "modular_nova\master_files\code\datums\storage\subtypes\pockets.dm"
 #include "modular_nova\master_files\code\datums\traits\good.dm"
 #include "modular_nova\master_files\code\datums\traits\negative.dm"
 #include "modular_nova\master_files\code\datums\traits\neutral.dm"
