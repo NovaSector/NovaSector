@@ -13,7 +13,7 @@
 /// You do not need to raise this if you are adding new values that have sane defaults.
 /// Only raise this value when changing the meaning/format/name/layout of an existing value
 /// where you would want the updater procs below to run
-#define SAVEFILE_VERSION_MAX 50
+#define SAVEFILE_VERSION_MAX 51
 
 #define IS_DATA_OBSOLETE(version) (version == SAVE_DATA_OBSOLETE)
 #define SHOULD_UPDATE_DATA(version) (version >= SAVE_DATA_NO_ERROR && version < SAVEFILE_VERSION_MAX)
@@ -163,6 +163,8 @@ SAVEFILE UPDATING/VERSIONING - 'Simplified', or rather, more coder-friendly ~Car
 			quirk_to_migrate = "Spiritual",
 			new_typepath = /datum/personality/spiritual,
 		)
+	if(current_version < 51)
+		migrate_felinid_feature_keys(save_data)
 
 /// checks through keybindings for outdated unbound keys and updates them
 /datum/preferences/proc/check_keybindings()
@@ -488,6 +490,6 @@ SAVEFILE UPDATING/VERSIONING - 'Simplified', or rather, more coder-friendly ~Car
 #undef SAVEFILE_VERSION_MIN
 #undef SAVE_DATA_NO_ERROR
 #undef SAVE_DATA_EMPTY
-#undef SAVE_DATA_OBSOLETE
+//#undef SAVE_DATA_OBSOLETE - NOVA EDIT REMOVAL - Used in [modular_nova\modules\admin\code\preferences_loadverb.dm]
 #undef IS_DATA_OBSOLETE
 #undef SHOULD_UPDATE_DATA

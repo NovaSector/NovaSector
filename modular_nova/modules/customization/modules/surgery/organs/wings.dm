@@ -3,7 +3,7 @@
 	desc = "A pair of wings. Those may or may not allow you to fly... or at the very least flap."
 	zone = BODY_ZONE_CHEST
 	slot = ORGAN_SLOT_WINGS
-	mutantpart_key = "wings"
+	mutantpart_key = FEATURE_WINGS
 	mutantpart_info = list(MUTANT_INDEX_NAME = "Bat", MUTANT_INDEX_COLOR_LIST = list("#335533"))
 	///Whether the wings should grant flight on insertion.
 	var/unconditional_flight
@@ -20,7 +20,7 @@
 	color_source = ORGAN_COLOR_OVERRIDE
 
 /datum/bodypart_overlay/mutant/wings/get_global_feature_list()
-	return SSaccessories.sprite_accessories["wings"]
+	return SSaccessories.sprite_accessories[FEATURE_WINGS]
 
 //TODO: Well you know what this flight stuff is a bit complicated and hardcoded, this is enough for now
 
@@ -204,7 +204,6 @@
 	desc = "A pair of horrifyingly large, fuzzy wings. They look strong enough to lift you up in the air."
 	mutantpart_info = list(MUTANT_INDEX_NAME = "Megamoth", MUTANT_INDEX_COLOR_LIST = list("#FFFFFF"))
 
-
 /datum/bodypart_overlay/mutant/wings/functional
 	color_source = ORGAN_COLOR_INHERIT
 
@@ -219,9 +218,9 @@
 
 /datum/bodypart_overlay/mutant/wings/functional/locked/get_global_feature_list()
 	if(wings_open)
-		return SSaccessories.sprite_accessories["wings_open"]
+		return SSaccessories.sprite_accessories[FEATURE_WINGS_OPEN]
 
-	return SSaccessories.sprite_accessories["wings_functional"]
+	return SSaccessories.sprite_accessories[FEATURE_WINGS_FUNCTIONAL]
 
 
 // We need to overwrite this because all of these wings are locked.

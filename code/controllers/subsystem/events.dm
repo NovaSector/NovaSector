@@ -59,8 +59,9 @@ SUBSYSTEM_DEF(events)
 	// NOVA EDIT ADDITION END
 	for(var/variable in configuration)
 		var/datum/round_event_control/event = events_by_name[variable]
-		if(!event)
-			stack_trace("Invalid event [variable] attempting to be configured.")
+		if(isnull(event))
+			if(isnull(nonrunning_events_by_name[variable])) // don't stack_trace events that aren't running due to map flags
+				stack_trace("Invalid event [variable] attempting to be configured.")
 			continue
 		for(var/event_variable in configuration[variable])
 			if(!(event.vars.Find(event_variable)))

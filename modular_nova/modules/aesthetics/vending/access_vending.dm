@@ -1,3 +1,8 @@
+/// Undoes SANITIZE_PATH so we can treat these strings as typepaths again
+#define DESANITIZED_PATH(str) ( \
+	istext(str) ? "/obj/item/[replacetext(str, "-", "/")]" : null \
+)
+
 /**
  * This vending machine supports a list of items that changes based on the user/card's access.
  */
@@ -19,67 +24,96 @@
 /obj/machinery/vending/access/Initialize(mapload)
 	var/list/_list = new
 	build_access_list(_list)
-	access_lists = _list
-	if(auto_build_products)
+
+	// Normalize access_lists to accept both numeric and string keys.
+	// This avoids building "[access]" strings in hot loops.
+	access_lists = new
+	for (var/access_key in _list)
+		var/value = _list[access_key]
+		access_lists[access_key] = value // original (numeric key if caller used numbers)
+		access_lists["[access_key]"] = value // stringified mirror
+
+	if (auto_build_products)
 		products = list()
-		for(var/access in access_lists)
-			for(var/item in (access_lists[access]))
-				if(!ispath(item))
-					continue
-				if(item in products)
+		for (var/access in access_lists)
+			var/list/access_list = access_lists[access]
+			if (isnum(access_list))
+				continue
+			for (var/item in access_list)
+				if (!ispath(item) || (item in products))
 					continue
 				products[item] = auto_build_products
+
 	return ..()
 
 /obj/machinery/vending/access/ui_static_data(mob/user)
 	. = ..()
-	if(issilicon(user))
-		return // Silicons get to view all items regardless
+	if (issilicon(user)) // Silicons get to view all items regardless
+		return
 
-	.["product_records"] = list() // Vending machine code is bad; I hate it
-	if(!iscarbon(user))
+	var/list/_records = .["product_records"]
+	if (!length(_records))
+		return
+
+	// If emagged or not on station, access checks are bypassed upstream.
+	if (obj_flags & EMAGGED || !onstation)
+		return
+
+	var/list/product_records = _records.Copy()
+	_records.Cut()
+
+	if (!iscarbon(user))
 		return
 
 	var/mob/living/carbon/carbon_user = user
 	var/obj/item/card/id/user_id = carbon_user.get_idcard(TRUE)
-	if(onstation && !user_id && !(obj_flags & EMAGGED))
+
+	if (onstation && !user_id && !(obj_flags & EMAGGED))
 		return
 
-	// Alright so, this is the EXACT SAME LOOP as our base proc; however we check to see if the user is allowed to purchase it first.
-	for (var/datum/data/vending_product/record in product_records)
-		if(!allow_purchase(user_id, record.product_path))
-			continue
-		var/list/data = list(
-			path = replacetext(replacetext("[record.product_path]", "/obj/item/", ""), "/", "-"),
-			name = record.name,
-			price = record.price || default_price,
-			max_amount = record.max_amount,
-			ref = REF(record)
-		)
-		.["product_records"] += list(data)
+	var/list/user_access = user_id?.access
+	if (!length(user_access))
+		return
+
+	var/list/filtered = list()
+	for (var/list/product_record as anything in product_records)
+		// Cache a real typepath once per record so we never re-text2path
+		var/product_path = product_record["path_cache"]
+		if (!product_path)
+			var/product_string = DESANITIZED_PATH(product_record["path"])
+			if (product_string)
+				product_path = text2path(product_string)
+				product_record["path_cache"] = product_path  // cache for all future UI opens
+
+		if (product_path && allow_purchase(user_access, product_path))
+			filtered += list(product_record)
+
+	.["product_records"] = filtered
 
 /// Check if the list of given access is allowed to purchase the given product
-/obj/machinery/vending/access/proc/allow_purchase(obj/item/card/id/user_id, product_path)
-	if(obj_flags & EMAGGED || !onstation)
+/obj/machinery/vending/access/proc/allow_purchase(list/user_access, product_path)
+	if (obj_flags & EMAGGED || !onstation)
 		return TRUE
-	. = FALSE
-	var/list/access = user_id.access
-	for(var/acc in access)
-		acc = "[acc]" // U G L Y
-		if(!((acc) in access_lists))
+
+	for (var/access_type in user_access)
+		// O(1) lookups thanks to dual-key map in Initialize()
+		var/access_list = access_lists[access_type]
+		if (!access_list)
 			continue
-
-		if(isnum(access_lists[acc]) && access_lists[acc])
-			return access_lists[acc]
-
-		if(product_path in (access_lists[acc]))
+		if (access_list == TRUE) // allow-all bucket
 			return TRUE
+		if (product_path in access_list)
+			return TRUE
+
+	return FALSE
 
 /// Debug version to verify access checking is working and functional
 /obj/machinery/vending/access/debug
 	auto_build_products = TRUE
 
 /obj/machinery/vending/access/debug/build_access_list(list/access_lists)
-	access_lists["[ACCESS_ENGINEERING]"] = TRUE
-	access_lists["[ACCESS_EVA]"] = list(/obj/item/crowbar)
-	access_lists["[ACCESS_SECURITY]"] = list(/obj/item/wrench, /obj/item/gun/ballistic/revolver/mateba)
+	access_lists[ACCESS_ENGINEERING] = TRUE
+	access_lists[ACCESS_EVA] = list(/obj/item/crowbar)
+	access_lists[ACCESS_SECURITY] = list(/obj/item/wrench, /obj/item/gun/ballistic/revolver/mateba)
+
+#undef DESANITIZED_PATH

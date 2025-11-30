@@ -168,7 +168,7 @@
 	if(HAS_TRAIT(affected_human, TRAIT_USES_SKINTONES))
 		affected_human.skin_tone = "green"
 	else if(HAS_TRAIT(affected_human, TRAIT_MUTANT_COLORS) && !HAS_TRAIT(affected_human, TRAIT_FIXED_MUTANT_COLORS)) //Code stolen from spraytan overdose
-		affected_human.dna.features["mcolor"] = "#a8e61d"
+		affected_human.dna.features[FEATURE_MUTANT_COLOR] = "#a8e61d"
 	affected_human.update_body(is_creating = TRUE)
 
 /datum/reagent/consumable/ethanol/kahlua
@@ -673,8 +673,7 @@
 
 /datum/reagent/consumable/ethanol/bloody_mary/on_mob_life(mob/living/carbon/drinker, seconds_per_tick, times_fired)
 	. = ..()
-	if(drinker.blood_volume < BLOOD_VOLUME_NORMAL)
-		drinker.blood_volume = min(drinker.blood_volume + (1 * REM * seconds_per_tick), BLOOD_VOLUME_NORMAL) //Bloody Mary quickly restores blood loss. // NOVA EDIT - Bloodshot is now the go-to drink for bloodloss, not Bloody Mary - ORIGINAL: drinker.blood_volume = min(drinker.blood_volume + (3 * REM * delta_time), BLOOD_VOLUME_NORMAL)
+	drinker.adjust_blood_volume(1 * REM * seconds_per_tick, maximum = BLOOD_VOLUME_NORMAL) // Bloody Mary quickly restores blood loss. // NOVA EDIT - Bloodshot is now the go-to drink for bloodloss, not Bloody Mary - ORIGINAL: drinker.adjust_blood_volume(3 * REM * seconds_per_tick, maximum = BLOOD_VOLUME_NORMAL)
 
 /datum/reagent/consumable/ethanol/brave_bull
 	name = "Brave Bull"
@@ -1423,7 +1422,7 @@
 
 /datum/reagent/consumable/ethanol/neurotoxin
 	name = "Neurotoxin"
-	description = "A strong neurotoxin that puts the subject into a death-like state."
+	description = "A strong neurotoxin that puts the patient into a death-like state."
 	color = "#2E2E61" // rgb: 46, 46, 97
 	boozepwr = 50
 	quality = DRINK_VERYGOOD

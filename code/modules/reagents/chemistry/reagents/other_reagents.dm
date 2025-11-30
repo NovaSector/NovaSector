@@ -237,9 +237,8 @@
 		liver.apply_organ_damage(-healing_bonus * REM * seconds_per_tick)
 
 	var/water_adaptation = HAS_TRAIT(affected_mob, TRAIT_WATER_ADAPTATION)
-	if(affected_mob.blood_volume)
-		var/blood_restored = water_adaptation ? 0.3 : 0.1
-		affected_mob.blood_volume += blood_restored * REM * seconds_per_tick // water is good for you!
+	var/blood_restored = water_adaptation ? 0.3 : 0.1
+	affected_mob.adjust_blood_volume(blood_restored * REM * seconds_per_tick) // water is good for you!
 	var/drunkness_restored = water_adaptation ? -0.5 : -0.25
 	affected_mob.adjust_drunk_effect(drunkness_restored * REM * seconds_per_tick) // and even sobers you up slowly!!
 	if(water_adaptation)
@@ -299,8 +298,8 @@
 /datum/wound/burn/flesh/on_saltwater(reac_volume)
 	// Similar but better stats from normal salt.
 	sanitization += VALUE_PER(0.6, 30) * reac_volume
-	infestation -= max(VALUE_PER(0.5, 30) * reac_volume, 0)
-	infestation_rate += VALUE_PER(0.07, 30) * reac_volume
+	infection -= max(VALUE_PER(0.5, 30) * reac_volume, 0)
+	infection_rate += VALUE_PER(0.07, 30) * reac_volume
 	to_chat(victim, span_notice("The salt water splashes over [LOWER_TEXT(src)], soaking up the... miscellaneous fluids. It feels somewhat better afterwards."))
 	return
 
@@ -476,8 +475,8 @@
 		need_mob_update += affected_mob.adjustBruteLoss(-2 * REM * seconds_per_tick, updating_health = FALSE)
 		need_mob_update += affected_mob.adjustFireLoss(-2 * REM * seconds_per_tick, updating_health = FALSE)
 		need_mob_update = TRUE
-		if(ishuman(affected_mob) && affected_mob.blood_volume < BLOOD_VOLUME_NORMAL)
-			affected_mob.blood_volume += 3 * REM * seconds_per_tick
+		if(ishuman(affected_mob))
+			affected_mob.adjust_blood_volume(3 * REM * seconds_per_tick, maximum = BLOOD_VOLUME_NORMAL)
 
 			var/datum/wound/bloodiest_wound
 
@@ -571,7 +570,7 @@
 /datum/reagent/spraytan/expose_mob(mob/living/exposed_mob, methods=TOUCH, reac_volume, show_message = TRUE, touch_protection = 0)
 	. = ..()
 	if(ishuman(exposed_mob))
-		if(methods & (PATCH|VAPOR) && touch_protection >= 1)
+		if(methods & (PATCH|VAPOR) && touch_protection < 1)
 			var/mob/living/carbon/human/exposed_human = exposed_mob
 			if(HAS_TRAIT(exposed_human, TRAIT_USES_SKINTONES))
 				switch(exposed_human.skin_tone)
@@ -607,7 +606,7 @@
 						exposed_human.skin_tone = "mixed3"
 			//take current alien color and darken it slightly
 			else if(HAS_TRAIT(exposed_human, TRAIT_MUTANT_COLORS) && !HAS_TRAIT(exposed_human, TRAIT_FIXED_MUTANT_COLORS))
-				var/list/existing_color = rgb2num(exposed_human.dna.features["mcolor"])
+				var/list/existing_color = rgb2num(exposed_human.dna.features[FEATURE_MUTANT_COLOR])
 				var/list/darkened_color = list()
 				// Reduces each part of the color by 16
 				for(var/channel in existing_color)
@@ -617,7 +616,7 @@
 				var/list/new_hsv = rgb2hsv(new_color)
 				// Can't get too dark now
 				if(new_hsv[3] >= 50)
-					exposed_human.dna.features["mcolor"] = new_color
+					exposed_human.dna.features[FEATURE_MUTANT_COLOR] = new_color
 			exposed_human.update_body(is_creating = TRUE)
 
 		if((methods & INGEST) && show_message)
@@ -641,7 +640,7 @@
 		if(HAS_TRAIT(affected_human, TRAIT_USES_SKINTONES))
 			affected_human.skin_tone = "orange"
 		else if(HAS_TRAIT(affected_human, TRAIT_MUTANT_COLORS) && !HAS_TRAIT(affected_human, TRAIT_FIXED_MUTANT_COLORS)) //Aliens with custom colors simply get turned orange
-			affected_human.dna.features["mcolor"] = "#ff8800"
+			affected_human.dna.features[FEATURE_MUTANT_COLOR] = "#ff8800"
 		affected_human.update_body(is_creating = TRUE)
 		if(SPT_PROB(3.5, seconds_per_tick))
 			if(affected_human.w_uniform)
@@ -1092,7 +1091,7 @@
 
 /datum/reagent/glycerol
 	name = "Glycerol"
-	description = "Glycerol is a simple polyol compound. Glycerol is sweet-tasting and of low toxicity."
+	description = "A simple polyol compound. Sweet-tasting and of low toxicity."
 	color = "#D3B913"
 	taste_description = "sweetness"
 	ph = 9
@@ -1112,7 +1111,7 @@
 		return
 
 	for(var/datum/surgery/surgery as anything in exposed_carbon.surgeries)
-		surgery.speed_modifier = max(0.2, surgery.speed_modifier)
+		surgery.speed_modifier = min(0.8, surgery.speed_modifier)
 
 /datum/reagent/space_cleaner/sterilizine/on_burn_wound_processing(datum/wound/burn/flesh/burn_wound)
 	burn_wound.sanitization += 0.9
@@ -1416,7 +1415,7 @@
 
 /datum/reagent/impedrezene
 	name = "Impedrezene"
-	description = "Impedrezene is a narcotic that impedes one's ability by slowing down the higher brain cell functions."
+	description = "A narcotic that impedes one's ability by slowing down the higher brain cell functions."
 	color = "#E07DDD" // pink = happy = dumb
 	taste_description = "numbness"
 	ph = 9.1
@@ -2087,21 +2086,21 @@
 
 /datum/reagent/pentaerythritol
 	name = "Pentaerythritol"
-	description = "Slow down, it ain't no spelling bee!"
-	color = "#E66FFF"
+	description = "A crystalline compound used in the synthesis of explosives and other chemicals."
+	color = "#EEEEEF"
 	taste_description = "acid"
 	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
 
 /datum/reagent/acetaldehyde
 	name = "Acetaldehyde"
-	description = "Similar to plastic. Tastes like dead people."
+	description = "A colorless liquid with a strong smell. Used in the synthesis of other chemicals."
 	color = "#EEEEEF"
 	taste_description = "dead people" //made from formaldehyde, ya get da joke ?
 	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
 
 /datum/reagent/acetone_oxide
 	name = "Acetone Oxide"
-	description = "Enslaved oxygen"
+	description = "A highly reactive compoud derived from acetone. Known to cause burns on contact. Used in the synthesis of various explosives."
 	color = "#966199cb"
 	taste_description = "acid"
 	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
@@ -2128,7 +2127,7 @@
 
 /datum/reagent/ash
 	name = "Ash"
-	description = "Supposedly phoenixes rise from these, but you've never seen it."
+	description = "A fine ash. Supposedly phoenixes rise from these, but you've never seen it."
 	color = "#515151"
 	taste_description = "ash"
 	ph = 6.5
@@ -2543,7 +2542,7 @@
 
 /datum/reagent/plastic_polymers
 	name = "Plastic Polymers"
-	description = "the petroleum based components of plastic."
+	description = "Petroleum based components of plastic."
 	color = "#f7eded"
 	taste_description = "plastic"
 	ph = 6
@@ -2927,8 +2926,7 @@
 		need_mob_update += drinker.adjustOxyLoss(-2 * REM * seconds_per_tick, updating_health = FALSE)
 		need_mob_update += drinker.adjustBruteLoss(-2 * REM * seconds_per_tick, updating_health = FALSE)
 		need_mob_update += drinker.adjustFireLoss(-2 * REM * seconds_per_tick, updating_health = FALSE)
-		if(drinker.blood_volume < BLOOD_VOLUME_NORMAL)
-			drinker.blood_volume += 3 * REM * seconds_per_tick
+		drinker.adjust_blood_volume(3 * REM * seconds_per_tick, maximum = BLOOD_VOLUME_NORMAL)
 		// Slowly regulates your body temp
 		drinker.adjust_bodytemperature((drinker.get_body_temp_normal() - drinker.bodytemperature) / 5)
 		for(var/datum/reagent/reagent as anything in drinker.reagents.reagent_list)
@@ -3242,8 +3240,7 @@
 	RegisterSignal(affected_human, COMSIG_CARBON_LOSE_ORGAN, PROC_REF(on_organ_removed))
 	var/obj/item/organ/eyes/eyes = affected_human.get_organ_slot(ORGAN_SLOT_EYES)
 	if (eyes && !IS_ROBOTIC_ORGAN(eyes))
-		prev_ignore_lighting = eyes.overlay_ignore_lighting
-		eyes.overlay_ignore_lighting = TRUE
+		ADD_TRAIT(affected_human, TRAIT_LUMINESCENT_EYES, REF(src))
 
 /datum/reagent/luminescent_fluid/on_mob_end_metabolize(mob/living/affected_mob)
 	. = ..()
@@ -3255,7 +3252,7 @@
 	affected_human.remove_eye_color(EYE_COLOR_LUMINESCENT_PRIORITY)
 	var/obj/item/organ/eyes/eyes = affected_human.get_organ_slot(ORGAN_SLOT_EYES)
 	if (eyes && !IS_ROBOTIC_ORGAN(eyes) && !overdosed)
-		eyes.overlay_ignore_lighting = prev_ignore_lighting
+		REMOVE_TRAIT(affected_human, TRAIT_LUMINESCENT_EYES, REF(src))
 
 /datum/reagent/luminescent_fluid/on_mob_life(mob/living/affected_mob, seconds_per_tick, times_fired)
 	. = ..()
@@ -3274,14 +3271,13 @@
 	SIGNAL_HANDLER
 
 	if (istype(new_eyes) && !IS_ROBOTIC_ORGAN(new_eyes))
-		prev_ignore_lighting = new_eyes.overlay_ignore_lighting
-		new_eyes.overlay_ignore_lighting = TRUE
+		ADD_TRAIT(source, TRAIT_LUMINESCENT_EYES, REF(src))
 
 /datum/reagent/luminescent_fluid/proc/on_organ_removed(mob/living/source, obj/item/organ/eyes/old_eyes)
 	SIGNAL_HANDLER
 
 	if (istype(old_eyes) && !IS_ROBOTIC_ORGAN(old_eyes) && !overdosed)
-		old_eyes.overlay_ignore_lighting = prev_ignore_lighting
+		REMOVE_TRAIT(source, TRAIT_LUMINESCENT_EYES, REF(src))
 
 /datum/reagent/luminescent_fluid/overdose_start(mob/living/affected_mob)
 	. = ..()

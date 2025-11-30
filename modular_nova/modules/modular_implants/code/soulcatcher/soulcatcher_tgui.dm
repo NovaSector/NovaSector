@@ -106,7 +106,7 @@
 			return TRUE
 
 		if("redescribe_room")
-			var/new_room_desc = tgui_input_text(user,"Choose a new description for the room", name, target_room.room_description, max_length = MAX_DESC_LEN, multiline = TRUE)
+			var/new_room_desc = tgui_input_text(user,"Choose a new description for the room", name, target_room.room_description, max_length = MAX_MESSAGE_LEN, multiline = TRUE)
 			if(!new_room_desc)
 				return FALSE
 
