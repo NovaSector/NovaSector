@@ -7,6 +7,11 @@
 	dir = 8
 	},
 /area/ruin/space)
+"al" = (
+/obj/structure/lattice,
+/obj/item/stack/tile/iron/smooth_corner,
+/turf/template_noop,
+/area/space/nearstation)
 "bI" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/blood/gibs,
@@ -44,6 +49,11 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /turf/open/floor/pod/light,
 /area/ruin/space/has_grav/derelictsulaco)
+"cf" = (
+/obj/structure/lattice,
+/obj/item/stack/tile/iron/smooth_half,
+/turf/template_noop,
+/area/space/nearstation)
 "cu" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/barricade/sandbags,
@@ -145,6 +155,10 @@
 /obj/item/circuitboard/machine/teleporter_hub,
 /turf/open/floor/circuit,
 /area/ruin/space/has_grav/derelictsulaco)
+"fH" = (
+/obj/item/stack/tile/iron/smooth_half,
+/turf/template_noop,
+/area/space/nearstation)
 "gg" = (
 /obj/structure/barricade/sandbags,
 /obj/effect/turf_decal/tile/red{
@@ -407,10 +421,6 @@
 /obj/item/rack_parts,
 /turf/open/floor/circuit,
 /area/ruin/space/has_grav/derelictsulaco)
-"mC" = (
-/obj/item/stack/tile/iron/smooth_corner,
-/turf/template_noop,
-/area/template_noop)
 "na" = (
 /obj/structure/window/reinforced/spawner/directional/north,
 /obj/machinery/computer/terminal/sulaco/map,
@@ -423,11 +433,6 @@
 /obj/structure/alien/resin/wall,
 /turf/open/floor/plating/airless,
 /area/ruin/space/has_grav/derelictsulaco)
-"np" = (
-/obj/structure/lattice,
-/obj/item/stack/tile/iron/smooth_half,
-/turf/template_noop,
-/area/template_noop)
 "nG" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/blood/tracks/xeno{
@@ -474,6 +479,19 @@
 /obj/effect/spawner/structure/window/reinforced,
 /turf/open/floor/plating,
 /area/ruin/space/has_grav/derelictsulaco)
+"pG" = (
+/obj/item/stack/tile/iron/smooth,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/turf/template_noop,
+/area/space/nearstation)
+"qK" = (
+/obj/item/stack/tile/iron/smooth_large,
+/obj/structure/door_assembly/door_assembly_com{
+	anchored = 1
+	},
+/turf/template_noop,
+/area/space/nearstation)
 "qS" = (
 /obj/item/shard,
 /turf/open/floor/pod/light,
@@ -811,6 +829,11 @@
 /obj/structure/closet,
 /turf/open/floor/plating,
 /area/ruin/space/has_grav/derelictsulaco)
+"Am" = (
+/obj/structure/lattice,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/turf/template_noop,
+/area/space/nearstation)
 "Bk" = (
 /obj/structure/alien/weeds,
 /turf/open/floor/plating,
@@ -830,6 +853,12 @@
 /obj/structure/cable,
 /turf/open/floor/wood,
 /area/ruin/space/has_grav/derelictsulaco)
+"BW" = (
+/obj/structure/lattice,
+/obj/item/stack/tile/iron/smooth_half,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/turf/template_noop,
+/area/space/nearstation)
 "Cs" = (
 /obj/machinery/door/airlock/command/glass{
 	name = "Captain's Quarters"
@@ -878,6 +907,10 @@
 /obj/item/storage/medkit,
 /turf/open/floor/iron/smooth,
 /area/ruin/space/has_grav/derelictsulaco)
+"Ef" = (
+/obj/item/stack/tile/iron/smooth_corner,
+/turf/template_noop,
+/area/space/nearstation)
 "Ek" = (
 /obj/structure/alien/weeds,
 /obj/structure/alien/resin/wall,
@@ -988,6 +1021,10 @@
 /obj/effect/decal/cleanable/glass,
 /turf/open/floor/iron/smooth,
 /area/ruin/space/has_grav/derelictsulaco)
+"Hi" = (
+/obj/item/stack/rods,
+/turf/template_noop,
+/area/space/nearstation)
 "Hj" = (
 /obj/structure/window/reinforced/spawner/directional/west,
 /obj/structure/window/reinforced/spawner/directional/north,
@@ -1048,6 +1085,10 @@
 /obj/item/trash/flare,
 /turf/open/floor/iron/smooth,
 /area/ruin/space/has_grav/derelictsulaco)
+"Is" = (
+/obj/structure/lattice,
+/turf/template_noop,
+/area/space/nearstation)
 "It" = (
 /obj/structure/table/wood,
 /obj/machinery/light/small/broken/directional/east,
@@ -1124,10 +1165,6 @@
 	dir = 4
 	},
 /area/ruin/space)
-"KI" = (
-/obj/item/stack/rods,
-/turf/template_noop,
-/area/template_noop)
 "KS" = (
 /obj/machinery/door/window/brigdoor/left/directional/east,
 /obj/machinery/keycard_auth/wall_mounted/directional/north,
@@ -1231,10 +1268,6 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /turf/open/floor/pod/light,
 /area/ruin/space/has_grav/derelictsulaco)
-"Ne" = (
-/obj/item/stack/tile/iron/smooth_half,
-/turf/template_noop,
-/area/template_noop)
 "Ng" = (
 /obj/machinery/camera/directional/south{
 	network = list()
@@ -1307,11 +1340,6 @@
 	},
 /turf/open/floor/plating,
 /area/ruin/space/has_grav/derelictsulaco)
-"PA" = (
-/obj/structure/lattice,
-/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
-/turf/template_noop,
-/area/template_noop)
 "PZ" = (
 /obj/structure/table/reinforced,
 /obj/item/storage/box/ids{
@@ -1370,12 +1398,6 @@
 /obj/structure/cable,
 /turf/open/floor/plating,
 /area/ruin/space/has_grav/derelictsulaco)
-"RP" = (
-/obj/item/stack/tile/iron/smooth,
-/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
-/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
-/turf/template_noop,
-/area/template_noop)
 "Sj" = (
 /obj/structure/alien/weeds,
 /obj/structure/bed/nest,
@@ -1511,12 +1533,6 @@
 	dir = 1
 	},
 /area/ruin/space/has_grav/derelictsulaco)
-"Vz" = (
-/obj/structure/lattice,
-/obj/item/stack/tile/iron/smooth_half,
-/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
-/turf/template_noop,
-/area/template_noop)
 "VO" = (
 /obj/structure/alien/weeds,
 /obj/structure/barricade/sandbags,
@@ -1559,13 +1575,6 @@
 "WN" = (
 /turf/closed/wall/r_wall,
 /area/ruin/space)
-"WO" = (
-/obj/item/stack/tile/iron/smooth_large,
-/obj/structure/door_assembly/door_assembly_com{
-	anchored = 1
-	},
-/turf/template_noop,
-/area/template_noop)
 "WQ" = (
 /obj/structure/table/reinforced,
 /obj/effect/turf_decal/tile/red/fourcorners,
@@ -1579,11 +1588,6 @@
 	},
 /turf/open/floor/pod/light,
 /area/ruin/space/has_grav/derelictsulaco)
-"Xu" = (
-/obj/structure/lattice,
-/obj/item/stack/tile/iron/smooth_corner,
-/turf/template_noop,
-/area/template_noop)
 "XC" = (
 /obj/structure/alien/weeds,
 /obj/machinery/atmospherics/components/unary/vent_pump/layer4{
@@ -1668,10 +1672,6 @@
 /obj/structure/cable,
 /turf/open/floor/pod/light,
 /area/ruin/space/has_grav/derelictsulaco)
-"ZZ" = (
-/obj/structure/lattice,
-/turf/template_noop,
-/area/template_noop)
 
 (1,1,1) = {"
 hi
@@ -1904,7 +1904,7 @@ hi
 Ki
 lf
 Ki
-ZZ
+Is
 hi
 hi
 hi
@@ -1974,7 +1974,7 @@ hi
 Ki
 lf
 Ki
-ZZ
+Is
 hi
 hi
 hi
@@ -1997,7 +1997,7 @@ hi
 hi
 hi
 hi
-ZZ
+Is
 lf
 Ki
 lf
@@ -2009,7 +2009,7 @@ hi
 hi
 lf
 Ki
-ZZ
+Is
 hi
 hi
 hi
@@ -2363,7 +2363,7 @@ VT
 hi
 hi
 Ki
-ZZ
+Is
 hi
 hi
 hi
@@ -2398,7 +2398,7 @@ VT
 dw
 dw
 fg
-ZZ
+Is
 hi
 hi
 hi
@@ -2581,12 +2581,12 @@ hi
 hi
 hi
 hi
-KI
+Hi
 "}
 (27,1,1) = {"
 hi
 hi
-ZZ
+Is
 sr
 xl
 xl
@@ -2612,7 +2612,7 @@ lf
 hi
 hi
 hi
-KI
+Hi
 hi
 hi
 hi
@@ -2621,7 +2621,7 @@ hi
 (28,1,1) = {"
 hi
 hi
-ZZ
+Is
 VT
 eZ
 lS
@@ -2647,7 +2647,7 @@ ag
 dw
 dw
 dw
-ZZ
+Is
 hi
 hi
 hi
@@ -2656,7 +2656,7 @@ hi
 (29,1,1) = {"
 hi
 hi
-ZZ
+Is
 sr
 VT
 VT
@@ -2682,10 +2682,10 @@ VT
 fd
 fd
 fd
-ZZ
-ZZ
-KI
-Ne
+Is
+Is
+Hi
+fH
 hi
 "}
 (30,1,1) = {"
@@ -2752,7 +2752,7 @@ VT
 Yu
 Kq
 VT
-ZZ
+Is
 WN
 hi
 hi
@@ -2789,7 +2789,7 @@ tm
 Mk
 oV
 hT
-ZZ
+Is
 hi
 hi
 "}
@@ -2857,7 +2857,7 @@ VT
 VT
 VT
 VT
-ZZ
+Is
 WN
 hi
 hi
@@ -2868,7 +2868,7 @@ hi
 hi
 hi
 hi
-ZZ
+Is
 dw
 fg
 fd
@@ -2890,7 +2890,7 @@ oV
 oV
 oV
 oV
-KI
+Hi
 dO
 oV
 WN
@@ -2900,10 +2900,10 @@ hi
 "}
 (36,1,1) = {"
 hi
-ZZ
+Is
 fd
 fd
-ZZ
+Is
 fd
 fd
 WN
@@ -2913,7 +2913,7 @@ CU
 CU
 XC
 Ui
-ZZ
+Is
 Gj
 zf
 CU
@@ -2921,14 +2921,14 @@ CU
 CU
 WN
 oV
-ZZ
-ZZ
+Is
+Is
 oV
-ZZ
-ZZ
+Is
+Is
 oV
 hi
-ZZ
+Is
 WN
 hi
 hi
@@ -2938,21 +2938,21 @@ hi
 hi
 hi
 hi
-KI
-ZZ
+Hi
+Is
 WN
 WN
 oV
-ZZ
+Is
 CU
-PA
+Am
 Ko
 Mb
-RP
+pG
 Oo
-Vz
+BW
 dO
-ZZ
+Is
 Nj
 YA
 Ot
@@ -2963,7 +2963,7 @@ hT
 WN
 WN
 hT
-ZZ
+Is
 WN
 hi
 hi
@@ -2976,23 +2976,23 @@ hi
 hi
 hi
 WN
-ZZ
+Is
 dO
 WN
-np
+cf
 CU
-ZZ
-KI
-ZZ
+Is
+Hi
+Is
 Ot
 dO
 Gj
-Xu
+al
 CU
 WN
 oV
 hi
-KI
+Hi
 WN
 hi
 oV
@@ -3008,7 +3008,7 @@ hi
 hi
 hi
 hi
-KI
+Hi
 hi
 dO
 oV
@@ -3016,7 +3016,7 @@ oV
 WN
 oV
 Gj
-ZZ
+Is
 dO
 CU
 CU
@@ -3049,24 +3049,24 @@ Ot
 Ot
 oV
 oV
-KI
+Hi
 hi
-np
+cf
 Ot
-ZZ
+Is
 oV
 WN
 dO
-ZZ
+Is
 dO
 WN
 hi
 hi
-KI
+Hi
 hi
 hi
 hi
-KI
+Hi
 hi
 hi
 hi
@@ -3074,18 +3074,18 @@ hi
 hi
 "}
 (41,1,1) = {"
-KI
+Hi
 hi
 hi
 hi
 hi
 hi
-mC
+Ef
 hi
 oV
 WN
 dO
-ZZ
+Is
 hi
 WN
 dO
@@ -3097,7 +3097,7 @@ hi
 WN
 hi
 hi
-Ne
+fH
 hi
 hi
 hi
@@ -3114,18 +3114,18 @@ hi
 hi
 hi
 hi
-KI
+Hi
 hi
 hi
 Ot
 WN
 oV
-ZZ
+Is
 hi
 hi
 oV
-ZZ
-KI
+Is
+Hi
 Ot
 hi
 dO
@@ -3155,11 +3155,11 @@ hi
 oV
 WN
 Ot
-ZZ
+Is
 hi
-WO
+qK
 Ot
-ZZ
+Is
 hi
 hi
 hi
@@ -3185,14 +3185,14 @@ hi
 hi
 hi
 hi
-KI
+Hi
 hi
 hi
 hi
 dO
-ZZ
+Is
 hi
-KI
+Hi
 hi
 oV
 hi
@@ -3209,7 +3209,7 @@ hi
 hi
 hi
 hi
-Ne
+fH
 hi
 hi
 "}
@@ -3229,10 +3229,10 @@ hi
 hi
 hi
 hi
-ZZ
+Is
 hi
 hi
-Ne
+fH
 hi
 hi
 hi
