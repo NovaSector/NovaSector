@@ -1,0 +1,9 @@
+author: "Hatterhat"
+delete-after: True
+changes:
+  - rscadd: "Energy shoulder holsters can now fit a power cell inside of them to act as a wearable recharger specifically for energy weapons. Examine them for more details, and remember to actually wear them to recharge your guns."
+  - rscadd: "You can now convert shoulder holsters into energy shoulder holsters, and you can now craft a one-slot, high-output energy shoulder holster."
+  - bugfix: "Security webbing's basic sprite now uses the TG basic sprite."
+  - qol: "Holsters now hold energy guns and laser guns just fine instead of specifically the mini e-gun, cap's laser, HoS laser, etc."
+  - balance: "Most holsters now only fit one gun, much like secbelts. Energy shoulder holsters, as befitting their plural nature, still hold two."
+  - balance: "Small guns and small batons no longer count against secbelts' limited slots for normal-size guns/batons. Not that you should have a secbelt full of snub-nose Renards instead of just carrying one and some speedloaders, but if you're going to drop a set of handcuffs for a backup pocket pistol, at least you can still stash your disabler."
