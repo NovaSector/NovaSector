@@ -1,4 +1,4 @@
-// Quick preference for people to opt into random Truth or Dare requests, typicalla via PDA.
+// Quick preference for people to opt into random Truth or Dare requests, typically via PDA.
 
 /datum/preference/choiced/accepts_unsolicited_truth_or_dare
 	category = PREFERENCE_CATEGORY_NON_CONTEXTUAL
