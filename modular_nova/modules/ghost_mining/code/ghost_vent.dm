@@ -31,7 +31,7 @@
 	var/static_boulder_bounty = null //does this vent have a static boulder bounty?
 	var/manual_reset = FALSE //Can we force a reset on materials?
 	var/min_to_reset = 5 //Minimal amount of boulders needed for manual reset
-	var/reset_timer = 5 //active amount till vent can reset
+	var/reset_timer = 5 //active amount till vent can reset.
 	var/random_start = FALSE  //does this vent randomize at start?
 	var/ghost_mining = FALSE //are boulders for a ghost role exclusive vent?
 	var/reset_message = "Search for different mineral types?"
@@ -127,6 +127,12 @@
 			balloon_alert_to_viewers("ore gouger still recharging!")
 			return SECONDARY_ATTACK_CANCEL_ATTACK_CHAIN
 
+/obj/structure/ore_vent/ghost_mining/add_context(atom/source, list/context, obj/item/held_item, mob/living/user)
+	. = ..()
+	if(manual_reset)
+		context[SCREENTIP_CONTEXT_RMB] = "Cycle Ores"
+		return CONTEXTUAL_SCREENTIP_SET
+
 /obj/structure/ore_vent/ghost_mining/start_wave_defense() //We add faction and change spawn text a bit. tbh we could rebalance a bit but thats for later ideas
 	AddComponent(\
 		/datum/component/spawner, \
@@ -201,6 +207,9 @@
 		boulder_bounty = static_boulder_bounty
 	else
 		boulder_bounty = (magnitude * boulder_size) // minimal 5, maximum is 60. tbh not that hard in space
+
+	if(manual_reset)
+		reset_timer = min_to_reset
 
 	var/threat_pick = pick(threat_pool) //We choose from the threat pool list and use it to generate a defending_mobs list. todo: complex additive mode for funny shenanigans
 
