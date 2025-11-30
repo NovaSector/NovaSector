@@ -15,3 +15,9 @@
     - _maps/minigame/deathmatch/maint_mania.dmm
     - _maps/RandomRuins/IceRuins
     - _maps/RandomRuins/LavaRuins
+    # NOVA SKIP FILES DOWN HERE
+    - _maps/nova/holodeck_wargame.dmm
+    - _maps/nova/automapper/templates/deltastation/deltastation_supermatter.dmm
+    - _maps/RandomRuins/SpaceRuins/nova/port_tarkon
+    - _maps/nova/automapper/templates
+    - _maps/nova/diorama

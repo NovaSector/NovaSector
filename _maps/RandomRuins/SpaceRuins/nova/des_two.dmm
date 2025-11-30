@@ -172,7 +172,7 @@
 "aI" = (
 /obj/effect/turf_decal/stripes/line,
 /turf/open/floor/engine/hull,
-/area/template_noop)
+/area/space/nearstation)
 "aJ" = (
 /obj/effect/spawner/random/decoration/carpet,
 /obj/structure/closet/crate/cardboard,
@@ -217,7 +217,7 @@
 	network = list("ds2")
 	},
 /turf/template_noop,
-/area/template_noop)
+/area/space/nearstation)
 "aU" = (
 /obj/structure/cable,
 /obj/machinery/light/warm/directional/west,
@@ -1348,7 +1348,7 @@
 "fK" = (
 /obj/structure/lattice,
 /turf/template_noop,
-/area/template_noop)
+/area/space/nearstation)
 "fL" = (
 /obj/effect/turf_decal/bot_white,
 /obj/structure/sink/kitchen/directional/west,
@@ -1544,7 +1544,7 @@
 /obj/structure/lattice/catwalk,
 /obj/structure/marker_beacon/burgundy,
 /turf/open/space/basic,
-/area/template_noop)
+/area/space/nearstation)
 "gn" = (
 /obj/machinery/hydroponics/constructable,
 /turf/open/floor/iron/dark/small,
@@ -3714,7 +3714,7 @@
 /obj/structure/lattice,
 /obj/structure/transit_tube/crossing/horizontal,
 /turf/template_noop,
-/area/template_noop)
+/area/space/nearstation)
 "pC" = (
 /obj/machinery/door/airlock/service/glass{
 	name = "Kitchen"
@@ -5087,7 +5087,7 @@
 	dir = 8
 	},
 /turf/template_noop,
-/area/template_noop)
+/area/space/nearstation)
 "vE" = (
 /obj/structure/railing{
 	dir = 4
@@ -5734,7 +5734,7 @@
 	dir = 1
 	},
 /turf/open/floor/engine/hull,
-/area/template_noop)
+/area/space/nearstation)
 "yI" = (
 /obj/machinery/atmospherics/components/unary/vent_pump/on/layer4{
 	dir = 1
@@ -6060,7 +6060,7 @@
 	dir = 8
 	},
 /turf/template_noop,
-/area/template_noop)
+/area/space/nearstation)
 "Ae" = (
 /obj/structure/cable,
 /obj/structure/disposalpipe/segment{
@@ -6708,7 +6708,7 @@
 /obj/structure/lattice/catwalk,
 /obj/structure/marker_beacon/burgundy,
 /turf/template_noop,
-/area/template_noop)
+/area/space/nearstation)
 "CQ" = (
 /obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer2,
 /turf/open/floor/mineral/plastitanium/red,
@@ -7034,7 +7034,7 @@
 "Eg" = (
 /obj/structure/lattice/catwalk,
 /turf/template_noop,
-/area/template_noop)
+/area/space/nearstation)
 "El" = (
 /obj/effect/turf_decal/siding/thinplating/dark{
 	dir = 1
@@ -9885,7 +9885,7 @@
 /area/ruin/space/has_grav/nova/des_two/security/prison)
 "PV" = (
 /turf/closed/wall/r_wall/plastitanium/syndicate/nodiagonal,
-/area/template_noop)
+/area/space/nearstation)
 "PX" = (
 /obj/machinery/skill_station,
 /turf/open/floor/iron/dark/textured_large,
@@ -9936,7 +9936,7 @@
 /area/ruin/space/has_grav/nova/des_two/engineering)
 "Qi" = (
 /turf/open/floor/engine/hull,
-/area/template_noop)
+/area/space/nearstation)
 "Qj" = (
 /obj/effect/turf_decal/stripes/red/line{
 	dir = 8
