@@ -6,10 +6,12 @@
 #define LRM_TURF_BLOCKED_BY_BOULDER -1
 ///Failure to have boulders to pull from. To prevent the damned thing from bricking itself.
 #define LRM_NO_BOULDER -2
+///So they cant take boulders the BRM can.
+#define LRM_UNSTABLE_BOULDER -3
 
 /obj/machinery/lrm
 	name = "Linked Retrieval Matrix"
-	desc = "A teleportation matrix used to retrieve boulders from linked Boulder Stabilizing Collector boxes."
+	desc = "A teleportation matrix used to retrieve boulders from linked Boulder Storage Collector boxes."
 	icon = 'modular_nova/modules/ghost_mining/icons/lrm.dmi'
 	icon_state = "lrm"
 	active_power_usage = BASE_MACHINE_ACTIVE_CONSUMPTION * 0.5
@@ -120,6 +122,9 @@
 	if(!istype(buffer_holder.buffer, /obj/structure/ore_box/boulder_collector))
 		balloon_alert_to_viewers("detected device is not connectable!")
 		return ITEM_INTERACT_SUCCESS
+	if(buffer_holder.buffer in linked_bscs)
+		balloon_alert_to_viewers("machine already linked!")
+		return ITEM_INTERACT_SUCCESS
 
 	if(istype(buffer_holder.buffer, /obj/structure/ore_box/boulder_collector))
 		linked_bscs += WEAKREF(buffer_holder.buffer)
@@ -194,6 +199,8 @@
 		balloon_alert(user, "no space!")
 	else if(result == LRM_NO_BOULDER)
 		balloon_alert(user, "no boulders!")
+	else if(result == LRM_UNSTABLE_BOULDER)
+		balloon_alert(user, "chosen boulder too unstable!")
 	else if(result)
 		balloon_alert(user, "teleporting...")
 
@@ -213,6 +220,8 @@
 		balloon_alert(user, "no space!")
 	else if(result == LRM_NO_BOULDER)
 		balloon_alert(user, "no boulders!")
+	else if(result == LRM_UNSTABLE_BOULDER)
+		balloon_alert(user, "chosen boulder too unstable!")
 	else if(result)
 		balloon_alert(user, "teleporting...")
 
@@ -333,6 +342,11 @@
 	var/datum/weakref/chosen_rock_ref = pick(collector.available_boulders)
 	var/obj/item/boulder/chosen_rock = chosen_rock_ref?.resolve()
 
+	//If boulder is BRM'able, refuse.
+	if(chosen_rock in SSore_generation.available_boulders)
+		batch_processing = FALSE
+		return LRM_UNSTABLE_BOULDER
+
 	chosen_rock.forceMove(drop_location())
 	chosen_rock.pixel_x = rand(-2, 2)
 	chosen_rock.pixel_y = rand(-2, 2)
@@ -366,3 +380,4 @@
 #undef LRM_BATCH_COOLDOWN
 #undef LRM_TURF_BLOCKED_BY_BOULDER
 #undef LRM_NO_BOULDER
+#undef LRM_UNSTABLE_BOULDER

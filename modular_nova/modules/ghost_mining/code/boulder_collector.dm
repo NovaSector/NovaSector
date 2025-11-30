@@ -2,7 +2,7 @@
 
 /obj/structure/ore_box/boulder_collector //We want this to automatically grab boulders and desync them from the bluespace boulder grabbers
 	name = "BSC Refinery Box"
-	desc = "An improvement on the normal boxes drudged around by miners, The \"Boulder Stabilizing Collector\" is capable of automatically picking up and safely storing ores or boulders in a set direction once established."
+	desc = "An improvement on the normal boxes drudged around by miners, The \"Boulder Storage Collector\" is capable of automatically picking up and safely storing ores or boulders in a set direction once established."
 	icon = 'modular_nova/modules/ghost_mining/icons/mining.dmi'
 	icon_state = "orebox"
 	resistance_flags = FIRE_PROOF|LAVA_PROOF
@@ -34,8 +34,6 @@
 	var/drop = drop_location()
 	for(var/obj/item/weapon in src)
 		weapon.forceMove(drop)
-		if(istype(weapon, /obj/item/boulder))
-			available_boulders -= WEAKREF(weapon)
 
 /obj/structure/ore_box/add_context(atom/source, list/context, obj/item/held_item, mob/user)
 	. = NONE
@@ -136,16 +134,16 @@
 	if(istype(target_boulder, /obj/item/boulder))
 		var/obj/item/boulder/mine_now = target_boulder
 		mine_now.forceMove(src) //Pull the boulder into storage
-		SSore_generation.available_boulders -= mine_now //Decouple the boulder from the network. Cant be stolen
-		available_boulders += WEAKREF(mine_now)
+		if(!(mine_now in SSore_generation.available_boulders)) //if not in BRM pull list, add it to its potential pull list
+			available_boulders += WEAKREF(mine_now)
 	return
 
 /obj/structure/ore_box/boulder_collector/attackby(obj/item/attacking_item, mob/user, list/modifiers, list/attack_modifiers)
 	if(istype(attacking_item, /obj/item/boulder))
 		var/obj/item/boulder/mine_now = attacking_item
-		SSore_generation.available_boulders -= mine_now
 		user.transferItemToLoc(attacking_item, src)
-		available_boulders += WEAKREF(mine_now)
+		if(!(mine_now in SSore_generation.available_boulders))
+			available_boulders += WEAKREF(mine_now)
 	else
 		return ..()
 
