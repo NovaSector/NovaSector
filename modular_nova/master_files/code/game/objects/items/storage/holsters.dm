@@ -6,7 +6,7 @@
 	/// The multiplier for charge rate (see its usage in device/weapon rechargers)
 	var/recharge_coeff = 1
 	/// The multiplier for rechargable magazines' charge rate.
-	VAR_FINAL/recharge_magazine_coeff = 1
+	VAR_PROTECTED/recharge_magazine_coeff = 1
 
 /obj/item/storage/belt/holster/energy/onegun
 	name = "high-output energy shoulder holster"
