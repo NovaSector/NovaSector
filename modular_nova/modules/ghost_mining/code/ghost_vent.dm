@@ -34,6 +34,7 @@
 	var/reset_timer = 5 //active amount till vent can reset
 	var/random_start = FALSE  //does this vent randomize at start?
 	var/ghost_mining = FALSE //are boulders for a ghost role exclusive vent?
+	var/reset_message = "Search for different mineral types?"
 	var/threat_pool = list(
 		COLONY_THREAT_CARP,
 		COLONY_THREAT_PIRATES,
@@ -48,6 +49,8 @@
 				. += span_notice("The current nodule holds [boulder_bounty] chunks worth of ore.")
 			if(FALSE)
 				. += span_notice("The vent holds a nodule breakable into [boulder_bounty] ore chunks.")
+	if(manual_reset)
+		. += span_notice("The ore gouger needs [reset_timer] more cycles to get new minerals")
 	if(clear_tally >= 1)
 		. += span_notice("This vent has hauled up [clear_tally] different nodule types.")
 
@@ -111,6 +114,18 @@
 	. = ..()
 	if(random_start)
 		reset_vent(FALSE)
+
+/obj/structure/ore_vent/ghost_mining/attack_hand_secondary(mob/user, list/modifiers)
+	. = ..()
+	if(manual_reset)
+		if(reset_timer <= 0)
+			if(tgui_alert(user, reset_message, "Reset the ore vent?", list("Yes", "No")) != "Yes")
+				return SECONDARY_ATTACK_CANCEL_ATTACK_CHAIN
+			reset_vent(TRUE)
+			return SECONDARY_ATTACK_CANCEL_ATTACK_CHAIN
+		else
+			balloon_alert_to_viewers("ore gouger still recharging!")
+			return SECONDARY_ATTACK_CANCEL_ATTACK_CHAIN
 
 /obj/structure/ore_vent/ghost_mining/start_wave_defense() //We add faction and change spawn text a bit. tbh we could rebalance a bit but thats for later ideas
 	AddComponent(\

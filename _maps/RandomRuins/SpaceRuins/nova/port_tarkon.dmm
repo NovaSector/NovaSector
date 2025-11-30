@@ -594,7 +594,7 @@
 /turf/closed/wall/r_wall,
 /area/ruin/space/has_grav/port_tarkon/park)
 "cI" = (
-/obj/structure/ore_vent/ghost_mining/carp,
+/obj/structure/ore_vent/ghost_mining/carp/endless,
 /turf/open/misc/asteroid/airless,
 /area/ruin/space/has_grav)
 "cK" = (
