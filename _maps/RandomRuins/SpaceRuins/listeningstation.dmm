@@ -79,14 +79,6 @@
 /obj/item/storage/photo_album/listeningstation,
 /turf/open/floor/iron/small,
 /area/ruin/space/has_grav/listeningstation)
-"ch" = (
-/obj/structure/sign/nanotrasen{
-	pixel_y = 32
-	},
-/obj/structure/lattice/catwalk,
-/obj/structure/marker_beacon/cerulean,
-/turf/template_noop,
-/area/ruin/space)
 "cj" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
@@ -213,6 +205,14 @@
 /obj/structure/cable,
 /turf/open/floor/plating,
 /area/ruin/space/has_grav/listeningstation)
+"lj" = (
+/obj/structure/lattice/catwalk,
+/obj/structure/sign/nanotrasen{
+	pixel_x = -32
+	},
+/obj/structure/marker_beacon/cerulean,
+/turf/template_noop,
+/area/ruin/space)
 "lk" = (
 /obj/item/radio/intercom/directional/east{
 	freerange = 1
@@ -240,16 +240,6 @@
 /obj/machinery/light/small/red/directional/north,
 /turf/open/floor/circuit/red,
 /area/ruin/space/has_grav/listeningstation)
-"lO" = (
-/obj/structure/sign/nanotrasen{
-	pixel_y = 32
-	},
-/obj/structure/sign/nanotrasen{
-	pixel_x = 32
-	},
-/obj/structure/marker_beacon/cerulean,
-/turf/open/floor/plating/airless,
-/area/ruin/space)
 "nG" = (
 /obj/effect/decal/cleanable/blood/drip,
 /obj/structure/table,
@@ -309,6 +299,17 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /turf/open/floor/iron/grimy,
 /area/ruin/space/has_grav/listeningstation)
+"ry" = (
+/obj/docking_port/stationary{
+	dir = 8;
+	dwidth = 4;
+	height = 5;
+	shuttle_id = "caravansyndicate1_listeningpost";
+	name = "Syndicate Listening Post";
+	width = 9
+	},
+/turf/template_noop,
+/area/space/nearstation)
 "rE" = (
 /obj/structure/cable,
 /turf/open/floor/plating/airless,
@@ -342,19 +343,31 @@
 /obj/effect/mapping_helpers/airalarm/syndicate_access,
 /turf/open/floor/iron/dark,
 /area/ruin/space/has_grav/listeningstation)
+"tY" = (
+/obj/structure/sign/nanotrasen{
+	pixel_y = 32
+	},
+/obj/structure/sign/nanotrasen{
+	pixel_x = 32
+	},
+/obj/structure/marker_beacon/cerulean,
+/turf/open/floor/plating/airless,
+/area/ruin/space)
 "uI" = (
 /obj/machinery/airalarm/directional/north,
 /obj/effect/decal/cleanable/blood/old,
 /obj/effect/mapping_helpers/airalarm/syndicate_access,
 /turf/open/floor/iron,
 /area/ruin/space/has_grav/listeningstation)
-"vt" = (
-/obj/structure/lattice/catwalk,
+"vB" = (
 /obj/structure/sign/nanotrasen{
-	pixel_x = -32
+	pixel_y = -32
+	},
+/obj/structure/sign/nanotrasen{
+	pixel_x = 32
 	},
 /obj/structure/marker_beacon/cerulean,
-/turf/template_noop,
+/turf/open/floor/plating/airless,
 /area/ruin/space)
 "vC" = (
 /obj/structure/cable,
@@ -608,16 +621,6 @@
 /obj/machinery/light/very_dim/directional/east,
 /turf/open/floor/iron/showroomfloor,
 /area/ruin/space/has_grav/listeningstation)
-"FU" = (
-/obj/structure/sign/nanotrasen{
-	pixel_y = -32
-	},
-/obj/structure/sign/nanotrasen{
-	pixel_x = 32
-	},
-/obj/structure/marker_beacon/cerulean,
-/turf/open/floor/plating/airless,
-/area/ruin/space)
 "FV" = (
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/plating,
@@ -674,17 +677,6 @@
 "JB" = (
 /turf/closed/wall/r_wall,
 /area/ruin/space/has_grav/listeningstation)
-"JD" = (
-/obj/docking_port/stationary{
-	dir = 8;
-	dwidth = 4;
-	height = 5;
-	shuttle_id = "caravansyndicate1_listeningpost";
-	name = "Syndicate Listening Post";
-	width = 9
-	},
-/turf/template_noop,
-/area/template_noop)
 "KG" = (
 /obj/structure/curtain,
 /obj/effect/decal/cleanable/dirt,
@@ -797,6 +789,14 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /turf/open/floor/iron/small,
 /area/ruin/space/has_grav/listeningstation)
+"PZ" = (
+/obj/structure/sign/nanotrasen{
+	pixel_y = 32
+	},
+/obj/structure/lattice/catwalk,
+/obj/structure/marker_beacon/cerulean,
+/turf/template_noop,
+/area/ruin/space)
 "QE" = (
 /obj/structure/barricade/wooden/crude,
 /obj/structure/cable,
@@ -1015,7 +1015,7 @@ AV
 AV
 AV
 AV
-JD
+ry
 AV
 AV
 AV
@@ -1039,9 +1039,9 @@ vI
 vI
 vI
 zp
-lO
+tY
 rE
-FU
+vB
 zp
 vI
 AV
@@ -1175,7 +1175,7 @@ gl
 RK
 JB
 zp
-ch
+PZ
 AV
 "}
 (9,1,1) = {"
@@ -1590,7 +1590,7 @@ AV
 AV
 AV
 AV
-vt
+lj
 AV
 AV
 AV

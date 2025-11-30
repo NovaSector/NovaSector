@@ -25,4 +25,4 @@
 			continue
 		if(HAS_TRAIT(living_within, TRAIT_TRASHMAN))
 			continue
-		living_within.adjustBruteLoss(2)
+		living_within.adjust_brute_loss(2)

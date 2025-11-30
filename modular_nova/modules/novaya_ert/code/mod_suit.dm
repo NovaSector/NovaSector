@@ -165,11 +165,11 @@
 		deactivate()
 		return FALSE
 
-	var/new_oxyloss = mod.wearer.getOxyLoss()
-	var/new_bruteloss = mod.wearer.getBruteLoss()
-	var/new_fireloss = mod.wearer.getFireLoss()
-	var/new_stamloss = mod.wearer.getStaminaLoss()
-	var/new_toxloss = mod.wearer.getToxLoss()
+	var/new_oxyloss = mod.wearer.get_oxy_loss()
+	var/new_bruteloss = mod.wearer.get_brute_loss()
+	var/new_fireloss = mod.wearer.get_fire_loss()
+	var/new_stamloss = mod.wearer.get_stamina_loss()
+	var/new_toxloss = mod.wearer.get_tox_loss()
 
 	if(mod.wearer.blood_volume < BLOOD_VOLUME_OKAY && reagents.total_volume >= reagent_required_amount * 0.5 * seconds_per_tick)
 		if(!COOLDOWN_FINISHED(src, blood_timer))

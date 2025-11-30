@@ -369,6 +369,10 @@
 /obj/structure/lattice/catwalk,
 /turf/template_noop,
 /area/ruin/space/has_grav/garbagetruck/foodwaste)
+"pW" = (
+/obj/machinery/power/shuttle_engine/propulsion,
+/turf/template_noop,
+/area/space/nearstation)
 "qd" = (
 /obj/item/food/breadslice/moldy/bacteria{
 	pixel_y = -10
@@ -843,13 +847,6 @@
 	},
 /turf/open/floor/plating/dumpsterair,
 /area/ruin/space/has_grav/garbagetruck/foodwaste)
-"Ie" = (
-/obj/machinery/airalarm{
-	pixel_y = 25
-	},
-/obj/structure/cable,
-/turf/open/floor/catwalk_floor/iron,
-/area/ruin/space/has_grav/garbagetruck/foodwaste)
 "II" = (
 /obj/structure/closet/crate/trashcart/filled,
 /obj/item/food/cracker,
@@ -1124,6 +1121,13 @@
 	},
 /turf/open/floor/plating/dumpsterair,
 /area/ruin/space/has_grav/garbagetruck/foodwaste)
+"Tt" = (
+/obj/machinery/airalarm{
+	pixel_y = 25
+	},
+/obj/structure/cable,
+/turf/open/floor/catwalk_floor/iron,
+/area/ruin/space/has_grav/garbagetruck/foodwaste)
 "TB" = (
 /obj/structure/window/reinforced/shuttle,
 /obj/structure/grille,
@@ -1159,10 +1163,6 @@
 /obj/structure/cable,
 /turf/open/floor/iron/smooth,
 /area/ruin/space/has_grav/garbagetruck/foodwaste)
-"VL" = (
-/obj/machinery/power/shuttle_engine/propulsion,
-/turf/template_noop,
-/area/template_noop)
 "Xi" = (
 /obj/item/food/badrecipe/moldy/bacteria,
 /obj/effect/decal/cleanable/food/egg_smudge,
@@ -1238,7 +1238,7 @@ pP
 pP
 pP
 OD
-VL
+pW
 qM
 qM
 qM
@@ -1346,7 +1346,7 @@ XY
 TB
 Od
 OD
-Ie
+Tt
 Ct
 tU
 TX
@@ -1480,7 +1480,7 @@ pP
 pP
 UX
 OD
-VL
+pW
 qM
 qM
 qM

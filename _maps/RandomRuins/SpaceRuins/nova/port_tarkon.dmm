@@ -3021,7 +3021,7 @@
 /obj/structure/lattice/catwalk,
 /obj/structure/marker_beacon/burgundy,
 /turf/template_noop,
-/area/template_noop)
+/area/space/nearstation)
 "mJ" = (
 /obj/machinery/airalarm/directional/north,
 /obj/effect/mapping_helpers/airalarm/all_access,
@@ -8137,7 +8137,7 @@
 "IO" = (
 /obj/structure/lattice,
 /turf/template_noop,
-/area/template_noop)
+/area/space/nearstation)
 "IP" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
@@ -12064,7 +12064,7 @@
 "ZG" = (
 /obj/structure/fluff/metalpole,
 /turf/template_noop,
-/area/template_noop)
+/area/space/nearstation)
 "ZH" = (
 /turf/closed/wall/r_wall,
 /area/ruin/space/has_grav/port_tarkon/medhall)

@@ -236,13 +236,6 @@
 /obj/effect/decal/cleanable/fuel_pool,
 /turf/open/floor/plating/dumpsterair,
 /area/ruin/space/has_grav/garbagetruck/squat)
-"lE" = (
-/obj/machinery/airalarm{
-	pixel_y = 25
-	},
-/obj/structure/cable,
-/turf/open/floor/catwalk_floor/iron,
-/area/ruin/space/has_grav/garbagetruck/squat)
 "lY" = (
 /obj/effect/decal/cleanable/dirt/dust,
 /turf/open/floor/plating/dumpsterair,
@@ -306,6 +299,13 @@
 /obj/item/restraints/handcuffs/cable/zipties/used,
 /obj/item/shard,
 /turf/open/floor/plating/dumpsterair,
+/area/ruin/space/has_grav/garbagetruck/squat)
+"qx" = (
+/obj/machinery/airalarm{
+	pixel_y = 25
+	},
+/obj/structure/cable,
+/turf/open/floor/catwalk_floor/iron,
 /area/ruin/space/has_grav/garbagetruck/squat)
 "qF" = (
 /obj/structure/closet/cardboard,
@@ -484,6 +484,10 @@
 /obj/effect/spawner/random/contraband/narcotics,
 /turf/open/floor/plating/dumpsterair,
 /area/ruin/space/has_grav/garbagetruck/squat)
+"yH" = (
+/obj/machinery/power/shuttle_engine/propulsion,
+/turf/template_noop,
+/area/space/nearstation)
 "za" = (
 /obj/item/cigbutt/cigarbutt{
 	desc = "A manky old cigar butt. A little cobweb is on the end.";
@@ -883,10 +887,6 @@
 /obj/effect/decal/cleanable/fuel_pool,
 /turf/open/floor/plating/dumpsterair,
 /area/ruin/space/has_grav/garbagetruck/squat)
-"VL" = (
-/obj/machinery/power/shuttle_engine/propulsion,
-/turf/template_noop,
-/area/template_noop)
 "WK" = (
 /obj/effect/decal/cleanable/fuel_pool,
 /obj/item/clothing/shoes/workboots{
@@ -940,7 +940,7 @@ pk
 pk
 pk
 HZ
-VL
+yH
 JX
 JX
 JX
@@ -1048,7 +1048,7 @@ la
 gy
 gq
 HZ
-lE
+qx
 PE
 JW
 WV
@@ -1182,7 +1182,7 @@ pk
 pk
 MJ
 HZ
-VL
+yH
 JX
 JX
 JX
