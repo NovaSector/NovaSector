@@ -109,7 +109,6 @@
 
 /// Fling crates around and open/break some of them in the process
 /obj/structure/cargo_shelf/proc/spill_contents()
-	var/turf/dump_turf = drop_location()
 	for(var/obj/structure/closet/crate/crate in contents)
 		var/dump_turf = pick(get_spill_locations(3)) // Shuffle the crates around as though they've fallen down.
 		remove_crate(crate, dump_turf)
@@ -126,18 +125,17 @@
 /obj/structure/cargo_shelf/proc/get_spill_locations(radius)
 	var/list/buckets[radius+1]
 	for(var/turf/turf_in_view in view(radius, get_turf(src)))
-		if(!distance)
-			continue
+		var/distance = get_dist(get_turf(src), turf_in_view)
 		if(isclosedturf(turf_in_view))
 			continue
-		if(!islist(buckets[d]))
-			buckets[d] = list()
+		if(!islist(buckets[distance]))
+			buckets[distance] = list()
 		if(isgroundlessturf(turf_in_view) && !GET_TURF_BELOW(turf_in_view))
 			continue
 		if(turf_in_view.is_blocked_turf(exclude_mobs = TRUE))
 			continue
 
-		buckets[d] += turf_in_view
+		buckets[distance] += turf_in_view
 
 	// now return the first non-empty ring
 	for(var/i = 0 to radius)
