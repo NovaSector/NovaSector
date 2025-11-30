@@ -1,0 +1,4 @@
+author: "TheSS13Melon"
+delete-after: True
+changes:
+  - code_imp: "Changes weights in dynamic while disabling Dynamic Tweak"
