@@ -27,6 +27,7 @@ SUBSYSTEM_DEF(pollution)
 /datum/controller/subsystem/pollution/Initialize()
 	can_fire = FALSE
 	return SS_INIT_NO_NEED
+	/*
 	//Initialize singletons
 	for(var/type in subtypesof(/datum/pollutant))
 		var/datum/pollutant/pollutant_cast = type
@@ -34,6 +35,7 @@ SUBSYSTEM_DEF(pollution)
 			continue
 		singletons[type] = new type()
 	return SS_INIT_SUCCESS
+	*/
 
 /datum/controller/subsystem/pollution/fire(resumed = FALSE)
 	var/list/current_run_cache = current_run
