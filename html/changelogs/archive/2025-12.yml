@@ -1,0 +1,22 @@
+2025-12-01:
+  Absolucy:
+  - bugfix: Voltaic combat cyberhearts no longer kill toxlovers (i.e jellypeople),
+      albeit they won't heal toxins for them either.
+  Aliceee2ch:
+  - bugfix: Added missing "require all" type of access for Bitrunning Den.
+  - bugfix: Fixed missing access to ORM room for miners on CatwalkStation.
+  ArchBTW, WinterDarkraven:
+  - qol: Guns have a directional muzzle flash effect now
+  FalloutFalcon:
+  - code_imp: standardized defines for currency symbols
+  - balance: Lattice now ignore the slowdowns of turfs
+  - bugfix: Lattice now stop you from dipping into water
+  Xrmanser:
+  - bugfix: 'graft stat adjustments now apply even when the trait is rejected
+
+      :cl:'
+  lelandkemble:
+  - spellcheck: abilities that check for consciousness will say you're dead rather
+      than unconscious if you're dead
+  vinylspiders:
+  - bugfix: the 'use subtler' emote toggle in the interactions pane is now functional
