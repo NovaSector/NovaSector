@@ -121,7 +121,7 @@
 			frequency = rand(MIN_EMOTE_PITCH, MAX_EMOTE_PITCH)
 		//playsound(source = user,soundin = tmp_sound,vol = 50, vary = FALSE, ignore_walls = sound_wall_ignore, frequency = frequency) // NOVA EDIT REMOVAL
 		// NOVA EDIT ADDITION START - Lewd emote prefs
-		if(istype(src, /datum/emote/living/lewd))
+		if(running_emote_type & EMOTE_LEWD)
 			playsound_if_pref(source = user, soundin = tmp_sound, vol = sound_volume, vary = FALSE, frequency = frequency, pref_to_check = /datum/preference/toggle/erp/sounds)
 		else
 			playsound(source = user, soundin = tmp_sound, vol = sound_volume, vary = FALSE, ignore_walls = sound_wall_ignore, frequency = frequency)
@@ -144,7 +144,7 @@
 				if(is_visual && viewer.is_blind())
 					continue
 				// NOVA EDIT ADDITION START - Pref checked emotes
-				if(!pref_check_emote(viewer))
+				if((running_emote_type & EMOTE_LEWD) && !pref_check_emote(viewer))
 					continue
 				// NOVA EDIT ADDITION END
 			if(user.runechat_prefs_check(viewer, EMOTE_MESSAGE))
@@ -213,7 +213,7 @@
 	if(hologram)
 		if(is_important)
 			for(var/mob/living/viewer in viewers(world.view, hologram))
-				if(!pref_check_emote(viewer))
+				if((emote_type & EMOTE_LEWD) && !pref_check_emote(viewer))
 					continue
 				to_chat(viewer, msg)
 		else if(is_visual && is_audible)
@@ -250,7 +250,7 @@
 			if(!(get_chat_toggles(ghost.client) & CHAT_GHOSTSIGHT))
 				continue
 			// NOVA EDIT ADDITION START - Pref checked emotes
-			if(!pref_check_emote(ghost))
+			if((emote_type & EMOTE_LEWD) && !pref_check_emote(ghost))
 				continue
 			// NOVA EDIT ADDITION END
 			to_chat(ghost, span_emote("[FOLLOW_LINK(ghost, user)] [dchatmsg]"))

@@ -416,6 +416,7 @@
 #include "code\__DEFINES\traits\declarations.dm"
 #include "code\__DEFINES\traits\macros.dm"
 #include "code\__DEFINES\traits\sources.dm"
+#include "code\__DEFINES\~nova_defines\_flags.dm"
 #include "code\__DEFINES\~nova_defines\_organ_defines.dm"
 #include "code\__DEFINES\~nova_defines\access.dm"
 #include "code\__DEFINES\~nova_defines\actionspeed_modification.dm"
