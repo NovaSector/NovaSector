@@ -4700,7 +4700,6 @@
 "bsp" = (
 /obj/structure/cable,
 /obj/machinery/light/small/directional/south,
-/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /turf/open/floor/plating,
 /area/station/maintenance/aft/greater)
 "bsJ" = (
@@ -10013,6 +10012,7 @@
 /obj/effect/turf_decal/stripes/full,
 /obj/effect/spawner/random/trash/food_packaging,
 /obj/effect/spawner/random/trash/garbage,
+/obj/machinery/light/small/directional/north,
 /turf/open/floor/plating,
 /area/station/maintenance/disposal)
 "cXS" = (
@@ -12053,7 +12053,6 @@
 /obj/structure/disposalpipe/segment{
 	dir = 10
 	},
-/obj/machinery/light/small/directional/east,
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
@@ -12753,7 +12752,6 @@
 /obj/structure/chair/plastic{
 	dir = 1
 	},
-/obj/machinery/light/small/directional/east,
 /turf/open/floor/wood,
 /area/station/maintenance/starboard/fore)
 "dMM" = (
@@ -12827,6 +12825,10 @@
 	},
 /obj/machinery/power/apc/auto_name/directional/west,
 /obj/structure/cable,
+/obj/machinery/camera/directional/west{
+	c_tag = "Canteen Lounge - Public";
+	network = list("ss13","bar")
+	},
 /turf/open/floor/wood/tile,
 /area/station/commons/lounge)
 "dNZ" = (
@@ -18139,7 +18141,6 @@
 /area/station/medical/pharmacy)
 "fmv" = (
 /obj/structure/lattice/catwalk,
-/obj/machinery/light/small/directional/south,
 /obj/structure/cable,
 /obj/structure/railing{
 	dir = 1
@@ -23794,6 +23795,7 @@
 /obj/structure/disposalpipe/segment{
 	dir = 4
 	},
+/obj/machinery/light/small/directional/south,
 /turf/open/floor/plating,
 /area/station/medical/break_room)
 "gWD" = (
@@ -23915,6 +23917,7 @@
 /obj/structure/disposalpipe/segment{
 	dir = 4
 	},
+/obj/machinery/light/cold/no_nightlight/directional/south,
 /turf/open/floor/iron/white/side,
 /area/station/medical/pharmacy)
 "gYN" = (
@@ -24376,11 +24379,11 @@
 /turf/open/floor/iron/large,
 /area/station/cargo/miningoffice)
 "hfD" = (
-/obj/machinery/light/small/directional/south,
 /obj/structure/cable,
 /obj/structure/disposalpipe/segment{
 	dir = 6
 	},
+/obj/machinery/light/small/directional/west,
 /turf/open/floor/plating,
 /area/station/maintenance/port/lesser)
 "hfP" = (
@@ -24581,6 +24584,11 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /turf/open/floor/plating,
 /area/station/maintenance/aft/greater)
+"hix" = (
+/obj/structure/cable,
+/obj/machinery/light/small/directional/south,
+/turf/open/floor/plating,
+/area/station/maintenance/port/lesser)
 "hiG" = (
 /obj/effect/turf_decal/tile/brown/half/contrasted{
 	dir = 4
@@ -27465,6 +27473,9 @@
 /obj/effect/turf_decal/tile/blue{
 	dir = 8
 	},
+/obj/machinery/camera/directional/west{
+	c_tag = "Upper Central Primary Hallway - Service Hydroponics"
+	},
 /turf/open/floor/iron,
 /area/station/hallway/primary/central/aft)
 "hYr" = (
@@ -29515,7 +29526,6 @@
 /area/station/maintenance/solars/starboard/fore)
 "iBb" = (
 /obj/effect/turf_decal/tile/yellow/half,
-/obj/machinery/light/cold/no_nightlight/directional/south,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/machinery/chem_heater/withbuffer,
 /turf/open/floor/iron/white/smooth_edge,
@@ -37260,10 +37270,6 @@
 /obj/effect/turf_decal/siding/wood{
 	dir = 8
 	},
-/obj/machinery/camera/directional/west{
-	c_tag = "Canteen Lounge - Public";
-	network = list("ss13","bar")
-	},
 /obj/structure/cable,
 /obj/effect/turf_decal/siding/thinplating_new/light,
 /turf/open/floor/wood/tile,
@@ -38120,9 +38126,7 @@
 /turf/open/floor/plating,
 /area/station/maintenance/fore/lesser)
 "kWg" = (
-/obj/structure/sign/barber{
-	pixel_x = 13
-	},
+/obj/structure/sign/barber/directional/east,
 /turf/open/openspace,
 /area/station/service/kitchen/diner)
 "kWi" = (
@@ -40446,8 +40450,7 @@
 	},
 /obj/machinery/camera/directional/north{
 	c_tag = "Engineering - Supermatter Chamber Port";
-	network = list("ss13","engine");
-	dir = 9
+	network = list("ss13","engine")
 	},
 /turf/open/floor/engine,
 /area/station/engineering/main)
@@ -42955,7 +42958,6 @@
 /obj/structure/rack,
 /obj/effect/spawner/random/maintenance/two,
 /obj/effect/mapping_helpers/broken_floor,
-/obj/machinery/light/small/directional/north,
 /turf/open/floor/plating,
 /area/station/command/vault)
 "mpW" = (
@@ -52160,6 +52162,10 @@
 "oZI" = (
 /turf/open/floor/iron/dark/smooth_large,
 /area/station/security/eva)
+"oZJ" = (
+/obj/machinery/light/small/directional/south,
+/turf/open/floor/plating,
+/area/station/maintenance/port/lesser)
 "oZU" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /turf/open/floor/carpet/green,
@@ -55265,7 +55271,6 @@
 /obj/structure/disposalpipe/segment{
 	dir = 10
 	},
-/obj/machinery/light/small/directional/east,
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
@@ -57383,7 +57388,6 @@
 	id = "garbage"
 	},
 /obj/effect/turf_decal/stripes/full,
-/obj/machinery/light/small/directional/north,
 /turf/open/floor/plating,
 /area/station/maintenance/disposal)
 "qyz" = (
@@ -58203,9 +58207,6 @@
 	},
 /obj/effect/turf_decal/tile/blue{
 	dir = 8
-	},
-/obj/machinery/camera/directional/west{
-	c_tag = "Upper Central Primary Hallway - Service Hydroponics"
 	},
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
@@ -60451,6 +60452,10 @@
 	},
 /turf/open/floor/iron,
 /area/station/commons/dorms/room5)
+"rxY" = (
+/obj/machinery/light/small/directional/east,
+/turf/open/floor/wood,
+/area/station/maintenance/starboard/fore)
 "rya" = (
 /obj/machinery/computer/dna_console{
 	dir = 8
@@ -64025,8 +64030,7 @@
 "szi" = (
 /obj/machinery/firealarm/directional/south,
 /obj/machinery/camera/directional/south{
-	c_tag = "Courtroom";
-	dir = 5
+	c_tag = "Courtroom"
 	},
 /turf/open/floor/wood,
 /area/station/security/courtroom)
@@ -68284,7 +68288,6 @@
 /area/station/medical/chemistry)
 "tPa" = (
 /obj/structure/disposalpipe/junction/flip,
-/obj/machinery/light/small/directional/west,
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
@@ -72587,6 +72590,13 @@
 /obj/structure/cable/multilayer/multiz,
 /turf/open/floor/engine,
 /area/station/engineering/supermatter/room)
+"uYD" = (
+/obj/machinery/camera/directional/east{
+	c_tag = "Atmospherics - HFR Core South";
+	network = list("ss13","engine")
+	},
+/turf/open/floor/iron/dark,
+/area/station/engineering/atmos/hfr_room)
 "uYI" = (
 /obj/machinery/power/tracker,
 /obj/structure/cable,
@@ -73952,8 +73962,8 @@
 /turf/open/floor/iron/dark/smooth_large,
 /area/station/security/office)
 "vsf" = (
-/obj/machinery/light/small/directional/south,
 /obj/structure/cable,
+/obj/machinery/light/small/directional/east,
 /turf/open/floor/plating,
 /area/station/maintenance/port/lesser)
 "vsg" = (
@@ -74364,8 +74374,7 @@
 	},
 /obj/machinery/camera/directional/north{
 	c_tag = "Atmospherics - Lobby";
-	network = list("ss13","engine");
-	dir = 9
+	network = list("ss13","engine")
 	},
 /turf/open/floor/iron,
 /area/station/engineering/atmos/office)
@@ -77014,6 +77023,7 @@
 "whW" = (
 /obj/structure/rack,
 /obj/effect/spawner/random/maintenance/two,
+/obj/machinery/light/small/directional/north,
 /turf/open/floor/plating,
 /area/station/command/vault)
 "wib" = (
@@ -81710,6 +81720,7 @@
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/machinery/light/small/directional/east,
 /turf/open/floor/plating,
 /area/station/maintenance/department/security/upper)
 "xBP" = (
@@ -82108,11 +82119,6 @@
 /obj/machinery/holopad,
 /obj/structure/disposalpipe/segment,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
-/obj/machinery/camera/directional/east{
-	c_tag = "Atmospherics - HFR Core South";
-	network = list("ss13","engine");
-	dir = 6
-	},
 /turf/open/floor/iron/dark,
 /area/station/engineering/atmos/hfr_room)
 "xGY" = (
@@ -110349,7 +110355,7 @@ rBc
 jEe
 nXC
 nQA
-nQA
+oZJ
 ctf
 exC
 ddi
@@ -120850,7 +120856,7 @@ laO
 laO
 tbm
 fWP
-fWP
+rxY
 pKl
 rVV
 wZq
@@ -120860,7 +120866,7 @@ nSt
 meQ
 otY
 umr
-sIW
+uYD
 eiS
 pKl
 svJ
@@ -125038,7 +125044,7 @@ tDV
 kTx
 kTx
 azG
-bsp
+dxe
 gaD
 rzk
 rfb
@@ -125295,7 +125301,7 @@ iSU
 qgd
 kTx
 yiW
-dex
+bsp
 tQY
 tQY
 tQY
@@ -172803,7 +172809,7 @@ hMe
 fPA
 fPA
 fmv
-oJj
+hix
 xaP
 eGr
 sRA

@@ -3060,7 +3060,6 @@
 /area/awaymission/caves/maintsroom)
 "kb" = (
 /obj/structure/barricade/wooden,
-/obj/structure/sign/warning/secure_area,
 /turf/open/water,
 /area/awaymission/caves/maintsroom)
 "kc" = (

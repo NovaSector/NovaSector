@@ -715,15 +715,15 @@
 /turf/open/floor/plating/abductor2,
 /area/awaymission/mothership_astrum/halls)
 "ne" = (
+/obj/structure/table/abductor,
 /obj/machinery/button/door{
 	id = "highsec";
 	name = "High Security Lock";
 	normaldoorcontrol = 1;
 	specialfunctions = 4;
-	dir = 1;
-	pixel_y = -96
+	dir = 1
 	},
-/turf/open/floor/plating/abductor2,
+/turf/open/floor/mineral/abductor,
 /area/awaymission/mothership_astrum/halls)
 "nf" = (
 /obj/structure/closet/crate/freezer,
@@ -2353,12 +2353,12 @@
 /turf/open/floor/plating/abductor,
 /area/awaymission/mothership_astrum/halls)
 "Jc" = (
+/obj/structure/table/abductor,
 /obj/machinery/button/door{
 	id = "minsec";
 	name = "Minimum Security Lock";
 	normaldoorcontrol = 1;
 	specialfunctions = 4;
-	pixel_y = -256;
 	dir = 1
 	},
 /turf/open/floor/mineral/abductor,
@@ -32656,15 +32656,15 @@ Tu
 ee
 ee
 ee
+bV
+bV
+bV
+bV
+bV
+bV
+bV
+bV
 Jc
-bV
-bV
-bV
-bV
-bV
-bV
-bV
-zt
 aV
 bV
 bV
@@ -38994,10 +38994,10 @@ ee
 ee
 ee
 ee
-ne
+Vh
 Vh
 aU
-zt
+ne
 bV
 bV
 bI

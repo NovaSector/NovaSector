@@ -828,11 +828,10 @@
 /turf/open/floor/iron/airless,
 /area/ruin/space/bb13/medical)
 "nF" = (
-/obj/structure/table,
-/obj/structure/frame/machine,
+/obj/effect/mapping_helpers/broken_floor,
 /obj/machinery/light/small/directional/west,
 /turf/open/floor/iron/airless,
-/area/ruin/space/bb13/service/kitchen)
+/area/ruin/space/bb13/medical/genetics)
 "nH" = (
 /obj/structure/lattice,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
@@ -2018,6 +2017,10 @@
 /obj/structure/frame/computer,
 /turf/open/floor/iron/airless,
 /area/ruin/space/bb13/security)
+"GF" = (
+/obj/machinery/light/small/directional/south,
+/turf/open/floor/iron/airless,
+/area/ruin/space/bb13/service/kitchen)
 "GI" = (
 /obj/structure/girder,
 /turf/template_noop,
@@ -2167,7 +2170,6 @@
 "Jd" = (
 /obj/structure/window/reinforced/spawner/directional/south,
 /obj/effect/mapping_helpers/broken_floor,
-/obj/machinery/light/small/directional/west,
 /turf/open/floor/iron/airless,
 /area/ruin/space/bb13/medical/genetics)
 "Je" = (
@@ -5420,7 +5422,7 @@ yZ
 yZ
 HZ
 qV
-Kd
+nF
 Jd
 nt
 fM
@@ -5538,7 +5540,7 @@ RG
 lZ
 lZ
 Zo
-nF
+sv
 vz
 yZ
 yZ
@@ -5621,7 +5623,7 @@ ns
 Nh
 pb
 ve
-pb
+GF
 pr
 yZ
 yZ

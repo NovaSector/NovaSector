@@ -70,7 +70,7 @@
 	stored_radio.recalculateChannels()
 
 	if(mapload)
-		find_and_hang_on_atom()
+		find_and_mount_on_atom()
 		for(var/obj/machinery/power/rbmk2/reactor in range(10, src))
 			link_reactor(null, reactor)
 
