@@ -25,6 +25,8 @@ SUBSYSTEM_DEF(pollution)
 	return ..()
 
 /datum/controller/subsystem/pollution/Initialize()
+	can_fire = FALSE
+	return SS_INIT_NO_NEED
 	//Initialize singletons
 	for(var/type in subtypesof(/datum/pollutant))
 		var/datum/pollutant/pollutant_cast = type
