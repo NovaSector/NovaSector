@@ -32943,6 +32943,12 @@
 /obj/structure/lattice/catwalk,
 /turf/open/openspace,
 /area/station/construction/storage_wing)
+"jbh" = (
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/effect/decal/cleanable/dirt,
+/obj/machinery/light/floor/broken,
+/turf/open/floor/eighties,
+/area/station/maintenance/hallway/abandoned_recreation)
 "jbn" = (
 /obj/structure/stairs/west,
 /obj/structure/railing,
@@ -40775,6 +40781,10 @@
 	},
 /turf/open/floor/iron/dark/smooth_large,
 /area/station/command/meeting_room/council)
+"lhr" = (
+/obj/structure/cable,
+/turf/closed/wall,
+/area/station/medical/surgery)
 "lhw" = (
 /turf/open/floor/glass/reinforced,
 /area/station/science/ordnance)
@@ -55775,13 +55785,6 @@
 	},
 /turf/open/openspace,
 /area/station/engineering/atmos/project)
-"ppa" = (
-/obj/effect/turf_decal/trimline/blue/filled/mid_joiner{
-	dir = 4
-	},
-/obj/structure/cable,
-/turf/closed/wall,
-/area/station/medical/surgery)
 "ppp" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/effect/turf_decal/tile/dark_blue,
@@ -75760,12 +75763,6 @@
 	},
 /turf/closed/wall/r_wall,
 /area/station/maintenance/disposal/incinerator)
-"uRG" = (
-/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
-/obj/effect/decal/cleanable/dirt,
-/obj/machinery/light/floor/broken,
-/turf/open/floor/eighties,
-/area/station/maintenance/hallway/abandoned_recreation)
 "uRM" = (
 /obj/structure/table,
 /obj/effect/spawner/random/trash/janitor_supplies{
@@ -112456,7 +112453,7 @@ oLN
 vwl
 ilE
 chu
-uRG
+jbh
 sQY
 aHS
 pMT
@@ -117654,7 +117651,7 @@ oNB
 jiL
 emn
 vqv
-ppa
+lhr
 ccN
 ccN
 ccN
