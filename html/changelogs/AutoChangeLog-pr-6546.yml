@@ -1,0 +1,4 @@
+author: "vinylspiders"
+delete-after: True
+changes:
+  - bugfix: "the 'use subtler' emote toggle in the interactions pane is now functional"
