@@ -226,6 +226,7 @@
 	crate.interaction_flags_atom |= INTERACT_ATOM_MOUSEDROP_IGNORE_ADJACENT // We can't trust the mouse pull adjacency check
 	crate.forceMove(src) // Insert the crate into the shelf.
 	vis_contents += crate
+	return TRUE
 
 /// Removes a crate from the shelf
 /obj/structure/cargo_shelf/proc/remove_crate(obj/structure/closet/crate/crate)
