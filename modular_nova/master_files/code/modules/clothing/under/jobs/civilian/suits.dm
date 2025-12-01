@@ -172,27 +172,61 @@
 	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION_NO_NEW_ICON
 	gets_cropped_on_taurs = FALSE
 
+/datum/atom_skin/inferno_suit
+	abstract_type = /datum/atom_skin/inferno_suit
+
+/datum/atom_skin/inferno_suit/lucifer
+	preview_name = "Pride"
+	new_icon_state = "lucifer"
+
+/datum/atom_skin/inferno_suit/justice
+	preview_name = "Wrath"
+	new_icon_state = "justice"
+
+/datum/atom_skin/inferno_suit/malina
+	preview_name = "Gluttony"
+	new_icon_state = "malina"
+
+/datum/atom_skin/inferno_suit/zdara
+	preview_name = "Envy"
+	new_icon_state = "zdara"
+
+/datum/atom_skin/inferno_suit/cereberus
+	preview_name = "Vanity"
+	new_icon_state = "cereberus"
+
+/datum/atom_skin/inferno_suit/beeze
+	preview_name = "Designer"
+	new_icon_state = "beeze"
+
 /obj/item/clothing/under/suit/nova/inferno
 	name = "inferno suit"
 	desc = "Stylish enough to impress the devil."
 	icon_state = "lucifer"
 	female_sprite_flags = FEMALE_UNIFORM_TOP_ONLY
 	obj_flags = UNIQUE_RENAME
-	unique_reskin = list(
-		"Pride" = "lucifer",
-		"Wrath" = "justice",
-		"Gluttony" = "malina",
-		"Envy" = "zdara",
-		"Vanity" = "cereberus",
-		"Designer" = "beeze"
-	)
+
+/obj/item/clothing/under/suit/nova/inferno/Initialize(mapload)
+	. = ..()
+	AddComponent(/datum/component/reskinable_item, /datum/atom_skin/inferno_suit)
+
+/datum/atom_skin/inferno_suitskirt
+	abstract_type = /datum/atom_skin/inferno_suitskirt
+
+/datum/atom_skin/inferno_suitskirt/modeus
+	preview_name = "Lust"
+	new_icon_state = "modeus"
+
+/datum/atom_skin/inferno_suitskirt/pande
+	preview_name = "Sloth"
+	new_icon_state = "pande"
 
 /obj/item/clothing/under/suit/nova/inferno/skirt
 	name = "inferno suitskirt"
 	icon_state = "modeus"
 	obj_flags = UNIQUE_RENAME
 	gets_cropped_on_taurs = FALSE
-	unique_reskin = list(
-		"Lust" = "modeus",
-		"Sloth" = "pande",
-	)
+
+/obj/item/clothing/under/suit/nova/inferno/skirt/Initialize(mapload)
+	. = ..()
+	AddComponent(/datum/component/reskinable_item, /datum/atom_skin/inferno_suitskirt)

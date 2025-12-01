@@ -15,6 +15,22 @@
 	flags_cover = MASKCOVERSMOUTH
 	obj_flags_nova = ERP_ITEM
 
+/datum/atom_skin/ballgag
+	abstract_type = /datum/atom_skin/ballgag
+	greyscale_item_path = /obj/item/clothing/mask/muzzle/ballgag/choking
+
+/datum/atom_skin/ballgag/small
+	preview_name = "Small"
+	new_icon_state = "chokegag_small"
+
+/datum/atom_skin/ballgag/medium
+	preview_name = "Medium"
+	new_icon_state = "chokegag_medium"
+
+/datum/atom_skin/ballgag/large
+	preview_name = "Large"
+	new_icon_state = "chokegag_large"
+
 /obj/item/clothing/mask/muzzle/ballgag/choking
 	name = "phallic ball gag"
 	desc = "Prevents the wearer from speaking, as well as making breathing harder."
@@ -23,12 +39,10 @@
 	icon_state = "/obj/item/clothing/mask/muzzle/ballgag/choking"
 	post_init_icon_state = "chokegag_small"
 	greyscale_config = /datum/greyscale_config/ball_gag/choke_gag
-	unique_reskin = list(
-		"Small" = "chokegag_small",
-		"Medium" = "chokegag_medium",
-		"Large" = "chokegag_large",
-	)
-	obj_flags = INFINITE_RESKIN
+
+/obj/item/clothing/mask/muzzle/ballgag/choking/Initialize(mapload)
+	. = ..()
+	AddComponent(/datum/component/reskinable_item, /datum/atom_skin/ballgag, infinite = TRUE)
 
 /obj/item/clothing/mask/muzzle/ring
 	name = "ring gag"

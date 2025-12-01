@@ -12,52 +12,62 @@
 /*
 * BELTS + HOLSTER
 */
+/datum/atom_skin/security_belt
+	abstract_type = /datum/atom_skin/security_belt
+
+/datum/atom_skin/security_belt
+	preview_name = "Basic Variant"
+	new_icon_state = "security"
+
+/datum/atom_skin/security_belt/black
+	preview_name = "Black Variant"
+	new_icon = 'modular_nova/master_files/icons/obj/clothing/belts.dmi'
+	new_icon_state = "belt_black"
+	new_worn_icon = 'modular_nova/master_files/icons/mob/clothing/belt.dmi'
+
+/datum/atom_skin/security_belt/blue
+	preview_name = "Blue Variant"
+	new_icon = 'modular_nova/master_files/icons/obj/clothing/belts.dmi'
+	new_icon_state = "belt_blue"
+	new_worn_icon = 'modular_nova/master_files/icons/mob/clothing/belt.dmi'
+
+/datum/atom_skin/security_belt/white
+	preview_name = "White Variant"
+	new_icon = 'modular_nova/master_files/icons/obj/clothing/belts.dmi'
+	new_icon_state = "belt_white"
+	new_worn_icon = 'modular_nova/master_files/icons/mob/clothing/belt.dmi'
+
 /obj/item/storage/belt/security
-	uses_advanced_reskins = TRUE
-	unique_reskin = list(
-		"Basic Variant" = list(
-			RESKIN_ICON_STATE = "security",
-			RESKIN_WORN_ICON_STATE = "security"
-		),
-		"Black Variant" = list(
-			RESKIN_ICON = 'modular_nova/master_files/icons/obj/clothing/belts.dmi',
-			RESKIN_ICON_STATE = "belt_black",
-			RESKIN_WORN_ICON_STATE = "belt_black",
-			RESKIN_WORN_ICON = 'modular_nova/master_files/icons/mob/clothing/belt.dmi'
-		),
-		"Blue Variant" = list(
-			RESKIN_ICON = 'modular_nova/master_files/icons/obj/clothing/belts.dmi',
-			RESKIN_ICON_STATE = "belt_blue",
-			RESKIN_WORN_ICON_STATE = "belt_blue",
-			RESKIN_WORN_ICON = 'modular_nova/master_files/icons/mob/clothing/belt.dmi'
-		),
-		"White Variant" = list(
-			RESKIN_ICON = 'modular_nova/master_files/icons/obj/clothing/belts.dmi',
-			RESKIN_ICON_STATE = "belt_white",
-			RESKIN_WORN_ICON_STATE = "belt_white",
-			RESKIN_WORN_ICON = 'modular_nova/master_files/icons/mob/clothing/belt.dmi'
-		),
-	)
+
+/obj/item/storage/belt/security/Initialize(mapload)
+	. = ..()
+	if(type == /obj/item/storage/belt/security || type == /obj/item/storage/belt/security/full) // Exact-type only, don't dupe this on subtypes
+		AddComponent(/datum/component/reskinable_item, /datum/atom_skin/security_belt)
+
+/datum/atom_skin/security_webbing
+	abstract_type = /datum/atom_skin/security_webbing
+
+/datum/atom_skin/security_webbing/basic
+	preview_name = "Basic Variant"
+	new_icon_state = "securitywebbing"
+
+/datum/atom_skin/security_webbing/red
+	preview_name = "Red Variant"
+	new_icon = 'modular_nova/master_files/icons/obj/clothing/belts.dmi'
+	new_icon_state = "red_webbing"
+	new_worn_icon = 'modular_nova/master_files/icons/mob/clothing/belt.dmi'
+
+/datum/atom_skin/security_webbing/blue
+	preview_name = "Blue Variant"
+	new_icon = 'modular_nova/master_files/icons/obj/clothing/belts.dmi'
+	new_icon_state = "blue_webbing"
+	new_worn_icon = 'modular_nova/master_files/icons/mob/clothing/belt.dmi'
 
 /obj/item/storage/belt/security/webbing
-	unique_reskin = list(
-		"Basic Variant" = list(
-			RESKIN_ICON_STATE = "securitywebbing",
-			RESKIN_WORN_ICON_STATE = "securitywebbing"
-		),
-		"Red Variant" = list(
-			RESKIN_ICON = 'modular_nova/master_files/icons/obj/clothing/belts.dmi',
-			RESKIN_ICON_STATE = "red_webbing",
-			RESKIN_WORN_ICON_STATE = "red_webbing",
-			RESKIN_WORN_ICON = 'modular_nova/master_files/icons/mob/clothing/belt.dmi'
-		),
-		"Blue Variant" = list(
-			RESKIN_ICON = 'modular_nova/master_files/icons/obj/clothing/belts.dmi',
-			RESKIN_ICON_STATE = "blue_webbing",
-			RESKIN_WORN_ICON_STATE = "blue_webbing",
-			RESKIN_WORN_ICON = 'modular_nova/master_files/icons/mob/clothing/belt.dmi'
-		),
-	)
+
+/obj/item/storage/belt/security/webbing/Initialize(mapload)
+	. = ..()
+	AddComponent(/datum/component/reskinable_item, /datum/atom_skin/security_webbing)
 
 /obj/item/storage/belt/holster
 	desc = "A rather plain but still cool looking holster that can hold a handgun and some ammo."
@@ -166,154 +176,182 @@
 /*
 * GLASSES
 */
+/datum/atom_skin/security_hudglasses
+	abstract_type = /datum/atom_skin/security_hudglasses
+	new_icon = 'modular_nova/master_files/icons/obj/clothing/glasses.dmi'
+	new_worn_icon = 'modular_nova/master_files/icons/mob/clothing/eyes.dmi'
+
+/datum/atom_skin/security_hudglasses/red
+	preview_name = "Red HUD"
+	new_icon = 'icons/obj/clothing/glasses.dmi'
+	new_icon_state = "securityhud"
+	new_worn_icon = 'icons/mob/clothing/eyes.dmi'
+
+/datum/atom_skin/security_hudglasses/blue
+	preview_name = "Blue HUD"
+	new_icon_state = "security_hud"
+
 /obj/item/clothing/glasses/hud/security
-	uses_advanced_reskins = TRUE
-	unique_reskin = list(
-		"Red HUD" = list(
-			RESKIN_ICON = 'icons/obj/clothing/glasses.dmi',
-			RESKIN_ICON_STATE = "securityhud",
-			RESKIN_WORN_ICON = 'icons/mob/clothing/eyes.dmi',
-			RESKIN_WORN_ICON_STATE = "securityhud"
-		),
-		"Blue HUD" = list(
-			RESKIN_ICON = 'modular_nova/master_files/icons/obj/clothing/glasses.dmi',
-			RESKIN_ICON_STATE = "security_hud",
-			RESKIN_WORN_ICON = 'modular_nova/master_files/icons/mob/clothing/eyes.dmi',
-			RESKIN_WORN_ICON_STATE = "security_hud"
-		),
-	)
+
+/obj/item/clothing/glasses/hud/security/Initialize(mapload)
+	. = ..()
+	if(type == /obj/item/clothing/glasses/hud/security) // Don't allow duping this on subtypes
+		AddComponent(/datum/component/reskinable_item, /datum/atom_skin/security_hudglasses)
 
 /obj/item/clothing/glasses/hud/security/sunglasses
-	unique_reskin = null
+	can_reskin = FALSE
 
 /obj/item/clothing/glasses/hud/security/prescription
-	unique_reskin = null
+	can_reskin = FALSE
+
+/datum/atom_skin/security_hud_sunglasses
+	abstract_type = /datum/atom_skin/security_hud_sunglasses
+
+/datum/atom_skin/security_hud_sunglasses/dark
+	preview_name = "Dark-Tint Blue Sunglasses"
+	new_icon = 'modular_nova/master_files/icons/obj/clothing/glasses.dmi'
+	new_icon_state = "security_hud_blue_black"
+	new_worn_icon = 'modular_nova/master_files/icons/mob/clothing/eyes.dmi'
+
+/datum/atom_skin/security_hud_sunglasses/light
+	preview_name = "Light-Tint Blue Sunglasses"
+	new_icon = 'modular_nova/master_files/icons/obj/clothing/glasses.dmi'
+	new_icon_state = "security_hud_blue"
+	new_worn_icon = 'modular_nova/master_files/icons/mob/clothing/eyes.dmi'
 
 /obj/item/clothing/glasses/hud/security/sunglasses/blue
 	icon = 'modular_nova/master_files/icons/obj/clothing/glasses.dmi'
 	worn_icon = 'modular_nova/master_files/icons/mob/clothing/eyes.dmi'
 	icon_state = "security_hud_blue_black"
 	worn_icon_state = "security_hud_blue_black"
-	unique_reskin = list(
-		"Dark-Tint Blue Sunglasses" = list(
-			RESKIN_ICON = 'modular_nova/master_files/icons/obj/clothing/glasses.dmi',
-			RESKIN_ICON_STATE = "security_hud_blue_black",
-			RESKIN_WORN_ICON = 'modular_nova/master_files/icons/mob/clothing/eyes.dmi',
-			RESKIN_WORN_ICON_STATE = "security_hud_blue_black"
-		),
-		"Light-Tint Blue Sunglasses" = list(
-			RESKIN_ICON = 'modular_nova/master_files/icons/obj/clothing/glasses.dmi',
-			RESKIN_ICON_STATE = "security_hud_blue",
-			RESKIN_WORN_ICON = 'modular_nova/master_files/icons/mob/clothing/eyes.dmi',
-			RESKIN_WORN_ICON_STATE = "security_hud_blue"
-		),
-	)
+	can_reskin = TRUE
+
+/obj/item/clothing/glasses/hud/security/sunglasses/blue/Initialize(mapload)
+	. = ..()
+	AddComponent(/datum/component/reskinable_item, /datum/atom_skin/security_hud_sunglasses)
 
 /obj/item/clothing/glasses/hud/security/night
-	unique_reskin = null
+	can_reskin = FALSE
+
+/datum/atom_skin/security_eyepatch
+	abstract_type = /datum/atom_skin/security_eyepatch
+
+/datum/atom_skin/security_eyepatch/red
+	preview_name = "Red Eyepatches"
+	new_icon_state = "hudpatch"
+
+/datum/atom_skin/security_eyepatch/blue
+	preview_name = "Blue Eyepatches"
+	new_icon = 'modular_nova/master_files/icons/obj/clothing/glasses.dmi'
+	new_icon_state = "hudpatch"
+	new_worn_icon = 'modular_nova/master_files/icons/mob/clothing/eyes.dmi'
 
 /obj/item/clothing/glasses/hud/security/sunglasses/eyepatch
-	unique_reskin = list(
-		"Red Eyepatches" = list(
-			RESKIN_ICON = 'icons/obj/clothing/glasses.dmi',
-			RESKIN_ICON_STATE = "hudpatch",
-			RESKIN_WORN_ICON = 'icons/mob/clothing/eyes.dmi',
-			RESKIN_WORN_ICON_STATE = "hudpatch"
-		),
-		"Blue Eyepatches" = list(
-			RESKIN_ICON = 'modular_nova/master_files/icons/obj/clothing/glasses.dmi',
-			RESKIN_ICON_STATE = "hudpatch",
-			RESKIN_WORN_ICON = 'modular_nova/master_files/icons/mob/clothing/eyes.dmi',
-			RESKIN_WORN_ICON_STATE = "hudpatch"
-		),
-	)
+	can_reskin = TRUE
+
+/obj/item/clothing/glasses/hud/security/sunglasses/eyepatch/Initialize(mapload)
+	. = ..()
+	AddComponent(/datum/component/reskinable_item, /datum/atom_skin/security_eyepatch)
+
+/datum/atom_skin/sec_gars
+	abstract_type = /datum/atom_skin/sec_gars
+
+/datum/atom_skin/sec_gars/red
+	preview_name = "Red Gars"
+	new_icon_state = "gar_sec"
+
+/datum/atom_skin/sec_gars/blue
+	preview_name = "Blue Gars"
+	new_icon = 'modular_nova/master_files/icons/obj/clothing/glasses.dmi'
+	new_icon_state = "gar_sec"
+	new_worn_icon = 'modular_nova/master_files/icons/mob/clothing/eyes.dmi'
 
 /obj/item/clothing/glasses/hud/security/sunglasses/gars
-	unique_reskin = list(
-		"Red Gars" = list(
-			RESKIN_ICON_STATE = "gar_sec",
-			RESKIN_WORN_ICON_STATE = "gar_sec"
-		),
-		"Blue Gars" = list(
-			RESKIN_ICON = 'modular_nova/master_files/icons/obj/clothing/glasses.dmi',
-			RESKIN_ICON_STATE = "gar_sec",
-			RESKIN_WORN_ICON = 'modular_nova/master_files/icons/mob/clothing/eyes.dmi',
-			RESKIN_WORN_ICON_STATE = "gar_sec"
-		),
-	)
+	can_reskin = TRUE
+
+/obj/item/clothing/glasses/hud/security/sunglasses/gars/Initialize(mapload)
+	. = ..()
+	AddComponent(/datum/component/reskinable_item, /datum/atom_skin/sec_gars)
+
+/obj/item/clothing/glasses/hud/security/sunglasses/gars/giga
+	can_reskin = FALSE
+
 /*
 * HEAD
 */
+/datum/atom_skin/hos_cap
+	abstract_type = /datum/atom_skin/hos_cap
+
+/datum/atom_skin/hos_cap
+	preview_name = "Red Cap"
+	new_icon_state = "hoscap"
+
+/datum/atom_skin/hos_cap/blue
+	preview_name = "Blue Cap"
+	new_icon = 'modular_nova/master_files/icons/obj/clothing/hats.dmi'
+	new_icon_state = "hoscap_blue"
+	new_worn_icon = 'modular_nova/master_files/icons/mob/clothing/head.dmi'
+
+/datum/atom_skin/hos_cap/sol
+	preview_name = "Sol Cap"
+	new_icon = 'modular_nova/master_files/icons/obj/clothing/hats.dmi'
+	new_icon_state = "policechiefcap"
+
+/datum/atom_skin/hos_cap/sheriff
+	preview_name = "Sheriff Hat"
+	new_icon = 'modular_nova/master_files/icons/obj/clothing/hats.dmi'
+	new_icon_state = "cowboyhat_black"
+	new_worn_icon = 'modular_nova/master_files/icons/mob/clothing/head.dmi'
 
 /obj/item/clothing/head/hats/hos/cap
-	uses_advanced_reskins = TRUE
-	unique_reskin = list(
-		"Red Cap" = list(
-			RESKIN_ICON_STATE = "hoscap",
-			RESKIN_WORN_ICON_STATE = "hoscap"
-		),
-		"Blue Cap" = list(
-			RESKIN_ICON = 'modular_nova/master_files/icons/obj/clothing/hats.dmi',
-			RESKIN_ICON_STATE = "hoscap_blue",
-			RESKIN_WORN_ICON = 'modular_nova/master_files/icons/mob/clothing/head.dmi',
-			RESKIN_WORN_ICON_STATE = "hoscap_blue"
-		),
-		"Sol Cap" = list(
-			RESKIN_ICON = 'modular_nova/master_files/icons/obj/clothing/hats.dmi',
-			RESKIN_ICON_STATE = "policechiefcap",
-			RESKIN_WORN_ICON_STATE = "policechiefcap"
-		),
-		"Sheriff Hat" = list(
-			RESKIN_ICON = 'modular_nova/master_files/icons/obj/clothing/hats.dmi',
-			RESKIN_ICON_STATE = "cowboyhat_black",
-			RESKIN_WORN_ICON = 'modular_nova/master_files/icons/mob/clothing/head.dmi',
-			RESKIN_WORN_ICON_STATE = "cowboyhat_black"
-		),
-		"Wide Sheriff Hat" = list(
-			RESKIN_ICON = 'modular_nova/master_files/icons/obj/clothing/hats.dmi',
-			RESKIN_ICON_STATE = "cowboy_black",
-			RESKIN_WORN_ICON = 'modular_nova/master_files/icons/mob/clothing/head.dmi',
-			RESKIN_WORN_ICON_STATE = "cowboy_black"
-		)
-	)
+
+/obj/item/clothing/head/hats/hos/cap/Initialize(mapload)
+	. = ..()
+	AddComponent(/datum/component/reskinable_item, /datum/atom_skin/hos_cap)
 
 /obj/item/clothing/head/hats/hos/cap/syndicate
-	uses_advanced_reskins = FALSE
-	unique_reskin = null
+	can_reskin = FALSE
 
 /*
 * GLOVES
 */
+/datum/atom_skin/tackler_gloves
+	abstract_type = /datum/atom_skin/tackler_gloves
+
+/datum/atom_skin/tackler_gloves/red
+	preview_name = "Red Variant"
+	new_icon_state = "tackle"
+
+/datum/atom_skin/tackler_gloves/blue
+	preview_name = "Blue Variant"
+	new_icon = 'modular_nova/master_files/icons/obj/clothing/gloves.dmi'
+	new_icon_state = "tackle_blue"
+	new_worn_icon = 'modular_nova/master_files/icons/mob/clothing/hands.dmi'
 
 /obj/item/clothing/gloves/tackler/security
-	uses_advanced_reskins = TRUE
-	unique_reskin = list(
-		"Red Variant" = list(
-			RESKIN_ICON_STATE = "tackle",
-			RESKIN_WORN_ICON_STATE = "tackle"
-		),
-		"Blue Variant" = list(
-			RESKIN_ICON = 'modular_nova/master_files/icons/obj/clothing/gloves.dmi',
-			RESKIN_ICON_STATE = "tackle_blue",
-			RESKIN_WORN_ICON = 'modular_nova/master_files/icons/mob/clothing/hands.dmi',
-			RESKIN_WORN_ICON_STATE = "tackle_blue"
-		),
-	)
+
+/obj/item/clothing/gloves/tackler/security/Initialize(mapload)
+	. = ..()
+	AddComponent(/datum/component/reskinable_item, /datum/atom_skin/tackler_gloves)
+
+/datum/atom_skin/sec
+	abstract_type = /datum/atom_skin/sec
+
+/datum/atom_skin/sec/fightgloves
+	preview_name = "Red Variant"
+	new_icon_state = "fightgloves"
+
+/datum/atom_skin/sec/fightgloves_blue
+	preview_name = "Blue Variant"
+	new_icon = 'modular_nova/master_files/icons/obj/clothing/gloves.dmi'
+	new_icon_state = "fightgloves_blue"
+	new_worn_icon = 'modular_nova/master_files/icons/mob/clothing/hands.dmi'
 
 /obj/item/clothing/gloves/kaza_ruk/sec
-	uses_advanced_reskins = TRUE
-	unique_reskin = list(
-		"Red Variant" = list(
-			RESKIN_ICON_STATE = "fightgloves",
-			RESKIN_WORN_ICON_STATE = "fightgloves"
-		),
-		"Blue Variant" = list(
-			RESKIN_ICON = 'modular_nova/master_files/icons/obj/clothing/gloves.dmi',
-			RESKIN_ICON_STATE = "fightgloves_blue",
-			RESKIN_WORN_ICON = 'modular_nova/master_files/icons/mob/clothing/hands.dmi',
-			RESKIN_WORN_ICON_STATE = "fightgloves_blue"
-		),
-	)
+
+/obj/item/clothing/gloves/kaza_ruk/sec/Initialize(mapload)
+	. = ..()
+	AddComponent(/datum/component/reskinable_item, /datum/atom_skin/tackler_gloves)
 
 /*
 * UNDER
@@ -328,33 +366,36 @@
 /obj/item/clothing/suit/armor/vest/alt/sec
 	desc = "A Type-II-NT-P armored vest that provides decent protection against most types of damage."
 
+/datum/atom_skin/hos_coat
+	abstract_type = /datum/atom_skin/hos_coat
+
+/datum/atom_skin/hos_coat/greatcoat
+	preview_name = "Greatcoat"
+	new_icon = 'icons/obj/clothing/suits/armor.dmi'
+	new_icon_state = "hos"
+	new_worn_icon = 'icons/mob/clothing/suits/armor.dmi'
+
+/datum/atom_skin/hos_coat/trenchcoat
+	preview_name = "Trenchcoat"
+	new_icon = 'icons/obj/clothing/suits/armor.dmi'
+	new_icon_state = "hostrench"
+	new_worn_icon = 'icons/mob/clothing/suits/armor.dmi'
+
+/datum/atom_skin/hos_coat/trenchcloak
+	preview_name = "Trenchcloak"
+	new_icon = 'modular_nova/master_files/icons/obj/clothing/suits/armor.dmi'
+	new_icon_state = "trenchcloak"
+	new_worn_icon = 'modular_nova/master_files/icons/mob/clothing/suits/armor.dmi'
+
 /obj/item/clothing/suit/armor/hos
 	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION_NO_NEW_ICON
-	uses_advanced_reskins = TRUE
-	unique_reskin = list(
-		"Greatcoat" = list(
-			RESKIN_ICON = 'icons/obj/clothing/suits/armor.dmi',
-			RESKIN_ICON_STATE = "hos",
-			RESKIN_WORN_ICON = 'icons/mob/clothing/suits/armor.dmi',
-			RESKIN_WORN_ICON_STATE = "hos"
-		),
-		"Trenchcoat" = list(
-			RESKIN_ICON = 'icons/obj/clothing/suits/armor.dmi',
-			RESKIN_ICON_STATE = "hostrench",
-			RESKIN_WORN_ICON = 'icons/mob/clothing/suits/armor.dmi',
-			RESKIN_WORN_ICON_STATE = "hostrench"
-		),
-		"Trenchcloak" = list(
-			RESKIN_ICON = 'modular_nova/master_files/icons/obj/clothing/suits/armor.dmi',
-			RESKIN_ICON_STATE = "trenchcloak",
-			RESKIN_WORN_ICON = 'modular_nova/master_files/icons/mob/clothing/suits/armor.dmi',
-			RESKIN_WORN_ICON_STATE = "trenchcloak"
-		),
-	)
+
+/obj/item/clothing/suit/armor/hos/Initialize(mapload)
+	. = ..()
+	AddComponent(/datum/component/reskinable_item, /datum/atom_skin/hos_coat)
 
 /obj/item/clothing/suit/armor/hos/trenchcoat/winter
-	uses_advanced_reskins = FALSE
-	unique_reskin = null
+	can_reskin = FALSE
 
 //Standard Bulletproof Vest
 /obj/item/clothing/suit/armor/bulletproof

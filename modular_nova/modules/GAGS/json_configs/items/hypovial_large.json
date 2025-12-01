@@ -1,13 +1,13 @@
 {
-	"hypovial": [
+	"hypoviallarge": [
 		{
 			"type": "icon_state",
-			"icon_state": "hypovial-glass",
+			"icon_state": "hypoviallarge-glass",
 			"blend_mode": "overlay"
 		},
 		{
 			"type": "icon_state",
-			"icon_state": "hypovial-body",
+			"icon_state": "hypoviallarge-body",
 			"blend_mode": "overlay",
 			"color_ids": [1]
 		}

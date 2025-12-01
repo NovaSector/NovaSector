@@ -18,6 +18,18 @@
 	base_icon_state = "eyepatch_white"
 
 ///GLASSES
+
+/datum/atom_skin/modern_glasses
+	abstract_type = /datum/atom_skin/modern_glasses
+
+/datum/atom_skin/modern_glasses/glasses_alt
+	preview_name = "Translucent"
+	new_icon_state = "glasses_alt"
+
+/datum/atom_skin/modern_glasses/glasses_alt_t
+	preview_name = "Transparent"
+	new_icon_state = "glasses_alt_t"
+
 /obj/item/clothing/glasses/regular/modern
 	name = "modern glasses"
 	desc = "After Nerd. Co went bankrupt for tax evasion and invasion, they were bought out by Dork.Co, who revamped their classic design."
@@ -25,10 +37,10 @@
 	worn_icon = MODULAR_EYES_WORN_ICON
 	icon_state = "glasses_alt"
 	inhand_icon_state = "glasses"
-	unique_reskin = list(
-			"Translucent" = "glasses_alt",
-			"Transparent" = "glasses_alt_t",
-	)
+
+/obj/item/clothing/glasses/regular/modern/Initialize(mapload)
+	. = ..()
+	AddComponent(/datum/component/reskinable_item, /datum/atom_skin/modern_glasses)
 
 /obj/item/clothing/glasses/trickblindfold/hamburg
 	name = "thief visor"

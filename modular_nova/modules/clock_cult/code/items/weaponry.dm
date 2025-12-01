@@ -21,7 +21,6 @@
 	/// Typecache of valid turfs to have the weapon's special effect on
 	var/static/list/effect_turf_typecache = typecacheof(list(/turf/open/floor/bronze))
 
-
 /obj/item/clockwork/weapon/attack(mob/living/target, mob/living/user)
 	. = ..()
 	var/turf/gotten_turf = get_turf(user)
@@ -31,7 +30,6 @@
 
 	if(!QDELETED(target) && target.stat != DEAD && !IS_CLOCK(target) && !target.can_block_magic(MAGIC_RESISTANCE_HOLY))
 		hit_effect(target, user)
-
 
 /obj/item/clockwork/weapon/throw_impact(atom/hit_atom, datum/thrownthing/throwingdatum)
 	. = ..()
@@ -46,11 +44,9 @@
 	if(!target.can_block_magic(MAGIC_RESISTANCE_HOLY) && !IS_CLOCK(target))
 		hit_effect(target, throwingdatum.thrower, TRUE)
 
-
 /// What occurs to non-holy people when attacked from brass tiles
 /obj/item/clockwork/weapon/proc/hit_effect(mob/living/target, mob/living/user, thrown = FALSE)
 	return
-
 
 /obj/item/clockwork/weapon/brass_spear
 	name = "brass spear"
@@ -78,7 +74,6 @@
 	sharpness = 0
 	hitsound = 'sound/items/weapons/smash.ogg'
 
-
 /obj/item/clockwork/weapon/brass_battlehammer/Initialize(mapload)
 	. = ..()
 	AddComponent(/datum/component/two_handed, \
@@ -86,7 +81,6 @@
 		icon_wielded = "[base_icon_state]1", \
 		force_wielded = 28, \
 	)
-
 
 /obj/item/clockwork/weapon/brass_battlehammer/hit_effect(mob/living/target, mob/living/user, thrown = FALSE)
 	if(!thrown && !HAS_TRAIT(src, TRAIT_WIELDED))
@@ -111,7 +105,6 @@
 	clockwork_desc = "Enemies and mechs will be struck with a powerful electromagnetic pulse while you are on bronze tiles, with a cooldown."
 	COOLDOWN_DECLARE(emp_cooldown)
 
-
 /obj/item/clockwork/weapon/brass_sword/hit_effect(mob/living/target, mob/living/user, thrown)
 	if(!COOLDOWN_FINISHED(src, emp_cooldown))
 		return
@@ -123,7 +116,6 @@
 	addtimer(CALLBACK(src, PROC_REF(send_message), user), 30 SECONDS)
 	to_chat(user, span_brass("You strike [target] with an electromagnetic pulse!"))
 	playsound(user, 'sound/effects/magic/lightningshock.ogg', 40)
-
 
 /obj/item/clockwork/weapon/brass_sword/attack_atom(obj/attacked_obj, mob/living/user, params)
 	. = ..()
@@ -143,7 +135,6 @@
 	addtimer(CALLBACK(src, PROC_REF(send_message), user), 20 SECONDS)
 	to_chat(user, span_brass("You strike [target] with an electromagnetic pulse!"))
 	playsound(user, 'sound/effects/magic/lightningshock.ogg', 40)
-
 
 /obj/item/clockwork/weapon/brass_sword/proc/send_message(mob/living/target)
 	to_chat(target, span_brass("[src] glows, indicating the next attack will disrupt electronics of the target."))
@@ -199,7 +190,6 @@
 	playsound(src, 'modular_nova/modules/tribal_extended/sound/sound_weapons_bowdraw.ogg', 75, 0) //gets way too high pitched if the freq varies
 	update_icon()
 
-
 /// Recharges a bolt, done after the delay in shoot_live_shot
 /obj/item/gun/ballistic/bow/clockwork/proc/recharge_bolt()
 	var/obj/item/ammo_casing/arrow/clockbolt/bolt = new
@@ -207,20 +197,16 @@
 	chambered = bolt
 	update_icon()
 
-
 /obj/item/gun/ballistic/bow/clockwork/attackby(obj/item/attacking_item, mob/user, list/modifiers, list/attack_modifiers)
 	return
-
 
 /obj/item/gun/ballistic/bow/clockwork/update_icon_state()
 	. = ..()
 	icon_state = "[base_icon_state]_[chambered ? "chambered" : "unchambered"]_[drawn ? "drawn" : "undrawn"]"
 
-
 /obj/item/ammo_box/magazine/internal/bow/clockwork
 	ammo_type = /obj/item/ammo_casing/arrow/clockbolt
 	start_empty = FALSE
-
 
 /obj/item/ammo_casing/arrow/clockbolt
 	name = "energy bolt"
@@ -229,14 +215,12 @@
 	icon_state = "arrow_redlight"
 	projectile_type = /obj/projectile/energy/clockbolt
 
-
 /obj/projectile/energy/clockbolt
 	name = "energy bolt"
 	icon = 'modular_nova/modules/clock_cult/icons/projectiles.dmi'
 	icon_state = "arrow_energy"
 	damage = 35
 	damage_type = BURN
-
 
 /obj/item/gun/ballistic/rifle/lionhunter/clockwork
 	name = "brass rifle"
@@ -253,7 +237,6 @@
 	fire_sound = 'sound/items/weapons/gun/sniper/shot.ogg'
 	show_bolt_icon = FALSE
 
-
 /obj/item/gun/ballistic/rifle/lionhunter/clockwork/Initialize(mapload)
 	. = ..()
 	AddElement(/datum/element/clockwork_description, "The speed of which you aim at far targets while standing on brass will be massively increased.")
@@ -263,12 +246,10 @@
 	name = "brass rifle internal magazine"
 	ammo_type = /obj/item/ammo_casing/strilka310/lionhunter/clock
 
-
 /obj/item/ammo_casing/strilka310/lionhunter/clock
 	name = "brass rifle round"
 	projectile_type = /obj/projectile/bullet/strilka310/lionhunter/clock
 	min_distance = 3
-
 
 /obj/item/ammo_casing/strilka310/lionhunter/clock/fire_casing(atom/target, mob/living/user, params, distro, quiet, zone_override, spread, atom/fired_from)
 	var/obj/item/gun/ballistic/fired_gun = fired_from
@@ -278,7 +259,6 @@
 
 	return ..()
 
-
 /obj/projectile/bullet/strilka310/lionhunter/clock
 	name = "brass .310 bullet"
 	// These stats are only applied if the weapon is fired fully aimed
@@ -286,17 +266,14 @@
 	damage = 45
 	stamina = 45
 
-
 /obj/item/ammo_box/speedloader/strilka310/lionhunter/clock
 	name = "stripper clip (.310 brass)"
 	desc = "A stripper clip that's just as brass as the rounds it holds."
 	icon = 'modular_nova/modules/clock_cult/icons/weapons/ammo.dmi'
 	icon_state = "762_brass"
 	ammo_type = /obj/item/ammo_casing/strilka310/lionhunter/clock
-	unique_reskin = NONE
 	max_ammo = 3
 	multiple_sprites = AMMO_BOX_PER_BULLET
-
 
 /obj/item/storage/pouch/ammo/clock
 
@@ -306,7 +283,6 @@
 	)
 
 	generate_items_inside(items_inside, src)
-
 
 #undef HAMMER_FLING_DISTANCE
 #undef HAMMER_THROW_FLING_DISTANCE

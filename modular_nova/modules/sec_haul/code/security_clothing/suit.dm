@@ -1,22 +1,26 @@
+/datum/atom_skin/security_armor_vest_white
+	abstract_type = /datum/atom_skin/security_armor_vest_white
+
+/datum/atom_skin/security_armor_vest_white/black
+	preview_name = "Black Variant"
+	new_icon_state = "vest_black"
+
+/datum/atom_skin/security_armor_vest_white/blue
+	preview_name = "Blue Variant"
+	new_icon_state = "vest_blue"
+
+/datum/atom_skin/security_armor_vest_white/white
+	preview_name = "White Variant"
+	new_icon_state = "vest_white"
+
 /obj/item/clothing/suit/armor/vest/alt/sec/white
 	icon = 'modular_nova/master_files/icons/obj/clothing/suits/armor.dmi'
 	worn_icon = 'modular_nova/master_files/icons/mob/clothing/suits/armor.dmi'
 	icon_state = "vest_white"
-	uses_advanced_reskins = TRUE
-	unique_reskin = list(
-		"Black Variant" = list(
-			RESKIN_ICON_STATE = "vest_black",
-			RESKIN_WORN_ICON_STATE = "vest_black"
-		),
-		"Blue Variant" = list(
-			RESKIN_ICON_STATE = "vest_blue",
-			RESKIN_WORN_ICON_STATE = "vest_blue"
-		),
-		"White Variant" = list(
-			RESKIN_ICON_STATE = "vest_white",
-			RESKIN_WORN_ICON_STATE = "vest_white"
-		),
-	)
+
+/obj/item/clothing/suit/armor/vest/alt/sec/white/Initialize(mapload)
+	. = ..()
+	AddComponent(/datum/component/reskinable_item, /datum/atom_skin/security_armor_vest_white)
 
 /obj/item/clothing/suit/armor/vest/brit
 	name = "high vis armored vest"
@@ -83,5 +87,3 @@
 	worn_icon = 'modular_nova/master_files/icons/mob/clothing/suits/armor.dmi'
 	icon_state = "hosformal_black"
 	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION
-	uses_advanced_reskins = FALSE
-	unique_reskin = null
