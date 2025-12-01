@@ -1,0 +1,5 @@
+author: "vinylspiders"
+delete-after: True
+changes:
+  - bugfix: "crates will no longer have a chance to be destroyed when falling from a dismantled cargo shelf"
+  - bugfix: "crates should no longer get stuck in shelves, and you can now unload 1 crate onto where you are standing."
