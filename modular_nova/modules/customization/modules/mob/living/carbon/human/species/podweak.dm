@@ -43,10 +43,13 @@
 		if(H.nutrition > NUTRITION_LEVEL_ALMOST_FULL)
 			H.set_nutrition(NUTRITION_LEVEL_ALMOST_FULL)
 		if(light_amount > 0.2) //if there's enough light, heal
-			H.heal_overall_damage(0.5 * seconds_per_tick, 0.35 * seconds_per_tick, 0)
-			H.adjustStaminaLoss(-0.4 * seconds_per_tick)
-			H.adjustToxLoss(-0.1 * seconds_per_tick)
-			H.adjustOxyLoss(-0.2 * seconds_per_tick)
+			var/need_mob_update
+			need_mob_update += H.heal_overall_damage(0.5 * seconds_per_tick, 0.35 * seconds_per_tick, updating_health = FALSE)
+			need_mob_update += H.adjust_stamina_loss(-0.4 * seconds_per_tick, updating_stamina = FALSE)
+			need_mob_update += H.adjust_tox_loss(-0.1 * seconds_per_tick, updating_health = FALSE)
+			need_mob_update += H.adjust_oxy_loss(-0.2 * seconds_per_tick, updating_health = FALSE)
+			if(need_mob_update)
+				H.updatehealth()
 			if(H.health < H.maxHealth)
 				new /obj/effect/temp_visual/heal(get_turf(H), COLOR_EFFECT_HEAL_RED)
 

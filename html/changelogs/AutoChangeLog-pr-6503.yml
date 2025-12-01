@@ -1,5 +1,0 @@
-author: "Kocma-san"
-delete-after: True
-changes:
-  - bugfix: "fixed that M44A underbarrel grenade launchers and shotguns cannot be reloaded"
-  - code_imp: "smol improvement to the marines gear code"

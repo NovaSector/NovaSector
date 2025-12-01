@@ -3,10 +3,19 @@
 /obj/effect/spawner/random/structure/tank_holder,
 /turf/open/floor/plating/airless,
 /area/ruin/space/has_grav)
+"bo" = (
+/obj/structure/lattice,
+/obj/structure/table_frame,
+/turf/template_noop,
+/area/space/nearstation)
 "bp" = (
 /obj/effect/turf_decal/tile/yellow,
 /turf/open/floor/iron/white/airless,
 /area/ruin/space/has_grav)
+"bz" = (
+/obj/item/shard,
+/turf/template_noop,
+/area/space/nearstation)
 "bS" = (
 /turf/open/floor/carpet/airless,
 /area/ruin/space/has_grav)
@@ -64,27 +73,17 @@
 /obj/item/gps/spaceruin,
 /turf/open/floor/iron/airless,
 /area/ruin/space/has_grav)
-"gw" = (
+"gG" = (
 /obj/structure/lattice,
-/obj/item/stack/tile/iron/base,
-/obj/structure/disposalpipe/broken,
+/obj/item/wallframe/apc,
 /turf/template_noop,
-/area/template_noop)
+/area/space/nearstation)
 "gK" = (
 /obj/structure/closet/cabinet,
 /obj/item/storage/pill_bottle/happy,
 /obj/item/clothing/ears/earmuffs,
 /turf/open/floor/wood/airless,
 /area/ruin/space/has_grav)
-"gX" = (
-/obj/structure/girder/displaced,
-/turf/template_noop,
-/area/template_noop)
-"hf" = (
-/obj/structure/lattice,
-/obj/item/stack/rods,
-/turf/template_noop,
-/area/template_noop)
 "iB" = (
 /obj/item/shard,
 /obj/effect/turf_decal/tile/yellow{
@@ -92,6 +91,10 @@
 	},
 /turf/open/floor/iron/white/airless,
 /area/ruin/space/has_grav)
+"iN" = (
+/obj/item/stack/rods,
+/turf/template_noop,
+/area/space/nearstation)
 "jk" = (
 /obj/effect/turf_decal/tile/blue{
 	dir = 1
@@ -100,27 +103,36 @@
 	dir = 8
 	},
 /area/ruin/space/has_grav)
+"kq" = (
+/obj/structure/lattice,
+/obj/item/stack/tile/iron/base,
+/obj/item/stack/sheet/iron,
+/turf/template_noop,
+/area/space/nearstation)
 "kI" = (
 /obj/structure/chair/sofa/left/brown,
 /turf/open/floor/carpet/airless,
 /area/ruin/space/has_grav)
-"lQ" = (
-/obj/structure/lattice,
-/obj/item/stack/tile/iron/base,
-/turf/template_noop,
-/area/template_noop)
 "lU" = (
 /obj/item/stack/tile/iron/base,
 /obj/effect/mapping_helpers/broken_floor,
 /turf/open/floor/plating/airless,
 /area/ruin/space/has_grav)
+"mu" = (
+/obj/structure/sign/directions/medical{
+	dir = 4;
+	pixel_y = 26
+	},
+/turf/open/floor/iron/airless,
+/area/ruin/space/has_grav)
+"mU" = (
+/obj/structure/girder/displaced,
+/obj/structure/lattice,
+/turf/template_noop,
+/area/space/nearstation)
 "nf" = (
 /turf/open/floor/iron/airless,
 /area/ruin/space/has_grav)
-"or" = (
-/obj/item/stack/tile/iron/base,
-/turf/template_noop,
-/area/template_noop)
 "oy" = (
 /obj/structure/table_frame,
 /obj/effect/turf_decal/tile/yellow/opposingcorners{
@@ -128,11 +140,6 @@
 	},
 /turf/open/floor/iron/checker/airless,
 /area/ruin/space/has_grav)
-"oP" = (
-/obj/structure/lattice,
-/obj/item/stack/sheet/iron,
-/turf/template_noop,
-/area/template_noop)
 "oX" = (
 /obj/structure/door_assembly/door_assembly_med,
 /turf/open/floor/plating/airless,
@@ -142,26 +149,28 @@
 /obj/effect/mapping_helpers/broken_floor,
 /turf/open/floor/plating/airless,
 /area/ruin/space/has_grav)
-"pd" = (
-/obj/structure/lattice,
-/obj/structure/girder/displaced,
-/turf/template_noop,
-/area/template_noop)
 "pr" = (
 /obj/effect/mapping_helpers/burnt_floor,
 /turf/open/floor/plating/airless,
 /area/ruin/space/has_grav)
+"pK" = (
+/obj/effect/spawner/random/medical/surgery_tool,
+/turf/template_noop,
+/area/space/nearstation)
 "pR" = (
 /obj/item/reagent_containers/applicator/pill/maintenance,
 /turf/open/floor/plating/airless,
 /area/ruin/space/has_grav)
-"qi" = (
-/obj/structure/sign/directions/medical{
-	dir = 4;
-	pixel_y = 26
-	},
-/turf/open/floor/iron/airless,
-/area/ruin/space/has_grav)
+"qy" = (
+/obj/structure/lattice,
+/obj/item/light/tube/broken,
+/turf/template_noop,
+/area/space/nearstation)
+"qW" = (
+/obj/structure/lattice,
+/obj/item/stack/tile/wood,
+/turf/template_noop,
+/area/space/nearstation)
 "rt" = (
 /obj/item/stack/rods,
 /turf/open/floor/plating/airless,
@@ -170,15 +179,11 @@
 /obj/structure/girder/displaced,
 /turf/open/floor/plating/airless,
 /area/ruin/space/has_grav)
-"tj" = (
-/obj/item/shard,
-/turf/template_noop,
-/area/template_noop)
-"tk" = (
+"tf" = (
 /obj/structure/lattice,
-/obj/machinery/light/broken/directional/north,
+/obj/item/stack/rods,
 /turf/template_noop,
-/area/template_noop)
+/area/space/nearstation)
 "tF" = (
 /obj/structure/grille/broken,
 /obj/effect/decal/cleanable/glass,
@@ -186,11 +191,6 @@
 /obj/effect/mapping_helpers/broken_floor,
 /turf/open/floor/plating/airless,
 /area/ruin/space/has_grav)
-"tH" = (
-/obj/item/stack/tile/iron/base,
-/obj/item/stack/rods,
-/turf/template_noop,
-/area/template_noop)
 "uB" = (
 /obj/structure/disposalpipe/broken{
 	dir = 1
@@ -198,22 +198,17 @@
 /obj/effect/mapping_helpers/broken_floor,
 /turf/open/floor/plating/airless,
 /area/ruin/space/has_grav)
+"uD" = (
+/obj/structure/lattice,
+/obj/item/wallframe/intercom,
+/obj/item/stack/rods,
+/turf/template_noop,
+/area/space/nearstation)
 "vW" = (
 /obj/structure/extinguisher_cabinet/directional/north,
 /obj/effect/mapping_helpers/broken_floor,
 /turf/open/floor/iron/airless,
 /area/ruin/space/has_grav)
-"wz" = (
-/obj/structure/lattice,
-/obj/item/stack/tile/iron/base,
-/obj/item/stack/sheet/iron,
-/turf/template_noop,
-/area/template_noop)
-"wJ" = (
-/obj/structure/lattice,
-/obj/item/shard,
-/turf/template_noop,
-/area/template_noop)
 "wT" = (
 /obj/effect/spawner/structure/window/reinforced,
 /turf/open/floor/plating/airless,
@@ -229,6 +224,15 @@
 /obj/effect/mapping_helpers/broken_floor,
 /turf/open/floor/plating/airless,
 /area/ruin/space/has_grav)
+"zN" = (
+/obj/structure/lattice,
+/obj/structure/girder/displaced,
+/turf/template_noop,
+/area/space/nearstation)
+"zT" = (
+/obj/item/stack/sheet/iron,
+/turf/template_noop,
+/area/space/nearstation)
 "AV" = (
 /turf/open/floor/wood/airless,
 /area/ruin/space/has_grav)
@@ -273,15 +277,11 @@
 	dir = 1
 	},
 /area/ruin/space/has_grav)
-"CN" = (
+"CR" = (
 /obj/structure/lattice,
 /obj/effect/spawner/random/structure/crate_abandoned,
 /turf/template_noop,
-/area/template_noop)
-"CT" = (
-/obj/structure/lattice,
-/turf/template_noop,
-/area/template_noop)
+/area/space/nearstation)
 "Di" = (
 /obj/structure/frame/machine,
 /obj/item/circuitboard/machine/vendor,
@@ -292,20 +292,21 @@
 "DY" = (
 /turf/template_noop,
 /area/template_noop)
-"Et" = (
-/obj/structure/lattice,
-/obj/item/vending_refill/assist,
-/turf/template_noop,
-/area/template_noop)
 "EE" = (
 /obj/effect/spawner/random/trash/botanical_waste,
 /obj/effect/mapping_helpers/broken_floor,
 /turf/open/floor/plating/airless,
 /area/ruin/space/has_grav)
-"Fv" = (
+"EF" = (
+/obj/structure/lattice,
 /obj/item/stack/sheet/iron,
 /turf/template_noop,
-/area/template_noop)
+/area/space/nearstation)
+"FE" = (
+/obj/structure/lattice,
+/obj/item/vending_refill/assist,
+/turf/template_noop,
+/area/space/nearstation)
 "FQ" = (
 /obj/effect/mapping_helpers/broken_floor,
 /turf/open/floor/iron/airless,
@@ -315,20 +316,16 @@
 /obj/effect/mapping_helpers/broken_floor,
 /turf/open/floor/plating/airless,
 /area/ruin/space/has_grav)
+"GB" = (
+/obj/item/stack/tile/iron/base,
+/obj/item/stack/rods,
+/turf/template_noop,
+/area/space/nearstation)
 "GP" = (
 /obj/structure/table/wood,
 /obj/item/flashlight/lamp/green,
 /turf/open/floor/carpet/airless,
 /area/ruin/space/has_grav)
-"HE" = (
-/obj/structure/lattice,
-/obj/item/wallframe/apc,
-/turf/template_noop,
-/area/template_noop)
-"HO" = (
-/obj/item/stack/tile/wood,
-/turf/template_noop,
-/area/template_noop)
 "Il" = (
 /obj/structure/disposalpipe/segment,
 /obj/machinery/door/airlock/public/glass,
@@ -391,6 +388,12 @@
 /obj/item/stack/rods,
 /turf/open/floor/wood/airless,
 /area/ruin/space/has_grav)
+"Li" = (
+/obj/structure/lattice,
+/obj/item/stack/tile/iron/base,
+/obj/structure/disposalpipe/broken,
+/turf/template_noop,
+/area/space/nearstation)
 "My" = (
 /obj/machinery/cell_charger,
 /obj/structure/table,
@@ -401,10 +404,6 @@
 /obj/item/shard,
 /turf/open/floor/iron/airless,
 /area/ruin/space/has_grav)
-"NM" = (
-/obj/effect/spawner/random/medical/surgery_tool,
-/turf/template_noop,
-/area/template_noop)
 "NN" = (
 /obj/effect/turf_decal/trimline/neutral/warning{
 	dir = 1
@@ -415,10 +414,10 @@
 	dir = 1
 	},
 /area/ruin/space/has_grav)
-"Pi" = (
-/obj/item/stack/rods,
+"OJ" = (
+/obj/structure/girder/displaced,
 /turf/template_noop,
-/area/template_noop)
+/area/space/nearstation)
 "Pn" = (
 /obj/machinery/disposal/bin,
 /obj/structure/disposalpipe/trunk{
@@ -426,21 +425,11 @@
 	},
 /turf/open/floor/iron/dark/airless,
 /area/ruin/space/has_grav)
-"Qf" = (
-/obj/structure/girder/displaced,
+"PR" = (
 /obj/structure/lattice,
+/obj/item/stack/tile/iron/base,
 /turf/template_noop,
-/area/template_noop)
-"Qk" = (
-/obj/structure/lattice,
-/obj/item/stack/tile/wood,
-/turf/template_noop,
-/area/template_noop)
-"Qw" = (
-/obj/structure/lattice,
-/obj/structure/table_frame,
-/turf/template_noop,
-/area/template_noop)
+/area/space/nearstation)
 "Qy" = (
 /obj/item/wallframe/airalarm,
 /obj/structure/disposalpipe/segment{
@@ -457,6 +446,15 @@
 /obj/structure/chair/comfy/beige,
 /turf/open/floor/carpet/airless,
 /area/ruin/space/has_grav)
+"RJ" = (
+/obj/structure/lattice,
+/obj/item/shard,
+/turf/template_noop,
+/area/space/nearstation)
+"RO" = (
+/obj/structure/lattice,
+/turf/template_noop,
+/area/space/nearstation)
 "Si" = (
 /obj/structure/disposalpipe/segment,
 /obj/effect/turf_decal/tile/blue{
@@ -489,17 +487,16 @@
 /obj/structure/door_assembly/door_assembly_mai,
 /turf/open/floor/plating/airless,
 /area/ruin/space/has_grav)
+"Up" = (
+/obj/item/stack/tile/wood,
+/turf/template_noop,
+/area/space/nearstation)
 "Vn" = (
 /obj/effect/decal/cleanable/glass,
 /obj/structure/grille,
 /obj/effect/mapping_helpers/broken_floor,
 /turf/open/floor/plating/airless,
 /area/ruin/space/has_grav)
-"We" = (
-/obj/structure/lattice,
-/obj/item/light/tube/broken,
-/turf/template_noop,
-/area/template_noop)
 "Wr" = (
 /obj/structure/door_assembly/door_assembly_mai,
 /obj/effect/mapping_helpers/broken_floor,
@@ -510,26 +507,29 @@
 /obj/effect/mapping_helpers/broken_floor,
 /turf/open/floor/plating/airless,
 /area/ruin/space/has_grav)
+"Xh" = (
+/obj/structure/lattice,
+/obj/machinery/light/broken/directional/north,
+/turf/template_noop,
+/area/space/nearstation)
 "Yt" = (
 /obj/effect/turf_decal/tile/blue,
 /turf/open/floor/iron/white/airless,
 /area/ruin/space/has_grav)
-"Yu" = (
-/obj/structure/lattice,
-/obj/item/wallframe/intercom,
-/obj/item/stack/rods,
+"ZZ" = (
+/obj/item/stack/tile/iron/base,
 /turf/template_noop,
-/area/template_noop)
+/area/space/nearstation)
 
 (1,1,1) = {"
 DY
 DY
 DY
 gi
-CT
-CT
-CT
-CT
+RO
+RO
+RO
+RO
 gi
 DY
 DY
@@ -542,12 +542,12 @@ eP
 dy
 eP
 eP
-Pi
-CT
+iN
+RO
 DY
 DY
-tj
-Pi
+bz
+iN
 DY
 DY
 "}
@@ -558,11 +558,11 @@ My
 La
 eP
 gi
-CT
+RO
 eP
-Qf
+mU
 Vn
-wJ
+RJ
 eP
 tF
 "}
@@ -575,7 +575,7 @@ Qy
 Si
 uB
 jk
-hf
+tf
 dy
 jk
 Cc
@@ -588,23 +588,23 @@ nf
 FQ
 SE
 Sz
-CT
-wJ
+RO
+RJ
 dy
 FQ
 Ke
-lQ
-wJ
+PR
+RJ
 "}
 (6,1,1) = {"
-CT
+RO
 gi
 FQ
 nf
 JN
 QV
-or
-tH
+ZZ
+GB
 QV
 dV
 dV
@@ -619,10 +619,10 @@ AY
 JI
 IE
 gi
-pd
+zN
 Ua
-Qf
-hf
+mU
+tf
 IE
 IR
 "}
@@ -630,59 +630,59 @@ IR
 eP
 ea
 eP
-qi
+mu
 fc
 Nw
 eP
-CN
-CT
+CR
+RO
 QV
-Qf
-tj
+mU
+bz
 DY
 "}
 (9,1,1) = {"
-CT
+RO
 rt
 Ua
 nf
-CT
+RO
 FQ
-pd
+zN
 Jy
 dy
-oP
-CT
+EF
+RO
 DY
 DY
 "}
 (10,1,1) = {"
-CT
+RO
 Ke
 eP
 vW
 BX
 nf
 gi
-CT
+RO
 dy
 zw
 eP
-Pi
+iN
 DY
 "}
 (11,1,1) = {"
-CT
+RO
 QV
 rN
 FQ
 SE
 dy
 gi
-oP
-CT
+EF
+RO
 eP
-Qf
+mU
 eP
 DY
 "}
@@ -690,27 +690,27 @@ DY
 dy
 rt
 gi
-CT
+RO
 xk
 dy
 eP
 pR
-hf
+tf
 EE
-CT
-CT
+RO
+RO
 DY
 "}
 (13,1,1) = {"
 QV
 dy
 eP
-tk
-lQ
-HE
-Qf
+Xh
+PR
+gG
+mU
 aE
-CT
+RO
 eP
 QV
 Ke
@@ -720,12 +720,12 @@ DY
 dy
 eP
 eP
-Yu
-Fv
-CT
+uD
+zT
+RO
 eP
 eP
-Qf
+mU
 gi
 Wr
 gi
@@ -737,8 +737,8 @@ eP
 gk
 nf
 QV
-wz
-Qw
+kq
+bo
 dy
 GP
 bS
@@ -752,7 +752,7 @@ eP
 Tb
 FQ
 Ke
-Et
+FE
 WX
 eP
 kI
@@ -762,7 +762,7 @@ wT
 DY
 "}
 (17,1,1) = {"
-CT
+RO
 Cg
 Co
 FQ
@@ -772,8 +772,8 @@ Di
 eP
 Ri
 bS
-Qk
-Qk
+qW
+qW
 DY
 "}
 (18,1,1) = {"
@@ -782,72 +782,72 @@ Il
 NN
 Kt
 cD
-gw
+Li
 Pn
 eP
 gK
-CT
-CT
+RO
+RO
 lU
 DY
 "}
 (19,1,1) = {"
-CT
+RO
 eP
 eP
 gi
 dy
-CT
+RO
 Vn
 rN
 eP
-lQ
+PR
 Ke
-Pi
+iN
 DY
 "}
 (20,1,1) = {"
-Pi
-CT
+iN
+RO
 gi
 Ca
 Lc
 Gb
-tj
-We
+bz
+qy
 eK
 QV
-CT
-HO
+RO
+Up
 DY
 "}
 (21,1,1) = {"
 DY
-CT
+RO
 oy
 iB
 Lc
 Ke
-CT
+RO
 dy
 Lc
 Yt
 QV
-Pi
+iN
 DY
 "}
 (22,1,1) = {"
-Pi
-tj
+iN
+bz
 IE
 bU
 bp
-CT
-hf
-CT
+RO
+tf
+RO
 fW
 Yt
-CT
+RO
 DY
 DY
 "}
@@ -856,27 +856,27 @@ DY
 gi
 eP
 eP
-CT
-CT
+RO
+RO
 dy
 oX
-gX
+OJ
 eP
 eP
-NM
+pK
 DY
 "}
 (24,1,1) = {"
 DY
 DY
-Pi
+iN
 gi
 DY
 dy
-NM
-CT
-CT
-CT
+pK
+RO
+RO
+RO
 DY
 DY
 DY
@@ -885,10 +885,10 @@ DY
 DY
 DY
 DY
-CT
+RO
 pr
-CT
-CT
+RO
+RO
 dy
 DY
 DY

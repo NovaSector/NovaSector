@@ -17,6 +17,7 @@
 
 ///Defines for icons used for modular bodyparts, created to make it easier to relocate the module or files if necessary.
 #define BODYPART_ICON_HUMAN 'modular_nova/modules/bodyparts/icons/human_parts_greyscale.dmi'
+#define BODYPART_ICON_HUMANOID 'modular_nova/modules/bodyparts/icons/humanoid_parts_greyscale.dmi'
 #define BODYPART_ICON_MAMMAL 'modular_nova/modules/bodyparts/icons/mammal_parts_greyscale.dmi'
 #define BODYPART_ICON_AKULA 'modular_nova/modules/bodyparts/icons/akula_parts_greyscale.dmi'
 #define BODYPART_ICON_AQUATIC 'modular_nova/modules/bodyparts/icons/aquatic_parts_greyscale.dmi'
