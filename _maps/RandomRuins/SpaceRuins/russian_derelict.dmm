@@ -1672,10 +1672,6 @@
 /obj/effect/mapping_helpers/airlock/access/all/engineering/general,
 /turf/open/floor/plating,
 /area/ruin/space/ks13/engineering/sb_bow_solars_control)
-"rd" = (
-/obj/structure/lattice,
-/turf/template_noop,
-/area/template_noop)
 "re" = (
 /obj/structure/girder,
 /turf/open/floor/plating/airless,
@@ -6388,9 +6384,6 @@
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/iron/dark,
 /area/ruin/space/ks13/medical/morgue)
-"PG" = (
-/turf/closed/wall/r_wall,
-/area/template_noop)
 "PH" = (
 /obj/effect/mapping_helpers/broken_floor,
 /obj/machinery/power/apc/auto_name/directional/north,
@@ -13006,7 +12999,7 @@ aa
 aa
 aa
 aa
-rd
+rk
 rk
 Kb
 sU
@@ -13120,7 +13113,7 @@ aa
 aa
 aa
 aa
-rd
+rk
 BK
 Wk
 fg
@@ -13232,7 +13225,7 @@ aa
 aa
 aa
 aa
-PG
+Kb
 IF
 Kb
 Wk
@@ -13345,7 +13338,7 @@ aa
 aa
 aa
 aa
-rd
+rk
 Kb
 rk
 BK
@@ -13458,7 +13451,7 @@ aa
 aa
 aa
 aa
-rd
+rk
 rk
 rk
 Kb
@@ -13572,7 +13565,7 @@ aa
 aa
 aa
 aa
-rd
+rk
 rk
 rk
 Kb
@@ -13685,7 +13678,7 @@ aa
 aa
 aa
 aa
-rd
+rk
 rk
 rk
 rk
@@ -13799,7 +13792,7 @@ aa
 aa
 aa
 aa
-rd
+rk
 nQ
 aa
 aa
