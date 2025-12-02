@@ -69,13 +69,11 @@
 			var/e_prefs_v = preferences.read_preference(/datum/preference/choiced/erp_status_v)
 			var/e_prefs_nc = preferences.read_preference(/datum/preference/choiced/erp_status_nc)
 			var/e_prefs_mechanical = preferences.read_preference(/datum/preference/choiced/erp_status_mechanics)
-			var/e_prefs_truthordare = preferences.read_preference(/datum/preference/choiced/accepts_unsolicited_truth_or_dare)
 			ooc_notes_nsfw += "ERP: [e_prefs]\n"
 			ooc_notes_nsfw += "Hypnosis: [e_prefs_hypno]\n"
 			ooc_notes_nsfw += "Vore: [e_prefs_v]\n"
 			ooc_notes_nsfw += "Non-Con: [e_prefs_nc]\n"
 			ooc_notes_nsfw += "ERP Mechanics: [e_prefs_mechanical]\n"
-			ooc_notes_nsfw += "Unsolicited Truth or Dare: [e_prefs_truthordare]\n"
 			ooc_notes_nsfw += "\n"
 
 		if(!CONFIG_GET(flag/disable_antag_opt_in_preferences))
