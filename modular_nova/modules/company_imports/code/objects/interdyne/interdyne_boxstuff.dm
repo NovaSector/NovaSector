@@ -53,25 +53,25 @@ they get called in files like interdyne_crates.dm and interdyne_kits.dm
 /obj/item/reagent_containers/applicator/patch/pen_acid
 	name = "\improper Pentetic Acid Patch"
 	icon_state = "bandaid_toxin"
-	list_reagents = list(/datum/reagent/medicine/pen_acid = 20)
+	list_reagents = list(/datum/reagent/medicine/pen_acid = 10)
 	list_reagents_purity = 1
 
 /obj/item/reagent_containers/applicator/patch/oxandrolone
 	name = "\improper Oxandrolone Patch"
 	icon_state = "bandaid_burn_2"
-	list_reagents = list(/datum/reagent/medicine/oxandrolone = 20)
+	list_reagents = list(/datum/reagent/medicine/oxandrolone = 10)
 	list_reagents_purity = 1
 
 /obj/item/reagent_containers/applicator/patch/salbutamol
 	name = "\improper Salbutamol Patch"
 	icon_state = "bandaid_suffocation_2"
-	list_reagents = list(/datum/reagent/medicine/salbutamol = 20)
+	list_reagents = list(/datum/reagent/medicine/salbutamol = 10)
 	list_reagents_purity = 1
 
 /obj/item/reagent_containers/applicator/patch/sal_acid
 	name = "\improper Salicylic Acid Patch"
 	icon_state = "bandaid_brute"
-	list_reagents = list(/datum/reagent/medicine/sal_acid = 20)
+	list_reagents = list(/datum/reagent/medicine/sal_acid = 10)
 	list_reagents_purity = 1
 
 /*

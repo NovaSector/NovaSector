@@ -298,7 +298,13 @@
 	crate_name = "Interdyne Technology Crate"
 
 /datum/supply_pack/companies/machines/interdyne/mmi
-	name = "Pack of Morale Boosting Maid Outfit"
-	desc = "What's better than one morale boosting, kevlar lined, maid outfit, guarenteed to boost the morale of either you or your fellow personnel around you only SLIGHTLY? THREE OF THEM!"
+	name = "Interdyne MMI Brain"
+	desc = "A morally questionable device, that you can use to turn living brains into cyborgs!"
 	contains = list(/obj/item/mmi/syndie/interdyne)
+	cost = CARGO_CRATE_VALUE * 5
+
+/datum/supply_pack/companies/machines/interdyne/posibrain
+	name = "Interdyne Posi Brain"
+	desc = "A less morally questionable device, useful in activating new cyborgs!"
+	contains = list(/obj/item/mmi/posibrain/syndie/interdyne)
 	cost = CARGO_CRATE_VALUE * 5
