@@ -93,13 +93,6 @@
 /obj/item/storage/fancy/cigarettes/cigpack_robust,
 /turf/open/floor/plating/dumpsterair,
 /area/ruin/space/has_grav/garbagetruck/squat)
-"fF" = (
-/obj/item/clothing/suit/caution,
-/obj/item/trash/syndi_cakes,
-/obj/effect/decal/cleanable/plastic,
-/obj/item/t_scanner,
-/turf/open/floor/plating/dumpsterair,
-/area/ruin/space/has_grav/garbagetruck/squat)
 "gq" = (
 /obj/structure/grille,
 /obj/structure/window/reinforced/shuttle,
@@ -236,6 +229,11 @@
 /obj/effect/decal/cleanable/fuel_pool,
 /turf/open/floor/plating/dumpsterair,
 /area/ruin/space/has_grav/garbagetruck/squat)
+"lE" = (
+/obj/structure/cable,
+/obj/machinery/airalarm/directional/north,
+/turf/open/floor/catwalk_floor/iron,
+/area/ruin/space/has_grav/garbagetruck/squat)
 "lY" = (
 /obj/effect/decal/cleanable/dirt/dust,
 /turf/open/floor/plating/dumpsterair,
@@ -298,6 +296,15 @@
 /obj/effect/decal/cleanable/glass,
 /obj/item/restraints/handcuffs/cable/zipties/used,
 /obj/item/shard,
+/turf/open/floor/plating/dumpsterair,
+/area/ruin/space/has_grav/garbagetruck/squat)
+"pZ" = (
+/obj/item/food/deadmouse,
+/obj/item/clothing/shoes/sneakers/red,
+/obj/item/cigarette/carp,
+/obj/item/extinguisher/mini,
+/obj/effect/decal/cleanable/fuel_pool,
+/obj/structure/sign/warning/directional/south,
 /turf/open/floor/plating/dumpsterair,
 /area/ruin/space/has_grav/garbagetruck/squat)
 "qF" = (
@@ -404,6 +411,14 @@
 	},
 /obj/effect/decal/cleanable/fuel_pool,
 /obj/structure/reagent_dispensers/fueltank/large,
+/turf/open/floor/plating/dumpsterair,
+/area/ruin/space/has_grav/garbagetruck/squat)
+"uI" = (
+/obj/item/clothing/suit/caution,
+/obj/item/trash/syndi_cakes,
+/obj/effect/decal/cleanable/plastic,
+/obj/item/t_scanner,
+/obj/structure/sign/warning/directional/south,
 /turf/open/floor/plating/dumpsterair,
 /area/ruin/space/has_grav/garbagetruck/squat)
 "uW" = (
@@ -779,10 +794,6 @@
 /obj/effect/decal/cleanable/blood/oil,
 /turf/open/floor/plating/dumpsterair,
 /area/ruin/space/has_grav/garbagetruck/squat)
-"Pz" = (
-/obj/structure/sign/warning,
-/turf/closed/wall/r_wall,
-/area/ruin/space/has_grav/garbagetruck/squat)
 "PE" = (
 /obj/machinery/door/airlock/shuttle,
 /turf/open/floor/plating,
@@ -876,12 +887,7 @@
 /obj/effect/decal/cleanable/fuel_pool,
 /turf/open/floor/plating/dumpsterair,
 /area/ruin/space/has_grav/garbagetruck/squat)
-"VK" = (
-/obj/structure/cable,
-/obj/machinery/airalarm/directional/north,
-/turf/open/floor/catwalk_floor/iron,
-/area/ruin/space/has_grav/garbagetruck/squat)
-"Wz" = (
+"VL" = (
 /obj/machinery/power/shuttle_engine/propulsion,
 /turf/template_noop,
 /area/space/nearstation)
@@ -898,14 +904,6 @@
 /turf/open/floor/plating/dumpsterair,
 /area/ruin/space/has_grav/garbagetruck/squat)
 "Xt" = (
-/turf/open/floor/plating/dumpsterair,
-/area/ruin/space/has_grav/garbagetruck/squat)
-"Xv" = (
-/obj/item/food/deadmouse,
-/obj/item/clothing/shoes/sneakers/red,
-/obj/item/cigarette/carp,
-/obj/item/extinguisher/mini,
-/obj/effect/decal/cleanable/fuel_pool,
 /turf/open/floor/plating/dumpsterair,
 /area/ruin/space/has_grav/garbagetruck/squat)
 "XS" = (
@@ -938,7 +936,7 @@ pk
 pk
 pk
 HZ
-Wz
+VL
 JX
 JX
 JX
@@ -994,8 +992,8 @@ pM
 tu
 hm
 pC
-fF
-Pz
+uI
+mV
 "}
 (4,1,1) = {"
 Ye
@@ -1046,7 +1044,7 @@ la
 gy
 gq
 HZ
-VK
+lE
 PE
 JW
 WV
@@ -1148,8 +1146,8 @@ Dq
 yF
 Nd
 Er
-Xv
-Pz
+pZ
+mV
 "}
 (11,1,1) = {"
 JX
@@ -1180,7 +1178,7 @@ pk
 pk
 MJ
 HZ
-Wz
+VL
 JX
 JX
 JX

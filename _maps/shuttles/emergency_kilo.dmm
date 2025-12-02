@@ -40,6 +40,10 @@
 /obj/item/crowbar,
 /turf/open/floor/mineral/plastitanium,
 /area/shuttle/escape)
+"ai" = (
+/obj/structure/sign/nanotrasen/directional/north,
+/turf/closed/wall/mineral/titanium/nodiagonal,
+/area/shuttle/escape)
 "ao" = (
 /obj/effect/turf_decal/delivery,
 /obj/effect/turf_decal/stripes/line{
@@ -166,10 +170,6 @@
 /obj/machinery/status_display/evac,
 /turf/closed/wall/mineral/titanium,
 /area/shuttle/escape)
-"bh" = (
-/obj/structure/sign/warning/secure_area,
-/turf/closed/wall/mineral/titanium,
-/area/shuttle/escape)
 "bi" = (
 /obj/effect/turf_decal/bot,
 /obj/machinery/suit_storage_unit/standard_unit,
@@ -199,21 +199,6 @@
 "bn" = (
 /obj/effect/turf_decal/bot,
 /obj/structure/closet/emcloset,
-/turf/open/floor/mineral/plastitanium,
-/area/shuttle/escape)
-"bo" = (
-/obj/structure/table,
-/obj/item/tank/internals/emergency_oxygen{
-	pixel_x = -4
-	},
-/obj/item/tank/internals/oxygen{
-	pixel_x = 4
-	},
-/obj/item/clothing/mask/breath{
-	pixel_x = 4;
-	pixel_y = 4
-	},
-/obj/item/clothing/mask/breath,
 /turf/open/floor/mineral/plastitanium,
 /area/shuttle/escape)
 "bp" = (
@@ -853,6 +838,22 @@
 /obj/structure/chair/comfy/shuttle,
 /turf/open/floor/mineral/plastitanium,
 /area/shuttle/escape)
+"xF" = (
+/obj/structure/table,
+/obj/item/tank/internals/emergency_oxygen{
+	pixel_x = -4
+	},
+/obj/item/tank/internals/oxygen{
+	pixel_x = 4
+	},
+/obj/item/clothing/mask/breath{
+	pixel_x = 4;
+	pixel_y = 4
+	},
+/obj/item/clothing/mask/breath,
+/obj/structure/sign/warning/secure_area/directional/north,
+/turf/open/floor/mineral/plastitanium,
+/area/shuttle/escape)
 "xG" = (
 /obj/item/kirbyplants/organic/plant10,
 /obj/effect/turf_decal/stripes/line{
@@ -1256,10 +1257,6 @@
 /obj/structure/sign/nanotrasen/directional/west,
 /turf/open/floor/mineral/plastitanium/red,
 /area/shuttle/escape/brig)
-"UG" = (
-/obj/structure/sign/nanotrasen/directional/north,
-/turf/closed/wall/mineral/titanium/nodiagonal,
-/area/shuttle/escape)
 "VD" = (
 /obj/effect/turf_decal/stripes/end{
 	dir = 4
@@ -1435,7 +1432,7 @@ cS
 ab
 ac
 ab
-UG
+ai
 cw
 IX
 Mo
@@ -1547,8 +1544,8 @@ bY
 kh
 dZ
 Uc
-bh
-bo
+ab
+xF
 Em
 Wu
 bK
@@ -1597,7 +1594,7 @@ cT
 ab
 ac
 ab
-UG
+ai
 as
 aO
 aX

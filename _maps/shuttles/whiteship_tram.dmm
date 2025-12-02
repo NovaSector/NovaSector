@@ -206,10 +206,6 @@
 /obj/effect/spawner/random/trash/food_packaging,
 /turf/open/floor/pod,
 /area/shuttle/abandoned/cargo)
-"aT" = (
-/obj/structure/sign/warning/secure_area,
-/turf/closed/wall/mineral/titanium/survival/nodiagonal,
-/area/shuttle/abandoned/cargo)
 "aU" = (
 /obj/machinery/porta_turret/centcom_shuttle/weak{
 	dir = 5
@@ -223,11 +219,6 @@
 /obj/machinery/firealarm/directional/west,
 /turf/open/floor/catwalk_floor,
 /area/shuttle/abandoned/engine)
-"aW" = (
-/obj/effect/spawner/random/trash/hobo_squat,
-/obj/effect/mob_spawn/corpse/human/assistant,
-/turf/open/floor/pod,
-/area/shuttle/abandoned/cargo)
 "aX" = (
 /obj/machinery/power/shuttle_engine/propulsion{
 	dir = 1
@@ -889,6 +880,12 @@
 /obj/effect/spawner/random/engineering/atmospherics_portable,
 /turf/open/floor/iron/dark/textured_large,
 /area/shuttle/abandoned/cargo)
+"lr" = (
+/obj/effect/spawner/random/trash/hobo_squat,
+/obj/effect/mob_spawn/corpse/human/assistant,
+/obj/structure/sign/warning/secure_area/directional/west,
+/turf/open/floor/pod,
+/area/shuttle/abandoned/cargo)
 "lA" = (
 /obj/effect/decal/cleanable/blood/gibs,
 /obj/effect/mob_spawn/corpse/human/nanotrasensoldier,
@@ -922,6 +919,12 @@
 /obj/machinery/firealarm/directional/west,
 /turf/open/floor/iron/smooth_large,
 /area/shuttle/abandoned/bridge)
+"pm" = (
+/obj/structure/chair/comfy/shuttle,
+/obj/effect/turf_decal/bot_white,
+/obj/structure/sign/nanotrasen/directional/west,
+/turf/open/floor/iron/dark/textured_large,
+/area/shuttle/abandoned/bridge)
 "qd" = (
 /obj/machinery/power/shuttle_engine/heater{
 	dir = 1
@@ -945,12 +948,10 @@
 /obj/effect/turf_decal/bot_white,
 /turf/open/floor/iron/dark/textured_large,
 /area/shuttle/abandoned/bridge)
-"rv" = (
-/obj/structure/chair/comfy/shuttle,
-/obj/effect/turf_decal/bot_white,
-/obj/structure/sign/nanotrasen/directional/west,
-/turf/open/floor/iron/dark/textured_large,
-/area/shuttle/abandoned/bridge)
+"re" = (
+/obj/structure/sign/warning/secure_area/directional/east,
+/turf/open/floor/pod,
+/area/shuttle/abandoned/cargo)
 "rP" = (
 /obj/structure/table/reinforced/plastitaniumglass,
 /obj/item/phone{
@@ -1195,6 +1196,9 @@
 	dir = 1
 	},
 /area/shuttle/abandoned/crew)
+"HC" = (
+/turf/closed/wall/mineral/titanium/survival/nodiagonal,
+/area/shuttle/abandoned/cargo)
 "Ic" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden{
 	dir = 8
@@ -1622,7 +1626,7 @@ cY
 cY
 cY
 dx
-rv
+pm
 dp
 dt
 dx
@@ -1699,7 +1703,7 @@ at
 cS
 aw
 aG
-aT
+HC
 sR
 Ba
 sR
@@ -1728,7 +1732,7 @@ cl
 cO
 Fo
 aH
-aW
+lr
 cA
 bk
 aS
@@ -1790,7 +1794,7 @@ cA
 aS
 bn
 cA
-cA
+re
 cH
 ez
 cV
@@ -1819,7 +1823,7 @@ aY
 PI
 jS
 PI
-aT
+HC
 aG
 bz
 cP

@@ -21124,10 +21124,6 @@
 /obj/structure/cable,
 /turf/open/floor/iron,
 /area/station/service/cafeteria)
-"fTF" = (
-/obj/structure/sign/warning/radiation,
-/turf/closed/wall/r_wall,
-/area/station/engineering/main)
 "fTM" = (
 /obj/structure/chair,
 /obj/effect/turf_decal/tile/dark_blue{
@@ -26520,6 +26516,14 @@
 "hrD" = (
 /turf/open/openspace,
 /area/station/command/heads_quarters/hop)
+"hrO" = (
+/obj/structure/cable,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/effect/turf_decal/trimline/yellow/filled/line,
+/obj/structure/sign/warning/radiation/directional/south,
+/turf/open/floor/iron/smooth,
+/area/station/engineering/main)
 "hrT" = (
 /obj/structure/table/reinforced,
 /obj/machinery/airalarm/directional/east,
@@ -40785,10 +40789,6 @@
 	},
 /turf/open/floor/iron/dark/smooth_large,
 /area/station/command/meeting_room/council)
-"lhr" = (
-/obj/structure/cable,
-/turf/closed/wall,
-/area/station/medical/surgery)
 "lhw" = (
 /turf/open/floor/glass/reinforced,
 /area/station/science/ordnance)
@@ -55783,6 +55783,10 @@
 	},
 /turf/open/openspace,
 /area/station/engineering/atmos/project)
+"ppa" = (
+/obj/structure/cable,
+/turf/closed/wall,
+/area/station/medical/surgery)
 "ppp" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/effect/turf_decal/tile/dark_blue,
@@ -70943,13 +70947,6 @@
 /obj/machinery/light/small/directional/west,
 /turf/open/floor/iron/freezer,
 /area/station/commons/dorms)
-"tFC" = (
-/obj/structure/cable,
-/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
-/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
-/obj/effect/turf_decal/trimline/yellow/filled/line,
-/turf/open/floor/iron/smooth,
-/area/station/engineering/main)
 "tFD" = (
 /obj/machinery/button/door/directional/east{
 	id = "cargounload";
@@ -117635,7 +117632,7 @@ oNB
 jiL
 emn
 vqv
-lhr
+ppa
 ccN
 ccN
 ccN
@@ -130687,8 +130684,8 @@ wrQ
 wrQ
 wrQ
 wrQ
-tFC
-fTF
+hrO
+jSf
 dnb
 gym
 inI

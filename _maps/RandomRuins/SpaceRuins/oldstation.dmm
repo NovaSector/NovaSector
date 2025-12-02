@@ -287,6 +287,12 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /turf/open/floor/iron,
 /area/ruin/space/ancientstation/charlie/bridge)
+"bA" = (
+/obj/structure/ai_core{
+	state = 5
+	},
+/turf/open/floor/iron/dark,
+/area/ruin/space/ancientstation/delta/ai)
 "bC" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
@@ -2672,10 +2678,6 @@
 "mc" = (
 /turf/closed/mineral/plasma,
 /area/ruin/space/ancientstation/charlie/dorms)
-"md" = (
-/obj/structure/sign/warning/secure_area,
-/turf/closed/wall/r_wall,
-/area/ruin/space/ancientstation/delta/biolab)
 "me" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4{
 	dir = 4
@@ -3475,6 +3477,13 @@
 	},
 /turf/open/floor/iron,
 /area/ruin/space/ancientstation/beta/hall)
+"qp" = (
+/obj/machinery/door/window/right/directional/east{
+	req_access = list("away_general")
+	},
+/obj/structure/sign/warning/secure_area/directional/north,
+/turf/open/floor/engine,
+/area/ruin/space/ancientstation/delta/biolab)
 "qr" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/table,
@@ -4524,12 +4533,6 @@
 /obj/structure/cable,
 /turf/open/floor/engine/airless,
 /area/ruin/space/ancientstation/beta/supermatter)
-"xM" = (
-/obj/machinery/door/window/right/directional/east{
-	req_access = list("away_general")
-	},
-/turf/open/floor/engine,
-/area/ruin/space/ancientstation/delta/biolab)
 "xT" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/cable,
@@ -5212,12 +5215,6 @@
 	},
 /turf/open/floor/iron,
 /area/ruin/space/ancientstation/beta/atmos)
-"CI" = (
-/obj/structure/ai_core{
-	state = 5
-	},
-/turf/open/floor/iron/dark,
-/area/ruin/space/ancientstation/delta/ai)
 "CK" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/item/reagent_containers/cup/beaker/oldstation,
@@ -15357,7 +15354,7 @@ aa
 ad
 ad
 ad
-CI
+bA
 ad
 ad
 ad
@@ -15375,8 +15372,8 @@ uo
 GX
 NG
 Lo
-md
-xM
+rp
+qp
 Go
 Yl
 yX

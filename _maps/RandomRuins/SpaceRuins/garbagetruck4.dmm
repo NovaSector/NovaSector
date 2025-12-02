@@ -68,15 +68,6 @@
 "eL" = (
 /turf/open/floor/catwalk_floor/iron,
 /area/ruin/space/has_grav/garbagetruck/toystore)
-"hD" = (
-/obj/structure/mannequin/wood{
-	desc = "Oh, so this is a dress-up game now. It makes eye contact."
-	},
-/obj/item/clothing/shoes/kindle_kicks{
-	pixel_y = -10
-	},
-/turf/open/floor/plating,
-/area/ruin/space/has_grav/garbagetruck/toystore)
 "hH" = (
 /obj/structure/spider/stickyweb/sealed/tough,
 /obj/item/book/manual/wiki/cytology,
@@ -115,11 +106,6 @@
 /area/ruin/space/has_grav/garbagetruck/toystore)
 "ld" = (
 /turf/open/floor/plating,
-/area/ruin/space/has_grav/garbagetruck/toystore)
-"lf" = (
-/obj/structure/cable,
-/obj/machinery/airalarm/directional/north,
-/turf/open/floor/catwalk_floor/iron,
 /area/ruin/space/has_grav/garbagetruck/toystore)
 "lg" = (
 /obj/structure/lattice/catwalk,
@@ -200,10 +186,6 @@
 /obj/effect/spawner/random/trash/food_packaging,
 /obj/item/food/spidereggs,
 /turf/open/floor/plating,
-/area/ruin/space/has_grav/garbagetruck/toystore)
-"rb" = (
-/obj/structure/sign/warning,
-/turf/closed/wall/r_wall,
 /area/ruin/space/has_grav/garbagetruck/toystore)
 "rc" = (
 /obj/effect/decal/cleanable/blood/oil,
@@ -317,6 +299,11 @@
 "wo" = (
 /obj/machinery/door/airlock/shuttle,
 /turf/open/floor/plating,
+/area/ruin/space/has_grav/garbagetruck/toystore)
+"wu" = (
+/obj/structure/cable,
+/obj/machinery/airalarm/directional/north,
+/turf/open/floor/catwalk_floor/iron,
 /area/ruin/space/has_grav/garbagetruck/toystore)
 "ww" = (
 /obj/machinery/door/airlock/external/glass,
@@ -494,10 +481,6 @@
 /obj/effect/decal/cleanable/dirt/dust,
 /turf/open/floor/plating,
 /area/ruin/space/has_grav/garbagetruck/toystore)
-"zj" = (
-/obj/machinery/power/shuttle_engine/propulsion,
-/turf/template_noop,
-/area/space/nearstation)
 "zs" = (
 /obj/machinery/computer/terminal{
 	content = list("Property of Spinward-Upsilon Sanitation Department. Authorised employees only.");
@@ -560,10 +543,31 @@
 /obj/machinery/door/poddoor/shutters/preopen,
 /turf/open/floor/plating,
 /area/ruin/space/has_grav/garbagetruck/toystore)
+"DV" = (
+/obj/item/mop,
+/obj/item/multitool{
+	pixel_x = 8;
+	pixel_y = -6
+	},
+/obj/structure/mop_bucket,
+/obj/item/broken_bottle,
+/obj/structure/sign/warning/directional/south,
+/turf/open/floor/plating,
+/area/ruin/space/has_grav/garbagetruck/toystore)
 "ER" = (
 /obj/structure/chair/comfy/shuttle,
 /obj/structure/cable,
 /turf/open/floor/catwalk_floor/iron,
+/area/ruin/space/has_grav/garbagetruck/toystore)
+"Fc" = (
+/obj/structure/mannequin/wood{
+	desc = "Oh, so this is a dress-up game now. It makes eye contact."
+	},
+/obj/item/clothing/shoes/kindle_kicks{
+	pixel_y = -10
+	},
+/obj/structure/sign/warning/directional/south,
+/turf/open/floor/plating,
 /area/ruin/space/has_grav/garbagetruck/toystore)
 "FM" = (
 /obj/structure/closet/crate/trashcart,
@@ -792,16 +796,6 @@
 /obj/structure/cable,
 /turf/open/floor/iron/smooth,
 /area/ruin/space/has_grav/garbagetruck/toystore)
-"TO" = (
-/obj/item/mop,
-/obj/item/multitool{
-	pixel_x = 8;
-	pixel_y = -6
-	},
-/obj/structure/mop_bucket,
-/obj/item/broken_bottle,
-/turf/open/floor/plating,
-/area/ruin/space/has_grav/garbagetruck/toystore)
 "UD" = (
 /obj/structure/closet/preopen,
 /obj/item/stack/spacecash/c200,
@@ -810,6 +804,10 @@
 /obj/item/instrument/banjo,
 /turf/open/floor/plating,
 /area/ruin/space/has_grav/garbagetruck/toystore)
+"VL" = (
+/obj/machinery/power/shuttle_engine/propulsion,
+/turf/template_noop,
+/area/space/nearstation)
 "Wl" = (
 /obj/structure/plasticflaps/opaque,
 /turf/open/floor/plating,
@@ -894,7 +892,7 @@ lg
 lg
 lg
 nM
-zj
+VL
 Zi
 Zi
 Zi
@@ -950,8 +948,8 @@ WZ
 xC
 Ix
 dq
-TO
-rb
+DV
+Yr
 "}
 (4,1,1) = {"
 yP
@@ -1002,7 +1000,7 @@ Hj
 dn
 jD
 nM
-lf
+wu
 wo
 Dv
 IS
@@ -1104,8 +1102,8 @@ kz
 ld
 Hy
 Rl
-hD
-rb
+Fc
+Yr
 "}
 (11,1,1) = {"
 Zi
@@ -1136,7 +1134,7 @@ lg
 lg
 ri
 nM
-zj
+VL
 Zi
 Zi
 Zi

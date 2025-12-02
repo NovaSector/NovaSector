@@ -122,21 +122,6 @@
 /obj/structure/flora/tree/pine,
 /turf/open/misc/asteroid/snow/icemoon,
 /area/icemoon/surface/outdoors/nospawn)
-"op" = (
-/obj/structure/fence{
-	dir = 4
-	},
-/obj/structure/sign/warning/secure_area,
-/turf/open/misc/asteroid/snow/icemoon,
-/area/icemoon/surface/outdoors/nospawn)
-"tW" = (
-/obj/structure/fence{
-	dir = 4
-	},
-/obj/structure/flora/rock/pile/icy/style_2,
-/obj/structure/sign/warning/secure_area,
-/turf/open/misc/asteroid/snow/icemoon,
-/area/icemoon/surface/outdoors/nospawn)
 "uy" = (
 /obj/effect/mob_spawn/corpse/human/minesite/overseer,
 /turf/open/floor/plating/snowed/smoothed/icemoon,
@@ -180,9 +165,10 @@
 	},
 /turf/open/misc/asteroid/snow/icemoon,
 /area/icemoon/surface/outdoors/nospawn)
-"AS" = (
-/obj/structure/sign/nanotrasen/directional/north,
-/turf/open/floor/plating/snowed/smoothed/icemoon,
+"Cb" = (
+/obj/structure/flora/tree/pine,
+/obj/structure/sign/warning/secure_area/directional/south,
+/turf/open/misc/asteroid/snow/icemoon,
 /area/icemoon/surface/outdoors/nospawn)
 "Dd" = (
 /turf/closed/mineral/random/snow,
@@ -209,6 +195,13 @@
 /obj/structure/railing{
 	dir = 6
 	},
+/turf/open/misc/asteroid/snow/icemoon,
+/area/icemoon/surface/outdoors/nospawn)
+"Gp" = (
+/obj/structure/fence{
+	dir = 4
+	},
+/obj/structure/flora/rock/pile/icy/style_2,
 /turf/open/misc/asteroid/snow/icemoon,
 /area/icemoon/surface/outdoors/nospawn)
 "HU" = (
@@ -279,6 +272,11 @@
 	},
 /turf/open/misc/asteroid/snow/icemoon,
 /area/icemoon/surface/outdoors/nospawn)
+"Tc" = (
+/obj/structure/flora/grass/brown/style_random,
+/obj/structure/sign/warning/secure_area/directional/north,
+/turf/open/misc/asteroid/snow/icemoon,
+/area/icemoon/surface/outdoors/nospawn)
 "Tt" = (
 /obj/structure/flora/rock/pile/icy/style_2,
 /turf/open/floor/plating/snowed/smoothed/icemoon,
@@ -305,6 +303,10 @@
 /obj/item/flashlight/glowstick/red{
 	start_on = 1
 	},
+/turf/open/floor/plating/snowed/smoothed/icemoon,
+/area/icemoon/surface/outdoors/nospawn)
+"Wr" = (
+/obj/structure/sign/nanotrasen/directional/north,
 /turf/open/floor/plating/snowed/smoothed/icemoon,
 /area/icemoon/surface/outdoors/nospawn)
 "Wt" = (
@@ -437,7 +439,7 @@ fl
 fl
 kd
 Sc
-AS
+Wr
 vJ
 kd
 kd
@@ -865,8 +867,8 @@ mP
 mP
 mP
 bE
-nT
-op
+Cb
+Sc
 "}
 (20,1,1) = {"
 cO
@@ -898,8 +900,8 @@ kd
 wg
 "}
 (21,1,1) = {"
-tW
-kd
+Gp
+Tc
 lH
 Wt
 mP

@@ -1420,6 +1420,26 @@
 	},
 /turf/open/indestructible/plating,
 /area/awaymission/museum)
+"lm" = (
+/obj/effect/decal/cleanable/dirt/dust,
+/obj/effect/decal/remains/human,
+/obj/effect/decal/cleanable/dirt/dust,
+/obj/effect/turf_decal/stripes/line{
+	dir = 1
+	},
+/obj/effect/turf_decal/stripes/line{
+	dir = 1
+	},
+/obj/effect/turf_decal/stripes/line{
+	dir = 1
+	},
+/obj/effect/turf_decal/stripes/line{
+	dir = 1
+	},
+/obj/structure/sign/warning/directional/west,
+/obj/structure/sign/warning/directional/east,
+/turf/open/indestructible/plating,
+/area/awaymission/museum)
 "ls" = (
 /obj/effect/decal/cleanable/dirt/dust,
 /obj/machinery/computer/arcade/amputation{
@@ -1609,6 +1629,16 @@
 	dir = 4
 	},
 /turf/open/floor/engine,
+/area/awaymission/museum)
+"np" = (
+/obj/structure/transport/linear/tram/slow,
+/obj/structure/thermoplastic,
+/obj/effect/spawner/random/structure/closet_empty/crate/with_loot,
+/obj/machinery/door/window/elevator/left/directional/south{
+	transport_linked_id = "museum_cargo"
+	},
+/obj/structure/sign/warning/directional/east,
+/turf/open/chasm/true/no_smooth,
 /area/awaymission/museum)
 "nq" = (
 /obj/structure/table/wood,
@@ -2462,10 +2492,6 @@
 	icon_state = "asteroid5"
 	},
 /area/awaymission/museum)
-"tK" = (
-/obj/structure/sign/warning,
-/turf/closed/indestructible/reinforced,
-/area/awaymission/museum)
 "tM" = (
 /obj/structure/table/wood,
 /obj/effect/spawner/random/contraband/cannabis,
@@ -3242,15 +3268,6 @@
 /obj/structure/tram/alt/titanium,
 /turf/open/chasm/true/no_smooth,
 /area/awaymission/museum)
-"Ai" = (
-/obj/structure/transport/linear/tram/slow,
-/obj/structure/thermoplastic,
-/obj/effect/spawner/random/structure/closet_empty/crate/with_loot,
-/obj/machinery/door/window/elevator/left/directional/south{
-	transport_linked_id = "museum_cargo"
-	},
-/turf/open/chasm/true/no_smooth,
-/area/awaymission/museum)
 "Ak" = (
 /obj/effect/turf_decal/tile/neutral/opposingcorners,
 /obj/effect/turf_decal/siding/dark_blue{
@@ -3664,6 +3681,11 @@
 	dir = 8
 	},
 /turf/open/floor/iron/dark,
+/area/awaymission/museum)
+"DJ" = (
+/obj/effect/decal/cleanable/dirt/dust,
+/obj/structure/sign/warning/directional/south,
+/turf/open/indestructible/plating,
 /area/awaymission/museum)
 "DL" = (
 /obj/structure/railing{
@@ -4348,11 +4370,6 @@
 	},
 /turf/open/floor/iron,
 /area/awaymission/museum)
-"Jh" = (
-/obj/machinery/light/floor,
-/obj/structure/plaque/static_plaque/golden/commission/kilo,
-/turf/open/floor/mineral/gold,
-/area/awaymission/museum)
 "Jj" = (
 /mob/living/basic/mothroach,
 /turf/open/floor/mineral/gold,
@@ -4646,14 +4663,6 @@
 /obj/machinery/light/warm/directional/south,
 /turf/open/floor/wood/large,
 /area/awaymission/museum)
-"Ms" = (
-/obj/effect/turf_decal/stripes/line,
-/obj/effect/decal/cleanable/dirt/dust,
-/obj/structure/broken_flooring/side/always_floorplane{
-	dir = 8
-	},
-/turf/open/indestructible/plating,
-/area/awaymission/museum)
 "Mv" = (
 /mob/living/basic/statue/mannequin{
 	name = "Michael Trasen";
@@ -4694,6 +4703,12 @@
 /obj/effect/decal/cleanable/dirt/dust,
 /obj/item/mecha_parts/mecha_equipment/generator,
 /turf/open/floor/iron,
+/area/awaymission/museum)
+"MJ" = (
+/obj/effect/decal/cleanable/dirt/dust,
+/obj/machinery/portable_atmospherics/canister/oxygen,
+/obj/structure/sign/warning/directional/south,
+/turf/open/indestructible/plating,
 /area/awaymission/museum)
 "MV" = (
 /turf/open/floor/engine,
@@ -4816,6 +4831,15 @@
 	dir = 8
 	},
 /turf/open/floor/iron,
+/area/awaymission/museum)
+"Ob" = (
+/obj/effect/turf_decal/stripes/line,
+/obj/effect/decal/cleanable/dirt/dust,
+/obj/structure/broken_flooring/side/always_floorplane{
+	dir = 8
+	},
+/obj/structure/sign/warning/directional/east,
+/turf/open/indestructible/plating,
 /area/awaymission/museum)
 "Oi" = (
 /obj/structure/table,
@@ -5189,24 +5213,6 @@
 /obj/effect/mapping_helpers/broken_floor,
 /turf/open/indestructible/plating,
 /area/awaymission/museum)
-"Ri" = (
-/obj/effect/decal/cleanable/dirt/dust,
-/obj/effect/decal/remains/human,
-/obj/effect/decal/cleanable/dirt/dust,
-/obj/effect/turf_decal/stripes/line{
-	dir = 1
-	},
-/obj/effect/turf_decal/stripes/line{
-	dir = 1
-	},
-/obj/effect/turf_decal/stripes/line{
-	dir = 1
-	},
-/obj/effect/turf_decal/stripes/line{
-	dir = 1
-	},
-/turf/open/indestructible/plating,
-/area/awaymission/museum)
 "Rl" = (
 /obj/structure/railing{
 	dir = 10
@@ -5375,6 +5381,11 @@
 	},
 /turf/open/floor/iron/white/small,
 /area/awaymission/museum)
+"Tr" = (
+/obj/machinery/light/floor,
+/obj/structure/plaque/static_plaque/golden/commission/kilo,
+/turf/open/floor/mineral/gold,
+/area/awaymission/museum)
 "Tt" = (
 /obj/structure/holosign/barrier/engineering,
 /turf/open/misc/grass,
@@ -5411,6 +5422,17 @@
 	},
 /turf/open/floor/iron,
 /area/awaymission/museum/cafeteria)
+"TD" = (
+/obj/structure/transport/linear/tram/slow,
+/obj/structure/thermoplastic,
+/obj/effect/spawner/random/structure/closet_empty/crate/with_loot,
+/obj/machinery/door/window/elevator/right/directional/south{
+	transport_linked_id = "museum_cargo"
+	},
+/obj/effect/spawner/random/maintenance/no_decals/seven,
+/obj/structure/sign/warning/directional/west,
+/turf/open/chasm/true/no_smooth,
+/area/awaymission/museum)
 "TF" = (
 /turf/open/floor/iron/stairs/right{
 	dir = 4
@@ -5470,16 +5492,6 @@
 /area/awaymission/museum)
 "TY" = (
 /turf/open/floor/iron/showroomfloor,
-/area/awaymission/museum)
-"Ue" = (
-/obj/structure/transport/linear/tram/slow,
-/obj/structure/thermoplastic,
-/obj/effect/spawner/random/structure/closet_empty/crate/with_loot,
-/obj/machinery/door/window/elevator/right/directional/south{
-	transport_linked_id = "museum_cargo"
-	},
-/obj/effect/spawner/random/maintenance/no_decals/seven,
-/turf/open/chasm/true/no_smooth,
 /area/awaymission/museum)
 "Um" = (
 /obj/effect/turf_decal/tile/neutral/opposingcorners,
@@ -5756,11 +5768,6 @@
 	id = "nothing"
 	},
 /turf/open/floor/iron/dark,
-/area/awaymission/museum)
-"We" = (
-/obj/effect/decal/cleanable/dirt/dust,
-/obj/machinery/portable_atmospherics/canister/oxygen,
-/turf/open/indestructible/plating,
 /area/awaymission/museum)
 "Wf" = (
 /obj/effect/turf_decal/siding/wood,
@@ -30069,7 +30076,7 @@ Qk
 Ma
 Ma
 Ma
-tK
+FK
 FK
 FK
 Kh
@@ -30319,14 +30326,14 @@ FK
 FK
 bF
 FK
-We
-tK
+MJ
+FK
 Ma
 VE
 zr
 Ma
 Ma
-Ri
+lm
 nT
 Dx
 XK
@@ -30583,7 +30590,7 @@ do
 Ma
 Ma
 Ma
-tK
+FK
 FK
 FK
 Kh
@@ -32117,8 +32124,8 @@ DY
 FK
 TB
 ZZ
-XK
-tK
+DJ
+FK
 Kh
 Kh
 FK
@@ -32129,7 +32136,7 @@ FK
 lU
 lU
 lU
-tK
+FK
 FK
 FK
 Uq
@@ -32386,7 +32393,7 @@ Ma
 Cb
 ED
 bk
-Ue
+TD
 tU
 PB
 re
@@ -33146,7 +33153,7 @@ FK
 zL
 qj
 qj
-Ms
+Ob
 Ma
 Ma
 Ma
@@ -33157,7 +33164,7 @@ Ma
 RU
 ED
 WJ
-Ai
+np
 tU
 PB
 re
@@ -33403,7 +33410,7 @@ FK
 FK
 FK
 FK
-tK
+FK
 FK
 FK
 FK
@@ -33414,7 +33421,7 @@ FK
 FK
 PB
 PB
-tK
+FK
 FK
 FK
 Uq
@@ -39034,7 +39041,7 @@ uY
 tD
 GV
 Lw
-Jh
+Tr
 Lw
 ud
 lb

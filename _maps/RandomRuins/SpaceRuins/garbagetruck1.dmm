@@ -31,13 +31,6 @@
 /mob/living/basic/mouse/rat,
 /turf/open/floor/plating/dumpsterair,
 /area/ruin/space/has_grav/garbagetruck/foodwaste)
-"bs" = (
-/obj/structure/kitchenspike_frame,
-/obj/item/paper/crumpled,
-/obj/item/restraints/handcuffs/cable/zipties/used,
-/obj/effect/decal/cleanable/blood/gibs/old,
-/turf/open/floor/plating/dumpsterair,
-/area/ruin/space/has_grav/garbagetruck/foodwaste)
 "bx" = (
 /obj/effect/decal/cleanable/garbage,
 /turf/open/floor/plating/dumpsterair,
@@ -437,11 +430,6 @@
 /obj/effect/decal/cleanable/wrapping,
 /turf/open/floor/plating/dumpsterair,
 /area/ruin/space/has_grav/garbagetruck/foodwaste)
-"vk" = (
-/obj/structure/cable,
-/obj/machinery/airalarm/directional/north,
-/turf/open/floor/catwalk_floor/iron,
-/area/ruin/space/has_grav/garbagetruck/foodwaste)
 "vA" = (
 /obj/machinery/power/terminal,
 /obj/structure/tank_dispenser/oxygen,
@@ -541,10 +529,6 @@
 /obj/effect/spawner/random/trash,
 /mob/living/basic/mouse,
 /turf/open/floor/plating/dumpsterair,
-/area/ruin/space/has_grav/garbagetruck/foodwaste)
-"yi" = (
-/obj/structure/sign/warning,
-/turf/closed/wall/r_wall,
 /area/ruin/space/has_grav/garbagetruck/foodwaste)
 "yv" = (
 /obj/item/trash/can{
@@ -848,6 +832,11 @@
 	},
 /turf/open/floor/plating/dumpsterair,
 /area/ruin/space/has_grav/garbagetruck/foodwaste)
+"Ie" = (
+/obj/structure/cable,
+/obj/machinery/airalarm/directional/north,
+/turf/open/floor/catwalk_floor/iron,
+/area/ruin/space/has_grav/garbagetruck/foodwaste)
 "II" = (
 /obj/structure/closet/crate/trashcart/filled,
 /obj/item/food/cracker,
@@ -868,19 +857,12 @@
 	},
 /turf/open/floor/iron/smooth,
 /area/ruin/space/has_grav/garbagetruck/foodwaste)
-"JH" = (
-/obj/item/petri_dish/random,
-/obj/item/petri_dish/random,
-/obj/item/petri_dish,
-/obj/item/petri_dish,
-/obj/item/petri_dish,
-/obj/item/organ/tongue/rat,
-/obj/effect/decal/cleanable/dirt,
-/obj/effect/decal/cleanable/glass,
-/obj/item/organ/stomach/rat,
-/obj/item/fish/ratfish,
-/obj/structure/closet/crate/freezer,
-/obj/effect/spawner/random/medical/surgery_tool,
+"Kv" = (
+/obj/structure/kitchenspike_frame,
+/obj/item/paper/crumpled,
+/obj/item/restraints/handcuffs/cable/zipties/used,
+/obj/effect/decal/cleanable/blood/gibs/old,
+/obj/structure/sign/warning/directional/south,
 /turf/open/floor/plating/dumpsterair,
 /area/ruin/space/has_grav/garbagetruck/foodwaste)
 "KD" = (
@@ -897,10 +879,6 @@
 /mob/living/basic/mouse/rat,
 /turf/open/floor/plating/dumpsterair,
 /area/ruin/space/has_grav/garbagetruck/foodwaste)
-"KY" = (
-/obj/machinery/power/shuttle_engine/propulsion,
-/turf/template_noop,
-/area/space/nearstation)
 "Le" = (
 /obj/effect/spawner/random/trash/bacteria,
 /turf/open/floor/plating/dumpsterair,
@@ -1126,6 +1104,22 @@
 	},
 /turf/open/floor/plating/dumpsterair,
 /area/ruin/space/has_grav/garbagetruck/foodwaste)
+"TA" = (
+/obj/item/petri_dish/random,
+/obj/item/petri_dish/random,
+/obj/item/petri_dish,
+/obj/item/petri_dish,
+/obj/item/petri_dish,
+/obj/item/organ/tongue/rat,
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/glass,
+/obj/item/organ/stomach/rat,
+/obj/item/fish/ratfish,
+/obj/structure/closet/crate/freezer,
+/obj/effect/spawner/random/medical/surgery_tool,
+/obj/structure/sign/warning/directional/south,
+/turf/open/floor/plating/dumpsterair,
+/area/ruin/space/has_grav/garbagetruck/foodwaste)
 "TB" = (
 /obj/structure/window/reinforced/shuttle,
 /obj/structure/grille,
@@ -1161,6 +1155,10 @@
 /obj/structure/cable,
 /turf/open/floor/iron/smooth,
 /area/ruin/space/has_grav/garbagetruck/foodwaste)
+"VL" = (
+/obj/machinery/power/shuttle_engine/propulsion,
+/turf/template_noop,
+/area/space/nearstation)
 "Xi" = (
 /obj/item/food/badrecipe/moldy/bacteria,
 /obj/effect/decal/cleanable/food/egg_smudge,
@@ -1236,7 +1234,7 @@ pP
 pP
 pP
 OD
-KY
+VL
 qM
 qM
 qM
@@ -1292,8 +1290,8 @@ wR
 nS
 fV
 Vb
-bs
-yi
+Kv
+Sa
 "}
 (4,1,1) = {"
 og
@@ -1344,7 +1342,7 @@ XY
 TB
 Od
 OD
-vk
+Ie
 Ct
 tU
 TX
@@ -1446,8 +1444,8 @@ Xi
 uJ
 FL
 Nm
-JH
-yi
+TA
+Sa
 "}
 (11,1,1) = {"
 qM
@@ -1478,7 +1476,7 @@ pP
 pP
 UX
 OD
-KY
+VL
 qM
 qM
 qM

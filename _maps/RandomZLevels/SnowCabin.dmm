@@ -862,6 +862,13 @@
 	},
 /turf/open/floor/wood/freezing,
 /area/awaymission/cabin/lumbermill)
+"eS" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/structure/sign/warning/directional/south,
+/turf/open/floor/mineral/plastitanium/red{
+	name = "soviet floor"
+	},
+/area/awaymission/cabin/caves/sovietcave)
 "eY" = (
 /obj/structure/closet/crate/wooden,
 /obj/item/stack/sheet/mineral/wood,
@@ -1529,6 +1536,10 @@
 /obj/effect/decal/cleanable/blood/gibs,
 /turf/open/floor/carpet,
 /area/awaymission/cabin/caves/mountain)
+"hL" = (
+/obj/structure/sign/nanotrasen/directional/north,
+/turf/open/misc/ice/smooth,
+/area/awaymission/cabin/caves)
 "hM" = (
 /turf/closed/wall/mineral/snow,
 /area/awaymission/cabin/caves/mountain)
@@ -2480,10 +2491,6 @@
 /obj/structure/sign/warning/explosives,
 /turf/closed/indestructible/syndicate,
 /area/awaymission/cabin/caves/sovietcave)
-"no" = (
-/obj/structure/sign/warning,
-/turf/closed/indestructible/syndicate,
-/area/awaymission/cabin/caves/sovietcave)
 "np" = (
 /turf/closed/indestructible/fakedoor{
 	desc = "Can you just stop?";
@@ -2882,16 +2889,6 @@
 /obj/structure/cable,
 /turf/open/floor/carpet,
 /area/awaymission/cabin)
-"rE" = (
-/obj/effect/light_emitter{
-	name = "cave light";
-	set_cap = 3;
-	set_luminosity = 6;
-	light_color = "#9bbbff"
-	},
-/obj/structure/sign/nanotrasen/directional/north,
-/turf/open/misc/asteroid/snow/snow_cabin,
-/area/awaymission/cabin/caves)
 "rK" = (
 /obj/effect/decal/cleanable/blood/gibs/body,
 /obj/effect/light_emitter{
@@ -3823,6 +3820,14 @@
 	},
 /turf/open/misc/asteroid/snow/snow_cabin,
 /area/awaymission/cabin/caves)
+"Bd" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/structure/spider/stickyweb,
+/obj/structure/sign/warning/directional/south,
+/turf/open/floor/mineral/plastitanium/red{
+	name = "soviet floor"
+	},
+/area/awaymission/cabin/caves/sovietcave)
 "Bo" = (
 /obj/effect/turf_decal/weather/snow/corner{
 	dir = 10
@@ -4036,6 +4041,13 @@
 	},
 /turf/open/misc/asteroid/snow/snow_cabin,
 /area/awaymission/cabin/caves)
+"Ew" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/structure/sign/warning/directional/north,
+/turf/open/floor/mineral/plastitanium/red{
+	name = "soviet floor"
+	},
+/area/awaymission/cabin/caves/sovietcave)
 "Ez" = (
 /obj/effect/turf_decal/weather/snow/corner{
 	dir = 10
@@ -5501,10 +5513,6 @@
 	},
 /turf/open/floor/plating/snowed/snow_cabin,
 /area/awaymission/cabin/snowforest/sovietsurface)
-"YK" = (
-/obj/structure/sign/nanotrasen/directional/north,
-/turf/open/misc/ice/smooth,
-/area/awaymission/cabin/caves)
 "YL" = (
 /obj/effect/turf_decal/weather/snow/corner{
 	dir = 9
@@ -5580,6 +5588,16 @@
 /obj/machinery/light/directional/south,
 /turf/open/floor/wood/freezing,
 /area/awaymission/cabin/lumbermill)
+"ZZ" = (
+/obj/effect/light_emitter{
+	name = "cave light";
+	set_cap = 3;
+	set_luminosity = 6;
+	light_color = "#9bbbff"
+	},
+/obj/structure/sign/nanotrasen/directional/north,
+/turf/open/misc/asteroid/snow/snow_cabin,
+/area/awaymission/cabin/caves)
 
 (1,1,1) = {"
 ab
@@ -17117,7 +17135,7 @@ vh
 vh
 vh
 Zb
-rE
+ZZ
 oz
 oz
 oz
@@ -18916,7 +18934,7 @@ vh
 vh
 vh
 Zb
-rE
+ZZ
 oz
 oz
 oz
@@ -48289,7 +48307,7 @@ gx
 gx
 gx
 hM
-YK
+hL
 PV
 PV
 PV
@@ -49317,7 +49335,7 @@ gx
 gx
 gx
 hM
-YK
+hL
 PV
 PV
 PV
@@ -68755,10 +68773,10 @@ gx
 gx
 gx
 gx
-no
-im
-im
-no
+ii
+Ew
+eS
+ii
 gx
 gx
 gx
@@ -69269,10 +69287,10 @@ gx
 gx
 gx
 gx
-no
-im
-lS
-no
+ii
+Ew
+Bd
+ii
 gx
 gx
 gx
