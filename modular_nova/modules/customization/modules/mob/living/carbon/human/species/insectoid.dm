@@ -46,8 +46,8 @@
 
 /datum/species/insectoid/prepare_human_for_preview(mob/living/carbon/human/human_for_preview)
 	human_for_preview.dna.features[FEATURE_MUTANT_COLOR] = "#292929"
-	human_for_preview.dna.mutant_bodyparts[FEATURE_EARS] = list(MUTANT_INDEX_NAME = "Royal Antenna", MUTANT_INDEX_COLOR_LIST = list("#FFFFFF", "#FFFFFF", "#FFFFFF"))
-	human_for_preview.dna.mutant_bodyparts[FEATURE_FLUFF] = list(MUTANT_INDEX_NAME = "Insectoid", MUTANT_INDEX_COLOR_LIST = list("#FFFFFF", "#FFFFFF", "#FFFFFF"))
+	human_for_preview.dna.mutant_bodyparts[FEATURE_EARS] = human_for_preview.dna.species.build_mutant_part("Royal Antenna")
+	human_for_preview.dna.mutant_bodyparts[FEATURE_FLUFF] = human_for_preview.dna.species.build_mutant_part("Insectoid")
 	regenerate_organs(human_for_preview)
 	human_for_preview.update_body(is_creating = TRUE)
 

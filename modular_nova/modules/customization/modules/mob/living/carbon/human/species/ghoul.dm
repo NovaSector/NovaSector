@@ -2,7 +2,6 @@
 	name = "Ghoul"
 	id = SPECIES_GHOUL
 	examine_limb_id = SPECIES_GHOUL
-	can_have_genitals = FALSE //WHY WOULD YOU WANT TO FUCK ONE OF THESE THINGS?
 	mutanttongue = /obj/item/organ/tongue/ghoul
 	inherent_traits = list(
 		TRAIT_ADVANCEDTOOLUSER,

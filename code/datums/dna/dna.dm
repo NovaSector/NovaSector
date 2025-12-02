@@ -90,7 +90,7 @@ GLOBAL_LIST_INIT(total_uf_len_by_block, populate_total_uf_len_by_block())
 	new_dna.features = features.Copy()
 	new_dna.real_name = real_name
 	//NOVA EDIT ADDITION BEGIN - CUSTOMIZATION
-	new_dna.mutant_bodyparts = mutant_bodyparts.Copy()
+	new_dna.mutant_bodyparts = LAZYCOPY(mutant_bodyparts)
 	new_dna.body_markings = body_markings.Copy()
 	new_dna.update_body_size()
 	//NOVA EDIT ADDITION END
@@ -104,7 +104,7 @@ GLOBAL_LIST_INIT(total_uf_len_by_block, populate_total_uf_len_by_block())
 			as_carbon.set_blood_type(blood_type)
 		// new_dna.holder.set_species(species.type, icon_update = 0) // NOVA EDIT REMOVAL
 			// NOVA EDIT ADDITION START
-			as_carbon.set_species(species.type, icon_update = TRUE, pref_load = FALSE, override_features = features.Copy(), override_mutantparts = mutant_bodyparts.Copy(), override_markings = body_markings.Copy())
+			as_carbon.set_species(species.type, icon_update = TRUE, pref_load = FALSE, override_features = features.Copy(), override_mutantparts = LAZYCOPY(mutant_bodyparts), override_markings = body_markings.Copy())
 		else
 			new_dna.holder.set_species(species.type, icon_update = 0)
 			// NOVA EDIT ADDITION END

@@ -274,8 +274,9 @@
 	if(current_version < VERSION_SKRELL_HAIR_NAME_UPDATE)
 		var/list/mutant_bodyparts = SANITIZE_LIST(save_data["mutant_bodyparts"])
 
-		if(FEATURE_SKRELL_HAIR in mutant_bodyparts)
-			var/current_skrell_hair = mutant_bodyparts[FEATURE_SKRELL_HAIR][MUTANT_INDEX_NAME]
+		var/datum/mutant_bodypart/mutant_part = mutant_bodyparts[FEATURE_SKRELL_HAIR]
+		if(mutant_part)
+			var/current_skrell_hair = mutant_part.name
 
 			if(current_skrell_hair == "Male")
 				write_preference(GLOB.preference_entries[/datum/preference/choiced/mutant_choice/skrell_hair], "Short")
@@ -344,23 +345,24 @@
 	if (isnull(value))
 		return
 	if (istype(preference, /datum/preference/toggle))
-		if (!value)
-			if (part in mutant_bodyparts)
-				mutant_bodyparts -= part
-		else
+		if (value)
 			var/datum/preference/choiced/name = GLOB.preference_entries_by_key["feature_[part]"]
 			var/datum/preference/tri_color/color = GLOB.preference_entries_by_key["[part]_color"]
 			if (isnull(name) || isnull(color))
 				return
-			mutant_bodyparts[part] = list()
-			mutant_bodyparts[part][MUTANT_INDEX_NAME] = read_preference(name.type)
-			mutant_bodyparts[part][MUTANT_INDEX_COLOR_LIST] = read_preference(color.type)
-	if (istype(preference, /datum/preference/choiced))
-		if (part in mutant_bodyparts)
-			mutant_bodyparts[part][MUTANT_INDEX_NAME] = value
-	if (istype(preference, /datum/preference/tri_color))
-		if (part in mutant_bodyparts)
-			mutant_bodyparts[part][MUTANT_INDEX_COLOR_LIST] = value
+			var/species_type = read_preference(/datum/preference/choiced/species)
+			var/datum/species/current_species = GLOB.species_prototypes[species_type]
+			mutant_bodyparts[part] = current_species.build_mutant_part(read_preference(name.type), read_preference(color.type))
+		else
+			mutant_bodyparts -= part
+	else if (istype(preference, /datum/preference/choiced))
+		var/datum/mutant_bodypart/mutant_part = mutant_bodyparts[part]
+		if (mutant_part)
+			mutant_part.name = value
+	else if (istype(preference, /datum/preference/tri_color))
+		var/datum/mutant_bodypart/mutant_part = mutant_bodyparts[part]
+		if (mutant_part)
+			mutant_part.set_colors(value)
 
 
 /datum/preferences/proc/update_markings(list/markings)

@@ -29,8 +29,6 @@
 
 	var/arousal_preview = AROUSAL_NONE
 
-	var/datum/species/pref_species
-
 	// BACKGROUND STUFF
 	var/general_record = ""
 	var/security_record = ""
@@ -59,37 +57,40 @@
 	save_character()
 
 /datum/preferences/proc/print_bodypart_change_line(key)
-	var/acc_name = mutant_bodyparts[key][MUTANT_INDEX_NAME]
+	var/datum/mutant_bodypart/mutant_part = mutant_bodyparts[key]
 	var/shown_colors = 0
-	var/datum/sprite_accessory/SA = SSaccessories.sprite_accessories[key][acc_name]
+	var/datum/sprite_accessory/sprite_accessory = SSaccessories.sprite_accessories[key][mutant_part.name]
 	var/dat = ""
-	if(SA.color_src == USE_MATRIXED_COLORS)
+	if(sprite_accessory.color_src == USE_MATRIXED_COLORS)
 		shown_colors = 3
-	else if (SA.color_src == USE_ONE_COLOR)
+	else if (sprite_accessory.color_src == USE_ONE_COLOR)
 		shown_colors = 1
-	if((allow_advanced_colors || SA.always_color_customizable) && shown_colors)
+	if((allow_advanced_colors || sprite_accessory.always_color_customizable) && shown_colors)
 		dat += "<a href='byond://?src=[REF(src)];key=[key];preference=reset_color;task=change_bodypart'>R</a>"
-	dat += "<a href='byond://?src=[REF(src)];key=[key];preference=change_name;task=change_bodypart'>[acc_name]</a>"
-	if(allow_advanced_colors || SA.always_color_customizable)
+	dat += "<a href='byond://?src=[REF(src)];key=[key];preference=change_name;task=change_bodypart'>[mutant_part.name]</a>"
+	if(allow_advanced_colors || sprite_accessory.always_color_customizable)
 		if(shown_colors)
 			dat += "<BR>"
-			var/list/colorlist = mutant_bodyparts[key][MUTANT_INDEX_COLOR_LIST]
+			var/list/colorlist = mutant_part.get_colors()
 			for(var/i in 1 to shown_colors)
 				dat += " <a href='byond://?src=[REF(src)];key=[key];color_index=[i];preference=change_color;task=change_bodypart'><span class='color_holder_box' style='background-color:["#[colorlist[i]]"]'></span></a>"
 	return dat
 
 /datum/preferences/proc/reset_colors()
-	for(var/key in mutant_bodyparts)
-		var/datum/sprite_accessory/SA = SSaccessories.sprite_accessories[key][mutant_bodyparts[key][MUTANT_INDEX_NAME]]
-		if(SA.always_color_customizable)
+	var/species_type = read_preference(/datum/preference/choiced/species)
+	var/datum/species/current_species = GLOB.species_prototypes[species_type]
+	for(var/key, part in mutant_bodyparts)
+		var/datum/mutant_bodypart/mutant_part = part
+		var/datum/sprite_accessory/sprite_accessory = SSaccessories.sprite_accessories[key][mutant_part.name]
+		if(sprite_accessory.always_color_customizable)
 			continue
-		mutant_bodyparts[key][MUTANT_INDEX_COLOR_LIST] = SA.get_default_color(features, pref_species)
+		mutant_part.set_colors(sprite_accessory.get_default_color(features, current_species))
 
 	for(var/zone in body_markings)
 		var/list/bml = body_markings[zone]
 		for(var/key in bml)
-			var/datum/body_marking/BM = GLOB.body_markings[key]
-			bml[key] = BM.get_default_color(features, pref_species)
+			var/datum/body_marking/body_marking = GLOB.body_markings[key]
+			bml[key] = body_marking.get_default_color(features, current_species)
 
 /// Tries to get the topmost language of the language holder. Should be the species' native language, and if it isn't, you should pester a coder.
 /datum/preferences/proc/try_get_common_language()
@@ -98,49 +99,11 @@
 	var/language = language_holder.spoken_languages[1]
 	return language
 
-/datum/preferences/proc/validate_species_parts()
-	var/list/default_bodyparts = GLOB.default_mutant_bodyparts[pref_species.name]
-	var/list/target_bodyparts = default_bodyparts.Copy()
-
-	// Remove all "extra" accessories
-	for(var/key in mutant_bodyparts)
-		if(!SSaccessories.sprite_accessories[key]) // That accessory no longer exists, remove it
-			mutant_bodyparts -= key
-			continue
-		if(!GLOB.default_mutant_bodyparts[pref_species.name][key])
-			mutant_bodyparts -= key
-			continue
-		if(!SSaccessories.sprite_accessories[key][mutant_bodyparts[key][MUTANT_INDEX_NAME]]) // The individual accessory no longer exists
-			mutant_bodyparts[key][MUTANT_INDEX_NAME] = GLOB.default_mutant_bodyparts[pref_species.name[key][MUTANTPART_NAME]]
-		validate_color_keys_for_part(key) // Validate the color count of each accessory that wasnt removed
-
-	// Add any missing accessories
-	for(var/key in target_bodyparts)
-		if(!mutant_bodyparts[key])
-			var/datum/sprite_accessory/SA
-			if(target_bodyparts[key][MUTANTPART_CAN_RANDOMIZE])
-				SA = random_accessory_of_key_for_species(key, pref_species)
-			else
-				SA = SSaccessories.sprite_accessories[key][target_bodyparts[key][MUTANTPART_NAME]]
-			var/final_list = list()
-			final_list[MUTANT_INDEX_NAME] = SA.name
-			final_list[MUTANT_INDEX_COLOR_LIST] = SA.get_default_color(features, pref_species)
-			mutant_bodyparts[key] = final_list
-
-	if(!allow_advanced_colors)
-		reset_colors()
-
-/datum/preferences/proc/validate_color_keys_for_part(key)
-	var/datum/sprite_accessory/SA = SSaccessories.sprite_accessories[key][mutant_bodyparts[key][MUTANT_INDEX_NAME]]
-	var/list/colorlist = mutant_bodyparts[key][MUTANT_INDEX_COLOR_LIST]
-	if(SA.color_src == USE_MATRIXED_COLORS && colorlist.len != 3)
-		mutant_bodyparts[key][MUTANT_INDEX_COLOR_LIST] = SA.get_default_color(features, pref_species)
-	else if (SA.color_src == USE_ONE_COLOR && colorlist.len != 1)
-		mutant_bodyparts[key][MUTANT_INDEX_COLOR_LIST] = SA.get_default_color(features, pref_species)
-
 /datum/preferences/proc/CanBuyAugment(datum/augment_item/target_aug, datum/augment_item/current_aug)
 	// Check biotypes
-	if(!(pref_species.inherent_biotypes & target_aug.allowed_biotypes))
+	var/species_type = read_preference(/datum/preference/choiced/species)
+	var/datum/species/current_species = GLOB.species_prototypes[species_type]
+	if(!(current_species.inherent_biotypes & target_aug.allowed_biotypes))
 		return
 	var/quirk_points = GetQuirkBalance()
 	var/leverage = 0

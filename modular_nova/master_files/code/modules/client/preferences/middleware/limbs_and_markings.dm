@@ -231,7 +231,9 @@
 	var/preset = params["preset"]
 	if (preset)
 		var/datum/body_marking_set/BMS = GLOB.body_marking_sets[preset]
-		preferences.body_markings = assemble_body_markings_from_set(BMS, preferences.features, preferences.pref_species)
+		var/species_type = preferences.read_preference(/datum/preference/choiced/species)
+		var/datum/species/current_species = GLOB.species_prototypes[species_type]
+		preferences.body_markings = assemble_body_markings_from_set(BMS, preferences.features, current_species)
 	preferences.character_preview_view.update_body()
 	return TRUE
 
@@ -271,7 +273,7 @@
 		if (!allow_mismatched_parts)
 			for (var/name in choices)
 				var/datum/body_marking/marking = GLOB.body_markings[name]
-				if (marking.recommended_species && !(initial(species_type.id) in marking.recommended_species))
+				if (marking.recommended_species && isnull(marking.recommended_species[species_type::id]))
 					choices -= name
 		limbs_data += list(list(
 			"slot" = limb,
@@ -325,8 +327,8 @@
 	var/list/presets = GLOB.body_marking_sets.Copy()
 	if (!allow_mismatched_parts)
 		for (var/name in presets)
-			var/datum/body_marking_set/BMS = presets[name]
-			if (BMS.recommended_species && !(initial(species_type.id) in BMS.recommended_species))
+			var/datum/body_marking_set/marking_set = presets[name]
+			if (marking_set.recommended_species && isnull(marking_set.recommended_species[species_type::id]))
 				presets -= name
 
 	data["marking_presets"] = presets

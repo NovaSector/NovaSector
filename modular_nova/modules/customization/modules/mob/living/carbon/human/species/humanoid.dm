@@ -43,7 +43,7 @@
 	human.dna.features[FEATURE_MUTANT_COLOR] = main_color
 	human.dna.features[FEATURE_MUTANT_COLOR_TWO] = main_color
 	human.dna.features[FEATURE_MUTANT_COLOR_THREE] = main_color
-	human.dna.mutant_bodyparts[FEATURE_HORNS] = list(MUTANT_INDEX_NAME = "Curled", MUTANT_INDEX_COLOR_LIST = list(secondary_color, secondary_color, secondary_color))
+	human.dna.mutant_bodyparts[FEATURE_HORNS] = human.dna.species.build_mutant_part("Curled", list(secondary_color, secondary_color, secondary_color))
 	human.hairstyle = "Cornrows"
 	human.hair_color = "#2b2b2b"
 	regenerate_organs(human, src, visual_only = TRUE)

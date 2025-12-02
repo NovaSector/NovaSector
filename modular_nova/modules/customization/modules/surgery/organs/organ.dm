@@ -7,51 +7,38 @@
 	var/relevant_layers
 	///This is for associating an organ with a mutant bodypart. Look at tails for examples
 	var/mutantpart_key
-	/// A list with utant part preference name, its color and emissives if they exist (check code\__DEFINES\~nova_defines\DNA.dm)
-	var/list/list/mutantpart_info
 	/// Whether or not we're a species-specific organ that will override
 	/// the ear choice on a certain species, while still applying its visuals.
 	var/overrides_sprite_datum_organ_type = FALSE
 
 /obj/item/organ/Initialize(mapload)
 	. = ..()
-	if(mutantpart_key)
-		color = mutantpart_info[MUTANT_INDEX_COLOR_LIST][1]
+	//if(mutantpart_key)
+	//	color = mutantpart_info?.get_primary_color()
 
-/obj/item/organ/Remove(mob/living/carbon/organ_owner, special, movement_flags)
-	if(mutantpart_key)
-		transfer_mutantpart_info(organ_owner, special)
-	return ..()
-
-/// Copies the organ's mutantpart_info to the owner's mutant_bodyparts
-/obj/item/organ/proc/copy_to_mutant_bodyparts(mob/living/carbon/organ_owner, special)
-	var/mob/living/carbon/human/human_owner = organ_owner
-	if(!istype(human_owner))
-		return
-
-	human_owner.dna.mutant_bodyparts[mutantpart_key] = mutantpart_info.Copy()
-	if(!special)
-		human_owner.update_body()
-
-/// Copies the mob's mutant_bodyparts data to an organ's mutantpart_info for consistency e.g. on organ removal
-/obj/item/organ/proc/transfer_mutantpart_info(mob/living/carbon/organ_owner, special)
-	var/mob/living/carbon/human/human_owner = organ_owner
-	if(!istype(human_owner))
-		return
-
-	var/list/mutant_bodyparts = human_owner?.dna?.mutant_bodyparts
-	var/list/previous_mutantpart_info = mutant_bodyparts && mutant_bodyparts[mutantpart_key]
-	if(previous_mutantpart_info)
-		mutantpart_info = previous_mutantpart_info.Copy() //Update the info in case it was changed on the person
-
-	color = mutantpart_info[MUTANT_INDEX_COLOR_LIST][1]
-	if(!special)
-		human_owner.update_body()
-
-/obj/item/organ/proc/build_from_dna(datum/dna/DNA, associated_key)
+/obj/item/organ/proc/get_default_mutant_part()
 	return
 
-/obj/item/organ/build_from_dna(datum/dna/DNA, associated_key)
+/obj/item/organ/Remove(mob/living/carbon/organ_owner, special, movement_flags)
+	if(!organ_owner.has_dna())
+		return ..()
+	if(organ_owner.dna.mutant_bodyparts)
+		organ_owner.dna.mutant_bodyparts -= mutantpart_key
+	return ..()
+
+/obj/item/organ/on_mob_insert(mob/living/carbon/organ_owner, special, movement_flags)
+	. = ..()
+	if(isdummy(organ_owner))
+		return
+	if(!organ_owner.has_dna())
+		return
+	if(bodypart_overlay && isnull(organ_owner.dna.mutant_bodyparts[mutantpart_key]))
+		var/datum/sprite_accessory/sprite_acc = bodypart_overlay.sprite_datum
+		if(sprite_acc)
+			organ_owner.dna.mutant_bodyparts[mutantpart_key] = organ_owner.dna.species.build_mutant_part(sprite_acc.name, bodypart_overlay.draw_color, bodypart_overlay.emissive_eligibility_by_color_index)
+
+/obj/item/organ/proc/build_from_dna(datum/dna/build_from, associated_key)
 	mutantpart_key = associated_key
-	mutantpart_info = DNA.mutant_bodyparts[associated_key].Copy()
-	color = mutantpart_info[MUTANT_INDEX_COLOR_LIST][1]
+	var/datum/mutant_bodypart/mutant_part = build_from.mutant_bodyparts[associated_key]
+	if(mutant_part)
+		color = mutant_part.get_primary_color()

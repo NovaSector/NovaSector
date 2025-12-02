@@ -9,6 +9,7 @@
 	icon_state = "none"
 	color_src = null
 	factual = FALSE
+	natural_spawn = FALSE
 
 /datum/sprite_accessory/neck_accessory/is_hidden(mob/living/carbon/human/wearer)
 	if(wearer.w_uniform)
@@ -19,7 +20,13 @@
 /datum/sprite_accessory/neck_accessory/sylveon_bow
 	name = "Sylveon Neck Bow"
 	icon_state = "sylveon_bow"
-	recommended_species = list(SPECIES_MAMMAL, SPECIES_HUMAN, SPECIES_SYNTH, SPECIES_FELINE, SPECIES_HUMANOID)
+	recommended_species = list(
+		SPECIES_MAMMAL = TRUE,
+		SPECIES_HUMAN = TRUE,
+		SPECIES_SYNTH = TRUE,
+		SPECIES_FELINE = TRUE,
+		SPECIES_HUMANOID = TRUE,
+	)
 	relevent_layers = list(BODY_BEHIND_LAYER, BODY_FRONT_LAYER)
 	color_src = USE_MATRIXED_COLORS
 	ckey_whitelist = list("whirlsam" = TRUE)

@@ -65,7 +65,10 @@ Unlike normal organs, we're actually inside a persons limbs at all times
 	if(target.dna.features[feature_key] != SPRITE_ACCESSORY_NONE)
 		return TRUE
 	// NOVA EDIT ADDITION START
-	if(target.dna.mutant_bodyparts[feature_key][MUTANT_INDEX_NAME] != SPRITE_ACCESSORY_NONE)
+	var/datum/mutant_bodypart/mutant_part = target.dna.mutant_bodyparts[feature_key]
+	if(isnull(mutant_part))
+		return FALSE
+	else if(mutant_part.name != SPRITE_ACCESSORY_NONE)
 		return TRUE
 	// NOVA EDIT ADDITION END
 	return FALSE

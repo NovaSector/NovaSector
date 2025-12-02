@@ -60,12 +60,13 @@
 	features[FEATURE_MUTANT_COLOR] = main_color
 	features[FEATURE_MUTANT_COLOR_TWO] = secondary_color
 	features[FEATURE_MUTANT_COLOR_THREE] = tertiary_color
-	//clear mutant parts
-	for(var/feature in user.dna.mutant_bodyparts)
-		if(feature == FEATURE_TAIL)
-			user.dna.mutant_bodyparts[feature] = list(MUTANT_INDEX_NAME = "Akula", MUTANT_INDEX_COLOR_LIST = list(features[FEATURE_MUTANT_COLOR], features[FEATURE_MUTANT_COLOR_TWO], features[FEATURE_MUTANT_COLOR_THREE]))
-			continue
-		user.dna.mutant_bodyparts[feature] = null
+	var/datum/mutant_bodypart/tail = user.dna.mutant_bodyparts[FEATURE_TAIL]
+	//clear the rest of mutant parts
+	user.dna.mutant_bodyparts.Cut()
+	if(tail)
+		tail.name = "Akula"
+		tail.set_colors(list(features[FEATURE_MUTANT_COLOR], features[FEATURE_MUTANT_COLOR_TWO], features[FEATURE_MUTANT_COLOR_THREE]))
+		user.dna.mutant_bodyparts[FEATURE_TAIL] = tail
 	//generate the species
 	user.set_species(/datum/species/akula, icon_update = FALSE, pref_load = FALSE)
 	user.set_hairstyle("Bald", update = FALSE)

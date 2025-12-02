@@ -831,10 +831,10 @@
 
 	if(mutant_part_reset == "Yes")
 		alterer.mutant_renderkey = "" //Just in case
-		for(var/mutant_key in alterer.dna.mutant_bodyparts)
-			var/mutant_list = alterer.dna.mutant_bodyparts[mutant_key]
-			var/datum/sprite_accessory/changed_accessory = SSaccessories.sprite_accessories[mutant_key][mutant_list[MUTANT_INDEX_NAME]]
-			mutant_list[MUTANT_INDEX_COLOR_LIST] = changed_accessory.get_default_color(alterer.dna.features, alterer.dna.species)
+		for(var/mutant_key, mutant_bodypart in alterer.dna.mutant_bodyparts)
+			var/datum/mutant_bodypart/bodypart = mutant_bodypart
+			var/datum/sprite_accessory/changed_accessory = SSaccessories.sprite_accessories[mutant_key][bodypart.name]
+			bodypart.set_colors(changed_accessory.get_default_color(alterer.dna.features, alterer.dna.species))
 
 	if(hair_reset)
 		switch(hair_reset)
@@ -986,7 +986,16 @@
 				got_organ.Remove(alterer)
 				qdel(got_organ)
 		else
-			alterer.dna.mutant_bodyparts -= chosen_key
+			var/obj/item/organ/got_organ = alterer.get_organ_slot(chosen_key)
+			if(got_organ)
+				got_organ.Remove(alterer)
+				qdel(got_organ)
+			else
+				alterer.dna.mutant_bodyparts -= chosen_key
+	else if(chosen_key == FEATURE_LEGS)
+		alterer.dna.features[FEATURE_LEGS] = chosen_name_key
+		alterer.update_body()
+		alterer.dna.species.replace_body(alterer, alterer.dna.species) // TODO: Replace this with something less stupidly expensive.
 	else
 		if(selected_sprite_accessory.organ_type)
 			var/robot_organs = HAS_TRAIT(alterer, TRAIT_ROBOTIC_DNA_ORGANS)
@@ -1002,21 +1011,23 @@
 			replacement_organ.sprite_accessory_flags = selected_sprite_accessory.flags_for_organ
 			replacement_organ.relevant_layers = selected_sprite_accessory.relevent_layers
 
-			var/list/new_acc_list = list()
-			new_acc_list[MUTANT_INDEX_NAME] = selected_sprite_accessory.name
-			new_acc_list[MUTANT_INDEX_COLOR_LIST] = selected_sprite_accessory.get_default_color(alterer.dna.features, alterer.dna.species)
-			alterer.dna.mutant_bodyparts[chosen_key] = new_acc_list.Copy()
+			var/datum/mutant_bodypart/new_mutant_bodypart = alterer.dna.species.build_mutant_part(
+				selected_sprite_accessory.name,
+				selected_sprite_accessory.get_default_color(alterer.dna.features, alterer.dna.species)
+			)
+			alterer.dna.mutant_bodyparts[chosen_key] = new_mutant_bodypart
 
 			if(robot_organs)
 				replacement_organ.organ_flags |= ORGAN_ROBOTIC
 			replacement_organ.build_from_dna(alterer.dna, chosen_key)
 			replacement_organ.Insert(alterer, special = TRUE, movement_flags = DELETE_IF_REPLACED)
 		else
-			var/list/new_acc_list = list()
-			new_acc_list[MUTANT_INDEX_NAME] = selected_sprite_accessory.name
-			new_acc_list[MUTANT_INDEX_COLOR_LIST] = selected_sprite_accessory.get_default_color(alterer.dna.features, alterer.dna.species)
-			alterer.dna.mutant_bodyparts[chosen_key] = new_acc_list
-			alterer.dna.mutant_bodyparts[chosen_key] = new_acc_list.Copy()
+			var/datum/mutant_bodypart/new_mutant_bodypart = alterer.dna.species.build_mutant_part(
+				selected_sprite_accessory.name,
+				selected_sprite_accessory.get_default_color(alterer.dna.features, alterer.dna.species)
+			)
+			alterer.dna.mutant_bodyparts[chosen_key] = new_mutant_bodypart
+
 		alterer.dna.update_uf_block(mutant_part_list[chosen_key])
 	alterer.update_body_parts()
 	alterer.update_clothing(ALL) // for any clothing that has alternate versions (e.g. muzzled masks)

@@ -32,9 +32,6 @@
 		var/datum/species/species = GLOB.species_prototypes[species_path]
 		if(!isnull(species.name))
 			GLOB.default_mutant_bodyparts[species.name] = species.get_default_mutant_bodyparts()
-			if(species.can_have_genitals)
-				for(var/genital in GLOB.possible_genitals)
-					GLOB.default_mutant_bodyparts[species.name] += list((genital) = list("None", FALSE))
 
 /proc/make_body_marking_references()
 	// Here we build the global list for all body markings

@@ -4,7 +4,6 @@
 	zone = BODY_ZONE_CHEST
 	slot = ORGAN_SLOT_WINGS
 	mutantpart_key = FEATURE_WINGS
-	mutantpart_info = list(MUTANT_INDEX_NAME = "Bat", MUTANT_INDEX_COLOR_LIST = list("#335533"))
 	///Whether the wings should grant flight on insertion.
 	var/unconditional_flight
 	///What species get flights thanks to those wings. Important for moth wings
@@ -192,17 +191,14 @@
 /obj/item/organ/wings/flight/angel
 	name = "angel wings"
 	desc = "A pair of magnificent, feathery wings. They look strong enough to lift you up in the air."
-	mutantpart_info = list(MUTANT_INDEX_NAME = "Angel", MUTANT_INDEX_COLOR_LIST = list("#FFFFFF"))
 
 /obj/item/organ/wings/flight/dragon
 	name = "dragon wings"
 	desc = "A pair of intimidating, membranous wings. They look strong enough to lift you up in the air."
-	mutantpart_info = list(MUTANT_INDEX_NAME = "Dragon", MUTANT_INDEX_COLOR_LIST = list("#880000"))
 
 /obj/item/organ/wings/flight/megamoth
 	name = "megamoth wings"
 	desc = "A pair of horrifyingly large, fuzzy wings. They look strong enough to lift you up in the air."
-	mutantpart_info = list(MUTANT_INDEX_NAME = "Megamoth", MUTANT_INDEX_COLOR_LIST = list("#FFFFFF"))
 
 /datum/bodypart_overlay/mutant/wings/functional
 	color_source = ORGAN_COLOR_INHERIT

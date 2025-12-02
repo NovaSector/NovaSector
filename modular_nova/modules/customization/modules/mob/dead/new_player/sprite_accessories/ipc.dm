@@ -12,6 +12,8 @@
 /datum/sprite_accessory/screen/none
 	name = SPRITE_ACCESSORY_NONE
 	icon_state = null
+	factual = FALSE
+	natural_spawn = FALSE
 
 /datum/sprite_accessory/screen/blank
 	name = "Blank"
@@ -145,7 +147,7 @@
 	icon = 'modular_nova/master_files/icons/mob/sprite_accessory/ipc_antennas.dmi'
 	color_src = USE_ONE_COLOR
 	default_color = DEFAULT_SECONDARY
-	recommended_species = list(SPECIES_SYNTH)
+	recommended_species = list(SPECIES_SYNTH = TRUE)
 	key = MUTANT_SYNTH_ANTENNA
 	relevent_layers = list(BODY_ADJ_LAYER)
 	organ_type = /obj/item/organ/synth_antenna
@@ -170,6 +172,8 @@
 	name = SPRITE_ACCESSORY_NONE
 	icon_state = "None"
 	recommended_species = null
+	factual = FALSE
+	natural_spawn = FALSE
 
 /datum/sprite_accessory/antenna/antennae
 	name = "Angled Antennae"

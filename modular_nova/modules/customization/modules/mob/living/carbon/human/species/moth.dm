@@ -22,7 +22,7 @@
 	var/list/candidates = GLOB.body_marking_sets.Copy()
 	for(var/candi in candidates)
 		var/datum/body_marking_set/setter = GLOB.body_marking_sets[candi]
-		if(setter.recommended_species && !(id in setter.recommended_species))
+		if(setter.recommended_species && isnull(setter.recommended_species[id]))
 			candidates -= candi
 	if(length(candidates))
 		name = pick(candidates)
@@ -34,8 +34,8 @@
 
 /datum/species/moth/prepare_human_for_preview(mob/living/carbon/human/moth)
 	moth.dna.features[FEATURE_MUTANT_COLOR] = "#E5CD99"
-	moth.dna.mutant_bodyparts[FEATURE_MOTH_ANTENNAE] = list(MUTANT_INDEX_NAME = "Plain", MUTANT_INDEX_COLOR_LIST = list("#FFFFFF", "#FFFFFF", "#FFFFFF"))
-	moth.dna.mutant_bodyparts[FEATURE_MOTH_MARKINGS] = list(MUTANT_INDEX_NAME = "None", MUTANT_INDEX_COLOR_LIST = list("#FFFFFF", "#FFFFFF", "#FFFFFF"))
-	moth.dna.mutant_bodyparts[FEATURE_WINGS] = list(MUTANT_INDEX_NAME = "Moth (Plain)", MUTANT_INDEX_COLOR_LIST = list("#FFFFFF", "#FFFFFF", "#FFFFFF"))
+	moth.dna.mutant_bodyparts[FEATURE_MOTH_ANTENNAE] = moth.dna.species.build_mutant_part("Plain")
+	moth.dna.mutant_bodyparts[FEATURE_MOTH_MARKINGS] = moth.dna.species.build_mutant_part("None")
+	moth.dna.mutant_bodyparts[FEATURE_WINGS] = moth.dna.species.build_mutant_part("Moth (Plain)")
 	regenerate_organs(moth, src, visual_only = TRUE)
 	moth.update_body(TRUE)

@@ -30,7 +30,9 @@
 	if(!.)
 		return
 
-	if (ispath(preferences?.pref_species, /datum/species/dwarf)) // all 3 of these manually set your height
+	var/species_type = preferences.read_preference(/datum/preference/choiced/species)
+	var/datum/species/current_species = GLOB.species_prototypes[species_type]
+	if (istype(current_species, /datum/species/dwarf)) // all 3 of these manually set your height
 		return FALSE
 
 	for (var/quirk_id in preferences?.all_quirks)

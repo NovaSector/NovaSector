@@ -9,7 +9,13 @@
 	icon = 'icons/mob/human/species/wings.dmi'
 	key = FEATURE_WINGS
 	color_src = USE_ONE_COLOR
-	recommended_species = list(SPECIES_HUMAN, SPECIES_SYNTH, SPECIES_FELINE, SPECIES_LIZARD, SPECIES_MAMMAL)
+	recommended_species = list(
+		SPECIES_HUMAN = TRUE,
+		SPECIES_SYNTH = TRUE,
+		SPECIES_FELINE = TRUE,
+		SPECIES_LIZARD = TRUE,
+		SPECIES_MAMMAL = TRUE,
+	)
 	organ_type = /obj/item/organ/wings
 	relevent_layers = list(BODY_BEHIND_LAYER, BODY_FRONT_LAYER, BODY_ADJ_LAYER)
 
@@ -49,6 +55,7 @@
 	name = SPRITE_ACCESSORY_NONE
 	icon_state = "none"
 	factual = FALSE
+	natural_spawn = FALSE
 
 /*
 *	FLIGHT POTION WINGS
@@ -112,7 +119,11 @@
 /datum/sprite_accessory/wings/mammal
 	icon = 'modular_nova/master_files/icons/mob/sprite_accessory/wings.dmi'
 	default_color = DEFAULT_PRIMARY
-	recommended_species = list(SPECIES_MAMMAL, SPECIES_LIZARD, SPECIES_INSECT)
+	recommended_species = list(
+		SPECIES_MAMMAL = TRUE,
+		SPECIES_LIZARD = TRUE,
+		SPECIES_INSECT = TRUE,
+	)
 	relevent_layers = list(BODY_BEHIND_LAYER, BODY_FRONT_LAYER)
 	dimension_x = 46
 	dimension_y = 34
@@ -318,6 +329,8 @@
 /datum/sprite_accessory/wings/moth/none
 	name = SPRITE_ACCESSORY_NONE
 	icon_state = "none"
+	factual = FALSE
+	natural_spawn = FALSE
 
 /datum/sprite_accessory/wings/moth/atlas
 	name = "Moth (Atlas)"

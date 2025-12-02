@@ -397,11 +397,12 @@ GLOBAL_LIST_INIT(clown_mask_options, list(
 	if(src && choice && !user.incapacitated && in_range(user,src))
 		// NOVA EDIT ADDITION START - More mask variations
 		var/mob/living/carbon/human/human_user = user
-		if(human_user.dna.mutant_bodyparts[FEATURE_SNOUT])
+		var/datum/mutant_bodypart/snout = human_user.dna.mutant_bodyparts[FEATURE_SNOUT]
+		if(snout)
 			icon = 'modular_nova/master_files/icons/obj/clothing/masks.dmi'
 			worn_icon = 'modular_nova/master_files/icons/mob/clothing/mask_muzzled.dmi'
 			var/list/avian_snouts = list("Beak", "Big Beak", "Corvid Beak")
-			if(human_user.dna.mutant_bodyparts[FEATURE_SNOUT][MUTANT_INDEX_NAME] in avian_snouts)
+			if(snout.name in avian_snouts)
 				icon_state = "[options[choice]]_b"
 		else
 			icon = 'icons/obj/clothing/masks.dmi'

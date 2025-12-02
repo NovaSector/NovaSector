@@ -54,10 +54,11 @@ MUTANT_SYNTH_CHASSIS, \
 	write_preference(GLOB.preference_entries[/datum/preference/tri_color/mutant_colors], mutant_colors)
 
 	for(var/body_part in GLOB.bodyparts_to_convert)
-		if(mutant_bodyparts[body_part])
-			var/type = mutant_bodyparts[body_part][MUTANT_INDEX_NAME]
-			var/list/colors = mutant_bodyparts[body_part][MUTANT_INDEX_COLOR_LIST]
-			if(type == "None")
+		var/datum/mutant_bodypart/mutant_part = mutant_bodyparts[body_part]
+		if(mutant_part)
+			var/type = mutant_part.name
+			var/list/colors = mutant_part.get_colors()
+			if(type == SPRITE_ACCESSORY_NONE)
 				continue
 			var/colors_length = colors.len
 			/// Intensive checking to ensure this process does not runtime. If it runtimes, goodbye savefiles.

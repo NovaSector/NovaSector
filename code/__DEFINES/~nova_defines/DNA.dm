@@ -42,7 +42,6 @@
 // Defines for mutant bodyparts indexes
 #define MUTANT_INDEX_NAME			"name"
 #define MUTANT_INDEX_COLOR_LIST		"color"
-#define MUTANT_INDEX_EMISSIVE_LIST	"emissive"
 
 // Defines for default mutant bodyparts indexes
 #define MUTANTPART_NAME 1
@@ -95,7 +94,7 @@
 /// for non oversized mobs with a 'normal' body size
 #define TESTICLES_MAX_NORMAL_SIZED 3
 
-#define SHEATH_NONE	"None"
+#define SHEATH_NONE	SPRITE_ACCESSORY_NONE
 #define SHEATH_NORMAL "Sheath"
 #define SHEATH_SLIT	"Slit"
 #define SHEATH_MODES list(SHEATH_NONE, SHEATH_NORMAL, SHEATH_SLIT)

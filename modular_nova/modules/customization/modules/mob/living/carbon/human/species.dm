@@ -2,8 +2,6 @@ GLOBAL_LIST_EMPTY(customizable_races)
 
 /datum/species
 	digitigrade_customization = DIGITIGRADE_OPTIONAL // Doing this so that the legs preference actually works for everyone.
-	///Self explanatory
-	var/can_have_genitals = TRUE
 	/// Whether or not the gender shaping is disabled for this species
 	var/no_gender_shaping
 	///A list of actual body markings on the owner of the species. Associative lists with keys named by limbs defines, pointing to a list with names and colors for the marking to be rendered. This is also stored in the DNA
@@ -104,11 +102,9 @@ GLOBAL_LIST_EMPTY(customizable_races)
 /datum/species/human/vampire
 
 /datum/species/plasmaman
-	can_have_genitals = FALSE
 	can_augment = FALSE
 
 /datum/species/ethereal
-	can_have_genitals = FALSE
 	can_augment = FALSE
 
 /datum/species/pod
@@ -156,11 +152,11 @@ GLOBAL_LIST_EMPTY(customizable_races)
 			if(!sprite_accessory)
 				CRASH("Cant find accessory of [key] key, [bodypart_to_add]] name, for species [id]")
 
-		var/list/final_list = list(
-			MUTANT_INDEX_NAME = sprite_accessory.name,
-			MUTANT_INDEX_COLOR_LIST = sprite_accessory.get_default_color(features, src)
+		var/datum/mutant_bodypart/finalized_part = build_mutant_part(
+			sprite_accessory.name,
+			sprite_accessory.get_default_color(features, src)
 		)
-		mutantpart_list[key] = final_list
+		mutantpart_list[key] = finalized_part
 
 	return mutantpart_list
 
@@ -178,10 +174,13 @@ GLOBAL_LIST_EMPTY(customizable_races)
 	var/robot_organs = HAS_TRAIT(target, TRAIT_ROBOTIC_DNA_ORGANS)
 
 	for(var/key, mutant_part in target.dna.mutant_bodyparts)
-		if(!islist(mutant_part) || !(mutant_part[MUTANT_INDEX_NAME] in SSaccessories.sprite_accessories[key]))
+		var/datum/mutant_bodypart/mutant_bodypart = mutant_part
+		if(!istype(mutant_bodypart))
 			continue
 
-		var/datum/sprite_accessory/mutant_accessory = SSaccessories.sprite_accessories[key][mutant_part[MUTANT_INDEX_NAME]]
+		var/datum/sprite_accessory/mutant_accessory = SSaccessories.sprite_accessories[key][mutant_bodypart.name]
+		if(isnull(mutant_accessory))
+			continue
 
 		if(mutant_accessory?.factual && mutant_accessory.organ_type)
 			var/obj/item/organ/accessory_organ_type = mutant_accessory.organ_type

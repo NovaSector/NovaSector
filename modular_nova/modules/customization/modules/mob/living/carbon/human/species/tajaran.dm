@@ -87,9 +87,9 @@
 	cat.dna.features[FEATURE_MUTANT_COLOR] = main_color
 	cat.dna.features[FEATURE_MUTANT_COLOR_TWO] = second_color
 	cat.dna.features[FEATURE_MUTANT_COLOR_THREE] = second_color
-	cat.dna.mutant_bodyparts[FEATURE_SNOUT] = list(MUTANT_INDEX_NAME = "Mammal, Short", MUTANT_INDEX_COLOR_LIST = list(main_color, main_color, main_color))
-	cat.dna.mutant_bodyparts[FEATURE_TAIL] = list(MUTANT_INDEX_NAME = "Cat", MUTANT_INDEX_COLOR_LIST = list(second_color, main_color, main_color))
-	cat.dna.mutant_bodyparts[FEATURE_EARS] = list(MUTANT_INDEX_NAME = "Cat, Alert", MUTANT_INDEX_COLOR_LIST = list(main_color, second_color, second_color))
+	cat.dna.mutant_bodyparts[FEATURE_SNOUT] = cat.dna.species.build_mutant_part("Mammal, Short", list(main_color, main_color, main_color))
+	cat.dna.mutant_bodyparts[FEATURE_TAIL] = cat.dna.species.build_mutant_part("Cat", list(second_color, main_color, main_color))
+	cat.dna.mutant_bodyparts[FEATURE_EARS] = cat.dna.species.build_mutant_part("Cat, Alert", list(main_color, second_color, second_color))
 	regenerate_organs(cat, src, visual_only = TRUE)
 	cat.update_body(TRUE)
 

@@ -56,6 +56,9 @@
 	var/feature_key_override
 
 /datum/sprite_accessory/New()
+	if(recommended_species)
+		recommended_species = string_assoc_list(recommended_species)
+
 	if(!default_color)
 		switch(color_src)
 			if(USE_ONE_COLOR)
@@ -64,9 +67,6 @@
 				default_color = DEFAULT_MATRIXED
 			else
 				default_color = "#FFFFFF"
-
-	if(name == SPRITE_ACCESSORY_NONE)
-		factual = FALSE
 
 	if(color_src == USE_MATRIXED_COLORS)
 
@@ -127,6 +127,10 @@
 
 	return colors
 
+/datum/sprite_accessory/blank
+	factual = FALSE
+	natural_spawn = FALSE
+
 /datum/sprite_accessory/moth_markings
 	key = FEATURE_MOTH_MARKINGS
 	// organ_type = /obj/item/organ/moth_markings // UNCOMMENT THIS IF THEY EVER FIX IT UPSTREAM, CAN'T BE BOTHERED TO FIX IT MYSELF
@@ -137,17 +141,23 @@
 /datum/sprite_accessory/moth_markings/none
 	name = SPRITE_ACCESSORY_NONE
 	icon_state = "none"
+	factual = FALSE
+	natural_spawn = FALSE
 
 /datum/sprite_accessory/pod_hair
 	icon = 'modular_nova/master_files/icons/mob/species/podperson_hair.dmi'
 	key = FEATURE_POD_HAIR
-	recommended_species = list(SPECIES_PODPERSON, SPECIES_PODPERSON_WEAK)
+	recommended_species = list(
+		SPECIES_PODPERSON = TRUE,
+		SPECIES_PODPERSON_WEAK = TRUE,
+	)
 	organ_type = /obj/item/organ/pod_hair
 
 /datum/sprite_accessory/pod_hair/none
 	name = SPRITE_ACCESSORY_NONE
 	icon_state = "none"
 	factual = FALSE
+	natural_spawn = FALSE
 
 /datum/sprite_accessory/caps
 	key = FEATURE_MUSH_CAP
@@ -167,6 +177,7 @@
 	icon_state = "none"
 	color_src = null
 	factual = FALSE
+	natural_spawn = FALSE
 
 /datum/sprite_accessory/caps/round
 	name = "Round"
@@ -179,6 +190,8 @@
 /datum/sprite_accessory/lizard_markings/none
 	name = SPRITE_ACCESSORY_NONE
 	icon_state = "none"
+	factual = FALSE
+	natural_spawn = FALSE
 
 /// Legs are a special case, they aren't actually sprite_accessories but are updated with them.
 /// These datums exist for selecting legs on preference, and little else

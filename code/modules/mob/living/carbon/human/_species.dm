@@ -1997,12 +1997,12 @@ GLOBAL_LIST_EMPTY(features_by_species)
 	// NOVA EDIT ADDITION START - Synth digitigrade sanitization
 	var/ignore_digi = FALSE // You can jack into this var with other checks, if you want.
 	if(issynthetic(target))
-		var/list/chassis = target.dna.mutant_bodyparts[MUTANT_SYNTH_CHASSIS]
+		var/datum/mutant_bodypart/chassis = target.dna.mutant_bodyparts[MUTANT_SYNTH_CHASSIS]
 		if(chassis)
 			var/list/chassis_accessory = SSaccessories.sprite_accessories[MUTANT_SYNTH_CHASSIS]
 			var/datum/sprite_accessory/synth_chassis/body_choice
 			if(chassis_accessory)
-				body_choice = chassis_accessory[chassis[MUTANT_INDEX_NAME]]
+				body_choice = chassis_accessory[chassis.name]
 			if(body_choice && !body_choice.is_digi_compatible)
 				ignore_digi = TRUE
 	// NOVA EDIT END

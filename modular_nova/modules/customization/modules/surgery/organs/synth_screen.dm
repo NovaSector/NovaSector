@@ -4,7 +4,6 @@
 	icon_state = "tonguerobot"
 
 	mutantpart_key = MUTANT_SYNTH_SCREEN
-	mutantpart_info = list(MUTANT_INDEX_NAME = "Blank", MUTANT_INDEX_COLOR_LIST = list("#FFFFFF", "#FFFFFF", "#FFFFFF"))
 
 	zone = BODY_ZONE_HEAD
 	slot = ORGAN_SLOT_EXTERNAL_SYNTH_SCREEN

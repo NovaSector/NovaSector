@@ -98,6 +98,6 @@
 	vox.dna.features[FEATURE_MUTANT_COLOR] = "#77DD88"
 	vox.dna.features[FEATURE_MUTANT_COLOR_TWO] = "#EEDD88"
 	vox.dna.features[FEATURE_MUTANT_COLOR_THREE] = "#222222"
-	vox.dna.mutant_bodyparts[FEATURE_SNOUT] = list(MUTANT_INDEX_NAME = "Vox Snout", MUTANT_INDEX_COLOR_LIST = list("#EEDD88"))
+	vox.dna.mutant_bodyparts[FEATURE_SNOUT] = vox.dna.species.build_mutant_part("Vox Snout", list("#EEDD88"))
 	regenerate_organs(vox, src, visual_only = TRUE)
 	vox.update_body(TRUE)

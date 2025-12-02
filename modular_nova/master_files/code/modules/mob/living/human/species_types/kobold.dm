@@ -128,10 +128,10 @@
 	kobold.dna.features[FEATURE_MUTANT_COLOR] = main_color
 	kobold.dna.features[FEATURE_MUTANT_COLOR_TWO] = second_color
 	kobold.dna.features[FEATURE_MUTANT_COLOR_THREE] = third_color
-	kobold.dna.mutant_bodyparts[FEATURE_SNOUT] = list(MUTANT_INDEX_NAME = "Round", MUTANT_INDEX_COLOR_LIST = list(main_color, main_color, main_color))
-	kobold.dna.mutant_bodyparts[FEATURE_TAIL] = list(MUTANT_INDEX_NAME = "Smooth", MUTANT_INDEX_COLOR_LIST = list(second_color, main_color, main_color))
-	kobold.dna.mutant_bodyparts[FEATURE_HORNS] = list(MUTANT_INDEX_NAME = "Curled", MUTANT_INDEX_COLOR_LIST = list(main_color, main_color, main_color))
-	kobold.dna.mutant_bodyparts[FEATURE_FRILLS] = list(MUTANT_INDEX_NAME = "Short", MUTANT_INDEX_COLOR_LIST = list(main_color, main_color, main_color))
+	kobold.dna.mutant_bodyparts[FEATURE_SNOUT] = kobold.dna.species.build_mutant_part("Round", list(main_color, main_color, main_color))
+	kobold.dna.mutant_bodyparts[FEATURE_TAIL] = kobold.dna.species.build_mutant_part("Smooth", list(second_color, main_color, main_color))
+	kobold.dna.mutant_bodyparts[FEATURE_HORNS] = kobold.dna.species.build_mutant_part("Curled", list(main_color, main_color, main_color))
+	kobold.dna.mutant_bodyparts[FEATURE_FRILLS] = kobold.dna.species.build_mutant_part("Short", list(main_color, main_color, main_color))
 	regenerate_organs(kobold, src, visual_only = TRUE)
 	kobold.update_body(TRUE)
 

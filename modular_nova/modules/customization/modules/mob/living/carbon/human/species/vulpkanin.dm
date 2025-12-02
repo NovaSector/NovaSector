@@ -85,8 +85,8 @@
 	vulp.dna.features[FEATURE_MUTANT_COLOR] = main_color
 	vulp.dna.features[FEATURE_MUTANT_COLOR_TWO] = second_color
 	vulp.dna.features[FEATURE_MUTANT_COLOR_THREE] = second_color
-	vulp.dna.mutant_bodyparts[FEATURE_SNOUT] = list(MUTANT_INDEX_NAME = "Mammal, Long", MUTANT_INDEX_COLOR_LIST = list(main_color, main_color, main_color))
-	vulp.dna.mutant_bodyparts[FEATURE_TAIL] = list(MUTANT_INDEX_NAME = "Husky", MUTANT_INDEX_COLOR_LIST = list(second_color, main_color, main_color))
-	vulp.dna.mutant_bodyparts[FEATURE_EARS] = list(MUTANT_INDEX_NAME = "Wolf", MUTANT_INDEX_COLOR_LIST = list(main_color, second_color, second_color))
+	vulp.dna.mutant_bodyparts[FEATURE_SNOUT] = vulp.dna.species.build_mutant_part("Mammal, Long", list(main_color, main_color, main_color))
+	vulp.dna.mutant_bodyparts[FEATURE_TAIL] = vulp.dna.species.build_mutant_part("Husky", list(second_color, main_color, main_color))
+	vulp.dna.mutant_bodyparts[FEATURE_EARS] = vulp.dna.species.build_mutant_part("Wolf", list(main_color, second_color, second_color))
 	regenerate_organs(vulp, src, visual_only = TRUE)
 	vulp.update_body(TRUE)

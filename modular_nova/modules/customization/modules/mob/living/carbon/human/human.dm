@@ -9,17 +9,18 @@
 			if("genitals")
 				var/list/line = list()
 				for(var/genital in GLOB.possible_genitals)
-					if(!dna.mutant_bodyparts[genital])
+					var/datum/mutant_bodypart/genital_part = dna.mutant_bodyparts[genital]
+					if(isnull(genital_part))
 						continue
-					var/datum/sprite_accessory/genital/G = SSaccessories.sprite_accessories[genital][dna.mutant_bodyparts[genital][MUTANT_INDEX_NAME]]
-					if(!G)
+					var/datum/sprite_accessory/genital/genital_accessory = SSaccessories.sprite_accessories[genital][genital_part.name]
+					if(isnull(genital_accessory))
 						continue
-					if(G.is_hidden(src))
+					if(genital_accessory.is_hidden(src))
 						continue
-					var/obj/item/organ/genital/ORG = get_organ_slot(G.associated_organ_slot)
-					if(!ORG)
+					var/obj/item/organ/genital/genital_organ = get_organ_slot(genital_accessory.associated_organ_slot)
+					if(isnull(genital_organ))
 						continue
-					line += ORG.get_description_string(G)
+					line += genital_organ.get_description_string(genital_accessory)
 				if(length(line))
 					to_chat(usr, span_notice("[jointext(line, "\n")]"))
 			if("open_examine_panel")

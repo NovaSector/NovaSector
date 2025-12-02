@@ -80,9 +80,9 @@
 	var/xeno_color = "#525288"
 	xeno.dna.features[FEATURE_MUTANT_COLOR] = xeno_color
 	xeno.set_eye_color( "#30304F")
-	xeno.dna.mutant_bodyparts[FEATURE_TAIL] = list(MUTANT_INDEX_NAME = "Xenomorph Tail", MUTANT_INDEX_COLOR_LIST = list(xeno_color, xeno_color, xeno_color))
-	xeno.dna.mutant_bodyparts[FEATURE_XENODORSAL] = list(MUTANT_INDEX_NAME = "Standard", MUTANT_INDEX_COLOR_LIST = list(xeno_color))
-	xeno.dna.mutant_bodyparts[FEATURE_XENOHEAD] = list(MUTANT_INDEX_NAME = "Standard", MUTANT_INDEX_COLOR_LIST = list(xeno_color, xeno_color, xeno_color))
+	xeno.dna.mutant_bodyparts[FEATURE_TAIL] = xeno.dna.species.build_mutant_part("Xenomorph Tail", list(xeno_color, xeno_color, xeno_color))
+	xeno.dna.mutant_bodyparts[FEATURE_XENODORSAL] = xeno.dna.species.build_mutant_part("Standard", list(xeno_color))
+	xeno.dna.mutant_bodyparts[FEATURE_XENOHEAD] = xeno.dna.species.build_mutant_part("Standard", list(xeno_color, xeno_color, xeno_color))
 	regenerate_organs(xeno, src, visual_only = TRUE)
 	xeno.update_body(TRUE)
 

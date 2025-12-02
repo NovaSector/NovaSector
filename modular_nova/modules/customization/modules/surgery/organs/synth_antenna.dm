@@ -1,10 +1,8 @@
 /obj/item/organ/synth_antenna
 	name = "synth antenna"
 	desc = "Wonder if we'll catch Syndicate frequencies with these..."
-	icon_state = "random_fly_1"
 
 	mutantpart_key = MUTANT_SYNTH_ANTENNA
-	mutantpart_info = list(MUTANT_INDEX_NAME = "Plain", MUTANT_INDEX_COLOR_LIST = list("#FFFFFF", "#FFFFFF", "#FFFFFF"))
 
 	zone = BODY_ZONE_HEAD
 	slot = ORGAN_SLOT_EXTERNAL_SYNTH_ANTENNA
