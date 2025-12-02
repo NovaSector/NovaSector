@@ -161,7 +161,7 @@
 
 	// Only show the 'reveal all' button if we are already hiding something
 	available_selection = list()
-	if(length(try_hide_mutant_parts))
+	if(LAZYLEN(try_hide_mutant_parts))
 		available_selection["reveal all"] = TRUE
 	// Lets build our parts list
 	for(var/organ_slot, feature_string in total_selection)
@@ -171,10 +171,10 @@
 	// If this proc is called with the 'quick_toggle' flag, we skip the rest
 	if(quick_toggle)
 		if("reveal all" in available_selection)
-			try_hide_mutant_parts.Cut()
+			LAZYNULL(try_hide_mutant_parts)
 		else
 			for(var/part in available_selection)
-				try_hide_mutant_parts[part] = TRUE
+				LAZYSET(try_hide_mutant_parts, part,  TRUE)
 		update_body_parts()
 		return
 
@@ -183,7 +183,7 @@
 		return
 	// If 'reveal all' is our only option just do it
 	if(!re_do && (("reveal all" in available_selection) && (length(available_selection) == 1)))
-		try_hide_mutant_parts.Cut()
+		LAZYNULL(try_hide_mutant_parts)
 		update_body_parts()
 		return
 
@@ -227,7 +227,7 @@
 	// Choice to action
 	if(pick == "reveal all")
 		to_chat(usr, span_notice("You are no longer trying to hide your mutant parts."))
-		try_hide_mutant_parts.Cut()
+		LAZYNULL(try_hide_mutant_parts)
 		update_body_parts()
 		return
 
@@ -235,7 +235,7 @@
 		to_chat(usr, span_notice("You are no longer trying to hide your [pick]."))
 	else
 		to_chat(usr, span_notice("You are now trying to hide your [pick]."))
-		try_hide_mutant_parts[pick] = TRUE
+		LAZYSET(try_hide_mutant_parts, pick, TRUE)
 	update_body_parts()
 	// automatically re-do the menu after making a selection
 	mutant_part_visibility(re_do = TRUE)
