@@ -14,7 +14,7 @@
 	mutantlungs = /obj/item/organ/lungs/nitrogen/vox
 	mutantbrain = /obj/item/organ/brain/cybernetic/cortical/vox //reparented vox brain
 	breathid = "n2"
-	mutant_bodyparts = list()
+
 	mutanttongue = /obj/item/organ/tongue/vox
 	payday_modifier = 1.0
 	outfit_important_for_life = /datum/outfit/vox

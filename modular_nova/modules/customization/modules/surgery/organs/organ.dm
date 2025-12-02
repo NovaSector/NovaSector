@@ -29,7 +29,7 @@
 	if(!istype(human_owner))
 		return
 
-	human_owner.dna.species.mutant_bodyparts[mutantpart_key] = mutantpart_info.Copy()
+	human_owner.dna.mutant_bodyparts[mutantpart_key] = mutantpart_info.Copy()
 	if(!special)
 		human_owner.update_body()
 
@@ -39,13 +39,12 @@
 	if(!istype(human_owner))
 		return
 
-	var/list/mutant_bodyparts = human_owner?.dna?.species?.mutant_bodyparts
+	var/list/mutant_bodyparts = human_owner?.dna?.mutant_bodyparts
 	var/list/previous_mutantpart_info = mutant_bodyparts && mutant_bodyparts[mutantpart_key]
 	if(previous_mutantpart_info)
 		mutantpart_info = previous_mutantpart_info.Copy() //Update the info in case it was changed on the person
 
 	color = mutantpart_info[MUTANT_INDEX_COLOR_LIST][1]
-	human_owner.dna.species.mutant_bodyparts -= mutantpart_key
 	if(!special)
 		human_owner.update_body()
 

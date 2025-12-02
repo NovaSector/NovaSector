@@ -65,7 +65,6 @@ GLOBAL_LIST_EMPTY(features_by_species)
 	/// Use a [language holder datum][/datum/language_holder] typepath in this var.
 	/// Should never be null.
 	var/datum/language_holder/species_language_holder = /datum/language_holder/human_basic
-	var/list/list/mutant_bodyparts = list() // NOVA EDIT ADDITION - CUSTOMIZATION (typed list)
 	///The bodyparts this species uses. assoc of bodypart string - bodypart type. Make sure all the fucking entries are in or I'll skin you alive.
 	var/list/bodypart_overrides = list(
 		BODY_ZONE_L_ARM = /obj/item/bodypart/arm/left,
@@ -99,7 +98,7 @@ GLOBAL_LIST_EMPTY(features_by_species)
 	var/obj/item/organ/appendix/mutantappendix = /obj/item/organ/appendix
 
 	/// Store body marking defines. See mobs.dm for bitflags
-	//var/list/body_markings = list() // NOVA EDIT REMOVAL - We already have this defined as an assoc list
+	//var/list/body_markings = list() // NOVA EDIT REMOVAL - We already have this defined as an assoc list in dna
 
 	/// Flat modifier on all damage taken via [apply_damage][/mob/living/proc/apply_damage] (so being punched, shot, etc.)
 	/// IE: 10 = 10% less damage taken.
@@ -473,7 +472,7 @@ GLOBAL_LIST_EMPTY(features_by_species)
 
 	clear_tail_moodlets(human)
 
-	remove_body_markings(human)
+	//remove_body_markings(human) // NOVA EDIT REMOVAL - We do this differently
 
 	// Removes all languages previously associated with [LANGUAGE_SPECIES], gaining our new species will add new ones back
 	var/datum/language_holder/losing_holder = GLOB.prototype_language_holders[species_language_holder]

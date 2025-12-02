@@ -284,8 +284,8 @@
 			. += "<span class='warning'><b>[GP.source.name] [GP.source.p_are()] holding [t_him] at gunpoint with [GP.aimed_gun.name]!</b></span>\n"
 
 	for(var/genital in GLOB.possible_genitals)
-		if(dna.species.mutant_bodyparts[genital])
-			var/datum/sprite_accessory/genital/G = SSaccessories.sprite_accessories[genital][dna.species.mutant_bodyparts[genital][MUTANT_INDEX_NAME]]
+		if(dna.mutant_bodyparts[genital])
+			var/datum/sprite_accessory/genital/G = SSaccessories.sprite_accessories[genital][dna.mutant_bodyparts[genital][MUTANT_INDEX_NAME]]
 			if(G)
 				if(!(G.is_hidden(src)))
 					. += "<span class='notice'>[t_He] [t_has] exposed genitals... <a href='byond://?src=[REF(src)];lookup_info=genitals'>\[Look closer...\]</a></span>"

@@ -8,7 +8,7 @@
 		TRAIT_MUTANT_COLORS,
 	)
 	inherent_biotypes = MOB_ORGANIC|MOB_HUMANOID
-	mutant_bodyparts = list()
+
 	mutanttongue = /obj/item/organ/tongue/vulpkanin
 	species_language_holder = /datum/language_holder/vulpkanin
 	payday_modifier = 1.0

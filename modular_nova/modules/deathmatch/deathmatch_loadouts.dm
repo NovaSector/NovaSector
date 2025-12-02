@@ -70,7 +70,7 @@
 	user.set_species(/datum/species/akula, icon_update = FALSE, pref_load = FALSE)
 	user.set_hairstyle("Bald", update = FALSE)
 	user.hardset_dna(newfeatures = features)
-	user.dna.species.body_markings = assemble_body_markings_from_set(GLOB.body_marking_sets["Akula"], features, /datum/species/akula)
+	user.dna.body_markings = assemble_body_markings_from_set(GLOB.body_marking_sets["Akula"], features, /datum/species/akula)
 	user.dna.features[FEATURE_LEGS] = "Normal Legs"
 	user.dna.species.regenerate_organs(user, /datum/species/akula, visual_only = FALSE)
 	user.update_body(TRUE)

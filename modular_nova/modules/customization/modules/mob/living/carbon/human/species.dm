@@ -1,7 +1,6 @@
 GLOBAL_LIST_EMPTY(customizable_races)
 
 /datum/species
-	mutant_bodyparts = list()
 	digitigrade_customization = DIGITIGRADE_OPTIONAL // Doing this so that the legs preference actually works for everyone.
 	///Self explanatory
 	var/can_have_genitals = TRUE
@@ -59,7 +58,6 @@ GLOBAL_LIST_EMPTY(customizable_races)
 		STOP_PROCESSING(SSobj, old_stomach)
 
 /datum/species/dullahan
-	mutant_bodyparts = list()
 	nova_stars_only = TRUE
 	outfit_important_for_life = /datum/outfit/dullahan
 
@@ -68,7 +66,6 @@ GLOBAL_LIST_EMPTY(customizable_races)
 	give_important_for_life(equipping)
 
 /datum/species/human/felinid
-	mutant_bodyparts = list()
 	mutant_organs = list()
 
 /datum/species/human/felinid/get_default_mutant_bodyparts()
@@ -92,7 +89,6 @@ GLOBAL_LIST_EMPTY(customizable_races)
 
 /datum/species/human
 	digitigrade_customization = DIGITIGRADE_OPTIONAL
-	mutant_bodyparts = list("legs" = "Normal Legs")
 
 /datum/species/human/get_default_mutant_bodyparts()
 	return list(
@@ -103,19 +99,15 @@ GLOBAL_LIST_EMPTY(customizable_races)
 	)
 
 /datum/species/mush
-	mutant_bodyparts = list()
 	mutant_organs = list()
 
 /datum/species/human/vampire
-	mutant_bodyparts = list()
 
 /datum/species/plasmaman
-	mutant_bodyparts = list()
 	can_have_genitals = FALSE
 	can_augment = FALSE
 
 /datum/species/ethereal
-	mutant_bodyparts = list()
 	can_have_genitals = FALSE
 	can_augment = FALSE
 

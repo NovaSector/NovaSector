@@ -12,7 +12,6 @@
 	bodytemp_heat_damage_limit = FIRE_MINIMUM_TEMPERATURE_TO_SPREAD
 	bodytemp_cold_damage_limit = (T20C - 10)
 	species_language_holder = /datum/language_holder/skrell
-	mutant_bodyparts = list()
 	mutanttongue = /obj/item/organ/tongue/skrell
 	payday_modifier = 1.0
 	changesource_flags = MIRROR_BADMIN | WABBAJACK | MIRROR_MAGIC | MIRROR_PRIDE | ERT_SPAWN | RACE_SWAP | SLIME_EXTRACT

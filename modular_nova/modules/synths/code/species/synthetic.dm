@@ -18,7 +18,7 @@
 		TRAIT_ROBOTIC_DNA_ORGANS,
 		TRAIT_SYNTHETIC,
 	)
-	mutant_bodyparts = list()
+
 	changesource_flags = MIRROR_BADMIN | WABBAJACK | MIRROR_MAGIC | MIRROR_PRIDE | ERT_SPAWN | RACE_SWAP | SLIME_EXTRACT
 	reagent_flags = PROCESS_SYNTHETIC
 	payday_modifier = 1.0 // Matches the rest of the pay penalties the non-human crew have
@@ -59,11 +59,10 @@
 
 /datum/species/synthetic/get_default_mutant_bodyparts()
 	return list(
-		"ears" = list("None", FALSE),
-		"tail" = list("None", FALSE),
-		"ears" = list("None", FALSE),
-		"legs" = list("Normal Legs", FALSE),
-		"snout" = list("None", FALSE),
+		FEATURE_EARS = list("None", FALSE),
+		FEATURE_TAIL = list("None", FALSE),
+		FEATURE_LEGS = list("Normal Legs", FALSE),
+		FEATURE_SNOUT = list("None", FALSE),
 		MUTANT_SYNTH_ANTENNA = list("None", FALSE),
 		MUTANT_SYNTH_SCREEN = list("None", FALSE),
 		MUTANT_SYNTH_CHASSIS = list("Default Chassis", FALSE),

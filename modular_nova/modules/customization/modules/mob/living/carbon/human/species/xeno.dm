@@ -24,7 +24,7 @@
 		)
 	exotic_bloodtype = BLOOD_TYPE_XENO
 	heatmod = 2.5
-	mutant_bodyparts = list()
+
 	payday_modifier = 1.0
 	changesource_flags = MIRROR_BADMIN | WABBAJACK | MIRROR_MAGIC | MIRROR_PRIDE | ERT_SPAWN | RACE_SWAP | SLIME_EXTRACT
 	bodypart_overrides = list(

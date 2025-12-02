@@ -8,7 +8,6 @@
 #define SPECIES_SLIME_PASSIVE_REGEN_BURN 0.5
 
 /datum/species/jelly
-	mutant_bodyparts = list()
 	hair_alpha = 160 //a notch brighter so it blends better.
 	facial_hair_alpha = 160
 	mutantliver = /obj/item/organ/liver/slime
@@ -823,17 +822,17 @@
 				alterer.dna.update_uf_block(/datum/dna_block/feature/mutant_color/three)
 
 	if(marking_reset == "Yes")
-		for(var/zone in alterer.dna.species.body_markings)
-			for(var/key in alterer.dna.species.body_markings[zone])
+		for(var/zone in alterer.dna.body_markings)
+			for(var/key in alterer.dna.body_markings[zone])
 				var/datum/body_marking/iterated_marking = GLOB.body_markings[key]
 				if(iterated_marking.always_color_customizable)
 					continue
-				alterer.dna.species.body_markings[zone][key] = iterated_marking.get_default_color(alterer.dna.features, alterer.dna.species)
+				alterer.dna.body_markings[zone][key] = iterated_marking.get_default_color(alterer.dna.features, alterer.dna.species)
 
 	if(mutant_part_reset == "Yes")
 		alterer.mutant_renderkey = "" //Just in case
-		for(var/mutant_key in alterer.dna.species.mutant_bodyparts)
-			var/mutant_list = alterer.dna.species.mutant_bodyparts[mutant_key]
+		for(var/mutant_key in alterer.dna.mutant_bodyparts)
+			var/mutant_list = alterer.dna.mutant_bodyparts[mutant_key]
 			var/datum/sprite_accessory/changed_accessory = SSaccessories.sprite_accessories[mutant_key][mutant_list[MUTANT_INDEX_NAME]]
 			mutant_list[MUTANT_INDEX_COLOR_LIST] = changed_accessory.get_default_color(alterer.dna.features, alterer.dna.species)
 
@@ -987,7 +986,7 @@
 				got_organ.Remove(alterer)
 				qdel(got_organ)
 		else
-			alterer.dna.species.mutant_bodyparts -= chosen_key
+			alterer.dna.mutant_bodyparts -= chosen_key
 	else
 		if(selected_sprite_accessory.organ_type)
 			var/robot_organs = HAS_TRAIT(alterer, TRAIT_ROBOTIC_DNA_ORGANS)
@@ -1016,7 +1015,7 @@
 			var/list/new_acc_list = list()
 			new_acc_list[MUTANT_INDEX_NAME] = selected_sprite_accessory.name
 			new_acc_list[MUTANT_INDEX_COLOR_LIST] = selected_sprite_accessory.get_default_color(alterer.dna.features, alterer.dna.species)
-			alterer.dna.species.mutant_bodyparts[chosen_key] = new_acc_list
+			alterer.dna.mutant_bodyparts[chosen_key] = new_acc_list
 			alterer.dna.mutant_bodyparts[chosen_key] = new_acc_list.Copy()
 		alterer.dna.update_uf_block(mutant_part_list[chosen_key])
 	alterer.update_body_parts()
@@ -1036,7 +1035,7 @@
 	if(!chosen_name)
 		return
 	var/datum/body_marking_set/marking_set = GLOB.body_marking_sets[chosen_name]
-	alterer.dna.species.body_markings = assemble_body_markings_from_set(marking_set, alterer.dna.features, alterer.dna.species)
+	alterer.dna.body_markings = assemble_body_markings_from_set(marking_set, alterer.dna.features, alterer.dna.species)
 	alterer.update_body(is_creating = TRUE)
 
 /**

@@ -8,7 +8,6 @@
 		TRAIT_MUTANT_COLORS,
 	)
 	inherent_biotypes = MOB_ORGANIC|MOB_HUMANOID|MOB_BUG
-	mutant_bodyparts = list()
 	mutanttongue = /obj/item/organ/tongue/insect
 	payday_modifier = 1.0
 	changesource_flags = MIRROR_BADMIN | WABBAJACK | MIRROR_MAGIC | MIRROR_PRIDE | ERT_SPAWN | RACE_SWAP | SLIME_EXTRACT
@@ -47,6 +46,6 @@
 	human.dna.features[FEATURE_MUTANT_COLOR] = main_color
 	human.dna.features[FEATURE_MUTANT_COLOR_TWO] = secondary_color
 	human.dna.features[FEATURE_MUTANT_COLOR_THREE] = secondary_color
-	human.dna.species.body_markings[BODY_ZONE_HEAD] = list("Insect Antennae" = list("#644b07", 0))
+	human.dna.body_markings[BODY_ZONE_HEAD] = list("Insect Antennae" = list("#644b07", 0))
 	regenerate_organs(human, src, visual_only = TRUE)
 	human.update_body(TRUE)

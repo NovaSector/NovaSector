@@ -26,7 +26,7 @@
 /mob/living/carbon/proc/apply_customizable_dna_features_to_species()
 	if(!has_dna())
 		CRASH("[src] does not have DNA")
-	dna.species.body_markings = dna.body_markings.Copy()
+	dna.body_markings = dna.body_markings.Copy()
 	var/list/bodyparts_to_add = dna.mutant_bodyparts.Copy()
 	for(var/key in bodyparts_to_add)
 		if(SSaccessories.sprite_accessories[key] && bodyparts_to_add[key] && bodyparts_to_add[key][MUTANT_INDEX_NAME])
@@ -34,4 +34,4 @@
 			if(!SP?.factual)
 				bodyparts_to_add -= key
 				continue
-	dna.species.mutant_bodyparts = bodyparts_to_add.Copy()
+	dna.mutant_bodyparts = bodyparts_to_add.Copy()

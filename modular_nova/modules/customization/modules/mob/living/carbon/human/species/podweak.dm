@@ -6,7 +6,7 @@
 		TRAIT_PLANT_SAFE,
 		TRAIT_LITERATE,
 	)
-	mutant_bodyparts = list()
+
 	mutant_organs = list() // Removes the pod hair organ from here, messes up unit tests (we handle that differently here)
 	payday_modifier = 1.0
 

@@ -1209,7 +1209,7 @@ mutant_styles: The mutant style - taur bodytype, STYLE_TESHARI, etc. // NOVA EDI
 	*/ // NOVA EDIT REMOVAL END
 	// NOVA EDIT ADDITION START - Nova socks
 	if(socks && num_legs >= 2 && !(underwear_visibility & UNDERWEAR_HIDE_SOCKS))
-		if(!("taur" in dna.species.mutant_bodyparts) || dna.species.mutant_bodyparts["taur"][MUTANT_INDEX_NAME] == SPRITE_ACCESSORY_NONE)
+		if(!(FEATURE_TAUR in dna.mutant_bodyparts) || dna.mutant_bodyparts[FEATURE_TAUR][MUTANT_INDEX_NAME] == SPRITE_ACCESSORY_NONE)
 			var/datum/sprite_accessory/socks/undie_accessory = SSaccessories.socks_list[socks]
 			if(undie_accessory)
 				var/mutable_appearance/socks_overlay

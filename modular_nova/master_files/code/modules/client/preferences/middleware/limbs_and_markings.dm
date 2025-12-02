@@ -60,7 +60,7 @@
 
 
 /datum/preference_middleware/limbs_and_markings/apply_to_human(mob/living/carbon/human/target, datum/preferences/preferences, visuals_only = FALSE)
-	target.dna.species.body_markings = LAZYCOPY(preferences.body_markings)
+	target.dna.body_markings = LAZYCOPY(preferences.body_markings)
 
 	var/list/visited_body_zones = list()
 	for(var/key in preferences.augments)

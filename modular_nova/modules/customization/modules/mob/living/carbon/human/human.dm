@@ -9,9 +9,9 @@
 			if("genitals")
 				var/list/line = list()
 				for(var/genital in GLOB.possible_genitals)
-					if(!dna.species.mutant_bodyparts[genital])
+					if(!dna.mutant_bodyparts[genital])
 						continue
-					var/datum/sprite_accessory/genital/G = SSaccessories.sprite_accessories[genital][dna.species.mutant_bodyparts[genital][MUTANT_INDEX_NAME]]
+					var/datum/sprite_accessory/genital/G = SSaccessories.sprite_accessories[genital][dna.mutant_bodyparts[genital][MUTANT_INDEX_NAME]]
 					if(!G)
 						continue
 					if(G.is_hidden(src))

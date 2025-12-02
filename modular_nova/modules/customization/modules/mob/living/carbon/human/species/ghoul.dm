@@ -3,7 +3,6 @@
 	id = SPECIES_GHOUL
 	examine_limb_id = SPECIES_GHOUL
 	can_have_genitals = FALSE //WHY WOULD YOU WANT TO FUCK ONE OF THESE THINGS?
-	mutant_bodyparts = list("ghoulcolor" = "Tan Necrotic")
 	mutanttongue = /obj/item/organ/tongue/ghoul
 	inherent_traits = list(
 		TRAIT_ADVANCEDTOOLUSER,
@@ -37,6 +36,7 @@
 		FEATURE_TAIL = list("None", FALSE),
 		FEATURE_EARS = list("None", FALSE),
 		FEATURE_LEGS = list("Normal Legs", FALSE),
+		FEATURE_GHOUL_COLOR = list("Tan Necrotic", FALSE),
 	)
 
 /proc/proof_ghoul_features(list/inFeatures)

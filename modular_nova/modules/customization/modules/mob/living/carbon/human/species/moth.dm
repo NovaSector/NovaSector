@@ -1,11 +1,11 @@
 /datum/species/moth
-	mutant_bodyparts = list()
 	inherent_traits = list(
 		TRAIT_MUTANT_COLORS,
 	)
 
 /datum/species/moth/get_default_mutant_bodyparts()
 	return list(
+		FEATURE_MOTH_MARKINGS = list("None", FALSE),
 		FEATURE_EARS = list("None", FALSE),
 		FEATURE_FLUFF = list("Plain", FALSE),
 		FEATURE_WINGS = list("Moth (Plain)", TRUE),

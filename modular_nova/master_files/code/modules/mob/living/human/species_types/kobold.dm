@@ -3,7 +3,7 @@
 	id = SPECIES_KOBOLD
 	inherent_biotypes = MOB_ORGANIC|MOB_HUMANOID|MOB_REPTILE
 	mutant_organs = list()
-	mutant_bodyparts = list()
+
 	mutanttongue = /obj/item/organ/tongue/lizard
 	mutanteyes = /obj/item/organ/eyes/lizard
 	skinned_type = /obj/item/stack/sheet/animalhide/lizard

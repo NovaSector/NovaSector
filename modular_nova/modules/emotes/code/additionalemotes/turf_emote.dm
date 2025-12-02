@@ -57,7 +57,7 @@
 
 		//body parts
 		if(istype(user.get_organ_slot(ORGAN_SLOT_EXTERNAL_TAIL), /obj/item/organ/tail))
-			var/name = human_user.dna.species.mutant_bodyparts[FEATURE_TAIL][MUTANT_INDEX_NAME]
+			var/name = human_user.dna.mutant_bodyparts[FEATURE_TAIL][MUTANT_INDEX_NAME]
 			var/datum/sprite_accessory/tails/tail = SSaccessories.sprite_accessories[FEATURE_TAIL][name]
 			if(tail.fluffy)
 				user.allowed_turfs += "tails"
@@ -122,8 +122,8 @@
 
 			//coloring
 			var/list/finished_list = list()
-			var/list/color_list = human_user.dna.species.mutant_bodyparts[key][MUTANT_INDEX_COLOR_LIST] //identify color
-			var/datum/sprite_accessory/sprite_type = SSaccessories.sprite_accessories[key][human_user.dna.species.mutant_bodyparts[key][MUTANT_INDEX_NAME]] //identify type
+			var/list/color_list = human_user.dna.mutant_bodyparts[key][MUTANT_INDEX_COLOR_LIST] //identify color
+			var/datum/sprite_accessory/sprite_type = SSaccessories.sprite_accessories[key][human_user.dna.mutant_bodyparts[key][MUTANT_INDEX_NAME]] //identify type
 
 			switch(sprite_type.color_src)
 				if(USE_MATRIXED_COLORS)
