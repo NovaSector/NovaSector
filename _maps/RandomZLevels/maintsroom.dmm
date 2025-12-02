@@ -569,6 +569,12 @@
 /obj/machinery/chem_dispenser/drinks/fullupgrade,
 /turf/open/floor/wood,
 /area/awaymission/caves/maintsroom)
+"bX" = (
+/mob/living/simple_animal/hostile/megafauna/clockwork_defender{
+	loot = list(/obj/item/nullrod/claymore/talking/chainsword)
+	},
+/turf/open/floor/bronze/filled,
+/area/awaymission/caves/maintsroom)
 "bY" = (
 /obj/structure/railing{
 	dir = 8
@@ -6529,14 +6535,6 @@
 	},
 /turf/open/floor/plating/rust,
 /area/awaymission/caves/maintsroom)
-"vQ" = (
-/obj/structure/lattice,
-/obj/structure/sign/nanotrasen{
-	pixel_x = 32;
-	dir = 4
-	},
-/turf/open/misc/asteroid/forest/mushroom/green,
-/area/awaymission/caves/maintsroom)
 "vR" = (
 /obj/effect/spawner/random/trash/bacteria,
 /turf/open/floor/plating,
@@ -11595,6 +11593,14 @@
 /obj/structure/flora/tree/palm,
 /turf/open/floor/holofloor/beach,
 /area/awaymission/caves/maintsroom)
+"Nm" = (
+/obj/structure/lattice/catwalk,
+/obj/structure/sign/nanotrasen{
+	pixel_x = 32;
+	dir = 4
+	},
+/turf/open/misc/asteroid/forest/mushroom/green,
+/area/awaymission/caves/maintsroom)
 "Nn" = (
 /obj/item/flashlight/flare/candle/infinite{
 	pixel_x = -5;
@@ -11866,14 +11872,6 @@
 /turf/open/floor/iron/dark/corner{
 	dir = 8
 	},
-/area/awaymission/caves/maintsroom)
-"Ob" = (
-/obj/structure/lattice/catwalk,
-/obj/structure/sign/nanotrasen{
-	pixel_x = 32;
-	dir = 4
-	},
-/turf/open/misc/asteroid/forest/mushroom/green,
 /area/awaymission/caves/maintsroom)
 "Oc" = (
 /obj/effect/mob_spawn/corpse/human/assistant/spanishflu_infection,
@@ -15185,12 +15183,6 @@
 /obj/structure/disposalpipe/segment,
 /turf/open/floor/plating,
 /area/awaymission/caves/maintsroom)
-"Zq" = (
-/mob/living/simple_animal/hostile/megafauna/clockwork_defender{
-	loot = list(/obj/item/nullrod/vibro/talking/chainsword)
-	},
-/turf/open/floor/bronze/filled,
-/area/awaymission/caves/maintsroom)
 "Zr" = (
 /obj/machinery/light/directional/west,
 /obj/machinery/hydroponics/soil/fake_turf,
@@ -15303,6 +15295,14 @@
 /obj/structure/closet/crate/preopen,
 /mob/living/basic/mouse/rat,
 /turf/open/floor/plating/rust,
+/area/awaymission/caves/maintsroom)
+"ZK" = (
+/obj/structure/lattice,
+/obj/structure/sign/nanotrasen{
+	pixel_x = 32;
+	dir = 4
+	},
+/turf/open/misc/asteroid/forest/mushroom/green,
 /area/awaymission/caves/maintsroom)
 "ZL" = (
 /obj/structure/chair/sofa/bench{
@@ -19299,7 +19299,7 @@ Bh
 Bh
 Bh
 NA
-Zq
+bX
 Bh
 Bh
 Bh
@@ -23826,7 +23826,7 @@ GS
 GS
 ec
 ec
-Ob
+Nm
 ec
 am
 am
@@ -25365,7 +25365,7 @@ am
 am
 Xz
 ec
-vQ
+ZK
 am
 am
 GS
