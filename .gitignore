@@ -262,3 +262,4 @@ define_sanity_output.txt
 # Running OpenDream locally
 tgstation.json
 rust_g64.dll
+modular_nova/modules/GAGS/json_configs/pants_shorts_skirts_dresses/windowed_dress1.json
