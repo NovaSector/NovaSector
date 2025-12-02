@@ -8,6 +8,10 @@
 /area/ruin/space/has_grav/powered/nova/scrapheap)
 "ah" = (
 /obj/effect/decal/cleanable/blood,
+/obj/structure/rack/shelf,
+/obj/item/radio,
+/obj/item/radio,
+/obj/item/radio,
 /turf/open/floor/iron/dark,
 /area/ruin/space/has_grav/powered/nova/scrapheap)
 "aq" = (
@@ -66,8 +70,9 @@
 /area/ruin/space/has_grav/powered/nova/scrapheap)
 "cx" = (
 /obj/machinery/light/broken/directional/north,
-/obj/machinery/suit_storage_unit/open,
 /obj/effect/turf_decal/tile/brown/full,
+/obj/structure/closet/crate/large,
+/obj/effect/spawner/random/maintenance/five,
 /turf/open/floor/iron/dark,
 /area/ruin/space/has_grav/powered/nova/scrapheap)
 "cA" = (
@@ -116,8 +121,9 @@
 /turf/closed/indestructible/fakeglass,
 /area/ruin/space/has_grav/powered/nova/scrapheap)
 "dl" = (
-/obj/machinery/suit_storage_unit/open,
 /obj/effect/turf_decal/tile/brown/full,
+/obj/structure/closet/crate/large,
+/obj/effect/spawner/random/entertainment/money_large,
 /turf/open/floor/iron/dark,
 /area/ruin/space/has_grav/powered/nova/scrapheap)
 "dp" = (
@@ -198,17 +204,14 @@
 /turf/template_noop,
 /area/template_noop)
 "fF" = (
-/obj/machinery/porta_turret/syndicate/energy/heavy{
-	faction = list("hostile")
-	},
-/turf/closed/indestructible/titanium/nodiagonal,
+/obj/effect/turf_decal/trimline/blue/filled/line,
+/obj/structure/table,
+/obj/item/stack/sheet/cloth/ten,
+/turf/open/floor/iron/dark,
 /area/ruin/space/has_grav/powered/nova/scrapheap)
 "fU" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/turf_decal/trimline/brown/filled/corner,
-/obj/effect/turf_decal/trimline/brown/filled/corner{
-	dir = 8
-	},
 /obj/effect/turf_decal/trimline/brown/filled/corner{
 	dir = 4
 	},
@@ -306,7 +309,6 @@
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/blood,
 /obj/effect/mob_spawn/corpse/human/cargo_tech,
-/obj/effect/turf_decal/trimline/brown/filled/corner,
 /obj/effect/turf_decal/trimline/brown/filled/corner{
 	dir = 8
 	},
@@ -480,7 +482,9 @@
 	dir = 4
 	},
 /obj/effect/turf_decal/tile/blue/fourcorners,
-/mob/living/basic/trooper/nanotrasen/ranged/smg,
+/mob/living/basic/trooper/nanotrasen/ranged/smg{
+	faction = list("hostile")
+	},
 /turf/open/floor/iron/dark,
 /area/ruin/space/has_grav/powered/nova/scrapheap)
 "mQ" = (
@@ -527,6 +531,8 @@
 /area/ruin/space/has_grav/powered/nova/scrapheap)
 "oz" = (
 /obj/machinery/door/airlock/mining,
+/obj/effect/mapping_helpers/airlock/locked,
+/obj/effect/spawner/random/structure/barricade,
 /turf/open/floor/iron/dark,
 /area/ruin/space/has_grav/powered/nova/scrapheap)
 "oJ" = (
@@ -721,10 +727,9 @@
 /turf/open/floor/iron/white/textured_large,
 /area/ruin/space/has_grav/powered/nova/scrapheap)
 "ui" = (
-/obj/machinery/computer{
-	dir = 1
-	},
-/turf/open/floor/iron/dark,
+/obj/machinery/door/airlock/maintenance,
+/obj/effect/spawner/random/structure/barricade,
+/turf/open/floor/iron,
 /area/ruin/space/has_grav/powered/nova/scrapheap)
 "us" = (
 /obj/machinery/door/airlock/maintenance,
@@ -758,6 +763,10 @@
 "vc" = (
 /obj/structure/table/reinforced,
 /obj/item/megaphone,
+/obj/machinery/button/door/directional/south{
+	id = "scrapheapstorage";
+	name = "cargo shutters"
+	},
 /turf/open/floor/iron/dark/side,
 /area/ruin/space/has_grav/powered/nova/scrapheap)
 "vg" = (
@@ -859,10 +868,9 @@
 /turf/open/floor/iron,
 /area/ruin/space/has_grav/powered/nova/scrapheap)
 "xY" = (
-/obj/structure/rack/shelf,
-/obj/item/radio,
-/obj/item/radio,
-/obj/item/radio,
+/obj/effect/turf_decal/tile/brown/full,
+/obj/structure/closet/crate/large,
+/obj/effect/spawner/random/maintenance/five,
 /turf/open/floor/iron/dark,
 /area/ruin/space/has_grav/powered/nova/scrapheap)
 "yh" = (
@@ -892,8 +900,9 @@
 /turf/closed/wall,
 /area/ruin/space/has_grav/powered/nova/scrapheap)
 "ys" = (
-/obj/structure/rack/shelf,
-/obj/item/storage/toolbox/mechanical,
+/obj/effect/turf_decal/trimline/brown/filled/line{
+	dir = 10
+	},
 /turf/open/floor/iron/dark,
 /area/ruin/space/has_grav/powered/nova/scrapheap)
 "yy" = (
@@ -988,8 +997,10 @@
 /turf/open/floor/iron/dark,
 /area/ruin/space/has_grav/powered/nova/scrapheap)
 "Bq" = (
-/obj/structure/table,
-/obj/item/storage/belt,
+/obj/effect/turf_decal/trimline/blue/filled/corner{
+	dir = 1
+	},
+/obj/effect/spawner/random/structure/crate_loot,
 /turf/open/floor/iron/dark,
 /area/ruin/space/has_grav/powered/nova/scrapheap)
 "BS" = (
@@ -1023,7 +1034,9 @@
 	dir = 1
 	},
 /obj/effect/turf_decal/tile/blue/fourcorners,
-/mob/living/basic/trooper/nanotrasen/ranged/assault,
+/mob/living/basic/trooper/nanotrasen/ranged/assault{
+	faction = list("hostile")
+	},
 /turf/open/floor/iron/dark,
 /area/ruin/space/has_grav/powered/nova/scrapheap)
 "Cu" = (
@@ -1041,7 +1054,12 @@
 /area/ruin/space/has_grav/powered/nova/scrapheap)
 "CH" = (
 /obj/structure/extinguisher_cabinet/directional/north,
-/obj/effect/spawner/random/structure/crate_loot,
+/obj/structure/rack,
+/obj/item/flashlight,
+/obj/item/flashlight{
+	pixel_x = 1;
+	pixel_y = 5
+	},
 /turf/open/floor/iron/dark,
 /area/ruin/space/has_grav/powered/nova/scrapheap)
 "CK" = (
@@ -1134,6 +1152,7 @@
 /obj/effect/turf_decal/trimline/blue/filled/line{
 	dir = 1
 	},
+/obj/structure/table_frame,
 /turf/open/floor/iron/dark,
 /area/ruin/space/has_grav/powered/nova/scrapheap)
 "Ew" = (
@@ -1164,10 +1183,8 @@
 /turf/open/floor/carpet,
 /area/ruin/space/has_grav/powered/nova/scrapheap)
 "EE" = (
-/obj/structure/closet/crate/large,
-/obj/effect/turf_decal/bot,
-/obj/effect/turf_decal/tile/brown/full,
-/obj/effect/spawner/random/entertainment/money_large,
+/obj/structure/table,
+/obj/item/storage/belt/utility/atmostech,
 /turf/open/floor/iron/dark,
 /area/ruin/space/has_grav/powered/nova/scrapheap)
 "EJ" = (
@@ -1197,6 +1214,7 @@
 /area/ruin/space/has_grav/powered/nova/scrapheap)
 "EU" = (
 /obj/machinery/door/airlock/command,
+/obj/effect/mapping_helpers/airlock/locked,
 /turf/open/floor/iron,
 /area/ruin/space/has_grav/powered/nova/scrapheap)
 "EY" = (
@@ -1215,8 +1233,9 @@
 /turf/open/floor/iron/dark,
 /area/ruin/space/has_grav/powered/nova/scrapheap)
 "FE" = (
-/obj/structure/rack/shelf,
-/obj/item/storage/toolbox/electrical,
+/obj/effect/turf_decal/trimline/brown/filled/line{
+	dir = 8
+	},
 /turf/open/floor/iron/dark,
 /area/ruin/space/has_grav/powered/nova/scrapheap)
 "FF" = (
@@ -1265,7 +1284,7 @@
 /turf/open/floor/carpet,
 /area/ruin/space/has_grav/powered/nova/scrapheap)
 "GR" = (
-/obj/structure/table_frame,
+/obj/effect/turf_decal/trimline/brown/filled/line,
 /turf/open/floor/iron/dark,
 /area/ruin/space/has_grav/powered/nova/scrapheap)
 "GU" = (
@@ -1275,7 +1294,10 @@
 /turf/open/floor/iron,
 /area/ruin/space/has_grav/powered/nova/scrapheap)
 "Hj" = (
-/obj/machinery/door/poddoor/shutters/preopen,
+/obj/machinery/door/poddoor/shutters/window{
+	id = "scrapheapstorage";
+	name = "cargo shutters"
+	},
 /turf/open/floor/noslip,
 /area/ruin/space/has_grav/powered/nova/scrapheap)
 "Hk" = (
@@ -1508,6 +1530,7 @@
 /obj/effect/turf_decal/trimline/brown/filled/corner{
 	dir = 8
 	},
+/mob/living/basic/zombie,
 /turf/open/floor/iron/dark,
 /area/ruin/space/has_grav/powered/nova/scrapheap)
 "MA" = (
@@ -1520,6 +1543,7 @@
 /area/ruin/space/has_grav/powered/nova/scrapheap)
 "MC" = (
 /obj/machinery/door/airlock/medical,
+/obj/effect/mapping_helpers/airlock/locked,
 /turf/open/floor/iron/white/side{
 	dir = 1
 	},
@@ -1562,33 +1586,30 @@
 /obj/machinery/porta_turret/syndicate/energy/heavy{
 	faction = list("hostile")
 	},
+/obj/effect/turf_decal/trimline/red/filled,
 /turf/open/floor/iron/dark,
 /area/ruin/space/has_grav/powered/nova/scrapheap)
 "NO" = (
-/obj/structure/closet/crate/secure/engineering,
-/obj/item/crowbar/power,
-/obj/item/multitool/advanced,
-/obj/item/rcd_upgrade/frames,
-/obj/item/screwdriver/advanced,
-/obj/effect/turf_decal/tile/brown/full,
+/obj/effect/turf_decal/trimline/blue/filled/line,
+/obj/item/storage/toolbox/mechanical,
+/obj/structure/rack/shelf,
 /turf/open/floor/iron/dark,
 /area/ruin/space/has_grav/powered/nova/scrapheap)
 "NU" = (
 /obj/effect/decal/cleanable/dirt,
-/mob/living/basic/zombie,
-/obj/effect/turf_decal/trimline/brown/filled/line{
-	dir = 4
-	},
 /obj/effect/turf_decal/trimline/brown/filled/line{
 	dir = 8
 	},
 /turf/open/floor/iron/dark,
 /area/ruin/space/has_grav/powered/nova/scrapheap)
 "Oc" = (
-/obj/structure/closet/crate/large,
-/obj/effect/turf_decal/bot,
-/obj/effect/spawner/random/maintenance/five,
+/obj/structure/closet/crate/secure/engineering,
+/obj/item/crowbar/power,
+/obj/item/multitool/advanced,
+/obj/item/rcd_upgrade/frames,
+/obj/item/screwdriver/advanced,
 /obj/effect/turf_decal/tile/brown/full,
+/obj/effect/turf_decal/bot,
 /turf/open/floor/iron/dark,
 /area/ruin/space/has_grav/powered/nova/scrapheap)
 "Om" = (
@@ -1645,17 +1666,15 @@
 /turf/open/floor/plating,
 /area/ruin/space/has_grav/powered/nova/scrapheap)
 "Qb" = (
-/obj/structure/table,
-/obj/item/stack/sheet/cloth/ten,
+/obj/effect/turf_decal/trimline/blue/filled/line,
+/obj/item/storage/toolbox/electrical,
+/obj/structure/rack/shelf,
 /turf/open/floor/iron/dark,
 /area/ruin/space/has_grav/powered/nova/scrapheap)
 "Qe" = (
-/obj/structure/rack,
-/obj/item/flashlight,
-/obj/item/flashlight{
-	pixel_x = 1;
-	pixel_y = 5
-	},
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/turf_decal/trimline/blue/filled/line,
+/obj/effect/spawner/random/structure/crate_loot,
 /turf/open/floor/iron/dark,
 /area/ruin/space/has_grav/powered/nova/scrapheap)
 "Qg" = (
@@ -1695,11 +1714,10 @@
 /turf/open/floor/carpet,
 /area/ruin/space/has_grav/powered/nova/scrapheap)
 "QI" = (
-/obj/structure/closet/crate/large,
-/obj/effect/turf_decal/bot,
+/obj/machinery/light/red/directional/north,
 /obj/effect/decal/cleanable/dirt,
-/obj/effect/spawner/random/maintenance/five,
-/obj/effect/turf_decal/tile/brown/full,
+/obj/effect/turf_decal/trimline/blue/filled/line,
+/obj/machinery/computer,
 /turf/open/floor/iron/dark,
 /area/ruin/space/has_grav/powered/nova/scrapheap)
 "QM" = (
@@ -1714,8 +1732,9 @@
 /turf/open/floor/iron/dark,
 /area/ruin/space/has_grav/powered/nova/scrapheap)
 "RI" = (
-/obj/structure/table,
-/obj/machinery/cell_charger_multi,
+/obj/effect/turf_decal/trimline/brown/filled/line{
+	dir = 6
+	},
 /turf/open/floor/iron/dark,
 /area/ruin/space/has_grav/powered/nova/scrapheap)
 "RW" = (
@@ -1758,8 +1777,9 @@
 /area/ruin/space/has_grav/powered/nova/scrapheap)
 "Tn" = (
 /obj/effect/decal/cleanable/dirt,
-/obj/effect/spawner/random/structure/crate_loot,
 /obj/effect/turf_decal/trimline/blue/filled/line,
+/obj/structure/table,
+/obj/machinery/cell_charger_multi,
 /turf/open/floor/iron/dark,
 /area/ruin/space/has_grav/powered/nova/scrapheap)
 "Tv" = (
@@ -1844,6 +1864,7 @@
 "VA" = (
 /obj/machinery/door/airlock/highsecurity,
 /obj/effect/mapping_helpers/airlock/abandoned,
+/obj/effect/mapping_helpers/airlock/locked,
 /turf/open/floor/iron,
 /area/ruin/space/has_grav/powered/nova/scrapheap)
 "VU" = (
@@ -1965,8 +1986,9 @@
 /turf/open/floor/iron/showroomfloor,
 /area/ruin/space/has_grav/powered/nova/scrapheap)
 "ZU" = (
-/obj/effect/decal/cleanable/dirt,
-/obj/effect/turf_decal/trimline/brown/filled/line,
+/obj/effect/turf_decal/trimline/brown/filled/line{
+	dir = 4
+	},
 /turf/open/floor/iron/dark,
 /area/ruin/space/has_grav/powered/nova/scrapheap)
 
@@ -2200,7 +2222,7 @@ Ou
 Ou
 Ou
 Ou
-us
+ui
 Ou
 Ou
 cp
@@ -2384,7 +2406,7 @@ IH
 IH
 EJ
 Ou
-Mf
+Qe
 oP
 wV
 uH
@@ -2413,7 +2435,7 @@ gm
 Ou
 Tn
 TH
-ui
+uH
 Sz
 Sz
 Sz
@@ -2438,9 +2460,9 @@ QB
 ED
 tQ
 Ou
-cp
+fF
 TH
-GR
+uH
 FW
 NH
 Sz
@@ -2465,7 +2487,7 @@ RX
 UX
 Jh
 Ou
-Dh
+QI
 oP
 Fj
 Sz
@@ -2492,7 +2514,7 @@ Qn
 FF
 Zg
 Ou
-cp
+Qb
 Cu
 uH
 yA
@@ -2519,7 +2541,7 @@ Ou
 Ou
 Ou
 Ou
-cp
+NO
 oP
 vl
 uH
@@ -2528,7 +2550,7 @@ wV
 Mf
 vq
 iB
-KP
+Bq
 Ou
 zB
 Gq
@@ -2577,7 +2599,7 @@ Mf
 TH
 wV
 uH
-uH
+YG
 uH
 Mf
 TH
@@ -2603,9 +2625,9 @@ Ou
 hc
 TH
 uH
-RI
-Ou
-Qe
+uH
+uH
+uH
 Mf
 cE
 Ou
@@ -2630,17 +2652,17 @@ Ou
 Dh
 oP
 uH
-Qb
-Ou
-Bq
+uH
+uH
+uH
 Mf
 TH
 Hj
 iy
 KD
-NO
-zC
-QI
+JM
+Du
+nR
 We
 fw
 fw
@@ -2657,17 +2679,17 @@ Ou
 Tz
 oP
 uH
-FE
-Ou
-RA
+uH
+uH
+uH
 Mf
 iH
 Hj
 Mq
 hN
-VU
+FE
 NU
-IM
+ys
 We
 fw
 fw
@@ -2684,17 +2706,17 @@ MC
 EL
 lN
 jt
-ys
-Ou
-xY
+uH
+uH
+uH
 Mf
 TH
 Hj
 Ee
-ZU
-JM
-Du
-nR
+wV
+NH
+uH
+GR
 We
 fw
 fw
@@ -2711,7 +2733,7 @@ Ou
 DN
 iR
 TH
-uH
+RA
 yq
 CH
 cp
@@ -2719,9 +2741,9 @@ TH
 Hj
 JU
 fU
-VU
-VU
-qM
+ZU
+ZU
+RI
 We
 fw
 fw
@@ -2739,12 +2761,12 @@ Ou
 ga
 TH
 wV
-uH
+EE
 ah
 cp
 BS
 Ou
-dl
+xY
 lT
 gd
 kH
@@ -2801,7 +2823,7 @@ Ou
 dl
 yp
 Xw
-EE
+zC
 gX
 Ou
 Ou
@@ -2847,7 +2869,7 @@ Ou
 Ou
 Ou
 EU
-fF
+Ou
 EU
 Ou
 Ou
