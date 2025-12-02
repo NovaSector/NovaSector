@@ -20,3 +20,9 @@
       than unconscious if you're dead
   vinylspiders:
   - bugfix: the 'use subtler' emote toggle in the interactions pane is now functional
+2025-12-02:
+  vinylspiders:
+  - bugfix: crates will no longer have a chance to be destroyed when falling from
+      a dismantled cargo shelf
+  - bugfix: crates should no longer get stuck in shelves, and you can now unload 1
+      crate onto where you are standing.
