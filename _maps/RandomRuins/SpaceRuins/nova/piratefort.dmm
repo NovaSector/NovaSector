@@ -800,8 +800,8 @@
 /area/ruin/space/has_grav/powered)
 "zk" = (
 /obj/structure/table,
-/obj/item/storage/belt,
 /obj/effect/turf_decal/tile/dark_red/fourcorners,
+/obj/item/storage/belt/utility/atmostech,
 /turf/open/floor/iron/dark,
 /area/ruin/space/has_grav/powered)
 "zx" = (

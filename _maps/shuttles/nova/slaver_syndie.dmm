@@ -547,7 +547,6 @@
 	name = "Equipment Locker";
 	req_access = list("syndicate")
 	},
-/obj/item/storage/belt,
 /obj/item/holosign_creator/atmos,
 /obj/item/stack/cable_coil,
 /obj/item/analyzer,
@@ -563,6 +562,7 @@
 /obj/effect/turf_decal/trimline/brown/filled/line{
 	dir = 1
 	},
+/obj/item/storage/belt/utility/atmostech,
 /turf/open/floor/iron/dark,
 /area/shuttle/syndicate/slaver)
 "AK" = (
