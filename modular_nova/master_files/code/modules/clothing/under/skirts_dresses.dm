@@ -300,13 +300,13 @@
 
 /obj/item/clothing/under/dress/nova/windowed_dress
 	name = "windowed dress"
-	desc = "PLACEHOLDER"
+	desc = "A chic, dark dress with a tastefully placed collar and straps, creating a 'windowed' effect that is both alluring and fashionable."
 	icon = 'icons/map_icons/clothing/under/dress.dmi'
-	icon_state = "/obj/item/clothing/under/dress/nova/windowed_dress"
+	icon_state = "windowed_dress"
 	post_init_icon_state = "windowed_dress"
 	greyscale_config = /datum/greyscale_config/windowed_dress
 	greyscale_config_worn = /datum/greyscale_config/windowed_dress/worn
-	greyscale_colors = "#222222"
+	greyscale_colors = "#424242#424242#424242"
 	flags_1 = IS_PLAYER_COLORABLE_1
 	body_parts_covered = CHEST|GROIN|LEGS
 
