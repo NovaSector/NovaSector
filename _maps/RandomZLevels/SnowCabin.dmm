@@ -1529,10 +1529,6 @@
 /obj/effect/decal/cleanable/blood/gibs,
 /turf/open/floor/carpet,
 /area/awaymission/cabin/caves/mountain)
-"hL" = (
-/obj/structure/sign/nanotrasen,
-/turf/closed/wall/mineral/snow,
-/area/awaymission/cabin/caves/mountain)
 "hM" = (
 /turf/closed/wall/mineral/snow,
 /area/awaymission/cabin/caves/mountain)
@@ -2886,6 +2882,16 @@
 /obj/structure/cable,
 /turf/open/floor/carpet,
 /area/awaymission/cabin)
+"rE" = (
+/obj/effect/light_emitter{
+	name = "cave light";
+	set_cap = 3;
+	set_luminosity = 6;
+	light_color = "#9bbbff"
+	},
+/obj/structure/sign/nanotrasen/directional/north,
+/turf/open/misc/asteroid/snow/snow_cabin,
+/area/awaymission/cabin/caves)
 "rK" = (
 /obj/effect/decal/cleanable/blood/gibs/body,
 /obj/effect/light_emitter{
@@ -5495,6 +5501,10 @@
 	},
 /turf/open/floor/plating/snowed/snow_cabin,
 /area/awaymission/cabin/snowforest/sovietsurface)
+"YK" = (
+/obj/structure/sign/nanotrasen/directional/north,
+/turf/open/misc/ice/smooth,
+/area/awaymission/cabin/caves)
 "YL" = (
 /obj/effect/turf_decal/weather/snow/corner{
 	dir = 9
@@ -5524,7 +5534,6 @@
 /turf/open/floor/plating/snowed/smoothed,
 /area/awaymission/cabin/caves)
 "Zb" = (
-/obj/structure/sign/nanotrasen,
 /obj/effect/light_emitter{
 	set_cap = 3;
 	set_luminosity = 6;
@@ -17108,7 +17117,7 @@ vh
 vh
 vh
 Zb
-Su
+rE
 oz
 oz
 oz
@@ -18907,7 +18916,7 @@ vh
 vh
 vh
 Zb
-Su
+rE
 oz
 oz
 oz
@@ -48279,8 +48288,8 @@ gx
 gx
 gx
 gx
-hL
-PV
+hM
+YK
 PV
 PV
 PV
@@ -49307,8 +49316,8 @@ gx
 gx
 gx
 gx
-hL
-PV
+hM
+YK
 PV
 PV
 PV

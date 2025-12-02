@@ -31,11 +31,8 @@
 /turf/open/floor/mineral/titanium/blue,
 /area/ruin/space/nt_commsbuoy)
 "el" = (
-/obj/structure/sign/nanotrasen{
-	pixel_y = 32;
-	dir = 1
-	},
 /obj/machinery/light/small/directional/north,
+/obj/structure/sign/nanotrasen/directional/north,
 /turf/open/floor/mineral/titanium,
 /area/ruin/space/nt_commsbuoy)
 "et" = (
@@ -149,17 +146,12 @@
 /turf/open/floor/plating,
 /area/ruin/space/nt_commsbuoy)
 "jy" = (
-/obj/structure/sign/nanotrasen{
-	pixel_y = -32
-	},
 /obj/machinery/light/small/directional/south,
+/obj/structure/sign/nanotrasen/directional/south,
 /turf/open/floor/mineral/titanium,
 /area/ruin/space/nt_commsbuoy)
 "kD" = (
-/obj/structure/sign/nanotrasen{
-	pixel_x = -32;
-	dir = 8
-	},
+/obj/structure/sign/nanotrasen/directional/west,
 /turf/open/floor/mineral/titanium,
 /area/ruin/space/nt_commsbuoy)
 "kZ" = (
@@ -415,10 +407,7 @@
 /area/space/nearstation)
 "Iy" = (
 /obj/structure/fluff/commsbuoy_processor,
-/obj/structure/sign/nanotrasen{
-	pixel_x = 32;
-	dir = 4
-	},
+/obj/structure/sign/nanotrasen/directional/east,
 /turf/open/floor/mineral/titanium/blue,
 /area/ruin/space/nt_commsbuoy)
 "II" = (
@@ -439,10 +428,6 @@
 /turf/template_noop,
 /area/space/nearstation)
 "JB" = (
-/obj/structure/sign/nanotrasen{
-	pixel_x = -32;
-	dir = 8
-	},
 /obj/structure/rack,
 /obj/item/clothing/suit/space/syndicate/orange{
 	pixel_x = 6;
@@ -452,6 +437,7 @@
 	pixel_x = 9;
 	pixel_y = -5
 	},
+/obj/structure/sign/nanotrasen/directional/west,
 /turf/open/floor/mineral/titanium,
 /area/ruin/space/nt_commsbuoy)
 "Kr" = (

@@ -115,6 +115,7 @@
 "fm" = (
 /obj/effect/spawner/random/vending/snackvend,
 /obj/effect/turf_decal/box,
+/obj/structure/sign/nanotrasen/directional/west,
 /turf/open/floor/iron/dark,
 /area/shuttle/escape)
 "fS" = (
@@ -244,6 +245,11 @@
 	dir = 10
 	},
 /turf/open/floor/carpet/red,
+/area/shuttle/escape)
+"lx" = (
+/obj/structure/chair/comfy/shuttle,
+/obj/structure/sign/nanotrasen/directional/west,
+/turf/open/floor/mineral/titanium,
 /area/shuttle/escape)
 "ly" = (
 /obj/effect/decal/cleanable/blood/tracks{
@@ -427,10 +433,6 @@
 	},
 /turf/open/floor/mineral/silver,
 /area/shuttle/escape)
-"qM" = (
-/obj/structure/sign/nanotrasen,
-/turf/closed/wall/mineral/titanium/nodiagonal,
-/area/shuttle/escape)
 "qW" = (
 /obj/effect/turf_decal/siding{
 	dir = 10
@@ -471,6 +473,10 @@
 	},
 /obj/effect/turf_decal/siding/yellow,
 /turf/open/floor/carpet/red,
+/area/shuttle/escape)
+"uy" = (
+/obj/structure/sign/nanotrasen/directional/south,
+/turf/open/floor/wood,
 /area/shuttle/escape)
 "vi" = (
 /obj/structure/window/reinforced/spawner/directional/east,
@@ -539,6 +545,10 @@
 	pixel_y = 29
 	},
 /turf/open/floor/iron/dark,
+/area/shuttle/escape)
+"xd" = (
+/obj/structure/sign/nanotrasen/directional/north,
+/turf/open/floor/mineral/titanium,
 /area/shuttle/escape)
 "xg" = (
 /obj/structure/sign/painting/library,
@@ -697,6 +707,7 @@
 /area/shuttle/escape)
 "EF" = (
 /obj/item/kirbyplants/organic/plant16,
+/obj/structure/sign/nanotrasen/directional/north,
 /turf/open/floor/wood,
 /area/shuttle/escape)
 "Fi" = (
@@ -811,6 +822,12 @@
 /obj/structure/table/wood/fancy/royalblue,
 /obj/item/hourglass,
 /turf/open/floor/carpet/black,
+/area/shuttle/escape)
+"MM" = (
+/obj/structure/closet/emcloset/anchored,
+/obj/effect/turf_decal/bot,
+/obj/structure/sign/nanotrasen/directional/south,
+/turf/open/floor/iron/dark,
 /area/shuttle/escape)
 "MO" = (
 /obj/effect/turf_decal/siding/wood{
@@ -1271,7 +1288,7 @@ iN
 Cz
 "}
 (9,1,1) = {"
-qM
+Oa
 Oa
 aX
 Uu
@@ -1293,7 +1310,7 @@ Oa
 mc
 Oa
 Oa
-qM
+Oa
 "}
 (10,1,1) = {"
 mz
@@ -1317,7 +1334,7 @@ cu
 cu
 Yp
 Ty
-PP
+lx
 mz
 "}
 (11,1,1) = {"
@@ -1349,8 +1366,8 @@ mz
 mz
 NN
 eW
-RZ
-qM
+uy
+Oa
 mz
 mz
 Ws
@@ -1364,14 +1381,14 @@ Oa
 Ws
 mz
 mz
-qM
-Yp
+Oa
+xd
 Yp
 PP
 mz
 "}
 (13,1,1) = {"
-qM
+Oa
 Oa
 FJ
 RZ
@@ -1392,8 +1409,8 @@ Bj
 mz
 Yp
 Yp
-oc
-qM
+MM
+Oa
 "}
 (14,1,1) = {"
 Oa

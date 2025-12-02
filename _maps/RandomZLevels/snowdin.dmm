@@ -5370,9 +5370,7 @@
 /area/awaymission/snowdin/post/mining_main/mechbay)
 "tQ" = (
 /obj/machinery/light/small/directional/south,
-/obj/structure/sign/nanotrasen{
-	pixel_y = -32
-	},
+/obj/structure/sign/nanotrasen/directional/south,
 /turf/open/misc/asteroid/snow/ice,
 /area/awaymission/snowdin/cave/cavern)
 "tR" = (
@@ -5427,11 +5425,8 @@
 /turf/open/floor/plating,
 /area/awaymission/snowdin/post/cavern1)
 "un" = (
-/obj/structure/sign/nanotrasen{
-	pixel_x = 32;
-	dir = 4
-	},
 /obj/machinery/light/small/broken/directional/east,
+/obj/structure/sign/nanotrasen/directional/east,
 /turf/open/floor/plating/snowed/cavern,
 /area/awaymission/snowdin/post/cavern2)
 "up" = (
@@ -5771,7 +5766,6 @@
 /turf/open/floor/plating,
 /area/awaymission/snowdin/post/broken_shuttle)
 "vO" = (
-/obj/structure/sign/nanotrasen,
 /turf/closed/wall,
 /area/awaymission/snowdin/outside)
 "vP" = (
@@ -5782,16 +5776,13 @@
 	},
 /turf/open/floor/plating,
 /area/awaymission/snowdin/post/mining_main/mechbay)
-"vR" = (
-/obj/structure/sign/nanotrasen,
-/turf/closed/wall/mineral/titanium,
-/area/awaymission/snowdin/post/broken_shuttle)
 "vT" = (
 /obj/structure/chair,
 /turf/open/floor/mineral/titanium/blue,
 /area/awaymission/snowdin/post/broken_shuttle)
 "vU" = (
 /obj/item/chair,
+/obj/structure/sign/nanotrasen/directional/east,
 /turf/open/floor/mineral/titanium/blue,
 /area/awaymission/snowdin/post/broken_shuttle)
 "vW" = (
@@ -5810,6 +5801,7 @@
 /obj/structure/chair{
 	dir = 1
 	},
+/obj/structure/sign/nanotrasen/directional/west,
 /turf/open/floor/mineral/titanium/blue,
 /area/awaymission/snowdin/post/broken_shuttle)
 "wc" = (
@@ -7899,13 +7891,6 @@
 /obj/item/stack/ore/iron,
 /turf/closed/mineral/iron/ice,
 /area/awaymission/snowdin/cave/cavern)
-"EW" = (
-/obj/structure/sign/nanotrasen,
-/obj/structure/fence{
-	dir = 4
-	},
-/turf/open/misc/asteroid/snow,
-/area/awaymission/snowdin/outside)
 "EX" = (
 /obj/item/pickaxe/drill{
 	pixel_x = 3;
@@ -8168,6 +8153,7 @@
 	dir = 4
 	},
 /obj/structure/table,
+/obj/structure/sign/nanotrasen/directional/north,
 /turf/open/floor/iron,
 /area/awaymission/snowdin/post/mining_main/mechbay)
 "GJ" = (
@@ -8403,6 +8389,7 @@
 /obj/effect/turf_decal/stripes/corner{
 	dir = 1
 	},
+/obj/structure/sign/nanotrasen/directional/north,
 /turf/open/floor/iron,
 /area/awaymission/snowdin/post/mining_main/mechbay)
 "HS" = (
@@ -8961,6 +8948,11 @@
 	},
 /turf/open/floor/iron,
 /area/awaymission/snowdin/post/mining_main)
+"KS" = (
+/obj/structure/flora/grass/both/style_random,
+/obj/structure/sign/nanotrasen/directional/north,
+/turf/open/misc/asteroid/snow,
+/area/awaymission/snowdin/outside)
 "KT" = (
 /obj/effect/turf_decal/stripes/line{
 	dir = 1
@@ -9208,6 +9200,11 @@
 	temperature = 120
 	},
 /area/awaymission/snowdin/cave/cavern)
+"Md" = (
+/obj/structure/flora/tree/stump,
+/obj/structure/sign/nanotrasen/directional/north,
+/turf/open/misc/asteroid/snow,
+/area/awaymission/snowdin/outside)
 "Mg" = (
 /obj/structure/table,
 /obj/item/clothing/neck/stethoscope,
@@ -9240,6 +9237,15 @@
 /obj/structure/cable,
 /turf/open/floor/iron,
 /area/awaymission/snowdin/post/engineering)
+"Mn" = (
+/obj/effect/turf_decal/weather/snow,
+/obj/effect/turf_decal/weather/snow/corner{
+	dir = 5
+	},
+/obj/effect/turf_decal/tile/neutral/fourcorners,
+/obj/structure/sign/nanotrasen/directional/north,
+/turf/open/floor/iron/dark/snowdin,
+/area/awaymission/snowdin/outside)
 "Mo" = (
 /mob/living/basic/mining/basilisk,
 /turf/open/misc/asteroid/snow{
@@ -9826,6 +9832,7 @@
 "PL" = (
 /obj/structure/chair,
 /obj/machinery/light/small/directional/west,
+/obj/structure/sign/nanotrasen/directional/west,
 /turf/open/floor/mineral/titanium/blue,
 /area/awaymission/snowdin/post/broken_shuttle)
 "PM" = (
@@ -10794,13 +10801,6 @@
 /obj/structure/flora/rock/pile/icy/style_random,
 /turf/open/misc/asteroid/snow/ice,
 /area/awaymission/snowdin/cave/cavern)
-"Va" = (
-/obj/structure/fence{
-	dir = 4
-	},
-/obj/structure/sign/nanotrasen,
-/turf/open/misc/asteroid/snow,
-/area/awaymission/snowdin/outside)
 "Vb" = (
 /obj/effect/decal/cleanable/blood/old,
 /obj/effect/mob_spawn/corpse/human/syndicatesoldier,
@@ -10890,18 +10890,9 @@
 /obj/effect/decal/remains/human,
 /turf/open/misc/asteroid/snow,
 /area/awaymission/snowdin/cave)
-"Vy" = (
-/obj/structure/sign/nanotrasen{
-	pixel_y = -32
-	},
-/turf/open/misc/asteroid/snow/ice,
-/area/awaymission/snowdin/cave/cavern)
 "Vz" = (
 /obj/machinery/light/small/directional/east,
-/obj/structure/sign/nanotrasen{
-	pixel_x = 32;
-	dir = 4
-	},
+/obj/structure/sign/nanotrasen/directional/east,
 /turf/open/floor/plating/snowed/cavern,
 /area/awaymission/snowdin/post/cavern2)
 "VB" = (
@@ -10929,13 +10920,6 @@
 /obj/structure/cable,
 /turf/open/floor/iron,
 /area/awaymission/snowdin/post/hydro)
-"VO" = (
-/obj/machinery/light/small/directional/north,
-/obj/structure/sign/nanotrasen{
-	pixel_y = 32
-	},
-/turf/open/floor/plating/snowed/cavern,
-/area/awaymission/snowdin/cave/cavern)
 "VP" = (
 /obj/effect/spawner/random/structure/crate_abandoned,
 /obj/effect/turf_decal/tile/neutral/fourcorners,
@@ -11170,6 +11154,7 @@
 	dir = 1
 	},
 /obj/machinery/light/small/directional/east,
+/obj/structure/sign/nanotrasen/directional/east,
 /turf/open/floor/mineral/titanium/blue,
 /area/awaymission/snowdin/post/broken_shuttle)
 "Xk" = (
@@ -11220,6 +11205,15 @@
 /obj/effect/turf_decal/tile/neutral/fourcorners,
 /turf/open/floor/iron/dark/snowdin,
 /area/awaymission/snowdin/cave)
+"XF" = (
+/obj/effect/light_emitter{
+	name = "outdoor light";
+	set_cap = 3;
+	set_luminosity = 6
+	},
+/obj/structure/sign/nanotrasen/directional/north,
+/turf/open/misc/asteroid/snow,
+/area/awaymission/snowdin/outside)
 "XI" = (
 /obj/effect/spawner/random/exotic/snow_gear,
 /turf/open/misc/asteroid/snow,
@@ -11326,10 +11320,7 @@
 /area/awaymission/snowdin/outside)
 "Yg" = (
 /obj/machinery/light/small/directional/north,
-/obj/structure/sign/nanotrasen{
-	pixel_y = 32;
-	dir = 1
-	},
+/obj/structure/sign/nanotrasen/directional/north,
 /turf/open/floor/plating/snowed/cavern,
 /area/awaymission/snowdin/cave/cavern)
 "Yh" = (
@@ -11567,6 +11558,10 @@
 /obj/machinery/airalarm/directional/north,
 /turf/open/floor/iron/dark,
 /area/awaymission/snowdin/post/custodials)
+"ZD" = (
+/obj/structure/sign/nanotrasen/directional/north,
+/turf/open/misc/asteroid/snow,
+/area/awaymission/snowdin/outside)
 "ZE" = (
 /obj/structure/fence/corner{
 	dir = 4
@@ -20209,9 +20204,9 @@ Zy
 Zy
 Zy
 vL
-vR
+vL
 vX
-vR
+vL
 vL
 Zy
 Zy
@@ -20271,7 +20266,7 @@ Zy
 Zy
 YE
 vO
-TI
+KS
 Zy
 Zy
 Zy
@@ -21237,9 +21232,9 @@ Zy
 Zy
 Zy
 vL
-vR
+vL
 vX
-vR
+vL
 vL
 Zy
 Zy
@@ -21782,8 +21777,8 @@ Zy
 Zy
 Zy
 Zy
-Va
-Tr
+SS
+Mn
 YT
 YT
 YT
@@ -21813,7 +21808,7 @@ Zy
 YE
 Zy
 vO
-Qj
+XF
 Zy
 Zy
 Zy
@@ -21959,8 +21954,8 @@ dX
 dX
 Zy
 Zy
-EW
-Zy
+SS
+ZD
 Zy
 Zy
 Cu
@@ -22641,8 +22636,8 @@ Zy
 Zy
 Zy
 Zy
-Va
-Zy
+SS
+ZD
 Zy
 Zy
 Zy
@@ -23324,8 +23319,8 @@ YE
 Zy
 Zy
 Zy
-Va
-Zy
+SS
+ZD
 Zy
 Zy
 Qj
@@ -23501,8 +23496,8 @@ Cu
 Zy
 Zy
 dX
-EW
-Zy
+SS
+ZD
 Zy
 Zy
 Zy
@@ -24183,8 +24178,8 @@ Zy
 Zy
 Wp
 Zy
-Va
-ZX
+SS
+Md
 Zy
 Zy
 Zy
@@ -35557,8 +35552,8 @@ ai
 ai
 ai
 Zy
-EW
-Zy
+SS
+ZD
 Zy
 Zy
 Zy
@@ -35828,8 +35823,8 @@ Zy
 dX
 dX
 Zy
-EW
-Zy
+SS
+ZD
 Zy
 Zy
 Zy
@@ -37356,8 +37351,8 @@ ai
 ai
 ai
 Zy
-EW
-Zy
+SS
+ZD
 Zy
 Zy
 Zy
@@ -37370,8 +37365,8 @@ Zy
 ZK
 Zy
 Zy
-EW
-Zy
+SS
+ZD
 Zy
 Zy
 Zy
@@ -59400,7 +59395,7 @@ WN
 WN
 WN
 WN
-Vy
+WN
 Gk
 GI
 Hc
@@ -61456,7 +61451,7 @@ WN
 WN
 Nz
 WN
-Vy
+WN
 Gk
 HR
 Hi
@@ -64198,7 +64193,7 @@ wE
 xW
 zI
 xW
-VO
+Yg
 At
 fr
 fr

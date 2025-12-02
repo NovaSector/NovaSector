@@ -569,12 +569,6 @@
 /obj/machinery/chem_dispenser/drinks/fullupgrade,
 /turf/open/floor/wood,
 /area/awaymission/caves/maintsroom)
-"bX" = (
-/mob/living/simple_animal/hostile/megafauna/clockwork_defender{
-	loot = list(/obj/item/nullrod/claymore/talking/chainsword)
-	},
-/turf/open/floor/bronze/filled,
-/area/awaymission/caves/maintsroom)
 "bY" = (
 /obj/structure/railing{
 	dir = 8
@@ -999,6 +993,11 @@
 /turf/open/floor/engine{
 	slowdown = 2
 	},
+/area/awaymission/caves/maintsroom)
+"dv" = (
+/obj/structure/lattice,
+/obj/structure/sign/nanotrasen/directional/east,
+/turf/open/misc/asteroid/forest/mushroom/green,
 /area/awaymission/caves/maintsroom)
 "dx" = (
 /obj/machinery/airalarm/directional/north,
@@ -5246,6 +5245,11 @@
 	dir = 4
 	},
 /turf/open/floor/wood,
+/area/awaymission/caves/maintsroom)
+"rq" = (
+/obj/structure/lattice/catwalk,
+/obj/structure/sign/nanotrasen/directional/east,
+/turf/open/misc/asteroid/forest/mushroom/green,
 /area/awaymission/caves/maintsroom)
 "rr" = (
 /obj/item/food/cheese/firm_cheese,
@@ -10821,6 +10825,12 @@
 	},
 /turf/open/floor/plating,
 /area/awaymission/caves/maintsroom)
+"KL" = (
+/mob/living/simple_animal/hostile/megafauna/clockwork_defender{
+	loot = list(/obj/item/nullrod/claymore/talking/chainsword)
+	},
+/turf/open/floor/bronze/filled,
+/area/awaymission/caves/maintsroom)
 "KN" = (
 /obj/structure/fluff/tram_rail/anchor,
 /obj/structure/fluff/tram_rail,
@@ -11592,14 +11602,6 @@
 "Nk" = (
 /obj/structure/flora/tree/palm,
 /turf/open/floor/holofloor/beach,
-/area/awaymission/caves/maintsroom)
-"Nm" = (
-/obj/structure/lattice/catwalk,
-/obj/structure/sign/nanotrasen{
-	pixel_x = 32;
-	dir = 4
-	},
-/turf/open/misc/asteroid/forest/mushroom/green,
 /area/awaymission/caves/maintsroom)
 "Nn" = (
 /obj/item/flashlight/flare/candle/infinite{
@@ -15295,14 +15297,6 @@
 /obj/structure/closet/crate/preopen,
 /mob/living/basic/mouse/rat,
 /turf/open/floor/plating/rust,
-/area/awaymission/caves/maintsroom)
-"ZK" = (
-/obj/structure/lattice,
-/obj/structure/sign/nanotrasen{
-	pixel_x = 32;
-	dir = 4
-	},
-/turf/open/misc/asteroid/forest/mushroom/green,
 /area/awaymission/caves/maintsroom)
 "ZL" = (
 /obj/structure/chair/sofa/bench{
@@ -19299,7 +19293,7 @@ Bh
 Bh
 Bh
 NA
-bX
+KL
 Bh
 Bh
 Bh
@@ -23826,7 +23820,7 @@ GS
 GS
 ec
 ec
-Nm
+rq
 ec
 am
 am
@@ -25365,7 +25359,7 @@ am
 am
 Xz
 ec
-ZK
+dv
 am
 am
 GS
