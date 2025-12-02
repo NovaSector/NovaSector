@@ -127,7 +127,7 @@
 
 /obj/item/ash_seed/proc/harm_user(mob/living/user, sent_message, damage_amount)
 	to_chat(user, span_warning(sent_message))
-	user.adjustBruteLoss(damage_amount)
+	user.adjust_brute_loss(damage_amount)
 	if(!do_after(user, 4 SECONDS, target = src))
 		to_chat(user, span_warning("You stop the process of planting [src]!"))
 		return FALSE

@@ -3,6 +3,9 @@
 #define DAMAGE_WATER_STACKS 5
 /// This is the level of waterstacks that prevent a slimeperson from regenerating, doing minimal bloodloss in the process.
 #define REGEN_WATER_STACKS 1
+// For their passive healing
+#define SPECIES_SLIME_PASSIVE_REGEN_BRUTE 0.6
+#define SPECIES_SLIME_PASSIVE_REGEN_BURN 0.5
 
 /datum/species/jelly
 	mutant_bodyparts = list()
@@ -142,7 +145,7 @@
 			iter_wound.on_xadone(4 * REM * seconds_per_tick)
 			organ_owner.reagents.remove_reagent(chem.type, min(chem.volume * 0.22, 10))
 		if(organ_owner.blood_volume > BLOOD_VOLUME_SLIME_SPLIT)
-			organ_owner.adjustOrganLoss(
+			organ_owner.adjust_organ_loss(
 			pick(organs_we_mend),
 			- 2 * seconds_per_tick,
 		)
@@ -376,10 +379,10 @@
 	// Determine if water-breathing logic should be inverted
 	var/inverted = HAS_TRAIT(slime, TRAIT_WATER_BREATHING)
 	var/blood_units_to_lose = 0
-	
+
 	if(inverted)
 		// Water-breathing slimes: damaged when dry, heal only when wet
-		if(wetness_amount <= REGEN_WATER_STACKS) 
+		if(wetness_amount <= REGEN_WATER_STACKS)
 			blood_units_to_lose = 2 * seconds_per_tick
 			healing = FALSE
 			if(SPT_PROB(25, seconds_per_tick))
@@ -387,8 +390,8 @@
 					span_danger("[slime]'s form begins to lose cohesion, seemingly drying out!"),
 					span_warning("Your body loses cohesion as it dries, only immersion can restore it!"),
 				)
-		
-	else 
+
+	else
 		// Normal slimes: damaged when too wet, cannot heal if too wet
 		if(wetness_amount > DAMAGE_WATER_STACKS)
 			blood_units_to_lose += 2 * seconds_per_tick
@@ -397,7 +400,7 @@
 					span_danger("[slime]'s form begins to lose cohesion, seemingly diluting with the water!"),
 					span_warning("The water starts to dilute your body, dry it off!"),
 				)
-		if(wetness_amount > REGEN_WATER_STACKS) 
+		if(wetness_amount > REGEN_WATER_STACKS)
 			healing = FALSE
 			blood_units_to_lose += 1 * seconds_per_tick
 			if(SPT_PROB(1, seconds_per_tick))
@@ -409,8 +412,11 @@
 	if(slime.blood_volume >= BLOOD_VOLUME_NORMAL && healing)
 		if(slime.stat != CONSCIOUS)
 			return
-		slime.heal_overall_damage(brute = 1.5 * seconds_per_tick, burn = 1.5 * seconds_per_tick, required_bodytype = BODYTYPE_ORGANIC)
-		slime.adjustOxyLoss(-1 * seconds_per_tick)
+		var/need_mob_update
+		need_mob_update += slime.heal_overall_damage(brute = SPECIES_SLIME_PASSIVE_REGEN_BRUTE * seconds_per_tick, burn = SPECIES_SLIME_PASSIVE_REGEN_BURN * seconds_per_tick, updating_health = FALSE, required_bodytype = BODYTYPE_ORGANIC)
+		need_mob_update += slime.adjust_oxy_loss(-1 * seconds_per_tick, updating_health = FALSE)
+		if(need_mob_update)
+			slime.updatehealth()
 		if(slime.health < slime.maxHealth)
 			new /obj/effect/temp_visual/heal(get_turf(slime), COLOR_EFFECT_HEAL_RED)
 
@@ -1165,3 +1171,5 @@
 #undef SLIME_ACTIONS_ICON_FILE
 #undef DAMAGE_WATER_STACKS
 #undef REGEN_WATER_STACKS
+#undef SPECIES_SLIME_PASSIVE_REGEN_BRUTE
+#undef SPECIES_SLIME_PASSIVE_REGEN_BURN

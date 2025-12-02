@@ -165,7 +165,7 @@
 		if(!use_reverb || sound_to_use.environment == SOUND_ENVIRONMENT_NONE)
 			sound_to_use.echo ||= new /list(18)
 			sound_to_use.echo[3] = -1300 //Room setting, 0 means normal reverb // NOVA EDIT CHANGE - ORIGINAL: sound_to_use.echo[3] = -10000
-			sound_to_use.echo[4] = -1300 //RoomHF setting, 0 means normal reverb. //N OVA EDIT CHANGE - ORIGINAL: sound_to_use.echo[4] = -10000
+			sound_to_use.echo[4] = -1300 //RoomHF setting, 0 means normal reverb. // NOVA EDIT CHANGE - ORIGINAL: sound_to_use.echo[4] = -10000
 
 	// Apply user-specific volume modifier, if necessary
 	if(ispath(volume_preference) && client.prefs)
@@ -179,13 +179,13 @@
 
 	SEND_SOUND(src, sound_to_use)
 
-/proc/sound_to_playing_players(soundin, volume = 100, vary = FALSE, frequency = 0, channel = 0, pressure_affected = FALSE, sound/S)
+/proc/sound_to_playing_players(soundin, volume = 100, vary = FALSE, frequency = 0, channel = 0, pressure_affected = FALSE, sound/S, datum/preference/numeric/volume/volume_preference = null)
 	if(!S)
 		S = sound(get_sfx(soundin))
 	for(var/m in GLOB.player_list)
 		if(ismob(m) && !isnewplayer(m))
 			var/mob/M = m
-			M.playsound_local(M, null, volume, vary, frequency, null, channel, pressure_affected, S)
+			M.playsound_local(M, null, volume, vary, frequency, null, channel, pressure_affected, S, volume_preference = volume_preference)
 
 /mob/proc/stop_sound_channel(chan)
 	SEND_SOUND(src, sound(null, repeat = 0, wait = 0, channel = chan))

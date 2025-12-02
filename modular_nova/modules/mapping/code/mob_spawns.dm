@@ -1,14 +1,14 @@
 //SPAWNERS//
 
-/obj/effect/mob_spawn/ghost_role/human/ash_walker/special(mob/living/carbon/human/spawned_human)
+/obj/effect/mob_spawn/ghost_role/human/ash_walker/special(mob/living/spawned_mob, mob/mob_possessor, apply_prefs)
 	. = ..()
-	if(SSmapping.level_trait(spawned_human.z, ZTRAIT_ICE_RUINS_UNDERGROUND) || SSmapping.level_trait(spawned_human.z, ZTRAIT_ICE_RUINS_UNDERGROUND))
-		ADD_TRAIT(spawned_human, TRAIT_NOBREATH, ROUNDSTART_TRAIT)
-		ADD_TRAIT(spawned_human, TRAIT_RESISTCOLD, ROUNDSTART_TRAIT)
+	if(SSmapping.level_trait(spawned_mob.z, ZTRAIT_ICE_RUINS_UNDERGROUND) || SSmapping.level_trait(spawned_mob.z, ZTRAIT_ICE_RUINS_UNDERGROUND))
+		ADD_TRAIT(spawned_mob, TRAIT_NOBREATH, ROUNDSTART_TRAIT)
+		ADD_TRAIT(spawned_mob, TRAIT_RESISTCOLD, ROUNDSTART_TRAIT)
 
-/obj/effect/mob_spawn/ghost_role/human/pirate/silverscale/special(mob/living/carbon/human/spawned_human)
+/obj/effect/mob_spawn/ghost_role/human/pirate/silverscale/special(mob/living/spawned_mob, mob/mob_possessor, apply_prefs)
 	. = ..()
-	spawned_human.grant_language(/datum/language/common, source = LANGUAGE_SPAWNER)
+	spawned_mob.grant_language(/datum/language/common, source = LANGUAGE_SPAWNER)
 
 #define BM_TRADER_MIN_CASH 500
 #define BM_TRADER_MAX_CASH 2000
@@ -29,7 +29,7 @@
 	outfit = /datum/outfit/black_market
 	spawner_job_path = /datum/job/blackmarket
 	quirks_enabled = TRUE
-	random_appearance = FALSE
+	allow_custom_character = GHOSTROLE_TAKE_PREFS_APPEARANCE
 	loadout_enabled = TRUE
 
 /datum/outfit/black_market
@@ -60,7 +60,7 @@
 	console.remote_ref = WEAKREF(remote)
 	remote.computer_ref = WEAKREF(console)
 
-/obj/item/gun/energy/laser/carbine/cybersun/black_market_trader
+/obj/item/gun/energy/laser/cybersun/black_market_trader
 	desc = "A laser gun primarily used by syndicate security guards. It fires a rapid spray of low-power plasma beams. This one seems to have had its firing pin replaced."
 	pin = /obj/item/firing_pin
 
@@ -68,7 +68,7 @@
 	name = "black market trader weapon spawner"
 	icon_state = "pistol"
 	loot = list(
-		/obj/item/gun/energy/laser/carbine/cybersun/black_market_trader = 80,
+		/obj/item/gun/energy/laser/cybersun/black_market_trader = 80,
 		/obj/item/gun/energy/e_gun/old = 50,
 		/obj/item/gun/ballistic/shotgun/automatic/combat = 50,
 		/obj/item/gun/ballistic/automatic/pistol/contraband = 30,
@@ -87,7 +87,7 @@
 	you_are_text = "You are a Syndicate operative, employed in a top secret research facility developing biological weapons."
 	flavour_text = "Unfortunately, your hated enemy, Nanotrasen, has begun mining in this sector. Continue operating as best you can, and try to keep a low profile."
 	quirks_enabled = TRUE
-	random_appearance = FALSE
+	allow_custom_character = GHOSTROLE_TAKE_PREFS_APPEARANCE
 	computer_area = /area/ruin/space/has_grav/nova/des_two/service/dorms
 	spawner_job_path = /datum/job/ds2
 
@@ -132,13 +132,13 @@
 	loadout_enabled = TRUE
 	allow_mechanical_loadout_items = TRUE
 
-/obj/effect/mob_spawn/ghost_role/human/ds2/syndicate/special(mob/living/new_spawn)
+/obj/effect/mob_spawn/ghost_role/human/ds2/syndicate/special(mob/living/spawned_mob, mob/mob_possessor, apply_prefs)
 	. = ..()
-	new_spawn.grant_language(/datum/language/codespeak, source = LANGUAGE_SPAWNER)
+	spawned_mob.grant_language(/datum/language/codespeak, source = LANGUAGE_SPAWNER)
 
-/obj/effect/mob_spawn/ghost_role/human/ds2/syndicate_command/special(mob/living/new_spawn)
+/obj/effect/mob_spawn/ghost_role/human/ds2/syndicate_command/special(mob/living/spawned_mob, mob/mob_possessor, apply_prefs)
 	. = ..()
-	new_spawn.grant_language(/datum/language/codespeak, source = LANGUAGE_SPAWNER)
+	spawned_mob.grant_language(/datum/language/codespeak, source = LANGUAGE_SPAWNER)
 
 /obj/effect/mob_spawn/ghost_role/human/ds2/syndicate/service
 	outfit = /datum/outfit/ds2/syndicate/service
@@ -184,17 +184,17 @@
 	flavour_text = "You are a cyborg on a ship in deep space... what kind of hell is this?"
 	important_text = "Keep yourself to the same standards as Silicon Policy. You are not an antagonist. Adminhelp before antagonizing station crew."
 	loadout_enabled = TRUE
-	random_appearance = FALSE
+	allow_custom_character = GHOSTROLE_TAKE_PREFS_APPEARANCE
 	spawner_job_path = /datum/job/ds2
 	mob_type = /mob/living/silicon/robot/model/ds2
 
-/obj/effect/mob_spawn/ghost_role/robot/ds2/special(mob/living/silicon/robot/new_spawn)
+/obj/effect/mob_spawn/ghost_role/robot/ds2/special(mob/living/silicon/robot/spawned_robot, mob/mob_possessor, apply_prefs)
 	. = ..()
-	if(new_spawn.client)
-		new_spawn.custom_name = null
-		new_spawn.updatename(new_spawn.client)
-		new_spawn.transfer_silicon_prefs(new_spawn.client)
-		new_spawn.set_gender(new_spawn.client)
+	if(spawned_robot.client)
+		spawned_robot.custom_name = null
+		spawned_robot.updatename(spawned_robot.client)
+		spawned_robot.transfer_silicon_prefs(spawned_robot.client)
+		spawned_robot.set_gender(spawned_robot.client)
 
 /mob/living/silicon/robot/model/ds2
 	faction = list("Syndicate", ROLE_DS2)
@@ -233,17 +233,17 @@
 	flavour_text = "You are a cyborg produced and utilized by the Interdyne Pharmaceuticals company."
 	important_text = "Keep yourself to the same standards as Silicon Policy. You are not an antagonist. Adminhelp before antagonizing station crew."
 	loadout_enabled = TRUE
-	random_appearance = FALSE
+	allow_custom_character = GHOSTROLE_TAKE_PREFS_APPEARANCE
 	spawner_job_path = /datum/job/ds2
 	mob_type = /mob/living/silicon/robot/model/interdyne
 
-/obj/effect/mob_spawn/ghost_role/robot/interdyne/special(mob/living/silicon/robot/new_spawn)
+/obj/effect/mob_spawn/ghost_role/robot/interdyne/special(mob/living/silicon/robot/spawned_robot, mob/mob_possessor, apply_prefs)
 	. = ..()
-	if(new_spawn.client)
-		new_spawn.custom_name = null
-		new_spawn.updatename(new_spawn.client)
-		new_spawn.transfer_silicon_prefs(new_spawn.client)
-		new_spawn.set_gender(new_spawn.client)
+	if(spawned_robot.client)
+		spawned_robot.custom_name = null
+		spawned_robot.updatename(spawned_robot.client)
+		spawned_robot.transfer_silicon_prefs(spawned_robot.client)
+		spawned_robot.set_gender(spawned_robot.client)
 
 /mob/living/silicon/robot/model/interdyne
 	faction = list("Syndicate", ROLE_INTERDYNE_PLANETARY_BASE)
@@ -269,7 +269,7 @@
 
 
 /obj/effect/mob_spawn/ghost_role/human/hotel_staff
-	random_appearance = FALSE
+	allow_custom_character = GHOSTROLE_TAKE_PREFS_APPEARANCE
 	quirks_enabled = TRUE
 	loadout_enabled = TRUE
 
@@ -522,7 +522,7 @@
 	you_are_text = "You were running cargo, a typical freight job until pirates attacked. You and your crewmates just barely made it, but the engines are shot. You're trapped in space now, only able to work together to survive this nightmare."
 	flavour_text = "You were running cargo, a typical freight job until pirates attacked. You and your crewmates just barely made it, but the engines are shot. You're trapped in space now, only able to work together to survive this nightmare."
 	important_text = "Work with your crew and don't abandon them. You are not directly working with NT, you are an independent freighter crew for the ship's Chief. Your job was merely being a deckhand doing freight work and helping with kitchen prep."
-	random_appearance = FALSE
+	allow_custom_character = GHOSTROLE_TAKE_PREFS_APPEARANCE
 	quirks_enabled = TRUE
 	loadout_enabled = TRUE
 
@@ -555,7 +555,7 @@
 	you_are_text = "You were running cargo, a typical freight job until pirates attacked. You and your crewmates just barely made it, but the engines are shot. You're trapped in space now, only able to work together to survive this nightmare."
 	flavour_text = "You were running cargo, a typical freight job until pirates attacked. You and your crewmates just barely made it, but the engines are shot. You're trapped in space now, only able to work together to survive this nightmare."
 	important_text = "Work with your crew and don't abandon them. You are not directly working with NT, you are an independent freighter crew working under the ship Chief. Your role was to be an excavation and salvage worker for the ship."
-	random_appearance = FALSE
+	allow_custom_character = GHOSTROLE_TAKE_PREFS_APPEARANCE
 	quirks_enabled = TRUE
 	loadout_enabled = TRUE
 
@@ -596,7 +596,7 @@
 	you_are_text = "You and your crew were running a normal freight haul until a pirate attack knocked out the engines. All you can do now is try and survive and keep your crew alive."
 	flavour_text = "You and your crew were running a normal freight haul until a pirate attack knocked out the engines. All you can do now is try and survive and keep your crew alive."
 	important_text = "Do not abandon your crew, lead them and work with them to survive. You are not directly working with NT, you are an independent freighter crew. You are the captain of the ship, which you purchased a while ago, and are in charge of the crew."
-	random_appearance = FALSE
+	allow_custom_character = GHOSTROLE_TAKE_PREFS_APPEARANCE
 	quirks_enabled = TRUE
 	loadout_enabled = TRUE
 
@@ -700,12 +700,12 @@
 	name = "Actor's cryogenics pod"
 	mob_species = null
 	quirks_enabled = TRUE
-	random_appearance = FALSE
+	allow_custom_character = GHOSTROLE_TAKE_PREFS_APPEARANCE
 	loadout_enabled = TRUE
 
 /obj/effect/mob_spawn/ghost_role/human/director
 	name = "Director's cryogenics pod"
 	mob_species = null
 	quirks_enabled = TRUE
-	random_appearance = FALSE
+	allow_custom_character = GHOSTROLE_TAKE_PREFS_APPEARANCE
 	loadout_enabled = TRUE

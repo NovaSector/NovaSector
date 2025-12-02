@@ -438,11 +438,6 @@
 /obj/effect/mapping_helpers/airlock/access/all/syndicate/general,
 /turf/open/floor/mineral/plastitanium,
 /area/ruin/space/has_grav/syndicate_forgotten_ship)
-"bN" = (
-/obj/structure/lattice/catwalk,
-/obj/structure/cable,
-/turf/template_noop,
-/area/template_noop)
 "bO" = (
 /obj/structure/bodycontainer/crematorium{
 	id = "fscremate"
@@ -920,9 +915,6 @@
 /obj/item/disk/surgery/forgottenship,
 /turf/open/floor/pod/dark,
 /area/ruin/space/has_grav/powered/syndicate_forgotten_vault)
-"dj" = (
-/turf/closed/mineral/random/high_chance,
-/area/template_noop)
 "dl" = (
 /obj/machinery/door/password/voice/sfc{
 	password = null
@@ -1002,6 +994,11 @@
 /obj/structure/closet/crate/solarpanel_small,
 /turf/open/floor/mineral/plastitanium,
 /area/ruin/space/has_grav/syndicate_forgotten_cargopod)
+"ka" = (
+/obj/structure/lattice/catwalk,
+/obj/structure/cable,
+/turf/template_noop,
+/area/space/nearstation)
 "kY" = (
 /obj/structure/closet/syndicate{
 	anchored = 1;
@@ -1044,17 +1041,6 @@
 /obj/machinery/power/smes,
 /obj/structure/cable,
 /obj/machinery/light/small/directional/west,
-/turf/open/floor/mineral/plastitanium/red,
-/area/ruin/space/has_grav/syndicate_forgotten_ship)
-"qK" = (
-/obj/machinery/turretid{
-	control_area = "/area/ruin/space/has_grav/syndicate_forgotten_ship";
-	enabled = 0;
-	lethal = 1;
-	name = "Ship turret control panel";
-	pixel_y = 32;
-	req_access = list("syndicate")
-	},
 /turf/open/floor/mineral/plastitanium/red,
 /area/ruin/space/has_grav/syndicate_forgotten_ship)
 "rz" = (
@@ -1181,6 +1167,20 @@
 /obj/machinery/light/small/directional/north,
 /turf/open/floor/mineral/plastitanium/red,
 /area/ruin/space/has_grav/syndicate_forgotten_ship)
+"Ll" = (
+/obj/machinery/turretid{
+	control_area = "/area/ruin/space/has_grav/syndicate_forgotten_ship";
+	enabled = 0;
+	lethal = 1;
+	name = "Ship turret control panel";
+	pixel_y = 32;
+	req_access = list("syndicate")
+	},
+/turf/open/floor/mineral/plastitanium/red,
+/area/ruin/space/has_grav/syndicate_forgotten_ship)
+"Rh" = (
+/turf/closed/mineral/random/high_chance,
+/area/space/nearstation)
 "VF" = (
 /obj/structure/table/reinforced,
 /obj/machinery/button/door{
@@ -1371,8 +1371,8 @@ aa
 aa
 aa
 aa
-dj
-dj
+Rh
+Rh
 aa
 aa
 aa
@@ -1418,9 +1418,9 @@ aa
 aa
 aa
 aa
-dj
-dj
-dj
+Rh
+Rh
+Rh
 aa
 aa
 aa
@@ -1466,8 +1466,8 @@ aa
 aa
 aa
 aa
-dj
-dj
+Rh
+Rh
 aa
 aa
 aa
@@ -1616,9 +1616,9 @@ aa
 aa
 aa
 aa
-dj
-dj
-dj
+Rh
+Rh
+Rh
 aa
 aa
 "}
@@ -1664,9 +1664,9 @@ aa
 aa
 aa
 aa
-dj
-dj
-dj
+Rh
+Rh
+Rh
 aa
 "}
 (11,1,1) = {"
@@ -2445,11 +2445,11 @@ be
 aP
 aP
 bM
-bN
-bN
-bN
-bN
-bN
+ka
+ka
+ka
+ka
+ka
 ab
 ab
 bF
@@ -2758,7 +2758,7 @@ aa
 aa
 aa
 bZ
-qK
+Ll
 aw
 bZ
 br
@@ -2976,7 +2976,7 @@ aa
 aa
 aa
 aa
-dj
+Rh
 aa
 aa
 aa
@@ -3021,10 +3021,10 @@ aa
 aa
 aa
 aa
-dj
-dj
-dj
-dj
+Rh
+Rh
+Rh
+Rh
 aa
 aa
 aa
@@ -3068,9 +3068,9 @@ aa
 aa
 aa
 aa
-dj
-dj
-dj
+Rh
+Rh
+Rh
 aa
 aa
 aa
@@ -3106,7 +3106,7 @@ aa
 aa
 aa
 aa
-dj
+Rh
 aa
 aa
 aa
@@ -3152,9 +3152,9 @@ aa
 aa
 aa
 aa
-dj
-dj
-dj
+Rh
+Rh
+Rh
 aa
 aa
 aa
@@ -3199,10 +3199,10 @@ aa
 aa
 aa
 aa
-dj
-dj
-dj
-dj
+Rh
+Rh
+Rh
+Rh
 aa
 aa
 aa
@@ -3247,7 +3247,7 @@ aa
 aa
 aa
 aa
-dj
+Rh
 aa
 aa
 aa

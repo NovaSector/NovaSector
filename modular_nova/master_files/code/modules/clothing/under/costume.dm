@@ -177,6 +177,7 @@
 	greyscale_config = /datum/greyscale_config/chima_jeogori
 	greyscale_config_worn = /datum/greyscale_config/chima_jeogori/worn
 	greyscale_colors = "#a52f29#2ba396#545461#88242d#eeeeee"
+	female_sprite_flags = FEMALE_UNIFORM_TOP_ONLY
 	alternate_worn_layer = UNDER_SUIT_LAYER
 	flags_1 = IS_PLAYER_COLORABLE_1
 

@@ -3,7 +3,7 @@
 /obj/structure/lattice/catwalk,
 /obj/structure/marker_beacon/yellow,
 /turf/template_noop,
-/area/template_noop)
+/area/space/nearstation)
 "k" = (
 /obj/machinery/spaceship_navigation_beacon{
 	pixel_y = 23;
@@ -39,12 +39,12 @@
 	pixel_x = 5
 	},
 /turf/open/floor/catwalk_floor/iron_dark/airless,
-/area/template_noop)
+/area/space/nearstation)
 "n" = (
 /obj/structure/lattice/catwalk,
 /obj/structure/marker_beacon/bronze,
 /turf/template_noop,
-/area/template_noop)
+/area/space/nearstation)
 "p" = (
 /obj/docking_port/stationary{
 	dir = 2;
@@ -55,14 +55,14 @@
 	width = 35
 	},
 /turf/template_noop,
-/area/template_noop)
+/area/space/nearstation)
 "u" = (
 /turf/template_noop,
 /area/template_noop)
 "Z" = (
 /obj/structure/lattice,
 /turf/template_noop,
-/area/template_noop)
+/area/space/nearstation)
 
 (1,1,1) = {"
 u

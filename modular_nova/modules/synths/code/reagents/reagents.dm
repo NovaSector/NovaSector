@@ -45,7 +45,8 @@
 	affected_biotype = MOB_ROBOTIC
 
 /datum/reagent/medicine/system_cleaner/on_mob_life(mob/living/carbon/affected_mob, seconds_per_tick, times_fired)
-	affected_mob.adjustToxLoss(-2 * REM * seconds_per_tick, 0, required_biotype = affected_biotype)
+	if(affected_mob.adjust_tox_loss(-2 * REM * seconds_per_tick, updating_health = FALSE, required_biotype = affected_biotype))
+		. = UPDATE_MOB_HEALTH
 	affected_mob.adjust_disgust(-5 * REM * seconds_per_tick)
 	var/remove_amount = 1 * REM * seconds_per_tick;
 	for(var/thing in affected_mob.reagents.reagent_list)
@@ -54,8 +55,7 @@
 			continue
 		if(reagent != src)
 			affected_mob.reagents.remove_reagent(reagent.type, remove_amount)
-	..()
-	return TRUE
+	return ..() || .
 
 /datum/reagent/medicine/liquid_solder
 	name = "Liquid Solder"
@@ -67,7 +67,7 @@
 	affected_organ_flags = ORGAN_ROBOTIC
 
 /datum/reagent/medicine/liquid_solder/on_mob_life(mob/living/carbon/affected_mob, seconds_per_tick)
-	affected_mob.adjustOrganLoss(ORGAN_SLOT_BRAIN, -3 * REM * seconds_per_tick, required_organ_flag = affected_organ_flags)
+	affected_mob.adjust_organ_loss(ORGAN_SLOT_BRAIN, -3 * REM * seconds_per_tick, required_organ_flag = affected_organ_flags)
 	if(prob(10))
 		var/obj/item/organ/brain/owner_brain = affected_mob.get_organ_slot(ORGAN_SLOT_BRAIN)
 		if(!isnull(owner_brain) || !(owner_brain.organ_flags & affected_organ_flags))

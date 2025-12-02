@@ -1248,8 +1248,7 @@
 			if (!body_marking) // Edge case prevention.
 				continue
 
-			var/render_limb_string = limb_id == "digitigrade" ? ("digitigrade_1_" + body_zone) : body_zone // I am not sure why there are _1 and _2 versions of digi, so, it's staying like this.
-
+			var/render_limb_string = limb_id == BODYPART_ID_DIGITIGRADE ? "[BODYPART_ID_DIGITIGRADE]_[body_zone]" : body_zone
 			var/gender_modifier = ""
 			if(body_zone == BODY_ZONE_CHEST) // Chest markings have male and female versions.
 				if(body_marking.gendered)
@@ -1621,6 +1620,10 @@
 		return "bone"
 	if (biological_state & BIO_METAL)
 		return "metal"
+	if (biological_state & BIO_FLESH)
+		return "shreds of ligaments"
+	if (biological_state & BIO_WOOD)
+		return "splinters of poorly manufactured wood"
 
 	return "error"
 

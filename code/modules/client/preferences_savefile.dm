@@ -490,6 +490,6 @@ SAVEFILE UPDATING/VERSIONING - 'Simplified', or rather, more coder-friendly ~Car
 #undef SAVEFILE_VERSION_MIN
 #undef SAVE_DATA_NO_ERROR
 #undef SAVE_DATA_EMPTY
-#undef SAVE_DATA_OBSOLETE
+//#undef SAVE_DATA_OBSOLETE - NOVA EDIT REMOVAL - Used in [modular_nova\modules\admin\code\preferences_loadverb.dm]
 #undef IS_DATA_OBSOLETE
 #undef SHOULD_UPDATE_DATA

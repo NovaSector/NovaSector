@@ -147,10 +147,13 @@
 	if(do_after(user, 5 SECONDS, target = target))
 		target.reagents?.add_reagent(/datum/reagent/water/holywater, 5)
 		to_chat(target, span_notice("[user]'s prayer to [deity_name] has eased your pain!"))
-		target.adjustToxLoss(-5, TRUE, TRUE)
-		target.adjustOxyLoss(-5)
-		target.adjustBruteLoss(-5)
-		target.adjustFireLoss(-5)
+		var/need_mob_update
+		need_mob_update += target.adjust_tox_loss(-5, updating_health = FALSE, forced = TRUE)
+		need_mob_update += target.adjust_oxy_loss(-5, updating_health = FALSE)
+		need_mob_update += target.adjust_brute_loss(-5, updating_health = FALSE)
+		need_mob_update += target.adjust_fire_loss(-5, updating_health = FALSE)
+		if(need_mob_update)
+			target.updatehealth()
 		praying = FALSE
 	else
 		balloon_alert(user, "interrupted!")
