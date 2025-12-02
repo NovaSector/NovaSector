@@ -1296,7 +1296,7 @@
 "Hj" = (
 /obj/machinery/door/poddoor/shutters/window{
 	id = "scrapheapstorage";
-	name = "cargo shutters"
+	name = "Storage Shutters"
 	},
 /turf/open/floor/noslip,
 /area/ruin/space/has_grav/powered/nova/scrapheap)
