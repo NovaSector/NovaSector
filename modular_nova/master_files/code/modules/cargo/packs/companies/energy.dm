@@ -52,7 +52,7 @@
 	departamental_goody = TRUE
 
 /datum/supply_pack/companies/energy/microstar/basic_energy_long_weapons/laser/soul
-	contains = list(/obj/item/gun/energy/laser/soulful)
+	contains = list(/obj/item/gun/energy/laser/soul)
 
 /datum/supply_pack/companies/energy/microstar/basic_energy_long_weapons/laser_carbine
 	contains = list(/obj/item/gun/energy/laser/carbine)

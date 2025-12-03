@@ -8,14 +8,14 @@
 	// 20 lasers up from 16 + small so it competes(?) with the mini egun
 	// lethals only but you get a lot of shots off
 	name = "laser pistol"
-	desc = "The Allstar Lasers Star Combat 1 Compact, or \"Allstar SC-1C\", \
+	desc = "The Allstar Lasers Star Combat 1 Compact, or \"Allstar SC-1/C\", \
 		is a compact pistol variant of the venerable SC-1 designed with a focus on portability."
 	w_class = WEIGHT_CLASS_SMALL
 	projectile_damage_multiplier = 1
 
 /obj/item/gun/energy/laser/assault
 	name = "laser assault rifle"
-	desc = "The Allstar Lasers Star Combat 1 Sustained Assault, or \"Allstar SC-1SA\", \
+	desc = "The Allstar Lasers Star Combat 1 Assault, or \"Allstar SC-1/A\", \
 		is an assault variant of the venerable SC-1 designed with a focus on sustained fire \
 		potential and resistance against electromagnetic interference."
 	w_class = WEIGHT_CLASS_BULKY
@@ -39,7 +39,7 @@
 
 /obj/item/gun/energy/laser/carbine
 	name = "laser burst carbine"
-	desc = "The Allstar Lasers Star Combat 1-Rapid, or \"Allstar SC-1R\", \
+	desc = "The Allstar Lasers Star Combat 1-Rapid, or \"Allstar SC-1/R\", \
 		is an energy-based laser burst-fire carbine that fires a sustained volley of lasers. \
 		It trades the stopping power of each individual beam for a sustained volley of directed energy."
 
@@ -125,7 +125,7 @@
 		Especially this one, which uses a casing pattern that hasn't been in active use for... who knows how long.<br>\
 		<br>\
 		Typically regarded as a solid benchmark by which all other energy firearms can be held against, \
-		the SC-1 typically features a respectable 25-shot cell and solid stopping power per shot. \
+		the SC-1 typically features a respectable cell and solid stopping power per shot. \
 		Being an energy-based firearms means that, logistics-wise, the only thing required to support its use other \
 		than maintenance equipment and spare parts is a steady supply of power in lieu of ammunition, \
 		making it quite popular for people with a surplus of the former and not so much the latter. \
@@ -138,15 +138,17 @@
 	AddElement(/datum/element/examine_lore, \
 		lore_hint = span_notice("You can [EXAMINE_HINT("look closer")] to learn a little more about [src]."), \
 		lore = "The Allstar SC-1 laser gun, typically referred to as the SC-1, laser gun, or \"ol' reliable\", \
-		is one of Allstar's greatest successes in energy weapon development, proving itself as a workhorse. \
-		Especially this one, which uses a casing pattern that hasn't been in active use for... who knows how long.<br>\
+		is one of Allstar's greatest successes in energy weapon development, proving itself as a workhorse.<br>\
+		<br>\
+		This specific variant is from a \"neoclassical\" manufacturing run, using an old chassis as a base. \
+		While many would argue that the neoclassical runs are gimmick runs to squeeze out more money, \
+		others swear by the old-fashioned style, citing anecdotal evidence. Either way, a laser gun is a laser gun.<br>\
 		<br>\
 		Typically regarded as a solid benchmark by which all other energy firearms can be held against, \
-		the SC-1 typically features a respectable 25-shot cell and solid stopping power per shot. \
+		the SC-1 typically features a respectable cell and solid stopping power per shot. \
 		Being an energy-based firearms means that, logistics-wise, the only thing required to support its use other \
 		than maintenance equipment and spare parts is a steady supply of power in lieu of ammunition, \
-		making it quite popular for people with a surplus of the former and not so much the latter. \
-		The fact that this particular example still runs fine, despite its visible age, is remarkable." \
+		making it quite popular for people with a surplus of the former and not so much the latter." \
 	)
 
 // hellfire laser gun
@@ -168,7 +170,7 @@
 		and the weapon became infamous for its unethical means of ending sentient life. \
 		Laws were passed to ensure power regulators were installed in future energy-based weaponry. \
 		Allstar quickly downturned manufacturing of the SC-H in response, returning to focusing on manufacturing the SC-1 to \
-		regain lost ground in the affected markets. \
+		regain lost ground in affected markets. \
 		While, legally, the SC-H is still restricted if not banned in many polities, Nanotrasen itself does not regulate possession \
 		of the firearm aboard their stations, nor does any legal body intend on preventing them from utilizing it in defense \
 		of its own assets." \
@@ -208,7 +210,7 @@
 	AddElement(/datum/element/examine_lore, \
 		lore_hint = span_notice("You can [EXAMINE_HINT("look closer")] to learn a little more about [src]."), \
 		lore = "The NT Type 6 Heat Delivery System (sometimes referred to as the HDS6 in research notes) is a breakthrough in the \
-		development of directed energy weaponry.<br>\
+		development of directed energy weaponry, using modified Allstar SC-1s as a base.<br>\
 		<br>\
 		Very little is known about the Type 6, as it is a relatively new experimental weapon only accessible to Nanotrasen security forces.\
 		Somehow, Nanotrasen has found a means to 'slip' the energy beams produced by the Type 6 through unintended targets, only impacting \
@@ -221,7 +223,7 @@
 		conspiratorially minded of Nanotrasen's critics have even gone as far as to claim it is 'proof of ectoplasm as the sixth element', \
 		and that, perhaps, the weapon may be operating through supernatural means; perhaps even powered by the 'spirits of the damned'.<br>\
 		<br>\
-		Whatever the truth may be, the weapon seems to function as advertised, and is even more energy efficient than the SC-1. Nanotrasen \
+		Whatever the truth may be, the weapon seems to function as advertised, and matches the energy efficiency of the SC-1. Nanotrasen \
 		expects full commercial rollout sometime in the next quarter." \
 	)
 
