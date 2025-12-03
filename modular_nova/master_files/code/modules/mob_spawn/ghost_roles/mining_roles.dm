@@ -17,7 +17,7 @@
 	allow_custom_character = GHOSTROLE_TAKE_PREFS_APPEARANCE // ghost role prefs
 	deletes_on_zero_uses_left = TRUE
 
-/obj/effect/mob_spawn/ghost_role/human/heretic
+/obj/effect/mob_spawn/ghost_role/human/heretic //specifically staying here for nova so the admins can spawn this if they want, tell me to delete this if you dont want this.
 	name = "Security Agent"
 	prompt_name = "Become a mysterious agent?"
 	you_are_text = "You are an agent for a mysterious clandestine group and the facility you worked for recently got evacuated and you were told to not go in and to prevent other people from going in, you know better than to mess with your boss."
