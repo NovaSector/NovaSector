@@ -12,12 +12,10 @@
 	if(!isgun(parent))
 		return COMPONENT_INCOMPATIBLE
 
+	src.safety_currently_on = safety_currently_on
 
 	var/obj/item/item_parent = parent
 	toggle_safety_action = item_parent.add_item_action(/datum/action/item_action/gun_safety_toggle)
-
-	if(is_reserved_level(item_parent.z) && !istype(get_area(item_parent.loc), /area/shuttle))
-		src.safety_currently_on = FALSE
 
 	update_action_button_state()
 
@@ -41,10 +39,19 @@
 /// Checks if the safety is currently on, if it is then stops the gun from firing
 /datum/component/gun_safety/proc/check_if_we_can_actually_shooty(obj/item/gun/source, mob/living/user, atom/target, flag, params)
 	SIGNAL_HANDLER
+	if(!safety_currently_on)
+		return // safety's off, we don't care
 
-	if(safety_currently_on)
-		user.balloon_alert(user, "safety on!")
-		return COMPONENT_CANCEL_GUN_FIRE
+	if(flag) // user clicked adjacent target
+		if(target in user.contents) // clicking something in inventory
+			return
+		if(!ismob(target)) // trying to place the gun somewhere/melee attack
+			return
+
+	// they are actually trying to shoot something
+	user.balloon_alert(user, "the safety disengages!")
+	toggle_safeties(user)
+	return COMPONENT_CANCEL_GUN_FIRE
 
 /// Calls toggle_safeties if the action type for doing so is used
 /datum/component/gun_safety/proc/we_may_be_toggling_safeties(source, user, datum/actiontype)
@@ -66,8 +73,6 @@
 		span_notice("[user] toggles [parent]'s safety [safety_currently_on ? "<font color='#00ff15'>ON</font>" : "<font color='#ff0000'>OFF</font>"]."),
 		span_notice("You toggle [parent]'s safety [safety_currently_on ? "<font color='#00ff15'>ON</font>" : "<font color='#ff0000'>OFF</font>"].")
 	)
-
-	SEND_SIGNAL(parent, COMSIG_GUN_SAFETY_TOGGLED)
 
 /// Adds the gun safety's current status to the gun's examine
 /datum/component/gun_safety/proc/on_examine(obj/item/source, mob/examiner, list/examine_list)
