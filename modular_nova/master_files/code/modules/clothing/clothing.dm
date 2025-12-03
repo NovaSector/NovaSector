@@ -31,6 +31,7 @@ GLOBAL_LIST_EMPTY(taur_clothing_icons)
 	taur_clothing_icon.Blend(taur_cropping_mask, ICON_MULTIPLY)
 	taur_clothing_icon = fcopy_rsc(taur_clothing_icon)
 	GLOB.taur_clothing_icons[index] = taur_clothing_icon
+	return taur_clothing_icon
 
 /**
  * Proc that handles returning a mutable appearance that can fit on a taur body without looking too janky!
@@ -57,5 +58,5 @@ GLOBAL_LIST_EMPTY(taur_clothing_icons)
 	var/index = "[icon_state]-[greyscale_colors]-[female_type]"
 	var/icon/taur_clothing_icon = GLOB.taur_clothing_icons[index]
 	if(!taur_clothing_icon) 	//Create standing/laying icons if they don't exist
-		generate_taur_clothing(index, icon_to_process, icon_state)
-	return icon(GLOB.taur_clothing_icons[index])
+		taur_clothing_icon = generate_taur_clothing(index, icon_to_process, icon_state)
+	return taur_clothing_icon

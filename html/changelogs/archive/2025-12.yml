@@ -26,3 +26,6 @@
       a dismantled cargo shelf
   - bugfix: crates should no longer get stuck in shelves, and you can now unload 1
       crate onto where you are standing.
+2025-12-03:
+  sqnztb:
+  - bugfix: robotic lizard voicebox now can communicate properly again.

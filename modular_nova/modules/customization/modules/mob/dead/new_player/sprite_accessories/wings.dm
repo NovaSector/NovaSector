@@ -14,22 +14,25 @@
 	relevent_layers = list(BODY_BEHIND_LAYER, BODY_FRONT_LAYER, BODY_ADJ_LAYER)
 
 /datum/sprite_accessory/wings/is_hidden(mob/living/carbon/human/wearer)
-	if(!wearer.w_uniform && !wearer.wear_suit)
+	var/obj/item/clothing/suit/mod/worn_suit = wearer.wear_suit
+	if(isnull(wearer.w_uniform) && isnull(worn_suit))
 		return FALSE
 	// Can hide if wearing uniform
 	if(initial(key) in wearer.try_hide_mutant_parts) // initial because some of the wing types have different keys (wings_functional, wings_open, etc)
 		return TRUE
 	// Exception for MODs
-	if(istype(wearer.wear_suit, /obj/item/clothing/suit/mod))
+	if(istype(worn_suit))
 		return FALSE
 	// Hide accessory if flagged to do so, taking species exceptions in account
-	return (wearer?.obscured_slots & HIDEJUMPSUIT)
+	return (wearer.obscured_slots & HIDEJUMPSUIT)
 
 /datum/bodypart_overlay/mutant/wings/can_draw_on_bodypart(obj/item/bodypart/bodypart_owner)
+	if(isnull(bodypart_owner.owner))
+		return ..()
+
 	var/mob/living/carbon/human/wearer = bodypart_owner.owner
-	if(!istype(wearer))
-		return TRUE
-	if(!wearer.w_uniform && !wearer.wear_suit)
+	var/obj/item/clothing/suit/mod/worn_suit = wearer.wear_suit
+	if(isnull(wearer.w_uniform) && isnull(worn_suit))
 		return ..()
 
 	// Can hide if wearing uniform
@@ -37,10 +40,10 @@
 		return FALSE
 
 	// Exception for MODs
-	if(istype(wearer.wear_suit, /obj/item/clothing/suit/mod))
+	if(istype(worn_suit))
 		return TRUE
 
-	return !(bodypart_owner.owner?.obscured_slots & HIDEJUMPSUIT)
+	return !(bodypart_owner.owner.obscured_slots & HIDEJUMPSUIT)
 
 /datum/sprite_accessory/wings/none
 	name = SPRITE_ACCESSORY_NONE
@@ -83,19 +86,20 @@
 	color_src = USE_ONE_COLOR
 
 /datum/sprite_accessory/wings_open/is_hidden(mob/living/carbon/human/wearer)
-	if(!wearer.w_uniform && !wearer.wear_suit)
+	var/obj/item/clothing/worn_suit = wearer.wear_suit
+	if(isnull(wearer.w_uniform) && isnull(worn_suit))
 		return FALSE
 	// Can hide if wearing uniform
 	if(key in wearer.try_hide_mutant_parts)
 		return TRUE
-	if(wearer.wear_suit)
+	if(worn_suit)
 	// Exception for MODs
-		if(istype(wearer.wear_suit, /obj/item/clothing/suit/mod))
+		if(istype(worn_suit, /obj/item/clothing/suit/mod))
 			return FALSE
 	// Hide accessory if flagged to do so, taking species exceptions in account
-		else if((wearer.wear_suit.flags_inv & HIDEJUMPSUIT) \
-				&& (!wearer.wear_suit.species_exception \
-				|| !is_type_in_list(wearer.dna.species, wearer.wear_suit.species_exception)) \
+		else if((worn_suit.flags_inv & HIDEJUMPSUIT) \
+				&& (isnull(worn_suit.species_exception) \
+				|| !is_type_in_list(wearer.dna.species, worn_suit.species_exception)) \
 			)
 			return TRUE
 
