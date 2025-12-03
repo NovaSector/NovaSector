@@ -194,8 +194,16 @@
 		/obj/item/reagent_containers/cup/jerrycan/space_cleaner = 2,
 		/obj/item/reagent_containers/spray/cleaner = 3,
 		/obj/item/tank/internals/oxygen = 3,
+		/obj/item/storage/bag/bio,
+		/obj/item/reagent_containers/syringe/antiviral = 3,
+		/obj/item/clothing/gloves/latex/nitrile = 3,
+		/obj/item/storage/box/masks,
+		/obj/item/storage/box/gloves,
 		)
 	cost = CARGO_CRATE_VALUE * 10
+	crate_name = "Interdyne Biohazard Response Crate"
+
+
 
 /*
 	Apparrel & Storages
