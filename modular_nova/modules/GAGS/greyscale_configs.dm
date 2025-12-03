@@ -1111,14 +1111,6 @@
 	name = "Prison Jumpsuit (Worn, Better Vox)"
 	icon_file = 'modular_nova/modules/GAGS/icons/jumpsuit_better_vox.dmi'
 
-/datum/greyscale_config/jumpsuit/worn/taur_snake
-	name = "Jumpsuit (Worn) - Naga"
-	icon_file = 'modular_nova/modules/GAGS/icons/jumpsuit_snake.dmi'
-
-/datum/greyscale_config/jumpsuit/prison/worn/taur_snake
-	name = "Prison Jumpsuit (Worn) - Naga"
-	icon_file = 'modular_nova/modules/GAGS/icons/jumpsuit_snake.dmi'
-
 /datum/greyscale_config/jumpsuit/worn/teshari
 	name = "Jumpsuit (Worn, Teshari)"
 	icon_file = 'modular_nova/modules/GAGS/icons/jumpsuit_teshari.dmi'
