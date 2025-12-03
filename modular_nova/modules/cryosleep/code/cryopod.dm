@@ -111,9 +111,10 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/machinery/computer/cryopod, 32)
 			var/obj/item/item = locate(item_get)
 			if(item in frozen_items)
 				item.forceMove(drop_location())
+				ui.user.put_in_hands(item)
 				LAZYREMOVE(frozen_items, item)
 				visible_message("[src] dispenses \the [item].")
-				message_admins("[item] was retrieved from cryostorage at [ADMIN_COORDJMP(src)]")
+				message_admins("[item] was retrieved by [ui.user] from cryostorage at [ADMIN_COORDJMP(src)]")
 			else
 				CRASH("Invalid REF# for ui_act. Not inside internal list!")
 			return TRUE
