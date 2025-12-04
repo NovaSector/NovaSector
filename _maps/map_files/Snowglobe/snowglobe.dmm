@@ -25814,6 +25814,7 @@
 /obj/item/storage/box/perfume{
 	pixel_y = 3
 	},
+/obj/machinery/airalarm/directional/south,
 /turf/open/floor/iron/dark,
 /area/station/service/barber/spa)
 "gTJ" = (
@@ -68265,6 +68266,9 @@
 "spB" = (
 /obj/structure/sign/poster/random/directional/north,
 /obj/structure/bed,
+/obj/structure/closet/secure_closet/wall{
+	pixel_x = 29
+	},
 /turf/open/floor/carpet/purple,
 /area/station/service/barber/spa)
 "spE" = (
@@ -72163,9 +72167,11 @@
 "tqj" = (
 /obj/structure/cable,
 /obj/machinery/power/apc/auto_name/directional/north,
-/obj/machinery/airalarm/directional/west,
 /obj/structure/bed{
 	dir = 1
+	},
+/obj/structure/closet/secure_closet/wall{
+	pixel_x = -29
 	},
 /turf/open/floor/carpet/purple,
 /area/station/service/barber/spa)
@@ -91072,7 +91078,6 @@
 /turf/open/floor/iron/dark,
 /area/station/engineering/main)
 "yjG" = (
-/obj/item/radio/intercom/directional/north,
 /obj/structure/window/reinforced/tinted/spawner/directional/east,
 /turf/open/floor/carpet/purple,
 /area/station/service/barber/spa)
@@ -260760,7 +260765,7 @@ abd
 abd
 koa
 akc
-gal
+akc
 gal
 akc
 gUV
