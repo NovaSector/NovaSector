@@ -116,6 +116,14 @@
 /obj/item/storage/lockbox/loyalty,
 /turf/open/floor/mineral/plastitanium/red,
 /area/shuttle/escape)
+"ej" = (
+/obj/structure/chair/comfy/shuttle{
+	dir = 1
+	},
+/obj/effect/turf_decal/bot,
+/obj/structure/sign/nanotrasen/directional/west,
+/turf/open/floor/iron/dark,
+/area/shuttle/escape)
 "eU" = (
 /obj/structure/chair/comfy/shuttle{
 	dir = 1
@@ -210,6 +218,15 @@
 	dir = 4
 	},
 /turf/open/floor/iron/dark,
+/area/shuttle/escape)
+"ii" = (
+/obj/effect/turf_decal/trimline/dark/corner{
+	dir = 8
+	},
+/obj/structure/sign/nanotrasen/directional/east,
+/turf/open/floor/iron/dark/corner{
+	dir = 8
+	},
 /area/shuttle/escape)
 "is" = (
 /obj/machinery/light/directional/south,
@@ -1337,14 +1354,6 @@
 /obj/item/storage/medkit/regular,
 /turf/open/floor/glass/reinforced,
 /area/shuttle/escape)
-"CM" = (
-/obj/structure/chair/comfy/shuttle{
-	dir = 1
-	},
-/obj/effect/turf_decal/bot,
-/obj/structure/sign/nanotrasen/directional/west,
-/turf/open/floor/iron/dark,
-/area/shuttle/escape)
 "CO" = (
 /obj/effect/turf_decal/trimline/neutral/filled/corner{
 	dir = 4
@@ -1424,11 +1433,6 @@
 	},
 /obj/effect/turf_decal/trimline/neutral,
 /turf/open/floor/iron/dark/small,
-/area/shuttle/escape)
-"EH" = (
-/obj/effect/turf_decal/trimline/dark/corner,
-/obj/structure/sign/nanotrasen/directional/west,
-/turf/open/floor/iron/dark/corner,
 /area/shuttle/escape)
 "EN" = (
 /obj/structure/chair/office{
@@ -1817,15 +1821,6 @@
 /obj/effect/turf_decal/tile/blue/fourcorners,
 /turf/open/floor/iron/white,
 /area/shuttle/escape)
-"La" = (
-/obj/effect/turf_decal/trimline/dark/corner{
-	dir = 8
-	},
-/obj/structure/sign/nanotrasen/directional/east,
-/turf/open/floor/iron/dark/corner{
-	dir = 8
-	},
-/area/shuttle/escape)
 "Lv" = (
 /obj/effect/turf_decal/siding/thinplating_new/dark{
 	dir = 4
@@ -1957,6 +1952,11 @@
 	dir = 4
 	},
 /turf/open/floor/iron/dark,
+/area/shuttle/escape)
+"Od" = (
+/obj/effect/turf_decal/trimline/dark/corner,
+/obj/structure/sign/nanotrasen/directional/west,
+/turf/open/floor/iron/dark/corner,
 /area/shuttle/escape)
 "OB" = (
 /obj/effect/turf_decal/siding/thinplating_new/dark{
@@ -2711,14 +2711,14 @@ Ra
 kZ
 GM
 rF
-CM
+ej
 fD
 Kv
 qJ
 wP
 fD
 Kv
-EH
+Od
 Jy
 kZ
 Bu
@@ -3168,7 +3168,7 @@ Gh
 wP
 fD
 Kv
-La
+ii
 fm
 kZ
 mw

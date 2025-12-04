@@ -419,18 +419,6 @@
 /obj/effect/light_emitter/thunderdome,
 /turf/open/floor/iron,
 /area/centcom/tdome/arena)
-"bT" = (
-/obj/item/clipboard,
-/obj/item/folder/red,
-/obj/item/stamp/denied{
-	pixel_x = 3;
-	pixel_y = 3
-	},
-/obj/item/stamp/granted,
-/obj/structure/table/reinforced,
-/obj/effect/turf_decal/tile/neutral/fourcorners,
-/turf/open/floor/iron/dark,
-/area/centcom/central_command_areas/ferry)
 "bV" = (
 /obj/structure/table/reinforced,
 /obj/machinery/computer/records/medical/laptop,
@@ -723,6 +711,21 @@
 	},
 /turf/open/floor/iron,
 /area/centcom/central_command_areas/admin)
+"df" = (
+/obj/structure/table/wood,
+/obj/item/clipboard,
+/obj/item/folder/red,
+/obj/item/stamp/denied{
+	pixel_x = 6;
+	pixel_y = 6
+	},
+/obj/item/stamp/granted{
+	pixel_x = 3;
+	pixel_y = 3
+	},
+/obj/item/stamp/centcom,
+/turf/open/floor/iron/grimy,
+/area/centcom/central_command_areas/admin)
 "dh" = (
 /obj/effect/turf_decal/tile/dark_blue/half/contrasted{
 	dir = 4
@@ -792,17 +795,6 @@
 /obj/machinery/light/directional/south,
 /turf/open/floor/iron/dark,
 /area/centcom/central_command_areas/control)
-"dr" = (
-/obj/item/clipboard,
-/obj/item/folder/red,
-/obj/item/stamp/denied{
-	pixel_x = 3;
-	pixel_y = 3
-	},
-/obj/item/stamp/granted,
-/obj/structure/table/wood,
-/turf/open/floor/iron/grimy,
-/area/centcom/central_command_areas/courtroom)
 "ds" = (
 /obj/machinery/door/firedoor,
 /obj/machinery/door/airlock/centcom{
@@ -1772,22 +1764,6 @@
 /obj/machinery/status_display/evac/directional/west,
 /turf/open/floor/iron,
 /area/centcom/central_command_areas/prison)
-"iq" = (
-/obj/item/clipboard{
-	pixel_y = 4;
-	pixel_x = -2
-	},
-/obj/item/stamp/denied{
-	pixel_x = -2;
-	pixel_y = 12
-	},
-/obj/item/stamp/granted{
-	pixel_y = 7
-	},
-/obj/structure/table/reinforced,
-/obj/effect/turf_decal/tile/neutral/fourcorners,
-/turf/open/floor/iron/dark,
-/area/centcom/central_command_areas/supply)
 "ir" = (
 /turf/closed/indestructible/fakeglass,
 /area/centcom/central_command_areas/prison/cells)
@@ -2407,6 +2383,17 @@
 	},
 /turf/open/floor/iron,
 /area/centcom/central_command_areas/prison)
+"kz" = (
+/obj/item/clipboard,
+/obj/item/folder/red,
+/obj/item/stamp/denied{
+	pixel_x = 3;
+	pixel_y = 3
+	},
+/obj/item/stamp/granted,
+/obj/structure/table/wood,
+/turf/open/floor/iron/grimy,
+/area/centcom/central_command_areas/courtroom)
 "kA" = (
 /obj/structure/chair/comfy/brown,
 /turf/open/floor/iron/grimy,
@@ -2543,20 +2530,6 @@
 	},
 /turf/open/floor/iron/dark,
 /area/centcom/central_command_areas/evacuation/ship)
-"li" = (
-/obj/structure/table/reinforced,
-/obj/item/folder,
-/obj/item/stamp/denied{
-	pixel_x = 3;
-	pixel_y = 3
-	},
-/obj/item/stamp/granted,
-/obj/effect/turf_decal/stripes/line{
-	dir = 1
-	},
-/obj/machinery/light/directional/south,
-/turf/open/floor/iron,
-/area/centcom/central_command_areas/supply)
 "lj" = (
 /obj/structure/table/wood,
 /obj/item/paper_bin,
@@ -3406,6 +3379,22 @@
 /obj/structure/sign/nanotrasen/directional/west,
 /turf/open/floor/iron/dark,
 /area/centcom/central_command_areas/courtroom)
+"pd" = (
+/obj/item/clipboard{
+	pixel_y = 4;
+	pixel_x = -2
+	},
+/obj/item/stamp/denied{
+	pixel_x = -2;
+	pixel_y = 12
+	},
+/obj/item/stamp/granted{
+	pixel_y = 7
+	},
+/obj/structure/table/reinforced,
+/obj/effect/turf_decal/tile/neutral/fourcorners,
+/turf/open/floor/iron/dark,
+/area/centcom/central_command_areas/supply)
 "pf" = (
 /obj/structure/table/reinforced,
 /obj/item/crowbar/red,
@@ -3632,6 +3621,20 @@
 /obj/effect/turf_decal/tile/neutral/fourcorners,
 /turf/open/floor/iron/dark,
 /area/centcom/central_command_areas/admin/storage)
+"qo" = (
+/obj/structure/table/reinforced,
+/obj/item/folder,
+/obj/item/stamp/denied{
+	pixel_x = 3;
+	pixel_y = 3
+	},
+/obj/item/stamp/granted,
+/obj/effect/turf_decal/stripes/line{
+	dir = 1
+	},
+/obj/machinery/light/directional/south,
+/turf/open/floor/iron,
+/area/centcom/central_command_areas/supply)
 "qp" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden{
 	dir = 8
@@ -5275,17 +5278,6 @@
 /obj/effect/turf_decal/tile/green,
 /turf/open/floor/iron,
 /area/centcom/central_command_areas/control)
-"xq" = (
-/obj/item/clipboard,
-/obj/item/stamp/denied{
-	pixel_x = 3;
-	pixel_y = 3
-	},
-/obj/item/stamp/granted,
-/obj/structure/table/reinforced,
-/obj/effect/turf_decal/tile/neutral/fourcorners,
-/turf/open/floor/iron/dark,
-/area/centcom/tdome/observation)
 "xr" = (
 /obj/structure/chair{
 	dir = 4
@@ -5503,18 +5495,6 @@
 /obj/structure/closet/firecloset,
 /turf/open/floor/iron/dark/textured_large,
 /area/centcom/central_command_areas/evacuation/ship)
-"yy" = (
-/obj/item/clipboard,
-/obj/item/folder/red,
-/obj/item/stamp/denied{
-	pixel_x = 3;
-	pixel_y = 3
-	},
-/obj/item/stamp/granted,
-/obj/structure/table/reinforced,
-/obj/effect/turf_decal/tile/neutral/fourcorners,
-/turf/open/floor/iron/dark,
-/area/centcom/central_command_areas/evacuation)
 "yz" = (
 /obj/structure/chair{
 	dir = 1
@@ -5583,6 +5563,21 @@
 	},
 /turf/open/floor/iron,
 /area/centcom/central_command_areas/supply)
+"yR" = (
+/obj/item/clipboard,
+/obj/item/folder/red,
+/obj/item/stamp/denied{
+	pixel_x = 6;
+	pixel_y = 6
+	},
+/obj/item/stamp/granted{
+	pixel_x = 3;
+	pixel_y = 3
+	},
+/obj/structure/table/reinforced,
+/obj/item/stamp/centcom,
+/turf/open/floor/iron/grimy,
+/area/centcom/central_command_areas/briefing)
 "yS" = (
 /obj/structure/table/reinforced,
 /obj/item/storage/box/emps,
@@ -6342,6 +6337,19 @@
 /obj/effect/turf_decal/tile/neutral/fourcorners,
 /turf/open/floor/iron/dark,
 /area/centcom/central_command_areas/admin)
+"BU" = (
+/obj/item/clipboard,
+/obj/item/folder/red,
+/obj/item/stamp/denied{
+	pixel_x = 3;
+	pixel_y = 3
+	},
+/obj/item/stamp/granted,
+/obj/structure/table/wood,
+/obj/effect/turf_decal/tile/neutral/fourcorners,
+/obj/structure/sign/nanotrasen/directional/north,
+/turf/open/floor/iron/dark,
+/area/centcom/central_command_areas/courtroom)
 "BW" = (
 /obj/effect/turf_decal/tile/neutral/fourcorners,
 /turf/open/floor/iron/dark,
@@ -6454,6 +6462,18 @@
 	},
 /turf/open/floor/iron,
 /area/centcom/tdome/observation)
+"CE" = (
+/obj/item/clipboard,
+/obj/item/folder/red,
+/obj/item/stamp/denied{
+	pixel_x = 3;
+	pixel_y = 3
+	},
+/obj/item/stamp/granted,
+/obj/structure/table/reinforced,
+/obj/effect/turf_decal/tile/neutral/fourcorners,
+/turf/open/floor/iron/dark,
+/area/centcom/central_command_areas/evacuation)
 "CF" = (
 /obj/machinery/suit_storage_unit/industrial,
 /obj/structure/window/reinforced/survival_pod/spawner/directional/east,
@@ -7575,19 +7595,6 @@
 	name = "CentCom Cell"
 	},
 /area/centcom/central_command_areas/prison/cells)
-"II" = (
-/obj/item/clipboard,
-/obj/item/folder/red,
-/obj/item/stamp/denied{
-	pixel_x = 3;
-	pixel_y = 3
-	},
-/obj/item/stamp/granted,
-/obj/structure/table/reinforced,
-/obj/machinery/status_display/ai/directional/west,
-/obj/effect/turf_decal/tile/neutral/fourcorners,
-/turf/open/floor/iron/dark,
-/area/centcom/central_command_areas/control)
 "IK" = (
 /obj/structure/closet/secure_closet/ert_sec,
 /obj/effect/turf_decal/stripes/line{
@@ -8563,6 +8570,17 @@
 /obj/structure/cable,
 /turf/open/floor/wood,
 /area/centcom/central_command_areas/admin)
+"Of" = (
+/obj/item/clipboard,
+/obj/item/stamp/denied{
+	pixel_x = 3;
+	pixel_y = 3
+	},
+/obj/item/stamp/granted,
+/obj/structure/table/reinforced,
+/obj/effect/turf_decal/tile/neutral/fourcorners,
+/turf/open/floor/iron/dark,
+/area/centcom/tdome/observation)
 "Oh" = (
 /obj/structure/table/reinforced,
 /obj/item/clipboard,
@@ -9098,6 +9116,19 @@
 	name = "CC Main Access Control"
 	},
 /obj/machinery/airalarm/directional/south,
+/obj/effect/turf_decal/tile/neutral/fourcorners,
+/turf/open/floor/iron/dark,
+/area/centcom/central_command_areas/control)
+"Qm" = (
+/obj/item/clipboard,
+/obj/item/folder/red,
+/obj/item/stamp/denied{
+	pixel_x = 3;
+	pixel_y = 3
+	},
+/obj/item/stamp/granted,
+/obj/structure/table/reinforced,
+/obj/machinery/status_display/ai/directional/west,
 /obj/effect/turf_decal/tile/neutral/fourcorners,
 /turf/open/floor/iron/dark,
 /area/centcom/central_command_areas/control)
@@ -10406,21 +10437,6 @@
 /obj/effect/landmark/ert_spawn,
 /turf/open/floor/iron/dark,
 /area/centcom/central_command_areas/briefing)
-"WD" = (
-/obj/item/clipboard,
-/obj/item/folder/red,
-/obj/item/stamp/denied{
-	pixel_x = 6;
-	pixel_y = 6
-	},
-/obj/item/stamp/granted{
-	pixel_x = 3;
-	pixel_y = 3
-	},
-/obj/structure/table/reinforced,
-/obj/item/stamp/centcom,
-/turf/open/floor/iron/grimy,
-/area/centcom/central_command_areas/briefing)
 "WE" = (
 /obj/effect/turf_decal/tile/neutral/opposingcorners,
 /obj/effect/turf_decal/tile/neutral/opposingcorners,
@@ -10718,19 +10734,6 @@
 /obj/effect/spawner/structure/window/reinforced,
 /turf/open/floor/plating,
 /area/centcom/central_command_areas/supplypod)
-"XZ" = (
-/obj/item/clipboard,
-/obj/item/folder/red,
-/obj/item/stamp/denied{
-	pixel_x = 3;
-	pixel_y = 3
-	},
-/obj/item/stamp/granted,
-/obj/structure/table/wood,
-/obj/effect/turf_decal/tile/neutral/fourcorners,
-/obj/structure/sign/nanotrasen/directional/north,
-/turf/open/floor/iron/dark,
-/area/centcom/central_command_areas/courtroom)
 "Ya" = (
 /turf/closed/indestructible/riveted,
 /area/centcom/central_command_areas/armory)
@@ -10817,21 +10820,6 @@
 /obj/effect/mapping_helpers/airlock/access/all/admin/general,
 /turf/open/floor/iron/dark,
 /area/centcom/central_command_areas/control)
-"YD" = (
-/obj/structure/table/wood,
-/obj/item/clipboard,
-/obj/item/folder/red,
-/obj/item/stamp/denied{
-	pixel_x = 6;
-	pixel_y = 6
-	},
-/obj/item/stamp/granted{
-	pixel_x = 3;
-	pixel_y = 3
-	},
-/obj/item/stamp/centcom,
-/turf/open/floor/iron/grimy,
-/area/centcom/central_command_areas/admin)
 "YG" = (
 /obj/structure/closet/emcloset,
 /obj/item/tank/internals/emergency_oxygen/engi,
@@ -11106,6 +11094,18 @@
 /obj/effect/turf_decal/tile/neutral,
 /turf/open/floor/iron,
 /area/centcom/tdome/observation)
+"ZN" = (
+/obj/item/clipboard,
+/obj/item/folder/red,
+/obj/item/stamp/denied{
+	pixel_x = 3;
+	pixel_y = 3
+	},
+/obj/item/stamp/granted,
+/obj/structure/table/reinforced,
+/obj/effect/turf_decal/tile/neutral/fourcorners,
+/turf/open/floor/iron/dark,
+/area/centcom/central_command_areas/ferry)
 "ZO" = (
 /obj/structure/flora/bush/lavendergrass/style_random,
 /obj/structure/flora/bush/sparsegrass/style_random,
@@ -45492,7 +45492,7 @@ oe
 ig
 sq
 to
-bT
+ZN
 oe
 aa
 aa
@@ -48329,7 +48329,7 @@ mD
 PU
 eF
 nz
-WD
+yR
 eV
 eF
 xU
@@ -49339,7 +49339,7 @@ vo
 fP
 On
 Zw
-YD
+df
 hd
 To
 BT
@@ -50621,7 +50621,7 @@ iX
 OM
 mG
 nl
-iq
+pd
 On
 Rn
 EJ
@@ -52426,7 +52426,7 @@ ot
 mI
 oJ
 nn
-li
+qo
 iN
 iF
 iF
@@ -52961,7 +52961,7 @@ io
 yC
 gH
 uc
-II
+Qm
 Qk
 io
 QC
@@ -53221,7 +53221,7 @@ uc
 uc
 dq
 io
-xq
+Of
 rv
 Sl
 gE
@@ -55791,7 +55791,7 @@ uc
 uc
 rf
 io
-xq
+Of
 av
 Sl
 Vs
@@ -59609,7 +59609,7 @@ aa
 Hv
 MQ
 rk
-dr
+kz
 kX
 lw
 rk
@@ -61954,7 +61954,7 @@ AY
 cg
 VY
 Xb
-yy
+CE
 WF
 Yn
 Yn
@@ -62434,7 +62434,7 @@ aa
 aa
 aa
 Hv
-XZ
+BU
 rk
 kE
 lb

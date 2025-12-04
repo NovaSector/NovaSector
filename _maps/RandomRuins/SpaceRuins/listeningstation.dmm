@@ -1,10 +1,4 @@
 //MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
-"aa" = (
-/obj/structure/marker_beacon/cerulean,
-/obj/structure/sign/nanotrasen/directional/north,
-/obj/structure/sign/nanotrasen/directional/east,
-/turf/open/floor/plating/airless,
-/area/ruin/space)
 "ad" = (
 /obj/machinery/airalarm/directional/west,
 /obj/structure/closet/crate/secure/freezer/commsagent,
@@ -85,6 +79,11 @@
 /obj/item/storage/photo_album/listeningstation,
 /turf/open/floor/iron/small,
 /area/ruin/space/has_grav/listeningstation)
+"ch" = (
+/obj/structure/lattice/catwalk,
+/obj/structure/marker_beacon/cerulean,
+/turf/template_noop,
+/area/ruin/space)
 "cj" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
@@ -170,12 +169,6 @@
 /obj/machinery/atmospherics/components/unary/vent_pump/on/layer4,
 /turf/open/floor/iron/grimy,
 /area/ruin/space/has_grav/listeningstation)
-"gx" = (
-/obj/structure/marker_beacon/cerulean,
-/obj/structure/sign/nanotrasen/directional/south,
-/obj/structure/sign/nanotrasen/directional/east,
-/turf/open/floor/plating/airless,
-/area/ruin/space)
 "gJ" = (
 /obj/structure/table/wood,
 /obj/item/seeds/potato,
@@ -244,6 +237,12 @@
 /obj/machinery/light/small/red/directional/north,
 /turf/open/floor/circuit/red,
 /area/ruin/space/has_grav/listeningstation)
+"lO" = (
+/obj/structure/marker_beacon/cerulean,
+/obj/structure/sign/nanotrasen/directional/north,
+/obj/structure/sign/nanotrasen/directional/east,
+/turf/open/floor/plating/airless,
+/area/ruin/space)
 "nG" = (
 /obj/effect/decal/cleanable/blood/drip,
 /obj/structure/table,
@@ -342,6 +341,12 @@
 /obj/effect/mapping_helpers/airalarm/syndicate_access,
 /turf/open/floor/iron,
 /area/ruin/space/has_grav/listeningstation)
+"vt" = (
+/obj/structure/lattice/catwalk,
+/obj/structure/marker_beacon/cerulean,
+/obj/structure/sign/nanotrasen/directional/west,
+/turf/template_noop,
+/area/ruin/space)
 "vC" = (
 /obj/structure/cable,
 /obj/effect/decal/cleanable/dirt,
@@ -517,12 +522,6 @@
 /obj/machinery/meter/layer4,
 /turf/open/floor/plating,
 /area/ruin/space/has_grav/listeningstation)
-"CF" = (
-/obj/structure/lattice/catwalk,
-/obj/structure/marker_beacon/cerulean,
-/obj/structure/sign/nanotrasen/directional/west,
-/turf/template_noop,
-/area/ruin/space)
 "CU" = (
 /obj/structure/table,
 /obj/item/food/chocolatebar{
@@ -598,6 +597,12 @@
 /obj/machinery/light/very_dim/directional/east,
 /turf/open/floor/iron/showroomfloor,
 /area/ruin/space/has_grav/listeningstation)
+"FU" = (
+/obj/structure/marker_beacon/cerulean,
+/obj/structure/sign/nanotrasen/directional/south,
+/obj/structure/sign/nanotrasen/directional/east,
+/turf/open/floor/plating/airless,
+/area/ruin/space)
 "FV" = (
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/plating,
@@ -635,17 +640,6 @@
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/iron/grimy,
 /area/ruin/space/has_grav/listeningstation)
-"HM" = (
-/obj/docking_port/stationary{
-	dir = 8;
-	dwidth = 4;
-	height = 5;
-	shuttle_id = "caravansyndicate1_listeningpost";
-	name = "Syndicate Listening Post";
-	width = 9
-	},
-/turf/template_noop,
-/area/space/nearstation)
 "It" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/chair/stool/directional/north,
@@ -665,6 +659,17 @@
 "JB" = (
 /turf/closed/wall/r_wall,
 /area/ruin/space/has_grav/listeningstation)
+"JD" = (
+/obj/docking_port/stationary{
+	dir = 8;
+	dwidth = 4;
+	height = 5;
+	shuttle_id = "caravansyndicate1_listeningpost";
+	name = "Syndicate Listening Post";
+	width = 9
+	},
+/turf/template_noop,
+/area/space/nearstation)
 "KG" = (
 /obj/structure/curtain,
 /obj/effect/decal/cleanable/dirt,
@@ -709,11 +714,6 @@
 /obj/machinery/light/small/directional/north,
 /turf/open/floor/iron/small,
 /area/ruin/space/has_grav/listeningstation)
-"MR" = (
-/obj/structure/lattice/catwalk,
-/obj/structure/marker_beacon/cerulean,
-/turf/template_noop,
-/area/ruin/space)
 "MS" = (
 /obj/structure/extinguisher_cabinet/directional/west,
 /turf/open/floor/plating,
@@ -999,7 +999,7 @@ AV
 AV
 AV
 AV
-HM
+JD
 AV
 AV
 AV
@@ -1023,9 +1023,9 @@ vI
 vI
 vI
 zp
-aa
+lO
 rE
-gx
+FU
 zp
 vI
 AV
@@ -1159,7 +1159,7 @@ gl
 RK
 JB
 zp
-MR
+ch
 AV
 "}
 (9,1,1) = {"
@@ -1574,7 +1574,7 @@ AV
 AV
 AV
 AV
-CF
+vt
 AV
 AV
 AV

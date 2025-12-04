@@ -3477,13 +3477,6 @@
 	},
 /turf/open/floor/iron,
 /area/ruin/space/ancientstation/beta/hall)
-"qp" = (
-/obj/machinery/door/window/right/directional/east{
-	req_access = list("away_general")
-	},
-/obj/structure/sign/warning/secure_area/directional/north,
-/turf/open/floor/engine,
-/area/ruin/space/ancientstation/delta/biolab)
 "qr" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/table,
@@ -4533,6 +4526,13 @@
 /obj/structure/cable,
 /turf/open/floor/engine/airless,
 /area/ruin/space/ancientstation/beta/supermatter)
+"xM" = (
+/obj/machinery/door/window/right/directional/east{
+	req_access = list("away_general")
+	},
+/obj/structure/sign/warning/secure_area/directional/north,
+/turf/open/floor/engine,
+/area/ruin/space/ancientstation/delta/biolab)
 "xT" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/cable,
@@ -15373,7 +15373,7 @@ GX
 NG
 Lo
 rp
-qp
+xM
 Go
 Yl
 yX

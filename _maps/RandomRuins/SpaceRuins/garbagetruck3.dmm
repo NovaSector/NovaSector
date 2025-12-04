@@ -93,6 +93,14 @@
 /obj/item/storage/fancy/cigarettes/cigpack_robust,
 /turf/open/floor/plating/dumpsterair,
 /area/ruin/space/has_grav/garbagetruck/squat)
+"fF" = (
+/obj/item/clothing/suit/caution,
+/obj/item/trash/syndi_cakes,
+/obj/effect/decal/cleanable/plastic,
+/obj/item/t_scanner,
+/obj/structure/sign/warning/directional/south,
+/turf/open/floor/plating/dumpsterair,
+/area/ruin/space/has_grav/garbagetruck/squat)
 "gq" = (
 /obj/structure/grille,
 /obj/structure/window/reinforced/shuttle,
@@ -298,15 +306,6 @@
 /obj/item/shard,
 /turf/open/floor/plating/dumpsterair,
 /area/ruin/space/has_grav/garbagetruck/squat)
-"pZ" = (
-/obj/item/food/deadmouse,
-/obj/item/clothing/shoes/sneakers/red,
-/obj/item/cigarette/carp,
-/obj/item/extinguisher/mini,
-/obj/effect/decal/cleanable/fuel_pool,
-/obj/structure/sign/warning/directional/south,
-/turf/open/floor/plating/dumpsterair,
-/area/ruin/space/has_grav/garbagetruck/squat)
 "qF" = (
 /obj/structure/closet/cardboard,
 /obj/effect/decal/cleanable/fuel_pool,
@@ -411,14 +410,6 @@
 	},
 /obj/effect/decal/cleanable/fuel_pool,
 /obj/structure/reagent_dispensers/fueltank/large,
-/turf/open/floor/plating/dumpsterair,
-/area/ruin/space/has_grav/garbagetruck/squat)
-"uI" = (
-/obj/item/clothing/suit/caution,
-/obj/item/trash/syndi_cakes,
-/obj/effect/decal/cleanable/plastic,
-/obj/item/t_scanner,
-/obj/structure/sign/warning/directional/south,
 /turf/open/floor/plating/dumpsterair,
 /area/ruin/space/has_grav/garbagetruck/squat)
 "uW" = (
@@ -906,6 +897,15 @@
 "Xt" = (
 /turf/open/floor/plating/dumpsterair,
 /area/ruin/space/has_grav/garbagetruck/squat)
+"Xv" = (
+/obj/item/food/deadmouse,
+/obj/item/clothing/shoes/sneakers/red,
+/obj/item/cigarette/carp,
+/obj/item/extinguisher/mini,
+/obj/effect/decal/cleanable/fuel_pool,
+/obj/structure/sign/warning/directional/south,
+/turf/open/floor/plating/dumpsterair,
+/area/ruin/space/has_grav/garbagetruck/squat)
 "XS" = (
 /obj/effect/decal/cleanable/fuel_pool,
 /obj/structure/firelock_frame,
@@ -992,7 +992,7 @@ pM
 tu
 hm
 pC
-uI
+fF
 mV
 "}
 (4,1,1) = {"
@@ -1146,7 +1146,7 @@ Dq
 yF
 Nd
 Er
-pZ
+Xv
 mV
 "}
 (11,1,1) = {"

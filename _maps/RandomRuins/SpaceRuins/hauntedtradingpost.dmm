@@ -2348,16 +2348,6 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer4,
 /turf/open/floor/catwalk_floor/iron_smooth,
 /area/ruin/space/has_grav/hauntedtradingpost/public/corridor)
-"tU" = (
-/mob/living/basic/viscerator,
-/obj/effect/turf_decal/bot_red,
-/obj/effect/decal/cleanable/dirt/dust,
-/obj/machinery/button/door/directional/north{
-	id = "donk_aicore_door_bolts"
-	},
-/obj/structure/sign/warning/directional/west,
-/turf/open/floor/circuit/red/off,
-/area/ruin/space/has_grav/hauntedtradingpost/aicore)
 "tW" = (
 /obj/effect/decal/cleanable/dirt/dust,
 /obj/structure/cable/layer1,
@@ -2585,10 +2575,6 @@
 	},
 /turf/open/floor/wood,
 /area/ruin/space/has_grav/hauntedtradingpost/public)
-"wt" = (
-/obj/structure/window/reinforced/plasma/plastitanium,
-/turf/open/floor/plating,
-/area/ruin/space/has_grav/hauntedtradingpost/aicore)
 "wy" = (
 /obj/structure/cable/layer1,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer4,
@@ -2997,6 +2983,16 @@
 	},
 /turf/open/floor/carpet/orange,
 /area/ruin/space/has_grav/hauntedtradingpost/public/corridor)
+"zQ" = (
+/mob/living/basic/viscerator,
+/obj/effect/turf_decal/bot_red,
+/obj/effect/decal/cleanable/dirt/dust,
+/obj/machinery/button/door/directional/north{
+	id = "donk_aicore_door_bolts"
+	},
+/obj/structure/sign/warning/directional/west,
+/turf/open/floor/circuit/red/off,
+/area/ruin/space/has_grav/hauntedtradingpost/aicore)
 "Ab" = (
 /obj/effect/spawner/random/trash/cigbutt,
 /turf/open/floor/catwalk_floor/iron_dark,
@@ -4083,6 +4079,12 @@
 	},
 /turf/open/floor/plating,
 /area/ruin/space/has_grav/hauntedtradingpost/maint)
+"Ju" = (
+/mob/living/basic/viscerator,
+/obj/effect/turf_decal/bot_red,
+/obj/structure/sign/warning/directional/east,
+/turf/open/floor/circuit/red/off,
+/area/ruin/space/has_grav/hauntedtradingpost/aicore)
 "Jw" = (
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/carpet/donk,
@@ -4862,6 +4864,10 @@
 	},
 /turf/open/floor/catwalk_floor/iron_dark,
 /area/ruin/space/has_grav/hauntedtradingpost/maint)
+"QA" = (
+/obj/structure/window/reinforced/plasma/plastitanium,
+/turf/open/floor/plating,
+/area/ruin/space/has_grav/hauntedtradingpost/aicore)
 "QF" = (
 /turf/open/floor/carpet/orange,
 /area/ruin/space/has_grav/hauntedtradingpost/public/corridor)
@@ -5252,12 +5258,6 @@
 	},
 /turf/open/floor/catwalk_floor/iron_dark,
 /area/ruin/space/has_grav/hauntedtradingpost/employees/corridor)
-"TO" = (
-/mob/living/basic/viscerator,
-/obj/effect/turf_decal/bot_red,
-/obj/structure/sign/warning/directional/east,
-/turf/open/floor/circuit/red/off,
-/area/ruin/space/has_grav/hauntedtradingpost/aicore)
 "TP" = (
 /obj/effect/decal/cleanable/dirt,
 /mob/living/basic/bot/cleanbot{
@@ -6673,7 +6673,7 @@ je
 Nw
 Ii
 ht
-wt
+QA
 lA
 nE
 IL
@@ -6718,7 +6718,7 @@ Nw
 eN
 Oh
 MR
-tU
+zQ
 Gk
 iv
 qK
@@ -6808,7 +6808,7 @@ BE
 yb
 Im
 MR
-TO
+Ju
 Gk
 iv
 PX
@@ -6853,7 +6853,7 @@ je
 Nw
 AB
 MR
-wt
+QA
 kl
 nE
 SK

@@ -201,6 +201,22 @@
 /obj/structure/closet/emcloset,
 /turf/open/floor/mineral/plastitanium,
 /area/shuttle/escape)
+"bo" = (
+/obj/structure/table,
+/obj/item/tank/internals/emergency_oxygen{
+	pixel_x = -4
+	},
+/obj/item/tank/internals/oxygen{
+	pixel_x = 4
+	},
+/obj/item/clothing/mask/breath{
+	pixel_x = 4;
+	pixel_y = 4
+	},
+/obj/item/clothing/mask/breath,
+/obj/structure/sign/warning/secure_area/directional/north,
+/turf/open/floor/mineral/plastitanium,
+/area/shuttle/escape)
 "bp" = (
 /obj/machinery/door/airlock/shuttle{
 	name = "Emergency Shuttle Airlock"
@@ -836,22 +852,6 @@
 	dir = 1
 	},
 /obj/structure/chair/comfy/shuttle,
-/turf/open/floor/mineral/plastitanium,
-/area/shuttle/escape)
-"xF" = (
-/obj/structure/table,
-/obj/item/tank/internals/emergency_oxygen{
-	pixel_x = -4
-	},
-/obj/item/tank/internals/oxygen{
-	pixel_x = 4
-	},
-/obj/item/clothing/mask/breath{
-	pixel_x = 4;
-	pixel_y = 4
-	},
-/obj/item/clothing/mask/breath,
-/obj/structure/sign/warning/secure_area/directional/north,
 /turf/open/floor/mineral/plastitanium,
 /area/shuttle/escape)
 "xG" = (
@@ -1545,7 +1545,7 @@ kh
 dZ
 Uc
 ab
-xF
+bo
 Em
 Wu
 bK

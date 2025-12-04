@@ -126,18 +126,6 @@
 /obj/structure/grille,
 /turf/template_noop,
 /area/ruin/space/has_grav/garbagetruck/medicalwaste)
-"kA" = (
-/obj/effect/decal/cleanable/plastic,
-/obj/structure/broken_flooring/corner,
-/obj/item/trash/syndi_cakes,
-/obj/item/trash/syndi_cakes,
-/obj/item/trash/syndi_cakes,
-/obj/item/poster/random_contraband,
-/obj/item/organ/tongue/zombie,
-/obj/structure/closet/crate/trashcart,
-/obj/structure/sign/warning/directional/south,
-/turf/open/floor/plating,
-/area/ruin/space/has_grav/garbagetruck/medicalwaste)
 "lT" = (
 /turf/open/floor/catwalk_floor/iron,
 /area/ruin/space/has_grav/garbagetruck/medicalwaste)
@@ -191,6 +179,18 @@
 /obj/item/retractor/advanced{
 	pixel_x = 8
 	},
+/turf/open/floor/plating,
+/area/ruin/space/has_grav/garbagetruck/medicalwaste)
+"qX" = (
+/obj/effect/decal/cleanable/plastic,
+/obj/structure/broken_flooring/corner,
+/obj/item/trash/syndi_cakes,
+/obj/item/trash/syndi_cakes,
+/obj/item/trash/syndi_cakes,
+/obj/item/poster/random_contraband,
+/obj/item/organ/tongue/zombie,
+/obj/structure/closet/crate/trashcart,
+/obj/structure/sign/warning/directional/south,
 /turf/open/floor/plating,
 /area/ruin/space/has_grav/garbagetruck/medicalwaste)
 "rB" = (
@@ -281,17 +281,6 @@
 /obj/structure/closet/crate/trashcart/filled,
 /obj/item/reagent_containers/condiment/soysauce,
 /obj/item/reagent_containers/applicator/pill/mannitol,
-/turf/open/floor/plating,
-/area/ruin/space/has_grav/garbagetruck/medicalwaste)
-"xx" = (
-/obj/structure/closet/body_bag,
-/obj/structure/table/optable,
-/obj/effect/decal/cleanable/blood/old,
-/obj/effect/mob_spawn/corpse/human{
-	brute_damage = 200;
-	mob_type = /mob/living/carbon/human/species/lizard
-	},
-/obj/structure/sign/warning/directional/south,
 /turf/open/floor/plating,
 /area/ruin/space/has_grav/garbagetruck/medicalwaste)
 "zb" = (
@@ -618,6 +607,17 @@
 /obj/structure/curtain/cloth,
 /turf/open/floor/plating,
 /area/ruin/space/has_grav/garbagetruck/medicalwaste)
+"TM" = (
+/obj/structure/closet/body_bag,
+/obj/structure/table/optable,
+/obj/effect/decal/cleanable/blood/old,
+/obj/effect/mob_spawn/corpse/human{
+	brute_damage = 200;
+	mob_type = /mob/living/carbon/human/species/lizard
+	},
+/obj/structure/sign/warning/directional/south,
+/turf/open/floor/plating,
+/area/ruin/space/has_grav/garbagetruck/medicalwaste)
 "Ua" = (
 /obj/structure/table/reinforced,
 /obj/item/analyzer{
@@ -755,7 +755,7 @@ vM
 AB
 py
 io
-xx
+TM
 MC
 "}
 (4,1,1) = {"
@@ -909,7 +909,7 @@ Am
 Tp
 zH
 AU
-kA
+qX
 MC
 "}
 (11,1,1) = {"

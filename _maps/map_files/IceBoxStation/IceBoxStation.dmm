@@ -14507,6 +14507,21 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /turf/open/floor/plating,
 /area/station/maintenance/port/aft)
+"dXh" = (
+/obj/item/stamp/granted{
+	pixel_x = -3;
+	pixel_y = 3
+	},
+/obj/item/stamp/denied{
+	pixel_x = 4;
+	pixel_y = -2
+	},
+/obj/structure/table,
+/obj/machinery/status_display/supply{
+	pixel_y = 32
+	},
+/turf/open/floor/iron,
+/area/station/cargo/office)
 "dXi" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/effect/turf_decal/trimline/blue/filled/corner{
@@ -16358,6 +16373,12 @@
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/wood/large,
 /area/mine/eva/lower)
+"ezq" = (
+/obj/structure/table,
+/obj/item/stamp/granted,
+/obj/item/poster/random_official,
+/turf/open/floor/plating,
+/area/station/maintenance/port/fore)
 "ezs" = (
 /obj/item/radio/intercom/directional/north,
 /obj/effect/turf_decal/tile/red/anticorner{
@@ -19394,12 +19415,6 @@
 	},
 /obj/effect/mapping_helpers/airlock/access/all/engineering/maintenance,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
-/turf/open/floor/plating,
-/area/station/maintenance/port/fore)
-"ftj" = (
-/obj/structure/table,
-/obj/item/stamp/granted,
-/obj/item/poster/random_official,
 /turf/open/floor/plating,
 /area/station/maintenance/port/fore)
 "ftk" = (
@@ -52299,21 +52314,6 @@
 /obj/item/soap/nanotrasen,
 /turf/open/floor/iron/freezer,
 /area/station/maintenance/starboard/fore)
-"oHn" = (
-/obj/item/stamp/granted{
-	pixel_x = -3;
-	pixel_y = 3
-	},
-/obj/item/stamp/denied{
-	pixel_x = 4;
-	pixel_y = -2
-	},
-/obj/structure/table,
-/obj/machinery/status_display/supply{
-	pixel_y = 32
-	},
-/turf/open/floor/iron,
-/area/station/cargo/office)
 "oHo" = (
 /obj/machinery/atmospherics/components/binary/pump/on/supply/hidden/layer4{
 	dir = 1
@@ -237463,7 +237463,7 @@ eAb
 prE
 hjI
 tTL
-ftj
+ezq
 lJO
 hEI
 hEI
@@ -239302,7 +239302,7 @@ gLN
 rCC
 jzL
 rCC
-oHn
+dXh
 cHb
 cHb
 mOA

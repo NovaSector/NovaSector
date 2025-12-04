@@ -19,6 +19,14 @@
 /obj/structure/fans/tiny,
 /turf/open/floor/mineral/plastitanium,
 /area/shuttle/arrival)
+"ae" = (
+/obj/effect/turf_decal/bot,
+/obj/structure/chair/comfy/shuttle{
+	dir = 1
+	},
+/obj/structure/sign/nanotrasen/directional/south,
+/turf/open/floor/mineral/plastitanium,
+/area/shuttle/arrival)
 "af" = (
 /obj/effect/spawner/structure/window/reinforced/shuttle,
 /turf/open/floor/plating,
@@ -304,14 +312,6 @@
 /obj/structure/fans/tiny/invisible,
 /turf/open/floor/plating,
 /area/shuttle/arrival)
-"nb" = (
-/obj/effect/turf_decal/bot,
-/obj/structure/chair/comfy/shuttle{
-	dir = 1
-	},
-/obj/structure/sign/nanotrasen/directional/south,
-/turf/open/floor/mineral/plastitanium,
-/area/shuttle/arrival)
 "rV" = (
 /obj/effect/turf_decal/stripes/line{
 	dir = 1
@@ -371,7 +371,7 @@ aj
 rV
 aT
 aV
-nb
+ae
 ac
 "}
 (6,1,1) = {"

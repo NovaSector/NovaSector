@@ -351,6 +351,13 @@
 /obj/effect/turf_decal/tile/neutral/fourcorners,
 /turf/open/floor/iron,
 /area/shuttle/escape)
+"bL" = (
+/obj/effect/turf_decal/tile/neutral/half/contrasted{
+	dir = 8
+	},
+/obj/structure/sign/nanotrasen/directional/north,
+/turf/open/floor/iron,
+/area/shuttle/escape)
 "bM" = (
 /obj/structure/extinguisher_cabinet/directional/west,
 /obj/effect/turf_decal/tile/brown/anticorner/contrasted{
@@ -1077,13 +1084,6 @@
 /obj/machinery/light/small/directional/north,
 /turf/open/floor/iron,
 /area/shuttle/escape)
-"ZI" = (
-/obj/effect/turf_decal/tile/neutral/half/contrasted{
-	dir = 8
-	},
-/obj/structure/sign/nanotrasen/directional/north,
-/turf/open/floor/iron,
-/area/shuttle/escape)
 
 (1,1,1) = {"
 aa
@@ -1541,7 +1541,7 @@ bn
 bn
 ac
 ad
-ZI
+bL
 bc
 bc
 ba

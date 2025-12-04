@@ -185,6 +185,34 @@
 /obj/structure/cable,
 /turf/open/floor/plating,
 /area/station/engineering/supermatter/room)
+"adg" = (
+/obj/effect/turf_decal/siding/wood{
+	dir = 4
+	},
+/obj/structure/table/wood/fancy/orange,
+/obj/item/stamp/granted{
+	pixel_x = 7;
+	pixel_y = 9
+	},
+/obj/item/stamp/denied{
+	pixel_x = 7;
+	pixel_y = 4
+	},
+/obj/item/stamp/head/qm{
+	pixel_x = 7;
+	pixel_y = -2
+	},
+/obj/item/clipboard{
+	pixel_x = -6;
+	pixel_y = 4
+	},
+/obj/machinery/firealarm/directional/east,
+/obj/item/computer_disk/quartermaster{
+	pixel_x = -6;
+	pixel_y = 4
+	},
+/turf/open/floor/wood,
+/area/station/command/heads_quarters/qm)
 "adK" = (
 /obj/structure/lattice/catwalk,
 /obj/structure/railing{
@@ -4901,6 +4929,26 @@
 /obj/effect/decal/cleanable/dirt/dust,
 /turf/open/floor/plating,
 /area/station/maintenance/department/cargo)
+"bIe" = (
+/obj/structure/table,
+/obj/item/stamp/granted{
+	pixel_x = -3;
+	pixel_y = 3
+	},
+/obj/item/stamp/denied{
+	pixel_x = 4;
+	pixel_y = -2
+	},
+/obj/item/dest_tagger{
+	pixel_x = 9;
+	pixel_y = 10
+	},
+/obj/item/pen/red{
+	pixel_y = 10
+	},
+/obj/machinery/computer/security/telescreen/entertainment/directional/south,
+/turf/open/floor/iron/textured_large,
+/area/station/cargo/sorting)
 "bIi" = (
 /obj/structure/cable,
 /obj/item/storage/toolbox/electrical,
@@ -23665,6 +23713,22 @@
 /obj/effect/spawner/random/maintenance,
 /turf/open/floor/plating,
 /area/station/maintenance/central/lesser)
+"ikp" = (
+/obj/structure/table,
+/obj/item/toy/plush/slimeplushie{
+	pixel_x = 3;
+	pixel_y = 12
+	},
+/obj/item/stamp/granted{
+	pixel_x = -6;
+	pixel_y = 4
+	},
+/obj/item/stamp/denied{
+	pixel_x = 4;
+	pixel_y = 1
+	},
+/turf/open/floor/glass/reinforced,
+/area/station/science/xenobiology)
 "ikD" = (
 /obj/structure/grille/broken,
 /obj/effect/decal/cleanable/glass,
@@ -31775,28 +31839,6 @@
 	},
 /turf/open/floor/plating,
 /area/station/maintenance/port/lesser)
-"kUF" = (
-/obj/structure/window/spawner/directional/east,
-/obj/structure/table,
-/obj/item/dest_tagger{
-	pixel_x = 4;
-	pixel_y = -2
-	},
-/obj/item/stamp/granted{
-	pixel_x = 5;
-	pixel_y = 12
-	},
-/obj/item/paper_bin/bundlenatural{
-	pixel_x = -14;
-	pixel_y = -3
-	},
-/obj/item/stamp/denied{
-	pixel_x = -5;
-	pixel_y = 12
-	},
-/obj/item/radio/intercom/directional/south,
-/turf/open/floor/iron/textured_large,
-/area/station/cargo/sorting)
 "kUG" = (
 /obj/machinery/computer/security{
 	dir = 8
@@ -31918,34 +31960,6 @@
 /obj/machinery/computer/records/security,
 /turf/open/floor/iron,
 /area/station/command/bridge)
-"kXS" = (
-/obj/effect/turf_decal/siding/wood{
-	dir = 4
-	},
-/obj/structure/table/wood/fancy/orange,
-/obj/item/stamp/granted{
-	pixel_x = 7;
-	pixel_y = 9
-	},
-/obj/item/stamp/denied{
-	pixel_x = 7;
-	pixel_y = 4
-	},
-/obj/item/stamp/head/qm{
-	pixel_x = 7;
-	pixel_y = -2
-	},
-/obj/item/clipboard{
-	pixel_x = -6;
-	pixel_y = 4
-	},
-/obj/machinery/firealarm/directional/east,
-/obj/item/computer_disk/quartermaster{
-	pixel_x = -6;
-	pixel_y = 4
-	},
-/turf/open/floor/wood,
-/area/station/command/heads_quarters/qm)
 "kXV" = (
 /obj/structure/cable,
 /obj/structure/disposalpipe/segment{
@@ -46869,6 +46883,28 @@
 /obj/machinery/firealarm/directional/south,
 /turf/open/floor/iron/white,
 /area/station/hallway/secondary/entry)
+"qgA" = (
+/obj/structure/window/spawner/directional/east,
+/obj/structure/table,
+/obj/item/dest_tagger{
+	pixel_x = 4;
+	pixel_y = -2
+	},
+/obj/item/stamp/granted{
+	pixel_x = 5;
+	pixel_y = 12
+	},
+/obj/item/paper_bin/bundlenatural{
+	pixel_x = -14;
+	pixel_y = -3
+	},
+/obj/item/stamp/denied{
+	pixel_x = -5;
+	pixel_y = 12
+	},
+/obj/item/radio/intercom/directional/south,
+/turf/open/floor/iron/textured_large,
+/area/station/cargo/sorting)
 "qgD" = (
 /obj/structure/closet/radiation,
 /obj/effect/turf_decal/delivery,
@@ -52668,22 +52704,6 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /turf/open/floor/plating,
 /area/station/maintenance/solars/port/aft)
-"sbQ" = (
-/obj/structure/table,
-/obj/item/toy/plush/slimeplushie{
-	pixel_x = 3;
-	pixel_y = 12
-	},
-/obj/item/stamp/granted{
-	pixel_x = -6;
-	pixel_y = 4
-	},
-/obj/item/stamp/denied{
-	pixel_x = 4;
-	pixel_y = 1
-	},
-/turf/open/floor/glass/reinforced,
-/area/station/science/xenobiology)
 "sbR" = (
 /obj/structure/railing,
 /obj/structure/railing{
@@ -58103,26 +58123,6 @@
 	},
 /turf/open/floor/iron/white,
 /area/station/medical/surgery/theatre)
-"tRA" = (
-/obj/structure/table,
-/obj/item/stamp/granted{
-	pixel_x = -3;
-	pixel_y = 3
-	},
-/obj/item/stamp/denied{
-	pixel_x = 4;
-	pixel_y = -2
-	},
-/obj/item/dest_tagger{
-	pixel_x = 9;
-	pixel_y = 10
-	},
-/obj/item/pen/red{
-	pixel_y = 10
-	},
-/obj/machinery/computer/security/telescreen/entertainment/directional/south,
-/turf/open/floor/iron/textured_large,
-/area/station/cargo/sorting)
 "tRP" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
@@ -84973,7 +84973,7 @@ pjw
 psy
 ujE
 nfn
-kXS
+adg
 kki
 jsC
 tsU
@@ -87532,7 +87532,7 @@ uYg
 dUD
 skj
 xBf
-tRA
+bIe
 uWl
 niQ
 vwU
@@ -87789,7 +87789,7 @@ pkP
 rfQ
 oli
 gpg
-kUF
+qgA
 uWl
 gTM
 umZ
@@ -189565,7 +189565,7 @@ hhX
 fZF
 jQS
 uCr
-sbQ
+ikp
 hLP
 cWc
 wnA

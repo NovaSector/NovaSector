@@ -26,6 +26,14 @@
 /obj/structure/fans/tiny,
 /turf/open/floor/mineral/plastitanium,
 /area/shuttle/transport)
+"g" = (
+/obj/effect/turf_decal/bot,
+/obj/structure/chair/comfy/shuttle{
+	dir = 1
+	},
+/obj/structure/sign/nanotrasen/directional/south,
+/turf/open/floor/mineral/plastitanium,
+/area/shuttle/transport)
 "h" = (
 /obj/machinery/power/shuttle_engine/propulsion/left{
 	dir = 8
@@ -184,14 +192,6 @@
 /obj/machinery/light/directional/south,
 /turf/open/floor/mineral/plastitanium,
 /area/shuttle/transport)
-"S" = (
-/obj/effect/turf_decal/bot,
-/obj/structure/chair/comfy/shuttle{
-	dir = 1
-	},
-/obj/structure/sign/nanotrasen/directional/south,
-/turf/open/floor/mineral/plastitanium,
-/area/shuttle/transport)
 
 (1,1,1) = {"
 a
@@ -232,7 +232,7 @@ e
 d
 o
 r
-S
+g
 d
 "}
 (7,1,1) = {"

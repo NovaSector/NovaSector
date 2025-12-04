@@ -68,6 +68,16 @@
 "eL" = (
 /turf/open/floor/catwalk_floor/iron,
 /area/ruin/space/has_grav/garbagetruck/toystore)
+"hD" = (
+/obj/structure/mannequin/wood{
+	desc = "Oh, so this is a dress-up game now. It makes eye contact."
+	},
+/obj/item/clothing/shoes/kindle_kicks{
+	pixel_y = -10
+	},
+/obj/structure/sign/warning/directional/south,
+/turf/open/floor/plating,
+/area/ruin/space/has_grav/garbagetruck/toystore)
 "hH" = (
 /obj/structure/spider/stickyweb/sealed/tough,
 /obj/item/book/manual/wiki/cytology,
@@ -543,31 +553,10 @@
 /obj/machinery/door/poddoor/shutters/preopen,
 /turf/open/floor/plating,
 /area/ruin/space/has_grav/garbagetruck/toystore)
-"DV" = (
-/obj/item/mop,
-/obj/item/multitool{
-	pixel_x = 8;
-	pixel_y = -6
-	},
-/obj/structure/mop_bucket,
-/obj/item/broken_bottle,
-/obj/structure/sign/warning/directional/south,
-/turf/open/floor/plating,
-/area/ruin/space/has_grav/garbagetruck/toystore)
 "ER" = (
 /obj/structure/chair/comfy/shuttle,
 /obj/structure/cable,
 /turf/open/floor/catwalk_floor/iron,
-/area/ruin/space/has_grav/garbagetruck/toystore)
-"Fc" = (
-/obj/structure/mannequin/wood{
-	desc = "Oh, so this is a dress-up game now. It makes eye contact."
-	},
-/obj/item/clothing/shoes/kindle_kicks{
-	pixel_y = -10
-	},
-/obj/structure/sign/warning/directional/south,
-/turf/open/floor/plating,
 /area/ruin/space/has_grav/garbagetruck/toystore)
 "FM" = (
 /obj/structure/closet/crate/trashcart,
@@ -796,6 +785,17 @@
 /obj/structure/cable,
 /turf/open/floor/iron/smooth,
 /area/ruin/space/has_grav/garbagetruck/toystore)
+"TO" = (
+/obj/item/mop,
+/obj/item/multitool{
+	pixel_x = 8;
+	pixel_y = -6
+	},
+/obj/structure/mop_bucket,
+/obj/item/broken_bottle,
+/obj/structure/sign/warning/directional/south,
+/turf/open/floor/plating,
+/area/ruin/space/has_grav/garbagetruck/toystore)
 "UD" = (
 /obj/structure/closet/preopen,
 /obj/item/stack/spacecash/c200,
@@ -948,7 +948,7 @@ WZ
 xC
 Ix
 dq
-DV
+TO
 Yr
 "}
 (4,1,1) = {"
@@ -1102,7 +1102,7 @@ kz
 ld
 Hy
 Rl
-Fc
+hD
 Yr
 "}
 (11,1,1) = {"

@@ -862,13 +862,6 @@
 	},
 /turf/open/floor/wood/freezing,
 /area/awaymission/cabin/lumbermill)
-"eS" = (
-/obj/effect/decal/cleanable/dirt,
-/obj/structure/sign/warning/directional/south,
-/turf/open/floor/mineral/plastitanium/red{
-	name = "soviet floor"
-	},
-/area/awaymission/cabin/caves/sovietcave)
 "eY" = (
 /obj/structure/closet/crate/wooden,
 /obj/item/stack/sheet/mineral/wood,
@@ -2491,6 +2484,13 @@
 /obj/structure/sign/warning/explosives,
 /turf/closed/indestructible/syndicate,
 /area/awaymission/cabin/caves/sovietcave)
+"no" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/structure/sign/warning/directional/south,
+/turf/open/floor/mineral/plastitanium/red{
+	name = "soviet floor"
+	},
+/area/awaymission/cabin/caves/sovietcave)
 "np" = (
 /turf/closed/indestructible/fakedoor{
 	desc = "Can you just stop?";
@@ -2846,6 +2846,14 @@
 	},
 /turf/open/misc/asteroid/snow/snow_cabin,
 /area/awaymission/cabin/caves)
+"qx" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/structure/spider/stickyweb,
+/obj/structure/sign/warning/directional/south,
+/turf/open/floor/mineral/plastitanium/red{
+	name = "soviet floor"
+	},
+/area/awaymission/cabin/caves/sovietcave)
 "qz" = (
 /obj/effect/light_emitter{
 	set_cap = 3;
@@ -3820,14 +3828,6 @@
 	},
 /turf/open/misc/asteroid/snow/snow_cabin,
 /area/awaymission/cabin/caves)
-"Bd" = (
-/obj/effect/decal/cleanable/dirt,
-/obj/structure/spider/stickyweb,
-/obj/structure/sign/warning/directional/south,
-/turf/open/floor/mineral/plastitanium/red{
-	name = "soviet floor"
-	},
-/area/awaymission/cabin/caves/sovietcave)
 "Bo" = (
 /obj/effect/turf_decal/weather/snow/corner{
 	dir = 10
@@ -4041,13 +4041,6 @@
 	},
 /turf/open/misc/asteroid/snow/snow_cabin,
 /area/awaymission/cabin/caves)
-"Ew" = (
-/obj/effect/decal/cleanable/dirt,
-/obj/structure/sign/warning/directional/north,
-/turf/open/floor/mineral/plastitanium/red{
-	name = "soviet floor"
-	},
-/area/awaymission/cabin/caves/sovietcave)
 "Ez" = (
 /obj/effect/turf_decal/weather/snow/corner{
 	dir = 10
@@ -4059,6 +4052,13 @@
 	},
 /turf/open/floor/plating/snowed,
 /area/awaymission/cabin/snowforest)
+"EK" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/structure/sign/warning/directional/north,
+/turf/open/floor/mineral/plastitanium/red{
+	name = "soviet floor"
+	},
+/area/awaymission/cabin/caves/sovietcave)
 "EL" = (
 /obj/machinery/light/directional/east,
 /obj/effect/decal/cleanable/dirt,
@@ -68774,8 +68774,8 @@ gx
 gx
 gx
 ii
-Ew
-eS
+EK
+no
 ii
 gx
 gx
@@ -69288,8 +69288,8 @@ gx
 gx
 gx
 ii
-Ew
-Bd
+EK
+qx
 ii
 gx
 gx

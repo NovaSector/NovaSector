@@ -122,6 +122,18 @@
 /obj/structure/flora/tree/pine,
 /turf/open/misc/asteroid/snow/icemoon,
 /area/icemoon/surface/outdoors/nospawn)
+"op" = (
+/obj/structure/flora/tree/pine,
+/obj/structure/sign/warning/secure_area/directional/south,
+/turf/open/misc/asteroid/snow/icemoon,
+/area/icemoon/surface/outdoors/nospawn)
+"tW" = (
+/obj/structure/fence{
+	dir = 4
+	},
+/obj/structure/flora/rock/pile/icy/style_2,
+/turf/open/misc/asteroid/snow/icemoon,
+/area/icemoon/surface/outdoors/nospawn)
 "uy" = (
 /obj/effect/mob_spawn/corpse/human/minesite/overseer,
 /turf/open/floor/plating/snowed/smoothed/icemoon,
@@ -165,11 +177,6 @@
 	},
 /turf/open/misc/asteroid/snow/icemoon,
 /area/icemoon/surface/outdoors/nospawn)
-"Cb" = (
-/obj/structure/flora/tree/pine,
-/obj/structure/sign/warning/secure_area/directional/south,
-/turf/open/misc/asteroid/snow/icemoon,
-/area/icemoon/surface/outdoors/nospawn)
 "Dd" = (
 /turf/closed/mineral/random/snow,
 /area/icemoon/surface/outdoors/nospawn)
@@ -191,17 +198,15 @@
 	},
 /turf/open/floor/plating/snowed/smoothed/icemoon,
 /area/icemoon/surface/outdoors/nospawn)
+"Fj" = (
+/obj/structure/flora/grass/brown/style_random,
+/obj/structure/sign/warning/secure_area/directional/north,
+/turf/open/misc/asteroid/snow/icemoon,
+/area/icemoon/surface/outdoors/nospawn)
 "Fn" = (
 /obj/structure/railing{
 	dir = 6
 	},
-/turf/open/misc/asteroid/snow/icemoon,
-/area/icemoon/surface/outdoors/nospawn)
-"Gp" = (
-/obj/structure/fence{
-	dir = 4
-	},
-/obj/structure/flora/rock/pile/icy/style_2,
 /turf/open/misc/asteroid/snow/icemoon,
 /area/icemoon/surface/outdoors/nospawn)
 "HU" = (
@@ -270,11 +275,6 @@
 /obj/structure/fence{
 	dir = 4
 	},
-/turf/open/misc/asteroid/snow/icemoon,
-/area/icemoon/surface/outdoors/nospawn)
-"Tc" = (
-/obj/structure/flora/grass/brown/style_random,
-/obj/structure/sign/warning/secure_area/directional/north,
 /turf/open/misc/asteroid/snow/icemoon,
 /area/icemoon/surface/outdoors/nospawn)
 "Tt" = (
@@ -867,7 +867,7 @@ mP
 mP
 mP
 bE
-Cb
+op
 Sc
 "}
 (20,1,1) = {"
@@ -900,8 +900,8 @@ kd
 wg
 "}
 (21,1,1) = {"
-Gp
-Tc
+tW
+Fj
 lH
 Wt
 mP

@@ -2712,6 +2712,17 @@
 /obj/effect/turf_decal/tile/neutral/half/contrasted,
 /turf/open/floor/iron,
 /area/station/security/office)
+"aHG" = (
+/obj/structure/table,
+/obj/item/folder,
+/obj/item/stamp/granted,
+/obj/item/stamp/denied{
+	pixel_x = 3;
+	pixel_y = 3
+	},
+/obj/effect/turf_decal/tile/brown/half/contrasted,
+/turf/open/floor/iron,
+/area/station/cargo/office)
 "aHI" = (
 /obj/effect/turf_decal/tile/neutral/half/contrasted,
 /turf/open/floor/iron,
@@ -63021,6 +63032,28 @@
 /obj/effect/turf_decal/tile/neutral/fourcorners,
 /turf/open/floor/iron,
 /area/station/hallway/primary/central/aft)
+"pHz" = (
+/obj/structure/disposalpipe/segment{
+	dir = 10
+	},
+/obj/structure/table/reinforced,
+/obj/item/paper_bin{
+	pixel_x = 4;
+	pixel_y = 6
+	},
+/obj/item/stamp/denied{
+	pixel_x = -7;
+	pixel_y = 9
+	},
+/obj/item/stamp/granted{
+	pixel_x = -7;
+	pixel_y = 1
+	},
+/obj/effect/turf_decal/tile/brown/half/contrasted{
+	dir = 1
+	},
+/turf/open/floor/iron,
+/area/station/cargo/storage)
 "pHA" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/table/wood,
@@ -73622,17 +73655,6 @@
 	},
 /turf/open/floor/iron,
 /area/station/hallway/primary/central/fore)
-"slb" = (
-/obj/structure/table,
-/obj/item/folder,
-/obj/item/stamp/granted,
-/obj/item/stamp/denied{
-	pixel_x = 3;
-	pixel_y = 3
-	},
-/obj/effect/turf_decal/tile/brown/half/contrasted,
-/turf/open/floor/iron,
-/area/station/cargo/office)
 "sle" = (
 /obj/structure/table/reinforced,
 /obj/machinery/door/firedoor,
@@ -86805,28 +86827,6 @@
 /obj/effect/turf_decal/tile/neutral/fourcorners,
 /turf/open/floor/iron/dark,
 /area/station/security/courtroom)
-"vxh" = (
-/obj/structure/disposalpipe/segment{
-	dir = 10
-	},
-/obj/structure/table/reinforced,
-/obj/item/paper_bin{
-	pixel_x = 4;
-	pixel_y = 6
-	},
-/obj/item/stamp/denied{
-	pixel_x = -7;
-	pixel_y = 9
-	},
-/obj/item/stamp/granted{
-	pixel_x = -7;
-	pixel_y = 1
-	},
-/obj/effect/turf_decal/tile/brown/half/contrasted{
-	dir = 1
-	},
-/turf/open/floor/iron,
-/area/station/cargo/storage)
 "vxi" = (
 /obj/machinery/door/firedoor,
 /obj/effect/turf_decal/stripes/line{
@@ -139608,7 +139608,7 @@ nRc
 jHf
 rve
 rve
-slb
+aHG
 rES
 vsJ
 qQE
@@ -142172,7 +142172,7 @@ etg
 cNf
 kuy
 xRv
-vxh
+pHz
 vkK
 qaF
 mAr
