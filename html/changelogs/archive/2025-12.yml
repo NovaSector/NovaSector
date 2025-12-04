@@ -29,3 +29,55 @@
 2025-12-03:
   sqnztb:
   - bugfix: robotic lizard voicebox now can communicate properly again.
+2025-12-04:
+  Aliceee2ch:
+  - map: Removes one (1) bush in NebulaStation warehouse.
+  EEASAS:
+  - bugfix: Fixes a few disposal pipes on CatwalkStation. Read the PR!
+  - bugfix: Fixes Icebox's comms agent ruin having generic documents, not the secret
+      ones
+  Melbert:
+  - bugfix: Wall mounts no longer stick to tables instead of the wall behind it
+  OrbisAnima:
+  - rscadd: Added 3x3 beds.
+  - rscadd: Added the missing facing side to double beds.
+  - balance: Reduced by 25% the cost of synthetic pelt and oversized beds.
+  - bugfix: Fixed exploit with synthetic pelt beds.
+  Rilomatic:
+  - image: added icons and images
+  SyncIt21:
+  - bugfix: fixes all incorrectly maploded wall mounts that aren't actually hanging
+      on any support structure
+  - bugfix: objects mounted on tables, windows & fences also fall off now when destoryed
+  - qol: lights can be mounted on windows
+  - qol: cameras can be mounted on windows
+  - qol: buttons can be mounted on tables
+  - refactor: improved how wall mounts interact with objects as a whole report bugs
+      on github
+  - bugfix: all mounted objects on tables, fences, windows & walls should fall of
+      correctly when the atom it is placed on is destroyed
+  - bugfix: security telescreen now falls off when their mounted wall is destroyed
+  - bugfix: defib wall mount falls off when their mounted wall is destroyed
+  - bugfix: floor lights are mounted to the ground/catwalk/tram floor they are sitting
+      on meaning destroying it will destroy the light
+  - bugfix: wall mounted plaques now fall off when their mounted wall is destroyed
+  TheRealSlimRedwoods:
+  - rscadd: 'Fox whines and yips!
+
+      :cl:'
+  combustor:
+  - bugfix: Fixes the AI sat's teleporter on catwalk
+  ezel:
+  - bugfix: Removes a duplicate fire alarm in metastation botany
+  - bugfix: fixes catwalk atmos pipeline at the courtroom
+  - bugfix: removes random powerline going trough the walls
+  muratendmo:
+  - qol: Added the Machine Design (Multi-Cell Charger Board) to the Science departmental
+      imprinter.
+  vinylspiders:
+  - bugfix: taur uniform icons will now get cropped and show correctly in the prefs
+      menu
+  - bugfix: aprons and other various suits will no longer float away from certain
+      types of taur.
+  - bugfix: dying in a ghost cafe area should no longer will send a death message
+      to deadchat

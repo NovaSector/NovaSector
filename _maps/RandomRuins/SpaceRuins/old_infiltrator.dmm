@@ -8,14 +8,6 @@
 /obj/effect/mob_spawn/corpse/human/syndicatepilot,
 /turf/open/floor/mineral/plastitanium/red,
 /area/ruin/space/unpowered)
-"bl" = (
-/obj/machinery/status_display/ai{
-	pixel_x = 32
-	},
-/obj/machinery/light/directional/east,
-/obj/effect/decal/cleanable/blood/old,
-/turf/open/floor/mineral/plastitanium/red,
-/area/ruin/space/unpowered)
 "bU" = (
 /obj/machinery/door/window/brigdoor/left/directional/east{
 	name = "EVA";
@@ -44,6 +36,16 @@
 	},
 /obj/effect/turf_decal/stripes/red/line,
 /turf/open/floor/iron/dark/airless,
+/area/ruin/space/unpowered)
+"cr" = (
+/obj/structure/table,
+/obj/item/storage/toolbox/emergency/old{
+	pixel_y = 4;
+	pixel_x = 8
+	},
+/obj/machinery/status_display/evac/directional/north,
+/obj/machinery/light/directional/north,
+/turf/open/floor/mineral/plastitanium/red/airless,
 /area/ruin/space/unpowered)
 "cJ" = (
 /obj/effect/turf_decal/siding/thinplating_new/dark/corner{
@@ -211,6 +213,10 @@
 /obj/effect/turf_decal/syndicateemblem/top/right,
 /turf/open/floor/mineral/plastitanium/red/airless,
 /area/ruin/space/unpowered)
+"nv" = (
+/obj/item/stack/sheet/mineral/plastitanium,
+/turf/template_noop,
+/area/space/nearstation)
 "nF" = (
 /obj/item/radio/intercom/directional/south,
 /obj/effect/decal/cleanable/blood/old,
@@ -267,17 +273,6 @@
 "sz" = (
 /obj/structure/frame/machine,
 /obj/item/circuitboard/machine/cyborgrecharger,
-/turf/open/floor/mineral/plastitanium/red/airless,
-/area/ruin/space/unpowered)
-"sD" = (
-/obj/structure/lattice,
-/turf/template_noop,
-/area/space/nearstation)
-"sL" = (
-/obj/structure/table,
-/obj/effect/spawner/random/engineering/tool,
-/obj/machinery/light/directional/north,
-/obj/item/stack/cable_coil,
 /turf/open/floor/mineral/plastitanium/red/airless,
 /area/ruin/space/unpowered)
 "tE" = (
@@ -377,10 +372,6 @@
 /obj/machinery/portable_atmospherics/canister/oxygen,
 /turf/open/floor/mineral/plastitanium/red/airless,
 /area/ruin/space/unpowered)
-"xO" = (
-/obj/item/stack/rods,
-/turf/template_noop,
-/area/space/nearstation)
 "yL" = (
 /obj/machinery/light/directional/east,
 /turf/open/floor/mineral/plastitanium/red/airless,
@@ -420,10 +411,6 @@
 /obj/machinery/newscaster/directional/east,
 /turf/open/floor/mineral/plastitanium/red/airless,
 /area/ruin/space/unpowered)
-"Bg" = (
-/obj/item/stack/rods/two,
-/turf/template_noop,
-/area/space/nearstation)
 "BA" = (
 /obj/structure/table,
 /obj/item/storage/belt/bandolier{
@@ -447,15 +434,6 @@
 "CC" = (
 /obj/effect/spawner/structure/window/reinforced/plasma/plastitanium,
 /turf/open/floor/plating,
-/area/ruin/space/unpowered)
-"CX" = (
-/obj/structure/table,
-/obj/item/storage/toolbox/emergency/old{
-	pixel_y = 4;
-	pixel_x = 8
-	},
-/obj/machinery/status_display/evac/directional/north,
-/turf/open/floor/mineral/plastitanium/red/airless,
 /area/ruin/space/unpowered)
 "Da" = (
 /obj/effect/turf_decal/bot_red,
@@ -534,6 +512,10 @@
 	},
 /turf/open/floor/mineral/plastitanium/red/airless,
 /area/ruin/space/unpowered)
+"Jd" = (
+/obj/item/stack/rods,
+/turf/template_noop,
+/area/space/nearstation)
 "JH" = (
 /obj/structure/frame/machine,
 /turf/open/floor/circuit/red/airless,
@@ -553,6 +535,10 @@
 /obj/effect/spawner/random/maintenance,
 /turf/open/floor/mineral/plastitanium/red/airless,
 /area/ruin/space/unpowered)
+"KM" = (
+/obj/structure/lattice,
+/turf/template_noop,
+/area/space/nearstation)
 "Lz" = (
 /obj/structure/table,
 /obj/item/tank/internals/emergency_oxygen/engi,
@@ -568,6 +554,12 @@
 /obj/machinery/suit_storage_unit/open,
 /obj/machinery/light/directional/west,
 /turf/open/floor/iron/dark/airless,
+/area/ruin/space/unpowered)
+"Mw" = (
+/obj/machinery/light/directional/east,
+/obj/effect/decal/cleanable/blood/old,
+/obj/machinery/status_display/ai/directional/east,
+/turf/open/floor/mineral/plastitanium/red,
 /area/ruin/space/unpowered)
 "MB" = (
 /mob/living/basic/carp/mega,
@@ -607,10 +599,6 @@
 	},
 /turf/open/floor/mineral/plastitanium/red/airless,
 /area/ruin/space/unpowered)
-"Po" = (
-/obj/item/shard,
-/turf/template_noop,
-/area/space/nearstation)
 "Pq" = (
 /turf/closed/wall/r_wall/plastitanium/syndicate,
 /area/ruin/space/unpowered)
@@ -647,6 +635,10 @@
 /obj/effect/turf_decal/syndicateemblem/bottom/middle,
 /turf/open/floor/mineral/plastitanium/red/airless,
 /area/ruin/space/unpowered)
+"Tc" = (
+/obj/item/stack/rods/two,
+/turf/template_noop,
+/area/space/nearstation)
 "Tx" = (
 /obj/machinery/door/window/brigdoor/right/directional/west{
 	req_access = list("syndicate");
@@ -695,6 +687,12 @@
 	},
 /turf/open/floor/mineral/plastitanium/red,
 /area/ruin/space/unpowered)
+"WP" = (
+/obj/structure/table,
+/obj/effect/spawner/random/engineering/tool,
+/obj/item/stack/cable_coil,
+/turf/open/floor/mineral/plastitanium/red/airless,
+/area/ruin/space/unpowered)
 "WS" = (
 /obj/effect/decal/cleanable/blood/old,
 /obj/item/ammo_casing/spent{
@@ -710,10 +708,6 @@
 /obj/item/ammo_casing/spent,
 /turf/open/floor/mineral/plastitanium/red/airless,
 /area/ruin/space/unpowered)
-"XT" = (
-/obj/item/stack/sheet/mineral/plastitanium,
-/turf/template_noop,
-/area/space/nearstation)
 "Yb" = (
 /obj/structure/chair,
 /obj/item/toy/plush/nukeplushie,
@@ -733,6 +727,10 @@
 	},
 /turf/open/floor/mineral/plastitanium/red/airless,
 /area/ruin/space/unpowered)
+"YT" = (
+/obj/item/shard,
+/turf/template_noop,
+/area/space/nearstation)
 "Zh" = (
 /obj/structure/table,
 /obj/item/storage/medkit/ancient{
@@ -855,7 +853,7 @@ la
 la
 la
 la
-Bg
+Tc
 la
 la
 la
@@ -870,7 +868,7 @@ la
 la
 la
 la
-xO
+Jd
 la
 la
 la
@@ -880,8 +878,8 @@ la
 Pq
 Pq
 Pq
-sD
-sD
+KM
+KM
 la
 la
 la
@@ -909,9 +907,9 @@ sz
 PC
 DM
 la
-sD
+KM
 la
-XT
+nv
 la
 la
 "}
@@ -925,7 +923,7 @@ la
 la
 la
 la
-sD
+KM
 la
 Da
 LP
@@ -935,11 +933,11 @@ Pq
 uE
 vK
 EK
-sD
-sD
+KM
+KM
 la
 la
-Po
+YT
 la
 "}
 (8,1,1) = {"
@@ -951,9 +949,9 @@ la
 la
 la
 la
-XT
-sD
-sD
+nv
+KM
+KM
 DM
 SE
 DM
@@ -964,7 +962,7 @@ DM
 RM
 DM
 cd
-sD
+KM
 la
 la
 la
@@ -1163,7 +1161,7 @@ la
 la
 Pq
 vi
-bl
+Mw
 Aa
 Pq
 Pq
@@ -1202,7 +1200,7 @@ vK
 DM
 pi
 Pq
-CX
+cr
 AX
 DM
 lR
@@ -1227,10 +1225,10 @@ la
 Pq
 zg
 yL
-sD
-sD
-sL
-sD
+KM
+KM
+WP
+KM
 DM
 DM
 SS
@@ -1248,15 +1246,15 @@ la
 la
 la
 la
-Po
+YT
 la
 la
 Pq
 Pq
 Pq
-sD
+KM
 la
-sD
+KM
 la
 DM
 vK
@@ -1276,16 +1274,16 @@ la
 la
 la
 gT
-xO
+Jd
 la
 la
 la
 la
 la
 la
-sD
-xO
-sD
+KM
+Jd
+KM
 KJ
 SS
 hx
@@ -1310,9 +1308,9 @@ la
 la
 la
 la
-sD
-sD
-sD
+KM
+KM
+KM
 Pq
 Pq
 Pq
@@ -1339,7 +1337,7 @@ la
 la
 la
 la
-XT
+nv
 la
 la
 la

@@ -735,7 +735,8 @@
 /obj/effect/turf_decal/tile/neutral/fourcorners,
 /obj/structure/sign/painting{
 	pixel_y = 32;
-	persistence_id = "museumgate"
+	persistence_id = "museumgate";
+	dir = 1
 	},
 /obj/machinery/light/floor,
 /obj/effect/decal/cleanable/dirt/dust,
@@ -1047,16 +1048,14 @@
 /obj/effect/turf_decal/stripes/asteroid/line{
 	dir = 1
 	},
-/obj/machinery/button{
-	pixel_y = 32
-	},
 /turf/open/indestructible/plating,
 /area/awaymission/museum)
 "iI" = (
 /obj/effect/turf_decal/tile/neutral/fourcorners,
 /obj/structure/sign/painting{
 	pixel_y = 32;
-	persistence_id = "museumgate"
+	persistence_id = "museumgate";
+	dir = 1
 	},
 /obj/machinery/light/floor,
 /turf/open/floor/iron/dark,
@@ -4349,6 +4348,11 @@
 	},
 /turf/open/floor/iron,
 /area/awaymission/museum)
+"Jh" = (
+/obj/machinery/light/floor,
+/obj/structure/plaque/static_plaque/golden/commission/kilo,
+/turf/open/floor/mineral/gold,
+/area/awaymission/museum)
 "Jj" = (
 /mob/living/basic/mothroach,
 /turf/open/floor/mineral/gold,
@@ -5369,11 +5373,6 @@
 	puzzle_id = "museum_right_wing"
 	},
 /turf/open/floor/iron/white/small,
-/area/awaymission/museum)
-"Tr" = (
-/obj/structure/plaque/static_plaque/golden/commission/kilo,
-/obj/machinery/light/floor,
-/turf/open/floor/mineral/gold,
 /area/awaymission/museum)
 "Tt" = (
 /obj/structure/holosign/barrier/engineering,
@@ -39037,7 +39036,7 @@ uY
 tD
 GV
 Lw
-Tr
+Jh
 Lw
 ud
 lb

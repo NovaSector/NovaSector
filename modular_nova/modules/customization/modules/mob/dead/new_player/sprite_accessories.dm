@@ -64,21 +64,33 @@
 				default_color = DEFAULT_MATRIXED
 			else
 				default_color = "#FFFFFF"
+
 	if(name == SPRITE_ACCESSORY_NONE)
 		factual = FALSE
-	if(color_src == USE_MATRIXED_COLORS && default_color != DEFAULT_MATRIXED)
-		default_color = DEFAULT_MATRIXED
-	if (color_src == USE_MATRIXED_COLORS)
+
+	if(color_src == USE_MATRIXED_COLORS)
+
+		if(default_color != DEFAULT_MATRIXED)
+			default_color = DEFAULT_MATRIXED
+
 		color_layer_names = list()
-		if (!SSaccessories.cached_mutant_icon_files[icon])
+
+		if(!SSaccessories.cached_mutant_icon_files[icon])
 			SSaccessories.cached_mutant_icon_files[icon] = icon_states(new /icon(icon))
-		for (var/layer in relevent_layers)
-			var/layertext = layer == BODY_BEHIND_LAYER ? "BEHIND" : (layer == BODY_ADJ_LAYER ? "ADJ" : "FRONT")
-			if ("m_[key]_[icon_state]_[layertext]_primary" in SSaccessories.cached_mutant_icon_files[icon])
+
+		var/icon_state_prefix = "m_[key]_[icon_state]"
+		var/list/icon_states_list = SSaccessories.cached_mutant_icon_files[icon]
+		for(var/layer in relevent_layers)
+			var/layertext = (layer == BODY_BEHIND_LAYER) ? "BEHIND" \
+							: ((layer == BODY_ADJ_LAYER) ? "ADJ" : "FRONT")
+
+			var/prefix = "[icon_state_prefix]_[layertext]"
+
+			if("[prefix]_primary" in icon_states_list)
 				color_layer_names["1"] = "primary"
-			if ("m_[key]_[icon_state]_[layertext]_secondary" in SSaccessories.cached_mutant_icon_files[icon])
+			if("[prefix]_secondary" in icon_states_list)
 				color_layer_names["2"] = "secondary"
-			if ("m_[key]_[icon_state]_[layertext]_tertiary" in SSaccessories.cached_mutant_icon_files[icon])
+			if("[prefix]_tertiary" in icon_states_list)
 				color_layer_names["3"] = "tertiary"
 
 /datum/sprite_accessory/proc/is_hidden(mob/living/carbon/human/owner)
