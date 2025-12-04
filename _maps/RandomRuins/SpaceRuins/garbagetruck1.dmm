@@ -369,10 +369,6 @@
 /obj/structure/lattice/catwalk,
 /turf/template_noop,
 /area/ruin/space/has_grav/garbagetruck/foodwaste)
-"pW" = (
-/obj/machinery/power/shuttle_engine/propulsion,
-/turf/template_noop,
-/area/space/nearstation)
 "qd" = (
 /obj/item/food/breadslice/moldy/bacteria{
 	pixel_y = -10
@@ -440,6 +436,11 @@
 /obj/item/food/breadslice/moldy/bacteria,
 /obj/effect/decal/cleanable/wrapping,
 /turf/open/floor/plating/dumpsterair,
+/area/ruin/space/has_grav/garbagetruck/foodwaste)
+"vk" = (
+/obj/structure/cable,
+/obj/machinery/airalarm/directional/north,
+/turf/open/floor/catwalk_floor/iron,
 /area/ruin/space/has_grav/garbagetruck/foodwaste)
 "vA" = (
 /obj/machinery/power/terminal,
@@ -896,6 +897,10 @@
 /mob/living/basic/mouse/rat,
 /turf/open/floor/plating/dumpsterair,
 /area/ruin/space/has_grav/garbagetruck/foodwaste)
+"KY" = (
+/obj/machinery/power/shuttle_engine/propulsion,
+/turf/template_noop,
+/area/space/nearstation)
 "Le" = (
 /obj/effect/spawner/random/trash/bacteria,
 /turf/open/floor/plating/dumpsterair,
@@ -1121,13 +1126,6 @@
 	},
 /turf/open/floor/plating/dumpsterair,
 /area/ruin/space/has_grav/garbagetruck/foodwaste)
-"Tt" = (
-/obj/machinery/airalarm{
-	pixel_y = 25
-	},
-/obj/structure/cable,
-/turf/open/floor/catwalk_floor/iron,
-/area/ruin/space/has_grav/garbagetruck/foodwaste)
 "TB" = (
 /obj/structure/window/reinforced/shuttle,
 /obj/structure/grille,
@@ -1238,7 +1236,7 @@ pP
 pP
 pP
 OD
-pW
+KY
 qM
 qM
 qM
@@ -1346,7 +1344,7 @@ XY
 TB
 Od
 OD
-Tt
+vk
 Ct
 tU
 TX
@@ -1480,7 +1478,7 @@ pP
 pP
 UX
 OD
-pW
+KY
 qM
 qM
 qM

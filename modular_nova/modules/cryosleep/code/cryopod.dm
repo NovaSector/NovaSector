@@ -34,9 +34,9 @@ GLOBAL_LIST_EMPTY(valid_cryopods)
 	connectable = FALSE
 
 	/// Used for logging people entering cryosleep and important items they are carrying.
-	var/list/frozen_crew = list()
+	var/list/frozen_crew
 	/// The items currently stored in the cryopod control panel.
-	var/list/frozen_item = list()
+	var/list/frozen_items
 
 	/// The channel to be broadcast on, works via refactored AAS machinery.
 	var/announcement_channel = RADIO_CHANNEL_COMMON
@@ -79,7 +79,7 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/machinery/computer/cryopod, 32)
 	/// The associative list of the reference to an item and its name.
 	var/list/item_ref_name = list()
 
-	for(var/obj/item/item in frozen_item)
+	for(var/obj/item/item in frozen_items)
 		var/ref = REF(item)
 		item_ref_list += ref
 		item_ref_name[ref] = item.name
@@ -109,11 +109,12 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/machinery/computer/cryopod, 32)
 			// This is using references, kinda clever, not gonna lie. Good work Zephyr
 			var/item_get = params["item_get"]
 			var/obj/item/item = locate(item_get)
-			if(item in frozen_item)
+			if(item in frozen_items)
 				item.forceMove(drop_location())
-				frozen_item.Remove(item_get, item)
+				ui.user.put_in_hands(item)
+				LAZYREMOVE(frozen_items, item)
 				visible_message("[src] dispenses \the [item].")
-				message_admins("[item] was retrieved from cryostorage at [ADMIN_COORDJMP(src)]")
+				message_admins("[item] was retrieved by [ui.user] from cryostorage at [ADMIN_COORDJMP(src)]")
 			else
 				CRASH("Invalid REF# for ui_act. Not inside internal list!")
 			return TRUE
@@ -419,7 +420,7 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/machinery/computer/cryopod, 32)
 	if(!control_computer)
 		control_computer_weakref = null
 	else
-		control_computer.frozen_crew += list(list("name" = occupant_name, "job" = occupant_rank))
+		LAZYADD(control_computer.frozen_crew, list(list("name" = occupant_name, "job" = occupant_rank)))
 
 		// Make an announcement and log the person entering storage. If set to quiet, does not make an announcement.
 		if(!quiet)
@@ -427,21 +428,22 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/machinery/computer/cryopod, 32)
 
 	visible_message(span_notice("[src] hums and hisses as it moves [mob_occupant.real_name] into storage."))
 
-	for(var/obj/item/item_content as anything in mob_occupant)
-		if(!istype(item_content) || HAS_TRAIT(item_content, TRAIT_NODROP) || (item_content.item_flags & ABSTRACT|DROPDEL) || (item_content.flags_1 & HOLOGRAM_1))
-			continue
-		if (issilicon(mob_occupant) && istype(item_content, /obj/item/mmi))
-			continue
-		if(control_computer)
-			if(istype(item_content, /obj/item/modular_computer))
-				var/obj/item/modular_computer/computer = item_content
-				for(var/datum/computer_file/program/messenger/message_app in computer.stored_files)
-					message_app.invisible = TRUE
-			mob_occupant.transferItemToLoc(item_content, control_computer, force = TRUE, silent = TRUE)
-			item_content.dropped(mob_occupant)
-			control_computer.frozen_item += item_content
-		else
-			mob_occupant.transferItemToLoc(item_content, drop_location(), force = TRUE, silent = TRUE)
+	if(!HAS_TRAIT_FROM(mob_occupant, TRAIT_FREE_GHOST, TRAIT_GHOSTROLE)) // Don't let ghost cafe people store items
+		for(var/obj/item/item_content in mob_occupant)
+			if(HAS_TRAIT(item_content, TRAIT_NODROP) || (item_content.item_flags & (ABSTRACT|DROPDEL)) || (item_content.flags_1 & HOLOGRAM_1))
+				continue
+			if (issilicon(mob_occupant) && istype(item_content, /obj/item/mmi))
+				continue
+			if(control_computer)
+				if(istype(item_content, /obj/item/modular_computer))
+					var/obj/item/modular_computer/computer = item_content
+					for(var/datum/computer_file/program/messenger/message_app in computer.stored_files)
+						message_app.invisible = TRUE
+				mob_occupant.transferItemToLoc(item_content, control_computer, force = TRUE, silent = TRUE)
+				item_content.dropped(mob_occupant)
+				LAZYADD(control_computer.frozen_items, item_content)
+			else
+				mob_occupant.transferItemToLoc(item_content, drop_location(), force = TRUE, silent = TRUE)
 
 	// Borgs will splash the ground with their beaker reagents on qdel, let's make sure this does not happen
 	if(iscyborg(occupant))

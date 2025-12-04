@@ -760,17 +760,6 @@
 	},
 /turf/open/floor/iron,
 /area/ruin/space/ancientstation/delta/hall)
-"dy" = (
-/obj/structure/closet/radiation,
-/obj/item/clothing/suit/utility/radiation,
-/obj/item/clothing/suit/utility/radiation,
-/obj/item/clothing/head/utility/radiation,
-/obj/item/clothing/head/utility/radiation,
-/obj/item/geiger_counter,
-/obj/item/geiger_counter,
-/obj/machinery/light/small/broken/directional/north,
-/turf/open/floor/engine/airless,
-/area/ruin/space/ancientstation/beta/supermatter)
 "dz" = (
 /obj/machinery/smartfridge,
 /obj/machinery/door/firedoor,
@@ -1138,6 +1127,11 @@
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/iron/white,
 /area/ruin/space/ancientstation/delta/rnd)
+"fb" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/item/shard/plasma,
+/turf/open/floor/engine/airless,
+/area/ruin/space/ancientstation/beta/supermatter)
 "fc" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/cable,
@@ -2666,10 +2660,6 @@
 /obj/effect/mapping_helpers/broken_floor,
 /turf/open/floor/plating/airless,
 /area/ruin/space/ancientstation/beta/medbay)
-"lX" = (
-/obj/item/stack/rods,
-/turf/template_noop,
-/area/space/nearstation)
 "lZ" = (
 /obj/structure/alien/weeds,
 /obj/structure/cable,
@@ -4534,18 +4524,6 @@
 /obj/structure/cable,
 /turf/open/floor/engine/airless,
 /area/ruin/space/ancientstation/beta/supermatter)
-"xL" = (
-/obj/effect/decal/cleanable/dirt,
-/obj/machinery/button/door/directional/west{
-	id = "Beta Secure Storage";
-	name = "Engineering Secure Storage";
-	req_access = list("engine_equip");
-	pixel_x = 25;
-	pixel_y = 23
-	},
-/obj/item/shard/plasma,
-/turf/open/floor/engine/airless,
-/area/ruin/space/ancientstation/beta/supermatter)
 "xM" = (
 /obj/machinery/door/window/right/directional/east{
 	req_access = list("away_general")
@@ -4728,6 +4706,20 @@
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/iron/diagonal,
 /area/ruin/space/ancientstation/beta/gravity)
+"zo" = (
+/obj/structure/closet/radiation,
+/obj/item/clothing/suit/utility/radiation,
+/obj/item/clothing/suit/utility/radiation,
+/obj/item/clothing/head/utility/radiation,
+/obj/item/clothing/head/utility/radiation,
+/obj/item/geiger_counter,
+/obj/item/geiger_counter,
+/obj/machinery/light/small/broken/directional/north,
+/obj/machinery/button/door/directional/north{
+	id = "Beta Secure Storage"
+	},
+/turf/open/floor/engine/airless,
+/area/ruin/space/ancientstation/beta/supermatter)
 "zp" = (
 /obj/effect/turf_decal/stripes/line,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2{
@@ -5346,6 +5338,10 @@
 /obj/effect/mapping_helpers/broken_floor,
 /turf/open/floor/plating/airless,
 /area/ruin/space/ancientstation/beta/supermatter)
+"Dz" = (
+/obj/item/stack/rods,
+/turf/template_noop,
+/area/space/nearstation)
 "DA" = (
 /obj/effect/decal/cleanable/blood/xeno,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2{
@@ -10118,7 +10114,7 @@ GA
 mH
 aa
 aa
-lX
+Dz
 aa
 aa
 aa
@@ -10182,7 +10178,7 @@ kW
 HA
 iH
 bJ
-lX
+Dz
 aa
 aa
 aa
@@ -10511,11 +10507,11 @@ Gi
 rw
 Ze
 bJ
-lX
+Dz
 aa
 UP
 aa
-lX
+Dz
 aa
 aa
 aa
@@ -10689,7 +10685,7 @@ NU
 YW
 NU
 xY
-xL
+fb
 CN
 DK
 iv
@@ -10755,7 +10751,7 @@ Ls
 IU
 eb
 Vl
-dy
+zo
 Hj
 iv
 vk
@@ -13316,7 +13312,7 @@ aa
 aa
 Jg
 aa
-lX
+Dz
 aa
 Al
 Al
@@ -13380,7 +13376,7 @@ aa
 aa
 aa
 aa
-lX
+Dz
 aa
 Jg
 aa
@@ -13713,7 +13709,7 @@ aa
 aa
 aa
 aa
-lX
+Dz
 aa
 aa
 aa
@@ -13907,7 +13903,7 @@ aa
 aa
 aa
 aa
-lX
+Dz
 aa
 aa
 aa
@@ -14043,7 +14039,7 @@ Jg
 Jg
 aa
 aa
-lX
+Dz
 aa
 aa
 bE

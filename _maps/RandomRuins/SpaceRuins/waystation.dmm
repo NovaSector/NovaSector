@@ -832,6 +832,10 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /turf/open/floor/iron,
 /area/ruin/space/has_grav/waystation/cargobay)
+"op" = (
+/obj/structure/broken_flooring/pile/directional/north,
+/turf/template_noop,
+/area/space/nearstation)
 "or" = (
 /obj/machinery/power/rtg/advanced,
 /obj/structure/cable,
@@ -959,6 +963,10 @@
 "pX" = (
 /turf/open/floor/plating,
 /area/ruin/space/has_grav/waystation/power)
+"qe" = (
+/obj/item/shell/airlock,
+/turf/template_noop,
+/area/space/nearstation)
 "qi" = (
 /obj/machinery/door/airlock,
 /obj/effect/mapping_helpers/airlock/access/any,
@@ -1067,10 +1075,6 @@
 /obj/structure/cable,
 /turf/open/floor/iron,
 /area/ruin/space/has_grav/waystation/cargobay)
-"rv" = (
-/obj/structure/broken_flooring/pile/directional/east,
-/turf/template_noop,
-/area/space/nearstation)
 "rF" = (
 /obj/machinery/button/door/directional/east{
 	id = "Blastdoor_load";
@@ -1214,10 +1218,16 @@
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/wood,
 /area/ruin/space/has_grav/waystation/dorms)
-"uQ" = (
-/obj/structure/broken_flooring/pile/directional/west,
-/turf/template_noop,
-/area/space/nearstation)
+"uT" = (
+/obj/effect/turf_decal/tile/brown/half/contrasted{
+	dir = 8
+	},
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/structure/noticeboard/directional/west,
+/obj/item/paper/fluff/ruins/waystation/sop,
+/obj/structure/cable,
+/turf/open/floor/iron,
+/area/ruin/space/has_grav/waystation/cargobay)
 "ve" = (
 /obj/machinery/conveyor{
 	dir = 4;
@@ -1326,6 +1336,10 @@
 /obj/effect/baseturf_helper/asteroid/airless,
 /turf/closed/wall,
 /area/ruin/space/has_grav/waystation/dorms)
+"wR" = (
+/obj/structure/broken_flooring/pile/directional/east,
+/turf/template_noop,
+/area/space/nearstation)
 "wW" = (
 /obj/effect/turf_decal/siding/brown{
 	dir = 8
@@ -1488,18 +1502,17 @@
 /obj/item/stack/cable_coil,
 /turf/open/floor/iron,
 /area/ruin/space/has_grav/waystation/cargooffice)
-"zj" = (
-/obj/effect/turf_decal/tile/brown/half/contrasted{
-	dir = 8
+"zo" = (
+/obj/docking_port/stationary{
+	dir = 4;
+	dwidth = 11;
+	height = 24;
+	name = "Waystation R-4532: Supply Dock";
+	shuttle_id = "whiteship_waystation";
+	width = 35
 	},
-/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
-/obj/structure/noticeboard/directional/west{
-	dir = 4
-	},
-/obj/item/paper/fluff/ruins/waystation/sop,
-/obj/structure/cable,
-/turf/open/floor/iron,
-/area/ruin/space/has_grav/waystation/cargobay)
+/turf/template_noop,
+/area/space/nearstation)
 "zI" = (
 /obj/effect/turf_decal/bot,
 /obj/effect/decal/cleanable/dirt,
@@ -1519,6 +1532,10 @@
 /obj/structure/cable,
 /turf/open/floor/iron,
 /area/ruin/space/has_grav/waystation/dorms)
+"Ao" = (
+/obj/structure/broken_flooring/pile/directional/west,
+/turf/template_noop,
+/area/space/nearstation)
 "Ar" = (
 /obj/effect/turf_decal/tile/red/half/contrasted,
 /turf/open/floor/iron/dark,
@@ -1647,31 +1664,11 @@
 /obj/effect/mapping_helpers/airlock/access/all/away/supply,
 /turf/open/floor/iron,
 /area/ruin/space/has_grav/waystation/cargooffice)
-"DG" = (
-/obj/effect/turf_decal/tile/bar{
-	dir = 1
-	},
-/obj/effect/turf_decal/tile/bar,
-/obj/structure/chair{
-	dir = 8
-	},
-/obj/effect/decal/cleanable/dirt,
-/obj/structure/noticeboard/directional/north{
-	dir = 2
-	},
-/obj/item/paper/fluff/ruins/waystation/menu,
-/obj/item/paper/fluff/ruins/waystation/toilet,
-/turf/open/floor/iron,
-/area/ruin/space/has_grav/waystation/dorms)
 "DK" = (
 /obj/effect/turf_decal/delivery,
 /obj/effect/spawner/random/structure/crate_loot,
 /turf/open/floor/iron,
 /area/ruin/space/has_grav/waystation/cargobay)
-"Eb" = (
-/obj/structure/girder,
-/turf/template_noop,
-/area/space/nearstation)
 "Ec" = (
 /obj/effect/turf_decal/stripes/line{
 	dir = 8
@@ -1802,6 +1799,20 @@
 /obj/structure/sign/warning/electric_shock,
 /turf/closed/wall,
 /area/ruin/space/has_grav/waystation/power)
+"Hr" = (
+/obj/effect/turf_decal/tile/bar{
+	dir = 1
+	},
+/obj/effect/turf_decal/tile/bar,
+/obj/structure/chair{
+	dir = 8
+	},
+/obj/effect/decal/cleanable/dirt,
+/obj/structure/noticeboard/directional/north,
+/obj/item/paper/fluff/ruins/waystation/menu,
+/obj/item/paper/fluff/ruins/waystation/toilet,
+/turf/open/floor/iron,
+/area/ruin/space/has_grav/waystation/dorms)
 "Hu" = (
 /obj/machinery/door/airlock/mining,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
@@ -1854,6 +1865,10 @@
 /obj/machinery/atmospherics/components/unary/vent_pump/on/layer4,
 /turf/open/floor/iron,
 /area/ruin/space/has_grav/waystation/cargobay)
+"Iw" = (
+/obj/structure/girder,
+/turf/template_noop,
+/area/space/nearstation)
 "IN" = (
 /obj/machinery/gibber,
 /turf/open/floor/iron/freezer,
@@ -1967,10 +1982,6 @@
 /obj/effect/spawner/random/structure/crate_loot,
 /turf/open/floor/iron,
 /area/ruin/space/has_grav/waystation/cargobay)
-"Kq" = (
-/obj/structure/broken_flooring/pile/directional/north,
-/turf/template_noop,
-/area/space/nearstation)
 "Kx" = (
 /obj/effect/turf_decal/tile/bar{
 	dir = 1
@@ -2097,17 +2108,6 @@
 	},
 /turf/open/floor/iron/dark,
 /area/ruin/space/has_grav/waystation/securestorage)
-"LT" = (
-/obj/docking_port/stationary{
-	dir = 4;
-	dwidth = 11;
-	height = 24;
-	name = "Waystation R-4532: Supply Dock";
-	shuttle_id = "whiteship_waystation";
-	width = 35
-	},
-/turf/template_noop,
-/area/space/nearstation)
 "LW" = (
 /obj/effect/turf_decal/loading_area/red,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
@@ -2336,10 +2336,6 @@
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/wood,
 /area/ruin/space/has_grav/waystation/dorms)
-"PC" = (
-/obj/item/shell/airlock,
-/turf/template_noop,
-/area/space/nearstation)
 "PK" = (
 /obj/machinery/conveyor{
 	dir = 8;
@@ -2473,10 +2469,6 @@
 /obj/structure/cable,
 /turf/open/floor/iron,
 /area/ruin/space/has_grav/waystation/cargobay)
-"Sg" = (
-/obj/item/stack/rods/two,
-/turf/template_noop,
-/area/space/nearstation)
 "Sj" = (
 /obj/structure/lattice,
 /turf/template_noop,
@@ -2712,6 +2704,10 @@
 /obj/structure/cable,
 /turf/open/floor/plating,
 /area/ruin/space/has_grav/waystation/power)
+"Wo" = (
+/obj/item/stack/rods/two,
+/turf/template_noop,
+/area/space/nearstation)
 "Wy" = (
 /obj/effect/turf_decal/bot,
 /obj/machinery/portable_atmospherics/canister/oxygen,
@@ -4514,14 +4510,14 @@ TT
 pK
 pK
 Ya
-Eb
-Sg
+Iw
+Wo
 no
 Sj
 Sj
 no
 Sj
-rv
+wR
 Ya
 Ya
 Ya
@@ -4558,7 +4554,7 @@ Ez
 ez
 Dw
 do
-DG
+Hr
 kq
 Kx
 xw
@@ -4576,8 +4572,8 @@ TT
 Ya
 Ya
 Ya
-uQ
-Eb
+Ao
+Iw
 no
 Sj
 Ya
@@ -4828,7 +4824,7 @@ Wd
 XF
 no
 Sj
-Kq
+op
 no
 Ya
 Ya
@@ -4949,10 +4945,10 @@ mr
 mr
 mr
 Ya
-PC
+qe
 no
 Ya
-Sg
+Wo
 no
 Sj
 Sj
@@ -4991,7 +4987,7 @@ Vb
 Vb
 Vb
 Vb
-zj
+uT
 jH
 Vb
 Xr
@@ -5742,7 +5738,7 @@ Ya
 Ya
 Ya
 Ya
-LT
+zo
 Ya
 Ya
 Ya
