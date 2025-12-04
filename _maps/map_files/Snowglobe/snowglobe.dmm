@@ -50729,8 +50729,8 @@
 	},
 /area/station/cargo/storage)
 "nBh" = (
-/obj/structure/closet/secure_closet/personal,
 /obj/effect/turf_decal/tile/purple/opposingcorners,
+/obj/structure/closet/secure_closet/barber,
 /turf/open/floor/iron/dark,
 /area/station/service/barber/spa)
 "nBl" = (
