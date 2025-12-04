@@ -275,3 +275,10 @@
 	name = "Turtleneck w/ Overalls Skirt"
 	item_path = /obj/item/clothing/under/greyscale/overalls/skirt
 	group = "Casualwear"
+
+/datum/loadout_item/under/miscellaneous/shorted_overall
+	name = "Shorted Overalls"
+	item_path = /obj/item/clothing/under/pants/nova/shorted_overall
+	group = "Casualwear"
+
+
