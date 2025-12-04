@@ -1375,6 +1375,15 @@
 	name = "Midnight Gown (Worn, Digi)"
 	icon_file = 'modular_nova/master_files/icons/mob/clothing/under/skirts_dresses_digi.dmi'
 
+/datum/greyscale_config/windowed_dress
+	name = "Windowed Dress"
+	icon_file = 'modular_nova/master_files/icons/obj/clothing/under/skirts_dresses.dmi'
+	json_config = 'modular_nova/modules/GAGS/json_configs/pants_shorts_skirts_dresses/windowed_dress.json'
+
+/datum/greyscale_config/windowed_dress/worn
+	name = "Windowed Dress (Worn)"
+	icon_file = 'modular_nova/master_files/icons/mob/clothing/under/skirts_dresses.dmi'
+
 // COSTUMES
 
 /datum/greyscale_config/jester_suit/worn/digi
