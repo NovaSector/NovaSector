@@ -94,3 +94,7 @@ endmap
 map snowglobe
 	votable
 endmap
+
+map oasisstation
+	minplayers 60
+endmap
