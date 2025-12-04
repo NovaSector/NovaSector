@@ -264,6 +264,11 @@
 	icon_state = "mantis_top"
 	color_src = USE_MATRIXED_COLORS
 
+/datum/sprite_accessory/wings/mammal/top/mantis_alt
+	name = "Mantis Alt (Top)"
+	icon_state = "mantis_alt_top"
+	color_src = USE_MATRIXED_COLORS
+
 /*
 *	LOW WINGS
 */
