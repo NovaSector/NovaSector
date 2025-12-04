@@ -169,10 +169,6 @@
 /obj/structure/hedge/opaque,
 /turf/open/floor/iron/dark/textured_large,
 /area/ruin/space/has_grav/nova/des_two/service/sauna)
-"aI" = (
-/obj/effect/turf_decal/stripes/line,
-/turf/open/floor/engine/hull,
-/area/space/nearstation)
 "aJ" = (
 /obj/effect/spawner/random/decoration/carpet,
 /obj/structure/closet/crate/cardboard,
@@ -207,17 +203,6 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /turf/open/floor/mineral/plastitanium/red,
 /area/ruin/space/has_grav/nova/des_two/bridge)
-"aS" = (
-/obj/structure/lattice,
-/obj/structure/transit_tube{
-	dir = 8
-	},
-/obj/machinery/camera/xray/directional/north{
-	c_tag = "DS-2 Transit Tube";
-	network = list("ds2")
-	},
-/turf/template_noop,
-/area/space/nearstation)
 "aU" = (
 /obj/structure/cable,
 /obj/machinery/light/warm/directional/west,
@@ -989,17 +974,6 @@
 /obj/machinery/light/warm/directional/east,
 /turf/open/floor/iron/white/small,
 /area/ruin/space/has_grav/nova/des_two/service/restroom)
-"ee" = (
-/obj/structure/bookcase/random/nonfiction,
-/obj/structure/sign/painting/library{
-	pixel_y = 30
-	},
-/obj/effect/turf_decal/siding/wood{
-	dir = 1
-	},
-/obj/machinery/light/cold/directional/north,
-/turf/open/floor/wood/parquet,
-/area/ruin/space/has_grav/nova/des_two/service/lounge)
 "ei" = (
 /obj/effect/turf_decal/trimline/dark_green/corner{
 	dir = 4
@@ -1345,10 +1319,6 @@
 	},
 /turf/open/floor/iron/dark/smooth_large,
 /area/ruin/space/has_grav/nova/des_two/service/dorms)
-"fK" = (
-/obj/structure/lattice,
-/turf/template_noop,
-/area/space/nearstation)
 "fL" = (
 /obj/effect/turf_decal/bot_white,
 /obj/structure/sink/kitchen/directional/west,
@@ -1540,11 +1510,6 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /turf/open/floor/iron/dark/smooth_large,
 /area/ruin/space/has_grav/nova/des_two/service/hydroponics)
-"gk" = (
-/obj/structure/lattice/catwalk,
-/obj/structure/marker_beacon/burgundy,
-/turf/open/space/basic,
-/area/space/nearstation)
 "gn" = (
 /obj/machinery/hydroponics/constructable,
 /turf/open/floor/iron/dark/small,
@@ -1810,7 +1775,8 @@
 /obj/machinery/button/curtain{
 	id = "DS2cell1";
 	name = "curtain control";
-	pixel_y = 24
+	pixel_y = 24;
+	dir = 1
 	},
 /obj/effect/turf_decal/trimline/dark_red/filled/line{
 	dir = 9
@@ -2033,7 +1999,8 @@
 /obj/machinery/button/curtain{
 	id = "DS2cell3";
 	name = "curtain control";
-	pixel_y = 24
+	pixel_y = 24;
+	dir = 1
 	},
 /obj/effect/turf_decal/trimline/dark_red/filled/line{
 	dir = 9
@@ -2158,6 +2125,12 @@
 /obj/machinery/firealarm/directional/east,
 /turf/open/floor/mineral/plastitanium/red,
 /area/ruin/space/has_grav/nova/des_two/security)
+"jl" = (
+/obj/effect/turf_decal/stripes/line{
+	dir = 1
+	},
+/turf/open/floor/engine/hull,
+/area/space/nearstation)
 "jn" = (
 /obj/effect/turf_decal/trimline/dark_red/warning{
 	dir = 4
@@ -2267,13 +2240,6 @@
 	},
 /turf/open/floor/plating,
 /area/ruin/space/has_grav/nova/des_two/service/restroom)
-"jI" = (
-/obj/machinery/vending/imported/yangyu,
-/obj/structure/sign/painting/library{
-	pixel_y = 30
-	},
-/turf/open/floor/iron/dark/textured_large,
-/area/ruin/space/has_grav/nova/des_two/service/diner)
 "jK" = (
 /obj/structure/weightmachine,
 /obj/machinery/light/cold/directional/west,
@@ -2412,6 +2378,17 @@
 /obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer2,
 /turf/open/floor/mineral/plastitanium,
 /area/ruin/space/has_grav/nova/des_two/security/prison)
+"kt" = (
+/obj/structure/lattice,
+/obj/structure/transit_tube{
+	dir = 8
+	},
+/obj/machinery/camera/xray/directional/north{
+	c_tag = "DS-2 Transit Tube";
+	network = list("ds2")
+	},
+/turf/template_noop,
+/area/space/nearstation)
 "ku" = (
 /obj/effect/turf_decal/tile/dark_red/anticorner{
 	dir = 8
@@ -2951,6 +2928,10 @@
 	},
 /turf/open/floor/iron/white/small,
 /area/ruin/space/has_grav/nova/des_two/service/restroom)
+"mC" = (
+/obj/structure/lattice,
+/turf/template_noop,
+/area/space/nearstation)
 "mD" = (
 /obj/effect/mapping_helpers/airlock/access/all/syndicate/general,
 /obj/machinery/door/airlock/external/glass{
@@ -3446,16 +3427,6 @@
 /obj/machinery/light/cold/directional/west,
 /turf/open/floor/engine/plasma,
 /area/ruin/space/has_grav/nova/des_two/engineering)
-"oA" = (
-/obj/structure/bookcase/random/nonfiction,
-/obj/structure/sign/painting/library{
-	pixel_y = 30
-	},
-/obj/effect/turf_decal/siding/wood{
-	dir = 1
-	},
-/turf/open/floor/wood/parquet,
-/area/ruin/space/has_grav/nova/des_two/service/lounge)
 "oB" = (
 /turf/open/floor/wood,
 /area/ruin/space/has_grav/nova/des_two/security/lawyer)
@@ -3710,11 +3681,6 @@
 /obj/structure/sink/directional/north,
 /turf/open/floor/iron/white/diagonal,
 /area/ruin/space/has_grav/nova/des_two/service/hydroponics)
-"pz" = (
-/obj/structure/lattice,
-/obj/structure/transit_tube/crossing/horizontal,
-/turf/template_noop,
-/area/space/nearstation)
 "pC" = (
 /obj/machinery/door/airlock/service/glass{
 	name = "Kitchen"
@@ -3812,6 +3778,9 @@
 	dir = 8
 	},
 /area/ruin/space/has_grav/nova/des_two/halls)
+"pT" = (
+/turf/open/floor/engine/hull,
+/area/space/nearstation)
 "pW" = (
 /obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer2{
 	dir = 1
@@ -3853,13 +3822,6 @@
 	},
 /turf/open/floor/iron/dark/textured_large,
 /area/ruin/space/has_grav/nova/des_two/halls)
-"qm" = (
-/obj/structure/hedge,
-/obj/structure/sign/painting/library{
-	pixel_y = 30
-	},
-/turf/open/floor/iron/dark/textured_large,
-/area/ruin/space/has_grav/nova/des_two/service/diner)
 "qo" = (
 /obj/structure/window/reinforced/survival_pod/spawner/directional/west,
 /turf/open/floor/mineral/plastitanium/red,
@@ -4527,6 +4489,18 @@
 "ti" = (
 /turf/open/floor/mineral/plastitanium/red,
 /area/ruin/space/has_grav/nova/des_two/security)
+"tl" = (
+/obj/structure/bookcase/random/nonfiction,
+/obj/effect/turf_decal/siding/wood{
+	dir = 1
+	},
+/obj/machinery/light/cold/directional/north,
+/obj/structure/sign/painting/library{
+	pixel_y = 30;
+	dir = 1
+	},
+/turf/open/floor/wood/parquet,
+/area/ruin/space/has_grav/nova/des_two/service/lounge)
 "tm" = (
 /obj/machinery/vending/imported/tiziran,
 /obj/machinery/airalarm/directional/north,
@@ -4713,6 +4687,14 @@
 	dir = 8
 	},
 /area/ruin/space/has_grav/nova/des_two/halls)
+"tY" = (
+/obj/structure/hedge,
+/obj/structure/sign/painting/library{
+	pixel_y = 30;
+	dir = 1
+	},
+/turf/open/floor/iron/dark/textured_large,
+/area/ruin/space/has_grav/nova/des_two/service/diner)
 "tZ" = (
 /obj/effect/spawner/structure/window/reinforced/plasma/plastitanium,
 /obj/structure/curtain/cloth/fancy/mechanical{
@@ -5081,13 +5063,6 @@
 /obj/effect/turf_decal/stripes/red/line,
 /turf/open/floor/iron/dark/textured_large,
 /area/ruin/space/has_grav/nova/des_two/security/prison)
-"vD" = (
-/obj/structure/lattice,
-/obj/structure/transit_tube{
-	dir = 8
-	},
-/turf/template_noop,
-/area/space/nearstation)
 "vE" = (
 /obj/structure/railing{
 	dir = 4
@@ -5494,6 +5469,17 @@
 /obj/effect/spawner/random/engineering/tank,
 /turf/open/floor/iron/dark/textured_large,
 /area/ruin/space/has_grav/nova/des_two/cargo/storage)
+"xr" = (
+/obj/structure/bookcase/random/nonfiction,
+/obj/structure/sign/painting/library{
+	pixel_y = 30;
+	dir = 1
+	},
+/obj/effect/turf_decal/siding/wood{
+	dir = 1
+	},
+/turf/open/floor/wood/parquet,
+/area/ruin/space/has_grav/nova/des_two/service/lounge)
 "xs" = (
 /turf/closed/wall/r_wall/plastitanium/syndicate/nodiagonal,
 /area/ruin/space/has_grav/nova/des_two/service/dorms/fitness)
@@ -5729,12 +5715,6 @@
 	},
 /turf/open/floor/plating,
 /area/ruin/space/has_grav/nova/des_two/engineering)
-"yH" = (
-/obj/effect/turf_decal/stripes/line{
-	dir = 1
-	},
-/turf/open/floor/engine/hull,
-/area/space/nearstation)
 "yI" = (
 /obj/machinery/atmospherics/components/unary/vent_pump/on/layer4{
 	dir = 1
@@ -5785,6 +5765,11 @@
 "yS" = (
 /turf/open/floor/iron/half,
 /area/ruin/space/has_grav/nova/des_two/research)
+"yT" = (
+/obj/structure/lattice,
+/obj/structure/transit_tube/crossing/horizontal,
+/turf/template_noop,
+/area/space/nearstation)
 "yX" = (
 /obj/structure/sauna_oven,
 /obj/structure/railing{
@@ -6051,16 +6036,6 @@
 	},
 /turf/open/floor/plating/airless,
 /area/ruin/space/has_grav/nova/des_two)
-"Ac" = (
-/obj/structure/lattice/catwalk,
-/obj/structure/disposalpipe/trunk{
-	dir = 1
-	},
-/obj/structure/railing{
-	dir = 8
-	},
-/turf/template_noop,
-/area/space/nearstation)
 "Ae" = (
 /obj/structure/cable,
 /obj/structure/disposalpipe/segment{
@@ -6453,6 +6428,11 @@
 /obj/effect/mapping_helpers/airalarm/syndicate_access,
 /turf/open/floor/iron/dark/brick_aligned_half_vertical,
 /area/ruin/space/has_grav/nova/des_two/halls)
+"BT" = (
+/obj/structure/lattice/catwalk,
+/obj/structure/marker_beacon/burgundy,
+/turf/template_noop,
+/area/space/nearstation)
 "BU" = (
 /obj/structure/closet/secure_closet/des_two/electrical_supplies,
 /obj/item/weldingtool/largetank{
@@ -6704,11 +6684,6 @@
 "CO" = (
 /turf/open/floor/wood,
 /area/ruin/space/has_grav/nova/des_two/security/intel)
-"CP" = (
-/obj/structure/lattice/catwalk,
-/obj/structure/marker_beacon/burgundy,
-/turf/template_noop,
-/area/space/nearstation)
 "CQ" = (
 /obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer2,
 /turf/open/floor/mineral/plastitanium/red,
@@ -6814,6 +6789,14 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /turf/open/floor/mineral/plastitanium,
 /area/ruin/space/has_grav/nova/des_two/halls)
+"Dk" = (
+/obj/structure/aquarium/donkfish,
+/obj/structure/sign/painting/library{
+	pixel_y = 30;
+	dir = 1
+	},
+/turf/open/floor/iron/dark/textured_large,
+/area/ruin/space/has_grav/nova/des_two/service/diner)
 "Dl" = (
 /obj/machinery/light/warm/directional/south,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
@@ -7031,10 +7014,6 @@
 	},
 /turf/open/floor/iron/dark/textured_large,
 /area/ruin/space/has_grav/nova/des_two/engineering)
-"Eg" = (
-/obj/structure/lattice/catwalk,
-/turf/template_noop,
-/area/space/nearstation)
 "El" = (
 /obj/effect/turf_decal/siding/thinplating/dark{
 	dir = 1
@@ -7799,6 +7778,17 @@
 	},
 /turf/open/floor/iron/dark/brick,
 /area/ruin/space/has_grav/nova/des_two/engineering)
+"Hj" = (
+/obj/structure/bookcase/random/nonfiction,
+/obj/effect/turf_decal/siding/wood{
+	dir = 1
+	},
+/obj/structure/sign/painting/library{
+	pixel_y = 30;
+	dir = 1
+	},
+/turf/open/floor/wood/parquet,
+/area/ruin/space/has_grav/nova/des_two/service/lounge)
 "Hn" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /turf/open/floor/iron/half,
@@ -8259,6 +8249,16 @@
 	},
 /turf/open/floor/iron/dark/small,
 /area/ruin/space/has_grav/nova/des_two/security/prison)
+"Je" = (
+/obj/structure/lattice/catwalk,
+/obj/structure/disposalpipe/trunk{
+	dir = 1
+	},
+/obj/structure/railing{
+	dir = 8
+	},
+/turf/template_noop,
+/area/space/nearstation)
 "Jf" = (
 /obj/machinery/atmospherics/miner/oxygen,
 /obj/machinery/light/cold/directional/west,
@@ -8492,7 +8492,8 @@
 /obj/machinery/button/curtain{
 	id = "DS2cell2";
 	name = "curtain control";
-	pixel_y = 24
+	pixel_y = 24;
+	dir = 1
 	},
 /obj/effect/turf_decal/trimline/dark_red/filled/line{
 	dir = 9
@@ -8573,6 +8574,10 @@
 "KC" = (
 /turf/open/floor/wood/parquet,
 /area/ruin/space/has_grav/nova/des_two/service/lounge)
+"KE" = (
+/obj/effect/turf_decal/stripes/line,
+/turf/open/floor/engine/hull,
+/area/space/nearstation)
 "KI" = (
 /obj/effect/turf_decal/siding/dark{
 	dir = 1
@@ -9138,7 +9143,8 @@
 	id = "DS2-Dorm4";
 	name = "curtain control";
 	pixel_y = 24;
-	pixel_x = -6
+	pixel_x = -6;
+	dir = 1
 	},
 /obj/machinery/button/door/directional/north{
 	pixel_x = 6;
@@ -9176,7 +9182,8 @@
 	id = "DS2-Dorm2";
 	name = "curtain control";
 	pixel_y = 24;
-	pixel_x = -6
+	pixel_x = -6;
+	dir = 1
 	},
 /obj/machinery/button/door/directional/north{
 	pixel_x = 6;
@@ -9237,6 +9244,14 @@
 /obj/machinery/light/cold/directional/west,
 /turf/open/floor/engine/co2,
 /area/ruin/space/has_grav/nova/des_two/engineering)
+"Nq" = (
+/obj/machinery/vending/imported/yangyu,
+/obj/structure/sign/painting/library{
+	pixel_y = 30;
+	dir = 1
+	},
+/turf/open/floor/iron/dark/textured_large,
+/area/ruin/space/has_grav/nova/des_two/service/diner)
 "Ns" = (
 /obj/structure/bed/double{
 	dir = 4
@@ -9290,11 +9305,6 @@
 /area/ruin/space/has_grav/nova/des_two/security/prison)
 "Ny" = (
 /obj/machinery/light/cold/directional/east,
-/obj/machinery/button/door{
-	id = "ds2engineering";
-	pixel_x = 32;
-	name = "Radiation shutters"
-	},
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /turf/open/floor/iron/dark,
@@ -9333,13 +9343,6 @@
 	dir = 1
 	},
 /area/ruin/space/has_grav/nova/des_two/research/robotics)
-"NJ" = (
-/obj/structure/aquarium/donkfish,
-/obj/structure/sign/painting/library{
-	pixel_y = 30
-	},
-/turf/open/floor/iron/dark/textured_large,
-/area/ruin/space/has_grav/nova/des_two/service/diner)
 "NL" = (
 /obj/structure/window/reinforced/survival_pod/spawner/directional/west,
 /obj/structure/closet/secure_closet/des_two/sa_locker,
@@ -9440,7 +9443,8 @@
 	id = "DS2-Dorm3";
 	name = "curtain control";
 	pixel_y = 24;
-	pixel_x = -6
+	pixel_x = -6;
+	dir = 1
 	},
 /obj/machinery/button/door/directional/north{
 	pixel_x = 6;
@@ -9726,6 +9730,9 @@
 "Po" = (
 /turf/closed/wall/r_wall/plastitanium/syndicate/nodiagonal,
 /area/ruin/space/has_grav/nova/des_two/security/intel)
+"Pp" = (
+/turf/closed/wall/r_wall/plastitanium/syndicate/nodiagonal,
+/area/space/nearstation)
 "Pr" = (
 /turf/open/floor/iron/dark/diagonal,
 /area/ruin/space/has_grav/nova/des_two/cargo)
@@ -9883,9 +9890,6 @@
 /obj/structure/weightmachine/weightlifter,
 /turf/open/floor/iron/dark/small,
 /area/ruin/space/has_grav/nova/des_two/security/prison)
-"PV" = (
-/turf/closed/wall/r_wall/plastitanium/syndicate/nodiagonal,
-/area/space/nearstation)
 "PX" = (
 /obj/machinery/skill_station,
 /turf/open/floor/iron/dark/textured_large,
@@ -9934,9 +9938,6 @@
 	},
 /turf/template_noop,
 /area/ruin/space/has_grav/nova/des_two/engineering)
-"Qi" = (
-/turf/open/floor/engine/hull,
-/area/space/nearstation)
 "Qj" = (
 /obj/effect/turf_decal/stripes/red/line{
 	dir = 8
@@ -9973,6 +9974,11 @@
 /obj/machinery/power/micro_reactor,
 /turf/open/floor/iron/freezer,
 /area/ruin/space/has_grav/nova/des_two/engineering)
+"Qr" = (
+/obj/structure/lattice/catwalk,
+/obj/structure/marker_beacon/burgundy,
+/turf/open/space/basic,
+/area/space/nearstation)
 "Qt" = (
 /obj/machinery/atmospherics/components/unary/vent_pump/on/layer4{
 	dir = 8
@@ -10311,6 +10317,13 @@
 	},
 /turf/open/floor/plating,
 /area/ruin/space/has_grav/nova/des_two/bridge/cl)
+"RZ" = (
+/obj/structure/lattice,
+/obj/structure/transit_tube{
+	dir = 8
+	},
+/turf/template_noop,
+/area/space/nearstation)
 "Sa" = (
 /obj/structure/disposalpipe/segment{
 	dir = 5
@@ -10549,7 +10562,8 @@
 	id = "DS2-Dorm1";
 	name = "curtain control";
 	pixel_y = 24;
-	pixel_x = -6
+	pixel_x = -6;
+	dir = 1
 	},
 /obj/machinery/button/door/directional/north{
 	pixel_x = 6;
@@ -10882,10 +10896,9 @@
 	dir = 10
 	},
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
-/obj/machinery/button/door{
-	pixel_y = 32;
+/obj/machinery/button/door/directional/north{
 	id = "ds2engineering";
-	name = "Radiation shutters"
+	name = "Radiation Shutters"
 	},
 /turf/open/floor/catwalk_floor/iron_dark,
 /area/ruin/space/has_grav/nova/des_two/engineering)
@@ -11337,6 +11350,10 @@
 /obj/machinery/atmospherics/components/unary/vent_pump/on/layer4,
 /turf/open/floor/mineral/plastitanium,
 /area/ruin/space/has_grav/nova/des_two/security/prison)
+"VZ" = (
+/obj/structure/lattice/catwalk,
+/turf/template_noop,
+/area/space/nearstation)
 "Wa" = (
 /obj/effect/turf_decal/vg_decals/numbers/two,
 /obj/effect/turf_decal/stripes/red/line{
@@ -12156,9 +12173,9 @@ tG
 tG
 tG
 tG
-fK
-fK
-fK
+mC
+mC
+mC
 tG
 tG
 tG
@@ -12170,8 +12187,8 @@ tG
 eV
 eV
 eV
-fK
-CP
+mC
+BT
 iD
 iD
 iD
@@ -12190,8 +12207,8 @@ iD
 iD
 iD
 iD
-CP
-fK
+BT
+mC
 Jc
 Jc
 el
@@ -12332,7 +12349,7 @@ PM
 IT
 oB
 YW
-IC
+fB
 fB
 fB
 vz
@@ -12397,7 +12414,7 @@ jU
 jU
 uC
 ME
-fB
+IC
 fB
 AA
 vz
@@ -12506,8 +12523,8 @@ iD
 iD
 "}
 (7,1,1) = {"
-CP
-fK
+BT
+mC
 LC
 Jc
 Go
@@ -13086,9 +13103,9 @@ Jc
 Jc
 Jc
 Xl
-fK
-fK
-CP
+mC
+mC
+BT
 "}
 (16,1,1) = {"
 je
@@ -13550,7 +13567,7 @@ iD
 iD
 iD
 iD
-vD
+RZ
 iD
 iD
 iD
@@ -13615,7 +13632,7 @@ iD
 iD
 iD
 iD
-vD
+RZ
 iD
 iD
 DY
@@ -13669,9 +13686,9 @@ sx
 oj
 dS
 MG
-fK
-fK
-gk
+mC
+mC
+Qr
 iD
 iD
 "}
@@ -13679,9 +13696,9 @@ iD
 iD
 iD
 iD
-CP
-pz
-fK
+BT
+yT
+mC
 zu
 zu
 gf
@@ -13745,7 +13762,7 @@ iD
 iD
 iD
 iD
-vD
+RZ
 iD
 vc
 dL
@@ -13799,7 +13816,7 @@ JR
 Ju
 Qh
 qQ
-Ac
+Je
 iD
 iD
 iD
@@ -13810,7 +13827,7 @@ iD
 iD
 iD
 iD
-vD
+RZ
 iD
 vc
 Pi
@@ -13864,9 +13881,9 @@ Eb
 oj
 mD
 oj
-Eg
-fK
-CP
+VZ
+mC
+BT
 iD
 iD
 "}
@@ -13874,9 +13891,9 @@ iD
 iD
 iD
 iD
-PV
-aS
-fK
+Pp
+kt
+mC
 vc
 lx
 PJ
@@ -13929,7 +13946,7 @@ PQ
 Ju
 Xf
 Ju
-Eg
+VZ
 iD
 iD
 iD
@@ -13940,7 +13957,7 @@ iD
 iD
 iD
 iD
-vD
+RZ
 iD
 vc
 Zz
@@ -14005,7 +14022,7 @@ iD
 iD
 iD
 iD
-vD
+RZ
 iD
 vc
 bV
@@ -14069,9 +14086,9 @@ iD
 iD
 iD
 iD
-CP
-pz
-fK
+BT
+yT
+mC
 zu
 zu
 ey
@@ -14135,7 +14152,7 @@ iD
 iD
 iD
 iD
-vD
+RZ
 iD
 iD
 DY
@@ -14200,7 +14217,7 @@ iD
 iD
 iD
 iD
-vD
+RZ
 iD
 iD
 iD
@@ -14460,7 +14477,7 @@ je
 Ua
 go
 Jc
-oA
+xr
 KC
 KC
 Od
@@ -14525,7 +14542,7 @@ cB
 gd
 go
 Jc
-ee
+tl
 KC
 KC
 la
@@ -14590,7 +14607,7 @@ Jc
 Jc
 Jc
 Jc
-oA
+Hj
 KC
 KC
 la
@@ -14775,17 +14792,17 @@ Jc
 Jc
 Jc
 Xl
-fK
-fK
-fK
-CP
+mC
+mC
+mC
+BT
 "}
 (42,1,1) = {"
 cB
 Ua
 go
 Jc
-qm
+tY
 Fj
 YD
 AK
@@ -14850,7 +14867,7 @@ je
 gd
 go
 Jc
-qm
+tY
 pt
 ZT
 qG
@@ -14915,7 +14932,7 @@ iD
 iR
 go
 Jc
-jI
+Nq
 OO
 uO
 HH
@@ -15110,7 +15127,7 @@ iD
 iD
 eV
 eV
-NJ
+Dk
 wU
 VG
 af
@@ -15175,7 +15192,7 @@ iD
 iD
 iD
 Jc
-NJ
+Dk
 Zq
 SO
 UT
@@ -15236,11 +15253,11 @@ iD
 iD
 "}
 (49,1,1) = {"
-CP
-fK
+BT
+mC
 qJ
 Jc
-NJ
+Dk
 ux
 CU
 Lb
@@ -15569,8 +15586,8 @@ iD
 iD
 iD
 iD
-CP
-fK
+BT
+mC
 qJ
 Jc
 nc
@@ -15678,8 +15695,8 @@ vV
 qJ
 Jc
 Jc
-fK
-CP
+mC
+BT
 iD
 iD
 iD
@@ -15728,20 +15745,20 @@ iD
 iD
 iD
 iD
-fK
+mC
 iD
-fK
+mC
 iD
-gk
-yH
-Qi
-Qi
-aI
-CP
+Qr
+jl
+pT
+pT
+KE
+BT
 iD
-fK
+mC
 iD
-fK
+mC
 iD
 iD
 iD
@@ -15793,20 +15810,20 @@ iD
 iD
 iD
 iD
-CP
+BT
 iD
-fK
-iD
-iD
+mC
 iD
 iD
 iD
 iD
 iD
 iD
-fK
 iD
-CP
+iD
+mC
+iD
+BT
 iD
 iD
 iD
@@ -15860,7 +15877,7 @@ iD
 iD
 iD
 iD
-fK
+mC
 iD
 iD
 iD
@@ -15869,7 +15886,7 @@ iD
 iD
 iD
 iD
-fK
+mC
 iD
 iD
 iD
@@ -15925,7 +15942,7 @@ iD
 iD
 iD
 iD
-CP
+BT
 iD
 iD
 iD
@@ -15934,7 +15951,7 @@ iD
 iD
 iD
 iD
-CP
+BT
 iD
 iD
 iD

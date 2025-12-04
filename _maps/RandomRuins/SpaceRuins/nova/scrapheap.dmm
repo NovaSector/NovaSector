@@ -1766,11 +1766,9 @@
 /turf/open/floor/iron/dark,
 /area/ruin/space/has_grav/powered/nova/scrapheap)
 "Tz" = (
-/obj/structure/noticeboard{
-	pixel_y = 26
-	},
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/turf_decal/trimline/blue/filled/line,
+/obj/structure/noticeboard/directional/north,
 /turf/open/floor/iron/dark,
 /area/ruin/space/has_grav/powered/nova/scrapheap)
 "TB" = (

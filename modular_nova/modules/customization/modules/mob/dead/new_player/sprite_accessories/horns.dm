@@ -6,7 +6,9 @@
 	organ_type = /obj/item/organ/horns
 
 /datum/sprite_accessory/horns/is_hidden(mob/living/carbon/human/wearer)
-	if(!wearer.head && !wearer.wear_mask)
+	var/obj/item/clothing/head/worn_head = wearer.head
+	var/obj/item/clothing/mask/worn_mask = wearer.wear_mask
+	if(isnull(worn_head) && isnull(worn_mask))
 		return FALSE
 
 	// Can hide if wearing hat
@@ -18,8 +20,8 @@
 		return FALSE
 
 	// Hide accessory if flagged to do so
-	if((wearer.head?.flags_inv & HIDEHAIR || wearer.wear_mask?.flags_inv & HIDEHAIR) \
-		&& !(wearer.wear_mask && wearer.wear_mask.flags_inv & SHOWSPRITEEARS))
+	if((worn_head?.flags_inv & HIDEHAIR || worn_mask?.flags_inv & HIDEHAIR) \
+		&& !(worn_mask && worn_mask.flags_inv & SHOWSPRITEEARS))
 		return TRUE
 
 	return FALSE

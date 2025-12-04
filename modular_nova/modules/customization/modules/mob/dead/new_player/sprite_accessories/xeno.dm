@@ -22,15 +22,15 @@
 	icon_state = "down"
 
 /datum/sprite_accessory/xenodorsal/is_hidden(mob/living/carbon/human/wearer)
-	if(!wearer.w_uniform && !wearer.wear_suit)
+	var/obj/item/clothing/suit/mod/worn_suit = wearer.wear_suit
+	if(!wearer.w_uniform && isnull(worn_suit))
 		return FALSE
 	// Can hide if wearing uniform
 	if(key in wearer.try_hide_mutant_parts)
 		return TRUE
-	if(wearer.wear_suit)
 	// Exception for MODs
-		if(istype(wearer.wear_suit, /obj/item/clothing/suit/mod))
-			return FALSE
+	if(istype(worn_suit))
+		return FALSE
 
 //TAILS
 /datum/sprite_accessory/tails/mammal/wagging/xeno_tail
