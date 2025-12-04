@@ -96,10 +96,11 @@
 /turf/open/floor/plating/airless,
 /area/ruin/unpowered)
 "qI" = (
-/obj/machinery/firealarm{
-	pixel_y = 26
-	},
 /obj/machinery/atmospherics/components/unary/portables_connector/visible,
+/obj/machinery/firealarm/directional/north{
+	pixel_y = 17;
+	name = "fire alarm"
+	},
 /turf/open/floor/engine/airless,
 /area/ruin/unpowered)
 "se" = (

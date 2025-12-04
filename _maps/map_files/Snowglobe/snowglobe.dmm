@@ -5384,7 +5384,6 @@
 /turf/open/floor/wood,
 /area/station/common/pool/sauna)
 "bte" = (
-/obj/structure/cable,
 /obj/machinery/light/small/directional/north,
 /turf/open/floor/plating,
 /area/station/maintenance/department/security/brig)
@@ -5445,7 +5444,6 @@
 /area/station/engineering/main)
 "btY" = (
 /obj/structure/cable,
-/obj/machinery/camera/autoname/directional/east,
 /obj/structure/disposalpipe/junction{
 	dir = 1
 	},
@@ -7181,7 +7179,6 @@
 /obj/effect/turf_decal/siding/wideplating{
 	dir = 9
 	},
-/obj/machinery/light/floor,
 /turf/open/water/overlay,
 /area/station/hallway/floor2)
 "bTu" = (
@@ -11495,7 +11492,6 @@
 /obj/structure/flora/bush/reed{
 	pixel_y = 5
 	},
-/obj/machinery/light/floor,
 /turf/open/water/overlay,
 /area/station/hallway/floor2)
 "daw" = (
@@ -11754,7 +11750,8 @@
 /obj/machinery/button/curtain{
 	id = "dormscurtain3";
 	pixel_y = 22;
-	pixel_x = -13
+	pixel_x = -13;
+	dir = 1
 	},
 /turf/open/floor/carpet/black,
 /area/station/commons/dorms/room3)
@@ -20087,7 +20084,8 @@
 /obj/machinery/button/curtain{
 	id = "dormscurtain5";
 	pixel_x = 24;
-	name = "Internal Curtains"
+	name = "Internal Curtains";
+	dir = 4
 	},
 /obj/machinery/button/door/directional/east{
 	id = "Dorm5";
@@ -20099,7 +20097,8 @@
 /obj/machinery/button/curtain{
 	id = "dormscurtain5b";
 	pixel_x = 34;
-	name = "External Curtains"
+	name = "External Curtains";
+	dir = 4
 	},
 /turf/open/floor/wood/tile,
 /area/station/commons/dorms/room5)
@@ -29723,6 +29722,7 @@
 /obj/effect/turf_decal/siding/dark/corner{
 	dir = 1
 	},
+/obj/machinery/light/floor,
 /turf/open/floor/iron/herringbone,
 /area/station/hallway/floor2)
 "hWn" = (
@@ -32485,6 +32485,7 @@
 /obj/structure/disposalpipe/segment{
 	dir = 10
 	},
+/obj/machinery/light/floor,
 /turf/open/floor/iron/herringbone,
 /area/station/hallway/floor2)
 "iHf" = (
@@ -33728,6 +33729,7 @@
 "iXv" = (
 /obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer2,
 /obj/item/radio/intercom/directional/west,
+/obj/machinery/camera/autoname/directional/west,
 /turf/open/floor/stone,
 /area/station/service/forge)
 "iXy" = (
@@ -38737,26 +38739,25 @@
 	},
 /obj/item/storage/box/matches,
 /obj/item/radio/intercom/directional/north,
-/obj/machinery/button/door/directional/west{
-	id = "Dorm1";
-	name = "Dormitory Door Lock";
-	normaldoorcontrol = 1;
-	specialfunctions = 4;
-	pixel_x = 12;
-	pixel_y = 24
-	},
 /obj/machinery/button/curtain{
 	id = "dormscurtain1";
 	pixel_y = 22;
 	pixel_x = -13;
-	name = "Internal Curtains"
+	name = "Internal Curtains";
+	dir = 1
 	},
 /obj/item/stack/sheet/mineral/wood/fifty,
 /obj/machinery/button/curtain{
 	id = "dormscurtain1b";
 	pixel_y = 30;
 	pixel_x = -13;
-	name = "External Curtains"
+	name = "External Curtains";
+	dir = 1
+	},
+/obj/machinery/button/door/directional/north{
+	pixel_x = 12;
+	id = "Dorm1";
+	name = "Dormitory Door Lock"
 	},
 /turf/open/floor/stone,
 /area/station/commons/dorms/room1)
@@ -38796,7 +38797,6 @@
 /area/station/security/checkpoint/medical)
 "knr" = (
 /obj/structure/cable,
-/obj/machinery/light/directional/north,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/effect/turf_decal/trimline/green/corner{
@@ -39440,6 +39440,11 @@
 	dir = 1
 	},
 /area/station/security/prison)
+"kvQ" = (
+/obj/effect/mapping_helpers/broken_floor,
+/obj/machinery/light/small/directional/north,
+/turf/open/floor/plating,
+/area/station/maintenance/department/engineering/engie_aft_starboard)
 "kvT" = (
 /obj/effect/turf_decal/siding/dark{
 	dir = 4
@@ -45139,6 +45144,7 @@
 /obj/effect/turf_decal/siding/dark/corner{
 	dir = 4
 	},
+/obj/machinery/light/floor,
 /turf/open/floor/iron/brick,
 /area/station/hallway/floor2)
 "lYe" = (
@@ -46832,7 +46838,8 @@
 	pixel_y = 24;
 	id = "dormscurtain6";
 	pixel_x = -3;
-	name = "Internal Curtains"
+	name = "Internal Curtains";
+	dir = 1
 	},
 /obj/machinery/button/door/directional/north{
 	id = "Dorm6";
@@ -46845,7 +46852,8 @@
 	pixel_y = 24;
 	id = "dormscurtain6b";
 	pixel_x = 5;
-	name = "External Curtains"
+	name = "External Curtains";
+	dir = 1
 	},
 /turf/open/floor/carpet/purple,
 /area/station/commons/dorms/room6)
@@ -49076,7 +49084,6 @@
 /obj/effect/turf_decal/siding/wideplating{
 	dir = 5
 	},
-/obj/machinery/light/floor,
 /turf/open/water/overlay,
 /area/station/hallway/floor2)
 "net" = (
@@ -51079,7 +51086,8 @@
 /obj/machinery/button/curtain{
 	id = "dormscurtain2";
 	pixel_y = 25;
-	pixel_x = -13
+	pixel_x = -13;
+	dir = 1
 	},
 /obj/machinery/button/door/directional/north{
 	id = "Dorm2";
@@ -56667,18 +56675,14 @@
 /obj/effect/turf_decal/siding/yellow{
 	dir = 9
 	},
-/obj/machinery/button/door{
-	desc = "A remote control-switch for secure storage.";
-	id = "Secure Storage";
-	name = "Engineering Secure Storage";
-	pixel_x = -24;
-	pixel_y = 5;
-	req_access = list("engine_equip")
-	},
 /obj/machinery/disposal/bin,
 /obj/machinery/status_display/ai/directional/north,
 /obj/structure/disposalpipe/trunk{
 	dir = 4
+	},
+/obj/machinery/button/door/directional/west{
+	id = "Secure Storage";
+	name = "Engineering Secure Storage"
 	},
 /turf/open/floor/iron/white/smooth_corner,
 /area/station/command/heads_quarters/ce)
@@ -57064,7 +57068,6 @@
 /turf/open/floor/iron,
 /area/station/engineering/atmos)
 "pig" = (
-/obj/machinery/camera/autoname/directional/west,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /turf/open/floor/stone,
 /area/station/service/forge)
@@ -60422,7 +60425,8 @@
 /obj/machinery/light/directional/east,
 /obj/machinery/button/curtain{
 	id = "dormscurtain4";
-	pixel_x = 24
+	pixel_x = 24;
+	dir = 4
 	},
 /obj/machinery/button/door/directional/east{
 	id = "Dorm4";
@@ -62713,7 +62717,6 @@
 	dir = 10
 	},
 /obj/structure/flora/bush/stalky/style_2,
-/obj/machinery/light/floor,
 /turf/open/water/overlay,
 /area/station/hallway/floor2)
 "qPP" = (
@@ -63073,6 +63076,7 @@
 "qVq" = (
 /obj/effect/turf_decal/siding/yellow,
 /obj/machinery/photocopier/prebuilt,
+/obj/machinery/camera/autoname/directional/south,
 /turf/open/floor/iron/white/smooth_half,
 /area/station/engineering/lobby)
 "qVx" = (
@@ -65961,6 +65965,7 @@
 /obj/effect/turf_decal/siding/dark/corner{
 	dir = 4
 	},
+/obj/machinery/light/floor,
 /turf/open/floor/iron/herringbone,
 /area/station/hallway/floor2)
 "rOB" = (
@@ -71831,7 +71836,6 @@
 /area/station/maintenance/department/engine/atmos/lesser)
 "tmr" = (
 /obj/effect/turf_decal/siding/yellow,
-/obj/machinery/camera/autoname/directional/south,
 /obj/structure/filingcabinet{
 	pixel_x = 7
 	},
@@ -73142,10 +73146,15 @@
 	},
 /area/station/commons/locker)
 "tDQ" = (
-/obj/machinery/light/small/directional/east,
-/obj/machinery/space_heater,
-/turf/open/floor/plating,
-/area/station/maintenance/department/engineering/engie_aft_starboard)
+/obj/structure/cable,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/effect/turf_decal/trimline/green/line{
+	dir = 1
+	},
+/obj/machinery/light/directional/north,
+/turf/open/floor/iron/edge,
+/area/station/hallway/primary)
 "tEg" = (
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
@@ -73374,6 +73383,7 @@
 /obj/structure/disposalpipe/segment,
 /obj/machinery/power/apc/auto_name/directional/east,
 /obj/structure/cable,
+/obj/machinery/camera/autoname/directional/east,
 /turf/open/floor/iron/dark/side{
 	dir = 4
 	},
@@ -89008,7 +89018,8 @@
 /obj/machinery/button/curtain{
 	id = "dormscurtain7";
 	pixel_x = 24;
-	name = "Internal Curtains"
+	name = "Internal Curtains";
+	dir = 4
 	},
 /obj/machinery/button/door/directional/east{
 	id = "Dorm7";
@@ -89020,7 +89031,8 @@
 /obj/machinery/button/curtain{
 	id = "dormscurtain7b";
 	pixel_x = 34;
-	name = "External Curtains"
+	name = "External Curtains";
+	dir = 4
 	},
 /turf/open/floor/wood/tile,
 /area/station/commons/dorms/room7)
@@ -90387,11 +90399,9 @@
 /turf/open/floor/plating,
 /area/station/maintenance/department/science/ordnance_maint)
 "yay" = (
-/obj/machinery/button/door{
+/obj/machinery/button/door/directional/east{
 	id = "custodialshutters";
-	name = "Custodial Shutters";
-	pixel_x = 26;
-	req_access = list("janitor")
+	name = "Custodial Shutters"
 	},
 /turf/open/floor/iron/checker,
 /area/station/service/janitor)
@@ -247618,8 +247628,8 @@ gVM
 sig
 xdt
 qaj
-vch
 bte
+qQX
 cKF
 urV
 cHi
@@ -249948,7 +249958,7 @@ osG
 osG
 kyT
 osG
-nHL
+tDQ
 eKs
 kbr
 jiA
@@ -260012,7 +260022,7 @@ rNg
 iMY
 iHK
 tYt
-tDQ
+dQb
 jNZ
 sEt
 sEt
@@ -260269,7 +260279,7 @@ dUE
 bnW
 rgW
 tYt
-xWe
+kvQ
 jNZ
 sEt
 qmd

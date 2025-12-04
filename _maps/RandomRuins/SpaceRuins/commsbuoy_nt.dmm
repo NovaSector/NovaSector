@@ -16,6 +16,12 @@
 "bj" = (
 /turf/closed/wall/mineral/titanium/nodiagonal,
 /area/ruin/space/nt_commsbuoy)
+"ci" = (
+/obj/structure/fluff/fake_camera{
+	dir = 8
+	},
+/turf/template_noop,
+/area/space/nearstation)
 "dO" = (
 /obj/effect/decal/cleanable/blood/splatter,
 /turf/open/floor/mineral/titanium/white,
@@ -24,9 +30,10 @@
 /obj/machinery/computer/terminal/nt_commsbuoy,
 /turf/open/floor/mineral/titanium/blue,
 /area/ruin/space/nt_commsbuoy)
-"eq" = (
+"el" = (
 /obj/structure/sign/nanotrasen{
-	pixel_y = 32
+	pixel_y = 32;
+	dir = 1
 	},
 /obj/machinery/light/small/directional/north,
 /turf/open/floor/mineral/titanium,
@@ -148,12 +155,12 @@
 /obj/machinery/light/small/directional/south,
 /turf/open/floor/mineral/titanium,
 /area/ruin/space/nt_commsbuoy)
-"jT" = (
-/obj/structure/fluff/commsbuoy_processor,
+"kD" = (
 /obj/structure/sign/nanotrasen{
-	pixel_x = 32
+	pixel_x = -32;
+	dir = 8
 	},
-/turf/open/floor/mineral/titanium/blue,
+/turf/open/floor/mineral/titanium,
 /area/ruin/space/nt_commsbuoy)
 "kZ" = (
 /obj/effect/decal/cleanable/blood/splatter,
@@ -406,11 +413,13 @@
 /obj/structure/fluff/commsbuoy_broadcaster,
 /turf/open/floor/plating/reinforced/airless,
 /area/space/nearstation)
-"HW" = (
+"Iy" = (
+/obj/structure/fluff/commsbuoy_processor,
 /obj/structure/sign/nanotrasen{
-	pixel_x = -32
+	pixel_x = 32;
+	dir = 4
 	},
-/turf/open/floor/mineral/titanium,
+/turf/open/floor/mineral/titanium/blue,
 /area/ruin/space/nt_commsbuoy)
 "II" = (
 /obj/structure/tank_dispenser/oxygen,
@@ -429,6 +438,22 @@
 /obj/structure/lattice,
 /turf/template_noop,
 /area/space/nearstation)
+"JB" = (
+/obj/structure/sign/nanotrasen{
+	pixel_x = -32;
+	dir = 8
+	},
+/obj/structure/rack,
+/obj/item/clothing/suit/space/syndicate/orange{
+	pixel_x = 6;
+	pixel_y = 4
+	},
+/obj/item/clothing/head/helmet/space/syndicate/orange{
+	pixel_x = 9;
+	pixel_y = -5
+	},
+/turf/open/floor/mineral/titanium,
+/area/ruin/space/nt_commsbuoy)
 "Kr" = (
 /obj/machinery/power/rtg/advanced,
 /obj/structure/cable,
@@ -455,21 +480,6 @@
 /obj/machinery/light/small/directional/west,
 /turf/open/floor/mineral/titanium,
 /area/ruin/space/nt_commsbuoy)
-"Ps" = (
-/obj/structure/sign/nanotrasen{
-	pixel_x = -32
-	},
-/obj/structure/rack,
-/obj/item/clothing/suit/space/syndicate/orange{
-	pixel_x = 6;
-	pixel_y = 4
-	},
-/obj/item/clothing/head/helmet/space/syndicate/orange{
-	pixel_x = 9;
-	pixel_y = -5
-	},
-/turf/open/floor/mineral/titanium,
-/area/ruin/space/nt_commsbuoy)
 "Qb" = (
 /obj/structure/cable,
 /obj/effect/mapping_helpers/airlock/cutaiwire,
@@ -491,12 +501,6 @@
 "Re" = (
 /obj/structure/fluff/tram_rail/end{
 	dir = 1
-	},
-/turf/template_noop,
-/area/space/nearstation)
-"Ri" = (
-/obj/structure/fluff/fake_camera{
-	dir = 8
 	},
 /turf/template_noop,
 /area/space/nearstation)
@@ -796,7 +800,7 @@ fJ
 fJ
 bj
 tq
-HW
+kD
 et
 EA
 bj
@@ -895,7 +899,7 @@ wS
 fJ
 hn
 bj
-jT
+Iy
 io
 Gw
 bj
@@ -956,7 +960,7 @@ fJ
 fJ
 fJ
 bj
-eq
+el
 ES
 ES
 jy
@@ -1136,7 +1140,7 @@ fJ
 fJ
 fJ
 bj
-Ps
+JB
 CN
 Qd
 bj
@@ -1196,7 +1200,7 @@ fJ
 fJ
 fJ
 fJ
-Ri
+ci
 fJ
 fJ
 fJ
