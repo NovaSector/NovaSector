@@ -182,7 +182,7 @@
 /area/shuttle/trader/crew)
 "au" = (
 /obj/effect/decal/cleanable/dirt/dust,
-/obj/machinery/airalarm/all_access{
+/obj/machinery/airalarm/directional/north{
 	pixel_y = 24
 	},
 /obj/structure/closet/secure_closet/personal,
@@ -197,6 +197,7 @@
 /obj/effect/turf_decal/tile/neutral{
 	dir = 8
 	},
+/obj/effect/mapping_helpers/airalarm/all_access,
 /turf/open/floor/iron/dark,
 /area/shuttle/trader/crew)
 "av" = (
@@ -247,7 +248,7 @@
 /turf/open/floor/iron/dark,
 /area/shuttle/trader/crew)
 "ax" = (
-/obj/structure/shuttle/engine/propulsion/left{
+/obj/machinery/power/shuttle_engine/propulsion/left{
 	dir = 8
 	},
 /turf/open/floor/plating/airless,
@@ -256,7 +257,7 @@
 /obj/structure/window/reinforced{
 	dir = 4
 	},
-/obj/structure/shuttle/engine/heater{
+/obj/machinery/power/shuttle_engine/heater{
 	dir = 8
 	},
 /turf/open/floor/plating/airless,
@@ -417,7 +418,7 @@
 /turf/open/floor/iron/dark,
 /area/shuttle/trader/crew)
 "aL" = (
-/obj/structure/shuttle/engine/propulsion/right{
+/obj/machinery/power/shuttle_engine/propulsion/right{
 	dir = 8
 	},
 /turf/open/floor/plating/airless,
@@ -539,7 +540,7 @@
 	dir = 1
 	},
 /obj/effect/decal/cleanable/dirt/dust,
-/obj/machinery/airalarm/all_access{
+/obj/machinery/airalarm/directional/north{
 	pixel_y = 24
 	},
 /obj/effect/turf_decal/stripes/white/line{
@@ -556,6 +557,7 @@
 	dir = 8
 	},
 /obj/structure/cable,
+/obj/effect/mapping_helpers/airalarm/all_access,
 /turf/open/floor/iron/dark,
 /area/shuttle/trader/crew)
 "aY" = (
@@ -621,7 +623,7 @@
 /area/shuttle/trader/crew)
 "bc" = (
 /obj/effect/decal/cleanable/dirt/dust,
-/obj/machinery/airalarm/all_access{
+/obj/machinery/airalarm/directional/north{
 	pixel_y = 24
 	},
 /obj/effect/decal/cleanable/dirt/dust,
@@ -632,6 +634,7 @@
 	dir = 4
 	},
 /obj/structure/cable,
+/obj/effect/mapping_helpers/airalarm/all_access,
 /turf/open/floor/iron,
 /area/shuttle/trader/crew)
 "be" = (
@@ -689,12 +692,13 @@
 /obj/machinery/atmospherics/components/unary/vent_pump/on{
 	dir = 4
 	},
-/obj/machinery/airalarm/all_access{
+/obj/machinery/airalarm/directional/south{
 	dir = 1;
 	pixel_y = -24
 	},
 /obj/machinery/light/small,
 /obj/effect/decal/cleanable/blood,
+/obj/effect/mapping_helpers/airalarm/all_access,
 /turf/open/floor/plating,
 /area/shuttle/trader/engine)
 "bj" = (
@@ -710,7 +714,7 @@
 /obj/structure/rack,
 /obj/item/storage/belt/utility,
 /obj/item/weldingtool,
-/obj/item/clothing/head/welding,
+/obj/item/clothing/head/utility/welding,
 /obj/effect/turf_decal/tile/neutral{
 	dir = 1
 	},
@@ -921,13 +925,13 @@
 	dir = 4
 	},
 /obj/effect/decal/cleanable/dirt/dust,
-/obj/machinery/airalarm/all_access{
-	dir = 8;
+/obj/machinery/airalarm/directional/east{
 	pixel_x = 24
 	},
 /obj/structure/closet/crate/secure/tradership_cargo_valuable{
 	used_preset = 3
 	},
+/obj/effect/mapping_helpers/airalarm/all_access,
 /turf/open/floor/iron/dark,
 /area/shuttle/trader/cargo)
 "bD" = (
@@ -1252,14 +1256,12 @@
 /area/shuttle/trader/bar)
 "cc" = (
 /obj/effect/decal/cleanable/dirt/dust,
-/obj/machinery/airalarm/all_access{
-	dir = 8;
-	pixel_x = 24
-	},
 /obj/effect/decal/cleanable/dirt/dust,
 /obj/machinery/atmospherics/components/unary/vent_pump/on{
 	dir = 8
 	},
+/obj/machinery/airalarm/directional/east,
+/obj/effect/mapping_helpers/airalarm/all_access,
 /turf/open/floor/iron,
 /area/shuttle/trader/bar)
 "cd" = (
@@ -1291,7 +1293,7 @@
 /area/shuttle/trader/bridge)
 "ce" = (
 /obj/structure/table,
-/obj/machinery/airalarm/all_access{
+/obj/machinery/airalarm/directional/north{
 	pixel_y = 24
 	},
 /obj/effect/decal/cleanable/dirt/dust,
@@ -1300,6 +1302,7 @@
 	pixel_y = 9
 	},
 /obj/machinery/recharger,
+/obj/effect/mapping_helpers/airalarm/all_access,
 /turf/open/floor/iron/dark,
 /area/shuttle/trader/bridge)
 "cf" = (
@@ -1312,7 +1315,6 @@
 	lethal = 1;
 	locked = 0;
 	pixel_y = 28;
-	req_access = null;
 	req_access = list("402")
 	},
 /obj/effect/decal/cleanable/blood/old,
@@ -1530,10 +1532,6 @@
 "cw" = (
 /obj/effect/decal/cleanable/dirt/dust,
 /obj/effect/decal/cleanable/dirt/dust,
-/obj/machinery/airalarm/all_access{
-	dir = 4;
-	pixel_x = -24
-	},
 /obj/effect/turf_decal/stripes/white/corner{
 	dir = 1
 	},
@@ -1548,6 +1546,8 @@
 	dir = 8
 	},
 /obj/structure/cable,
+/obj/effect/mapping_helpers/airalarm/all_access,
+/obj/machinery/airalarm/directional/west,
 /turf/open/floor/iron/dark,
 /area/shuttle/trader/engine)
 "cx" = (
@@ -1622,7 +1622,6 @@
 	},
 /obj/machinery/vending/boozeomat{
 	pixel_y = -32;
-	req_access = null;
 	req_access = list("403")
 	},
 /turf/open/floor/iron/dark,
@@ -1702,7 +1701,7 @@
 	pixel_x = -2;
 	pixel_y = -1
 	},
-/obj/item/clothing/head/welding{
+/obj/item/clothing/head/utility/welding{
 	pixel_x = -2;
 	pixel_y = 1
 	},
@@ -1819,11 +1818,9 @@
 	},
 /obj/effect/decal/cleanable/dirt/dust,
 /obj/effect/decal/cleanable/dirt/dust,
-/obj/machinery/airalarm/all_access{
-	dir = 4;
-	pixel_x = -24
-	},
 /obj/structure/cable,
+/obj/effect/mapping_helpers/airalarm/all_access,
+/obj/machinery/airalarm/directional/west,
 /turf/open/floor/iron/dark,
 /area/shuttle/trader/cargo)
 "cQ" = (
@@ -1883,13 +1880,11 @@
 /area/shuttle/trader/bar)
 "cU" = (
 /obj/effect/decal/cleanable/dirt/dust,
-/obj/machinery/airalarm/all_access{
-	dir = 4;
-	pixel_x = -24
-	},
 /obj/effect/decal/cleanable/dirt/dust,
 /obj/machinery/processor,
 /obj/effect/decal/cleanable/dirt,
+/obj/machinery/airalarm/directional/west,
+/obj/effect/mapping_helpers/airalarm/all_access,
 /turf/open/floor/iron,
 /area/shuttle/trader/bar)
 "cV" = (
@@ -1927,13 +1922,14 @@
 /obj/machinery/atmospherics/components/unary/vent_pump/on{
 	dir = 4
 	},
-/obj/machinery/airalarm/all_access{
+/obj/machinery/airalarm/directional/north{
 	pixel_y = 24
 	},
 /obj/machinery/light/small{
 	dir = 1
 	},
 /obj/structure/cable,
+/obj/effect/mapping_helpers/airalarm/all_access,
 /turf/open/floor/plating,
 /area/shuttle/trader/engine)
 "da" = (
@@ -2023,7 +2019,7 @@
 /obj/effect/decal/cleanable/dirt/dust,
 /obj/effect/turf_decal/bot_white,
 /obj/structure/rack,
-/obj/item/clothing/head/welding{
+/obj/item/clothing/head/utility/welding{
 	pixel_x = -3;
 	pixel_y = 5
 	},
@@ -2106,14 +2102,14 @@
 "dn" = (
 /obj/effect/decal/cleanable/dirt/dust,
 /obj/machinery/hydroponics/constructable,
-/obj/machinery/airalarm/all_access{
-	dir = 8;
-	pixel_x = 24
+/obj/machinery/airalarm/directional/east{
+	pixel_x = 29
 	},
 /obj/effect/turf_decal/tile/green,
 /obj/effect/turf_decal/tile/green{
 	dir = 8
 	},
+/obj/effect/mapping_helpers/airalarm/all_access,
 /turf/open/floor/iron,
 /area/shuttle/trader/bar)
 "do" = (
@@ -2216,10 +2212,6 @@
 "dy" = (
 /obj/machinery/light/small,
 /obj/effect/decal/cleanable/dirt/dust,
-/obj/machinery/airalarm/all_access{
-	dir = 1;
-	pixel_y = -24
-	},
 /obj/effect/decal/cleanable/dirt/dust,
 /obj/effect/turf_decal/stripes/white/line,
 /obj/effect/turf_decal/tile/neutral{
@@ -2233,6 +2225,8 @@
 	dir = 8
 	},
 /obj/structure/cable,
+/obj/machinery/airalarm/directional/south,
+/obj/effect/mapping_helpers/airalarm/all_access,
 /turf/open/floor/iron/dark,
 /area/shuttle/trader/bar)
 "dz" = (
@@ -2716,7 +2710,7 @@
 /area/shuttle/trader/cargo)
 "qY" = (
 /obj/effect/decal/cleanable/dirt/dust,
-/obj/machinery/airalarm/all_access{
+/obj/machinery/airalarm/directional/north{
 	pixel_y = 24
 	},
 /obj/structure/closet/secure_closet/personal,
@@ -2738,6 +2732,7 @@
 	pixel_x = 25;
 	specialfunctions = 4
 	},
+/obj/effect/mapping_helpers/airalarm/all_access,
 /turf/open/floor/iron/dark,
 /area/shuttle/trader/crew)
 "wM" = (

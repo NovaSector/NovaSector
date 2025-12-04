@@ -4,7 +4,7 @@
 	icon_state = "condo"
 	requires_power = FALSE
 	default_gravity = STANDARD_GRAVITY
-	area_flags = NOTELEPORT | HIDDEN_AREA | UNLIMITED_FISHING
+	area_flags = NOTELEPORT | HIDDEN_AREA | UNLIMITED_FISHING | NO_DEATH_MESSAGE
 	area_flags_mapping = NONE
 	static_lighting = TRUE
 	mood_bonus = /area/centcom/holding::mood_bonus
