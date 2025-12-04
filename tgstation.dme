@@ -7109,6 +7109,7 @@
 #include "modular_nova\master_files\code\modules\cargo\bounties\tarkon.dm"
 #include "modular_nova\master_files\code\modules\cargo\exports\stamped_paperwork.dm"
 #include "modular_nova\master_files\code\modules\cargo\exports\tools.dm"
+#include "modular_nova\master_files\code\modules\cargo\exports\weapons.dm"
 #include "modular_nova\master_files\code\modules\cargo\markets\market_items\clothing.dm"
 #include "modular_nova\master_files\code\modules\cargo\markets\market_items\consumable.dm"
 #include "modular_nova\master_files\code\modules\cargo\markets\market_items\misc.dm"
