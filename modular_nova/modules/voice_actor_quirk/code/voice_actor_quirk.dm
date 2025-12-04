@@ -11,9 +11,13 @@
 /datum/quirk_constant_data/voice_actor
 	associated_typepath = /datum/quirk/voice_actor
 	customization_options = list(
-		/datum/preference/choiced/voice_actor,
-		/datum/preference/numeric/voice_actor_pitch,
 		/datum/preference/color/voice_actor_color,
+		/datum/preference/choiced/voice_actor,
+		/datum/preference/numeric/tts_voice_pitch/voice_actor,
+		/datum/preference/choiced/vocals/blooper/voice_actor,
+		/datum/preference/numeric/blooper_speech_speed/voice_actor,
+		/datum/preference/numeric/blooper_speech_pitch/voice_actor,
+		/datum/preference/numeric/blooper_pitch_range/voice_actor,
 	)
 
 /datum/quirk/voice_actor/add(client/client_source)

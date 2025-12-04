@@ -7170,6 +7170,7 @@
 #include "modular_nova\master_files\code\modules\client\preferences\middleware\languages.dm"
 #include "modular_nova\master_files\code\modules\client\preferences\middleware\limbs_and_markings.dm"
 #include "modular_nova\master_files\code\modules\client\preferences\middleware\species_additional_changes.dm"
+#include "modular_nova\master_files\code\modules\client\preferences\middleware\tts.dm"
 #include "modular_nova\master_files\code\modules\client\preferences\quirks\death_consequences.dm"
 #include "modular_nova\master_files\code\modules\client\preferences\quirks\unsteady.dm"
 #include "modular_nova\master_files\code\modules\client\preferences\species_features\digitigrade_legs.dm"
