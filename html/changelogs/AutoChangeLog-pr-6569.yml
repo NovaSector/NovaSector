@@ -1,0 +1,5 @@
+author: "Hatterhat"
+delete-after: True
+changes:
+  - rscadd: "All the laser guns from the recent upstream merge are now reflavored to be variants of the SC-1. The laser pistol was buffed, the burst carbine's capacity was buffed, the assault rifle and pistol are now in the goodies system."
+  - bugfix: "The disabler SMG and hybrid taser no longer have redundant indicators for self-charging."
