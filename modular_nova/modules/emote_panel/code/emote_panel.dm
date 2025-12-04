@@ -152,7 +152,7 @@
 		/mob/living/proc/emote_mrrp,
 		/mob/living/proc/emote_prbt,
 		/mob/living/proc/emote_yip,
-		/mob/living/proc/emote_fwhine
+		/mob/living/proc/emote_whine
 	)
 	all_emotes += nova_living_emotes
 
@@ -672,10 +672,10 @@
 	set category = "Emotes+"
 	usr.emote("yip", intentional = TRUE)
 
-/mob/living/proc/emote_fwhine()
+/mob/living/proc/emote_whine()
 	set name = "> Fox Whine"
 	set category = "Emotes+"
-	usr.emote("fwhine", intentional = TRUE)
+	usr.emote("whine", intentional = TRUE)
 
 /mob/living/proc/emote_nya()
 	set name = "> Nya"
