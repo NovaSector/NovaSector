@@ -38,12 +38,13 @@
 /turf/open/floor/engine,
 /area/ruin/space/has_grav/powered)
 "bH" = (
-/obj/machinery/button/door{
-	id = "pirateforthangar";
-	pixel_y = 26
-	},
 /obj/effect/turf_decal/trimline/dark_red/filled/line{
 	dir = 1
+	},
+/obj/machinery/button/door/directional/north{
+	pixel_y = 26;
+	id = "pirateforthangar";
+	name = "door button"
 	},
 /turf/open/floor/iron/dark,
 /area/ruin/space/has_grav/powered)
@@ -632,11 +633,12 @@
 	faction = list("pirate")
 	},
 /obj/effect/turf_decal/bot,
-/obj/machinery/button/door{
-	id = "piratefortloot";
-	pixel_y = -26
-	},
 /obj/effect/turf_decal/tile/brown/full,
+/obj/machinery/button/door/directional/south{
+	id = "piratefortloot";
+	pixel_y = -26;
+	name = "door button"
+	},
 /turf/open/floor/iron/dark,
 /area/ruin/space/has_grav/powered)
 "vW" = (

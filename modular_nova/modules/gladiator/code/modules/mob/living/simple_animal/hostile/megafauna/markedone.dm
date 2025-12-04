@@ -45,8 +45,8 @@
 	maxHealth = 4000 //for contrast, bubblegum and the colossus both have 2500 health
 	movement_type = GROUND
 	mouse_opacity = MOUSE_OPACITY_OPAQUE
-	loot = list(/obj/structure/closet/crate/necropolis/gladiator)
-	crusher_loot = list(/obj/structure/closet/crate/necropolis/gladiator/crusher)
+	loot = list(/obj/structure/closet/crate/necropolis/gladiator, /obj/structure/dead_gladiator)
+	crusher_loot = list(/obj/structure/closet/crate/necropolis/gladiator/crusher, /obj/structure/dead_gladiator)
 	/// Boss phase, from 1 to 3
 	var/phase = MARKED_ONE_FIRST_PHASE
 	/// People we have introduced ourselves to - WEAKREF list
@@ -67,6 +67,12 @@
 	var/block_chance = 50
 	/// This mob will not attack mobs randomly if not in anger, the time doubles as a check for anger
 	var/anger_timer_id = null
+	/// The cooldown between intros so we don't just spam it
+	var/next_intro_scan = 0
+	/// Used for avoiding chasms
+	var/static/list/chasm_avoid_offsets
+	replace_crusher_drop = TRUE // prevents people from butchering him for duping chests
+	del_on_death = TRUE
 
 /mob/living/simple_animal/hostile/megafauna/gladiator/Initialize(mapload)
 	. = ..()
@@ -80,14 +86,26 @@
 	. = ..()
 	if(stat >= DEAD)
 		return
+
+	if(anger_timer_id)
+		return
+
+	if(world.time < next_intro_scan)
+		return
+
 	/// Try introducing ourselvess to people while not pissed off
-	if(!anger_timer_id)
-		/// Yes, i am calling view on life! I don't think i can avoid this!
-		for(var/mob/living/friend_or_foe in (view(4, src)-src))
-			var/datum/weakref/friend_or_foe_ref = WEAKREF(friend_or_foe)
-			if(!(friend_or_foe_ref in introduced) && (friend_or_foe.stat != DEAD))
-				introduction(friend_or_foe)
-				break
+	/// Yes, i am calling view on life! I don't think i can avoid this!
+	for(var/mob/living/friend_or_foe in get_hearers_in_view(4, src))
+		if(friend_or_foe == src || friend_or_foe.stat == DEAD)
+			continue
+		if(!ishuman(friend_or_foe))
+			introduction(friend_or_foe)
+			return
+
+		var/friend_or_foe_ref = REF(friend_or_foe)
+		if(!(friend_or_foe_ref in introduced))
+			introduction(friend_or_foe, friend_or_foe.client, friend_or_foe_ref)
+			return
 
 /mob/living/simple_animal/hostile/megafauna/gladiator/Found(atom/A)
 	//We only attack when pissed off
@@ -137,50 +155,37 @@
 /mob/living/simple_animal/hostile/megafauna/gladiator/Move(atom/newloc, dir, step_x, step_y)
 	if(spinning || stunned)
 		return FALSE
+
+	if(isnull(chasm_avoid_offsets))
+		chasm_avoid_offsets = list(
+			"[NORTH]" = list(list(1,1), list(-1,1)),
+			"[EAST]"  = list(list(1,1), list(1,-1)),
+			"[SOUTH]" = list(list(-1,-1), list(1,-1)),
+			"[WEST]"  = list(list(-1,1), list(-1,-1)),
+			"[NORTHEAST]" = list(list(1,0), list(1,-1)),
+			"[SOUTHEAST]" = list(list(1,0), list(1,1)),
+			"[SOUTHWEST]" = list(list(-1,0), list(-1,1)),
+			"[NORTHWEST]" = list(list(-1,0), list(-1,-1)),
+		)
+
+	// if move goes into chasm, try step-around
 	if(ischasm(newloc))
-		var/list/possible_locs = list()
-		switch(get_dir(src, newloc))
-			if(NORTH)
-				possible_locs += locate(x +1, y + 1, z)
-				possible_locs += locate(x -1, y + 1, z)
-			if(EAST)
-				possible_locs += locate(x + 1, y + 1, z)
-				possible_locs += locate(x + 1, y - 1, z)
-			if(WEST)
-				possible_locs += locate(x - 1, y + 1, z)
-				possible_locs += locate(x - 1, y - 1, z)
-			if(SOUTH)
-				possible_locs += locate(x - 1, y - 1, z)
-				possible_locs += locate(x + 1, y - 1, z)
-			if(SOUTHEAST)
-				possible_locs += locate(x + 1, y, z)
-				possible_locs += locate(x + 1, y + 1, z)
-			if(SOUTHWEST)
-				possible_locs += locate(x - 1, y, z)
-				possible_locs += locate(x - 1, y + 1, z)
-			if(NORTHWEST)
-				possible_locs += locate(x - 1, y, z)
-				possible_locs += locate(x - 1, y - 1, z)
-			if(NORTHEAST)
-				possible_locs += locate(x + 1, y - 1, z)
-				possible_locs += locate(x + 1, y, z)
-		//locates may add nulls to the list
-		for(var/turf/possible_turf as anything in possible_locs)
-			if(!istype(possible_turf) || ischasm(possible_turf))
-				possible_locs -= possible_turf
-		if(LAZYLEN(possible_locs))
-			var/turf/validloc = pick(possible_locs)
-			. = ..(validloc)
-			if(. && charging)
-				chargetiles++
-				if(chargetiles >= chargerange)
-					INVOKE_ASYNC(src, PROC_REF(discharge))
+		var/list/offsets = chasm_avoid_offsets["[get_dir(src, newloc)]"]
+		if(offsets)
+			for(var/list/o in offsets)
+				var/turf/possible_turf = locate(x+o[1], y+o[2], z)
+				if(possible_turf && !ischasm(possible_turf))
+					if(..(possible_turf))
+						if(charging && ++chargetiles >= chargerange)
+							INVOKE_ASYNC(src, PROC_REF(discharge))
 		return FALSE
-	. = ..()
-	if(. && charging)
-		chargetiles++
-		if(chargetiles >= chargerange)
-			INVOKE_ASYNC(src, PROC_REF(discharge))
+
+	// normal move
+	var/moved = ..()
+	if(moved && charging && ++chargetiles >= chargerange)
+		INVOKE_ASYNC(src, PROC_REF(discharge))
+
+	return moved
 
 /// Fucks up the day of whoever he walks into, so long as he's charging and the mob is alive. If he walks into a wall, he gets stunned instead!
 /mob/living/simple_animal/hostile/megafauna/gladiator/Bump(atom/A)
@@ -212,8 +217,8 @@
 	anger_timer_id = null
 
 /// Proc that makes the Marked One spout a morally grey/absurdly racist one-liner depending on who his target is
-/mob/living/simple_animal/hostile/megafauna/gladiator/proc/introduction(mob/living/target)
-	if(ishuman(target))
+/mob/living/simple_animal/hostile/megafauna/gladiator/proc/introduction(mob/living/target, client/mob_client, mob_ref)
+	if(ishuman(target) && mob_client)
 		var/mob/living/carbon/human/human_target = target
 		var/datum/species/targetspecies = human_target.dna.species
 		// The gladiator hates non-humans, he especially hates ash walkers.
@@ -227,7 +232,7 @@
 									"I'll give you the first hit.",
 								)
 			INVOKE_ASYNC(src, TYPE_PROC_REF(/atom/movable, say), message = pick(human_messages))
-			introduced |= WEAKREF(target)
+			introduced[mob_ref] = TRUE
 		else if(targetspecies.id == SPECIES_LIZARD_ASH)
 			var/static/list/ashie_messages = list(
 									"Foolishness, ash walker!",
@@ -237,7 +242,7 @@
 								)
 
 			INVOKE_ASYNC(src, TYPE_PROC_REF(/atom/movable, say), message = pick(ashie_messages), language = /datum/language/ashtongue)
-			introduced |= WEAKREF(target)
+			introduced[mob_ref] = TRUE
 			get_angry()
 			GiveTarget(target)
 		else
@@ -249,13 +254,13 @@
 									"For the necropolis!"
 									)
 			INVOKE_ASYNC(src, TYPE_PROC_REF(/atom/movable, say), message = pick(other_humanoid_messages))
-			introduced |= WEAKREF(target)
+			introduced[mob_ref] = TRUE
 			get_angry()
 			GiveTarget(target)
 	else
 		//simplemobs beware
 		INVOKE_ASYNC(src, TYPE_PROC_REF(/atom/movable, say), "It's berserkin' time!")
-		introduced |= WEAKREF(target)
+	next_intro_scan = world.time + 10 SECONDS
 
 /// Checks against the Marked One's current health and updates his phase accordingly. Uses variable shitcode to make sure his phase updates only ever happen *once*
 /mob/living/simple_animal/hostile/megafauna/gladiator/proc/update_phase()
@@ -527,6 +532,28 @@
 				INVOKE_ASYNC(src, PROC_REF(teleport), target)
 				INVOKE_ASYNC(src, PROC_REF(stomp))
 				ranged_cooldown += 1 SECONDS
+
+/obj/structure/dead_gladiator
+	name = "solemn remains"
+	desc = "An ancient miner lost to time, chosen and changed by the Necropolis, encased in a suit of armor. Only a chosen few \
+		can match his speed and strength... and it appears someone or something has. Unearthly energies bind the body to its place \
+		of defeat, and you cannot move it."
+	icon = 'modular_nova/modules/gladiator/icons/markedone.dmi'
+	icon_state = "marked_dying"
+	gender = MALE
+	pixel_x = -32
+	pixel_y = -9
+	base_pixel_x = -32
+	base_pixel_y = -9
+	anchored = TRUE
+	density = FALSE
+	resistance_flags = LAVA_PROOF | FIRE_PROOF | UNACIDABLE | INDESTRUCTIBLE
+	/// Name of the GPS signal we set when this structure initializes.
+	var/gps_name = "Fading Signal"
+
+/obj/structure/dead_gladiator/Initialize(mapload)
+	. = ..()
+	AddComponent(/datum/component/gps, gps_name)
 
 #undef MARKED_ONE_STUN_DURATION
 #undef MARKED_ONE_ANGER_DURATION

@@ -74,6 +74,10 @@
 	},
 /turf/open/floor/iron/dark,
 /area/ruin/space/has_grav/cargodise_freighter/mining)
+"bd" = (
+/obj/structure/lattice,
+/turf/template_noop,
+/area/space/nearstation)
 "bj" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /turf/open/floor/wood/tile,
@@ -329,11 +333,6 @@
 	},
 /turf/open/floor/iron/dark,
 /area/ruin/space/has_grav/cargodise_freighter/quarters)
-"ev" = (
-/obj/structure/lattice,
-/mob,
-/turf/template_noop,
-/area/template_noop)
 "ex" = (
 /obj/machinery/door/airlock/survival_pod/glass,
 /obj/structure/fans/tiny,
@@ -644,15 +643,6 @@
 /obj/effect/mob_spawn/ghost_role/human/lostcargoqm,
 /turf/open/floor/wood/parquet,
 /area/ruin/space/has_grav/cargodise_freighter/bridge)
-"jC" = (
-/obj/effect/turf_decal/tile/yellow,
-/obj/machinery/button/door/directional/north{
-	id = "cargolockdown";
-	name = "Loading Bay Blastdoors";
-	pixel_y = -24
-	},
-/turf/open/floor/iron/dark/smooth_half,
-/area/ruin/space/has_grav/cargodise_freighter/primaryhall)
 "jP" = (
 /obj/effect/turf_decal/tile/yellow/half/contrasted{
 	dir = 4
@@ -825,15 +815,6 @@
 "mb" = (
 /turf/closed/wall/r_wall/plastitanium/syndicate/nodiagonal,
 /area/ruin/space/has_grav/cargodise_freighter/utility)
-"mc" = (
-/obj/machinery/button/door/directional/north{
-	id = "bridgelockdown";
-	name = "Bridge Blastdoors";
-	pixel_y = -24
-	},
-/mob/living/basic/looter/ranged/space/laser,
-/turf/open/floor/mineral/plastitanium,
-/area/ruin/space/has_grav/cargodise_freighter/vault)
 "mf" = (
 /obj/effect/turf_decal/tile/blue/half/contrasted,
 /obj/item/kirbyplants/random,
@@ -970,6 +951,14 @@
 /obj/item/mod/core/standard,
 /turf/open/floor/iron/smooth,
 /area/ruin/space/has_grav/cargodise_freighter/utility)
+"op" = (
+/obj/effect/turf_decal/tile/yellow,
+/obj/machinery/button/door/directional/south{
+	id = "cargolockdown";
+	name = "Loading Bay Blastdoors"
+	},
+/turf/open/floor/iron/dark/smooth_half,
+/area/ruin/space/has_grav/cargodise_freighter/primaryhall)
 "oz" = (
 /obj/effect/turf_decal/tile/blue/half/contrasted,
 /obj/structure/rack/shelf,
@@ -1510,6 +1499,11 @@
 "xF" = (
 /turf/open/floor/plating,
 /area/ruin/space/has_grav/cargodise_freighter/exterior)
+"xO" = (
+/obj/structure/lattice,
+/mob,
+/turf/template_noop,
+/area/space/nearstation)
 "xX" = (
 /turf/open/floor/iron/dark,
 /area/ruin/space/has_grav/cargodise_freighter/cargo)
@@ -1919,10 +1913,6 @@
 /obj/machinery/door/firedoor/closed,
 /turf/open/floor/iron/dark,
 /area/ruin/space/has_grav/cargodise_freighter/primaryhall)
-"Ef" = (
-/obj/structure/lattice,
-/turf/template_noop,
-/area/template_noop)
 "Ej" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
@@ -3441,6 +3431,14 @@
 /obj/machinery/light_switch/directional/north,
 /turf/open/floor/iron/dark,
 /area/ruin/space/has_grav/cargodise_freighter/kitchen)
+"Zx" = (
+/mob/living/basic/looter/ranged/space/laser,
+/obj/machinery/button/door/directional/south{
+	id = "bridgelockdown";
+	name = "Bridge Blastdoors"
+	},
+/turf/open/floor/mineral/plastitanium,
+/area/ruin/space/has_grav/cargodise_freighter/vault)
 "Zz" = (
 /obj/effect/turf_decal/tile/yellow/anticorner{
 	dir = 4
@@ -3610,7 +3608,7 @@ Gh
 Gh
 Gh
 Gh
-Ef
+bd
 Gh
 Tg
 AN
@@ -3622,7 +3620,7 @@ AN
 AN
 Tg
 Gh
-Ef
+bd
 Gh
 Gh
 Gh
@@ -3651,7 +3649,7 @@ Gh
 Gh
 Gh
 Gh
-Ef
+bd
 Gh
 mb
 Yf
@@ -3663,7 +3661,7 @@ Yf
 Yf
 Tg
 Gh
-Ef
+bd
 Gh
 Gh
 Gh
@@ -3692,7 +3690,7 @@ Gh
 nU
 OT
 Gh
-Ef
+bd
 Gh
 mb
 vP
@@ -3704,7 +3702,7 @@ ax
 yv
 mb
 Gh
-Ef
+bd
 Gh
 KS
 UH
@@ -3972,9 +3970,9 @@ Gh
 Gh
 Gh
 JQ
-ev
-Ef
-Ef
+xO
+bd
+bd
 Yr
 Yr
 OF
@@ -3996,9 +3994,9 @@ NE
 NE
 NE
 NE
-Ef
-Ef
-Ef
+bd
+bd
+bd
 JQ
 Gh
 Gh
@@ -4160,9 +4158,9 @@ lH
 lH
 lH
 lH
-Ef
-Ef
-Ef
+bd
+bd
+bd
 JQ
 Gh
 Gh
@@ -4242,8 +4240,8 @@ xX
 xX
 VR
 lH
-Ef
-Ef
+bd
+bd
 JQ
 Gh
 Gh
@@ -4260,8 +4258,8 @@ Gh
 Gh
 Gh
 JQ
-Ef
-Ef
+bd
+bd
 Gg
 Gg
 Gg
@@ -4488,8 +4486,8 @@ xX
 xX
 iE
 lH
-Ef
-Ef
+bd
+bd
 JQ
 Gh
 Gh
@@ -4560,7 +4558,7 @@ rY
 Gg
 zF
 tV
-jC
+op
 Hv
 Hv
 Jx
@@ -4570,9 +4568,9 @@ Hv
 Hv
 Hv
 Hv
-Ef
-Ef
-Ef
+bd
+bd
+bd
 JQ
 Gh
 Gh
@@ -4874,8 +4872,8 @@ Gh
 Gh
 Gh
 JQ
-Ef
-Ef
+bd
+bd
 Gg
 Gg
 Gg
@@ -4898,9 +4896,9 @@ EI
 UB
 UB
 UB
-Ef
-Ef
-Ef
+bd
+bd
+bd
 JQ
 Gh
 Gh
@@ -5130,7 +5128,7 @@ do
 Eo
 Eo
 jl
-mc
+Zx
 vh
 UL
 tV
@@ -5307,8 +5305,8 @@ Sx
 FW
 Ck
 NV
-Ef
-Ef
+bd
+bd
 JQ
 Gh
 Gh
@@ -5471,7 +5469,7 @@ kX
 Ze
 kX
 kX
-Ef
+bd
 JQ
 Gh
 Gh
@@ -5497,7 +5495,7 @@ Gh
 Gh
 Gh
 JQ
-Ef
+bd
 kX
 wx
 xE
@@ -5660,8 +5658,8 @@ Gh
 Gh
 Gh
 JQ
-Ef
-Ef
+bd
+bd
 kX
 ao
 hT
@@ -5754,7 +5752,7 @@ mf
 kX
 Zk
 Gh
-Ef
+bd
 Gh
 Gh
 vH
@@ -5795,7 +5793,7 @@ dy
 kX
 Gh
 Gh
-Ef
+bd
 vH
 vH
 vH

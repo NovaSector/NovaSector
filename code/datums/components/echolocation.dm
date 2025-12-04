@@ -69,9 +69,11 @@
 	echolocator.add_traits(list(TRAIT_ECHOLOCATION_RECEIVER, TRAIT_TRUE_NIGHT_VISION), src.echo_group) //so they see all the tiles they echolocated, even if they are in the dark
 	if(blinding)
 		echolocator.become_blind(ECHOLOCATION_TRAIT)
-		if (use_echo) // NOVA EDIT ADDITION - add constructor toggle to not use the eye overlay
-			echolocator.overlay_fullscreen("echo", /atom/movable/screen/fullscreen/echo, echo_icon) // NOVA EDIT CHANGE - No change except indented one tab
-		echolocator.overlay_fullscreen("echo", /atom/movable/screen/fullscreen/echo, echo_icon)
+		//echolocator.overlay_fullscreen("echo", /atom/movable/screen/fullscreen/echo, echo_icon) // NOVA EDIT REMOVAL
+		// NOVA EDIT ADDITION START - add constructor toggle to not use the eye overlay
+		if (use_echo)
+			echolocator.overlay_fullscreen("echo", /atom/movable/screen/fullscreen/echo, echo_icon)
+		// NOVA EDIT ADDITION END
 	START_PROCESSING(SSfastprocess, src)
 
 /datum/component/echolocation/Destroy(force)
@@ -105,17 +107,15 @@
 	if(HAS_TRAIT(echolocator, TRAIT_ECHOLOCATION_EXTRA_RANGE))
 		real_echo_range += 2
 	var/list/filtered = list()
-	var/list/seen = dview(real_echo_range, get_turf(echolocator.client?.eye || echolocator), invis_flags = echolocator.see_invisible)
 	if(blinding)
-		for(var/atom/seen_atom as anything in seen)
+		for(var/atom/seen_atom as anything in dview(real_echo_range, get_turf(echolocator.client?.eye || echolocator), invis_flags = echolocator.see_invisible))
 			if(!seen_atom.alpha)
 				continue
 			if(allowed_paths[seen_atom.type])
 				filtered += seen_atom
 	else
-		var/list/ranged_atoms = range(real_echo_range, get_turf(echolocator.client?.eye || echolocator))
-		for(var/atom/possible_atom as anything in ranged_atoms)
-			if(!possible_atom.alpha)
+		for(var/atom/possible_atom as anything in range(real_echo_range, get_turf(echolocator.client?.eye || echolocator)))
+			if(!possible_atom.alpha || possible_atom.invisibility > echolocator.see_invisible)
 				continue
 			if(allowed_paths[possible_atom.type])
 				filtered += possible_atom

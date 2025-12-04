@@ -437,6 +437,11 @@
 /obj/effect/decal/cleanable/wrapping,
 /turf/open/floor/plating/dumpsterair,
 /area/ruin/space/has_grav/garbagetruck/foodwaste)
+"vk" = (
+/obj/structure/cable,
+/obj/machinery/airalarm/directional/north,
+/turf/open/floor/catwalk_floor/iron,
+/area/ruin/space/has_grav/garbagetruck/foodwaste)
 "vA" = (
 /obj/machinery/power/terminal,
 /obj/structure/tank_dispenser/oxygen,
@@ -843,13 +848,6 @@
 	},
 /turf/open/floor/plating/dumpsterair,
 /area/ruin/space/has_grav/garbagetruck/foodwaste)
-"Ie" = (
-/obj/machinery/airalarm{
-	pixel_y = 25
-	},
-/obj/structure/cable,
-/turf/open/floor/catwalk_floor/iron,
-/area/ruin/space/has_grav/garbagetruck/foodwaste)
 "II" = (
 /obj/structure/closet/crate/trashcart/filled,
 /obj/item/food/cracker,
@@ -899,6 +897,10 @@
 /mob/living/basic/mouse/rat,
 /turf/open/floor/plating/dumpsterair,
 /area/ruin/space/has_grav/garbagetruck/foodwaste)
+"KY" = (
+/obj/machinery/power/shuttle_engine/propulsion,
+/turf/template_noop,
+/area/space/nearstation)
 "Le" = (
 /obj/effect/spawner/random/trash/bacteria,
 /turf/open/floor/plating/dumpsterair,
@@ -1159,10 +1161,6 @@
 /obj/structure/cable,
 /turf/open/floor/iron/smooth,
 /area/ruin/space/has_grav/garbagetruck/foodwaste)
-"VL" = (
-/obj/machinery/power/shuttle_engine/propulsion,
-/turf/template_noop,
-/area/template_noop)
 "Xi" = (
 /obj/item/food/badrecipe/moldy/bacteria,
 /obj/effect/decal/cleanable/food/egg_smudge,
@@ -1238,7 +1236,7 @@ pP
 pP
 pP
 OD
-VL
+KY
 qM
 qM
 qM
@@ -1346,7 +1344,7 @@ XY
 TB
 Od
 OD
-Ie
+vk
 Ct
 tU
 TX
@@ -1480,7 +1478,7 @@ pP
 pP
 UX
 OD
-VL
+KY
 qM
 qM
 qM

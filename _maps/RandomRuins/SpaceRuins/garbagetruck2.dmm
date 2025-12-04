@@ -15,6 +15,10 @@
 /obj/effect/decal/cleanable/blood/gibs/old,
 /turf/open/floor/plating,
 /area/ruin/space/has_grav/garbagetruck/medicalwaste)
+"co" = (
+/obj/machinery/power/shuttle_engine/propulsion,
+/turf/template_noop,
+/area/space/nearstation)
 "cw" = (
 /obj/effect/decal/cleanable/blood/gibs/robot_debris,
 /obj/structure/closet/crate/freezer,
@@ -133,11 +137,9 @@
 /obj/effect/spawner/random/engineering/tank,
 /turf/open/floor/plating,
 /area/ruin/space/has_grav/garbagetruck/medicalwaste)
-"mZ" = (
-/obj/machinery/airalarm{
-	pixel_y = 25
-	},
+"mP" = (
 /obj/structure/cable,
+/obj/machinery/airalarm/directional/north,
 /turf/open/floor/catwalk_floor/iron,
 /area/ruin/space/has_grav/garbagetruck/medicalwaste)
 "nW" = (
@@ -648,10 +650,6 @@
 	},
 /turf/open/floor/plating,
 /area/ruin/space/has_grav/garbagetruck/medicalwaste)
-"VL" = (
-/obj/machinery/power/shuttle_engine/propulsion,
-/turf/template_noop,
-/area/template_noop)
 "VV" = (
 /obj/effect/decal/cleanable/blood/gibs/robot_debris/up,
 /obj/structure/frame/computer,
@@ -703,7 +701,7 @@ sU
 sU
 sU
 qC
-VL
+co
 gh
 gh
 gh
@@ -811,7 +809,7 @@ Pd
 xj
 Zi
 qC
-mZ
+mP
 OA
 gr
 CJ
@@ -945,7 +943,7 @@ sU
 sU
 LG
 qC
-VL
+co
 gh
 gh
 gh

@@ -41,8 +41,8 @@ SUBSYSTEM_DEF(wardrobe)
 	var/stock_hit = 0
 	/// How many items would we make just by loading the master list once?
 	var/one_go_master = 0
-	/// Item types that should not ever be restocked, only generated (like modsuits)
-	var/static/list/restock_blacklist = typecacheof(list(
+	/// Item types that should not ever be recycled, only generated (like modsuits)
+	var/static/list/recycle_blacklist = typecacheof(list(
 		/obj/item/mod/control/pre_equipped,
 	))
 
@@ -211,9 +211,17 @@ SUBSYSTEM_DEF(wardrobe)
 
 	order_list[queued_type] = amount
 
+/// Take an existing object, and recycle it if we are allowed to by stashing it back into our storage
+/datum/controller/subsystem/wardrobe/proc/recycle_object(obj/item/object)
+	// Don't restock blacklisted items, instead just delete them
+	if(is_type_in_typecache(object, recycle_blacklist))
+		qdel(object)
+		return
+	stash_object(object)
+
 /// Take an existing object, and insert it into our storage
 /// If we can't or won't take it, it's deleted. You do not own this object after passing it in
-/datum/controller/subsystem/wardrobe/proc/stash_object(obj/item/object, restocking = FALSE)
+/datum/controller/subsystem/wardrobe/proc/stash_object(obj/item/object)
 	var/object_type = object.type
 	// Don't restock blacklisted items, instead just delete them
 	if(restocking && is_type_in_typecache(object_type, restock_blacklist))

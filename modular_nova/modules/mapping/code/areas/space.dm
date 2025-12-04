@@ -189,12 +189,12 @@
 /area/ruin/space/has_grav/port_tarkon/developement
 	name = "P-T Developement Center"
 	icon_state = "science"
-	area_flags = XENOBIOLOGY_COMPATIBLE | UNIQUE_AREA
+	area_flags = XENOBIOLOGY_COMPATIBLE
 
 /area/ruin/space/has_grav/port_tarkon/xenology //A bit beyond just normal xenobiology in scope, But basically xenobiology
 	name = "P-T Xenology Lab"
 	icon_state = "science"
-	area_flags = XENOBIOLOGY_COMPATIBLE | UNIQUE_AREA
+	area_flags = XENOBIOLOGY_COMPATIBLE
 
 /area/ruin/space/has_grav/port_tarkon/secoff
 	name = "P-T Security Office"
@@ -219,6 +219,9 @@
 /area/ruin/space/has_grav/nova/des_two/cargo/hangar
 	name = "DS-2 Hangar"
 
+/area/ruin/space/has_grav/nova/des_two/cargo/storage
+	name = "DS-2 Deep Storage"
+
 //Bridge
 /area/ruin/space/has_grav/nova/des_two/bridge
 	name = "DS-2 Bridge"
@@ -235,6 +238,9 @@
 /area/ruin/space/has_grav/nova/des_two/bridge/vault
 	name = "DS-2 Vault"
 
+/area/ruin/space/has_grav/nova/des_two/bridge/vault
+	name = "DS-2 Intel Center"
+
 /area/ruin/space/has_grav/nova/des_two/bridge/eva
 	name = "DS-2 E.V.A."
 
@@ -243,8 +249,14 @@
 	name = "DS-2 Security"
 	ambience_index = AMBIENCE_DANGER
 
+/area/ruin/space/has_grav/nova/des_two/security/intel
+	name = "DS-2 Intelligence Office"
+
 /area/ruin/space/has_grav/nova/des_two/security/armory
 	name = "DS-2 Armory"
+
+/area/ruin/space/has_grav/nova/des_two/security/maa
+	name = "DS-2 Master At Arms Office"
 
 /area/ruin/space/has_grav/nova/des_two/security/lawyer
 	name = "DS-2 Interrogation Office"
@@ -267,6 +279,18 @@
 
 /area/ruin/space/has_grav/nova/des_two/service/lounge
 	name = "DS-2 Lounge"
+
+/area/ruin/space/has_grav/nova/des_two/service/changing_room
+	name = "DS-2 Changing Room"
+
+/area/ruin/space/has_grav/nova/des_two/service/sauna
+	name = "DS-2 Sauna"
+
+/area/ruin/space/has_grav/nova/des_two/service/restroom
+	name = "DS-2 Restroom"
+
+/area/ruin/space/has_grav/nova/des_two/service/library
+	name = "DS-2 Library"
 
 /area/ruin/space/has_grav/nova/des_two/service/hydroponics
 	name = "DS-2 Hydroponics"
@@ -341,6 +365,6 @@
 /area/ruin/solars/hotel/solars
 	name = "\improper Hotel Solar Array"
 	requires_power = FALSE
-	area_flags = UNIQUE_AREA
+	area_flags = NONE
 	sound_environment = SOUND_AREA_SPACE
 	base_lighting_alpha = 255

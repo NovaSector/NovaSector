@@ -1,6 +1,0 @@
-author: "sunnyaries"
-delete-after: True
-changes:
-  - sound: "Subtle now has a sound notification alongside subtler"
-  - qol: "Subtle/r now have a TG chat filter"
-  - rscadd: "Subtle/r now have unique chat colours"

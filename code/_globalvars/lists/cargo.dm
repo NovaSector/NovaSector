@@ -15,7 +15,8 @@ GLOBAL_LIST_EMPTY(supplypod_loading_bays)
 	var/list/packs = list()
 	for(var/datum/supply_pack/prototype as anything in subtypesof(/datum/supply_pack))
 		var/discountable = initial(prototype.discountable)
-		if(discountable)
+		var/list/contains = initial(prototype.contains) // NOVA EDIT ADDITION - This is a good candidate to PR upstream too.
+		if(discountable && contains) // NOVA EDIT CHANGE - ORIGINAL: if(discountable)
 			LAZYADD(packs[discountable], prototype)
 	return packs
 

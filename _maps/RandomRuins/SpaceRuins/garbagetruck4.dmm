@@ -116,6 +116,11 @@
 "ld" = (
 /turf/open/floor/plating,
 /area/ruin/space/has_grav/garbagetruck/toystore)
+"lf" = (
+/obj/structure/cable,
+/obj/machinery/airalarm/directional/north,
+/turf/open/floor/catwalk_floor/iron,
+/area/ruin/space/has_grav/garbagetruck/toystore)
 "lg" = (
 /obj/structure/lattice/catwalk,
 /turf/template_noop,
@@ -313,13 +318,6 @@
 /obj/machinery/door/airlock/shuttle,
 /turf/open/floor/plating,
 /area/ruin/space/has_grav/garbagetruck/toystore)
-"wu" = (
-/obj/machinery/airalarm{
-	pixel_y = 25
-	},
-/obj/structure/cable,
-/turf/open/floor/catwalk_floor/iron,
-/area/ruin/space/has_grav/garbagetruck/toystore)
 "ww" = (
 /obj/machinery/door/airlock/external/glass,
 /obj/structure/fans/tiny,
@@ -496,6 +494,10 @@
 /obj/effect/decal/cleanable/dirt/dust,
 /turf/open/floor/plating,
 /area/ruin/space/has_grav/garbagetruck/toystore)
+"zj" = (
+/obj/machinery/power/shuttle_engine/propulsion,
+/turf/template_noop,
+/area/space/nearstation)
 "zs" = (
 /obj/machinery/computer/terminal{
 	content = list("Property of Spinward-Upsilon Sanitation Department. Authorised employees only.");
@@ -808,10 +810,6 @@
 /obj/item/instrument/banjo,
 /turf/open/floor/plating,
 /area/ruin/space/has_grav/garbagetruck/toystore)
-"VL" = (
-/obj/machinery/power/shuttle_engine/propulsion,
-/turf/template_noop,
-/area/template_noop)
 "Wl" = (
 /obj/structure/plasticflaps/opaque,
 /turf/open/floor/plating,
@@ -896,7 +894,7 @@ lg
 lg
 lg
 nM
-VL
+zj
 Zi
 Zi
 Zi
@@ -1004,7 +1002,7 @@ Hj
 dn
 jD
 nM
-wu
+lf
 wo
 Dv
 IS
@@ -1138,7 +1136,7 @@ lg
 lg
 ri
 nM
-VL
+zj
 Zi
 Zi
 Zi
