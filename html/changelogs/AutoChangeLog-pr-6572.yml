@@ -1,0 +1,4 @@
+author: "Rilomatic"
+delete-after: True
+changes:
+  - image: "added icons and images"
