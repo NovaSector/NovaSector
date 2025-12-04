@@ -1,0 +1,5 @@
+author: "MiiyaBox"
+delete-after: True
+changes:
+  - rscadd: "Added a alternative shaded version of \"Mantis (Top)\" for mantis enjoyers."
+  - image: "\"Mantis Alt (Top)\" is now a option to be picked at \"Wings\"."
