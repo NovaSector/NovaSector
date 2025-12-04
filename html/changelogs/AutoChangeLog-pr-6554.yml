@@ -1,6 +1,0 @@
-author: "vinylspiders"
-delete-after: True
-changes:
-  - bugfix: "taur uniform icons will now get cropped and show correctly in the prefs menu"
-  - bugfix: "aprons and other various suits will no longer float away from certain types of taur."
-  - bugfix: "dying in a ghost cafe area should no longer will send a death message to deadchat"

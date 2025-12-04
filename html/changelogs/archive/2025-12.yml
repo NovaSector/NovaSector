@@ -29,3 +29,25 @@
 2025-12-03:
   sqnztb:
   - bugfix: robotic lizard voicebox now can communicate properly again.
+2025-12-04:
+  OrbisAnima:
+  - rscadd: Added 3x3 beds.
+  - rscadd: Added the missing facing side to double beds.
+  - balance: Reduced by 25% the cost of synthetic pelt and oversized beds.
+  - bugfix: Fixed exploit with synthetic pelt beds.
+  Rilomatic:
+  - image: added icons and images
+  TheRealSlimRedwoods:
+  - rscadd: 'Fox whines and yips!
+
+      :cl:'
+  muratendmo:
+  - qol: Added the Machine Design (Multi-Cell Charger Board) to the Science departmental
+      imprinter.
+  vinylspiders:
+  - bugfix: taur uniform icons will now get cropped and show correctly in the prefs
+      menu
+  - bugfix: aprons and other various suits will no longer float away from certain
+      types of taur.
+  - bugfix: dying in a ghost cafe area should no longer will send a death message
+      to deadchat

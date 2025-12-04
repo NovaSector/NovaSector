@@ -1,7 +1,0 @@
-author: "OrbisAnima"
-delete-after: True
-changes:
-  - rscadd: "Added 3x3 beds."
-  - rscadd: "Added the missing facing side to double beds."
-  - balance: "Reduced by 25% the cost of synthetic pelt and oversized beds."
-  - bugfix: "Fixed exploit with synthetic pelt beds."
