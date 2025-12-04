@@ -74,7 +74,7 @@
 
 		// Self brushing
 		if(human_target == user)
-			if(HAS_TRAIT(user, TRAIT_SELF_AWARE) || HAS_TRAIT(user, TRAIT_HAIR_EXPERT)) // Do they have self awareness or the hair expert? If so, give them the better moodlet.
+			if(HAS_TRAIT(user, TRAIT_SELF_AWARE) || HAS_TRAIT(user, TRAIT_HAIR_EXPERT)) // Do they have self awareness or the hair expert trait? If so, give them the better moodlet.
 				human_target.visible_message(span_notice("[user] masterfully brushes [user.p_their()] [brush_target]!"), span_notice("You masterfully brush your [brush_target]."))
 				human_target.add_mood_event("brushed", /datum/mood_event/brushed/self/expert, brush_target)
 			else
