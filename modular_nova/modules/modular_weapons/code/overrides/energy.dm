@@ -106,13 +106,13 @@
 	AddElement(/datum/element/examine_lore, \
 		lore_hint = span_notice("You can [EXAMINE_HINT("look closer")] to learn a little more about [src]."), \
 		lore = "The Allstar SC-1 laser gun, typically referred to as the SC-1, laser gun, or \"ol' reliable\", \
-		is one of Allstar's greatest successes in energy weapon development, proving itself as a workhorse.<br>\
-		<br>\
-		Typically regarded as a solid benchmark by which all other energy firearms can be held against, \
-		the SC-1 typically features a respectable cell and solid stopping power per shot. \
-		Being an energy-based firearms means that, logistics-wise, the only thing required to support its use other \
-		than maintenance equipment and spare parts is a steady supply of power in lieu of ammunition, \
-		making it quite popular for people with a surplus of the former and not so much the latter." \
+			is one of Allstar's greatest successes in energy weapon development, proving itself as a workhorse.<br>\
+			<br>\
+			Typically regarded as a solid benchmark by which all other energy firearms can be held against, \
+			the SC-1 typically features a respectable cell and solid stopping power per shot. \
+			Being an energy-based firearms means that, logistics-wise, the only thing required to support its use other \
+			than maintenance equipment and spare parts is a steady supply of power in lieu of ammunition, \
+			making it quite popular for people with a surplus of the former and not so much the latter." \
 	)
 
 // Retro Laser Gun
@@ -121,15 +121,15 @@
 	AddElement(/datum/element/examine_lore, \
 		lore_hint = span_notice("You can [EXAMINE_HINT("look closer")] to learn a little more about [src]."), \
 		lore = "The Allstar SC-1 laser gun, typically referred to as the SC-1, laser gun, or \"ol' reliable\", \
-		is one of Allstar's greatest successes in energy weapon development, proving itself as a workhorse. \
-		Especially this one, which uses a casing pattern that hasn't been in active use for... who knows how long.<br>\
-		<br>\
-		Typically regarded as a solid benchmark by which all other energy firearms can be held against, \
-		the SC-1 typically features a respectable cell and solid stopping power per shot. \
-		Being an energy-based firearms means that, logistics-wise, the only thing required to support its use other \
-		than maintenance equipment and spare parts is a steady supply of power in lieu of ammunition, \
-		making it quite popular for people with a surplus of the former and not so much the latter. \
-		The fact that this particular example still runs fine, despite its visible age, is remarkable." \
+			is one of Allstar's greatest successes in energy weapon development, proving itself as a workhorse. \
+			Especially this one, which uses a casing pattern that hasn't been in active use for... who knows how long.<br>\
+			<br>\
+			Typically regarded as a solid benchmark by which all other energy firearms can be held against, \
+			the SC-1 typically features a respectable cell and solid stopping power per shot. \
+			Being an energy-based firearms means that, logistics-wise, the only thing required to support its use other \
+			than maintenance equipment and spare parts is a steady supply of power in lieu of ammunition, \
+			making it quite popular for people with a surplus of the former and not so much the latter. \
+			The fact that this particular example still runs fine, despite its visible age, is remarkable." \
 	)
 
 // Soulful Laser Gun
@@ -138,17 +138,17 @@
 	AddElement(/datum/element/examine_lore, \
 		lore_hint = span_notice("You can [EXAMINE_HINT("look closer")] to learn a little more about [src]."), \
 		lore = "The Allstar SC-1 laser gun, typically referred to as the SC-1, laser gun, or \"ol' reliable\", \
-		is one of Allstar's greatest successes in energy weapon development, proving itself as a workhorse.<br>\
-		<br>\
-		This specific variant is from a \"neoclassical\" manufacturing run, using an old chassis as a base. \
-		While many would argue that the neoclassical runs are gimmick runs to squeeze out more money, \
-		others swear by the old-fashioned style, citing anecdotal evidence. Either way, a laser gun is a laser gun.<br>\
-		<br>\
-		Typically regarded as a solid benchmark by which all other energy firearms can be held against, \
-		the SC-1 typically features a respectable cell and solid stopping power per shot. \
-		Being an energy-based firearms means that, logistics-wise, the only thing required to support its use other \
-		than maintenance equipment and spare parts is a steady supply of power in lieu of ammunition, \
-		making it quite popular for people with a surplus of the former and not so much the latter." \
+			is one of Allstar's greatest successes in energy weapon development, proving itself as a workhorse.<br>\
+			<br>\
+			This specific variant is from a \"neoclassical\" manufacturing run, using an old chassis as a base. \
+			While many would argue that the neoclassical runs are gimmick runs to squeeze out more money, \
+			others swear by the old-fashioned style, citing anecdotal evidence. Either way, a laser gun is a laser gun.<br>\
+			<br>\
+			Typically regarded as a solid benchmark by which all other energy firearms can be held against, \
+			the SC-1 typically features a respectable cell and solid stopping power per shot. \
+			Being an energy-based firearms means that, logistics-wise, the only thing required to support its use other \
+			than maintenance equipment and spare parts is a steady supply of power in lieu of ammunition, \
+			making it quite popular for people with a surplus of the former and not so much the latter." \
 	)
 
 // hellfire laser gun
@@ -157,23 +157,23 @@
 	AddElement(/datum/element/examine_lore, \
 		lore_hint = span_notice("You can [EXAMINE_HINT("look closer")] to learn a little more about [src]."), \
 		lore = "The Allstar SC-H heavy laser gun, typically referred to as the SC-H, hellfire laser gun, or \"ol' inhumane\", \
-		is one of Allstar's less-great successes in energy weapon development, proving itself to be a little too effective. \
-		It's considered a notable example of Allstar flying too close to the sun for its own good.<br>\
-		<br>\
-		The success of the SC-1 resulted in shareholders pushing for a follow-up to ride the wave of its success. Despite insistence \
-		from Allstar that it was not ready for a full rollout, continued pushes from shareholders forced the prototype SC-H into production \
-		and rollout in the next quarter, even before most of its safety systems had been properly tested and implemented. \
-		Reports immediately began flooding in of horrific accidental discharges, battlefield atrocities and unexpected spontaneous combustion \
-		from excessive exposure to the untested experimental heat distribution systems 'taking its pound of flesh' for the 'hell it unleashed'.<br>\
-		<br>\
-		In response, many legal bodies rushed to ban or heavily restrict the firearm from sales within their region of space, \
-		and the weapon became infamous for its unethical means of ending sentient life. \
-		Laws were passed to ensure power regulators were installed in future energy-based weaponry. \
-		Allstar quickly downturned manufacturing of the SC-H in response, returning to focusing on manufacturing the SC-1 to \
-		regain lost ground in affected markets. \
-		While, legally, the SC-H is still restricted if not banned in many polities, Nanotrasen itself does not regulate possession \
-		of the firearm aboard their stations, nor does any legal body intend on preventing them from utilizing it in defense \
-		of its own assets." \
+			is one of Allstar's less-great successes in energy weapon development, proving itself to be a little too effective. \
+			It's considered a notable example of Allstar flying too close to the sun for its own good.<br>\
+			<br>\
+			The success of the SC-1 resulted in shareholders pushing for a follow-up to ride the wave of its success. Despite insistence \
+			from Allstar that it was not ready for a full rollout, continued pushes from shareholders forced the prototype SC-H into production \
+			and rollout in the next quarter, even before most of its safety systems had been properly tested and implemented. \
+			Reports immediately began flooding in of horrific accidental discharges, battlefield atrocities and unexpected spontaneous combustion \
+			from excessive exposure to the untested experimental heat distribution systems 'taking its pound of flesh' for the 'hell it unleashed'.<br>\
+			<br>\
+			In response, many legal bodies rushed to ban or heavily restrict the firearm from sales within their region of space, \
+			and the weapon became infamous for its unethical means of ending sentient life. \
+			Laws were passed to ensure power regulators were installed in future energy-based weaponry. \
+			Allstar quickly downturned manufacturing of the SC-H in response, returning to focusing on manufacturing the SC-1 to \
+			regain lost ground in affected markets. \
+			While, legally, the SC-H is still restricted if not banned in many polities, Nanotrasen itself does not regulate possession \
+			of the firearm aboard their stations, nor does any legal body intend on preventing them from utilizing it in defense \
+			of its own assets." \
 	)
 
 // Antique Laser Gun
@@ -182,26 +182,26 @@
 	AddElement(/datum/element/examine_lore, \
 		lore_hint = span_notice("You can [EXAMINE_HINT("look closer")] to learn a little more about [src]."), \
 		lore = "For a brief period, Allstar produced a series of custom-made SC-H laser guns for a select group of \
-		clients, mainly consisting of various wealthy starship captains, politicians and military leaders looking to demonstrate prestige before \
-		the common folk.<br>\
-		<br>\
-		The SC-H was a commercial failure, but this particular variant earned its own infamy, linked to narratives of crazed \
-		despots using it to put down political rivals and dissidents, as well as tales of mad generals marching ahead of their \
-		forces, this weapon brandished, running hot in an outstretched arm towards any moving target they could find on the \
-		battlefield. <br>\
-		<br>\
-		Usage of this firearm is now heavily scrutinized within SolFed space because of its reputation. \
-		This is largely why Nanotrasen insists that any examples held by ranking officers be kept under lock and key. \
-		All records of the schematics surrounding this variant of the SC-H were seized and destroyed, and the creator behind \
-		it detained in a maximum security SolFed sanitorium. During a routine check-up, she appeared to have smeared the walls in her \
-		own blood, claiming that 'She' was coming, and that she had paid dearly for the knowledge of how to make the weapon.<br>\
-		<br>\
-		Even the microfusion breeder cell housed inside the weapon is practically a lost technology. Nanotrasen have remained unable \
-		to reverse engineer the device's exact means of functionality. The Syndicate are, obviously, just as interested \
-		in exactly how this weapon's cell remains capable of self-perpetuation, hence why the collective \
-		seem hell-bent on capturing them whenever possible.<br>\
-		<br>\
-		Maybe keep this somewhere safe. Or don't." \
+			clients, mainly consisting of various wealthy starship captains, politicians and military leaders looking to demonstrate prestige before \
+			the common folk.<br>\
+			<br>\
+			The SC-H was a commercial failure, but this particular variant earned its own infamy, linked to narratives of crazed \
+			despots using it to put down political rivals and dissidents, as well as tales of mad generals marching ahead of their \
+			forces, this weapon brandished, running hot in an outstretched arm towards any moving target they could find on the \
+			battlefield. <br>\
+			<br>\
+			Usage of this firearm is now heavily scrutinized within SolFed space because of its reputation. \
+			This is largely why Nanotrasen insists that any examples held by ranking officers be kept under lock and key. \
+			All records of the schematics surrounding this variant of the SC-H were seized and destroyed, and the creator behind \
+			it detained in a maximum security SolFed sanitorium. During a routine check-up, she appeared to have smeared the walls in her \
+			own blood, claiming that 'She' was coming, and that she had paid dearly for the knowledge of how to make the weapon.<br>\
+			<br>\
+			Even the microfusion breeder cell housed inside the weapon is practically a lost technology. Nanotrasen have remained unable \
+			to reverse engineer the device's exact means of functionality. The Syndicate are, obviously, just as interested \
+			in exactly how this weapon's cell remains capable of self-perpetuation, hence why the collective \
+			seem hell-bent on capturing them whenever possible.<br>\
+			<br>\
+			Maybe keep this somewhere safe. Or don't." \
 	)
 
 // X-ray Laser Gun
@@ -210,21 +210,21 @@
 	AddElement(/datum/element/examine_lore, \
 		lore_hint = span_notice("You can [EXAMINE_HINT("look closer")] to learn a little more about [src]."), \
 		lore = "The NT Type 6 Heat Delivery System (sometimes referred to as the HDS6 in research notes) is a breakthrough in the \
-		development of directed energy weaponry, using modified Allstar SC-1s as a base.<br>\
-		<br>\
-		Very little is known about the Type 6, as it is a relatively new experimental weapon only accessible to Nanotrasen security forces.\
-		Somehow, Nanotrasen has found a means to 'slip' the energy beams produced by the Type 6 through unintended targets, only impacting \
-		once it has made contact with a pre-designated target by the weapon's user. It appears to be unable to slip past organic matter reliably, \
-		which hampers its potential for eliminating friendly-fire. However, inorganic targets are left unscathed unless the weapon is directed towards \
-		firing upon the object. This makes the weapon exceptional for asset recovery, defensive entrenchment, and assaults on defensive structures. <br>\
-		<br>\
-		Nanotrasen claims that this phenomenon is achieved 'through the power of X-rays'. Most critics have highlighted that this is total nonsense. Some claim \
-		that Nanotrasen has discovered a yet-unknown state of matter that the company is exploiting for weapons development and manufacturing. The most \
-		conspiratorially minded of Nanotrasen's critics have even gone as far as to claim it is 'proof of ectoplasm as the sixth element', \
-		and that, perhaps, the weapon may be operating through supernatural means; perhaps even powered by the 'spirits of the damned'.<br>\
-		<br>\
-		Whatever the truth may be, the weapon seems to function as advertised, and matches the energy efficiency of the SC-1. Nanotrasen \
-		expects full commercial rollout sometime in the next quarter." \
+			development of directed energy weaponry, using modified Allstar SC-1s as a base.<br>\
+			<br>\
+			Very little is known about the Type 6, as it is a relatively new experimental weapon only accessible to Nanotrasen security forces.\
+			Somehow, Nanotrasen has found a means to 'slip' the energy beams produced by the Type 6 through unintended targets, only impacting \
+			once it has made contact with a pre-designated target by the weapon's user. It appears to be unable to slip past organic matter reliably, \
+			which hampers its potential for eliminating friendly-fire. However, inorganic targets are left unscathed unless the weapon is directed towards \
+			firing upon the object. This makes the weapon exceptional for asset recovery, defensive entrenchment, and assaults on defensive structures. <br>\
+			<br>\
+			Nanotrasen claims that this phenomenon is achieved 'through the power of X-rays'. Most critics have highlighted that this is total nonsense. Some claim \
+			that Nanotrasen has discovered a yet-unknown state of matter that the company is exploiting for weapons development and manufacturing. The most \
+			conspiratorially minded of Nanotrasen's critics have even gone as far as to claim it is 'proof of ectoplasm as the sixth element', \
+			and that, perhaps, the weapon may be operating through supernatural means; perhaps even powered by the 'spirits of the damned'.<br>\
+			<br>\
+			Whatever the truth may be, the weapon seems to function as advertised, and matches the energy efficiency of the SC-1. Nanotrasen \
+			expects full commercial rollout sometime in the next quarter." \
 	)
 
 // Laser Carbine
@@ -233,14 +233,14 @@
 	AddElement(/datum/element/examine_lore, \
 		lore_hint = span_notice("You can [EXAMINE_HINT("look closer")] to learn a little more about [src]."), \
 		lore = "The Allstar SC-1R is a modification of the venerable SC-1, and a shaky first step into \
-		automatic directed energy weaponry, eventually leading to settling on a burst-fire system.<br>\
-		<br>\
-		While less popular than the standard laser gun, the SC-1R's burst-fire system and accelerated \
-		agitation chamber allows for a good rate of sustained fire with reduced risk of searing ones' hands off, \
-		in return for sacrificing stopping power per shot. \
-		Being an energy-based firearms means that, logistics-wise, the only thing required to support its use other \
-		than maintenance equipment and spare parts is a steady supply of power in lieu of ammunition, \
-		making it quite popular for people with a surplus of the former and not so much the latter." \
+			automatic directed energy weaponry, eventually leading to settling on a burst-fire system.<br>\
+			<br>\
+			While less popular than the standard laser gun, the SC-1R's burst-fire system and accelerated \
+			agitation chamber allows for a good rate of sustained fire with reduced risk of searing ones' hands off, \
+			in return for sacrificing stopping power per shot. \
+			Being an energy-based firearms means that, logistics-wise, the only thing required to support its use other \
+			than maintenance equipment and spare parts is a steady supply of power in lieu of ammunition, \
+			making it quite popular for people with a surplus of the former and not so much the latter." \
 	)
 
 // crates
