@@ -1256,7 +1256,16 @@
 /obj/effect/turf_decal/bot_red,
 /obj/structure/window/reinforced/spawner/directional/west,
 /obj/effect/turf_decal/tile/brown/full,
-/obj/structure/closet/crate/secure/tradership_cargo_very_valuable,
+/obj/structure/closet/crate/secure/syndicate/arc,
+/obj/item/organ/stomach/bone,
+/obj/item/organ/tongue/bone,
+/obj/item/organ/liver/bone,
+/obj/item/grenade/stingbang/bonebang,
+/obj/item/stack/sheet/animalhide/corgi/five,
+/obj/item/stack/sheet/animalhide/corgi/five,
+/obj/item/stack/sheet/animalhide/cat/five,
+/obj/item/stack/sheet/animalhide/mothroach/five,
+/obj/item/stack/sheet/animalhide/human/five,
 /turf/open/floor/iron/dark,
 /area/ruin/space/has_grav/powered/nova/scrapheap)
 "Gf" = (
