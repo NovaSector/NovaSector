@@ -11,7 +11,7 @@
 	var/facial_haircut_duration = 20 SECONDS
 	// Same as above, but for those with the hair expert trait
 	var/haircut_duration_expert = 45 SECONDS
-	var/facial_haircut_duration_expert = 12 SECONDS
+	var/facial_haircut_duration_expert = 15 SECONDS
 
 /obj/item/scissors/attack(mob/living/attacked_mob, mob/living/user, params)
 	if(!ishuman(attacked_mob))
