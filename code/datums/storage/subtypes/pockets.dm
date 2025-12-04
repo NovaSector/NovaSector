@@ -92,8 +92,6 @@
 	. = ..()
 	set_holdable(
 		can_hold_list = list(
-			/obj/item/forging/reagent_weapon/dagger, // NOVA EDIT ADDITION
-			/obj/item/melee/baton/security/stun_gun/stun_knife, // NOVA EDIT ADDITION
 			/obj/item/knife,
 			/obj/item/spess_knife,
 			/obj/item/switchblade,
@@ -122,7 +120,15 @@
 			/obj/item/match,
 			/obj/item/holochip,
 			/obj/item/toy/crayon,
+			// NOVA EDIT ADDITION START
+			/obj/item/forging/reagent_weapon/dagger,
+			/obj/item/melee/baton/security/stun_gun/stun_knife,
 			/obj/item/reagent_containers/cup/glass/flask,
+			/obj/item/ammo_box/magazine/c35sol_pistol,
+			/obj/item/ammo_box/magazine/c585trappiste_pistol,
+			/obj/item/ammo_box/magazine/m9mm_aps,
+			/obj/item/ammo_box/magazine/toy/pistol,
+			// NOVA EDIT ADDITION END
 		),
 		cant_hold_list = list(
 			/obj/item/screwdriver/power,

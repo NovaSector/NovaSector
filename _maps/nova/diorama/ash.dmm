@@ -36,7 +36,7 @@
 /obj/structure/sign/plaques/kiddie/diorama/ash{
 	pixel_y = 8
 	},
-/turf/template_noop,
+/turf/closed/wall,
 /area/template_noop)
 "v" = (
 /turf/open/lava/smooth,

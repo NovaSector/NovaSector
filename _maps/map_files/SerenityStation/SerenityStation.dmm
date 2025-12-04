@@ -56468,7 +56468,6 @@
 	pixel_x = 7
 	},
 /obj/item/watertank,
-/obj/machinery/light/directional/east,
 /obj/item/stack/ducts/fifty,
 /obj/item/construction/plumbing/service,
 /turf/open/floor/iron/dark/smooth_half{

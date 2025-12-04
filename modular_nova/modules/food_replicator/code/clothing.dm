@@ -7,7 +7,7 @@
 	icon_state = "under_colonial"
 
 /obj/item/clothing/under/colonial/mob_can_equip(mob/living/equipper, slot, disable_warning, bypass_equip_delay_self, ignore_equipped, indirect_action)
-	if(is_species(equipper, /datum/species/teshari))
+	if(isteshari(equipper))
 		to_chat(equipper, span_warning("[src] is far too big for you!"))
 		return FALSE
 
@@ -22,7 +22,7 @@
 	icon_state = "boots_colonial"
 
 /obj/item/clothing/shoes/jackboots/colonial/mob_can_equip(mob/living/equipper, slot, disable_warning, bypass_equip_delay_self, ignore_equipped, indirect_action)
-	if(is_species(equipper, /datum/species/teshari))
+	if(isteshari(equipper))
 		to_chat(equipper, span_warning("[src] is far too big for you!"))
 		return FALSE
 
@@ -40,7 +40,7 @@
 	allowed = /obj/item/clothing/suit/jacket/leather::allowed // these are special and can be worn in the suit slot, so we need this var to be defined
 
 /obj/item/clothing/neck/cloak/colonial/mob_can_equip(mob/living/equipper, slot, disable_warning, bypass_equip_delay_self, ignore_equipped, indirect_action)
-	if(is_species(equipper, /datum/species/teshari))
+	if(isteshari(equipper))
 		to_chat(equipper, span_warning("[src] is far too big for you!"))
 		return FALSE
 
@@ -57,7 +57,7 @@
 	supports_variations_flags = CLOTHING_SNOUTED_VARIATION_NO_NEW_ICON
 
 /obj/item/clothing/head/hats/colonial/mob_can_equip(mob/living/equipper, slot, disable_warning, bypass_equip_delay_self, ignore_equipped, indirect_action)
-	if(is_species(equipper, /datum/species/teshari))
+	if(isteshari(equipper))
 		to_chat(equipper, span_warning("[src] is far too big for you!"))
 		return FALSE
 
