@@ -21,7 +21,7 @@
 
 	/// The primary vocal blooper, aka the initial blooper
 	var/primary_blooper
-		/// The talking speed of the primary blooper
+	/// The talking speed of the primary blooper
 	var/primary_blooper_speed = 0
 	/// The pitch of the primary blooper
 	var/primary_blooper_pitch = 0
