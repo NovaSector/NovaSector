@@ -1,6 +1,6 @@
 /datum/quirk/voice_actor
 	name = "Voice Actor"
-	desc = "You can swap between two TTS voices and chat colors."
+	desc = "You can swap to a second chat color, TTS voice, and vocal bark."
 	icon = FA_ICON_MICROPHONE_LINES
 	gain_text = span_notice("You are reminded of how your other voice sounds.")
 	lose_text = span_warning("You suddenly forget what your other voice sounds like!")
