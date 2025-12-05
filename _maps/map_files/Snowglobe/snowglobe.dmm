@@ -53960,6 +53960,7 @@
 /obj/item/radio/intercom/directional/east,
 /obj/effect/turf_decal/tile/blue/anticorner,
 /obj/structure/closet/secure_closet/medical2,
+/obj/effect/mapping_helpers/airalarm/surgery,
 /turf/open/floor/iron/white/smooth_corner{
 	dir = 1
 	},
@@ -77385,6 +77386,7 @@
 	dir = 8
 	},
 /obj/effect/turf_decal/bot_red,
+/obj/effect/mapping_helpers/airalarm/surgery,
 /turf/open/floor/iron/white/smooth_corner{
 	dir = 1
 	},
