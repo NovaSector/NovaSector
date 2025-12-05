@@ -146,9 +146,23 @@ GLOBAL_LIST_EMPTY_TYPED(interaction_instances, /datum/interaction)
 			sound_possible = list(sound_possible)
 		sound_cache = pick(sound_possible)
 		if (lewd)
-			playsound_if_pref(target.loc, sound_cache, 50, sound_vary, max(0, -SOUND_RANGE + sound_range), pref_to_check = /datum/preference/toggle/erp/sounds)
+			playsound_if_pref(
+				source = target.loc,
+				soundin = sound_cache,
+				vol = 50,
+				vary = sound_vary,
+				extrarange = max(0, -SOUND_RANGE + sound_range),
+				pref_to_check = /datum/preference/toggle/erp/sounds
+			)
 		else
-			playsound(target.loc, sound_cache, 50, sound_vary, max(0, -SOUND_RANGE + sound_range))
+			playsound(
+				source = target.loc,
+				soundin = sound_cache,
+				vol = 50,
+				vary = sound_vary,
+				extrarange = max(0, -SOUND_RANGE + sound_range),
+				ignore_walls = FALSE
+			)
 
 	INVOKE_ASYNC(src, PROC_REF(apply_effects), user, target)
 
