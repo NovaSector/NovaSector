@@ -8697,6 +8697,7 @@
 #include "modular_nova\modules\modular_items\lewd_items\code\lewd_chemistry\reagents\hexacrocin.dm"
 #include "modular_nova\modules\modular_items\lewd_items\code\lewd_chemistry\reagents\incubus_draft.dm"
 #include "modular_nova\modules\modular_items\lewd_items\code\lewd_chemistry\reagents\pentacamphor.dm"
+#include "modular_nova\modules\modular_items\lewd_items\code\lewd_chemistry\reagents\rutt.dm"
 #include "modular_nova\modules\modular_items\lewd_items\code\lewd_chemistry\reagents\succubus_milk.dm"
 #include "modular_nova\modules\modular_items\lewd_items\code\lewd_clothing\ballgag.dm"
 #include "modular_nova\modules\modular_items\lewd_items\code\lewd_clothing\bdsm_mask.dm"
