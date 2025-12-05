@@ -76,7 +76,16 @@
 	if(!ishuman(user))
 		return UI_CLOSE
 
-	return UI_INTERACTIVE // This UI is always interactive as we handle distance flags via can_interact
+	var/status = min(
+		ui_status_only_living(user, src),
+		ui_status_user_is_abled(user, src),
+		UI_INTERACTIVE
+	)
+
+	if(status < UI_INTERACTIVE)
+		return UI_CLOSE
+
+	return status
 
 /datum/component/interactable/ui_data(mob/user)
 	var/list/data = list()
