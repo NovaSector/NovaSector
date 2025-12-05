@@ -78,7 +78,7 @@
 			if(!user.transferItemToLoc(attacking_item,src))
 				return
 
-			charging_batteries += attacking_item
+			LAZYADD(charging_batteries, attacking_item)
 			user.visible_message(span_notice("[user] inserts a cell into [src]."), span_notice("You insert a cell into [src]."))
 			update_appearance()
 	else
@@ -204,4 +204,4 @@
 	category = list(
 		RND_CATEGORY_MACHINE + RND_SUBCATEGORY_MACHINE_ENGINEERING
 	)
-	departmental_flags = DEPARTMENT_BITFLAG_ENGINEERING + DEPARTMENT_BITFLAG_SCIENCE
+	departmental_flags = DEPARTMENT_BITFLAG_ENGINEERING | DEPARTMENT_BITFLAG_SCIENCE

@@ -6010,6 +6010,7 @@
 /obj/effect/turf_decal/trimline/blue/filled/line{
 	dir = 6
 	},
+/obj/effect/mapping_helpers/airalarm/surgery,
 /turf/open/floor/iron/white,
 /area/station/medical/surgery/fore)
 "bIK" = (
@@ -14159,10 +14160,7 @@
 	dir = 1
 	},
 /obj/structure/table/reinforced,
-/obj/item/electronics/firealarm,
-/obj/item/electronics/firealarm,
-/obj/item/electronics/firelock,
-/obj/item/electronics/firelock,
+/obj/effect/spawner/random/techstorage/custom_shuttle,
 /turf/open/floor/iron,
 /area/station/engineering/storage/tech)
 "edn" = (
@@ -39453,6 +39451,7 @@
 	name = "medbay camera";
 	network = list("ss13","medbay")
 	},
+/obj/effect/mapping_helpers/airalarm/surgery,
 /turf/open/floor/iron/white,
 /area/station/medical/surgery/aft)
 "lnx" = (
