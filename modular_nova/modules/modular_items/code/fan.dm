@@ -42,6 +42,7 @@
 	name = "self-powered tiny fan"
 	desc = parent_type::desc + " This one seems to have a heated plasma shard that propels the blades!"
 	use_power = NO_POWER_USE
+	custom_materials = list(/datum/material/iron = SHEET_MATERIAL_AMOUNT * 5.05, /datum/material/plasma = SHEET_MATERIAL_AMOUNT, /datum/material/glass = SHEET_MATERIAL_AMOUNT * 0.05)
 
 /obj/machinery/nova/fan/self_powered/on_deconstruction(disassembled)
 	. = ..()

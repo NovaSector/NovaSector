@@ -5,14 +5,13 @@
 	icon = 'modular_nova/modules/stone/icons/ore.dmi'
 	icon_state = "sheet-stone"
 	inhand_icon_state = "sheet-metal"
-	mats_per_unit = list(/datum/material/stone=SHEET_MATERIAL_AMOUNT)
+	mats_per_unit = list(/datum/material/stone = SHEET_MATERIAL_AMOUNT)
 	force = 10
 	throwforce = 15
 	resistance_flags = FIRE_PROOF
 	merge_type = /obj/item/stack/sheet/mineral/stone
 	grind_results = null
 	material_type = /datum/material/stone
-	matter_amount = 0
 	source = null
 	walltype = /turf/closed/wall/mineral/stone
 	stairs_type = /obj/structure/stairs/stone
@@ -25,7 +24,7 @@ GLOBAL_LIST_INIT(stone_recipes, list (
 	new/datum/stack_recipe("millstone", /obj/structure/millstone, 6, crafting_flags = CRAFT_CHECK_DENSITY | CRAFT_ONE_PER_TURF | CRAFT_ON_SOLID_GROUND, category = CAT_STRUCTURE),
 	new/datum/stack_recipe("stone cauldron", /obj/machinery/cauldron, 5, crafting_flags = CRAFT_CHECK_DENSITY | CRAFT_ONE_PER_TURF | CRAFT_ON_SOLID_GROUND, category = CAT_STRUCTURE),
 	new/datum/stack_recipe("stone stove", /obj/machinery/primitive_stove, 5, crafting_flags = CRAFT_CHECK_DENSITY | CRAFT_ONE_PER_TURF | CRAFT_ON_SOLID_GROUND, category = CAT_STRUCTURE),
-	new/datum/stack_recipe("stone oven", /obj/machinery/oven/stone, 5, crafting_flags = CRAFT_CHECK_DENSITY | CRAFT_ONE_PER_TURF | CRAFT_ON_SOLID_GROUND, category = CAT_STRUCTURE),
+	new/datum/stack_recipe("stone oven", /obj/machinery/oven/primitive, 5, crafting_flags = CRAFT_CHECK_DENSITY | CRAFT_ONE_PER_TURF | CRAFT_ON_SOLID_GROUND, category = CAT_STRUCTURE),
 	new/datum/stack_recipe("stone griddle", /obj/machinery/griddle/stone, 5, crafting_flags = CRAFT_CHECK_DENSITY | CRAFT_ONE_PER_TURF | CRAFT_ON_SOLID_GROUND, category = CAT_STRUCTURE),
 	new/datum/stack_recipe("brick well", /obj/structure/water_source/brick_well, 5, crafting_flags = CRAFT_CHECK_DENSITY | CRAFT_ONE_PER_TURF | CRAFT_ON_SOLID_GROUND, category = CAT_STRUCTURE),
 	new/datum/stack_recipe("fireplace frame", /obj/item/wallframe/fireplace, 7, crafting_flags = NONE, category = CAT_STRUCTURE),
@@ -82,7 +81,7 @@ GLOBAL_LIST_INIT(stone_recipes, list (
 	inhand_icon_state = "tile"
 	turf_type = /turf/open/floor/stone
 	mineralType = "stone"
-	mats_per_unit = list(/datum/material/stone= HALF_SHEET_MATERIAL_AMOUNT)
+	mats_per_unit = list(/datum/material/stone = SHEET_MATERIAL_AMOUNT * 0.25)
 	merge_type = /obj/item/stack/tile/mineral/stone
 
 /turf/open/floor/stone

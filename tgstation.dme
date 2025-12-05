@@ -7055,6 +7055,7 @@
 #include "modular_nova\master_files\code\game\objects\items\storage\toolboxes\weapon.dm"
 #include "modular_nova\master_files\code\game\objects\items\tanks\tank_types.dm"
 #include "modular_nova\master_files\code\game\objects\items\tools\weldingtool.dm"
+#include "modular_nova\master_files\code\game\objects\structures\guncase.dm"
 #include "modular_nova\master_files\code\game\objects\structures\mannequin.dm"
 #include "modular_nova\master_files\code\game\objects\structures\medieval_deco.dm"
 #include "modular_nova\master_files\code\game\objects\structures\mirror.dm"
