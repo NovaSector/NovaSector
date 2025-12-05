@@ -81,3 +81,18 @@
       types of taur.
   - bugfix: dying in a ghost cafe area should no longer will send a death message
       to deadchat
+2025-12-05:
+  Hatterhat:
+  - rscadd: All the laser guns from the recent upstream merge are now reflavored to
+      be variants of the SC-1. The laser pistol was buffed, the burst carbine's capacity
+      was buffed, the assault rifle and pistol are now in the goodies system.
+  - bugfix: The disabler SMG and hybrid taser no longer have redundant indicators
+      for self-charging.
+  Iajret:
+  - bugfix: fixed multi cell chargers not accepting cells
+  MiiyaBox:
+  - rscadd: Added a alternative shaded version of "Mantis (Top)" for mantis enjoyers.
+  - image: '"Mantis Alt (Top)" is now a option to be picked at "Wings".'
+  TheRealSlimRedwoods:
+  - bugfix: fixed fox whines if you have the emote tabs on.
+  - spellcheck: fixed a few typos in the code.
