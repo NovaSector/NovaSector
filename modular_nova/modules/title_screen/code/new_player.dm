@@ -39,6 +39,11 @@
 		client << output(preferences.read_preference(/datum/preference/toggle/be_antag), "nova_title_browser:toggle_antag")
 		return
 
+	if(href_list["latejoin_queue"])
+		play_lobby_button_sound()
+		update_title_screen()
+		return
+
 	if(href_list["character_setup"])
 		play_lobby_button_sound()
 		var/datum/preferences/preferences = client.prefs
