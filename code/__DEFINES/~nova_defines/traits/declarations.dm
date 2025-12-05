@@ -156,8 +156,8 @@
 // Lewd traits
 #define TRAIT_MASOCHISM "masochism"
 #define TRAIT_SADISM "sadism"
-#define TRAIT_NEVERBONER "neverboner"
-#define TRAIT_BIMBO "bimbo"
+#define TRAIT_NO_LIBIDO "no libido"
+#define TRAIT_AMOROUS "amorous"
 #define TRAIT_RIGGER "rigger"
 #define TRAIT_ROPEBUNNY "rope bunny"
 ///traits gained by brain traumas, can be removed if the brain trauma is gone
