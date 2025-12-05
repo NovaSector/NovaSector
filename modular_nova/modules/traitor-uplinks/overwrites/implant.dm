@@ -18,6 +18,7 @@
 // HIGH COST
 /datum/uplink_item/implants/stealthimplant
 	cost = /datum/uplink_item/high_cost::cost
+	purchasable_from = NONE
 //	cost = 8
 
 /datum/uplink_item/implants/storage
