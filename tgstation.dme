@@ -8771,6 +8771,7 @@
 #include "modular_nova\modules\modular_items\lewd_items\code\lewd_quirks\_brain_trauma.dm"
 #include "modular_nova\modules\modular_items\lewd_items\code\lewd_quirks\_quirk.dm"
 #include "modular_nova\modules\modular_items\lewd_items\code\lewd_quirks\amorous.dm"
+#include "modular_nova\modules\modular_items\lewd_items\code\lewd_quirks\headpat_lover.dm"
 #include "modular_nova\modules\modular_items\lewd_items\code\lewd_quirks\masochism.dm"
 #include "modular_nova\modules\modular_items\lewd_items\code\lewd_quirks\no_libido.dm"
 #include "modular_nova\modules\modular_items\lewd_items\code\lewd_quirks\rigger.dm"
