@@ -1,0 +1,8 @@
+author: "Zergspower"
+delete-after: True
+changes:
+  - balance: "Lots of Ruins have been updated for items and money"
+  - balance: "DS2 , cargodise and Interdyne have experienced stock part price surges, resorting to minimal amounts of deluxe being available roundstart"
+  - bugfix: "Snowglobe's mystery signpost has been replaced by an actual signpost"
+  - qol: "Voidraptor finally kicked out the syndies! But spiders moved in..."
+  - code_imp: "Serenity's deer population has gone extinct, scientists are investigating their disappearance"
