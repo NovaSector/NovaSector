@@ -8312,6 +8312,7 @@
 #include "modular_nova\modules\gunpoint\code\gunpoint_datum.dm"
 #include "modular_nova\modules\hairbrush\code\hairbrush.dm"
 #include "modular_nova\modules\hairbrush\code\mood_events.dm"
+#include "modular_nova\modules\hairbrush\code\skillchip.dm"
 #include "modular_nova\modules\height_scaling\code\icons.dm"
 #include "modular_nova\modules\height_scaling\code\preferences.dm"
 #include "modular_nova\modules\HMS_Changes\sansufentanyl.dm"
