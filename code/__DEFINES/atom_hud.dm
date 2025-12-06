@@ -55,6 +55,10 @@
 
 /// If they have the DNR trait
 #define DNR_HUD "27"
+
+// NANITE HUDS
+#define NANITE_HUD "28"
+#define DIAG_NANITE_FULL_HUD "29"
 // NOVA EDIT ADDITION END
 
 //by default everything in the hud_list of an atom is an image
