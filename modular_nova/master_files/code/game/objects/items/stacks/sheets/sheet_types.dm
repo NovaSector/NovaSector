@@ -191,7 +191,7 @@ GLOBAL_LIST_INIT(nova_sand_recipes, list(
 // Sandstone
 
 GLOBAL_LIST_INIT(nova_sandstone_recipes, list(
-	new/datum/stack_recipe("brick well", /obj/structure/water_source/brick_well, 5, crafting_flags = CRAFT_CHECK_DENSITY | CRAFT_ONE_PER_TURF | CRAFT_ON_SOLID_GROUND, category = CAT_STRUCTURE),
+	new/datum/stack_recipe("brick well", /obj/structure/water_source/brick_well, 5, crafting_flags = CRAFT_CHECK_DENSITY | CRAFT_ONE_PER_TURF | CRAFT_ON_SOLID_GROUND | CRAFT_SKIP_MATERIALS_PARITY, category = CAT_STRUCTURE),
 ))
 
 /obj/item/stack/sheet/mineral/sandstone/get_main_recipes()

@@ -994,6 +994,11 @@
 	slowdown = 2
 	},
 /area/awaymission/caves/maintsroom)
+"dv" = (
+/obj/structure/lattice,
+/obj/structure/sign/nanotrasen/directional/east,
+/turf/open/misc/asteroid/forest/mushroom/green,
+/area/awaymission/caves/maintsroom)
 "dx" = (
 /obj/machinery/airalarm/directional/north,
 /turf/open/floor/sepia,
@@ -5241,6 +5246,11 @@
 	},
 /turf/open/floor/wood,
 /area/awaymission/caves/maintsroom)
+"rq" = (
+/obj/structure/lattice/catwalk,
+/obj/structure/sign/nanotrasen/directional/east,
+/turf/open/misc/asteroid/forest/mushroom/green,
+/area/awaymission/caves/maintsroom)
 "rr" = (
 /obj/item/food/cheese/firm_cheese,
 /obj/structure/closet/crate,
@@ -6528,14 +6538,6 @@
 	pixel_y = -6
 	},
 /turf/open/floor/plating/rust,
-/area/awaymission/caves/maintsroom)
-"vQ" = (
-/obj/structure/lattice,
-/obj/structure/sign/nanotrasen{
-	pixel_x = 32;
-	dir = 4
-	},
-/turf/open/misc/asteroid/forest/mushroom/green,
 /area/awaymission/caves/maintsroom)
 "vR" = (
 /obj/effect/spawner/random/trash/bacteria,
@@ -10823,6 +10825,12 @@
 	},
 /turf/open/floor/plating,
 /area/awaymission/caves/maintsroom)
+"KL" = (
+/mob/living/simple_animal/hostile/megafauna/clockwork_defender{
+	loot = list(/obj/item/nullrod/claymore/talking/chainsword)
+	},
+/turf/open/floor/bronze/filled,
+/area/awaymission/caves/maintsroom)
 "KN" = (
 /obj/structure/fluff/tram_rail/anchor,
 /obj/structure/fluff/tram_rail,
@@ -11866,14 +11874,6 @@
 /turf/open/floor/iron/dark/corner{
 	dir = 8
 	},
-/area/awaymission/caves/maintsroom)
-"Ob" = (
-/obj/structure/lattice/catwalk,
-/obj/structure/sign/nanotrasen{
-	pixel_x = 32;
-	dir = 4
-	},
-/turf/open/misc/asteroid/forest/mushroom/green,
 /area/awaymission/caves/maintsroom)
 "Oc" = (
 /obj/effect/mob_spawn/corpse/human/assistant/spanishflu_infection,
@@ -15184,12 +15184,6 @@
 /obj/effect/spawner/random/trash/bacteria,
 /obj/structure/disposalpipe/segment,
 /turf/open/floor/plating,
-/area/awaymission/caves/maintsroom)
-"Zq" = (
-/mob/living/simple_animal/hostile/megafauna/clockwork_defender{
-	loot = list(/obj/item/nullrod/vibro/talking/chainsword)
-	},
-/turf/open/floor/bronze/filled,
 /area/awaymission/caves/maintsroom)
 "Zr" = (
 /obj/machinery/light/directional/west,
@@ -19299,7 +19293,7 @@ Bh
 Bh
 Bh
 NA
-Zq
+KL
 Bh
 Bh
 Bh
@@ -23826,7 +23820,7 @@ GS
 GS
 ec
 ec
-Ob
+rq
 ec
 am
 am
@@ -25365,7 +25359,7 @@ am
 am
 Xz
 ec
-vQ
+dv
 am
 am
 GS

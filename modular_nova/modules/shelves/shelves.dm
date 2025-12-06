@@ -251,6 +251,7 @@
 	icon = 'modular_nova/modules/shelves/structures.dmi'
 	icon_state = "rack_parts"
 	desc = "Parts of a crate shelf, for storing crates."
+	custom_materials = list(/datum/material/iron = SHEET_MATERIAL_AMOUNT * 4)
 
 /obj/item/rack_parts/cargo_shelf/attack_self(mob/user)
 	if(building)
