@@ -118,8 +118,7 @@
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/table,
 /obj/machinery/button/door{
-	id = "maintmememan";
-	dir = 4
+	id = "maintmememan"
 	},
 /turf/open/floor/iron/smooth,
 /area/station/maintenance/port/aft)

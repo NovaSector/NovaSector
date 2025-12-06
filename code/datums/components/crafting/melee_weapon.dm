@@ -69,6 +69,7 @@
 		/obj/item/melee/baton/security = 1,
 	)
 	tool_behaviors = list(TOOL_WELDER)
+	crafting_flags = parent_type::crafting_flags | CRAFT_SKIP_MATERIALS_PARITY
 	time = 10 SECONDS
 	category = CAT_WEAPON_MELEE
 
@@ -80,6 +81,7 @@
 		/obj/item/melee/baton/telescopic/contractor_baton = 1,
 	)
 	tool_behaviors = list(TOOL_WELDER)
+	crafting_flags = parent_type::crafting_flags | CRAFT_SKIP_MATERIALS_PARITY
 	time = 10 SECONDS
 	category = CAT_WEAPON_MELEE
 

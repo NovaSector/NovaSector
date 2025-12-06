@@ -16,6 +16,7 @@
 	light_color = COLOR_RUNIC_GLOW
 	attack_verb_continuous = list("slashes", "stabs", "slices", "cuts", "pierces", "thrusts", "lacerates", "carves")
 	attack_verb_simple = list("slash", "stab", "slice", "cut", "pierce", "thrust", "lacerate", "carve")
+	custom_materials = list(/datum/material/wood = SHEET_MATERIAL_AMOUNT)
 
 /obj/item/kinetic_crusher/runic_greatsword/worn_overlays(mutable_appearance/standing, isinhands, icon_file)
 	. = ..()
@@ -36,6 +37,7 @@
 	light_color = COLOR_RUNIC_GLOW
 	attack_verb_continuous = list("chops", "cleaves", "hacks", "slashes", "sunders", "hewes", "splits", "smashes")
 	attack_verb_simple = list("chop", "cleave", "hack", "slash", "sunder", "hew", "split", "smash")
+	custom_materials = list(/datum/material/wood = SHEET_MATERIAL_AMOUNT)
 
 /obj/item/kinetic_crusher/spear/runic_spear
 	name = "runic spear"
@@ -45,6 +47,7 @@
 	light_range = RUNIC_LIGHT_RANGE
 	light_power = RUNIC_LIGHT_POWER
 	light_color = COLOR_RUNIC_GLOW
+	custom_materials = list(/datum/material/wood = SHEET_MATERIAL_AMOUNT)
 
 /// Procs used to add the emissive layer (the runes) to the weapons.
 /obj/item/kinetic_crusher/proc/add_runic_glow()

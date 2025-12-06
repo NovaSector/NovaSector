@@ -12,6 +12,7 @@
 	max_buckled_mobs = 2
 	build_stack_type = /obj/item/stack/sheet/leather
 	build_stack_amount = 3
+	custom_materials = list(/datum/material/wood = SHEET_MATERIAL_AMOUNT * 3)
 
 /datum/crafting_recipe/synth_white_pelt_bed
 	name = "Synthetic White Pelts Bed"
@@ -30,6 +31,7 @@
 	desc = "A luxurious double bed, made with synthetic black wolf pelts."
 	icon_state = "pelt_bed_black"
 	icon = 'modular_nova/modules/tribal_extended/icons/tribal_beds.dmi'
+	custom_materials = list(/datum/material/wood = SHEET_MATERIAL_AMOUNT * 3)
 
 /datum/crafting_recipe/synth_black_pelt_bed
 	name = "Synthetic Black Pelts Bed"
@@ -58,6 +60,7 @@
 	max_buckled_mobs = 2
 	build_stack_type = /obj/item/stack/sheet/cloth
 	build_stack_amount = 3
+	custom_materials = list(/datum/material/wood = SHEET_MATERIAL_AMOUNT * 3)
 
 /obj/structure/bed/oversized/atom_deconstruct(disassembled = TRUE)
 	. = ..()
@@ -82,6 +85,7 @@
 	max_buckled_mobs = 2
 	build_stack_amount = 6
 	max_integrity = 200
+	custom_materials = list(/datum/material/wood = SHEET_MATERIAL_AMOUNT * 6)
 
 /datum/crafting_recipe/oversized_bed_double
 	name = "Double Oversized Bed"
@@ -102,6 +106,7 @@
 	max_buckled_mobs = 4
 	build_stack_amount = 10
 	max_integrity = 250
+	custom_materials = list(/datum/material/wood = SHEET_MATERIAL_AMOUNT * 10)
 
 /datum/crafting_recipe/oversized_bed_triple
 	name = "Triple Oversized Bed"
