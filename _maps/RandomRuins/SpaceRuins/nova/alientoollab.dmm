@@ -439,10 +439,6 @@
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/iron/dark/textured_large,
 /area/ruin/space/has_grav/powered/nova/alien_tool_lab)
-"Vn" = (
-/obj/structure/lattice,
-/turf/template_noop,
-/area/space/nearstation)
 "Vu" = (
 /obj/structure/table,
 /obj/effect/spawner/random/medical/surgery_tool_advanced{
@@ -487,6 +483,10 @@
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/iron/freezer,
 /area/ruin/space/has_grav/powered/nova/alien_tool_lab)
+"YY" = (
+/obj/structure/lattice,
+/turf/template_noop,
+/area/space/nearstation)
 
 (1,1,1) = {"
 aq
@@ -591,7 +591,7 @@ WB
 mL
 "}
 (7,1,1) = {"
-uV
+yg
 mL
 mL
 mL
@@ -605,13 +605,13 @@ TM
 mL
 mL
 mL
-uV
+yg
 "}
 (8,1,1) = {"
 aq
 aq
 aq
-yg
+uV
 mL
 mL
 mL
@@ -619,7 +619,7 @@ rO
 mL
 mL
 mL
-yg
+uV
 aq
 aq
 aq
@@ -682,7 +682,7 @@ aq
 aq
 mL
 nc
-Vn
+YY
 mV
 mV
 Qt
@@ -698,9 +698,9 @@ aq
 aq
 aq
 he
-Vn
-Vn
-Vn
+YY
+YY
+YY
 aq
 mV
 mL
@@ -714,12 +714,12 @@ aq
 aq
 aq
 aq
-Vn
+YY
 aq
 aq
 aq
 aq
-Vn
+YY
 mV
 mL
 aq

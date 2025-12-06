@@ -15,10 +15,6 @@
 /obj/effect/decal/cleanable/blood/gibs/old,
 /turf/open/floor/plating,
 /area/ruin/space/has_grav/garbagetruck/medicalwaste)
-"co" = (
-/obj/machinery/power/shuttle_engine/propulsion,
-/turf/template_noop,
-/area/space/nearstation)
 "cw" = (
 /obj/effect/decal/cleanable/blood/gibs/robot_debris,
 /obj/structure/closet/crate/freezer,
@@ -137,7 +133,7 @@
 /obj/effect/spawner/random/engineering/tank,
 /turf/open/floor/plating,
 /area/ruin/space/has_grav/garbagetruck/medicalwaste)
-"mP" = (
+"mZ" = (
 /obj/structure/cable,
 /obj/machinery/airalarm/directional/north,
 /turf/open/floor/catwalk_floor/iron,
@@ -194,6 +190,7 @@
 /obj/item/poster/random_contraband,
 /obj/item/organ/tongue/zombie,
 /obj/structure/closet/crate/trashcart,
+/obj/structure/sign/warning/directional/south,
 /turf/open/floor/plating,
 /area/ruin/space/has_grav/garbagetruck/medicalwaste)
 "rB" = (
@@ -618,6 +615,7 @@
 	brute_damage = 200;
 	mob_type = /mob/living/carbon/human/species/lizard
 	},
+/obj/structure/sign/warning/directional/south,
 /turf/open/floor/plating,
 /area/ruin/space/has_grav/garbagetruck/medicalwaste)
 "Ua" = (
@@ -650,6 +648,10 @@
 	},
 /turf/open/floor/plating,
 /area/ruin/space/has_grav/garbagetruck/medicalwaste)
+"VL" = (
+/obj/machinery/power/shuttle_engine/propulsion,
+/turf/template_noop,
+/area/space/nearstation)
 "VV" = (
 /obj/effect/decal/cleanable/blood/gibs/robot_debris/up,
 /obj/structure/frame/computer,
@@ -662,10 +664,6 @@
 /obj/machinery/light/warm,
 /obj/structure/cable,
 /turf/open/floor/catwalk_floor/iron,
-/area/ruin/space/has_grav/garbagetruck/medicalwaste)
-"XC" = (
-/obj/structure/sign/warning,
-/turf/closed/wall/r_wall,
 /area/ruin/space/has_grav/garbagetruck/medicalwaste)
 "XD" = (
 /obj/structure/sinkframe,
@@ -701,7 +699,7 @@ sU
 sU
 sU
 qC
-co
+VL
 gh
 gh
 gh
@@ -758,7 +756,7 @@ AB
 py
 io
 TM
-XC
+MC
 "}
 (4,1,1) = {"
 iw
@@ -809,7 +807,7 @@ Pd
 xj
 Zi
 qC
-mP
+mZ
 OA
 gr
 CJ
@@ -912,7 +910,7 @@ Tp
 zH
 AU
 qX
-XC
+MC
 "}
 (11,1,1) = {"
 gh
@@ -943,7 +941,7 @@ sU
 sU
 LG
 qC
-co
+VL
 gh
 gh
 gh

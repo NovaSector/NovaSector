@@ -93,6 +93,7 @@
 
 /obj/item/melee/baton/security/stun_gun/stun_knife/loaded
 	preload_cell_type = /obj/item/stock_parts/power_store/cell/high
+	custom_materials = list(/datum/material/iron = SHEET_MATERIAL_AMOUNT * 6)
 
 /datum/crafting_recipe/knife_and_shocky
 	name = "Makeshift Stunknife"

@@ -302,6 +302,7 @@
 	tool_behaviors = list(TOOL_WELDER, TOOL_MULTITOOL)
 	time = 30 SECONDS
 	category = CAT_CLOTHING
+	crafting_flags = parent_type::crafting_flags | CRAFT_SKIP_MATERIALS_PARITY
 
 /obj/effect/spawner/random/voskhod_refit
 	name = "converted MODskhod spaner"
@@ -310,3 +311,4 @@
 	spawn_all_loot = TRUE
 	spawn_loot_count = 1
 	loot = list(/obj/item/mod/control/pre_equipped/voskhod)
+	custom_materials = list(/datum/material/alloy/plasteel = SHEET_MATERIAL_AMOUNT * 10, /datum/material/iron = SHEET_MATERIAL_AMOUNT * 1.95, /datum/material/glass = SHEET_MATERIAL_AMOUNT * 1.45)

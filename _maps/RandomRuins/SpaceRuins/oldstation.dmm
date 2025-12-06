@@ -288,7 +288,9 @@
 /turf/open/floor/iron,
 /area/ruin/space/ancientstation/charlie/bridge)
 "bA" = (
-/obj/structure/ai_core/deactivated,
+/obj/structure/ai_core{
+	state = 5
+	},
 /turf/open/floor/iron/dark,
 /area/ruin/space/ancientstation/delta/ai)
 "bC" = (
@@ -1127,11 +1129,6 @@
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/iron/white,
 /area/ruin/space/ancientstation/delta/rnd)
-"fb" = (
-/obj/effect/decal/cleanable/dirt,
-/obj/item/shard/plasma,
-/turf/open/floor/engine/airless,
-/area/ruin/space/ancientstation/beta/supermatter)
 "fc" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/cable,
@@ -2603,6 +2600,11 @@
 	},
 /turf/open/floor/iron,
 /area/ruin/space/ancientstation/charlie/hydro)
+"lI" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/item/shard/plasma,
+/turf/open/floor/engine/airless,
+/area/ruin/space/ancientstation/beta/supermatter)
 "lJ" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/machinery/suit_storage_unit/void_old,
@@ -2676,10 +2678,6 @@
 "mc" = (
 /turf/closed/mineral/plasma,
 /area/ruin/space/ancientstation/charlie/dorms)
-"md" = (
-/obj/structure/sign/warning/secure_area,
-/turf/closed/wall/r_wall,
-/area/ruin/space/ancientstation/delta/biolab)
 "me" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4{
 	dir = 4
@@ -2996,6 +2994,10 @@
 /obj/machinery/light/directional/north,
 /turf/open/floor/iron,
 /area/ruin/space/ancientstation/beta/hall)
+"nr" = (
+/obj/item/stack/rods,
+/turf/template_noop,
+/area/space/nearstation)
 "ns" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/machinery/light/small/directional/south,
@@ -4528,6 +4530,7 @@
 /obj/machinery/door/window/right/directional/east{
 	req_access = list("away_general")
 	},
+/obj/structure/sign/warning/secure_area/directional/north,
 /turf/open/floor/engine,
 /area/ruin/space/ancientstation/delta/biolab)
 "xT" = (
@@ -4706,20 +4709,6 @@
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/iron/diagonal,
 /area/ruin/space/ancientstation/beta/gravity)
-"zo" = (
-/obj/structure/closet/radiation,
-/obj/item/clothing/suit/utility/radiation,
-/obj/item/clothing/suit/utility/radiation,
-/obj/item/clothing/head/utility/radiation,
-/obj/item/clothing/head/utility/radiation,
-/obj/item/geiger_counter,
-/obj/item/geiger_counter,
-/obj/machinery/light/small/broken/directional/north,
-/obj/machinery/button/door/directional/north{
-	id = "Beta Secure Storage"
-	},
-/turf/open/floor/engine/airless,
-/area/ruin/space/ancientstation/beta/supermatter)
 "zp" = (
 /obj/effect/turf_decal/stripes/line,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2{
@@ -5338,10 +5327,6 @@
 /obj/effect/mapping_helpers/broken_floor,
 /turf/open/floor/plating/airless,
 /area/ruin/space/ancientstation/beta/supermatter)
-"Dz" = (
-/obj/item/stack/rods,
-/turf/template_noop,
-/area/space/nearstation)
 "DA" = (
 /obj/effect/decal/cleanable/blood/xeno,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2{
@@ -7819,6 +7804,20 @@
 	},
 /turf/open/floor/iron,
 /area/ruin/space/ancientstation/beta/hall)
+"Tx" = (
+/obj/structure/closet/radiation,
+/obj/item/clothing/suit/utility/radiation,
+/obj/item/clothing/suit/utility/radiation,
+/obj/item/clothing/head/utility/radiation,
+/obj/item/clothing/head/utility/radiation,
+/obj/item/geiger_counter,
+/obj/item/geiger_counter,
+/obj/machinery/light/small/broken/directional/north,
+/obj/machinery/button/door/directional/north{
+	id = "Beta Secure Storage"
+	},
+/turf/open/floor/engine/airless,
+/area/ruin/space/ancientstation/beta/supermatter)
 "TA" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/cable,
@@ -10114,7 +10113,7 @@ GA
 mH
 aa
 aa
-Dz
+nr
 aa
 aa
 aa
@@ -10178,7 +10177,7 @@ kW
 HA
 iH
 bJ
-Dz
+nr
 aa
 aa
 aa
@@ -10507,11 +10506,11 @@ Gi
 rw
 Ze
 bJ
-Dz
+nr
 aa
 UP
 aa
-Dz
+nr
 aa
 aa
 aa
@@ -10685,7 +10684,7 @@ NU
 YW
 NU
 xY
-fb
+lI
 CN
 DK
 iv
@@ -10751,7 +10750,7 @@ Ls
 IU
 eb
 Vl
-zo
+Tx
 Hj
 iv
 vk
@@ -13312,7 +13311,7 @@ aa
 aa
 Jg
 aa
-Dz
+nr
 aa
 Al
 Al
@@ -13376,7 +13375,7 @@ aa
 aa
 aa
 aa
-Dz
+nr
 aa
 Jg
 aa
@@ -13709,7 +13708,7 @@ aa
 aa
 aa
 aa
-Dz
+nr
 aa
 aa
 aa
@@ -13903,7 +13902,7 @@ aa
 aa
 aa
 aa
-Dz
+nr
 aa
 aa
 aa
@@ -14039,7 +14038,7 @@ Jg
 Jg
 aa
 aa
-Dz
+nr
 aa
 aa
 bE
@@ -15373,7 +15372,7 @@ uo
 GX
 NG
 Lo
-md
+rp
 xM
 Go
 Yl
