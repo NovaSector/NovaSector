@@ -310,4 +310,4 @@
 		/obj/item/reagent_containers/cup/beaker/rezadone/less = 1,
 		/obj/item/paper/fluff/interdyne/medicines = 1,
 	)
-	generate_items_inside(items_inside,src)
+	generate_items_inside(items_inside, src)
