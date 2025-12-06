@@ -59,7 +59,7 @@
 				exposed_mob.climax(manual = FALSE)
 
 /datum/chemical_reaction/rutt
-	results = list(/datum/reagent/drug/aphrodisiac/rutt = 20)
+	results = list(/datum/reagent/drug/aphrodisiac/rutt = 7)
 	required_reagents = list(
 		/datum/reagent/drug/aphrodisiac/crocin = 3,
 		/datum/reagent/drug/aphrodisiac/dopamine = 1,
