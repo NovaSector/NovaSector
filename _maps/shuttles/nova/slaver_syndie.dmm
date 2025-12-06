@@ -667,7 +667,8 @@
 	name = "External Bolt Control";
 	normaldoorcontrol = 1;
 	pixel_x = -22;
-	specialfunctions = 4
+	specialfunctions = 4;
+	dir = 8
 	},
 /turf/open/floor/carpet/black,
 /area/shuttle/syndicate/slaver)
@@ -891,7 +892,8 @@
 	name = "External Bolt Control";
 	normaldoorcontrol = 1;
 	pixel_x = 22;
-	specialfunctions = 4
+	specialfunctions = 4;
+	dir = 4
 	},
 /turf/open/floor/carpet/red,
 /area/shuttle/syndicate/slaver)
@@ -954,7 +956,8 @@
 	name = "Bolt Control";
 	normaldoorcontrol = 1;
 	pixel_x = 22;
-	specialfunctions = 4
+	specialfunctions = 4;
+	dir = 4
 	},
 /turf/open/floor/plating,
 /area/shuttle/syndicate/slaver)
@@ -1114,7 +1117,8 @@
 	name = "External Bolt Control";
 	normaldoorcontrol = 1;
 	pixel_x = -22;
-	specialfunctions = 4
+	specialfunctions = 4;
+	dir = 8
 	},
 /obj/effect/turf_decal/trimline/brown/filled/line,
 /turf/open/floor/iron/dark,
@@ -1152,7 +1156,8 @@
 	name = "External Bolt Control";
 	normaldoorcontrol = 1;
 	pixel_x = -22;
-	specialfunctions = 4
+	specialfunctions = 4;
+	dir = 8
 	},
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/plating,

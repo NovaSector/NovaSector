@@ -4,7 +4,7 @@
  * Returns STYLE_TAUR_* or NONE.
  */
 /mob/living/carbon/human/proc/get_taur_mode()
-	var/taur_mutant_bodypart = dna.species.mutant_bodyparts[FEATURE_TAUR]
+	var/taur_mutant_bodypart = dna.mutant_bodyparts[FEATURE_TAUR]
 	if(!taur_mutant_bodypart)
 		return NONE
 
@@ -56,9 +56,22 @@
 					if (worn_suit.worn_icon_taur_hoof)
 						return TRUE
 
+	var/obj/item/clothing/under/worn_uniform = target.w_uniform
+	if (istype(worn_uniform))
+		if (worn_uniform.flags_inv & HIDETAUR)
+			switch (taur_mode)
+				if (STYLE_TAUR_SNAKE)
+					if (worn_suit.worn_icon_taur_snake)
+						return TRUE
+				if (STYLE_TAUR_PAW)
+					if (worn_suit.worn_icon_taur_paw)
+						return TRUE
+				if (STYLE_TAUR_HOOF)
+					if (worn_suit.worn_icon_taur_hoof)
+						return TRUE
+
 	if(target.owned_turf)
-		var/list/used_in_turf = list("tail")
-		if(target.owned_turf.name in used_in_turf)
+		if(target.owned_turf.name == "tail")
 			return TRUE
 
 	return FALSE
