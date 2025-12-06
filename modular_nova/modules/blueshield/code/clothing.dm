@@ -99,6 +99,22 @@
 	inhand_icon_state = "duffel_blueshield"
 
 //blueshield armor
+
+/datum/atom_skin/blueshield_jacket
+	abstract_type = /datum/atom_skin/blueshield_jacket
+
+/datum/atom_skin/blueshield_jacket/slim
+	preview_name = "Slim"
+	new_icon_state = "blueshieldarmor"
+
+/datum/atom_skin/blueshield_jacket/marine
+	preview_name = "Marine"
+	new_icon_state = "bs_marine"
+
+/datum/atom_skin/blueshield_jacket/bulky
+	preview_name = "Bulky"
+	new_icon_state = "vest_black"
+
 /obj/item/clothing/suit/armor/vest/blueshield
 	icon = 'modular_nova/master_files/icons/obj/clothing/suits/armor.dmi'
 	worn_icon = 'modular_nova/master_files/icons/mob/clothing/suits/armor.dmi'
@@ -106,38 +122,17 @@
 	desc = "A tight-fitting kevlar-lined vest with a blue badge on the chest of it."
 	icon_state = "blueshieldarmor"
 	body_parts_covered = CHEST
-	uses_advanced_reskins = TRUE
-	unique_reskin = list(
-		"Slim" = list(
-			RESKIN_ICON = 'modular_nova/master_files/icons/obj/clothing/suits/armor.dmi',
-			RESKIN_ICON_STATE = "blueshieldarmor",
-			RESKIN_WORN_ICON = 'modular_nova/master_files/icons/mob/clothing/suits/armor.dmi',
-			RESKIN_WORN_ICON_STATE = "blueshieldarmor",
-		),
-		"Marine" = list(
-			RESKIN_ICON = 'modular_nova/master_files/icons/obj/clothing/suits/armor.dmi',
-			RESKIN_ICON_STATE = "bs_marine",
-			RESKIN_WORN_ICON = 'modular_nova/master_files/icons/mob/clothing/suits/armor.dmi',
-			RESKIN_WORN_ICON_STATE = "bs_marine",
-		),
-		"Bulky" = list(
-			RESKIN_ICON = 'modular_nova/master_files/icons/obj/clothing/suits/armor.dmi',
-			RESKIN_ICON_STATE = "vest_black",
-			RESKIN_WORN_ICON = 'modular_nova/master_files/icons/mob/clothing/suits/armor.dmi',
-			RESKIN_WORN_ICON_STATE = "vest_black",
-		),
-	)
+
+/obj/item/clothing/suit/armor/vest/blueshield/Initialize(mapload)
+	. = ..()
+	AddComponent(/datum/component/reskinable_item, /datum/atom_skin/blueshield_jacket)
 
 /obj/item/clothing/suit/armor/vest/blueshield/jacket
 	name = "blueshield's jacket"
 	desc = "An expensive kevlar-lined jacket with a golden badge on the chest and \"NT\" emblazoned on the back. It weighs surprisingly little, despite how heavy it looks."
 	icon_state = "blueshield"
 	body_parts_covered = CHEST|ARMS
-	unique_reskin = null
-
-/obj/item/clothing/suit/armor/vest/blueshield/jacket/Initialize(mapload)
-	. = ..()
-	AddComponent(/datum/component/toggle_icon)
+	can_reskin = FALSE
 
 /obj/item/clothing/suit/hooded/wintercoat/nova/blueshield
 	name = "blueshield's winter coat"

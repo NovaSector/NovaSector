@@ -385,6 +385,29 @@
 
 // Razorwire implant, long reach whip made of extremely thin wire, ouch!
 
+/datum/atom_skin/razorwire
+	abstract_type = /datum/atom_skin/razorwire
+
+/datum/atom_skin/razorwire/red
+	preview_name = "Evil Red"
+	new_icon_state = "razorwire_weapon"
+
+/datum/atom_skin/razorwire/teal
+	preview_name = "Teal I Think?"
+	new_icon_state = "razorwire_weapon_teal"
+
+/datum/atom_skin/razorwire/yellow
+	preview_name = "Yellow"
+	new_icon_state = "razorwire_weapon_yellow"
+
+/datum/atom_skin/razorwire/Ourple
+	preview_name = "Ourple"
+	new_icon_state = "razorwire_weapon_ourple"
+
+/datum/atom_skin/razorwire/green
+	preview_name = "Green"
+	new_icon_state = "razorwire_weapon_green"
+
 /obj/item/melee/razorwire
 	name = "implanted razorwire"
 	desc = "A long length of monomolecular filament, built into the back of your hand. \
@@ -406,30 +429,11 @@
 	hitsound = 'sound/items/weapons/whip.ogg'
 	attack_verb_continuous = list("slashes", "whips", "lashes", "lacerates")
 	attack_verb_simple = list("slash", "whip", "lash", "lacerate")
-	obj_flags = UNIQUE_RENAME | INFINITE_RESKIN
-	uses_advanced_reskins = TRUE
-	unique_reskin = list(
-		"Evil Red" = list(
-			RESKIN_ICON_STATE = "razorwire_weapon",
-			RESKIN_INHAND_STATE = "razorwire"
-		),
-		"Teal I Think?" = list(
-			RESKIN_ICON_STATE = "razorwire_weapon_teal",
-			RESKIN_INHAND_STATE = "razorwire_teal"
-		),
-		"Yellow" = list(
-			RESKIN_ICON_STATE = "razorwire_weapon_yellow",
-			RESKIN_INHAND_STATE = "razorwire_yellow"
-		),
-		"Ourple" = list(
-			RESKIN_ICON_STATE = "razorwire_weapon_ourple",
-			RESKIN_INHAND_STATE = "razorwire_ourple"
-		),
-		"Green" = list(
-			RESKIN_ICON_STATE = "razorwire_weapon_green",
-			RESKIN_INHAND_STATE = "razorwire_green"
-		),
-	)
+	obj_flags = UNIQUE_RENAME
+
+/obj/item/melee/razorwire/Initialize(mapload)
+	. = ..()
+	AddComponent(/datum/component/reskinable_item, /datum/atom_skin/razorwire, infinite = TRUE)
 
 /obj/item/organ/cyberimp/arm/toolkit/razorwire
 	name = "razorwire spool implant"

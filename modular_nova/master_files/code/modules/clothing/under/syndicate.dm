@@ -22,6 +22,25 @@
 
 //This is an overwrite, not a fully new item, but still fits best here.
 
+/datum/atom_skin/tacticool_turtleneck
+	abstract_type = /datum/atom_skin/tacticool_turtleneck
+
+/datum/atom_skin/tacticool_turtleneck/blue
+	preview_name = RESKIN_NT
+	new_icon_state = "tactifool_blue"
+
+/datum/atom_skin/tacticool_turtleneck/charcoal
+	preview_name = RESKIN_CHARCOAL
+	new_icon_state = "tactifool"
+	new_inhand_icon_state = "bl_suit"
+	change_inhand_icon_state = TRUE
+
+/datum/atom_skin/tacticool_turtleneck/charcoal/apply(atom/apply_to, mob/user)
+	. = ..()
+	var/obj/item/applying_to = apply_to
+	applying_to.desc = "Just looking at it makes you want to buy an SKS, go into the woods, and -operate-." //Default decription of the normal tacticool
+	applying_to.update_desc()
+
 /obj/item/clothing/under/syndicate/tacticool //Overwrites the 'fake' one. Zero armor, sensors, and default blue. More Balanced to make station-available.
 	name = "tacticool turtleneck"
 	desc = "A snug turtleneck, in fabulous Nanotrasen-blue. Just looking at it makes you want to buy a NT-certifed coffee, go into the office, and -work-."
@@ -33,17 +52,11 @@
 	has_sensor = HAS_SENSORS
 	armor_type = /datum/armor/clothing_under
 	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION
-	unique_reskin = list(
-		RESKIN_NT = "tactifool_blue",
-		RESKIN_CHARCOAL = "tactifool"
-	)
 	resistance_flags = FLAMMABLE
 
-/obj/item/clothing/under/syndicate/tacticool/reskin_obj(mob/M)
-	..()
-	if(current_skin && current_skin == RESKIN_CHARCOAL)
-		desc = "Just looking at it makes you want to buy an SKS, go into the woods, and -operate-." //Default decription of the normal tacticool
-		inhand_icon_state = "bl_suit" //May as well, while we're updating it
+/obj/item/clothing/under/syndicate/tacticool/Initialize(mapload)
+	. = ..()
+	AddComponent(/datum/component/reskinable_item, /datum/atom_skin/tacticool_turtleneck)
 
 /obj/item/clothing/under/syndicate/tacticool/skirt //Overwrites the 'fake' one. Zero armor, sensors, and default blue. More Balanced to make station-available.
 	name = "tacticool skirtleneck"
@@ -93,7 +106,7 @@
 	inhand_icon_state = "r_suit"
 	has_sensor = HAS_SENSORS
 	armor_type = /datum/armor/clothing_under
-	unique_reskin = null
+	can_reskin = FALSE
 
 /obj/item/clothing/under/syndicate/nova/tactical/unarmoured/skirt
 	name = "suspicious tactical skirtleneck"
@@ -140,6 +153,25 @@
 */
 //The red alts, for BLATANTLY syndicate stuff (Like DS2)
 // (Multiple non-syndicate things use the base tactical turtleneck, they cant have it red nor reskinnable. OUR version, however, can be.)
+/datum/atom_skin/tactical_turtleneck
+	abstract_type = /datum/atom_skin/tactical_turtleneck
+
+/datum/atom_skin/tactical_turtleneck/red
+	preview_name = RESKIN_SYNDIE
+	new_icon_state = "syndicate_red"
+
+/datum/atom_skin/tactical_turtleneck/charcoal
+	preview_name = RESKIN_CHARCOAL
+	new_icon_state = "syndicate"
+	new_inhand_icon_state = "bl_suit"
+	change_inhand_icon_state = TRUE
+
+/datum/atom_skin/tactical_turtleneck/charcoal/apply(atom/apply_to, mob/user)
+	. = ..()
+	var/obj/item/applying_to = apply_to
+	applying_to.desc = "A non-descript and slightly suspicious looking turtleneck with digital camouflage cargo pants." //(Digital camo? Brown? What?)
+	applying_to.update_desc()
+
 /obj/item/clothing/under/syndicate/nova/tactical
 	name = "tactical turtleneck"
 	desc = "A snug syndicate-red turtleneck with charcoal-black cargo pants. Good luck arguing allegiance with this on."
@@ -149,16 +181,30 @@
 	alt_covers_chest = TRUE
 	armor_type = /datum/armor/clothing_under/syndicate
 	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION
-	unique_reskin = list(
-		RESKIN_SYNDIE = "syndicate_red",
-		RESKIN_CHARCOAL = "syndicate"
-	)
 
-/obj/item/clothing/under/syndicate/nova/tactical/reskin_obj(mob/M)
-	..()
-	if(current_skin && current_skin == RESKIN_CHARCOAL)
-		desc = "A non-descript and slightly suspicious looking turtleneck with digital camouflage cargo pants." //(Digital camo? Brown? What?)
-		inhand_icon_state = "bl_suit"
+/obj/item/clothing/under/syndicate/nova/tactical/Initialize(mapload)
+	. = ..()
+	if(type == /obj/item/clothing/under/syndicate/nova/tactical)
+		AddComponent(/datum/component/reskinable_item, /datum/atom_skin/tactical_turtleneck)
+
+/datum/atom_skin/tactical_skirtleneck
+	abstract_type = /datum/atom_skin/tactical_skirtleneck
+
+/datum/atom_skin/tactical_skirtleneck/red
+	preview_name = RESKIN_SYNDIE
+	new_icon_state = "syndicate_red_skirt"
+
+/datum/atom_skin/tactical_skirtleneck/charcoal
+	preview_name = RESKIN_CHARCOAL
+	new_icon_state = "syndicate_skirt"
+	new_inhand_icon_state = "bl_suit"
+	change_inhand_icon_state = TRUE
+
+/datum/atom_skin/tactical_skirtleneck/charcoal/apply(atom/apply_to, mob/user)
+	. = ..()
+	var/obj/item/applying_to = apply_to
+	applying_to.desc = "A non-descript and slightly suspicious looking skirtleneck."
+	applying_to.update_desc()
 
 /obj/item/clothing/under/syndicate/nova/tactical/skirt
 	name = "tactical skirtleneck"
@@ -169,17 +215,10 @@
 	dying_key = DYE_REGISTRY_JUMPSKIRT
 	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION_NO_NEW_ICON
 	gets_cropped_on_taurs = FALSE
-	unique_reskin = list(
-		RESKIN_SYNDIE = "syndicate_red_skirt",
-		RESKIN_CHARCOAL = "syndicate_skirt"
-	)
 
-/obj/item/clothing/under/syndicate/nova/tactical/skirt/reskin_obj(mob/M)
-	..()
-	if(current_skin && current_skin == RESKIN_CHARCOAL)
-		desc = "A non-descript and slightly suspicious looking skirtleneck."
-		inhand_icon_state = "bl_suit"
-
+/obj/item/clothing/under/syndicate/nova/tactical/skirt/Initialize(mapload)
+	. = ..()
+	AddComponent(/datum/component/reskinable_item, /datum/atom_skin/tactical_skirtleneck)
 
 /obj/item/clothing/under/syndicate/skirt/coldres
 	name = "insulated tactical turtleneck skirt"

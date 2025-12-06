@@ -15,26 +15,45 @@
 	else
 		flags_cover |= PEPPERPROOF
 
+/datum/atom_skin/security_garrison_cap
+	abstract_type = /datum/atom_skin/security_garrison_cap
+
+/datum/atom_skin/security_garrison_cap/black
+	preview_name = "Black Variant"
+	new_icon_state = "garrison_black"
+
+/datum/atom_skin/security_garrison_cap/blue
+	preview_name = "Blue Variant"
+	new_icon_state = "garrison_blue"
+
 /obj/item/clothing/head/security_garrison
 	name = "security garrison cap"
 	desc = "A robust garrison cap with the security insignia emblazoned on it. Uses reinforced fabric to offer sufficient protection."
 	icon = 'modular_nova/master_files/icons/obj/clothing/hats.dmi'
 	worn_icon = 'modular_nova/master_files/icons/mob/clothing/head.dmi'
 	icon_state = "garrison_black"
-	uses_advanced_reskins = TRUE
 	armor_type = /datum/armor/head_helmet
 	strip_delay = 60
 	supports_variations_flags = CLOTHING_SNOUTED_VARIATION_NO_NEW_ICON
-	unique_reskin = list(
-		"Black Variant" = list(
-			RESKIN_ICON_STATE = "garrison_black",
-			RESKIN_WORN_ICON_STATE = "garrison_black"
-		),
-		"Blue Variant" = list(
-			RESKIN_ICON_STATE = "garrison_blue",
-			RESKIN_WORN_ICON_STATE = "garrison_blue"
-		),
-	)
+
+/obj/item/clothing/head/security_garrison/Initialize(mapload)
+	. = ..()
+	AddComponent(/datum/component/reskinable_item, /datum/atom_skin/security_garrison_cap)
+
+/datum/atom_skin/security_cap
+	abstract_type = /datum/atom_skin/security_cap
+
+/datum/atom_skin/security_cap/black
+	preview_name = "Black Variant"
+	new_icon_state = "security_cap_black"
+
+/datum/atom_skin/security_cap/blue
+	preview_name = "Blue Variant"
+	new_icon_state = "security_cap_blue"
+
+/datum/atom_skin/security_cap/white
+	preview_name = "White Variant"
+	new_icon_state = "security_cap_white"
 
 /obj/item/clothing/head/security_cap
 	name = "security cap"
@@ -42,25 +61,14 @@
 	icon = 'modular_nova/master_files/icons/obj/clothing/hats.dmi'
 	worn_icon = 'modular_nova/master_files/icons/mob/clothing/head.dmi'
 	icon_state = "security_cap_black"
-	uses_advanced_reskins = TRUE
 	armor_type = /datum/armor/head_helmet
 	strip_delay = 60
 	dog_fashion = null
 	supports_variations_flags = CLOTHING_SNOUTED_VARIATION_NO_NEW_ICON
-	unique_reskin = list(
-		"Black Variant" = list(
-			RESKIN_ICON_STATE = "security_cap_black",
-			RESKIN_WORN_ICON_STATE = "security_cap_black"
-		),
-		"Blue Variant" = list(
-			RESKIN_ICON_STATE = "security_cap_blue",
-			RESKIN_WORN_ICON_STATE = "security_cap_blue"
-		),
-		"White Variant" = list(
-			RESKIN_ICON_STATE = "security_cap_white",
-			RESKIN_WORN_ICON_STATE = "security_cap_white"
-		),
-	)
+
+/obj/item/clothing/head/security_cap/Initialize(mapload)
+	. = ..()
+	AddComponent(/datum/component/reskinable_item, /datum/atom_skin/security_cap)
 
 /obj/item/clothing/head/beret/sec/nova
 	icon_state = "/obj/item/clothing/head/beret/sec/nova"
@@ -81,6 +89,25 @@
 	supports_variations_flags = CLOTHING_SNOUTED_VARIATION_NO_NEW_ICON
 	armor_type = /datum/armor/hats_warden
 
+/datum/atom_skin/police_patrol_cap
+	abstract_type = /datum/atom_skin/police_patrol_cap
+
+/datum/atom_skin/police_patrol_cap/blue
+	preview_name = "Blue"
+	new_icon_state = "policeofficercap"
+
+/datum/atom_skin/police_patrol_cap/sillitoe
+	preview_name = "Sillitoe"
+	new_icon_state = "policetrafficcap"
+
+/datum/atom_skin/police_patrol_cap/black
+	preview_name = "Black"
+	new_icon_state = "policeofficerpatrolcap"
+
+/datum/atom_skin/police_patrol_cap/policecadetcap
+	preview_name = "Cadet"
+	new_icon_state = "policecadetcap"
+
 /obj/item/clothing/head/hats/warden/police/patrol
 	name = "police patrol cap"
 	desc = "A dark colored hat with a silver badge, for the officer interested in style."
@@ -89,9 +116,7 @@
 	icon_state = "policeofficerpatrolcap"
 	supports_variations_flags = CLOTHING_SNOUTED_VARIATION_NO_NEW_ICON
 	armor_type = /datum/armor/head_helmet
-	unique_reskin = list(
-		"Blue" = "policeofficercap",
-		"Sillitoe" = "policetrafficcap",
-		"Black" = "policeofficerpatrolcap",
-		"Cadet" = "policecadetcap",
-	)
+
+/obj/item/clothing/head/hats/warden/police/patrol/Initialize(mapload)
+	. = ..()
+	AddComponent(/datum/component/reskinable_item, /datum/atom_skin/police_patrol_cap)

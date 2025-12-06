@@ -162,6 +162,18 @@
 	flags_1 = IS_PLAYER_COLORABLE_1
 	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION_NO_NEW_ICON
 
+/datum/atom_skin/long_robe
+	abstract_type = /datum/atom_skin/long_robe
+	greyscale_item_path = /obj/item/clothing/suit/jacket/long_robe
+
+/datum/atom_skin/long_robe/long_robe
+	preview_name = "Regular"
+	new_icon_state = "long_robe"
+
+/datum/atom_skin/long_robe/transparent_long_robe
+	preview_name = "Transparent"
+	new_icon_state = "transparent_long_robe"
+
 /obj/item/clothing/suit/jacket/long_robe
 	name = "long robe"
 	desc = "A long robe."
@@ -174,10 +186,30 @@
 	flags_1 = IS_PLAYER_COLORABLE_1
 	body_parts_covered = CHEST|ARMS
 	cold_protection = CHEST|ARMS
-	unique_reskin = list(
-		"Regular" = "long_robe",
-		"Transparent" = "transparent_long_robe",
-	)
+
+/obj/item/clothing/suit/jacket/long_robe/Initialize(mapload)
+	. = ..()
+	AddComponent(/datum/component/reskinable_item, /datum/atom_skin/long_robe)
+
+/datum/atom_skin/haori
+	abstract_type = /datum/atom_skin/haori
+	greyscale_item_path = /obj/item/clothing/suit/jacket/haori
+
+/datum/atom_skin/haori/gradient
+	preview_name = "Gradient"
+	new_icon_state = "haori"
+
+/datum/atom_skin/haori/split
+	preview_name = "Split"
+	new_icon_state = "split_haori"
+
+/datum/atom_skin/haori/transparent
+	preview_name = "Transparent Gradient"
+	new_icon_state = "transparent_haori"
+
+/datum/atom_skin/haori/transparent_split
+	preview_name = "Transparent Split"
+	new_icon_state = "transparent_split_haori"
 
 /obj/item/clothing/suit/jacket/haori
 	name = "gradient haori"
@@ -191,12 +223,10 @@
 	flags_1 = IS_PLAYER_COLORABLE_1
 	body_parts_covered = CHEST|ARMS
 	cold_protection = CHEST|ARMS
-	unique_reskin = list(
-		"Gradient" = "haori",
-		"Split" = "split_haori",
-		"Transparent Gradient" = "transparent_haori",
-		"Transparent Split" = "transparent_split_haori",
-	)
+
+/obj/item/clothing/suit/jacket/haori/Initialize(mapload)
+	. = ..()
+	AddComponent(/datum/component/reskinable_item, /datum/atom_skin/haori)
 
 /obj/item/clothing/suit/varsity
 	name = "varsity jacket"

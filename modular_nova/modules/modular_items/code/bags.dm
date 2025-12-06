@@ -13,6 +13,23 @@
 	max_specific_storage = WEIGHT_CLASS_SMALL
 	max_slots = 5
 
+/datum/atom_skin/ammo_pouch
+	abstract_type = /datum/atom_skin/ammo_pouch
+
+/datum/atom_skin/ammo_pouch/ammo
+	preview_name = "Ammo Pouch"
+	new_icon_state = "ammopouch"
+
+/datum/atom_skin/ammo_pouch/casing
+	new_name = "casing pouch"
+	new_desc = "A pouch for your ammo that goes in your pocket, carefully segmented for holding shell casings and nothing else."
+	preview_name = "Casing Pouch"
+	new_icon_state = "casingpouch"
+
+/datum/atom_skin/ammo_pouch/casing/apply(atom/apply_to, mob/user)
+	. = ..()
+	apply_to.create_storage(storage_type = /datum/storage/casing_pouch)
+
 /obj/item/storage/pouch/ammo
 	name = "ammo pouch"
 	desc = "A pouch for your ammo that goes in your pocket."
@@ -20,17 +37,11 @@
 	icon_state = "ammopouch"
 	w_class = WEIGHT_CLASS_BULKY
 	custom_price = PAYCHECK_CREW * 4
-	// this is just to have post_reskin called later
-	uses_advanced_reskins = TRUE
-	unique_reskin = list(
-		"Ammo Pouch" = list(
-			RESKIN_ICON_STATE = "ammopouch"
-		),
-		"Casing Pouch" = list(
-			RESKIN_ICON_STATE = "casingpouch"
-		),
-	)
 	storage_type = /datum/storage/pouch/ammo
+
+/obj/item/storage/pouch/ammo/Initialize(mapload)
+	. = ..()
+	AddComponent(/datum/component/reskinable_item, /datum/atom_skin/ammo_pouch)
 
 /datum/storage/pouch/ammo
 	max_specific_storage = WEIGHT_CLASS_NORMAL
@@ -53,12 +64,6 @@
 /datum/storage/casing_pouch/New(atom/parent, max_slots, max_specific_storage, max_total_storage)
 	. = ..()
 	set_holdable(list(/obj/item/ammo_casing))
-
-/obj/item/storage/pouch/ammo/post_reskin(mob/our_mob)
-	if(icon_state == "casingpouch")
-		name = "casing pouch"
-		desc = "A pouch for your ammo that goes in your pocket, carefully segmented for holding shell casings and nothing else."
-		create_storage(storage_type = /datum/storage/casing_pouch)
 
 /obj/item/storage/pouch/material
 	name = "material pouch"

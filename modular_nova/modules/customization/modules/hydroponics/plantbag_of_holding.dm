@@ -4,8 +4,6 @@
 /obj/item/storage/bag/plants/bluespace
 	name = "plant bag of holding"
 	desc = "A plant bag that holds a vast amount of botanicals."
-	uses_advanced_reskins = FALSE
-	unique_reskin = null
 	storage_type = /datum/storage/bag/plants/bluespace
 	icon = 'modular_nova/master_files/icons/obj/storage/plantbag_of_holding.dmi'
 	icon_state = "plantbag_of_holding"
