@@ -29913,16 +29913,6 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /turf/open/floor/iron,
 /area/station/hallway/primary/primaryservicestairs)
-"hXY" = (
-/obj/structure/secure_safe/caps_spare{
-	base_icon_state = "floorsafe";
-	icon_state = "floorsafe";
-	pixel_x = -1;
-	density = 0
-	},
-/obj/structure/window/reinforced/tinted/spawner/directional/south,
-/turf/open/floor/iron/dark/side,
-/area/station/command/bridge)
 "hXZ" = (
 /obj/effect/turf_decal/tile/dark_green/opposingcorners,
 /obj/effect/landmark/event_spawn,
@@ -69643,12 +69633,9 @@
 /area/station/security/breakroom)
 "sHg" = (
 /obj/structure/table/reinforced,
-/obj/item/papercutter{
-	pixel_x = 4;
-	pixel_y = 6
-	},
 /obj/structure/window/reinforced/tinted/spawner/directional/south,
 /obj/structure/window/reinforced/tinted/spawner/directional/east,
+/obj/structure/secure_safe/caps_spare,
 /turf/open/floor/iron/dark/side{
 	dir = 6
 	},
@@ -257874,7 +257861,7 @@ uTv
 dRS
 tNX
 ggl
-hXY
+hXU
 npC
 jFl
 eyI
