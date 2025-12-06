@@ -77,8 +77,8 @@
 		return UI_CLOSE
 
 	var/status = min(
-		ui_status_only_living(user, src),
-		ui_status_user_is_abled(user, src),
+		ui_status_only_living(user, parent),
+		ui_status_user_is_abled(user, parent),
 		UI_INTERACTIVE
 	)
 
