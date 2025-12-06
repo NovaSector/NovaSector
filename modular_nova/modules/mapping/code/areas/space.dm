@@ -189,12 +189,12 @@
 /area/ruin/space/has_grav/port_tarkon/developement
 	name = "P-T Developement Center"
 	icon_state = "science"
-	area_flags = XENOBIOLOGY_COMPATIBLE | UNIQUE_AREA
+	area_flags = XENOBIOLOGY_COMPATIBLE
 
 /area/ruin/space/has_grav/port_tarkon/xenology //A bit beyond just normal xenobiology in scope, But basically xenobiology
 	name = "P-T Xenology Lab"
 	icon_state = "science"
-	area_flags = XENOBIOLOGY_COMPATIBLE | UNIQUE_AREA
+	area_flags = XENOBIOLOGY_COMPATIBLE
 
 /area/ruin/space/has_grav/port_tarkon/secoff
 	name = "P-T Security Office"
@@ -365,6 +365,6 @@
 /area/ruin/solars/hotel/solars
 	name = "\improper Hotel Solar Array"
 	requires_power = FALSE
-	area_flags = UNIQUE_AREA
+	area_flags = NONE
 	sound_environment = SOUND_AREA_SPACE
 	base_lighting_alpha = 255

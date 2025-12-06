@@ -10,12 +10,12 @@
 	icon_state = "none"
 
 /datum/sprite_accessory/spines/is_hidden(mob/living/carbon/human/wearer)
-	if(wearer.w_uniform)
-		if(wearer.w_uniform.flags_inv & HIDESPINE)
-			return TRUE
-	if(wearer.wear_suit)
-		if(wearer.wear_suit.flags_inv & HIDESPINE)
-			return TRUE
+	var/obj/item/clothing/worn_uniform = wearer.w_uniform
+	var/obj/item/clothing/suit/mod/worn_suit = wearer.wear_suit
+	if(worn_uniform?.flags_inv & HIDESPINE)
+		return TRUE
+	if(worn_suit?.flags_inv & HIDESPINE)
+		return TRUE
 	if(key in wearer.try_hide_mutant_parts)
 		return TRUE
 
@@ -31,24 +31,24 @@
 	icon_state = "none"
 
 /datum/sprite_accessory/tail_spines/is_hidden(mob/living/carbon/human/wearer)
-	var/list/used_in_turf = list("tail")
-	if(wearer.owned_turf?.name in used_in_turf)
+	if(wearer.owned_turf?.name == "tail")
 	// Emote exception
 		return TRUE
 
-	if(!wearer.w_uniform && !wearer.wear_suit)
+	var/obj/item/clothing/suit/mod/worn_suit = wearer.wear_suit
+	if(isnull(wearer.w_uniform) && isnull(worn_suit))
 		return FALSE
 	if("spines" in wearer.try_hide_mutant_parts)
 		return TRUE
 	if("tail" in wearer.try_hide_mutant_parts)
 		return TRUE
 
-	if(wearer.wear_suit)
+	if(worn_suit)
 		// Exception for MODs
-		if(istype(wearer.wear_suit, /obj/item/clothing/suit/mod))
+		if(istype(worn_suit))
 			return FALSE
 		// Hide accessory if flagged to do so
-		else if(wearer.wear_suit.flags_inv & HIDETAIL)
+		if(worn_suit.flags_inv & HIDETAIL)
 			return TRUE
 
 	return FALSE
