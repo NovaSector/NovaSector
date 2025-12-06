@@ -9,3 +9,5 @@
 #define TRAIT_SPIDER_HOST "spider_host"
 ///for if we are army crawling or not
 #define TRAIT_PRONE "prone"
+/// Has an integrated modsuit (prevents entombed quirk, used by proteans and entombed quirk)
+#define TRAIT_INTEGRATED_MODSUIT "integrated_modsuit"
