@@ -303,7 +303,7 @@
 	illustration = "beaker"
 
 /obj/item/storage/box/evilmeds/interdyne/PopulateContents()
-	var/static/list/items_inside = list(
+	var/list/items_inside = list(
 		/obj/item/reagent_containers/cup/beaker/dyne_brutemix = 1,
 		/obj/item/reagent_containers/cup/beaker/dyne_burnmix = 1,
 		/obj/item/reagent_containers/cup/beaker/dyne_oxytox = 1,
