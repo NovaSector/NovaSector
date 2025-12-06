@@ -1,7 +1,7 @@
 // Dopamine. Generates in character after orgasm.
 /datum/reagent/drug/aphrodisiac/dopamine
-	name = "dopamine...?"
-	description = "Pure happiness"
+	name = "Dopamine"
+	description = "A benzene ring with two hydroxyl side groups, and one amine group attached via an ethyl chain. Moderates pleasure and reward-motivated behavior in mammals."
 	taste_description = "an indescribable, slightly sour taste. Something in it relaxes you, filling you with pleasure."
 	color = "#97ffee"
 	overdose_threshold = 10
@@ -49,3 +49,15 @@
 // This chem shouldn't affect user's mood negatively.
 /datum/reagent/drug/aphrodisiac/dopamine/overdose_process(mob/living/carbon/human/exposed_mob)
 	return
+
+/datum/chemical_reaction/dopamine
+	results = list(/datum/reagent/drug/aphrodisiac/dopamine = 7)
+	required_reagents = list(
+		/datum/reagent/diethylamine = 1,
+		/datum/reagent/medicine/ephedrine = 1,
+		/datum/reagent/hydrogen = 2,
+		/datum/reagent/phenol = 3
+	)
+	required_temp = 373
+	mix_message = "The solution bubbles into a colorless liquid..."
+	erp_reaction = TRUE
