@@ -4,6 +4,19 @@
 	/// the list of recipes that an antag will learn/unlearn on gain/loss
 	var/list/antag_recipes = list()
 
+/datum/antagonist/roundend_report()
+	var/list/report = list()
+
+	if(!owner)
+		CRASH("Antagonist datum without owner")
+
+	report += printplayer(owner)
+
+	if(objectives.len)
+		report += printobjectives(objectives)
+
+	return report.Join("<br>")
+
 /datum/antagonist/on_gain()
 	. = ..()
 	for(var/recipe_datum in antag_recipes)
