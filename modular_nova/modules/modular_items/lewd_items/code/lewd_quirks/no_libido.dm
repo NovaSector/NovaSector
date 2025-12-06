@@ -7,12 +7,12 @@
 	random_gain = FALSE
 	resilience = TRAUMA_RESILIENCE_ABSOLUTE
 
-/datum/brain_trauma/very_special/nolibido/on_gain()
+/datum/brain_trauma/very_special/no_libido/on_gain()
 	. = ..()
 	var/mob/living/carbon/human/affected_human = owner
 	ADD_TRAIT(affected_human, TRAIT_NO_LIBIDO, TRAIT_APHRO)
 
-/datum/brain_trauma/very_special/nolibido/on_lose()
+/datum/brain_trauma/very_special/no_libido/on_lose()
 	. = ..()
 	var/mob/living/carbon/human/affected_human = owner
 	REMOVE_TRAIT(affected_human, TRAIT_NO_LIBIDO, TRAIT_APHRO)
