@@ -69,11 +69,15 @@
 // Needed because adjust_arousal (and etc.) call blocking TGUI procs which can't be executed from a signal handler.
 ///Increases human_parent's arousal and pleasure, and adds the relevant mood events
 /datum/component/headpat_lover/proc/pleasure_pet(mob/living/carbon/human/human_parent, mob/living/carbon/human/human_petter)
-	human_parent.adjust_arousal(2)
-	human_parent.adjust_pleasure(2)
 	if(HAS_TRAIT(human_petter, TRAIT_FRIENDLY) && (human_petter.mob_mood.sanity >= SANITY_GREAT))
 		new /obj/effect/temp_visual/heart(human_parent.loc)
 		human_parent.add_mood_event("better_headpat_lover", /datum/mood_event/better_headpat_lover, human_petter)
-		return
+	else
+		human_parent.add_mood_event("headpat_lover", /datum/mood_event/headpat_lover)
 
-	human_parent.add_mood_event("headpat_lover", /datum/mood_event/headpat_lover)
+	var/pref = human_petter.client?.prefs?.read_preference(/datum/preference/choiced/erp_status_mechanics)
+	if(pref == "Mechanical only" || pref == "Mechanical and Roleplay")
+		human_parent.adjust_arousal(2)
+		human_parent.adjust_pleasure(2)
+
+
