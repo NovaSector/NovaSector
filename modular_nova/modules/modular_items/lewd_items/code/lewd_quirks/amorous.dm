@@ -160,4 +160,4 @@
 
 //Mood boost
 /datum/mood_event/amorous
-	description = span_purple("So-o... Turned..on... Lo-ve it!\n")
+	description = span_purple("So-o... Turned..on... Lo-ve it!")
