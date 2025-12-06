@@ -1,0 +1,4 @@
+author: "sqnztb"
+delete-after: True
+changes:
+  - bugfix: "Snowglobe's bridge has a spare ID safe again. The long-serving paper cutter has been retired."
