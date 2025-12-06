@@ -5,5 +5,5 @@
 	skill_name = "Hair expert"
 	skill_description = "Cut hair faster! Become the expert barber you are meant to be."
 	skill_icon = "scissors"
-	activate_message = span_notice("You feel as if you understand all about cutting hair and their right spots!")
-	deactivate_message = span_notice("You feel like you forgot everything about cutting hair and their right spots.")
+	activate_message = span_notice("You feel as if you've mastered the art of haircutting and know exactly where each snip should go!")
+	deactivate_message = span_notice("Your mastery over haircutting and the intuition for every perfect snip fades away.")
