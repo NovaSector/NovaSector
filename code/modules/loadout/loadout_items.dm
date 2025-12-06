@@ -284,10 +284,11 @@ GLOBAL_LIST_INIT(all_loadout_categories, init_loadout_categories())
 	// NOVA EDIT ADDITION END
 	if(reskin_datum && item_details?[INFO_RESKIN])
 		var/skin_chosen = item_details[INFO_RESKIN]
+		var/list/atom_skins = get_atom_skins()
 		for(var/datum/atom_skin/skin_path as anything in valid_subtypesof(reskin_datum))
 			if(skin_path::preview_name != skin_chosen)
 				continue
-			var/datum/atom_skin/skin_instance = GLOB.atom_skins[skin_path]
+			var/datum/atom_skin/skin_instance = atom_skins[skin_path]
 			skin_instance.apply(equipped_item)
 			if(istype(equipped_item, /obj/item/clothing/accessory))
 				// Snowflake handing for accessories, because we need to update the thing it's attached to instead
@@ -404,12 +405,15 @@ GLOBAL_LIST_INIT(all_loadout_categories, init_loadout_categories())
 
 	var/list/reskins = list()
 
-	for(var/datum/atom_skin/skin as anything in valid_subtypesof(reskin_datum))
+	var/base_state = item_path::icon_state
+	var/list/atom_skins = get_atom_skins()
+	for(var/datum/atom_skin/skin_path as anything in valid_subtypesof(reskin_datum))
+		var/datum/atom_skin/atom_skin = atom_skins[skin_path]
 		UNTYPED_LIST_ADD(reskins, list(
-			"name" = skin::new_name || skin::preview_name,
-			"tooltip" = skin::preview_name,
-			"skin_icon" = skin::new_icon,
-			"skin_icon_state" = ((loadout_flags & LOADOUT_FLAG_GREYSCALING_ALLOWED) && !(loadout_flags & LOADOUT_FLAG_JOB_GREYSCALING)) ? item_path::icon_state : skin::new_icon_state, // NOVA EDIT CHANGE - ORIGINAL: "skin_icon_state" = skin::new_icon_state,
+			"name" = skin_path::new_name || skin_path::preview_name,
+			"tooltip" = skin_path::preview_name,
+			"skin_icon" = skin_path::new_icon,
+			"skin_icon_state" = (atom_skin?.greyscale_preview_icon && !atom_skin?.default_skin) ? "[base_state]--[skin_path::new_icon_state]" : skin_path::new_icon_state,
 		))
 
 	return reskins

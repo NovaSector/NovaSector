@@ -8,6 +8,18 @@
 #define DEPHELMET_BLIND_TEXT span_purple("The helmet is blocking your vision! You can't make out anything on the other side...")
 #define DEPHELMET_SIGHT_TEXT span_purple("The helmet no longer restricts your vision.")
 
+/datum/atom_skin/deprivation_helmet
+	abstract_type = /datum/atom_skin/deprivation_helmet
+	greyscale_item_path = /obj/item/clothing/head/deprivation_helmet
+
+/datum/atom_skin/deprivation_helmet/earred
+	preview_name = "Earred"
+	new_icon_state = "dephelmet"
+
+/datum/atom_skin/deprivation_helmet/earless
+	preview_name = "Earless"
+	new_icon_state = "dephelmet_earless"
+
 /obj/item/clothing/head/deprivation_helmet
 	name = "deprivation helmet"
 	desc = "When configured, completely cuts off the wearer from the outside world. Three switches rest on the back."
@@ -25,11 +37,6 @@
 	obj_flags_nova = ERP_ITEM
 	clothing_flags = SNUG_FIT
 	action_slots = ALL
-	unique_reskin = list(
-		"Earred" = "dephelmet",
-		"Earless" = "dephelmet_earless"
-	)
-	obj_flags = INFINITE_RESKIN
 	actions_types = list(
 		/datum/action/item_action/toggle_vision,
 		/datum/action/item_action/toggle_hearing,
@@ -42,6 +49,9 @@
 	/// Is vision being prevented
 	var/prevent_vision = FALSE
 
+/obj/item/clothing/head/deprivation_helmet/Initialize(mapload)
+	. = ..()
+	AddComponent(/datum/component/reskinable_item, /datum/atom_skin/deprivation_helmet, infinite = TRUE)
 
 /// VISION CONTROL
 /datum/action/item_action/toggle_vision

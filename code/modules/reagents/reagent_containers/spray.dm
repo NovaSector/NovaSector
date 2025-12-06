@@ -423,7 +423,6 @@
 // Spray bottle skins
 /datum/atom_skin/med_spray
 	abstract_type = /datum/atom_skin/med_spray
-	change_inhand_icon_state = TRUE
 
 /datum/atom_skin/med_spray/red
 	preview_name = "Red"

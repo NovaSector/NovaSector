@@ -1,25 +1,53 @@
+/datum/atom_skin/chaplain_bland
+	abstract_type = /datum/atom_skin/chaplain_bland
+
+/datum/atom_skin/chaplain_bland/knight_generic
+	preview_name = "Basic"
+	new_icon_state = "knight_generic"
+
+/datum/atom_skin/chaplain_bland/knight_winged
+	preview_name = "Winged"
+	new_icon_state = "knight_winged"
+
+/datum/atom_skin/chaplain_bland/knight_horned
+	preview_name = "Horned"
+	new_icon_state = "knight_horned"
+
 /obj/item/clothing/head/helmet/chaplain/bland
 	icon = 'modular_nova/master_files/icons/obj/clothing/head/chaplain.dmi'
 	worn_icon = 'modular_nova/master_files/icons/mob/clothing/head/chaplain.dmi'
 	name = "crusader helmet"
 	desc = "Helfen, Wehren, Heilen."
 	icon_state = "knight_generic"
-	unique_reskin = list(
-		"Basic" = "knight_generic",
-		"Winged" = "knight_winged",
-		"Horned" = "knight_horned",
-		)
+
+/obj/item/clothing/head/helmet/chaplain/bland/Initialize(mapload)
+	. = ..()
+	AddComponent(/datum/component/reskinable_item, /datum/atom_skin/chaplain_bland)
+
+/datum/atom_skin/templar_generic
+	abstract_type = /datum/atom_skin/templar_generic
+
+/datum/atom_skin/templar_generic/knight_generic
+	preview_name = "Basic"
+	new_icon_state = "knight_generic"
+
+/datum/atom_skin/templar_generic/knight_teutonic
+	preview_name = "Teutonic"
+	new_icon_state = "knight_teutonic"
+
+/datum/atom_skin/templar_generic/knight_hospitaller
+	preview_name = "Hospitaller"
+	new_icon_state = "knight_hospitaller"
 
 /obj/item/clothing/suit/chaplainsuit/armor/templar/generic
 	icon = 'modular_nova/master_files/icons/obj/clothing/suits/chaplain.dmi'
 	worn_icon = 'modular_nova/master_files/icons/mob/clothing/suits/chaplain.dmi'
 	desc = "Protect the weak and defenceless, live by honor and glory, and fight for the welfare of all!"
 	icon_state = "knight_generic"
-	unique_reskin = list(
-		"Basic" = "knight_generic",
-		"Teutonic" = "knight_teutonic",
-		"Hospitaller" = "knight_hospitaller",
-	)
+
+/obj/item/clothing/suit/chaplainsuit/armor/templar/generic/Initialize(mapload)
+	. = ..()
+	AddComponent(/datum/component/reskinable_item, /datum/atom_skin/templar_generic)
 
 /obj/item/storage/box/holy/knight
 	name = "knight's kit"
