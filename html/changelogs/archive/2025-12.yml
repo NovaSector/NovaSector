@@ -96,3 +96,9 @@
   TheRealSlimRedwoods:
   - bugfix: fixed fox whines if you have the emote tabs on.
   - spellcheck: fixed a few typos in the code.
+2025-12-06:
+  Iajret:
+  - rscadd: Surgical rooms will now start with their scrubbers set to contaminated
+      mode (sucking nitrous by default) (related only to Nova maps)
+  - rscadd: Added shuttle creation kits to tech storage rooms (same as above, related
+      only to Nova maps)
