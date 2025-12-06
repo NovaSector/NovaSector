@@ -16,18 +16,10 @@
 	selfcharge = TRUE
 	charge_delay = 15
 
-/obj/item/gun/energy/e_gun/advtaser/examine(mob/user)
-	. = ..()
-	. += span_notice(CHARGE_MESSAGE)
-
 // disabler smg
 /obj/item/gun/energy/disabler/smg
 	selfcharge = TRUE
 	charge_delay = 15
-
-/obj/item/gun/energy/disabler/smg/examine(mob/user)
-	. = ..()
-	. += span_notice(CHARGE_MESSAGE)
 
 // miniature energy gun
 // Allstar sc2 energy carbine - Special, is not a sidearm but too many weapons are child of fthis thing, and they change modes too, so using a crank is tricky.
