@@ -167,6 +167,7 @@ GLOBAL_LIST_EMPTY(name_to_appearance)
 		data["personalVoreTag"] = READ_PREFS(user, choiced/erp_status_v)
 		data["personalNonconTag"] = READ_PREFS(user, choiced/erp_status_nc)
 		data["personalHypnoTag"] = READ_PREFS(user, choiced/erp_status_hypno)
+		data["personalTruthOrDareTag"] = READ_PREFS(user, choiced/accepts_unsolicited_truth_or_dare)
 		data["prefsOnly"] = TRUE
 
 	data["assignedView"] = CHAR_DIRECTORY_ASSIGNED_VIEW(user.ckey)
@@ -196,6 +197,7 @@ GLOBAL_LIST_EMPTY(name_to_appearance)
 	var/vore
 	var/noncon
 	var/hypno
+	var/truth_or_dare
 	var/nova_star_status
 	var/character_ad
 	var/headshot
@@ -246,6 +248,7 @@ GLOBAL_LIST_EMPTY(name_to_appearance)
 		vore = READ_PREFS(mob, choiced/erp_status_v) || "Ask"
 		noncon = READ_PREFS(mob, choiced/erp_status_nc) || "Ask"
 		hypno = READ_PREFS(mob, choiced/erp_status_hypno) || "Ask"
+		truth_or_dare = READ_PREFS(mob, choiced/accepts_unsolicited_truth_or_dare) || "Ask"
 		character_ad = READ_PREFS(mob, text/character_ad) || ""
 		ooc_notes = READ_PREFS(mob, text/ooc_notes) || ""
 		ooc_notes_nsfw = READ_PREFS(mob, text/ooc_notes_nsfw) || ""
@@ -265,6 +268,7 @@ GLOBAL_LIST_EMPTY(name_to_appearance)
 			"vore" = vore,
 			"noncon" = noncon,
 			"hypno" = hypno,
+			"truth_or_dare" = truth_or_dare,
 			"nova_star_status" = nova_star_status,
 			"character_ad" = character_ad,
 			"flavor_text" = flavor_text,
