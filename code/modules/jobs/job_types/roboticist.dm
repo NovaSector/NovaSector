@@ -46,7 +46,7 @@
 	uniform = /obj/item/clothing/under/rank/rnd/roboticist
 	suit = /obj/item/clothing/suit/toggle/labcoat/roboticist
 	belt = /obj/item/storage/belt/utility/full
-	ears = /obj/item/radio/headset/headset_sci
+	ears = /obj/item/radio/headset/headset_medsci // NOVA EDIT CHANGE - ORIGINAL: /obj/item/radio/headset/headset_sci
 	l_pocket = /obj/item/modular_computer/pda/roboticist
 
 	pda_slot = ITEM_SLOT_LPOCKET
