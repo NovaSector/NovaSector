@@ -142,6 +142,13 @@
 				/obj/item/clothing/suit/crop_jacket/sleeveless/long = 5,
 				/obj/item/clothing/suit/big_jacket = 5,
 				/obj/item/clothing/suit/dagger_mantle = 5,
+				/obj/item/clothing/under/greyscale/turtleneck = 5,
+				/obj/item/clothing/under/greyscale/turtleneck/skirt = 5,
+				/obj/item/clothing/under/greyscale/overalls = 5,
+				/obj/item/clothing/under/greyscale/overalls/skirt = 5,
+				/obj/item/clothing/suit/apron/overalls_loneskirt = 5,
+				/obj/item/clothing/suit/nova/sweater = 5,
+				/obj/item/clothing/suit/nova/overcoat = 5,
 			),
 		),
 
