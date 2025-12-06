@@ -230,12 +230,14 @@
 
 /obj/structure/deployable_barricade/wooden
 	bullet_impact_sound = SFX_BULLET_IMPACT_WOOD
+	custom_materials = list(/datum/material/wood = SHEET_MATERIAL_AMOUNT * 5)
 
 /obj/structure/statue/snow
 	bullet_impact_sound = SFX_BULLET_IMPACT_ICE
 
 /obj/structure/deployable_barricade/snow
 	bullet_impact_sound = SFX_BULLET_IMPACT_ICE
+	custom_materials = list(/datum/material/snow = SHEET_MATERIAL_AMOUNT * 2)
 
 // MACHINERY
 /obj/machinery/door/window

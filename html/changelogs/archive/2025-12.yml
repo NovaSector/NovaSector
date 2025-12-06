@@ -20,3 +20,85 @@
       than unconscious if you're dead
   vinylspiders:
   - bugfix: the 'use subtler' emote toggle in the interactions pane is now functional
+2025-12-02:
+  vinylspiders:
+  - bugfix: crates will no longer have a chance to be destroyed when falling from
+      a dismantled cargo shelf
+  - bugfix: crates should no longer get stuck in shelves, and you can now unload 1
+      crate onto where you are standing.
+2025-12-03:
+  sqnztb:
+  - bugfix: robotic lizard voicebox now can communicate properly again.
+2025-12-04:
+  Aliceee2ch:
+  - map: Removes one (1) bush in NebulaStation warehouse.
+  EEASAS:
+  - bugfix: Fixes a few disposal pipes on CatwalkStation. Read the PR!
+  - bugfix: Fixes Icebox's comms agent ruin having generic documents, not the secret
+      ones
+  Melbert:
+  - bugfix: Wall mounts no longer stick to tables instead of the wall behind it
+  OrbisAnima:
+  - rscadd: Added 3x3 beds.
+  - rscadd: Added the missing facing side to double beds.
+  - balance: Reduced by 25% the cost of synthetic pelt and oversized beds.
+  - bugfix: Fixed exploit with synthetic pelt beds.
+  Rilomatic:
+  - image: added icons and images
+  SyncIt21:
+  - bugfix: fixes all incorrectly maploded wall mounts that aren't actually hanging
+      on any support structure
+  - bugfix: objects mounted on tables, windows & fences also fall off now when destoryed
+  - qol: lights can be mounted on windows
+  - qol: cameras can be mounted on windows
+  - qol: buttons can be mounted on tables
+  - refactor: improved how wall mounts interact with objects as a whole report bugs
+      on github
+  - bugfix: all mounted objects on tables, fences, windows & walls should fall of
+      correctly when the atom it is placed on is destroyed
+  - bugfix: security telescreen now falls off when their mounted wall is destroyed
+  - bugfix: defib wall mount falls off when their mounted wall is destroyed
+  - bugfix: floor lights are mounted to the ground/catwalk/tram floor they are sitting
+      on meaning destroying it will destroy the light
+  - bugfix: wall mounted plaques now fall off when their mounted wall is destroyed
+  TheRealSlimRedwoods:
+  - rscadd: 'Fox whines and yips!
+
+      :cl:'
+  combustor:
+  - bugfix: Fixes the AI sat's teleporter on catwalk
+  ezel:
+  - bugfix: Removes a duplicate fire alarm in metastation botany
+  - bugfix: fixes catwalk atmos pipeline at the courtroom
+  - bugfix: removes random powerline going trough the walls
+  muratendmo:
+  - qol: Added the Machine Design (Multi-Cell Charger Board) to the Science departmental
+      imprinter.
+  vinylspiders:
+  - bugfix: taur uniform icons will now get cropped and show correctly in the prefs
+      menu
+  - bugfix: aprons and other various suits will no longer float away from certain
+      types of taur.
+  - bugfix: dying in a ghost cafe area should no longer will send a death message
+      to deadchat
+2025-12-05:
+  Hatterhat:
+  - rscadd: All the laser guns from the recent upstream merge are now reflavored to
+      be variants of the SC-1. The laser pistol was buffed, the burst carbine's capacity
+      was buffed, the assault rifle and pistol are now in the goodies system.
+  - bugfix: The disabler SMG and hybrid taser no longer have redundant indicators
+      for self-charging.
+  Iajret:
+  - bugfix: fixed multi cell chargers not accepting cells
+  MiiyaBox:
+  - rscadd: Added a alternative shaded version of "Mantis (Top)" for mantis enjoyers.
+  - image: '"Mantis Alt (Top)" is now a option to be picked at "Wings".'
+  TheRealSlimRedwoods:
+  - bugfix: fixed fox whines if you have the emote tabs on.
+  - spellcheck: fixed a few typos in the code.
+2025-12-06:
+  Iajret:
+  - rscadd: Surgical rooms will now start with their scrubbers set to contaminated
+      mode (sucking nitrous by default) (related only to Nova maps)
+  - rscadd: Added shuttle creation kits to tech storage rooms (same as above, related
+      only to Nova maps)

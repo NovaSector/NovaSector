@@ -2,6 +2,20 @@
 "aa" = (
 /turf/template_noop,
 /area/template_noop)
+"ab" = (
+/obj/structure/lattice/catwalk,
+/obj/structure/cable,
+/turf/template_noop,
+/area/space/nearstation)
+"ad" = (
+/obj/structure/lattice/catwalk,
+/turf/template_noop,
+/area/space/nearstation)
+"ae" = (
+/obj/item/stack/cable_coil/cut,
+/obj/structure/lattice/catwalk,
+/turf/template_noop,
+/area/space/nearstation)
 "ag" = (
 /turf/closed/wall,
 /area/ruin/space/has_grav/onehalf/dorms_med)
@@ -89,6 +103,10 @@
 	},
 /turf/open/floor/plating/airless,
 /area/ruin/space/has_grav/onehalf/drone_bay)
+"aw" = (
+/obj/structure/lattice,
+/turf/template_noop,
+/area/space/nearstation)
 "ax" = (
 /obj/structure/lattice,
 /turf/template_noop,
@@ -205,6 +223,11 @@
 /obj/structure/disposalpipe/trunk,
 /turf/open/floor/plating/airless,
 /area/ruin/space/has_grav/onehalf/drone_bay)
+"aS" = (
+/obj/structure/lattice,
+/obj/item/storage/toolbox/syndicate,
+/turf/template_noop,
+/area/space/nearstation)
 "aT" = (
 /obj/structure/cable,
 /obj/effect/mapping_helpers/broken_floor,
@@ -544,6 +567,10 @@
 "bU" = (
 /turf/closed/wall/r_wall,
 /area/ruin/space/has_grav/onehalf/bridge)
+"bV" = (
+/obj/item/stack/sheet/iron,
+/turf/template_noop,
+/area/space/nearstation)
 "bW" = (
 /obj/effect/mapping_helpers/broken_floor,
 /turf/open/floor/plating/airless,
@@ -615,6 +642,16 @@
 /obj/item/stack/rods,
 /turf/template_noop,
 /area/ruin/space/has_grav/onehalf/hallway)
+"cj" = (
+/obj/structure/lattice,
+/obj/structure/disposalpipe/segment{
+	dir = 4
+	},
+/obj/item/shard{
+	icon_state = "small"
+	},
+/turf/template_noop,
+/area/space/nearstation)
 "ck" = (
 /obj/effect/spawner/structure/window/reinforced,
 /obj/structure/disposalpipe/segment{
@@ -665,6 +702,17 @@
 /obj/structure/cable,
 /turf/open/floor/plating,
 /area/ruin/space/has_grav/onehalf/bridge)
+"cr" = (
+/obj/item/stack/rods,
+/turf/template_noop,
+/area/space/nearstation)
+"cs" = (
+/obj/item/stack/sheet/plasteel{
+	amount = 10
+	},
+/obj/structure/lattice,
+/turf/template_noop,
+/area/space/nearstation)
 "ct" = (
 /obj/structure/lattice,
 /obj/item/shard{
@@ -696,6 +744,10 @@
 /obj/machinery/power/solar_control,
 /turf/open/floor/iron,
 /area/ruin/space/has_grav/onehalf/bridge)
+"cA" = (
+/obj/item/stack/tile/wood,
+/turf/template_noop,
+/area/space/nearstation)
 "cB" = (
 /turf/template_noop,
 /area/ruin/space/has_grav/onehalf/hallway)
@@ -758,6 +810,10 @@
 /obj/machinery/vending/sovietsoda,
 /turf/open/floor/iron,
 /area/ruin/space/has_grav/onehalf/bridge)
+"cN" = (
+/obj/item/stack/sheet/plasteel,
+/turf/template_noop,
+/area/space/nearstation)
 "cQ" = (
 /obj/effect/spawner/structure/window/reinforced,
 /turf/open/floor/plating,
@@ -770,6 +826,15 @@
 "cS" = (
 /obj/structure/chair/office,
 /obj/structure/cable,
+/turf/open/floor/iron,
+/area/ruin/space/has_grav/onehalf/bridge)
+"cU" = (
+/obj/structure/table/reinforced,
+/obj/machinery/button/door{
+	id = "bridge_onehalf";
+	name = "Bridge Blast Door";
+	pixel_y = 5
+	},
 /turf/open/floor/iron,
 /area/ruin/space/has_grav/onehalf/bridge)
 "cY" = (
@@ -806,13 +871,25 @@
 /obj/effect/mapping_helpers/broken_floor,
 /turf/open/floor/plating/airless,
 /area/ruin/space/has_grav/onehalf/hallway)
-"fN" = (
-/obj/structure/table/reinforced,
-/turf/open/floor/iron,
-/area/ruin/space/has_grav/onehalf/bridge)
-"lu" = (
-/obj/item/stack/cable_coil/cut,
+"dh" = (
+/obj/item/stack/sheet/plasteel,
 /obj/structure/lattice/catwalk,
+/turf/template_noop,
+/area/space/nearstation)
+"di" = (
+/obj/item/shard{
+	icon_state = "medium"
+	},
+/obj/structure/lattice/catwalk,
+/turf/template_noop,
+/area/space/nearstation)
+"dj" = (
+/obj/item/stack/rods,
+/obj/structure/lattice/catwalk,
+/turf/template_noop,
+/area/space/nearstation)
+"dl" = (
+/obj/item/stack/cable_coil/cut,
 /turf/template_noop,
 /area/space/nearstation)
 "ms" = (
@@ -820,27 +897,6 @@
 /obj/structure/cable,
 /turf/open/floor/iron,
 /area/ruin/space/has_grav/onehalf/bridge)
-"mz" = (
-/obj/item/stack/sheet/plasteel{
-	amount = 10
-	},
-/obj/structure/lattice,
-/turf/template_noop,
-/area/space/nearstation)
-"mA" = (
-/obj/item/stack/rods,
-/turf/template_noop,
-/area/space/nearstation)
-"np" = (
-/obj/structure/lattice,
-/obj/structure/disposalpipe/segment{
-	dir = 4
-	},
-/obj/item/shard{
-	icon_state = "small"
-	},
-/turf/template_noop,
-/area/space/nearstation)
 "nu" = (
 /obj/item/crowbar/red,
 /obj/item/multitool,
@@ -856,29 +912,6 @@
 	},
 /turf/open/floor/iron,
 /area/ruin/space/has_grav/onehalf/dorms_med)
-"tU" = (
-/obj/item/stack/rods,
-/obj/structure/lattice/catwalk,
-/turf/template_noop,
-/area/space/nearstation)
-"uC" = (
-/obj/item/stack/sheet/plasteel,
-/turf/template_noop,
-/area/space/nearstation)
-"wQ" = (
-/obj/structure/lattice,
-/obj/item/storage/toolbox/syndicate,
-/turf/template_noop,
-/area/space/nearstation)
-"zj" = (
-/obj/item/stack/sheet/plasteel,
-/obj/structure/lattice/catwalk,
-/turf/template_noop,
-/area/space/nearstation)
-"DN" = (
-/obj/item/stack/cable_coil/cut,
-/turf/template_noop,
-/area/space/nearstation)
 "Id" = (
 /obj/structure/disposalpipe/junction{
 	dir = 8
@@ -886,62 +919,25 @@
 /obj/machinery/light/directional/south,
 /turf/open/floor/iron,
 /area/ruin/space/has_grav/onehalf/drone_bay)
-"In" = (
-/obj/item/shard{
-	icon_state = "medium"
-	},
-/obj/structure/lattice/catwalk,
-/turf/template_noop,
-/area/space/nearstation)
 "KC" = (
 /obj/structure/frame/computer,
 /obj/structure/cable,
-/turf/open/floor/iron,
-/area/ruin/space/has_grav/onehalf/bridge)
-"LV" = (
-/obj/item/stack/sheet/iron,
-/turf/template_noop,
-/area/space/nearstation)
-"On" = (
-/obj/machinery/button/door{
-	id = "bridge_onehalf";
-	name = "Bridge Blast Door";
-	pixel_x = 32;
-	pixel_y = 5
-	},
 /turf/open/floor/iron,
 /area/ruin/space/has_grav/onehalf/bridge)
 "Vh" = (
 /obj/structure/cable,
 /turf/open/floor/iron,
 /area/ruin/space/has_grav/onehalf/bridge)
-"Wc" = (
-/obj/structure/lattice/catwalk,
-/obj/structure/cable,
-/turf/template_noop,
-/area/space/nearstation)
-"Xy" = (
-/obj/structure/lattice/catwalk,
-/turf/template_noop,
-/area/space/nearstation)
-"XY" = (
-/obj/structure/lattice,
-/turf/template_noop,
-/area/space/nearstation)
-"YW" = (
-/obj/item/stack/tile/wood,
-/turf/template_noop,
-/area/space/nearstation)
 
 (1,1,1) = {"
 aa
 aa
 aa
 aa
-XY
+aw
 aa
-wQ
-XY
+aS
+aw
 aa
 aa
 aa
@@ -980,7 +976,7 @@ aa
 (3,1,1) = {"
 aa
 aa
-lu
+ae
 ak
 ax
 bW
@@ -988,7 +984,7 @@ ax
 bg
 bw
 aj
-LV
+bV
 aa
 aa
 aa
@@ -1002,7 +998,7 @@ aa
 (4,1,1) = {"
 aa
 aa
-Wc
+ab
 ak
 ay
 ax
@@ -1023,8 +1019,8 @@ aa
 "}
 (5,1,1) = {"
 aa
-Wc
-Wc
+ab
+ab
 ak
 az
 aU
@@ -1045,7 +1041,7 @@ aa
 "}
 (6,1,1) = {"
 aa
-Wc
+ab
 ag
 ag
 ag
@@ -1056,7 +1052,7 @@ bx
 bM
 ak
 aa
-mA
+cr
 aa
 aa
 aa
@@ -1067,7 +1063,7 @@ aa
 "}
 (7,1,1) = {"
 aa
-Wc
+ab
 ag
 al
 aA
@@ -1089,7 +1085,7 @@ aa
 "}
 (8,1,1) = {"
 aa
-Wc
+ab
 ag
 am
 am
@@ -1100,18 +1096,18 @@ by
 bO
 bR
 aa
-mz
-XY
+cs
+aw
 aa
 aa
-mA
+cr
 bP
 aa
 aa
 "}
 (9,1,1) = {"
 aa
-Wc
+ab
 ag
 an
 aB
@@ -1123,17 +1119,17 @@ bP
 aj
 aa
 aa
-YW
-mA
-uC
+cA
+cr
+cN
 aa
-XY
+aw
 aa
-DN
+dl
 "}
 (10,1,1) = {"
 aa
-Wc
+ab
 ag
 ag
 ag
@@ -1142,20 +1138,20 @@ ag
 bh
 bx
 bQ
-XY
-LV
+aw
+bV
 aa
 aa
-XY
-YW
+aw
+cA
 aa
 bW
-zj
+dh
 aa
 "}
 (11,1,1) = {"
 aa
-Wc
+ab
 ag
 sZ
 aC
@@ -1172,12 +1168,12 @@ aj
 ax
 bR
 bQ
-In
+di
 aa
 "}
 (12,1,1) = {"
 aa
-Wc
+ab
 ah
 ap
 ap
@@ -1194,12 +1190,12 @@ cK
 cK
 aU
 dc
-tU
+dj
 aa
 "}
 (13,1,1) = {"
 aa
-Wc
+ab
 ag
 ao
 ao
@@ -1216,12 +1212,12 @@ bW
 aU
 aU
 dd
-Xy
+ad
 aa
 "}
 (14,1,1) = {"
 aa
-Wc
+ab
 ag
 ag
 ag
@@ -1238,13 +1234,13 @@ bU
 cQ
 cQ
 bU
-Xy
+ad
 aa
 "}
 (15,1,1) = {"
 aa
-Wc
-Wc
+ab
+ab
 aq
 aD
 aq
@@ -1253,14 +1249,14 @@ bo
 bp
 bU
 aa
-np
+cj
 bU
 cF
 bU
-XY
+aw
 aa
 bU
-Xy
+ad
 aa
 "}
 (16,1,1) = {"
@@ -1282,7 +1278,7 @@ bU
 bZ
 bZ
 bU
-Xy
+ad
 aa
 "}
 (17,1,1) = {"
@@ -1304,7 +1300,7 @@ cM
 cR
 cY
 bU
-Xy
+ad
 aa
 "}
 (18,1,1) = {"
@@ -1326,7 +1322,7 @@ cn
 cm
 cZ
 cq
-Xy
+ad
 aa
 "}
 (19,1,1) = {"
@@ -1348,7 +1344,7 @@ cx
 cn
 da
 cq
-Xy
+ad
 aa
 "}
 (20,1,1) = {"
@@ -1370,7 +1366,7 @@ nu
 cS
 KC
 cq
-Xy
+ad
 aa
 "}
 (21,1,1) = {"
@@ -1392,7 +1388,7 @@ cI
 cn
 ce
 cq
-Xy
+ad
 aa
 "}
 (22,1,1) = {"
@@ -1411,10 +1407,10 @@ Vh
 Vh
 cJ
 cn
-On
+cn
 cn
 cq
-Xy
+ad
 aa
 "}
 (23,1,1) = {"
@@ -1433,10 +1429,10 @@ cp
 cy
 KC
 ce
-fN
+cU
 db
 bU
-Xy
+ad
 aa
 "}
 (24,1,1) = {"
@@ -1458,7 +1454,7 @@ cq
 cq
 bU
 bU
-Xy
+ad
 aa
 "}
 (25,1,1) = {"
@@ -1466,21 +1462,21 @@ aa
 aa
 aa
 aa
-XY
+aw
 aa
 ar
 br
 ar
 ar
-XY
-Xy
-Xy
-Xy
-Xy
-Xy
-Xy
-Xy
-Xy
+aw
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
 aa
 "}
 (26,1,1) = {"

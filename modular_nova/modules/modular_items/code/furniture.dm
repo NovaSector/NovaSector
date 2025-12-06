@@ -11,11 +11,8 @@
 	integrity_failure = 0.35
 	max_buckled_mobs = 2
 	build_stack_type = /obj/item/stack/sheet/leather
-	build_stack_amount = 4
-
-/obj/structure/bed/double/pelt/atom_deconstruct(disassembled = TRUE)
-	. = ..()
-	new /obj/item/stack/sheet/mineral/wood(loc, build_stack_amount)
+	build_stack_amount = 3
+	custom_materials = list(/datum/material/wood = SHEET_MATERIAL_AMOUNT * 3)
 
 /datum/crafting_recipe/synth_white_pelt_bed
 	name = "Synthetic White Pelts Bed"
@@ -23,8 +20,8 @@
 	crafting_flags = CRAFT_CHECK_DENSITY | CRAFT_ONE_PER_TURF | CRAFT_ON_SOLID_GROUND
 
 	reqs = list(
-		/obj/item/stack/sheet/leather = 4,
-		/obj/item/stack/sheet/mineral/wood = 4,
+		/obj/item/stack/sheet/leather = 3,
+		/obj/item/stack/sheet/mineral/wood = 3,
 	)
 
 	result = /obj/structure/bed/double/pelt/synthetic
@@ -34,6 +31,7 @@
 	desc = "A luxurious double bed, made with synthetic black wolf pelts."
 	icon_state = "pelt_bed_black"
 	icon = 'modular_nova/modules/tribal_extended/icons/tribal_beds.dmi'
+	custom_materials = list(/datum/material/wood = SHEET_MATERIAL_AMOUNT * 3)
 
 /datum/crafting_recipe/synth_black_pelt_bed
 	name = "Synthetic Black Pelts Bed"
@@ -41,8 +39,8 @@
 	crafting_flags = CRAFT_CHECK_DENSITY | CRAFT_ONE_PER_TURF | CRAFT_ON_SOLID_GROUND
 
 	reqs = list(
-		/obj/item/stack/sheet/leather = 4,
-		/obj/item/stack/sheet/mineral/wood = 4,
+		/obj/item/stack/sheet/leather = 3,
+		/obj/item/stack/sheet/mineral/wood = 3,
 	)
 
 	result = /obj/structure/bed/double/pelt/synthetic/black
@@ -61,7 +59,8 @@
 	integrity_failure = 0.35
 	max_buckled_mobs = 2
 	build_stack_type = /obj/item/stack/sheet/cloth
-	build_stack_amount = 4
+	build_stack_amount = 3
+	custom_materials = list(/datum/material/wood = SHEET_MATERIAL_AMOUNT * 3)
 
 /obj/structure/bed/oversized/atom_deconstruct(disassembled = TRUE)
 	. = ..()
@@ -73,8 +72,8 @@
 	crafting_flags = CRAFT_CHECK_DENSITY | CRAFT_ONE_PER_TURF | CRAFT_ON_SOLID_GROUND
 
 	reqs = list(
-		/obj/item/stack/sheet/cloth = 4,
-		/obj/item/stack/sheet/mineral/wood = 4,
+		/obj/item/stack/sheet/cloth = 3,
+		/obj/item/stack/sheet/mineral/wood = 3,
 	)
 
 	result = /obj/structure/bed/oversized
@@ -84,7 +83,9 @@
 	icon = 'modular_nova/master_files/icons/obj/medieval/structures_64x64.dmi'
 	icon_state = "bed_2x2"
 	max_buckled_mobs = 2
-	build_stack_amount = 8
+	build_stack_amount = 6
+	max_integrity = 200
+	custom_materials = list(/datum/material/wood = SHEET_MATERIAL_AMOUNT * 6)
 
 /datum/crafting_recipe/oversized_bed_double
 	name = "Double Oversized Bed"
@@ -92,8 +93,29 @@
 	crafting_flags = CRAFT_CHECK_DENSITY | CRAFT_ONE_PER_TURF | CRAFT_ON_SOLID_GROUND
 
 	reqs = list(
-		/obj/item/stack/sheet/cloth = 8,
-		/obj/item/stack/sheet/mineral/wood = 8,
+		/obj/item/stack/sheet/cloth = 6,
+		/obj/item/stack/sheet/mineral/wood = 6,
 	)
 
 	result = /obj/structure/bed/oversized/double
+
+/obj/structure/bed/oversized/triple
+	name = "triple oversized bed"
+	icon = 'modular_nova/master_files/icons/obj/medieval/structures_96x96.dmi'
+	icon_state = "bed_3x3"
+	max_buckled_mobs = 4
+	build_stack_amount = 10
+	max_integrity = 250
+	custom_materials = list(/datum/material/wood = SHEET_MATERIAL_AMOUNT * 10)
+
+/datum/crafting_recipe/oversized_bed_triple
+	name = "Triple Oversized Bed"
+	category = CAT_FURNITURE
+	crafting_flags = CRAFT_CHECK_DENSITY | CRAFT_ONE_PER_TURF | CRAFT_ON_SOLID_GROUND
+
+	reqs = list(
+		/obj/item/stack/sheet/cloth = 10,
+		/obj/item/stack/sheet/mineral/wood = 10,
+	)
+
+	result = /obj/structure/bed/oversized/triple

@@ -113,6 +113,10 @@
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/plating/airless,
 /area/ruin/space/ks13/hallway/central)
+"aQ" = (
+/obj/effect/spawner/structure/window/reinforced,
+/turf/open/floor/plating/airless,
+/area/ruin/space/ks13/hallway/aft)
 "aU" = (
 /obj/item/shard,
 /obj/structure/lattice,
@@ -1672,6 +1676,10 @@
 /obj/effect/mapping_helpers/airlock/access/all/engineering/general,
 /turf/open/floor/plating,
 /area/ruin/space/ks13/engineering/sb_bow_solars_control)
+"rd" = (
+/obj/structure/lattice,
+/turf/template_noop,
+/area/space/nearstation)
 "re" = (
 /obj/structure/girder,
 /turf/open/floor/plating/airless,
@@ -6384,6 +6392,9 @@
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/iron/dark,
 /area/ruin/space/ks13/medical/morgue)
+"PG" = (
+/turf/closed/wall/r_wall,
+/area/space/nearstation)
 "PH" = (
 /obj/effect/mapping_helpers/broken_floor,
 /obj/machinery/power/apc/auto_name/directional/north,
@@ -8128,9 +8139,9 @@
 /turf/open/floor/circuit/red/off,
 /area/ruin/space/ks13/ai/corridor)
 "YE" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt,
 /obj/structure/plaque/static_plaque/golden/commission/ks13,
-/obj/effect/decal/cleanable/dirt,
-/obj/effect/decal/cleanable/dirt,
 /turf/open/floor/iron/airless,
 /area/ruin/space/ks13/hallway/central)
 "YF" = (
@@ -10666,7 +10677,7 @@ vb
 Jr
 Ut
 Ww
-MW
+Jr
 Wt
 Sp
 pK
@@ -10772,7 +10783,7 @@ qO
 wC
 WE
 OR
-MW
+Jr
 JJ
 Hi
 vb
@@ -11811,7 +11822,7 @@ Fa
 iT
 TW
 BM
-jV
+aQ
 Uo
 gG
 jV
@@ -12999,7 +13010,7 @@ aa
 aa
 aa
 aa
-rk
+rd
 rk
 Kb
 sU
@@ -13113,7 +13124,7 @@ aa
 aa
 aa
 aa
-rk
+rd
 BK
 Wk
 fg
@@ -13225,7 +13236,7 @@ aa
 aa
 aa
 aa
-Kb
+PG
 IF
 Kb
 Wk
@@ -13338,7 +13349,7 @@ aa
 aa
 aa
 aa
-rk
+rd
 Kb
 rk
 BK
@@ -13451,7 +13462,7 @@ aa
 aa
 aa
 aa
-rk
+rd
 rk
 rk
 Kb
@@ -13565,7 +13576,7 @@ aa
 aa
 aa
 aa
-rk
+rd
 rk
 rk
 Kb
@@ -13678,7 +13689,7 @@ aa
 aa
 aa
 aa
-rk
+rd
 rk
 rk
 rk
@@ -13792,7 +13803,7 @@ aa
 aa
 aa
 aa
-rk
+rd
 nQ
 aa
 aa

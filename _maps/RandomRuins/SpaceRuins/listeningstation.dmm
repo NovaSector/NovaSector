@@ -79,6 +79,11 @@
 /obj/item/storage/photo_album/listeningstation,
 /turf/open/floor/iron/small,
 /area/ruin/space/has_grav/listeningstation)
+"ch" = (
+/obj/structure/lattice/catwalk,
+/obj/structure/marker_beacon/cerulean,
+/turf/template_noop,
+/area/ruin/space)
 "cj" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
@@ -205,14 +210,6 @@
 /obj/structure/cable,
 /turf/open/floor/plating,
 /area/ruin/space/has_grav/listeningstation)
-"lj" = (
-/obj/structure/lattice/catwalk,
-/obj/structure/sign/nanotrasen{
-	pixel_x = -32
-	},
-/obj/structure/marker_beacon/cerulean,
-/turf/template_noop,
-/area/ruin/space)
 "lk" = (
 /obj/item/radio/intercom/directional/east{
 	freerange = 1
@@ -240,6 +237,12 @@
 /obj/machinery/light/small/red/directional/north,
 /turf/open/floor/circuit/red,
 /area/ruin/space/has_grav/listeningstation)
+"lO" = (
+/obj/structure/marker_beacon/cerulean,
+/obj/structure/sign/nanotrasen/directional/north,
+/obj/structure/sign/nanotrasen/directional/east,
+/turf/open/floor/plating/airless,
+/area/ruin/space)
 "nG" = (
 /obj/effect/decal/cleanable/blood/drip,
 /obj/structure/table,
@@ -299,17 +302,6 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /turf/open/floor/iron/grimy,
 /area/ruin/space/has_grav/listeningstation)
-"ry" = (
-/obj/docking_port/stationary{
-	dir = 8;
-	dwidth = 4;
-	height = 5;
-	shuttle_id = "caravansyndicate1_listeningpost";
-	name = "Syndicate Listening Post";
-	width = 9
-	},
-/turf/template_noop,
-/area/space/nearstation)
 "rE" = (
 /obj/structure/cable,
 /turf/open/floor/plating/airless,
@@ -343,31 +335,17 @@
 /obj/effect/mapping_helpers/airalarm/syndicate_access,
 /turf/open/floor/iron/dark,
 /area/ruin/space/has_grav/listeningstation)
-"tY" = (
-/obj/structure/sign/nanotrasen{
-	pixel_y = 32
-	},
-/obj/structure/sign/nanotrasen{
-	pixel_x = 32
-	},
-/obj/structure/marker_beacon/cerulean,
-/turf/open/floor/plating/airless,
-/area/ruin/space)
 "uI" = (
 /obj/machinery/airalarm/directional/north,
 /obj/effect/decal/cleanable/blood/old,
 /obj/effect/mapping_helpers/airalarm/syndicate_access,
 /turf/open/floor/iron,
 /area/ruin/space/has_grav/listeningstation)
-"vB" = (
-/obj/structure/sign/nanotrasen{
-	pixel_y = -32
-	},
-/obj/structure/sign/nanotrasen{
-	pixel_x = 32
-	},
+"vt" = (
+/obj/structure/lattice/catwalk,
 /obj/structure/marker_beacon/cerulean,
-/turf/open/floor/plating/airless,
+/obj/structure/sign/nanotrasen/directional/west,
+/turf/template_noop,
 /area/ruin/space)
 "vC" = (
 /obj/structure/cable,
@@ -484,10 +462,8 @@
 /turf/open/floor/plating,
 /area/ruin/space/has_grav/listeningstation)
 "zV" = (
-/obj/structure/sign/nanotrasen{
-	pixel_y = -32
-	},
 /obj/structure/cable,
+/obj/structure/sign/nanotrasen/directional/south,
 /turf/open/floor/plating/airless,
 /area/ruin/space)
 "zZ" = (
@@ -621,6 +597,12 @@
 /obj/machinery/light/very_dim/directional/east,
 /turf/open/floor/iron/showroomfloor,
 /area/ruin/space/has_grav/listeningstation)
+"FU" = (
+/obj/structure/marker_beacon/cerulean,
+/obj/structure/sign/nanotrasen/directional/south,
+/obj/structure/sign/nanotrasen/directional/east,
+/turf/open/floor/plating/airless,
+/area/ruin/space)
 "FV" = (
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/plating,
@@ -677,6 +659,17 @@
 "JB" = (
 /turf/closed/wall/r_wall,
 /area/ruin/space/has_grav/listeningstation)
+"JD" = (
+/obj/docking_port/stationary{
+	dir = 8;
+	dwidth = 4;
+	height = 5;
+	shuttle_id = "caravansyndicate1_listeningpost";
+	name = "Syndicate Listening Post";
+	width = 9
+	},
+/turf/template_noop,
+/area/space/nearstation)
 "KG" = (
 /obj/structure/curtain,
 /obj/effect/decal/cleanable/dirt,
@@ -789,14 +782,6 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /turf/open/floor/iron/small,
 /area/ruin/space/has_grav/listeningstation)
-"PZ" = (
-/obj/structure/sign/nanotrasen{
-	pixel_y = 32
-	},
-/obj/structure/lattice/catwalk,
-/obj/structure/marker_beacon/cerulean,
-/turf/template_noop,
-/area/ruin/space)
 "QE" = (
 /obj/structure/barricade/wooden/crude,
 /obj/structure/cable,
@@ -819,6 +804,7 @@
 	dir = 4
 	},
 /obj/machinery/light/warm/directional/south,
+/obj/structure/sign/nanotrasen/directional/south,
 /turf/open/floor/iron/grimy,
 /area/ruin/space/has_grav/listeningstation)
 "Sx" = (
@@ -930,10 +916,8 @@
 /area/ruin/space/has_grav/listeningstation)
 "WG" = (
 /obj/structure/lattice/catwalk,
-/obj/structure/sign/nanotrasen{
-	pixel_y = -32
-	},
 /obj/structure/marker_beacon/cerulean,
+/obj/structure/sign/nanotrasen/directional/south,
 /turf/template_noop,
 /area/ruin/space)
 "WW" = (
@@ -1015,7 +999,7 @@ AV
 AV
 AV
 AV
-ry
+JD
 AV
 AV
 AV
@@ -1039,9 +1023,9 @@ vI
 vI
 vI
 zp
-tY
+lO
 rE
-vB
+FU
 zp
 vI
 AV
@@ -1175,7 +1159,7 @@ gl
 RK
 JB
 zp
-PZ
+ch
 AV
 "}
 (9,1,1) = {"
@@ -1590,7 +1574,7 @@ AV
 AV
 AV
 AV
-lj
+vt
 AV
 AV
 AV
