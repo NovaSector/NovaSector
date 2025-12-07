@@ -1,3 +1,4 @@
+#define MAX_OXYGEN_PRODUCED MOLES_CELLSTANDARD // Kind of a large amount, but realism vs fun tradeoff?
 /obj/structure/plant_tank
 	name = "plant tank"
 	desc = "A small little glass tank that is used to grow plants; this tank promotes the nitrogen and oxygen cycle."
@@ -102,23 +103,26 @@
 	if(!has_plant)
 		return
 
+	//if there is carbon dioxide in the air, lets turn it into oxygen
+	var/datum/gas_mixture/env = src_turf.return_air()
+	var/co2 = env.gases[/datum/gas/carbon_dioxide]
+	if(!co2)
+		return
+
+	env.assert_gases(/datum/gas/carbon_dioxide, /datum/gas/oxygen, /datum/gas/nitrogen)
+
+	// how much CO2 is available
+	var/co2_amt = env.gases[/datum/gas/carbon_dioxide][MOLES]
+	if(co2_amt <= 0)
+		return
+
+	var/gas_amt = min(co2_amt * INVERSE(0.5) * seconds_per_tick, (MAX_OXYGEN_PRODUCED /2) * seconds_per_tick)
+	env.gases[/datum/gas/carbon_dioxide][MOLES] -= gas_amt
+	src_turf.atmos_spawn_air("[GAS_O2]=[gas_amt]")
+	var/add_n = gas_amt * 0.7 // 70% of CO2 becomes nitrogen
+	src_turf.atmos_spawn_air("[GAS_N2]=[add_n]") // the nitrogen cycle-- plants (and bacteria) participate in the nitrogen cycle
+
 	operation_number--
-
-	var/datum/gas_mixture/src_mixture = src_turf.return_air()
-
-	src_mixture.assert_gases(/datum/gas/carbon_dioxide, /datum/gas/oxygen, /datum/gas/nitrogen)
-
-	var/proportion = src_mixture.gases[/datum/gas/carbon_dioxide][MOLES]
-	if(proportion) //if there is carbon dioxide in the air, lets turn it into oxygen
-		proportion = min(src_mixture.gases[/datum/gas/carbon_dioxide][MOLES], MOLES_CELLSTANDARD)
-		src_mixture.gases[/datum/gas/carbon_dioxide][MOLES] -= proportion
-		src_mixture.gases[/datum/gas/oxygen][MOLES] += proportion
-		if(proportion > 0) // the nitrogen cycle-- plants (and bacteria) participate in the nitrogen cycle
-			var/add_amount = min(proportion, MOLES_CELLSTANDARD)
-			if(add_amount > 0)
-				src_mixture.gases[/datum/gas/nitrogen][MOLES] = min(src_mixture.gases[/datum/gas/nitrogen][MOLES], add_amount)
-				src_mixture.gases[/datum/gas/oxygen][MOLES] -= add_amount // subtract some nitrogen first to compensate
-				src_mixture.gases[/datum/gas/nitrogen][MOLES] += min(add_amount, MOLES_CELLSTANDARD )
 
 /obj/structure/plant_tank/wrench_act(mob/living/user, obj/item/tool)
 	balloon_alert(user, "[anchored ? "un" : ""]bolting")
@@ -156,3 +160,5 @@
 		/obj/item/stack/rods = 4,
 	)
 	category = CAT_STRUCTURE
+
+	#undef MAX_OXYGEN_PRODUCED
