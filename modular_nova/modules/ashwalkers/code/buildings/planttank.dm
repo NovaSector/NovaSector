@@ -116,8 +116,8 @@
 	if(co2_amt <= 0)
 		return
 
-	var/gas_amt = min(co2_amt * INVERSE(0.5) * seconds_per_tick, (MAX_OXYGEN_PRODUCED /2) * seconds_per_tick)
-	env.gases[/datum/gas/carbon_dioxide][MOLES] -= gas_amt
+	var/gas_amt = min(co2_amt * seconds_per_tick, (MAX_OXYGEN_PRODUCED /2) * seconds_per_tick)
+	env.gases[/datum/gas/carbon_dioxide][MOLES] -= min(co2_amt, gas_amt)
 	src_turf.atmos_spawn_air("[GAS_O2]=[gas_amt]")
 	var/add_n = gas_amt * 0.7 // 70% of CO2 becomes nitrogen
 	src_turf.atmos_spawn_air("[GAS_N2]=[add_n]") // the nitrogen cycle-- plants (and bacteria) participate in the nitrogen cycle
