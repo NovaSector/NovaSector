@@ -5,7 +5,6 @@
 	icon_state = "plant_tank_e"
 	anchored = FALSE
 	density = TRUE
-	custom_materials = list(/datum/material/glass = SHEET_MATERIAL_AMOUNT * 4, /datum/material/iron = SHEET_MATERIAL_AMOUNT * 2)
 	///the amount of times the tank can produce-- can be increased through feeding the tank
 	var/operation_number = 0
 	/// the farm component (if it was added)
@@ -48,13 +47,21 @@
 		return ITEM_INTERACT_BLOCKING
 
 	if(istype(tool, /obj/item/storage/bag/plants))
+		var/list/foods = list()
+		for(var/obj/item/food/food_item in tool)
+			foods += food_item
+
+		if(!length(foods))
+			balloon_alert(user, "no food to place inside")
+			return ITEM_INTERACT_BLOCKING
+
 		balloon_alert(user, "placing food inside")
-		for(var/obj/item/food/selected_food in tool.contents)
-			qdel(selected_food)
+
+		for(var/obj/item/food/food_item in foods)
+			qdel(food_item)
 			operation_number += 2
 			if(prob(user.mind?.get_skill_modifier(/datum/skill/primitive, SKILL_PROBS_MODIFIER)))
 				operation_number += 2
-
 			user.mind?.adjust_experience(/datum/skill/primitive, 2)
 
 		return ITEM_INTERACT_BLOCKING
@@ -78,14 +85,23 @@
 	if(operation_number <= 0) //we require "fuel" to actually produce stuff
 		return
 
-	if(!locate(/obj/structure/simple_farm) in get_turf(src) && !locate(/obj/structure/simple_tree) in get_turf(src)) //we require a plant to process the "fuel"
+	var/turf/open/src_turf  = get_turf(src)
+	if(isnull(src_turf))
+		return
+
+	if(!isopenturf(src_turf) || isspaceturf(src_turf) || src_turf.planetary_atmos) //must be open turf, can't be space turf, and can't be a turf that regenerates its atmos
+		return
+
+	var/has_plant = FALSE
+	for(var/obj/structure/structure in src_turf.contents)
+		if(istype(structure, /obj/structure/simple_farm) || istype(structure, /obj/structure/simple_tree))  //we require a plant to process the "fuel"
+			has_plant = TRUE
+			break
+
+	if(!has_plant)
 		return
 
 	operation_number--
-
-	var/turf/open/src_turf = get_turf(src)
-	if(!isopenturf(src_turf) || isspaceturf(src_turf) || src_turf.planetary_atmos) //must be open turf, can't be space turf, and can't be a turf that regenerates its atmos
-		return
 
 	var/datum/gas_mixture/src_mixture = src_turf.return_air()
 
@@ -96,8 +112,12 @@
 		proportion = min(src_mixture.gases[/datum/gas/carbon_dioxide][MOLES], MOLES_CELLSTANDARD)
 		src_mixture.gases[/datum/gas/carbon_dioxide][MOLES] -= proportion
 		src_mixture.gases[/datum/gas/oxygen][MOLES] += proportion
-
-	src_mixture.gases[/datum/gas/nitrogen][MOLES] += MOLES_CELLSTANDARD //the nitrogen cycle-- plants (and bacteria) participate in the nitrogen cycle
+		if(proportion > 0) // the nitrogen cycle-- plants (and bacteria) participate in the nitrogen cycle
+			var/add_amount = min(proportion, MOLES_CELLSTANDARD)
+			if(add_amount > 0)
+				src_mixture.gases[/datum/gas/nitrogen][MOLES] = min(src_mixture.gases[/datum/gas/nitrogen][MOLES], add_amount)
+				src_mixture.gases[/datum/gas/oxygen][MOLES] -= add_amount // subtract some nitrogen first to compensate
+				src_mixture.gases[/datum/gas/nitrogen][MOLES] += min(dd_amount, MOLES_CELLSTANDARD )
 
 /obj/structure/plant_tank/wrench_act(mob/living/user, obj/item/tool)
 	balloon_alert(user, "[anchored ? "un" : ""]bolting")
