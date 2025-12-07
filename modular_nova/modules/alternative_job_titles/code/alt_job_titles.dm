@@ -95,6 +95,7 @@
 		"Botanical Researcher",
 		"Florist",
 		"Gardener",
+		"Beekeeper",
 		"Herbalist",
 		"Hydroponicist",
 		"Mycologist",
@@ -163,6 +164,9 @@
 /datum/job/chemist
 	alt_titles = list(
 		"Chemist",
+		"Registered Pharmacist",
+		"Clinical Pharmacist",
+		"Assistant Pharmacist",
 		"Pharmacist",
 		"Pharmacologist",
 		"Trainee Pharmacist",
@@ -181,6 +185,7 @@
 		"Chief Medical Officer",
 		"Chief Physician",
 		"Head of Medical",
+		"Medical Supervisor",
 		"Head Physician",
 		"Medical Director",
 		"Medical Administrator",
@@ -198,9 +203,12 @@
 	alt_titles = list(
 		"Cook",
 		"Butcher",
+		"Line Cook",
 		"Chef",
 		"Culinary Artist",
 		"Sous-Chef",
+		"Chef's Apprentice",
+		"Baker",
 		"Junior Chef",
 	)
 
@@ -238,8 +246,10 @@
 /datum/job/detective
 	alt_titles = list(
 		"Detective",
+		"Forensic Specialist",
 		"Forensic Scientist",
 		"Forensic Technician",
+		"Forensic Investigator",
 		"Private Investigator",
 	)
 
@@ -252,6 +262,10 @@
 		"Physician",
 		"Surgeon",
 		"Medical Student",
+		"Clinician",
+		"Physician Assistant",
+		"Internal Medicine Physician",
+		"Emergency Medicine Physician",
 		"Registered Nurse",
 	)
 
@@ -260,6 +274,9 @@
 /datum/job/geneticist
 	alt_titles = list(
 		"Geneticist",
+		"Molecular Biologist",
+		"Gene Scientist",
+		"Gene Analyzer",
 		"Gene Tailor",
 		"Mutation Researcher",
 	)
@@ -288,6 +305,8 @@
 		"Janitor",
 		"Concierge",
 		"Custodial Technician",
+		"Rat Catcher",
+		"Pest Control Technician",
 		"Custodian",
 		"Maid",
 		"Maintenance Technician",
@@ -303,6 +322,9 @@
 		"Internal Affairs Agent",
 		"Legal Clerk",
 		"Prosecutor",
+		"Attorney At Law",
+		"Corporate General Counsel Attorney",
+		"Corporate Attorney",
 		"Public Defender",
 	)
 
@@ -317,7 +339,7 @@
 	alt_titles = list(
 		"Nanotrasen Consultant",
 		"Nanotrasen Advisor",
-		"Nanotrasen Representative",
+		"Nanotrasen Corporate Representative",
 		"Nanotrasen Diplomat",
 	)
 
@@ -332,6 +354,7 @@
 		"Paramedic",
 		"Emergency Medical Technician",
 		"Search and Rescue Technician",
+		"Emergency Response Technician",
 		"Trauma Team Responder",
 		"Emergency Medical Responder",
 	)
@@ -382,6 +405,7 @@
 		"Roboticist",
 		"Biomechanical Engineer",
 		"Cyberneticist",
+		"Mech Fabrication Specialist",
 		"Machinist",
 		"Mechatronic Engineer",
 		"Apprentice Roboticist",
@@ -446,6 +470,7 @@
 		"Wireless Operator",
 		"Network Engineer",
 		"Sysadmin",
+		"Telecomms Technician",
 		"Tram Technician",
 	)
 
@@ -453,6 +478,7 @@
 	alt_titles = list(
 		"Virologist",
 		"Epidemiologist",
+		"Microbiologist",
 		"Pathologist",
 		"Junior Pathologist",
 	)
