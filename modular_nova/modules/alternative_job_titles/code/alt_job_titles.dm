@@ -39,6 +39,9 @@
 	alt_titles = list(
 		"Atmospheric Technician",
 		"Emergency Fire Technician",
+		"Hypertorus Fusion Reactor Operator",
+		"Gas Synthesis Technician",
+		"Nuclear Reactor Operator",
 		"Firefighter",
 		"Life Support Technician",
 	)
@@ -56,7 +59,11 @@
 /datum/job/bartender
 	alt_titles = list(
 		"Bartender",
+		"Barman",
+		"Barmaid",
 		"Barista",
+		"Bar Manager",
+		"Beverage Architect",
 		"Barkeeper",
 		"Mixologist",
 	)
@@ -86,6 +93,7 @@
 	alt_titles = list(
 		"Blueshield",
 		"Command Bodyguard",
+		"Corporate Protection Specialist",
 		"Executive Protection Agent",
 	)
 
@@ -113,6 +121,7 @@
 	alt_titles = list(
 		"Corrections Officer",
 		"Brig Officer",
+		"Brig Guard",
 		"Prison Guard",
 	)
 
@@ -121,6 +130,7 @@
 		"Captain",
 		"Commanding Officer",
 		"Site Manager",
+		"Site Supervisor",
 		"Site Overseer",
 		"Site Director",
 		"Site Administrator",
@@ -135,6 +145,7 @@
 		"Deck Worker",
 		"Inventory Associate",
 		"Mailman",
+		"Cargo Associate",
 		"Mail Carrier",
 		"Receiving Clerk",
 		"Shipping Associate",
@@ -286,6 +297,7 @@
 		"Head of Personnel",
 		"Crew Supervisor",
 		"Employment Officer",
+		"Human Resources Officer",
 		"Executive Officer",
 	)
 
@@ -339,6 +351,7 @@
 	alt_titles = list(
 		"Nanotrasen Consultant",
 		"Nanotrasen Advisor",
+		"Nanotrasen Corporate Regulation Advisor",
 		"Nanotrasen Corporate Representative",
 		"Nanotrasen Diplomat",
 	)
@@ -447,6 +460,7 @@
 		"Excavator",
 		"Drill Technician",
 		"Prospector",
+		"Ore Excavation Specialist",
 		"Spelunker",
 		"Apprentice Miner",
 	)
@@ -459,9 +473,10 @@
 		"Engine Technician",
 		"EVA Technician",
 		"Mechanic",
+		"Architect",
 		"Structural Engineer",
+		"Electrical Engineer",
 		"Apprentice Engineer",
-		"Nuclear Engineer",
 	)
 
 /datum/job/telecomms_specialist
