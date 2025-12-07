@@ -133,6 +133,14 @@ There are several things that need to be remembered:
 				mutant_styles |= get_taur_mode()
 			female_sprite_flags &= ~FEMALE_UNIFORM_FULL // clear the FEMALE_UNIFORM_DIGI_FULL bit if it was set, we don't want that.
 			female_sprite_flags |= FEMALE_UNIFORM_TOP_ONLY // And set the FEMALE_UNIFORM_TOP_ONLY bit if it is unset.
+			if((mutant_styles & STYLE_TAUR_SNAKE) && uniform.worn_icon_taur_snake)
+				uniform.worn_x_offset = -16
+			else if ((mutant_styles & STYLE_TAUR_PAW) && uniform.worn_icon_taur_paw)
+				uniform.worn_x_offset = -16
+			else if ((mutant_styles & STYLE_TAUR_HOOF) && uniform.worn_icon_taur_hoof)
+				uniform.worn_x_offset = -16
+		else
+			uniform.worn_x_offset = 0
 		// NOVA EDIT ADDITION END
 
 		//END SPECIES HANDLING
@@ -396,7 +404,7 @@ There are several things that need to be remembered:
 
 		if((bodyshape & BODYSHAPE_DIGITIGRADE) && (worn_item.supports_variations_flags & CLOTHING_DIGITIGRADE_VARIATION))
 			var/obj/item/bodypart/leg = src.get_bodypart(BODY_ZONE_L_LEG)
-			if(leg.limb_id == "digitigrade" || leg.bodyshape & BODYSHAPE_DIGITIGRADE)//Snowflakey and bad. But it makes it look consistent.
+			if(leg.limb_id == BODYPART_ID_DIGITIGRADE || leg.bodyshape & BODYSHAPE_DIGITIGRADE)//Snowflakey and bad. But it makes it look consistent.
 				icon_file = worn_item.worn_icon_digi || DIGITIGRADE_SHOES_FILE // NOVA EDIT CHANGE
 				mutant_override = TRUE // NOVA EDIT ADDITION
 		if(!mutant_override && bodyshape & BODYSHAPE_CUSTOM)
@@ -559,6 +567,14 @@ There are several things that need to be remembered:
 			var/obj/item/clothing/suit/worn_suit = wear_suit
 			if(istype(worn_suit) && worn_suit.gets_cropped_on_taurs)
 				mutant_styles |= get_taur_mode()
+			if((mutant_styles & STYLE_TAUR_SNAKE) && worn_suit.worn_icon_taur_snake)
+				worn_suit.worn_x_offset = -16
+			else if ((mutant_styles & STYLE_TAUR_PAW) && worn_suit.worn_icon_taur_paw)
+				worn_suit.worn_x_offset = -16
+			else if ((mutant_styles & STYLE_TAUR_HOOF) && worn_suit.worn_icon_taur_hoof)
+				worn_suit.worn_x_offset = -16
+		else
+			wear_suit.worn_x_offset = 0
 		// NOVA EDIT ADDITION END
 
 		var/mutable_appearance/suit_overlay = wear_suit.build_worn_icon(default_layer = SUIT_LAYER, default_icon_file = icon_file, override_file = mutant_override ? icon_file : null, mutant_styles = mutant_styles) // NOVA EDIT CHANGE - Mutant bodytypes and Taur-friendly suits! - ORIGINAL: var/mutable_appearance/suit_overlay = wear_suit.build_worn_icon(default_layer = SUIT_LAYER, default_icon_file = icon_file)
@@ -1013,17 +1029,17 @@ mutant_styles: The mutant style - taur bodytype, STYLE_TESHARI, etc. // NOVA EDI
 
 	// NOVA EDIT ADDITION START - Taur-friendly uniforms and suits
 	var/using_taur_variant = FALSE
-	if (isnull(override_file))
-		if (mutant_styles & STYLE_TAUR_ALL)
-			if ((mutant_styles & STYLE_TAUR_SNAKE) && worn_icon_taur_snake)
-				override_file = worn_icon_taur_snake
-				using_taur_variant = TRUE
-			else if ((mutant_styles & STYLE_TAUR_PAW) && worn_icon_taur_paw)
-				override_file = worn_icon_taur_paw
-				using_taur_variant = TRUE
-			else if ((mutant_styles & STYLE_TAUR_HOOF) && worn_icon_taur_hoof)
-				override_file = worn_icon_taur_hoof
-				using_taur_variant = TRUE
+	var/is_for_taur = mutant_styles & STYLE_TAUR_ALL
+	if (isnull(override_file) && is_for_taur)
+		if ((mutant_styles & STYLE_TAUR_SNAKE) && worn_icon_taur_snake)
+			override_file = worn_icon_taur_snake
+			using_taur_variant = TRUE
+		else if ((mutant_styles & STYLE_TAUR_PAW) && worn_icon_taur_paw)
+			override_file = worn_icon_taur_paw
+			using_taur_variant = TRUE
+		else if ((mutant_styles & STYLE_TAUR_HOOF) && worn_icon_taur_hoof)
+			override_file = worn_icon_taur_hoof
+			using_taur_variant = TRUE
 	// NOVA EDIT ADDITION END
 	//Find a valid icon_state from variables+arguments
 	var/t_state = override_state || (isinhands ? inhand_icon_state : worn_icon_state) || icon_state
@@ -1053,18 +1069,13 @@ mutant_styles: The mutant style - taur bodytype, STYLE_TESHARI, etc. // NOVA EDI
 			greyscale_colors = greyscale_colors,
 		)
 	// NOVA EDIT ADDITION START - Taur-friendly uniforms and suits
-	var/shift_pixel_x = 0
-	if (mutant_styles & STYLE_TAUR_ALL)
-		if (!using_taur_variant)
-			building_icon = wear_taur_version(t_state, building_icon || icon(file2use, t_state), female_uniform, greyscale_colors)
-		else
-			shift_pixel_x = -16 // it doesnt look right otherwise
+	if (is_for_taur && !using_taur_variant)
+		building_icon = wear_taur_version(t_state, building_icon || icon(file2use, t_state), female_uniform, greyscale_colors)
 	// NOVA EDIT ADDITION END
 	if(building_icon)
 		draw_target = mutable_appearance(building_icon, layer = -layer2use)
 	else
 		draw_target = mutable_appearance(file2use, t_state, layer = -layer2use)
-	draw_target.pixel_x += shift_pixel_x // NOVA EDIT ADDITION - Taur-friendly uniforms and suits
 
 	//Get the overlays for this item when it's being worn
 	//eg: ammo counters, primed grenade flashes, etc.

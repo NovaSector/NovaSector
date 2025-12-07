@@ -152,6 +152,37 @@
 	vary = TRUE
 	sound = 'sound/mobs/non-humanoids/mouse/mousesqueek.ogg'
 
+/datum/emote/living/yip
+	key = "yip"
+	key_third_person = "yips"
+	message = "yips!"
+	emote_type = EMOTE_AUDIBLE
+	vary = TRUE
+	sound = 'modular_nova/modules/emotes/sound/voice/fox_squeak.ogg'
+
+/datum/emote/living/whine
+	key = "whine"
+	key_third_person = "whines"
+	message = "whines like a fox."
+	emote_type = EMOTE_AUDIBLE
+	vary = TRUE
+	mob_type_allowed_typecache = list(/mob/living/carbon, /mob/living/silicon/pai)
+
+/datum/emote/living/whine/get_sound(mob/living/user)
+	return pick('modular_nova/modules/emotes/sound/voice/fox1.ogg',
+				'modular_nova/modules/emotes/sound/voice/fox2.ogg',
+				'modular_nova/modules/emotes/sound/voice/fox3.ogg',
+				'modular_nova/modules/emotes/sound/voice/fox4.ogg',
+				'modular_nova/modules/emotes/sound/voice/fox5.ogg',
+				'modular_nova/modules/emotes/sound/voice/fox6.ogg',
+				'modular_nova/modules/emotes/sound/voice/fox7.ogg',
+				'modular_nova/modules/emotes/sound/voice/fox8.ogg',
+				'modular_nova/modules/emotes/sound/voice/fox9.ogg',
+				'modular_nova/modules/emotes/sound/voice/fox10.ogg',
+				'modular_nova/modules/emotes/sound/voice/fox11.ogg',
+				'modular_nova/modules/emotes/sound/voice/fox12.ogg',
+				'modular_nova/modules/emotes/sound/voice/fox13.ogg')
+
 /datum/emote/living/merp
 	key = "merp"
 	key_third_person = "merps"

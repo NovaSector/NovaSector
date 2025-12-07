@@ -9,7 +9,7 @@
 /obj/effect/mob_spawn/ghost_role/human/maintsroom
 	name = "chamenos"
 	prompt_name = "A being stuck in between two spaces"
-	you_are_text = "You wake up. Your hideout is intact with stuff you gathered yesterday, you are safe but you get a gut feeling that once you leave your hideout you cannot come back. Maybe you should go explore, be wary of the red lights."
+	you_are_text = "You wake up. Your hideout is intact with stuff you gathered yesterday, you are safe in your hideout. Maybe you should go explore, be wary of the red lights."
 	flavour_text = "You've been stuck in the Maintsrooms for longer than you can remember, and this place has changed you. Is it madness, insanity, or an infection? Or are you an eldritch being, a monster who was born/created/manifested here? Survival will be challenging, and the Maintsrooms are a very hostile environment, so anything surviving here should have a believable reason to."
 	important_text = "YOU ARE NOT HOSTILE YOU SHOULD NOT BE KILLING PEOPLE/CREW IN GENERAL, unless you have admin permission or good IC justification to do so."
 	loadout_enabled = TRUE
@@ -17,7 +17,7 @@
 	allow_custom_character = GHOSTROLE_TAKE_PREFS_APPEARANCE // ghost role prefs
 	deletes_on_zero_uses_left = TRUE
 
-/obj/effect/mob_spawn/ghost_role/human/heretic
+/obj/effect/mob_spawn/ghost_role/human/heretic //specifically staying here for nova so the admins can spawn this if they want, tell me to delete this if you dont want this.
 	name = "Security Agent"
 	prompt_name = "Become a mysterious agent?"
 	you_are_text = "You are an agent for a mysterious clandestine group and the facility you worked for recently got evacuated and you were told to not go in and to prevent other people from going in, you know better than to mess with your boss."
