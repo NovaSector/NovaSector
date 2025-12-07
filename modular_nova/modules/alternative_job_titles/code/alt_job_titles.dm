@@ -349,11 +349,11 @@
 
 /datum/job/nanotrasen_consultant
 	alt_titles = list(
-		"Nanotrasen Consultant",
-		"Nanotrasen Advisor",
+		"Nanotrasen Corporate Consultant",
+		"Nanotrasen Corporate Advisor",
 		"Nanotrasen Corporate Regulation Advisor",
 		"Nanotrasen Corporate Representative",
-		"Nanotrasen Diplomat",
+		"Nanotrasen Corporate Diplomat",
 	)
 
 /datum/job/orderly
