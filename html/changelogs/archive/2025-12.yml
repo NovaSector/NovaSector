@@ -316,3 +316,7 @@
       report on the Github if unexpected behaviour occurs.
   uaioy:
   - bugfix: lavaland crash site ruin should properly be affected by ash storm now
+2025-12-07:
+  sqnztb:
+  - bugfix: Snowglobe's bridge has a spare ID safe again. The long-serving paper cutter
+      has been retired.
