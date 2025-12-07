@@ -118,7 +118,7 @@
 			if(add_amount > 0)
 				src_mixture.gases[/datum/gas/nitrogen][MOLES] = min(src_mixture.gases[/datum/gas/nitrogen][MOLES], add_amount)
 				src_mixture.gases[/datum/gas/oxygen][MOLES] -= add_amount // subtract some nitrogen first to compensate
-				src_mixture.gases[/datum/gas/nitrogen][MOLES] += min(dd_amount, MOLES_CELLSTANDARD )
+				src_mixture.gases[/datum/gas/nitrogen][MOLES] += min(add_amount, MOLES_CELLSTANDARD )
 
 /obj/structure/plant_tank/wrench_act(mob/living/user, obj/item/tool)
 	balloon_alert(user, "[anchored ? "un" : ""]bolting")
