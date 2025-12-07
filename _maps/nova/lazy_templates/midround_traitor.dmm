@@ -1227,9 +1227,7 @@
 "pH" = (
 /obj/structure/cable/multilayer/multiz,
 /obj/effect/decal/cleanable/dirt/dust,
-/turf/open/floor/plating{
-	baseturf = /turf/open/floor/plating
-	},
+/turf/open/floor/plating,
 /area/misc/operative_barracks/hangar)
 "pW" = (
 /obj/effect/turf_decal/siding/white,

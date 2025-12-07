@@ -1115,3 +1115,133 @@
   vinylspiders:
   - bugfix: fixes a bug that caused you to need to wear shoes in order to gain any
       defensive benefit from the sleeping carp martial art style
+2025-11-30:
+  567Turtle:
+  - rscadd: Humanoids no longer have skin color overlays on their body parts.
+  Aliceee2ch:
+  - spellcheck: Removed cellular damage mention from Radioactive Resonance virus description.
+  - image: Added more inhands sprite for welders, aswell as upgrading some of them.
+  ArchBTW:
+  - bugfix: Fix crowbar combat mode right clicking an unpowered airlock
+  Bisar:
+  - code_imp: All (Brute|Burn|Fire|Tox|Oxy|Organ|Stamina)(Loss) procs now use snake_case,
+      in-line with the STYLE guide. Underscores rule!
+  Cat:
+  - qol: The plumbing IV drip can be rotate with alt click now
+  - rscadd: The plumbing IV drip can now output chemicals into plumbing factories
+  Cirrial:
+  - bugfix: Stoats have a chance to try and grab items like they always should have.
+  - bugfix: Health analysers will no longer erroneously show a blood level for things
+      that don't have blood.
+  Co0kie-GG:
+  - rscadd: New emotions on the AI status display
+  DriftingSkies:
+  - balance: Removes Medical Doctor's Chemistry access during highpop.
+  FalloutFalcon:
+  - bugfix: Less abstract mobs will spawn in random spawners (mostly relating to the
+      summoning prefix)
+  - bugfix: '"Boss" basic mobs are now exluded from the summoning prefix to parody
+      behavior of them being megafauna'
+  Fghj240:
+  - bugfix: Durability header no longer appears twice when inspecting armor
+  - bugfix: Exosuit fabricator UI now shows the Savannah-Ivanov's supported equipment
+  - qol: you can swap beakers in a pandemic
+  - qol: pandemics now display overall virus severity
+  - admin: virus logs now include severity along with other stats
+  - qol: weapon rechargers don't wait an extra tick before announcing they've finished
+      recharging
+  - spellcheck: weapon rechargers no longer claim a battle rifle has "finished recharging"
+      when it's finished recalibrating.
+  Hardly:
+  - balance: You can no longer use the dragonslayer, cargo/chap claymore, luna, bone
+      sword or cargo's sabre to craft a stunsword.
+  Hatterhat:
+  - rscadd: Energy shoulder holsters can now fit a power cell inside of them to act
+      as a wearable recharger specifically for energy weapons. Examine them for more
+      details, and remember to actually wear them to recharge your guns.
+  - rscadd: You can now convert shoulder holsters into energy shoulder holsters, and
+      you can now craft a one-slot, high-output energy shoulder holster.
+  - bugfix: Security webbing's basic sprite now uses the TG basic sprite.
+  - qol: Holsters now hold energy guns and laser guns just fine instead of specifically
+      the mini e-gun, cap's laser, HoS laser, etc.
+  - balance: Most holsters now only fit one gun, much like secbelts. Energy shoulder
+      holsters, as befitting their plural nature, still hold two.
+  - balance: Small guns and small batons no longer count against secbelts' limited
+      slots for normal-size guns/batons. Not that you should have a secbelt full of
+      snub-nose Renards instead of just carrying one and some speedloaders, but if
+      you're going to drop a set of handcuffs for a backup pocket pistol, at least
+      you can still stash your disabler.
+  - balance: The Syndicate has realized that way too much funding was allocated to
+      the Deep Space 2 program's armor-outfitting budget, and has subsequently field-executed
+      those responsible for the record-breaking levels of embezzlement. Armor for
+      DS2 has subsequently been realigned with regular Gorlex-Cybersun MODsuits. Affected
+      parties are invited to file a complaint.
+  Melbert:
+  - qol: Search bars in "settings" and "keybindings"
+  - refactor: Refactored how zombie powder and inverse cryogeldia apply their effects
+      to maybe have them get stuck less
+  - bugfix: 'Deathmatch: Ethereal Species gives you shock touch as intended'
+  MintMetal:
+  - map: Tarkon Project room is now normally conected
+  OrbisAnima:
+  - qol: Gives Medical doctors secure morgue access during low pop
+  - balance: .585 speed loaders are small sized now, as originally intended.
+  Pickle-Coding:
+  - bugfix: Fixes overclocked volume pumps being able to work on walls.
+  RealWinterFrost:
+  - image: Fixes bridge officer jacket to be the correct colors
+  - rscadd: Added Floor Tiles to the RTD
+  SmArtKar:
+  - bugfix: Fixed partially deployed MODsuits trying to deploy parts onto blocked
+      slots when the deploy action is right clicked, instead of retracting already
+      deployed parts.
+  - admin: Added jump and search functions to the planecube debugger
+  - qol: Bot assemblies will only be picked up if you held the medkit/toolbox/helmet/etc
+      in your hands when creating one.
+  - qol: Assembling med/repair/secbots will now put their assemblies in your main
+      hand instead of your offhand
+  - admin: Converted the Spawn verb into a TGUI input, featuring for dynamic search
+      and RegEx support
+  Stalkeros:
+  - balance: Bitrunning encrypted caches, in-domain, can't be pushed, pulled, or wrenched
+      by the hostile and neutral ghost roles. Assisting bitrunners can do that, still;
+      being assistance.
+  Stalkeros, Hollandaise for the sprites:
+  - rscadd: New nurse outfit has been added to better resemble a proper more realistic
+      nurse
+  - image: Nurse outfit has been resprited to better resemble a proper nurse.
+  SyncIt21:
+  - bugfix: items such as dna injectors and others that have strange characters in
+      their names can now be dispensed from custom vending machines
+  TealSeer:
+  - bugfix: fixed MULEbots unloading deliveries onto the wrong tile
+  TheSS13Melon:
+  - code_imp: Changes weights in dynamic while disabling Dynamic Tweak
+  Wallem:
+  - qol: Replaces abandoned crate multitool interaction with a TGUI window that shows
+      ALL your previous attempts
+  WebcomicArtist:
+  - qol: Ethereal Drinks (Voltaic wine,telepole,pod tesla) now can feed etherials
+      decently without needing them to risk blacking out.
+  Y0SH1M4S73R:
+  - rscadd: Trapdoors built inside of a shuttle will move along with the shuttle.
+  - bugfix: Open trapdoors will not cause shuttles containing them to bring open space
+      into transit.
+  Yobrocharlie:
+  - bugfix: halved the numbers of mobs in the maintsrooms.
+  - bugfix: A myriad of smaller oversights with the maintsrooms, reworked the materials
+  ezel:
+  - balance: You can no longer print soup pots
+  lelandkemble:
+  - bugfix: Emagging the cap's spare safe will no longer turn it into a smiling table
+  - bugfix: Video game winning experiment no longer completes over and over
+  necromanceranne:
+  - bugfix: The Hellfire Laser now has its unique sprite back.
+  vinylspiders:
+  - rscadd: assistants and prisoners will show up at the bottom of the job estimation
+      now
+  - bugfix: fixes some bugs with strapon code
+  - bugfix: fixes a bug where multiple crates could occupy the same crate shelf if
+      you queued them at the same time
+  - bugfix: you can no longer unload crates on top of other crates, or unload them
+      further than you can reach

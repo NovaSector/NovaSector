@@ -83,7 +83,6 @@
 	new /obj/item/computer_disk/command/cmo(src)
 	new /obj/item/radio/headset/heads/cmo(src)
 	new /obj/item/megaphone/command(src)
-	new /obj/item/defibrillator/compact/loaded(src)
 	new /obj/item/assembly/flash/handheld(src)
 	new /obj/item/storage/briefcase/medicalgunset/cmo(src) //NOVA EDIT ADDITION MEDIGUNS
 	new /obj/item/autosurgeon/medical_hud(src)
@@ -99,8 +98,8 @@
 	. = ..()
 
 	// Traitor steal objective
-	//new /obj/item/reagent_containers/hypospray/cmo(src) - ORIGINAL
-	new /obj/item/storage/hypospraykit/cmo/preloaded(src) //NOVA EDIT ADDITION - New Hyposprays
+	new /obj/item/storage/hypospraykit/cmo/preloaded(src) // NOVA EDIT CHANGE - New Hyposprays - ORIGINAL: new /obj/item/reagent_containers/hypospray/cmo(src)
+	new /obj/item/defibrillator/compact/loaded/cmo(src)
 
 /obj/structure/closet/secure_closet/animal
 	name = "animal control locker"

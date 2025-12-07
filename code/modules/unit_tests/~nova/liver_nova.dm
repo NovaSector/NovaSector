@@ -31,19 +31,19 @@
 
 	// Test synthetic-oriented reagent and nanite slurry healing
 	test_robot = EASY_ALLOCATE()
-	test_robot.adjustBruteLoss(5)
+	test_robot.adjust_brute_loss(5)
 	var/datum/reagent/medicine/nanite_slurry/slurry = /datum/reagent/medicine/nanite_slurry
 	test_robot.reagents.add_reagent(slurry, 15)
 	test_robot.Life(SSMOBS_DT)
-	TEST_ASSERT(test_robot.getBruteLoss() < 5, "Synthetic humanoid not healed by nanite slurry reagent.")
+	TEST_ASSERT(test_robot.get_brute_loss() < 5, "Synthetic humanoid not healed by nanite slurry reagent.")
 
 	// Test libital healing
 	test_robot = EASY_ALLOCATE()
-	test_robot.adjustBruteLoss(5)
+	test_robot.adjust_brute_loss(5)
 	var/datum/reagent/medicine/c2/libital/libital = /datum/reagent/medicine/c2/libital
 	test_robot.reagents.add_reagent(libital, 15)
 	test_robot.Life(SSMOBS_DT)
-	TEST_ASSERT(test_robot.getBruteLoss() == 5, "Synthetic humanoid healed by libital reagent.")
+	TEST_ASSERT(test_robot.get_brute_loss() == 5, "Synthetic humanoid healed by libital reagent.")
 
 /datum/unit_test/liver/synthetic/Destroy()
 	SSmobs.ignite()
@@ -68,19 +68,19 @@
 
 	// Test synthetic-oriented reagent and nanite slurry healing
 	lab_rat = EASY_ALLOCATE()
-	lab_rat.adjustBruteLoss(5)
+	lab_rat.adjust_brute_loss(5)
 	var/datum/reagent/medicine/nanite_slurry/slurry = /datum/reagent/medicine/nanite_slurry
 	lab_rat.reagents.add_reagent(slurry, 15)
 	lab_rat.Life(SSMOBS_DT)
-	TEST_ASSERT(lab_rat.getBruteLoss() == 5, "Human healed by nanite slurry reagent.")
+	TEST_ASSERT(lab_rat.get_brute_loss() == 5, "Human healed by nanite slurry reagent.")
 
 	// Test libital healing
 	lab_rat = EASY_ALLOCATE()
-	lab_rat.adjustBruteLoss(5)
+	lab_rat.adjust_brute_loss(5)
 	var/datum/reagent/medicine/c2/libital/libital = /datum/reagent/medicine/c2/libital
 	lab_rat.reagents.add_reagent(libital, 15)
 	lab_rat.Life(SSMOBS_DT)
-	TEST_ASSERT(lab_rat.getBruteLoss() < 5, "Human not healed by libital reagent.")
+	TEST_ASSERT(lab_rat.get_brute_loss() < 5, "Human not healed by libital reagent.")
 
 /datum/unit_test/liver/human/Destroy()
 	SSmobs.ignite()
