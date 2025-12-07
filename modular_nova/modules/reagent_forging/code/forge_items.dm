@@ -39,6 +39,7 @@ GLOBAL_LIST_INIT(allowed_forging_materials, list(
 /obj/item/forging/tongs/primitive
 	name = "primitive forging tongs"
 	toolspeed = 2
+	custom_materials = list(/datum/material/iron = SHEET_MATERIAL_AMOUNT * 5)
 
 /obj/item/forging/tongs/attack_self(mob/user, modifiers)
 	. = ..()
@@ -69,6 +70,7 @@ GLOBAL_LIST_INIT(allowed_forging_materials, list(
 
 /obj/item/forging/hammer/primitive
 	name = "primitive forging hammer"
+	custom_materials = list(/datum/material/iron = SHEET_MATERIAL_AMOUNT * 5)
 
 /obj/item/forging/billow
 	name = "forging billow"
@@ -79,6 +81,7 @@ GLOBAL_LIST_INIT(allowed_forging_materials, list(
 /obj/item/forging/billow/primitive
 	name = "primitive forging billow"
 	toolspeed = 2
+	custom_materials = list(/datum/material/wood = SHEET_MATERIAL_AMOUNT * 5)
 
 //incomplete pre-complete items
 /obj/item/forging/incomplete

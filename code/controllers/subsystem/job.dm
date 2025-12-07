@@ -31,7 +31,7 @@ SUBSYSTEM_DEF(job)
 	var/list/prioritized_jobs = list()
 	var/list/latejoin_trackers = list()
 
-	var/overflow_role = /datum/job/assistant
+	var/datum/job/overflow_role = /datum/job/assistant
 
 	var/list/level_order = list(JP_HIGH, JP_MEDIUM, JP_LOW)
 
@@ -745,13 +745,19 @@ SUBSYSTEM_DEF(job)
 
 /atom/proc/JoinPlayerHere(mob/joining_mob, buckle)
 	// By default, just place the mob on the same turf as the marker or whatever.
-	joining_mob.forceMove(get_turf(src))
+	// Set joining_mob as the new mob so subtypes can use it as a proper mob.
+	if(ispath(joining_mob))
+		joining_mob = new joining_mob(get_turf(src))
+	else
+		joining_mob.forceMove(get_turf(src))
+	return joining_mob
 
 /obj/structure/chair/JoinPlayerHere(mob/joining_mob, buckle)
-	. = ..()
+	var/mob/created_joining_mob = ..()
 	// Placing a mob in a chair will attempt to buckle it, or else fall back to default.
-	if(buckle && isliving(joining_mob))
-		buckle_mob(joining_mob, FALSE, FALSE)
+	if(buckle && isliving(created_joining_mob))
+		buckle_mob(created_joining_mob, FALSE, FALSE)
+	return created_joining_mob
 
 /datum/controller/subsystem/job/proc/send_to_late_join(mob/M, buckle = TRUE)
 	var/atom/destination
@@ -1010,7 +1016,6 @@ SUBSYSTEM_DEF(job)
 		return JOB_UNAVAILABLE_AUGMENT
 	//NOVA EDIT ADDITION END
 
-	// Run this check after is_banned_from since it can query the DB which may sleep.
 	// Need to recheck the player exists after is_banned_from since it can query the DB which may sleep.
 	if(QDELETED(player))
 		job_debug("[debug_prefix]: Player is qdeleted, Player: [player][add_job_to_log ? ", Job: [possible_job]" : ""]")

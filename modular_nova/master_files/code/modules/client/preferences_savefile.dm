@@ -274,8 +274,8 @@
 	if(current_version < VERSION_SKRELL_HAIR_NAME_UPDATE)
 		var/list/mutant_bodyparts = SANITIZE_LIST(save_data["mutant_bodyparts"])
 
-		if("skrell_hair" in mutant_bodyparts)
-			var/current_skrell_hair = mutant_bodyparts["skrell_hair"][MUTANT_INDEX_NAME]
+		if(FEATURE_SKRELL_HAIR in mutant_bodyparts)
+			var/current_skrell_hair = mutant_bodyparts[FEATURE_SKRELL_HAIR][MUTANT_INDEX_NAME]
 
 			if(current_skrell_hair == "Male")
 				write_preference(GLOB.preference_entries[/datum/preference/choiced/mutant_choice/skrell_hair], "Short")

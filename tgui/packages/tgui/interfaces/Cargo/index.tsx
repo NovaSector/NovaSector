@@ -16,7 +16,6 @@ enum TAB {
   Requests = 'active requests',
   Cart = 'cart',
   Help = 'help',
-  CompanyImports = 'company_import_window', // NOVA EDIT ADDITION
 }
 
 export function Cargo(props) {
@@ -82,15 +81,6 @@ export function CargoContent(props) {
             >
               Requests ({requests.length})
             </Tabs.Tab>
-            {/* NOVA EDIT ADDITION START */}
-            <Tabs.Tab
-              icon="clipboard-list"
-              selected={tab === TAB.CompanyImports}
-              onClick={() => act('company_import_window')}
-            >
-              Company Imports
-            </Tabs.Tab>
-            {/* NOVA EDIT ADDITION END */}
             {!requestonly && (
               <>
                 <Tabs.Tab

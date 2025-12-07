@@ -12,7 +12,7 @@
 		/datum/bodypart_overlay/simple/body_marking/lizard = SPRITE_ACCESSORY_NONE,
 	)
 	*/ // NOVA EDIT REMOVAL END
-	mutant_bodyparts = list("body_markings" = "None", "legs" = "Normal Legs") // NOVA EDIT ADDITION - Customization
+	mutant_bodyparts = list(FEATURE_MARKING_GENERIC = "None", FEATURE_LEGS = "Normal Legs") // NOVA EDIT ADDITION - Customization
 	mutant_organs = list(
 		/obj/item/organ/horns = SPRITE_ACCESSORY_NONE,
 		/obj/item/organ/frills = SPRITE_ACCESSORY_NONE,
@@ -57,7 +57,7 @@
 /*
 /datum/species/lizard/randomize_features()
 	var/list/features = ..()
-	features["lizard_markings"] = pick(SSaccessories.lizard_markings_list)
+	features[FEATURE_LIZARD_MARKINGS] = pick(SSaccessories.feature_list[FEATURE_LIZARD_MARKINGS])
 	return features
 */
 //NOVA EDIT REMOVAL END
@@ -233,14 +233,14 @@ Lizard subspecies: SILVER SCALED
 		and their tongue allows them to turn into a statue, for some reason."
 
 /datum/species/lizard/silverscale/on_species_gain(mob/living/carbon/human/new_silverscale, datum/species/old_species, pref_load, regenerate_icons)
-	old_mutcolor = new_silverscale.dna.features["mcolor"]
-	new_silverscale.dna.features["mcolor"] = "#eeeeee"
+	old_mutcolor = new_silverscale.dna.features[FEATURE_MUTANT_COLOR]
+	new_silverscale.dna.features[FEATURE_MUTANT_COLOR] = "#eeeeee"
 	new_silverscale.add_eye_color("#0000a0", EYE_COLOR_SPECIES_PRIORITY)
 	. = ..()
 	new_silverscale.add_filter("silver_glint", 2, list("type" = "outline", "color" = "#ffffff63", "size" = 2))
 
 /datum/species/lizard/silverscale/on_species_loss(mob/living/carbon/human/was_silverscale, datum/species/new_species, pref_load)
-	was_silverscale.dna.features["mcolor"] = old_mutcolor
+	was_silverscale.dna.features[FEATURE_MUTANT_COLOR] = old_mutcolor
 	was_silverscale.remove_eye_color(EYE_COLOR_SPECIES_PRIORITY)
 	was_silverscale.remove_filter("silver_glint")
 	return ..()

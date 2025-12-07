@@ -5,16 +5,15 @@
 	var/lore_blurb = null
 	can_hold_up = FALSE // originally TRUE
 
-/obj/item/gun/examine(mob/user)
+/obj/item/gun/Initialize(mapload)
 	. = ..()
 	if(lore_blurb)
-		. += span_notice("You can [EXAMINE_HINT("examine more")] to learn a little more about [src].")
+		AddElement(/datum/element/examine_lore, \
+			lore_hint = span_notice("You can [EXAMINE_HINT("look closer")] to learn a little more about [src]."), \
+			lore = get_lore_blurb() \
+		)
 
-/obj/item/gun/examine_more(mob/user)
-	. = ..()
-	if(lore_blurb)
-		. += "<i>[get_lore_blurb()]</i>"
-
-/// Returns the lore blurb as a plain string. This gets italicized by the gun's examine_more(). Made a proc to allow overriding.
+/// Returns the lore blurb as a plain string, to be used for adding to the gun's examine_lore component. Made into a proc to allow overriding,
+/// for weapons like the Sol rifle series that have variant-specific blurbs.
 /obj/item/gun/proc/get_lore_blurb()
 	return lore_blurb

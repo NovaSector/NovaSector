@@ -392,7 +392,8 @@
 	dir = 8
 	},
 /obj/structure/sign/painting/library{
-	pixel_y = 32
+	pixel_y = 32;
+	dir = 1
 	},
 /turf/open/indestructible/hotelwood,
 /area/centcom/holding/cafe)
@@ -1098,7 +1099,7 @@
 /area/centcom/interlink)
 "aqO" = (
 /obj/machinery/light/directional/south,
-/obj/machinery/photocopier/gratis,
+/obj/machinery/photocopier/gratis/nova_inf,
 /turf/open/indestructible/hotelwood,
 /area/centcom/holding/cafe)
 "aqP" = (
@@ -2037,9 +2038,7 @@
 	},
 /area/centcom/holding/cafepark)
 "aAX" = (
-/obj/structure/mirror{
-	pixel_y = 32
-	},
+/obj/structure/mirror/directional/north,
 /turf/open/indestructible/carpet,
 /area/centcom/holding/cafe)
 "aBa" = (
@@ -2717,11 +2716,12 @@
 "aIU" = (
 /obj/structure/bodycontainer/crematorium{
 	dir = 4;
-	id = "crematoriumGhostDojo"
+	id = "crematoriumGhostCafe"
 	},
 /obj/machinery/button/crematorium{
-	id = "crematoriumGhostDojo";
-	pixel_x = -25
+	id = "crematoriumGhostCafe";
+	pixel_x = -25;
+	dir = 8
 	},
 /turf/open/indestructible/hotelwood,
 /area/centcom/holding/cafe)
@@ -3043,11 +3043,10 @@
 /turf/open/floor/fakebasalt,
 /area/centcom/holding/cafepark)
 "aNq" = (
-/obj/machinery/button/door{
+/obj/machinery/button/door/directional/west{
 	id = "ghostcafecabinb";
 	name = "Dorm Bolt Control";
 	normaldoorcontrol = 1;
-	pixel_x = -25;
 	specialfunctions = 4
 	},
 /turf/open/indestructible/hotelwood,
@@ -4400,11 +4399,10 @@
 /turf/open/floor/fakebasalt,
 /area/centcom/holding/cafepark)
 "boa" = (
-/obj/machinery/button/door{
+/obj/machinery/button/door/directional/south{
 	id = "ghostcaferesort2";
 	name = "Resort Bolt Control";
 	normaldoorcontrol = 1;
-	pixel_y = -24;
 	specialfunctions = 4
 	},
 /turf/open/floor/wood,
@@ -4507,7 +4505,8 @@
 	dir = 8
 	},
 /obj/structure/sign/painting/library{
-	pixel_x = -32
+	pixel_x = -32;
+	dir = 8
 	},
 /obj/machinery/light/directional/west,
 /obj/structure/closet/secure_closet/personal/cabinet{
@@ -5391,12 +5390,16 @@
 /turf/open/floor/iron/dark/smooth_large,
 /area/centcom/interlink)
 "dai" = (
-/obj/item/flashlight/flare/torch{
-	pixel_x = -4;
-	pixel_y = -10
+/obj/effect/turf_decal/trimline/white/filled/line{
+	dir = 9
 	},
-/turf/open/misc/dirt/planet,
-/area/centcom/holding/cafepark)
+/obj/effect/light_emitter/interlink,
+/obj/structure/sign/painting/library{
+	pixel_y = 30;
+	dir = 1
+	},
+/turf/open/floor/iron/dark,
+/area/centcom/interlink)
 "dau" = (
 /obj/machinery/door/airlock/wood/glass{
 	desc = "A strange small bar. It's actually remarkably close to Space Station 13.";
@@ -5423,12 +5426,10 @@
 /turf/open/floor/iron/smooth_large,
 /area/centcom/interlink)
 "dbn" = (
-/obj/structure/mirror{
-	pixel_y = 32
-	},
 /obj/structure/toilet{
 	pixel_y = 14
 	},
+/obj/structure/mirror/directional/north,
 /turf/open/indestructible/bathroom,
 /area/centcom/holding/cafe)
 "dcP" = (
@@ -5452,6 +5453,15 @@
 	},
 /turf/open/floor/catwalk_floor/iron_smooth,
 /area/centcom/holding/cafepark)
+"dep" = (
+/obj/machinery/button/door/directional/south{
+	id = "CCGenOffice";
+	name = "Command Office Bolt Control";
+	normaldoorcontrol = 1;
+	specialfunctions = 4
+	},
+/turf/open/indestructible/hotelwood,
+/area/centcom/holding/cafe)
 "dev" = (
 /obj/effect/spawner/liquids_spawner,
 /turf/open/floor/iron/pool/cobble/corner{
@@ -5638,10 +5648,11 @@
 /obj/effect/turf_decal/trimline/white/filled/line{
 	dir = 5
 	},
-/obj/structure/sign/painting/library{
-	pixel_y = 30
-	},
 /obj/effect/light_emitter/interlink,
+/obj/structure/sign/painting/library{
+	pixel_y = 30;
+	dir = 1
+	},
 /turf/open/floor/iron/dark,
 /area/centcom/interlink)
 "dDF" = (
@@ -6949,7 +6960,7 @@
 /obj/structure/fans/tiny/invisible,
 /obj/machinery/door/airlock{
 	name = "Salon";
-	id_tag = "CCSalon"
+	id_tag = "CCSalonDoor"
 	},
 /turf/open/indestructible/hotelwood,
 /area/centcom/holding/cafe)
@@ -7528,6 +7539,14 @@
 "gUZ" = (
 /obj/effect/turf_decal/tile/red/opposingcorners,
 /turf/open/floor/iron/dark,
+/area/centcom/holding/cafe)
+"gVf" = (
+/obj/structure/sink/directional/east,
+/obj/structure/toilet{
+	pixel_y = 14
+	},
+/obj/structure/mirror/directional/north,
+/turf/open/indestructible/bathroom,
 /area/centcom/holding/cafe)
 "gVD" = (
 /obj/machinery/light/directional/east,
@@ -8209,6 +8228,13 @@
 	},
 /turf/open/floor/wood/large,
 /area/centcom/interlink)
+"ibW" = (
+/obj/effect/turf_decal/trimline/white/filled/line{
+	dir = 1
+	},
+/obj/machinery/wall_healer/free/directional/north,
+/turf/open/floor/iron/edge,
+/area/centcom/interlink)
 "iet" = (
 /obj/effect/turf_decal/weather/snow/corner{
 	dir = 10
@@ -8275,6 +8301,13 @@
 	},
 /obj/effect/light_emitter/interlink,
 /turf/open/floor/stone,
+/area/centcom/interlink)
+"iiF" = (
+/obj/effect/turf_decal/trimline/white/filled/line{
+	dir = 4
+	},
+/obj/machinery/wall_healer/free/directional/east,
+/turf/open/floor/iron/dark,
 /area/centcom/interlink)
 "ikb" = (
 /obj/effect/turf_decal/weather/dirt{
@@ -8715,13 +8748,6 @@
 /turf/open/floor/iron/white/smooth_large,
 /area/centcom/interlink)
 "iYC" = (
-/obj/machinery/button/door{
-	id = "cozyfloofspot1";
-	name = "Dorm Bolt Control";
-	normaldoorcontrol = 1;
-	pixel_y = 24;
-	specialfunctions = 4
-	},
 /obj/structure/closet/abductor,
 /turf/open/floor/plating/abductor,
 /area/centcom/holding/cafepark)
@@ -8947,6 +8973,13 @@
 /obj/effect/decal/cleanable/generic,
 /turf/open/floor/iron/smooth_large,
 /area/centcom/interlink)
+"jyB" = (
+/obj/effect/turf_decal/trimline/white/filled/line{
+	dir = 8
+	},
+/obj/machinery/wall_healer/free/directional/west,
+/turf/open/floor/iron/dark,
+/area/centcom/interlink)
 "jzL" = (
 /obj/structure/spacevine{
 	name = "thick vines";
@@ -8961,7 +8994,8 @@
 "jBF" = (
 /obj/machinery/button/curtain{
 	id = "ghostcaferesort2curtain";
-	pixel_x = -26
+	pixel_x = -26;
+	dir = 8
 	},
 /turf/open/floor/wood,
 /area/centcom/holding/cafedorms)
@@ -9131,11 +9165,10 @@
 	},
 /area/centcom/interlink/dorm_rooms/room1)
 "jQJ" = (
-/obj/machinery/button/door{
+/obj/machinery/button/door/directional/west{
 	id = "ghostcafecabin3";
 	name = "Dorm Bolt Control";
 	normaldoorcontrol = 1;
-	pixel_x = -25;
 	specialfunctions = 4
 	},
 /turf/open/indestructible/hotelwood,
@@ -9342,12 +9375,11 @@
 /turf/open/floor/wood,
 /area/centcom/interlink/dorm_rooms/room1)
 "kkV" = (
-/obj/machinery/button/door{
+/obj/machinery/button/door/directional/north{
 	id = "ghostcafecabin1";
-	name = "Dorm Bolt Control";
 	normaldoorcontrol = 1;
-	pixel_y = 24;
-	specialfunctions = 4
+	specialfunctions = 4;
+	name = "Dorm Bolt Control"
 	},
 /turf/open/indestructible/hotelwood,
 /area/centcom/holding/cafe)
@@ -9907,11 +9939,10 @@
 /turf/open/indestructible/cobble/side,
 /area/centcom/holding/cafepark)
 "lct" = (
-/obj/machinery/button/door{
+/obj/machinery/button/door/directional/south{
 	id = "ghostcaferesort1";
 	name = "Resort Bolt Control";
 	normaldoorcontrol = 1;
-	pixel_y = -24;
 	specialfunctions = 4
 	},
 /turf/open/floor/wood,
@@ -9952,12 +9983,11 @@
 	pixel_y = 12
 	},
 /obj/machinery/light/small/directional/west,
-/obj/machinery/button/door{
+/obj/machinery/button/door/directional/east{
 	id = "CCToilet";
-	name = "Door Lock";
+	name = "Stall Lock";
 	normaldoorcontrol = 1;
-	specialfunctions = 4;
-	pixel_x = 28
+	specialfunctions = 4
 	},
 /turf/open/floor/iron/freezer,
 /area/centcom/holding/cafe)
@@ -10046,12 +10076,11 @@
 /area/centcom/holding/cafe)
 "lij" = (
 /obj/item/kirbyplants/random,
-/obj/machinery/button/door{
-	id = "CCSalon";
+/obj/machinery/button/door/directional/south{
+	id = "CCSalonDoor";
 	name = "Bolt Control";
 	normaldoorcontrol = 1;
-	specialfunctions = 4;
-	pixel_y = -25
+	specialfunctions = 4
 	},
 /turf/open/floor/wood/large,
 /area/centcom/holding/cafe)
@@ -11436,7 +11465,8 @@
 /obj/structure/easel,
 /obj/item/canvas/twentythree_twentythree,
 /obj/structure/sign/painting/library{
-	pixel_x = -32
+	pixel_x = -32;
+	dir = 8
 	},
 /turf/open/floor/carpet/cyan,
 /area/centcom/holding/cafe)
@@ -11476,6 +11506,10 @@
 "nvI" = (
 /obj/effect/light_emitter/interlink,
 /turf/open/floor/carpet/stellar,
+/area/centcom/interlink)
+"nwQ" = (
+/obj/machinery/wall_healer/free/directional/east,
+/turf/open/floor/iron/smooth_large,
 /area/centcom/interlink)
 "nxI" = (
 /obj/structure/chair/comfy/black{
@@ -11840,7 +11874,8 @@
 	dir = 9
 	},
 /obj/structure/sign/painting/library{
-	pixel_y = 30
+	pixel_y = 30;
+	dir = 1
 	},
 /obj/effect/light_emitter/interlink,
 /turf/open/floor/iron/dark,
@@ -11988,12 +12023,11 @@
 /area/centcom/interlink)
 "owJ" = (
 /obj/effect/turf_decal/tile/purple/anticorner/contrasted,
-/obj/machinery/button/door{
+/obj/machinery/button/door/directional/east{
 	id = "CCRobotics";
 	name = "Bolt Control";
 	normaldoorcontrol = 1;
-	specialfunctions = 4;
-	pixel_x = 25
+	specialfunctions = 4
 	},
 /turf/open/floor/iron,
 /area/centcom/holding/cafe)
@@ -12172,7 +12206,8 @@
 	dir = 8
 	},
 /obj/structure/sign/painting/library{
-	pixel_x = -32
+	pixel_x = -32;
+	dir = 8
 	},
 /obj/machinery/light/directional/west,
 /turf/open/floor/wood,
@@ -12451,14 +12486,13 @@
 /turf/open/floor/wood,
 /area/centcom/interlink/dorm_rooms/room3)
 "paJ" = (
-/obj/machinery/button/door{
+/obj/item/kirbyplants/random,
+/obj/machinery/button/door/directional/east{
 	id = "CCD1";
 	name = "Dorm Bolt Control";
 	normaldoorcontrol = 1;
-	pixel_x = 25;
 	specialfunctions = 4
 	},
-/obj/item/kirbyplants/random,
 /turf/open/indestructible/carpet,
 /area/centcom/holding/cafe)
 "pbd" = (
@@ -12787,7 +12821,8 @@
 	dir = 8
 	},
 /obj/structure/sign/painting/library{
-	pixel_x = -32
+	pixel_x = -32;
+	dir = 8
 	},
 /obj/machinery/light/directional/west,
 /obj/structure/closet/secure_closet/personal/cabinet{
@@ -14285,6 +14320,10 @@
 /obj/machinery/computer/libraryconsole/bookmanagement,
 /turf/open/indestructible/hotelwood,
 /area/centcom/holding/cafe)
+"rJS" = (
+/obj/machinery/wall_healer/free/directional/west,
+/turf/open/floor/iron/smooth_large,
+/area/centcom/interlink)
 "rKT" = (
 /obj/effect/turf_decal/trimline/white/filled/corner,
 /turf/open/floor/iron/dark/smooth_large,
@@ -14326,13 +14365,6 @@
 "rNs" = (
 /obj/structure/chair/office{
 	dir = 1
-	},
-/obj/machinery/button/door{
-	id = "CCGenOffice";
-	name = "Command Office Bolt Control";
-	normaldoorcontrol = 1;
-	specialfunctions = 4;
-	pixel_y = -29
 	},
 /turf/open/indestructible/hotelwood,
 /area/centcom/holding/cafe)
@@ -14544,7 +14576,8 @@
 	},
 /obj/machinery/light/directional/east,
 /obj/structure/sign/painting/library{
-	pixel_x = 32
+	pixel_x = 32;
+	dir = 4
 	},
 /obj/structure/closet/secure_closet/personal/cabinet{
 	anchored = 1
@@ -14574,7 +14607,8 @@
 /obj/machinery/button/curtain{
 	id = "CCSalon";
 	pixel_x = 1;
-	pixel_y = 28
+	pixel_y = 28;
+	dir = 1
 	},
 /turf/open/floor/carpet/black,
 /area/centcom/holding/cafe)
@@ -14793,15 +14827,14 @@
 /turf/open/floor/iron/stairs/old,
 /area/centcom/holding/cafepark)
 "ssi" = (
-/obj/machinery/button/door{
-	id = "ghostcafecabin2";
-	name = "Dorm Bolt Control";
-	normaldoorcontrol = 1;
-	pixel_y = -24;
-	specialfunctions = 4
-	},
 /obj/structure/bed/double,
 /obj/effect/spawner/random/bedsheet/double,
+/obj/machinery/button/door/directional/south{
+	id = "ghostcafecabin1";
+	name = "Dorm Bolt Control";
+	normaldoorcontrol = 1;
+	specialfunctions = 4
+	},
 /turf/open/indestructible/carpet,
 /area/centcom/holding/cafepark)
 "ssw" = (
@@ -14822,7 +14855,7 @@
 /turf/open/floor/iron/white/smooth_large,
 /area/centcom/interlink)
 "sto" = (
-/obj/machinery/oven/stone,
+/obj/machinery/oven/primitive,
 /obj/structure/stone_tile/slab,
 /obj/structure/wall_torch/spawns_lit/directional/west,
 /turf/open/floor/fakebasalt,
@@ -15324,7 +15357,7 @@
 	},
 /area/centcom/holding/cafepark)
 "tgP" = (
-/obj/structure/wall_torch/spawns_lit,
+/obj/item/flashlight/flare/torch/everburning,
 /turf/open/misc/dirt/planet,
 /area/centcom/holding/cafepark)
 "tgU" = (
@@ -15998,7 +16031,8 @@
 	dir = 8
 	},
 /obj/structure/sign/painting/library{
-	pixel_x = -32
+	pixel_x = -32;
+	dir = 8
 	},
 /obj/machinery/light/directional/west,
 /obj/structure/closet/secure_closet/personal/cabinet{
@@ -16635,27 +16669,23 @@
 /obj/effect/turf_decal/tile/blue/half/contrasted{
 	dir = 8
 	},
-/obj/machinery/button/door{
+/obj/machinery/button/door/directional/west{
 	id = "CCPharmacy";
-	name = "Bolt Control";
+	name = "Bold Control";
 	normaldoorcontrol = 1;
-	pixel_x = -25;
 	specialfunctions = 4
 	},
 /turf/open/floor/iron/white,
 /area/centcom/holding/cafe)
 "vkD" = (
-/obj/effect/turf_decal/siding{
-	color = "#2e2e2e";
-	dir = 1
+/obj/machinery/button/door/directional/north{
+	id = "cozyfloofspot1";
+	name = "Dorm Bolt Control";
+	normaldoorcontrol = 1;
+	specialfunctions = 4
 	},
-/obj/machinery/button/curtain{
-	id = "ghostcafecabinjapcurtain";
-	pixel_x = 20;
-	pixel_y = -4
-	},
-/turf/open/floor/bamboo,
-/area/centcom/holding/cafe)
+/turf/open/floor/plating/abductor,
+/area/centcom/holding/cafepark)
 "vnt" = (
 /obj/effect/turf_decal/tile/blue/full,
 /turf/open/floor/iron/white/smooth_large,
@@ -17035,7 +17065,8 @@
 "vYz" = (
 /obj/machinery/button/curtain{
 	id = "ghostcaferesort1curtain";
-	pixel_x = -26
+	pixel_x = -26;
+	dir = 8
 	},
 /turf/open/floor/wood,
 /area/centcom/holding/cafedorms)
@@ -17781,6 +17812,16 @@
 	},
 /turf/open/indestructible/carpet,
 /area/centcom/holding/cafe)
+"xjS" = (
+/obj/effect/turf_decal/trimline/white/filled/line{
+	dir = 8
+	},
+/obj/effect/light_emitter/interlink,
+/obj/machinery/wall_healer/free/directional/west,
+/turf/open/floor/iron/dark/textured_edge{
+	dir = 4
+	},
+/area/centcom/interlink)
 "xkb" = (
 /obj/machinery/mass_driver/trash{
 	dir = 1;
@@ -28435,7 +28476,7 @@ qIY
 aHL
 cFK
 wTk
-jpr
+ibW
 iKR
 oHR
 wTk
@@ -31255,7 +31296,7 @@ ubQ
 rhV
 rhV
 rhV
-rhV
+xjS
 rhV
 knB
 ubQ
@@ -31270,7 +31311,7 @@ jnu
 wmW
 wTk
 ouJ
-dbl
+rJS
 qWY
 ftB
 ftB
@@ -35362,7 +35403,7 @@ aqG
 fgZ
 hfD
 wTk
-ogq
+dai
 hpR
 hpR
 hpR
@@ -35896,7 +35937,7 @@ jnu
 fIY
 wTk
 dbl
-dbl
+nwQ
 qWY
 ftB
 ftB
@@ -42332,7 +42373,7 @@ jne
 qnJ
 nFS
 nFS
-lkz
+jyB
 hyW
 wTk
 aaa
@@ -47472,7 +47513,7 @@ vpb
 wSW
 sdx
 sdx
-fcG
+iiF
 sIm
 wTk
 aaa
@@ -58033,7 +58074,7 @@ iGS
 fGv
 aOW
 iGS
-tKt
+vkD
 tKt
 qCU
 iGS
@@ -58483,7 +58524,7 @@ aCf
 ayI
 ajj
 adR
-vkD
+auP
 qXC
 qXC
 iki
@@ -64951,7 +64992,7 @@ lwv
 npr
 lwv
 aqf
-aRx
+gVf
 axD
 amF
 amF
@@ -70331,7 +70372,7 @@ qHT
 vTT
 aHM
 aUo
-aUo
+dep
 vTT
 kWr
 aOz
@@ -71597,7 +71638,7 @@ ayI
 ayI
 ayI
 ayI
-ayI
+tgP
 aPf
 aPf
 aGb
@@ -72105,7 +72146,7 @@ aPf
 aPf
 aPf
 aPf
-dai
+tgP
 aPf
 ayI
 aPf
@@ -73387,7 +73428,7 @@ aaa
 ajj
 aPf
 aPf
-dai
+tgP
 aPf
 ayI
 ayI
@@ -74415,9 +74456,9 @@ aaa
 ajj
 aPf
 aPf
-tUL
+tgP
 ayI
-tUL
+tgP
 ayI
 aPf
 aPf

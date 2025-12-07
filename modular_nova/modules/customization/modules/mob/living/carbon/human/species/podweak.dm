@@ -7,6 +7,7 @@
 		TRAIT_LITERATE,
 	)
 	mutant_bodyparts = list()
+	mutant_organs = list() // Removes the pod hair organ from here, messes up unit tests (we handle that differently here)
 	payday_modifier = 1.0
 
 /datum/species/pod/get_default_mutant_bodyparts()
@@ -42,10 +43,13 @@
 		if(H.nutrition > NUTRITION_LEVEL_ALMOST_FULL)
 			H.set_nutrition(NUTRITION_LEVEL_ALMOST_FULL)
 		if(light_amount > 0.2) //if there's enough light, heal
-			H.heal_overall_damage(0.5 * seconds_per_tick, 0.35 * seconds_per_tick, 0)
-			H.adjustStaminaLoss(-0.4 * seconds_per_tick)
-			H.adjustToxLoss(-0.1 * seconds_per_tick)
-			H.adjustOxyLoss(-0.2 * seconds_per_tick)
+			var/need_mob_update
+			need_mob_update += H.heal_overall_damage(0.5 * seconds_per_tick, 0.35 * seconds_per_tick, updating_health = FALSE)
+			need_mob_update += H.adjust_stamina_loss(-0.4 * seconds_per_tick, updating_stamina = FALSE)
+			need_mob_update += H.adjust_tox_loss(-0.1 * seconds_per_tick, updating_health = FALSE)
+			need_mob_update += H.adjust_oxy_loss(-0.2 * seconds_per_tick, updating_health = FALSE)
+			if(need_mob_update)
+				H.updatehealth()
 			if(H.health < H.maxHealth)
 				new /obj/effect/temp_visual/heal(get_turf(H), COLOR_EFFECT_HEAL_RED)
 
@@ -54,7 +58,7 @@
 		new /obj/effect/temp_visual/annoyed/plant(get_turf(H))
 
 /datum/species/pod/prepare_human_for_preview(mob/living/carbon/human/human)
-	human.dna.mutant_bodyparts["pod_hair"] = list(MUTANT_INDEX_NAME = "Ivy", MUTANT_INDEX_COLOR_LIST = list(COLOR_VIBRANT_LIME, COLOR_VIBRANT_LIME, COLOR_VIBRANT_LIME))
+	human.dna.mutant_bodyparts[FEATURE_POD_HAIR] = list(MUTANT_INDEX_NAME = "Ivy", MUTANT_INDEX_COLOR_LIST = list(COLOR_VIBRANT_LIME, COLOR_VIBRANT_LIME, COLOR_VIBRANT_LIME))
 	regenerate_organs(human, src, visual_only = TRUE)
 	human.update_body(TRUE)
 

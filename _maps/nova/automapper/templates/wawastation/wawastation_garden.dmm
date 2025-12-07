@@ -1,0 +1,178 @@
+//MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
+"a" = (
+/turf/template_noop,
+/area/template_noop)
+"q" = (
+/obj/machinery/airalarm/directional/north,
+/obj/machinery/hydroponics/constructable,
+/turf/open/floor/grass,
+/area/station/service/hydroponics/garden)
+"r" = (
+/obj/item/radio/intercom/directional/north,
+/obj/machinery/hydroponics/constructable,
+/turf/open/floor/grass,
+/area/station/service/hydroponics/garden)
+"v" = (
+/obj/effect/turf_decal/stripes/line{
+	dir = 4
+	},
+/obj/machinery/light/small/directional/west,
+/obj/machinery/vending/hydroseeds,
+/turf/open/floor/iron/textured_large,
+/area/station/service/hydroponics/garden)
+"F" = (
+/obj/machinery/firealarm/directional/north,
+/obj/machinery/hydroponics/constructable,
+/turf/open/floor/grass,
+/area/station/service/hydroponics/garden)
+"H" = (
+/obj/machinery/hydroponics/constructable,
+/turf/open/floor/grass,
+/area/station/service/hydroponics/garden)
+"K" = (
+/obj/effect/turf_decal/stripes/line{
+	dir = 6
+	},
+/obj/structure/disposalpipe/segment{
+	dir = 6
+	},
+/obj/machinery/vending/hydronutrients,
+/turf/open/floor/iron/textured_large,
+/area/station/service/hydroponics/garden)
+"T" = (
+/obj/machinery/power/apc/auto_name/directional/north,
+/obj/machinery/light_switch/directional/north{
+	pixel_x = 12
+	},
+/obj/structure/cable,
+/obj/machinery/hydroponics/constructable,
+/turf/open/floor/grass,
+/area/station/service/hydroponics/garden)
+"W" = (
+/obj/machinery/newscaster/directional/south,
+/obj/machinery/hydroponics/constructable,
+/turf/open/floor/grass,
+/area/station/service/hydroponics/garden)
+"Z" = (
+/obj/item/radio/intercom/directional/south,
+/obj/machinery/hydroponics/constructable,
+/turf/open/floor/grass,
+/area/station/service/hydroponics/garden)
+
+(1,1,1) = {"
+a
+a
+a
+a
+a
+a
+a
+"}
+(2,1,1) = {"
+a
+a
+a
+a
+a
+a
+a
+"}
+(3,1,1) = {"
+a
+a
+a
+a
+a
+a
+a
+"}
+(4,1,1) = {"
+r
+a
+a
+a
+a
+a
+W
+"}
+(5,1,1) = {"
+T
+a
+a
+a
+a
+a
+H
+"}
+(6,1,1) = {"
+a
+a
+a
+a
+a
+a
+a
+"}
+(7,1,1) = {"
+a
+a
+a
+a
+a
+a
+a
+"}
+(8,1,1) = {"
+a
+a
+a
+v
+K
+a
+a
+"}
+(9,1,1) = {"
+q
+a
+a
+a
+a
+a
+H
+"}
+(10,1,1) = {"
+F
+a
+a
+a
+a
+a
+Z
+"}
+(11,1,1) = {"
+a
+a
+a
+a
+a
+a
+a
+"}
+(12,1,1) = {"
+a
+a
+a
+a
+a
+a
+a
+"}
+(13,1,1) = {"
+a
+a
+a
+a
+a
+a
+a
+"}

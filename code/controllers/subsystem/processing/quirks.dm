@@ -8,13 +8,11 @@ GLOBAL_LIST_INIT_TYPED(quirk_blacklist, /list/datum/quirk, list(
 	list(/datum/quirk/item_quirk/blindness, /datum/quirk/item_quirk/scarred_eye),
 	list(/datum/quirk/item_quirk/blindness, /datum/quirk/item_quirk/fluoride_stare),
 	list(/datum/quirk/item_quirk/blindness, /datum/quirk/touchy),
-	list(/datum/quirk/jolly, /datum/quirk/depression, /datum/quirk/apathetic, /datum/quirk/hypersensitive),
+	list(/datum/quirk/jolly, /datum/quirk/depression, /datum/quirk/hypersensitive),
 	list(/datum/quirk/no_taste, /datum/quirk/vegetarian, /datum/quirk/deviant_tastes, /datum/quirk/gamer),
 	list(/datum/quirk/pineapple_liker, /datum/quirk/pineapple_hater, /datum/quirk/gamer),
 	list(/datum/quirk/alcohol_tolerance, /datum/quirk/light_drinker),
 	list(/datum/quirk/item_quirk/clown_enjoyer, /datum/quirk/item_quirk/mime_fan),
-	list(/datum/quirk/bad_touch, /datum/quirk/friendly),
-	list(/datum/quirk/extrovert, /datum/quirk/introvert),
 	list(/datum/quirk/prosthetic_limb, /datum/quirk/quadruple_amputee, /datum/quirk/body_purist),
 	list(/datum/quirk/transhumanist, /datum/quirk/body_purist),
 	list(/datum/quirk/prosthetic_organ, /datum/quirk/tin_man, /datum/quirk/body_purist),
@@ -45,6 +43,7 @@ GLOBAL_LIST_INIT_TYPED(quirk_blacklist, /list/datum/quirk, list(
 	list(/datum/quirk/sensitive_hearing, /datum/quirk/item_quirk/blindness, /datum/quirk/item_quirk/deafness, /datum/quirk/echolocation),
 	list(/datum/quirk/visitor, /datum/quirk/item_quirk/underworld_connections),
 	list(/datum/quirk/adapted_lungs, /datum/quirk/item_quirk/breather/water_breather, /datum/quirk/item_quirk/breather/nitrogen_breather, /datum/quirk/item_quirk/breather/plasma_breather),
+	list(/datum/quirk/psionic_dampener, /datum/quirk/telepathic),
 	//NOVA EDIT ADDITION END
 ))
 
@@ -95,7 +94,6 @@ PROCESSING_SUBSYSTEM_DEF(quirks)
 
 		if(initial(quirk_type.abstract_parent_type) == type)
 			continue
-
 		// NOVA EDIT ADDITION START
 		if(initial(quirk_type.erp_quirk) && CONFIG_GET(flag/disable_erp_preferences))
 			continue
@@ -132,7 +130,7 @@ PROCESSING_SUBSYSTEM_DEF(quirks)
  *Randomises the quirks for a specified mob
  */
 /datum/controller/subsystem/processing/quirks/proc/randomise_quirks(mob/living/user)
-	var/bonus_quirks = max((length(user.quirks) + rand(-RANDOM_QUIRK_BONUS, RANDOM_QUIRK_BONUS)), MINIMUM_RANDOM_QUIRKS)
+	var/bonus_quirks = max((LAZYLEN(user.quirks) + rand(-RANDOM_QUIRK_BONUS, RANDOM_QUIRK_BONUS)), MINIMUM_RANDOM_QUIRKS)
 	var/added_quirk_count = 0 //How many we've added
 	var/list/quirks_to_add = list() //Quirks we're adding
 	var/good_count = 0
@@ -201,12 +199,12 @@ PROCESSING_SUBSYSTEM_DEF(quirks)
 /// be valid.
 /// If no changes need to be made, will return the same list.
 /// Expects all quirk names to be unique, but makes no other expectations.
-/datum/controller/subsystem/processing/quirks/proc/filter_invalid_quirks(list/quirks, list/augments) // NOVA EDIT - AUGMENTS+
+/datum/controller/subsystem/processing/quirks/proc/filter_invalid_quirks(list/quirks, list/augments) // NOVA EDIT CHANGE - AUGMENTS+ - ORIGINAL: /datum/controller/subsystem/processing/quirks/proc/filter_invalid_quirks(list/quirks)
 	var/list/new_quirks = list()
 	var/list/positive_quirks = list()
 	var/points_enabled = !CONFIG_GET(flag/disable_quirk_points)
 	var/max_positive_quirks = CONFIG_GET(number/max_positive_quirks)
-	var/balance = 0
+	var/balance = -CONFIG_GET(number/default_quirk_points)
 
 	var/list/all_quirks = get_quirks()
 
