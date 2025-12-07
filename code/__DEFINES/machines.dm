@@ -77,6 +77,7 @@
 // NOVA EDIT ADDITION
 /// Can be made by the orderable colony fabricator
 #define COLONY_FABRICATOR (1<<11)
+#define NANITE_COMPILER  (1<<7) //Prints nanite disks NOVA EDIT ADDITION - NANITES
 // NOVA EDIT END
 
 #define HYPERTORUS_INACTIVE 0 // No or minimal energy

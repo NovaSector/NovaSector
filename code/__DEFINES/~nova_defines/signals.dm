@@ -115,3 +115,6 @@
 
 /// Signal sent whenever a gun with a barrel booster toggles its barrel booster.
 #define COMSIG_GUN_BOOSTER_TOGGLED "gun_booster_toggled"
+
+/// identical to COMSIG_MOB_APPLY_DAMAGE, but always runs, even if there is no damage
+#define COMSIG_MOB_ALWAYS_APPLY_DAMAGE "mob_always_apply_damage"
