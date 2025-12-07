@@ -136,6 +136,7 @@
 		"Mailman",
 		"Mail Carrier",
 		"Receiving Clerk",
+		"Shipping Associate",
 		"Union Associate",
 	)
 
@@ -171,6 +172,7 @@
 	alt_titles = list(
 		"Chief Engineer",
 		"Engineering Foreman",
+		"Engineering Supervisor",
 		"Head of Engineering",
 	)
 
@@ -276,6 +278,7 @@
 		"Chief Constable",
 		"Chief of Security",
 		"Security Commander",
+		"Security Supervisor",
 		"Security Director",
 		"Sheriff",
 	)
@@ -314,6 +317,7 @@
 	alt_titles = list(
 		"Nanotrasen Consultant",
 		"Nanotrasen Advisor",
+		"Nanotrasen Representative",
 		"Nanotrasen Diplomat",
 	)
 
@@ -408,6 +412,8 @@
 		"Security Operative",
 		"Security Cadet",
 		"Security Specialist",
+		"Deputy",
+		"Constable",
 	)
 
 /datum/job/shaft_miner
@@ -429,6 +435,7 @@
 		"Engine Technician",
 		"EVA Technician",
 		"Mechanic",
+		"Structural Engineer",
 		"Apprentice Engineer",
 		"Nuclear Engineer",
 	)
