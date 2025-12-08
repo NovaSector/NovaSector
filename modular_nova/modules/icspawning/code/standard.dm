@@ -1,18 +1,12 @@
 // NOVA MODULE IC-SPAWNING https://github.com/Skyrat-SS13/Skyrat-tg/pull/104
-/obj/item/gun/energy/taser/debug
-	ammo_type = list(/obj/item/ammo_casing/energy/electrode/debug)
-	w_class = WEIGHT_CLASS_TINY
+// Debug Datums
+// Debug Storage Datum
+/datum/storage/debug
+	max_specific_storage = WEIGHT_CLASS_GIGANTIC
+	max_total_storage = WEIGHT_CLASS_GIGANTIC * 28
+	max_slots = 28
 
-/obj/item/ammo_casing/energy/electrode/debug
-	e_cost = LASER_SHOTS(1000, STANDARD_CELL_CHARGE)
-
-/obj/item/clothing/suit/armor/vest/debug
-	name = "Bluespace Tech vest"
-	desc = "A sleek piece of armour designed for Bluespace agents."
-	armor_type = /datum/armor/vest_debug
-	w_class = WEIGHT_CLASS_TINY
-
-/datum/armor/vest_debug
+/datum/armor/debug
 	melee = 95
 	melee = 95
 	laser = 95
@@ -22,27 +16,182 @@
 	fire = 98
 	acid = 98
 
-/obj/item/clothing/shoes/combat/debug
+// Debug Items //
+// Legacy
+/obj/item/clothing/shoes/combat/debug // Someone made this for a reason, I'm not going to question it
+	w_class = WEIGHT_CLASS_TINY // tiny ahh feet
+
+/obj/item/gun/energy/taser/debug
+	ammo_type = list(/obj/item/ammo_casing/energy/electrode/debug)
 	w_class = WEIGHT_CLASS_TINY
 
+/obj/item/ammo_casing/energy/electrode/debug
+	e_cost = LASER_SHOTS(1000, STANDARD_CELL_CHARGE)
+
+/obj/item/clothing/suit/armor/vest/debug
+	name = "\improper subspace vest"
+	desc = "A sleek piece of armour designed for Bluespace agents."
+	armor_type = /datum/armor/debug
+	w_class = WEIGHT_CLASS_TINY
+
+// Debug magbooties
+/obj/item/clothing/magboots/advance/debug/Initialize(mapload)
+	. = ..()
+	create_storage(storage_type = /datum/storage/pockets/shoes)
+	AddElement(/datum/element/ignites_matches)
+
+/obj/item/clothing/shoes/magboots/advance/debug
+	name = "subspace magboots"
+	desc = "Rare handcrafted boots made of the finest materials the sector has to offer. The bluespace crystal powering each boot gleam threateningly."
+	w_class = WEIGHT_CLASS_TINY
+	armor_type = /datum/armor/debug
+	base_icon_state = "submag"
+	icon_state = "submag0"
+	magpulse_fishing_modifier = 10
+	fishing_modifier = 10
+
+// Debug Headset and Encryption Key
+/obj/item/encryptionkey/debug
+	name = "\proper the subspace encryption key"
+	icon = 'icons/map_icons/items/encryptionkey.dmi'
+	icon_state = "/obj/item/encryptionkey/heads/captain"
+	post_init_icon_state = "cypherkey_cube"
+	channels = list(RADIO_CHANNEL_COMMAND = 1, RADIO_CHANNEL_SECURITY = 1, RADIO_CHANNEL_ENGINEERING = 1, RADIO_CHANNEL_SCIENCE = 1, RADIO_CHANNEL_MEDICAL = 1, RADIO_CHANNEL_SUPPLY = 1, RADIO_CHANNEL_SERVICE = 1, RADIO_CHANNEL_AI_PRIVATE = 1, RADIO_CHANNEL_CENTCOM = 1, RADIO_CHANNEL_CTF_BLUE = 1, RADIO_CHANNEL_CTF_GREEN = 1, RADIO_CHANNEL_CTF_RED = 1, RADIO_CHANNEL_CTF_YELLOW = 1, RADIO_CHANNEL_CYBERSUN = 1, RADIO_CHANNEL_ENTERTAINMENT = 1, RADIO_CHANNEL_FACTION = 1, RADIO_CHANNEL_GUILD = 1, RADIO_CHANNEL_INTERDYNE = 1, RADIO_CHANNEL_SOLFED = 1, RADIO_CHANNEL_TARKON = 1, RADIO_CHANNEL_SYNDICATE = 1, RADIO_CHANNEL_UPLINK = 1)
+	greyscale_config = /datum/greyscale_config/encryptionkey_cube
+	greyscale_colors = "#2b2793#dca01b"
+
+/obj/item/radio/headset/debug
+	name = "\improper subspace bowman headset"
+	desc = "You can hear all of them. THE VOICES. SO MANY VOICES. AAAAAAAAAA-"
+	icon_state = "cent_headset_alt"
+	worn_icon_state = "cent_headset_alt"
+	keyslot2 = null
+	keyslot = /obj/item/encryptionkey/debug
+
+/obj/item/radio/headset/headset_debug/Initialize(mapload)
+	. = ..()
+	AddComponent(/datum/component/wearertargeting/earprotection)
+
+// Nova Bluespace Tech Modsuits //
+// Debug Modules
+/obj/item/mod/module/energy_shield/debug
+	shield_icon = "love_hearts"
+
+/obj/item/mod/module/infiltrator/debug
+	incompatible_modules = list(/obj/item/mod/module/infiltrator/debug)
+
+/obj/item/mod/module/storage/debug
+	name = "MOD subspace storage module"
+	desc = "A storage system developed by CentCom, these compartments employ \
+		miniaturized bluespace pockets for the ultimate in storage technology; regardless of the weight of objects put inside."
+	icon_state = "storage_large"
+	max_w_class = WEIGHT_CLASS_GIGANTIC
+	max_combined_w_class = WEIGHT_CLASS_GIGANTIC * 28
+	max_items = 28
+	big_nesting = TRUE
+
+// Extremely cursed modsuit that will self install any modsuit module in existence
+// Do NOT spawn this on a live server. The lag from this being created is impressive.
+/obj/item/mod/control/pre_equipped/administrative/module_debug
+    default_pins = list()
+    applied_modules = list()
+
+/obj/item/mod/control/pre_equipped/administrative/debug/Initialize(mapload, new_theme, new_skin, new_core)
+    . = ..()
+    for(var/path in subtypesof(/obj/item/mod/module))
+        var/obj/item/mod/module/module = new path(src)
+        module.mod = src
+        modules += module
+        module.on_install()
+        module.forceMove(src)
+
+//Our Custom Bluespace Tech Modsuit
+/obj/item/mod/control/pre_equipped/administrative/subspace
+	applied_modules = list(
+		/obj/item/mod/module/hearing_protection,
+		/obj/item/mod/module/storage/debug,
+		/obj/item/mod/module/infiltrator/debug,
+		/obj/item/mod/module/emp_shield/advanced,
+		/obj/item/mod/module/energy_shield/debug,
+		/obj/item/mod/module/plasma_stabilizer,
+		/obj/item/mod/module/welding,
+		/obj/item/mod/module/rad_protection,
+		/obj/item/mod/module/stealth/ninja,
+		/obj/item/mod/module/quick_carry/advanced,
+		/obj/item/mod/module/thermal_regulator,
+		/obj/item/mod/module/magboot/advanced,
+		/obj/item/mod/module/jetpack/advanced,
+		/obj/item/mod/module/anomaly_locked/kinesis/admin,
+		/obj/item/mod/module/dispenser,
+		/obj/item/mod/module/shove_blocker,
+		/obj/item/mod/module/quick_cuff,
+		/obj/item/mod/module/anti_magic,
+		/obj/item/mod/module/noslip,
+		/obj/item/mod/module/longfall,
+		/obj/item/mod/module/shock_absorber,
+		/obj/item/mod/module/hacker,
+		/obj/item/mod/module/visor/diaghud,
+		/obj/item/mod/module/mister/atmos,
+		/obj/item/mod/module/defibrillator/combat,
+		/obj/item/mod/module/medbeam,
+		/obj/item/mod/module/surgical_processor/preloaded,
+		/obj/item/mod/module/holster,
+		/obj/item/mod/module/baton_holster/preloaded,
+		/obj/item/mod/module/flamethrower,
+		/obj/item/mod/module/adrenaline_boost,
+		/obj/item/mod/module/jaeger_sprint,
+		/obj/item/mod/module/jump_jet,
+		/obj/item/mod/module/reagent_scanner/advanced,
+		/obj/item/mod/module/selfcleaner,
+		/obj/item/mod/module/anomaly_locked/antigrav/prebuilt,
+		/obj/item/mod/module/anomaly_locked/teleporter/prebuilt,
+		/obj/item/mod/module/sphere_transform,
+		/obj/item/mod/module/rewinder,
+		/obj/item/mod/module/timestopper,
+		/obj/item/mod/module/timeline_jumper,
+		/obj/item/mod/module/tem,
+		/obj/item/mod/module/megaphone,
+		/obj/item/mod/module/flashlight/darkness,
+		/obj/item/mod/module/balloon/advanced,
+		/obj/item/mod/module/paper_dispenser,
+	)
+	default_pins = list(
+		/obj/item/mod/module/magboot/advanced,
+		/obj/item/mod/module/jetpack/advanced,
+		/obj/item/mod/module/anomaly_locked/kinesis/admin,
+		/obj/item/mod/module/timeline_jumper,
+		/obj/item/mod/module/thermal_regulator,
+		/obj/item/mod/module/mister/atmos,
+		/obj/item/mod/module/paper_dispenser,
+		/obj/item/mod/module/dispenser,
+		/obj/item/mod/module/balloon/advanced,
+	)
+
+// Bluespace Tech Storage Belts //
+// Chief engineer tools variant
 /obj/item/storage/belt/utility/full/powertools/debug
-	name = "\improper Bluespace Tech's belt"
+	name = "\improper loaded Bluespace Technician's belt"
 	w_class = WEIGHT_CLASS_TINY
 	storage_type = /datum/storage/debug
-	desc = "Can hold a boatload of things...  Why do you have this?!"
+	desc = "Can hold a boatload of things... Why do you have this?!"
 	icon = 'modular_nova/modules/bluespace_admin/icons/obj/belt.dmi'
 	icon_state = "admeme_satchel"
 	worn_icon = 'modular_nova/modules/bluespace_admin/icons/mob/belt.dmi'
 	worn_icon_state = "admeme_satchel"
 
+// Empty variant
+/obj/item/storage/belt/utility/debug
+	name = "\improper subspace utility belt"
+	w_class = WEIGHT_CLASS_TINY
+	storage_type = /datum/storage/debug
+	desc = "Can hold a boatload of things... Why do you have this?!"
+	icon = 'modular_nova/modules/bluespace_admin/icons/obj/belt.dmi'
+	icon_state = "admeme_satchel"
+	worn_icon = 'modular_nova/modules/bluespace_admin/icons/mob/belt.dmi'
+	worn_icon_state = "admeme_satchel"
 
-/datum/storage/debug
-	max_specific_storage = WEIGHT_CLASS_GIGANTIC
-	max_total_storage = WEIGHT_CLASS_GIGANTIC * 21
-	max_slots = 21
-
-
-/datum/outfit/debug/bst //Debug objs
+//Legacy Outfit
+/datum/outfit/debug/bst
 	name = "Bluespace Tech"
 	uniform = /obj/item/clothing/under/syndicate/combat
 	belt = /obj/item/storage/belt/utility/full/powertools/debug
@@ -62,30 +211,74 @@
 		/obj/item/choice_beacon/job_locker/debug = 1,
 	)
 
-/datum/outfit/admin/bst //Debug objs plus modsuit
+//Bluespace Technician Outfit, used with the icspawning quick button
+/datum/outfit/admin/bst
 	name = "Bluespace Tech (MODsuit)"
-	uniform = /obj/item/clothing/under/syndicate/combat
-	belt = /obj/item/storage/belt/utility/full/powertools/debug
-	shoes = /obj/item/clothing/shoes/combat/debug
+	uniform = /obj/item/clothing/under/misc/adminsuit
+	suit = /obj/item/clothing/suit/armor/vest/debug
+	suit_store = /obj/item/tank/internals/emergency_oxygen/double
+	ears = /obj/item/radio/headset/debug
+	neck = /obj/item/clothing/neck/necklace/memento_mori
+	gloves = /obj/item/clothing/gloves/kaza_ruk/combatglovesplus
+	belt = /obj/item/storage/belt/utility/debug
+	shoes = /obj/item/clothing/shoes/magboots/advance
+	mask = /obj/item/clothing/mask/gas/atmos
 	id = /obj/item/card/id/advanced/debug/bst
 	box = /obj/item/storage/box/debugtools
+	back = /obj/item/mod/control/pre_equipped/administrative
 	backpack_contents = list(
-		/obj/item/melee/energy/axe = 1,
-		/obj/item/storage/part_replacer/bluespace/tier4/bst = 1,
-		/obj/item/gun/magic/wand/resurrection/debug = 1,
-		/obj/item/gun/magic/wand/death/debug = 1,
-		/obj/item/debug/human_spawner = 1,
-		/obj/item/debug/omnitool = 1,
+		/obj/item/storage/box/nri_survival_pack = 1,
 		/obj/item/storage/box/stabilized = 1,
 		/obj/item/storage/hypospraykit/cmo/combat = 1,
+		/obj/item/melee/energy/axe = 1,
+		/obj/item/gun/energy/pulse/destroyer = 1,
+		/obj/item/gun/energy/taser/debug = 1,
+		/obj/item/gun/magic/hook/debug = 1,
+		/obj/item/storage/part_replacer/bluespace/tier4/bst = 1,
+		/obj/item/modular_computer/debug = 1,
+		/obj/item/debug/human_spawner = 1,
+		/obj/item/gun/magic/wand/resurrection/debug = 1,
+		/obj/item/gun/magic/wand/death/debug = 1,
+		/obj/item/gun/magic/wand/safety/debug = 1,
 		/obj/item/summon_beacon/gas_miner/expanded/debug = 1,
 		/obj/item/choice_beacon/job_locker/debug = 1,
+		/obj/item/multitool/field_debug = 1,
+		/obj/item/camera/spooky/badmin = 1,
+		/obj/item/integrated_circuit/admin = 1,
+		/obj/item/autosurgeon/organ/nif/debug = 1,
+		/obj/item/reagent_containers/cup/bottle/adminordrazine = 1,
+		/obj/item/reagent_containers/hypospray/combat/nanites = 1,
+	)
+	belt_contents = list(
+		/obj/item/screwdriver/power = 1,
+		/obj/item/crowbar/power = 1,
+		/obj/item/weldingtool/abductor = 1,
+		/obj/item/multitool/abductor = 1,
+		/obj/item/analyzer/ranged = 1,
+		/obj/item/stack/cable_coil = 1,
+		/obj/item/storage/part_replacer/bluespace/tier4/bst = 1,
+		/obj/item/construction/rcd/arcd/mattermanipulator = 1,
+		/obj/item/pipe_dispenser/bluespace = 1,
+		/obj/item/rpd_upgrade/unwrench = 1,
+		/obj/item/construction/rtd/admin = 1,
+		/obj/item/rwd/admin = 1,
+		/obj/item/teleport_rod/admin = 1,
+		/obj/item/debug/omnitool = 1,
+		/obj/item/debug/omnitool/item_spawner = 1,
+		/obj/item/lightreplacer/blue = 1,
+		/obj/item/bodybag/bluespace = 1,
+		/obj/item/clothing/glasses/thermal/xray = 1,
+		/obj/item/clothing/glasses/meson/engine/admin = 1,
+		/obj/item/melee/skateboard/hoverboard/admin = 1,
+		/obj/item/mop/advanced = 1,
+		/obj/item/gun/energy/wormhole_projector/core_inserted = 1,
+
 	)
 
 /obj/item/storage/part_replacer/bluespace/tier4/bst
 	name = "\improper Bluespace Tech RPED"
 	desc = "A specialized bluespace RPED for technicians that can manufacture stock parts on the fly. Alt-Right-Click to manufacture parts, change settings, or clear its internal storage."
-	storage_type = /datum/storage/rped/bluespace/silly
+	storage_type = /datum/storage/rped/bluespace/debug
 	/// Whether or not auto-clear is enabled
 	var/auto_clear = TRUE
 	/// List of valid types for pick_stock_part().
@@ -95,7 +288,7 @@
 		/obj/item/reagent_containers/cup/beaker,
 	)
 
-/datum/storage/rped/bluespace/silly
+/datum/storage/rped/bluespace/debug
 	max_slots = 1000
 	max_total_storage = 20000
 
@@ -252,12 +445,8 @@
 			qdel(stored_item)
 	else if(spawn_selection == "Toggle Auto-Clear")
 		auto_clear = !auto_clear
-		to_chat(user, span_notice("The RPED will now [(auto_clear ? "destroy" : "keep")] items left-over after upgrades."))
-	else if(spawn_selection == "Cables")
-		atom_storage.attempt_insert(new /obj/item/stack/cable_coil(src), user, TRUE)
-	else if(spawn_selection == "Glass")
-		atom_storage.attempt_insert(new /obj/item/stack/sheet/glass/fifty(src), user, TRUE)
-	else if(spawn_selection == "Spare T4s")
+		to_chat(user, span_notice("The RPED will now [(auto_clear ? "destroy" : "keep")] items left over after upgrades."))
+	else if(spawn_selection == "Tier 4 Parts")
 		for(var/i in 1 to 10)
 			atom_storage.attempt_insert(new /obj/item/stock_parts/capacitor/quadratic(src), user, TRUE)
 			atom_storage.attempt_insert(new /obj/item/stock_parts/scanning_module/triphasic(src), user, TRUE)
@@ -265,13 +454,26 @@
 			atom_storage.attempt_insert(new /obj/item/stock_parts/micro_laser/quadultra(src), user, TRUE)
 			atom_storage.attempt_insert(new /obj/item/stock_parts/matter_bin/bluespace(src), user, TRUE)
 			atom_storage.attempt_insert(new /obj/item/stock_parts/power_store/cell/bluespace(src), user, TRUE)
+			atom_storage.attempt_insert(new /obj/item/stock_parts/power_store/battery/bluespace(src), user, TRUE)
+	else if(spawn_selection == "Cable Coils")
+		atom_storage.attempt_insert(new /obj/item/stack/cable_coil(src), user, TRUE)
+	else if(spawn_selection == "Glass Sheets")
+		atom_storage.attempt_insert(new /obj/item/stack/sheet/glass/fifty(src), user, TRUE)
+	else if(spawn_selection == "Plasteel Sheets")
+		atom_storage.attempt_insert(new /obj/item/stack/sheet/plasteel/fifty(src), user, TRUE)
+	else if(spawn_selection == "Bluespace Crystals")
+		atom_storage.attempt_insert(new /obj/item/stack/sheet/bluespace_crystal/fifty(src), user, TRUE)
 	else
 		var/subtype
-		if(spawn_selection == "Machine Board")
+		if(spawn_selection == "Machine Boards")
 			subtype = /obj/item/circuitboard/machine
-		else if(spawn_selection == "Stock Part")
+		else if(spawn_selection == "Computer Boards")
+			subtype = /obj/item/circuitboard/computer
+		else if(spawn_selection == "Material Sheets")
+			subtype = /obj/item/stack/sheet
+		else if(spawn_selection == "Stock Parts")
 			subtype = /obj/item/stock_parts
-		else if(spawn_selection == "Beaker")
+		else if(spawn_selection == "Beakers")
 			subtype = /obj/item/reagent_containers/cup/beaker
 		if(subtype)
 			pick_stock_part(user, FALSE, subtype)
