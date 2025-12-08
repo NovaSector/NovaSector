@@ -54,7 +54,8 @@
 /obj/item/gun/ballistic/rifle/pulse_sniper/Initialize(mapload)
 	. = ..()
 	AddComponent(/datum/component/scope, range_modifier = 2.5)
-
+	// Prevent newshot() from decrementing uses for this weapon
+	// We handle ammunition consumption in shoot_live_shot()
 	// Set a special flag on any pulse casings that might be loaded
 	var/obj/item/ammo_box/magazine/internal/pulse_sniper/mag = magazine
 	if(mag && istype(mag))
@@ -86,13 +87,14 @@
 /obj/item/gun/ballistic/rifle/pulse_sniper/process_chamber(empty_chamber = TRUE, from_firing = TRUE, chamber_next_round = TRUE)
 	var/obj/item/ammo_casing/pulse/casing = chambered
 	if(istype(casing))
-		// Ensure suppress_use_consumption flag is set
+		// Ensure suppress_use_consumption flag is set for this weapon
 		casing.suppress_use_consumption = TRUE
 
 		// Check if we have enough charges for another shot
 		if(casing.remaining_uses >= shots_per_fire)
 			// Create new projectile if we have enough charges
 			casing.newshot()
+			// Update HUD after processing pulse casing
 			SEND_SIGNAL(src, COMSIG_UPDATE_AMMO_HUD)
 			return
 
