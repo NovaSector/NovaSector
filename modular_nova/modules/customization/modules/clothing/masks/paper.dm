@@ -23,6 +23,7 @@
 	interaction_flags_click = NEED_DEXTERITY
 	w_class = WEIGHT_CLASS_SMALL
 	actions_types = list(/datum/action/item_action/adjust/papermask)
+	custom_materials = list(/datum/material/paper = SHEET_MATERIAL_AMOUNT * 1.25)
 	unique_reskin = list(
 			"Blank" = "mask_paper",
 			"Neutral" = "mask_neutral",

@@ -41,6 +41,10 @@
 				/obj/item/clothing/mask/masquerade/two_colors = 25,
 				/obj/item/clothing/mask/masquerade/feathered = 25,
 				/obj/item/clothing/mask/masquerade/two_colors/feathered = 25,
+				/obj/item/clothing/neck/greyscaled = 5,
+				/obj/item/clothing/neck/greyscaled/seecloak = 5,
+				/obj/item/clothing/neck/greyscaled/matroncloak = 5,
+				/obj/item/clothing/neck/greyscaled/xylixcloak = 5,
 			),
 		),
 		list(
@@ -95,6 +99,10 @@
 		/obj/item/clothing/under/rank/captain/nova/imperial/generic/red = 5,
 		/obj/item/clothing/under/rank/captain/nova/imperial/generic/grey = 5,
 		/obj/item/clothing/under/rank/captain/nova/imperial/generic = 5,
+		/obj/item/clothing/head/costume/maid_headband/syndicate/loadout_headband = 5,
+		/obj/item/clothing/gloves/tactical_maid = 5,
+		/obj/item/clothing/under/syndicate/nova/maid/loadout_maid = 5,
+		/obj/item/clothing/accessory/maidcorset/syndicate/loadout_corset = 5,
 	)
 
 	premium_nova = list(
