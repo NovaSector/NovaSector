@@ -278,7 +278,7 @@ GLOBAL_VAR_INIT(cops_arrived, FALSE)
 			if (!shuttle.prerequisites_met())
 				to_chat(user, span_alert("You have not met the requirements for purchasing this shuttle."))
 				return
-			var/datum/bank_account/bank_account = SSeconomy.get_dep_account(ACCOUNT_CAR)
+			var/datum/bank_account/bank_account = SSeconomy.get_dep_account(ACCOUNT_CIV) // NOVA EDIT CHANGE - ORIGINAL: ACCOUNT_CAR
 			if (bank_account.account_balance < shuttle.credit_cost)
 				return
 			SSshuttle.shuttle_purchased = SHUTTLEPURCHASE_PURCHASED
@@ -655,7 +655,7 @@ GLOBAL_VAR_INIT(cops_arrived, FALSE)
 							"possibleAnswers" = message.possible_answers,
 						))
 			if (STATE_BUYING_SHUTTLE)
-				var/datum/bank_account/bank_account = SSeconomy.get_dep_account(ACCOUNT_CAR)
+				var/datum/bank_account/bank_account = SSeconomy.get_dep_account(ACCOUNT_CIV) // NOVA EDIT CHANGE - ORIGINAL: ACCOUNT_CAR
 				var/list/shuttles = list()
 
 				for (var/shuttle_id in SSmapping.shuttle_templates)
