@@ -121,7 +121,7 @@
 			"id" = order.id,
 			"amount" = 1,
 			"orderer" = order.orderer,
-			"paid" = !!order.paying_account?.add_to_accounts, //number of orders purchased privatly
+			"paid" = !isnull(order.paying_account), //number of orders purchased privatly
 			"dep_order" = !!order.department_destination, //number of orders purchased by a department
 			"can_be_cancelled" = order.can_be_cancelled,
 		))
@@ -157,6 +157,9 @@
 				"packs" = get_packs_data(pack.group),
 			)
 
+	data["displayed_currency_full_name"] = " [MONEY_NAME]"
+	data["displayed_currency_name"] = " [MONEY_SYMBOL]"
+
 	return data
 
 /**
@@ -181,6 +184,13 @@
 		if(pack.contraband && !contraband)
 			continue
 
+		// NOVA EDIT ADDITION START
+		if (express && pack.express_lock && !bypass_express_lock)
+			continue
+
+		if(!(pack.console_flag & console_flag))
+			continue
+		// NOVA EDIT ADDITION END
 		var/obj/item/first_item = length(pack.contains) > 0 ? pack.contains[1] : null
 		packs += list(list(
 			"name" = pack.name,
@@ -257,7 +267,8 @@
 	var/list/working_list = SSshuttle.shopping_list
 	var/reason = ""
 	var/datum/bank_account/personal_department
-	if(requestonly && !self_paid && !pack.goody)
+	var/uses_cargo_budget = FALSE // NOVA EDIT ADDITION - boolean flag to check if we are using the cargo budget without doing excessive shenanigans.
+	if(requestonly && !self_paid && (!pack.goody || pack.departamental_goody)) // NOVA EDIT CHANGE - should never have a dept goodie thats not a goody. ORIGINAL: if(requestonly && !self_paid && !pack.goody)
 		working_list = SSshuttle.request_list
 		reason = tgui_input_text(user, "Reason", name, max_length = MAX_MESSAGE_LEN)
 		if(isnull(reason))
@@ -271,9 +282,14 @@
 				if(!dept_choice)
 					return
 				if(dept_choice == "Cargo Budget")
-					personal_department = SSeconomy.get_dep_account(cargo_account)
+					personal_department = null
+					uses_cargo_budget = TRUE // NOVA EDIT ADDITION
+			// NOVA EDIT ADDITION START
+			else
+				uses_cargo_budget = TRUE // NOVA EDIT ADDITION
+			// NOVA EDIT ADDITION END
 
-	if(pack.goody && !self_paid)
+	if((pack.goody && (!pack.departamental_goody || uses_cargo_budget)) && (!self_paid || !requestonly)) // NOVA EDIT CHANGE - ORIGINAL: if(pack.goody && !self_paid)
 		playsound(src, 'sound/machines/buzz/buzz-sigh.ogg', 50, FALSE)
 		say("ERROR: Small crates may only be purchased by private accounts.")
 		return
@@ -286,6 +302,12 @@
 
 	if(!self_paid)
 		account = personal_department
+		// NOVA EDIT ADDITION START
+		if ((uses_cargo_budget || !requestonly) && pack.goody && pack.departamental_goody)
+			playsound(src, 'sound/machines/buzz/buzz-sigh.ogg', 50, FALSE)
+			say("ERROR: Small crates may only be purchased by private accounts.")
+			return
+		// NOVA EDIT ADDITION END
 
 	amount = clamp(amount, 1, CARGO_MAX_ORDER - similar_count)
 	for(var/count in 1 to amount)
@@ -298,15 +320,13 @@
 				break
 
 		var/datum/supply_order/order = new(
-			pack = pack ,
+			pack = pack,
 			orderer = name,
 			orderer_rank = rank,
 			orderer_ckey = ckey,
 			reason = reason,
 			paying_account = account,
 			coupon = applied_coupon,
-			department_destination = reason ? TRUE : FALSE, // Hijacking reason as a way to determine if an order's requested from at least one budget
-			charge_on_purchase = TRUE, // NOVA EDIT ADDITION
 		)
 		working_list += order
 

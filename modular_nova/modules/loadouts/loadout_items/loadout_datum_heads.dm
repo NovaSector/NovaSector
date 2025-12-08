@@ -111,6 +111,10 @@
 	name = "Beret - Virologist"
 	item_path = /obj/item/clothing/head/beret/medical/virologist
 
+/datum/loadout_item/head/beret_clown
+	name = "Beret - Clown"
+	item_path = /obj/item/clothing/head/beret/clown
+
 /*
 *	CAPS
 */
@@ -135,6 +139,7 @@
 /datum/loadout_item/head/colonialcap
 	name = "Cap - Colonial"
 	item_path = /obj/item/clothing/head/hats/colonial
+	species_blacklist = list(SPECIES_TESHARI)
 
 /datum/loadout_item/head/frontiercap
 	name = "Cap - Frontier"

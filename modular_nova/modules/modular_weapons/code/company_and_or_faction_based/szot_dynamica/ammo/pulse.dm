@@ -27,7 +27,7 @@
 	desc = "A reusable energy cell for pulse weapons."
 	icon = 'modular_nova/modules/modular_weapons/icons/obj/company_and_or_faction_based/szot_dynamica/ammo.dmi'
 	icon_state = "zaibas_bullet"
-	custom_materials = list(/datum/material/iron = SHEET_MATERIAL_AMOUNT*0.25, /datum/material/plasma = SHEET_MATERIAL_AMOUNT*2, /datum/material/gold = SHEET_MATERIAL_AMOUNT*0.75)
+	custom_materials = list(/datum/material/iron = SHEET_MATERIAL_AMOUNT * 0.25, /datum/material/plasma = SHEET_MATERIAL_AMOUNT * 1, /datum/material/gold = SHEET_MATERIAL_AMOUNT * 0.75)
 	caliber = "pulse"
 	projectile_type = /obj/projectile/beam/laser/plasma_glob/pulse
 	///Maximum amount of times this casing can be used.

@@ -162,11 +162,11 @@
 /turf/open/floor/wood,
 /area/ruin/powered/hermit)
 "vy" = (
-/obj/structure/safe/floor,
 /obj/item/flatpacked_machine/wind_turbine,
 /obj/item/flatpacked_machine/wind_turbine,
 /obj/item/pipe_dispenser,
 /obj/item/circuitboard/machine/autolathe,
+/obj/structure/decorative/shelf,
 /turf/open/floor/wood,
 /area/ruin/powered/hermit)
 "vV" = (
