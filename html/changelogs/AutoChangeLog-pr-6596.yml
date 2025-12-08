@@ -1,0 +1,6 @@
+author: "Hardly"
+delete-after: True
+changes:
+  - rscadd: "Barbers now have a new skill meant to assist on their haircutting skills, buy a H41R 3XP3R7 skillchip from your nearby Fab-O-Vend today!"
+  - bugfix: "Fixed wrong visible messages when brushing someone's hair in combat mode"
+  - spellcheck: "Changed some of the moodlet messages related to brushing"

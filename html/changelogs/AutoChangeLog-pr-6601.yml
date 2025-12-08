@@ -1,0 +1,4 @@
+author: "Diltyrr"
+delete-after: True
+changes:
+  - spellcheck: "Changed the dormant fragment of the Stjarndrakkr's description to give an usage hint."

@@ -1,0 +1,4 @@
+author: "sqnztb"
+delete-after: True
+changes:
+  - rscadd: "Defibrillators have been re-added back to the medical fabs."
