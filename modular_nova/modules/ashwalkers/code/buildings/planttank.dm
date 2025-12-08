@@ -46,7 +46,7 @@
 		if(prob(user.mind?.get_skill_modifier(/datum/skill/primitive, SKILL_PROBS_MODIFIER)))
 			operation_number += 2
 
-		return ITEM_INTERACT_BLOCKING
+		return ITEM_INTERACT_SUCCESS
 
 	if(istype(tool, /obj/item/storage/bag/plants))
 		var/list/foods = list()
@@ -54,10 +54,10 @@
 			foods += food_item
 
 		if(!length(foods))
-			balloon_alert(user, "no food to place inside")
+			balloon_alert(user, "no food to dump inside")
 			return ITEM_INTERACT_BLOCKING
 
-		balloon_alert(user, "placing food inside")
+		balloon_alert(user, "dumped food inside!")
 
 		for(var/obj/item/food/food_item in foods)
 			qdel(food_item)
@@ -66,7 +66,7 @@
 				operation_number += 2
 			user.mind?.adjust_experience(/datum/skill/primitive, 2)
 
-		return ITEM_INTERACT_BLOCKING
+		return ITEM_INTERACT_SUCCESS
 
 	if(istype(tool, /obj/item/stack/ore/glass))
 		if(connected_farm)
@@ -79,7 +79,7 @@
 
 		connected_farm = AddComponent(/datum/component/simple_farm, TRUE, TRUE, list(0, 12))
 		icon_state = "plant_tank_f"
-		return ITEM_INTERACT_BLOCKING
+		return ITEM_INTERACT_SUCCESS
 
 	return ..()
 
