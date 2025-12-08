@@ -83,6 +83,7 @@
 	alt_titles = list(
 		"Bridge Officer",
 		"Command Aide",
+		"Ensign",
 		"Command Cadet",
 		"Bridge Attendant",
 		"Command Secretary",
@@ -178,6 +179,7 @@
 		"Registered Pharmacist",
 		"Clinical Pharmacist",
 		"Assistant Pharmacist",
+		"Chemical Engineer",
 		"Pharmacist",
 		"Pharmacologist",
 		"Trainee Pharmacist",
@@ -257,6 +259,7 @@
 /datum/job/detective
 	alt_titles = list(
 		"Detective",
+		"Detective Cadet",
 		"Forensic Specialist",
 		"Forensic Scientist",
 		"Forensic Technician",
