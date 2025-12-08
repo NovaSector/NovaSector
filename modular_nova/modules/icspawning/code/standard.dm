@@ -18,7 +18,7 @@
 
 // Debug Items //
 // Legacy
-/obj/item/clothing/shoes/combat/debug // Someone made this for a reason, I'm not going to question it
+/obj/item/clothing/shoes/combat/debug // This was made for a reason, I'm not going to question it
 	w_class = WEIGHT_CLASS_TINY // tiny ahh feet
 
 /obj/item/gun/energy/taser/debug
@@ -42,11 +42,12 @@
 
 /obj/item/clothing/shoes/magboots/advance/debug
 	name = "subspace magboots"
-	desc = "Rare handcrafted boots made of the finest materials the sector has to offer. The bluespace crystal powering each boot gleam threateningly."
+	desc = "Rare handcrafted boots made of the finest materials the sector has to offer. The bluespace crystals powering each boot gleam threateningly."
 	w_class = WEIGHT_CLASS_TINY
 	armor_type = /datum/armor/debug
 	base_icon_state = "submag"
-	icon_state = "submag0"
+	icon_state = "submag0"// My first icon, I am very sorry. This should probably be fixed
+	slowdown_active = -0.25
 	magpulse_fishing_modifier = 10
 	fishing_modifier = 10
 
@@ -106,7 +107,10 @@
         module.forceMove(src)
 
 //Our Custom Bluespace Tech Modsuit
-/obj/item/mod/control/pre_equipped/administrative/subspace
+/obj/item/mod/control/pre_equipped/subspace
+	theme = /datum/mod_theme/administrative
+	starting_frequency = MODLINK_FREQ_CENTCOM
+	applied_core = /obj/item/mod/core/infinite
 	applied_modules = list(
 		/obj/item/mod/module/hearing_protection,
 		/obj/item/mod/module/storage/debug,
@@ -221,11 +225,11 @@
 	neck = /obj/item/clothing/neck/necklace/memento_mori
 	gloves = /obj/item/clothing/gloves/kaza_ruk/combatglovesplus
 	belt = /obj/item/storage/belt/utility/debug
-	shoes = /obj/item/clothing/shoes/magboots/advance
+	shoes = /obj/item/clothing/shoes/magboots/advance/debug
 	mask = /obj/item/clothing/mask/gas/atmos
 	id = /obj/item/card/id/advanced/debug/bst
 	box = /obj/item/storage/box/debugtools
-	back = /obj/item/mod/control/pre_equipped/administrative
+	back = /obj/item/mod/control/pre_equipped/subspace
 	backpack_contents = list(
 		/obj/item/storage/box/nri_survival_pack = 1,
 		/obj/item/storage/box/stabilized = 1,
