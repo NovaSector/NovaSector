@@ -128,11 +128,17 @@
 	light_range = 1
 	light_color = LIGHT_COLOR_PURPLE
 	impact_effect_type = /obj/effect/temp_visual/impact_effect/purple_laser
+	///Which damage type do we deal as a secondary effect?
 	var/secondary_damage_type = BRUTE
+	///How much secondary damage do we deal?
 	var/secondary_damage = 10
+	///How much chance does it have to proc wounds?
 	var/secondary_wound_bonus = 5
+	///How much chance does it have to proc wounds on exposed targets?
 	var/secondary_exposed_wound_bonus = 10
+	///How much penetration does it have?
 	var/secondary_armour_penetration = 0
+	///Which armor protects against it?
 	var/secondary_armor_flag = BULLET
 
 /obj/projectile/beam/laser/plasma_glob/pulse/on_hit(atom/target, blocked, pierce_hit)
