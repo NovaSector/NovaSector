@@ -2603,3 +2603,14 @@ This is all our modular PDAs, ITS LARGE!
 	name = "Antique Seecloak (Worn)"
 	icon_file = 'modular_nova/master_files/icons/mob/clothing/neck.dmi'
 
+/// Default Door No Icon
+/datum/greyscale_config/default_door
+	name = "Airlock"
+	icon_file = 'modular_nova/modules/aesthetics/airlock/icons/airlocks/original.dmi'
+	json_config = 'modular_nova/modules/GAGS/json_configs/doors/default.json'
+
+/datum/greyscale_config/icon_public_door
+	name = "Airlock"
+	icon_file = 'modular_nova/modules/aesthetics/airlock/icons/airlocks/original.dmi'
+	json_config = 'modular_nova/modules/GAGS/json_configs/doors/airlock_icon_public.json'
+
