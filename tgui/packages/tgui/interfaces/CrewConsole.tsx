@@ -151,6 +151,8 @@ type CrewSensor = {
   area: string | undefined;
   health: number;
   ref: string;
+  is_robot: BooleanLike; // NOVA EDIT ADDITION
+  can_track: BooleanLike; // NOVA EDIT ADDITION
 };
 
 type CrewConsoleData = {
@@ -239,6 +241,8 @@ const CrewTableEntry = (props: CrewTableEntryProps) => {
     burndam,
     brutedam,
     area,
+    is_robot, // NOVA EDIT ADDITION
+    can_track // NOVA EDIT ADDITION
   } = sensor_data;
 
   return (
@@ -247,6 +251,11 @@ const CrewTableEntry = (props: CrewTableEntryProps) => {
         {name}
         {assignment !== undefined ? ` (${assignment})` : ''}
       </Table.Cell>
+      { /* NOVA EDIT ADDITION START */}
+      <Table.Cell collapsing textAlign="center">
+        {is_robot ? <Icon name="wrench" color="#B7410E" size={1} /> : ''}
+      </Table.Cell>
+      { /* NOVA EDIT ADDITION END */}
       <Table.Cell collapsing textAlign="center">
         {oxydam !== undefined ? (
           <Icon
@@ -293,6 +302,7 @@ const CrewTableEntry = (props: CrewTableEntryProps) => {
       {!!link_allowed && (
         <Table.Cell collapsing>
           <Button
+            disabled={!can_track}
             onClick={() =>
               act('select_person', {
                 name: name,
