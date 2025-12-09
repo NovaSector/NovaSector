@@ -307,7 +307,7 @@ const CrewTableEntry = (props: CrewTableEntryProps) => {
       {!!link_allowed && (
         <Table.Cell collapsing>
           <Button
-            disabled={!can_track}
+            disabled={!can_track} // NOVA EDIT ADDITION
             onClick={() =>
               act('select_person', {
                 name: name,
