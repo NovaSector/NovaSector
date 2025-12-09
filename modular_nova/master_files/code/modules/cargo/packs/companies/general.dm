@@ -93,6 +93,3 @@
 
 /datum/supply_pack/companies/general/donk/merch/donk_carpet
 	contains = list(/obj/item/stack/tile/carpet/donk/thirty)
-
-/datum/supply_pack/companies/general/donk/merch/donk_fish
-	contains = list(/obj/item/storage/fish_case/donkfish)
