@@ -1,0 +1,4 @@
+author: "sqnztb"
+delete-after: True
+changes:
+  - bugfix: "nova-specific maps should all have proper captain's spare safes now."
