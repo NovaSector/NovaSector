@@ -2614,3 +2614,13 @@ This is all our modular PDAs, ITS LARGE!
 	icon_file = 'modular_nova/modules/aesthetics/airlock/icons/airlocks/original.dmi'
 	json_config = 'modular_nova/modules/GAGS/json_configs/doors/airlock_icon_public.json'
 
+/datum/greyscale_config/icon_security_door
+	name = "Airlock"
+	icon_file = 'modular_nova/modules/aesthetics/airlock/icons/airlocks/original.dmi'
+	json_config = 'modular_nova/modules/GAGS/json_configs/doors/airlock_icon_security.json'
+
+/datum/greyscale_config/icon_security_door_alt
+	name = "Airlock"
+	icon_file = 'modular_nova/modules/aesthetics/airlock/icons/airlocks/original.dmi'
+	json_config = 'modular_nova/modules/GAGS/json_configs/doors/airlock_icon_security_alt.json'
+
