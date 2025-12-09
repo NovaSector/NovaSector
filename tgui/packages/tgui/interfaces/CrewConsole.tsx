@@ -85,9 +85,14 @@ const jobToColor = (jobId: number) => {
   if (jobId >= 60 && jobId < 200) {
     return COLORS.department.service;
   }
-  if (jobId >= 200 && jobId < 230) {
+  if (jobId >= 200 && jobId < 240) { // NOVA EDIT CHANGE - ORIGINAL: jobID < if (jobId >= 200 && jobId < 230)
     return COLORS.department.centcom;
   }
+  // NOVA EDIT ADDITION START
+  if (jobId >= 401 && jobId < 409) {
+    return COLORS.department.prisoner;
+  }
+  // NOVA EDIT ADDITION END
   return COLORS.department.other;
 };
 
