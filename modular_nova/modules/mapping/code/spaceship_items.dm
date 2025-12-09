@@ -8,6 +8,7 @@
 	construction_path_type = "spaceship"
 	merge_type = /obj/item/stack/sheet/spaceship
 	walltype = /turf/closed/wall/mineral/titanium/spaceship
+	mats_per_unit = list(/datum/material/titanium = SHEET_MATERIAL_AMOUNT)
 
 /obj/item/stack/sheet/spaceshipglass
 	name = "spaceship window plates"

@@ -48,7 +48,7 @@
 		if(!new_grad_style || !user.can_perform_action(src, NEED_DEXTERITY))
 			return
 
-		var/new_grad_color = input(usr, "Choose a secondary hair color:", "Dye Spray", human_target.grad_color) as color|null
+		var/new_grad_color = input(usr, "Choose a secondary hair color:", "Dye Spray", human_target.get_hair_gradient_color()) as color|null
 		if(!new_grad_color || !user.can_perform_action(src, NEED_DEXTERITY))
 			return
 

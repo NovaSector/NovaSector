@@ -37,17 +37,6 @@
 /obj/item/folder/syndicate,
 /turf/open/floor/engine,
 /area/ruin/space/has_grav/powered)
-"bH" = (
-/obj/effect/turf_decal/trimline/dark_red/filled/line{
-	dir = 1
-	},
-/obj/machinery/button/door/directional/north{
-	pixel_y = 26;
-	id = "pirateforthangar";
-	name = "door button"
-	},
-/turf/open/floor/iron/dark,
-/area/ruin/space/has_grav/powered)
 "bR" = (
 /obj/effect/turf_decal/trimline/dark_red/filled/line{
 	dir = 1
@@ -280,6 +269,12 @@
 /obj/effect/turf_decal/tile/dark_blue/fourcorners,
 /turf/open/floor/iron/dark,
 /area/ruin/space/has_grav/powered)
+"jA" = (
+/obj/machinery/porta_turret/syndicate/energy{
+	faction = list("pirate")
+	},
+/turf/closed/indestructible/syndicate,
+/area/ruin/space/has_grav/powered)
 "jK" = (
 /obj/structure/chair/wood{
 	dir = 4
@@ -289,26 +284,6 @@
 "kb" = (
 /turf/open/misc/asteroid/airless,
 /area/ruin/space)
-"kh" = (
-/obj/structure/safe,
-/obj/item/implanter/storage,
-/obj/item/stack/spacecash/c10000,
-/obj/item/stack/spacecash/c10000,
-/obj/item/stack/sheet/mineral/diamond{
-	amount = 15
-	},
-/obj/item/stack/sheet/mineral/gold{
-	amount = 50
-	},
-/obj/item/stack/sheet/mineral/silver{
-	amount = 50
-	},
-/obj/item/stack/sheet/bluespace_crystal{
-	amount = 10
-	},
-/obj/item/syndicrate_key,
-/turf/open/floor/engine,
-/area/ruin/space/has_grav/powered)
 "km" = (
 /obj/structure/fans/tiny/forcefield,
 /obj/machinery/door/poddoor{
@@ -321,6 +296,17 @@
 	dir = 4
 	},
 /obj/effect/turf_decal/tile/dark_red/fourcorners,
+/turf/open/floor/iron/dark,
+/area/ruin/space/has_grav/powered)
+"kD" = (
+/obj/effect/turf_decal/trimline/dark_red/filled/line{
+	dir = 1
+	},
+/obj/machinery/button/door/directional/north{
+	pixel_y = 26;
+	id = "pirateforthangar";
+	name = "door button"
+	},
 /turf/open/floor/iron/dark,
 /area/ruin/space/has_grav/powered)
 "ln" = (
@@ -518,6 +504,25 @@
 /obj/machinery/vending/cigarette/syndicate,
 /turf/open/floor/wood,
 /area/ruin/space/has_grav/powered)
+"sf" = (
+/obj/structure/safe,
+/obj/item/implanter/storage,
+/obj/item/stack/spacecash/c10000,
+/obj/item/stack/sheet/mineral/diamond{
+	amount = 15
+	},
+/obj/item/stack/sheet/mineral/gold{
+	amount = 50
+	},
+/obj/item/stack/sheet/mineral/silver{
+	amount = 50
+	},
+/obj/item/stack/sheet/bluespace_crystal{
+	amount = 10
+	},
+/obj/item/syndicrate_key,
+/turf/open/floor/engine,
+/area/ruin/space/has_grav/powered)
 "sz" = (
 /obj/structure/closet/crate/secure/gear{
 	req_access = list("armory")
@@ -600,6 +605,22 @@
 "us" = (
 /turf/open/floor/iron/kitchen,
 /area/ruin/space/has_grav/powered)
+"vd" = (
+/obj/effect/turf_decal/bot,
+/obj/effect/turf_decal/tile/brown/full,
+/obj/structure/closet/crate/secure,
+/turf/open/floor/iron/dark,
+/area/ruin/space/has_grav/powered)
+"vm" = (
+/obj/effect/turf_decal/bot,
+/obj/item/stack/sheet/mineral/gold{
+	amount = 10
+	},
+/obj/item/stack/sheet/plastic/five,
+/obj/effect/turf_decal/tile/brown/full,
+/obj/structure/closet/crate/secure/cargo,
+/turf/open/floor/iron/dark,
+/area/ruin/space/has_grav/powered)
 "vE" = (
 /obj/effect/turf_decal/trimline/brown/filled/line{
 	dir = 10
@@ -625,19 +646,6 @@
 "vR" = (
 /obj/effect/turf_decal/trimline/dark_blue/filled/line{
 	dir = 1
-	},
-/turf/open/floor/iron/dark,
-/area/ruin/space/has_grav/powered)
-"vU" = (
-/mob/living/basic/mining_drone{
-	faction = list("pirate")
-	},
-/obj/effect/turf_decal/bot,
-/obj/effect/turf_decal/tile/brown/full,
-/obj/machinery/button/door/directional/south{
-	id = "piratefortloot";
-	pixel_y = -26;
-	name = "door button"
 	},
 /turf/open/floor/iron/dark,
 /area/ruin/space/has_grav/powered)
@@ -673,11 +681,6 @@
 "wv" = (
 /mob/living/basic/crab,
 /turf/open/floor/engine,
-/area/ruin/space/has_grav/powered)
-"wG" = (
-/obj/structure/table/wood,
-/obj/item/raw_anomaly_core/random,
-/turf/open/floor/wood,
 /area/ruin/space/has_grav/powered)
 "wL" = (
 /obj/effect/turf_decal/trimline/dark_red/filled/end{
@@ -739,6 +742,12 @@
 /mob/living/basic/trooper/pirate/melee,
 /turf/open/floor/wood,
 /area/ruin/space/has_grav/powered)
+"xO" = (
+/obj/effect/turf_decal/bot,
+/obj/structure/closet/crate/secure,
+/obj/effect/turf_decal/tile/brown/full,
+/turf/open/floor/iron/dark,
+/area/ruin/space/has_grav/powered)
 "xV" = (
 /obj/structure/table,
 /turf/open/floor/iron/kitchen,
@@ -784,27 +793,9 @@
 	},
 /turf/open/floor/iron/dark,
 /area/ruin/space/has_grav/powered)
-"yP" = (
-/obj/effect/turf_decal/bot,
-/obj/item/stack/sheet/mineral/gold{
-	amount = 10
-	},
-/obj/item/stack/sheet/plastic/five,
-/obj/item/stack/spacecash/c1000,
-/obj/item/stack/spacecash/c1000,
-/obj/effect/turf_decal/tile/brown/full,
-/obj/structure/closet/crate/secure/cargo,
-/turf/open/floor/iron/dark,
-/area/ruin/space/has_grav/powered)
 "yU" = (
 /obj/structure/table/reinforced/plasmarglass,
 /obj/item/pen,
-/obj/effect/turf_decal/tile/dark_red/fourcorners,
-/turf/open/floor/iron/dark,
-/area/ruin/space/has_grav/powered)
-"zk" = (
-/obj/structure/table,
-/obj/item/storage/belt,
 /obj/effect/turf_decal/tile/dark_red/fourcorners,
 /turf/open/floor/iron/dark,
 /area/ruin/space/has_grav/powered)
@@ -999,18 +990,20 @@
 /mob/living/basic/trooper/pirate/ranged,
 /turf/open/floor/wood,
 /area/ruin/space/has_grav/powered)
-"Gf" = (
-/obj/effect/turf_decal/bot,
-/obj/structure/closet/crate/secure,
-/obj/item/retractor/alien,
-/obj/item/scalpel/alien,
-/obj/effect/turf_decal/tile/brown/full,
-/turf/open/floor/iron/dark,
-/area/ruin/space/has_grav/powered)
 "Gm" = (
 /obj/effect/turf_decal/trimline/dark_red/filled/line{
 	dir = 9
 	},
+/turf/open/floor/iron/dark,
+/area/ruin/space/has_grav/powered)
+"GR" = (
+/obj/effect/turf_decal/bot,
+/obj/item/stack/sheet/mineral/diamond{
+	amount = 8
+	},
+/obj/item/stack/sheet/mineral/plasma/thirty,
+/obj/effect/turf_decal/tile/brown/full,
+/obj/structure/closet/crate/secure/cargo,
 /turf/open/floor/iron/dark,
 /area/ruin/space/has_grav/powered)
 "Hd" = (
@@ -1178,6 +1171,12 @@
 /obj/effect/turf_decal/tile/dark_blue/fourcorners,
 /turf/open/floor/iron/dark,
 /area/ruin/space/has_grav/powered)
+"NN" = (
+/obj/structure/table,
+/obj/effect/turf_decal/tile/dark_red/fourcorners,
+/obj/item/storage/belt/utility/atmostech,
+/turf/open/floor/iron/dark,
+/area/ruin/space/has_grav/powered)
 "Oa" = (
 /obj/machinery/computer/security/wooden_tv,
 /turf/open/floor/carpet/royalblack,
@@ -1207,15 +1206,6 @@
 /obj/effect/turf_decal/trimline/dark_red/filled/corner{
 	dir = 1
 	},
-/turf/open/floor/iron/dark,
-/area/ruin/space/has_grav/powered)
-"Qr" = (
-/obj/effect/turf_decal/bot,
-/obj/structure/closet/crate/secure,
-/obj/item/raw_anomaly_core/random,
-/obj/item/raw_anomaly_core/random,
-/obj/item/raw_anomaly_core/random,
-/obj/effect/turf_decal/tile/brown/full,
 /turf/open/floor/iron/dark,
 /area/ruin/space/has_grav/powered)
 "Qw" = (
@@ -1354,18 +1344,6 @@
 /obj/machinery/door/airlock/captain,
 /turf/open/floor/wood,
 /area/ruin/space/has_grav/powered)
-"Vx" = (
-/obj/effect/turf_decal/bot,
-/obj/item/stack/sheet/mineral/diamond{
-	amount = 8
-	},
-/obj/item/stack/sheet/mineral/plasma/thirty,
-/obj/item/stack/spacecash/c1000,
-/obj/item/stack/spacecash/c1000,
-/obj/effect/turf_decal/tile/brown/full,
-/obj/structure/closet/crate/secure/cargo,
-/turf/open/floor/iron/dark,
-/area/ruin/space/has_grav/powered)
 "VI" = (
 /mob/living/basic/trooper/pirate/melee/space,
 /turf/open/misc/asteroid/airless,
@@ -1453,6 +1431,19 @@
 "Zs" = (
 /obj/machinery/door/airlock/glass,
 /turf/open/floor/iron,
+/area/ruin/space/has_grav/powered)
+"Zx" = (
+/mob/living/basic/mining_drone{
+	faction = list("pirate")
+	},
+/obj/effect/turf_decal/bot,
+/obj/effect/turf_decal/tile/brown/full,
+/obj/machinery/button/door/directional/south{
+	id = "piratefortloot";
+	pixel_y = -26;
+	name = "door button"
+	},
+/turf/open/floor/iron/dark,
 /area/ruin/space/has_grav/powered)
 "Zz" = (
 /obj/structure/table/wood,
@@ -1720,7 +1711,7 @@ kb
 kb
 kb
 ih
-bH
+kD
 dP
 dP
 dP
@@ -1854,7 +1845,7 @@ Kk
 Kk
 Kk
 nw
-Qr
+vd
 MB
 ih
 ox
@@ -1897,7 +1888,7 @@ fK
 eV
 eV
 vE
-vU
+Zx
 ih
 CV
 Jz
@@ -1939,7 +1930,7 @@ Nn
 NJ
 vF
 Nn
-Gf
+xO
 ih
 ih
 ih
@@ -1949,7 +1940,7 @@ Js
 Js
 Js
 Js
-ih
+jA
 ih
 ih
 ih
@@ -2018,8 +2009,8 @@ FP
 Kj
 zx
 ih
-Vx
-yP
+GR
+vm
 dI
 be
 Yy
@@ -2057,12 +2048,12 @@ ih
 ih
 ih
 ih
+jA
 ih
 ih
 ih
 ih
-ih
-ih
+jA
 ih
 FL
 ih
@@ -2100,10 +2091,10 @@ Rx
 Re
 ET
 Zz
-wG
+Iy
 ih
 Qw
-zk
+NN
 MY
 Fb
 wL
@@ -2491,7 +2482,7 @@ ih
 Zs
 ih
 ih
-ih
+jA
 ih
 Zs
 ih
@@ -2516,7 +2507,7 @@ vX
 vX
 vX
 vX
-ih
+jA
 Fd
 wv
 Fd
@@ -2603,7 +2594,7 @@ vX
 ih
 bF
 vY
-kh
+sf
 ih
 FP
 gl
@@ -2630,7 +2621,7 @@ ih
 nj
 ih
 ih
-ih
+jA
 vW
 ih
 vX

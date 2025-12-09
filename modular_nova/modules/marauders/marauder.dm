@@ -27,8 +27,8 @@
 	dummy.underwear = "Striped Boxers"
 	dummy.underwear_color = "#5f534a"
 	dummy.hair_color = "#ffffff"
-	dummy.grad_color[1] = "#bcb4e7"
-	dummy.grad_style[1] = "Fade Up"
+	dummy.set_hair_gradient_color("#bcb4e7")
+	dummy.set_hair_gradient_style("Fade Up")
 	dummy.hairstyle = "Sideways ponytail"
 
 	dummy.update_body(TRUE)

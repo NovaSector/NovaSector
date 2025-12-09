@@ -19,6 +19,7 @@
 	desc = "Written on the pages are countless tales of the author's experiences in certain skills. Perhaps reading will help you."
 	icon = 'modular_nova/modules/mentoring/icons/mentoring.dmi'
 	icon_state = "book"
+	custom_materials = list(/datum/material/paper = SHEET_MATERIAL_AMOUNT * 1.25)
 
 	///the skill that is written within the book that will be taught
 	var/datum/skill/taught_skill

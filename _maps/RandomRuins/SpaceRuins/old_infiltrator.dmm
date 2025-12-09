@@ -37,16 +37,6 @@
 /obj/effect/turf_decal/stripes/red/line,
 /turf/open/floor/iron/dark/airless,
 /area/ruin/space/unpowered)
-"cr" = (
-/obj/structure/table,
-/obj/item/storage/toolbox/emergency/old{
-	pixel_y = 4;
-	pixel_x = 8
-	},
-/obj/machinery/status_display/evac/directional/north,
-/obj/machinery/light/directional/north,
-/turf/open/floor/mineral/plastitanium/red/airless,
-/area/ruin/space/unpowered)
 "cJ" = (
 /obj/effect/turf_decal/siding/thinplating_new/dark/corner{
 	dir = 1
@@ -275,6 +265,12 @@
 /obj/item/circuitboard/machine/cyborgrecharger,
 /turf/open/floor/mineral/plastitanium/red/airless,
 /area/ruin/space/unpowered)
+"sL" = (
+/obj/structure/table,
+/obj/effect/spawner/random/engineering/tool,
+/obj/item/stack/cable_coil,
+/turf/open/floor/mineral/plastitanium/red/airless,
+/area/ruin/space/unpowered)
 "tE" = (
 /obj/effect/turf_decal/syndicateemblem/middle/middle,
 /turf/open/floor/mineral/plastitanium/red/airless,
@@ -434,6 +430,16 @@
 "CC" = (
 /obj/effect/spawner/structure/window/reinforced/plasma/plastitanium,
 /turf/open/floor/plating,
+/area/ruin/space/unpowered)
+"CX" = (
+/obj/structure/table,
+/obj/item/storage/toolbox/emergency/old{
+	pixel_y = 4;
+	pixel_x = 8
+	},
+/obj/machinery/status_display/evac/directional/north,
+/obj/machinery/light/directional/north,
+/turf/open/floor/mineral/plastitanium/red/airless,
 /area/ruin/space/unpowered)
 "Da" = (
 /obj/effect/turf_decal/bot_red,
@@ -686,12 +692,6 @@
 	pixel_x = 5
 	},
 /turf/open/floor/mineral/plastitanium/red,
-/area/ruin/space/unpowered)
-"WP" = (
-/obj/structure/table,
-/obj/effect/spawner/random/engineering/tool,
-/obj/item/stack/cable_coil,
-/turf/open/floor/mineral/plastitanium/red/airless,
 /area/ruin/space/unpowered)
 "WS" = (
 /obj/effect/decal/cleanable/blood/old,
@@ -1200,7 +1200,7 @@ vK
 DM
 pi
 Pq
-cr
+CX
 AX
 DM
 lR
@@ -1227,7 +1227,7 @@ zg
 yL
 KM
 KM
-WP
+sL
 KM
 DM
 DM
