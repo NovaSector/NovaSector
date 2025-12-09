@@ -4977,18 +4977,6 @@
 /obj/effect/turf_decal/tile/neutral/opposingcorners,
 /turf/open/floor/iron,
 /area/station/commons/vacant_room/commissary)
-"bkJ" = (
-/obj/machinery/mass_driver/chapelgun,
-/obj/structure/sign/warning/vacuum/external{
-	pixel_y = 32;
-	dir = 1
-	},
-/obj/effect/turf_decal/stripes/line{
-	dir = 1
-	},
-/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
-/turf/open/floor/iron/dark,
-/area/station/service/chapel/funeral)
 "bkN" = (
 /obj/structure/table/reinforced,
 /obj/item/folder/red{
@@ -6337,6 +6325,15 @@
 /obj/effect/mapping_helpers/broken_floor,
 /turf/open/floor/plating,
 /area/station/maintenance/department/crew_quarters/bar)
+"bDe" = (
+/obj/structure/cable,
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/turf_decal/tile/neutral/half/contrasted{
+	dir = 4
+	},
+/obj/structure/sign/warning/vacuum/external/directional/east,
+/turf/open/floor/iron,
+/area/station/maintenance/starboard/aft)
 "bDg" = (
 /obj/machinery/door/window/left/directional/west{
 	name = "Theater Stage"
@@ -21438,6 +21435,15 @@
 /obj/machinery/firealarm/directional/east,
 /turf/open/floor/iron,
 /area/station/engineering/atmos)
+"fpA" = (
+/obj/machinery/mass_driver/chapelgun,
+/obj/structure/sign/warning/vacuum/external/directional/north,
+/obj/effect/turf_decal/stripes/line{
+	dir = 1
+	},
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/turf/open/floor/iron/dark,
+/area/station/service/chapel/funeral)
 "fpI" = (
 /obj/structure/table/wood,
 /obj/item/toy/crayon/spraycan{
@@ -52005,6 +52011,16 @@
 /obj/structure/cable,
 /turf/open/floor/iron,
 /area/station/engineering/main)
+"mPY" = (
+/obj/structure/cable,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/effect/turf_decal/stripes/line{
+	dir = 1
+	},
+/obj/structure/disposalpipe/junction,
+/turf/open/floor/iron,
+/area/station/engineering/main)
 "mPZ" = (
 /obj/machinery/firealarm/directional/west,
 /obj/effect/turf_decal/tile/blue/opposingcorners{
@@ -60218,20 +60234,6 @@
 	dir = 8
 	},
 /area/station/engineering/atmos/project)
-"oYc" = (
-/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
-/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
-/obj/structure/cable,
-/obj/effect/turf_decal/tile/yellow/half/contrasted{
-	dir = 1
-	},
-/obj/effect/mapping_helpers/mail_sorting/engineering/general,
-/obj/structure/disposalpipe/sorting/mail{
-	dir = 8;
-	name = "Engineering Junction"
-	},
-/turf/open/floor/iron,
-/area/station/engineering/lobby)
 "oYe" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
@@ -60333,16 +60335,6 @@
 /obj/machinery/atmospherics/components/tank/air/layer4,
 /turf/open/floor/plating,
 /area/station/maintenance/solars/starboard/aft)
-"oZr" = (
-/obj/structure/cable,
-/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
-/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
-/obj/effect/turf_decal/stripes/line{
-	dir = 1
-	},
-/obj/structure/disposalpipe/junction,
-/turf/open/floor/iron,
-/area/station/engineering/main)
 "oZz" = (
 /obj/structure/table/reinforced,
 /obj/item/experi_scanner{
@@ -65282,10 +65274,6 @@
 	},
 /turf/open/floor/iron,
 /area/station/hallway/secondary/exit)
-"qgK" = (
-/obj/structure/sign/warning/vacuum/external,
-/turf/closed/wall,
-/area/station/maintenance/starboard/aft)
 "qgQ" = (
 /obj/machinery/holopad,
 /obj/effect/turf_decal/siding/dark_red{
@@ -74905,14 +74893,6 @@
 /obj/effect/mapping_helpers/broken_floor,
 /turf/open/floor/plating,
 /area/station/engineering/supermatter/room)
-"sAq" = (
-/obj/structure/cable,
-/obj/effect/decal/cleanable/dirt,
-/obj/effect/turf_decal/tile/neutral/half/contrasted{
-	dir = 4
-	},
-/turf/open/floor/iron,
-/area/station/maintenance/starboard/aft)
 "sAv" = (
 /obj/item/kirbyplants/random,
 /obj/effect/turf_decal/tile/purple/fourcorners,
@@ -81416,6 +81396,20 @@
 "ueJ" = (
 /turf/open/floor/iron/half,
 /area/station/service/hydroponics)
+"ueM" = (
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/structure/cable,
+/obj/effect/turf_decal/tile/yellow/half/contrasted{
+	dir = 1
+	},
+/obj/effect/mapping_helpers/mail_sorting/engineering/general,
+/obj/structure/disposalpipe/sorting/mail{
+	dir = 8;
+	name = "Engineering Junction"
+	},
+/turf/open/floor/iron,
+/area/station/engineering/lobby)
 "ueU" = (
 /obj/effect/landmark/start/hangover,
 /obj/effect/decal/cleanable/dirt,
@@ -122149,7 +122143,7 @@ ebh
 cCU
 csE
 djd
-oYc
+ueM
 sYD
 nLt
 wbE
@@ -123704,7 +123698,7 @@ kpn
 sgZ
 sKo
 dwv
-oZr
+mPY
 wuz
 qqG
 iKD
@@ -148182,7 +148176,7 @@ ovc
 wzY
 cYP
 gcB
-bkJ
+fpA
 cfy
 pHZ
 aaa
@@ -150474,7 +150468,7 @@ xGN
 dxr
 dxr
 hwK
-sAq
+bDe
 mtI
 xjV
 hxI
@@ -150731,7 +150725,7 @@ qOK
 nXH
 nXH
 nXH
-qgK
+nXH
 mOH
 nXH
 nXH
