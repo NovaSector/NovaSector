@@ -42,8 +42,9 @@ export function CommunicationsConsole(props) {
       break;
   }
 
+//NOVA CHANGE - ORIGINAL: width=400, height=650
   return (
-    <Window width={400} height={650} theme={emagged ? 'syndicate' : undefined}>
+    <Window width={450} height={750} theme={emagged ? 'syndicate' : undefined}>
       <Window.Content scrollable>
         {!hasConnection && <NoConnectionModal />}
 
