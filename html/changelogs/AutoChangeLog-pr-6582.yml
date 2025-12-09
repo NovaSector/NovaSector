@@ -1,0 +1,6 @@
+author: "muratendmo"
+delete-after: True
+changes:
+  - rscadd: "Roboticist access to the Medical Records PDA app"
+  - rscadd: "Roboticist access to Medical Records consoles"
+  - rscadd: "Medical Records Computer Board to the Science departmental imprinter."
