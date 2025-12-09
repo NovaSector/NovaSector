@@ -186,7 +186,12 @@
 
 /obj/machinery/door/airlock/security
 	assemblytype = /obj/structure/door_assembly/door_assembly_sec
+	icon = 'icons/map_icons/objects.dmi'
 	overlays_file = 'modular_nova/modules/aesthetics/airlock/icons/airlocks/original_overlays.dmi'
+	icon_state = "/obj/machinery/door/airlock/security"
+	post_init_icon_state = "closed"
+	greyscale_config = /datum/greyscale_config/icon_security_door
+	greyscale_colors = "#BE4130#E99844"
 
 /obj/machinery/door/airlock/security/glass
 	icon_state = "/obj/machinery/door/airlock/security/glass"
