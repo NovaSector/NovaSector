@@ -87,6 +87,7 @@
 				/obj/item/clothing/under/dress/skirt/nova/long = 5,
 				/obj/item/clothing/under/dress/skirt/nova/mini_skirt = 5,
 				/obj/item/clothing/under/dress/nova/giant_scarf = 5,
+				/obj/item/clothing/under/pants/nova/shorted_overall = 5,
 			),
 		),
 
