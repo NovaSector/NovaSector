@@ -2606,22 +2606,34 @@ This is all our modular PDAs, ITS LARGE!
 
 /// Default Door No Icon
 /datum/greyscale_config/default_door
-	name = "Airlock"
+	name = "Airlock (Default)"
 	icon_file = 'modular_nova/modules/aesthetics/airlock/icons/airlocks/original.dmi'
 	json_config = 'modular_nova/modules/GAGS/json_configs/doors/default.json'
 
-/datum/greyscale_config/icon_public_door
-	name = "Airlock"
+/datum/greyscale_config/icon_letter_p_door
+	name = "Airlock (Letter P)"
 	icon_file = 'modular_nova/modules/aesthetics/airlock/icons/airlocks/original.dmi'
 	json_config = 'modular_nova/modules/GAGS/json_configs/doors/airlock_icon_public.json'
 
 /datum/greyscale_config/icon_security_door
-	name = "Airlock"
+	name = "Airlock (RedSec)"
 	icon_file = 'modular_nova/modules/aesthetics/airlock/icons/airlocks/original.dmi'
 	json_config = 'modular_nova/modules/GAGS/json_configs/doors/airlock_icon_security.json'
 
 /datum/greyscale_config/icon_security_door_alt
-	name = "Airlock"
+	name = "Airlock (BluSec)"
 	icon_file = 'modular_nova/modules/aesthetics/airlock/icons/airlocks/original.dmi'
 	json_config = 'modular_nova/modules/GAGS/json_configs/doors/airlock_icon_security_alt.json'
+
+
+/datum/greyscale_config/icon_corporate_door
+	name = "Airlock (Corporate)"
+	icon_file = 'modular_nova/modules/aesthetics/airlock/icons/airlocks/original.dmi'
+	json_config = 'modular_nova/modules/GAGS/json_configs/doors/airlock_icon_corporate.json'
+
+/datum/greyscale_config/icon_corporate_door_shield
+	name = "Airlock (Corporate Shield Ver.)"
+	icon_file = 'modular_nova/modules/aesthetics/airlock/icons/airlocks/original.dmi'
+	json_config = 'modular_nova/modules/GAGS/json_configs/doors/airlock_icon_corporate_shield.json'
+
 
