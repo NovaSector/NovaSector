@@ -17,3 +17,4 @@
 	name = "\improper Type II 'Bokuto' energy sword"
 	desc = "A hand made energy sword used for live training and pest control. It can be recharged with the dynamos in the handle."
 	block_chance = 25 // Surplus is 50
+	custom_materials = list(/datum/material/iron = SHEET_MATERIAL_AMOUNT * 3.25, /datum/material/glass = SHEET_MATERIAL_AMOUNT * 0.37)

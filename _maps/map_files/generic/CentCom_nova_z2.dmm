@@ -14855,7 +14855,7 @@
 /turf/open/floor/iron/white/smooth_large,
 /area/centcom/interlink)
 "sto" = (
-/obj/machinery/oven/stone,
+/obj/machinery/oven/primitive,
 /obj/structure/stone_tile/slab,
 /obj/structure/wall_torch/spawns_lit/directional/west,
 /turf/open/floor/fakebasalt,
