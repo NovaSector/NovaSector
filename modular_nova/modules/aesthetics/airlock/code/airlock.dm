@@ -190,7 +190,7 @@
 	overlays_file = 'modular_nova/modules/aesthetics/airlock/icons/airlocks/original_overlays.dmi'
 	icon_state = "/obj/machinery/door/airlock/security"
 	post_init_icon_state = "closed"
-	greyscale_config = /datum/greyscale_config/icon_security_door
+	greyscale_config = /datum/greyscale_config/letter_s_door
 	greyscale_colors = "#BE4130#E99844"
 
 /obj/machinery/door/airlock/security/glass
@@ -201,7 +201,7 @@
 
 /obj/machinery/door/airlock/security/blue
 	icon_state = "/obj/machinery/door/airlock/security/blue"
-	greyscale_config = /datum/greyscale_config/icon_security_door_alt
+	greyscale_config = /datum/greyscale_config/letter_s_door_alt
 	greyscale_colors = "#777777#5A73A4"
 
 /obj/machinery/door/airlock/engineering

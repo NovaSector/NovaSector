@@ -2613,17 +2613,17 @@ This is all our modular PDAs, ITS LARGE!
 /datum/greyscale_config/icon_letter_p_door
 	name = "Airlock (Letter P)"
 	icon_file = 'modular_nova/modules/aesthetics/airlock/icons/airlocks/original.dmi'
-	json_config = 'modular_nova/modules/GAGS/json_configs/doors/airlock_icon_public.json'
+	json_config = 'modular_nova/modules/GAGS/json_configs/doors/airlock_icon_letter_p.json'
 
-/datum/greyscale_config/icon_security_door
+/datum/greyscale_config/letter_s_door
 	name = "Airlock (RedSec)"
 	icon_file = 'modular_nova/modules/aesthetics/airlock/icons/airlocks/original.dmi'
-	json_config = 'modular_nova/modules/GAGS/json_configs/doors/airlock_icon_security.json'
+	json_config = 'modular_nova/modules/GAGS/json_configs/doors/airlock_icon_letter_s.json'
 
-/datum/greyscale_config/icon_security_door_alt
-	name = "Airlock (BluSec)"
+/datum/greyscale_config/letter_s_door_alt
+	name = "Airlock (RedSec)"
 	icon_file = 'modular_nova/modules/aesthetics/airlock/icons/airlocks/original.dmi'
-	json_config = 'modular_nova/modules/GAGS/json_configs/doors/airlock_icon_security_alt.json'
+	json_config = 'modular_nova/modules/GAGS/json_configs/doors/airlock_icon_letter_s_alt.json'
 
 
 /datum/greyscale_config/icon_corporate_door
