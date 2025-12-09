@@ -38612,9 +38612,6 @@
 	dir = 8
 	},
 /area/station/security/checkpoint/supply)
-"hHr" = (
-/turf/open/space/openspace,
-/area/station/solars/starboard/aft)
 "hHt" = (
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
@@ -239359,7 +239356,7 @@ ulx
 ulx
 ulx
 ulx
-hHr
+ulx
 ulx
 ulx
 ulx
