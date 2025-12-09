@@ -29,7 +29,7 @@
 	name = "Brussite"
 	contains = list(/obj/item/stack/sheet/brussite/three)
 	desc = "A three-pack of our finest brussite alloy, with a robust yellow color for creating the strongest metalworks from."
-	
+
 // Kahraman
 
 /datum/supply_pack/companies/general/kahraman
@@ -86,6 +86,9 @@
 	contains = list(/obj/item/pet_food/pet_space_treat)
 
 /datum/supply_pack/companies/general/donk/merch
+
+/datum/supply_pack/companies/general/donk/merch/donk_fish
+	contains = list(/obj/item/storage/fish_case/donkfish)
 
 /datum/supply_pack/companies/general/donk/merch/donk_carpet
 	contains = list(/obj/item/stack/tile/carpet/donk/thirty)
