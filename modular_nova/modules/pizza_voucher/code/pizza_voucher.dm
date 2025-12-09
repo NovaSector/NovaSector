@@ -1,5 +1,5 @@
 /obj/item/pizzavoucher
-	name = "free pizza voucher"
+	name = "pizza voucher"
 	desc = "A pocket-sized plastic slip with a button in the middle. The writing on it seems to have faded."
 	icon = 'modular_nova/modules/pizza_voucher/icons/pizza_voucher.dmi'
 	icon_state = "pizza_voucher"
@@ -63,3 +63,7 @@
 		return 1
 	else
 		to_chat(user, span_warning("The [src] is already in special delivery mode!"))
+
+/obj/item/pizzavoucher/free
+	name = "free pizza voucher"
+	desc = parent_type::desc + "<br> And it's free! Wow!"
