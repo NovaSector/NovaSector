@@ -102784,10 +102784,6 @@
 /obj/structure/broken_flooring,
 /turf/open/floor/plating,
 /area/station/science/tele_sci)
-"umz" = (
-/obj/structure/lattice,
-/turf/closed/wall/r_wall,
-/area/space/nearstation)
 "umB" = (
 /obj/machinery/light/directional/east,
 /obj/machinery/atmospherics/components/unary/vent_pump/on/layer4{
@@ -155550,7 +155546,7 @@ lNn
 pVg
 pVg
 pVg
-umz
+bsG
 pVg
 pVg
 pVg
