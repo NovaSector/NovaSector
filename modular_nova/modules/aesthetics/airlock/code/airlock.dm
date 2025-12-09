@@ -261,8 +261,13 @@
 	normal_integrity = 450
 
 /obj/machinery/door/airlock/service
-	icon = 'modular_nova/modules/aesthetics/airlock/icons/airlocks/station/service.dmi'
-	assemblytype = /obj/structure/door_assembly/door_assembly_service
+	icon = 'icons/map_icons/objects.dmi'
+	overlays_file = 'modular_nova/modules/aesthetics/airlock/icons/airlocks/original_overlays.dmi'
+	icon_state = "/obj/machinery/door/airlock/service"
+	post_init_icon_state = "closed"
+	greyscale_config = /datum/greyscale_config/letter_s_door_alt_2
+	greyscale_colors = "#6FBA58#414141"
+	normal_integrity = 450
 
 /obj/machinery/door/airlock/service/glass
 	opacity = FALSE
