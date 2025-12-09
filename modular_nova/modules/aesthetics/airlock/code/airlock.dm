@@ -185,16 +185,19 @@
 	icon = 'modular_nova/modules/aesthetics/airlock/icons/airlocks/station/command.dmi'
 
 /obj/machinery/door/airlock/security
-	icon = 'modular_nova/modules/aesthetics/airlock/icons/airlocks/station/security.dmi'
 	assemblytype = /obj/structure/door_assembly/door_assembly_sec
+	overlays_file = 'modular_nova/modules/aesthetics/airlock/icons/airlocks/original_overlays.dmi'
 
 /obj/machinery/door/airlock/security/glass
+	icon_state = "/obj/machinery/door/airlock/security/glass"
 	opacity = FALSE
 	glass = TRUE
 	normal_integrity = 400
 
 /obj/machinery/door/airlock/security/blue
-	icon = 'modular_nova/modules/aesthetics/airlock/icons/airlocks/station/securityblue.dmi'
+	icon_state = "/obj/machinery/door/airlock/security/blue"
+	greyscale_config = /datum/greyscale_config/icon_security_door_alt
+	greyscale_colors = "#777777#5A73A4"
 
 /obj/machinery/door/airlock/engineering
 	icon = 'modular_nova/modules/aesthetics/airlock/icons/airlocks/station/engineering.dmi'
