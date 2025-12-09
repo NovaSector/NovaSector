@@ -7,6 +7,7 @@
 	icon_on = "glass_pipeon"
 	icon_off = "glass_pipeoff"
 	chem_volume = 20
+	custom_materials = list(/datum/material/iron = SHEET_MATERIAL_AMOUNT * 5.05, /datum/material/glass = SHEET_MATERIAL_AMOUNT * 1.05)
 
 /obj/item/cigarette/pipe/crackpipe/process(seconds_per_tick)
 	smoketime -= seconds_per_tick

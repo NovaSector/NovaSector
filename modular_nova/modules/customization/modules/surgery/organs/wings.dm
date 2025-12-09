@@ -92,7 +92,7 @@
 		COOLDOWN_START(src, dash_cooldown, 6 SECONDS)
 		var/mob/living/dash_user = owner
 		if(istype(dash_user))
-			dash_user.adjustStaminaLoss(37.5) //Given the risk of flying into things and crashing quite violently, you get four of these. Every one slows you down anyway.
+			dash_user.adjust_stamina_loss(37.5) //Given the risk of flying into things and crashing quite violently, you get four of these. Every one slows you down anyway.
 	else
 		REMOVE_TRAIT(owner, TRAIT_MOVE_FLOATING, LEAPING_TRAIT)
 		to_chat(owner, span_warning("Something prevents you from dashing forward!"))
@@ -164,7 +164,7 @@
 
 	if(do_after(user, climb_time, target))
 		user.forceMove(target)
-		user.adjustStaminaLoss(100)
+		user.adjust_stamina_loss(100)
 		playsound(user_turf, 'sound/mobs/humanoids/moth/moth_flutter.ogg', 50) //a third time for seasoning
 		. = ITEM_INTERACT_SUCCESS
 	QDEL_LIST(effects)

@@ -386,7 +386,7 @@
 /datum/loadout_item/under/jumpsuit/akula_wetsuit
 	name = "Shoredress Wetsuit"
 	item_path = /obj/item/clothing/under/akula_wetsuit
-	restricted_species = list(SPECIES_AKULA)
+	species_whitelist = list(SPECIES_AKULA)
 	group = "Species-Unique"
 
 /datum/loadout_item/under/miscellaneous/ethereal_tunic
