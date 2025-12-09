@@ -331,3 +331,5 @@
   - spellcheck: Changed some of the moodlet messages related to brushing
   sqnztb:
   - rscadd: Defibrillators have been re-added back to the medical fabs.
+  vinylspiders:
+  - bugfix: plant tanks should now make air again
