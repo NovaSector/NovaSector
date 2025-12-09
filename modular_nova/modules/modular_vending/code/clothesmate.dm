@@ -103,6 +103,7 @@
 				/obj/item/clothing/under/dress/nova/strapless = 5,
 				/obj/item/clothing/under/dress/nova/pentagram = 5,
 				/obj/item/clothing/under/dress/nova/midnight_gown = 5,
+				/obj/item/clothing/under/dress/nova/windowed_dress = 5,
 				/obj/item/clothing/suit/varsity = 5,
 				/obj/item/clothing/suit/toggle/jacket/nova = 5,
 				/obj/item/clothing/suit/toggle/jacket/nova/flannel/gags = 5,
