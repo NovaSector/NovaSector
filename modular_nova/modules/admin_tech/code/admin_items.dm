@@ -18,7 +18,7 @@
 		/obj/item/stack/rods/fifty = null,// amount should be null if it should spawn with the type's default amount
 		/obj/item/stack/sheet/iron/fifty = null,
 		/obj/item/stack/rods/lava/thirty = null,
-		/obj/item/stack/rods/shuttle = 50,
+		/obj/item/stack/rods/shuttle/fifty = null,
 		/obj/item/stack/sheet/glass/fifty = null,
 		/obj/item/stack/sheet/rglass/fifty = null,
 		/obj/item/stack/sheet/mineral/plasma/fifty = null,
