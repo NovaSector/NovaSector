@@ -24,9 +24,10 @@
 	bolt_drop_sound = 'modular_nova/modules/modular_weapons/sounds/pulse_push.ogg'
 
 	burst_size = 3
-	fire_delay = 2
+	burst_delay = 0.3 SECONDS
+	fire_delay = 0.9 SECONDS
 
-	spread = 1
+	spread = 3
 	recoil = 0.5
 
 	w_class = WEIGHT_CLASS_BULKY
