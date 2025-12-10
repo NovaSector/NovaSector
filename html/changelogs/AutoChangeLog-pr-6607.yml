@@ -1,0 +1,6 @@
+author: "ImogenOC"
+delete-after: True
+changes:
+  - sound: "Adds a few new audio emotes for canids, with variations. Sorry big dogs, no big borks here."
+  - sound: "fox whine changed from '*whine' to '*fwhine'"
+  - sound: "You might hear felinids with vocal cord paralysis grade meows now."
