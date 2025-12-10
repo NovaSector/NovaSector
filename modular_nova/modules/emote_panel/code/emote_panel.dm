@@ -925,6 +925,11 @@
 	set category = "Emotes+"
 	usr.emote("coyhowl", intentional = TRUE)
 
+/mob/living/proc/emote_wolfhowl()
+	set name = "> Wolf Howl"
+	set category = "Emotes+"
+	usr.emote("wolfhowl", intentional = TRUE)
+
 /mob/living/proc/emote_dwhine()
 	set name = "> Dog Whine"
 	set category = "Emotes+"
