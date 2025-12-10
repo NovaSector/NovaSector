@@ -901,6 +901,46 @@
 	set category = "Emotes+"
 	usr.emote("prbt", intentional = TRUE)
 
+/mob/living/proc/emote_awuff()
+	set name = "> Ah Woof"
+	set category = "Emotes+"
+	usr.emote("awuff", intentional = TRUE)
+
+/mob/living/proc/emote_arf()
+	set name = "> Arf"
+	set category = "Emotes+"
+	usr.emote("arf", intentional = TRUE)
+
+/mob/living/proc/emote_coyhowl()
+	set name = "> Coyote Howl"
+	set category = "Emotes+"
+	usr.emote("coyhowl", intentional = TRUE)
+
+/mob/living/proc/emote_dwhine()
+	set name = "> Dog Whine"
+	set category = "Emotes+"
+	usr.emote("dwhine", intentional = TRUE)
+
+/mob/living/proc/emote_dgrowl()
+	set name = "> Dog Growl"
+	set category = "Emotes+"
+	usr.emote("dgrowl", intentional = TRUE)
+
+/mob/living/proc/emote_aggrobark()
+	set name = "> Aggressive Bark"
+	set category = "Emotes+"
+	usr.emote("aggrobark", intentional = TRUE)
+
+/mob/living/proc/emote_dcomplain()
+	set name = "> Dog Complain"
+	set category = "Emotes+"
+	usr.emote("dcomplain", intentional = TRUE)
+
+/mob/living/proc/emote_meowdeep()
+	set name = "> Meow Deeply"
+	set category = "Emotes+"
+	usr.emote("meowdeep", intentional = TRUE)
+
 // code\modules\mob\living\brain\emote.dm
 
 /mob/living/brain/proc/emote_alarm()
