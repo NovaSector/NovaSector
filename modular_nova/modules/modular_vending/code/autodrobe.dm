@@ -74,6 +74,7 @@
 				/obj/item/clothing/suit/hooded/wintercoat/nova/christmas/green = 5,
 				/obj/item/clothing/shoes/winterboots/christmas = 5,
 				/obj/item/clothing/under/pants/tactical = 5,
+				/obj/item/clothing/head/costume/santa/gags = 5,
 			),
 		),
 	)
