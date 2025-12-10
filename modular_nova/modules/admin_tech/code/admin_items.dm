@@ -174,12 +174,12 @@
 	name = "target locator"
 	desc = "A sleek handheld tablet with a complex looking antennae."
 	icon_state = "pinpointer_sniffer"
-	ignore_suit_sensor_level = FALSE
+	ignore_suit_sensor_level = TRUE
 	w_class = WEIGHT_CLASS_TINY
 	resistance_flags = INDESTRUCTIBLE | LAVA_PROOF | FIRE_PROOF | ACID_PROOF
 
 // Techs do Infiltration and Lights testing
-/obj/projectile/energy/fisher/debug
+/obj/projectile/energy/fisher/debug//Passes essentially everything, make sure you click on what you want to disable directly
 	projectile_phasing = PASSTABLE | PASSMOB | PASSMACHINE | PASSSTRUCTURE | PASSGLASS | PASSGRILLE | PASSCLOSEDTURF | PASSDOORS
 
 /obj/item/ammo_casing/energy/fisher/debug
@@ -203,3 +203,40 @@
 // todo: channeled gutting / organ carving ability, steal the channel attack from extinguishers
 // "only if it can unbox people and just dumps human skin on the floor and all their organs"
 //		/obj/item/boxcutter
+
+// Bussy berets
+/obj/item/clothing/head/helmet/space/beret/debug
+	name = "tech's beret"
+	desc = "An armored beret commonly used by administratively deployed techs. Uses advanced force field technology to protect the head from space."
+	greyscale_colors = "#303030ff#FFCE5B"
+	clothing_flags = STOPSPRESSUREDAMAGE | THICKMATERIAL | SNUG_FIT
+	armor_type = /datum/armor/debug
+	resistance_flags = FIRE_PROOF | ACID_PROOF
+	hair_mask = /datum/hair_mask/standard_hat_middle
+
+/obj/item/clothing/head/helmet/space/beret/debug/bst
+	name = "bluespace tech's beret"
+	desc = "An armored beret commonly used by special operations officers. Uses advanced force field technology to protect the head from space."
+	greyscale_colors = "#0050D5#FFCE5B"
+
+/obj/item/clothing/head/helmet/space/beret/debug/sst
+	name = "subspace's beret"
+	desc = "An armored beret commonly used by special operations officers. Uses advanced force field technology to protect the head from space."
+	greyscale_colors = "#C68EEF#FFCE5B"
+
+// Flannel armor. Fight me.
+/obj/item/clothing/suit/toggle/jacket/nova/flannel/gags/debug
+	armor_type = /datum/armor/debug
+	name = "tech's flannel"
+	desc = "Why'd you grab this one from the wardrobe? We have nicely colored ones, you know."
+	greyscale_colors = "#303030ff#FFCE5B"
+
+/obj/item/clothing/suit/toggle/jacket/nova/flannel/gags/bst
+	name = "bluespace tech's flannel"
+	desc = "An armored beret commonly used by administratively deployed techs. Uses advanced force field technology to protect the head from space."
+	greyscale_colors = "#0050D5"
+
+/obj/item/clothing/suit/toggle/jacket/nova/flannel/gags/sst
+	name = "subspace tech's flannel"
+	desc = "An armored beret commonly used by administratively deployed techs. Uses advanced force field technology to protect the head from space."
+	greyscale_colors = "#C68EEF"

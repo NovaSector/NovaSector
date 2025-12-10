@@ -5,6 +5,7 @@
 	uniform = /obj/item/clothing/under/misc/sst_suit//TODO:bst variant
 	suit = /obj/item/clothing/suit/armor/vest/debug//TODO:bst variant
 	suit_store = /obj/item/tank/internals/emergency_oxygen/double//TODO:bst variant, pluox instead of airmix
+	head = /obj/item/clothing/head/helmet/space/beret/debug/bst
 	ears = /obj/item/radio/headset/debug
 	glasses = /obj/item/clothing/glasses/meson/engine/admin/debug
 	neck = null
@@ -35,6 +36,7 @@
 	uniform = /obj/item/clothing/under/misc/sst_suit
 	suit = /obj/item/clothing/suit/armor/vest/debug//TODO:Subspace variant
 	suit_store = /obj/item/tank/internals/emergency_oxygen/double//TODO:Subspace variant, pluox+nitrium variant
+	head = /obj/item/clothing/head/helmet/space/beret/debug/sst
 	ears = /obj/item/radio/headset/debug
 	glasses = /obj/item/clothing/glasses/meson/engine/admin/debug
 	neck = /obj/item/clothing/neck/necklace/memento_mori

@@ -18,7 +18,7 @@
 		var/character_option = tgui_alert(usr, "Which character?", "IC Quick Spawn", list("Selected Character", "Randomly Created", "Cancel"))
 		if (character_option == "Cancel")
 			return
-		var/initial_outfits = tgui_input_list(usr, "Select outfit", "Quick Dress", list("Bluespace Tech", "Subspace Tech", "Show All Outfits", "Cancel"))
+		var/initial_outfits = tgui_input_list(usr, "Select outfit", "Quick Dress", list("Show All Outfits", "Bluespace Tech", "Subspace Tech", "Cancel"))
 		if (initial_outfits == "Cancel")
 			return
 
