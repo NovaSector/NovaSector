@@ -24,13 +24,16 @@
 	return FALSE
 
 /datum/preference/choiced/voice_actor/init_possible_values()
-	if(SStts.tts_enabled)
-		var/list/speakers = list("Random") + SStts.available_speakers
-		return speakers
-	if(fexists("data/cached_tts_voices.json"))
-		var/list/cached_voices =  json_decode(rustg_file_read("data/cached_tts_voices.json"))
-		if(length(cached_voices))
-			return list("Random") + cached_voices
+	// Create a cache of available TTS voices to use later
+	if(!length(GLOB.tts_voice_list))
+		if(SStts.tts_enabled)
+			GLOB.tts_voice_list.Insert(0, SStts.available_speakers)
+		else if(fexists("data/cached_tts_voices.json"))
+			var/list/tts_voices_json = json_decode(rustg_file_read("data/cached_tts_voices.json"))
+			if(length(tts_voices_json))
+				GLOB.tts_voice_list.Insert(0, tts_voices_json)
+	if(length(GLOB.tts_voice_list))
+		return list("Random") + GLOB.tts_voice_list
 	return list("Random")
 
 // Secondary voice pitch
@@ -40,8 +43,8 @@
 
 /datum/preference/numeric/tts_voice_pitch/voice_actor/is_accessible(datum/preferences/preferences)
 	..()
-	if(!SStts.tts_enabled || !SStts.pitch_enabled)
-		return FALSE
+	if(SStts.pitch_enabled)
+		return TRUE
 
 /datum/preference/numeric/tts_voice_pitch/voice_actor/create_default_value()
 	return 0

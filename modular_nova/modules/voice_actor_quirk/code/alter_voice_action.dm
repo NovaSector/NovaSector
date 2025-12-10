@@ -43,11 +43,9 @@
 		return
 	// Set up primary runechat color
 	primary_color = grant_to.chat_color
-	// Set up primary pitch
-	if(SStts.pitch_enabled)
-		primary_pitch = grant_to.pitch
 	// Set up primary voice
 	primary_voice = grant_to.voice
+	primary_pitch = grant_to.pitch
 	// Set up primary blooper
 	primary_blooper = grant_to.blooper_id
 	primary_blooper_speed = grant_to.blooper_speed
@@ -79,16 +77,10 @@
 	secondary_pitch = prefs.read_preference(/datum/preference/numeric/tts_voice_pitch/voice_actor)
 	// Set up secondary voice
 	var/speaker = prefs.read_preference(/datum/preference/choiced/voice_actor)
-	var/list/available_speakers
-	if(SStts.tts_enabled)
-		available_speakers = SStts.available_speakers
-	else if(fexists("data/cached_tts_voices.json"))
-		available_speakers = json_decode(rustg_file_read("data/cached_tts_voices.json"))
-	if(!isnull(available_speakers))
-		if((speaker == "Random") || !(speaker in available_speakers))
-			secondary_voice = pick(available_speakers)
-		else
-			secondary_voice = speaker
+	if(((speaker == "Random") || !(speaker in GLOB.tts_voice_list)) && length(GLOB.tts_voice_list))
+		secondary_voice = pick(GLOB.tts_voice_list)
+	else
+		secondary_voice = speaker
 
 	// Set up secondary blooper speed
 	secondary_blooper_speed = prefs.read_preference(/datum/preference/numeric/blooper_speech_speed/voice_actor)
