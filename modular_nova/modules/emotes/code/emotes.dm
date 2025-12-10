@@ -665,7 +665,7 @@
 	message = "howls like wolf!"
 	message_mime = "acts out a wolf's howl!"
 	sound = 'modular_nova/modules/emotes/sound/voice/wolfhowl.ogg'
-	specific_emote_audio_cooldown = 6.7 SECONDS // Use length of longest sound file
+	specific_emote_audio_cooldown = 6.3 SECONDS // Use length of longest sound file
 	emote_type = EMOTE_AUDIBLE
 	vary = TRUE
 
@@ -679,7 +679,7 @@
 	message = "whines anxiously like a dog."
 	message_mime = "looks distressed and pouts a bit!"
 	sound = 'modular_nova/modules/emotes/sound/voice/dwhine.ogg'
-	specific_emote_audio_cooldown = 4.1 SECONDS // Use length of longest sound file
+	specific_emote_audio_cooldown = 3.52 SECONDS // Use length of longest sound file
 	emote_type = EMOTE_AUDIBLE
 	vary = TRUE
 
