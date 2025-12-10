@@ -5,7 +5,7 @@
 	icon_keyboard = "med_key"
 	req_one_access = list(ACCESS_MEDICAL, ACCESS_DETECTIVE, ACCESS_GENETICS)
 	circuit = /obj/item/circuitboard/computer/med_data
-	light_color = LIGHT_COLOR_BLUE
+	light_color = LIGHT_COLOR_BLUEwc
 
 /obj/machinery/computer/records/medical/syndie
 	icon_keyboard = "syndie_key"
