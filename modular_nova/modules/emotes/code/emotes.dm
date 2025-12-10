@@ -160,15 +160,15 @@
 	vary = TRUE
 	sound = 'modular_nova/modules/emotes/sound/voice/fox_squeak.ogg'
 
-/datum/emote/living/whine
-	key = "whine"
-	key_third_person = "whines"
+/datum/emote/living/fwhine
+	key = "fwhine"
+	key_third_person = "fwhines"
 	message = "whines like a fox."
 	emote_type = EMOTE_AUDIBLE
 	vary = TRUE
 	mob_type_allowed_typecache = list(/mob/living/carbon, /mob/living/silicon/pai)
 
-/datum/emote/living/whine/get_sound(mob/living/user)
+/datum/emote/living/fwhine/get_sound(mob/living/user)
 	return pick('modular_nova/modules/emotes/sound/voice/fox1.ogg',
 				'modular_nova/modules/emotes/sound/voice/fox2.ogg',
 				'modular_nova/modules/emotes/sound/voice/fox3.ogg',
