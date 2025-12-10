@@ -331,3 +331,14 @@
   - spellcheck: Changed some of the moodlet messages related to brushing
   sqnztb:
   - rscadd: Defibrillators have been re-added back to the medical fabs.
+  vinylspiders:
+  - bugfix: plant tanks should now make air again
+2025-12-10:
+  FlufflesTheDog:
+  - bugfix: Fixed some roundstart active turfs on ice box
+  muratendmo:
+  - rscadd: Roboticist access to the Medical Records PDA app
+  - rscadd: Roboticist access to Medical Records consoles
+  - rscadd: Medical Records Computer Board to the Science departmental imprinter.
+  sqnztb:
+  - bugfix: nova-specific maps should all have proper captain's spare safes now.
