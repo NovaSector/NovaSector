@@ -85,15 +85,15 @@ export const voice_actor_blooper: FeatureChoiced = {
 
 export const voice_actor_blooper_speech_speed: FeatureNumeric = {
   name: 'Vocal Bark Speed',
-  component: FeatureNumberInput,
+  component: FeatureSliderInput,
 };
 
 export const voice_actor_blooper_speech_pitch: FeatureNumeric = {
   name: 'Vocal Bark Pitch',
-  component: FeatureNumberInput,
+  component: FeatureSliderInput,
 };
 
 export const voice_actor_blooper_pitch_range: FeatureNumeric = {
   name: 'Vocal Bark Range',
-  component: FeatureNumberInput,
+  component: FeatureSliderInput,
 };
