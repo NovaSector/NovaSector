@@ -43,7 +43,6 @@ export function CommunicationsConsole(props) {
   }
 
   return (
-    <Window width={450} height={750} theme={emagged ? 'syndicate' : undefined}>
     //<Window width={400} height={650} theme={emagged ? 'syndicate' : undefined}> // NOVA EDIT REMOVAL
     <Window width={450} height={750} theme={emagged ? 'syndicate' : undefined}> { /* NOVA EDIT ADDITION */ }
       <Window.Content scrollable>
