@@ -67,13 +67,14 @@
 	name = "Colonial Uniform"
 	item_path = /obj/item/clothing/under/colonial
 	group = "Workwear"
+	species_blacklist = list(SPECIES_TESHARI)
 
-/datum/loadout_item/under/jumpsuit/coalition_police_uniform
+/datum/loadout_item/under/jumpsuit/colonial_uniform/coalition_police_uniform
 	name = "Coalition Police Uniform"
 	item_path = /obj/item/clothing/under/colonial/hc_police
 	group = "Workwear"
 
-/datum/loadout_item/under/jumpsuit/coalition_police_skirt
+/datum/loadout_item/under/jumpsuit/colonial_uniform/coalition_police_skirt
 	name = "Coalition Police Skirt"
 	item_path = /obj/item/clothing/under/colonial/hc_police/skirt
 	group = "Workwear"

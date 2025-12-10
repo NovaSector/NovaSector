@@ -4,9 +4,7 @@
 /area/template_noop)
 "r" = (
 /obj/effect/turf_decal/stripes/red/box,
-/obj/structure/sign/delam_procedure/directional/east{
-	pixel_y = -28
-	},
+/obj/structure/sign/delam_procedure/directional/south,
 /turf/open/floor/engine,
 /area/station/engineering/supermatter/room)
 "w" = (
@@ -24,7 +22,7 @@
 (1,1,1) = {"
 a
 r
-a
+R
 "}
 (2,1,1) = {"
 a

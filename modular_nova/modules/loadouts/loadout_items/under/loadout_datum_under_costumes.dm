@@ -148,6 +148,11 @@
 	item_path = /obj/item/clothing/under/syndicate/nova/maid/loadout_maid
 	group = "Costumes"
 
+/datum/loadout_item/under/miscellaneous/pink_clown_outfit
+	name = "Pink Clown Outfit"
+	item_path = /obj/item/clothing/under/rank/civilian/clown/pink_clown_outfit
+	group = "Costumes"
+
 /datum/loadout_item/under/miscellaneous/pj_blue
 	name = "Mailman Jumpsuit"
 	item_path = /obj/item/clothing/under/misc/mailman
@@ -349,6 +354,11 @@
 	item_path = /obj/item/clothing/under/costume/yukata/white
 	group = "Costumes"
 
+/datum/loadout_item/under/miscellaneous/chima_jeogori
+	name = "Chima Jeogori"
+	item_path = /obj/item/clothing/under/costume/nova/chima_jeogori
+	group = "Costumes"
+
 /*
 *	SPECIES-UNIQUE
 */
@@ -376,7 +386,7 @@
 /datum/loadout_item/under/jumpsuit/akula_wetsuit
 	name = "Shoredress Wetsuit"
 	item_path = /obj/item/clothing/under/akula_wetsuit
-	restricted_species = list(SPECIES_AKULA)
+	species_whitelist = list(SPECIES_AKULA)
 	group = "Species-Unique"
 
 /datum/loadout_item/under/miscellaneous/ethereal_tunic

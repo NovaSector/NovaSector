@@ -59,6 +59,10 @@
 	. = ..()
 	robot = loc
 	if(!istype(robot))
+		// NOVA EDIT ADDITION START - Disguise picker needs to be able to temporarily spawn models, to copy their appearance. No modules needed
+		if(isnull(robot))
+			return
+		// NOVA EDIT ADDITION END
 		stack_trace("Robot model ([src]) initialized outside of a robot at [AREACOORD(robot)]! \
 			This should never happen, make sure this item is not map-placed.")
 		return INITIALIZE_HINT_QDEL

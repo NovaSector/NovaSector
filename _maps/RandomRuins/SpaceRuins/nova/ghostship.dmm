@@ -110,7 +110,7 @@
 "iF" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/orange/visible/layer1,
 /turf/template_noop,
-/area/template_noop)
+/area/space/nearstation)
 "ja" = (
 /obj/structure/lattice,
 /obj/structure/grille,
@@ -361,7 +361,7 @@
 	dir = 4
 	},
 /turf/template_noop,
-/area/template_noop)
+/area/space/nearstation)
 "wp" = (
 /obj/effect/turf_decal/stripes/line,
 /obj/effect/decal/cleanable/dirt,
@@ -410,7 +410,7 @@
 "xP" = (
 /obj/structure/lattice,
 /turf/template_noop,
-/area/template_noop)
+/area/space/nearstation)
 "ye" = (
 /obj/effect/turf_decal/stripes/line,
 /obj/effect/turf_decal/stripes/asteroid/line{
@@ -505,7 +505,7 @@
 /obj/machinery/atmospherics/components/unary/outlet_injector/layer2,
 /obj/structure/lattice,
 /turf/template_noop,
-/area/template_noop)
+/area/space/nearstation)
 "ER" = (
 /obj/effect/decal/cleanable/plastic,
 /obj/effect/decal/cleanable/dirt,

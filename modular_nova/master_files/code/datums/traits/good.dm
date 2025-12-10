@@ -123,7 +123,7 @@
 	name = "Appendicitis Survivor"
 	desc = "You had a run in with appendicitis in the past and no longer have an appendix."
 	icon = FA_ICON_NOTES_MEDICAL
-	value = 2
+	value = 0
 	gain_text = span_notice("You no longer have an appendix.")
 	lose_text = span_danger("Your appendix has magically.. regrown?")
 	medical_record_text = "Patient had appendicitis in the past and has had their appendix surgically removed."
