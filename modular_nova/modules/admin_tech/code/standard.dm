@@ -248,7 +248,7 @@
 	new	/obj/item/storage/box/debug/autosurgeon(src)
 	new	/obj/item/storage/briefcase/medicalgunset/cmo(src)
 	new	/obj/item/storage/hypospraykit/cmo/combat(src)
-	new	/obj/item/surgery_tray/full/advanced
+	new	/obj/item/surgery_tray/full/advanced(src)
 	new	/obj/item/defibrillator/compact/combat/loaded/nanotrasen(src)
 	new	/obj/item/reagent_containers/cup/bottle/adminordrazine(src)
 	new	/obj/item/reagent_containers/hypospray/combat/nanites(src)
@@ -370,6 +370,53 @@
 /obj/item/radio/headset/headset_debug/Initialize(mapload)
 	. = ..()
 	AddComponent(/datum/component/wearertargeting/earprotection)
+
+// Hey check out this cancerous atompath.
+// Squishes together Syndie Thermal Xrays, Debug Goggles, and the Engine Admin glasses.
+// The one set of lenses to rule them all
+/obj/item/clothing/glasses/meson/engine/admin/debug
+	name = "subspace contacts"
+	desc = "One of Central Command's best kept secrets, resting on the eyes of many of its officers, operatives, and technicians."
+	desc_controls = "Ctrl click to toggle xray and thermals."
+	icon = 'icons/obj/devices/syndie_gadget.dmi'
+	icon_state = "contacts"
+	inhand_icon_state = "contacts"
+	worn_icon_state = null
+	flags_cover = GLASSESCOVERSEYES
+	flash_protect = FLASH_PROTECTION_WELDER
+	lighting_cutoff = LIGHTING_CUTOFF_HIGH
+	glass_colour_type = FALSE
+	vision_flags = SEE_TURFS
+	clothing_traits = list(
+		TRAIT_REAGENT_SCANNER,
+		TRAIT_MADNESS_IMMUNE,
+		TRAIT_MEDICAL_HUD,
+		TRAIT_SECURITY_HUD,
+		TRAIT_DIAGNOSTIC_HUD,
+		TRAIT_BOT_PATH_HUD,
+	)
+	var/xray = FALSE
+	pickup_sound = SFX_GOGGLES_PICKUP
+	drop_sound = SFX_GOGGLES_DROP
+	equip_sound = SFX_GOGGLES_EQUIP
+
+/obj/item/clothing/glasses/meson/engine/admin/debug/Initialize(mapload)
+	. = ..()
+	AddComponent(/datum/component/adjust_fishing_difficulty, -15)
+
+/obj/item/clothing/glasses/meson/engine/admin/debug/click_ctrl(mob/user)
+	if(!ishuman(user))
+		return CLICK_ACTION_BLOCKING
+	if(xray)
+		vision_flags &= ~SEE_TURFS|SEE_MOBS|SEE_OBJS
+		detach_clothing_traits(TRAIT_XRAY_VISION)
+	else
+		vision_flags |= SEE_TURFS|SEE_MOBS|SEE_OBJS
+		attach_clothing_traits(TRAIT_XRAY_VISION)
+	xray = !xray
+	var/mob/living/carbon/human/human_user = user
+	human_user.update_sight()
+	return CLICK_ACTION_SUCCESS
 
 // Badmin pinpointer. The bool lets you find people, even if they aren't wearing clothes, as long as you share a z-layer
 /obj/item/pinpointer/crew/debug
@@ -585,6 +632,40 @@
 //Bluespace Technician Outfit, used with the icspawning quick button
 /datum/outfit/admin/bst
 	name = "Bluespace Tech (MODsuit)"
+	uniform = /obj/item/clothing/under/misc/adminsuit
+	suit = /obj/item/clothing/suit/armor/vest/debug
+	suit_store = /obj/item/tank/internals/emergency_oxygen/double
+	ears = /obj/item/radio/headset/debug
+	neck = /obj/item/clothing/neck/necklace/memento_mori
+	gloves = /obj/item/clothing/gloves/kaza_ruk/combatglovesplus
+	belt = /obj/item/storage/belt/utility/debug/bst
+	shoes = /obj/item/clothing/shoes/magboots/advance/debug
+	mask = /obj/item/clothing/mask/gas/atmos
+	id = /obj/item/card/id/advanced/debug/bst
+	box = /obj/item/storage/box/debug/tools
+	l_pocket = /obj/item/door_remote/omni//TODO:Subspace variant
+	r_pocket = /obj/item/storage/bag/construction/debug
+	back = /obj/item/mod/control/pre_equipped/subspace
+	backpack_contents = list(
+		/obj/item/storage/box/debug/care_package = 1,
+		/obj/item/storage/box/debug/power = 1,
+		/obj/item/storage/box/debug/medical = 1,
+		/obj/item/melee/energy/axe = 1,
+		/obj/item/gun/energy/pulse/destroyer = 1,//TODO:Subspace variant, modular rifle
+		/obj/item/boxcutter = 1,//TODO:Subspace variant
+		/obj/item/gun/energy/taser/debug = 1,
+		/obj/item/gun/magic/hook/debug = 1,
+		/obj/item/storage/part_replacer/bluespace/tier4/bst = 1,
+		/obj/item/debug/human_spawner = 1,
+		/obj/item/gun/magic/wand/resurrection/debug = 1,
+		/obj/item/gun/magic/wand/death/debug = 1,
+		/obj/item/gun/magic/wand/safety/debug = 1,
+	)
+	belt_contents = list()
+
+//Bluespace Technician Outfit, used with the icspawning quick button
+/datum/outfit/admin/sst
+	name = "Subspace Tech (MODsuit)"
 	uniform = /obj/item/clothing/under/misc/adminsuit
 	suit = /obj/item/clothing/suit/armor/vest/debug
 	suit_store = /obj/item/tank/internals/emergency_oxygen/double
@@ -878,24 +959,5 @@
 /obj/item/ammo_casing/energy/electrode/debug
 	e_cost = LASER_SHOTS(1000, STANDARD_CELL_CHARGE)
 
-//Legacy Outfit
-/datum/outfit/debug/bst
-	name = "Bluespace Tech"
-	uniform = /obj/item/clothing/under/syndicate/combat
-	belt = /obj/item/storage/belt/utility/full/powertools/debug
-	shoes = /obj/item/clothing/shoes/combat/debug
-	id = /obj/item/card/id/advanced/debug/bst
-	box = /obj/item/storage/box/debugtools
-	backpack_contents = list(
-		/obj/item/melee/energy/axe = 1,
-		/obj/item/storage/part_replacer/bluespace/tier4/bst = 1,
-		/obj/item/gun/magic/wand/resurrection/debug = 1,
-		/obj/item/gun/magic/wand/death/debug = 1,
-		/obj/item/debug/human_spawner = 1,
-		/obj/item/debug/omnitool = 1,
-		/obj/item/storage/box/stabilized = 1,
-		/obj/item/storage/hypospraykit/cmo/combat = 1,
-		/obj/item/summon_beacon/gas_miner/expanded/debug = 1,
-		/obj/item/choice_beacon/job_locker/debug = 1,
-	)
+
 
