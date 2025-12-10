@@ -1,5 +1,5 @@
 /obj/item/gun/ballistic/rifle/pulse_sniper
-	name = "\improper Žaibas-A sniper rifle"
+	name = "\improper M/PR-16 'Žaibas-Aštrus' Sniper Rifle"
 	desc = "A sniper variant of the Žaibas plasma pulse projector, modified for precision long-range engagements. \
 	Uses a specialized chamber-loading system that consumes three charges per shot."
 
@@ -36,15 +36,17 @@
 	/// Number of charges consumed per shot
 	var/shots_per_fire = 3
 
-	lore_blurb = "Žaibas-A represents a specialized adaptation of the Heliostatic Coalition's plasma pulse technology for precision applications.<br><br> \
-		Where the standard Žaibas focuses on delivering rapid bursts of plasma energy, the 'A' variant (for 'Aštrus', or 'Sharp') sacrifices rate of fire \
-		for unparalleled accuracy and armor penetration. Each shot draws three times the normal plasma charge, creating a hyper-concentrated beam that \
-		can punch through even the most advanced fortifications.<br><br> \
-		The single cell mechanism was a controversial addition, as it eliminates the weapon's signature high longevity. \
-		However, Coalition marksmen report that the manual cycling process allows for better shot placement and thermal management during extended engagements.<br><br> \
-		Developed in response to reports of Coalition forces facing heavily armored targets at extreme ranges, the Žaibas-A has become the weapon of choice	\
-		for designated marksmen and anti-materiel specialists. A small production run means these rifles are typically issued only to elite units.<br><br> \
-		The warning label has been updated to read: 'NEPONOVLJATI NAPAJANJE - Tri kasetes per šūvį. Per didelis karščio kaupimas gali sugadinti gnybtą.'."
+	lore_blurb = "The PR-16 variant sacrifices the PR-15's high capacity for unparalleled precision at extreme ranges. Where the standard model \
+		fires rapid pulses, the \"Aštrus\" variant, -'sharp'-, draws three charges per shot to create a hyper-concentrated beam that can defeat even \
+		advanced composite armors at over a kilometer. <br><br> \
+		Development as XM/PR-15 revealed the standard pulse cells couldn't maintain the energy density needed for precision shots. The solution was \
+		a dedicated single-cell mechanism that eliminates the magazine system entirely. Each shot consumes three standard charges' worth of energy, \
+		making the weapon incredibly ammunition-inefficient but devastatingly effective. <br><br> \
+		The manual bolt action was a controversial addition that almost killed the project. However, Coalition marksmen reported that the \
+		cycling process allowed for better shot placement and thermal management during extended engagements. The chambered cell provides immediate \
+		feedback on remaining shots - when the charge drops below three projector shots' worth, the bolt automatically locks open. \
+		Issued only to elite reconnaissance and anti-materiel teams, the PR-16 has become the weapon of choice for dealing with hardened targets at \
+		distances where conventional rifles would be useless."
 
 /obj/item/gun/ballistic/rifle/pulse_sniper/give_manufacturer_examine()
 	AddElement(/datum/element/manufacturer_examine, COMPANY_SZOT)
