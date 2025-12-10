@@ -1,2 +1,2 @@
 /obj/machinery/computer/records/medical
-	req_one_access |= ACCESS_ROBOTICS
+	LAZYOR(req_one_access,  ACCESS_ROBOTICS)
