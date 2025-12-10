@@ -659,7 +659,7 @@
 	message = "howls like wolf!"
 	message_mime = "acts out a wolf's howl!"
 	sound = 'modular_nova/modules/emotes/sound/voice/wolfhowl.ogg'
-	specific_emote_audio_cooldown = 7 SECONDS // Use length of longest sound file
+	specific_emote_audio_cooldown = 6.7 SECONDS // Use length of longest sound file
 	emote_type = EMOTE_AUDIBLE
 	vary = TRUE
 
