@@ -140,6 +140,10 @@
 	name = "Supply Shuttle (Ouroboros)"
 	suffix = "ouroboros"
 
+/datum/map_template/shuttle/cargo/nova/oasis
+	name = "Supply Shuttle (Oasis)"
+	suffix = "oasis"
+
 /datum/map_template/shuttle/whiteship/ouroboros
 	name = "JN Chasse-Galerie"
 	description = "A small Jim Nortons shuttle meant to be a mobile cafe. No hostiles onboard, but multiple corpses of Jim Nortons employees."

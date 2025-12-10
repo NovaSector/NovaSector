@@ -627,6 +627,18 @@
 	icon = 'modular_nova/modules/mapping/icons/areas/areas_station.dmi'
 	icon_state = "orbital_lounge"
 
+/area/station/commons/orbital_lounge/club
+	name = "\improper Orbital Nightclub"
+
+/area/station/commons/orbital_lounge/dorms
+	name = "\improper Orbital Dorms Hall"
+
+/area/station/commons/orbital_lounge/utilities
+	name = "\improper Orbital Utilities Hall"
+
+/area/station/commons/orbital_lounge/bathroom
+	name = "\improper Orbital Bathroom Hall"
+
 /area/station/engineering/orbital_utilities
 	name = "\improper Orbital Utilities"
 	icon = 'modular_nova/modules/mapping/icons/areas/areas_station.dmi'
@@ -646,6 +658,18 @@
 	name = "\improper Orbital Solar Array"
 	icon = 'modular_nova/modules/mapping/icons/areas/areas_station.dmi'
 	icon_state = "orbital_solars"
+
+/area/station/solars/orbital/aft
+	name = "\improper Orbital Aft Solar Array"
+
+/area/station/solars/orbital/port
+	name = "\improper Orbital Port Solar Array"
+
+/area/station/solars/orbital/bow
+	name = "\improper Orbital Bow Solar Array"
+
+/area/station/solars/orbital/starboard
+	name = "\improper Orbital Starboard Solar Array"
 
 /area/station/maintenance/sushi_maint
 	name = "\improper Maintenance Sushi Shop"
