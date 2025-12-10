@@ -625,7 +625,7 @@
 /datum/emote/living/awuff/get_sound(mob/living/user)
 	. = ..()
 	return pick('modular_nova/modules/emotes/sound/voice/awuff.ogg', 'modular_nova/modules/emotes/sound/voice/awuff2.ogg', 'modular_nova/modules/emotes/sound/voice/awuff3.ogg')
-	
+
 /datum/emote/living/arf
 	key = "arf"
 	key_third_person = "arfs"
@@ -645,7 +645,7 @@
 	message = "howls like coyote!"
 	message_mime = "acts out a coyote's howl!"
 	sound = 'modular_nova/modules/emotes/sound/voice/coyotehowl.ogg'
-	specific_emote_audio_cooldown = 2.94 SECONDS // Uses longest sound's time
+	specific_emote_audio_cooldown = 2.8 SECONDS // Uses longest sound's time
 	emote_type = EMOTE_AUDIBLE
 	vary = TRUE
 
@@ -658,7 +658,7 @@
 		'modular_nova/modules/emotes/sound/voice/coyotehowl4.ogg',
 		'modular_nova/modules/emotes/sound/voice/coyotehowl5.ogg',
 	)
-	
+
 /datum/emote/living/wolfhowl
 	key = "wolfhowl"
 	key_third_person = "wolfhowls"
@@ -692,14 +692,14 @@
 		'modular_nova/modules/emotes/sound/voice/dwhine4.ogg',
 		'modular_nova/modules/emotes/sound/voice/dwhine5.ogg',
 	)
-	
+
 /datum/emote/living/dgrowl
 	key = "dgrowl"
 	key_third_person = "dgrowls"
 	message = "growls like a dog."
 	message_mime = "grits and bares their teeth, leaning in and shaking their head like a dog!"
 	sound = 'modular_nova/modules/emotes/sound/voice/dgrowl.ogg'
-	specific_emote_audio_cooldown = 3.2 SECONDS // Use length of longest sound file
+	specific_emote_audio_cooldown = 3.17 SECONDS // Use length of longest sound file
 	emote_type = EMOTE_AUDIBLE
 	vary = TRUE
 
@@ -719,20 +719,21 @@
 	message = "barks aggressively!"
 	message_mime = "imitates barking aggressively, and gnashes at the air!"
 	sound = 'modular_nova/modules/emotes/sound/voice/aggrobark.ogg'
-	specific_emote_audio_cooldown = 2.6 SECONDS // Use length of longest sound file
+	specific_emote_audio_cooldown = 2.5 SECONDS // Use length of longest sound file
 	emote_type = EMOTE_AUDIBLE
 	vary = TRUE
 
 /datum/emote/living/aggrobark/get_sound(mob/living/user)
 	. = ..()
 	return pick('modular_nova/modules/emotes/sound/voice/aggrobark.ogg', 'modular_nova/modules/emotes/sound/voice/aggrobark2.ogg', 'modular_nova/modules/emotes/sound/voice/aggrobark3.ogg', 'modular_nova/modules/emotes/sound/voice/aggrobark4.ogg')
-	
+
 /datum/emote/living/dcomplain
 	key = "dcomplain"
 	key_third_person = "dcomplains"
 	message = "complains like a dog."
 	message_mime = "imitates a canine's whine with neck stretched out."
 	sound = 'modular_nova/modules/emotes/sound/voice/dcomplain.ogg'
+	specific_emote_audio_cooldown = 2.6 SECONDS // Use length of longest sound file
 	emote_type = EMOTE_AUDIBLE
 	vary = TRUE
 
@@ -745,7 +746,7 @@
 		'modular_nova/modules/emotes/sound/voice/dcomplain4.ogg',
 		'modular_nova/modules/emotes/sound/voice/dcomplain5.ogg',
 	)
-	
+
 /datum/emote/living/meowdeep
 	key = "meowdeep"
 	key_third_person = "meowdeeps"
