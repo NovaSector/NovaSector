@@ -1,0 +1,5 @@
+author: "Geoengi"
+delete-after: True
+changes:
+  - bugfix: "Communications console options should no longer be cut off by default."
+  - spellcheck: "Adds a space after enable/disable in the engineering emergency override button."
