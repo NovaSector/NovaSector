@@ -370,7 +370,6 @@
 		"Paramedic",
 		"Emergency Medical Technician",
 		"Search and Rescue Technician",
-		"Emergency Response Technician",
 		"Trauma Team Responder",
 		"Emergency Medical Responder",
 	)
