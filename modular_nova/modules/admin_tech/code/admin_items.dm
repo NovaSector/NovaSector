@@ -10,7 +10,7 @@
 	worn_icon_state = null//Dont fuck with my drip, todo: make drip-pouch worn visible
 	w_class = WEIGHT_CLASS_TINY
 	resistance_flags = INDESTRUCTIBLE | LAVA_PROOF | FIRE_PROOF | ACID_PROOF
-	slot_flags = ITEM_SLOT_POCKETS//pocket only
+	slot_flags = ITEM_SLOT_POCKETS//pockets only >:(
 	storage_type = /datum/storage/bag/construction/debug
 
 /obj/item/storage/bag/construction/debug/PopulateContents()
@@ -80,22 +80,25 @@
 	. = ..()
 	AddComponent(/datum/component/wearertargeting/earprotection)
 
-// New admin undersuits, todo: BST, CC Variants, Casualmin Variants, or.... Maybe we setup altstates for this?
+// New admin undersuit
+// todo: BST, CC Variants, Casualmin Variants, or.... Maybe we setup altstates for this?
 /obj/item/clothing/under/misc/sst_suit
-	name = "administrative cybernetic jumpsuit"
+	name = "subspace skinsuit"
+	desc = "A perfectly tailored and customized skin suit made specifically for this technician. \
+	Composed of experimental textiles, and assembled with the legendary Bluespace Sewing Machine, it fits the body with perfect comfort, and carries an air of security."
 	icon = 'modular_nova/master_files/icons/obj/clothing/under/akula.dmi'
 	icon_state = "default"
 	inhand_icon_state = null
-	worn_icon = 'icons/mob/clothing/under/station_trait.dmi'
-	desc = "A cybernetically enhanced jumpsuit used for administrative duties."
+	worn_icon = 'modular_nova/modules/modular_items/icons/akulasuit.dmi'
+	worn_icon_state = "default"
+	can_adjust = FALSE//admin techs should NEVER be on sensors
+	resistance_flags = FIRE_PROOF | ACID_PROOF
 	body_parts_covered = CHEST|GROIN|LEGS|FEET|ARMS|HANDS
 	armor_type = /datum/armor/clothing_under/adminsuit
 	cold_protection = CHEST | GROIN | LEGS | FEET | ARMS | HANDS
 	min_cold_protection_temperature = SPACE_SUIT_MIN_TEMP_PROTECT
 	heat_protection = CHEST|GROIN|LEGS|FEET|ARMS|HANDS
 	max_heat_protection_temperature = SPACE_SUIT_MAX_TEMP_PROTECT
-	can_adjust = FALSE
-	resistance_flags = FIRE_PROOF | ACID_PROOF
 
 /obj/item/clothing/under/misc/adminsuit/Initialize(mapload)
 	. = ..()
@@ -104,6 +107,7 @@
 // Hey check out this cancerous atompath.
 // Squishes together Syndie Thermal Xrays, Debug Goggles, and the Engine Admin glasses.
 // The one set of lenses to rule them all
+// TODO:fix loss of vision flags when cycling goggle states
 /obj/item/clothing/glasses/meson/engine/admin/debug
 	name = "subspace contacts"
 	desc = "One of Central Command's best kept secrets, resting on the eyes of many of its officers, operatives, and technicians."
@@ -111,12 +115,12 @@
 //	icon = 'icons/obj/devices/syndie_gadget.dmi'
 //	icon_state = "contacts"
 //	inhand_icon_state = "contacts"
-	worn_icon_state = null
+	worn_icon_state = null//TODO: Parent atom has update_appearance() in a proc, so either I figure out how to negate that or I have to recreate the proc-chain
 	flags_cover = GLASSESCOVERSEYES
 	flash_protect = FLASH_PROTECTION_WELDER
 	lighting_cutoff = LIGHTING_CUTOFF_HIGH
 	glass_colour_type = FALSE
-//	vision_flags = SEE_TURFS
+	vision_flags = SEE_TURFS | SEE_MOBS | SEE_OBJS
 	clothing_traits = list(
 		TRAIT_REAGENT_SCANNER,
 		TRAIT_MADNESS_IMMUNE,
@@ -134,26 +138,21 @@
 	. = ..()
 	AddComponent(/datum/component/adjust_fishing_difficulty, -15)
 
-/obj/item/clothing/glasses/meson/engine/admin/debug/click_ctrl(mob/user)
-	if(!ishuman(user))
-		return CLICK_ACTION_BLOCKING
-	if(xray)
-		vision_flags &= ~SEE_TURFS|SEE_MOBS|SEE_OBJS
-		detach_clothing_traits(TRAIT_XRAY_VISION)
-	else
-		vision_flags |= SEE_TURFS|SEE_MOBS|SEE_OBJS
-		attach_clothing_traits(TRAIT_XRAY_VISION)
-	xray = !xray
-	var/mob/living/carbon/human/human_user = user
-	human_user.update_sight()
-	return CLICK_ACTION_SUCCESS
+///obj/item/clothing/glasses/meson/engine/admin/debug/click_ctrl(mob/user)
+//	if(!ishuman(user))
+//		return CLICK_ACTION_BLOCKING
+//	if(xray)
+//		vision_flags &= ~SEE_TURFS|SEE_MOBS|SEE_OBJS
+//		detach_clothing_traits(TRAIT_XRAY_VISION)
+//	else
+//		vision_flags |= SEE_TURFS|SEE_MOBS|SEE_OBJS
+//		attach_clothing_traits(TRAIT_XRAY_VISION)
+//	xray = !xray
+//	var/mob/living/carbon/human/human_user = user
+//	human_user.update_sight()
+//	return CLICK_ACTION_SUCCESS
 
 // Debug magbooties
-/obj/item/clothing/magboots/advance/debug/Initialize(mapload)// Give them pockets, damnit
-	. = ..()
-	create_storage(storage_type = /datum/storage/pockets/shoes)
-	AddElement(/datum/element/ignites_matches)
-
 /obj/item/clothing/shoes/magboots/advance/debug
 	name = "subspace magboots"
 	desc = "Exotic hand manufactured booties made of the finest alloys the Frontier has to offer. The bluespace crystals powering each boot gleam threateningly."
@@ -165,6 +164,11 @@
 	magpulse_fishing_modifier = 10
 	fishing_modifier = 10
 
+/obj/item/clothing/magboots/advance/debug/Initialize(mapload)// Give them pockets, damnit
+	. = ..()
+	create_storage(storage_type = /datum/storage/pockets/shoes)
+	AddElement(/datum/element/ignites_matches)
+
 // Badmin pinpointer. The bool lets you find people, even if they aren't wearing clothes, as long as you share a z-layer
 /obj/item/pinpointer/crew/debug
 	name = "target locator"
@@ -174,7 +178,7 @@
 	w_class = WEIGHT_CLASS_TINY
 	resistance_flags = INDESTRUCTIBLE | LAVA_PROOF | FIRE_PROOF | ACID_PROOF
 
-// Bluespace Techs do Infiltration and Lights testing
+// Techs do Infiltration and Lights testing
 /obj/projectile/energy/fisher/debug
 	projectile_phasing = PASSTABLE | PASSMOB | PASSMACHINE | PASSSTRUCTURE | PASSGLASS | PASSGRILLE | PASSCLOSEDTURF | PASSDOORS
 
@@ -189,6 +193,13 @@
 	ammo_type = list(/obj/item/ammo_casing/energy/fisher/debug)
 
 // We need updated money for the debug box
-/obj/item/holochip/50000
+/obj/item/holochip/fiftythousand
 	desc = "Oh lawd she thicc."
 	credits = 50000
+
+// Subspace boxcutter to replace the BST's energy axe.
+// Tool mode / weapon mode alt hold state, weapon mode should have built in anti-drop + high destruction coef + rwall destruction abilities
+// weapon + metal hydrogen fire axe inspired
+// todo: channeled gutting / organ carving ability, steal the channel attack from extinguishers
+// "only if it can unbox people and just dumps human skin on the floor and all their organs"
+//		/obj/item/boxcutter

@@ -1,3 +1,5 @@
+// Originally from: NOVA MODULE IC-SPAWNING https://github.com/Skyrat-SS13/Skyrat-tg/pull/104
+// TODO:fix computer boards spawning, its getting eaten by the subpather
 /obj/item/storage/part_replacer/bluespace/tier4/bst
 	name = "\improper Bluespace Tech RPED"
 	desc = "A specialized bluespace RPED for technicians that can manufacture stock parts on the fly. Alt-Right-Click to manufacture parts, change settings, or clear its internal storage."
@@ -157,7 +159,7 @@
 /// BSTs' special Bluespace RPED can manufacture parts on Alt-RMB, either cables, glass, machine boards, or stock parts.
 /obj/item/storage/part_replacer/bluespace/tier4/bst/click_alt_secondary(mob/user)
 	// Ask the user what they want to make, or if they want to clear the storage.
-	var/spawn_selection = tgui_input_list(user, "Pick a part, or clear storage", "RPED Manufacture", list("Clear All Items", "Toggle Auto-Clear", "Cables", "Glass", "Spare T4s", "Machine Board", "Stock Part", "Beaker"))
+	var/spawn_selection = tgui_input_list(user, "Pick a part, or clear storage", "RPED Manufacture", list("Clear All Items", "Toggle Auto-Clear", "Tier 4 Parts", "Cable Coils", "Glass Sheets", "Plasteel Sheets", "Bluespace Crystals", "Infinite Megacell", "Infinite Power Cell", "Machine Boards", "Computer Boards", "Stock Parts", "Beakers"))
 	// If they didn't cancel out of the list selection, we do things.  Clear-all removes all items, auto-clear destroys left-overs after upgrades, and everything else is pretty self-explanatory.
 	// Machine boards and stock parts use a recursive subtype selector.
 	if(isnull(spawn_selection))
@@ -181,11 +183,11 @@
 	else if(spawn_selection == "Cable Coils")
 		atom_storage.attempt_insert(new /obj/item/stack/cable_coil(src), user, TRUE)
 	else if(spawn_selection == "Glass Sheets")
-		atom_storage.attempt_insert(new /obj/item/stack/sheet/glass/fifty(src), user, TRUE)
+		atom_storage.attempt_insert(new /obj/item/stack/sheet/glass(src), user, TRUE)
 	else if(spawn_selection == "Plasteel Sheets")
-		atom_storage.attempt_insert(new /obj/item/stack/sheet/plasteel/fifty(src), user, TRUE)
+		atom_storage.attempt_insert(new /obj/item/stack/sheet/plasteel(src), user, TRUE)
 	else if(spawn_selection == "Bluespace Crystals")
-		atom_storage.attempt_insert(new /obj/item/stack/sheet/bluespace_crystal/fifty(src), user, TRUE)
+		atom_storage.attempt_insert(new /obj/item/stack/sheet/bluespace_crystal(src), user, TRUE)
 	else if(spawn_selection == "Infinite Megacell")
 		atom_storage.attempt_insert(new /obj/item/stock_parts/power_store/battery/infinite(src), user, TRUE)
 	else if(spawn_selection == "Infinite Power Cell")

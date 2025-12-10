@@ -30,7 +30,7 @@
 	new	/obj/item/uplink/nuclear/debug(src)
 	new	/obj/item/card/emag(src)
 	new	/obj/item/construction/rcd/combat/admin(src)
-	new	/obj/item/holochip/50000(src)
+	new	/obj/item/holochip/fiftythousand(src)
 	new	/obj/item/clothing/glasses/meson/engine/admin(src)
 	new	/obj/item/clothing/glasses/thermal/xray(src)
 	new	/obj/item/summon_beacon/gas_miner/expanded/debug(src)
