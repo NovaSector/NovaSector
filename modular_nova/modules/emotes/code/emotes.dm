@@ -624,7 +624,7 @@
 
 /datum/emote/living/awuff/get_sound(mob/living/user)
 	. = ..()
-	return pick('modular_nova/modules/emotes/sound/voice/awuff.ogg', 'modular_nova/modules/emotes/sound/voice/awuff2.ogg',  'modular_nova/modules/emotes/sound/voice/awuff3.ogg')
+	return pick('modular_nova/modules/emotes/sound/voice/awuff.ogg', 'modular_nova/modules/emotes/sound/voice/awuff2.ogg', 'modular_nova/modules/emotes/sound/voice/awuff3.ogg')
 	
 /datum/emote/living/arf
 	key = "arf"
@@ -651,7 +651,13 @@
 
 /datum/emote/living/coyhowl/get_sound(mob/living/user)
 	. = ..()
-	return pick('modular_nova/modules/emotes/sound/voice/coyotehowl.ogg', 'modular_nova/modules/emotes/sound/voice/coyotehowl2.ogg', 'modular_nova/modules/emotes/sound/voice/coyotehowl3.ogg', 'modular_nova/modules/emotes/sound/voice/coyotehowl4.ogg', 'modular_nova/modules/emotes/sound/voice/coyotehowl5.ogg')
+	return pick(
+		'modular_nova/modules/emotes/sound/voice/coyotehowl.ogg',
+		'modular_nova/modules/emotes/sound/voice/coyotehowl2.ogg',
+		'modular_nova/modules/emotes/sound/voice/coyotehowl3.ogg',
+		'modular_nova/modules/emotes/sound/voice/coyotehowl4.ogg',
+		'modular_nova/modules/emotes/sound/voice/coyotehowl5.ogg',
+	)
 	
 /datum/emote/living/wolfhowl
 	key = "wolfhowl"
@@ -679,7 +685,13 @@
 
 /datum/emote/living/dwhine/get_sound(mob/living/user)
 	. = ..()
-	return pick('modular_nova/modules/emotes/sound/voice/dwhine.ogg', 'modular_nova/modules/emotes/sound/voice/dwhine2.ogg', 'modular_nova/modules/emotes/sound/voice/dwhine3.ogg', 'modular_nova/modules/emotes/sound/voice/dwhine4.ogg', 'modular_nova/modules/emotes/sound/voice/dwhine5.ogg')
+	return pick(
+		'modular_nova/modules/emotes/sound/voice/dwhine.ogg',
+		'modular_nova/modules/emotes/sound/voice/dwhine2.ogg',
+		'modular_nova/modules/emotes/sound/voice/dwhine3.ogg',
+		'modular_nova/modules/emotes/sound/voice/dwhine4.ogg',
+		'modular_nova/modules/emotes/sound/voice/dwhine5.ogg',
+	)
 	
 /datum/emote/living/dgrowl
 	key = "dgrowl"
@@ -693,7 +705,13 @@
 
 /datum/emote/living/dgrowl/get_sound(mob/living/user)
 	. = ..()
-	return pick('modular_nova/modules/emotes/sound/voice/dgrowl.ogg', 'modular_nova/modules/emotes/sound/voice/dgrowl2.ogg', 'modular_nova/modules/emotes/sound/voice/dgrowl3.ogg', 'modular_nova/modules/emotes/sound/voice/dgrowl4.ogg', 'modular_nova/modules/emotes/sound/voice/dgrowl5.ogg')
+	return pick(
+		'modular_nova/modules/emotes/sound/voice/dgrowl.ogg',
+		'modular_nova/modules/emotes/sound/voice/dgrowl2.ogg',
+		'modular_nova/modules/emotes/sound/voice/dgrowl3.ogg',
+		'modular_nova/modules/emotes/sound/voice/dgrowl4.ogg',
+		'modular_nova/modules/emotes/sound/voice/dgrowl5.ogg',
+	)
 
 /datum/emote/living/aggrobark
 	key = "aggrobark"
@@ -720,7 +738,13 @@
 
 /datum/emote/living/dcomplain/get_sound(mob/living/user)
 	. = ..()
-	return pick('modular_nova/modules/emotes/sound/voice/dcomplain.ogg', 'modular_nova/modules/emotes/sound/voice/dcomplain2.ogg', 'modular_nova/modules/emotes/sound/voice/dcomplain3.ogg', 'modular_nova/modules/emotes/sound/voice/dcomplain4.ogg', 'modular_nova/modules/emotes/sound/voice/dcomplain5.ogg')
+	return pick(
+		'modular_nova/modules/emotes/sound/voice/dcomplain.ogg',
+		'modular_nova/modules/emotes/sound/voice/dcomplain2.ogg',
+		'modular_nova/modules/emotes/sound/voice/dcomplain3.ogg',
+		'modular_nova/modules/emotes/sound/voice/dcomplain4.ogg',
+		'modular_nova/modules/emotes/sound/voice/dcomplain5.ogg',
+	)
 	
 /datum/emote/living/meowdeep
 	key = "meowdeep"
@@ -733,4 +757,4 @@
 
 /datum/emote/living/meowdeep/get_sound(mob/living/user)
 	. = ..()
-	return pick('modular_nova/modules/emotes/sound/voice/meowdeep.ogg', 'modular_nova/modules/emotes/sound/voice/meowdeep2.ogg',  'modular_nova/modules/emotes/sound/voice/meowdeep3.ogg')
+	return pick('modular_nova/modules/emotes/sound/voice/meowdeep.ogg', 'modular_nova/modules/emotes/sound/voice/meowdeep2.ogg', 'modular_nova/modules/emotes/sound/voice/meowdeep3.ogg')
