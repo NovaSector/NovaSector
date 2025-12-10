@@ -1,7 +1,7 @@
 // The sheetsnatcher extreme is really ugly, misses features, and misses materials. Lets make our own.
 // Using a construction bag as our base, instead of the sheetsnatcher.
 // I can probably adapt the BST-BRPED manufacturing function to this, but for now, an improvement is better than nothing
-/obj/item/storage/bag/construction/debug
+/obj/item/storage/bag/construction/debug//code\game\objects\items\storage\bags.dm
 	name = "subspace construction pouch"
 	desc = "A hand manufactured pocket liner assembled with disturbingly advanced technologies and materials. \
 	Peeking inside the pocket, cherenkov-esque radiation illuminates a mass of materials and supplies."
@@ -52,7 +52,7 @@
 		var/amt = items_inside[stack_type]
 		new stack_type(src, amt, FALSE)
 
-// Debug Encryption Key and Headset
+// Debug Encryption Key and Headset, still manually populates the channel list because denthead
 /obj/item/encryptionkey/debug
 	name = "\proper the subspace encryption key"
 	desc = "Holding and looking at this little chip fills you with a sense of existential dread. The taste of metaknowledge fills your mouth. \
@@ -94,7 +94,7 @@
 	can_adjust = FALSE//admin techs should NEVER be on sensors
 	resistance_flags = FIRE_PROOF | ACID_PROOF
 	body_parts_covered = CHEST|GROIN|LEGS|FEET|ARMS|HANDS
-	armor_type = /datum/armor/clothing_under/adminsuit
+	armor_type = /datum/armor/debug
 	cold_protection = CHEST | GROIN | LEGS | FEET | ARMS | HANDS
 	min_cold_protection_temperature = SPACE_SUIT_MIN_TEMP_PROTECT
 	heat_protection = CHEST|GROIN|LEGS|FEET|ARMS|HANDS
@@ -108,7 +108,7 @@
 // Squishes together Syndie Thermal Xrays, Debug Goggles, and the Engine Admin glasses.
 // The one set of lenses to rule them all
 // TODO:fix loss of vision flags when cycling goggle states
-/obj/item/clothing/glasses/meson/engine/admin/debug
+/obj/item/clothing/glasses/meson/engine/admin/debug//code\modules\clothing\glasses\engine_goggles.dm
 	name = "subspace contacts"
 	desc = "One of Central Command's best kept secrets, resting on the eyes of many of its officers, operatives, and technicians."
 	desc_controls = "Ctrl click to toggle xray and thermals."
@@ -153,7 +153,7 @@
 //	return CLICK_ACTION_SUCCESS
 
 // Debug magbooties
-/obj/item/clothing/shoes/magboots/advance/debug
+/obj/item/clothing/shoes/magboots/advance/debug//code\modules\clothing\shoes\magboots.dm
 	name = "subspace magboots"
 	desc = "Exotic hand manufactured booties made of the finest alloys the Frontier has to offer. The bluespace crystals powering each boot gleam threateningly."
 	w_class = WEIGHT_CLASS_TINY
@@ -170,7 +170,7 @@
 	AddElement(/datum/element/ignites_matches)
 
 // Badmin pinpointer. The bool lets you find people, even if they aren't wearing clothes, as long as you share a z-layer
-/obj/item/pinpointer/crew/debug
+/obj/item/pinpointer/crew/debug//code\game\objects\items\pinpointer.dm
 	name = "target locator"
 	desc = "A sleek handheld tablet with a complex looking antennae."
 	icon_state = "pinpointer_sniffer"
@@ -186,14 +186,14 @@
 	projectile_type = /obj/projectile/energy/fisher/debug
 	e_cost = 0
 
-/obj/item/gun/energy/recharge/fisher/debug
+/obj/item/gun/energy/recharge/fisher/debug//code\modules\projectiles\guns\energy\recharge.dm
 	w_class = WEIGHT_CLASS_TINY
 	suppressed = SUPPRESSED_QUIET
 	recharge_time = 0.25 SECONDS
 	ammo_type = list(/obj/item/ammo_casing/energy/fisher/debug)
 
-// We need updated money for the debug box
-/obj/item/holochip/fiftythousand
+// We need updated money for the debug box. Space cash is not splittable, and spawning 10 stacks of 5000 credits is not an ok solution to that problem
+/obj/item/holochip/fiftythousand//code\game\objects\items\credit_holochip.dm
 	desc = "Oh lawd she thicc."
 	credits = 50000
 
@@ -204,8 +204,8 @@
 // "only if it can unbox people and just dumps human skin on the floor and all their organs"
 //		/obj/item/boxcutter
 
-// Bussy berets
-/obj/item/clothing/head/helmet/space/beret/debug
+// Bussy berets, using an old CC beret with built in greyscaling as our foundation
+/obj/item/clothing/head/helmet/space/beret/debug//code\modules\clothing\spacesuits\specialops.dm
 	name = "tech's beret"
 	desc = "An armored beret commonly used by administratively deployed techs. Uses advanced force field technology to protect the head from space."
 	greyscale_colors = "#303030ff#FFCE5B"
@@ -225,7 +225,7 @@
 	greyscale_colors = "#C68EEF#FFCE5B"
 
 // Flannel armor. Fight me.
-/obj/item/clothing/suit/toggle/jacket/nova/flannel/gags/debug
+/obj/item/clothing/suit/toggle/jacket/nova/flannel/gags/debug//modular_nova\modules\customization\modules\clothing\under\utility_port\suits_port.dm
 	armor_type = /datum/armor/debug
 	name = "tech's flannel"
 	desc = "Why'd you grab this one from the wardrobe? We have nicely colored ones, you know."
@@ -240,3 +240,37 @@
 	name = "subspace tech's flannel"
 	desc = "An armored beret commonly used by administratively deployed techs. Uses advanced force field technology to protect the head from space."
 	greyscale_colors = "#C68EEF"
+
+//Creates a new debug filter and gagsable admim bus gasmask
+/obj/item/gas_filter/debug//code\modules\clothing\masks\gas_filter.dm
+	filter_status = 1000
+	filter_strength_high = 10
+	filter_efficiency = 1
+	high_filtering_gases = list(
+		/datum/gas/bz,
+		/datum/gas/carbon_dioxide,
+		/datum/gas/freon,
+		/datum/gas/goblin,
+		/datum/gas/halon,
+		/datum/gas/healium,
+		/datum/gas/hypernoblium,
+		/datum/gas/miasma,
+		/datum/gas/nitrous_oxide,
+		/datum/gas/plasma,
+		/datum/gas/proto_nitrate,
+		/datum/gas/tritium,
+		/datum/gas/zauker,
+		)
+
+//TODO:make gags + variants
+/obj/item/clothing/mask/gas/atmos/debug//code\modules\clothing\masks\gasmask.dm
+	name = "subspace gas mask"
+	desc = "A proprietary filtration mask which route gasses that CentCom deems toxic directly into the space between dimensions.\
+	Wasteful? Totally. Convenient? Extremely."
+	icon_state = "gas_atmos"
+	inhand_icon_state = "gas_atmos"
+	armor_type = /datum/armor/debug
+	resistance_flags = FIRE_PROOF
+	max_filters = 10
+	starting_filter_type = /obj/item/gas_filter/debug
+	fishing_modifier = 0
