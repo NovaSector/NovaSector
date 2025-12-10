@@ -152,7 +152,16 @@
 		/mob/living/proc/emote_mrrp,
 		/mob/living/proc/emote_prbt,
 		/mob/living/proc/emote_yip,
-		/mob/living/proc/emote_whine
+		/mob/living/proc/emote_fwhine,
+		/mob/living/proc/emote_awuff,
+		/mob/living/proc/emote_arf,
+		/mob/living/proc/emote_coyhowl,
+		/mob/living/proc/emote_wolfhowl,
+		/mob/living/proc/emote_dwhine,
+		/mob/living/proc/emote_dgrowl,
+		/mob/living/proc/emote_aggrobark,
+		/mob/living/proc/emote_dcomplain,
+		/mob/living/proc/emote_meowdeep
 	)
 	all_emotes += nova_living_emotes
 
@@ -672,10 +681,10 @@
 	set category = "Emotes+"
 	usr.emote("yip", intentional = TRUE)
 
-/mob/living/proc/emote_whine()
+/mob/living/proc/emote_fwhine()
 	set name = "> Fox Whine"
 	set category = "Emotes+"
-	usr.emote("whine", intentional = TRUE)
+	usr.emote("fwhine", intentional = TRUE)
 
 /mob/living/proc/emote_nya()
 	set name = "> Nya"
