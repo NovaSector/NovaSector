@@ -1,0 +1,5 @@
+author: "Stalkeros"
+delete-after: True
+changes:
+  - balance: "Plasma pulse guns, -Zaibases-, have been nerfed severely to comply with the recent design documentation."
+  - bugfix: "Plasma pulser snipe rifle's reloading and handling should be generally way less awkward and weird."

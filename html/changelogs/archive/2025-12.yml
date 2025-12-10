@@ -320,3 +320,25 @@
   sqnztb:
   - bugfix: Snowglobe's bridge has a spare ID safe again. The long-serving paper cutter
       has been retired.
+2025-12-08:
+  Diltyrr:
+  - spellcheck: Changed the dormant fragment of the Stjarndrakkr's description to
+      give an usage hint.
+  Hardly:
+  - rscadd: Barbers now have a new skill meant to assist on their haircutting skills,
+      buy a H41R 3XP3R7 skillchip from your nearby Fab-O-Vend today!
+  - bugfix: Fixed wrong visible messages when brushing someone's hair in combat mode
+  - spellcheck: Changed some of the moodlet messages related to brushing
+  sqnztb:
+  - rscadd: Defibrillators have been re-added back to the medical fabs.
+  vinylspiders:
+  - bugfix: plant tanks should now make air again
+2025-12-10:
+  FlufflesTheDog:
+  - bugfix: Fixed some roundstart active turfs on ice box
+  muratendmo:
+  - rscadd: Roboticist access to the Medical Records PDA app
+  - rscadd: Roboticist access to Medical Records consoles
+  - rscadd: Medical Records Computer Board to the Science departmental imprinter.
+  sqnztb:
+  - bugfix: nova-specific maps should all have proper captain's spare safes now.
