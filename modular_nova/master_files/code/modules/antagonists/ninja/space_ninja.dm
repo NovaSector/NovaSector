@@ -114,20 +114,9 @@
 		CRASH("Antagonist datum without owner")
 	report += printplayer(owner)
 
-	var/objectives_complete = TRUE
 	if(length(objectives))
 		report += printobjectives(objectives)
-		for(var/datum/objective/objective in objectives)
-			if(istype(objective, /datum/objective/cyborg_hijack))
-				continue
-			if(!objective.check_completion())
-				objectives_complete = FALSE
-				break
 
-	if(!length(objectives) || objectives_complete)
-		report += "<span class='greentext big'>The [name] was successful at spreading fear among NT!</span>"
-	else
-		report += "<span class='redtext big'>The [name] has failed the Cybersun!</span>"
 	return report.Join("<br>")
 
 /datum/antagonist/ninja/greet()
