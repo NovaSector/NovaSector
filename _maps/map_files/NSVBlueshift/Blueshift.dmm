@@ -56058,8 +56058,8 @@
 /area/station/commons/dorms)
 "loX" = (
 /obj/effect/landmark/observer_start,
-/turf/open/space/basic,
-/area/space)
+/turf/open/floor/wood,
+/area/station/hallway/primary/central)
 "lpa" = (
 /obj/effect/turf_decal/bot,
 /obj/structure/rack,
@@ -152582,7 +152582,7 @@ gCJ
 dGC
 bGm
 lsV
-rNa
+loX
 iJS
 qIJ
 fZI
@@ -152594,7 +152594,7 @@ fZI
 fZI
 iPw
 fZI
-loX
+fZI
 fZI
 xJH
 fZI
