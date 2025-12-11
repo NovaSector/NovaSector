@@ -1,2 +1,2 @@
 /obj/machinery/computer/records/medical
-	LAZYOR(req_one_access,  ACCESS_ROBOTICS)
+	req_one_access = list(ACCESS_MEDICAL, ACCESS_DETECTIVE, ACCESS_GENETICS, ACCESS_ROBOTICS)
