@@ -89,14 +89,16 @@
 	data["supplies"] = list()
 	for(var/pack in SSshuttle.supply_packs)
 		var/datum/supply_pack/P = SSshuttle.supply_packs[pack]
-		if(!is_visible_pack(user, P.access_view , null, P.contraband) || P.hidden)
+		if(P.order_flags & ORDER_INVISIBLE)
+			continue
+		if(!is_visible_pack(user, P.access_view , null, (P.order_flags & ORDER_CONTRABAND)) || (P.order_flags & ORDER_EMAG_ONLY))
 			continue
 		if(!data["supplies"][P.group])
 			data["supplies"][P.group] = list(
 				"name" = P.group,
 				"packs" = list()
 			)
-		if((P.hidden && (P.contraband && !contraband) || (P.special && !P.special_enabled) || P.drop_pod_only))
+		if(((P.order_flags & ORDER_EMAG_ONLY) && ((P.order_flags & ORDER_CONTRABAND) && !contraband) || ((P.order_flags & ORDER_SPECIAL) && !(P.order_flags & ORDER_SPECIAL_ENABLED)) || (P.order_flags & ORDER_POD_ONLY)))
 			continue
 
 		// NOVA EDIT ADDITION START
@@ -111,7 +113,7 @@
 			"desc" = P.desc || P.name, // If there is a description, use it. Otherwise use the pack's name.
 			"first_item_icon" = first_item?.icon,
 			"first_item_icon_state" = first_item?.icon_state,
-			"goody" = P.goody,
+			"goody" = P.order_flags & ORDER_GOODY,
 			"access" = P.access,
 			"contains" = P.get_contents_ui_data(),
 		))
@@ -220,7 +222,7 @@
 			var/datum/supply_pack/pack = SSshuttle.supply_packs[id]
 			if(!istype(pack))
 				return
-			if(pack.hidden || pack.contraband || pack.drop_pod_only || (pack.special && !pack.special_enabled))
+			if((pack.order_flags & (ORDER_EMAG_ONLY | ORDER_POD_ONLY | ORDER_CONTRABAND)) || ((pack.order_flags & ORDER_SPECIAL) && !(pack.order_flags & ORDER_SPECIAL_ENABLED)))
 				return
 
 			var/name = "*None Provided*"
@@ -277,7 +279,7 @@
 					uses_cargo_budget = TRUE // NOVA EDIT ADDITION
 				// NOVA EDIT ADDITION END
 
-			if((pack.goody && (!pack.departamental_goody || uses_cargo_budget)) && !self_paid) // NOVA EDIT CHANGE - ORIGINAL: if(pack.goody && !self_paid)
+			if(((pack.order_flags & ORDER_GOODY) && (!(pack.order_flags & ORDER_DEPARTMENTAL_GOODY) || uses_cargo_budget)) && !self_paid) // NOVA EDIT CHANGE - ORIGINAL: if((pack.order_flags & ORDER_GOODY) && !self_paid)
 				playsound(computer, 'sound/machines/buzz/buzz-sigh.ogg', 50, FALSE)
 				computer.say("ERROR: Small crates may only be purchased by private accounts.")
 				return
