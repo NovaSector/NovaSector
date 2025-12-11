@@ -17,9 +17,11 @@
 		"ai_name" = ai_assistant?.name,
 		"has_pai" = ispAI(ai_assistant),
 		"is_ai" = ai_assistant && ai_assistant == user,
-		"link_id" = mod_link.id,
-		"link_freq" = mod_link.frequency,
-		"link_call" = mod_link.get_other()?.id,
+		// NOVA EDIT: Null safety checks to prevent "Cannot read null.id" runtime errors
+		// This can occur when mod_link is null during module uninstallation (e.g., during protean assimilation)
+		"link_id" = mod_link?.id,
+		"link_freq" = mod_link?.frequency,
+		"link_call" = mod_link?.get_other()?.id,
 		// Wires
 		"open" = open,
 		"seconds_electrified" = seconds_electrified,
@@ -108,7 +110,7 @@
 			var/obj/item/mod/module/module = locate(params["ref"]) in modules
 			if(!module)
 				return
-			module.on_select(ui.user) // We can now 
+			module.on_select(ui.user) // We can now
 		if("configure")
 			var/obj/item/mod/module/module = locate(params["ref"]) in modules
 			if(!module)

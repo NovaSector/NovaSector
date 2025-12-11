@@ -12,6 +12,8 @@
 	var/cost = 0
 	///Which biotypes are allowed to receive the augment
 	var/allowed_biotypes = MOB_ORGANIC
+	///List of species typepaths that cannot use this augment
+	var/list/species_blacklist
 
 /datum/augment_item/New()
 	if(!description && path)
