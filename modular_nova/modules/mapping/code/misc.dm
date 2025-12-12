@@ -93,7 +93,7 @@
 	playsound(user, 'sound/items/weapons/resonator_blast.ogg', 90, TRUE)
 	sord_beam.fire()
 	user.apply_damage(25, STAMINA, BODY_ZONE_CHEST) // Spam these and pay the price of self-ownage
-	user.blood_volume -= 10 // 560 is normal blood volume
+	user.adjust_blood_volume(-10) // 560 is normal blood volume
 
 /// Upgrades ///
 

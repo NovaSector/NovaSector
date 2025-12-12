@@ -13,10 +13,10 @@
 	if(ishuman(receiver))
 		var/mob/living/carbon/human/human_receiver = receiver
 		var/weakness = get_anomaly_protection(human_receiver)
-		if(human_receiver.blood_volume < BLOOD_VOLUME_MAXIMUM && HAS_TRAIT(human_receiver, TRAIT_DRINKS_BLOOD)) // Hemophages can get filled up to 1000
-			human_receiver.blood_volume += volume * weakness
-		else if(human_receiver.blood_volume < BLOOD_VOLUME_NORMAL)
-			human_receiver.blood_volume += volume * weakness
+		var/blood_volume = human_receiver.get_blood_volume()
+		// Hemophages can get filled up to 1000
+		if(blood_volume < BLOOD_VOLUME_NORMAL || (blood_volume < BLOOD_VOLUME_MAXIMUM && HAS_TRAIT(human_receiver, TRAIT_DRINKS_BLOOD)))
+			human_receiver.adjust_blood_volume(volume * weakness)
 
 /datum/artifact_effect/blood_regen/do_effect_touch(mob/user)
 	. = ..()
@@ -72,8 +72,8 @@
 	if(ishuman(receiver))
 		var/mob/living/carbon/human/human_receiver = receiver
 		var/weakness = get_anomaly_protection(human_receiver)
-		if(human_receiver.blood_volume > BLOOD_VOLUME_SURVIVE)
-			human_receiver.blood_volume -= volume * weakness
+		if(human_receiver.get_blood_volume() > BLOOD_VOLUME_SURVIVE)
+			human_receiver.adjust_blood_volume(-volume * weakness)
 
 /datum/artifact_effect/blood_drain/do_effect_touch(mob/user)
 	. = ..()
@@ -108,7 +108,7 @@
 		if(weakness >= 0.7)
 			var/constructed_flags = (MOB_VOMIT_BLOOD | MOB_VOMIT_HARM | MOB_VOMIT_MESSAGE | MOB_VOMIT_FORCE)
 			human_receiver.vomit(vomit_flags = constructed_flags, vomit_type = /obj/effect/decal/cleanable/vomit/toxic, lost_nutrition = 30, distance = 2)
-			human_receiver.blood_volume -= 15 * weakness * seconds_per_tick
+			human_receiver.adjust_blood_volume(-15 * weakness * seconds_per_tick)
 
 /datum/artifact_effect/blood_drain/do_effect_destroy()
 	var/turf/curr_turf = get_turf(holder)

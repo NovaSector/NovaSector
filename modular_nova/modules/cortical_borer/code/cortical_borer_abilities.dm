@@ -717,8 +717,8 @@
 	need_mob_update += cortical_owner.human_host.adjust_oxy_loss(-(cortical_owner.human_host.get_oxy_loss()*0.5), updating_health = FALSE)
 	if(need_mob_update)
 		cortical_owner.updatehealth()
-	if(cortical_owner.human_host.blood_volume < BLOOD_VOLUME_BAD)
-		cortical_owner.human_host.blood_volume = BLOOD_VOLUME_BAD
+	if(cortical_owner.human_host.get_blood_volume() < BLOOD_VOLUME_BAD)
+		cortical_owner.human_host.set_blood_volume(BLOOD_VOLUME_BAD)
 	for(var/obj/item/organ/internal_target in cortical_owner.human_host.organs)
 		if(!(internal_target.organ_flags & ORGAN_EXTERNAL))
 			internal_target.apply_organ_damage(-internal_target.damage * 0.5)

@@ -96,7 +96,7 @@
 	amount_healed += carbon_owner.adjust_brute_loss(-HEMOKINETIC_REGEN_HEALING * seconds_between_ticks, updating_health = FALSE, required_bodytype = BODYTYPE_ORGANIC)
 	amount_healed += carbon_owner.adjust_fire_loss(-HEMOKINETIC_REGEN_HEALING * seconds_between_ticks, updating_health = FALSE, required_bodytype = BODYTYPE_ORGANIC)
 	if(amount_healed)
-		carbon_owner.blood_volume -= (HEMOKINETIC_REGEN_BLOOD_CONSUMPTION * amount_healed)
+		carbon_owner.adjust_blood_volume(-HEMOKINETIC_REGEN_BLOOD_CONSUMPTION * amount_healed)
 		carbon_owner.updatehealth()
 		new /obj/effect/temp_visual/heal(get_turf(carbon_owner), COLOR_EFFECT_HEAL_RED)
 
@@ -148,10 +148,10 @@
 		return
 
 	// Can't regen blood to over the roundstart blood volume
-	if(carbon_owner.blood_volume >= BLOOD_VOLUME_ROUNDSTART_HEMOPHAGE)
+	if(carbon_owner.get_blood_volume() >= BLOOD_VOLUME_ROUNDSTART_HEMOPHAGE)
 		return
 
-	carbon_owner.blood_volume += BLOOD_REGEN_MASTER_OF_THE_HOUSE
+	carbon_owner.adjust_blood_volume(BLOOD_REGEN_MASTER_OF_THE_HOUSE)
 
 
 /datum/movespeed_modifier/master_of_the_house
@@ -202,7 +202,7 @@
 
 	var/amount_healed = carbon_owner.adjust_oxy_loss(round(-oxyloss_to_heal/(initial(duration) / 10) * seconds_between_ticks, 0.01), forced = TRUE)
 	if(amount_healed)
-		carbon_owner.blood_volume -= (HEMOKINETIC_REGEN_BLOOD_CONSUMPTION * amount_healed)
+		carbon_owner.adjust_blood_volume(-HEMOKINETIC_REGEN_BLOOD_CONSUMPTION * amount_healed)
 
 
 /atom/movable/screen/alert/status_effect/slave_to_the_tumor

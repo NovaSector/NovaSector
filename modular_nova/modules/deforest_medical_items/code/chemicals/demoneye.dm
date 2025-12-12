@@ -67,7 +67,7 @@
 
 	our_guy.sound_environment_override = NONE
 
-	if(constant_dose_time < CONSTANT_DOSE_SAFE_LIMIT || !our_guy.blood_volume)
+	if(constant_dose_time < CONSTANT_DOSE_SAFE_LIMIT || !our_guy.get_blood_volume())
 		our_guy.visible_message(
 				span_danger("[our_guy]'s eyes fade from their evil looking red back to normal..."),
 				span_danger("Your vision slowly returns to normal as you lose your unnatural strength...")

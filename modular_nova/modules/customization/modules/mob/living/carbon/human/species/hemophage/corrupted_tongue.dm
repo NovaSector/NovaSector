@@ -59,7 +59,7 @@
 		return FALSE
 
 	var/mob/living/carbon/victim = hemophage.pulling
-	if(hemophage.blood_volume >= BLOOD_VOLUME_MAXIMUM)
+	if(hemophage.get_blood_volume() >= BLOOD_VOLUME_MAXIMUM)
 		hemophage.balloon_alert(hemophage, "already full!")
 		return FALSE
 
@@ -67,7 +67,7 @@
 		hemophage.balloon_alert(hemophage, "needs a living victim!")
 		return FALSE
 
-	if(!victim.blood_volume || (victim.dna && ((HAS_TRAIT(victim, TRAIT_NOBLOOD)) || (victim.get_blood_reagent() != hemophage.get_blood_reagent()))))
+	if(!victim.get_blood_volume() || (victim.dna && ((HAS_TRAIT(victim, TRAIT_NOBLOOD)) || (victim.get_blood_reagent() != hemophage.get_blood_reagent()))))
 		hemophage.balloon_alert(hemophage, "[victim] doesn't have suitable blood!")
 		return FALSE
 
@@ -81,7 +81,7 @@
 		to_chat(hemophage, span_warning("[victim] reeks of garlic! You can't bring yourself to drain such tainted blood."))
 		return FALSE
 
-	if(ismonkey(victim) && (hemophage.blood_volume >= BLOOD_VOLUME_NORMAL))
+	if(ismonkey(victim) && (hemophage.get_blood_volume() >= BLOOD_VOLUME_NORMAL))
 		hemophage.balloon_alert(hemophage, "their inferior blood cannot sate you any further!")
 		return FALSE
 
@@ -98,7 +98,7 @@
  * * victim - The one that's being drained.
  */
 /datum/action/cooldown/hemophage/drain_victim/proc/drain_victim(mob/living/carbon/hemophage, mob/living/carbon/victim)
-	var/blood_volume_difference = BLOOD_VOLUME_MAXIMUM - hemophage.blood_volume //How much capacity we have left to absorb blood
+	var/blood_volume_difference = BLOOD_VOLUME_MAXIMUM - hemophage.get_blood_volume() //How much capacity we have left to absorb blood
 	// We start by checking that the victim is a human and they have a client, so we can give them the
 	// beneficial status effect for drinking higher-quality blood.
 	var/is_target_human_with_client = istype(victim, /mob/living/carbon/human) && victim.client
@@ -108,7 +108,7 @@
 		is_target_human_with_client = FALSE // Sorry, not going to get the status effect from monkeys, even if they have a client in them.
 		hemophage.add_mood_event("gross_food", /datum/mood_event/disgust/hemophage_feed_monkey) // drinking from a monkey is inherently gross, like, REALLY gross
 		hemophage.adjust_disgust(TUMOR_DISLIKED_FOOD_DISGUST, TUMOR_DISLIKED_FOOD_DISGUST)
-		blood_volume_difference = BLOOD_VOLUME_NORMAL - hemophage.blood_volume
+		blood_volume_difference = BLOOD_VOLUME_NORMAL - hemophage.get_blood_volume()
 		horrible_feeding = TRUE
 
 	if(istype(victim, /mob/living/carbon/human/species/monkey))
@@ -123,20 +123,21 @@
 		hemophage.balloon_alert(hemophage, "stopped feeding")
 		return
 
-	var/drained_blood = min(victim.blood_volume, HEMOPHAGE_DRAIN_AMOUNT, blood_volume_difference)
+	var/drained_blood = min(victim.get_blood_volume(), HEMOPHAGE_DRAIN_AMOUNT, blood_volume_difference)
 	// if you drained from a human with a client, congrats
 	var/drained_multiplier = (is_target_human_with_client ? BLOOD_DRAIN_MULTIPLIER_CKEY : 1)
 
+	// Drain the victim's blood volume
+	// Tries to transfer blood to the user's stomach, otherwise adjusts volume directly
 	var/obj/item/organ/stomach/hemophage/stomach_reference = hemophage.get_organ_slot(ORGAN_SLOT_STOMACH)
 	if(isnull(stomach_reference))
-		victim.blood_volume = clamp(victim.blood_volume - drained_blood, 0, BLOOD_VOLUME_MAXIMUM)
+		victim.adjust_blood_volume(-drained_blood, 0, BLOOD_VOLUME_MAXIMUM)
+	else if(!victim.transfer_blood_to(stomach_reference, drained_blood, ignore_low_blood = TRUE))
+		victim.adjust_blood_volume(-drained_blood, 0, BLOOD_VOLUME_MAXIMUM)
+	// Increase the user's blood volume
+	hemophage.adjust_blood_volume(drained_blood * drained_multiplier, 0, BLOOD_VOLUME_MAXIMUM)
 
-	else
-		if(!victim.transfer_blood_to(stomach_reference, drained_blood, ignore_low_blood = TRUE))
-			victim.blood_volume = clamp(victim.blood_volume - drained_blood, 0, BLOOD_VOLUME_MAXIMUM)
-	hemophage.blood_volume = clamp(hemophage.blood_volume + (drained_blood * drained_multiplier), 0, BLOOD_VOLUME_MAXIMUM)
-
-	log_combat(hemophage, victim, "drained [drained_blood]u of blood from", addition = " (NEW BLOOD VOLUME: [victim.blood_volume] cL)")
+	log_combat(hemophage, victim, "drained [drained_blood]u of blood from", addition = " (NEW BLOOD VOLUME: [victim.get_blood_volume()] cL)")
 	victim.show_message(span_danger("[hemophage] drains some of your blood!"))
 
 	if(horrible_feeding)
@@ -150,10 +151,10 @@
 	playsound(hemophage, 'sound/items/drink.ogg', 30, TRUE, -2)
 
 	// just let the hemophage know they're capped out on blood if they're trying to go for an exsanguinate and wondering why it isn't working
-	if(drained_blood != HEMOPHAGE_DRAIN_AMOUNT && hemophage.blood_volume >= (BLOOD_VOLUME_MAXIMUM - HEMOPHAGE_DRAIN_AMOUNT))
+	if(drained_blood != HEMOPHAGE_DRAIN_AMOUNT && hemophage.get_blood_volume() >= (BLOOD_VOLUME_MAXIMUM - HEMOPHAGE_DRAIN_AMOUNT))
 		to_chat(hemophage, span_boldnotice("Your thirst is temporarily slaked, and you can digest no more new blood for the moment."))
 
-	if(victim.blood_volume <= BLOOD_VOLUME_OKAY)
+	if(victim.get_blood_volume() <= BLOOD_VOLUME_OKAY)
 		to_chat(hemophage, span_warning("That definitely left them looking pale..."))
 		to_chat(victim, span_warning("A groaning lethargy creeps into your muscles as you begin to feel slightly clammy...")) //let the victim know too
 
@@ -164,9 +165,9 @@
 		hemophage.disgust *= 0.85 //also clears a little bit of disgust too
 
 	// for this to ever occur, the hemophage actually has to be decently hungry, otherwise they'll cap their own blood reserves and be unable to pull it off.
-	if(!victim.blood_volume || victim.blood_volume <= BLOOD_VOLUME_SURVIVE)
+	if(!victim.get_blood_volume() || victim.get_blood_volume() <= BLOOD_VOLUME_SURVIVE)
 		to_chat(hemophage, span_boldwarning("A final sputter of blood trickles from [victim]'s collapsing veins as your terrible hunger drains them almost completely dry."))
-	else if ((victim.blood_volume + HEMOPHAGE_DRAIN_AMOUNT) <= BLOOD_VOLUME_SURVIVE)
+	else if((victim.get_blood_volume() - HEMOPHAGE_DRAIN_AMOUNT) <= BLOOD_VOLUME_SURVIVE)
 		to_chat(hemophage, span_warning("A sense of hesitation gnaws: you know for certain that taking much more blood from [victim] WILL kill them. <b>...but another part of you sees only opportunity.</b>"))
 
 
