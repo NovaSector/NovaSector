@@ -280,10 +280,10 @@
 		var/list/trauma_text = list()
 		for(var/t in patient.get_traumas())
 			var/datum/brain_trauma/trauma = t
-			//NOVA EDIT: Scary Traits (Bimbo)
+			//NOVA EDIT: Scary Traits (Amorous)
 			if(!trauma.display_scanner)
 				continue
-			//NOVA EDIT: Scary Traits (Bimbo)
+			//NOVA EDIT: Scary Traits (Amorous)
 			var/trauma_desc = ""
 			switch(trauma.resilience)
 				if(TRAUMA_RESILIENCE_SURGERY)
