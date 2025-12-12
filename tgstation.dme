@@ -7130,6 +7130,7 @@
 #include "modular_nova\master_files\code\modules\cargo\packs\_packs.dm"
 #include "modular_nova\master_files\code\modules\cargo\packs\general.dm"
 #include "modular_nova\master_files\code\modules\cargo\packs\medical.dm"
+#include "modular_nova\master_files\code\modules\cargo\packs\science.dm"
 #include "modular_nova\master_files\code\modules\cargo\packs\security.dm"
 #include "modular_nova\master_files\code\modules\cargo\packs\service.dm"
 #include "modular_nova\master_files\code\modules\cargo\packs\companies\ammo.dm"
