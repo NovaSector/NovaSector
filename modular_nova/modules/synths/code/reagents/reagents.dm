@@ -24,8 +24,8 @@
 	return ..()
 
 /datum/reagent/fuel/oil/on_mob_life(mob/living/carbon/affected_mob)
-	if((affected_mob.mob_biotypes & MOB_ROBOTIC) && affected_mob.blood_volume < BLOOD_VOLUME_NORMAL)
-		affected_mob.blood_volume += 0.5
+	if((affected_mob.mob_biotypes & MOB_ROBOTIC) && affected_mob.get_blood_volume() < BLOOD_VOLUME_NORMAL)
+		affected_mob.adjust_blood_volume(0.5)
 	return ..()
 
 /datum/reagent/carbondioxide/on_mob_life(mob/living/carbon/affected_mob)
