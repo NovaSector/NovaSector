@@ -342,3 +342,26 @@
   - rscadd: Medical Records Computer Board to the Science departmental imprinter.
   sqnztb:
   - bugfix: nova-specific maps should all have proper captain's spare safes now.
+2025-12-11:
+  Geoengi:
+  - bugfix: Communications console options should no longer be cut off by default.
+  - spellcheck: Adds a space after enable/disable in the engineering emergency override
+      button.
+  ImogenOC:
+  - sound: Adds a few new audio emotes for canids, with variations. Sorry big dogs,
+      no big borks here.
+  - sound: fox whine changed from '*whine' to '*fwhine'
+  - sound: You might hear felinids with vocal cord paralysis grade meows now.
+  Rilomatic:
+  - rscadd: Added clothing "Shorted Overall"
+  - image: added icons or images
+  Stalkeros:
+  - spellcheck: Rewrites, like, all of the extended lore description for all the HC
+      guns, to be 'subjectively cooler' and no longer mention the ever persistent
+      and unidentifiable "NRI" acronym.
+  - balance: Plasma pulse guns, -Zaibases-, have been nerfed severely to comply with
+      the recent design documentation.
+  - bugfix: Plasma pulser snipe rifle's reloading and handling should be generally
+      way less awkward and weird.
+  dee-dubya:
+  - image: Modified the Guepe, Sindano, and all Sol short magazines.
