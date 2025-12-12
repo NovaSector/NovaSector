@@ -66,8 +66,6 @@
 				/obj/item/clothing/glasses/biker = 5,
 				/obj/item/clothing/suit/trenchblack = 5,
 				/obj/item/clothing/suit/trenchbrown = 5,
-				/obj/item/clothing/head/costume/nova/christmas = 5,
-				/obj/item/clothing/head/costume/nova/christmas/green =  5,
 				/obj/item/clothing/under/costume/nova/christmas = 5,
 				/obj/item/clothing/under/costume/nova/christmas/croptop = 5,
 				/obj/item/clothing/suit/hooded/wintercoat/nova/christmas = 5,
