@@ -6,8 +6,7 @@ MODULE ID: ICSPAWNING
 
 ### Description:
 
-Adds a control click function to ghosts which allows an admin to spawn the player in via a supply pod or teleportation with effects, also adds a bluespace tech loadout and some bluespace tech
-items.
+Adds a control click function to ghosts which allows an admin to spawn the player in via a supply pod or teleportation with effects.
 
 ### TG Proc Changes:
 
@@ -19,12 +18,11 @@ N/A
 
 ### Included files:
 
-- ./cards_ids.dm
 - ./observer.dm
 - ./spell.dm
-- ./standard.dm
 
 ### Credits:
 
 Gandalf2k15 - Porting
 BunBun - Cration
+Moonridden - Partially gutted this and included it in nova module admin_tech. Migrated outfits + custom bst brped

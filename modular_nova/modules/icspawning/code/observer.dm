@@ -8,6 +8,7 @@
 		var/list/outfits = list()
 		outfits["Bluespace Tech"] = /datum/outfit/debug/bst
 		outfits["Bluespace Tech (MODsuit)"] = /datum/outfit/admin/bst
+		outfits["Subspace Tech (MODsuit)"] = /datum/outfit/admin/sst
 		outfits["Show All"] = "Show All"
 
 		var/dresscode
@@ -17,14 +18,16 @@
 		var/character_option = tgui_alert(usr, "Which character?", "IC Quick Spawn", list("Selected Character", "Randomly Created", "Cancel"))
 		if (character_option == "Cancel")
 			return
-		var/initial_outfits = tgui_alert(usr, "Select outfit", "Quick Dress", list("Bluespace Tech", "Show All", "Cancel"))
+		var/initial_outfits = tgui_input_list(usr, "Select outfit", "Quick Dress", list("Show All Outfits", "Bluespace Tech", "Subspace Tech", "Cancel"))
 		if (initial_outfits == "Cancel")
 			return
 
 		switch(initial_outfits)
 			if("Bluespace Tech")
 				dresscode = /datum/outfit/admin/bst
-			if("Show All")
+			if("Subspace Tech")
+				dresscode = /datum/outfit/admin/sst
+			if("Show All Outfits")
 				dresscode = client.robust_dress_shop_skyrat()
 				if (!dresscode)
 					return
