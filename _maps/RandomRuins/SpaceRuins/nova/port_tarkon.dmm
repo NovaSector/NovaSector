@@ -9584,7 +9584,7 @@
 /obj/effect/turf_decal/tile/purple/half{
 	dir = 8
 	},
-/obj/machinery/computer/rdconsole{
+/obj/machinery/computer/rdconsole/unlocked{
 	dir = 4
 	},
 /turf/open/floor/iron/dark,
