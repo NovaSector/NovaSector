@@ -7,6 +7,7 @@
 	light_power = 1.2
 	light_color = "#ffd966"
 	light_system = OVERLAY_LIGHT
+	custom_materials = list(/datum/material/paper = HALF_SHEET_MATERIAL_AMOUNT, /datum/material/iron = SMALL_MATERIAL_AMOUNT * 0.1, /datum/material/glass = SMALL_MATERIAL_AMOUNT * 0.1)
 	///check if we're floating to prevent redudnant add/remove
 	var/is_floating = FALSE
 
