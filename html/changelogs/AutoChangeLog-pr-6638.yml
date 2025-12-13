@@ -1,0 +1,4 @@
+author: "intense-skies"
+delete-after: True
+changes:
+  - bugfix: "Cargo borg once again has a proper 'granted' stamp."

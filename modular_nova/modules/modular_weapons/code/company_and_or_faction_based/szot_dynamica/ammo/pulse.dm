@@ -59,8 +59,8 @@
 
 /obj/item/ammo_casing/pulse/add_notes_ammo()
 	var/list/readout = list()
-	var/initial_brute = 10
-	var/initial_burn = 20
+	var/initial_burn = /obj/projectile/beam/laser/plasma_glob/pulse::damage
+	var/initial_brute = /obj/projectile/beam/laser/plasma_glob/pulse::secondary_damage
 
 	// Get damage multiplier if in a gun
 	var/proj_damage_mult = 1
@@ -123,12 +123,23 @@
 	icon = 'modular_nova/modules/modular_weapons/icons/obj/company_and_or_faction_based/szot_dynamica/ammo.dmi'
 	icon_state = "plasma_pulse"
 	damage = 15
-	armour_penetration = 30
 	wound_bonus = 5
 	exposed_wound_bonus = 10
 	light_range = 1
 	light_color = LIGHT_COLOR_PURPLE
 	impact_effect_type = /obj/effect/temp_visual/impact_effect/purple_laser
+	///Which damage type do we deal as a secondary effect?
+	var/secondary_damage_type = BRUTE
+	///How much secondary damage do we deal?
+	var/secondary_damage = 10
+	///How much chance does it have to proc wounds?
+	var/secondary_wound_bonus = 5
+	///How much chance does it have to proc wounds on exposed targets?
+	var/secondary_exposed_wound_bonus = 10
+	///How much penetration does it have?
+	var/secondary_armour_penetration = 0
+	///Which armor protects against it?
+	var/secondary_armor_flag = BULLET
 
 /obj/projectile/beam/laser/plasma_glob/pulse/on_hit(atom/target, blocked, pierce_hit)
 	. = ..()
@@ -136,7 +147,7 @@
 	if(isliving(target))
 		var/mob/living/victim = target
 		hit_limb_zone = victim.check_hit_limb_zone_name(def_zone)
-		var/armour_block = victim.run_armor_check(hit_limb_zone, BULLET, armour_penetration = 20)
+		var/armour_block = victim.run_armor_check(hit_limb_zone, secondary_armor_flag, armour_penetration = secondary_armour_penetration)
 
 		// Get the projectile damage multiplier from the gun that fired this projectile
 		var/proj_damage_mult = 1
@@ -145,7 +156,7 @@
 			proj_damage_mult = gun.projectile_damage_multiplier
 
 		// Modify brute damage with the multiplier
-		var/brute_damage = 10 * proj_damage_mult
+		var/brute_damage = secondary_damage * proj_damage_mult
 
 		// Apply brute damage
-		victim.apply_damage(brute_damage, BRUTE, hit_limb_zone, blocked = armour_block, wound_bonus = 5, exposed_wound_bonus = 10, sharpness = SHARP_POINTY)
+		victim.apply_damage(brute_damage, secondary_damage_type, hit_limb_zone, blocked = armour_block, wound_bonus = secondary_wound_bonus, exposed_wound_bonus = secondary_exposed_wound_bonus, sharpness = SHARP_POINTY)
