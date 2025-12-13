@@ -25,22 +25,23 @@
 	/// Optional, icon_state to change the atom to when applied
 	var/new_icon_state
 	// NOVA EDIT ADDITION START
-	var/atom/greyscale_item_path
-	VAR_FINAL/greyscale_config
-	VAR_FINAL/greyscale_colors
-	VAR_FINAL/greyscale_preview_icon
-	VAR_FINAL/post_init_icon_state
-	VAR_FINAL/default_skin
-	/// Specifies the icon state for the crusher's appearance in hand. Should appear in both new_lefthand_file and new_righthand_file.
+	/// Specifies the icon state for the atom's appearance in hand. Should appear in both new_lefthand_file and new_righthand_file.
 	var/new_inhand_icon_state
+	/// Optional, specifies the icon state for the atom's appearance in teh back slot.
 	var/new_back_icon
-	/// Specifies the left hand inhand icon file. Don't forget to set the right hand file as well.
+	/// Optional, specifies the left hand inhand icon file. Don't forget to set the right hand file as well.
 	var/new_lefthand_file
-	/// Specifies the right hand inhand icon file. Don't forget to set the left hand file as well.
+	/// Optional, specifies the right hand inhand icon file. Don't forget to set the left hand file as well.
 	var/new_righthand_file
-	/// Specifies the worn icon file.
+	/// Optional, specifies the worn icon file.
 	var/new_worn_icon
-	// NOVA EDIT ADDITION
+	/// Mandatory for GAGs items. The path to the greyscale item this is to be applied to.
+	var/atom/greyscale_item_path
+	/// Auto populated. The greyscale_config from greyscale_item_path.
+	VAR_FINAL/greyscale_config
+	/// Auto populated. The greyscale_colors from greyscale_item_path.
+	VAR_FINAL/greyscale_colors
+	// NOVA EDIT ADDITION END
 
 /datum/atom_skin/New()
 	. = ..()
@@ -50,11 +51,19 @@
 	// Populate the fields required for GAGS previews
 	greyscale_config = greyscale_item_path::greyscale_config
 	greyscale_colors = greyscale_item_path::greyscale_colors
-	greyscale_preview_icon = greyscale_item_path::icon
 
-	// So we don't make an extra preview icon for the default icon state
+	// The icon isn't 'new'. So we don't make an extra icon in map_icons.
 	if(greyscale_item_path::post_init_icon_state == new_icon_state)
-		default_skin = TRUE
+		new_icon_state = null
+
+/// Returns the correct preview icon state for this atom skin, whether it be a map_preview or a normal icon. This is assumed from our var population above.
+/datum/atom_skin/proc/get_preview_icon_state()
+	if(isnull(greyscale_item_path)) // Not a GAGs icon
+		return new_icon_state
+	if(isnull(new_icon_state)) // The base GAGS item icon
+		return "[greyscale_item_path]"
+
+	return "[greyscale_item_path]--[new_icon_state]" // A GAGs reskin of the item icon
 
 /**
  * Applies all relevant skin changes to the given atom

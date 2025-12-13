@@ -49,9 +49,9 @@ SUBSYSTEM_DEF(greyscale_previews)
 		var/atom/typepath = skin.greyscale_item_path
 		if (!typepath)
 			continue
-		if(!(typepath in GLOB.all_loadout_datums)) // We don't need reskin previews for non-loadout items
+		if (!(typepath in GLOB.all_loadout_datums)) // We don't need reskin previews for non-loadout items
 			continue
-		if(skin.default_skin)
+		if (isnull(skin.new_icon_state)) // This is the same as the default icon, which we will be generating below.
 			continue
 		if (!typepath::greyscale_config || !typepath::greyscale_colors)
 			continue
@@ -116,13 +116,13 @@ SUBSYSTEM_DEF(greyscale_previews)
 /// Checks that we do not have any parent types coming before subtypes in the types_that_get_their_own_file list (which is an assoc list (filepath, typepath))
 /datum/controller/subsystem/greyscale_previews/proc/check_map_previews_filepath_order(list/our_list)
 	var/list/type_paths_to_check = list()
-	for(var/filepath in our_list)
+	for (var/filepath in our_list)
 		type_paths_to_check += our_list[filepath]
 
-	if(!length(type_paths_to_check))
+	if (!length(type_paths_to_check))
 		return TRUE
 
-	for(var/i = 1 to length(type_paths_to_check))
+	for (var/i = 1 to length(type_paths_to_check))
 		var/path_i = type_paths_to_check[i]
 		for(var/j = i+1 to length(type_paths_to_check))
 			var/path_j = type_paths_to_check[j]

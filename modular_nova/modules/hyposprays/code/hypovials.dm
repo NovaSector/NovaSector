@@ -79,11 +79,12 @@
 
 /obj/item/reagent_containers/cup/vial/Initialize(mapload)
 	. = ..()
-	AddComponent(/datum/component/reskinable_item, /datum/atom_skin/hypovial, blacklisted_subtypes = typesof(/datum/atom_skin/hypovial/large))
+	if(type == /obj/item/reagent_containers/cup/vial) // we don't want to add this for any of the subtypes
+		AddComponent(/datum/component/reskinable_item, /datum/atom_skin/hypovial, blacklisted_subtypes = typesof(/datum/atom_skin/hypovial/large))
 
 /obj/item/reagent_containers/cup/vial/examine(mob/user)
 	. = ..()
-	. += span_notice("Ctrl-Shift-Click to reskin or set a custom color.")
+	. += span_notice("Ctrl-Click to reskin or set a custom color.")
 
 /obj/item/reagent_containers/cup/vial/click_ctrl_shift(mob/user)
 	greyscale_colors = null
@@ -188,7 +189,8 @@
 
 /obj/item/reagent_containers/cup/vial/large/Initialize(mapload)
 	. = ..()
-	AddComponent(/datum/component/reskinable_item, /datum/atom_skin/hypovial/large, blacklisted_subtypes = typesof(/datum/atom_skin/hypovial/interdyne_medium))
+	if(type == /obj/item/reagent_containers/cup/vial/large) // we don't want to add this for any of the subtypes
+		AddComponent(/datum/component/reskinable_item, /datum/atom_skin/hypovial/large, blacklisted_subtypes = typesof(/datum/atom_skin/hypovial/interdyne_medium))
 
 /obj/item/reagent_containers/cup/vial/large/style
 	icon_state = "hypoviallarge"
@@ -264,7 +266,8 @@
 
 /obj/item/reagent_containers/cup/vial/interdyne_medium/Initialize(mapload)
 	. = ..()
-	AddComponent(/datum/component/reskinable_item, /datum/atom_skin/hypovial/interdyne_medium)
+	if(type == /obj/item/reagent_containers/cup/vial/interdyne_medium) // we don't want to add this for any of the subtypes
+		AddComponent(/datum/component/reskinable_item, /datum/atom_skin/hypovial/interdyne_medium)
 
 
 /obj/item/reagent_containers/cup/vial/interdyne_medium/style/

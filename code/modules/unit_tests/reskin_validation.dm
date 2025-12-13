@@ -19,7 +19,6 @@
 		var/atom/greyscale_item_path = skin.greyscale_item_path
 		var/datum/greyscale_config/greyscale_config = skin.greyscale_config
 		var/greyscale_colors = skin.greyscale_colors
-		var/greyscale_preview_icon = skin.greyscale_preview_icon
 		var/field_count = 0
 		if(greyscale_item_path) // If any of these are set, they should all be set
 			field_count++
@@ -27,15 +26,12 @@
 			field_count++
 		if(greyscale_colors)
 			field_count++
-		if(greyscale_preview_icon)
-			field_count++
 		if(!field_count)
 			continue
-		if(field_count != 4)
+		if(field_count != 3)
 			TEST_FAIL("[skin]: incomplete greyscale definition: item_path: [greyscale_item_path], \
 			config: [greyscale_config], \
-			colors: [greyscale_colors], \
-			preview_icon: [greyscale_preview_icon]")
+			colors: [greyscale_colors]")
 
 		if(isnull(greyscale_item_path::greyscale_config) || isnull(greyscale_item_path::greyscale_colors))
 			TEST_FAIL("[skin]: greyscale_item_path is set to an item that does not have a greyscale config or greyscale_colors set! \
