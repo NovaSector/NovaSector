@@ -19,7 +19,7 @@
 	desc = "A Solfed assault-grade rotary cannon. Fires high-velocity incendiary rounds in rapid bursts."
 	icon = 'modular_nova/modules/solfed_mechs/icons/mecha_equipment.dmi'
 	icon_state = "rotary"
-	equip_cooldown = .4 SECONDS
+	equip_cooldown = 0.4 SECONDS
 	projectile = /obj/projectile/bullet/c40sol/incendiary
 	projectiles = 180
 	projectiles_cache = 180
@@ -111,7 +111,7 @@
 
 /obj/item/grenade/chem_grenade/solfed/teargas/detonate(mob/living/lanced_by)
 	. = ..()
-	addtimer(CALLBACK(src, TYPE_PROC_REF(/obj/item/grenade/chem_grenade/solfed/teargas, set_post_detonation_icon)), 1, TIMER_STOPPABLE | TIMER_DELETE_ME)
+	set_post_detonation_icon()
 
 ///Updates the grenades icon after detonation.
 /obj/item/grenade/chem_grenade/solfed/proc/set_post_detonation_icon()
@@ -165,7 +165,7 @@
 
 /obj/item/grenade/chem_grenade/solfed/napalm/detonate(mob/living/lanced_by)
 	. = ..()
-	addtimer(CALLBACK(src, TYPE_PROC_REF(/obj/item/grenade/chem_grenade/solfed/napalm, set_post_detonation_icon)), 2 SECONDS, TIMER_STOPPABLE | TIMER_DELETE_ME)
+	set_post_detonation_icon()
 	addtimer(CALLBACK(src, TYPE_PROC_REF(/obj/item/grenade/chem_grenade/solfed/napalm, ignite_napalm_pool)), 1 SECONDS, TIMER_STOPPABLE | TIMER_DELETE_ME)
 
 ///Create an amount of sparks from the grenade.
@@ -177,7 +177,7 @@
 	desc = "A twin-barrel rotary turret mounted on the Thanatos-class breacher. Fires alternating bursts of .40 Sol Long rounds for suppression and anti-personnel engagement."
 	icon = 'modular_nova/modules/solfed_mechs/icons/mecha_equipment.dmi'
 	icon_state = "rotary"
-	equip_cooldown = .3 SECONDS
+	equip_cooldown = 0.3 SECONDS
 	projectile = /obj/projectile/bullet/c40sol
 	projectiles = 300
 	projectiles_cache = 300
@@ -211,7 +211,7 @@
 	name = "\improper MMR-2543A \"Qarad\" Light Machinegun"
 	desc = "A mech-mounted adaptation of the Qarad Light Machine Gun, chambered in .40 Sol Long. Designed for Hermes-class recon mechs to deliver precise semi-automatic bursts."
 	icon_state = "mecha_carbine"
-	equip_cooldown = .6 SECONDS
+	equip_cooldown = 0.6 SECONDS
 	projectile = /obj/projectile/bullet/c40sol
 	projectiles = 30
 	projectiles_cache = 30

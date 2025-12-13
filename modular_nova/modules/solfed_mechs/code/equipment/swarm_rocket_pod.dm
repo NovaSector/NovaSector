@@ -52,6 +52,7 @@
 	for (var/rocket_index in 1 to rocket_count)
 		var/atom/movable/random_target = pick(valid_targets)
 		if (random_target)
+			//Delay from 0.2 to 2.4 seconds for staggered launch.
 			var/launch_delay = rocket_index * 2
 			addtimer(CALLBACK(src, PROC_REF(fire_rocket), random_target, source), launch_delay)
 
@@ -148,7 +149,7 @@
 
 	if (current_tile == target_tile || ++move_count >= max_moves)
 		tracking = FALSE
-		timer_ids += addtimer(CALLBACK(src, PROC_REF(step_or_drop)), move_delay, TIMER_STOPPABLE | TIMER_DEL_ME)
+		timer_ids += addtimer(CALLBACK(src, PROC_REF(step_or_drop)), move_delay, TIMER_STOPPABLE | TIMER_DELETE_ME)
 		return
 
 	var/angle_to_target = get_angle(src, target)
@@ -156,19 +157,17 @@
 	var/turf/next_tile = get_step(current_tile, direction_to_target)
 
 	if (!next_tile || next_tile.density || istype(next_tile, /turf/closed))
-		timer_ids += addtimer(CALLBACK(src, PROC_REF(step_or_drop)), move_delay, TIMER_STOPPABLE | TIMER_DEL_ME)
+		timer_ids += addtimer(CALLBACK(src, PROC_REF(step_or_drop)), move_delay, TIMER_STOPPABLE | TIMER_DELETE_ME)
 		return
 
-	var/pixel_offset_x = (next_tile.x - current_tile.x) * 32
-	var/pixel_offset_y = (next_tile.y - current_tile.y) * 32
-	animate(src, pixel_x = pixel_offset_x, pixel_y = pixel_offset_y, time = move_delay)
-	timer_ids += addtimer(CALLBACK(src, PROC_REF(commit_step), next_tile), move_delay, TIMER_STOPPABLE | TIMER_DEL_ME)
+	src.Move(next_tile, glide_size_override = DELAY_TO_GLIDE_SIZE(move_delay))
+	timer_ids += addtimer(CALLBACK(src, PROC_REF(step_or_drop)), move_delay, TIMER_STOPPABLE | TIMER_DELETE_ME)
 
 /obj/effect/swarm_rocket_tracker/proc/commit_step(turf/new_loc)
 	forceMove(new_loc)
 	pixel_x = 0
 	pixel_y = 0
-	timer_ids += addtimer(CALLBACK(src, PROC_REF(step_or_drop)), move_delay, TIMER_STOPPABLE | TIMER_DEL_ME)
+	timer_ids += addtimer(CALLBACK(src, PROC_REF(step_or_drop)), move_delay, TIMER_STOPPABLE | TIMER_DELETE_ME)
 
 /obj/effect/temp_visual/swarm_rocket_rise
 	name = "Swarm Micro-Rocket"
@@ -239,4 +238,4 @@
 	tracker.target = target
 
 	var/drop_delay = 2 SECONDS
-	addtimer(CALLBACK(tracker, /obj/effect/swarm_rocket_tracker/proc/step_or_drop), drop_delay, TIMER_STOPPABLE | TIMER_DEL_ME)
+	addtimer(CALLBACK(tracker, /obj/effect/swarm_rocket_tracker/proc/step_or_drop), drop_delay, TIMER_STOPPABLE | TIMER_DELETE_ME)

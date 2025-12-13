@@ -70,32 +70,27 @@
 
 /obj/item/mecha_parts/mecha_equipment/kinetic_dampener/set_active(active)
 	. = ..()
-	if(active)
-		// Check if chassis exists and has enough energy to start
-		if(QDELETED(chassis) || !chassis.use_energy(energy_drain))
-			for(var/mob/living/pilot in chassis.return_controllers_with_flag(VEHICLE_CONTROL_DRIVE))
-				to_chat(pilot, span_warning("The projectile dampener fails to power on — insufficient energy."))
-			src.active = FALSE
-			return FALSE
-
-		// Clear any old field
-		if(dampening_field)
-			QDEL_NULL(dampening_field)
-
-		// Create new dampening field
-		dampening_field = new(src, field_radius, TRUE, src)
-
-		START_PROCESSING(SSobj, src)
-		src.active = TRUE
-		return TRUE
-
-	else
+	if(!active)
 		// Turning off
 		if(dampening_field)
 			QDEL_NULL(dampening_field)
 		STOP_PROCESSING(SSobj, src)
 		src.active = FALSE
 		return TRUE
+	// Check if chassis exists and has enough energy to start
+	if(QDELETED(chassis) || !chassis.use_energy(energy_drain))
+		for(var/mob/living/pilot in chassis.return_controllers_with_flag(VEHICLE_CONTROL_DRIVE))
+			to_chat(pilot, span_warning("The projectile dampener fails to power on — insufficient energy."))
+		src.active = FALSE
+		return FALSE
+	// Clear any old field
+	if(dampening_field)
+		QDEL_NULL(dampening_field)
+	// Create new dampening field
+	dampening_field = new(src, field_radius, TRUE, src)
+	START_PROCESSING(SSobj, src)
+	src.active = TRUE
+	return TRUE
 
 /obj/item/mecha_parts/mecha_equipment/kinetic_dampener/process(seconds_per_tick)
 	if(QDELETED(chassis))
