@@ -13,6 +13,18 @@
 	flags_inv = HIDEMASK|HIDEEARS|HIDEEYES|HIDEFACE|HIDEHAIR|HIDEFACIALHAIR|HIDESNOUT
 	flags_1 = IS_PLAYER_COLORABLE_1
 
+
+/datum/atom_skin/mushroom_suit
+	abstract_type = /datum/atom_skin/mushroom_suit
+
+/datum/atom_skin/mushroom_suit/male
+	preview_name = "Male Mush"
+	new_icon_state = "mush_male"
+
+/datum/atom_skin/mushroom_suit/female
+	preview_name = "Female Mush"
+	new_icon_state = "mush_female"
+
 /obj/item/clothing/suit/mush
 	name = "mushroom suit"
 	desc = "A mushroom suit, these can be sporadically seen being worn by the more fungal personalities."
@@ -23,22 +35,10 @@
 	slowdown = 1
 	clothing_flags = THICKMATERIAL
 	body_parts_covered = CHEST|GROIN|LEGS|FEET|ARMS|HANDS
-	uses_advanced_reskins = TRUE
-	unique_reskin = list(
-		"Male Mush" = list(
-			RESKIN_ICON = 'modular_nova/master_files/icons/obj/clothing/suits.dmi',
-			RESKIN_ICON_STATE = "mush_male",
-			RESKIN_WORN_ICON = 'modular_nova/master_files/icons/mob/clothing/suit.dmi',
-			RESKIN_WORN_ICON_STATE = "mush_male"
-		),
-		"Female Mush" = list(
-			RESKIN_ICON = 'modular_nova/master_files/icons/obj/clothing/suits.dmi',
-			RESKIN_ICON_STATE = "mush_female",
-			RESKIN_WORN_ICON = 'modular_nova/master_files/icons/mob/clothing/suit.dmi',
-			RESKIN_WORN_ICON_STATE = "mush_female"
-		)
-	)
 
+/obj/item/clothing/suit/mush/Initialize(mapload)
+	. = ..()
+	AddComponent(/datum/component/reskinable_item, /datum/atom_skin/mushroom_suit)
 
 /obj/item/storage/box/hero/mushperson
 	name = "Mushy The Mushperson - 2305"

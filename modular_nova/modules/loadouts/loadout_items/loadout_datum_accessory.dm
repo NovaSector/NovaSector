@@ -206,7 +206,7 @@
 /datum/loadout_item/accessory/medal/glow_crystal
 	name = "Glowcrystal necklace"
 	item_path = /obj/item/clothing/accessory/nova/acc_medal/glowcrystal
-	loadout_flags = parent_type::loadout_flags | LOADOUT_FLAG_ALLOW_RESKIN
+	reskin_datum = /datum/atom_skin/glow_crystal_necklace
 
 /datum/loadout_item/accessory/medal/rankpin_star
 	name = "Rankpin (Star)"
@@ -296,14 +296,14 @@
 /datum/loadout_item/accessory/webbing_vest
 	name = "Webbing - Vest"
 	item_path = /obj/item/clothing/accessory/webbing/vest
-	loadout_flags = parent_type::loadout_flags | LOADOUT_FLAG_ALLOW_RESKIN
+	reskin_datum = /datum/atom_skin/webbing_vest
 
 /datum/loadout_item/accessory/webbing_pouch
 	name = "Webbing - Drop Pouches"
 	item_path = /obj/item/clothing/accessory/webbing/pouch
-	loadout_flags = parent_type::loadout_flags | LOADOUT_FLAG_ALLOW_RESKIN
+	reskin_datum = /datum/atom_skin/drop_pouches
 
 /datum/loadout_item/accessory/webbing_pilot
 	name = "Webbing - Rigging"
 	item_path = /obj/item/clothing/accessory/webbing/pilot
-	loadout_flags = parent_type::loadout_flags | LOADOUT_FLAG_ALLOW_RESKIN
+	reskin_datum = /datum/atom_skin/storage_rigging

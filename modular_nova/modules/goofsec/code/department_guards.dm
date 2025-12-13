@@ -9,7 +9,7 @@
 /obj/item/clothing/under/rank/security/officer/blueshirt/nova
 	//Effectively the same as TG's blueshirt, including icon. The /nova path makes it easier for sorting.
 	name = "science guard's uniform"
-	unique_reskin = null
+	can_reskin = FALSE
 
 /obj/item/clothing/under/rank/security/officer/blueshirt/nova/orderly
 	name = "orderly uniform"
@@ -54,8 +54,8 @@
 	//Effectively the same as TG's blueshirt, including icon. The /nova path makes it easier for sorting.
 	icon = 'modular_nova/master_files/icons/obj/clothing/suits/armor.dmi'
 	worn_icon = 'modular_nova/master_files/icons/mob/clothing/suits/armor.dmi'
-	unique_reskin = null
 	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION_NO_NEW_ICON
+	can_reskin = FALSE
 
 /obj/item/clothing/suit/armor/vest/blueshirt/nova/guard //Badge-less version of the blueshirt vest
 	icon_state = "guard_armor"
@@ -87,7 +87,6 @@
 /obj/item/clothing/head/helmet/blueshirt/nova
 	//Effectively the same as TG's blueshirt, including icon. The /nova path makes it easier for sorting.
 	//The base one is used for science guards, and the sprite is unchanged
-	unique_reskin = null
 
 /obj/item/clothing/head/helmet/blueshirt/nova/guard //Version of the blueshirt helmet without a blue line. Used by all dept guards right now.
 	icon = 'modular_nova/master_files/icons/obj/clothing/head/helmet.dmi'
@@ -134,7 +133,7 @@
 	worn_icon_state = "engine"
 	icon = 'modular_nova/modules/goofsec/icons/obj/belts.dmi'
 	worn_icon = 'modular_nova/modules/goofsec/icons/mob/belts.dmi'
-	unique_reskin = null
+	can_reskin = FALSE
 
 /obj/item/storage/belt/security/department_guard/science
 	name = "science guard belt"

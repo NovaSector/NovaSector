@@ -84,7 +84,7 @@
 /datum/loadout_item/glasses/better
 	name = "Modern Glasses"
 	item_path = /obj/item/clothing/glasses/regular/modern
-	loadout_flags = parent_type::loadout_flags | LOADOUT_FLAG_ALLOW_RESKIN
+	reskin_datum = /datum/atom_skin/modern_glasses
 	group = "Prescription"
 
 /datum/loadout_item/glasses/thin
