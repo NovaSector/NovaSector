@@ -9,7 +9,6 @@
 		/obj/item/storage/box/survival/interdyne,
 		/obj/item/storage/box/nif_ghost_box,
 	)
-	r_hand = /obj/item/gun/energy/modular_laser_rifle
 	l_pocket = /obj/item/storage/pouch/ammo/marksman
 	belt = /obj/item/gun/energy/modular_laser_rifle/carbine
 	id = /obj/item/card/id/advanced/chameleon
