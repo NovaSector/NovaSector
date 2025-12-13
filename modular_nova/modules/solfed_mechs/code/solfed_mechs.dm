@@ -5,7 +5,7 @@
 
 /obj/vehicle/sealed/mecha/solfed/mouse_drop_receive(atom/dropping, mob/living/enterer, params)
 	var/obj/item/card/id/advanced/driver_id_card = enterer.get_idcard()
-	if (!driver_id_card || !istype(driver_id_card.trim, /datum/id_trim/solfed))
+	if (isnull(driver_id_card) || !istype(driver_id_card.trim, /datum/id_trim/solfed))
 		src.say(pick(
 			"ACCESS DENIED. SolFed credentials required to initiate cockpit sequence.",
 			"Pilot authentication failed. Entry protocol not engaged.",

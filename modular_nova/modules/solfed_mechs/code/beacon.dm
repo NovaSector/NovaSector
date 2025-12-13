@@ -3,15 +3,15 @@ GLOBAL_DATUM(mech_drop_alert_handler, /datum/mech_drop_alert_handler)
 //Global Datum that tracks any active mech summoning beacon to avoid alert spamming.
 /datum/mech_drop_alert_handler
 	///list of active mech summon beacons.
-	var/list/obj/item/mecha_summon_remote/beacon_queue = list()
+	var/list/obj/item/mecha_summon_remote/beacon_queue
 
 ///adds a beacon to the inbound mech queue
 /datum/mech_drop_alert_handler/proc/add_beacon(obj/item/mecha_summon_remote/beacon)
-		beacon_queue += beacon
+		LAZYADD(beacon_queue, beacon)
 
 ///removes a beacon from the inbound mech queue
 /datum/mech_drop_alert_handler/proc/remove_beacon(obj/item/mecha_summon_remote/beacon)
-		beacon_queue -= beacon
+		LAZYREMOVE(beacon_queue, beacon)
 
 ///returns the length of the inbound mech queue
 /datum/mech_drop_alert_handler/proc/queue_length()
@@ -20,7 +20,7 @@ GLOBAL_DATUM(mech_drop_alert_handler, /datum/mech_drop_alert_handler)
 ///returns all the inbound mechs types except hermes as it is stealthy
 /datum/mech_drop_alert_handler/proc/get_visible_mech_types()
 	var/list/mech_types = list()
-	for (var/obj/item/mecha_summon_remote/beacon in beacon_queue)
+	for (var/obj/item/mecha_summon_remote/beacon as anything in beacon_queue)
 		if (beacon.spawn_type == /obj/vehicle/sealed/mecha/solfed/hermes)
 			continue
 		mech_types += beacon.spawn_type
@@ -137,7 +137,7 @@ GLOBAL_DATUM(mech_drop_alert_handler, /datum/mech_drop_alert_handler)
 		))
 
 		// Delay actual drop logic
-		addtimer(CALLBACK(src, PROC_REF(trigger_drop), user), 300)
+		addtimer(CALLBACK(src, PROC_REF(trigger_drop), user), 30 SECONDS, TIMER_STOPPABLE | TIMER_DELETE_ME)
 		GLOB.mech_drop_alert_handler.add_beacon(src)
 		if (GLOB.mech_drop_alert_handler.queue_length() == 1)
 			addtimer(CALLBACK(src, PROC_REF(solfed_mech_drop_announcement)), 100)
@@ -149,9 +149,7 @@ GLOBAL_DATUM(mech_drop_alert_handler, /datum/mech_drop_alert_handler)
 	if(activated)
 		var/time_left = max(0, round(((activation_time + 30 SECONDS) - world.time) / 10, 1))
 		var/message = "The countdown on its screen shows: [time_left] seconds."
-		if(length(.) > 0 && .[length(.)])
-			. += ""
-
+		. += ""
 		. += span_notice(message)
 
 ///Spawns a warning holosign on the floor then summons a drop pod containing a mech and using the sprite of the mech it contains.
@@ -163,8 +161,8 @@ GLOBAL_DATUM(mech_drop_alert_handler, /datum/mech_drop_alert_handler)
 
 	// Spawn visual warning effect
 	var/obj/effect/temp_visual/solfed_drop_warning/warning_hologram = new /obj/effect/temp_visual/solfed_drop_warning(deployment_tile)
-	warning_hologram.pixel_x = -32
-	warning_hologram.pixel_y = -32
+	warning_hologram.pixel_w = -32
+	warning_hologram.pixel_z = -32
 
 	// Create mech and supply pod
 	var/obj/vehicle/sealed/mecha/deployed_mech = new spawn_type()
@@ -196,7 +194,7 @@ GLOBAL_DATUM(mech_drop_alert_handler, /datum/mech_drop_alert_handler)
 		return
 
 	var/text
-	if (mech_types.len == 1)
+	if (length(mech_types) == 1)
 		// Cast the first element to a mech type so we can access its initial name
 		var/typepath = mech_types[1]
 		var/obj/vehicle/sealed/mecha/mech_type = typepath
@@ -210,20 +208,21 @@ GLOBAL_DATUM(mech_drop_alert_handler, /datum/mech_drop_alert_handler)
 			var/obj/vehicle/sealed/mecha/mech_type = typepath
 			mech_names += initial(mech_type.name)
 
-		var/names_str
-		if (mech_names.len == 2)
-			names_str = "[mech_names[1]] and [mech_names[2]]"
-		else
-			names_str = ""
-			for (var/i = 1; i <= mech_names.len; i++)
-				if (i == 1)
-					names_str = "[mech_names[i]]"
-				else if (i == mech_names.len)
-					names_str = "[names_str], and [mech_names[i]]"
-				else
-					names_str = "[names_str], [mech_names[i]]"
+		var/list/parts = list()
+		if (length(mech_names) == 1)
+			parts += mech_names[1]
+		else if (length(mech_names) == 2)
+			parts += "[mech_names[1]] and [mech_names[2]]"
+		else if (length(mech_names) > 2)
+			// Add everything except the last with commas
+			for (var/i = 1; i < length(mech_names); i++)
+				parts += "[mech_names[i]],"
+			// Add final item prefixed with "and"
+			parts += "and [mech_names[mech_names.len]]"
+		// The final string
+		var/names_str = jointext(parts, " ")
 
-		text = "Multiple SolFed mech signatures ([names_str]) detected on orbital approach, inbound toward [location_name]. Estimated impact in 30 seconds. Evacuation recommended."
+		text = "Multiple SolFed mech signatures ([names_str]) detected on orbital approach, inbound toward [location_name]. Estimated impact in 30 seconds. Evacuation of the landing zone recommended."
 
 	var/sound_to_play = ANNOUNCER_HC_POLICE
 	if (prob(1))

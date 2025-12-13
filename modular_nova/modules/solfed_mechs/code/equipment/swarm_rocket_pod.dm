@@ -35,64 +35,52 @@
 		return FALSE
 
 	var/list/valid_targets = list()
-	var/is_friendly = FALSE
 
-	// Scan for living mobs
-	for (var/mob/living/living_mob in view(7, chassis.loc))
-		is_friendly = FALSE
-
-		var/obj/item/card/id/advanced/mob_id_card = living_mob.get_idcard()
-		if(mob_id_card)
-			if(locate(mob_id_card.trim) in friendly_trims)
-				is_friendly = TRUE
-
-		// Check if this mob is being ridden by someone friendly
-		if (!is_friendly && living_mob.has_buckled_mobs())
-			for (var/mob/living/rider_mob in living_mob.buckled_mobs)
-				var/obj/item/card/id/advanced/rider_id_card = rider_mob.get_idcard()
-				if(locate(rider_id_card.trim) in friendly_trims)
-					is_friendly = TRUE
-				if (is_friendly)
-					break
-
-		if (!is_friendly && living_mob.health > 0)
-			valid_targets += living_mob
-
-	// Scan for sealed vehicles
-	for (var/obj/vehicle/target_vehicle in view(7, chassis.loc))
-		is_friendly = FALSE
-		var/mob/living/vehicle_driver = chassis.return_drivers()
-
-		if (vehicle_driver)
-			var/obj/item/card/id/advanced/driver_id_card = vehicle_driver[1].get_idcard()
-			if(locate(driver_id_card.trim) in friendly_trims)
-				is_friendly = TRUE
-		else
-			is_friendly = TRUE
-
-		if (!is_friendly)
-			valid_targets += target_vehicle
+	for (var/atom/movable/thing in oview(7, chassis.loc))
+		if(istype(thing, /mob/living))
+			if(!is_friendly_mob(thing) && thing:health > 0)
+				valid_targets += thing
+		else if(istype(thing, /obj/vehicle))
+			if(!is_friendly_vehicle(thing))
+				valid_targets += thing
 
 	if (!valid_targets.len)
 		to_chat(source, span_warning("No valid targets in range."))
 		return FALSE
 
 	var/rocket_count = 12
-	var/list/selected_targets = list()
-
 	for (var/rocket_index in 1 to rocket_count)
 		var/atom/movable/random_target = pick(valid_targets)
 		if (random_target)
-			selected_targets += random_target
-
-	for (var/launch_index in 1 to selected_targets.len)
-		var/target = selected_targets[launch_index]
-		var/launch_delay = launch_index * 2
-		addtimer(CALLBACK(src, PROC_REF(fire_rocket), target, source), launch_delay)
+			var/launch_delay = rocket_index * 2
+			addtimer(CALLBACK(src, PROC_REF(fire_rocket), random_target, source), launch_delay)
 
 	TIMER_COOLDOWN_START(chassis, COOLDOWN_MECHA_EQUIPMENT(type), equip_cooldown)
 	SEND_SIGNAL(source, COMSIG_MOB_USED_MECH_EQUIPMENT, chassis)
 	chassis.use_energy(energy_drain)
+	return TRUE
+
+/obj/item/mecha_parts/mecha_equipment/swarm_rocket_pod/proc/is_friendly_mob(mob/living/living_mob)
+	var/obj/item/card/id/advanced/id_card = living_mob.get_idcard()
+	if(id_card && locate(id_card.trim) in friendly_trims)
+		return TRUE
+
+	if(living_mob.has_buckled_mobs())
+		for(var/mob/living/rider in living_mob.buckled_mobs)
+			var/obj/item/card/id/advanced/rider_card = rider.get_idcard()
+			if(rider_card && locate(rider_card.trim) in friendly_trims)
+				return TRUE
+	return FALSE
+
+/obj/item/mecha_parts/mecha_equipment/swarm_rocket_pod/proc/is_friendly_vehicle(obj/vehicle/target_vehicle)
+	var/list/drivers = target_vehicle.return_drivers()
+	if(drivers && drivers.len)
+		var/mob/living/driver = drivers[1]
+		var/obj/item/card/id/advanced/driver_card = driver.get_idcard()
+		if(driver_card && locate(driver_card.trim) in friendly_trims)
+			return TRUE
+		return FALSE
+	// No driver → treat as friendly, skip targeting
 	return TRUE
 
 /datum/action/vehicle/sealed/mecha/swarm_rocket_pod
@@ -105,7 +93,7 @@
 	if (pod.trigger_swarm_rocket(clicker))
 		button_icon_state = "mech_ivanov_cooldown"
 		build_all_button_icons()
-		addtimer(CALLBACK(src, PROC_REF(reset_icon)), pod.equip_cooldown)
+		addtimer(CALLBACK(src, PROC_REF(reset_icon)), pod.equip_cooldown, TIMER_STOPPABLE | TIMER_DELETE_ME)
 		return TRUE
 	return FALSE
 

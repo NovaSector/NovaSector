@@ -16,16 +16,12 @@
 	var/debuff_multiplier = 0.5
 	/// Speed multiplier on projectiles, higher means slower.
 	var/speed_multiplier = 0.65
-	/// List of all tracked projectiles.
-	var/list/tracked_projectiles = list()
-	/// Effect image on projectiles.
-	var/image/projectile_effect
 	/// The dampening field
 	var/datum/proximity_monitor/advanced/bubble/projectile_dampener/dampening_field
 	/// Extra drain per tracked projectile
 	var/drain_per_projectile = 2
-
-
+	/// List of all tracked projectiles.
+	var/list/tracked_projectiles
 
 /obj/item/mecha_parts/mecha_equipment/kinetic_dampener/attach(obj/vehicle/sealed/mecha/new_mecha, attach_right)
 	. = ..()
@@ -48,10 +44,6 @@
 			STOP_PROCESSING(SSobj, src)
 	chassis?.destroy_controller_action_type(/datum/action/vehicle/sealed/mecha/kinetic_dampener, VEHICLE_CONTROL_EQUIPMENT)
 	return ..()
-
-/obj/item/mecha_parts/mecha_equipment/kinetic_dampener/Initialize(mapload)
-	. = ..()
-	projectile_effect = image('icons/effects/fields.dmi', "projectile_dampen_effect")
 
 /datum/action/vehicle/sealed/mecha/kinetic_dampener
 	name = "Projectile Dampener Module"
@@ -78,12 +70,11 @@
 
 	return TRUE
 
-
 /obj/item/mecha_parts/mecha_equipment/kinetic_dampener/set_active(active)
 	. = ..()
 	if(active)
 		// Check if chassis exists and has enough energy to start
-		if(!chassis || !chassis.use_energy(energy_drain))
+		if(QDELETED(chassis) || !chassis.use_energy(energy_drain))
 			for(var/mob/living/pilot in chassis.return_controllers_with_flag(VEHICLE_CONTROL_DRIVE))
 				to_chat(pilot, span_warning("The projectile dampener fails to power on — insufficient energy."))
 			src.active = FALSE
@@ -109,14 +100,14 @@
 		return TRUE
 
 /obj/item/mecha_parts/mecha_equipment/kinetic_dampener/process(seconds_per_tick)
-	if(!chassis)
+	if(QDELETED(chassis))
 		return PROCESS_KILL  // mech gone, stop processing
 
 	if(!active)
 		return PROCESS_KILL  // module turned off, stop processing
 
 	// calculate drain cost each tick
-	var/drain_amount = energy_drain + (tracked_projectiles.len * drain_per_projectile)
+	var/drain_amount = energy_drain + (LAZYLEN(tracked_projectiles) * drain_per_projectile)
 
 	if(!chassis.use_energy(drain_amount))
 		// not enough power, shut down

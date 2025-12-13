@@ -107,8 +107,12 @@
 	message_admins("[ADMIN_LOOKUPFLW(usr)] fired a [grenade] in [ADMIN_VERBOSEJMP(tar_turf)]")
 	usr.log_message("fired a [grenade] in [AREACOORD(tar_turf)].", LOG_GAME)
 	usr.log_message("fired a [grenade] in [AREACOORD(tar_turf)].", LOG_ATTACK)
-	addtimer(CALLBACK(grenade, TYPE_PROC_REF(/obj/item/grenade/chem_grenade/solfed/teargas, detonate)), det_time)
-	addtimer(CALLBACK(grenade, TYPE_PROC_REF(/obj/item/grenade/chem_grenade/solfed/teargas, set_post_detonation_icon)), det_time + 1)
+	addtimer(CALLBACK(grenade, TYPE_PROC_REF(/obj/item/grenade/chem_grenade/solfed/teargas, detonate)), det_time, TIMER_STOPPABLE | TIMER_DELETE_ME)
+
+
+/obj/item/grenade/chem_grenade/solfed/teargas/detonate(mob/living/lanced_by)
+	. = ..()
+	addtimer(CALLBACK(src, TYPE_PROC_REF(/obj/item/grenade/chem_grenade/solfed/teargas, set_post_detonation_icon)), 1, TIMER_STOPPABLE | TIMER_DELETE_ME)
 
 ///Updates the grenades icon after detonation.
 /obj/item/grenade/chem_grenade/solfed/proc/set_post_detonation_icon()
@@ -158,9 +162,13 @@
 	usr.log_message("fired a [grenade] in [AREACOORD(tar_turf)].", LOG_GAME)
 	usr.log_message("fired a [grenade] in [AREACOORD(tar_turf)].", LOG_ATTACK)
 	update_icon_state()
-	addtimer(CALLBACK(grenade, TYPE_PROC_REF(/obj/item/grenade/chem_grenade/solfed/napalm, detonate)), det_time)
-	addtimer(CALLBACK(grenade, TYPE_PROC_REF(/obj/item/grenade/chem_grenade/solfed/napalm, set_post_detonation_icon)), det_time + 20)
-	addtimer(CALLBACK(grenade, TYPE_PROC_REF(/obj/item/grenade/chem_grenade/solfed/napalm, ignite_napalm_pool)), det_time + 10)
+	addtimer(CALLBACK(grenade, TYPE_PROC_REF(/obj/item/grenade/chem_grenade/solfed/napalm, detonate)), det_time, TIMER_STOPPABLE | TIMER_DELETE_ME)
+
+
+/obj/item/grenade/chem_grenade/solfed/napalm/detonate(mob/living/lanced_by)
+	. = ..()
+	addtimer(CALLBACK(src, TYPE_PROC_REF(/obj/item/grenade/chem_grenade/solfed/napalm, set_post_detonation_icon)), 20, TIMER_STOPPABLE | TIMER_DELETE_ME)
+	addtimer(CALLBACK(src, TYPE_PROC_REF(/obj/item/grenade/chem_grenade/solfed/napalm, ignite_napalm_pool)), 10, TIMER_STOPPABLE | TIMER_DELETE_ME)
 
 ///Create an amount of sparks from the grenade.
 /obj/item/grenade/chem_grenade/solfed/napalm/proc/ignite_napalm_pool()
