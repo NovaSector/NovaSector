@@ -9,6 +9,7 @@
 	w_class = WEIGHT_CLASS_BULKY //Cant fit a sheath in your bag
 	interaction_flags_click = NEED_DEXTERITY
 	storage_type = /datum/storage/belt/crusader
+	custom_materials = list(/datum/material/gold = SHEET_MATERIAL_AMOUNT)
 
 /datum/storage/belt/crusader
 	max_slots = 2

@@ -265,6 +265,7 @@
 	name = "Colonial Cloak"
 	item_path = /obj/item/clothing/neck/cloak/colonial
 	group = "Cloaks and Shrouds"
+	species_blacklist = list(SPECIES_TESHARI)
 
 /datum/loadout_item/neck/coalition_police_cloak
 	name = "Colonial Cloak - Coalition Police"

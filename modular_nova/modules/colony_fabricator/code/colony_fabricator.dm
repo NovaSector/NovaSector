@@ -68,13 +68,14 @@
 
 	cached_designs.Cut()
 
-	for(var/design_id in SSresearch.techweb_designs)
-		var/datum/design/design = SSresearch.techweb_designs[design_id]
+	var/allow_any = isnull(allowed_department_flags)
+	for(var/design_id, design in SSresearch.techweb_designs)
+		var/datum/design/current_design = design
 
-		if((isnull(allowed_department_flags) || (design.departmental_flags & allowed_department_flags)) && (design.build_type & allowed_buildtypes))
-			cached_designs |= design
+		if(allow_any || ((current_design.departmental_flags & allowed_department_flags) && (current_design.build_type & allowed_buildtypes)))
+			cached_designs |= current_design
 
-	var/design_delta = cached_designs.len - previous_design_count
+	var/design_delta = length(cached_designs) - previous_design_count
 
 	if(design_delta > 0)
 		say("Received [design_delta] new design[design_delta == 1 ? "" : "s"].")

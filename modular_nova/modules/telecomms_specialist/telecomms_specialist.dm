@@ -2,7 +2,6 @@
 	title = JOB_TELECOMMS_SPECIALIST
 	description = "Monitor, configure, and maintain all station communications \
 		and assist with light engineering work."
-	department_head = list(JOB_CHIEF_ENGINEER)
 	faction = FACTION_STATION
 	total_positions = 1
 	spawn_positions = 1
@@ -46,7 +45,7 @@
 /obj/effect/landmark/start/telecomms_specialist
 	name = "Telecomms Specialist"
 	icon = 'modular_nova/master_files/icons/mob/landmarks.dmi'
-	icon_state = "Engineering Guard"
+	icon_state = "Telecomms Specialist"
 
 /datum/outfit/job/telecomms_specialist
 	name = "Telecomms Specialist"

@@ -103,6 +103,7 @@
 	build_stack_type = /obj/item/stack/sheet/sinew/wolf
 	/// How many mats to drop when deconstructed
 	build_stack_amount = 4
+	custom_materials = list(/datum/material/wood = SHEET_MATERIAL_AMOUNT * 4)
 
 /obj/structure/bed/double/pelt/atom_deconstruct(disassembled = TRUE)
 	. = ..()
@@ -126,6 +127,7 @@
 	desc = "A luxurious double bed, made with black wolf pelts."
 	icon_state = "pelt_bed_black"
 	icon = 'modular_nova/modules/tribal_extended/icons/tribal_beds.dmi'
+	custom_materials = list(/datum/material/wood = SHEET_MATERIAL_AMOUNT * 4)
 
 /datum/crafting_recipe/black_pelt_bed
 	name = "Black Pelts Bed"
