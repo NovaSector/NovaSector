@@ -150,7 +150,7 @@
 	lightning_timer = addtimer(CALLBACK(src, PROC_REF(clear_lightning_overlay)), time_to_last, (TIMER_UNIQUE|TIMER_OVERRIDE))
 
 /obj/item/organ/heart/cybernetic/anomalock/proc/clear_lightning_overlay()
-	owner.cut_overlay(lightning_overlay)
+	owner?.cut_overlay(lightning_overlay) // NOVA EDIT: null check, ORIGINAL: owner.cut_overlay(lightning_overlay)
 	lightning_overlay = null
 
 /* NOVA EDIT: tg 92309, no self implanting
