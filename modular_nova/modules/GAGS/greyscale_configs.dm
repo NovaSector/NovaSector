@@ -2613,3 +2613,45 @@ This is all our modular PDAs, ITS LARGE!
 	name = "Antique Seecloak (Worn)"
 	icon_file = 'modular_nova/master_files/icons/mob/clothing/neck.dmi'
 
+/// Default Door No Icon
+/datum/greyscale_config/default_door
+	name = "Airlock (Default)"
+	icon_file = 'modular_nova/modules/aesthetics/airlock/icons/airlocks/original.dmi'
+	json_config = 'modular_nova/modules/GAGS/json_configs/doors/default.json'
+
+/datum/greyscale_config/icon_letter_p_door
+	name = "Airlock (Letter P)"
+	icon_file = 'modular_nova/modules/aesthetics/airlock/icons/airlocks/original.dmi'
+	json_config = 'modular_nova/modules/GAGS/json_configs/doors/airlock_icon_letter_p.json'
+
+/datum/greyscale_config/letter_s_door
+	name = "Airlock (RedSec/s_default)"
+	icon_file = 'modular_nova/modules/aesthetics/airlock/icons/airlocks/original.dmi'
+	json_config = 'modular_nova/modules/GAGS/json_configs/doors/airlock_icon_letter_s.json'
+
+/datum/greyscale_config/letter_s_door_alt
+	name = "Airlock (Bluesec)"
+	icon_file = 'modular_nova/modules/aesthetics/airlock/icons/airlocks/original.dmi'
+	json_config = 'modular_nova/modules/GAGS/json_configs/doors/airlock_icon_letter_s_alt.json'
+
+/datum/greyscale_config/letter_s_door_alt_2
+	name = "Airlock (s_alt)"
+	icon_file = 'modular_nova/modules/aesthetics/airlock/icons/airlocks/original.dmi'
+	json_config = 'modular_nova/modules/GAGS/json_configs/doors/airlock_icon_letter_s_alt_2.json'
+
+/datum/greyscale_config/icon_letter_m_door
+	name = "Airlock (Letter M)"
+	icon_file = 'modular_nova/modules/aesthetics/airlock/icons/airlocks/original.dmi'
+	json_config = 'modular_nova/modules/GAGS/json_configs/doors/airlock_icon_letter_s_alt.json'
+
+/datum/greyscale_config/icon_corporate_door
+	name = "Airlock (Corporate)"
+	icon_file = 'modular_nova/modules/aesthetics/airlock/icons/airlocks/original.dmi'
+	json_config = 'modular_nova/modules/GAGS/json_configs/doors/airlock_icon_corporate.json'
+
+/datum/greyscale_config/icon_corporate_door_shield
+	name = "Airlock (Corporate Shield Ver.)"
+	icon_file = 'modular_nova/modules/aesthetics/airlock/icons/airlocks/original.dmi'
+	json_config = 'modular_nova/modules/GAGS/json_configs/doors/airlock_icon_corporate_shield.json'
+
+
