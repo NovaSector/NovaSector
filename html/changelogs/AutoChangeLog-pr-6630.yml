@@ -1,0 +1,4 @@
+author: "intense-skies"
+delete-after: True
+changes:
+  - bugfix: "Tarkon & DS-2 R&D consoles are now able to be used without needing to be unlocked."
