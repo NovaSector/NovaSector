@@ -9027,6 +9027,7 @@
 #include "modular_nova\modules\pixel_shift\code\pixel_shift_component.dm"
 #include "modular_nova\modules\pixel_shift\code\pixel_shift_keybind.dm"
 #include "modular_nova\modules\pixel_shift\code\pixel_shift_mob.dm"
+#include "modular_nova\modules\pizza_voucher\code\pizza_voucher.dm"
 #include "modular_nova\modules\plant_people\plant_people.dm"
 #include "modular_nova\modules\player_ranks\code\preferences.dm"
 #include "modular_nova\modules\player_ranks\code\world_topic.dm"
