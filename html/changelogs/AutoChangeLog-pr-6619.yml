@@ -1,0 +1,4 @@
+author: "Stalkeros"
+delete-after: True
+changes:
+  - rscadd: "Added pizza vouchers, available both from cargo and bitrunning"
