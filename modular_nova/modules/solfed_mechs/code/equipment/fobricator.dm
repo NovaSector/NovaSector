@@ -127,7 +127,7 @@
 		return
 	var/turf/current_tile = get_turf(src)
 	var/mob/living/user = chassis.return_drivers()[1]
-	if(!user || !isturf(current_tile))
+	if(isnull(user) || !isturf(current_tile))
 		return
 
 	if(current_tile.underfloor_accessibility < UNDERFLOOR_INTERACTABLE || !current_tile.can_have_cabling())

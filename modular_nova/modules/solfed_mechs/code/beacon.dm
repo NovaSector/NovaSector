@@ -15,7 +15,7 @@ GLOBAL_DATUM(mech_drop_alert_handler, /datum/mech_drop_alert_handler)
 
 ///returns the length of the inbound mech queue
 /datum/mech_drop_alert_handler/proc/queue_length()
-		return beacon_queue.len
+		return LAZYLEN(beacon_queue)
 
 ///returns all the inbound mechs types except hermes as it is stealthy
 /datum/mech_drop_alert_handler/proc/get_visible_mech_types()
@@ -28,7 +28,7 @@ GLOBAL_DATUM(mech_drop_alert_handler, /datum/mech_drop_alert_handler)
 
 ///returns the location of the drop that triggered the annoucement. Blacklist centcom levels to avoid spamm when testing.
 /datum/mech_drop_alert_handler/proc/get_announcement_location()
-	for (var/obj/item/mecha_summon_remote/beacon in beacon_queue)
+	for (var/obj/item/mecha_summon_remote/beacon as anything in beacon_queue)
 		var/area/area_loc = get_area(beacon)
 		if (!istype(area_loc, /area/centcom))
 			return area_loc.name
@@ -140,7 +140,7 @@ GLOBAL_DATUM(mech_drop_alert_handler, /datum/mech_drop_alert_handler)
 		addtimer(CALLBACK(src, PROC_REF(trigger_drop), user), 30 SECONDS, TIMER_STOPPABLE | TIMER_DELETE_ME)
 		GLOB.mech_drop_alert_handler.add_beacon(src)
 		if (GLOB.mech_drop_alert_handler.queue_length() == 1)
-			addtimer(CALLBACK(src, PROC_REF(solfed_mech_drop_announcement)), 100)
+			addtimer(CALLBACK(src, PROC_REF(solfed_mech_drop_announcement)), 10 SECONDS)
 	else
 		return FALSE
 
@@ -186,7 +186,7 @@ GLOBAL_DATUM(mech_drop_alert_handler, /datum/mech_drop_alert_handler)
 ///Create an annoucement depending on the incoming mech(s)
 /obj/item/mecha_summon_remote/proc/solfed_mech_drop_announcement()
 	var/list/mech_types = GLOB.mech_drop_alert_handler.get_visible_mech_types()
-	if (!mech_types.len)
+	if (!length(mech_types))
 		return
 
 	var/location_name = GLOB.mech_drop_alert_handler.get_announcement_location()
@@ -218,7 +218,7 @@ GLOBAL_DATUM(mech_drop_alert_handler, /datum/mech_drop_alert_handler)
 			for (var/i = 1; i < length(mech_names); i++)
 				parts += "[mech_names[i]],"
 			// Add final item prefixed with "and"
-			parts += "and [mech_names[mech_names.len]]"
+			parts += "and [mech_names[length(mech_names)]]"
 		// The final string
 		var/names_str = jointext(parts, " ")
 

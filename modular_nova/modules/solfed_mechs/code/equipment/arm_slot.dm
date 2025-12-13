@@ -2,7 +2,7 @@
 	name = "\improper S-12 \"Warder\" Kinetic Riotgun"
 	desc = "A Solfed riot-control weapon designed for suppression and area denial. Fires dense rubber slugs."
 	icon_state = "mecha_scatter"
-	equip_cooldown = 15
+	equip_cooldown = 1.5 SECONDS
 	projectile = /obj/projectile/bullet/c85x20mm/rubber
 	projectiles = 20
 	projectiles_cache = 20
@@ -19,7 +19,7 @@
 	desc = "A Solfed assault-grade rotary cannon. Fires high-velocity incendiary rounds in rapid bursts."
 	icon = 'modular_nova/modules/solfed_mechs/icons/mecha_equipment.dmi'
 	icon_state = "rotary"
-	equip_cooldown = 4
+	equip_cooldown = .4 SECONDS
 	projectile = /obj/projectile/bullet/c40sol/incendiary
 	projectiles = 180
 	projectiles_cache = 180
@@ -37,7 +37,7 @@
 	name = "\improper T-99 \"Hammerfall\" Mass Driver"
 	desc = "A siege-grade ballistic weapon mounted on the Thanatos platform. Fires hyperdense slugs capable of penetrating reinforced structures."
 	icon_state = "mecha_pulse"
-	equip_cooldown = 60
+	equip_cooldown = 6 SECONDS
 	projectile = /obj/projectile/bullet/rocket/c250x40mm
 	projectiles = 12
 	projectiles_cache = 12
@@ -59,20 +59,20 @@
 	projectiles_cache = 6
 	projectiles_cache_max = 24
 	missile_speed = 1.5
-	equip_cooldown = 60
+	equip_cooldown = 6 SECONDS
 	ammo_type = MECHA_AMMO_TEARGAS
-	///Time between firing and grenade detonating.
-	var/det_time = 10
 	detachable = FALSE
+	///Time between firing and grenade detonating.
+	var/det_time = 1 SECONDS
 
 /obj/item/grenade/chem_grenade/solfed
 	icon = 'modular_nova/modules/solfed_mechs/icons/grenades.dmi'
 	///icon_state for the detonated grenade.
+	det_time = 1 SECONDS
+	possible_fuse_time = list("10")
 	var/post_detonation_icon_state = null
 	///Has this exploded already?
 	var/detonated = FALSE
-	det_time = 10
-	possible_fuse_time = ("10")
 
 /obj/item/grenade/chem_grenade/solfed/attack_self(mob/user)
 	if (detonated)
@@ -108,7 +108,6 @@
 	usr.log_message("fired a [grenade] in [AREACOORD(tar_turf)].", LOG_GAME)
 	usr.log_message("fired a [grenade] in [AREACOORD(tar_turf)].", LOG_ATTACK)
 	addtimer(CALLBACK(grenade, TYPE_PROC_REF(/obj/item/grenade/chem_grenade/solfed/teargas, detonate)), det_time, TIMER_STOPPABLE | TIMER_DELETE_ME)
-
 
 /obj/item/grenade/chem_grenade/solfed/teargas/detonate(mob/living/lanced_by)
 	. = ..()
@@ -150,11 +149,11 @@
 	projectiles_cache = 6
 	projectiles_cache_max = 24
 	missile_speed = 1.5
-	equip_cooldown = 60
+	equip_cooldown = 6 SECONDS
 	ammo_type = MECHA_AMMO_NAPALM
-	///Time between firing the grenade and it exploding.
-	var/det_time = 10
 	detachable = FALSE
+	///Time between firing the grenade and it exploding.
+	var/det_time = 1 SECONDS
 
 /obj/item/mecha_parts/mecha_equipment/weapon/ballistic/launcher/solfed_napalm/proj_init(obj/item/grenade/chem_grenade/solfed/napalm/grenade)
 	var/turf/tar_turf = get_turf(src)
@@ -164,23 +163,21 @@
 	update_icon_state()
 	addtimer(CALLBACK(grenade, TYPE_PROC_REF(/obj/item/grenade/chem_grenade/solfed/napalm, detonate)), det_time, TIMER_STOPPABLE | TIMER_DELETE_ME)
 
-
 /obj/item/grenade/chem_grenade/solfed/napalm/detonate(mob/living/lanced_by)
 	. = ..()
-	addtimer(CALLBACK(src, TYPE_PROC_REF(/obj/item/grenade/chem_grenade/solfed/napalm, set_post_detonation_icon)), 20, TIMER_STOPPABLE | TIMER_DELETE_ME)
-	addtimer(CALLBACK(src, TYPE_PROC_REF(/obj/item/grenade/chem_grenade/solfed/napalm, ignite_napalm_pool)), 10, TIMER_STOPPABLE | TIMER_DELETE_ME)
+	addtimer(CALLBACK(src, TYPE_PROC_REF(/obj/item/grenade/chem_grenade/solfed/napalm, set_post_detonation_icon)), 2 SECONDS, TIMER_STOPPABLE | TIMER_DELETE_ME)
+	addtimer(CALLBACK(src, TYPE_PROC_REF(/obj/item/grenade/chem_grenade/solfed/napalm, ignite_napalm_pool)), 1 SECONDS, TIMER_STOPPABLE | TIMER_DELETE_ME)
 
 ///Create an amount of sparks from the grenade.
 /obj/item/grenade/chem_grenade/solfed/napalm/proc/ignite_napalm_pool()
 	do_sparks(spark_amount, FALSE, src)
-
 
 /obj/item/mecha_parts/mecha_equipment/weapon/ballistic/turret/solfed_minigun
 	name = "\improper VX-2 \"Scythe\" Rotary Turret"
 	desc = "A twin-barrel rotary turret mounted on the Thanatos-class breacher. Fires alternating bursts of .40 Sol Long rounds for suppression and anti-personnel engagement."
 	icon = 'modular_nova/modules/solfed_mechs/icons/mecha_equipment.dmi'
 	icon_state = "rotary"
-	equip_cooldown = 3
+	equip_cooldown = .3 SECONDS
 	projectile = /obj/projectile/bullet/c40sol
 	projectiles = 300
 	projectiles_cache = 300
@@ -198,7 +195,7 @@
 	name = "\improper EMC-2521 EMP Cannon"
 	desc = "An advanced electromagnetic pulse cannon developed for Hermes-class recon mechs. Fires precision EMP bursts capable of disabling electronics and lightly shielded systems."
 	icon_state = "mecha_ion"
-	equip_cooldown = 20
+	equip_cooldown = 2 SECONDS
 	projectile = /obj/projectile/ion/small
 	projectiles = 12
 	projectiles_cache = 12
@@ -214,7 +211,7 @@
 	name = "\improper MMR-2543A \"Qarad\" Light Machinegun"
 	desc = "A mech-mounted adaptation of the Qarad Light Machine Gun, chambered in .40 Sol Long. Designed for Hermes-class recon mechs to deliver precise semi-automatic bursts."
 	icon_state = "mecha_carbine"
-	equip_cooldown = 6
+	equip_cooldown = .6 SECONDS
 	projectile = /obj/projectile/bullet/c40sol
 	projectiles = 30
 	projectiles_cache = 30
@@ -247,7 +244,7 @@
 	name = "Atlas Engineering Torch"
 	desc = "A SolFed-engineered torch for field repairs, structural welding, and tactical deconstruction."
 	icon_state = "mecha_wholegen"
-	equip_cooldown = 10
+	equip_cooldown = 1 SECONDS
 	force = 15
 	damtype = BURN
 	hitsound = 'sound/items/tools/welder.ogg'

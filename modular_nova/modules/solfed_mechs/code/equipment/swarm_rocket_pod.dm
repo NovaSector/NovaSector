@@ -44,7 +44,7 @@
 			if(!is_friendly_vehicle(thing))
 				valid_targets += thing
 
-	if (!valid_targets.len)
+	if (!length(valid_targets))
 		to_chat(source, span_warning("No valid targets in range."))
 		return FALSE
 
@@ -148,7 +148,7 @@
 
 	if (current_tile == target_tile || ++move_count >= max_moves)
 		tracking = FALSE
-		timer_ids += addtimer(CALLBACK(src, PROC_REF(step_or_drop)), move_delay, TIMER_STOPPABLE)
+		timer_ids += addtimer(CALLBACK(src, PROC_REF(step_or_drop)), move_delay, TIMER_STOPPABLE | TIMER_DEL_ME)
 		return
 
 	var/angle_to_target = get_angle(src, target)
@@ -156,19 +156,19 @@
 	var/turf/next_tile = get_step(current_tile, direction_to_target)
 
 	if (!next_tile || next_tile.density || istype(next_tile, /turf/closed))
-		addtimer(CALLBACK(src, PROC_REF(step_or_drop)), move_delay)
+		timer_ids += addtimer(CALLBACK(src, PROC_REF(step_or_drop)), move_delay, TIMER_STOPPABLE | TIMER_DEL_ME)
 		return
 
 	var/pixel_offset_x = (next_tile.x - current_tile.x) * 32
 	var/pixel_offset_y = (next_tile.y - current_tile.y) * 32
 	animate(src, pixel_x = pixel_offset_x, pixel_y = pixel_offset_y, time = move_delay)
-	timer_ids += addtimer(CALLBACK(src, PROC_REF(commit_step), next_tile), move_delay, TIMER_STOPPABLE)
+	timer_ids += addtimer(CALLBACK(src, PROC_REF(commit_step), next_tile), move_delay, TIMER_STOPPABLE | TIMER_DEL_ME)
 
 /obj/effect/swarm_rocket_tracker/proc/commit_step(turf/new_loc)
 	forceMove(new_loc)
 	pixel_x = 0
 	pixel_y = 0
-	timer_ids += addtimer(CALLBACK(src, PROC_REF(step_or_drop)), move_delay, TIMER_STOPPABLE)
+	timer_ids += addtimer(CALLBACK(src, PROC_REF(step_or_drop)), move_delay, TIMER_STOPPABLE | TIMER_DEL_ME)
 
 /obj/effect/temp_visual/swarm_rocket_rise
 	name = "Swarm Micro-Rocket"
@@ -239,4 +239,4 @@
 	tracker.target = target
 
 	var/drop_delay = 2 SECONDS
-	addtimer(CALLBACK(tracker, /obj/effect/swarm_rocket_tracker/proc/step_or_drop), drop_delay)
+	addtimer(CALLBACK(tracker, /obj/effect/swarm_rocket_tracker/proc/step_or_drop), drop_delay, TIMER_STOPPABLE | TIMER_DEL_ME)
