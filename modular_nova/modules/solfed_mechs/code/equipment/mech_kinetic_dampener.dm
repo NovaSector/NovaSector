@@ -20,8 +20,6 @@
 	var/datum/proximity_monitor/advanced/bubble/projectile_dampener/dampening_field
 	/// Extra drain per tracked projectile
 	var/drain_per_projectile = 2
-	/// List of all tracked projectiles.
-	var/list/tracked_projectiles
 
 /obj/item/mecha_parts/mecha_equipment/kinetic_dampener/attach(obj/vehicle/sealed/mecha/new_mecha, attach_right)
 	. = ..()
@@ -106,10 +104,7 @@
 	if(!active)
 		return PROCESS_KILL  // module turned off, stop processing
 
-	// calculate drain cost each tick
-	var/drain_amount = energy_drain + (LAZYLEN(tracked_projectiles) * drain_per_projectile)
-
-	if(!chassis.use_energy(drain_amount))
+	if(!chassis.use_energy(energy_drain))
 		// not enough power, shut down
 		set_active(FALSE)
 		for(var/mob/living/pilot in chassis.return_controllers_with_flag(VEHICLE_CONTROL_DRIVE))
