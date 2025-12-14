@@ -165,11 +165,11 @@
 /obj/projectile/bullet/tank_cannon/sabot/on_hit(atom/target, blocked, pierce_hit)
 	. = ..()
 	if(anti_armour_damage && ismecha(target))
-		var/obj/vehicle/sealed/mecha/M = target
-		M.take_damage(anti_armour_damage)
+		var/obj/vehicle/sealed/mecha/mech = target
+		mech.take_damage(anti_armour_damage)
 	if(issilicon(target))
-		var/mob/living/silicon/S = target
-		S.take_overall_damage(anti_armour_damage)
+		var/mob/living/silicon/sillycon = target
+		sillycon.take_overall_damage(anti_armour_damage)
 
 /obj/item/mecha_ammo/cannon
 	name = "fabricator canister container"
