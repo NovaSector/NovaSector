@@ -1,7 +1,7 @@
 {
 	"version": 1,
 	"map_name": "adjustmenttest",
-	"map_path": "custom",
+	"map_path": "map_files/adjustmenttest",
 	"map_file": "adjustmenttest.dmm",
 	"shuttles": {
 		"emergency": "emergency_pubby",
