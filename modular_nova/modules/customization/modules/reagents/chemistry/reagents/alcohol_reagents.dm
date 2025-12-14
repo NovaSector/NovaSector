@@ -634,7 +634,7 @@
 	if(ishemophage(exposed_mob))
 		quality = RACE_DRINK
 
-	else if(exposed_mob.blood_volume < exposed_mob.blood_volume_normal)
+	else if(exposed_mob.get_blood_volume() < exposed_mob.blood_volume_normal)
 		quality = DRINK_GOOD
 
 	if(!quality) // Basically, you don't have a reason to want to have this in your system, it doesn't taste good to you!
@@ -646,8 +646,9 @@
 
 /datum/reagent/consumable/ethanol/bloodshot/on_mob_life(mob/living/carbon/drinker, seconds_per_tick, times_fired)
 	. = ..()
-	if(drinker.blood_volume < drinker.blood_volume_normal)
-		drinker.blood_volume = max(drinker.blood_volume, min(drinker.blood_volume + (2 * REM * seconds_per_tick), BLOOD_VOLUME_NORMAL)) //Bloodshot quickly restores blood loss.
+	if(drinker.get_blood_volume() < drinker.blood_volume_normal)
+		//Bloodshot quickly restores blood loss.
+		drinker.adjust_blood_volume(2 * REM * seconds_per_tick, maximum = BLOOD_VOLUME_NORMAL)
 
 /datum/reagent/consumable/ethanol/blizzard_brew
 	name = "Blizzard Brew"
