@@ -18,8 +18,6 @@
 	var/speed_multiplier = 0.65
 	/// The dampening field
 	var/datum/proximity_monitor/advanced/bubble/projectile_dampener/dampening_field
-	/// Extra drain per tracked projectile
-	var/drain_per_projectile = 2
 
 /obj/item/mecha_parts/mecha_equipment/kinetic_dampener/attach(obj/vehicle/sealed/mecha/new_mecha, attach_right)
 	. = ..()
