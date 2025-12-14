@@ -1,0 +1,5 @@
+author: "Diltyrr"
+delete-after: True
+changes:
+  - rscadd: "Added craftable sky lanterns."
+  - image: "Added new sprites for sky lanterns by Diltyrr."
