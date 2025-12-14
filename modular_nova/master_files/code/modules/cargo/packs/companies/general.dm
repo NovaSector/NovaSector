@@ -92,6 +92,7 @@
 /datum/supply_pack/companies/general/donk/merch
 
 /datum/supply_pack/companies/general/donk/merch/donk_fish
+	cost = CARGO_CRATE_VALUE * 3
 	contains = list(/obj/item/storage/fish_case/donkfish)
 
 /datum/supply_pack/companies/general/donk/merch/donk_carpet
