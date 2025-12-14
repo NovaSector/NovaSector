@@ -1,0 +1,4 @@
+author: "OrbisAnima"
+delete-after: True
+changes:
+  - balance: "Stamina Diode no longer restores SM integrity. It still fatigues living creatures."
