@@ -8,7 +8,7 @@
 	light_color = "#ffd966"
 	light_system = OVERLAY_LIGHT
 	custom_materials = list(/datum/material/paper = HALF_SHEET_MATERIAL_AMOUNT, /datum/material/iron = SMALL_MATERIAL_AMOUNT * 0.1, /datum/material/glass = SMALL_MATERIAL_AMOUNT * 0.1)
-	///check if we're floating to prevent redudnant add/remove
+	///check if we're floating to prevent redundant add/remove
 	var/is_floating = FALSE
 
 /// Centralized state controller (immediate)
@@ -19,12 +19,13 @@
 		stop_floating(src)
 
 /// Deferred state controller (to wait after other animations play)
-/obj/item/flashlight/sky_lantern/proc/update_floating_state_deferred(delay_ds = 10)
-	addtimer(CALLBACK(src, PROC_REF(update_floating_state_immediate)), delay_ds)
+/obj/item/flashlight/sky_lantern/proc/update_floating_state_deferred(delay = 1 SECONDS)
+	addtimer(CALLBACK(src, PROC_REF(update_floating_state_immediate)), delay, TIMER_STOPPABLE | TIMER_DELETE_ME)
 
 /// Apply flying trait if not already applied
 /obj/item/flashlight/sky_lantern/proc/start_floating()
-	if(is_floating) return
+	if(is_floating)
+		return
 	is_floating = TRUE
 	// Avoid duplicate element/trait application
 	if(!HAS_TRAIT(src, TRAIT_MOVE_FLYING))
@@ -35,16 +36,17 @@
 /obj/item/flashlight/sky_lantern/proc/stop_floating()
 	if(!is_floating)
 		return
-	else
-		is_floating = FALSE
-		if(HAS_TRAIT(src, TRAIT_MOVE_FLYING))
-			REMOVE_TRAIT(src, TRAIT_MOVE_FLYING, ELEMENT_TRAIT(type))
-			RemoveElement(/datum/element/movetype_handler)
+	is_floating = FALSE
+	if(HAS_TRAIT(src, TRAIT_MOVE_FLYING))
+		REMOVE_TRAIT(src, TRAIT_MOVE_FLYING, ELEMENT_TRAIT(type))
+		RemoveElement(/datum/element/movetype_handler)
 
 /obj/item/flashlight/sky_lantern/Initialize(mapload)
 	. = ..()
-	// On mapload, defer so any post-init placement resolves first
-	update_floating_state_deferred(1)
+	return INTIALIZE_HINT_LATELOAD
+
+/obj/item/flashlight/sky_lantern/LateInitialize()
+	update_floating_state_immediate()
 
 /obj/item/flashlight/sky_lantern/toggle_light(mob/user)
 	. = ..()
