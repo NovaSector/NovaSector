@@ -6,7 +6,8 @@
 	can_randomize = FALSE
 
 /datum/preference/choiced/voice_actor/is_accessible(datum/preferences/preferences)
-	..()
+	if (!..(preferences))
+		return FALSE
 	if(SStts.tts_enabled)
 		return TRUE
 
@@ -42,7 +43,8 @@
 	category = PREFERENCE_CATEGORY_MANUALLY_RENDERED
 
 /datum/preference/numeric/tts_voice_pitch/voice_actor/is_accessible(datum/preferences/preferences)
-	..()
+	if (!..(preferences))
+		return FALSE
 	if(SStts.pitch_enabled)
 		return TRUE
 
@@ -77,7 +79,8 @@
 	return "Random"
 
 /datum/preference/choiced/vocals/blooper/voice_actor/is_accessible(datum/preferences/preferences)
-	..()
+	if (!..(preferences))
+		return FALSE
 	return TRUE
 
 /datum/preference/choiced/vocals/blooper/voice_actor/apply_to_human(mob/living/carbon/human/target, value, datum/preferences/preferences) // don't apply this to people who don't have it enabled
@@ -88,7 +91,8 @@
 	category = PREFERENCE_CATEGORY_MANUALLY_RENDERED
 
 /datum/preference/numeric/blooper_speech_speed/voice_actor/is_accessible(datum/preferences/preferences)
-	..()
+	if (!..(preferences))
+		return FALSE
 	return TRUE
 
 /datum/preference/numeric/blooper_speech_speed/voice_actor/apply_to_human(mob/living/carbon/human/target, value, datum/preferences/preferences)
@@ -99,7 +103,8 @@
 	category = PREFERENCE_CATEGORY_MANUALLY_RENDERED
 
 /datum/preference/numeric/blooper_speech_pitch/voice_actor/is_accessible(datum/preferences/preferences)
-	..()
+	if (!..(preferences))
+		return FALSE
 	return TRUE
 
 /datum/preference/numeric/blooper_speech_pitch/voice_actor/apply_to_human(mob/living/carbon/human/target, value, datum/preferences/preferences)
@@ -110,7 +115,8 @@
 	category = PREFERENCE_CATEGORY_MANUALLY_RENDERED
 
 /datum/preference/numeric/blooper_pitch_range/voice_actor/is_accessible(datum/preferences/preferences)
-	..()
+	if (!..(preferences))
+		return FALSE
 	return TRUE
 
 /datum/preference/numeric/blooper_pitch_range/voice_actor/apply_to_human(mob/living/carbon/human/target, value, datum/preferences/preferences)
