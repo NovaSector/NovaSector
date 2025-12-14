@@ -1,0 +1,5 @@
+author: "vinylspiders"
+delete-after: True
+changes:
+  - bugfix: "crew monitors should now have the qol from TG that they're supposed to."
+  - refactor: "blueshield crew monitors have had their code simplified, report any issues to github"
