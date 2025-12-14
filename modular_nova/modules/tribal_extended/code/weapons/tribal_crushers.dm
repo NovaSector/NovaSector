@@ -135,7 +135,7 @@
 
 /obj/item/hearthkin_ship_fragment_inactive
 	name = "dormant fragment of the Stjarndrakkr"
-	desc = "A dormant piece of ancient tech, carbon-dated to roughly 300 years ago. One side is etched with strange symbols resembling Ættmál runes. Perhaps the natives could uncover its purpose."
+	desc = "A dormant piece of ancient tech, carbon-dated to roughly 300 years ago. One side is etched with strange symbols resembling Ættmál runes, their lines worn and shallow. Tribes whisper that only by carving them anew with a chisel can its purpose be revealed."
 	icon = 'icons/obj/antags/cult/items.dmi'
 	icon_state = "cult_sharpener_used"
 	drop_sound = SFX_STONE_DROP
