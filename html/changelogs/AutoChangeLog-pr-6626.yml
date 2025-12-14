@@ -1,0 +1,4 @@
+author: "RealWinterFrost"
+delete-after: True
+changes:
+  - image: "Fixes emitters from not having the correct activation sprite."
