@@ -1,0 +1,5 @@
+author: "A.C.M.O."
+delete-after: True
+changes:
+  - qol: "Added Vocal Bark / Blooper options to the Voice Actor quirk."
+  - qol: "Allowed the Voice Actor quirk to function with TTS disabled."
