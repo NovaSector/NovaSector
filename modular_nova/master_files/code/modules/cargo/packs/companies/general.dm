@@ -79,6 +79,10 @@
 /datum/supply_pack/companies/general/donk/food/teriyaki_pockets
 	contains = list(/obj/item/storage/box/donkpockets/donkpocketteriyaki)
 
+/datum/supply_pack/companies/general/donk/food/pizza_voucher
+	desc = "WE ALWAYS DELIVER! WE ALWAYS DELIVER! WE ALWAYS DELIVER!"
+	contains = list(/obj/item/pizzavoucher)
+
 /datum/supply_pack/companies/general/donk/pet_food
 
 /datum/supply_pack/companies/general/donk/pet_food/void
