@@ -54,11 +54,11 @@
 
 /obj/item/flashlight/sky_lantern/Moved(atom/old_loc, movement_dir, forced, list/old_locs, momentum_change)
 	. = ..()
-	update_floating_state_deferred(10)
+	update_floating_state_deferred(1 seconds)
 
 /obj/item/flashlight/sky_lantern/dropped(mob/user, silent)
 	. = ..()
-	update_floating_state_deferred(10)
+	update_floating_state_deferred(1 SECONDS)
 
 /obj/item/flashlight/sky_lantern/equipped(mob/user, slot)
 	. = ..()
