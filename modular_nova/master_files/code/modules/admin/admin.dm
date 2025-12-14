@@ -153,15 +153,15 @@ ADMIN_VERB(list_usage, R_ADMIN, "Measure list usage", "Generate a log file of li
 			type_list[BIG_LIST_NAME] = varname
 
 /proc/recursive_traverse_list(list/check_list, list/data, depth = 0)
-    if(depth > data[MAX_DEPTH])
-        data[MAX_DEPTH] = depth
-    data[NESTED_LENGTH] += length(check_list)
-    data[LIST_COUNT_NESTED]++
-    for(var/key, value in check_list)
-        var/list/list = islist(key) ? key : value
-        if(!islist(list))
-            continue
-        recursive_traverse_list(list, data, depth + 1)
+	if(depth > data[MAX_DEPTH])
+		data[MAX_DEPTH] = depth
+	data[NESTED_LENGTH] += length(check_list)
+	data[LIST_COUNT_NESTED]++
+	for(var/key, value in check_list)
+		var/list/list = islist(key) ? key : value
+		if(!islist(list))
+			continue
+		recursive_traverse_list(list, data, depth + 1)
 
 #undef INSTANCES
 #undef LIST_COUNT
