@@ -1,0 +1,4 @@
+author: "A.C.M.O."
+delete-after: True
+changes:
+  - bugfix: "Fixed a bug that prevented species such as Synthetic Humanoids, Ethereals, and Podpeople from receiving blood transfusions."
