@@ -3,8 +3,8 @@
 /obj/item/mecha_parts/mecha_equipment/weapon/ballistic/cannon
 	name = "\improper M/FC-8-LF \"Forge\" Fabrication Cannon"
 	desc = "A heavy 76mm cannon for mechs, integrated with an onboard nanoforge. It fabricates specialized rounds on-demand from a generic \
-	fodder canister, allowing for sustained fire support without conventional ammunition logistics. The system automatically identifies \
-	targets and selects the optimal round type."
+		fodder canister, allowing for sustained fire support without conventional ammunition logistics. The system automatically identifies \
+		targets and selects the optimal round type."
 	icon = 'modular_nova/modules/novaya_ert/icons/mech.dmi'
 	icon_state = "mecha_cannon"
 	equip_cooldown = 3 SECONDS
@@ -54,7 +54,7 @@
 
 	// Commander's callout.
 	to_chat(chassis.occupants, "[icon2html(src, chassis.occupants)][span_danger("TARGET: [target_type]. PRINT QUEUE: [uppertext(current_ammo_type)].")]")
-	addtimer(CALLBACK(src, PROC_REF(call_identified)), 15) // Short immersive delay for the "gunner" to acquire.
+	addtimer(CALLBACK(src, PROC_REF(call_identified)), 1.5 SECONDS, TIMER_STOPPABLE | TIMER_DELETE_ME) // Short immersive delay for the "gunner" to acquire.
 
 /// System confirms target.
 /obj/item/mecha_parts/mecha_equipment/weapon/ballistic/cannon/proc/call_identified()

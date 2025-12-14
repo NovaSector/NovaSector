@@ -1,9 +1,9 @@
 /obj/vehicle/sealed/mecha/warden
 	name = "\improper M/TACS-1-LF \"Warden\""
 	desc = "A frontier-optimized combat exosuit and the product of a rare collaboration between Kemppainen-Morozov Industrial Fabrication \
-	and Szot Dynamica. KMIF's unshakable chassis provides Durand-level resilience, while SŻD's responsive myomer systems \
-	grant it Gygax-like agility. Stripped of complex jump jets and grapples for ease of maintenance, it excels as a mobile firing \
-	platform and boarding-assault anchor."
+		and Szot Dynamica. KMIF's unshakable chassis provides Durand-level resilience, while SŻD's responsive myomer systems \
+		grant it Gygax-like agility. Stripped of complex jump jets and grapples for ease of maintenance, it excels as a mobile firing \
+		platform and boarding-assault anchor."
 	icon = 'modular_nova/modules/novaya_ert/icons/mech.dmi'
 	icon_state = "warden"
 	base_icon_state = "warden"
