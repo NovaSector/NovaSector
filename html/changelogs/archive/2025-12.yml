@@ -365,3 +365,12 @@
       way less awkward and weird.
   dee-dubya:
   - image: Modified the Guepe, Sindano, and all Sol short magazines.
+2025-12-14:
+  Adelphon:
+  - rscadd: Added gags santa had to Autodrobe
+  Stalkeros:
+  - rscadd: Added pizza vouchers, available both from cargo and bitrunning
+  intense-skies:
+  - bugfix: Cargo borg once again has a proper 'granted' stamp.
+  - bugfix: Tarkon & DS-2 R&D consoles are now able to be used without needing to
+      be unlocked.
