@@ -94,3 +94,6 @@ endmap
 map snowglobe
 	votable
 endmap
+
+map adjustmenttest
+endmap

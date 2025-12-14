@@ -1,0 +1,20 @@
+{
+	"version": 1,
+	"map_name": "adjustmenttest",
+	"map_path": "custom",
+	"map_file": "adjustmenttest.dmm",
+	"shuttles": {
+		"emergency": "emergency_pubby",
+		"whiteship": "whiteship_pubby",
+		"ferry": "ferry_fancy",
+		"cargo": "cargo_pubby"
+	},
+	"job_changes": {
+		"Cook": {
+			"additional_cqc_areas": ["/area/station/service/bar/atrium"]
+		},
+		"Chaplain": {
+			"has_monastery": 1
+		}
+	}
+}
