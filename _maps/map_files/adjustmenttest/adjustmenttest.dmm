@@ -47,7 +47,7 @@
 	},
 /obj/machinery/door/poddoor/preopen{
 	id = "telelab";
-	name = "test chamber blast door"
+	name = "Test Chamber Blast Door"
 	},
 /obj/machinery/door/firedoor/heavy,
 /turf/open/floor/engine,
@@ -15401,7 +15401,7 @@
 /obj/effect/spawner/structure/window/reinforced,
 /obj/machinery/door/poddoor/preopen{
 	id = "telelab";
-	name = "test chamber blast door"
+	name = "Test Chamber Blast Door"
 	},
 /turf/open/floor/engine,
 /area/station/science/lab)
@@ -36232,7 +36232,7 @@
 "jBx" = (
 /obj/machinery/door/poddoor/preopen{
 	id = "telelab";
-	name = "test chamber blast door"
+	name = "Test Chamber Blast Door"
 	},
 /obj/effect/spawner/structure/window/reinforced,
 /turf/open/floor/engine,
@@ -45672,7 +45672,7 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/general/visible,
 /obj/machinery/door/poddoor/preopen{
 	id = "telelab";
-	name = "test chamber blast door"
+	name = "Test Chamber Blast Door"
 	},
 /turf/open/floor/engine,
 /area/station/science/lab)
