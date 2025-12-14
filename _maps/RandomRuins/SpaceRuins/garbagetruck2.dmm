@@ -133,6 +133,11 @@
 /obj/effect/spawner/random/engineering/tank,
 /turf/open/floor/plating,
 /area/ruin/space/has_grav/garbagetruck/medicalwaste)
+"mZ" = (
+/obj/structure/cable,
+/obj/machinery/airalarm/directional/north,
+/turf/open/floor/catwalk_floor/iron,
+/area/ruin/space/has_grav/garbagetruck/medicalwaste)
 "nW" = (
 /obj/item/storage/box/disks{
 	pixel_x = -7;
@@ -185,6 +190,7 @@
 /obj/item/poster/random_contraband,
 /obj/item/organ/tongue/zombie,
 /obj/structure/closet/crate/trashcart,
+/obj/structure/sign/warning/directional/south,
 /turf/open/floor/plating,
 /area/ruin/space/has_grav/garbagetruck/medicalwaste)
 "rB" = (
@@ -208,13 +214,6 @@
 "sU" = (
 /obj/structure/lattice/catwalk,
 /turf/template_noop,
-/area/ruin/space/has_grav/garbagetruck/medicalwaste)
-"tu" = (
-/obj/machinery/airalarm{
-	pixel_y = 25
-	},
-/obj/structure/cable,
-/turf/open/floor/catwalk_floor/iron,
 /area/ruin/space/has_grav/garbagetruck/medicalwaste)
 "tI" = (
 /obj/structure/tank_holder/anesthetic,
@@ -596,10 +595,6 @@
 /obj/item/stamp/denied,
 /turf/open/floor/plating,
 /area/ruin/space/has_grav/garbagetruck/medicalwaste)
-"RL" = (
-/obj/machinery/power/shuttle_engine/propulsion,
-/turf/template_noop,
-/area/space/nearstation)
 "RT" = (
 /obj/structure/frame/machine,
 /obj/item/shard,
@@ -620,6 +615,7 @@
 	brute_damage = 200;
 	mob_type = /mob/living/carbon/human/species/lizard
 	},
+/obj/structure/sign/warning/directional/south,
 /turf/open/floor/plating,
 /area/ruin/space/has_grav/garbagetruck/medicalwaste)
 "Ua" = (
@@ -652,6 +648,10 @@
 	},
 /turf/open/floor/plating,
 /area/ruin/space/has_grav/garbagetruck/medicalwaste)
+"VL" = (
+/obj/machinery/power/shuttle_engine/propulsion,
+/turf/template_noop,
+/area/space/nearstation)
 "VV" = (
 /obj/effect/decal/cleanable/blood/gibs/robot_debris/up,
 /obj/structure/frame/computer,
@@ -664,10 +664,6 @@
 /obj/machinery/light/warm,
 /obj/structure/cable,
 /turf/open/floor/catwalk_floor/iron,
-/area/ruin/space/has_grav/garbagetruck/medicalwaste)
-"XC" = (
-/obj/structure/sign/warning,
-/turf/closed/wall/r_wall,
 /area/ruin/space/has_grav/garbagetruck/medicalwaste)
 "XD" = (
 /obj/structure/sinkframe,
@@ -703,7 +699,7 @@ sU
 sU
 sU
 qC
-RL
+VL
 gh
 gh
 gh
@@ -760,7 +756,7 @@ AB
 py
 io
 TM
-XC
+MC
 "}
 (4,1,1) = {"
 iw
@@ -811,7 +807,7 @@ Pd
 xj
 Zi
 qC
-tu
+mZ
 OA
 gr
 CJ
@@ -914,7 +910,7 @@ Tp
 zH
 AU
 qX
-XC
+MC
 "}
 (11,1,1) = {"
 gh
@@ -945,7 +941,7 @@ sU
 sU
 LG
 qC
-RL
+VL
 gh
 gh
 gh

@@ -15,10 +15,10 @@
 
 	if(ishuman(user))
 		//feet
-		if(!(human_user.bodyshape & BODYSHAPE_DIGITIGRADE) && !(human_user.dna.species.mutant_bodyparts[FEATURE_TAUR]))
+		if(!(human_user.bodyshape & BODYSHAPE_DIGITIGRADE) && !(human_user.dna.mutant_bodyparts[FEATURE_TAUR]))
 			user.allowed_turfs += "footprint"
 
-		if((human_user.bodyshape & BODYSHAPE_DIGITIGRADE) || human_user.dna.species.mutant_bodyparts[FEATURE_TAUR])
+		if((human_user.bodyshape & BODYSHAPE_DIGITIGRADE) || human_user.dna.mutant_bodyparts[FEATURE_TAUR])
 			user.allowed_turfs += list("pawprint", "hoofprint", "clawprint")
 
 		//species & taurs
@@ -46,7 +46,7 @@
 			user.allowed_turfs += "vines"
 
 		if(issynthetic(user))
-			if(human_user.dna.species.mutant_bodyparts[FEATURE_TAUR])
+			if(human_user.dna.mutant_bodyparts[FEATURE_TAUR])
 				user.allowed_turfs += "holobed" //taurs get the holobed instead
 			else
 				user.allowed_turfs += "holoseat"
@@ -69,7 +69,7 @@
 		//clothing
 		var/obj/item/shoes = user.get_item_by_slot(ITEM_SLOT_FEET)
 		if(istype(shoes, /obj/item/clothing/shoes))
-			if(!human_user.dna.species.mutant_bodyparts[FEATURE_TAUR])
+			if(!human_user.dna.mutant_bodyparts[FEATURE_TAUR])
 				user.allowed_turfs += "shoeprint"
 
 	if(issilicon(user))
@@ -179,4 +179,4 @@
 	UnregisterSignal(user, COMSIG_MOVABLE_MOVED)
 
 	var/obj/owned_turf = user.owned_turf
-	INVOKE_ASYNC(owned_turf, /obj/structure/mark_turf/proc/turf_check, user)
+	INVOKE_ASYNC(owned_turf, TYPE_PROC_REF(/obj/structure/mark_turf, turf_check), user)
