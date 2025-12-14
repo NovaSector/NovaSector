@@ -1,0 +1,6 @@
+author: "TheSS13Melon"
+delete-after: True
+changes:
+  - rscadd: "Adds a bunch of new alt titles."
+  - rscdel: "Removed Nuclear Engineer from Station Engineer."
+  - bugfix: "Changes Warden's honorifics to be in line with the Titles."
