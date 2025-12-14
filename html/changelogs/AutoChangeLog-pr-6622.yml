@@ -1,0 +1,4 @@
+author: "Bannhammger"
+delete-after: True
+changes:
+  - bugfix: "added missing .ts file for Mutant Abomination antagonist preference"
