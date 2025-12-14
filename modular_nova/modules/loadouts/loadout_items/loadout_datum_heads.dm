@@ -495,13 +495,8 @@
 
 //Christmas
 /datum/loadout_item/head/christmas
-	name = "Christmas Hat - Red"
-	item_path = /obj/item/clothing/head/costume/nova/christmas
-	group = "Costumes"
-
-/datum/loadout_item/head/christmas/green
-	name = "Christmas Hat - Green"
-	item_path = /obj/item/clothing/head/costume/nova/christmas/green
+	name = "Christmas Hat"
+	item_path = /obj/item/clothing/head/costume/santa/gags
 	group = "Costumes"
 
 //Chaplain
