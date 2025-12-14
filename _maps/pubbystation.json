@@ -1,8 +1,8 @@
 {
 	"version": 1,
-	"map_name": "adjustmenttest",
-	"map_path": "map_files/adjustmenttest",
-	"map_file": "adjustmenttest.dmm",
+	"map_name": "Pubby Station",
+	"map_path": "map_files/Pubbystation",
+	"map_file": "Pubbystation.dmm",
 	"shuttles": {
 		"emergency": "emergency_pubby",
 		"whiteship": "whiteship_pubby",
