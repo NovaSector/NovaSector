@@ -8327,6 +8327,7 @@
 #include "modular_nova\modules\holdingfashion_port\code\bluespace_node.dm"
 #include "modular_nova\modules\holdingfashion_port\code\recipes.dm"
 #include "modular_nova\modules\holidays\flora.dm"
+#include "modular_nova\modules\holidays\sky_lanterns\code\sky_lanterns.dm"
 #include "modular_nova\modules\hop_drip\code\head_of_personnel.dm"
 #include "modular_nova\modules\horrorform\code\horror_form.dm"
 #include "modular_nova\modules\horrorform\code\true_changeling.dm"
