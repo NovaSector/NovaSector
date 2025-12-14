@@ -1206,9 +1206,7 @@
 /turf/open/floor/iron,
 /area/station/security/prison/garden)
 "afs" = (
-/obj/machinery/power/apc/auto_name/directional/south,
 /obj/effect/turf_decal/trimline/red/filled/line,
-/obj/structure/cable,
 /obj/effect/turf_decal/trimline/red/filled/corner{
 	dir = 1
 	},
@@ -5145,7 +5143,7 @@
 	dir = 1
 	},
 /turf/open/floor/iron/cafeteria,
-/area/station/commons/dorms/laundry)
+/area/station/common/cryopods)
 "aul" = (
 /obj/structure/disposalpipe/segment{
 	dir = 4
@@ -13485,18 +13483,6 @@
 /obj/machinery/light/directional/east,
 /turf/open/floor/circuit/green,
 /area/station/science/robotics/mechbay)
-"bgS" = (
-/obj/docking_port/stationary{
-	dir = 8;
-	dwidth = 3;
-	height = 13;
-	name = "pubby arrivals";
-	roundstart_template = /datum/map_template/shuttle/arrival/pubby;
-	shuttle_id = "arrival_stationary";
-	width = 6
-	},
-/turf/open/space/basic,
-/area/space)
 "bgU" = (
 /obj/machinery/firealarm/directional/west,
 /obj/effect/turf_decal/tile/purple/opposingcorners,
@@ -28803,13 +28789,6 @@
 	},
 /turf/open/floor/iron/dark,
 /area/station/engineering/atmos/hfr_room)
-"ech" = (
-/obj/machinery/conveyor{
-	dir = 10;
-	id = "ShuttleUnload"
-	},
-/turf/open/floor/plating,
-/area/station/cargo/storage)
 "ecq" = (
 /obj/effect/turf_decal/sand/plating,
 /obj/effect/landmark/atmospheric_sanity/ignore_area,
@@ -30062,6 +30041,8 @@
 	c_tag = "Permabrig - Kitchen";
 	network = list("ss13","prison")
 	},
+/obj/structure/cable,
+/obj/machinery/power/apc/auto_name/directional/south,
 /turf/open/floor/iron/white,
 /area/station/security/prison/mess)
 "eTW" = (
@@ -30246,6 +30227,7 @@
 	},
 /obj/effect/turf_decal/tile/red,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/cyan/hidden/layer4,
+/obj/structure/cable,
 /turf/open/floor/iron/white,
 /area/station/security/prison/mess)
 "eZj" = (
@@ -30707,17 +30689,6 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/cyan/hidden,
 /turf/open/floor/plating,
 /area/station/maintenance/department/medical/morgue)
-"foE" = (
-/obj/structure/window/reinforced/spawner/directional/north,
-/obj/effect/turf_decal/trimline/brown/filled/line{
-	dir = 1
-	},
-/obj/machinery/conveyor/inverted{
-	dir = 5;
-	id = "ShuttleUnload"
-	},
-/turf/open/floor/iron,
-/area/station/cargo/storage)
 "foG" = (
 /obj/structure/table,
 /obj/item/storage/medkit/toxin{
@@ -33298,13 +33269,6 @@
 	},
 /turf/open/floor/iron,
 /area/station/hallway/secondary/exit/departure_lounge)
-"hlJ" = (
-/obj/machinery/conveyor{
-	dir = 6;
-	id = "ShuttleLoad"
-	},
-/turf/open/floor/plating,
-/area/station/cargo/storage)
 "hlQ" = (
 /obj/machinery/door/airlock/maintenance,
 /obj/structure/disposalpipe/segment,
@@ -33831,6 +33795,9 @@
 /obj/machinery/airalarm/directional/west,
 /turf/open/floor/iron,
 /area/station/hallway/primary/central/fore)
+"hHq" = (
+/turf/open/floor/iron/freezer,
+/area/station/security/checkpoint/supply)
 "hHr" = (
 /obj/structure/chair/comfy/black{
 	dir = 4
@@ -43681,7 +43648,6 @@
 /obj/machinery/door/airlock{
 	name = "Cleaning Closet"
 	},
-/obj/structure/cable,
 /obj/machinery/duct,
 /turf/open/floor/iron,
 /area/station/security/prison)
@@ -46267,10 +46233,13 @@
 /turf/open/floor/iron,
 /area/station/engineering/atmos)
 "qFT" = (
-/obj/machinery/conveyor/inverted{
-	dir = 9;
-	id = "ShuttleLoad"
+/obj/effect/turf_decal/stripes/line{
+	dir = 5
 	},
+/obj/effect/turf_decal/trimline/brown/filled/end{
+	dir = 4
+	},
+/obj/structure/window/reinforced/spawner/directional/south,
 /turf/open/floor/iron,
 /area/station/cargo/storage)
 "qGk" = (
@@ -46995,6 +46964,18 @@
 "rfa" = (
 /turf/open/floor/iron/dark,
 /area/station/service/chapel)
+"rfe" = (
+/obj/docking_port/stationary{
+	dir = 8;
+	dwidth = 1;
+	height = 13;
+	shuttle_id = "arrivals_stationary";
+	name = "arrivals";
+	roundstart_template = null;
+	width = 5
+	},
+/turf/open/space/basic,
+/area/space)
 "rgs" = (
 /obj/structure/table,
 /obj/item/instrument/eguitar,
@@ -50873,6 +50854,14 @@
 /obj/item/radio/intercom/directional/west,
 /turf/open/floor/iron/dark,
 /area/station/service/chapel/funeral)
+"tHI" = (
+/obj/machinery/conveyor{
+	dir = 8;
+	id = "ShuttleUnload"
+	},
+/obj/structure/plasticflaps/opaque,
+/turf/open/floor/plating,
+/area/station/cargo/storage)
 "tIx" = (
 /obj/structure/table/glass,
 /obj/item/hand_labeler,
@@ -50959,12 +50948,10 @@
 /obj/effect/turf_decal/stripes/line{
 	dir = 1
 	},
-/obj/effect/turf_decal/stripes/line{
-	dir = 5
+/obj/effect/turf_decal/trimline/brown/filled/line{
+	dir = 1
 	},
-/obj/effect/turf_decal/trimline/brown/filled/end{
-	dir = 4
-	},
+/obj/effect/turf_decal/trimline/brown/filled/line,
 /turf/open/floor/iron/large,
 /area/station/cargo/storage)
 "tMs" = (
@@ -51491,6 +51478,15 @@
 /obj/effect/turf_decal/bot,
 /turf/open/floor/iron,
 /area/station/cargo/miningfoundry)
+"uew" = (
+/obj/structure/window/reinforced/spawner/directional/north,
+/obj/effect/turf_decal/trimline/brown/filled/line{
+	dir = 1
+	},
+/obj/effect/turf_decal/trimline/brown/filled/line,
+/obj/effect/turf_decal/stripes/line,
+/turf/open/floor/iron/large,
+/area/station/cargo/storage)
 "ueP" = (
 /obj/structure/table/glass,
 /obj/item/storage/box/monkeycubes{
@@ -52121,6 +52117,7 @@
 /obj/machinery/atmospherics/components/unary/vent_pump/on/layer4{
 	dir = 4
 	},
+/obj/structure/cable,
 /turf/open/floor/iron/white,
 /area/station/security/prison/mess)
 "uxF" = (
@@ -56305,17 +56302,6 @@
 	},
 /turf/open/floor/iron/white,
 /area/station/science/genetics)
-"xnW" = (
-/obj/effect/turf_decal/tile/red{
-	dir = 1
-	},
-/obj/effect/turf_decal/tile/red,
-/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2{
-	dir = 8
-	},
-/obj/machinery/atmospherics/pipe/smart/manifold4w/cyan/hidden/layer4,
-/turf/open/floor/iron/white,
-/area/station/security/prison/mess)
 "xnZ" = (
 /obj/machinery/portable_atmospherics/canister/oxygen,
 /obj/effect/turf_decal/delivery,
@@ -77534,7 +77520,7 @@ pUe
 jTV
 eaA
 rXH
-xnW
+rse
 eVE
 oXc
 qkC
@@ -78627,9 +78613,9 @@ bbR
 hXW
 aaa
 aaa
-bgS
 aaa
 aaa
+rfe
 aaa
 hXW
 bbR
@@ -95058,7 +95044,7 @@ lAs
 aMg
 aNK
 vHx
-lAs
+hHq
 aRl
 aSe
 aTc
@@ -104575,7 +104561,7 @@ bbG
 oMp
 bbG
 tpC
-pbI
+uew
 baG
 cxg
 aaa
@@ -104825,15 +104811,15 @@ aaa
 aaa
 aaa
 bGI
-hlJ
+sZh
 qFT
 cxg
 bbG
 aVI
 bbG
 bGI
-foE
-ech
+pbI
+dQF
 cxg
 aaa
 aht
@@ -105081,17 +105067,17 @@ aht
 aht
 aht
 aht
-aht
 yaL
 kNb
+aTy
 rWE
 bbG
 cxJ
 bbG
 aYE
-dQF
+aTy
+tHI
 lLS
-aht
 aht
 aht
 aht
