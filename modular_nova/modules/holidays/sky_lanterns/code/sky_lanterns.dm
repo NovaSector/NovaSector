@@ -43,7 +43,7 @@
 
 /obj/item/flashlight/sky_lantern/Initialize(mapload)
 	. = ..()
-	return INTIALIZE_HINT_LATELOAD
+	return INITIALIZE_HINT_LATELOAD
 
 /obj/item/flashlight/sky_lantern/LateInitialize()
 	update_floating_state_immediate()
