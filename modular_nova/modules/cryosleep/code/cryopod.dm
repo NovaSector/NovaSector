@@ -680,3 +680,4 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/machinery/cryopod/prison, 18)
 	)
 
 #undef AHELP_FIRST_MESSAGE
+#undef CRYOING_POLICY
