@@ -1,4 +1,5 @@
 #define AHELP_FIRST_MESSAGE "Please adminhelp before leaving the round, even if there are no administrators online!"
+#define CRYOING_POLICY "You are allowed to rejoin after 30 minutes as the same role."
 
 /*
  * Cryogenic refrigeration unit. Basically a despawner.
@@ -530,7 +531,7 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/machinery/computer/cryopod, 32)
 			to_chat(user, span_danger("You can't put [target] into [src]. [target.p_Theyre()] conscious."))
 		return
 
-	if(target == user && (tgui_alert(target, "Would you like to enter cryosleep?", "Enter Cryopod?", list("Yes", "No")) != "Yes"))
+	if(target == user && (tgui_alert(target, "Would you like to enter cryosleep? [CRYOING_POLICY]", "Enter Cryopod?", list("Yes", "No")) != "Yes"))
 		return
 
 	if(target == user)
