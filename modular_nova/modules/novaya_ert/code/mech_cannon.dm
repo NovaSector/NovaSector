@@ -59,13 +59,13 @@
 /// System confirms target.
 /obj/item/mecha_parts/mecha_equipment/weapon/ballistic/cannon/proc/call_identified()
 	to_chat(chassis.occupants, "[icon2html(src, chassis.occupants)][span_notice("FORGE SPOOLING. PREPARING FOR: [uppertext(current_ammo_type)].")]")
-	addtimer(CALLBACK(src, PROC_REF(call_load)), 15) // Short immersive delay for the "loader" to start loading.
+	addtimer(CALLBACK(src, PROC_REF(call_load)), 1.5 SECONDS, TIMER_STOPPABLE | TIMER_DELETE_ME) // Short immersive delay for the "loader" to start loading.
 
 /// System starts loading.
 /obj/item/mecha_parts/mecha_equipment/weapon/ballistic/cannon/proc/call_load()
 	to_chat(chassis.occupants, "[icon2html(src, chassis.occupants)][span_notice("FORGE ACTIVE. PRINTING [uppertext(current_ammo_type)]!")]")
 	playsound(chassis, 'modular_nova/modules/colony_fabricator/sound/fabricator/fabricator_mid_2.wav', 50, TRUE)
-	addtimer(CALLBACK(src, PROC_REF(call_loading)), 15) // Short immersive delay for the "loading" to start.
+	addtimer(CALLBACK(src, PROC_REF(call_loading)), 1.5 SECONDS, TIMER_STOPPABLE | TIMER_DELETE_ME) // Short immersive delay for the "loading" to start.
 
 /// System is loading.
 /obj/item/mecha_parts/mecha_equipment/weapon/ballistic/cannon/proc/call_loading()
