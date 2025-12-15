@@ -759,3 +759,27 @@
 /datum/emote/living/meowdeep/get_sound(mob/living/user)
 	. = ..()
 	return pick('modular_nova/modules/emotes/sound/voice/meowdeep.ogg', 'modular_nova/modules/emotes/sound/voice/meowdeep2.ogg', 'modular_nova/modules/emotes/sound/voice/meowdeep3.ogg')
+
+/datum/emote/living/teshchirp
+	key = "tchirp"
+	key_third_person = "chirps!"
+	message = "chirps!"
+	emote_type = EMOTE_AUDIBLE
+	vary = TRUE
+	sound = 'modular_nova/modules/emotes/sound/voice/teshchirp.ogg'
+
+/datum/emote/living/teshsqueak
+	key = "tsqueak"
+	key_third_person = "squeaks!"
+	message = "squeaks!"
+	emote_type = EMOTE_AUDIBLE
+	vary = TRUE
+	sound = 'modular_nova/modules/emotes/sound/voice/teshsqueak.ogg'
+
+/datum/emote/living/teshtrill
+	key = "ttrill"
+	key_third_person = "trills!"
+	message = "trills!"
+	emote_type = EMOTE_AUDIBLE
+	vary = TRUE
+	sound = 'modular_nova/modules/emotes/sound/voice/teshtrill.ogg'
