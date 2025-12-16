@@ -44,7 +44,7 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/machinery/space_heater/wall_mounted, 29)
 		frame.cell = cell
 		cell?.forceMove(frame)
 	else
-		cell.forceMove(drop_location())
+		cell?.forceMove(drop_location())
 	cell = null
 	return ..()
 
