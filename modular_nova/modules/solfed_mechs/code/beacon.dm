@@ -147,7 +147,7 @@ GLOBAL_DATUM(mech_drop_alert_handler, /datum/mech_drop_alert_handler)
 /obj/item/mecha_summon_remote/examine(mob/user)
 	. = ..()
 	if(activated)
-		var/time_left = max(0, round(((activation_time + 30 SECONDS) - world.time) / 10, 1))
+		var/time_left = max(0, round(((activation_time + 30 SECONDS) - world.time) / 10, 1 SECONDS))
 		var/message = "The countdown on its screen shows: [time_left] seconds."
 		. += ""
 		. += span_notice(message)
