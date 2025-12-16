@@ -23,7 +23,7 @@
 	///Is the mech's active camo on or off
 	var/chameleon_active = FALSE
 	///How fast are we fading in or out of view
-	var/chameleon_fade_rate = 15
+	var/chameleon_fade_rate = 1.5 SECONDS
 	///How much power does it cost to run the active camo
 	var/chameleon_power_cost = 10
 	equip_by_category = list(
@@ -111,7 +111,7 @@
 		to_chat(usr, "Chameleon skin deactivated: insufficient power.")
 		return
 	cell.use(chameleon_power_cost)
-	alpha = max(alpha - (chameleon_fade_rate * seconds_per_tick), 50)
+	alpha = max(alpha - (chameleon_fade_rate * seconds_per_tick), 5 SECONDS)
 
 /obj/vehicle/sealed/mecha/solfed/hermes/on_move()
 	if(!chameleon_active)
