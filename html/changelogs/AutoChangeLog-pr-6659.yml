@@ -1,0 +1,7 @@
+author: "intense-skies"
+delete-after: True
+changes:
+  - rscadd: "3 emote sounds relevant to teshari (tchirp, ttrill, tsqueak) (courtesy of Virgo)."
+  - rscadd: "Gave teshari actual hair selection and provided two mohawk options within there."
+  - bugfix: "Adjusted some of the already present ears to clip a bit less into headware."
+  - rscdel: "Removed one of the transferred mohawk options from the ears section."
