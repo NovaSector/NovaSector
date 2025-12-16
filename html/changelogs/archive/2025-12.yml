@@ -398,8 +398,20 @@
   - refactor: blueshield crew monitors have had their code simplified, report any
       issues to github
 2025-12-16:
+  FlufflesTheDog:
+  - bugfix: Solfed officials get their proper "approved" stamp instead of an abstract
+      variant
+  - rscadd: Loadout items with custom descriptions can be examined by others while
+      worn by yourself
   Stalkeros:
   - rscadd: Donkfish is back in Cargo
+  intense-skies:
+  - rscadd: 3 emote sounds relevant to teshari (tchirp, ttrill, tsqueak) (courtesy
+      of Virgo).
+  - rscadd: Gave teshari actual hair selection and provided two mohawk options within
+      there.
+  - bugfix: Adjusted some of the already present ears to clip a bit less into headware.
+  - rscdel: Removed one of the transferred mohawk options from the ears section.
   muratendmo:
   - bugfix: allows Roboticists to use built medrecords consoles instead of just the
       ones that are present roundstart
