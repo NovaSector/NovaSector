@@ -994,11 +994,11 @@
 	else if(carrydelay <= 4 SECONDS)
 		skills_space = " quickly"
 	// NOVA EDIT ADDITION START
-	if(HAS_TRAIT(target, TRAIT_OVERSIZED) && !HAS_TRAIT(src, TRAIT_OVERSIZED))
+	if((HAS_TRAIT(target, TRAIT_OVERSIZED) && !HAS_TRAIT(src, TRAIT_OVERSIZED)) && !istype(potential_spine))
 		visible_message(span_warning("[src] tries to carry [target], but they are too heavy!"))
 		return
 	else if(HAS_TRAIT(target, TRAIT_HEAVYSET))
-		if(fitness_level < SKILL_LEVEL_MASTER - 1) // fitness_level has 1 subtracted from it
+		if((fitness_level < SKILL_LEVEL_MASTER - 1) && !istype(potential_spine)) // fitness_level has 1 subtracted from it
 			visible_message(span_warning("[src] tries to carry [target], but can't make them budge!"))
 			return
 		carrydelay = 5 SECONDS
@@ -1033,7 +1033,8 @@
 		target.visible_message(span_warning("[target] can't hang onto [src]!"))
 		return
 	//NOVA EDIT START
-	if( (HAS_TRAIT(target, TRAIT_OVERSIZED) && !HAS_TRAIT(src, TRAIT_OVERSIZED)) || (HAS_TRAIT(target, TRAIT_HEAVYSET) && !HAS_TRAIT(src, TRAIT_HEAVYSET)) )
+	var/obj/item/organ/cyberimp/chest/spine/potential_spine = get_organ_slot(ORGAN_SLOT_SPINE)
+	if(((HAS_TRAIT(target, TRAIT_OVERSIZED) && !HAS_TRAIT(src, TRAIT_OVERSIZED)) && !istype(potential_spine)) || ((HAS_TRAIT(target, TRAIT_HEAVYSET) && !HAS_TRAIT(src, TRAIT_HEAVYSET)) && !istype(potential_spine)))
 		target.visible_message(span_warning("[target] is too heavy for [src] to carry!"))
 		var/dam_zone = pick(BODY_ZONE_CHEST, BODY_ZONE_L_LEG, BODY_ZONE_R_LEG)
 		var/obj/item/bodypart/affecting = get_bodypart(ran_zone(dam_zone))
