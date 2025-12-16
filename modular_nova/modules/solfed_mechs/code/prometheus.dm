@@ -103,7 +103,7 @@
 		return
 
 	// Wind-up with do_after (2 seconds)
-	if(!do_after(user, 20, ram_target))
+	if(!do_after(user, 2 SECONDS, ram_target))
 		return
 
 	playsound(chassis, 'sound/effects/clang.ogg', 70, TRUE)
