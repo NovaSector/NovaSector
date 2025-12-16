@@ -1,0 +1,4 @@
+author: "FlufflesTheDog"
+delete-after: True
+changes:
+  - bugfix: "Solfed officials get their proper \"approved\" stamp instead of an abstract variant"
