@@ -995,9 +995,10 @@
 	},
 /area/awaymission/caves/maintsroom)
 "dv" = (
-/obj/structure/lattice,
-/obj/structure/sign/nanotrasen/directional/east,
-/turf/open/misc/asteroid/forest/mushroom/green,
+/mob/living/simple_animal/hostile/megafauna/clockwork_defender{
+	loot = list(/obj/item/nullrod/claymore/talking/chainsword)
+	},
+/turf/open/floor/bronze/filled,
 /area/awaymission/caves/maintsroom)
 "dx" = (
 /obj/machinery/airalarm/directional/north,
@@ -5246,11 +5247,6 @@
 	},
 /turf/open/floor/wood,
 /area/awaymission/caves/maintsroom)
-"rq" = (
-/obj/structure/lattice/catwalk,
-/obj/structure/sign/nanotrasen/directional/east,
-/turf/open/misc/asteroid/forest/mushroom/green,
-/area/awaymission/caves/maintsroom)
 "rr" = (
 /obj/item/food/cheese/firm_cheese,
 /obj/structure/closet/crate,
@@ -5731,6 +5727,11 @@
 	ai_controller = /datum/ai_controller/basic_controller/simple/simple_hostile_obstacles
 	},
 /turf/open/floor/plating,
+/area/awaymission/caves/maintsroom)
+"tc" = (
+/obj/structure/lattice,
+/obj/structure/sign/nanotrasen/directional/east,
+/turf/open/misc/asteroid/forest/mushroom/green,
 /area/awaymission/caves/maintsroom)
 "td" = (
 /obj/item/flashlight/flare/candle/infinite,
@@ -8385,6 +8386,11 @@
 /mob/living/basic/mouse/rat,
 /turf/open/floor/plating/rust,
 /area/awaymission/caves/maintsroom)
+"Ce" = (
+/obj/structure/lattice/catwalk,
+/obj/structure/sign/nanotrasen/directional/east,
+/turf/open/misc/asteroid/forest/mushroom/green,
+/area/awaymission/caves/maintsroom)
 "Cg" = (
 /obj/effect/rune/blood_boil,
 /turf/open/floor/engine/cult,
@@ -10107,10 +10113,6 @@
 /obj/item/stack/spacecash/c1000,
 /turf/open/floor/iron,
 /area/awaymission/caves/maintsroom)
-"Ij" = (
-/obj/vehicle/sealed/mecha/odysseus/artifact,
-/turf/open/floor/iron/diagonal,
-/area/awaymission/caves/maintsroom)
 "Ik" = (
 /obj/structure/sink/directional/east,
 /obj/effect/turf_decal/tile/neutral/anticorner/contrasted{
@@ -10824,12 +10826,6 @@
 	dir = 2
 	},
 /turf/open/floor/plating,
-/area/awaymission/caves/maintsroom)
-"KL" = (
-/mob/living/simple_animal/hostile/megafauna/clockwork_defender{
-	loot = list(/obj/item/nullrod/claymore/talking/chainsword)
-	},
-/turf/open/floor/bronze/filled,
 /area/awaymission/caves/maintsroom)
 "KN" = (
 /obj/structure/fluff/tram_rail/anchor,
@@ -19293,7 +19289,7 @@ Bh
 Bh
 Bh
 NA
-KL
+dv
 Bh
 Bh
 Bh
@@ -23270,7 +23266,7 @@ Ch
 nT
 qO
 nT
-Ij
+nT
 nT
 Sp
 jf
@@ -23820,7 +23816,7 @@ GS
 GS
 ec
 ec
-rq
+Ce
 ec
 am
 am
@@ -25359,7 +25355,7 @@ am
 am
 Xz
 ec
-dv
+tc
 am
 am
 GS
@@ -32384,7 +32380,7 @@ Ch
 nT
 qO
 nT
-Ij
+nT
 nT
 Sp
 jf
