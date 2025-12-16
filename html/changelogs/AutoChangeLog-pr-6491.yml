@@ -1,0 +1,9 @@
+author: "Diltyrr"
+delete-after: True
+changes:
+  - rscadd: "Added 5 admin spawned only SolFed Mechs and their equipment."
+  - rscadd: "Added admin spawned only \"Orbital Deployment Beacons\" that can summon said mechs."
+  - sound: "added a sound for the railgun firing by diltyrr"
+  - image: "added sprites for solfed mechs, their modules and ammo by diltyrr"
+  - image: "added sprite for the Thanatos mech, by zy.dras"
+  - image: "added sprite for the solfed mech drop hologram, by realwinterfrost"
