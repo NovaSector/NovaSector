@@ -1,4 +1,0 @@
-author: "muratendmo"
-delete-after: True
-changes:
-  - bugfix: "allows Roboticists to use built medrecords consoles instead of just the ones that are present roundstart"
