@@ -1055,7 +1055,7 @@
 		if(get_turf(target) != get_turf(src))
 			target.throw_at(get_turf(src), 1, 1, spin=FALSE, quickstart=FALSE)
 		return
-		//NOVA EDIT END
+	// NOVA EDIT ADDITION END
 
 	return buckle_mob(target, TRUE, TRUE, RIDER_NEEDS_ARMS)
 
