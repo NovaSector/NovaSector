@@ -1,5 +1,5 @@
 #define AHELP_FIRST_MESSAGE "Please adminhelp before leaving the round, even if there are no administrators online!"
-#define CRYOING_POLICY "You are allowed to rejoin after 30 minutes as the same role."
+#define CRYOING_POLICY "You may rejoin as the same role or as an assistant with the cryod character."
 
 /*
  * Cryogenic refrigeration unit. Basically a despawner.
