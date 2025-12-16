@@ -1,0 +1,4 @@
+author: "FlufflesTheDog"
+delete-after: True
+changes:
+  - rscadd: "Loadout items with custom descriptions can be examined by others while worn by yourself"
