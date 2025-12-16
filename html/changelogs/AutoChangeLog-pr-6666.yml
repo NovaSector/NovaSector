@@ -1,0 +1,5 @@
+author: "vinylspiders"
+delete-after: True
+changes:
+  - refactor: "ammo count huds have been refactored, please report any issues to GitHub"
+  - bugfix: "speedloaders will now update the ammo hud"
