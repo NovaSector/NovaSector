@@ -14,7 +14,7 @@
 			"Unrecognized ID signature. Access to SolFed mech chassis denied.",
 		))
 		return FALSE
-	. = ..()
+	return ..()
 
 //Inserts the sprite used to the spritesheet
 /datum/asset/spritesheet_batched/mecha_equipment/create_spritesheets()
