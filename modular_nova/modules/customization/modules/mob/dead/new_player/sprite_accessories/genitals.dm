@@ -257,6 +257,24 @@
 	name = "Anus"
 	color_src = null
 
+/datum/sprite_accessory/genital/anus/donut
+	icon = 'modular_nova/master_files/icons/mob/sprite_accessory/genitals/anus_onmob.dmi'
+	icon_state = "donut"
+	name = "Donut"
+	color_src = USE_MATRIXED_COLORS
+	has_skintone_shading = TRUE
+	always_color_customizable = TRUE
+	relevent_layers = list(BODY_FRONT_LAYER)
+
+/datum/sprite_accessory/genital/anus/squished
+	icon = 'modular_nova/master_files/icons/mob/sprite_accessory/genitals/anus_onmob.dmi'
+	icon_state = "squished"
+	name = "Squished"
+	color_src = USE_MATRIXED_COLORS
+	has_skintone_shading = TRUE
+	always_color_customizable = TRUE
+	relevent_layers = list(BODY_FRONT_LAYER)
+
 /datum/sprite_accessory/genital/breasts
 	icon = 'modular_nova/master_files/icons/mob/sprite_accessory/genitals/breasts_onmob.dmi'
 	organ_type = /obj/item/organ/genital/breasts
