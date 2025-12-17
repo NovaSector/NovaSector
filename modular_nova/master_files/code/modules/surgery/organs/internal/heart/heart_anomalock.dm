@@ -38,19 +38,6 @@
 	UnregisterSignal(organ_owner, list(COMSIG_ATOM_EMP_ACT, SIGNAL_ADDTRAIT(TRAIT_CRITICAL_CONDITION)))
 	. = ..()
 
-/obj/item/organ/heart/cybernetic/anomalock/on_emp_act(severity)
-	// for some reason getting shot with an ion rifle triggers this twice.
-	SIGNAL_HANDLER
-	if(owner.has_status_effect(/datum/status_effect/voltaic_overdrive))
-		. = EMP_PROTECT_ALL
-		to_chat(owner, span_danger("Your voltaic combat cyberheart flutters against an electromagnetic pulse!"))
-		return
-	if(activate_survival(owner))
-		. = EMP_PROTECT_ALL
-		to_chat(owner, span_userdanger("Your voltaic combat cyberheart thunders in your chest wildly, surging to hold against the electromagnetic pulse!"))
-		return
-	to_chat(owner, span_danger("Your voltaic combat cyberheart flutters weakly, failing to protect against an electromagnetic pulse!"))
-
 /obj/item/organ/heart/cybernetic/anomalock/clear_lightning_overlay()
 	owner?.cut_overlay(lightning_overlay)
 	lightning_overlay = null

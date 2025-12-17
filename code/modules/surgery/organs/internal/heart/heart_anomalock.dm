@@ -76,6 +76,17 @@
 /obj/item/organ/heart/cybernetic/anomalock/proc/on_emp_act(severity)
 	SIGNAL_HANDLER
 	add_lightning_overlay(10 SECONDS)
+	// NOVA EDIT ADD: EMP resistance handling moved to the status effect
+	if(owner.has_status_effect(/datum/status_effect/voltaic_overdrive))
+		. = EMP_PROTECT_ALL
+		to_chat(owner, span_danger("Your voltaic combat cyberheart flutters against an electromagnetic pulse!"))
+		return
+	if(activate_survival(owner))
+		. = EMP_PROTECT_ALL
+		to_chat(owner, span_userdanger("Your voltaic combat cyberheart thunders in your chest wildly, surging to hold against the electromagnetic pulse!"))
+		return
+	to_chat(owner, span_danger("Your voltaic combat cyberheart flutters weakly, failing to protect against an electromagnetic pulse!"))
+	// NOVA EDIT END
 
 /obj/item/organ/heart/cybernetic/anomalock/proc/add_lightning_overlay(time_to_last = 10 SECONDS)
 	if(lightning_overlay)
