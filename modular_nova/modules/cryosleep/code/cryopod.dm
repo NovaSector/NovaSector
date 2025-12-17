@@ -1,5 +1,4 @@
 #define AHELP_FIRST_MESSAGE "Please adminhelp before leaving the round, even if there are no administrators online!"
-#define CRYOING_POLICY "You may rejoin as the same role or as an assistant with the cryod character."
 
 /*
  * Cryogenic refrigeration unit. Basically a despawner.
@@ -531,8 +530,12 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/machinery/computer/cryopod, 32)
 			to_chat(user, span_danger("You can't put [target] into [src]. [target.p_Theyre()] conscious."))
 		return
 
-	if(target == user && (tgui_alert(target, "Would you like to enter cryosleep? [CRYOING_POLICY]", "Enter Cryopod?", list("Yes", "No")) != "Yes"))
-		return
+	if(target == user)
+		var/fridge_text = "Enter cryosleep?"
+		if(!despawn_to_ghostcafe)
+			fridge_text += " ([CONFIG_GET(string/cryo_policy)])"
+		if(tgui_alert(target, fridge_text, "Enter Cryopod?", list("Yes", "No")) != "Yes")
+			return
 
 	if(target == user)
 		if(target.mind.assigned_role.req_admin_notify)
@@ -680,4 +683,3 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/machinery/cryopod/prison, 18)
 	)
 
 #undef AHELP_FIRST_MESSAGE
-#undef CRYOING_POLICY
