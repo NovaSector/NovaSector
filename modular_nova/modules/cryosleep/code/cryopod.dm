@@ -532,7 +532,7 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/machinery/computer/cryopod, 32)
 
 	if(target == user)
 		var/fridge_text = "Enter cryosleep?"
-		if(!despawn_to_ghostcafe)
+		if(!despawn_to_ghostcafe || !quiet)
 			fridge_text += " ([CONFIG_GET(string/cryo_policy)])"
 		if(tgui_alert(target, fridge_text, "Enter Cryopod?", list("Yes", "No")) != "Yes")
 			return
