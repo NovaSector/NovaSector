@@ -93,6 +93,7 @@
 		"anesthetic_machine",
 		"smartdartgun",
 		"cone_of_shame",
+		"defibrillator",
 	)
 	return ..()
 

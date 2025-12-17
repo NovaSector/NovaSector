@@ -10,6 +10,7 @@
 	icon = 'modular_nova/master_files/icons/obj/storage/plantbag_of_holding.dmi'
 	icon_state = "plantbag_of_holding"
 	worn_icon_state = "plantbag"
+	custom_materials = list(/datum/material/iron = SMALL_MATERIAL_AMOUNT * 1.5, /datum/material/glass = SMALL_MATERIAL_AMOUNT * 1.5)
 
 //4x the size of a normal plant bag. this probably won't break things. probably.
 /datum/storage/bag/plants/bluespace
@@ -22,6 +23,7 @@
 	desc = "Botany's version of a bluespace core. Plenty of bluespace juice to go around! Let's ignore the fact that it's just a bunch of bluespace bananas wrapped around a tomato with some wire running through them."
 	icon = 'modular_nova/master_files/icons/obj/storage/plantbag_of_holding.dmi'
 	icon_state = "botanical_core"
+	custom_materials = list(/datum/material/iron = SHEET_MATERIAL_AMOUNT * 0.15, /datum/material/glass = SHEET_MATERIAL_AMOUNT * 0.15)
 
 /obj/item/plantbag_of_holding_inert
 	name = "inert plantbag of holding"
@@ -47,17 +49,6 @@
 	time = 5 SECONDS
 	category = CAT_MISC
 
-/datum/crafting_recipe/plantbag_of_holding_realcore
-	name = "Plant Bag of Holding"
-	result = /obj/item/storage/bag/plants/bluespace
-	reqs = list(
-		/obj/item/plantbag_of_holding_inert = 1,
-		/obj/item/assembly/signaler/anomaly/bluespace = 1,
-	)
-	tool_behaviors = list(TOOL_SHOVEL)
-	time = 5 SECONDS
-	category = CAT_CONTAINERS
-
 /datum/crafting_recipe/plantbag_of_holding_botanycore
 	name = "Plant Bag of Holding"
 	result = /obj/item/storage/bag/plants/bluespace
@@ -68,6 +59,18 @@
 	tool_behaviors = list(TOOL_SHOVEL)
 	time = 5 SECONDS
 	category = CAT_CONTAINERS
+
+/datum/crafting_recipe/plantbag_of_holding_realcore
+	name = "Plant Bag of Holding"
+	result = /obj/item/storage/bag/plants/bluespace
+	reqs = list(
+		/obj/item/plantbag_of_holding_inert = 1,
+		/obj/item/assembly/signaler/anomaly/bluespace = 1,
+	)
+	tool_behaviors = list(TOOL_SHOVEL)
+	time = 5 SECONDS
+	category = CAT_CONTAINERS
+	crafting_flags = parent_type::crafting_flags | CRAFT_SKIP_MATERIALS_PARITY
 
 /datum/design/plantbag_of_holding
 	name = "Plant Bag of Holding"

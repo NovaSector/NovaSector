@@ -247,7 +247,7 @@
 
 	visible_message(span_warning("[src]'s medical sensors short out!"), blind_message = span_warning("The [src] makes an electronic sizzling sound!"), vision_distance = COMBAT_MESSAGE_RANGE)
 	set_has_sensor(BROKEN_SENSORS)
-	sensor_mode = SENSOR_LIVING // NOVA EDIT ADDITION
+	set_sensor_mode(SENSOR_LIVING) // NOVA EDIT ADDITION
 	sensor_malfunction()
 
 /**

@@ -14,6 +14,10 @@
 	icon = 'modular_nova/modules/mapping/icons/obj/items/advancedtools.dmi'
 	icon_state = "cutters"
 	toolspeed = 0.2
+	greyscale_config = null
+	greyscale_config_inhand_left = null
+	greyscale_config_inhand_right = null
+	greyscale_colors = null
 	random_color = FALSE
 
 //WELDING TOOLS//

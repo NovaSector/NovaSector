@@ -3993,12 +3993,6 @@
 /obj/item/clothing/gloves/latex,
 /turf/open/floor/iron/dark,
 /area/ruin/space/ks13/medical/morgue)
-"Dt" = (
-/obj/effect/decal/cleanable/dirt,
-/obj/effect/decal/cleanable/dirt,
-/obj/structure/plaque/static_plaque/golden/commission/ks13,
-/turf/open/floor/iron/airless,
-/area/ruin/space/ks13/hallway/central)
 "Du" = (
 /obj/structure/table,
 /obj/effect/decal/cleanable/dirt,
@@ -6995,7 +6989,7 @@
 /obj/structure/frame/computer{
 	dir = 1
 	},
-/obj/item/circuitboard/computer/rdconsole,
+/obj/item/circuitboard/computer/rdconsole/unlocked,
 /obj/structure/cable,
 /obj/effect/mapping_helpers/burnt_floor,
 /turf/open/floor/plating/airless,
@@ -8137,6 +8131,12 @@
 /obj/structure/fluff/oldturret,
 /turf/open/floor/circuit/red/off,
 /area/ruin/space/ks13/ai/corridor)
+"YE" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt,
+/obj/structure/plaque/static_plaque/golden/commission/ks13,
+/turf/open/floor/iron/airless,
+/area/ruin/space/ks13/hallway/central)
 "YF" = (
 /obj/machinery/light/small/directional/west,
 /obj/effect/mapping_helpers/broken_floor,
@@ -12473,7 +12473,7 @@ Fw
 LA
 Xr
 DM
-Dt
+YE
 yR
 Qz
 tY

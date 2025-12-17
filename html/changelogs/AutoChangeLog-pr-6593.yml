@@ -1,5 +1,0 @@
-author: "Iajret"
-delete-after: True
-changes:
-  - rscadd: "Surgical rooms will now start with their scrubbers set to contaminated mode (sucking nitrous by default) (related only to Nova maps)"
-  - rscadd: "Added shuttle creation kits to tech storage rooms (same as above, related only to Nova maps)"
