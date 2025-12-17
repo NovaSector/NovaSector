@@ -470,6 +470,7 @@
 		ACCESS_MINERAL_STOREROOM,
 		ACCESS_SERVICE,
 		ACCESS_THEATRE,
+		ACCESS_WEAPONS, // NOVA EDIT, ADDITION
 		)
 	extra_access = list()
 	template_access = list(
