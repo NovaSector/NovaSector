@@ -365,3 +365,65 @@
       way less awkward and weird.
   dee-dubya:
   - image: Modified the Guepe, Sindano, and all Sol short magazines.
+2025-12-14:
+  A.C.M.O.:
+  - qol: Added Vocal Bark / Blooper options to the Voice Actor quirk.
+  - qol: Allowed the Voice Actor quirk to function with TTS disabled.
+  - bugfix: Fixed a bug that prevented species such as Synthetic Humanoids, Ethereals,
+      and Podpeople from receiving blood transfusions.
+  Adelphon:
+  - rscadd: Added gags santa had to Autodrobe
+  Bannhammger:
+  - bugfix: added missing .ts file for Mutant Abomination antagonist preference
+  Diltyrr:
+  - rscadd: Added craftable sky lanterns.
+  - image: Added new sprites for sky lanterns by Diltyrr.
+  OrbisAnima:
+  - balance: Stamina Diode no longer restores SM integrity. It still fatigues living
+      creatures.
+  RealWinterFrost:
+  - image: Fixes emitters from not having the correct activation sprite.
+  Stalkeros:
+  - rscadd: Added pizza vouchers, available both from cargo and bitrunning
+  TheSS13Melon:
+  - rscadd: Adds a bunch of new alt titles.
+  - rscdel: Removed Nuclear Engineer from Station Engineer.
+  - bugfix: Changes Warden's honorifics to be in line with the Titles.
+  intense-skies:
+  - bugfix: Cargo borg once again has a proper 'granted' stamp.
+  - bugfix: Tarkon & DS-2 R&D consoles are now able to be used without needing to
+      be unlocked.
+  vinylspiders:
+  - bugfix: crew monitors should now have the qol from TG that they're supposed to.
+  - refactor: blueshield crew monitors have had their code simplified, report any
+      issues to github
+2025-12-16:
+  FlufflesTheDog:
+  - bugfix: Solfed officials get their proper "approved" stamp instead of an abstract
+      variant
+  - rscadd: Loadout items with custom descriptions can be examined by others while
+      worn by yourself
+  Stalkeros:
+  - rscadd: Donkfish is back in Cargo
+  intense-skies:
+  - rscadd: 3 emote sounds relevant to teshari (tchirp, ttrill, tsqueak) (courtesy
+      of Virgo).
+  - rscadd: Gave teshari actual hair selection and provided two mohawk options within
+      there.
+  - bugfix: Adjusted some of the already present ears to clip a bit less into headware.
+  - rscdel: Removed one of the transferred mohawk options from the ears section.
+  muratendmo:
+  - bugfix: allows Roboticists to use built medrecords consoles instead of just the
+      ones that are present roundstart
+2025-12-17:
+  Diltyrr:
+  - rscadd: Added 5 admin spawned only SolFed Mechs and their equipment.
+  - rscadd: Added admin spawned only "Orbital Deployment Beacons" that can summon
+      said mechs.
+  - sound: added a sound for the railgun firing by diltyrr
+  - image: added sprites for solfed mechs, their modules and ammo by diltyrr
+  - image: added sprite for the Thanatos mech, by zy.dras
+  - image: added sprite for the solfed mech drop hologram, by realwinterfrost
+  vinylspiders:
+  - refactor: ammo count huds have been refactored, please report any issues to GitHub
+  - bugfix: speedloaders will now update the ammo hud

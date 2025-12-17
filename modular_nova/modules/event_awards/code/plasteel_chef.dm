@@ -45,13 +45,7 @@
 	item_path = /obj/item/knife/kitchen/plasteel_chef
 	ckeywhitelist = list("bearagon", "mrsanderp")
 
-/datum/loadout_item/inhand/plasteel_chef/on_equip_item(
-	obj/item/knife/kitchen/plasteel_chef/equipped_item,
-	list/item_details,
-	mob/living/carbon/human/equipper,
-	datum/outfit/outfit,
-	visuals_only = FALSE,
-)
+/datum/loadout_item/inhand/plasteel_chef/on_equip_item(obj/item/knife/kitchen/plasteel_chef/equipped_item, list/item_details, mob/living/carbon/human/equipper, datum/outfit/outfit, visuals_only = FALSE)
 	. = ..()
 	equipped_item.allowed_ckeys = ckeywhitelist.Copy()
 	equipper.add_mood_event("plasteel_chef", /datum/mood_event/plasteel_chef)

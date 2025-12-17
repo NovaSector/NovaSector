@@ -3,13 +3,13 @@
 	access = ACCESS_WEAPONS
 	access_view = ACCESS_WEAPONS
 	express_lock = TRUE
-	departamental_goody = FALSE
+	order_flags = ORDER_GOODY
 	discountable = SUPPLY_PACK_STD_DISCOUNTABLE
 
 // NT Weapons
 
 /datum/supply_pack/companies/ballistics/nt
-	console_flag = CARGO_CONSOLE_NT | CARGO_CONSOLE_PDA // This is mostly for flavor, as NT ghost companies had been given a lot of absurdly powerful unique stuff and can still access to the station to get these. 
+	console_flag = CARGO_CONSOLE_NT | CARGO_CONSOLE_PDA // This is mostly for flavor, as NT ghost companies had been given a lot of absurdly powerful unique stuff and can still access to the station to get these.
 
 /datum/supply_pack/companies/ballistics/nt/mars_single
 	name = "Colt Detective Special Single-Pack"
@@ -19,7 +19,7 @@
 	access = FALSE
 	access_view = FALSE
 	express_lock = FALSE
-	departamental_goody = TRUE
+	order_flags = ORDER_COMPANY
 	contains = list(/obj/item/gun/ballistic/revolver/c38/detective)
 
 /datum/supply_pack/companies/ballistics/nt/double_barrel
@@ -30,11 +30,11 @@
 	access = FALSE
 	access_view = FALSE
 	express_lock = FALSE
-	departamental_goody = TRUE
+	order_flags = ORDER_COMPANY
 	contains = list(/obj/item/gun/ballistic/shotgun/doublebarrel)
 
 /datum/supply_pack/companies/ballistics/nt/shotgun_automatic
-	cost = CARGO_CRATE_VALUE * 5 
+	cost = CARGO_CRATE_VALUE * 5
 	contains = list(/obj/item/gun/ballistic/shotgun/automatic/combat)
 
 /datum/supply_pack/companies/ballistics/nt/c38_super_kit
@@ -46,7 +46,7 @@
 	access = FALSE
 	access_view = FALSE
 	express_lock = FALSE
-	departamental_goody = TRUE
+	order_flags = ORDER_COMPANY
 
 // Sol Fed Weapons
 /datum/supply_pack/companies/ballistics/sol_fed
@@ -56,7 +56,7 @@
 	access = FALSE
 	access_view = FALSE
 	express_lock = FALSE
-	departamental_goody = TRUE
+	order_flags = ORDER_COMPANY
 
 /datum/supply_pack/companies/ballistics/sol_fed/sidearm/eland
 	contains =list(/obj/item/gun/ballistic/revolver/sol)
@@ -134,14 +134,14 @@
 	access = FALSE
 	access_view = FALSE
 	express_lock = FALSE
-	departamental_goody = TRUE
+	order_flags = ORDER_COMPANY
 
 /datum/supply_pack/companies/ballistics/hc_surplus/zashch
 	contains = list(/obj/item/gun/ballistic/automatic/pistol/zashch)
 	access = FALSE
 	access_view = FALSE
 	express_lock = FALSE
-	departamental_goody = TRUE
+	order_flags = ORDER_COMPANY
 
 /datum/supply_pack/companies/ballistics/hc_surplus/miecz
 	contains = list(/obj/item/gun/ballistic/automatic/miecz)
@@ -169,7 +169,7 @@
 	access = FALSE
 	access_view = FALSE
 	express_lock = FALSE
-	departamental_goody = TRUE
+	order_flags = ORDER_COMPANY
 	discountable = SUPPLY_PACK_NOT_DISCOUNTABLE
 
 /datum/supply_pack/companies/ballistics/donk/foam_pistol
