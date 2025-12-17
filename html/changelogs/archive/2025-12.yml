@@ -416,6 +416,8 @@
   - bugfix: allows Roboticists to use built medrecords consoles instead of just the
       ones that are present roundstart
 2025-12-17:
+  Adelphon:
+  - rscadd: Added comment to cryoing notice.
   Aliceee2ch:
   - image: Added 2 new contraband and 1 new official posters.
   - bugfix: Fixed smacking ectoscopic sniffer after you unwrenched it.
@@ -542,6 +544,11 @@
   - qol: When blind, the brief flicker of the entire screen now only appears for mobs
       temporarily blinded - ie, mobs blinded from quirk / trauma / genetic mutation
       no longer experience it
+  RatFromTheJungle:
+  - rscadd: Gave the clown a weapons permit
+  Rilomatic:
+  - rscadd: Added new ears "Fennec Large" and "Fennec Large Flat Sharp"
+  - image: added some icons or images
   Rockdtben:
   - bugfix: ScreenTip for Lockers will show "Unlock" or "Lock" instead of always showing
       "Unlock"
@@ -596,6 +603,8 @@
   - map: Tomas once more haunts the dormitories of Catwalk Station
   - rscadd: Added a new set of chaplain armour based on the generic heretic robes
       unavailable since the path rework.
+  Zergspower:
+  - balance: removed the Nova stamina damage Buff to the contractor baton
   alien3301:
   - bugfix: Just like the blood red modsuits, the elite version of them has a pathfinder
       module
