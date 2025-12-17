@@ -398,8 +398,32 @@
   - refactor: blueshield crew monitors have had their code simplified, report any
       issues to github
 2025-12-16:
+  FlufflesTheDog:
+  - bugfix: Solfed officials get their proper "approved" stamp instead of an abstract
+      variant
+  - rscadd: Loadout items with custom descriptions can be examined by others while
+      worn by yourself
   Stalkeros:
   - rscadd: Donkfish is back in Cargo
+  intense-skies:
+  - rscadd: 3 emote sounds relevant to teshari (tchirp, ttrill, tsqueak) (courtesy
+      of Virgo).
+  - rscadd: Gave teshari actual hair selection and provided two mohawk options within
+      there.
+  - bugfix: Adjusted some of the already present ears to clip a bit less into headware.
+  - rscdel: Removed one of the transferred mohawk options from the ears section.
   muratendmo:
   - bugfix: allows Roboticists to use built medrecords consoles instead of just the
       ones that are present roundstart
+2025-12-17:
+  Diltyrr:
+  - rscadd: Added 5 admin spawned only SolFed Mechs and their equipment.
+  - rscadd: Added admin spawned only "Orbital Deployment Beacons" that can summon
+      said mechs.
+  - sound: added a sound for the railgun firing by diltyrr
+  - image: added sprites for solfed mechs, their modules and ammo by diltyrr
+  - image: added sprite for the Thanatos mech, by zy.dras
+  - image: added sprite for the solfed mech drop hologram, by realwinterfrost
+  vinylspiders:
+  - refactor: ammo count huds have been refactored, please report any issues to GitHub
+  - bugfix: speedloaders will now update the ammo hud
