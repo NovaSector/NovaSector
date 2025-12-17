@@ -148,16 +148,26 @@
 
 	action_delegations = list(
 		"play_blooper" = PROC_REF(play_blooper),
+		"play_second_blooper" = PROC_REF(play_second_blooper),
 	)
 
-/datum/preference_middleware/blooper/proc/play_blooper(list/params, mob/user)
+/** Plays a preview of the user's blooper sound
+ * second - When set to TRUE, the proc plays the user's secondary blooper sound for the Voice Actor quirk
+*/
+/datum/preference_middleware/blooper/proc/play_blooper(list/params, mob/user, second = FALSE)
 	if(!COOLDOWN_FINISHED(src, blooper_cooldown))
 		return TRUE
 	var/atom/movable/blooperbox = new(get_turf(user))
-	blooperbox.set_blooper(preferences.read_preference(/datum/preference/choiced/vocals/blooper))
-	blooperbox.blooper_pitch = preferences.read_preference(/datum/preference/numeric/blooper_speech_pitch)
-	blooperbox.blooper_speed = preferences.read_preference(/datum/preference/numeric/blooper_speech_speed)
-	blooperbox.blooper_pitch_range = preferences.read_preference(/datum/preference/numeric/blooper_pitch_range)
+	if(second)
+		blooperbox.set_blooper(preferences.read_preference(/datum/preference/choiced/vocals/blooper/voice_actor))
+		blooperbox.blooper_pitch = preferences.read_preference(/datum/preference/numeric/blooper_speech_pitch/voice_actor)
+		blooperbox.blooper_speed = preferences.read_preference(/datum/preference/numeric/blooper_speech_speed/voice_actor)
+		blooperbox.blooper_pitch_range = preferences.read_preference(/datum/preference/numeric/blooper_pitch_range/voice_actor)
+	else
+		blooperbox.set_blooper(preferences.read_preference(/datum/preference/choiced/vocals/blooper))
+		blooperbox.blooper_pitch = preferences.read_preference(/datum/preference/numeric/blooper_speech_pitch)
+		blooperbox.blooper_speed = preferences.read_preference(/datum/preference/numeric/blooper_speech_speed)
+		blooperbox.blooper_pitch_range = preferences.read_preference(/datum/preference/numeric/blooper_pitch_range)
 	var/total_delay
 	for(var/i in 1 to (round((32 / blooperbox.blooper_speed)) + 1))
 		addtimer(CALLBACK(blooperbox, TYPE_PROC_REF(/atom/movable, blooper), list(user), 7, 70, BLOOPER_DO_VARY(blooperbox.blooper_pitch, blooperbox.blooper_pitch_range)), total_delay)
@@ -165,5 +175,9 @@
 	QDEL_IN(blooperbox, total_delay)
 	COOLDOWN_START(src, blooper_cooldown, 2 SECONDS)
 	return TRUE
+
+///Plays a preview of the user's secondary blooper sound for the Voice Actor quirk
+/datum/preference_middleware/blooper/proc/play_second_blooper(list/params, mob/user)
+	return play_blooper(params, user, second = TRUE)
 
 #undef VOICE_TYPE_NONE
