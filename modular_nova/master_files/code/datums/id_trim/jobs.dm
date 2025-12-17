@@ -190,3 +190,6 @@
 		ACCESS_CMO,
 		)
 	job = /datum/job/virologist
+
+/datum/id_trim/job/warden
+	honorifics = list("Officer", "Watchman", "Sergeant", "Sgt.") // Changed from Lieutenant and Lt to Sergeant and Sgt since we use Brig Sergeant and such. (original: honorifics = list("Officer", "Watchman", "Lieutenant", "Lt."))

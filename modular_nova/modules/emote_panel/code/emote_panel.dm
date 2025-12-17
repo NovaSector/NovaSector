@@ -161,7 +161,10 @@
 		/mob/living/proc/emote_dgrowl,
 		/mob/living/proc/emote_aggrobark,
 		/mob/living/proc/emote_dcomplain,
-		/mob/living/proc/emote_meowdeep
+		/mob/living/proc/emote_meowdeep,
+		/mob/living/proc/emote_teshchirp,
+		/mob/living/proc/emote_teshsqueak,
+		/mob/living/proc/emote_teshtrill
 	)
 	all_emotes += nova_living_emotes
 
@@ -954,6 +957,21 @@
 	set name = "> Meow Deeply"
 	set category = "Emotes+"
 	usr.emote("meowdeep", intentional = TRUE)
+
+/mob/living/proc/emote_teshchirp()
+	set name = "> Tesh Chirp"
+	set category = "Emotes+"
+	usr.emote("teshchirp", intentional = TRUE)
+
+/mob/living/proc/emote_teshsqueak()
+	set name = "> Tesh Squeak"
+	set category = "Emotes+"
+	usr.emote("teshsqueak", intentional = TRUE)
+
+/mob/living/proc/emote_teshtrill()
+	set name = "> Tesh Trill"
+	set category = "Emotes+"
+	usr.emote("teshtrill", intentional = TRUE)
 
 // code\modules\mob\living\brain\emote.dm
 
