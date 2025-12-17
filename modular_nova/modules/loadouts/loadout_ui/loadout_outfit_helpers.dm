@@ -44,8 +44,8 @@
 
 	var/override_preference = preference_source.read_preference(/datum/preference/choiced/loadout_override_preference)
 
-	var/list/loadout_entries = preference_source.read_preference(/datum/preference/loadout)
-	var/list/loadout_list = loadout_entries[preference_source.read_preference(/datum/preference/loadout_index)]
+	var/list/item_details = preference_source.read_preference(/datum/preference/loadout)
+	var/list/loadout_list = item_details[preference_source.read_preference(/datum/preference/loadout_index)]
 	var/list/loadout_datums = loadout_list_to_datums(loadout_list)
 	var/obj/item/storage/briefcase/empty/briefcase
 	var/obj/item/storage/box/erp/erpbox
@@ -83,7 +83,11 @@
 
 	var/list/new_contents = isnull(briefcase) ? get_all_gear() : briefcase.get_all_contents()
 
+	var/update = NONE
 	for(var/datum/loadout_item/item as anything in loadout_datums)
+		if(!item.is_equippable(src, item_details?[item.item_path] || list()))
+			loadout_datums -= item
+			continue
 		if(item.restricted_roles && equipping_job && !(equipping_job.title in item.restricted_roles))
 			continue
 
@@ -96,7 +100,7 @@
 		if(isnull(equipped))
 			continue
 
-		item.on_equip_item(
+		update |= item.on_equip_item(
 			equipped_item = equipped,
 			item_details = loadout_list?[item.item_path] || list(),
 			equipper = src,
@@ -114,7 +118,9 @@
 		else
 			erpbox.equip_to_best_slot(src)
 
-	regenerate_icons()
+	if(update)
+		update_clothing(update)
+
 	return TRUE
 
 // cyborgs can wear hats from loadout
@@ -133,8 +139,8 @@
  * equipping_job - The job that's being applied.
  */
 /mob/living/silicon/robot/proc/equip_outfit_and_loadout(datum/outfit/outfit, datum/preferences/preference_source = GLOB.preference_entries_by_key[ckey], visuals_only = FALSE, datum/job/equipping_job)
-	var/list/loadout_entries = preference_source.read_preference(/datum/preference/loadout)
-	var/list/loadout_datums = loadout_list_to_datums(loadout_entries[preference_source.read_preference(/datum/preference/loadout_index)])
+	var/list/item_details = preference_source.read_preference(/datum/preference/loadout)
+	var/list/loadout_datums = loadout_list_to_datums(item_details[preference_source.read_preference(/datum/preference/loadout_index)])
 	for (var/datum/loadout_item/head/item in loadout_datums)
 		if (!item.can_be_applied_to(src, preference_source, equipping_job, visuals_only))
 			continue

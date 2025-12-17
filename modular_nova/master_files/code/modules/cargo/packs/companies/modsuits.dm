@@ -32,7 +32,7 @@
 	access = ACCESS_WEAPONS
 	access_view = ACCESS_WEAPONS
 	express_lock = TRUE
-	departamental_goody = FALSE
+	order_flags = ORDER_GOODY
 	discountable = SUPPLY_PACK_NOT_DISCOUNTABLE
 
 // MOD cores & Fuel
