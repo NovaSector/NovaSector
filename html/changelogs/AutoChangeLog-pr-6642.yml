@@ -1,0 +1,4 @@
+author: "muratendmo"
+delete-after: True
+changes:
+  - qol: "Anomaly cores ordered via the Science departmental budget will now come together instead of in individual crates."
