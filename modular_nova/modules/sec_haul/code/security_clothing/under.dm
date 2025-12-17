@@ -38,8 +38,7 @@
 	icon_state = "security_black"
 	alt_covers_chest = TRUE
 
-/obj/item/clothing/under/rank/security/nova/officer/black/Initialize(mapload)
-	. = ..()
+/obj/item/clothing/under/rank/security/nova/officer/black/setup_reskins()
 	AddComponent(/datum/component/reskinable_item, /datum/atom_skin/security_uniform_black)
 
 //Bluesec uniform
@@ -64,10 +63,8 @@
 	icon_state = "security_blue_black"
 	alt_covers_chest = TRUE
 
-/obj/item/clothing/under/rank/security/nova/officer/Initialize(mapload)
-	. = ..()
-	if(type == /obj/item/clothing/under/rank/security/nova/officer) // Don't add this on subtypes
-		AddComponent(/datum/component/reskinable_item, /datum/atom_skin/security_uniform_blue)
+/obj/item/clothing/under/rank/security/nova/officer/setup_reskins()
+	AddComponent(/datum/component/reskinable_item, /datum/atom_skin/security_uniform_blue)
 
 /obj/item/clothing/under/rank/security/nova/formal
 	name = "security formal suit"
@@ -95,10 +92,8 @@
 	female_sprite_flags = FEMALE_UNIFORM_TOP_ONLY
 	gets_cropped_on_taurs = FALSE
 
-/obj/item/clothing/under/rank/security/nova/skirt/Initialize(mapload)
-	. = ..()
-	if(type == /obj/item/clothing/under/rank/security/nova/skirt) // Don't add this to the plain subtype
-		AddComponent(/datum/component/reskinable_item, /datum/atom_skin/security_jumpskirt)
+/obj/item/clothing/under/rank/security/nova/skirt/setup_reskins()
+	AddComponent(/datum/component/reskinable_item, /datum/atom_skin/security_jumpskirt, infinite = TRUE)
 
 /datum/atom_skin/security_plain_skirt
 	abstract_type = /datum/atom_skin/security_plain_skirt
@@ -116,8 +111,7 @@
 	desc = "Plain-shirted uniform commonly worn by Nanotrasen officers, attached with a skirt."
 	icon_state = "plain_skirt_blue"
 
-/obj/item/clothing/under/rank/security/nova/skirt/plain/Initialize(mapload)
-	. = ..()
+/obj/item/clothing/under/rank/security/nova/skirt/plain/setup_reskins()
 	AddComponent(/datum/component/reskinable_item, /datum/atom_skin/security_plain_skirt)
 
 /datum/atom_skin/security_miniskirt
@@ -136,10 +130,8 @@
 	desc = "This miniskirt was originally featured in a gag calendar, but entered official use once they realized its potential for arid climates."
 	icon_state = "miniskirt"
 
-/obj/item/clothing/under/rank/security/nova/skirt/mini/Initialize(mapload)
-	. = ..()
-	if(type == /obj/item/clothing/under/rank/security/nova/skirt/mini) // No doubling up with subtypes
-		AddComponent(/datum/component/reskinable_item, /datum/atom_skin/security_miniskirt)
+/obj/item/clothing/under/rank/security/nova/skirt/mini/setup_reskins()
+	AddComponent(/datum/component/reskinable_item, /datum/atom_skin/security_miniskirt)
 
 /datum/atom_skin/security_miniskirt_blue
 	abstract_type = /datum/atom_skin/security_miniskirt_blue
@@ -155,8 +147,7 @@
 /obj/item/clothing/under/rank/security/nova/skirt/mini/blue
 	icon_state = "miniskirt_blue"
 
-/obj/item/clothing/under/rank/security/nova/skirt/mini/blue/Initialize(mapload)
-	. = ..()
+/obj/item/clothing/under/rank/security/nova/skirt/mini/blue/setup_reskins()
 	AddComponent(/datum/component/reskinable_item, /datum/atom_skin/security_miniskirt_blue)
 
 /obj/item/clothing/under/rank/security/nova/utility
@@ -175,7 +166,9 @@
 	desc = "An asymmetrical, unisex uniform with the legs replaced by a utility skirt."
 	icon_state = "security_skirt"
 	alt_covers_chest = FALSE
-	can_reskin = FALSE
+
+/obj/item/clothing/under/rank/security/nova/dress/setup_reskins()
+	return
 
 /obj/item/clothing/under/rank/security/nova/dress/blue
 	icon_state = "security_skirt_blue"
@@ -200,10 +193,8 @@
 	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION
 	female_sprite_flags = FEMALE_UNIFORM_NO_BREASTS
 
-/obj/item/clothing/under/rank/security/nova/trousers/Initialize(mapload)
-	. = ..()
-	if(type == /obj/item/clothing/under/rank/security/nova/trousers) // No doubling up with subtypes
-		AddComponent(/datum/component/reskinable_item, /datum/atom_skin/security_trousers)
+/obj/item/clothing/under/rank/security/nova/trousers/setup_reskins()
+	AddComponent(/datum/component/reskinable_item, /datum/atom_skin/security_trousers)
 
 /datum/atom_skin/security_trousers/blue
 	abstract_type = /datum/atom_skin/security_trousers/blue
@@ -219,8 +210,7 @@
 /obj/item/clothing/under/rank/security/nova/trousers/blue
 	icon_state = "workpants_blue"
 
-/obj/item/clothing/under/rank/security/nova/trousers/blue/Initialize(mapload)
-	. = ..()
+/obj/item/clothing/under/rank/security/nova/trousers/blue/setup_reskins()
 	AddComponent(/datum/component/reskinable_item, /datum/atom_skin/security_trousers/blue)
 
 /datum/atom_skin/security_shorts
@@ -247,10 +237,8 @@
 	desc = "Some \"combat\" shorts. Probably should pair it with a vest for safety."
 	icon_state = "workshorts"
 
-/obj/item/clothing/under/rank/security/nova/trousers/shorts/Initialize(mapload)
-	. = ..()
-	if(type == /obj/item/clothing/under/rank/security/nova/trousers/shorts) // No doubling up with subtypes
-		AddComponent(/datum/component/reskinable_item, /datum/atom_skin/security_shorts)
+/obj/item/clothing/under/rank/security/nova/trousers/shorts/setup_reskins()
+	AddComponent(/datum/component/reskinable_item, /datum/atom_skin/security_shorts)
 
 /datum/atom_skin/security_shorts/blue
 	abstract_type = /datum/atom_skin/security_shorts/blue
@@ -274,8 +262,7 @@
 /obj/item/clothing/under/rank/security/nova/trousers/shorts/blue
 	icon_state = "workshorts_blue"
 
-/obj/item/clothing/under/rank/security/nova/trousers/shorts/blue/Initialize(mapload)
-	. = ..()
+/obj/item/clothing/under/rank/security/nova/trousers/shorts/blue/setup_reskins()
 	AddComponent(/datum/component/reskinable_item, /datum/atom_skin/security_shorts/blue)
 
 /obj/item/clothing/under/rank/security/nova/turtleneck

@@ -319,8 +319,7 @@
 	amount_per_transfer_from_this = 1
 	interaction_flags_click = NEED_DEXTERITY
 
-/obj/item/reagent_containers/cup/lewd_filter/Initialize(mapload)
-	. = ..()
+/obj/item/reagent_containers/cup/lewd_filter/setup_reskins()
 	AddComponent(/datum/component/reskinable_item, /datum/atom_skin/gasmask_filter)
 
 // Standard initialize code for filter

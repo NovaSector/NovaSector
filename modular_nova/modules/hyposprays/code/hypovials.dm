@@ -76,10 +76,8 @@
 	var/type_suffix = "-s"
 	fill_icon = 'modular_nova/modules/hyposprays/icons/hypospray_fillings.dmi'
 
-/obj/item/reagent_containers/cup/vial/Initialize(mapload)
-	. = ..()
-	if(type == /obj/item/reagent_containers/cup/vial || istype(src, /obj/item/reagent_containers/cup/vial/small)) // we don't want to add this for any of the subtypes
-		AddComponent(/datum/component/reskinable_item, /datum/atom_skin/hypovial, blacklisted_subtypes = subtypesof(/datum/atom_skin/hypovial/large) + subtypesof(/datum/atom_skin/hypovial/interdyne_medium))
+/obj/item/reagent_containers/cup/vial/setup_reskins()
+	AddComponent(/datum/component/reskinable_item, /datum/atom_skin/hypovial, blacklisted_subtypes = subtypesof(/datum/atom_skin/hypovial/large) + subtypesof(/datum/atom_skin/hypovial/interdyne_medium))
 
 /obj/item/reagent_containers/cup/vial/examine(mob/user)
 	. = ..()
@@ -186,10 +184,8 @@
 	type_suffix = "-l"
 	greyscale_config = /datum/greyscale_config/hypovial/large
 
-/obj/item/reagent_containers/cup/vial/large/Initialize(mapload)
-	. = ..()
-	if(istype(src, /obj/item/reagent_containers/cup/vial/large)) // we don't want to add this for any of the subtypes
-		AddComponent(/datum/component/reskinable_item, /datum/atom_skin/hypovial/large, blacklisted_subtypes = subtypesof(/datum/atom_skin/hypovial/interdyne_medium))
+/obj/item/reagent_containers/cup/vial/large/setup_reskins()
+	AddComponent(/datum/component/reskinable_item, /datum/atom_skin/hypovial/large, blacklisted_subtypes = subtypesof(/datum/atom_skin/hypovial/interdyne_medium))
 
 /obj/item/reagent_containers/cup/vial/large/style
 	icon_state = "hypoviallarge"
@@ -263,10 +259,8 @@
 	type_suffix = "-interdyne"
 	greyscale_config = /datum/greyscale_config/hypovial/interdyne
 
-/obj/item/reagent_containers/cup/vial/interdyne_medium/Initialize(mapload)
-	. = ..()
-	if(istype(src, /obj/item/reagent_containers/cup/vial/interdyne_medium)) // we don't want to add this for any of the subtypes
-		AddComponent(/datum/component/reskinable_item, /datum/atom_skin/hypovial/interdyne_medium)
+/obj/item/reagent_containers/cup/vial/interdyne_medium/setup_reskins()
+	AddComponent(/datum/component/reskinable_item, /datum/atom_skin/hypovial/interdyne_medium)
 
 /obj/item/reagent_containers/cup/vial/interdyne_medium/style/
 	icon_state = "hypovial-interdyne"

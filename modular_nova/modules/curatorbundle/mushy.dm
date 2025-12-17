@@ -36,8 +36,7 @@
 	clothing_flags = THICKMATERIAL
 	body_parts_covered = CHEST|GROIN|LEGS|FEET|ARMS|HANDS
 
-/obj/item/clothing/suit/mush/Initialize(mapload)
-	. = ..()
+/obj/item/clothing/suit/mush/setup_reskins()
 	AddComponent(/datum/component/reskinable_item, /datum/atom_skin/mushroom_suit)
 
 /obj/item/storage/box/hero/mushperson

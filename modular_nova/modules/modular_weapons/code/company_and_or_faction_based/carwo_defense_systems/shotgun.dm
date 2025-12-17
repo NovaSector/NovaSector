@@ -126,8 +126,7 @@
 	rack_delay = 0.5 SECONDS
 	fire_delay = 0.4 SECONDS
 
-/obj/item/gun/ballistic/shotgun/riot/sol/super/Initialize(mapload)
-	. = ..()
+/obj/item/gun/ballistic/shotgun/riot/sol/super/setup_reskins()
 	AddComponent(/datum/component/reskinable_item, /datum/atom_skin/nachtreiher_shotgun)
 
 /obj/item/gun/ballistic/shotgun/riot/sol/super/give_manufacturer_examine()
@@ -216,8 +215,7 @@
 	casing_ejector = TRUE
 	projectile_damage_multiplier = 1.35
 
-/obj/item/gun/ballistic/shotgun/riot/sol/super/plus/Initialize(mapload)
-	. = ..()
+/obj/item/gun/ballistic/shotgun/riot/sol/super/plus/setup_reskins()
 	AddComponent(/datum/component/reskinable_item, /datum/atom_skin/kasuar_shotgun)
 
 /datum/action/item_action/booster/sol_super/plus

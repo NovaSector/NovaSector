@@ -18,6 +18,5 @@
 	worn_icon = 'modular_nova/master_files/icons/mob/clothing/hands.dmi'
 	icon_state = "gloves_white"
 
-/obj/item/clothing/gloves/color/black/security/white/Initialize(mapload)
-	. = ..()
+/obj/item/clothing/gloves/color/black/security/white/setup_reskins()
 	AddComponent(/datum/component/reskinable_item, /datum/atom_skin/sec_gloves_white)

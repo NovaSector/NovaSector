@@ -40,8 +40,7 @@
 	post_init_icon_state = "chokegag_small"
 	greyscale_config = /datum/greyscale_config/ball_gag/choke_gag
 
-/obj/item/clothing/mask/muzzle/ballgag/choking/Initialize(mapload)
-	. = ..()
+/obj/item/clothing/mask/muzzle/ballgag/choking/setup_reskins()
 	AddComponent(/datum/component/reskinable_item, /datum/atom_skin/ballgag, infinite = TRUE)
 
 /obj/item/clothing/mask/muzzle/ring

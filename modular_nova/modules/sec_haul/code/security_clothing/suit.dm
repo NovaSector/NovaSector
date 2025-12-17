@@ -18,8 +18,7 @@
 	worn_icon = 'modular_nova/master_files/icons/mob/clothing/suits/armor.dmi'
 	icon_state = "vest_white"
 
-/obj/item/clothing/suit/armor/vest/alt/sec/white/Initialize(mapload)
-	. = ..()
+/obj/item/clothing/suit/armor/vest/alt/sec/white/setup_reskins()
 	AddComponent(/datum/component/reskinable_item, /datum/atom_skin/security_armor_vest_white)
 
 /obj/item/clothing/suit/armor/vest/brit

@@ -20,8 +20,7 @@
 	desc = "Helfen, Wehren, Heilen."
 	icon_state = "knight_generic"
 
-/obj/item/clothing/head/helmet/chaplain/bland/Initialize(mapload)
-	. = ..()
+/obj/item/clothing/head/helmet/chaplain/bland/setup_reskins()
 	AddComponent(/datum/component/reskinable_item, /datum/atom_skin/chaplain_bland)
 
 /datum/atom_skin/templar_generic
@@ -45,8 +44,7 @@
 	desc = "Protect the weak and defenceless, live by honor and glory, and fight for the welfare of all!"
 	icon_state = "knight_generic"
 
-/obj/item/clothing/suit/chaplainsuit/armor/templar/generic/Initialize(mapload)
-	. = ..()
+/obj/item/clothing/suit/chaplainsuit/armor/templar/generic/setup_reskins()
 	AddComponent(/datum/component/reskinable_item, /datum/atom_skin/templar_generic)
 
 /obj/item/storage/box/holy/knight

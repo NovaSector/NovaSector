@@ -187,8 +187,7 @@
 	body_parts_covered = CHEST|ARMS
 	cold_protection = CHEST|ARMS
 
-/obj/item/clothing/suit/jacket/long_robe/Initialize(mapload)
-	. = ..()
+/obj/item/clothing/suit/jacket/long_robe/setup_reskins()
 	AddComponent(/datum/component/reskinable_item, /datum/atom_skin/long_robe)
 
 /datum/atom_skin/haori
@@ -224,8 +223,7 @@
 	body_parts_covered = CHEST|ARMS
 	cold_protection = CHEST|ARMS
 
-/obj/item/clothing/suit/jacket/haori/Initialize(mapload)
-	. = ..()
+/obj/item/clothing/suit/jacket/haori/setup_reskins()
 	AddComponent(/datum/component/reskinable_item, /datum/atom_skin/haori)
 
 /obj/item/clothing/suit/varsity

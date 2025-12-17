@@ -16,6 +16,5 @@
 	icon = 'modular_nova/modules/tarkon/icons/obj/clothing/neck.dmi'
 	icon_state = "armplate_shemaugh"
 
-/obj/item/clothing/neck/security_cape/tarkon/Initialize(mapload)
-	. = ..()
+/obj/item/clothing/neck/security_cape/tarkon/setup_reskins()
 	AddComponent(/datum/component/reskinable_item, /datum/atom_skin/tarkon_gauntlet)

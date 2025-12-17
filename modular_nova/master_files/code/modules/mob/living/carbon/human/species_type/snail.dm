@@ -67,8 +67,7 @@
 	alternate_worn_layer = ABOVE_BODY_FRONT_LAYER //This makes them layer over tails like the cult backpack; some tails really shouldn't appear over them!
 	storage_type = /datum/storage/backpack/snail
 
-/obj/item/storage/backpack/snail/Initialize(mapload)
-	. = ..()
+/obj/item/storage/backpack/snail/setup_reskins()
 	AddComponent(/datum/component/reskinable_item, /datum/atom_skin/snail_backpack)
 
 /datum/storage/backpack/snail

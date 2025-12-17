@@ -38,8 +38,7 @@
 	icon_state = "glasses_alt"
 	inhand_icon_state = "glasses"
 
-/obj/item/clothing/glasses/regular/modern/Initialize(mapload)
-	. = ..()
+/obj/item/clothing/glasses/regular/modern/setup_reskins()
 	AddComponent(/datum/component/reskinable_item, /datum/atom_skin/modern_glasses)
 
 /obj/item/clothing/glasses/trickblindfold/hamburg

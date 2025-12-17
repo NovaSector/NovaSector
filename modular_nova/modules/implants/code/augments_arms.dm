@@ -431,8 +431,7 @@
 	attack_verb_simple = list("slash", "whip", "lash", "lacerate")
 	obj_flags = UNIQUE_RENAME
 
-/obj/item/melee/razorwire/Initialize(mapload)
-	. = ..()
+/obj/item/melee/razorwire/setup_reskins()
 	AddComponent(/datum/component/reskinable_item, /datum/atom_skin/razorwire, infinite = TRUE)
 
 /obj/item/organ/cyberimp/arm/toolkit/razorwire

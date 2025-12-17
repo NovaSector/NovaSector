@@ -206,8 +206,7 @@
 	female_sprite_flags = FEMALE_UNIFORM_TOP_ONLY
 	obj_flags = UNIQUE_RENAME
 
-/obj/item/clothing/under/suit/nova/inferno/Initialize(mapload)
-	. = ..()
+/obj/item/clothing/under/suit/nova/inferno/setup_reskins()
 	AddComponent(/datum/component/reskinable_item, /datum/atom_skin/inferno_suit)
 
 /datum/atom_skin/inferno_suitskirt
@@ -227,6 +226,6 @@
 	obj_flags = UNIQUE_RENAME
 	gets_cropped_on_taurs = FALSE
 
-/obj/item/clothing/under/suit/nova/inferno/skirt/Initialize(mapload)
-	. = ..()
+/obj/item/clothing/under/suit/nova/inferno/skirt/setup_reskins()
 	AddComponent(/datum/component/reskinable_item, /datum/atom_skin/inferno_suitskirt)
+

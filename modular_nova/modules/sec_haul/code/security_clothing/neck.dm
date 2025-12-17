@@ -32,10 +32,8 @@
 	///Decides the shoulder it lays on, false = RIGHT, TRUE = LEFT
 	var/swapped = FALSE
 
-/obj/item/clothing/neck/security_cape/Initialize(mapload)
-	. = ..()
-	if(type == /obj/item/clothing/neck/security_cape) // Prevent its armplate subtype from adding this
-		AddComponent(/datum/component/reskinable_item, /datum/atom_skin/security_cape)
+/obj/item/clothing/neck/security_cape/setup_reskins()
+	AddComponent(/datum/component/reskinable_item, /datum/atom_skin/security_cape)
 
 /obj/item/clothing/neck/security_cape/click_alt(mob/user)
 	swapped = !swapped
@@ -76,6 +74,5 @@
 	desc = "A fashionable full-arm gauntlet worn by security officers. The gauntlet itself is made of plastic, and provides no protection, but it looks cool as hell."
 	icon_state = "armplate_black"
 
-/obj/item/clothing/neck/security_cape/armplate/Initialize(mapload)
-	. = ..()
+/obj/item/clothing/neck/security_cape/armplate/setup_reskins()
 	AddComponent(/datum/component/reskinable_item, /datum/atom_skin/security_gauntlet)

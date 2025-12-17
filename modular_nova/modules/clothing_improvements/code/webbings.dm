@@ -47,8 +47,7 @@
 	desc = "A robust vest with lots of pockets to hold whatever you need, ready to share your burdens."
 	icon_state = "vest_brown"
 
-/obj/item/clothing/accessory/webbing/vest/Initialize(mapload)
-	. = ..()
+/obj/item/clothing/accessory/webbing/vest/setup_reskins()
 	AddComponent(/datum/component/reskinable_item, /datum/atom_skin/webbing_vest)
 
 /datum/atom_skin/drop_pouches
@@ -71,8 +70,7 @@
 	desc = "A robust pair of drop pouches with good capacity, ready to share your burdens."
 	icon_state = "thigh_brown"
 
-/obj/item/clothing/accessory/webbing/pouch/Initialize(mapload)
-	. = ..()
+/obj/item/clothing/accessory/webbing/pouch/setup_reskins()
 	AddComponent(/datum/component/reskinable_item, /datum/atom_skin/drop_pouches)
 
 /obj/item/clothing/accessory/webbing/pouch/black
@@ -93,6 +91,5 @@
 	name = "storage rigging"
 	icon_state = "pilot_webbing1"
 
-/obj/item/clothing/accessory/webbing/pilot/Initialize(mapload)
-	. = ..()
+/obj/item/clothing/accessory/webbing/pilot/setup_reskins()
 	AddComponent(/datum/component/reskinable_item, /datum/atom_skin/storage_rigging)

@@ -310,8 +310,7 @@
 	female_sprite_flags = NO_FEMALE_UNIFORM
 	flags_1 = IS_PLAYER_COLORABLE_1
 
-/obj/item/clothing/under/dress/nova/giant_scarf/Initialize(mapload)
-	. = ..()
+/obj/item/clothing/under/dress/nova/giant_scarf/setup_reskins()
 	AddComponent(/datum/component/reskinable_item, /datum/atom_skin/giant_scarf, initial_skin = "Plain")
 
 /datum/atom_skin/midnight_gown
@@ -348,8 +347,7 @@
 	alternate_worn_layer = ABOVE_SHOES_LAYER
 	gets_cropped_on_taurs = FALSE
 
-/obj/item/clothing/under/dress/nova/midnight_gown/Initialize(mapload)
-	. = ..()
+/obj/item/clothing/under/dress/nova/midnight_gown/setup_reskins()
 	AddComponent(/datum/component/reskinable_item, /datum/atom_skin/midnight_gown)
 
 /obj/item/clothing/under/dress/nova/windowed_dress

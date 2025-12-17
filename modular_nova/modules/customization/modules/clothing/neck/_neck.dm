@@ -74,8 +74,7 @@
 	worn_icon = 'modular_nova/master_files/icons/mob/clothing/neck.dmi'
 	icon_state = "hosmantle"
 
-/obj/item/clothing/neck/mantle/hosmantle/Initialize(mapload)
-	. = ..()
+/obj/item/clothing/neck/mantle/hosmantle/setup_reskins()
 	AddComponent(/datum/component/reskinable_item, /datum/atom_skin/hosmantle)
 
 /obj/item/clothing/neck/mantle/bsmantle

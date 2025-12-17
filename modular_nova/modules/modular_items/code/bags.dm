@@ -39,8 +39,7 @@
 	custom_price = PAYCHECK_CREW * 4
 	storage_type = /datum/storage/pouch/ammo
 
-/obj/item/storage/pouch/ammo/Initialize(mapload)
-	. = ..()
+/obj/item/storage/pouch/ammo/setup_reskins()
 	AddComponent(/datum/component/reskinable_item, /datum/atom_skin/ammo_pouch)
 
 /datum/storage/pouch/ammo

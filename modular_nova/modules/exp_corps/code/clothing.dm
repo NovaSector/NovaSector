@@ -33,8 +33,7 @@
 	icon = 'modular_nova/master_files/icons/obj/clothing/belts.dmi'
 	worn_icon = 'modular_nova/master_files/icons/mob/clothing/belt.dmi'
 
-/obj/item/storage/belt/military/expeditionary_corps/Initialize(mapload)
-	. = ..()
+/obj/item/storage/belt/military/expeditionary_corps/setup_reskins()
 	AddComponent(/datum/component/reskinable_item, /datum/atom_skin/expeditionary_corps_chest_rig)
 
 /obj/item/storage/belt/military/expeditionary_corps/combat_tech
@@ -147,8 +146,7 @@
 	icon = 'modular_nova/modules/exp_corps/icons/backpack.dmi'
 	worn_icon = 'modular_nova/modules/exp_corps/icons/mob_backpack.dmi'
 
-/obj/item/storage/backpack/duffelbag/expeditionary_corps/Initialize(mapload)
-	. = ..()
+/obj/item/storage/backpack/duffelbag/expeditionary_corps/setup_reskins()
 	AddComponent(/datum/component/reskinable_item, /datum/atom_skin/expeditionary_corps_bag)
 
 /obj/item/clothing/suit/armor/vest/expeditionary_corps

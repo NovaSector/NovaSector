@@ -41,8 +41,7 @@
 	greyscale_colors = "#ffff99#4d4d4d"
 	body_parts_covered = NECK|HAND_LEFT|ARM_LEFT|CHEST
 
-/obj/item/clothing/neck/greyscaled/seecloak/Initialize(mapload)
-	. = ..()
+/obj/item/clothing/neck/greyscaled/seecloak/setup_reskins()
 	AddComponent(/datum/component/reskinable_item, /datum/atom_skin/seecloak, initial_skin = "default")
 
 /obj/item/clothing/neck/greyscaled/matroncloak

@@ -205,7 +205,9 @@
 
 /obj/item/storage/pouch/ammo/marksman
 	name = "marksman's knife pouch"
-	can_reskin = FALSE
+
+/obj/item/storage/pouch/ammo/marksman/setup_reskins()
+	return
 
 /obj/item/storage/pouch/ammo/marksman/Initialize(mapload)
 	. = ..()

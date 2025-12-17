@@ -89,7 +89,9 @@
 	worn_icon = 'modular_nova/master_files/icons/mob/clothing/belt.dmi'
 	icon_state = "armadyne_belt"
 	worn_icon_state = "armadyne_belt"
-	can_reskin = FALSE
+
+/obj/item/storage/belt/security/armadyne/setup_reskins()
+	return
 
 /obj/item/storage/belt/security/webbing/armadyne
 	name = "armadyne webbing"
@@ -97,7 +99,9 @@
 	worn_icon = 'modular_nova/master_files/icons/mob/clothing/belt.dmi'
 	icon_state = "red_webbing"
 	worn_icon_state = "red_webbing"
-	can_reskin = FALSE
+
+/obj/item/storage/belt/security/webbing/armadyne/setup_reskins()
+	return
 
 /datum/outfit/armadyne_rep
 	name = "Armadyne Corporate Representative"

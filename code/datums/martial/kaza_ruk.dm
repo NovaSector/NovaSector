@@ -268,10 +268,6 @@
 
 /obj/item/clothing/gloves/kaza_ruk/Initialize(mapload)
 	. = ..()
-	// NOVA EDIT ADDITION START - TODO: Fix it so that adding a reskinnable component again on a subtype doesn't royally fuck things up.
-	if(type != /obj/item/clothing/gloves/kaza_ruk)
-		return
-	// NOVA EDIT ADDITION END
 	AddComponent(/datum/component/martial_art_giver, /datum/martial_art/kaza_ruk)
 
 /datum/atom_skin/kaza_ruk
@@ -315,8 +311,7 @@
 	max_heat_protection_temperature = GLOVES_MAX_TEMP_PROTECT
 	resistance_flags = NONE
 
-/obj/item/clothing/gloves/kaza_ruk/sec/Initialize(mapload)
-	. = ..()
+/obj/item/clothing/gloves/kaza_ruk/sec/setup_reskins()
 	AddComponent(/datum/component/reskinable_item, /datum/atom_skin/kaza_ruk, infinite = TRUE)
 
 /obj/item/clothing/gloves/kaza_ruk/combatglovesplus

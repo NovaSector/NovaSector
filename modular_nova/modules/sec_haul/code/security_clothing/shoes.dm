@@ -18,6 +18,5 @@
 	icon = 'modular_nova/master_files/icons/obj/clothing/shoes.dmi'
 	worn_icon = 'modular_nova/master_files/icons/mob/clothing/feet.dmi'
 
-/obj/item/clothing/shoes/jackboots/sec/blue/Initialize(mapload)
-	. = ..()
+/obj/item/clothing/shoes/jackboots/sec/blue/setup_reskins()
 	AddComponent(/datum/component/reskinable_item, /datum/atom_skin/security_jackboots)

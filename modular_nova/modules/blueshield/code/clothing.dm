@@ -123,8 +123,7 @@
 	icon_state = "blueshieldarmor"
 	body_parts_covered = CHEST
 
-/obj/item/clothing/suit/armor/vest/blueshield/Initialize(mapload)
-	. = ..()
+/obj/item/clothing/suit/armor/vest/blueshield/setup_reskins()
 	AddComponent(/datum/component/reskinable_item, /datum/atom_skin/blueshield_jacket)
 
 /obj/item/clothing/suit/armor/vest/blueshield/jacket
@@ -132,7 +131,9 @@
 	desc = "An expensive kevlar-lined jacket with a golden badge on the chest and \"NT\" emblazoned on the back. It weighs surprisingly little, despite how heavy it looks."
 	icon_state = "blueshield"
 	body_parts_covered = CHEST|ARMS
-	can_reskin = FALSE
+
+/obj/item/clothing/suit/armor/vest/blueshield/jacket/setup_reskins()
+	return
 
 /obj/item/clothing/suit/hooded/wintercoat/nova/blueshield
 	name = "blueshield's winter coat"

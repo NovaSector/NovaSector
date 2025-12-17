@@ -39,10 +39,8 @@
 
 /obj/item/storage/belt/security
 
-/obj/item/storage/belt/security/Initialize(mapload)
-	. = ..()
-	if(type == /obj/item/storage/belt/security || type == /obj/item/storage/belt/security/full) // Exact-type only, don't dupe this on subtypes
-		AddComponent(/datum/component/reskinable_item, /datum/atom_skin/security_belt)
+/obj/item/storage/belt/security/setup_reskins()
+	AddComponent(/datum/component/reskinable_item, /datum/atom_skin/security_belt)
 
 /datum/atom_skin/security_webbing
 	abstract_type = /datum/atom_skin/security_webbing
@@ -65,8 +63,7 @@
 
 /obj/item/storage/belt/security/webbing
 
-/obj/item/storage/belt/security/webbing/Initialize(mapload)
-	. = ..()
+/obj/item/storage/belt/security/webbing/setup_reskins()
 	AddComponent(/datum/component/reskinable_item, /datum/atom_skin/security_webbing)
 
 /obj/item/storage/belt/holster
@@ -193,16 +190,18 @@
 
 /obj/item/clothing/glasses/hud/security
 
-/obj/item/clothing/glasses/hud/security/Initialize(mapload)
-	. = ..()
-	if(type == /obj/item/clothing/glasses/hud/security) // Don't allow duping this on subtypes
-		AddComponent(/datum/component/reskinable_item, /datum/atom_skin/security_hudglasses)
+/obj/item/clothing/glasses/hud/security/setup_reskins()
+	AddComponent(/datum/component/reskinable_item, /datum/atom_skin/security_hudglasses)
 
 /obj/item/clothing/glasses/hud/security/sunglasses
-	can_reskin = FALSE
+
+/obj/item/clothing/glasses/hud/security/sunglasses/setup_reskins()
+	return
 
 /obj/item/clothing/glasses/hud/security/prescription
-	can_reskin = FALSE
+
+/obj/item/clothing/glasses/hud/security/prescription/setup_reskins()
+	return
 
 /datum/atom_skin/security_hud_sunglasses
 	abstract_type = /datum/atom_skin/security_hud_sunglasses
@@ -224,14 +223,14 @@
 	worn_icon = 'modular_nova/master_files/icons/mob/clothing/eyes.dmi'
 	icon_state = "security_hud_blue_black"
 	worn_icon_state = "security_hud_blue_black"
-	can_reskin = TRUE
 
-/obj/item/clothing/glasses/hud/security/sunglasses/blue/Initialize(mapload)
-	. = ..()
+/obj/item/clothing/glasses/hud/security/sunglasses/blue/setup_reskins()
 	AddComponent(/datum/component/reskinable_item, /datum/atom_skin/security_hud_sunglasses)
 
 /obj/item/clothing/glasses/hud/security/night
-	can_reskin = FALSE
+
+/obj/item/clothing/glasses/hud/security/night/setup_reskins()
+	return
 
 /datum/atom_skin/security_eyepatch
 	abstract_type = /datum/atom_skin/security_eyepatch
@@ -246,11 +245,8 @@
 	new_icon_state = "hudpatch"
 	new_worn_icon = 'modular_nova/master_files/icons/mob/clothing/eyes.dmi'
 
-/obj/item/clothing/glasses/hud/security/sunglasses/eyepatch
-	can_reskin = TRUE
 
-/obj/item/clothing/glasses/hud/security/sunglasses/eyepatch/Initialize(mapload)
-	. = ..()
+/obj/item/clothing/glasses/hud/security/sunglasses/eyepatch/setup_reskins()
 	AddComponent(/datum/component/reskinable_item, /datum/atom_skin/security_eyepatch)
 
 /datum/atom_skin/sec_gars
@@ -266,19 +262,19 @@
 	new_icon_state = "gar_sec"
 	new_worn_icon = 'modular_nova/master_files/icons/mob/clothing/eyes.dmi'
 
-/obj/item/clothing/glasses/hud/security/sunglasses/gars
-	can_reskin = TRUE
 
-/obj/item/clothing/glasses/hud/security/sunglasses/gars/Initialize(mapload)
-	. = ..()
+/obj/item/clothing/glasses/hud/security/sunglasses/gars/setup_reskins()
 	AddComponent(/datum/component/reskinable_item, /datum/atom_skin/sec_gars)
 
 /obj/item/clothing/glasses/hud/security/sunglasses/gars/giga
-	can_reskin = FALSE
 
 /*
 * HEAD
 */
+
+/obj/item/clothing/glasses/hud/security/sunglasses/gars/giga/setup_reskins()
+	return
+
 /datum/atom_skin/hos_cap
 	abstract_type = /datum/atom_skin/hos_cap
 
@@ -305,16 +301,18 @@
 
 /obj/item/clothing/head/hats/hos/cap
 
-/obj/item/clothing/head/hats/hos/cap/Initialize(mapload)
-	. = ..()
+/obj/item/clothing/head/hats/hos/cap/setup_reskins()
 	AddComponent(/datum/component/reskinable_item, /datum/atom_skin/hos_cap)
 
 /obj/item/clothing/head/hats/hos/cap/syndicate
-	can_reskin = FALSE
 
 /*
 * GLOVES
 */
+
+/obj/item/clothing/head/hats/hos/cap/syndicate/setup_reskins()
+	return
+
 /datum/atom_skin/tackler_gloves
 	abstract_type = /datum/atom_skin/tackler_gloves
 
@@ -330,32 +328,42 @@
 
 /obj/item/clothing/gloves/tackler/security
 
-/obj/item/clothing/gloves/tackler/security/Initialize(mapload)
-	. = ..()
+/obj/item/clothing/gloves/tackler/security/setup_reskins()
 	AddComponent(/datum/component/reskinable_item, /datum/atom_skin/tackler_gloves)
 
-/datum/atom_skin/sec
-	abstract_type = /datum/atom_skin/sec
+/datum/atom_skin/fight_gloves
+	abstract_type = /datum/atom_skin/fight_gloves
 
-/datum/atom_skin/sec/fightgloves
+/datum/atom_skin/fight_gloves/red
 	preview_name = "Red Variant"
 	new_icon_state = "fightgloves"
 
-/datum/atom_skin/sec/fightgloves_blue
+/datum/atom_skin/fight_gloves/blue
 	preview_name = "Blue Variant"
 	new_icon = 'modular_nova/master_files/icons/obj/clothing/gloves.dmi'
 	new_icon_state = "fightgloves_blue"
 	new_worn_icon = 'modular_nova/master_files/icons/mob/clothing/hands.dmi'
 
-/obj/item/clothing/gloves/kaza_ruk/sec
+/datum/atom_skin/fight_gloves/blue/apply(atom/apply_to, mob/user)
+	. = ..()
+	if(!isitem(apply_to))
+		return
+
+	var/obj/item/item_apply_to = apply_to
+	// we are kind of cheating here to get the right GAGS inhand icon for this. the peacekeeper version should be the correct color since it's the same sprite.
+	item_apply_to.greyscale_colors = /obj/item/clothing/gloves/kaza_ruk/sec/peacekeeper::greyscale_colors
+	item_apply_to.lefthand_file = SSgreyscale.GetColoredIconByType(/datum/greyscale_config/gloves_inhand_left, item_apply_to.greyscale_colors)
+	item_apply_to.righthand_file = SSgreyscale.GetColoredIconByType(/datum/greyscale_config/gloves_inhand_right, item_apply_to.greyscale_colors)
 
 /obj/item/clothing/gloves/kaza_ruk/sec/Initialize(mapload)
 	. = ..()
-	AddComponent(/datum/component/reskinable_item, /datum/atom_skin/tackler_gloves)
 
 /*
 * UNDER
 */
+
+/obj/item/clothing/gloves/kaza_ruk/sec/setup_reskins()
+	AddComponent(/datum/component/reskinable_item, /datum/atom_skin/fight_gloves, infinite = TRUE)
 
 /obj/item/clothing/under/rank/security // Digitigrade sprites for sec
 	worn_icon_digi = 'modular_nova/master_files/icons/mob/clothing/under/security_digi.dmi'
@@ -390,14 +398,16 @@
 /obj/item/clothing/suit/armor/hos
 	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION_NO_NEW_ICON
 
-/obj/item/clothing/suit/armor/hos/Initialize(mapload)
-	. = ..()
+/obj/item/clothing/suit/armor/hos/setup_reskins()
 	AddComponent(/datum/component/reskinable_item, /datum/atom_skin/hos_coat)
 
 /obj/item/clothing/suit/armor/hos/trenchcoat/winter
-	can_reskin = FALSE
 
 //Standard Bulletproof Vest
+
+/obj/item/clothing/suit/armor/hos/trenchcoat/winter/setup_reskins()
+	return
+
 /obj/item/clothing/suit/armor/bulletproof
 	desc = "A Type-III-NT-P heavy bulletproof vest that excels in protecting the wearer against traditional projectile weaponry and explosives to a minor extent."
 	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION_NO_NEW_ICON

@@ -30,6 +30,5 @@
 	icon_state = "blastwave_suit"
 	body_parts_covered = CHEST|GROIN|LEGS|ARMS
 
-/obj/item/clothing/suit/blastwave/Initialize(mapload)
-	. = ..()
+/obj/item/clothing/suit/blastwave/setup_reskins()
 	AddComponent(/datum/component/reskinable_item, /datum/atom_skin/blastwave_suit)

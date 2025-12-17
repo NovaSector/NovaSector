@@ -36,8 +36,7 @@
 	strip_delay = 60
 	supports_variations_flags = CLOTHING_SNOUTED_VARIATION_NO_NEW_ICON
 
-/obj/item/clothing/head/security_garrison/Initialize(mapload)
-	. = ..()
+/obj/item/clothing/head/security_garrison/setup_reskins()
 	AddComponent(/datum/component/reskinable_item, /datum/atom_skin/security_garrison_cap)
 
 /datum/atom_skin/security_cap
@@ -66,8 +65,7 @@
 	dog_fashion = null
 	supports_variations_flags = CLOTHING_SNOUTED_VARIATION_NO_NEW_ICON
 
-/obj/item/clothing/head/security_cap/Initialize(mapload)
-	. = ..()
+/obj/item/clothing/head/security_cap/setup_reskins()
 	AddComponent(/datum/component/reskinable_item, /datum/atom_skin/security_cap)
 
 /obj/item/clothing/head/beret/sec/nova
@@ -117,6 +115,5 @@
 	supports_variations_flags = CLOTHING_SNOUTED_VARIATION_NO_NEW_ICON
 	armor_type = /datum/armor/head_helmet
 
-/obj/item/clothing/head/hats/warden/police/patrol/Initialize(mapload)
-	. = ..()
+/obj/item/clothing/head/hats/warden/police/patrol/setup_reskins()
 	AddComponent(/datum/component/reskinable_item, /datum/atom_skin/police_patrol_cap)

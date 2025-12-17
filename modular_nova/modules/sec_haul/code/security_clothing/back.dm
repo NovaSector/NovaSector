@@ -17,8 +17,7 @@
 	icon_state = "backpack_security_black"
 	inhand_icon_state = "backpack_security_black"
 
-/obj/item/storage/backpack/security/blue/Initialize(mapload)
-	. = ..()
+/obj/item/storage/backpack/security/blue/setup_reskins()
 	AddComponent(/datum/component/reskinable_item, /datum/atom_skin/security_backpack_blue)
 
 /datum/atom_skin/security_satchel_blue
@@ -40,8 +39,7 @@
 	icon_state = "satchel_security_black"
 	inhand_icon_state = "satchel_security_black"
 
-/obj/item/storage/backpack/satchel/sec/blue/Initialize(mapload)
-	. = ..()
+/obj/item/storage/backpack/satchel/sec/blue/setup_reskins()
 	AddComponent(/datum/component/reskinable_item, /datum/atom_skin/security_satchel_blue)
 
 /datum/atom_skin/security_duffelbag_black
@@ -63,8 +61,7 @@
 	icon_state = "duffel_security_black"
 	inhand_icon_state = "duffel_security_black"
 
-/obj/item/storage/backpack/duffelbag/sec/blue/Initialize(mapload)
-	. = ..()
+/obj/item/storage/backpack/duffelbag/sec/blue/setup_reskins()
 	AddComponent(/datum/component/reskinable_item, /datum/atom_skin/security_duffelbag_black)
 
 /datum/atom_skin/security_messenger_blue
@@ -86,6 +83,5 @@
 	lefthand_file = 'modular_nova/master_files/icons/mob/inhands/clothing/backpack_lefthand.dmi'
 	righthand_file = 'modular_nova/master_files/icons/mob/inhands/clothing/backpack_righthand.dmi'
 
-/obj/item/storage/backpack/messenger/sec/blue/Initialize(mapload)
-	. = ..()
+/obj/item/storage/backpack/messenger/sec/blue/setup_reskins()
 	AddComponent(/datum/component/reskinable_item, /datum/atom_skin/security_messenger_blue)

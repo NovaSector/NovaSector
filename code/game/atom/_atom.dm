@@ -141,9 +141,6 @@
 	/// Generally for niche objects, atoms blacklisted can spawn if enabled by spawner.
 	var/spawn_blacklisted = FALSE
 
-	/// Whether this atom is allowed to have /datum/component/reskinable_item added to it.
-	var/can_reskin = TRUE
-
 /**
  * Top level of the destroy chain for most atoms
  *
@@ -988,3 +985,7 @@
 	if(pass_info.pass_flags & pass_flags_self)
 		return TRUE
 	. = !density
+
+/// Override for atom-specific reskin effects
+/atom/proc/setup_reskins()
+	return

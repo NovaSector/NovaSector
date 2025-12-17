@@ -14,16 +14,18 @@
 	new_icon_state = "meson_scouter"
 	new_worn_icon = 'modular_nova/modules/meson_scouter/icons/meson-scouter_mob.dmi'
 
-/obj/item/clothing/glasses/meson/Initialize(mapload)
-	. = ..()
-	if(type == /obj/item/clothing/glasses/meson || type == /obj/item/clothing/glasses/meson/prescription)
-		AddComponent(/datum/component/reskinable_item, /datum/atom_skin/meson, initial_skin = "Meson Scouter", blacklisted_subtypes = subtypesof(/datum/atom_skin/meson/engine))
+/obj/item/clothing/glasses/meson/setup_reskins()
+	AddComponent(/datum/component/reskinable_item, /datum/atom_skin/meson, blacklisted_subtypes = subtypesof(/datum/atom_skin/meson/engine))
 
 /obj/item/clothing/glasses/meson/night
-	can_reskin = FALSE
+
+/obj/item/clothing/glasses/meson/night/setup_reskins()
+	return
 
 /obj/item/clothing/glasses/meson/gar
-	can_reskin = FALSE
+
+/obj/item/clothing/glasses/meson/gar/setup_reskins()
+	return
 
 /datum/atom_skin/meson/engine
 	abstract_type = /datum/atom_skin/meson/engine
@@ -40,8 +42,6 @@
 	new_icon_state = "trayson-"
 	new_worn_icon = 'modular_nova/modules/meson_scouter/icons/meson-scouter_mob.dmi'
 
-/obj/item/clothing/glasses/meson/engine/Initialize(mapload)
-	. = ..()
-	if(type == /obj/item/clothing/glasses/meson/engine || type == /obj/item/clothing/glasses/meson/engine/prescription || type == /obj/item/clothing/glasses/meson/engine/tray)
-		AddComponent(/datum/component/reskinable_item, /datum/atom_skin/meson/engine, initial_skin = "Engine Scouter")
+/obj/item/clothing/glasses/meson/engine/setup_reskins()
+	AddComponent(/datum/component/reskinable_item, /datum/atom_skin/meson/engine)
 

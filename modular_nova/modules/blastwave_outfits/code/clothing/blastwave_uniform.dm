@@ -30,6 +30,5 @@
 	icon_state = "blastwave_uniform"
 	can_adjust = FALSE
 
-/obj/item/clothing/under/blastwave/Initialize(mapload)
-	. = ..()
+/obj/item/clothing/under/blastwave/setup_reskins()
 	AddComponent(/datum/component/reskinable_item, /datum/atom_skin/blastwave_uniform)

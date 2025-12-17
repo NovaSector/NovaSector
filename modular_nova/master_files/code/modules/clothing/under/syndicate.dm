@@ -33,7 +33,6 @@
 	preview_name = RESKIN_CHARCOAL
 	new_icon_state = "tactifool"
 	new_inhand_icon_state = "bl_suit"
-	change_inhand_icon_state = TRUE
 
 /datum/atom_skin/tacticool_turtleneck/charcoal/apply(atom/apply_to, mob/user)
 	. = ..()
@@ -54,8 +53,7 @@
 	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION
 	resistance_flags = FLAMMABLE
 
-/obj/item/clothing/under/syndicate/tacticool/Initialize(mapload)
-	. = ..()
+/obj/item/clothing/under/syndicate/tacticool/setup_reskins()
 	AddComponent(/datum/component/reskinable_item, /datum/atom_skin/tacticool_turtleneck)
 
 /obj/item/clothing/under/syndicate/tacticool/skirt //Overwrites the 'fake' one. Zero armor, sensors, and default blue. More Balanced to make station-available.
@@ -106,7 +104,9 @@
 	inhand_icon_state = "r_suit"
 	has_sensor = HAS_SENSORS
 	armor_type = /datum/armor/clothing_under
-	can_reskin = FALSE
+
+/obj/item/clothing/under/syndicate/nova/tactical/unarmoured/setup_reskins()
+	return
 
 /obj/item/clothing/under/syndicate/nova/tactical/unarmoured/skirt
 	name = "suspicious tactical skirtleneck"
@@ -164,7 +164,6 @@
 	preview_name = RESKIN_CHARCOAL
 	new_icon_state = "syndicate"
 	new_inhand_icon_state = "bl_suit"
-	change_inhand_icon_state = TRUE
 
 /datum/atom_skin/tactical_turtleneck/charcoal/apply(atom/apply_to, mob/user)
 	. = ..()
@@ -182,10 +181,8 @@
 	armor_type = /datum/armor/clothing_under/syndicate
 	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION
 
-/obj/item/clothing/under/syndicate/nova/tactical/Initialize(mapload)
-	. = ..()
-	if(type == /obj/item/clothing/under/syndicate/nova/tactical)
-		AddComponent(/datum/component/reskinable_item, /datum/atom_skin/tactical_turtleneck)
+/obj/item/clothing/under/syndicate/nova/tactical/setup_reskins()
+	AddComponent(/datum/component/reskinable_item, /datum/atom_skin/tactical_turtleneck)
 
 /datum/atom_skin/tactical_skirtleneck
 	abstract_type = /datum/atom_skin/tactical_skirtleneck
@@ -198,7 +195,6 @@
 	preview_name = RESKIN_CHARCOAL
 	new_icon_state = "syndicate_skirt"
 	new_inhand_icon_state = "bl_suit"
-	change_inhand_icon_state = TRUE
 
 /datum/atom_skin/tactical_skirtleneck/charcoal/apply(atom/apply_to, mob/user)
 	. = ..()
@@ -216,8 +212,7 @@
 	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION_NO_NEW_ICON
 	gets_cropped_on_taurs = FALSE
 
-/obj/item/clothing/under/syndicate/nova/tactical/skirt/Initialize(mapload)
-	. = ..()
+/obj/item/clothing/under/syndicate/nova/tactical/skirt/setup_reskins()
 	AddComponent(/datum/component/reskinable_item, /datum/atom_skin/tactical_skirtleneck)
 
 /obj/item/clothing/under/syndicate/skirt/coldres

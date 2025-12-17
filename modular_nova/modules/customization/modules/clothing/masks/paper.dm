@@ -145,8 +145,7 @@
 	/// Whether or not the strap is currently hidden or visible
 	var/strap_hidden
 
-/obj/item/clothing/mask/paper/Initialize(mapload)
-	. = ..()
+/obj/item/clothing/mask/paper/setup_reskins()
 	AddComponent(/datum/component/reskinable_item, /datum/atom_skin/paper_mask, infinite = TRUE)
 
 /obj/item/clothing/mask/paper/Initialize(mapload)

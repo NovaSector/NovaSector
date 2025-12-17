@@ -29,8 +29,7 @@
 	icon_state = "blastwave_helmet"
 	flags_inv = HIDEHAIR
 
-/obj/item/clothing/head/blastwave/Initialize(mapload)
-	. = ..()
+/obj/item/clothing/head/blastwave/setup_reskins()
 	AddComponent(/datum/component/reskinable_item, /datum/atom_skin/blastwave_helmet)
 
 /datum/atom_skin/blastwave_officer_cap
@@ -62,6 +61,5 @@
 	icon_state = "blastwave_offcap"
 	flags_inv = NONE
 
-/obj/item/clothing/head/blastwave/officer/Initialize(mapload)
-	. = ..()
+/obj/item/clothing/head/blastwave/officer/setup_reskins()
 	AddComponent(/datum/component/reskinable_item, /datum/atom_skin/blastwave_officer_cap)

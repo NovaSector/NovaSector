@@ -49,8 +49,7 @@
 	/// Is vision being prevented
 	var/prevent_vision = FALSE
 
-/obj/item/clothing/head/deprivation_helmet/Initialize(mapload)
-	. = ..()
+/obj/item/clothing/head/deprivation_helmet/setup_reskins()
 	AddComponent(/datum/component/reskinable_item, /datum/atom_skin/deprivation_helmet, infinite = TRUE)
 
 /// VISION CONTROL

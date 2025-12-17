@@ -2,6 +2,7 @@
 
 /datum/atom_skin/laevateinn_revolver
 	abstract_type = /datum/atom_skin/laevateinn_revolver
+	change_base_icon_state = TRUE
 
 /datum/atom_skin/laevateinn_revolver/base
 	preview_name = "Baseline"
@@ -69,10 +70,6 @@
 
 /obj/item/gun/ballistic/revolver/c38/super/Initialize(mapload)
 	. = ..()
-	AddComponent(/datum/component/reskinable_item, /datum/atom_skin/laevateinn_revolver)
-
-/obj/item/gun/ballistic/revolver/c38/super/Initialize(mapload)
-	. = ..()
 	AddComponent(/datum/component/scope, range_modifier = 2)
 	AddComponent(\
 		/datum/component/gun_booster, \
@@ -85,6 +82,9 @@
 		amped_fire_delay = (CLICK_CD_RANGE*2), \
 	)
 	RegisterSignal(src, COMSIG_GUN_BOOSTER_TOGGLED, PROC_REF(on_booster_toggle))
+
+/obj/item/gun/ballistic/revolver/c38/super/setup_reskins()
+	AddComponent(/datum/component/reskinable_item, /datum/atom_skin/laevateinn_revolver)
 
 /obj/item/gun/ballistic/revolver/c38/super/Destroy(force)
 	UnregisterSignal(src, COMSIG_GUN_BOOSTER_TOGGLED)

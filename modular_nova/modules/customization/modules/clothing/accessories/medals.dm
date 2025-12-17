@@ -252,8 +252,7 @@ Potential future ideas:
 	greyscale_config_worn = /datum/greyscale_config/medals/glow/worn
 	greyscale_colors = "#7effff"
 
-/obj/item/clothing/accessory/nova/acc_medal/glowcrystal/Initialize(mapload)
-	. = ..()
+/obj/item/clothing/accessory/nova/acc_medal/glowcrystal/setup_reskins()
 	AddComponent(/datum/component/reskinable_item, /datum/atom_skin/glow_crystal_necklace)
 
 /obj/item/clothing/accessory/nova/acc_medal/dogtags
