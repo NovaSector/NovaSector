@@ -597,9 +597,9 @@
 	color_src = USE_MATRIXED_COLORS
 
 /datum/sprite_accessory/ears/external/fennecl/large
-    name = "Fennec Large"
-    icon_state = "fennecl_large"
+	name = "Fennec Large"
+	icon_state = "fennecl_large"
 
 /datum/sprite_accessory/ears/external/fennecl/large/flatsharp
-    name = "Fennec Large Flat Sharp"
-    icon_state = "fennecl_large_flatsharp"
+	name = "Fennec Large Flat Sharp"
+	icon_state = "fennecl_large_flatsharp"
