@@ -590,3 +590,15 @@
 /datum/sprite_accessory/ears/external/shade/fluffy/rings/right
 	name = "Shade Fluffy Rings (Right)"
 	icon_state = "shadekinfluffyringsright"
+
+/datum/sprite_accessory/ears/external/fennecl
+	icon = 'modular_nova/master_files/icons/mob/sprite_accessory/ears_big.dmi'
+	color_src = USE_MATRIXED_COLORS
+
+/datum/sprite_accessory/ears/external/fennecl/large
+	name = "Fennec Large"
+	icon_state = "fennecl_large"
+
+/datum/sprite_accessory/ears/external/fennecl/large/flatsharp
+	name = "Fennec Large Flat Sharp"
+	icon_state = "fennecl_large_flatsharp"
