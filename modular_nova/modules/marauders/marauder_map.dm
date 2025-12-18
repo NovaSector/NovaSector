@@ -179,7 +179,6 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/machinery/computer/security/telescreen/traitor_
 		new /obj/structure/flora/tree/pine/xmas/presentless(loc)
 	qdel(src)
 
-/obj/structure/flora/tree/pine/xmas/presentless
 
 //areas
 /area/misc/operative_barracks
