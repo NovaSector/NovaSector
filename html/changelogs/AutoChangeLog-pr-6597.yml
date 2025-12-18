@@ -1,0 +1,5 @@
+author: "Zergspower"
+delete-after: True
+changes:
+  - map: "the NSV Blueshift has returned from its temporary drydock with a few alterations, while still well below safety standards the current version is passable."
+  - map: "Blueshift updates to Medical, Atmos, Engineering and exterior doors/arrivals/docking area"
