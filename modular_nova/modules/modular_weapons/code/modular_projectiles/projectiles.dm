@@ -155,7 +155,7 @@
 		living_guy.adjust_drowsiness_up_to(6 SECONDS * mitigate_percent, 12 SECONDS)
 		// and see if we can just sleep them outright:
 		var/stamcritted_target = HAS_TRAIT_FROM(target, TRAIT_INCAPACITATED, STAMINA)
-		var/stamina_ratio = (living_guy.getStaminaLoss() / living_guy.getMaxHealth()) * 50 // 100 / 2
+		var/stamina_ratio = (living_guy.get_stamina_loss() / living_guy.getMaxHealth()) * 50 // 100 / 2
 		// if they're stamcrit, sleep them
 		if(stamcritted_target)
 			living_guy.AdjustSleeping(10 SECONDS) // long naptime for you, buddy

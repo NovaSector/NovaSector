@@ -84,20 +84,20 @@
 	cost = CARGO_CRATE_VALUE * 0.75
 	access_view = ACCESS_WEAPONS
 	express_lock = TRUE
-	departamental_goody = FALSE
+	order_flags = ORDER_GOODY
 
 /datum/supply_pack/companies/mags_and_ammo/jager_shotgun_regular
 	contains = list(/obj/item/ammo_box/magazine/jager/empty)
 	access_view = ACCESS_WEAPONS
 	express_lock = TRUE
-	departamental_goody = FALSE
+	order_flags = ORDER_GOODY
 
 /datum/supply_pack/companies/mags_and_ammo/jager_shotgun_Large
 	contains = list(/obj/item/ammo_box/magazine/jager/large/empty)
 	cost = CARGO_CRATE_VALUE * 0.75
 	access_view = ACCESS_WEAPONS
 	express_lock = TRUE
-	departamental_goody = FALSE
+	order_flags = ORDER_GOODY
 
 // HC Mags
 
@@ -288,13 +288,13 @@
 	contains = list(/obj/item/ammo_box/c980grenade/shrapnel)
 	access_view = ACCESS_WEAPONS
 	express_lock = TRUE
-	departamental_goody = FALSE
+	order_flags = ORDER_GOODY
 
 /datum/supply_pack/companies/mags_and_ammo/vitezstvi/grenade_shells/phosphor
 	contains = list(/obj/item/ammo_box/c980grenade/shrapnel/phosphor)
 	access_view = ACCESS_WEAPONS
 	express_lock = TRUE
-	departamental_goody = FALSE
+	order_flags = ORDER_GOODY
 
 //Blacksteel Ammo
 

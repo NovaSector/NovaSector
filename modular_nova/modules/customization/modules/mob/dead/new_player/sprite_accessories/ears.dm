@@ -5,7 +5,8 @@
 	color_src = USE_MATRIXED_COLORS
 
 /datum/sprite_accessory/ears/is_hidden(mob/living/carbon/human/wearer)
-	if(!wearer.head)
+	var/obj/item/clothing/head/mod/worn_head = wearer.head
+	if(isnull(worn_head))
 		return FALSE
 
 	// Can hide if wearing hat
@@ -13,13 +14,14 @@
 		return TRUE
 
 	// Exception for MODs
-	if(istype(wearer.head, /obj/item/clothing/head/mod))
+	if(istype(worn_head))
 		return FALSE
 
 	// Hide accessory if flagged to do so
-	if((wearer.head?.flags_inv & HIDEHAIR || wearer.wear_mask?.flags_inv & HIDEHAIR) \
+	var/obj/item/clothing/mask/worn_mask = wearer.wear_mask
+	if((worn_head.flags_inv & HIDEHAIR || worn_mask?.flags_inv & HIDEHAIR) \
 		// This line basically checks if we FORCE accessory-ears to show, for items with earholes like Balaclavas and Luchador masks
-		&& ((wearer.head && !(wearer.head.flags_inv & SHOWSPRITEEARS)) || (wearer.wear_mask && !(wearer.wear_mask?.flags_inv & SHOWSPRITEEARS))))
+		&& ((worn_head && !(worn_head.flags_inv & SHOWSPRITEEARS)) || (worn_mask && !(worn_mask?.flags_inv & SHOWSPRITEEARS))))
 		return TRUE
 
 	return FALSE
@@ -365,6 +367,10 @@
 	name = "Teshari Regular"
 	icon_state = "teshari_regular"
 
+/datum/sprite_accessory/ears/external/teshari/regularalt
+	name = "Teshari Regular Alt"
+	icon_state = "teshari_feathers_regalt"
+
 /datum/sprite_accessory/ears/external/teshari/feathers_bushy
 	name = "Teshari Feathers Bushy"
 	icon_state = "teshari_feathers_bushy"
@@ -417,11 +423,6 @@
 /datum/sprite_accessory/ears/external/teshari/feathers_backstrafe
 	name = "Teshari Feathers Backstrafe"
 	icon_state = "teshari_feathers_backstrafe"
-	color_src = USE_ONE_COLOR
-
-/datum/sprite_accessory/ears/external/teshari/feathers_thinmohawk
-	name = "Teshari Feathers Thin Mohawk"
-	icon_state = "teshari_feathers_thinmohawk"
 	color_src = USE_ONE_COLOR
 
 /datum/sprite_accessory/ears/external/teshari/feathers_thin
@@ -589,3 +590,15 @@
 /datum/sprite_accessory/ears/external/shade/fluffy/rings/right
 	name = "Shade Fluffy Rings (Right)"
 	icon_state = "shadekinfluffyringsright"
+
+/datum/sprite_accessory/ears/external/fennecl
+	icon = 'modular_nova/master_files/icons/mob/sprite_accessory/ears_big.dmi'
+	color_src = USE_MATRIXED_COLORS
+
+/datum/sprite_accessory/ears/external/fennecl/large
+	name = "Fennec Large"
+	icon_state = "fennecl_large"
+
+/datum/sprite_accessory/ears/external/fennecl/large/flatsharp
+	name = "Fennec Large Flat Sharp"
+	icon_state = "fennecl_large_flatsharp"

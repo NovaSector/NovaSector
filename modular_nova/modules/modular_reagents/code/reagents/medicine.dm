@@ -12,7 +12,7 @@
 
 /datum/reagent/medicine/lidocaine/overdose_process(mob/living/carbon/affected_mob, seconds_per_tick, times_fired)
 	. = ..()
-	affected_mob.adjustOrganLoss(ORGAN_SLOT_HEART,3 * REM * seconds_per_tick, 80)
+	affected_mob.adjust_organ_loss(ORGAN_SLOT_HEART, 3 * REM * seconds_per_tick, 80, required_organ_flag = affected_organ_flags)
 
 //Inverse Medicines//
 
@@ -27,8 +27,9 @@
 /datum/reagent/inverse/lidocaine/on_mob_life(mob/living/carbon/affected_mob, seconds_per_tick, times_fired)
 	. = ..()
 	to_chat(affected_mob, span_userdanger("Your body aches with unimaginable pain!"))
-	affected_mob.adjustOrganLoss(ORGAN_SLOT_HEART,3 * REM * seconds_per_tick, 85)
-	affected_mob.adjustStaminaLoss(5 * REM * seconds_per_tick, 0)
+	affected_mob.adjust_organ_loss(ORGAN_SLOT_HEART, 3 * REM * seconds_per_tick, 85, required_organ_flag = affected_organ_flags)
+	if(affected_mob.adjust_stamina_loss(5 * REM * seconds_per_tick, updating_stamina = FALSE))
+		. = UPDATE_MOB_HEALTH
 	if(prob(30))
 		INVOKE_ASYNC(affected_mob, TYPE_PROC_REF(/mob, emote), "scream")
 

@@ -4,6 +4,7 @@
 	icon = 'modular_nova/modules/wrestlingring/icons/wrestling.dmi'
 	icon_state = "ropes"
 	climbable = FALSE
+	custom_materials = list(/datum/material/iron = SHEET_MATERIAL_AMOUNT * 1.5)
 
 /obj/structure/railing/wrestling/CanPass(atom/movable/mover, border_dir)
 	..()
@@ -64,6 +65,7 @@
 	anchored = TRUE
 	armor_type = /datum/armor/structure_wrestling_corner
 	max_integrity = 75
+	custom_materials = list(/datum/material/iron = SHEET_MATERIAL_AMOUNT * 3)
 	var/ini_dir
 
 /datum/armor/structure_wrestling_corner

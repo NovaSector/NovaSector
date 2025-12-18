@@ -142,7 +142,7 @@
 /obj/item/ammo_casing/energy/laser/pulse
 	fire_sound = 'modular_nova/modules/aesthetics/guns/sound/pulse.ogg'
 
-/obj/item/gun/energy/xray
+/obj/item/gun/energy/laser/xray
 	fire_sound_volume = 100
 
 /obj/item/ammo_casing/energy/xray

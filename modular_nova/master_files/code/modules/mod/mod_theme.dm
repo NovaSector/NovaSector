@@ -18,7 +18,6 @@
 	name = "deepspace"
 	default_skin = "deepspace"
 	ui_theme = "syndicate"
-	armor_type = /datum/armor/mod_theme_syndicate/deepspace
 	variants = list(
 		"deepspace" = list(
 			MOD_ICON_OVERRIDE = 'modular_nova/master_files/icons/obj/clothing/modsuit/mod_clothing.dmi',
@@ -162,22 +161,9 @@
 		),
 	)
 
-/datum/armor/mod_theme_syndicate/deepspace
-	melee = 65
-	bullet = 80
-	laser = 45
-	energy = 45
-	bomb = 35
-	bio = 100
-	fire = 50
-	acid = 90
-	wound = 25
-
 /datum/mod_theme/elite/admiral
 	name = "admiral"
 	default_skin = "admiral"
-	ui_theme = "syndicate"
-	armor_type = /datum/armor/mod_theme_elite/admiral
 	variants = list(
 		"admiral" = list(
 			MOD_ICON_OVERRIDE = 'modular_nova/master_files/icons/obj/clothing/modsuit/mod_clothing.dmi',
@@ -247,17 +233,6 @@
 			),
 		),
 	)
-
-/datum/armor/mod_theme_elite/admiral
-	melee = 85
-	bullet = 90
-	laser = 65
-	energy = 65
-	bomb = 55
-	bio = 100
-	fire = 100
-	acid = 100
-	wound = 25
 
 /datum/mod_theme/security
 	variants = list(
