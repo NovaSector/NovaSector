@@ -7,7 +7,7 @@
 	for(var/b in bodyparts)
 		var/obj/item/bodypart/BP = b
 		var/obj/item/stack/medical/gauze/our_gauze = BP.current_gauze
-		if (!our_gauze)
+		if (QDELETED(our_gauze))
 			continue
 		overlays.add_overlay(our_gauze.get_overlay_prefix())
 
