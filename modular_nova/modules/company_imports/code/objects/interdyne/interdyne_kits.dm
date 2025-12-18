@@ -5,7 +5,7 @@
 /obj/item/defibrillator/compact/combat/loaded/interdyne
 	name = "\improper Interdyne rapid combative defibrillator"
 	desc = "A belt-equipped combative defibrillator. Can revive through thick clothing, has an experimental self-recharging battery, however due to legal concerns these defibrillators have been installed with a safeline. \
-	safeline, heartbeat detector preventing malpractice with the defibrillators"
+		safeline, heartbeat detector preventing malpractice with the defibrillators"
 	icon = 'modular_nova/master_files/icons/obj/medical/defib.dmi'
 	icon_state = "defibip"
 	worn_icon = 'modular_nova/master_files/icons/mob/clothing/belt.dmi'
@@ -52,7 +52,7 @@
 /obj/item/storage/medkit/tactical/premium/interdyne/PopulateContents()
 	if(empty)
 		return
-	var/static/list/items_inside = list(
+	var/list/items_inside = list(
 		/obj/item/stack/medical/suture/medicated = 2,
 		/obj/item/stack/medical/mesh/advanced = 2,
 		/obj/item/healthanalyzer/advanced = 1,
@@ -67,7 +67,7 @@
 		/obj/item/reagent_containers/medigel/sterilizine = 1,
 		/obj/item/stack/medical/bone_gel = 1,
 	)
-	generate_items_inside(items_inside,src)
+	generate_items_inside(items_inside, src)
 
 /obj/item/storage/medkit/tactical/premium/interdyne/empty
 	name = "\improper Interdyne Trauma Kit"
@@ -84,7 +84,8 @@
 /obj/item/storage/medkit/tactical/premium/interdyne/trauma/PopulateContents()
 	if(empty)
 		return
-	var/static/list/items_inside = list(
+
+	var/list/items_inside = list(
 		/obj/item/stack/medical/suture/medicated = 4,
 		/obj/item/stack/medical/mesh/advanced = 4,
 		/obj/item/reagent_containers/hypospray/medipen/penacid = 2,
@@ -92,7 +93,7 @@
 		/obj/item/healthanalyzer/advanced = 1,
 		/obj/item/stack/medical/gauze = 1,
 	)
-	generate_items_inside(items_inside,src)
+	generate_items_inside(items_inside, src)
 
 /*
 /// Medium Medkits
@@ -140,7 +141,6 @@
 /obj/item/storage/medkit/tactical/premium/interdyne/medium/empty/PopulateContents()
 	var/static/list/items_inside = list()
 	generate_items_inside(items_inside,src)
-
 
 /obj/item/storage/medkit/tactical/premium/interdyne/medium/Tox_Oxy
 	name = "\improper Interdyne Critical Burn-Brute Kit"
@@ -210,7 +210,7 @@
 	)
 
 /obj/item/storage/pouch/medical/firstaid/interdyne/PopulateContents()
-	var/static/list/items_inside = list(
+	var/list/items_inside = list(
 		/obj/item/stack/medical/suture/medicated = 1,
 		/obj/item/stack/medical/mesh/advanced = 1,
 		/obj/item/storage/pill_bottle/potassiodide = 1,

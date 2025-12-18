@@ -80,9 +80,8 @@ they get called in files like interdyne_crates.dm and interdyne_kits.dm
 
 /obj/item/paper/fluff/interdyne/medicines
 	name = "Note From Corporate"
-	default_raw_text = {"Please rememember to heat up your siever oxy/tox mix for maximum effectiveness elsewise we may have a lawsuit.
-
-	Interdyne leadership is not to be held responsible for the malpractice of the individual doctor."}
+	default_raw_text = "Please rememember to heat up your siever oxy/tox mix for maximum effectiveness elsewise we may have a lawsuit.\n\n \
+		Interdyne leadership is not to be held responsible for the malpractice of the individual doctor."
 
 /*
 * Bandages

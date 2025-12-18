@@ -2,7 +2,7 @@
 	access = ACCESS_SYNDICATE
 	access_view = ACCESS_SYNDICATE
 	express_lock = FALSE
-	departamental_goody = FALSE
+	order_flags = ORDER_GOODY
 	discountable = SUPPLY_PACK_NOT_DISCOUNTABLE
 	console_flag = CARGO_CONSOLE_INTERDYNE
 	crate_type = /obj/structure/closet/crate/secure/syndicate/interdyne
@@ -12,7 +12,7 @@
 /datum/supply_pack/companies/medical/interdyne/defibrillators
 	name = "Interdyne Defibrillator Crate"
 	desc = "Specially made Interdyne Pharmaceuticals Defibrillators, Designed to shock even through modsuits with enough voltages to bring patients \
-	back from the dead."
+		back from the dead."
 	cost = CARGO_CRATE_VALUE * 4
 	contains = list(/obj/item/defibrillator/compact/combat/loaded/interdyne)
 
@@ -214,7 +214,7 @@
 	access = ACCESS_SYNDICATE
 	access_view = ACCESS_SYNDICATE
 	express_lock = FALSE
-	departamental_goody = FALSE
+	order_flags = ORDER_GOODY
 	discountable = SUPPLY_PACK_NOT_DISCOUNTABLE
 	console_flag = CARGO_CONSOLE_INTERDYNE
 	crate_type = /obj/structure/closet/crate/secure/syndicate/interdyne
