@@ -138,8 +138,6 @@
 	icon = 'modular_nova/modules/novaya_ert/icons/mech.dmi'
 	icon_state = "heap"
 	damage = 60
-	/// Whether we do extra damage when hitting a mech or silicon
-	var/anti_armour_damage = 0
 
 /obj/projectile/bullet/tank_cannon/smoke
 	name = "corrosive smoke shot"
@@ -157,7 +155,7 @@
 
 /obj/projectile/bullet/tank_cannon/heap
 	name = "heap shot"
-	damage = 50
+	damage = 20
 	speed = 1.25
 	range = 11
 	sharpness = NONE
@@ -198,19 +196,13 @@
 	armour_penetration = 50 //we go clean through
 	max_pierces = 2 //we go clean through
 	projectile_piercing = ALL
-	anti_armour_damage = 75 //we go clean through
+	demolition_mod = 2.75 //we go clean through
 
 /obj/projectile/bullet/tank_cannon/sabot/on_hit(atom/target, blocked, pierce_hit)
 	. = ..()
 	if(isliving(target))
 		var/mob/living/shocker = target
-		shocker.electrocute_act(anti_armour_damage*0.4, "electric sabot", flags = SHOCK_NOGLOVES|SHOCK_NOSTUN)
-	if(anti_armour_damage && ismecha(target))
-		var/obj/vehicle/sealed/mecha/mech = target
-		mech.take_damage(anti_armour_damage)
-	if(issilicon(target))
-		var/mob/living/silicon/sillycon = target
-		sillycon.take_overall_damage(anti_armour_damage)
+		shocker.electrocute_act(30, "electric sabot", flags = SHOCK_NOGLOVES|SHOCK_NOSTUN)
 	do_sparks(5, FALSE, target)
 
 /obj/item/mecha_ammo/cannon
