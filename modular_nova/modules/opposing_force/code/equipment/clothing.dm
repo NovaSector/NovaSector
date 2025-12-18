@@ -208,7 +208,7 @@
 	new /obj/item/card/id/advanced/chameleon(src)
 
 /datum/opposing_force_equipment/clothing_pirate/nri_soldier
-	name = "NRI Soldier"
+	name = "HC Soldier"
 	description = "The station failed the inspection, now they have to deal with you."
 	item_type = /obj/item/storage/backpack/industrial/cin_surplus/forest/nri_soldier
 

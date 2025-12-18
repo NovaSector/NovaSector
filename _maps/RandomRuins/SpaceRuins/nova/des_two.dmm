@@ -3474,7 +3474,7 @@
 /obj/structure/frame/computer{
 	dir = 4
 	},
-/obj/item/circuitboard/computer/rdconsole,
+/obj/item/circuitboard/computer/rdconsole/unlocked,
 /turf/open/floor/iron/dark,
 /area/ruin/space/has_grav/nova/des_two/research)
 "oL" = (
