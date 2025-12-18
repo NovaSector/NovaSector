@@ -1,0 +1,4 @@
+author: "Stalkeros"
+delete-after: True
+changes:
+  - balance: "Plasma pulse rounds of M/PR-15 and M/PR-16 have been sped up; now as fast as any other bullets/lasers at minimum."
