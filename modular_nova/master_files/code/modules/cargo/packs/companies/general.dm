@@ -80,8 +80,11 @@
 	contains = list(/obj/item/storage/box/donkpockets/donkpocketteriyaki)
 
 /datum/supply_pack/companies/general/donk/food/pizza_voucher
+	name = "Pizza Voucher"
 	desc = "WE ALWAYS DELIVER! WE ALWAYS DELIVER! WE ALWAYS DELIVER!"
 	contains = list(/obj/item/pizzavoucher)
+	cost = CARGO_CRATE_VALUE * 0.9 // This price gives 180 and when the very common trait to up prices 10% hits, gives a total of 199 credits. Just under a crate value!
+	auto_name = FALSE
 
 /datum/supply_pack/companies/general/donk/pet_food
 
