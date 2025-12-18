@@ -690,3 +690,12 @@
   - bugfix: speedloaders will now update the ammo hud
   xPokee:
   - spellcheck: The Scrubs, MD abduction spy bounty now has the proper name.
+2025-12-18:
+  Stalkeros:
+  - rscdel: Removes all the advanced choice beacon system's code that the then-NRI
+      had.
+  - spellcheck: Removes a lot, or even most of the mentions of the NRI, replaced with
+      HC.
+  muratendmo:
+  - qol: Anomaly cores ordered via the Science departmental budget will now come together
+      instead of in individual crates.
