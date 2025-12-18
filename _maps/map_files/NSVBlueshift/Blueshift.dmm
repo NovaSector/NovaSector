@@ -37374,6 +37374,7 @@
 /obj/structure/reagent_dispensers/fueltank{
 	pixel_y = 1
 	},
+/obj/structure/cable,
 /turf/open/floor/iron/dark,
 /area/station/command/eva/upper)
 "hCi" = (
