@@ -160,12 +160,13 @@
 		return
 
 	// Only show the 'reveal all' button if we are already hiding something
-	if(try_hide_mutant_parts)
-		LAZYOR(available_selection, "reveal all")
+	available_selection = list()
+	if(LAZYLEN(try_hide_mutant_parts))
+		available_selection["reveal all"] = TRUE
 	// Lets build our parts list
-	for(var/organ_slot in total_selection)
+	for(var/organ_slot, feature_string in total_selection)
 		if(get_organ_slot(organ_slot))
-			LAZYOR(available_selection, total_selection[organ_slot])
+			available_selection[feature_string] = TRUE
 
 	// If this proc is called with the 'quick_toggle' flag, we skip the rest
 	if(quick_toggle)
@@ -173,7 +174,7 @@
 			LAZYNULL(try_hide_mutant_parts)
 		else
 			for(var/part in available_selection)
-				LAZYOR(try_hide_mutant_parts, part)
+				LAZYSET(try_hide_mutant_parts, part,  TRUE)
 		update_body_parts()
 		return
 
@@ -187,15 +188,36 @@
 		return
 
 	// Radial rendering
-	var/list/choices = list()
-	for(var/choice in available_selection)
-		var/datum/radial_menu_choice/option = new
-		var/image/part_image = image(icon = HIDING_RADIAL_DMI, icon_state = choice)
+	// Shared static caches so we never re-create objects
+	var/static/list/choice_icon_cache = list()
+	var/static/mutable_appearance/unusable_overlay = mutable_appearance(
+		icon = HIDING_RADIAL_DMI,
+		icon_state = "module_unable",
+	)
 
-		option.image = part_image
+	// Radial rendering
+	var/list/choices = list()
+
+	for(var/choice in available_selection)
+		// Build appearance once per icon_state
+		if(isnull(choice_icon_cache[choice]))
+			choice_icon_cache[choice] = mutable_appearance(
+				icon = HIDING_RADIAL_DMI,
+				icon_state = choice,
+			)
+
+		// Reuse cached appearance
+		var/mutable_appearance/choice_icon_appearance = new (choice_icon_cache[choice])
+
+		var/datum/radial_menu_choice/option = new
+		option.image = choice_icon_appearance
+
+		// Add overlay if hidden
 		if(choice in try_hide_mutant_parts)
-			part_image.underlays += image(icon = HIDING_RADIAL_DMI, icon_state = "module_unable")
+			choice_icon_appearance.overlays += unusable_overlay
+
 		choices[choice] = option
+
 	// Radial choices
 	sort_list(choices)
 	var/pick = show_radial_menu(usr, src, choices, custom_check = FALSE, tooltips = TRUE)
@@ -209,16 +231,14 @@
 		update_body_parts()
 		return
 
-	else if(pick in try_hide_mutant_parts)
+	else if(try_hide_mutant_parts.Remove(pick))
 		to_chat(usr, span_notice("You are no longer trying to hide your [pick]."))
-		LAZYREMOVE(try_hide_mutant_parts, pick)
 	else
 		to_chat(usr, span_notice("You are now trying to hide your [pick]."))
-		LAZYOR(try_hide_mutant_parts, pick)
+		LAZYSET(try_hide_mutant_parts, pick, TRUE)
 	update_body_parts()
 	// automatically re-do the menu after making a selection
 	mutant_part_visibility(re_do = TRUE)
-
 
 // Feign impairment verb
 #define DEFAULT_TIME 30

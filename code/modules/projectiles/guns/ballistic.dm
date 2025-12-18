@@ -11,6 +11,8 @@
 	sound_vary = TRUE
 	unique_reskin_changes_base_icon_state = TRUE
 
+	min_recoil = 0.1
+
 	///sound when inserting magazine
 	var/load_sound = 'sound/items/weapons/gun/general/magazine_insert_full.ogg'
 	///sound when inserting an empty magazine
@@ -286,7 +288,7 @@
 	burst_fire_selection = !burst_fire_selection
 	if(!burst_fire_selection)
 		burst_size = 1
-		fire_delay = 0
+		fire_delay = 0 SECONDS
 		balloon_alert(user, "switched to semi-automatic")
 	else
 		burst_size = initial(burst_size)
@@ -560,7 +562,7 @@
 /obj/item/gun/ballistic/proc/load_gun(obj/item/ammo, mob/living/user)
 	if (chambered && !chambered.loaded_projectile)
 		chambered.forceMove(drop_location())
-		if(chambered != magazine?.stored_ammo[1])
+		if(length(magazine?.stored_ammo) && chambered != magazine.stored_ammo[1])
 			magazine.stored_ammo -= chambered
 		chambered = null
 
@@ -608,6 +610,7 @@
 	suppressor = new_suppressor
 	suppressed = suppressor.suppression
 	update_weight_class(w_class + suppressor.w_class) //so pistols do not fit in pockets when suppressed
+	can_muzzle_flash = FALSE
 	update_appearance()
 
 /obj/item/gun/ballistic/clear_suppressor()
@@ -617,6 +620,7 @@
 	if(suppressor)
 		update_weight_class(w_class - suppressor.w_class)
 		suppressor = null
+	can_muzzle_flash = initial(can_muzzle_flash)
 	update_appearance()
 
 /obj/item/gun/ballistic/click_alt(mob/user)

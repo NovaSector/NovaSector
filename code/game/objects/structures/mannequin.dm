@@ -110,11 +110,11 @@
 	var/datum/sprite_accessory/socks/socks = SSaccessories.socks_list[socks_name]
 	if(socks)
 		. += mutable_appearance(socks.icon, socks.icon_state, -BODY_LAYER)
-	//NOVA EDIT ADDITION BEGIN - Underwear and Bra split
+	// NOVA EDIT ADDITION BEGIN - Underwear and Bra split
 	var/datum/sprite_accessory/bra/bra = SSaccessories.bra_list[bra_name]
 	if(bra)
 		. += mutable_appearance(bra.icon, bra.icon_state, -BODY_LAYER)
-	//NOVA EDIT END
+	// NOVA EDIT END
 
 	for(var/slot_flag in worn_items)
 		var/obj/item/worn_item = worn_items[slot_flag]
@@ -158,9 +158,11 @@
 
 /obj/structure/mannequin/wood
 	material = MANNEQUIN_WOOD
+	custom_materials = list(/datum/material/wood = SHEET_MATERIAL_AMOUNT * 25)
 
 /obj/structure/mannequin/plastic
 	material = MANNEQUIN_PLASTIC
+	custom_materials = list(/datum/material/plastic = SHEET_MATERIAL_AMOUNT * 25)
 
 /obj/structure/mannequin/skeleton
 	name = "skeleton model"
