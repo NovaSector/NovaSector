@@ -721,7 +721,8 @@
 	var/static/list/drink_upgrade2_reagents = list(
 		/datum/reagent/consumable/banana,
 		/datum/reagent/consumable/berryjuice,
-		/datum/reagent/consumable/blumpkinjuice
+		/datum/reagent/consumable/blumpkinjuice,
+		/datum/reagent/consumable/nothing
 	)
 	var/static/list/drink_upgrade3_reagents = list(
 		/datum/reagent/consumable/watermelonjuice,
