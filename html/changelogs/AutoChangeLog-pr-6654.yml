@@ -1,0 +1,5 @@
+author: "Stalkeros"
+delete-after: True
+changes:
+  - rscdel: "Removes all the advanced choice beacon system's code that the then-NRI had."
+  - spellcheck: "Removes a lot, or even most of the mentions of the NRI, replaced with HC."
