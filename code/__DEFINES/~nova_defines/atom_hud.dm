@@ -34,5 +34,3 @@
 #define SECHUD_INTERDYNE_CREW "hud_interdyne"
 #define SECHUD_INTERDYNE_DECKOFFICER "hud_interdynecommand"
 #define SECHUD_INTERDYNE_SHAFTMINER "hud_interdyneshaft"
-// Nova Ghost Cafe
-#define SECHUD_GHOST_CAFE "hudghostcafe"
