@@ -146,4 +146,3 @@
 	trim_state = "trim_cafe"
 	department_color = COLOR_PALE_GREEN
 	subdepartment_color = COLOR_PALE_GREEN
-	sechud_icon_state = SECHUD_GHOST_CAFE
