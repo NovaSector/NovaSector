@@ -535,7 +535,21 @@
 	return placeholder_description
 
 /datum/species/jelly/get_species_lore()
-	return list(placeholder_lore)
+	return list(
+		"Slimes, referred to with a variety of languages word simply for 'slime', are amorphous fauna entirely native to bluespace. \
+		Liquid, like everything else in this celestial space, slimes are an opportunistic group of omnivores utilizing practically anything as a food source: Plastic, metal, meat, but they are known to prioritize the incredibly high energy of solid, liquid, or gaseous plasma first and foremost. \
+		Slimes will normally seat themselves in the barrier between realspace and bluespace or its permanent pores, filter feeding off the resulting ore that forms. Other times, they will gather in groups of anywhere from a lake to a sea, all the way up to oceanic masses of slimes, intentionally wearing away at the Veil's stability and introducing dimensional friction on their own.",
+
+		"Normally located on the other end of the barrier, numerous slimes will often end up leaking through to realspace in search of their prized meals, typically keying themselves to an associated anomaly's properties. Single dog-sized masses have normally been reported, but tidal waves of poorly differentiated ooze are not uncommon. \
+		The Ordoht have historically been known to intentionally pull slime out from the other side, exploiting a common feature: mimicry. Slimes are capable of incredible feats of learning and overall mental agility, necessary to navigate the currents and eddies of their home dimension. \
+		Within even a few months of existing in realspace, a slime can be brought to resemble almost any organism it typically interacts with, and able to react to speech in under an hour. Further work can give one a roughly humanoid shape, upon which the Ordoht would recognize them as capable of complex learning-- the foundations of becoming a person.",
+
+		"Despite their amorphous and shape-shifting nature as liquids, slimes that reach the point of personhood can become rapidly affixed to a single identity. Thought of by the Ordoht as 'mimicking themselves' and looping in on their own habits, a slime's disposition can become extraordinarily individualistic and defined in most cultures it's exposed to. \
+		Even before and after the point of peak memetic saturation, slimes will ruthlessly chase any new cultural or philosophical information to either adopt or discard.",
+
+		"The first slimes captured by NanoTrasen in the modern day are known to have come from anomalies in deep space, seemingly searching for the plasma ore stored aboard stations and ships. Failing to recognize their desire for the purple substance, humans started with normal everyday food-- later stepping it up to whole livestock. \
+		Some simply performed basic mitosis, but others diverged into a multitude of colors as their bodies adapted to different properties. In search of exploiting the memetic properties of slimes with faster results than 'domestication', many scientists have attempted to apply them to a carbon-based lifeform's anatomy, resulting in slime physiology patterned off humanoid psychology."
+	)
 
 /datum/species/jelly/roundstartslime
 	name = "Xenobiological Slime Hybrid"
