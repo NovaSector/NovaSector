@@ -1,8 +1,11 @@
-/// Wet status effect for slimes
+/*
+* Wet Status Effects
+* For regular slimes when they're soaked in water
+*/
 
 /atom/movable/screen/alert/status_effect/wet_slime
 	name = "Wet" // haha wet
-	desc = "You are covered in water and you're losing cohesion! Dry yourself or turn on hydrophobia to repel!"
+	desc = "You are covered in water and you're losing cohesion! Dry it off or coat yourself using Hydrophobia to repel!"
 	use_user_hud_icon = TRUE
 	overlay_state = "drunk2"
 
@@ -29,12 +32,15 @@
 	owner.blood_volume -= blood_units_to_lose
 
 /datum/status_effect/wet_slime/get_examine_text()
-	return span_warning("[owner.p_Their()] outer membrane is soaked, their form losing cohesion!")
+	return span_warning("[owner.p_Their()] outer membrane is soaked, [owner.p_their()] form losing cohesion!")
 
-/// Dry status effect for water-breathing slimes
+/*
+* Dry Status Effects
+* For water-breathing slimes when they run out of water
+*/
 
 /atom/movable/screen/alert/status_effect/dry_slime
-	name = "Dry" // haha wet
+	name = "Dry"
 	desc = "You are covered in water and you're losing cohesion! Dry yourself or turn on hydrophobia to repel!"
 	use_user_hud_icon = TRUE
 	overlay_state = "terrified"
