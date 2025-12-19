@@ -1,10 +1,6 @@
-/// Inits GLOB.surgeries
-/proc/init_surgeries()
-	var/surgeries = list()
-	for(var/path in subtypesof(/datum/surgery))
-		surgeries += new path()
-	sort_list(surgeries, GLOBAL_PROC_REF(cmp_typepaths_asc))
-	return surgeries
+//////////////////////////
+/////Initial Building/////
+//////////////////////////
 
 /// Legacy procs that really should be replaced with proper _INIT macros
 /proc/make_datum_reference_lists()
