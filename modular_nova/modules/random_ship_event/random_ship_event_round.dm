@@ -30,7 +30,7 @@
 	if(ship_event.auto_accept)
 		addtimer(CALLBACK(GLOBAL_PROC, GLOBAL_PROC_REF(spawn_random_ship), ship_event), 5 MINUTES)
 	GLOB.communications_controller.send_message(message, print = TRUE, unique = TRUE)
-	priority_announce(message.content, title = ship_event.faction sender_override = ship_event.hailer ? ship_event.hailer : ship_event.ship_name, color_override = ship_event.announcement_color)
+	priority_announce(message.content, title = ship_event.faction, sender_override = ship_event.hailer ? ship_event.hailer : ship_event.ship_name, color_override = ship_event.announcement_color)
 
 /datum/round_event/random_ship_event/end()
 	// The ship spawning is now handled by the timer set up in start()
