@@ -482,6 +482,7 @@
 	icon_state = "golem_head"
 	biological_state = BIO_BONE
 	bodytype = BODYTYPE_GOLEM | BODYTYPE_ORGANIC
+	bodyshape = BODYSHAPE_GOLEM
 	limb_id = SPECIES_GOLEM
 	is_dimorphic = FALSE
 	should_draw_greyscale = FALSE
@@ -489,6 +490,8 @@
 	head_flags = NONE
 	// too hard to drill through
 	teeth_count = 0
+	brute_modifier = 0.5
+	burn_modifier = 0.5
 
 /obj/item/bodypart/head/golem/Initialize(mapload)
 	worn_ears_offset = new(
@@ -522,12 +525,15 @@
 	biological_state = BIO_BONE
 	acceptable_bodytype = BODYTYPE_GOLEM
 	bodytype = BODYTYPE_GOLEM | BODYTYPE_ORGANIC
+	bodyshape = BODYSHAPE_GOLEM
 	limb_id = SPECIES_GOLEM
 	is_dimorphic = FALSE
 	should_draw_greyscale = FALSE
 	dmg_overlay_type = null
 	bodypart_traits = list(TRAIT_NO_JUMPSUIT)
 	wing_types = null
+	brute_modifier = 0.5
+	burn_modifier = 0.5
 
 /obj/item/bodypart/chest/golem/Initialize(mapload)
 	worn_belt_offset = new(
@@ -543,6 +549,7 @@
 	icon_state = "golem_l_arm"
 	biological_state = (BIO_BONE|BIO_JOINTED)
 	bodytype = BODYTYPE_GOLEM | BODYTYPE_ORGANIC
+	bodyshape = BODYSHAPE_GOLEM
 	limb_id = SPECIES_GOLEM
 	should_draw_greyscale = FALSE
 	dmg_overlay_type = null
@@ -550,6 +557,8 @@
 	unarmed_damage_low = 5
 	unarmed_damage_high = 14
 	unarmed_effectiveness = 20
+	brute_modifier = 0.5
+	burn_modifier = 0.5
 
 /obj/item/bodypart/arm/left/golem/Initialize(mapload)
 	held_hand_offset =  new(
@@ -576,6 +585,7 @@
 	icon_state = "golem_r_arm"
 	biological_state = (BIO_BONE|BIO_JOINTED)
 	bodytype = BODYTYPE_GOLEM | BODYTYPE_ORGANIC
+	bodyshape = BODYSHAPE_GOLEM
 	limb_id = SPECIES_GOLEM
 	should_draw_greyscale = FALSE
 	dmg_overlay_type = null
@@ -583,6 +593,8 @@
 	unarmed_damage_low = 5
 	unarmed_damage_high = 14
 	unarmed_effectiveness = 20
+	brute_modifier = 0.5
+	burn_modifier = 0.5
 
 /obj/item/bodypart/arm/right/golem/Initialize(mapload)
 	held_hand_offset =  new(
@@ -609,12 +621,15 @@
 	icon_state = "golem_l_leg"
 	biological_state = (BIO_BONE|BIO_JOINTED)
 	bodytype = BODYTYPE_GOLEM | BODYTYPE_ORGANIC
+	bodyshape = BODYSHAPE_GOLEM
 	limb_id = SPECIES_GOLEM
 	should_draw_greyscale = FALSE
 	dmg_overlay_type = null
 	unarmed_damage_low = 7
 	unarmed_damage_high = 21
 	unarmed_effectiveness = 25
+	brute_modifier = 0.5
+	burn_modifier = 0.5
 
 /obj/item/bodypart/leg/right/golem
 	icon = 'icons/mob/human/species/golems.dmi'
@@ -622,12 +637,15 @@
 	icon_state = "golem_r_leg"
 	biological_state = (BIO_BONE|BIO_JOINTED)
 	bodytype = BODYTYPE_GOLEM | BODYTYPE_ORGANIC
+	bodyshape = BODYSHAPE_GOLEM
 	limb_id = SPECIES_GOLEM
 	should_draw_greyscale = FALSE
 	dmg_overlay_type = null
 	unarmed_damage_low = 7
 	unarmed_damage_high = 21
 	unarmed_effectiveness = 25
+	brute_modifier = 0.5
+	burn_modifier = 0.5
 
 ///flesh
 
