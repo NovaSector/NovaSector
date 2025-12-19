@@ -5,9 +5,6 @@
 	var/datum/random_ship_event/ship_event
 	fakeable = FALSE
 
-/datum/round_event/random_ship_event/announce(fake)
-	priority_announce("An unknown ship is attempting to contact the station.", sender_override = "Automated Traffic Control System")
-
 /datum/round_event/random_ship_event/start()
 	// Create the ship event
 	if(!ship_type)
@@ -19,7 +16,7 @@
 				possible_ships += type
 			qdel(test_ship)
 
-		if(possible_ships.len)
+		if(length(possible_ships))
 			ship_type = pick(possible_ships)
 		else
 			// Fallback to a default if no valid ships found
@@ -30,8 +27,10 @@
 	// Send the initial message to the station
 	var/datum/comm_message/message = ship_event.generate_message()
 	// Set up a timer to spawn the ship after a delay, like the pirate event does
-	addtimer(CALLBACK(GLOBAL_PROC, GLOBAL_PROC_REF(spawn_random_ship), ship_event), 1000)
+	if(ship_event.auto_accept)
+		addtimer(CALLBACK(GLOBAL_PROC, GLOBAL_PROC_REF(spawn_random_ship), ship_event), 5 MINUTES)
 	GLOB.communications_controller.send_message(message, print = TRUE, unique = TRUE)
+	priority_announce(message.content, title = ship_event.faction sender_override = ship_event.hailer ? ship_event.hailer : ship_event.ship_name, color_override = ship_event.announcement_color)
 
 /datum/round_event/random_ship_event/end()
 	// The ship spawning is now handled by the timer set up in start()
