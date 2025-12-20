@@ -22,4 +22,4 @@
 /obj/item/card/id/get_id_examine_strings(mob/user)
 	. = ..()
 	if(headshot_string)
-		. = list("<img src='[headshot_string]' height='120' height='120' alt='[name]'>")
+		. = list("<img class='hugeicon' src='[headshot_string]' height='120' width='120'/>")
