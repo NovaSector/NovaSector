@@ -17,6 +17,10 @@
 	zone = BODY_ZONE_CHEST
 	organ_flags = ORGAN_ORGANIC | ORGAN_UNREMOVABLE
 
+/obj/item/organ/tongue/jelly/on_mob_insert(mob/living/carbon/receiver, special, movement_flags)
+	. = ..()
+	set_say_modifiers(receiver, exclaim = "fizzes", whisper = "gurgles", yell = "shrieks", say = "blorbles")
+
 /obj/item/organ/lungs/slime
 	zone = BODY_ZONE_CHEST
 	organ_flags = ORGAN_ORGANIC | ORGAN_UNREMOVABLE
