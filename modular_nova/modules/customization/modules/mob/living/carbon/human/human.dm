@@ -231,7 +231,7 @@
 		update_body_parts()
 		return
 
-	else if(try_hide_mutant_parts.Remove(pick))
+	else if(LAZYREMOVE(try_hide_mutant_parts, pick))
 		to_chat(usr, span_notice("You are no longer trying to hide your [pick]."))
 	else
 		to_chat(usr, span_notice("You are now trying to hide your [pick]."))

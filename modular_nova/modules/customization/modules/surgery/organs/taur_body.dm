@@ -46,6 +46,10 @@
 
 	/// When considering how much to offset our rider, we multiply size scaling against this.
 	var/riding_offset_scaling_mult = 0.8
+	/// If TRUE, this taur body gets the hardened soles trait and doesn't wear shoes
+	var/hardened_soles
+	/// Did our owner have their feet blocked before we ran on_mob_insert? Used for determining if we should unblock their feet slots on removal.
+	var/owner_blocked_feet_before_insert
 
 /obj/item/organ/taur_body/horselike
 	can_use_saddle = TRUE
@@ -65,9 +69,15 @@
 		TEXT_SOUTH = 0,
 	)
 
+/obj/item/organ/taur_body/fishlike
+	left_leg_name = "upper body"
+	right_leg_name = "lower body"
+	hardened_soles = TRUE
+
 /obj/item/organ/taur_body/serpentine
 	left_leg_name = "upper serpentine body"
 	right_leg_name = "lower serpentine body"
+	hardened_soles = TRUE
 
 /obj/item/organ/taur_body/serpentine/synth
 	organ_flags = ORGAN_ROBOTIC | ORGAN_EXTERNAL
@@ -119,16 +129,16 @@
 		can_lay_down = TRUE
 		laydown_offset = accessory.laydown_offset
 
+/// Adds TRAIT_HARD_SOLES to our owner.
+
 /datum/bodypart_overlay/mutant/taur_body/get_base_icon_state()
 	return "[sprite_datum.icon_state][laying_down ? "_laying" : ""]"
 
 /datum/bodypart_overlay/mutant/taur_body/override_color(rgb_value)
 	return draw_color
 
-
 /datum/bodypart_overlay/mutant/taur_body/get_global_feature_list()
 	return SSaccessories.sprite_accessories[FEATURE_TAUR]
-
 
 /obj/item/organ/taur_body/on_mob_insert(mob/living/carbon/receiver, special, movement_flags)
 	if(sprite_accessory_flags & SPRITE_ACCESSORY_HIDE_SHOES)
@@ -174,11 +184,27 @@
 	if(overlay.can_lay_down)
 		add_verb(receiver, /obj/item/organ/taur_body/proc/toggle_laying)
 
-/obj/item/organ/taur_body/on_mob_remove(mob/living/carbon/organ_owner, special, moving)
+	if(hardened_soles)
+		owner_blocked_feet_before_insert = (receiver.dna.species.no_equip_flags & ITEM_SLOT_FEET)
+		receiver.dna.species.no_equip_flags |= ITEM_SLOT_FEET
+		receiver.dna.species.modsuit_slot_exceptions |= ITEM_SLOT_FEET
+
+		var/obj/item/clothing/shoes/shoe = receiver.get_item_by_slot(ITEM_SLOT_FEET)
+		if (shoe && !HAS_TRAIT(shoe, TRAIT_NODROP))
+			shoe.forceMove(get_turf(receiver))
+
+		var/use_hardened_soles = FALSE
+		var/datum/preferences/prefs = receiver.client?.prefs
+		if (prefs)
+			use_hardened_soles = !(prefs.read_preference(/datum/preference/toggle/naga_soles))
+
+		if (use_hardened_soles)
+			add_hardened_soles(receiver)
+
+/obj/item/organ/taur_body/on_mob_remove(mob/living/carbon/organ_owner, special, movement_flags)
 	if(QDELETED(owner))
 		return ..()
 
-/obj/item/organ/taur_body/on_mob_remove(mob/living/carbon/organ_owner, special, movement_flags)
 	var/obj/item/bodypart/leg/left/left_leg = organ_owner.get_bodypart(BODY_ZONE_L_LEG)
 	var/obj/item/bodypart/leg/right/right_leg = organ_owner.get_bodypart(BODY_ZONE_R_LEG)
 
@@ -200,6 +226,14 @@
 
 	// We don't call `synchronize_bodytypes()` here, because it's already going to get called in the parent because `external_bodyshapes` has a value.
 	remove_verb(organ_owner, /obj/item/organ/taur_body/proc/toggle_laying)
+
+	if(hardened_soles)
+		if (!owner_blocked_feet_before_insert)
+			organ_owner.dna.species.no_equip_flags &= ~ITEM_SLOT_FEET
+		owner_blocked_feet_before_insert = FALSE
+		organ_owner.dna.species.modsuit_slot_exceptions &= ~ITEM_SLOT_FEET
+
+		REMOVE_TRAIT(organ_owner, TRAIT_HARD_SOLES, ORGAN_TRAIT)
 	return ..()
 
 /obj/item/organ/taur_body/Destroy()
