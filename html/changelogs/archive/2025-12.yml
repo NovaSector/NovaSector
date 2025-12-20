@@ -699,3 +699,12 @@
   muratendmo:
   - qol: Anomaly cores ordered via the Science departmental budget will now come together
       instead of in individual crates.
+2025-12-19:
+  Stalkeros:
+  - balance: Plasma pulse rounds of M/PR-15 and M/PR-16 have been sped up; now as
+      fast as any other bullets/lasers at minimum.
+  Zergspower:
+  - map: the NSV Blueshift has returned from its temporary drydock with a few alterations,
+      while still well below safety standards the current version is passable.
+  - map: Blueshift updates to Medical, Atmos, Engineering and exterior doors/arrivals/docking
+      area
