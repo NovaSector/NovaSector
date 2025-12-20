@@ -129,8 +129,6 @@
 		can_lay_down = TRUE
 		laydown_offset = accessory.laydown_offset
 
-/// Adds TRAIT_HARD_SOLES to our owner.
-
 /datum/bodypart_overlay/mutant/taur_body/get_base_icon_state()
 	return "[sprite_datum.icon_state][laying_down ? "_laying" : ""]"
 
