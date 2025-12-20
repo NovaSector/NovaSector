@@ -113,6 +113,8 @@
 		/mob/living/proc/emote_merp,
 		/mob/living/proc/emote_bark,
 		/mob/living/proc/emote_squish,
+		/mob/living/proc/emote_bubble,
+		/mob/living/proc/emote_pop,
 		/mob/living/proc/emote_meow,
 		/mob/living/proc/emote_hiss1,
 		/mob/living/proc/emote_chitter,
@@ -723,6 +725,16 @@
 	set name = "> Squish"
 	set category = "Emotes+"
 	usr.emote("squish", intentional = TRUE)
+
+/mob/living/proc/emote_bubble()
+	set name = "> Bubble"
+	set category = "Emotes+"
+	usr.emote("bubble", intentional = TRUE)
+
+/mob/living/proc/emote_pop()
+	set name = "> Pop"
+	set category = "Emotes+"
+	usr.emote("pop", intentional = TRUE)
 
 /mob/living/proc/emote_meow()
 	set name = "> Meow"
