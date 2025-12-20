@@ -1,0 +1,5 @@
+author: "carpotoxin"
+delete-after: True
+changes:
+  - qol: "Adds various QoL to the Marauder antag"
+  - rscadd: "A mapping helper which places a xmas tree if the holiday is active"

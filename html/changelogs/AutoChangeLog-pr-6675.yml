@@ -1,0 +1,4 @@
+author: "maaacha"
+delete-after: True
+changes:
+  - bugfix: "makes gauze overlays remove when gauze is removed"
