@@ -728,8 +728,8 @@
 		/datum/reagent/consumable/peachjuice,
 		/datum/reagent/consumable/sol_dry
 	)
+	upgrade_reagents = list()
 	//NOVA EDIT ADDITION END
-	upgrade_reagents = null
 	/// The default list of emagged reagents dispensable by the soda dispenser
 	var/static/list/drink_emagged_reagents = list(
 		/datum/reagent/consumable/ethanol/thirteenloko,
