@@ -16,6 +16,7 @@
 	RegisterSignal(target, COMSIG_ATOM_EXAMINE, PROC_REF(ExamineMessage))
 
 /datum/element/sliding_under/Detach(source, ...)
+	. = ..()
 	UnregisterSignal(source, list(COMSIG_CLICK_CTRL, COMSIG_ATOM_EXAMINE))
 
 /datum/element/sliding_under/proc/check_conditions(datum/source, mob/user)
