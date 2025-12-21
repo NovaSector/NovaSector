@@ -19,7 +19,14 @@
 
 /obj/item/organ/tongue/jelly/on_mob_insert(mob/living/carbon/receiver, special, movement_flags)
 	. = ..()
-	set_say_modifiers(receiver, exclaim = "fizzes", whisper = "gurgles", yell = "shrieks", say = "blorbles")
+	set_say_modifiers(receiver, exclaim = "squishes", whisper = "fizzles", yell = "splashes", say = "blorbles")
+
+/obj/item/organ/tongue/jelly/on_mob_remove(mob/living/carbon/organ_owner, special, movement_flags)
+	. = ..()
+	organ_owner.verb_ask = initial(verb_ask)
+	organ_owner.verb_exclaim = initial(verb_exclaim)
+	organ_owner.verb_whisper = initial(verb_whisper)
+	organ_owner.verb_yell = initial(verb_yell)
 
 /obj/item/organ/lungs/slime
 	zone = BODY_ZONE_CHEST
