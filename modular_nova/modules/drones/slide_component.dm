@@ -8,7 +8,7 @@
 /datum/element/sliding_under/Attach(datum/target)
 	// needs to be an atom
 	if(!isatom(target))
-		return COMPONENT_INCOMPATIBLE
+		return ELEMENT_INCOMPATIBLE
 
 	//either bumping or ctrl click
 	RegisterSignal(target, COMSIG_CLICK_CTRL, PROC_REF(check_conditions))
