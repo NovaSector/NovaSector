@@ -730,7 +730,7 @@
 	)
 	//NOVA EDIT ADDITION END
 	//upgrade_reagents = null // NOVA EDIT CHANGE - TG doesn't give the soda dispenser upgrades but we do. Commenting this so we fall back to the parent type assignment.
-// The default list of emagged reagents dispensable by the soda dispenser
+	// The default list of emagged reagents dispensable by the soda dispenser
 	var/static/list/drink_emagged_reagents = list(
 		/datum/reagent/consumable/ethanol/thirteenloko,
 		/datum/reagent/consumable/ethanol/whiskey_cola,
