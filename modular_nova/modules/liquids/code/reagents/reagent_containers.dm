@@ -8,9 +8,6 @@
 	if(user.combat_mode)
 		return FALSE
 
-	if(!spillable)
-		return FALSE
-
 	if(!user.Adjacent(target_turf))
 		return FALSE
 

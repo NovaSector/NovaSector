@@ -10,6 +10,7 @@
 	RegisterSignal(target, COMSIG_ITEM_INTERACTING_WITH_ATOM, PROC_REF(item_interaction)) // The only signal allowing item -> turf interaction
 
 /datum/element/liquids_interaction/Detach(datum/source, ...)
+	. = ..()
 	UnregisterSignal(source, COMSIG_ITEM_INTERACTING_WITH_ATOM)
 
 /datum/element/liquids_interaction/proc/item_interaction(datum/source, mob/living/user, atom/target, modifiers)
