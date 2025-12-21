@@ -16,5 +16,5 @@
 	if (value)
 		return
 	var/obj/item/organ/taur_body/taur_body = target.get_organ_slot(ORGAN_SLOT_EXTERNAL_TAUR)
-	if (taur_body.hardened_soles)
+	if (taur_body?.hardened_soles)
 		taur_body.add_hardened_soles(target)
