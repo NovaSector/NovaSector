@@ -5,7 +5,7 @@
 	. = ..()
 
 	if(!istype(target, /obj/item))
-		return COMPONENT_INCOMPATIBLE
+		return ELEMENT_INCOMPATIBLE
 
 	RegisterSignal(target, COMSIG_ITEM_INTERACTING_WITH_ATOM, PROC_REF(item_interaction)) // The only signal allowing item -> turf interaction
 
