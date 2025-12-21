@@ -32,7 +32,7 @@
 		return
 
 	//you have to be in the list
-	if(!is_type_in_typecache((user, allowed_mobs)))
+	if(!is_type_in_typecache(user, allowed_mobs))
 		return
 
 	//you need to have patience and can't move away
