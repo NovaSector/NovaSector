@@ -14,12 +14,12 @@
 
 /* RECIPES */
 
-/* NOVA EDIT REMOVAL - START - Hulk Removal
+/* NOVA EDIT REMOVAL START - Hulk Removal
 /datum/generecipe/hulk
 	input_one = /datum/mutation/strong
 	input_two = /datum/mutation/radioactive
 	result = /datum/mutation/hulk
-*/ // NOVA EDIT REMOVAL - END
+*/ // NOVA EDIT REMOVAL END
 
 /datum/generecipe/mindread
 	input_one = /datum/mutation/antenna
@@ -66,7 +66,7 @@
 	input_two = /datum/mutation/stoner
 	result = /datum/mutation/heckacious
 
-/* NOVA EDIT REMOVAL - START - Ork Removal
+/* NOVA EDIT REMOVAL START - Ork Removal
 /datum/generecipe/ork
 	input_one = /datum/mutation/hulk
 	input_two = /datum/mutation/clumsy
