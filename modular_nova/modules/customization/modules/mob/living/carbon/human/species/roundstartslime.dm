@@ -777,12 +777,12 @@
 		if("Tertiary")
 			color_target = "mcolor3"
 
-	var/new_mutant_colour = input(
+	var/new_mutant_colour = tgui_color_picker(
 		alterer,
 		"Choose your character's new [color_choice = "All" ? "" : LOWER_TEXT(color_choice)] color:",
 		"Form Alteration",
 		alterer.dna.features[color_target]
-	) as color|null
+	)
 	if(!new_mutant_colour)
 		return
 
@@ -882,7 +882,7 @@
 			var/hair_area = tgui_alert(alterer, "Select which color you would like to change", "Hair Color Alterations", list("Hairstyle", "Facial Hair", "Both"))
 			if(!hair_area)
 				return
-			var/new_hair_color = input(alterer, "Select your new hair color", "Hair Color Alterations", alterer.dna.features[FEATURE_MUTANT_COLOR]) as color|null
+			var/new_hair_color = tgui_color_picker(alterer, "Select your new hair color", "Hair Color Alterations", alterer.dna.features[FEATURE_MUTANT_COLOR])
 			if(!new_hair_color)
 				return
 
