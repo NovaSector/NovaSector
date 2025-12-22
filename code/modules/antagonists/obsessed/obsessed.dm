@@ -92,13 +92,21 @@
 	for(var/obj/item/carried_item in H.get_equipped_items(INCLUDE_POCKETS | INCLUDE_ACCESSORIES))
 		carried_item.add_mob_blood(H)//Oh yes, there will be blood...
 	H.regenerate_icons()
-
+/*
 /datum/antagonist/obsessed/forge_objectives(datum/mind/obsessionmind)
 	var/list/objectives_left = list(OBSESSED_OBJECTIVE_SPEND_TIME, OBSESSED_OBJECTIVE_POLAROID, OBSESSED_OBJECTIVE_HUG)
 	var/datum/objective/assassinate/obsessed/kill = new
 	kill.owner = owner
 	kill.target = obsessionmind
 	var/obj/family_heirloom
+*/
+/datum/antagonist/obsessed/forge_objectives(datum/mind/obsessionmind)
+	var/list/objectives_left = list(OBSESSED_OBJECTIVE_SPEND_TIME, OBSESSED_OBJECTIVE_POLAROID, OBSESSED_OBJECTIVE_HUG)
+	var/datum/objective/kidnap_obsessed/kidnap = new
+	kidnap.owner = owner
+	kidnap.target = obsessionmind
+	var/obj/family_heirloom
+
 
 	for(var/datum/quirk/quirky in obsessionmind.current.quirks)
 		if(istype(quirky, /datum/quirk/item_quirk/family_heirloom))
@@ -142,7 +150,7 @@
 				jealous.target = obsessionmind//will reroll into a coworker on the objective itself
 				objectives += jealous
 
-	objectives += kill//finally add the assassinate last, because you'd have to complete it last to greentext.
+	objectives += kidnap//finally add the assassinate last, because you'd have to complete it last to greentext.
 
 	for(var/datum/objective/O in objectives)
 		O.update_explanation_text()
@@ -184,6 +192,18 @@
 ///CREEPY objectives (few chosen per obsession)///
 //////////////////////////////////////////////////
 
+/datum/objective/kidnap_obsessed
+	name = "kidnap_obsessed"
+	admin_grantable = TRUE
+
+/datum/objective/kidnap_obsessed/update_explanation_text()
+	if(target?.current)
+		explanation_text = "Kidnap [target.name], keep them to yourself. Forever."
+	else
+		message_admins("WARNING! [ADMIN_LOOKUPFLW(owner)] obsessed objectives forged without an obsession!")
+		explanation_text = "Free Objective"
+
+/*
 /datum/objective/assassinate/obsessed //just a creepy version of assassinate
 
 /datum/objective/assassinate/obsessed/update_explanation_text()
@@ -193,6 +213,7 @@
 	else
 		message_admins("WARNING! [ADMIN_LOOKUPFLW(owner)] obsessed objectives forged without an obsession!")
 		explanation_text = "Free Objective"
+*/
 
 /datum/objective/assassinate/jealous //assassinate, but it changes the target to someone else in the previous target's department. cool, right?
 	var/datum/mind/old //the target the coworker was picked from.
