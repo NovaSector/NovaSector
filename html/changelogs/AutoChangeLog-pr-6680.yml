@@ -1,0 +1,9 @@
+author: "OrbisAnima"
+delete-after: True
+changes:
+  - bugfix: "Fixes Heretic armors being able to be worn on the neck to get their non protection effects."
+  - balance: "Adjusts the pizza vouchers price to 180-199. 75% discount period is over!"
+  - rscadd: "Adds the holster mod for modsuits on cargo imports."
+  - qol: "Adds the RCF to cargo and engineering heads lockers."
+  - balance: "crank technology was deprecated in favour of self charging bateries for laser weaponry."
+  - code_imp: "Modularizes the secure lockers code that we could easily modularize."
