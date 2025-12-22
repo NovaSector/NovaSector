@@ -190,7 +190,7 @@
 /datum/objective/kidnap_obsessed
 	name = "kidnap_obsessed"
 	admin_grantable = TRUE
-	var/no_failure = TRUE
+	no_failure = TRUE
 
 /datum/objective/kidnap_obsessed/update_explanation_text()
 	if(target?.current)
