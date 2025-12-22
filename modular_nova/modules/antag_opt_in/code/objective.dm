@@ -66,6 +66,11 @@
 /datum/objective/contract
 	default_opt_in_level = OPT_IN_YES_TEMP
 
+//NOVA EDIT ADDITION START
+/datum/objective/kidnap_obsessed
+	default_opt_in_level = OPT_IN_YES_TEMP
+// NOVA EDIT ADDITION END
+
 /datum/objective/contract/opt_in_valid(datum/mind/target_mind)
 	var/datum/job/target_job = target_mind.assigned_role
 	if (!target_job?.contractable)
