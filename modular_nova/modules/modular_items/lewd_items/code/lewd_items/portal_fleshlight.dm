@@ -186,7 +186,7 @@
 		return
 
 /obj/item/clothing/sextoy/portal_fleshlight/proc/perform_interaction(mob/living/user, mob/living/target, mob/living/wearer, panty_target, fleshlight_target)
-	// Get the interaction name from the map
+	/*// Get the interaction name from the map
 	var/interaction_name = interaction_map[panty_target]?[fleshlight_target]
 	if(!interaction_name)
 		to_chat(user, span_warning("You can't use the portal fleshlight like this!"))
@@ -199,7 +199,7 @@
 		to_chat(user, span_warning("You can't use the portal fleshlight like this!"))
 		return
 
-	interaction_to_try.act(target, wearer)
+	interaction_to_try.act(target, wearer) */
 	wearer.do_jitter_animation()
 
 /obj/item/clothing/sextoy/portal_fleshlight/proc/link_panties(obj/item/clothing/sextoy/portal_panties/panties, mob/living/user)
