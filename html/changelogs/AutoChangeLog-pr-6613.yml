@@ -1,0 +1,8 @@
+author: "OrbisAnima"
+delete-after: True
+changes:
+  - rscdel: "Removed the recipe for the Hulk and Ork Gene. These are still obtaiinable from RNG sources, Gateways, Optfors and Badmins."
+  - qol: "Removes the visual effect of the adaptation series (Cold, Heat, Pressure, Thermal), as several users reported the preference of dying than having a big glowing orb on them for a minor inmunity (which nowadays can be get from loadout thanks to different adaptation lungs)."
+  - qol: "DNA disks capacity upgraded from 6 to 30 genes at a time."
+  - code_imp: "removed the old hulk removal code."
+  - qol: "DNA Sequencers (the handheld geneticist thingie) now report Genetic Stability, so you dont need an advanced health scanner for that anymore."
