@@ -6946,7 +6946,6 @@
 #include "modular_nova\master_files\code\datums\mood_events\drink_events.dm"
 #include "modular_nova\master_files\code\datums\mood_events\generic_negative_events.dm"
 #include "modular_nova\master_files\code\datums\mood_events\needs_events.dm"
-#include "modular_nova\master_files\code\datums\mutations\adaption.dm"
 #include "modular_nova\master_files\code\datums\mutations\antenna.dm"
 #include "modular_nova\master_files\code\datums\mutations\chameleon.dm"
 #include "modular_nova\master_files\code\datums\mutations\sight.dm"
