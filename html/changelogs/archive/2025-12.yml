@@ -774,3 +774,26 @@
   - bugfix: makes gauze overlays remove when gauze is removed
   muratendmo:
   - bugfix: nurse suits no longer show UNDER shoes
+2025-12-22:
+  OrbisAnima:
+  - rscdel: Removed the recipe for the Hulk and Ork Gene. These are still obtaiinable
+      from RNG sources, Gateways, Optfors and Badmins.
+  - qol: Removes the visual effect of the adaptation series (Cold, Heat, Pressure,
+      Thermal), as several users reported the preference of dying than having a big
+      glowing orb on them for a minor inmunity (which nowadays can be get from loadout
+      thanks to different adaptation lungs).
+  - qol: DNA disks capacity upgraded from 6 to 30 genes at a time.
+  - code_imp: removed the old hulk removal code.
+  - qol: DNA Sequencers (the handheld geneticist thingie) now report Genetic Stability,
+      so you dont need an advanced health scanner for that anymore.
+  - bugfix: Fixes Heretic armors being able to be worn on the neck to get their non
+      protection effects.
+  - balance: Adjusts the pizza vouchers price to 180-199. 75% discount period is over!
+  - rscadd: Adds the holster mod for modsuits on cargo imports.
+  - qol: Adds the RCF to cargo and engineering heads lockers.
+  - balance: crank technology was deprecated in favour of self charging bateries for
+      laser weaponry.
+  - code_imp: Modularizes the secure lockers code that we could easily modularize.
+  vinylspiders:
+  - bugfix: fixes not being able to scoop up a deep enough puddle of liquid with a
+      reagent container
