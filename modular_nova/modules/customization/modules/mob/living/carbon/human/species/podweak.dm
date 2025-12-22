@@ -1,4 +1,6 @@
 /datum/species/pod
+	name = "Primal Podperson"
+	always_customizable = TRUE
 	inherent_traits = list(
 		TRAIT_MUTANT_COLORS,
 		TRAIT_ADVANCEDTOOLUSER,

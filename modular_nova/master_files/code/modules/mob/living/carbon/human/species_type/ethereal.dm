@@ -1,3 +1,11 @@
+/datum/species/ethereal
+	mutant_bodyparts = list()
+	can_have_genitals = FALSE
+	can_augment = FALSE
+
+/datum/species/ethereal/allows_food_preferences()
+	return FALSE
+
 /datum/species/ethereal/on_species_gain(mob/living/carbon/human/new_ethereal, datum/species/old_species, pref_load, regenerate_icons)
 	. = ..()
 	var/datum/action/sing_tones/sing_action = new
