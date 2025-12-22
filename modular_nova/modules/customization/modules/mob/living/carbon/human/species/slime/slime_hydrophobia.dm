@@ -9,7 +9,7 @@
 	button_icon_state = "bci_shield"
 	background_icon_state = "bg_alien"
 
-	cooldown_time = 40 SECONDS
+	cooldown_time = 1 MINUTES
 
 /datum/action/cooldown/slime_hydrophobia/Activate(mob/living/carbon/human/user = usr)
 	. = ..()
