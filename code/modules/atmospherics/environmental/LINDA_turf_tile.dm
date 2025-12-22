@@ -38,6 +38,8 @@
 	var/excited = FALSE
 	///Our gas mix
 	var/datum/gas_mixture/air
+	/// the global immutable space datum
+	var/static/datum/gas_mixture/immutable/space/space_gas = new
 
 	///If there is an active hotspot on us store a reference to it here
 	var/obj/effect/hotspot/active_hotspot
@@ -59,11 +61,17 @@
 /turf/open/Initialize(mapload)
 	if(!blocks_air)
 		air = create_gas_mixture()
-		if(planetary_atmos)
-			if(!SSair.planetary[initial_gas_mix])
-				var/datum/gas_mixture/immutable/planetary/mix = new
-				mix.parse_string_immutable(initial_gas_mix)
-				SSair.planetary[initial_gas_mix] = mix
+		var/area/turf_area = get_area(src)
+		if (istype(turf_area, /area/space/nearstation))
+			air = space_gas
+			init_air = FALSE
+			run_later = TRUE
+		else
+			if(planetary_atmos)
+				if(!SSair.planetary[initial_gas_mix])
+					var/datum/gas_mixture/immutable/planetary/mix = new
+					mix.parse_string_immutable(initial_gas_mix)
+					SSair.planetary[initial_gas_mix] = mix
 	return ..()
 
 /turf/open/Destroy()

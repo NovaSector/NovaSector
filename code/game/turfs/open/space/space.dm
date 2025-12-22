@@ -54,7 +54,6 @@ GLOBAL_LIST_EMPTY(starlight)
 	thermal_conductivity = OPEN_HEAT_TRANSFER_COEFFICIENT
 	heat_capacity = 700000
 
-	var/static/datum/gas_mixture/immutable/space/space_gas = new
 	// We do NOT want atmos adjacent turfs
 	init_air = FALSE
 	run_later = TRUE
