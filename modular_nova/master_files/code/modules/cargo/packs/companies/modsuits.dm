@@ -157,6 +157,10 @@
 	contains = list(/obj/item/mod/module/storage/large_capacity)
 	cost = CARGO_CRATE_VALUE * 0.5
 
+/datum/supply_pack/companies/modsuits/utility_modules/holster
+	contains = list(/obj/item/mod/module/holster)
+	cost = CARGO_CRATE_VALUE * 0.5
+
 /datum/supply_pack/companies/modsuits/utility_modules/retract_plates
 	contains = list(/obj/item/mod/module/plate_compression)
 	cost = CARGO_CRATE_VALUE * 0.5

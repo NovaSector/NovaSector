@@ -19,10 +19,6 @@
 	new /obj/item/storage/photo_album/ce(src)
 	new /obj/item/storage/box/skillchips/engineering(src)
 	new /obj/item/storage/box/stickers/chief_engineer(src)
-	new /obj/item/storage/box/gas_miner_beacons(src) // NOVA EDIT ADDITION
-	new /obj/item/construction/plumbing/engineering(src) //NOVA EDIT ADDITION
-	new /obj/item/circuitboard/machine/rodstopper(src) //NOVA EDIT ADDITION
-	new /obj/item/card/id/departmental_budget/eng(src) //NOVA EDIT ADDITION
 
 /obj/structure/closet/secure_closet/engineering_chief/populate_contents_immediate()
 	. = ..()
@@ -80,7 +76,6 @@
 	new /obj/item/clothing/glasses/meson/engine(src)
 	new /obj/item/storage/box/emptysandbags(src)
 	new /obj/item/storage/bag/construction(src)
-	new /obj/item/construction/plumbing/engineering(src) //NOVA EDIT ADDITION
 
 
 /obj/structure/closet/secure_closet/atmospherics
@@ -102,7 +97,6 @@
 	new /obj/item/clothing/head/utility/hardhat/welding/atmos(src)
 	new /obj/item/clothing/glasses/meson/engine/tray(src)
 	new /obj/item/extinguisher/advanced(src)
-	new /obj/item/summon_beacon/gas_miner(src) // NOVA EDIT ADDITION
 
 /obj/structure/closet/secure_closet/atmospherics/populate_contents_immediate()
 	. = ..()
