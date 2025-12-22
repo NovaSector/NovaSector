@@ -6,6 +6,8 @@
 	))
 
 /datum/element/sliding_under/Attach(datum/target)
+	. = ..()
+
 	// needs to be an atom
 	if(!isatom(target))
 		return ELEMENT_INCOMPATIBLE
@@ -35,7 +37,11 @@
 	if(!is_type_in_typecache(user, allowed_mobs))
 		return
 
-	//you need to have patience and can't move away
+	INVOKE_ASYNC(src, PROC_REF(try_squeezing_through), source_atom, user)
+
+/// Actually attempt the squeezing under
+/datum/element/sliding_under/proc/try_squeezing_through(atom/source_atom, mob/user)
+	// you need to have patience and can't move away
 	if(!do_after(user, 5 SECONDS, source_atom))
 		return
 
