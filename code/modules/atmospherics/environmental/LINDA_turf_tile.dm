@@ -61,6 +61,7 @@
 /turf/open/Initialize(mapload)
 	if(!blocks_air)
 		air = create_gas_mixture()
+		// NOVA EDIT START: Gasmix application based on Nearstation rather than relying on AIRLESS
 		var/area/turf_area = get_area(src)
 		if (istype(turf_area, /area/space/nearstation))
 			air = space_gas
@@ -72,6 +73,7 @@
 					var/datum/gas_mixture/immutable/planetary/mix = new
 					mix.parse_string_immutable(initial_gas_mix)
 					SSair.planetary[initial_gas_mix] = mix
+		// NOVA EDIT END:
 	return ..()
 
 /turf/open/Destroy()
