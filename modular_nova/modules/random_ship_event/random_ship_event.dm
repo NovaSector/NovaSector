@@ -26,7 +26,7 @@ GLOBAL_LIST_INIT(random_ship_events, init_random_ship_events())
 	///The ship they load in on.
 	var/ship_template_id = "ERROR"
 	///The key to the json list of ship names.
-	var/ship_name_pool = "some_json_key"
+	var/ship_name_pool
 	///Inbound message title the station receives.
 	var/message_title = "Incoming Transmission"
 	///The contents of the message sent to the station.
@@ -36,6 +36,12 @@ GLOBAL_LIST_INIT(random_ship_events, init_random_ship_events())
 	var/arrival_announcement = "We have arrived at the station."
 	///What the station can say in response. First item accepts the ship, second item rejects it.
 	var/list/possible_answers = list("Permission granted, you may dock.", "Permission denied, stay away.")
+	///If the ship will automatically accept its arrival after a period of time, like pirates
+	var/auto_accept = TRUE
+	///Who is hailing to the station? leave blank for ship name
+	var/hailer
+	///What faction is hailing?
+	var/faction = "Automated Traffic Control System"
 
 	///Station responds to message and accepts the ship.
 	var/response_accepted = "Thank you for allowing us to dock."
@@ -48,7 +54,8 @@ GLOBAL_LIST_INIT(random_ship_events, init_random_ship_events())
 
 /datum/random_ship_event/New()
 	. = ..()
-	ship_name = pick(strings("random_ships_nova.json", ship_name_pool))
+	if(ship_name_pool)
+		ship_name = pick(strings("random_ships_nova.json", ship_name_pool))
 
 ///Whether this random ship event can roll today. This is called when the global list initializes.
 ///Returning FALSE means it cannot show up at all for the entire round.
@@ -67,14 +74,14 @@ GLOBAL_LIST_INIT(random_ship_events, init_random_ship_events())
 		return
 	if(message.answered == POSITIVE_ANSWER)
 		event.accepted = TRUE
-		priority_announce(event.response_accepted, sender_override = event.ship_name, color_override = event.announcement_color)
+		priority_announce(event.response_accepted, title = event.faction, sender_override = event.hailer ? event.hailer : event.ship_name, color_override = event.announcement_color)
 		event.on_accept()
 	else
-		priority_announce(event.response_rejected, sender_override = event.ship_name, color_override = event.announcement_color)
+		priority_announce(event.response_rejected, title = event.faction, sender_override = event.hailer ? event.hailer : event.ship_name, color_override = event.announcement_color)
 		event.on_refuse()
 
 /proc/spawn_random_ship(datum/random_ship_event/event)
-	if(!event || !event.accepted)
+	if(!event || event.accepted)
 		return
 
 	var/template_key = "random_ship_[event.ship_template_id]"
@@ -95,7 +102,7 @@ GLOBAL_LIST_INIT(random_ship_events, init_random_ship_events())
 	if(!ship.load(T))
 		CRASH("Loading random ship failed!")
 
-	priority_announce(event.arrival_announcement, sender_override = event.ship_name, color_override = event.announcement_color)
+	priority_announce(event.arrival_announcement, title = event.faction, sender_override = event.ship_name, color_override = event.announcement_color)
 
 /datum/random_ship_event/proc/spawn_ship()
 	var/template_key = "random_ship_[ship_template_id]"
@@ -117,14 +124,16 @@ GLOBAL_LIST_INIT(random_ship_events, init_random_ship_events())
 		CRASH("Loading random ship failed!")
 
 	on_ship_spawn()
-	priority_announce(arrival_announcement, sender_override = ship_name, color_override = announcement_color)
+	priority_announce(arrival_announcement, title = faction, sender_override = ship_name, color_override = announcement_color)
 
 ///Additional effects when the ship is accepted
 /datum/random_ship_event/proc/on_accept()
+	sleep(rand(10 SECONDS, 1 MINUTES))
 	return
 
 ///Additional effects when the ship is refused
 /datum/random_ship_event/proc/on_refuse()
+	sleep(rand(10 SECONDS, 1 MINUTES))
 	return
 
 ///Additional effects when the ship actually spawns
