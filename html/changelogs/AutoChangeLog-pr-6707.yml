@@ -1,0 +1,4 @@
+author: "vinylspiders"
+delete-after: True
+changes:
+  - bugfix: "fixes not being able to scoop up a deep enough puddle of liquid with a reagent container"
