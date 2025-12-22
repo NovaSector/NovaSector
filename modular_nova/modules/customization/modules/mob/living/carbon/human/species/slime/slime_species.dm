@@ -135,7 +135,7 @@
 			new /obj/effect/temp_visual/heal(get_turf(slime), slime.dna.features[FEATURE_MUTANT_COLOR])
 
 /datum/species/jelly/get_species_description()
-	return placeholder_description
+	return "Slime Hybrids are intelligent, gelatinous life forms capable of shape-shifting and eating almost everything, craving plasma above all else."
 
 /datum/species/jelly/get_species_lore()
 	return list(
@@ -179,12 +179,6 @@
 
 	to_add += list(
 		list(
-			SPECIES_PERK_TYPE = SPECIES_NEGATIVE_PERK,
-			SPECIES_PERK_ICON = "scissors",
-			SPECIES_PERK_NAME = "Headcase",
-			SPECIES_PERK_DESC = "Given slimepeople have all their organs in their chest, and no neck to boot, they can be decapitated if they're on critical state.",
-		),
-		list(
 			SPECIES_PERK_TYPE = SPECIES_POSITIVE_PERK,
 			SPECIES_PERK_ICON = "circle",
 			SPECIES_PERK_NAME = "Single-Celled Organism",
@@ -212,7 +206,7 @@
 			SPECIES_PERK_TYPE = SPECIES_NEGATIVE_PERK,
 			SPECIES_PERK_ICON = "person-swimming",
 			SPECIES_PERK_NAME = "Major Hydrophobia",
-			SPECIES_PERK_DESC = "Slimes dissolve when exposed to water under normal circumstances, water nuking their blood volume and stopping their ability to regenerate.",
+			SPECIES_PERK_DESC = "Slimes dissolve when exposed to water under normal circumstances, water diluting their slime volume and preventing their ability to regenerate. Water-breathing slimes do exist, although they won't fare well without water.",
 		),
 		list(
 			SPECIES_PERK_TYPE = SPECIES_POSITIVE_PERK,
