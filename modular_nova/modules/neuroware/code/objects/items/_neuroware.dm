@@ -143,7 +143,7 @@
 
 	var/obj/item/organ/brain/owner_brain = target.get_organ_slot(ORGAN_SLOT_BRAIN)
 	// Allow install if they have either a robotic brain (synthetic, including cortical) OR a NIF
-	if(isnull(owner_brain) || !(owner_brain.organ_flags & ORGAN_ROBOTIC))
+	if(isnull(owner_brain) || !IS_ROBOTIC_ORGAN(owner_brain))
 		var/obj/item/organ/cyberimp/brain/nif/nif_implant = target.get_organ_slot(ORGAN_SLOT_BRAIN_NIF)
 		if(isnull(nif_implant) || nif_implant.broken)
 			balloon_alert(user, "synthetic brain or NIF required!")

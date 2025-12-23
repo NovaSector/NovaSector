@@ -178,7 +178,7 @@
 		return
 	var/list/obj/item/organ/cyber_organs = list()
 	for(var/obj/item/organ/organ as anything in target_human.get_organs_for_zone(user.zone_selected))
-		if(organ.organ_flags & ORGAN_ROBOTIC)
+		if(IS_ROBOTIC_ORGAN(organ))
 			cyber_organs += organ
 	if(!length(cyber_organs))
 		balloon_alert(user, "lacks robotic organ!")
@@ -190,6 +190,9 @@
 /obj/item/cybernetic_repair_paste/proc/repair_organ(obj/item/organ/target_organ, mob/living/user, mob/living/target_mob)
 	if(uses <= 0)
 		balloon_alert(user, "it's been used up!")
+		return
+	if(!IS_ROBOTIC_ORGAN(target_organ))
+		balloon_alert(user, "organ isn't robotic!")
 		return
 	if(target_organ.damage <= NONE)
 		balloon_alert(user, "organ isn't broken!")

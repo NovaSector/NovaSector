@@ -34,7 +34,7 @@
 			// ORGANIC-oriented drugs can't affect synthetic brains
 			if(!(reagent.process_flags & REAGENT_SYNTHETIC) && istype(reagent, /datum/reagent/drug))
 				var/obj/item/organ/brain/owner_brain = human_processor.get_organ_slot(ORGAN_SLOT_BRAIN)
-				if(!isnull(owner_brain) && (owner_brain.organ_flags & ORGAN_ROBOTIC))
+				if(!isnull(owner_brain) && IS_ROBOTIC_ORGAN(owner_brain))
 					return FALSE
 			if(processor_flags & PROCESS_ORGANIC)
 				return TRUE

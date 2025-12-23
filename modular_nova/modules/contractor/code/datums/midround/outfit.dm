@@ -39,7 +39,7 @@
 	var/obj/item/storage/medkit/suitable_medkit = /obj/item/storage/medkit/tactical_lite
 	var/cyber_limb_amount = 0
 	for(var/obj/item/bodypart/limb as anything in user.bodyparts)
-		if(limb.bodytype & BODYTYPE_ROBOTIC)
+		if(IS_ROBOTIC_LIMB(limb))
 			cyber_limb_amount += 1
 	if(issynthetic(user) || cyber_limb_amount >= 3)
 		suitable_medkit = /obj/item/storage/medkit/robotic_repair/preemo/stocked
