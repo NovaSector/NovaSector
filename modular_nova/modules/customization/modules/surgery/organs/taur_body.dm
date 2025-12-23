@@ -276,6 +276,11 @@
 		new_right_leg.name = "[right_leg_name] (Right leg)"
 		new_right_leg.plaintext_zone = LOWER_TEXT(new_right_leg.name)
 
+
+	var/obj/item/clothing/shoes/shoe = receiver.get_item_by_slot(ITEM_SLOT_FEET)
+	if(shoe && !HAS_TRAIT(shoe, TRAIT_NODROP))
+		receiver.dropItemToGround(shoe, force = TRUE)
+
 	var/obj/item/bodypart/leg/left/left_leg_to_remove = receiver.get_bodypart(BODY_ZONE_L_LEG)
 	if(left_leg_to_remove)
 		left_leg_to_remove.drop_limb(special = TRUE, move_to_floor = FALSE)
@@ -300,10 +305,6 @@
 		owner_blocked_feet_before_insert = (receiver.dna.species.no_equip_flags & ITEM_SLOT_FEET)
 		receiver.dna.species.no_equip_flags |= ITEM_SLOT_FEET
 		receiver.dna.species.modsuit_slot_exceptions |= ITEM_SLOT_FEET
-
-		var/obj/item/clothing/shoes/shoe = receiver.get_item_by_slot(ITEM_SLOT_FEET)
-		if(shoe && !HAS_TRAIT(shoe, TRAIT_NODROP))
-			receiver.dropItemToGround(shoe, force = TRUE)
 
 		var/use_hardened_soles = FALSE
 		var/datum/preferences/prefs = receiver.client?.prefs
