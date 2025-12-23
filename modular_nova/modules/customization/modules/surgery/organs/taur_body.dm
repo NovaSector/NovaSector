@@ -303,7 +303,7 @@
 
 		var/obj/item/clothing/shoes/shoe = receiver.get_item_by_slot(ITEM_SLOT_FEET)
 		if(shoe && !HAS_TRAIT(shoe, TRAIT_NODROP))
-			shoe.forceMove(get_turf(receiver))
+			receiver.dropItemToGround(shoe, force = TRUE)
 
 		var/use_hardened_soles = FALSE
 		var/datum/preferences/prefs = receiver.client?.prefs
