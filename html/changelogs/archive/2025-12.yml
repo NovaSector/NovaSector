@@ -699,3 +699,174 @@
   muratendmo:
   - qol: Anomaly cores ordered via the Science departmental budget will now come together
       instead of in individual crates.
+2025-12-19:
+  Stalkeros:
+  - balance: Plasma pulse rounds of M/PR-15 and M/PR-16 have been sped up; now as
+      fast as any other bullets/lasers at minimum.
+  Zergspower:
+  - map: the NSV Blueshift has returned from its temporary drydock with a few alterations,
+      while still well below safety standards the current version is passable.
+  - map: Blueshift updates to Medical, Atmos, Engineering and exterior doors/arrivals/docking
+      area
+2025-12-20:
+  Aliceee2ch:
+  - bugfix: Mapped missing security spawners in science outpost on TramStation to
+      prevent spawning in walls.
+  - rscadd: Engineering cyborg can now hold conveyor belts and place plastic signs
+      using screwdriver.
+  ArchBTW:
+  - bugfix: Clothing accessories fix
+  - bugfix: Fix training bomb ghost/admin notification
+  Fghj240:
+  - balance: Expanded storage modules are now unlocked much earlier
+  - balance: Regular storage modules require 1 complexity instead of 3
+  - spellcheck: Regular storage modules are now called compact storage modules and
+      the expanded ones are just called storage modules.
+  FlufflesTheDog:
+  - bugfix: Bureaucrat implant's approval stamp is a real stamp again
+  Ghommie:
+  - rscadd: 'Two items have been added to the The Marine Utility tech node: a fish-gene
+      gun to add and remove traits to/from fish, and a bluespace fishing reel.'
+  Hardly:
+  - rscadd: Ghost Cafe visitors now get a proper ID trim.
+  Hardly3D:
+  - rscadd: 'Added 2 new slime emotes: *bubble and *pop'
+  Jacquerel:
+  - rscadd: It takes a little bit longer for clowns to realise that they're about
+      to die when they enter a chasm
+  JohnFulpWillard:
+  - bugfix: The chat bar now scrolls as you type.
+  LT3:
+  - bugfix: Fixed oversize icon display in the crafting menu
+  - spellcheck: Tram door assembly is not classified as material airlock in the crafting
+      menu
+  Melbert:
+  - bugfix: Fix inverted south stair icons
+  - bugfix: You can harm people with batons that are otherwise inoperable, like an
+      Abductor's baton.
+  - refactor: Batonning was refactored ever so slightly. Report any oddities, particularly
+      involving harmbatonning.
+  - rscadd: 'Weather anomalies, in four variants: Rain, snow, sand, and the rare lightning
+      storm.'
+  - rscadd: Reactive Weather Armor
+  OrbisAnima:
+  - bugfix: fixes exploit with paystands that allows anyone with the cargo budget
+      card (or any other departamental card) to leech budgets with ease.
+  SmArtKar:
+  - admin: Added a warning for invalid dynamic config weights
+  Stalkeros:
+  - bugfix: Coalition police gas mask is back in Cargo!!!!!!!
+  Zergspower:
+  - bugfix: Quadborg rear actuators now sit without causing unforseen issues.
+  carpotoxin:
+  - qol: Adds various QoL to the Marauder antag
+  - rscadd: A mapping helper which places a xmas tree if the holiday is active
+  leaKsi:
+  - bugfix: Fixed 2 infinite credit exploits.
+  lelandkemble:
+  - spellcheck: Resolved grammar issues with headwear
+  - rscadd: You can soak a rag in a sink
+  - bugfix: Meteor gun projectile meteors can now be smacked, whacked, walloped and
+      cracked just as normal meteors can.
+  - bugfix: Departmental security officers will not spawn in walls
+  - bugfix: Empty TCG game decks will no longer appear in presents
+  maaacha:
+  - bugfix: makes gauze overlays remove when gauze is removed
+  muratendmo:
+  - bugfix: nurse suits no longer show UNDER shoes
+2025-12-22:
+  OrbisAnima:
+  - rscdel: Removed the recipe for the Hulk and Ork Gene. These are still obtaiinable
+      from RNG sources, Gateways, Optfors and Badmins.
+  - qol: Removes the visual effect of the adaptation series (Cold, Heat, Pressure,
+      Thermal), as several users reported the preference of dying than having a big
+      glowing orb on them for a minor inmunity (which nowadays can be get from loadout
+      thanks to different adaptation lungs).
+  - qol: DNA disks capacity upgraded from 6 to 30 genes at a time.
+  - code_imp: removed the old hulk removal code.
+  - qol: DNA Sequencers (the handheld geneticist thingie) now report Genetic Stability,
+      so you dont need an advanced health scanner for that anymore.
+  - bugfix: Fixes Heretic armors being able to be worn on the neck to get their non
+      protection effects.
+  - balance: Adjusts the pizza vouchers price to 180-199. 75% discount period is over!
+  - rscadd: Adds the holster mod for modsuits on cargo imports.
+  - qol: Adds the RCF to cargo and engineering heads lockers.
+  - balance: crank technology was deprecated in favour of self charging bateries for
+      laser weaponry.
+  - code_imp: Modularizes the secure lockers code that we could easily modularize.
+  vinylspiders:
+  - bugfix: fixes not being able to scoop up a deep enough puddle of liquid with a
+      reagent container
+2025-12-23:
+  Absolucy:
+  - bugfix: Tgui text input modals now properly display the length of text inputs
+      that contain unicode characters such as emojis.
+  Aliceee2ch:
+  - bugfix: Fixed spears breakability.
+  - spellcheck: Removed double "the" in smokey remains message.
+  ArchBTW:
+  - bugfix: Fix bodythrow hitting yourself
+  LT3:
+  - rscadd: Christmas season now includes Christmas themed goodies in the mail
+  Melbert:
+  - bugfix: Fix Asclepius screen alert when the holder has a lantern
+  - bugfix: You can't click the Asclepius screen alert
+  - balance: Chem factory Bottlers, Presses, and IV drips are now limited to holding
+      3 distinct chemicals at once, meaning they can make patches/pills/bottles/etc.
+      of at most 3 different types of chems. Manually created pills/patches/etc are
+      unaffected.
+  - balance: ' Chem factory Smoke Machines and Output Gates are now limited to holding
+      5 distinct chemicals at once, meaning they can accept at most 5 different types
+      of chems from a chem factory. Manually filling the smoke machine is unaffected.'
+  Notamaniac:
+  - image: Shuttle and heat resistant (aka lavaproof) rods now have unique sprites.
+  OrbisAnima:
+  - rscdel: Removed the IRCD goody order. The 3 pack of IRCD's that requires engineering
+      access is still available.
+  SmArtKar:
+  - bugfix: Fixed runtimes from running mixing on an empty reagent grinder
+  - rscadd: Monophobia is now availible as a negative (-3) quirk.
+  - balance: Phobias now have accumulating, and less debilitating effects due to conversion
+      to the new fear system.
+  - qol: Fear effects now have a cooldown between messages as to avoid chat spam.
+  - code_imp: Cleaned up some of fear code.
+  - refactor: Refactored phobias to use the fear system
+  - code_imp: Retyped headgear from /obj/item/clothing to /obj/item, fixing some runtimes
+      in the process
+  SyncIt21:
+  - code_imp: improves code for placing posters and signs on walls
+  - bugfix: hand placed posters now interact with fire/acid on their mounted turf
+  - bugfix: wallframes in player hands gets consumed when mounted in shuttle areas
+  TealSeer:
+  - balance: cargo techs can now unlock underfloor nav beacons
+  Webcomicartist:
+  - rscadd: Added the ratvarian repeater, a craftable emplaced crank laser weapon
+      that can be carried by hand, themed after clock cult.
+  - rscadd: Added the improvised ballista, the rebar crossbow's bigger brother, that
+      fires spears. Huge damage, terrible fire rate.
+  - rscadd: Added the giant-slayer spear, a spear made at a necropolis tendril that
+      does extra damage to lavaland creatures. (Ballista compatible)
+  - image: added sprites for the above.
+  - qol: The pipe organ gun should be easier to light now.
+  - bugfix: Fixed Pipe Organ Gun firing sprites not always going back to normal after
+      finishing firing.
+  - refactor: Mounted guns are now EVEN MORE flexible codewise, now supporting secondary
+      ammo types.
+  lelandkemble:
+  - bugfix: Miners are no longer so dedicated they will pick up ores while dead
+  muratendmo:
+  - balance: Bumped Refinable Gravitational and Flux cores up to 8.
+  omgovich, itsmeow, Absolucy, JohnFulpWillard, jlsnow301, TealSeer, lessthnthree:
+  - rscadd: Color selection panels now use TGUI (If you have TGUI enabled in settings).
+  timothymtorres:
+  - rscadd: 'Add crafting recipes for: lamps, lanterns, strange closets, cabinets,
+      and metal boxes.'
+  - rscadd: Add autolathe recipe for flares. (plastic, plasma, and iron)
+  - rscadd: Add washer machine board to Sanitation techweb. The beaker volume affects
+      the total amount of items that can be washed and the servo tier affects how
+      long the washing takes.
+  vinylspiders:
+  - bugfix: fixes a runtime in hide mutant parts
+  - image: 'added 3 new taur body types: ''Mermaid'', ''Mermaid (Koi Fish)'', and
+      ''Orca'''
+  - server: updates bun version to 1.3.5, and adds automated validation for tgs
