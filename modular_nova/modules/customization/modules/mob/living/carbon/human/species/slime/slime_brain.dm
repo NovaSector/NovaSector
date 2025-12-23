@@ -33,20 +33,24 @@
 
 /obj/item/organ/brain/slime/add_context(atom/source, list/context, obj/item/held_item, mob/user)
 	. = ..()
-	if(length(stored_items))
-		context[SCREENTIP_CONTEXT_LMB] = "Steal Items"
-	if(gps_active)
-		context[SCREENTIP_CONTEXT_RMB] = "Disable GPS Signal"
+	// code it so it checks on whenever you have beaker or not
+	if(istype(held_item, /obj/item/reagent_containers))
+		context[SCREENTIP_CONTEXT_LMB] = "Pour Beaker (Requires 100u Plasma)"
+	if(!held_item)
+		if(length(stored_items))
+			context[SCREENTIP_CONTEXT_LMB] = "Steal Items"
+		if(gps_active)
+			context[SCREENTIP_CONTEXT_RMB] = "Disable GPS Signal"
 	return CONTEXTUAL_SCREENTIP_SET
 
 
 /obj/item/organ/brain/slime/examine()
 	. = ..()
-	// this is horrible but i want to keep this ordered
+	// this is horrible but i want to keep this in the right order
 	if(gps_active)
 		. += span_notice("A dim light lowly pulsates from the center of the core, indicating an outgoing signal from a tracking microchip.")
 	if(length(stored_items))
-		. += span_red("You could probably use it in-hand to steal the items inside.")
+		. += span_red("You could probably use it in-hand to steal the items within.")
 	if(gps_active)
 		. += span_red("You could alternatively snuff out the tracking signal by right-clicking.")
 	. += span_hypnophrase("You remember that <i>slowly</i> pouring a big beaker of plasma on it by hand, if it's non-embodied, would make it regrow one.")
@@ -262,11 +266,14 @@
 
 	if(!item.is_drainable() || item.reagents.get_reagent_amount(/datum/reagent/toxin/plasma) < 100)
 		return FALSE
+
 	user.visible_message(
 		span_notice("[user] starts to slowly pour the contents of [item] onto [src]. It seems to bubble and roil, beginning to stretch its cytoskeleton outwards..."),
 		span_notice("You start to slowly pour the contents of [item] onto [src]. It seems to bubble and roil, beginning to stretch its membrane outwards...")
 	)
-	brainmob?.notify_revival("You are being revived!", sound = null, source = src) // no sound since it's a whopping 60 second wait time after this
+	user.balloon_alert_to_viewers("pouring plasma...")
+
+	brainmob?.notify_revival("Someone is pouring plasma on your core!", sound = null, source = src) // no sound since it's a whopping 60 second wait time after this
 	if(!do_after(user, 60 SECONDS, src))
 		to_chat(user, span_warning("You failed to pour the contents of [item] onto [src]!"))
 		return TRUE
@@ -293,7 +300,6 @@
 			break
 
 	if(gps_active) // making sure the gps signal is removed if it's active on revival
-		gps_active = FALSE
 		qdel(GetComponent(/datum/component/gps))
 
 	var/mob/living/carbon/human/new_body = new /mob/living/carbon/human(src.loc)
@@ -319,7 +325,10 @@
 			bodypart.drop_limb()
 			continue
 	new_body.visible_message(span_warning("[new_body]'s torso \"forms\" from [new_body.p_their()] core, yet to form the rest."))
+	to_chat(owner, span_danger("[CONFIG_GET(string/blackoutpolicy)]"))
 	to_chat(owner, span_purple("Your torso fully forms out of your core, yet to form the rest."))
+	new_body.set_jitter_if_lower(200 SECONDS)
+	new_body.emote("scream")
 	drop_items_to_ground(new_body.drop_location())
 	return TRUE
 
