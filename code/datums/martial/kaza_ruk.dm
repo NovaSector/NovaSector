@@ -268,10 +268,6 @@
 
 /obj/item/clothing/gloves/kaza_ruk/Initialize(mapload)
 	. = ..()
-	// NOVA EDIT ADDITION START - TODO: Fix it so that adding a reskinnable component again on a subtype doesn't royally fuck things up.
-	if(type != /obj/item/clothing/gloves/kaza_ruk)
-		return
-	// NOVA EDIT ADDITION END
 	AddComponent(/datum/component/martial_art_giver, /datum/martial_art/kaza_ruk)
 
 /datum/atom_skin/kaza_ruk
@@ -317,7 +313,7 @@
 
 /obj/item/clothing/gloves/kaza_ruk/sec/Initialize(mapload)
 	. = ..()
-	AddComponent(/datum/component/reskinable_item, /datum/atom_skin/kaza_ruk, infinite = TRUE)
+	//AddComponent(/datum/component/reskinable_item, /datum/atom_skin/kaza_ruk, infinite = TRUE) // NOVA EDIT REMOVAL - We have our own sprite
 
 /obj/item/clothing/gloves/kaza_ruk/combatglovesplus
 	name = "combat gloves plus"

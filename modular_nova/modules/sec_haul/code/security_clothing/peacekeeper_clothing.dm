@@ -57,6 +57,7 @@
 	icon = 'modular_nova/master_files/icons/obj/clothing/gloves.dmi'
 	worn_icon = 'modular_nova/master_files/icons/mob/clothing/hands.dmi'
 	icon_state = "fightgloves_blue"
+	greyscale_colors = "#3F6E9E"
 
 //PEACEKEEPER WEBBING
 /obj/item/storage/belt/security/webbing/peacekeeper

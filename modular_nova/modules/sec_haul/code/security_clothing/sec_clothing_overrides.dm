@@ -334,24 +334,35 @@
 	. = ..()
 	AddComponent(/datum/component/reskinable_item, /datum/atom_skin/tackler_gloves)
 
-/datum/atom_skin/sec
-	abstract_type = /datum/atom_skin/sec
+/datum/atom_skin/fight_gloves
+	abstract_type = /datum/atom_skin/fight_gloves
 
-/datum/atom_skin/sec/fightgloves
+/datum/atom_skin/fight_gloves/red
 	preview_name = "Red Variant"
 	new_icon_state = "fightgloves"
 
-/datum/atom_skin/sec/fightgloves_blue
+/datum/atom_skin/fight_gloves/blue
 	preview_name = "Blue Variant"
 	new_icon = 'modular_nova/master_files/icons/obj/clothing/gloves.dmi'
 	new_icon_state = "fightgloves_blue"
 	new_worn_icon = 'modular_nova/master_files/icons/mob/clothing/hands.dmi'
 
+/datum/atom_skin/fight_gloves/blue/apply(atom/apply_to, mob/user)
+	. = ..()
+	if(!isitem(apply_to))
+		return
+
+	var/obj/item/item_apply_to = apply_to
+	// we are kind of cheating here to get the right GAGS inhand icon for this. the peacekeeper version should be the correct color since it's the same sprite.
+	item_apply_to.greyscale_colors = /obj/item/clothing/gloves/kaza_ruk/sec/peacekeeper::greyscale_colors
+	item_apply_to.lefthand_file = SSgreyscale.GetColoredIconByType(/datum/greyscale_config/gloves_inhand_left, item_apply_to.greyscale_colors)
+	item_apply_to.righthand_file = SSgreyscale.GetColoredIconByType(/datum/greyscale_config/gloves_inhand_right, item_apply_to.greyscale_colors)
+
 /obj/item/clothing/gloves/kaza_ruk/sec
 
 /obj/item/clothing/gloves/kaza_ruk/sec/Initialize(mapload)
 	. = ..()
-	AddComponent(/datum/component/reskinable_item, /datum/atom_skin/tackler_gloves)
+	AddComponent(/datum/component/reskinable_item, /datum/atom_skin/fight_gloves)
 
 /*
 * UNDER

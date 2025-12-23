@@ -33,7 +33,6 @@
 	preview_name = RESKIN_CHARCOAL
 	new_icon_state = "tactifool"
 	new_inhand_icon_state = "bl_suit"
-	change_inhand_icon_state = TRUE
 
 /datum/atom_skin/tacticool_turtleneck/charcoal/apply(atom/apply_to, mob/user)
 	. = ..()
@@ -164,7 +163,6 @@
 	preview_name = RESKIN_CHARCOAL
 	new_icon_state = "syndicate"
 	new_inhand_icon_state = "bl_suit"
-	change_inhand_icon_state = TRUE
 
 /datum/atom_skin/tactical_turtleneck/charcoal/apply(atom/apply_to, mob/user)
 	. = ..()
@@ -198,7 +196,6 @@
 	preview_name = RESKIN_CHARCOAL
 	new_icon_state = "syndicate_skirt"
 	new_inhand_icon_state = "bl_suit"
-	change_inhand_icon_state = TRUE
 
 /datum/atom_skin/tactical_skirtleneck/charcoal/apply(atom/apply_to, mob/user)
 	. = ..()
