@@ -11,55 +11,178 @@
 	/// This tracks whether their core has been ejected or not after they die.
 	var/core_ejected = FALSE
 	/// This tracks whether their GPS microchip is enabled or not, only becomes TRUE on activation of the below ability /datum/action/innate/core_signal.
-	var/gps_active = FALSE
+	var/gps_active = TRUE
 	throw_range = 9 //Oh! That's a baseball!
 	throw_speed = 0.5
 	resistance_flags = INDESTRUCTIBLE | FIRE_PROOF | LAVA_PROOF | UNACIDABLE | ACID_PROOF | FREEZE_PROOF
 	/// A little glow so they're more noticeable on death
 	light_system = OVERLAY_LIGHT
 	light_range = 1.5
-	light_power = 1
+	light_power = 0.25
+	/// Core storage
+	var/list/stored_items = list()
+	/// Item types that should never be stored in core and will drop on death. Takes priority over allowed lists.
+	var/static/list/bannedcore = typecacheof(list(/obj/item/disk/nuclear))
+
 
 /obj/item/organ/brain/slime/Initialize(mapload, mob/living/carbon/organ_owner, list/examine_list)
 	. = ..()
 	AddComponent(/datum/component/bubble_icon_override, "slime", BUBBLE_ICON_PRIORITY_ORGAN)
+	register_context()
 	colorize()
+
+/obj/item/organ/brain/slime/add_context(atom/source, list/context, obj/item/held_item, mob/user)
+	. = ..()
+	if(length(stored_items))
+		context[SCREENTIP_CONTEXT_LMB] = "Steal Items"
+	if(gps_active)
+		context[SCREENTIP_CONTEXT_RMB] = "Disable GPS Signal"
+	return CONTEXTUAL_SCREENTIP_SET
+
 
 /obj/item/organ/brain/slime/examine()
 	. = ..()
+	// this is horrible but i want to keep this ordered
 	if(gps_active)
 		. += span_notice("A dim light lowly pulsates from the center of the core, indicating an outgoing signal from a tracking microchip.")
-		. += span_red("You could probably snuff that out.")
-	. += span_hypnophrase("You remember that pouring plasma on it, if it's non-embodied, would make it regrow one.")
+	if(length(stored_items))
+		. += span_red("You could probably use it in-hand to steal the items inside.")
+	if(gps_active)
+		. += span_red("You could alternatively snuff out the tracking signal by right-clicking.")
+	. += span_hypnophrase("You remember that <i>slowly</i> pouring a big beaker of plasma on it by hand, if it's non-embodied, would make it regrow one.")
 
-/obj/item/organ/brain/slime/attack_self(mob/living/user) // Allows a player (presumably an antag) to deactivate the GPS signal on a slime core
-	if(!(gps_active))
+/obj/item/organ/brain/slime/Destroy(force)
+	if(stored_items)
+		var/drop_loc = drop_location()
+		if(drop_loc)
+			drop_items_to_ground(drop_loc, explode = TRUE)
+		else
+			QDEL_LIST(stored_items)
+	return ..()
+
+/obj/item/organ/brain/slime/proc/process_items(mob/living/carbon/human/victim)
+	var/list/focus_slots = list(
+		ITEM_SLOT_SUITSTORE,
+		ITEM_SLOT_BELT,
+		ITEM_SLOT_ID,
+		ITEM_SLOT_LPOCKET,
+		ITEM_SLOT_RPOCKET
+	)
+
+	for(var/islot in focus_slots) // Focus on storage items and any others that drop when uniform is unequiped
+		var/obj/item/item = victim.get_item_by_slot(islot)
+		if(QDELETED(item))
+			continue
+		victim.temporarilyRemoveItemFromInventory(item, force = TRUE, idrop = FALSE)
+		process_and_store_item(item, victim)
+
+	var/obj/item/back_item = victim.back
+	if(!QDELETED(back_item))
+		victim.temporarilyRemoveItemFromInventory(back_item, force = TRUE, idrop = FALSE)
+		process_and_store_item(back_item, victim) // Jank to handle modsuit covering items, so it's removed first. Fix this.
+
+	var/obj/item/bodypart/chest/target_chest = victim.get_bodypart(BODY_ZONE_CHEST) // Store chest cavity item
+	if(istype(target_chest))
+		process_and_store_item(target_chest.cavity_item, victim)
+
+	for(var/obj/item/item as anything in victim.get_equipped_items(INCLUDE_POCKETS)) // Store rest of equipment
+		if(QDELETED(item))
+			continue
+		victim.temporarilyRemoveItemFromInventory(item, force = TRUE, idrop = FALSE)
+		process_and_store_item(item, victim)
+
+/obj/item/organ/brain/slime/proc/process_and_store_item(atom/movable/item, mob/living/carbon/human/victim) // Helper proc to finally move items
+	if(QDELETED(item))
 		return
-	user.visible_message(span_warning("[user] begins jamming [user.p_their()] hand into a slime core! Slime goes everywhere!"),
-	span_notice("You jam your hand into the core, feeling for the densest point! Your arm is covered in slime!"),
-	span_notice("You hear an obscene squelching sound.")
+	if(!isnull(item.contents))
+		for(var/atom/movable/content_item as anything in item.get_all_contents())
+			if(is_type_in_typecache(content_item, bannedcore))
+				content_item.forceMove(victim.drop_location()) // Move item from container to victims turf if banned
+	if(is_type_in_typecache(item, bannedcore))
+		item.forceMove(victim.drop_location()) // Move banned item from victim to the victim's turf if banned.
+	else
+		item.forceMove(src)
+		stored_items |= item
+
+/obj/item/organ/brain/slime/proc/drop_items_to_ground(turf/turf, explode = FALSE)
+	for(var/atom/movable/item as anything in stored_items)
+		if(explode)
+			brainmob.dropItemToGround(item, force = TRUE)
+		else
+			item.forceMove(turf)
+	stored_items.Cut()
+
+/obj/item/organ/brain/slime/attack_self(mob/living/user) // Allows a player (presumably an antag) to steal their items and then deactivate the GPS signal if they interact with it again
+	if(DOING_INTERACTION_WITH_TARGET(user, src))
+		return
+
+	if(!length(stored_items))
+		to_chat(user, span_notice("There is nothing remaining inside [src]!"))
+		return
+
+	user.visible_message(
+		span_warning("[user] begins jamming [user.p_their()] hand into a slime core! Slime goes everywhere!"),
+		span_notice("You jam your hand into [src], feeling for any dense objects. Slime covers your arm."),
+		span_notice("You hear an obscene squelching sound.")
 	)
 	playsound(user, 'sound/items/handling/surgery/organ1.ogg', 80, TRUE)
 
-	if(!do_after(user, 30 SECONDS, src))
-		user.visible_message(span_warning("[user]'s hand slips out of the core before [user.p_they()] can cause any harm!'"),
-		span_warning("Your hand slips out of the goopy core before you can find its densest point."),
-		span_notice("You hear a resounding plop.")
+	if(!do_after(user, 15 SECONDS, src))
+		user.visible_message(
+			span_warning("[user]'s hand slips out of the core before [user.p_they()] can cause any harm!'"),
+			span_notice("Your hand slips out of the goopy core before you can find any dense objects inside."),
+			span_notice("You hear a resounding plop.")
 		)
 		return
 
-	user.visible_message(span_warning("[user] crunches something deep in the slime core! It gradually stops glowing..."),
-	span_notice("You find the densest point, crushing it in your palm. The blinking light in the core slowly dissipates."),
-	span_notice("You hear a wet crunching sound."))
+	user.visible_message(
+		span_warning("[user] crunches something deep in [src]! It gradually stops glowing."),
+		span_notice("You find several dense objects, forcing them out of the core, items start to spill."),
+		span_notice("You hear a wet squelching sounds.")
+	)
+	drop_items_to_ground(user.drop_location())
 	playsound(user, 'sound/effects/wounds/crackandbleed.ogg', 80, TRUE)
-	gps_active = FALSE
-	qdel(GetComponent(/datum/component/gps))
+	return
+
+/obj/item/organ/brain/slime/attack_self_secondary(mob/user, modifiers)
+	if(DOING_INTERACTION_WITH_TARGET(user, src))
+		return
+
+	if(!gps_active)
+		to_chat(user, span_notice("There is no signal inside [src]!"))
+		return
+
+	user.visible_message(
+		span_warning("[user] begins jamming [user.p_their()] hand into a slime core! Slime goes everywhere!"),
+		span_notice("You jam your hand into [src], feeling for the blinking light! Slime covers your arm."),
+		span_notice("You hear an obscene squelching sound.")
+	)
+	playsound(user, 'sound/items/handling/surgery/organ1.ogg', 80, TRUE)
+
+	if(!do_after(user, 15 SECONDS, src))
+		user.visible_message(
+			span_warning("[user]'s hand slips out of the core before [user.p_they()] can cause any harm!'"),
+			span_notice("Your hand slips out of the goopy core before you can find it's densest point."),
+			span_notice("You hear a resounding plop.")
+		)
+		return
+
+	if(gps_active)
+		user.visible_message(
+			span_warning("[user] crunches something deep in [src]! It gradually stops glowing."),
+			span_notice("You find the densest point, crushing it in your palm. The blinking light in the core slowly dissipates."),
+			span_notice("You hear a wet crunching sound."))
+		set_light_on(FALSE)
+		gps_active = FALSE
+		qdel(GetComponent(/datum/component/gps))
+
+	return
 
 /obj/item/organ/brain/slime/on_mob_insert(mob/living/carbon/organ_owner, special = FALSE, movement_flags)
 	. = ..()
 	colorize()
 	core_ejected = FALSE
-	RegisterSignal(organ_owner, COMSIG_LIVING_DEATH, PROC_REF(on_slime_death))
+	RegisterSignal(organ_owner, COMSIG_MOB_STATCHANGE, PROC_REF(on_slime_death))
 
 /obj/item/organ/brain/slime/on_mob_remove(mob/living/carbon/organ_owner)
 	. = ..()
@@ -77,13 +200,10 @@
 /**
 * Handling for tracking when the slime in question dies (except through gibbing), which then segues into the core ejection proc.
 */
-/obj/item/organ/brain/slime/proc/on_slime_death(mob/living/victim, gibbed)
+/obj/item/organ/brain/slime/proc/on_slime_death(mob/living/victim, new_stat)
 	SIGNAL_HANDLER
-	UnregisterSignal(victim, COMSIG_LIVING_DEATH)
 
-	if(gibbed)
-		qdel(src)
-		UnregisterSignal(victim, COMSIG_LIVING_DEATH)
+	if(new_stat != DEAD)
 		return
 
 	addtimer(CALLBACK(src, PROC_REF(core_ejection), victim), 0) // explode them after the current proc chain ends, to avoid weirdness
@@ -98,7 +218,7 @@
 	core_ejected = TRUE
 	victim.visible_message(span_warning("[victim]'s body completely dissolves, collapsing outwards!"), span_notice("Your body completely dissolves, collapsing outwards!"), span_notice("You hear liquid splattering."))
 	var/atom/death_loc = victim.drop_location()
-	victim.unequip_everything()
+	process_items(victim) // Start moving items before anything else can touch them.
 	if(victim.get_organ_slot(ORGAN_SLOT_BRAIN) == src)
 		Remove(victim)
 	if(death_loc)
@@ -128,6 +248,18 @@
 * Makes it so that when a slime's core has plasma poured on it, it builds a new body and moves the brain into it.
 */
 /obj/item/organ/brain/slime/check_for_repair(obj/item/item, mob/user)
+
+	if(isnull(brainmob))
+		user.balloon_alert(user, "[src] is not a viable candidate for repair!")
+		return TRUE
+	brainmob.grab_ghost()
+	if(isnull(brainmob.stored_dna))
+		user.balloon_alert(user, "[src] does not contain any dna!")
+		return TRUE
+	if(isnull(brainmob.client))
+		user.balloon_alert(user, "[src] does not contain a mind!")
+		return TRUE
+
 	if(!item.is_drainable() || item.reagents.get_reagent_amount(/datum/reagent/toxin/plasma) < 100)
 		return FALSE
 	user.visible_message(
@@ -143,26 +275,23 @@
 		span_notice("[user] pours the contents of [item] onto [src], causing it to form a proper cytoplasm and outer membrane."),
 		span_notice("You pour the contents of [item] onto [src], causing it to form a proper cytoplasm and outer membrane.")
 	)
-	item.reagents.clear_reagents() //removes the whole shit
-	if(isnull(brainmob))
-		user.balloon_alert(user, "brain is not a viable candidate for repair!")
-		return TRUE
 
-	brainmob.grab_ghost()
-	if(isnull(brainmob.stored_dna))
-		user.balloon_alert(user, "brain does not contain any dna!")
-		return TRUE
-	if(isnull(brainmob.client))
-		user.balloon_alert(user, "brain does not contain a mind!")
-		return TRUE
-	if(do_after(user, 3 SECONDS, src))
-		regenerate()
-		return TRUE
-	return FALSE
+	item.reagents.clear_reagents() //removes the whole shit
+	regenerate()
+	return TRUE
 
 /obj/item/organ/brain/slime/proc/regenerate()
 	//we have the plasma. we can rebuild them.
 	set_organ_damage(-maxHealth) //fully heals the brain
+
+	if(istype(loc, /obj/effect/abstract/chasm_storage))
+		// oh fuck we're reviving in a chasm somehow, uhhhh, quick, find us the nearest non-chasm turf
+		for(var/turf/turf as anything in spiral_range_turfs(5, get_turf(src), TRUE))
+			if(!isopenturf(turf) || isgroundlessturf(turf) || turf.is_blocked_turf(exclude_mobs = TRUE))
+				continue
+			forceMove(turf)
+			break
+
 	if(gps_active) // making sure the gps signal is removed if it's active on revival
 		gps_active = FALSE
 		qdel(GetComponent(/datum/component/gps))
@@ -191,6 +320,7 @@
 			continue
 	new_body.visible_message(span_warning("[new_body]'s torso \"forms\" from [new_body.p_their()] core, yet to form the rest."))
 	to_chat(owner, span_purple("Your torso fully forms out of your core, yet to form the rest."))
+	drop_items_to_ground(new_body.drop_location())
 	return TRUE
 
 
