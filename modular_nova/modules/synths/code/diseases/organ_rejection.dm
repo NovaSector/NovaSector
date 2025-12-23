@@ -8,7 +8,7 @@
 	name = "Organ Rejection Syndrome"
 	max_stages = 4
 	stage_prob = 0
-	cure_text = "Removal of incompatible organs"
+	cure_text = "Removal of rejected organs"
 	cures = list(/datum/reagent/consumable/sugar)
 	cure_chance = 15
 	agent = "Transplanted Organ Rejection"
@@ -69,7 +69,7 @@
 				target_part = affected_bodypart,
 				damage = 0.2 * seconds_per_tick,
 				can_scratch = stage > 1,
-				silent = COOLDOWN_FINISHED(src, itch_cooldown)
+				silent = !COOLDOWN_FINISHED(src, itch_cooldown)
 			)
 			COOLDOWN_START(src, itch_cooldown, 5 SECONDS)
 
@@ -84,7 +84,7 @@
 
 	if(stage == 2)
 		// Coughing
-		if(SPT_PROB(2.5, seconds_per_tick) && !HAS_TRAIT(affected_mob, TRAIT_SOOTHED_THROAT))
+		if(SPT_PROB(2.5, seconds_per_tick) && !affected_mob.IsUnconscious() && !HAS_TRAIT(affected_mob, TRAIT_SOOTHED_THROAT))
 			to_chat(affected_mob, span_danger(pick("Your throat feels itchy.", "Your throat itches incessantly...")))
 			affected_mob.emote("cough")
 		return
@@ -94,7 +94,7 @@
 	if(SPT_PROB(2.5, seconds_per_tick))
 		affected_mob.adjust_disgust(33)
 	// Excessive coughing
-	else if(SPT_PROB(2.5, seconds_per_tick) && !HAS_TRAIT(affected_mob, TRAIT_SOOTHED_THROAT))
+	else if(SPT_PROB(2.5, seconds_per_tick) && !affected_mob.IsUnconscious() && !HAS_TRAIT(affected_mob, TRAIT_SOOTHED_THROAT))
 		to_chat(affected_mob, span_userdanger("[pick("You hack and cough!", "You have a coughing fit!", "You can't stop coughing!")]"))
 		affected_mob.Immobilize(2 SECONDS)
 		affected_mob.emote("cough")

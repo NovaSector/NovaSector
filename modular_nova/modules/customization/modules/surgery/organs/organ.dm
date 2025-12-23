@@ -78,28 +78,25 @@
 /obj/item/organ/proc/is_rejected(mob/living/carbon/affected_mob)
 	if(isnull(affected_mob))
 		return FALSE
-	if((compatible_biotypes != ALL) && (compatible_biotypes & affected_mob.mob_biotypes))
+	if((compatible_biotypes == ALL) || (compatible_biotypes & affected_mob.mob_biotypes))
 		return FALSE
 	if(!isnull(compatible_species))
 		var/datum/dna/mob_dna = affected_mob.has_dna()
-		if(!isnull(mob_dna) && (mob_dna.species.id == compatible_species))
+		if(isnull(mob_dna) || (mob_dna.species.id == compatible_species))
 			return FALSE
 	return TRUE
 
 ///Infecrs the organ owner with Organ Rejection disease if compatible_biotypes doesn't contain the owner's biotype.
 ///Registers a bodypart with Organ Rejection disease if the organ owner has it.
 /obj/item/organ/proc/start_rejection()
-	if(!owner.HasDisease(/datum/disease/organ_rejection))
-		owner.ForceContractDisease(new /datum/disease/organ_rejection(src), make_copy = FALSE, del_on_fail = TRUE)
-		return
 	var/datum/disease/organ_rejection/rejection_disease = locate(/datum/disease/organ_rejection) in owner.diseases
-	if(isnull(rejection_disease))
-		return
-	rejection_disease.add_organ(src)
+	if(QDELETED(rejection_disease))
+		owner.ForceContractDisease(new /datum/disease/organ_rejection(src), make_copy = FALSE, del_on_fail = TRUE)
+	else
+		rejection_disease.add_organ(src)
 
 ///Unregisters a bodypart from Organ Rejection disease if it's present on the organ owner
 /obj/item/organ/proc/stop_rejection()
 	var/datum/disease/organ_rejection/rejection_disease = locate(/datum/disease/organ_rejection) in owner?.diseases
-	if(isnull(rejection_disease))
-		return
-	rejection_disease.remove_organ(src)
+	if(!QDELETED(rejection_disease))
+		rejection_disease.remove_organ(src)
