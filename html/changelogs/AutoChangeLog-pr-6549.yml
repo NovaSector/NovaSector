@@ -1,0 +1,7 @@
+author: "Stalkeros, Hollandaise for the sprites"
+delete-after: True
+changes:
+  - rscadd: "M/TACS-1 \"Warden\", Heliostatic Coalition's mainline combat mech, has started appearing around these parts in its \"Low Facilitation\", -frontier/rim-world-, configuration."
+  - rscadd: "M/FC-8 \"Forge\" Fabrication Cannon, the main armament of the \"Warden\" platform, has started appearing around these parts in its \"Low Facilitation\", -frontier/rim-world-, configuration."
+  - rscadd: "SNPCs in MilSim got themselves an entire mech with an even more entire tank cannon."
+  - rscdel: "SNPCs in MilSim lost their very-awkwardly-made literally-just-Browning HMG."
