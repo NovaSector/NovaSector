@@ -8171,9 +8171,6 @@
 /obj/machinery/door/airlock/external/glass{
 	name = "Turbine Maintenance Door"
 	},
-/obj/effect/turf_decal/stripes/line{
-	dir = 4
-	},
 /turf/open/floor/plating,
 /area/ruin/space/has_grav/port_tarkon/atmos)
 "Jf" = (
@@ -9914,7 +9911,6 @@
 /obj/effect/turf_decal/stripes/line{
 	dir = 1
 	},
-/obj/effect/turf_decal/stripes/line,
 /turf/open/floor/engine,
 /area/ruin/space/has_grav/port_tarkon/atmos)
 "Qu" = (
