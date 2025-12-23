@@ -207,10 +207,10 @@
 /obj/item/organ/brain/slime/proc/on_slime_death(mob/living/victim, new_stat)
 	SIGNAL_HANDLER
 
-	if(new_stat != DEAD)
+	if(new_stat != DEAD || IS_CHANGELING(victim)) // Changelings can only impersonate well enough
 		return
 
-	addtimer(CALLBACK(src, PROC_REF(core_ejection), victim), 0) // explode them after the current proc chain ends, to avoid weirdness
+	addtimer(CALLBACK(src, PROC_REF(core_ejection), victim), 0) // Explode them after the current proc chain ends, to avoid weirdness
 
 /**
 * CORE EJECTION PROC -
