@@ -98,18 +98,24 @@
 	default_color = "#CCCCCC"
 	affected_bodyparts = HEAD
 
-/datum/body_marking/other/monster_mouth2
+/datum/body_marking/other/monster_mouth_white
 	name = "Monster Mouth (White)"
-	icon_state = "monster2"
+	icon_state = "monster_white"
 	default_color = "#CCCCCC"
 	affected_bodyparts = HEAD
 
-/datum/body_marking/other/monster_mouth3
+/datum/body_marking/other/monster_mouth_white2
 	name = "Monster Mouth (White, eye-compatible)"
-	icon_state = "monster3"
+	icon_state = "monster_white2"
 	default_color = "#CCCCCC"
 	affected_bodyparts = HEAD
 //you're welcome -- iska
+
+/datum/body_marking/other/monster_mouth2
+	name = "Monster Mouth 2"
+	icon_state = "monster2"
+	default_color = "#CCCCCC"
+	affected_bodyparts = HEAD
 
 /datum/body_marking/other/nose_blemish
 	name = "Nose Blemish"
@@ -191,6 +197,13 @@
 /datum/body_marking/other/four_eyes
 	name = "Four Eyes"
 	icon_state = "4eyes"
+	default_color = "#FF0000"
+	affected_bodyparts = HEAD
+	always_color_customizable = TRUE
+
+/datum/body_marking/other/sclera
+	name = "Sclera"
+	icon_state = "sclera"
 	default_color = "#FF0000"
 	affected_bodyparts = HEAD
 	always_color_customizable = TRUE

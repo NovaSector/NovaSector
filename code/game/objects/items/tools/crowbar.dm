@@ -175,7 +175,7 @@
 
 /obj/item/crowbar/power/examine()
 	. = ..()
-	. += " It's fitted with a [tool_behaviour == first_tool_behavior ? inactive_text : active_text] head."
+	. += "It's fitted with a [tool_behaviour == first_tool_behavior ? inactive_text : active_text] head."
 
 /*
  * Signal proc for [COMSIG_TRANSFORMING_ON_TRANSFORM].
@@ -300,6 +300,12 @@
 		ACCESS_RD,
 		ACCESS_SYNDICATE,
 	)
+	custom_materials = list(
+		/datum/material/iron = SHEET_MATERIAL_AMOUNT * 4.75,
+		/datum/material/silver = SHEET_MATERIAL_AMOUNT * 2.50,
+		/datum/material/titanium = SHEET_MATERIAL_AMOUNT * 1.75,
+		/datum/material/glass = SHEET_MATERIAL_AMOUNT * 1.25,
+	)
 	radio_alert = TRUE
 
 /obj/item/crowbar/power/paramedic/sound_the_alarms(mob/user, obj/machinery/door/airlock/target)
@@ -325,6 +331,13 @@
 		"LOCATION" = "with the area of the door",
 		"TOOL" = "replaced with the tool used",
 	)
+
+/obj/item/crowbar/power/paramedic/silent
+	desc = "A specialized version of the jaws of life, primarily to be used by paramedics to recover the injured and the recently deceased. Rather than a cutting arm, this tool has a bonesetting apparatus. \
+		This one looks upgraded."
+	w_class = WEIGHT_CLASS_NORMAL // it's a modified, normal jaws
+	limit_jaws_access = FALSE
+	radio_alert = FALSE
 
 /obj/item/crowbar/cyborg
 	name = "hydraulic crowbar"

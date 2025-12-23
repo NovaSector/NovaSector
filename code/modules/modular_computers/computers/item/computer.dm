@@ -149,6 +149,7 @@
 	if(internal_cell)
 		internal_cell = new internal_cell(src)
 
+	AddElement(/datum/element/drag_to_activate)
 	install_default_programs()
 	register_context()
 	update_appearance()
@@ -398,10 +399,6 @@
 	update_slot_icon()
 	update_appearance()
 	return TRUE
-
-/obj/item/modular_computer/mouse_drop_dragged(atom/over_object, mob/user)
-	if(!istype(over_object, /atom/movable/screen))
-		return attack_self(user)
 
 /obj/item/modular_computer/attack_ai(mob/user)
 	return attack_self(user)
@@ -1086,26 +1083,26 @@
 				return ALERT_RELEVANCY_WARN
 		if(SEC_LEVEL_GREEN) // no threats, no concerns
 			return ALERT_RELEVANCY_SAFE
-
-		// NOVA EDIT START. ADDITION - ALERTS
+		// NOVA EDIT ADDITION START - ALERTS
 		if(SEC_LEVEL_EPSILON, SEC_LEVEL_GAMMA)
 			return ALERT_RELEVANCY_PERTINENT
 		if(SEC_LEVEL_AMBER, SEC_LEVEL_FEDERAL)
-			if(ACCESS_SECURITY in stored_id.access)
+			if(ACCESS_SECURITY in stored_id?.access)
 				return ALERT_RELEVANCY_PERTINENT
 			else
 				return ALERT_RELEVANCY_WARN
 		if(SEC_LEVEL_VIOLET)
-			if(ACCESS_MEDICAL in stored_id.access)
+			if(ACCESS_MEDICAL in stored_id?.access)
 				return ALERT_RELEVANCY_PERTINENT
 			else
 				return ALERT_RELEVANCY_WARN
 		if(SEC_LEVEL_ORANGE)
-			if(ACCESS_ENGINEERING in stored_id.access)
+			if(ACCESS_ENGINEERING in stored_id?.access)
 				return ALERT_RELEVANCY_PERTINENT
 			else
 				return ALERT_RELEVANCY_WARN
-		// NOVA EDIT END
+		// NOVA EDIT ADDITION END
+
 	return 0
 
 #undef ALERT_RELEVANCY_SAFE

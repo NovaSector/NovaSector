@@ -165,7 +165,7 @@
 	icon_state = "pen-charcoal"
 	colour = "#696969"
 	font = CHARCOAL_FONT
-	custom_materials = null
+	custom_materials = list(/datum/material/wood = SHEET_MATERIAL_AMOUNT)
 	grind_results = list(/datum/reagent/ash = 5, /datum/reagent/cellulose = 10)
 	requires_gravity = FALSE // this is technically a pencil
 	can_click = FALSE
@@ -184,7 +184,6 @@
 	force = 5
 	throwforce = 5
 	throw_speed = 4
-	colour = "#DC143C"
 	custom_materials = list(/datum/material/gold = SMALL_MATERIAL_AMOUNT*7.5)
 	sharpness = SHARP_EDGED
 	resistance_flags = FIRE_PROOF

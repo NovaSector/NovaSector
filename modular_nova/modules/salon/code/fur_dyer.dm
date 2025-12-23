@@ -45,12 +45,12 @@
 		to_chat(user, span_danger("A red light blinks!"))
 		return
 
-	var/selected_color = input(
+	var/selected_color = tgui_color_picker(
 			user,
 			"Select marking color",
 			null,
 			COLOR_WHITE,
-		) as color | null
+		)
 
 	if(!selected_color)
 		return
@@ -62,11 +62,11 @@
 	if(do_after(user, 20 SECONDS, target_human))
 		switch(selected_mutant_color)
 			if("One")
-				target_human.dna.features["mcolor"] = selected_color
+				target_human.dna.features[FEATURE_MUTANT_COLOR] = selected_color
 			if("Two")
-				target_human.dna.features["mcolor1"] = selected_color
+				target_human.dna.features[FEATURE_MUTANT_COLOR_TWO] = selected_color
 			if("Three")
-				target_human.dna.features["mcolor2"] = selected_color
+				target_human.dna.features[FEATURE_MUTANT_COLOR_THREE] = selected_color
 
 		target_human.regenerate_icons()
 		item_use_power(power_use_amount, user)
@@ -99,12 +99,12 @@
 	if(!selected_marking_id)
 		return
 
-	var/selected_color = input(
+	var/selected_color = tgui_color_picker(
 			user,
 			"Select marking color",
 			null,
 			COLOR_WHITE,
-		) as color | null
+		)
 
 	if(!selected_color)
 		return

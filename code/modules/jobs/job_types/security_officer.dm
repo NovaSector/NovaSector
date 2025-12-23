@@ -3,7 +3,6 @@
 	description = "Protect company assets, follow the Standard Operating \
 		Procedure, eat donuts."
 	auto_deadmin_role_flags = DEADMIN_POSITION_SECURITY
-	department_head = list(JOB_HEAD_OF_SECURITY)
 	faction = FACTION_STATION
 	total_positions = 8 //Handled in /datum/controller/occupations/proc/setup_officer_positions() //NOVA EDIT: SET TO 8, WAS 5
 	spawn_positions = 8 //Handled in /datum/controller/occupations/proc/setup_officer_positions() //NOVA EDIT: SEE ABOVE
@@ -148,7 +147,7 @@ GLOBAL_LIST_EMPTY(security_officer_distribution)
 			while (length(possible_turfs))
 				var/random_index = rand(1, length(possible_turfs))
 				var/turf/target = possible_turfs[random_index]
-				if (spawning.forceMove(target))
+				if (isopenturf(target) && spawning.forceMove(target))
 					break
 				possible_turfs.Cut(random_index, random_index + 1)
 

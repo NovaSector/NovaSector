@@ -1,0 +1,22 @@
+{
+	"windowed_dress": [
+		{
+			"type": "icon_state",
+			"icon_state": "win_dress_choker",
+			"blend_mode": "overlay",
+			"color_ids": [1]
+		},
+		{
+			"type": "icon_state",
+			"icon_state": "win_dress_straps",
+			"blend_mode": "overlay",
+			"color_ids": [2]
+		},
+		{
+			"type": "icon_state",
+			"icon_state": "win_dress_base",
+			"blend_mode": "overlay",
+			"color_ids": [3]
+		}
+	]
+}

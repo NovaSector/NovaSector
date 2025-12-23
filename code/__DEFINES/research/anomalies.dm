@@ -1,13 +1,14 @@
 // Max amounts of cores you can make
 #define MAX_CORES_BLUESPACE 16 // NOVA EDIT CHANGE - ORIGINAL: #define MAX_CORES_BLUESPACE 3 - Higher pop + longer rounds means we probably could use a lot more of these as they are used for a lot of things.
-#define MAX_CORES_GRAVITATIONAL 6
-#define MAX_CORES_FLUX 5
+#define MAX_CORES_GRAVITATIONAL 8 // NOVA EDIT CHANGE - ORIGINAL: #define MAX_CORES_GRAVITATIONAL 6 - Same reasons as the Bluespace cores above, and encourages Science to be less stingy.
+#define MAX_CORES_FLUX 8 // NOVA EDIT CHANGE - ORIGINAL: #define MAX_CORES_FLUX 5 - Also encourages science to be less stingy/choosy with what they use their flux cores.
 #define MAX_CORES_VORTEX 3
 #define MAX_CORES_PYRO 8
 #define MAX_CORES_HALLUCINATION 8
 #define MAX_CORES_BIOSCRAMBLER 8
 #define MAX_CORES_DIMENSIONAL 8
 #define MAX_CORES_ECTOPLASMIC 8
+#define MAX_CORES_WEATHER 8
 
 ///Defines for the different types of explosion a flux anomaly can have
 #define FLUX_NO_EMP 0
@@ -43,9 +44,12 @@ GLOBAL_LIST_INIT(bioscrambler_organs_blacklist, typecacheof(list (
 	/obj/item/organ/tongue/dullahan,
 	/obj/item/organ/vocal_cords/colossus,
 	/obj/item/organ/zombie_infection,
-	/obj/item/organ/empowered_borer_egg, // NOVA EDIT ADDITION
-	/obj/item/organ/eyes/robotic, // NOVA EDIT ADDITION
-	/obj/item/organ/eyes/night_vision/cyber, // NOVA EDIT ADDITION
+	// NOVA EDIT ADDITION START
+	/obj/item/organ/empowered_borer_egg,
+	/obj/item/organ/eyes/robotic,
+	/obj/item/organ/eyes/night_vision/cyber,
+	/obj/item/organ/genital,
+	// NOVA EDIT ADDITION END
 )))
 
 /// List of body parts we can apply to people

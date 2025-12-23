@@ -51,9 +51,9 @@
 	check_mode = TRICOLOR_NO_CHECK
 
 /datum/preference/tri_color/mutant_colors/apply_to_human(mob/living/carbon/human/target, value)
-	target.dna.features["mcolor"] = sanitize_hexcolor(value[1])
-	target.dna.features["mcolor2"] = sanitize_hexcolor(value[2])
-	target.dna.features["mcolor3"] = sanitize_hexcolor(value[3])
+	target.dna.features[FEATURE_MUTANT_COLOR] = sanitize_hexcolor(value[1])
+	target.dna.features[FEATURE_MUTANT_COLOR_TWO] = sanitize_hexcolor(value[2])
+	target.dna.features[FEATURE_MUTANT_COLOR_THREE] = sanitize_hexcolor(value[3])
 
 /datum/preference/toggle/eye_emissives
 	savefile_key = "eye_emissives"
@@ -651,8 +651,8 @@
 	if(preferences.read_preference(/datum/preference/toggle/allow_mismatched_parts))
 		return TRUE
 
-	var/datum/species/species = preferences.read_preference(/datum/preference/choiced/species)
-	species = new species
+	var/species_type = preferences.read_preference(/datum/preference/choiced/species)
+	var/datum/species/species = GLOB.species_prototypes[species_type]
 
 	return (savefile_key in species.get_features())
 
@@ -839,14 +839,14 @@
 	flexible_mismatch = FALSE
 
 /datum/preference/choiced/mutant_choice/pod_hair/init_possible_values()
-	return assoc_to_keys_features(SSaccessories.pod_hair_list)
+	return assoc_to_keys_features(SSaccessories.sprite_accessories[FEATURE_POD_HAIR])
 
 /datum/preference/choiced/mutant_choice/pod_hair/icon_for(value)
 	var/static/datum/universal_icon/pod_head
 	if(isnull(pod_head))
 		pod_head = uni_icon('icons/mob/human/bodyparts_greyscale.dmi', "pod_head_m")
 		pod_head.blend_color(COLOR_GREEN, ICON_MULTIPLY)
-	var/datum/sprite_accessory/pod_hair/pod_hair = SSaccessories.pod_hair_list[value]
+	var/datum/sprite_accessory/pod_hair/pod_hair = SSaccessories.feature_list[FEATURE_POD_HAIR][value]
 	var/datum/universal_icon/icon_with_hair = pod_head.copy()
 	var/datum/universal_icon/icon_front_hair = uni_icon(pod_hair.icon, "m_pod_hair_[pod_hair.icon_state]_FRONT_OVER_HAIR")
 	var/datum/universal_icon/icon_front = uni_icon(pod_hair.icon, "m_pod_hair_[pod_hair.icon_state]_FRONT_OVER")
