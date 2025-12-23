@@ -196,10 +196,17 @@
 	armour_penetration = 50 //we go clean through
 	max_pierces = 2 //we go clean through
 	projectile_piercing = ALL
-	demolition_mod = 2.75 //we go clean through
+	/// Whether we do extra damage when hitting a mech or silicon
+	var/anti_armour_damage = 85
 
 /obj/projectile/bullet/tank_cannon/sabot/on_hit(atom/target, blocked, pierce_hit)
 	. = ..()
+	if(anti_armour_damage && ismecha(target))
+		var/obj/vehicle/sealed/mecha/M = target
+		M.take_damage(anti_armour_damage, armour_penetration = 50)
+	if(issilicon(target))
+		var/mob/living/silicon/S = target
+		S.take_overall_damage(anti_armour_damage*0.75, anti_armour_damage*0.25)
 	if(isliving(target))
 		var/mob/living/shocker = target
 		shocker.electrocute_act(30, "electric sabot", flags = SHOCK_NOGLOVES|SHOCK_NOSTUN)
