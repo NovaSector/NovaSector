@@ -9484,7 +9484,8 @@
 /obj/machinery/door/window/right/directional/east,
 /obj/machinery/mineral/ore_redemption/offstation{
 	input_dir = 4;
-	output_dir = 8
+	output_dir = 8;
+	req_access = list("tarkon")
 	},
 /obj/machinery/door/firedoor,
 /turf/open/floor/iron,
