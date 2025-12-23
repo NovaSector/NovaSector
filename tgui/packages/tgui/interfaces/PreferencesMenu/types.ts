@@ -114,6 +114,7 @@ export type Marking = {
   name: string;
   color: string;
   marking_id: string;
+  emissive: string; // NOVA EDIT ADDITION
 };
 
 export type MarkingData = {
@@ -128,6 +129,7 @@ export type Limb = {
   chosen_aug: string;
   chosen_style: string;
   aug_choices: Record<string, string>;
+  aug_blacklist: Record<string, string>; // NOVA EDIT ADDITION
   costs: Record<string, number>;
   markings: MarkingData;
 };

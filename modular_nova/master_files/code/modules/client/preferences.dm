@@ -4,11 +4,9 @@
 	/// Associative list, keyed by language typepath, pointing to LANGUAGE_UNDERSTOOD, or LANGUAGE_SPOKEN, for whether we understand or speak the language
 	var/list/languages = list()
 	/// List of chosen augmentations. It's an associative list with key name of the slot, pointing to a typepath of an augment define
-	var/augments = list()
+	var/list/augments = list()
 	/// List of chosen preferred styles for limb replacements
-	var/augment_limb_styles = list()
-	/// Which augment slot we currently have chosen, this is for UI display
-	var/chosen_augment_slot
+	var/list/augment_limb_styles = list()
 	/// Has to include all information that extra organs from mutant bodyparts would need. (so far only genitals now)
 	var/list/features = MANDATORY_FEATURE_LIST
 	/// A list containing all of our mutant bodparts
@@ -53,10 +51,39 @@
 	var/list/food_preferences = list()
 
 /datum/preferences/proc/species_updated(species_type)
-	all_quirks = list()
-	// Reset cultural stuff
-	languages[try_get_common_language()] = LANGUAGE_SPOKEN
-	save_character()
+	// Validate augments as some are species-restricted
+	validate_species_augments(species_type)
+
+/**
+ * Removes any bodypart/limb augments which require a matching species_id that the mob lacks.
+ * Only the bodyparts and species with a species_id in the species_id_blacklist are checked, and the rest are ignored.
+ *
+ * * species_type - (Optional) Provide a species typepath to check, otherwise it uses the species preference.
+**/
+/datum/preferences/proc/validate_species_augments(datum/species/species_type)
+	if(isnull(species_type))
+		species_type = read_preference(/datum/preference/choiced/species)
+	var/list/search_list = augments.Copy()
+	var/list/augments_removed
+	for(var/slot in search_list)
+		var/obj/item/bodypart/aug = search_list[slot]
+		if(isnull(aug))
+			continue
+		if(!ispath(aug, /obj/item/bodypart))
+			continue
+		var/species_id = initial(species_type.id)
+		var/aug_species_id = initial(aug.limb_id)
+		var/list/species_id_blacklist = /datum/preference_middleware/limbs_and_markings::augments_species_id_blacklist
+		if(((aug_species_id in species_id_blacklist) || (species_id in species_id_blacklist)) && (aug_species_id != species_id))
+			augments -= slot
+			var/datum/augment_item/aug_item = GLOB.augment_items[aug]
+			LAZYADD(augments_removed, aug_item.name)
+	var/list/feedback
+	if(LAZYLEN(augments_removed))
+		LAZYADD(feedback, "The following augments are incompatible with your species:")
+		LAZYADD(feedback, augments_removed)
+	if(LAZYLEN(feedback))
+		to_chat(parent, boxed_message(span_greentext(feedback.Join("\n"))))
 
 /datum/preferences/proc/print_bodypart_change_line(key)
 	var/acc_name = mutant_bodyparts[key][MUTANT_INDEX_NAME]
@@ -137,19 +164,6 @@
 		mutant_bodyparts[key][MUTANT_INDEX_COLOR_LIST] = SA.get_default_color(features, pref_species)
 	else if (SA.color_src == USE_ONE_COLOR && colorlist.len != 1)
 		mutant_bodyparts[key][MUTANT_INDEX_COLOR_LIST] = SA.get_default_color(features, pref_species)
-
-/datum/preferences/proc/CanBuyAugment(datum/augment_item/target_aug, datum/augment_item/current_aug)
-	// Check biotypes
-	if(!(pref_species.inherent_biotypes & target_aug.allowed_biotypes))
-		return
-	var/quirk_points = GetQuirkBalance()
-	var/leverage = 0
-	if(current_aug)
-		leverage += current_aug.cost
-	if((quirk_points + leverage)>= target_aug.cost)
-		return TRUE
-	else
-		return FALSE
 
 /// This proc saves the damage currently on `character` (human) and reapplies it after `safe_transfer_prefs()` is applied to the `character`.
 /datum/preferences/proc/safe_transfer_prefs_to_with_damage(mob/living/carbon/human/character, icon_updates = TRUE, is_antag = FALSE)

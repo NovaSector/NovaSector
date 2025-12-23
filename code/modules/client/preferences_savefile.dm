@@ -388,6 +388,7 @@ SAVEFILE UPDATING/VERSIONING - 'Simplified', or rather, more coder-friendly ~Car
 
 	all_quirks = SSquirks.filter_invalid_quirks(SANITIZE_LIST(all_quirks), SANITIZE_LIST(augments)) // NOVA EDIT CHANGE - AUGMENTS+ - ORIGINAL: all_quirks = SSquirks.filter_invalid_quirks(SANITIZE_LIST(all_quirks))
 	validate_quirks()
+	validate_species_augments() // NOVA EDIT ADDITION
 	sanitize_languages() // NOVA EDIT ADDITION
 
 	return TRUE

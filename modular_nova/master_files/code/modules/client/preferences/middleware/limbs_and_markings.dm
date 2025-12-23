@@ -57,6 +57,10 @@
 		AUGMENT_CATEGORY_ORGANS = list(),
 	)
 	var/list/robotic_styles
+	///Species IDs which require limb augments to have a matching limb_id
+	var/static/list/augments_species_id_blacklist = list(
+		SPECIES_TESHARI,
+	)
 
 
 /datum/preference_middleware/limbs_and_markings/apply_to_human(mob/living/carbon/human/target, datum/preferences/preferences, visuals_only = FALSE)
@@ -86,19 +90,26 @@
 
 		target_bodypart?.reset_appearance()
 
-
 /datum/preference_middleware/limbs_and_markings/proc/set_limb_aug(list/params, mob/user)
 	var/limb_slot = params["limb_slot"]
 	var/augment_name = params["augment_name"]
 	if(augment_name == LIMBS_DEFAULT_NAME)
 		preferences.augments -= limbs_to_process[limb_slot]
 	else
-		preferences.augments[limbs_to_process[limb_slot]] = augment_to_path[augment_name]
+		var/obj/item/bodypart/limb_aug = augment_to_path[augment_name]
+		if(ispath(limb_aug, /obj/item/bodypart))
+			var/aug_species_id = initial(limb_aug.limb_id)
+			var/datum/species/species_type = preferences.read_preference(/datum/preference/choiced/species)
+			var/species_id = initial(species_type.id)
+			if(((aug_species_id in augments_species_id_blacklist) || (species_id in augments_species_id_blacklist)) && (aug_species_id != species_id))
+				return FALSE
+		preferences.augments[limbs_to_process[limb_slot]] = limb_aug
 	// Remove some positive quirks if the point balance becomes too low.
-	var/list/filtered_quirks = SSquirks.filter_invalid_quirks(preferences.all_quirks, preferences.augments)
-	if(filtered_quirks != preferences.all_quirks)
-		preferences.all_quirks = filtered_quirks
-		preferences.update_static_data(user)
+	if(!CONFIG_GET(flag/disable_quirk_points))
+		var/list/filtered_quirks = SSquirks.filter_invalid_quirks(preferences.all_quirks, preferences.augments)
+		if(filtered_quirks != preferences.all_quirks)
+			preferences.all_quirks = filtered_quirks
+			preferences.update_static_data(user)
 	preferences.character_preview_view.update_body()
 	return TRUE
 
@@ -238,6 +249,7 @@
 /datum/preference_middleware/limbs_and_markings/get_ui_data(mob/user)
 	var/list/data = list()
 	var/datum/species/species_type = preferences.read_preference(/datum/preference/choiced/species)
+	var/species_id = initial(species_type.id)
 	var/allow_mismatched_parts = preferences.read_preference(/datum/preference/toggle/allow_mismatched_parts)
 	if(!robotic_styles)
 		robotic_styles = list()
@@ -245,6 +257,8 @@
 			robotic_styles += style_name
 	data["robotic_styles"] = robotic_styles
 	var/list/limbs_data = list()
+	var/list/filtered_augments = list()
+	var/list/aug_blacklist = list()
 	for(var/limb in limbs_to_process)
 		if(!nice_aug_names[limb])
 			nice_aug_names[limb] = list()
@@ -267,11 +281,23 @@
 			chosen_augment = nice_aug_names[limb][preferences.augments[limbs_to_process[limb]]]
 		else
 			chosen_augment = LIMBS_DEFAULT_NAME
+		// Enforce species ID restrictions on some limbs
+		filtered_augments[limb] = list()
+		filtered_augments[limb]["none"] = LIMBS_DEFAULT_NAME
+		aug_blacklist[limb] = list()
+		for(var/augment in GLOB.augment_slot_to_items[limbs_to_process[limb]])
+			if(ispath(augment, /obj/item/bodypart))
+				var/obj/item/bodypart/limb_aug = augment
+				var/aug_species_id = initial(limb_aug.limb_id)
+				if(((aug_species_id in augments_species_id_blacklist) || (species_id in augments_species_id_blacklist)) && (aug_species_id != species_id))
+					aug_blacklist[limb][augment] = nice_aug_names[limb][augment]
+				else
+					filtered_augments[limb][augment] = nice_aug_names[limb][augment]
 		var/list/choices = GLOB.body_markings_per_limb[limb].Copy()
 		if (!allow_mismatched_parts)
 			for (var/name in choices)
 				var/datum/body_marking/marking = GLOB.body_markings[name]
-				if (marking.recommended_species && !(initial(species_type.id) in marking.recommended_species))
+				if (marking.recommended_species && !(species_id in marking.recommended_species))
 					choices -= name
 		limbs_data += list(list(
 			"slot" = limb,
@@ -279,7 +305,8 @@
 			"can_augment" = aug_support[limb],
 			"chosen_aug" = chosen_augment,
 			"chosen_style" = preferences.augment_limb_styles[limbs_to_process[limb]] ? preferences.augment_limb_styles[limbs_to_process[limb]] : LIMBS_DEFAULT_NAME,
-			"aug_choices" = nice_aug_names[limb],
+			"aug_choices" = filtered_augments[limb],
+			"aug_blacklist" = aug_blacklist[limb],
 			"costs" = costs[AUGMENT_CATEGORY_LIMBS],
 			"markings" = list(
 				"marking_choices" = choices,
@@ -317,7 +344,7 @@
 			"name" = organs_to_process[organ],
 			"chosen_organ" = chosen_organ,
 			"organ_choices" = nice_aug_names[organ],
-			"costs" = costs[AUGMENT_CATEGORY_ORGANS]
+			"costs" = costs[AUGMENT_CATEGORY_ORGANS],
 		))
 
 	data["organs_data"] = organs_data
