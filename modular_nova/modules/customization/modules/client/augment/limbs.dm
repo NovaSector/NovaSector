@@ -41,14 +41,23 @@
 	else
 		var/obj/item/bodypart/new_limb = new path(augmented)
 		var/obj/item/bodypart/old_limb = augmented.get_bodypart(new_limb.body_zone)
+		// Apply a cosmetic appearance to the limb
 		if(uses_robotic_styles && prefs.augment_limb_styles[slot])
 			var/chosen_style = GLOB.robotic_styles_list[prefs.augment_limb_styles[slot]]
 			new_limb.set_icon_static(chosen_style)
 			new_limb.current_style = prefs.augment_limb_styles[slot]
+		// Copy digitigrade bodyshape flag since it doesn't otherwise get applied by Augments+
 		if(supports_digitigrade == TRUE && old_limb.limb_id == BODYPART_ID_DIGITIGRADE)
 			new_limb.limb_id = BODYPART_ID_DIGITIGRADE
 			new_limb.base_limb_id = BODYPART_ID_DIGITIGRADE
 			new_limb.bodyshape = old_limb.bodyshape
+		// Copy damage modifiers and wound resistance to preserve species balance
+		new_limb.unarmed_damage_low = old_limb.unarmed_damage_low
+		new_limb.unarmed_damage_high = old_limb.unarmed_damage_high
+		new_limb.unarmed_effectiveness = old_limb.unarmed_effectiveness
+		new_limb.wound_resistance = old_limb.wound_resistance
+		new_limb.brute_modifier = old_limb.brute_modifier
+		new_limb.burn_modifier = old_limb.burn_modifier
 
 		new_limb.replace_limb(augmented, special = TRUE)
 		qdel(old_limb)
