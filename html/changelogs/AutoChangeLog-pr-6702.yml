@@ -1,0 +1,5 @@
+author: "vinylspiders"
+delete-after: True
+changes:
+  - bugfix: "fixes a runtime in hide mutant parts"
+  - image: "added 3 new taur body types: 'Mermaid', 'Mermaid (Koi Fish)', and 'Orca'"
