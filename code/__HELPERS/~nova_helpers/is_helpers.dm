@@ -32,5 +32,3 @@
 #define isfeline(A) (isfelinid(A) || istajaran(A) || HAS_TRAIT(A, TRAIT_FELINE))
 #define iscanine(A) (isvulpkanin(A) || HAS_TRAIT(A, TRAIT_CANINE))
 #define isavian(A) (isteshari(A) || isvox(A) || isvoxprimalis(A) || HAS_TRAIT(A, TRAIT_AVIAN))
-//Slime core
-#define isslimecore(A) (istype(A, /obj/item/organ/brain/slime))
