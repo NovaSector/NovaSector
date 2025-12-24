@@ -148,6 +148,9 @@
 "av" = (
 /obj/structure/cable,
 /obj/machinery/camera/directional/east,
+/obj/effect/turf_decal/stripes/end{
+	dir = 4
+	},
 /turf/open/floor/engine,
 /area/ruin/space/has_grav/port_tarkon/atmos)
 "aw" = (
@@ -1549,10 +1552,10 @@
 /turf/open/space/basic,
 /area/space)
 "gO" = (
-/obj/effect/turf_decal/stripes{
+/obj/effect/turf_decal/stripes/line{
 	dir = 1
 	},
-/obj/effect/turf_decal/stripes,
+/obj/effect/turf_decal/stripes/line,
 /obj/machinery/door/poddoor/incinerator_atmos_main,
 /turf/open/floor/engine/vacuum,
 /area/ruin/space/has_grav/port_tarkon/atmos)
@@ -3094,7 +3097,7 @@
 /obj/effect/mapping_helpers/airlock/cyclelink_helper{
 	dir = 1
 	},
-/obj/effect/turf_decal/stripes,
+/obj/effect/turf_decal/stripes/line,
 /obj/machinery/atmospherics/pipe/smart/simple/scrubbers/visible/layer2,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/dark/visible,
 /obj/effect/mapping_helpers/airlock/access/all/tarkon/general,
@@ -4073,7 +4076,7 @@
 /turf/open/floor/wood,
 /area/ruin/space/has_grav/port_tarkon/lockerroom)
 "rq" = (
-/obj/effect/turf_decal/stripes{
+/obj/effect/turf_decal/stripes/line{
 	dir = 1
 	},
 /obj/machinery/light/directional/west,
@@ -4125,8 +4128,8 @@
 "rz" = (
 /obj/structure/cable,
 /obj/machinery/light/directional/south,
-/obj/effect/turf_decal/stripes{
-	dir = 1
+/obj/effect/turf_decal/stripes/end{
+	dir = 8
 	},
 /turf/open/floor/engine,
 /area/ruin/space/has_grav/port_tarkon/atmos)
@@ -4403,7 +4406,7 @@
 /turf/open/floor/iron/freezer,
 /area/ruin/space/has_grav/port_tarkon/kitchen)
 "sV" = (
-/obj/effect/turf_decal/stripes{
+/obj/effect/turf_decal/stripes/line{
 	dir = 1
 	},
 /turf/open/floor/engine,
@@ -4426,7 +4429,6 @@
 /turf/open/floor/iron/white,
 /area/ruin/space/has_grav/port_tarkon/restroom)
 "tb" = (
-/obj/machinery/airalarm/directional/north,
 /obj/machinery/light/directional/north,
 /obj/effect/turf_decal/tile/yellow/half{
 	dir = 1
@@ -5426,7 +5428,7 @@
 /turf/open/floor/iron/white,
 /area/ruin/space/has_grav/port_tarkon/restroom)
 "xd" = (
-/obj/effect/turf_decal/stripes{
+/obj/effect/turf_decal/stripes/line{
 	dir = 1
 	},
 /obj/machinery/atmospherics/pipe/smart/simple/scrubbers/visible/layer2{
@@ -5927,7 +5929,7 @@
 /turf/open/floor/engine/vacuum,
 /area/ruin/space/has_grav/port_tarkon/atmos)
 "zh" = (
-/obj/effect/turf_decal/stripes{
+/obj/effect/turf_decal/stripes/line{
 	dir = 1
 	},
 /obj/machinery/atmospherics/components/unary/portables_connector/visible{
@@ -6306,7 +6308,7 @@
 /area/ruin/space/has_grav/port_tarkon/forehall)
 "AU" = (
 /obj/structure/extinguisher_cabinet/directional/west,
-/obj/effect/turf_decal/stripes{
+/obj/effect/turf_decal/stripes/line{
 	dir = 1
 	},
 /turf/open/floor/engine,
@@ -6645,7 +6647,7 @@
 	},
 /obj/effect/mapping_helpers/airlock/locked,
 /obj/effect/mapping_helpers/airlock/cyclelink_helper,
-/obj/effect/turf_decal/stripes{
+/obj/effect/turf_decal/stripes/line{
 	dir = 1
 	},
 /obj/machinery/atmospherics/pipe/smart/simple/scrubbers/visible/layer2,
@@ -6903,7 +6905,7 @@
 /turf/open/floor/iron/dark,
 /area/ruin/space/has_grav/port_tarkon/sciencehall)
 "DI" = (
-/obj/effect/turf_decal/stripes{
+/obj/effect/turf_decal/stripes/line{
 	dir = 1
 	},
 /obj/machinery/button/door/incinerator_vent_atmos_aux{
@@ -7552,7 +7554,7 @@
 /turf/open/floor/wood/large,
 /area/ruin/space/has_grav/port_tarkon/dorms)
 "GG" = (
-/obj/effect/turf_decal/stripes{
+/obj/effect/turf_decal/stripes/line{
 	dir = 1
 	},
 /turf/open/floor/iron/dark,
@@ -8164,9 +8166,6 @@
 "Jd" = (
 /obj/structure/cable,
 /obj/effect/turf_decal/stripes/line{
-	dir = 4
-	},
-/obj/effect/turf_decal/stripes/line{
 	dir = 8
 	},
 /obj/machinery/door/airlock/external/glass{
@@ -8512,7 +8511,7 @@
 "Kx" = (
 /obj/machinery/light_switch/directional/west,
 /obj/machinery/shower/directional/east,
-/obj/effect/turf_decal/stripes{
+/obj/effect/turf_decal/stripes/line{
 	dir = 6
 	},
 /turf/open/floor/iron/dark,
@@ -8814,7 +8813,7 @@
 /turf/open/floor/iron,
 /area/ruin/space/has_grav/port_tarkon/sciencehall)
 "LN" = (
-/obj/effect/turf_decal/stripes{
+/obj/effect/turf_decal/stripes/line{
 	dir = 1
 	},
 /obj/structure/cable/layer3,
@@ -9025,7 +9024,7 @@
 /obj/item/stack/sheet/glass/fifty,
 /obj/item/stack/sheet/iron/fifty,
 /obj/item/holosign_creator/atmos,
-/obj/effect/turf_decal/stripes{
+/obj/effect/turf_decal/stripes/line{
 	dir = 1
 	},
 /turf/open/floor/engine,
@@ -9372,7 +9371,7 @@
 /turf/open/floor/engine/plasma,
 /area/ruin/space/has_grav/port_tarkon/atmos)
 "Ov" = (
-/obj/effect/turf_decal/stripes{
+/obj/effect/turf_decal/stripes/line{
 	dir = 1
 	},
 /obj/machinery/light/directional/east,
@@ -9482,7 +9481,8 @@
 /obj/machinery/door/window/right/directional/east,
 /obj/machinery/mineral/ore_redemption/offstation{
 	input_dir = 4;
-	output_dir = 8
+	output_dir = 8;
+	req_access = list("tarkon")
 	},
 /obj/machinery/door/firedoor,
 /turf/open/floor/iron,
@@ -9494,7 +9494,7 @@
 /turf/open/floor/wood/large,
 /area/ruin/space/has_grav/port_tarkon/lounge)
 "OQ" = (
-/obj/effect/turf_decal/stripes{
+/obj/effect/turf_decal/stripes/line{
 	dir = 5
 	},
 /obj/structure/cable,
@@ -9908,7 +9908,6 @@
 /obj/machinery/door/airlock/external/glass{
 	name = "Turbine Maintenance Door"
 	},
-/obj/effect/turf_decal/stripes/line,
 /obj/effect/turf_decal/stripes/line{
 	dir = 1
 	},
@@ -10745,7 +10744,7 @@
 "TT" = (
 /obj/machinery/power/turbine/inlet_compressor,
 /obj/structure/cable,
-/obj/effect/turf_decal/stripes{
+/obj/effect/turf_decal/stripes/line{
 	dir = 1
 	},
 /obj/effect/turf_decal/stripes/red/line{
@@ -11018,7 +11017,7 @@
 /turf/open/floor/iron/dark,
 /area/ruin/space/has_grav/port_tarkon/comlobby)
 "Ve" = (
-/obj/effect/turf_decal/stripes{
+/obj/effect/turf_decal/stripes/line{
 	dir = 1
 	},
 /obj/structure/cable,
@@ -14788,7 +14787,7 @@ fR
 fR
 LK
 LK
-fR
+Of
 fR
 fR
 LK
