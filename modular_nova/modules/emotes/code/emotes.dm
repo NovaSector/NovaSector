@@ -160,6 +160,14 @@
 	vary = TRUE
 	sound = 'modular_nova/modules/emotes/sound/voice/fox_squeak.ogg'
 
+/datum/emote/living/gekker
+	key= "gekker"
+	key_third_person="gekkers"
+	message = "gekkers!"
+	emote_type = EMOTE_AUDIBLE
+	vary= TRUE
+	sound = 'modular_nova/modules/emotes/sound/voice/gekker.ogg'
+
 /datum/emote/living/fwhine
 	key = "fwhine"
 	key_third_person = "fwhines"
