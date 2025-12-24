@@ -167,7 +167,7 @@
 		/mob/living/proc/emote_teshchirp,
 		/mob/living/proc/emote_teshsqueak,
 		/mob/living/proc/emote_teshtrill,
-		/mob/living/proc/emote_gekker
+		/mob/living/proc/emote_gecker,
 	)
 	all_emotes += nova_living_emotes
 
@@ -687,10 +687,10 @@
 	set category = "Emotes+"
 	usr.emote("yip", intentional = TRUE)
 
-/mob/living/proc/emote_gekker()
-	set name = "> Gekker"
+/mob/living/proc/emote_gecker()
+	set name = "> Gecker"
 	set category = "Emotes+"
-	usr.emote("gekker", intentional = TRUE)
+	usr.emote("gecker", intentional = TRUE)
 
 /mob/living/proc/emote_fwhine()
 	set name = "> Fox Whine"
