@@ -2749,6 +2749,7 @@
 /area/station/maintenance/department/medical/central)
 "aEa" = (
 /obj/structure/window/reinforced/spawner/directional/east,
+/obj/machinery/light/small/directional/north,
 /turf/open/floor/iron/dark,
 /area/station/medical/medbay/central)
 "aEc" = (
@@ -12988,6 +12989,7 @@
 	dir = 8
 	},
 /obj/structure/fluff/shower_drain,
+/obj/machinery/camera/autoname/directional/north,
 /turf/open/floor/noslip,
 /area/station/engineering/rbmk2)
 "cEL" = (
@@ -76148,6 +76150,7 @@
 /area/station/command/heads_quarters/hos)
 "pvi" = (
 /obj/structure/closet/firecloset,
+/obj/machinery/camera/autoname/directional/west,
 /turf/open/floor/iron/dark/smooth_large,
 /area/station/engineering/rbmk2)
 "pvj" = (
@@ -103148,6 +103151,12 @@
 /obj/structure/cable,
 /turf/open/floor/plating,
 /area/station/maintenance/department/science/lower)
+"uJR" = (
+/obj/machinery/camera/autoname/directional/south,
+/turf/open/floor/catwalk_floor/iron_dark{
+	baseturfs = /turf/open/floor/plating/reinforced
+	},
+/area/station/engineering/rbmk2/chamber)
 "uJT" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/barricade/wooden,
@@ -112479,6 +112488,7 @@
 /area/station/maintenance/department/crew_quarters/dorms)
 "wAs" = (
 /obj/machinery/airalarm/directional/north,
+/obj/machinery/camera/autoname/directional/north,
 /turf/open/floor/catwalk_floor/iron_dark{
 	baseturfs = /turf/open/floor/plating/reinforced
 	},
@@ -114557,6 +114567,13 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /turf/open/floor/wood,
 /area/station/command/heads_quarters/hop)
+"wVV" = (
+/obj/structure/cable,
+/obj/machinery/camera/autoname/directional/east,
+/turf/open/floor/catwalk_floor/iron_dark{
+	baseturfs = /turf/open/floor/plating/reinforced
+	},
+/area/station/engineering/rbmk2)
 "wVW" = (
 /obj/structure/window/spawner/directional/south,
 /obj/structure/flora/bush/fullgrass,
@@ -151423,7 +151440,7 @@ wYy
 wYy
 wYy
 wYy
-fSw
+tTV
 uGE
 fZI
 fZI
@@ -153733,7 +153750,7 @@ drF
 eah
 jVg
 mJQ
-jVg
+uJR
 pdH
 nKc
 tTV
@@ -154240,7 +154257,7 @@ jJU
 oeM
 uGE
 tTV
-tTV
+wVV
 tTV
 tTV
 tTV
