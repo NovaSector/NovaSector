@@ -328,7 +328,7 @@
 				break // one at a time
 		affecting.adjustBleedStacks(-1 * stop_bleeding, 0)
 	if(flesh_regeneration || sanitization)
-		for(var/datum/wound/burn/flesh/wound as anything in affecting.wounds)
+		for(var/datum/wound/burn/flesh/wound in affecting.wounds)
 			if(wound.can_be_ointmented_or_meshed())
 				wound.flesh_healing += flesh_regeneration
 				wound.sanitization += sanitization
@@ -336,7 +336,7 @@
 	post_heal_effects(max(previous_damage - affecting.get_damage(), 0), patient, user)
 	return TRUE
 
-/// Healing a simple mob, just an adjustbruteloss call
+/// Healing a simple mob, just an adjust_brute_loss() call
 /obj/item/stack/medical/proc/heal_simplemob(mob/living/patient, mob/living/user)
 	patient.adjust_brute_loss(-1 * (heal_brute * patient.maxHealth / 100))
 	user.visible_message(
@@ -549,7 +549,7 @@
 	max_amount = 10
 	repeating = TRUE
 	heal_brute = 10
-	stop_bleeding = 0.6
+	stop_bleeding = 0.5
 	grind_results = list(/datum/reagent/medicine/spaceacillin = 2)
 	merge_type = /obj/item/stack/medical/suture
 	apply_verb = "suturing"

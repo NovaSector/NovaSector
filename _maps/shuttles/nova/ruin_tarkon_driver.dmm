@@ -296,7 +296,8 @@
 /obj/structure/table/reinforced,
 /obj/machinery/button/door{
 	id = "driverwindows";
-	name = "Blast Shield Control"
+	name = "Blast Shield Control";
+	dir = 8
 	},
 /turf/open/floor/mineral/titanium,
 /area/shuttle/tarkon_driver)

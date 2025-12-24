@@ -75,6 +75,7 @@
 /obj/item/clothing/shoes/kindle_kicks{
 	pixel_y = -10
 	},
+/obj/structure/sign/warning/directional/south,
 /turf/open/floor/plating,
 /area/ruin/space/has_grav/garbagetruck/toystore)
 "hH" = (
@@ -196,10 +197,6 @@
 /obj/item/food/spidereggs,
 /turf/open/floor/plating,
 /area/ruin/space/has_grav/garbagetruck/toystore)
-"rb" = (
-/obj/structure/sign/warning,
-/turf/closed/wall/r_wall,
-/area/ruin/space/has_grav/garbagetruck/toystore)
 "rc" = (
 /obj/effect/decal/cleanable/blood/oil,
 /obj/item/flashlight/flare/torch,
@@ -312,6 +309,11 @@
 "wo" = (
 /obj/machinery/door/airlock/shuttle,
 /turf/open/floor/plating,
+/area/ruin/space/has_grav/garbagetruck/toystore)
+"wu" = (
+/obj/structure/cable,
+/obj/machinery/airalarm/directional/north,
+/turf/open/floor/catwalk_floor/iron,
 /area/ruin/space/has_grav/garbagetruck/toystore)
 "ww" = (
 /obj/machinery/door/airlock/external/glass,
@@ -672,10 +674,6 @@
 /obj/item/sticker/smile,
 /turf/open/floor/plating,
 /area/ruin/space/has_grav/garbagetruck/toystore)
-"OV" = (
-/obj/machinery/power/shuttle_engine/propulsion,
-/turf/template_noop,
-/area/space/nearstation)
 "OZ" = (
 /obj/item/trash/candy,
 /obj/structure/broken_flooring/pile,
@@ -762,13 +760,6 @@
 /obj/item/pen,
 /turf/open/floor/plating,
 /area/ruin/space/has_grav/garbagetruck/toystore)
-"RV" = (
-/obj/machinery/airalarm{
-	pixel_y = 25
-	},
-/obj/structure/cable,
-/turf/open/floor/catwalk_floor/iron,
-/area/ruin/space/has_grav/garbagetruck/toystore)
 "Sb" = (
 /obj/structure/reagent_dispensers/beerkeg,
 /obj/structure/spider/stickyweb,
@@ -802,6 +793,7 @@
 	},
 /obj/structure/mop_bucket,
 /obj/item/broken_bottle,
+/obj/structure/sign/warning/directional/south,
 /turf/open/floor/plating,
 /area/ruin/space/has_grav/garbagetruck/toystore)
 "UD" = (
@@ -812,6 +804,10 @@
 /obj/item/instrument/banjo,
 /turf/open/floor/plating,
 /area/ruin/space/has_grav/garbagetruck/toystore)
+"VL" = (
+/obj/machinery/power/shuttle_engine/propulsion,
+/turf/template_noop,
+/area/space/nearstation)
 "Wl" = (
 /obj/structure/plasticflaps/opaque,
 /turf/open/floor/plating,
@@ -896,7 +892,7 @@ lg
 lg
 lg
 nM
-OV
+VL
 Zi
 Zi
 Zi
@@ -953,7 +949,7 @@ xC
 Ix
 dq
 TO
-rb
+Yr
 "}
 (4,1,1) = {"
 yP
@@ -1004,7 +1000,7 @@ Hj
 dn
 jD
 nM
-RV
+wu
 wo
 Dv
 IS
@@ -1107,7 +1103,7 @@ ld
 Hy
 Rl
 hD
-rb
+Yr
 "}
 (11,1,1) = {"
 Zi
@@ -1138,7 +1134,7 @@ lg
 lg
 ri
 nM
-OV
+VL
 Zi
 Zi
 Zi

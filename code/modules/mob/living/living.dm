@@ -1535,6 +1535,34 @@ NOVA EDIT REMOVAL END */
 	SEND_SIGNAL(src, COMSIG_LIVING_STAMINA_UPDATE)
 	update_stamina_hud()
 
+/mob/living/update_stamina_hud(shown_stamina_loss)
+	if(!client || !hud_used?.stamina)
+		return
+
+	var/stam_crit_threshold = maxHealth - crit_threshold
+
+	if(stat == DEAD)
+		hud_used.stamina.icon_state = "stamina_dead"
+	else
+
+		if(shown_stamina_loss == null)
+			shown_stamina_loss = get_stamina_loss()
+
+		if(shown_stamina_loss >= stam_crit_threshold)
+			hud_used.stamina.icon_state = "stamina_crit"
+		else if(shown_stamina_loss > maxHealth*0.8)
+			hud_used.stamina.icon_state = "stamina_5"
+		else if(shown_stamina_loss > maxHealth*0.6)
+			hud_used.stamina.icon_state = "stamina_4"
+		else if(shown_stamina_loss > maxHealth*0.4)
+			hud_used.stamina.icon_state = "stamina_3"
+		else if(shown_stamina_loss > maxHealth*0.2)
+			hud_used.stamina.icon_state = "stamina_2"
+		else if(shown_stamina_loss > 0)
+			hud_used.stamina.icon_state = "stamina_1"
+		else
+			hud_used.stamina.icon_state = "stamina_full"
+
 /mob/living/carbon/alien/update_stamina()
 	return
 
@@ -1608,23 +1636,23 @@ NOVA EDIT REMOVAL END */
 			var/static/list/robot_options = list(
 				/mob/living/silicon/robot = 200,
 				/mob/living/basic/drone/polymorphed = 200,
+				/mob/living/silicon/robot/model/syndicate = 100,
+				/mob/living/silicon/robot/model/syndicate/medical = 100,
+				/mob/living/silicon/robot/model/syndicate/saboteur = 100,
+				/mob/living/basic/hivebot/strong = 50,
+				/mob/living/basic/hivebot/mechanic = 50,
 				/mob/living/basic/bot/dedbot = 25,
 				/mob/living/basic/bot/cleanbot = 25,
 				/mob/living/basic/bot/firebot = 25,
 				/mob/living/basic/bot/honkbot = 25,
 				/mob/living/basic/bot/hygienebot = 25,
-				/mob/living/basic/bot/medbot/mysterious = 12,
-				/mob/living/basic/bot/medbot = 13,
 				/mob/living/basic/bot/vibebot = 25,
-				/mob/living/basic/hivebot/strong = 50,
-				/mob/living/basic/hivebot/mechanic = 50,
+				/mob/living/basic/bot/medbot = 13,
+				/mob/living/basic/bot/medbot/mysterious = 12,
 				/mob/living/basic/netguardian = 1,
-				/mob/living/silicon/robot/model/syndicate = 1,
-				/mob/living/silicon/robot/model/syndicate/medical = 1,
-				/mob/living/silicon/robot/model/syndicate/saboteur = 1,
 			)
 
-			var/picked_robot = pick(robot_options)
+			var/picked_robot = pick_weight(robot_options)
 			new_mob = new picked_robot(loc)
 			if(issilicon(new_mob))
 				var/mob/living/silicon/robot/created_robot = new_mob
@@ -2985,7 +3013,7 @@ GLOBAL_LIST_EMPTY(fire_appearances)
 	if(picked_theme == "Random")
 		picked_theme = null //holopara code handles not having a theme by giving a random one
 	var/picked_name = tgui_input_text(admin, "Name the guardian, leave empty to let player name it.", "Guardian Controller", max_length = MAX_NAME_LEN)
-	var/picked_color = input(admin, "Set the guardian's color, cancel to let player set it.", "Guardian Controller", "#ffffff") as color|null
+	var/picked_color = tgui_color_picker(admin, "Set the guardian's color, cancel to let player set it.", "Guardian Controller", COLOR_WHITE)
 	if(tgui_alert(admin, "Confirm creation.", "Guardian Controller", list("Yes", "No")) != "Yes")
 		return
 	var/mob/living/basic/guardian/summoned_guardian = new picked_type(src, picked_theme)

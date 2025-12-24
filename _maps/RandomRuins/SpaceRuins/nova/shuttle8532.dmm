@@ -148,14 +148,6 @@
 /obj/machinery/door/airlock/maintenance_hatch,
 /turf/open/floor/iron,
 /area/ruin/space/has_grav/shuttle8532engineering)
-"cO" = (
-/obj/structure/sign/warning/electric_shock{
-	pixel_y = 31
-	},
-/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer2,
-/obj/machinery/light/dim/directional/north,
-/turf/open/floor/iron/airless,
-/area/ruin/space/has_grav/shuttle8532engineering)
 "dc" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer2,
@@ -303,6 +295,13 @@
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/plating/airless,
 /area/ruin/space/has_grav/shuttle8532crewquarters)
+"fM" = (
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer4,
+/obj/structure/cable,
+/obj/machinery/light/dim/directional/north,
+/obj/structure/sign/warning/electric_shock/directional/north,
+/turf/open/floor/iron/airless,
+/area/ruin/space/has_grav/shuttle8532engineering)
 "fU" = (
 /obj/structure/windoor_assembly{
 	dir = 4
@@ -512,6 +511,17 @@
 "jQ" = (
 /turf/closed/indestructible/syndicate,
 /area/ruin/space/has_grav/shuttle8532crewquarters)
+"jR" = (
+/obj/structure/cable,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer2,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer4,
+/obj/effect/turf_decal/vg_decals/department/cargo,
+/obj/machinery/button/door/directional/north{
+	name = "Crew Quarters Lockdown";
+	id = "abandonedshiphatch"
+	},
+/turf/open/floor/iron/airless,
+/area/ruin/space/has_grav/shuttle8532cargohall)
 "ks" = (
 /obj/effect/turf_decal/trimline/blue/filled/corner,
 /turf/open/floor/iron/airless,
@@ -588,6 +598,14 @@
 "me" = (
 /obj/effect/decal/cleanable/blood/bubblegum,
 /obj/effect/decal/cleanable/blood/tracks,
+/turf/open/floor/iron/airless,
+/area/ruin/space/has_grav/shuttle8532researchbay)
+"mh" = (
+/obj/effect/turf_decal/trimline/yellow/filled/line{
+	dir = 8
+	},
+/obj/structure/table/reinforced,
+/obj/effect/spawner/random/entertainment/money_large,
 /turf/open/floor/iron/airless,
 /area/ruin/space/has_grav/shuttle8532researchbay)
 "mq" = (
@@ -1150,22 +1168,23 @@
 	},
 /turf/open/floor/iron/airless,
 /area/ruin/space/has_grav/shuttle8532crewquarters)
+"yC" = (
+/obj/machinery/turretid{
+	lethal = 1;
+	name = "Outer Turret Control";
+	pixel_x = -32;
+	system_id = "ship_outer_turrets";
+	dir = 8
+	},
+/obj/machinery/airalarm/directional/north,
+/turf/open/floor/iron/airless,
+/area/ruin/space/has_grav/shuttle8532bridge)
 "yI" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer2,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer4,
 /obj/effect/decal/cleanable/blood/splatter,
 /turf/open/floor/iron/airless,
 /area/ruin/space/has_grav/shuttle8532crewquarters)
-"yM" = (
-/obj/effect/turf_decal/trimline/yellow/filled/line{
-	dir = 8
-	},
-/obj/structure/table/reinforced,
-/obj/item/disk/design_disk/bepis,
-/obj/item/stack/spacecash/c1000,
-/obj/item/raw_anomaly_core/random,
-/turf/open/floor/iron/airless,
-/area/ruin/space/has_grav/shuttle8532researchbay)
 "yV" = (
 /mob/living/basic/vox/ranged/space/laser,
 /turf/template_noop,
@@ -1241,15 +1260,6 @@
 /obj/item/gun/energy/laser/retro,
 /turf/open/floor/iron/airless,
 /area/ruin/space/has_grav/shuttle8532bridge)
-"zY" = (
-/obj/structure/sign/warning/electric_shock{
-	pixel_y = 31
-	},
-/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer4,
-/obj/structure/cable,
-/obj/machinery/light/dim/directional/north,
-/turf/open/floor/iron/airless,
-/area/ruin/space/has_grav/shuttle8532engineering)
 "zZ" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer2,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer4,
@@ -1313,18 +1323,6 @@
 /obj/item/storage/box/syringes/variety,
 /turf/open/floor/iron/airless,
 /area/ruin/space/has_grav/shuttle8532researchbay)
-"Bu" = (
-/obj/structure/cable,
-/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer2,
-/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer4,
-/obj/effect/turf_decal/vg_decals/department/cargo,
-/obj/machinery/button/door{
-	id = "abandonedshiphatch";
-	name = "Crew Quarters Lockdown";
-	pixel_y = 25
-	},
-/turf/open/floor/iron/airless,
-/area/ruin/space/has_grav/shuttle8532cargohall)
 "Bx" = (
 /obj/effect/mapping_helpers/burnt_floor,
 /turf/open/floor/iron/airless,
@@ -2103,6 +2101,12 @@
 	},
 /turf/open/floor/plating/airless,
 /area/ruin/space/has_grav/shuttle8532engineering)
+"Sa" = (
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer2,
+/obj/machinery/light/dim/directional/north,
+/obj/structure/sign/warning/electric_shock/directional/north,
+/turf/open/floor/iron/airless,
+/area/ruin/space/has_grav/shuttle8532engineering)
 "Se" = (
 /obj/effect/turf_decal/trimline/blue/filled/line,
 /obj/structure/chair/sofa/bench{
@@ -2382,16 +2386,6 @@
 	},
 /turf/open/floor/plating/airless,
 /area/ruin/space/has_grav/shuttle8532researchbay)
-"XQ" = (
-/obj/machinery/turretid{
-	lethal = 1;
-	name = "Outer Turret Control";
-	pixel_x = -33;
-	system_id = "ship_outer_turrets"
-	},
-/obj/machinery/airalarm/directional/north,
-/turf/open/floor/iron/airless,
-/area/ruin/space/has_grav/shuttle8532bridge)
 "XV" = (
 /obj/effect/turf_decal/trimline/neutral/filled/line{
 	dir = 8
@@ -2947,7 +2941,7 @@ qb
 (8,1,1) = {"
 xO
 xO
-XQ
+yC
 fp
 HK
 xO
@@ -2971,7 +2965,7 @@ Bp
 jM
 Wt
 lc
-yM
+mh
 ne
 iG
 Uv
@@ -3406,7 +3400,7 @@ rR
 yI
 CC
 Hf
-Bu
+jR
 xG
 Bj
 WZ
@@ -3563,7 +3557,7 @@ qb
 qb
 qb
 QR
-zY
+fM
 WX
 Jk
 DJ
@@ -3941,7 +3935,7 @@ qb
 qb
 ul
 QR
-cO
+Sa
 Rb
 cA
 Yy

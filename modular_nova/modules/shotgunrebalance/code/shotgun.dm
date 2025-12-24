@@ -88,9 +88,11 @@
 		<br><br>\
 		<i>METEOR: Fires a meteor-like projectile that knocks back movable objects like people and airlocks.</i>"
 	can_be_printed = FALSE // techshell. assumed intended balance being a pain to assemble
+	custom_materials = list(/datum/material/iron = SHEET_MATERIAL_AMOUNT * 6.45, /datum/material/glass = SHEET_MATERIAL_AMOUNT * 4)
 
 /obj/item/ammo_casing/shotgun/pulseslug
 	can_be_printed = FALSE // techshell. assumed intended balance being a pain to assemble
+	custom_materials = list(/datum/material/iron = SHEET_MATERIAL_AMOUNT * 0.51, /datum/material/glass = SHEET_MATERIAL_AMOUNT * 0.12)
 
 /obj/item/ammo_casing/shotgun/frag12
 	name = "FRAG-12 slug"
@@ -121,7 +123,7 @@
 	icon_state = "mgshell"
 	variance = 15
 	ammo_categories = AMMO_CLASS_SUPER
-	custom_materials = AMMO_MATS_HEAVY_FAST
+	custom_materials = AMMO_MATS_AP
 
 /obj/projectile/bullet/pellet/shotgun_buckshot/milspec
 	damage = 6 // 6 * 8 = 48
@@ -182,6 +184,7 @@
 
 /obj/item/ammo_casing/shotgun/ion
 	can_be_printed = FALSE // techshell. assumed intended balance being a pain to assemble
+	custom_materials = list(/datum/material/iron = SHEET_MATERIAL_AMOUNT * 0.41, /datum/material/glass = SHEET_MATERIAL_AMOUNT * 0.07)
 
 /obj/item/ammo_casing/shotgun/scatterlaser
 	ammo_categories = AMMO_CLASS_NICHE // it's techy okay.

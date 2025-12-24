@@ -522,7 +522,7 @@
 	if(blood_type.reagent_type != chem.type)
 		return
 
-	var/blood_transfusion_cap = chem.data["monkey_origins"] ? BLOOD_VOLUME_NORMAL : BLOOD_VOLUME_MAXIMUM // NOVA EDIT ADDITION - Clamp the value so that being injected with monkey blood when you're past 560u doesn't do anything
+	var/blood_transfusion_cap = (MONKEY_ORIGINS in chem.data) && chem.data[MONKEY_ORIGINS] ? BLOOD_VOLUME_NORMAL : BLOOD_VOLUME_MAXIMUM // NOVA EDIT ADDITION - Clamp the value so that being injected with monkey blood when you're past 560u doesn't do anything
 	var/blood_added = adjust_blood_volume(round(reac_volume, CHEMICAL_VOLUME_ROUNDING), maximum = blood_transfusion_cap) // NOVA EDIT CHANGE - ORIGINAL: var/blood_added = adjust_blood_volume(round(reac_volume, CHEMICAL_VOLUME_ROUNDING))
 	reagents.remove_reagent(chem.type, blood_added)
 

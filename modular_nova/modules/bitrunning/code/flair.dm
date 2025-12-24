@@ -15,7 +15,7 @@
 	cost_per_order = 100
 
 /datum/orderable_item/bitrunning_flair/pizza
-	purchase_path = /obj/effect/spawner/random/food_or_drink/pizza
+	purchase_path = /obj/item/pizzavoucher
 	desc = "Recently performed survey on the bitrunners' diet and the following partnership with a local pizza chain allows us to \
 	supply you with freshly made pizza, at close to no cost."
 	cost_per_order = 150
@@ -81,17 +81,4 @@
 		/obj/item/food/ready_donk/donkhiladas,
 		/obj/item/food/ready_donk/nachos_grandes,
 		/obj/item/food/ready_donk/donkrange_chicken,
-	)
-
-/obj/effect/spawner/random/food_or_drink/pizza
-	name = "pizza delivery"
-	icon = 'icons/obj/food/pizza.dmi'
-	icon_state = "pizzamargherita"
-	loot = list(
-		/obj/item/pizzabox/margherita,
-		/obj/item/pizzabox/vegetable,
-		/obj/item/pizzabox/mushroom,
-		/obj/item/pizzabox/meat,
-		/obj/item/pizzabox/sassysage,
-		/obj/item/pizzabox/pineapple,
 	)
