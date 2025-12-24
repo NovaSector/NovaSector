@@ -166,7 +166,7 @@
 	message = "geckers!"
 	emote_type = EMOTE_AUDIBLE
 	vary = TRUE
-	sound = 'modular_nova/modules/emotes/sound/voice/gekker.ogg'
+	sound = 'modular_nova/modules/emotes/sound/voice/gecker.ogg'
 
 /datum/emote/living/fwhine
 	key = "fwhine"
