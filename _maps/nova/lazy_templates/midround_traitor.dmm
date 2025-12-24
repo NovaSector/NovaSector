@@ -1771,10 +1771,6 @@
 /area/misc/operative_barracks/surgery)
 "wc" = (
 /obj/structure/fluff/fake_scrubber,
-/obj/item/ai_module/syndicate{
-	pixel_y = -11;
-	pixel_x = 4
-	},
 /obj/item/borg/upgrade/transform/syndicatejack/marauder{
 	pixel_x = -7;
 	pixel_y = 6
@@ -3713,6 +3709,13 @@
 /obj/machinery/light/floor,
 /turf/open/floor/mineral/plastitanium/red,
 /area/misc/operative_barracks/hangar)
+"Wa" = (
+/obj/effect/turf_decal/siding/dark{
+	dir = 1
+	},
+/obj/effect/mapping_helpers/xmas_tree_placer,
+/turf/open/floor/mineral/plastitanium,
+/area/misc/operative_barracks)
 "Wb" = (
 /obj/effect/turf_decal/siding/dark{
 	dir = 1
@@ -4885,7 +4888,7 @@ Nz
 Nz
 fr
 op
-HC
+Wa
 KK
 Wo
 wA

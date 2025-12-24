@@ -110,6 +110,7 @@
 			to_chat(user, span_boldnotice("[get_display_name(mutation)]"))
 		else
 			to_chat(user, span_notice("[get_display_name(mutation)]"))
+	to_chat(user, span_notice("<span class='info ml-1'>Genetic Stability: [target.dna.stability]%.</span><br>")) // NOVA EDIT ADDITION - Adds stability indication.
 
 ///proc for scanning someone's genetic makeup
 /obj/item/sequence_scanner/proc/makeup_scan(mob/living/carbon/target, mob/living/user)

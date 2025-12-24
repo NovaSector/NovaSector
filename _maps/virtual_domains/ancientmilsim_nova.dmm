@@ -47,6 +47,11 @@
 /obj/structure/sign/poster/random/directional/south,
 /turf/open/floor/iron,
 /area/virtual_domain/ancient_milsim/snpc_cafe)
+"by" = (
+/obj/effect/mapping_helpers/broken_floor,
+/obj/item/mecha_ammo/cannon,
+/turf/open/floor/iron/dark,
+/area/virtual_domain/ancient_milsim/carrier)
 "bB" = (
 /obj/structure/inflatable{
 	color = "#556B2F";
@@ -530,7 +535,7 @@
 /turf/open/floor/plating,
 /area/virtual_domain/ancient_milsim/maintenance)
 "ol" = (
-/obj/item/ammo_box/magazine/mmg_box,
+/obj/item/mecha_ammo/lmg,
 /turf/open/floor/iron/dark,
 /area/virtual_domain/ancient_milsim/carrier)
 "or" = (
@@ -1193,7 +1198,7 @@
 /area/virtual_domain/ancient_milsim/atrium)
 "DS" = (
 /obj/effect/mapping_helpers/broken_floor,
-/obj/item/ammo_box/magazine/mmg_box,
+/obj/item/mecha_ammo/lmg,
 /turf/open/floor/iron/dark,
 /area/virtual_domain/ancient_milsim/carrier)
 "DT" = (
@@ -1783,7 +1788,7 @@
 /area/virtual_domain/ancient_milsim/snpc_bar)
 "RP" = (
 /obj/effect/mapping_helpers/broken_floor,
-/obj/item/mounted_machine_gun_folded,
+/obj/vehicle/sealed/mecha/warden/loaded,
 /turf/open/floor/iron/dark,
 /area/virtual_domain/ancient_milsim/carrier)
 "RU" = (
@@ -2542,7 +2547,7 @@ Cd
 Cd
 Eh
 Rl
-DS
+by
 DS
 EB
 RP

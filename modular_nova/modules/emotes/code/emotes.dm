@@ -208,6 +208,27 @@
 	vary = TRUE
 	sound = 'modular_nova/modules/emotes/sound/voice/slime_squish.ogg'
 
+/datum/emote/living/bubble
+	key = "bubble"
+	key_third_person = "bubbles"
+	message = "bubbles."
+	message_param = "bubbles at %t."
+	message_mime = "bubbles silently."
+	emote_type = EMOTE_AUDIBLE
+	muzzle_ignore = TRUE
+	vary = TRUE
+	sound = 'modular_nova/modules/emotes/sound/voice/slime_bubble.ogg'
+
+/datum/emote/living/pop
+	key = "pop"
+	key_third_person = "pops"
+	message = "makes a popping sound."
+	message_param = "makes a popping sound at %t."
+	message_mime = "makes a silent pop."
+	emote_type = EMOTE_AUDIBLE
+	vary = TRUE
+	sound = 'modular_nova/modules/emotes/sound/voice/slime_pop.ogg'
+
 /datum/emote/living/meow
 	key = "meow"
 	key_third_person = "meows"
