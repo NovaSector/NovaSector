@@ -36286,7 +36286,7 @@
 	width = 23
 	},
 /turf/open/space/basic,
-/area/space/nearstation)
+/area/space)
 "kpe" = (
 /obj/item/radio/intercom/directional/south,
 /obj/effect/turf_decal/tile/green/diagonal_centre,
