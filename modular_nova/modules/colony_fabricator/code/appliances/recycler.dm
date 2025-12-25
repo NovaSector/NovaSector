@@ -7,12 +7,14 @@
 	anchored = FALSE
 	density = TRUE
 	circuit = null
+	/// The container to hold materials
+	var/datum/material_container/materials
 	/// The percentage of materials returned
 	var/amount_produced = 80
 	/// The sound made when an item is eaten
 	var/item_recycle_sound = 'modular_nova/modules/reagent_forging/sound/forge.ogg'
 	/// The recycler's internal materials storage, for when items recycled don't produce enough to make a full sheet of that material
-	var/datum/component/material_container/materials
+	var/
 	/// The list of all the materials we can recycle
 	var/static/list/allowed_materials = list(
 		/datum/material/iron,
@@ -34,8 +36,8 @@
 	. = ..()
 	AddElement(/datum/element/repackable, repacked_type, 5 SECONDS)
 	AddElement(/datum/element/manufacturer_examine, COMPANY_FRONTIER)
-	materials = AddComponent( \
-		/datum/component/material_container, \
+	materials = new ( \
+		src, \
 		allowed_materials, \
 		INFINITY, \
 		MATCONTAINER_EXAMINE, \
@@ -43,7 +45,7 @@
 	)
 
 /obj/machinery/colony_recycler/Destroy()
-	materials = null
+	QDEL_NULL(materials)
 	return ..()
 
 /obj/machinery/colony_recycler/examine(mob/user)
