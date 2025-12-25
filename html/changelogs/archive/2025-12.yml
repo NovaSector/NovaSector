@@ -882,3 +882,6 @@
       tank cannon.
   - rscdel: SNPCs in MilSim lost their very-awkwardly-made literally-just-Browning
       HMG.
+2025-12-25:
+  MintMetal:
+  - bugfix: some Tarkon issues have been fixed
