@@ -1,0 +1,18 @@
+{
+	"version": 1,
+	"map_name": "Haven Station",
+	"map_path": "map_files/havenstation",
+	"map_file": "HavenStation.dmm",
+	"shuttles": {
+		"emergency": "emergency_delta",
+		"ferry": "ferry_fancy",
+		"cargo": "cargo_nova_delta",
+		"whiteship": "whiteship_delta"
+	},
+	"exclude_from_ci": true,
+	"job_changes": {
+		"Cook": {
+			"additional_cqc_areas": ["/area/station/service/cafeteria"]
+		}
+	}
+}
