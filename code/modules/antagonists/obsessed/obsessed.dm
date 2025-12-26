@@ -95,7 +95,7 @@
 
 /datum/antagonist/obsessed/forge_objectives(datum/mind/obsessionmind)
 	var/list/objectives_left = list(OBSESSED_OBJECTIVE_SPEND_TIME, OBSESSED_OBJECTIVE_POLAROID, OBSESSED_OBJECTIVE_HUG)
-	var/datum/objective/assassinate/obsessed/kidnap = new // NOVA EDIT CHANGE - Kidnap, not kill - ORIGINAL: var/datum/objective/assassinate/obsessed/kill = new
+	var/datum/objective/kidnap_obsessed/kidnap = new // NOVA EDIT CHANGE - Kidnap, not kill - ORIGINAL: var/datum/objective/assassinate/obsessed/kill = new
 	kill.owner = owner
 	kill.target = obsessionmind
 	var/obj/family_heirloom
@@ -183,6 +183,16 @@
 //////////////////////////////////////////////////
 ///CREEPY objectives (few chosen per obsession)///
 //////////////////////////////////////////////////
+
+/datum/objective/assassinate/obsessed //just a creepy version of assassinate
+
+/datum/objective/assassinate/obsessed/update_explanation_text()
+	..()
+	if(target?.current)
+		explanation_text = "Murder [target.name], the [!target_role_type ? target.assigned_role.title : english_list(target.get_special_roles())]."
+	else
+		message_admins("WARNING! [ADMIN_LOOKUPFLW(owner)] obsessed objectives forged without an obsession!")
+		explanation_text = "Free Objective"
 
 //NOVA EDIT ADDITION START
 /datum/objective/kidnap_obsessed
