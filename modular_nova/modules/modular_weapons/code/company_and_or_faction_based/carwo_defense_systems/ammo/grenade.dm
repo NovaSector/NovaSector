@@ -293,13 +293,19 @@
 /obj/projectile/bullet/c980grenade/concussive
 	name = ".980 Tydhouer kinetic concussive grenade"
 
-	/// Knockback wave size, see goonchem_vortex(). Has to be high to actually throw things.
+	/// Knockback wave size, see forced_throw_vortex.
 	var/knockback_size = 3
+	/// Concussion wave size. If you're in this distance from the airburst detonation, you eat a stagger.
+	var/stagger_size = 2
 
 /obj/projectile/bullet/c980grenade/concussive/fuse_activation(atom/target)
 	playsound(src, 'modular_nova/modules/modular_weapons/sounds/grenade_burst.ogg', 50, TRUE, -3)
-	forced_throw_vortex(get_turf(src), 1, knockback_size)
+	var/turf/burst_turf = get_turf(src)
+	for(var/mob/living/brainbonked in range(stagger_size, burst_turf))
+		var/distance = get_dist(brainbonked, burst_turf)
+		brainbonked.adjust_staggered_up_to(STAGGERED_SLOWDOWN_LENGTH * (stagger_size - distance), STAGGERED_SLOWDOWN_LENGTH * 3)
 	new /obj/effect/temp_visual/kinetic_blast(get_turf(src))
+	forced_throw_vortex(get_turf(src), 1, knockback_size)
 
 /obj/item/ammo_box/c980grenade/concussive
 	name = "ammo box (.980 Tydhouer kinetic concussive)"
