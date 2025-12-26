@@ -100,8 +100,6 @@
 	kill.target = obsessionmind
 	var/obj/family_heirloom
 
-// NOVA EDIT ADDITION END
-	var/obj/family_heirloom
 	for(var/datum/quirk/quirky in obsessionmind.current.quirks)
 		if(istype(quirky, /datum/quirk/item_quirk/family_heirloom))
 			var/datum/quirk/item_quirk/family_heirloom/heirloom_quirk = quirky
