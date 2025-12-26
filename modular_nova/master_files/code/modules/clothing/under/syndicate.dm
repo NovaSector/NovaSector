@@ -14,7 +14,7 @@
 
 //Related files:
 // modular_nova\modules\syndie_edits\code\syndie_edits.dm (this has the Overalls and non-Uniforms)
-// modular_nova\modules\novaya_ert\code\uniform.dm (NRI uniform(s))
+// modular_nova\modules\novaya_ert\code\uniform.dm (HC uniform(s))
 
 /*
 *	TACTICOOL

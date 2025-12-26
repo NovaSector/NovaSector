@@ -1,11 +1,10 @@
 /datum/job/nanotrasen_consultant
 	title = JOB_NT_REP
 	description = "Represent Nanotrasen on the station, argue with the HoS about why he can't just field execute people for petty theft, get drunk in your office."
-	department_head = list(JOB_CENTCOM)
 	faction = FACTION_STATION
 	total_positions = 1
 	spawn_positions = 1
-	supervisors = "Central Command"
+	supervisors = JOB_CENTCOM
 	minimal_player_age = 14
 	exp_requirements = 600
 	exp_required_type = EXP_TYPE_CREW

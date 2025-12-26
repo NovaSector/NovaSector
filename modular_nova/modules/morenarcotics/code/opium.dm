@@ -105,20 +105,23 @@
 	taste_description = "flowers"
 	addiction_types = list(/datum/addiction/opioids = 18)
 
-/datum/reagent/drug/opium/on_mob_life(mob/living/carbon/M, seconds_per_tick, times_fired)
+/datum/reagent/drug/opium/on_mob_life(mob/living/carbon/affected_mob, seconds_per_tick, times_fired)
 	var/high_message = pick("You feel euphoric.", "You feel on top of the world.")
 	if(SPT_PROB(2.5, seconds_per_tick))
-		to_chat(M, span_notice("[high_message]"))
-	M.add_mood_event("smacked out", /datum/mood_event/narcotic_heavy, name)
-	M.adjustBruteLoss(-0.1 * REM * seconds_per_tick, 0) //can be used as a (shitty) painkiller
-	M.adjustFireLoss(-0.1 * REM * seconds_per_tick, 0)
-	M.overlay_fullscreen("heroin_euphoria", /atom/movable/screen/fullscreen/color_vision/heroin_color)
-	return ..()
+		to_chat(affected_mob, span_notice("[high_message]"))
+	affected_mob.add_mood_event("smacked out", /datum/mood_event/narcotic_heavy, name)
+	var/need_mob_update
+	need_mob_update += affected_mob.adjust_brute_loss(-0.1 * REM * seconds_per_tick, updating_health = FALSE) //can be used as a (shitty) painkiller
+	need_mob_update += affected_mob.adjust_fire_loss(-0.1 * REM * seconds_per_tick, updating_health = FALSE)
+	if(need_mob_update)
+		. = UPDATE_MOB_HEALTH
+	affected_mob.overlay_fullscreen("heroin_euphoria", /atom/movable/screen/fullscreen/color_vision/heroin_color)
+	return ..() || .
 
-/datum/reagent/drug/opium/overdose_process(mob/living/M, seconds_per_tick, times_fired)
-	M.adjustOrganLoss(ORGAN_SLOT_BRAIN, 0.5 * REM * seconds_per_tick)
-	M.adjustToxLoss(1 * REM * seconds_per_tick, 0)
-	M.adjust_drowsiness(1 SECONDS * REM * normalise_creation_purity() * seconds_per_tick)
+/datum/reagent/drug/opium/overdose_process(mob/living/affected_mob, seconds_per_tick, times_fired)
+	affected_mob.adjust_organ_loss(ORGAN_SLOT_BRAIN, 0.5 * REM * seconds_per_tick, required_organ_flag = affected_organ_flags)
+	affected_mob.adjust_tox_loss(1 * REM * seconds_per_tick, updating_health = FALSE, required_biotype = affected_biotype)
+	affected_mob.adjust_drowsiness(1 SECONDS * REM * normalise_creation_purity() * seconds_per_tick)
 	return TRUE
 
 /datum/reagent/drug/opium/on_mob_metabolize(mob/living/metabolizer)
@@ -140,13 +143,13 @@
 	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
 	inverse_chem = /datum/reagent/drug/opium/blacktar/liquid
 
-/datum/reagent/drug/opium/heroin/on_mob_life(mob/living/carbon/M, seconds_per_tick, times_fired)
+/datum/reagent/drug/opium/heroin/on_mob_life(mob/living/carbon/affected_mob, seconds_per_tick, times_fired)
 	. = ..()
 	var/high_message = pick("You feel like nothing can stop you.", "You feel like God.")
 	if(SPT_PROB(2.5, seconds_per_tick))
-		to_chat(M, span_notice("[high_message]"))
-	var/need_mob_update = M.adjustBruteLoss(-0.4 * REM * seconds_per_tick, , updating_health = FALSE) //more powerful as a painkiller, possibly actually useful to medical now
-	need_mob_update += M.adjustFireLoss(-0.4 * REM * seconds_per_tick, , updating_health = FALSE)
+		to_chat(affected_mob, span_notice("[high_message]"))
+	var/need_mob_update = affected_mob.adjust_brute_loss(-0.4 * REM * seconds_per_tick, , updating_health = FALSE) //more powerful as a painkiller, possibly actually useful to medical now
+	need_mob_update += affected_mob.adjust_fire_loss(-0.4 * REM * seconds_per_tick, , updating_health = FALSE)
 	if(need_mob_update)
 		return UPDATE_MOB_HEALTH
 
@@ -159,14 +162,14 @@
 	taste_description = "flowers"
 	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
 
-/datum/reagent/drug/opium/blacktar/on_mob_life(mob/living/carbon/M, seconds_per_tick, times_fired)
+/datum/reagent/drug/opium/blacktar/on_mob_life(mob/living/carbon/affected_mob, seconds_per_tick, times_fired)
 	. = ..()
 	var/high_message = pick("You feel like tar.", "The blood in your veins feel like syrup.")
 	if(SPT_PROB(2.5, seconds_per_tick))
-		to_chat(M, span_notice("[high_message]"))
+		to_chat(affected_mob, span_notice("[high_message]"))
 
-	M.set_drugginess(20 SECONDS * REM * seconds_per_tick)
-	if(M.adjustToxLoss(0.5 * REM * seconds_per_tick, updating_health = FALSE))
+	affected_mob.set_drugginess(20 SECONDS * REM * seconds_per_tick)
+	if(affected_mob.adjust_tox_loss(0.5 * REM * seconds_per_tick, updating_health = FALSE, required_biotype = affected_biotype))
 		return UPDATE_MOB_HEALTH
 
 /datum/reagent/drug/opium/blacktar/liquid //prevents self-duplication by going one step down when mixed

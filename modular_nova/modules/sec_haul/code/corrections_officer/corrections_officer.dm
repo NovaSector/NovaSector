@@ -2,7 +2,6 @@
 	title = JOB_CORRECTIONS_OFFICER
 	description = "Guard the permabrig, stand around looking imposing, get fired for abusing the prisoners"
 	auto_deadmin_role_flags = DEADMIN_POSITION_SECURITY
-	department_head = list("The Warden and Head of Security")
 	faction = FACTION_STATION
 	total_positions = 1
 	spawn_positions = 1
@@ -20,6 +19,7 @@
 	plasmaman_outfit = /datum/outfit/plasmaman/security
 	display_order = JOB_DISPLAY_ORDER_CORRECTIONS_OFFICER
 	liver_traits = list(TRAIT_LAW_ENFORCEMENT_METABOLISM)
+	bounty_types = CIV_JOB_SEC
 	departments_list = list(
 		/datum/job_department/security,
 	)

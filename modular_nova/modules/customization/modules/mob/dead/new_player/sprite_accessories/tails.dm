@@ -7,22 +7,22 @@
 	var/fluffy = FALSE
 
 /datum/sprite_accessory/tails/is_hidden(mob/living/carbon/human/wearer)
-	var/list/used_in_turf = list("tail")
-	if(wearer.owned_turf?.name in used_in_turf)
+	if(wearer.owned_turf?.name == "tail")
 	// Emote exception
 		return TRUE
 
-	if(!wearer.w_uniform && !wearer.wear_suit)
+	var/obj/item/clothing/suit/mod/worn_suit = wearer.wear_suit
+	if(isnull(wearer.w_uniform) && isnull(worn_suit))
 		return FALSE
 	if(key in wearer.try_hide_mutant_parts)
 		return TRUE
 
-	if(wearer.wear_suit)
+	if(worn_suit)
 		// Exception for MODs
-		if(istype(wearer.wear_suit, /obj/item/clothing/suit/mod))
+		if(istype(worn_suit))
 			return FALSE
 		// Hide accessory if flagged to do so
-		else if(wearer.wear_suit.flags_inv & HIDETAIL)
+		else if(worn_suit.flags_inv & HIDETAIL)
 			return TRUE
 
 /datum/sprite_accessory/tails/none
@@ -498,11 +498,23 @@
 	name = "Gecko"
 	icon_state = "gecko"
 
+/datum/sprite_accessory/tails/mammal/wagging/chemlight
+	name = "Striped Tail"
+	icon_state = "chemlight"
+
+/datum/sprite_accessory/tails/mammal/wagging/chemlight_alt
+	name = "Striped Tail (Alt)"
+	icon_state = "chemlight_alt"
+
+/datum/sprite_accessory/tails/mammal/insectunder
+	name = "Insect (Underbelly)"
+	icon_state = "insectunder"
+
 // TG Fish infusion tails
 /datum/sprite_accessory/tails/fish
 	recommended_species = list(SPECIES_AKULA, SPECIES_AQUATIC)
 	color_src = USE_ONE_COLOR
-	feature_key_override = "fish_tail"
+	feature_key_override = FEATURE_TAIL_FISH
 
 /datum/sprite_accessory/tails/fish/simple
 	name = "Simple (Fish Infusion)"
@@ -519,14 +531,8 @@
 /datum/sprite_accessory/tails/fish/chonky
 	name = "Chonky (Fish Infusion)"
 
-/datum/sprite_accessory/tails/mammal/wagging/chemlight
-	name = "Striped Tail"
-	icon_state = "chemlight"
+/datum/sprite_accessory/tails/xeno
+	feature_key_override = FEATURE_TAIL_XENO
 
-/datum/sprite_accessory/tails/mammal/wagging/chemlight_alt
-	name = "Striped Tail (Alt)"
-	icon_state = "chemlight_alt"
-
-/datum/sprite_accessory/tails/mammal/insectunder
-	name = "Insect (Underbelly)"
-	icon_state = "insectunder"
+/datum/sprite_accessory/tails/xeno/queen
+	locked = TRUE

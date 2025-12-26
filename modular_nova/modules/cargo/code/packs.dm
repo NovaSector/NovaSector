@@ -410,7 +410,7 @@
 	contains = list(/obj/item/gravity_harness)
 
 /datum/supply_pack/misc/commandkeys
-	hidden = TRUE
+	order_flags = ORDER_EMAG_ONLY
 
 /*
 *	FOOD
@@ -680,7 +680,7 @@
 	name = "Authentic Renaissance Faire Crate"
 	desc = "Contains two authentic suits of armor, swords, and two bows and cuirass' for the cowards hiding in the back."
 	cost = CARGO_CRATE_VALUE * 30
-	contraband = TRUE
+	order_flags = ORDER_CONTRABAND
 	contains = list(
 		/obj/item/clothing/suit/armor/riot/knight/larp/red,
 		/obj/item/clothing/gloves/plate/larp/red,
@@ -790,7 +790,7 @@
 	desc = "Hey, we've apparently got a backlog of paperwork here. It's pretty bad. \
 		If you guys could pay the shuttle guys to look the other way, and help us fill it out so we can file this stuff away, \
 		it'll look a lot nicer on our quarterly reports... which means we can justify putting a few extra credits in your budget. \
-		Thanks."
+		Thanks. For your convenience, we've repacked it into a single large folder. Be careful with it."
 	cost = CARGO_CRATE_VALUE * 5
 	/*
 	one properly stamped paperwork is CARGO_CRATE_VALUE * 4.
@@ -799,7 +799,7 @@
 	5 paperworks for 20 crates (4000cr), initial cost of 5 crates (1000cr), profit of 15 crates (3000cr)
 	*/
 	contains = list(
-		/obj/item/folder/ancient_paperwork = 5
+		/obj/item/folder/ancient_paperwork/five,
 	)
 
 /*

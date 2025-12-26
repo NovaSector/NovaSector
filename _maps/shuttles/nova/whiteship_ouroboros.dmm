@@ -89,13 +89,12 @@
 /turf/open/floor/iron/large,
 /area/shuttle/abandoned)
 "eR" = (
-/obj/machinery/button/door{
-	id = "whiteship_windows";
-	name = "Blast Door Control";
-	pixel_x = -24
-	},
 /obj/machinery/computer/camera_advanced/shuttle_docker/whiteship,
 /obj/effect/turf_decal/box/white,
+/obj/machinery/button/door/directional/west{
+	id = "whiteship_windows";
+	name = "Blast Door Control"
+	},
 /turf/open/floor/iron/dark/small,
 /area/shuttle/abandoned/bridge)
 "eW" = (
@@ -530,12 +529,11 @@
 /area/shuttle/abandoned)
 "Gr" = (
 /obj/machinery/atmospherics/components/tank/air,
-/obj/machinery/button/door{
-	id = "whiteship_windows";
-	name = "Blast Door Control";
-	pixel_x = 24
-	},
 /obj/machinery/light/cold/dim/directional/north,
+/obj/machinery/button/door/directional/east{
+	id = "whiteship_windows";
+	name = "Blast Door Control"
+	},
 /turf/open/floor/plating,
 /area/shuttle/abandoned/engine)
 "GX" = (

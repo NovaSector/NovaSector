@@ -75,7 +75,7 @@
 	var/mob/living/carbon/carbon_owner = owner
 	if(!istype(carbon_owner))
 		return
-	if((owner.getBruteLoss() + carbon_owner.getFireLoss()) >= DAMAGE_LIMIT_HEMOKINETIC_REGEN)
+	if((owner.get_brute_loss() + carbon_owner.get_fire_loss()) >= DAMAGE_LIMIT_HEMOKINETIC_REGEN)
 		to_chat(carbon_owner, span_warning("Your body is too damaged to be healed with hemokinesis!"))
 		return
 
@@ -88,13 +88,13 @@
 	if(!istype(carbon_owner))
 		return
 
-	if((carbon_owner.getBruteLoss() + carbon_owner.getFireLoss()) >= DAMAGE_LIMIT_HEMOKINETIC_REGEN)
+	if((carbon_owner.get_brute_loss() + carbon_owner.get_fire_loss()) >= DAMAGE_LIMIT_HEMOKINETIC_REGEN)
 		to_chat(carbon_owner, span_warning("Your body is too damaged to be healed with hemokinesis!"))
 		qdel(src)
 
 	var/amount_healed = 0
-	amount_healed += carbon_owner.adjustBruteLoss(-HEMOKINETIC_REGEN_HEALING * seconds_between_ticks, updating_health = FALSE, required_bodytype = BODYTYPE_ORGANIC)
-	amount_healed += carbon_owner.adjustFireLoss(-HEMOKINETIC_REGEN_HEALING * seconds_between_ticks, updating_health = FALSE, required_bodytype = BODYTYPE_ORGANIC)
+	amount_healed += carbon_owner.adjust_brute_loss(-HEMOKINETIC_REGEN_HEALING * seconds_between_ticks, updating_health = FALSE, required_bodytype = BODYTYPE_ORGANIC)
+	amount_healed += carbon_owner.adjust_fire_loss(-HEMOKINETIC_REGEN_HEALING * seconds_between_ticks, updating_health = FALSE, required_bodytype = BODYTYPE_ORGANIC)
 	if(amount_healed)
 		carbon_owner.blood_volume -= (HEMOKINETIC_REGEN_BLOOD_CONSUMPTION * amount_healed)
 		carbon_owner.updatehealth()
@@ -120,7 +120,7 @@
 	if(!istype(carbon_owner))
 		return
 
-	carbon_owner.adjustStaminaLoss(carbon_owner.getStaminaLoss() * 0.5, forced = TRUE)
+	carbon_owner.adjust_stamina_loss(carbon_owner.get_stamina_loss() * 0.5, forced = TRUE)
 	carbon_owner.max_stamina *= 0.5 // stamina is halved while this is active.
 	REMOVE_TRAIT(carbon_owner, TRAIT_NOBREATH, SPECIES_TRAIT)
 	REMOVE_TRAIT(carbon_owner, TRAIT_OXYIMMUNE, SPECIES_TRAIT)
@@ -132,7 +132,7 @@
 	if(!istype(carbon_owner))
 		return
 
-	carbon_owner.adjustStaminaLoss(carbon_owner.getStaminaLoss() / 0.5, forced = TRUE)
+	carbon_owner.adjust_stamina_loss(carbon_owner.get_stamina_loss() / 0.5, forced = TRUE)
 	carbon_owner.max_stamina /= 0.5
 	carbon_owner.remove_movespeed_modifier(/datum/movespeed_modifier/master_of_the_house)
 	if(carbon_owner.oxyloss) // if they have oxyloss, don't just heal it instantly
@@ -181,7 +181,7 @@
 		return
 
 	var/mob/living/carbon/carbon_owner = owner
-	oxyloss_to_heal = carbon_owner.getOxyLoss()
+	oxyloss_to_heal = carbon_owner.get_oxy_loss()
 	to_chat(carbon_owner, "You feel a sense of relief as you embrace the tumor once more...")
 
 
@@ -200,7 +200,7 @@
 	if(!istype(carbon_owner))
 		return
 
-	var/amount_healed = carbon_owner.adjustOxyLoss(round(-oxyloss_to_heal/(initial(duration) / 10) * seconds_between_ticks, 0.01), forced = TRUE)
+	var/amount_healed = carbon_owner.adjust_oxy_loss(round(-oxyloss_to_heal/(initial(duration) / 10) * seconds_between_ticks, 0.01), forced = TRUE)
 	if(amount_healed)
 		carbon_owner.blood_volume -= (HEMOKINETIC_REGEN_BLOOD_CONSUMPTION * amount_healed)
 

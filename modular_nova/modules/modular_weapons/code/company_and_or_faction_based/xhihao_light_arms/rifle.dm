@@ -19,18 +19,17 @@
 	can_be_sawn_off = FALSE
 	weapon_weight = WEAPON_HEAVY
 
-	lore_blurb = "The Xhihao 'Rengo' rifle is a conversion of the venerable Sakhno Precision Rifle, \
-		with \"modern\" features such as an accessory rail and detachable magazines.<br><br>\
-		Initially a set of chassis parts sold in a single kit by Xhihao Light Arms, \
-		the 'Rengo' kit is designed to replace much of the furniture on a typical Sakhno \
-		in order to improve the ergonomics, reduce the weight, and overall improve the end-user experience. \
-		While not necessarily increasing performance in any way, the magazine's cross-compatibility with Lanca magazines \
-		allows for greater capacity than the five-round internal magazines that come standard with Sakhnos, and the \
-		scope included with the kit, originally for use with the Lanca, is quite usable thanks to the shared chambering. \
-		The weapon is also overall a bit shorter, making it easier to handle for smaller shooters and/or \
-		in uncomfortably close quarters for a precision weapon. \
-		Due to the reduced space between components, the Rengo cannot be sawn off; \
-		cutting... any part of this weapon off, really, would make it either hazardous to fire or non-functional."
+	lore_blurb = "The Xhihao 'Rengo' rifle began as a box of parts and a set of instructions — a \"Sporterization Kit\" sold to frontier gunsmiths and \
+		hobbyists looking to improve their aging Sakhno rifles. The philosophy was simple: don't try to reinvent the wheel, just give \
+		it better bearings. <br><br> \
+		The kit replaces the original furniture with a modern composite chassis featuring an integrated accessory rail, a more ergonomic pistol \
+		grip, and a shortened barrel profile for better balance. The crown jewel of the conversion is the precision - machined magazine well adapter, \
+		which allows the rifle to feed from common Lanca-pattern magazines. This not only increases capacity but also simplifies logistics, as \
+		.310 Strilka ammunition is the most common high-powered cartridge available on the civilian market. <br><br> \
+		The included scope, a modest magnification optic also compatible with the Lanca battle rifle, finally gives the Sakhno's accurate barrel \
+		the sighting system it always deserved. The conversion is irreversible by design; the chassis components are too integrated to allow for sawing \
+		off or reversion to the original stock, a small price to pay for turning a collection of \"sometimes useful\" antiques into a single, highly \
+		capable modern precision platform."
 
 /obj/item/gun/ballistic/rifle/sporterized/Initialize(mapload)
 	. = ..()

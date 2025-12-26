@@ -3,7 +3,7 @@
 	desc = "A pair of wings. Those may or may not allow you to fly... or at the very least flap."
 	zone = BODY_ZONE_CHEST
 	slot = ORGAN_SLOT_WINGS
-	mutantpart_key = "wings"
+	mutantpart_key = FEATURE_WINGS
 	mutantpart_info = list(MUTANT_INDEX_NAME = "Bat", MUTANT_INDEX_COLOR_LIST = list("#335533"))
 	///Whether the wings should grant flight on insertion.
 	var/unconditional_flight
@@ -92,7 +92,7 @@
 		COOLDOWN_START(src, dash_cooldown, 6 SECONDS)
 		var/mob/living/dash_user = owner
 		if(istype(dash_user))
-			dash_user.adjustStaminaLoss(37.5) //Given the risk of flying into things and crashing quite violently, you get four of these. Every one slows you down anyway.
+			dash_user.adjust_stamina_loss(37.5) //Given the risk of flying into things and crashing quite violently, you get four of these. Every one slows you down anyway.
 	else
 		REMOVE_TRAIT(owner, TRAIT_MOVE_FLOATING, LEAPING_TRAIT)
 		to_chat(owner, span_warning("Something prevents you from dashing forward!"))
@@ -164,7 +164,7 @@
 
 	if(do_after(user, climb_time, target))
 		user.forceMove(target)
-		user.adjustStaminaLoss(100)
+		user.adjust_stamina_loss(100)
 		playsound(user_turf, 'sound/mobs/humanoids/moth/moth_flutter.ogg', 50) //a third time for seasoning
 		. = ITEM_INTERACT_SUCCESS
 	QDEL_LIST(effects)
@@ -203,7 +203,6 @@
 	name = "megamoth wings"
 	desc = "A pair of horrifyingly large, fuzzy wings. They look strong enough to lift you up in the air."
 	mutantpart_info = list(MUTANT_INDEX_NAME = "Megamoth", MUTANT_INDEX_COLOR_LIST = list("#FFFFFF"))
-
 
 /datum/bodypart_overlay/mutant/wings/functional
 	color_source = ORGAN_COLOR_INHERIT

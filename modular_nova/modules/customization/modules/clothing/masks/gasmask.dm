@@ -53,6 +53,17 @@
 	flags_cover = MASKCOVERSEYES
 	resistance_flags = FLAMMABLE
 
+/obj/item/clothing/mask/gas/pink_clown_wig
+	name = "pink clown wig"
+	desc = "A cotton candy pink wig. Comes with a round, glossy red clown nose that fastens snugly to the face."
+	clothing_flags = MASKINTERNALS
+	icon = 'modular_nova/master_files/icons/obj/clothing/masks.dmi'
+	worn_icon = 'modular_nova/master_files/icons/mob/clothing/mask.dmi'
+	icon_state = "pink_clown_wig"
+	inhand_icon_state = null
+	flags_inv = HIDEHAIR
+	resistance_flags = FLAMMABLE
+
 /obj/item/clothing/mask/gas/respirator
 	name = "half mask respirator"
 	desc = "A half mask respirator that's really just a standard gas mask with the glass taken off."

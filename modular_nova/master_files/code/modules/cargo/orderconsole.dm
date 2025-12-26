@@ -1,12 +1,5 @@
-/obj/machinery/computer/cargo/ui_act(action, list/params, datum/tgui/ui, datum/ui_state/state)
-	. = ..()
-	if(.)
-		return
-
-	switch(action)
-		if("company_import_window")
-			var/datum/component/armament/company_imports/company_import_component = GetComponent(/datum/component/armament/company_imports)
-			company_import_component.ui_interact(usr)
-			. = TRUE
-	if(.)
-		post_signal(cargo_shuttle)
+/obj/machinery/computer/cargo
+	/// Flag that controls which supplies packs this console is allowed to order from.
+	var/console_flag = CARGO_CONSOLE_NT
+	///Flag to indicate that this console can bypass the express console block.
+	var/bypass_express_lock = FALSE

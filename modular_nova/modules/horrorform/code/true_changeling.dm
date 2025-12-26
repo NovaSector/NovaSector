@@ -57,7 +57,7 @@
 
 /mob/living/simple_animal/hostile/true_changeling/Life()
 	. = ..()
-	adjustBruteLoss(-TRUE_CHANGELING_PASSIVE_HEAL)
+	adjust_brute_loss(-TRUE_CHANGELING_PASSIVE_HEAL)
 
 /mob/living/simple_animal/hostile/true_changeling/AttackingTarget()
 	..()
@@ -125,7 +125,7 @@
 	stored_changeling.loc = get_turf(src)
 	mind.transfer_to(stored_changeling)
 	stored_changeling.Paralyze(10 SECONDS) //Make them helpless for 10 seconds
-	stored_changeling.adjustBruteLoss(30, TRUE, TRUE)
+	stored_changeling.adjust_brute_loss(30, TRUE, TRUE)
 	REMOVE_TRAIT(stored_changeling, TRAIT_GODMODE, "Changeling_True_Form")
 	stored_changeling.emote("scream")
 	stored_changeling.gib()
@@ -232,7 +232,7 @@
 		lunch = tgui_input_list(horrorform, "Choose a human to devour.", "Lunch", potential_targets)
 	if(!lunch && !ishuman(lunch))
 		return FALSE
-	if(lunch.getBruteLoss() + lunch.getFireLoss() >= 200) //Overall physical damage, basically
+	if(lunch.get_brute_loss() + lunch.get_fire_loss() >= 200) //Overall physical damage, basically
 		horrorform.visible_message(span_warning("[lunch] provides no further nutrients for [horrorform]!"), \
 						span_danger("[lunch] has no more useful flesh for us to consume!!"))
 		return FALSE
@@ -243,7 +243,7 @@
 		horrorform.devouring = FALSE
 		return FALSE
 	horrorform.devouring = FALSE
-	lunch.adjustBruteLoss(60)
+	lunch.adjust_brute_loss(60)
 	horrorform.visible_message(span_warning("[horrorform] tears a chunk from [lunch]'s flesh!"), \
 					span_danger("We tear a chunk of flesh from [lunch] and devour it!"))
 	to_chat(lunch, span_userdanger("[horrorform] takes a huge bite out of you!"))
@@ -260,9 +260,9 @@
 	playsound(lunch, 'modular_nova/modules/horrorform/sound/tear.ogg', 50, 1)
 	lunch.emote("scream")
 	if(lunch.nutrition >= NUTRITION_LEVEL_FAT)
-		horrorform.adjustBruteLoss(-100) //Tasty leetle peegy
+		horrorform.adjust_brute_loss(-100) //Tasty leetle peegy
 	else
-		horrorform.adjustBruteLoss(-50)
+		horrorform.adjust_brute_loss(-50)
 
 #undef TRUE_CHANGELING_REFORM_THRESHOLD
 #undef TRUE_CHANGELING_PASSIVE_HEAL

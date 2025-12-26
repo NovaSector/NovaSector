@@ -43,6 +43,7 @@ GLOBAL_LIST_INIT_TYPED(quirk_blacklist, /list/datum/quirk, list(
 	list(/datum/quirk/sensitive_hearing, /datum/quirk/item_quirk/blindness, /datum/quirk/item_quirk/deafness, /datum/quirk/echolocation),
 	list(/datum/quirk/visitor, /datum/quirk/item_quirk/underworld_connections),
 	list(/datum/quirk/adapted_lungs, /datum/quirk/item_quirk/breather/water_breather, /datum/quirk/item_quirk/breather/nitrogen_breather, /datum/quirk/item_quirk/breather/plasma_breather),
+	list(/datum/quirk/psionic_dampener, /datum/quirk/telepathic),
 	//NOVA EDIT ADDITION END
 ))
 

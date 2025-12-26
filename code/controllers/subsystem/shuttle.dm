@@ -156,10 +156,6 @@ SUBSYSTEM_DEF(shuttle)
 	while(length(pack_processing))
 		var/datum/supply_pack/pack = pack_processing[length(pack_processing)]
 		pack_processing.len--
-		// NOVA EDIT ADDITION START
-		if(pack == /datum/supply_pack/armament)
-			continue
-		// NOVA EDIT ADDITION END
 		if(ispath(pack, /datum/supply_pack))
 			pack = new pack
 

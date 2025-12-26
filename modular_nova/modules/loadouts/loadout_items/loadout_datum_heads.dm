@@ -111,6 +111,10 @@
 	name = "Beret - Virologist"
 	item_path = /obj/item/clothing/head/beret/medical/virologist
 
+/datum/loadout_item/head/beret_clown
+	name = "Beret - Clown"
+	item_path = /obj/item/clothing/head/beret/clown
+
 /*
 *	CAPS
 */
@@ -135,6 +139,7 @@
 /datum/loadout_item/head/colonialcap
 	name = "Cap - Colonial"
 	item_path = /obj/item/clothing/head/hats/colonial
+	species_blacklist = list(SPECIES_TESHARI)
 
 /datum/loadout_item/head/frontiercap
 	name = "Cap - Frontier"
@@ -487,17 +492,6 @@
 /datum/loadout_item/head/maidhead2/get_item_information()
 	. = ..()
 	.[FA_ICON_EAR_DEAF] = "Behind Ears"
-
-//Christmas
-/datum/loadout_item/head/christmas
-	name = "Christmas Hat - Red"
-	item_path = /obj/item/clothing/head/costume/nova/christmas
-	group = "Costumes"
-
-/datum/loadout_item/head/christmas/green
-	name = "Christmas Hat - Green"
-	item_path = /obj/item/clothing/head/costume/nova/christmas/green
-	group = "Costumes"
 
 //Chaplain
 /datum/loadout_item/head/chap_nunh

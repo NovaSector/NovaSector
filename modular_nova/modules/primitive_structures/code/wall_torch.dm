@@ -26,7 +26,8 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/structure/wall_torch, 28)
 		light_it_up()
 
 	update_appearance(UPDATE_NAME | UPDATE_DESC | UPDATE_ICON_STATE)
-	find_and_hang_on_wall()
+	if(mapload)
+		find_and_mount_on_atom()
 
 
 /obj/structure/wall_torch/Destroy()
