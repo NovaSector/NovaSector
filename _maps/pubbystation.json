@@ -1,0 +1,20 @@
+{
+	"version": 1,
+	"map_name": "Pubby Station",
+	"map_path": "map_files/Pubbystation",
+	"map_file": "Pubbystation.dmm",
+	"shuttles": {
+		"emergency": "emergency_pubby",
+		"whiteship": "whiteship_pubby",
+		"ferry": "ferry_fancy",
+		"cargo": "cargo_pubby"
+	},
+	"job_changes": {
+		"Cook": {
+			"additional_cqc_areas": ["/area/station/service/bar/atrium"]
+		},
+		"Chaplain": {
+			"has_monastery": 1
+		}
+	}
+}
