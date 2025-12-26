@@ -1,0 +1,4 @@
+author: "sqnztb"
+delete-after: True
+changes:
+  - bugfix: "Soda dispensers now get their T2 upgrades applied properly. Apple, pumpkin, and vanilla return."
