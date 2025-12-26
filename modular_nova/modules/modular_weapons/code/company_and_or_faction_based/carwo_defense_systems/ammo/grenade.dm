@@ -332,9 +332,9 @@
 		var/moving_power = max(range - distance, 1)
 		if(setting_type)
 			var/atom/throw_target = get_edge_target_turf(X, get_dir(X, get_step_away(X, T)))
-			X.throw_at(throw_target, moving_power, moving_power)
+			X.throw_at(throw_target, moving_power * 1.5, moving_power)
 		else
-			X.throw_at(T, moving_power, moving_power)
+			X.throw_at(T, moving_power * 1.5, moving_power)
 
 #undef AMMO_MATS_GRENADE
 #undef AMMO_MATS_GRENADE_SHRAPNEL
