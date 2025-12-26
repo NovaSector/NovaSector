@@ -78,6 +78,7 @@
 	else
 		message_admins("WARNING! [ADMIN_LOOKUPFLW(owner)] obsessed objectives forged without an obsession!")
 		explanation_text = "Free Objective"
+
 /datum/objective/contract/opt_in_valid(datum/mind/target_mind)
 	var/datum/job/target_job = target_mind.assigned_role
 	if (!target_job?.contractable)
