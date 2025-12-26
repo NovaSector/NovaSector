@@ -126,7 +126,7 @@
 
 /obj/item/canvas/drawingtablet/ui_action_click(mob/user, action)
 	if(istype(action, /datum/action/item_action/dtselectcolor))
-		currentcolor = input(user, "", "Choose Color", currentcolor) as color|null
+		currentcolor = tgui_color_picker(user, "", "Choose Color", currentcolor)
 	else if(istype(action, /datum/action/item_action/dtcolormenu))
 		var/list/selects = colors.Copy()
 		selects["Save"] = "Save"
@@ -219,6 +219,7 @@
 	icon = 'modular_nova/master_files/icons/donator/obj/custom.dmi'
 	lefthand_file = 'modular_nova/master_files/icons/donator/mob/inhands/donator_left.dmi'
 	righthand_file = 'modular_nova/master_files/icons/donator/mob/inhands/donator_right.dmi'
+	custom_materials = list(/datum/material/silver = SHEET_MATERIAL_AMOUNT)
 
 // Donation reward for Thedragmeme
 /obj/item/clothing/neck/padded
@@ -341,8 +342,6 @@
 /obj/item/clothing/head/hooded/padded/alt
 	name = "feathered serenity hood"
 	icon_state = "paddedhoodalt"
-
-/datum/armor/clothing_under/none
 
 /obj/item/clothing/shoes/jackboots/heel
 	name = "high-heeled jackboots"

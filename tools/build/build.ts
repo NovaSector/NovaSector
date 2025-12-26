@@ -159,6 +159,7 @@ export const DmMapsIncludeTarget = new Juke.Target({
       ...Juke.glob('_maps/RandomZLevels/**/*.dmm'),
       ...Juke.glob('_maps/shuttles/**/*.dmm'),
       ...Juke.glob('_maps/templates/**/*.dmm'),
+      ...Juke.glob('_maps/nova/**/*.dmm'), // NOVA EDIT ADDITION - Mom said its our turn on the CI
     ];
     const content =
       folders

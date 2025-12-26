@@ -16,7 +16,7 @@
 	demolition_mod = 0.75 // Note: This is significant, as this needs to be low enough that any possible force adjustments from better spears does not go over airlock deflection. See AIRLOCK_DAMAGE_DEFLECTION_N.
 	embed_type = /datum/embedding/spear
 	armour_penetration = 5
-	custom_materials = list(/datum/material/iron = HALF_SHEET_MATERIAL_AMOUNT, /datum/material/glass= HALF_SHEET_MATERIAL_AMOUNT * 2)
+	custom_materials = list(/datum/material/iron = SHEET_MATERIAL_AMOUNT * 0.65, /datum/material/glass= SHEET_MATERIAL_AMOUNT * 1.15)
 	hitsound = 'sound/items/weapons/bladeslice.ogg'
 	attack_verb_continuous = list("attacks", "pokes", "jabs", "tears", "lacerates", "gores")
 	attack_verb_simple = list("attack", "poke", "jab", "tear", "lacerate", "gore")
@@ -96,7 +96,6 @@
 		if(/obj/item/shard/plasma)
 			force = 11
 			throwforce = 21
-			custom_materials = list(/datum/material/iron= HALF_SHEET_MATERIAL_AMOUNT, /datum/material/alloy/plasmaglass= HALF_SHEET_MATERIAL_AMOUNT * 2)
 			icon_prefix = "spearplasma"
 			modify_max_integrity(220)
 			wound_bonus = -10
@@ -115,7 +114,6 @@
 			throwforce = 22
 			throw_range = 8
 			throw_speed = 5
-			custom_materials = list(/datum/material/iron= HALF_SHEET_MATERIAL_AMOUNT, /datum/material/alloy/titaniumglass= HALF_SHEET_MATERIAL_AMOUNT * 2)
 			modify_max_integrity(230)
 			wound_bonus = -5
 			force_unwielded = 12
@@ -135,7 +133,6 @@
 			throwforce = 23
 			throw_range = 9
 			throw_speed = 5
-			custom_materials = list(/datum/material/iron= HALF_SHEET_MATERIAL_AMOUNT, /datum/material/alloy/plastitaniumglass= HALF_SHEET_MATERIAL_AMOUNT * 2)
 			modify_max_integrity(240)
 			wound_bonus = 0
 			exposed_wound_bonus = 20
@@ -155,7 +152,7 @@
 	return ..()
 
 /obj/item/spear/afterattack(atom/target, mob/user, list/modifiers, list/attack_modifiers)
-	if(improvised_construction)
+	if(!improvised_construction)
 		return
 	take_damage(force/2, sound_effect = FALSE)
 
@@ -264,13 +261,11 @@
 	if(!isliving(target))
 		return
 	var/mob/living/stabbed = target
-	if(istype(stabbed, /mob/living/simple_animal/hostile/illusion))
+	if(istype(stabbed, /mob/living/basic/illusion))
 		return
 	if(stabbed.stat == CONSCIOUS && prob(50))
-		var/mob/living/simple_animal/hostile/illusion/fake_clone = new(user.loc)
-		fake_clone.faction = user.faction.Copy()
-		fake_clone.Copy_Parent(user, 100, user.health/2.5, 12, 30)
-		fake_clone.GiveTarget(stabbed)
+		var/mob/living/basic/illusion/fake_clone = new(user.loc)
+		fake_clone.full_setup(user, target_mob = stabbed, faction = user.faction, life = 10 SECONDS, hp = user.health / 2.5, damage = 12, replicate = 30)
 
 //MILITARY
 /obj/item/spear/military
@@ -299,6 +294,68 @@
 	)
 
 /*
+ * Anti-big monster spear
+ * "WHERES MY DRAGONATOR?!"
+ */
+/obj/item/spear/dragonator
+	icon = 'icons/obj/weapons/48x.dmi'
+	icon_state = "speardragon0"
+	icon_prefix = "speardragon"
+	base_icon_state = "speardragon0"
+	lefthand_file = 'icons/mob/inhands/weapons/polearms_lefthand.dmi'
+	righthand_file = 'icons/mob/inhands/weapons/polearms_righthand.dmi'
+	name = "Giantslayer Spear"
+	desc = "An oversized multi-bladed spear designed to kill large hostile xenoforms such as space dragons or the creatures of lavaland. Capable of being launched from a ballista."
+	demolition_mod = 0.5
+	resistance_flags = LAVA_PROOF | FIRE_PROOF | UNACIDABLE | ACID_PROOF
+	force = 13
+	throwforce = 23
+	throw_range = 9
+	throw_speed = 5
+	wound_bonus = 0
+	exposed_wound_bonus = 20
+	force_unwielded = 13
+	force_wielded = 21
+	armour_penetration = 15
+	custom_materials =  list(
+		/datum/material/iron = SHEET_MATERIAL_AMOUNT * 42,
+		/datum/material/alloy/plasteel = SHEET_MATERIAL_AMOUNT * 15,
+		/datum/material/titanium = SHEET_MATERIAL_AMOUNT * 5)
+
+/obj/item/spear/dragonator/Initialize(mapload)
+	. = ..()
+	AddElement(/datum/element/bane, mob_biotypes = MOB_MINING, damage_multiplier = 3.5) //For killing really big monsters,
+
+/*
+ * Untreated Giantslayer , needs to be thrown into lava
+ */
+/obj/item/spear/dragonator_untreated
+	icon = 'icons/obj/weapons/48x.dmi'
+	icon_state = "speardragonraw0"
+	icon_prefix = "speardragonraw"
+	base_icon_state = "speardragonraw0"
+	lefthand_file = 'icons/mob/inhands/weapons/polearms_lefthand.dmi'
+	righthand_file = 'icons/mob/inhands/weapons/polearms_righthand.dmi'
+	name = "Unfired Giantslayer Spear"
+	desc = "A half-finished giantslayer spear, needs to be thrown in lava to forge the metals to a killing edge."
+	demolition_mod = 0.5
+	wound_bonus = 0
+	exposed_wound_bonus = 0
+	force_unwielded = 5
+	force_wielded = 10
+	armour_penetration = 0
+	custom_materials =  list(
+		/datum/material/iron = SHEET_MATERIAL_AMOUNT * 42,
+		/datum/material/alloy/plasteel = SHEET_MATERIAL_AMOUNT * 15,
+		/datum/material/titanium = SHEET_MATERIAL_AMOUNT * 5)
+
+/obj/item/spear/dragonator_untreated/fire_act(exposed_temperature, exposed_volume)
+	var/obj/item/spear/dragonator/dragonator = new(loc)
+	playsound(dragonator.loc, 'sound/effects/magic/staff_change.ogg',5)
+	qdel(src)
+
+
+/*
  * Bone Spear
  */
 /obj/item/spear/bonespear //Blatant imitation of spear, but made out of bone. Not valid for explosive modification.
@@ -309,7 +366,7 @@
 	icon_prefix = "bone_spear"
 	throwforce = 22
 	armour_penetration = 20 //Enhanced armor piercing
-	custom_materials = list(/datum/material/bone = HALF_SHEET_MATERIAL_AMOUNT * 7)
+	custom_materials = list(/datum/material/bone = SHEET_MATERIAL_AMOUNT * 4)
 	force_unwielded = 12
 	force_wielded = 20
 	spear_leftovers = /obj/item/stack/sheet/bone
@@ -325,7 +382,7 @@
 /*
  * Bamboo Spear
  */
-/obj/item/spear/bamboospear //Blatant imitation of spear, but all natural. Also not valid for explosive modification.
+/obj/item/spear/bamboospear //Blatant imitation of spear, but all natural.
 	icon_state = "bamboo_spear0"
 	base_icon_state = "bamboo_spear0"
 	icon_prefix = "bamboo_spear"
@@ -333,7 +390,7 @@
 	desc = "A haphazardly-constructed bamboo stick with a sharpened tip, ready to poke holes into unsuspecting people."
 
 	throwforce = 23	//Better to throw
-	custom_materials = list(/datum/material/bamboo = SHEET_MATERIAL_AMOUNT * 20)
+	custom_materials = list(/datum/material/bamboo = SHEET_MATERIAL_AMOUNT * 25)
 	spear_leftovers = /obj/item/stack/sheet/mineral/bamboo
 
 /obj/item/spear/bamboospear/add_headpike_component()

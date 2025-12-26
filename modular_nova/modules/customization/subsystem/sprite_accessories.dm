@@ -4,9 +4,12 @@
 /datum/controller/subsystem/accessories/proc/make_sprite_accessory_references()
 	for (var/datum/sprite_accessory/sprite_accessory_path as anything in subtypesof(/datum/sprite_accessory))
 		var/key = initial(sprite_accessory_path.key)
-		var/name = initial(sprite_accessory_path.name)
-		if (!key || !name)
+		if (isnull(key))
 			continue // skip abstract or incomplete defs
+
+		var/name = initial(sprite_accessory_path.name)
+		if(isnull(name))
+			continue
 
 		// Try to reuse existing instance if already built in feature_list
 		var/datum/sprite_accessory/instance

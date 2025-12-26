@@ -70,7 +70,7 @@
 			#define MIN_MCOLOR_VALUE 50
 
 			if(HAS_TRAIT(human_user, TRAIT_MUTANT_COLORS) && !HAS_TRAIT(human_user, TRAIT_FIXED_MUTANT_COLORS))
-				var/new_mutantcolor = input(user, "Choose your skin color:", "Race change", human_user.dna.features[FEATURE_MUTANT_COLOR]) as color|null
+				var/new_mutantcolor = tgui_color_picker(user, "Choose your skin color:", "Race change", human_user.dna.features[FEATURE_MUTANT_COLOR])
 				if(new_mutantcolor)
 					var/mutantcolor_hsv = rgb2hsv(new_mutantcolor)
 
@@ -114,19 +114,19 @@
 			if(hairchoice == "Style") // So you just want to use a mirror then?
 				..()
 			else
-				var/new_hair_color = input(human_user, "Choose your hair color", "Hair Color", human_user.hair_color) as color|null
+				var/new_hair_color = tgui_color_picker(human_user, "Choose your hair color", "Hair Color", human_user.hair_color)
 				if(new_hair_color)
 					human_user.hair_color = sanitize_hexcolor(new_hair_color)
 					human_user.dna.update_ui_block(/datum/dna_block/identity/hair_color)
 				if(human_user.gender == "male")
-					var/new_face_color = input(human_user, "Choose your facial hair color", "Hair Color", human_user.facial_hair_color) as color|null
+					var/new_face_color = tgui_color_picker(human_user, "Choose your facial hair color", "Hair Color", human_user.facial_hair_color)
 					if(new_face_color)
 						human_user.facial_hair_color = sanitize_hexcolor(new_face_color)
 						human_user.dna.update_ui_block(/datum/dna_block/identity/facial_color)
 				human_user.update_body_parts()
 
 		if(BODY_ZONE_PRECISE_EYES)
-			var/new_eye_color = input(human_user, "Choose your eye color", "Eye Color", human_user.eye_color_left) as color|null
+			var/new_eye_color = tgui_color_picker(human_user, "Choose your eye color", "Eye Color", human_user.eye_color_left)
 			if(!user.can_perform_action(src, FORBID_TELEKINESIS_REACH))
 				return TRUE
 			if(new_eye_color)
@@ -196,19 +196,19 @@
 				if(hairchoice == "Style") // So you just want to use a mirror then?
 					..()
 				else
-					var/new_hair_color = input(human_user, "Choose your hair color", "Hair Color", human_user.hair_color) as color|null
+					var/new_hair_color = tgui_color_picker(human_user, "Choose your hair color", "Hair Color", human_user.hair_color)
 					if(new_hair_color)
 						human_user.hair_color = sanitize_hexcolor(new_hair_color)
 						human_user.dna.update_ui_block(/datum/dna_block/identity/hair_color)
 					if(human_user.gender == "male")
-						var/new_face_color = input(human_user, "Choose your facial hair color", "Hair Color", human_user.facial_hair_color) as color|null
+						var/new_face_color = tgui_color_picker(human_user, "Choose your facial hair color", "Hair Color", human_user.facial_hair_color)
 						if(new_face_color)
 							human_user.facial_hair_color = sanitize_hexcolor(new_face_color)
 							human_user.dna.update_ui_block(/datum/dna_block/identity/facial_color)
 					human_user.update_body_parts()
 
 			if(BODY_ZONE_PRECISE_EYES)
-				var/new_eye_color = input(human_user, "Choose your eye color", "Eye Color", human_user.eye_color_left) as color|null
+				var/new_eye_color = tgui_color_picker(human_user, "Choose your eye color", "Eye Color", human_user.eye_color_left)
 				if(!user.can_perform_action(src, FORBID_TELEKINESIS_REACH))
 					return TRUE
 				if(new_eye_color)
