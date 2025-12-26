@@ -290,28 +290,51 @@
 	ammo_categories = AMMO_CLASS_NICHE
 	projectile_type = /obj/projectile/bullet/c980grenade/concussive
 
-
 /obj/projectile/bullet/c980grenade/concussive
 	name = ".980 Tydhouer kinetic concussive grenade"
 
+	/// Knockback wave size, see goonchem_vortex(). Has to be high to actually throw things.
+	var/knockback_size = 3
+
 /obj/projectile/bullet/c980grenade/concussive/fuse_activation(atom/target)
 	playsound(src, 'modular_nova/modules/modular_weapons/sounds/grenade_burst.ogg', 50, TRUE, -3)
-	playsound(src, 'sound/effects/smoke.ogg', 50, TRUE, -3)
-	var/datum/effect_system/fluid_spread/smoke/chem/smoke = new()
-	smoke.chemholder.add_reagent(/datum/reagent/consumable/condensedcapsaicin, 10)
-	smoke.set_up(GRENADE_SMOKE_RANGE, holder = src, location = src)
-	smoke.start()
-
+	forced_throw_vortex(get_turf(src), 1, knockback_size)
+	new /obj/effect/temp_visual/kinetic_blast(get_turf(src))
 
 /obj/item/ammo_box/c980grenade/concussive
 	name = "ammo box (.980 Tydhouer kinetic concussive)"
 	desc = "A box of four .980 Tydhouer concussive grenades. Instructions on the box indicate these are \
 		kinetic concussive rounds that generate a wave of force that debilitates those in its blast radius. \
-		A disclaimer notes that these may cause "
+		A disclaimer notes that these may cause complaints from interior decorators, and that, for best effects, \
+		to airburst adjacent to the target."
 
-	icon_state = "980box_conc"
+	icon_state = "980box_concussive"
 
-	ammo_type = /obj/item/ammo_casing/c980grenade/riot
+	ammo_type = /obj/item/ammo_casing/c980grenade/concussive
+
+/**
+ * Magical move-wooney but it always throws you that happens sometimes, adapted from goonchem_vortex
+ *
+ * Simulates a vortex that moves nearby movable atoms towards or away from the turf T.
+ * Range also determines the strength of the effect. Always throws. Parameters decide how hard it throws.
+ * Arguments:
+ * * T - turf where it happens
+ * * setting_type - does it suck or does it blow?
+ * * range - range.
+ */
+/proc/forced_throw_vortex(turf/T, setting_type, range)
+	for(var/atom/movable/X in range(range, T))
+		if(X.anchored)
+			continue
+		if(iseffect(X) || iseyemob(X) || isdead(X))
+			continue
+		var/distance = get_dist(X, T)
+		var/moving_power = max(range - distance, 1)
+		if(setting_type)
+			var/atom/throw_target = get_edge_target_turf(X, get_dir(X, get_step_away(X, T)))
+			X.throw_at(throw_target, moving_power, moving_power)
+		else
+			X.throw_at(T, moving_power, moving_power)
 
 #undef AMMO_MATS_GRENADE
 #undef AMMO_MATS_GRENADE_SHRAPNEL
