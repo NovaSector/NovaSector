@@ -142,7 +142,7 @@
 				jealous.target = obsessionmind//will reroll into a coworker on the objective itself
 				objectives += jealous
 
-	objectives += kidnap //NOVA EDIT CHANGE - ORIGINAL: objectives += kill//finally add the assassinate last, because you'd have to complete it last to greentext.
+	objectives += kill//finally add the assassinate last, because you'd have to complete it last to greentext.
 
 	for(var/datum/objective/O in objectives)
 		O.update_explanation_text()
