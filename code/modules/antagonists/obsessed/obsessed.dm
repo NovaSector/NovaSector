@@ -194,20 +194,6 @@
 		message_admins("WARNING! [ADMIN_LOOKUPFLW(owner)] obsessed objectives forged without an obsession!")
 		explanation_text = "Free Objective"
 
-//NOVA EDIT ADDITION START
-/datum/objective/kidnap_obsessed
-	name = "kidnap_obsessed"
-	admin_grantable = TRUE
-	no_failure = TRUE
-
-/datum/objective/kidnap_obsessed/update_explanation_text()
-	if(target?.current)
-		explanation_text = "Kidnap [target.name], keep them to yourself. Forever."
-	else
-		message_admins("WARNING! [ADMIN_LOOKUPFLW(owner)] obsessed objectives forged without an obsession!")
-		explanation_text = "Free Objective"
-//NOVA EDIT ADDITION END
-
 /datum/objective/assassinate/jealous //assassinate, but it changes the target to someone else in the previous target's department. cool, right?
 	var/datum/mind/old //the target the coworker was picked from.
 

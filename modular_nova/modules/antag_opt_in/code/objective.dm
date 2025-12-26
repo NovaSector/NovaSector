@@ -72,6 +72,12 @@
 	no_failure = TRUE
 	default_opt_in_level = OPT_IN_YES_TEMP
 
+/datum/objective/kidnap_obsessed/update_explanation_text()
+	if(target?.current)
+		explanation_text = "Kidnap [target.name], keep them to yourself. Forever."
+	else
+		message_admins("WARNING! [ADMIN_LOOKUPFLW(owner)] obsessed objectives forged without an obsession!")
+		explanation_text = "Free Objective"
 /datum/objective/contract/opt_in_valid(datum/mind/target_mind)
 	var/datum/job/target_job = target_mind.assigned_role
 	if (!target_job?.contractable)
