@@ -93,7 +93,6 @@
 		carried_item.add_mob_blood(H)//Oh yes, there will be blood...
 	H.regenerate_icons()
 
-// NOVA EDIT ADDITION START
 /datum/antagonist/obsessed/forge_objectives(datum/mind/obsessionmind)
 	var/list/objectives_left = list(OBSESSED_OBJECTIVE_SPEND_TIME, OBSESSED_OBJECTIVE_POLAROID, OBSESSED_OBJECTIVE_HUG)
 	var/datum/objective/assassinate/obsessed/kidnap = new // NOVA EDIT CHANGE - Kidnap, not kill - ORIGINAL: var/datum/objective/assassinate/obsessed/kill = new
