@@ -870,3 +870,18 @@
   - image: 'added 3 new taur body types: ''Mermaid'', ''Mermaid (Koi Fish)'', and
       ''Orca'''
   - server: updates bun version to 1.3.5, and adds automated validation for tgs
+2025-12-24:
+  Stalkeros, Hollandaise for the sprites:
+  - rscadd: M/TACS-1 "Warden", Heliostatic Coalition's mainline combat mech, has started
+      appearing around these parts in its "Low Facilitation", -frontier/rim-world-,
+      configuration.
+  - rscadd: M/FC-8 "Forge" Fabrication Cannon, the main armament of the "Warden" platform,
+      has started appearing around these parts in its "Low Facilitation", -frontier/rim-world-,
+      configuration.
+  - rscadd: SNPCs in MilSim got themselves an entire mech with an even more entire
+      tank cannon.
+  - rscdel: SNPCs in MilSim lost their very-awkwardly-made literally-just-Browning
+      HMG.
+2025-12-25:
+  MintMetal:
+  - bugfix: some Tarkon issues have been fixed

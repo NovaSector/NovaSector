@@ -276,7 +276,6 @@
 		new_right_leg.name = "[right_leg_name] (Right leg)"
 		new_right_leg.plaintext_zone = LOWER_TEXT(new_right_leg.name)
 
-
 	var/obj/item/clothing/shoes/shoe = receiver.get_item_by_slot(ITEM_SLOT_FEET)
 	if(shoe && !HAS_TRAIT(shoe, TRAIT_NODROP))
 		receiver.dropItemToGround(shoe, force = TRUE)
