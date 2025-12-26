@@ -80,7 +80,7 @@
 
 	var/obj/item/organ/cyberimp/brain/nif/installed_nif = parent_nif?.resolve()
 	if(installed_nif)
-		installed_nif.loaded_nifsofts.Remove(src)
+		LAZYREMOVE(installed_nif.loaded_nifsofts, src)
 
 	return ..()
 
