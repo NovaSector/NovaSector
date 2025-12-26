@@ -19,7 +19,7 @@
 	ph = 5
 	chemical_flags = REAGENT_NO_RANDOM_RECIPE
 
-/datum/reagent/medicine/sansufentanyl_base/on_mob_life(mob/living/carbon/affected_mob, seconds_per_tick, times_fired)
+/datum/reagent/medicine/sansufentanyl_base/on_mob_life(mob/living/carbon/affected_mob, seconds_per_tick)
 	. = ..()
 	affected_mob.adjust_confusion_up_to(3 SECONDS * REM * seconds_per_tick, 10 SECONDS)
 	affected_mob.adjust_dizzy_up_to(6 SECONDS * REM * seconds_per_tick, 20 SECONDS)

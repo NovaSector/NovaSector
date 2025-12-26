@@ -210,7 +210,7 @@
 	current_charge -= charges_drained
 	return TRUE
 
-/datum/artifact_effect/process(seconds_per_tick, times_fired)
+/datum/artifact_effect/process(seconds_per_tick)
 	current_charge = min(current_charge + recharge_speed, maximum_charges)
 	if(release_method == ARTIFACT_EFFECT_AURA)
 		do_effect_aura(seconds_per_tick)

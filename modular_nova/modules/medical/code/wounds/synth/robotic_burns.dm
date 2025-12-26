@@ -163,7 +163,7 @@
 /datum/wound/burn/robotic/get_limb_examine_description()
 	return span_warning("The metal on this limb is glowing radiantly.")
 
-/datum/wound/burn/robotic/overheat/handle_process(seconds_per_tick, times_fired)
+/datum/wound/burn/robotic/overheat/handle_process(seconds_per_tick)
 	if (isnull(victim))
 		var/turf/our_turf = get_turf(limb)
 		if (!isnull(our_turf))

@@ -168,7 +168,7 @@
 /**
  * Handles damaging the corrupted organ when the tumor is no longer present in the body.
  */
-/datum/component/organ_corruption/proc/decay_corrupted_organ(mob/living/carbon/tumorless, seconds_per_tick, times_fired)
+/datum/component/organ_corruption/proc/decay_corrupted_organ(mob/living/carbon/tumorless, seconds_per_tick)
 	SIGNAL_HANDLER
 
 	var/obj/item/organ/corrupted_organ = parent

@@ -17,7 +17,7 @@
 	/// If internals are secured, and we are ready to weld our limb closed and end the wound
 	var/ready_to_resolder = TRUE
 
-/datum/wound/blunt/robotic/secures_internals/handle_process(seconds_per_tick, times_fired)
+/datum/wound/blunt/robotic/secures_internals/handle_process(seconds_per_tick)
 	. = ..()
 
 	if (!victim || HAS_TRAIT(victim, TRAIT_STASIS))

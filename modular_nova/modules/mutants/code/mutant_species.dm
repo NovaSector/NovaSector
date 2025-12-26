@@ -137,7 +137,7 @@
 	speed_modifier = 0.75
 
 /// mutants do not stabilize body temperature they are the walking dead and are cold blooded
-/datum/species/mutant/body_temperature_core(mob/living/carbon/human/humi, seconds_per_tick, times_fired)
+/datum/species/mutant/body_temperature_core(mob/living/carbon/human/humi, seconds_per_tick)
 	return
 
 /datum/species/mutant/infectious/check_roundstart_eligible()
@@ -153,7 +153,7 @@
 	if(COOLDOWN_FINISHED(src, regen_cooldown))
 		COOLDOWN_START(src, regen_cooldown, REGENERATION_DELAY)
 
-/datum/species/mutant/infectious/spec_life(mob/living/carbon/carbon_mob, seconds_per_tick, times_fired)
+/datum/species/mutant/infectious/spec_life(mob/living/carbon/carbon_mob, seconds_per_tick)
 	. = ..()
 	//mutants never actually die, they just fall down until they regenerate enough to rise back up.
 	if(COOLDOWN_FINISHED(src, regen_cooldown))

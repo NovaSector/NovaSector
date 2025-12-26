@@ -40,7 +40,7 @@
 		affected_carbon.gain_trauma(pcp_rage, TRAUMA_RESILIENCE_ABSOLUTE)
 		affected_carbon.gain_trauma(pcp_tenacity, TRAUMA_RESILIENCE_ABSOLUTE)
 
-/datum/reagent/drug/pcp/on_mob_life(mob/living/carbon/affected_mob, seconds_per_tick, times_fired)
+/datum/reagent/drug/pcp/on_mob_life(mob/living/carbon/affected_mob, seconds_per_tick)
 	. = ..()
 	var/high_message = pick("You feel like KILLING!", "Someone's about to fucking die!", "Rip and tear!")
 	if(affected_mob.hud_used != null)
@@ -76,7 +76,7 @@
 	affected_mob.Paralyze(pcp_lifetime,TRUE)
 	affected_mob.drop_all_held_items()
 
-/datum/reagent/drug/pcp/overdose_process(mob/living/affected_mob, seconds_per_tick, times_fired)
+/datum/reagent/drug/pcp/overdose_process(mob/living/affected_mob, seconds_per_tick)
 	var/need_mob_update = affected_mob.adjust_tox_loss(2 * REM * seconds_per_tick, updating_health = FALSE, required_biotype = affected_biotype)
 	affected_mob.adjust_organ_loss(ORGAN_SLOT_HEART, (2 * REM * seconds_per_tick), required_organ_flag = affected_organ_flags)
 	affected_mob.adjust_organ_loss(ORGAN_SLOT_BRAIN, (2 * REM * seconds_per_tick), required_organ_flag = affected_organ_flags)

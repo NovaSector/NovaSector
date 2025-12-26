@@ -13,7 +13,7 @@
 /mob/living/simple_animal/hostile/asteroid
 	reagent_health = TRUE
 
-/mob/living/simple_animal/Life(seconds_per_tick, times_fired)
+/mob/living/simple_animal/Life(seconds_per_tick)
 	. = ..()
 
 	if(!reagent_health)
@@ -26,7 +26,7 @@
 		return
 
 	for(var/datum/reagent/reagents_within as anything in reagents.reagent_list)
-		if(handle_fauna_chemical(reagents_within, seconds_per_tick, times_fired))
+		if(handle_fauna_chemical(reagents_within, seconds_per_tick))
 			continue
 
 		if(istype(reagents_within, /datum/reagent/toxin))
@@ -49,7 +49,7 @@
 	if(reagent_health)
 		create_reagents(1000, REAGENT_HOLDER_ALIVE)
 
-/mob/living/basic/Life(seconds_per_tick, times_fired)
+/mob/living/basic/Life(seconds_per_tick)
 	. = ..()
 
 	if(!reagent_health)
@@ -62,7 +62,7 @@
 		return
 
 	for(var/datum/reagent/reagents_within as anything in reagents.reagent_list)
-		if(handle_fauna_chemical(reagents_within, seconds_per_tick, times_fired))
+		if(handle_fauna_chemical(reagents_within, seconds_per_tick))
 			continue
 
 		if(istype(reagents_within, /datum/reagent/toxin))
@@ -78,6 +78,6 @@
 
 /// Allows snowflake reagent handling, such as cockroaches dying *specifically* to pestkiller's special interact.
 /// Return TRUE if this reagent shouldn't do anything to the mob.
-/mob/living/proc/handle_fauna_chemical(datum/reagent/chem, seconds_per_tick, times_fired)
+/mob/living/proc/handle_fauna_chemical(datum/reagent/chem, seconds_per_tick)
 	if((mob_biotypes & MOB_BUG) && istype(chem, /datum/reagent/toxin/pestkiller))
 		return TRUE
