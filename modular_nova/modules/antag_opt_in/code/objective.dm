@@ -66,10 +66,11 @@
 /datum/objective/contract
 	default_opt_in_level = OPT_IN_YES_TEMP
 
-//NOVA EDIT ADDITION START
 /datum/objective/kidnap_obsessed
+	name = "kidnap_obsessed"
+	admin_grantable = TRUE
+	no_failure = TRUE
 	default_opt_in_level = OPT_IN_YES_TEMP
-// NOVA EDIT ADDITION END
 
 /datum/objective/contract/opt_in_valid(datum/mind/target_mind)
 	var/datum/job/target_job = target_mind.assigned_role
