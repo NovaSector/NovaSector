@@ -209,10 +209,10 @@ IPINTEL_REJECT_BAD
 # WIKIURL https://wiki.novasector13.com/wiki
 
 ## Rules address
-# RULESURL https://wiki.novasector13.com/Rules
+# RULESURL https://wiki.novasector13.com/wiki/Policies
 
 ## Github address
-# GITHUBURL https://www.github.com/tgstation/tgstation
+# GITHUBURL https://github.com/NovaSector/NovaSector
 
 ## Discord bot command prefix, if the discord bot is used
 # DISCORDBOTCOMMANDPREFIX ?
