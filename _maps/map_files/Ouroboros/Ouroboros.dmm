@@ -8068,7 +8068,7 @@
 	dwidth = 16
 	},
 /turf/open/space/basic,
-/area/space/nearstation)
+/area/space)
 "csv" = (
 /obj/effect/turf_decal/stripes/line{
 	dir = 8
@@ -9057,7 +9057,7 @@
 	width = 20
 	},
 /turf/open/space/openspace,
-/area/space/nearstation)
+/area/space)
 "cHO" = (
 /obj/effect/turf_decal/stripes/line,
 /obj/effect/turf_decal/bot,
@@ -24494,7 +24494,7 @@
 	shuttle_id = "pod_3_lavaland"
 	},
 /turf/open/space/openspace,
-/area/space/nearstation)
+/area/space)
 "hgA" = (
 /obj/structure/rack,
 /obj/item/relic,
@@ -29478,7 +29478,7 @@
 	width = 5
 	},
 /turf/open/space/openspace,
-/area/space/nearstation)
+/area/space)
 "iAM" = (
 /obj/structure/railing{
 	dir = 6
@@ -32358,7 +32358,7 @@
 	width = 12
 	},
 /turf/open/space/basic,
-/area/space/nearstation)
+/area/space)
 "jsf" = (
 /obj/effect/turf_decal/tile/green{
 	dir = 8
@@ -44651,7 +44651,7 @@
 	dir = 2
 	},
 /turf/open/space/basic,
-/area/space/nearstation)
+/area/space)
 "mNS" = (
 /obj/structure/cable,
 /obj/effect/turf_decal/stripes/line{
@@ -47101,7 +47101,7 @@
 	dir = 4
 	},
 /turf/open/space/basic,
-/area/space/nearstation)
+/area/space)
 "nvx" = (
 /obj/machinery/navbeacon{
 	codes_txt = "patrol;next_patrol=hall20";
@@ -49240,7 +49240,7 @@
 "oeh" = (
 /obj/docking_port/stationary/mining_home/common,
 /turf/open/space/basic,
-/area/space/nearstation)
+/area/space)
 "oen" = (
 /obj/structure/table/wood,
 /obj/item/flashlight/lamp/green,
@@ -56598,7 +56598,7 @@
 	shuttle_id = "pod_4_lavaland"
 	},
 /turf/open/space/basic,
-/area/space/nearstation)
+/area/space)
 "qnp" = (
 /obj/effect/turf_decal/tile/red{
 	dir = 1
@@ -64501,7 +64501,7 @@
 	dir = 2
 	},
 /turf/open/space/basic,
-/area/space/nearstation)
+/area/space)
 "sGB" = (
 /obj/effect/turf_decal/tile/red{
 	dir = 1
@@ -65775,7 +65775,7 @@
 	dir = 2
 	},
 /turf/open/space/openspace,
-/area/space/nearstation)
+/area/space)
 "sYM" = (
 /obj/effect/spawner/random/structure/girder,
 /obj/effect/spawner/random/structure/grille,
@@ -69903,7 +69903,7 @@
 	shuttle_id = "pod_1_lavaland"
 	},
 /turf/open/space/basic,
-/area/space/nearstation)
+/area/space)
 "ukK" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/cyan/visible,
 /obj/effect/turf_decal/stripes/line{
@@ -83066,7 +83066,7 @@
 	shuttle_id = "pod_2_lavaland"
 	},
 /turf/open/space/basic,
-/area/space/nearstation)
+/area/space)
 "xXv" = (
 /obj/effect/turf_decal/tile/yellow/opposingcorners{
 	dir = 1
