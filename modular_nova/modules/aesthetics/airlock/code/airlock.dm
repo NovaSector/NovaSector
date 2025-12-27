@@ -185,16 +185,24 @@
 	icon = 'modular_nova/modules/aesthetics/airlock/icons/airlocks/station/command.dmi'
 
 /obj/machinery/door/airlock/security
-	icon = 'modular_nova/modules/aesthetics/airlock/icons/airlocks/station/security.dmi'
 	assemblytype = /obj/structure/door_assembly/door_assembly_sec
+	icon = 'icons/map_icons/objects.dmi'
+	overlays_file = 'modular_nova/modules/aesthetics/airlock/icons/airlocks/original_overlays.dmi'
+	icon_state = "/obj/machinery/door/airlock/security"
+	post_init_icon_state = "closed"
+	greyscale_config = /datum/greyscale_config/letter_s_door
+	greyscale_colors = "#BE4130#E99844"
 
 /obj/machinery/door/airlock/security/glass
+	icon_state = "/obj/machinery/door/airlock/security/glass"
 	opacity = FALSE
 	glass = TRUE
 	normal_integrity = 400
 
 /obj/machinery/door/airlock/security/blue
-	icon = 'modular_nova/modules/aesthetics/airlock/icons/airlocks/station/securityblue.dmi'
+	icon_state = "/obj/machinery/door/airlock/security/blue"
+	greyscale_config = /datum/greyscale_config/letter_s_door_alt
+	greyscale_colors = "#777777#5A73A4"
 
 /obj/machinery/door/airlock/engineering
 	icon = 'modular_nova/modules/aesthetics/airlock/icons/airlocks/station/engineering.dmi'
@@ -228,7 +236,12 @@
 
 //STATION CUSTOM ARILOCKS
 /obj/machinery/door/airlock/corporate
-	icon = 'modular_nova/modules/aesthetics/airlock/icons/airlocks/station/corporate.dmi'
+	icon = 'icons/map_icons/objects.dmi'
+	overlays_file = 'modular_nova/modules/aesthetics/airlock/icons/airlocks/original_overlays.dmi'
+	icon_state = "/obj/machinery/door/airlock/corporate"
+	post_init_icon_state = "closed"
+	greyscale_config = /datum/greyscale_config/icon_corporate_door
+	greyscale_colors = "#4983A8#D2D2D2"
 	assemblytype = /obj/structure/door_assembly/door_assembly_corporate
 	normal_integrity = 450
 
@@ -237,9 +250,24 @@
 	glass = TRUE
 	normal_integrity = 400
 
+/obj/machinery/door/airlock/corporate_shield
+	icon = 'icons/map_icons/objects.dmi'
+	overlays_file = 'modular_nova/modules/aesthetics/airlock/icons/airlocks/original_overlays.dmi'
+	icon_state = "/obj/machinery/door/airlock/corporate_shield"
+	post_init_icon_state = "closed"
+	greyscale_config = /datum/greyscale_config/icon_corporate_door_shield
+	greyscale_colors = "#4983A8#D2D2D2"
+	assemblytype = /obj/structure/door_assembly/door_assembly_corporate
+	normal_integrity = 450
+
 /obj/machinery/door/airlock/service
-	icon = 'modular_nova/modules/aesthetics/airlock/icons/airlocks/station/service.dmi'
-	assemblytype = /obj/structure/door_assembly/door_assembly_service
+	icon = 'icons/map_icons/objects.dmi'
+	overlays_file = 'modular_nova/modules/aesthetics/airlock/icons/airlocks/original_overlays.dmi'
+	icon_state = "/obj/machinery/door/airlock/service"
+	post_init_icon_state = "closed"
+	greyscale_config = /datum/greyscale_config/letter_s_door_alt_2
+	greyscale_colors = "#6FBA58#414141"
+	normal_integrity = 450
 
 /obj/machinery/door/airlock/service/glass
 	opacity = FALSE
