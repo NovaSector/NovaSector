@@ -845,7 +845,7 @@ GLOBAL_LIST_INIT(holiday_mail, list())
 	name = CHRISTMAS
 	begin_day = 18
 	begin_month = DECEMBER
-	end_day = 27
+	end_day = 18
 	holiday_hat = /obj/item/clothing/head/costume/santa
 	holiday_mail = list(
 		/obj/item/clothing/head/beanie/christmas,

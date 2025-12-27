@@ -8257,6 +8257,7 @@
 #include "modular_nova\modules\escape_menu\code\escape_menu_nova.dm"
 #include "modular_nova\modules\event_awards\code\plasteel_chef.dm"
 #include "modular_nova\modules\event_props\code\cars_props.dm"
+#include "modular_nova\modules\event_props\code\frosty.dm"
 #include "modular_nova\modules\event_props\code\spooky_props.dm"
 #include "modular_nova\modules\events\code\_event_globalvars.dm"
 #include "modular_nova\modules\events\code\event_spawner.dm"
