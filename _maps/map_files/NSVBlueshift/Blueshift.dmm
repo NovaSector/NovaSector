@@ -10966,6 +10966,10 @@
 	},
 /turf/open/floor/iron/white,
 /area/station/science/xenobiology)
+"clG" = (
+/obj/effect/spawner/xmastree,
+/turf/open/floor/wood,
+/area/station/service/cafeteria)
 "clI" = (
 /obj/item/statuebust/hippocratic,
 /obj/structure/table/wood/fancy/blue,
@@ -152598,7 +152602,7 @@ rye
 wup
 wup
 jKx
-bBd
+clG
 bOT
 gCJ
 gCJ
