@@ -7,3 +7,7 @@
 	SIGNAL_HANDLER
 	completed = TRUE
 	UnregisterSignal(dead_guy, COMSIG_LIVING_DEATH)
+
+// Annihilates completion tracking elegantly
+/datum/objective/get_roundend_success_suffix()
+	return "" //Eliminate any success/fail tracking
