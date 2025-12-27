@@ -11,8 +11,11 @@
 	var/cooldown_timer = 0
 	///Assoc list of ckeys and their links, used to cut down on chat spam
 	var/list/stored_links = list()
-	var/static/link_regex = regex("i.gyazo.com|files.byondhome.com|images2.imgbox.com")
-	var/static/list/valid_extensions = list("jpg", "png", "jpeg") // Regex works fine, if you know how it works
+	///Whitelist of allowed image hosts
+	///BYOND, Catbox, Imgbox, Gyazo, Lensdump, or F-List
+	var/static/link_regex = regex(@"i\.gyazo.com|.\.l3n\.co|static\.f-list\.net/images/|images2\.imgbox\.com|thumbs2\.imgbox\.com|files\.catbox\.moe|files.byondhome.com")
+	///Whitelist of allowed image file extensions
+	var/static/list/valid_extensions = list("jpg", "png", "jpeg")
 
 /datum/preference/text/headshot/apply_to_human(mob/living/carbon/human/target, value, datum/preferences/preferences)
 	target?.dna.features[EXAMINE_DNA_HEADSHOT] = value
