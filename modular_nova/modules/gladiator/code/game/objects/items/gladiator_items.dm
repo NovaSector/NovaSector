@@ -34,7 +34,6 @@
 	worn_icon = 'modular_nova/modules/gladiator/icons/berserk_suit.dmi'
 	icon_state = "berk_cape"
 	inhand_icon_state = "" //lul
-	uses_advanced_reskins = FALSE
 	resistance_flags = INDESTRUCTIBLE
 
 /obj/item/clothing/neck/warrior_cape/examine()

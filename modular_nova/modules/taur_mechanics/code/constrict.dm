@@ -43,8 +43,7 @@
 			qdel(tail)
 			return TRUE
 
-		create_tail()
-		return TRUE
+		return FALSE
 
 	var/mob/living/living_target = clicked_on
 

@@ -56,23 +56,27 @@
 	worn_icon = 'modular_nova/master_files/icons/mob/clothing/neck.dmi'
 	icon_state = "cemantle"
 
+/datum/atom_skin/hosmantle
+	abstract_type = /datum/atom_skin/hosmantle
+
+/datum/atom_skin/hosmantle/red
+	preview_name = "Red Variant"
+	new_icon_state = "hosmantle"
+
+/datum/atom_skin/hosmantle/blue
+	preview_name = "Blue Variant"
+	new_icon_state = "hosmantle_blue"
+
 /obj/item/clothing/neck/mantle/hosmantle
 	name = "\proper the head of security's mantle"
 	desc = "A plated mantle that one might wrap around the upper torso. The 'scales' of the garment signify the members of security and how you're carrying them on your shoulders."
 	icon = 'modular_nova/master_files/icons/mob/clothing/neck.dmi'
 	worn_icon = 'modular_nova/master_files/icons/mob/clothing/neck.dmi'
 	icon_state = "hosmantle"
-	uses_advanced_reskins = TRUE
-	unique_reskin = list(
-		"Red Variant" = list(
-			RESKIN_ICON_STATE = "hosmantle",
-			RESKIN_WORN_ICON_STATE = "hosmantle"
-		),
-		"Blue Variant" = list(
-			RESKIN_ICON_STATE = "hosmantle_blue",
-			RESKIN_WORN_ICON_STATE = "hosmantle_blue"
-		),
-	)
+
+/obj/item/clothing/neck/mantle/hosmantle/Initialize(mapload)
+	. = ..()
+	AddComponent(/datum/component/reskinable_item, /datum/atom_skin/hosmantle)
 
 /obj/item/clothing/neck/mantle/bsmantle
 	name = "\proper the blueshield's mantle"
