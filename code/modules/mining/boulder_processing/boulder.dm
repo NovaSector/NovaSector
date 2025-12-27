@@ -201,7 +201,7 @@
 /obj/item/boulder/proc/convert_to_ore(atom/target_destination)
 	for(var/datum/material/picked in custom_materials)
 		var/obj/item/stack/ore/cracked_ore // Take the associated value and convert it into ore stacks...
-		var/quantity = clamp(round((custom_materials[picked] - SHEET_MATERIAL_AMOUNT)/SHEET_MATERIAL_AMOUNT), 1, 10) //but less resources than if they processed it by hand.
+		var/quantity = clamp(round((custom_materials[picked] - SHEET_MATERIAL_AMOUNT)/SHEET_MATERIAL_AMOUNT), 1, 5) //but less resources than if they processed it by hand. // NOVA EDIT CHANGE - ORIGINAL: var/quantity = clamp(round((custom_materials[picked] - SHEET_MATERIAL_AMOUNT)/SHEET_MATERIAL_AMOUNT), 1, 10) //but less resources than if they processed it by hand.
 
 		var/cracked_ore_type = picked.ore_type
 		if(isnull(cracked_ore_type))
