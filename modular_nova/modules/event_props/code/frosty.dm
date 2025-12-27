@@ -95,4 +95,4 @@
 	<br>
 	<br>
 	<br>
-	<br>*Please note that intentional property destruction will incur a wage garnishment.."}
+	<br>*Please note that intentional property destruction will incur a wage garnishment."}
