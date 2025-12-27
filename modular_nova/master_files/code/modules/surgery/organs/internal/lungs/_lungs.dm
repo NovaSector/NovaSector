@@ -15,3 +15,12 @@
 				breather.reagents.add_reagent(SSair.chosen_goblin_reagent_toxic, min(goblin_pp*0.25,10))
 			if(3)
 				breather.reagents.add_reagent(SSair.chosen_goblin_reagent_drug, min(goblin_pp*0.25,10))
+
+/obj/item/organ/lungs/plasmaman
+	compatible_biotypes = MOB_MINERAL
+
+/obj/item/organ/lungs/pod
+	compatible_biotypes = MOB_PLANT
+
+/obj/item/organ/lungs/ethereal
+	compatible_species = SPECIES_ETHEREAL

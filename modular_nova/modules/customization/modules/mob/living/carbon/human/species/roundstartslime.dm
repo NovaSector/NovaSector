@@ -119,11 +119,13 @@
 /obj/item/organ/lungs/slime
 	zone = BODY_ZONE_CHEST
 	organ_flags = ORGAN_ORGANIC | ORGAN_UNREMOVABLE
+	compatible_biotypes = MOB_SLIME
 
 /obj/item/organ/liver/slime
 	name = "endoplasmic reticulum"
 	zone = BODY_ZONE_CHEST
 	organ_flags = ORGAN_ORGANIC | ORGAN_UNREMOVABLE
+	compatible_biotypes = MOB_SLIME
 
 // CHEMICAL HANDLING
 // Here's where slimes heal off plasma and where they hate drinking water.
@@ -166,6 +168,7 @@
 	name = "golgi apparatus"
 	zone = BODY_ZONE_CHEST
 	organ_flags = ORGAN_ORGANIC | ORGAN_UNREMOVABLE
+	compatible_biotypes = MOB_SLIME
 
 /obj/item/organ/brain/slime
 	name = "core"

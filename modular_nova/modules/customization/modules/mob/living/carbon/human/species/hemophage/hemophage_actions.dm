@@ -137,7 +137,7 @@
 	// Fully clot one wound per use, priotizing the most oozy one.
 	var/datum/wound/chosen_wound
 	for(var/datum/wound/iter_wound as anything in carbon_owner.all_wounds)
-		if(!(iter_wound.limb.bodytype & BODYTYPE_ORGANIC)) // no healing for robotic limbs
+		if(!IS_ORGANIC_LIMB(iter_wound.limb)) // no healing for robotic limbs
 			continue
 		if(iter_wound.blood_flow && (iter_wound.blood_flow > chosen_wound?.blood_flow))
 			chosen_wound = iter_wound
