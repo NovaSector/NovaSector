@@ -85,24 +85,14 @@
 /obj/item/paper/fluff/holiday_pamphlet
 	name = "Holiday Resort Pamphlet"
 	default_raw_text = {"<B>Greetings Esteemed Resort Guests!</B>
-	<br>From the entrance, if you head north along the road,
-	you'll pass the local Donk Factory. Be mindful not to disturb
-	their operation this time of year. They're very busy!
-	<br>Following the road east will take you to the spa
-	complex. sure to secure your belongings as you
-	enjoy the geothermally heated springs.
-	<br>Further north from the factory, you'll find our ice skating
-	rink and raptor stables to the west, while east takes you
-	to the main event hall. Eat, drink, and be merry!
-	<br>Not feeling the main hall? There are plenty of paths to
-	explore! See the sights, make snow angels, take a trip to the natural
-	hot springs! It's your vacation, don't let some stuffy pamphlet
-	tell you what to do.
-	<br>We welcome you to this mostly paid-for vacation* and hope
-	you enjoy your stay. Don't forget your coat!
+	<br>
+	<br>From the entrance, if you head north along the road, you'll pass the local Donk Factory. Be mindful not to disturb	their operation this time of year. They're very busy!
+	<br>Following the road east will take you to the spa complex. Be sure to secure your belongings as you enjoy the geothermally heated springs.
+	<br>Further north from the factory, you'll find our ice skating	rink and raptor stables to the west, while east takes you to the main event hall. Eat, drink, and be merry!
+	<br>Not feeling the main hall? There are plenty of places to go! Explore our attractions! See the sights, make snow angels, take a trip up to the natural hot springs! It's your vacation, don't let some stuffy pamphlet tell you what to do!
+	<br>We welcome you to this mostly paid-for vacation* and hope you enjoy your stay. Don't forget your coat!
 	<br>
 	<br>
 	<br>
 	<br>
-	<br>*Please note that intentional property destruction will
-	incur a wage garnishment."}
+	<br>*Please note that intentional property destruction will incur a wage garnishment.."}
