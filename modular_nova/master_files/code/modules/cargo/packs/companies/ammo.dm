@@ -296,6 +296,12 @@
 	express_lock = TRUE
 	order_flags = ORDER_GOODY
 
+/datum/supply_pack/companies/mags_and_ammo/vitezstvi/grenade_shells/concussion
+	contains = list(/obj/item/ammo_box/c980grenade/concussive)
+	access_view = ACCESS_WEAPONS
+	express_lock = TRUE
+	order_flags = ORDER_GOODY
+
 //Blacksteel Ammo
 
 /datum/supply_pack/companies/mags_and_ammo/blacksteel
