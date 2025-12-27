@@ -4,31 +4,31 @@
 	LAZYADD(clothing_traits, TRAIT_COZY_COLD)
 
 /area/station/service/christmasthing
-    /// Is this place unfomfortably cold without a winter coat
-    var/frosty = FALSE
+	/// Is this place unfomfortably cold without a winter coat
+	var/frosty = FALSE
 
 /area/station/service/christmasthing/Entered(atom/movable/arrived, area/old_area)
-    . = ..()
-    var/mob/living/carbon/human/frosty_toes = arrived
-    if(!frosty || !istype(frosty_toes))
-        return
-    if(!HAS_TRAIT(frosty_toes, TRAIT_COZY_COLD))
-        frosty_toes.add_mood_event("frosty", /datum/mood_event/frosty)
-    RegisterSignals(frosty_toes, list(SIGNAL_REMOVETRAIT(TRAIT_COZY_COLD), SIGNAL_ADDTRAIT(TRAIT_COZY_COLD)), PROC_REF(update_frosty))
+	. = ..()
+	var/mob/living/carbon/human/frosty_toes = arrived
+	if(!frosty || !istype(frosty_toes))
+		return
+	if(!HAS_TRAIT(frosty_toes, TRAIT_COZY_COLD))
+		frosty_toes.add_mood_event("frosty", /datum/mood_event/frosty)
+	RegisterSignals(frosty_toes, list(SIGNAL_REMOVETRAIT(TRAIT_COZY_COLD), SIGNAL_ADDTRAIT(TRAIT_COZY_COLD)), PROC_REF(update_frosty))
 
 /area/station/service/christmasthing/Exited(atom/movable/gone, direction)
-    . = ..()
-    var/mob/living/carbon/human/frosty_toes = gone
-    if(!frosty || !istype(frosty_toes))
-        return
-    frosty_toes.clear_mood_event("frosty")
-    UnregisterSignal(frosty_toes, list(SIGNAL_REMOVETRAIT(TRAIT_COZY_COLD), SIGNAL_ADDTRAIT(TRAIT_COZY_COLD)))
+	. = ..()
+	var/mob/living/carbon/human/frosty_toes = gone
+	if(!frosty || !istype(frosty_toes))
+		return
+	frosty_toes.clear_mood_event("frosty")
+	UnregisterSignal(frosty_toes, list(SIGNAL_REMOVETRAIT(TRAIT_COZY_COLD), SIGNAL_ADDTRAIT(TRAIT_COZY_COLD)))
 
 /area/proc/update_frosty(mob/living/carbon/human/frosty_toes)
-    if(!HAS_TRAIT(frosty_toes, TRAIT_COZY_COLD))
-        frosty_toes.add_mood_event("frosty", /datum/mood_event/frosty)
-    else
-        frosty_toes.clear_mood_event("frosty")
+	if(!HAS_TRAIT(frosty_toes, TRAIT_COZY_COLD))
+		frosty_toes.add_mood_event("frosty", /datum/mood_event/frosty)
+	else
+		frosty_toes.clear_mood_event("frosty")
 
 /datum/mood_event/frosty
 	description = "It's freezing out here without a proper coat!"
