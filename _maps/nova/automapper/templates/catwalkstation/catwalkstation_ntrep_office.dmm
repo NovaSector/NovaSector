@@ -101,6 +101,7 @@
 	dir = 1
 	},
 /obj/item/kirbyplants/random,
+/obj/structure/cable,
 /turf/open/floor/wood/wood_5,
 /area/station/command/heads_quarters/nt_rep)
 "A" = (
