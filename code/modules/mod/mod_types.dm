@@ -191,7 +191,9 @@
 		/obj/item/mod/module/magnetic_harness,
 		/obj/item/mod/module/flashlight,
 		/obj/item/mod/module/jetpack,
-//		/obj/item/mod/module/pepper_shoulders,
+		/* // NOVA EDIT REMOVAL START - no more default pepper shoulders
+		/obj/item/mod/module/pepper_shoulders,
+		*/ // NOVA EDIT REMOVAL END
 		/obj/item/mod/module/criminalcapture,
 		/obj/item/mod/module/quick_cuff,
 		/obj/item/mod/module/headprotector,
@@ -210,7 +212,9 @@
 		/obj/item/mod/module/jetpack,
 		/obj/item/mod/module/megaphone,
 		/obj/item/mod/module/projectile_dampener,
-//		/obj/item/mod/module/pepper_shoulders,
+		/* // NOVA EDIT REMOVAL START - no more default pepper shoulders
+		/obj/item/mod/module/pepper_shoulders,
+		*/ // NOVA EDIT REMOVAL END
 		/obj/item/mod/module/quick_cuff,
 		/obj/item/mod/module/headprotector,
 	)
