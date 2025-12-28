@@ -16,6 +16,9 @@ ALERT_FEDERAL The Sol Federation has placed this galactic sector under its full 
 ## How long until someone can be put in cryo if they are SSD
 CRYO_MIN_SSD_TIME 15
 
+## The policy string that shows up when entering cryo, uncomment to enable.
+#CRYO_POLICY You may rejoin as the same role, or as an assistant, with the cryo'd character.
+
 ## log subtler emotes in game.txt
 #LOG_SUBTLER
 

@@ -1,5 +1,5 @@
 /obj/item/gun/ballistic/rifle/pulse_sniper
-	name = "\improper Žaibas-A sniper rifle"
+	name = "\improper M/PR-16 'Žaibas-Aštrus' Sniper Rifle"
 	desc = "A sniper variant of the Žaibas plasma pulse projector, modified for precision long-range engagements. \
 	Uses a specialized chamber-loading system that consumes three charges per shot."
 
@@ -24,10 +24,12 @@
 	rack_sound = 'modular_nova/modules/modular_weapons/sounds/pulse_pull.ogg'
 	bolt_drop_sound = 'modular_nova/modules/modular_weapons/sounds/pulse_push.ogg'
 
+	fire_delay = 1.2 SECONDS
+
 	spread = 2.5
 	recoil = 1
-	projectile_damage_multiplier = 2
-	projectile_speed_multiplier = 2.5
+	projectile_damage_multiplier = 1.8
+	projectile_speed_multiplier = 1.5
 
 	weapon_weight = WEAPON_HEAVY
 	internal_magazine = TRUE
@@ -36,15 +38,17 @@
 	/// Number of charges consumed per shot
 	var/shots_per_fire = 3
 
-	lore_blurb = "Žaibas-A represents a specialized adaptation of the Heliostatic Coalition's plasma pulse technology for precision applications.<br><br> \
-		Where the standard Žaibas focuses on delivering rapid bursts of plasma energy, the 'A' variant (for 'Aštrus', or 'Sharp') sacrifices rate of fire \
-		for unparalleled accuracy and armor penetration. Each shot draws three times the normal plasma charge, creating a hyper-concentrated beam that \
-		can punch through even the most advanced fortifications.<br><br> \
-		The single cell mechanism was a controversial addition, as it eliminates the weapon's signature high longevity. \
-		However, Coalition marksmen report that the manual cycling process allows for better shot placement and thermal management during extended engagements.<br><br> \
-		Developed in response to reports of Coalition forces facing heavily armored targets at extreme ranges, the Žaibas-A has become the weapon of choice	\
-		for designated marksmen and anti-materiel specialists. A small production run means these rifles are typically issued only to elite units.<br><br> \
-		The warning label has been updated to read: 'NEPONOVLJATI NAPAJANJE - Tri kasetes per šūvį. Per didelis karščio kaupimas gali sugadinti gnybtą.'."
+	lore_blurb = "The PR-16 variant sacrifices the PR-15's high capacity for unparalleled precision at extreme ranges. Where the standard model \
+		fires rapid pulses, the \"Aštrus\" variant, -'sharp'-, draws three charges per shot to create a hyper-concentrated beam that can defeat even \
+		advanced composite armors at over a kilometer. <br><br> \
+		Development as XM/PR-15 revealed the standard pulse cells couldn't maintain the energy density needed for precision shots. The solution was \
+		a dedicated single-cell mechanism that eliminates the magazine system entirely. Each shot consumes three standard charges' worth of energy, \
+		making the weapon incredibly ammunition-inefficient but devastatingly effective. <br><br> \
+		The manual bolt action was a controversial addition that almost killed the project. However, Coalition marksmen reported that the \
+		cycling process allowed for better shot placement and thermal management during extended engagements. The chambered cell provides immediate \
+		feedback on remaining shots - when the charge drops below three projector shots' worth, the bolt automatically locks open. \
+		Issued only to elite reconnaissance and anti-materiel teams, the PR-16 has become the weapon of choice for dealing with hardened targets at \
+		distances where conventional rifles would be useless."
 
 /obj/item/gun/ballistic/rifle/pulse_sniper/give_manufacturer_examine()
 	AddElement(/datum/element/manufacturer_examine, COMPANY_SZOT)
@@ -87,28 +91,30 @@
 	if(istype(casing))
 		// Ensure suppress_use_consumption flag is set for this weapon
 		casing.suppress_use_consumption = TRUE
-		if(casing.remaining_uses < shots_per_fire)
-			// Lock the bolt back when the pulse cell doesn't have enough charge
-			bolt_locked = TRUE
-			update_icon()
-			casing.forceMove(drop_location())
-			chambered = null
-		else if(!casing.loaded_projectile && !casing.newshot())
-			// Lock the bolt back when the pulse cell fails to create a new shot
-			bolt_locked = TRUE
-			update_icon()
-			casing.forceMove(drop_location())
-			chambered = null
-		// Update HUD after processing pulse casing
-		SEND_SIGNAL(src, COMSIG_UPDATE_AMMO_HUD)
-		return
 
-	..() // Handle normal ballistic casing behavior
-	// Update HUD after processing normal casing
-	SEND_SIGNAL(src, COMSIG_UPDATE_AMMO_HUD)
+		// Check if we have enough charges for another shot
+		if(casing.remaining_uses >= shots_per_fire)
+			// Create new projectile if we have enough charges
+			casing.newshot()
+			// Update HUD after processing pulse casing
+			SEND_SIGNAL(src, COMSIG_UPDATE_AMMO_HUD)
+			return
+
+		// Not enough charges - warn and eject if needed
+		visible_message(span_warning("[src] emits a low power warning!"))
+		playsound(src, 'sound/items/weapons/gun/general/empty_alarm.ogg', 40, TRUE)
+		if(casing_ejector || !from_firing)
+			casing.forceMove(drop_location())
+			if(!QDELETED(casing))
+				SEND_SIGNAL(casing, COMSIG_CASING_EJECTED)
+				casing.bounce_away(TRUE)
+
+	// Only call parent if we have a valid chambered casing
+	if(chambered)
+		..() // Handle normal ballistic casing behavior
 
 /obj/item/gun/ballistic/rifle/pulse_sniper/handle_chamber(empty_chamber = TRUE, from_firing = TRUE, chamber_next_round = TRUE)
-	if(!semi_auto && from_firing)
+	if(from_firing)
 		return
 
 	var/obj/item/ammo_casing/pulse/casing = chambered
@@ -125,10 +131,6 @@
 		if(empty_chamber)
 			clear_chambered()
 
-	// Don't automatically chamber a new round if the bolt is locked
-	if(bolt_locked)
-		return
-
 	if(chamber_next_round && magazine?.max_ammo >= 1)
 		chamber_round()
 	// Update HUD after all chamber operations are complete
@@ -143,7 +145,7 @@
 	if(istype(casing))
 		// Ensure suppress_use_consumption flag is set for this weapon
 		casing.suppress_use_consumption = TRUE
-		return casing.remaining_uses >= shots_per_fire && casing.loaded_projectile
+		return casing.remaining_uses > 0 && casing.loaded_projectile
 	return ..() // Fall back to normal behavior for non-pulse casings
 
 /obj/item/gun/ballistic/rifle/pulse_sniper/shoot_live_shot(mob/living/user, pointblank, atom/pbtarget, message)
@@ -186,6 +188,14 @@
 			casing.suppress_use_consumption = TRUE
 	// Update HUD after loading ammo
 	SEND_SIGNAL(src, COMSIG_UPDATE_AMMO_HUD)
+
+/obj/item/gun/ballistic/rifle/pulse_sniper/before_firing(atom/target, mob/user)
+	. = ..()
+	if(chambered?.loaded_projectile)
+		var/obj/projectile/beam/laser/plasma_glob/pulse/plasma_pulse = chambered.loaded_projectile
+		if(chambered.loaded_projectile && istype(plasma_pulse))
+			plasma_pulse.armour_penetration = 10
+			plasma_pulse.secondary_armour_penetration = 10
 
 /obj/item/ammo_box/magazine/internal/pulse_sniper
 	name = "pulse sniper pseudochamber"

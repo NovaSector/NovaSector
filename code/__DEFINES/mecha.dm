@@ -68,6 +68,11 @@
 #define MECHA_AMMO_PUNCHING_GLOVE "Punching glove"
 #define MECHA_AMMO_BANANA_PEEL "Banana peel"
 #define MECHA_AMMO_MOUSETRAP "Mousetrap"
+#define MECHA_AMMO_TEARGAS "Teargas canister"
+#define MECHA_AMMO_RUBBER "Rubber bullet"
+#define MECHA_AMMO_SIEGE "Sabot slug"
+#define MECHA_AMMO_EMP "EMP pulse cell"
+#define MECHA_AMMO_NAPALM "Incendiary mortar shell"
 
 /// Values to determine the effects on a mech should it suffer an EMP
 #define MECH_EMP_DAMAGE_LOWER 100

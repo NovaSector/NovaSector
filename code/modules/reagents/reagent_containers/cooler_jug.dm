@@ -6,7 +6,6 @@
 	volume = 200
 	custom_materials = list(/datum/material/plastic = SHEET_MATERIAL_AMOUNT * 4)
 	initial_reagent_flags = REFILLABLE | DRAINABLE | INJECTABLE | DRAWABLE | TRANSPARENT | NO_SPLASH
-	spillable = TRUE
 	has_variable_transfer_amount = FALSE
 	interaction_flags_click = NEED_DEXTERITY
 	fill_icon_state = "cooler_jug_overlay"

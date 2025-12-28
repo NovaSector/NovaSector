@@ -41,8 +41,18 @@ export const MESSAGE_TYPE_DEBUG = 'debug';
 export const MESSAGE_TYPE_MENTOR = 'mentor'; // NOVA EDIT ADDITION
 export const MESSAGE_TYPE_SUBTLE = 'subtle'; // NOVA EDIT ADDITION
 
+type MessageType = {
+  type: string;
+  name: string;
+  description: string;
+} & Partial<{
+  selector: string;
+  important: boolean;
+  admin: boolean;
+}>;
+
 // Metadata for each message type
-export const MESSAGE_TYPES = [
+export const MESSAGE_TYPES: MessageType[] = [
   // Always-on types
   {
     type: MESSAGE_TYPE_SYSTEM,

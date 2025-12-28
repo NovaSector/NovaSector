@@ -150,10 +150,12 @@
 	refill_canister = /obj/item/vending_refill/wardrobe/syndie_wardrobe
 	light_color = COLOR_GREEN
 
-/obj/machinery/vending/wardrobe/syndie_wardrobe/interdyne/ghost_cafe
-	excluded_products = list(
-		/obj/item/storage/box/nif_ghost_box/ghost_role,
-	)
+/obj/machinery/vending/wardrobe/syndie_wardrobe/interdyne/ghost_cafe/Initialize(mapload)
+	if(isnull(excluded_products))
+		excluded_products = typecacheof(list(
+			/obj/item/storage/box/nif_ghost_box/ghost_role,
+		))
+	return ..()
 
 /obj/item/vending_refill/wardrobe/syndie_wardrobe/interdyne
 	machine_name = "InterDrobe"

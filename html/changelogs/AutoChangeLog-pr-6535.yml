@@ -1,4 +1,0 @@
-author: "OrbisAnima"
-delete-after: True
-changes:
-  - bugfix: "Due to incompatibilities with  intergalactic trade [we had bugs], Cargo imports will no longer be able to be ordered directly from the cargo budget, unless the express consoles are used, as it was previously stipulated with other Goody types imports. [Lots of bugs, and avoiding future bugs, we tried.]"

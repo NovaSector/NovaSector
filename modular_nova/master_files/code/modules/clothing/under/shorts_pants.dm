@@ -181,3 +181,17 @@
 	greyscale_config_worn_digi = /datum/greyscale_config/camo_pants/worn/digi
 	greyscale_colors = "#69704C#6E5B4C#343741"
 	flags_1 = IS_PLAYER_COLORABLE_1
+
+/obj/item/clothing/under/pants/nova/shorted_overall
+	name = "shortened overalls"
+	desc = "A Shortened pair of denim overalls to show off your legs and adorability. The Clothing tag labeled 'DarkRilo Apperel'"
+	icon = 'icons/map_icons/clothing/under/_under.dmi'
+	icon_state = "/obj/item/clothing/under/pants/nova/shorted_overall"
+	post_init_icon_state = "shorted_overall"
+	greyscale_config = /datum/greyscale_config/overalls/shorted_overall
+	greyscale_config_worn = /datum/greyscale_config/overalls/shorted_overall/worn
+	greyscale_colors = "#cccccc"
+	flags_1 = IS_PLAYER_COLORABLE_1
+	body_parts_covered = CHEST|GROIN|LEGS
+	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION_NO_NEW_ICON
+	can_adjust = FALSE

@@ -23,17 +23,14 @@
 	/// List of weakrefs to all turrets
 	var/list/turrets = list()
 
-/obj/machinery/turretid/Destroy()
-	turrets.Cut()
-	return ..()
-
 /obj/machinery/turretid/Initialize(mapload)
 	. = ..()
-	if(!mapload)
-		locked = FALSE
+
+	if(mapload)
+		find_and_mount_on_atom()
 	else
-		find_and_hang_on_wall()
-		power_change()
+		locked = FALSE
+	power_change()
 
 	var/area/control_area_instance
 
@@ -47,6 +44,10 @@
 
 	for(var/obj/machinery/porta_turret/T in control_area_instance)
 		turrets |= WEAKREF(T)
+
+/obj/machinery/turretid/Destroy()
+	turrets.Cut()
+	return ..()
 
 /obj/machinery/turretid/update_overlays()
 	. = ..()
@@ -209,4 +210,5 @@
 	icon = 'icons/obj/machines/turret_control.dmi'
 	icon_state = "control_frame"
 	result_path = /obj/machinery/turretid
-	custom_materials = list(/datum/material/iron= SHEET_MATERIAL_AMOUNT)
+	custom_materials = list(/datum/material/iron = SHEET_MATERIAL_AMOUNT * 6)
+	pixel_shift = 30
