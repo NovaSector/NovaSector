@@ -566,25 +566,27 @@
 		if(stat != DEAD || disease.process_dead)
 			disease.stage_act(seconds_per_tick, times_fired)
 
-/mob/living/carbon/handle_mutations(time_since_irradiated, seconds_per_tick, times_fired)
-	if(!dna?.temporary_mutations.len)
+/mob/living/carbon/handle_mutations(time_since_irradiated, seconds_per_tick)
+	if(!LAZYLEN(dna?.temporary_mutations))
 		return
 
-	for(var/mut in dna.temporary_mutations)
-		if(dna.temporary_mutations[mut] < world.time)
+	for(var/mut, mut_data in dna.temporary_mutations)
+		if(mut_data < world.time)
+			if(!LAZYLEN(dna.previous))
+				continue
 			if(mut == UI_CHANGED)
 				if(dna.previous["UI"])
 					dna.unique_identity = merge_text(dna.unique_identity,dna.previous["UI"])
 					updateappearance(mutations_overlay_update=1)
 					dna.previous.Remove("UI")
-				dna.temporary_mutations.Remove(mut)
+				LAZYREMOVE(dna.temporary_mutations, mut)
 				continue
 			if(mut == UF_CHANGED)
 				if(dna.previous["UF"])
 					dna.unique_features = merge_text(dna.unique_features,dna.previous["UF"])
 					updateappearance(mutcolor_update=1, mutations_overlay_update=1)
 					dna.previous.Remove("UF")
-				dna.temporary_mutations.Remove(mut)
+				LAZYREMOVE(dna.temporary_mutations, mut)
 				continue
 			if(mut == UE_CHANGED)
 				if(dna.previous["name"])
@@ -597,7 +599,7 @@
 				if(dna.previous["blood_type"])
 					set_blood_type(dna.previous["blood_type"])
 					dna.previous.Remove("blood_type")
-				dna.temporary_mutations.Remove(mut)
+				LAZYREMOVE(dna.temporary_mutations, mut)
 				continue
 
 /**

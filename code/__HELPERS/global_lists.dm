@@ -17,12 +17,10 @@
 	init_crafting_recipes_atoms()
 
 /// Inits crafting recipe lists
-/proc/init_crafting_recipes(list/crafting_recipes)
-	for(var/path in subtypesof(/datum/crafting_recipe))
-		if(ispath(path, /datum/crafting_recipe/stack))
-			continue
-		var/datum/crafting_recipe/recipe = new path()
-		var/is_cooking = ((recipe.category in GLOB.crafting_category_food) || (recipe.category in GLOB.crafting_category_food_nova)) // NOVA EDIT CHANGE - ORIGINAL: var/is_cooking = (recipe.category in GLOB.crafting_category_food)
+/proc/init_crafting_recipes()
+	for(var/datum/crafting_recipe_path as anything in valid_subtypesof(/datum/crafting_recipe))
+		var/datum/crafting_recipe/recipe = new crafting_recipe_path()
+		var/is_cooking = (recipe.category in (GLOB.crafting_category_food + GLOB.crafting_category_food_nova)) // NOVA EDIT CHANGE - ORIGINAL: var/is_cooking = (recipe.category in GLOB.crafting_category_food)
 		recipe.reqs = sort_list(recipe.reqs, GLOBAL_PROC_REF(cmp_crafting_req_priority))
 		if(recipe.name != "" && recipe.result)
 			if(is_cooking)
