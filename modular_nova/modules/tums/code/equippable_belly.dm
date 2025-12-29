@@ -543,6 +543,9 @@
 /// This is where the magic happens to actually nom someone.
 /// *Do not call this outside of debug*, it doesn't have consent checks.
 /obj/item/belly_function/proc/do_nom(mob/living/carbon/human/target, mob/living/carbon/human/user)
+	// Step 0: backup sanity check.  adminbussing inception might be funny but the consequences could fold reality like tissue paper
+	if((target.loc in user.contents) || (user.loc in target.contents) || (target.loc.loc == user) || (user.loc.loc == target) || (user == target))
+		return FALSE
 	// Step 1: put them in the list (your belly)
 	to_chat(target, span_danger("[user] gulps you down!"))
 	to_chat(user, span_danger("You gulp down [target]!"))

@@ -99,15 +99,24 @@
 		colors[interaction.name] = interaction.color
 	var/pred_mode = user.client?.prefs?.read_preference(/datum/preference/choiced/erp_bellyquirk_pred_pref)
 	var/prey_mode = self.client?.prefs?.read_preference(/datum/preference/choiced/erp_vore_prey_pref)
+	// Main preference check before inserting the ability to try and vore someone.
 	if((TRAIT_PREDATORY in user._status_traits) && pred_mode != "Never" && prey_mode != "Never")
-		if(categories[MECHANICAL_CATEGORY] != null)
-			categories[MECHANICAL_CATEGORY] += VORE_ACT
-			var/list/sorted_category = sort_list(categories[MECHANICAL_CATEGORY])
-			categories[MECHANICAL_CATEGORY] = sorted_category
-		else
-			categories[MECHANICAL_CATEGORY] = list(VORE_ACT)
-		descriptions[VORE_ACT] += "Put someone in your belly- if they're cool with it."
-		colors[VORE_ACT] = "red"
+		var/sanity_checks = TRUE
+		// Sanity check: if they're already in your tum, or you're already in them, *don't do it*
+		if((self.loc in user.contents) || (user.loc in self.contents) || (self.loc.loc == user) || (user.loc.loc == self))
+			sanity_checks = FALSE
+		// Sanity check: don't even pretend you can inception yourself
+		if(user == self)
+			sanity_checks = FALSE
+		if(sanity_checks == TRUE)
+			if(categories[MECHANICAL_CATEGORY] != null)
+				categories[MECHANICAL_CATEGORY] += VORE_ACT
+				var/list/sorted_category = sort_list(categories[MECHANICAL_CATEGORY])
+				categories[MECHANICAL_CATEGORY] = sorted_category
+			else
+				categories[MECHANICAL_CATEGORY] = list(VORE_ACT)
+			descriptions[VORE_ACT] += "Put someone in your belly- if they're cool with it."
+			colors[VORE_ACT] = "red"
 	data["descriptions"] = descriptions
 	data["colors"] = colors
 	for(var/category in categories)
