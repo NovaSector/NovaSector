@@ -305,7 +305,7 @@
 		else
 			SSexplosions.highturf += iterating_turf //also fucks everything else on the turf
 	point.Beam(target, icon_state = "bsa_beam", time = 5 SECONDS, maxdistance = world.maxx) //ZZZAP
-	for(var/mob/living/witness in range(5, src))
+	for(var/mob/living/witness in range(7, src))
 		shake_camera(witness, 5 SECONDS, camera_shake_intensity)
 	new /obj/effect/temp_visual/bsa_splash(point, dir)
 
