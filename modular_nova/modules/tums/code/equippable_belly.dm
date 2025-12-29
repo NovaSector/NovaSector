@@ -202,11 +202,13 @@
 			var/temp_col = input("Enter new color:", "Color", src.color) as color|null
 			if(temp_col != null || QDELETED(user) || QDELETED(src))
 				src.color = temp_col
+			last_size = -1
 		if("Toggle Skintone")
 			var/mode_select = tgui_alert(user, "Use skintone spritesheets?  Current state: [(use_skintone == TRUE) ? "yes" : "no"]", "Toggle Skintone", list_yesno)
 			if(isnull(mode_select) || QDELETED(user) || QDELETED(src))
 				return
 			use_skintone = (mode_select == "Yes") ? TRUE : FALSE
+			last_size = -1
 		if("Set Size Modifier")
 			var/temp_size = tgui_input_number(user, "Set a size multiplier (0.00-10.00) - all size sources are multiplied by this.", "Sizemod", sizemod, 10, 0, round_value = FALSE)
 			if(isnull(temp_size) || QDELETED(user) || QDELETED(src))
