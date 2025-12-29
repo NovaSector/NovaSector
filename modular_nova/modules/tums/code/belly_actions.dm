@@ -2,7 +2,7 @@
 /datum/action/item_action/belly_menu
 	name = "Belly Action Core"
 	desc = "You shouldn't see this! Yell at an admin!"
-	button_icon = 'modular_nova/modules/tums/icons/items.dmi'
+	button_icon = 'modular_nova/modules/tums/icons/helpers.dmi'
 	button_icon_state = "bwelly"
 	/// Local reference to our connected belly helper object.
 	var/obj/item/belly_function/my_belly

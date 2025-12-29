@@ -4,7 +4,7 @@
 
 	icon_state = "bwelly"
 	base_icon_state = "belly"
-	icon = 'modular_nova/modules/tums/icons/items.dmi'
+	icon = 'modular_nova/modules/tums/icons/helpers.dmi'
 	worn_icon_state = "haha-no"
 	worn_icon = 'modular_nova/modules/tums/icons/bellies.dmi'
 	var/icon/worn_icon_64x ='modular_nova/modules/tums/icons/bellies_64x.dmi'
@@ -337,9 +337,11 @@
 			/// Overlay_south is used as an indicator that overlays are present, so axe it.
 			overlay_south = null
 		else
-			target.add_alt_appearance(/datum/atom_hud/alternate_appearance/erp/belly, "erp_belly_south-[size]", image(overlay_south, loc=target, layer=overlay_south.layer), AA_TARGET_SEE_APPEARANCE | AA_MATCH_TARGET_OVERLAYS, target, "erp_belly_south-", size)
-			target.add_alt_appearance(/datum/atom_hud/alternate_appearance/erp/belly, "erp_belly_north-[size]", image(overlay_north, loc=target, layer=overlay_north.layer), AA_TARGET_SEE_APPEARANCE | AA_MATCH_TARGET_OVERLAYS, target, "erp_belly_north-", size)
-			target.add_alt_appearance(/datum/atom_hud/alternate_appearance/erp/belly, "erp_belly_hori-[size]", image(overlay_hori, loc=target, layer=overlay_hori.layer), AA_TARGET_SEE_APPEARANCE | AA_MATCH_TARGET_OVERLAYS, target, "erp_belly_hori-", size)
+			/// TODO: We might need to migrate handtype from user.dna.species.id to a bespoke check.
+			/// Depending on how scrungly people are willing to make their blorbos, generating entirely bespoke masks might become necessary.
+			target.add_alt_appearance(/datum/atom_hud/alternate_appearance/erp/belly, "erp_belly_south-[size]", image(overlay_south, loc=target, layer=overlay_south.layer), AA_TARGET_SEE_APPEARANCE | AA_MATCH_TARGET_OVERLAYS, target, "erp_belly_south-", size, target.dna.species.id)
+			target.add_alt_appearance(/datum/atom_hud/alternate_appearance/erp/belly, "erp_belly_north-[size]", image(overlay_north, loc=target, layer=overlay_north.layer), AA_TARGET_SEE_APPEARANCE | AA_MATCH_TARGET_OVERLAYS, target, "erp_belly_north-", size, target.dna.species.id)
+			target.add_alt_appearance(/datum/atom_hud/alternate_appearance/erp/belly, "erp_belly_hori-[size]", image(overlay_hori, loc=target, layer=overlay_hori.layer), AA_TARGET_SEE_APPEARANCE | AA_MATCH_TARGET_OVERLAYS, target, "erp_belly_hori-", size, target.dna.species.id)
 
 /// Strip the action & appearance from a user if needed.
 /// This is non-destructive; the quirk can be temporarily disabled by pref changes, body swaps, etc to reduce prefbreak risk.
