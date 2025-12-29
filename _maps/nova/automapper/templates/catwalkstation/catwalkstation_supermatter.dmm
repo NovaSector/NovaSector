@@ -3,10 +3,8 @@
 /turf/template_noop,
 /area/template_noop)
 "r" = (
-/obj/effect/turf_decal/stripes/red/box,
-/obj/structure/sign/delam_procedure/directional/south,
-/turf/open/floor/engine,
-/area/station/engineering/supermatter/room)
+/turf/template_noop,
+/area/station/engineering/supermatter)
 "w" = (
 /obj/machinery/atmospherics/components/unary/delam_scram/directional/west,
 /turf/template_noop,
@@ -15,22 +13,24 @@
 /turf/closed/wall/r_wall,
 /area/station/engineering/supermatter)
 "T" = (
-/obj/machinery/button/delam_scram,
-/turf/closed/wall/r_wall,
-/area/station/engineering/supermatter)
+/obj/effect/turf_decal/stripes/line,
+/obj/structure/cable,
+/obj/machinery/button/delam_scram{
+	pixel_y = -31
+	},
+/obj/effect/turf_decal/stripes/red/box,
+/turf/open/floor/engine,
+/area/station/engineering/supermatter/room)
 
 (1,1,1) = {"
-a
+T
+R
 r
 R
 "}
 (2,1,1) = {"
 a
-T
-R
-"}
-(3,1,1) = {"
-a
-a
+r
+r
 w
 "}
