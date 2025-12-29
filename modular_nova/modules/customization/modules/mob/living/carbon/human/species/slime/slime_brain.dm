@@ -207,7 +207,7 @@
 /obj/item/organ/brain/slime/proc/on_slime_death(mob/living/victim, new_stat)
 	SIGNAL_HANDLER
 
-	if(new_stat != DEAD || IS_CHANGELING(victim)) // Changelings can only impersonate well enough
+	if(new_stat != DEAD || IS_CHANGELING(victim) || is_reserved_level(victim.z) && !istype(get_area(victim.loc), /area/shuttle)) // Changelings and bitrunning/deathmatch gamers are exempt
 		return
 
 	addtimer(CALLBACK(src, PROC_REF(core_ejection), victim), 0) // Explode them after the current proc chain ends, to avoid weirdness
