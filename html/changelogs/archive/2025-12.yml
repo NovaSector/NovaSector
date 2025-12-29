@@ -885,3 +885,15 @@
 2025-12-25:
   MintMetal:
   - bugfix: some Tarkon issues have been fixed
+2025-12-27:
+  TheRealSlimRedwoods:
+  - rscadd: Fox players can now gecker! Rejoice!
+  sqnztb:
+  - bugfix: Soda dispensers now get their T2 upgrades applied properly. Apple, pumpkin,
+      and vanilla return.
+  vinylspiders:
+  - bugfix: fixes some escape menu urls pointing to tgstation defaults
+2025-12-29:
+  SuperDrish:
+  - rscadd: Xenohybrids recently evolved to "feel better" on resin, or whatever the
+      local one says
