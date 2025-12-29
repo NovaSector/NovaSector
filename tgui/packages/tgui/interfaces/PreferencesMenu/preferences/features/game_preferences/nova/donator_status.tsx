@@ -1,6 +1,6 @@
 // THIS IS A NOVA SECTOR UI FILE
 
-import { CheckboxInput, FeatureToggle } from '../../base';
+import { CheckboxInput, type FeatureToggle } from '../../base';
 
 export const display_donator_status: FeatureToggle = {
   name: 'Display Donator Status',
