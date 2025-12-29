@@ -2827,10 +2827,6 @@
 /area/misc/condo)
 "rl" = (
 /obj/structure/table/wood/fancy/black,
-/obj/item/clothing/head/costume/maidheadband/syndicate{
-	pixel_x = 1;
-	pixel_y = 4
-	},
 /obj/item/reagent_containers/cup/glass/bottle/small{
 	pixel_x = 7;
 	pixel_y = 7
@@ -4520,6 +4516,7 @@
 	name = "TV remote"
 	},
 /obj/structure/table/wood,
+/obj/item/clothing/head/costume/maid_headband/syndicate,
 /turf/open/floor/iron/dark/smooth_large,
 /area/misc/condo)
 "zY" = (
@@ -7607,7 +7604,7 @@
 /area/misc/condo)
 "Tq" = (
 /obj/structure/medieval/bed_2x2{
-	dir = 8
+	dir = 4
 	},
 /obj/item/fancy_pillow{
 	icon_state = "pillow_pink_square";
@@ -7653,10 +7650,6 @@
 	dir = 5
 	},
 /obj/structure/table/wood,
-/obj/item/clothing/head/costume/maidheadband/syndicate{
-	pixel_x = 3;
-	pixel_y = 4
-	},
 /obj/item/pillow{
 	pixel_x = -5;
 	pixel_y = 7;
@@ -7676,6 +7669,7 @@
 	pixel_x = -23;
 	pixel_y = -14
 	},
+/obj/effect/turf_decal/tile/dark/full,
 /turf/open/floor/wood/parquet,
 /area/misc/condo)
 "TA" = (
