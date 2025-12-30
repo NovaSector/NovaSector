@@ -265,7 +265,7 @@
 	if(system_state != BSA_SYSTEM_READY)
 		return
 	system_state = BSA_SYSTEM_PREFIRE
-	priority_announce("BLUESPACE TARGETING PARAMETERS SET, PREIGNITION STARTING... CAPACITOR CHARGE AT [round(capacitor_power / 1000000, 0.1)] MW, FIRING IN T-20 SECONDS!", "BLUESPACE ARTILLERY", ANNOUNCER_BLUESPACEARTY)
+	priority_announce("BLUESPACE TARGETING PARAMETERS SET, PREIGNITION STARTING... CAPACITOR CHARGE AT [round(capacitor_power / BSA_FIRE_POWER_THRESHOLD, 0.1)] MW, FIRING IN T-20 SECONDS!", "BLUESPACE ARTILLERY", ANNOUNCER_BLUESPACEARTY)
 	alert_sound_to_playing('modular_nova/modules/bsa_overhaul/sound/superlaser_prefire.ogg', override_volume = TRUE)
 	message_admins("[user] has started the fire cycle of [src]! Firing at: [ADMIN_VERBOSEJMP(bullseye)]")
 	log_game("[key_name(user)] has aimed the bluespace artillery strike at [bullseye].")
