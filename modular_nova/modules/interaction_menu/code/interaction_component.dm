@@ -6,7 +6,7 @@
 	var/list/datum/interaction/interactions
 	var/interact_last = 0
 	var/interact_next = 0
-	/// Whether or not we are using subtler for our interactions.
+	/// Whether or not we are using subtler for lewd interactions.
 	var/use_subtler = TRUE
 
 /datum/component/interactable/Initialize(...)
@@ -69,7 +69,7 @@
 /datum/component/interactable/ui_interact(mob/user, datum/tgui/ui)
 	ui = SStgui.try_update_ui(user, src, ui)
 	if(!ui)
-		ui = new(user, src, "InteractionMenu")
+		ui = new(user, src, "InteractionPanel")
 		ui.open()
 
 /datum/component/interactable/ui_status(mob/user, datum/ui_state/state)
@@ -106,6 +106,16 @@
 	data["block_interact"] = interact_next >= world.time
 	data["interactions"] = categories
 	data["use_subtler"] = use_subtler
+	data["erp_interaction"] = self.client?.prefs?.read_preference(/datum/preference/toggle/erp)
+
+	var/mob/living/carbon/human/human_user = user
+	// Primary attributes (user's stats)
+	data["pleasure"] = human_user.pleasure
+	data["maxPleasure"] = AROUSAL_LIMIT
+	data["arousal"] = human_user.arousal
+	data["maxArousal"] = AROUSAL_LIMIT
+	data["pain"] = human_user.pain
+	data["maxPain"] = AROUSAL_LIMIT
 
 	var/list/parts = list()
 

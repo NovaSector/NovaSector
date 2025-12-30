@@ -1,0 +1,103 @@
+import { useBackend } from '../../backend';
+import { BooleanLike } from 'tgui-core/react';
+import { useState } from 'react';
+import {
+  Button,
+  Icon,
+  Input,
+  Section,
+  Stack,
+  Tabs,
+} from 'tgui-core/components';
+
+class Interaction {
+  erp_interaction: BooleanLike;
+}
+
+import {
+  InteractionsTab,
+  LewdItemsTab,
+} from './tabs';
+
+export const MainContent = () => {
+  const [searchText, setSearchText] = useState('');
+  const [tabIndex, setTabIndex] = useState(0);
+  const [showCategories, setShowCategories] = useState(true);
+  const { act, data } = useBackend<Interaction>();
+  const {
+    erp_interaction,
+  } = data;
+
+  return (
+    <Section fill>
+      <Stack vertical fill>
+        <Stack.Item>
+          <Tabs fluid textAlign="center">
+            <Tabs.Tab
+              selected={tabIndex === 0}
+              onClick={() => setTabIndex(0)}
+            >
+              Interactions
+            </Tabs.Tab>
+            {erp_interaction ? (
+            <Tabs.Tab selected={tabIndex === 1} onClick={() => setTabIndex(1)}>
+              Lewd Items
+            </Tabs.Tab>
+            ) : (
+            ''
+            )}
+          </Tabs>
+        </Stack.Item>
+        <Stack.Item>
+          <Stack align="baseline" fill>
+            <Stack.Item>
+              <Icon name="search" />
+            </Stack.Item>
+            <Stack.Item grow>
+              <Input
+                fluid
+                placeholder={
+                  tabIndex === 0
+                    ? 'Search for an interaction'
+                    : tabIndex === 1
+                      ? 'Search for an item'
+                      : 'Searching is unavailable for this tab'
+                }
+                onChange={(value) => setSearchText(value)}
+              />
+            </Stack.Item>
+            {tabIndex === 0 && (
+              <Stack.Item>
+                <Button
+                  icon={showCategories ? 'folder' : 'list'}
+                  color="green"
+                  tooltip={
+                    showCategories ? 'Hide Categories' : 'Show Categories'
+                  }
+                  onClick={() => setShowCategories(!showCategories)}
+                />
+              </Stack.Item>
+            )}
+          </Stack>
+        </Stack.Item>
+        <Stack.Item grow mb={-1.6}>
+          <Section fill>
+            {(() => {
+              switch (tabIndex) {
+                case 1:
+                  return <LewdItemsTab searchText={searchText} />;
+                default:
+                  return (
+                    <InteractionsTab
+                      searchText={searchText}
+                      showCategories={showCategories}
+                    />
+                  );
+              }
+            })()}
+          </Section>
+        </Stack.Item>
+      </Stack>
+    </Section>
+  );
+};
