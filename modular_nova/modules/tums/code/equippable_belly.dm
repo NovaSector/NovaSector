@@ -182,11 +182,7 @@
 /// The great wall of ingame config options.
 /// This mirrors what you can access from the quirk prefs, but able to be edited ingame.
 /obj/item/belly_function/proc/config_menu(mob/living/user)
-	var/opt_list = list("Change Color", "Toggle Skintone",
-	"Set Size Modifier", "Set Nutrition Size Modifier", "Set Size Modifier for Audio",
-	"Toggle Belly Groans", "Toggle Belly Gurgles", "Toggle Belly Movement Creaks", "Toggle Belly Movement Sloshes",
-	"Set Baseline Cosmetic Size", "Set Baseline Full Size", "Set Baseline Stuffed Size",
-	"Adjust Pred Mode", "Set Guest Size")
+	var/opt_list = list("Edit Settings")
 	var/list/mob/living/carbon/human/extra_size_list = list()
 
 	for(var/mob/living/carbon/human/nommed in nommeds)
@@ -198,83 +194,8 @@
 	var/adjustment_mode = tgui_input_list(user, "Select ", "Belly Control", opt_list)
 	var/list_yesno = list("Yes", "No")
 	switch(adjustment_mode)
-		if("Change Color")
-			var/temp_col = input("Enter new color:", "Color", src.color) as color|null
-			if(temp_col != null || QDELETED(user) || QDELETED(src))
-				src.color = temp_col
-			last_size = -1
-		if("Toggle Skintone")
-			var/mode_select = tgui_alert(user, "Use skintone spritesheets?  Current state: [(use_skintone == TRUE) ? "yes" : "no"]", "Toggle Skintone", list_yesno)
-			if(isnull(mode_select) || QDELETED(user) || QDELETED(src))
-				return
-			use_skintone = (mode_select == "Yes") ? TRUE : FALSE
-			last_size = -1
-		if("Set Size Modifier")
-			var/temp_size = tgui_input_number(user, "Set a size multiplier (0.00-10.00) - all size sources are multiplied by this.", "Sizemod", sizemod, 10, 0, round_value = FALSE)
-			if(isnull(temp_size) || QDELETED(user) || QDELETED(src))
-				return
-			sizemod = temp_size
-		if("Set Nutrition Size Modifier")
-			var/temp_size = tgui_input_number(user, "Set a size multiplier (0.00-10.00) - this is applied to auto-calculated stuffed size from nutrition or stomach reagents.", "Nutrition Sizemod", sizemod, 10, 0, round_value = FALSE)
-			if(isnull(temp_size) || QDELETED(user) || QDELETED(src))
-				return
-			sizemod_autostuffed = temp_size
-		if("Set Size Modifier for Audio")
-			var/temp_size = tgui_input_number(user, "Set a size multiplier (0.00-10.00) - all size sources are multiplied by this for determining audio.", "Audio Sizemod", sizemod_audio, 10, 0, round_value = FALSE)
-			if(isnull(temp_size) || QDELETED(user) || QDELETED(src))
-				return
-			sizemod_audio = temp_size
-		if("Toggle Belly Groans")
-			var/mode_select = tgui_alert(user, "Allow full groans & creaks to play from your belly?  Current state: [(allow_sound_groans == TRUE) ? "yes" : "no"]", "Allow Groans", list_yesno)
-			if(isnull(mode_select) || QDELETED(user) || QDELETED(src))
-				return
-			allow_sound_groans = (mode_select == "Yes") ? TRUE : FALSE
-		if("Toggle Belly Gurgles")
-			var/mode_select = tgui_alert(user, "Allow stuffed gurgles and churns to play from your belly?  Current state: [(allow_sound_gurgles == TRUE) ? "yes" : "no"]", "Allow Gurgles", list_yesno)
-			if(isnull(mode_select) || QDELETED(user) || QDELETED(src))
-				return
-			allow_sound_gurgles = (mode_select == "Yes") ? TRUE : FALSE
-		if("Toggle Belly Movement Creaks")
-			var/mode_select = tgui_alert(user, "Allow full creaks to play from your belly when jostled?  Current state: [(allow_sound_move_creaks == TRUE) ? "yes" : "no"]", "Allow Movement Creaks", list_yesno)
-			if(isnull(mode_select) || QDELETED(user) || QDELETED(src))
-				return
-			allow_sound_move_creaks = (mode_select == "Yes") ? TRUE : FALSE
-		if("Toggle Belly Movement Sloshes")
-			var/mode_select = tgui_alert(user, "Allow stuffed sloshes to play from your belly when jostled?  Current state: [(allow_sound_move_sloshes == TRUE) ? "yes" : "no"]", "Allow Movement Sloshes", list_yesno)
-			if(isnull(mode_select) || QDELETED(user) || QDELETED(src))
-				return
-			allow_sound_move_sloshes = (mode_select == "Yes") ? TRUE : FALSE
-		if("Set Baseline Cosmetic Size")
-			var/temp_size = tgui_input_number(user, "What silent, purely cosmetic baseline belly size do you want?", "Base Size")
-			if(isnull(temp_size) || QDELETED(user) || QDELETED(src))
-				return
-			base_size_cosmetic = temp_size
-		if("Set Baseline Full Size")
-			var/temp_size = tgui_input_number(user, "What gently-creaking, cosmetic belly size do you want?", "Base Full Size")
-			if(isnull(temp_size) || QDELETED(user) || QDELETED(src))
-				return
-			base_size_full = temp_size
-		if("Set Baseline Stuffed Size")
-			var/temp_size = tgui_input_number(user, "What gurgly, cosmetic belly size do you want?", "Base Stuffed Size")
-			if(isnull(temp_size) || QDELETED(user) || QDELETED(src))
-				return
-			base_size_stuffed = temp_size
-		if("Adjust Pred Mode")
-			var/list/pred_options = list("Never", "Query", "Always")
-			var/mode_select = tgui_input_list(
-				user,
-				"Determines whether or not you can vore people as a pred with the belly. \
-				Never means you can never be a pred, query means you always get queried before trying, always means you always try.", "Pred Prefs",
-				pred_options,
-				)
-			if(isnull(mode_select) || QDELETED(user) || QDELETED(src))
-				return
-			pred_mode = mode_select
-		if("Set Guest Size")
-			var/temp_size = tgui_input_number(user, "What size do you want your eaten bellyguests to be?  (0.0-infinity, 1000 is typically same-sizeish)", "Endo Size")
-			if(isnull(temp_size) || QDELETED(user) || QDELETED(src))
-				return
-			endo_size = temp_size
+		if("Edit Settings")
+			ui_interact(user)
 		else
 			if(adjustment_mode in extra_size_list)
 				var/temp_size = tgui_input_number(user, "What size do you want [extra_size_list[adjustment_mode].name] to be?  (0.0-infinity, 1000 is typically same-sizeish)", "Endo Size")
@@ -284,6 +205,117 @@
 				recalculate_guest_sizes()
 			else
 				return
+
+/// UI TEST ZONE IN PROGRESS.
+/obj/item/belly_function/ui_interact(mob/user, datum/tgui/ui)
+	ui = SStgui.try_update_ui(user, src, ui)
+	if(!ui)
+		ui = new(user, src, "NovaTumsPrefs", name)
+		ui.open()
+
+/obj/item/belly_function/ui_static_data(mob/user)
+	. = list()
+	//.["a_constant"] = A_CONSTANT
+	.["pred_options"] = list("Never", "Query", "Always")
+
+/obj/item/belly_function/ui_data(mob/user)
+	. = list()
+
+	// Send title and current calculated sprite size
+	.["title"] = "Local belly prefs: [lastuser]"
+	// Send current color & sprite variants
+	.["color"] = color
+	.["use_skintone"] = use_skintone
+	// Send current size modifiers
+	.["sizemod"] = sizemod
+	.["sizemod_autostuffed"] = sizemod_autostuffed
+	.["sizemod_audio"] = sizemod_audio
+	// Send current sound rules
+	.["allow_sound_groans"] = allow_sound_groans
+	.["allow_sound_gurgles"] = allow_sound_gurgles
+	.["allow_sound_move_creaks"] = allow_sound_move_creaks
+	.["allow_sound_move_sloshes"] = allow_sound_move_sloshes
+	// Send details on current calculated belly size
+	var/nutritionmaxxing = "N/A"
+	if(sizemod_autostuffed > 0 && sizemod > 0)
+		nutritionmaxxing = (((25.9852 * ((current_size_unclamped)**2))/sizemod/sizemod_autostuffed) + 500) / 0.4
+	.["calculated_size"] = "Base cosmetic sizes: these provide mechanics-agnostic belly size and/or audio.\nCalculated total sprite size of [current_size_unclamped]/16 ([last_size]/16 clamped); equivalent to [nutritionmaxxing] nutrition."
+	// Send a calculated max for the sliders - this is based on the volume equation.
+	// This sets per-category max to the value required to reach a smidge beyond the maximum sprite size.
+	if(sizemod > 0)
+		.["base_size_max"] = (25.9852 * ((16+1)**2))/sizemod
+	else
+		.["base_size_max"] = (25.9852 * ((16+1)**2))
+	.["base_size_cosmetic"] = base_size_cosmetic
+	.["base_size_full"] = base_size_full
+	.["base_size_stuffed"] = base_size_stuffed
+	// Send current vore-related prefs
+	.["pred_mode"] = pred_mode
+	.["endo_size_label"] = "Default endo size (sprite size [(((endo_size / 10)**1.5) / (4/3) / PI)**(1/3)])"
+	.["endo_size"] = endo_size
+
+/obj/item/belly_function/ui_act(action, list/params, datum/tgui/ui, datum/ui_state/state)
+	. = ..()
+	if(.)
+		return
+
+	switch(action)
+		if("changeColor")
+			var/temp_col = tgui_color_picker(lastuser, "Enter new color:", "Color", src.color)
+			if(temp_col != null || QDELETED(lastuser) || QDELETED(src))
+				src.color = temp_col
+			do_alt_appearance(lastuser, TRUE, last_size)
+			last_size = -1
+			return TRUE
+		if("changeUseSkintone")
+			use_skintone = !use_skintone
+			if(use_skintone)
+				var/list_yesno = list("Yes", "No")
+				var/mode_select = tgui_alert(lastuser, "Auto-set color based on your skintone?", "Inherit Skintone?", list_yesno)
+				if(isnull(mode_select) || QDELETED(lastuser) || QDELETED(src))
+					return TRUE
+				if(mode_select == "Yes")
+					src.color = skintone2hex(lastuser.skin_tone) //why this isn't in DNA hurts me
+				return TRUE
+			do_alt_appearance(lastuser, TRUE, last_size)
+			last_size = -1
+			return TRUE
+		if("changeSizemod")
+			sizemod = text2num(params["newSizemod"])
+			return TRUE
+		if("changeSizemodAutostuffed")
+			sizemod_autostuffed = text2num(params["newSizemodAutostuffed"])
+			return TRUE
+		if("changeSizemodAudio")
+			sizemod = text2num(params["newSizemodAudio"])
+			return TRUE
+		if("changeSoundGroans")
+			allow_sound_groans = !allow_sound_groans
+			return TRUE
+		if("changeSoundGurgles")
+			allow_sound_gurgles = !allow_sound_gurgles
+			return TRUE
+		if("changeSoundMoveCreaks")
+			allow_sound_move_creaks = !allow_sound_move_creaks
+			return TRUE
+		if("changeSoundMoveSloshes")
+			allow_sound_move_sloshes = !allow_sound_move_sloshes
+			return TRUE
+		if("changeBaseCosmetic")
+			base_size_cosmetic = text2num(params["newBaseCosmetic"])
+			return TRUE
+		if("changeBaseFull")
+			base_size_full = text2num(params["newBaseFull"])
+			return TRUE
+		if("changeBaseStuffed")
+			base_size_stuffed = text2num(params["newBaseStuffed"])
+			return TRUE
+		if("changePredMode")
+			pred_mode = params["newPredMode"]
+			return TRUE
+		if("changeEndoSize")
+			endo_size = text2num(params["newEndoSize"])
+			return TRUE
 
 /// Helper for activating the belly.
 /// Culls old appearances as needed and registers signals & actions.
