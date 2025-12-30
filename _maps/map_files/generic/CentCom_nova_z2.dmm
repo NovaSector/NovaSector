@@ -4479,10 +4479,6 @@
 /obj/machinery/light/directional/west,
 /turf/open/floor/iron,
 /area/centcom/holding/cafe)
-"btb" = (
-/obj/effect/turf_decal/sand,
-/turf/open/space/basic,
-/area/space)
 "btz" = (
 /obj/structure/hedge/opaque,
 /obj/structure/spacevine{
@@ -4797,10 +4793,8 @@
 /turf/open/floor/iron,
 /area/centcom/interlink)
 "bQm" = (
-/obj/effect/turf_decal/sand{
-	layer = 2
-	},
 /obj/effect/turf_decal/sand/plating,
+/obj/effect/turf_decal/sand,
 /turf/open/indestructible/plating,
 /area/centcom/holding/cafepark)
 "bQQ" = (
@@ -5189,10 +5183,6 @@
 	},
 /turf/open/floor/wood/parquet,
 /area/centcom/interlink)
-"cib" = (
-/obj/effect/turf_decal/sand/plating,
-/turf/open/space/basic,
-/area/space)
 "cie" = (
 /turf/closed/indestructible/fakedoor/maintenance{
 	name = "Storage"
@@ -8213,10 +8203,8 @@
 /area/centcom/interlink/dorm_rooms/room2)
 "gQH" = (
 /obj/structure/platform/wood,
-/obj/structure/fluff/standalone_wooden_post{
-	pixel_x = 0;
-	pixel_y = 24;
-	layer = 2.7
+/obj/structure/fluff/standalone_wooden_post/behind{
+	pixel_y = 24
 	},
 /turf/open/misc/grass/planet,
 /area/centcom/holding/cafepark)
@@ -12645,10 +12633,6 @@
 	},
 /turf/open/floor/wood,
 /area/centcom/interlink/dorm_rooms/room3)
-"ngY" = (
-/obj/structure/fluff/fake_sand_plating,
-/turf/open/space/basic,
-/area/space)
 "nhZ" = (
 /obj/structure/bed/double/thatch,
 /turf/open/floor/grass/thatch,
@@ -12912,10 +12896,6 @@
 "nDE" = (
 /turf/open/floor/carpet/purple,
 /area/centcom/holding/cafepark)
-"nEc" = (
-/obj/structure/fluff/fake_sand_floor,
-/turf/open/space/basic,
-/area/space)
 "nFi" = (
 /obj/structure/curtain,
 /obj/machinery/shower/directional/north,
@@ -19070,8 +19050,7 @@
 	name = "note to Mr. Best"
 	},
 /obj/structure/platform/wood,
-/obj/structure/fluff/standalone_wooden_post{
-	layer = 2.7;
+/obj/structure/fluff/standalone_wooden_post/behind{
 	pixel_y = 24
 	},
 /turf/open/floor/wood,
@@ -82096,9 +82075,9 @@ aaa
 aaa
 aaa
 aaa
-cib
 aaa
-ngY
+aaa
+aaa
 aaa
 aaa
 aaa
@@ -82353,9 +82332,9 @@ aaa
 aaa
 aaa
 aaa
-btb
 aaa
-nEc
+aaa
+aaa
 aaa
 aaa
 aaa

@@ -127,6 +127,9 @@
 	icon_state = "wooden_post"
 	can_buckle = TRUE
 
+/obj/structure/fluff/standalone_wooden_post/behind
+	layer = 2.7
+
 /obj/structure/fluff/fake_sand_plating
 	name = /obj/effect/turf_decal/sand/plating::name
 	desc = /obj/effect/turf_decal/sand/plating::desc
