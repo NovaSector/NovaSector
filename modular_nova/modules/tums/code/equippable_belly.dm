@@ -333,8 +333,7 @@
 				if(params["tab"] == "2" || ui_tab == 2)
 					lastuser?.client?.prefs.write_preference(GLOB.preference_entries[/datum/preference/color/erp_bellyquirk_color], new_color)
 					var/mode_select = tgui_alert(lastuser, "Update your current in-round prefs to match the new value?", "Update Local?", list_yesno)
-					if(isnull(mode_select) || QDELETED(lastuser) || QDELETED(src))
-					else if(mode_select == "Yes")
+					if(!(isnull(mode_select) || QDELETED(lastuser) || QDELETED(src)) && mode_select == "Yes")
 						color = new_color
 				else
 					color = new_color
@@ -348,13 +347,11 @@
 				var/new_color = null
 				if(new_use_skintone)
 					var/mode_select = tgui_alert(lastuser, "Auto-set color based on your skintone?", "Inherit Skintone?", list_yesno)
-					if(isnull(mode_select) || QDELETED(lastuser) || QDELETED(src))
-					else if(mode_select == "Yes")
+					if(!(isnull(mode_select) || QDELETED(lastuser) || QDELETED(src)) && mode_select == "Yes")
 						new_color = skintone2hex(lastuser?.client?.prefs.read_preference(/datum/preference/choiced/skin_tone)) //why this isn't in DNA hurts me
 						lastuser?.client?.prefs.write_preference(GLOB.preference_entries[/datum/preference/color/erp_bellyquirk_color], new_color)
 				var/mode_select = tgui_alert(lastuser, "Update your current in-round prefs to match the new value?", "Update Local?", list_yesno)
-				if(isnull(mode_select) || QDELETED(lastuser) || QDELETED(src))
-				else if(mode_select == "Yes")
+				if(!(isnull(mode_select) || QDELETED(lastuser) || QDELETED(src)) && mode_select == "Yes")
 					use_skintone = new_use_skintone
 					if(new_color != null)
 						color = new_color
@@ -362,8 +359,7 @@
 				use_skintone = !use_skintone
 				if(use_skintone)
 					var/mode_select = tgui_alert(lastuser, "Auto-set color based on your skintone?", "Inherit Skintone?", list_yesno)
-					if(isnull(mode_select) || QDELETED(lastuser) || QDELETED(src))
-					else if(mode_select == "Yes")
+					if(!(isnull(mode_select) || QDELETED(lastuser) || QDELETED(src)) && mode_select == "Yes")
 						color = skintone2hex(lastuser.skin_tone) //why this isn't in DNA hurts me
 			do_alt_appearance(lastuser, TRUE, last_size)
 			last_size = -1
@@ -373,8 +369,7 @@
 			if(params["tab"] == "2" || ui_tab == 2)
 				lastuser?.client?.prefs.write_preference(GLOB.preference_entries[/datum/preference/numeric/erp_bellyquirk_sizemod], new_sizemod)
 				var/mode_select = tgui_alert(lastuser, "Update your current in-round prefs to match the new value?", "Update Local?", list_yesno)
-				if(isnull(mode_select) || QDELETED(lastuser) || QDELETED(src))
-				else if(mode_select == "Yes")
+				if(!(isnull(mode_select) || QDELETED(lastuser) || QDELETED(src)) && mode_select == "Yes")
 					sizemod = new_sizemod
 			else
 				sizemod = new_sizemod
@@ -384,8 +379,7 @@
 			if(params["tab"] == "2" || ui_tab == 2)
 				lastuser?.client?.prefs.write_preference(GLOB.preference_entries[/datum/preference/numeric/erp_bellyquirk_sizemod_autostuffed], new_sizemod_autostuffed)
 				var/mode_select = tgui_alert(lastuser, "Update your current in-round prefs to match the new value?", "Update Local?", list_yesno)
-				if(isnull(mode_select) || QDELETED(lastuser) || QDELETED(src))
-				else if(mode_select == "Yes")
+				if(!(isnull(mode_select) || QDELETED(lastuser) || QDELETED(src)) && mode_select == "Yes")
 					sizemod_autostuffed = new_sizemod_autostuffed
 			else
 				sizemod_autostuffed = new_sizemod_autostuffed
@@ -395,8 +389,7 @@
 			if(params["tab"] == "2" || ui_tab == 2)
 				lastuser?.client?.prefs.write_preference(GLOB.preference_entries[/datum/preference/numeric/erp_bellyquirk_sizemod_audio], new_sizemod_audio)
 				var/mode_select = tgui_alert(lastuser, "Update your current in-round prefs to match the new value?", "Update Local?", list_yesno)
-				if(isnull(mode_select) || QDELETED(lastuser) || QDELETED(src))
-				else if(mode_select == "Yes")
+				if(!(isnull(mode_select) || QDELETED(lastuser) || QDELETED(src)) && mode_select == "Yes")
 					sizemod_audio = new_sizemod_audio
 			else
 				sizemod_audio = new_sizemod_audio
@@ -406,8 +399,7 @@
 				var/new_allow_sound_groans = !(lastuser?.client?.prefs.read_preference(/datum/preference/toggle/erp_bellyquirk_groans) || FALSE)
 				lastuser?.client?.prefs.write_preference(GLOB.preference_entries[/datum/preference/toggle/erp_bellyquirk_groans], new_allow_sound_groans != FALSE)
 				var/mode_select = tgui_alert(lastuser, "Update your current in-round prefs to match the new value?", "Update Local?", list_yesno)
-				if(isnull(mode_select) || QDELETED(lastuser) || QDELETED(src))
-				else if(mode_select == "Yes")
+				if(!(isnull(mode_select) || QDELETED(lastuser) || QDELETED(src)) && mode_select == "Yes")
 					allow_sound_groans = new_allow_sound_groans
 			else
 				allow_sound_groans = !allow_sound_groans
@@ -417,8 +409,7 @@
 				var/new_allow_sound_gurgles = !(lastuser?.client?.prefs.read_preference(/datum/preference/toggle/erp_bellyquirk_gurgles) || FALSE)
 				lastuser?.client?.prefs.write_preference(GLOB.preference_entries[/datum/preference/toggle/erp_bellyquirk_gurgles], new_allow_sound_gurgles != FALSE)
 				var/mode_select = tgui_alert(lastuser, "Update your current in-round prefs to match the new value?", "Update Local?", list_yesno)
-				if(isnull(mode_select) || QDELETED(lastuser) || QDELETED(src))
-				else if(mode_select == "Yes")
+				if(!(isnull(mode_select) || QDELETED(lastuser) || QDELETED(src)) && mode_select == "Yes")
 					allow_sound_gurgles = new_allow_sound_gurgles
 			else
 				allow_sound_gurgles = !allow_sound_gurgles
@@ -428,8 +419,7 @@
 				var/new_allow_sound_move_creaks = !(lastuser?.client?.prefs.read_preference(/datum/preference/toggle/erp_bellyquirk_move_creaks) || FALSE)
 				lastuser?.client?.prefs.write_preference(GLOB.preference_entries[/datum/preference/toggle/erp_bellyquirk_move_creaks], new_allow_sound_move_creaks != FALSE)
 				var/mode_select = tgui_alert(lastuser, "Update your current in-round prefs to match the new value?", "Update Local?", list_yesno)
-				if(isnull(mode_select) || QDELETED(lastuser) || QDELETED(src))
-				else if(mode_select == "Yes")
+				if(!(isnull(mode_select) || QDELETED(lastuser) || QDELETED(src)) && mode_select == "Yes")
 					allow_sound_move_creaks = new_allow_sound_move_creaks
 			else
 				allow_sound_move_creaks = !allow_sound_move_creaks
@@ -439,8 +429,7 @@
 				var/new_allow_sound_move_sloshes = !(lastuser?.client?.prefs.read_preference(/datum/preference/toggle/erp_bellyquirk_move_sloshes) || FALSE)
 				lastuser?.client?.prefs.write_preference(GLOB.preference_entries[/datum/preference/toggle/erp_bellyquirk_move_sloshes], new_allow_sound_move_sloshes != FALSE)
 				var/mode_select = tgui_alert(lastuser, "Update your current in-round prefs to match the new value?", "Update Local?", list_yesno)
-				if(isnull(mode_select) || QDELETED(lastuser) || QDELETED(src))
-				else if(mode_select == "Yes")
+				if(!(isnull(mode_select) || QDELETED(lastuser) || QDELETED(src)) && mode_select == "Yes")
 					allow_sound_move_sloshes = new_allow_sound_move_sloshes
 			else
 				allow_sound_move_sloshes = !allow_sound_move_sloshes
@@ -450,8 +439,7 @@
 			if(params["tab"] == "2" || ui_tab == 2)
 				lastuser?.client?.prefs.write_preference(GLOB.preference_entries[/datum/preference/numeric/erp_bellyquirk_maxsize], new_maxsize)
 				var/mode_select = tgui_alert(lastuser, "Update your current in-round prefs to match the new value?", "Update Local?", list_yesno)
-				if(isnull(mode_select) || QDELETED(lastuser) || QDELETED(src))
-				else if(mode_select == "Yes")
+				if(!(isnull(mode_select) || QDELETED(lastuser) || QDELETED(src)) && mode_select == "Yes")
 					maxsize = new_maxsize
 			else
 				maxsize = new_maxsize
@@ -461,8 +449,7 @@
 			if(params["tab"] == "2" || ui_tab == 2)
 				lastuser?.client?.prefs.write_preference(GLOB.preference_entries[/datum/preference/numeric/erp_bellyquirk_size_base], new_base_size_cosmetic)
 				var/mode_select = tgui_alert(lastuser, "Update your current in-round prefs to match the new value?", "Update Local?", list_yesno)
-				if(isnull(mode_select) || QDELETED(lastuser) || QDELETED(src))
-				else if(mode_select == "Yes")
+				if(!(isnull(mode_select) || QDELETED(lastuser) || QDELETED(src)) && mode_select == "Yes")
 					base_size_cosmetic = new_base_size_cosmetic
 			else
 				base_size_cosmetic = new_base_size_cosmetic
@@ -472,8 +459,7 @@
 			if(params["tab"] == "2" || ui_tab == 2)
 				lastuser?.client?.prefs.write_preference(GLOB.preference_entries[/datum/preference/numeric/erp_bellyquirk_size_full], new_base_size_full)
 				var/mode_select = tgui_alert(lastuser, "Update your current in-round prefs to match the new value?", "Update Local?", list_yesno)
-				if(isnull(mode_select) || QDELETED(lastuser) || QDELETED(src))
-				else if(mode_select == "Yes")
+				if(!(isnull(mode_select) || QDELETED(lastuser) || QDELETED(src)) && mode_select == "Yes")
 					base_size_full = new_base_size_full
 			else
 				base_size_full = new_base_size_full
@@ -483,8 +469,7 @@
 			if(params["tab"] == "2" || ui_tab == 2)
 				lastuser?.client?.prefs.write_preference(GLOB.preference_entries[/datum/preference/numeric/erp_bellyquirk_size_stuffed], new_base_size_stuffed)
 				var/mode_select = tgui_alert(lastuser, "Update your current in-round prefs to match the new value?", "Update Local?", list_yesno)
-				if(isnull(mode_select) || QDELETED(lastuser) || QDELETED(src))
-				else if(mode_select == "Yes")
+				if(!(isnull(mode_select) || QDELETED(lastuser) || QDELETED(src)) && mode_select == "Yes")
 					base_size_stuffed = new_base_size_stuffed
 			else
 				base_size_stuffed = new_base_size_stuffed
@@ -494,8 +479,7 @@
 			if(params["tab"] == "2" || ui_tab == 2)
 				lastuser?.client?.prefs.write_preference(GLOB.preference_entries[/datum/preference/choiced/erp_bellyquirk_pred_pref], new_pred_mode)
 				var/mode_select = tgui_alert(lastuser, "Update your current in-round prefs to match the new value?", "Update Local?", list_yesno)
-				if(isnull(mode_select) || QDELETED(lastuser) || QDELETED(src))
-				else if(mode_select == "Yes")
+				if(!(isnull(mode_select) || QDELETED(lastuser) || QDELETED(src)) && mode_select == "Yes")
 					pred_mode = new_pred_mode
 			else
 				pred_mode = new_pred_mode
@@ -505,8 +489,7 @@
 			if(params["tab"] == "2" || ui_tab == 2)
 				lastuser?.client?.prefs.write_preference(GLOB.preference_entries[/datum/preference/numeric/erp_bellyquirk_size_endo], new_endo_size)
 				var/mode_select = tgui_alert(lastuser, "Update your current in-round prefs to match the new value?", "Update Local?", list_yesno)
-				if(isnull(mode_select) || QDELETED(lastuser) || QDELETED(src))
-				else if(mode_select == "Yes")
+				if(!(isnull(mode_select) || QDELETED(lastuser) || QDELETED(src)) && mode_select == "Yes")
 					endo_size = new_endo_size
 			else
 				endo_size = new_endo_size
