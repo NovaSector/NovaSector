@@ -126,3 +126,19 @@
 	icon = 'modular_nova/modules/mapping/icons/obj/fluff.dmi'
 	icon_state = "wooden_post"
 	can_buckle = TRUE
+
+/obj/structure/fluff/fake_sand_plating
+	name = /obj/effect/turf_decal/sand/plating::name
+	desc = /obj/effect/turf_decal/sand/plating::desc
+	icon = /obj/effect/turf_decal/sand/plating::icon
+	icon_state = /obj/effect/turf_decal/sand/plating::icon_state
+	layer = 2
+	plane = /obj/effect/turf_decal/sand/plating::plane
+
+/obj/structure/fluff/fake_sand_floor
+	name = /obj/effect/turf_decal/sand::name
+	desc = /obj/effect/turf_decal/sand::desc
+	icon = /obj/effect/turf_decal/sand/::icon
+	icon_state = /obj/effect/turf_decal/sand::icon_state
+	layer = 2
+	plane = /obj/effect/turf_decal/sand::plane

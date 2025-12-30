@@ -596,7 +596,7 @@
 "alH" = (
 /obj/structure/platform/wood,
 /obj/structure/chair/wood/wings{
-	dir = 8
+	dir = 4
 	},
 /turf/open/misc/grass/planet,
 /area/centcom/holding/cafepark)
@@ -1006,12 +1006,8 @@
 /turf/open/floor/iron/white/smooth_large,
 /area/centcom/interlink)
 "aqo" = (
-/obj/effect/turf_decal/sand/plating{
-	layer = 2
-	},
-/obj/effect/turf_decal/sand{
-	layer = 2
-	},
+/obj/structure/fluff/fake_sand_plating,
+/obj/structure/fluff/fake_sand_floor,
 /turf/closed/wall/mineral/titanium/shuttle_wall/arrivals{
 	icon_state = "2,4"
 	},
@@ -2250,12 +2246,8 @@
 /turf/open/misc/dirt/planet,
 /area/centcom/holding/cafepark)
 "aDC" = (
-/obj/effect/turf_decal/sand/plating{
-	layer = 2
-	},
-/obj/effect/turf_decal/sand{
-	layer = 2
-	},
+/obj/structure/fluff/fake_sand_plating,
+/obj/structure/fluff/fake_sand_floor,
 /turf/closed/wall/mineral/titanium/shuttle_wall/window/arrivals{
 	icon_state = "4,4"
 	},
@@ -2845,15 +2837,8 @@
 /area/centcom/holding/cafepark)
 "aMr" = (
 /obj/effect/light_emitter/interlink,
-/obj/effect/turf_decal/sand/plating{
-	layer = 2
-	},
-/obj/effect/turf_decal/sand{
-	layer = 2
-	},
-/obj/effect/turf_decal/sand/plating/volcanic{
-	layer = 2
-	},
+/obj/structure/fluff/fake_sand_plating,
+/obj/structure/fluff/fake_sand_floor,
 /turf/closed/wall/mineral/titanium/shuttle_wall/arrivals{
 	icon_state = "12,1"
 	},
@@ -4168,7 +4153,7 @@
 "aYQ" = (
 /obj/machinery/door/airlock{
 	id_tag = "CCD2";
-	name = "Construction zone"
+	name = "Construction Zone"
 	},
 /obj/structure/fans/tiny/invisible,
 /turf/open/indestructible/hotelwood,
@@ -4494,6 +4479,10 @@
 /obj/machinery/light/directional/west,
 /turf/open/floor/iron,
 /area/centcom/holding/cafe)
+"btb" = (
+/obj/effect/turf_decal/sand,
+/turf/open/space/basic,
+/area/space)
 "btz" = (
 /obj/structure/hedge/opaque,
 /obj/structure/spacevine{
@@ -4700,12 +4689,8 @@
 /turf/open/floor/iron/kitchen/herringbone,
 /area/centcom/holding/cafe)
 "bFQ" = (
-/obj/effect/turf_decal/sand/plating{
-	layer = 2
-	},
-/obj/effect/turf_decal/sand{
-	layer = 2
-	},
+/obj/structure/fluff/fake_sand_plating,
+/obj/structure/fluff/fake_sand_floor,
 /turf/closed/wall/mineral/titanium/shuttle_wall/arrivals{
 	icon_state = "0,3"
 	},
@@ -5204,6 +5189,10 @@
 	},
 /turf/open/floor/wood/parquet,
 /area/centcom/interlink)
+"cib" = (
+/obj/effect/turf_decal/sand/plating,
+/turf/open/space/basic,
+/area/space)
 "cie" = (
 /turf/closed/indestructible/fakedoor/maintenance{
 	name = "Storage"
@@ -5297,12 +5286,8 @@
 /turf/open/floor/iron/smooth_large,
 /area/centcom/interlink)
 "crk" = (
-/obj/effect/turf_decal/sand/plating{
-	layer = 2
-	},
-/obj/effect/turf_decal/sand{
-	layer = 2
-	},
+/obj/structure/fluff/fake_sand_plating,
+/obj/structure/fluff/fake_sand_floor,
 /turf/closed/wall/mineral/titanium/shuttle_wall/arrivals{
 	icon_state = "12,4"
 	},
@@ -5348,12 +5333,8 @@
 /turf/open/floor/wood/wood_7,
 /area/centcom/holding/cafe)
 "ctS" = (
-/obj/effect/turf_decal/sand/plating{
-	layer = 2
-	},
-/obj/effect/turf_decal/sand{
-	layer = 2
-	},
+/obj/structure/fluff/fake_sand_plating,
+/obj/structure/fluff/fake_sand_floor,
 /turf/closed/wall/mineral/titanium/shuttle_wall/arrivals{
 	icon_state = "1,4"
 	},
@@ -5526,12 +5507,8 @@
 /turf/open/floor/iron/white,
 /area/centcom/interlink)
 "cPa" = (
-/obj/effect/turf_decal/sand/plating{
-	layer = 2
-	},
-/obj/effect/turf_decal/sand{
-	layer = 2
-	},
+/obj/structure/fluff/fake_sand_plating,
+/obj/structure/fluff/fake_sand_floor,
 /turf/closed/wall/mineral/titanium/shuttle_wall/window/arrivals{
 	icon_state = "7,4"
 	},
@@ -6359,6 +6336,10 @@
 /obj/structure/stone_tile/surrounding_tile,
 /turf/open/lava/fake,
 /area/centcom/holding/cafepark)
+"ehE" = (
+/obj/structure/wall_torch/spawns_lit/directional/north,
+/turf/open/misc/dirt/planet,
+/area/centcom/holding/cafepark)
 "ehI" = (
 /obj/structure/dresser{
 	pixel_y = 7
@@ -6500,12 +6481,8 @@
 /turf/open/floor/iron/dark/smooth_large,
 /area/centcom/interlink)
 "etW" = (
-/obj/effect/turf_decal/sand/plating{
-	layer = 2
-	},
-/obj/effect/turf_decal/sand{
-	layer = 2
-	},
+/obj/structure/fluff/fake_sand_plating,
+/obj/structure/fluff/fake_sand_floor,
 /turf/closed/wall/mineral/titanium/shuttle_wall/arrivals{
 	icon_state = "0,4"
 	},
@@ -8290,18 +8267,11 @@
 /area/centcom/interlink)
 "gUj" = (
 /obj/effect/light_emitter/interlink,
-/obj/effect/turf_decal/sand/plating{
-	layer = 2
-	},
-/obj/effect/turf_decal/sand{
-	layer = 2
-	},
-/obj/effect/turf_decal/sand/plating/volcanic{
-	layer = 2
-	},
 /obj/structure/disposalpipe/segment{
 	dir = 4
 	},
+/obj/structure/fluff/fake_sand_plating,
+/obj/structure/fluff/fake_sand_floor,
 /turf/closed/wall/mineral/titanium/shuttle_wall/arrivals{
 	icon_state = "0,2"
 	},
@@ -8947,15 +8917,8 @@
 /area/centcom/holding/cafe)
 "hKO" = (
 /obj/effect/light_emitter/interlink,
-/obj/effect/turf_decal/sand/plating{
-	layer = 2
-	},
-/obj/effect/turf_decal/sand{
-	layer = 2
-	},
-/obj/effect/turf_decal/sand/plating/volcanic{
-	layer = 2
-	},
+/obj/structure/fluff/fake_sand_plating,
+/obj/structure/fluff/fake_sand_floor,
 /turf/closed/wall/mineral/titanium/shuttle_wall/arrivals{
 	icon_state = "12,2"
 	},
@@ -10318,12 +10281,8 @@
 /turf/open/floor/iron/white/smooth_large,
 /area/centcom/interlink)
 "jXi" = (
-/obj/effect/turf_decal/sand/plating{
-	layer = 2
-	},
-/obj/effect/turf_decal/sand{
-	layer = 2
-	},
+/obj/structure/fluff/fake_sand_plating,
+/obj/structure/fluff/fake_sand_floor,
 /turf/closed/wall/mineral/titanium/shuttle_wall/window/arrivals{
 	icon_state = "8,4"
 	},
@@ -10501,24 +10460,16 @@
 /turf/open/floor/iron/white/smooth_large,
 /area/centcom/interlink)
 "khF" = (
-/obj/effect/turf_decal/sand/plating{
-	layer = 2
-	},
-/obj/effect/turf_decal/sand{
-	layer = 2
-	},
+/obj/structure/fluff/fake_sand_plating,
+/obj/structure/fluff/fake_sand_floor,
 /turf/closed/wall/mineral/titanium/shuttle_wall/arrivals{
 	icon_state = "3,4"
 	},
 /area/centcom/holding/cafe)
 "khY" = (
 /obj/effect/light_emitter/interlink,
-/obj/effect/turf_decal/sand/plating{
-	layer = 2
-	},
-/obj/effect/turf_decal/sand{
-	layer = 2
-	},
+/obj/structure/fluff/fake_sand_plating,
+/obj/structure/fluff/fake_sand_floor,
 /turf/closed/wall/mineral/titanium/shuttle_wall/arrivals{
 	icon_state = "6,4"
 	},
@@ -11563,6 +11514,7 @@
 /obj/effect/turf_decal/siding/wood{
 	dir = 10
 	},
+/obj/structure/wall_torch/spawns_lit/directional/north,
 /turf/open/floor/stone,
 /area/centcom/holding/cafepark)
 "lCi" = (
@@ -12149,9 +12101,8 @@
 /turf/open/floor/iron/dark/smooth_large,
 /area/centcom/interlink)
 "mxw" = (
-/obj/effect/turf_decal/stripes/full{
-	layer = 2
-	},
+/obj/structure/fluff/fake_sand_plating,
+/obj/structure/fluff/fake_sand_floor,
 /turf/closed/wall/mineral/titanium/shuttle_wall/window/arrivals{
 	icon_state = "5,0"
 	},
@@ -12565,9 +12516,8 @@
 /turf/open/floor/stone,
 /area/centcom/holding/cafepark)
 "mYg" = (
-/obj/effect/turf_decal/stripes/full{
-	layer = 2
-	},
+/obj/structure/fluff/fake_sand_plating,
+/obj/structure/fluff/fake_sand_floor,
 /turf/closed/wall/mineral/titanium/shuttle_wall/window/arrivals{
 	icon_state = "4,0"
 	},
@@ -12695,6 +12645,10 @@
 	},
 /turf/open/floor/wood,
 /area/centcom/interlink/dorm_rooms/room3)
+"ngY" = (
+/obj/structure/fluff/fake_sand_plating,
+/turf/open/space/basic,
+/area/space)
 "nhZ" = (
 /obj/structure/bed/double/thatch,
 /turf/open/floor/grass/thatch,
@@ -12868,6 +12822,12 @@
 /obj/structure/railing/wooden_fencing,
 /turf/open/misc/grass/planet,
 /area/centcom/holding/cafepark)
+"nss" = (
+/obj/structure/window/green_glass_pane,
+/obj/structure/curtain/bounty,
+/obj/structure/wall_torch/spawns_lit/directional/north,
+/turf/open/misc/dirt/planet,
+/area/centcom/holding/cafepark)
 "nsP" = (
 /obj/effect/turf_decal/trimline/white/filled/line{
 	dir = 1
@@ -12943,12 +12903,8 @@
 /turf/open/floor/iron/large,
 /area/centcom/interlink)
 "nCz" = (
-/obj/effect/turf_decal/sand/plating{
-	layer = 2
-	},
-/obj/effect/turf_decal/sand{
-	layer = 2
-	},
+/obj/structure/fluff/fake_sand_plating,
+/obj/structure/fluff/fake_sand_floor,
 /turf/closed/wall/mineral/titanium/shuttle_wall/arrivals{
 	icon_state = "0,0"
 	},
@@ -12956,6 +12912,10 @@
 "nDE" = (
 /turf/open/floor/carpet/purple,
 /area/centcom/holding/cafepark)
+"nEc" = (
+/obj/structure/fluff/fake_sand_floor,
+/turf/open/space/basic,
+/area/space)
 "nFi" = (
 /obj/structure/curtain,
 /obj/machinery/shower/directional/north,
@@ -13132,12 +13092,8 @@
 /turf/open/floor/wood,
 /area/centcom/interlink/dorm_rooms/room2)
 "nRP" = (
-/obj/effect/turf_decal/sand/plating{
-	layer = 2
-	},
-/obj/effect/turf_decal/sand{
-	layer = 2
-	},
+/obj/structure/fluff/fake_sand_plating,
+/obj/structure/fluff/fake_sand_floor,
 /turf/closed/wall/mineral/titanium/shuttle_wall/arrivals{
 	icon_state = "11,4"
 	},
@@ -14353,12 +14309,8 @@
 /turf/open/indestructible/dark/smooth_large,
 /area/centcom/holding/cafe)
 "ptF" = (
-/obj/effect/turf_decal/sand/plating{
-	layer = 2
-	},
-/obj/effect/turf_decal/sand{
-	layer = 2
-	},
+/obj/structure/fluff/fake_sand_plating,
+/obj/structure/fluff/fake_sand_floor,
 /turf/closed/wall/mineral/titanium/shuttle_wall/window/arrivals{
 	icon_state = "5,4"
 	},
@@ -14420,9 +14372,8 @@
 /area/centcom/holding/cafe)
 "pws" = (
 /obj/effect/light_emitter/interlink,
-/obj/effect/turf_decal/stripes/full{
-	layer = 2
-	},
+/obj/structure/fluff/fake_sand_plating,
+/obj/structure/fluff/fake_sand_floor,
 /turf/closed/wall/mineral/titanium/shuttle_wall/arrivals{
 	icon_state = "6,0"
 	},
@@ -15361,7 +15312,7 @@
 /obj/structure/platform/wood,
 /obj/structure/platform/wood,
 /obj/structure/chair/wood/wings{
-	dir = 8
+	dir = 4
 	},
 /turf/open/misc/grass/planet,
 /area/centcom/holding/cafepark)
@@ -15760,15 +15711,8 @@
 /area/centcom/interlink)
 "rbi" = (
 /obj/effect/light_emitter/interlink,
-/obj/effect/turf_decal/sand/plating{
-	layer = 2
-	},
-/obj/effect/turf_decal/sand{
-	layer = 2
-	},
-/obj/effect/turf_decal/sand/plating/volcanic{
-	layer = 2
-	},
+/obj/structure/fluff/fake_sand_plating,
+/obj/structure/fluff/fake_sand_floor,
 /turf/closed/wall/mineral/titanium/shuttle_wall/arrivals{
 	icon_state = "0,1"
 	},
@@ -16495,12 +16439,8 @@
 	},
 /area/centcom/holding/cafe)
 "rXY" = (
-/obj/effect/turf_decal/sand/plating{
-	layer = 2
-	},
-/obj/effect/turf_decal/sand{
-	layer = 2
-	},
+/obj/structure/fluff/fake_sand_plating,
+/obj/structure/fluff/fake_sand_floor,
 /turf/closed/wall/mineral/titanium/shuttle_wall/arrivals{
 	icon_state = "9,4"
 	},
@@ -17418,7 +17358,7 @@
 /turf/open/misc/dirt/planet,
 /area/centcom/holding/cafepark)
 "tgP" = (
-/obj/structure/wall_torch/spawns_lit,
+/obj/structure/wall_torch/spawns_lit/directional/east,
 /turf/open/misc/dirt/planet,
 /area/centcom/holding/cafepark)
 "tgU" = (
@@ -17629,12 +17569,8 @@
 /turf/open/floor/iron/large,
 /area/centcom/interlink)
 "txq" = (
-/obj/effect/turf_decal/sand/plating{
-	layer = 2
-	},
-/obj/effect/turf_decal/sand{
-	layer = 2
-	},
+/obj/structure/fluff/fake_sand_plating,
+/obj/structure/fluff/fake_sand_floor,
 /turf/closed/wall/mineral/titanium/shuttle_wall/arrivals{
 	icon_state = "12,0"
 	},
@@ -18316,12 +18252,8 @@
 /turf/open/misc/grass/planet,
 /area/centcom/holding/cafepark)
 "uhK" = (
-/obj/effect/turf_decal/sand/plating{
-	layer = 2
-	},
-/obj/effect/turf_decal/sand{
-	layer = 2
-	},
+/obj/structure/fluff/fake_sand_plating,
+/obj/structure/fluff/fake_sand_floor,
 /turf/closed/wall/mineral/titanium/shuttle_wall/arrivals{
 	icon_state = "12,3"
 	},
@@ -18950,9 +18882,8 @@
 /turf/open/floor/iron/large,
 /area/centcom/interlink)
 "vfI" = (
-/obj/effect/turf_decal/stripes/full{
-	layer = 2
-	},
+/obj/structure/fluff/fake_sand_plating,
+/obj/structure/fluff/fake_sand_floor,
 /turf/closed/wall/mineral/titanium/shuttle_wall/window/arrivals{
 	icon_state = "7,0"
 	},
@@ -18983,9 +18914,8 @@
 /turf/open/floor/iron/brick,
 /area/centcom/holding/cafepark)
 "vie" = (
-/obj/effect/turf_decal/stripes/full{
-	layer = 2
-	},
+/obj/structure/fluff/fake_sand_plating,
+/obj/structure/fluff/fake_sand_floor,
 /turf/closed/wall/mineral/titanium/shuttle_wall/window/arrivals{
 	icon_state = "8,0"
 	},
@@ -70125,7 +70055,7 @@ vTT
 pCd
 mIp
 lBn
-chT
+nss
 pwG
 aAd
 cnz
@@ -71360,7 +71290,7 @@ aaa
 aaa
 aaa
 ajj
-aPf
+aGb
 auB
 ayI
 adu
@@ -71617,7 +71547,7 @@ aaa
 aaa
 aaa
 ajj
-aPf
+aGb
 ayI
 ayI
 ayI
@@ -71874,8 +71804,8 @@ aaa
 aaa
 aaa
 ajj
-aPf
-tgP
+aGb
+ehE
 ayI
 ayI
 fEP
@@ -73416,11 +73346,11 @@ aaa
 aaa
 aaa
 ajj
-aPf
+aGb
 ayI
-aPf
-aPf
-ajj
+aGb
+aGb
+aGb
 ajj
 aFP
 agU
@@ -73673,12 +73603,12 @@ aaa
 aaa
 aaa
 ajj
-aPf
+aGb
 ayI
 ayI
 ayI
-aPf
-ajj
+aGb
+aGb
 ajj
 ekp
 ekp
@@ -73930,12 +73860,12 @@ aaa
 aaa
 aaa
 ajj
-aPf
+aGb
 ayI
 ayI
 ayI
 ayI
-aPf
+aGb
 aPf
 aPf
 aPf
@@ -74187,9 +74117,9 @@ aaa
 aaa
 aaa
 ajj
-aPf
-aPf
-tgP
+aGb
+aGb
+ehE
 ayI
 ayI
 jBZ
@@ -74445,8 +74375,8 @@ aaa
 aaa
 ajj
 aPf
-aPf
-aPf
+aGb
+aGb
 ayI
 ayI
 ayI
@@ -74962,9 +74892,9 @@ aPf
 aPf
 aPf
 aPf
-aPf
+aGb
 dai
-aPf
+aGb
 ayI
 aPf
 aPf
@@ -75219,10 +75149,10 @@ aPf
 aPf
 aPf
 aPf
-aPf
+aGb
 ayI
-aPf
-aPf
+aGb
+aGb
 aPf
 aPf
 aPf
@@ -75478,7 +75408,7 @@ aPf
 aPf
 ayI
 ayI
-aPf
+aGb
 aPf
 aGb
 pCd
@@ -82166,9 +82096,9 @@ aaa
 aaa
 aaa
 aaa
+cib
 aaa
-aaa
-aaa
+ngY
 aaa
 aaa
 aaa
@@ -82423,9 +82353,9 @@ aaa
 aaa
 aaa
 aaa
+btb
 aaa
-aaa
-aaa
+nEc
 aaa
 aaa
 aaa
