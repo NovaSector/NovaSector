@@ -56,15 +56,30 @@
 	damage = 15
 	armour_penetration = 10
 
-/obj/docking_port/mobile/pirate/hc_police
-	name = "HC IPV 'Tequilla Sunset'"
+/obj/docking_port/stationary/movable/hc_carrier
+	name = "HC ACV 'Tequilla Sunset' dock"
+	shuttle_id = "hc_carrier_dock"
+
+/obj/docking_port/mobile/hc_carrier
+	name = "HC ACV 'Tequilla Sunset'"
+	shuttle_id = "hc_carrier"
 	initial_engine_power = 6
-	port_direction = EAST
-	preferred_direction = EAST
+	port_direction = NORTH
+	preferred_direction = NORTH
 	callTime = 2 MINUTES
-	rechargeTime = 3 MINUTES
+	rechargeTime = 12 MINUTES
 	movement_force = list("KNOCKDOWN"=0,"THROW"=0)
 	can_move_docking_ports = TRUE
+	takeoff_sound = sound('modular_nova/modules/random_ship_event/random_ships/heliostatic_inspectors/sounds/engine_ignit_int.ogg')
+	landing_sound = sound('modular_nova/modules/random_ship_event/random_ships/heliostatic_inspectors/sounds/env_ship_down.ogg')
+
+/obj/docking_port/mobile/hc_shuttle
+	name = "HC IPV 'Harrier Du Bois'"
+	shuttle_id = "hc_shuttle"
+	movement_force = list("KNOCKDOWN" = 0, "THROW" = 0)
+	hidden = TRUE
+	dir = NORTH
+	port_direction = SOUTH
 	takeoff_sound = sound('modular_nova/modules/random_ship_event/random_ships/heliostatic_inspectors/sounds/engine_ignit_int.ogg')
 	landing_sound = sound('modular_nova/modules/random_ship_event/random_ships/heliostatic_inspectors/sounds/env_ship_down.ogg')
 

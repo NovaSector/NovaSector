@@ -2861,7 +2861,7 @@
 /turf/open/floor/iron/dark/textured_large,
 /area/shuttle/hc_cops)
 "GB" = (
-/obj/docking_port/stationary/movable,
+/obj/docking_port/stationary/movable/hc_carrier,
 /turf/open/floor/plating/reinforced,
 /area/shuttle/hc_cops)
 "GD" = (
@@ -3473,6 +3473,7 @@
 /obj/structure/disposalpipe/trunk{
 	dir = 1
 	},
+/obj/docking_port/mobile/hc_carrier,
 /turf/template_noop,
 /area/shuttle/hc_cops)
 "NC" = (
