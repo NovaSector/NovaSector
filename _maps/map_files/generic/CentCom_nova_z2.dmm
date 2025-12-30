@@ -2810,12 +2810,6 @@
 /obj/structure/flora/bush/fullgrass,
 /turf/open/misc/grass/planet,
 /area/centcom/holding/cafepark)
-"aLO" = (
-/obj/structure/spacevine{
-	pixel_x = -30
-	},
-/turf/open/misc/dirt/planet,
-/area/space)
 "aLQ" = (
 /turf/open/misc/beach/sand{
 	dir = 10
@@ -4736,11 +4730,13 @@
 /turf/closed/indestructible/weeb,
 /area/centcom/holding/cafe)
 "bLh" = (
-/turf/open/floor/iron/pool/cobble{
-	icon = 'icons/turf/mining.dmi';
-	icon_state = "wateryrock9"
+/obj/effect/turf_decal/stripes/line,
+/obj/effect/turf_decal/stripes/line{
+	dir = 1
 	},
-/area/space)
+/obj/structure/fluff/fake_sand_floor,
+/turf/open/floor/catwalk_floor/iron_smooth,
+/area/centcom/holding/cafepark)
 "bLZ" = (
 /obj/structure/chair/sofa/bench/left{
 	dir = 4
@@ -5243,12 +5239,6 @@
 /obj/machinery/light/directional/north,
 /turf/open/floor/iron/dark,
 /area/centcom/interlink)
-"cod" = (
-/obj/structure/spacevine{
-	pixel_y = -30
-	},
-/turf/open/misc/dirt/planet,
-/area/space)
 "coU" = (
 /obj/machinery/light/directional/south,
 /turf/open/floor/mineral/titanium/blue,
@@ -6238,12 +6228,6 @@
 /obj/structure/reagent_crafting_bench,
 /turf/open/floor/stone,
 /area/centcom/holding/cafepark)
-"dYQ" = (
-/turf/open/floor/iron/pool/cobble{
-	icon = 'icons/turf/mining.dmi';
-	icon_state = "wateryrock1"
-	},
-/area/space)
 "dZs" = (
 /obj/machinery/door/airlock/multi_tile/metal{
 	dir = 4
@@ -6690,12 +6674,6 @@
 	},
 /turf/open/misc/dirt/planet,
 /area/centcom/holding/cafepark)
-"eKu" = (
-/turf/open/floor/iron/pool/cobble{
-	icon = 'icons/turf/mining.dmi';
-	icon_state = "wateryrock2"
-	},
-/area/space)
 "eLt" = (
 /obj/effect/turf_decal/siding/white/end{
 	dir = 4
@@ -6893,12 +6871,6 @@
 	icon_state = "darkfull"
 	},
 /area/centcom/holding/cafe)
-"fbN" = (
-/obj/structure/spacevine{
-	pixel_x = 30
-	},
-/turf/open/misc/dirt/planet,
-/area/space)
 "fcG" = (
 /obj/effect/turf_decal/trimline/white/filled/line{
 	dir = 4
@@ -7470,12 +7442,6 @@
 	smoothing_flags = 0
 	},
 /area/centcom/holding/cafepark)
-"fPs" = (
-/obj/structure/spacevine{
-	pixel_y = 30
-	},
-/turf/open/misc/dirt/planet,
-/area/space)
 "fPU" = (
 /obj/effect/turf_decal/tile/blue/full,
 /obj/effect/turf_decal/siding/thinplating_new/light{
@@ -9005,12 +8971,6 @@
 /obj/effect/turf_decal/sand/volcanic,
 /turf/open/indestructible/plating,
 /area/centcom/holding/cafepark)
-"hUk" = (
-/turf/open/floor/iron/pool/cobble{
-	icon = 'icons/turf/mining.dmi';
-	icon_state = "wateryrock4"
-	},
-/area/space)
 "hUN" = (
 /obj/effect/turf_decal/siding/wood{
 	dir = 10
@@ -14877,12 +14837,6 @@
 /obj/structure/flora/bush/sparsegrass/style_2,
 /turf/open/misc/grass/planet,
 /area/centcom/holding/cafepark)
-"qdU" = (
-/turf/open/floor/iron/pool/cobble{
-	icon = 'icons/turf/mining.dmi';
-	icon_state = "wateryrock8"
-	},
-/area/space)
 "qdV" = (
 /obj/structure/stone_tile/surrounding_tile/cracked,
 /obj/structure/wall_torch/spawns_lit/directional/south,
@@ -17818,12 +17772,6 @@
 /obj/effect/light_emitter/interlink,
 /turf/open/floor/grass,
 /area/centcom/interlink)
-"tNu" = (
-/turf/open/floor/iron/pool/cobble{
-	icon = 'icons/turf/mining.dmi';
-	icon_state = "wateryrock5"
-	},
-/area/space)
 "tOu" = (
 /obj/structure/chair/sofa/corp/right{
 	dir = 1
@@ -18005,12 +17953,6 @@
 /obj/item/lighter,
 /turf/open/floor/wood/wood_1,
 /area/centcom/holding/cafe)
-"tZY" = (
-/turf/open/floor/iron/pool/cobble{
-	icon = 'icons/turf/mining.dmi';
-	icon_state = "wateryrock6"
-	},
-/area/space)
 "uab" = (
 /obj/machinery/button/door{
 	id = "ghostcafekitchen";
@@ -19198,12 +19140,6 @@
 	},
 /turf/open/misc/grass/planet,
 /area/centcom/holding/cafepark)
-"vFv" = (
-/turf/open/floor/iron/pool/cobble{
-	icon = 'icons/turf/mining.dmi';
-	icon_state = "wateryrock3"
-	},
-/area/space)
 "vFM" = (
 /obj/effect/turf_decal/siding/wood{
 	dir = 9
@@ -19214,12 +19150,6 @@
 /obj/structure/railing,
 /turf/open/water/hot_spring/cafe,
 /area/centcom/interlink/dorm_rooms/room5)
-"vGp" = (
-/turf/open/floor/iron/pool/cobble{
-	icon = 'icons/turf/mining.dmi';
-	icon_state = "wateryrock"
-	},
-/area/space)
 "vGu" = (
 /obj/docking_port/stationary{
 	dir = 8;
@@ -20304,12 +20234,6 @@
 /obj/structure/closet/crate/wooden/storage_barrel,
 /turf/open/floor/stone,
 /area/centcom/holding/cafepark)
-"xep" = (
-/turf/open/floor/iron/pool/cobble{
-	icon = 'icons/turf/mining.dmi';
-	icon_state = "wateryrock7"
-	},
-/area/space)
 "xfh" = (
 /obj/structure/bedsheetbin/basket,
 /turf/open/floor/carpet/stellar,
@@ -71800,7 +71724,7 @@ jgg
 awA
 vie
 aGC
-aMR
+bLh
 aSt
 uoX
 bHC
@@ -80284,7 +80208,7 @@ aaa
 aaa
 aaa
 aaa
-vGp
+aaa
 aaa
 aaa
 aaa
@@ -80541,7 +80465,7 @@ aaa
 aaa
 aaa
 aaa
-dYQ
+aaa
 aaa
 aaa
 aaa
@@ -80798,7 +80722,7 @@ aaa
 aaa
 aaa
 aaa
-eKu
+aaa
 aaa
 aaa
 aaa
@@ -81055,7 +80979,7 @@ aaa
 aaa
 aaa
 aaa
-vFv
+aaa
 aaa
 aaa
 aaa
@@ -81312,10 +81236,10 @@ aaa
 aaa
 aaa
 aaa
-hUk
 aaa
 aaa
-fPs
+aaa
+aaa
 aaa
 aaa
 aaa
@@ -81569,7 +81493,7 @@ aaa
 aaa
 aaa
 aaa
-tNu
+aaa
 aaa
 aaa
 aaa
@@ -81826,10 +81750,10 @@ aaa
 aaa
 aaa
 aaa
-tZY
 aaa
 aaa
-fbN
+aaa
+aaa
 aaa
 aaa
 aaa
@@ -82083,7 +82007,7 @@ aaa
 aaa
 aaa
 aaa
-xep
+aaa
 aaa
 aaa
 aaa
@@ -82340,10 +82264,10 @@ aaa
 aaa
 aaa
 aaa
-qdU
 aaa
 aaa
-cod
+aaa
+aaa
 aaa
 aaa
 aaa
@@ -82597,7 +82521,7 @@ aaa
 aaa
 aaa
 aaa
-bLh
+aaa
 aaa
 aaa
 aaa
@@ -82857,7 +82781,7 @@ aaa
 aaa
 aaa
 aaa
-aLO
+aaa
 aaa
 aaa
 aaa
