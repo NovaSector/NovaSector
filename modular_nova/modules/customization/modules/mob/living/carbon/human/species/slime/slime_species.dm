@@ -149,7 +149,7 @@
 		"Despite their amorphous and shape-shifting nature as liquids, slimes that reach the point of personhood can become rapidly affixed to a single identity. Thought of by the Ordoht as 'mimicking themselves' and looping in on their own habits, a slime's disposition can become extraordinarily individualistic and defined in most cultures it's exposed to. \
 		Even before and after the point of peak memetic saturation, slimes will ruthlessly chase any new cultural or philosophical information to either adopt or discard.",
 
-		"The first slimes captured by NanoTrasen in the modern day are known to have come from anomalies in deep space, seemingly searching for the plasma ore stored aboard stations and ships. Failing to recognize their desire for the purple substance, humans started with normal everyday food-- later stepping it up to whole livestock. \
+		"The first slimes captured by Nanotrasen in the modern day are known to have come from anomalies in deep space, seemingly searching for the plasma ore stored aboard stations and ships. Failing to recognize their desire for the purple substance, humans started with normal everyday food-- later stepping it up to whole livestock. \
 		Some simply performed basic mitosis, but others diverged into a multitude of colors as their bodies adapted to different properties. In search of exploiting the memetic properties of slimes with faster results than 'domestication', many scientists have attempted to apply them to a carbon-based lifeform's anatomy, resulting in slime physiology patterned off humanoid psychology."
 	)
 
