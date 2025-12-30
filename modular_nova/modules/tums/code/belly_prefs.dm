@@ -343,7 +343,9 @@
 	the_bwelly.allow_sound_move_sloshes = client_source?.prefs.read_preference(/datum/preference/toggle/erp_bellyquirk_move_sloshes)|| FALSE
 
 	/// Pred prefs mode
-	the_bwelly.pred_mode = client_source?.prefs.read_preference(/datum/preference/choiced/erp_bellyquirk_pred_pref) || "Query"
+	the_bwelly.pred_mode = client_source?.prefs.read_preference(/datum/preference/choiced/erp_bellyquirk_pred_pref) || "Never"
+	/// Default endosoma size
+	the_bwelly.endo_size = client_source?.prefs.read_preference(/datum/preference/numeric/erp_bellyquirk_size_endo) || 1000
 
 	/// Manually run add() for dummies so we get preview on the character screen.
 	if(isdummy(quirk_holder))
@@ -593,6 +595,21 @@
 
 /datum/preference/choiced/erp_bellyquirk_pred_pref/apply_to_human(mob/living/carbon/human/target, value, datum/preferences/preferences)
 	return FALSE
+
+/// Per-character pref, a default size for a newly-nommed guest.
+/datum/preference/numeric/erp_bellyquirk_size_endo
+	category = PREFERENCE_CATEGORY_MANUALLY_RENDERED
+	savefile_identifier = PREFERENCE_CHARACTER
+	savefile_key = "erp_bellyquirk_size_endo"
+	step = 1
+	minimum = 0
+	maximum = 10000
+
+/datum/preference/numeric/erp_bellyquirk_size_endo/apply_to_human(mob/living/carbon/human/target, value, datum/preferences/preferences)
+	return FALSE
+
+/datum/preference/numeric/erp_bellyquirk_size_endo/create_default_value()
+	return 1000
 
 /// Per-character pref, how big this belly can actually get.
 /// If this is below someone's game prefs, they won't see it go above that.
