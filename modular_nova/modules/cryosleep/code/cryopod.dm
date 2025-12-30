@@ -530,8 +530,12 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/machinery/computer/cryopod, 32)
 			to_chat(user, span_danger("You can't put [target] into [src]. [target.p_Theyre()] conscious."))
 		return
 
-	if(target == user && (tgui_alert(target, "Would you like to enter cryosleep?", "Enter Cryopod?", list("Yes", "No")) != "Yes"))
-		return
+	if(target == user)
+		var/fridge_text = "Enter cryosleep?"
+		if(!despawn_to_ghostcafe || !quiet)
+			fridge_text += " ([CONFIG_GET(string/cryo_policy)])"
+		if(tgui_alert(target, fridge_text, "Enter Cryopod?", list("Yes", "No")) != "Yes")
+			return
 
 	if(target == user)
 		if(target.mind.assigned_role.req_admin_notify)

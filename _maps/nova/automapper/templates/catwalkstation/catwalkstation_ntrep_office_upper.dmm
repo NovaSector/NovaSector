@@ -1,0 +1,175 @@
+//MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
+"a" = (
+/obj/effect/spawner/structure/window/reinforced,
+/turf/open/floor/plating,
+/area/station/command/heads_quarters/nt_rep)
+"c" = (
+/obj/structure/window/reinforced/spawner/directional/south,
+/obj/item/kirbyplants/random,
+/turf/open/floor/wood/wood_5,
+/area/station/command/heads_quarters/nt_rep)
+"j" = (
+/obj/structure/showcase/mecha/ripley,
+/turf/open/floor/iron/dark,
+/area/station/command/heads_quarters/nt_rep)
+"l" = (
+/obj/structure/sign/plaques/kiddie/perfect_drone{
+	pixel_y = 32;
+	dir = 1
+	},
+/turf/open/openspace,
+/area/station/command/heads_quarters/nt_rep)
+"p" = (
+/turf/open/floor/glass/reinforced,
+/area/station/command/bridge)
+"r" = (
+/obj/structure/showcase/cyborg/old{
+	pixel_y = 20
+	},
+/turf/open/floor/wood/wood_4,
+/area/station/command/heads_quarters/nt_rep)
+"t" = (
+/obj/effect/landmark/event_spawn,
+/turf/open/floor/wood/wood_5,
+/area/station/command/heads_quarters/nt_rep)
+"v" = (
+/obj/structure/railing{
+	dir = 1
+	},
+/obj/structure/filingcabinet/chestdrawer,
+/obj/effect/turf_decal/siding/wood{
+	dir = 1
+	},
+/obj/machinery/light_switch/directional/west,
+/turf/open/floor/wood/wood_5,
+/area/station/command/heads_quarters/nt_rep)
+"w" = (
+/obj/machinery/firealarm/directional/west,
+/turf/template_noop,
+/area/template_noop)
+"y" = (
+/obj/machinery/camera/autoname/directional/north,
+/turf/open/openspace,
+/area/station/command/heads_quarters/nt_rep)
+"D" = (
+/obj/structure/railing{
+	dir = 1
+	},
+/obj/effect/turf_decal/siding/wood{
+	dir = 1
+	},
+/turf/open/floor/wood/wood_5,
+/area/station/command/heads_quarters/nt_rep)
+"E" = (
+/obj/structure/showcase/mecha/marauder,
+/turf/open/floor/iron/dark,
+/area/station/command/heads_quarters/nt_rep)
+"H" = (
+/obj/machinery/light/directional/east,
+/obj/structure/railing/corner/end{
+	dir = 8
+	},
+/obj/effect/turf_decal/siding/wood{
+	dir = 1
+	},
+/turf/open/floor/wood/wood_5,
+/area/station/command/heads_quarters/nt_rep)
+"I" = (
+/obj/machinery/airalarm/directional/east,
+/turf/open/floor/wood/wood_5,
+/area/station/command/heads_quarters/nt_rep)
+"K" = (
+/turf/closed/wall/r_wall,
+/area/station/command/heads_quarters/nt_rep)
+"N" = (
+/obj/structure/window/reinforced/spawner/directional/south,
+/turf/open/floor/wood/wood_5,
+/area/station/command/heads_quarters/nt_rep)
+"O" = (
+/turf/template_noop,
+/area/station/command/heads_quarters/nt_rep)
+"Q" = (
+/obj/structure/closet/secure_closet/nanotrasen_consultant,
+/turf/open/floor/wood/wood_5,
+/area/station/command/heads_quarters/nt_rep)
+"S" = (
+/turf/template_noop,
+/area/template_noop)
+"U" = (
+/obj/machinery/door/airlock/corporate{
+	name = "NT Consultant's Office"
+	},
+/obj/effect/mapping_helpers/airlock/access/all/cent_com/rep_door,
+/turf/open/floor/wood,
+/area/station/command/heads_quarters/nt_rep)
+"X" = (
+/obj/structure/table/reinforced,
+/obj/item/storage/backpack/duffelbag/drone{
+	pixel_y = 10
+	},
+/obj/item/bodypart/head/robot{
+	pixel_x = 5
+	},
+/obj/item/disk/tech_disk{
+	pixel_x = -3;
+	pixel_y = -1
+	},
+/turf/open/floor/iron/dark,
+/area/station/command/heads_quarters/nt_rep)
+
+(1,1,1) = {"
+S
+S
+S
+S
+S
+S
+"}
+(2,1,1) = {"
+K
+K
+a
+a
+K
+K
+"}
+(3,1,1) = {"
+y
+v
+Q
+c
+E
+a
+"}
+(4,1,1) = {"
+l
+D
+t
+N
+X
+a
+"}
+(5,1,1) = {"
+r
+H
+I
+N
+j
+a
+"}
+(6,1,1) = {"
+O
+O
+O
+U
+O
+O
+"}
+(7,1,1) = {"
+S
+S
+w
+p
+S
+S
+"}

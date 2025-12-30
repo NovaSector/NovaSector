@@ -59555,6 +59555,7 @@
 	dir = 8
 	},
 /obj/effect/turf_decal/delivery,
+/obj/item/gun/ballistic/automatic/battle_rifle,
 /turf/open/floor/engine,
 /area/station/security/armory)
 "qBR" = (

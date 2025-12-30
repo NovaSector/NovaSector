@@ -6,6 +6,10 @@
 	resistance_flags = FIRE_PROOF | ACID_PROOF
 	icon = 'modular_nova/modules/clock_cult/icons/tools.dmi'
 	icon_state = "cutters_brass"
+	greyscale_config = null
+	greyscale_config_inhand_left = null
+	greyscale_config_inhand_right = null
+	greyscale_colors = null
 	random_color = FALSE
 	toolspeed = BRASS_TOOLSPEED_MOD
 

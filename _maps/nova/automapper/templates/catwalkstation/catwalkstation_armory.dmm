@@ -1,114 +1,32 @@
 //MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
 "a" = (
-/turf/template_noop,
-/area/template_noop)
-"b" = (
-/obj/structure/rack,
-/obj/item/gun/ballistic/automatic/battle_rifle{
-	pixel_y = 3
-	},
-/obj/item/gun/energy/temperature/security,
-/obj/item/gun/energy/ionrifle,
-/obj/item/clothing/suit/hooded/ablative,
-/turf/open/floor/iron/dark/smooth_large,
-/area/station/security/armory)
-"p" = (
-/turf/closed/wall/r_wall,
-/area/station/security/armory)
-"r" = (
-/obj/structure/rack,
 /obj/machinery/airalarm/directional/west,
+/obj/structure/rack,
 /obj/effect/spawner/armory_spawn/shotguns,
 /turf/open/floor/iron/dark/smooth_large,
 /area/station/security/armory)
-"u" = (
-/obj/machinery/newscaster/directional/west,
-/obj/machinery/camera/motion{
-	c_tag = "Armory - Internal";
-	dir = 8
-	},
-/obj/structure/rack/gunrack,
-/obj/effect/spawner/armory_spawn/mod_lasers_big,
-/turf/open/floor/iron/dark/smooth_large,
-/area/station/security/armory)
-"C" = (
-/obj/structure/table,
+"b" = (
 /obj/item/radio/intercom/directional/west,
 /obj/machinery/light/small/directional/west,
-/obj/effect/spawner/armory_spawn/smg,
-/turf/open/floor/iron/dark/smooth_large,
-/area/station/security/armory)
-"Q" = (
-/obj/structure/reagent_dispensers/wall/peppertank/directional/west,
-/obj/machinery/light/directional/west,
-/obj/structure/rack,
-/obj/effect/spawner/random/armory/riot_helmet{
-	pixel_x = -1;
-	pixel_y = 1
+/obj/structure/guncase/ecase{
+	open = 0;
+	anchored = 1
 	},
-/obj/effect/spawner/random/armory/bulletproof_helmet{
-	pixel_x = 8;
-	pixel_y = 0
-	},
-/obj/structure/cable,
-/obj/machinery/power/apc/auto_name/directional/south,
-/turf/open/floor/iron/dark/smooth_large,
-/area/station/security/armory)
-"R" = (
-/obj/structure/table,
-/obj/item/storage/box/teargas{
-	pixel_x = -2;
-	pixel_y = 14
-	},
-/obj/item/clothing/mask/gas/sechailer{
-	pixel_x = -6;
-	pixel_y = 4
-	},
-/obj/effect/spawner/random/armory/barrier_grenades/six,
-/obj/machinery/light/directional/north,
-/turf/open/floor/iron/dark/smooth_large,
-/area/station/security/armory)
-"W" = (
-/obj/machinery/requests_console/directional/north{
-	department = "Security";
-	name = "Security Requests Console";
-	pixel_x = -30;
-	pixel_y = 0
-	},
-/obj/effect/mapping_helpers/requests_console/supplies,
-/obj/effect/mapping_helpers/requests_console/assistance,
-/obj/structure/rack/gunrack,
+/obj/effect/spawner/armory_spawn/mod_lasers_big,
 /obj/effect/spawner/armory_spawn/mod_lasers_small,
+/turf/open/floor/iron/dark/smooth_large,
+/area/station/security/armory)
+"r" = (
+/obj/structure/rack,
+/obj/structure/secure_safe/directional/west{
+	name = "Armory safe A"
+	},
+/obj/effect/spawner/armory_spawn/smg,
 /turf/open/floor/iron/dark/smooth_large,
 /area/station/security/armory)
 
 (1,1,1) = {"
-p
-p
-W
-u
-C
-a
-r
-a
-"}
-(2,1,1) = {"
-p
 b
-a
-a
-a
-a
-a
-Q
-"}
-(3,1,1) = {"
-p
-R
-a
-a
-a
-a
-a
+r
 a
 "}
