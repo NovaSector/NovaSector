@@ -289,7 +289,7 @@
 	// Anything that blocks the BSA beam, if it's blocked, it hits that thing
 	var/atom/movable/blocker
 	// Intensity of the screen shake, capping at 0.75 with maximum charge, with a minimum of 0.25
-	var/camera_shake_intensity = ((round((capacitor_power / 50000000), 1)) + 1) / 4
+	var/camera_shake_intensity = ((round((capacitor_power / (50 * BSA_FIRE_POWER_THRESHOLD)), 1)) + 1) / 4
 	// Now we absolutely destroy everything in the beams path.
 	for(var/turf/iterating_turf as anything in get_line(get_step(point, dir), target))
 		if(SEND_SIGNAL(iterating_turf, COMSIG_ATOM_BSA_BEAM) & COMSIG_ATOM_BLOCKS_BSA_BEAM)
