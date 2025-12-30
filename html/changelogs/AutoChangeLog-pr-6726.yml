@@ -1,0 +1,4 @@
+author: "MacaroniCritter"
+delete-after: True
+changes:
+  - rscdel: "Removed Pepper Shoulders from spawned modsuits"
