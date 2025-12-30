@@ -740,7 +740,7 @@
 	base_reagent_purity = 0.5
 
 /obj/machinery/chem_dispenser/drinks/Initialize(mapload)
-	if(type == /obj/machinery/chem_dispenser/drinks || upgrade_reagents != null && !upgrade_reagents.len) //NOVA EDIT CHANGE - if(dispensable_reagents != null && !dispensable_reagents.len)
+	if(type == /obj/machinery/chem_dispenser/drinks || type == /obj/machinery/chem_dispenser/drinks/fullupgrade || upgrade_reagents != null && !upgrade_reagents.len) //NOVA EDIT CHANGE - if(dispensable_reagents != null && !dispensable_reagents.len)
 		dispensable_reagents = drinks_dispensable_reagents
 	if(emagged_reagents != null && !emagged_reagents.len)
 		emagged_reagents = drink_emagged_reagents
