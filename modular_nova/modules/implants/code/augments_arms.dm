@@ -302,8 +302,8 @@
 	icon_state = "diamond"
 	inhand_icon_state = "diamond"
 	toolspeed = 0.2
-	force = 20
-	demolition_mod = 1.25
+	force = 15
+	demolition_mod = 1.15
 	usesound = 'sound/items/weapons/drill.ogg'
 	hitsound = 'sound/items/weapons/drill.ogg'
 
