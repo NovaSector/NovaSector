@@ -1,0 +1,6 @@
+author: "Zergspower"
+delete-after: True
+changes:
+  - balance: "The forged hammer has been removed from the weapon loadout menu"
+  - balance: "The forged hammer, throwing axe and sword have had their demolition_modifier removed"
+  - balance: "The diamond drill implant now matches the diamond drill"
