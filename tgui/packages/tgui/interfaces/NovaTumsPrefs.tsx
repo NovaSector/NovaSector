@@ -10,20 +10,21 @@ import {
   Stack,
   Tooltip,
 } from 'tgui-core/components';
+import type { BooleanLike } from 'tgui-core/react';
 import { useBackend, useSharedState } from '../backend';
 import { Window } from '../layouts';
 
 type NovaTumsPrefsData = {
   title: string;
   color: string;
-  use_skintone: boolean;
+  use_skintone: BooleanLike;
   sizemod: number;
   sizemod_autostuffed: number;
   sizemod_audio: number;
-  allow_sound_groans: boolean;
-  allow_sound_gurgles: boolean;
-  allow_sound_move_creaks: boolean;
-  allow_sound_move_sloshes: boolean;
+  allow_sound_groans: BooleanLike;
+  allow_sound_gurgles: BooleanLike;
+  allow_sound_move_creaks: BooleanLike;
+  allow_sound_move_sloshes: BooleanLike;
   calculated_size: string;
   maxsize: number;
   base_size_max: number;
@@ -34,8 +35,16 @@ type NovaTumsPrefsData = {
   pred_mode: string;
   endo_size_label: string;
   endo_size: number;
-  has_player: boolean;
-  has_belly: boolean;
+  has_belly: BooleanLike;
+  prey_options: string[];
+  prey_mode: string;
+  has_player: BooleanLike;
+  global_belly_visibility: BooleanLike;
+  global_maxsize: number;
+  global_sound_groans: BooleanLike;
+  global_sound_gurgles: BooleanLike;
+  global_sound_move_creaks: BooleanLike;
+  global_sound_move_sloshes: BooleanLike;
 };
 
 export const NovaTumsPrefs = (props) => {
@@ -56,7 +65,7 @@ export const NovaTumsPrefs = (props) => {
                     changeTab(1);
                     act('setTab1');
                   }}
-                  disabled={data.has_player}
+                  disabled={data.has_player === false}
                   selected={currentTab === 1}
                 >
                   Local Prefs
@@ -110,6 +119,42 @@ const NovaTumsPrefsCharacter = (props) => {
           These are in-round preferences; they will not be saved!
         </NoticeBox>
       )}
+      {data.has_belly === 1 && <NovaTumsPrefsBelly />}
+      {data.has_belly === 0 && (
+        <NoticeBox>
+          Endosoma settings - ignore if you 're not into nomming/being nommed!
+        </NoticeBox>
+      )}
+      <LabeledList>
+        <LabeledList.Item label="Prey Mode">
+          <Tooltip
+            content="Whether or not you want to engage in endosoma as prey on
+            this character.  Query asks first, Always will always consent."
+          >
+            <Dropdown
+              options={data.prey_options}
+              selected={data.prey_mode}
+              onSelected={(e) =>
+                act('changePreyMode', {
+                  newPredMode: e,
+                  tab: currentTab,
+                })
+              }
+              width="100%"
+            />
+          </Tooltip>
+        </LabeledList.Item>
+      </LabeledList>
+    </Section>
+  );
+};
+
+const NovaTumsPrefsBelly = (props) => {
+  const { act, data } = useBackend<NovaTumsPrefsData>();
+  const [currentTab, changeTab] = useSharedState('tumsTab', 1);
+
+  return (
+    <>
       <NoticeBox>Belly sprite color & variant selection</NoticeBox>
       <LabeledList>
         <LabeledList.Item label="Main Sprite Color">
@@ -143,76 +188,6 @@ const NovaTumsPrefsCharacter = (props) => {
               from your selected skintone while the palette is active!"
           >
             Use the skintone sprite palette?
-          </Button.Checkbox>
-        </LabeledList.Item>
-      </LabeledList>
-      <NoticeBox>
-        Belly sound toggles - these only affect what your belly emits, not what
-        you can hear - that's in the global prefs section.
-      </NoticeBox>
-      <LabeledList>
-        <LabeledList.Item label="Allow Full Groans">
-          <Button.Checkbox
-            checked={data.allow_sound_groans}
-            fluid
-            onClick={() =>
-              act('changeSoundGroans', {
-                tab: currentTab,
-              })
-            }
-            tooltip="Full groans emit over time with high fullness; fullness
-              comes from the base cosmetic full size, cosmetic stuffed size,
-              nommed guests, and high nutrition."
-          >
-            Allow emitting full groans?
-          </Button.Checkbox>
-        </LabeledList.Item>
-        <LabeledList.Item label="Allow Stuffed Gurgles">
-          <Button.Checkbox
-            checked={data.allow_sound_gurgles}
-            fluid
-            onClick={() =>
-              act('changeSoundGurgles', {
-                tab: currentTab,
-              })
-            }
-            tooltip="Stuffed gurgles emit over time with high stuffedness;
-              stuffedness comes from the base cosmetic stuffed size, and high
-              nutrition."
-          >
-            Allow emitting stuffed gurgles?
-          </Button.Checkbox>
-        </LabeledList.Item>
-        <LabeledList.Item label="Allow Movement Creaks">
-          <Button.Checkbox
-            checked={data.allow_sound_move_creaks}
-            fluid
-            onClick={() =>
-              act('changeSoundMoveCreaks', {
-                tab: currentTab,
-              })
-            }
-            tooltip="Full creaks emit while moving on high fullness; fullness
-              comes from the base cosmetic full size, cosmetic stuffed size,
-              nommed guests, and high nutrition."
-          >
-            Allow emitting movement groans?
-          </Button.Checkbox>
-        </LabeledList.Item>
-        <LabeledList.Item label="Allow Movement Sloshes">
-          <Button.Checkbox
-            checked={data.allow_sound_move_sloshes}
-            fluid
-            onClick={() =>
-              act('changeSoundMoveSloshes', {
-                tab: currentTab,
-              })
-            }
-            tooltip="Stuffed sloshes emit while moving on high stuffedness;
-              stuffedness comes from the base cosmetic stuffed size, and high
-              nutrition."
-          >
-            Allow emitting movement sloshes?
           </Button.Checkbox>
         </LabeledList.Item>
       </LabeledList>
@@ -302,7 +277,77 @@ const NovaTumsPrefsCharacter = (props) => {
         </LabeledList.Item>
       </LabeledList>
       <NoticeBox>
-        Endosoma settings - ignore if you 're not into nomming people!
+        Belly sound toggles - these only affect what your belly emits, not what
+        you can hear - that's in the global prefs section.
+      </NoticeBox>
+      <LabeledList>
+        <LabeledList.Item label="Allow Full Groans">
+          <Button.Checkbox
+            checked={data.allow_sound_groans}
+            fluid
+            onClick={() =>
+              act('changeSoundGroans', {
+                tab: currentTab,
+              })
+            }
+            tooltip="Full groans emit over time with high fullness; fullness
+              comes from the base cosmetic full size, cosmetic stuffed size,
+              nommed guests, and high nutrition."
+          >
+            Allow emitting full groans?
+          </Button.Checkbox>
+        </LabeledList.Item>
+        <LabeledList.Item label="Allow Stuffed Gurgles">
+          <Button.Checkbox
+            checked={data.allow_sound_gurgles}
+            fluid
+            onClick={() =>
+              act('changeSoundGurgles', {
+                tab: currentTab,
+              })
+            }
+            tooltip="Stuffed gurgles emit over time with high stuffedness;
+              stuffedness comes from the base cosmetic stuffed size, and high
+              nutrition."
+          >
+            Allow emitting stuffed gurgles?
+          </Button.Checkbox>
+        </LabeledList.Item>
+        <LabeledList.Item label="Allow Movement Creaks">
+          <Button.Checkbox
+            checked={data.allow_sound_move_creaks}
+            fluid
+            onClick={() =>
+              act('changeSoundMoveCreaks', {
+                tab: currentTab,
+              })
+            }
+            tooltip="Full creaks emit while moving on high fullness; fullness
+              comes from the base cosmetic full size, cosmetic stuffed size,
+              nommed guests, and high nutrition."
+          >
+            Allow emitting movement groans?
+          </Button.Checkbox>
+        </LabeledList.Item>
+        <LabeledList.Item label="Allow Movement Sloshes">
+          <Button.Checkbox
+            checked={data.allow_sound_move_sloshes}
+            fluid
+            onClick={() =>
+              act('changeSoundMoveSloshes', {
+                tab: currentTab,
+              })
+            }
+            tooltip="Stuffed sloshes emit while moving on high stuffedness;
+              stuffedness comes from the base cosmetic stuffed size, and high
+              nutrition."
+          >
+            Allow emitting movement sloshes?
+          </Button.Checkbox>
+        </LabeledList.Item>
+      </LabeledList>
+      <NoticeBox>
+        Endosoma settings - ignore if you 're not into nomming/being nommed!
       </NoticeBox>
       <LabeledList>
         <LabeledList.Item label="Pred Mode">
@@ -345,7 +390,7 @@ const NovaTumsPrefsCharacter = (props) => {
           </Tooltip>
         </LabeledList.Item>
       </LabeledList>
-    </Section>
+    </>
   );
 };
 
@@ -355,7 +400,117 @@ const NovaTumsPrefsGlobal = (props) => {
 
   return (
     <Section fill>
-      <NoticeBox danger>This tab isn't implemented yet!</NoticeBox>
+      <NoticeBox>
+        Belly sprite visibility - these affect what you can see.
+      </NoticeBox>
+      <LabeledList>
+        <LabeledList.Item label="Global Belly Visibility">
+          <Button.Checkbox
+            checked={data.global_belly_visibility}
+            fluid
+            onClick={() =>
+              act('changeGlobalVisibility', {
+                tab: currentTab,
+              })
+            }
+            tooltip="The master visibility toggle disables being able to see
+            belly sprites, period.  If you have a belly, it can have a sprite;
+            you just won't see it!"
+          >
+            Allow seeing bellies at all?
+          </Button.Checkbox>
+        </LabeledList.Item>
+        <LabeledList.Item label="Max Sprite Size">
+          <Tooltip
+            content="Max sprite size to render locally.  If you have a belly,
+            it can go above this size; you just won't see it!"
+          >
+            <Slider
+              step={1}
+              my={1}
+              value={data.global_maxsize}
+              minValue={0}
+              maxValue={16}
+              unit="u"
+              onChange={(e, value) =>
+                act('changeGlobalMaxsize', {
+                  newGlobalMaxsize: value,
+                  tab: currentTab,
+                })
+              }
+            />
+          </Tooltip>
+        </LabeledList.Item>
+      </LabeledList>
+      <NoticeBox>
+        Belly sound toggles - these affect what your client actually can hear.
+      </NoticeBox>
+      <LabeledList>
+        <LabeledList.Item label="Allow Full Groans">
+          <Button.Checkbox
+            checked={data.global_sound_groans}
+            fluid
+            onClick={() =>
+              act('changeGlobalSoundGroans', {
+                tab: currentTab,
+              })
+            }
+            tooltip="Full groans emit over time with high fullness; fullness
+              comes from the base cosmetic full size, cosmetic stuffed size,
+              nommed guests, and high nutrition."
+          >
+            Allow hearing full groans?
+          </Button.Checkbox>
+        </LabeledList.Item>
+        <LabeledList.Item label="Allow Stuffed Gurgles">
+          <Button.Checkbox
+            checked={data.global_sound_gurgles}
+            fluid
+            onClick={() =>
+              act('changeGlobalSoundGurgles', {
+                tab: currentTab,
+              })
+            }
+            tooltip="Stuffed gurgles emit over time with high stuffedness;
+              stuffedness comes from the base cosmetic stuffed size, and high
+              nutrition."
+          >
+            Allow hearing stuffed gurgles?
+          </Button.Checkbox>
+        </LabeledList.Item>
+        <LabeledList.Item label="Allow Movement Creaks">
+          <Button.Checkbox
+            checked={data.global_sound_move_creaks}
+            fluid
+            onClick={() =>
+              act('changeGlobalSoundMoveCreaks', {
+                tab: currentTab,
+              })
+            }
+            tooltip="Full creaks emit while moving on high fullness; fullness
+              comes from the base cosmetic full size, cosmetic stuffed size,
+              nommed guests, and high nutrition."
+          >
+            Allow hearing movement groans?
+          </Button.Checkbox>
+        </LabeledList.Item>
+        <LabeledList.Item label="Allow Movement Sloshes">
+          <Button.Checkbox
+            checked={data.global_sound_move_sloshes}
+            fluid
+            onClick={() =>
+              act('changeGlobalSoundMoveSloshes', {
+                tab: currentTab,
+              })
+            }
+            tooltip="Stuffed sloshes emit while moving on high stuffedness;
+              stuffedness comes from the base cosmetic stuffed size, and high
+              nutrition."
+          >
+            Allow hearing movement sloshes?
+          </Button.Checkbox>
+        </LabeledList.Item>
+      </LabeledList>
     </Section>
   );
 };

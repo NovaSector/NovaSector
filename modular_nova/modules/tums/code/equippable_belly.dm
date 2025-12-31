@@ -215,16 +215,22 @@
 /obj/item/belly_function/ui_static_data(mob/user)
 	. = list()
 	//.["a_constant"] = A_CONSTANT
-	.["pred_options"] = list("Never", "Query", "Always")
+	var/static/consent_options = list("Never", "Query", "Always")
+	.["pred_options"] = consent_options
+	.["prey_options"] = consent_options
+	// Booleans are reversed between BYOND and tsx??  What the hell???
+	.["has_belly"] = TRUE
+	.["has_player"] = TRUE
 
 /obj/item/belly_function/ui_data(mob/user)
 	. = list()
 
-	// Send title and current calculated sprite size
-	.["title"] = "Local belly prefs: [lastuser]"
+	// Figure out what tab we're in
 	var/ui_tab = ("tumsTab" in tgui_shared_states) ? text2num(tgui_shared_states["tumsTab"]) : 1
-	if(ui_tab != 2)
+	if(ui_tab == 1)
 		// == LOCAL SETTINGS BREAKER ==
+		// Send title
+		.["title"] = "Local belly prefs: [lastuser]"
 		// Send current color & sprite variants
 		.["color"] = color
 		.["use_skintone"] = use_skintone
@@ -256,8 +262,12 @@
 		.["pred_mode"] = pred_mode
 		.["endo_size_label"] = "Default endo size (sprite size [(((endo_size / 10)**1.5) / (4/3) / PI)**(1/3)])"
 		.["endo_size"] = endo_size
+		// Possibly need to refactor this to store prey_mode on mobs somewhere to avoid constant pref reads
+		.["prey_mode"] = lastuser?.client?.prefs.read_preference(/datum/preference/choiced/erp_vore_prey_pref) || "Never"
 	else if(ui_tab == 2)
 		// == PREFS SETTINGS BREAKER ==
+		// Send title
+		.["title"] = "Character belly prefs: [lastuser?.client?.prefs.read_preference(/datum/preference/name/real_name) || lastuser]"
 		// Send current color & sprite variants
 		.["color"] = lastuser?.client?.prefs.read_preference(/datum/preference/color/erp_bellyquirk_color) || "#FFFFFF"
 		.["use_skintone"] = lastuser?.client?.prefs.read_preference(/datum/preference/toggle/erp_bellyquirk_skintone) || FALSE
@@ -277,7 +287,7 @@
 		var/prefs_base_size_cosmetic = lastuser?.client?.prefs.read_preference(/datum/preference/numeric/erp_bellyquirk_size_base) || 0
 		var/prefs_base_size_full = lastuser?.client?.prefs.read_preference(/datum/preference/numeric/erp_bellyquirk_size_full) || 0
 		var/prefs_base_size_stuffed = lastuser?.client?.prefs.read_preference(/datum/preference/numeric/erp_bellyquirk_size_stuffed) || 0
-		var/prefs_maxsize = lastuser?.client?.prefs.read_preference(/datum/preference/numeric/erp_bellyquirk_maxsize)
+		var/prefs_maxsize = lastuser?.client?.prefs.read_preference(/datum/preference/numeric/erp_bellyquirk_maxsize) || 0
 		.["maxsize"] = prefs_maxsize
 		var/prefs_current_size_unclamped = ((((prefs_base_size_cosmetic + prefs_base_size_full + prefs_base_size_stuffed) / 10)**1.5) / (4/3) / PI)**(1/3)
 		var/prefs_last_size = FLOOR(prefs_current_size_unclamped, 1)
@@ -306,6 +316,19 @@
 		var/prefs_endo_size = lastuser?.client?.prefs.read_preference(/datum/preference/numeric/erp_bellyquirk_size_endo) || 1000
 		.["endo_size_label"] = "Default endo size (sprite size [(((prefs_endo_size / 10)**1.5) / (4/3) / PI)**(1/3)])"
 		.["endo_size"] = prefs_endo_size
+		.["prey_mode"] = lastuser?.client?.prefs.read_preference(/datum/preference/choiced/erp_vore_prey_pref) || "Never"
+	else if(ui_tab == 3)
+		// == GLOBAL PREFS SETTINGS BREAKER ==
+		// Send title
+		.["title"] = "Global belly prefs"
+		// Send sprite visibility rules
+		.["global_belly_visibility"] = lastuser?.client?.prefs.read_preference(/datum/preference/toggle/erp/belly) || FALSE
+		.["global_maxsize"] = lastuser?.client?.prefs.read_preference(/datum/preference/numeric/erp_belly_maxsize) || 0
+		// Send current sound rules
+		.["global_sound_groans"] = lastuser?.client?.prefs.read_preference(/datum/preference/toggle/erp/belly/sound_groans) || FALSE
+		.["global_sound_gurgles"] = lastuser?.client?.prefs.read_preference(/datum/preference/toggle/erp/belly/sound_gurgles) || FALSE
+		.["global_sound_move_creaks"] = lastuser?.client?.prefs.read_preference(/datum/preference/toggle/erp/belly/sound_move_creaks) || FALSE
+		.["global_sound_move_sloshes"] = lastuser?.client?.prefs.read_preference(/datum/preference/toggle/erp/belly/sound_move_sloshes) || FALSE
 
 /obj/item/belly_function/ui_act(action, list/params, datum/tgui/ui, datum/ui_state/state)
 	. = ..()
@@ -317,10 +340,10 @@
 		ui.close()
 		return FALSE
 
-	var/all_params = ""
+	/*var/all_params = ""
 	for(var/a_key in params)
 		all_params = "[all_params] [a_key]=[params[a_key]]"
-	to_chat(lastuser, "Doing a UI act [action] with the following params[all_params]")
+	to_chat(lastuser, "Doing a UI act [action] with the following params[all_params]")*/
 
 	var/static/list_yesno = list("Yes", "No")
 	var/ui_tab = text2num(tgui_shared_states["tumsTab"])
@@ -494,6 +517,27 @@
 			else
 				endo_size = new_endo_size
 			return TRUE
+		// === GLOBAL PREFS BREAKER ===
+		if("changeGlobalSoundGroans")
+			var/new_global_sound_groans = !(lastuser?.client?.prefs.read_preference(/datum/preference/toggle/erp/belly/sound_groans) || FALSE)
+			lastuser?.client?.prefs.write_preference(GLOB.preference_entries[/datum/preference/toggle/erp/belly/sound_groans], new_global_sound_groans != FALSE)
+		if("changeGlobalSoundGurgles")
+			var/new_global_sound_gurgles = !(lastuser?.client?.prefs.read_preference(/datum/preference/toggle/erp/belly/sound_gurgles) || FALSE)
+			lastuser?.client?.prefs.write_preference(GLOB.preference_entries[/datum/preference/toggle/erp/belly/sound_gurgles], new_global_sound_gurgles != FALSE)
+		if("changeGlobalSoundMoveCreaks")
+			var/new_global_sound_move_creaks = !(lastuser?.client?.prefs.read_preference(/datum/preference/toggle/erp/belly/sound_move_creaks) || FALSE)
+			lastuser?.client?.prefs.write_preference(GLOB.preference_entries[/datum/preference/toggle/erp/belly/sound_move_creaks], new_global_sound_move_creaks != FALSE)
+		if("changeGlobalSoundMoveSloshes")
+			var/new_global_sound_move_sloshes = !(lastuser?.client?.prefs.read_preference(/datum/preference/toggle/erp/belly/sound_move_sloshes) || FALSE)
+			lastuser?.client?.prefs.write_preference(GLOB.preference_entries[/datum/preference/toggle/erp/belly/sound_move_sloshes], new_global_sound_move_sloshes != FALSE)
+		if("changeGlobalVisibility")
+			var/new_visibility = !(lastuser?.client?.prefs.read_preference(/datum/preference/toggle/erp/belly) || FALSE)
+			lastuser?.client?.prefs.write_preference(GLOB.preference_entries[/datum/preference/toggle/erp/belly], new_visibility != FALSE)
+		if("changeGlobalMaxsize")
+			var/new_maxsize = text2num(params["newMaxsize"])
+			lastuser?.client?.prefs.write_preference(GLOB.preference_entries[/datum/preference/numeric/erp_belly_maxsize], new_maxsize)
+			return TRUE
+
 
 /// Helper for activating the belly.
 /// Culls old appearances as needed and registers signals & actions.
