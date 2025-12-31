@@ -136,7 +136,7 @@
 	icon = /obj/effect/turf_decal/sand/plating::icon
 	icon_state = /obj/effect/turf_decal/sand/plating::icon_state
 	layer = 2
-	plane = -6
+	plane = -7
 
 /obj/structure/fluff/fake_sand_floor
 	name = /obj/effect/turf_decal/sand::name
@@ -144,4 +144,4 @@
 	icon = /obj/effect/turf_decal/sand/::icon
 	icon_state = /obj/effect/turf_decal/sand::icon_state
 	layer = 2
-	plane = -6
+	plane = -7
