@@ -42,7 +42,8 @@
 	if(covered)
 		to_chat(user, span_warning("You have to remove your [covered] first!"))
 		return
-	if(HAS_TRAIT(user, TRAIT_NOBREATH))
+	var/obj/item/organ/internal/lungs/human_lungs = get_organ_slot(ORGAN_SLOT_LUNGS)
+	if(isnull(human_lungs) || istype(human_lungs, /obj/item/organ/lungs/synth)
 		to_chat(user, span_warning("You have to be able to breathe to snort the heroin!"))
 		return
 	user.visible_message(span_notice("'[user] starts snorting the [src]."))
