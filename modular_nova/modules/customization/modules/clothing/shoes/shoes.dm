@@ -243,6 +243,16 @@
 	greyscale_config_worn_vox = /datum/greyscale_config/boots/worn/oldvox
 	flags_1 = IS_PLAYER_COLORABLE_1
 
+/obj/item/clothing/shoes/jackboots/knee/recolorable
+	name = "knee boots"
+	desc = "A pair of typical Nanotrasen-issue combat jackboots, long enough to reach the wearer's knee. Most commonly worn by commanding officers."
+	icon = 'icons/map_icons/clothing/shoes.dmi'
+	greyscale_colors = "#2D2D30"
+	icon_state = "/obj/item/clothing/shoes/jackboots/knee/recolorable"
+	post_init_icon_state = "knee_boots"
+	greyscale_config = /datum/greyscale_config/knee_boots
+	greyscale_config_worn = /datum/greyscale_config/knee_boots/worn
+	flags_1 = IS_PLAYER_COLORABLE_1
 
 /obj/item/clothing/shoes/sport_boots
 	name = "sport boots"

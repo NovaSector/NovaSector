@@ -118,6 +118,10 @@
 	name = "Boots - Jackboots, Knee"
 	item_path = /obj/item/clothing/shoes/jackboots/knee
 
+/datum/loadout_item/shoes/kneeboot/recolorable
+	name = "Boots - Jackboots, Knee (Colorable)"
+	item_path = /obj/item/clothing/shoes/jackboots/knee/recolorable
+
 /datum/loadout_item/shoes/jungle
 	name = "Boots - Jungle"
 	item_path = /obj/item/clothing/shoes/jungleboots
