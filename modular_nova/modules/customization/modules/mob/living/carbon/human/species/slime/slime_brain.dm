@@ -44,7 +44,7 @@
 	return CONTEXTUAL_SCREENTIP_SET
 
 
-/obj/item/organ/brain/slime/examine()
+/obj/item/organ/brain/slime/examine(mob/user)
 	. = ..()
 	// this is horrible but i want to keep this in the right order
 	if(gps_active)
@@ -53,6 +53,8 @@
 		. += span_red("You could probably use it in-hand to steal the items within.")
 	if(gps_active)
 		. += span_red("You could alternatively snuff out the tracking signal by right-clicking.")
+	if(IS_HERETIC(user))
+		. += span_green("Using your Mansus Grasp, you can immediately regenerate their core. This is necessary in order to sacrifice them.")
 	. += span_hypnophrase("You remember that <i>slowly</i> pouring a big beaker of plasma on it by hand, if it's non-embodied, would make it regrow one.")
 
 /obj/item/organ/brain/slime/Destroy(force)
@@ -264,6 +266,10 @@
 		user.balloon_alert(user, "[src] does not contain a mind!")
 		return TRUE
 
+	if(istype(item, /obj/item/melee/touch_attack/mansus_fist))
+		regenerate(nugget = FALSE, heretic_revival = TRUE)
+		return TRUE
+
 	if(!item.is_drainable() || item.reagents.get_reagent_amount(/datum/reagent/toxin/plasma) < 100)
 		return FALSE
 
@@ -287,7 +293,7 @@
 	regenerate()
 	return TRUE
 
-/obj/item/organ/brain/slime/proc/regenerate()
+/obj/item/organ/brain/slime/proc/regenerate(nugget = TRUE, heretic_revival = FALSE)
 	//we have the plasma. we can rebuild them.
 	set_organ_damage(-maxHealth) //fully heals the brain
 
@@ -320,11 +326,14 @@
 	new_body.blood_volume = BLOOD_VOLUME_SAFE+60
 	SSquirks.AssignQuirks(new_body, brainmob.client)
 	src.replace_into(new_body)
-	for(var/obj/item/bodypart/bodypart as anything in new_body.bodyparts)
-		if(!istype(bodypart, /obj/item/bodypart/chest))
-			bodypart.drop_limb()
-			continue
-	new_body.visible_message(span_warning("[new_body]'s torso \"forms\" from [new_body.p_their()] core, yet to form the rest."))
+	if(nugget)
+		for(var/obj/item/bodypart/bodypart as anything in new_body.bodyparts)
+			if(!istype(bodypart, /obj/item/bodypart/chest))
+				bodypart.drop_limb()
+				continue
+		new_body.visible_message(span_warning("[new_body]'s torso \"forms\" from [new_body.p_their()] core, yet to form the rest."))
+	if(heretic_revival) // Let's revive them, and keep them at hard crit so they can be sacrificed
+		new_body.set_brute_loss(200, updating_health = TRUE)
 	to_chat(owner, span_danger("[CONFIG_GET(string/blackoutpolicy)]"))
 	to_chat(owner, span_purple("Your torso fully forms out of your core, yet to form the rest."))
 	new_body.set_jitter_if_lower(200 SECONDS)
