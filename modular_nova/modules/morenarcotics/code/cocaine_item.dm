@@ -51,9 +51,8 @@
 		covered = "mask"
 	if(covered)
 		to_chat(user, span_warning("You have to remove your [covered] first!"))
-		return
-	var/obj/item/organ/internal/lungs/human_lungs = get_organ_slot(ORGAN_SLOT_LUNGS)
-	if(isnull(human_lungs) || istype(human_lungs, /obj/item/organ/lungs/synth)
+	var/obj/item/organ/lungs/lungs = user.get_organ_slot(ORGAN_SLOT_LUNGS)
+	if(isnull(lungs) || istype(lungs, /obj/item/organ/lungs/synth))
 		to_chat(user, span_warning("You have to be able to breathe to snort the cocaine!"))
 		return
 	user.visible_message(span_notice("[user] starts snorting the [src]."))
