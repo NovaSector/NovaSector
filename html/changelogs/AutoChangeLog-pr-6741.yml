@@ -1,0 +1,4 @@
+author: "sqnztb"
+delete-after: True
+changes:
+  - bugfix: "FOCK tool now only works on airlock subtypes."
