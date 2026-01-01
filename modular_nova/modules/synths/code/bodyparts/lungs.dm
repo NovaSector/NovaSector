@@ -13,6 +13,7 @@
 	slot = ORGAN_SLOT_LUNGS
 	maxHealth = 1.5 * STANDARD_ORGAN_THRESHOLD
 	organ_flags = ORGAN_ROBOTIC | ORGAN_SYNTHETIC_FROM_SPECIES
+	compatible_biotypes = MOB_ROBOTIC
 
 /obj/item/organ/lungs/synth/emp_act(severity)
 	. = ..()

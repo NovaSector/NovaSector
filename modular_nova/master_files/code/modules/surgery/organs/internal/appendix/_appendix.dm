@@ -6,3 +6,7 @@
 		return
 
 	return ..()
+
+// Don't replace your co-worker's organs with salad
+/obj/item/organ/appendix/pod
+	compatible_biotypes = MOB_PLANT

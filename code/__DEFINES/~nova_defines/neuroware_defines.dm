@@ -56,7 +56,7 @@
 	var/obj/item/organ/brain/owner_brain = get_organ_slot(ORGAN_SLOT_BRAIN)
 	if(isnull(owner_brain))
 		return FALSE
-	if(owner_brain.organ_flags & ORGAN_ROBOTIC)
+	if(IS_ROBOTIC_ORGAN(owner_brain))
 		return TRUE
 	var/obj/item/organ/cyberimp/brain/nif/nif_implant = get_organ_slot(ORGAN_SLOT_BRAIN_NIF)
 	if(!isnull(nif_implant) && !nif_implant.broken)

@@ -46,7 +46,7 @@
 
 	var/list/robot_parts = list()
 	for (var/obj/item/bodypart/possible_part as anything in cast_on.bodyparts)
-		if ((possible_part.bodytype & BODYTYPE_ROBOTIC) && !(possible_part.body_zone in exclusions)) //only robot limbs and only if they're not crucial to our like, ongoing life, you know?
+		if (IS_ROBOTIC_LIMB(possible_part) && !(possible_part.body_zone in exclusions)) //only robot limbs and only if they're not crucial to our like, ongoing life, you know?
 			robot_parts += possible_part
 
 	if (!length(robot_parts))

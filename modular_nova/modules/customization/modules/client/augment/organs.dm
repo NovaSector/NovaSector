@@ -52,10 +52,6 @@
 	name = "Cybernetic heart"
 	path = /obj/item/organ/heart/cybernetic
 
-/datum/augment_item/organ/heart/synth
-	name = "Hydraulic pump engine"
-	path =/obj/item/organ/heart/synth
-
 //LUNGS
 /datum/augment_item/organ/lungs
 	slot = AUGMENT_SLOT_LUNGS
@@ -81,10 +77,6 @@
 /datum/augment_item/organ/liver/cybernetic
 	name = "Cybernetic liver"
 	path = /obj/item/organ/liver/cybernetic
-
-/datum/augment_item/organ/liver/synth
-	name = "Reagent processing unit"
-	path = /obj/item/organ/liver/synth
 
 //STOMACHES
 /datum/augment_item/organ/stomach

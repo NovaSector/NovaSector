@@ -10,7 +10,7 @@ import {
 } from 'tgui-core/components';
 
 import { CharacterPreview } from '../../common/CharacterPreview';
-import { PreferencesMenuData } from '../types';
+import { PreferencesMenuData, Limb, Organ } from '../types';
 
 export const RotateCharacterButtons = (props) => {
   const { act } = useBackend<PreferencesMenuData>();
@@ -34,7 +34,7 @@ export const RotateCharacterButtons = (props) => {
   );
 };
 
-export const Markings = (props) => {
+export const Markings = (props: {limb: Limb}) => {
   const { act } = useBackend<PreferencesMenuData>();
   return (
     <Stack fill vertical>
@@ -111,8 +111,7 @@ export const Markings = (props) => {
   );
 };
 
-export const LimbPage = (props) => {
-  const { act } = useBackend<PreferencesMenuData>();
+export const LimbPage = (props: {key: String, limb: Limb, data: PreferencesMenuData}) => {
   return (
     <div>
       <Section fill title={props.limb.name}>
@@ -126,7 +125,14 @@ export const LimbPage = (props) => {
   );
 };
 
-export const AugmentationPage = (props) => {
+export const AugmentationPage = (props: {key: String, limb: Limb, data: PreferencesMenuData}) => {
+    // NOVA EDIT ADDITION BEGIN
+    function getReasonToNotAdd(limb: Limb, augName: string) {
+      if (augName in limb.aug_blacklist) {
+        return 'This augment is incompatible with your selected species.';
+      }
+    }
+    // NOVA EDIT ADDITION END
   const { act } = useBackend<PreferencesMenuData>();
   const { data } = useBackend<PreferencesMenuData>();
   let balance = -data.quirks_balance;
@@ -152,6 +158,12 @@ export const AugmentationPage = (props) => {
                       ) {
                         return;
                       }
+                      // NOVA EDIT ADDITION BEGIN
+                      // Prevent species blacklisted limbs from being picked
+                      if (getReasonToNotAdd(props.limb, value) !== undefined) {
+                        return;
+                      }
+                      // NOVA EDIT ADDITION END
                       act('set_limb_aug', {
                         limb_slot: props.limb.slot,
                         augment_name: value,
@@ -187,7 +199,7 @@ export const AugmentationPage = (props) => {
   return null;
 };
 
-export const OrganPage = (props) => {
+export const OrganPage = (props: {key: String, organ: Organ, data: PreferencesMenuData}) => {
   const { act } = useBackend<PreferencesMenuData>();
   const { data } = useBackend<PreferencesMenuData>();
   let balance = -data.quirks_balance;
@@ -239,7 +251,7 @@ export const LimbsPage = (props) => {
             />
           </div>
           <div>
-            {data.limbs_data.map((val) => (
+            {data.limbs_data.map((val: Limb) => (
               <LimbPage key={val.slot} limb={val} data={data} />
             ))}
           </div>
@@ -284,13 +296,13 @@ export const LimbsPage = (props) => {
       <Stack.Item minWidth="33%">
         <Section fill title="Organs" height="87%">
           <Stack fill vertical>
-            {data.organs_data.map((val) => (
+            {data.organs_data.map((val: Organ) => (
               <OrganPage key={val.slot} organ={val} data={data} />
             ))}
           </Stack>
         </Section>
         <Section fill scrollable title="Augmentations" height="107%">
-          {data.limbs_data.map((val) => (
+          {data.limbs_data.map((val: Limb) => (
             <AugmentationPage key={val.slot} limb={val} data={data} />
           ))}
         </Section>

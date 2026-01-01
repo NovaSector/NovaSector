@@ -8,6 +8,7 @@
 	slot = ORGAN_SLOT_LIVER
 	maxHealth = 1 * STANDARD_ORGAN_THRESHOLD
 	organ_flags = ORGAN_ROBOTIC | ORGAN_SYNTHETIC_FROM_SPECIES
+	compatible_biotypes = MOB_ROBOTIC
 
 /obj/item/organ/liver/synth/emp_act(severity)
 	. = ..()

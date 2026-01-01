@@ -109,20 +109,6 @@ GLOBAL_LIST_EMPTY(customizable_races)
 /datum/species/human/vampire
 	mutant_bodyparts = list()
 
-/datum/species/plasmaman
-	mutant_bodyparts = list()
-	can_have_genitals = FALSE
-	can_augment = FALSE
-
-/datum/species/ethereal
-	mutant_bodyparts = list()
-	can_have_genitals = FALSE
-	can_augment = FALSE
-
-/datum/species/pod
-	name = "Primal Podperson"
-	always_customizable = TRUE
-
 /datum/species/randomize_features(mob/living/carbon/human/human_mob)
 	var/list/features = ..()
 	return features
