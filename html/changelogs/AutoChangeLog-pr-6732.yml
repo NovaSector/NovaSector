@@ -1,0 +1,4 @@
+author: "codyman765"
+delete-after: True
+changes:
+  - map: "modified some of the newer condos to fix bed rotation"
