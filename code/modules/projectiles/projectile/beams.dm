@@ -2,7 +2,7 @@
 	name = "laser"
 	icon_state = "laser"
 	pass_flags = PASSTABLE | PASSGLASS | PASSGRILLE
-	damage = 22 // NOVA EDIT CHANGE - ORIGINAL: damage = 20 
+	damage = 22 // NOVA EDIT CHANGE - ORIGINAL: damage = 20
 	damage_type = BURN
 	hitsound = 'sound/items/weapons/sear.ogg'
 	hitsound_wall = 'sound/items/weapons/effects/searwall.ogg'
@@ -122,7 +122,7 @@
 	name = "clockwork laser"
 	icon_state = "laser_repeater"
 	impact_effect_type = /obj/effect/temp_visual/impact_effect/yellow_laser
-	damage = 28
+	damage = 9 // NOVA EDIT: ORIGINAL damage = 28 - way to stronk for how cheap the weapon is.
 	stamina = 35
 	weak_against_armour = TRUE
 	light_color = COLOR_DARK_ORANGE
