@@ -1,4 +1,6 @@
-//==MIRROR OF ALT_APPEARANCE/BASIC==
+GLOBAL_LIST_EMPTY(aaerp_maskcache)
+
+// == EXPANDED MIRROR OF ALT_APPEARANCE/BASIC ==
 /datum/atom_hud/alternate_appearance/erp
 	/// Target atom that this alt_appearance is applied to.
 	var/atom/target
@@ -129,35 +131,33 @@
 		for(var/an_overlay in cached_other)
 			var/arm_check = FALSE
 			if(findtext(an_overlay:icon_state, "_arm"))
-				//to_chat(world, "Hey!  Overlay [an_overlay:icon_state] might be an arm!  Its layer is [an_overlay:layer] - it should be [-BODYPARTS_LAYER]")
 				if(an_overlay:layer == -BODYPARTS_LAYER)
 					arm_check = TRUE
 			if(an_overlay:layer >= image.layer || arm_check)
 				var/image/new_overlay = image(an_overlay)
+				var/static/mask_icons = list()
 				if(arm_check)
 					new_overlay.layer = -BODYPARTS_HIGH_LAYER
-				//to_chat(world, "Hey!  Handling overlay [new_overlay.icon_state] with layer [new_overlay.layer] vs [-GLOVES_LAYER] or [-HANDS_LAYER]!")
 				if(new_overlay.layer == -HANDS_LAYER || new_overlay.layer == -GLOVES_LAYER || new_overlay.layer == -BODYPARTS_HIGH_LAYER || arm_check)
-					//to_chat(world, "Hey!  Overlay [new_overlay.icon_state] is on the right layer!  Trying to hit it with the offhand axe!")
-					var/static/atom/movable/alpha_filter_target
-					if(isnull(alpha_filter_target))
-						alpha_filter_target = new(null)
-					alpha_filter_target.icon = 'modular_nova/modules/tums/icons/helpers.dmi'
-					alpha_filter_target.icon_state = offhand_iconstate
-					alpha_filter_target.render_target = "*BegoneOffhand [REF(src)]"
-					new_overlay.add_overlay(alpha_filter_target)
-					new_overlay.filters += filter(type="alpha", render_source=alpha_filter_target.render_target, flags=MASK_INVERSE)
-					//to_chat(world, "Hey!  Found a probable hand overlay, hitting it with the offhand axe!  It's [new_overlay.icon_state], should have the filter target [alpha_filter_target] slapped on it for [new_overlay.overlays.len] overlays/[new_overlay.filters.len] filters")
+					if(!(offhand_iconstate in mask_icons))
+						mask_icons[offhand_iconstate] = icon('modular_nova/modules/tums/icons/helpers.dmi', offhand_iconstate)
+					if(!(new_overlay.icon in GLOB.aaerp_maskcache))
+						GLOB.aaerp_maskcache[new_overlay.icon] = list()
+					if(!(offhand_iconstate in GLOB.aaerp_maskcache[new_overlay.icon]))
+						var/icon/masked_iconfile = icon(new_overlay.icon)
+						masked_iconfile.Blend(mask_icons[offhand_iconstate], ICON_MULTIPLY)
+						GLOB.aaerp_maskcache[new_overlay.icon][offhand_iconstate] = masked_iconfile
+					new_overlay.icon = GLOB.aaerp_maskcache[new_overlay.icon][offhand_iconstate]
 				else if(new_overlay.layer == -SHOES_LAYER)
-					//to_chat(world, "Hey!  Overlay [new_overlay.icon_state] is on shoe layer!  Trying to hit it with the shoe axe!")
-					var/static/atom/movable/alpha_filter_target
-					if(isnull(alpha_filter_target))
-						alpha_filter_target = new(null)
-					alpha_filter_target.icon = 'modular_nova/modules/tums/icons/helpers.dmi'
-					alpha_filter_target.icon_state = shoe_iconstate
-					alpha_filter_target.render_target = "*BegoneShoes [REF(src)]"
-					new_overlay.add_overlay(alpha_filter_target)
-					new_overlay.filters += filter(type="alpha", render_source=alpha_filter_target.render_target, flags=MASK_INVERSE)
+					if(!(shoe_iconstate in mask_icons))
+						mask_icons[shoe_iconstate] = icon('modular_nova/modules/tums/icons/helpers.dmi', shoe_iconstate)
+					if(!(new_overlay.icon in GLOB.aaerp_maskcache))
+						GLOB.aaerp_maskcache[new_overlay.icon] = list()
+					if(!(shoe_iconstate in GLOB.aaerp_maskcache[new_overlay.icon]))
+						var/icon/masked_iconfile = icon(new_overlay.icon)
+						masked_iconfile.Blend(mask_icons[shoe_iconstate], ICON_MULTIPLY)
+						GLOB.aaerp_maskcache[new_overlay.icon][shoe_iconstate] = masked_iconfile
+					new_overlay.icon = GLOB.aaerp_maskcache[new_overlay.icon][shoe_iconstate]
 				else
 					new_overlay.blend_mode = BLEND_INSET_OVERLAY
 				new_overlay.pixel_x -= image.pixel_x
