@@ -4548,6 +4548,7 @@
 "bxq" = (
 /obj/structure/flora/grass/jungle/b/style_random,
 /obj/structure/flora/rock/pile/jungle/large/style_2,
+/mob/living/basic/rabbit,
 /turf/open/misc/grass/planet,
 /area/centcom/holding/cafepark)
 "bxz" = (
@@ -6434,13 +6435,13 @@
 /turf/open/floor/iron/showroomfloor,
 /area/centcom/holding/cafe)
 "erR" = (
-/obj/structure/flora/grass/jungle/b/style_5,
-/mob/living/basic/rabbit,
-/obj/effect/light_emitter/interlink,
-/turf/open/misc/grass/planet{
-	smoothing_flags = 0
+/obj/structure/hedge,
+/obj/structure/window/fulltile{
+	polarizer_id_on_spawn = "ilinkbooth2"
 	},
-/area/centcom/holding/cafepark)
+/obj/structure/disposalpipe/segment,
+/turf/open/floor/grass,
+/area/centcom/holding/cafe)
 "esx" = (
 /obj/effect/decal/cleanable/blood/xeno,
 /obj/structure/alien/weeds,
@@ -67357,7 +67358,7 @@ wwq
 dkH
 ggJ
 qmB
-aTb
+erR
 aBH
 kJA
 pxG
@@ -70699,7 +70700,7 @@ aGC
 aMR
 aSt
 uoX
-erR
+axC
 jtc
 rvn
 oVT
