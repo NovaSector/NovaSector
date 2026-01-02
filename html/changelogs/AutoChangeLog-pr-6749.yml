@@ -1,0 +1,4 @@
+author: "Zergspower"
+delete-after: True
+changes:
+  - balance: "reduces the repeater damage from 28 to 9"
