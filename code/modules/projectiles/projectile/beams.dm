@@ -2,7 +2,7 @@
 	name = "laser"
 	icon_state = "laser"
 	pass_flags = PASSTABLE | PASSGLASS | PASSGRILLE
-	damage = 22 // NOVA EDIT CHANGE - ORIGINAL: damage = 20 
+	damage = 20
 	damage_type = BURN
 	hitsound = 'sound/items/weapons/sear.ogg'
 	hitsound_wall = 'sound/items/weapons/effects/searwall.ogg'
