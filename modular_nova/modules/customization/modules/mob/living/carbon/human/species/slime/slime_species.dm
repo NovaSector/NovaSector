@@ -93,7 +93,6 @@
 /datum/species/jelly/spec_life(mob/living/carbon/human/slime, seconds_per_tick, times_fired)
 	. = ..()
 
-
 	var/healing = TRUE
 	var/is_wet = HAS_TRAIT(slime, TRAIT_IS_WET)
 
