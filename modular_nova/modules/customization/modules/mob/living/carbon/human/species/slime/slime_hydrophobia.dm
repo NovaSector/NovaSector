@@ -4,7 +4,7 @@
 */
 /datum/action/cooldown/slime_hydrophobia
 	name = "Toggle Hydrophobia"
-	desc = "Develop an oily layer on your outer membrane, repelling water at the cost of lower viscosity."
+	desc = "Develop an oily layer on your outer membrane, repelling water at the cost of lower viscosity and halting regeneration."
 	button_icon = 'icons/mob/actions/actions_items.dmi'
 	button_icon_state = "bci_shield"
 	background_icon_state = "bg_alien"
