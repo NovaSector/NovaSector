@@ -1,308 +1,419 @@
 //MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
 "ae" = (
-/obj/structure/closet/secure_closet,
 /obj/effect/turf_decal/tile/dark_blue/anticorner{
 	dir = 1
+	},
+/obj/machinery/computer/shuttle/hc/ferry,
+/turf/open/floor/iron/dark/textured_corner,
+/area/shuttle/hc_cops/ferry)
+"aQ" = (
+/obj/effect/turf_decal/tile/dark_blue/anticorner{
+	dir = 8
 	},
 /obj/effect/turf_decal/bot,
-/turf/open/floor/iron/dark/textured_corner,
-/area/shuttle/hc_cops)
-"aQ" = (
-/obj/machinery/power/shuttle_engine/heater{
-	dir = 8
+/obj/structure/closet/secure_closet,
+/turf/open/floor/iron/dark/textured_corner{
+	dir = 4
 	},
-/obj/structure/window/reinforced/plasma/spawner/directional/east,
-/turf/open/floor/plating/airless,
-/area/shuttle/hc_cops)
+/area/shuttle/hc_cops/ferry)
 "aW" = (
-/obj/item/flashlight/lamp{
-	pixel_x = -6;
-	pixel_y = 6
-	},
-/obj/item/book/manual/wiki/security_space_law{
-	pixel_x = 7;
-	pixel_y = 2
-	},
-/obj/effect/turf_decal/tile/dark_blue/half{
-	dir = 8
-	},
-/obj/structure/table/reinforced/plastitaniumglass,
-/obj/item/folder/blue/hc_cop,
-/turf/open/floor/iron/dark/textured_half{
-	dir = 1
-	},
-/area/shuttle/hc_cops)
+/obj/effect/turf_decal/tile/dark_blue/half,
+/obj/effect/turf_decal/bot,
+/obj/structure/closet/secure_closet,
+/turf/open/floor/iron/dark/textured_half,
+/area/shuttle/hc_cops/ferry)
 "aY" = (
-/obj/structure/chair/comfy/shuttle{
-	dir = 4
-	},
-/obj/structure/window/reinforced/spawner/directional/west,
-/turf/open/floor/iron/dark/textured_large,
-/area/shuttle/hc_cops)
-"cE" = (
 /obj/effect/turf_decal/tile/dark_blue/anticorner,
+/obj/structure/sign/clock/directional/east,
 /obj/structure/table/reinforced/plastitaniumglass,
-/obj/machinery/coffeemaker{
-	pixel_y = 7
+/obj/item/stamp/granted{
+	pixel_x = 8;
+	pixel_y = 9
 	},
-/obj/item/coffee_cartridge/fancy,
-/obj/item/coffee_cartridge/fancy,
-/turf/open/floor/iron/dark/textured_corner{
-	dir = 1
+/obj/item/stamp/denied{
+	pixel_x = 8;
+	pixel_y = 4
 	},
-/area/shuttle/hc_cops)
-"dx" = (
-/obj/structure/marker_beacon/burgundy,
-/obj/machinery/porta_turret/syndicate/hc_police{
-	dir = 10
+/obj/item/stamp/void{
+	pixel_x = 8
 	},
-/turf/closed/wall/mineral/titanium/spaceship/nodiagonal,
-/area/shuttle/hc_cops)
-"dJ" = (
-/obj/structure/chair/comfy/shuttle{
-	dir = 8
-	},
-/turf/open/floor/iron/dark/textured_large,
-/area/shuttle/hc_cops)
-"dT" = (
-/obj/machinery/atmos_shield_gen/active{
-	dir = 8
-	},
-/obj/effect/mapping_helpers/airlock/cyclelink_helper,
-/obj/machinery/door/airlock/external/glass{
-	id_tag = "hcshuttleairlock";
-	req_access = list("syndicate")
-	},
-/obj/effect/mapping_helpers/airlock/access/all/syndicate/general,
-/obj/effect/mapping_helpers/airlock/cutaiwire,
-/turf/open/floor/catwalk_floor/iron_dark,
-/area/shuttle/hc_cops)
-"go" = (
-/obj/machinery/autolathe/hacked,
-/turf/open/floor/iron/dark/textured_large,
-/area/shuttle/hc_cops)
-"hz" = (
-/obj/machinery/atmos_shield_gen/active{
-	dir = 4
-	},
-/obj/docking_port/mobile/pirate/hc_police,
-/obj/effect/mapping_helpers/airlock/cyclelink_helper,
-/obj/machinery/door/airlock/external/glass{
-	id_tag = "hcshuttleairlock";
-	req_access = list("syndicate")
-	},
-/obj/effect/mapping_helpers/airlock/access/all/syndicate/general,
-/obj/effect/mapping_helpers/airlock/cutaiwire,
-/turf/open/floor/catwalk_floor/iron_dark,
-/area/shuttle/hc_cops)
-"ju" = (
-/obj/machinery/photocopier/prebuilt,
-/obj/effect/turf_decal/tile/dark_blue/anticorner,
-/turf/open/floor/iron/dark/textured_corner{
-	dir = 1
-	},
-/area/shuttle/hc_cops)
-"kg" = (
-/obj/structure/closet/firecloset/wall{
-	pixel_x = -32
-	},
-/obj/machinery/light/directional/west,
-/turf/open/floor/catwalk_floor/iron_dark,
-/area/shuttle/hc_cops)
-"kB" = (
-/obj/structure/table/reinforced,
-/obj/item/storage/medkit/regular{
+/obj/item/paper_bin{
 	pixel_x = -3;
-	pixel_y = -3
-	},
-/obj/item/storage/medkit/fire,
-/obj/item/storage/medkit/brute{
-	pixel_x = 3;
 	pixel_y = 3
 	},
-/obj/machinery/light/directional/south,
-/obj/effect/turf_decal/tile/dark_blue/half,
-/obj/structure/sign/calendar/directional/south,
-/turf/open/floor/iron/dark/textured_half,
-/area/shuttle/hc_cops)
-"lG" = (
-/obj/effect/turf_decal/tile/dark_blue/anticorner{
-	dir = 4
-	},
+/obj/item/pen,
 /turf/open/floor/iron/dark/textured_corner{
-	dir = 8
-	},
-/area/shuttle/hc_cops)
-"nb" = (
-/obj/structure/chair/comfy/shuttle{
-	dir = 8
-	},
-/obj/effect/turf_decal/tile/dark_blue/half,
-/obj/machinery/newscaster/directional/south,
-/turf/open/floor/iron/dark/textured_half,
-/area/shuttle/hc_cops)
-"nt" = (
-/obj/machinery/atmos_shield_gen/active{
-	dir = 4
-	},
-/obj/effect/mapping_helpers/airlock/cyclelink_helper{
 	dir = 1
 	},
-/obj/machinery/door/airlock/external{
+/area/shuttle/hc_cops/ferry)
+"dT" = (
+/obj/machinery/light/directional/south,
+/obj/structure/closet/firecloset/wall{
+	pixel_y = -32
+	},
+/turf/open/floor/catwalk_floor/iron_dark,
+/area/shuttle/hc_cops/ferry)
+"fX" = (
+/obj/machinery/door/airlock/external/glass{
 	id_tag = "hcshuttleairlock"
 	},
 /obj/effect/mapping_helpers/airlock/access/all/syndicate/general,
 /obj/effect/mapping_helpers/airlock/cutaiwire,
+/obj/effect/mapping_helpers/airlock/cyclelink_helper{
+	dir = 4
+	},
 /turf/open/floor/catwalk_floor/iron_dark,
-/area/shuttle/hc_cops)
-"rr" = (
-/obj/effect/turf_decal/bot,
-/obj/effect/turf_decal/tile/dark_blue/half{
-	dir = 4
-	},
-/turf/open/floor/iron/dark/textured_half{
-	dir = 1
-	},
-/area/shuttle/hc_cops)
-"sn" = (
-/obj/structure/chair/comfy/shuttle{
-	dir = 4
-	},
-/obj/structure/window/reinforced/spawner/directional/west,
-/obj/machinery/light/directional/south,
+/area/shuttle/hc_cops/ferry)
+"go" = (
+/obj/machinery/autolathe/hacked,
+/turf/open/floor/iron/dark/textured_large,
+/area/shuttle/hc_cops/ferry)
+"gV" = (
+/obj/effect/turf_decal/stripes/line,
+/obj/machinery/power/shuttle_engine/propulsion,
+/turf/open/floor/plating/airless,
+/area/shuttle/hc_cops/ferry)
+"hU" = (
 /obj/effect/turf_decal/tile/dark_blue/half,
 /turf/open/floor/iron/dark/textured_half,
-/area/shuttle/hc_cops)
-"sZ" = (
-/obj/machinery/recharge_station,
-/obj/effect/turf_decal/tile/dark_blue/half{
-	dir = 8
-	},
-/turf/open/floor/iron/dark/textured_half{
-	dir = 1
-	},
-/area/shuttle/hc_cops)
-"wy" = (
-/obj/machinery/holopad/secure,
+/area/shuttle/hc_cops/ferry)
+"if" = (
+/obj/structure/chair/comfy/shuttle,
 /turf/open/floor/iron/dark/textured_large,
-/area/shuttle/hc_cops)
-"zG" = (
-/obj/structure/closet/secure_closet,
+/area/shuttle/hc_cops/ferry)
+"kg" = (
 /obj/effect/turf_decal/tile/dark_blue/half{
-	dir = 8
+	dir = 4
 	},
-/obj/effect/turf_decal/bot,
+/obj/structure/sign/calendar/directional/east,
+/obj/structure/table/reinforced,
+/obj/item/storage/medkit/brute{
+	pixel_x = 3;
+	pixel_y = 3
+	},
+/obj/item/storage/medkit/regular{
+	pixel_x = 5;
+	pixel_y = 5
+	},
+/obj/item/storage/medkit/fire{
+	pixel_x = 3;
+	pixel_y = 12
+	},
 /turf/open/floor/iron/dark/textured_half{
 	dir = 1
 	},
-/area/shuttle/hc_cops)
-"AF" = (
-/obj/structure/marker_beacon,
-/obj/machinery/porta_turret/syndicate/hc_police{
-	dir = 9
-	},
-/turf/closed/wall/mineral/titanium/spaceship/nodiagonal,
-/area/shuttle/hc_cops)
-"AU" = (
-/obj/machinery/computer/centcom_announcement/hc_police{
-	req_access = list("syndicate")
-	},
-/obj/effect/turf_decal/tile/dark_blue/anticorner{
-	dir = 4
-	},
-/obj/structure/sign/calendar/directional/north,
+/area/shuttle/hc_cops/ferry)
+"kV" = (
+/obj/effect/turf_decal/tile/dark_blue/anticorner,
+/obj/machinery/ammo_workbench/unlocked,
 /turf/open/floor/iron/dark/textured_corner{
-	dir = 8
-	},
-/area/shuttle/hc_cops)
-"Cn" = (
-/obj/machinery/computer/shuttle/pirate/hc{
-	dir = 8;
-	req_access = list("syndicate")
-	},
-/obj/effect/turf_decal/tile/dark_blue/anticorner{
-	dir = 4
-	},
-/turf/open/floor/iron/dark/textured_corner{
-	dir = 8
-	},
-/area/shuttle/hc_cops)
-"Du" = (
-/obj/machinery/newscaster/directional/north,
-/obj/machinery/computer/camera_advanced{
-	req_access = list("syndicate")
-	},
-/obj/effect/turf_decal/tile/dark_blue/half{
 	dir = 1
 	},
-/turf/open/floor/iron/dark/textured_half,
-/area/shuttle/hc_cops)
-"DA" = (
-/obj/structure/closet/generic/wall{
-	pixel_x = -32
+/area/shuttle/hc_cops/ferry)
+"ln" = (
+/obj/machinery/power/shuttle_engine/heater,
+/obj/structure/window/reinforced/plasma/spawner/directional/north,
+/turf/open/floor/plating/airless,
+/area/shuttle/hc_cops/ferry)
+"mf" = (
+/obj/machinery/door/airlock/external/glass{
+	id_tag = "hcshuttleairlock"
 	},
-/obj/machinery/light/directional/west,
-/obj/item/stack/sheet/iron/fifty,
+/obj/effect/mapping_helpers/airlock/access/all/syndicate/general,
+/obj/effect/mapping_helpers/airlock/cutaiwire,
+/obj/effect/mapping_helpers/airlock/cyclelink_helper{
+	dir = 4
+	},
+/obj/docking_port/mobile/hc_ferry,
+/turf/open/floor/catwalk_floor/iron_dark,
+/area/shuttle/hc_cops/ferry)
+"nt" = (
+/obj/effect/turf_decal/tile/dark_blue/half,
+/obj/structure/closet/generic/wall{
+	pixel_y = -32
+	},
 /obj/item/stack/sheet/mineral/gold{
 	amount = 20
 	},
 /obj/item/stack/sheet/mineral/plasma{
 	amount = 20
 	},
+/obj/item/stack/sheet/iron/fifty,
+/obj/machinery/light/directional/south,
+/turf/open/floor/iron/dark/textured_half,
+/area/shuttle/hc_cops/ferry)
+"nP" = (
 /obj/effect/turf_decal/tile/dark_blue/half{
-	dir = 8
-	},
-/turf/open/floor/iron/dark/textured_half{
 	dir = 1
 	},
-/area/shuttle/hc_cops)
-"EF" = (
-/turf/closed/wall/mineral/titanium/spaceship/nodiagonal,
-/area/shuttle/hc_cops)
-"EZ" = (
-/obj/machinery/fax{
-	fax_name = "NRI Ship";
-	name = "NRI ship fax machine";
-	req_access = list("syndicate")
+/obj/structure/chair/comfy/shuttle,
+/turf/open/floor/iron/dark/textured_half,
+/area/shuttle/hc_cops/ferry)
+"sn" = (
+/obj/effect/turf_decal/tile/dark_blue/half,
+/obj/structure/table/reinforced/plastitaniumglass,
+/obj/item/folder/red{
+	pixel_x = 10;
+	pixel_y = -6
 	},
+/obj/item/folder/white{
+	pixel_y = -4;
+	pixel_x = 10
+	},
+/obj/item/folder/yellow{
+	pixel_x = 10;
+	pixel_y = -2
+	},
+/obj/item/folder/blue{
+	pixel_x = 10;
+	pixel_y = 0
+	},
+/obj/item/folder/blue/hc_cop{
+	pixel_x = -8;
+	pixel_y = -3
+	},
+/obj/item/book/manual/wiki/security_space_law{
+	pixel_x = -4;
+	pixel_y = 4
+	},
+/turf/open/floor/iron/dark/textured_half,
+/area/shuttle/hc_cops/ferry)
+"sZ" = (
+/obj/effect/turf_decal/tile/dark_blue/anticorner{
+	dir = 8
+	},
+/obj/structure/table/reinforced/plastitaniumglass,
+/obj/structure/sign/clock/directional/west,
+/turf/open/floor/iron/dark/textured_corner{
+	dir = 4
+	},
+/area/shuttle/hc_cops/ferry)
+"wy" = (
+/obj/machinery/holopad/secure,
+/turf/open/floor/iron/dark/textured_large,
+/area/shuttle/hc_cops/ferry)
+"xO" = (
 /obj/effect/turf_decal/tile/dark_blue/anticorner{
 	dir = 1
 	},
-/obj/structure/table/reinforced/plastitaniumglass,
-/obj/structure/sign/clock/directional/north,
 /turf/open/floor/iron/dark/textured_corner,
-/area/shuttle/hc_cops)
-"Fl" = (
+/area/shuttle/hc_cops/ferry)
+"yh" = (
+/obj/machinery/porta_turret/syndicate/hc_police{
+	dir = 10
+	},
+/turf/closed/wall/mineral/titanium/spaceship/nodiagonal,
+/area/shuttle/hc_cops/ferry)
+"yy" = (
+/obj/structure/window/reinforced/spawner/directional/south,
+/obj/structure/chair/comfy/shuttle{
+	dir = 1
+	},
+/turf/open/floor/iron/dark/textured_large,
+/area/shuttle/hc_cops/ferry)
+"zG" = (
 /obj/effect/turf_decal/tile/dark_blue/half{
 	dir = 1
 	},
-/obj/structure/secure_safe/directional/north,
+/obj/effect/turf_decal/bot,
 /turf/open/floor/iron/dark/textured_half,
-/area/shuttle/hc_cops)
-"Fq" = (
-/obj/effect/turf_decal/tile/dark_blue/half,
-/obj/machinery/newscaster/directional/south,
+/area/shuttle/hc_cops/ferry)
+"zU" = (
+/obj/machinery/porta_turret/syndicate/hc_police{
+	dir = 6
+	},
+/obj/machinery/porta_turret/syndicate/hc_police{
+	dir = 6
+	},
+/turf/closed/wall/mineral/titanium/spaceship/nodiagonal,
+/area/shuttle/hc_cops/ferry)
+"Ae" = (
+/obj/effect/turf_decal/tile/dark_blue/anticorner{
+	dir = 4
+	},
+/obj/machinery/photocopier/prebuilt,
+/turf/open/floor/iron/dark/textured_corner{
+	dir = 8
+	},
+/area/shuttle/hc_cops/ferry)
+"AU" = (
+/obj/effect/turf_decal/tile/dark_blue/half{
+	dir = 1
+	},
+/obj/machinery/computer/camera_advanced/shuttle_docker/syndicate/pirate/hc/ferry,
 /turf/open/floor/iron/dark/textured_half,
-/area/shuttle/hc_cops)
+/area/shuttle/hc_cops/ferry)
+"Ds" = (
+/obj/effect/turf_decal/tile/dark_blue/anticorner{
+	dir = 4
+	},
+/obj/structure/chair/comfy/shuttle,
+/turf/open/floor/iron/dark/textured_corner{
+	dir = 8
+	},
+/area/shuttle/hc_cops/ferry)
+"EF" = (
+/turf/closed/wall/mineral/titanium/spaceship/nodiagonal,
+/area/shuttle/hc_cops/ferry)
+"Fl" = (
+/obj/effect/turf_decal/tile/dark_blue/half{
+	dir = 8
+	},
+/obj/machinery/health_station/directional/west,
+/turf/open/floor/iron/dark/textured_half{
+	dir = 1
+	},
+/area/shuttle/hc_cops/ferry)
 "FO" = (
+/obj/effect/turf_decal/tile/dark_blue/half{
+	dir = 4
+	},
+/obj/structure/window/reinforced/spawner/directional/south,
+/obj/structure/chair/comfy/shuttle{
+	dir = 1
+	},
+/obj/machinery/light/directional/east,
+/turf/open/floor/iron/dark/textured_half{
+	dir = 1
+	},
+/area/shuttle/hc_cops/ferry)
+"FU" = (
+/obj/effect/turf_decal/tile/dark_blue/half,
+/obj/machinery/recharge_station,
+/turf/open/floor/iron/dark/textured_half,
+/area/shuttle/hc_cops/ferry)
+"GJ" = (
+/obj/machinery/light/directional/north,
+/obj/structure/closet/emcloset/wall{
+	pixel_y = 32
+	},
+/turf/open/floor/catwalk_floor/iron_dark,
+/area/shuttle/hc_cops/ferry)
+"GO" = (
+/obj/effect/turf_decal/tile/dark_blue/half{
+	dir = 8
+	},
+/obj/structure/secure_safe/directional/west,
+/turf/open/floor/iron/dark/textured_half{
+	dir = 1
+	},
+/area/shuttle/hc_cops/ferry)
+"He" = (
+/obj/effect/turf_decal/tile/dark_blue/half{
+	dir = 8
+	},
+/obj/machinery/computer/camera_advanced{
+	req_access = list("syndicate");
+	dir = 4
+	},
+/obj/machinery/newscaster/directional/west,
+/turf/open/floor/iron/dark/textured_half{
+	dir = 1
+	},
+/area/shuttle/hc_cops/ferry)
+"Hy" = (
+/obj/effect/turf_decal/tile/dark_blue{
+	dir = 1
+	},
+/obj/structure/chair/comfy/shuttle{
+	dir = 1
+	},
+/turf/open/floor/iron/dark/textured_corner{
+	dir = 1
+	},
+/area/shuttle/hc_cops/ferry)
+"LB" = (
+/obj/effect/turf_decal/tile/dark_blue/anticorner{
+	dir = 4
+	},
+/obj/structure/table/reinforced/plastitaniumglass,
+/obj/structure/table/reinforced/plastitaniumglass,
+/obj/machinery/coffeemaker{
+	pixel_x = 0;
+	pixel_y = 8
+	},
+/obj/item/coffee_cartridge/fancy,
+/obj/item/coffee_cartridge/fancy,
+/turf/open/floor/iron/dark/textured_corner{
+	dir = 8
+	},
+/area/shuttle/hc_cops/ferry)
+"LF" = (
+/turf/open/floor/iron/dark/textured_large,
+/area/shuttle/hc_cops/ferry)
+"MM" = (
+/obj/effect/turf_decal/tile/dark_blue/anticorner{
+	dir = 1
+	},
+/obj/effect/turf_decal/bot,
+/obj/machinery/light/directional/west,
+/turf/open/floor/iron/dark/textured_corner,
+/area/shuttle/hc_cops/ferry)
+"Qd" = (
+/obj/effect/turf_decal/tile/dark_blue{
+	dir = 4
+	},
+/turf/open/floor/iron/dark/textured_corner{
+	dir = 4
+	},
+/area/shuttle/hc_cops/ferry)
+"Qo" = (
+/obj/effect/turf_decal/tile/dark_blue/half{
+	dir = 4
+	},
+/obj/machinery/newscaster/directional/east,
+/turf/open/floor/iron/dark/textured_half{
+	dir = 1
+	},
+/area/shuttle/hc_cops/ferry)
+"RZ" = (
+/obj/effect/turf_decal/tile/dark_blue/anticorner{
+	dir = 1
+	},
+/obj/machinery/computer/centcom_announcement/hc_police{
+	req_access = list("syndicate");
+	dir = 4
+	},
+/obj/structure/sign/calendar/directional/west,
+/turf/open/floor/iron/dark/textured_corner,
+/area/shuttle/hc_cops/ferry)
+"Tu" = (
+/obj/effect/turf_decal/tile/dark_blue/full,
 /obj/machinery/door/airlock/command/glass{
 	name = "Cockpit"
 	},
-/obj/effect/turf_decal/tile/dark_blue/full,
+/obj/effect/mapping_helpers/airlock/access/all/syndicate/general,
+/obj/effect/mapping_helpers/airlock/cutaiwire,
 /turf/open/floor/iron/dark/textured_large,
-/area/shuttle/hc_cops)
-"FU" = (
-/obj/structure/window/reinforced/shuttle/spaceship,
-/obj/structure/grille,
-/obj/machinery/door/poddoor/preopen{
-	id = "hcshuttleblastdoors"
-	},
-/obj/structure/fans/tiny/forcefield{
+/area/shuttle/hc_cops/ferry)
+"Uz" = (
+/obj/effect/turf_decal/tile/dark_blue/half{
 	dir = 4
 	},
-/turf/open/floor/plating,
-/area/shuttle/hc_cops)
-"GJ" = (
+/obj/machinery/newscaster/directional/east,
+/obj/structure/chair/comfy/shuttle,
+/turf/open/floor/iron/dark/textured_half{
+	dir = 1
+	},
+/area/shuttle/hc_cops/ferry)
+"VY" = (
+/obj/effect/turf_decal/tile/dark_blue{
+	dir = 1
+	},
+/turf/open/floor/iron/dark/textured_corner{
+	dir = 1
+	},
+/area/shuttle/hc_cops/ferry)
+"WF" = (
+/obj/structure/plaque/static_plaque/golden/commission/ks13/hc_police,
+/turf/open/floor/iron/dark/textured_large,
+/area/shuttle/hc_cops/ferry)
+"WG" = (
+/obj/effect/turf_decal/tile/dark_blue/half{
+	dir = 4
+	},
+/obj/structure/table/reinforced/plastitaniumglass,
+/obj/structure/sign/flag/hc/directional/east,
 /obj/machinery/cell_charger_multi{
 	pixel_y = 11
 	},
@@ -317,197 +428,10 @@
 	pixel_x = 10;
 	pixel_y = -3
 	},
-/obj/structure/sign/flag/hc/directional/south,
-/obj/effect/turf_decal/tile/dark_blue/half,
-/obj/structure/table/reinforced/plastitaniumglass,
-/turf/open/floor/iron/dark/textured_half,
-/area/shuttle/hc_cops)
-"GO" = (
-/obj/effect/turf_decal/tile/dark_blue/half{
-	dir = 1
-	},
-/turf/open/floor/iron/dark/textured_half,
-/area/shuttle/hc_cops)
-"He" = (
-/obj/effect/turf_decal/bot,
-/obj/effect/turf_decal/tile/dark_blue/anticorner{
-	dir = 4
-	},
-/turf/open/floor/iron/dark/textured_corner{
-	dir = 8
-	},
-/area/shuttle/hc_cops)
-"HU" = (
-/obj/structure/chair/comfy/shuttle{
-	dir = 4
-	},
-/obj/machinery/button/door/directional/east{
-	pixel_y = 23;
-	id = "hcshuttleairlock";
-	specialfunctions = 4;
-	normaldoorcontrol = 1;
-	name = "Airlock Bolts";
-	req_access = list("syndicate")
-	},
-/obj/machinery/button/door/directional/east{
-	pixel_y = 31;
-	id = "hcshuttleblastdoors";
-	req_access = list("syndicate")
-	},
-/obj/effect/turf_decal/tile/dark_blue{
-	dir = 4
-	},
-/turf/open/floor/iron/dark/textured_large,
-/area/shuttle/hc_cops)
-"Im" = (
-/obj/machinery/porta_turret/syndicate/hc_police{
-	dir = 5
-	},
-/turf/closed/wall/mineral/titanium/spaceship/nodiagonal,
-/area/shuttle/hc_cops)
-"LF" = (
-/turf/open/floor/iron/dark/textured_large,
-/area/shuttle/hc_cops)
-"Mb" = (
-/obj/machinery/porta_turret/syndicate/hc_police{
-	dir = 6
-	},
-/turf/closed/wall/mineral/titanium/spaceship/nodiagonal,
-/area/shuttle/hc_cops)
-"Mu" = (
-/obj/machinery/computer/camera_advanced/shuttle_docker/syndicate/pirate/hc{
-	dir = 8;
-	req_access = list("syndicate")
-	},
-/obj/effect/turf_decal/tile/dark_blue/half{
-	dir = 4
-	},
 /turf/open/floor/iron/dark/textured_half{
 	dir = 1
 	},
-/area/shuttle/hc_cops)
-"OT" = (
-/obj/machinery/ammo_workbench/unlocked,
-/obj/effect/turf_decal/tile/dark_blue/anticorner{
-	dir = 8
-	},
-/turf/open/floor/iron/dark/textured_corner{
-	dir = 4
-	},
-/area/shuttle/hc_cops)
-"Qd" = (
-/obj/effect/turf_decal/tile/dark_blue{
-	dir = 4
-	},
-/turf/open/floor/iron/dark/textured_corner{
-	dir = 4
-	},
-/area/shuttle/hc_cops)
-"Rj" = (
-/obj/machinery/power/shuttle_engine/propulsion{
-	dir = 8
-	},
-/obj/effect/turf_decal/stripes/line{
-	dir = 8
-	},
-/turf/open/floor/plating/airless,
-/area/shuttle/hc_cops)
-"RY" = (
-/obj/item/paper_bin,
-/obj/item/pen,
-/obj/item/stamp/void{
-	pixel_x = -8
-	},
-/obj/item/stamp/granted{
-	pixel_x = 8
-	},
-/obj/item/folder/red{
-	pixel_x = -3;
-	pixel_y = 18
-	},
-/obj/item/folder/white{
-	pixel_y = 18
-	},
-/obj/item/folder/yellow{
-	pixel_x = 2;
-	pixel_y = 18
-	},
-/obj/item/folder/blue{
-	pixel_x = 4;
-	pixel_y = 18
-	},
-/obj/effect/turf_decal/tile/dark_blue/anticorner{
-	dir = 8
-	},
-/obj/structure/table/reinforced/plastitaniumglass,
-/obj/structure/sign/clock/directional/south,
-/obj/item/stamp/denied,
-/turf/open/floor/iron/dark/textured_corner{
-	dir = 4
-	},
-/area/shuttle/hc_cops)
-"RZ" = (
-/obj/machinery/atmos_shield_gen/active{
-	dir = 8
-	},
-/obj/effect/mapping_helpers/airlock/cyclelink_helper{
-	dir = 1
-	},
-/obj/machinery/door/airlock/external{
-	id_tag = "hcshuttleairlock"
-	},
-/obj/effect/mapping_helpers/airlock/access/all/syndicate/general,
-/obj/effect/mapping_helpers/airlock/cutaiwire,
-/turf/open/floor/catwalk_floor/iron_dark,
-/area/shuttle/hc_cops)
-"Ve" = (
-/obj/structure/closet/emcloset/wall{
-	pixel_x = 32
-	},
-/obj/machinery/light/directional/east,
-/turf/open/floor/catwalk_floor/iron_dark,
-/area/shuttle/hc_cops)
-"Wj" = (
-/obj/machinery/health_station/directional/north{
-	pixel_x = -2
-	},
-/obj/effect/turf_decal/tile/dark_blue/half{
-	dir = 1
-	},
-/obj/machinery/button/door/directional/north{
-	pixel_x = 10;
-	name = "Airlock Bolts";
-	specialfunctions = 4;
-	normaldoorcontrol = 1;
-	id = "hcshuttleairlock";
-	req_access = list("syndicate")
-	},
-/turf/open/floor/iron/dark/textured_half,
-/area/shuttle/hc_cops)
-"Wx" = (
-/obj/structure/chair/comfy/shuttle{
-	dir = 8
-	},
-/obj/effect/turf_decal/tile/dark_blue/half{
-	dir = 4
-	},
-/turf/open/floor/iron/dark/textured_half{
-	dir = 1
-	},
-/area/shuttle/hc_cops)
-"WF" = (
-/obj/structure/plaque/static_plaque/golden/commission/ks13/hc_police,
-/turf/open/floor/iron/dark/textured_large,
-/area/shuttle/hc_cops)
-"WG" = (
-/obj/structure/chair/comfy/shuttle{
-	dir = 8
-	},
-/obj/effect/turf_decal/tile/dark_blue/anticorner,
-/turf/open/floor/iron/dark/textured_corner{
-	dir = 1
-	},
-/area/shuttle/hc_cops)
+/area/shuttle/hc_cops/ferry)
 "WU" = (
 /obj/effect/turf_decal/tile/dark_blue/half{
 	dir = 8
@@ -515,154 +439,145 @@
 /turf/open/floor/iron/dark/textured_half{
 	dir = 1
 	},
-/area/shuttle/hc_cops)
+/area/shuttle/hc_cops/ferry)
+"XD" = (
+/obj/machinery/door/airlock/external/glass{
+	id_tag = "hcshuttleairlock"
+	},
+/obj/effect/mapping_helpers/airlock/access/all/syndicate/general,
+/obj/effect/mapping_helpers/airlock/cutaiwire,
+/obj/effect/mapping_helpers/airlock/cyclelink_helper{
+	dir = 8
+	},
+/turf/open/floor/catwalk_floor/iron_dark,
+/area/shuttle/hc_cops/ferry)
+"XH" = (
+/obj/structure/grille,
+/obj/structure/window/reinforced/shuttle/spaceship,
+/obj/machinery/door/poddoor/preopen{
+	id = "hcshuttleblastdoors"
+	},
+/turf/open/floor/plating,
+/area/shuttle/hc_cops/ferry)
 "Zn" = (
-/obj/effect/turf_decal/tile/dark_blue,
-/turf/open/floor/iron/dark/textured_large,
-/area/shuttle/hc_cops)
+/obj/effect/turf_decal/tile/dark_blue/half,
+/obj/structure/table/reinforced/plastitaniumglass,
+/obj/machinery/light/directional/south,
+/turf/open/floor/iron/dark/textured_half,
+/area/shuttle/hc_cops/ferry)
 "ZK" = (
 /turf/template_noop,
 /area/template_noop)
-"ZM" = (
-/obj/machinery/turretid{
-	req_access = list("syndicate");
-	pixel_x = -32
-	},
-/obj/item/paper_bin,
-/obj/item/pen,
-/obj/machinery/light/directional/west,
-/obj/effect/turf_decal/tile/dark_blue/half{
-	dir = 8
-	},
-/obj/structure/table/reinforced/plastitaniumglass,
-/turf/open/floor/iron/dark/textured_half{
-	dir = 1
-	},
-/area/shuttle/hc_cops)
 
 (1,1,1) = {"
-AF
-Rj
-Rj
-Rj
-Rj
-Rj
-dx
+ZK
+EF
+EF
+EF
+EF
+EF
+mf
+fX
+EF
+EF
+EF
+EF
+EF
+yh
 "}
 (2,1,1) = {"
+XH
 EF
-aQ
-aQ
-aQ
-aQ
-aQ
+RZ
+He
+sZ
 EF
+GJ
+dT
+EF
+MM
+GO
+aQ
+ln
+gV
 "}
 (3,1,1) = {"
-EF
+XH
 ae
-zG
-sZ
-aW
-RY
+Hy
+if
+Zn
 EF
+XD
+XD
+EF
+zG
+LF
+aW
+ln
+gV
 "}
 (4,1,1) = {"
-EF
+XH
+AU
+WF
+wy
+hU
+Tu
+xO
+WU
 Fl
+VY
 LF
-LF
-LF
-nb
-EF
+FU
+ln
+gV
 "}
 (5,1,1) = {"
-EF
-He
-rr
+XH
+Ae
 Qd
-go
-kB
+LF
+nt
 EF
+nP
+LF
+yy
+go
+LF
+sn
+ln
+gV
 "}
 (6,1,1) = {"
+XH
 EF
+LB
+WG
+kV
 EF
-EF
-Wj
+Ds
+Qo
+FO
+kg
+Uz
 aY
-sn
-EF
+ln
+gV
 "}
 (7,1,1) = {"
-hz
-kg
-nt
-GO
-LF
-Fq
-EF
-"}
-(8,1,1) = {"
-dT
-Ve
-RZ
-lG
-Wx
-WG
-EF
-"}
-(9,1,1) = {"
-EF
-EF
-EF
-FO
-EF
-EF
-EF
-"}
-(10,1,1) = {"
-EF
-EZ
-ZM
-WU
-DA
-OT
-EF
-"}
-(11,1,1) = {"
-EF
-Du
-dJ
-wy
-LF
-GJ
-EF
-"}
-(12,1,1) = {"
-EF
-AU
-HU
-WF
-Zn
-cE
-EF
-"}
-(13,1,1) = {"
-Im
-EF
-Cn
-Mu
-ju
-EF
-Mb
-"}
-(14,1,1) = {"
 ZK
-FU
-FU
-FU
-FU
-FU
-ZK
+EF
+EF
+EF
+EF
+EF
+EF
+EF
+EF
+EF
+EF
+EF
+EF
+zU
 "}

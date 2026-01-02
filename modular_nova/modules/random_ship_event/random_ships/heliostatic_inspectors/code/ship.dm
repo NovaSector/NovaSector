@@ -1,11 +1,13 @@
 /datum/map_template/shuttle/random_ship/hc_police
 	suffix = "hc_police"
-	name = "random ship (HC Enforcer-Class Starship)"
-	port_x_offset = -5
-	port_y_offset = 5
+	name = "random ship (HC Carrier)"
+
+/datum/map_template/shuttle/random_ship/hc_ferry
+	suffix = "hc_police_subshuttle"
+	name = "random subship (HC Ferry)"
 
 /area/shuttle/hc_cops
-	name = "HC Starship"
+	name = "HC Carrier"
 	forced_ambience = TRUE
 	requires_power = TRUE
 	ambient_buzz = 'modular_nova/modules/random_ship_event/random_ships/heliostatic_inspectors/sounds/amb_ship_01.ogg'
@@ -17,14 +19,103 @@
 				'modular_nova/modules/random_ship_event/random_ships/heliostatic_inspectors/sounds/gear_stop.ogg',
 				'modular_nova/modules/random_ship_event/random_ships/heliostatic_inspectors/sounds/intercom_loop.ogg')
 
-/obj/machinery/computer/shuttle/pirate/hc
+/area/shuttle/hc_cops/engineering
+	name = "HC Carrier Reactor Room"
+	icon_state = "engie"
+
+/area/shuttle/hc_cops/ready_room
+	name = "HC Carrier Ready Room"
+	icon_state = "security_sub"
+
+/area/shuttle/hc_cops/cargo_hold
+	name = "HC Carrier Cargo Hold"
+	icon_state = "cargo_bay"
+
+/area/shuttle/hc_cops/infirmary
+	name = "HC Carrier Infirmary"
+	icon_state = "med_central"
+
+/area/shuttle/hc_cops/recreation
+	name = "HC Carrier Recreation"
+	icon_state = "rec"
+
+/area/shuttle/hc_cops/armory
+	name = "HC Carrier Armory"
+	icon_state = "security"
+
+/area/shuttle/hc_cops/command
+	name = "HC Carrier Bridge"
+	icon_state = "command"
+
+/area/shuttle/hc_cops/dock
+	name = "HC Carrier Docking Area"
+	icon_state = "podbay"
+
+/area/shuttle/hc_cops/ferry
+	name = "HC Ferry"
+	requires_power = FALSE
+
+/obj/docking_port/stationary/movable/hc_carrier
+	name = "HC ACV 'Harrier Du Bois' dock" //harrier the carrier haaaaa
+	shuttle_id = "hc_carrier_dock"
+	roundstart_template = /datum/map_template/shuttle/random_ship/hc_ferry
+	width = 14
+	height = 7
+	dwidth = 14
+	dheight = 7
+
+/obj/docking_port/mobile/hc_carrier
+	name = "HC ACV 'Harrier Du Bois'"
+	shuttle_id = "hc_carrier"
+	initial_engine_power = 6
+	port_direction = NORTH
+	preferred_direction = NORTH
+	callTime = 2 MINUTES
+	rechargeTime = 12 MINUTES
+	movement_force = list("KNOCKDOWN"=0,"THROW"=0)
+	can_move_docking_ports = TRUE
+	takeoff_sound = sound('modular_nova/modules/random_ship_event/random_ships/heliostatic_inspectors/sounds/engine_ignit_int.ogg')
+	landing_sound = sound('modular_nova/modules/random_ship_event/random_ships/heliostatic_inspectors/sounds/env_ship_down.ogg')
+
+/obj/docking_port/mobile/hc_ferry
+	name = "HC IPV 'Tequilla Sunset'"
+	shuttle_id = "hc_ferry"
+	movement_force = list("KNOCKDOWN" = 0, "THROW" = 0)
+	dir = EAST
+	port_direction = WEST
+	takeoff_sound = sound('modular_nova/modules/random_ship_event/random_ships/heliostatic_inspectors/sounds/engine_ignit_int.ogg')
+	landing_sound = sound('modular_nova/modules/random_ship_event/random_ships/heliostatic_inspectors/sounds/env_ship_down.ogg')
+
+/obj/machinery/computer/shuttle/hc
 	name = "police shuttle console"
+	icon_screen = "syndishuttle"
+	icon_keyboard = "syndie_key"
+	light_color = COLOR_SOFT_RED
+
+/obj/machinery/computer/shuttle/hc/carrier
+	shuttleId = "hc_carrier"
+	possible_destinations = "hc_carrier_custom"
+
+/obj/machinery/computer/shuttle/hc/ferry
+	shuttleId = "hc_ferry"
+	possible_destinations = "hc_carrier_dock;hc_ferry_custom"
 
 /obj/machinery/computer/camera_advanced/shuttle_docker/syndicate/pirate/hc
 	name = "police shuttle navigation computer"
 	desc = "Used to designate a precise transit location for the police shuttle."
+	lock_override = CAMERA_LOCK_STATION
+	view_range = 5.5
 	x_offset = -3
 	y_offset = -7
+	whitelist_turfs = list(/turf/open/space, /turf/open/floor/plating, /turf/open/lava, /turf/closed/mineral, /turf/open/openspace, /turf/open/misc)
+
+/obj/machinery/computer/camera_advanced/shuttle_docker/syndicate/pirate/hc/carrier
+	shuttleId = "hc_carrier"
+	shuttlePortId = "hc_carrier_custom"
+
+/obj/machinery/computer/camera_advanced/shuttle_docker/syndicate/pirate/hc/ferry
+	shuttleId = "hc_ferry"
+	shuttlePortId = "hc_ferry_custom"
 
 /obj/machinery/porta_turret/syndicate/hc_police
 	name = "anti-projectile turret"
@@ -55,33 +146,6 @@
 	icon_state = "guardian"
 	damage = 15
 	armour_penetration = 10
-
-/obj/docking_port/stationary/movable/hc_carrier
-	name = "HC ACV 'Tequilla Sunset' dock"
-	shuttle_id = "hc_carrier_dock"
-
-/obj/docking_port/mobile/hc_carrier
-	name = "HC ACV 'Tequilla Sunset'"
-	shuttle_id = "hc_carrier"
-	initial_engine_power = 6
-	port_direction = NORTH
-	preferred_direction = NORTH
-	callTime = 2 MINUTES
-	rechargeTime = 12 MINUTES
-	movement_force = list("KNOCKDOWN"=0,"THROW"=0)
-	can_move_docking_ports = TRUE
-	takeoff_sound = sound('modular_nova/modules/random_ship_event/random_ships/heliostatic_inspectors/sounds/engine_ignit_int.ogg')
-	landing_sound = sound('modular_nova/modules/random_ship_event/random_ships/heliostatic_inspectors/sounds/env_ship_down.ogg')
-
-/obj/docking_port/mobile/hc_shuttle
-	name = "HC IPV 'Harrier Du Bois'"
-	shuttle_id = "hc_shuttle"
-	movement_force = list("KNOCKDOWN" = 0, "THROW" = 0)
-	hidden = TRUE
-	dir = NORTH
-	port_direction = SOUTH
-	takeoff_sound = sound('modular_nova/modules/random_ship_event/random_ships/heliostatic_inspectors/sounds/engine_ignit_int.ogg')
-	landing_sound = sound('modular_nova/modules/random_ship_event/random_ships/heliostatic_inspectors/sounds/env_ship_down.ogg')
 
 /obj/structure/plaque/static_plaque/golden/commission/ks13/hc_police
 	desc = "HC Sector 09-G-17 Asteroidal Anomaly Orbital Shipworks, Ship OSTs-03p 'Strider' Class Corvette Commissioned 03/09/2565 'Keeping Promises'"
