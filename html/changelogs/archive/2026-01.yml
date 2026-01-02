@@ -6,3 +6,6 @@
   - balance: The diamond drill implant now matches the diamond drill
   sqnztb:
   - bugfix: FOCK tool now only works on airlock subtypes.
+2026-01-02:
+  codyman765:
+  - map: modified some of the newer condos to fix bed rotation
