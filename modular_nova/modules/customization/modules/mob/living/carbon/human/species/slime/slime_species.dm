@@ -93,9 +93,6 @@
 /datum/species/jelly/spec_life(mob/living/carbon/human/slime, seconds_per_tick, times_fired)
 	. = ..()
 
-	// Skip if unconscious
-	if(slime.stat != CONSCIOUS)
-		return
 
 	var/healing = TRUE
 	var/is_wet = HAS_TRAIT(slime, TRAIT_IS_WET)
@@ -121,10 +118,12 @@
 			slime.apply_status_effect(/datum/status_effect/wet_slime)
 			healing = FALSE
 
+	// Skip if unconscious
+	if(slime.stat != CONSCIOUS)
+		return
+
 	// PASSIVE HEALING
 	if(slime.blood_volume >= BLOOD_VOLUME_NORMAL && healing)
-		if(slime.stat != CONSCIOUS)
-			return
 		var/need_mob_update
 		need_mob_update += slime.heal_overall_damage(brute = SPECIES_SLIME_PASSIVE_REGEN_BRUTE * seconds_per_tick, burn = SPECIES_SLIME_PASSIVE_REGEN_BURN * seconds_per_tick, updating_health = FALSE, required_bodytype = BODYTYPE_ORGANIC)
 		need_mob_update += slime.adjust_oxy_loss(-1 * seconds_per_tick, updating_health = FALSE)
