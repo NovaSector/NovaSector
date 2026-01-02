@@ -156,7 +156,6 @@
 	icon_state = "Burn1"
 	ammo_type = /obj/item/ammo_casing/energy/medical/burn1
 
-// Toxin I
 /obj/item/weaponcell/medical/toxin
 	name = "toxin I medicell"
 	desc = "A small cell with a slight green glow. Can be used on mediguns to enable basic toxin damage healing functionality."
@@ -206,14 +205,12 @@
 	icon_state = "Brute3"
 	ammo_type = /obj/item/ammo_casing/energy/medical/brute3
 
-
 // Burn III
 /obj/item/weaponcell/medical/burn/tier_3
 	name = "burn III medicell"
 	desc = "A small cell with an intense yellow glow and a reinforced casing. Can be used on mediguns to enable advanced burn damage healing functionality."
 	icon_state = "Burn3"
 	ammo_type = /obj/item/ammo_casing/energy/medical/burn3
-
 
 // Toxin III
 /obj/item/weaponcell/medical/toxin/tier_3

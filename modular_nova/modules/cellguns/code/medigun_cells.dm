@@ -32,7 +32,7 @@
 */
 
 /// Applies digust by damage thresholds.
-/obj/projectile/energy/medical/proc/DamageDisgust(mob/living/target, type_damage)
+/obj/projectile/energy/medical/proc/damage_disgust(mob/living/target, type_damage)
 	if(type_damage >= 100)
 		target.adjust_disgust(3)
 
@@ -68,7 +68,7 @@
 	if(target.get_brute_loss() >= 30 )
 		return FALSE
 
-	DamageDisgust(target, target.get_brute_loss())
+	damage_disgust(target, target.get_brute_loss())
 	target.adjust_disgust(base_disgust)
 	target.adjust_brute_loss(-amount_healed)
 
@@ -80,7 +80,7 @@
 	if(target.get_fire_loss() >= 30 )
 		return FALSE
 
-	DamageDisgust(target, target.get_brute_loss())
+	damage_disgust(target, target.get_brute_loss())
 	target.adjust_disgust(base_disgust)
 	target.adjust_fire_loss(-amount_healed)
 
