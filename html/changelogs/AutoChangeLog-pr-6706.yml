@@ -1,0 +1,5 @@
+author: "Zergspower"
+delete-after: True
+changes:
+  - map: "blueshift has returned from drydock with another engine, maybe this one will not try to kill the crew"
+  - map: "minor tweaks to Voidraptor, Ouroborus and Piratefort"
