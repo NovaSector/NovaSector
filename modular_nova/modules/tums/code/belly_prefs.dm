@@ -656,6 +656,7 @@ GLOBAL_LIST_EMPTY(erp_belly_prefshelpers)
 	var/wrote_prefs = FALSE
 
 /datum/erp_belly_prefshelper/proc/get_assoc_client()
+	RETURN_TYPE(/client)
 	if(belly != null)
 		if(belly.lastuser != null)
 			if(belly.lastuser.client != null)
