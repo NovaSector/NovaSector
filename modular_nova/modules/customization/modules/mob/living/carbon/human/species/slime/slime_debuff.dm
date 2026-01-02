@@ -41,7 +41,7 @@
 
 /atom/movable/screen/alert/status_effect/dry_slime
 	name = "Dry"
-	desc = "You are covered in water and you're losing cohesion! Dry yourself or turn on hydrophobia to repel!"
+	desc = "You are dried out and you're losing cohesion! Seek water as soon as possible!"
 	use_user_hud_icon = TRUE
 	overlay_state = "terrified"
 
