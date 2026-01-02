@@ -1,5 +1,5 @@
 // THIS IS A NOVA SECTOR UI FILE
-import { Feature, FeatureNumberInput } from '../../base';
+import { type Feature, FeatureNumberInput } from '../../base';
 
 export const unsteady_hurtfactor: Feature<number> = {
   name: 'Chance on hurt',

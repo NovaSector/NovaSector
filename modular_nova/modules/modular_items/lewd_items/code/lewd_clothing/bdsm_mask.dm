@@ -275,7 +275,7 @@
 	if(time_to_choke_left <= 0)
 		if(tt <= 0)
 			if(affected_carbon.stat == CONSCIOUS)
-				affected_carbon.adjustOxyLoss(rand(4, 8)) // Oxy dmg
+				affected_carbon.adjust_oxy_loss(rand(4, 8)) // Oxy dmg
 				affected_carbon.try_lewd_autoemote(pick("gasp", "choke", "moan"))
 				tt = time
 			else
@@ -299,6 +299,7 @@
 	unique_reskin = list("pink" = "filter_pink",
 						"teal" = "filter_teal")
 	w_class = WEIGHT_CLASS_SMALL
+	obj_flags_nova = ERP_ITEM
 	custom_materials = list(
 		/datum/material/glass = SHEET_MATERIAL_AMOUNT,
 		/datum/material/plastic = SHEET_MATERIAL_AMOUNT,

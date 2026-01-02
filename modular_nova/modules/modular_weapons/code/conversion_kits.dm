@@ -38,16 +38,16 @@
 		/obj/item/crafting_conversion_kit/mosin_pro = 1
 	)
 	steps = list(
-		"Empty the rifle",
+		"Empty the magazine",
 		"Leave the bolt open"
 	)
 	tool_behaviors = list(TOOL_SCREWDRIVER)
-	time = 30 SECONDS
+	time = 15 SECONDS
 	category = CAT_WEAPON_RANGED
 
 /datum/crafting_recipe/mosin_pro/New()
 	..()
-	blacklist |= subtypesof(/obj/item/gun/ballistic/rifle/boltaction) - list(/obj/item/gun/ballistic/rifle/boltaction/surplus)
+	LAZYOR(blacklist, subtypesof(/obj/item/gun/ballistic/rifle/boltaction) - list(/obj/item/gun/ballistic/rifle/boltaction/surplus))
 
 /datum/crafting_recipe/mosin_pro/check_requirements(mob/user, list/collected_requirements)
 	var/obj/item/gun/ballistic/rifle/boltaction/the_piece = collected_requirements[/obj/item/gun/ballistic/rifle/boltaction][1]

@@ -19,8 +19,6 @@
 	var/obj/item/organ/cyberimp/brain/nif/parent_resolved = parent_nif.resolve()
 	if(!istype(parent_resolved))
 		stack_trace("[src] ([REF(src)]) tried to create a linked scryer but it had no parent_nif!")
-	if(!linked_scryer)
-		stack_trace("[src] ([REF(src)]) created with no linked scryer!")
 	linked_scryer = new (parent_resolved)
 	linked_scryer.parent_nifsoft = WEAKREF(src)
 

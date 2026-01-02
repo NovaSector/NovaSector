@@ -305,7 +305,6 @@
 "lf" = (
 /obj/effect/decal/cleanable/blood/old,
 /obj/effect/mapping_helpers/broken_floor,
-/obj/item/storage/toolbox/guncase/nova/opfor/renoster,
 /obj/item/sign/flag/terragov{
 	pixel_y = 4
 	},
@@ -711,7 +710,6 @@
 "xa" = (
 /obj/effect/turf_decal/siding/wood/corner,
 /obj/effect/decal/cleanable/dirt/dust,
-/obj/structure/sign/flag/nri/directional/east,
 /turf/open/floor/iron/grimy,
 /area/deathmatch)
 "xp" = (

@@ -145,9 +145,29 @@ DEFINE_BITFIELD(smoothing_junction, list(
 #define SMOOTH_GROUP_FISSURE S_TURF(65)
 #define SMOOTH_GROUP_MUSHROOM S_TURF(66)
 #define SMOOTH_GROUP_CARPET_KINARIS S_TURF(67)
+#define SMOOTH_GROUP_CARPET_KINARIS_RED S_TURF(68)
+#define SMOOTH_GROUP_CARPET_KINARIS_ORANGE S_TURF(69)
+#define SMOOTH_GROUP_CARPET_KINARIS_YELLOW S_TURF(70)
+#define SMOOTH_GROUP_CARPET_KINARIS_GREEN S_TURF(71)
+#define SMOOTH_GROUP_CARPET_KINARIS_PURPLE S_TURF(72)
+#define SMOOTH_GROUP_CARPET_KINARIS_BLACKTRIM S_TURF(73)
+#define SMOOTH_GROUP_CARPET_KINARIS_BLACK S_TURF(74)
+#define SMOOTH_GROUP_CARPET_KINARIS_BLACK_RED S_TURF(75)
+#define SMOOTH_GROUP_CARPET_KINARIS_BLACK_ORANGE S_TURF(76)
+#define SMOOTH_GROUP_CARPET_KINARIS_BLACK_YELLOW S_TURF(77)
+#define SMOOTH_GROUP_CARPET_KINARIS_BLACK_GREEN S_TURF(78)
+#define SMOOTH_GROUP_CARPET_KINARIS_BLACK_PURPLE S_TURF(79)
+#define SMOOTH_GROUP_CARPET_KINARIS_BLACK_WHITETRIM S_TURF(80)
+#define SMOOTH_GROUP_CARPET_POLITE_BLACK S_TURF(81)
+#define SMOOTH_GROUP_CARPET_POLITE_RED S_TURF(82)
+#define SMOOTH_GROUP_CARPET_POLITE_ORANGE S_TURF(83)
+#define SMOOTH_GROUP_CARPET_POLITE_YELLOW S_TURF(84)
+#define SMOOTH_GROUP_CARPET_POLITE_GREEN S_TURF(85)
+#define SMOOTH_GROUP_CARPET_POLITE_BLUE S_TURF(86)
+#define SMOOTH_GROUP_CARPET_POLITE_PURPLE S_TURF(87)
 //NOVA EDIT ADDITION END
 
-#define MAX_S_TURF 67 //Always match this value with the one above it. // NOVA EDIT CHANGE - ORIGINAL: #define MAX_S_TURF 62 //Always match this value with the one above it.
+#define MAX_S_TURF 87 //Always match this value with the one above it. // NOVA EDIT CHANGE - ORIGINAL: #define MAX_S_TURF 62 //Always match this value with the one above it.
 
 #define S_OBJ(num) ("-" + #num + ",")
 /* /obj included */
@@ -236,6 +256,8 @@ DEFINE_BITFIELD(smoothing_junction, list(
 #define SMOOTH_GROUP_PLATFORMS_STONE S_OBJ(84) ///obj/structure/platform/sandstone & cult
 #define SMOOTH_GROUP_PLATFORMS_PIZZA S_OBJ(85) ///obj/structure/platform/pizza
 #define SMOOTH_GROUP_PLATFORMS_PAPER S_OBJ(86) ///obj/structure/platform/paper
+
+#define SMOOTH_GROUP_BOULDER_PLATFORM S_OBJ(87) ///obj/structure/lattice/catwalk/boulder
 
 /// Performs the work to set smoothing_groups and canSmoothWith.
 /// An inlined function used in both turf/Initialize and atom/Initialize.

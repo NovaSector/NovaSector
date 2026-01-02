@@ -8,6 +8,7 @@
 	lefthand_file = 'modular_nova/modules/modular_items/lewd_items/icons/mob/lewd_inhands/lewd_inhand_left.dmi'
 	righthand_file = 'modular_nova/modules/modular_items/lewd_items/icons/mob/lewd_inhands/lewd_inhand_right.dmi'
 	w_class = WEIGHT_CLASS_TINY
+	obj_flags_nova = ERP_ITEM
 	/// If the shocker is on or not
 	var/shocker_on = FALSE
 	/// Typecasted var that holds the cell placed in the shocker
@@ -286,7 +287,7 @@
 	if(prob(80))
 		target.try_lewd_autoemote(pick("twitch", "twitch_s", "shiver", "scream"))
 	target.do_jitter_animation()
-	target.adjustStaminaLoss(3)
+	target.adjust_stamina_loss(3)
 	target.adjust_pain(9)
 	target.adjust_stutter(30 SECONDS)
 	SEND_SIGNAL(target, COMSIG_LIVING_MINOR_SHOCK)

@@ -244,7 +244,7 @@
 	var/list/mix_message = list()
 	for(var/datum/equilibrium/equilibrium as anything in reaction_list)
 		mix_message += end_reaction(equilibrium)
-	if(my_atom && length(mix_message))
+	if(!QDELETED(my_atom) && length(mix_message))
 		my_atom.audible_message(span_notice("[icon2html(my_atom, viewers(DEFAULT_MESSAGE_RANGE, src))] [mix_message.Join()]"))
 	finish_reacting()
 
@@ -346,13 +346,14 @@
 				my_atom.visible_message(span_notice("[iconhtml] \The [my_atom]'s power is consumed in the reaction."))
 				extract.name = "used slime extract"
 				extract.desc = "This extract has been used up."
-				extract.grind_results.Cut()
-	//NOVA EDIT ADDITION
-	//If the reaction pollutes, pollute it here if we have an atom
+				extract.can_grind = FALSE
+	// NOVA EDIT ADDITION START
+	// If the reaction pollutes, pollute it here if we have an atom
 	if(selected_reaction.pollutant_type && my_atom)
 		var/turf/my_turf = get_turf(my_atom)
 		if(my_turf) // just to be safe here
 			my_turf.pollute_turf(selected_reaction.pollutant_type, selected_reaction.pollutant_amount * multiplier)
-	//NOVA EDIT END
+	// NOVA EDIT ADDITION END
+
 	//finish the reaction
 	selected_reaction.on_reaction(src, null, multiplier)

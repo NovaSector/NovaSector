@@ -44,15 +44,6 @@
 		/obj/item/clothing/mask/breath,
 	)
 
-/*
-*	ENGINEERING STUFF
-*/
-
-/datum/supply_pack/goody/improvedrcd
-	name = "Improved RCD"
-	desc = "An upgraded RCD featuring superior material storage. Comes with complimentary frames and circuitry upgrades to boot!"
-	cost = PAYCHECK_CREW * 38
-	contains = list(/obj/item/construction/rcd/improved)
 
 /*
 *	MISC
@@ -78,25 +69,22 @@
 	contains = list(/obj/item/paper_bin)
 
 /datum/supply_pack/goody/xenoarch_intern
-	name = "Xenoarchaeology Intern Skillchip"
-	desc = "A skillchip with all the information required to start dabbling in the fine art of interpreting xenoarchaeological finds. \
-			Does not come with actual xenoarchaeological tools, nor the ability to actually make anyone pay attention to one's \
+	name = "Xenoarchaeology Intern Skillchip Set"
+	desc = "A skillchip with all the information required to start dabbling in the fine art of interpreting xenoarchaeological finds, \
+			and a magnifying glass for actually analyzing your finds. \
+			Does not come with actual excavation tools, nor the ability to actually make anyone pay attention to one's \
 			attempts at intellectual posturing, nor any actual job experience as a curator."
-	cost = PAYCHECK_CREW * 35 // 1750 credit goody? do bounties
-	contains = list(/obj/item/skillchip/xenoarch_magnifier)
+	cost = PAYCHECK_CREW * 15 // 750 credits but you also theoretically print a lot of money if you consistently get/scan relics
+	contains = list(/obj/item/skillchip/xenoarch_magnifier,
+				/obj/item/glassblowing/magnifying_glass,
+			)
 
 /datum/supply_pack/goody/scratching_stone
 	name = "Scratching Stone"
 	desc = "A high-grade sharpening stone made of specialized alloys, meant to sharpen razor-claws. Unfortunately, this particular one has by far seen better days."
 	cost = CARGO_CRATE_VALUE * 4 //800 credits
 	contains = list(/obj/item/scratching_stone)
-	contraband = TRUE
-
-/datum/supply_pack/goody/c38_super_kit
-	name = "NT/E \"Laevateinn\" Revolver Conversion Kit"
-	desc = "A small case of parts for converting a .38 revolver into Nanotrasen's latest foray into magnetically-accelerated sidearms."
-	cost = PAYCHECK_CREW * 6 // 300 cr at time of writing
-	contains = list(/obj/item/crafting_conversion_kit/c38_super)
+	order_flags = ORDER_CONTRABAND
 
 /*
 *	CARPET PACKS
@@ -146,9 +134,126 @@
 	name = "Blue Carpet Single-Pack"
 	contains = list(/obj/item/stack/tile/carpet/blue/fifty)
 
+/datum/supply_pack/service/carpet_kinaris
+	name = "Kinaris Carpet Crate"
+	desc = "Plasteel floor tiles getting on your nerves? This 100 units stack of each soft carpet will tie any room together."
+	cost = CARGO_CRATE_VALUE * 12
+	contains = list(
+		/obj/item/stack/tile/carpet/kinaris/fifty = 2,
+		/obj/item/stack/tile/carpet/kinaris/red/fifty = 2,
+		/obj/item/stack/tile/carpet/kinaris/orange/fifty = 2,
+		/obj/item/stack/tile/carpet/kinaris/yellow/fifty = 2,
+		/obj/item/stack/tile/carpet/kinaris/green/fifty = 2,
+		/obj/item/stack/tile/carpet/kinaris/purple/fifty = 2,
+		/obj/item/stack/tile/carpet/kinaris/blacktrim/fifty = 2,
+		/obj/item/stack/tile/carpet/kinaris/black/fifty = 2,
+		/obj/item/stack/tile/carpet/kinaris/black/red/fifty = 2,
+		/obj/item/stack/tile/carpet/kinaris/black/orange/fifty = 2,
+		/obj/item/stack/tile/carpet/kinaris/black/yellow/fifty = 2,
+		/obj/item/stack/tile/carpet/kinaris/black/green/fifty = 2,
+		/obj/item/stack/tile/carpet/kinaris/black/purple/fifty = 2,
+		/obj/item/stack/tile/carpet/kinaris/black/whitetrim/fifty = 2,
+	)
+
 /datum/supply_pack/goody/carpet/kinaris
 	name = "Kinaris Regal Carpet"
 	contains = list(/obj/item/stack/tile/carpet/kinaris/fifty)
+
+/datum/supply_pack/goody/carpet/kinaris/red
+	name = "Kinaris Red Regal Carpet"
+	contains = list(/obj/item/stack/tile/carpet/kinaris/red/fifty)
+
+/datum/supply_pack/goody/carpet/kinaris/orange
+	name = "Kinaris orange Regal Carpet"
+	contains = list(/obj/item/stack/tile/carpet/kinaris/orange/fifty)
+
+/datum/supply_pack/goody/carpet/kinaris/yellow
+	name = "Kinaris Yellow Regal Carpet"
+	contains = list(/obj/item/stack/tile/carpet/kinaris/yellow/fifty)
+
+/datum/supply_pack/goody/carpet/kinaris/green
+	name = "Kinaris Green Regal Carpet"
+	contains = list(/obj/item/stack/tile/carpet/kinaris/green/fifty)
+
+/datum/supply_pack/goody/carpet/kinaris/purple
+	name = "Kinaris Purple Regal Carpet"
+	contains = list(/obj/item/stack/tile/carpet/kinaris/purple/fifty)
+
+/datum/supply_pack/goody/carpet/kinaris/blacktrim
+	name = "Kinaris Blacktrim Regal Carpet"
+	contains = list(/obj/item/stack/tile/carpet/kinaris/blacktrim/fifty)
+
+/datum/supply_pack/goody/carpet/kinaris/black
+	name = "Kinaris Black Regal Carpet"
+	contains = list(/obj/item/stack/tile/carpet/kinaris/black/fifty)
+
+/datum/supply_pack/goody/carpet/kinaris/black/red
+	name = "Kinaris Black & Red Regal Carpet"
+	contains = list(/obj/item/stack/tile/carpet/kinaris/black/red/fifty)
+
+/datum/supply_pack/goody/carpet/kinaris/black/orange
+	name = "Kinaris Black & orange Regal Carpet"
+	contains = list(/obj/item/stack/tile/carpet/kinaris/black/orange/fifty)
+
+/datum/supply_pack/goody/carpet/kinaris/black/black/yellow
+	name = "Kinaris Black & Yellow Regal Carpet"
+	contains = list(/obj/item/stack/tile/carpet/kinaris/black/yellow/fifty)
+
+/datum/supply_pack/goody/carpet/kinaris/black/green
+	name = "Kinaris Black & Green Regal Carpet"
+	contains = list(/obj/item/stack/tile/carpet/kinaris/black/green/fifty)
+
+/datum/supply_pack/goody/carpet/kinaris/black/purple
+	name = "Kinaris Black & Purple Regal Carpet"
+	contains = list(/obj/item/stack/tile/carpet/kinaris/black/purple/fifty)
+
+/datum/supply_pack/goody/carpet/kinaris/black/whitetrim
+	name = "Kinaris White Trim Regal Carpet"
+	contains = list(/obj/item/stack/tile/carpet/kinaris/black/whitetrim/fifty)
+
+/datum/supply_pack/goody/carpet/polite
+	name = "Polite Black Carpet"
+	contains = list(/obj/item/stack/tile/carpet/polite/fifty)
+	cost = CARGO_CRATE_VALUE * 3.5
+
+/datum/supply_pack/goody/carpet/polite/red
+	name = "Polite Red Carpet"
+	contains = list(/obj/item/stack/tile/carpet/polite/red/fifty)
+
+/datum/supply_pack/goody/carpet/polite/orange
+	name = "Polite Orange Carpet"
+	contains = list(/obj/item/stack/tile/carpet/polite/orange/fifty)
+
+/datum/supply_pack/goody/carpet/polite/yellow
+	name = "Polite Yellow Carpet"
+	contains = list(/obj/item/stack/tile/carpet/polite/yellow/fifty)
+
+/datum/supply_pack/goody/carpet/polite/green
+	name = "Polite Green Carpet"
+	contains = list(/obj/item/stack/tile/carpet/polite/green/fifty)
+
+/datum/supply_pack/goody/carpet/polite/blue
+	name = "Polite Blue Carpet"
+	contains = list(/obj/item/stack/tile/carpet/polite/blue/fifty)
+
+/datum/supply_pack/goody/carpet/polite/purple
+	name = "Polite Purple Carpet"
+	contains = list(/obj/item/stack/tile/carpet/polite/purple/fifty)
+
+/datum/supply_pack/goody/carpet/polite/crate
+	name = "Polite Carpet Crate"
+	desc = "Plasteel floor tiles getting on your nerves? This 100 units stack of each soft carpet will tie any room together."
+	contains = list(
+		/obj/item/stack/tile/carpet/polite/fifty = 2,
+		/obj/item/stack/tile/carpet/polite/red/fifty = 2,
+		/obj/item/stack/tile/carpet/polite/orange/fifty = 2,
+		/obj/item/stack/tile/carpet/polite/yellow/fifty = 2,
+		/obj/item/stack/tile/carpet/polite/green/fifty = 2,
+		/obj/item/stack/tile/carpet/polite/blue/fifty = 2,
+		/obj/item/stack/tile/carpet/polite/purple/fifty = 2,
+	)
+	cost = CARGO_CRATE_VALUE * 12
+
 /*
 * NIF STUFF
 */
@@ -181,7 +286,7 @@
 	desc = "Contains a single Automatic Appraisal NIFSoft uploader disk."
 	cost = CARGO_CRATE_VALUE * 1.5
 	contains = list(
-		/obj/item/disk/nifsoft_uploader/money_sense,
+		/obj/item/disk/nifsoft_uploader/job/money_sense,
 	)
 
 /datum/supply_pack/goody/shapeshifter_nifsoft

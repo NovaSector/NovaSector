@@ -1,4 +1,0 @@
-author: "OrionTheFox"
-delete-after: True
-changes:
-  - bugfix: "fixed RPED icons disappearing when applying upgrades (they now use TG's updated icons)"

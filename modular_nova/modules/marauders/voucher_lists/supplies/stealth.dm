@@ -31,14 +31,14 @@
 	name = /obj/item/disk/neuroware/sleepy::name
 	description = /obj/item/disk/neuroware/sleepy::desc
 	icon = /obj/item/disk/neuroware/sleepy::icon
-	icon_state = /obj/item/disk/neuroware/sleepy::icon_state
+	icon_state = /obj/item/disk/neuroware/sleepy::post_init_icon_state
 	set_items = list(
 		/obj/item/disk/neuroware/sleepy,
 	)
 
 /datum/voucher_set/traitor/supplies/stealth/announcer
-	name = /obj/item/device/traitor_announcer::name
-	description = /obj/item/device/traitor_announcer::desc
+	name = "Fake announcement broadcaster"
+	description = "A device which allows you to create and broadcast your own announcement to the sector."
 	icon = /obj/item/device/traitor_announcer::icon
 	icon_state = /obj/item/device/traitor_announcer::icon_state
 	set_items = list(
@@ -91,7 +91,7 @@
 	)
 
 /datum/voucher_set/traitor/supplies/stealth/edagger
-	name = /obj/item/pen/edagger::name
+	name = "Energy dagger"
 	description = /obj/item/pen/edagger::desc
 	icon = /obj/item/pen/edagger::icon
 	icon_state = /obj/item/pen/edagger::icon_state

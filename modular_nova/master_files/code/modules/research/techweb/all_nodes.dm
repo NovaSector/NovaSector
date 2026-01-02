@@ -93,6 +93,7 @@
 		"anesthetic_machine",
 		"smartdartgun",
 		"cone_of_shame",
+		"defibrillator",
 	)
 	return ..()
 
@@ -231,6 +232,7 @@
 		"c38_haywire",
 		"c38_haywire_mag",
 		"ammobench_niche",
+		"sec_dart_pen",
 	)
 	return ..()
 
@@ -332,5 +334,12 @@
 /datum/techweb_node/applied_bluespace/New()
 	design_ids += list(
 		"plantbag_holding",
+	)
+	return ..()
+
+// modsuit security stuff
+/datum/techweb_node/mod_security/New()
+	design_ids += list(
+		"mod_plating_security",
 	)
 	return ..()

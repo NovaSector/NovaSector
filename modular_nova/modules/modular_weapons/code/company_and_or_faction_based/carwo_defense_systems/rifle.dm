@@ -120,8 +120,8 @@
 // Machinegun based on the base Sol rifle
 
 /obj/item/gun/ballistic/automatic/sol_rifle/machinegun
-	name = "\improper Qarad Light Machine Gun"
-	desc = "A hefty machine gun chambered in .40 Sol Long, commonly seen in the hands of SolFed military types. Accepts any standard SolFed rifle magazine."
+	name = "\improper Trekpaard Light Machine Gun"
+	desc = "A hefty, previous-gen machine gun chambered in .40 Sol Long, somehow still seen in the hands of SolFed military types. Accepts any standard SolFed rifle magazine."
 
 	icon_state = "qarad"
 	worn_icon_state = "qarad"
@@ -137,12 +137,15 @@
 	spread = 12.5
 	projectile_wound_bonus = -20
 
-	model_specific_lore = "This variant is the Qarad model, a conversion of the rifle into \
+	lore_blurb = /obj/item/gun/ballistic/automatic/sol_classic::lore_blurb
+
+	model_specific_lore = "This particular variant is the Trekpaard-Qarad model, a conversion of the rifle into \
 		a passable, if suboptimal, light machine gun. To support its new, fully-automatic role, \
 		the firing system was converted into a faster, open-bolt configuration, and the barrel \
 		was replaced with a heavier, heat-resistant assembly with quick-change support. \
 		These modifications, combined with a battle rifle platform not meant to be used \
-		much in full-auto to begin with, made for a relatively unwieldy weapon.<br><br>\
+		much in full-auto to begin with, made for a relatively unwieldy weapon.<br>\
+		<br>\
 		A machine gun, however, is still a machine gun, no matter how hard it is to keep on target."
 
 /obj/item/gun/ballistic/automatic/sol_rifle/machinegun/no_mag

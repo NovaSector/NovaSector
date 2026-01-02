@@ -123,7 +123,7 @@
 	name = "Appendicitis Survivor"
 	desc = "You had a run in with appendicitis in the past and no longer have an appendix."
 	icon = FA_ICON_NOTES_MEDICAL
-	value = 2
+	value = 0
 	gain_text = span_notice("You no longer have an appendix.")
 	lose_text = span_danger("Your appendix has magically.. regrown?")
 	medical_record_text = "Patient had appendicitis in the past and has had their appendix surgically removed."
@@ -163,6 +163,7 @@
 	desc = "You can hear even the quietest of sounds, but you're more vulnerable to hearing damage as a result. NOTE: This is a direct downgrade for Teshari!"
 	icon = FA_ICON_HEADPHONES_SIMPLE
 	value = 6
+	hidden_quirk = TRUE // disabled until reworked.
 	mob_trait = TRAIT_SENSITIVE_HEARING
 	gain_text = span_notice("You could hear a pin drop from 10 feet away.")
 	lose_text = span_danger("Your hearing feels less sensitive.")

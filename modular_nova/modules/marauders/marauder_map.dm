@@ -21,6 +21,8 @@
 		if(stationary_dock.owner == mobile_dock)
 			transit_dock = stationary_dock
 			break
+	if(!mobile_dock || !transit_dock)
+		return
 	var/random_dir = pick(GLOB.cardinals)
 	mobile_dock.preferred_direction = random_dir
 	mobile_dock.port_direction = turn(random_dir, ROTATION_CLOCKWISE)
@@ -37,7 +39,7 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/machinery/computer/security/telescreen/traitor_
 	icon_keyboard = "syndie_key"
 	shuttleId = "traitor"
 	shuttlePortId = "traitor_custom"
-	jump_to_ports = list("ferry_home" = 1, "whiteship_home" = 1, "whiteship_lavaland" = 1, "traitor_home" = 1, "traitor_custom" = 1)
+	jump_to_ports = list("ferry_home" = 1, "whiteship_home" = 1, "whiteship_lavaland" = 1, "anchor_buoy" = 1, "traitor_custom" = 1)
 	see_hidden = FALSE
 	lock_override = CAMERA_LOCK_STATION
 	view_range = 4
@@ -49,26 +51,27 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/machinery/computer/security/telescreen/traitor_
 	light_color = COLOR_SOFT_RED
 	req_access = list(ACCESS_SYNDICATE)
 	shuttleId = "traitor"
-	possible_destinations = "whiteship_home;whiteship_lavaland;traitor_home;traitor_custom"
+	possible_destinations = "whiteship_home;whiteship_lavaland;anchor_buoy;traitor_custom"
 	may_be_remote_controlled = TRUE
 
 /obj/machinery/computer/shuttle/traitor/Initialize(mapload)
 	. = ..()
 	//planetary maps use "ferry_home" instead of "whiteship_home" for their arrivals dock
 	if(SSmapping.is_planetary())
-		possible_destinations = "ferry_home;whiteship_home;whiteship_lavaland;traitor_home;traitor_custom"
+		possible_destinations = "ferry_home;whiteship_home;whiteship_lavaland;nt_nav;traitor_custom"
 
 //shuttle remote
 /obj/item/shuttle_remote/traitor
 	icon = 'icons/obj/devices/voice.dmi'
 	icon_state = "nukietalkie"
-	shuttle_away_id = "traitor_home"
+	shuttle_away_id = "anchor_buoy"
 
 /obj/item/shuttle_remote/traitor/Initialize(mapload)
 	. = ..()
 	//ditto
 	if(SSmapping.is_planetary())
 		shuttle_home_id = "ferry_home"
+		shuttle_away_id = "nt_nav"
 
 //mobile docking port
 /obj/docking_port/mobile/traitor
@@ -84,9 +87,8 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/machinery/computer/security/telescreen/traitor_
 //area
 /area/shuttle/traitor
 	requires_power = TRUE
-	name = "Marauder Ship"
+	name = "\proper Razorfeather 8E short-range cruiser"
 	flags_1 = NONE
-
 
 //map
 /datum/lazy_template/midround_traitor
@@ -143,11 +145,39 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/machinery/computer/security/telescreen/traitor_
 	dwidth = 4
 	dheight = 0
 
+//nav beacon for shuttles that doesnt generate a name
+/obj/machinery/spaceship_navigation_beacon/nt
+	name = "\improper Nanotrasen radio navigation gigabeacon"
+
+/obj/machinery/spaceship_navigation_beacon/nt/Initialize(mapload)
+	. = ..()
+	name = /obj/machinery/spaceship_navigation_beacon/nt::name
+
 //map spawn landmark
 /obj/effect/landmark/start/midround_traitor/Initialize(mapload)
 	..()
 	GLOB.traitor_start += loc
 	return INITIALIZE_HINT_QDEL
+
+//misc objects
+/obj/structure/showcase/syndicate_communications_console
+	name = /obj/machinery/computer/communications/syndicate::name
+	desc = /obj/machinery/computer/communications/syndicate::desc
+	icon = /obj/machinery/computer::icon
+	icon_state = /obj/machinery/computer::icon_state
+
+/obj/structure/showcase/syndicate_communications_console/Initialize(mapload)
+	. = ..()
+	add_overlay("commsyndie")
+	add_overlay("syndie_key")
+
+/obj/effect/mapping_helpers/xmas_tree_placer
+	late = TRUE
+
+/obj/effect/mapping_helpers/xmas_tree_placer/LateInitialize()
+	if(check_holidays(CHRISTMAS))
+		new /obj/structure/flora/tree/pine/xmas/presentless(loc)
+	qdel(src)
 
 //areas
 /area/misc/operative_barracks

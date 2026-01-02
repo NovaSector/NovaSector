@@ -13,6 +13,7 @@
 /datum/job/interdyne_planetary_base/command
 	paycheck = PAYCHECK_COMMAND
 	bounty_types = DYNE_JOB_SCIENCE
+	head_announce = list(RADIO_CHANNEL_INTERDYNE)
 
 /datum/job/interdyne_planetary_base_icebox
 	title = ROLE_INTERDYNE_PLANETARY_BASE_ICEBOX

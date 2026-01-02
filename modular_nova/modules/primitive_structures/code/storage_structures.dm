@@ -6,6 +6,7 @@
 	icon = 'modular_nova/modules/primitive_structures/icons/storage.dmi'
 	resistance_flags = FLAMMABLE
 	interaction_flags_mouse_drop = NEED_DEXTERITY
+	custom_materials = list(/datum/material/wood = SHEET_MATERIAL_AMOUNT * 2)
 
 /obj/structure/rack/wooden/mouse_drop_receive(atom/dropping, mob/user, params)
 	if ((!isitem(dropping) || user.get_active_held_item() != dropping))
@@ -50,6 +51,7 @@
 	material_drop = /obj/item/stack/sheet/mineral/wood
 	material_drop_amount = 4
 	cutting_tool = /obj/item/crowbar
+	custom_materials = list(/datum/material/wood = SHEET_MATERIAL_AMOUNT * 4)
 
 /obj/machinery/smartfridge/wooden
 	name = "debug wooden smartfridge"
@@ -110,6 +112,7 @@
 	base_icon_state = "producebin"
 	contents_overlay_icon = "produce"
 	base_build_path = /obj/machinery/smartfridge/wooden/produce_bin
+	custom_materials = list(/datum/material/wood = SHEET_MATERIAL_AMOUNT * 10)
 
 /obj/machinery/smartfridge/wooden/produce_bin/accept_check(obj/item/item_to_check)
 	var/static/list/accepted_items = list(
@@ -127,6 +130,7 @@
 	base_icon_state = "seedshelf"
 	contents_overlay_icon = "seed"
 	base_build_path = /obj/machinery/smartfridge/wooden/seed_shelf
+	custom_materials = list(/datum/material/wood = SHEET_MATERIAL_AMOUNT * 10)
 
 /obj/machinery/smartfridge/wooden/seed_shelf/accept_check(obj/item/item_to_check)
 	return istype(item_to_check, /obj/item/seeds)
@@ -138,6 +142,7 @@
 	base_icon_state = "rationshelf"
 	contents_overlay_icon = "ration"
 	base_build_path = /obj/machinery/smartfridge/wooden/ration_shelf
+	custom_materials = list(/datum/material/wood = SHEET_MATERIAL_AMOUNT * 10)
 
 /obj/machinery/smartfridge/wooden/ration_shelf/accept_check(obj/item/item_to_check)
 	return (IS_EDIBLE(item_to_check) || (istype(item_to_check,/obj/item/reagent_containers/cup/bowl) && length(item_to_check.reagents?.reagent_list)))
@@ -149,12 +154,18 @@
 	base_icon_state = "producedisplay"
 	contents_overlay_icon = "nonfood"
 	base_build_path = /obj/machinery/smartfridge/wooden/produce_display
+	custom_materials = list(/datum/material/wood = SHEET_MATERIAL_AMOUNT * 10)
 
 /obj/machinery/smartfridge/wooden/produce_display/accept_check(obj/item/item_to_check)
 	var/static/list/accepted_items = list(
 		/obj/item/grown,
 		/obj/item/bouquet,
 		/obj/item/clothing/head/costume/garland,
+		/obj/item/stack/sheet/cloth,
+		/obj/item/stack/sheet/durathread,
+		/obj/item/stack/sheet/leather,
+		/obj/item/stack/sheet/mineral/wood,
+		/obj/item/stack/sheet/mineral/bamboo
 	)
 	var/fancy_food = istype(item_to_check, /obj/item/food/grown) && item_to_check.slot_flags != NONE // mostly things like flowers
 	return fancy_food || is_type_in_list(item_to_check, accepted_items)

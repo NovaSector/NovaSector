@@ -8,7 +8,7 @@
 	icon_state = "medipen_blue_unused"
 	base_icon_state = "medipen_blue"
 	inhand_icon_state = "medipen_blue"
-	reagent_flags = TRANSPARENT
+	initial_reagent_flags = TRANSPARENT
 	list_reagents = null
 	label_examine = FALSE
 	used_up = TRUE
@@ -32,7 +32,7 @@
 	. = ..()
 	if(. && used_up)
 		// Workaround to reset reagent flags after injection (gets set to 0 by parent proc)
-		reagents.flags = reagent_flags
+		reset_container_flags()
 
 /obj/item/reagent_containers/hypospray/medipen/universal/lowpressure
 	name = "universal low-pressure medipen"

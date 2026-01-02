@@ -1,4 +1,5 @@
 /turf/open
+	abstract_type = /turf/open
 	layer = LOW_FLOOR_LAYER
 	plane = FLOOR_PLANE
 	///negative for faster, positive for slower
@@ -136,6 +137,14 @@
 
 	if(!destination_z || !destination_x || !destination_y || arrived.pulledby || arrived.currently_z_moving)
 		return
+	// NOVA EDIT ADDITION START
+
+	if(SSatoms.initialized == INITIALIZATION_INNEW_MAPLOAD) // we don't want to be transitioning atoms to another z-level while we are still in mapload
+		return
+	// NOVA EDIT ADDITION END
+
+	if(SSatoms.initialized == INITIALIZATION_INNEW_MAPLOAD) // we don't want to be transitioning atoms to another z-level while we are still in mapload
+		return
 
 	var/tx = destination_x
 	var/ty = destination_y
@@ -184,7 +193,7 @@
 	barefootstep = FOOTSTEP_HARD_BAREFOOT
 	clawfootstep = FOOTSTEP_HARD_CLAW
 	heavyfootstep = FOOTSTEP_GENERIC_HEAVY
-	tiled_dirt = TRUE
+	tiled_turf = TRUE
 
 /turf/open/indestructible/Melt()
 	to_be_destroyed = FALSE
@@ -260,7 +269,7 @@
 	barefootstep = FOOTSTEP_LAVA
 	clawfootstep = FOOTSTEP_LAVA
 	heavyfootstep = FOOTSTEP_LAVA
-	tiled_dirt = FALSE
+	tiled_turf = FALSE
 
 /turf/open/indestructible/necropolis/Initialize(mapload)
 	. = ..()
@@ -323,7 +332,7 @@
 	barefootstep = null
 	clawfootstep = null
 	heavyfootstep = null
-	tiled_dirt = FALSE
+	tiled_turf = FALSE
 
 /turf/open/indestructible/binary
 	name = "tear in the fabric of reality"
@@ -413,7 +422,7 @@
 	for(var/mob/living/basic/slime/M in src)
 		M.apply_water()
 
-	wash(CLEAN_WASH, TRUE)
+	wash(CLEAN_WASH | CLEAN_RAD, TRUE)
 	return TRUE
 
 /turf/open/handle_slip(mob/living/slipper, knockdown_amount, obj/slippable, lube, paralyze_amount, daze_amount, force_drop)
@@ -461,7 +470,6 @@
 		playsound(slipper.loc, 'sound/misc/slip.ogg', 50, TRUE, -3)
 
 	SEND_SIGNAL(slipper, COMSIG_ON_CARBON_SLIP)
-	slipper.add_mood_event("slipped", /datum/mood_event/slipped)
 	if(force_drop && iscarbon(slipper)) //carbon specific behavior that living doesn't have
 		var/mob/living/carbon/carbon = slipper
 		for(var/obj/item/item in slipper.held_items)

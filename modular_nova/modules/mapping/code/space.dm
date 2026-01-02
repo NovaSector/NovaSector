@@ -154,7 +154,7 @@
 /datum/map_template/ruin/space/nova/turretfactory
 	id = "turretfactory"
 	suffix = "turretfactory.dmm"
-	name = "Turret Factory"
+	name = "Space-Ruin Turret Factory"
 	description = "A turret factory that was forgotten. Maybe abandoned. Idk. Goodluck."
 
 /datum/map_template/ruin/space/nova/spacegeosite
@@ -177,6 +177,15 @@
 	suffix = "film_studio.dmm"
 	name = "Space-Ruin Space Sector 13 Local Channel"
 	description = "A local TV station serving areas surrounding Space Sector 13, shows including but not limited to: talk shows, operas, stage plays and more!"
+
+/datum/map_template/ruin/space/nova/anchor_buoy
+	name = "Space-Ruin Anchor Buoy"
+	id = "nova-anchor-buoy-space-1"
+	description = "A little one-way-launch navigation beacon for the charting of unexplored space."
+	suffix = "beacon.dmm"
+	cost = 0
+	always_place = TRUE
+	allow_duplicates = FALSE
 
 /obj/modular_map_root/port_tarkon
 	config_file = "strings/modular_maps/nova/PortTarkon.toml"

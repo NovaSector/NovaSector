@@ -21,7 +21,7 @@
 	desc = "He stands looking out at the water of this fake domed beach, he stands completely still- that is until he hears you to which he imeediatly takes up a combative stance and starts opening fire."
 	health = 2000
 	maxHealth = 2000
-	loot = list(/obj/item/keycard/blue)
+	loot = list(/obj/item/keycard/crowlie)
 
 /obj/machinery/door/poddoor/shutters/window/indestructible/maints_armory
 	name = "Armory"
@@ -35,7 +35,7 @@
 	name = "Commanding Combat Mech"
 	icon_state = "seraph"
 
-/obj/machinery/porta_turret/syndicate/nri_raider/ancient_milsim/garrison_turret
+/obj/machinery/porta_turret/syndicate/hc_police/ancient_milsim/garrison_turret
 	name = "anti-personel turret"
 	desc = "A repurposed point defense turret usually used to stop heavy projectiles or large missiles coming for small ships- imagine what it would do to you."
 	faction = list("hostile","cult")

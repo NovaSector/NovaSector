@@ -75,7 +75,7 @@
 /obj/item/clothing/head/helmet/cin_surplus_helmet/examine_more(mob/user)
 	. = ..()
 
-	. += "The GZ-03 series of coalition armor was a collaborative project between the NRI and TransOrbital \
+	. += "The GZ-03 series of coalition armor was a collaborative project between the HC and TransOrbital \
 		to develop a frontline soldier's armor set that could withstand attacks from the Solar Federation's \
 		then relatively new pulse ballistics. The design itself is based upon a far older pattern \
 		of armor originally developed by SolFed themselves, which was the standard pattern of armor design \
@@ -179,7 +179,7 @@
 /obj/item/clothing/suit/armor/vest/cin_surplus_vest/examine_more(mob/user)
 	. = ..()
 
-	. += "The GZ-03 series of coalition armor was a collaborative project between the NRI and TransOrbital \
+	. += "The GZ-03 series of coalition armor was a collaborative project between the HC and TransOrbital \
 		to develop a frontline soldier's armor set that could withstand attacks from the Solar Federation's \
 		then relatively new pulse ballistics. The design itself is based upon a far older pattern \
 		of armor originally developed by SolFed themselves, which was the standard pattern of armor design \
@@ -204,6 +204,7 @@
 	greyscale_config_worn = /datum/greyscale_config/cin_surplus_chestrig
 	greyscale_colors = CIN_WINTER_COLORS_COMPLIMENT
 	flags_1 = IS_PLAYER_COLORABLE_1
+	storage_type = /datum/storage/loadout_belt
 
 /obj/item/storage/belt/military/cin_surplus/desert
 	icon_state = "/obj/item/storage/belt/military/cin_surplus/desert"

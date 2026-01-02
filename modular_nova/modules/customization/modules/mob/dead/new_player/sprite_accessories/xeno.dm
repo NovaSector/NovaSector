@@ -1,10 +1,8 @@
 /datum/sprite_accessory/xenodorsal
 	icon = 'modular_nova/master_files/icons/mob/sprite_accessory/xeno_parts.dmi'
-	generic = "Dorsal Spines"
-	key = "xenodorsal"
+	key = FEATURE_XENODORSAL
 	color_src = USE_ONE_COLOR
 	relevent_layers = list(BODY_BEHIND_LAYER, BODY_FRONT_LAYER)
-	genetic = TRUE
 	organ_type = /obj/item/organ/xenodorsal
 
 /datum/sprite_accessory/xenodorsal/none
@@ -24,15 +22,15 @@
 	icon_state = "down"
 
 /datum/sprite_accessory/xenodorsal/is_hidden(mob/living/carbon/human/wearer)
-	if(!wearer.w_uniform && !wearer.wear_suit)
+	var/obj/item/clothing/suit/mod/worn_suit = wearer.wear_suit
+	if(!wearer.w_uniform && isnull(worn_suit))
 		return FALSE
 	// Can hide if wearing uniform
 	if(key in wearer.try_hide_mutant_parts)
 		return TRUE
-	if(wearer.wear_suit)
 	// Exception for MODs
-		if(istype(wearer.wear_suit, /obj/item/clothing/suit/mod))
-			return FALSE
+	if(istype(worn_suit))
+		return FALSE
 
 //TAILS
 /datum/sprite_accessory/tails/mammal/wagging/xeno_tail
@@ -44,10 +42,8 @@
 //HEADS
 /datum/sprite_accessory/xenohead
 	icon = 'modular_nova/master_files/icons/mob/sprite_accessory/xeno_parts.dmi'
-	generic = "Caste Head"
-	key = "xenohead"
+	key = FEATURE_XENOHEAD
 	relevent_layers = list(BODY_ADJ_LAYER)
-	genetic = TRUE
 	organ_type = /obj/item/organ/xenohead
 
 /datum/sprite_accessory/xenohead/none

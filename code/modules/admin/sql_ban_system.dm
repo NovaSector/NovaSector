@@ -49,14 +49,7 @@
 		"player_ckey" = player_ckey,
 		"must_apply_to_admins" = !!(GLOB.admin_datums[player_ckey] || GLOB.deadmins[player_ckey]),
 	)
-	// NOVA EDIT ADDITION BEGIN - MULTISERVER
-	var/ssqlname = CONFIG_GET(string/serversqlname)
-	var/server_check
-	if(CONFIG_GET(flag/respect_global_bans))
-		server_check = "(server_name = '[ssqlname]' OR global_ban = '1')"
-	else
-		server_check = "server_name = '[ssqlname]'"
-	// NOVA EDIT ADDITION END - MULTISERVER
+
 	var/sql_roles
 	if(islist(roles))
 		var/list/sql_roles_list = list()
@@ -68,7 +61,7 @@
 		values["role"] = roles
 		sql_roles = ":role"
 
-	var/datum/db_query/query_check_ban = SSdbcore.NewQuery(/* NOVA EDIT CHANGE - MULTISERVER */{"
+	var/datum/db_query/query_check_ban = SSdbcore.NewQuery({"
 		SELECT 1
 		FROM [format_table_name("ban")]
 		WHERE
@@ -76,7 +69,6 @@
 			role IN ([sql_roles]) AND
 			unbanned_datetime IS NULL AND
 			(expiration_time IS NULL OR expiration_time > NOW())
-			AND [server_check]
 			AND (NOT :must_apply_to_admins OR applies_to_admins = 1)
 	"}, values)
 
@@ -99,13 +91,7 @@
 /proc/is_banned_from_with_details(player_ckey, player_ip, player_cid, role)
 	if(!player_ckey && !player_ip && !player_cid)
 		return
-	var/ssqlname = CONFIG_GET(string/serversqlname)   // NOVA EDIT ADDITION BEGIN - MULTISERVER
-	var/server_check
-	if(CONFIG_GET(flag/respect_global_bans))
-		server_check = "(server_name = '[ssqlname]' OR global_ban = '1')"
-	else
-		server_check = "server_name = '[ssqlname]'"  // NOVA EDIT ADDITION END - MULTISERVER
-	var/datum/db_query/query_check_ban = SSdbcore.NewQuery(/* NOVA EDIT CHANGE - MULTISERVER */{"
+	var/datum/db_query/query_check_ban = SSdbcore.NewQuery({"
 		SELECT
 			id,
 			bantime,
@@ -122,7 +108,6 @@
 		WHERE role = :role
 			AND (ckey = :ckey OR ip = INET_ATON(:ip) OR computerid = :computerid)
 			AND unbanned_datetime IS NULL
-			AND [server_check]
 			AND (expiration_time IS NULL OR expiration_time > NOW())
 		ORDER BY bantime DESC
 	"}, list("role" = role, "ckey" = player_ckey, "ip" = player_ip, "computerid" = player_cid))
@@ -176,16 +161,8 @@
 	var/is_admin = FALSE
 	if(GLOB.admin_datums[ckey] || GLOB.deadmins[ckey])
 		is_admin = TRUE
-	// NOVA EDIT ADDITION BEGIN - MULTISERVER
-	var/ssqlname = CONFIG_GET(string/serversqlname)
-	var/server_check
-	if(CONFIG_GET(flag/respect_global_bans))
-		server_check = "(server_name = '[ssqlname]' OR global_ban = '1')"
-	else
-		server_check = "server_name = '[ssqlname]'"
-	// NOVA EDIT ADDITION END - MULTISERVER
 	var/datum/db_query/query_build_ban_cache = SSdbcore.NewQuery(
-		"SELECT role, applies_to_admins FROM [format_table_name("ban")] WHERE ckey = :ckey AND unbanned_datetime IS NULL AND (expiration_time IS NULL OR expiration_time > NOW()) AND [server_check]", //NOVA EDIT
+		"SELECT role, applies_to_admins FROM [format_table_name("ban")] WHERE ckey = :ckey AND unbanned_datetime IS NULL AND (expiration_time IS NULL OR expiration_time > NOW())",
 		list("ckey" = ckey)
 	)
 	var/query_successful = query_build_ban_cache.warn_execute()
@@ -207,7 +184,7 @@
 	return ban_cache
 
 
-/datum/admins/proc/ban_panel(player_key, player_ip, player_cid, role, duration = 1440, applies_to_admins, reason, edit_id, page, admin_key, global_ban = TRUE) // NOVA EDIT CHANGE - MULTISERVER
+/datum/admins/proc/ban_panel(player_key, player_ip, player_cid, role, duration = 1440, applies_to_admins, reason, edit_id, page, admin_key)
 	if (duration == BAN_PANEL_PERMANENT)
 		duration = null
 
@@ -217,10 +194,8 @@
 	var/datum/browser/panel = new(usr, "banpanel", "Banning Panel", 910, panel_height)
 	panel.add_stylesheet("admin_panelscss", 'html/admin/admin_panels.css')
 	panel.add_stylesheet("banpanelcss", 'html/admin/banpanel.css')
-	var/tgui_fancy = usr.client.prefs.read_preference(/datum/preference/toggle/tgui_fancy)
-	if(tgui_fancy) //some browsers (IE8) have trouble with unsupported css3 elements and DOM methods that break the panel's functionality, so we won't load those if a user is in no frills tgui mode since that's for similar compatability support
-		panel.add_stylesheet("admin_panelscss3", 'html/admin/admin_panels_css3.css')
-		panel.add_script("banpaneljs", 'html/admin/banpanel.js')
+	panel.add_stylesheet("admin_panelscss3", 'html/admin/admin_panels_css3.css')
+	panel.add_script("banpaneljs", 'html/admin/banpanel.js')
 	var/list/output = list("<form method='get' action='?src=[REF(src)]'>[HrefTokenFormField()]")
 	output += {"<input type='hidden' name='src' value='[REF(src)]'>
 	<label class='inputlabel checkbox'>Key:
@@ -279,7 +254,7 @@
 			<input type='radio' id='role' name='radioban' value='role'[role == "Server" ? "" : " checked"][edit_id ? " disabled" : ""]>
 			<div class='inputbox'></div></label>
 		</div>
-		<div class='column middle'>
+		<div class='column right'>
 			Severity
 			<br>
 			<label class='inputlabel radio'>None
@@ -296,17 +271,6 @@
 			<input type='radio' id='high' name='radioseverity' value='high'[edit_id ? " disabled" : ""]>
 			<div class='inputbox'></div></label>
 		</div>
-		<div class='column right'>
-			Location
-			<br>
-			<label class='inputlabel radio'>Local
-			<input type='radio' id='servban' name='radioservban' value='local'[isnull(global_ban) ? " checked" : ""]>
-			<div class='inputbox'></div></label>
-			<br>
-			<label class='inputlabel radio'>Global
-			<input type='radio' id='servban' name='radioservban' value='global'[(global_ban) ? " checked" : ""]>
-			<div class='inputbox'></div></label>
-		</div>
 		<div class='column'>
 			Reason
 			<br>
@@ -316,7 +280,7 @@
 	"}
 
 	if(edit_id)
-		output += /* NOVA EDIT CHANGE - MULTISERVER */{"<label class='inputlabel checkbox'>Mirror edits to matching bans
+		output += {"<label class='inputlabel checkbox'>Mirror edits to matching bans
 		<input type='checkbox' id='mirroredit' name='mirroredit' value='1'>
 		<div class='inputbox'></div></label>
 		<input type='hidden' name='editid' value='[edit_id]'>
@@ -326,7 +290,6 @@
 		<input type='hidden' name='oldapplies' value='[applies_to_admins]'>
 		<input type='hidden' name='oldduration' value='[duration]'>
 		<input type='hidden' name='oldreason' value='[reason]'>
-		<input type='hidden' name='old_globalban' value='[global_ban]'>
 		<input type='hidden' name='page' value='[page]'>
 		<input type='hidden' name='adminkey' value='[admin_key]'>
 		<input type='hidden' name='role' value='[role]'>
@@ -359,9 +322,9 @@
 		for(var/datum/job_department/department as anything in SSjob.joinable_departments)
 			var/label_class = department.label_class
 			var/department_name = department.department_name
-			output += "<div class='column'><label class='rolegroup [label_class]'>[tgui_fancy ? "<input type='checkbox' name='[label_class]' class='hidden' onClick='header_click_all_checkboxes(this)'>" : ""] \
+			output += "<div class='column'><label class='rolegroup [label_class]'><input type='checkbox' name='[label_class]' class='hidden' onClick='header_click_all_checkboxes(this)'> \
 			[department_name]</label><div class='content'>"
-			for(var/datum/job/job_datum as anything in department.department_jobs)
+			for(var/datum/job/job_datum as anything in department.get_jobban_jobs())
 				if(break_counter > 0 && (break_counter % 3 == 0))
 					output += "<br>"
 				break_counter++
@@ -372,7 +335,8 @@
 					if(!department_index)
 						stack_trace("Failed to find a department index for [department.type] in the departments_list of [job_datum.type]")
 					output += {"<label class='inputlabel checkbox'>[job_name]
-						<input type='checkbox' id='[job_name]_[department_index]' name='[job_name]' class='[label_class]' value='1'[tgui_fancy ? " onClick='toggle_other_checkboxes(this, \"[length(job_datum.departments_list)]\", \"[department_index]\")'" : ""]>
+						<input type='checkbox' id='[job_name]_[department_index]' name='[job_name]' class='[label_class]' value='1'
+						onClick='toggle_other_checkboxes(this, \"[length(job_datum.departments_list)]\", \"[department_index]\")'">
 						<div class='inputbox[(job_name in banned_from) ? " banned" : ""]'></div></label>
 						"}
 				else
@@ -387,7 +351,7 @@
 			"Abstract" = list("Appearance", "Emote", "Deadchat", "OOC", "Urgent Adminhelp"),
 			)
 		for(var/department in other_job_lists)
-			output += "<div class='column'><label class='rolegroup [ckey(department)]'>[tgui_fancy ? "<input type='checkbox' name='[department]' class='hidden' onClick='header_click_all_checkboxes(this)'>" : ""][department]</label><div class='content'>"
+			output += "<div class='column'><label class='rolegroup [ckey(department)]'><input type='checkbox' name='[department]' class='hidden' onClick='header_click_all_checkboxes(this)'>[department]</label><div class='content'>"
 			break_counter = 0
 			for(var/job in other_job_lists[department])
 				if(break_counter > 0 && (break_counter % 3 == 0))
@@ -432,10 +396,13 @@
 				ROLE_SYNDICATE,
 				ROLE_TRAITOR,
 				ROLE_WIZARD,
-				ROLE_BORER, // NOVA EDIT ADDITION
-				ROLE_ASSAULT_OPERATIVE, // NOVA EDIT ADDITION
 				ROLE_VOIDWALKER,
+				// NOVA EDIT ADDITION START
+				ROLE_BORER,
+				ROLE_ASSAULT_OPERATIVE,
+				// NOVA EDIT ADDITION END
 			),
+			// NOVA EDIT ADDITION START - EXTRA_BANS
 			"Nova Ban Options" = list(
 				BAN_PACIFICATION,
 				BAN_DONOTREVIVE,
@@ -446,11 +413,12 @@
 				BAN_EORG,
 				BAN_ANTAGONIST,
 				BAN_OPFOR,
-				BAN_LOOC, // NOVA EDIT ADDITION - LOOC muting again
-			), // NOVA EDIT ADDITION - EXTRA_BANS
+				BAN_LOOC,
+			),
+			// NOVA EDIT ADDITION END - EXTRA_BANS
 		)
 		for(var/department in long_job_lists)
-			output += "<div class='column'><label class='rolegroup long [ckey(department)]'>[tgui_fancy ? "<input type='checkbox' name='[department]' class='hidden' onClick='header_click_all_checkboxes(this)'>" : ""][department]</label><div class='content'>"
+			output += "<div class='column'><label class='rolegroup long [ckey(department)]'><input type='checkbox' name='[department]' class='hidden' onClick='header_click_all_checkboxes(this)'>[department]</label><div class='content'>"
 			break_counter = 0
 			for(var/job in long_job_lists[department])
 				if(break_counter > 0 && (break_counter % 10 == 0))
@@ -481,7 +449,6 @@
 	var/player_cid
 	var/use_last_connection = FALSE
 	var/applies_to_admins = FALSE
-	var/global_ban = FALSE // NOVA EDIT ADDITION - MULTISERVER
 	var/duration
 	var/interval
 	var/severity
@@ -492,7 +459,6 @@
 	var/old_ip
 	var/old_cid
 	var/old_applies
-	var/old_globalban // NOVA EDIT ADDITION - MULTISERVER
 	var/page
 	var/admin_key
 	var/list/changes = list()
@@ -523,11 +489,6 @@
 		error_state += "Use last connection was ticked, but neither IP nor CID was."
 	if(href_list["applyadmins"])
 		applies_to_admins = TRUE
-	switch(href_list["radioservban"])  // NOVA EDIT ADDITION BEGIN - MULTISERVER
-		if("local")
-			global_ban = FALSE
-		if("global")
-			global_ban = TRUE  // NOVA EDIT ADDITION END - MULTISERVER
 	switch(href_list["radioduration"])
 		if("permanent")
 			duration = null
@@ -550,13 +511,10 @@
 		old_key = href_list["oldkey"]
 		old_ip = href_list["oldip"]
 		old_cid = href_list["oldcid"]
-		old_globalban = href_list["old_globalban"]  // NOVA EDIT ADDITION - MULTISERVER
 		page = href_list["page"]
 		admin_key = href_list["adminkey"]
 		if(player_key != old_key)
 			changes += list("Key" = "[old_key] to [player_key]")
-		if(global_ban != old_globalban) // NOVA EDIT ADDITION - MULTISERVER
-			changes += list("Ban Location" = "[old_globalban] to [global_ban]") // NOVA EDIT ADDITION - MULTISERVER
 		if(player_ip != old_ip)
 			changes += list("IP" = "[old_ip] to [player_ip]")
 		if(player_cid != old_cid)
@@ -595,11 +553,11 @@
 		to_chat(usr, span_danger("Ban not [edit_id ? "edited" : "created"] because the following errors were present:\n[error_state.Join("\n")]"), confidential = TRUE)
 		return
 	if(edit_id)
-		edit_ban(edit_id, player_key, ip_check, player_ip, cid_check, player_cid, use_last_connection, applies_to_admins, duration, interval, reason, global_ban, mirror_edit, old_key, old_ip, old_cid, old_applies, page, admin_key, changes, roles_to_ban[1] == "Server") // NOVA EDIT CHANGE - MULTISERVER
+		edit_ban(edit_id, player_key, ip_check, player_ip, cid_check, player_cid, use_last_connection, applies_to_admins, duration, interval, reason, mirror_edit, old_key, old_ip, old_cid, old_applies, page, admin_key, changes, roles_to_ban[1] == "Server")
 	else
-		create_ban(player_key, ip_check, player_ip, cid_check, player_cid, use_last_connection, applies_to_admins, duration, interval, severity, reason, global_ban, roles_to_ban) // NOVA EDIT CHANGE - MULTISERVER
+		create_ban(player_key, ip_check, player_ip, cid_check, player_cid, use_last_connection, applies_to_admins, duration, interval, severity, reason, roles_to_ban)
 
-/datum/admins/proc/create_ban(player_key, ip_check, player_ip, cid_check, player_cid, use_last_connection, applies_to_admins, duration, interval, severity, reason, global_ban, list/roles_to_ban) // NOVA EDIT CHANGE - MULTISERVER
+/datum/admins/proc/create_ban(player_key, ip_check, player_ip, cid_check, player_cid, use_last_connection, applies_to_admins, duration, interval, severity, reason, list/roles_to_ban)
 	if(!check_rights(R_BAN))
 		return
 	if(!SSdbcore.Connect())
@@ -663,12 +621,10 @@
 	var/sql_ban = list()
 	for(var/role in roles_to_ban)
 		sql_ban += list(list(
-			"server_name" = CONFIG_GET(string/serversqlname),// NOVA EDIT CHANGE - MULTISERVER
 			"server_ip" = world.internet_address || 0,
 			"server_port" = world.port,
 			"round_id" = GLOB.round_id,
 			"role" = role,
-			"global_ban" = global_ban, // NOVA EDIT CHANGE - MULTISERVER
 			"expiration_time" = duration,
 			"applies_to_admins" = applies_to_admins,
 			"reason" = reason,
@@ -679,12 +635,12 @@
 			"a_ip" = admin_ip || null,
 			"a_computerid" = admin_cid,
 			"who" = who,
-			"adminwho" = adminwho
+			"adminwho" = adminwho,
 		))
 	if(!SSdbcore.MassInsert(format_table_name("ban"), sql_ban, warn = TRUE, special_columns = special_columns))
 		return
 	var/target = ban_target_string(player_key, player_ip, player_cid)
-	var/msg = "has created a [global_ban ? "global" : "local"] [isnull(duration) ? "permanent" : "temporary [time_message]"] [applies_to_admins ? "admin " : ""][is_server_ban ? "server ban" : "role ban from [roles_to_ban.len] roles"] for [target]." // NOVA EDIT CHANGE - MULTISERVER
+	var/msg = "has created a [isnull(duration) ? "permanent" : "temporary [time_message]"] [applies_to_admins ? "admin " : ""][is_server_ban ? "server ban" : "role ban from [roles_to_ban.len] roles"] for [target]."
 	log_admin_private("[kn] [msg][is_server_ban ? "" : " Roles: [roles_to_ban.Join(", ")]"] Reason: [reason]")
 	message_admins("[kna] [msg][is_server_ban ? "" : " Roles: [roles_to_ban.Join("\n")]"]\nReason: [reason]")
 	if(applies_to_admins)
@@ -696,7 +652,6 @@
 	var/other_ban_notification = span_boldannounce("Another player sharing your IP or CID has been banned by [usr.client.key] from [is_server_ban ? "the server" : " Roles: [roles_to_ban.Join(", ")]"].\nReason: [reason]</span><br>[span_danger("This ban is [isnull(duration) ? "permanent." : "temporary, it will be removed in [time_message]."] The round ID is [GLOB.round_id].")]")
 
 	notify_all_banned_players(player_ckey, player_ip, player_cid, player_ban_notification, other_ban_notification, is_server_ban, applies_to_admins)
-
 	// NOVA EDIT ADDITION BEGIN - EXTRA_BANS
 	if(BAN_PACIFICATION in roles_to_ban)
 		var/client/C = GLOB.directory[player_ckey]
@@ -704,8 +659,7 @@
 			ADD_TRAIT(C.mob, TRAIT_PACIFISM, ROUNDSTART_TRAIT)
 	// NOVA EDIT ADDITION END
 
-	//var/datum/admin_help/linked_ahelp_ticket = admin_ticket_log(player_ckey, "[kna] [msg]") // NOVA EDIT ORIGINAL
-	var/datum/admin_help/linked_ahelp_ticket = admin_ticket_log(player_ckey, "[kna] [msg]", FALSE) // NOVA EDIT --  Player ticket viewing
+	var/datum/admin_help/linked_ahelp_ticket = admin_ticket_log(player_ckey, "[kna] [msg]", FALSE) // NOVA EDIT --  Player ticket viewing - original: var/datum/admin_help/linked_ahelp_ticket = admin_ticket_log(player_ckey, "[kna] [msg]")
 
 	if(is_server_ban && linked_ahelp_ticket)
 		linked_ahelp_ticket.Resolve()
@@ -940,7 +894,7 @@
 	notify_all_banned_players(ckey(player_key), player_ip, player_cid, banned_player_message, banned_other_message, kick_banned_players, applies_to_admins)
 	unban_panel(player_key, admin_key, player_ip, player_cid, page)
 
-/datum/admins/proc/edit_ban(ban_id, player_key, ip_check, player_ip, cid_check, player_cid, use_last_connection, applies_to_admins, duration, interval, reason, global_ban, mirror_edit, old_key, old_ip, old_cid, old_applies, admin_key, page, list/changes, is_server_ban) // NOVA EDIT CHANGE - MULTISERVER
+/datum/admins/proc/edit_ban(ban_id, player_key, ip_check, player_ip, cid_check, player_cid, use_last_connection, applies_to_admins, duration, interval, reason, mirror_edit, old_key, old_ip, old_cid, old_applies, admin_key, page, list/changes, is_server_ban)
 	if(!check_rights(R_BAN))
 		return
 	if(!SSdbcore.Connect())
@@ -1001,7 +955,6 @@
 		"ip" = player_ip || null,
 		"cid" = player_cid || null,
 		"change_message" = change_message,
-		"global_ban" = global_ban // NOVA EDIT ADDITION - MULTISERVER
 	)
 	var/where
 	if(text2num(mirror_edit))
@@ -1020,13 +973,12 @@
 		where = "id = :ban_id"
 		arguments["ban_id"] = ban_id
 
-	var/datum/db_query/query_edit_ban = SSdbcore.NewQuery(/* NOVA EDIT CHANGE - MULTISERVER */{"
+	var/datum/db_query/query_edit_ban = SSdbcore.NewQuery({"
 		UPDATE [format_table_name("ban")]
 		SET
 			expiration_time = IF(:duration IS NULL, NULL, bantime + INTERVAL :duration [interval]),
 			applies_to_admins = :applies_to_admins,
 			reason = :reason,
-			global_ban = :global_ban,
 			ckey = :ckey,
 			ip = INET_ATON(:ip),
 			computerid = :cid,

@@ -5,10 +5,7 @@
 	desc = "A good-looking sheath that is advertised as being made of real Venusian black leather. It feels rather plastic-like to the touch, and it looks like it's made to fit a British cavalry sabre."
 	icon = 'modular_nova/master_files/icons/obj/clothing/belts.dmi'
 	worn_icon = 'modular_nova/master_files/icons/mob/clothing/belt.dmi'
-
-/obj/item/storage/belt/sheath/sabre/cargo/PopulateContents()
-	new /obj/item/melee/sabre/cargo(src)
-	update_appearance()
+	stored_blade = /obj/item/melee/sabre/cargo
 
 /obj/item/melee/sabre
 	force = 20 // Original: 15
@@ -27,6 +24,14 @@
 
 // This is here so that people can't buy the Sabres and craft them into powercrepes
 /datum/crafting_recipe/food/powercrepe
+	blacklist = list(/obj/item/melee/sabre/cargo)
+
+// Prevents our common weapons from being used to easily craft stunswords
+// Claymore blacklists can be found in code\datums\components\crafting\melee_weapon.dm
+/datum/crafting_recipe/stunswordalt
+	blacklist = list(/obj/item/katana/weak/curator)
+
+/datum/crafting_recipe/stunswordalt2
 	blacklist = list(/obj/item/melee/sabre/cargo)
 
 /obj/item/melee/baton

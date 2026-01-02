@@ -16,7 +16,6 @@
 	strip_delay = 10
 	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION
 
-
 //this fragment of code makes unequipping not instant
 /obj/item/clothing/under/misc/latex_catsuit/attack_hand(mob/user)
 	if(iscarbon(user))
@@ -24,7 +23,7 @@
 		if(src == affected_human.w_uniform)
 			if(!do_after(affected_human, 6 SECONDS, target = src))
 				return
-	. = ..()
+	return ..()
 
 // //some gender identification magic
 /obj/item/clothing/under/misc/latex_catsuit/equipped(mob/living/affected_mob, slot)
@@ -38,11 +37,9 @@
 
 		affected_mob.update_worn_undersuit()
 
-
 /obj/item/clothing/under/misc/latex_catsuit/dropped(mob/living/affected_mob)
 	. = ..()
 	accessory_overlay = null
-
 
 //Plug to bypass the bug with instant suit equip/drop
 /obj/item/clothing/under/misc/latex_catsuit/mouse_drop_dragged(atom/over, mob/user, src_location, over_location, params)

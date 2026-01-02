@@ -1,0 +1,140 @@
+2026-01-01:
+  Zergspower:
+  - balance: The forged hammer has been removed from the weapon loadout menu
+  - balance: The forged hammer, throwing axe and sword have had their demolition_modifier
+      removed
+  - balance: The diamond drill implant now matches the diamond drill
+  sqnztb:
+  - bugfix: FOCK tool now only works on airlock subtypes.
+2026-01-02:
+  Aliceee2ch:
+  - map: Moved bar sign on Catwalk's kitchen.
+  ElGitificador:
+  - spellcheck: fixed typo in syndol description.
+  Ezel:
+  - balance: All protolathes can now print out a expiri science scanner
+  FlufflesTheDog:
+  - admin: Changing suit sensors from the strip menu is now logged
+  - bugfix: Fixed a case where your suit sensor status could be desynced from what
+      your suit sensors appear to be set to
+  Frenjo:
+  - bugfix: Fixed the inability to shove an intellicarded AI into a Mauler-type exosuit.
+  Gboster-0:
+  - code_imp: explosive implant code was made a tiny bit easier to read
+  Jacquerel:
+  - bugfix: AI shell deployment verb no longer requires you to select yourself from
+      a list first
+  - bugfix: Killing yourself with a Gullion fish in an oxygenated environment will
+      correctly turn you into a statue
+  - bugfix: Killing yourself with a Gullion fish will kill you rather than leaving
+      you as a living statue that can't do anything and forcing you to Ghost manually
+  - rscadd: Escaped bitrunning glitches will visually distort when interacted with
+  - bugfix: Escaped bitrunning glitches will not stick around as holographic corpses
+      after they die
+  - bugfix: Meat toilets will now contain all of the belongings they were wearing
+      prior to transformation, which can be retrieved if the cistern is open and the
+      lid is closed.
+  JohnFulpWillard:
+  - bugfix: PDA messenger will no longer force itself as your active program when
+      sending/receiving PDA messages.
+  - balance: You can use inducers on SMES' now.
+  L0pz:
+  - image: Resprited a bunch of swords
+  LT3:
+  - qol: Keybindings page now tells you how to clear a keybind
+  - bugfix: Sugar sack now has the correct recipe for cake batter
+  - bugfix: Emergency shuttle purchase menu now lists the shuttle prices
+  MacaroniCritter:
+  - rscadd: Added mending touch to genetic mutation quirk
+  Melbert:
+  - rscdel: Wardens no longer spawn with an evidence bag
+  - rscadd: Adds screen hud elements for ghost toggles
+  - balance: When you are shocked, you remain standing for a short period of time
+      before being forced to the ground. You are still stunned for the duration of
+      this effect, that remains unchanged.
+  PlasmaRay10:
+  - spellcheck: fixed asthma.dm typo
+  Sapphoqueer, Seijan_Etroix:
+  - rscadd: Added 4 new bar signs, Pun Pun's Pub, Doctor's Orders, Wrong Turn, and
+      Cold Ones.
+  SmArtKar:
+  - bugfix: Bandanas tied around your neck no longer hide your identity or your snout
+  - balance: Changed Coveroli in Albuterol's recipe to standard Convermol
+  - bugfix: Fixed population lock text in uplinks
+  - qol: Right-clicking closets with an item now opens/closes them
+  SpaceSmithers:
+  - rscadd: Card readers can now be printed at cargo techfabs
+  SyncIt21:
+  - refactor: refactored material container code to reduce memory overhead. Report
+      bugs on github
+  - bugfix: vegan cake batter is correctly vegan and has no dairy.
+  - bugfix: dimensional anomaly transformed airlocks save their cycling id
+  TealSeer:
+  - bugfix: fixed cargo PDA app missing currency name
+  TheNobodyofimportance:
+  - bugfix: Adds midround clownops to the antag pref
+  TheRyeGuyWhoWillNowDie:
+  - balance: the security gas mask is pepper-proof again.
+  Y0SH1M4S73R:
+  - bugfix: If, for some godforsaken reason, you find yourself with a weapon that
+      has more than 100% armor penetration, it will now properly ignore armor in its
+      entirety instead of ENHANCING it, which it used to do.
+  - bugfix: The Spinward Sector Fishery Association would like to apologize for using
+      a bitwise XOR instead of exponentiation in the source code of their automated
+      fish price evaluation system.
+  Yobrocharlie:
+  - bugfix: fixed being able to skip the first puzzle in the new gateway
+  arbuzik456:
+  - rscadd: Added casual way of wearing jeans and different pants.
+  archbtw0:
+  - spellcheck: Fix a duplicate 'the'
+  codyman765:
+  - map: modified some of the newer condos to fix bed rotation
+  jlsnow301:
+  - bugfix: Fixed importing chat tabs from a file. They should still exist on reload
+  - bugfix: Fixed a bluescreen in the personal crafting menu
+  lelandkemble:
+  - balance: took away the CE's sneakers and gave them work boots.
+  - bugfix: Things that are supposed to be able to fail to draw enough power to operate
+      are actually able to do so.
+  - balance: The BSA now always requires its full power cost paid in order to fire
+  necromanceranne:
+  - balance: Chameleon outfits now contribute to sleeping carp style factor. Most
+      items are armored, so they're a bit less useful than other options.
+  - bugfix: Carp masks actually contribute to sleeping carp style factor.
+  - code_imp: Fixes up some of the code and grammar for the giantslayer spears.
+  - bugfix: Giantslayer spears are not improvised and therefore do not break when
+      used to attack things.
+  - balance: The iconoclast repeater, the handheld version, no longer fires two pellets
+      but instead fires in a two round burst.
+  - balance: The iconoclast repeater now charges two shots (one trigger pull) every
+      crank, and the crank takes 0.4 seconds (letting you outpace your shot rate).
+      However, you cannot charge the gun while moving.
+  - balance: Reduces the damage of the repeater's shots (both versions). Now it does
+      15 lethal force per shot. Since this is coming out in bursts of two, this means
+      that it deals 30 lethal force in a single pull.
+  - bugfix: Laser musket type weapons are now heavy weapons.
+  - code_imp: Cleans up some of the code and grammar on the repeater.
+  - bugfix: Batons respect chest armor specifically once again.
+  san7890:
+  - admin: It should now be far easier (as well as be a better experience) for an
+      admin to recall the shuttle regardless of game state (up until the shuttle actually
+      docks, that is).
+  timothymtorres:
+  - rscadd: Add wooden crafting recipes for gavel hammer and gavel blocks. (aka the
+      judge's hammer in the courtroom)
+  vinylspiders:
+  - refactor: refactors table_smash component into an element
+  - refactor: simple rotation component has been refactored into an element Please
+      report any bugs to github.
+  - bugfix: fixes tablesmashing onto platforms
+  - bugfix: fixes a pushed crate not removing on_climbable trait properly off the
+      mob standing atop it
+  - bugfix: fixes a bug where the quirk menu does not update when adding/removing
+      quirks
+  - bugfix: fixes some fontawesome ui icons displaying as unicode literals instead
+      of the actual icons
+  - bugfix: nearsightedness and other quirk prefs that use iconned dropdowns will
+      no longer be cut off
+  - refactor: crafting menu should be slightly faster now with searching the area
+      for items that are blacklisted, and uses less memory than it did previously

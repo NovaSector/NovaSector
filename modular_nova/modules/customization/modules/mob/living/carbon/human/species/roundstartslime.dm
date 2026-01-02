@@ -3,6 +3,9 @@
 #define DAMAGE_WATER_STACKS 5
 /// This is the level of waterstacks that prevent a slimeperson from regenerating, doing minimal bloodloss in the process.
 #define REGEN_WATER_STACKS 1
+// For their passive healing
+#define SPECIES_SLIME_PASSIVE_REGEN_BRUTE 0.6
+#define SPECIES_SLIME_PASSIVE_REGEN_BURN 0.5
 
 /datum/species/jelly
 	mutant_bodyparts = list()
@@ -142,7 +145,7 @@
 			iter_wound.on_xadone(4 * REM * seconds_per_tick)
 			organ_owner.reagents.remove_reagent(chem.type, min(chem.volume * 0.22, 10))
 		if(organ_owner.blood_volume > BLOOD_VOLUME_SLIME_SPLIT)
-			organ_owner.adjustOrganLoss(
+			organ_owner.adjust_organ_loss(
 			pick(organs_we_mend),
 			- 2 * seconds_per_tick,
 		)
@@ -232,7 +235,7 @@
 */
 /obj/item/organ/brain/slime/proc/colorize()
 	if(owner && isjellyperson(owner))
-		core_color = owner.dna.features["mcolor"]
+		core_color = owner.dna.features[FEATURE_MUTANT_COLOR]
 		add_atom_colour(core_color, FIXED_COLOUR_PRIORITY)
 
 /**
@@ -334,8 +337,8 @@
 	new_body.undershirt = "Nude" //Which undershirt the player wants
 	new_body.socks = "Nude" //Which socks the player wants
 	brainmob.stored_dna.copy_dna(new_body.dna, transfer_flags = COPY_DNA_SE|COPY_DNA_SPECIES)
-	new_body.dna.features["mcolor"] = new_body.dna.features["mcolor"]
-	new_body.dna.update_uf_block(DNA_MUTANT_COLOR_BLOCK)
+	new_body.dna.features[FEATURE_MUTANT_COLOR] = new_body.dna.features[FEATURE_MUTANT_COLOR]
+	new_body.dna.update_uf_block(FEATURE_MUTANT_COLOR)
 	new_body.real_name = new_body.dna.real_name
 	new_body.name = new_body.dna.real_name
 	new_body.updateappearance(mutcolor_update=1)
@@ -376,10 +379,10 @@
 	// Determine if water-breathing logic should be inverted
 	var/inverted = HAS_TRAIT(slime, TRAIT_WATER_BREATHING)
 	var/blood_units_to_lose = 0
-	
+
 	if(inverted)
 		// Water-breathing slimes: damaged when dry, heal only when wet
-		if(wetness_amount <= REGEN_WATER_STACKS) 
+		if(wetness_amount <= REGEN_WATER_STACKS)
 			blood_units_to_lose = 2 * seconds_per_tick
 			healing = FALSE
 			if(SPT_PROB(25, seconds_per_tick))
@@ -387,8 +390,8 @@
 					span_danger("[slime]'s form begins to lose cohesion, seemingly drying out!"),
 					span_warning("Your body loses cohesion as it dries, only immersion can restore it!"),
 				)
-		
-	else 
+
+	else
 		// Normal slimes: damaged when too wet, cannot heal if too wet
 		if(wetness_amount > DAMAGE_WATER_STACKS)
 			blood_units_to_lose += 2 * seconds_per_tick
@@ -397,7 +400,7 @@
 					span_danger("[slime]'s form begins to lose cohesion, seemingly diluting with the water!"),
 					span_warning("The water starts to dilute your body, dry it off!"),
 				)
-		if(wetness_amount > REGEN_WATER_STACKS) 
+		if(wetness_amount > REGEN_WATER_STACKS)
 			healing = FALSE
 			blood_units_to_lose += 1 * seconds_per_tick
 			if(SPT_PROB(1, seconds_per_tick))
@@ -409,8 +412,11 @@
 	if(slime.blood_volume >= BLOOD_VOLUME_NORMAL && healing)
 		if(slime.stat != CONSCIOUS)
 			return
-		slime.heal_overall_damage(brute = 1.5 * seconds_per_tick, burn = 1.5 * seconds_per_tick, required_bodytype = BODYTYPE_ORGANIC)
-		slime.adjustOxyLoss(-1 * seconds_per_tick)
+		var/need_mob_update
+		need_mob_update += slime.heal_overall_damage(brute = SPECIES_SLIME_PASSIVE_REGEN_BRUTE * seconds_per_tick, burn = SPECIES_SLIME_PASSIVE_REGEN_BURN * seconds_per_tick, updating_health = FALSE, required_bodytype = BODYTYPE_ORGANIC)
+		need_mob_update += slime.adjust_oxy_loss(-1 * seconds_per_tick, updating_health = FALSE)
+		if(need_mob_update)
+			slime.updatehealth()
 		if(slime.health < slime.maxHealth)
 			new /obj/effect/temp_visual/heal(get_turf(slime), COLOR_EFFECT_HEAL_RED)
 
@@ -740,8 +746,8 @@
 	var/selected_skintone = GLOB.skin_tones[skintone_index]
 
 	alterer.skin_tone = selected_skintone
-	alterer.dna.features["skin_color"] = skintone2hex(selected_skintone)
-	alterer.dna.update_uf_block(DNA_SKIN_TONE_BLOCK)
+	alterer.dna.features[FEATURE_SKIN_COLOR] = skintone2hex(selected_skintone)
+	alterer.dna.update_uf_block(/datum/dna_block/feature/mutant_color/skin_color)
 	alterer.update_body(is_creating = TRUE)
 
 /**
@@ -771,12 +777,12 @@
 		if("Tertiary")
 			color_target = "mcolor3"
 
-	var/new_mutant_colour = input(
+	var/new_mutant_colour = tgui_color_picker(
 		alterer,
 		"Choose your character's new [color_choice = "All" ? "" : LOWER_TEXT(color_choice)] color:",
 		"Form Alteration",
 		alterer.dna.features[color_target]
-	) as color|null
+	)
 	if(!new_mutant_colour)
 		return
 
@@ -800,21 +806,21 @@
 	)
 
 	if(color_choice == "All")
-		alterer.dna.features["mcolor"] = sanitize_hexcolor(new_mutant_colour)
-		alterer.dna.features["mcolor2"] = sanitize_hexcolor(new_mutant_colour)
-		alterer.dna.features["mcolor3"] = sanitize_hexcolor(new_mutant_colour)
-		alterer.dna.update_uf_block(DNA_MUTANT_COLOR_BLOCK)
-		alterer.dna.update_uf_block(DNA_MUTANT_COLOR_2_BLOCK)
-		alterer.dna.update_uf_block(DNA_MUTANT_COLOR_3_BLOCK)
+		alterer.dna.features[FEATURE_MUTANT_COLOR] = sanitize_hexcolor(new_mutant_colour)
+		alterer.dna.features[FEATURE_MUTANT_COLOR_TWO] = sanitize_hexcolor(new_mutant_colour)
+		alterer.dna.features[FEATURE_MUTANT_COLOR_THREE] = sanitize_hexcolor(new_mutant_colour)
+		alterer.dna.update_uf_block(/datum/dna_block/feature/mutant_color)
+		alterer.dna.update_uf_block(/datum/dna_block/feature/mutant_color/two)
+		alterer.dna.update_uf_block(/datum/dna_block/feature/mutant_color/three)
 	else
 		alterer.dna.features[color_target] = sanitize_hexcolor(new_mutant_colour)
 		switch(color_target)
-			if("mcolor")
-				alterer.dna.update_uf_block(DNA_MUTANT_COLOR_BLOCK)
-			if("mcolor2")
-				alterer.dna.update_uf_block(DNA_MUTANT_COLOR_2_BLOCK)
-			if("mcolor3")
-				alterer.dna.update_uf_block(DNA_MUTANT_COLOR_3_BLOCK)
+			if(FEATURE_MUTANT_COLOR)
+				alterer.dna.update_uf_block(/datum/dna_block/feature/mutant_color)
+			if(FEATURE_MUTANT_COLOR_TWO)
+				alterer.dna.update_uf_block(/datum/dna_block/feature/mutant_color/two)
+			if(FEATURE_MUTANT_COLOR_THREE)
+				alterer.dna.update_uf_block(/datum/dna_block/feature/mutant_color/three)
 
 	if(marking_reset == "Yes")
 		for(var/zone in alterer.dna.species.body_markings)
@@ -876,7 +882,7 @@
 			var/hair_area = tgui_alert(alterer, "Select which color you would like to change", "Hair Color Alterations", list("Hairstyle", "Facial Hair", "Both"))
 			if(!hair_area)
 				return
-			var/new_hair_color = input(alterer, "Select your new hair color", "Hair Color Alterations", alterer.dna.features["mcolor"]) as color|null
+			var/new_hair_color = tgui_color_picker(alterer, "Select your new hair color", "Hair Color Alterations", alterer.dna.features[FEATURE_MUTANT_COLOR])
 			if(!new_hair_color)
 				return
 
@@ -946,15 +952,16 @@
  * This can be adding (or removing) things like ears, tails, wings, et cetera.
  */
 /datum/action/innate/alter_form/proc/alter_parts(mob/living/carbon/human/alterer)
-	var/list/key_list = alterer.dna.mutant_bodyparts
-	if(CONFIG_GET(flag/disable_erp_preferences))
-		for(var/erp_part in ORGAN_ERP_LIST)
-			key_list -= erp_part
+	var/list/mutant_part_list = list()
+	for(var/datum/dna_block/feature/mutant/block as anything in subtypesof(/datum/dna_block/feature/mutant))
+		if(CONFIG_GET(flag/disable_erp_preferences) && (block::feature_key in ORGAN_ERP_LIST))
+			continue
+		mutant_part_list[block::feature_key] = block
 	var/chosen_key = tgui_input_list(
 		alterer,
 		"Select the part you want to alter",
 		"Body Part Alterations",
-		key_list,
+		mutant_part_list,
 	)
 	if(!chosen_key)
 		return
@@ -1011,7 +1018,7 @@
 			new_acc_list[MUTANT_INDEX_COLOR_LIST] = selected_sprite_accessory.get_default_color(alterer.dna.features, alterer.dna.species)
 			alterer.dna.species.mutant_bodyparts[chosen_key] = new_acc_list
 			alterer.dna.mutant_bodyparts[chosen_key] = new_acc_list.Copy()
-		alterer.dna.update_uf_block(SSaccessories.dna_mutant_bodypart_blocks[chosen_key])
+		alterer.dna.update_uf_block(mutant_part_list[chosen_key])
 	alterer.update_body_parts()
 	alterer.update_clothing(ALL) // for any clothing that has alternate versions (e.g. muzzled masks)
 
@@ -1164,3 +1171,5 @@
 #undef SLIME_ACTIONS_ICON_FILE
 #undef DAMAGE_WATER_STACKS
 #undef REGEN_WATER_STACKS
+#undef SPECIES_SLIME_PASSIVE_REGEN_BRUTE
+#undef SPECIES_SLIME_PASSIVE_REGEN_BURN
