@@ -1,0 +1,4 @@
+author: "MacaroniCritter"
+delete-after: True
+changes:
+  - rscadd: "Added mending touch to genetic mutation quirk"
