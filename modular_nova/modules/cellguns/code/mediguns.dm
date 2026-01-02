@@ -50,18 +50,17 @@
 /obj/item/stock_parts/power_store/cell/medigun // This is the cell that mediguns from cargo will come with
 	name = "basic medigun cell"
 	maxcharge = STANDARD_CELL_CHARGE * 1.2
-	chargerate = STANDARD_CELL_CHARGE * 0.75
 
 /obj/item/stock_parts/power_store/cell/medigun/upgraded
 	name = "upgraded medigun cell"
 	maxcharge = STANDARD_CELL_CHARGE * 1.5
-	chargerate = STANDARD_CELL_CHARGE * 1.5
+	chargerate = STANDARD_CELL_CHARGE * 0.1
 	emp_damage_modifier = 5
 
 /obj/item/stock_parts/power_store/cell/medigun/experimental // This cell type is meant to be used in self charging mediguns like CMO and ERT one.
 	name = "experimental medigun cell"
 	maxcharge = STANDARD_CELL_CHARGE * 1.8
-	chargerate = STANDARD_CELL_CHARGE * 1.5
+	chargerate = STANDARD_CELL_CHARGE * 0.1
 	emp_damage_modifier = 5
 // End of power cells
 
