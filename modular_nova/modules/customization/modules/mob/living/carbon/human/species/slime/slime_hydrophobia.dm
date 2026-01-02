@@ -20,7 +20,10 @@
 
 	ADD_TRAIT(user, TRAIT_SLIME_HYDROPHOBIA, ACTION_TRAIT)
 	user.apply_status_effect(/datum/status_effect/slime_hydrophobia)
-	user.visible_message(span_purple("[user]'s outer membrane starts to ooze out an oily coating, [owner.p_their()] body becoming more viscous!"), span_purple("Your outer membrane starts to ooze out an oily coating, protecting you from water but making your body more viscous."))
+	user.visible_message(
+		span_purple("[user]'s outer membrane starts to ooze out an oily coating, [owner.p_their()] body becoming more viscous!"),
+		span_purple("Your outer membrane starts to ooze out an oily coating, protecting you from water but making your body more viscous.")
+		)
 
 /**
 * Called when you activate it again after casting the ability-- turning it off, so to say.
@@ -31,7 +34,10 @@
 
 	REMOVE_TRAIT(user, TRAIT_SLIME_HYDROPHOBIA, ACTION_TRAIT)
 	user.remove_status_effect(/datum/status_effect/slime_hydrophobia)
-	user.visible_message(span_purple("[user]'s outer membrane returns to normal, [owner.p_their()] body drawing the oily coat back inside!"), span_purple("Your outer membrane returns to normal, water becoming dangerous to you once again."))
+	user.visible_message(
+		span_purple("[user]'s outer membrane returns to normal, [owner.p_their()] body drawing the oily coat back inside!"),
+		span_purple("Your outer membrane returns to normal, water becoming dangerous to you once again.")
+		)
 
 /datum/movespeed_modifier/status_effect/slime_hydrophobia
 	multiplicative_slowdown = 1.5
