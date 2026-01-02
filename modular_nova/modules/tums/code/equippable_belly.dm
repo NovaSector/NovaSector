@@ -116,7 +116,7 @@
 	var/north_layer = BODY_BEHIND_LAYER
 
 	/// Tracks if the user made edits to their character/global preferences in the belly UI.
-	var/wrote_prefs = FALSE
+	var/datum/erp_belly_prefshelper/ui_datum = null
 
 /// Sanity checks & required edits to make the belly action get properly granted.
 /obj/item/belly_function/item_action_slot_check(slot, mob/user, datum/action/action)
@@ -143,8 +143,12 @@
 	. = ..()
 	for(var/mob/living/carbon/human/nommed in nommeds)
 		free_target(nommed)
+	ui_datum?.belly = null
 	QDEL_LIST(belly_acts)
 	belly_acts = null
+
+/obj/item/belly_function/New(loc, ...)
+	. = ..()
 
 /// Signal handler that allows for the various movement/jostling sounds to play.
 /obj/item/belly_function/proc/on_step()
@@ -197,7 +201,8 @@
 	var/adjustment_mode = tgui_input_list(user, "Select ", "Belly Control", opt_list)
 	switch(adjustment_mode)
 		if("Edit Settings")
-			ui_interact(user)
+			to_chat(world, "Attempting UI_INTERACT for ui_datum!  Should be [ui_datum] with associated client [ui_datum.associated_client]")
+			ui_datum.ui_interact(user)
 		else
 			if(adjustment_mode in extra_size_list)
 				var/temp_size = tgui_input_number(user, "What size do you want [extra_size_list[adjustment_mode].name] to be?  (0.0-infinity, 1000 is typically same-sizeish)", "Endo Size")
@@ -207,393 +212,6 @@
 				recalculate_guest_sizes()
 			else
 				return
-
-/// UI TEST ZONE IN PROGRESS.
-/obj/item/belly_function/ui_interact(mob/user, datum/tgui/ui)
-	ui = SStgui.try_update_ui(user, src, ui)
-	if(!ui)
-		ui = new(user, src, "NovaTumsPrefs", name)
-		ui.open()
-
-/obj/item/belly_function/ui_static_data(mob/user)
-	. = list()
-	//.["a_constant"] = A_CONSTANT
-	var/static/consent_options = list("Never", "Query", "Always")
-	.["pred_options"] = consent_options
-	.["prey_options"] = consent_options
-	// Booleans are reversed between BYOND and tsx??  What the hell???
-	.["has_belly"] = TRUE
-	.["has_player"] = TRUE
-
-/obj/item/belly_function/ui_data(mob/user)
-	. = list()
-
-	// Figure out what tab we're in
-	var/ui_tab = ("tumsTab" in tgui_shared_states) ? text2num(tgui_shared_states["tumsTab"]) : 1
-	if(ui_tab == 1)
-		// == LOCAL SETTINGS BREAKER ==
-		// Send title
-		.["title"] = "Local belly prefs: [lastuser]"
-		// Send current color & sprite variants
-		.["color"] = color
-		.["use_skintone"] = use_skintone
-		// Send current size modifiers
-		.["sizemod"] = sizemod
-		.["sizemod_autostuffed"] = sizemod_autostuffed
-		.["sizemod_audio"] = sizemod_audio
-		// Send current sound rules
-		.["allow_sound_groans"] = allow_sound_groans
-		.["allow_sound_gurgles"] = allow_sound_gurgles
-		.["allow_sound_move_creaks"] = allow_sound_move_creaks
-		.["allow_sound_move_sloshes"] = allow_sound_move_sloshes
-		// Send details on current calculated belly size
-		.["maxsize"] = maxsize
-		var/nutritionmaxxing = "N/A"
-		if(sizemod_autostuffed > 0 && sizemod > 0)
-			nutritionmaxxing = (((25.9852 * ((current_size_unclamped)**2))/sizemod/sizemod_autostuffed) + 500) / 0.4
-		.["calculated_size"] = "Base cosmetic sizes: these provide mechanics-agnostic belly size and/or audio.\nCalculated total sprite size of [current_size_unclamped]/16 ([last_size]/[maxsize] clamped); equivalent to [nutritionmaxxing] nutrition."
-		// Send a calculated max for the sliders - this is based on the volume equation.
-		// This sets per-category max to the value required to reach a smidge beyond the maximum sprite size.
-		if(sizemod > 0)
-			.["base_size_max"] = (25.9852 * ((16+1)**2))/sizemod
-		else
-			.["base_size_max"] = (25.9852 * ((16+1)**2))
-		.["base_size_cosmetic"] = base_size_cosmetic
-		.["base_size_full"] = base_size_full
-		.["base_size_stuffed"] = base_size_stuffed
-		// Send current vore-related prefs
-		.["pred_mode"] = pred_mode
-		.["endo_size_label"] = "Default endo size (sprite size [(((endo_size / 10)**1.5) / (4/3) / PI)**(1/3)])"
-		.["endo_size"] = endo_size
-		// Possibly need to refactor this to store prey_mode on mobs somewhere to avoid constant pref reads
-		.["prey_mode"] = lastuser?.client?.prefs.read_preference(/datum/preference/choiced/erp_vore_prey_pref) || "Never"
-	else if(ui_tab == 2)
-		// == PREFS SETTINGS BREAKER ==
-		// Send title
-		.["title"] = "Character belly prefs: [lastuser?.client?.prefs.read_preference(/datum/preference/name/real_name) || lastuser]"
-		// Send current color & sprite variants
-		.["color"] = lastuser?.client?.prefs.read_preference(/datum/preference/color/erp_bellyquirk_color) || "#FFFFFF"
-		.["use_skintone"] = lastuser?.client?.prefs.read_preference(/datum/preference/toggle/erp_bellyquirk_skintone) || FALSE
-		// Send current size modifiers
-		var/prefs_sizemod = lastuser?.client?.prefs.read_preference(/datum/preference/numeric/erp_bellyquirk_sizemod) || 1
-		.["sizemod"] = prefs_sizemod
-		var/prefs_sizemod_autostuffed = lastuser?.client?.prefs.read_preference(/datum/preference/numeric/erp_bellyquirk_sizemod_autostuffed) || 1
-		.["sizemod_autostuffed"] = prefs_sizemod_autostuffed
-		var/prefs_sizemod_audio = lastuser?.client?.prefs.read_preference(/datum/preference/numeric/erp_bellyquirk_sizemod_audio) || 1
-		.["sizemod_audio"] = prefs_sizemod_audio
-		// Send current sound rules
-		.["allow_sound_groans"] = lastuser?.client?.prefs.read_preference(/datum/preference/toggle/erp_bellyquirk_groans) || FALSE
-		.["allow_sound_gurgles"] = lastuser?.client?.prefs.read_preference(/datum/preference/toggle/erp_bellyquirk_gurgles) || FALSE
-		.["allow_sound_move_creaks"] = lastuser?.client?.prefs.read_preference(/datum/preference/toggle/erp_bellyquirk_move_creaks) || FALSE
-		.["allow_sound_move_sloshes"] = lastuser?.client?.prefs.read_preference(/datum/preference/toggle/erp_bellyquirk_move_sloshes) || FALSE
-		// Read & calculate current prefs-based sizes
-		var/prefs_base_size_cosmetic = lastuser?.client?.prefs.read_preference(/datum/preference/numeric/erp_bellyquirk_size_base) || 0
-		var/prefs_base_size_full = lastuser?.client?.prefs.read_preference(/datum/preference/numeric/erp_bellyquirk_size_full) || 0
-		var/prefs_base_size_stuffed = lastuser?.client?.prefs.read_preference(/datum/preference/numeric/erp_bellyquirk_size_stuffed) || 0
-		var/prefs_maxsize = lastuser?.client?.prefs.read_preference(/datum/preference/numeric/erp_bellyquirk_maxsize) || 0
-		.["maxsize"] = prefs_maxsize
-		var/prefs_current_size_unclamped = ((((prefs_base_size_cosmetic + prefs_base_size_full + prefs_base_size_stuffed) / 10)**1.5) / (4/3) / PI)**(1/3)
-		var/prefs_last_size = FLOOR(prefs_current_size_unclamped, 1)
-		if(prefs_last_size > 16)
-			prefs_last_size = 16
-		if(prefs_last_size > prefs_maxsize)
-			prefs_last_size = prefs_maxsize
-		if(prefs_last_size < 0)
-			prefs_last_size = 0
-		// Send details on current calculated belly size
-		var/nutritionmaxxing = "N/A"
-		if(prefs_sizemod_autostuffed > 0 && prefs_sizemod > 0)
-			nutritionmaxxing = (((25.9852 * ((prefs_current_size_unclamped)**2))/prefs_sizemod/prefs_sizemod_autostuffed) + 500) / 0.4
-		.["calculated_size"] = "Base cosmetic sizes: these provide mechanics-agnostic belly size and/or audio.\nCalculated total sprite size of [prefs_current_size_unclamped]/16 ([prefs_last_size]/[prefs_maxsize] clamped); equivalent to [nutritionmaxxing] nutrition."
-		// Send a calculated max for the sliders - this is based on the volume equation.
-		// This sets per-category max to the value required to reach a smidge beyond the maximum sprite size.
-		if(prefs_sizemod > 0)
-			.["base_size_max"] = (25.9852 * ((16+1)**2))/prefs_sizemod
-		else
-			.["base_size_max"] = (25.9852 * ((16+1)**2))
-		.["base_size_cosmetic"] = prefs_base_size_cosmetic
-		.["base_size_full"] = prefs_base_size_full
-		.["base_size_stuffed"] = prefs_base_size_stuffed
-		// Send current vore-related prefs
-		.["pred_mode"] = lastuser?.client?.prefs.read_preference(/datum/preference/choiced/erp_bellyquirk_pred_pref) || "Never"
-		var/prefs_endo_size = lastuser?.client?.prefs.read_preference(/datum/preference/numeric/erp_bellyquirk_size_endo) || 1000
-		.["endo_size_label"] = "Default endo size (sprite size [(((prefs_endo_size / 10)**1.5) / (4/3) / PI)**(1/3)])"
-		.["endo_size"] = prefs_endo_size
-		.["prey_mode"] = lastuser?.client?.prefs.read_preference(/datum/preference/choiced/erp_vore_prey_pref) || "Never"
-	else if(ui_tab == 3)
-		// == GLOBAL PREFS SETTINGS BREAKER ==
-		// Send title
-		.["title"] = "Global belly prefs"
-		// Send sprite visibility rules
-		.["global_belly_visibility"] = lastuser?.client?.prefs.read_preference(/datum/preference/toggle/erp/belly) || FALSE
-		.["global_maxsize"] = lastuser?.client?.prefs.read_preference(/datum/preference/numeric/erp_belly_maxsize) || 0
-		// Send current sound rules
-		.["global_sound_groans"] = lastuser?.client?.prefs.read_preference(/datum/preference/toggle/erp/belly/sound_groans) || FALSE
-		.["global_sound_gurgles"] = lastuser?.client?.prefs.read_preference(/datum/preference/toggle/erp/belly/sound_gurgles) || FALSE
-		.["global_sound_move_creaks"] = lastuser?.client?.prefs.read_preference(/datum/preference/toggle/erp/belly/sound_move_creaks) || FALSE
-		.["global_sound_move_sloshes"] = lastuser?.client?.prefs.read_preference(/datum/preference/toggle/erp/belly/sound_move_sloshes) || FALSE
-
-/obj/item/belly_function/ui_act(action, list/params, datum/tgui/ui, datum/ui_state/state)
-	. = ..()
-	if(.)
-		return
-
-	// Sanity check: if our owner exploded or something, close the UI.
-	if(lastuser == null)
-		ui.close()
-		return FALSE
-
-	/*var/all_params = ""
-	for(var/a_key in params)
-		all_params = "[all_params] [a_key]=[params[a_key]]"
-	to_chat(lastuser, "Doing a UI act [action] with the following params[all_params]")*/
-
-	var/static/list_yesno = list("Yes", "No")
-	var/ui_tab = 1
-	if("tumsTab" in tgui_shared_states)
-		ui_tab = text2num(tgui_shared_states["tumsTab"])
-
-	switch(action)
-		if("changeColor")
-			var/new_color = lastuser?.client?.prefs.read_preference(/datum/preference/color/erp_bellyquirk_color) || "#FFFFFF"
-			new_color = tgui_color_picker(lastuser, "Enter new color:", "Color", new_color)
-			if(new_color != null || QDELETED(lastuser) || QDELETED(src))
-				if(params["tab"] == "2" || ui_tab == 2)
-					lastuser?.client?.prefs.write_preference(GLOB.preference_entries[/datum/preference/color/erp_bellyquirk_color], new_color)
-					wrote_prefs = TRUE
-					if(new_color != color)
-						var/mode_select = tgui_alert(lastuser, "Update your current in-round prefs to match the new value?", "Update Local?", list_yesno)
-						if(!(isnull(mode_select) || QDELETED(lastuser) || QDELETED(src)) && mode_select == "Yes")
-							color = new_color
-				else
-					color = new_color
-			do_alt_appearance(lastuser, TRUE, last_size)
-			last_size = -1
-			return TRUE
-		if("changeUseSkintone")
-			if(params["tab"] == "2" || ui_tab == 2)
-				var/new_use_skintone = !(lastuser?.client?.prefs.read_preference(/datum/preference/toggle/erp_bellyquirk_skintone) || FALSE)
-				lastuser?.client?.prefs.write_preference(GLOB.preference_entries[/datum/preference/toggle/erp_bellyquirk_skintone], new_use_skintone != FALSE)
-				wrote_prefs = TRUE
-				var/new_color = null
-				if(new_use_skintone)
-					var/mode_select = tgui_alert(lastuser, "Auto-set color based on your skintone?", "Inherit Skintone?", list_yesno)
-					if(!(isnull(mode_select) || QDELETED(lastuser) || QDELETED(src)) && mode_select == "Yes")
-						new_color = skintone2hex(lastuser?.client?.prefs.read_preference(/datum/preference/choiced/skin_tone)) //why this isn't in DNA hurts me
-						lastuser?.client?.prefs.write_preference(GLOB.preference_entries[/datum/preference/color/erp_bellyquirk_color], new_color)
-						wrote_prefs = TRUE
-				var/mode_select = tgui_alert(lastuser, "Update your current in-round prefs to match the new value?", "Update Local?", list_yesno)
-				if(!(isnull(mode_select) || QDELETED(lastuser) || QDELETED(src)) && mode_select == "Yes")
-					use_skintone = new_use_skintone
-					if(new_color != null)
-						color = new_color
-			else
-				use_skintone = !use_skintone
-				if(use_skintone)
-					var/mode_select = tgui_alert(lastuser, "Auto-set color based on your skintone?", "Inherit Skintone?", list_yesno)
-					if(!(isnull(mode_select) || QDELETED(lastuser) || QDELETED(src)) && mode_select == "Yes")
-						color = skintone2hex(lastuser.skin_tone) //why this isn't in DNA hurts me
-			do_alt_appearance(lastuser, TRUE, last_size)
-			last_size = -1
-			return TRUE
-		if("changeSizemod")
-			var/new_sizemod = text2num(params["newSizemod"])
-			if(params["tab"] == "2" || ui_tab == 2)
-				lastuser?.client?.prefs.write_preference(GLOB.preference_entries[/datum/preference/numeric/erp_bellyquirk_sizemod], new_sizemod)
-				wrote_prefs = TRUE
-				if(new_sizemod != sizemod)
-					var/mode_select = tgui_alert(lastuser, "Update your current in-round prefs to match the new value?", "Update Local?", list_yesno)
-					if(!(isnull(mode_select) || QDELETED(lastuser) || QDELETED(src)) && mode_select == "Yes")
-						sizemod = new_sizemod
-			else
-				sizemod = new_sizemod
-			return TRUE
-		if("changeSizemodAutostuffed")
-			var/new_sizemod_autostuffed = text2num(params["newSizemodAutostuffed"])
-			if(params["tab"] == "2" || ui_tab == 2)
-				lastuser?.client?.prefs.write_preference(GLOB.preference_entries[/datum/preference/numeric/erp_bellyquirk_sizemod_autostuffed], new_sizemod_autostuffed)
-				wrote_prefs = TRUE
-				if(new_sizemod_autostuffed != sizemod_autostuffed)
-					var/mode_select = tgui_alert(lastuser, "Update your current in-round prefs to match the new value?", "Update Local?", list_yesno)
-					if(!(isnull(mode_select) || QDELETED(lastuser) || QDELETED(src)) && mode_select == "Yes")
-						sizemod_autostuffed = new_sizemod_autostuffed
-			else
-				sizemod_autostuffed = new_sizemod_autostuffed
-			return TRUE
-		if("changeSizemodAudio")
-			var/new_sizemod_audio = text2num(params["newSizemodAudio"])
-			if(params["tab"] == "2" || ui_tab == 2)
-				lastuser?.client?.prefs.write_preference(GLOB.preference_entries[/datum/preference/numeric/erp_bellyquirk_sizemod_audio], new_sizemod_audio)
-				wrote_prefs = TRUE
-				if(new_sizemod_audio != sizemod_audio)
-					var/mode_select = tgui_alert(lastuser, "Update your current in-round prefs to match the new value?", "Update Local?", list_yesno)
-					if(!(isnull(mode_select) || QDELETED(lastuser) || QDELETED(src)) && mode_select == "Yes")
-						sizemod_audio = new_sizemod_audio
-			else
-				sizemod_audio = new_sizemod_audio
-			return TRUE
-		if("changeSoundGroans")
-			if(params["tab"] == "2" || ui_tab == 2)
-				var/new_allow_sound_groans = !(lastuser?.client?.prefs.read_preference(/datum/preference/toggle/erp_bellyquirk_groans) || FALSE)
-				lastuser?.client?.prefs.write_preference(GLOB.preference_entries[/datum/preference/toggle/erp_bellyquirk_groans], new_allow_sound_groans != FALSE)
-				wrote_prefs = TRUE
-				var/mode_select = tgui_alert(lastuser, "Update your current in-round prefs to match the new value?", "Update Local?", list_yesno)
-				if(!(isnull(mode_select) || QDELETED(lastuser) || QDELETED(src)) && mode_select == "Yes")
-					allow_sound_groans = new_allow_sound_groans
-			else
-				allow_sound_groans = !allow_sound_groans
-			return TRUE
-		if("changeSoundGurgles")
-			if(params["tab"] == "2" || ui_tab == 2)
-				var/new_allow_sound_gurgles = !(lastuser?.client?.prefs.read_preference(/datum/preference/toggle/erp_bellyquirk_gurgles) || FALSE)
-				lastuser?.client?.prefs.write_preference(GLOB.preference_entries[/datum/preference/toggle/erp_bellyquirk_gurgles], new_allow_sound_gurgles != FALSE)
-				wrote_prefs = TRUE
-				var/mode_select = tgui_alert(lastuser, "Update your current in-round prefs to match the new value?", "Update Local?", list_yesno)
-				if(!(isnull(mode_select) || QDELETED(lastuser) || QDELETED(src)) && mode_select == "Yes")
-					allow_sound_gurgles = new_allow_sound_gurgles
-			else
-				allow_sound_gurgles = !allow_sound_gurgles
-			return TRUE
-		if("changeSoundMoveCreaks")
-			if(params["tab"] == "2" || ui_tab == 2)
-				var/new_allow_sound_move_creaks = !(lastuser?.client?.prefs.read_preference(/datum/preference/toggle/erp_bellyquirk_move_creaks) || FALSE)
-				lastuser?.client?.prefs.write_preference(GLOB.preference_entries[/datum/preference/toggle/erp_bellyquirk_move_creaks], new_allow_sound_move_creaks != FALSE)
-				wrote_prefs = TRUE
-				var/mode_select = tgui_alert(lastuser, "Update your current in-round prefs to match the new value?", "Update Local?", list_yesno)
-				if(!(isnull(mode_select) || QDELETED(lastuser) || QDELETED(src)) && mode_select == "Yes")
-					allow_sound_move_creaks = new_allow_sound_move_creaks
-			else
-				allow_sound_move_creaks = !allow_sound_move_creaks
-			return TRUE
-		if("changeSoundMoveSloshes")
-			if(params["tab"] == "2" || ui_tab == 2)
-				var/new_allow_sound_move_sloshes = !(lastuser?.client?.prefs.read_preference(/datum/preference/toggle/erp_bellyquirk_move_sloshes) || FALSE)
-				lastuser?.client?.prefs.write_preference(GLOB.preference_entries[/datum/preference/toggle/erp_bellyquirk_move_sloshes], new_allow_sound_move_sloshes != FALSE)
-				wrote_prefs = TRUE
-				var/mode_select = tgui_alert(lastuser, "Update your current in-round prefs to match the new value?", "Update Local?", list_yesno)
-				if(!(isnull(mode_select) || QDELETED(lastuser) || QDELETED(src)) && mode_select == "Yes")
-					allow_sound_move_sloshes = new_allow_sound_move_sloshes
-			else
-				allow_sound_move_sloshes = !allow_sound_move_sloshes
-			return TRUE
-		if("changeMaxsize")
-			var/new_maxsize = text2num(params["newMaxsize"])
-			if(params["tab"] == "2" || ui_tab == 2)
-				lastuser?.client?.prefs.write_preference(GLOB.preference_entries[/datum/preference/numeric/erp_bellyquirk_maxsize], new_maxsize)
-				wrote_prefs = TRUE
-				if(new_maxsize != maxsize)
-					var/mode_select = tgui_alert(lastuser, "Update your current in-round prefs to match the new value?", "Update Local?", list_yesno)
-					if(!(isnull(mode_select) || QDELETED(lastuser) || QDELETED(src)) && mode_select == "Yes")
-						maxsize = new_maxsize
-			else
-				maxsize = new_maxsize
-			return TRUE
-		if("changeBaseCosmetic")
-			var/new_base_size_cosmetic = text2num(params["newBaseCosmetic"])
-			if(params["tab"] == "2" || ui_tab == 2)
-				lastuser?.client?.prefs.write_preference(GLOB.preference_entries[/datum/preference/numeric/erp_bellyquirk_size_base], new_base_size_cosmetic)
-				wrote_prefs = TRUE
-				if(new_base_size_cosmetic != base_size_cosmetic)
-					var/mode_select = tgui_alert(lastuser, "Update your current in-round prefs to match the new value?", "Update Local?", list_yesno)
-					if(!(isnull(mode_select) || QDELETED(lastuser) || QDELETED(src)) && mode_select == "Yes")
-						base_size_cosmetic = new_base_size_cosmetic
-			else
-				base_size_cosmetic = new_base_size_cosmetic
-			return TRUE
-		if("changeBaseFull")
-			var/new_base_size_full = text2num(params["newBaseFull"])
-			if(params["tab"] == "2" || ui_tab == 2)
-				lastuser?.client?.prefs.write_preference(GLOB.preference_entries[/datum/preference/numeric/erp_bellyquirk_size_full], new_base_size_full)
-				wrote_prefs = TRUE
-				if(new_base_size_full != base_size_full)
-					var/mode_select = tgui_alert(lastuser, "Update your current in-round prefs to match the new value?", "Update Local?", list_yesno)
-					if(!(isnull(mode_select) || QDELETED(lastuser) || QDELETED(src)) && mode_select == "Yes")
-						base_size_full = new_base_size_full
-			else
-				base_size_full = new_base_size_full
-			return TRUE
-		if("changeBaseStuffed")
-			var/new_base_size_stuffed = text2num(params["newBaseStuffed"])
-			if(params["tab"] == "2" || ui_tab == 2)
-				lastuser?.client?.prefs.write_preference(GLOB.preference_entries[/datum/preference/numeric/erp_bellyquirk_size_stuffed], new_base_size_stuffed)
-				wrote_prefs = TRUE
-				if(new_base_size_stuffed != base_size_stuffed)
-					var/mode_select = tgui_alert(lastuser, "Update your current in-round prefs to match the new value?", "Update Local?", list_yesno)
-					if(!(isnull(mode_select) || QDELETED(lastuser) || QDELETED(src)) && mode_select == "Yes")
-						base_size_stuffed = new_base_size_stuffed
-			else
-				base_size_stuffed = new_base_size_stuffed
-			return TRUE
-		if("changePredMode")
-			var/new_pred_mode = params["newPredMode"]
-			if(params["tab"] == "2" || ui_tab == 2)
-				lastuser?.client?.prefs.write_preference(GLOB.preference_entries[/datum/preference/choiced/erp_bellyquirk_pred_pref], new_pred_mode)
-				wrote_prefs = TRUE
-				if(new_pred_mode != pred_mode)
-					var/mode_select = tgui_alert(lastuser, "Update your current in-round prefs to match the new value?", "Update Local?", list_yesno)
-					if(!(isnull(mode_select) || QDELETED(lastuser) || QDELETED(src)) && mode_select == "Yes")
-						pred_mode = new_pred_mode
-			else
-				pred_mode = new_pred_mode
-			return TRUE
-		if("changeEndoSize")
-			var/new_endo_size = text2num(params["newEndoSize"])
-			if(params["tab"] == "2" || ui_tab == 2)
-				lastuser?.client?.prefs.write_preference(GLOB.preference_entries[/datum/preference/numeric/erp_bellyquirk_size_endo], new_endo_size)
-				wrote_prefs = TRUE
-				if(new_endo_size != endo_size)
-					var/mode_select = tgui_alert(lastuser, "Update your current in-round prefs to match the new value?", "Update Local?", list_yesno)
-					if(!(isnull(mode_select) || QDELETED(lastuser) || QDELETED(src)) && mode_select == "Yes")
-						endo_size = new_endo_size
-			else
-				endo_size = new_endo_size
-			return TRUE
-		if("changePreyMode")
-			var/new_prey_mode = params["newPreyMode"]
-			if(params["tab"] == "2" || ui_tab == 2)
-				lastuser?.client?.prefs.write_preference(GLOB.preference_entries[/datum/preference/choiced/erp_vore_prey_pref], new_prey_mode)
-				wrote_prefs = TRUE
-			// in-round prey mode hasn't yet been implemented
-			/*	if(new_prey_mode != prey_mode)
-					var/mode_select = tgui_alert(lastuser, "Update your current in-round prefs to match the new value?", "Update Local?", list_yesno)
-					if(!(isnull(mode_select) || QDELETED(lastuser) || QDELETED(src)) && mode_select == "Yes")
-						prey_mode = new_prey_mode
-			else
-				prey_mode = new_prey_mode*/
-			return TRUE
-		// === GLOBAL PREFS BREAKER ===
-		if("changeGlobalSoundGroans")
-			var/new_global_sound_groans = !(lastuser?.client?.prefs.read_preference(/datum/preference/toggle/erp/belly/sound_groans) || FALSE)
-			lastuser?.client?.prefs.write_preference(GLOB.preference_entries[/datum/preference/toggle/erp/belly/sound_groans], new_global_sound_groans != FALSE)
-			wrote_prefs = TRUE
-		if("changeGlobalSoundGurgles")
-			var/new_global_sound_gurgles = !(lastuser?.client?.prefs.read_preference(/datum/preference/toggle/erp/belly/sound_gurgles) || FALSE)
-			lastuser?.client?.prefs.write_preference(GLOB.preference_entries[/datum/preference/toggle/erp/belly/sound_gurgles], new_global_sound_gurgles != FALSE)
-			wrote_prefs = TRUE
-		if("changeGlobalSoundMoveCreaks")
-			var/new_global_sound_move_creaks = !(lastuser?.client?.prefs.read_preference(/datum/preference/toggle/erp/belly/sound_move_creaks) || FALSE)
-			lastuser?.client?.prefs.write_preference(GLOB.preference_entries[/datum/preference/toggle/erp/belly/sound_move_creaks], new_global_sound_move_creaks != FALSE)
-			wrote_prefs = TRUE
-		if("changeGlobalSoundMoveSloshes")
-			var/new_global_sound_move_sloshes = !(lastuser?.client?.prefs.read_preference(/datum/preference/toggle/erp/belly/sound_move_sloshes) || FALSE)
-			lastuser?.client?.prefs.write_preference(GLOB.preference_entries[/datum/preference/toggle/erp/belly/sound_move_sloshes], new_global_sound_move_sloshes != FALSE)
-			wrote_prefs = TRUE
-		if("changeGlobalVisibility")
-			var/new_visibility = !(lastuser?.client?.prefs.read_preference(/datum/preference/toggle/erp/belly) || FALSE)
-			lastuser?.client?.prefs.write_preference(GLOB.preference_entries[/datum/preference/toggle/erp/belly], new_visibility != FALSE)
-			wrote_prefs = TRUE
-		if("changeGlobalMaxsize")
-			var/new_maxsize = text2num(params["newMaxsize"])
-			lastuser?.client?.prefs.write_preference(GLOB.preference_entries[/datum/preference/numeric/erp_belly_maxsize], new_maxsize)
-			wrote_prefs = TRUE
-			return TRUE
-
-/// Small extension to automatically save prefs when closing the UI.
-/obj/item/belly_function/ui_close(mob/user)
-	. = ..()
-	if(wrote_prefs == TRUE)
-		lastuser?.client?.prefs.save_preferences()
-
 
 /// Helper for activating the belly.
 /// Culls old appearances as needed and registers signals & actions.
@@ -606,6 +224,20 @@
 	if(!istype(user))
 		return
 	lastuser = user
+	if(lastuser.client != null)
+		if(ui_datum != null)
+			ui_datum.belly = null
+		if(ui_datum == null || ui_datum?.associated_client != lastuser.client)
+			to_chat(world, "Hey, the ui_datum for [lastuser]'s belly is null!  Trying to set to the datum for ckey [lastuser.ckey]")
+			if(!(lastuser.ckey in GLOB.erp_belly_prefshelpers))
+				to_chat(world, "Couldn't find an entry for [lastuser.ckey] in the GLOB!  Adding it now...")
+				var/datum/erp_belly_prefshelper/helper = new()
+				helper.associated_client = lastuser.client
+				GLOB.erp_belly_prefshelpers[lastuser.ckey] = helper
+				to_chat(world, "Debug check: [GLOB.erp_belly_prefshelpers[lastuser.ckey]] exists, and its assoociated client is [GLOB.erp_belly_prefshelpers[lastuser.ckey].associated_client]")
+			ui_datum = GLOB.erp_belly_prefshelpers[lastuser.ckey]
+			to_chat(world, "ui_datum set!")
+			ui_datum.belly = src
 	for(var/datum/action/action as anything in actions)
 		give_item_action(action, user, null)
 	RegisterSignal(lastuser, COMSIG_GENERAL_STEP_ACTION, PROC_REF(on_step), TRUE)
