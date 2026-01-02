@@ -5874,10 +5874,6 @@
 /obj/machinery/light/directional/west,
 /turf/open/floor/iron/white,
 /area/centcom/interlink/dorm_rooms/room1)
-"dru" = (
-/obj/structure/fake_stairs/directional,
-/turf/open/misc/grass/planet,
-/area/centcom/holding/cafepark)
 "drE" = (
 /obj/effect/turf_decal/siding/wood{
 	dir = 8
@@ -9650,7 +9646,7 @@
 /area/centcom/holding/cafepark)
 "iIe" = (
 /obj/structure/fake_stairs/directional/south,
-/turf/open/misc/grass/planet,
+/turf/open/misc/dirt/planet,
 /area/centcom/holding/cafepark)
 "iIR" = (
 /obj/effect/turf_decal/siding/wood{
@@ -19220,11 +19216,6 @@
 /obj/effect/light_emitter/interlink,
 /turf/open/floor/grass,
 /area/centcom/interlink)
-"vqx" = (
-/obj/structure/flora/bush/sparsegrass,
-/obj/structure/flora/bush/reed,
-/turf/open/misc/beach/sand,
-/area/centcom/holding/cafepark)
 "vqA" = (
 /obj/machinery/duct,
 /obj/effect/turf_decal/siding/wood{
@@ -65366,7 +65357,7 @@ aPf
 aqP
 aPf
 aqf
-aqf
+aNY
 aqf
 aHb
 aqf
@@ -73386,7 +73377,7 @@ yjC
 gZM
 amx
 amx
-aPf
+amx
 aPf
 aPf
 aPf
@@ -74414,7 +74405,7 @@ amx
 amx
 amx
 amx
-aPf
+amx
 aPf
 aUm
 aUm
@@ -74672,7 +74663,7 @@ vTT
 vTT
 aPf
 aPf
-vqx
+aPf
 aUm
 aDa
 aUm
@@ -76972,11 +76963,11 @@ aKu
 avt
 gko
 kWr
-vXr
+ayI
 iIe
 luv
 mfp
-dru
+dNB
 ayI
 ayI
 ayI
