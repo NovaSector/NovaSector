@@ -10,6 +10,14 @@
 /obj/item/clothing/under/pants/nova
 	icon = 'modular_nova/master_files/icons/obj/clothing/under/shorts_pants_shirts.dmi'
 	worn_icon = 'modular_nova/master_files/icons/mob/clothing/under/shorts_pants_shirts.dmi'
+	can_adjust = FALSE
+	abstract_type = /obj/item/clothing/under/pants/nova
+	post_init_icon_state = null
+	greyscale_config = null
+	greyscale_config_worn = null
+	greyscale_config_worn_digi = null
+	greyscale_colors = null
+	flags_1 = NONE
 
 /obj/item/clothing/under/shorts/nova
 	icon = 'modular_nova/master_files/icons/obj/clothing/under/shorts_pants_shirts.dmi'
@@ -22,6 +30,7 @@
 	greyscale_config_worn_digi = null
 	greyscale_colors = null
 	flags_1 = NONE
+	abstract_type = /obj/item/clothing/under/shorts/nova
 
 //TG's files separate this into Shorts.dmi and Pants.dmi. We wont have as many, so both go into here.
 
@@ -40,6 +49,7 @@
 	greyscale_config_worn_digi = /datum/greyscale_config/jeans_ripped/worn/digi
 	greyscale_colors = "#787878#723E0E#4D7EAC"
 	flags_1 = IS_PLAYER_COLORABLE_1
+	can_adjust = TRUE
 
 /obj/item/clothing/under/pants/nova/yoga
 	name = "yoga pants"
