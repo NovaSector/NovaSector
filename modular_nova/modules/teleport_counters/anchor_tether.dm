@@ -1,8 +1,8 @@
 /obj/item/mod/module/tether/anti_teleport
-	name = "MOD bluespace-grounded tether module"
+	name = "MOD grounded apprehension module"
 	desc = "A custom-built grappling-hook powered by a winch capable of hauling the user. \
 		The serrated edges on this variant's anchors, and the flashforged bluespace grounding circuit, \
-		mean that each tether drains much more charge when fired."
+		mean that each tether drains much more charge when fired. It remains functional as a tether, though."
 	use_energy_cost = DEFAULT_CHARGE_DRAIN * 5
 	tether_type = /obj/projectile/tether/anti_teleport
 
@@ -14,9 +14,7 @@
 /obj/item/tether_anchor/anti_teleport
 	name = "grounded tether anchor"
 	desc = "A reinforced anchor with a tether attachment point and an integrated bluespace grounding circuit. \
-		When embedded in targets, prevents teleporting. Still usable as an emergency tether, but that's not what you're \
-		going to be using this for, are you?"
-	embed_type = /datum/embedding/tether_projectile/anti_teleport
+		Still usable as an emergency tether, though how useful that would be is questionable."
 
 /datum/embedding/tether_projectile/anti_teleport
 	embed_chance = 90
@@ -26,10 +24,9 @@
 	RegisterSignal(victim, COMSIG_MOVABLE_TELEPORTING, PROC_REF(on_teleport))
 	RegisterSignal(victim, COMSIG_MOB_PRE_JAUNT, PROC_REF(on_jaunt))
 
-/datum/embedding/tether_projectile/anti_teleport/stop_embedding()
+/datum/embedding/tether_projectile/anti_teleport/remove_embedding(mob/living/to_hands)
+	UnregisterSignal(owner, list(COMSIG_MOVABLE_TELEPORTING, COMSIG_MOB_PRE_JAUNT))
 	. = ..()
-	if(owner)
-		UnregisterSignal(owner, list(COMSIG_MOVABLE_TELEPORTING, COMSIG_MOB_PRE_JAUNT))
 
 /// Signal for COMSIG_MOVABLE_TELEPORTING that blocks teleports and stuns the would-be-teleportee, adapted from implant_noteleport.dm
 /datum/embedding/tether_projectile/anti_teleport/proc/on_teleport(mob/living/teleportee, atom/destination, channel)

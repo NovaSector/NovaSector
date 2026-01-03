@@ -14,3 +14,17 @@
 	)
 	departmental_flags = DEPARTMENT_BITFLAG_SECURITY
 	research_icon_state = "security-plating"
+
+/datum/design/module/mod_tether_grounded
+	name = "Grounded Apprehension Module"
+	id = "mod_tether_grounded"
+	materials = list(
+		/datum/material/iron = HALF_SHEET_MATERIAL_AMOUNT,
+		/datum/material/silver = HALF_SHEET_MATERIAL_AMOUNT,
+		/datum/material/gold = HALF_SHEET_MATERIAL_AMOUNT,
+		/datum/material/bluespace = SMALL_MATERIAL_AMOUNT * 3,
+	)
+	build_path = /obj/item/mod/module/tether/anti_teleport
+	category = list(
+		RND_CATEGORY_MODSUIT_MODULES + RND_SUBCATEGORY_MODSUIT_MODULES_SECURITY
+	)
