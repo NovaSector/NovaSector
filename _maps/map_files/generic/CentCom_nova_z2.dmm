@@ -20618,7 +20618,6 @@
 /obj/effect/turf_decal/tile/dark_green/half{
 	dir = 1
 	},
-/obj/machinery/light_switch/directional/north,
 /obj/machinery/chem_dispenser/fullupgrade,
 /turf/open/floor/iron/dark/smooth_edge{
 	dir = 1
