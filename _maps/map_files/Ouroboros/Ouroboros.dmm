@@ -40931,22 +40931,22 @@
 "lMg" = (
 /obj/machinery/firealarm/directional/north,
 /obj/structure/table/glass,
-/obj/item/computer_disk{
+/obj/item/disk/computer{
 	pixel_y = 4;
 	pixel_x = -3
 	},
-/obj/item/computer_disk{
+/obj/item/disk/computer{
 	pixel_x = -5;
 	pixel_y = 2
 	},
-/obj/item/computer_disk{
+/obj/item/disk/computer{
 	pixel_x = -3
 	},
 /obj/item/book/manual/wiki/ordnance{
 	pixel_x = 15;
 	pixel_y = 3
 	},
-/obj/item/computer_disk/ordnance{
+/obj/item/disk/computer/ordnance{
 	pixel_x = 5;
 	pixel_y = -1
 	},
@@ -47484,10 +47484,10 @@
 	pixel_y = 14;
 	pixel_x = -6
 	},
-/obj/item/computer_disk/medical{
+/obj/item/disk/computer/medical{
 	pixel_x = -3
 	},
-/obj/item/computer_disk/medical{
+/obj/item/disk/computer/medical{
 	pixel_x = 3
 	},
 /obj/machinery/light/warm/directional/south,
@@ -50651,14 +50651,14 @@
 /area/station/maintenance/starboard/fore)
 "oAe" = (
 /obj/structure/table/reinforced,
-/obj/item/computer_disk/engineering{
+/obj/item/disk/computer/engineering{
 	pixel_y = 14
 	},
-/obj/item/computer_disk/engineering{
+/obj/item/disk/computer/engineering{
 	pixel_y = 8;
 	pixel_x = 4
 	},
-/obj/item/computer_disk/engineering{
+/obj/item/disk/computer/engineering{
 	pixel_y = 8;
 	pixel_x = -4
 	},
@@ -64172,8 +64172,8 @@
 	pixel_x = -3;
 	pixel_y = 7
 	},
-/obj/item/computer_disk/quartermaster,
-/obj/item/computer_disk/quartermaster,
+/obj/item/disk/computer/quartermaster,
+/obj/item/disk/computer/quartermaster,
 /obj/structure/table/wood,
 /obj/machinery/status_display/supply{
 	pixel_y = 32

@@ -242,7 +242,7 @@
 // Pride Pin Over-ride (item-version)
 /datum/atom_skin/pride_pin
 	new_icon = 'modular_nova/master_files/icons/obj/clothing/accessories.dmi'
-	allow_abstract_subtypes_in_loadout = TRUE // To allow for our icon override subtype to show up in the loadout menu.
+	allow_all_subtypes_in_loadout = TRUE // To allow for our icon override subtype to show up in the loadout menu.
 
 /datum/atom_skin/pride_pin/nova
 	abstract_type = /datum/atom_skin/pride_pin/nova

@@ -1,5 +1,5 @@
 /datum/outfit/job/bitrunner
-	r_pocket = /obj/item/bitrunning_disk/prefs
+	r_pocket = /obj/item/disk/bitrunning/prefs
 	ears = /obj/item/radio/headset/headset_cargo/bitrunning
 
 /obj/item/radio/headset/headset_cargo/bitrunning
