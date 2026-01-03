@@ -2592,7 +2592,7 @@
 /area/centcom/holding/cafe)
 "aHX" = (
 /obj/machinery/door/airlock/vault{
-	id = "CafeDyne"
+	id_tag = "CafeDyne"
 	},
 /obj/structure/fans/tiny/invisible,
 /turf/open/floor/iron/white/textured_half{
@@ -3086,8 +3086,15 @@
 /turf/open/indestructible/hotelwood,
 /area/centcom/holding/cafe)
 "aNU" = (
-/obj/structure/closet/crate/wooden/toy,
-/turf/open/misc/dirt/planet,
+/obj/effect/turf_decal/siding/thinplating/dark/end{
+	dir = 1
+	},
+/obj/structure/table/reinforced/plastitaniumglass,
+/obj/item/toy/mecha/mauler{
+	pixel_y = 16
+	},
+/obj/item/toy/figure/syndie,
+/turf/open/floor/mineral/plastitanium/red,
 /area/centcom/holding/cafepark)
 "aNY" = (
 /turf/closed/wall/mineral/stone,
@@ -10291,15 +10298,10 @@
 /turf/open/floor/wood,
 /area/centcom/holding/cafedorms)
 "jBZ" = (
-/obj/machinery/vending/wardrobe/syndie_wardrobe/interdyne/ghost_cafe,
 /obj/effect/turf_decal/weather/dirt{
-	dir = 5
+	dir = 1
 	},
-/turf/open/floor/plating/cobblestone/dungeon{
-	footstep = "sand";
-	barefootstep = "sand";
-	clawfootstep = "sand"
-	},
+/turf/open/floor/iron/dark/textured_large,
 /area/centcom/holding/cafepark)
 "jCn" = (
 /obj/structure/drain,
@@ -13178,6 +13180,12 @@
 /obj/structure/railing/wooden_fencing,
 /turf/open/misc/grass/planet,
 /area/centcom/holding/cafepark)
+"nrA" = (
+/obj/effect/turf_decal/siding/thinplating/dark/end{
+	dir = 8
+	},
+/turf/open/floor/mineral/plastitanium/red,
+/area/centcom/holding/cafepark)
 "nss" = (
 /obj/structure/window/green_glass_pane,
 /obj/structure/curtain/bounty,
@@ -13821,19 +13829,7 @@
 /turf/open/misc/grass/planet,
 /area/centcom/holding/cafepark)
 "ovH" = (
-/obj/machinery/vending/wardrobe/syndie_wardrobe{
-	default_price = 0;
-	extra_price = 0;
-	fair_market_price = 0
-	},
-/obj/effect/turf_decal/weather/dirt{
-	dir = 4
-	},
-/turf/open/floor/plating/cobblestone/dungeon{
-	footstep = "sand";
-	barefootstep = "sand";
-	clawfootstep = "sand"
-	},
+/turf/closed/wall/r_wall/plastitanium/syndicate/nodiagonal,
 /area/centcom/holding/cafepark)
 "owp" = (
 /obj/machinery/computer{
@@ -16201,6 +16197,17 @@
 /obj/structure/table/wood,
 /turf/open/floor/wood/large,
 /area/centcom/interlink)
+"rfS" = (
+/obj/effect/turf_decal/weather/dirt{
+	dir = 8
+	},
+/obj/structure/closet/crate/wooden/toy,
+/turf/open/floor/plating/cobblestone/dungeon{
+	footstep = "sand";
+	barefootstep = "sand";
+	clawfootstep = "sand"
+	},
+/area/centcom/holding/cafepark)
 "rhV" = (
 /obj/effect/turf_decal/trimline/white/filled/line{
 	dir = 8
@@ -17888,6 +17895,20 @@
 	dir = 1
 	},
 /turf/open/floor/wood/large,
+/area/centcom/holding/cafepark)
+"tom" = (
+/obj/machinery/vending/wardrobe/syndie_wardrobe{
+	default_price = 0;
+	extra_price = 0;
+	fair_market_price = 0
+	},
+/obj/effect/turf_decal/siding/thinplating/dark{
+	dir = 6
+	},
+/obj/effect/turf_decal/siding/thinplating/dark/corner{
+	dir = 1
+	},
+/turf/open/floor/mineral/plastitanium/red,
 /area/centcom/holding/cafepark)
 "tpv" = (
 /obj/machinery/vending/snack,
@@ -74744,8 +74765,8 @@ aGb
 avY
 ayI
 ayI
-jBZ
-ovH
+erR
+bAB
 rUA
 qBC
 aPf
@@ -75007,9 +75028,9 @@ ayI
 erR
 bAB
 bAB
-bAB
-aPf
-aPf
+kAE
+ovH
+ovH
 aGb
 pCd
 aGb
@@ -75264,9 +75285,9 @@ ayI
 ayI
 ayI
 ayI
-ayI
-tSp
-aPf
+jBZ
+nrA
+ovH
 pCd
 wtw
 tDj
@@ -75517,13 +75538,13 @@ aPf
 aGb
 dai
 aGb
-jiQ
+rfS
 aPf
 aPf
-aPf
+ovH
 aNU
-tSp
-aPf
+tom
+ovH
 pCd
 tik
 qgh
@@ -75777,10 +75798,10 @@ aGb
 aGb
 aPf
 aPf
-aPf
-aPf
-aPf
-aPf
+ovH
+ovH
+ovH
+ovH
 aGb
 pCd
 mfo
