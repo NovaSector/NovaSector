@@ -340,49 +340,49 @@
 /datum/body_marking/secondary/teshari
 	name = "Teshari"
 	icon_state = "teshari"
-	recommended_species = list(SPECIES_TESHARI = TRUE)
+	recommended_species = list(SPECIES_TESHARI = 1)
 	affected_bodyparts = CHEST | ARM_LEFT | ARM_RIGHT | HAND_LEFT | HAND_RIGHT
 
 /datum/body_marking/secondary/teshari_plain
 	name = "Teshari Plain"
 	icon_state = "teshari_plain"
-	recommended_species = list(SPECIES_TESHARI = TRUE)
+	recommended_species = list(SPECIES_TESHARI = 1)
 	affected_bodyparts = HEAD | CHEST | ARM_LEFT | ARM_RIGHT | HAND_LEFT | HAND_RIGHT | LEG_RIGHT | LEG_LEFT
 
 /datum/body_marking/secondary/teshari_coat
 	name = "Teshari Coat"
 	icon_state = "teshari_coat"
-	recommended_species = list(SPECIES_TESHARI = TRUE)
+	recommended_species = list(SPECIES_TESHARI = 1)
 	affected_bodyparts = HEAD | CHEST | ARM_LEFT | ARM_RIGHT | HAND_LEFT | HAND_RIGHT | LEG_RIGHT | LEG_LEFT
 
 /datum/body_marking/secondary/teshari_underfluff
 	name = "Teshari Underfluff"
 	icon_state = "teshari_underfluff"
-	recommended_species = list(SPECIES_TESHARI = TRUE)
+	recommended_species = list(SPECIES_TESHARI = 1)
 	affected_bodyparts = HEAD | CHEST | LEG_RIGHT | LEG_LEFT
 
 /datum/body_marking/secondary/teshari_short
 	name = "Teshari Short"
 	icon_state = "teshari_short"
-	recommended_species = list(SPECIES_TESHARI = TRUE)
+	recommended_species = list(SPECIES_TESHARI = 1)
 	affected_bodyparts = HEAD | CHEST | ARM_LEFT | ARM_RIGHT | HAND_LEFT | HAND_RIGHT | LEG_RIGHT | LEG_LEFT
 
 /datum/body_marking/secondary/teshari_feathers_male
 	name = "Teshari Feathers (Male)"
 	icon_state = "teshari_feathers_male"
-	recommended_species = list(SPECIES_TESHARI = TRUE)
+	recommended_species = list(SPECIES_TESHARI = 1)
 	affected_bodyparts = HEAD | CHEST | ARM_LEFT | ARM_RIGHT | HAND_LEFT | HAND_RIGHT | LEG_RIGHT | LEG_LEFT
 
 /datum/body_marking/secondary/teshari_feathers_female
 	name = "Teshari Feathers (Female)"
 	icon_state = "teshari_feathers_female"
-	recommended_species = list(SPECIES_TESHARI = TRUE)
+	recommended_species = list(SPECIES_TESHARI = 1)
 	affected_bodyparts = HEAD | CHEST | ARM_LEFT | ARM_RIGHT | HAND_LEFT | HAND_RIGHT | LEG_RIGHT | LEG_LEFT
 
 /datum/body_marking/secondary/teshari_lashes
 	name = "Teshari Lashes"
 	icon_state = "teshari_lashes"
-	recommended_species = list(SPECIES_TESHARI = TRUE)
+	recommended_species = list(SPECIES_TESHARI = 1)
 	affected_bodyparts = HEAD
 
 /datum/body_marking/secondary/tajaran
@@ -559,7 +559,7 @@
 	name = "Xeno"
 	icon_state = "xeno"
 	affected_bodyparts = CHEST | ARM_LEFT | ARM_RIGHT | LEG_RIGHT | LEG_LEFT
-	recommended_species = list(SPECIES_XENO = TRUE)
+	recommended_species = list(SPECIES_XENO = 1)
 
 /datum/body_marking/secondary/datashark
 	name = "Datashark"
@@ -764,7 +764,7 @@
 	name = "Xeno Head"
 	icon_state = "xeno"
 	affected_bodyparts = HEAD
-	recommended_species = list(SPECIES_XENO = TRUE)
+	recommended_species = list(SPECIES_XENO = 1)
 
 /datum/body_marking/tertiary/dtiger
 	name = "Dark Tiger Body"
@@ -795,7 +795,7 @@
 	icon = 'modular_nova/master_files/icons/mob/body_markings/tattoo_markings.dmi'
 	recommended_species = null
 	default_color = "#112222" //slightly faded ink.
-	always_color_customizable = TRUE
+	always_color_customizable = 1
 	gendered = FALSE
 
 /datum/body_marking/tattoo/heart
@@ -812,7 +812,7 @@
 	name = "Tattoo - Hive"
 	icon_state = "tat_hive"
 	affected_bodyparts = CHEST
-	gendered = TRUE
+	gendered = 1
 
 /datum/body_marking/tattoo/nightling
 	name = "Tattoo - Nightling"
@@ -833,7 +833,7 @@
 	name = "Tattoo - Tiger"
 	icon_state = "tat_tiger"
 	affected_bodyparts = CHEST | ARM_LEFT | ARM_RIGHT | HAND_LEFT | HAND_RIGHT | LEG_RIGHT | LEG_LEFT
-	gendered = TRUE
+	gendered = 1
 
 /datum/body_marking/tattoo/tiger_groin
 	name = "Tattoo - Tiger (Groin)"

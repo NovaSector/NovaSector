@@ -3,9 +3,9 @@
 	default_color = "#FFFFFF"
 	key = FEATURE_FLUFF
 	recommended_species = list(
-		SPECIES_MOTH = TRUE,
-		SPECIES_MAMMAL = TRUE,
-		SPECIES_INSECT = TRUE,
+		SPECIES_MOTH = 1,
+		SPECIES_MAMMAL = 1,
+		SPECIES_INSECT = 1,
 	)
 	relevent_layers = list(BODY_ADJ_LAYER, BODY_FRONT_LAYER)
 	organ_type = /obj/item/organ/fluff

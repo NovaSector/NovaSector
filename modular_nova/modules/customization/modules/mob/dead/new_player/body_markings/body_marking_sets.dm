@@ -215,7 +215,7 @@
 
 //AKULA MARKINGS
 /datum/body_marking_set/akula
-	recommended_species = list(SPECIES_AKULA = TRUE)
+	recommended_species = list(SPECIES_AKULA = 1)
 
 /datum/body_marking_set/akula/akula
 	name = "Akula"
@@ -223,7 +223,7 @@
 
 //VOX MARKINGS
 /datum/body_marking_set/vox
-	recommended_species = list(SPECIES_VOX = TRUE)
+	recommended_species = list(SPECIES_VOX = 1)
 
 /datum/body_marking_set/vox/vox
 	name = "Vox"
@@ -246,7 +246,7 @@
 	body_marking_list = list("Vox Talon", "Vox Heart Tattoo")
 
 /datum/body_marking_set/synthliz
-	recommended_species = list(SPECIES_SYNTH = TRUE)
+	recommended_species = list(SPECIES_SYNTH = 1)
 
 /datum/body_marking_set/synthliz/scutes
 	name = "Synth Scutes"
@@ -263,7 +263,7 @@
 //MOTH
 
 /datum/body_marking_set/moth
-	recommended_species = list(SPECIES_MOTH = TRUE)
+	recommended_species = list(SPECIES_MOTH = 1)
 
 /datum/body_marking_set/moth/reddish
 	name = "Reddish"

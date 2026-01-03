@@ -39,7 +39,7 @@
 	icon = 'modular_nova/master_files/icons/mob/sprite_accessory/xeno_parts.dmi'
 	name = "Xenomorph Tail"
 	icon_state = "xeno"
-	recommended_species = list(SPECIES_XENO = TRUE)
+	recommended_species = list(SPECIES_XENO = 1)
 
 //HEADS
 /datum/sprite_accessory/xenohead

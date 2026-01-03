@@ -147,7 +147,7 @@
 	icon = 'modular_nova/master_files/icons/mob/sprite_accessory/ipc_antennas.dmi'
 	color_src = USE_ONE_COLOR
 	default_color = DEFAULT_SECONDARY
-	recommended_species = list(SPECIES_SYNTH = TRUE)
+	recommended_species = list(SPECIES_SYNTH = 1)
 	key = MUTANT_SYNTH_ANTENNA
 	relevent_layers = list(BODY_ADJ_LAYER)
 	organ_type = /obj/item/organ/synth_antenna
@@ -221,14 +221,14 @@
 	icon = BODYPART_ICON_HUMAN
 	icon_state = "human"
 	color_src = MUTANT_COLOR
-	dimorphic = TRUE
+	dimorphic = 1
 
 /datum/sprite_accessory/synth_chassis/moth
 	name = "Moth Chassis"
 	icon = BODYPART_ICON_MOTH
 	icon_state = "moth"
 	color_src = MUTANT_COLOR
-	dimorphic = TRUE
+	dimorphic = 1
 
 /datum/sprite_accessory/synth_chassis/android
 	name = "Android Chassis"
@@ -240,16 +240,16 @@
 	icon = BODYPART_ICON_SYNTHMAMMAL
 	icon_state = "synthmammal"
 	color_src = MUTANT_COLOR
-	dimorphic = TRUE
-	is_digi_compatible = TRUE
+	dimorphic = 1
+	is_digi_compatible = 1
 
 /datum/sprite_accessory/synth_chassis/lizard
 	name = "Lizard Chassis"
 	icon = BODYPART_ICON_SYNTHLIZARD
 	icon_state = "synthliz"
 	color_src = MUTANT_COLOR
-	dimorphic = TRUE
-	is_digi_compatible = TRUE
+	dimorphic = 1
+	is_digi_compatible = 1
 
 /datum/sprite_accessory/synth_chassis/mcgreyscale
 	name = "Morpheus Cyberkinetics"
@@ -322,14 +322,14 @@
 	icon = BODYPART_ICON_HUMAN
 	icon_state = "human"
 	color_src = MUTANT_COLOR
-	dimorphic = TRUE
+	dimorphic = 1
 
 /datum/sprite_accessory/synth_head/moth
 	name = "Moth Head"
 	icon = BODYPART_ICON_MOTH
 	icon_state = "moth"
 	color_src = MUTANT_COLOR
-	dimorphic = TRUE
+	dimorphic = 1
 
 /datum/sprite_accessory/synth_head/android
 	name = "Android Head"
@@ -341,14 +341,14 @@
 	icon = BODYPART_ICON_SYNTHMAMMAL
 	icon_state = "synthmammal"
 	color_src = MUTANT_COLOR
-	dimorphic = TRUE
+	dimorphic = 1
 
 /datum/sprite_accessory/synth_head/lizard
 	name = "Lizard Head"
 	icon = BODYPART_ICON_SYNTHLIZARD
 	icon_state = "synthliz"
 	color_src = MUTANT_COLOR
-	dimorphic = TRUE
+	dimorphic = 1
 
 /datum/sprite_accessory/synth_head/mcgreyscale
 	name = "Morpheus Cyberkinetics (Greyscale)"

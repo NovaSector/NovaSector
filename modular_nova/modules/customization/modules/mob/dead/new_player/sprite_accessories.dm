@@ -148,8 +148,8 @@
 	icon = 'modular_nova/master_files/icons/mob/species/podperson_hair.dmi'
 	key = FEATURE_POD_HAIR
 	recommended_species = list(
-		SPECIES_PODPERSON = TRUE,
-		SPECIES_PODPERSON_WEAK = TRUE,
+		SPECIES_PODPERSON = 1,
+		SPECIES_PODPERSON_WEAK = 1,
 	)
 	organ_type = /obj/item/organ/pod_hair
 

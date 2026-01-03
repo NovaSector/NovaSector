@@ -35,43 +35,43 @@
 /datum/sprite_accessory/horns/angler
 	default_color = DEFAULT_SECONDARY
 	recommended_species = list(
-		SPECIES_MAMMAL = TRUE,
-		SPECIES_LIZARD = TRUE,
-		SPECIES_UNATHI = TRUE,
-		SPECIES_LIZARD_ASH = TRUE,
-		SPECIES_LIZARD_SILVER = TRUE,
+		SPECIES_MAMMAL = 1,
+		SPECIES_LIZARD = 1,
+		SPECIES_UNATHI = 1,
+		SPECIES_LIZARD_ASH = 1,
+		SPECIES_LIZARD_SILVER = 1,
 	)
 
 /datum/sprite_accessory/horns/ram
 	name = "Ram"
 	icon_state = "ram"
 	recommended_species = list(
-		SPECIES_MAMMAL = TRUE,
-		SPECIES_LIZARD = TRUE,
-		SPECIES_UNATHI = TRUE,
-		SPECIES_LIZARD_ASH = TRUE,
-		SPECIES_LIZARD_SILVER = TRUE,
-		SPECIES_KOBOLD = TRUE,
+		SPECIES_MAMMAL = 1,
+		SPECIES_LIZARD = 1,
+		SPECIES_UNATHI = 1,
+		SPECIES_LIZARD_ASH = 1,
+		SPECIES_LIZARD_SILVER = 1,
+		SPECIES_KOBOLD = 1,
 	)
 
 /datum/sprite_accessory/horns/short
 	recommended_species = list(
-		SPECIES_MAMMAL = TRUE,
-		SPECIES_LIZARD = TRUE,
-		SPECIES_UNATHI = TRUE,
-		SPECIES_LIZARD_ASH = TRUE,
-		SPECIES_LIZARD_SILVER = TRUE,
-		SPECIES_KOBOLD = TRUE,
+		SPECIES_MAMMAL = 1,
+		SPECIES_LIZARD = 1,
+		SPECIES_UNATHI = 1,
+		SPECIES_LIZARD_ASH = 1,
+		SPECIES_LIZARD_SILVER = 1,
+		SPECIES_KOBOLD = 1,
 	)
 
 /datum/sprite_accessory/horns/simple
 	recommended_species = list(
-		SPECIES_MAMMAL = TRUE,
-		SPECIES_LIZARD = TRUE,
-		SPECIES_UNATHI = TRUE,
-		SPECIES_LIZARD_ASH = TRUE,
-		SPECIES_LIZARD_SILVER = TRUE,
-		SPECIES_KOBOLD = TRUE,
+		SPECIES_MAMMAL = 1,
+		SPECIES_LIZARD = 1,
+		SPECIES_UNATHI = 1,
+		SPECIES_LIZARD_ASH = 1,
+		SPECIES_LIZARD_SILVER = 1,
+		SPECIES_KOBOLD = 1,
 	)
 
 /datum/sprite_accessory/horns/guilmon
@@ -178,33 +178,33 @@
 	icon_state = "broadcurls"
 
 /datum/sprite_accessory/horns/antenna_fuzzball_v2
-	recommended_species = list(SPECIES_INSECT = TRUE)
+	recommended_species = list(SPECIES_INSECT = 1)
 	name = "Fuzzball Antenna"
 	icon_state = "antenna_fuzzballv2"
 	color_src = USE_MATRIXED_COLORS
 
 /datum/sprite_accessory/horns/setaceous
-	recommended_species = list(SPECIES_INSECT = TRUE)
+	recommended_species = list(SPECIES_INSECT = 1)
 	name = "Setaceous Antenna"
 	icon_state = "setaceous"
 	color_src = USE_ONE_COLOR
 
 /datum/sprite_accessory/horns/setaceousm
-	recommended_species = list(SPECIES_INSECT = TRUE)
+	recommended_species = list(SPECIES_INSECT = 1)
 	name = "Medium Setaceous Antenna"
 	icon_state = "setaceousm"
 	color_src = USE_ONE_COLOR
 
 /datum/sprite_accessory/horns/geniculate
-	recommended_species = list(SPECIES_INSECT = TRUE)
+	recommended_species = list(SPECIES_INSECT = 1)
 	name = "Geniculate Antenna"
 	icon_state = "geniculate"
 	color_src = USE_ONE_COLOR
 
 /datum/sprite_accessory/horns/moogle_pom
 	recommended_species = list(
-		SPECIES_MAMMAL = TRUE,
-		SPECIES_HUMAN = TRUE,
+		SPECIES_MAMMAL = 1,
+		SPECIES_HUMAN = 1,
 	)
 	icon = 'modular_nova/master_files/icons/mob/sprite_accessory/moogle_pom.dmi'
 	color_src = USE_MATRIXED_COLORS

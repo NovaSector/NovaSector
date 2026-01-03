@@ -20,11 +20,11 @@
 	name = "Sylveon Head Bow"
 	icon_state = "sylveon_bow"
 	recommended_species = list(
-		SPECIES_MAMMAL = TRUE,
-		SPECIES_HUMAN = TRUE,
-		SPECIES_SYNTH = TRUE,
-		SPECIES_FELINE = TRUE,
-		SPECIES_HUMANOID = TRUE,
+		SPECIES_MAMMAL = 1,
+		SPECIES_HUMAN = 1,
+		SPECIES_SYNTH = 1,
+		SPECIES_FELINE = 1,
+		SPECIES_HUMANOID = 1,
 	)
 	relevent_layers = list(BODY_BEHIND_LAYER, BODY_FRONT_LAYER)
 	color_src = USE_MATRIXED_COLORS

@@ -135,7 +135,7 @@
 
 		if(limb.body_zone == BODY_ZONE_HEAD)
 			var/list/head_colors = head.get_colors()
-			if(head_of_choice.color_src && length(head_colors)
+			if(head_of_choice.color_src && length(head_colors))
 				limb.add_color_override(head.get_primary_color(), LIMB_COLOR_SYNTH)
 			limb.change_appearance(head_of_choice.icon, head_of_choice.icon_state, !!head_of_choice.color_src, head_of_choice.dimorphic)
 			continue

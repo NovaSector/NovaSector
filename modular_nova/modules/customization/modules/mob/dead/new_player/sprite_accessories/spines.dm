@@ -2,10 +2,10 @@
 	key = FEATURE_SPINES
 	default_color = DEFAULT_SECONDARY
 	recommended_species = list(
-		SPECIES_LIZARD = TRUE,
-		SPECIES_UNATHI = TRUE,
-		SPECIES_LIZARD_ASH = TRUE,
-		SPECIES_LIZARD_SILVER = TRUE,
+		SPECIES_LIZARD = 1,
+		SPECIES_UNATHI = 1,
+		SPECIES_LIZARD_ASH = 1,
+		SPECIES_LIZARD_SILVER = 1,
 	)
 	relevent_layers = list(BODY_BEHIND_LAYER, BODY_ADJ_LAYER)
 	organ_type = /obj/item/organ/spines

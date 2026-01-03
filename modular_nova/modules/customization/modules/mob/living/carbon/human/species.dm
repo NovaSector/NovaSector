@@ -173,12 +173,16 @@ GLOBAL_LIST_EMPTY(customizable_races)
 
 	var/robot_organs = HAS_TRAIT(target, TRAIT_ROBOTIC_DNA_ORGANS)
 
-	for(var/key, mutant_part in target.dna.mutant_bodyparts)
+	for (var/key, mutant_part in target.dna.mutant_bodyparts)
+		var/list/accessory_category = SSaccessories.sprite_accessories[key]
+		if(!islist(accessory_category))
+			CRASH("Mutant bodypart key [key] has no sprite accessory category")
+
 		var/datum/mutant_bodypart/mutant_bodypart = mutant_part
 		if(!istype(mutant_bodypart))
 			continue
 
-		var/datum/sprite_accessory/mutant_accessory = SSaccessories.sprite_accessories[key][mutant_bodypart.name]
+		var/datum/sprite_accessory/mutant_accessory = accessory_category[mutant_bodypart.name]
 		if(isnull(mutant_accessory))
 			continue
 

@@ -34,12 +34,12 @@
 
 /datum/sprite_accessory/ears/cat
 	recommended_species = list(
-		SPECIES_MAMMAL = TRUE,
-		SPECIES_HUMAN = TRUE,
-		SPECIES_SYNTH = TRUE,
-		SPECIES_FELINE = TRUE,
-		SPECIES_HUMANOID = TRUE,
-		SPECIES_GHOUL = TRUE,
+		SPECIES_MAMMAL = 1,
+		SPECIES_HUMAN = 1,
+		SPECIES_SYNTH = 1,
+		SPECIES_FELINE = 1,
+		SPECIES_HUMANOID = 1,
+		SPECIES_GHOUL = 1,
 	)
 	relevent_layers = list(BODY_BEHIND_LAYER, BODY_FRONT_LAYER)
 	color_src = USE_ONE_COLOR
@@ -54,12 +54,12 @@
 	organ_type = /obj/item/organ/ears_external
 	color_src = USE_MATRIXED_COLORS
 	recommended_species = list(
-		SPECIES_MAMMAL = TRUE,
-		SPECIES_HUMAN = TRUE,
-		SPECIES_SYNTH = TRUE,
-		SPECIES_FELINE = TRUE,
-		SPECIES_HUMANOID = TRUE,
-		SPECIES_GHOUL = TRUE,
+		SPECIES_MAMMAL = 1,
+		SPECIES_HUMAN = 1,
+		SPECIES_SYNTH = 1,
+		SPECIES_FELINE = 1,
+		SPECIES_HUMANOID = 1,
+		SPECIES_GHOUL = 1,
 	)
 	uses_emissives = TRUE
 
@@ -75,36 +75,36 @@
 
 /datum/sprite_accessory/ears/external/vulpkanin
 	recommended_species = list(
-		SPECIES_MAMMAL = TRUE,
-		SPECIES_HUMAN = TRUE,
-		SPECIES_SYNTH = TRUE,
-		SPECIES_FELINE = TRUE,
-		SPECIES_VULP = TRUE,
-		SPECIES_HUMANOID = TRUE,
-		SPECIES_GHOUL = TRUE,
+		SPECIES_MAMMAL = 1,
+		SPECIES_HUMAN = 1,
+		SPECIES_SYNTH = 1,
+		SPECIES_FELINE = 1,
+		SPECIES_VULP = 1,
+		SPECIES_HUMANOID = 1,
+		SPECIES_GHOUL = 1,
 	)
 
 /datum/sprite_accessory/ears/external/cat
 	recommended_species = list(
-		SPECIES_MAMMAL = TRUE,
-		SPECIES_HUMAN = TRUE,
-		SPECIES_SYNTH = TRUE,
-		SPECIES_FELINE = TRUE,
-		SPECIES_TAJARAN = TRUE,
-		SPECIES_HUMANOID = TRUE,
-		SPECIES_GHOUL = TRUE,
+		SPECIES_MAMMAL = 1,
+		SPECIES_HUMAN = 1,
+		SPECIES_SYNTH = 1,
+		SPECIES_FELINE = 1,
+		SPECIES_TAJARAN = 1,
+		SPECIES_HUMANOID = 1,
+		SPECIES_GHOUL = 1,
 	)
 
 /datum/sprite_accessory/ears/external/akula
 	recommended_species = list(
-		SPECIES_MAMMAL = TRUE,
-		SPECIES_HUMAN = TRUE,
-		SPECIES_SYNTH = TRUE,
-		SPECIES_FELINE = TRUE,
-		SPECIES_AQUATIC = TRUE,
-		SPECIES_AKULA = TRUE,
-		SPECIES_HUMANOID = TRUE,
-		SPECIES_GHOUL = TRUE,
+		SPECIES_MAMMAL = 1,
+		SPECIES_HUMAN = 1,
+		SPECIES_SYNTH = 1,
+		SPECIES_FELINE = 1,
+		SPECIES_AQUATIC = 1,
+		SPECIES_AKULA = 1,
+		SPECIES_HUMANOID = 1,
+		SPECIES_GHOUL = 1,
 	)
 
 /datum/sprite_accessory/ears/external/axolotl
@@ -407,7 +407,7 @@
 	icon_state = "deerear"
 
 /datum/sprite_accessory/ears/external/teshari
-	recommended_species = list(SPECIES_TESHARI = TRUE)
+	recommended_species = list(SPECIES_TESHARI = 1)
 
 /datum/sprite_accessory/ears/external/teshari/regular
 	name = "Teshari Regular"

@@ -29,11 +29,11 @@
 	name = SPRITE_ACCESSORY_NONE
 	icon_state = "none"
 	recommended_species = list(
-		SPECIES_SYNTH = TRUE,
-		SPECIES_MAMMAL = TRUE,
-		SPECIES_HUMAN = TRUE,
-		SPECIES_HUMANOID = TRUE,
-		SPECIES_GHOUL = TRUE,
+		SPECIES_SYNTH = 1,
+		SPECIES_MAMMAL = 1,
+		SPECIES_HUMAN = 1,
+		SPECIES_HUMANOID = 1,
+		SPECIES_GHOUL = 1,
 	)
 	color_src = null
 	factual = FALSE
@@ -42,13 +42,13 @@
 /datum/sprite_accessory/tails/lizard
 	icon = 'modular_nova/master_files/icons/mob/sprite_accessory/tails.dmi'
 	recommended_species = list(
-		SPECIES_LIZARD = TRUE,
-		SPECIES_LIZARD_ASH = TRUE,
-		SPECIES_MAMMAL = TRUE,
-		SPECIES_UNATHI = TRUE,
-		SPECIES_LIZARD_SILVER = TRUE,
-		SPECIES_KOBOLD = TRUE,
-		SPECIES_LIZARD = TRUE,
+		SPECIES_LIZARD = 1,
+		SPECIES_LIZARD_ASH = 1,
+		SPECIES_MAMMAL = 1,
+		SPECIES_UNATHI = 1,
+		SPECIES_LIZARD_SILVER = 1,
+		SPECIES_KOBOLD = 1,
+		SPECIES_LIZARD = 1,
 	)
 	organ_type = /obj/item/organ/tail/lizard
 
@@ -59,11 +59,11 @@
 
 /datum/sprite_accessory/tails/human
 	recommended_species = list(
-		SPECIES_HUMAN = TRUE,
-		SPECIES_SYNTH = TRUE,
-		SPECIES_FELINE = TRUE,
-		SPECIES_MAMMAL = TRUE,
-		SPECIES_GHOUL = TRUE,
+		SPECIES_HUMAN = 1,
+		SPECIES_SYNTH = 1,
+		SPECIES_FELINE = 1,
+		SPECIES_MAMMAL = 1,
+		SPECIES_GHOUL = 1,
 	)
 	organ_type = /obj/item/organ/tail/cat
 
@@ -72,11 +72,11 @@
 	icon_state = "cat"
 	color_src = USE_ONE_COLOR
 	recommended_species = list(
-		SPECIES_HUMAN = TRUE,
-		SPECIES_SYNTH = TRUE,
-		SPECIES_FELINE = TRUE,
-		SPECIES_MAMMAL = TRUE,
-		SPECIES_GHOUL = TRUE,
+		SPECIES_HUMAN = 1,
+		SPECIES_SYNTH = 1,
+		SPECIES_FELINE = 1,
+		SPECIES_MAMMAL = 1,
+		SPECIES_GHOUL = 1,
 	)
 	organ_type = /obj/item/organ/tail/cat
 
@@ -84,12 +84,12 @@
 	icon = 'modular_nova/master_files/icons/mob/sprite_accessory/tails.dmi'
 	icon_state = "monkey_colorable"
 	recommended_species = list(
-		SPECIES_HUMAN = TRUE,
-		SPECIES_SYNTH = TRUE,
-		SPECIES_FELINE = TRUE,
-		SPECIES_MAMMAL = TRUE,
-		SPECIES_MONKEY = TRUE,
-		SPECIES_GHOUL = TRUE,
+		SPECIES_HUMAN = 1,
+		SPECIES_SYNTH = 1,
+		SPECIES_FELINE = 1,
+		SPECIES_MAMMAL = 1,
+		SPECIES_MONKEY = 1,
+		SPECIES_GHOUL = 1,
 	)
 	color_src = USE_ONE_COLOR
 	name = "Monkey Colorable"
@@ -98,23 +98,23 @@
 	icon = 'modular_nova/master_files/icons/mob/sprite_accessory/tails.dmi'
 	icon_state = "monkey"
 	recommended_species = list(
-		SPECIES_HUMAN = TRUE,
-		SPECIES_SYNTH = TRUE,
-		SPECIES_FELINE = TRUE,
-		SPECIES_MAMMAL = TRUE,
-		SPECIES_MONKEY = TRUE,
-		SPECIES_GHOUL = TRUE,
+		SPECIES_HUMAN = 1,
+		SPECIES_SYNTH = 1,
+		SPECIES_FELINE = 1,
+		SPECIES_MAMMAL = 1,
+		SPECIES_MONKEY = 1,
+		SPECIES_GHOUL = 1,
 	)
 	organ_type = /obj/item/organ/tail/monkey
 
 /datum/sprite_accessory/tails/mammal
 	icon_state = "none"
 	recommended_species = list(
-		SPECIES_MAMMAL = TRUE,
-		SPECIES_HUMAN = TRUE,
-		SPECIES_SYNTH = TRUE,
-		SPECIES_HUMANOID = TRUE,
-		SPECIES_GHOUL = TRUE,
+		SPECIES_MAMMAL = 1,
+		SPECIES_HUMAN = 1,
+		SPECIES_SYNTH = 1,
+		SPECIES_HUMANOID = 1,
+		SPECIES_GHOUL = 1,
 	)
 	organ_type = /obj/item/organ/tail/fluffy/no_wag
 	color_src = USE_MATRIXED_COLORS
@@ -125,36 +125,36 @@
 
 /datum/sprite_accessory/tails/mammal/wagging/akula
 	recommended_species = list(
-		SPECIES_MAMMAL = TRUE,
-		SPECIES_HUMAN = TRUE,
-		SPECIES_SYNTH = TRUE,
-		SPECIES_AKULA = TRUE,
-		SPECIES_AQUATIC = TRUE,
-		SPECIES_HUMANOID = TRUE,
-		SPECIES_GHOUL = TRUE,
+		SPECIES_MAMMAL = 1,
+		SPECIES_HUMAN = 1,
+		SPECIES_SYNTH = 1,
+		SPECIES_AKULA = 1,
+		SPECIES_AQUATIC = 1,
+		SPECIES_HUMANOID = 1,
+		SPECIES_GHOUL = 1,
 	)
 
 /datum/sprite_accessory/tails/mammal/wagging/tajaran
 	recommended_species = list(
-		SPECIES_MAMMAL = TRUE,
-		SPECIES_HUMAN = TRUE,
-		SPECIES_SYNTH = TRUE,
-		SPECIES_TAJARAN = TRUE,
-		SPECIES_HUMANOID = TRUE,
-		SPECIES_GHOUL = TRUE,
+		SPECIES_MAMMAL = 1,
+		SPECIES_HUMAN = 1,
+		SPECIES_SYNTH = 1,
+		SPECIES_TAJARAN = 1,
+		SPECIES_HUMANOID = 1,
+		SPECIES_GHOUL = 1,
 	)
 
 /datum/sprite_accessory/tails/mammal/teshari
-	recommended_species = list(SPECIES_TESHARI = TRUE)
+	recommended_species = list(SPECIES_TESHARI = 1)
 
 /datum/sprite_accessory/tails/mammal/wagging/vulpkanin
 	recommended_species = list(
-		SPECIES_MAMMAL = TRUE,
-		SPECIES_HUMAN = TRUE,
-		SPECIES_SYNTH = TRUE,
-		SPECIES_VULP = TRUE,
-		SPECIES_HUMANOID = TRUE,
-		SPECIES_GHOUL = TRUE,
+		SPECIES_MAMMAL = 1,
+		SPECIES_HUMAN = 1,
+		SPECIES_SYNTH = 1,
+		SPECIES_VULP = 1,
+		SPECIES_HUMANOID = 1,
+		SPECIES_GHOUL = 1,
 	)
 
 /datum/sprite_accessory/tails/mammal/wagging/big
@@ -582,8 +582,8 @@
 // TG Fish infusion tails
 /datum/sprite_accessory/tails/fish
 	recommended_species = list(
-		SPECIES_AKULA = TRUE,
-		SPECIES_AQUATIC = TRUE,
+		SPECIES_AKULA = 1,
+		SPECIES_AQUATIC = 1,
 	)
 	color_src = USE_ONE_COLOR
 	feature_key_override = FEATURE_TAIL_FISH
@@ -605,7 +605,7 @@
 
 /datum/sprite_accessory/tails/xeno
 	feature_key_override = FEATURE_TAIL_XENO
-	recommended_species = list(SPECIES_XENO = TRUE)
+	recommended_species = list(SPECIES_XENO = 1)
 
 /datum/sprite_accessory/tails/xeno/queen
 	locked = TRUE

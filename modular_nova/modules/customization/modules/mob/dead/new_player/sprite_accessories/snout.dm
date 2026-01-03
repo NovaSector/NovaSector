@@ -4,12 +4,12 @@
 	flags_for_organ = SPRITE_ACCESSORY_USE_MUZZLED_SPRITE
 	organ_type = /obj/item/organ/snout
 	recommended_species = list(
-		SPECIES_MAMMAL = TRUE,
-		SPECIES_LIZARD = TRUE,
-		SPECIES_UNATHI = TRUE,
-		SPECIES_LIZARD_ASH = TRUE,
-		SPECIES_LIZARD_SILVER = TRUE,
-		SPECIES_KOBOLD = TRUE,
+		SPECIES_MAMMAL = 1,
+		SPECIES_LIZARD = 1,
+		SPECIES_UNATHI = 1,
+		SPECIES_LIZARD_ASH = 1,
+		SPECIES_LIZARD_SILVER = 1,
+		SPECIES_KOBOLD = 1,
 	)
 	relevent_layers = list(BODY_ADJ_LAYER, BODY_FRONT_LAYER)
 
@@ -70,30 +70,30 @@
 	icon = 'modular_nova/master_files/icons/mob/sprite_accessory/snouts.dmi'
 	color_src = USE_MATRIXED_COLORS
 	recommended_species = list(
-		SPECIES_MAMMAL = TRUE,
-		SPECIES_HUMANOID = TRUE,
+		SPECIES_MAMMAL = 1,
+		SPECIES_HUMANOID = 1,
 	)
 
 /datum/sprite_accessory/snouts/mammal/vulpkanin
 	recommended_species = list(
-		SPECIES_MAMMAL = TRUE,
-		SPECIES_VULP = TRUE,
-		SPECIES_HUMANOID = TRUE,
+		SPECIES_MAMMAL = 1,
+		SPECIES_VULP = 1,
+		SPECIES_HUMANOID = 1,
 	)
 
 /datum/sprite_accessory/snouts/mammal/tajaran
 	recommended_species = list(
-		SPECIES_MAMMAL = TRUE,
-		SPECIES_TAJARAN = TRUE,
-		SPECIES_HUMANOID = TRUE,
+		SPECIES_MAMMAL = 1,
+		SPECIES_TAJARAN = 1,
+		SPECIES_HUMANOID = 1,
 	)
 
 /datum/sprite_accessory/snouts/mammal/akula
 	recommended_species = list(
-		SPECIES_MAMMAL = TRUE,
-		SPECIES_AKULA = TRUE,
-		SPECIES_AQUATIC = TRUE,
-		SPECIES_HUMANOID = TRUE,
+		SPECIES_MAMMAL = 1,
+		SPECIES_AKULA = 1,
+		SPECIES_AQUATIC = 1,
+		SPECIES_HUMANOID = 1,
 	)
 
 /datum/sprite_accessory/snouts/mammal/bird
