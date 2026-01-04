@@ -17,7 +17,7 @@
 	human.dna.initialize_dna(newblood_type = random_human_blood_type(), create_mutation_blocks = randomize_mutations, randomize_features = TRUE)
 	// NOVA EDIT ADDITION BEGIN - CUSTOMIZATION
 	var/skin_tone_hex = skintone2hex(human.skin_tone)
-	human.dna.features.skin_color = skin_tone_hex
+	human.dna.features["skin_color"] = skin_tone_hex
 	if(human.dna.features["mcolor"] == "#FFFFBB") // Until upstream fixes skin tones to not be STUPID we are just going to suffer
 		human.dna.features["mcolor"] = skin_tone_hex
 		human.dna.features["mcolor2"] = skin_tone_hex
@@ -61,7 +61,7 @@
 		human.updateappearance(mutcolor_update = TRUE)
 	// NOVA EDIT ADDITION BEGIN - CUSTOMIZATION
 	var/skin_tone_hex = skintone2hex(human.skin_tone)
-	human.dna.features.skin_color = skin_tone_hex
+	human.dna.features["skin_color"] = skin_tone_hex
 	if(human.dna.features["mcolor"] == "#FFFFBB") // Until upstream fixes skin tones to not be STUPID we are just going to suffer
 		human.dna.features["mcolor"] = skin_tone_hex
 		human.dna.features["mcolor2"] = skin_tone_hex
