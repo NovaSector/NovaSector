@@ -336,35 +336,6 @@
 	save_data["modular_version"] = MODULAR_SAVEFILE_VERSION_MAX
 	save_data["food_preferences"] = food_preferences
 
-
-/datum/preferences/proc/update_mutant_bodyparts(datum/preference/preference)
-	if (!preference.relevant_mutant_bodypart)
-		return
-	var/part = preference.relevant_mutant_bodypart
-	var/value = read_preference(preference.type)
-	if (isnull(value))
-		return
-	if (istype(preference, /datum/preference/toggle))
-		if (value)
-			var/datum/preference/choiced/name = GLOB.preference_entries_by_key["feature_[part]"]
-			var/datum/preference/tri_color/color = GLOB.preference_entries_by_key["[part]_color"]
-			if (isnull(name) || isnull(color))
-				return
-			var/species_type = read_preference(/datum/preference/choiced/species)
-			var/datum/species/current_species = GLOB.species_prototypes[species_type]
-			mutant_bodyparts[part] = current_species.build_mutant_part(read_preference(name.type), read_preference(color.type))
-		else
-			mutant_bodyparts -= part
-	else if (istype(preference, /datum/preference/choiced))
-		var/datum/mutant_bodypart/mutant_part = mutant_bodyparts[part]
-		if (mutant_part)
-			mutant_part.name = value
-	else if (istype(preference, /datum/preference/tri_color))
-		var/datum/mutant_bodypart/mutant_part = mutant_bodyparts[part]
-		if (mutant_part)
-			mutant_part.set_colors(value)
-
-
 /datum/preferences/proc/update_markings(list/markings)
 	if (islist(markings))
 		for (var/marking in markings)

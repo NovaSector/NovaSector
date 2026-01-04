@@ -812,7 +812,7 @@
 	name = "Tattoo - Hive"
 	icon_state = "tat_hive"
 	affected_bodyparts = CHEST
-	gendered = 1
+	gendered = TRUE
 
 /datum/body_marking/tattoo/nightling
 	name = "Tattoo - Nightling"
@@ -833,7 +833,7 @@
 	name = "Tattoo - Tiger"
 	icon_state = "tat_tiger"
 	affected_bodyparts = CHEST | ARM_LEFT | ARM_RIGHT | HAND_LEFT | HAND_RIGHT | LEG_RIGHT | LEG_LEFT
-	gendered = 1
+	gendered = TRUE
 
 /datum/body_marking/tattoo/tiger_groin
 	name = "Tattoo - Tiger (Groin)"
