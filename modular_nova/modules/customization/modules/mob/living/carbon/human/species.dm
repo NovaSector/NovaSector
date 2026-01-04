@@ -126,10 +126,13 @@ GLOBAL_LIST_EMPTY(customizable_races)
  */
 /datum/species/proc/get_mutant_bodyparts(list/features, list/existing_mutant_bodyparts) //Needs features to base the colour off of
 	var/list/mutantpart_list = list()
+	var/static/list/blacklisted_keys
+	if(isnull(blacklisted_keys))
+		blacklisted_keys = list(FEATURE_LEGS, FEATURE_GHOUL_COLOR) // These are just in GLOB.default_mutant_bodyparts for the purposes of the prefs menu population
 	if(LAZYLEN(existing_mutant_bodyparts))
 		mutantpart_list = existing_mutant_bodyparts.Copy()
 
-	var/list/default_bodypart_data = GLOB.default_mutant_bodyparts[name] - FEATURE_LEGS  // These are just in GLOB.default_mutant_bodyparts for the purposes of the prefs menu population
+	var/list/default_bodypart_data = GLOB.default_mutant_bodyparts[name] - blacklisted_keys
 	var/erp_disabled = CONFIG_GET(flag/disable_erp_preferences)
 
 	for(var/key, bodypart_to_add in default_bodypart_data)

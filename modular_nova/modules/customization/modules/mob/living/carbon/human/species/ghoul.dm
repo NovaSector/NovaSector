@@ -38,10 +38,10 @@
 		FEATURE_GHOUL_COLOR = list("Tan Necrotic", FALSE),
 	)
 
-/proc/proof_ghoul_features(list/inFeatures)
+/proc/proof_ghoul_features(list/in_features)
 	// Missing Defaults in DNA? Randomize!
-	if(inFeatures[FEATURE_GHOUL_COLOR] == null || inFeatures[FEATURE_GHOUL_COLOR] == "")
-		inFeatures[FEATURE_GHOUL_COLOR] = GLOB.color_list_ghoul[pick(GLOB.color_list_ghoul)]
+	if(in_features[FEATURE_GHOUL_COLOR] == null || in_features[FEATURE_GHOUL_COLOR] == "")
+		in_features[FEATURE_GHOUL_COLOR] = GLOB.color_list_ghoul[pick(GLOB.color_list_ghoul)]
 
 /datum/species/proc/set_ghoul_color(mob/living/carbon/human/human_ghoul)
 	return // Do Nothing
