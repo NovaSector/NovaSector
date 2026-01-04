@@ -77,6 +77,7 @@
 
 /datum/design/d2
 	name = "D2 Die"
+	id = "d2"
 	build_type = AUTOLATHE | PROTOLATHE | AWAY_LATHE
 	materials = list(/datum/material/plastic =SMALL_MATERIAL_AMOUNT*0.2)
 	build_path = /obj/item/dice/d2
@@ -87,6 +88,7 @@
 
 /datum/design/d4
 	name = "D4 Die"
+	id = "d4"
 	build_type = AUTOLATHE | PROTOLATHE | AWAY_LATHE
 	materials = list(/datum/material/plastic =SMALL_MATERIAL_AMOUNT*0.2)
 	build_path = /obj/item/dice/d4
@@ -97,6 +99,7 @@
 
 /datum/design/d6
 	name = "D6 Die"
+	id = "d6"
 	build_type = AUTOLATHE | PROTOLATHE | AWAY_LATHE
 	materials = list(/datum/material/plastic =SMALL_MATERIAL_AMOUNT*0.2)
 	build_path = /obj/item/dice/d6
@@ -107,6 +110,7 @@
 
 /datum/design/d8
 	name = "D8 Die"
+	id = "d8"
 	build_type = AUTOLATHE | PROTOLATHE | AWAY_LATHE
 	materials = list(/datum/material/plastic =SMALL_MATERIAL_AMOUNT*0.2)
 	build_path = /obj/item/dice/d8
@@ -117,6 +121,7 @@
 
 /datum/design/d10
 	name = "D10 Die"
+	id = "d10"
 	build_type = AUTOLATHE | PROTOLATHE | AWAY_LATHE
 	materials = list(/datum/material/plastic =SMALL_MATERIAL_AMOUNT*0.2)
 	build_path = /obj/item/dice/d10
@@ -127,6 +132,7 @@
 
 /datum/design/d00
 	name = "D00 Die"
+	id = "d00"
 	build_type = AUTOLATHE | PROTOLATHE | AWAY_LATHE
 	materials = list(/datum/material/plastic =SMALL_MATERIAL_AMOUNT*0.2)
 	build_path = /obj/item/dice/d00
@@ -138,6 +144,7 @@
 
 /datum/design/d12
 	name = "D12 Die"
+	id = "d12"
 	build_type = AUTOLATHE | PROTOLATHE | AWAY_LATHE
 	materials = list(/datum/material/plastic =SMALL_MATERIAL_AMOUNT*0.2)
 	build_path = /obj/item/dice/d12
@@ -148,6 +155,7 @@
 
 /datum/design/d20
 	name = "D20 Die"
+	id = "d20"
 	build_type = AUTOLATHE | PROTOLATHE | AWAY_LATHE
 	materials = list(/datum/material/plastic =SMALL_MATERIAL_AMOUNT*0.2)
 	build_path = /obj/item/dice/d20
@@ -158,6 +166,7 @@
 
 /datum/design/fudge
 	name = "Fudge Die"
+	id = "fudge"
 	build_type = AUTOLATHE | PROTOLATHE | AWAY_LATHE
 	materials = list(/datum/material/plastic =SMALL_MATERIAL_AMOUNT*0.2)
 	build_path = /obj/item/dice/fudge
@@ -168,6 +177,7 @@
 
 /datum/design/d100
 	name = "D100 Die"
+	id = "d100"
 	build_type = AUTOLATHE | PROTOLATHE | AWAY_LATHE
 	materials = list(/datum/material/plastic =SMALL_MATERIAL_AMOUNT*0.4) //Uses more plastic, because it's a chunky boy.
 	build_path = /obj/item/dice/d100
@@ -175,4 +185,3 @@
 		RND_CATEGORY_INITIAL,
 		RND_CATEGORY_EQUIPMENT + RND_SUBCATEGORY_EQUIPMENT_MISC,
 	)
-
