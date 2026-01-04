@@ -1761,12 +1761,16 @@
 /obj/effect/turf_decal/trimline/dark_green/warning{
 	dir = 1
 	},
-/obj/machinery/button/door/directional/north{
-	id = "CafeDyne";
-	name = "Door Bolt"
+/obj/machinery/button/door{
+	id = "CCD2";
+	name = "Dorm Bolt Control";
+	normaldoorcontrol = 1;
+	pixel_x = 5;
+	specialfunctions = 4;
+	pixel_y = 25
 	},
 /turf/open/floor/iron/white/small,
-/area/centcom/holding/cafepark)
+/area/centcom/holding/cafe)
 "ayI" = (
 /turf/open/misc/dirt/planet,
 /area/centcom/holding/cafepark)
@@ -2591,14 +2595,14 @@
 /turf/open/floor/wood/wood_6,
 /area/centcom/holding/cafe)
 "aHX" = (
-/obj/machinery/door/airlock/vault{
-	id_tag = "CafeDyne"
-	},
 /obj/structure/fans/tiny/invisible,
+/obj/machinery/door/airlock/titanium{
+	id_tag = "CCD2"
+	},
 /turf/open/floor/iron/white/textured_half{
 	dir = 1
 	},
-/area/centcom/holding/cafepark)
+/area/centcom/holding/cafe)
 "aHY" = (
 /obj/machinery/firealarm/directional/north,
 /turf/open/floor/iron/recharge_floor,
@@ -3983,9 +3987,6 @@
 /obj/machinery/light/directional/west,
 /turf/open/floor/wood,
 /area/centcom/holding/cafe)
-"aWg" = (
-/turf/open/floor/iron/dark,
-/area/centcom/holding/cafepark)
 "aWh" = (
 /obj/machinery/light/directional/east,
 /turf/open/floor/wood,
@@ -3998,7 +3999,7 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/structure/cable,
 /turf/open/floor/catwalk_floor/iron_dark,
-/area/centcom/holding/cafepark)
+/area/centcom/holding/cafe)
 "aWj" = (
 /obj/structure/flora/bush/grassy/style_3,
 /turf/open/misc/grass/planet,
@@ -4614,7 +4615,7 @@
 "bwI" = (
 /obj/machinery/chem_heater/withbuffer,
 /turf/open/floor/iron/dark/small,
-/area/centcom/holding/cafepark)
+/area/centcom/holding/cafe)
 "bxj" = (
 /obj/effect/turf_decal/trimline/neutral/warning,
 /obj/structure/bed/medical/emergency,
@@ -4758,7 +4759,7 @@
 /turf/open/floor/iron/dark/smooth_edge{
 	dir = 1
 	},
-/area/centcom/holding/cafepark)
+/area/centcom/holding/cafe)
 "bEV" = (
 /obj/structure/fans/tiny/invisible,
 /obj/structure/fake_stairs/wood/directional/north,
@@ -5263,7 +5264,7 @@
 /turf/open/floor/iron/dark/smooth_corner{
 	dir = 1
 	},
-/area/centcom/holding/cafepark)
+/area/centcom/holding/cafe)
 "cgU" = (
 /obj/effect/light_emitter/interlink,
 /turf/open/misc/grass/planet,
@@ -5708,7 +5709,7 @@
 /turf/open/floor/iron/dark/smooth_edge{
 	dir = 8
 	},
-/area/centcom/holding/cafepark)
+/area/centcom/holding/cafe)
 "cVm" = (
 /obj/effect/turf_decal/trimline/white/filled/corner{
 	dir = 8
@@ -6518,13 +6519,13 @@
 	},
 /obj/structure/sink/directional/south,
 /turf/open/floor/iron/white/small,
-/area/centcom/holding/cafepark)
+/area/centcom/holding/cafe)
 "ekp" = (
 /turf/closed/indestructible/steel,
 /area/centcom/holding/cafepark)
 "eks" = (
 /turf/open/floor/iron/dark/small,
-/area/centcom/holding/cafepark)
+/area/centcom/holding/cafe)
 "ekE" = (
 /obj/effect/turf_decal/trimline/white/filled/line{
 	dir = 1
@@ -7779,7 +7780,7 @@
 /obj/machinery/shower/directional/west,
 /obj/structure/drain,
 /turf/open/floor/iron/white/small,
-/area/centcom/holding/cafepark)
+/area/centcom/holding/cafe)
 "gbM" = (
 /obj/effect/turf_decal/siding/wood{
 	dir = 9
@@ -8676,7 +8677,7 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/structure/cable,
 /turf/open/floor/catwalk_floor/iron_dark,
-/area/centcom/holding/cafepark)
+/area/centcom/holding/cafe)
 "hge" = (
 /obj/structure/fans/tiny/invisible,
 /obj/machinery/door/airlock/security{
@@ -8916,7 +8917,7 @@
 /area/centcom/interlink)
 "hsy" = (
 /turf/closed/wall/mineral/titanium/nodiagonal,
-/area/centcom/holding/cafepark)
+/area/centcom/holding/cafe)
 "hsW" = (
 /obj/structure/chair/sofa/bamboo/right,
 /turf/open/water/hot_spring/cafe,
@@ -9508,7 +9509,7 @@
 /obj/item/kirbyplants/random,
 /obj/machinery/light/cold/directional/south,
 /turf/open/floor/iron/dark/smooth_edge,
-/area/centcom/holding/cafepark)
+/area/centcom/holding/cafe)
 "ioc" = (
 /obj/structure/chair/comfy/barber_chair{
 	dir = 8
@@ -9552,7 +9553,7 @@
 "ipn" = (
 /obj/machinery/chem_master/fullupgrade,
 /turf/open/floor/iron/dark/small,
-/area/centcom/holding/cafepark)
+/area/centcom/holding/cafe)
 "ipK" = (
 /obj/machinery/door/airlock/sandstone{
 	id_tag = "ghostcaferesortbathroom1";
@@ -10254,7 +10255,7 @@
 /obj/machinery/cell_charger,
 /obj/effect/turf_decal/tile/dark_green/half,
 /turf/open/floor/iron/dark/smooth_edge,
-/area/centcom/holding/cafepark)
+/area/centcom/holding/cafe)
 "jzL" = (
 /obj/structure/spacevine{
 	name = "thick vines";
@@ -10285,7 +10286,7 @@
 /turf/open/floor/iron/dark/smooth_edge{
 	dir = 4
 	},
-/area/centcom/holding/cafepark)
+/area/centcom/holding/cafe)
 "jAH" = (
 /obj/machinery/light/directional/north,
 /turf/open/indestructible/plating,
@@ -10657,7 +10658,7 @@
 /turf/open/floor/iron/dark/smooth_edge{
 	dir = 4
 	},
-/area/centcom/holding/cafepark)
+/area/centcom/holding/cafe)
 "kcw" = (
 /obj/effect/turf_decal/box/corners{
 	dir = 8
@@ -10760,7 +10761,7 @@
 /turf/open/floor/iron/dark/smooth_corner{
 	dir = 4
 	},
-/area/centcom/holding/cafepark)
+/area/centcom/holding/cafe)
 "khY" = (
 /obj/effect/light_emitter/interlink,
 /obj/structure/fluff/fake_sand_plating,
@@ -11500,7 +11501,7 @@
 "lfQ" = (
 /obj/structure/chair/office/light,
 /turf/open/floor/iron/dark,
-/area/centcom/holding/cafepark)
+/area/centcom/holding/cafe)
 "lgc" = (
 /obj/structure/railing{
 	dir = 9
@@ -11855,7 +11856,7 @@
 	},
 /obj/effect/turf_decal/tile/dark_green/half,
 /turf/open/floor/iron/dark/smooth_edge,
-/area/centcom/holding/cafepark)
+/area/centcom/holding/cafe)
 "lDo" = (
 /obj/effect/turf_decal/siding/wood{
 	dir = 3
@@ -12369,7 +12370,7 @@
 	dir = 8
 	},
 /turf/open/floor/iron/dark/small,
-/area/centcom/holding/cafepark)
+/area/centcom/holding/cafe)
 "mtD" = (
 /obj/machinery/door/airlock/bathroom{
 	name = "Unisex Bathroom"
@@ -12844,7 +12845,7 @@
 /turf/open/floor/iron/white/textured_half{
 	dir = 1
 	},
-/area/centcom/holding/cafepark)
+/area/centcom/holding/cafe)
 "mVO" = (
 /obj/machinery/light/directional/north,
 /obj/effect/turf_decal/siding/wood{
@@ -13250,7 +13251,7 @@
 "nyF" = (
 /obj/machinery/chem_mass_spec,
 /turf/open/floor/iron/dark/small,
-/area/centcom/holding/cafepark)
+/area/centcom/holding/cafe)
 "nzn" = (
 /obj/effect/turf_decal/weather/snow/corner,
 /turf/open/misc/dirt/planet,
@@ -13274,7 +13275,7 @@
 /obj/effect/turf_decal/tile/dark_green/half,
 /obj/machinery/dna_scannernew,
 /turf/open/floor/iron/dark/smooth_edge,
-/area/centcom/holding/cafepark)
+/area/centcom/holding/cafe)
 "nCz" = (
 /obj/structure/fluff/fake_sand_plating,
 /obj/structure/fluff/fake_sand_floor,
@@ -13436,7 +13437,7 @@
 /obj/machinery/shower/directional/east,
 /obj/structure/drain,
 /turf/open/floor/iron/white/small,
-/area/centcom/holding/cafepark)
+/area/centcom/holding/cafe)
 "nPr" = (
 /obj/structure/table{
 	name = "Jim Norton's Quebecois Coffee table"
@@ -15091,7 +15092,7 @@
 /turf/open/floor/iron/white/textured_half{
 	dir = 1
 	},
-/area/centcom/holding/cafepark)
+/area/centcom/holding/cafe)
 "pPd" = (
 /obj/machinery/cafe_condo_teleporter,
 /obj/effect/turf_decal/siding/wood{
@@ -16465,7 +16466,7 @@
 /obj/effect/turf_decal/tile/dark_green/half,
 /obj/machinery/vending/wardrobe/syndie_wardrobe/interdyne/ghost_cafe,
 /turf/open/floor/iron/dark/smooth_edge,
-/area/centcom/holding/cafepark)
+/area/centcom/holding/cafe)
 "ryz" = (
 /obj/machinery/vending/autodrobe{
 	extended_inventory = 1
@@ -17145,7 +17146,7 @@
 "skS" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/cyan/visible,
 /turf/open/floor/iron/dark,
-/area/centcom/holding/cafepark)
+/area/centcom/holding/cafe)
 "smx" = (
 /obj/effect/turf_decal/siding/wood{
 	dir = 4
@@ -17733,7 +17734,7 @@
 	},
 /obj/machinery/light/cold/directional/south,
 /turf/open/floor/iron/dark/smooth_edge,
-/area/centcom/holding/cafepark)
+/area/centcom/holding/cafe)
 "tag" = (
 /obj/machinery/vending/tool,
 /obj/effect/turf_decal/siding/wood/end{
@@ -17976,7 +17977,7 @@
 	dir = 1
 	},
 /turf/open/floor/iron/dark/smooth_corner,
-/area/centcom/holding/cafepark)
+/area/centcom/holding/cafe)
 "tur" = (
 /obj/structure/chair/stool/bar/directional/south,
 /obj/effect/turf_decal/siding/wideplating/dark,
@@ -18740,7 +18741,7 @@
 /turf/open/floor/iron/dark/smooth_corner{
 	dir = 8
 	},
-/area/centcom/holding/cafepark)
+/area/centcom/holding/cafe)
 "ufi" = (
 /obj/effect/turf_decal/siding/thinplating_new/light{
 	dir = 1
@@ -19503,7 +19504,7 @@
 /turf/open/floor/iron/dark/smooth_edge{
 	dir = 4
 	},
-/area/centcom/holding/cafepark)
+/area/centcom/holding/cafe)
 "viU" = (
 /obj/effect/turf_decal/siding/wood{
 	dir = 3
@@ -19988,7 +19989,7 @@
 	dir = 1
 	},
 /turf/open/floor/iron/dark/small,
-/area/centcom/holding/cafepark)
+/area/centcom/holding/cafe)
 "vWV" = (
 /obj/structure/window/fulltile{
 	polarizer_id_on_spawn = "ilinklounge"
@@ -20387,7 +20388,7 @@
 /turf/open/floor/iron/dark/smooth_edge{
 	dir = 4
 	},
-/area/centcom/holding/cafepark)
+/area/centcom/holding/cafe)
 "wwi" = (
 /obj/structure/window/fulltile{
 	polarizer_id_on_spawn = "ilinkcabin3window"
@@ -20622,7 +20623,7 @@
 /turf/open/floor/iron/dark/smooth_edge{
 	dir = 1
 	},
-/area/centcom/holding/cafepark)
+/area/centcom/holding/cafe)
 "wKT" = (
 /obj/structure/bed/pod{
 	pixel_y = 1
@@ -21191,7 +21192,7 @@
 /turf/open/floor/iron/dark/smooth_edge{
 	dir = 8
 	},
-/area/centcom/holding/cafepark)
+/area/centcom/holding/cafe)
 "xCy" = (
 /obj/item/clothing/mask/facehugger/toy,
 /obj/structure/alien/weeds,
@@ -21266,7 +21267,7 @@
 /turf/open/floor/iron/dark/smooth_edge{
 	dir = 1
 	},
-/area/centcom/holding/cafepark)
+/area/centcom/holding/cafe)
 "xGO" = (
 /obj/structure/railing{
 	dir = 4
@@ -57833,7 +57834,7 @@ ayG
 nOQ
 vVp
 skS
-aWg
+arh
 inP
 hsy
 ajj
@@ -58090,7 +58091,7 @@ mVE
 pOY
 aWi
 hgd
-aWg
+arh
 rxH
 hsy
 ajj
@@ -58347,7 +58348,7 @@ eke
 gbl
 nyF
 hgd
-aWg
+arh
 jzl
 hsy
 ajj
@@ -58604,7 +58605,7 @@ wKs
 ipn
 bwI
 hgd
-aWg
+arh
 lCI
 hsy
 ajj
@@ -58861,7 +58862,7 @@ bER
 msH
 eks
 hgd
-aWg
+arh
 nCr
 hsy
 ajj
