@@ -140,15 +140,18 @@ GLOBAL_LIST_EMPTY(customizable_races)
 			continue
 
 		var/list/bodypart_data = bodypart_to_add
+		var/bodypart_name = bodypart_data[MUTANTPART_NAME]
+		if(bodypart_name == FEATURE_LEGS) // These are just in GLOB.default_mutant_bodyparts for the purposes of the prefs menu population
+			continue // they are handled by dna.features so adding them here too just wastes space
 
 		var/datum/sprite_accessory/sprite_accessory
 		if(bodypart_data[MUTANTPART_CAN_RANDOMIZE])
 			sprite_accessory = random_accessory_of_key_for_species(key, src)
 		else
 			var/accessory_table = SSaccessories.sprite_accessories[key]
-			sprite_accessory = accessory_table[bodypart_to_add[MUTANTPART_NAME]]
+			sprite_accessory = accessory_table[bodypart_name]
 			if(!sprite_accessory)
-				CRASH("Cant find accessory of [key] key, [bodypart_to_add]] name, for species [id]")
+				CRASH("Cant find accessory of [key] key, [bodypart_name] name, for species [id]")
 
 		var/datum/mutant_bodypart/finalized_part = build_mutant_part(
 			sprite_accessory.name,
