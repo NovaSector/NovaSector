@@ -182,6 +182,8 @@
 				/obj/item/clothing/mask/gas/respirator = 5,
 				/obj/item/clothing/mask/surgical/greyscale = 5,
 				/obj/item/clothing/glasses/blindfold/color = 5,
+				/obj/item/storage/backpack/udc = 5,
+				/obj/item/clothing/under/misc/nova/gear_harness = 5,
 			)
 		)
 	)
