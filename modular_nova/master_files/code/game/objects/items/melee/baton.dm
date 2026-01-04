@@ -1,6 +1,3 @@
-/obj/item/melee/baton/telescopic/contractor_baton
-	stamina_damage = 115
-
 /obj/item/melee/baton/nunchaku
 	stamina_damage = 35
 	force = 21

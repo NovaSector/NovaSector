@@ -871,10 +871,6 @@
 /area/misc/condo)
 "qZ" = (
 /obj/structure/table/wood/fancy/black,
-/obj/item/clothing/head/costume/maidheadband/syndicate{
-	pixel_x = 1;
-	pixel_y = 4
-	},
 /obj/item/reagent_containers/cup/glass/bottle/small{
 	pixel_x = 7;
 	pixel_y = 7
@@ -1426,6 +1422,7 @@
 "Ck" = (
 /obj/machinery/smartfridge/wooden/ration_shelf,
 /obj/structure/decorative/shelf,
+/obj/item/clothing/head/costume/maid_headband/syndicate,
 /turf/open/floor/iron/dark/smooth_large,
 /area/misc/condo)
 "Cv" = (
@@ -1714,7 +1711,7 @@
 	pixel_y = -16
 	},
 /obj/structure/medieval/bed_2x2{
-	dir = 8
+	dir = 4
 	},
 /turf/open/floor/iron/dark/smooth_large,
 /area/misc/condo)

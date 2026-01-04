@@ -25,7 +25,6 @@
 	throw_range = 7
 	custom_materials = list(/datum/material/iron = SMALL_MATERIAL_AMOUNT*0.1)
 	pressure_resistance = 2
-	grind_results = list(/datum/reagent/iron = 2, /datum/reagent/iodine = 1)
 	var/colour = COLOR_BLACK //what colour the ink is!
 	var/degrees = 0
 	var/font = PEN_FONT
@@ -57,6 +56,9 @@
 		return
 	create_transform_component()
 	RegisterSignal(src, COMSIG_TRANSFORMING_ON_TRANSFORM, PROC_REF(on_transform))
+
+/obj/item/pen/grind_results()
+	return list(/datum/reagent/iron = 2, /datum/reagent/iodine = 1)
 
 /// Proc that child classes can override to have custom transforms, like edaggers or pendrivers
 /obj/item/pen/proc/create_transform_component()
@@ -165,10 +167,12 @@
 	icon_state = "pen-charcoal"
 	colour = "#696969"
 	font = CHARCOAL_FONT
-	custom_materials = null
-	grind_results = list(/datum/reagent/ash = 5, /datum/reagent/cellulose = 10)
+	custom_materials = list(/datum/material/wood = SHEET_MATERIAL_AMOUNT)
 	requires_gravity = FALSE // this is technically a pencil
 	can_click = FALSE
+
+/obj/item/pen/charcoal/grind_results()
+	return list(/datum/reagent/ash = 5, /datum/reagent/cellulose = 10)
 
 /datum/crafting_recipe/charcoal_stylus
 	name = "Charcoal Stylus"
@@ -184,7 +188,6 @@
 	force = 5
 	throwforce = 5
 	throw_speed = 4
-	colour = "#DC143C"
 	custom_materials = list(/datum/material/gold = SMALL_MATERIAL_AMOUNT*7.5)
 	sharpness = SHARP_EDGED
 	resistance_flags = FIRE_PROOF
@@ -445,9 +448,10 @@
 /datum/embedding/edagger_active
 	embed_chance = 100
 
-/obj/item/pen/edagger/proc/on_scan(datum/source, mob/user, list/extra_data)
+/obj/item/pen/edagger/proc/on_scan(datum/source, mob/user, datum/detective_scanner_log/entry)
 	SIGNAL_HANDLER
-	LAZYADD(extra_data[DETSCAN_CATEGORY_ILLEGAL], "Hard-light generator detected.")
+
+	entry.add_data_entry(DETSCAN_CATEGORY_ILLEGAL, "Hard-light generator detected.")
 
 /obj/item/pen/survival
 	name = "survival pen"
@@ -460,7 +464,6 @@
 	w_class = WEIGHT_CLASS_TINY
 	custom_materials = list(/datum/material/iron=SMALL_MATERIAL_AMOUNT*0.1, /datum/material/diamond=SMALL_MATERIAL_AMOUNT, /datum/material/titanium = SMALL_MATERIAL_AMOUNT*0.1)
 	pressure_resistance = 2
-	grind_results = list(/datum/reagent/iron = 2, /datum/reagent/iodine = 1)
 	tool_behaviour = TOOL_MINING //For the classic "digging out of prison with a spoon but you're in space so this analogy doesn't work" situation.
 	toolspeed = 10 //You will never willingly choose to use one of these over a shovel.
 	font = FOUNTAIN_PEN_FONT
@@ -468,6 +471,9 @@
 	dart_insert_casing_icon_state = "overlay_survivalpen"
 	dart_insert_projectile_icon_state = "overlay_survivalpen_proj"
 	can_click = FALSE
+
+/obj/item/pen/survival/grind_results()
+	return list(/datum/reagent/iron = 2, /datum/reagent/iodine = 1)
 
 /obj/item/pen/survival/on_inserted_into_dart(datum/source, obj/item/ammo_casing/dart, mob/user)
 	. = ..()

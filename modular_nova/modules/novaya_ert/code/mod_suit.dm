@@ -1,15 +1,18 @@
-/datum/mod_theme/policing
-	name = "policing"
-	desc = "A Novaya Rossiyskaya Imperiya Internal Affairs Collegia general purpose protective suit, designed for coreworld patrols."
-	extended_desc = "An Apadyne Technologies outsourced, then modified for frontier use by the responding imperial police precinct, MODsuit model, \
-		designed for reassuring panicking civilians than participating in active combat. The suit's thin plastitanium armor plating is durable against environment and projectiles, \
-		and comes with a built-in miniature power redistribution system to protect against energy weaponry; albeit ineffectively. \
-		Thanks to the modifications of the local police, additional armoring has been added to its legs and arms, at the cost of an increased system load."
-	default_skin = "policing"
-	armor_type = /datum/armor/mod_theme_policing
+/datum/mod_theme/rim_inspector
+	name = "rim-world inspector"
+	desc = "A Heliostatic Coalition Internal Affairs-Apadyne joint border patrol suit. Designed for maximum protection in frontier environments where medical support is scarce."
+	extended_desc = "An extremely heavily armored MODsuit manufactured by the Heliostatic Coalition for Heliostatic Coalition's border patrol operations. \
+		In frontier regions where medical facilities are nonexistent and pirate activity is rampant, the Coalition determined \
+		it was more cost-effective to transform patrolmen into walking fortresses than to equip them with complex regenerative systems akin to the ones in Voskhods. \
+		The suit features multiple layers of composite armor plating of plasteel/self-repairing ceramics/CNT-weave spall liner, with particular emphasis on frontal protection to withstand \
+		everything from pirate small arms (up to and including .60 SAPHEI) to research station-gone-blue artillery fragments. A dense, thick faceplate incorporates a \
+		singular mounted camera system behind an ultra-thick piece of tinted plasma glass, allowing officers to survive direct impacts that would \
+		compromise conventional visors and not lose their vision. While the psychological burden of frontier duty remains, patrolmen can take solace \
+		in knowing their armor can withstand threats that would obliterate anything short of an armored vehicle."
+	default_skin = "rim_inspector"
+	armor_type = /datum/armor/mod_theme_rim_inspector
 	complexity_max = DEFAULT_MAX_COMPLEXITY - 1
-	charge_drain = DEFAULT_CHARGE_DRAIN * 1.25
-	slowdown_deployed = 0.5
+	charge_drain = DEFAULT_CHARGE_DRAIN * 1.5
 	allowed_suit_storage = list(
 		/obj/item/flashlight,
 		/obj/item/tank/internals,
@@ -23,7 +26,7 @@
 		/obj/item/gun,
 	)
 	variants = list(
-		"policing" = list(
+		"rim_inspector" = list(
 			MOD_ICON_OVERRIDE = 'modular_nova/modules/novaya_ert/icons/mod.dmi',
 			MOD_WORN_ICON_OVERRIDE = 'modular_nova/modules/novaya_ert/icons/wornmod.dmi',
 			/obj/item/clothing/head/mod = list(
@@ -59,7 +62,7 @@
 		),
 	)
 
-/datum/armor/mod_theme_policing
+/datum/armor/mod_theme_rim_inspector
 	melee = 40
 	bullet = 50
 	laser = 30
@@ -70,8 +73,8 @@
 	acid = 75
 	wound = 20
 
-/obj/item/mod/control/pre_equipped/policing
-	theme = /datum/mod_theme/policing
+/obj/item/mod/control/pre_equipped/rim_inspector
+	theme = /datum/mod_theme/rim_inspector
 	applied_modules = list(
 		/obj/item/mod/module/storage/large_capacity,
 		/obj/item/mod/module/thermal_regulator,
@@ -86,7 +89,7 @@
 		/obj/item/mod/module/magboot,
 	)
 
-/obj/item/mod/control/pre_equipped/policing/Initialize(mapload)
+/obj/item/mod/control/pre_equipped/rim_inspector/Initialize(mapload)
 	. = ..()
 	AddElement(/datum/element/manufacturer_examine, COMPANY_ZCM)
 
@@ -162,11 +165,11 @@
 		deactivate()
 		return FALSE
 
-	var/new_oxyloss = mod.wearer.getOxyLoss()
-	var/new_bruteloss = mod.wearer.getBruteLoss()
-	var/new_fireloss = mod.wearer.getFireLoss()
-	var/new_stamloss = mod.wearer.getStaminaLoss()
-	var/new_toxloss = mod.wearer.getToxLoss()
+	var/new_oxyloss = mod.wearer.get_oxy_loss()
+	var/new_bruteloss = mod.wearer.get_brute_loss()
+	var/new_fireloss = mod.wearer.get_fire_loss()
+	var/new_stamloss = mod.wearer.get_stamina_loss()
+	var/new_toxloss = mod.wearer.get_tox_loss()
 
 	if(mod.wearer.blood_volume < BLOOD_VOLUME_OKAY && reagents.total_volume >= reagent_required_amount * 0.5 * seconds_per_tick)
 		if(!COOLDOWN_FINISHED(src, blood_timer))
@@ -299,6 +302,7 @@
 	tool_behaviors = list(TOOL_WELDER, TOOL_MULTITOOL)
 	time = 30 SECONDS
 	category = CAT_CLOTHING
+	crafting_flags = parent_type::crafting_flags | CRAFT_SKIP_MATERIALS_PARITY
 
 /obj/effect/spawner/random/voskhod_refit
 	name = "converted MODskhod spaner"
@@ -307,3 +311,4 @@
 	spawn_all_loot = TRUE
 	spawn_loot_count = 1
 	loot = list(/obj/item/mod/control/pre_equipped/voskhod)
+	custom_materials = list(/datum/material/alloy/plasteel = SHEET_MATERIAL_AMOUNT * 10, /datum/material/iron = SHEET_MATERIAL_AMOUNT * 1.95, /datum/material/glass = SHEET_MATERIAL_AMOUNT * 1.45)

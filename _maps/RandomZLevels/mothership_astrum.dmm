@@ -90,16 +90,6 @@
 /obj/item/organ/cyberimp/arm/toolkit/medibeam,
 /turf/open/floor/plating/abductor2,
 /area/awaymission/mothership_astrum/halls)
-"bl" = (
-/obj/structure/table/abductor,
-/obj/machinery/button/door{
-	id = "highsec";
-	name = "High Security Lock";
-	normaldoorcontrol = 1;
-	specialfunctions = 4
-	},
-/turf/open/floor/mineral/abductor,
-/area/awaymission/mothership_astrum/halls)
 "bw" = (
 /obj/structure/table/abductor,
 /obj/item/gun/ballistic/automatic/mini_uzi,
@@ -578,6 +568,15 @@
 /obj/structure/alien/resin/membrane/creature,
 /turf/open/floor/plating/abductor2,
 /area/awaymission/mothership_astrum/deck4)
+"kh" = (
+/obj/machinery/button/door{
+	id = "finallock";
+	name = "AStrum Bridge Lockdown";
+	dir = 4;
+	pixel_x = -32
+	},
+/turf/open/floor/mineral/abductor,
+/area/awaymission/mothership_astrum/halls)
 "kl" = (
 /obj/structure/alien/weeds/creature,
 /obj/structure/glowshroom/single,
@@ -646,16 +645,6 @@
 	},
 /turf/open/floor/plating/abductor,
 /area/awaymission/mothership_astrum/halls)
-"lO" = (
-/obj/structure/table/abductor,
-/obj/machinery/button/door{
-	id = "medsec";
-	name = "Medium Security Lock";
-	normaldoorcontrol = 1;
-	specialfunctions = 4
-	},
-/turf/open/floor/mineral/abductor,
-/area/awaymission/mothership_astrum/halls)
 "lR" = (
 /obj/structure/table/abductor,
 /obj/structure/window/spawner/directional/north,
@@ -678,6 +667,18 @@
 	initial_gas_mix = "o2=22;n2=82;TEMP=293.15"
 	},
 /area/awaymission/mothership_astrum/deck3)
+"ma" = (
+/obj/structure/table/abductor,
+/obj/machinery/button/door{
+	id = "lowsec";
+	name = "Low Security Lock";
+	normaldoorcontrol = 1;
+	specialfunctions = 4;
+	dir = 1;
+	pixel_y = -64
+	},
+/turf/open/floor/mineral/abductor,
+/area/awaymission/mothership_astrum/halls)
 "mm" = (
 /obj/structure/flora/tree/dead,
 /turf/open/misc/asteroid/snow/ice{
@@ -712,6 +713,17 @@
 /obj/structure/table/abductor,
 /obj/item/ammo_box/c9mm,
 /turf/open/floor/plating/abductor2,
+/area/awaymission/mothership_astrum/halls)
+"ne" = (
+/obj/structure/table/abductor,
+/obj/machinery/button/door{
+	id = "highsec";
+	name = "High Security Lock";
+	normaldoorcontrol = 1;
+	specialfunctions = 4;
+	dir = 1
+	},
+/turf/open/floor/mineral/abductor,
 /area/awaymission/mothership_astrum/halls)
 "nf" = (
 /obj/structure/closet/crate/freezer,
@@ -1298,16 +1310,6 @@
 /obj/effect/spawner/random/clothing/gloves,
 /turf/open/floor/plastic,
 /area/awaymission/mothership_astrum/deck2)
-"vU" = (
-/obj/structure/table/abductor,
-/obj/machinery/button/door{
-	id = "lowsec";
-	name = "Low Security Lock";
-	normaldoorcontrol = 1;
-	specialfunctions = 4
-	},
-/turf/open/floor/mineral/abductor,
-/area/awaymission/mothership_astrum/halls)
 "vW" = (
 /obj/effect/turf_decal/sand,
 /obj/structure/chair/sofa/bench/left{
@@ -1891,7 +1893,8 @@
 "Eq" = (
 /obj/machinery/button/door{
 	id = "lobolock";
-	name = "Lobotomite Testing Lockdown"
+	name = "Lobotomite Testing Lockdown";
+	dir = 8
 	},
 /obj/structure/table/abductor,
 /turf/open/floor/plating/abductor,
@@ -2241,6 +2244,17 @@
 /obj/structure/window/reinforced/spawner/directional/south,
 /turf/open/floor/plating/abductor,
 /area/awaymission/mothership_astrum/halls)
+"HO" = (
+/obj/structure/alien/weeds,
+/obj/structure/alien/egg/grown,
+/obj/machinery/button/door{
+	id = "xenolock";
+	name = "Xeno Studies Lockdown Control";
+	pixel_x = 32;
+	dir = 8
+	},
+/turf/open/floor/mineral/abductor,
+/area/awaymission/mothership_astrum/halls)
 "HQ" = (
 /turf/open/misc/beach/coast{
 	dir = 8
@@ -2248,9 +2262,7 @@
 /area/awaymission/mothership_astrum/deck5)
 "HR" = (
 /obj/machinery/light/small/directional/east,
-/obj/machinery/status_display/evac{
-	pixel_x = 32
-	},
+/obj/machinery/status_display/evac/directional/east,
 /turf/open/floor/wood,
 /area/awaymission/mothership_astrum/deck2)
 "HS" = (
@@ -2340,6 +2352,17 @@
 /obj/structure/window/spawner/directional/west,
 /turf/open/floor/plating/abductor,
 /area/awaymission/mothership_astrum/halls)
+"Jc" = (
+/obj/structure/table/abductor,
+/obj/machinery/button/door{
+	id = "minsec";
+	name = "Minimum Security Lock";
+	normaldoorcontrol = 1;
+	specialfunctions = 4;
+	dir = 1
+	},
+/turf/open/floor/mineral/abductor,
+/area/awaymission/mothership_astrum/halls)
 "Jh" = (
 /obj/effect/landmark/awaystart,
 /turf/open/floor/plating/abductor2,
@@ -2411,14 +2434,6 @@
 	dir = 1
 	},
 /area/awaymission/mothership_astrum/deck5)
-"Ky" = (
-/obj/structure/table/abductor,
-/obj/machinery/button/door{
-	id = "finallock";
-	name = "AStrum Bridge Lockdown"
-	},
-/turf/open/floor/plating/abductor,
-/area/awaymission/mothership_astrum/halls)
 "KA" = (
 /obj/structure/table,
 /obj/item/toy/cards/deck{
@@ -2444,7 +2459,8 @@
 	id = "barShutters";
 	name = "bar shutters";
 	pixel_x = 4;
-	pixel_y = 28
+	pixel_y = 28;
+	dir = 1
 	},
 /obj/effect/turf_decal/tile/bar,
 /obj/effect/turf_decal/tile/bar{
@@ -2523,10 +2539,6 @@
 /turf/open/floor/plating/abductor2,
 /area/awaymission/mothership_astrum/halls)
 "Md" = (
-/obj/machinery/button/door{
-	id = "xenolock";
-	name = "Xeno Studies Lockdown Control"
-	},
 /obj/structure/alien/weeds,
 /obj/structure/table/abductor,
 /turf/open/floor/mineral/abductor,
@@ -2624,14 +2636,6 @@
 	},
 /turf/open/floor/iron,
 /area/awaymission/mothership_astrum/deck2)
-"Na" = (
-/obj/machinery/light/directional/east,
-/obj/effect/turf_decal/tile/bar,
-/obj/effect/turf_decal/tile/bar{
-	dir = 1
-	},
-/turf/open/floor/iron,
-/area/awaymission/mothership_astrum/deck2)
 "Nd" = (
 /obj/effect/decal/cleanable/blood,
 /obj/item/organ/appendix/fly,
@@ -2646,6 +2650,9 @@
 /obj/effect/turf_decal/tile/bar,
 /obj/effect/turf_decal/tile/bar{
 	dir = 1
+	},
+/obj/machinery/light/directional/east{
+	pixel_x = -32
 	},
 /turf/open/floor/iron,
 /area/awaymission/mothership_astrum/deck2)
@@ -3035,6 +3042,17 @@
 /obj/effect/decal/cleanable/blood/footprints,
 /turf/open/floor/plating/abductor2,
 /area/awaymission/mothership_astrum/halls)
+"Rf" = (
+/obj/machinery/button/door{
+	id = "medsec";
+	name = "Medium Security Lock";
+	normaldoorcontrol = 1;
+	specialfunctions = 4;
+	pixel_x = 480;
+	dir = 8
+	},
+/turf/open/floor/mineral/abductor,
+/area/awaymission/mothership_astrum/halls)
 "Rj" = (
 /obj/effect/decal/cleanable/blood/tracks{
 	dir = 4
@@ -3216,16 +3234,6 @@
 /obj/structure/table/abductor,
 /obj/item/ammo_box/speedloader/c38,
 /turf/open/floor/plating/abductor2,
-/area/awaymission/mothership_astrum/halls)
-"TX" = (
-/obj/structure/table/abductor,
-/obj/machinery/button/door{
-	id = "minsec";
-	name = "Minimum Security Lock";
-	normaldoorcontrol = 1;
-	specialfunctions = 4
-	},
-/turf/open/floor/mineral/abductor,
 /area/awaymission/mothership_astrum/halls)
 "TY" = (
 /obj/structure/alien/weeds,
@@ -19769,9 +19777,9 @@ Tu
 Tu
 ee
 ee
+ma
 zt
 zt
-vU
 mv
 bV
 bV
@@ -22358,7 +22366,7 @@ ES
 ES
 Jx
 KL
-Na
+MR
 MR
 MR
 MR
@@ -24620,7 +24628,7 @@ Tu
 ee
 ee
 ee
-bV
+Rf
 bV
 bV
 Vh
@@ -28475,7 +28483,7 @@ bV
 bV
 bV
 bV
-lO
+zt
 aV
 bV
 bV
@@ -32656,7 +32664,7 @@ bV
 bV
 bV
 bV
-TX
+Jc
 aV
 bV
 bV
@@ -38766,7 +38774,7 @@ Vh
 On
 ad
 AZ
-TY
+HO
 ud
 bV
 bV
@@ -38989,7 +38997,7 @@ ee
 Vh
 Vh
 aU
-bl
+ne
 bV
 bV
 bI
@@ -39865,7 +39873,7 @@ Vh
 Vh
 Vh
 GK
-Ky
+VJ
 Vh
 Vh
 ML
@@ -40122,7 +40130,7 @@ Pv
 Pu
 bV
 bV
-bV
+kh
 bV
 bV
 Lc

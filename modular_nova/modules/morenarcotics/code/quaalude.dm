@@ -27,7 +27,7 @@
 	affected_carbon.set_drugginess(1 MINUTES * REM * seconds_per_tick)
 	affected_carbon.adjust_slurring_up_to(30 SECONDS, 2 MINUTES)
 	affected_carbon.set_dizzy_if_lower(5 * REM * seconds_per_tick * 2 SECONDS)
-	if(affected_carbon.adjustStaminaLoss(-5 * REM * seconds_per_tick, updating_stamina = FALSE))
+	if(affected_carbon.adjust_stamina_loss(-5 * REM * seconds_per_tick, updating_stamina = FALSE))
 		. = UPDATE_MOB_HEALTH
 
 	if(SPT_PROB(3.5, seconds_per_tick))
@@ -50,8 +50,8 @@
 	if(SPT_PROB(1.5, seconds_per_tick))
 		affected_carbon.say(kidfrombrooklyn_message)
 
-	affected_carbon.adjustOrganLoss(ORGAN_SLOT_BRAIN, 0.25 * REM * seconds_per_tick)
-	affected_carbon.adjustToxLoss(0.25 * REM * seconds_per_tick, 0)
+	affected_carbon.adjust_organ_loss(ORGAN_SLOT_BRAIN, 0.25 * REM * seconds_per_tick, required_organ_flag = affected_organ_flags)
+	affected_carbon.adjust_tox_loss(0.25 * REM * seconds_per_tick, updating_health = FALSE)
 	affected_carbon.adjust_drowsiness(0.5 SECONDS * REM * normalise_creation_purity() * seconds_per_tick)
 
 	if(SPT_PROB(3.5, seconds_per_tick))

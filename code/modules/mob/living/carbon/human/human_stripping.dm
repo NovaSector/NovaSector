@@ -106,8 +106,8 @@ GLOBAL_LIST_INIT(strippable_human_items, create_strippable_list(list(
 		"[SENSOR_COORDS]" = "Tracking",
 	)
 
-	var/new_mode = tgui_input_list(user, "Adjust suit sensors", "Adjust Sensors", sensor_mode_text_to_num, senor_mode_num_to_text["[jumpsuit.sensor_mode]"])
-	new_mode = sensor_mode_text_to_num[new_mode]
+	var/new_mode_str = tgui_input_list(user, "Adjust suit sensors", "Adjust Sensors", sensor_mode_text_to_num, senor_mode_num_to_text["[jumpsuit.sensor_mode]"])
+	var/new_mode = sensor_mode_text_to_num[new_mode_str]
 	if(isnull(new_mode)) // also catches returning null
 		return
 
@@ -121,6 +121,8 @@ GLOBAL_LIST_INIT(strippable_human_items, create_strippable_list(list(
 		return
 	source.balloon_alert(user, "changed sensors")
 	to_chat(source, span_notice("[user] successfully adjusted your [jumpsuit.name]'s sensor."))
+	user.log_message("changed suit sensors of [key_name(source)] to [new_mode_str]", LOG_ATTACK, color="red")
+	source.log_message("suit sensors changed to [new_mode_str] by [key_name(user)]", LOG_VICTIM, color="orange", log_globally=FALSE)
 
 /datum/strippable_item/mob_item_slot/jumpsuit/proc/do_strip_accessory(atom/source, mob/user, obj/item/clothing/under/jumpsuit)
 	var/list/accessory_choices = list()
@@ -146,7 +148,12 @@ GLOBAL_LIST_INIT(strippable_human_items, create_strippable_list(list(
 	to_chat(source, span_notice("[user] has taken [chosen_accessory] off of [jumpsuit]."))
 	jumpsuit.remove_accessory(chosen_accessory)
 	jumpsuit.update_appearance()
-	chosen_accessory.forceMove(jumpsuit.drop_location())
+	//NOVA EDIT CHANGE BEGIN - THIEVING GLOVES - ORIGINAL: chosen_accessory.forceMove(jumpsuit.drop_location())
+	if(HAS_TRAIT(user, TRAIT_STICKY_FINGERS))
+		user.put_in_hands(chosen_accessory)
+	else
+		chosen_accessory.forceMove(jumpsuit.drop_location())
+	//NOVA EDIT CHANGE END
 
 	if(!ismob(source))
 		return

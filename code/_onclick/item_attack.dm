@@ -421,7 +421,7 @@
 
 			if(!attacking_item.get_sharpness() && !HAS_TRAIT(src, TRAIT_HEAD_INJURY_BLOCKED) && attacking_item.damtype == BRUTE)
 				if(prob(damage_done))
-					adjustOrganLoss(ORGAN_SLOT_BRAIN, 20)
+					adjust_organ_loss(ORGAN_SLOT_BRAIN, 20)
 					if(stat == CONSCIOUS)
 						visible_message(
 							span_danger("[src] is knocked senseless!"),
@@ -432,7 +432,7 @@
 					if(prob(10))
 						gain_trauma(/datum/brain_trauma/mild/concussion)
 				else
-					adjustOrganLoss(ORGAN_SLOT_BRAIN, damage_done * 0.2)
+					adjust_organ_loss(ORGAN_SLOT_BRAIN, damage_done * 0.2)
 
 				// rev deconversion through blunt trauma.
 				// this can be signalized to the rev datum
@@ -479,6 +479,11 @@
 			return clamp(w_class * 6, 10, 100) // Multiply the item's weight class by 6, then clamp the value between 10 and 100
 
 /mob/living/proc/send_item_attack_message(obj/item/weapon, mob/living/user, hit_area, def_zone)
+	if(SEND_SIGNAL(weapon, COMSIG_SEND_ITEM_ATTACK_MESSAGE_OBJECT, src, user) & SIGNAL_MESSAGE_MODIFIED)
+		return TRUE
+	if(SEND_SIGNAL(src, COMSIG_SEND_ITEM_ATTACK_MESSAGE_CARBON, weapon, user) & SIGNAL_MESSAGE_MODIFIED)
+		return TRUE
+
 	if(!weapon.force && !length(weapon.attack_verb_simple) && !length(weapon.attack_verb_continuous))
 		return
 

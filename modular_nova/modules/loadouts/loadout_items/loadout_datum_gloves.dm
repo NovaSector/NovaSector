@@ -105,6 +105,11 @@
 /datum/loadout_item/gloves/tactical_maid_sleeves
 	name = "Maid Arm Covers - Tactical"
 	item_path = /obj/item/clothing/gloves/tactical_maid
+
+/datum/loadout_item/gloves/pink_clown_gloves
+	name = "Pink Clown Gloves"
+	item_path = /obj/item/clothing/gloves/pink_clown
+
 /*
 *	RINGS
 */

@@ -27,7 +27,7 @@
 	custom_premium_price = PAYCHECK_COMMAND * 3
 
 /obj/item/multitool/fock/interact_with_atom(atom/interacting_with, mob/living/user, list/modifiers)
-	if(istype(interacting_with, /obj/machinery/door))
+	if(istype(interacting_with, /obj/machinery/door/airlock))
 		hack_door(interacting_with, user)
 		return ITEM_INTERACT_SUCCESS
 	if(istype(interacting_with, /obj/machinery/airalarm))

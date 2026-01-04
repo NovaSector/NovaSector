@@ -24,8 +24,6 @@
 	var/spawned_disease = null
 	/// How much of a disease specified in spawned_disease should this container spawn with
 	var/disease_amount = 20
-	/// If the reagents inside of this container will splash out when the container tries to splash onto someone or something
-	var/spillable = FALSE
 	/**
 	 * The different thresholds at which the reagent fill overlay will change. See medical/reagent_fillings.dmi.
 	 *
@@ -408,7 +406,8 @@
 
 	var/trans = round(reagents.trans_to(target, amount_per_transfer_from_this, transferred_by = user), CHEMICAL_VOLUME_ROUNDING)
 	playsound(target.loc, SFX_LIQUID_POUR, 50, TRUE)
-	to_chat(user, span_notice("You transfer [trans] unit\s of the solution to [target]."))
+	if(trans)
+		to_chat(user, span_notice("You transfer [trans] unit\s of the solution to [target]."))
 	SEND_SIGNAL(src, COMSIG_REAGENTS_CUP_TRANSFER_TO, target)
 	target.update_appearance()
 	return ITEM_INTERACT_SUCCESS
@@ -428,3 +427,6 @@
 	SEND_SIGNAL(src, COMSIG_REAGENTS_CUP_TRANSFER_FROM, target)
 	target.update_appearance()
 	return ITEM_INTERACT_SUCCESS
+
+/obj/item/reagent_containers/is_chem_container()
+	return is_open_container() && !(item_flags & ABSTRACT) && !(flags_1 & HOLOGRAM_1)

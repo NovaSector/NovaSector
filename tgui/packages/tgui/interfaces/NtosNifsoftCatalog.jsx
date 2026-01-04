@@ -120,7 +120,7 @@ const ProductCategory = (props) => {
                   This NIFSoft carries between shifts
                 </Box>
               ) : (
-                <> </>
+                null
               )}
               <br />
             </Section>
