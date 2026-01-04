@@ -203,21 +203,17 @@
 /datum/bodypart_overlay/mutant/wings/functional
 	color_source = ORGAN_COLOR_INHERIT
 
-
 /datum/bodypart_overlay/mutant/wings/functional/original_color
 	color_source = ORGAN_COLOR_OVERRIDE
 
-
 /datum/bodypart_overlay/mutant/wings/functional/original_color/override_color(rgb_value)
 	return COLOR_WHITE // We want to keep those wings as their original color, because it looks better.
-
 
 /datum/bodypart_overlay/mutant/wings/functional/locked/get_global_feature_list()
 	if(wings_open)
 		return SSaccessories.sprite_accessories[FEATURE_WINGS_OPEN]
 
 	return SSaccessories.sprite_accessories[FEATURE_WINGS_FUNCTIONAL]
-
 
 // We need to overwrite this because all of these wings are locked.
 /datum/bodypart_overlay/mutant/wings/functional/locked/get_random_appearance()
@@ -229,14 +225,11 @@
 
 	return pick(valid_restyles)
 
-
 /datum/bodypart_overlay/mutant/wings/functional/locked/original_color
 	color_source = ORGAN_COLOR_OVERRIDE
 
-
 /datum/bodypart_overlay/mutant/wings/functional/locked/original_color/override_color(rgb_value)
 	return COLOR_WHITE // We want to keep those wings as their original color, because it looks better.
-
 
 /obj/item/organ/wings/functional
 	bodypart_overlay = /datum/bodypart_overlay/mutant/wings/functional/locked

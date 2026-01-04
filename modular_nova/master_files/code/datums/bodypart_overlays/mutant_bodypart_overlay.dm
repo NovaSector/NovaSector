@@ -35,7 +35,7 @@
 	if(isnull(feature_key)) // if not explicitly set, just use the feature_key of the bodypart_overlay
 		feature_key = src.feature_key
 	var/list/mutantparts_list = dna.mutant_bodyparts
-	if(!(feature_key in mutantparts_list) || !mutantparts_list[feature_key])
+	if(isnull(mutantparts_list[feature_key]))
 		return FALSE
 	var/datum/mutant_bodypart/mutant_part = mutantparts_list[feature_key]
 	sprite_datum = fetch_sprite_datum_from_name(accessory_name ? accessory_name : mutant_part.name)
