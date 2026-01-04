@@ -164,7 +164,7 @@
 		RND_CATEGORY_EQUIPMENT + RND_SUBCATEGORY_EQUIPMENT_MISC,
 	)
 
-/datum/design/d20
+/datum/design/fudge
 	name = "Fudge Die"
 	id = "fudge"
 	build_type = AUTOLATHE | PROTOLATHE | AWAY_LATHE
