@@ -53,15 +53,15 @@
 
 /datum/species/jelly/get_default_mutant_bodyparts()
 	return list(
-		"tail" = list("None", FALSE),
-		"snout" = list("None", FALSE),
-		"ears" = list("None", FALSE),
-		"legs" = list("Normal Legs", FALSE),
-		"taur" = list("None", FALSE),
-		"wings" = list("None", FALSE),
-		"horns" = list("None", FALSE),
-		"spines" = list("None", FALSE),
-		"frills" = list("None", FALSE),
+		FEATURE_TAIL = list("None", FALSE),
+		FEATURE_SNOUT = list("None", FALSE),
+		FEATURE_EARS = list("None", FALSE),
+		FEATURE_LEGS = list("Normal Legs", FALSE),
+		FEATURE_TAUR = list("None", FALSE),
+		FEATURE_WINGS = list("None", FALSE),
+		FEATURE_HORNS = list("None", FALSE),
+		FEATURE_SPINES = list("None", FALSE),
+		FEATURE_FRILLS = list("None", FALSE),
 	)
 
 /datum/species/jelly/gain_oversized_organs(mob/living/carbon/human/human_holder, datum/quirk/oversized/oversized_quirk)
