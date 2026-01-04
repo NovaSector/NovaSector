@@ -129,7 +129,7 @@ GLOBAL_LIST_EMPTY(customizable_races)
 	if(LAZYLEN(existing_mutant_bodyparts))
 		mutantpart_list = existing_mutant_bodyparts.Copy()
 
-	var/list/default_bodypart_data = GLOB.default_mutant_bodyparts[name]
+	var/list/default_bodypart_data = GLOB.default_mutant_bodyparts[name] - FEATURE_LEGS  // These are just in GLOB.default_mutant_bodyparts for the purposes of the prefs menu population
 	var/erp_disabled = CONFIG_GET(flag/disable_erp_preferences)
 
 	for(var/key, bodypart_to_add in default_bodypart_data)
@@ -141,8 +141,6 @@ GLOBAL_LIST_EMPTY(customizable_races)
 
 		var/list/bodypart_data = bodypart_to_add
 		var/bodypart_name = bodypart_data[MUTANTPART_NAME]
-		if(bodypart_name == FEATURE_LEGS) // These are just in GLOB.default_mutant_bodyparts for the purposes of the prefs menu population
-			continue // they are handled by dna.features so adding them here too just wastes space
 
 		var/datum/sprite_accessory/sprite_accessory
 		if(bodypart_data[MUTANTPART_CAN_RANDOMIZE])

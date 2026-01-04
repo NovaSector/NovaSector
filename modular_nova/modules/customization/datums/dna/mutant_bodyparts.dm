@@ -98,7 +98,7 @@ GLOBAL_LIST_EMPTY(emissive_list_cache)
 		return
 
 	var/datum/mutant_bodypart/part = our_dna.mutant_bodyparts[feature]
-	return part //|| mutant_bodypart[feature]
+	return part
 
 /// Factory helper proc for creating and returning a new mutant_bodypart datum
 /datum/species/proc/build_mutant_part(name, colors, emissive_list)
