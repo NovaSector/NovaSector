@@ -9117,7 +9117,7 @@
 #include "modular_nova\modules\quirk_bodytemp\body_temp.dm"
 #include "modular_nova\modules\quirk_customtongue\customtongue.dm"
 #include "modular_nova\modules\quirk_heavyset\heavyset.dm"
-#include "modular_nova\modules\quirk_major_hydrophobia\major_hydrophobia.dm"
+#include "modular_nova\modules\quirk_hydrophobia\hydrophobia.dm"
 #include "modular_nova\modules\quirk_masquerade\masquerade.dm"
 #include "modular_nova\modules\quirk_skilled\skilled.dm"
 #include "modular_nova\modules\quirk_unsteady\unsteady.dm"
