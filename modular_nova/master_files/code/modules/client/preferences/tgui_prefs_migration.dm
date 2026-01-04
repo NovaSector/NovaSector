@@ -1,30 +1,30 @@
 GLOBAL_LIST_INIT(bodyparts_to_convert, list("body_markings", \
-"tail", \
-"snout", \
-"horns", \
-"ears", \
-"wings", \
-"frills", \
-"spines", \
-"legs", \
-"caps", \
-"moth_antennae", \
-"moth_markings", \
-"fluff", \
-"head_acc", \
+FEATURE_TAIL, \
+FEATURE_SNOUT, \
+FEATURE_HORNS, \
+FEATURE_EARS, \
+FEATURE_WINGS, \
+FEATURE_FRILLS, \
+FEATURE_SPINES, \
+FEATURE_LEGS, \
+FEATURE_MUSH_CAP, \
+FEATURE_MOTH_ANTENNAE, \
+FEATURE_MOTH_MARKINGS, \
+FEATURE_FLUFF, \
+FEATURE_HEAD_ACCESSORY, \
 MUTANT_SYNTH_SCREEN, \
 MUTANT_SYNTH_ANTENNA, \
 MUTANT_SYNTH_CHASSIS, \
-"neck_acc", \
-"skrell_hair", \
-"taur", \
-"xenodorsal", \
-"xenohead", \
-"penis", \
-"testicles", \
-"womb", \
-"vagina", \
-"breasts",))
+FEATURE_NECK_ACCESSORY, \
+FEATURE_SKRELL_HAIR, \
+FEATURE_TAUR, \
+FEATURE_XENODORSAL, \
+FEATURE_XENOHEAD, \
+FEATURE_PENIS, \
+FEATURE_TESTICLES, \
+FEATURE_WOMB, \
+FEATURE_VAGINA, \
+FEATURE_BREASTS,))
 
 /datum/preferences/proc/migrate_nova(list/nova_data)
 	if(features["flavor_text"])
