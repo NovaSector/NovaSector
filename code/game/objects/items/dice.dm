@@ -43,13 +43,6 @@
 			new /obj/item/dice/d6/ebony(src)
 		else
 			new /obj/item/dice/d6(src)
-			
-// NOVA EDIT ADDITION START - Empty dice bag, because the base type is full for some reason.
-
-/obj/item/storage/dice/empty/PopulateContents()
-	return
-
-// NOVA EDIT ADDITION END
 
 ///this is a prototype for dice, for a real d6 use "/obj/item/dice/d6"
 /obj/item/dice
