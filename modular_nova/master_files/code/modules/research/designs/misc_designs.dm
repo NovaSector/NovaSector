@@ -83,7 +83,7 @@
 	build_path = /obj/item/dice/d2
 	category = list(
 		RND_CATEGORY_INITIAL,
-		RND_CATEGORY_TOOLS + RND_SUBCATEGORY_TOOLS_MISC,
+		RND_CATEGORY_EQUIPMENT + RND_SUBCATEGORY_EQUIPMENT_MISC,
 	)
 
 /datum/design/d4
@@ -94,7 +94,7 @@
 	build_path = /obj/item/dice/d4
 	category = list(
 		RND_CATEGORY_INITIAL,
-		RND_CATEGORY_TOOLS + RND_SUBCATEGORY_TOOLS_MISC,
+		RND_CATEGORY_EQUIPMENT + RND_SUBCATEGORY_EQUIPMENT_MISC,
 	)
 
 /datum/design/d6
@@ -105,7 +105,7 @@
 	build_path = /obj/item/dice/d6
 	category = list(
 		RND_CATEGORY_INITIAL,
-		RND_CATEGORY_TOOLS + RND_SUBCATEGORY_TOOLS_MISC,
+		RND_CATEGORY_EQUIPMENT + RND_SUBCATEGORY_EQUIPMENT_MISC,
 	)
 
 /datum/design/d8
@@ -116,7 +116,7 @@
 	build_path = /obj/item/dice/d8
 	category = list(
 		RND_CATEGORY_INITIAL,
-		RND_CATEGORY_TOOLS + RND_SUBCATEGORY_TOOLS_MISC,
+		RND_CATEGORY_EQUIPMENT + RND_SUBCATEGORY_EQUIPMENT_MISC,
 	)
 
 /datum/design/d10
@@ -127,7 +127,7 @@
 	build_path = /obj/item/dice/d10
 	category = list(
 		RND_CATEGORY_INITIAL,
-		RND_CATEGORY_TOOLS + RND_SUBCATEGORY_TOOLS_MISC,
+		RND_CATEGORY_EQUIPMENT + RND_SUBCATEGORY_EQUIPMENT_MISC,
 	)
 
 /datum/design/d00
@@ -138,7 +138,7 @@
 	build_path = /obj/item/dice/d00
 	category = list(
 		RND_CATEGORY_INITIAL,
-		RND_CATEGORY_TOOLS + RND_SUBCATEGORY_TOOLS_MISC,
+		RND_CATEGORY_EQUIPMENT + RND_SUBCATEGORY_EQUIPMENT_MISC,
 	)
 
 
@@ -150,7 +150,7 @@
 	build_path = /obj/item/dice/d12
 	category = list(
 		RND_CATEGORY_INITIAL,
-		RND_CATEGORY_TOOLS + RND_SUBCATEGORY_TOOLS_MISC,
+		RND_CATEGORY_EQUIPMENT + RND_SUBCATEGORY_EQUIPMENT_MISC,
 	)
 
 /datum/design/d20
@@ -161,7 +161,7 @@
 	build_path = /obj/item/dice/d20
 	category = list(
 		RND_CATEGORY_INITIAL,
-		RND_CATEGORY_TOOLS + RND_SUBCATEGORY_TOOLS_MISC,
+		RND_CATEGORY_EQUIPMENT + RND_SUBCATEGORY_EQUIPMENT_MISC,
 	)
 
 /datum/design/d20
@@ -172,7 +172,7 @@
 	build_path = /obj/item/dice/fudge
 	category = list(
 		RND_CATEGORY_INITIAL,
-		RND_CATEGORY_TOOLS + RND_SUBCATEGORY_TOOLS_MISC,
+		RND_CATEGORY_EQUIPMENT + RND_SUBCATEGORY_EQUIPMENT_MISC,
 	)
 
 /datum/design/d100
@@ -183,6 +183,6 @@
 	build_path = /obj/item/dice/d100
 	category = list(
 		RND_CATEGORY_INITIAL,
-		RND_CATEGORY_TOOLS + RND_SUBCATEGORY_TOOLS_MISC,
+		RND_CATEGORY_EQUIPMENT + RND_SUBCATEGORY_EQUIPMENT_MISC,
 	)
 
