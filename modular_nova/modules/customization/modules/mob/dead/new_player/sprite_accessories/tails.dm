@@ -80,7 +80,8 @@
 	)
 	organ_type = /obj/item/organ/tail/cat
 
-/datum/sprite_accessory/tails/human/monkeyColorable
+/datum/sprite_accessory/tails/human/monkey_colorable
+	name = "Monkey Colorable"
 	icon = 'modular_nova/master_files/icons/mob/sprite_accessory/tails.dmi'
 	icon_state = "monkey_colorable"
 	recommended_species = list(
@@ -92,7 +93,7 @@
 		SPECIES_GHOUL = 1,
 	)
 	color_src = USE_ONE_COLOR
-	name = "Monkey Colorable"
+	organ_type = /obj/item/organ/tail/monkey
 
 /datum/sprite_accessory/tails/monkey/default
 	icon = 'modular_nova/master_files/icons/mob/sprite_accessory/tails.dmi'
@@ -165,6 +166,7 @@
 /datum/sprite_accessory/tails/mammal/wagging/avian
 	name = "Avian"
 	icon_state = "avian1"
+
 /datum/sprite_accessory/tails/mammal/wagging/avian/alt
 	name = "Avian (Alt)"
 	icon_state = "avian2"
