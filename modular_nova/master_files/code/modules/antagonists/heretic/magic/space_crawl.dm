@@ -11,6 +11,11 @@
 
 /obj/effect/dummy/phased_mob/spell_jaunt/space/phased_check(mob/living/user, direction)
 	. = ..()
-	if(. && !isspaceturf(.))
-		to_chat(user, span_warning("You can't phase through anything but space."))
-		return FALSE
+	var/turf/my_turf = get_turf(owner)
+	if(isspaceturf(my_turf))
+		return TRUE
+	var/area/my_area = get_area(owner)
+	if (isopenturf(my_turf) && my_area.outdoors && lavaland_equipment_pressure_check(my_turf))
+		return TRUE
+	to_chat(user, "You can only traverse space or low-pressure outdoors areas while space crawling!")
+	return FALSE
