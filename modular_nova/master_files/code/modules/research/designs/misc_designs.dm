@@ -75,6 +75,17 @@
 	)
 	departmental_flags = ALL
 
+/datum/design/d2
+	name = "D2 Die"
+	id = "d2"
+	build_type = AUTOLATHE | PROTOLATHE | AWAY_LATHE
+	materials = list(/datum/material/plastic =SMALL_MATERIAL_AMOUNT*0.2)
+	build_path = /obj/item/dice/d2
+	category = list(
+		RND_CATEGORY_INITIAL,
+		RND_CATEGORY_TOOLS + RND_SUBCATEGORY_TOOLS_MISC,
+	)
+
 /datum/design/d4
 	name = "D4 Die"
 	id = "d4"
