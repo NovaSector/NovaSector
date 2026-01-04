@@ -38,9 +38,8 @@ GLOBAL_LIST_EMPTY(emissive_list_cache)
 	. = ..()
 	if(name)
 		if(!istext(name))
-			stack_trace("Tried to set name to a non-string value!")
-		else
-			src.name = name
+			CRASH("Tried to set name to a non-string value!")
+		src.name = name
 	if(colors)
 		set_colors(colors)
 	if(emissive_list && length(emissive_list == 3))

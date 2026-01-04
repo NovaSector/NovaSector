@@ -50,7 +50,7 @@
 	features[FEATURE_MUTANT_COLOR] = main_color
 	features[FEATURE_MUTANT_COLOR_TWO] = main_color
 	features[FEATURE_MUTANT_COLOR_THREE] = main_color
-	features -= FEATURE_TAIL
+	features -= "tail"
 	return features
 
 /datum/species/monkey/kobold/on_species_gain(mob/living/carbon/human/human_who_gained_species, datum/species/old_species, pref_load, regenerate_icons)

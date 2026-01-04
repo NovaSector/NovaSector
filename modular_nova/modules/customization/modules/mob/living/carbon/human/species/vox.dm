@@ -46,7 +46,9 @@
 
 /datum/species/vox/get_default_mutant_bodyparts()
 	return list(
+		FEATURE_EARS = list("None", FALSE),
 		FEATURE_TAIL = list("Vox Tail", FALSE),
+		FEATURE_LEGS = list(DIGITIGRADE_LEGS,FALSE),
 		FEATURE_SNOUT = list("Vox Snout", FALSE),
 		FEATURE_SPINES = list("Vox Bands", TRUE),
 	)

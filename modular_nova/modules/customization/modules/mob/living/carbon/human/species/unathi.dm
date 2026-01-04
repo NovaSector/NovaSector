@@ -25,10 +25,14 @@
 
 /datum/species/unathi/get_default_mutant_bodyparts()
 	return list(
+		FEATURE_EARS = list("None", FALSE),
 		FEATURE_TAIL = list("Smooth", TRUE),
 		FEATURE_SNOUT = list("Sharp + Light", TRUE),
+		FEATURE_SPINES = list("None", FALSE),
+		FEATURE_FRILLS = list("None", FALSE),
 		FEATURE_HORNS = list("Curled", FALSE),
 		FEATURE_MARKING_GENERIC = list("Smooth Belly", TRUE),
+		FEATURE_LEGS = list("Normal Legs", FALSE),
 	)
 
 /obj/item/organ/tongue/unathi

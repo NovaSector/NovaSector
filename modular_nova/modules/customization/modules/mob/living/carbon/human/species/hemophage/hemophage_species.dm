@@ -29,6 +29,12 @@
 	return FALSE
 
 
+/datum/species/hemophage/get_default_mutant_bodyparts()
+	return list(
+		"legs" = list("Normal Legs", FALSE),
+	)
+
+
 /datum/species/hemophage/check_roundstart_eligible()
 	if(check_holidays(HALLOWEEN))
 		return TRUE

@@ -3,7 +3,7 @@
 	savefile_key = "digitigrade_legs"
 	savefile_identifier = PREFERENCE_CHARACTER
 	category = PREFERENCE_CATEGORY_SECONDARY_FEATURES
-	relevant_mutant_bodypart = FEATURE_LEGS
+	relevant_mutant_bodypart = "legs"
 
 
 /datum/preference/choiced/digitigrade_legs/create_default_value()

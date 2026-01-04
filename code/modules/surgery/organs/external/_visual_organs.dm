@@ -47,7 +47,6 @@ Unlike normal organs, we're actually inside a persons limbs at all times
 
 	if(restyle_flags)
 		RegisterSignal(src, COMSIG_ATOM_RESTYLE, PROC_REF(on_attempt_feature_restyle))
-	color = bodypart_overlay.draw_color // NOVA EDIT ADDITION
 
 /// Some sanity checks, but mostly to check if the person has their preference/dna set to load
 /proc/should_visual_organ_apply_to(obj/item/organ/organpath, mob/living/carbon/target)

@@ -31,6 +31,7 @@
 		FEATURE_TAIL = list("Cat (Big)", TRUE),
 		FEATURE_SNOUT = list("Mammal, Short", TRUE),
 		FEATURE_EARS = list("Cat, Alert", TRUE),
+		FEATURE_LEGS = list("Normal Legs", FALSE),
 	)
 
 /obj/item/organ/tongue/cat/tajaran

@@ -457,6 +457,7 @@
 			exposed_mob.client?.prefs.read_preference(/datum/preference/tri_color/genital/penis),
 			exposed_mob.client?.prefs.read_preference(/datum/preference/tri_bool/genital/penis),
 		)
+		penis = exposed_mob.dna.mutant_bodyparts[ORGAN_SLOT_PENIS]
 		LAZYSET(exposed_mob.dna.mutant_bodyparts, FEATURE_PENIS, penis)
 	else if(penis.name == SPRITE_ACCESSORY_NONE)
 		penis.name = data["mutant_index"]

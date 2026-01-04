@@ -13,7 +13,7 @@
 	)
 
 /datum/species/abductor/abductorweak
-	allow_customizable_dna_features = TRUE
+	disallow_customizable_dna_features = FALSE
 
 	mutanttongue = /obj/item/organ/tongue/abductor
 	mutantheart = /obj/item/organ/heart

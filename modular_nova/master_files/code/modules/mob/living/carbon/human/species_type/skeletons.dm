@@ -1,2 +1,2 @@
 /datum/species/skeleton
-	allow_customizable_dna_features = FALSE
+	disallow_customizable_dna_features = TRUE

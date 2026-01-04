@@ -59,6 +59,12 @@
 
 /datum/species/synthetic/get_default_mutant_bodyparts()
 	return list(
+		FEATURE_EARS = list("None", FALSE),
+		FEATURE_TAIL = list("None", FALSE),
+		FEATURE_LEGS = list("Normal Legs", FALSE),
+		FEATURE_SNOUT = list("None", FALSE),
+		MUTANT_SYNTH_ANTENNA = list("None", FALSE),
+		MUTANT_SYNTH_SCREEN = list("None", FALSE),
 		MUTANT_SYNTH_CHASSIS = list("Default Chassis", FALSE),
 		MUTANT_SYNTH_HEAD = list("Default Head", FALSE),
 	)

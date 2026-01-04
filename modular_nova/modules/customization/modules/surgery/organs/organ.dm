@@ -11,8 +11,31 @@
 	/// the ear choice on a certain species, while still applying its visuals.
 	var/overrides_sprite_datum_organ_type = FALSE
 
+/obj/item/organ/Initialize(mapload)
+	. = ..()
+	//if(mutantpart_key)
+	//	color = mutantpart_info?.get_primary_color()
+
 /obj/item/organ/proc/get_default_mutant_part()
 	return
+
+/obj/item/organ/Remove(mob/living/carbon/organ_owner, special, movement_flags)
+	if(!organ_owner.has_dna())
+		return ..()
+	if(organ_owner.dna.mutant_bodyparts)
+		organ_owner.dna.mutant_bodyparts -= mutantpart_key
+	return ..()
+
+/obj/item/organ/on_mob_insert(mob/living/carbon/organ_owner, special, movement_flags)
+	. = ..()
+	if(isdummy(organ_owner))
+		return
+	if(!organ_owner.has_dna())
+		return
+	if(bodypart_overlay && isnull(organ_owner.dna.mutant_bodyparts[mutantpart_key]))
+		var/datum/sprite_accessory/sprite_acc = bodypart_overlay.sprite_datum
+		if(sprite_acc)
+			organ_owner.dna.mutant_bodyparts[mutantpart_key] = organ_owner.dna.species.build_mutant_part(sprite_acc.name, bodypart_overlay.draw_color, bodypart_overlay.emissive_eligibility_by_color_index)
 
 /obj/item/organ/proc/build_from_dna(datum/dna/build_from, associated_key)
 	mutantpart_key = associated_key

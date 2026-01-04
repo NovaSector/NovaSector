@@ -12,7 +12,9 @@
 
 /datum/species/pod/get_default_mutant_bodyparts()
 	return list(
-		FEATURE_POD_HAIR = list("Ivy", TRUE),
+		"ears" = list("None", FALSE),
+		"pod_hair" = list("Ivy", TRUE),
+		"legs" = list("Normal Legs", FALSE),
 	)
 
 /datum/species/pod/podweak

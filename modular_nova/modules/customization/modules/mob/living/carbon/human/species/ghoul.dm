@@ -31,6 +31,10 @@
 
 /datum/species/ghoul/get_default_mutant_bodyparts()
 	return list(
+		FEATURE_EARS = list("None", FALSE),
+		FEATURE_TAIL = list("None", FALSE),
+		FEATURE_EARS = list("None", FALSE),
+		FEATURE_LEGS = list("Normal Legs", FALSE),
 		FEATURE_GHOUL_COLOR = list("Tan Necrotic", FALSE),
 	)
 

@@ -57,6 +57,7 @@
 	return list(
 		FEATURE_TAIL = list("Teshari (Default)", TRUE),
 		FEATURE_EARS = list("Teshari Regular", TRUE),
+		FEATURE_LEGS = list("Normal Legs", FALSE),
 	)
 
 /obj/item/organ/tongue/teshari

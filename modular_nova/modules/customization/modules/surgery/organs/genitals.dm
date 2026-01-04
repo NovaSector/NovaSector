@@ -59,7 +59,7 @@
 		return
 	. = ..()
 
-/obj/item/organ/genital/Remove(mob/living/carbon/M, special = FALSE, movement_flags)
+/obj/item/organ/genital/Remove(mob/living/carbon/M, special = FALSE, moving)
 	. = ..()
 	update_genital_icon_state()
 

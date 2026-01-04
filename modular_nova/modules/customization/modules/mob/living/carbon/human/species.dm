@@ -26,12 +26,14 @@ GLOBAL_LIST_EMPTY(customizable_races)
 	var/body_size_restricted = FALSE
 	/// Are we lore protected? This prevents people from changing the species lore or species name.
 	var/lore_protected = FALSE
-	/// When set to FALSE, prevents customizable dna features from being applied
-	var/allow_customizable_dna_features = TRUE
+	/// When set to TRUE, prevents customizable dna features from being applied
+	var/disallow_customizable_dna_features
 
 /// Returns a list of the default mutant bodyparts, and whether or not they can be randomized or not
 /datum/species/proc/get_default_mutant_bodyparts()
-	return
+	return list(
+		"ears" = list("None", FALSE),
+	)
 
 /datum/species/proc/handle_mutant_bodyparts(mob/living/carbon/human/source, forced_colour)
 	return
@@ -66,8 +68,8 @@ GLOBAL_LIST_EMPTY(customizable_races)
 
 /datum/species/human/felinid/get_default_mutant_bodyparts()
 	return list(
-		FEATURE_TAIL = list("Cat", FALSE),
-		FEATURE_EARS = list("Cat", FALSE),
+		"tail" = list("Cat", FALSE),
+		"ears" = list("Cat", FALSE),
 	)
 
 /datum/species/human/felinid/create_pref_unique_perks()
@@ -85,6 +87,14 @@ GLOBAL_LIST_EMPTY(customizable_races)
 
 /datum/species/human
 	digitigrade_customization = DIGITIGRADE_OPTIONAL
+
+/datum/species/human/get_default_mutant_bodyparts()
+	return list(
+		"ears" = list("None", FALSE),
+		"tail" = list("None", FALSE),
+		"wings" = list("None", FALSE),
+		"legs" = list("Normal Legs", FALSE),
+	)
 
 /datum/species/mush
 	mutant_organs = list()
@@ -120,16 +130,18 @@ GLOBAL_LIST_EMPTY(customizable_races)
 		mutantpart_list = existing_mutant_bodyparts.Copy()
 
 	var/list/default_bodypart_data = GLOB.default_mutant_bodyparts[name]
-	var/erp_disabled = CONFIG_GET(flag/disable_erp_preferences)
+	var/list/bodyparts_to_add = default_bodypart_data.Copy()
 
-	for(var/key, bodypart_to_add in default_bodypart_data)
-		if(erp_disabled && GLOB.possible_genitals[key])
-			continue
+	if(CONFIG_GET(flag/disable_erp_preferences))
+		for(var/genital in GLOB.possible_genitals)
+			bodyparts_to_add.Remove(genital)
+
+	for(var/key, bodypart_to_add in bodyparts_to_add)
 		// Skip if there's an existing sprite accessory
 		if(LAZYLEN(existing_mutant_bodyparts) && existing_mutant_bodyparts[key])
 			continue
 
-		var/list/bodypart_data = bodypart_to_add
+		var/bodypart_data = default_bodypart_data[key]
 
 		var/datum/sprite_accessory/sprite_accessory
 		if(bodypart_data[MUTANTPART_CAN_RANDOMIZE])
@@ -156,16 +168,15 @@ GLOBAL_LIST_EMPTY(customizable_races)
 		target.unwag_tail()
 	return ..()
 
-/datum/species/regenerate_organs(mob/living/carbon/organ_holder, datum/species/old_species, replace_current = TRUE, list/excluded_zones, visual_only = FALSE, replace_missing = TRUE)
+/datum/species/regenerate_organs(mob/living/carbon/target, datum/species/old_species, replace_current = TRUE, list/excluded_zones, visual_only = FALSE, replace_missing = TRUE)
 	. = ..()
 
-	var/robot_organs = HAS_TRAIT(organ_holder, TRAIT_ROBOTIC_DNA_ORGANS)
+	var/robot_organs = HAS_TRAIT(target, TRAIT_ROBOTIC_DNA_ORGANS)
 
-	for (var/key, mutant_part in organ_holder.dna.mutant_bodyparts)
+	for (var/key, mutant_part in target.dna.mutant_bodyparts)
 		var/list/accessory_category = SSaccessories.sprite_accessories[key]
 		if(!islist(accessory_category))
-			stack_trace("Mutant bodypart key [key] has no sprite accessory category")
-			continue
+			CRASH("Mutant bodypart key [key] has no sprite accessory category")
 
 		var/datum/mutant_bodypart/mutant_bodypart = mutant_part
 		if(!istype(mutant_bodypart))
@@ -177,11 +188,11 @@ GLOBAL_LIST_EMPTY(customizable_races)
 
 		if(mutant_accessory?.factual && mutant_accessory.organ_type)
 			var/obj/item/organ/accessory_organ_type = mutant_accessory.organ_type
-			var/obj/item/organ/current_organ = organ_holder.get_organ_by_type(accessory_organ_type)
+			var/obj/item/organ/current_organ = target.get_organ_by_type(accessory_organ_type)
 
 			if(!current_organ || replace_current)
 				var/organ_slot = accessory_organ_type::slot
-				var/obj/item/organ/current_organ_in_slot = organ_holder.get_organ_slot(organ_slot)
+				var/obj/item/organ/current_organ_in_slot = target.get_organ_slot(organ_slot)
 				var/obj/item/organ/replacement
 
 				// If the current organ in that slot should override the replacement because it's a special organ for this species,
@@ -204,9 +215,9 @@ GLOBAL_LIST_EMPTY(customizable_races)
 				if(current_organ)
 					current_organ.before_organ_replacement(replacement)
 
-				replacement.build_from_dna(organ_holder.dna, key)
+				replacement.build_from_dna(target.dna, key)
 				// organ.Insert will qdel any current organs in that slot, so we don't need to
-				replacement.Insert(organ_holder, special = TRUE, movement_flags = DELETE_IF_REPLACED)
+				replacement.Insert(target, special = TRUE, movement_flags = DELETE_IF_REPLACED)
 
 /datum/species/proc/spec_revival(mob/living/carbon/human/H)
 	return

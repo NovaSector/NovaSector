@@ -302,16 +302,11 @@ GLOBAL_LIST_EMPTY(features_by_species)
 		// if we have an extra organ that before changing that the species didnt have, remove it
 		if(!new_organ)
 			if(existing_organ && (old_organ_type == existing_organ.type || replace_current))
-				// NOVA EDIT ADDITION START - Remove so it can be reinserted + handled in modular_nova\modules\customization\modules\mob\living\carbon\human\species.dm
-				// We basically just want to keep from removing it from mutant_bodyparts
-				var/existing_organ_feature_key = existing_organ.bodypart_overlay?.feature_key
-				if(existing_organ_feature_key && organ_holder.dna.mutant_bodyparts[existing_organ_feature_key])
-					existing_organ.Remove(organ_holder, special = TRUE, movement_flags = KEEP_IN_MUTANT_BODYPARTS)
-				// NOVA EDIT ADDITION END
+				existing_organ.Remove(organ_holder)
 				qdel(existing_organ)
 			continue
 
-		if(existing_organ && allow_customizable_dna_features) // NOVA EDIT CHANGE - Though sometimes we might want to do that. - ORIGINAL: if(existing_organ)
+		if(existing_organ && !disallow_customizable_dna_features) // NOVA EDIT CHANGE - Though sometimes we might want to do that. - ORIGINAL: if(existing_organ)
 			// we dont want to remove organs that were not from the old species (such as from freak surgery or prosthetics)
 			if(existing_organ.type != old_organ_type && !replace_current)
 				continue

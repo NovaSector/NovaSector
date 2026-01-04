@@ -51,6 +51,19 @@
 	if(core_signal)
 		core_signal.Remove(former_jellyperson)
 
+/datum/species/jelly/get_default_mutant_bodyparts()
+	return list(
+		"tail" = list("None", FALSE),
+		"snout" = list("None", FALSE),
+		"ears" = list("None", FALSE),
+		"legs" = list("Normal Legs", FALSE),
+		"taur" = list("None", FALSE),
+		"wings" = list("None", FALSE),
+		"horns" = list("None", FALSE),
+		"spines" = list("None", FALSE),
+		"frills" = list("None", FALSE),
+	)
+
 /datum/species/jelly/gain_oversized_organs(mob/living/carbon/human/human_holder, datum/quirk/oversized/oversized_quirk)
 	if(isnull(human_holder.loc))
 		return // preview characters don't need funny organs, prevents a runtime

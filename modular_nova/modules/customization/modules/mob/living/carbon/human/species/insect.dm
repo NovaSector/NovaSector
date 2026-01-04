@@ -23,7 +23,15 @@
 
 /datum/species/insect/get_default_mutant_bodyparts()
 	return list(
+		FEATURE_TAIL = list("None", FALSE),
+		FEATURE_SNOUT = list("None", FALSE),
+		FEATURE_HORNS = list("None", FALSE),
+		FEATURE_EARS = list("None", FALSE),
+		FEATURE_LEGS = list("Normal Legs", FALSE),
+		FEATURE_TAUR = list("None", FALSE),
+		FEATURE_FLUFF = list("None", FALSE),
 		FEATURE_WINGS = list("Bee", FALSE),
+		FEATURE_MOTH_ANTENNAE = list("None", FALSE),
 	)
 
 /datum/species/insect/get_species_description()
