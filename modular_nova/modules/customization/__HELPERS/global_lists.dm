@@ -30,8 +30,14 @@
 	// Build the global list for default species' mutant_bodyparts
 	for(var/species_path in subtypesof(/datum/species))
 		var/datum/species/species = GLOB.species_prototypes[species_path]
-		if(!isnull(species.name))
-			GLOB.default_mutant_bodyparts[species.name] = species.get_default_mutant_bodyparts()
+		if(isnull(species.name))
+			continue
+
+		var/list/default_parts = species.get_default_mutant_bodyparts()
+		if(!islist(default_parts))
+			continue
+
+		GLOB.default_mutant_bodyparts[species.name] = default_parts
 
 /proc/make_body_marking_references()
 	// Here we build the global list for all body markings
