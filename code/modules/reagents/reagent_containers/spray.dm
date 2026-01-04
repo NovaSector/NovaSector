@@ -8,7 +8,7 @@
 	lefthand_file = 'icons/mob/inhands/equipment/custodial_lefthand.dmi'
 	righthand_file = 'icons/mob/inhands/equipment/custodial_righthand.dmi'
 	item_flags = NOBLUDGEON
-	initial_reagent_flags = OPENCONTAINER
+	initial_reagent_flags = OPENCONTAINER | NO_SPLASH
 	slot_flags = ITEM_SLOT_BELT
 	throwforce = 0
 	w_class = WEIGHT_CLASS_SMALL
@@ -225,12 +225,6 @@
 	user.visible_message(span_suicide("[user] begins huffing \the [src]! It looks like [user.p_theyre()] getting a dirty high!"))
 	return OXYLOSS
 
-// Fix pepperspraying yourself
-/obj/item/reagent_containers/spray/pepper/try_spray(atom/target, mob/user)
-	if (target.loc == user)
-		return FALSE
-	return ..()
-
 //water flower
 /obj/item/reagent_containers/spray/waterflower
 	name = "water flower"
@@ -313,11 +307,6 @@
 	stream_range = 7
 	amount_per_transfer_from_this = 10
 	volume = 600
-
-/obj/item/reagent_containers/spray/chemsprayer/try_spray(atom/target, mob/user)
-	if (target.loc == user)
-		return FALSE
-	return ..()
 
 /obj/item/reagent_containers/spray/chemsprayer/spray(atom/A, mob/user)
 	var/direction = get_dir(src, A)

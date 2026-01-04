@@ -8,7 +8,7 @@
 	allowed = list(
 		/obj/item/tank/internals/emergency_oxygen,
 		/obj/item/tank/internals/plasmaman,
-		/obj/item/tank/jetpack/oxygen/captain,
+		/obj/item/tank/jetpack/captain,
 		/obj/item/storage/belt/holster,
 		/obj/item/cane, // NOVA EDIT ADDITION
 		)
@@ -31,18 +31,6 @@
 		. += mutable_appearance(damagefile2use, "damaged[blood_overlay_type]")
 		//NOVA EDIT ADDITION END
 
-	// NOVA EDIT ADDITION START - TAUR-FULLBODY SUITS
-	if(mutant_styles & STYLE_TAUR_ALL)
-		if (worn_icon_taur_snake)
-			worn_x_offset = -16
-		else if (worn_icon_taur_paw)
-			worn_x_offset = -16
-		else if (worn_icon_taur_hoof)
-			worn_x_offset = -16
-	else
-		worn_x_offset = 0
-
-	// NOVA EDIT ADDITION END
 	var/mob/living/carbon/human/wearer = loc
 	if(!ishuman(wearer) || !wearer.w_uniform)
 		return

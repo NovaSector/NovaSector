@@ -6,7 +6,7 @@
 	build_path = /obj/item/clothing/under/colonial
 	category = list(
 		RND_CATEGORY_INITIAL,
-		RND_CATEGORY_NRI_CLOTHING,
+		RND_CATEGORY_HC_CLOTHING,
 	)
 
 /datum/design/colonial_boots
@@ -17,7 +17,7 @@
 	build_path = /obj/item/clothing/shoes/jackboots/colonial
 	category = list(
 		RND_CATEGORY_INITIAL,
-		RND_CATEGORY_NRI_CLOTHING,
+		RND_CATEGORY_HC_CLOTHING,
 	)
 
 /datum/design/colonial_cloak
@@ -28,7 +28,7 @@
 	build_path = /obj/item/clothing/neck/cloak/colonial
 	category = list(
 		RND_CATEGORY_INITIAL,
-		RND_CATEGORY_NRI_CLOTHING,
+		RND_CATEGORY_HC_CLOTHING,
 	)
 
 /datum/design/colonial_webbing
@@ -36,10 +36,10 @@
 	id = "slavic_webbing"
 	build_type = BIOGENERATOR
 	materials = list(/datum/material/biomass = 200)
-	build_path = /obj/item/storage/belt/webbing/colonial
+	build_path = /obj/item/clothing/accessory/webbing/colonial
 	category = list(
 		RND_CATEGORY_INITIAL,
-		RND_CATEGORY_NRI_CLOTHING,
+		RND_CATEGORY_HC_CLOTHING,
 	)
 
 /datum/design/cool_hat
@@ -50,7 +50,7 @@
 	build_path = /obj/item/clothing/head/hats/colonial
 	category = list(
 		RND_CATEGORY_INITIAL,
-		RND_CATEGORY_NRI_CLOTHING,
+		RND_CATEGORY_HC_CLOTHING,
 	)
 
 /datum/design/cool_gloves
@@ -61,5 +61,5 @@
 	build_path = /obj/item/clothing/gloves/color/black
 	category = list(
 		RND_CATEGORY_INITIAL,
-		RND_CATEGORY_NRI_CLOTHING,
+		RND_CATEGORY_HC_CLOTHING,
 	)

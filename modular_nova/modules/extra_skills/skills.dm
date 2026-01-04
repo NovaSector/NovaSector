@@ -1,9 +1,9 @@
-/datum/skill/research
-	name = "Research"
-	title = "Researcher"
-	desc = "The universe is full of wonderous mysteries, and you've been tasked to uncover and discover!"
+/datum/skill/archeology
+	name = "Archeology"
+	title = "Archeologist"
+	desc = "The ground below us hides various mysteries, and you've been tasked to uncover and discover!"
 	modifiers = list(SKILL_SPEED_MODIFIER = list(1, 0.95, 0.9, 0.85, 0.75, 0.6, 0.5), SKILL_PROBS_MODIFIER = list(10, 20, 40, 50, 70, 80, 100))
-	skill_item_path = /obj/item/clothing/neck/cloak/skill_reward/research
+	skill_item_path = /obj/item/clothing/neck/cloak/skill_reward/archeology
 
 /datum/skill/primitive
 	name = "Primitive"

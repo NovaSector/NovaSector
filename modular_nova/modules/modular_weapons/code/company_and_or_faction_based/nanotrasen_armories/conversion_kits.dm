@@ -77,7 +77,7 @@
 
 /datum/crafting_recipe/c38_super/New()
 	..()
-	blacklist |= typesof(/obj/item/gun/ballistic/revolver/c38/super) // let's not try to super-ize our already super revolver i think
+	LAZYOR(blacklist, typesof(/obj/item/gun/ballistic/revolver/c38/super)) // let's not try to super-ize our already super revolver i think
 
 /datum/crafting_recipe/c38_super/check_requirements(mob/user, list/collected_requirements)
 	var/obj/item/gun/ballistic/revolver/c38/the_piece = collected_requirements[/obj/item/gun/ballistic/revolver/c38][1]

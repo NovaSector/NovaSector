@@ -84,7 +84,7 @@
 /datum/loadout_item/glasses/better
 	name = "Modern Glasses"
 	item_path = /obj/item/clothing/glasses/regular/modern
-	can_be_reskinned = TRUE
+	loadout_flags = parent_type::loadout_flags | LOADOUT_FLAG_ALLOW_RESKIN
 	group = "Prescription"
 
 /datum/loadout_item/glasses/thin
@@ -132,167 +132,167 @@
 /datum/loadout_item/glasses/robopatch
 	name = "Diagnostic HUD - Eyepatch"
 	item_path = /obj/item/clothing/glasses/hud/eyepatch/diagnostic
-	restricted_roles = list(JOB_SCIENTIST, JOB_ROBOTICIST, JOB_GENETICIST, JOB_RESEARCH_DIRECTOR, JOB_SCIENCE_GUARD)
+	restricted_roles = list(ALL_JOBS_SCI)
 	group = "Job-Locked"
 
 /datum/loadout_item/glasses/diaghud_glasses
 	name = "Diagnostic HUD - Prescription"
 	item_path = /obj/item/clothing/glasses/hud/diagnostic/prescription
-	restricted_roles = list(JOB_RESEARCH_DIRECTOR,JOB_SCIENTIST, JOB_ROBOTICIST)
+	restricted_roles = list(ALL_JOBS_SCI)
 	group = "Job-Locked"
 
 /datum/loadout_item/glasses/prescription_aviator_diagnostic
 	name = "Diagnostic HUD - Prescription Sunglasses"
 	item_path = /obj/item/clothing/glasses/hud/ar/aviator/diagnostic/prescription
-	restricted_roles = list(JOB_RESEARCH_DIRECTOR, JOB_SCIENTIST, JOB_ROBOTICIST)
+	restricted_roles = list(ALL_JOBS_SCI)
 	group = "Job-Locked"
 
 /datum/loadout_item/glasses/aviator_diagnostic
 	name = "Diagnostic HUD - Sunglasses"
 	item_path = /obj/item/clothing/glasses/hud/ar/aviator/diagnostic
-	restricted_roles = list(JOB_RESEARCH_DIRECTOR, JOB_SCIENTIST, JOB_ROBOTICIST)
+	restricted_roles = list(ALL_JOBS_SCI)
 	group = "Job-Locked"
 
 /datum/loadout_item/glasses/retinal_projector_diagnostic
 	name = "Diagnostic HUD - Retinal Projector"
 	item_path = /obj/item/clothing/glasses/hud/ar/projector/diagnostic
-	restricted_roles = list(JOB_RESEARCH_DIRECTOR, JOB_SCIENTIST, JOB_ROBOTICIST)
+	restricted_roles = list(ALL_JOBS_SCI)
 	group = "Job-Locked"
 
 //Medical
 /datum/loadout_item/glasses/medicpatch
 	name = "Medical HUD - Eyepatch"
 	item_path = /obj/item/clothing/glasses/hud/eyepatch/med
-	restricted_roles = list(JOB_MEDICAL_DOCTOR, JOB_CHIEF_MEDICAL_OFFICER, JOB_GENETICIST, JOB_CHEMIST, JOB_VIROLOGIST, JOB_PARAMEDIC, JOB_ORDERLY, JOB_CORONER)
+	restricted_roles = list(ALL_JOBS_MED)
 	group = "Job-Locked"
 
 /datum/loadout_item/glasses/medhud_glasses
 	name = "Medical HUD - Prescription"
 	item_path = /obj/item/clothing/glasses/hud/health/prescription
-	restricted_roles = list(JOB_MEDICAL_DOCTOR, JOB_CHIEF_MEDICAL_OFFICER, JOB_GENETICIST, JOB_CHEMIST, JOB_VIROLOGIST, JOB_PARAMEDIC, JOB_ORDERLY, JOB_CORONER)
+	restricted_roles = list(ALL_JOBS_MED)
 	group = "Job-Locked"
 
 /datum/loadout_item/glasses/prescription_aviator_health
 	name = "Medical HUD - Prescription Sunglassess"
 	item_path = /obj/item/clothing/glasses/hud/ar/aviator/health/prescription
-	restricted_roles = list(JOB_MEDICAL_DOCTOR, JOB_CHIEF_MEDICAL_OFFICER, JOB_GENETICIST, JOB_CHEMIST, JOB_VIROLOGIST, JOB_PARAMEDIC, JOB_ORDERLY, JOB_CORONER)
+	restricted_roles = list(ALL_JOBS_MED)
 	group = "Job-Locked"
 
 /datum/loadout_item/glasses/aviator_health
 	name = "Medical HUD - Sunglasses"
 	item_path = /obj/item/clothing/glasses/hud/ar/aviator/health
-	restricted_roles = list(JOB_MEDICAL_DOCTOR, JOB_CHIEF_MEDICAL_OFFICER, JOB_GENETICIST, JOB_CHEMIST, JOB_VIROLOGIST, JOB_PARAMEDIC, JOB_ORDERLY, JOB_CORONER)
+	restricted_roles = list(ALL_JOBS_MED)
 	group = "Job-Locked"
 
 /datum/loadout_item/glasses/retinal_projector_health
 	name = "Medical HUD - Retinal Projector"
 	item_path = /obj/item/clothing/glasses/hud/ar/projector/health
-	restricted_roles = list(JOB_MEDICAL_DOCTOR, JOB_CHIEF_MEDICAL_OFFICER, JOB_GENETICIST, JOB_CHEMIST, JOB_VIROLOGIST, JOB_PARAMEDIC, JOB_ORDERLY, JOB_CORONER)
+	restricted_roles = list(ALL_JOBS_MED)
 	group = "Job-Locked"
 
 //Meson
 /datum/loadout_item/glasses/mesonpatch
 	name = "Meson HUD - Eyepatch"
 	item_path = /obj/item/clothing/glasses/hud/eyepatch/meson
-	restricted_roles = list(JOB_QUARTERMASTER, JOB_CARGO_TECHNICIAN, JOB_SHAFT_MINER, JOB_CUSTOMS_AGENT, JOB_CHIEF_ENGINEER, JOB_STATION_ENGINEER, JOB_ATMOSPHERIC_TECHNICIAN, JOB_ENGINEERING_GUARD)
+	restricted_roles = list(ALL_JOBS_CARGO, ALL_JOBS_ENGI)
 	group = "Job-Locked"
 
 /datum/loadout_item/glasses/meson_prescription
 	name = "Meson HUD - Prescription"
 	item_path = /obj/item/clothing/glasses/meson/prescription
-	restricted_roles = list(JOB_QUARTERMASTER, JOB_CARGO_TECHNICIAN, JOB_SHAFT_MINER, JOB_CUSTOMS_AGENT, JOB_CHIEF_ENGINEER, JOB_STATION_ENGINEER, JOB_ATMOSPHERIC_TECHNICIAN, JOB_ENGINEERING_GUARD)
+	restricted_roles = list(ALL_JOBS_CARGO, ALL_JOBS_ENGI)
 	group = "Job-Locked"
 
 /datum/loadout_item/glasses/prescription_aviator_meson
 	name = "Meson HUD - Prescription Sunglasses"
 	item_path = /obj/item/clothing/glasses/hud/ar/aviator/meson/prescription
-	restricted_roles = list(JOB_QUARTERMASTER, JOB_CARGO_TECHNICIAN, JOB_SHAFT_MINER, JOB_CUSTOMS_AGENT, JOB_CHIEF_ENGINEER, JOB_STATION_ENGINEER, JOB_ATMOSPHERIC_TECHNICIAN, JOB_ENGINEERING_GUARD)
+	restricted_roles = list(ALL_JOBS_CARGO, ALL_JOBS_ENGI)
 	group = "Job-Locked"
 
 /datum/loadout_item/glasses/aviator_meson
 	name = "Meson HUD - Sunglasses"
 	item_path = /obj/item/clothing/glasses/hud/ar/aviator/meson
-	restricted_roles = list(JOB_QUARTERMASTER, JOB_CARGO_TECHNICIAN, JOB_SHAFT_MINER, JOB_CUSTOMS_AGENT, JOB_CHIEF_ENGINEER, JOB_STATION_ENGINEER, JOB_ATMOSPHERIC_TECHNICIAN, JOB_ENGINEERING_GUARD)
+	restricted_roles = list(ALL_JOBS_CARGO, ALL_JOBS_ENGI)
 	group = "Job-Locked"
 
 /datum/loadout_item/glasses/retinal_projector_meson
 	name = "Meson HUD - Retinal Projector"
 	item_path = /obj/item/clothing/glasses/hud/ar/projector/meson
-	restricted_roles = list(JOB_QUARTERMASTER, JOB_CARGO_TECHNICIAN, JOB_SHAFT_MINER, JOB_CUSTOMS_AGENT, JOB_CHIEF_ENGINEER, JOB_STATION_ENGINEER, JOB_ATMOSPHERIC_TECHNICIAN, JOB_ENGINEERING_GUARD)
+	restricted_roles = list(ALL_JOBS_CARGO, ALL_JOBS_ENGI)
 	group = "Job-Locked"
 
 //Science
 /datum/loadout_item/glasses/scipatch
 	name = "Science HUD - Eyepatch"
 	item_path = /obj/item/clothing/glasses/hud/eyepatch/sci
-	restricted_roles = list(JOB_SCIENTIST, JOB_ROBOTICIST, JOB_GENETICIST, JOB_RESEARCH_DIRECTOR, JOB_CHEMIST, JOB_SCIENCE_GUARD, JOB_VIROLOGIST)
+	restricted_roles = list(ALL_JOBS_SCI, JOB_CHEMIST, JOB_VIROLOGIST)
 	group = "Job-Locked"
 
 /datum/loadout_item/glasses/science_glasses
 	name = "Science HUD - Prescription"
 	item_path = /obj/item/clothing/glasses/science/prescription
-	restricted_roles = list(JOB_SCIENTIST, JOB_ROBOTICIST, JOB_GENETICIST, JOB_RESEARCH_DIRECTOR, JOB_CHEMIST, JOB_SCIENCE_GUARD, JOB_VIROLOGIST)
+	restricted_roles = list(ALL_JOBS_SCI, JOB_CHEMIST, JOB_VIROLOGIST)
 	group = "Job-Locked"
 
 /datum/loadout_item/glasses/prescription_aviator_science
 	name = "Science HUD - Prescription Sunglasses"
 	item_path = /obj/item/clothing/glasses/hud/ar/aviator/science/prescription
-	restricted_roles = list(JOB_SCIENTIST, JOB_ROBOTICIST, JOB_GENETICIST, JOB_RESEARCH_DIRECTOR, JOB_CHEMIST, JOB_SCIENCE_GUARD, JOB_VIROLOGIST)
+	restricted_roles = list(ALL_JOBS_SCI, JOB_CHEMIST, JOB_VIROLOGIST)
 	group = "Job-Locked"
 
 /datum/loadout_item/glasses/aviator_science
 	name = "Science HUD - Sunglasses"
 	item_path = /obj/item/clothing/glasses/hud/ar/aviator/science
-	restricted_roles = list(JOB_SCIENTIST, JOB_ROBOTICIST, JOB_GENETICIST, JOB_RESEARCH_DIRECTOR, JOB_CHEMIST, JOB_SCIENCE_GUARD, JOB_VIROLOGIST)
+	restricted_roles = list(ALL_JOBS_SCI, JOB_CHEMIST, JOB_VIROLOGIST)
 	group = "Job-Locked"
 
 /datum/loadout_item/glasses/retinal_projector_science
 	name = "Science HUD - Retinal Projector"
 	item_path = /obj/item/clothing/glasses/hud/ar/projector/science
-	restricted_roles = list(JOB_SCIENTIST, JOB_ROBOTICIST, JOB_GENETICIST, JOB_RESEARCH_DIRECTOR, JOB_CHEMIST, JOB_SCIENCE_GUARD, JOB_VIROLOGIST)
+	restricted_roles = list(ALL_JOBS_SCI, JOB_CHEMIST, JOB_VIROLOGIST)
 	group = "Job-Locked"
 
 //Security
 /datum/loadout_item/glasses/sechud
 	name = "Security HUD"
 	item_path = /obj/item/clothing/glasses/hud/security
-	restricted_roles = list(JOB_SECURITY_OFFICER, JOB_WARDEN, JOB_HEAD_OF_SECURITY, JOB_CORRECTIONS_OFFICER, JOB_BOUNCER, JOB_ORDERLY, JOB_SCIENCE_GUARD, JOB_CUSTOMS_AGENT, JOB_ENGINEERING_GUARD, JOB_BLUESHIELD, JOB_DETECTIVE)
+	restricted_roles = list(ALL_JOBS_DEPTGUARD, ALL_JOBS_SEC)
 	group = "Job-Locked"
 
 /datum/loadout_item/glasses/secpatch
 	name = "Security HUD - Eyepatch"
 	item_path = /obj/item/clothing/glasses/hud/security/sunglasses/eyepatch
-	restricted_roles = list(JOB_SECURITY_OFFICER, JOB_WARDEN, JOB_HEAD_OF_SECURITY, JOB_CORRECTIONS_OFFICER, JOB_BOUNCER, JOB_ORDERLY, JOB_SCIENCE_GUARD, JOB_CUSTOMS_AGENT, JOB_ENGINEERING_GUARD, JOB_BLUESHIELD, JOB_DETECTIVE)
+	restricted_roles = list(ALL_JOBS_DEPTGUARD, ALL_JOBS_SEC)
 	group = "Job-Locked"
 
 /datum/loadout_item/glasses/sechud_glasses
 	name = "Security HUD - Prescription"
 	item_path = /obj/item/clothing/glasses/hud/security/prescription
-	restricted_roles = list(JOB_SECURITY_OFFICER, JOB_WARDEN, JOB_HEAD_OF_SECURITY, JOB_CORRECTIONS_OFFICER, JOB_BOUNCER, JOB_ORDERLY, JOB_SCIENCE_GUARD, JOB_CUSTOMS_AGENT, JOB_ENGINEERING_GUARD, JOB_BLUESHIELD, JOB_DETECTIVE)
+	restricted_roles = list(ALL_JOBS_DEPTGUARD, ALL_JOBS_SEC)
 	group = "Job-Locked"
 
 /datum/loadout_item/glasses/prescription_aviator_security
 	name = "Security HUD - Prescription Sunglasses"
 	item_path = /obj/item/clothing/glasses/hud/ar/aviator/security/prescription
-	restricted_roles = list(JOB_SECURITY_OFFICER, JOB_WARDEN, JOB_HEAD_OF_SECURITY, JOB_CORRECTIONS_OFFICER, JOB_BOUNCER, JOB_ORDERLY, JOB_SCIENCE_GUARD, JOB_CUSTOMS_AGENT, JOB_ENGINEERING_GUARD, JOB_BLUESHIELD, JOB_DETECTIVE)
+	restricted_roles = list(ALL_JOBS_DEPTGUARD, ALL_JOBS_SEC)
 	group = "Job-Locked"
 
 /datum/loadout_item/glasses/aviator_security
 	name = "Security HUD - Sunglasses"
 	item_path = /obj/item/clothing/glasses/hud/ar/aviator/security
-	restricted_roles = list(JOB_SECURITY_OFFICER, JOB_WARDEN, JOB_HEAD_OF_SECURITY, JOB_CORRECTIONS_OFFICER, JOB_BOUNCER, JOB_ORDERLY, JOB_SCIENCE_GUARD, JOB_CUSTOMS_AGENT, JOB_ENGINEERING_GUARD, JOB_BLUESHIELD, JOB_DETECTIVE)
+	restricted_roles = list(ALL_JOBS_DEPTGUARD, ALL_JOBS_SEC)
 	group = "Job-Locked"
 
 /datum/loadout_item/glasses/sechud_sunglasses_blue
 	name = "Security HUD - Sunglasses (Blue)"
 	item_path = /obj/item/clothing/glasses/hud/security/sunglasses/blue
-	restricted_roles = list(JOB_SECURITY_OFFICER, JOB_WARDEN, JOB_HEAD_OF_SECURITY, JOB_CORRECTIONS_OFFICER, JOB_BOUNCER, JOB_ORDERLY, JOB_SCIENCE_GUARD, JOB_CUSTOMS_AGENT, JOB_ENGINEERING_GUARD, JOB_BLUESHIELD, JOB_DETECTIVE)
+	restricted_roles = list(ALL_JOBS_DEPTGUARD, ALL_JOBS_SEC)
 	group = "Job-Locked"
 
 /datum/loadout_item/glasses/retinal_projector_security
 	name = "Security HUD - Retinal Projector"
 	item_path = /obj/item/clothing/glasses/hud/ar/projector/security
-	restricted_roles = list(JOB_SECURITY_OFFICER, JOB_WARDEN, JOB_HEAD_OF_SECURITY, JOB_CORRECTIONS_OFFICER, JOB_BOUNCER, JOB_ORDERLY, JOB_SCIENCE_GUARD, JOB_CUSTOMS_AGENT, JOB_ENGINEERING_GUARD, JOB_BLUESHIELD, JOB_DETECTIVE)
+	restricted_roles = list(ALL_JOBS_DEPTGUARD, ALL_JOBS_SEC)
 	group = "Job-Locked"
 
 /*

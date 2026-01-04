@@ -117,7 +117,6 @@
 
 	if(CONFIG_GET(flag/usewhitelist))
 		load_whitelist()
-
 	// NOVA EDIT ADDITION START
 	populate_interaction_instances()
 	remove_erp_things()
@@ -162,10 +161,8 @@
 	var/list/_entries_by_type = list()
 	entries_by_type = _entries_by_type
 
-	for(var/I in typesof(/datum/config_entry)) //typesof is faster in this case
+	for(var/I in valid_subtypesof(/datum/config_entry)) //typesof is faster in this case
 		var/datum/config_entry/E = I
-		if(initial(E.abstract_type) == I)
-			continue
 		E = new I
 		var/esname = E.name
 		var/datum/config_entry/test = _entries[esname]
@@ -354,18 +351,21 @@
 /*
 Policy file should be a json file with a single object.
 Value is raw html.
+
 Possible keywords :
 Job titles / Assigned roles (ghost spawners for example) : Assistant , Captain , Ash Walker
 Mob types : /mob/living/basic/carp
 Antagonist types : /datum/antagonist/highlander
 Species types : /datum/species/lizard
 special keywords defined in _DEFINES/admin.dm
+
 Example config:
 {
 	JOB_ASSISTANT : "Don't kill everyone",
 	"/datum/antagonist/highlander" : "<b>Kill everyone</b>",
 	"Ash Walker" : "Kill all spacemans"
 }
+
 */
 /datum/controller/configuration/proc/LoadPolicy()
 	policy = list()

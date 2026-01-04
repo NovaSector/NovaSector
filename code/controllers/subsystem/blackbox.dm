@@ -43,18 +43,12 @@ SUBSYSTEM_DEF(blackbox)
 		return
 	var/playercount = LAZYLEN(GLOB.player_list)
 	var/admincount = GLOB.admins.len
-	/* // NOVA EDIT CHANGE - MULTISERVER - ORIGINAL:
 	var/datum/db_query/query_record_playercount = SSdbcore.NewQuery({"
 		INSERT INTO [format_table_name("legacy_population")] (playercount, admincount, time, server_ip, server_port, round_id)
 		VALUES (:playercount, :admincount, NOW(), INET_ATON(:server_ip), :server_port, :round_id)
-	*/
-	var/datum/db_query/query_record_playercount = SSdbcore.NewQuery({"
-		INSERT INTO [format_table_name("legacy_population")] (playercount, admincount, time, server_name, server_ip, server_port, round_id)
-		VALUES (:playercount, :admincount, NOW(), :server_name, INET_ATON(:server_ip), :server_port, :round_id)
 	"}, list(
 		"playercount" = playercount,
 		"admincount" = admincount,
-		"server_name" = CONFIG_GET(string/serversqlname), // NOVA EDIT ADDITION - MULTISERVER
 		"server_ip" = world.internet_address || "0",
 		"server_port" = "[world.port]",
 		"round_id" = GLOB.round_id,
@@ -333,20 +327,15 @@ Versioning
 		first_death["role"] = null
 		first_death["role"] = L.mind.assigned_role.title
 		first_death["area"] = "[AREACOORD(L)]"
-		first_death["damage"] = "<font color='#FF5555'>[L.getBruteLoss()]</font>/<font color='orange'>[L.getFireLoss()]</font>/<font color='lightgreen'>[L.getToxLoss()]</font>/<font color='lightblue'>[L.getOxyLoss()]</font>"
+		first_death["damage"] = "<font color='#FF5555'>[L.get_brute_loss()]</font>/<font color='orange'>[L.get_fire_loss()]</font>/<font color='lightgreen'>[L.get_tox_loss()]</font>/<font color='lightblue'>[L.get_oxy_loss()]</font>"
 		first_death["last_words"] = L.last_words
 
 	if(!SSdbcore.Connect())
 		return
 
-/* NOVA EDIT CHANGE - MULTISERVER - ORIGINAL:
 	var/datum/db_query/query_report_death = SSdbcore.NewQuery({"
 		INSERT INTO [format_table_name("death")] (pod, x_coord, y_coord, z_coord, mapname, server_ip, server_port, round_id, tod, job, special, name, byondkey, laname, lakey, bruteloss, fireloss, brainloss, oxyloss, toxloss, staminaloss, last_words, suicide)
 		VALUES (:pod, :x_coord, :y_coord, :z_coord, :map, INET_ATON(:internet_address), :port, :round_id, NOW(), :job, :special, :name, :key, :laname, :lakey, :brute, :fire, :brain, :oxy, :tox, :stamina, :last_words, :suicide)
-*/
-	var/datum/db_query/query_report_death = SSdbcore.NewQuery({"
-		INSERT INTO [format_table_name("death")] (pod, x_coord, y_coord, z_coord, mapname, server_name, server_ip, server_port, round_id, tod, job, special, name, byondkey, laname, lakey, bruteloss, fireloss, brainloss, oxyloss, toxloss, staminaloss, last_words, suicide)
-		VALUES (:pod, :x_coord, :y_coord, :z_coord, :map, :server_name, INET_ATON(:internet_address), :port, :round_id, NOW(), :job, :special, :name, :key, :laname, :lakey, :brute, :fire, :brain, :oxy, :tox, :clone, :stamina, :last_words, :suicide)
 	"}, list(
 		"name" = L.real_name,
 		"key" = L.ckey,
@@ -355,19 +344,18 @@ Versioning
 		"pod" = get_area_name(L, TRUE),
 		"laname" = L.lastattacker,
 		"lakey" = L.lastattackerckey,
-		"brute" = L.getBruteLoss(),
-		"fire" = L.getFireLoss(),
+		"brute" = L.get_brute_loss(),
+		"fire" = L.get_fire_loss(),
 		"brain" = L.get_organ_loss(ORGAN_SLOT_BRAIN) || BRAIN_DAMAGE_DEATH, //get_organ_loss returns null without a brain but a value is required for this column
-		"oxy" = L.getOxyLoss(),
-		"tox" = L.getToxLoss(),
-		"stamina" = L.getStaminaLoss(),
+		"oxy" = L.get_oxy_loss(),
+		"tox" = L.get_tox_loss(),
+		"stamina" = L.get_stamina_loss(),
 		"x_coord" = L.x,
 		"y_coord" = L.y,
 		"z_coord" = L.z,
 		"last_words" = L.last_words,
 		"suicide" = did_they_suicide,
 		"map" = SSmapping.current_map.map_name,
-		"server_name" = CONFIG_GET(string/serversqlname),  // NOVA EDIT ADDITION - MULTISERVER
 		"internet_address" = world.internet_address || "0",
 		"port" = "[world.port]",
 		"round_id" = GLOB.round_id,

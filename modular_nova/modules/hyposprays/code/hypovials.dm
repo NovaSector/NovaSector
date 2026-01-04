@@ -5,7 +5,6 @@
 	icon_state = "hypovial"
 	greyscale_config = /datum/greyscale_config/hypovial
 	fill_icon_state = "hypovial_fill"
-	spillable = FALSE
 	volume = 10
 	possible_transfer_amounts = list(1,2,5,10)
 	fill_icon_thresholds = list(10, 25, 50, 75, 100)
@@ -260,7 +259,7 @@
 
 /obj/item/reagent_containers/cup/vial/small/libital/Initialize(mapload)
 	. = ..()
-	reagents.add_reagent(reagent_type = /datum/reagent/medicine/c2/libital, amount = 50, added_purity = 1)
+	reagents.add_reagent(reagent_type = /datum/reagent/medicine/c2/libital, amount = volume, added_purity = 1)
 
 /obj/item/reagent_containers/cup/vial/small/lenturi
 	name = "burn hypovial (lenturi)"
@@ -268,7 +267,7 @@
 
 /obj/item/reagent_containers/cup/vial/small/lenturi/Initialize(mapload)
 	. = ..()
-	reagents.add_reagent(reagent_type = /datum/reagent/medicine/c2/lenturi, amount = 50, added_purity = 1)
+	reagents.add_reagent(reagent_type = /datum/reagent/medicine/c2/lenturi, amount = volume, added_purity = 1)
 
 /obj/item/reagent_containers/cup/vial/small/seiver
 	name = "tox hypovial (seiver)"
@@ -276,7 +275,7 @@
 
 /obj/item/reagent_containers/cup/vial/small/seiver/Initialize(mapload)
 	. = ..()
-	reagents.add_reagent(reagent_type = /datum/reagent/medicine/c2/seiver, amount = 50, reagtemp = 975, added_purity = 1)
+	reagents.add_reagent(reagent_type = /datum/reagent/medicine/c2/seiver, amount = volume, reagtemp = 975, added_purity = 1)
 
 /obj/item/reagent_containers/cup/vial/small/convermol
 	name = "tox hypovial (convermol)"
@@ -284,7 +283,7 @@
 
 /obj/item/reagent_containers/cup/vial/small/convermol/Initialize(mapload)
 	. = ..()
-	reagents.add_reagent(reagent_type = /datum/reagent/medicine/c2/convermol, amount = 50, added_purity = 1)
+	reagents.add_reagent(reagent_type = /datum/reagent/medicine/c2/convermol, amount = volume, added_purity = 1)
 
 /obj/item/reagent_containers/cup/vial/small/atropine
 	name = "crit hypovial (atropine)"
@@ -292,4 +291,4 @@
 
 /obj/item/reagent_containers/cup/vial/small/atropine/Initialize(mapload)
 	. = ..()
-	reagents.add_reagent(reagent_type = /datum/reagent/medicine/atropine, amount = 50, added_purity = 1)
+	reagents.add_reagent(reagent_type = /datum/reagent/medicine/atropine, amount = volume, added_purity = 1)

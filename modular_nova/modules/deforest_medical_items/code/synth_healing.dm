@@ -101,11 +101,14 @@
 	inhand_icon_state = null
 	self_delay = 4 SECONDS
 	other_delay = 2 SECONDS
-	grind_results = list(/datum/reagent/medicine/nanite_slurry = 10,
-		/datum/reagent/dinitrogen_plasmide = 5,
-		/datum/reagent/medicine/coagulant/fabricated = 10,
-	)
 	merge_type = /obj/item/stack/medical/synth_repair
+
+/obj/item/stack/medical/synth_repair/grind_results()
+	return list(
+			/datum/reagent/medicine/nanite_slurry = 10,
+			/datum/reagent/dinitrogen_plasmide = 5,
+			/datum/reagent/medicine/coagulant/fabricated = 10,
+		)
 
 /obj/item/stack/medical/synth_repair/try_heal_checks(mob/living/patient, mob/living/user, healed_zone, silent = FALSE)
 	var/obj/item/bodypart/limb = patient.get_bodypart(healed_zone)
@@ -120,7 +123,7 @@
 
 /obj/item/stack/medical/synth_repair/post_heal_effects(amount_healed, mob/living/carbon/healed_mob, mob/living/user)
 	. = ..()
-	healed_mob.reagents.add_reagent_list(grind_results)
+	healed_mob.reagents.add_reagent_list(grind_results())
 
 // Repairs a robotic organs directly, or during organ manipulation surgery.
 // Sprites: [@splat1125](https://github.com/splat1125)

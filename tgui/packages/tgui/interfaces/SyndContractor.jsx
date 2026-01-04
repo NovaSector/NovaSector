@@ -249,17 +249,18 @@ const ContractsTab = (props) => {
           />
         }
       >
-        {contracts.map((contract) => {
-          if (
-            data.ongoing_contract &&
-            contract.status !== CONTRACT_STATUS_ACTIVE
-          ) {
-            return;
-          }
-          const active = contract.status > CONTRACT_STATUS_INACTIVE;
-          if (contract.status >= CONTRACT_STATUS_COMPLETE) {
-            return;
-          }
+          {contracts
+            .filter((contract) => {
+              if (
+                data.ongoing_contract &&
+                contract.status !== CONTRACT_STATUS_ACTIVE
+              ) {
+                return false;
+              }
+              return contract.status < CONTRACT_STATUS_COMPLETE;
+            })
+            .map((contract) => {
+              const active = contract.status > CONTRACT_STATUS_INACTIVE;
           return (
             <Section
               key={contract.target}
@@ -317,7 +318,7 @@ const HubTab = (props) => {
   return (
     <Section>
       {contractor_hub_items.map((item) => {
-        const repInfo = item.cost ? item.cost + ' Rep' : 'FREE';
+        const repInfo = item.cost ? `${item.cost} Rep` : 'FREE';
         const limited = item.limited !== -1;
         return (
           <Section

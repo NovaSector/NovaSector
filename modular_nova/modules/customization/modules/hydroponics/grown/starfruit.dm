@@ -28,7 +28,9 @@
 	icon_state = "starfruit"
 	bite_consumption_mod = 2
 	foodtypes = FRUIT | SUGAR
-	juice_typepath = /datum/reagent/consumable/starfruit_juice
+
+/obj/item/food/grown/starfruit/juice_typepath()
+	return /datum/reagent/consumable/starfruit_juice
 
 //Starfruit drinks
 //All the drinks are very good because this shit cost 1k minimum to get the starfruit
