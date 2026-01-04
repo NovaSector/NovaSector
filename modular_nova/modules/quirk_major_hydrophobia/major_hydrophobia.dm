@@ -9,6 +9,12 @@
 	icon = FA_ICON_WATER
 	quirk_flags = QUIRK_HUMAN_ONLY
 
+/datum/quirk/major_hydrophobia/is_species_appropriate(datum/species/mob_species)
+	if(TRAIT_WATER_HATER in GLOB.species_prototypes[mob_species].inherent_traits)
+		return FALSE
+	else
+		return ..()
+
 /datum/quirk/major_hydrophobia/add(client/client_source)
 	// If they're a slime, let's remove their ability
 	var/datum/action/cooldown/spell/slime_hydrophobia/slime_hydrophobia = locate() in quirk_holder.actions
