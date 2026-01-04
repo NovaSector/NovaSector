@@ -1,0 +1,4 @@
+author: "codyman765"
+delete-after: True
+changes:
+  - map: "modified the ghost cafe to reflect current map assets and fix bugs"
