@@ -48,8 +48,7 @@
 
 /datum/species/vox_primalis/get_default_mutant_bodyparts()
 	return list(
-		"ears" = list("None", FALSE),
-		"tail" = list("Vox Primalis Tail", FALSE),
+		FEATURE_TAIL = list("Vox Primalis Tail", FALSE),
 	)
 
 /datum/species/vox_primalis/pre_equip_species_outfit(datum/job/job, mob/living/carbon/human/equipping, visuals_only)

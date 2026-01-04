@@ -11,9 +11,6 @@
 		FEATURE_FRILLS = list("Short", TRUE),
 		FEATURE_HORNS = list("Curled", TRUE),
 		FEATURE_MARKING_GENERIC = list("Light Belly", TRUE),
-		FEATURE_LEGS = list(DIGITIGRADE_LEGS,FALSE),
-		FEATURE_TAUR = list("None", FALSE),
-		FEATURE_WINGS = list("None", FALSE),
 	)
 
 /datum/species/lizard/get_species_description()

@@ -24,14 +24,7 @@
 	return list(
 		FEATURE_TAIL = list("Husky", TRUE),
 		FEATURE_SNOUT = list("Husky", TRUE),
-		FEATURE_HORNS = list("None", FALSE),
 		FEATURE_EARS = list("Husky", TRUE),
-		FEATURE_LEGS = list("Normal Legs", TRUE),
-		FEATURE_TAUR = list("None", FALSE),
-		FEATURE_FLUFF = list("None", FALSE),
-		FEATURE_WINGS = list("None", FALSE),
-		FEATURE_HEAD_ACCESSORY = list("None", FALSE),
-		FEATURE_NECK_ACCESSORY = list("None", FALSE),
 	)
 
 /obj/item/organ/tongue/mammal

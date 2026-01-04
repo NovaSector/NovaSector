@@ -28,7 +28,6 @@
 		FEATURE_TAIL = list("Fox", TRUE),
 		FEATURE_SNOUT = list("Mammal, Long", TRUE),
 		FEATURE_EARS = list("Fox", TRUE),
-		FEATURE_LEGS = list("Normal Legs", FALSE),
 	)
 
 /obj/item/organ/tongue/vulpkanin

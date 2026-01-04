@@ -45,9 +45,7 @@
 
 /datum/species/akula/get_default_mutant_bodyparts()
 	return list(
-		FEATURE_EARS = list("None", FALSE),
 		FEATURE_TAIL = list("Akula", TRUE),
-		FEATURE_LEGS = list("Normal Legs", FALSE),
 	)
 
 /datum/species/akula/get_species_description()

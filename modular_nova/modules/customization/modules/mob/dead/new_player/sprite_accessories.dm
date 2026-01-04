@@ -10,7 +10,7 @@
 #define SPRITE_ACCESSORY_USE_ALT_FACEWEAR_LAYER (1<<3)
 
 /datum/sprite_accessory
-	///Unique key of an accessory. All tails should have "tail", ears "ears" etc.
+	///Unique key of an accessory. All tails should have FEATURE_TAIL, ears FEATURE_EARS etc.
 	var/key = null
 	///If an accessory is special, it wont get included in the normal accessory lists
 	var/special = FALSE

@@ -20,17 +20,6 @@
 	payday_modifier = 1.0
 	examine_limb_id = SPECIES_HUMAN
 
-/datum/species/humanoid/get_default_mutant_bodyparts()
-	return list(
-		FEATURE_TAIL = list("None", FALSE),
-		FEATURE_SNOUT = list("None", FALSE),
-		FEATURE_EARS = list("None", FALSE),
-		FEATURE_LEGS = list("Normal Legs", FALSE),
-		FEATURE_WINGS = list("None", FALSE),
-		FEATURE_TAUR = list("None", FALSE),
-		FEATURE_HORNS = list("None", FALSE),
-	)
-
 /datum/species/humanoid/get_species_description()
 	return "This is a template species for your own creations!"
 

@@ -1,6 +1,5 @@
 /datum/species/monkey/get_default_mutant_bodyparts()
 	return list(
-		"ears" = list("None", FALSE),
 		FEATURE_TAIL = list("Monkey", FALSE),
 	)
 

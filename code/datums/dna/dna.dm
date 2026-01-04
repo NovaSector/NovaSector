@@ -448,7 +448,7 @@ GLOBAL_LIST_INIT(total_uf_len_by_block, populate_total_uf_len_by_block())
 			override_features[feature] = dna.features[feature]
 		dna.features = override_features
 
-	if(dna.species.disallow_customizable_dna_features) // for species where we do not want to carry anything like this over
+	if(!dna.species.allow_customizable_dna_features) // for species where we do not want to carry anything like this over
 		dna.mutant_bodyparts = dna.species.get_mutant_bodyparts(dna.features)
 		dna.body_markings = list()
 	else
@@ -460,7 +460,7 @@ GLOBAL_LIST_INIT(total_uf_len_by_block, populate_total_uf_len_by_block())
 	dna.species.on_species_gain(src, old_species, pref_load, icon_update, replace_missing)
 	log_mob_tag("TAG: [tag] SPECIES: [key_name(src)] \[[mrace]\]")
 
-/mob/living/carbon/human/set_species(datum/species/mrace, icon_update = TRUE, pref_load = FALSE, replace_missing = TRUE, override_features, override_markings, override_mutantparts) // NOVA EDIT CHANGE. ORIGINAL - /mob/living/carbon/human/set_species(datum/species/mrace, icon_update = TRUE, pref_load = FALSE, replace_missing = TRUE)
+/mob/living/carbon/human/set_species(datum/species/mrace, icon_update = TRUE, pref_load = FALSE, replace_missing = TRUE, override_features, override_mutantparts, override_markings) // NOVA EDIT CHANGE. ORIGINAL - /mob/living/carbon/human/set_species(datum/species/mrace, icon_update = TRUE, pref_load = FALSE, replace_missing = TRUE)
 	..()
 	if(icon_update)
 		update_body(is_creating = TRUE)

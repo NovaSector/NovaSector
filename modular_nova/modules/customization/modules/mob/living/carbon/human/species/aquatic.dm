@@ -26,10 +26,7 @@
 	return list(
 		FEATURE_TAIL = list("Shark", TRUE),
 		FEATURE_SNOUT = list("Shark", TRUE),
-		FEATURE_HORNS = list("None", FALSE),
 		FEATURE_EARS = list("Hammerhead", TRUE),
-		FEATURE_LEGS = list("Normal Legs", FALSE),
-		FEATURE_WINGS = list("None", FALSE),
 	)
 
 /obj/item/organ/tongue/aquatic

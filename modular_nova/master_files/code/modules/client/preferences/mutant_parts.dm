@@ -141,11 +141,11 @@
 
 /datum/preference/toggle/mutant_toggle/tail
 	savefile_key = "tail_toggle"
-	relevant_mutant_bodypart = "tail"
+	relevant_mutant_bodypart = FEATURE_TAIL
 
 /datum/preference/choiced/mutant_choice/tail
 	savefile_key = "feature_tail"
-	relevant_mutant_bodypart = "tail"
+	relevant_mutant_bodypart = FEATURE_TAIL
 	type_to_check = /datum/preference/toggle/mutant_toggle/tail
 	default_accessory_type = /datum/sprite_accessory/tails/none
 
@@ -153,25 +153,25 @@
 	category = PREFERENCE_CATEGORY_SECONDARY_FEATURES
 	savefile_identifier = PREFERENCE_CHARACTER
 	savefile_key = "tail_color"
-	relevant_mutant_bodypart = "tail"
+	relevant_mutant_bodypart = FEATURE_TAIL
 	type_to_check = /datum/preference/toggle/mutant_toggle/tail
 
 /datum/preference/tri_bool/tail
 	category = PREFERENCE_CATEGORY_SECONDARY_FEATURES
 	savefile_identifier = PREFERENCE_CHARACTER
 	savefile_key = "tail_emissive"
-	relevant_mutant_bodypart = "tail"
+	relevant_mutant_bodypart = FEATURE_TAIL
 	type_to_check = /datum/preference/toggle/mutant_toggle/tail
 
 /// Snouts
 
 /datum/preference/toggle/mutant_toggle/snout
 	savefile_key = "snout_toggle"
-	relevant_mutant_bodypart = "snout"
+	relevant_mutant_bodypart = FEATURE_SNOUT
 
 /datum/preference/choiced/mutant_choice/snout
 	savefile_key = "feature_snout"
-	relevant_mutant_bodypart = "snout"
+	relevant_mutant_bodypart = FEATURE_SNOUT
 	type_to_check = /datum/preference/toggle/mutant_toggle/snout
 	default_accessory_type = /datum/sprite_accessory/snouts/none
 
@@ -193,25 +193,25 @@
 	category = PREFERENCE_CATEGORY_SECONDARY_FEATURES
 	savefile_identifier = PREFERENCE_CHARACTER
 	savefile_key = "snout_color"
-	relevant_mutant_bodypart = "snout"
+	relevant_mutant_bodypart = FEATURE_SNOUT
 	type_to_check = /datum/preference/toggle/mutant_toggle/snout
 
 /datum/preference/tri_bool/snout
 	category = PREFERENCE_CATEGORY_SECONDARY_FEATURES
 	savefile_identifier = PREFERENCE_CHARACTER
 	savefile_key = "snout_emissive"
-	relevant_mutant_bodypart = "snout"
+	relevant_mutant_bodypart = FEATURE_SNOUT
 	type_to_check = /datum/preference/toggle/mutant_toggle/snout
 
 /// Horns
 
 /datum/preference/toggle/mutant_toggle/horns
 	savefile_key = "horns_toggle"
-	relevant_mutant_bodypart = "horns"
+	relevant_mutant_bodypart = FEATURE_HORNS
 
 /datum/preference/choiced/mutant_choice/horns
 	savefile_key = "feature_horns"
-	relevant_mutant_bodypart = "horns"
+	relevant_mutant_bodypart = FEATURE_HORNS
 	type_to_check = /datum/preference/toggle/mutant_toggle/horns
 	default_accessory_type = /datum/sprite_accessory/horns/none
 
@@ -219,25 +219,25 @@
 	category = PREFERENCE_CATEGORY_SECONDARY_FEATURES
 	savefile_identifier = PREFERENCE_CHARACTER
 	savefile_key = "horns_color"
-	relevant_mutant_bodypart = "horns"
+	relevant_mutant_bodypart = FEATURE_HORNS
 	type_to_check = /datum/preference/toggle/mutant_toggle/horns
 
 /datum/preference/tri_bool/horns
 	category = PREFERENCE_CATEGORY_SECONDARY_FEATURES
 	savefile_identifier = PREFERENCE_CHARACTER
 	savefile_key = "horns_emissive"
-	relevant_mutant_bodypart = "horns"
+	relevant_mutant_bodypart = FEATURE_HORNS
 	type_to_check = /datum/preference/toggle/mutant_toggle/horns
 
 /// Ears
 
 /datum/preference/toggle/mutant_toggle/ears
 	savefile_key = "ears_toggle"
-	relevant_mutant_bodypart = "ears"
+	relevant_mutant_bodypart = FEATURE_EARS
 
 /datum/preference/choiced/mutant_choice/ears
 	savefile_key = "feature_ears"
-	relevant_mutant_bodypart = "ears"
+	relevant_mutant_bodypart = FEATURE_EARS
 	type_to_check = /datum/preference/toggle/mutant_toggle/ears
 	default_accessory_type = /datum/sprite_accessory/ears/none
 
@@ -245,25 +245,25 @@
 	category = PREFERENCE_CATEGORY_SECONDARY_FEATURES
 	savefile_identifier = PREFERENCE_CHARACTER
 	savefile_key = "ears_color"
-	relevant_mutant_bodypart = "ears"
+	relevant_mutant_bodypart = FEATURE_EARS
 	type_to_check = /datum/preference/toggle/mutant_toggle/ears
 
 /datum/preference/tri_bool/ears
 	category = PREFERENCE_CATEGORY_SECONDARY_FEATURES
 	savefile_identifier = PREFERENCE_CHARACTER
 	savefile_key = "ears_emissive"
-	relevant_mutant_bodypart = "ears"
+	relevant_mutant_bodypart = FEATURE_EARS
 	type_to_check = /datum/preference/toggle/mutant_toggle/ears
 
 /// Wings
 
 /datum/preference/toggle/mutant_toggle/wings
 	savefile_key = "wings_toggle"
-	relevant_mutant_bodypart = "wings"
+	relevant_mutant_bodypart = FEATURE_WINGS
 
 /datum/preference/choiced/mutant_choice/wings
 	savefile_key = "feature_wings"
-	relevant_mutant_bodypart = "wings"
+	relevant_mutant_bodypart = FEATURE_WINGS
 	type_to_check = /datum/preference/toggle/mutant_toggle/wings
 	default_accessory_type = /datum/sprite_accessory/wings/none
 
@@ -271,25 +271,25 @@
 	category = PREFERENCE_CATEGORY_SECONDARY_FEATURES
 	savefile_identifier = PREFERENCE_CHARACTER
 	savefile_key = "wings_color"
-	relevant_mutant_bodypart = "wings"
+	relevant_mutant_bodypart = FEATURE_WINGS
 	type_to_check = /datum/preference/toggle/mutant_toggle/wings
 
 /datum/preference/tri_bool/wings
 	category = PREFERENCE_CATEGORY_SECONDARY_FEATURES
 	savefile_identifier = PREFERENCE_CHARACTER
 	savefile_key = "wings_emissive"
-	relevant_mutant_bodypart = "wings"
+	relevant_mutant_bodypart = FEATURE_WINGS
 	type_to_check = /datum/preference/toggle/mutant_toggle/wings
 
 /// Frills
 
 /datum/preference/toggle/mutant_toggle/frills
 	savefile_key = "frills_toggle"
-	relevant_mutant_bodypart = "frills"
+	relevant_mutant_bodypart = FEATURE_FRILLS
 
 /datum/preference/choiced/mutant_choice/frills
 	savefile_key = "feature_frills"
-	relevant_mutant_bodypart = "frills"
+	relevant_mutant_bodypart = FEATURE_FRILLS
 	type_to_check = /datum/preference/toggle/mutant_toggle/frills
 	default_accessory_type = /datum/sprite_accessory/frills/none
 
@@ -297,25 +297,25 @@
 	category = PREFERENCE_CATEGORY_SECONDARY_FEATURES
 	savefile_identifier = PREFERENCE_CHARACTER
 	savefile_key = "frills_color"
-	relevant_mutant_bodypart = "frills"
+	relevant_mutant_bodypart = FEATURE_FRILLS
 	type_to_check = /datum/preference/toggle/mutant_toggle/frills
 
 /datum/preference/tri_bool/frills
 	category = PREFERENCE_CATEGORY_SECONDARY_FEATURES
 	savefile_identifier = PREFERENCE_CHARACTER
 	savefile_key = "frills_emissive"
-	relevant_mutant_bodypart = "frills"
+	relevant_mutant_bodypart = FEATURE_FRILLS
 	type_to_check = /datum/preference/toggle/mutant_toggle/frills
 
 /// Spines
 
 /datum/preference/toggle/mutant_toggle/spines
 	savefile_key = "spines_toggle"
-	relevant_mutant_bodypart = "spines"
+	relevant_mutant_bodypart = FEATURE_SPINES
 
 /datum/preference/choiced/mutant_choice/spines
 	savefile_key = "feature_spines"
-	relevant_mutant_bodypart = "spines"
+	relevant_mutant_bodypart = FEATURE_SPINES
 	type_to_check = /datum/preference/toggle/mutant_toggle/spines
 	default_accessory_type = /datum/sprite_accessory/spines/none
 
@@ -323,25 +323,25 @@
 	category = PREFERENCE_CATEGORY_SECONDARY_FEATURES
 	savefile_identifier = PREFERENCE_CHARACTER
 	savefile_key = "spines_color"
-	relevant_mutant_bodypart = "spines"
+	relevant_mutant_bodypart = FEATURE_SPINES
 	type_to_check = /datum/preference/toggle/mutant_toggle/spines
 
 /datum/preference/tri_bool/spines
 	category = PREFERENCE_CATEGORY_SECONDARY_FEATURES
 	savefile_identifier = PREFERENCE_CHARACTER
 	savefile_key = "spines_emissive"
-	relevant_mutant_bodypart = "spines"
+	relevant_mutant_bodypart = FEATURE_SPINES
 	type_to_check = /datum/preference/toggle/mutant_toggle/spines
 
 /// Caps
 
 /datum/preference/toggle/mutant_toggle/caps
 	savefile_key = "caps_toggle"
-	relevant_mutant_bodypart = "caps"
+	relevant_mutant_bodypart = FEATURE_MUSH_CAP
 
 /datum/preference/choiced/mutant_choice/caps
 	savefile_key = "feature_caps"
-	relevant_mutant_bodypart = "caps"
+	relevant_mutant_bodypart = FEATURE_MUSH_CAP
 	type_to_check = /datum/preference/toggle/mutant_toggle/caps
 	default_accessory_type = /datum/sprite_accessory/caps/none
 
@@ -349,25 +349,25 @@
 	category = PREFERENCE_CATEGORY_SECONDARY_FEATURES
 	savefile_identifier = PREFERENCE_CHARACTER
 	savefile_key = "caps_color"
-	relevant_mutant_bodypart = "caps"
+	relevant_mutant_bodypart = FEATURE_MUSH_CAP
 	type_to_check = /datum/preference/toggle/mutant_toggle/caps
 
 /datum/preference/tri_bool/caps
 	category = PREFERENCE_CATEGORY_SECONDARY_FEATURES
 	savefile_identifier = PREFERENCE_CHARACTER
 	savefile_key = "caps_emissive"
-	relevant_mutant_bodypart = "caps"
+	relevant_mutant_bodypart = FEATURE_MUSH_CAP
 	type_to_check = /datum/preference/toggle/mutant_toggle/caps
 
 /// Moth Antennae
 
 /datum/preference/toggle/mutant_toggle/moth_antennae
 	savefile_key = "moth_antennae_toggle"
-	relevant_mutant_bodypart = "moth_antennae"
+	relevant_mutant_bodypart = FEATURE_MOTH_ANTENNAE
 
 /datum/preference/choiced/mutant_choice/moth_antennae
 	savefile_key = "feature_moth_antennae"
-	relevant_mutant_bodypart = "moth_antennae"
+	relevant_mutant_bodypart = FEATURE_MOTH_ANTENNAE
 	type_to_check = /datum/preference/toggle/mutant_toggle/moth_antennae
 	default_accessory_type = /datum/sprite_accessory/moth_antennae/none
 
@@ -375,21 +375,21 @@
 	category = PREFERENCE_CATEGORY_SECONDARY_FEATURES
 	savefile_identifier = PREFERENCE_CHARACTER
 	savefile_key = "moth_antennae_color"
-	relevant_mutant_bodypart = "moth_antennae"
+	relevant_mutant_bodypart = FEATURE_MOTH_ANTENNAE
 	type_to_check = /datum/preference/toggle/mutant_toggle/moth_antennae
 
 /datum/preference/tri_bool/moth_antennae
 	category = PREFERENCE_CATEGORY_SECONDARY_FEATURES
 	savefile_identifier = PREFERENCE_CHARACTER
 	savefile_key = "moth_antennae_emissive"
-	relevant_mutant_bodypart = "moth_antennae"
+	relevant_mutant_bodypart = FEATURE_MOTH_ANTENNAE
 	type_to_check = /datum/preference/toggle/mutant_toggle/moth_antennae
 
 /// Moth Markings - They don't work, and we use regular markings for those anyway, so we're going to disable them.
 
 /datum/preference/toggle/mutant_toggle/moth_markings
 	savefile_key = "moth_markings_toggle"
-	relevant_mutant_bodypart = "moth_markings"
+	relevant_mutant_bodypart = FEATURE_MOTH_MARKINGS
 
 /datum/preference/toggle/mutant_toggle/moth_markings/is_accessible(datum/preferences/preferences)
 	. = ..() // Got to do this because of linters.
@@ -397,7 +397,7 @@
 
 /datum/preference/choiced/mutant_choice/moth_markings
 	savefile_key = "feature_moth_markings"
-	relevant_mutant_bodypart = "moth_markings"
+	relevant_mutant_bodypart = FEATURE_MOTH_MARKINGS
 	type_to_check = /datum/preference/toggle/mutant_toggle/moth_markings
 	default_accessory_type = /datum/sprite_accessory/moth_markings/none
 
@@ -412,7 +412,7 @@
 	category = PREFERENCE_CATEGORY_SECONDARY_FEATURES
 	savefile_identifier = PREFERENCE_CHARACTER
 	savefile_key = "moth_markings_color"
-	relevant_mutant_bodypart = "moth_markings"
+	relevant_mutant_bodypart = FEATURE_MOTH_MARKINGS
 	type_to_check = /datum/preference/toggle/mutant_toggle/moth_markings
 
 /datum/preference/tri_color/moth_markings/is_accessible(datum/preferences/preferences)
@@ -426,7 +426,7 @@
 	category = PREFERENCE_CATEGORY_SECONDARY_FEATURES
 	savefile_identifier = PREFERENCE_CHARACTER
 	savefile_key = "moth_markings_emissive"
-	relevant_mutant_bodypart = "moth_markings"
+	relevant_mutant_bodypart = FEATURE_MOTH_MARKINGS
 	type_to_check = /datum/preference/toggle/mutant_toggle/moth_markings
 
 /datum/preference/tri_bool/moth_markings/is_accessible(datum/preferences/preferences)
@@ -440,11 +440,11 @@
 
 /datum/preference/toggle/mutant_toggle/fluff
 	savefile_key = "fluff_toggle"
-	relevant_mutant_bodypart = "fluff"
+	relevant_mutant_bodypart = FEATURE_FLUFF
 
 /datum/preference/choiced/mutant_choice/fluff
 	savefile_key = "feature_fluff"
-	relevant_mutant_bodypart = "fluff"
+	relevant_mutant_bodypart = FEATURE_FLUFF
 	type_to_check = /datum/preference/toggle/mutant_toggle/fluff
 	default_accessory_type = /datum/sprite_accessory/fluff/moth/none
 
@@ -452,14 +452,14 @@
 	category = PREFERENCE_CATEGORY_SECONDARY_FEATURES
 	savefile_identifier = PREFERENCE_CHARACTER
 	savefile_key = "fluff_color"
-	relevant_mutant_bodypart = "fluff"
+	relevant_mutant_bodypart = FEATURE_FLUFF
 	type_to_check = /datum/preference/toggle/mutant_toggle/fluff
 
 /datum/preference/tri_bool/fluff
 	category = PREFERENCE_CATEGORY_SECONDARY_FEATURES
 	savefile_identifier = PREFERENCE_CHARACTER
 	savefile_key = "fluff_emissive"
-	relevant_mutant_bodypart = "fluff"
+	relevant_mutant_bodypart = FEATURE_FLUFF
 	type_to_check = /datum/preference/toggle/mutant_toggle/fluff
 
 /// IPC Screens
@@ -667,11 +667,11 @@
 
 /datum/preference/toggle/mutant_toggle/skrell_hair
 	savefile_key = "skrell_hair_toggle"
-	relevant_mutant_bodypart = "skrell_hair"
+	relevant_mutant_bodypart = FEATURE_SKRELL_HAIR
 
 /datum/preference/choiced/mutant_choice/skrell_hair
 	savefile_key = "feature_skrell_hair"
-	relevant_mutant_bodypart = "skrell_hair"
+	relevant_mutant_bodypart = FEATURE_SKRELL_HAIR
 	type_to_check = /datum/preference/toggle/mutant_toggle/skrell_hair
 	default_accessory_type = /datum/sprite_accessory/skrell_hair/none
 
@@ -679,25 +679,25 @@
 	category = PREFERENCE_CATEGORY_SECONDARY_FEATURES
 	savefile_identifier = PREFERENCE_CHARACTER
 	savefile_key = "skrell_hair_color"
-	relevant_mutant_bodypart = "skrell_hair"
+	relevant_mutant_bodypart = FEATURE_SKRELL_HAIR
 	type_to_check = /datum/preference/toggle/mutant_toggle/skrell_hair
 
 /datum/preference/tri_bool/skrell_hair
 	category = PREFERENCE_CATEGORY_SECONDARY_FEATURES
 	savefile_identifier = PREFERENCE_CHARACTER
 	savefile_key = "skrell_hair_emissive"
-	relevant_mutant_bodypart = "skrell_hair"
+	relevant_mutant_bodypart = FEATURE_SKRELL_HAIR
 	type_to_check = /datum/preference/toggle/mutant_toggle/skrell_hair
 
 /// Taur
 
 /datum/preference/toggle/mutant_toggle/taur
 	savefile_key = "taur_toggle"
-	relevant_mutant_bodypart = "taur"
+	relevant_mutant_bodypart = FEATURE_TAUR
 
 /datum/preference/choiced/mutant_choice/taur
 	savefile_key = "feature_taur"
-	relevant_mutant_bodypart = "taur"
+	relevant_mutant_bodypart = FEATURE_TAUR
 	type_to_check = /datum/preference/toggle/mutant_toggle/taur
 	default_accessory_type = /datum/sprite_accessory/taur/none
 
@@ -705,25 +705,25 @@
 	category = PREFERENCE_CATEGORY_SECONDARY_FEATURES
 	savefile_identifier = PREFERENCE_CHARACTER
 	savefile_key = "taur_color"
-	relevant_mutant_bodypart = "taur"
+	relevant_mutant_bodypart = FEATURE_TAUR
 	type_to_check = /datum/preference/toggle/mutant_toggle/taur
 
 /datum/preference/tri_bool/taur
 	category = PREFERENCE_CATEGORY_SECONDARY_FEATURES
 	savefile_identifier = PREFERENCE_CHARACTER
 	savefile_key = "taur_emissive"
-	relevant_mutant_bodypart = "taur"
+	relevant_mutant_bodypart = FEATURE_TAUR
 	type_to_check = /datum/preference/toggle/mutant_toggle/taur
 
 /// Xenodorsal
 
 /datum/preference/toggle/mutant_toggle/xenodorsal
 	savefile_key = "xenodorsal_toggle"
-	relevant_mutant_bodypart = "xenodorsal"
+	relevant_mutant_bodypart = FEATURE_XENODORSAL
 
 /datum/preference/choiced/mutant_choice/xenodorsal
 	savefile_key = "feature_xenodorsal"
-	relevant_mutant_bodypart = "xenodorsal"
+	relevant_mutant_bodypart = FEATURE_XENODORSAL
 	type_to_check = /datum/preference/toggle/mutant_toggle/xenodorsal
 	default_accessory_type = /datum/sprite_accessory/xenodorsal/none
 
@@ -731,25 +731,25 @@
 	category = PREFERENCE_CATEGORY_SECONDARY_FEATURES
 	savefile_identifier = PREFERENCE_CHARACTER
 	savefile_key = "xenodorsal_color"
-	relevant_mutant_bodypart = "xenodorsal"
+	relevant_mutant_bodypart = FEATURE_XENODORSAL
 	type_to_check = /datum/preference/toggle/mutant_toggle/xenodorsal
 
 /datum/preference/tri_bool/xenodorsal
 	category = PREFERENCE_CATEGORY_SECONDARY_FEATURES
 	savefile_identifier = PREFERENCE_CHARACTER
 	savefile_key = "xenodorsal_emissive"
-	relevant_mutant_bodypart = "xenodorsal"
+	relevant_mutant_bodypart = FEATURE_XENODORSAL
 	type_to_check = /datum/preference/toggle/mutant_toggle/xenodorsal
 
 /// Xeno heads
 
 /datum/preference/toggle/mutant_toggle/xenohead
 	savefile_key = "xenohead_toggle"
-	relevant_mutant_bodypart = "xenohead"
+	relevant_mutant_bodypart = FEATURE_XENOHEAD
 
 /datum/preference/choiced/mutant_choice/xenohead
 	savefile_key = "feature_xenohead"
-	relevant_mutant_bodypart = "xenohead"
+	relevant_mutant_bodypart = FEATURE_XENOHEAD
 	type_to_check = /datum/preference/toggle/mutant_toggle/xenohead
 	default_accessory_type = /datum/sprite_accessory/xenohead/none
 
@@ -757,14 +757,14 @@
 	category = PREFERENCE_CATEGORY_SECONDARY_FEATURES
 	savefile_identifier = PREFERENCE_CHARACTER
 	savefile_key = "xenohead_color"
-	relevant_mutant_bodypart = "xenohead"
+	relevant_mutant_bodypart = FEATURE_XENOHEAD
 	type_to_check = /datum/preference/toggle/mutant_toggle/xenohead
 
 /datum/preference/tri_bool/xenohead
 	category = PREFERENCE_CATEGORY_SECONDARY_FEATURES
 	savefile_identifier = PREFERENCE_CHARACTER
 	savefile_key = "xenohead_emissive"
-	relevant_mutant_bodypart = "xenohead"
+	relevant_mutant_bodypart = FEATURE_XENOHEAD
 	type_to_check = /datum/preference/toggle/mutant_toggle/xenohead
 
 
@@ -772,7 +772,7 @@
 
 /datum/preference/toggle/mutant_toggle/head_acc
 	savefile_key = "head_acc_toggle"
-	relevant_mutant_bodypart = "head_acc"
+	relevant_mutant_bodypart = FEATURE_HEAD_ACCESSORY
 
 /datum/preference/toggle/mutant_toggle/head_acc/is_accessible(datum/preferences/preferences)
 	var/ckeycheck = preferences?.parent?.ckey == "whirlsam"
@@ -780,7 +780,7 @@
 
 /datum/preference/choiced/mutant_choice/head_acc
 	savefile_key = "feature_head_acc"
-	relevant_mutant_bodypart = "head_acc"
+	relevant_mutant_bodypart = FEATURE_HEAD_ACCESSORY
 	type_to_check = /datum/preference/toggle/mutant_toggle/head_acc
 	default_accessory_type = /datum/sprite_accessory/head_accessory/none
 
@@ -788,21 +788,21 @@
 	category = PREFERENCE_CATEGORY_SECONDARY_FEATURES
 	savefile_identifier = PREFERENCE_CHARACTER
 	savefile_key = "head_acc_color"
-	relevant_mutant_bodypart = "head_acc"
+	relevant_mutant_bodypart = FEATURE_HEAD_ACCESSORY
 	type_to_check = /datum/preference/toggle/mutant_toggle/head_acc
 
 /datum/preference/tri_bool/head_acc
 	category = PREFERENCE_CATEGORY_SECONDARY_FEATURES
 	savefile_identifier = PREFERENCE_CHARACTER
 	savefile_key = "head_acc_emissive"
-	relevant_mutant_bodypart = "head_acc"
+	relevant_mutant_bodypart = FEATURE_HEAD_ACCESSORY
 	type_to_check = /datum/preference/toggle/mutant_toggle/head_acc
 
 /// Neck Accessories - Same as head_acc
 
 /datum/preference/toggle/mutant_toggle/neck_acc
 	savefile_key = "neck_acc_toggle"
-	relevant_mutant_bodypart = "neck_acc"
+	relevant_mutant_bodypart = FEATURE_NECK_ACCESSORY
 
 /datum/preference/toggle/mutant_toggle/neck_acc/is_accessible(datum/preferences/preferences)
 	var/ckeycheck = preferences?.parent?.ckey == "whirlsam"
@@ -810,7 +810,7 @@
 
 /datum/preference/choiced/mutant_choice/neck_acc
 	savefile_key = "feature_neck_acc"
-	relevant_mutant_bodypart = "neck_acc"
+	relevant_mutant_bodypart = FEATURE_NECK_ACCESSORY
 	type_to_check = /datum/preference/toggle/mutant_toggle/neck_acc
 	default_accessory_type = /datum/sprite_accessory/neck_accessory/none
 
@@ -818,21 +818,21 @@
 	category = PREFERENCE_CATEGORY_SECONDARY_FEATURES
 	savefile_identifier = PREFERENCE_CHARACTER
 	savefile_key = "neck_acc_color"
-	relevant_mutant_bodypart = "neck_acc"
+	relevant_mutant_bodypart = FEATURE_NECK_ACCESSORY
 	type_to_check = /datum/preference/toggle/mutant_toggle/neck_acc
 
 /datum/preference/tri_bool/neck_acc
 	category = PREFERENCE_CATEGORY_SECONDARY_FEATURES
 	savefile_identifier = PREFERENCE_CHARACTER
 	savefile_key = "neck_acc_emissive"
-	relevant_mutant_bodypart = "neck_acc"
+	relevant_mutant_bodypart = FEATURE_NECK_ACCESSORY
 	type_to_check = /datum/preference/toggle/mutant_toggle/neck_acc
 
 /datum/preference/choiced/mutant_choice/pod_hair
 	savefile_key = "feature_pod_hair"
 	main_feature_name = "Hairstyle"
 	category = PREFERENCE_CATEGORY_FEATURES
-	relevant_mutant_bodypart = "pod_hair"
+	relevant_mutant_bodypart = FEATURE_POD_HAIR
 	default_accessory_type = /datum/sprite_accessory/pod_hair/ivy
 	should_generate_icons = TRUE
 	generate_icons = TRUE
@@ -879,14 +879,14 @@
 	category = PREFERENCE_CATEGORY_SUPPLEMENTAL_FEATURES
 	savefile_identifier = PREFERENCE_CHARACTER
 	savefile_key = "pod_hair_color"
-	relevant_mutant_bodypart = "pod_hair"
+	relevant_mutant_bodypart = FEATURE_POD_HAIR
 	type_to_check = /datum/preference/choiced/mutant_choice/pod_hair
 
 /datum/preference/toggle/emissive/pod_hair_emissive
 	category = PREFERENCE_CATEGORY_SECONDARY_FEATURES
 	savefile_identifier = PREFERENCE_CHARACTER
 	savefile_key = "pod_hair_emissive"
-	relevant_mutant_bodypart = "pod_hair"
+	relevant_mutant_bodypart = FEATURE_POD_HAIR
 	// This makes it so that it appears only when we have pod hair or allow mismatched parts.
 	check_mode = TRICOLOR_CHECK_ACCESSORY
 	type_to_check = /datum/preference/choiced/mutant_choice/pod_hair

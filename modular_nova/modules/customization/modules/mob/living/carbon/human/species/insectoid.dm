@@ -40,8 +40,6 @@
 		FEATURE_TAIL = list("Insectoid", FALSE),
 		FEATURE_WINGS = list("Insectoid II", FALSE),
 		FEATURE_FLUFF = list("Insectoid", FALSE),
-		FEATURE_LEGS = list(NORMAL_LEGS, FALSE),
-		FEATURE_TAUR = list("None", FALSE),
 	)
 
 /datum/species/insectoid/prepare_human_for_preview(mob/living/carbon/human/human_for_preview)

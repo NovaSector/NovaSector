@@ -43,12 +43,9 @@
 
 /datum/species/xeno/get_default_mutant_bodyparts()
 	return list(
-		FEATURE_EARS = list("None", FALSE),
 		FEATURE_TAIL = list("Xenomorph Tail", FALSE),
 		FEATURE_XENODORSAL = list("Standard", TRUE),
 		FEATURE_XENOHEAD = list("Standard", TRUE),
-		FEATURE_LEGS = list(DIGITIGRADE_LEGS,FALSE),
-		FEATURE_TAUR = list("None", FALSE),
 	)
 
 /datum/species/xeno/get_species_description()
