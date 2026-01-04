@@ -7098,6 +7098,7 @@
 #include "modular_nova\master_files\code\modules\antagonists\cult\cult_items.dm"
 #include "modular_nova\master_files\code\modules\antagonists\ert\ert.dm"
 #include "modular_nova\master_files\code\modules\antagonists\heretic\knowledge\general_side.dm"
+#include "modular_nova\master_files\code\modules\antagonists\heretic\knowledge\starting_lore.dm"
 #include "modular_nova\master_files\code\modules\antagonists\heretic\magic\ash_jaunt.dm"
 #include "modular_nova\master_files\code\modules\antagonists\heretic\magic\space_crawl.dm"
 #include "modular_nova\master_files\code\modules\antagonists\malf_ai\malf_ai_modules.dm"
