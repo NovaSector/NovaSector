@@ -59,14 +59,14 @@
 
 /datum/species/synthetic/get_default_mutant_bodyparts()
 	return list(
-		FEATURE_EARS = list("None", FALSE),
-		FEATURE_TAIL = list("None", FALSE),
-		FEATURE_LEGS = list("Normal Legs", FALSE),
-		FEATURE_SNOUT = list("None", FALSE),
-		MUTANT_SYNTH_ANTENNA = list("None", FALSE),
-		MUTANT_SYNTH_SCREEN = list("None", FALSE),
-		MUTANT_SYNTH_CHASSIS = list("Default Chassis", FALSE),
-		MUTANT_SYNTH_HEAD = list("Default Head", FALSE),
+		FEATURE_EARS = MUTPART_BLUEPRINT("None", is_randomizable = FALSE),
+		FEATURE_TAIL = MUTPART_BLUEPRINT("None", is_randomizable = FALSE),
+		FEATURE_LEGS = MUTPART_BLUEPRINT("Normal Legs", is_randomizable = FALSE, is_feature = TRUE),
+		FEATURE_SNOUT = MUTPART_BLUEPRINT("None", is_randomizable = FALSE),
+		MUTANT_SYNTH_ANTENNA = MUTPART_BLUEPRINT("None", is_randomizable = FALSE),
+		MUTANT_SYNTH_SCREEN = MUTPART_BLUEPRINT("None", is_randomizable = FALSE),
+		MUTANT_SYNTH_CHASSIS = MUTPART_BLUEPRINT("Default Chassis", is_randomizable = FALSE),
+		MUTANT_SYNTH_HEAD = MUTPART_BLUEPRINT("Default Head", is_randomizable = FALSE),
 	)
 
 /datum/species/synthetic/spec_life(mob/living/carbon/human/human)

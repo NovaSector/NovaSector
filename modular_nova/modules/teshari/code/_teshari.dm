@@ -55,9 +55,9 @@
 
 /datum/species/teshari/get_default_mutant_bodyparts()
 	return list(
-		FEATURE_TAIL = list("Teshari (Default)", TRUE),
-		FEATURE_EARS = list("Teshari Regular", TRUE),
-		FEATURE_LEGS = list("Normal Legs", FALSE),
+		FEATURE_TAIL = MUTPART_BLUEPRINT("Teshari (Default)", is_randomizable = TRUE),
+		FEATURE_EARS = MUTPART_BLUEPRINT("Teshari Regular", is_randomizable = TRUE),
+		FEATURE_LEGS = MUTPART_BLUEPRINT("Normal Legs", is_randomizable = FALSE, is_feature = TRUE),
 	)
 
 /obj/item/organ/tongue/teshari

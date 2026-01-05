@@ -32,7 +32,7 @@ GLOBAL_LIST_EMPTY(customizable_races)
 /// Returns a list of the default mutant bodyparts, and whether or not they can be randomized or not
 /datum/species/proc/get_default_mutant_bodyparts()
 	return list(
-		FEATURE_EARS = list("None", FALSE),
+		FEATURE_EARS = MUTPART_BLUEPRINT("None", is_randomizable = FALSE),
 	)
 
 /datum/species/proc/handle_mutant_bodyparts(mob/living/carbon/human/source, forced_colour)
@@ -68,8 +68,8 @@ GLOBAL_LIST_EMPTY(customizable_races)
 
 /datum/species/human/felinid/get_default_mutant_bodyparts()
 	return list(
-		FEATURE_TAIL = list("Cat", FALSE),
-		FEATURE_EARS = list("Cat", FALSE),
+		FEATURE_TAIL = MUTPART_BLUEPRINT("Cat", is_randomizable = FALSE),
+		FEATURE_EARS = MUTPART_BLUEPRINT("Cat", is_randomizable = FALSE),
 	)
 
 /datum/species/human/felinid/create_pref_unique_perks()
@@ -90,10 +90,10 @@ GLOBAL_LIST_EMPTY(customizable_races)
 
 /datum/species/human/get_default_mutant_bodyparts()
 	return list(
-		"ears" = list("None", FALSE),
-		"tail" = list("None", FALSE),
-		"wings" = list("None", FALSE),
-		"legs" = list("Normal Legs", FALSE),
+		"ears" = MUTPART_BLUEPRINT("None", is_randomizable = FALSE),
+		"tail" = MUTPART_BLUEPRINT("None", is_randomizable = FALSE),
+		"wings" = MUTPART_BLUEPRINT("None", is_randomizable = FALSE),
+		"legs" = MUTPART_BLUEPRINT("Normal Legs", is_randomizable = FALSE),
 	)
 
 /datum/species/mush
@@ -127,12 +127,10 @@ GLOBAL_LIST_EMPTY(customizable_races)
 /datum/species/proc/get_mutant_bodyparts(list/features, list/existing_mutant_bodyparts) //Needs features to base the colour off of
 	var/list/mutantpart_list = list()
 	var/static/list/blacklisted_keys
-	if(isnull(blacklisted_keys))
-		blacklisted_keys = list(FEATURE_LEGS, FEATURE_GHOUL_COLOR) // These are just in GLOB.default_mutant_bodyparts for the purposes of the prefs menu population
 	if(LAZYLEN(existing_mutant_bodyparts))
 		mutantpart_list = existing_mutant_bodyparts.Copy()
 
-	var/list/default_bodypart_data = GLOB.default_mutant_bodyparts[name] - blacklisted_keys
+	var/list/default_bodypart_data = GLOB.default_mutant_bodyparts[name]
 	var/erp_disabled = CONFIG_GET(flag/disable_erp_preferences)
 
 	for(var/key, bodypart_to_add in default_bodypart_data)
@@ -142,11 +140,13 @@ GLOBAL_LIST_EMPTY(customizable_races)
 		if(LAZYLEN(existing_mutant_bodyparts) && existing_mutant_bodyparts[key])
 			continue
 
-		var/list/bodypart_data = bodypart_to_add
-		var/bodypart_name = bodypart_data[MUTANTPART_NAME]
+		var/datum/mutant_bodypart_def/bodypart_data = bodypart_to_add
+		if(bodypart_data.is_feature) // features should not be added to mutant_bodyparts
+			continue
+		var/bodypart_name = bodypart_data.name
 
 		var/datum/sprite_accessory/sprite_accessory
-		if(bodypart_data[MUTANTPART_CAN_RANDOMIZE])
+		if(bodypart_data.is_randomizable)
 			sprite_accessory = random_accessory_of_key_for_species(key, src)
 		else
 			var/accessory_table = SSaccessories.sprite_accessories[key]
@@ -156,7 +156,8 @@ GLOBAL_LIST_EMPTY(customizable_races)
 
 		var/datum/mutant_bodypart/finalized_part = build_mutant_part(
 			sprite_accessory.name,
-			sprite_accessory.get_default_color(features, src)
+			bodypart_data.get_colors() || sprite_accessory.get_default_color(features, src)
+			bodypart_data.emissive_list
 		)
 		mutantpart_list[key] = finalized_part
 

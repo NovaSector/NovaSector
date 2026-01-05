@@ -28,10 +28,10 @@
 
 /datum/species/tajaran/get_default_mutant_bodyparts()
 	return list(
-		FEATURE_TAIL = list("Cat (Big)", TRUE),
-		FEATURE_SNOUT = list("Mammal, Short", TRUE),
-		FEATURE_EARS = list("Cat, Alert", TRUE),
-		FEATURE_LEGS = list("Normal Legs", FALSE),
+		FEATURE_TAIL = MUTPART_BLUEPRINT("Cat (Big)", is_randomizable = TRUE),
+		FEATURE_SNOUT = MUTPART_BLUEPRINT("Mammal, Short", is_randomizable = TRUE),
+		FEATURE_EARS = MUTPART_BLUEPRINT("Cat, Alert", is_randomizable = TRUE),
+		FEATURE_LEGS = MUTPART_BLUEPRINT("Normal Legs", is_randomizable = FALSE, is_feature = TRUE),
 	)
 
 /obj/item/organ/tongue/cat/tajaran

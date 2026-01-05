@@ -5,11 +5,11 @@
 
 /datum/species/moth/get_default_mutant_bodyparts()
 	return list(
-		FEATURE_MOTH_MARKINGS = list("None", FALSE),
-		FEATURE_EARS = list("None", FALSE),
-		FEATURE_FLUFF = list("Plain", FALSE),
-		FEATURE_WINGS = list("Moth (Plain)", TRUE),
-		FEATURE_MOTH_ANTENNAE = list("Plain", TRUE),
+		FEATURE_MOTH_MARKINGS = MUTPART_BLUEPRINT("None", is_randomizable = FALSE),
+		FEATURE_EARS = MUTPART_BLUEPRINT("None", is_randomizable = FALSE),
+		FEATURE_FLUFF = MUTPART_BLUEPRINT("Plain", is_randomizable = FALSE),
+		FEATURE_WINGS = MUTPART_BLUEPRINT("Moth (Plain)", is_randomizable = TRUE),
+		FEATURE_MOTH_ANTENNAE = MUTPART_BLUEPRINT("Plain", is_randomizable = TRUE),
 	)
 
 /datum/species/moth/randomize_features()

@@ -38,10 +38,10 @@
 
 /datum/species/monkey/kobold/get_default_mutant_bodyparts()
 	return list(
-		FEATURE_TAIL = list("Smooth", TRUE),
-		FEATURE_SNOUT = list("Round", TRUE),
-		FEATURE_FRILLS = list("Short", FALSE),
-		FEATURE_HORNS = list("Curled", FALSE),
+		FEATURE_TAIL = MUTPART_BLUEPRINT("Smooth", is_randomizable = TRUE),
+		FEATURE_SNOUT = MUTPART_BLUEPRINT("Round", is_randomizable = TRUE),
+		FEATURE_FRILLS = MUTPART_BLUEPRINT("Short", is_randomizable = FALSE),
+		FEATURE_HORNS = MUTPART_BLUEPRINT("Curled", is_randomizable = FALSE),
 	)
 
 /datum/species/monkey/kobold/randomize_features()

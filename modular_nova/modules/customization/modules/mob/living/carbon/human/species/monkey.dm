@@ -1,7 +1,7 @@
 /datum/species/monkey/get_default_mutant_bodyparts()
 	return list(
-		FEATURE_EARS = list("None", FALSE),
-		FEATURE_TAIL = list("Monkey", FALSE),
+		FEATURE_EARS = MUTPART_BLUEPRINT("None", is_randomizable = FALSE),
+		FEATURE_TAIL = MUTPART_BLUEPRINT("Monkey", is_randomizable = FALSE),
 	)
 
 /datum/species/monkey/randomize_features()

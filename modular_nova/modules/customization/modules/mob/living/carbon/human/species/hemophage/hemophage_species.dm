@@ -31,7 +31,7 @@
 
 /datum/species/hemophage/get_default_mutant_bodyparts()
 	return list(
-		"legs" = list("Normal Legs", FALSE),
+		"legs" = MUTPART_BLUEPRINT("Normal Legs", is_randomizable = FALSE),
 	)
 
 

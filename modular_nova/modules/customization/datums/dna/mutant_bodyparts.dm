@@ -82,23 +82,31 @@ GLOBAL_LIST_EMPTY(emissive_list_cache)
 /datum/mutant_bodypart/species_blueprint
 	/// Whether or not this can be randomized
 	VAR_PROTECTED/is_randomizable = FALSE
+	/// If TRUE, this is marked as a feature (aka dna.features) and should not be added to dna.mutant_bodyparts.
+	VAR_PROTECTED/is_feature = FALSE
 
-/datum/mutant_bodypart/species_blueprint/New(name, list/colors, list/emissive_list, is_randomizable)
+/datum/mutant_bodypart/species_blueprint/New(name, list/colors, list/emissive_list, is_randomizable, is_feature)
 	. = ..()
 	src.is_randomizable = is_randomizable
+	src.is_feature = is_feature
+
+/datum/mutant_bodypart/get_colors()
+	return colors // Should be explicit here and either return a color list or null (no defaults)
 
 /datum/mutant_bodypart/species_blueprint/set_colors(list/new_colors)
-	return
+	return // Don't let these get changed ever
+
+/datum/mutant_bodypart/get_primary_color()
+	return colors?[1]
+
+/datum/mutant_bodypart/get_secondary_color()
+	return colors?[2]
+
+/datum/mutant_bodypart/get_tertiary_color()
+	return colors?[3]
 
 /datum/mutant_bodypart/species_blueprint/set_emissive_list(...)
 	return
-
-/datum/species/proc/get_mutant_bodypart(feature, datum/dna/our_dna)
-	if(!length(our_dna.mutant_bodyparts))
-		return
-
-	var/datum/mutant_bodypart/part = our_dna.mutant_bodyparts[feature]
-	return part
 
 /// Factory helper proc for creating and returning a new mutant_bodypart datum
 /datum/species/proc/build_mutant_part(name, colors, emissive_list)

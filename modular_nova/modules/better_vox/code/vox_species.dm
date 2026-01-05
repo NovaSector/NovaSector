@@ -48,7 +48,7 @@
 
 /datum/species/vox_primalis/get_default_mutant_bodyparts()
 	return list(
-		FEATURE_TAIL = list("Vox Primalis Tail", FALSE),
+		FEATURE_TAIL = MUTPART_BLUEPRINT("Vox Primalis Tail", is_randomizable = FALSE),
 	)
 
 /datum/species/vox_primalis/pre_equip_species_outfit(datum/job/job, mob/living/carbon/human/equipping, visuals_only)

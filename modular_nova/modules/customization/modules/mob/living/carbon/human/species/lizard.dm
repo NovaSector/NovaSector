@@ -5,15 +5,15 @@
 
 /datum/species/lizard/get_default_mutant_bodyparts()
 	return list(
-		FEATURE_TAIL = list("Smooth", TRUE),
-		FEATURE_SNOUT = list("Sharp + Light", TRUE),
-		FEATURE_SPINES = list("Long + Membrane", TRUE),
-		FEATURE_FRILLS = list("Short", TRUE),
-		FEATURE_HORNS = list("Curled", TRUE),
-		FEATURE_MARKING_GENERIC = list("Light Belly", TRUE),
+		FEATURE_TAIL = MUTPART_BLUEPRINT("Smooth", is_randomizable = TRUE),
+		FEATURE_SNOUT = MUTPART_BLUEPRINT("Sharp + Light", is_randomizable = TRUE),
+		FEATURE_SPINES = MUTPART_BLUEPRINT("Long + Membrane", is_randomizable = TRUE),
+		FEATURE_FRILLS = MUTPART_BLUEPRINT("Short", is_randomizable = TRUE),
+		FEATURE_HORNS = MUTPART_BLUEPRINT("Curled", is_randomizable = TRUE),
+		FEATURE_MARKING_GENERIC = MUTPART_BLUEPRINT("Light Belly", is_randomizable = TRUE),
 		FEATURE_LEGS = list(DIGITIGRADE_LEGS,FALSE),
-		FEATURE_TAUR = list("None", FALSE),
-		FEATURE_WINGS = list("None", FALSE),
+		FEATURE_TAUR = MUTPART_BLUEPRINT("None", is_randomizable = FALSE),
+		FEATURE_WINGS = MUTPART_BLUEPRINT("None", is_randomizable = FALSE),
 	)
 
 /datum/species/lizard/get_species_description()

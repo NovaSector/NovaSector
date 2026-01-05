@@ -32,8 +32,8 @@
 
 /datum/species/skrell/get_default_mutant_bodyparts()
 	return list(
-		FEATURE_EARS = list("None", FALSE),
-		FEATURE_SKRELL_HAIR = list("Short", TRUE),
+		FEATURE_EARS = MUTPART_BLUEPRINT("None", is_randomizable = FALSE),
+		FEATURE_SKRELL_HAIR = MUTPART_BLUEPRINT("Short", is_randomizable = TRUE),
 	)
 
 /datum/species/skrell/get_species_description()

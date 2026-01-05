@@ -36,12 +36,12 @@
 
 /datum/species/insectoid/get_default_mutant_bodyparts()
 	return list(
-		FEATURE_EARS = list("Royal Antenna", FALSE),
-		FEATURE_TAIL = list("Insectoid", FALSE),
-		FEATURE_WINGS = list("Insectoid II", FALSE),
-		FEATURE_FLUFF = list("Insectoid", FALSE),
+		FEATURE_EARS = MUTPART_BLUEPRINT("Royal Antenna", is_randomizable = FALSE),
+		FEATURE_TAIL = MUTPART_BLUEPRINT("Insectoid", is_randomizable = FALSE),
+		FEATURE_WINGS = MUTPART_BLUEPRINT("Insectoid II", is_randomizable = FALSE),
+		FEATURE_FLUFF = MUTPART_BLUEPRINT("Insectoid", is_randomizable = FALSE),
 		FEATURE_LEGS = list(NORMAL_LEGS, FALSE),
-		FEATURE_TAUR = list("None", FALSE),
+		FEATURE_TAUR = MUTPART_BLUEPRINT("None", is_randomizable = FALSE),
 	)
 
 /datum/species/insectoid/prepare_human_for_preview(mob/living/carbon/human/human_for_preview)

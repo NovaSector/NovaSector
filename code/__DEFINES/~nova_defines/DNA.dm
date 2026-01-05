@@ -99,6 +99,9 @@
 #define SHEATH_SLIT	"Slit"
 #define SHEATH_MODES list(SHEATH_NONE, SHEATH_NORMAL, SHEATH_SLIT)
 
+/// Used for making species blueprint singletons for GLOB.default_mutant_bodyparts
+#define MUTPART_BLUEPRINT new /datum/mutant_bodypart/species_blueprint
+
 #define FEATURE_MUTANT_COLOR_TWO "mcolor2"
 #define FEATURE_MUTANT_COLOR_THREE "mcolor3"
 #define FEATURE_MARKING_GENERIC "body_markings"

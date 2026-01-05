@@ -24,12 +24,12 @@
 
 /datum/species/aquatic/get_default_mutant_bodyparts()
 	return list(
-		FEATURE_TAIL = list("Shark", TRUE),
-		FEATURE_SNOUT = list("Shark", TRUE),
-		FEATURE_HORNS = list("None", FALSE),
-		FEATURE_EARS = list("Hammerhead", TRUE),
-		FEATURE_LEGS = list("Normal Legs", FALSE),
-		FEATURE_WINGS = list("None", FALSE),
+		FEATURE_TAIL = MUTPART_BLUEPRINT("Shark", is_randomizable = TRUE),
+		FEATURE_SNOUT = MUTPART_BLUEPRINT("Shark", is_randomizable = TRUE),
+		FEATURE_HORNS = MUTPART_BLUEPRINT("None", is_randomizable = FALSE),
+		FEATURE_EARS = MUTPART_BLUEPRINT("Hammerhead", is_randomizable = TRUE),
+		FEATURE_LEGS = MUTPART_BLUEPRINT("Normal Legs", is_randomizable = FALSE, is_feature = TRUE),
+		FEATURE_WINGS = MUTPART_BLUEPRINT("None", is_randomizable = FALSE),
 	)
 
 /obj/item/organ/tongue/aquatic

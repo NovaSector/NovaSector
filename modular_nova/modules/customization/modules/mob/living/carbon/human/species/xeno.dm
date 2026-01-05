@@ -43,12 +43,12 @@
 
 /datum/species/xeno/get_default_mutant_bodyparts()
 	return list(
-		FEATURE_EARS = list("None", FALSE),
-		FEATURE_TAIL = list("Xenomorph Tail", FALSE),
-		FEATURE_XENODORSAL = list("Standard", TRUE),
-		FEATURE_XENOHEAD = list("Standard", TRUE),
+		FEATURE_EARS = MUTPART_BLUEPRINT("None", is_randomizable = FALSE),
+		FEATURE_TAIL = MUTPART_BLUEPRINT("Xenomorph Tail", is_randomizable = FALSE),
+		FEATURE_XENODORSAL = MUTPART_BLUEPRINT("Standard", is_randomizable = TRUE),
+		FEATURE_XENOHEAD = MUTPART_BLUEPRINT("Standard", is_randomizable = TRUE),
 		FEATURE_LEGS = list(DIGITIGRADE_LEGS,FALSE),
-		FEATURE_TAUR = list("None", FALSE),
+		FEATURE_TAUR = MUTPART_BLUEPRINT("None", is_randomizable = FALSE),
 	)
 
 /datum/species/xeno/get_species_description()

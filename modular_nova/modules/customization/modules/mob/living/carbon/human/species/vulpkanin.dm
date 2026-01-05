@@ -25,10 +25,10 @@
 
 /datum/species/vulpkanin/get_default_mutant_bodyparts()
 	return list(
-		FEATURE_TAIL = list("Fox", TRUE),
-		FEATURE_SNOUT = list("Mammal, Long", TRUE),
-		FEATURE_EARS = list("Fox", TRUE),
-		FEATURE_LEGS = list("Normal Legs", FALSE),
+		FEATURE_TAIL = MUTPART_BLUEPRINT("Fox", is_randomizable = TRUE),
+		FEATURE_SNOUT = MUTPART_BLUEPRINT("Mammal, Long", is_randomizable = TRUE),
+		FEATURE_EARS = MUTPART_BLUEPRINT("Fox", is_randomizable = TRUE),
+		FEATURE_LEGS = MUTPART_BLUEPRINT("Normal Legs", is_randomizable = FALSE, is_feature = TRUE),
 	)
 
 /obj/item/organ/tongue/vulpkanin

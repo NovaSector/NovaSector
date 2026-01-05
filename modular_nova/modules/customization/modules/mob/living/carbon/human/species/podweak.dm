@@ -12,9 +12,9 @@
 
 /datum/species/pod/get_default_mutant_bodyparts()
 	return list(
-		FEATURE_EARS = list("None", FALSE),
-		FEATURE_POD_HAIR = list("Ivy", TRUE),
-		FEATURE_LEGS = list("Normal Legs", FALSE)
+		FEATURE_EARS = MUTPART_BLUEPRINT("None", is_randomizable = FALSE),
+		FEATURE_POD_HAIR = MUTPART_BLUEPRINT("Ivy", is_randomizable = TRUE),
+		FEATURE_LEGS = MUTPART_BLUEPRINT("Normal Legs", is_randomizable = FALSE, is_feature = TRUE)
 	)
 
 /datum/species/pod/podweak

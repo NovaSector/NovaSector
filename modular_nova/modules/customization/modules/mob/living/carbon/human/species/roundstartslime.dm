@@ -53,15 +53,15 @@
 
 /datum/species/jelly/get_default_mutant_bodyparts()
 	return list(
-		FEATURE_TAIL = list("None", FALSE),
-		FEATURE_SNOUT = list("None", FALSE),
-		FEATURE_EARS = list("None", FALSE),
-		FEATURE_LEGS = list("Normal Legs", FALSE),
-		FEATURE_TAUR = list("None", FALSE),
-		FEATURE_WINGS = list("None", FALSE),
-		FEATURE_HORNS = list("None", FALSE),
-		FEATURE_SPINES = list("None", FALSE),
-		FEATURE_FRILLS = list("None", FALSE),
+		FEATURE_TAIL = MUTPART_BLUEPRINT("None", is_randomizable = FALSE),
+		FEATURE_SNOUT = MUTPART_BLUEPRINT("None", is_randomizable = FALSE),
+		FEATURE_EARS = MUTPART_BLUEPRINT("None", is_randomizable = FALSE),
+		FEATURE_LEGS = MUTPART_BLUEPRINT("Normal Legs", is_randomizable = FALSE, is_feature = TRUE),
+		FEATURE_TAUR = MUTPART_BLUEPRINT("None", is_randomizable = FALSE),
+		FEATURE_WINGS = MUTPART_BLUEPRINT("None", is_randomizable = FALSE),
+		FEATURE_HORNS = MUTPART_BLUEPRINT("None", is_randomizable = FALSE),
+		FEATURE_SPINES = MUTPART_BLUEPRINT("None", is_randomizable = FALSE),
+		FEATURE_FRILLS = MUTPART_BLUEPRINT("None", is_randomizable = FALSE),
 	)
 
 /datum/species/jelly/gain_oversized_organs(mob/living/carbon/human/human_holder, datum/quirk/oversized/oversized_quirk)

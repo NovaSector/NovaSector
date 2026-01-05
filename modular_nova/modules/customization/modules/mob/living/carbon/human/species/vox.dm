@@ -46,11 +46,11 @@
 
 /datum/species/vox/get_default_mutant_bodyparts()
 	return list(
-		FEATURE_EARS = list("None", FALSE),
-		FEATURE_TAIL = list("Vox Tail", FALSE),
+		FEATURE_EARS = MUTPART_BLUEPRINT("None", is_randomizable = FALSE),
+		FEATURE_TAIL = MUTPART_BLUEPRINT("Vox Tail", is_randomizable = FALSE),
 		FEATURE_LEGS = list(DIGITIGRADE_LEGS,FALSE),
-		FEATURE_SNOUT = list("Vox Snout", FALSE),
-		FEATURE_SPINES = list("Vox Bands", TRUE),
+		FEATURE_SNOUT = MUTPART_BLUEPRINT("Vox Snout", is_randomizable = FALSE),
+		FEATURE_SPINES = MUTPART_BLUEPRINT("Vox Bands", is_randomizable = TRUE),
 	)
 
 /datum/species/vox/pre_equip_species_outfit(datum/job/job, mob/living/carbon/human/equipping, visuals_only)

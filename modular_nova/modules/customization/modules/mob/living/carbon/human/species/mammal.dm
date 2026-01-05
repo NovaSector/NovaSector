@@ -22,16 +22,16 @@
 
 /datum/species/mammal/get_default_mutant_bodyparts()
 	return list(
-		FEATURE_TAIL = list("Husky", TRUE),
-		FEATURE_SNOUT = list("Husky", TRUE),
-		FEATURE_HORNS = list("None", FALSE),
-		FEATURE_EARS = list("Husky", TRUE),
-		FEATURE_LEGS = list("Normal Legs", TRUE),
-		FEATURE_TAUR = list("None", FALSE),
-		FEATURE_FLUFF = list("None", FALSE),
-		FEATURE_WINGS = list("None", FALSE),
-		FEATURE_HEAD_ACCESSORY = list("None", FALSE),
-		FEATURE_NECK_ACCESSORY = list("None", FALSE),
+		FEATURE_TAIL = MUTPART_BLUEPRINT("Husky", is_randomizable = TRUE),
+		FEATURE_SNOUT = MUTPART_BLUEPRINT("Husky", is_randomizable = TRUE),
+		FEATURE_HORNS = MUTPART_BLUEPRINT("None", is_randomizable = FALSE),
+		FEATURE_EARS = MUTPART_BLUEPRINT("Husky", is_randomizable = TRUE),
+		FEATURE_LEGS = MUTPART_BLUEPRINT("Normal Legs", is_randomizable = TRUE, is_feature = TRUE),
+		FEATURE_TAUR = MUTPART_BLUEPRINT("None", is_randomizable = FALSE),
+		FEATURE_FLUFF = MUTPART_BLUEPRINT("None", is_randomizable = FALSE),
+		FEATURE_WINGS = MUTPART_BLUEPRINT("None", is_randomizable = FALSE),
+		FEATURE_HEAD_ACCESSORY = MUTPART_BLUEPRINT("None", is_randomizable = FALSE),
+		FEATURE_NECK_ACCESSORY = MUTPART_BLUEPRINT("None", is_randomizable = FALSE),
 	)
 
 /obj/item/organ/tongue/mammal
