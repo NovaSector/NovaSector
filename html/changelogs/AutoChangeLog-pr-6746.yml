@@ -1,0 +1,5 @@
+author: "ItzLollipop"
+delete-after: True
+changes:
+  - rscadd: "Added recolorable jackal ears to character customization options"
+  - refactor: "some ear options have had their colors swapped from tertiary to secondary (mostly teshari ones) - if the coloring looks off on your character just copy and paste your 3rd color into the 2nd color pref"
