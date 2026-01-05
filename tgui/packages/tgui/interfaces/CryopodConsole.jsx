@@ -42,7 +42,7 @@ const CrewList = () => {
   const { data } = useBackend();
   const { frozen_crew } = data;
 
-  if (!frozen_crew.length) {
+  if (!frozen_crew?.length) {
     return <NoticeBox>No stored crew!</NoticeBox>;
   }
 
@@ -90,7 +90,7 @@ const ItemList = () => {
     return <NoticeBox>You are not authorized for item management.</NoticeBox>;
   }
 
-  if (!item_ref_list.length) {
+  if (!item_ref_list?.length) {
     return <NoticeBox>No stored items!</NoticeBox>;
   }
 
