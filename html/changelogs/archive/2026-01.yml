@@ -145,8 +145,27 @@
       not try to kill the crew
   - map: minor tweaks to Voidraptor, Ouroborus and Piratefort
 2026-01-05:
+  Hardly:
+  - image: Shifted a pixel up in the mob sprites for retinal hud so they're no longer
+      going into your mouth.
+  ImogenOC:
+  - bugfix: Adds a single 3+ year missing 't' to the nukie cultist soulstone kit path,
+      making it populate correctly.
+  ItzLollipop:
+  - rscadd: Added recolorable jackal ears to character customization options
+  - refactor: some ear options have had their colors swapped from tertiary to secondary
+      (mostly teshari ones) - if the coloring looks off on your character just copy
+      and paste your 3rd color into the 2nd color pref
   RatFromTheJungle:
   - qol: ' made getting the boomer phrases from char requiring alot more of it, making
       it safer to eat grilled food before the me-me''s kick in'
+  Stalkeros:
+  - bugfix: Random ships of the random ship event now should properly spawn in.
+  - code_imp: Cleanes up some of the random ship event's code.
+  Vishenka0704:
+  - qol: You can now view your own examine panel and flavor text even when wearing
+      a mask.
+  - admin: Admins in ghost mode can now view obscured information in player examine
+      panels.
   codyman765:
   - map: modified the ghost cafe to reflect current map assets and fix bugs
