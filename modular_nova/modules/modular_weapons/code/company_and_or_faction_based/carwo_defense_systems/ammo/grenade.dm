@@ -301,11 +301,11 @@
 /obj/projectile/bullet/c980grenade/concussive/fuse_activation(atom/target)
 	playsound(src, 'modular_nova/modules/modular_weapons/sounds/grenade_burst.ogg', 50, TRUE, -3)
 	var/turf/burst_turf = get_turf(src)
-	for(var/mob/living/brainbonked in range(stagger_size, burst_turf))
+	for(var/mob/living/brainbonked in view(stagger_size, burst_turf))
 		var/distance = get_dist(brainbonked, burst_turf)
 		brainbonked.adjust_staggered_up_to(STAGGERED_SLOWDOWN_LENGTH * (stagger_size - distance), STAGGERED_SLOWDOWN_LENGTH * 3)
 	new /obj/effect/temp_visual/kinetic_blast(get_turf(src))
-	forced_throw_vortex(get_turf(src), 1, knockback_size)
+	forced_throw_vortex(get_turf(src), TRUE, knockback_size)
 
 /obj/item/ammo_box/c980grenade/concussive
 	name = "ammo box (.980 Tydhouer kinetic concussive)"
@@ -325,22 +325,22 @@
  * Range also determines the strength of the effect. Always throws. Parameters decide how hard it throws.
  * Arguments:
  * * T - turf where it happens
- * * setting_type - does it suck or does it blow?
+ * * is_pulling - does it suck or does it blow?
  * * range - range.
  */
-/proc/forced_throw_vortex(turf/T, setting_type, range)
-	for(var/atom/movable/X in range(range, T))
-		if(X.anchored)
+/proc/forced_throw_vortex(turf/starting_turf, is_pulling, range)
+	for(var/atom/movable/hucked in range(range, starting_turf))
+		if(hucked.anchored)
 			continue
-		if(iseffect(X) || iseyemob(X) || isdead(X))
+		if(iseffect(hucked) || iseyemob(hucked) || isdead(hucked))
 			continue
-		var/distance = get_dist(X, T)
+		var/distance = get_dist(hucked, starting_turf)
 		var/moving_power = max(range - distance, 1)
 		if(setting_type)
-			var/atom/throw_target = get_edge_target_turf(X, get_dir(X, get_step_away(X, T)))
-			X.throw_at(throw_target, moving_power * 1.5, moving_power)
+			var/atom/throw_target = get_edge_target_turf(hucked, get_dir(hucked, get_step_away(hucked, starting_turf)))
+			hucked.throw_at(throw_target, moving_power * 1.5, moving_power)
 		else
-			X.throw_at(T, moving_power * 1.5, moving_power)
+			hucked.throw_at(T, moving_power * 1.5, moving_power)
 
 #undef AMMO_MATS_GRENADE
 #undef AMMO_MATS_GRENADE_SHRAPNEL
