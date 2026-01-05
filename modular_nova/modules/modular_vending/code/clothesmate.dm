@@ -88,6 +88,7 @@
 				/obj/item/clothing/under/dress/skirt/nova/mini_skirt = 5,
 				/obj/item/clothing/under/dress/nova/giant_scarf = 5,
 				/obj/item/clothing/under/pants/nova/shorted_overall = 5,
+				/obj/item/clothing/under/misc/nova/gear_harness = 5,
 			),
 		),
 
@@ -183,7 +184,6 @@
 				/obj/item/clothing/mask/surgical/greyscale = 5,
 				/obj/item/clothing/glasses/blindfold/color = 5,
 				/obj/item/storage/backpack/udc = 5,
-				/obj/item/clothing/under/misc/nova/gear_harness = 5,
 			)
 		)
 	)
