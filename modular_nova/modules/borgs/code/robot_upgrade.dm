@@ -167,7 +167,7 @@
 
 //Bluespace RPED
 /obj/item/borg/upgrade/brped
-	name = "Cyborg Rapid Part Exchange Device Upgrade"
+	name = "cyborg rapid part exchange device upgrade"
 	desc = "An upgrade to the cyborg's standard RPED."
 	icon_state = "module_engineer"
 	require_model = TRUE
