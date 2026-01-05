@@ -1,6 +1,6 @@
 /datum/quirk/hydrophobia
 	name = "Hydrophobia"
-	desc = "You're terrified of water! For Xenobiological Slime Hybrids, this also means you will be unable to repel water."
+	desc = "You're terrified of water! For Slime Hybrids, this also means you will be unable to repel water."
 	gain_text = span_danger("You believe that water is the worst thing to ever exist.")
 	lose_text = span_danger("You no longer believe that water is all that bad.")
 	medical_record_text = "Patient suffers from hydrophobia, exhibiting extreme anxiety around water sources."
