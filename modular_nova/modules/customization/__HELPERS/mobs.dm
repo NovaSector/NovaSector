@@ -19,7 +19,7 @@
 		CRASH("Cant find random accessory of [key] key, for species [species.id]")
 	return sprite_accessory
 
-/proc/assemble_body_markings_from_set(datum/body_marking_set/marking_set, list/features, datum/species/pref_species)
+/proc/assemble_body_markings_from_set(datum/body_marking_set/marking_set, list/features, datum/species/species)
 	var/list/body_markings = list()
 	for(var/set_name in marking_set.body_marking_list)
 		var/datum/body_marking/body_marking = GLOB.body_markings[set_name]
@@ -28,7 +28,7 @@
 			if(set_name in marking_list)
 				if(isnull(body_markings[zone]))
 					body_markings[zone] = list()
-				body_markings[zone][set_name] = list(body_marking.get_default_color(features, pref_species), FALSE)
+				body_markings[zone][set_name] = list(body_marking.get_default_color(features, species), FALSE)
 	return body_markings
 
 /proc/random_bra(gender)

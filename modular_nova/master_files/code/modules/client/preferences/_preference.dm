@@ -14,6 +14,10 @@
 	var/list/input_colors = input
 	return list(sanitize_hexcolor(input_colors[1]), sanitize_hexcolor(input_colors[2]), sanitize_hexcolor(input_colors[3]))
 
+/datum/preference/tri_color/serialize(input)
+	var/list/input_colors = input
+	return list(sanitize_hexcolor(input_colors[1]), sanitize_hexcolor(input_colors[2]), sanitize_hexcolor(input_colors[3]))
+
 /datum/preference/tri_color/create_default_value()
 	return list("#[random_color()]", "#[random_color()]", "#[random_color()]")
 

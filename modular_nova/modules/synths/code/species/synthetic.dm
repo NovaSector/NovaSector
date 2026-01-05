@@ -114,12 +114,36 @@
 
 /datum/species/synthetic/apply_supplementary_body_changes(mob/living/carbon/human/target, datum/preferences/preferences, visuals_only = FALSE)
 	var/datum/mutant_bodypart/chassis = target.dna.mutant_bodyparts[FEATURE_SYNTH_CHASSIS]
-	if(isnull(chassis))
+	var/datum/mutant_bodypart/head = target.dna.mutant_bodyparts[FEATURE_SYNTH_HEAD]
+	if(isnull(chassis) && isnull(head))
 		return
+
 	var/datum/sprite_accessory/synth_chassis/chassis_of_choice = SSaccessories.sprite_accessories[FEATURE_SYNTH_CHASSIS][chassis.name]
-	if(!chassis_of_choice)
+	var/datum/sprite_accessory/synth_head/head_of_choice = SSaccessories.sprite_accessories[FEATURE_SYNTH_HEAD][head.name]
+	if(!chassis_of_choice && !head_of_choice)
 		return
+
 	examine_limb_id = chassis_of_choice.icon_state
+
+	if(chassis_of_choice.color_src || head_of_choice.color_src)
+		target.add_traits(list(TRAIT_MUTANT_COLORS), SPECIES_TRAIT)
+
+	// We want to ensure that the IPC gets their chassis and their head correctly.
+	for(var/obj/item/bodypart/limb as anything in target.bodyparts)
+		if(limb.limb_id != SPECIES_SYNTH && initial(limb.base_limb_id) != SPECIES_SYNTH) // No messing with limbs that aren't actually synthetic.
+			continue
+
+		if(limb.body_zone == BODY_ZONE_HEAD)
+			var/list/head_colors = head.get_colors()
+			if(head_of_choice.color_src && length(head_colors))
+				limb.add_color_override(head.get_primary_color(), LIMB_COLOR_SYNTH)
+			limb.change_appearance(head_of_choice.icon, head_of_choice.icon_state, !!head_of_choice.color_src, head_of_choice.dimorphic)
+			continue
+		var/list/chassis_colors = chassis.get_colors()
+		if(chassis_of_choice.color_src && length(chassis_colors))
+			limb.add_color_override(chassis.get_primary_color(), LIMB_COLOR_SYNTH)
+		limb.change_appearance(chassis_of_choice.icon, chassis_of_choice.icon_state, !!chassis_of_choice.color_src, limb.body_part == CHEST && chassis_of_choice.dimorphic)
+		limb.name = "\improper[chassis_of_choice.name] [parse_zone(limb.body_zone)]"
 
 /datum/species/synthetic/on_species_loss(mob/living/carbon/human/human)
 	. = ..()

@@ -110,18 +110,18 @@
 	var/list/colors
 	switch(default_color)
 		if(DEFAULT_PRIMARY)
-			colors = list(features["FEATURE_MUTANT_COLOR"])
+			colors = list(features[FEATURE_MUTANT_COLOR])
 		if(DEFAULT_SECONDARY)
-			colors = list(features["FEATURE_MUTANT_COLOR_TWO"])
+			colors = list(features[FEATURE_MUTANT_COLOR_TWO])
 		if(DEFAULT_TERTIARY)
-			colors = list(features["FEATURE_MUTANT_COLOR_THREE"])
+			colors = list(features[FEATURE_MUTANT_COLOR_THREE])
 		if(DEFAULT_MATRIXED)
-			colors = list(features["FEATURE_MUTANT_COLOR"], features["FEATURE_MUTANT_COLOR_TWO"], features["FEATURE_MUTANT_COLOR_THREE"])
+			colors = list(features[FEATURE_MUTANT_COLOR], features[FEATURE_MUTANT_COLOR_TWO], features[FEATURE_MUTANT_COLOR_THREE])
 		if(DEFAULT_SKIN_OR_PRIMARY)
 			if(pref_species && !(TRAIT_USES_SKINTONES in pref_species.inherent_traits))
 				colors = list(features[FEATURE_SKIN_COLOR])
 			else
-				colors = list(features["FEATURE_MUTANT_COLOR"])
+				colors = list(features[FEATURE_MUTANT_COLOR])
 		else
 			colors = list(default_color)
 

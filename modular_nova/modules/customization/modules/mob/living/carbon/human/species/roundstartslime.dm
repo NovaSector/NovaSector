@@ -770,11 +770,11 @@
 	var/color_target
 	switch(color_choice)
 		if("Primary", "All")
-			color_target = "FEATURE_MUTANT_COLOR"
+			color_target = FEATURE_MUTANT_COLOR
 		if("Secondary")
-			color_target = "FEATURE_MUTANT_COLOR_TWO"
+			color_target = FEATURE_MUTANT_COLOR_TWO
 		if("Tertiary")
-			color_target = "FEATURE_MUTANT_COLOR_THREE"
+			color_target = FEATURE_MUTANT_COLOR_THREE
 
 	var/new_mutant_colour = tgui_color_picker(
 		alterer,

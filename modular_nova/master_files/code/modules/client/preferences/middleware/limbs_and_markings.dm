@@ -232,8 +232,15 @@
 	if (preset)
 		var/datum/body_marking_set/BMS = GLOB.body_marking_sets[preset]
 		var/species_type = preferences.read_preference(/datum/preference/choiced/species)
+		var/list/mutant_colors = preferences.read_preference(/datum/preference/tri_color/mutant_colors)
+		var/list/features = list(
+			FEATURE_MUTANT_COLOR = mutant_colors[1],
+			FEATURE_MUTANT_COLOR_TWO = mutant_colors[2],
+			FEATURE_MUTANT_COLOR_THREE = mutant_colors[3],
+			FEATURE_SKIN_COLOR = skintone2hex(preferences.read_preference(/datum/preference/choiced/skin_tone))
+		)
 		var/datum/species/current_species = GLOB.species_prototypes[species_type]
-		preferences.body_markings = assemble_body_markings_from_set(BMS, preferences.features, current_species)
+		preferences.body_markings = assemble_body_markings_from_set(BMS, features, current_species)
 	preferences.character_preview_view.update_body()
 	return TRUE
 

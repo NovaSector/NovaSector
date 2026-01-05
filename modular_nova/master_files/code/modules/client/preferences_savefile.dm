@@ -50,7 +50,6 @@
 		if(!GLOB.robotic_styles_list[augment_limb_styles[key]])
 			augment_limb_styles -= key
 
-	features = SANITIZE_LIST(save_data["features"])
 	body_markings = update_markings(SANITIZE_LIST(save_data["body_markings"]))
 	mismatched_customization = save_data["mismatched_customization"]
 	allow_advanced_colors = save_data["allow_advanced_colors"]
@@ -325,7 +324,6 @@
 /datum/preferences/proc/save_character_nova(list/save_data)
 	save_data["augments"] = augments
 	save_data["augment_limb_styles"] = augment_limb_styles
-	save_data["features"] = features
 	save_data["body_markings"] = body_markings
 	save_data["mismatched_customization"] = mismatched_customization
 	save_data["allow_advanced_colors"] = allow_advanced_colors

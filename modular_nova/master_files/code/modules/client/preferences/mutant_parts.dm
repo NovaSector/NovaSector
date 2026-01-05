@@ -51,9 +51,9 @@
 	check_mode = TRICOLOR_NO_CHECK
 
 /datum/preference/tri_color/mutant_colors/apply_to_human(mob/living/carbon/human/target, value)
-	target.dna.features[FEATURE_MUTANT_COLOR] = sanitize_hexcolor(value[1])
-	target.dna.features[FEATURE_MUTANT_COLOR_TWO] = sanitize_hexcolor(value[2])
-	target.dna.features[FEATURE_MUTANT_COLOR_THREE] = sanitize_hexcolor(value[3])
+	target.dna.features[FEATURE_MUTANT_COLOR] = value[1]
+	target.dna.features[FEATURE_MUTANT_COLOR_TWO] = value[2]
+	target.dna.features[FEATURE_MUTANT_COLOR_THREE] = value[3]
 
 /datum/preference/toggle/eye_emissives
 	savefile_key = "eye_emissives"
@@ -501,6 +501,7 @@
 	savefile_identifier = PREFERENCE_CHARACTER
 	savefile_key = "ipc_screen_color"
 	relevant_mutant_bodypart = FEATURE_SYNTH_SCREEN
+	priority = PREFERENCE_PRIORITY_SPECIES
 
 /datum/preference/toggle/emissive/ipc_screen_emissive
 	category = PREFERENCE_CATEGORY_SECONDARY_FEATURES
@@ -572,65 +573,14 @@
 
 	return data
 
-/datum/preference/choiced/mutant_choice/synth_chassis/apply_to_human(mob/living/carbon/human/target, value)
-	. = ..()
-	var/datum/mutant_bodypart/chassis = target.dna.mutant_bodyparts[FEATURE_SYNTH_CHASSIS]
-	if(isnull(chassis))
-		return
-
-	var/datum/sprite_accessory/synth_chassis/chassis_of_choice = SSaccessories.sprite_accessories[FEATURE_SYNTH_CHASSIS][value]
-	if(!chassis_of_choice)
-		return
-
-	var/datum/species/synthetic/synth_species = target.dna.species
-	synth_species.examine_limb_id = chassis_of_choice.icon_state
-
-	if(chassis_of_choice.color_src && !HAS_TRAIT(target, TRAIT_MUTANT_COLORS))
-		target.add_traits(list(TRAIT_MUTANT_COLORS), SPECIES_TRAIT)
-
-	// We want to ensure that the IPC gets their chassis correctly.
-	for(var/obj/item/bodypart/limb as anything in target.bodyparts)
-		if(limb.limb_id != SPECIES_SYNTH && initial(limb.base_limb_id) != SPECIES_SYNTH) // No messing with limbs that aren't actually synthetic.
-			continue
-		if(limb.body_zone == BODY_ZONE_HEAD)
-			continue
-
-		var/list/chassis_colors = chassis.get_colors()
-		if(chassis_of_choice.color_src && length(chassis_colors))
-			limb.add_color_override(chassis.get_primary_color(), LIMB_COLOR_SYNTH)
-		limb.change_appearance(chassis_of_choice.icon, chassis_of_choice.icon_state, !!chassis_of_choice.color_src, limb.body_part == CHEST && chassis_of_choice.dimorphic)
-		limb.name = "\improper[chassis_of_choice.name] [parse_zone(limb.body_zone)]"
-
 /datum/preference/color/mutant/synth_chassis
 	category = PREFERENCE_CATEGORY_SUPPLEMENTAL_FEATURES
 	savefile_identifier = PREFERENCE_CHARACTER
 	savefile_key = "ipc_chassis_color"
 	relevant_mutant_bodypart = FEATURE_SYNTH_CHASSIS
-
-/datum/preference/color/mutant/synth_chassis/apply_to_human(mob/living/carbon/human/target, value)
-	. = ..()
-	var/datum/mutant_bodypart/chassis = target.dna.mutant_bodyparts[FEATURE_SYNTH_CHASSIS]
-	if(isnull(chassis))
-		return
-
-	var/datum/sprite_accessory/synth_chassis/chassis_of_choice = SSaccessories.sprite_accessories[FEATURE_SYNTH_CHASSIS][value]
-	if(!chassis_of_choice)
-		return
-
-	if(chassis_of_choice.color_src && !HAS_TRAIT(target, TRAIT_MUTANT_COLORS))
-		target.add_traits(list(TRAIT_MUTANT_COLORS), SPECIES_TRAIT)
-
-	// We want to ensure that the IPC gets their chassis correctly.
-	for(var/obj/item/bodypart/limb as anything in target.bodyparts)
-		if(limb.limb_id != SPECIES_SYNTH && initial(limb.base_limb_id) != SPECIES_SYNTH) // No messing with limbs that aren't actually synthetic.
-			continue
-		if(limb.body_zone == BODY_ZONE_HEAD)
-			continue
-
-		var/list/chassis_colors = chassis.get_colors()
-		if(chassis_of_choice.color_src && length(chassis_colors))
-			limb.add_color_override(chassis.get_primary_color(), LIMB_COLOR_SYNTH)
-		limb.change_appearance(chassis_of_choice.icon, chassis_of_choice.icon_state, !!chassis_of_choice.color_src, limb.body_part == CHEST && chassis_of_choice.dimorphic)
+	priority = PREFERENCE_PRIORITY_SPECIES	// This needs to run AFTER the choiced so it can apply before insertion.
+	// We have very little control over ordering outside of this, luckily this is alphabetically before species so it works.
+	// Prefs code is the fucking worst, I hate it here.
 
 /// IPC Head
 
@@ -661,36 +611,12 @@
 
 	return data
 
-/datum/preference/choiced/mutant_choice/synth_head/apply_to_human(mob/living/carbon/human/target, value)
-	. = ..()
-
-	var/datum/mutant_bodypart/head = target.dna.mutant_bodyparts[FEATURE_SYNTH_HEAD]
-
-	var/datum/sprite_accessory/synth_head/head_of_choice = SSaccessories.sprite_accessories[FEATURE_SYNTH_HEAD][value]
-	if(isnull(head_of_choice))
-		return
-
-	if(head_of_choice.color_src && !HAS_TRAIT(target, TRAIT_MUTANT_COLORS))
-		target.add_traits(list(TRAIT_MUTANT_COLORS), SPECIES_TRAIT)
-
-	// We want to ensure that the IPC gets their head correctly.
-	var/obj/item/bodypart/head_part = target.get_bodypart(BODY_ZONE_HEAD)
-	if(head_part.limb_id != SPECIES_SYNTH && initial(head_part.base_limb_id) != SPECIES_SYNTH) // No messing with limbs that aren't actually synthetic.
-		return
-
-	var/list/head_colors = head.get_colors()
-	if(head_of_choice.color_src && length(head_colors))
-		head_part.add_color_override(head.get_primary_color(), LIMB_COLOR_SYNTH)
-	head_part.change_appearance(head_of_choice.icon, head_of_choice.icon_state, !!head_of_choice.color_src, head_of_choice.dimorphic)
-
 /datum/preference/color/mutant/synth_head
 	category = PREFERENCE_CATEGORY_SUPPLEMENTAL_FEATURES
 	savefile_identifier = PREFERENCE_CHARACTER
 	savefile_key = "ipc_head_color"
 	relevant_mutant_bodypart = FEATURE_SYNTH_HEAD
-
-/datum/preference/color/mutant/synth_head/apply_to_human(mob/living/carbon/human/target, value)
-
+	priority = PREFERENCE_PRIORITY_SPECIES
 
 // Synth Hair Opacity
 
