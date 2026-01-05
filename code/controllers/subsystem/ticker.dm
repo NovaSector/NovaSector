@@ -163,6 +163,7 @@ SUBSYSTEM_DEF(ticker)
 			*/ // NOVA EDIT REMOVAL END
 			current_state = GAME_STATE_PREGAME
 			SStitle.change_title_screen() // NOVA EDIT ADDITION - Title screen
+			SSstorytellers.start_vote(60 SECONDS) // NOVA EDIT ADDITION - Start storyteller vote
 			addtimer(CALLBACK(SStitle, TYPE_PROC_REF(/datum/controller/subsystem/title, change_title_screen)), 1 SECONDS) // NOVA EDIT ADDITION - Title screen
 			SEND_SIGNAL(src, COMSIG_TICKER_ENTER_PREGAME)
 
@@ -249,7 +250,7 @@ SUBSYSTEM_DEF(ticker)
 	CHECK_TICK
 	//Configure mode and assign player to antagonists
 	var/can_continue = FALSE
-	can_continue = SSdynamic.select_roundstart_antagonists() //Choose antagonists
+	can_continue = SSstorytellers.setup_game() // NOVA EDIT Storyteller: original can_continue = SSdynamic.select_roundstart_antagonists() //Choose antagonists
 	CHECK_TICK
 	SEND_GLOBAL_SIGNAL(COMSIG_GLOB_PRE_JOBS_ASSIGNED, src)
 	can_continue = can_continue && SSjob.divide_occupations() //Distribute jobs
@@ -318,17 +319,22 @@ SUBSYSTEM_DEF(ticker)
 /datum/controller/subsystem/ticker/proc/PostSetup()
 	set waitfor = FALSE
 
+	SSstorytellers.post_setup() // NOVA EDIT ADDITION - inititalize storyteller
+	/* // NOVA EDIT REMOVAL START - Storytellers: stortyteller roll antags by itself
 	// Spawn traitors and stuff
 	for(var/datum/dynamic_ruleset/roundstart/ruleset in SSdynamic.queued_rulesets)
 		ruleset.execute()
 		SSdynamic.queued_rulesets -= ruleset
 		SSdynamic.executed_rulesets += ruleset
+	*/ // NOVA EDIT REMOVAL
 	// Queue roundstart intercept report
 	/* // NOVA EDIT REMOVAL START
 	if(!CONFIG_GET(flag/no_intercept_report))
 		GLOB.communications_controller.queue_roundstart_report()
 	*/ // NOVA EDIT REMOVAL END
+	/* // NOVA EDIT REMOVAL START - Storyteller handle it
 	GLOB.communications_controller.queue_roundstart_report() // NOVA EDIT ADDITION: Config option handled inside
+	*/ // NOVA EDIT REMOVAL END
 	// Queue admin logout report
 	var/roundstart_logout_timer = CONFIG_GET(number/roundstart_logout_report_time_average)
 	var/roundstart_report_variance = CONFIG_GET(number/roundstart_logout_report_time_variance)
