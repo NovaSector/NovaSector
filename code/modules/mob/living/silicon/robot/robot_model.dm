@@ -435,6 +435,7 @@
 		/obj/item/stack/rods/cyborg,
 		/obj/item/lightreplacer, // NOVA EDIT ADDITION - Surprised Engie borgs don't get these
 		/obj/item/construction/rtd/borg,
+		/obj/item/storage/part_replacer, // NOVA EDIT ADDITION - Borgs start with a basic RPD.
 		/obj/item/stack/cable_coil,
 		/obj/item/airlock_painter/decal/cyborg,
 	)

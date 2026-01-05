@@ -291,9 +291,15 @@
 	storable = list(
 		/obj/item/circuitboard,
 		/obj/item/electronics,
-		/obj/item/stock_parts/power_store,
+		/obj/item/stock_parts,
 		/obj/item/light,
 		/obj/item/conveyor_switch_construct,
+		/obj/item/assembly/control,
+		/obj/item/tank,
+		/obj/item/wallframe,
+		/obj/item/stack/conveyor,
+		/obj/item/stack/tile,
+		/obj/item/vending_refill
 	)
 
 /obj/item/borg/apparatus/engineering/Initialize(mapload)
