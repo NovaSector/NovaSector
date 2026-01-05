@@ -297,6 +297,7 @@
 		// NOVA EDIT ADDITION START
 		/obj/item/assembly/control,
 		/obj/item/tank,
+		/obj/item/tank/internals,
 		/obj/item/wallframe,
 		/obj/item/stack/conveyor,
 		/obj/item/stack/tile,
