@@ -129,7 +129,18 @@
 		preferences.body_markings[limb_slot] = list()
 	if(preferences.body_markings[limb_slot].len >= MAXIMUM_MARKINGS_PER_LIMB)
 		return
-	preferences.body_markings[limb_slot] += list(GLOB.body_markings_per_limb[limb_slot][1] = list("#FFFFFF", FALSE)) // Default to the first in the list for the limb.
+	var/marking_name = GLOB.body_markings_per_limb[limb_slot][1] // Default to the first in the list for the limb.
+	var/datum/body_marking/marking = GLOB.body_markings[marking_name]
+	var/species_type = preferences.read_preference(/datum/preference/choiced/species)
+	var/list/mutant_colors = preferences.read_preference(/datum/preference/tri_color/mutant_colors)
+	var/list/features = list(
+			FEATURE_MUTANT_COLOR = mutant_colors[1],
+			FEATURE_MUTANT_COLOR_TWO = mutant_colors[2],
+			FEATURE_MUTANT_COLOR_THREE = mutant_colors[3],
+			FEATURE_SKIN_COLOR = skintone2hex(preferences.read_preference(/datum/preference/choiced/skin_tone))
+		)
+	var/datum/species/current_species = GLOB.species_prototypes[species_type]
+	preferences.body_markings[limb_slot] += list(marking = list(marking.get_default_color(features, current_species), FALSE))
 	preferences.character_preview_view.update_body()
 	return TRUE
 

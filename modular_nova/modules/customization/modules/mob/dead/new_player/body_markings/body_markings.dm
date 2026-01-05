@@ -25,7 +25,7 @@
 	if(recommended_species)
 		recommended_species = string_assoc_list(recommended_species)
 
-/datum/body_marking/proc/get_default_color(list/features, datum/species/pref_species) //Needs features for the color information
+/datum/body_marking/proc/get_default_color(list/features, datum/species/species) //Needs features for the color information
 	var/list/colors
 	switch(default_color)
 		if(DEFAULT_PRIMARY)
@@ -35,7 +35,7 @@
 		if(DEFAULT_TERTIARY)
 			colors = features[FEATURE_MUTANT_COLOR_THREE]
 		if(DEFAULT_SKIN_OR_PRIMARY)
-			if(pref_species && !(TRAIT_USES_SKINTONES in pref_species.inherent_traits))
+			if(species && !(TRAIT_USES_SKINTONES in species.inherent_traits))
 				colors = features[FEATURE_SKIN_COLOR]
 			else
 				colors = features[FEATURE_MUTANT_COLOR]
