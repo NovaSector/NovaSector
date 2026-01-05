@@ -87,7 +87,7 @@
 
 	/// The string as it appears in the stat panel
 	var/job_estimation_text = "* [display] [player.client?.prefs.alt_job_titles?[title] || title]"
-	// If our player is a member of Command or a Silicon, we want to sort them to the top of the list. Otherwise, just add them to the end of the list. 
+	// If our player is a member of Command or a Silicon, we want to sort them to the top of the list. Otherwise, just add them to the end of the list.
 	// Assistants show up after everyone else.
 	if(player_job.departments_bitflags & (DEPARTMENT_BITFLAG_COMMAND | DEPARTMENT_BITFLAG_SILICON))
 		command_player_ready_data[player_ref] = list(job_estimation_text, player.ckey)
@@ -133,11 +133,6 @@
 /datum/controller/subsystem/statpanels/proc/on_client_changes_job(mob/dead/new_player/source)
 	SIGNAL_HANDLER
 	update_job_estimation(source)
-
-// When switching character slots in prefs, make sure we update our job if we're readied
-/datum/preferences/switch_to_slot(new_slot)
-	. = ..()
-	SSstatpanels.update_job_estimation(ckey = parent.ckey) // update the job estimations with their new char
 
 // This gets called both when the client disconnects and when the client is shoved into their spawn mob.
 /mob/dead/new_player/become_uncliented()
