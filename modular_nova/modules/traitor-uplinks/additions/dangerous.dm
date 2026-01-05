@@ -41,16 +41,24 @@
 	cost = /datum/uplink_item/low_cost/weaponry::cost
 	purchasable_from = UPLINK_TRAITORS | UPLINK_SERIOUS_OPS
 
+/datum/uplink_item/dangerous/combat_shotgun
+	name = "Carwo-Cawil M64 Shotgun Case"
+	desc = "A twelve guage shotgun with an eight shell capacity underneath."
+	item = /obj/item/storage/toolbox/guncase/nova/opfor/riot_sol
+	cost = /datum/uplink_item/low_cost/weaponry::cost
+	purchasable_from = UPLINK_TRAITORS | UPLINK_SERIOUS_OPS
 
-// MEDIUM COST
+
 /datum/uplink_item/dangerous/laser_carbine
 	name = "Allstar Laser-Carbine Case"
 	desc = "A modified laser gun which can shoot far faster, but each shot is far less damaging. \
 			Comes with a recharge kit."
 	item = /obj/item/storage/toolbox/guncase/nova/opfor/carbine
-	cost = /datum/uplink_item/medium_cost/weaponry::cost
+	cost = /datum/uplink_item/low_cost/weaponry::cost
 	purchasable_from = UPLINK_TRAITORS | UPLINK_SERIOUS_OPS
 
+
+// MEDIUM COST
 /datum/uplink_item/dangerous/sindano
 	name = "Carwo-Cawil Sindano Case"
 	desc = "A Sindano SMG, with spare lethal-and-non-lethal ammo, and three various magazines."
@@ -80,19 +88,26 @@
 	cost = /datum/uplink_item/medium_cost/weaponry::cost
 	purchasable_from = UPLINK_TRAITORS | UPLINK_SERIOUS_OPS
 
-/datum/uplink_item/dangerous/combat_shotgun
-	name = "Carwo-Cawil M64 Shotgun Case"
-	desc = "A twelve guage shotgun with an eight shell capacity underneath."
-	item = /obj/item/storage/toolbox/guncase/nova/opfor/riot_sol
-	cost = /datum/uplink_item/medium_cost/weaponry::cost
-	purchasable_from = UPLINK_TRAITORS | UPLINK_SERIOUS_OPS
-
 /datum/uplink_item/dangerous/boarder980
 	name = "Boarder-980 Grenade Launcher Case"
 	desc = "A weapon case featuring the Boarder-980 grenade launcher, chambered for .980 Tydhouer with on-the-fly airburst configuration. \
 			Maximum capacity of 5+1 grenades, and comes pre-loaded with shrapnel grenades, with the case coming with two more boxes of shrapnel \
 			grenades and one box of phosphor grenades. The Syndicate reminds you that it is not responsible for user error."
 	item = /obj/item/storage/toolbox/guncase/traitor/boarder
+	cost = /datum/uplink_item/medium_cost/weaponry::cost
+	purchasable_from = UPLINK_TRAITORS | UPLINK_SERIOUS_OPS
+
+/datum/uplink_item/dangerous/wylom
+	name = "Szot Dynamica 'Wyłom' AMR Case"
+	desc = "A massive, outdated beast of an anti materiel rifle that was once in use by CIN military forces. Fires the devastating .60 Strela caseless round, the massively overperforming penetration of which being the reason this weapon was discontinued."
+	item = /obj/item/storage/toolbox/guncase/nova/opfor/amr
+	cost = /datum/uplink_item/medium_cost/weaponry::cost
+	purchasable_from = UPLINK_TRAITORS | UPLINK_SERIOUS_OPS
+
+/datum/uplink_item/dangerous/hook_shotgun
+	name = "Modified Sawn-off Shotgun Case"
+	desc = "Range isn't an issue when you can bring your victim to you."
+	item = /obj/item/storage/toolbox/guncase/nova/opfor/hook_shotgun
 	cost = /datum/uplink_item/medium_cost/weaponry::cost
 	purchasable_from = UPLINK_TRAITORS | UPLINK_SERIOUS_OPS
 
@@ -109,19 +124,5 @@
 	name = "Carwo-Cawil MMR-2543E Assault Rifle"
 	desc = "A heavy battle rifle, this one seems to be painted tacticool black. Accepts any standard SolFed rifle magazine."
 	item = /obj/item/storage/toolbox/guncase/nova/opfor/sol_rifle
-	cost = /datum/uplink_item/high_cost/weaponry::cost
-	purchasable_from = UPLINK_TRAITORS | UPLINK_SERIOUS_OPS
-
-/datum/uplink_item/dangerous/wylom
-	name = "Szot Dynamica 'Wyłom' AMR Case"
-	desc = "A massive, outdated beast of an anti materiel rifle that was once in use by CIN military forces. Fires the devastating .60 Strela caseless round, the massively overperforming penetration of which being the reason this weapon was discontinued."
-	item = /obj/item/storage/toolbox/guncase/nova/opfor/amr
-	cost = /datum/uplink_item/high_cost/weaponry::cost
-	purchasable_from = UPLINK_TRAITORS | UPLINK_SERIOUS_OPS
-
-/datum/uplink_item/dangerous/hook_shotgun
-	name = "Modified Sawn-off Shotgun Case"
-	desc = "Range isn't an issue when you can bring your victim to you."
-	item = /obj/item/storage/toolbox/guncase/nova/opfor/hook_shotgun
 	cost = /datum/uplink_item/high_cost/weaponry::cost
 	purchasable_from = UPLINK_TRAITORS | UPLINK_SERIOUS_OPS

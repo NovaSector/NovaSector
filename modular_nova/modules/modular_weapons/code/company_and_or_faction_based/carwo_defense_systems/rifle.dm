@@ -159,6 +159,7 @@
 	icon_state = "infanterie_evil"
 	worn_icon_state = "infanterie_evil"
 	inhand_icon_state = "infanterie_evil"
+	projectile_damage_multiplier = 1.1
 
 /obj/item/gun/ballistic/automatic/sol_rifle/evil/no_mag
 	spawnwithmagazine = FALSE
