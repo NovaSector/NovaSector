@@ -1,0 +1,4 @@
+author: "Hatterhat"
+delete-after: True
+changes:
+  - rscadd: ".980 Tydhouer kinetic concussive grenades are now able to be printed from niche lethal ammo disks, or buyable as boxes from Cargo's goodies."
