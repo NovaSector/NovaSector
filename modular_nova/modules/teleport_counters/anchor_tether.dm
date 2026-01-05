@@ -34,6 +34,7 @@
 
 	to_chat(teleportee, span_holoparasite("You feel yourself teleporting, but are suddenly flung back to where you just were!"))
 
+	teleportee.adjust_staggered_up_to(STAGGERED_SLOWDOWN_LENGTH * 2, 10 SECONDS)
 	teleportee.apply_status_effect(/datum/status_effect/incapacitating/knockdown, 2 SECONDS)
 	teleportee.apply_damage(55, STAMINA)
 	var/datum/effect_system/spark_spread/quantum/spark_system = new()
@@ -47,6 +48,7 @@
 
 	to_chat(jaunter, span_holoparasite("As you attempt to jaunt, you slam directly into the barrier between realities and are sent crashing back into corporeality!"))
 
+	jaunter.adjust_staggered_up_to(STAGGERED_SLOWDOWN_LENGTH * 2, 10 SECONDS)
 	jaunter.apply_status_effect(/datum/status_effect/incapacitating/knockdown, 2 SECONDS)
 	jaunter.apply_damage(55, STAMINA)
 	var/datum/effect_system/spark_spread/quantum/spark_system = new()
