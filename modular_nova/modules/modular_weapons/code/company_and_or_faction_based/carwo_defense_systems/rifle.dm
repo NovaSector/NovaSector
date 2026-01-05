@@ -40,7 +40,7 @@
 
 	spread = 2
 	projectile_wound_bonus = 0
-	projectile_damage_multiplier = 1.1
+	projectile_damage_multiplier = 1.0
 
 	lore_blurb = "The MMR-2543 is the current standard service rifle for all branches of the Sol Federation Armed Forces.<br><br>\
 		Initially created for use by the Sagittarian Triumvirate’s military, its adoption by SolFed came a few years later. \
