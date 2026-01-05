@@ -1,0 +1,6 @@
+author: "Hatterhat"
+delete-after: True
+changes:
+  - balance: "The SolFed Halo rifles now have regular damage multipliers (1x damage for the assault rifle, 1.1x damage for the battle rifle/DMR)."
+  - bugfix: "HC's tiny melee stungun no longer duct tapes its lore to the NT stunbaton's lore."
+  - spellcheck: "Lore for the NT baton and contractor baton were tweaked for slightly more lore compliance."
