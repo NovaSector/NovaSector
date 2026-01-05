@@ -184,6 +184,9 @@
 				/obj/item/clothing/mask/surgical/greyscale = 5,
 				/obj/item/clothing/glasses/blindfold/color = 5,
 				/obj/item/storage/backpack/udc = 5,
+				/obj/item/storage/backpack/tinypaka = 5,
+				/obj/item/storage/backpack/tinypakb = 5,
+				/obj/item/storage/backpack/tinypakc = 5,
 			)
 		)
 	)
