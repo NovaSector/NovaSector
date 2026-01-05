@@ -757,4 +757,6 @@
 	name = "material manipulation apparatus"
 	desc = "An apparatus for carrying, deploying, and manipulating sheets of material used in advanced chemistry operations."
 	icon_state = "borg_stack_apparatus"
-	storable = list(/obj/item/stack/sheet) // tehcnically can store any sheet, but it's meant for chemistry materials primarily.
+	storable = list(
+		/obj/item/stack/sheet,
+	) // technically can store any sheet, but it's meant for chemistry materials primarily.
