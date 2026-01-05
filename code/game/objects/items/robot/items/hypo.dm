@@ -18,8 +18,9 @@
 		/datum/reagent/medicine/oxandrolone,\
 		/datum/reagent/medicine/pen_acid,\
 		/datum/reagent/medicine/rezadone,\
-		/datum/reagent/medicine/sal_acid\
-	)
+		/datum/reagent/medicine/sal_acid,\
+		/datum/reagent/toxin/formaldehyde\
+	) // Nova EDIT added Formaldehyde
 #define HACKED_MEDICAL_REAGENTS list(\
 		/datum/reagent/toxin/cyanide,\
 		/datum/reagent/toxin/acid/fluacid,\

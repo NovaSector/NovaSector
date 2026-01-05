@@ -31,6 +31,35 @@
 		RND_CATEGORY_MECHFAB_CYBORG_MODULES + RND_SUBCATEGORY_MECHFAB_CYBORG_MODULES_MEDICAL,
 	)
 
+/datum/design/borg_upgrade_autopsyscanner
+	name = "Autopsy Scanner Module"
+	id = "borg_upgrade_autopsyscanner"
+	build_type = MECHFAB
+	build_path = /obj/item/borg/upgrade/autopsy_scanner
+	materials = list(
+		/datum/material/iron = SHEET_MATERIAL_AMOUNT * 3,
+		/datum/material/glass = SHEET_MATERIAL_AMOUNT,
+		/datum/material/silver = SHEET_MATERIAL_AMOUNT,
+	)
+	construction_time = 8 SECONDS
+	category = list(
+		RND_CATEGORY_MECHFAB_CYBORG_MODULES + RND_SUBCATEGORY_MECHFAB_CYBORG_MODULES_MEDICAL,
+	)
+
+/datum/design/borg_upgrade_chemistrygripper
+	name = "Chemistry Gripper Module"
+	id = "borg_upgrade_chemistrygripper"
+	build_type = MECHFAB
+	build_path = /obj/item/borg/upgrade/chemistrygripper
+	materials = list(
+		/datum/material/iron = SHEET_MATERIAL_AMOUNT * 3,
+		/datum/material/glass = SHEET_MATERIAL_AMOUNT,
+	)
+	construction_time = 8 SECONDS
+	category = list(
+		RND_CATEGORY_MECHFAB_CYBORG_MODULES + RND_SUBCATEGORY_MECHFAB_CYBORG_MODULES_MEDICAL,
+	)
+
 /datum/design/affection_module
 	name = "Affection Module"
 	id = "affection_module"

@@ -326,6 +326,7 @@
 /datum/techweb_node/borg_medical/New()
 	design_ids += list(
 		"borg_upgrade_surgicaltools",
+		"borg_upgrade_autopsyscanner",
 	)
 	return ..()
 

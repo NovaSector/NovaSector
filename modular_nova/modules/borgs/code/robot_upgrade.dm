@@ -101,6 +101,24 @@
 		borg.model.basic_modules += HA
 		borg.model.add_module(HA, FALSE, TRUE)
 
+/obj/item/borg/upgrade/autopsy_scanner
+	name = "medical cyborg autopsy scanner"
+	desc = "An upgrade to the Medical model cyborg's surgery loadout, adding an autopsy scanner."
+	icon_state = "module_medical"
+	require_model = TRUE
+	model_type = list(/obj/item/robot_model/medical)
+	model_flags = BORG_MODEL_MEDICAL
+	items_to_add = list(/obj/item/autopsy_scanner)
+
+/obj/item/borg/upgrade/chemistrygripper
+	name = "medical cyborg chemistry gripper"
+	desc = "An upgrade to the Medical model cyborg's loadout, adding a material gripper to allow handling of materials related to advanced chemistry."
+	icon_state = "module_medical"
+	require_model = TRUE
+	model_type = list(/obj/item/robot_model/medical)
+	model_flags = BORG_MODEL_MEDICAL
+	items_to_add = list(/obj/item/borg/apparatus/sheet_manipulator/chemistry)
+
 /*
 *	ADVANCED ENGINEERING CYBORG UPGRADES
 */
