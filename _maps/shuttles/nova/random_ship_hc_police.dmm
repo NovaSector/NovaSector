@@ -122,7 +122,8 @@
 /obj/structure/reagent_dispensers/fueltank/large{
 	anchored = 1;
 	desc = "A tank full of a high quantity of liquid hydrogen fuel. Keep away from open flames and 57mm mortar shells.";
-	icon_state = "vat"
+	icon_state = "vat";
+	icon = 'icons/obj/medical/chemical_tanks.dmi'
 	},
 /turf/open/floor/plating,
 /area/shuttle/hc_cops)
@@ -952,7 +953,8 @@
 /obj/structure/reagent_dispensers/fueltank/large{
 	anchored = 1;
 	desc = "A tank full of a high quantity of liquid hydrogen fuel. Keep away from open flames and 57mm mortar shells.";
-	icon_state = "vat"
+	icon_state = "vat";
+	icon = 'icons/obj/medical/chemical_tanks.dmi'
 	},
 /turf/open/floor/plating,
 /area/shuttle/hc_cops)
