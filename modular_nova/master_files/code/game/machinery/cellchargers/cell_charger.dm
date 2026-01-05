@@ -7,7 +7,7 @@
 	return CONTEXTUAL_SCREENTIP_SET
 	. = ..()
 	if(. || !charging)
-		return
+		return CLICK_ACTION_BLOCKING
 	to_chat(user, span_notice("You activate the quick release as the cell pops out!"))
 	removecell(charging.forceMove(drop_location()))
 	return CLICK_ACTION_SUCCESS
