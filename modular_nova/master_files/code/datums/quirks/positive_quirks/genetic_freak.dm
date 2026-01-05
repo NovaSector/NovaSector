@@ -10,6 +10,7 @@ GLOBAL_LIST_INIT(genetic_mutation_choice, list(
 	"Transcendent Olfaction" = /datum/mutation/olfaction,
 	"Elastic Arms" = /datum/mutation/elastic_arms,
 	"Webbing" = /datum/mutation/webbing,
+	"Mending Touch" = /datum/mutation/lay_on_hands,
 ))
 
 /datum/quirk/genetic_mutation

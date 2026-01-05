@@ -1,0 +1,4 @@
+author: "vinylspiders"
+delete-after: True
+changes:
+  - bugfix: "fixes a bug where using dermagen to erase scars would also erase your identity and make you unexaminable"
