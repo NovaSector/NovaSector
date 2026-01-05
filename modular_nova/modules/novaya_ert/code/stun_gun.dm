@@ -1,7 +1,10 @@
 /obj/item/melee/baton/security/stun_gun
 	name = "\improper Kopřiva stun gun"
-	desc = "A remote-sized stun gun for deterring people with. With its voltage and size not being high enough to knock someone down, one's \
-	best means of use is to hit a person and run away." // gotta poke some good writers with a stick so they can cobble a better description together
+	desc = "A compact, remote-sized stun gun for deterring people with. \
+		While its voltage and size leave it unable to knock someone down, \
+		its best means of use is deterrence or dissuasion - give them a reason to back off, or \
+		hit a troublemaker and hope they don't follow."
+		// gotta poke some good writers with a stick so they can cobble a better description together
 	desc_controls = "Left click to stun, right click to 'harm'."
 	icon = 'modular_nova/modules/novaya_ert/icons/stun_gun.dmi'
 	icon_state = "stun_gun"
@@ -36,7 +39,6 @@
 	. = ..()
 	AddElement(/datum/element/manufacturer_examine, COMPANY_ZCM)
 
-
 /obj/item/melee/baton/security/stun_gun/baton_effect(mob/living/target, mob/living/user, list/modifiers, stun_override)
 	if(!deductcharge(cell_hit_cost))
 		return FALSE
@@ -49,27 +51,26 @@
 	SEND_SIGNAL(target, COMSIG_LIVING_MINOR_SHOCK)
 	stun_override = FALSE
 
-/obj/item/melee/baton/security/stun_gun/examine(mob/user)
-	. = ..()
-	. += span_notice("You can <b>examine closer</b> to learn a little more about this weapon.")
-
-/obj/item/melee/baton/security/stun_gun/examine_more(mob/user)
-	. = ..()
-
-	. += "'Kopřiva' is the current flagship model of a stun gun standard-issued to coreworld Zvirdnyn officers - as you would not expect any more than an occasional rare drunkard \
-		coming for you around the capital planets. Its newly integrated neural receptors allow for unprecedented level of pacification through pain responses to one's brain, \
-		resulting in a conclusion to a confrontation that couldn't even start. The humanity of directly sparking people's CNS is dubious at best; but suspects are yet to fall limp \
-		after experiencing its sting."
+/obj/item/melee/baton/security/stun_gun/add_deep_lore()
+	AddElement(/datum/element/examine_lore, \
+		lore_hint = span_notice("You can [EXAMINE_HINT("look closer")] to learn a little more about [src]."), \
+		lore = "The 'Kopřiva' is the current flagship model of a stun gun standard-issued to coreworld Zvirdnyn officers \
+			- as you would not expect any more than an occasional rare drunkard coming for you around the capital planets. \
+			Its newly integrated neural receptors allow for unprecedented level of pacification through pain responses to one's brain, \
+			resulting in a conclusion to a confrontation that couldn't even start. \
+			The humanity of directly sparking people's CNS is dubious at best; but suspects are yet to fall limp \
+			after experiencing its sting, which makes it seem a little more humane than Nanotrasen's up-charged cattle prods." \
+	)
 
 /obj/item/melee/baton/security/stun_gun/loaded
 	preload_cell_type = /obj/item/stock_parts/power_store/cell/high
 
 
 /obj/item/melee/baton/security/stun_gun/stun_knife
-	name = "\improper Makeshift Stun Knife"
-	desc = "A Kopřiva stun gun cobbled together with a standard survival knife, making an odd combination of a lethally... non-lethal weapon. \
-	Not the best for standing your ground, but it's better then nothing!"
-	desc_controls = "Left click to stun, right click to 'harm'."
+	name = "makeshift stun knife"
+	desc = "A Kopřiva stun gun haphazardly attached to a standard survival knife, making an odd combination of a lethally non-lethal weapon. \
+		Not the best for standing your ground, but it's better then nothing!"
+	desc_controls = "Left click to stun, right click to slash."
 	icon = 'modular_nova/modules/novaya_ert/icons/stun_knife.dmi'
 	icon_state = "stun_knife"
 	lefthand_file = 'modular_nova/modules/novaya_ert/icons/stun_knife_left.dmi'
@@ -97,7 +98,7 @@
 
 /datum/crafting_recipe/knife_and_shocky
 	name = "Makeshift Stunknife"
-	desc = "cobble together an abomination against both man, and god."
+	desc = "Cobble together an abomination against both man and god."
 	result = /obj/item/melee/baton/security/stun_gun/stun_knife/loaded // Only because crafting it is going to be a bit of a hassle already, and it will absolutely eat the cell your stun gun might've had in it.
 	reqs = list(
 		/obj/item/knife/combat/survival = 1,
