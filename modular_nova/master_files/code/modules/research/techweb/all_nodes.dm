@@ -327,6 +327,7 @@
 	design_ids += list(
 		"borg_upgrade_surgicaltools",
 		"borg_upgrade_autopsyscanner",
+		"borg_upgrade_chemistrygripper",
 	)
 	return ..()
 
