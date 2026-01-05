@@ -26,7 +26,6 @@
 		return
 	tweak_manifest()
 	var/mob/living/carbon/human/quirk_human = quirk_holder
-	quirk_human.mind.assigned_role.job_flags &= ~(JOB_CREW_MANIFEST|JOB_ANNOUNCE_ARRIVAL)
 	quirk_human.update_ID_card()
 
 /datum/quirk/visitor/remove(return_id = TRUE, erase_new = TRUE) //these flags are for VV
@@ -85,3 +84,10 @@
 	new_id.update_icon()
 	//here's your new id sir or ma'am :)
 	visitor_id = new_id
+
+/datum/manifest/inject(mob/living/carbon/human/person, atom/appearance_proxy, client/person_client)
+	if(!(person.mind?.assigned_role.job_flags & JOB_CREW_MANIFEST))
+		return
+	if(person.has_quirk(/datum/quirk/visitor))
+		return inject_guest(person, person_client)
+	return ..()
