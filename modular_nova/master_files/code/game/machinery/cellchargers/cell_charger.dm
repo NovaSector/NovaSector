@@ -1,4 +1,10 @@
-/obj/machinery/cell_charger/click_alt(mob/user)
+/obj/machinery/cell_charger/Initialize(mapload)
+	. = ..()
+	register_context()
+
+/obj/machinery/cell_charger/add_context(atom/source, list/context, obj/item/held_item, mob/user)
+	context[SCREENTIP_CONTEXT_ALT_LMB] = "Remove cell"
+	return CONTEXTUAL_SCREENTIP_SET
 	. = ..()
 	if(. || !charging)
 		return
