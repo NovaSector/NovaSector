@@ -55,11 +55,11 @@
 	AddElement(/datum/element/examine_lore, \
 		lore_hint = span_notice("You can [EXAMINE_HINT("look closer")] to learn a little more about [src]."), \
 		lore = "The 'Kopřiva' is the current flagship model of a stun gun standard-issued to coreworld Zvirdnyn officers \
-		- as you would not expect any more than an occasional rare drunkard coming for you around the capital planets. \
-		Its newly integrated neural receptors allow for unprecedented level of pacification through pain responses to one's brain, \
-		resulting in a conclusion to a confrontation that couldn't even start. \
-		The humanity of directly sparking people's CNS is dubious at best; but suspects are yet to fall limp \
-		after experiencing its sting, which makes it seem a little more humane than Nanotrasen's up-charged cattle prods." \
+			- as you would not expect any more than an occasional rare drunkard coming for you around the capital planets. \
+			Its newly integrated neural receptors allow for unprecedented level of pacification through pain responses to one's brain, \
+			resulting in a conclusion to a confrontation that couldn't even start. \
+			The humanity of directly sparking people's CNS is dubious at best; but suspects are yet to fall limp \
+			after experiencing its sting, which makes it seem a little more humane than Nanotrasen's up-charged cattle prods." \
 	)
 
 /obj/item/melee/baton/security/stun_gun/loaded
