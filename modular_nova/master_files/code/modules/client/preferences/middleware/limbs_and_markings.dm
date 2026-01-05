@@ -140,7 +140,7 @@
 			FEATURE_SKIN_COLOR = skintone2hex(preferences.read_preference(/datum/preference/choiced/skin_tone))
 		)
 	var/datum/species/current_species = GLOB.species_prototypes[species_type]
-	preferences.body_markings[limb_slot] += list(marking_name = list(marking.get_default_color(features, current_species), FALSE))
+	preferences.body_markings[limb_slot] += list("[marking_name]" = list(marking.get_default_color(features, current_species), FALSE))
 	preferences.character_preview_view.update_body()
 	return TRUE
 
