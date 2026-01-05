@@ -325,7 +325,7 @@
  * Range also determines the strength of the effect. Always throws. Parameters decide how hard it throws.
  * Arguments:
  * * T - turf where it happens
- * * is_pulling - does it suck or does it blow?
+ * * is_pulling - true if throwing things away from the starting turf
  * * range - range.
  */
 /proc/forced_throw_vortex(turf/starting_turf, is_pulling, range)
@@ -336,11 +336,11 @@
 			continue
 		var/distance = get_dist(hucked, starting_turf)
 		var/moving_power = max(range - distance, 1)
-		if(setting_type)
+		if(is_pulling)
 			var/atom/throw_target = get_edge_target_turf(hucked, get_dir(hucked, get_step_away(hucked, starting_turf)))
 			hucked.throw_at(throw_target, moving_power * 1.5, moving_power)
 		else
-			hucked.throw_at(T, moving_power * 1.5, moving_power)
+			hucked.throw_at(starting_turf, moving_power * 1.5, moving_power)
 
 #undef AMMO_MATS_GRENADE
 #undef AMMO_MATS_GRENADE_SHRAPNEL
