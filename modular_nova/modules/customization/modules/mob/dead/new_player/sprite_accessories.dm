@@ -106,7 +106,7 @@
 /datum/sprite_accessory/proc/get_custom_mod_icon(mob/living/carbon/human/owner, mutable_appearance/appearance_to_use = null)
 	return null
 
-/datum/sprite_accessory/proc/get_default_color(list/features, datum/species/pref_species) //Needs features for the color information
+/datum/sprite_accessory/proc/get_default_color(list/features, datum/species/species) //Needs features for the color information
 	var/list/colors
 	switch(default_color)
 		if(DEFAULT_PRIMARY)
@@ -118,7 +118,7 @@
 		if(DEFAULT_MATRIXED)
 			colors = list(features[FEATURE_MUTANT_COLOR], features[FEATURE_MUTANT_COLOR_TWO], features[FEATURE_MUTANT_COLOR_THREE])
 		if(DEFAULT_SKIN_OR_PRIMARY)
-			if(pref_species && !(TRAIT_USES_SKINTONES in pref_species.inherent_traits))
+			if(species && !(TRAIT_USES_SKINTONES in species.inherent_traits))
 				colors = list(features[FEATURE_SKIN_COLOR])
 			else
 				colors = list(features[FEATURE_MUTANT_COLOR])
