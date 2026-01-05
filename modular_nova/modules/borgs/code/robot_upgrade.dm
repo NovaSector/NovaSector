@@ -176,11 +176,6 @@
 	items_to_add = list(/obj/item/storage/part_replacer/bluespace)
 	items_to_remove = list(/obj/item/storage/part_replacer)
 
-/obj/item/borg/upgrade/rped/Initialize(mapload)
-	. = ..()
-	items_to_add = list(/obj/item/storage/part_replacer/bluespace)
-	items_to_add -= list(/obj/item/storage/part_replacer)
-
 // Engiborg RLD
 /obj/item/borg/upgrade/rld
 	name = "engineering cyborg rapid lighting device upgrade"
@@ -190,7 +185,6 @@
 	model_type = list(/obj/item/robot_model/engineering)
 	model_flags = BORG_MODEL_ENGINEERING
 	items_to_add = list(/obj/item/construction/rld/cyborg)
-
 
 /*
 *	ADVANCED MINING CYBORG UPGRADES

@@ -1658,6 +1658,21 @@
 	)
 	search_metadata = "boris"
 
+/datum/design/borg_upgrade_rped
+	name = "Rapid Part Exchange Device Expanded"
+	id = "borg_upgrade_rped"
+	build_type = MECHFAB
+	build_path = /obj/item/borg/upgrade/rped
+	materials = list(
+		/datum/material/iron = SHEET_MATERIAL_AMOUNT*7.5,
+		/datum/material/glass = SHEET_MATERIAL_AMOUNT*2.5,
+		/datum/material/silver = HALF_SHEET_MATERIAL_AMOUNT*2.5
+	)
+	construction_time = 12 SECONDS
+	category = list(
+		RND_CATEGORY_MECHFAB_CYBORG_MODULES + RND_SUBCATEGORY_MECHFAB_CYBORG_MODULES_ENGINEERING
+	)
+
 /datum/design/borg_upgrade_inducer
 	name = "Cyborg inducer"
 	id = "borg_upgrade_inducer"
@@ -1781,32 +1796,6 @@
 		RND_CATEGORY_MECHFAB_CYBORG + RND_SUBCATEGORY_MECHFAB_CYBORG_CONTROL_INTERFACES
 	)
 	departmental_flags = DEPARTMENT_BITFLAG_SCIENCE
-
-	// NOVA ADDITION START
-/datum/design/rld
-	name = "Cyborg Rapid Lighting Device"
-	id = "rld_cyborg"
-	build_type = MECHFAB
-	materials = list(/datum/material/iron = SHEET_MATERIAL_AMOUNT * 7.5, /datum/material/glass =SHEET_MATERIAL_AMOUNT * 2.5, /datum/material/silver = HALF_SHEET_MATERIAL_AMOUNT * 2.5)
-	build_path = /obj/item/borg/upgrade/rld
-	category = list(
-		RND_CATEGORY_MECHFAB_CYBORG_MODULES + RND_SUBCATEGORY_MECHFAB_CYBORG_MODULES_ENGINEERING
-	)
-
-/datum/design/borg_upgrade_brped
-	name = "Bluespace Rapid Part Exchange Device"
-	id = "borg_upgrade_brped"
-	build_type = MECHFAB
-	build_path = /obj/item/borg/upgrade/brped
-	materials = list(
-		/datum/material/iron = SHEET_MATERIAL_AMOUNT * 5,
-		/datum/material/glass = SHEET_MATERIAL_AMOUNT * 2.5,
-	)
-	construction_time = 12 SECONDS
-	category = list(
-		RND_CATEGORY_MECHFAB_CYBORG_MODULES + RND_SUBCATEGORY_MECHFAB_CYBORG_MODULES_ENGINEERING
-	)
-// NOVA ADDITION END
 
 //Misc
 /datum/design/mecha_tracking
