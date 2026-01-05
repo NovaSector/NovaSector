@@ -1,0 +1,5 @@
+author: "vinylspiders"
+delete-after: True
+changes:
+  - bugfix: "naga constrict no longer creates a coiled tail when clicking non living things."
+  - bugfix: "larger taur body type emissives will no longer float away from the mob"
