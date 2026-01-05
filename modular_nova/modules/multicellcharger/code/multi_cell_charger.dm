@@ -17,6 +17,9 @@
 	/// The base charge rate when spawned
 	var/charge_rate = STANDARD_CELL_RATE
 
+/obj/machinery/cell_charger_multi/Initialize(mapload)
+	. = ..()
+
 /obj/machinery/cell_charger_multi/update_overlays()
 	. = ..()
 
@@ -32,6 +35,12 @@
 		cell_overlay.pixel_w = 5 * (i - 1)
 		. += new /mutable_appearance(charge_overlay)
 		. += new /mutable_appearance(cell_overlay)
+
+/obj/machinery/cell_charger_multi/add_context(atom/source, list/context, obj/item/held_item, mob/user)
+	if(held_item != src)
+		return
+	context[SCREENTIP_CONTEXT_ALT_LMB] = "Remove all cells"
+	return CONTEXTUAL_SCREENTIP_SET
 
 /obj/machinery/cell_charger_multi/click_alt(mob/user, list/modifiers)
 	if(!can_interact(user) || !LAZYLEN(charging_batteries))
