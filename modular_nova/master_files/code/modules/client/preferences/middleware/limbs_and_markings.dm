@@ -129,7 +129,7 @@
 		preferences.body_markings[limb_slot] = list()
 	if(preferences.body_markings[limb_slot].len >= MAXIMUM_MARKINGS_PER_LIMB)
 		return
-	var/marking_name = GLOB.body_markings_per_limb[limb_slot][1] // Default to the first in the list for the limb.
+	var/marking_name = pick(GLOB.body_markings_per_limb[limb_slot]) // Default to a random one in the list
 	var/datum/body_marking/marking = GLOB.body_markings[marking_name]
 	var/species_type = preferences.read_preference(/datum/preference/choiced/species)
 	var/list/mutant_colors = preferences.read_preference(/datum/preference/tri_color/mutant_colors)

@@ -75,7 +75,7 @@
 		return ..()
 	var/datum/mutant_bodypart/mutant_bodypart = target.dna.mutant_bodyparts[relevant_mutant_bodypart]
 	if(mutant_bodypart && is_emissive_allowed(preferences))
-		mutant_bodypart.set_emissive_list(sanitize_integer(value[1]), sanitize_integer(value[2]), sanitize_integer(value[3]))
+		mutant_bodypart.set_emissive_tri_bool_list(sanitize_integer(value[1]), sanitize_integer(value[2]), sanitize_integer(value[3]))
 
 /datum/preference/color/mutant
 	abstract_type = /datum/preference/color/mutant
@@ -252,10 +252,10 @@
 		return ..()
 	var/datum/mutant_bodypart/mutant_bodypart = target.dna.mutant_bodyparts[relevant_mutant_bodypart]
 	if(mutant_bodypart)
-		mutant_bodypart.set_emissive_list(sanitize_integer(value), sanitize_integer(value), sanitize_integer(value))
+		mutant_bodypart.set_emissive_tri_bool_list(sanitize_integer(value), sanitize_integer(value), sanitize_integer(value))
 	else
 		var/datum/mutant_bodypart/new_mutant_bodypart = target.dna.species.build_mutant_part()
-		new_mutant_bodypart.set_emissive_list(sanitize_integer(value), sanitize_integer(value), sanitize_integer(value))
+		new_mutant_bodypart.set_emissive_tri_bool_list(sanitize_integer(value), sanitize_integer(value), sanitize_integer(value))
 		target.dna.mutant_bodyparts[relevant_mutant_bodypart] = new_mutant_bodypart
 
 #undef REQUIRED_CROP_LIST_SIZE

@@ -1,7 +1,29 @@
 GLOBAL_LIST_EMPTY(emissive_list_cache)
 
-/// Cached emissive lists (8 possible permutations of 0's and 1's)
-/proc/emissive_list(...)
+/**
+ * Returns a cached emissive boolean list for mutant bodyparts.
+ *
+ * This proc takes exactly three boolean-like values (0 or 1) representing
+ * whether the primary, secondary, and tertiary color channels are emissive.
+ *
+ * To reduce memory churn and repeated list allocations, all possible
+ * permutations (2³ = 8 total) are cached globally and reused.
+ *
+ * The returned list should be treated as immutable.
+ * Modifying the returned list will affect all users of that permutation.
+ *
+ * Arguments:
+ * - arg1: Whether the primary color channel is emissive (0 or 1)
+ * - arg2: Whether the secondary color channel is emissive (0 or 1)
+ * - arg3: Whether the tertiary color channel is emissive (0 or 1)
+ *
+ * Returns:
+ * - A list of length 3 containing the emissive flags, shared from cache.
+ *
+ * Crashes:
+ * - If called with anything other than exactly three arguments.
+ */
+/proc/emissive_tri_bool_list(...)
 	if(length(args) != 3)
 		CRASH("Emissive_list should take 3 args of 1's and 0's.")
 
@@ -39,7 +61,7 @@ GLOBAL_LIST_EMPTY(emissive_list_cache)
 	if(colors)
 		set_colors(colors)
 	if(emissive_list && length(emissive_list == 3))
-		set_emissive_list(emissive_list[1], emissive_list[2], emissive_list[3])
+		set_emissive_tri_bool_list(emissive_list[1], emissive_list[2], emissive_list[3])
 
 /**
  * Returns the color list for this mutant bodypart.
@@ -115,10 +137,10 @@ GLOBAL_LIST_EMPTY(emissive_list_cache)
  * Crashes:
  * - If not passed exactly three arguments.
  */
-/datum/mutant_bodypart/proc/set_emissive_list(...)
+/datum/mutant_bodypart/proc/set_emissive_tri_bool_list(...)
 	if(length(args) != 3)
 		CRASH("set_emissive_list needs to be passed three booleans!")
-	emissive_list = emissive_list(args[1], args[2], args[3])
+	emissive_list = emissive_tri_bool_list(args[1], args[2], args[3])
 
 /**
  * Returns the emissive mask list for this mutant bodypart.
@@ -126,7 +148,7 @@ GLOBAL_LIST_EMPTY(emissive_list_cache)
  * Returns:
  * - list: The emissive list for this bodypart.
  */
-/datum/mutant_bodypart/proc/get_emissive_list()
+/datum/mutant_bodypart/proc/get_emissive_tri_bool_list()
 	return emissive_list
 
 /**
@@ -170,5 +192,5 @@ GLOBAL_LIST_EMPTY(emissive_list_cache)
 /datum/mutant_bodypart/get_tertiary_color()
 	return colors?[3]
 
-/datum/mutant_bodypart/species_blueprint/set_emissive_list(...)
+/datum/mutant_bodypart/species_blueprint/set_emissive_tri_bool_list(...)
 	return

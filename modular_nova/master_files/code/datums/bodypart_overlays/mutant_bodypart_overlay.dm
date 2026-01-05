@@ -41,7 +41,7 @@
 	sprite_datum = fetch_sprite_datum_from_name(accessory_name ? accessory_name : mutant_part.name)
 	modsuit_affected = sprite_datum.use_custom_mod_icon
 	draw_color = mutant_part.get_colors()
-	emissive_eligibility_by_color_index = mutant_part.get_emissive_list()
+	emissive_eligibility_by_color_index = mutant_part.get_emissive_tri_bool_list()
 	cache_key = jointext(generate_icon_cache(), "_")
 	return TRUE
 
