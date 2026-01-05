@@ -57,6 +57,13 @@
 	cost = /datum/uplink_item/low_cost/weaponry::cost
 	purchasable_from = UPLINK_TRAITORS | UPLINK_SERIOUS_OPS
 
+/datum/uplink_item/dangerous/s120
+	name = "Cybersun S-120 Case"
+	desc = "A laser gun primarily used by syndicate security guards. It fires a rapid spray of low-power plasma beams. \
+			Comes with a recharge kit."
+	item = /obj/item/storage/toolbox/guncase/nova/opfor/carbines120
+	cost = /datum/uplink_item/low_cost/weaponry::cost
+	purchasable_from = UPLINK_TRAITORS | UPLINK_SERIOUS_OPS
 
 // MEDIUM COST
 /datum/uplink_item/dangerous/sindano
@@ -104,14 +111,6 @@
 	cost = /datum/uplink_item/medium_cost/weaponry::cost
 	purchasable_from = UPLINK_TRAITORS | UPLINK_SERIOUS_OPS
 
-/datum/uplink_item/dangerous/hook_shotgun
-	name = "Modified Sawn-off Shotgun Case"
-	desc = "Range isn't an issue when you can bring your victim to you."
-	item = /obj/item/storage/toolbox/guncase/nova/opfor/hook_shotgun
-	cost = /datum/uplink_item/medium_cost/weaponry::cost
-	purchasable_from = UPLINK_TRAITORS | UPLINK_SERIOUS_OPS
-
-
 // HIGH COST
 /datum/uplink_item/dangerous/shitzu
 	name = "Shitzu Magfed Shotgun Case"
@@ -124,5 +123,12 @@
 	name = "Carwo-Cawil MMR-2543E Assault Rifle"
 	desc = "A heavy battle rifle, this one seems to be painted tacticool black. Accepts any standard SolFed rifle magazine."
 	item = /obj/item/storage/toolbox/guncase/nova/opfor/sol_rifle
+	cost = /datum/uplink_item/high_cost/weaponry::cost
+	purchasable_from = UPLINK_TRAITORS | UPLINK_SERIOUS_OPS
+
+/datum/uplink_item/dangerous/hook_shotgun
+	name = "Modified Sawn-off Shotgun Case"
+	desc = "Range isn't an issue when you can bring your victim to you."
+	item = /obj/item/storage/toolbox/guncase/nova/opfor/hook_shotgun
 	cost = /datum/uplink_item/high_cost/weaponry::cost
 	purchasable_from = UPLINK_TRAITORS | UPLINK_SERIOUS_OPS
