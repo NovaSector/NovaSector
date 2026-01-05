@@ -1,5 +1,5 @@
 /obj/item/mod/module/tether/anti_teleport
-	name = "MOD grounded apprehension module"
+	name = "MOD grounding apprehension module"
 	desc = "A custom-built grappling-hook powered by a winch capable of hauling the user. \
 		The serrated edges on this variant's anchors, and the flashforged bluespace grounding circuit, \
 		mean that each tether drains much more charge when fired. It remains functional as a tether, though."
@@ -7,12 +7,12 @@
 	tether_type = /obj/projectile/tether/anti_teleport
 
 /obj/projectile/tether/anti_teleport
-	name = "grounded tether"
+	name = "grounding tether"
 	embed_type = /datum/embedding/tether_projectile/anti_teleport
 	shrapnel_type = /obj/item/tether_anchor/anti_teleport
 
 /obj/item/tether_anchor/anti_teleport
-	name = "grounded tether anchor"
+	name = "grounding tether anchor"
 	desc = "A reinforced anchor with a tether attachment point and an integrated bluespace grounding circuit. \
 		Still usable as an emergency tether, though how useful that would be is questionable."
 
@@ -34,7 +34,8 @@
 
 	to_chat(teleportee, span_holoparasite("You feel yourself teleporting, but are suddenly flung back to where you just were!"))
 
-	teleportee.apply_status_effect(/datum/status_effect/incapacitating/paralyzed, 5 SECONDS)
+	teleportee.apply_status_effect(/datum/status_effect/incapacitating/knockdown, 2 SECONDS)
+	teleportee.apply_damage(55, STAMINA)
 	var/datum/effect_system/spark_spread/quantum/spark_system = new()
 	spark_system.set_up(5, TRUE, teleportee)
 	spark_system.start()
@@ -46,7 +47,8 @@
 
 	to_chat(jaunter, span_holoparasite("As you attempt to jaunt, you slam directly into the barrier between realities and are sent crashing back into corporeality!"))
 
-	jaunter.apply_status_effect(/datum/status_effect/incapacitating/paralyzed, 5 SECONDS)
+	jaunter.apply_status_effect(/datum/status_effect/incapacitating/knockdown, 2 SECONDS)
+	jaunter.apply_damage(55, STAMINA)
 	var/datum/effect_system/spark_spread/quantum/spark_system = new()
 	spark_system.set_up(5, TRUE, jaunter)
 	spark_system.start()
