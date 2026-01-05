@@ -19,11 +19,6 @@ GLOBAL_LIST_EMPTY(emissive_list_cache)
 	GLOB.emissive_list_cache[key] = emissive_list
 	return emissive_list
 
-/datum/mutant_bodypart_def
-	var/name
-	var/enabled
-	var/list/default_colors
-
 /datum/mutant_bodypart
 	/// The name of the corresponding sprite_accessory
 	var/name = SPRITE_ACCESSORY_NONE
@@ -46,9 +41,30 @@ GLOBAL_LIST_EMPTY(emissive_list_cache)
 	if(emissive_list && length(emissive_list == 3))
 		set_emissive_list(emissive_list[1], emissive_list[2], emissive_list[3])
 
+/**
+ * Returns the color list for this mutant bodypart.
+ * Falls back to `default_colors` if no explicit colors are set.
+ *
+ * Returns:
+ * - list: The list of colors for this bodypart.
+ */
 /datum/mutant_bodypart/proc/get_colors()
 	return colors || default_colors
 
+/**
+ * Sets the color list for this mutant bodypart.
+ *
+ * Accepts either:
+ * - A list of colors
+ * - A single color string, which will be replicated to all color slots
+ *
+ * Arguments:
+ * - new_colors: A list of colors or a single color string.
+ *
+ * Crashes:
+ * - If passed an empty list.
+ * - If passed a value that is not a list or string.
+ */
 /datum/mutant_bodypart/proc/set_colors(new_colors)
 	if(!length(new_colors))
 		CRASH("set_colors passed an empty list!")
@@ -61,24 +77,73 @@ GLOBAL_LIST_EMPTY(emissive_list_cache)
 
 	colors = new_colors
 
+/**
+ * Returns the primary (first) color of this mutant bodypart.
+ *
+ * Returns:
+ * - string: The primary color, or COLOR_WHITE if unset.
+ */
 /datum/mutant_bodypart/proc/get_primary_color()
 	return colors?[1] || COLOR_WHITE
 
+/**
+ * Returns the secondary (second) color of this mutant bodypart.
+ *
+ * Returns:
+ * - string: The secondary color, or COLOR_WHITE if unset.
+ */
 /datum/mutant_bodypart/proc/get_secondary_color()
 	return colors?[2] || COLOR_WHITE
 
+/**
+ * Returns the tertiary (third) color of this mutant bodypart.
+ *
+ * Returns:
+ * - string: The tertiary color, or COLOR_WHITE if unset.
+ */
 /datum/mutant_bodypart/proc/get_tertiary_color()
 	return colors?[3] || COLOR_WHITE
 
+/**
+ * Sets the emissive mask for this mutant bodypart.
+ *
+ * Expects exactly three boolean arguments representing emissive channels.
+ *
+ * Arguments:
+ * - ...: Three booleans indicating emissive state per channel.
+ *
+ * Crashes:
+ * - If not passed exactly three arguments.
+ */
 /datum/mutant_bodypart/proc/set_emissive_list(...)
-	if(!islist(args) || length(args) != 3)
+	if(length(args) != 3)
 		CRASH("set_emissive_list needs to be passed three booleans!")
 	emissive_list = emissive_list(args[1], args[2], args[3])
 
+/**
+ * Returns the emissive mask list for this mutant bodypart.
+ *
+ * Returns:
+ * - list: The emissive list for this bodypart.
+ */
 /datum/mutant_bodypart/proc/get_emissive_list()
 	return emissive_list
 
-// Immutable species blueprint, used for default species parts
+/**
+ * Factory helper proc for creating and returning a new mutant_bodypart datum.
+ *
+ * Arguments:
+ * - name: The sprite accessory name for the mutant bodypart.
+ * - colors: Optional list of colors or color string for the bodypart.
+ * - emissive_list: Optional emissive mask list for the bodypart.
+ *
+ * Returns:
+ * - /datum/mutant_bodypart: A newly created mutant bodypart datum.
+ */
+/datum/species/proc/build_mutant_part(name, colors, emissive_list)
+	return new /datum/mutant_bodypart(name, colors, emissive_list)
+
+// Immutable species blueprint, used for default species parts. These are what get stored in GLOB.default_mutant_parts
 /datum/mutant_bodypart/species_blueprint
 	/// Whether or not this can be randomized
 	VAR_PROTECTED/is_randomizable = FALSE
@@ -107,7 +172,3 @@ GLOBAL_LIST_EMPTY(emissive_list_cache)
 
 /datum/mutant_bodypart/species_blueprint/set_emissive_list(...)
 	return
-
-/// Factory helper proc for creating and returning a new mutant_bodypart datum
-/datum/species/proc/build_mutant_part(name, colors, emissive_list)
-	return new /datum/mutant_bodypart(name, colors, emissive_list)

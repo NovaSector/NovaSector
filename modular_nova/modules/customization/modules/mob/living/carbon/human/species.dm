@@ -140,7 +140,7 @@ GLOBAL_LIST_EMPTY(customizable_races)
 		if(LAZYLEN(existing_mutant_bodyparts) && existing_mutant_bodyparts[key])
 			continue
 
-		var/datum/mutant_bodypart_def/bodypart_data = bodypart_to_add
+		var/datum/mutant_bodypart/species_blueprint/bodypart_data = bodypart_to_add
 		if(bodypart_data.is_feature) // features should not be added to mutant_bodyparts
 			continue
 		var/bodypart_name = bodypart_data.name
@@ -156,7 +156,7 @@ GLOBAL_LIST_EMPTY(customizable_races)
 
 		var/datum/mutant_bodypart/finalized_part = build_mutant_part(
 			sprite_accessory.name,
-			bodypart_data.get_colors() || sprite_accessory.get_default_color(features, src)
+			bodypart_data.get_colors() || sprite_accessory.get_default_color(features, src),
 			bodypart_data.emissive_list
 		)
 		mutantpart_list[key] = finalized_part
