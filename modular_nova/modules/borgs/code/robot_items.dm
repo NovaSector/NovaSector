@@ -776,7 +776,7 @@
 		if(user)
 			balloon_alert(user, "no cell found!")
 		return 0
-	. = borgy.cell.use(amount * energyfactor)
+	. = borgy.cell.use(amount * energy_factor)
 	if(!. && user)
 		balloon_alert(user, "insufficient charge!")
 	return .
