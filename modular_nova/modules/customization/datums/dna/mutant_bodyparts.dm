@@ -146,9 +146,9 @@ GLOBAL_LIST_EMPTY(emissive_list_cache)
 // Immutable species blueprint, used for default species parts. These are what get stored in GLOB.default_mutant_parts
 /datum/mutant_bodypart/species_blueprint
 	/// Whether or not this can be randomized
-	VAR_PROTECTED/is_randomizable = FALSE
+	VAR_FINAL/is_randomizable = FALSE
 	/// If TRUE, this is marked as a feature (aka dna.features) and should not be added to dna.mutant_bodyparts.
-	VAR_PROTECTED/is_feature = FALSE
+	VAR_FINAL/is_feature = FALSE
 
 /datum/mutant_bodypart/species_blueprint/New(name, list/colors, list/emissive_list, is_randomizable, is_feature)
 	. = ..()

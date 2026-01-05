@@ -157,7 +157,7 @@ GLOBAL_LIST_EMPTY(customizable_races)
 		var/datum/mutant_bodypart/finalized_part = build_mutant_part(
 			sprite_accessory.name,
 			bodypart_data.get_colors() || sprite_accessory.get_default_color(features, src),
-			bodypart_data.emissive_list
+			bodypart_data.get_emissive_list()
 		)
 		mutantpart_list[key] = finalized_part
 
