@@ -294,7 +294,8 @@
 		/obj/item/stock_parts, // NOVA EDIT CHANGE - All stock parts - ORIGINAL: /obj/item/stock_parts/power_store,
 		/obj/item/light,
 		/obj/item/conveyor_switch_construct,
-		/obj/item/assembly/control, // NOVA EDIT ADDITION START
+		// NOVA EDIT ADDITION START
+		/obj/item/assembly/control,
 		/obj/item/tank,
 		/obj/item/wallframe,
 		/obj/item/stack/conveyor,
