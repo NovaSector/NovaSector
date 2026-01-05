@@ -226,7 +226,7 @@
 
 // NOVA EDIT START - Cyborg RLD
 /obj/item/construction/rld/cyborg
-	name = "Cyborg rapid-light-device"
+	name = "cyborg rapid-light-device"
 	desc = "A device used to rapidly provide lighting sources to an area. Runs off a cyborg's internal power supply"
 	// Energy Use
 	var/energyfactor = 0.050 * STANDARD_CELL_CHARGE // Same as making a wall with an RCD
