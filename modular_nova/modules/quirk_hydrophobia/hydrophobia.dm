@@ -6,7 +6,7 @@
 	medical_record_text = "Patient suffers from hydrophobia, exhibiting extreme anxiety around water sources."
 	value = -2
 	mob_trait = TRAIT_WATER_HATER
-	icon = FA_ICON_WATER
+	icon = FA_ICON_WATER_LADDER
 	quirk_flags = QUIRK_HUMAN_ONLY
 
 /datum/quirk/hydrophobia/is_species_appropriate(datum/species/mob_species)
