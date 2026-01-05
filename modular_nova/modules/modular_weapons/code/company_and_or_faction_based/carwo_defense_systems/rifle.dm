@@ -40,7 +40,7 @@
 
 	spread = 2
 	projectile_wound_bonus = 0
-	projectile_damage_multiplier = 0.5
+	projectile_damage_multiplier = 1.1
 
 	lore_blurb = "The MMR-2543 is the current standard service rifle for all branches of the Sol Federation Armed Forces.<br><br>\
 		Initially created for use by the Sagittarian Triumvirate’s military, its adoption by SolFed came a few years later. \
@@ -159,7 +159,7 @@
 	icon_state = "infanterie_evil"
 	worn_icon_state = "infanterie_evil"
 	inhand_icon_state = "infanterie_evil"
-	projectile_damage_multiplier = 1.1
+
 
 /obj/item/gun/ballistic/automatic/sol_rifle/evil/no_mag
 	spawnwithmagazine = FALSE
