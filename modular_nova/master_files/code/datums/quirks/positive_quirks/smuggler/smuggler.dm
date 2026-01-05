@@ -1,7 +1,7 @@
 /datum/quirk/smuggler
 	name = "Smuggler"
 	desc = "Smuggle an item onboard after an amount of time."
-	icon = FA_ICON_USER_SECRET
+	icon = FA_ICON_ENVELOPE
 	value = 8
 	medical_record_text = ""
 	gain_text = span_notice("")
@@ -11,7 +11,7 @@
 	var/datum/weakref/mind_ref
 	/// type-path of chosen contraband item
 	var/contraband
-	/// binary wether or not we should try the long timer, or the short timer if the aforementioned has expired already
+	/// wether or not we should try the long timer, or the short timer if the aforementioned has expired already
 	var/timer_passed = FALSE
 
 /datum/quirk_constant_data/smuggler
@@ -26,7 +26,12 @@
 
 /datum/quirk/smuggler/post_add()
 	mind_ref = WEAKREF(quirk_holder.mind)
-	add_timer()
+	if(!can_run())
+		to_chat(quirk_holder, span_warning("Your [name] quirk did not load due to your job ([quirk_holder.mind.assigned_role.title]) being on its blacklist!"))
+		qdel(src)
+		return
+	if(!timer_passed)
+		set_mail_timer()
 
 /datum/quirk/smuggler/remove()
 	if(QDELING(quirk_holder) || istype(quirk_holder, /mob/living/carbon/human/consistent))
@@ -35,45 +40,106 @@
 	contraband = null
 
 // adds either the original timer, or a short timer for when the shuttle doesn't allow mail to spawn
-/datum/quirk/smuggler/proc/add_timer()
+/datum/quirk/smuggler/proc/set_mail_timer()
 	if(!timer_passed)
-		addtimer(CALLBACK(src, PROC_REF(try_to_add_to_shuttle)), rand(25 MINUTES, 45 MINUTES, TIMER_OVERRIDE|TIMER_DELETE_ME))
-	else
-		addtimer(CALLBACK(src, PROC_REF(try_to_add_to_shuttle)), 2.5 MINUTES, TIMER_OVERRIDE|TIMER_DELETE_ME) //check if the shuttle is at CC every once in a while
+		addtimer(CALLBACK(src, PROC_REF(try_to_add_to_shuttle)), rand(25 MINUTES, 45 MINUTES), TIMER_UNIQUE|TIMER_OVERRIDE|TIMER_DELETE_ME)
+	else //check if the shuttle is at CC every once in a while
+		addtimer(CALLBACK(src, PROC_REF(try_to_add_to_shuttle)), 1 MINUTES, TIMER_UNIQUE|TIMER_OVERRIDE|TIMER_DELETE_ME)
 
-// actually place the item, or loop back into a timer if not able to
+// try to place the item, or loop back into a timer if not able to
 /datum/quirk/smuggler/proc/try_to_add_to_shuttle()
 	timer_passed = TRUE
 	var/turf/open/spot = find_a_spot()
-	if(!spot || is_station_level(spot?.z) || !mind_ref)
-		add_timer()
+	if(!spot || is_station_level(spot?.z))
+		set_mail_timer()
 		return
 	// build parcel
 	var/obj/item/mail/illegal_parcel = new /obj/item/mail(spot)
 	illegal_parcel.recipient_ref = mind_ref
+	var/datum/mind/recipient = mind_ref.resolve()
+	illegal_parcel.name = "unmarked parcel for [recipient.name] ([recipient.assigned_role.title])"
+	illegal_parcel.desc = "A shady package that seems to have slipped between the cracks, it isn't postmarked."
+	illegal_parcel.postmarked = FALSE
+	illegal_parcel.color = pick(list(COLOR_FLOORTILE_GRAY, COLOR_ASSISTANT_OLIVE, COLOR_RUSTED_GLASS))
+	illegal_parcel.cut_overlays()
+	illegal_parcel.update_icon()
+	illegal_parcel.pixel_y = rand(-12, 12)
+	illegal_parcel.pixel_x = rand(-12, 12)
+	// add item
 	new contraband(illegal_parcel)
+//	if(rand(1, 30 == 1))
+	var/datum/record/crew/record = find_record(recipient.name) || find_record("[trim(first_name(recipient.name), 2)]. [last_name(recipient.name)]")
+	if(!record)
+		return
+	fine(recipient, record)
 
 // find a tile on the cargo shuttle to be placed at
 /datum/quirk/smuggler/proc/find_a_spot()
 	var/list/empty_shuttle_turfs = list()
-	var/list/blocked_shutte_turfs = list()
 	var/list/area/shuttle/shuttle_areas = SSshuttle.supply.shuttle_areas
 	for(var/area/shuttle/shuttle_area as anything in shuttle_areas)
 		for(var/turf/open/floor/shuttle_turf in shuttle_area.get_turfs_from_all_zlevels())
 			if(shuttle_turf.is_blocked_turf())
-				blocked_shutte_turfs += shuttle_turf
 				continue
 			empty_shuttle_turfs += shuttle_turf
-	if(!empty_shuttle_turfs.len)
-		return FALSE
+	if(!length(empty_shuttle_turfs))
+		return
 	return pick(empty_shuttle_turfs)
+
+// job blacklist for the jobs that shouldnt do illegal stuff and get fined
+/datum/quirk/smuggler/proc/can_run()
+	var/datum/mind/mind = mind_ref.resolve()
+	var/static/list/blacklisted_jobs = list(
+		JOB_CAPTAIN,
+		JOB_SECURITY_OFFICER,
+		JOB_WARDEN,
+		JOB_HEAD_OF_SECURITY,
+		JOB_CUSTOMS_AGENT,
+		JOB_ORDERLY,
+		JOB_SCIENCE_GUARD,
+		JOB_PRISONER,
+		JOB_CORRECTIONS_OFFICER,
+	//	JOB_BOUNCER, don't uncomment this is here so you know its intentional
+		JOB_QUARTERMASTER,
+		JOB_HEAD_OF_PERSONNEL,
+		JOB_CHIEF_MEDICAL_OFFICER,
+		JOB_RESEARCH_DIRECTOR,
+		JOB_CHIEF_ENGINEER,
+		JOB_BLUESHIELD,
+		JOB_NT_REP,
+	//	JOB_BRIDGE_ASSISTANT, same deal
+	)
+	if(mind.assigned_role.title in blacklisted_jobs)
+		return FALSE
+	return TRUE
+
+// uh oh, looks like customs knows what you're upto...
+/datum/quirk/smuggler/proc/fine(datum/mind/mind, datum/record/crew/record)
+	var/datum/crime/citation/citation = new(
+		name = "Fraud",
+		details = "CC customs have inspected a parcel belonging to [mind.name] and declared it as unlawful.",
+		author = "CentCom customs",
+		fine = 250,
+	)
+	record.citations += citation
+	aas_config_announce(/datum/aas_config_entry/cc_customs_inspection, list("PERSON" = mind.name), src, list(RADIO_CHANNEL_SECURITY), RADIO_CHANNEL_SECURITY)
+
+/datum/aas_config_entry/cc_customs_inspection
+	name = "CentCom Customs"
+	announcement_lines_map = list(
+		RADIO_CHANNEL_SECURITY = "SECURITY ALERT: %PERSON has been found guilty for transfer of illegal goods. A fine of 250 Cr have been applied automatically, please see it through as paid.",
+	)
+	vars_and_tooltips_map = list(
+		"PERSON" = "will be replaced with the name of the user",
+	)
+
 
 //list of contraband choices
 GLOBAL_LIST_INIT(smuggler_items, list(
 	"Screwdriver" = /obj/item/screwdriver,
 ))
 
-//pref for the choices
+//pref for the contraband item choices
 /datum/preference/choiced/smuggler
 	category = PREFERENCE_CATEGORY_MANUALLY_RENDERED
 	savefile_key = "smuggler"
