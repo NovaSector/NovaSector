@@ -24,11 +24,8 @@
 	var/new_icon
 	/// Optional, icon_state to change the atom to when applied
 	var/new_icon_state
-	// NOVA EDIT ADDITION START
 	/// Specifies the icon state for the atom's appearance in hand. Should appear in both new_lefthand_file and new_righthand_file.
 	var/new_inhand_icon_state
-	/// Optional, specifies the icon state for the atom's appearance in teh back slot.
-	var/new_back_icon
 	/// Optional, specifies the left hand inhand icon file. Don't forget to set the right hand file as well.
 	var/new_lefthand_file
 	/// Optional, specifies the right hand inhand icon file. Don't forget to set the left hand file as well.
@@ -36,14 +33,13 @@
 	/// Optional, specifies the worn icon file.
 	var/new_worn_icon
 	/// When set true, will allow concrete subtypes of abstract subtypes (such as for organizational purposes) to be selectable as reskins in the loadout menu.
-	var/allow_abstract_subtypes_in_loadout
+	var/allow_all_subtypes_in_loadout
 	/// Mandatory for GAGs items. The path to the greyscale item this is to be applied to.
 	var/atom/greyscale_item_path
 	/// Auto populated. The greyscale_config from greyscale_item_path.
 	VAR_FINAL/greyscale_config
 	/// Auto populated. The greyscale_colors from greyscale_item_path.
 	VAR_FINAL/greyscale_colors
-	// NOVA EDIT ADDITION END
 
 /datum/atom_skin/New()
 	. = ..()
@@ -182,7 +178,7 @@
 	UnregisterSignal(parent, COMSIG_ATOM_REQUESTING_CONTEXT_FROM_ITEM)
 
 /datum/component/reskinable_item/CheckDupeComponent(datum/component/comp, base_reskin_type, infinite = FALSE, initial_skin, list/blacklisted_subtypes)
-	// Always absorb duplicate components
+	// Always absorb added components
 	src.base_reskin_type = base_reskin_type
 	src.infinite_reskin = infinite
 	src.blacklisted_subtypes = blacklisted_subtypes
@@ -256,8 +252,10 @@
 	var/atom/atom_parent = parent
 
 	var/list/items = list()
+	var/list/atom_skins = get_atom_skins()
 	for(var/reskin_name, reskin_typepath in get_skins_by_name())
-		items[reskin_name] = GLOB.atom_skins[reskin_typepath].get_preview_icon(atom_parent)
+		var/datum/atom_skin/reskin = atom_skins[reskin_typepath]
+		items[reskin_name] = image(icon = reskin.new_icon || atom_parent.icon, icon_state = reskin.new_icon_state || atom_parent.icon_state)
 
 	sort_list(items)
 

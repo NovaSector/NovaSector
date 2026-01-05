@@ -986,6 +986,6 @@
 		return TRUE
 	. = !density
 
-/// Override for atom-specific reskin effects
+/// Logic for adding reskin components goes here. Override for atom-specific reskin setups.
 /atom/proc/setup_reskins()
 	return

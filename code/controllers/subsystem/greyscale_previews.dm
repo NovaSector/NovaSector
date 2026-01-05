@@ -19,19 +19,21 @@ SUBSYSTEM_DEF(greyscale_previews)
 	ExportMapPreviews()
 	return SS_INIT_SUCCESS
 
+/// Sets up the list of types to process for organizing icons into their respective .dmi.
 /datum/controller/subsystem/greyscale_previews/proc/build_type_category_map(list/types_that_get_their_own_file)
 	var/list/type_to_filename = list()
 
 	for (var/filename in types_that_get_their_own_file)
 		var/root = types_that_get_their_own_file[filename]
 
-		for (var/atom/A as anything in typesof(root))
+		for (var/atom/atom_type as anything in typesof(root))
 			// First match wins (prevents /obj from overwriting clothing buckets, etc.)
-			if (isnull(type_to_filename[A]))
-				type_to_filename[A] = filename
+			if (isnull(type_to_filename[atom_type]))
+				type_to_filename[atom_type] = filename
 
 	return type_to_filename
 
+/// Builds a worklist of all the item types to try making a GAGS preview icon for.
 /datum/controller/subsystem/greyscale_previews/proc/build_preview_worklists(list/types_that_get_their_own_file)
 	var/list/type_to_filename = build_type_category_map(types_that_get_their_own_file)
 
@@ -47,9 +49,7 @@ SUBSYSTEM_DEF(greyscale_previews)
 	for (var/skin_path, atom_skin in get_atom_skins())
 		var/datum/atom_skin/skin = atom_skin
 		var/atom/typepath = skin.greyscale_item_path
-		if (!typepath)
-			continue
-		if (!(typepath in GLOB.all_loadout_datums)) // We don't need reskin previews for non-loadout items
+		if (!GLOB.all_loadout_datums[typepath]) // We don't need reskin previews for non-loadout items
 			continue
 		if (isnull(skin.new_icon_state)) // This is the same as the default icon, which we will be generating below.
 			continue
@@ -82,6 +82,7 @@ SUBSYSTEM_DEF(greyscale_previews)
 
 	return worklists
 
+/// Goes through all the valid GAGS item types in subtypes that fall under the types specified in types_that_get_their_own_file, creating a .dmi for each.
 /datum/controller/subsystem/greyscale_previews/proc/ExportMapPreviews()
 	// Put subtypes before their parent or the parent file will take all the generated icons
 	var/list/types_that_get_their_own_file = list(
@@ -138,13 +139,13 @@ SUBSYSTEM_DEF(greyscale_previews)
 	for (var/entry in entries)
 		var/atom/typepath
 		var/icon_state
-		var/skin_icon_state
+		var/reskin_icon_state
 
 		if (istype(entry, /datum/atom_skin))
 			var/datum/atom_skin/skin = entry
 			typepath = skin.greyscale_item_path
 			icon_state = skin.new_icon_state
-			skin_icon_state = TRUE
+			reskin_icon_state = TRUE
 		else
 			typepath = entry
 			icon_state = typepath::post_init_icon_state
@@ -155,19 +156,19 @@ SUBSYSTEM_DEF(greyscale_previews)
 		var/greyscale_config = typepath::greyscale_config
 		var/greyscale_colors = typepath::greyscale_colors
 
-		if (!greyscale_config || !greyscale_colors || typepath::flags_1 & NO_NEW_GAGS_PREVIEW_1)
+		if (!greyscale_config || !greyscale_colors || (typepath::flags_1 & NO_NEW_GAGS_PREVIEW_1))
 			continue
 
 		// This is what the actual icon state will be in the map_icon .dmi
-		var/key = skin_icon_state ? "[typepath]--[icon_state]" : "[typepath]"
+		var/key = reskin_icon_state ? "[typepath]--[icon_state]" : "[typepath]"
 
 	#ifdef CHECK_SPRITESHEET_ICON_VALIDITY
-		var/icon/map_icon = icon(SSgreyscale.GetColoredIconByType(greyscale_config, greyscale_colors))
+		var/icon/map_icon = icon(SSgreyscale.GetColoredIconByType(greyscale_config, greyscale_colors)) // No large icons, use icon_preview and icon_preview_state instead.
 		if (map_icon.Width() > 32 || map_icon.Height() > 32)
-			stack_trace("Large preview icon for [typepath]")
+			stack_trace("GAGS configuration is trying to generate a map preview graphic for '[typepath]' (icon state: [icon_state]), which has a large icon. This is not suppoorted; implement icon_preview instead.")
 			continue
 		if (!(icon_state in map_icon.IconStates()))
-			stack_trace("Missing icon state '[icon_state]' for [typepath]")
+			stack_trace("GAGS configuration missing icon state ([icon_state]) needed to generate map preview graphic for '[typepath]'. Make sure the right greyscale_config is set up.")
 			continue
 		map_icon = icon(map_icon, icon_state)
 		icons[key] = map_icon
