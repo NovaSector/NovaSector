@@ -127,7 +127,7 @@ GLOBAL_LIST_EMPTY(emissive_list_cache)
 	return colors?[3] || COLOR_WHITE
 
 /**
- * Sets the emissive mask for this mutant bodypart.
+ * Sets the emissive tri-boolean list for this mutant bodypart.
  *
  * Expects exactly three boolean arguments representing emissive channels.
  *
@@ -143,7 +143,7 @@ GLOBAL_LIST_EMPTY(emissive_list_cache)
 	emissive_list = emissive_tri_bool_list(args[1], args[2], args[3])
 
 /**
- * Returns the emissive mask list for this mutant bodypart.
+ * Returns the emissive tri-boolean list for this mutant bodypart.
  *
  * Returns:
  * - list: The emissive list for this bodypart.
@@ -157,7 +157,7 @@ GLOBAL_LIST_EMPTY(emissive_list_cache)
  * Arguments:
  * - name: The sprite accessory name for the mutant bodypart.
  * - colors: Optional list of colors or color string for the bodypart.
- * - emissive_list: Optional emissive mask list for the bodypart.
+ * - emissive_list: Optional emissive tri-boolean list for the bodypart.
  *
  * Returns:
  * - /datum/mutant_bodypart: A newly created mutant bodypart datum.
