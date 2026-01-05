@@ -291,7 +291,7 @@
 	storable = list(
 		/obj/item/circuitboard,
 		/obj/item/electronics,
-		/obj/item/stock_parts, // NOVA EDIT - All stock parts
+		/obj/item/stock_parts, // NOVA EDIT CHANGE - All stock parts - ORIGINAL: /obj/item/stock_parts/power_store,
 		/obj/item/light,
 		/obj/item/conveyor_switch_construct,
 		/obj/item/assembly/control, // NOVA EDIT ADDITION START
