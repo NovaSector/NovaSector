@@ -1,11 +1,11 @@
 /datum/quirk/smuggler
-	name = "Smuggler"
-	desc = "Smuggle an item onboard after an amount of time."
+	name = "Contraband Smuggler"
+	desc = "Thanks to your connections, an illegal yet lucrative item will be shipped to you via the cargo shuttle, somewhere later in the shift."
 	icon = FA_ICON_ENVELOPE
 	value = 8
-	medical_record_text = ""
-	gain_text = span_notice("")
-	lose_text = span_danger("")
+	medical_record_text = "Patient makes friends in the wrong places."
+	gain_text = span_notice("You're hoping to be receiving a parcel later on in the shift...")
+	lose_text = span_danger("You doubt you'll still be receiving that parcel...")
 	quirk_flags = QUIRK_HIDE_FROM_SCAN
 	/// weakref of the quirk holder's mind, to open the mail
 	var/datum/weakref/mind_ref
@@ -67,11 +67,11 @@
 	illegal_parcel.pixel_x = rand(-12, 12)
 	// add item
 	new contraband(illegal_parcel)
-//	if(rand(1, 30 == 1))
-	var/datum/record/crew/record = find_record(recipient.name) || find_record("[trim(first_name(recipient.name), 2)]. [last_name(recipient.name)]")
-	if(!record)
-		return
-	fine(recipient, record)
+	if(rand(1, 30 == 1))
+		var/datum/record/crew/record = find_record(recipient.name) || find_record("[trim(first_name(recipient.name), 2)]. [last_name(recipient.name)]") //visitor id shit
+		if(!record)
+			return
+		fine(recipient, record)
 
 // find a tile on the cargo shuttle to be placed at
 /datum/quirk/smuggler/proc/find_a_spot()
