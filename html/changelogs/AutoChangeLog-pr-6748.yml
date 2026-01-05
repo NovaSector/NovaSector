@@ -1,0 +1,5 @@
+author: "Vishenka0704"
+delete-after: True
+changes:
+  - qol: "You can now view your own examine panel and flavor text even when wearing a mask."
+  - admin: "Admins in ghost mode can now view obscured information in player examine panels."

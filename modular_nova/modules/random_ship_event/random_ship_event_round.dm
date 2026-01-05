@@ -29,8 +29,6 @@
 
 	// Send the initial message to the station
 	var/datum/comm_message/message = ship_event.generate_message()
-	// Set up a timer to spawn the ship after a delay, like the pirate event does
-	addtimer(CALLBACK(GLOBAL_PROC, GLOBAL_PROC_REF(spawn_random_ship), ship_event), 1000)
 	GLOB.communications_controller.send_message(message, print = TRUE, unique = TRUE)
 
 /datum/round_event/random_ship_event/end()

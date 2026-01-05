@@ -1,0 +1,4 @@
+author: "Hardly"
+delete-after: True
+changes:
+  - image: "Shifted a pixel up in the mob sprites for retinal hud so they're no longer going into your mouth."

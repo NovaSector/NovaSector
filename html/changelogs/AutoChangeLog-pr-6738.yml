@@ -1,0 +1,5 @@
+author: "Stalkeros"
+delete-after: True
+changes:
+  - bugfix: "Random ships of the random ship event now should properly spawn in."
+  - code_imp: "Cleanes up some of the random ship event's code."
