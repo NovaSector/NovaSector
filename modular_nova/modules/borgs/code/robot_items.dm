@@ -756,7 +756,6 @@
 /obj/item/construction/rld/cyborg
 	name = "cyborg rapid-light-device"
 	desc = "A device used to rapidly provide lighting sources to an area. Runs off a cyborg's internal power supply"
-	// Energy Use
 	var/energy_factor = 0.050 * STANDARD_CELL_CHARGE // Same as making a wall with an RCD
 
 /obj/item/construction/rld/cyborg/get_matter(mob/user)
