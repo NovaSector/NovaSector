@@ -59,14 +59,14 @@
 
 /datum/species/synthetic/get_default_mutant_bodyparts()
 	return list(
-		FEATURE_EARS = MUTPART_BLUEPRINT("None", is_randomizable = FALSE),
-		FEATURE_TAIL = MUTPART_BLUEPRINT("None", is_randomizable = FALSE),
-		FEATURE_LEGS = MUTPART_BLUEPRINT("Normal Legs", is_randomizable = FALSE, is_feature = TRUE),
-		FEATURE_SNOUT = MUTPART_BLUEPRINT("None", is_randomizable = FALSE),
-		MUTANT_SYNTH_ANTENNA = MUTPART_BLUEPRINT("None", is_randomizable = FALSE),
-		MUTANT_SYNTH_SCREEN = MUTPART_BLUEPRINT("None", is_randomizable = FALSE),
-		MUTANT_SYNTH_CHASSIS = MUTPART_BLUEPRINT("Default Chassis", is_randomizable = FALSE),
-		MUTANT_SYNTH_HEAD = MUTPART_BLUEPRINT("Default Head", is_randomizable = FALSE),
+		FEATURE_EARS = MUTPART_BLUEPRINT(SPRITE_ACCESSORY_NONE, is_randomizable = FALSE),
+		FEATURE_TAIL = MUTPART_BLUEPRINT(SPRITE_ACCESSORY_NONE, is_randomizable = FALSE),
+		FEATURE_LEGS = MUTPART_BLUEPRINT(NORMAL_LEGS, is_randomizable = FALSE, is_feature = TRUE),
+		FEATURE_SNOUT = MUTPART_BLUEPRINT(SPRITE_ACCESSORY_NONE, is_randomizable = FALSE),
+		FEATURE_SYNTH_ANTENNA = MUTPART_BLUEPRINT(SPRITE_ACCESSORY_NONE, is_randomizable = FALSE),
+		FEATURE_SYNTH_SCREEN = MUTPART_BLUEPRINT(SPRITE_ACCESSORY_NONE, is_randomizable = FALSE),
+		FEATURE_SYNTH_CHASSIS = MUTPART_BLUEPRINT("Default Chassis", is_randomizable = FALSE),
+		FEATURE_SYNTH_HEAD = MUTPART_BLUEPRINT("Default Head", is_randomizable = FALSE),
 	)
 
 /datum/species/synthetic/spec_life(mob/living/carbon/human/human)
@@ -93,13 +93,13 @@
 	var/datum/action/sing_tones/sing_action = new
 	sing_action.Grant(transformer)
 
-	var/datum/mutant_bodypart/screen_mutant_bodypart = transformer.dna.mutant_bodyparts[MUTANT_SYNTH_SCREEN]
+	var/datum/mutant_bodypart/screen_mutant_bodypart = transformer.dna.mutant_bodyparts[FEATURE_SYNTH_SCREEN]
 	var/obj/item/organ/eyes/eyes = transformer.get_organ_slot(ORGAN_SLOT_EYES)
 
-	if(!screen && screen_mutant_bodypart && screen_mutant_bodypart.name != "None")
+	if(!screen && screen_mutant_bodypart && screen_mutant_bodypart.name != SPRITE_ACCESSORY_NONE)
 
 		if(eyes)
-			eyes.eye_icon_state = "None"
+			eyes.eye_icon_state = SPRITE_ACCESSORY_NONE
 
 		screen = new(transformer)
 		screen.Grant(transformer)
@@ -113,38 +113,13 @@
 
 
 /datum/species/synthetic/apply_supplementary_body_changes(mob/living/carbon/human/target, datum/preferences/preferences, visuals_only = FALSE)
-	var/datum/mutant_bodypart/chassis = target.dna.mutant_bodyparts[MUTANT_SYNTH_CHASSIS]
-	var/datum/mutant_bodypart/head = target.dna.mutant_bodyparts[MUTANT_SYNTH_HEAD]
-	if(!chassis && !head)
+	var/datum/mutant_bodypart/chassis = target.dna.mutant_bodyparts[FEATURE_SYNTH_CHASSIS]
+	if(isnull(chassis))
 		return
-
-	var/datum/sprite_accessory/synth_chassis/chassis_of_choice = SSaccessories.sprite_accessories[MUTANT_SYNTH_CHASSIS][chassis.name]
-	var/datum/sprite_accessory/synth_head/head_of_choice = SSaccessories.sprite_accessories[MUTANT_SYNTH_HEAD][head.name]
-	if(!chassis_of_choice && !head_of_choice)
+	var/datum/sprite_accessory/synth_chassis/chassis_of_choice = SSaccessories.sprite_accessories[FEATURE_SYNTH_CHASSIS][chassis.name]
+	if(!chassis_of_choice)
 		return
-
 	examine_limb_id = chassis_of_choice.icon_state
-
-	if(chassis_of_choice.color_src || head_of_choice.color_src)
-		target.add_traits(list(TRAIT_MUTANT_COLORS), SPECIES_TRAIT)
-
-	// We want to ensure that the IPC gets their chassis and their head correctly.
-	for(var/obj/item/bodypart/limb as anything in target.bodyparts)
-		if(limb.limb_id != SPECIES_SYNTH && initial(limb.base_limb_id) != SPECIES_SYNTH) // No messing with limbs that aren't actually synthetic.
-			continue
-
-		if(limb.body_zone == BODY_ZONE_HEAD)
-			var/list/head_colors = head.get_colors()
-			if(head_of_choice.color_src && length(head_colors))
-				limb.add_color_override(head.get_primary_color(), LIMB_COLOR_SYNTH)
-			limb.change_appearance(head_of_choice.icon, head_of_choice.icon_state, !!head_of_choice.color_src, head_of_choice.dimorphic)
-			continue
-		var/list/chassis_colors = chassis.get_colors()
-		if(chassis_of_choice.color_src && length(chassis_colors))
-			limb.add_color_override(chassis.get_primary_color(), LIMB_COLOR_SYNTH)
-		limb.change_appearance(chassis_of_choice.icon, chassis_of_choice.icon_state, !!chassis_of_choice.color_src, limb.body_part == CHEST && chassis_of_choice.dimorphic)
-		limb.name = "\improper[chassis_of_choice.name] [parse_zone(limb.body_zone)]"
-
 
 /datum/species/synthetic/on_species_loss(mob/living/carbon/human/human)
 	. = ..()
@@ -215,7 +190,7 @@
 	if(!istype(screen_organ))
 		return
 
-	var/datum/mutant_bodypart/screen = transformer.dna.mutant_bodyparts[MUTANT_SYNTH_SCREEN]
+	var/datum/mutant_bodypart/screen = transformer.dna.mutant_bodyparts[FEATURE_SYNTH_SCREEN]
 	screen.name = screen_name
 	screen_organ.bodypart_overlay.set_appearance_from_dna(transformer.dna)
 	transformer.update_body()
@@ -260,6 +235,6 @@
 	return perk_descriptions
 
 /datum/species/synthetic/prepare_human_for_preview(mob/living/carbon/human/beepboop)
-	beepboop.dna.mutant_bodyparts[MUTANT_SYNTH_SCREEN] = beepboop.dna.species.build_mutant_part("Console")
+	beepboop.dna.mutant_bodyparts[FEATURE_SYNTH_SCREEN] = beepboop.dna.species.build_mutant_part("Console")
 	regenerate_organs(beepboop, src, visual_only = TRUE)
 	beepboop.update_body(TRUE)

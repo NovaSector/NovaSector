@@ -31,10 +31,10 @@
 
 /datum/species/ghoul/get_default_mutant_bodyparts()
 	return list(
-		FEATURE_EARS = MUTPART_BLUEPRINT("None", is_randomizable = FALSE),
-		FEATURE_TAIL = MUTPART_BLUEPRINT("None", is_randomizable = FALSE),
-		FEATURE_EARS = MUTPART_BLUEPRINT("None", is_randomizable = FALSE),
-		FEATURE_LEGS = MUTPART_BLUEPRINT("Normal Legs", is_randomizable = FALSE, is_feature = TRUE),
+		FEATURE_EARS = MUTPART_BLUEPRINT(SPRITE_ACCESSORY_NONE, is_randomizable = FALSE),
+		FEATURE_TAIL = MUTPART_BLUEPRINT(SPRITE_ACCESSORY_NONE, is_randomizable = FALSE),
+		FEATURE_EARS = MUTPART_BLUEPRINT(SPRITE_ACCESSORY_NONE, is_randomizable = FALSE),
+		FEATURE_LEGS = MUTPART_BLUEPRINT(NORMAL_LEGS, is_randomizable = FALSE, is_feature = TRUE),
 		FEATURE_GHOUL_COLOR = MUTPART_BLUEPRINT("Tan Necrotic", is_randomizable = FALSE, is_feature = TRUE),
 	)
 

@@ -23,15 +23,15 @@
 
 /datum/species/insect/get_default_mutant_bodyparts()
 	return list(
-		FEATURE_TAIL = MUTPART_BLUEPRINT("None", is_randomizable = FALSE),
-		FEATURE_SNOUT = MUTPART_BLUEPRINT("None", is_randomizable = FALSE),
-		FEATURE_HORNS = MUTPART_BLUEPRINT("None", is_randomizable = FALSE),
-		FEATURE_EARS = MUTPART_BLUEPRINT("None", is_randomizable = FALSE),
-		FEATURE_LEGS = MUTPART_BLUEPRINT("Normal Legs", is_randomizable = FALSE, is_feature = TRUE),
-		FEATURE_TAUR = MUTPART_BLUEPRINT("None", is_randomizable = FALSE),
-		FEATURE_FLUFF = MUTPART_BLUEPRINT("None", is_randomizable = FALSE),
+		FEATURE_TAIL = MUTPART_BLUEPRINT(SPRITE_ACCESSORY_NONE, is_randomizable = FALSE),
+		FEATURE_SNOUT = MUTPART_BLUEPRINT(SPRITE_ACCESSORY_NONE, is_randomizable = FALSE),
+		FEATURE_HORNS = MUTPART_BLUEPRINT(SPRITE_ACCESSORY_NONE, is_randomizable = FALSE),
+		FEATURE_EARS = MUTPART_BLUEPRINT(SPRITE_ACCESSORY_NONE, is_randomizable = FALSE),
+		FEATURE_LEGS = MUTPART_BLUEPRINT(NORMAL_LEGS, is_randomizable = FALSE, is_feature = TRUE),
+		FEATURE_TAUR = MUTPART_BLUEPRINT(SPRITE_ACCESSORY_NONE, is_randomizable = FALSE),
+		FEATURE_FLUFF = MUTPART_BLUEPRINT(SPRITE_ACCESSORY_NONE, is_randomizable = FALSE),
 		FEATURE_WINGS = MUTPART_BLUEPRINT("Bee", is_randomizable = FALSE),
-		FEATURE_MOTH_ANTENNAE = MUTPART_BLUEPRINT("None", is_randomizable = FALSE),
+		FEATURE_MOTH_ANTENNAE = MUTPART_BLUEPRINT(SPRITE_ACCESSORY_NONE, is_randomizable = FALSE),
 	)
 
 /datum/species/insect/get_species_description()

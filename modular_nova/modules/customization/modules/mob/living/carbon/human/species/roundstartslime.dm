@@ -53,15 +53,15 @@
 
 /datum/species/jelly/get_default_mutant_bodyparts()
 	return list(
-		FEATURE_TAIL = MUTPART_BLUEPRINT("None", is_randomizable = FALSE),
-		FEATURE_SNOUT = MUTPART_BLUEPRINT("None", is_randomizable = FALSE),
-		FEATURE_EARS = MUTPART_BLUEPRINT("None", is_randomizable = FALSE),
-		FEATURE_LEGS = MUTPART_BLUEPRINT("Normal Legs", is_randomizable = FALSE, is_feature = TRUE),
-		FEATURE_TAUR = MUTPART_BLUEPRINT("None", is_randomizable = FALSE),
-		FEATURE_WINGS = MUTPART_BLUEPRINT("None", is_randomizable = FALSE),
-		FEATURE_HORNS = MUTPART_BLUEPRINT("None", is_randomizable = FALSE),
-		FEATURE_SPINES = MUTPART_BLUEPRINT("None", is_randomizable = FALSE),
-		FEATURE_FRILLS = MUTPART_BLUEPRINT("None", is_randomizable = FALSE),
+		FEATURE_TAIL = MUTPART_BLUEPRINT(SPRITE_ACCESSORY_NONE, is_randomizable = FALSE),
+		FEATURE_SNOUT = MUTPART_BLUEPRINT(SPRITE_ACCESSORY_NONE, is_randomizable = FALSE),
+		FEATURE_EARS = MUTPART_BLUEPRINT(SPRITE_ACCESSORY_NONE, is_randomizable = FALSE),
+		FEATURE_LEGS = MUTPART_BLUEPRINT(NORMAL_LEGS, is_randomizable = FALSE, is_feature = TRUE),
+		FEATURE_TAUR = MUTPART_BLUEPRINT(SPRITE_ACCESSORY_NONE, is_randomizable = FALSE),
+		FEATURE_WINGS = MUTPART_BLUEPRINT(SPRITE_ACCESSORY_NONE, is_randomizable = FALSE),
+		FEATURE_HORNS = MUTPART_BLUEPRINT(SPRITE_ACCESSORY_NONE, is_randomizable = FALSE),
+		FEATURE_SPINES = MUTPART_BLUEPRINT(SPRITE_ACCESSORY_NONE, is_randomizable = FALSE),
+		FEATURE_FRILLS = MUTPART_BLUEPRINT(SPRITE_ACCESSORY_NONE, is_randomizable = FALSE),
 	)
 
 /datum/species/jelly/gain_oversized_organs(mob/living/carbon/human/human_holder, datum/quirk/oversized/oversized_quirk)
@@ -770,11 +770,11 @@
 	var/color_target
 	switch(color_choice)
 		if("Primary", "All")
-			color_target = "mcolor"
+			color_target = "FEATURE_MUTANT_COLOR"
 		if("Secondary")
-			color_target = "mcolor2"
+			color_target = "FEATURE_MUTANT_COLOR_TWO"
 		if("Tertiary")
-			color_target = "mcolor3"
+			color_target = "FEATURE_MUTANT_COLOR_THREE"
 
 	var/new_mutant_colour = tgui_color_picker(
 		alterer,
@@ -801,7 +801,7 @@
 		alterer,
 		"Would you like to reset your hair to match your new colors?",
 		"Reset hair",
-		list("Hair", "Facial Hair", "Both", "None"),
+		list("Hair", "Facial Hair", "Both", SPRITE_ACCESSORY_NONE),
 	)
 
 	if(color_choice == "All")

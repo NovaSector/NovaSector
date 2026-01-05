@@ -1,31 +1,3 @@
-GLOBAL_LIST_INIT(bodyparts_to_convert, list("body_markings", \
-FEATURE_TAIL, \
-FEATURE_SNOUT, \
-FEATURE_HORNS, \
-FEATURE_EARS, \
-FEATURE_WINGS, \
-FEATURE_FRILLS, \
-FEATURE_SPINES, \
-FEATURE_LEGS, \
-FEATURE_MUSH_CAP, \
-FEATURE_MOTH_ANTENNAE, \
-FEATURE_MOTH_MARKINGS, \
-FEATURE_FLUFF, \
-FEATURE_HEAD_ACCESSORY, \
-MUTANT_SYNTH_SCREEN, \
-MUTANT_SYNTH_ANTENNA, \
-MUTANT_SYNTH_CHASSIS, \
-FEATURE_NECK_ACCESSORY, \
-FEATURE_SKRELL_HAIR, \
-FEATURE_TAUR, \
-FEATURE_XENODORSAL, \
-FEATURE_XENOHEAD, \
-FEATURE_PENIS, \
-FEATURE_TESTICLES, \
-FEATURE_WOMB, \
-FEATURE_VAGINA, \
-FEATURE_BREASTS,))
-
 /datum/preferences/proc/migrate_nova(list/nova_data)
 	if(features["flavor_text"])
 		write_preference(GLOB.preference_entries[/datum/preference/text/flavor_text], features["flavor_text"])
@@ -36,64 +8,22 @@ FEATURE_BREASTS,))
 
 	var/list/mutant_colors = list()
 	/// Intensive checking to ensure this process does not runtime. If it runtimes, goodbye savefiles.
-	if(features["mcolor"])
-		mutant_colors += sanitize_hexcolor(features["mcolor"])
+	if(features["FEATURE_MUTANT_COLOR"])
+		mutant_colors += sanitize_hexcolor(features["FEATURE_MUTANT_COLOR"])
 	else
 		mutant_colors += "#[random_color()]"
 
-	if(features["mcolor2"])
-		mutant_colors += sanitize_hexcolor(features["mcolor2"])
+	if(features["FEATURE_MUTANT_COLOR_TWO"])
+		mutant_colors += sanitize_hexcolor(features["FEATURE_MUTANT_COLOR_TWO"])
 	else
 		mutant_colors += "#[random_color()]"
 
-	if(features["mcolor3"])
-		mutant_colors += sanitize_hexcolor(features["mcolor2"])
+	if(features["FEATURE_MUTANT_COLOR_THREE"])
+		mutant_colors += sanitize_hexcolor(features["FEATURE_MUTANT_COLOR_TWO"])
 	else
 		mutant_colors += "#[random_color()]"
 
 	write_preference(GLOB.preference_entries[/datum/preference/tri_color/mutant_colors], mutant_colors)
-
-	for(var/body_part in GLOB.bodyparts_to_convert)
-		var/datum/mutant_bodypart/mutant_part = mutant_bodyparts[body_part]
-		if(mutant_part)
-			var/type = mutant_part.name
-			var/list/colors = mutant_part.get_colors()
-			if(type == SPRITE_ACCESSORY_NONE)
-				continue
-			var/colors_length = colors.len
-			/// Intensive checking to ensure this process does not runtime. If it runtimes, goodbye savefiles.
-			switch(colors_length)
-				if(0)
-					colors += "#[random_color()]"
-					colors += "#[random_color()]"
-					colors += "#[random_color()]"
-				if(1)
-					colors[1] = sanitize_hexcolor(colors[1])
-					colors += "#[random_color()]"
-					colors += "#[random_color()]"
-				if(2)
-					colors[1] = sanitize_hexcolor(colors[1])
-					colors[2] = sanitize_hexcolor(colors[2])
-					colors += "#[random_color()]"
-				else
-					colors[1] = sanitize_hexcolor(colors[1])
-					colors[2] = sanitize_hexcolor(colors[2])
-					colors[3] = sanitize_hexcolor(colors[3])
-
-			for(var/datum/preference/preference as anything in get_preferences_in_priority_order())
-				if(!preference.relevant_mutant_bodypart || preference.relevant_mutant_bodypart != body_part)
-					continue
-				if(type)
-					if(istype(preference, /datum/preference/toggle))
-						write_preference(preference, TRUE)
-						continue
-					if(istype(preference, /datum/preference/choiced))
-						write_preference(preference, type)
-						continue
-				if(colors)
-					if(istype(preference, /datum/preference/tri_color))
-						write_preference(preference, colors)
-						continue
 
 	to_chat(parent, boxed_message(span_greentext("Preference migration successful! You may safely interact with the preferences menu.")))
 	tgui_prefs_migration = TRUE

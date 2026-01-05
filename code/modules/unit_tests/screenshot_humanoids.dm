@@ -26,7 +26,7 @@
 	var/mob/living/carbon/human/moth = allocate(/mob/living/carbon/human/dummy/consistent)
 	moth.dna.features[FEATURE_MUTANT_COLOR] = "#E5CD99" // NOVA EDIT ADDITION - Customization
 	moth.dna.mutant_bodyparts[FEATURE_MOTH_ANTENNAE] = moth.dna.species.build_mutant_part("Firewatch") // NOVA EDIT CHANGE - Customization - ORIGINAL: moth.dna.features[FEATURE_MOTH_ANTENNAE] = "Firewatch"
-	moth.dna.mutant_bodyparts[FEATURE_MOTH_MARKINGS] = moth.dna.species.build_mutant_part("None") // NOVA EDIT CHANGE - Customization - ORIGINAL: moth.dna.features[FEATURE_MOTH_MARKINGS] = "None"
+	moth.dna.mutant_bodyparts[FEATURE_MOTH_MARKINGS] = moth.dna.species.build_mutant_part(SPRITE_ACCESSORY_NONE) // NOVA EDIT CHANGE - Customization - ORIGINAL: moth.dna.features[FEATURE_MOTH_MARKINGS] = "None"
 	moth.dna.mutant_bodyparts[FEATURE_WINGS] = moth.dna.species.build_mutant_part("Moth (Firewatch)") // NOVA EDIT CHANGE - Customization - ORIGINAL: moth.dna.features[FEATURE_MOTH_WINGS] = "Firewatch"
 	moth.set_species(/datum/species/moth)
 	moth.equipOutfit(/datum/outfit/job/cmo, visuals_only = TRUE)

@@ -1,12 +1,12 @@
 /datum/species/monkey/get_default_mutant_bodyparts()
 	return list(
-		FEATURE_EARS = MUTPART_BLUEPRINT("None", is_randomizable = FALSE),
+		FEATURE_EARS = MUTPART_BLUEPRINT(SPRITE_ACCESSORY_NONE, is_randomizable = FALSE),
 		FEATURE_TAIL = MUTPART_BLUEPRINT("Monkey", is_randomizable = FALSE),
 	)
 
 /datum/species/monkey/randomize_features()
 	var/list/features = ..()
-	features[FEATURE_TAIL] = pick(SSaccessories.feature_list[FEATURE_TAIL_MONKEY] - list("None")) // No tail-less monkeys.
+	features[FEATURE_TAIL] = pick(SSaccessories.feature_list[FEATURE_TAIL_MONKEY] - list(SPRITE_ACCESSORY_NONE)) // No tail-less monkeys.
 	return features
 
 /datum/species/monkey/prepare_human_for_preview(mob/living/carbon/human/monke)

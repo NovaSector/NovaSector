@@ -32,7 +32,7 @@ GLOBAL_LIST_EMPTY(customizable_races)
 /// Returns a list of the default mutant bodyparts, and whether or not they can be randomized or not
 /datum/species/proc/get_default_mutant_bodyparts()
 	return list(
-		FEATURE_EARS = MUTPART_BLUEPRINT("None", is_randomizable = FALSE),
+		FEATURE_EARS = MUTPART_BLUEPRINT(SPRITE_ACCESSORY_NONE, is_randomizable = FALSE),
 	)
 
 /datum/species/proc/handle_mutant_bodyparts(mob/living/carbon/human/source, forced_colour)
@@ -90,10 +90,10 @@ GLOBAL_LIST_EMPTY(customizable_races)
 
 /datum/species/human/get_default_mutant_bodyparts()
 	return list(
-		"ears" = MUTPART_BLUEPRINT("None", is_randomizable = FALSE),
-		"tail" = MUTPART_BLUEPRINT("None", is_randomizable = FALSE),
-		"wings" = MUTPART_BLUEPRINT("None", is_randomizable = FALSE),
-		"legs" = MUTPART_BLUEPRINT("Normal Legs", is_randomizable = FALSE),
+		FEATURE_EARS = MUTPART_BLUEPRINT(SPRITE_ACCESSORY_NONE, is_randomizable = FALSE),
+		FEATURE_TAIL = MUTPART_BLUEPRINT(SPRITE_ACCESSORY_NONE, is_randomizable = FALSE),
+		FEATURE_WINGS = MUTPART_BLUEPRINT(SPRITE_ACCESSORY_NONE, is_randomizable = FALSE),
+		FEATURE_LEGS = MUTPART_BLUEPRINT(NORMAL_LEGS, is_randomizable = FALSE),
 	)
 
 /datum/species/mush

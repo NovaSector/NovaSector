@@ -117,7 +117,7 @@
 		wearer.update_worn_back()
 
 /datum/species/snail/prepare_human_for_preview(mob/living/carbon/human/snail)
-	snail.dna.features["mcolor"] = "#adaba7"
+	snail.dna.features["FEATURE_MUTANT_COLOR"] = "#adaba7"
 	snail.update_body(TRUE)
 
 /datum/species/snail/create_pref_unique_perks()

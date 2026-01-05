@@ -40,8 +40,8 @@
 		FEATURE_TAIL = MUTPART_BLUEPRINT("Insectoid", is_randomizable = FALSE),
 		FEATURE_WINGS = MUTPART_BLUEPRINT("Insectoid II", is_randomizable = FALSE),
 		FEATURE_FLUFF = MUTPART_BLUEPRINT("Insectoid", is_randomizable = FALSE),
-		FEATURE_LEGS = list(NORMAL_LEGS, FALSE),
-		FEATURE_TAUR = MUTPART_BLUEPRINT("None", is_randomizable = FALSE),
+		FEATURE_LEGS = MUTPART_BLUEPRINT(NORMAL_LEGS, FALSE),
+		FEATURE_TAUR = MUTPART_BLUEPRINT(SPRITE_ACCESSORY_NONE, is_randomizable = FALSE),
 	)
 
 /datum/species/insectoid/prepare_human_for_preview(mob/living/carbon/human/human_for_preview)

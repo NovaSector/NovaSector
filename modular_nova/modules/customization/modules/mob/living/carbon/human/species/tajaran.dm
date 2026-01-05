@@ -31,7 +31,7 @@
 		FEATURE_TAIL = MUTPART_BLUEPRINT("Cat (Big)", is_randomizable = TRUE),
 		FEATURE_SNOUT = MUTPART_BLUEPRINT("Mammal, Short", is_randomizable = TRUE),
 		FEATURE_EARS = MUTPART_BLUEPRINT("Cat, Alert", is_randomizable = TRUE),
-		FEATURE_LEGS = MUTPART_BLUEPRINT("Normal Legs", is_randomizable = FALSE, is_feature = TRUE),
+		FEATURE_LEGS = MUTPART_BLUEPRINT(NORMAL_LEGS, is_randomizable = FALSE, is_feature = TRUE),
 	)
 
 /obj/item/organ/tongue/cat/tajaran

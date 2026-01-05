@@ -17,11 +17,11 @@
 	human.dna.initialize_dna(newblood_type = random_human_blood_type(), create_mutation_blocks = randomize_mutations, randomize_features = TRUE)
 	// NOVA EDIT ADDITION BEGIN - CUSTOMIZATION
 	var/skin_tone_hex = skintone2hex(human.skin_tone)
-	human.dna.features["skin_color"] = skin_tone_hex
-	if(human.dna.features["mcolor"] == "#FFFFBB") // Until upstream fixes skin tones to not be STUPID we are just going to suffer
-		human.dna.features["mcolor"] = skin_tone_hex
-		human.dna.features["mcolor2"] = skin_tone_hex
-		human.dna.features["mcolor3"] = skin_tone_hex
+	human.dna.features[FEATURE_SKIN_COLOR] = skin_tone_hex
+	if(human.dna.features["FEATURE_MUTANT_COLOR"] == "#FFFFBB") // Until upstream fixes skin tones to not be STUPID we are just going to suffer
+		human.dna.features["FEATURE_MUTANT_COLOR"] = skin_tone_hex
+		human.dna.features["FEATURE_MUTANT_COLOR_TWO"] = skin_tone_hex
+		human.dna.features["FEATURE_MUTANT_COLOR_THREE"] = skin_tone_hex
 	human.set_blooper(pick(GLOB.blooper_list))
 	human.blooper_pitch = BLOOPER_PITCH_RAND(human.gender)
 	human.blooper_pitch_range = BLOOPER_VARIANCE_RAND
@@ -61,11 +61,11 @@
 		human.updateappearance(mutcolor_update = TRUE)
 	// NOVA EDIT ADDITION BEGIN - CUSTOMIZATION
 	var/skin_tone_hex = skintone2hex(human.skin_tone)
-	human.dna.features["skin_color"] = skin_tone_hex
-	if(human.dna.features["mcolor"] == "#FFFFBB") // Until upstream fixes skin tones to not be STUPID we are just going to suffer
-		human.dna.features["mcolor"] = skin_tone_hex
-		human.dna.features["mcolor2"] = skin_tone_hex
-		human.dna.features["mcolor3"] = skin_tone_hex
+	human.dna.features[FEATURE_SKIN_COLOR] = skin_tone_hex
+	if(human.dna.features["FEATURE_MUTANT_COLOR"] == "#FFFFBB") // Until upstream fixes skin tones to not be STUPID we are just going to suffer
+		human.dna.features["FEATURE_MUTANT_COLOR"] = skin_tone_hex
+		human.dna.features["FEATURE_MUTANT_COLOR_TWO"] = skin_tone_hex
+		human.dna.features["FEATURE_MUTANT_COLOR_THREE"] = skin_tone_hex
 	human.set_blooper(pick(GLOB.blooper_list))
 	human.blooper_pitch = BLOOPER_PITCH_RAND(human.gender)
 	human.blooper_pitch_range = BLOOPER_VARIANCE_RAND

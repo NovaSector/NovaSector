@@ -25,14 +25,14 @@
 
 /datum/species/unathi/get_default_mutant_bodyparts()
 	return list(
-		FEATURE_EARS = MUTPART_BLUEPRINT("None", is_randomizable = FALSE),
+		FEATURE_EARS = MUTPART_BLUEPRINT(SPRITE_ACCESSORY_NONE, is_randomizable = FALSE),
 		FEATURE_TAIL = MUTPART_BLUEPRINT("Smooth", is_randomizable = TRUE),
 		FEATURE_SNOUT = MUTPART_BLUEPRINT("Sharp + Light", is_randomizable = TRUE),
-		FEATURE_SPINES = MUTPART_BLUEPRINT("None", is_randomizable = FALSE),
-		FEATURE_FRILLS = MUTPART_BLUEPRINT("None", is_randomizable = FALSE),
+		FEATURE_SPINES = MUTPART_BLUEPRINT(SPRITE_ACCESSORY_NONE, is_randomizable = FALSE),
+		FEATURE_FRILLS = MUTPART_BLUEPRINT(SPRITE_ACCESSORY_NONE, is_randomizable = FALSE),
 		FEATURE_HORNS = MUTPART_BLUEPRINT("Curled", is_randomizable = FALSE),
 		FEATURE_MARKING_GENERIC = MUTPART_BLUEPRINT("Smooth Belly", is_randomizable = TRUE),
-		FEATURE_LEGS = MUTPART_BLUEPRINT("Normal Legs", is_randomizable = FALSE, is_feature = TRUE),
+		FEATURE_LEGS = MUTPART_BLUEPRINT(NORMAL_LEGS, is_randomizable = FALSE, is_feature = TRUE),
 	)
 
 /obj/item/organ/tongue/unathi

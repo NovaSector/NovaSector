@@ -116,6 +116,15 @@
 #define FEATURE_NECK_ACCESSORY "neck_acc"
 #define FEATURE_GHOUL_COLOR "ghoulcolor"
 #define FEATURE_WINGS_FUNCTIONAL "wings_functional"
+
+// Synth parts
+#define FEATURE_SYNTH_ANTENNA "ipc_antenna"
+#define FEATURE_SYNTH_SCREEN "ipc_screen"
+#define FEATURE_SYNTH_CHASSIS "synth_chassis"
+#define FEATURE_SYNTH_HEAD "synth_head"
+#define FEATURE_SYNTH_HAIR "synth_hair"
+
+// Genitals
 #define FEATURE_PENIS "penis"
 #define FEATURE_WOMB "womb"
 #define FEATURE_VAGINA "vagina"
@@ -123,12 +132,13 @@
 #define FEATURE_BREASTS "breasts"
 #define FEATURE_ANUS "anus"
 
+
 #define MANDATORY_FEATURE_LIST list(\
-	"mcolor" = "#FFFFBB",\
-	"mcolor2" = "#FFFFBB",\
-	"mcolor3" = "#FFFFBB",\
+	"FEATURE_MUTANT_COLOR" = "#FFFFBB",\
+	"FEATURE_MUTANT_COLOR_TWO" = "#FFFFBB",\
+	"FEATURE_MUTANT_COLOR_THREE" = "#FFFFBB",\
 	"ethcolor" = "#FFCCCC",\
-	"skin_color" = "#FFEEDD",\
+	FEATURE_SKIN_COLOR = "#FFEEDD",\
 	EXAMINE_DNA_FLAVOR_TEXT = "",\
 	"breasts_size" = 1,\
 	"breasts_lactation" = FALSE,\

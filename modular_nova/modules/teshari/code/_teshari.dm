@@ -57,7 +57,7 @@
 	return list(
 		FEATURE_TAIL = MUTPART_BLUEPRINT("Teshari (Default)", is_randomizable = TRUE),
 		FEATURE_EARS = MUTPART_BLUEPRINT("Teshari Regular", is_randomizable = TRUE),
-		FEATURE_LEGS = MUTPART_BLUEPRINT("Normal Legs", is_randomizable = FALSE, is_feature = TRUE),
+		FEATURE_LEGS = MUTPART_BLUEPRINT(NORMAL_LEGS, is_randomizable = FALSE, is_feature = TRUE),
 	)
 
 /obj/item/organ/tongue/teshari

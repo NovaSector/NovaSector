@@ -11,9 +11,9 @@
 		FEATURE_FRILLS = MUTPART_BLUEPRINT("Short", is_randomizable = TRUE),
 		FEATURE_HORNS = MUTPART_BLUEPRINT("Curled", is_randomizable = TRUE),
 		FEATURE_MARKING_GENERIC = MUTPART_BLUEPRINT("Light Belly", is_randomizable = TRUE),
-		FEATURE_LEGS = list(DIGITIGRADE_LEGS,FALSE),
-		FEATURE_TAUR = MUTPART_BLUEPRINT("None", is_randomizable = FALSE),
-		FEATURE_WINGS = MUTPART_BLUEPRINT("None", is_randomizable = FALSE),
+		FEATURE_LEGS = MUTPART_BLUEPRINT(DIGITIGRADE_LEGS, FALSE),
+		FEATURE_TAUR = MUTPART_BLUEPRINT(SPRITE_ACCESSORY_NONE, is_randomizable = FALSE),
+		FEATURE_WINGS = MUTPART_BLUEPRINT(SPRITE_ACCESSORY_NONE, is_randomizable = FALSE),
 	)
 
 /datum/species/lizard/get_species_description()
@@ -48,12 +48,12 @@
 
 /datum/species/lizard/ashwalker/get_default_mutant_bodyparts()
 	var/list/default_parts = ..()
-	default_parts[FEATURE_SPINES] = list("None", TRUE)
+	default_parts[FEATURE_SPINES] = MUTPART_BLUEPRINT(SPRITE_ACCESSORY_NONE, TRUE)
 	return default_parts
 
 /datum/species/lizard/silverscale/get_default_mutant_bodyparts()
 	var/list/default_parts = ..()
-	default_parts[FEATURE_SPINES] = list("None", TRUE)
+	default_parts[FEATURE_SPINES] = MUTPART_BLUEPRINT(SPRITE_ACCESSORY_NONE, TRUE)
 	return default_parts
 
 /datum/species/lizard/randomize_features()
@@ -86,7 +86,7 @@
 	lizard.dna.mutant_bodyparts[FEATURE_SNOUT] = lizard.dna.species.build_mutant_part("Sharp + Light", list(lizard_color, lizard_color, lizard_color))
 	lizard.dna.mutant_bodyparts[FEATURE_HORNS] = lizard.dna.species.build_mutant_part("Simple", list(lizard_color, lizard_color, lizard_color))
 	lizard.dna.mutant_bodyparts[FEATURE_FRILLS] = lizard.dna.species.build_mutant_part("Aquatic", list(lizard_color, lizard_color, lizard_color))
-	lizard.dna.features[FEATURE_LEGS] = "Normal Legs"
+	lizard.dna.features[FEATURE_LEGS] = NORMAL_LEGS
 	regenerate_organs(lizard, src, visual_only = TRUE)
 	lizard.update_body(TRUE)
 

@@ -11,8 +11,6 @@
 	var/chosen_augment_slot
 	/// Has to include all information that extra organs from mutant bodyparts would need. (so far only genitals now)
 	var/list/features = MANDATORY_FEATURE_LIST
-	/// A list containing all of our mutant bodparts
-	var/list/list/mutant_bodyparts = list()
 	/// A list of all bodymarkings
 	var/list/list/body_markings = list()
 
@@ -55,42 +53,6 @@
 	// Reset cultural stuff
 	languages[try_get_common_language()] = LANGUAGE_SPOKEN
 	save_character()
-
-/datum/preferences/proc/print_bodypart_change_line(key)
-	var/datum/mutant_bodypart/mutant_part = mutant_bodyparts[key]
-	var/shown_colors = 0
-	var/datum/sprite_accessory/sprite_accessory = SSaccessories.sprite_accessories[key][mutant_part.name]
-	var/dat = ""
-	if(sprite_accessory.color_src == USE_MATRIXED_COLORS)
-		shown_colors = 3
-	else if (sprite_accessory.color_src == USE_ONE_COLOR)
-		shown_colors = 1
-	if((allow_advanced_colors || sprite_accessory.always_color_customizable) && shown_colors)
-		dat += "<a href='byond://?src=[REF(src)];key=[key];preference=reset_color;task=change_bodypart'>R</a>"
-	dat += "<a href='byond://?src=[REF(src)];key=[key];preference=change_name;task=change_bodypart'>[mutant_part.name]</a>"
-	if(allow_advanced_colors || sprite_accessory.always_color_customizable)
-		if(shown_colors)
-			dat += "<BR>"
-			var/list/colorlist = mutant_part.get_colors()
-			for(var/i in 1 to shown_colors)
-				dat += " <a href='byond://?src=[REF(src)];key=[key];color_index=[i];preference=change_color;task=change_bodypart'><span class='color_holder_box' style='background-color:["#[colorlist[i]]"]'></span></a>"
-	return dat
-
-/datum/preferences/proc/reset_colors()
-	var/species_type = read_preference(/datum/preference/choiced/species)
-	var/datum/species/current_species = GLOB.species_prototypes[species_type]
-	for(var/key, part in mutant_bodyparts)
-		var/datum/mutant_bodypart/mutant_part = part
-		var/datum/sprite_accessory/sprite_accessory = SSaccessories.sprite_accessories[key][mutant_part.name]
-		if(sprite_accessory.always_color_customizable)
-			continue
-		mutant_part.set_colors(sprite_accessory.get_default_color(features, current_species))
-
-	for(var/zone in body_markings)
-		var/list/bml = body_markings[zone]
-		for(var/key in bml)
-			var/datum/body_marking/body_marking = GLOB.body_markings[key]
-			bml[key] = body_marking.get_default_color(features, current_species)
 
 /// Tries to get the topmost language of the language holder. Should be the species' native language, and if it isn't, you should pester a coder.
 /datum/preferences/proc/try_get_common_language()

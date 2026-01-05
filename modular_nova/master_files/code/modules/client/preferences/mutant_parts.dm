@@ -468,7 +468,7 @@
 	savefile_key = "feature_ipc_screen"
 	main_feature_name = "IPC Screen"
 	category = PREFERENCE_CATEGORY_FEATURES
-	relevant_mutant_bodypart = MUTANT_SYNTH_SCREEN
+	relevant_mutant_bodypart = FEATURE_SYNTH_SCREEN
 	default_accessory_type = /datum/sprite_accessory/screen/none
 	should_generate_icons = TRUE
 	generate_icons = TRUE
@@ -500,13 +500,13 @@
 	category = PREFERENCE_CATEGORY_SUPPLEMENTAL_FEATURES
 	savefile_identifier = PREFERENCE_CHARACTER
 	savefile_key = "ipc_screen_color"
-	relevant_mutant_bodypart = MUTANT_SYNTH_SCREEN
+	relevant_mutant_bodypart = FEATURE_SYNTH_SCREEN
 
 /datum/preference/toggle/emissive/ipc_screen_emissive
 	category = PREFERENCE_CATEGORY_SECONDARY_FEATURES
 	savefile_identifier = PREFERENCE_CHARACTER
 	savefile_key = "ipc_screen_emissive"
-	relevant_mutant_bodypart = MUTANT_SYNTH_SCREEN
+	relevant_mutant_bodypart = FEATURE_SYNTH_SCREEN
 	check_mode = TRICOLOR_CHECK_ACCESSORY
 	type_to_check = /datum/preference/choiced/mutant_choice/ipc_screen
 
@@ -521,11 +521,11 @@
 
 /datum/preference/toggle/mutant_toggle/synth_antenna
 	savefile_key = "ipc_antenna_toggle"
-	relevant_mutant_bodypart = MUTANT_SYNTH_ANTENNA
+	relevant_mutant_bodypart = FEATURE_SYNTH_ANTENNA
 
 /datum/preference/choiced/mutant_choice/synth_antenna
 	savefile_key = "feature_ipc_antenna"
-	relevant_mutant_bodypart = MUTANT_SYNTH_ANTENNA
+	relevant_mutant_bodypart = FEATURE_SYNTH_ANTENNA
 	default_accessory_type = /datum/sprite_accessory/antenna/none
 	type_to_check = /datum/preference/toggle/mutant_toggle/synth_antenna
 
@@ -533,14 +533,14 @@
 	category = PREFERENCE_CATEGORY_SECONDARY_FEATURES
 	savefile_identifier = PREFERENCE_CHARACTER
 	savefile_key = "ipc_antenna_color"
-	relevant_mutant_bodypart = MUTANT_SYNTH_ANTENNA
+	relevant_mutant_bodypart = FEATURE_SYNTH_ANTENNA
 	type_to_check = /datum/preference/toggle/mutant_toggle/synth_antenna
 
 /datum/preference/tri_bool/synth_antenna_emissive
 	category = PREFERENCE_CATEGORY_SECONDARY_FEATURES
 	savefile_identifier = PREFERENCE_CHARACTER
 	savefile_key = "ipc_antenna_emissive"
-	relevant_mutant_bodypart = MUTANT_SYNTH_ANTENNA
+	relevant_mutant_bodypart = FEATURE_SYNTH_ANTENNA
 	type_to_check = /datum/preference/toggle/mutant_toggle/synth_antenna
 
 /// IPC Chassis
@@ -549,8 +549,8 @@
 	savefile_key = "feature_ipc_chassis"
 	main_feature_name = "Chassis Appearance"
 	category = PREFERENCE_CATEGORY_FEATURES
-	relevant_mutant_bodypart = MUTANT_SYNTH_CHASSIS
-	default_accessory_type = /datum/sprite_accessory/synth_chassis/default
+	relevant_mutant_bodypart = FEATURE_SYNTH_CHASSIS
+	default_accessory_type = /datum/sprite_accessory/synth_chassis
 	should_generate_icons = TRUE
 	generate_icons = TRUE
 	crop_area = list(8, 8, 24, 24) // We want just the body.
@@ -572,11 +572,65 @@
 
 	return data
 
+/datum/preference/choiced/mutant_choice/synth_chassis/apply_to_human(mob/living/carbon/human/target, value)
+	. = ..()
+	var/datum/mutant_bodypart/chassis = target.dna.mutant_bodyparts[FEATURE_SYNTH_CHASSIS]
+	if(isnull(chassis))
+		return
+
+	var/datum/sprite_accessory/synth_chassis/chassis_of_choice = SSaccessories.sprite_accessories[FEATURE_SYNTH_CHASSIS][value]
+	if(!chassis_of_choice)
+		return
+
+	var/datum/species/synthetic/synth_species = target.dna.species
+	synth_species.examine_limb_id = chassis_of_choice.icon_state
+
+	if(chassis_of_choice.color_src && !HAS_TRAIT(target, TRAIT_MUTANT_COLORS))
+		target.add_traits(list(TRAIT_MUTANT_COLORS), SPECIES_TRAIT)
+
+	// We want to ensure that the IPC gets their chassis correctly.
+	for(var/obj/item/bodypart/limb as anything in target.bodyparts)
+		if(limb.limb_id != SPECIES_SYNTH && initial(limb.base_limb_id) != SPECIES_SYNTH) // No messing with limbs that aren't actually synthetic.
+			continue
+		if(limb.body_zone == BODY_ZONE_HEAD)
+			continue
+
+		var/list/chassis_colors = chassis.get_colors()
+		if(chassis_of_choice.color_src && length(chassis_colors))
+			limb.add_color_override(chassis.get_primary_color(), LIMB_COLOR_SYNTH)
+		limb.change_appearance(chassis_of_choice.icon, chassis_of_choice.icon_state, !!chassis_of_choice.color_src, limb.body_part == CHEST && chassis_of_choice.dimorphic)
+		limb.name = "\improper[chassis_of_choice.name] [parse_zone(limb.body_zone)]"
+
 /datum/preference/color/mutant/synth_chassis
 	category = PREFERENCE_CATEGORY_SUPPLEMENTAL_FEATURES
 	savefile_identifier = PREFERENCE_CHARACTER
 	savefile_key = "ipc_chassis_color"
-	relevant_mutant_bodypart = MUTANT_SYNTH_CHASSIS
+	relevant_mutant_bodypart = FEATURE_SYNTH_CHASSIS
+
+/datum/preference/color/mutant/synth_chassis/apply_to_human(mob/living/carbon/human/target, value)
+	. = ..()
+	var/datum/mutant_bodypart/chassis = target.dna.mutant_bodyparts[FEATURE_SYNTH_CHASSIS]
+	if(isnull(chassis))
+		return
+
+	var/datum/sprite_accessory/synth_chassis/chassis_of_choice = SSaccessories.sprite_accessories[FEATURE_SYNTH_CHASSIS][value]
+	if(!chassis_of_choice)
+		return
+
+	if(chassis_of_choice.color_src && !HAS_TRAIT(target, TRAIT_MUTANT_COLORS))
+		target.add_traits(list(TRAIT_MUTANT_COLORS), SPECIES_TRAIT)
+
+	// We want to ensure that the IPC gets their chassis correctly.
+	for(var/obj/item/bodypart/limb as anything in target.bodyparts)
+		if(limb.limb_id != SPECIES_SYNTH && initial(limb.base_limb_id) != SPECIES_SYNTH) // No messing with limbs that aren't actually synthetic.
+			continue
+		if(limb.body_zone == BODY_ZONE_HEAD)
+			continue
+
+		var/list/chassis_colors = chassis.get_colors()
+		if(chassis_of_choice.color_src && length(chassis_colors))
+			limb.add_color_override(chassis.get_primary_color(), LIMB_COLOR_SYNTH)
+		limb.change_appearance(chassis_of_choice.icon, chassis_of_choice.icon_state, !!chassis_of_choice.color_src, limb.body_part == CHEST && chassis_of_choice.dimorphic)
 
 /// IPC Head
 
@@ -584,8 +638,8 @@
 	savefile_key = "feature_ipc_head"
 	main_feature_name = "Head Appearance"
 	category = PREFERENCE_CATEGORY_FEATURES
-	relevant_mutant_bodypart = MUTANT_SYNTH_HEAD
-	default_accessory_type = /datum/sprite_accessory/synth_head/default
+	relevant_mutant_bodypart = FEATURE_SYNTH_HEAD
+	default_accessory_type = /datum/sprite_accessory/synth_head
 	should_generate_icons = TRUE
 	generate_icons = TRUE
 	crop_area = list(11, 22, 21, 32) // We want just the head.
@@ -607,23 +661,48 @@
 
 	return data
 
+/datum/preference/choiced/mutant_choice/synth_head/apply_to_human(mob/living/carbon/human/target, value)
+	. = ..()
+
+	var/datum/mutant_bodypart/head = target.dna.mutant_bodyparts[FEATURE_SYNTH_HEAD]
+
+	var/datum/sprite_accessory/synth_head/head_of_choice = SSaccessories.sprite_accessories[FEATURE_SYNTH_HEAD][value]
+	if(isnull(head_of_choice))
+		return
+
+	if(head_of_choice.color_src && !HAS_TRAIT(target, TRAIT_MUTANT_COLORS))
+		target.add_traits(list(TRAIT_MUTANT_COLORS), SPECIES_TRAIT)
+
+	// We want to ensure that the IPC gets their head correctly.
+	var/obj/item/bodypart/head_part = target.get_bodypart(BODY_ZONE_HEAD)
+	if(head_part.limb_id != SPECIES_SYNTH && initial(head_part.base_limb_id) != SPECIES_SYNTH) // No messing with limbs that aren't actually synthetic.
+		return
+
+	var/list/head_colors = head.get_colors()
+	if(head_of_choice.color_src && length(head_colors))
+		head_part.add_color_override(head.get_primary_color(), LIMB_COLOR_SYNTH)
+	head_part.change_appearance(head_of_choice.icon, head_of_choice.icon_state, !!head_of_choice.color_src, head_of_choice.dimorphic)
+
 /datum/preference/color/mutant/synth_head
 	category = PREFERENCE_CATEGORY_SUPPLEMENTAL_FEATURES
 	savefile_identifier = PREFERENCE_CHARACTER
 	savefile_key = "ipc_head_color"
-	relevant_mutant_bodypart = MUTANT_SYNTH_HEAD
+	relevant_mutant_bodypart = FEATURE_SYNTH_HEAD
+
+/datum/preference/color/mutant/synth_head/apply_to_human(mob/living/carbon/human/target, value)
+
 
 // Synth Hair Opacity
 
 /datum/preference/toggle/mutant_toggle/hair_opacity
 	savefile_key = "feature_hair_opacity_toggle"
-	relevant_mutant_bodypart = MUTANT_SYNTH_HAIR
+	relevant_mutant_bodypart = FEATURE_SYNTH_HAIR
 
 /datum/preference/numeric/hair_opacity
 	category = PREFERENCE_CATEGORY_SECONDARY_FEATURES
 	savefile_identifier = PREFERENCE_CHARACTER
 	savefile_key = "feature_hair_opacity"
-	relevant_mutant_bodypart = MUTANT_SYNTH_HAIR
+	relevant_mutant_bodypart = FEATURE_SYNTH_HAIR
 	maximum = 255
 	minimum = 40 // Any lower, and hair's borderline invisible on lighter colours.
 

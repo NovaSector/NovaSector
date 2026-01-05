@@ -431,19 +431,17 @@ GLOBAL_LIST_INIT(total_uf_len_by_block, populate_total_uf_len_by_block())
 		old_species.on_species_loss(src, new_race, pref_load)
 
 	// NOVA EDIT ADDITION START - BODYPARTS AND FEATURES
-	// We need to instantiate the list with compatible mutant parts so we don't break things
-
-	if(override_mutantparts && override_mutantparts.len)
+	if(LAZYLEN(override_mutantparts))
 		for(var/feature in dna.mutant_bodyparts)
 			override_mutantparts[feature] = dna.mutant_bodyparts[feature]
 		dna.mutant_bodyparts = override_mutantparts
 
-	if(override_markings && override_markings.len)
+	if(LAZYLEN(override_markings))
 		for(var/feature in dna.body_markings)
 			override_markings[feature] = dna.body_markings[feature]
 		dna.body_markings = override_markings
 
-	if(override_features && override_features.len)
+	if(LAZYLEN(override_features))
 		for(var/feature in dna.features)
 			override_features[feature] = dna.features[feature]
 		dna.features = override_features

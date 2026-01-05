@@ -26,10 +26,10 @@
 	return list(
 		FEATURE_TAIL = MUTPART_BLUEPRINT("Shark", is_randomizable = TRUE),
 		FEATURE_SNOUT = MUTPART_BLUEPRINT("Shark", is_randomizable = TRUE),
-		FEATURE_HORNS = MUTPART_BLUEPRINT("None", is_randomizable = FALSE),
+		FEATURE_HORNS = MUTPART_BLUEPRINT(SPRITE_ACCESSORY_NONE, is_randomizable = FALSE),
 		FEATURE_EARS = MUTPART_BLUEPRINT("Hammerhead", is_randomizable = TRUE),
-		FEATURE_LEGS = MUTPART_BLUEPRINT("Normal Legs", is_randomizable = FALSE, is_feature = TRUE),
-		FEATURE_WINGS = MUTPART_BLUEPRINT("None", is_randomizable = FALSE),
+		FEATURE_LEGS = MUTPART_BLUEPRINT(NORMAL_LEGS, is_randomizable = FALSE, is_feature = TRUE),
+		FEATURE_WINGS = MUTPART_BLUEPRINT(SPRITE_ACCESSORY_NONE, is_randomizable = FALSE),
 	)
 
 /obj/item/organ/tongue/aquatic
