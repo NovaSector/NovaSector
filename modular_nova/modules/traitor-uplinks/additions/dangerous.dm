@@ -62,7 +62,7 @@
 	desc = "A laser gun primarily used by syndicate security guards. It fires a rapid spray of low-power plasma beams. \
 			Comes with a recharge kit."
 	item = /obj/item/storage/toolbox/guncase/nova/opfor/carbines120
-	cost = /datum/uplink_item/low_cost/weaponry::cost
+	cost = /datum/uplink_item/low_cost/weaponry::cost * 2
 	purchasable_from = UPLINK_TRAITORS | UPLINK_SERIOUS_OPS
 
 // MEDIUM COST
