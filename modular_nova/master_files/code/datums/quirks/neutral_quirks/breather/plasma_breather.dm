@@ -11,7 +11,7 @@
 
 /datum/quirk/item_quirk/breather/plasma_breather/is_species_appropriate(datum/species/mob_species)
 	// slimeppl heal their blood volume rapidly from breathing plasma, this would be op
-	if(istype(mob_species, /datum/species/jelly) || istype(mob_species, /datum/species/plasmaman))
+	if(ispath(mob_species, /datum/species/jelly) || ispath(mob_species, /datum/species/plasmaman))
 		return FALSE
 	else
 		return ..()
