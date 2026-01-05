@@ -1782,6 +1782,7 @@
 	)
 	departmental_flags = DEPARTMENT_BITFLAG_SCIENCE
 
+	// NOVA ADDITION START
 /datum/design/rld
 	name = "Cyborg Rapid Lighting Device"
 	desc = "A device that allows rapid, range deployment of lights and glowsticks."
@@ -1806,6 +1807,7 @@
 	category = list(
 		RND_CATEGORY_MECHFAB_CYBORG_MODULES + RND_SUBCATEGORY_MECHFAB_CYBORG_MODULES_ENGINEERING
 	)
+// NOVA ADDITION END
 
 //Misc
 /datum/design/mecha_tracking

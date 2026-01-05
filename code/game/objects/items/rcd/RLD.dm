@@ -224,6 +224,7 @@
 	matter = 100
 	max_matter = 100
 
+// NOVA EDIT START - Cyborg RLD
 /obj/item/construction/rld/cyborg
 	name = "Cyborg rapid-light-device"
 	desc = "A device used to rapidly provide lighting sources to an area. Runs off a cyborg's internal power supply"
@@ -251,7 +252,7 @@
 	if(!. && user)
 		balloon_alert(user, "insufficient charge!")
 	return .
-
+// NOVA EDIT END - Cyborg RLD
 #undef LIGHT_TUBE_COST
 #undef FLOOR_LIGHT_COST
 #undef GLOW_STICK_COST
