@@ -64,13 +64,8 @@ export const MainContent = () => {
             <Stack.Item grow>
               <Input
                 fluid
-                placeholder={
-                  tabIndex === 0
-                    ? 'Search for an interaction'
-                    : tabIndex === 1
-                      ? 'Search for an item'
-                      : 'Searching is unavailable for this tab'
-                }
+                value={searchText}
+                placeholder={placeholder}
                 onChange={(value) => setSearchText(value)}
               />
             </Stack.Item>
