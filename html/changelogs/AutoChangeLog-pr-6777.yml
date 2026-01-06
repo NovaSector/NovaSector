@@ -1,0 +1,4 @@
+author: "MajManatee"
+delete-after: True
+changes:
+  - qol: "Changes mass-eject on cell chargers to alt click. Borgs can now eject cells."
