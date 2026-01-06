@@ -8,7 +8,6 @@ import {
   type FeatureChoicedServerData,
   type FeatureNumeric,
   FeatureColorInput,
-  FeatureNumberInput,
   FeatureSliderInput,
   type FeatureValueProps
 } from '../../base';
