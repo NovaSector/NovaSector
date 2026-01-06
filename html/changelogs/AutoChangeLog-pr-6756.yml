@@ -1,4 +1,0 @@
-author: "ImogenOC"
-delete-after: True
-changes:
-  - bugfix: "Adds a single 3+ year missing 't' to the nukie cultist soulstone kit path, making it populate correctly."

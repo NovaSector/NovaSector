@@ -97,6 +97,10 @@
 	icon_state = "bigwolfinnerdark"
 	has_inner = TRUE
 
+/datum/sprite_accessory/ears/external/jackal
+	name = "Jackal"
+	icon_state = "jackal"
+
 /datum/sprite_accessory/ears/external/bunny
 	name = "Bunny"
 	icon_state = "bunny"
