@@ -10,7 +10,7 @@ import { BooleanLike } from 'tgui-core/react';
 import { useBackend } from '../../backend';
 
 type HeaderInfo = {
-  isTargetSelf: boolean;
+  isTargetSelf: booleanLike;
   pleasure: number;
   arousal: number;
   pain: number;
