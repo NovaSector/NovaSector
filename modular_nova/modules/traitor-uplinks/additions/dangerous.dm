@@ -54,7 +54,7 @@
 	desc = "A modified laser gun which can shoot far faster, but each shot is far less damaging. \
 			Comes with a recharge kit."
 	item = /obj/item/storage/toolbox/guncase/nova/opfor/carbine
-	cost = /datum/uplink_item/low_cost/weaponry::cost
+	cost = /datum/uplink_item/low_cost/weaponry::cost * 0.5
 	purchasable_from = UPLINK_TRAITORS | UPLINK_SERIOUS_OPS
 
 /datum/uplink_item/dangerous/s120
@@ -62,17 +62,17 @@
 	desc = "A laser gun primarily used by syndicate security guards. It fires a rapid spray of low-power plasma beams. \
 			Comes with a recharge kit."
 	item = /obj/item/storage/toolbox/guncase/nova/opfor/carbines120
-	cost = /datum/uplink_item/low_cost/weaponry::cost * 2
+	cost = /datum/uplink_item/low_cost/weaponry::cost * 1.5
 	purchasable_from = UPLINK_TRAITORS | UPLINK_SERIOUS_OPS
 
-// MEDIUM COST
 /datum/uplink_item/dangerous/sindano
 	name = "Carwo-Cawil Sindano Case"
 	desc = "A Sindano SMG, with spare lethal-and-non-lethal ammo, and three various magazines."
 	item = /obj/item/storage/toolbox/guncase/nova/pistol/opfor/sindano
-	cost = /datum/uplink_item/medium_cost/weaponry::cost
+	cost = /datum/uplink_item/low_cost/weaponry::cost * 1.5
 	purchasable_from = UPLINK_TRAITORS | UPLINK_SERIOUS_OPS
 
+// MEDIUM COST
 /datum/uplink_item/dangerous/nukeop_smg
 	name = "Scarborough C-20r Case"
 	desc = "A fully-loaded Scarborough Arms bullpup submachine gun. The C-20r fires .45 rounds with a \
