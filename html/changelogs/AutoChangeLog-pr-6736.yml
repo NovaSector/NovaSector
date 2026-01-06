@@ -1,0 +1,4 @@
+author: "Adeheuer"
+delete-after: True
+changes:
+  - rscadd: "Added new features to the Interact panel, especially with certain settings enabled"
