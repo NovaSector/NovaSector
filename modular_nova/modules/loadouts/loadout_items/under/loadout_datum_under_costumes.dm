@@ -161,8 +161,8 @@
 /datum/loadout_item/under/miscellaneous/mech_suit
 	name = "Mech Suit"
 	item_path = /obj/item/clothing/under/costume/mech_suit
+	reskin_datum = /datum/atom_skin/mech_suit
 	group = "Costumes"
-	loadout_flags = parent_type::loadout_flags | LOADOUT_FLAG_ALLOW_RESKIN
 
 /datum/loadout_item/under/miscellaneous/cybersleek
 	name = "Modern Coat"
@@ -386,7 +386,7 @@
 /datum/loadout_item/under/jumpsuit/akula_wetsuit
 	name = "Shoredress Wetsuit"
 	item_path = /obj/item/clothing/under/akula_wetsuit
-	restricted_species = list(SPECIES_AKULA)
+	species_whitelist = list(SPECIES_AKULA)
 	group = "Species-Unique"
 
 /datum/loadout_item/under/miscellaneous/ethereal_tunic

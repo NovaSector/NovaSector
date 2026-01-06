@@ -156,10 +156,10 @@
 	var/list/render_list = list()
 
 	// Damage specifics
-	var/oxy_loss = target.getOxyLoss()
-	var/tox_loss = target.getToxLoss()
-	var/fire_loss = target.getFireLoss()
-	var/brute_loss = target.getBruteLoss()
+	var/oxy_loss = target.get_oxy_loss()
+	var/tox_loss = target.get_tox_loss()
+	var/fire_loss = target.get_fire_loss()
+	var/brute_loss = target.get_brute_loss()
 	var/mob_status = (!target.appears_alive() ? span_alert("<b>Deceased</b>") : "<b>[round(target.health / target.maxHealth, 0.01) * 100]% healthy</b>")
 
 	if(HAS_TRAIT(target, TRAIT_FAKEDEATH) && target.stat != DEAD)
@@ -188,9 +188,9 @@
 		else
 			render_list += "<span class='alert ml-1'>Subject has been husked.</span><br>"
 
-	if(target.getStaminaLoss())
+	if(target.get_stamina_loss())
 		if(advanced)
-			render_list += "<span class='alert ml-1'>Fatigue level: [target.getStaminaLoss()]%.</span><br>"
+			render_list += "<span class='alert ml-1'>Fatigue level: [target.get_stamina_loss()]%.</span><br>"
 		else
 			render_list += "<span class='alert ml-1'>Subject appears to be suffering from fatigue.</span><br>"
 
@@ -262,7 +262,7 @@
 						dmgreport += "</tr>"
 						dmgreport += "<tr><td colspan=6><span class='alert ml-2'>&rdsh; Physical trauma: [conditional_tooltip("Dismembered", "Reattach or replace surgically.", tochat)]</span></td></tr>"
 						continue
-					var/has_any_embeds = length(limb.embedded_objects) >= 1
+					var/has_any_embeds = LAZYLEN(limb.embedded_objects) >= 1
 					var/has_any_wounds = length(limb.wounds) >= 1
 					var/is_damaged = limb.burn_dam > 0 || limb.brute_dam > 0
 					if(!is_damaged && (zone != BODY_ZONE_CHEST || (tox_loss <= 0 && oxy_loss <= 0)) && !has_any_embeds && !has_any_wounds)
@@ -731,7 +731,7 @@
 		show_emotion(AID_EMOTION_HAPPY)
 
 /obj/item/healthanalyzer/simple/proc/violence_damage(mob/living/user)
-	user.adjustBruteLoss(4)
+	user.adjust_brute_loss(4)
 
 /obj/item/healthanalyzer/simple/interact_with_atom(atom/interacting_with, mob/living/user, list/modifiers)
 	if(!isliving(interacting_with))
@@ -799,7 +799,7 @@
 	scan_for_what = "diseases"
 
 /obj/item/healthanalyzer/simple/disease/violence_damage(mob/living/user)
-	user.adjustBruteLoss(1)
+	user.adjust_brute_loss(1)
 	user.reagents.add_reagent(/datum/reagent/toxin, rand(1, 3))
 
 /obj/item/healthanalyzer/simple/disease/do_the_scan(mob/living/carbon/scanning, mob/living/user)

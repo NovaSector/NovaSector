@@ -3,10 +3,9 @@
 /datum/supply_pack/companies
 	access_view = NONE
 	group = "★ General"
-	goody = TRUE
 	crate_type = /obj/structure/closet/crate/large/import
 	auto_name = TRUE
-	departamental_goody = TRUE
+	order_flags = ORDER_COMPANY
 	discountable = SUPPLY_PACK_RARE_DISCOUNTABLE
 
 // Original logic, gives 5% of the stuff people buy to cargo and leaves the gun check for pins

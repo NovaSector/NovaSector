@@ -38,6 +38,7 @@
 		add_verb(cyborg, /mob/living/silicon/robot/proc/robot_lay_down)
 		add_verb(cyborg, /mob/living/silicon/robot/proc/rest_style)
 	else
+		cyborg.robot_rest_style = ROBOT_REST_NORMAL
 		cyborg.set_base_pixel_x(0)
 		remove_verb(cyborg, /mob/living/silicon/robot/proc/robot_lay_down)
 		remove_verb(cyborg, /mob/living/silicon/robot/proc/rest_style)
@@ -329,7 +330,7 @@
 /obj/item/robot_model/cargo
 	name = "Cargo"
 	basic_modules = list(
-		/obj/item/stamp,
+		/obj/item/stamp/granted,
 		/obj/item/stamp/denied,
 		/obj/item/pen/cyborg,
 		/obj/item/clipboard/cyborg,

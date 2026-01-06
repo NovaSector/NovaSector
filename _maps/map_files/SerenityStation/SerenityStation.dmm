@@ -6010,6 +6010,7 @@
 /obj/effect/turf_decal/trimline/blue/filled/line{
 	dir = 6
 	},
+/obj/effect/mapping_helpers/airalarm/surgery,
 /turf/open/floor/iron/white,
 /area/station/medical/surgery/fore)
 "bIK" = (
@@ -9753,15 +9754,11 @@
 /obj/structure/window/reinforced/spawner/directional/west,
 /obj/structure/table/reinforced/plastitaniumglass,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
-/obj/structure/secure_safe/caps_spare{
-	base_icon_state = "floorsafe";
-	icon_state = "floorsafe";
-	pixel_y = 5
-	},
 /obj/effect/turf_decal/trimline/dark/filled/line{
 	dir = 8
 	},
 /obj/effect/turf_decal/siding/thinplating/dark,
+/obj/structure/secure_safe/caps_spare,
 /turf/open/floor/iron,
 /area/station/command/bridge)
 "cNP" = (
@@ -14159,10 +14156,7 @@
 	dir = 1
 	},
 /obj/structure/table/reinforced,
-/obj/item/electronics/firealarm,
-/obj/item/electronics/firealarm,
-/obj/item/electronics/firelock,
-/obj/item/electronics/firelock,
+/obj/effect/spawner/random/techstorage/custom_shuttle,
 /turf/open/floor/iron,
 /area/station/engineering/storage/tech)
 "edn" = (
@@ -20352,15 +20346,15 @@
 	pixel_y = 3;
 	pixel_x = -2
 	},
-/obj/item/computer_disk/engineering{
+/obj/item/disk/computer/engineering{
 	pixel_x = 6;
 	pixel_y = 2
 	},
-/obj/item/computer_disk/engineering{
+/obj/item/disk/computer/engineering{
 	pixel_x = 6;
 	pixel_y = 2
 	},
-/obj/item/computer_disk/engineering{
+/obj/item/disk/computer/engineering{
 	pixel_x = 6;
 	pixel_y = 2
 	},
@@ -39453,6 +39447,7 @@
 	name = "medbay camera";
 	network = list("ss13","medbay")
 	},
+/obj/effect/mapping_helpers/airalarm/surgery,
 /turf/open/floor/iron/white,
 /area/station/medical/surgery/aft)
 "lnx" = (
@@ -55462,13 +55457,13 @@
 "qfU" = (
 /obj/effect/turf_decal/stripes/line,
 /obj/structure/table,
-/obj/item/computer_disk/ordnance{
+/obj/item/disk/computer/ordnance{
 	pixel_y = 5
 	},
-/obj/item/computer_disk/ordnance{
+/obj/item/disk/computer/ordnance{
 	pixel_x = -5
 	},
-/obj/item/computer_disk/ordnance{
+/obj/item/disk/computer/ordnance{
 	pixel_x = 5
 	},
 /obj/machinery/requests_console/directional/north{
@@ -56468,7 +56463,6 @@
 	pixel_x = 7
 	},
 /obj/item/watertank,
-/obj/machinery/light/directional/east,
 /obj/item/stack/ducts/fifty,
 /obj/item/construction/plumbing/service,
 /turf/open/floor/iron/dark/smooth_half{
@@ -72749,15 +72743,15 @@
 /obj/structure/cable,
 /obj/machinery/power/apc/auto_name/directional/east,
 /obj/structure/table,
-/obj/item/computer_disk{
+/obj/item/disk/computer{
 	pixel_x = -5;
 	pixel_y = 8
 	},
-/obj/item/computer_disk{
+/obj/item/disk/computer{
 	pixel_x = -8;
 	pixel_y = -3
 	},
-/obj/item/computer_disk/ordnance{
+/obj/item/disk/computer/ordnance{
 	pixel_x = 1
 	},
 /obj/structure/disposalpipe/segment,

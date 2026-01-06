@@ -16,6 +16,19 @@
 	body_parts_covered = NECK
 	flags_1 = IS_PLAYER_COLORABLE_1
 
+
+/datum/atom_skin/seecloak
+	abstract_type = /datum/atom_skin/seecloak
+	greyscale_item_path = /obj/item/clothing/neck/greyscaled/seecloak
+
+/datum/atom_skin/seecloak/seecloak
+	preview_name = "default"
+	new_icon_state = "seecloak"
+
+/datum/atom_skin/seecloak/seecloak_trimonly
+	preview_name = "trimmed"
+	new_icon_state = "seecloak_trimonly"
+
 /obj/item/clothing/neck/greyscaled/seecloak
 	name = "Antique Seecloak"
 	desc = "An antique cloak, with a symbol whose meaning has been lost to time..."
@@ -27,10 +40,10 @@
 	greyscale_config_worn = /datum/greyscale_config/antique_seecloak/worn
 	greyscale_colors = "#ffff99#4d4d4d"
 	body_parts_covered = NECK|HAND_LEFT|ARM_LEFT|CHEST
-	unique_reskin = list(
-		"default" = "seecloak",
-		"trimmed" = "seecloak_trimonly",
-	)
+
+/obj/item/clothing/neck/greyscaled/seecloak/setup_reskins()
+	AddComponent(/datum/component/reskinable_item, /datum/atom_skin/seecloak, initial_skin = "default")
+
 /obj/item/clothing/neck/greyscaled/matroncloak
 	name = "Antique Matron Cloak"
 	desc = "A large antique cloak with large puffy fluff."

@@ -1,5 +1,0 @@
-author: "vinylspiders"
-delete-after: True
-changes:
-  - bugfix: "fixes a bug where multiple crates could occupy the same crate shelf if you queued them at the same time"
-  - bugfix: "you can no longer unload crates on top of other crates, or unload them further than you can reach"

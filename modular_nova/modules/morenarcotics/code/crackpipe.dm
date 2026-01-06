@@ -1,12 +1,13 @@
 /obj/item/cigarette/pipe/crackpipe
 	name = "crack pipe"
-	desc = "A slick glass pipe made for smoking one thing: crack."
+	desc = "A slick, glass pipe made for smoking one thing: crack."
 	icon = 'modular_nova/modules/morenarcotics/icons/crack.dmi'
 	worn_icon = 'modular_nova/modules/morenarcotics/icons/mask.dmi'
 	icon_state = "glass_pipeoff" //it seems like theres some unused crack pipe sprite in masks.dmi, sweet!
 	icon_on = "glass_pipeon"
 	icon_off = "glass_pipeoff"
 	chem_volume = 20
+	custom_materials = list(/datum/material/iron = SHEET_MATERIAL_AMOUNT * 5.05, /datum/material/glass = SHEET_MATERIAL_AMOUNT * 1.05)
 
 /obj/item/cigarette/pipe/crackpipe/process(seconds_per_tick)
 	smoketime -= seconds_per_tick

@@ -87,6 +87,8 @@
 				/obj/item/clothing/under/dress/skirt/nova/long = 5,
 				/obj/item/clothing/under/dress/skirt/nova/mini_skirt = 5,
 				/obj/item/clothing/under/dress/nova/giant_scarf = 5,
+				/obj/item/clothing/under/pants/nova/shorted_overall = 5,
+				/obj/item/clothing/under/misc/nova/gear_harness = 5,
 			),
 		),
 
@@ -102,6 +104,7 @@
 				/obj/item/clothing/under/dress/nova/strapless = 5,
 				/obj/item/clothing/under/dress/nova/pentagram = 5,
 				/obj/item/clothing/under/dress/nova/midnight_gown = 5,
+				/obj/item/clothing/under/dress/nova/windowed_dress = 5,
 				/obj/item/clothing/suit/varsity = 5,
 				/obj/item/clothing/suit/toggle/jacket/nova = 5,
 				/obj/item/clothing/suit/toggle/jacket/nova/flannel/gags = 5,
@@ -142,6 +145,13 @@
 				/obj/item/clothing/suit/crop_jacket/sleeveless/long = 5,
 				/obj/item/clothing/suit/big_jacket = 5,
 				/obj/item/clothing/suit/dagger_mantle = 5,
+				/obj/item/clothing/under/greyscale/turtleneck = 5,
+				/obj/item/clothing/under/greyscale/turtleneck/skirt = 5,
+				/obj/item/clothing/under/greyscale/overalls = 5,
+				/obj/item/clothing/under/greyscale/overalls/skirt = 5,
+				/obj/item/clothing/suit/apron/overalls_loneskirt = 5,
+				/obj/item/clothing/suit/nova/sweater = 5,
+				/obj/item/clothing/suit/nova/overcoat = 5,
 			),
 		),
 
@@ -173,6 +183,10 @@
 				/obj/item/clothing/mask/gas/respirator = 5,
 				/obj/item/clothing/mask/surgical/greyscale = 5,
 				/obj/item/clothing/glasses/blindfold/color = 5,
+				/obj/item/storage/backpack/udc = 5,
+				/obj/item/storage/backpack/tinypaka = 5,
+				/obj/item/storage/backpack/tinypakb = 5,
+				/obj/item/storage/backpack/tinypakc = 5,
 			)
 		)
 	)

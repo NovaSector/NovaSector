@@ -304,7 +304,7 @@
 /obj/item/clothing/head/hats/centcom_cap
 	name = "\improper CentCom commander cap"
 	icon_state = "centcom_cap"
-	desc = "Worn by the finest of CentCom commanders. Inside the lining of the cap, lies two faint initials."
+	desc = "Worn by the finest of CentCom commanders. Two faint initials lie inside the lining of the cap."
 	inhand_icon_state = "that"
 	flags_inv = 0
 	armor_type = /datum/armor/hats_centcom_cap
@@ -391,3 +391,4 @@
 	icon_state = "paper"
 	worn_icon_state = "paper"
 	dog_fashion = /datum/dog_fashion/head
+	custom_materials = list(/datum/material/paper = HALF_SHEET_MATERIAL_AMOUNT / 2)

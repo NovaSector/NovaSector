@@ -1,0 +1,6 @@
+author: "Geoengi"
+delete-after: True
+changes:
+  - qol: "You may now snort cocaine or heroin using your \"Activate in-hand\" keybind."
+  - balance: "Those without lungs or who have a heatsink in their place may not snort cocaine or heroin. Try using neuroware or grinding it down!"
+  - spellcheck: "Many narcotics names and descriptions have undergone a grammar pass."

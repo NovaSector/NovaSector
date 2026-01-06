@@ -23,8 +23,6 @@ SUBSYSTEM_DEF(events)
 	///Will wizard events be included in the event pool?
 	var/wizardmode = FALSE
 
-	var/list/previously_run = list() //NOVA EDIT ADDITION
-
 /datum/controller/subsystem/events/Initialize()
 	for(var/type in typesof(/datum/round_event_control))
 		var/datum/round_event_control/event = new type()
@@ -54,6 +52,11 @@ SUBSYSTEM_DEF(events)
 	if(!fexists(json_file))
 		return
 	var/list/configuration = json_decode(file2text(json_file))
+	// NOVA EDIT ADDITION START
+	var/nova_json_file = file("[global.config.directory]/nova/events.json")
+	if(fexists(nova_json_file))
+		configuration += json_decode(file2text(nova_json_file))
+	// NOVA EDIT ADDITION END
 	for(var/variable in configuration)
 		var/datum/round_event_control/event = events_by_name[variable]
 		if(isnull(event))

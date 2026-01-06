@@ -14,7 +14,7 @@
 		},
 		{
 			"type": "icon_state",
-			"icon_state": "ripped_jeans_base",
+			"icon_state": "jeans_ripped",
 			"blend_mode": "overlay",
 			"color_ids": [3]
 		}
