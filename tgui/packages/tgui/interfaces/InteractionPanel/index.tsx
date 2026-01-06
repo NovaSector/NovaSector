@@ -18,7 +18,7 @@ type Interaction = {
   erp_interaction: BooleanLike;
 }
 
-export const InteractionPanel = (props) => {
+export function InteractionPanel () {
   const { act, data } = useBackend<Interaction>();
   const {
     self,
