@@ -10,7 +10,7 @@ import {
 
 import { useBackend } from '../../../backend';
 
-class Interaction {
+type Interaction = {
   categories;
   interactions;
   descriptions;
