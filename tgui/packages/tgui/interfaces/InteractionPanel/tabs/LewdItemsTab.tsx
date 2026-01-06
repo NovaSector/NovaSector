@@ -33,7 +33,7 @@ export const LewdItemsTab = ({searchText}: LewdItemsTabProps) => {
 
   return (
     <Stack fill>
-        {lewd_slots.length > 0 ? (
+        {filteredSlots.length > 0 && (
             <Stack fill>
                 {filteredSlots.map((slot) => {
                 return (
