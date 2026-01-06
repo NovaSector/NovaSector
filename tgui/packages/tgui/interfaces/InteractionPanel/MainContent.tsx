@@ -24,7 +24,7 @@ export const MainContent = () => {
   const [searchText, setSearchText] = useState('');
   const [tabIndex, setTabIndex] = useState(0);
   const [showCategories, setShowCategories] = useState(true);
-  const { act, data } = useBackend<Interaction>();
+  const { data } = useBackend<Interaction>();
   const {
     erp_interaction,
   } = data;
