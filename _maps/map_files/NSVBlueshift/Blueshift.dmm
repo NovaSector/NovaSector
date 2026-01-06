@@ -6143,19 +6143,19 @@
 /obj/effect/mapping_helpers/requests_console/assistance,
 /obj/effect/turf_decal/bot,
 /obj/structure/table,
-/obj/item/computer_disk{
+/obj/item/disk/computer{
 	pixel_x = -5;
 	pixel_y = 8
 	},
-/obj/item/computer_disk{
+/obj/item/disk/computer{
 	pixel_x = 7;
 	pixel_y = 2
 	},
-/obj/item/computer_disk{
+/obj/item/disk/computer{
 	pixel_x = -8;
 	pixel_y = -3
 	},
-/obj/item/computer_disk,
+/obj/item/disk/computer,
 /turf/open/floor/iron,
 /area/station/science/ordnance)
 "bop" = (
@@ -7758,12 +7758,12 @@
 /obj/effect/turf_decal/siding/purple{
 	dir = 4
 	},
-/obj/item/computer_disk/ordnance{
+/obj/item/disk/computer/ordnance{
 	pixel_x = 3;
 	pixel_y = 3
 	},
-/obj/item/computer_disk/ordnance,
-/obj/item/computer_disk/ordnance{
+/obj/item/disk/computer/ordnance,
+/obj/item/disk/computer/ordnance{
 	pixel_x = -3;
 	pixel_y = -3
 	},
@@ -17979,12 +17979,12 @@
 /area/station/ai/satellite/chamber)
 "dFZ" = (
 /obj/structure/table/reinforced,
-/obj/item/computer_disk/engineering,
-/obj/item/computer_disk/engineering,
-/obj/item/computer_disk/engineering,
-/obj/item/computer_disk/engineering,
-/obj/item/computer_disk/engineering,
-/obj/item/computer_disk/engineering,
+/obj/item/disk/computer/engineering,
+/obj/item/disk/computer/engineering,
+/obj/item/disk/computer/engineering,
+/obj/item/disk/computer/engineering,
+/obj/item/disk/computer/engineering,
+/obj/item/disk/computer/engineering,
 /obj/item/reagent_containers/applicator/patch/aiuri,
 /obj/effect/turf_decal/tile/yellow/full,
 /obj/item/paper/fluff{
@@ -28284,7 +28284,7 @@
 /area/station/cargo/miningdock)
 "fIT" = (
 /obj/structure/decorative/shelf,
-/obj/item/computer_disk/maintenance/theme{
+/obj/item/disk/computer/maintenance/theme{
 	pixel_y = -10
 	},
 /obj/machinery/camera/autoname/directional/east,
@@ -30954,8 +30954,8 @@
 	pixel_y = 4
 	},
 /obj/item/book/manual/wiki/medicine,
-/obj/item/computer_disk/medical,
-/obj/item/computer_disk/medical,
+/obj/item/disk/computer/medical,
+/obj/item/disk/computer/medical,
 /turf/open/floor/wood/parquet,
 /area/station/command/heads_quarters/cmo)
 "glr" = (
@@ -58849,15 +58849,15 @@
 /obj/item/hand_labeler{
 	pixel_y = 17
 	},
-/obj/item/computer_disk/quartermaster{
+/obj/item/disk/computer/quartermaster{
 	pixel_x = 6;
 	pixel_y = 5
 	},
-/obj/item/computer_disk/quartermaster{
+/obj/item/disk/computer/quartermaster{
 	pixel_x = 6;
 	pixel_y = 5
 	},
-/obj/item/computer_disk/quartermaster{
+/obj/item/disk/computer/quartermaster{
 	pixel_x = 6;
 	pixel_y = 5
 	},
