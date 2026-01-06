@@ -79,22 +79,14 @@ export const InteractionsTab = ({searchText, showCategories}: InteractionsTabPro
     return categoryInteractions;
   };
 
-  const getAllInteractions = () => {
-    let allInteractions: Array<{
-      name: string;
-      category: string;
-    }> = [];
-    categories.forEach((category) => {
-      const categoryInteractions = filterInteractions(category);
-      allInteractions = allInteractions.concat(
-        categoryInteractions.map((interaction) => ({
-          name: interaction,
-          category: category,
-        })),
-      );
-    });
-    return allInteractions;
-  };
+const allInteractions = useMemo(() => {
+  return categories.flatMap((category) =>
+    filterInteractions(category).map((interaction) => ({
+      name: interaction,
+      category,
+    })),
+  );
+}, [categories, searchLower]);
 
   return (
         <Stack fill vertical>
