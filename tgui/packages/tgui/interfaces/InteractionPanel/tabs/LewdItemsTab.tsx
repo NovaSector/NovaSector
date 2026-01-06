@@ -24,7 +24,6 @@ export const LewdItemsTab = ({searchText}: LewdItemsTabProps) => {
   } = data;
 
   const filteredSlots = lewd_slots.filter((slot) => {
-    const searchLower = searchText.toLowerCase();
     return (
       slot.name.toLowerCase().includes(searchLower) ||
       (slot.item_name && slot.item_name.toLowerCase().includes(searchLower))
