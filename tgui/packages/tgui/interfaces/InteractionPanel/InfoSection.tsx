@@ -24,7 +24,7 @@ type HeaderInfo = {
 };
 
 export const InfoSection = () => {
-  const { act, data } = useBackend<HeaderInfo>();
+  const { data } = useBackend<HeaderInfo>();
   const {
     isTargetSelf,
     pleasure,
