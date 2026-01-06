@@ -12,15 +12,15 @@ import {
 import { useBackend } from '../../../backend';
 
 type Interaction = {
-  categories;
-  interactions;
-  descriptions;
-  colors;
-  self;
-  ref_self;
-  ref_user;
-  block_interact;
-  use_subtler;
+  categories: string[];
+  interactions: Record<string, string[]>;
+  descriptions: Record<string, string>;
+  colors: Record<string, string>;
+  self: string;
+  ref_self: string;
+  ref_user: string;
+  block_interact: BooleanLike;
+  use_subtler: BooleanLike;
 }
 
 interface InteractionsTabPropsData {
