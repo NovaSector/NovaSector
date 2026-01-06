@@ -82,8 +82,6 @@ export const LewdItemsTab = ({searchText}: LewdItemsTabProps) => {
                 );
             })}
             </Stack>
-        ) : (
-            ''
         )}
     </Stack>
   );
