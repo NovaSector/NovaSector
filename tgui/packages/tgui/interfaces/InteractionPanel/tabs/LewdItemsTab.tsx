@@ -4,12 +4,12 @@ import { Box, Button, Icon, Stack } from 'tgui-core/components';
 import { useBackend } from '../../../backend';
 
 type LewdSlot = {
-    img;
-    name;
-    item_name?;
+    img: string;
+    name: string;
+    item_name: string;
     lewd_slots: LewdSlot[];
-    ref_self;
-    ref_user;
+    ref_self: string;
+    ref_user: string;
 }
 
 interface LewdItemsTabPropsData {
