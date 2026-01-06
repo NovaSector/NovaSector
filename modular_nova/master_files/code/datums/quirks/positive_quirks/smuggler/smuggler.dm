@@ -139,7 +139,7 @@ GLOBAL_LIST_INIT(smuggler_items, list(
 	"Nukedisk pinpointer" = /obj/item/pinpointer/nuke,
 	"NV health meson goggles" = /obj/item/clothing/glasses/hud/health/night/meson,
 	"Badass sunglasses" = /obj/item/clothing/glasses/sunglasses/robohand,
-	"SyndEye PDA program" = /obj/item/computer_disk/syndicate/camera_app,
+	"SyndEye PDA program" = /obj/item/disk/computer/syndicate/camera_app,
 	"Blood Steal NIFsoft" = /obj/item/disk/nifsoft_uploader/mil_grade/blood_steal,
 	"4U70-P3R4710N skillchip" = /obj/item/skillchip/self_surgery,
 	"Stimulant medipen" = /obj/item/reagent_containers/hypospray/medipen/stimulants,
