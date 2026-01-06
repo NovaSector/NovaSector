@@ -1,4 +1,5 @@
 // THIS IS A NOVA SECTOR UI FILE
+import { useMemo } from 'react';
 import {
   Box,
   Button,
