@@ -18,7 +18,7 @@ class LewdItemsTabProps {
 export const LewdItemsTab = ({searchText}: LewdItemsTabProps) => {
   const { act, data } = useBackend<LewdSlot>();
   const {
-    lewd_slots,
+    lewd_slots = [],
     ref_self,
     ref_user,
   } = data;
