@@ -127,11 +127,11 @@
 
 	var/certified_jolly = FALSE
 
-	/* // NOVA EDIT REMOVAL START
 	for (var/mob/living/carbon/human/possible_claus in view(5, owner))
 		if (possible_claus == owner)
 			continue  // imagine being scared of your own existence
 
+		/* // NOVA EDIT REMOVAL START
 		if (!istype(possible_claus.wear_suit, /obj/item/clothing/suit/space/santa))
 			continue
 
@@ -142,7 +142,13 @@
 		if (istype(possible_claus.head, /obj/item/clothing/head/costume/santa) || istype(possible_claus.head, /obj/item/clothing/head/helmet/space/santahat))
 			certified_jolly = TRUE
 			break
-	*/ // NOVA EDIT REMOVAL END
+		*/ // NOVA EDIT REMOVAL END
+		// NOVA EDIT ADDITION START
+		var/datum/antagonist/santa/jolly = possible_claus.mind?.has_antag_datum(/datum/antagonist/santa)
+		if(jolly)
+			certified_jolly = TRUE
+			break
+		// NOVA EDIT ADDITION END
 
 	if (!certified_jolly)
 		return FALSE

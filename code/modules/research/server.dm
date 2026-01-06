@@ -116,7 +116,7 @@
 /obj/machinery/rnd/server/master
 	max_integrity = 1800 //takes roughly ~15s longer to break then full deconstruction.
 	circuit = null
-	var/obj/item/computer_disk/hdd_theft/source_code_hdd
+	var/obj/item/disk/computer/hdd_theft/source_code_hdd
 	var/deconstruction_state = HDD_PANEL_CLOSED
 	var/front_panel_screws = 4
 	var/hdd_wires = 6
@@ -165,24 +165,24 @@
 		return ITEM_INTERACT_BLOCKING
 	return ..()
 
-/obj/machinery/rnd/server/master/attackby(obj/item/attacking_item, mob/user, list/modifiers, list/attack_modifiers)
-	if(istype(attacking_item, /obj/item/computer_disk/hdd_theft))
+/obj/machinery/rnd/server/master/item_interaction(mob/living/user, obj/item/tool, list/modifiers)
+	if(istype(tool, /obj/item/disk/computer/hdd_theft))
 		switch(deconstruction_state)
 			if(HDD_PANEL_CLOSED)
 				balloon_alert(user, "you can't find a place to insert it!")
-				return TRUE
+				return ITEM_INTERACT_SUCCESS
 			if(HDD_PANEL_OPEN)
 				balloon_alert(user, "you weren't trained to install this!")
-				return TRUE
+				return ITEM_INTERACT_SUCCESS
 			if(HDD_PRIED)
 				balloon_alert(user, "the HDD housing is completely broken, it won't fit!")
-				return TRUE
+				return ITEM_INTERACT_SUCCESS
 			if(HDD_CUT_LOOSE)
 				balloon_alert(user, "the HDD housing is completely broken and all the wires are cut!")
-				return TRUE
+				return ITEM_INTERACT_SUCCESS
 			if(HDD_OVERLOADED)
 				balloon_alert(user, "the inside is scorched and all the wires are burned!")
-				return TRUE
+				return ITEM_INTERACT_SUCCESS
 	return ..()
 
 /obj/machinery/rnd/server/master/screwdriver_act(mob/living/user, obj/item/tool)

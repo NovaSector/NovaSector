@@ -22,6 +22,7 @@
 /datum/loadout_item/suit/croptop
 	name = "Crop Top Turtleneck"
 	item_path = /obj/item/clothing/suit/jacket/croptop
+	reskin_datum = /datum/atom_skin/cableknit_sweater
 
 /datum/loadout_item/suit/czech
 	name = "Czech Coat"
@@ -744,13 +745,13 @@
 /datum/loadout_item/suit/jacket/long_robe
 	name = "Long Robe"
 	item_path = /obj/item/clothing/suit/jacket/long_robe
-	loadout_flags = parent_type::loadout_flags | LOADOUT_FLAG_ALLOW_RESKIN
+	reskin_datum = /datum/atom_skin/long_robe
 	group = "Costumes"
 
 /datum/loadout_item/suit/jacket/haori
 	name = "Haori"
 	item_path = /obj/item/clothing/suit/jacket/haori
-	loadout_flags = parent_type::loadout_flags | LOADOUT_FLAG_ALLOW_RESKIN
+	reskin_datum = /datum/atom_skin/haori
 	group = "Costumes"
 
 /datum/loadout_item/suit/witch
