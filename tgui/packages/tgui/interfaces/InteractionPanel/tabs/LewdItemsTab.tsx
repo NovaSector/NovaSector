@@ -11,7 +11,7 @@ class LewdSlot {
     ref_user;
 }
 
-class LewdItemsTabProps {
+interface LewdItemsTabPropsData {
   searchText;
 };
 
