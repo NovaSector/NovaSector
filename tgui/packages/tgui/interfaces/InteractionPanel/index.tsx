@@ -52,8 +52,6 @@ export function InteractionPanel () {
               </LabeledList>
 
             </Section>
-          ) : (
-            ''
           )}
 
           <Stack>
