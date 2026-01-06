@@ -19,6 +19,7 @@
 
 /obj/machinery/cell_charger_multi/Initialize(mapload)
 	. = ..()
+	register_context()
 
 /obj/machinery/cell_charger_multi/update_overlays()
 	. = ..()
