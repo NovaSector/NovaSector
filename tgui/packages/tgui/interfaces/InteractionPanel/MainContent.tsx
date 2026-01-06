@@ -10,7 +10,7 @@ import {
   Tabs,
 } from 'tgui-core/components';
 
-class Interaction {
+type Interaction = {
   erp_interaction: BooleanLike;
 }
 
