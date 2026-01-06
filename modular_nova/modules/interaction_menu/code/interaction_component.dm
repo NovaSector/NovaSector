@@ -113,36 +113,41 @@
 	data["isTargetSelf"] = (user == self)
 
 	// Primary attributes (user's stats)
-	if(user)
-		data["pleasure"] = human_user.pleasure
+		// user values
+		var/user_pleasure = 0
+		var/user_arousal = 0
+		var/user_pain = 0
+
+		if(user)
+			user_pleasure = human_user.pleasure
+			user_arousal = human_user.arousal
+			user_pain = human_user.pain
+
+		// target values
+		var/their_pleasure = null
+		var/their_arousal = null
+		var/their_pain = null
+		var/their_max = null
+
+		if(user != self)
+			their_pleasure = self.pleasure
+			their_arousal = self.arousal
+			their_pain = self.pain
+			their_max = AROUSAL_LIMIT
+
+		data["pleasure"] = user_pleasure
 		data["maxPleasure"] = AROUSAL_LIMIT
-		data["arousal"] = human_user.arousal
+		data["arousal"] = user_arousal
 		data["maxArousal"] = AROUSAL_LIMIT
-		data["pain"] = human_user.pain
-		data["maxPain"] = AROUSAL_LIMIT
-	else
-		data["pleasure"] = 0
-		data["maxPleasure"] = AROUSAL_LIMIT
-		data["arousal"] = 0
-		data["maxArousal"] = AROUSAL_LIMIT
-		data["pain"] = 0
+		data["pain"] = user_pain
 		data["maxPain"] = AROUSAL_LIMIT
 
-	// Target attributes (self's stats) only if not self-targeting
-	if(user != self)
-		data["theirPleasure"] = self.pleasure || 0
-		data["theirMaxPleasure"] = AROUSAL_LIMIT
-		data["theirArousal"] = self.arousal || 0
-		data["theirMaxArousal"] = AROUSAL_LIMIT
-		data["theirPain"] = self.pain || 0
-		data["theirMaxPain"] = AROUSAL_LIMIT
-	else
-		data["theirPleasure"] = null
-		data["theirMaxPleasure"] = null
-		data["theirArousal"] = null
-		data["theirMaxArousal"] = null
-		data["theirPain"] = null
-		data["theirMaxPain"] = null
+		data["theirPleasure"] = their_pleasure
+		data["theirMaxPleasure"] = their_max
+		data["theirArousal"] = their_arousal
+		data["theirMaxArousal"] = their_max
+		data["theirPain"] = their_pain
+		data["theirMaxPain"] = their_max
 
 	var/list/parts = list()
 
