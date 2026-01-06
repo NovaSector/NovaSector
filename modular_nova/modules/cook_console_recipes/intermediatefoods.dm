@@ -14,7 +14,9 @@
 	foodtypes = SEAFOOD
 	w_class = WEIGHT_CLASS_SMALL
 	crafting_complexity = FOOD_COMPLEXITY_1
-	grind_results = list(/datum/reagent/consumable/bonito = 20)
+
+/obj/item/food/dried_fish/grind_results()
+	return list(/datum/reagent/consumable/bonito = 20)
 
 /obj/item/food/fishmeat/Initialize(mapload)
 	. = ..()
@@ -31,7 +33,9 @@
 	)
 	tastes = list("dry heat" = 1)
 	foodtypes = FRUIT
-	grind_results = list(/datum/reagent/consumable/chili_powder = 20)
+
+/obj/item/food/dried_chili/grind_results()
+	return list(/datum/reagent/consumable/chili_powder = 20)
 
 /obj/item/food/grown/chili/Initialize(mapload)
 	. = ..()
@@ -53,14 +57,12 @@
 	. = ..()
 	AddElement(/datum/element/dryable, /obj/item/food/dried_herbs)
 
-
 /datum/reagent/consumable/bonito
 	name = "bonito flakes"
 	description = "Also known as \"Katsuobushi\", apparently!"
 	color = "#fce2c7"
 	taste_description = "Umami"
 	taste_mult = 1.5
-
 
 /datum/reagent/consumable/chili_powder
 	name = "Chili Powder"
@@ -69,15 +71,14 @@
 	taste_description = "dry hot peppers"
 	taste_mult = 1.5
 
-
 /datum/reagent/consumable/onion_juice
 	name = "Onion Juice"
 	description = "Like tear juice but more palatable."
 	color = "#1bf5ea"
 	taste_description = "onion"
 
-/obj/item/food/onion_slice
-	grind_results = list(/datum/reagent/consumable/onion_juice = 20)
+/obj/item/food/onion_slice/grind_results()
+	return list(/datum/reagent/consumable/onion_juice = 20)
 
 //this has been added in to avoid an error? apparently some weird subsystem decided the condiments are soups now so they need these, silly.
 

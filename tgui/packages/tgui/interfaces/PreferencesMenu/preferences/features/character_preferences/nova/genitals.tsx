@@ -1,15 +1,15 @@
 // THIS IS A NOVA SECTOR UI FILE
 import {
   CheckboxInput,
-  Feature,
-  FeatureChoiced,
-  FeatureChoicedServerData,
+  type Feature,
+  type FeatureChoiced,
+  type FeatureChoicedServerData,
   FeatureNumberInput,
-  FeatureNumeric,
-  FeatureToggle,
+  type FeatureNumeric,
+  type FeatureToggle,
   FeatureTriBoolInput,
   FeatureTriColorInput,
-  FeatureValueProps,
+  type FeatureValueProps,
 } from '../../base';
 import { FeatureDropdownInput } from '../../dropdowns';
 

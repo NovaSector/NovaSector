@@ -45,7 +45,7 @@
 	detonation_damage = 35 // 45 damage on det, 50 wielded
 	backstab_bonus = 20 // 65 damage on backstab, 70 wielded
 	acts_as_if_wielded = TRUE
-	current_inhand_icon_state = "PKMachete"
+	base_icon_state = "PKMachete"
 
 /obj/item/kinetic_crusher/machete/Initialize(mapload)
 	. = ..()
@@ -60,7 +60,7 @@
 
 /obj/item/kinetic_crusher/machete/update_icon_state()
 	. = ..()
-	if(current_inhand_icon_state == initial(current_inhand_icon_state)) // don't alter retool kit appearance
+	if(base_icon_state == initial(base_icon_state)) // don't alter retool kit appearance
 		inhand_icon_state = "PKMachete0" // this is not icon_state and not supported by 2hcomponent
 
 /obj/item/kinetic_crusher/spear
@@ -96,7 +96,7 @@
 	detonation_damage = 35 // 50 damage on det
 	backstab_bonus = 20	// 70 damage on det
 	reach = 2
-	current_inhand_icon_state = "PKSpear"
+	base_icon_state = "PKSpear"
 
 /obj/item/kinetic_crusher/spear/Initialize(mapload)
 	. = ..()
@@ -108,7 +108,7 @@
 
 /obj/item/kinetic_crusher/spear/update_icon_state()
 	. = ..()
-	if(current_inhand_icon_state == initial(current_inhand_icon_state)) // don't alter retool kit appearance
+	if(base_icon_state == initial(base_icon_state)) // don't alter retool kit appearance
 		inhand_icon_state = "PKSpear[HAS_TRAIT(src, TRAIT_WIELDED)]" // this is not icon_state and not supported by 2hcomponent
 
 /obj/item/kinetic_crusher/hammer
@@ -146,7 +146,7 @@
 	detonation_damage = 70 // 90 damage on det
 	backstab_bonus = 0 // 90 damage on backstab
 	acts_as_if_wielded = FALSE
-	current_inhand_icon_state = "PKHammer"
+	base_icon_state = "PKHammer"
 
 /obj/item/kinetic_crusher/hammer/Initialize(mapload)
 	. = ..()
@@ -164,7 +164,7 @@
 
 /obj/item/kinetic_crusher/hammer/update_icon_state()
 	. = ..()
-	if(current_inhand_icon_state == initial(current_inhand_icon_state)) // don't alter retool kit appearance
+	if(base_icon_state == initial(base_icon_state)) // don't alter retool kit appearance
 		inhand_icon_state = "PKHammer[HAS_TRAIT(src, TRAIT_WIELDED)]" // this is not icon_state and not supported by 2hcomponent
 
 /obj/item/kinetic_crusher/claw
@@ -203,7 +203,7 @@
 	detonation_damage = 20 // 30 on det
 	backstab_bonus = 90 // 120 on backstab
 	// with style meter you can consistently hit backstabs in any direction. you shouldn't get 200+ damage hits for basically free
-	current_inhand_icon_state = "PKClaw"
+	base_icon_state = "PKClaw"
 	/**
 	 * possible ideas in regards to making the claw more interesting than just backstab-focused sidegrade:
 	 * - long cooldown but mark detonations/melee hits reduce/reset cooldown?
@@ -220,5 +220,5 @@
 
 /obj/item/kinetic_crusher/claw/update_icon_state()
 	. = ..()
-	if(current_inhand_icon_state == initial(current_inhand_icon_state)) // don't alter retool kit appearance
+	if(base_icon_state == initial(base_icon_state)) // don't alter retool kit appearance
 		inhand_icon_state = initial(inhand_icon_state) // get rid of the '0' or '1' at the end

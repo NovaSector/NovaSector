@@ -73,13 +73,6 @@
 	. = ..()
 	dump_attachments()
 
-/obj/item/clothing/under/setup_reskinning()
-	if(!check_setup_reskinning())
-		return
-
-	// We already register context in Initialize.
-	RegisterSignal(src, COMSIG_CLICK_ALT, PROC_REF(on_click_alt_reskin))
-
 /obj/item/clothing/under/add_context(atom/source, list/context, obj/item/held_item, mob/living/user)
 	. = ..()
 
@@ -303,6 +296,8 @@
 		return
 
 	var/mob/living/carbon/human/wearer = loc
+	if(wearer.get_item_by_slot(ITEM_SLOT_ICLOTHING) != src)
+		return
 
 	if(has_sensor >= HAS_SENSORS && sensor_mode >= SENSOR_LIVING)
 		GLOB.suit_sensors_list |= wearer

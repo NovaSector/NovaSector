@@ -162,5 +162,5 @@
 	required_count = 5
 	reward = CARGO_CRATE_VALUE * 5
 	wanted_types = list(
-		/obj/item/computer_disk = TRUE,
+		/obj/item/disk/computer = TRUE,
 	)
