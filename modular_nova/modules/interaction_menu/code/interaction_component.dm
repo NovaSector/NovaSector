@@ -132,19 +132,11 @@
 		data["arousal"] = user_arousal
 		data["pain"] = user_pain
 
-	// target values
-	var/their_pleasure = 0
-	var/their_arousal = 0
-	var/their_pain = 0
 
 	if(user != self)
-		their_pleasure = self.pleasure
-		their_arousal = self.arousal
-		their_pain = self.pain
-
-		data["theirPleasure"] = their_pleasure
-		data["theirArousal"] = their_arousal
-		data["theirPain"] = their_pain
+		data["theirPleasure"] = self.pleasure
+		data["theirArousal"] = self.arousal
+		data["theirPain"] = self.pain
 
 	var/list/parts = list()
 
