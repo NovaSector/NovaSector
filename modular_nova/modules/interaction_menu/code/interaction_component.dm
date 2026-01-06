@@ -123,6 +123,13 @@
 		user_arousal = human_user.arousal
 		user_pain = human_user.pain
 
+		data["pleasure"] = user_pleasure
+		data["maxPleasure"] = AROUSAL_LIMIT
+		data["arousal"] = user_arousal
+		data["maxArousal"] = AROUSAL_LIMIT
+		data["pain"] = user_pain
+		data["maxPain"] = AROUSAL_LIMIT
+
 	// target values
 	var/their_pleasure = null
 	var/their_arousal = null
@@ -134,13 +141,6 @@
 		their_arousal = self.arousal
 		their_pain = self.pain
 		their_max = AROUSAL_LIMIT
-
-		data["pleasure"] = user_pleasure
-		data["maxPleasure"] = AROUSAL_LIMIT
-		data["arousal"] = user_arousal
-		data["maxArousal"] = AROUSAL_LIMIT
-		data["pain"] = user_pain
-		data["maxPain"] = AROUSAL_LIMIT
 
 		data["theirPleasure"] = their_pleasure
 		data["theirMaxPleasure"] = their_max
