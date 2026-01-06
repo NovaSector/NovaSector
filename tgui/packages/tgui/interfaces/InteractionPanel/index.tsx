@@ -12,7 +12,7 @@ import { BooleanLike } from 'tgui-core/react';
 import { InfoSection } from './InfoSection';
 import { MainContent } from './MainContent';
 
-class Interaction {
+type Interaction = {
   self;
   use_subtler;
   erp_interaction: BooleanLike;
