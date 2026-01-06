@@ -28,7 +28,7 @@ interface InteractionsTabPropsData {
   showCategories;
 };
 
-export const InteractionsTab = ({searchText, showCategories}: InteractionsTabProps) => {
+export const InteractionsTab = ({searchText, showCategories}: InteractionsTabPropsData) => {
   const { act, data } = useBackend<Interaction>();
   const {
     categories = [],
