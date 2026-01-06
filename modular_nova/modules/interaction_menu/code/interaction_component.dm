@@ -133,9 +133,9 @@
 		data["pain"] = user_pain
 
 	// target values
-	var/their_pleasure = null
-	var/their_arousal = null
-	var/their_pain = null
+	var/their_pleasure = 0
+	var/their_arousal = 0
+	var/their_pain = 0
 
 	if(user != self)
 		their_pleasure = self.pleasure
