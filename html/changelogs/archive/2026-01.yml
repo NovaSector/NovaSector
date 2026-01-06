@@ -144,3 +144,77 @@
   - map: blueshift has returned from drydock with another engine, maybe this one will
       not try to kill the crew
   - map: minor tweaks to Voidraptor, Ouroborus and Piratefort
+2026-01-05:
+  Hardly:
+  - image: Shifted a pixel up in the mob sprites for retinal hud so they're no longer
+      going into your mouth.
+  ImogenOC:
+  - bugfix: Adds a single 3+ year missing 't' to the nukie cultist soulstone kit path,
+      making it populate correctly.
+  ItzLollipop:
+  - rscadd: Added recolorable jackal ears to character customization options
+  - refactor: some ear options have had their colors swapped from tertiary to secondary
+      (mostly teshari ones) - if the coloring looks off on your character just copy
+      and paste your 3rd color into the 2nd color pref
+  RatFromTheJungle:
+  - qol: ' made getting the boomer phrases from char requiring alot more of it, making
+      it safer to eat grilled food before the me-me''s kick in'
+  Stalkeros:
+  - bugfix: Random ships of the random ship event now should properly spawn in.
+  - code_imp: Cleanes up some of the random ship event's code.
+  Vishenka0704:
+  - qol: You can now view your own examine panel and flavor text even when wearing
+      a mask.
+  - admin: Admins in ghost mode can now view obscured information in player examine
+      panels.
+  codyman765:
+  - map: modified the ghost cafe to reflect current map assets and fix bugs
+2026-01-06:
+  Geoengi:
+  - qol: You may now snort cocaine or heroin using your "Activate in-hand" keybind.
+  - balance: Those without lungs or who have a heatsink in their place may not snort
+      cocaine or heroin. Try using neuroware or grinding it down!
+  - spellcheck: Many narcotics names and descriptions have undergone a grammar pass.
+  Hatterhat:
+  - balance: The SolFed Halo rifles now have regular damage multipliers (1x damage
+      for the assault rifle, 1.1x damage for the battle rifle/DMR).
+  - bugfix: HC's tiny melee stungun no longer duct tapes its lore to the NT stunbaton's
+      lore.
+  - spellcheck: Lore for the NT baton and contractor baton were tweaked for slightly
+      more lore compliance.
+  - rscadd: .980 Tydhouer kinetic concussive grenades are now able to be printed from
+      niche lethal ammo disks, or buyable as boxes from Cargo's goodies.
+  MajManatee:
+  - qol: Changes mass-eject on cell chargers to alt click. Borgs can now eject cells.
+  Melbert:
+  - refactor: Refactored item reskinning (the alt-click way), report any oddities
+      with that
+  - rscdel: Deleted the crusher retool kit, now you can just reskin your crusher with
+      alt-click. The Skull skin is still locked behind having the Ashen Skull trophy
+      applied.
+  - bugfix: Stunswords no longer have an incorrect lore blurb
+  - bugfix: Fixed loadout item reskinning's UI
+  - rscadd: Wardens can alt-click-reskin their Kaza Ruk gloves to match their formal
+      attire
+  Zergspower:
+  - qol: Mediguns can now fit inside of labcoats
+  - balance: Medigun damage thresholds lowered from 50 to 30
+  - refactor: Medigun clone damage has been removed from code
+  mcbalaam:
+  - rscadd: New unique wraps for floppy disks
+  - qol: Floppy disks can now be stacked
+  - image: New sprites and stickers for floppy disks
+  - map: Added and ran an updatepaths script
+  - refactor: Most disks are now under the base disk item type
+  sqnztb:
+  - rscadd: UDCs and gear harnesses have been added to the ClothesMate vending machines.
+  vinylspiders:
+  - code_imp: item spawning menu should be somewhat faster now
+  - refactor: extended atom_skins to be more customizable. Please report any bugs
+      to github.
+  - bugfix: fixes cryopod console buttons getting cut off from long item names
+  - bugfix: fixes a bug where using dermagen to erase scars would also erase your
+      identity and make you unexaminable
+  - bugfix: naga constrict no longer creates a coiled tail when clicking non living
+      things.
+  - bugfix: larger taur body type emissives will no longer float away from the mob

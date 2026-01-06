@@ -17,7 +17,7 @@ export const CryopodConsole = (props) => {
   const welcomeTitle = `Hello, ${account_name || '[REDACTED]'}!`;
 
   return (
-    <Window title="Cryopod Console" width={400} height={480}>
+    <Window title="Cryopod Console" width={420} height={480}>
       <Window.Content>
         <Stack vertical fill>
           <Stack.Item>
@@ -38,47 +38,92 @@ export const CryopodConsole = (props) => {
   );
 };
 
-const CrewList = (props) => {
+const CrewList = () => {
   const { data } = useBackend();
   const { frozen_crew } = data;
 
+  if (!frozen_crew?.length) {
+    return <NoticeBox>No stored crew!</NoticeBox>;
+  }
+
   return (
-    (frozen_crew.length && (
-      <Section fill scrollable>
-        <LabeledList>
-          {frozen_crew.map((person) => (
-            <LabeledList.Item key={person} label={person.name}>
-              {person.job}
-            </LabeledList.Item>
-          ))}
-        </LabeledList>
-      </Section>
-    )) || <NoticeBox>No stored crew!</NoticeBox>
+    <Section fill scrollable>
+      <Stack vertical>
+        {frozen_crew.map((person) => (
+          <Stack.Item key={person.name}>
+            <Stack fill align="center">
+              {/* Label (left) */}
+              <Stack.Item grow>
+                <span
+                  style={{
+                    color: 'var(--color-label)', // to match bottom part
+                    whiteSpace: 'normal',
+                    overflowWrap: 'break-word',
+                  }}
+                >
+                  {person.name}
+                </span>
+              </Stack.Item>
+
+              {/* Value (right, fixed column like buttons) */}
+              <Stack.Item
+                style={{
+                  minWidth: '90px',
+                  textAlign: 'right',
+                }}
+              >
+                {person.job}
+              </Stack.Item>
+            </Stack>
+          </Stack.Item>
+        ))}
+      </Stack>
+    </Section>
   );
 };
 
-const ItemList = (props) => {
+const ItemList = () => {
   const { act, data } = useBackend();
   const { item_ref_list, item_ref_name, item_retrieval_allowed } = data;
+
   if (!item_retrieval_allowed) {
     return <NoticeBox>You are not authorized for item management.</NoticeBox>;
   }
+
+  if (!item_ref_list?.length) {
+    return <NoticeBox>No stored items!</NoticeBox>;
+  }
+
   return (
-    (item_ref_list.length && (
-      <Section fill scrollable>
-        <LabeledList>
-          {item_ref_list.map((item) => (
-            <LabeledList.Item key={item} label={item_ref_name[item]}>
-              <Button
-                icon="exclamation-circle"
-                content="Retrieve"
-                color="bad"
-                onClick={() => act('item_get', { item_get: item })}
-              />
-            </LabeledList.Item>
-          ))}
-        </LabeledList>
-      </Section>
-    )) || <NoticeBox>No stored items!</NoticeBox>
+    <Section fill scrollable>
+      <LabeledList>
+        {item_ref_list.map((item) => (
+          <LabeledList.Item
+            key={item}
+            label={
+              <span
+                style={{
+                  whiteSpace: 'normal',
+                  overflowWrap: 'break-word',
+                }}
+              >
+                {item_ref_name[item]}
+              </span>
+            }
+          >
+            <Stack justify="end">
+              <Stack.Item>
+                <Button
+                  icon="exclamation-circle"
+                  content="Retrieve"
+                  color="bad"
+                  onClick={() => act('item_get', { item_get: item })}
+                />
+              </Stack.Item>
+            </Stack>
+          </LabeledList.Item>
+        ))}
+      </LabeledList>
+    </Section>
   );
 };
