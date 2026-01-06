@@ -19,7 +19,6 @@
 	// If they're a slime, let's remove their ability
 	var/datum/action/cooldown/spell/slime_hydrophobia/slime_hydrophobia = locate() in quirk_holder.actions
 	if(slime_hydrophobia)
-		slime_hydrophobia.Remove(quirk_holder)
 		qdel(slime_hydrophobia)
 
 /datum/quirk/hydrophobia/remove()
