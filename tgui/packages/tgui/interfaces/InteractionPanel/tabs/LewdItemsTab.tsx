@@ -15,7 +15,7 @@ interface LewdItemsTabPropsData {
   searchText;
 };
 
-export const LewdItemsTab = ({searchText}: LewdItemsTabProps) => {
+export const LewdItemsTab = ({searchText}: LewdItemsTabPropsData) => {
   const { act, data } = useBackend<LewdSlot>();
   const {
     lewd_slots = [],
