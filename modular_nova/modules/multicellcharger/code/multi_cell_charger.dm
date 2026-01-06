@@ -37,8 +37,6 @@
 		. += new /mutable_appearance(cell_overlay)
 
 /obj/machinery/cell_charger_multi/add_context(atom/source, list/context, obj/item/held_item, mob/user)
-	if(held_item != src)
-		return
 	context[SCREENTIP_CONTEXT_ALT_LMB] = "Remove all cells"
 	return CONTEXTUAL_SCREENTIP_SET
 
