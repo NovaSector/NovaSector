@@ -117,8 +117,7 @@
 
 	data["isTargetSelf"] = (user == self)
 
-// Primary attributes (user's stats)
-	// user values
+	// user (the one who opened the ui)
 	var/user_pleasure = 0
 	var/user_arousal = 0
 	var/user_pain = 0
