@@ -165,6 +165,7 @@
 	for(var/datum/robot_energy_storage/titanium/titanium_energy in borgo.model.storages)
 		qdel(titanium_energy)
 
+
 //Bluespace RPED
 /obj/item/borg/upgrade/brped
 	name = "cyborg rapid part exchange device upgrade"
