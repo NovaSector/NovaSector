@@ -39,14 +39,6 @@
 #define COLOR_SRC_TERTIARY	3
 #define COLOR_SRC_MATRIXED	4
 
-// Defines for mutant bodyparts indexes
-#define MUTANT_INDEX_NAME			"name"
-#define MUTANT_INDEX_COLOR_LIST		"color"
-
-// Defines for default mutant bodyparts indexes
-#define MUTANTPART_NAME 1
-#define MUTANTPART_CAN_RANDOMIZE 2
-
 // Defines for markings indexes
 #define MARKING_INDEX_COLOR 1
 #define MARKING_INDEX_EMISSIVE 2
