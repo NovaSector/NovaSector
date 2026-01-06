@@ -297,6 +297,7 @@
 		// NOVA EDIT ADDITION START
 		/obj/item/assembly/control,
 		/obj/item/tank/internals,
+		/obj/item/tank/rbmk2_rod,
 		/obj/item/wallframe,
 		/obj/item/stack/conveyor,
 		/obj/item/stack/tile,
