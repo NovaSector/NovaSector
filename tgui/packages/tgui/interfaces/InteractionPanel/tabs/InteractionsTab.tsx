@@ -47,7 +47,7 @@ export const InteractionsTab = ({searchText, showCategories}: InteractionsTabPro
     return (
       <Button
         key={interaction}
-        width="150.5px"
+        width="150px"
         lineHeight={1.75}
         disabled={block_interact}
         color={block_interact ? 'grey' : colors[interaction]}
