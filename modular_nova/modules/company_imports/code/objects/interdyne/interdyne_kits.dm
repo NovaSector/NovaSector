@@ -73,7 +73,7 @@
 	name = "\improper Interdyne Trauma Kit"
 
 /obj/item/storage/medkit/tactical/premium/interdyne/empty/PopulateContents()
-	var/static/list/items_inside = list()
+	var/list/items_inside = list()
 	generate_items_inside(items_inside,src)
 
 /obj/item/storage/medkit/tactical/premium/interdyne/trauma
@@ -119,7 +119,7 @@
 	)
 
 /obj/item/storage/medkit/tactical/premium/interdyne/medium/PopulateContents()
-	var/static/list/items_inside = list(
+	var/list/items_inside = list(
 		/obj/item/stack/medical/suture/medicated = 2,
 		/obj/item/stack/medical/mesh/advanced = 2,
 		/obj/item/healthanalyzer/advanced = 1,
@@ -139,7 +139,7 @@
 	name = "\improper Interdyne Trauma Kit"
 
 /obj/item/storage/medkit/tactical/premium/interdyne/medium/empty/PopulateContents()
-	var/static/list/items_inside = list()
+	var/list/items_inside = list()
 	generate_items_inside(items_inside,src)
 
 /obj/item/storage/medkit/tactical/premium/interdyne/medium/Tox_Oxy
@@ -148,7 +148,7 @@
 	icon_state = "interdyne_brute"
 
 /obj/item/storage/medkit/tactical/premium/interdyne/medium/Tox_Oxy/PopulateContents()
-	var/static/list/items_inside = list(
+	var/list/items_inside = list(
 		/obj/item/stack/medical/suture/medicated = 2,
 		/obj/item/stack/medical/mesh/advanced = 2,
 		/obj/item/healthanalyzer/advanced = 1,
@@ -170,7 +170,7 @@
 	icon_state = "interdyne_surgical"
 
 /obj/item/storage/medkit/tactical/premium/interdyne/medium/surgical/PopulateContents()
-	var/static/list/items_inside = list(
+	var/list/items_inside = list(
 		/obj/item/scalpel/advanced = 1,
 		/obj/item/retractor/advanced = 1,
 		/obj/item/cautery/advanced = 1,
@@ -223,7 +223,7 @@
 	name = "\improper Interdyne Trauma Kit"
 
 /obj/item/storage/pouch/medical/firstaid/interdyne/empty/PopulateContents()
-	var/static/list/items_inside = list()
+	var/list/items_inside = list()
 	generate_items_inside(items_inside,src)
 
 /obj/item/storage/pouch/medical/firstaid/interdyne/brute
@@ -232,7 +232,7 @@
 	icon_state = "interdyne_lite_brute"
 
 /obj/item/storage/pouch/medical/firstaid/interdyne/brute/PopulateContents()
-	var/static/list/items_inside = list(
+	var/list/items_inside = list(
 		/obj/item/stack/medical/suture/medicated = 2,
 		/obj/item/reagent_containers/cup/bottle/epinephrine = 2,
 		/obj/item/storage/box/bandages/interdyne = 1,
@@ -245,7 +245,7 @@
 	icon_state = "interdyne_lite_burn"
 
 /obj/item/storage/pouch/medical/firstaid/interdyne/burn/PopulateContents()
-	var/static/list/items_inside = list(
+	var/list/items_inside = list(
 		/obj/item/storage/box/bandages/interdyne/burn = 1,
 		/obj/item/reagent_containers/hypospray/medipen/oxandrolone = 1,
 		/obj/item/reagent_containers/hypospray/medipen = 2,
@@ -260,7 +260,7 @@
 	icon_state = "interdyne_lite_toxin"
 
 /obj/item/storage/pouch/medical/firstaid/interdyne/toxin/PopulateContents()
-	var/static/list/items_inside = list(
+	var/list/items_inside = list(
 		/obj/item/storage/pill_bottle/multiver = 1,
 		/obj/item/storage/pill_bottle/potassiodide = 1,
 		/obj/item/reagent_containers/hypospray/medipen/penacid = 1,
@@ -275,7 +275,7 @@
 	icon_state = "interdyne_lite_oxy"
 
 /obj/item/storage/pouch/medical/firstaid/interdyne/oxygen/PopulateContents()
-	var/static/list/items_inside = list(
+	var/list/items_inside = list(
 		/obj/item/storage/box/bandages/interdyne/oxygen = 1,
 		/obj/item/reagent_containers/hypospray/medipen/salbutamol = 2,
 		/obj/item/reagent_containers/hypospray/medipen = 2,
