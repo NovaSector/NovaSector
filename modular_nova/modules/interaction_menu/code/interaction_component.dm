@@ -133,6 +133,7 @@
 
 
 	// self - the one tho the interaction component belongs to, aka who it's opened on (confusing var name yep)
+	// self - the one tho the interaction component belongs to, aka who it's opened on (confusing var name yep)
 	if(user != self)
 		data["theirPleasure"] = self.pleasure
 		data["theirArousal"] = self.arousal
