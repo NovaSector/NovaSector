@@ -41,6 +41,8 @@ export const InteractionsTab = ({searchText, showCategories}: InteractionsTabPro
     use_subtler,
   } = data;
 
+  const searchLower = searchText.toLowerCase();
+
   const renderInteractionButton = (interaction: string) => {
     return (
       <Button
