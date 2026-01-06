@@ -90,9 +90,9 @@ const allInteractions = useMemo(() => {
 
   return (
         <Stack fill vertical>
-            {(block_interact && <NoticeBox>Unable to Interact</NoticeBox>) || (
-                                <NoticeBox>Able to Interact</NoticeBox>
-            )}
+          <NoticeBox>
+            {block_interact ? 'Unable to Interact' : 'Able to Interact'}
+          </NoticeBox>
           <Stack.Item grow>
             {showCategories ? (
               categories.map((category) => {
