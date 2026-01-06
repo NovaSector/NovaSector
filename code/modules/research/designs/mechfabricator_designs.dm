@@ -1673,7 +1673,7 @@
 	category = list(
 		RND_CATEGORY_MECHFAB_CYBORG_MODULES + RND_SUBCATEGORY_MECHFAB_CYBORG_MODULES_ENGINEERING
 	)
-*/
+*/ // NOVA EDIT REMOVAL END
 /datum/design/borg_upgrade_inducer
 	name = "Cyborg inducer"
 	id = "borg_upgrade_inducer"
