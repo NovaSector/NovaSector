@@ -170,6 +170,9 @@
   codyman765:
   - map: modified the ghost cafe to reflect current map assets and fix bugs
 2026-01-06:
+  Adeheuer:
+  - rscadd: Added new features to the Interact panel, especially with certain settings
+      enabled
   Arturlang:
   - bugfix: midi2piano handles some wierd midi files a tad better
   - rscadd: midi2piano can now be used via cli only and prints to stdout
